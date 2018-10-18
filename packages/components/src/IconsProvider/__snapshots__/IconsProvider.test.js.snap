@@ -19,7 +19,7 @@ exports[`IconsProvider should override talend icons by using defaultIcons props 
     <svg>
       <defs>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           id="colormapping"
         >
           <feColorMatrix
@@ -42,7 +42,7 @@ exports[`IconsProvider should override talend icons by using defaultIcons props 
     <svg>
       <defs>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           id="talend-grayscale"
         >
           <feColorMatrix
@@ -108,7 +108,7 @@ exports[`IconsProvider should override talend icons by using defaultIcons props 
     <svg>
       <defs>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           id="colormapping"
         >
           <feColorMatrix
@@ -131,7 +131,7 @@ exports[`IconsProvider should override talend icons by using defaultIcons props 
     <svg>
       <defs>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           id="talend-grayscale"
         >
           <feColorMatrix
@@ -3559,7 +3559,7 @@ exports[`IconsProvider should render default talend-icons 1`] = `
     <svg>
       <defs>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           id="colormapping"
         >
           <feColorMatrix
@@ -3582,7 +3582,7 @@ exports[`IconsProvider should render default talend-icons 1`] = `
     <svg>
       <defs>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           id="talend-grayscale"
         >
           <feColorMatrix
@@ -7017,7 +7017,7 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
     <svg>
       <defs>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           id="colormapping"
         >
           <feColorMatrix
@@ -7040,7 +7040,7 @@ exports[`IconsProvider should render default talend-icons and custom icons defin
     <svg>
       <defs>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           id="talend-grayscale"
         >
           <feColorMatrix
