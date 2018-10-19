@@ -17,7 +17,7 @@
     "eslint": "3.4.0",
     "eslint-config-airbnb": "10.0.1",
     "eslint-plugin-import": "1.14.0",
-    "jest-cli": "20.0.3"
+    "jest": "20.0.3"
   },
   "peerDependencies": {
     "@talend/react-components": "^0.180.0"

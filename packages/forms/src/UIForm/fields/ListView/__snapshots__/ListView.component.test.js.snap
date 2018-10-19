@@ -359,8 +359,8 @@ exports[`ListView field render should render ListView 1`] = `
     ]
   }
   nsMode="default"
-  onChange={[Function]}
-  onFinish={[Function]}
+  onChange={[MockFunction]}
+  onFinish={[MockFunction]}
   schema={
     Object {
       "description": "This is the ListView field",

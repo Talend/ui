@@ -7,12 +7,9 @@ exports[`InputDateTimePicker render should render 1`] = `
     element="input"
     forceNotifyByEnter={true}
     forceNotifyOnBlur={true}
-    inputRef={undefined}
     minLength={0}
-    onBlur={undefined}
     onChange={[Function]}
     onFocus={[Function]}
-    onKeyDown={undefined}
     placeholder="YYYY-MM-DD hh:mm"
     type="text"
     value="2017-04-04 15:27"
@@ -22,7 +19,6 @@ exports[`InputDateTimePicker render should render 1`] = `
   >
     <Overlay
       animation={[Function]}
-      container={undefined}
       placement="right"
       rootClose={false}
       show={false}

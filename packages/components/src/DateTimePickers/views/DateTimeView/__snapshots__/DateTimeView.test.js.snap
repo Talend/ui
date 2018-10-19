@@ -17,7 +17,6 @@ exports[`DateTimeView should render 1`] = `
             }
           }
           onSelect={[Function]}
-          selectedDate={undefined}
         />
       </div>
       <div
@@ -26,7 +25,6 @@ exports[`DateTimeView should render 1`] = `
         <TimePicker
           interval={15}
           onSelect={[Function]}
-          selectedTime={undefined}
         />
       </div>
     </div>
@@ -36,32 +34,32 @@ exports[`DateTimeView should render 1`] = `
       "leftElement": <IconButton
         aria-label="Display previous calendar month"
         icon={
-            Object {
-                "name": "talend-chevron-left",
-              }
+          Object {
+            "name": "talend-chevron-left",
+          }
         }
         onClick={[Function]}
-    />,
+      />,
       "middleElement": <HeaderTitle
         button={
-            Object {
-                "aria-label": "Switch to month and year pickers view",
-                "onClick": [Function],
-              }
+          Object {
+            "aria-label": "Switch to month and year pickers view",
+            "onClick": [Function],
+          }
         }
         monthIndex={5}
         year={2006}
-    />,
+      />,
       "rightElement": <IconButton
         aria-label="Display next calendar month"
         icon={
-            Object {
-                "name": "talend-chevron-left",
-                "transform": "rotate-180",
-              }
+          Object {
+            "name": "talend-chevron-left",
+            "transform": "rotate-180",
+          }
         }
         onClick={[Function]}
-    />,
+      />,
     }
   }
 />

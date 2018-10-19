@@ -184,7 +184,7 @@ describe('euclideanModulo', () => {
 		// Dividend equal than divisor (for absolute values)
 		expect(euclideanModulo(12, 12)).toBe(0);
 		expect(euclideanModulo(-527, 527)).toBe(0);
-		expect(euclideanModulo(-7, -7)).toBe(0);
-		expect(euclideanModulo(18, -18)).toBe(0);
+		expect(euclideanModulo(-7, -7)).toBe(-0);
+		expect(euclideanModulo(18, -18)).toBe(-0);
 	});
 });

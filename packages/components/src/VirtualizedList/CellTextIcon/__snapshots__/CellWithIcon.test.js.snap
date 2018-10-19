@@ -15,7 +15,7 @@ exports[`CellWithIcon should render with icon 1`] = `
       icon="talend-star"
       label="test"
       link={true}
-      onClick={[Function]}
+      onClick={[MockFunction]}
     />
   </div>
 </div>

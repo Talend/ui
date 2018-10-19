@@ -3523,8 +3523,8 @@ exports[`EditableText should render 1`] = `
     ]
   }
   nsMode="default"
-  onEdit={[Function]}
-  onSubmit={[Function]}
+  onEdit={[MockFunction]}
+  onSubmit={[MockFunction]}
   text="my text"
   translateFuncName="t"
   usePureComponent={false}
@@ -7059,8 +7059,8 @@ exports[`EditableText should render InlineForm 1`] = `
     ]
   }
   nsMode="default"
-  onEdit={[Function]}
-  onSubmit={[Function]}
+  onEdit={[MockFunction]}
+  onSubmit={[MockFunction]}
   text="my text"
   translateFuncName="t"
   usePureComponent={false}
@@ -10595,8 +10595,8 @@ exports[`EditableText should render inProgress 1`] = `
     ]
   }
   nsMode="default"
-  onEdit={[Function]}
-  onSubmit={[Function]}
+  onEdit={[MockFunction]}
+  onSubmit={[MockFunction]}
   text="my text"
   translateFuncName="t"
   usePureComponent={false}
@@ -14131,8 +14131,8 @@ exports[`EditableText should render skeleton 1`] = `
     ]
   }
   nsMode="default"
-  onEdit={[Function]}
-  onSubmit={[Function]}
+  onEdit={[MockFunction]}
+  onSubmit={[MockFunction]}
   text="my text"
   translateFuncName="t"
   usePureComponent={false}
@@ -14167,7 +14167,6 @@ exports[`InlineForm should render 1`] = `
       className="theme-tc-editable-text-form-buttons-icon tc-editable-text-form-buttons-icon theme-tc-editable-text-form-buttons-cancel tc-editable-text-form-buttons-cancel"
       hideLabel={true}
       icon="talend-cross"
-      label={undefined}
       name="action-cancel-title"
       onClick={[Function]}
     />
@@ -14177,7 +14176,6 @@ exports[`InlineForm should render 1`] = `
       disabled={false}
       hideLabel={true}
       icon="talend-check"
-      label={undefined}
       name="action-submit-title"
       type="submit"
     />

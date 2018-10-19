@@ -66,7 +66,6 @@ exports[`Action should display a disabled Icon 1`] = `
 >
   <Icon
     name="talend-caret-down"
-    transform={undefined}
   />
   <span>
     Click me
@@ -91,7 +90,6 @@ exports[`Action should pass all props to the Button 1`] = `
 >
   <Icon
     name="talend-caret-down"
-    transform={undefined}
   />
   <span>
     Click me
@@ -116,7 +114,6 @@ exports[`Action should render a button 1`] = `
 >
   <Icon
     name="talend-caret-down"
-    transform={undefined}
   />
   <span>
     Click me
@@ -126,12 +123,10 @@ exports[`Action should render a button 1`] = `
 
 exports[`Action should render a button with a overlay component 1`] = `
 <OverlayTrigger
-  getComponent={undefined}
   onClick={[Function]}
   overlayComponent={[Function]}
   overlayId="myOverlayId"
   overlayPlacement="bottom"
-  overlayRef={undefined}
   preventScrolling={false}
 >
   <Button
@@ -151,7 +146,6 @@ exports[`Action should render a button with a overlay component 1`] = `
   >
     <Icon
       name="talend-caret-down"
-      transform={undefined}
     />
     <span>
       Click me
@@ -233,7 +227,6 @@ exports[`Action should render action with html property name = props.name if set
 >
   <Icon
     name="talend-caret-down"
-    transform={undefined}
   />
   <span>
     Click me
@@ -261,7 +254,6 @@ exports[`Action should reverse icon/label 1`] = `
   </span>
   <Icon
     name="talend-caret-down"
-    transform={undefined}
   />
 </Button>
 `;
