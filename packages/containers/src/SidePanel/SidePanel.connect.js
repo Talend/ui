@@ -39,9 +39,6 @@ function isBasePathOf(pathToCheck, fullPath) {
 
 function getActionsWrapped(actions) {
 	return actions.map(action => {
-		if (!action.href) {
-			return action; // do not change ref
-		}
 		if (action.href && !action.onClick && !action.onClickDispatch && !action.onClickActionCreator) {
 			return {
 				...action,
