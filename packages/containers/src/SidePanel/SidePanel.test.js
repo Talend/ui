@@ -138,7 +138,7 @@ describe('SidePanel.mapStateToProps', () => {
 				});
 
 				if (isMatching) {
-					expect(props.selected.identity).toBe('The one');
+					expect(props.selected).toMatchObject(actionSelectable);
 				} else {
 					expect(props.selected).toBeUndefined();
 				}
@@ -148,6 +148,18 @@ describe('SidePanel.mapStateToProps', () => {
 					name: 'Usual simple path',
 					currentRoute: '/a/usual/path',
 					itemRoute: '/a/usual/path',
+					isMatching: true,
+				},
+				{
+					name: 'Usual simple path with trainling /',
+					currentRoute: '/a/usual/path/',
+					itemRoute: '/a/usual/path',
+					isMatching: true,
+				},
+				{
+					name: 'Usual simple path with trainling / on match',
+					currentRoute: '/a/usual/path',
+					itemRoute: '/a/usual/path/',
 					isMatching: true,
 				},
 				{

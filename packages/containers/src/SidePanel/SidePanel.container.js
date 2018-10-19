@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { SidePanel as Component } from '@talend/react-components';
 import { cmfConnect } from '@talend/react-cmf';
