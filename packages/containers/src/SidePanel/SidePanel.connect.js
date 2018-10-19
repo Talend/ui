@@ -93,14 +93,18 @@ export function mapStateToProps(state, ownProps) {
 	const currentRoute = cmf.selectors.router.getPath(state);
 	const componentId = ownProps.componentId;
 	if (ownProps.actionIds) {
-		props.actions = memoizeOne(() =>
-			ownProps.actionIds.map(id => getAction(id, currentRoute, state)),
-			componentId, ownProps.actionIds, currentRoute
+		props.actions = memoizeOne(
+			() => ownProps.actionIds.map(id => getAction(id, currentRoute, state)),
+			componentId,
+			ownProps.actionIds,
+			currentRoute,
 		);
 	} else if (ownProps.actions) {
 		props.actions = memoizeOne(
 			() => getActionsWrapped(ownProps.actions),
-			componentId, ownProps.actions, currentRoute
+			componentId,
+			ownProps.actions,
+			currentRoute,
 		);
 		props.selected = getSelectedAction(currentRoute, props.actions);
 	}
