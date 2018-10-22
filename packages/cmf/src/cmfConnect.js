@@ -274,11 +274,7 @@ export default function cmfConnect({
 					);
 				}
 				if (this.props.didMountActionCreator) {
-					this.dispatchActionCreator(this.props.didMountActionCreator, {
-						type: 'DID_MOUNT',
-						component: getComponentName(WrappedComponent),
-						componentId: this.props.componentId || 'default',
-					}, this.props);
+					this.dispatchActionCreator(this.props.didMountActionCreator, null, this.props);
 				}
 			}
 
