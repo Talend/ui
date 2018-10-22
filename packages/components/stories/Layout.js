@@ -44,10 +44,10 @@ const actions = [
 ];
 
 const drawers = [
-	<Drawer stacked title="Hello drawers">
+	<Drawer stacked title="Hello drawers" footerActions={{}}>
 		<p>You should not being able to read this because I&apos;m first</p>
 	</Drawer>,
-	<Drawer title="Hello drawers">
+	<Drawer title="Hello drawers" footerActions={{}}>
 		<p>The content dictate the width</p>
 	</Drawer>,
 ];

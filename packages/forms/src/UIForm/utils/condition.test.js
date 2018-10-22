@@ -140,3 +140,53 @@ describe('condition', () => {
 		});
 	});
 });
+
+describe('array condition', () => {
+	it('should auto populate indices in array condition', () => {
+		// given
+		const formData = {
+			user: {
+				names: [{ value: 'Gary' }, { value: 'Moore' }],
+			},
+		};
+		const key = ['user', 'names', 1, 'value'];
+		const falsyCondition = {
+			and: [{ '==': [{ var: 'user.names[].value' }, ['Gary']] }],
+		};
+		const truthyCondition = {
+			and: [{ '==': [{ var: 'user.names[].value' }, ['Moore']] }],
+		};
+
+		// when
+		const falsyResult = shouldRender(falsyCondition, formData, key);
+		const truthyResult = shouldRender(truthyCondition, formData, key);
+
+		// then
+		expect(falsyResult).toBeFalsy();
+		expect(truthyResult).toBeTruthy();
+	});
+
+	it('should auto populate indices recursively', () => {
+		// given
+		const formData = {
+			user: {
+				names: [{ primary: { firstname: ['Gary'] } }, { primary: { firstname: ['Moore'] } }],
+			},
+		};
+		const key = ['user', 'names', 1, 'primary', 'firstname', 0];
+		const falsyCondition = {
+			'==': [{ var: 'user.names[].primary.firstname[]' }, 'Gary'],
+		};
+		const truthyCondition = {
+			'==': [{ var: 'user.names[].primary.firstname[]' }, 'Moore'],
+		};
+
+		// when
+		const falsyResult = shouldRender(falsyCondition, formData, key);
+		const truthyResult = shouldRender(truthyCondition, formData, key);
+
+		// then
+		expect(falsyResult).toBeFalsy();
+		expect(truthyResult).toBeTruthy();
+	});
+});

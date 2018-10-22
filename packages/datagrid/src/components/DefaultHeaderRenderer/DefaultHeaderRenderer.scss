@@ -22,7 +22,7 @@ $td-grip-resize-width: 6px !default;
 		width: calc(100% - #{$td-grip-resize-width});
 		padding: 1rem;
 		text-align: left;
-		background-color: $white;
+		background-color: transparent;
 		border: none;
 
 		&-title {

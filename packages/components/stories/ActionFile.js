@@ -44,6 +44,6 @@ storiesOf('ActionFile', module)
 			<Action id="default" {...myAction} tooltipLabel="Custom label here" />
 			<p>Bootstrap style</p>
 			<Action id="default" {...myAction} bsStyle="primary" tooltipLabel="Custom label here" />
-			<Action id="default" {...myAction} bsStyle="default btn-inverse" tooltipLabel="Custom label here" />
+			<Action id="default" {...myAction} className="btn-default btn-inverse" tooltipLabel="Custom label here" />
 		</div>
 	));

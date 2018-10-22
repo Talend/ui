@@ -50,7 +50,7 @@ jest.mock('../src/store', () => ({
 	addPreReducer: jest.fn(),
 	setHttpMiddleware: jest.fn(),
 	setRouterMiddleware: jest.fn(),
-	initialize: jest.fn(() => ({ dispatch: jest.fn(), applyMiddleware: jest.fn(), })),
+	initialize: jest.fn(() => ({ dispatch: jest.fn(), applyMiddleware: jest.fn() })),
 }));
 
 describe('bootstrap', () => {

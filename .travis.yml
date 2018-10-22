@@ -23,8 +23,8 @@ matrix:
       node_js:
         - '8'
       before_install:
-        # this install is necessary to get version.js dependencies
-        - npm install commander
+        - export NODE_PATH=$NODE_PATH:`npm root -g`
+        - npm install -g commander
         - ./versions/version.js
       script:
         - yarn test
@@ -67,7 +67,8 @@ matrix:
         - .travis/after_success_demo.sh
         - .travis/after_success_deploy.sh
       script:
-        - .travis/after_success_e2e.sh
+#        - .travis/after_success_e2e.sh
+        - echo "wait for licence"
 
 branches:
   only:

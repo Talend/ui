@@ -15,10 +15,11 @@ const { TABLE } = listTypes;
  * Select the ListGrid row renderer to use
  * @param type The row renderer type
  */
-function getRowRenderer(type) {
-	const rowRenderer = rowDictionary[type];
+function getRowRenderer(type, renderers = {}) {
+	const safeRenderer = { ...rowDictionary, ...renderers };
+	const rowRenderer = safeRenderer[type];
 	if (!rowRenderer) {
-		const rowRendererTypes = [TABLE].concat(Object.keys(rowDictionary));
+		const rowRendererTypes = [TABLE].concat(Object.keys(safeRenderer));
 		throw new Error(
 			`Unknown row renderer in Virtualized List : ${type}. ` +
 				`Possible values are [${rowRendererTypes}].`,
@@ -53,6 +54,7 @@ class RendererSelector extends React.Component {
 			isActive,
 			onRowClick,
 			onRowDoubleClick,
+			onScroll,
 			rowHeight,
 			sort,
 			sortBy,
@@ -75,6 +77,7 @@ class RendererSelector extends React.Component {
 			noRowsRenderer: this.noRowsRenderer,
 			onRowClick,
 			onRowDoubleClick,
+			onScroll,
 			rowHeight,
 			width,
 		};
@@ -92,17 +95,21 @@ class RendererSelector extends React.Component {
 			};
 		} else {
 			ListRenderer = ListGrid;
-			customProps = { rowRenderer: getRowRenderer(type) };
+			const rowRenderer = getRowRenderer(type, this.props.rowRenderers);
+			const options = rowRenderer.options || {};
+			customProps = { rowRenderer, ...options };
 		}
 
 		return <ListRenderer {...commonProps} {...customProps} />;
 	}
 }
+
 RendererSelector.displayName = 'VirtualizedList(RendererSelector)';
 RendererSelector.propTypes = {
 	...propTypes,
 	height: PropTypes.number,
 	width: PropTypes.number,
+	rowRenderers: PropTypes.object,
 };
 RendererSelector.defaultProps = {
 	noRowsRenderer: NoRows,
