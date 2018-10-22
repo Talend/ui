@@ -6,9 +6,7 @@ const slug = require('slugg');
 module.exports = class AppGenerator extends Generator {
 	initializing() {
 		this.composeWith('talend:dotfiles', {
-			options: {
-				name: () => this.props.name,
-			},
+			name: () => this.props.name,
 		});
 	}
 
@@ -31,7 +29,7 @@ module.exports = class AppGenerator extends Generator {
 			default: `${process.env.USER}@talend.com`,
 		}];
 
-		return this.prompt(prompts).then((props) => {
+		return this.prompt(prompts).then(props => {
 			if (props.name !== slug(this.appname)) {
 				this.destinationRoot(props.name);
 			}

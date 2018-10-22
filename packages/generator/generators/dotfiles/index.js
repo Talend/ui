@@ -7,7 +7,6 @@ const mkdirp = require('mkdirp');
 
 module.exports = class DotFilesGenerator extends Generator {
 	prompting() {
-		this.log('dotfilesoptions', this.options);
 		if (!this.options.name) {
 			this.log(yosay('get Talend dotfiles!'));
 			const prompts = [{
@@ -48,7 +47,6 @@ module.exports = class DotFilesGenerator extends Generator {
 		}
 		this.destinationRoot('.');
 		this.props = { name: this.options.name() };
-		return this;
 	}
 
 	configuring() {

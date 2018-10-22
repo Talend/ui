@@ -38,4 +38,5 @@ cmf.bootstrap({
 	saga,
 	sagas,
 	settingsURL: '/settings.json',
+	AppLoader: 'AppLoader',
 });

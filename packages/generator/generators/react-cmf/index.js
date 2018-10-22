@@ -5,13 +5,11 @@ const slug = require('slugg');
 module.exports = class CMFAppGenerator extends Generator {
 	initializing() {
 		this.composeWith('talend:dotfiles', {
-			options: {
-				name: () => this.props.name,
-				babelrc: false,
-				eslint: false,
-				sasslint: false,
-				travis: false,
-			},
+			name: () => this.props.name,
+			babelrc: false,
+			eslint: false,
+			sasslint: false,
+			travis: false,
 		});
 	}
 
