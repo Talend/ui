@@ -23,6 +23,11 @@ SkipTo.propTypes = {
 	label: PropTypes.string.isRequired,
 };
 
+/**
+ * Skip links are a technique to ease keyboard navigation.
+ * It consists in giving some links as the firsts focusable elements of the page
+ * to go directly to some meaningful content.
+ */
 function SkipLinks({ mainId, navigationId, t }) {
 	return (
 		<nav
