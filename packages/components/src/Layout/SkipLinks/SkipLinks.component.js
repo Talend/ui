@@ -39,7 +39,7 @@ function SkipLinks({ mainId, navigationId, t }) {
 					<li key="navigation">
 						<SkipTo
 							href={navigationId}
-							label={t('SKIP_TO_NAV', { defaultValue: 'Skip header to navigation' })}
+							label={t('SKIP_TO_NAV', { defaultValue: 'Skip to navigation' })}
 						/>
 					</li>
 				)}
@@ -47,7 +47,7 @@ function SkipLinks({ mainId, navigationId, t }) {
 					<li key="main">
 						<SkipTo
 							href={mainId}
-							label={t('SKIP_TO_MAIN', { defaultValue: 'Skip navigation to main content' })}
+							label={t('SKIP_TO_MAIN', { defaultValue: 'Skip to main content' })}
 						/>
 					</li>
 				)}
