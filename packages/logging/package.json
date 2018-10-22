@@ -2,6 +2,7 @@
   "name": "@talend/log",
   "description": "Small wrapper over TraceKit, that allows to inject error reporting as redux-logger middleware",
   "main": "lib/api/errorTransformer.js",
+  "mainSrc": "src/api/errorTransformer.js",
   "license": "Apache-2.0",
   "scripts": {
     "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js",
@@ -31,7 +32,7 @@
   },
   "dependencies": {
     "tracekit": "^0.4.4",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "^2.0.3"
   },
   "peerDependencies": {
     "angular": "^1.5.9",
@@ -44,7 +45,7 @@
     "angular-mocks": "^1.5.9",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-eslint": "8.0.2",
+    "babel-eslint": "8.0.1",
     "babel-jest": "20.0.3",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -72,10 +73,10 @@
     "transform": {
       ".*": "<rootDir>/../../node_modules/babel-jest"
     },
-    "setupTestFrameworkScriptFile": "<rootDir>/../../test-setup.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.187.1"
+  "version": "0.189.0"
 }

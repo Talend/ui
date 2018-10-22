@@ -11,9 +11,9 @@ describe('ListGrid', () => {
 		// when
 		const wrapper = shallow(
 			<ListTable collection={collection} height={600} id={'my-list'} width={1024}>
-				<VirtualizedList.Content label="Id" dataKey="id" />
-				<VirtualizedList.Content label="Name" dataKey="name" />
-				<VirtualizedList.Content label="" dataKey="description" />
+				<VirtualizedList.Content label="Id" dataKey="id" width={0} />
+				<VirtualizedList.Content label="Name" dataKey="name" width={0} />
+				<VirtualizedList.Content label="" dataKey="description" width={0} />
 			</ListTable>,
 		);
 
@@ -26,9 +26,9 @@ describe('ListGrid', () => {
 		// when
 		const wrapper = shallow(
 			<ListTable collection={collection} height={600} id={'my-list'} width={1024} disableHeader>
-				<VirtualizedList.Content label="Id" dataKey="id" />
-				<VirtualizedList.Content label="Name" dataKey="name" />
-				<VirtualizedList.Content label="" dataKey="description" />
+				<VirtualizedList.Content label="Id" dataKey="id" width={0} />
+				<VirtualizedList.Content label="Name" dataKey="name" width={0} />
+				<VirtualizedList.Content label="" dataKey="description" width={0} />
 			</ListTable>,
 		);
 
@@ -48,9 +48,9 @@ describe('ListGrid', () => {
 				sortDirection={'DESC'}
 				width={1024}
 			>
-				<VirtualizedList.Content label="Id" dataKey="id" />
-				<VirtualizedList.Content label="Name" dataKey="name" />
-				<VirtualizedList.Content label="" dataKey="description" />
+				<VirtualizedList.Content label="Id" dataKey="id" width={0} />
+				<VirtualizedList.Content label="Name" dataKey="name" width={0} />
+				<VirtualizedList.Content label="" dataKey="description" width={0} />
 			</ListTable>,
 		);
 
@@ -69,11 +69,10 @@ describe('ListGrid', () => {
 				isSelected={jest.fn()}
 				onRowClick={jest.fn()}
 				onRowDoubleClick={jest.fn()}
-				selectionToggle={jest.fn()}
 				width={1024}
 			>
-				<VirtualizedList.Content label="Id" dataKey="id" />
-				<VirtualizedList.Content label="Name" dataKey="name" />
+				<VirtualizedList.Content label="Id" dataKey="id" width={0} />
+				<VirtualizedList.Content label="Name" dataKey="name" width={0} />
 			</ListTable>,
 		);
 
@@ -89,12 +88,11 @@ describe('ListGrid', () => {
 				height={600}
 				id={'my-list'}
 				isSelected={jest.fn()}
-				selectionToggle={jest.fn()}
 				width={1024}
 				noRowsRenderer={() => <div>No rows</div>}
 			>
-				<VirtualizedList.Content label="Id" dataKey="id" />
-				<VirtualizedList.Content label="Name" dataKey="name" />
+				<VirtualizedList.Content label="Id" dataKey="id" width={0} />
+				<VirtualizedList.Content label="Name" dataKey="name" width={0} />
 			</ListTable>,
 		);
 

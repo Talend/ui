@@ -1,6 +1,6 @@
 {
   "name": "@talend/scripts",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "bin": {
     "talend-scripts": "./index.js"
   },
@@ -10,7 +10,7 @@
     "autoprefixer": "^7.1.4",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.2",
+    "babel-eslint": "8.0.1",
     "babel-jest": "^20.0.3",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -41,7 +41,8 @@
     "node-sass": "4.7.2",
     "optimize-css-assets-webpack-plugin": "4.0.0",
     "postcss-loader": "2.0.8",
-    "react-test-renderer": "^15.6.2",
+    "raf": "^3.4.0",
+    "react-test-renderer": "^16.0.0",
     "resolve-url-loader": "2.3.0",
     "rimraf": "^2.6.2",
     "sass-loader": "6.0.6",

@@ -1,25 +1,95 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TreeView should render items with icon 1`] = `
+exports[`TreeView item should render 1`] = `
 <li
+  aria-expanded={false}
+  aria-level={2}
+  aria-posinset={1}
+  aria-selected={false}
+  aria-setsize={4}
   className="tc-treeview-item-li theme-tc-treeview-li"
   data-hidden={undefined}
+  id="my-treeview"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  role="treeitem"
+  tabIndex={-1}
 >
   <div
     className="tc-treeview-item theme-tc-treeview-item"
-    data-selected={undefined}
-    id="tc-treeview-item"
-    onClick={[Function]}
-    onKeyDown={[Function]}
-    role="button"
     style={
       Object {
-        "paddingLeft": "20px",
+        "paddingLeft": "62px",
       }
     }
-    tabIndex="0"
   >
-    true
+    <Action
+      aria-hidden={true}
+      className="theme-tc-treeview-toggle"
+      icon="talend-caret-down"
+      iconTransform="rotate-270"
+      id="my-treeview-toggle"
+      label=""
+      link={true}
+      onClick={[Function]}
+      tabIndex="-1"
+    />
+    <TreeViewIcon
+      icon={undefined}
+      isOpened={false}
+    />
+    <span
+      className="tc-treeview-item-name theme-tc-treeview-item-name"
+    >
+      grandpa
+    </span>
+    <div
+      className="theme-tc-treeview-item-ctrl"
+    >
+      <Translate(Badge)
+        label="101"
+      />
+      <Action
+        hideLabel={true}
+        icon="talend-trash"
+        id="my-treeview-talend-trash"
+        label="remove element"
+        link={true}
+        onClick={[Function]}
+        tooltipPlacement="right"
+      />
+    </div>
+  </div>
+</li>
+`;
+
+exports[`TreeView item should render items with icon 1`] = `
+<li
+  aria-expanded={undefined}
+  aria-level={2}
+  aria-posinset={1}
+  aria-selected={false}
+  aria-setsize={4}
+  className="tc-treeview-item-li theme-tc-treeview-li"
+  data-hidden={undefined}
+  id="my-treeview"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  role="treeitem"
+  tabIndex={-1}
+>
+  <div
+    className="tc-treeview-item theme-tc-treeview-item"
+    style={
+      Object {
+        "paddingLeft": "62px",
+      }
+    }
+  >
     <TreeViewIcon
       icon={
         Object {
@@ -27,10 +97,10 @@ exports[`TreeView should render items with icon 1`] = `
           "title": "A pokemon",
         }
       }
-      toggled={true}
+      isOpened={false}
     />
     <span
-      className="tc-treeview-item-name"
+      className="tc-treeview-item-name theme-tc-treeview-item-name"
     >
       grandpa
     </span>
@@ -43,7 +113,7 @@ exports[`TreeView should render items with icon 1`] = `
       <Action
         hideLabel={true}
         icon="talend-trash"
-        id="tc-treeview-item-talend-trash"
+        id="my-treeview-talend-trash"
         label="remove element"
         link={true}
         onClick={[Function]}
@@ -51,106 +121,5 @@ exports[`TreeView should render items with icon 1`] = `
       />
     </div>
   </div>
-  <ul
-    className="theme-tc-treeview-ul"
-  >
-    
-  </ul>
-</li>
-`;
-
-exports[`TreeView should render normally with all buttons and custom labels 1`] = `
-<li
-  className="tc-treeview-item-li theme-tc-treeview-li"
-  data-hidden={undefined}
->
-  <div
-    className="tc-treeview-item theme-tc-treeview-item"
-    data-selected={undefined}
-    id="tc-treeview-item"
-    onClick={[Function]}
-    onKeyDown={[Function]}
-    role="button"
-    style={
-      Object {
-        "paddingLeft": "20px",
-      }
-    }
-    tabIndex="0"
-  >
-    <Icon
-      className="theme-tc-treeview-toggle"
-      name="talend-caret-down"
-      title="Collapse"
-      transform={undefined}
-    />
-    <TreeViewIcon
-      icon={undefined}
-      toggled={true}
-    />
-    <span
-      className="tc-treeview-item-name"
-    >
-      grandpa
-    </span>
-    <div
-      className="theme-tc-treeview-item-ctrl"
-    >
-      <Translate(Badge)
-        label="101"
-      />
-      <Action
-        hideLabel={true}
-        icon="talend-trash"
-        id="tc-treeview-item-talend-trash"
-        label="remove element"
-        link={true}
-        onClick={[Function]}
-        tooltipPlacement="right"
-      />
-    </div>
-  </div>
-  <ul
-    className="theme-tc-treeview-ul"
-  >
-    <TreeViewItem
-      depth={1}
-      id="tc-treeview-item-0"
-      item={
-        Object {
-          "children": Array [
-            Object {
-              "name": "me",
-              "selected": true,
-            },
-            Object {
-              "name": "bro",
-            },
-          ],
-          "name": "mami",
-          "toggled": true,
-        }
-      }
-      onClick={[Function]}
-      onSelect={[Function]}
-    />
-    <TreeViewItem
-      depth={1}
-      id="tc-treeview-item-1"
-      item={
-        Object {
-          "children": Array [
-            Object {
-              "name": "cousin",
-            },
-          ],
-          "name": "aunt",
-          "toggled": false,
-        }
-      }
-      onClick={[Function]}
-      onSelect={[Function]}
-    />
-  </ul>
 </li>
 `;

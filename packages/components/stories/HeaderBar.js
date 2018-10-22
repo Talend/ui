@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
@@ -32,6 +33,7 @@ const icons = {
 	'talend-board': talendIcons['talend-board'],
 	'talend-bell': talendIcons['talend-bell'],
 	'talend-bell-notification': talendIcons['talend-bell-notification'],
+	'talend-tdc-negative': talendIcons['talend-tdc-negative'],
 };
 
 const typeaheadItems = [
@@ -48,7 +50,8 @@ const typeaheadItems = [
 					'description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.',
 			},
 			{
-				title: 'title 2 les elephants elementaires ont des aile cum erat inquam controversia autem mihi utrumqo',
+				title:
+					'title 2 les elephants elementaires ont des aile cum erat inquam controversia autem mihi utrumqo',
 				description:
 					'description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.',
 			},
@@ -97,6 +100,7 @@ const typeaheadItems = [
 const props = {
 	brand: {
 		id: 'header-brand',
+		icon: 'talend-tdc-negative',
 		label: 'Example App Name',
 		onClick: action('onApplicationNameClick'),
 	},
@@ -118,7 +122,7 @@ const props = {
 	help: {
 		id: 'header-help',
 		icon: 'talend-question-circle',
-		href: 'https://help.talend.com',
+		onClick: action('onHelpClick'),
 	},
 	user: {
 		id: 'header-user',
@@ -159,7 +163,7 @@ const props = {
 const decoratedStories = storiesOf('HeaderBar', module).addDecorator(story => (
 	<I18nextProvider i18n={i18n}>
 		<div>
-			<IconsProvider defaultIcons={icons}/>
+			<IconsProvider defaultIcons={icons} />
 			{story()}
 			<div className="container" style={{ paddingTop: 40 }} />
 		</div>
@@ -181,145 +185,194 @@ const infoStyle = stylesheet => ({
 });
 
 decoratedStories
-	.addWithInfo('default', () => {
-		const headerProps = Immutable.fromJS(props).toJS();
-		return <HeaderBar {...headerProps} />;
-	}, { styles: infoStyle })
-	.addWithInfo('with full logo', () => {
-		const headerProps = Immutable.fromJS(props).toJS();
-		headerProps.logo.isFull = true;
-		return <HeaderBar {...headerProps} />;
-	}, { styles: infoStyle })
-	.addWithInfo('without products', () => {
-		const headerProps = Immutable.fromJS({
-			...props,
-			products: null,
-		}).toJS();
-		headerProps.logo.isFull = true;
-		return <HeaderBar {...headerProps} />;
-	}, { styles: infoStyle })
-	.addWithInfo('with environment dropdown', () => {
-		const headerProps = Immutable.fromJS(props).toJS();
-		headerProps.env = {
-			id: 'header-environment',
-			items: [
+	.addDecorator(checkA11y)
+	.addWithInfo(
+		'default',
+		() => {
+			const headerProps = Immutable.fromJS(props).toJS();
+			return <HeaderBar {...headerProps} />;
+		},
+		{ styles: infoStyle },
+	)
+	.addWithInfo(
+		'with full logo',
+		() => {
+			const headerProps = Immutable.fromJS(props).toJS();
+			headerProps.logo.isFull = true;
+			return <HeaderBar {...headerProps} />;
+		},
+		{ styles: infoStyle },
+	)
+	.addWithInfo(
+		'without products',
+		() => {
+			const headerProps = Immutable.fromJS({
+				...props,
+				products: null,
+			}).toJS();
+			headerProps.logo.isFull = true;
+			return <HeaderBar {...headerProps} />;
+		},
+		{ styles: infoStyle },
+	)
+	.addWithInfo(
+		'with environment dropdown',
+		() => {
+			const headerProps = Immutable.fromJS(props).toJS();
+			headerProps.env = {
+				id: 'header-environment',
+				items: [
+					{
+						label: 'Runtime Environment',
+						onClick: action('onEnvClick'),
+					},
+				],
+				label: 'Default',
+			};
+			return <HeaderBar {...headerProps} />;
+		},
+		{ styles: infoStyle },
+	)
+	.addWithInfo(
+		'with unread notifications',
+		() => {
+			const headerProps = Immutable.fromJS(props).toJS();
+			headerProps.notification = {
+				hasUnread: true,
+			};
+			return <HeaderBar {...headerProps} />;
+		},
+		{ styles: infoStyle },
+	)
+	.addWithInfo(
+		'with read notifications',
+		() => {
+			const headerProps = Immutable.fromJS(props).toJS();
+			headerProps.notification = {
+				hasUnread: false,
+			};
+			return <HeaderBar {...headerProps} />;
+		},
+		{ styles: infoStyle },
+	)
+	.addWithInfo(
+		'with help split dropdown',
+		() => {
+			const headerProps = Immutable.fromJS(props).toJS();
+			headerProps.help.items = [
 				{
-					label: 'Runtime Environment',
-					onClick: action('onEnvClick'),
-				},
-			],
-			label: 'Default',
-		};
-		return <HeaderBar {...headerProps} />;
-	}, { styles: infoStyle })
-	.addWithInfo('with unread notifications', () => {
-		const headerProps = Immutable.fromJS(props).toJS();
-		headerProps.notification = {
-			hasUnread: true,
-		};
-		return <HeaderBar {...headerProps} />;
-	}, { styles: infoStyle })
-	.addWithInfo('with read notifications', () => {
-		const headerProps = Immutable.fromJS(props).toJS();
-		headerProps.notification = {
-			hasUnread: false,
-		};
-		return <HeaderBar {...headerProps} />;
-	}, { styles: infoStyle })
-	.addWithInfo('with help split dropdown', () => {
-		const headerProps = Immutable.fromJS(props).toJS();
-		headerProps.help.items = [
-			{
-				icon: 'talend-board',
-				label: 'Onboarding',
-				onClick: action('onOnboardingClick'),
-			},
-			{
-				icon: 'talend-cog',
-				label: 'About',
-				onClick: action('onAboutClick'),
-			},
-		];
-		return <HeaderBar {...headerProps} />;
-	}, { styles: infoStyle })
-	.addWithInfo('with search input', () => {
-		const headerProps = Immutable.fromJS(props).toJS();
-		headerProps.search = {
-			placeholder: 'Search...',
-			onBlur: action('onSearchBlur'),
-			onChange: action('onSearchChange'),
-		};
-		return <HeaderBar {...headerProps} />;
-	}, { styles: infoStyle })
-	.addWithInfo('while searching', () => {
-		const headerProps = Immutable.fromJS(props).toJS();
-		headerProps.search = {
-			position: 'right',
-			value: 'le',
-			searching: true,
-			onBlur: action('onSearchBlur'),
-			onChange: action('onSearchChange'),
-		};
-		return <HeaderBar {...headerProps} />;
-	}, { styles: infoStyle })
-	.addWithInfo('with search results', () => {
-		const headerProps = Immutable.fromJS(props).toJS();
-		headerProps.search = {
-			position: 'right',
-			value: 'le',
-			items: typeaheadItems,
-			onBlur: action('onSearchBlur'),
-			onChange: action('onSearchChange'),
-			onSelect: action('onSearchResultSelect'),
-		};
-		return <HeaderBar {...headerProps} />;
-	}, { styles: infoStyle })
-	.addWithInfo('with no search result', () => {
-		const headerProps = Immutable.fromJS(props).toJS();
-		headerProps.search = {
-			position: 'right',
-			value: 'le',
-			items: [],
-			onBlur: action('onSearchBlur'),
-			onChange: action('onSearchChange'),
-		};
-		return <HeaderBar {...headerProps} />;
-	}, { styles: infoStyle })
-	.addWithInfo('without user and with information', () => {
-		const headerProps = Immutable.fromJS(props).toJS();
-		headerProps.user = null;
-		headerProps.information = {
-			id: 'header-info',
-			bsStyle: 'link',
-			icon: 'talend-info-circle',
-			label: 'Information',
-			hideLabel: true,
-			pullRight: true,
-			noCaret: true,
-			tooltipPlacement: 'bottom',
-			displayMode: 'dropdown',
-			items: [
-				{
-					label: 'Guided tour',
+					icon: 'talend-board',
+					label: 'Onboarding',
 					onClick: action('onOnboardingClick'),
 				},
 				{
-					divider: true,
+					icon: 'talend-cog',
+					label: 'About',
+					onClick: action('onAboutClick'),
 				},
-				{
-					label: 'Community',
-					target: '_blank',
-					href: 'https://community.talend.com/',
-				},
-				{
-					label: 'Support',
-					target: '_blank',
-					href: 'https://www.talend.com/services/technical-support/',
-				},
-			],
-		};
-		return <HeaderBar {...headerProps} />;
-	}, { styles: infoStyle })
+			];
+			return <HeaderBar {...headerProps} />;
+		},
+		{ styles: infoStyle },
+	)
+	.addWithInfo(
+		'with search input',
+		() => {
+			const headerProps = Immutable.fromJS(props).toJS();
+			headerProps.search = {
+				placeholder: 'Search...',
+				onBlur: action('onSearchBlur'),
+				onChange: action('onSearchChange'),
+			};
+			return <HeaderBar {...headerProps} />;
+		},
+		{ styles: infoStyle },
+	)
+	.addWithInfo(
+		'while searching',
+		() => {
+			const headerProps = Immutable.fromJS(props).toJS();
+			headerProps.search = {
+				position: 'right',
+				value: 'le',
+				searching: true,
+				onBlur: action('onSearchBlur'),
+				onChange: action('onSearchChange'),
+			};
+			return <HeaderBar {...headerProps} />;
+		},
+		{ styles: infoStyle },
+	)
+	.addWithInfo(
+		'with search results',
+		() => {
+			const headerProps = Immutable.fromJS(props).toJS();
+			headerProps.search = {
+				position: 'right',
+				value: 'le',
+				items: typeaheadItems,
+				onBlur: action('onSearchBlur'),
+				onChange: action('onSearchChange'),
+				onSelect: action('onSearchResultSelect'),
+			};
+			return <HeaderBar {...headerProps} />;
+		},
+		{ styles: infoStyle },
+	)
+	.addWithInfo(
+		'with no search result',
+		() => {
+			const headerProps = Immutable.fromJS(props).toJS();
+			headerProps.search = {
+				position: 'right',
+				value: 'le',
+				items: [],
+				onBlur: action('onSearchBlur'),
+				onChange: action('onSearchChange'),
+			};
+			return <HeaderBar {...headerProps} />;
+		},
+		{ styles: infoStyle },
+	)
+	.addWithInfo(
+		'without user and with information',
+		() => {
+			const headerProps = Immutable.fromJS(props).toJS();
+			headerProps.user = null;
+			headerProps.information = {
+				id: 'header-info',
+				bsStyle: 'link',
+				icon: 'talend-info-circle',
+				label: 'Information',
+				hideLabel: true,
+				pullRight: true,
+				noCaret: true,
+				tooltipPlacement: 'bottom',
+				displayMode: 'dropdown',
+				items: [
+					{
+						label: 'Guided tour',
+						onClick: action('onOnboardingClick'),
+					},
+					{
+						divider: true,
+					},
+					{
+						label: 'Community',
+						target: '_blank',
+						href: 'https://community.talend.com/',
+					},
+					{
+						label: 'Support',
+						target: '_blank',
+						href: 'https://www.talend.com/services/technical-support/',
+					},
+				],
+			};
+			return <HeaderBar {...headerProps} />;
+		},
+		{ styles: infoStyle },
+	)
 	.addWithInfo('barebone', () => <HeaderBar />, { styles: infoStyle });
 
 const appStyle = require('./config/themes.scss');

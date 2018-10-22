@@ -116,6 +116,7 @@ exports[`Toolbar should render display mode selector 1`] = `
           <a
             aria-expanded={false}
             aria-haspopup={true}
+            aria-label="Change display mode. Current display mode: table."
             className="dropdown-toggle"
             href="#"
             id="my-toolbar-display-mode"
@@ -150,6 +151,7 @@ exports[`Toolbar should render display mode selector 1`] = `
               style={undefined}
             >
               <a
+                aria-label="Set Table as current display mode."
                 href="#"
                 id="my-toolbar-display-mode-table"
                 onClick={[Function]}
@@ -177,6 +179,7 @@ exports[`Toolbar should render display mode selector 1`] = `
               style={undefined}
             >
               <a
+                aria-label="Set Expanded as current display mode."
                 href="#"
                 id="my-toolbar-display-mode-large"
                 onClick={[Function]}
@@ -225,14 +228,14 @@ exports[`Toolbar should render filter form 1`] = `
     >
       <button
         aria-label="Toggle filter"
-        className="navbar-right btn btn-link"
+        className="navbar-right btn-icon-only btn btn-link"
         disabled={false}
         id="my-toolbar-filter"
         onClick={[Function]}
         onFocus={[Function]}
         onMouseDown={[Function]}
         onMouseOver={[Function]}
-        role={null}
+        role="search"
         type="button"
       >
         <svg
@@ -369,6 +372,7 @@ exports[`Toolbar should render pagination 1`] = `
           style={undefined}
         >
           <a
+            aria-label="Go to first page."
             href="#"
             id="my-toolbar-pagination-nav-to-first"
             onClick={[Function]}
@@ -394,6 +398,7 @@ exports[`Toolbar should render pagination 1`] = `
           style={undefined}
         >
           <a
+            aria-label="Go to previous page. Current page: 2."
             href="#"
             id="my-toolbar-pagination-nav-to-prev"
             onClick={[Function]}
@@ -414,30 +419,15 @@ exports[`Toolbar should render pagination 1`] = `
           </a>
         </li>
         <li
-          className="disabled"
-          role="presentation"
-          style={undefined}
+          active={undefined}
+          activeHref={undefined}
+          activeKey={undefined}
+          className="theme-page-index"
+          onSelect={[Function]}
         >
-          <a
-            href="#"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            role="button"
-            style={
-              Object {
-                "pointerEvents": "none",
-              }
-            }
-            tabIndex={-1}
-          >
-            <span
-              className="btn-link"
-            >
-              2
-              /
-              3
-            </span>
-          </a>
+          2
+          /
+          3
         </li>
         <li
           className="btn-link"
@@ -445,6 +435,7 @@ exports[`Toolbar should render pagination 1`] = `
           style={undefined}
         >
           <a
+            aria-label="Go to next page. Current page: 2."
             href="#"
             id="my-toolbar-pagination-nav-to-next"
             onClick={[Function]}
@@ -470,6 +461,7 @@ exports[`Toolbar should render pagination 1`] = `
           style={undefined}
         >
           <a
+            aria-label="Go to last page."
             href="#"
             id="my-toolbar-pagination-nav-to-last"
             onClick={[Function]}
@@ -507,7 +499,7 @@ exports[`Toolbar should render select all checkbox 1`] = `
       className="container-fluid"
     >
       <form
-        className="navbar-form navbar-left"
+        className="theme-container navbar-form navbar-left"
       >
         <div
           className="checkbox-inline navbar-text theme-tc-list-toolbar-select-all"
@@ -565,6 +557,7 @@ exports[`Toolbar should render sort selector 1`] = `
           <a
             aria-expanded={false}
             aria-haspopup={true}
+            aria-label="Change sort criteria. Current sort by Id."
             className="dropdown-toggle"
             href="#"
             id="my-toolbar-sort-by"
@@ -589,6 +582,7 @@ exports[`Toolbar should render sort selector 1`] = `
               style={undefined}
             >
               <a
+                aria-label="Select Id as current sort criteria."
                 href="#"
                 id="my-toolbar-sort-by-item-id"
                 onClick={[Function]}
@@ -605,6 +599,7 @@ exports[`Toolbar should render sort selector 1`] = `
               style={undefined}
             >
               <a
+                aria-label="Select Name as current sort criteria."
                 href="#"
                 id="my-toolbar-sort-by-item-name"
                 onClick={[Function]}
@@ -623,6 +618,7 @@ exports[`Toolbar should render sort selector 1`] = `
           style={undefined}
         >
           <a
+            aria-label="Change sort order. Current order: Descending."
             href="#"
             id="my-toolbar-sort-order"
             onClick={[Function]}

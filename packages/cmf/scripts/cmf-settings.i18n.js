@@ -227,9 +227,7 @@ function getLocalesFromNamespaceInFolder(folder, namespace) {
 	return new Map(
 		files
 			// eslint-disable-next-line global-require
-			.map(file =>
-				getLocalesFromNamespace(getJSON(path.join(folder, file)), namespace),
-			)
+			.map(file => getLocalesFromNamespace(getJSON(path.join(folder, file)), namespace))
 			.reduce((state, map) => [...state, ...map], []),
 	);
 }
@@ -279,12 +277,23 @@ function updateLocales(i18nKeys, locales, namespace, pattern, sort) {
  * @param  {array<string>} languages              Locales to extract
  * @param  {string} from                          folder to parse
  */
-function parseI18n(namespaces, languages, from, sort) {
+function parseI18n(namespaces, languages, froms, sort) {
+	if (typeof froms === 'string') {
+		// eslint-disable-next-line no-param-reassign
+		froms = [froms];
+	}
+
 	namespaces.forEach(namespace => {
-		const i18nKeys = getLocalesFromNamespaceInFolder(
-			path.join(process.cwd(), ...from.split('/')),
-			namespace.name,
-		);
+		let i18nKeys = new Map();
+		froms.forEach(from => {
+			i18nKeys = new Map([
+				...i18nKeys,
+				...getLocalesFromNamespaceInFolder(
+					path.join(process.cwd(), ...from.split('/')),
+					namespace.name,
+				),
+			]);
+		});
 
 		updateLocales(i18nKeys, languages, namespace.name, namespace.path, sort);
 	});

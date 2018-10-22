@@ -3,11 +3,21 @@ import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
 import { ConfirmDialog } from '@talend/react-components';
 import { translate } from 'react-i18next';
-import { getActionsProps } from '../actionAPI';
-import deleteResourceConst from './deleteResource.constants';
 import getDefaultT from '../translate';
 import I18N_DOMAIN_CONTAINERS from '../constant';
+import CONSTANTS from './constants';
 
+/**
+ * getLabel: return label to display on delete confirmation dialog
+ * @param resource
+ * @returns {*}
+ */
+function getLabel(resource) {
+	if (resource) {
+		return resource.get('label') || resource.get('name') || '';
+	}
+	return '';
+}
 /**
  * DeleteResource is used to delete a specific resource.
  * When the component is mounted, it opens a confirm dialog.
@@ -23,7 +33,11 @@ export class DeleteResource extends React.Component {
 		uri: PropTypes.string.isRequired,
 		resourceType: PropTypes.string.isRequired,
 		resourceTypeLabel: PropTypes.string,
+		resourceId: PropTypes.string,
+		resourceUri: PropTypes.string,
+		collectionId: PropTypes.string,
 		female: PropTypes.string,
+		onCancelRedirectUrl: PropTypes.string,
 	};
 	static contextTypes = {
 		registry: PropTypes.object.isRequired,
@@ -35,8 +49,19 @@ export class DeleteResource extends React.Component {
 
 	constructor(props, context) {
 		super(props, context);
-		this.getActions = this.getActions.bind(this);
-		this.getLabel = this.getLabel.bind(this);
+		this.getLabelInfo = this.getLabelInfo.bind(this);
+		this.getResourceInfo = this.getResourceInfo.bind(this);
+		this.onHide = this.onHide.bind(this);
+	}
+
+	/**
+	 * onHide handler, called when click outside delete modal
+	 * @param event
+	 */
+	onHide(event) {
+		this.props.dispatchActionCreator('DeleteResource#cancel', event, {
+			model: this.getResourceInfo(),
+		});
 	}
 
 	/**
@@ -44,9 +69,9 @@ export class DeleteResource extends React.Component {
 	 * Return the label and a boolean to confirm that the item has been found.
 	 * @param {object} resourceInfo
 	 */
-	getLabel() {
+	getLabelInfo() {
 		return {
-			label: this.props.resource ? this.props.resource.get('label', '') : '',
+			label: getLabel(this.props.resource),
 			found: !!this.props.resource,
 		};
 	}
@@ -57,37 +82,42 @@ export class DeleteResource extends React.Component {
 	getResourceInfo() {
 		return {
 			resourceType: this.props.resourceType,
+			collectionId: this.props.collectionId,
 			resourceTypeLabel: this.props.resourceTypeLabel
 				? this.props.resourceTypeLabel
 				: this.props.resourceType,
 			uri: this.props.uri,
-			...this.getLabel(),
-			id: this.props.params.id,
+			...this.getLabelInfo(),
+			id: this.props.resourceId,
+			redirectUrl: this.props.redirectUrl,
+			onCancelRedirectUrl: this.props.onCancelRedirectUrl,
 		};
-	}
-
-	/**
-	 * Call the registry to fetch the actions with the resourceInfo data.
-	 * @param {object} resourceInfo data add to the model.
-	 * @return {object} the fetched actions.
-	 */
-	getActions(key, resourceInfo) {
-		return getActionsProps(this.context, this.props[key], {
-			resourceInfo,
-		});
 	}
 
 	render() {
 		const resourceInfo = this.getResourceInfo();
-		const validateAction = this.getActions(deleteResourceConst.VALIDATE_ACTION, resourceInfo);
-		const cancelAction = this.getActions(deleteResourceConst.CANCEL_ACTION, resourceInfo);
-
+		const validateAction = {
+			componentId: this.props[CONSTANTS.VALIDATE_ACTION],
+			model: resourceInfo,
+			label: this.props.t('DELETE_RESOURCE_YES', { defaultValue: 'REMOVE' }),
+			bsStyle: 'danger',
+			onClickActionCreator: 'DeleteResource#validate',
+		};
+		const cancelAction = {
+			componentId: this.props[CONSTANTS.CANCEL_ACTION],
+			model: resourceInfo,
+			label: this.props.t('DELETE_RESOURCE_NO', { defaultValue: 'CANCEL' }),
+			className: 'btn-inverse',
+			onClickActionCreator: 'DeleteResource#cancel',
+		};
 		return (
 			<ConfirmDialog
 				show
 				header={this.props.header}
 				cancelAction={cancelAction}
 				validateAction={validateAction}
+				getComponent={this.props.getComponent}
+				onHide={this.onHide}
 			>
 				<div>
 					{this.props.t('DELETE_RESOURCE_MESSAGE', {

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Skeleton } from '@talend/react-components';
 
+import { AVRO_TYPES } from '../../constants';
 import DATAGRID_PROPTYPES from '../DataGrid/DataGrid.proptypes';
 
 import QualityIndicator from './QualityIndicator.component';
@@ -15,11 +16,12 @@ export default function DefaultCellRenderer({ avroRenderer, colDef, value, getCo
 	let content;
 
 	if (data.loading) {
-		content = <Skeleton />;
+		content = <Skeleton key="1" />;
 	} else {
 		content = [
-			<QualityIndicator qualityIndex={value.quality} />,
+			<QualityIndicator key="2" qualityIndex={value.quality} />,
 			<AvroRenderer
+				key="3"
 				colDef={colDef}
 				data={value}
 				avroRenderer={avroRenderer}
@@ -28,7 +30,11 @@ export default function DefaultCellRenderer({ avroRenderer, colDef, value, getCo
 		];
 	}
 
-	return <div className={classNames(theme['td-cell'], 'td-cell')}>{content}</div>;
+	return (
+		<div aria-label={value.value} className={classNames(theme['td-cell'], 'td-cell')}>
+			{content}
+		</div>
+	);
 }
 
 DefaultCellRenderer.defaultProps = {
@@ -41,7 +47,7 @@ DefaultCellRenderer.propTypes = {
 	colDef: PropTypes.shape({
 		avro: PropTypes.shape({
 			type: PropTypes.shape({
-				type: PropTypes.oneOf(['boolean', 'date', 'int', 'string']),
+				type: PropTypes.oneOf(AVRO_TYPES),
 			}),
 		}),
 	}),

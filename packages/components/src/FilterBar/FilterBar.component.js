@@ -40,6 +40,7 @@ function FilterInput(props) {
 		autoFocus,
 		placeholder,
 		value,
+		t,
 	} = props;
 
 	const inputProps = {
@@ -50,12 +51,13 @@ function FilterInput(props) {
 		placeholder,
 		autoComplete: 'off',
 		className: classNames(theme.search),
-		'aria-label': 'Filter',
+		'aria-label': placeholder || t('LIST_FILTER_LABEL', { defaultValue: 'Filter' }),
 		onBlur: onBlur && (event => onBlur(event, event.target.value)),
 		onFocus: onFocus && (event => onFocus(event, event.target.value)),
 		onChange: event => onFilter(event, event.target.value),
 		onKeyDown: event => onKeyDown(event, onToggle, onBlur),
 		autoFocus,
+		role: 'searchbox',
 	};
 
 	if (debounceMinLength || debounceTimeout) {
@@ -82,6 +84,7 @@ FilterInput.propTypes = {
 	onToggle: PropTypes.func,
 	placeholder: PropTypes.string,
 	value: PropTypes.string,
+	t: PropTypes.func.isRequired,
 };
 
 /**
@@ -144,6 +147,7 @@ export class FilterBarComponent extends React.Component {
 					icon="talend-search"
 					bsStyle="link"
 					tooltipPlacement={this.props.tooltipPlacement}
+					role="search"
 				/>
 			);
 		}
@@ -175,6 +179,7 @@ export class FilterBarComponent extends React.Component {
 						placeholder={this.props.placeholder}
 						value={this.state.value}
 						dockable={this.props.dockable}
+						t={t}
 					/>
 					<Action
 						className={theme.remove}

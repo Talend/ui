@@ -1,35 +1,21 @@
 /* eslint no-underscore-dangle: ["error", {"allow": ["_registry", "_isLocked"] }] */
 import React from 'react';
 import { shallow } from 'enzyme';
+import component from '../src/component';
 import route from '../src/route';
-import registry from '../src/registry';
 import mock from '../src/mock';
 
 describe('CMF route', () => {
 	it('registerComponent should be an alias to component.get', () => {
-		function C1() {}
-		const emptyRegistry = {};
-		registry.Registry._registry = emptyRegistry;
-		route.registerComponent('C1', C1);
-		expect(emptyRegistry['_.route.component:C1']).toBe(C1);
+		expect(route.registerComponent.wrappedFunction).toBe(component.register);
 	});
 });
 
 describe('loadComponent behavior', () => {
-	it('should inject dispatch into component properties from context.store', () => {
-		const mockItem = {
-			component: 'component',
-			view: 'something',
-		};
-		route.loadComponents(mock.context(), mockItem);
-		const wrapper = shallow(React.createElement(mockItem.component), { context: mock.context() });
-		expect(wrapper.props().dispatch()).toBe('dispatch');
-	});
-
 	it('should replace component by regitry one', () => {
 		const mockItem = {
 			component: 'TestContainer',
-			view: 'appmenu',
+			componentId: 'appmenu',
 		};
 		const obj = { fn: jest.fn() };
 		const component = obj.fn;
@@ -41,7 +27,24 @@ describe('loadComponent behavior', () => {
 		route.loadComponents(mockContext, mockItem);
 		component();
 		expect(obj.fn).toHaveBeenCalled();
-		expect(mockItem.component.displayName).toBe('WithView');
+		expect(mockItem.component.displayName).toBe('WithProps');
+	});
+
+	it('should wrap the component using cmfConnect', () => {
+		const mockItem = {
+			component: 'TestContainer',
+			componentId: 'test',
+		};
+		const Component = () => <div>test</div>;
+		Component.displayName = 'TestContainer';
+		const mockContext = mock.context();
+		mockContext.registry = {
+			'_.route.component:TestContainer': Component,
+		};
+		route.loadComponents(mockContext, mockItem);
+		expect(mockItem.component.WrappedComponent).not.toBe(Component);
+		expect(mockItem.component.WrappedComponent.displayName).toBe('Connect(CMF(TestContainer))');
+		expect(mockItem.component.WrappedComponent.WrappedComponent).toBe(Component);
 	});
 
 	it('should use the componentId to resolve the props for the component instead of using a view', () => {
@@ -50,7 +53,6 @@ describe('loadComponent behavior', () => {
 			componentId: 'test',
 		};
 		const Component = () => <div>test</div>;
-		Component.CMFContainer = true;
 		const mockContext = mock.context();
 		mockContext.registry = {
 			'_.route.component:TestContainer': Component,
@@ -64,7 +66,7 @@ describe('loadComponent behavior', () => {
 		// given
 		const mockItem = {
 			component: 'TestContainer',
-			view: 'appmenu',
+			componentId: 'appmenu',
 			onEnter: 'onEnterId',
 			onLeave: 'onLeaveId',
 		};

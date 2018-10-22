@@ -1,0 +1,26 @@
+[
+	{
+		"id": "TMC",
+		"name": "Management Console",
+		"url": "https://www.talend.com/products#tmc",
+		"icon": "tmc"
+	},
+	{
+		"id": "TDP",
+		"name": "Data Preparation",
+		"url": "https://www.talend.com/products#tdp",
+		"icon": "tdp"
+	},
+	{
+		"id": "TIPAAS",
+		"name": "TIPAAS",
+		"url": "https://www.talend.com/products#tipaas",
+		"icon": "tic"
+	},
+	{
+		"id": "TDC",
+		"name": "Catalog",
+		"url": "https://www.talend.com/products#tdc",
+		"icon": "tdc"
+	}
+]

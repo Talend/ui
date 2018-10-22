@@ -21,17 +21,15 @@ const timeStamp = {
 };
 
 const propsDescriptivePanel = {
-	header: [
-		[version1, readOnlyLabel],
-		timeStamp,
-	],
+	header: [[version1, readOnlyLabel], timeStamp],
 	content: {
 		head: [
 			{
 				label: '21 step',
 				bsStyle: 'default',
 				tooltipPlacement: 'top',
-			}, {
+			},
+			{
 				label: 'by Abdelaziz Maalej test 1 test 2 test 1 test 2',
 				bsStyle: 'default',
 				tooltipPlacement: 'top',
@@ -52,9 +50,7 @@ const propsDescriptivePanel = {
 };
 
 const propsPanelWithActions = {
-	header: [
-		{ actions: [], status: 'successful', label: 'Successful', icon: 'talend-check' },
-	],
+	header: [{ actions: [], status: 'successful', label: 'Successful', icon: 'talend-check' }],
 	content: [
 		{
 			label: 'Content1',
@@ -68,14 +64,22 @@ const propsPanelWithActions = {
 	onToggle: jest.fn(),
 };
 
+const propsPanelWithCustomContent = {
+	header: [{ actions: [], status: 'successful', label: 'Successful', icon: 'talend-check' }],
+	onToggle: jest.fn(),
+};
+
 describe('CollapsiblePanel', () => {
 	it('should trigger onSelect callback on header click', () => {
 		// given
-		const panelInstance = (<CollapsiblePanel {...propsDescriptivePanel} />);
+		const panelInstance = <CollapsiblePanel {...propsDescriptivePanel} />;
 
 		// when
 		const wrapper = mount(panelInstance);
-		wrapper.find(Button).at(0).simulate('click');
+		wrapper
+			.find(Button)
+			.at(0)
+			.simulate('click');
 
 		// then
 		expect(propsDescriptivePanel.onSelect).toBeCalled();
@@ -83,13 +87,53 @@ describe('CollapsiblePanel', () => {
 
 	it('should trigger onToggle callback on header click', () => {
 		// given
-		const panelInstance = (<CollapsiblePanel {...propsPanelWithActions} />);
+		const panelInstance = <CollapsiblePanel {...propsPanelWithActions} />;
 
 		// when
 		const wrapper = mount(panelInstance);
-		wrapper.find(Button).at(0).simulate('click');
+		wrapper
+			.find(Button)
+			.at(0)
+			.simulate('click');
 
 		// then
 		expect(propsPanelWithActions.onToggle).toBeCalled();
+	});
+
+	it('should render custom content in panel body', () => {
+		// given
+		const customContent = <h2>custom title</h2>;
+		const panelInstance = (
+			<CollapsiblePanel {...propsPanelWithCustomContent}>{customContent}</CollapsiblePanel>
+		);
+		// when
+		const wrapper = mount(panelInstance);
+
+		// then
+		expect(wrapper.find('.panel-body').contains(customContent)).toBeTruthy();
+	});
+
+	it('should render custom element in panel header', () => {
+		// given
+		const customElement = <h3>Custom label</h3>;
+		const propsPanelWithCustomElement = {
+			...propsPanelWithActions,
+			header: [
+				{
+					element: customElement,
+					label: 'Custom',
+					tooltipLabel: 'Tooltip label',
+					className: 'custom-col',
+				},
+				...propsPanelWithActions.header,
+			],
+		};
+
+		const panelInstance = <CollapsiblePanel {...propsPanelWithCustomElement} />;
+		// when
+		const wrapper = mount(panelInstance);
+
+		// then
+		expect(wrapper.find('h3').getElement().props.children).toEqual('Custom label');
 	});
 });

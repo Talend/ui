@@ -2,11 +2,10 @@
 
 exports[`SubHeaderBar container should render 1`] = `
 <Translate(SubHeaderBar)
-  editMode={false}
-  onCancel={[Function]}
-  onChange={[Function]}
-  onEdit={[Function]}
+  onCancel={undefined}
+  onChange={undefined}
+  onEdit={undefined}
   onGoBack={undefined}
-  onSubmit={[Function]}
+  onSubmit={undefined}
 />
 `;

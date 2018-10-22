@@ -3,12 +3,25 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import React from 'react';
 import { Map, List as ImmutableList } from 'immutable';
 import { List as Component } from '@talend/react-components';
+import CellTitleRenderer, {
+	cellType as cellTitleType,
+} from '@talend/react-components/lib/VirtualizedList/CellTitle';
+import CellTitle from '@talend/react-components/lib/VirtualizedList/CellTitle/CellTitle.component';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
 import pick from 'lodash/pick';
 import { cmfConnect } from '@talend/react-cmf';
 
 import { getActionsProps } from '../actionAPI';
+import Constants from './List.constant';
+
+const ConnectedCellTitle = cmfConnect({})(CellTitle);
+export const connectedCellDictionary = {
+	[cellTitleType]: {
+		...CellTitleRenderer,
+		cellRenderer: props => <ConnectedCellTitle {...props} />,
+	},
+};
 
 export const DEFAULT_STATE = new Map({
 	displayMode: 'table',
@@ -79,9 +92,6 @@ class List extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.onSelectSortBy = this.onSelectSortBy.bind(this);
-		this.onFilter = this.onFilter.bind(this);
-		this.onToggle = this.onToggle.bind(this);
 		this.onSelectDisplayMode = this.onSelectDisplayMode.bind(this);
 		this.onChangePage = this.onChangePage.bind(this);
 		this.onToggleMultiSelection = this.onToggleMultiSelection.bind(this);
@@ -89,27 +99,8 @@ class List extends React.Component {
 		this.isSelected = this.isSelected.bind(this);
 	}
 
-	onSelectSortBy(event, payload) {
-		this.props.setState({
-			sortOn: payload.field,
-			sortAsc: !payload.isDescending,
-		});
-	}
-
-	onFilter(event, payload) {
-		this.props.setState({ searchQuery: payload.query });
-	}
-
 	onChangePage(startIndex, itemsPerPage) {
 		this.props.setState({ startIndex, itemsPerPage });
-	}
-
-	onToggle() {
-		// clearing filter when toggle
-		this.props.setState({
-			filterDocked: !this.props.state.get('filterDocked'),
-			searchQuery: '',
-		});
 	}
 
 	onSelectDisplayMode(event, payload) {
@@ -179,7 +170,14 @@ class List extends React.Component {
 		props.list.sort = {
 			field: state.sortOn,
 			isDescending: !state.sortAsc,
-			onChange: this.onSelectSortBy,
+			onChange: (event, data) => {
+				this.props.dispatch({
+					type: Constants.LIST_CHANGE_SORT_ORDER,
+					payload: data,
+					collectionId: props.collectionId,
+					event,
+				});
+			},
 		};
 		if (!props.list.itemProps) {
 			props.list.itemProps = {};
@@ -204,16 +202,33 @@ class List extends React.Component {
 			}
 		}
 
+		const cellDictionary = { ...connectedCellDictionary };
 		if (props.cellDictionary) {
-			props.list.cellDictionary = Object.keys(props.cellDictionary).reduce((acc, key) => {
+			Object.keys(props.cellDictionary).reduce((accumulator, key) => {
 				const current = props.cellDictionary[key];
 				// eslint-disable-next-line no-param-reassign
-				acc[key] = {
+				accumulator[key] = {
 					...omit(current, ['component']),
 					cellRenderer: props.getComponent(current.component),
 				};
-				return acc;
-			}, {});
+				return accumulator;
+			}, cellDictionary);
+		}
+		props.list.cellDictionary = cellDictionary;
+
+		if (props.headerDictionary) {
+			props.list.headerDictionary = Object.keys(props.headerDictionary).reduce(
+				(accumulator, key) => {
+					const current = props.headerDictionary[key];
+					// eslint-disable-next-line no-param-reassign
+					accumulator[key] = {
+						...omit(current, ['component']),
+						headerRenderer: props.getComponent(current.component),
+					};
+					return accumulator;
+				},
+				{},
+			);
 		}
 
 		// toolbar
@@ -230,16 +245,34 @@ class List extends React.Component {
 				props.toolbar.sort.isDescending = !state.sortAsc;
 				props.toolbar.sort.field = state.sortOn;
 				props.toolbar.sort.onChange = (event, data) => {
-					this.onSelectSortBy(event, data);
+					this.props.dispatch({
+						type: Constants.LIST_CHANGE_SORT_ORDER,
+						payload: data,
+						collectionId: props.collectionId,
+						event,
+					});
 				};
 			}
 
 			if (props.toolbar.filter) {
 				props.toolbar.filter.onToggle = (event, data) => {
-					this.onToggle(event, data);
+					this.props.dispatch({
+						type: Constants.LIST_TOGGLE_FILTER,
+						payload: Object.assign({}, data, {
+							filterDocked: state.filterDocked,
+							searchQuery: state.searchQuery,
+						}),
+						collectionId: props.collectionId,
+						event,
+					});
 				};
 				props.toolbar.filter.onFilter = (event, data) => {
-					this.onFilter(event, data);
+					this.props.dispatch({
+						type: Constants.LIST_FILTER_CHANGE,
+						payload: data,
+						collectionId: props.collectionId,
+						event,
+					});
 				};
 				props.toolbar.filter.docked = state.filterDocked;
 				props.toolbar.filter.value = state.searchQuery;

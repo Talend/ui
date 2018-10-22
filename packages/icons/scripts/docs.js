@@ -39,6 +39,13 @@ const HTML_TPL = (icons, style) => `
 			.colormapping:hover > svg > g {
 				filter: none;
 			}
+
+			.grayscale > svg > g {
+				filter: url(#talend-grayscale);
+			}
+			.grayscale:hover > svg > g {
+				filter: none;
+			}
 		</style>
 		<script>
 			function setSize(size) {
@@ -91,6 +98,7 @@ const HTML_TPL = (icons, style) => `
 				<select id="select-filter" class="form-control" onChange="setFilter(this.value)">
 					<option value="no-filter">No filter</option>
 					<option value="colormapping">Color mapping</option>
+					<option value="grayscale">grayscale</option>
 				</select>
 			</div>
 			<div class="form-group">
@@ -101,25 +109,18 @@ const HTML_TPL = (icons, style) => `
 		<ul>
 			${icons}
 		</ul>
-		<svg>
-			<filter id="colormapping" color-interpolation-filters="sRGB">
-				<feColorMatrix in="SourceGraphic" type="saturate" values="0" result="grayscale" />
-				<feColorMatrix in="grayscale" type="matrix" values="0.64 0 0 0 0.36
-					0.47 0 0 0 0.53 
-					0.33 0 0 0 0.67 
-					0 0 0 1 0" />
-			</filter>
-		</svg>
 	</body>
 </html>
 `;
 
-const buff = Object.keys(lib.svgs).map(
-	key =>
-		`<li class="well well-sm"><svg width="2.4rem" height="2.4rem" id=${key}>${
-			lib.svgs[key]
-		}</svg><span>${key}</span></li>`,
-);
+const buff = Object.keys(lib.svgs)
+	.map(
+		key =>
+			`<li class="well well-sm"><svg width="2.4rem" height="2.4rem" id=${key}>${
+				lib.svgs[key]
+			}</svg><span>${key}</span></li>`,
+	)
+	.concat(Object.keys(lib.filters).map(key => `${lib.filters[key]}`));
 
 const dist = path.join(__dirname, '../docs/');
 mkdirp.sync(dist);

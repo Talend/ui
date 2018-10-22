@@ -1,12 +1,14 @@
 import React from 'react';
-import { AutoSizer, Column } from 'react-virtualized';
+import { AutoSizer } from 'react-virtualized';
 
 import { listTypes } from './utils/constants';
 import Loader from '../Loader';
 import RendererSelector from './RendererSelector.component';
+import Content from './Content.component';
 import propTypes from './PropTypes';
-import { insertSelectionConfiguration } from './utils/tablerow';
+import { insertSelectionConfiguration, toColumns } from './utils/tablerow';
 import theme from './VirtualizedList.scss';
+import tableTheme from './ListTable/ListTable.scss';
 
 const { LARGE } = listTypes;
 
@@ -25,6 +27,7 @@ function VirtualizedList(props) {
 		inProgress,
 		onRowClick,
 		onRowDoubleClick,
+		onScroll,
 		rowHeight,
 		selectionToggle,
 		sort,
@@ -32,12 +35,18 @@ function VirtualizedList(props) {
 		sortDirection,
 		type,
 		disableHeader,
+		rowRenderers,
 	} = props;
 
-	const contentsConfiguration = insertSelectionConfiguration({
-		children,
+	const columnDefinitionsWithSelection = insertSelectionConfiguration({
 		isSelected,
 		selectionToggle,
+		children,
+	});
+	const columnDefinitions = toColumns({
+		id,
+		theme: tableTheme,
+		children: columnDefinitionsWithSelection,
 	});
 
 	if (type === LARGE && inProgress) {
@@ -56,8 +65,8 @@ function VirtualizedList(props) {
 					isSelected={isSelected}
 					onRowClick={onRowClick}
 					onRowDoubleClick={onRowDoubleClick}
+					onScroll={onScroll}
 					rowHeight={rowHeight}
-					selectionToggle={selectionToggle}
 					sort={sort}
 					sortBy={sortBy}
 					sortDirection={sortDirection}
@@ -65,8 +74,9 @@ function VirtualizedList(props) {
 					width={width}
 					disableHeader={disableHeader}
 					inProgress={inProgress}
+					rowRenderers={rowRenderers}
 				>
-					{contentsConfiguration}
+					{columnDefinitions}
 				</RendererSelector>
 			)}
 		</AutoSizer>
@@ -79,6 +89,6 @@ VirtualizedList.defaultProps = {
 	defaultHeight: 250,
 };
 
-VirtualizedList.Content = Column;
+VirtualizedList.Content = Content;
 
 export default VirtualizedList;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import omit from 'lodash/omit';
 import keycode from 'keycode';
 import get from 'lodash/get';
 import Typeahead from '../Typeahead';
@@ -9,6 +10,8 @@ import theme from './Datalist.scss';
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
+
+const PROPS_TO_OMIT = ['restricted', 'titleMap', 'value'];
 
 class Datalist extends Component {
 	constructor(props) {
@@ -33,7 +36,22 @@ class Datalist extends Component {
 	}
 
 	componentWillReceiveProps({ value, titleMap }) {
-		this.setState({ previousValue: value, value, titleMapping: this.buildTitleMapping(titleMap) });
+		const newState = {};
+		let stateCallback;
+		if (value !== this.props.value) {
+			newState.previousValue = value;
+			newState.value = value;
+		}
+		if (titleMap !== this.props.titleMap) {
+			newState.titleMapping = this.buildTitleMapping(titleMap);
+			stateCallback = () => {
+				if (this.state.suggestions) {
+					const filter = value !== this.state.value ? this.state.value : null;
+					this.updateSuggestions(filter);
+				}
+			};
+		}
+		this.setState(newState, stateCallback);
 	}
 
 	/**
@@ -66,6 +84,9 @@ class Datalist extends Component {
 	 * @param event the focus event
 	 */
 	onFocus(event) {
+		if (this.props.onFocus) {
+			this.props.onFocus(event);
+		}
 		event.target.select();
 		this.updateSuggestions();
 		this.updateSelectedIndexes(this.state.value);
@@ -226,17 +247,17 @@ class Datalist extends Component {
 	 */
 	updateValue(event, value, persist) {
 		const previousValue = persist ? value : this.state.previousValue;
-		const newValue = typeof value === 'object' ? value.title : value;
+		const newValue = typeof value === 'object' ? value.name : value;
 		this.setState({
 			// setting the filtered value so it needs to be actual value
 			value: newValue,
 		});
 		if (persist) {
-			let enumValue = this.props.titleMap.find(item => item.name === value);
+			let enumValue = value;
 			if (this.props.multiSection) {
 				const groups = this.props.titleMap;
 				for (let sectionIndex = 0; sectionIndex < groups.length; sectionIndex += 1) {
-					const itemObj = groups[sectionIndex].suggestions.find(item => item.name === newValue);
+					const itemObj = groups[sectionIndex].suggestions.find(item => item.name === value);
 					if (itemObj) {
 						enumValue = itemObj;
 						break;
@@ -247,11 +268,13 @@ class Datalist extends Component {
 			if (selectedEnumValue || !this.props.restricted) {
 				this.props.onChange(event, { value: selectedEnumValue || value });
 				this.setState({
-					previousValue: typeof previousValue === 'object' ? previousValue.title : previousValue,
+					previousValue: previousValue.name,
 				});
 			} else {
 				this.resetValue();
 			}
+		} else if (this.props.onLiveChange) {
+			this.props.onLiveChange(event, value);
 		}
 	}
 
@@ -271,13 +294,7 @@ class Datalist extends Component {
 	 * return the items list
 	 */
 	buildGroupItems() {
-		if (this.props.multiSection) {
-			return this.props.titleMap.map(group => ({
-				title: group.title,
-				suggestions: group.suggestions.map(item => ({ title: item.name })),
-			}));
-		}
-		return this.props.titleMap.map(item => item.name);
+		return this.props.titleMap;
 	}
 
 	/**
@@ -304,13 +321,13 @@ class Datalist extends Component {
 					.map(group => ({
 						...group,
 						suggestions: value
-							? group.suggestions.filter(item => regex.test(item.title))
+							? group.suggestions.filter(item => regex.test(item.name))
 							: group.suggestions,
 					}))
 					.filter(group => group.suggestions.length > 0);
 			} else {
 				// only one group so items are inline
-				groups = value ? groups.filter(itemValue => regex.test(itemValue)) : groups;
+				groups = value ? groups.filter(itemValue => regex.test(itemValue.name)) : groups;
 			}
 		}
 
@@ -329,32 +346,22 @@ class Datalist extends Component {
 
 	render() {
 		const label = this.getSelectedLabel();
-
 		return (
-			<div className={theme['tc-datalist']}>
-				<Typeahead
-					id={`${this.props.id}`}
-					autoFocus={this.props.autoFocus || false}
-					disabled={this.props.disabled || false}
-					focusedItemIndex={this.state.focusedItemIndex}
-					focusedSectionIndex={this.state.focusedSectionIndex}
-					items={this.state.suggestions}
-					multiSection={this.props.multiSection}
-					onBlur={this.onBlur}
-					onChange={this.onChange}
-					onFocus={this.onFocus}
-					onKeyDown={this.onKeyDown}
-					onSelect={this.onSelect}
-					placeholder={this.props.placeholder}
-					readOnly={this.props.readOnly || false}
-					theme={this.theme}
-					noResultText={this.props.noResultText}
-					value={label}
-				/>
-				<div className={theme.toggle}>
-					<span className="caret" />
-				</div>
-			</div>
+			<Typeahead
+				{...omit(this.props, PROPS_TO_OMIT)}
+				className={classNames('tc-datalist', this.props.className)}
+				focusedItemIndex={this.state.focusedItemIndex}
+				focusedSectionIndex={this.state.focusedSectionIndex}
+				items={this.state.suggestions}
+				onBlur={this.onBlur}
+				onChange={this.onChange}
+				onFocus={this.onFocus}
+				onKeyDown={this.onKeyDown}
+				onSelect={this.onSelect}
+				theme={this.theme}
+				value={label}
+				caret
+			/>
 		);
 	}
 }
@@ -363,17 +370,18 @@ Datalist.displayName = 'Datalist component';
 Datalist.defaultProps = {
 	value: '',
 	restricted: false,
+	multiSection: false,
+	titleMap: [],
 };
 
 if (process.env.NODE_ENV !== 'production') {
 	Datalist.propTypes = {
-		autoFocus: PropTypes.bool,
-		id: PropTypes.string,
+		className: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
+		onFocus: PropTypes.func,
+		onLiveChange: PropTypes.func,
 		disabled: PropTypes.bool,
 		multiSection: PropTypes.bool.isRequired,
-		noResultText: PropTypes.string,
-		placeholder: PropTypes.string,
 		readOnly: PropTypes.bool,
 		restricted: PropTypes.bool,
 		titleMap: PropTypes.arrayOf(

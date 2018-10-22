@@ -118,7 +118,7 @@ function Toolbar({
 							htmlFor={id && `${id}-pagination-size`}
 						/>
 					)}
-					{pagination && <Pagination id={id && `${id}-pagination`} {...pagination} />}
+					{pagination && <Pagination id={id && `${id}-pagination`} {...pagination} t={t} />}
 					{injected('after-pagination')}
 					{injected('before-filter')}
 					{filter && (

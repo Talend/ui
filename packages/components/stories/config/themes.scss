@@ -39,3 +39,9 @@
 		@import '~@talend/bootstrap-theme/src/theme/variations/tmc';
 	}
 }
+
+.mdm {
+	:global {
+		@import '~@talend/bootstrap-theme/src/theme/variations/mdm';
+	}
+}

@@ -1,9 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
 import { Action, IconsProvider } from '../src/index';
+
+import theme from './Action.scss';
 
 const icons = {
 	'talend-dataprep': talendIcons['talend-dataprep'],
@@ -26,6 +29,7 @@ const mouseDownAction = {
 };
 
 storiesOf('Action', module)
+	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
 			<IconsProvider defaultIcons={icons} />
@@ -34,47 +38,82 @@ storiesOf('Action', module)
 	))
 	.addWithInfo('default', () => (
 		<div>
-			<p>By default :</p>
+			<h3>By default :</h3>
 			<Action id="default" {...myAction} />
-			<p>With hideLabel option</p>
+			<h3>Bootstrap style :</h3>
+			<Action id="bsStyle" {...myAction} bsStyle="primary" />
+			<Action id="bsStyle" {...myAction} className="btn-primary btn-inverse" />
+			<h3>With hideLabel option</h3>
 			<Action id="hidelabel" {...myAction} hideLabel />
-			<p>In progress</p>
+			<h3>In progress</h3>
 			<Action id="inprogress" {...myAction} inProgress />
-			<p>loading</p>
-			<Action id="loading" loading />
-			<p>Icon button</p>
+			<h3>Loading</h3>
+			<Action id="loading" loading label="loading" />
+			<h3>Icon button</h3>
 			<Action id="icon" {...myAction} link />
-			<p>Loading Icon button</p>
-			<Action id="icon" link label={'Click me'} loading />
-			<p>Disabled</p>
+			<h3>Loading Icon button</h3>
+			<Action id="icon" link label="Click me" loading />
+			<h3>Disabled</h3>
 			<Action id="disabled" {...myAction} disabled />
-			<p>Reverse display</p>
+			<h3>Reverse display</h3>
 			<Action id="reverseDisplay" {...myAction} iconPosition="right" />
-			<p>Transform icon</p>
+			<h3>Transform icon</h3>
 			<Action id="reverseDisplay" {...myAction} iconTransform={'rotate-180'} />
-			<p>Custom tooltip</p>
+			<h3>Custom tooltip</h3>
 			<Action id="default" {...myAction} tooltipLabel={'Custom label here'} />
-			<p>onMouse down handler</p>
+			<h3>OnMouse down handler</h3>
 			<Action id="hidelabel" {...mouseDownAction} hideLabel />
-			<p>Action with popover</p>
+			<h3>Action with popover</h3>
 			<Action
 				id="hidelabel"
+				overlayId="hidelabel"
 				overlayComponent={OverlayComponent}
 				overlayPlacement="top"
 				tooltipPlacement="right"
 				{...mouseDownAction}
 				hideLabel
 			/>
-			<p>Action in progress</p>
+			<h3>Action in progress</h3>
 			<Action
 				id="hidelabel"
-				inProgress="true"
+				inProgress
+				overlayId="in-progress"
 				overlayComponent={OverlayComponent}
 				overlayPlacement="top"
 				tooltipPlacement="right"
 				{...mouseDownAction}
 				hideLabel
 			/>
+			<h3>
+				Automatic Dropup : this is contained in a restricted ".tc-dropdown-container" element.
+			</h3>
+			<div
+				id="auto-dropup"
+				className={'tc-dropdown-container'}
+				style={{
+					border: '1px solid black',
+					overflow: 'scroll',
+					height: '300px',
+					resize: 'vertical',
+				}}
+			>
+				<p>Scroll me to set overflow on top or down of the container, then open the dropdown.</p>
+				<div className={theme['storybook-wrapped-action']}>
+					<Action
+						preventScrolling
+						overlayId="scroll"
+						overlayComponent={OverlayComponent}
+						overlayPlacement="bottom"
+						tooltipPlacement="right"
+						{...mouseDownAction}
+						hideLabel
+						style={{
+							marginTop: '200px',
+							marginBottom: '200px',
+						}}
+					/>
+				</div>
+			</div>
 		</div>
 	))
 	.addWithPropsCombinations('combinations', Action, {

@@ -2,151 +2,114 @@
 
 With the Inject components you can instanciate any component anywhere. This allows a great flexibility in your component design.
 
-The concept is to let you add `slot` in your component so from the outside a user may
+The concept is to let you define zone using a props in your component so from the outside a user may
 inject in a controlled way some other components.
 
-# How to customize components as a user
+# How to create a components friend with Inject
 
-For components you can pass props like this one:
+Your component add a layout structure so it defines `zones`.
+One zone is associate to one `prop`.
 
-```js
-const props = {
-	components: {
-		'before-something': [
-			{ component: 'Action', label: 'LabelAction1', icon: 'IconAction1' },
-			{ component: 'Action', label: 'LabelAction2', icon: 'IconAction2' },
-		],
-		'after-anything': { component: 'Action', label: 'LabelAction3', icon: 'IconAction3' },
-	},
-};
-return <MyCustomizableComponent components={components} />;
-```
+Let s take a simple example:
 
-The most important here is to understand the structure of the components props.
-The attributes keys are the `slot` key which is exposed in the component documentation.
-The value should always be an Array of Object.
-
-Each object should have the component key which is the string of the registred Component.
-The mecanism inside is to call the props.getComponent function with this component key as only argument.
-
-All other will attributes of this object will be pass as props of the given components.
-
-```js
-<Action label="LabelACtion1" icon="IconAction1 />
-```
-
-Good practice: If you are using CMF you can use `componentId` props in combination here to then use
-props['Action#componentId'] in the settings.
-
-# How to create a customizable components
-
-You have to add two props:
-
-* getComponent: a function which is able to return a component by it's key.
-* components: an object with slots as a key and array of props as value.
-
-```js
-function Example({ getComponent, components, children }) {
-	const inject = Inject.all(getComponent, components);
-	const Renderer = Inject.getAll(getComponent, { Something, Anything });
+```javascript
+function ArticlePage({ header, article, footer}) {
 	return (
-		<div>
-			{inject('before-something')}
-			<Renderer.Something />
-			{inject('after-something')}
-			{inject('before-anything')}
-			<Renderer.Anything />
-			{inject('after-anything', children)}
-		</div>
+		<header>
+			{header}
+		</header>
+		<article>
+			{article}
+		</article>
+		<footer>
+			{footer}
+		</footer>
 	);
 }
+ArticlePage.propTypes = {
+	header: PropTypes.element,
+	article: PropTypes.element,
+	footer: PropTypes.element,
+};
 ```
 
-could use some more information geared toward the component user like "before-something" is the slot name in which you wish to inject a component, you can find those in the component documentation.
+So your component wait for elements.s
+But CMF as a component registry so let s make it work with it:
 
-The slots name should be listed in the documentation so a User can easly find them.
-For example you can check the documentation of the [SubHeaderBar](../SubHeaderBar/SubHeaderBar.md)
+```javascript
+function ArticlePage({ getComponent, header, article, footer}) {
+	return (
+		<header>
+			{Inject.getReactElement(getComponent, header)}
+		</header>
+		<article>
+			{Inject.getReactElement(getComponent, article)}
+		</article>
+		<footer>
+			{Inject.getReactElement(getComponent, footer)}
+		</footer>
+	);
+}
+ArticlePage.propTypes = {
+	header: Inject.getReactElement.propTypes,
+	article: Inject.getReactElement.propTypes,
+	footer: Inject.getReactElement.propTypes,
+};
+```
 
-In most of the case you would like to wrap the injection.
+The possible types are
+* react element (pass the test React.isValidElement)
+* string (wanted component name)
+* object (component name + props)
+* Array of any of the three types below
+
+So ArticlePage is only responsible to give the global structure and styles.
+
+`getComponent` is a function which is able to return a component by it's key.
+
+Sometimes you will need to wrap the injected elements.
 To support this you can create a CustomInject which can support specific props
 
+
 ```js
-function CustomInject({ nowrap, ...props }) {
-	if (nowrap) {
-		return <Inject {...props} />;
-	}
+function CustomInject(props) {
 	return (
-		<div className="maclass">
+		<div className="column-md-4">
 			<Inject {...props} />
 		</div>
 	);
 }
 
-function Example({ getComponent, components }) {
-	const inject = Inject.all(getComponent, components, CustomInject);
+function ArticlePage({ getComponent, header, article, footer}) {
 	return (
-		<div>
-			{inject('before-something')}
-			<Something />
-			{inject('before-anything')}
-			<Anything />
-			{inject('after-anything')}
-		</div>
+		<header>
+			{Inject.getReactElement(getComponent, header)}
+		</header>
+		<article>
+			{Inject.getReactElement(getComponent, article, CustomInject)}
+		</article>
+		<footer>
+			{Inject.getReactElement(getComponent, footer)}
+		</footer>
 	);
 }
 
-function MyUse() {
+function MyPage() {
 	const props = {
-		components: {
-			'before-something': [{ nowrap: true, component: 'Action' }, { component: 'WhatEver' }],
-		},
+		header: { component: 'Title', text: 'A well known example' },
+		article: [
+			{ component: 'Paragraph',  content: 'Hello world'},
+			{ component: 'Paragraph',  content: 'I m on a the second column'},
+		],
+		footer: { component: 'Comments' }
 	};
-	return <Example {...props} />;
+	return <ArticlePage {...props} />;
 }
 ```
 
-In this case Action will not be wrapped but WhatEver will be.
+# API
 
-# How it works
-
-The Inject component looks like this
-
-```js
-function Inject({ getComponent, component, ...props })
-
-    if (!getComponent || !component) {
-        return null;
-    }
-    try {
-        const Component = getComponent(component);
-        return <Component {...props} />;
-    } catch (error) {
-        return <NotFoundComponent error={error.message} />;
-    }
-}
-
-Inject.propTypes = {
-    getComponent: PropTypes.func,
-    component: PropTypes.string,
-};
-```
-
-```js
-function Example({ getComponent, actionProps, filterProps }) {
-	<div>
-		<Inject getComponent={getComponent} component="Action" {...actionProps} />
-		<Inject getComponent={getComponent} component="FilterBar" {...filterProps} />
-	</div>;
-}
-```
-
-If you used cmfConnect in your component, the getComponent props will automatically valorised with the api.get.component \( it is the default accessor to the cmf registry\). If a component is not found it will return a NotFoundComponent that allows a displayed feedback.
-
-If you decide to use your own getComponent, you need to add a throwing error when the component is not found to use the Inject properly.
-
-The Inject component comes with some api function to cover multiple cases.
-
-### INJECT.MAP
+## INJECT.MAP
 
 ```js
 Inject.map = function injectMap(getComponent, array) {
@@ -171,7 +134,7 @@ function Example({ getComponent, components }) {
 }
 ```
 
-### INJECT.ALL
+## INJECT.ALL
 
 ```js
 const components = {
@@ -193,22 +156,9 @@ const inject = Inject.all(getComponent, components);
 This function helps to instanciate a all bunch of components.
 You can pass specific props when you insert the injected component.
 
-### INJECT.GET
+## INJECT.GET
 
 You can use also Inject in a different way.
-
-```js
-Inject.get = function injectGet(getComponent, componentId, Component) {
-	if (!getComponent) {
-		return Component;
-	}
-	try {
-		return getComponent(componentId);
-	} catch (error) {
-		return Component;
-	}
-};
-```
 
 Like always getComponent is the function accessor to the component.
 
@@ -218,17 +168,7 @@ The function will try to return the component associate to the componentId by us
 
 It's a perfect use to replace older component and be sure to not break something.
 
-### INJECT.GETALL
-
-```js
-Inject.getAll = function injectGetAll(getComponent, config) {
-	const components = {};
-	Object.keys(config).forEach(key => {
-		components[key] = Inject.get(getComponent, key, config[key]);
-	});
-	return components;
-};
-```
+## INJECT.GETALL
 
 Inject.getAll is based on Inject.get, it just changed a parameters to allow to add multiple component.
 
@@ -237,13 +177,3 @@ Inject.getAll is based on Inject.get, it just changed a parameters to allow to a
 For the first case we will have the component Action directly.
 
 For the second case we will search with getComponent if a MySpecialActionDropdown' exists, and if not we will return ActionDropdown.
-
-### REFERENCE
-
-```js
-function Inject({ getComponent, component, ...props })
-Inject.map = function injectMap(getComponent, array)
-Inject.all = function injectAll(getComponent, components)
-Inject.get = function injectGet(getComponent, componentId, Component)
-Inject.getAll = function injectGetAll(getComponent, config)
-```

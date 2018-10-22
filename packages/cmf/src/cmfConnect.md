@@ -2,29 +2,39 @@
 
 `cmfConnect` is a Higher Order Component (HOC) which connects your component to redux with some CMF API.
 
-* It injects a state management on top of redux
-* It injects dispatch function
-* It lets you map the state to props
-* It lets you use registered actionCreator
-* It lets you use the component registry
-* It lets you evaluate props using expression
+Some of the key features:
 
-Note that CMFConnect itself uses [react-redux](http://github.com/reactjs/react-redux) [connect](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) [higher order component](https://reactjs.org/docs/higher-order-components.html) under the hood.
+* tools (props) to write maintainable code
+* configuration (every component try to get props from settings)
+* mapStateToProps outside of the component (more reuse)
+* build onEvent handler using registered actionCreator or simple dispatch
+* component registry available for composition
+
+Note that CMFConnect itself uses [react-redux](http://github.com/reactjs/react-redux), [connect](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options), [higher order component](https://reactjs.org/docs/higher-order-components.html) under the hood.
 
 ## API
 
 ```javascript
 cmfConnect({
-    componentId, // string or function(props) to compute the id in the store
-    defaultState, // the default state when the component is mount
-    keepComponent, // boolean, when the component is unmount, to keep its state in redux store
-    mapStateToProps, // function(state, ownProps) that should return the props (same as redux)
-    ...rest, // the rest is applied to connect function
+	defaultState, // active the state management on top of redux (`props.state`, `props.setState`)
+	keepComponent, // boolean, when the component is unmount, to keep its state in redux store
+	mapStateToProps, // function(state, ownProps) that should return the props (same as redux)
+	omitCMFProps: true, // default:false; will be true in 2.0
+	withDispatch, // to receive `props.dispatch`
+	withDispatchActionCreator, // to receive `props.dispatchActionCreator`
+	withComponentRegistry, // to receive `props.getComponent`
+	withComponentId, // to receive `props.componentId`
+	...rest, // the rest is applied to connect function
 })(Component);
 ```
 
-## How to use component state
+### omitCMFProps
 
+Note on  `omitCMFProps`: Because current version add all props to it was causing a lots of props warning/error in react 16. We dont want breaking change so to activeate the feature flag please add `omitCMFProps` option to true in all your component and activate only the feature your component needs. You have a codemode available for that at https://github.com/Talend/ui/tree/master/codemodes/cmf/
+
+This is a new feature that let you pick the part of cmfConnect you want. We can see this as a feature flag that let you choose the props you will receive.
+
+## How to use component state
 
 First, with CMF, you will not need to write reducer.
 If you want to use CMF state management, you must add a `displayName` to your component.
@@ -62,17 +72,19 @@ class Clock extends React.Component {
 	}
 
 	render() {
-		const state = this.props.state || DEFAULT_STATE;
 		return (
 			<div>
 				<h1>Hello, world!</h1>
-				<h2>It is {state.get(date, new Date()).toLocaleTimeString()}.</h2>
+				<h2>It is {this.props.state.get(date, new Date()).toLocaleTimeString()}.</h2>
 			</div>
 		);
 	}
 }
 
-export default cmfConnect({ defaultState: DEFAULT_STATE })(Clock);
+export default cmfConnect({
+	defaultState: DEFAULT_STATE,
+	omitCMFProps: true,
+})(Clock);
 
 // This will create the state in redux at state.cmf.components.getIn(['Clock', 'default'])
 ```
@@ -148,7 +160,11 @@ function mapStateToProps(state) {
     }
 }
 
-export default cmfConnect({ mapStateToProps })(SimpleButton);
+export default cmfConnect({
+	mapStateToProps,
+	omitCMFProps: true,
+	withDispatchActionCreator: true,
+})(SimpleButton);
 ```
 
 Here instead of having click handler dispatcher hard coded into that component, we can delegate it to dispatchActionCreator, a utility that get automaticaly injected into your component props by CMFConnect.
@@ -242,7 +258,16 @@ export default function* myDeLorean() {
 If you have multiple instance of the same component those api support `id` as a second argument.
 
 ```javascript
-const componentState = Clock.getState(state, 'a-component-id');
+import Clock from './Clock.connect';
+
+export default function* myDeLorean({ componentId }) {
+	const state = yield select();
+	const clockState = Clock.getState(state, componentId);
+	yield put(
+		Clock.setStateAction(
+			clockState.set('date', new Date('2025/12/25'))
+		)
+	);
 // mutation
 Clock.setStateAction(componentState, 'a-component-id');
 ```

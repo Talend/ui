@@ -1,15 +1,15 @@
 import {
-	Breadcrumbs,
 	CircularProgress,
 	Drawer,
 	Icon,
 	IconsProvider,
-	Layout,
+	Layout as PureLayout,
 	TooltipTrigger,
-	Typeahead,
 } from '@talend/react-components';
+import { cmfConnect } from '@talend/react-cmf';
 
 import actionAPI from './actionAPI';
+import AboutDialog from './AboutDialog';
 import Action from './Action';
 import ActionBar from './ActionBar';
 import ActionButton from './ActionButton';
@@ -20,8 +20,10 @@ import Actions from './Actions';
 import ActionSplitDropdown from './ActionSplitDropdown';
 import AppLoader from './AppLoader';
 import Badge from './Badge';
+import Breadcrumbs from './Breadcrumbs';
 import ConfirmDialog from './ConfirmDialog';
 import FilterBar from './FilterBar';
+import HeaderBar from './HeaderBar';
 import HomeListView from './HomeListView';
 import List from './List';
 import Notification from './Notification';
@@ -33,10 +35,16 @@ import SidePanel from './SidePanel';
 import TreeView from './TreeView';
 import DeleteResource from './DeleteResource';
 import SubHeaderBar from './SubHeaderBar';
+import EditableText from './EditableText';
+import Typeahead from './Typeahead';
 import TabBar from './TabBar';
+
+// keep backward compat
+const Layout = cmfConnect({})(PureLayout);
 
 export {
 	actionAPI,
+	AboutDialog,
 	Action,
 	ActionBar,
 	ActionButton,
@@ -53,6 +61,7 @@ export {
 	Drawer,
 	DeleteResource,
 	FilterBar,
+	HeaderBar,
 	HomeListView,
 	Icon,
 	IconsProvider,
@@ -65,6 +74,7 @@ export {
 	SelectObject,
 	SidePanel,
 	SubHeaderBar,
+	EditableText,
 	TabBar,
 	TooltipTrigger,
 	TreeView,

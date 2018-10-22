@@ -3,7 +3,6 @@ $tc-enumeration-smaller-padding: $padding-smaller !default;
 $tc-enumeration-small-padding: $padding-small !default;
 $tc-enumeration-item-height: 3.3rem !default;
 
-$tc-enumeration-item-error-background-color: white !default;
 $tc-enumeration-item-error-color: red !default;
 $tc-item-padding-top-bottom: 7px !default;
 $tc-enumeration-input-margin: 10px;
@@ -22,15 +21,18 @@ $item-checkbox-size: 20px;
 	border-bottom: 1px solid rgba(228, 228, 228, 1);
 	position: relative;
 
+	&.has-error {
+		border-bottom: none;
+	}
+
 	:global(button:disabled) {
 		height: $tc-enumeration-item-height;
 		padding: 0 $tc-enumeration-normal-padding;
 	}
 
 	:global(.btn-link) {
-		padding: 0;
+		padding: 0 $padding-smaller;
 		height: $tc-enumeration-item-font-size;
-		outline: none;
 
 		:global(.tc-svg-icon) {
 			height: $tc-enumeration-item-font-size;
@@ -48,7 +50,6 @@ $item-checkbox-size: 20px;
 		background-repeat: no-repeat;
 		border: none;
 		overflow: hidden;
-		outline: none;
 		box-shadow: none;
 		text-align: left;
 
@@ -91,7 +92,6 @@ $item-checkbox-size: 20px;
 		font-size: 12px;
 		position: absolute;
 		top: calc(100% - #{$padding-small});
-		background-color: $tc-enumeration-item-error-background-color;
 		width: 100%;
 		color: $tc-enumeration-item-error-color;
 		padding: $tc-enumeration-item-error-padding;
@@ -101,7 +101,7 @@ $item-checkbox-size: 20px;
 
 .tc-enumeration-checkbox {
 	display: inline-block;
-	margin: 0 $item-checkbox-margin $item-checkbox-margin 0;
+	margin: 0 $item-checkbox-margin 0 0;
 	height: $item-checkbox-size;
 	width: $item-checkbox-size;
 	vertical-align: middle;
@@ -112,13 +112,15 @@ $item-checkbox-size: 20px;
 	background-color: $selected-item-color;
 }
 
-.tc-enumeration-item:hover {
+.tc-enumeration-item:hover,
+.tc-enumeration-item:global(.ally-focus-within) {
 	.tc-enumeration-item-actions {
 		visibility: visible;
 	}
 }
 
 // disable hover if item is selected
-.tc-enumeration-item:hover:not(.selected-item) {
+.tc-enumeration-item:hover:not(.selected-item),
+.tc-enumeration-item:not(.selected-item):global(.ally-focus-within) {
 	background-color: rgba(250, 250, 250, 1);
 }

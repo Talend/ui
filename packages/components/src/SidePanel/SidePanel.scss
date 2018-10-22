@@ -20,7 +20,7 @@ $tc-side-panel-large-toggle-padding: 4px !default;
 $toggle-button-padding: $padding-small - 1;
 
 .tc-side-panel {
-	display: inline-flex;
+	display: flex;
 	flex-direction: column;
 	overflow-x: hidden;
 	background: $list-item-reverse-color;

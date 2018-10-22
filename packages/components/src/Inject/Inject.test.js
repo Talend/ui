@@ -196,6 +196,46 @@ describe('Inject.getAll', () => {
 	});
 });
 
+describe('Inject.getReactElement', () => {
+	it('should support element as string', () => {
+		const getComponent = jest.fn();
+		const data = 'what';
+		expect(Inject.getReactElement(getComponent, data)).toEqual(
+			<Inject getComponent={getComponent} component="what" />,
+		);
+	});
+	it('should support element as object', () => {
+		const getComponent = jest.fn();
+		const data = { component: 'what', extra: true };
+		expect(Inject.getReactElement(getComponent, data)).toEqual(
+			<Inject getComponent={getComponent} component="what" extra />,
+		);
+	});
+	it('should support element as Array', () => {
+		const getComponent = jest.fn();
+		const data = [{ component: 'what', componentId: 'me', extra: true }, 'Foo'];
+		expect(Inject.getReactElement(getComponent, data)).toEqual([
+			<Inject getComponent={getComponent} component="what" componentId="me" extra key="what#me" />,
+			<Inject getComponent={getComponent} component="Foo" key="Foo#default" />,
+		]);
+	});
+	it('should return undefined if data is undefined', () => {
+		expect(Inject.getReactElement()).toBe();
+	});
+	it('should return null if data is null', () => {
+		expect(Inject.getReactElement(jest.fn(), null)).toBe(null);
+	});
+	it('should return data if it s not supported type', () => {
+		expect(Inject.getReactElement(jest.fn(), false)).toBe(false);
+		expect(Inject.getReactElement(jest.fn(), true)).toBe(true);
+	});
+	it('should support element as valid react element', () => {
+		const getComponent = jest.fn();
+		const data = <p>foo</p>;
+		expect(Inject.getReactElement(getComponent, data)).toEqual(data);
+	});
+});
+
 describe('NotFoundComponent', () => {
 	it('should render', () => {
 		const wrapper = shallow(<NotFoundComponent error="MyError" />);

@@ -2,10 +2,11 @@
 
 exports[`tablerow #insertSelectionConfiguration should NOT insert selection column when selection callback is NOT provided 1`] = `
 Array [
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="id"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerRenderer={[Function]}
@@ -13,10 +14,11 @@ Array [
     style={Object {}}
     width={50}
 />,
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="name"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerRenderer={[Function]}
@@ -39,6 +41,7 @@ Array [
           }
     }
     dataKey=""
+    defaultSortDirection="ASC"
     disableSort={true}
     flexGrow={0}
     flexShrink={0}
@@ -48,10 +51,11 @@ Array [
     style={Object {}}
     width={35}
 />,
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="id"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerRenderer={[Function]}
@@ -59,10 +63,11 @@ Array [
     style={Object {}}
     width={50}
 />,
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="name"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerRenderer={[Function]}
@@ -86,6 +91,7 @@ Array [
           }
     }
     dataKey="id"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerClassName="tc-list-cell-id"
@@ -105,10 +111,11 @@ Array [
     className="my-classname theme-classname tc-list-cell-id"
     columnData={
         Object {
-            "id": null,
+            "id": undefined,
           }
     }
     dataKey="id"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerClassName="tc-list-cell-id"
@@ -128,10 +135,11 @@ Array [
     className="tc-list-cell-id"
     columnData={
         Object {
-            "id": null,
+            "id": undefined,
           }
     }
     dataKey="id"
+    defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={1}
     headerClassName="my-header-classname theme-header-classname tc-list-cell-id"

@@ -8,11 +8,26 @@ import collection from './collection';
 const { TABLE } = listTypes;
 
 const contentFields = [
-	<VirtualizedList.Content label="Id" dataKey="id" width={50} flexShrink={0} flexGrow={0} />,
-	<VirtualizedList.Content label="Name" dataKey="name" width={350} flexShrink={0} flexGrow={0} />,
 	<VirtualizedList.Content
-		label="Description"
+		key="id"
+		label="Id"
+		dataKey="id"
+		width={50}
+		flexShrink={0}
+		flexGrow={0}
+	/>,
+	<VirtualizedList.Content
+		key="name"
+		label="Name"
 		dataKey="name"
+		width={350}
+		flexShrink={0}
+		flexGrow={0}
+	/>,
+	<VirtualizedList.Content
+		key="description"
+		label="Description"
+		dataKey="description"
 		width={350}
 		flexShrink={0}
 		flexGrow={0}
@@ -78,6 +93,7 @@ describe('VirtualizedList', () => {
 				isSelected={jest.fn()}
 				onRowClick={jest.fn()}
 				onRowDoubleClick={jest.fn()}
+				onScroll={jest.fn()}
 				rowHeight={50}
 				selectionToggle={jest.fn()}
 				sort={jest.fn()}

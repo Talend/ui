@@ -89,18 +89,11 @@ export function BreadcrumbsComponent(props) {
 			);
 		}
 		if (maxItemsReached && index < ellipsisIndex) {
-			return (
-				<li className="sr-only" key={index}>
-					{getItemContent()}
-				</li>
-			);
+			return undefined;
 		}
 		if (maxItemsReached && index === ellipsisIndex) {
 			return [
-				<li className="sr-only" key={index + 0.1}>
-					{getItemContent()}
-				</li>,
-				<li className="tc-breadcrumb-menu" key={index + 0.2} aria-hidden="true">
+				<li className="tc-breadcrumb-menu" key={index + 0.1}>
 					<ActionDropdown
 						id={`${props.id}-ellipsis`}
 						items={hiddenItems}

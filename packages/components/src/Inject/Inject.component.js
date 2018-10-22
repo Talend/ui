@@ -10,7 +10,7 @@ function nothing() {
 }
 
 /**
- * T>his is to render an not found componenent to alert developers
+ * This is to render an not found component to alert developers
  * @param {object} props container of the error
  */
 function NotFoundComponent({ error }) {
@@ -106,6 +106,53 @@ Inject.getAll = function injectGetAll(getComponent, config) {
 	});
 	return components;
 };
+
+/**
+ * Allow a props to have multiple shape with a target to be a react valid element.
+ * It supports three shapes: string, object, react element
+ * @param {function} getComponent
+ * @param {object|string|React Element} data
+ */
+Inject.getReactElement = function getReactElement(
+	getComponent,
+	data,
+	CustomInject = Inject,
+	withKey,
+) {
+	if (Array.isArray(data)) {
+		return data.map(info => getReactElement(getComponent, info, CustomInject, true));
+	} else if (data === null) {
+		return data;
+	} else if (typeof data === 'string') {
+		const props = { getComponent, component: data };
+		if (withKey) {
+			props.key = `${data}#default`;
+		}
+		return <CustomInject {...props} />;
+	} else if (React.isValidElement(data)) {
+		return data;
+	} else if (typeof data === 'object') {
+		const props = { getComponent, ...data };
+		if (withKey) {
+			props.key = `${data.component}#${data.componentId || 'default'}`;
+		}
+		return <CustomInject {...props} />;
+	}
+	return data; // We do not throw anything, proptypes should do the job
+};
+
+Inject.getReactElement.propTypes = PropTypes.oneOfType([
+	PropTypes.string,
+	PropTypes.shape({ component: PropTypes.string }),
+	PropTypes.element,
+	PropTypes.arrayOf(
+		PropTypes.oneOfType([
+			PropTypes.string,
+			PropTypes.shape({ component: PropTypes.string }),
+			PropTypes.element,
+		]),
+	),
+]);
 
 Inject.displayName = 'Inject';
 

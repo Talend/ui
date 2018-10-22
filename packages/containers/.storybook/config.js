@@ -1,11 +1,13 @@
 import 'babel-polyfill';
 import { storiesOf, configure, setAddon } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 import createSagaMiddleware from 'redux-saga';
-import cmf from 'react-storybook-cmf';
+import cmf from '@talend/react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
-import { api, actions } from '@talend/react-cmf';
+import api, { actions, sagas } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
+import { call, put } from 'redux-saga/effects';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 import 'focus-outline-manager';
 import ComponentOverlay from './ComponentOverlay';
@@ -14,6 +16,7 @@ import {
 	actions as actionsSubHeader,
 	actionsCreators as actionsCreatorsSubHeader,
 } from './subheaderbar.storybook';
+import { actionsCreators as actionsCreatorsEditableText } from './editabletext.storybook';
 import { registerAllContainers } from '../src/register';
 
 setAddon({ addWithCMF: cmf.addWithCMF });
@@ -98,6 +101,20 @@ function httpPhotosGet2() {
 	});
 }
 
+function* sagaPhotoGet3() {
+	const answer = yield call(sagas.http.get, 'https://jsonplaceholder.typicode.com/photos/');
+	yield put(actions.collections.addOrReplace('photos3', answer.data));
+}
+
+function sortByLength(sortBy) {
+	return function sort(a, b) {
+		return a.get(sortBy).length - b.get(sortBy).length;
+	};
+}
+
+api.registry.addToRegistry('_list_sort:sortByLength', sortByLength);
+
+api.sagas.register('saga:get:photos3', sagaPhotoGet3);
 api.actionCreator.register('http:get:photos1', httpPhotosGet1);
 api.actionCreator.register('http:get:photos2', httpPhotosGet2);
 api.actionCreator.register('object:view', objectView);
@@ -120,6 +137,10 @@ api.actionCreator.register('subheaderbar:cancel', actionsCreatorsSubHeader.cance
 api.actionCreator.register('subheaderbar:change', actionsCreatorsSubHeader.changeSubHeaderBar);
 api.actionCreator.register('subheaderbar:goback', actionsCreatorsSubHeader.goBackSubHeaderBar);
 api.actionCreator.register('tabbar:select', selectTab);
+api.actionCreator.register('editabletext:submit', actionsCreatorsEditableText.submitEditableText);
+api.actionCreator.register('editabletext:edit', actionsCreatorsEditableText.editEditableText);
+api.actionCreator.register('editabletext:cancel', actionsCreatorsEditableText.cancelEditableText);
+api.actionCreator.register('editabletext:change', actionsCreatorsEditableText.changeEditableText);
 
 const registerComponent = api.component.register;
 registerComponent('ComponentOverlay', ComponentOverlay);
@@ -172,6 +193,29 @@ function loadStories() {
 							new Map({
 								id: 11,
 								label: 'sub foo',
+								author: 'Jacques',
+								created: '10/12/2013',
+								modified: '13/02/2015',
+								children: new List([
+									new Map({
+										id: 111,
+										label: 'sub sub foo',
+										author: 'Jacques',
+										created: '10/12/2013',
+										modified: '13/02/2015',
+									}),
+									new Map({
+										id: 112,
+										label: 'sub sub foo bar',
+										author: 'Jacques',
+										created: '10/12/2013',
+										modified: '13/02/2015',
+									}),
+								]),
+							}),
+							new Map({
+								id: 12,
+								label: 'sub foo bar',
 								author: 'Jacques',
 								created: '10/12/2013',
 								modified: '13/02/2015',
@@ -267,6 +311,13 @@ function loadStories() {
 			notification: { name: 'appheaderbar:notification' },
 		};
 		const actions = state.cmf.settings.actions;
+		actions['show:about'] = {
+			label: 'Show',
+			payload: {
+				type: 'ABOUT_DIALOG_SHOW',
+				url: 'https://tdp.us.cloud.talend.com/api/version',
+			},
+		};
 		actions['appheaderbar:logo'] = {
 			icon: 'talend-logo',
 		};
@@ -387,6 +438,7 @@ function loadStories() {
 		actions['dialog:delete:cancel'] = {
 			id: 'dialog:delete:cancel',
 			label: 'No',
+			className: 'btn-inverse',
 			actionCreator: 'cancel:hide:dialog',
 		};
 		actions['action:overlay:component'] = {
@@ -397,6 +449,7 @@ function loadStories() {
 				customProps: 'customProps',
 			},
 			overlayPlacement: 'bottom',
+			payload: { type: 'BUTTON_OVERLAY' },
 		};
 		actions['action:icon:toggle'] = {
 			icon: 'talend-panel-opener-right',
@@ -410,6 +463,7 @@ function loadStories() {
 		actions[actionsSubHeader.actionSubHeaderBubbles.id] = actionsSubHeader.actionSubHeaderBubbles;
 
 		const story = storiesOf(example);
+		story.addDecorator(checkA11y);
 
 		if (typeof examples[example] === 'function') {
 			story.addWithCMF('Default', examples[example], {

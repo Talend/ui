@@ -2,7 +2,6 @@ $tc-slider-thumb-shadow: 0 1px 2px 0 rgba(117, 132, 149, 0.5); //$slate-gray;
 $tc-slider-thumb-shadow-focused: 0 3px 4px 0.5px rgba(0, 0, 0, 0.25);
 $tc-slider-font-size: $font-size-base;
 $tc-slider-line-height: 24px;
-$tc-slider-handle-size: 17px;
 
 :global(.rc-slider-tooltip) {
 	padding: 0;
@@ -32,6 +31,14 @@ $tc-slider-handle-size: 17px;
 		margin-top: $padding-small;
 		color: $gray;
 		font-size: $tc-slider-font-size;
+		:global(.btn) {
+			padding: 0;
+			&.selected {
+				:global(.tc-svg-icon) {
+					fill: $brand-primary;
+				}
+			}
+		}
 		:global(svg) {
 			height: $tc-slider-line-height;
 			width: $tc-slider-line-height;
@@ -57,8 +64,6 @@ $tc-slider-handle-size: 17px;
 			background-color: $brand-primary;
 		}
 		:global(.rc-slider-handle) {
-			width: $tc-slider-handle-size;
-			height: $tc-slider-handle-size;
 			border: 1px solid $alto;
 			box-shadow: $tc-slider-thumb-shadow;
 			background-color: $wild-sand;

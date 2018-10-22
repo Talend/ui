@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 import { IconsProvider, SubHeaderBar, FilterBar } from '../src/index';
 
 const viewProps = {
@@ -62,6 +63,7 @@ if (!stories.addWithInfo) {
 }
 
 stories
+	.addDecorator(checkA11y)
 	.addWithInfo('with default', () => (
 		<div>
 			<IconsProvider />
@@ -127,7 +129,6 @@ stories
 				subTitle="mySubTitle"
 				onGoBack={backAction}
 				right={injectedComponentsRight}
-				editMode
 			>
 				{center}
 			</SubHeaderBar>
@@ -160,5 +161,11 @@ stories
 			>
 				{center}
 			</SubHeaderBar>
+		</div>
+	))
+	.addWithInfo('with right actions loading', () => (
+		<div>
+			<IconsProvider />
+			<SubHeaderBar {...viewProps} onGoBack={backAction} rightActionsLoading />
 		</div>
 	));

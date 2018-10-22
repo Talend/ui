@@ -1,13 +1,17 @@
 .nav {
 	.btn-link {
 		color: inherit;
-		border: none;
+		display: inline-block;
 
 		&:focus,
 		&:active,
 		&:hover {
 			text-decoration: none;
-			background: none;
+		}
+
+		> *,
+		> span > * {
+			vertical-align: middle;
 		}
 	}
 
@@ -23,8 +27,6 @@
 				margin: 0;
 			}
 
-			&:focus,
-			&:active,
 			&:hover,
 			&.active,
 			&.open {
@@ -34,7 +36,6 @@
 
 			&.disabled .btn {
 				&:focus,
-				&:active,
 				&:hover {
 					color: shade($navbar-inverse-color, 10);
 				}
@@ -88,7 +89,6 @@
 
 	&-tabs {
 		border: none;
-		font-size: $font-size-small;
 
 		> li {
 			margin: 0;
@@ -101,21 +101,19 @@
 
 			> a,
 			> button {
-				padding: $padding-normal;
-				letter-spacing: 0.6px;
-				line-height: 1;
-				text-transform: uppercase;
-				color: rgba(1, 1, 1, 0.6);
 				background: transparent;
 				border: none;
+				border-radius: 0;
+				color: $dark-silver;
+				line-height: 1;
+				margin-bottom: 0.5rem;
 				outline: none;
+				padding: $padding-normal;
+				text-transform: uppercase;
 
+				&:hover,
 				&:focus {
-					background: rgba(0, 0, 0, 0.06);
-				}
-
-				&:hover {
-					background: rgba(0, 0, 0, 0.03);
+					color: $scooter;
 				}
 			}
 
@@ -123,12 +121,12 @@
 				> a,
 				> button {
 					box-shadow: 0 -2px 0 $brand-primary inset;
+					border: none;
+					color: $brand-primary;
 
-					&,
 					&:focus,
 					&:hover {
-						background: transparent;
-						border: none;
+						color: $scooter;
 					}
 				}
 			}

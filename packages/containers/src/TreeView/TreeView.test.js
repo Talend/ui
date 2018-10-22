@@ -13,6 +13,7 @@ describe('TreeView', () => {
 	let context;
 	let state;
 	let data;
+
 	beforeEach(() => {
 		context = mock.context();
 		state = mock.state();
@@ -22,11 +23,16 @@ describe('TreeView', () => {
 		]);
 		context.store.getState = () => state;
 	});
+
 	it('should render the data', () => {
-		const wrapper = shallow(<TreeView.WrappedComponent data={data} />, { context });
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const wrapper = shallow(<TreeView.WrappedComponent id="my-treeview" data={data} />, {
+			context,
+		});
+		expect(wrapper.find('TreeGesture(TreeView)').getElement()).toMatchSnapshot();
 	});
-	it('should setState onClick', () => {
+
+	it('should select element', () => {
+		// given
 		const prevState = {
 			state: DEFAULT_STATE,
 		};
@@ -34,40 +40,58 @@ describe('TreeView', () => {
 			prevState.state = fn(prevState);
 		});
 		const dispatchActionCreator = jest.fn();
-		const onClick = jest.fn();
-		const onClickActionCreator = 'my:action';
+		const onSelect = jest.fn();
+		const onSelectActionCreator = 'my:action';
 		const props = {
+			id: 'my-treeview',
 			setState,
 			dispatchActionCreator,
 			data,
-			onClick,
-			onClickActionCreator,
+			onSelect,
+			onSelectActionCreator,
 		};
 		const wrapper = shallow(<TreeView.WrappedComponent {...props} />, { context });
-		wrapper.simulate('click', data.get(0).toJS());
+
+		// when
+		wrapper.prop('onSelect')(null, data.get(0).toJS());
+
+		// then
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);
-		expect(prevState.state.get('opened').toJS()).toEqual([1]);
-		expect(onClick).toHaveBeenCalledWith(data.get(0).toJS());
+		expect(prevState.state.get('selectedId')).toEqual(1);
+		expect(onSelect).toHaveBeenCalledWith(data.get(0).toJS());
 		expect(dispatchActionCreator).toHaveBeenCalled();
-		expect(dispatchActionCreator.mock.calls[0][0]).toBe(onClickActionCreator);
+		expect(dispatchActionCreator.mock.calls[0][0]).toBe(onSelectActionCreator);
 		expect(dispatchActionCreator.mock.calls[0][1].props).toMatchObject(props);
 		expect(dispatchActionCreator.mock.calls[0][2]).toEqual(data.get(0).toJS());
 	});
-	it('should close if re onClick', () => {
+
+	it('should open/close on toggle', () => {
 		const prevState = {
 			state: DEFAULT_STATE,
 		};
 		const setState = jest.fn(fn => {
 			prevState.state = fn(prevState);
 		});
-		const props = { setState, data };
+		const props = {
+			id: 'my-treeview',
+			setState,
+			data,
+		};
 		const wrapper = shallow(<TreeView.WrappedComponent {...props} />, { context });
-		wrapper.simulate('click', data.get(0).toJS());
+
+		// when
+		wrapper.prop('onToggle')(null, data.get(0).toJS());
+
+		// then
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);
 		expect(prevState.state.get('opened').toJS()).toEqual([1]);
-		wrapper.simulate('click', data.get(0).toJS());
+
+		// when
+		wrapper.prop('onToggle')(null, data.get(0).toJS());
+
+		// then
 		expect(setState.mock.calls.length).toBe(2);
 		expect(prevState.state.get('opened').toJS()).toEqual([]);
 	});
@@ -83,6 +107,7 @@ describe('TreeView', () => {
 		const onSelect = jest.fn();
 		const onSelectActionCreator = 'my:action';
 		const props = {
+			id: 'my-treeview',
 			setState,
 			dispatchActionCreator,
 			data,
@@ -90,7 +115,7 @@ describe('TreeView', () => {
 			onSelectActionCreator,
 		};
 		const wrapper = shallow(<TreeView.WrappedComponent {...props} />, { context });
-		wrapper.simulate('select', data.get(0).toJS());
+		wrapper.simulate('select', null, data.get(0).toJS());
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);
 		expect(prevState.state.get('selectedId')).toEqual(1);
@@ -100,7 +125,9 @@ describe('TreeView', () => {
 		expect(dispatchActionCreator.mock.calls[0][1].props).toMatchObject(props);
 		expect(dispatchActionCreator.mock.calls[0][2]).toEqual(data.get(0).toJS());
 	});
+
 	it('should unselect onSelect twice', () => {
+		// given
 		const prevState = {
 			state: DEFAULT_STATE,
 		};
@@ -108,14 +135,27 @@ describe('TreeView', () => {
 			prevState.state = fn(prevState);
 		});
 		const onSelect = jest.fn();
-		const props = { setState, data, onSelect };
+		const props = {
+			id: 'my-treeview',
+			setState,
+			data,
+			onSelect,
+		};
 		const wrapper = shallow(<TreeView.WrappedComponent {...props} />, { context });
-		wrapper.simulate('select', data.get(0).toJS());
+
+		// when
+		wrapper.prop('onSelect')(null, data.get(0).toJS());
+
+		// then
 		expect(setState).toHaveBeenCalled();
 		expect(prevState.state).not.toBe(DEFAULT_STATE);
 		expect(prevState.state.get('selectedId')).toEqual(1);
 		expect(onSelect).toHaveBeenCalledWith(data.get(0).toJS());
-		wrapper.simulate('select', data.get(0).toJS());
+
+		// when
+		wrapper.prop('onSelect')(null, data.get(0).toJS());
+
+		// then
 		expect(prevState.state.get('selectedId')).toBe();
 	});
 });
@@ -138,7 +178,8 @@ describe('transform', () => {
 	it('should return undefined if no items', () => {
 		expect(transform()).toBeUndefined();
 	});
-	it('add selected and toggled boolean every where', () => {
+
+	it('should add toggled booleans', () => {
 		const props = {
 			...DEFAULT_PROPS,
 			state: Immutable.Map({
@@ -165,10 +206,41 @@ describe('transform', () => {
 		];
 		const structure = transform(items, props);
 		expect(structure[0].id).toBe(1);
-		expect(structure[0].selected).toBe(false);
-		expect(structure[0].toggled).toBe(true);
+		expect(structure[0].isOpened).toBe(true);
 		expect(structure[0].children[0].id).toBe(11);
-		expect(structure[0].children[0].selected).toBe(true);
-		expect(structure[0].children[0].toggled).toBe(true);
+		expect(structure[0].children[0].isOpened).toBe(true);
+	});
+
+	it("should unfold selected's parents", () => {
+		const props = {
+			...DEFAULT_PROPS,
+			state: Immutable.Map({
+				opened: Immutable.List([1, 11, 111]),
+				selectedId: 111,
+			}),
+		};
+		const items = [
+			{
+				id: 1,
+				name: '1',
+				children: [
+					{
+						id: 11,
+						name: '11',
+						children: [{ id: 111, name: '1111' }],
+					},
+				],
+			},
+			{
+				id: 2,
+				name: '2',
+			},
+		];
+
+		const structure = transform(items, props);
+		expect(structure[0].isOpened).toBe(true);
+		expect(structure[0].children[0].isOpened).toBe(true);
+		expect(structure[0].children[0].children[0].isOpened).toBe(true);
+		expect(structure[1].isOpened).toBe(false);
 	});
 });

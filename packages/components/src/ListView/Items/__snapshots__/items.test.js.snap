@@ -52,6 +52,7 @@ exports[`Items should render 1`] = `
           onScroll={[Function]}
           overscanIndicesGetter={[Function]}
           overscanRowCount={10}
+          role="listbox"
           rowCount={4}
           rowHeight={[Function]}
           rowRenderer={[Function]}
@@ -100,7 +101,7 @@ exports[`Items should render 1`] = `
             overscanColumnCount={0}
             overscanIndicesGetter={[Function]}
             overscanRowCount={10}
-            role="grid"
+            role="listbox"
             rowCount={4}
             rowHeight={[Function]}
             rowRenderer={[Function]}
@@ -118,7 +119,7 @@ exports[`Items should render 1`] = `
               aria-readonly={true}
               className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items tc-list-items"
               onScroll={[Function]}
-              role="grid"
+              role="listbox"
               style={
                 Object {
                   "WebkitOverflowScrolling": "touch",
@@ -149,170 +150,431 @@ exports[`Items should render 1`] = `
                   }
                 }
               >
-                <div
-                  className="theme-tc-item-container theme-toggle tc-item-container toggle"
-                  key="0-0"
-                  style={
-                    Object {
-                      "height": 40,
-                      "left": 0,
-                      "position": "absolute",
-                      "top": 0,
-                      "width": "100%",
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 4,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
                     }
                   }
+                  columnIndex={0}
+                  key="0-0"
+                  rowIndex={0}
                 >
                   <div
-                    className="checkbox"
+                    className="theme-tc-item-container tc-item-container theme-toggle toggle"
+                    key="0-0"
+                    style={
+                      Object {
+                        "height": 40,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 0,
+                        "width": "100%",
+                      }
+                    }
                   >
-                    <label
-                      htmlFor="tc-listview-toggle-all"
+                    <div
+                      className="checkbox"
                     >
-                      <input
-                        checked={false}
-                        id="tc-listview-toggle-all"
-                        type="checkbox"
-                      />
-                      <strong>
-                        Toggle all
-                      </strong>
-                    </label>
+                      <label
+                        htmlFor="tc-listview-toggle-all"
+                      >
+                        <input
+                          id="tc-listview-toggle-all"
+                          type="checkbox"
+                        />
+                        <strong>
+                          Select all
+                        </strong>
+                      </label>
+                    </div>
                   </div>
-                </div>
-                <div
-                  className="theme-tc-item-container theme-false tc-item-container"
+                </CellMeasurer>
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 4,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
+                    }
+                  }
+                  columnIndex={0}
                   key="1-0"
-                  style={
-                    Object {
-                      "height": 42,
-                      "left": 0,
-                      "position": "absolute",
-                      "top": 40,
-                      "width": "100%",
-                    }
-                  }
+                  rowIndex={1}
                 >
-                  <Item
-                    isSwitchBox={false}
-                    item={
+                  <div
+                    className="theme-tc-item-container tc-item-container"
+                    key="1-0"
+                    style={
                       Object {
-                        "label": "Lorem ipsum dolor sit amet 0",
+                        "height": 42,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 40,
+                        "width": "100%",
                       }
                     }
                   >
-                    <div>
-                      <div
-                        className="checkbox-container"
+                    <Translate(Item)
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "label": "Lorem ipsum dolor sit amet 0",
+                        }
+                      }
+                      measure={[Function]}
+                    >
+                      <I18n
+                        bindI18n="languageChanged loaded"
+                        bindStore="added removed"
+                        i18n={Object {}}
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "label": "Lorem ipsum dolor sit amet 0",
+                          }
+                        }
+                        measure={[Function]}
+                        ns={
+                          Array [
+                            "tui-components",
+                          ]
+                        }
+                        nsMode="default"
+                        translateFuncName="t"
+                        usePureComponent={false}
+                        wait={false}
+                        withRef={false}
                       >
-                        <div
-                          className="checkbox"
+                        <Item
+                          i18n={Object {}}
+                          isSwitchBox={false}
+                          item={
+                            Object {
+                              "label": "Lorem ipsum dolor sit amet 0",
+                            }
+                          }
+                          measure={[Function]}
+                          t={[Function]}
+                          tReady={false}
                         >
-                          <label>
-                            <input
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <span
-                              className="theme-tc-listview-item-label tc-listview-item-label"
-                            >
-                              Lorem ipsum dolor sit amet 0
-                            </span>
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </Item>
-                </div>
-                <div
-                  className="theme-tc-item-container theme-false tc-item-container"
+                          <div
+                            className="checkbox"
+                            role="option"
+                          >
+                            <label>
+                              <input
+                                aria-label="Select Lorem ipsum dolor sit amet 0"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span
+                                className="theme-tc-listview-item-label tc-listview-item-label"
+                              >
+                                Lorem ipsum dolor sit amet 0
+                              </span>
+                            </label>
+                          </div>
+                        </Item>
+                      </I18n>
+                    </Translate(Item)>
+                  </div>
+                </CellMeasurer>
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 4,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
+                    }
+                  }
+                  columnIndex={0}
                   key="2-0"
-                  style={
-                    Object {
-                      "height": 42,
-                      "left": 0,
-                      "position": "absolute",
-                      "top": 82,
-                      "width": "100%",
-                    }
-                  }
+                  rowIndex={2}
                 >
-                  <Item
-                    isSwitchBox={false}
-                    item={
+                  <div
+                    className="theme-tc-item-container tc-item-container"
+                    key="2-0"
+                    style={
                       Object {
-                        "checked": true,
-                        "label": "Lorem ipsum dolor sit amet 1",
+                        "height": 42,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 82,
+                        "width": "100%",
                       }
                     }
                   >
-                    <div>
-                      <div
-                        className="checkbox-container"
+                    <Translate(Item)
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "checked": true,
+                          "label": "Lorem ipsum dolor sit amet 1",
+                        }
+                      }
+                      measure={[Function]}
+                    >
+                      <I18n
+                        bindI18n="languageChanged loaded"
+                        bindStore="added removed"
+                        i18n={Object {}}
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "checked": true,
+                            "label": "Lorem ipsum dolor sit amet 1",
+                          }
+                        }
+                        measure={[Function]}
+                        ns={
+                          Array [
+                            "tui-components",
+                          ]
+                        }
+                        nsMode="default"
+                        translateFuncName="t"
+                        usePureComponent={false}
+                        wait={false}
+                        withRef={false}
                       >
-                        <div
-                          className="checkbox"
+                        <Item
+                          i18n={Object {}}
+                          isSwitchBox={false}
+                          item={
+                            Object {
+                              "checked": true,
+                              "label": "Lorem ipsum dolor sit amet 1",
+                            }
+                          }
+                          measure={[Function]}
+                          t={[Function]}
+                          tReady={false}
                         >
-                          <label>
-                            <input
-                              checked={true}
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <span
-                              className="theme-tc-listview-item-label tc-listview-item-label"
-                            >
-                              Lorem ipsum dolor sit amet 1
-                            </span>
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </Item>
-                </div>
-                <div
-                  className="theme-tc-item-container theme-false tc-item-container"
+                          <div
+                            aria-selected={true}
+                            className="checkbox"
+                            role="option"
+                          >
+                            <label>
+                              <input
+                                aria-label="Deselect Lorem ipsum dolor sit amet 1"
+                                checked={true}
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span
+                                className="theme-tc-listview-item-label tc-listview-item-label"
+                              >
+                                Lorem ipsum dolor sit amet 1
+                              </span>
+                            </label>
+                          </div>
+                        </Item>
+                      </I18n>
+                    </Translate(Item)>
+                  </div>
+                </CellMeasurer>
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 4,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
+                    }
+                  }
+                  columnIndex={0}
                   key="3-0"
-                  style={
-                    Object {
-                      "height": 42,
-                      "left": 0,
-                      "position": "absolute",
-                      "top": 124,
-                      "width": "100%",
-                    }
-                  }
+                  rowIndex={3}
                 >
-                  <Item
-                    isSwitchBox={false}
-                    item={
+                  <div
+                    className="theme-tc-item-container tc-item-container"
+                    key="3-0"
+                    style={
                       Object {
-                        "label": "Lorem ipsum dolor sit amet 2",
+                        "height": 42,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 124,
+                        "width": "100%",
                       }
                     }
                   >
-                    <div>
-                      <div
-                        className="checkbox-container"
+                    <Translate(Item)
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "label": "Lorem ipsum dolor sit amet 2",
+                        }
+                      }
+                      measure={[Function]}
+                    >
+                      <I18n
+                        bindI18n="languageChanged loaded"
+                        bindStore="added removed"
+                        i18n={Object {}}
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "label": "Lorem ipsum dolor sit amet 2",
+                          }
+                        }
+                        measure={[Function]}
+                        ns={
+                          Array [
+                            "tui-components",
+                          ]
+                        }
+                        nsMode="default"
+                        translateFuncName="t"
+                        usePureComponent={false}
+                        wait={false}
+                        withRef={false}
                       >
-                        <div
-                          className="checkbox"
+                        <Item
+                          i18n={Object {}}
+                          isSwitchBox={false}
+                          item={
+                            Object {
+                              "label": "Lorem ipsum dolor sit amet 2",
+                            }
+                          }
+                          measure={[Function]}
+                          t={[Function]}
+                          tReady={false}
                         >
-                          <label>
-                            <input
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <span
-                              className="theme-tc-listview-item-label tc-listview-item-label"
-                            >
-                              Lorem ipsum dolor sit amet 2
-                            </span>
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </Item>
-                </div>
+                          <div
+                            className="checkbox"
+                            role="option"
+                          >
+                            <label>
+                              <input
+                                aria-label="Select Lorem ipsum dolor sit amet 2"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span
+                                className="theme-tc-listview-item-label tc-listview-item-label"
+                              >
+                                Lorem ipsum dolor sit amet 2
+                              </span>
+                            </label>
+                          </div>
+                        </Item>
+                      </I18n>
+                    </Translate(Item)>
+                  </div>
+                </CellMeasurer>
               </div>
             </div>
           </Grid>
@@ -393,6 +655,7 @@ exports[`Items should render with nested items 1`] = `
           onScroll={[Function]}
           overscanIndicesGetter={[Function]}
           overscanRowCount={10}
+          role="listbox"
           rowCount={3}
           rowHeight={[Function]}
           rowRenderer={[Function]}
@@ -450,7 +713,7 @@ exports[`Items should render with nested items 1`] = `
             overscanColumnCount={0}
             overscanIndicesGetter={[Function]}
             overscanRowCount={10}
-            role="grid"
+            role="listbox"
             rowCount={3}
             rowHeight={[Function]}
             rowRenderer={[Function]}
@@ -468,7 +731,7 @@ exports[`Items should render with nested items 1`] = `
               aria-readonly={true}
               className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items tc-list-items"
               onScroll={[Function]}
-              role="grid"
+              role="listbox"
               style={
                 Object {
                   "WebkitOverflowScrolling": "touch",
@@ -499,226 +762,446 @@ exports[`Items should render with nested items 1`] = `
                   }
                 }
               >
-                <div
-                  className="theme-tc-item-container theme-toggle tc-item-container toggle"
-                  key="0-0"
-                  style={
-                    Object {
-                      "height": 40,
-                      "left": 0,
-                      "position": "absolute",
-                      "top": 0,
-                      "width": "100%",
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 3,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
                     }
                   }
+                  columnIndex={0}
+                  key="0-0"
+                  rowIndex={0}
                 >
                   <div
-                    className="checkbox"
-                  >
-                    <label
-                      htmlFor="tc-listview-toggle-all"
-                    >
-                      <input
-                        checked={false}
-                        id="tc-listview-toggle-all"
-                        type="checkbox"
-                      />
-                      <strong>
-                        Toggle all
-                      </strong>
-                    </label>
-                  </div>
-                </div>
-                <div
-                  className="theme-tc-item-container theme-false tc-item-container"
-                  key="1-0"
-                  style={
-                    Object {
-                      "height": 42,
-                      "left": 0,
-                      "position": "absolute",
-                      "top": 40,
-                      "width": "100%",
-                    }
-                  }
-                >
-                  <Item
-                    isSwitchBox={false}
-                    item={
+                    className="theme-tc-item-container tc-item-container theme-toggle toggle"
+                    key="0-0"
+                    style={
                       Object {
-                        "label": "Lorem ipsum dolor default",
+                        "height": 40,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 0,
+                        "width": "100%",
                       }
                     }
                   >
-                    <div>
-                      <div
-                        className="checkbox-container"
+                    <div
+                      className="checkbox"
+                    >
+                      <label
+                        htmlFor="tc-listview-toggle-all"
                       >
-                        <div
-                          className="checkbox"
-                        >
-                          <label>
-                            <input
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <span
-                              className="theme-tc-listview-item-label tc-listview-item-label"
-                            >
-                              Lorem ipsum dolor default
-                            </span>
-                          </label>
-                        </div>
-                      </div>
+                        <input
+                          id="tc-listview-toggle-all"
+                          type="checkbox"
+                        />
+                        <strong>
+                          Select all
+                        </strong>
+                      </label>
                     </div>
-                  </Item>
-                </div>
-                <div
-                  className="theme-tc-item-container theme-false tc-item-container"
-                  key="2-0"
-                  style={
-                    Object {
-                      "height": 42,
-                      "left": 0,
-                      "position": "absolute",
-                      "top": 82,
-                      "width": "100%",
+                  </div>
+                </CellMeasurer>
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 3,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
                     }
                   }
+                  columnIndex={0}
+                  key="1-0"
+                  rowIndex={1}
                 >
-                  <Item
-                    isSwitchBox={false}
-                    item={
+                  <div
+                    className="theme-tc-item-container tc-item-container"
+                    key="1-0"
+                    style={
                       Object {
-                        "checked": true,
-                        "children": Array [
+                        "height": 42,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 40,
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <Translate(Item)
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "label": "Lorem ipsum dolor default",
+                        }
+                      }
+                      measure={[Function]}
+                    >
+                      <I18n
+                        bindI18n="languageChanged loaded"
+                        bindStore="added removed"
+                        i18n={Object {}}
+                        isSwitchBox={false}
+                        item={
                           Object {
-                            "label": "Lorem ipsum dolor sit amet 0",
-                          },
+                            "label": "Lorem ipsum dolor default",
+                          }
+                        }
+                        measure={[Function]}
+                        ns={
+                          Array [
+                            "tui-components",
+                          ]
+                        }
+                        nsMode="default"
+                        translateFuncName="t"
+                        usePureComponent={false}
+                        wait={false}
+                        withRef={false}
+                      >
+                        <Item
+                          i18n={Object {}}
+                          isSwitchBox={false}
+                          item={
+                            Object {
+                              "label": "Lorem ipsum dolor default",
+                            }
+                          }
+                          measure={[Function]}
+                          t={[Function]}
+                          tReady={false}
+                        >
+                          <div
+                            className="checkbox"
+                            role="option"
+                          >
+                            <label>
+                              <input
+                                aria-label="Select Lorem ipsum dolor default"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span
+                                className="theme-tc-listview-item-label tc-listview-item-label"
+                              >
+                                Lorem ipsum dolor default
+                              </span>
+                            </label>
+                          </div>
+                        </Item>
+                      </I18n>
+                    </Translate(Item)>
+                  </div>
+                </CellMeasurer>
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 3,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
+                    }
+                  }
+                  columnIndex={0}
+                  key="2-0"
+                  rowIndex={2}
+                >
+                  <div
+                    className="theme-tc-item-container tc-item-container"
+                    key="2-0"
+                    style={
+                      Object {
+                        "height": 42,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 82,
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <Translate(Item)
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "checked": true,
+                          "children": Array [
+                            Object {
+                              "label": "Lorem ipsum dolor sit amet 0",
+                            },
+                            Object {
+                              "checked": true,
+                              "label": "Lorem ipsum dolor sit amet 1",
+                            },
+                            Object {
+                              "label": "Lorem ipsum dolor sit amet 2",
+                            },
+                          ],
+                          "label": "Lorem ipsum dolor Parent",
+                        }
+                      }
+                      measure={[Function]}
+                    >
+                      <I18n
+                        bindI18n="languageChanged loaded"
+                        bindStore="added removed"
+                        i18n={Object {}}
+                        isSwitchBox={false}
+                        item={
                           Object {
                             "checked": true,
-                            "label": "Lorem ipsum dolor sit amet 1",
-                          },
-                          Object {
-                            "label": "Lorem ipsum dolor sit amet 2",
-                          },
-                        ],
-                        "label": "Lorem ipsum dolor Parent",
-                      }
-                    }
-                  >
-                    <div>
-                      <div
-                        className="checkbox-container"
+                            "children": Array [
+                              Object {
+                                "label": "Lorem ipsum dolor sit amet 0",
+                              },
+                              Object {
+                                "checked": true,
+                                "label": "Lorem ipsum dolor sit amet 1",
+                              },
+                              Object {
+                                "label": "Lorem ipsum dolor sit amet 2",
+                              },
+                            ],
+                            "label": "Lorem ipsum dolor Parent",
+                          }
+                        }
+                        measure={[Function]}
+                        ns={
+                          Array [
+                            "tui-components",
+                          ]
+                        }
+                        nsMode="default"
+                        translateFuncName="t"
+                        usePureComponent={false}
+                        wait={false}
+                        withRef={false}
                       >
-                        <div
-                          className="checkbox switch-nested"
+                        <Item
+                          i18n={Object {}}
+                          isSwitchBox={false}
+                          item={
+                            Object {
+                              "checked": true,
+                              "children": Array [
+                                Object {
+                                  "label": "Lorem ipsum dolor sit amet 0",
+                                },
+                                Object {
+                                  "checked": true,
+                                  "label": "Lorem ipsum dolor sit amet 1",
+                                },
+                                Object {
+                                  "label": "Lorem ipsum dolor sit amet 2",
+                                },
+                              ],
+                              "label": "Lorem ipsum dolor Parent",
+                            }
+                          }
+                          measure={[Function]}
+                          t={[Function]}
+                          tReady={false}
                         >
-                          <label>
-                            <input
-                              checked={true}
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <span
-                              className="theme-tc-listview-item-label tc-listview-item-label"
-                            >
-                              Lorem ipsum dolor Parent
-                            </span>
-                          </label>
                           <div
-                            className="checkbox-nested-expand"
+                            aria-selected={true}
+                            className="checkbox switch-nested"
+                            role="option"
                           >
-                            <Action
-                              bsStyle="link"
-                              icon="talend-caret-down"
-                              onClick={[Function]}
+                            <label>
+                              <input
+                                aria-label="Deselect Lorem ipsum dolor Parent"
+                                checked={true}
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span
+                                className="theme-tc-listview-item-label tc-listview-item-label"
+                              >
+                                Lorem ipsum dolor Parent
+                              </span>
+                            </label>
+                            <div
+                              className="checkbox-nested-expand"
                             >
-                              <Translate(ActionButton)
+                              <Action
                                 bsStyle="link"
+                                hideLabel={true}
                                 icon="talend-caret-down"
+                                label="Expand Lorem ipsum dolor Parent"
                                 onClick={[Function]}
                               >
-                                <I18n
-                                  bindI18n="languageChanged loaded"
-                                  bindStore="added removed"
+                                <Translate(ActionButton)
                                   bsStyle="link"
-                                  i18n={Object {}}
+                                  hideLabel={true}
                                   icon="talend-caret-down"
-                                  ns={
-                                    Array [
-                                      "tui-components",
-                                    ]
-                                  }
-                                  nsMode="default"
+                                  label="Expand Lorem ipsum dolor Parent"
                                   onClick={[Function]}
-                                  translateFuncName="t"
-                                  usePureComponent={false}
-                                  wait={false}
-                                  withRef={false}
                                 >
-                                  <ActionButton
-                                    available={true}
+                                  <I18n
+                                    bindI18n="languageChanged loaded"
+                                    bindStore="added removed"
                                     bsStyle="link"
-                                    disabled={false}
+                                    hideLabel={true}
                                     i18n={Object {}}
                                     icon="talend-caret-down"
-                                    inProgress={false}
-                                    loading={false}
+                                    label="Expand Lorem ipsum dolor Parent"
+                                    ns={
+                                      Array [
+                                        "tui-components",
+                                      ]
+                                    }
+                                    nsMode="default"
                                     onClick={[Function]}
-                                    t={[Function]}
-                                    tReady={false}
-                                    tooltipPlacement="top"
+                                    translateFuncName="t"
+                                    usePureComponent={false}
+                                    wait={false}
+                                    withRef={false}
                                   >
-                                    <Button
-                                      active={false}
-                                      block={false}
-                                      bsClass="btn"
+                                    <ActionButton
+                                      available={true}
                                       bsStyle="link"
                                       disabled={false}
+                                      hideLabel={true}
+                                      i18n={Object {}}
+                                      icon="talend-caret-down"
+                                      inProgress={false}
+                                      label="Expand Lorem ipsum dolor Parent"
+                                      loading={false}
                                       onClick={[Function]}
-                                      onMouseDown={[Function]}
-                                      role={null}
+                                      t={[Function]}
+                                      tReady={false}
+                                      tooltipPlacement="top"
                                     >
-                                      <button
-                                        className="btn btn-link"
-                                        disabled={false}
-                                        onClick={[Function]}
-                                        onMouseDown={[Function]}
-                                        role={null}
-                                        type="button"
+                                      <TooltipTrigger
+                                        label="Expand Lorem ipsum dolor Parent"
+                                        tooltipPlacement="top"
                                       >
-                                        <Icon
-                                          key="icon"
-                                          name="talend-caret-down"
+                                        <Button
+                                          active={false}
+                                          aria-label="Expand Lorem ipsum dolor Parent"
+                                          block={false}
+                                          bsClass="btn"
+                                          bsStyle="link"
+                                          className="btn-icon-only"
+                                          disabled={false}
+                                          onClick={[Function]}
+                                          onFocus={[Function]}
+                                          onMouseDown={[Function]}
+                                          onMouseOver={[Function]}
+                                          role={null}
                                         >
-                                          <svg
-                                            aria-hidden="true"
-                                            className="theme-tc-svg-icon tc-svg-icon"
-                                            focusable="false"
-                                            name="talend-caret-down"
-                                            title={null}
+                                          <button
+                                            aria-label="Expand Lorem ipsum dolor Parent"
+                                            className="btn-icon-only btn btn-link"
+                                            disabled={false}
+                                            onClick={[Function]}
+                                            onFocus={[Function]}
+                                            onMouseDown={[Function]}
+                                            onMouseOver={[Function]}
+                                            role={null}
+                                            type="button"
                                           >
-                                            <use
-                                              xlinkHref="#talend-caret-down"
-                                            />
-                                          </svg>
-                                        </Icon>
-                                        <span
-                                          key="label"
-                                        />
-                                      </button>
-                                    </Button>
-                                  </ActionButton>
-                                </I18n>
-                              </Translate(ActionButton)>
-                            </Action>
+                                            <Icon
+                                              key="icon"
+                                              name="talend-caret-down"
+                                            >
+                                              <svg
+                                                aria-hidden="true"
+                                                className="theme-tc-svg-icon tc-svg-icon"
+                                                focusable="false"
+                                                name="talend-caret-down"
+                                                title={null}
+                                              >
+                                                <use
+                                                  xlinkHref="#talend-caret-down"
+                                                />
+                                              </svg>
+                                            </Icon>
+                                          </button>
+                                        </Button>
+                                      </TooltipTrigger>
+                                    </ActionButton>
+                                  </I18n>
+                                </Translate(ActionButton)>
+                              </Action>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </Item>
-                </div>
+                        </Item>
+                      </I18n>
+                    </Translate(Item)>
+                  </div>
+                </CellMeasurer>
               </div>
             </div>
           </Grid>
@@ -782,6 +1265,7 @@ exports[`Items should render with provided id 1`] = `
           onScroll={[Function]}
           overscanIndicesGetter={[Function]}
           overscanRowCount={10}
+          role="listbox"
           rowCount={4}
           rowHeight={[Function]}
           rowRenderer={[Function]}
@@ -830,7 +1314,7 @@ exports[`Items should render with provided id 1`] = `
             overscanColumnCount={0}
             overscanIndicesGetter={[Function]}
             overscanRowCount={10}
-            role="grid"
+            role="listbox"
             rowCount={4}
             rowHeight={[Function]}
             rowRenderer={[Function]}
@@ -848,7 +1332,7 @@ exports[`Items should render with provided id 1`] = `
               aria-readonly={true}
               className="ReactVirtualized__Grid ReactVirtualized__List theme-tc-list-items tc-list-items"
               onScroll={[Function]}
-              role="grid"
+              role="listbox"
               style={
                 Object {
                   "WebkitOverflowScrolling": "touch",
@@ -879,191 +1363,455 @@ exports[`Items should render with provided id 1`] = `
                   }
                 }
               >
-                <div
-                  className="theme-tc-item-container theme-toggle tc-item-container toggle"
-                  key="0-0"
-                  style={
-                    Object {
-                      "height": 40,
-                      "left": 0,
-                      "position": "absolute",
-                      "top": 0,
-                      "width": "100%",
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 4,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
                     }
                   }
+                  columnIndex={0}
+                  key="0-0"
+                  rowIndex={0}
                 >
                   <div
-                    className="checkbox"
+                    className="theme-tc-item-container tc-item-container theme-toggle toggle"
+                    key="0-0"
+                    style={
+                      Object {
+                        "height": 40,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 0,
+                        "width": "100%",
+                      }
+                    }
                   >
-                    <label
-                      htmlFor="my-widget-toggle-all"
+                    <div
+                      className="checkbox"
                     >
-                      <input
-                        checked={false}
-                        id="my-widget-toggle-all"
-                        type="checkbox"
-                      />
-                      <strong>
-                        Toggle all
-                      </strong>
-                    </label>
+                      <label
+                        htmlFor="my-widget-toggle-all"
+                      >
+                        <input
+                          id="my-widget-toggle-all"
+                          type="checkbox"
+                        />
+                        <strong>
+                          Select all
+                        </strong>
+                      </label>
+                    </div>
                   </div>
-                </div>
-                <div
-                  className="theme-tc-item-container theme-false tc-item-container"
+                </CellMeasurer>
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 4,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
+                    }
+                  }
+                  columnIndex={0}
                   key="1-0"
-                  style={
-                    Object {
-                      "height": 42,
-                      "left": 0,
-                      "position": "absolute",
-                      "top": 40,
-                      "width": "100%",
-                    }
-                  }
+                  rowIndex={1}
                 >
-                  <Item
-                    id="my-widget-1-item"
-                    isSwitchBox={false}
-                    item={
+                  <div
+                    className="theme-tc-item-container tc-item-container"
+                    key="1-0"
+                    style={
                       Object {
-                        "label": "Lorem ipsum dolor sit amet 0",
+                        "height": 42,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 40,
+                        "width": "100%",
                       }
                     }
-                    key="my-widget-1-item"
                   >
-                    <div
+                    <Translate(Item)
                       id="my-widget-1-item"
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "label": "Lorem ipsum dolor sit amet 0",
+                        }
+                      }
+                      key="my-widget-1-item"
+                      measure={[Function]}
                     >
-                      <div
-                        className="checkbox-container"
+                      <I18n
+                        bindI18n="languageChanged loaded"
+                        bindStore="added removed"
+                        i18n={Object {}}
+                        id="my-widget-1-item"
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "label": "Lorem ipsum dolor sit amet 0",
+                          }
+                        }
+                        measure={[Function]}
+                        ns={
+                          Array [
+                            "tui-components",
+                          ]
+                        }
+                        nsMode="default"
+                        translateFuncName="t"
+                        usePureComponent={false}
+                        wait={false}
+                        withRef={false}
                       >
-                        <div
-                          className="checkbox"
+                        <Item
+                          i18n={Object {}}
+                          id="my-widget-1-item"
+                          isSwitchBox={false}
+                          item={
+                            Object {
+                              "label": "Lorem ipsum dolor sit amet 0",
+                            }
+                          }
+                          measure={[Function]}
+                          t={[Function]}
+                          tReady={false}
                         >
-                          <label
-                            htmlFor="checkbox-my-widget-1-item"
+                          <div
+                            className="checkbox"
+                            id="my-widget-1-item"
+                            role="option"
                           >
-                            <input
-                              id="checkbox-my-widget-1-item"
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <span
-                              className="theme-tc-listview-item-label tc-listview-item-label"
+                            <label
+                              htmlFor="checkbox-my-widget-1-item"
                             >
-                              Lorem ipsum dolor sit amet 0
-                            </span>
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </Item>
-                </div>
-                <div
-                  className="theme-tc-item-container theme-false tc-item-container"
+                              <input
+                                aria-label="Select Lorem ipsum dolor sit amet 0"
+                                id="checkbox-my-widget-1-item"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span
+                                className="theme-tc-listview-item-label tc-listview-item-label"
+                              >
+                                Lorem ipsum dolor sit amet 0
+                              </span>
+                            </label>
+                          </div>
+                        </Item>
+                      </I18n>
+                    </Translate(Item)>
+                  </div>
+                </CellMeasurer>
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 4,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
+                    }
+                  }
+                  columnIndex={0}
                   key="2-0"
-                  style={
-                    Object {
-                      "height": 42,
-                      "left": 0,
-                      "position": "absolute",
-                      "top": 82,
-                      "width": "100%",
-                    }
-                  }
+                  rowIndex={2}
                 >
-                  <Item
-                    id="my-widget-2-item"
-                    isSwitchBox={false}
-                    item={
+                  <div
+                    className="theme-tc-item-container tc-item-container"
+                    key="2-0"
+                    style={
                       Object {
-                        "checked": true,
-                        "label": "Lorem ipsum dolor sit amet 1",
+                        "height": 42,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 82,
+                        "width": "100%",
                       }
                     }
-                    key="my-widget-2-item"
                   >
-                    <div
+                    <Translate(Item)
                       id="my-widget-2-item"
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "checked": true,
+                          "label": "Lorem ipsum dolor sit amet 1",
+                        }
+                      }
+                      key="my-widget-2-item"
+                      measure={[Function]}
                     >
-                      <div
-                        className="checkbox-container"
+                      <I18n
+                        bindI18n="languageChanged loaded"
+                        bindStore="added removed"
+                        i18n={Object {}}
+                        id="my-widget-2-item"
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "checked": true,
+                            "label": "Lorem ipsum dolor sit amet 1",
+                          }
+                        }
+                        measure={[Function]}
+                        ns={
+                          Array [
+                            "tui-components",
+                          ]
+                        }
+                        nsMode="default"
+                        translateFuncName="t"
+                        usePureComponent={false}
+                        wait={false}
+                        withRef={false}
                       >
-                        <div
-                          className="checkbox"
+                        <Item
+                          i18n={Object {}}
+                          id="my-widget-2-item"
+                          isSwitchBox={false}
+                          item={
+                            Object {
+                              "checked": true,
+                              "label": "Lorem ipsum dolor sit amet 1",
+                            }
+                          }
+                          measure={[Function]}
+                          t={[Function]}
+                          tReady={false}
                         >
-                          <label
-                            htmlFor="checkbox-my-widget-2-item"
+                          <div
+                            aria-selected={true}
+                            className="checkbox"
+                            id="my-widget-2-item"
+                            role="option"
                           >
-                            <input
-                              checked={true}
-                              id="checkbox-my-widget-2-item"
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <span
-                              className="theme-tc-listview-item-label tc-listview-item-label"
+                            <label
+                              htmlFor="checkbox-my-widget-2-item"
                             >
-                              Lorem ipsum dolor sit amet 1
-                            </span>
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </Item>
-                </div>
-                <div
-                  className="theme-tc-item-container theme-false tc-item-container"
-                  key="3-0"
-                  style={
-                    Object {
-                      "height": 42,
-                      "left": 0,
-                      "position": "absolute",
-                      "top": 124,
-                      "width": "100%",
+                              <input
+                                aria-label="Deselect Lorem ipsum dolor sit amet 1"
+                                checked={true}
+                                id="checkbox-my-widget-2-item"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span
+                                className="theme-tc-listview-item-label tc-listview-item-label"
+                              >
+                                Lorem ipsum dolor sit amet 1
+                              </span>
+                            </label>
+                          </div>
+                        </Item>
+                      </I18n>
+                    </Translate(Item)>
+                  </div>
+                </CellMeasurer>
+                <CellMeasurer
+                  cache={
+                    CellMeasurerCache {
+                      "_cellHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_cellWidthCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "_columnCount": 1,
+                      "_columnWidthCache": Object {},
+                      "_defaultHeight": 42,
+                      "_defaultWidth": 100,
+                      "_hasFixedHeight": false,
+                      "_hasFixedWidth": true,
+                      "_keyMapper": [Function],
+                      "_minHeight": 0,
+                      "_minWidth": 0,
+                      "_rowCount": 4,
+                      "_rowHeightCache": Object {
+                        "0-0": 0,
+                        "1-0": 0,
+                        "2-0": 0,
+                        "3-0": 0,
+                      },
+                      "columnWidth": [Function],
+                      "rowHeight": [Function],
                     }
                   }
+                  columnIndex={0}
+                  key="3-0"
+                  rowIndex={3}
                 >
-                  <Item
-                    id="my-widget-3-item"
-                    isSwitchBox={false}
-                    item={
+                  <div
+                    className="theme-tc-item-container tc-item-container"
+                    key="3-0"
+                    style={
                       Object {
-                        "label": "Lorem ipsum dolor sit amet 2",
+                        "height": 42,
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 124,
+                        "width": "100%",
                       }
                     }
-                    key="my-widget-3-item"
                   >
-                    <div
+                    <Translate(Item)
                       id="my-widget-3-item"
+                      isSwitchBox={false}
+                      item={
+                        Object {
+                          "label": "Lorem ipsum dolor sit amet 2",
+                        }
+                      }
+                      key="my-widget-3-item"
+                      measure={[Function]}
                     >
-                      <div
-                        className="checkbox-container"
+                      <I18n
+                        bindI18n="languageChanged loaded"
+                        bindStore="added removed"
+                        i18n={Object {}}
+                        id="my-widget-3-item"
+                        isSwitchBox={false}
+                        item={
+                          Object {
+                            "label": "Lorem ipsum dolor sit amet 2",
+                          }
+                        }
+                        measure={[Function]}
+                        ns={
+                          Array [
+                            "tui-components",
+                          ]
+                        }
+                        nsMode="default"
+                        translateFuncName="t"
+                        usePureComponent={false}
+                        wait={false}
+                        withRef={false}
                       >
-                        <div
-                          className="checkbox"
+                        <Item
+                          i18n={Object {}}
+                          id="my-widget-3-item"
+                          isSwitchBox={false}
+                          item={
+                            Object {
+                              "label": "Lorem ipsum dolor sit amet 2",
+                            }
+                          }
+                          measure={[Function]}
+                          t={[Function]}
+                          tReady={false}
                         >
-                          <label
-                            htmlFor="checkbox-my-widget-3-item"
+                          <div
+                            className="checkbox"
+                            id="my-widget-3-item"
+                            role="option"
                           >
-                            <input
-                              id="checkbox-my-widget-3-item"
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <span
-                              className="theme-tc-listview-item-label tc-listview-item-label"
+                            <label
+                              htmlFor="checkbox-my-widget-3-item"
                             >
-                              Lorem ipsum dolor sit amet 2
-                            </span>
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </Item>
-                </div>
+                              <input
+                                aria-label="Select Lorem ipsum dolor sit amet 2"
+                                id="checkbox-my-widget-3-item"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                              <span
+                                className="theme-tc-listview-item-label tc-listview-item-label"
+                              >
+                                Lorem ipsum dolor sit amet 2
+                              </span>
+                            </label>
+                          </div>
+                        </Item>
+                      </I18n>
+                    </Translate(Item)>
+                  </div>
+                </CellMeasurer>
               </div>
             </div>
           </Grid>

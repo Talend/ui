@@ -15,10 +15,10 @@ public class BrowserStackWebDriverTest extends WebDriverTest {
     public void setUp() throws Exception {
         final DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browser", "Chrome");
-        capabilities.setCapability("browser_version", "64.0");
+        capabilities.setCapability("browser_version", "66.0");
         capabilities.setCapability("os", "Windows");
         capabilities.setCapability("os_version", "10");
-        capabilities.setCapability("resolution", "1024x768");
+        capabilities.setCapability("resolution", "1600x1200");
         capabilities.setCapability("browserstack.debug", "true");
         if (System.getProperty("storybook.host") == "localhost") {
             capabilities.setCapability("browserstack.local", "true");

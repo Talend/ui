@@ -1,0 +1,12 @@
+$tc-list-header-icon-margin-top: 3px !default;
+
+.tc-header-icon {
+	display: flex;
+	flex-grow: 1;
+	justify-content: center;
+	margin-top: $tc-list-header-icon-margin-top;
+
+	span {
+		line-height: 0;
+	}
+}

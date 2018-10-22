@@ -24,6 +24,14 @@ describe('UIForm component', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render form in text display mode', () => {
+		// when
+		const wrapper = shallow(<UIFormComponent {...data} {...props} displayMode="text" />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should render provided actions', () => {
 		// when
 		const wrapper = shallow(<UIFormComponent {...data} {...props} actions={actions} />);
@@ -186,6 +194,56 @@ describe('UIForm component', () => {
 				schema: mergedSchema[2],
 			});
 		});
+		it('should throw error if call without trigger', () => {
+			// given
+			const wrapper = shallow(<UIForm {...data} {...props} />);
+
+			// when
+			const toThrow = () => wrapper.instance.onTrigger({}, {});
+
+			// then
+			expect(toThrow).toThrow();
+		});
+		it('should ensure properties, error and schema are passed from props', () => {
+			// given
+			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
+
+			// when
+			const trigger = { foo: 'trigger' };
+			const event = { type: 'change' };
+			wrapper.instance().onTrigger(event, { trigger });
+
+			// then
+			expect(props.onTrigger).toHaveBeenCalled();
+			expect(props.onTrigger.mock.calls[0][0]).toBe(event);
+			expect(props.onTrigger.mock.calls[0][1].properties).toBe(data.properties);
+			expect(props.onTrigger.mock.calls[0][1].errors).toBe(data.errors);
+			expect(props.onTrigger.mock.calls[0][1].schema).toBe(props.schema);
+		});
+		it('should let args override default props', () => {
+			// given
+			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
+
+			// when
+			const trigger = { foo: 'trigger' };
+			const event = { type: 'change' };
+			const properties = { foo: 'I am a properties' };
+			const errors = { foo: 'I am a errors' };
+			const schema = { foo: 'I am a schema' };
+			const value = "I'm a value";
+			wrapper.instance().onTrigger(event, { trigger, properties, errors, schema, value });
+
+			// then
+			expect(props.onTrigger).toHaveBeenCalled();
+			expect(props.onTrigger.mock.calls[0][0]).toBe(event);
+			expect(props.onTrigger.mock.calls[0][1].properties).not.toBe(data.properties);
+			expect(props.onTrigger.mock.calls[0][1].errors).not.toBe(data.errors);
+			expect(props.onTrigger.mock.calls[0][1].schema).not.toBe(props.schema);
+			expect(props.onTrigger.mock.calls[0][1].properties).toBe(properties);
+			expect(props.onTrigger.mock.calls[0][1].errors).toBe(errors);
+			expect(props.onTrigger.mock.calls[0][1].schema).toBe(schema);
+			expect(props.onTrigger.mock.calls[0][1].value).toBe(value);
+		});
 	});
 
 	describe('#onSubmit', () => {
@@ -212,6 +270,29 @@ describe('UIForm component', () => {
 			// then
 			expect(props.setErrors).toBeCalledWith(submitEvent, {
 				firstname: 'Missing required field',
+			});
+		});
+
+		it('should validate all fields with existing errors', () => {
+			// given
+			const dataProperties = { lastname: 'dupont' };
+			const errors = {
+				lastname: 'String is too short (6 chars), minimum 10',
+				checked: 'error added via a trigger',
+			};
+			// props.errors.lastname =
+			const wrapper = shallow(
+				<UIFormComponent {...data} properties={dataProperties} errors={errors} {...props} />,
+			);
+
+			// when
+			wrapper.instance().onSubmit(submitEvent);
+
+			// then
+			expect(props.setErrors).toBeCalledWith(submitEvent, {
+				checked: 'error added via a trigger',
+				firstname: 'Missing required field',
+				lastname: 'String is too short (6 chars), minimum 10',
 			});
 		});
 

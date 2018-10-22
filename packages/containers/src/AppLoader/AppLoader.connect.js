@@ -29,7 +29,7 @@ export function AppLoaderContainer({ loading, children, ...rest }) {
 
 AppLoaderContainer.displayName = 'AppLoader';
 AppLoaderContainer.propTypes = {
-	children: PropTypes.element,
+	children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
 	loading: PropTypes.bool,
 };
 

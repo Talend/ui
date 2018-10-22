@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 import { I18nextProvider } from 'react-i18next';
 
 import i18n, { LanguageSwitcher } from './config/i18n';
@@ -15,13 +16,7 @@ const filterAction = {
 
 const props = {
 	required: true,
-	items: [
-		'Lorem',
-		'Ipsum',
-		'Dolor',
-		'Sit',
-		'Amet',
-	].map(v => ({
+	items: ['Lorem', 'Ipsum', 'Dolor', 'Sit', 'Amet'].map(v => ({
 		label: v,
 		value: v,
 		onChange: action('onChange'),
@@ -38,12 +33,14 @@ const props = {
 const searchProps = {
 	...props,
 	displayMode: 'DISPLAY_MODE_SEARCH',
-	headerInput: [{
-		label: 'Abort',
-		icon: 'talend-cross',
-		id: 'abort',
-		onClick: action('abort'),
-	}],
+	headerInput: [
+		{
+			label: 'Remove search',
+			icon: 'talend-cross',
+			id: 'abort',
+			onClick: action('abort'),
+		},
+	],
 	searchCriteria: 'ore',
 };
 
@@ -83,7 +80,7 @@ const withNestedItems = {
 					value: 'Dolor',
 					onChange: action('onChange'),
 				},
-			]
+			],
 		},
 		{
 			label: 'IpsumParent',
@@ -107,7 +104,7 @@ const withNestedItems = {
 					value: 'Dolor2',
 					onChange: action('onChange'),
 				},
-			]
+			],
 		},
 	],
 	headerDefault: [filterAction],
@@ -121,6 +118,7 @@ const withNestedItems = {
 };
 
 storiesOf('ListView', module)
+	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<I18nextProvider i18n={i18n}>
 			<div>
@@ -135,10 +133,8 @@ storiesOf('ListView', module)
 		const emptyProps = { ...props };
 		emptyProps.items = [];
 		return (
-				<div id="listview-empty">
-				<ListView
-					{...emptyProps}
-				/>
+			<div id="listview-empty">
+				<ListView {...emptyProps} />
 			</div>
 		);
 	})
@@ -147,32 +143,23 @@ storiesOf('ListView', module)
 		singleEntryProps.items = [props.items[0]];
 		return (
 			<div id="listview-single">
-				<ListView
-					{...singleEntryProps}
-				/>
+				<ListView {...singleEntryProps} />
 			</div>
 		);
 	})
 	.addWithInfo('several values', () => (
 		<div id="listview-several">
-			<ListView
-				{...props}
-			/>
+			<ListView {...props} />
 		</div>
 	))
 	.addWithInfo('search mode', () => (
 		<div id="listview-search">
-
-			<ListView
-				{...searchProps}
-			/>
+			<ListView {...searchProps} />
 		</div>
 	))
 	.addWithInfo('search mode without results', () => (
 		<div id="listview-search-no-result">
-			<ListView
-				{...noResultsSearch}
-			/>
+			<ListView {...noResultsSearch} />
 		</div>
 	))
 	.addWithInfo('selected values', () => {
@@ -182,27 +169,21 @@ storiesOf('ListView', module)
 
 		return (
 			<div id="listview-selected">
-				<ListView
-					{...selectedValuesProps}
-				/>
+				<ListView {...selectedValuesProps} />
 			</div>
 		);
 	})
 	.addWithInfo('with switch box', () => {
 		return (
 			<div id="listview-switch">
-				<ListView
-					{...withSwitchBox}
-				/>
+				<ListView {...withSwitchBox} />
 			</div>
 		);
 	})
 	.addWithInfo('with nested items', () => {
 		return (
 			<div id="listview-nested">
-				<ListView
-					{...withNestedItems}
-				/>
+				<ListView {...withNestedItems} />
 			</div>
 		);
 	})
@@ -212,9 +193,7 @@ storiesOf('ListView', module)
 
 		return (
 			<div id="listview-without-toggle-all">
-				<ListView
-					{...withoutToggleALLProps}
-				/>
+				<ListView {...withoutToggleALLProps} />
 			</div>
 		);
 	});

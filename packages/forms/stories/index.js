@@ -7,6 +7,7 @@ import { I18nextProvider } from 'react-i18next';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, object } from '@storybook/addon-knobs';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import Well from 'react-bootstrap/lib/Well';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
@@ -22,6 +23,7 @@ import ArrayFieldTemplate from '../src/templates/ArrayFieldTemplate';
 a11y(ReactDOM);
 
 const decoratedStories = storiesOf('Form', module)
+	.addDecorator(checkA11y)
 	.addDecorator(withKnobs)
 	.addDecorator(story => (
 		<I18nextProvider i18n={i18n}>
@@ -128,7 +130,7 @@ decoratedStories.add('Multiple actions', () => {
 });
 
 function CustomDatalist(...args) {
-	function renderItemsContainer({ children, containerProps }) {
+	function RenderItemsContainer({ children, containerProps }) {
 		return (
 			<div {...containerProps}>
 				{children}
@@ -157,12 +159,12 @@ function CustomDatalist(...args) {
 		);
 	}
 
-	renderItemsContainer.propTypes = {
+	RenderItemsContainer.propTypes = {
 		children: PropTypes.element,
 		containerProps: PropTypes.object,
 	};
 
-	function renderNoMatch({ ...containerProps }) {
+	function RenderNoMatch({ containerProps }) {
 		return (
 			<div
 				{...containerProps}
@@ -191,8 +193,11 @@ function CustomDatalist(...args) {
 			</div>
 		);
 	}
+	RenderNoMatch.propTypes = {
+		containerProps: PropTypes.object,
+	};
 
-	function renderEmptyList({ containerProps }) {
+	function RenderEmptyList({ containerProps }) {
 		return (
 			<div
 				{...containerProps}
@@ -216,18 +221,21 @@ function CustomDatalist(...args) {
 						bsStyle="primary"
 						id="default"
 						label="do some stuff"
-	 				/>
+					/>
 				</div>
 			</div>
 		);
 	}
+	RenderEmptyList.propTypes = {
+		containerProps: PropTypes.object,
+	};
 
 	return (
 		<DatalistWidget
 			{...args[0]}
-			renderItemsContainer={renderItemsContainer}
-			renderNoMatch={renderNoMatch}
-			renderEmptyList={renderEmptyList}
+			renderItemsContainer={RenderItemsContainer}
+			renderNoMatch={RenderNoMatch}
+			renderEmptyList={RenderEmptyList}
 		/>
 	);
 }

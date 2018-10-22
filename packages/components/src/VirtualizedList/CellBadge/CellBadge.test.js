@@ -8,7 +8,7 @@ describe('CellActions', () => {
 		// when
 		const wrapper = shallow(
 			<CellBadge
-				cellData={{ label: 'streaming' }}
+				cellData="streaming"
 				rowIndex={25}
 				columnData={{
 					selected: true,

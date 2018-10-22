@@ -1,8 +1,135 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CellTitleActions should extract and render each dropdown actions 1`] = `
+exports[`CellTitleActions should display 2 actions and the rest in an ellipsis dropdown (>= 4) 1`] = `
 <div
   className="main-title-actions-group theme-main-title-actions-group"
+  id="my-actions"
+  onKeyDown={[Function]}
+>
+  <div
+    className="cell-title-actions theme-cell-title-actions"
+  >
+    <Action
+      data-feature="list.item.edit"
+      getComponent={[Function]}
+      hideLabel={true}
+      icon="talend-pencil"
+      id="edit"
+      label="edit"
+      link={true}
+      onClick={[Function]}
+    />
+    <Action
+      data-feature="list.item.delete"
+      getComponent={[Function]}
+      hideLabel={true}
+      icon="talend-trash"
+      id="delete"
+      label="delete"
+      link={true}
+      onClick={[Function]}
+    />
+    <Translate(ActionDropdown)
+      className="cell-title-actions-menu theme-cell-title-actions-menu"
+      hideLabel={true}
+      id="my-actions-ellispsis-actions"
+      items={
+        Array [
+          Object {
+            "data-feature": "list.item.copy",
+            "icon": "talend-files-o",
+            "id": "copy",
+            "label": "copy",
+            "onClick": [Function],
+          },
+          Object {
+            "data-feature": "list.item.params",
+            "icon": "talend-cog",
+            "id": "params",
+            "label": "edit params",
+            "onClick": [Function],
+          },
+          Object {
+            "data-feature": "list.item.download",
+            "icon": "talend-download",
+            "id": "download",
+            "label": "download",
+            "onClick": [Function],
+          },
+        ]
+      }
+      label="Open menu"
+      link={true}
+      noCaret={true}
+    />
+  </div>
+</div>
+`;
+
+exports[`CellTitleActions should display all actions on LARGE display mode 1`] = `
+<div
+  className="main-title-actions-group theme-main-title-actions-group"
+  id="my-actions"
+  onKeyDown={[Function]}
+>
+  <Actions
+    actions={
+      Array [
+        Object {
+          "data-feature": "list.item.edit",
+          "icon": "talend-pencil",
+          "id": "edit",
+          "label": "edit",
+          "onClick": [Function],
+        },
+        Object {
+          "data-feature": "list.item.delete",
+          "icon": "talend-trash",
+          "id": "delete",
+          "label": "delete",
+          "onClick": [Function],
+        },
+        Object {
+          "data-feature": "list.item.copy",
+          "icon": "talend-files-o",
+          "id": "copy",
+          "label": "copy",
+          "onClick": [Function],
+        },
+        Object {
+          "data-feature": "list.item.params",
+          "icon": "talend-cog",
+          "id": "params",
+          "label": "edit params",
+          "onClick": [Function],
+        },
+        Object {
+          "data-feature": "list.item.download",
+          "icon": "talend-download",
+          "id": "download",
+          "label": "download",
+          "onClick": [Function],
+        },
+      ]
+    }
+    className="cell-title-actions theme-cell-title-actions"
+    getComponent={[Function]}
+    hideLabel={true}
+    link={true}
+    renderers={
+      Object {
+        "Action": [Function],
+      }
+    }
+  />
+</div>
+`;
+
+exports[`CellTitleActions should display all actions when there are only few (< 4) 1`] = `
+<div
+  className="main-title-actions-group theme-main-title-actions-group"
+  id="my-actions"
+  onKeyDown={[Function]}
 >
   <div
     className="cell-title-actions theme-cell-title-actions"
@@ -11,26 +138,29 @@ exports[`CellTitleActions should extract and render each dropdown actions 1`] = 
       actions={
         Array [
           Object {
-            "displayMode": "dropdown",
-            "icon": "talend-folder",
-            "id": "related",
-            "items": Array [
-              Object {
-                "data-feature": "list.item.related",
-                "label": "document 1",
-                "onClick": [Function],
-              },
-              Object {
-                "data-feature": "list.item.related",
-                "label": "document 2",
-                "onClick": [Function],
-              },
-            ],
-            "label": "related items",
-            "pullRight": true,
+            "data-feature": "list.item.edit",
+            "icon": "talend-pencil",
+            "id": "edit",
+            "label": "edit",
+            "onClick": [Function],
+          },
+          Object {
+            "data-feature": "list.item.delete",
+            "icon": "talend-trash",
+            "id": "delete",
+            "label": "delete",
+            "onClick": [Function],
+          },
+          Object {
+            "data-feature": "list.item.copy",
+            "icon": "talend-files-o",
+            "id": "copy",
+            "label": "copy",
+            "onClick": [Function],
           },
         ]
       }
+      getComponent={[Function]}
       hideLabel={true}
       link={true}
       renderers={
@@ -39,97 +169,85 @@ exports[`CellTitleActions should extract and render each dropdown actions 1`] = 
         }
       }
     />
-    <ActionDropdown
-      bsStyle="default"
-      className="cell-title-actions-menu theme-cell-title-actions-menu"
-      hideLabel={true}
-      id="my-actions"
-      items={
-        Array [
-          Object {
-            "data-feature": "list.item.edit",
-            "hideLabel": true,
-            "icon": "talend-pencil",
-            "id": "edit",
-            "label": "edit",
-            "onClick": [Function],
-          },
-          Object {
-            "data-feature": "list.item.delete",
-            "hideLabel": true,
-            "icon": "talend-trash",
-            "id": "delete",
-            "label": "delete",
-            "onClick": [Function],
-          },
-        ]
-      }
-      label="Open menu"
-      link={true}
-      noCaret={true}
-      tooltipPlacement="top"
-    />
   </div>
-  <Actions
-    actions={Array []}
-    className="persistent-actions theme-persistent-actions"
-    hideLabel={true}
-    link={true}
-    renderers={
-      Object {
-        "Action": [Function],
-      }
-    }
-  />
 </div>
 `;
 
-exports[`CellTitleActions should not render actions in input mode 1`] = `
+exports[`CellTitleActions should extract dropdown actions, completed with simple actions, to display out of ellipsis dropdown 1`] = `
 <div
   className="main-title-actions-group theme-main-title-actions-group"
->
-  
-</div>
-`;
-
-exports[`CellTitleActions should render a menu containing simple actions 1`] = `
-<div
-  className="main-title-actions-group theme-main-title-actions-group"
+  id="my-actions"
+  onKeyDown={[Function]}
 >
   <div
     className="cell-title-actions theme-cell-title-actions"
   >
-    <Actions
-      actions={Array []}
+    <Action
+      data-feature="list.item.edit"
+      getComponent={[Function]}
       hideLabel={true}
+      icon="talend-pencil"
+      id="edit"
+      label="edit"
       link={true}
-      renderers={
-        Object {
-          "Action": [Function],
-        }
-      }
+      onClick={[Function]}
     />
-    <ActionDropdown
-      bsStyle="default"
-      className="cell-title-actions-menu theme-cell-title-actions-menu"
+    <Action
+      displayMode="dropdown"
+      getComponent={[Function]}
       hideLabel={true}
-      id="my-actions"
+      icon="talend-folder"
+      id="related"
       items={
         Array [
           Object {
-            "data-feature": "list.item.edit",
-            "hideLabel": true,
-            "icon": "talend-pencil",
-            "id": "edit",
-            "label": "edit",
+            "data-feature": "list.item.related",
+            "label": "document 1",
             "onClick": [Function],
           },
           Object {
+            "data-feature": "list.item.related",
+            "label": "document 2",
+            "onClick": [Function],
+          },
+        ]
+      }
+      label="related items"
+      link={true}
+      pullRight={true}
+    />
+    <Translate(ActionDropdown)
+      className="cell-title-actions-menu theme-cell-title-actions-menu"
+      hideLabel={true}
+      id="my-actions-ellispsis-actions"
+      items={
+        Array [
+          Object {
             "data-feature": "list.item.delete",
-            "hideLabel": true,
             "icon": "talend-trash",
             "id": "delete",
             "label": "delete",
+            "onClick": [Function],
+          },
+          Object {
+            "data-feature": "list.item.copy",
+            "icon": "talend-files-o",
+            "id": "copy",
+            "label": "copy",
+            "onClick": [Function],
+          },
+          Object {
+            "data-feature": "list.item.params",
+            "icon": "talend-cog",
+            "id": "params",
+            "label": "edit params",
+            "onClick": [Function],
+          },
+          Object {
+            "data-feature": "list.item.download",
+            "icon": "talend-download",
+            "id": "download",
+            "label": "download",
             "onClick": [Function],
           },
         ]
@@ -137,80 +255,139 @@ exports[`CellTitleActions should render a menu containing simple actions 1`] = `
       label="Open menu"
       link={true}
       noCaret={true}
-      tooltipPlacement="top"
     />
   </div>
-  <Actions
-    actions={Array []}
-    className="persistent-actions theme-persistent-actions"
-    hideLabel={true}
-    link={true}
-    renderers={
-      Object {
-        "Action": [Function],
-      }
-    }
-  />
 </div>
 `;
 
-exports[`CellTitleActions should render all actions when the type is LARGE 1`] = `
+exports[`CellTitleActions should extract only dropdown actions, when there are lot of them 1`] = `
 <div
   className="main-title-actions-group theme-main-title-actions-group"
+  id="my-actions"
+  onKeyDown={[Function]}
 >
-  <Actions
-    actions={
-      Array [
-        Object {
-          "data-feature": "list.item.edit",
-          "hideLabel": true,
-          "icon": "talend-pencil",
-          "id": "edit",
-          "label": "edit",
-          "onClick": [Function],
-        },
-        Object {
-          "data-feature": "list.item.delete",
-          "hideLabel": true,
-          "icon": "talend-trash",
-          "id": "delete",
-          "label": "delete",
-          "onClick": [Function],
-        },
-      ]
-    }
+  <div
     className="cell-title-actions theme-cell-title-actions"
-    hideLabel={true}
-    link={true}
-    renderers={
-      Object {
-        "Action": [Function],
+  >
+    <Action
+      displayMode="dropdown"
+      getComponent={[Function]}
+      hideLabel={true}
+      icon="talend-folder"
+      id="related"
+      items={
+        Array [
+          Object {
+            "data-feature": "list.item.related",
+            "label": "document 1",
+            "onClick": [Function],
+          },
+          Object {
+            "data-feature": "list.item.related",
+            "label": "document 2",
+            "onClick": [Function],
+          },
+        ]
       }
-    }
-  />
-  <Actions
-    actions={Array []}
-    className="persistent-actions theme-persistent-actions"
-    hideLabel={true}
-    link={true}
-    renderers={
-      Object {
-        "Action": [Function],
+      label="related items"
+      link={true}
+      pullRight={true}
+    />
+    <Action
+      displayMode="dropdown"
+      getComponent={[Function]}
+      hideLabel={true}
+      icon="talend-datastreams-colored"
+      id="open-with-tfd"
+      items={
+        Array [
+          Object {
+            "label": "Stream 1",
+            "onClick": [Function],
+          },
+          Object {
+            "label": "Stream 2",
+            "onClick": [Function],
+          },
+        ]
       }
-    }
-  />
+      label="Open with Streams"
+      link={true}
+    />
+    <Action
+      displayMode="dropdown"
+      getComponent={[Function]}
+      hideLabel={true}
+      icon="talend-tdp-colored"
+      id="open-with-tdp"
+      items={
+        Array [
+          Object {
+            "label": "Prep 1",
+            "onClick": [Function],
+          },
+        ]
+      }
+      label="Open with Data Preparation"
+      link={true}
+    />
+    <Translate(ActionDropdown)
+      className="cell-title-actions-menu theme-cell-title-actions-menu"
+      hideLabel={true}
+      id="my-actions-ellispsis-actions"
+      items={
+        Array [
+          Object {
+            "data-feature": "list.item.edit",
+            "icon": "talend-pencil",
+            "id": "edit",
+            "label": "edit",
+            "onClick": [Function],
+          },
+          Object {
+            "data-feature": "list.item.delete",
+            "icon": "talend-trash",
+            "id": "delete",
+            "label": "delete",
+            "onClick": [Function],
+          },
+          Object {
+            "data-feature": "list.item.copy",
+            "icon": "talend-files-o",
+            "id": "copy",
+            "label": "copy",
+            "onClick": [Function],
+          },
+          Object {
+            "data-feature": "list.item.params",
+            "icon": "talend-cog",
+            "id": "params",
+            "label": "edit params",
+            "onClick": [Function],
+          },
+          Object {
+            "data-feature": "list.item.download",
+            "icon": "talend-download",
+            "id": "download",
+            "label": "download",
+            "onClick": [Function],
+          },
+        ]
+      }
+      label="Open menu"
+      link={true}
+      noCaret={true}
+    />
+  </div>
 </div>
 `;
 
 exports[`CellTitleActions should render persistent actions 1`] = `
 <div
   className="main-title-actions-group theme-main-title-actions-group"
+  id="my-actions"
+  onKeyDown={[Function]}
 >
-  <div
-    className="cell-title-actions theme-cell-title-actions"
-  >
-    
-  </div>
   <Actions
     actions={
       Array [
@@ -231,6 +408,7 @@ exports[`CellTitleActions should render persistent actions 1`] = `
       ]
     }
     className="persistent-actions theme-persistent-actions"
+    getComponent={[Function]}
     hideLabel={true}
     link={true}
     renderers={

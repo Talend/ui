@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { IconsProvider } from '@talend/react-components';
-import { api } from '@talend/react-cmf';
+import api from '@talend/react-cmf';
 import Immutable from 'immutable';
 import { I18nextProvider } from 'react-i18next';
-import { cloneDeep } from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 
 import { List } from '../src';
 import i18n from './config/i18n';
@@ -23,6 +23,20 @@ CellWithHello.propTypes = {
 
 api.component.register('helloComp', CellWithHello);
 
+/**
+ * Cell renderer that displays hello + text
+ */
+function CustomHeader({ label }) {
+	return <div>hello {label} !</div>;
+}
+
+CustomHeader.displayName = 'VirtualizedList(CustomHeader)';
+CustomHeader.propTypes = {
+	label: PropTypes.string,
+};
+
+api.component.register('helloHeader', CustomHeader);
+
 const list = {
 	columns: [
 		{ key: 'id', label: 'Id' },
@@ -39,15 +53,21 @@ const list = {
 const listWithTimestamp = {
 	columns: [
 		{ key: 'id', label: 'Id', type: 'hello' },
-		{ key: 'label', label: 'Name' },
+		{ key: 'label', label: 'Name', header: 'helloHeader', sortFunction: '_list_sort:sortByLength' },
 		{ key: 'author', label: 'Author' },
 		{
 			key: 'created',
 			label: 'Created',
 			type: 'datetime',
-			data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' },
+			data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD', iconName: 'talend-scheduler' },
+			header: 'icon',
 		},
-		{ key: 'modified', label: 'Modified', type: 'datetime', data: { mode: 'ago' } },
+		{
+			key: 'modified',
+			label: 'Modified',
+			type: 'datetime',
+			data: { mode: 'ago' },
+		},
 	],
 	titleProps: {
 		key: 'label',
@@ -334,7 +354,7 @@ const ExampleList = {
 			</div>
 		</div>
 	),
-	'custom renderer': () => {
+	'custom cell renderer': () => {
 		const cellDictionary = {
 			hello: { component: 'helloComp' },
 		};
@@ -348,6 +368,24 @@ const ExampleList = {
 						{...propsTimestampSorted}
 						items={itemsWithTimestamp}
 						cellDictionary={cellDictionary}
+					/>
+				</div>
+			</div>
+		);
+	},
+	'custom header renderer': () => {
+		const headerDictionary = {
+			helloHeader: { component: 'helloHeader' },
+		};
+		return (
+			<div>
+				<IconsProvider />
+				<div className="list-container">
+					<List
+						virtualized
+						{...propsTimestampSorted}
+						items={itemsWithTimestamp}
+						headerDictionary={headerDictionary}
 					/>
 				</div>
 			</div>

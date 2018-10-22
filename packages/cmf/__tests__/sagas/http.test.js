@@ -121,6 +121,14 @@ describe('http.delete', () => {
 });
 
 describe('handleBody', () => {
+	it('should manage the body of the response like text if no header', done => {
+		handleBody(new Response('{"foo": 42}', {})).then(({ data, response }) => {
+			expect(data).toBe('{"foo": 42}');
+			expect(response instanceof Response).toBeTruthy();
+			done();
+		});
+	});
+
 	it('should manage the body of the response like a json', done => {
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/json');
@@ -454,15 +462,17 @@ describe('#httpFetch with CSRF handling configuration', () => {
 	beforeAll(() => {
 		HTTP.defaultConfig = null;
 
-		document.cookie = `${defaultHttpConfiguration.security
-			.CSRFTokenCookieKey}=${CSRFToken}; dwf_section_edit=True;`;
+		document.cookie = `${
+			defaultHttpConfiguration.security.CSRFTokenCookieKey
+		}=${CSRFToken}; dwf_section_edit=True;`;
 	});
 
 	afterAll(() => {
 		HTTP.defaultConfig = null;
 
-		document.cookie = `${defaultHttpConfiguration.security
-			.CSRFTokenCookieKey}=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
+		document.cookie = `${
+			defaultHttpConfiguration.security.CSRFTokenCookieKey
+		}=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
 	});
 
 	it('check if httpFetch is called with the security configuration', done => {
@@ -856,7 +866,7 @@ describe('setDefaultLanguage', () => {
 });
 
 describe('handleDefaultConfiguration', () => {
-	it('should merge the defaultHttpConfig with httpConfig', () => {
+	it('should return merge of the defaultHttpConfig with httpConfig', () => {
 		expect(
 			handleDefaultHttpConfiguration({
 				headers: {
@@ -873,5 +883,35 @@ describe('handleDefaultConfiguration', () => {
 				'content-type': 'application/json',
 			},
 		});
+	});
+
+	it(`should return merge the defaultHttpConfig with httpConfig
+	and not store it with partial application of the curryied function`, () => {
+		// given
+		const defaultHttpConfig = {
+			headers: {
+				'Accept-Language': 'fr',
+			},
+		};
+
+		const copyOfDefaultHttpConfig = {
+			headers: {
+				'Accept-Language': 'fr',
+			},
+		};
+
+		const httpConfig = {
+			headers: {
+				'content-type': 'application/json',
+			},
+		};
+		// when
+		const configuredHandleDefaultHttpConfiguration = handleDefaultHttpConfiguration(
+			defaultHttpConfig,
+		);
+		configuredHandleDefaultHttpConfiguration(httpConfig);
+		const resultTwo = configuredHandleDefaultHttpConfiguration({});
+		// expect
+		expect(resultTwo).toEqual(copyOfDefaultHttpConfig);
 	});
 });

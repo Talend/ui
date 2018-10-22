@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { mount, shallow } from 'enzyme';
+import Badge from '@talend/react-components/lib/Badge';
 import Typeahead from '@talend/react-components/lib/Typeahead';
 import keycode from 'keycode';
 import MultiSelectTag from './MultiSelectTag.component';
@@ -18,6 +19,7 @@ describe('MultiSelectTag field', () => {
 			disabled: false,
 			placeholder: 'Type here',
 			readOnly: false,
+			required: true,
 			restricted: false,
 			title: 'Tags',
 			titleMap: [{ name: 'toto', value: 'titi' }, { name: 'tata', value: 'tutu' }],
@@ -41,10 +43,10 @@ describe('MultiSelectTag field', () => {
 		wrapper
 			.find('input')
 			.at(0)
-			.simulate('change', { target: { value: 'ti' } });
+			.simulate('change', { target: { value: 'titi' } });
 
 		// then
-		expect(wrapper.find(Typeahead).props().items).toEqual(['titi']);
+		expect(wrapper.find(Typeahead).props().items).toEqual([{ title: 'titi (new)', value: 'titi' }]);
 	});
 
 	it('should update suggestion on props.value change', () => {
@@ -53,13 +55,16 @@ describe('MultiSelectTag field', () => {
 		// eslint-disable-next-line react/no-render-return-value
 		const instance = ReactDOM.render(<MultiSelectTag {...props} />, node);
 		instance.updateSuggestions();
-		expect(instance.state.suggestions).toEqual(['titi']);
+		expect(instance.state.suggestions).toEqual([{ title: 'toto', value: 'titi' }]);
 
 		// when : trigger a props update
 		ReactDOM.render(<MultiSelectTag {...props} value={['aze']} />, node);
 
 		// then
-		expect(instance.state.suggestions).toEqual(['titi', 'tutu']);
+		expect(instance.state.suggestions).toEqual([
+			{ title: 'toto', value: 'titi' },
+			{ title: 'tata', value: 'tutu' },
+		]);
 	});
 
 	it('should suggest new item creation when widget is not restricted', () => {
@@ -73,7 +78,7 @@ describe('MultiSelectTag field', () => {
 			.simulate('change', { target: { value: 'az' } });
 
 		// then
-		expect(wrapper.find(Typeahead).props().items).toEqual(['az (new)']);
+		expect(wrapper.find(Typeahead).props().items).toEqual([{ title: 'az (new)', value: 'az' }]);
 	});
 
 	it('should NOT suggest new item creation when widget is restricted', () => {
@@ -99,7 +104,7 @@ describe('MultiSelectTag field', () => {
 		const input = wrapper.find('input').at(0);
 
 		// when
-		input.simulate('change', { target: { value: 'ti' } });
+		input.simulate('change', { target: { value: 'titi' } });
 		input.simulate('keydown', { which: keycode.codes.enter });
 
 		// then
@@ -124,5 +129,68 @@ describe('MultiSelectTag field', () => {
 		const payload = { schema: props.schema, value: props.value.slice(1) };
 		expect(onChange).toBeCalledWith(expect.anything(), payload);
 		expect(onFinish).toBeCalledWith(expect.anything(), payload);
+	});
+
+	it('should call onTrigger on focus', done => {
+		// given
+		const data = { titleMap: [{ name: 'Foo', value: 'foo' }] };
+		const triggerProps = {
+			...props,
+			onTrigger: jest.fn(
+				event =>
+					new Promise(resolve => {
+						// hack: to be sure we catch the setState after the promise
+						setTimeout(() => {
+							expect(event.target.state.isLoading).toBe(false);
+							done();
+						}, 0);
+						return resolve(data);
+					}),
+			),
+			schema: {
+				...props.schema,
+				triggers: [
+					{
+						onEvent: 'focus',
+					},
+				],
+			},
+		};
+		const wrapper = shallow(<MultiSelectTag {...triggerProps} />);
+		const event = { type: 'focus', target: wrapper.instance() };
+
+		// when
+		wrapper
+			.find('FieldTemplate')
+			.find(Typeahead)
+			.prop('onFocus')(event);
+
+		// then
+		expect(triggerProps.onTrigger).toBeCalledWith(event, {
+			trigger: triggerProps.schema.triggers[0],
+			schema: triggerProps.schema,
+			errors: triggerProps.errors,
+			properties: triggerProps.properties,
+		});
+		expect(wrapper.state('isLoading')).toBe(true);
+	});
+
+	it('should call onTrigger on focus', () => {
+		// given
+		const nameResolverProps = {
+			...props,
+			resolveName: value => value.map(next => `${next}_name`),
+		};
+		const wrapper = shallow(<MultiSelectTag {...nameResolverProps} />);
+
+		// when
+		const firstLabel = wrapper
+			.find('FieldTemplate')
+			.find(Badge)
+			.first()
+			.prop('label');
+
+		// then
+		expect(firstLabel).toBe('aze_name');
 	});
 });

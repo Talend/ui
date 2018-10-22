@@ -6,16 +6,27 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	display: flex;
 	align-items: center;
 	position: relative;
+	height: 100%;
 
 	.icon {
+		filter: url('#talend-grayscale');
 		flex-shrink: 0;
 		height: $tc-list-title-icon-size;
 		width: $tc-list-title-icon-size;
 		vertical-align: middle;
 
-		+ form > input {
-			margin-left: $padding-normal;
-			width: auto;
+		+ .edit-form {
+			padding-left: $padding-normal;
+		}
+	}
+
+	.edit-form {
+		flex-grow: 1;
+		height: 100%;
+
+		> input {
+			width: 100%;
+			height: 100%;
 		}
 	}
 
@@ -25,15 +36,21 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+		display: block;
 
 		padding: 0 $padding-normal;
+		height: 100%;
 
 		color: $tc-list-title-color;
 		font-size: inherit;
-		font-weight: 700;
+		font-weight: 600;
 		letter-spacing: inherit;
 		text-transform: none;
 		text-align: left;
+
+		> span {
+			display: inline;
+		}
 
 		&:first-child {
 			padding-left: 0;
@@ -46,8 +63,22 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	}
 }
 
+.tc-list-title-filter {
+	&:hover,
+	&:global(.ally-focus-within) {
+		.icon {
+			color: $brand-primary;
+			filter: none;
+		}
+
+		.main-title {
+			color: $scooter;
+		}
+	}
+}
+
 // manage actions display on row hover
-:global(.tc-list-large-row),
+:global(.tc-list-large-inner-box),
 :global(.ReactVirtualized__Table__row) {
 	&:hover,
 	&:focus,
@@ -60,32 +91,24 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	}
 }
 
-:global(.tc-list-large-row.active),
+:global(.tc-list-large-row.active .tc-list-large-inner-box),
 :global(.ReactVirtualized__Table__row.active) {
 	&:hover,
 	&:focus,
 	&:global(.ally-focus-within) {
 		:global(.tc-list-title .cell-title-actions) {
-			background: linear-gradient(
-				to right,
-				transparent,
-				$tc-list-row-active-hover-bg $padding-large
-			);
+			background: linear-gradient(to right, transparent, $tc-list-row-active-hover-bg $padding-large);
 		}
 	}
 }
 
-:global(.tc-list-large-row.selected),
+:global(.tc-list-large-row.selected .tc-list-large-inner-box),
 :global(.ReactVirtualized__Table__row.selected) {
 	&:hover,
 	&:focus,
 	&:global(.ally-focus-within) {
 		:global(.tc-list-title .cell-title-actions) {
-			background: linear-gradient(
-				to right,
-				transparent,
-				$tc-list-row-selected-hover-bg $padding-large
-			);
+			background: linear-gradient(to right, transparent, $tc-list-row-selected-hover-bg $padding-large);
 		}
 	}
 }

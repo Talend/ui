@@ -1,18 +1,25 @@
 @import '../colors';
 
-$tc-list-table-cell-padding: 8px !default;
-$tc-list-table-header-color: $black !default;
+$tc-list-table-cell-padding: $padding-small !default;
+$tc-list-table-header-color: $dove-gray !default;
+$tc-list-table-border: 1px solid darken($concrete, 5%);
 
 .tc-list-table {
+	background-color: $wild-sand;
+
 	.row {
-		border-bottom: 1px solid darken($concrete, 5%);
+		border-bottom: $tc-list-table-border;
+		background: $white;
 		display: flex;
 		align-items: center;
 
 		&:hover,
 		&:focus,
 		&:global(.ally-focus-within) {
-			background: $tc-list-row-hover-bg;
+			background-color: $wild-sand;
+			.cell {
+				border-left: 1px solid $white;
+			}
 		}
 	}
 
@@ -22,8 +29,8 @@ $tc-list-table-header-color: $black !default;
 		.header {
 			color: $tc-list-table-header-color;
 			display: inline-flex;
-			font-size: 1.4rem;
-			font-weight: bold;
+			font-size: 1.2rem;
+			font-weight: 600;
 			padding: $tc-list-table-cell-padding;
 			text-transform: uppercase;
 		}
@@ -37,10 +44,18 @@ $tc-list-table-header-color: $black !default;
 		box-shadow: $shadow-default;
 
 		.cell {
+			&:first-child {
+				border-left: none;
+			}
+			border-left: $tc-list-table-border;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
-			padding: $tc-list-table-cell-padding;
+			padding: 0 $tc-list-table-cell-padding;
+
+			height: 100%;
+			display: flex;
+			align-items: center;
 		}
 	}
 

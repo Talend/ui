@@ -4,21 +4,24 @@
 ////
 
 .btn {
-	@include btn-colors;
 	border: none;
 	font-size: $btn-font-size;
+	font-weight: 500;
 	letter-spacing: 1px;
 	line-height: $btn-line-height;
+	min-height: $btn-line-height;
 	padding: 0 $padding-normal;
 	text-transform: uppercase;
 	transition: all 0.1s ease-out;
 
 	&,
 	& > span {
-		display: inline-block;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 
 		> * {
-			vertical-align: middle;
+			flex-shrink: 0;
 		}
 	}
 
@@ -37,43 +40,48 @@
 		border-color: transparent;
 	}
 
-	&-success,
-	&-danger {
-		font-weight: 600;
+	&-default {
+		@include btn-colors;
+		@include btn-inverse-colors;
 	}
 
 	&-primary {
 		@include button-variant($btn-validation-color, $btn-validation-bg, $btn-validation-border);
 		@include btn-colors($btn-validation-bg);
+		@include btn-inverse-colors($btn-validation-bg);
 	}
 
 	&-success {
 		@include btn-colors($btn-success-bg);
+		@include btn-inverse-colors($btn-success-bg);
 	}
 
 	&-info {
 		@include btn-colors($btn-info-bg);
+		@include btn-inverse-colors($btn-info-bg);
 	}
 
 	&-warning {
 		@include btn-colors($btn-warning-bg);
+		@include btn-inverse-colors($btn-warning-bg);
 	}
 
 	&-danger {
 		@include btn-colors($btn-danger-bg);
+		@include btn-inverse-colors($btn-danger-bg);
 	}
 
 	&-link {
-		&,
-		&:hover,
-		&:active {
-			background: none;
-			box-shadow: none;
-		}
+		font-size: $font-size-base;
+		font-weight: inherit;
 	}
 
 	&-icon-only {
-		padding: 0 $padding-smaller;
+		display: inline-block;
+
+		svg {
+			vertical-align: middle;
+		}
 	}
 
 	&-xs {
@@ -81,6 +89,7 @@
 		padding: 0 $padding-xs-horizontal;
 		font-size: 1rem;
 		line-height: 1.5rem;
+		min-height: 1.5rem;
 
 		svg {
 			height: $svg-xs-size;
@@ -91,6 +100,7 @@
 	&-sm {
 		padding: 0 $padding-small-horizontal;
 		line-height: 2rem;
+		min-height: 2rem;
 
 		svg {
 			height: $svg-sm-size;
@@ -100,7 +110,7 @@
 
 	&-lg {
 		@include button-size($padding-normal, $padding-large-horizontal, $font-size-large, $line-height-large, $btn-border-radius-large);
-
+		min-height: 5.6rem;
 		svg {
 			height: $svg-lg-size;
 			width: $svg-lg-size;

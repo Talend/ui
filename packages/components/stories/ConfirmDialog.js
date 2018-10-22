@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
 import { List, ConfirmDialog, IconsProvider } from '../src/index';
@@ -38,6 +39,7 @@ const defaultProps = {
 	cancelAction: {
 		label: 'CANCEL',
 		onClick: action('cancel'),
+		className: 'btn-inverse',
 	},
 };
 
@@ -52,6 +54,7 @@ const propsWithoutHeader = {
 	cancelAction: {
 		label: 'CANCEL',
 		onClick: action('cancel'),
+		className: 'btn-inverse',
 	},
 };
 
@@ -67,6 +70,7 @@ const smallProps = {
 	cancelAction: {
 		label: 'CANCEL',
 		onClick: action('cancel'),
+		className: 'btn-inverse',
 	},
 };
 const largeProps = {
@@ -81,6 +85,7 @@ const largeProps = {
 	cancelAction: {
 		label: 'CANCEL',
 		onClick: action('cancel'),
+		className: 'btn-inverse',
 	},
 };
 
@@ -96,6 +101,7 @@ const withProgressBarProps = {
 	cancelAction: {
 		label: 'CANCEL',
 		onClick: action('cancel'),
+		className: 'btn-inverse',
 	},
 	progressValue: 66,
 };
@@ -104,6 +110,7 @@ const children = (<div>BODY content. You can put what ever you want here</div>);
 
 
 storiesOf('ConfirmDialog', module)
+	.addDecorator(checkA11y)
 	.addWithInfo('default', () => (
 		<div>
 			<h1>Dialog</h1>
@@ -212,11 +219,11 @@ storiesOf('ConfirmDialog', module)
 			displayMode: 'table',
 			list: {
 				columns: [
-			{ key: 'id', label: 'Id' },
-			{ key: 'name', label: 'Name' },
-			{ key: 'author', label: 'Author' },
-			{ key: 'created', label: 'Created' },
-			{ key: 'modified', label: 'Modified' },
+					{ key: 'id', label: 'Id' },
+					{ key: 'name', label: 'Name' },
+					{ key: 'author', label: 'Author' },
+					{ key: 'created', label: 'Created' },
+					{ key: 'modified', label: 'Modified' },
 				],
 				items,
 				titleProps: {
@@ -272,8 +279,8 @@ storiesOf('ConfirmDialog', module)
 					field: 'name',
 					onChange: action('sort.onChange'),
 					options: [
-				{ id: 'id', name: 'Id' },
-				{ id: 'name', name: 'Name' },
+						{ id: 'id', name: 'Id' },
+						{ id: 'name', name: 'Name' },
 					],
 				},
 				pagination: {

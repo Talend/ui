@@ -1,26 +1,34 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import get from 'lodash/get';
-import includes from 'lodash/includes';
 import { sfPath } from '@talend/json-schema-form-core';
 
 import defaultWidgets from '../utils/widgets';
 import { getError } from '../utils/errors';
 import { getValue } from '../utils/properties';
+import shouldRender from '../utils/condition';
 
-function shouldRender(conditions, properties) {
-	return !conditions || conditions.every(cond => includes(cond.values, get(properties, cond.path)));
+function getWidget(displayMode, widgetId, customWidgets) {
+	// resolve the widget id depending on the display mode
+	const id = displayMode ? `${widgetId}_${displayMode}` : widgetId;
+
+	// Get the widget and fallback to default mode widget if not found
+	let widget = customWidgets[id] || defaultWidgets[id];
+	if (!widget) {
+		widget = customWidgets[widgetId] || defaultWidgets[widgetId];
+	}
+
+	return widget;
 }
 
 export default function Widget(props) {
-	const { conditions, key, options, type, validationMessage, widget } = props.schema;
+	const { condition, key, options, type, validationMessage, widget, displayMode } = props.schema;
 	const widgetId = widget || type;
 
-	if (widgetId === 'hidden' || !shouldRender(conditions, props.properties)) {
+	if (widgetId === 'hidden' || !shouldRender(condition, props.properties, key)) {
 		return null;
 	}
 
-	const WidgetImpl = props.widgets[widgetId] || defaultWidgets[widgetId];
+	const WidgetImpl = getWidget(props.displayMode || displayMode, widgetId, props.widgets);
 
 	if (!WidgetImpl) {
 		return <p className="text-danger">Widget not found {widgetId}</p>;
@@ -44,13 +52,15 @@ export default function Widget(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	Widget.propTypes = {
-		errors: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+		errors: PropTypes.object,
 		id: PropTypes.string,
 		schema: PropTypes.shape({
 			conditions: PropTypes.arrayOf(
 				PropTypes.shape({
 					path: PropTypes.string,
 					values: PropTypes.array,
+					strategy: PropTypes.string,
+					shouldBe: PropTypes.bool,
 				}),
 			),
 			key: PropTypes.array,
@@ -59,8 +69,9 @@ if (process.env.NODE_ENV !== 'production') {
 			validationMessage: PropTypes.string,
 			widget: PropTypes.string,
 		}).isRequired,
-		properties: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-		widgets: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+		properties: PropTypes.object,
+		displayMode: PropTypes.string,
+		widgets: PropTypes.object,
 	};
 }
 

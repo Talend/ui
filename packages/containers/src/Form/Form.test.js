@@ -16,6 +16,7 @@ describe('Container(Form)', () => {
 				className="foo"
 				onTrigger={jest.fn()}
 				formProps={{ other: true }} // extra props
+				loading
 			/>,
 		);
 		const props = wrapper.props();
@@ -43,7 +44,7 @@ describe('Container(Form)', () => {
 	});
 
 	it('should render with prop uiform = true : UIForm', () => {
-		const wrapper = mount(<Container jsonSchema={{}} uiSchema={[]} uiform />);
+		const wrapper = mount(<Container jsonSchema={{}} uiSchema={{}} uiform />);
 		expect(wrapper.find('TalendForm').length).toBe(1);
 		expect(wrapper.find('TalendUIForm').length).toBe(1);
 	});
@@ -90,6 +91,16 @@ describe('Container(Form)', () => {
 		).find('TalendUIForm');
 		expect(wrapper.props().customFormats).toEqual(customFormats);
 		expect(wrapper.props().customValidation).toEqual(customValidation);
+	});
+
+	it('should use props.onError', () => {
+		const onErrors = jest.fn();
+		const form = new Container({
+			state: fromJS({ data: { schema: true } }),
+			onErrors,
+		});
+		form.onErrors(null, { foo: 'bar' });
+		expect(onErrors.mock.calls[0][1]).toEqual({ foo: 'bar' });
 	});
 
 	it('should use props.onSubmit', () => {

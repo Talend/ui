@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+
 import { listTypes } from './utils/constants';
 import { rowDictionary } from './utils/dictionary';
 import NoRows from './NoRows';
@@ -14,10 +15,11 @@ const { TABLE } = listTypes;
  * Select the ListGrid row renderer to use
  * @param type The row renderer type
  */
-function getRowRenderer(type) {
-	const rowRenderer = rowDictionary[type];
+function getRowRenderer(type, renderers = {}) {
+	const safeRenderer = { ...rowDictionary, ...renderers };
+	const rowRenderer = safeRenderer[type];
 	if (!rowRenderer) {
-		const rowRendererTypes = [TABLE].concat(Object.keys(rowDictionary));
+		const rowRendererTypes = [TABLE].concat(Object.keys(safeRenderer));
 		throw new Error(
 			`Unknown row renderer in Virtualized List : ${type}. ` +
 				`Possible values are [${rowRendererTypes}].`,
@@ -27,90 +29,87 @@ function getRowRenderer(type) {
 }
 
 /**
- * Select the component to display when no item is displayed.
- * If the fetch is in progress, a loader is displayed instead.
- */
-function getNoRowRenderer(NoRowsRenderer, inProgress) {
-	if (inProgress) {
-		return <Loader className={'tc-virtualizedlist-no-result'} />;
-	}
-	return <NoRowsRenderer />;
-}
-
-/**
  * Component that maps list types to the corresponding component
  */
-function RendererSelector(props) {
-	const {
-		children,
-		height,
-		id,
-		isSelected,
-		isActive,
-		onRowClick,
-		onRowDoubleClick,
-		rowHeight,
-		selectionToggle,
-		sort,
-		sortBy,
-		sortDirection,
-		type,
-		width,
-		disableHeader,
-		inProgress,
-	} = props;
-
-	const collection = inProgress ? [] : props.collection;
-	const noRowsRenderer = () => getNoRowRenderer(props.noRowsRenderer, inProgress);
-
-	if (type === TABLE) {
-		return (
-			<ListTable
-				collection={collection}
-				disableHeader={disableHeader}
-				height={height}
-				id={id}
-				isActive={isActive}
-				isSelected={isSelected}
-				noRowsRenderer={noRowsRenderer}
-				onRowClick={onRowClick}
-				onRowDoubleClick={onRowDoubleClick}
-				selectionToggle={selectionToggle}
-				sort={sort}
-				sortBy={sortBy}
-				sortDirection={sortDirection}
-				rowHeight={rowHeight}
-				width={width}
-			>
-				{children}
-			</ListTable>
-		);
+class RendererSelector extends React.Component {
+	constructor(props) {
+		super(props);
+		this.noRowsRenderer = this.noRowsRenderer.bind(this);
 	}
 
-	return (
-		<ListGrid
-			collection={collection}
-			noRowsRenderer={noRowsRenderer}
-			height={height}
-			id={id}
-			isActive={isActive}
-			isSelected={isSelected}
-			onRowClick={onRowClick}
-			onRowDoubleClick={onRowDoubleClick}
-			rowHeight={rowHeight}
-			rowRenderer={getRowRenderer(type)}
-			selectionToggle={selectionToggle}
-			width={width}
-		>
-			{children}
-		</ListGrid>
-	);
+	noRowsRenderer() {
+		if (this.props.inProgress) {
+			return <Loader className={'tc-virtualizedlist-no-result'} />;
+		}
+		const NoRowsRenderer = this.props.noRowsRenderer;
+		return <NoRowsRenderer />;
+	}
+
+	render() {
+		const {
+			children,
+			height,
+			id,
+			isSelected,
+			isActive,
+			onRowClick,
+			onRowDoubleClick,
+			onScroll,
+			rowHeight,
+			sort,
+			sortBy,
+			sortDirection,
+			type,
+			width,
+			disableHeader,
+			inProgress,
+		} = this.props;
+
+		const collection = inProgress ? [] : this.props.collection;
+
+		const commonProps = {
+			children,
+			collection,
+			height,
+			id,
+			isActive,
+			isSelected,
+			noRowsRenderer: this.noRowsRenderer,
+			onRowClick,
+			onRowDoubleClick,
+			onScroll,
+			rowHeight,
+			width,
+		};
+
+		let ListRenderer;
+		let customProps;
+
+		if (type === TABLE) {
+			ListRenderer = ListTable;
+			customProps = {
+				disableHeader,
+				sort,
+				sortBy,
+				sortDirection,
+			};
+		} else {
+			ListRenderer = ListGrid;
+			const rowRenderer = getRowRenderer(type, this.props.rowRenderers);
+			const options = rowRenderer.options || {};
+			customProps = { rowRenderer, ...options };
+		}
+
+		return <ListRenderer {...commonProps} {...customProps} />;
+	}
 }
+
 RendererSelector.displayName = 'VirtualizedList(RendererSelector)';
 RendererSelector.propTypes = {
 	...propTypes,
 	height: PropTypes.number,
 	width: PropTypes.number,
+	rowRenderers: PropTypes.object,
 };
 RendererSelector.defaultProps = {
 	noRowsRenderer: NoRows,

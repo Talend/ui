@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import Icon from '../../Icon';
+import TooltipTrigger from '../../TooltipTrigger';
 import CellTitleSelector from './CellTitleSelector.component';
 import CellTitleActions from './CellTitleActions.component';
 import { cellTitleDisplayModes, listTypes } from '../utils/constants';
@@ -18,47 +19,81 @@ const { TITLE_MODE_TEXT } = cellTitleDisplayModes;
  * - a button with a click action (columnData.onClick)
  * - actions (rowData[columnData.actionsKey])
  */
-function CellTitle({ cellData, columnData, rowData, rowIndex, type }) {
-	const {
-		id,
-		onClick,
-		actionsKey,
-		persistentActionsKey,
-		displayModeKey,
-		iconKey,
-		onEditCancel,
-		onEditSubmit,
-		...columnDataRest
-	} = columnData;
-	const displayMode = rowData[displayModeKey] || TITLE_MODE_TEXT;
-	const titleId = id && `${id}-${rowIndex}-title-cell`;
-	const actionsId = id && `${id}-${rowIndex}-title-actions`;
+class CellTitle extends React.Component {
+	shouldComponentUpdate(nextProps) {
+		return (
+			this.props.cellData !== nextProps.cellData ||
+			this.props.columnData !== nextProps.columnData ||
+			this.props.getComponent !== nextProps.getComponent ||
+			this.props.rowData !== nextProps.rowData ||
+			this.props.rowIndex !== nextProps.rowIndex ||
+			this.props.type !== nextProps.type
+		);
+	}
+	render() {
+		const { cellData, columnData, getComponent, rowData, rowIndex, type } = this.props;
+		const {
+			id,
+			onClick,
+			actionsKey,
+			persistentActionsKey,
+			displayModeKey,
+			iconKey,
+			iconLabelKey,
+			onEditCancel,
+			onEditSubmit,
+			...columnDataRest
+		} = columnData;
 
-	return (
-		<div id={titleId} className={classNames('tc-list-title', theme['tc-list-title'])}>
-			{iconKey && rowData[iconKey] && <Icon name={rowData[iconKey]} className={theme.icon} />}
+		const displayMode = rowData[displayModeKey] || TITLE_MODE_TEXT;
+		const titleId = id && `${id}-${rowIndex}-title-cell`;
+		const actionsId = id && `${id}-${rowIndex}-title-actions`;
 
-			<CellTitleSelector
+		let icon = null;
+		if (iconKey && rowData[iconKey]) {
+			icon = <Icon name={rowData[iconKey]} className={theme.icon} />;
+		}
+		if (icon && iconLabelKey && rowData[iconLabelKey]) {
+			icon = (
+				<TooltipTrigger label={rowData[iconLabelKey]} tooltipPlacement="top">
+					<Icon name={rowData[iconKey]} className={theme.icon} />
+				</TooltipTrigger>
+			);
+		}
+
+		return (
+			<div
 				id={titleId}
-				cellData={cellData}
-				className={theme['main-title']}
-				displayMode={displayMode}
-				onClick={onClick}
-				onEditCancel={onEditCancel}
-				onEditSubmit={onEditSubmit}
-				rowData={rowData}
-				columnData={columnDataRest}
-			/>
-			<CellTitleActions
-				id={actionsId}
-				rowData={rowData}
-				actionsKey={actionsKey}
-				persistentActionsKey={persistentActionsKey}
-				displayMode={displayMode}
-				type={type}
-			/>
-		</div>
-	);
+				className={classNames(theme['tc-list-title'], 'tc-list-title', {
+					[theme['tc-list-title-filter']]: onClick,
+					'tc-list-title-filter': onClick,
+				})}
+			>
+				{icon}
+
+				<CellTitleSelector
+					id={titleId}
+					cellData={cellData}
+					className={theme['main-title']}
+					displayMode={displayMode}
+					onClick={onClick}
+					onEditCancel={onEditCancel}
+					onEditSubmit={onEditSubmit}
+					rowData={rowData}
+					columnData={columnDataRest}
+				/>
+				<CellTitleActions
+					getComponent={getComponent}
+					id={actionsId}
+					rowData={rowData}
+					actionsKey={actionsKey}
+					persistentActionsKey={persistentActionsKey}
+					displayMode={displayMode}
+					type={type}
+				/>
+			</div>
+		);
+	}
 }
 
 CellTitle.displayName = 'VirtualizedList(CellTitle)';
@@ -79,11 +114,14 @@ CellTitle.propTypes = {
 		displayModeKey: PropTypes.string,
 		// The icon property key. Icon = props.rowData[props.iconKey]
 		iconKey: PropTypes.string,
+		// The icon tooltip label key. tooltiplabel = props.rowData[iconLabelKey]
+		iconLabelKey: PropTypes.string,
 		// Input mode : the cancel callback on ESC keydown.
 		onEditCancel: PropTypes.func,
 		// Input mode : the submit callback on ENTER keydown or blur.
 		onEditSubmit: PropTypes.func,
 	}),
+	getComponent: PropTypes.func,
 	// The collection item.
 	rowData: PropTypes.object, // eslint-disable-line
 	// The collection item index.

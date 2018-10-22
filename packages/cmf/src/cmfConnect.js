@@ -34,18 +34,16 @@ import React, { createElement } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect } from 'react-redux';
-import omit from 'lodash/omit';
+import bsonObjectid from 'bson-objectid';
 import actions from './actions';
 import actionCreator from './actionCreator';
 import component from './component';
 import CONST from './constant';
 import expression from './expression';
-import deprecated from './deprecated';
 import onEvent from './onEvent';
 import { initState, getStateAccessors, getStateProps } from './componentState';
 import { mapStateToViewProps } from './settings';
-
-let newState;
+import omit from './omit';
 
 export function getComponentName(WrappedComponent) {
 	return WrappedComponent.displayName || WrappedComponent.name || 'Component';
@@ -62,19 +60,6 @@ export function getComponentId(componentId, props) {
 	return 'default';
 }
 
-function oldGetCollection(id) {
-	return newState.cmf.collections.get(id);
-}
-
-const getCollection = deprecated(
-	oldGetCollection,
-	`This function will be deprecated,
-	since it permit store access outside cmfConnect mapStateToProps function
-	and maybe not executed if cmf connect do not detect ref change to props
-	given to the component using this function
-	Please bind your collection update to your component using mapStateToProps`,
-);
-
 export function getStateToProps({
 	defaultProps,
 	componentId,
@@ -85,14 +70,11 @@ export function getStateToProps({
 }) {
 	const props = Object.assign({}, defaultProps);
 
-	newState = state;
 	const cmfProps = getStateProps(
 		state,
 		getComponentName(WrappedComponent),
 		getComponentId(componentId, ownProps),
 	);
-
-	cmfProps.getCollection = getCollection;
 
 	Object.assign(props, cmfProps);
 
@@ -175,7 +157,6 @@ export function getMergeProps({ mergeProps, stateProps, dispatchProps, ownProps 
  * - props.state
  * - props.setState
  * - props.initState (you should never have to call it your self)
- * - props.getCollection
  * - dispatch(action)
  * - dispatchActionCreator(id, event, data, [context])
  *
@@ -209,8 +190,31 @@ export default function cmfConnect({
 	mapStateToProps,
 	mapDispatchToProps,
 	mergeProps,
+	omitCMFProps = false, // will be removed and considered to true in 2.0.0
+	withComponentRegistry = false,
+	withDispatch = false,
+	withDispatchActionCreator = false,
+	withComponentId = false,
 	...rest
 }) {
+	const propsToOmit = [];
+	if (omitCMFProps) {
+		if (!defaultState) {
+			propsToOmit.push(...CONST.INJECTED_STATE_PROPS);
+		}
+		if (!withComponentRegistry) {
+			propsToOmit.push('getComponent');
+		}
+		if (!withComponentId) {
+			propsToOmit.push('componentId');
+		}
+		if (!withDispatch) {
+			propsToOmit.push('dispatch');
+		}
+		if (!withDispatchActionCreator) {
+			propsToOmit.push('dispatchActionCreator');
+		}
+	}
 	return function wrapWithCMF(WrappedComponent) {
 		if (!WrappedComponent.displayName) {
 			invariant(true, `${WrappedComponent.name} has no displayName`);
@@ -233,7 +237,6 @@ export default function cmfConnect({
 		class CMFContainer extends React.Component {
 			static displayName = `CMF(${getComponentName(WrappedComponent)})`;
 			static propTypes = {
-				...WrappedComponent.propTypes,
 				...cmfConnect.propTypes,
 			};
 			static contextTypes = {
@@ -255,12 +258,20 @@ export default function cmfConnect({
 				super(props, context);
 				this.dispatchActionCreator = this.dispatchActionCreator.bind(this);
 				this.getOnEventProps = this.getOnEventProps.bind(this);
+				this.id = bsonObjectid().toString();
 			}
 
 			componentDidMount() {
 				initState(this.props);
 				if (this.props.saga) {
-					this.dispatchActionCreator('cmf.saga.start', { type: 'DID_MOUNT' }, this.props);
+					this.dispatchActionCreator(
+						'cmf.saga.start',
+						{ type: 'DID_MOUNT', componentId: this.id },
+						{
+							...this.props, // DEPRECATED
+							componentId: getComponentId(componentId, this.props),
+						},
+					);
 				}
 				if (this.props.didMountActionCreator) {
 					this.dispatchActionCreator(this.props.didMountActionCreator, null, this.props);
@@ -279,7 +290,11 @@ export default function cmfConnect({
 					this.props.deleteState(this.props.initialState);
 				}
 				if (this.props.saga) {
-					this.dispatchActionCreator('cmf.saga.stop', { type: 'WILL_UNMOUNT' }, this.props);
+					this.dispatchActionCreator(
+						'cmf.saga.stop',
+						{ type: 'WILL_UNMOUNT', componentId: this.id },
+						this.props,
+					);
 				}
 			}
 
@@ -305,6 +320,11 @@ export default function cmfConnect({
 					return null;
 				}
 				const { toOmit, spreadCMFState, ...handlers } = this.getOnEventProps();
+				// remove all internal props already used by the container
+				toOmit.push(...CONST.CMF_PROPS, ...propsToOmit);
+				if (this.props.omitRouterProps) {
+					toOmit.push('omitRouterProps', ...CONST.INJECTED_ROUTER_PROPS);
+				}
 				let spreadedState = {};
 				if ((spreadCMFState || this.props.spreadCMFState) && this.props.state) {
 					spreadedState = this.props.state.toJS();
@@ -313,15 +333,18 @@ export default function cmfConnect({
 					...omit(this.props, toOmit),
 					...handlers,
 					...spreadedState,
-					dispatchActionCreator: this.dispatchActionCreator,
 				};
-				if (!props.state && defaultState) {
+				if (
+					props.dispatchActionCreator &&
+					props.dispatchActionCreator &&
+					toOmit.indexOf('dispatchActionCreator') === -1
+				) {
+					// override to inject CMFContainer context
+					props.dispatchActionCreator = this.dispatchActionCreator;
+				}
+				if (!props.state && defaultState && toOmit.indexOf('state') === -1) {
 					props.state = defaultState;
 				}
-				// remove all internal props already used by the container
-				CONST.CMF_PROPS.forEach(key => {
-					delete props[key];
-				});
 				return createElement(WrappedComponent, props);
 			}
 		}
@@ -360,10 +383,15 @@ export default function cmfConnect({
 }
 
 cmfConnect.INJECTED_PROPS = CONST.INJECTED_PROPS;
+cmfConnect.INJECTED_STATE_PROPS = CONST.INJECTED_STATE_PROPS;
+cmfConnect.INJECTED_ROUTER_PROPS = CONST.INJECTED_ROUTER_PROPS;
+cmfConnect.ALL_INJECTED_PROPS = CONST.INJECTED_PROPS.concat(['getComponent', 'componentId']);
+cmfConnect.omit = omit;
+cmfConnect.omitAllProps = props => cmfConnect.omit(props, cmfConnect.ALL_INJECTED_PROPS);
 
 cmfConnect.propTypes = {
 	state: ImmutablePropTypes.map,
-	initialState: ImmutablePropTypes.map,
+	initialState: PropTypes.oneOfType([ImmutablePropTypes.map, PropTypes.object]),
 	getComponent: PropTypes.func,
 	setState: PropTypes.func,
 	initState: PropTypes.func,

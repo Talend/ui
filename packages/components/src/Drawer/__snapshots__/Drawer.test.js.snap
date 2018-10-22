@@ -52,7 +52,17 @@ exports[`Drawer should render 1`] = `
       >
         <nav
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-        />
+        >
+          <div
+            className="theme-navbar-left navbar-left"
+          />
+          <div
+            className="theme-navbar-center"
+          />
+          <div
+            className="theme-navbar-right navbar-right"
+          />
+        </nav>
       </div>
     </div>
   </div>
@@ -89,7 +99,17 @@ exports[`Drawer should render stacked 1`] = `
       >
         <nav
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-        />
+        >
+          <div
+            className="theme-navbar-left navbar-left"
+          />
+          <div
+            className="theme-navbar-center"
+          />
+          <div
+            className="theme-navbar-right navbar-right"
+          />
+        </nav>
       </div>
     </div>
   </div>
@@ -126,7 +146,17 @@ exports[`Drawer should render using custom className 1`] = `
       >
         <nav
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-        />
+        >
+          <div
+            className="theme-navbar-left navbar-left"
+          />
+          <div
+            className="theme-navbar-center"
+          />
+          <div
+            className="theme-navbar-right navbar-right"
+          />
+        </nav>
       </div>
     </div>
   </div>
@@ -167,7 +197,17 @@ exports[`Drawer should render using custom styles 1`] = `
       >
         <nav
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-        />
+        >
+          <div
+            className="theme-navbar-left navbar-left"
+          />
+          <div
+            className="theme-navbar-center"
+          />
+          <div
+            className="theme-navbar-right navbar-right"
+          />
+        </nav>
       </div>
     </div>
   </div>
@@ -185,48 +225,55 @@ exports[`Drawer should render with tabs 1`] = `
     <div
       className="tc-drawer-tabs-container theme-tc-drawer-tabs-container"
     >
-      <nav
-        className="nav tc-tab-bar tc-drawer-tabs theme-tc-drawer-tabs theme-tc-tab-bar"
+      <div
+        className="tc-drawer-tabs theme-tc-drawer-tabs"
+        id="my-tabs"
+        onKeyDown={[Function]}
       >
         <ul
-          className="nav nav-tabs tc-tab-bar-actions"
+          className="tc-tab-bar nav nav-tabs"
+          role="tablist"
         >
           <li
-            className="tc-tab-bar-action"
+            className=""
+            role="presentation"
+            style={undefined}
           >
             <button
-              aria-label="Tab 1"
-              className="btn btn-link"
-              disabled={false}
+              aria-controls="my-tabs-pane-1"
+              aria-selected={false}
+              href="#"
+              id="my-tabs-tab-1"
+              label="Tab 1"
               onClick={[Function]}
-              onMouseDown={[Function]}
-              role={null}
-              type="button"
+              onKeyDown={[Function]}
+              role="tab"
+              tabIndex={-1}
             >
-              <span>
-                Tab 1
-              </span>
+              Tab 1
             </button>
           </li>
           <li
-            className="tc-tab-bar-action active"
+            className="active"
+            role="presentation"
+            style={undefined}
           >
             <button
-              aria-label="Tab 2"
-              className="btn btn-link"
-              disabled={false}
+              aria-controls="my-tabs-pane-2"
+              aria-selected={true}
+              href="#"
+              id="my-tabs-tab-2"
+              label="Tab 2"
               onClick={[Function]}
-              onMouseDown={[Function]}
-              role={null}
-              type="button"
+              onKeyDown={[Function]}
+              role="tab"
+              tabIndex={undefined}
             >
-              <span>
-                Tab 2
-              </span>
+              Tab 2
             </button>
           </li>
         </ul>
-      </nav>
+      </div>
     </div>
     <div
       style={
@@ -250,11 +297,172 @@ exports[`Drawer should render with tabs 1`] = `
       >
         <nav
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-        />
+        >
+          <div
+            className="theme-navbar-left navbar-left"
+          />
+          <div
+            className="theme-navbar-center"
+          />
+          <div
+            className="theme-navbar-right navbar-right"
+          />
+        </nav>
       </div>
     </div>
   </div>
 </div>
+`;
+
+exports[`Drawer should render with tabs specific actions by tab with selectedTabKey 1`] = `
+<ActionBar
+  actions={
+    Object {
+      "center": Array [
+        Object {
+          "id": "view-center-tab-2",
+          "key": "view-center-tab-2",
+          "label": "ActionCenter-tab-2",
+        },
+      ],
+      "left": Array [],
+      "right": Array [],
+    }
+  }
+  className="tc-drawer-actionbar theme-tc-drawer-actionbar"
+  i18n={Object {}}
+  t={[Function]}
+  tReady={false}
+>
+  <nav
+    className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
+  >
+    <SwitchActions
+      actions={Array []}
+      key="0"
+      left={true}
+      t={[Function]}
+    >
+      <Content
+        left={true}
+      >
+        <div
+          className="theme-navbar-left navbar-left"
+        />
+      </Content>
+    </SwitchActions>
+    <SwitchActions
+      actions={
+        Array [
+          Object {
+            "id": "view-center-tab-2",
+            "key": "view-center-tab-2",
+            "label": "ActionCenter-tab-2",
+          },
+        ]
+      }
+      center={true}
+      key="1"
+      t={[Function]}
+    >
+      <Content
+        center={true}
+      >
+        <div
+          className="theme-navbar-center"
+        >
+          <Action
+            id="view-center-tab-2"
+            key="view-center-tab-2"
+            label="ActionCenter-tab-2"
+          >
+            <Translate(ActionButton)
+              id="view-center-tab-2"
+              label="ActionCenter-tab-2"
+            >
+              <I18n
+                bindI18n="languageChanged loaded"
+                bindStore="added removed"
+                i18n={Object {}}
+                id="view-center-tab-2"
+                label="ActionCenter-tab-2"
+                ns={
+                  Array [
+                    "tui-components",
+                  ]
+                }
+                nsMode="default"
+                translateFuncName="t"
+                usePureComponent={false}
+                wait={false}
+                withRef={false}
+              >
+                <ActionButton
+                  available={true}
+                  bsStyle="default"
+                  disabled={false}
+                  i18n={Object {}}
+                  id="view-center-tab-2"
+                  inProgress={false}
+                  label="ActionCenter-tab-2"
+                  loading={false}
+                  t={[Function]}
+                  tReady={false}
+                  tooltipPlacement="top"
+                >
+                  <Button
+                    active={false}
+                    aria-label="ActionCenter-tab-2"
+                    block={false}
+                    bsClass="btn"
+                    bsStyle="default"
+                    className=""
+                    disabled={false}
+                    id="view-center-tab-2"
+                    onClick={[Function]}
+                    onMouseDown={[Function]}
+                    role={null}
+                  >
+                    <button
+                      aria-label="ActionCenter-tab-2"
+                      className="btn btn-default"
+                      disabled={false}
+                      id="view-center-tab-2"
+                      onClick={[Function]}
+                      onMouseDown={[Function]}
+                      role={null}
+                      type="button"
+                    >
+                      <span
+                        key="label"
+                      >
+                        ActionCenter-tab-2
+                      </span>
+                    </button>
+                  </Button>
+                </ActionButton>
+              </I18n>
+            </Translate(ActionButton)>
+          </Action>
+        </div>
+      </Content>
+    </SwitchActions>
+    <SwitchActions
+      actions={Array []}
+      key="2"
+      right={true}
+      t={[Function]}
+    >
+      <Content
+        right={true}
+      >
+        <div
+          className="theme-navbar-right navbar-right"
+        />
+      </Content>
+    </SwitchActions>
+  </nav>
+</ActionBar>
 `;
 
 exports[`Drawer should render without tc-drawer-transition class 1`] = `
@@ -287,7 +495,17 @@ exports[`Drawer should render without tc-drawer-transition class 1`] = `
       >
         <nav
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-        />
+        >
+          <div
+            className="theme-navbar-left navbar-left"
+          />
+          <div
+            className="theme-navbar-center"
+          />
+          <div
+            className="theme-navbar-right navbar-right"
+          />
+        </nav>
       </div>
     </div>
   </div>

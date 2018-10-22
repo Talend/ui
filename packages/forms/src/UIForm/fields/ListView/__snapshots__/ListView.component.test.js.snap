@@ -405,6 +405,11 @@ exports[`ListView field render should render no items message 1`] = `
   className="theme-tc-listview tc-listview"
 >
   <HeaderListView
+    containerProps={
+      Object {
+        "aria-describedby": "my-list-view-description my-list-view-error",
+      }
+    }
     displayMode="DISPLAY_MODE_DEFAULT"
     displayedItems={Array []}
     getItemHeight={[Function]}
@@ -573,6 +578,7 @@ exports[`ListView field render should render no items message 1`] = `
                           block={false}
                           bsClass="btn"
                           bsStyle="link"
+                          className="btn-icon-only"
                           disabled={false}
                           onClick={[Function]}
                           onFocus={[Function]}
@@ -582,7 +588,7 @@ exports[`ListView field render should render no items message 1`] = `
                         >
                           <button
                             aria-label="Search for specific values"
-                            className="btn btn-link"
+                            className="btn-icon-only btn btn-link"
                             disabled={false}
                             onClick={[Function]}
                             onFocus={[Function]}

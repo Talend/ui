@@ -22,6 +22,38 @@ describe('UIForm container', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	describe('#componentWillReceiveProps', () => {
+		it('should update state if form data structure changed', () => {
+			// given
+			const wrapper = shallow(<UIForm data={data} {...props} />);
+
+			const previousState = wrapper.state();
+
+			// when
+			wrapper.setProps({
+				data: Object.assign({}, data),
+			});
+
+			// then
+			expect(wrapper.state()).not.toBe(previousState);
+		});
+
+		it("should not update state if form data structure didn't change", () => {
+			// given
+			const wrapper = shallow(<UIForm data={data} {...props} />);
+
+			const previousState = wrapper.state();
+
+			// when
+			wrapper.setProps({
+				whateverOtherThanData: 'something',
+			});
+
+			// then
+			expect(wrapper.state()).toBe(previousState);
+		});
+	});
+
 	describe('#onChange', () => {
 		it('should update state properties', () => {
 			// given
@@ -90,6 +122,45 @@ describe('UIForm container', () => {
 
 			// then
 			expect(instance.state).toMatchSnapshot();
+		});
+	});
+
+	describe('#onTrigger', () => {
+		it('should call onTrigger from props', () => {
+			// given
+			const onTrigger = jest.fn(() => Promise.resolve({}));
+			const wrapper = shallow(<UIForm data={data} {...props} onTrigger={onTrigger} />);
+			const instance = wrapper.instance();
+			expect(onTrigger).not.toBeCalled();
+
+			const event = { target: {} };
+			const payload = {
+				properties: {},
+				schema: {},
+			};
+
+			// when
+			instance.onTrigger(event, payload);
+
+			// then
+			expect(onTrigger).toBeCalledWith(event, payload);
+		});
+
+		it('should update state errors', done => {
+			// given
+			const errors = { firstname: 'my firstname is invalid' };
+			const onTrigger = jest.fn(() => Promise.resolve({ errors }));
+			const wrapper = shallow(<UIForm data={data} {...props} onTrigger={onTrigger} />);
+			const instance = wrapper.instance();
+
+			// when
+			const triggerPromise = instance.onTrigger();
+
+			// then
+			triggerPromise.then(() => {
+				expect(instance.state.errors).toBe(errors);
+				done();
+			});
 		});
 	});
 });

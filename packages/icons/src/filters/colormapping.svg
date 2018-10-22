@@ -1,0 +1,8 @@
+<svg>
+	<defs>
+		<filter id="colormapping" color-interpolation-filters="sRGB">
+			<feColorMatrix in="SourceGraphic" type="saturate" values="0" result="grayscale"/>
+			<feColorMatrix in="grayscale" values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"/>
+		</filter>
+	</defs>
+</svg>

@@ -4,7 +4,7 @@ import mock from '@talend/react-cmf/lib/mock';
 import Immutable from 'immutable';
 
 import Component from './SelectObject.component';
-import Container, { getById, filter } from './SelectObject.container';
+import Container, { getById, filter, filterAll } from './SelectObject.container';
 import Connected, { mapStateToProps } from './SelectObject.connect';
 
 describe('Component SelectObject', () => {
@@ -293,6 +293,71 @@ describe('Container SelectObject', () => {
 			// then
 			expect(results).toBe(items);
 			expect(results2).toBe(items);
+		});
+	});
+
+	describe('filterAll', () => {
+		it('does match on non leaf element (non leaf element have children)', () => {
+			const tree = [
+				{
+					id: 1,
+					name: 'abc',
+					children: [
+						{
+							id: 2,
+							name: 'sub abc',
+							children: [
+								{
+									id: 3,
+									name: 'sub sub abc',
+								},
+							],
+						},
+					],
+				},
+				{
+					id: 1,
+					name: 'def',
+				},
+			];
+
+			const items = Immutable.fromJS(tree);
+			const results = filterAll(items, 'ab');
+
+			expect(results.size).toBe(3);
+			expect(results.get(0).get('name')).toBe('abc');
+			expect(results.get(0).get('currentPosition')).toBe('root');
+
+			expect(results.get(1).get('name')).toBe('sub abc');
+			expect(results.get(1).get('currentPosition')).toBe('root > abc');
+
+			expect(results.get(2).get('name')).toBe('sub sub abc');
+			expect(results.get(2).get('currentPosition')).toBe('root > abc > sub abc');
+		});
+
+		it('does match on multiple leaf elements of different depth, result is list', () => {
+			// given
+			const subfirst = new Immutable.Map({ id: 11, name: 'sub' });
+			const first = new Immutable.Map({
+				id: 1,
+				name: 'abc',
+				children: new Immutable.List([subfirst]),
+			});
+			const second = new Immutable.Map({ id: 2, name: 'sub' });
+			const items = new Immutable.List([first, second]);
+
+			// when
+			const results = filter(items, 'sub');
+
+			// then
+			expect(results.size).toBe(2);
+			expect(results.get(0).get('name')).toBe('sub');
+			expect(results.get(0).get('currentPosition')).toBe('root > abc');
+			expect(results.get(1).get('name')).toBe('sub');
+			expect(results.get(1).get('currentPosition')).toBe('root');
+			expect(results.get(0).get('toggled')).toBeFalsy();
+			expect(results.get(0).get('children')).toBeFalsy();
+			expect(results.get(1).get('children')).toBeFalsy();
 		});
 	});
 });

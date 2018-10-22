@@ -45,8 +45,6 @@ export function injectedCellRenderer(getComponent, cellRenderer, avroRenderer) {
 
 function getAvroRenderer(avroRenderer) {
 	return {
-		booleanCellRenderer: 'DefaultBooleanCellRenderer',
-		dateCellRenderer: 'DefaultDateCellRenderer',
 		intCellRenderer: 'DefaultIntCellRenderer',
 		stringCellRenderer: 'DefaultStringCellRenderer',
 		...avroRenderer,
@@ -88,8 +86,12 @@ export default class DataGrid extends React.Component {
 		this.onKeyDownHeaderColumn = this.onKeyDownHeaderColumn.bind(this);
 	}
 
-	componentDidUpdate() {
-		if (this.gridAPI) {
+	componentDidUpdate(prevProps) {
+		if (this.props.loading || !this.gridAPI) {
+			return;
+		}
+
+		if (this.props.forceRedrawRows && this.props.forceRedrawRows(this.props, prevProps)) {
 			this.gridAPI.redrawRows();
 		}
 	}
