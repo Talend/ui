@@ -72,7 +72,7 @@ function Layout({
 				<SkipLinks />
 			</div>
 			{safeHeader && (
-				<header key="banner" role="banner" className={headerCSS} z-index="10">
+				<header key="banner" role="banner" className={headerCSS}>
 					{safeHeader}
 				</header>
 			)}

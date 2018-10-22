@@ -6,6 +6,8 @@
 /// Layout height of the header
 /// @type Number (Unit)
 $tc-layout-header-height: $navbar-height;
+$tc-layout-skip-links-z-index: 20;
+$tc-layout-header-z-index: 10;
 
 body {
 	margin: 0;
@@ -21,12 +23,12 @@ body {
 	width: 100vw;
 
 	.skip-links {
-		z-index: 20;
+		z-index: $tc-layout-skip-links-z-index;
 	}
 
 	.header {
 		flex: 0 0 $tc-layout-header-height;
-		z-index: 10;
+		z-index: $tc-layout-header-z-index;
 	}
 
 	.footer {
