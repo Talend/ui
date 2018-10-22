@@ -5,6 +5,8 @@ import { Map } from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
 import { HeaderBar as Component } from '@talend/react-components';
 
+import { fetchProducts, openProduct } from './HeaderBar.actions';
+
 import Constants from './HeaderBar.constant';
 
 export const DEFAULT_STATE = new Map({
@@ -37,10 +39,7 @@ class HeaderBar extends React.Component {
 		const hasProductsBeenLoaded = this.props.state.get('productsFetchState') === Constants.PRODUCTS_NOT_LOADED;
 
 		if (this.props.productsUrl && (hasProductsBeenLoaded || hasProductsUrlChanged)) {
-			this.props.dispatch({
-				type: Constants.HEADER_BAR_FETCH_PRODUCTS,
-				payload: { url: this.props.productsUrl },
-			});
+			this.props.dispatch(fetchProducts(this.props.productsUrl));
 		}
 	}
 
@@ -55,7 +54,7 @@ class HeaderBar extends React.Component {
 				.map(product => ({
 					label: product.name,
 					icon: `talend-${product.icon}-colored`,
-					onClickDispatch: { type: Constants.HEADER_BAR_OPEN_PRODUCT, payload: product },
+					onClickDispatch: openProduct(product),
 				}))
 				.sort(sortProductsByLabel);
 
