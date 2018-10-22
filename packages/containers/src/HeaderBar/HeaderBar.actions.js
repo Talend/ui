@@ -23,5 +23,3 @@ export function openProduct(product) {
 		payload: product,
 	};
 }
-
-export default { fetchProducts };
