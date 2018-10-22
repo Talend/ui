@@ -36,7 +36,8 @@ class HeaderBar extends React.Component {
 		// Trigger product fetch when there's an URL and
 		// products URL has changed or products have not been loaded yet
 		const hasProductsUrlChanged = this.props.productsUrl !== prevProps.productsUrl;
-		const hasProductsBeenLoaded = this.props.state.get('productsFetchState') === Constants.PRODUCTS_NOT_LOADED;
+		const hasProductsBeenLoaded =
+			this.props.state.get('productsFetchState') === Constants.PRODUCTS_NOT_LOADED;
 
 		if (this.props.productsUrl && (hasProductsBeenLoaded || hasProductsUrlChanged)) {
 			this.props.dispatch(fetchProducts(this.props.productsUrl));
