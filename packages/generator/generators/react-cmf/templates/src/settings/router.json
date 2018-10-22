@@ -1,4 +1,9 @@
 {
+  "props": {
+    "RedirectContainer#default": {
+      "path": "/datastores"
+    }
+  },
   "routes": {
     "path": "/",
     "component": "App",

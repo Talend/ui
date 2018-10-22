@@ -4,8 +4,8 @@
   "description": "<%= props.description %>",
   "main": "app/index.js",
   "scripts": {
-    "start": "talend-scripts start",
-    "prepublish": "talend-scripts build",
+    "start": "cmf-settings && talend-scripts start",
+    "prepublish": "cmf-settings && talend-scripts build",
     "lint:es": "talend-scripts lint:es",
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
@@ -41,7 +41,6 @@
     "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
     "react": "^16.0.0",
-    "react-ace": "5.2.0",
     "react-bootstrap": "0.31.5",
     "react-css-transition": "^0.7.4",
     "react-dom": "^16.0.0",

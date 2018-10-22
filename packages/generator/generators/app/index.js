@@ -1,16 +1,16 @@
 const path = require('path');
 const yosay = require('yosay');
-const yeoman = require('yeoman-generator');
+const Generator = require('yeoman-generator');
 const slug = require('slugg');
 
-module.exports = yeoman.Base.extend({
+module.exports = class AppGenerator extends Generator {
 	initializing() {
 		this.composeWith('talend:dotfiles', {
 			options: {
 				name: () => this.props.name,
 			},
 		});
-	},
+	}
 
 	prompting() {
 		this.log(yosay('Time to generate some libraries!'));
@@ -37,7 +37,7 @@ module.exports = yeoman.Base.extend({
 			}
 			this.props = props;
 		});
-	},
+	}
 
 	writing() {
 		const d = new Date;
@@ -56,9 +56,9 @@ module.exports = yeoman.Base.extend({
 			path.join(__dirname, '../../LICENSE'),
 			this.destinationPath('LICENSE')
 		);
-	},
+	}
 
 	install() {
 		this.npmInstall();
-	},
-});
+	}
+};
