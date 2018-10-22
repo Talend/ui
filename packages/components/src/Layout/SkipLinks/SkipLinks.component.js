@@ -1,38 +1,66 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
+
+import Icon from '../../Icon';
+import I18N_DOMAIN_COMPONENTS from '../../constants';
+import getDefaultT from '../../translate';
 
 import theme from './SkipLinks.scss';
 
-function SkipLinks(props) {
-	const children = [];
+function SkipTo({ href, label }) {
+	return (
+		<a href={href}>
+			<span className={theme.icon}>
+				<Icon transform="rotate-270" name="talend-arrow-left" />
+			</span>
+			<span className={theme.text}>{label}</span>
+		</a>
+	);
+}
+SkipTo.propTypes = {
+	href: PropTypes.string.isRequired,
+	label: PropTypes.string.isRequired,
+};
 
-	if (props.navigation) {
-		children.push(
-			<li>
-				<a href="#tc-layout-side-menu">{'Skip header to navigation'}</a>
-			</li>,
-		);
-	}
-
-	if (props.main) {
-		children.push(
-			<li>
-				<a href="#tc-layout-main">{'Skip navigation to main content'}</a>
-			</li>,
-		);
-	}
-
-	return <ul className={theme['tc-skip-links']}>{children}</ul>;
+function SkipLinks({ mainId, navigationId, t }) {
+	return (
+		<nav
+			className={theme['tc-skip-links']}
+			aria-label={t('SKIP_LINKS', { defaultValue: 'Skip links' })}
+		>
+			<ul>
+				{navigationId && (
+					<li key="navigation">
+						<SkipTo
+							href={navigationId}
+							label={t('SKIP_TO_NAV', { defaultValue: 'Skip header to navigation' })}
+						/>
+					</li>
+				)}
+				{mainId && (
+					<li key="main">
+						<SkipTo
+							href={mainId}
+							label={t('SKIP_TO_MAIN', { defaultValue: 'Skip navigation to main content' })}
+						/>
+					</li>
+				)}
+			</ul>
+		</nav>
+	);
 }
 
 SkipLinks.defaultProps = {
-	navigation: true,
-	main: true,
+	navigationId: '#tc-layout-side-menu',
+	mainId: '#tc-layout-main',
+	t: getDefaultT(),
 };
 
 SkipLinks.propTypes = {
-	navigation: PropTypes.bool,
-	main: PropTypes.bool,
+	navigationId: PropTypes.string,
+	mainId: PropTypes.string,
+	t: PropTypes.func,
 };
 
-export default SkipLinks;
+export default translate(I18N_DOMAIN_COMPONENTS)(SkipLinks);

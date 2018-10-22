@@ -4,19 +4,31 @@
 	height: 1px;
 	overflow: hidden;
 
-	> li {
-		> a {
-			&:focus {
-				position: fixed;
-				top: 0;
-				left: 0;
-				height: $navbar-height;
-				visibility: visible;
-				background: $white;
-				color: $dove-gray;
-				font-weight: bold;
-				padding: 0 $padding-small;
-			}
+	ul > li > a {
+		height: $navbar-height;
+		background: $white;
+		color: $dove-gray;
+		font-weight: bold;
+
+		display: flex;
+		align-items: center;
+
+		&:focus {
+			position: fixed;
+			top: 0;
+			left: 0;
+			visibility: visible;
+		}
+
+		> .icon {
+			padding: 0 $padding-small;
+			border-right: 1px solid black;
+			display: flex;
+			align-items: center;
+		}
+
+		> .text {
+			padding: 0 $padding-small;
 		}
 	}
 }
