@@ -7,7 +7,6 @@ const mkdirp = require('mkdirp');
 
 module.exports = class DotFilesGenerator extends Generator {
 	prompting() {
-		this.log('dotfilesoptions', this.options);
 		if (!this.options.name) {
 			this.log(yosay('get Talend dotfiles!'));
 			const prompts = [{
