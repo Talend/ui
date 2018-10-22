@@ -63,7 +63,7 @@ function ConfirmDialog({
 		if (cancelAction && cancelAction.onClick) {
 			cancelAction.onClick();
 		}
-		return onHide(event);
+		return onHide ? onHide(event) : null;
 	}
 	return (
 		<Dialog
