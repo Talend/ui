@@ -92,12 +92,14 @@ export default class DataGrid extends React.Component {
 		}
 
 		if (this.props.forceRedrawRows && this.props.forceRedrawRows(this.props, prevProps)) {
+			this.gridAPI.setRowData(this.props.getRowDataFn(this.props.data, this.props.startIndex));
 			this.gridAPI.refreshCells();
 		}
 	}
 
 	onGridReady({ api }) {
 		this.gridAPI = api;
+		this.gridAPI.setRowData(this.props.getRowDataFn(this.props.data, this.props.startIndex));
 	}
 
 	onFocusedCell(props) {
@@ -174,7 +176,7 @@ export default class DataGrid extends React.Component {
 			onVirtualColumnsChanged: this.updateStyleFocusColumn,
 			overlayNoRowsTemplate: this.props.overlayNoRowsTemplate,
 			ref: this.setGridInstance, // use ref in AgGridReact to get the current instance
-			rowData,
+			// rowData,
 			deltaRowDataMode: this.props.deltaRowDataMode,
 			rowBuffer: this.props.rowBuffer,
 			getRowNodeId: data => data[this.props.rowNodeIdentifier],
@@ -215,8 +217,7 @@ export default class DataGrid extends React.Component {
 					minWidth: this.props.columnMinWidth,
 					valueGetter: this.props.getCellValueFn,
 					equals: (olvValue, newValue) => {
-						console.log(olvValue);
-						console.log(newValue);
+						console.log(olvValue, '->', newValue);
 						return false;
 					},
 					...columnDef,
@@ -292,6 +293,9 @@ export default class DataGrid extends React.Component {
 	}
 
 	render() {
+		// console.log('render datagrid component');
+		// console.log(this.getAgGridConfig().rowData);
+		// console.log(this.props.data);
 		let content;
 		if (this.props.loading) {
 			content = <Skeleton name="talend-table" type={Skeleton.TYPES.icon} />;

@@ -15,6 +15,10 @@ export const CELL_RENDERER_COMPONENT = 'cellRenderer';
 export default function DefaultCellRenderer({ avroRenderer, colDef, value, getComponent, data }) {
 	let content;
 
+
+ todo try with a refresh method
+	console.log('DefaultCellRenderer', value);
+
 	if (data.loading) {
 		content = <Skeleton key="1" />;
 	} else {

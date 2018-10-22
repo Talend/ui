@@ -215,6 +215,7 @@ storiesOf('Component Datagrid')
 				this.addLoadingsItems = this.addLoadingsItems.bind(this);
 				this.terminateItems = this.terminateItems.bind(this);
 				const datagridSample = Object.assign({}, sample);
+				datagridSample.schema.fields = [datagridSample.schema.fields[0]];
 				datagridSample.data = new Array(ADD_ITEMS_NUMBER).fill().map(getItemWithRandomValue);
 				this.state = { sample: datagridSample, loading: false, index: 1 };
 			}
@@ -264,11 +265,11 @@ storiesOf('Component Datagrid')
 						Number of data : {this.state.sample.data.length}
 						<IconsProvider />
 						<DataGrid
+							deltaRowDataMode
 							data={this.state.sample}
 							getComponent={getComponent}
-							rowData={serializer.getRowData(this.state.sample)}
 							rowSelection="multiple"
-							forceRedrawRows={forceRedrawRows}
+							forceRedrawRows={() => true}
 						/>
 					</div>
 				);
