@@ -56,16 +56,6 @@ module.exports = yeoman.Base.extend({
 			path.join(__dirname, '../../LICENSE'),
 			this.destinationPath('LICENSE')
 		);
-
-		if (!this.fs.exists(this.destinationPath('.git/config'))) {
-			this.composeWith('git-init', {
-				options: {
-					commit: "Initial project setup by Talend's library generator",
-				},
-			}, {
-				local: require.resolve('generator-git-init'),
-			});
-		}
 	},
 
 	install() {
