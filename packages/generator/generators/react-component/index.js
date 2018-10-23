@@ -24,52 +24,38 @@ module.exports = yeoman.Base.extend({
 		}, {
 			type: 'confirm',
 			name: 'isFull',
-			message: 'full component (component + container + connect)',
+			message: 'Pre-fill all questions with true',
 			default: false,
 		}, {
-			type: 'list',
-			name: 'type',
-			message: 'type',
-			default: 'es6.class',
-			choices: ['es6.class', 'es6.arrow', 'stateless', 'connect'],
-			when(answers) {
-				return !answers.isFull;
-			},
-		}, {
-			type: 'input',
-			name: 'purePath',
-			message: 'pure component import path',
-			default: 'react-talend-components',
-			when(answers) {
-				return answers.type === 'connect';
-			},
-		}, {
-			type: 'confirm',
-			name: 'css',
-			message: 'css',
+			type: 'checkbox',
+			name: 'extraTypes',
+			message: 'choose extra types (function is already included)',
+			choices: ['es6', 'cmfConnect'],
 			default(a) {
-				return a.isFull || a.type !== 'connect';
+				if (a.isFull) {
+					return ['es6', 'cmfConnect'];
+				}
+				return [];
 			},
-			when(answers) {
-				return answers.type !== 'connect';
+		}, {
+			type: 'checkbox',
+			name: 'tools',
+			message: 'choose tools',
+			choices: ['actions', 'expressions', 'sagas', 'css', 'settings'],
+			default(a) {
+				if (a.isFull) {
+					return ['actions', 'expressions', 'sagas', 'css', 'settings'];
+				}
+				if (a.extraTypes.includes('cmfConnect')) {
+					return ['settings'];
+				}
+				return [];
 			},
 		}, {
 			type: 'input',
 			name: 'path',
 			message: 'path',
 			default: 'src/app/components',
-		}, {
-			type: 'input',
-			name: 'settings',
-			message(a) {
-				return `add ${a.name}.json in`;
-			},
-			default(a) {
-				if (a.path === 'src/app/components') {
-					return 'src/settings';
-				}
-				return false;
-			},
 		}, {
 			type: 'confirm',
 			name: 'parentIndex',
@@ -88,63 +74,96 @@ module.exports = yeoman.Base.extend({
 	},
 
 	writing() {
-		if (!this.props.isFull) {
+		const folderPath = `${this.props.path}/${this.props.name}`;
+		this.props.indexPath = `${this.props.name}.component.js`;
+		let higherPath = `${folderPath}/${this.props.indexPath}`;
+		if (this.props.tools.includes('css')) {
+			this.props.theme = `import theme from './${this.props.name}.scss';`;
+		}
+		this.fs.copyTpl(
+			this.templatePath('src/component.js'),
+			this.destinationPath(higherPath),
+			this
+		);
+		this.fs.copyTpl(
+			this.templatePath('src/component.test.js'),
+			this.destinationPath(`${folderPath}/${this.props.name}.component.test.js`),
+			this
+		);
+		if (this.props.extraTypes.includes('es6')) {
+			this.props.indexPath = `${this.props.name}.container.js`;
+			higherPath = `${folderPath}/${this.props.indexPath}`;
 			this.fs.copyTpl(
-				this.templatePath(`src/${this.props.type}.component.js`),
-				this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.component.js`),
+				this.templatePath('src/container.js'),
+				this.destinationPath(higherPath),
 				this
 			);
 			this.fs.copyTpl(
-				this.templatePath(this.props.type === 'connect' ? 'src/connect.test.js' : 'src/enzyme.test.js'),
-				this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.test.js`),
-				this
-			);
-			this.fs.copyTpl(
-				this.templatePath('src/index.js'),
-				this.destinationPath(`${this.props.path}/${this.props.name}/index.js`),
-				this
-			);
-		} else {
-			['component', 'container', 'connect'].forEach((t) => {
-				this.fs.copyTpl(
-					this.templatePath(`src/full.${t}.js`),
-					this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.${t}.js`),
-					this
-				);
-			});
-			this.fs.copyTpl(
-				this.templatePath('src/full.index.js'),
-				this.destinationPath(`${this.props.path}/${this.props.name}/index.js`),
-				this
-			);
-			this.fs.copyTpl(
-				this.templatePath('src/full.test.js'),
-				this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.test.js`),
+				this.templatePath('src/container.test.js'),
+				this.destinationPath(`${folderPath}/${this.props.name}.container.test.js`),
 				this
 			);
 		}
-		if (this.props.css) {
+		if (this.props.extraTypes.includes('cmfConnect')) {
+			this.props.toConnect = `./${this.props.indexPath}`;
+			this.props.indexPath = `${this.props.name}.connect.js`;
+			higherPath = `${folderPath}/${this.props.indexPath}`;
+			this.fs.copyTpl(
+				this.templatePath('src/connect.js'),
+				this.destinationPath(higherPath),
+				this
+			);
+			this.fs.copyTpl(
+				this.templatePath('src/connect.test.js'),
+				this.destinationPath(`${folderPath}/${this.props.name}.connect.test.js`),
+				this
+			);
+		}
+
+		// tools
+		this.props.indexImports = [];
+		this.props.indexAssignments = [];
+		if (this.props.tools.includes('css')) {
+			this.props.theme = `import theme from ${this.props.name}.scss`;
 			this.fs.copyTpl(
 				this.templatePath('src/scss'),
-				this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.scss`),
+				this.destinationPath(`${folderPath}/${this.props.name}.scss`),
+				this
+			);
+		}
+		['actions', 'expressions', 'sagas'].forEach(tool => {
+			if (this.props.tools.includes(tool)) {
+				this.props.indexImports.push(`import ${tool} from './${tool}';`);
+				this.props.indexAssignments.push(`${this.props.name}.${tool} = ${tool};`);
+				this.fs.copyTpl(
+					this.templatePath(`src/${tool}.js`),
+					this.destinationPath(`${folderPath}/${tool}.js`),
+					this
+				);
+			}
+		});
+		this.props.indexImports = this.props.indexImports.join('\n');
+		this.props.indexAssignments = this.props.indexAssignments.join('\n');
+		this.fs.copyTpl(
+			this.templatePath('src/index.js'),
+			this.destinationPath(`${folderPath}/index.js`),
+			this
+		);
+		if (this.props.tools.includes('settings')) {
+			this.fs.copyTpl(
+				this.templatePath('src/settings.json'),
+				this.destinationPath(`src/settings/${this.props.name}.json`),
 				this
 			);
 		}
 		if (this.props.parentIndex) {
-			const indexPath = path.join(this.props.path, 'index.js');
-			const parsedCode = parser.parse(indexPath);
+			const parentIndexPath = path.join(this.props.path, 'index.js');
+			const parsedCode = parser.parse(parentIndexPath);
 			if (parsedCode) {
 				parser.addDefaultImport(parsedCode, this.props.name);
 				parser.updateDefaultExport(parsedCode, this.props.name);
-				parser.write(indexPath, parsedCode);
+				parser.write(parentIndexPath, parsedCode);
 			}
-		}
-		if (this.props.settings) {
-			this.fs.copyTpl(
-				this.templatePath('src/settings.json'),
-				this.destinationPath(`${this.props.settings}/${this.props.name}.json`),
-				this
-			);
 		}
 	},
 });

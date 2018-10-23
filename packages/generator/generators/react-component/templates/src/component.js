@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+<%- props.theme %>
 
 function <%= props.name %>(props) {
 	return (

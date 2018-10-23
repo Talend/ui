@@ -1,13 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import <%= props.name %> from './<%= props.name %>.component';
+import Component from './<%= props.name %>.component';
 
-describe('<%= props.name %>', () => {
+describe('Component <%= props.name %>', () => {
 	it('should render', () => {
 		const wrapper = shallow(
-			<<%= props.name %> />
-		);
+			<Component />
+		).toJSON();
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
