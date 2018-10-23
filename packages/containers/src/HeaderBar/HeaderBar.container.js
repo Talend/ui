@@ -52,6 +52,7 @@ class HeaderBar extends React.Component {
 		if (hasFetchedProducts && productsItems) {
 			const items = productsItems
 				.map(product => ({
+					'data-feature': `product.${(product.id || '').toLowerCase()}`,
 					label: product.name,
 					icon: `talend-${product.icon}-colored`,
 					onClickDispatch: openProduct(product),
