@@ -2436,7 +2436,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
               <span
                 className="theme-text"
               >
-                Skip header to navigation
+                Skip to navigation
               </span>
             </a>
           </li>
@@ -2462,7 +2462,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
               <span
                 className="theme-text"
               >
-                Skip navigation to main content
+                Skip to main content
               </span>
             </a>
           </li>
@@ -3192,7 +3192,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
               <span
                 className="theme-text"
               >
-                Skip header to navigation
+                Skip to navigation
               </span>
             </a>
           </li>
@@ -3218,7 +3218,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
               <span
                 className="theme-text"
               >
-                Skip navigation to main content
+                Skip to main content
               </span>
             </a>
           </li>

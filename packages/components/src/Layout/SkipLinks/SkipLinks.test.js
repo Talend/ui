@@ -5,15 +5,15 @@ import toJson from 'enzyme-to-json';
 import SkipLinks from './SkipLinks.component';
 
 describe('Skip links', () => {
-	it('should render default layout links', () => {
+	it('should render only main link', () => {
 		// when
-		const wrapper = mount(<SkipLinks.WrappedComponent />);
+		const wrapper = mount(<SkipLinks.WrappedComponent mainId="#my-custom-main-id" />);
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
-	it('should render custom links', () => {
+	it('should render navigation link', () => {
 		// when
 		const wrapper = mount(
 			<SkipLinks.WrappedComponent mainId="#my-custom-main-id" navigationId="#my-custom-nav-id" />,

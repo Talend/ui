@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Skip links should render custom links 1`] = `
+exports[`Skip links should render navigation link 1`] = `
 <SkipLinks
   mainId="#my-custom-main-id"
   navigationId="#my-custom-nav-id"
@@ -16,7 +16,7 @@ exports[`Skip links should render custom links 1`] = `
       >
         <SkipTo
           href="#my-custom-nav-id"
-          label="Skip header to navigation"
+          label="Skip to navigation"
         >
           <a
             href="#my-custom-nav-id"
@@ -44,7 +44,7 @@ exports[`Skip links should render custom links 1`] = `
             <span
               className="theme-text"
             >
-              Skip header to navigation
+              Skip to navigation
             </span>
           </a>
         </SkipTo>
@@ -54,7 +54,7 @@ exports[`Skip links should render custom links 1`] = `
       >
         <SkipTo
           href="#my-custom-main-id"
-          label="Skip navigation to main content"
+          label="Skip to main content"
         >
           <a
             href="#my-custom-main-id"
@@ -82,7 +82,7 @@ exports[`Skip links should render custom links 1`] = `
             <span
               className="theme-text"
             >
-              Skip navigation to main content
+              Skip to main content
             </span>
           </a>
         </SkipTo>
@@ -92,10 +92,9 @@ exports[`Skip links should render custom links 1`] = `
 </SkipLinks>
 `;
 
-exports[`Skip links should render default layout links 1`] = `
+exports[`Skip links should render only main link 1`] = `
 <SkipLinks
-  mainId="#tc-layout-main"
-  navigationId="#tc-layout-side-menu"
+  mainId="#my-custom-main-id"
   t={[Function]}
 >
   <nav
@@ -104,52 +103,14 @@ exports[`Skip links should render default layout links 1`] = `
   >
     <ul>
       <li
-        key="navigation"
-      >
-        <SkipTo
-          href="#tc-layout-side-menu"
-          label="Skip header to navigation"
-        >
-          <a
-            href="#tc-layout-side-menu"
-          >
-            <span
-              className="theme-icon"
-            >
-              <Icon
-                name="talend-arrow-left"
-                transform="rotate-270"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="theme-tc-svg-icon tc-svg-icon theme-rotate-270"
-                  focusable="false"
-                  name="talend-arrow-left"
-                  title={null}
-                >
-                  <use
-                    xlinkHref="#talend-arrow-left"
-                  />
-                </svg>
-              </Icon>
-            </span>
-            <span
-              className="theme-text"
-            >
-              Skip header to navigation
-            </span>
-          </a>
-        </SkipTo>
-      </li>
-      <li
         key="main"
       >
         <SkipTo
-          href="#tc-layout-main"
-          label="Skip navigation to main content"
+          href="#my-custom-main-id"
+          label="Skip to main content"
         >
           <a
-            href="#tc-layout-main"
+            href="#my-custom-main-id"
           >
             <span
               className="theme-icon"
@@ -174,7 +135,7 @@ exports[`Skip links should render default layout links 1`] = `
             <span
               className="theme-text"
             >
-              Skip navigation to main content
+              Skip to main content
             </span>
           </a>
         </SkipTo>

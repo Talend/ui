@@ -43,28 +43,24 @@ function SkipLinks({ mainId, navigationId, t }) {
 						/>
 					</li>
 				)}
-				{mainId && (
-					<li key="main">
-						<SkipTo
-							href={mainId}
-							label={t('SKIP_TO_MAIN', { defaultValue: 'Skip to main content' })}
-						/>
-					</li>
-				)}
+				<li key="main">
+					<SkipTo
+						href={mainId}
+						label={t('SKIP_TO_MAIN', { defaultValue: 'Skip to main content' })}
+					/>
+				</li>
 			</ul>
 		</nav>
 	);
 }
 
 SkipLinks.defaultProps = {
-	navigationId: '#tc-layout-side-menu',
-	mainId: '#tc-layout-main',
 	t: getDefaultT(),
 };
 
 SkipLinks.propTypes = {
 	navigationId: PropTypes.string,
-	mainId: PropTypes.string,
+	mainId: PropTypes.string.isRequired,
 	t: PropTypes.func,
 };
 

@@ -49,12 +49,14 @@ function Layout({
 	const headerCSS = classnames('tc-layout-header', theme.header);
 	const footerCSS = classnames('tc-layout-footer', theme.footer);
 	let Component;
+	let skipLinkNavigationId;
 	switch (mode) {
 		case DISPLAY_MODE_ONE_COLUMN:
 			Component = OneColumn;
 			break;
 		case DISPLAY_MODE_TWO_COLUMNS:
 			Component = TwoColumns;
+			skipLinkNavigationId = '#tc-layout-side-menu';
 			break;
 		default:
 			Component = OneColumn;
@@ -69,7 +71,7 @@ function Layout({
 	return (
 		<div id={id} className={appCSS}>
 			<div className={theme['skip-links']}>
-				<SkipLinks />
+				<SkipLinks navigationId={skipLinkNavigationId} mainId="#tc-layout-main" />
 			</div>
 			{safeHeader && (
 				<header key="banner" role="banner" className={headerCSS}>

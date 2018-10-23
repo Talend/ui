@@ -8,7 +8,10 @@ exports[`Layout should render layout with footer component 1`] = `
   <div
     className="theme-skip-links"
   >
-    <Translate(SkipLinks) />
+    <Translate(SkipLinks)
+      mainId="#tc-layout-main"
+      navigationId={undefined}
+    />
   </div>
   <header
     className="tc-layout-header theme-header"
