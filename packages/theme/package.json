@@ -2,6 +2,7 @@
   "name": "@talend/bootstrap-theme",
   "description": "Bootstrap theme based on Talend styleguide",
   "main": "dist/bootstrap.js",
+  "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
     "prepublish": "webpack -p",
@@ -54,5 +55,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.210.1"
+  "version": "1.2.0"
 }

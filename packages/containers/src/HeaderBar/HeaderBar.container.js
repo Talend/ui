@@ -11,12 +11,15 @@ export const DEFAULT_STATE = new Map({
 	productsFetchState: Constants.PRODUCTS_NOT_LOADED,
 });
 
+function sortProductsByLabel(a, b) {
+	return a.label > b.label ? 1 : -1;
+}
+
 class HeaderBar extends React.Component {
 	static displayName = 'Container(HeaderBar)';
 
 	static propTypes = {
 		productsUrl: PropTypes.string,
-		productsLang: PropTypes.string,
 		productsItems: PropTypes.arrayOf(
 			PropTypes.shape({
 				icon: PropTypes.string,
@@ -28,7 +31,7 @@ class HeaderBar extends React.Component {
 	};
 
 	componentDidUpdate(props) {
-		const { productsUrl, productsLang } = props;
+		const { productsUrl } = props;
 
 		// Trigger product fetch when there's an URL and
 		// products URL has changed or products have not been loaded yet
@@ -40,7 +43,7 @@ class HeaderBar extends React.Component {
 		if (shouldFetchProducts) {
 			this.props.dispatch({
 				type: Constants.HEADER_BAR_FETCH_PRODUCTS,
-				payload: { url: productsUrl, lang: productsLang },
+				payload: { url: productsUrl },
 			});
 		}
 	}
@@ -48,16 +51,19 @@ class HeaderBar extends React.Component {
 	render() {
 		const { productsItems, ...props } = this.props;
 
-		if (
-			this.props.state.get('productsFetchState') === Constants.FETCH_PRODUCTS_SUCCESS &&
-			productsItems
-		) {
-			props.products = Object.assign({}, props.products || {}, {
-				items: productsItems.map(product => ({
+		const hasFetchedProducts =
+			this.props.state.get('productsFetchState') === Constants.FETCH_PRODUCTS_SUCCESS;
+
+		if (hasFetchedProducts && productsItems) {
+			const items = productsItems
+				.map(product => ({
+					label: product.name,
+					icon: `talend-${product.icon}-colored`,
 					onClickDispatch: { type: Constants.HEADER_BAR_OPEN_PRODUCT, payload: product },
-					...product,
-				})),
-			});
+				}))
+				.sort(sortProductsByLabel);
+
+			props.products = Object.assign({}, props.products || {}, { items });
 		}
 
 		return <Component {...omit(props, cmfConnect.INJECTED_PROPS)} />;

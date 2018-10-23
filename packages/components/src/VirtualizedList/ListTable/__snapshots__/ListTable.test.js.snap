@@ -16,7 +16,7 @@ exports[`ListGrid should render noRows 1`] = `
     disableHeader={false}
     estimatedRowSize={30}
     gridClassName="theme-grid tc-dropdown-container"
-    headerHeight={35}
+    headerHeight={40}
     headerRowRenderer={[Function]}
     headerStyle={Object {}}
     height={600}
@@ -48,7 +48,7 @@ exports[`ListGrid should render noRows 1`] = `
         role="row"
         style={
           Object {
-            "height": 35,
+            "height": 40,
             "overflow": "hidden",
             "paddingRight": 0,
             "width": 1024,
@@ -114,10 +114,10 @@ exports[`ListGrid should render noRows 1`] = `
         estimatedRowSize={30}
         getScrollbarSize={[Function]}
         gridClassName="theme-grid tc-dropdown-container"
-        headerHeight={35}
+        headerHeight={40}
         headerRowRenderer={[Function]}
         headerStyle={Object {}}
-        height={565}
+        height={560}
         noContentRenderer={[Function]}
         noRowsRenderer={[Function]}
         onRowsRendered={[Function]}
@@ -159,7 +159,7 @@ exports[`ListGrid should render noRows 1`] = `
               "WebkitOverflowScrolling": "touch",
               "boxSizing": "border-box",
               "direction": "ltr",
-              "height": 565,
+              "height": 560,
               "overflowX": "hidden",
               "overflowY": "hidden",
               "position": "relative",
@@ -185,7 +185,7 @@ exports[`ListGrid should render react-virtualized table 1`] = `
   disableHeader={false}
   estimatedRowSize={30}
   gridClassName="theme-grid tc-dropdown-container"
-  headerHeight={35}
+  headerHeight={40}
   headerRowRenderer={[Function]}
   headerStyle={Object {}}
   height={600}
@@ -208,7 +208,7 @@ exports[`ListGrid should render react-virtualized table 1`] = `
   style={Object {}}
   width={1024}
 >
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="id"
@@ -220,7 +220,7 @@ exports[`ListGrid should render react-virtualized table 1`] = `
     style={Object {}}
     width={0}
   />
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="name"
@@ -232,7 +232,7 @@ exports[`ListGrid should render react-virtualized table 1`] = `
     style={Object {}}
     width={0}
   />
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="description"
@@ -253,7 +253,7 @@ exports[`ListGrid should render react-virtualized table without header 1`] = `
   disableHeader={true}
   estimatedRowSize={30}
   gridClassName="theme-grid tc-dropdown-container"
-  headerHeight={35}
+  headerHeight={40}
   headerRowRenderer={[Function]}
   headerStyle={Object {}}
   height={600}
@@ -276,7 +276,7 @@ exports[`ListGrid should render react-virtualized table without header 1`] = `
   style={Object {}}
   width={1024}
 >
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="id"
@@ -288,7 +288,7 @@ exports[`ListGrid should render react-virtualized table without header 1`] = `
     style={Object {}}
     width={0}
   />
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="name"
@@ -300,7 +300,7 @@ exports[`ListGrid should render react-virtualized table without header 1`] = `
     style={Object {}}
     width={0}
   />
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="description"
@@ -321,7 +321,7 @@ exports[`ListGrid should render table with sort props 1`] = `
   disableHeader={false}
   estimatedRowSize={30}
   gridClassName="theme-grid tc-dropdown-container"
-  headerHeight={35}
+  headerHeight={40}
   headerRowRenderer={[Function]}
   headerStyle={Object {}}
   height={600}
@@ -347,7 +347,7 @@ exports[`ListGrid should render table with sort props 1`] = `
   style={Object {}}
   width={1024}
 >
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="id"
@@ -359,7 +359,7 @@ exports[`ListGrid should render table with sort props 1`] = `
     style={Object {}}
     width={0}
   />
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="name"
@@ -371,7 +371,7 @@ exports[`ListGrid should render table with sort props 1`] = `
     style={Object {}}
     width={0}
   />
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="description"

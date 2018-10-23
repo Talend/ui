@@ -89,5 +89,6 @@ input[type='checkbox'],
 	}
 	label {
 		line-height: $tt-checkbox-size;
+		min-height: $tt-checkbox-size;
 	}
 }

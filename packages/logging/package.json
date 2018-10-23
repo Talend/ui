@@ -2,6 +2,7 @@
   "name": "@talend/log",
   "description": "Small wrapper over TraceKit, that allows to inject error reporting as redux-logger middleware",
   "main": "lib/api/errorTransformer.js",
+  "mainSrc": "src/api/errorTransformer.js",
   "license": "Apache-2.0",
   "scripts": {
     "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js",
