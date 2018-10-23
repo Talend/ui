@@ -1,4 +1,4 @@
-import mergeModules from '../src/mergeModules';
+import mergeModules from '../src/cmfModule.merge';
 
 describe('mergeModule', () => {
 	beforeEach(() => {
@@ -136,35 +136,10 @@ describe('mergeModule', () => {
 		expect(storeCallback2).toHaveBeenCalledWith('foo');
 	});
 	it('should merge reducer', () => {
-		const fn1 = jest.fn();
-		const fn2 = jest.fn();
 		const ob1 = { foo: jest.fn() };
 		const ob2 = { bar: jest.fn() };
 
-		let config = mergeModules(
-			{ reducer: fn1 },
-			{ reducer: fn2 },
-		);
-		expect(typeof config.reducer).toBe('function');
-		config.reducer('foo');
-		expect(fn1).toHaveBeenCalledWith('foo');
-		expect(fn2).toHaveBeenCalledWith('foo');
-
-		config = mergeModules(
-			{ reducer: fn1 },
-			{ reducer: ob2 },
-		);
-		expect(typeof config.reducer).toBe('object');
-		expect(config.reducer.app).toBe(fn1);
-
-		config = mergeModules(
-			{ reducer: ob1 },
-			{ reducer: fn2 },
-		);
-		expect(typeof config.reducer).toBe('object');
-		expect(config.reducer.app).toBe(fn2);
-
-		config = mergeModules(
+		const config = mergeModules(
 			{ reducer: ob1 },
 			{ reducer: ob2 },
 		);

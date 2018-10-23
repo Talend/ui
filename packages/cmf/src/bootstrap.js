@@ -18,6 +18,7 @@ import registry from './registry';
 import sagaRouter from './sagaRouter';
 import sagas from './sagas';
 import { registerInternals } from './register';
+import cmfModule from './cmfModule';
 
 export const bactchedSubscribe = batchedSubscribe(notify => {
 	requestAnimationFrame(notify);
@@ -75,7 +76,7 @@ export function bootstrapRedux(options, sagaMiddleware) {
 	assertTypeOf(options, 'preloadedState', 'object');
 	assertTypeOf(options, 'middlewares', 'Array');
 	assertTypeOf(options, 'storeCallback', 'function');
-	assertTypeOf(options, 'reducer', ['object', 'function']);
+	assertTypeOf(options, 'reducer', 'object');
 
 	if (options.preReducer) {
 		storeAPI.addPreReducer(options.preReducer);
@@ -116,7 +117,8 @@ export function bootstrapRedux(options, sagaMiddleware) {
  * @param {object} options the set of supported options
  * @returns {object} app object with render function
  */
-export default function bootstrap(options = {}) {
+export default function bootstrap(appOptions = {}) {
+	const options = cmfModule(appOptions);
 	assertTypeOf(options, 'appId', 'string');
 	assertTypeOf(options, 'history', 'object');
 

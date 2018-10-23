@@ -88,17 +88,21 @@ listening to message comming from the websocket and dispatching message to the r
 
 ```javascript
 import cmf from '@talend/react-cmf';
-import { cmfModule, middlewares as cqrsMiddlewares } from '@talend/react-cmf-cqrs';
+import cqrsModule, { middlewares as cqrsMiddlewares } from '@talend/react-cmf-cqrs';
 
 const websocketMiddleware = cqrsMiddlewares.createWebsocketMiddleware(
-	API['stream-websocket'],
+	API['cqrs-websocket'],
 	[...actionListeners],
 	[...socketListener],
 	{ ...socketOptions },
 );
-cmf.bootstrap(cmf.module.merge(cmfModule, {
+
+cmf.bootstrap({
+	appId: 'app',
+	// ...
+	modules: [cqrsModule]
 	middlewares: [websocketMiddleware]
-}));
+});
 ```
 
 the action listener recieve for each action

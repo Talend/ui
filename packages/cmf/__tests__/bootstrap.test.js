@@ -143,7 +143,7 @@ describe('bootstrap', () => {
 			storeAPI.initialize.mockClear();
 			createSagaMiddleware.mockClear();
 			const options = {
-				reducer: jest.fn(),
+				reducer: { app: jest.fn() },
 				preloadedState: {},
 				middlewares: [],
 			};

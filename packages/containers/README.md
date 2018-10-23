@@ -43,12 +43,13 @@ import cmf from '@talend/react-cmf';
 import components from './components';
 import expressions from './expressions';
 
-const myAppModule = {
+const myApp = {
     components,
     expressions,
-	settingsURL: '/settings.json',
+    settingsURL: '/settings.json',
+    modules: [ containersModule ],
 };
-cmf.bootstrap(cmf.module.merge(containersModule, myAppModule));
+cmf.bootstrap(myApp));
 ```
 
 ## Architecture
