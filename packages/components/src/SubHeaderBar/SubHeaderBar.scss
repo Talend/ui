@@ -14,8 +14,6 @@ $tc-svg-icon-size: $padding-large !default;
 	width: 100%;
 
 	button {
-		text-transform: none;
-
 		&:global(.btn-link) {
 			color: $tc-subheader-color;
 

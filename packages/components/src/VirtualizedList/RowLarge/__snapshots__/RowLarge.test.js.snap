@@ -9,7 +9,7 @@ exports[`RowLarge should render large row 1`] = `
     Object {
       "props": Object {
         "children": Array [
-          <Column
+          <Content
             cellDataGetter={[Function]}
             cellRenderer={[Function]}
             dataKey="id"
@@ -21,7 +21,7 @@ exports[`RowLarge should render large row 1`] = `
             style={Object {}}
             width={50}
     />,
-          <Column
+          <Content
             cellDataGetter={[Function]}
             cellRenderer={[Function]}
             cellType="title"
@@ -42,7 +42,7 @@ exports[`RowLarge should render large row 1`] = `
             style={Object {}}
             width={350}
     />,
-          <Column
+          <Content
             cellDataGetter={[Function]}
             cellRenderer={[Function]}
             dataKey="name"

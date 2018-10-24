@@ -11,6 +11,8 @@ exports[`TwoColumns should render two columns 1`] = `
 >
   <div
     className="tc-layout-two-columns-left theme-sidemenu"
+    id="tc-layout-side-menu"
+    tabIndex="-1"
   >
     <div>
       Hello world
@@ -18,7 +20,9 @@ exports[`TwoColumns should render two columns 1`] = `
   </div>
   <div
     className="tc-layout-two-columns-main theme-main"
+    id="tc-layout-main"
     role="main"
+    tabIndex="-1"
   >
     <WithDrawer>
       <div
