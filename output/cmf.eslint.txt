@@ -2,6 +2,11 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
+/home/travis/build/Talend/ui/packages/cmf/src/cmfModule.merge.js
+  3:1   error  'reassemble' should be listed in the project's dependencies. Run 'npm i -S reassemble' to add it  import/no-extraneous-dependencies
+  3:10  error  'noOp' is defined but never used                                                                  no-unused-vars
+  3:22  error  Absolute imports should come before relative imports                                              import/imports-first
+
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
   87:3  warning  Unexpected console statement  no-console
 
@@ -16,5 +21,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/cmf/src/sagas/collection.js
   10:1  error  Prefer default export  import/prefer-default-export
 
-✖ 6 problems (3 errors, 3 warnings)
+✖ 9 problems (6 errors, 3 warnings)
 
