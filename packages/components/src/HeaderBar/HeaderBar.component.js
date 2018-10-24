@@ -45,7 +45,7 @@ function Brand({ label, isSeparated, getComponent, t, ...props }) {
 	let ActionComponent;
 	let clickAction;
 	let ariaLabel;
-	if (props && props.items && props.items.length) {
+	if (props && props.items) {
 		ActionComponent = Renderers.ActionDropdown;
 		ariaLabel = t('HEADER_BAR_APP_SWITCHER', {
 			defaultValue: 'Switch to another application. Current application: {{appName}}',
