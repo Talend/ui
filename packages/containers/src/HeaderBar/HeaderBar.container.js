@@ -5,6 +5,8 @@ import { Map } from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
 import { HeaderBar as Component } from '@talend/react-components';
 
+import { fetchProducts, openProduct } from './HeaderBar.actions';
+
 import Constants from './HeaderBar.constant';
 
 export const DEFAULT_STATE = new Map({
@@ -30,21 +32,15 @@ class HeaderBar extends React.Component {
 		...cmfConnect.propTypes,
 	};
 
-	componentDidUpdate(props) {
-		const { productsUrl } = props;
-
+	componentDidUpdate(prevProps) {
 		// Trigger product fetch when there's an URL and
 		// products URL has changed or products have not been loaded yet
-		const shouldFetchProducts =
-			productsUrl &&
-			(this.props.state.get('productsFetchState') === Constants.PRODUCTS_NOT_LOADED ||
-				this.props.productsUrl !== productsUrl);
+		const hasProductsUrlChanged = this.props.productsUrl !== prevProps.productsUrl;
+		const hasProductsNotBeenLoaded =
+			this.props.state.get('productsFetchState') === Constants.PRODUCTS_NOT_LOADED;
 
-		if (shouldFetchProducts) {
-			this.props.dispatch({
-				type: Constants.HEADER_BAR_FETCH_PRODUCTS,
-				payload: { url: productsUrl },
-			});
+		if (this.props.productsUrl && (hasProductsNotBeenLoaded || hasProductsUrlChanged)) {
+			this.props.dispatch(fetchProducts(this.props.productsUrl));
 		}
 	}
 
@@ -57,9 +53,10 @@ class HeaderBar extends React.Component {
 		if (hasFetchedProducts && productsItems) {
 			const items = productsItems
 				.map(product => ({
+					'data-feature': `product.${(product.id || '').toLowerCase()}`,
 					label: product.name,
 					icon: `talend-${product.icon}-colored`,
-					onClickDispatch: { type: Constants.HEADER_BAR_OPEN_PRODUCT, payload: product },
+					onClickDispatch: openProduct(product),
 				}))
 				.sort(sortProductsByLabel);
 
