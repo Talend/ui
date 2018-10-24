@@ -20,7 +20,7 @@ function OneColumn({ drawers, children, tabs, ...props }) {
 		flexDirection: 'column',
 	};
 	return (
-		<div role="main" className={container} {...props}>
+		<div role="main" id="tc-layout-main" tabIndex="-1" className={container} {...props}>
 			<WithDrawer drawers={drawers}>
 				{tabs && <TabBar {...tabs} />}
 				<div style={style}>{children}</div>
