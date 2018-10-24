@@ -36,7 +36,9 @@ function mergeFns(fn1, fn2) {
 
 function throwIfBothExists(obj1, obj2, name) {
 	if (obj1 && obj2) {
-		throw new Error(`Can't merge both config that both have ${name} attribute. Only one is accepted.`);
+		throw new Error(
+			`Can't merge both config that both have ${name} attribute. Only one is accepted.`,
+		);
 	}
 }
 

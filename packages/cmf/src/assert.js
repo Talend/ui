@@ -1,4 +1,3 @@
-
 export function assertValueTypeOf(value, type) {
 	if (value === undefined) {
 		return true;
@@ -20,4 +19,3 @@ export function assertTypeOf(options, attr, type, toThrow = true) {
 	}
 	return isTypeCorrect;
 }
-
