@@ -24,5 +24,6 @@ export const TooltipTrigger = cmfConnect({})(allComponents.TooltipTrigger);
 
 // cmfModule
 export default {
+	id: 'containers',
 	components,
 };

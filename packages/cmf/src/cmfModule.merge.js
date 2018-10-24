@@ -1,5 +1,6 @@
 import { fork } from 'redux-saga/effects';
 import { assertValueTypeOf } from './assert';
+import { noOp } from 'reassemble';
 
 function mergeObjects(obj1, obj2) {
 	if (!obj2 && obj1) {
@@ -74,6 +75,8 @@ function mergeArrays(preReducer, newPreReducer) {
 }
 
 const MERGE_FNS = {
+	id: () => undefined,
+	modules: () => undefined,
 	appId: getUnique,
 	history: getUnique,
 	AppLoader: getUnique,

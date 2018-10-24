@@ -5,17 +5,18 @@
  */
 
 import '@talend/bootstrap-theme/src/theme/theme.scss';
-import comtainersModule from '@talend/react-containers/lib/cmfModule';
+import comtainersModule from '@talend/react-containers';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 import cmf from '@talend/react-cmf';
 import { createLogger } from 'redux-logger';
 import actions from './actions';
 
-const sandBoxApp = {
+const app = {
 	components: { ComponentForm },
 	settingsURL: '/settings.json',
 	actionCreators: actions,
 	middlewares: [createLogger({})],
+	modules: [comtainersModule],
 };
 
 /**
@@ -27,4 +28,4 @@ const sandBoxApp = {
  * - Fetch the settings
  * - render react-dom in the dom 'app' element
  */
-cmf.bootstrap(cmf.module.merge(comtainersModule, sandBoxApp));
+cmf.bootstrap(app);
