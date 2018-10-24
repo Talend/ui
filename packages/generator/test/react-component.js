@@ -42,7 +42,7 @@ describe('talend:react-component', () => {
 		});
 	});
 
-	describe('component with class', () => {
+	describe('extraTypes = [es6]', () => {
 		beforeEach(function onDone(done) {
 			this.gen = helpers
 				.run(path.join(__dirname, '../generators/react-component'))
@@ -75,19 +75,9 @@ describe('talend:react-component', () => {
 				/HelloWorld,/
 			);
 		});
-		it('add HelloWorld.json', () => {
-			assert.fileContent(
-				'src/settings/HelloWorld.json',
-				/"props": {/
-			);
-			assert.fileContent(
-				'src/settings/HelloWorld.json',
-				/"HelloWorld#default": {/
-			);
-		});
 	});
 
-	describe('component with extraTypes cmfConnect', () => {
+	describe('extraTypes = [cmfConnect]', () => {
 		beforeEach(function onDone(done) {
 			this.gen = helpers
 				.run(path.join(__dirname, '../generators/react-component'))
@@ -95,7 +85,7 @@ describe('talend:react-component', () => {
 				.withOptions({})
 				.withPrompts({
 					name: 'HelloWorld',
-					extraTypes: ['connect'],
+					extraTypes: ['cmfConnect'],
 				});
 			this.gen.on('end', done);
 		});
@@ -116,7 +106,34 @@ describe('talend:react-component', () => {
 		});
 	});
 
-	describe('css option', () => {
+	describe('tools = [actions]', () => {
+		beforeEach(function onDone(done) {
+			this.gen = helpers
+				.run(path.join(__dirname, '../generators/react-component'))
+				.inTmpDir(addIndexAndSettings)
+				.withOptions({})
+				.withPrompts({
+					name: 'HelloWorld',
+					tools: ['actions'],
+				});
+			this.gen.on('end', done);
+		});
+
+		it('generates base files', () => {
+			assert.file(BASE_FILES);
+			assert.file('src/app/components/HelloWorld/actions.js');
+			assert.fileContent(
+				'src/app/components/HelloWorld/index.js',
+				/import actions from '\.\/actions'/
+			);
+			assert.fileContent(
+				'src/app/components/HelloWorld/index.js',
+				/HelloWorld.actions = actions;/
+			);
+		});
+	});
+
+	describe('tools = [css]', () => {
 		beforeEach(function onDone(done) {
 			this.gen = helpers
 				.run(path.join(__dirname, '../generators/react-component'))
@@ -139,6 +156,29 @@ describe('talend:react-component', () => {
 		});
 	});
 
+	describe('tools = [settings]', () => {
+		beforeEach(function onDone(done) {
+			this.gen = helpers
+				.run(path.join(__dirname, '../generators/react-component'))
+				.inTmpDir(addIndexAndSettings)
+				.withOptions({})
+				.withPrompts({
+					name: 'HelloWorld',
+					tools: ['settings'],
+				});
+			this.gen.on('end', done);
+		});
+
+		it('generates base files', () => {
+			assert.file(BASE_FILES);
+			assert.file('src/settings/HelloWorld.json');
+			assert.fileContent(
+				'src/settings/HelloWorld.json',
+				/"HelloWorld#default": {/
+			);
+		});
+	});
+
 	describe('full', () => {
 		beforeEach(function onDone(done) {
 			this.gen = helpers
@@ -155,11 +195,14 @@ describe('talend:react-component', () => {
 		it('generates base files', () => {
 			assert.file([
 				'src/app/components/HelloWorld/HelloWorld.component.js',
+				'src/app/components/HelloWorld/HelloWorld.component.test.js',
 				'src/app/components/HelloWorld/HelloWorld.container.js',
+				'src/app/components/HelloWorld/HelloWorld.container.test.js',
 				'src/app/components/HelloWorld/HelloWorld.connect.js',
-				'src/app/components/HelloWorld/HelloWorld.test.js',
+				'src/app/components/HelloWorld/HelloWorld.connect.test.js',
 				'src/app/components/HelloWorld/HelloWorld.scss',
 				'src/app/components/HelloWorld/index.js',
+				'src/settings/HelloWorld.json',
 			]);
 		});
 	});
