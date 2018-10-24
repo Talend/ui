@@ -23,34 +23,23 @@ module.exports = yeoman.Base.extend({
 			},
 		}, {
 			type: 'confirm',
-			name: 'isFull',
-			message: 'Pre-fill all questions with true',
-			default: false,
+			name: 'scss',
+			message: 'add a scss file imported as theme in your component',
+			default: true,
 		}, {
 			type: 'checkbox',
 			name: 'extraTypes',
 			message: 'choose extra types (function is already included)',
-			choices: ['es6', 'cmfConnect'],
-			default(a) {
-				if (a.isFull) {
-					return ['es6', 'cmfConnect'];
-				}
-				return [];
-			},
+			choices: ['container', 'cmfConnect'],
 		}, {
 			type: 'checkbox',
 			name: 'tools',
 			message: 'choose tools',
-			choices: ['actions', 'expressions', 'sagas', 'css', 'settings'],
-			default(a) {
-				if (a.isFull) {
-					return ['actions', 'expressions', 'sagas', 'css', 'settings'];
-				}
-				if (a.extraTypes.includes('cmfConnect')) {
-					return ['settings'];
-				}
-				return [];
+			choices: ['actions', 'expressions', 'sagas', 'settings'],
+			when(a) {
+				return a.extraTypes.includes('cmfConnect');
 			},
+			default: [],
 		}, {
 			type: 'input',
 			name: 'path',
@@ -60,11 +49,9 @@ module.exports = yeoman.Base.extend({
 			type: 'confirm',
 			name: 'parentIndex',
 			message(a) {
-				return `export in ${a.path}/index.js`;
+				return `import and export it in ${a.path}/index.js ?`;
 			},
-			default(a) {
-				return a.path === 'src/app/components';
-			},
+			default: true,
 		}];
 
 		return this.prompt(prompts).then(props => {
@@ -77,8 +64,13 @@ module.exports = yeoman.Base.extend({
 		const folderPath = `${this.props.path}/${this.props.name}`;
 		this.props.indexPath = `${this.props.name}.component.js`;
 		let higherPath = `${folderPath}/${this.props.indexPath}`;
-		if (this.props.tools.includes('css')) {
+		if (this.props.scss) {
 			this.props.theme = `import theme from './${this.props.name}.scss';`;
+			this.fs.copyTpl(
+				this.templatePath('src/scss'),
+				this.destinationPath(`${folderPath}/${this.props.name}.scss`),
+				this
+			);
 		}
 		this.fs.copyTpl(
 			this.templatePath('src/component.js'),
@@ -90,7 +82,7 @@ module.exports = yeoman.Base.extend({
 			this.destinationPath(`${folderPath}/${this.props.name}.component.test.js`),
 			this
 		);
-		if (this.props.extraTypes.includes('es6')) {
+		if (this.props.extraTypes.includes('container')) {
 			this.props.indexPath = `${this.props.name}.container.js`;
 			higherPath = `${folderPath}/${this.props.indexPath}`;
 			this.fs.copyTpl(
@@ -121,18 +113,17 @@ module.exports = yeoman.Base.extend({
 		}
 
 		// tools
+		const tools = this.props.tools || [];
 		this.props.indexImports = [];
 		this.props.indexAssignments = [];
-		if (this.props.tools.includes('css')) {
-			this.props.theme = `import theme from ${this.props.name}.scss`;
-			this.fs.copyTpl(
-				this.templatePath('src/scss'),
-				this.destinationPath(`${folderPath}/${this.props.name}.scss`),
-				this
-			);
-		}
-		['actions', 'expressions', 'sagas'].forEach(tool => {
-			if (this.props.tools.includes(tool)) {
+		tools.forEach(tool => {
+			if (tool === 'settings') {
+				this.fs.copyTpl(
+					this.templatePath('src/settings.json'),
+					this.destinationPath(`src/settings/${this.props.name}.json`),
+					this
+				);
+			} else {
 				this.props.indexImports.push(`import ${tool} from './${tool}';`);
 				this.props.indexAssignments.push(`${this.props.name}.${tool} = ${tool};`);
 				this.fs.copyTpl(
@@ -149,13 +140,6 @@ module.exports = yeoman.Base.extend({
 			this.destinationPath(`${folderPath}/index.js`),
 			this
 		);
-		if (this.props.tools.includes('settings')) {
-			this.fs.copyTpl(
-				this.templatePath('src/settings.json'),
-				this.destinationPath(`src/settings/${this.props.name}.json`),
-				this
-			);
-		}
 		if (this.props.parentIndex) {
 			const parentIndexPath = path.join(this.props.path, 'index.js');
 			const parsedCode = parser.parse(parentIndexPath);

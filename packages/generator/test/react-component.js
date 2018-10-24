@@ -26,6 +26,7 @@ describe('talend:react-component', () => {
 				.withOptions({})
 				.withPrompts({
 					name: 'HelloWorld',
+					extraTypes: [],
 				});
 			this.gen.on('end', done);
 		});
@@ -42,7 +43,7 @@ describe('talend:react-component', () => {
 		});
 	});
 
-	describe('extraTypes = [es6]', () => {
+	describe('extraTypes = [container]', () => {
 		beforeEach(function onDone(done) {
 			this.gen = helpers
 				.run(path.join(__dirname, '../generators/react-component'))
@@ -50,7 +51,7 @@ describe('talend:react-component', () => {
 				.withOptions({})
 				.withPrompts({
 					name: 'HelloWorld',
-					extraTypes: ['es6'],
+					extraTypes: ['container'],
 				});
 			this.gen.on('end', done);
 		});
@@ -114,6 +115,7 @@ describe('talend:react-component', () => {
 				.withOptions({})
 				.withPrompts({
 					name: 'HelloWorld',
+					extraTypes: ['cmfConnect'],
 					tools: ['actions'],
 				});
 			this.gen.on('end', done);
@@ -133,7 +135,7 @@ describe('talend:react-component', () => {
 		});
 	});
 
-	describe('tools = [css]', () => {
+	describe('css=true', () => {
 		beforeEach(function onDone(done) {
 			this.gen = helpers
 				.run(path.join(__dirname, '../generators/react-component'))
@@ -141,7 +143,8 @@ describe('talend:react-component', () => {
 				.withOptions({})
 				.withPrompts({
 					name: 'HelloWorld',
-					tools: ['css'],
+					extraTypes: [],
+					css: true,
 				});
 			this.gen.on('end', done);
 		});
@@ -164,6 +167,7 @@ describe('talend:react-component', () => {
 				.withOptions({})
 				.withPrompts({
 					name: 'HelloWorld',
+					extraTypes: ['cmfConnect'],
 					tools: ['settings'],
 				});
 			this.gen.on('end', done);
@@ -176,34 +180,6 @@ describe('talend:react-component', () => {
 				'src/settings/HelloWorld.json',
 				/"HelloWorld#default": {/
 			);
-		});
-	});
-
-	describe('full', () => {
-		beforeEach(function onDone(done) {
-			this.gen = helpers
-				.run(path.join(__dirname, '../generators/react-component'))
-				.inTmpDir(addIndexAndSettings)
-				.withOptions({})
-				.withPrompts({
-					name: 'HelloWorld',
-					isFull: true,
-				});
-			this.gen.on('end', done);
-		});
-
-		it('generates base files', () => {
-			assert.file([
-				'src/app/components/HelloWorld/HelloWorld.component.js',
-				'src/app/components/HelloWorld/HelloWorld.component.test.js',
-				'src/app/components/HelloWorld/HelloWorld.container.js',
-				'src/app/components/HelloWorld/HelloWorld.container.test.js',
-				'src/app/components/HelloWorld/HelloWorld.connect.js',
-				'src/app/components/HelloWorld/HelloWorld.connect.test.js',
-				'src/app/components/HelloWorld/HelloWorld.scss',
-				'src/app/components/HelloWorld/index.js',
-				'src/settings/HelloWorld.json',
-			]);
 		});
 	});
 });
