@@ -24,10 +24,10 @@ class HeaderBar extends React.Component {
 		productsUrl: PropTypes.string,
 		productsItems: PropTypes.arrayOf(
 			PropTypes.shape({
-				id: PropTypes.string,
 				icon: PropTypes.string,
-				uri: PropTypes.string,
-				label: PropTypes.string,
+				id: PropTypes.string,
+				name: PropTypes.string,
+				url: PropTypes.string,
 			}),
 		),
 		...cmfConnect.propTypes,
