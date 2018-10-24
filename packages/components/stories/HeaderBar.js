@@ -100,7 +100,6 @@ const typeaheadItems = [
 const props = {
 	brand: {
 		id: 'header-brand',
-		icon: 'talend-tdc-negative',
 		label: 'Example App Name',
 		onClick: action('onApplicationNameClick'),
 	},
