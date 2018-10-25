@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 
 function <%= props.name %>(props) {
 	return (
-		<div>{props.name}</div>
+		<div>
+			{props.name}
+		</div>
 	);
 }
 

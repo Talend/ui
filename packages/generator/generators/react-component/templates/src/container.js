@@ -1,27 +1,39 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
+<%- props.cmfConnect.import %>
 import Component from './<%= props.name %>.component';
 
 class <%= props.name %> extends React.Component {
 	static displayName = 'Container(<%= props.name %>)';
 	static propTypes = {
-		// ...cmfConnect.propTypes,
+		<%- props.cmfConnect.propTypes %>
 	};
+	static ACTION_TYPE_ON_EVENT = '<%= props.name %>.onClick';
 
 	constructor(props) {
 		super(props);
 		this.state = {};
-		// this.onEvent = this.onEvent.bind(this);
+		this.onClick = this.onClick.bind(this);
 	}
 
-	// onEvent(event) {
-	// 	if (this.props.onEvent) {
-	// 		this.props.onEvent(event);
-	// 	}
-	// }
+	onClick(event) {
+		if (this.props.onClick) {
+			this.props.onClick(event);
+		}
+		this.props.dispatch({
+			type: <%= props.name %>.ACTION_TYPE_ON_EVENT,
+			componentId: this.props.componentId,
+		});
+	}
 
 	render() {
-		return <Component {...this.props} />;
+		<%- props.cmfConnect.omitProps %>
+		return (
+			<Component
+				{...props}
+				onClick={this.onClick}
+			/>
+		);
 	}
 }
 

@@ -7,7 +7,7 @@ describe('Component <%= props.name %>', () => {
 	it('should render', () => {
 		const wrapper = shallow(
 			<Component />
-		).toJSON();
+		);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
