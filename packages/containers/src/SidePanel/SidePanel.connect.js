@@ -1,6 +1,5 @@
 import get from 'lodash/get';
 import cmf, { cmfConnect } from '@talend/react-cmf';
-import zip from 'lodash/zip';
 import Container, { DEFAULT_STATE } from './SidePanel.container';
 import { ACTION_TYPE_LINK } from './constants';
 
