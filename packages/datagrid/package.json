@@ -40,9 +40,9 @@
     "@storybook/addon-a11y": "^3.4.7",
     "@storybook/addon-actions": "^3.4.7",
     "@storybook/react": "^3.4.7",
-    "@talend/icons": "^1.2.0",
-    "@talend/react-components": "^1.2.0",
-    "@talend/react-storybook-cmf": "^1.2.0",
+    "@talend/icons": "^1.4.0-0",
+    "@talend/react-components": "^1.4.0-0",
+    "@talend/react-storybook-cmf": "^1.4.0-0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "8.0.1",
@@ -106,9 +106,9 @@
     "uuid": "^3.0.1"
   },
   "peerDependencies": {
-    "@talend/icons": "^1.2.0",
+    "@talend/icons": "^1.4.0-0",
     "@talend/react-cmf": "^0.162.0",
-    "@talend/react-components": "^1.2.0",
+    "@talend/react-components": "^1.4.0-0",
     "bson-objectid": "^1.1.5",
     "classnames": "^2.2.5",
     "i18next": "^9.0.0",
@@ -147,7 +147,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.2.0",
+  "version": "1.4.0-0",
   "dependencies": {
     "ag-grid": "^17.0.0",
     "ag-grid-react": "^17.0.0",
