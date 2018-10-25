@@ -304,7 +304,7 @@ const collection = [
 		modified: '2016-09-22',
 		description: 'Row with a super super long text to show the ellipsis',
 		author:
-			'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
+			'Jean-Pierre DUPONT with super super super super super super super super super super super super super super super super super super super super super super super long name, but there was not enough long text',
 		icon: 'talend-file-json-o',
 		className: 'item-5-class',
 	},

@@ -8,6 +8,7 @@ import { Button, Buttons } from '../fields/Button';
 import { CheckBox, CheckBoxes, TextModeCheckBox } from '../fields/CheckBox';
 import Code, { CodeTextMode } from '../fields/Code';
 import Datalist, { DatalistTextMode } from '../fields/Datalist';
+import File from '../fields/File';
 import KeyValue from '../fields/KeyValue';
 import ListView from '../fields/ListView';
 import MultiSelectTag, { MultiSelectTagTextMode } from '../fields/MultiSelectTag';
@@ -30,6 +31,7 @@ const widgets = {
 	// fields
 	button: Button,
 	checkbox: CheckBox,
+	file: File,
 	number: Text,
 	password: Text,
 	radios: Radios,

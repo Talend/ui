@@ -7,7 +7,7 @@ import { AboutDialog, IconsProvider } from '../src/index';
 const props = {
 	show: true,
 	onToggle: action('onToggle'),
-	version: 'Summer 18',
+	version: 'Summer \'18',
 	icon: 'talend-tdp-colored',
 	services: ['API', 'Dataset', 'Preparation', 'Transformation'].map(name => ({
 		version: '2.8.0-SNAPSHOT',

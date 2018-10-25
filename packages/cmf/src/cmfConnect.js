@@ -196,7 +196,7 @@ export default function cmfConnect({
 	withDispatchActionCreator = false,
 	withComponentId = false,
 	...rest
-}) {
+} = {}) {
 	const propsToOmit = [];
 	if (omitCMFProps) {
 		if (!defaultState) {
