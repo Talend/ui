@@ -24,17 +24,18 @@ function memoizeOne(fn, componentId = 'default', actions, currentRoute) {
 	return currentCache.value;
 }
 
-function splitPath(path) {
-	return path.split('/').filter(Boolean);
-}
-
 function isBasePathOf(pathToCheck, fullPath) {
-	const pathToCheckSplit = splitPath(pathToCheck);
-	const fullPathSplit = splitPath(fullPath);
-
-	return zip(pathToCheckSplit, fullPathSplit)
-		.filter(([path]) => Boolean(path))
-		.every(path => path[0] === path[1]);
+	const length = pathToCheck.length;
+	if (fullPath.length + 1 === length) {
+		return `${fullPath}/` === pathToCheck;
+	}
+	if (fullPath.length === length) {
+		return fullPath === pathToCheck;
+	}
+	if (fullPath.length < length) {
+		return false;
+	}
+	return pathToCheck === fullPath.slice(0, length) && fullPath[length] === '/';
 }
 
 function getActionsWrapped(actions) {
