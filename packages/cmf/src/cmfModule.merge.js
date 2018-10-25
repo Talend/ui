@@ -2,14 +2,17 @@ import { fork } from 'redux-saga/effects';
 import { assertValueTypeOf } from './assert';
 
 function mergeObjects(obj1, obj2) {
-	if (!obj2 && obj1) {
+	if (!obj2) {
 		return obj1;
 	}
-	if (!obj1 && obj2) {
+	if (!obj1) {
 		return obj2;
 	}
 	return Object.keys(obj2).reduce((acc, key) => {
-		if (obj2[key] && obj1[key] && obj1[key] !== obj2[key]) {
+		if (obj2[key] === undefined) {
+			throw new TypeError(`${key} value is undefined. You may have a bad import here`);
+		}
+		if (obj1[key] !== undefined && obj1[key] !== obj2[key]) {
 			// eslint-disable-next-line no-console
 			console.warn(`override detected ${key}`);
 		}
@@ -21,10 +24,10 @@ function mergeObjects(obj1, obj2) {
 }
 
 function mergeFns(fn1, fn2) {
-	if (!fn2 && fn1) {
+	if (!fn2) {
 		return fn1;
 	}
-	if (!fn1 && fn2) {
+	if (!fn1) {
 		return fn2;
 	}
 	return function mergedFn(...args) {

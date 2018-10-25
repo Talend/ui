@@ -93,25 +93,24 @@ describe('mergeModule', () => {
 		const toThrow = () => mergeModules({ foo: {} });
 		expect(toThrow).toThrow();
 	});
+	it('should throw a TypeError on undefined keys', () => {
+		const toThrow = () =>
+			mergeModules({ expressions: {} }, { expressions: { toThrow: undefined } });
+		expect(toThrow).toThrow('toThrow value is undefined. You may have a bad import here');
+	});
 	it('should throw an exception if two config has appId', () => {
 		const toThrow = () => mergeModules({ appId: 'foo' }, { appId: 'bar' });
 		expect(toThrow).toThrow();
 	});
 	it('should get appId in config', () => {
 		const left = mergeModules({ appId: 'foo' }, {}, {});
-		// const right = mergeModules({}, {}, { appId: 'bar' });
 		expect(left.appId).toBe('foo');
-		// expect(right.appId).toBe('bar');
 	});
 	it('should throw an exception if two config has history', () => {
 		const toThrow = () => mergeModules({ history: 'foo' }, { history: 'bar' });
 		expect(toThrow).toThrow();
 	});
-	it('should throw an exception if two config has history', () => {
-		const toThrow = () => mergeModules({ history: 'foo' }, { history: 'bar' });
-		expect(toThrow).toThrow();
-	});
-	it('should merge enahncer functions', () => {
+	it('should merge enhancer functions', () => {
 		const fn1 = jest.fn();
 		const fn2 = jest.fn();
 		const config = mergeModules({ enhancer: fn1 }, { enhancer: fn2 });

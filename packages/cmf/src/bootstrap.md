@@ -47,8 +47,15 @@ For that CMF expose an API to let you merge your settings:
 ```javascript
 import cmf from '@talend/react-cmf';
 
-import containersModule from '@talend/react-containers/lib/cmfModule';
-import myAppModule from './cmfModule';
+import containersModule from '@talend/react-containers';
+import components from './components';
+import saga from './saga';
+import sagas from './sagas';
 
-cmf.boostrap(cmf.modules.merge(containersModule, myAppModule));
+cmf.boostrap({
+	components,
+	saga,
+	sagas,
+	modules: [containersModule],
+});
 ```
