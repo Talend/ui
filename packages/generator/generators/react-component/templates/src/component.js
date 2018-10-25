@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+<%- props.cmfConnect.import %>
 <%- props.theme %>
 
 function <%= props.name %>(props) {
@@ -13,6 +14,7 @@ function <%= props.name %>(props) {
 <%= props.name %>.displayName = '<%= props.name %>';
 <%= props.name %>.propTypes = {
 	name: PropTypes.string,
+	<%- props.cmfConnect.propTypes %>
 };
 
 export default <%= props.name %>;

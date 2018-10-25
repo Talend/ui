@@ -64,6 +64,17 @@ module.exports = yeoman.Base.extend({
 		const folderPath = `${this.props.path}/${this.props.name}`;
 		this.props.indexPath = `${this.props.name}.component.js`;
 		let higherPath = `${folderPath}/${this.props.indexPath}`;
+		this.props.cmfConnect = {
+			import: 'import { cmfConnect } from \'@talend/react-cmf\';',
+			propTypes: '...cmfConnect.propTypes',
+			omitProps: 'const props = cmfConnect.omitAllProps(this.props);',
+		};
+		if (!this.props.extraTypes.includes('cmfConnect')) {
+			this.props.cmfConnect.import = '';
+			this.props.cmfConnect.propTypes = '';
+			// only used by the container:
+			this.props.cmfConnect.omitProps = 'const props = this.props;';
+		}
 		if (this.props.scss) {
 			this.props.theme = `import theme from './${this.props.name}.scss';`;
 			this.fs.copyTpl(
@@ -83,16 +94,6 @@ module.exports = yeoman.Base.extend({
 			this
 		);
 		if (this.props.extraTypes.includes('container')) {
-			this.props.cmfConnect = {
-				import: 'import { cmfConnect } from \'@talend/react-cmf\';',
-				propTypes: '...cmfConnect.propTypes',
-				omitProps: 'const props = cmfConnect.omitAllProps(this.props);',
-			};
-			if (!this.props.extraTypes.includes('cmfConnect')) {
-				this.props.cmfConnect.import = `// ${this.props.cmfConnect.import}`;
-				this.props.cmfConnect.propTypes = `// ${this.props.cmfConnect.propTypes}`;
-				this.props.cmfConnect.omitProps = 'const props = this.props;';
-			}
 			this.props.indexPath = `${this.props.name}.container.js`;
 			higherPath = `${folderPath}/${this.props.indexPath}`;
 			this.fs.copyTpl(
