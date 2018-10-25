@@ -5,7 +5,7 @@
  */
 
 import '@talend/bootstrap-theme/src/theme/theme.scss';
-import comtainersModule from '@talend/react-containers';
+import containersModule from '@talend/react-containers';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 import cmf from '@talend/react-cmf';
 import { createLogger } from 'redux-logger';
@@ -16,7 +16,7 @@ const app = {
 	settingsURL: '/settings.json',
 	actionCreators: actions,
 	middlewares: [createLogger({})],
-	modules: [comtainersModule],
+	modules: [containersModule],
 };
 
 /**

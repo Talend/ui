@@ -1,6 +1,5 @@
 import { fork } from 'redux-saga/effects';
 import { assertValueTypeOf } from './assert';
-import { noOp } from 'reassemble';
 
 function mergeObjects(obj1, obj2) {
 	if (!obj2 && obj1) {
@@ -10,7 +9,7 @@ function mergeObjects(obj1, obj2) {
 		return obj2;
 	}
 	return Object.keys(obj2).reduce((acc, key) => {
-		if (obj2[key] && obj1[key] !== obj2[key]) {
+		if (obj2[key] && obj1[key] && obj1[key] !== obj2[key]) {
 			// eslint-disable-next-line no-console
 			console.warn(`override detected ${key}`);
 		}
