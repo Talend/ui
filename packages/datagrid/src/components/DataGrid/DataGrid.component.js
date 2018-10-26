@@ -43,7 +43,7 @@ export function injectedCellRenderer(getComponent, cellRenderer, avroRenderer) {
 	return props => <Component {...props} avroRenderer={avroRenderer} getComponent={getComponent} />;
 }
 
-function getAvroRenderer(avroRenderer) {
+export function getAvroRenderer(avroRenderer) {
 	return {
 		intCellRenderer: 'DefaultIntCellRenderer',
 		stringCellRenderer: 'DefaultStringCellRenderer',
@@ -86,20 +86,14 @@ export default class DataGrid extends React.Component {
 		this.onKeyDownHeaderColumn = this.onKeyDownHeaderColumn.bind(this);
 	}
 
-	componentDidUpdate(prevProps) {
-		if (this.props.loading || !this.gridAPI) {
-			return;
-		}
-
-		if (this.props.forceRedrawRows && this.props.forceRedrawRows(this.props, prevProps)) {
-			this.gridAPI.setRowData(this.props.getRowDataFn(this.props.data, this.props.startIndex));
-			this.gridAPI.refreshCells();
-		}
+	componentDidUpdate() {
+		console.log('componentDidUpdate');
+		this.gridAPI.refreshCells();
 	}
 
 	onGridReady({ api }) {
 		this.gridAPI = api;
-		this.gridAPI.setRowData(this.props.getRowDataFn(this.props.data, this.props.startIndex));
+		// this.gridAPI.setRowData(this.props.getRowDataFn(this.props.data, this.props.startIndex));
 	}
 
 	onFocusedCell(props) {
@@ -163,10 +157,13 @@ export default class DataGrid extends React.Component {
 	}
 
 	getAgGridConfig() {
+		console.log('getAgGridConfig');
 		let rowData = this.props.rowData;
 		if (typeof this.props.getRowDataFn === 'function') {
 			rowData = this.props.getRowDataFn(this.props.data, this.props.startIndex);
 		}
+
+		console.log(rowData);
 
 		const agGridOptions = {
 			headerHeight: this.props.headerHeight,
@@ -176,7 +173,7 @@ export default class DataGrid extends React.Component {
 			onVirtualColumnsChanged: this.updateStyleFocusColumn,
 			overlayNoRowsTemplate: this.props.overlayNoRowsTemplate,
 			ref: this.setGridInstance, // use ref in AgGridReact to get the current instance
-			// rowData,
+			rowData,
 			deltaRowDataMode: this.props.deltaRowDataMode,
 			rowBuffer: this.props.rowBuffer,
 			getRowNodeId: data => data[this.props.rowNodeIdentifier],
@@ -229,11 +226,12 @@ export default class DataGrid extends React.Component {
 
 		agGridOptions.columnDefs = adaptedColumnDefs;
 		agGridOptions.frameworkComponents = {
-			[CELL_RENDERER_COMPONENT]: injectedCellRenderer(
-				this.props.getComponent,
-				this.props.cellRenderer,
-				getAvroRenderer(this.props.avroRenderer),
-			),
+			[CELL_RENDERER_COMPONENT]: DefaultCellRenderer,
+			// injectedCellRenderer(
+			// 	this.props.getComponent,
+			// 	this.props.cellRenderer,
+			// 	getAvroRenderer(this.props.avroRenderer),
+			// ),
 			[HEADER_RENDERER_COMPONENT]: injectedHeaderRenderer(
 				this.props.getComponent,
 				this.props.headerRenderer,

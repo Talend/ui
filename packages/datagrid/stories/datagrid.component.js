@@ -208,7 +208,7 @@ storiesOf('Component Datagrid')
 				quality: 1,
 			};
 		}
-		const ADD_ITEMS_NUMBER = 1;
+		const ADD_ITEMS_NUMBER = 4;
 		class WithLayout extends React.Component {
 			constructor() {
 				super();
@@ -216,7 +216,7 @@ storiesOf('Component Datagrid')
 				this.terminateItems = this.terminateItems.bind(this);
 				const datagridSample = Object.assign({}, sample);
 				datagridSample.schema.fields = [datagridSample.schema.fields[0]];
-				datagridSample.data = new Array(ADD_ITEMS_NUMBER).fill().map(getItemWithRandomValue);
+				datagridSample.data = new Array(ADD_ITEMS_NUMBER).fill(LOADING_ITEM);
 				this.state = { sample: datagridSample, loading: false, index: 1 };
 			}
 
@@ -230,6 +230,7 @@ storiesOf('Component Datagrid')
 					);
 
 					// datagridSample.data = [getItemWithRandomValue(), getItemWithRandomValue()];
+					console.log(datagridSample);
 
 					return {
 						sample: datagridSample,
@@ -265,7 +266,6 @@ storiesOf('Component Datagrid')
 						Number of data : {this.state.sample.data.length}
 						<IconsProvider />
 						<DataGrid
-							deltaRowDataMode
 							data={this.state.sample}
 							getComponent={getComponent}
 							rowSelection="multiple"

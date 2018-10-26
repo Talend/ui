@@ -9,14 +9,14 @@ import DATAGRID_PROPTYPES from '../DataGrid/DataGrid.proptypes';
 import QualityIndicator from './QualityIndicator.component';
 import AvroRenderer from './AvroRenderer.component';
 import theme from './DefaultCell.scss';
+import { getAvroRenderer } from '../DataGrid/DataGrid.component';
 
 export const CELL_RENDERER_COMPONENT = 'cellRenderer';
 
-export default function DefaultCellRenderer({ avroRenderer, colDef, value, getComponent, data }) {
+function DefaultCellRenderer2({ avroRenderer, colDef, value, getComponent, data }) {
 	let content;
 
-
- todo try with a refresh method
+	// todo try with a refresh method
 	console.log('DefaultCellRenderer', value);
 
 	if (data.loading) {
@@ -41,7 +41,59 @@ export default function DefaultCellRenderer({ avroRenderer, colDef, value, getCo
 	);
 }
 
+class DefaultCellRenderer extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			loading: this.props.data.loading,
+		};
+	}
+
+	refresh(params) {
+		console.log('refresh', params);
+		if (params.data.loading !== this.state.loading) {
+			this.setState({
+				loading: params.data.loading,
+			});
+		}
+
+		return false;
+	}
+
+	render() {
+		const { avroRenderer, colDef, value, getComponent } = this.props;
+
+		let content;
+
+		// todo try with a refresh method
+		console.log('DefaultCellRenderer', value);
+
+		if (this.state.loading) {
+			content = <Skeleton key="1" />;
+		} else {
+			content = [
+				<QualityIndicator key="2" qualityIndex={value.quality} />,
+				<AvroRenderer
+					key="3"
+					colDef={colDef}
+					data={value}
+					avroRenderer={avroRenderer}
+					getComponent={getComponent}
+				/>,
+			];
+		}
+
+		return (
+			<div aria-label={value.value} className={classNames(theme['td-cell'], 'td-cell')}>
+				{content}
+			</div>
+		);
+	}
+}
+
 DefaultCellRenderer.defaultProps = {
+	avroRenderer: getAvroRenderer(),
 	value: {},
 	data: {},
 };
@@ -59,3 +111,5 @@ DefaultCellRenderer.propTypes = {
 	data: PropTypes.object,
 	getComponent: PropTypes.func,
 };
+
+export default DefaultCellRenderer;
