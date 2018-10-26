@@ -1358,8 +1358,7 @@ describe('InputDateTimePicker', () => {
 					},
 				);
 
-				const inputWrapperBefore = wrapper.find('DebounceInput');
-				inputWrapperBefore.prop('onChange')({
+				wrapper.find('DebounceInput').prop('onChange')({
 					target: {
 						value: 'a really baaaad date format',
 					},
@@ -1371,8 +1370,7 @@ describe('InputDateTimePicker', () => {
 
 				wrapper.update();
 
-				const inputWrapperAfter = wrapper.find('DebounceInput');
-				const placeholder = inputWrapperAfter.prop('placeholder');
+				const placeholder = wrapper.find('DebounceInput').prop('placeholder');
 
 				expect(placeholder).toBe(REGULAR_PLACEHOLDER);
 			});
