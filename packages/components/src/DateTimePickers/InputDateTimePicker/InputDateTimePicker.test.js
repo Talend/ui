@@ -1312,8 +1312,7 @@ describe('InputDateTimePicker', () => {
 					inputFocused: isFocused,
 				});
 
-				const inputWrapper = wrapper.find('DebounceInput');
-				const placeholder = inputWrapper.prop('placeholder');
+				const placeholder = wrapper.find('DebounceInput').prop('placeholder');
 
 				if (overrideExpected) {
 					expect(placeholder).not.toBe(REGULAR_PLACEHOLDER);
@@ -1394,8 +1393,7 @@ describe('InputDateTimePicker', () => {
 
 				wrapper.update();
 
-				const inputWrapper = wrapper.find('DebounceInput');
-				const placeholder = inputWrapper.prop('placeholder');
+				const placeholder = wrapper.find('DebounceInput').prop('placeholder');
 
 				expect(placeholder).not.toBe(REGULAR_PLACEHOLDER);
 			});
