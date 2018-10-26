@@ -159,7 +159,7 @@
     "data": [{
         "value": {
             "field2": {
-                "value": "95716",
+                "value": null,
                 "quality": 1
             },
             "field8": {

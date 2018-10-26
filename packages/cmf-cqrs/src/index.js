@@ -7,3 +7,11 @@ import * as constants from './constants';
 import sagas from './sagas';
 
 export { actions, ACKDispatcher, constants, middlewares, reducers, sagas, ackProcessed };
+
+export default {
+	id: 'cqrs',
+	components: { ACKDispatcher },
+	actionCreators: actions,
+	reducer: reducers,
+	preReducer: [ackProcessed],
+};

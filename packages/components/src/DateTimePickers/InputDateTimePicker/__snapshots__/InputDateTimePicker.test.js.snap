@@ -32,7 +32,7 @@ exports[`InputDateTimePicker render should render 1`] = `
       <Popover
         bsClass="popover"
         className="theme-popover"
-        id="DEFAULT_ID-popover"
+        id="date-time-picker-42"
         placement="right"
       >
         <DateTimePicker

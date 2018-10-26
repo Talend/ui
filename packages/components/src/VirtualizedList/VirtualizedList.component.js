@@ -1,9 +1,10 @@
 import React from 'react';
-import { AutoSizer, Column } from 'react-virtualized';
+import { AutoSizer } from 'react-virtualized';
 
 import { listTypes } from './utils/constants';
 import Loader from '../Loader';
 import RendererSelector from './RendererSelector.component';
+import Content from './Content.component';
 import propTypes from './PropTypes';
 import { insertSelectionConfiguration, toColumns } from './utils/tablerow';
 import theme from './VirtualizedList.scss';
@@ -26,6 +27,7 @@ function VirtualizedList(props) {
 		inProgress,
 		onRowClick,
 		onRowDoubleClick,
+		onScroll,
 		rowHeight,
 		selectionToggle,
 		sort,
@@ -33,6 +35,7 @@ function VirtualizedList(props) {
 		sortDirection,
 		type,
 		disableHeader,
+		rowRenderers,
 	} = props;
 
 	const columnDefinitionsWithSelection = insertSelectionConfiguration({
@@ -62,6 +65,7 @@ function VirtualizedList(props) {
 					isSelected={isSelected}
 					onRowClick={onRowClick}
 					onRowDoubleClick={onRowDoubleClick}
+					onScroll={onScroll}
 					rowHeight={rowHeight}
 					sort={sort}
 					sortBy={sortBy}
@@ -70,6 +74,7 @@ function VirtualizedList(props) {
 					width={width}
 					disableHeader={disableHeader}
 					inProgress={inProgress}
+					rowRenderers={rowRenderers}
 				>
 					{columnDefinitions}
 				</RendererSelector>
@@ -84,6 +89,6 @@ VirtualizedList.defaultProps = {
 	defaultHeight: 250,
 };
 
-VirtualizedList.Content = Column;
+VirtualizedList.Content = Content;
 
 export default VirtualizedList;

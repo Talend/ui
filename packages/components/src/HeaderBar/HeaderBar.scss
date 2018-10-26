@@ -97,6 +97,10 @@ $background-color-on-hover: shade($brand-primary, 30);
 		width: auto;
 	}
 
+	.tc-header-bar-brand :global(.tc-dropdown-button-title-label) {
+		margin-left: $padding-small;
+	}
+
 	:global(.btn):global(.btn-link) {
 		color: $white;
 		font-size: $font-size-base;

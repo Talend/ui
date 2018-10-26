@@ -70,6 +70,7 @@ So ArticlePage is only responsible to give the global structure and styles.
 Sometimes you will need to wrap the injected elements.
 To support this you can create a CustomInject which can support specific props
 
+
 ```js
 function CustomInject(props) {
 	return (

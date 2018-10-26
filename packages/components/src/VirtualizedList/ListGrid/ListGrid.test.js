@@ -29,7 +29,9 @@ describe('ListGrid', () => {
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
-		expect(wrapper.getElement().props.rowRenderer.displayName).toBe('VirtualizedList(RowLarge)');
+		expect(wrapper.getElement().props.rowRenderer.displayName).toBe(
+			'ListGesture(VirtualizedList(RowLarge))',
+		);
 	});
 
 	it('should enhance the rowRenderer with selection Higher Order renderer', () => {
@@ -51,7 +53,7 @@ describe('ListGrid', () => {
 
 		// then
 		expect(wrapper.getElement().props.rowRenderer.displayName).toBe(
-			'RowSelection(VirtualizedList(RowLarge))',
+			'RowSelection(ListGesture(VirtualizedList(RowLarge)))',
 		);
 	});
 

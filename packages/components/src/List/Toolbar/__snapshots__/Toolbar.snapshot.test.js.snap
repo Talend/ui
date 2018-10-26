@@ -499,7 +499,7 @@ exports[`Toolbar should render select all checkbox 1`] = `
       className="container-fluid"
     >
       <form
-        className="navbar-form navbar-left"
+        className="theme-container navbar-form navbar-left"
       >
         <div
           className="checkbox-inline navbar-text theme-tc-list-toolbar-select-all"

@@ -192,7 +192,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   disableHeader={false}
                   estimatedRowSize={30}
                   gridClassName="theme-grid tc-dropdown-container"
-                  headerHeight={35}
+                  headerHeight={40}
                   headerRowRenderer={[Function]}
                   headerStyle={Object {}}
                   height={250}
@@ -225,7 +225,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                       role="row"
                       style={
                         Object {
-                          "height": 35,
+                          "height": 40,
                           "overflow": "hidden",
                           "paddingRight": 0,
                           "width": 0,
@@ -310,10 +310,10 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                       estimatedRowSize={30}
                       getScrollbarSize={[Function]}
                       gridClassName="theme-grid tc-dropdown-container"
-                      headerHeight={35}
+                      headerHeight={40}
                       headerRowRenderer={[Function]}
                       headerStyle={Object {}}
-                      height={215}
+                      height={210}
                       noContentRenderer={[Function]}
                       noRowsRenderer={[Function]}
                       onRowDoubleClick={[Function]}
@@ -358,7 +358,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                             "WebkitOverflowScrolling": "touch",
                             "boxSizing": "border-box",
                             "direction": "ltr",
-                            "height": 215,
+                            "height": 210,
                             "overflowX": "hidden",
                             "overflowY": "hidden",
                             "position": "relative",
@@ -713,7 +713,7 @@ exports[`List should render 1`] = `
                         t={[Function]}
                       >
                         <form
-                          className="navbar-form navbar-left"
+                          className="theme-container navbar-form navbar-left"
                         >
                           <div
                             className="checkbox-inline navbar-text theme-tc-list-toolbar-select-all"
@@ -2002,7 +2002,7 @@ exports[`List should render 1`] = `
                   disableHeader={false}
                   estimatedRowSize={30}
                   gridClassName="theme-grid tc-dropdown-container"
-                  headerHeight={35}
+                  headerHeight={40}
                   headerRowRenderer={[Function]}
                   headerStyle={Object {}}
                   height={250}
@@ -2035,7 +2035,7 @@ exports[`List should render 1`] = `
                       role="row"
                       style={
                         Object {
-                          "height": 35,
+                          "height": 40,
                           "overflow": "hidden",
                           "paddingRight": 0,
                           "width": 0,
@@ -2120,10 +2120,10 @@ exports[`List should render 1`] = `
                       estimatedRowSize={30}
                       getScrollbarSize={[Function]}
                       gridClassName="theme-grid tc-dropdown-container"
-                      headerHeight={35}
+                      headerHeight={40}
                       headerRowRenderer={[Function]}
                       headerStyle={Object {}}
-                      height={215}
+                      height={210}
                       noContentRenderer={[Function]}
                       noRowsRenderer={[Function]}
                       onRowDoubleClick={[Function]}
@@ -2168,7 +2168,7 @@ exports[`List should render 1`] = `
                             "WebkitOverflowScrolling": "touch",
                             "boxSizing": "border-box",
                             "direction": "ltr",
-                            "height": 215,
+                            "height": 210,
                             "overflowX": "hidden",
                             "overflowY": "hidden",
                             "position": "relative",
@@ -2528,7 +2528,7 @@ exports[`List should render id if provided 1`] = `
                         t={[Function]}
                       >
                         <form
-                          className="navbar-form navbar-left"
+                          className="theme-container navbar-form navbar-left"
                         >
                           <div
                             className="checkbox-inline navbar-text theme-tc-list-toolbar-select-all"
@@ -3871,7 +3871,7 @@ exports[`List should render id if provided 1`] = `
                   disableHeader={false}
                   estimatedRowSize={30}
                   gridClassName="theme-grid tc-dropdown-container"
-                  headerHeight={35}
+                  headerHeight={40}
                   headerRowRenderer={[Function]}
                   headerStyle={Object {}}
                   height={250}
@@ -3906,7 +3906,7 @@ exports[`List should render id if provided 1`] = `
                       role="row"
                       style={
                         Object {
-                          "height": 35,
+                          "height": 40,
                           "overflow": "hidden",
                           "paddingRight": 0,
                           "width": 0,
@@ -3991,10 +3991,10 @@ exports[`List should render id if provided 1`] = `
                       estimatedRowSize={30}
                       getScrollbarSize={[Function]}
                       gridClassName="theme-grid tc-dropdown-container"
-                      headerHeight={35}
+                      headerHeight={40}
                       headerRowRenderer={[Function]}
                       headerStyle={Object {}}
-                      height={215}
+                      height={210}
                       noContentRenderer={[Function]}
                       noRowsRenderer={[Function]}
                       onRowDoubleClick={[Function]}
@@ -4039,7 +4039,7 @@ exports[`List should render id if provided 1`] = `
                             "WebkitOverflowScrolling": "touch",
                             "boxSizing": "border-box",
                             "direction": "ltr",
-                            "height": 215,
+                            "height": 210,
                             "overflowX": "hidden",
                             "overflowY": "hidden",
                             "position": "relative",
