@@ -22,6 +22,8 @@ const INVALID_PLACEHOLDER = 'INVALID DATE';
 const INPUT_FULL_FORMAT = 'YYYY-MM-DD HH:mm';
 const INPUT_DATE_ONLY_FORMAT = 'YYYY-MM-DD';
 
+const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
+
 /*
  * Split the date and time parts based on the middle space
  * ex: '  whatever   other-string  ' => ['whatever', 'other-string']
@@ -65,7 +67,7 @@ function getTextDate(date, time) {
 
 function getDateTimeFrom(date, time) {
 	if (date === undefined || time === undefined) {
-		return undefined;
+		return INTERNAL_INVALID_DATE;
 	}
 
 	return setMinutes(date, time);
@@ -214,10 +216,9 @@ class InputDateTimePicker extends React.Component {
 		const newSelectedDateTime = nextProps.selectedDateTime;
 
 		const selectedDateTimePropsUpdated = newSelectedDateTime !== this.props.selectedDateTime;
-		const selectedDateTimePropDivergedFromState = !isSameMinute(
-			newSelectedDateTime,
-			this.state.datetime,
-		);
+		const selectedDateTimePropDivergedFromState =
+			newSelectedDateTime !== this.state.datetime &&
+			!isSameMinute(newSelectedDateTime, this.state.datetime);
 		const needDateTimeStateUpdate =
 			selectedDateTimePropsUpdated && selectedDateTimePropDivergedFromState;
 
@@ -245,16 +246,17 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	onSubmitPicker(event, { date, time }) {
-		this.updateDatePartStateAndTriggerChange(event, {
+		event.persist();
+		return this.updateDatePartStateAndTriggerChange(event, {
 			date,
 			time,
 			textInput: getTextDate(date, time),
 			datetime: getDateTimeFrom(date, time),
 			errorMessage: undefined,
+		}).then(() => {
+			this.switchDropdownVisibility(false);
+			this.triggerBlur(event);
 		});
-
-		this.switchDropdownVisibility(false);
-		this.triggerBlur(event);
 	}
 
 	onChangeInput(event) {
@@ -365,16 +367,19 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	updateDatePartStateAndTriggerChange(event, dateStatePart) {
-		const lastInfos = {
-			datetime: this.state.datetime,
-			errorMessage: this.state.errorMessage,
-		};
-		this.setState(dateStatePart, () => {
-			const newInfos = {
-				datetime: dateStatePart.datetime,
-				errorMessage: dateStatePart.errorMessage,
+		return new Promise(resolve => {
+			const lastInfos = {
+				datetime: this.state.datetime,
+				errorMessage: this.state.errorMessage,
 			};
-			this.triggerChange(event, lastInfos, newInfos);
+			this.setState(dateStatePart, () => {
+				const newInfos = {
+					datetime: dateStatePart.datetime,
+					errorMessage: dateStatePart.errorMessage,
+				};
+				this.triggerChange(event, lastInfos, newInfos);
+				resolve();
+			});
 		});
 	}
 
@@ -401,7 +406,8 @@ class InputDateTimePicker extends React.Component {
 
 		const isDatetimeValid = isDateValid(this.state.datetime);
 		const inputFocused = this.state.inputFocused;
-		const needInvalidPlaceholder = !isDatetimeValid && !inputFocused;
+		const isInternalInvalidDate = this.state.datetime === INTERNAL_INVALID_DATE;
+		const needInvalidPlaceholder = !isDatetimeValid && !isInternalInvalidDate && !inputFocused;
 
 		const placeholder = needInvalidPlaceholder
 			? INVALID_PLACEHOLDER

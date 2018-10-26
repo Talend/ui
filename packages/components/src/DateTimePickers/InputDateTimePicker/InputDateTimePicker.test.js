@@ -13,12 +13,19 @@ import InputDateTimePicker from './InputDateTimePicker.component';
 import DateTimePicker from '../DateTimePicker';
 import { mockDate, restoreDate } from '../shared/utils/test/dateMocking';
 
+const DEFAULT_ID = 'DEFAULT_ID';
+
 function getRootElement() {
 	const rootElement = document.createElement('div');
 	document.body.appendChild(rootElement);
 	return rootElement;
 }
-const DEFAULT_ID = 'DEFAULT_ID';
+
+function getSyntheticMockedEvent() {
+	return {
+		persist: jest.fn(),
+	};
+}
 
 describe('InputDateTimePicker', () => {
 	beforeAll(() => {
@@ -186,6 +193,111 @@ describe('InputDateTimePicker', () => {
 			expect(stateDatetime).toBeInstanceOf(Date);
 			expect(isNaN(stateDatetime.getTime())).toBe(true);
 		});
+
+		cases(
+			'should not update state when the "selectedDateTime" prop is exactly the "datetime" state',
+			options => {
+				const invariableInputValue = "whatever input value which musn't change";
+				const defaultDate = new Date(2014, 1, 9, 12, 21, 3, 452);
+				const wrapper = shallow(
+					<InputDateTimePicker id={DEFAULT_ID} selectedDateTime={defaultDate} />,
+					{
+						disableLifecycleMethods: true,
+					},
+				);
+
+				wrapper.setState({
+					textInput: invariableInputValue,
+					datetime: options.selectedDateTime,
+				});
+
+				wrapper.update();
+
+				wrapper.setProps({
+					selectedDateTime: options.selectedDateTime,
+				});
+
+				wrapper.update();
+
+				expect(wrapper.state('textInput')).toBe(invariableInputValue);
+			},
+			[
+				{ name: 'InvalidDate value', selectedDateTime: new Date('whatever wrong selected date') },
+				{ name: 'undefined value', selectedDateTime: undefined },
+				{ name: 'Any valid Date value', selectedDateTime: new Date(2018, 4, 5, 12, 56) },
+			],
+		);
+
+		cases(
+			'should update state when the "selectedDateTime" prop diverge from the "datetime" state',
+			options => {
+				const defaultInputValue = 'whatever input value which must change';
+				const defaultDate = new Date(2014, 1, 9, 12, 21, 3, 452);
+				const wrapper = shallow(
+					<InputDateTimePicker id={DEFAULT_ID} selectedDateTime={defaultDate} />,
+					{
+						disableLifecycleMethods: true,
+					},
+				);
+
+				wrapper.setState({
+					textInput: defaultInputValue,
+					datetime: options.defaultSelectedDateTime,
+				});
+
+				wrapper.update();
+
+				wrapper.setProps({
+					selectedDateTime: options.newSelectedDateTime,
+				});
+
+				wrapper.update();
+
+				expect(wrapper.state('textInput')).not.toBe(defaultInputValue);
+			},
+			[
+				{
+					name: 'InvalidDate before and InvalidDate after',
+					defaultSelectedDateTime: new Date('whatever wrong selected date'),
+					newSelectedDateTime: new Date('whatever OTHER wrong selected date'),
+				},
+				{
+					name: 'InvalidDate before and undefined after',
+					defaultSelectedDateTime: new Date('whatever wrong selected date'),
+					newSelectedDateTime: undefined,
+				},
+				{
+					name: 'InvalidDate before and valid Date after',
+					defaultSelectedDateTime: new Date('whatever wrong selected date'),
+					newSelectedDateTime: new Date(2010, 4, 5, 12, 56),
+				},
+				{
+					name: 'undefined before and InvalidDate after',
+					defaultSelectedDateTime: undefined,
+					newSelectedDateTime: new Date('whatever wrong selected date'),
+				},
+				{
+					name: 'undefined before and valid Date after',
+					defaultSelectedDateTime: undefined,
+					newSelectedDateTime: new Date(2010, 4, 5, 12, 56),
+				},
+				{
+					name: 'valid Date before and InvalidDate after',
+					defaultSelectedDateTime: new Date(2010, 4, 5, 12, 56),
+					newSelectedDateTime: new Date('whatever wrong selected date'),
+				},
+				{
+					name: 'valid Date before and undefined after',
+					defaultSelectedDateTime: new Date(2010, 4, 5, 12, 56),
+					newSelectedDateTime: undefined,
+				},
+				{
+					name: 'valid Date before and valid Date after',
+					defaultSelectedDateTime: new Date(2018, 4, 5, 12, 56),
+					newSelectedDateTime: new Date(2010, 4, 5, 12, 56),
+				},
+			],
+		);
 	});
 
 	describe('input changes update the state', () => {
@@ -456,7 +568,8 @@ describe('InputDateTimePicker', () => {
 			);
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
 
-			dateTimePickerWrapper.prop('onSubmit')(null, {
+			const mockedEvent = getSyntheticMockedEvent();
+			dateTimePickerWrapper.prop('onSubmit')(mockedEvent, {
 				date: testedDate,
 				time: testedTime,
 			});
@@ -476,7 +589,8 @@ describe('InputDateTimePicker', () => {
 
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
 
-			dateTimePickerWrapper.prop('onSubmit')(null, {
+			const mockedEvent = getSyntheticMockedEvent();
+			dateTimePickerWrapper.prop('onSubmit')(mockedEvent, {
 				date: testedDate,
 				time: testedTime,
 			});
@@ -509,7 +623,7 @@ describe('InputDateTimePicker', () => {
 			expect(isSameMinute(onChange.mock.calls[0][2], new Date(2005, 8, 25, 2, 46))).toBe(true);
 		});
 
-		it('should callback with undefined when the datetime change with an invalid input value', () => {
+		it('should callback with an InvalidDate when the datetime change with an invalid input value', () => {
 			const validString = '2005-01-01 10:00';
 			const testedValues = [
 				'20005-09-25 02:46',
@@ -547,7 +661,9 @@ describe('InputDateTimePicker', () => {
 					},
 				});
 
-				expect(onChange.mock.calls[0][2]).toBeUndefined();
+				const onChangeValue = onChange.mock.calls[0][2];
+				expect(onChangeValue).toBeInstanceOf(Date);
+				expect(isNaN(onChangeValue.getTime())).toBe(true);
 			});
 		});
 
@@ -592,9 +708,7 @@ describe('InputDateTimePicker', () => {
 			);
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
 
-			const mockedEvent = {
-				whatever: 'prop',
-			};
+			const mockedEvent = getSyntheticMockedEvent();
 			dateTimePickerWrapper.prop('onSubmit')(mockedEvent, {
 				date: testedDate,
 				time: testedTime,
@@ -603,7 +717,7 @@ describe('InputDateTimePicker', () => {
 			expect(onChange).toHaveBeenCalledWith(mockedEvent, undefined, new Date(2015, 11, 30, 20, 50));
 		});
 
-		it('should not callback if datetime has not changed from undefined value', () => {
+		it('should not callback if datetime has not changed from InvalidDate value', () => {
 			const firstInvalidInput = 'whatever';
 			const secondInvalidInput = 'somethingelse';
 
@@ -666,7 +780,8 @@ describe('InputDateTimePicker', () => {
 			onChange.mockReset();
 
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
-			dateTimePickerWrapper.prop('onSubmit')(null, pickerIndenticalDatas);
+			const mockedEvent = getSyntheticMockedEvent();
+			dateTimePickerWrapper.prop('onSubmit')(mockedEvent, pickerIndenticalDatas);
 
 			expect(onChange).not.toHaveBeenCalled();
 		});
@@ -941,7 +1056,8 @@ describe('InputDateTimePicker', () => {
 
 			const dateTimePickerWrapper = wrapper.find(DateTimePicker);
 
-			dateTimePickerWrapper.prop('onSubmit')(null, pickerDatas);
+			const mockedEvent = getSyntheticMockedEvent();
+			dateTimePickerWrapper.prop('onSubmit')(mockedEvent, pickerDatas);
 
 			expect(onChange).not.toHaveBeenCalled();
 		});
@@ -1029,12 +1145,16 @@ describe('InputDateTimePicker', () => {
 			const dropdownContent = new ReactWrapper(portalInstance.props.children);
 
 			const pickerWrapper = dropdownContent.find(DateTimePicker);
-			pickerWrapper.prop('onSubmit')(null, {
-				date: new Date(2018, 0, 1),
-				time: 50,
-			});
-
-			expect(onBlur).toHaveBeenCalledTimes(1);
+			const mockedEvent = getSyntheticMockedEvent();
+			return pickerWrapper
+				.prop('onSubmit')(mockedEvent, {
+					date: new Date(2018, 0, 1),
+					time: 50,
+				})
+				.then(() => {
+					expect(onBlur).toHaveBeenCalledTimes(1);
+					expect(mockedEvent.persist).toHaveBeenCalledTimes(1);
+				});
 		});
 	});
 
@@ -1159,15 +1279,19 @@ describe('InputDateTimePicker', () => {
 			const dropdownContent = new ReactWrapper(portalInstance.props.children);
 
 			const pickerWrapper = dropdownContent.find(DateTimePicker);
-			pickerWrapper.prop('onSubmit')(null, {
-				date: new Date(2018, 0, 1),
-				time: 50,
-			});
 
-			wrapper.update();
+			const mockedEvent = getSyntheticMockedEvent();
+			return pickerWrapper
+				.prop('onSubmit')(mockedEvent, {
+					date: new Date(2018, 0, 1),
+					time: 50,
+				})
+				.then(() => {
+					wrapper.update();
 
-			const overlayWrapperAfter = wrapper.find('Overlay').first();
-			expect(overlayWrapperAfter.prop('show')).toBe(false);
+					const overlayWrapperAfter = wrapper.find('Overlay').first();
+					expect(overlayWrapperAfter.prop('show')).toBe(false);
+				});
 		});
 	});
 
@@ -1188,8 +1312,7 @@ describe('InputDateTimePicker', () => {
 					inputFocused: isFocused,
 				});
 
-				const inputWrapper = wrapper.find('DebounceInput');
-				const placeholder = inputWrapper.prop('placeholder');
+				const placeholder = wrapper.find('DebounceInput').prop('placeholder');
 
 				if (overrideExpected) {
 					expect(placeholder).not.toBe(REGULAR_PLACEHOLDER);
@@ -1224,5 +1347,54 @@ describe('InputDateTimePicker', () => {
 				},
 			],
 		);
+
+		describe('InvalidDate internal vs external one', () => {
+			it('should NOT apply an "invalid placeholder" on input AND override the regular one when InvalidDate value is internal, ie: wrong input value to keep visible', () => {
+				const REGULAR_PLACEHOLDER = 'REGULAR_PLACEHOLDER';
+				const wrapper = shallow(
+					<InputDateTimePicker id={DEFAULT_ID} placeholder={REGULAR_PLACEHOLDER} />,
+					{
+						disableLifecycleMethods: true,
+					},
+				);
+
+				wrapper.find('DebounceInput').prop('onChange')({
+					target: {
+						value: 'a really baaaad date format',
+					},
+				});
+
+				wrapper.setState({
+					inputFocused: false,
+				});
+
+				wrapper.update();
+
+				const placeholder = wrapper.find('DebounceInput').prop('placeholder');
+
+				expect(placeholder).toBe(REGULAR_PLACEHOLDER);
+			});
+
+			it('should apply an "invalid placeholder" on input AND override the regular one when InvalidDate value is external', () => {
+				const REGULAR_PLACEHOLDER = 'REGULAR_PLACEHOLDER';
+				const wrapper = shallow(
+					<InputDateTimePicker id={DEFAULT_ID} placeholder={REGULAR_PLACEHOLDER} />,
+					{
+						disableLifecycleMethods: true,
+					},
+				);
+
+				wrapper.setState({
+					datetime: new Date('whatever external InvalidDate'),
+					inputFocused: false,
+				});
+
+				wrapper.update();
+
+				const placeholder = wrapper.find('DebounceInput').prop('placeholder');
+
+				expect(placeholder).not.toBe(REGULAR_PLACEHOLDER);
+			});
+		});
 	});
 });

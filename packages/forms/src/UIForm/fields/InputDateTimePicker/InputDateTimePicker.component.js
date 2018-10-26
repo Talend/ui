@@ -4,19 +4,13 @@ import memoize from 'lodash/memoize';
 import InputDateTimePickerComponent from '@talend/react-components/lib/DateTimePickers';
 import FieldTemplate from '../FieldTemplate';
 import { isoDateTimeRegExp } from '../../customFormats';
-import { UnhandleTypeError, UnexpectedTypeError } from './WrongTypeError';
+import { WidgetUnhandleTypeError, WidgetUnexpectedTypeError } from './WrongTypeError';
 
-export const GENERIC_FORMAT_ERROR = 'GENERIC FORMAT ERROR';
-
-const INVALID_DATE = new Date('');
 const HANDLE_CONVERTION_TYPE = ['string', 'number'];
+const UNIQUE_ERROR_MESSAGE = 'The date format is not valid. Expected format: YYYY-MM-DD HH:mm';
 
-function isDateValid(date) {
-	if (date === undefined) {
-		return true;
-	}
-
-	return date instanceof Date && !isNaN(date.getTime());
+function generateInvalidDate() {
+	return new Date('');
 }
 
 function convertDateToTimestamp(date) {
@@ -33,7 +27,7 @@ function convertDateToString(date) {
 
 function convertStringToDate(str) {
 	if (!isoDateTimeRegExp.test(str)) {
-		return INVALID_DATE;
+		return generateInvalidDate();
 	}
 
 	return new Date(str);
@@ -48,8 +42,8 @@ function convertToDate(type, value) {
 
 	if (typeOfValue !== type) {
 		// eslint-disable-next-line no-console
-		console.error(new UnexpectedTypeError(type, typeOfValue));
-		return INVALID_DATE;
+		console.error(new WidgetUnexpectedTypeError(type, typeOfValue));
+		return generateInvalidDate();
 	}
 
 	switch (type) {
@@ -59,8 +53,8 @@ function convertToDate(type, value) {
 			return convertStringToDate(value);
 		default:
 			// eslint-disable-next-line no-console
-			console.error(new UnhandleTypeError(HANDLE_CONVERTION_TYPE, type));
-			return INVALID_DATE;
+			console.error(new WidgetUnhandleTypeError(HANDLE_CONVERTION_TYPE, type));
+			return generateInvalidDate();
 	}
 }
 
@@ -75,10 +69,9 @@ function convertFromDate(type, date) {
 		case 'string':
 			return convertDateToString(date);
 		default: {
-			const unhandleTypeError = new UnhandleTypeError(HANDLE_CONVERTION_TYPE, type);
 			// eslint-disable-next-line no-console
-			console.error(unhandleTypeError);
-			return unhandleTypeError;
+			console.error(new WidgetUnhandleTypeError(HANDLE_CONVERTION_TYPE, type));
+			return generateInvalidDate();
 		}
 	}
 }
@@ -87,22 +80,11 @@ class InputDateTimePicker extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			value: props.value,
-		};
+		this.lastValueChanged = props.value;
 
 		this.onChange = this.onChange.bind(this);
 		this.onBlur = this.onBlur.bind(this);
 		this.convertToDate = memoize(convertToDate, (type, value) => `${type}||${value}`);
-	}
-
-	componentWillReceiveProps(nextProps) {
-		const newValue = nextProps.value;
-		if (newValue !== this.state.value && !(newValue instanceof Error)) {
-			this.setState({
-				value: newValue,
-			});
-		}
 	}
 
 	/**
@@ -114,29 +96,30 @@ class InputDateTimePicker extends React.Component {
 		const type = schema.schema.type;
 
 		const hasError = errorMessage !== undefined;
-
-		const value = hasError ? new Error(errorMessage) : convertFromDate(type, date);
+		const value = hasError ? date : convertFromDate(type, date);
 
 		const payload = {
 			schema: this.props.schema,
 			value,
 		};
+		this.lastValueChanged = value;
 		this.props.onChange(event, payload);
 	}
 
 	onBlur(event) {
 		this.props.onFinish(event, {
 			schema: this.props.schema,
+			value: this.lastValueChanged,
 		});
 	}
 
 	render() {
 		const { schema } = this.props;
 		const type = schema.schema.type;
-		const datetime = this.convertToDate(type, this.state.value);
-		const isWidgetError = this.props.value instanceof Error;
-		const errorMessage =
-			isWidgetError || isDateValid(datetime) ? this.props.errorMessage : GENERIC_FORMAT_ERROR;
+		const isAlreadyADate = this.props.value instanceof Date;
+		const datetime = isAlreadyADate ? this.props.value : this.convertToDate(type, this.props.value);
+
+		const errorMessage = this.props.errorMessage ? UNIQUE_ERROR_MESSAGE : undefined;
 
 		return (
 			<FieldTemplate
@@ -183,7 +166,7 @@ if (process.env.NODE_ENV !== 'production') {
 			required: PropTypes.bool,
 			title: PropTypes.string,
 		}),
-		value: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.instanceOf(Error)]),
+		value: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.instanceOf(Date)]),
 	};
 }
 
