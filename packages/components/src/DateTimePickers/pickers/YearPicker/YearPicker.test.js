@@ -1,8 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { mockDate, restoreDate } from '../../shared/utils/test/dateMocking';
-
 import YearPicker from './YearPicker.component';
 
 const NB_YEAR_RANGE = 300;

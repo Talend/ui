@@ -1,9 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+
 import isSameDay from 'date-fns/is_same_day';
 import isToday from 'date-fns/is_today';
+
 import DatePicker from './DatePicker.component';
-import { mockDate, restoreDate } from '../../shared/utils/test/dateMocking';
 
 jest.mock('date-fns/is_today');
 

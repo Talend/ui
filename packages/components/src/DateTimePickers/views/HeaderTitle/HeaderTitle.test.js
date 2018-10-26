@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { mockDate, restoreDate } from '../../shared/utils/test/dateMocking';
 import HeaderTitle from './HeaderTitle.component';
 
 describe('HeaderTitle', () => {

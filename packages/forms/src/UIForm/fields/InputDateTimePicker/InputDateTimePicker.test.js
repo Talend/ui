@@ -2,10 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import cases from 'jest-in-case';
 import uniq from 'lodash/uniq';
-import {
-	mockDate,
-	restoreDate,
-} from '@talend/react-components/lib/DateTimePickers/shared/utils/test/dateMocking';
 
 import InputDateTimePicker from './InputDateTimePicker.component';
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { mockDate, restoreDate } from '../../shared/utils/test/dateMocking';
 import DateTimeView, { euclideanModulo } from './DateTimeView.component';
 
 describe('DateTimeView', () => {

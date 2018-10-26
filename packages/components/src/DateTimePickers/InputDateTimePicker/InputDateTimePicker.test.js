@@ -11,7 +11,6 @@ import getMinutes from 'date-fns/get_minutes';
 
 import InputDateTimePicker from './InputDateTimePicker.component';
 import DateTimePicker from '../DateTimePicker';
-import { mockDate, restoreDate } from '../shared/utils/test/dateMocking';
 
 const DEFAULT_ID = 'DEFAULT_ID';
 
