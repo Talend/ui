@@ -145,6 +145,7 @@ export function getRowData(sample, startIndex = 0) {
 					quality: row.value[key].quality,
 					comments: [],
 					avro: {},
+					// todo move loading here to send the data on the cell ???
 				},
 			}),
 			{
