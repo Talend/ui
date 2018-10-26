@@ -73,7 +73,7 @@ function set(mockingDate = new Date(0)) {
 
 	global.Date = function DateConstructor(...args) {
 		if (args.length === 0) {
-			return currentMockingDate;
+			return new OriginalDate(currentMockingDate.getTime());
 		}
 
 		const finalArgs = args.length >= 2 ? [Date.UTC(...args)] : args;
