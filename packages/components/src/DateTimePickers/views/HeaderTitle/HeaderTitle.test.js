@@ -5,10 +5,10 @@ import HeaderTitle from './HeaderTitle.component';
 
 describe('HeaderTitle', () => {
 	beforeAll(() => {
-		mockDate();
+		global.dateMock.set();
 	});
 	afterAll(() => {
-		restoreDate();
+		global.dateMock.restore();
 	});
 
 	it('should render a span', () => {

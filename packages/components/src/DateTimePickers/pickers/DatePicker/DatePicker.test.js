@@ -10,10 +10,10 @@ jest.mock('date-fns/is_today');
 
 describe('DatePicker', () => {
 	beforeAll(() => {
-		mockDate();
+		global.dateMock.set();
 	});
 	afterAll(() => {
-		restoreDate();
+		global.dateMock.restore();
 	});
 
 	function mockIsTodayWith(newToday) {

@@ -5,10 +5,10 @@ import DateTimeView, { euclideanModulo } from './DateTimeView.component';
 
 describe('DateTimeView', () => {
 	beforeAll(() => {
-		mockDate();
+		global.dateMock.set();
 	});
 	afterAll(() => {
-		restoreDate();
+		global.dateMock.restore();
 	});
 
 	it('should render', () => {

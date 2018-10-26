@@ -28,10 +28,10 @@ function getSyntheticMockedEvent() {
 
 describe('InputDateTimePicker', () => {
 	beforeAll(() => {
-		mockDate();
+		global.dateMock.set();
 	});
 	afterAll(() => {
-		restoreDate();
+		global.dateMock.restore();
 	});
 
 	describe('render', () => {

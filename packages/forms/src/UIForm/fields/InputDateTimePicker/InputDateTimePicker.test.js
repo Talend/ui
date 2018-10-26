@@ -24,10 +24,10 @@ function getSchema(type) {
 }
 
 beforeAll(() => {
-	mockDate();
+	global.dateMock.set();
 });
 afterAll(() => {
-	restoreDate();
+	global.dateMock.restore();
 });
 
 describe('InputDateTimePicker', () => {

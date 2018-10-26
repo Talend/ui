@@ -5,10 +5,10 @@ import TimePicker from './TimePicker.component';
 
 describe('TimePicker', () => {
 	beforeAll(() => {
-		mockDate();
+		global.dateMock.set();
 	});
 	afterAll(() => {
-		restoreDate();
+		global.dateMock.restore();
 	});
 
 	it('should render', () => {
@@ -81,14 +81,14 @@ describe('TimePicker', () => {
 
 	describe('initialIndex', () => {
 		it('should default render with the current time in middle if matches exactly a selectable time', () => {
-			mockDate(new Date(2025, 1, 20, 22, 35));
+			global.dateMock.set(new Date(2025, 1, 20, 22, 35));
 
 			const wrapper = shallow(<TimePicker interval={5} onSelect={() => {}} />);
 			expect(wrapper.prop('initialIndex')).toBe(271);
 		});
 
 		it('should default render with the closest selectable time of current time in middle', () => {
-			mockDate(new Date(2025, 1, 20, 11, 7));
+			global.dateMock.set(new Date(2025, 1, 20, 11, 7));
 
 			const wrapper = shallow(<TimePicker interval={5} onSelect={() => {}} />);
 			expect(wrapper.prop('initialIndex')).toBe(133);

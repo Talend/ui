@@ -5,10 +5,10 @@ import MonthYearView from './MonthYearView.component';
 
 describe('MonthYearView', () => {
 	beforeAll(() => {
-		mockDate();
+		global.dateMock.set();
 	});
 	afterAll(() => {
-		restoreDate();
+		global.dateMock.restore();
 	});
 
 	it('should render a MonthYearView', () => {

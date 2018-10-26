@@ -7,14 +7,14 @@ const NB_YEAR_RANGE = 300;
 
 describe('YearPicker', () => {
 	beforeAll(() => {
-		mockDate();
+		global.dateMock.set();
 	});
 	afterAll(() => {
-		restoreDate();
+		global.dateMock.restore();
 	});
 
 	it('should render', () => {
-		mockDate(new Date(2015, 11, 31));
+		global.dateMock.set(new Date(2015, 11, 31));
 
 		const wrapper = shallow(<YearPicker selectedYear={2012} onSelect={() => {}} />);
 
@@ -29,7 +29,7 @@ describe('YearPicker', () => {
 
 	it('should have the correct year range selectable', () => {
 		const todayYear = 2022;
-		mockDate(new Date(todayYear, 13, 5));
+		global.dateMock.set(new Date(todayYear, 13, 5));
 
 		const wrapper = shallow(<YearPicker onSelect={() => {}} />);
 
@@ -44,7 +44,7 @@ describe('YearPicker', () => {
 
 	it('should default render with current year in middle when "selectedYear" prop is not provided', () => {
 		const currentYear = 2025;
-		mockDate(new Date(currentYear, 1, 20));
+		global.dateMock.set(new Date(currentYear, 1, 20));
 
 		const wrapper = shallow(<YearPicker onSelect={() => {}} />);
 
@@ -54,7 +54,7 @@ describe('YearPicker', () => {
 	it('should render with "selectedYear" prop in middle when provided', () => {
 		const todayYear = 2025;
 		const selectedYear = 2030;
-		mockDate(new Date(todayYear, 1, 20));
+		global.dateMock.set(new Date(todayYear, 1, 20));
 
 		const wrapper = shallow(<YearPicker selectedYear={selectedYear} onSelect={() => {}} />);
 
@@ -65,7 +65,7 @@ describe('YearPicker', () => {
 		const selectedYear = 2012;
 		const yearToSelect = 2013;
 		const todayYear = 2014;
-		mockDate(new Date(todayYear, 1, 20));
+		global.dateMock.set(new Date(todayYear, 1, 20));
 
 		const onSelect = jest.fn();
 

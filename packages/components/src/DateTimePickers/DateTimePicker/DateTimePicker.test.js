@@ -13,14 +13,14 @@ function getSyntheticMockedEvent() {
 
 describe('DateTimePicker', () => {
 	beforeAll(() => {
-		mockDate();
+		global.dateMock.set();
 	});
 	afterAll(() => {
-		restoreDate();
+		global.dateMock.restore();
 	});
 
 	it('should render', () => {
-		mockDate(new Date(2018, 5, 12));
+		global.dateMock.set(new Date(2018, 5, 12));
 
 		const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
 
@@ -206,7 +206,7 @@ describe('DateTimePicker', () => {
 
 	describe('calendar', () => {
 		it('should at initialization define the calendar displayed based on current date when no selection props given', () => {
-			mockDate(new Date(2016, 4, 12));
+			global.dateMock.set(new Date(2016, 4, 12));
 
 			const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
 

@@ -5,10 +5,10 @@ import MonthPicker from './MonthPicker.component';
 
 describe('MonthPicker', () => {
 	beforeAll(() => {
-		mockDate();
+		global.dateMock.set();
 	});
 	afterAll(() => {
-		restoreDate();
+		global.dateMock.restore();
 	});
 
 	it('should render', () => {

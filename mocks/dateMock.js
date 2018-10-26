@@ -50,7 +50,7 @@ function overridePrototypesMethods(NewDate) {
 		});
 }
 
-export function mockDate(mockingDate = new Date(0)) {
+function set(mockingDate = new Date(0)) {
 	currentMockingDate = mockingDate;
 	const alreadyMocked = OriginalDate !== undefined;
 	if (alreadyMocked) {
@@ -78,7 +78,12 @@ export function mockDate(mockingDate = new Date(0)) {
 	};
 }
 
-export function restoreDate() {
+function restore() {
 	global.Date = OriginalDate;
 	OriginalDate = undefined;
 }
+
+export default {
+	set,
+	restore,
+};
