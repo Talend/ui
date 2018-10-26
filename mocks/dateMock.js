@@ -50,6 +50,18 @@ function overridePrototypesMethods(NewDate) {
 		});
 }
 
+/**
+ * Mock the Date object by defining the mockingDate instance argument as the current time
+ * - `Date.now` will give the time of the mockingDate
+ * - `new Date()` will give exactly the mockingDate
+ * - `new Date(value)` will give an instance of the exact timestamp or string value
+ * - `new Date(year, monthIndex [, day [, hours [, minutes [, seconds [, milliseconds]]]]])`
+ * will give a date based on UTC timezone
+ * - All default getters and setters are replaced by UTC homonym ones
+ *
+ * Can be used to mock a new Date instance and replace the previous one
+ * @param mockingDate {Date} Date instance used to mock the Date object
+ */
 function set(mockingDate = new Date(0)) {
 	currentMockingDate = mockingDate;
 	const alreadyMocked = OriginalDate !== undefined;
@@ -78,6 +90,9 @@ function set(mockingDate = new Date(0)) {
 	};
 }
 
+/**
+ * Unmock the Date object by restoring the native Date
+ */
 function restore() {
 	global.Date = OriginalDate;
 	OriginalDate = undefined;
