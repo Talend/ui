@@ -1349,9 +1349,8 @@ describe('InputDateTimePicker', () => {
 			],
 		);
 
-		cases(
-			'should NOT apply an "invalid placeholder" on input AND override the regular one when InvalidDate value is internal, ie: wrong input value to keep visible',
-			({ isInternalInvalidDate, overrideExpected }) => {
+		describe('InvalidDate internal vs external one', () => {
+			it('should NOT apply an "invalid placeholder" on input AND override the regular one when InvalidDate value is internal, ie: wrong input value to keep visible', () => {
 				const REGULAR_PLACEHOLDER = 'REGULAR_PLACEHOLDER';
 				const wrapper = shallow(
 					<InputDateTimePicker id={DEFAULT_ID} placeholder={REGULAR_PLACEHOLDER} />,
@@ -1360,21 +1359,36 @@ describe('InputDateTimePicker', () => {
 					},
 				);
 
-				if (isInternalInvalidDate) {
-					const inputWrapper = wrapper.find('DebounceInput');
-
-					inputWrapper.prop('onChange')({
-						target: {
-							value: 'a really baaaad date format',
-						},
-					});
-				} else {
-					wrapper.setState({
-						datetime: new Date('whatever external InvalidDate'),
-					});
-				}
+				const inputWrapperBefore = wrapper.find('DebounceInput');
+				inputWrapperBefore.prop('onChange')({
+					target: {
+						value: 'a really baaaad date format',
+					},
+				});
 
 				wrapper.setState({
+					inputFocused: false,
+				});
+
+				wrapper.update();
+
+				const inputWrapperAfter = wrapper.find('DebounceInput');
+				const placeholder = inputWrapperAfter.prop('placeholder');
+
+				expect(placeholder).toBe(REGULAR_PLACEHOLDER);
+			});
+
+			it('should apply an "invalid placeholder" on input AND override the regular one when InvalidDate value is external', () => {
+				const REGULAR_PLACEHOLDER = 'REGULAR_PLACEHOLDER';
+				const wrapper = shallow(
+					<InputDateTimePicker id={DEFAULT_ID} placeholder={REGULAR_PLACEHOLDER} />,
+					{
+						disableLifecycleMethods: true,
+					},
+				);
+
+				wrapper.setState({
+					datetime: new Date('whatever external InvalidDate'),
 					inputFocused: false,
 				});
 
@@ -1383,24 +1397,8 @@ describe('InputDateTimePicker', () => {
 				const inputWrapper = wrapper.find('DebounceInput');
 				const placeholder = inputWrapper.prop('placeholder');
 
-				if (overrideExpected) {
-					expect(placeholder).not.toBe(REGULAR_PLACEHOLDER);
-				} else {
-					expect(placeholder).toBe(REGULAR_PLACEHOLDER);
-				}
-			},
-			[
-				{
-					name: 'InvalidDate coming from inside (internal generation)',
-					isInternalInvalidDate: true,
-					overrideExpected: false,
-				},
-				{
-					name: 'InvalidDate coming from outside',
-					isInternalInvalidDate: false,
-					overrideExpected: true,
-				},
-			],
-		);
+				expect(placeholder).not.toBe(REGULAR_PLACEHOLDER);
+			});
+		});
 	});
 });
