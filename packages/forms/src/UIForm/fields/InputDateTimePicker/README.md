@@ -57,15 +57,14 @@ Example : "2018-01-01T10:35:48.951Z"
 
 ## UI Schema
 
-| Property          | Description                                                                                                            | Default |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------- | ------- |
-| widget            | `inputDateTimePicker`                                                                                                  |         |
-| title             | The title to display above field                                                                                       |         |
-| autoFocus         | Focus input on render                                                                                                  | `false` |
-| disabled          | Disable the input                                                                                                      | `false` |
-| placeholder       | Text to display as placeholder                                                                                         |         |
-| readOnly          | Set the input as non modifiable and prevent datepicker to open                                                         | `false` |
-| validationMessage | Required to override all the error message where technical one are included and are not wanted to display for the user |         |
+| Property    | Description                                                    | Default |
+| ----------- | -------------------------------------------------------------- | ------- |
+| widget      | `inputDateTimePicker`                                          |         |
+| title       | The title to display above field                               |         |
+| autoFocus   | Focus input on render                                          | `false` |
+| disabled    | Disable the input                                              | `false` |
+| placeholder | Text to display as placeholder                                 |         |
+| readOnly    | Set the input as non modifiable and prevent datepicker to open | `false` |
 
 ```json
 [
@@ -76,8 +75,7 @@ Example : "2018-01-01T10:35:48.951Z"
 		"autoFocus": false,
 		"disabled": false,
 		"placeholder": "Type the date here...",
-		"readOnly": false,
-		"validationMessage": "The date format is not valid. Expected format: YYYY-MM-DD HH:mm"
+		"readOnly": false
 	}
 ]
 ```

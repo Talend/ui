@@ -7,6 +7,7 @@ import { isoDateTimeRegExp } from '../../customFormats';
 import { WidgetUnhandleTypeError, WidgetUnexpectedTypeError } from './WrongTypeError';
 
 const HANDLE_CONVERTION_TYPE = ['string', 'number'];
+const UNIQUE_ERROR_MESSAGE = 'The date format is not valid. Expected format: YYYY-MM-DD HH:mm';
 
 function generateInvalidDate() {
 	return new Date('');
@@ -118,10 +119,12 @@ class InputDateTimePicker extends React.Component {
 		const isAlreadyADate = this.props.value instanceof Date;
 		const datetime = isAlreadyADate ? this.props.value : this.convertToDate(type, this.props.value);
 
+		const errorMessage = this.props.errorMessage ? UNIQUE_ERROR_MESSAGE : undefined;
+
 		return (
 			<FieldTemplate
 				description={schema.description}
-				errorMessage={this.props.errorMessage}
+				errorMessage={errorMessage}
 				id={this.props.id}
 				isValid={this.props.isValid}
 				label={schema.title}
