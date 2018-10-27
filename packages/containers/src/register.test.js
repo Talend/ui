@@ -4,8 +4,6 @@ import { registerAllContainers } from './register';
 jest.mock('@talend/react-cmf', () => ({
 	component: {
 		registerMany: () => {},
-		register: () => {},
-		has: () => false,
 	},
 	cmfConnect: () => component => component,
 	componentState: {},
@@ -18,6 +16,5 @@ describe('#register contianers', () => {
 		registerAllContainers();
 
 		expect(cmf.component.registerMany.mock.calls.length).toBe(1);
-		expect(cmf.component.register).toHaveBeenCalled();
 	});
 });

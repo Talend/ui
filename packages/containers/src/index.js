@@ -1,85 +1,38 @@
-import {
-	CircularProgress,
-	Drawer,
-	Icon,
-	IconsProvider,
-	Layout as PureLayout,
-	TooltipTrigger,
-} from '@talend/react-components';
+import omit from 'lodash/omit';
+import * as allComponents from '@talend/react-components';
 import { cmfConnect } from '@talend/react-cmf';
+import * as containers from './containers';
 
-import actionAPI from './actionAPI';
-import AboutDialog from './AboutDialog';
-import Action from './Action';
-import ActionBar from './ActionBar';
-import ActionButton from './ActionButton';
-import ActionDropdown from './ActionDropdown';
-import ActionFile from './ActionFile';
-import ActionIconToggle from './ActionIconToggle';
-import Actions from './Actions';
-import ActionSplitDropdown from './ActionSplitDropdown';
-import AppLoader from './AppLoader';
-import Badge from './Badge';
-import Breadcrumbs from './Breadcrumbs';
-import ConfirmDialog from './ConfirmDialog';
-import FilterBar from './FilterBar';
-import HeaderBar from './HeaderBar';
-import HomeListView from './HomeListView';
-import List from './List';
-import Notification from './Notification';
-import ObjectViewer from './ObjectViewer';
-import Redirect from './Redirect';
-import ShortcutManager from './ShortcutManager';
-import SelectObject from './SelectObject';
-import SidePanel from './SidePanel';
-import TreeView from './TreeView';
-import DeleteResource from './DeleteResource';
-import SubHeaderBar from './SubHeaderBar';
-import EditableText from './EditableText';
-import Typeahead from './Typeahead';
-import TabBar from './TabBar';
+const components = Object.keys(allComponents).reduce((acc, key) => {
+	if (!acc[key] && typeof allComponents[key] === 'function') {
+		// eslint-disable-next-line no-param-reassign
+		let options = {}
+    if (key === 'Layout') {
+      options = {
+        omitCMFProps: true,
+	      withComponentRegistry: true,
+      };
+    }
+    acc[key] = cmfConnect(options)(allComponents[key]);
+	}
+	return acc;
+}, omit(containers, ['actionAPI']));
 
-// keep backward compat
-const Layout = cmfConnect({
-	omitCMFProps: true,
+export * from './containers';
+export { default as actionAPI } from './actionAPI';
+
+export const Layout = cmfConnect({
+  omitCMFProps: true,
 	withComponentRegistry: true,
-})(PureLayout);
+})(allComponents.Layout);
+export const CircularProgress = cmfConnect({})(allComponents.CircularProgress);
+export const Drawer = cmfConnect({})(allComponents.Drawer);
+export const Icon = cmfConnect({})(allComponents.Icon);
+export const IconsProvider = cmfConnect({})(allComponents.IconsProvider);
+export const TooltipTrigger = cmfConnect({})(allComponents.TooltipTrigger);
 
-export {
-	actionAPI,
-	AboutDialog,
-	Action,
-	ActionBar,
-	ActionButton,
-	ActionDropdown,
-	ActionFile,
-	ActionIconToggle,
-	Actions,
-	ActionSplitDropdown,
-	AppLoader,
-	Badge,
-	Breadcrumbs,
-	CircularProgress,
-	ConfirmDialog,
-	Drawer,
-	DeleteResource,
-	FilterBar,
-	HeaderBar,
-	HomeListView,
-	Icon,
-	IconsProvider,
-	Layout,
-	List,
-	Notification,
-	ObjectViewer,
-	Redirect,
-	ShortcutManager,
-	SelectObject,
-	SidePanel,
-	SubHeaderBar,
-	EditableText,
-	TabBar,
-	TooltipTrigger,
-	TreeView,
-	Typeahead,
+// cmfModule
+export default {
+	id: 'containers',
+	components,
 };
