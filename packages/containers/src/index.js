@@ -6,14 +6,14 @@ import * as containers from './containers';
 const components = Object.keys(allComponents).reduce((acc, key) => {
 	if (!acc[key] && typeof allComponents[key] === 'function') {
 		// eslint-disable-next-line no-param-reassign
-		let options = {}
-    if (key === 'Layout') {
-      options = {
-        omitCMFProps: true,
-	      withComponentRegistry: true,
-      };
-    }
-    acc[key] = cmfConnect(options)(allComponents[key]);
+		let options = {};
+		if (key === 'Layout') {
+			options = {
+				omitCMFProps: true,
+				withComponentRegistry: true,
+			};
+		}
+		acc[key] = cmfConnect(options)(allComponents[key]);
 	}
 	return acc;
 }, omit(containers, ['actionAPI']));
@@ -22,7 +22,7 @@ export * from './containers';
 export { default as actionAPI } from './actionAPI';
 
 export const Layout = cmfConnect({
-  omitCMFProps: true,
+	omitCMFProps: true,
 	withComponentRegistry: true,
 })(allComponents.Layout);
 export const CircularProgress = cmfConnect({})(allComponents.CircularProgress);
