@@ -92,8 +92,7 @@ class InputDateTimePicker extends React.Component {
 	 * @param date
 	 */
 	onChange(event, errorMessage, date) {
-		const { schema } = this.props;
-		const type = schema.schema.type;
+		const type = this.props.schema.schema.type;
 
 		const hasError = errorMessage !== undefined;
 		const value = hasError ? date : convertFromDate(type, date);
@@ -165,6 +164,9 @@ if (process.env.NODE_ENV !== 'production') {
 			readOnly: PropTypes.bool,
 			required: PropTypes.bool,
 			title: PropTypes.string,
+			schema: PropTypes.shape({
+				type: PropTypes.string,
+			}),
 		}),
 		value: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.instanceOf(Date)]),
 	};
