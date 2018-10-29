@@ -9,9 +9,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/EditableText/EditableText.selectors.js
   8:1  error  Prefer default export  import/prefer-default-export
 
-/home/travis/build/Talend/ui/packages/containers/src/index.js
-  16:3  error  Assignment to property of function parameter 'acc'  no-param-reassign
-
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
 
@@ -21,5 +18,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/SubHeaderBar/SubHeaderBar.selectors.js
   8:1  error  Prefer default export  import/prefer-default-export
 
-✖ 7 problems (7 errors, 0 warnings)
+✖ 6 problems (6 errors, 0 warnings)
 
