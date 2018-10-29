@@ -1,3 +1,12 @@
+/*
+ * WARNING : Known issues :
+ * - `Date.prototype.getTimezoneOffset()` should always return 0 to match UTC timezone
+ * - prototype of the OverridenDate is the same reference as the default one
+ * resulting in not restoring properly the OriginalDate as it was
+ * - The mocked constructor return an instance of the OriginalDate
+ * which have the original prototype and constructor
+ */
+
 let OriginalDate;
 let currentMockingDate;
 
