@@ -5,7 +5,6 @@ import * as containers from './containers';
 
 const components = Object.keys(allComponents).reduce((acc, key) => {
 	if (!acc[key] && typeof allComponents[key] === 'function') {
-		// eslint-disable-next-line no-param-reassign
 		let options = {};
 		if (key === 'Layout') {
 			options = {
@@ -13,6 +12,7 @@ const components = Object.keys(allComponents).reduce((acc, key) => {
 				withComponentRegistry: true,
 			};
 		}
+		// eslint-disable-next-line no-param-reassign
 		acc[key] = cmfConnect(options)(allComponents[key]);
 	}
 	return acc;
