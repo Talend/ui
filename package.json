@@ -29,6 +29,9 @@
       "^.+\\.(css|sass|scss)$": "<rootDir>/test/styleMock.js",
       "^.+\\.(gif|ttf|eot|svg)$": "<rootDir>/test/fileMock.js"
     },
+    "setupFiles": [
+      "raf/polyfill"
+    ],
     "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js",
     "moduleFileExtensions": [
       "js",
@@ -66,6 +69,7 @@
     "jest-cli": "18.1.0",
     "node-sass": "3.13.0",
     "prop-types": "^15.5.10",
+    "raf": "^3.4.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.7",
