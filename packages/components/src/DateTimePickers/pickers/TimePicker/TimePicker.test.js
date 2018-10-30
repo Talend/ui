@@ -4,6 +4,10 @@ import { shallow } from 'enzyme';
 import TimePicker from './TimePicker.component';
 
 describe('TimePicker', () => {
+	afterEach(() => {
+		global.dateMock.restore();
+	});
+
 	it('should render', () => {
 		const wrapper = shallow(<TimePicker selectedTime={1250} onSelect={() => {}} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -74,22 +78,17 @@ describe('TimePicker', () => {
 
 	describe('initialIndex', () => {
 		it('should default render with the current time in middle if matches exactly a selectable time', () => {
-			const OriginalDate = global.Date;
-			global.Date = () => new OriginalDate(2025, 1, 20, 22, 35);
+			global.dateMock.mock(new Date(2025, 1, 20, 22, 35));
 
 			const wrapper = shallow(<TimePicker interval={5} onSelect={() => {}} />);
 			expect(wrapper.prop('initialIndex')).toBe(271);
-
-			global.Date = OriginalDate;
 		});
 
 		it('should default render with the closest selectable time of current time in middle', () => {
-			const OriginalDate = global.Date;
-			global.Date = () => new OriginalDate(2025, 1, 20, 11, 7);
+			global.dateMock.mock(new Date(2025, 1, 20, 11, 7));
 
 			const wrapper = shallow(<TimePicker interval={5} onSelect={() => {}} />);
 			expect(wrapper.prop('initialIndex')).toBe(133);
-			global.Date = OriginalDate;
 		});
 
 		it('should render with the "selectedTime" in middle if matches exactly a selectable time', () => {
