@@ -33,13 +33,13 @@ function convertStringToDate(str) {
 	return new Date(str);
 }
 
-function convertToDate(type, value) {
+function convertToDate({ schema }, value) {
 	if (value === undefined) {
 		return undefined;
 	}
 
+	const { type } = schema;
 	const typeOfValue = typeof value;
-
 	if (typeOfValue !== type) {
 		// eslint-disable-next-line no-console
 		console.error(new WidgetUnexpectedTypeError(type, typeOfValue));
@@ -58,11 +58,12 @@ function convertToDate(type, value) {
 	}
 }
 
-function convertFromDate(type, date) {
+function convertFromDate({ schema }, date) {
 	if (date === undefined) {
 		return undefined;
 	}
 
+	const { type } = schema;
 	switch (type) {
 		case 'number':
 			return convertDateToTimestamp(date);
@@ -80,43 +81,36 @@ class InputDateTimePicker extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.lastValueChanged = props.value;
-
 		this.onChange = this.onChange.bind(this);
 		this.onBlur = this.onBlur.bind(this);
 		this.convertToDate = memoize(convertToDate, (type, value) => `${type}||${value}`);
+
+		// TODO manage memoization
 	}
 
-	/**
-	 * On change callback
-	 * @param date
-	 */
-	onChange(event, errorMessage, date) {
-		const type = this.props.schema.schema.type;
-
+	onChange(event, { datetime, errorMessage, origin }) {
 		const hasError = errorMessage !== undefined;
-		const value = hasError ? date : convertFromDate(type, date);
+		const value = hasError ? datetime : convertFromDate(this.props.schema, datetime);
 
 		const payload = {
 			schema: this.props.schema,
 			value,
 		};
-		this.lastValueChanged = value;
 		this.props.onChange(event, payload);
+
+		if (origin === 'PICKER') {
+			this.props.onFinish(event, payload);
+		}
 	}
 
 	onBlur(event) {
-		this.props.onFinish(event, {
-			schema: this.props.schema,
-			value: this.lastValueChanged,
-		});
+		this.props.onFinish(event, { schema: this.props.schema });
 	}
 
 	render() {
-		const { schema } = this.props;
-		const type = schema.schema.type;
-		const isAlreadyADate = this.props.value instanceof Date;
-		const datetime = isAlreadyADate ? this.props.value : this.convertToDate(type, this.props.value);
+		const { schema, value } = this.props;
+		const isAlreadyADate = value instanceof Date;
+		const datetime = isAlreadyADate ? value : this.convertToDate(schema, value);
 
 		const errorMessage = this.props.errorMessage ? UNIQUE_ERROR_MESSAGE : undefined;
 

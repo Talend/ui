@@ -104,9 +104,7 @@ class InputDateTimePicker extends React.Component {
 		const isActionOutOfComponent = eventIndex === -1;
 
 		if (isActionOutOfComponent) {
-			if (!this.state.isDropdownShown) {
-				this.switchDropdownVisibility(false);
-			}
+			this.switchDropdownVisibility(false);
 		} else {
 			this.componentContainerEvents.splice(eventIndex, 1);
 		}
@@ -241,7 +239,7 @@ class InputDateTimePicker extends React.Component {
 			? INVALID_PLACEHOLDER
 			: inputProps.placeholder || INPUT_FULL_FORMAT;
 
-		const textInput = needInvalidPlaceholder ? '' : this.state.textInput;
+		const textInput = this.state.textInput;
 
 		return (
 			<div
@@ -259,6 +257,7 @@ class InputDateTimePicker extends React.Component {
 					debounceTimeout={DEBOUNCE_TIMEOUT}
 					onChange={this.onChangeInput}
 					className="form-control"
+					autocomplete="off"
 				/>
 				<div
 					className={theme['dropdown-wrapper']}

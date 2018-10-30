@@ -1,8 +1,8 @@
 {
-  "doc": "InputDateTimePicker/README.md",
+  "doc": "Date/README.md",
   "jsonSchema": {
     "type": "object",
-    "title": "InputDateTimePicker",
+    "title": "Date",
     "properties": {
       "propSimpleNumber": {
         "type": "number",
@@ -39,43 +39,43 @@
     {
       "key": "propSimpleNumber",
       "title": "Basic with number type",
-      "widget": "inputDateTimePicker"
+      "widget": "date"
     },
     {
       "key": "propAutofocus",
       "title": "Autofocus input",
-      "widget": "inputDateTimePicker",
+      "widget": "date",
       "autoFocus": true,
       "placeholder": "Type the date here..."
     },
     {
       "key": "propSimpleString",
       "title": "Basic with string type",
-      "widget": "inputDateTimePicker"
+      "widget": "date"
     },
     {
       "key": "propNumberInitWithError",
       "title": "Basic with number type",
       "description": "Initialised with a bad format",
-      "widget": "inputDateTimePicker"
+      "widget": "date"
     },
     {
       "key": "propStringInitWithError",
       "title": "Basic with string type",
       "description": "Initialised with a bad format",
-      "widget": "inputDateTimePicker"
+      "widget": "date"
     },
     {
       "key": "propDisabled",
       "title": "Disabled widget",
-      "widget": "inputDateTimePicker",
+      "widget": "date",
       "description": "You can always try to click...",
       "disabled": true
     },
     {
       "key": "propReadOnly",
       "title": "Readonly widget",
-      "widget": "inputDateTimePicker",
+      "widget": "date",
       "description": "You can always try to change me",
       "readOnly": true
     }
