@@ -10,15 +10,14 @@ import DateTimePicker from '../DateTimePicker';
 import theme from './InputDateTimePicker.scss';
 
 import {
-	INTERNAL_INVALID_DATE,
 	INPUT_FULL_FORMAT,
 	splitDateAndTimePartsRegex,
 	extractDateTimeParts,
-	extractDate,
-	extractTime,
-	getTextDate,
-	getDateTimeFrom,
+	dateTimeToStr,
+	dateAndTimeToDateTime,
 	isDateValid,
+	strToDate,
+	strToTime,
 } from './date-extraction';
 
 const DEBOUNCE_TIMEOUT = 300;
@@ -60,14 +59,15 @@ class InputDateTimePicker extends React.Component {
 
 		this.onChangeInput = this.onChangeInput.bind(this);
 		this.onSubmitPicker = this.onSubmitPicker.bind(this);
-		this.onFocusInput = this.onFocusInput.bind(this);
-		this.onBlurInput = this.onBlurInput.bind(this);
+		this.onFocus = this.onFocus.bind(this);
+		this.onBlur = this.onBlur.bind(this);
 		this.documentHandler = this.documentHandler.bind(this);
 		this.componentContainerHandler = this.componentContainerHandler.bind(this);
 	}
 
 	/** *******************************************************************************************
-	 * Focus management, could be in a HOC
+	 * Focus management
+	 * TODO extract it in a HOC
 	 * *******************************************************************************************/
 	componentDidMount() {
 		this.mountDocumentHandler();
@@ -133,20 +133,6 @@ class InputDateTimePicker extends React.Component {
 		}
 	}
 
-	onSubmitPicker(event, { date, time }) {
-		event.persist();
-		const nextState = {
-			date,
-			time,
-			textInput: getTextDate(date, time),
-			datetime: getDateTimeFrom(date, time),
-			errorMessage: undefined,
-
-			isDropdownShown: false,
-		};
-		return this.onChange(event, nextState, 'PICKER');
-	}
-
 	onChangeInput(event) {
 		const textInput = event.target.value;
 		let nextState;
@@ -164,12 +150,12 @@ class InputDateTimePicker extends React.Component {
 			const canParseTextInput = splitMatches !== null;
 
 			const dateTextToParse = canParseTextInput ? splitMatches[1] : textInput;
-			const [date, errorMessageDate] = extractDate(dateTextToParse);
+			const [date, errorMessageDate] = strToDate(dateTextToParse);
 
 			const timeTextToParse = canParseTextInput ? splitMatches[2] : textInput;
-			const [time, errorMessageTime] = extractTime(timeTextToParse);
+			const [time, errorMessageTime] = strToTime(timeTextToParse);
 
-			const datetime = getDateTimeFrom(date, time);
+			const datetime = dateAndTimeToDateTime(date, time);
 			const errorMessage = canParseTextInput
 				? errorMessageDate || errorMessageTime
 				: 'DATETIME - INCORRECT FORMAT';
@@ -186,7 +172,20 @@ class InputDateTimePicker extends React.Component {
 		return this.onChange(event, nextState, 'INPUT');
 	}
 
-	onFocusInput() {
+	onSubmitPicker(event, { date, time }) {
+		event.persist();
+		const nextState = {
+			date,
+			time,
+			textInput: dateTimeToStr(date, time),
+			datetime: dateAndTimeToDateTime(date, time),
+			errorMessage: undefined,
+			isDropdownShown: false,
+		};
+		return this.onChange(event, nextState, 'PICKER');
+	}
+
+	onFocus() {
 		this.setState({
 			inputFocused: true,
 		});
@@ -196,7 +195,7 @@ class InputDateTimePicker extends React.Component {
 		}
 	}
 
-	onBlurInput(event) {
+	onBlur(event) {
 		this.setState({
 			inputFocused: false,
 		});
@@ -253,8 +252,8 @@ class InputDateTimePicker extends React.Component {
 				<DebounceInput
 					{...inputProps}
 					type="text"
-					onFocus={this.onFocusInput}
-					onBlur={this.onBlurInput}
+					onFocus={this.onFocus}
+					onBlur={this.onBlur}
 					placeholder={placeholder}
 					value={textInput}
 					debounceTimeout={DEBOUNCE_TIMEOUT}

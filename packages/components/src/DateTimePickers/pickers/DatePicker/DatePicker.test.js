@@ -1,21 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-
 import isSameDay from 'date-fns/is_same_day';
 import isToday from 'date-fns/is_today';
-
 import DatePicker from './DatePicker.component';
 
 jest.mock('date-fns/is_today');
 
 describe('DatePicker', () => {
-	beforeAll(() => {
-		global.dateMock.set();
-	});
-	afterAll(() => {
-		global.dateMock.restore();
-	});
-
 	function mockIsTodayWith(newToday) {
 		isToday.mockImplementation(date => isSameDay(date, newToday));
 	}

@@ -4,13 +4,6 @@ import { shallow } from 'enzyme';
 import MonthYearView from './MonthYearView.component';
 
 describe('MonthYearView', () => {
-	beforeAll(() => {
-		global.dateMock.set();
-	});
-	afterAll(() => {
-		global.dateMock.restore();
-	});
-
 	it('should render a MonthYearView', () => {
 		// when
 		const wrapper = shallow(

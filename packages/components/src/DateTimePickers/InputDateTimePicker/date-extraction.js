@@ -40,7 +40,7 @@ function hoursAndMinutesToTime(hours, minutes) {
 	return hours * 60 + minutes;
 }
 
-function getTextDate(date, time) {
+function dateTimeToStr(date, time) {
 	if (date === undefined) {
 		return '';
 	}
@@ -53,7 +53,7 @@ function getTextDate(date, time) {
 	return format(fullDate, INPUT_FULL_FORMAT);
 }
 
-function getDateTimeFrom(date, time) {
+function dateAndTimeToDateTime(date, time) {
 	if (date === undefined || time === undefined) {
 		return INTERNAL_INVALID_DATE;
 	}
@@ -61,7 +61,7 @@ function getDateTimeFrom(date, time) {
 	return setMinutes(date, time);
 }
 
-function extractDate(strToParse) {
+function strToDate(strToParse) {
 	const dateMatches = strToParse.match(datePartRegex);
 
 	if (!dateMatches) {
@@ -101,7 +101,7 @@ function extractDate(strToParse) {
 	return [dateValidated];
 }
 
-function extractTime(strToParse) {
+function strToTime(strToParse) {
 	const timeMatches = strToParse.match(timePartRegex);
 
 	if (!timeMatches) {
@@ -145,7 +145,7 @@ function extractDateTimeParts(selectedDateTime) {
 			date,
 			time,
 			datetime,
-			textInput: getTextDate(date, time),
+			textInput: dateTimeToStr(date, time),
 		};
 	}
 
@@ -160,10 +160,10 @@ function extractDateTimeParts(selectedDateTime) {
 export {
 	INPUT_FULL_FORMAT,
 	splitDateAndTimePartsRegex,
+	dateAndTimeToDateTime,
+	dateTimeToStr,
 	extractDateTimeParts,
-	extractDate,
-	extractTime,
-	getTextDate,
-	getDateTimeFrom,
 	isDateValid,
+	strToDate,
+	strToTime,
 };

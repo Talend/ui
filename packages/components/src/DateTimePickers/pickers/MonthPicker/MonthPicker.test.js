@@ -4,13 +4,6 @@ import { shallow } from 'enzyme';
 import MonthPicker from './MonthPicker.component';
 
 describe('MonthPicker', () => {
-	beforeAll(() => {
-		global.dateMock.set();
-	});
-	afterAll(() => {
-		global.dateMock.restore();
-	});
-
 	it('should render', () => {
 		const wrapper = shallow(<MonthPicker onSelect={() => {}} />);
 

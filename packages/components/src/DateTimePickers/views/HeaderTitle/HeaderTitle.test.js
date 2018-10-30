@@ -4,13 +4,6 @@ import { shallow } from 'enzyme';
 import HeaderTitle from './HeaderTitle.component';
 
 describe('HeaderTitle', () => {
-	beforeAll(() => {
-		global.dateMock.set();
-	});
-	afterAll(() => {
-		global.dateMock.restore();
-	});
-
 	it('should render a span', () => {
 		// When
 		const wrapper = shallow(<HeaderTitle monthIndex={8} year={2012} />);
