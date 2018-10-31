@@ -101,6 +101,7 @@ class Datalist extends Component {
 			}
 
 			const additionalOptions = values
+				.filter(value => value)
 				.filter(value => !titleMapFind.find(option => option.value === value))
 				.map(value => this.addCustomValue(value, isMultiSection))
 				.reduce((acc, titleMapEntry) => {

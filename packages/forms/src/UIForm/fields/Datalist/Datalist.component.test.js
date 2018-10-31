@@ -297,6 +297,30 @@ describe('Datalist component', () => {
 			]);
 		});
 
+		it('should NOT add empty value to the titleMap', () => {
+			// when
+			const props = {
+				onChange: jest.fn(),
+				onFinish: jest.fn(),
+				onTrigger: jest.fn(),
+				schema: { ...schema, restricted: false },
+				value: '',
+			};
+			const wrapper = shallow(<Datalist.WrappedComponent {...props} />);
+
+			// then
+			expect(
+				wrapper
+					.find('FieldTemplate')
+					.find('Datalist')
+					.prop('titleMap'),
+			).toEqual([
+				{ name: 'Foo', value: 'foo' },
+				{ name: 'Bar', value: 'bar' },
+				{ name: 'Lol', value: 'lol' },
+			]);
+		});
+
 		it('should add unknown value with custom category to the titleMap if not restricted', () => {
 			// given
 			const multiSectionSchema = {
