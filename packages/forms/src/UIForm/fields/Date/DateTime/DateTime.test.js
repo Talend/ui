@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import cases from 'jest-in-case';
 import uniq from 'lodash/uniq';
 
-import InputDateTimePicker from './InputDateTimePicker.component';
+import DateTime from './DateTime.component';
 
 const schema = {
 	autoFocus: true,
@@ -23,17 +23,10 @@ function getSchema(type) {
 	};
 }
 
-beforeAll(() => {
-	global.dateMock.set();
-});
-afterAll(() => {
-	global.dateMock.restore();
-});
-
 describe('InputDateTimePicker', () => {
 	it('should render', () => {
 		const wrapper = shallow(
-			<InputDateTimePicker
+			<DateTime
 				id="my-datepicker"
 				isValid={false}
 				errorMessage="You've done something wrong"
@@ -52,7 +45,7 @@ describe('InputDateTimePicker', () => {
 				it('should convert number to date', () => {
 					const initialTimestamp = 1533884400000;
 					const wrapper = shallow(
-						<InputDateTimePicker
+						<DateTime
 							id="my-datepicker"
 							isValid
 							onChange={jest.fn()}
@@ -70,7 +63,7 @@ describe('InputDateTimePicker', () => {
 				it('should convert an undefined number to an undefined date', () => {
 					const initialTimestamp = undefined;
 					const wrapper = shallow(
-						<InputDateTimePicker
+						<DateTime
 							id="my-datepicker"
 							isValid
 							onChange={jest.fn()}
@@ -93,7 +86,7 @@ describe('InputDateTimePicker', () => {
 					const expectedTimestamp = 1448478660000;
 					const onChange = jest.fn();
 					const wrapper = shallow(
-						<InputDateTimePicker
+						<DateTime
 							id="my-datepicker"
 							isValid
 							onChange={onChange}
@@ -115,7 +108,7 @@ describe('InputDateTimePicker', () => {
 					const initialTimestamp = 1081866600000;
 					const onChange = jest.fn();
 					const wrapper = shallow(
-						<InputDateTimePicker
+						<DateTime
 							id="my-datepicker"
 							isValid
 							onChange={onChange}
@@ -141,7 +134,7 @@ describe('InputDateTimePicker', () => {
 					const initialDateStr = '2025-02-25T03:35:00.000Z';
 					const expectedTimestamp = 1740454500000;
 					const wrapper = shallow(
-						<InputDateTimePicker
+						<DateTime
 							id="my-datepicker"
 							isValid
 							onChange={jest.fn()}
@@ -159,7 +152,7 @@ describe('InputDateTimePicker', () => {
 				it('should convert an undefined string to an undefined date', () => {
 					const initialDateStr = undefined;
 					const wrapper = shallow(
-						<InputDateTimePicker
+						<DateTime
 							id="my-datepicker"
 							isValid
 							onChange={jest.fn()}
@@ -182,7 +175,7 @@ describe('InputDateTimePicker', () => {
 					const expectedStr = '2015-11-25T19:11:00.000Z';
 					const onChange = jest.fn();
 					const wrapper = shallow(
-						<InputDateTimePicker
+						<DateTime
 							id="my-datepicker"
 							isValid
 							onChange={onChange}
@@ -204,7 +197,7 @@ describe('InputDateTimePicker', () => {
 					const initialDateStr = '2027-01-01T03:35:00.000Z';
 					const onChange = jest.fn();
 					const wrapper = shallow(
-						<InputDateTimePicker
+						<DateTime
 							id="my-datepicker"
 							isValid
 							onChange={onChange}
@@ -231,7 +224,7 @@ describe('InputDateTimePicker', () => {
 				const initialDateStr = '2027-01-01T03:35:00.000Z';
 				const onChange = jest.fn();
 				const wrapper = shallow(
-					<InputDateTimePicker
+					<DateTime
 						id="my-datepicker"
 						isValid
 						onChange={onChange}
@@ -257,7 +250,7 @@ describe('InputDateTimePicker', () => {
 				const onChange = jest.fn();
 
 				const wrapper = shallow(
-					<InputDateTimePicker
+					<DateTime
 						id="my-datepicker"
 						isValid
 						onChange={onChange}
@@ -282,7 +275,7 @@ describe('InputDateTimePicker', () => {
 				"should give an 'InvalidDate' to the component if date cannot be converted",
 				({ value, specifiedType }) => {
 					const wrapper = shallow(
-						<InputDateTimePicker
+						<DateTime
 							id="my-datepicker"
 							isValid
 							errorMessage="You've done something wrong"
@@ -359,7 +352,7 @@ describe('InputDateTimePicker', () => {
 			it("should spread the value as is if it's already a Date object", () => {
 				const formProperty = new Date('Whatever date');
 				const wrapper = shallow(
-					<InputDateTimePicker
+					<DateTime
 						id="my-datepicker"
 						isValid
 						errorMessage="You've done something wrong"
@@ -381,7 +374,7 @@ describe('InputDateTimePicker', () => {
 				}
 				const selectedDateTimes = [];
 				const wrapper = shallow(
-					<InputDateTimePicker
+					<DateTime
 						id="my-datepicker"
 						isValid
 						errorMessage="You've done something wrong"
@@ -424,7 +417,7 @@ describe('InputDateTimePicker', () => {
 			};
 			const onFinish = jest.fn();
 			const wrapper = shallow(
-				<InputDateTimePicker
+				<DateTime
 					id="my-datepicker"
 					isValid
 					onChange={jest.fn()}
@@ -452,7 +445,7 @@ describe('InputDateTimePicker', () => {
 			const changedDate = new Date(2015, 10, 25, 19, 11);
 			const onFinish = jest.fn();
 			const wrapper = shallow(
-				<InputDateTimePicker
+				<DateTime
 					id="my-datepicker"
 					isValid
 					onChange={jest.fn()}
