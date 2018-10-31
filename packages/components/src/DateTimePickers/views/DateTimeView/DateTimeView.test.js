@@ -4,13 +4,6 @@ import { shallow } from 'enzyme';
 import DateTimeView, { euclideanModulo } from './DateTimeView.component';
 
 describe('DateTimeView', () => {
-	beforeAll(() => {
-		global.dateMock.set();
-	});
-	afterAll(() => {
-		global.dateMock.restore();
-	});
-
 	it('should render', () => {
 		const wrapper = shallow(
 			<DateTimeView
