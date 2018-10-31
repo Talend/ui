@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import memoize from 'lodash/memoize';
 import InputDateTimePickerComponent from '@talend/react-components/lib/DateTimePickers';
-import FieldTemplate from '../FieldTemplate';
-import { isoDateTimeRegExp } from '../../customFormats';
-import { WidgetUnhandleTypeError, WidgetUnexpectedTypeError } from './WrongTypeError';
+import FieldTemplate from '../../FieldTemplate';
+import { isoDateTimeRegExp } from '../../../customFormats';
+import { WidgetUnhandleTypeError, WidgetUnexpectedTypeError } from '../WrongTypeError';
 
 const HANDLE_CONVERTION_TYPE = ['string', 'number'];
 const UNIQUE_ERROR_MESSAGE = 'The date format is not valid. Expected format: YYYY-MM-DD HH:mm';

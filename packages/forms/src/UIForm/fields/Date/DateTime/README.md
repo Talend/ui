@@ -59,7 +59,7 @@ Example : "2018-01-01T10:35:48.951Z"
 
 | Property    | Description                                                    | Default |
 | ----------- | -------------------------------------------------------------- | ------- |
-| widget      | `inputDateTimePicker`                                          |         |
+| widget      | `dateTime`                                                     |         |
 | title       | The title to display above field                               |         |
 | autoFocus   | Focus input on render                                          | `false` |
 | disabled    | Disable the input                                              | `false` |
