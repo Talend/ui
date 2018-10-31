@@ -1,37 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import memoize from 'lodash/memoize';
+import memoizeOne from 'memoize-one';
 import InputDateTimePickerComponent from '@talend/react-components/lib/DateTimePickers';
 import FieldTemplate from '../../FieldTemplate';
 import { isoDateTimeRegExp } from '../../../customFormats';
 import { WidgetUnhandleTypeError, WidgetUnexpectedTypeError } from '../WrongTypeError';
+import { generateDescriptionId, generateErrorId } from '../../../Message/generateId';
 
 const HANDLE_CONVERTION_TYPE = ['string', 'number'];
-const UNIQUE_ERROR_MESSAGE = 'The date format is not valid. Expected format: YYYY-MM-DD HH:mm';
-
-function generateInvalidDate() {
-	return new Date('');
-}
-
-function convertDateToTimestamp(date) {
-	return date.getTime();
-}
-
-function convertTimestampToDate(timestamp) {
-	return new Date(timestamp);
-}
-
-function convertDateToString(date) {
-	return date.toISOString();
-}
-
-function convertStringToDate(str) {
-	if (!isoDateTimeRegExp.test(str)) {
-		return generateInvalidDate();
-	}
-
-	return new Date(str);
-}
+const UNIQUE_ERROR_MESSAGE = 'The date is invalid. Expected format: YYYY-MM-DD HH:mm';
+const INVALID_DATE = new Date('');
 
 function convertToDate({ schema }, value) {
 	if (value === undefined) {
@@ -43,18 +21,18 @@ function convertToDate({ schema }, value) {
 	if (typeOfValue !== type) {
 		// eslint-disable-next-line no-console
 		console.error(new WidgetUnexpectedTypeError(type, typeOfValue));
-		return generateInvalidDate();
+		return INVALID_DATE;
 	}
 
 	switch (type) {
 		case 'number':
-			return convertTimestampToDate(value);
+			return new Date(value);
 		case 'string':
-			return convertStringToDate(value);
+			return isoDateTimeRegExp.test(value) ? new Date(value) : INVALID_DATE;
 		default:
 			// eslint-disable-next-line no-console
 			console.error(new WidgetUnhandleTypeError(HANDLE_CONVERTION_TYPE, type));
-			return generateInvalidDate();
+			return INVALID_DATE;
 	}
 }
 
@@ -66,13 +44,13 @@ function convertFromDate({ schema }, date) {
 	const { type } = schema;
 	switch (type) {
 		case 'number':
-			return convertDateToTimestamp(date);
+			return date.getTime();
 		case 'string':
-			return convertDateToString(date);
+			return date.toISOString();
 		default: {
 			// eslint-disable-next-line no-console
 			console.error(new WidgetUnhandleTypeError(HANDLE_CONVERTION_TYPE, type));
-			return generateInvalidDate();
+			return INVALID_DATE;
 		}
 	}
 }
@@ -83,9 +61,7 @@ class InputDateTimePicker extends React.Component {
 
 		this.onChange = this.onChange.bind(this);
 		this.onBlur = this.onBlur.bind(this);
-		this.convertToDate = memoize(convertToDate, (type, value) => `${type}||${value}`);
-
-		// TODO manage memoization
+		this.convertToDate = memoizeOne(convertToDate);
 	}
 
 	onChange(event, { datetime, errorMessage, origin }) {
@@ -108,7 +84,9 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	render() {
-		const { schema, value } = this.props;
+		const { id, isValid, schema, value } = this.props;
+		const descriptionId = generateDescriptionId(id);
+		const errorId = generateErrorId(id);
 		const isAlreadyADate = value instanceof Date;
 		const datetime = isAlreadyADate ? value : this.convertToDate(schema, value);
 
@@ -117,14 +95,16 @@ class InputDateTimePicker extends React.Component {
 		return (
 			<FieldTemplate
 				description={schema.description}
+				descriptionId={descriptionId}
+				errorId={errorId}
 				errorMessage={errorMessage}
-				id={this.props.id}
-				isValid={this.props.isValid}
+				id={id}
+				isValid={isValid}
 				label={schema.title}
 				required={schema.required}
 			>
 				<InputDateTimePickerComponent
-					id={this.props.id}
+					id={id}
 					selectedDateTime={datetime}
 					onChange={this.onChange}
 					onBlur={this.onBlur}
@@ -132,16 +112,17 @@ class InputDateTimePicker extends React.Component {
 					disabled={schema.disabled}
 					readOnly={schema.readOnly}
 					placeholder={schema.placeholder}
+					// eslint-disable-next-line jsx-a11y/aria-proptypes
+					aria-invalid={!isValid}
+					aria-required={schema.required}
+					aria-describedby={`${descriptionId} ${errorId}`}
 				/>
 			</FieldTemplate>
 		);
 	}
 }
 
-InputDateTimePicker.displayName = 'Widget(InputDateTimePicker)';
-InputDateTimePicker.defaultProps = {
-	value: undefined,
-};
+InputDateTimePicker.displayName = 'DateTime Widget';
 
 if (process.env.NODE_ENV !== 'production') {
 	InputDateTimePicker.propTypes = {
