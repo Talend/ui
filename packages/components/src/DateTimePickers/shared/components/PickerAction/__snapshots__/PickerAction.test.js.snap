@@ -4,7 +4,6 @@ exports[`PickerAction should render a disabled button 1`] = `
 <button
   className="theme-action"
   disabled={true}
-  type="button"
 >
   <span
     className="theme-text"
@@ -17,7 +16,6 @@ exports[`PickerAction should render a disabled button 1`] = `
 exports[`PickerAction should render a simple button 1`] = `
 <button
   className="theme-action"
-  type="button"
 >
   <span
     className="theme-text"

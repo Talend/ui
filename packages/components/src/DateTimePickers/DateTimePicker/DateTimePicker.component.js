@@ -84,17 +84,15 @@ class DateTimePicker extends React.Component {
 		this.setState(newState);
 	}
 
-	onSelectDate(event, selectedDate) {
-		event.persist();
+	onSelectDate(selectedDate) {
 		this.setState({ selectedDate }, () => {
-			this.trySubmit(event);
+			this.trySubmit();
 		});
 	}
 
-	onSelectTime(event, selectedTime) {
-		event.persist();
+	onSelectTime(selectedTime) {
 		this.setState({ selectedTime }, () => {
-			this.trySubmit(event);
+			this.trySubmit();
 		});
 	}
 
@@ -107,11 +105,11 @@ class DateTimePicker extends React.Component {
 		}));
 	}
 
-	onSelectCalendarMonth(event, monthIndex) {
+	onSelectCalendarMonth(monthIndex) {
 		this.onSelectCalendarMonthYear({ monthIndex });
 	}
 
-	onSelectCalendarYear(event, year) {
+	onSelectCalendarYear(year) {
 		this.onSelectCalendarMonthYear({ year });
 	}
 
@@ -119,9 +117,9 @@ class DateTimePicker extends React.Component {
 		this.setState({ isDateTimeView });
 	}
 
-	trySubmit(event) {
+	trySubmit() {
 		if (this.state.selectedDate !== undefined && this.state.selectedTime !== undefined) {
-			this.props.onSubmit(event, {
+			this.props.onSubmit({
 				date: this.state.selectedDate,
 				time: this.state.selectedTime,
 			});

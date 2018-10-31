@@ -12,7 +12,7 @@ export default function RowRenderer({ index, key, parent, style }) {
 			isSelected={item.id === selectedItemId}
 			key={key}
 			label={item.label}
-			onClick={event => onSelect(event, item)}
+			onClick={() => onSelect(item)}
 			style={style}
 		/>
 	);

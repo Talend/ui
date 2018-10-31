@@ -37,12 +37,9 @@ describe('RowRenderer', () => {
 		expect(onSelect).not.toBeCalled();
 
 		// when
-		const mockedEvent = {
-			whatever: 'prop',
-		};
-		wrapper.simulate('click', mockedEvent);
+		wrapper.simulate('click');
 
 		// then
-		expect(onSelect).toHaveBeenCalledWith(mockedEvent, items[props.index]);
+		expect(onSelect).toBeCalledWith(items[props.index]);
 	});
 });

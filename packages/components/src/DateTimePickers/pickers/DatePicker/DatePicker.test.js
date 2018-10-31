@@ -382,13 +382,9 @@ describe('DatePicker', () => {
 					.find('.tc-date-picker-calendar-body .tc-date-picker-calendar-item DayPickerAction')
 					.filterWhere(item => item.prop('label').toString() === dayToSelect.toString());
 
-				const mockedEvent = {
-					whatever: 'prop',
-				};
+				dayPickerAction.simulate('click');
 
-				dayPickerAction.simulate('click', mockedEvent);
-
-				expect(onSelect).toHaveBeenCalledWith(mockedEvent, expectedNewSelectedDate);
+				expect(onSelect).toHaveBeenCalledWith(expectedNewSelectedDate);
 			});
 		});
 

@@ -3,41 +3,146 @@ import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import DebounceInput from 'react-debounce-input';
 import { Overlay, Popover } from 'react-bootstrap';
+import getMinutes from 'date-fns/get_minutes';
+import getHours from 'date-fns/get_hours';
+import getDate from 'date-fns/get_date';
+import setDate from 'date-fns/set_date';
+import setMinutes from 'date-fns/set_minutes';
+import lastDayOfMonth from 'date-fns/last_day_of_month';
 import isSameMinute from 'date-fns/is_same_minute';
-
+import startOfDay from 'date-fns/start_of_day';
+import startOfMinute from 'date-fns/start_of_minute';
+import format from 'date-fns/format';
 import uuid from 'uuid';
+import twoDigits from '../shared/utils/format/twoDigits';
 import DateTimePicker from '../DateTimePicker';
 import theme from './InputDateTimePicker.scss';
 
-import {
-	INPUT_FULL_FORMAT,
-	splitDateAndTimePartsRegex,
-	extractDateTimeParts,
-	dateTimeToStr,
-	dateAndTimeToDateTime,
-	isDateValid,
-	strToDate,
-	strToTime,
-} from './date-extraction';
-
 const DEBOUNCE_TIMEOUT = 300;
-const INVALID_PLACEHOLDER = 'INVALID DATE';
-
 const warnOnce = {};
 
-const PROPS_TO_OMIT_FOR_INPUT = ['selectedDateTime', 'onChange', 'onBlur'];
+/*
+ * Split the date and time parts based on the middle space
+ * ex: '  whatever   other-string  ' => ['whatever', 'other-string']
+ */
+const splitDateAndTimePartsRegex = new RegExp(/^\s*([^\s]+?)\s+([^\s]+?)\s*$/);
+/*
+ * Split the date part into year, month and day
+ * ex : ' 2018-2-05  ' => ['2018', '2', '05']
+ */
+const datePartRegex = new RegExp(/^\s*([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})\s*$/);
+/*
+ * Split the time part into hours and minutes
+ * ex : ' 14:35  ' => ['14', '35']
+ */
+const timePartRegex = new RegExp(/^\s*([0-9]{1,2}):([0-9]{2})\s*$/);
+
+function hoursAndMinutesToTime(hours, minutes) {
+	return hours * 60 + minutes;
+}
+
+function getTextDate(date, time) {
+	if (date === undefined) {
+		return '';
+	}
+
+	const dateText = format(date, 'YYYY-MM-DD');
+
+	if (time === undefined) {
+		return dateText;
+	}
+
+	const hours = Math.floor(time / 60);
+	const minutes = time % 60;
+
+	const timeText = `${twoDigits(hours)}:${twoDigits(minutes)}`;
+
+	return `${dateText} ${timeText}`;
+}
+
+function extractDate(strToParse) {
+	const dateMatches = strToParse.match(datePartRegex);
+
+	if (!dateMatches) {
+		const errMsg = 'DATE - INCORRECT FORMAT';
+		return [undefined, errMsg];
+	}
+
+	const yearString = dateMatches[1];
+	const monthString = dateMatches[2];
+	const dayString = dateMatches[3];
+
+	const day = parseInt(dayString, 10);
+	const month = parseInt(monthString, 10);
+	const monthIndex = month - 1;
+	const year = parseInt(yearString, 10);
+
+	if (month === 0 || month > 12) {
+		const errMsg = 'DATE - INCORRECT MONTH NUMBER';
+		return [undefined, errMsg];
+	}
+
+	if (day === 0) {
+		const errMsg = 'DATE - INCORRECT DAY NUMBER';
+		return [undefined, errMsg];
+	}
+
+	const monthDate = new Date(year, monthIndex);
+	const lastDateOfMonth = lastDayOfMonth(monthDate);
+
+	if (day > getDate(lastDateOfMonth)) {
+		const errMsg = 'DATE - INCORRECT DAY NUMBER RELATIVE TO MONTH';
+		return [undefined, errMsg];
+	}
+
+	const dateValidated = setDate(monthDate, day);
+
+	return [dateValidated];
+}
+
+function extractTime(strToParse) {
+	const timeMatches = strToParse.match(timePartRegex);
+
+	if (!timeMatches) {
+		const errMsg = 'TIME - INCORRECT FORMAT';
+		return [undefined, errMsg];
+	}
+
+	const hoursString = timeMatches[1];
+	const minutesString = timeMatches[2];
+
+	const hours = parseInt(hoursString, 10);
+
+	if (hours >= 24) {
+		const errMsg = 'TIME - INCORRECT HOUR NUMBER';
+		return [undefined, errMsg];
+	}
+
+	const minutes = parseInt(minutesString, 10);
+
+	if (minutes >= 60) {
+		const errMsg = 'TIME - INCORRECT MINUTES NUMBER';
+		return [undefined, errMsg];
+	}
+
+	const timeValidated = hoursAndMinutesToTime(hours, minutes);
+
+	return [timeValidated];
+}
+
+const PROPS_TO_OMIT_FOR_INPUT = ['selectedDateTime', 'onChange', 'onError'];
 
 class InputDateTimePicker extends React.Component {
 	static propTypes = {
-		id: PropTypes.string.isRequired,
 		selectedDateTime: PropTypes.instanceOf(Date),
 		onChange: PropTypes.func,
-		onBlur: PropTypes.func,
-		readOnly: PropTypes.bool,
+		onError: PropTypes.func,
+		id: PropTypes.string,
 	};
 
 	constructor(props) {
 		super(props);
+		this.popoverId = `date-time-picker-${props.id || uuid.v4()}`;
 
 		if (!warnOnce.unstable) {
 			// eslint-disable-next-line
@@ -47,36 +152,89 @@ class InputDateTimePicker extends React.Component {
 			warnOnce.unstable = true;
 		}
 
-		// will intercept events from children to check if the event comes from date picker
-		// this is used to close the picker on click event from outside the picker
+		const selectedDateTime = this.props.selectedDateTime;
+		if (selectedDateTime !== undefined) {
+			const date = startOfDay(selectedDateTime);
+			const hours = getHours(selectedDateTime);
+			const minutes = getMinutes(selectedDateTime);
+			const time = hoursAndMinutesToTime(hours, minutes);
+			const fullDate = startOfMinute(selectedDateTime);
+
+			this.state = {
+				date,
+				time,
+				lastFullDate: fullDate,
+				textInput: getTextDate(date, time),
+			};
+		} else {
+			this.state = {
+				textInput: '',
+			};
+		}
+
+		this.state.isDropdownShown = false;
+
 		this.componentContainerEvents = [];
-		this.popoverId = `date-time-picker-${props.id || uuid.v4()}`;
-		this.state = {
-			...extractDateTimeParts(this.props.selectedDateTime),
-			inputFocused: false,
-			isDropdownShown: false,
-		};
 
 		this.onChangeInput = this.onChangeInput.bind(this);
 		this.onSubmitPicker = this.onSubmitPicker.bind(this);
-		this.onFocus = this.onFocus.bind(this);
-		this.onBlur = this.onBlur.bind(this);
+		this.setContainerRef = this.setContainerRef.bind(this);
+		this.setDropdownWrapperRef = this.setDropdownWrapperRef.bind(this);
+		this.onFocusInput = this.onFocusInput.bind(this);
 		this.documentHandler = this.documentHandler.bind(this);
 		this.componentContainerHandler = this.componentContainerHandler.bind(this);
 	}
 
-	/** *******************************************************************************************
-	 * Focus management
-	 * TODO extract it in a HOC
-	 * *******************************************************************************************/
 	componentDidMount() {
-		this.mountDocumentHandler();
 		this.mountComponentContainerHandler();
+	}
+
+	componentDidUpdate(prevProp, prevState) {
+		const isDropdownShown = this.state.isDropdownShown;
+		if (prevState.isDropdownShown !== isDropdownShown) {
+			if (isDropdownShown) {
+				this.mountDocumentHandler();
+			} else {
+				this.unmountDocumentHandler();
+			}
+		}
 	}
 
 	componentWillUnmount() {
 		this.unmountDocumentHandler();
 		this.unmountComponentContainerHandler();
+	}
+
+	onSubmitPicker({ date, time }) {
+		this.updateDateTime(date, time);
+		this.switchDropdownVisibility(false);
+	}
+
+	onChangeInput(event) {
+		const fullString = event.target.value;
+		const splitMatches = fullString.match(splitDateAndTimePartsRegex);
+		const canParseFullString = splitMatches !== null;
+
+		const dateStrToParse = canParseFullString ? splitMatches[1] : fullString;
+		const [date, errMsgDate] = extractDate(dateStrToParse);
+
+		const timeStrToParse = canParseFullString ? splitMatches[2] : fullString;
+		const [time, errMsgTime] = extractTime(timeStrToParse);
+
+		const errMsg = canParseFullString ? errMsgDate || errMsgTime : 'DATETIME - INCORRECT FORMAT';
+		this.updateDateTime(date, time, fullString, errMsg);
+	}
+
+	onFocusInput() {
+		this.switchDropdownVisibility(true);
+	}
+
+	setContainerRef(ref) {
+		this.containerRef = ref;
+	}
+
+	setDropdownWrapperRef(ref) {
+		this.dropdownWrapperRef = ref;
 	}
 
 	mountDocumentHandler() {
@@ -99,8 +257,8 @@ class InputDateTimePicker extends React.Component {
 		this.containerRef.removeEventListener('focusin', this.componentContainerHandler);
 	}
 
-	documentHandler(event) {
-		const eventIndex = this.componentContainerEvents.indexOf(event);
+	documentHandler(e) {
+		const eventIndex = this.componentContainerEvents.indexOf(e);
 		const isActionOutOfComponent = eventIndex === -1;
 
 		if (isActionOutOfComponent) {
@@ -114,95 +272,6 @@ class InputDateTimePicker extends React.Component {
 		this.componentContainerEvents.push(e);
 	}
 
-	/** *******************************************************************************************
-	 * Component logic
-	 *********************************************************************************************/
-	componentWillReceiveProps(nextProps) {
-		const newSelectedDateTime = nextProps.selectedDateTime;
-
-		const needDateTimeStateUpdate =
-			newSelectedDateTime !== this.props.selectedDateTime && // selectedDateTime props updated
-			newSelectedDateTime !== this.state.datetime && // not the same ref as state date time
-			!isSameMinute(newSelectedDateTime, this.state.datetime); // not the same value as state
-
-		if (needDateTimeStateUpdate) {
-			const dateRelatedPartState = extractDateTimeParts(newSelectedDateTime);
-			this.setState(dateRelatedPartState);
-		}
-	}
-
-	onChangeInput(event) {
-		const textInput = event.target.value;
-		let nextState;
-
-		if (textInput === '') {
-			nextState = {
-				date: undefined,
-				time: undefined,
-				textInput,
-				datetime: undefined,
-				errorMessage: undefined,
-			};
-		} else {
-			const splitMatches = textInput.match(splitDateAndTimePartsRegex);
-			const canParseTextInput = splitMatches !== null;
-
-			const dateTextToParse = canParseTextInput ? splitMatches[1] : textInput;
-			const [date, errorMessageDate] = strToDate(dateTextToParse);
-
-			const timeTextToParse = canParseTextInput ? splitMatches[2] : textInput;
-			const [time, errorMessageTime] = strToTime(timeTextToParse);
-
-			const datetime = dateAndTimeToDateTime(date, time);
-			const errorMessage = canParseTextInput
-				? errorMessageDate || errorMessageTime
-				: 'DATETIME - INCORRECT FORMAT';
-
-			nextState = {
-				date,
-				time,
-				textInput,
-				datetime,
-				errorMessage,
-			};
-		}
-
-		return this.onChange(event, nextState, 'INPUT');
-	}
-
-	onSubmitPicker(event, { date, time }) {
-		event.persist();
-		const nextState = {
-			date,
-			time,
-			textInput: dateTimeToStr(date, time),
-			datetime: dateAndTimeToDateTime(date, time),
-			errorMessage: undefined,
-			isDropdownShown: false,
-		};
-		return this.onChange(event, nextState, 'PICKER');
-	}
-
-	onFocus() {
-		this.setState({
-			inputFocused: true,
-		});
-
-		if (!this.props.readOnly) {
-			this.switchDropdownVisibility(true);
-		}
-	}
-
-	onBlur(event) {
-		this.setState({
-			inputFocused: false,
-		});
-
-		if (this.props.onBlur) {
-			this.props.onBlur(event);
-		}
-	}
-
 	switchDropdownVisibility(isShown) {
 		if (this.state.isDropdownShown === isShown) {
 			return;
@@ -213,58 +282,50 @@ class InputDateTimePicker extends React.Component {
 		});
 	}
 
-	onChange(event, nextState, origin) {
-		const { errorMessage, datetime } = nextState;
-
-		const datetimeUpdated =
-			datetime !== this.state.datetime && !isSameMinute(datetime, this.state.datetime);
-
-		const errorUpdated = errorMessage !== this.state.errorMessage;
-
-		this.setState(nextState, () => {
-			if (this.props.onChange && (datetimeUpdated || errorUpdated)) {
-				this.props.onChange(event, { errorMessage, datetime, origin });
+	updateDateTime(date, time, textInput = getTextDate(date, time), errorMsg) {
+		const fullDate = (() => {
+			if (date === undefined || time === undefined) {
+				return undefined;
 			}
+
+			return setMinutes(date, time);
+		})();
+
+		const fullDateUpdated =
+			fullDate !== this.state.lastFullDate && !isSameMinute(fullDate, this.state.lastFullDate);
+
+		if (fullDateUpdated && this.props.onChange) {
+			this.props.onChange(fullDate);
+		}
+
+		const errorUpdated = errorMsg !== this.state.lastErrMsg;
+		if (errorUpdated && this.props.onError) {
+			this.props.onError(errorMsg);
+		}
+
+		this.setState({
+			date,
+			time,
+			textInput,
+			lastFullDate: fullDate,
+			lastErrMsg: errorMsg,
 		});
 	}
 
 	render() {
 		const inputProps = omit(this.props, PROPS_TO_OMIT_FOR_INPUT);
-
-		const isDatetimeValid = isDateValid(this.state.datetime);
-		const inputFocused = this.state.inputFocused;
-		const needInvalidPlaceholder = !isDatetimeValid && !inputFocused;
-
-		const placeholder = needInvalidPlaceholder
-			? INVALID_PLACEHOLDER
-			: inputProps.placeholder || INPUT_FULL_FORMAT;
-
-		const textInput = this.state.textInput;
-
 		return (
-			<div
-				ref={ref => {
-					this.containerRef = ref;
-				}}
-			>
+			<div ref={this.setContainerRef}>
 				<DebounceInput
 					{...inputProps}
 					type="text"
-					onFocus={this.onFocus}
-					onBlur={this.onBlur}
-					placeholder={placeholder}
-					value={textInput}
+					onFocus={this.onFocusInput}
+					placeholder={inputProps.placeholder || 'YYYY-MM-DD hh:mm'}
+					value={this.state.textInput}
 					debounceTimeout={DEBOUNCE_TIMEOUT}
 					onChange={this.onChangeInput}
-					className="form-control"
-					autocomplete="off"
 				/>
-				<div
-					className={theme['dropdown-wrapper']}
-					ref={ref => {
-						this.dropdownWrapperRef = ref;
-					}}
-				>
+				<div className={theme['dropdown-wrapper']} ref={this.setDropdownWrapperRef}>
 					<Overlay container={this.dropdownWrapperRef} show={this.state.isDropdownShown}>
 						<Popover className={theme.popover} id={this.popoverId}>
 							<DateTimePicker

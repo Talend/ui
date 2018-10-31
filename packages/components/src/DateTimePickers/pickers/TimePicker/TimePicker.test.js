@@ -1,13 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { mockDate, restoreDate } from '../../shared/utils/test/dateMocking';
 
 import TimePicker from './TimePicker.component';
 
 describe('TimePicker', () => {
-	afterEach(() => {
-		global.dateMock.restore();
-	});
-
 	it('should render', () => {
 		const wrapper = shallow(<TimePicker selectedTime={1250} onSelect={() => {}} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -78,17 +75,21 @@ describe('TimePicker', () => {
 
 	describe('initialIndex', () => {
 		it('should default render with the current time in middle if matches exactly a selectable time', () => {
-			global.dateMock.mock(new Date(2025, 1, 20, 22, 35));
+			mockDate(new Date(2025, 1, 20, 22, 35));
 
 			const wrapper = shallow(<TimePicker interval={5} onSelect={() => {}} />);
 			expect(wrapper.prop('initialIndex')).toBe(271);
+
+			restoreDate();
 		});
 
 		it('should default render with the closest selectable time of current time in middle', () => {
-			global.dateMock.mock(new Date(2025, 1, 20, 11, 7));
+			mockDate(new Date(2025, 1, 20, 11, 7));
 
 			const wrapper = shallow(<TimePicker interval={5} onSelect={() => {}} />);
 			expect(wrapper.prop('initialIndex')).toBe(133);
+
+			restoreDate();
 		});
 
 		it('should render with the "selectedTime" in middle if matches exactly a selectable time', () => {
@@ -117,13 +118,9 @@ describe('TimePicker', () => {
 			);
 
 			const timeItem = wrapper.prop('items').find(item => item.id === timeToSelect);
+			wrapper.prop('onSelect')(timeItem);
 
-			const mockedEvent = {
-				whatever: 'prop',
-			};
-			wrapper.prop('onSelect')(mockedEvent, timeItem);
-
-			expect(onSelect).toHaveBeenCalledWith(mockedEvent, timeToSelect);
+			expect(onSelect).toHaveBeenCalledWith(timeToSelect);
 		});
 	});
 });

@@ -56,8 +56,8 @@ class TimePicker extends React.Component {
 		this.initialIndex = this.items.map(toItemWithDiff(initialTime)).reduce(selectLowestDiff).index;
 	}
 
-	onSelect(event, item) {
-		return this.props.onSelect(event, item.id);
+	onSelect(item) {
+		return this.props.onSelect(item.id);
 	}
 
 	render() {

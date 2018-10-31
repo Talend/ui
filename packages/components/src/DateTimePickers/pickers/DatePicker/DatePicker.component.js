@@ -121,8 +121,8 @@ class DatePicker extends React.Component {
 												isDisabled={isDisabled}
 												isToday={isToday(date)}
 												aria-label={isDisabled ? 'Unselectable date' : `Select '${dateNumber}'`}
-												onClick={event => {
-													this.props.onSelect(event, date);
+												onClick={() => {
+													this.props.onSelect(date);
 												}}
 											/>
 										)}

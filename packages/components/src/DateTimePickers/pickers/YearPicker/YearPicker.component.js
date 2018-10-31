@@ -26,8 +26,8 @@ class YearPicker extends React.Component {
 		this.initialIndex = this.items.findIndex(year => year.id === definedMiddleYear);
 	}
 
-	onSelect(event, item) {
-		return this.props.onSelect(event, item.id);
+	onSelect(item) {
+		return this.props.onSelect(item.id);
 	}
 
 	render() {

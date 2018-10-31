@@ -15,7 +15,7 @@ function PickerAction(props) {
 	);
 
 	return (
-		<button type="button" className={className} {...rest}>
+		<button className={className} {...rest}>
 			<span className={theme.text}>{label}</span>
 		</button>
 	);
