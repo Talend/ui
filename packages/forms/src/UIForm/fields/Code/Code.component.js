@@ -172,7 +172,8 @@ try {
 
 	CodeWidget = Code;
 } catch (error) {
-	class WrappedTextArea extends React.PureComponent { // eslint-disable-line react/no-multi-comp
+	class WrappedTextArea extends React.PureComponent {
+		// eslint-disable-line react/no-multi-comp
 		constructor() {
 			super();
 			// eslint-disable-next-line no-console
