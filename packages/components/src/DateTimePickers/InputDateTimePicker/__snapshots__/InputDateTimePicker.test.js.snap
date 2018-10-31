@@ -3,6 +3,7 @@
 exports[`InputDateTimePicker render should render 1`] = `
 <div>
   <DebounceInput
+    autocomplete="off"
     className="form-control"
     debounceTimeout={300}
     element="input"

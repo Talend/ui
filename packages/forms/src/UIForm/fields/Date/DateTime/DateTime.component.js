@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import memoizeOne from 'memoize-one';
-import InputDateTimePickerComponent from '@talend/react-components/lib/DateTimePickers';
+import InputDateTimePicker from '@talend/react-components/lib/DateTimePickers';
 import FieldTemplate from '../../FieldTemplate';
 import { isoDateTimeRegExp } from '../../../customFormats';
 import { WidgetUnhandleTypeError, WidgetUnexpectedTypeError } from '../WrongTypeError';
@@ -55,7 +55,7 @@ function convertFromDate({ schema }, date) {
 	}
 }
 
-class InputDateTimePicker extends React.Component {
+class DateTime extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -103,7 +103,7 @@ class InputDateTimePicker extends React.Component {
 				label={schema.title}
 				required={schema.required}
 			>
-				<InputDateTimePickerComponent
+				<InputDateTimePicker
 					id={id}
 					selectedDateTime={datetime}
 					onChange={this.onChange}
@@ -122,10 +122,10 @@ class InputDateTimePicker extends React.Component {
 	}
 }
 
-InputDateTimePicker.displayName = 'DateTime Widget';
+DateTime.displayName = 'DateTime Widget';
 
 if (process.env.NODE_ENV !== 'production') {
-	InputDateTimePicker.propTypes = {
+	DateTime.propTypes = {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
@@ -147,4 +147,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default InputDateTimePicker;
+export default DateTime;

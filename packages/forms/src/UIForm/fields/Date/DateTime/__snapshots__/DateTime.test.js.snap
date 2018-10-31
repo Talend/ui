@@ -1,15 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InputDateTimePicker should render 1`] = `
+exports[`InputDateTimePicker render should render 1`] = `
 <FieldTemplate
   description="This is my date picker"
-  errorMessage="The date format is not valid. Expected format: YYYY-MM-DD HH:mm"
+  descriptionId="my-datepicker-description"
+  errorId="my-datepicker-error"
+  errorMessage="The date is invalid. Expected format: YYYY-MM-DD HH:mm"
   id="my-datepicker"
   isValid={false}
   label="My date picker"
   required={undefined}
 >
   <InputDateTimePicker
+    aria-describedby="my-datepicker-description my-datepicker-error"
+    aria-invalid={true}
+    aria-required={undefined}
     autoFocus={true}
     disabled={false}
     id="my-datepicker"
