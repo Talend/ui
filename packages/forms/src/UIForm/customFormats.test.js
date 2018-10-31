@@ -1,4 +1,3 @@
-import cases from 'jest-in-case';
 import customFormats from './customFormats';
 
 describe('custom formats', () => {
@@ -8,8 +7,6 @@ describe('custom formats', () => {
 		FORMAT_URL_GIT: 'GIT URL ERROR',
 		FORMAT_NO_LEADING_TRAILING_SPACE: 'NO LEADING ERROR',
 		FORMAT_STRING_WITHOUT_SPACE: 'STRING WITHOUT SPACE ERROR',
-		FORMAT_TIMESTAMP_OUT_OF_RANGE: 'TIMESTAMP OUT OF RANGE ERROR',
-		FORMAT_ISO_DATETIME: 'ISO DATETIME ERROR',
 	};
 	const customValidation = customFormats(key => mockedTranslation[key]);
 
@@ -272,109 +269,4 @@ describe('custom formats', () => {
 		expect(resultKO3).toBe(mockedTranslation.FORMAT_STRING_WITHOUT_SPACE);
 		expect(resultKO4).toBe(mockedTranslation.FORMAT_STRING_WITHOUT_SPACE);
 	});
-
-	cases(
-		'should validate a timestamp',
-		({ testedValue, expectToBeValid }) => {
-			const result = customValidation.timestamp(testedValue);
-
-			if (expectToBeValid) {
-				expect(result).toBe(null);
-			} else {
-				expect(result).toBe(mockedTranslation.FORMAT_TIMESTAMP_OUT_OF_RANGE);
-			}
-		},
-		[
-			{
-				name: 'simple valid timestamp',
-				testedValue: 46567832457,
-				expectToBeValid: true,
-			},
-			{
-				name: 'top range valid timestamp',
-				testedValue: 8640000000000000,
-				expectToBeValid: true,
-			},
-			{
-				name: 'bottom range valid timestamp',
-				testedValue: -8640000000000000,
-				expectToBeValid: true,
-			},
-			{
-				name: 'out of top range invalid timestamp',
-				testedValue: 8640000000000001,
-				expectToBeValid: false,
-			},
-			{
-				name: 'out of bottom range invalid timestamp',
-				testedValue: -8640000000000001,
-				expectToBeValid: false,
-			},
-		],
-	);
-
-	cases(
-		'should validate an iso datetime',
-		({ testedValue, expectToBeValid }) => {
-			const result = customValidation['iso-datetime'](testedValue);
-
-			if (expectToBeValid) {
-				expect(result).toBe(null);
-			} else {
-				expect(result).toBe(mockedTranslation.FORMAT_ISO_DATETIME);
-			}
-		},
-		[
-			{
-				name: 'simple valid string',
-				testedValue: '2018-04-28T12:33:42.452Z',
-				expectToBeValid: true,
-			},
-			{
-				name: 'invalid global format',
-				testedValue: '2018-01-01T2:00:00.000Z',
-				expectToBeValid: false,
-			},
-			{
-				name: 'invalid month',
-				testedValue: '2018-42-01T00:00:00.000Z',
-				expectToBeValid: false,
-			},
-			{
-				name: 'invalid day',
-				testedValue: '2018-12-42T00:00:00.000Z',
-				expectToBeValid: false,
-			},
-			{
-				name: 'invalid minutes',
-				testedValue: '2018-02-01T00:70:00.000Z',
-				expectToBeValid: false,
-			},
-			{
-				name: 'missing "T" separator between date and time',
-				testedValue: '2018-02-01 00:00:00.000Z',
-				expectToBeValid: false,
-			},
-			{
-				name: 'missing "Z" for specied UTC time zone',
-				testedValue: '2018-02-01T00:00:00.000',
-				expectToBeValid: false,
-			},
-			{
-				name: 'not handle comma separator for second fraction',
-				testedValue: '2018-02-01T00:00:00,000Z',
-				expectToBeValid: false,
-			},
-			{
-				name: 'invalid date separator',
-				testedValue: '2018 02 01T00:00:00.000Z',
-				expectToBeValid: false,
-			},
-			{
-				name: 'invalid time separator',
-				testedValue: '2018-02-01T00 00 00.000Z',
-				expectToBeValid: false,
-			},
-		],
-	);
 });
