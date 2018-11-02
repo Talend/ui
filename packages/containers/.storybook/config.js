@@ -462,7 +462,7 @@ function loadStories() {
 		actions[actionsSubHeader.actionSubHeaderSharing.id] = actionsSubHeader.actionSubHeaderSharing;
 		actions[actionsSubHeader.actionSubHeaderBubbles.id] = actionsSubHeader.actionSubHeaderBubbles;
 
-		const story = storiesOf(example);
+		const story = storiesOf(example, examples[example]);
 		story.addDecorator(checkA11y);
 
 		if (typeof examples[example] === 'function') {

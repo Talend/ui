@@ -10,13 +10,15 @@ exports[`Container HeaderBar should render HeaderBar container with a list of it
     Object {
       "items": Array [
         Object {
+          "data-feature": "product.foo",
           "icon": "talend-icon-colored",
-          "label": "foo",
+          "label": "Foo",
           "onClickDispatch": Object {
             "payload": Object {
               "icon": "icon",
-              "name": "foo",
-              "url": "http://foo",
+              "id": "foo",
+              "name": "Foo",
+              "url": "http://foo.bar",
             },
             "type": "HEADER_BAR_OPEN_PRODUCT",
           },

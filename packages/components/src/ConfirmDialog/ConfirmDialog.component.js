@@ -63,7 +63,7 @@ function ConfirmDialog({
 		if (cancelAction && cancelAction.onClick) {
 			cancelAction.onClick();
 		}
-		return onHide(event);
+		return onHide ? onHide(event) : null;
 	}
 	return (
 		<Dialog
@@ -87,8 +87,8 @@ ConfirmDialog.propTypes = {
 	size: PropTypes.oneOf(['small', 'large']),
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 	show: PropTypes.bool,
-	cancelAction: PropTypes.shape(Action.propTypes).isRequired,
-	validateAction: PropTypes.shape(Action.propTypes).isRequired,
+	cancelAction: PropTypes.shape(Action.propTypes),
+	validateAction: PropTypes.shape(Action.propTypes),
 	secondaryActions: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 	progressLabel: PropTypes.string,
 	progressValue: PropTypes.number,
