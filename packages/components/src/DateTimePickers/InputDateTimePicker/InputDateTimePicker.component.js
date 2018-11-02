@@ -66,8 +66,8 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	/** *******************************************************************************************
-	 * Focus management
-	 * TODO extract it in a HOC
+	 // Focus management
+	 // TODO: extract it in a HOC
 	 * *******************************************************************************************/
 	componentDidMount() {
 		this.mountDocumentHandler();
@@ -115,7 +115,7 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	/** *******************************************************************************************
-	 * Component logic
+	 // Component logic
 	 *********************************************************************************************/
 	componentWillReceiveProps(nextProps) {
 		const newSelectedDateTime = nextProps.selectedDateTime;
@@ -144,19 +144,22 @@ class InputDateTimePicker extends React.Component {
 				errorMessage: undefined,
 			};
 		} else {
+			let errorMessage;
 			const splitMatches = textInput.match(splitDateAndTimePartsRegex);
 			const canParseTextInput = splitMatches !== null;
+			if (!canParseTextInput) {
+				errorMessage = 'DATETIME - INCORRECT FORMAT';
+			}
 
 			const dateTextToParse = canParseTextInput ? splitMatches[1] : textInput;
 			const [date, errorMessageDate] = strToDate(dateTextToParse);
+			errorMessage = errorMessage || errorMessageDate;
 
 			const timeTextToParse = canParseTextInput ? splitMatches[2] : textInput;
 			const [time, errorMessageTime] = strToTime(timeTextToParse);
+			errorMessage = errorMessage || errorMessageTime;
 
 			const datetime = dateAndTimeToDateTime(date, time);
-			const errorMessage = canParseTextInput
-				? errorMessageDate || errorMessageTime
-				: 'DATETIME - INCORRECT FORMAT';
 
 			nextState = {
 				date,

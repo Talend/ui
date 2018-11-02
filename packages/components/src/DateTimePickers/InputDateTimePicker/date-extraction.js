@@ -1,7 +1,3 @@
-/*
- * Split the date and time parts based on the middle space
- * ex: '  whatever   other-string  ' => ['whatever', 'other-string']
- */
 import getDate from 'date-fns/get_date';
 import startOfDay from 'date-fns/start_of_day';
 import setMinutes from 'date-fns/set_minutes';
