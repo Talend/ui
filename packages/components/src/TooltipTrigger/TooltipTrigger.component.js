@@ -122,6 +122,7 @@ class TooltipTrigger extends React.Component {
 				overlay={tooltip}
 				delayShow={400}
 				animation={false}
+				onClick={() => this.overlay.handleDelayedHide()}
 			>
 				{cloneElement(child, {
 					onMouseDown: this.onMouseDown,
