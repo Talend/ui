@@ -24,6 +24,9 @@ const INPUT_FULL_FORMAT = 'YYYY-MM-DD HH:mm';
 const INPUT_DATE_ONLY_FORMAT = 'YYYY-MM-DD';
 const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
 
+/**
+ * Check if a date is a valid date.
+ */
 function isDateValid(date) {
 	if (date === undefined) {
 		return true;
@@ -32,10 +35,22 @@ function isDateValid(date) {
 	return date instanceof Date && !isNaN(date.getTime());
 }
 
+/**
+ * Convert hour and minutes into minutes
+ * @param hours {number}
+ * @param minutes {number}
+ * @returns {number}
+ */
 function hoursAndMinutesToTime(hours, minutes) {
 	return hours * 60 + minutes;
 }
 
+/**
+ * Convert date and time to string with 'YYYY-MM-DD HH:mm' format
+ * @param date {Date}
+ * @param time {number}
+ * @returns {string}
+ */
 function dateTimeToStr(date, time) {
 	if (date === undefined) {
 		return '';
@@ -49,6 +64,12 @@ function dateTimeToStr(date, time) {
 	return format(fullDate, INPUT_FULL_FORMAT);
 }
 
+/**
+ * Set the time to the provided date
+ * @param date {Date}
+ * @param time {number}
+ * @returns {Date}
+ */
 function dateAndTimeToDateTime(date, time) {
 	if (date === undefined || time === undefined) {
 		return INTERNAL_INVALID_DATE;
@@ -57,6 +78,9 @@ function dateAndTimeToDateTime(date, time) {
 	return setMinutes(date, time);
 }
 
+/**
+ * Convert string in 'YYYY-MM-DD' format to date
+ */
 function strToDate(strToParse) {
 	const dateMatches = strToParse.match(datePartRegex);
 	if (!dateMatches) {
@@ -86,6 +110,11 @@ function strToDate(strToParse) {
 	return setDate(monthDate, day);
 }
 
+/**
+ * Convert string in 'HH:mm' format into the corresponding number of minutes
+ * @param strToParse {string}
+ * @returns {number}
+ */
 function strToTime(strToParse) {
 	const timeMatches = strToParse.match(timePartRegex);
 	if (!timeMatches) {
@@ -107,6 +136,11 @@ function strToTime(strToParse) {
 	return hoursAndMinutesToTime(hours, minutes);
 }
 
+/**
+ * Extract parts (date, time, date/time, string conversion) from a Date
+ * @param selectedDateTime {Date}
+ * @returns {{date: Date, time: number, datetime: Date, textInput: string}}
+ */
 function extractDateTimeParts(selectedDateTime) {
 	const isDateTimeValid = isDateValid(selectedDateTime);
 
