@@ -65,10 +65,8 @@ class InputDateTimePicker extends React.Component {
 		this.componentContainerHandler = this.componentContainerHandler.bind(this);
 	}
 
-	/** *******************************************************************************************
-	 // Focus management
-	 // TODO: extract it in a HOC
-	 * *******************************************************************************************/
+	/* Start of focus management. TODO : extract it in a HOC */
+
 	componentDidMount() {
 		this.mountDocumentHandler();
 		this.mountComponentContainerHandler();
@@ -79,6 +77,7 @@ class InputDateTimePicker extends React.Component {
 		this.unmountComponentContainerHandler();
 	}
 
+	// eslint-disable-next-line react/sort-comp
 	mountDocumentHandler() {
 		document.addEventListener('click', this.documentHandler);
 		document.addEventListener('focusin', this.documentHandler);
@@ -114,9 +113,9 @@ class InputDateTimePicker extends React.Component {
 		this.componentContainerEvents.push(e);
 	}
 
-	/** *******************************************************************************************
-	 // Component logic
-	 *********************************************************************************************/
+	/* End of possible HOC */
+
+	// eslint-disable-next-line react/sort-comp
 	componentWillReceiveProps(nextProps) {
 		const newSelectedDateTime = nextProps.selectedDateTime;
 
@@ -152,7 +151,8 @@ class InputDateTimePicker extends React.Component {
 		let errorMessage;
 
 		const splitMatches = textInput.match(splitDateAndTimePartsRegex) || [];
-		const [_, dateTextToParse = textInput, timeTextToParse = textInput] = splitMatches;
+		const dateTextToParse = splitMatches[1] || textInput;
+		const timeTextToParse = splitMatches[2] || textInput;
 		if (!splitMatches.length) {
 			errorMessage = 'DATETIME - INCORRECT FORMAT';
 		}
