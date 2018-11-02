@@ -59,72 +59,52 @@ function dateAndTimeToDateTime(date, time) {
 
 function strToDate(strToParse) {
 	const dateMatches = strToParse.match(datePartRegex);
-
 	if (!dateMatches) {
-		const errMsg = 'DATE - INCORRECT FORMAT';
-		return [undefined, errMsg];
+		throw new Error('DATE - INCORRECT FORMAT');
+	}
+
+	const monthString = dateMatches[2];
+	const month = parseInt(monthString, 10);
+	if (month === 0 || month > 12) {
+		throw new Error('DATE - INCORRECT MONTH NUMBER');
+	}
+
+	const dayString = dateMatches[3];
+	const day = parseInt(dayString, 10);
+	if (day === 0) {
+		throw new Error('DATE - INCORRECT DAY NUMBER');
 	}
 
 	const yearString = dateMatches[1];
-	const monthString = dateMatches[2];
-	const dayString = dateMatches[3];
-
-	const day = parseInt(dayString, 10);
-	const month = parseInt(monthString, 10);
-	const monthIndex = month - 1;
 	const year = parseInt(yearString, 10);
-
-	if (month === 0 || month > 12) {
-		const errMsg = 'DATE - INCORRECT MONTH NUMBER';
-		return [undefined, errMsg];
-	}
-
-	if (day === 0) {
-		const errMsg = 'DATE - INCORRECT DAY NUMBER';
-		return [undefined, errMsg];
-	}
-
-	const monthDate = new Date(year, monthIndex);
+	const monthDate = new Date(year, month - 1);
 	const lastDateOfMonth = lastDayOfMonth(monthDate);
-
 	if (day > getDate(lastDateOfMonth)) {
-		const errMsg = 'DATE - INCORRECT DAY NUMBER RELATIVE TO MONTH';
-		return [undefined, errMsg];
+		throw new Error('DATE - INCORRECT DAY NUMBER RELATIVE TO MONTH');
 	}
 
-	const dateValidated = setDate(monthDate, day);
-
-	return [dateValidated];
+	return setDate(monthDate, day);
 }
 
 function strToTime(strToParse) {
 	const timeMatches = strToParse.match(timePartRegex);
-
 	if (!timeMatches) {
-		const errMsg = 'TIME - INCORRECT FORMAT';
-		return [undefined, errMsg];
+		throw new Error('TIME - INCORRECT FORMAT');
 	}
 
 	const hoursString = timeMatches[1];
-	const minutesString = timeMatches[2];
-
 	const hours = parseInt(hoursString, 10);
-
 	if (hours >= 24) {
-		const errMsg = 'TIME - INCORRECT HOUR NUMBER';
-		return [undefined, errMsg];
+		throw new Error('TIME - INCORRECT HOUR NUMBER');
 	}
 
+	const minutesString = timeMatches[2];
 	const minutes = parseInt(minutesString, 10);
-
 	if (minutes >= 60) {
-		const errMsg = 'TIME - INCORRECT MINUTES NUMBER';
-		return [undefined, errMsg];
+		throw new Error('TIME - INCORRECT MINUTES NUMBER');
 	}
 
-	const timeValidated = hoursAndMinutesToTime(hours, minutes);
-
-	return [timeValidated];
+	return hoursAndMinutesToTime(hours, minutes);
 }
 
 function extractDateTimeParts(selectedDateTime) {

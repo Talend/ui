@@ -133,44 +133,53 @@ class InputDateTimePicker extends React.Component {
 
 	onChangeInput(event) {
 		const textInput = event.target.value;
-		let nextState;
-
 		if (textInput === '') {
-			nextState = {
-				date: undefined,
-				time: undefined,
-				textInput,
-				datetime: undefined,
-				errorMessage: undefined,
-			};
-		} else {
-			let errorMessage;
-			const splitMatches = textInput.match(splitDateAndTimePartsRegex);
-			const canParseTextInput = splitMatches !== null;
-			if (!canParseTextInput) {
-				errorMessage = 'DATETIME - INCORRECT FORMAT';
-			}
-
-			const dateTextToParse = canParseTextInput ? splitMatches[1] : textInput;
-			const [date, errorMessageDate] = strToDate(dateTextToParse);
-			errorMessage = errorMessage || errorMessageDate;
-
-			const timeTextToParse = canParseTextInput ? splitMatches[2] : textInput;
-			const [time, errorMessageTime] = strToTime(timeTextToParse);
-			errorMessage = errorMessage || errorMessageTime;
-
-			const datetime = dateAndTimeToDateTime(date, time);
-
-			nextState = {
-				date,
-				time,
-				textInput,
-				datetime,
-				errorMessage,
-			};
+			return this.onChange(
+				event,
+				{
+					textInput,
+					errorMessage: undefined,
+					date: undefined,
+					time: undefined,
+					datetime: undefined,
+				},
+				'INPUT',
+			);
 		}
 
-		return this.onChange(event, nextState, 'INPUT');
+		let date;
+		let time;
+		let errorMessage;
+
+		const splitMatches = textInput.match(splitDateAndTimePartsRegex) || [];
+		const [_, dateTextToParse = textInput, timeTextToParse = textInput] = splitMatches;
+		if (!splitMatches.length) {
+			errorMessage = 'DATETIME - INCORRECT FORMAT';
+		}
+
+		try {
+			date = strToDate(dateTextToParse);
+		} catch (error) {
+			errorMessage = errorMessage || error.message;
+		}
+
+		try {
+			time = strToTime(timeTextToParse);
+		} catch (error) {
+			errorMessage = errorMessage || error.message;
+		}
+
+		return this.onChange(
+			event,
+			{
+				textInput,
+				errorMessage,
+				date,
+				time,
+				datetime: dateAndTimeToDateTime(date, time),
+			},
+			'INPUT',
+		);
 	}
 
 	onSubmitPicker(event, { date, time }) {
@@ -260,7 +269,7 @@ class InputDateTimePicker extends React.Component {
 					debounceTimeout={DEBOUNCE_TIMEOUT}
 					onChange={this.onChangeInput}
 					className="form-control"
-					autocomplete="off"
+					autoComplete="off"
 				/>
 				<div
 					className={theme['dropdown-wrapper']}

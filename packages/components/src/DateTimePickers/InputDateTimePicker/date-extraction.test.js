@@ -48,43 +48,58 @@ describe('Date extraction', () => {
 			const strToParse = '2014-12-25';
 
 			// when
-			const [date, error] = strToDate(strToParse);
+			const date = strToDate(strToParse);
 
 			// then
-			expect(error).toBeUndefined();
 			expect(date).toEqual(new Date(2014, 11, 25));
 		});
 
-		it('should return error with incorrect month', () => {
+		it('should return error with incorrect month', done => {
 			// given
 			const strWithZeroMonth = '2014-0-25';
 			const strWithTooHighMonth = '2014-15-25';
 
 			// when/then
-			const [zeroDate, zeroError] = strToDate(strWithZeroMonth);
-			expect(zeroError).toBe('DATE - INCORRECT MONTH NUMBER');
-			expect(zeroDate).toBeUndefined();
+			try {
+				strToDate(strWithZeroMonth);
+				done.fail('strToDate should have thrown an error with incorrect month');
+			} catch (error) {
+				expect(error.message).toBe('DATE - INCORRECT MONTH NUMBER');
+			}
 
 			// when/then
-			const [tooHighDate, tooHighError] = strToDate(strWithTooHighMonth);
-			expect(tooHighError).toBe('DATE - INCORRECT MONTH NUMBER');
-			expect(tooHighDate).toBeUndefined();
+			try {
+				strToDate(strWithTooHighMonth);
+				done.fail('strToDate should have thrown an error with incorrect month');
+			} catch (error) {
+				expect(error.message).toBe('DATE - INCORRECT MONTH NUMBER');
+			}
+
+			done();
 		});
 
-		it('should return error with incorrect day', () => {
+		it('should return error with incorrect day', done => {
 			// given
 			const strWithZeroDay = '2014-11-00';
 			const strWithTooHighDay = '2014-02-31';
 
 			// when/then
-			const [zeroDate, zeroError] = strToDate(strWithZeroDay);
-			expect(zeroError).toBe('DATE - INCORRECT DAY NUMBER');
-			expect(zeroDate).toBeUndefined();
+			try {
+				strToDate(strWithZeroDay);
+				done.fail('strToDate should have thrown an error with incorrect day');
+			} catch (error) {
+				expect(error.message).toBe('DATE - INCORRECT DAY NUMBER');
+			}
 
 			// when/then
-			const [tooHighDate, tooHighError] = strToDate(strWithTooHighDay);
-			expect(tooHighError).toBe('DATE - INCORRECT DAY NUMBER RELATIVE TO MONTH');
-			expect(tooHighDate).toBeUndefined();
+			try {
+				strToDate(strWithTooHighDay);
+				done.fail('strToDate should have thrown an error with incorrect day');
+			} catch (error) {
+				expect(error.message).toBe('DATE - INCORRECT DAY NUMBER RELATIVE TO MONTH');
+			}
+
+			done();
 		});
 	});
 
@@ -94,47 +109,59 @@ describe('Date extraction', () => {
 			const strToParse = '02:52';
 
 			// when
-			const [time, error] = strToTime(strToParse);
+			const time = strToTime(strToParse);
 
 			// then
-			expect(error).toBeUndefined();
 			expect(time).toEqual(172);
 		});
 
-		it('should return error with incorrect format', () => {
+		it('should return error with incorrect format', done => {
 			// given
 			const strToParse = 'azerty';
 
-			// when
-			const [time, error] = strToTime(strToParse);
+			try {
+				// when
+				strToTime(strToParse);
+				done.fail('strToTime should have thrown an error with incorrect format');
+			} catch (error) {
+				// then
+				expect(error.message).toBe('TIME - INCORRECT FORMAT');
+			}
 
-			// then
-			expect(error).toBe('TIME - INCORRECT FORMAT');
-			expect(time).toBeUndefined();
+			done();
 		});
 
-		it('should return error with incorrect hour', () => {
+		it('should return error with incorrect hour', done => {
 			// given
 			const strToParse = '25:45';
 
-			// when
-			const [time, error] = strToTime(strToParse);
+			try {
+				// when
+				strToTime(strToParse);
+				done.fail('strToTime should have thrown an error with incorrect hour');
+			} catch (error) {
+				// then
+				expect(error.message).toBe('TIME - INCORRECT HOUR NUMBER');
+			}
 
-			// then
-			expect(error).toBe('TIME - INCORRECT HOUR NUMBER');
-			expect(time).toBeUndefined();
+			done();
 		});
 
-		it('should return error with incorrect minutes', () => {
+		it('should return error with incorrect minutes', done => {
 			// given
 			const strToParse = '23:66';
 
 			// when
-			const [time, error] = strToTime(strToParse);
+			try {
+				// when
+				strToTime(strToParse);
+				done.fail('strToTime should have thrown an error with incorrect minutes');
+			} catch (error) {
+				// then
+				expect(error.message).toBe('TIME - INCORRECT MINUTES NUMBER');
+			}
 
-			// then
-			expect(error).toBe('TIME - INCORRECT MINUTES NUMBER');
-			expect(time).toBeUndefined();
+			done();
 		});
 	});
 
