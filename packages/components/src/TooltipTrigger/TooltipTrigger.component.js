@@ -113,6 +113,9 @@ class TooltipTrigger extends React.Component {
 			</Tooltip>
 		);
 		// TODO jmfrancois : render the Tooltip in a provider so use context for that.
+		// fix with disabling element https://github.com/react-bootstrap/react-bootstrap/pull/3251
+		// we add onClick={() => this.overlay.handleDelayedHide() to hide the overlay
+		// it stays when the element inside is disabled
 		return (
 			<OverlayTrigger
 				ref={ref => {
