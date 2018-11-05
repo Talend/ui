@@ -12,9 +12,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
 
-/home/travis/build/Talend/ui/packages/containers/src/register.js
-  6:1  error  Prefer default export  import/prefer-default-export
-
 /home/travis/build/Talend/ui/packages/containers/src/SubHeaderBar/SubHeaderBar.selectors.js
   8:1  error  Prefer default export  import/prefer-default-export
 

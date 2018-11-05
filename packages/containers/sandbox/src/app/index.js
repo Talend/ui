@@ -5,16 +5,19 @@
  */
 
 import '@talend/bootstrap-theme/src/theme/theme.scss';
-import { registerAllContainers } from '@talend/react-containers/lib/register';
+import containersModule from '@talend/react-containers';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 import cmf from '@talend/react-cmf';
 import { createLogger } from 'redux-logger';
 import actions from './actions';
 
-/**
- * This will register all containers in the CMF registry
- */
-registerAllContainers();
+const app = {
+	components: { ComponentForm },
+	settingsURL: '/settings.json',
+	actionCreators: actions,
+	middlewares: [createLogger({})],
+	modules: [containersModule],
+};
 
 /**
  * Initialize CMF
@@ -25,10 +28,4 @@ registerAllContainers();
  * - Fetch the settings
  * - render react-dom in the dom 'app' element
  */
-
-cmf.bootstrap({
-	components: Object.assign({ ComponentForm }),
-	settingsURL: '/settings.json',
-	actionCreators: actions,
-	middlewares: [createLogger({})],
-});
+cmf.bootstrap(app);

@@ -1,21 +1,20 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { mockDate, restoreDate } from '../shared/utils/test/dateMocking';
-
 import DateTimePicker from './DateTimePicker.component';
 import DateTimeView from '../views/DateTimeView';
 import MonthYearView from '../views/MonthYearView';
 
 describe('DateTimePicker', () => {
-	it('should render', () => {
-		mockDate(new Date(2018, 5, 12));
+	afterEach(() => {
+		global.dateMock.restore();
+	});
 
+	it('should render', () => {
+		global.dateMock.mock(new Date(2018, 5, 12));
 		const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
-
-		restoreDate();
 	});
 
 	describe('view switching', () => {
@@ -86,7 +85,8 @@ describe('DateTimePicker', () => {
 		const dateTimeView = wrapper.find(DateTimeView);
 		expect(wrapper.state('selectedDate')).toBe(d1);
 
-		dateTimeView.prop('onSelectDate')(d2);
+		const mockedEvent = { persist: jest.fn() };
+		dateTimeView.prop('onSelectDate')(mockedEvent, d2);
 		expect(wrapper.state('selectedDate')).toBe(d2);
 
 		wrapper.setProps({
@@ -117,7 +117,8 @@ describe('DateTimePicker', () => {
 		const dateTimeView = wrapper.find(DateTimeView);
 		expect(wrapper.state('selectedTime')).toBe(t1);
 
-		dateTimeView.prop('onSelectTime')(t2);
+		const mockedEvent = { persist: jest.fn() };
+		dateTimeView.prop('onSelectTime')(mockedEvent, t2);
 		expect(wrapper.state('selectedTime')).toBe(t2);
 
 		wrapper.setProps({
@@ -166,14 +167,15 @@ describe('DateTimePicker', () => {
 			isDateTimeView: true,
 		});
 
-		// TODO: Switch with the future internal submit button directly
 		const dateTimeView = wrapper.find(DateTimeView);
-		dateTimeView.prop('onSelectTime')(time);
+		const mockedEvent = { persist: jest.fn() };
+		dateTimeView.prop('onSelectTime')(mockedEvent, time);
 
-		expect(onSubmit).toHaveBeenCalledWith({
+		expect(onSubmit).toHaveBeenCalledWith(mockedEvent, {
 			date,
 			time,
 		});
+		expect(mockedEvent.persist).toHaveBeenCalledTimes(1);
 	});
 
 	it('should not submit if one of date and time is not selected', () => {
@@ -186,14 +188,15 @@ describe('DateTimePicker', () => {
 		});
 
 		const dateTimeView = wrapper.find(DateTimeView);
-		dateTimeView.prop('onSelectTime')(time);
+		const mockedEvent = { persist: jest.fn() };
+		dateTimeView.prop('onSelectTime')(mockedEvent, time);
 
 		expect(onSubmit).not.toHaveBeenCalled();
 	});
 
 	describe('calendar', () => {
 		it('should at initialization define the calendar displayed based on current date when no selection props given', () => {
-			mockDate(new Date(2016, 4, 12));
+			global.dateMock.mock(new Date(2016, 4, 12));
 
 			const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
 
@@ -206,8 +209,6 @@ describe('DateTimePicker', () => {
 				monthIndex: 4,
 				year: 2016,
 			});
-
-			restoreDate();
 		});
 
 		it('should at initialization define the calendar displayed based on date selection prop when given', () => {

@@ -34,7 +34,7 @@ const icons = {
 
 const header = {
 	component: 'HeaderBar',
-	brand: 'Example app',
+	brand: { label: 'Example app' },
 };
 
 const sidepanel = {
@@ -45,19 +45,17 @@ const sidepanel = {
 
 const tabs = {
 	component: 'TabBar',
+	id: 'layout-example-tabs',
 	items: [
 		{
-			id: 1,
 			label: 'School',
 			key: 'school',
 		},
 		{
-			id: 2,
 			label: 'Office',
 			key: 'office',
 		},
 		{
-			id: 3,
 			label: 'Hospital',
 			key: 'hospital',
 		},

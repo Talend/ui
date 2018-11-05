@@ -1,5 +1,3 @@
-/* eslint-disable global-require,import/no-extraneous-dependencies */
-/* eslint-disable import/no-mutable-exports,jsx-a11y/no-static-element-interactions */
 import PropTypes from 'prop-types';
 import React from 'react';
 import { translate } from 'react-i18next';
@@ -10,17 +8,19 @@ import { generateId, generateDescriptionId, generateErrorId } from '../../Messag
 import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
-const DEFAULT_SET_OPTIONS = {
-	enableBasicAutocompletion: true,
-	enableLiveAutocompletion: true,
-	enableSnippets: true,
-};
-
 let CodeWidget = TextArea;
 
 try {
+	/* eslint-disable global-require, import/no-extraneous-dependencies */
 	const AceEditor = require('react-ace').default;
 	require('brace/ext/language_tools'); // https://github.com/securingsincity/react-ace/issues/95
+	/* eslint-enable global-require, import/no-extraneous-dependencies */
+
+	const DEFAULT_SET_OPTIONS = {
+		enableBasicAutocompletion: true,
+		enableLiveAutocompletion: true,
+		enableSnippets: true,
+	};
 
 	class Code extends React.Component {
 		constructor(props) {
@@ -104,7 +104,7 @@ try {
 					label={title}
 					required={schema.required}
 				>
-					<div
+					<div // eslint-disable-line jsx-a11y/no-static-element-interactions
 						id={id && `${id}-editor-container`}
 						onBlur={this.onBlur}
 						onKeyDown={this.onKeyDown}
@@ -172,8 +172,20 @@ try {
 
 	CodeWidget = Code;
 } catch (error) {
-	// eslint-disable-next-line no-console
-	console.warn('CodeWidget react-ace not found, fallback to Textarea');
+	// eslint-disable-next-line react/no-multi-comp
+	class WrappedTextArea extends React.PureComponent {
+		constructor() {
+			super();
+			// eslint-disable-next-line no-console
+			console.warn('CodeWidget react-ace not found, fallback to Textarea');
+		}
+
+		render() {
+			return <TextArea {...this.props} />;
+		}
+	}
+
+	CodeWidget = WrappedTextArea;
 }
 
 export default translate(I18N_DOMAIN_FORMS)(CodeWidget);

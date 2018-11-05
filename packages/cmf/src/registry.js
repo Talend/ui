@@ -98,6 +98,8 @@ function getRegisterMany(registerFn) {
 	};
 }
 
+const registerMany = getRegisterMany(addToRegistry);
+
 /**
  * Lock the registry
  */
@@ -112,4 +114,5 @@ export default {
 	getFromRegistry,
 	getRegisterMany,
 	lock,
+	registerMany,
 };
