@@ -39,6 +39,8 @@ class DateTimeView extends React.Component {
 	}
 
 	render() {
+		const tabIndex = this.props.focusin ? 0 : -1;
+
 		const header = {
 			leftElement: (
 				<IconButton
@@ -47,6 +49,7 @@ class DateTimeView extends React.Component {
 					}}
 					aria-label="Display previous calendar month"
 					onClick={this.incrementMonthIndexDown}
+					tabIndex={tabIndex}
 				/>
 			),
 			middleElement: (
@@ -56,6 +59,7 @@ class DateTimeView extends React.Component {
 					button={{
 						'aria-label': 'Switch to month and year pickers view',
 						onClick: this.props.onClickTitle,
+						tabIndex,
 					}}
 				/>
 			),
@@ -67,6 +71,7 @@ class DateTimeView extends React.Component {
 					}}
 					aria-label="Display next calendar month"
 					onClick={this.incrementMonthIndexUp}
+					tabIndex={tabIndex}
 				/>
 			),
 		};
@@ -78,6 +83,7 @@ class DateTimeView extends React.Component {
 						calendar={this.props.calendar}
 						selectedDate={this.props.selectedDate}
 						onSelect={this.props.onSelectDate}
+						focusin={this.props.focusin}
 					/>
 				</div>
 				<div className={theme.time}>

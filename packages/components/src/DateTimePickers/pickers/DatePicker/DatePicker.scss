@@ -3,48 +3,56 @@
 
 .container {
 	@include main;
-	display: flex;
-	height: 100%;
-	flex-direction: column;
-}
-
-.calendar-row {
-	display: flex;
-}
-
-.calendar-item {
-	display: flex;
-	flex: 1;
-	justify-content: center;
-	align-content: center;
+	width: 100%;
+	position: relative;
 }
 
 .calendar-header {
-	.calendar-row {
-		color: $gray;
+	&:after {
+		content: '';
+		position: absolute;
+		width: calc(100% - 2rem);
+		top: 2rem;
+		left: 1rem;
+		border-bottom: $border-default;
+	}
 
-		abbr[title] {
-			font-variant: none;
-			border: none;
-			text-decoration: none;
-		}
+	th {
+		text-align: center;
+		color: $gray;
+	}
+
+	abbr {
+		font-weight: 600;
+		font-variant: none;
+		border: none;
+		text-decoration: none;
 	}
 }
 
-.separator {
-	width: calc(100% - 2rem);
-	border: none;
-	border-bottom: $border-default;
-	margin: 0 auto;
-}
+.calendar-row {
+	height: 3.6rem;
+	text-align: center;
 
-.calendar-body {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
-	flex: 1;
+	.calendar-day {
+		border-radius: 50%;
+		height: 3rem;
+		width: 3rem;
+		padding: 0;
+		border: 0;
+		background: transparent;
 
-	.calendar-row {
-		flex: 1;
+		&:disabled {
+			color: $silver-chalice;
+			background-color: transparent;
+		}
+
+		&.today {
+			background-color: $concrete;
+		}
+
+		&.selected {
+			@include picker-action-selected;
+		}
 	}
 }

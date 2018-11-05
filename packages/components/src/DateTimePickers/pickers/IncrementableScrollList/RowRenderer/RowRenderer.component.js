@@ -14,6 +14,7 @@ export default function RowRenderer({ index, key, parent, style }) {
 			label={item.label}
 			onClick={event => onSelect(event, item)}
 			style={style}
+			tabIndex={-1}
 		/>
 	);
 }

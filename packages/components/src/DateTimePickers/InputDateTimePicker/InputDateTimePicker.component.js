@@ -4,6 +4,7 @@ import omit from 'lodash/omit';
 import DebounceInput from 'react-debounce-input';
 import { Overlay, Popover } from 'react-bootstrap';
 import isSameMinute from 'date-fns/is_same_minute';
+import keycode from 'keycode';
 
 import uuid from 'uuid';
 import DateTimePicker from '../DateTimePicker';
@@ -63,6 +64,7 @@ class InputDateTimePicker extends React.Component {
 		this.onBlur = this.onBlur.bind(this);
 		this.documentHandler = this.documentHandler.bind(this);
 		this.componentContainerHandler = this.componentContainerHandler.bind(this);
+		this.onKeyDown = this.onKeyDown.bind(this);
 	}
 
 	/* Start of focus management. TODO : extract it in a HOC */
@@ -103,7 +105,7 @@ class InputDateTimePicker extends React.Component {
 		const isActionOutOfComponent = eventIndex === -1;
 
 		if (isActionOutOfComponent) {
-			this.switchDropdownVisibility(false);
+			this.setPickerVisibility(false);
 		} else {
 			this.componentContainerEvents.splice(eventIndex, 1);
 		}
@@ -127,6 +129,19 @@ class InputDateTimePicker extends React.Component {
 		if (needDateTimeStateUpdate) {
 			const dateRelatedPartState = extractDateTimeParts(newSelectedDateTime);
 			this.setState(dateRelatedPartState);
+		}
+	}
+
+	focusOnPicker() {
+		let target = this.containerRef.querySelector('.tc-date-picker-day[aria-selected=true]');
+		if (!target) {
+			target = this.containerRef.querySelector('.tc-date-picker-day[aria-disabled=false]');
+		}
+		if (!target) {
+			target = this.containerRef.querySelector('.tc-date-picker-day');
+		}
+		if (target) {
+			target.focus();
 		}
 	}
 
@@ -182,6 +197,28 @@ class InputDateTimePicker extends React.Component {
 		);
 	}
 
+	onKeyDown(event) {
+		switch (event.keyCode) {
+			case keycode.codes.esc:
+				this.inputRef.focus();
+				this.setPickerVisibility(false);
+				break;
+			case keycode.codes.down:
+				if (event.target !== this.inputRef) {
+					return;
+				}
+
+				if (this.state.isDropdownShown) {
+					this.focusOnPicker();
+				} else {
+					this.setPickerVisibility(true);
+				}
+				break;
+			default:
+				break;
+		}
+	}
+
 	onSubmitPicker(event, { date, time }) {
 		event.persist();
 		const nextState = {
@@ -201,7 +238,7 @@ class InputDateTimePicker extends React.Component {
 		});
 
 		if (!this.props.readOnly) {
-			this.switchDropdownVisibility(true);
+			this.setPickerVisibility(true);
 		}
 	}
 
@@ -215,14 +252,12 @@ class InputDateTimePicker extends React.Component {
 		}
 	}
 
-	switchDropdownVisibility(isShown) {
+	setPickerVisibility(isShown) {
 		if (this.state.isDropdownShown === isShown) {
 			return;
 		}
 
-		this.setState({
-			isDropdownShown: isShown,
-		});
+		this.setState({ isDropdownShown: isShown });
 	}
 
 	onChange(event, nextState, origin) {
@@ -257,9 +292,13 @@ class InputDateTimePicker extends React.Component {
 				ref={ref => {
 					this.containerRef = ref;
 				}}
+				onKeyDown={this.onKeyDown}
 			>
 				<DebounceInput
 					{...inputProps}
+					inputRef={ref => {
+						this.inputRef = ref;
+					}}
 					type="text"
 					onFocus={this.onFocus}
 					onBlur={this.onBlur}

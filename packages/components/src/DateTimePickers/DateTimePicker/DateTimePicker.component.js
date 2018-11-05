@@ -34,6 +34,7 @@ class DateTimePicker extends React.Component {
 			},
 			selectedDate,
 			selectedTime,
+			focusin: false,
 		};
 
 		this.setDateTimeView = this.setView.bind(this, true);
@@ -82,6 +83,15 @@ class DateTimePicker extends React.Component {
 		}
 
 		this.setState(newState);
+	}
+
+	componentDidMount() {
+		this.ref.addEventListener('focusin', () => {
+			if (!this.state.focusin) this.setState({ focusin: true });
+		});
+		this.ref.addEventListener('focusout', () => {
+			if (this.state.focusin) this.setState({ focusin: false });
+		});
 	}
 
 	onSelectDate(event, selectedDate) {
@@ -141,6 +151,7 @@ class DateTimePicker extends React.Component {
 					selectedDate={this.state.selectedDate}
 					onSelectTime={this.onSelectTime}
 					selectedTime={this.state.selectedTime}
+					focusin={this.state.focusin}
 				/>
 			);
 		} else {
@@ -155,7 +166,16 @@ class DateTimePicker extends React.Component {
 			);
 		}
 
-		return <div className={theme.container}>{viewElement}</div>;
+		return (
+			<div
+				className={theme.container}
+				ref={ref => {
+					this.ref = ref;
+				}}
+			>
+				{viewElement}
+			</div>
+		);
 	}
 }
 
