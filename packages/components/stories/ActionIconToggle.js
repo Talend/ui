@@ -32,7 +32,7 @@ const activeIconToggle = {
 const ACTION1 = 'Action 1';
 const ACTION2 = 'Action 2';
 
-class DisablingActionIconToggle extends React.Component {
+class DisableActionIconToggle extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -76,9 +76,9 @@ storiesOf('Action Icon Toggle', module)
 			{story()}
 		</div>
 	))
-	.addWithInfo('disabling element', () => (
+	.addWithInfo('disable the buttons', () => (
 		<div>
-			<DisablingActionIconToggle />
+			<DisableActionIconToggle />
 		</div>
 	))
 	.addWithInfo('default', () => (

@@ -31,7 +31,7 @@ const mouseDownAction = {
 const ACTION1 = 'Action 1';
 const ACTION2 = 'Action 2';
 
-class DisablingActionButton extends React.Component {
+class DisableActionButton extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -76,9 +76,9 @@ storiesOf('Action', module)
 			{story()}
 		</div>
 	))
-	.addWithInfo('Disabling element', () => (
+	.addWithInfo('Disable the buttons', () => (
 		<div>
-			<DisablingActionButton />
+			<DisableActionButton />
 		</div>
 	))
 	.addWithInfo('default', () => (
