@@ -31,7 +31,7 @@ class MonthPicker extends React.PureComponent {
 									aria-label={`Select '${month.name}'`}
 									isSelected={this.isSelected(month.index)}
 									label={month.name}
-									onClick={() => this.props.onSelect(month.index)}
+									onClick={event => this.props.onSelect(event, month.index)}
 								/>
 							</div>
 						))}
