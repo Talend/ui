@@ -43,7 +43,7 @@ export function getSelectedIconPosition(icons, value, min, max) {
 export function getCaptionsValue(captionsLength, min, max) {
 	const interval = (max - min) / (captionsLength - 1);
 	const captionsValue = range(min, max, interval);
-	console.log({ captionsValue })
+	console.log({ captionsValue });
 	captionsValue.push(max);
 	return captionsValue;
 }
