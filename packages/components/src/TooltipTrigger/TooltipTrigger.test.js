@@ -113,6 +113,7 @@ describe('ActionTooltip', () => {
 		);
 
 		wrapper.instance().overlay = overlayApi;
+		wrapper.update();
 		wrapper
 			.find('div')
 			.at(0)
