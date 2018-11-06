@@ -42,6 +42,14 @@ const actions = [
 		link: true,
 		hideLabel: true,
 	},
+	{
+		id: 'icon4',
+		label: 'Click Me',
+		icon: 'talend-smiley-satisfied',
+		'data-feature': 'action',
+		link: true,
+		hideLabel: true,
+	},
 ];
 
 const functionToFormat = value => `${value}%`;
