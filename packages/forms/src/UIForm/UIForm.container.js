@@ -4,7 +4,6 @@ import React from 'react';
 
 import UIFormTranslatedComponent from './UIForm.component';
 import { formPropTypes } from './utils/propTypes';
-import { merge } from '@talend/json-schema-form-core';
 
 function addErrorObject(formSchema) {
 	if (!formSchema.errors) {
@@ -13,42 +12,28 @@ function addErrorObject(formSchema) {
 	return formSchema;
 }
 
-function reinitState(newFormSchema) {
-	return function() {
-		return {
-			initialState: addErrorObject(newFormSchema),
-			liveState: addErrorObject(newFormSchema),
-		};
-	};
-}
+const reinitState = newFormSchema => () => ({
+	initialState: addErrorObject(newFormSchema),
+	liveState: addErrorObject(newFormSchema),
+});
 
-function change(properties) {
-	return function(prevState) {
-		return {
-			...prevState,
-			liveState: { ...prevState.liveState, properties: properties },
-		};
-	};
-}
+const change = properties => prevState => ({
+	...prevState,
+	liveState: { ...prevState.liveState, properties },
+});
 
-function setErrors(errors) {
-	return function(prevState) {
-		return {
-			...prevState,
-			liveState: { ...prevState.liveState, errors },
-		};
-	};
-}
+const setErrors = errors => prevState => ({
+	...prevState,
+	liveState: { ...prevState.liveState, errors },
+});
 
-function submit(newProperties) {
-	return function(prevState) {
-		const newFormSchema = { ...prevState.liveState, properties: newProperties };
-		return {
-			initialState: newFormSchema,
-			liveState: newFormSchema,
-		};
+const submit = newProperties => prevState => {
+	const newFormSchema = { ...prevState.liveState, properties: newProperties };
+	return {
+		initialState: newFormSchema,
+		liveState: newFormSchema,
 	};
-}
+};
 
 export default class UIForm extends React.Component {
 	static displayName = 'Container(UIForm)';
