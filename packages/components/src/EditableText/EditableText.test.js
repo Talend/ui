@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { EditableText, Action } from '../index';
+import { Action } from '../index';
+import { EditableTextComponent, PlainTextTitle } from './EditableText.component';
 import InlineForm from './InlineForm.component';
 
 describe('EditableText', () => {
@@ -12,20 +13,64 @@ describe('EditableText', () => {
 			onSubmit: jest.fn(),
 		}));
 	it('should render', () => {
-		const wrapper = shallow(<EditableText {...defaultProps} />);
+		const wrapper = shallow(<EditableTextComponent {...defaultProps} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render InlineForm', () => {
-		const wrapper = shallow(<EditableText {...defaultProps} editMode />);
+		const wrapper = shallow(<EditableTextComponent {...defaultProps} editMode />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render skeleton', () => {
-		const wrapper = shallow(<EditableText {...defaultProps} loading />);
+		const wrapper = shallow(<EditableTextComponent {...defaultProps} loading />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render inProgress', () => {
-		const wrapper = shallow(<EditableText {...defaultProps} inProgress />);
+		const wrapper = shallow(<EditableTextComponent {...defaultProps} inProgress />);
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+});
+
+describe('PlainTextTitle', () => {
+	it('should render', () => {
+		const props = {
+			text: 'text',
+			onEdit: jest.fn(),
+		};
+		const wrapper = shallow(<PlainTextTitle {...props} />);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render in disabled state', () => {
+		const props = {
+			text: 'text',
+			onEdit: jest.fn(),
+			disabled: true,
+		};
+		const wrapper = shallow(<PlainTextTitle {...props} />);
+
+		expect(wrapper.find('Action').prop('disabled')).toBe(true);
+	});
+
+	it('should render inProgress state', () => {
+		const props = {
+			text: 'text',
+			onEdit: jest.fn(),
+			inProgress: true,
+		};
+		const wrapper = shallow(<PlainTextTitle {...props} />);
+		expect(wrapper.find('Action').prop('disabled')).toBe(true);
+	});
+
+	it('should trigger onEdit when click on the action', () => {
+		const onEdit = jest.fn();
+		const props = {
+			text: 'text',
+			onEdit,
+			inProgress: true,
+		};
+		const wrapper = shallow(<PlainTextTitle {...props} />);
+		wrapper.find('Action').simulate('click');
+		expect(onEdit).toHaveBeenCalled();
 	});
 });
 
