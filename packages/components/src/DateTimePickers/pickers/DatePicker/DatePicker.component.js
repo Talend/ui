@@ -5,6 +5,7 @@ import memoize from 'lodash/memoize';
 import isToday from 'date-fns/is_today';
 import getDate from 'date-fns/get_date';
 import getMonth from 'date-fns/get_month';
+import getYear from 'date-fns/get_year';
 import isSameDay from 'date-fns/is_same_day';
 
 import theme from './DatePicker.scss';
@@ -43,11 +44,24 @@ class DatePicker extends React.Component {
 		return getMonth(date) === this.props.calendar.monthIndex;
 	}
 
+	isCurrentYear(date) {
+		return getYear(date) === this.props.calendar.year;
+	}
+
+	isSelectedInCurrentCalendar() {
+		const { selectedDate } = this.props;
+		if (!selectedDate) {
+			return false;
+		}
+		return this.isCurrentYear(selectedDate) && this.isCurrentMonth(selectedDate);
+	}
+
 	render() {
 		const { year, monthIndex } = this.props.calendar;
 
 		const weeks = this.getWeeks(year, monthIndex, FIRST_DAY_OF_WEEK);
 		const dayNames = getDayNames(FIRST_DAY_OF_WEEK);
+		const selectedInCurrentCalendar = this.isSelectedInCurrentCalendar();
 
 		return (
 			<table
@@ -70,8 +84,13 @@ class DatePicker extends React.Component {
 					<tr key={i} className={classNames(theme['calendar-row'], 'tc-date-picker-calendar-row')}>
 						{week.map((date, j) => {
 							if (this.isCurrentMonth(date)) {
+								const day = getDate(date);
 								const isDisabled = this.isDisabledDate(date);
 								const isSelected = this.isSelectedDate(date);
+								const shouldBeFocussable =
+									(selectedInCurrentCalendar && isSelected) ||
+									(!selectedInCurrentCalendar && day === 1);
+
 								const className = classNames(
 									theme['calendar-day'],
 									{
@@ -88,7 +107,6 @@ class DatePicker extends React.Component {
 								if (isSelected) {
 									tdProps['aria-current'] = 'date';
 								}
-								const day = getDate(date);
 								return (
 									<td {...tdProps}>
 										<button
@@ -97,7 +115,7 @@ class DatePicker extends React.Component {
 												this.props.onSelect(event, date);
 											}}
 											disabled={isDisabled}
-											tabIndex={this.props.focusin && isSelected ? 0 : -1}
+											tabIndex={this.props.allowFocus && shouldBeFocussable ? 0 : -1}
 											onKeyDown={event => this.props.onKeyDown(event, this.calendarRef, day - 1)}
 										>
 											{day}
@@ -115,6 +133,7 @@ class DatePicker extends React.Component {
 }
 
 DatePicker.propTypes = {
+	allowFocus: PropTypes.bool,
 	calendar: PropTypes.shape({
 		monthIndex: PropTypes.number.isRequired,
 		year: PropTypes.number.isRequired,
@@ -122,7 +141,6 @@ DatePicker.propTypes = {
 	onSelect: PropTypes.func.isRequired,
 	selectedDate: PropTypes.instanceOf(Date),
 	isDisabledChecker: PropTypes.func,
-	focusin: PropTypes.bool,
 	onKeyDown: PropTypes.func.isRequired,
 };
 

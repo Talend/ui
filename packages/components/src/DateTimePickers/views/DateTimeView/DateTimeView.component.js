@@ -83,16 +83,20 @@ class DateTimeView extends React.Component {
 			<div className={theme.body}>
 				<div className={theme.date}>
 					<DatePicker
+						allowFocus={this.props.focusin}
 						calendar={this.props.calendar}
 						selectedDate={this.props.selectedDate}
 						onSelect={this.props.onSelectDate}
-						focusin={this.props.focusin}
 						goToPreviousMonth={this.goToPreviousMonth}
 						goToNextMonth={this.goToNextMonth}
 					/>
 				</div>
 				<div className={theme.time}>
-					<TimePicker selectedTime={this.props.selectedTime} onSelect={this.props.onSelectTime} />
+					<TimePicker
+						allowFocus={this.props.focusin}
+						selectedTime={this.props.selectedTime}
+						onSelect={this.props.onSelectTime}
+					/>
 				</div>
 			</div>
 		);

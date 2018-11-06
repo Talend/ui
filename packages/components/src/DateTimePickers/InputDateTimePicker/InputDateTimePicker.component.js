@@ -231,9 +231,7 @@ class InputDateTimePicker extends React.Component {
 			textInput: dateTimeToStr(date, time),
 			datetime: dateAndTimeToDateTime(date, time),
 			errorMessage: undefined,
-			isDropdownShown: false,
 		};
-		this.focusOnInput();
 		return this.onChange(event, nextState, 'PICKER');
 	}
 
