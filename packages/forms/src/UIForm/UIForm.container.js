@@ -4,29 +4,74 @@ import React from 'react';
 
 import UIFormTranslatedComponent from './UIForm.component';
 import { formPropTypes } from './utils/propTypes';
+import { merge } from '@talend/json-schema-form-core';
+
+function addErrorObject(formSchema) {
+	if (!formSchema.errors) {
+		return { errors: {}, ...formSchema };
+	}
+	return formSchema;
+}
+
+function reinitState(newFormSchema) {
+	return function() {
+		return {
+			initialState: addErrorObject(newFormSchema),
+			liveState: addErrorObject(newFormSchema),
+		};
+	};
+}
+
+function change(properties) {
+	return function(prevState) {
+		return {
+			...prevState,
+			liveState: { ...prevState.liveState, properties: properties },
+		};
+	};
+}
+
+function setErrors(errors) {
+	return function(prevState) {
+		return {
+			...prevState,
+			liveState: { ...prevState.liveState, errors },
+		};
+	};
+}
+
+function submit(newProperties) {
+	return function(prevState) {
+		const newFormSchema = { ...prevState.liveState, properties: newProperties };
+		return {
+			initialState: newFormSchema,
+			liveState: newFormSchema,
+		};
+	};
+}
 
 export default class UIForm extends React.Component {
 	static displayName = 'Container(UIForm)';
 	constructor(props) {
 		super(props);
-		this.state = { ...this.props.data };
-		if (!this.state.errors) {
-			this.state.errors = {};
-		}
+		this.state = {
+			initialState: addErrorObject(this.props.data),
+			liveState: addErrorObject(this.props.data),
+		};
 		this.onChange = this.onChange.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
+		this.onReset = this.onReset.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
 		this.setErrors = this.setErrors.bind(this);
 	}
 
 	/**
-	 * Update the state with the new schema.
+	 * Update live and initialState with the new schema
 	 * @param nextProps
 	 */
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.data !== this.props.data) {
-			this.setState({
-				...nextProps.data,
-			});
+			this.setState(reinitState(nextProps.data));
 		}
 	}
 
@@ -40,13 +85,19 @@ export default class UIForm extends React.Component {
 	 * error: The validation error
 	 */
 	onChange(event, payload) {
-		this.setState({
-			properties: payload.properties,
-		});
+		this.setState(change(payload.properties));
 
 		if (this.props.onChange) {
 			this.props.onChange(event, payload);
 		}
+	}
+
+	onSubmit(_, properties) {
+		this.setState(submit(properties));
+	}
+
+	onReset() {
+		this.setState(prevState => ({ ...prevState, liveState: prevState.initialState }));
 	}
 
 	onTrigger(event, payload) {
@@ -63,8 +114,7 @@ export default class UIForm extends React.Component {
 	 * @param errors the validation errors
 	 */
 	setErrors(event, errors) {
-		this.setState({ errors });
-
+		this.setState(setErrors(errors));
 		if (this.props.onErrors) {
 			this.props.onErrors(event, errors);
 		}
@@ -72,13 +122,13 @@ export default class UIForm extends React.Component {
 
 	render() {
 		const props = omit(this.props, 'data');
-
 		return (
 			<UIFormTranslatedComponent
-				{...this.state}
+				{...this.state.liveState}
 				{...props}
 				onChange={this.onChange}
 				onTrigger={this.onTrigger}
+				onReset={this.onReset}
 				setErrors={this.setErrors}
 			>
 				{this.props.children}
