@@ -219,7 +219,7 @@ class Slider extends React.Component {
 		} = this.props;
 		const noValue = value === null || value === undefined;
 		return (
-			<div style={{ display: 'flex', flexDirection: 'column'}}>
+			<div style={{ display: 'flex', flexDirection: 'column' }}>
 				<div
 					className={classnames(theme['tc-slider'], 'tc-slider')}
 					style={{ width: '98%', alignSelf: 'center' }}
