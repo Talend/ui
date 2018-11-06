@@ -26,7 +26,7 @@ $tc-slider-line-height: 24px;
 	}
 
 	&-captions {
-		display: flex;
+		display: inline-flex;
 		justify-content: space-between;
 		margin-top: $padding-small;
 		color: $gray;

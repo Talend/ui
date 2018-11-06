@@ -219,17 +219,22 @@ class Slider extends React.Component {
 		} = this.props;
 		const noValue = value === null || value === undefined;
 		return (
-			<span className={classnames(theme['tc-slider'], 'tc-slider')}>
-				<RcSlider
-					id={id}
-					value={value}
-					min={min}
-					max={max}
-					handle={noValue ? undefined : this.state.handle}
-					className={classnames(theme['tc-slider-rc-slider'], 'tc-slider-rc-slider')}
-					onChange={onChange}
-					{...rest}
-				/>
+			<div style={{ display: 'flex', flexDirection: 'column'}}>
+				<div
+					className={classnames(theme['tc-slider'], 'tc-slider')}
+					style={{ width: '98%', alignSelf: 'center' }}
+				>
+					<RcSlider
+						id={id}
+						value={value}
+						min={min}
+						max={max}
+						handle={noValue ? undefined : this.state.handle}
+						className={classnames(theme['tc-slider-rc-slider'], 'tc-slider-rc-slider')}
+						onChange={onChange}
+						{...rest}
+					/>
+				</div>
 				{getCaption(
 					captionActions,
 					captionIcons,
@@ -240,7 +245,7 @@ class Slider extends React.Component {
 					max,
 					onChange,
 				)}
-			</span>
+			</div>
 		);
 	}
 }

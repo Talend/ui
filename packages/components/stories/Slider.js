@@ -48,6 +48,22 @@ const actions = [
 		link: true,
 		hideLabel: true,
 	},
+	{
+		id: 'icon4',
+		label: 'Click Me',
+		icon: 'talend-smiley-satisfied',
+		'data-feature': 'action',
+		link: true,
+		hideLabel: true,
+	},
+	{
+		id: 'icon5',
+		label: 'Click Me',
+		icon: 'talend-smiley-satisfied',
+		'data-feature': 'action',
+		link: true,
+		hideLabel: true,
+	},
 ];
 
 const functionToFormat = value => `${value}-test`;
@@ -85,7 +101,7 @@ storiesOf('Slider', module)
 				</div>
 				<div style={delimiterStyle}>
 					<p>with icon buttons</p>
-					<Slider captionActions={actions} value={100} />
+					<Slider captionActions={actions} value={25} />
 				</div>
 				<div style={delimiterStyle}>
 					<p>with some icons</p>
