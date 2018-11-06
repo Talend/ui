@@ -108,13 +108,16 @@ class DateTimePicker extends React.Component {
 		});
 	}
 
-	onSelectCalendarMonthYear(newCalendar) {
-		this.setState(previousState => ({
-			calendar: {
-				...previousState.calendar,
-				...newCalendar,
-			},
-		}));
+	onSelectCalendarMonthYear(newCalendar, callback) {
+		this.setState(
+			previousState => ({
+				calendar: {
+					...previousState.calendar,
+					...newCalendar,
+				},
+			}),
+			callback,
+		);
 	}
 
 	onSelectCalendarMonth(event, monthIndex) {

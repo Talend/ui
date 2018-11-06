@@ -132,10 +132,14 @@ class InputDateTimePicker extends React.Component {
 		}
 	}
 
+	focusOnInput() {
+		this.inputRef.focus();
+	}
+
 	focusOnPicker() {
-		let target = this.containerRef.querySelector('.tc-date-picker-day[aria-selected=true]');
+		let target = this.containerRef.querySelector('[aria-current="date"] > .tc-date-picker-day');
 		if (!target) {
-			target = this.containerRef.querySelector('.tc-date-picker-day[aria-disabled=false]');
+			target = this.containerRef.querySelector('.tc-date-picker-day[disabled=false]');
 		}
 		if (!target) {
 			target = this.containerRef.querySelector('.tc-date-picker-day');
@@ -200,8 +204,8 @@ class InputDateTimePicker extends React.Component {
 	onKeyDown(event) {
 		switch (event.keyCode) {
 			case keycode.codes.esc:
-				this.inputRef.focus();
 				this.setPickerVisibility(false);
+				this.focusOnInput();
 				break;
 			case keycode.codes.down:
 				if (event.target !== this.inputRef) {
@@ -229,6 +233,7 @@ class InputDateTimePicker extends React.Component {
 			errorMessage: undefined,
 			isDropdownShown: false,
 		};
+		this.focusOnInput();
 		return this.onChange(event, nextState, 'PICKER');
 	}
 

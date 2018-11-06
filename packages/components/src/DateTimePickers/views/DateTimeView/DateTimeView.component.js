@@ -22,20 +22,23 @@ class DateTimeView extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.incrementMonthIndexDown = this.incrementMonthIndex.bind(this, -1);
-		this.incrementMonthIndexUp = this.incrementMonthIndex.bind(this, 1);
+		this.goToPreviousMonth = this.incrementMonthIndex.bind(this, -1);
+		this.goToNextMonth = this.incrementMonthIndex.bind(this, 1);
 	}
 
-	incrementMonthIndex(monthIncrement) {
+	incrementMonthIndex(monthIncrement, callback) {
 		const monthIndexIncremented = this.props.calendar.monthIndex + monthIncrement;
 		const newMonthIndex = euclideanModulo(monthIndexIncremented, 12);
 		const yearIncrement = Math.floor(monthIndexIncremented / 12);
 		const newYear = this.props.calendar.year + yearIncrement;
 
-		this.props.onSelectMonthYear({
-			monthIndex: newMonthIndex,
-			year: newYear,
-		});
+		this.props.onSelectMonthYear(
+			{
+				monthIndex: newMonthIndex,
+				year: newYear,
+			},
+			callback,
+		);
 	}
 
 	render() {
@@ -48,7 +51,7 @@ class DateTimeView extends React.Component {
 						name: 'talend-chevron-left',
 					}}
 					aria-label="Display previous calendar month"
-					onClick={this.incrementMonthIndexDown}
+					onClick={() => this.goToPreviousMonth()}
 					tabIndex={tabIndex}
 				/>
 			),
@@ -70,7 +73,7 @@ class DateTimeView extends React.Component {
 						transform: 'rotate-180',
 					}}
 					aria-label="Display next calendar month"
-					onClick={this.incrementMonthIndexUp}
+					onClick={() => this.goToNextMonth()}
 					tabIndex={tabIndex}
 				/>
 			),
@@ -84,6 +87,8 @@ class DateTimeView extends React.Component {
 						selectedDate={this.props.selectedDate}
 						onSelect={this.props.onSelectDate}
 						focusin={this.props.focusin}
+						goToPreviousMonth={this.goToPreviousMonth}
+						goToNextMonth={this.goToNextMonth}
 					/>
 				</div>
 				<div className={theme.time}>

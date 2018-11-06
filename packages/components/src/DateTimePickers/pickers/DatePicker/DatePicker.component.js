@@ -9,6 +9,7 @@ import isSameDay from 'date-fns/is_same_day';
 
 import theme from './DatePicker.scss';
 import { buildDayNames, buildWeeks } from '../../shared/utils/calendar/generator';
+import withCalendarGesture from '../../../Gesture/withCalendarGesture';
 
 const FIRST_DAY_OF_WEEK = 1;
 
@@ -49,7 +50,13 @@ class DatePicker extends React.Component {
 		const dayNames = getDayNames(FIRST_DAY_OF_WEEK);
 
 		return (
-			<table className={theme.container}>
+			<table
+				className={theme.container}
+				ref={ref => {
+					this.calendarRef = ref;
+				}}
+			>
+				<caption className="sr-only">TODO: caption, days aria-label, today aria-label</caption>
 				<tr className={theme['calendar-header']}>
 					{dayNames.map((dayName, i) => (
 						<th scope="col">
@@ -73,21 +80,27 @@ class DatePicker extends React.Component {
 									},
 									'tc-date-picker-day',
 								);
+
+								const tdProps = {
+									key: j,
+									className: theme['calendar-col'],
+								};
+								if (isSelected) {
+									tdProps['aria-current'] = 'date';
+								}
+								const day = getDate(date);
 								return (
-									// eslint-disable-next-line jsx-a11y/no-static-element-interactions
-									<td key={j} className={theme['calendar-col']}>
+									<td {...tdProps}>
 										<button
 											className={className}
 											onClick={event => {
 												this.props.onSelect(event, date);
 											}}
 											disabled={isDisabled}
-											// a11y
 											tabIndex={this.props.focusin && isSelected ? 0 : -1}
-											aria-disabled={isDisabled}
-											aria-selected={isSelected}
+											onKeyDown={event => this.props.onKeyDown(event, this.calendarRef, day - 1)}
 										>
-											{getDate(date)}
+											{day}
 										</button>
 									</td>
 								);
@@ -110,6 +123,7 @@ DatePicker.propTypes = {
 	selectedDate: PropTypes.instanceOf(Date),
 	isDisabledChecker: PropTypes.func,
 	focusin: PropTypes.bool,
+	onKeyDown: PropTypes.func.isRequired,
 };
 
-export default DatePicker;
+export default withCalendarGesture(DatePicker);
