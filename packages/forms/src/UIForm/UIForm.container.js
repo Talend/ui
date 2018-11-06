@@ -5,6 +5,11 @@ import React from 'react';
 import UIFormTranslatedComponent from './UIForm.component';
 import { formPropTypes } from './utils/propTypes';
 
+/**
+ * add error object on a formSchema if it doesn't exist
+ * @param {FormSchema} formSchema
+ * @return {FormSchema}
+ */
 function addErrorObject(formSchema) {
 	if (!formSchema.errors) {
 		return { errors: {}, ...formSchema };
@@ -12,21 +17,45 @@ function addErrorObject(formSchema) {
 	return formSchema;
 }
 
-const reinitState = newFormSchema => () => ({
-	initialState: addErrorObject(newFormSchema),
+/**
+ * reinit liveState with empty errors if it doesn't exist
+ * @param {FormSchema} newFormSchema
+ * @param {State} prevState
+ * @return {State}
+ */
+const reinitLiveState = newFormSchema => () => ({
 	liveState: addErrorObject(newFormSchema),
 });
 
+/**
+ * update live state with new properties derived from user interacting
+ * with the form
+ * @param {Object} properties
+ * @param {State} prevState
+ * @return {State}
+ */
 const change = properties => prevState => ({
 	...prevState,
 	liveState: { ...prevState.liveState, properties },
 });
 
+/**
+ * update liveState formSchema with errors
+ * @param {Object} errors
+ * @param {State} prevState
+ * @return {State}
+ */
 const setErrors = errors => prevState => ({
 	...prevState,
 	liveState: { ...prevState.liveState, errors },
 });
 
+/**
+ * update initialState with liveState after a user submission of the form
+ * @param {Object} newProperties
+ * @param {State} prevState
+ * @return {State}
+ */
 const submit = newProperties => prevState => {
 	const newFormSchema = { ...prevState.liveState, properties: newProperties };
 	return {
@@ -56,7 +85,7 @@ export default class UIForm extends React.Component {
 	 */
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.data !== this.props.data) {
-			this.setState(reinitState(nextProps.data));
+			this.setState(reinitLiveState(nextProps.data));
 		}
 	}
 
@@ -77,12 +106,26 @@ export default class UIForm extends React.Component {
 		}
 	}
 
-	onSubmit(_, properties) {
+	/**
+	 * On user submit change local state and call this.props.onSubmit
+	 * @param event submit event
+	 * @param {Object} properties
+	 */
+	onSubmit(event, properties) {
 		this.setState(submit(properties));
+		if (typeof this.props.onSubmit === 'function') {
+			this.props.onSubmit(event, properties);
+		}
 	}
 
+	/**
+	 * On user reset change local state and call this.props.onReset
+	 */
 	onReset() {
 		this.setState(prevState => ({ ...prevState, liveState: prevState.initialState }));
+		if (typeof this.props.onReset === 'function') {
+			this.props.onReset();
+		}
 	}
 
 	onTrigger(event, payload) {
@@ -113,6 +156,7 @@ export default class UIForm extends React.Component {
 				{...props}
 				onChange={this.onChange}
 				onTrigger={this.onTrigger}
+				onSubmit={this.onSubmit}
 				onReset={this.onReset}
 				setErrors={this.setErrors}
 			>
