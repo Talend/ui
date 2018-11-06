@@ -269,7 +269,7 @@ The content depends on the jsonSchema/uiSchema and is the entry that configures 
 
 ### Lifecycle
 
-[lifecycle schema]:http://www.plantuml.com/plantuml/png/ZP11IyGm48NlyolcBEp1rLCFibV1Wx17yH2RqGuaQKYcBYB-TsEJ3gq8zLHU-jx7bvooc2IJTp2m9IGVvGCjvJvn51u3F5qzu-5mX_U1XOqxYn7ga6l2rp5vFFS3UGFh1cgbnao2ClvdvlYTTZTG6vlffwhE-RghYtumuOsWdgtnKxJbO_72ClnHdKc529eNycqZ9og6i1mzhBrdw4QlzN21RboFZPYd5yyDULm_uGQhLrYAQleBUuDTMJY7YNeg8unfZ1dglqxrb1xeylZJQ3BrgMjRxxTVLPqlE56matVV
+![lifecycle schema](http://www.plantuml.com/plantuml/png/ZP11IyGm48NlyolcBEp1rLCFibV1Wx17yH2RqGuaQKYcBYB-TsEJ3gq8zLHU-jx7bvooc2IJTp2m9IGVvGCjvJvn51u3F5qzu-5mX_U1XOqxYn7ga6l2rp5vFFS3UGFh1cgbnao2ClvdvlYTTZTG6vlffwhE-RghYtumuOsWdgtnKxJbO_72ClnHdKc529eNycqZ9og6i1mzhBrdw4QlzN21RboFZPYd5yyDULm_uGQhLrYAQleBUuDTMJY7YNeg8unfZ1dglqxrb1xeylZJQ3BrgMjRxxTVLPqlE56matVV)
 
 The jsonSchema/uiSchema/properties/errors that is provided to UIForm are the initial values. Those values are stored (state or redux) and live their lives. They may be modified depending on user's actions.
 
