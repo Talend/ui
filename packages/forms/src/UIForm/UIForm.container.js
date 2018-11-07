@@ -56,7 +56,7 @@ const setLiveStateErrors = errors => prevState => ({
  * @param {State} prevState
  * @return {State}
  */
-const setLiveAsInitialState = () => prevState => ({
+const setLiveAsInitialState = prevState => ({
 	...prevState,
 	initialState: prevState.liveState,
 });
@@ -119,7 +119,7 @@ export default class UIForm extends React.Component {
 	 * @param {Object} properties
 	 */
 	onSubmit(event, properties) {
-		this.setState(setLiveAsInitialState(properties));
+		this.setState(setLiveAsInitialState);
 		if (typeof this.props.onSubmit === 'function') {
 			this.props.onSubmit(event, properties);
 		}
