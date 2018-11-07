@@ -17,6 +17,10 @@ const delimiterStyle = {
 	borderBottom: '1px dashed grey',
 };
 
+const paragraphStyle = {
+	paddingLeft: '10px',
+};
+
 const actions = [
 	{
 		id: 'icon1',
@@ -37,13 +41,21 @@ const actions = [
 	{
 		id: 'icon3',
 		label: 'Click Me',
-		icon: 'talend-smiley-satisfied',
+		icon: 'talend-smiley-neutral',
 		'data-feature': 'action',
 		link: true,
 		hideLabel: true,
 	},
 	{
 		id: 'icon4',
+		label: 'Click Me',
+		icon: 'talend-smiley-neutral',
+		'data-feature': 'action',
+		link: true,
+		hideLabel: true,
+	},
+	{
+		id: 'icon5',
 		label: 'Click Me',
 		icon: 'talend-smiley-satisfied',
 		'data-feature': 'action',
@@ -56,27 +68,27 @@ const functionToFormat = value => `${value}%`;
 
 const nullState = new Map();
 const initialState = new Map({
-	value: 15,
+	value: 50,
 });
 
 const ExampleSlider = {
 	Slider: () => (
-		<div>
+		<div style={{ padding: '0 12px' }}>
 			<IconsProvider />
 			<div style={delimiterStyle}>
-				<p>default</p>
-				<Slider id="slider1" />
+				<p style={paragraphStyle}>default</p>
+				<Slider id="slider1" initialState={initialState} />
 			</div>
 			<div style={delimiterStyle}>
-				<p>with some icons</p>
+				<p style={paragraphStyle}>with some icons</p>
 				<Slider id="slider2" captionIcons={icons} initialState={nullState} />
 			</div>
 			<div style={delimiterStyle}>
-				<p>with some actions icons</p>
+				<p style={paragraphStyle}>with some actions icons</p>
 				<Slider id="slider3" captionActions={actions} initialState={initialState} />
 			</div>
 			<div style={delimiterStyle}>
-				<p>with icon close to label</p>
+				<p style={paragraphStyle}>with icon close to label</p>
 				<Slider
 					id="slider4"
 					initialState={initialState}
