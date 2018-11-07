@@ -34,7 +34,7 @@ const reinitLiveState = newFormSchema => () => ({
  * @param {State} prevState
  * @return {State}
  */
-const change = properties => prevState => ({
+const setLiveStateProperties = properties => prevState => ({
 	...prevState,
 	liveState: { ...prevState.liveState, properties },
 });
@@ -45,7 +45,7 @@ const change = properties => prevState => ({
  * @param {State} prevState
  * @return {State}
  */
-const setErrors = errors => prevState => ({
+const setLiveStateErrors = errors => prevState => ({
 	...prevState,
 	liveState: { ...prevState.liveState, errors },
 });
@@ -56,13 +56,20 @@ const setErrors = errors => prevState => ({
  * @param {State} prevState
  * @return {State}
  */
-const submit = newProperties => prevState => {
-	const newFormSchema = { ...prevState.liveState, properties: newProperties };
-	return {
-		initialState: newFormSchema,
-		liveState: newFormSchema,
-	};
-};
+const setLiveAsInitialState = () => prevState => ({
+	...prevState,
+	initialState: prevState.liveState,
+});
+
+/**
+ * update liveState with initialState, reseting form
+ * @param {State} prevState
+ * @return {State}
+ */
+const setInitialStateAsLiveState = prevState => ({
+	...prevState,
+	liveState: prevState.initialState,
+});
 
 export default class UIForm extends React.Component {
 	static displayName = 'Container(UIForm)';
@@ -99,7 +106,7 @@ export default class UIForm extends React.Component {
 	 * error: The validation error
 	 */
 	onChange(event, payload) {
-		this.setState(change(payload.properties));
+		this.setState(setLiveStateProperties(payload.properties));
 
 		if (this.props.onChange) {
 			this.props.onChange(event, payload);
@@ -112,7 +119,7 @@ export default class UIForm extends React.Component {
 	 * @param {Object} properties
 	 */
 	onSubmit(event, properties) {
-		this.setState(submit(properties));
+		this.setState(setLiveAsInitialState(properties));
 		if (typeof this.props.onSubmit === 'function') {
 			this.props.onSubmit(event, properties);
 		}
@@ -122,7 +129,7 @@ export default class UIForm extends React.Component {
 	 * On user reset change local state and call this.props.onReset
 	 */
 	onReset() {
-		this.setState(prevState => ({ ...prevState, liveState: prevState.initialState }));
+		this.setState(setInitialStateAsLiveState);
 		if (typeof this.props.onReset === 'function') {
 			this.props.onReset();
 		}
@@ -142,7 +149,7 @@ export default class UIForm extends React.Component {
 	 * @param errors the validation errors
 	 */
 	setErrors(event, errors) {
-		this.setState(setErrors(errors));
+		this.setState(setLiveStateErrors(errors));
 		if (this.props.onErrors) {
 			this.props.onErrors(event, errors);
 		}
