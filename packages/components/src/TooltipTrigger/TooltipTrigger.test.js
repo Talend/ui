@@ -112,11 +112,12 @@ describe('ActionTooltip', () => {
 			</TooltipTrigger>,
 		);
 
-		wrapper.instance().overlay = overlayApi;
 		wrapper
 			.find('div')
 			.at(0)
 			.simulate('mouseOver');
+
+		wrapper.instance().overlay = overlayApi;
 
 		wrapper
 			.find('OverlayTrigger')
