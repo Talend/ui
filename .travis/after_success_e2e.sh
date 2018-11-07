@@ -7,7 +7,7 @@ if [ "$TRAVIS_PULL_REQUEST" == 'false' ] && [ "$TRAVIS_BRANCH" == 'master' ]; th
 	CYPRESS_baseUrl=http://talend.surge.sh/components yarn 2e2
 	echo "✓ E2E tests on talend.surge.sh"
 elif [ "$TRAVIS_PULL_REQUEST" != 'false' ]; then
-	CYPRESS_baseUrl=$TRAVIS_PULL_REQUEST.talend.surge.sh/components yarn e2e
+	CYPRESS_baseUrl=http://$TRAVIS_PULL_REQUEST.talend.surge.sh/components yarn e2e
 else
     echo "✓ No storybook to test"
 fi
