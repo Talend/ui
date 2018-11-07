@@ -44,7 +44,6 @@ class DisableActionButton extends React.Component {
 		const props = {
 			icon: 'talend-panel-opener-right',
 			tooltipPlacement: 'top',
-			tooltip: true,
 		};
 		return (
 			<React.Fragment>
@@ -52,6 +51,7 @@ class DisableActionButton extends React.Component {
 				<Action
 					{...props}
 					label={ACTION1}
+					tooltipLabel={`tooltip ${ACTION1}`}
 					active={this.state.active === ACTION1}
 					disabled={this.state.active === ACTION1}
 					onClick={() => this.setState({ active: ACTION1 })}
@@ -59,9 +59,12 @@ class DisableActionButton extends React.Component {
 				<Action
 					{...props}
 					label={ACTION2}
+					tooltipLabel={`tooltip ${ACTION2}`}
 					active={this.state.active === ACTION2}
 					disabled={this.state.active === ACTION2}
-					onClick={() => this.setState({ active: ACTION2 })}
+					onClick={() => {
+						this.setState({ active: ACTION2 });
+					}}
 				/>
 			</React.Fragment>
 		);
@@ -77,7 +80,7 @@ storiesOf('Action', module)
 		</div>
 	))
 	.addWithInfo('Disable the buttons', () => (
-		<div>
+		<div id="disableButton">
 			<DisableActionButton />
 		</div>
 	))

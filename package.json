@@ -12,6 +12,7 @@
     "tmp-promise": "^1.0.4"
   },
   "scripts": {
+    "e2e": "lerna exec --scope=@talend/react-components -- yarn run 2e2",
     "postinstall": "lerna exec -- yarn --pure-lockfile --no-progress --mutex network",
     "update-versions": "node version.js && yarn",
     "build": "lerna exec -- yarn run prepublish",

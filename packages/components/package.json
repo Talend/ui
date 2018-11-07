@@ -5,6 +5,8 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
+    "2e2": "cypress run",
+    "2e2:demo": "cypress open",
     "test": "cross-env TZ=Europe/Paris jest",
     "test:watch": "cross-env TZ=Europe/Paris jest --watch",
     "test:cov": "cross-env TZ=Europe/Paris jest --coverage",
@@ -60,6 +62,7 @@
     "simulant": "^0.2.2"
   },
   "devDependencies": {
+    "cypress": "^3.1.1",
     "@kadira/react-storybook-addon-info": "^3.3.0",
     "@storybook/addon-a11y": "^3.4.7",
     "@storybook/addon-actions": "^3.4.7",
