@@ -60,7 +60,13 @@ function dateTimeToStr(date, time) {
 		return format(date, INPUT_DATE_ONLY_FORMAT);
 	}
 
-	const fullDate = setMinutes(date, time);
+	const { hours, minutes } = time;
+	const timeInMinutes = hoursAndMinutesToTime(hours, minutes);
+	if (isNaN(timeInMinutes) && (hours !== undefined || minutes !== undefined)) {
+		return `${format(date, INPUT_DATE_ONLY_FORMAT)} ${hours}:${minutes}`;
+	}
+
+	const fullDate = setMinutes(date, timeInMinutes);
 	return format(fullDate, INPUT_FULL_FORMAT);
 }
 
@@ -75,7 +81,9 @@ function dateAndTimeToDateTime(date, time) {
 		return INTERNAL_INVALID_DATE;
 	}
 
-	return setMinutes(date, time);
+	const { hours, minutes } = time;
+	const timeInMinutes = hoursAndMinutesToTime(hours, minutes);
+	return setMinutes(date, timeInMinutes);
 }
 
 /**
@@ -113,7 +121,7 @@ function strToDate(strToParse) {
 /**
  * Convert string in 'HH:mm' format into the corresponding number of minutes
  * @param strToParse {string}
- * @returns {number}
+ * @returns {{ hours: number, minutes: number }}
  */
 function strToTime(strToParse) {
 	const timeMatches = strToParse.match(timePartRegex);
@@ -133,7 +141,7 @@ function strToTime(strToParse) {
 		throw new Error('TIME - INCORRECT MINUTES NUMBER');
 	}
 
-	return hoursAndMinutesToTime(hours, minutes);
+	return { hours, minutes };
 }
 
 /**
@@ -148,7 +156,7 @@ function extractDateTimeParts(selectedDateTime) {
 		const date = startOfDay(selectedDateTime);
 		const hours = getHours(selectedDateTime);
 		const minutes = getMinutes(selectedDateTime);
-		const time = hoursAndMinutesToTime(hours, minutes);
+		const time = { hours, minutes };
 		const datetime = startOfMinute(selectedDateTime);
 
 		return {

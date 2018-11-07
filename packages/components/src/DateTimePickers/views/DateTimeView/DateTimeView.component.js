@@ -116,7 +116,10 @@ DateTimeView.propTypes = {
 	onSelectDate: PropTypes.func.isRequired,
 	onSelectTime: PropTypes.func.isRequired,
 	selectedDate: PropTypes.instanceOf(Date),
-	selectedTime: PropTypes.number,
+	selectedTime: PropTypes.shape({
+		hours: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+		minutes: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+	}),
 };
 
 export default DateTimeView;

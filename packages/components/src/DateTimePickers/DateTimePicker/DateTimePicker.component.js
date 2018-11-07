@@ -55,12 +55,6 @@ class DateTimePicker extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		const selectionPropNotUpdated = this.props.selection === nextProps.selection;
-
-		if (selectionPropNotUpdated) {
-			return;
-		}
-
 		const newSelectedDate = nextProps.selection.date;
 		const newSelectedTime = nextProps.selection.time;
 		const needToUpdateDate = newSelectedDate !== this.state.selectedDate;
@@ -71,19 +65,11 @@ class DateTimePicker extends React.Component {
 			return;
 		}
 
-		const needToUpdateCalendar = needToUpdateDate && newSelectedDate !== undefined;
-
-		const newState = {};
-
-		if (needToUpdateDate) {
-			newState.selectedDate = newSelectedDate;
-		}
-
-		if (needToUpdateTime) {
-			newState.selectedTime = newSelectedTime;
-		}
-
-		if (needToUpdateCalendar) {
+		const newState = {
+			selectedDate: newSelectedDate,
+			selectedTime: newSelectedTime,
+		};
+		if (needToUpdateDate && newSelectedDate) {
 			newState.calendar = {
 				monthIndex: getMonth(newSelectedDate),
 				year: getYear(newSelectedDate),
@@ -193,7 +179,10 @@ class DateTimePicker extends React.Component {
 DateTimePicker.propTypes = {
 	selection: PropTypes.shape({
 		date: PropTypes.instanceOf(Date),
-		time: PropTypes.number,
+		time: PropTypes.shape({
+			hours: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+			minutes: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+		}),
 	}),
 	onSubmit: PropTypes.func.isRequired,
 };

@@ -9,36 +9,38 @@ import theme from './TimePicker.scss';
 const HOURS = 'HOURS';
 const MINUTES = 'MINUTES';
 
+function strToNumber(value) {
+	if (value) {
+		const num = Number(value);
+		if (!isNaN(num)) {
+			return num;
+		}
+	}
+	return value;
+}
+
 class TimePicker extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		const id = uuid.v4();
 		this.hourId = `${id}-hour`;
 		this.minuteId = `${id}-minute`;
-		this.getFieldsValue = this.getFieldsValue.bind(this);
 		this.onChange = this.onChange.bind(this);
 	}
 
 	onChange(event, field) {
-		const { hours, minutes } = this.getFieldsValue();
-		const value = event.target.value;
+		const inputValue = strToNumber(event.target.value);
+		const newValue = { ...this.props.value };
 		if (field === HOURS) {
-			this.props.onChange(event, value * 60 + minutes);
+			newValue.hours = inputValue;
 		} else if (field === MINUTES) {
-			this.props.onChange(event, hours * 60 + value);
+			newValue.minutes = inputValue;
 		}
-	}
-
-	getFieldsValue() {
-		return {
-			hours: this.props.value ? Math.floor(this.props.value / 60) : 0,
-			minutes: this.props.value ? this.props.value % 60 : 0,
-		};
+		this.props.onChange(event, newValue);
 	}
 
 	render() {
 		const tabIndex = this.props.allowFocus ? 0 : -1;
-		const { hours, minutes } = this.getFieldsValue();
 
 		return (
 			<div className={classNames('tc-date-picker-time', theme['time-picker'])}>
@@ -49,7 +51,7 @@ class TimePicker extends React.PureComponent {
 				<DebounceInput
 					id={this.hourId}
 					className={theme['time-input']}
-					value={hours}
+					value={this.props.value.hours}
 					tabIndex={tabIndex}
 					onChange={event => this.onChange(event, HOURS)}
 				/>
@@ -60,7 +62,7 @@ class TimePicker extends React.PureComponent {
 				<DebounceInput
 					id={this.minuteId}
 					className={theme['time-input']}
-					value={minutes}
+					value={this.props.value.minutes}
 					tabIndex={tabIndex}
 					onChange={event => this.onChange(event, MINUTES)}
 				/>
@@ -70,13 +72,16 @@ class TimePicker extends React.PureComponent {
 }
 
 TimePicker.defaultProps = {
-	interval: 15,
+	value: {},
 };
 
 TimePicker.propTypes = {
 	allowFocus: PropTypes.bool,
 	onChange: PropTypes.func.isRequired,
-	value: PropTypes.number,
+	value: PropTypes.shape({
+		hours: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+		minutes: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+	}),
 };
 
 export default TimePicker;

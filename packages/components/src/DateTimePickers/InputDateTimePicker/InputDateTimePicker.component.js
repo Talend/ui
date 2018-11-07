@@ -57,7 +57,7 @@ class InputDateTimePicker extends React.Component {
 		};
 
 		this.onInputChange = this.onInputChange.bind(this);
-		this.onSubmitPicker = this.onSubmitPicker.bind(this);
+		this.onPickerSubmit = this.onPickerSubmit.bind(this);
 		this.onInputFocus = this.onInputFocus.bind(this);
 		this.onInputBlur = this.onInputBlur.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
@@ -194,7 +194,7 @@ class InputDateTimePicker extends React.Component {
 		}
 	}
 
-	onSubmitPicker(event, { date, time }) {
+	onPickerSubmit(event, { date, time }) {
 		event.persist();
 		const nextState = {
 			date,
@@ -278,7 +278,7 @@ class InputDateTimePicker extends React.Component {
 									date: this.state.date,
 									time: this.state.time,
 								}}
-								onSubmit={this.onSubmitPicker}
+								onSubmit={this.onPickerSubmit}
 							/>
 						</Popover>
 					</Overlay>
