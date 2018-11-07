@@ -20,6 +20,7 @@ $tc-slider-line-height: 24px;
 }
 
 .tc-slider {
+	padding: 0 12px;
 	:global(.rc-slider-disabled) {
 		background-color: transparent;
 		opacity: 0.4;
@@ -28,6 +29,7 @@ $tc-slider-line-height: 24px;
 	&-captions {
 		display: inline-flex;
 		justify-content: space-between;
+		width: 100%;
 		margin-top: $padding-small;
 		color: $gray;
 		font-size: $tc-slider-font-size;

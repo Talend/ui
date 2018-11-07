@@ -43,7 +43,6 @@ export function getSelectedIconPosition(icons, value, min, max) {
 export function getCaptionsValue(captionsLength, min, max) {
 	const interval = (max - min) / (captionsLength - 1);
 	const captionsValue = range(min, max, interval);
-	console.log({ captionsValue })
 	captionsValue.push(max);
 	return captionsValue;
 }
@@ -220,11 +219,8 @@ class Slider extends React.Component {
 		} = this.props;
 		const noValue = value === null || value === undefined;
 		return (
-			<div style={{ display: 'flex', flexDirection: 'column' }}>
-				<div
-					className={classnames(theme['tc-slider'], 'tc-slider')}
-					style={{ width: '98%', alignSelf: 'center' }}
-				>
+			<React.Fragment>
+				<div className={classnames(theme['tc-slider'], 'tc-slider')}>
 					<RcSlider
 						id={id}
 						value={value}
@@ -246,7 +242,7 @@ class Slider extends React.Component {
 					max,
 					onChange,
 				)}
-			</div>
+			</React.Fragment>
 		);
 	}
 }
