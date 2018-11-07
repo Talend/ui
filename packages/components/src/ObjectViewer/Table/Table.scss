@@ -20,7 +20,7 @@
 		background-color: $brand-primary-dark;
 		color: $white;
 		font-family: 'Source Sans Pro';
-		text-transform: uppercase;
+		text-weight: $headings-font-weight;
 
 		& > td {
 			padding: $padding-smaller;
