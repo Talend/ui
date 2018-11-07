@@ -83,7 +83,7 @@ class DateTimeView extends React.Component {
 			<div className={theme.body}>
 				<div className={theme.date}>
 					<DatePicker
-						allowFocus={this.props.focusin}
+						allowFocus={this.props.allowFocus}
 						calendar={this.props.calendar}
 						selectedDate={this.props.selectedDate}
 						onSelect={this.props.onSelectDate}
@@ -93,9 +93,9 @@ class DateTimeView extends React.Component {
 				</div>
 				<div className={theme.time}>
 					<TimePicker
-						allowFocus={this.props.focusin}
-						selectedTime={this.props.selectedTime}
-						onSelect={this.props.onSelectTime}
+						allowFocus={this.props.allowFocus}
+						value={this.props.selectedTime}
+						onChange={this.props.onSelectTime}
 					/>
 				</div>
 			</div>
@@ -106,6 +106,7 @@ class DateTimeView extends React.Component {
 }
 
 DateTimeView.propTypes = {
+	allowFocus: PropTypes.bool,
 	calendar: PropTypes.shape({
 		monthIndex: PropTypes.number.isRequired,
 		year: PropTypes.number.isRequired,
