@@ -23,10 +23,7 @@
 	}
 
 	abbr {
-		font-weight: 600;
-		font-variant: none;
-		border: none;
-		text-decoration: none;
+		@include picker-header;
 	}
 }
 
@@ -41,6 +38,7 @@
 		padding: 0;
 		border: 0;
 		background: transparent;
+		font-weight: normal;
 
 		&:disabled {
 			color: $silver-chalice;

@@ -16,7 +16,7 @@ const FIRST_DAY_OF_WEEK = 1;
 
 const getDayNames = memoize(buildDayNames);
 
-class DatePicker extends React.Component {
+class DatePicker extends React.PureComponent {
 	constructor(props) {
 		super(props);
 
@@ -24,8 +24,6 @@ class DatePicker extends React.Component {
 			buildWeeks,
 			(year, monthIndex, firstDayOfWeek) => `${year}-${monthIndex}|${firstDayOfWeek}`,
 		);
-
-		this.state = {};
 	}
 
 	isSelectedDate(date) {
@@ -71,62 +69,70 @@ class DatePicker extends React.Component {
 				}}
 			>
 				<caption className="sr-only">TODO: caption, days aria-label, today aria-label</caption>
-				<tr className={theme['calendar-header']}>
-					{dayNames.map((dayName, i) => (
-						<th scope="col">
-							<abbr key={i} title={dayName}>
-								{dayName.charAt(0)}
-							</abbr>
-						</th>
-					))}
-				</tr>
-				{weeks.map((week, i) => (
-					<tr key={i} className={classNames(theme['calendar-row'], 'tc-date-picker-calendar-row')}>
-						{week.map((date, j) => {
-							if (this.isCurrentMonth(date)) {
-								const day = getDate(date);
-								const isDisabled = this.isDisabledDate(date);
-								const isSelected = this.isSelectedDate(date);
-								const shouldBeFocussable =
-									(selectedInCurrentCalendar && isSelected) ||
-									(!selectedInCurrentCalendar && day === 1);
-
-								const className = classNames(
-									theme['calendar-day'],
-									{
-										[theme.selected]: isSelected,
-										[theme.today]: isToday(date),
-									},
-									'tc-date-picker-day',
-								);
-
-								const tdProps = {
-									key: j,
-									className: theme['calendar-col'],
-								};
-								if (isSelected) {
-									tdProps['aria-current'] = 'date';
-								}
-								return (
-									<td {...tdProps}>
-										<button
-											className={className}
-											onClick={event => {
-												this.props.onSelect(event, date);
-											}}
-											disabled={isDisabled}
-											tabIndex={this.props.allowFocus && shouldBeFocussable ? 0 : -1}
-											onKeyDown={event => this.props.onKeyDown(event, this.calendarRef, day - 1)}
-										>
-											{day}
-										</button>
-									</td>
-								);
-							}
-							return <td />;
-						})}
+				<thead>
+					<tr className={theme['calendar-header']}>
+						{dayNames.map((dayName, i) => (
+							<th scope="col" key={i}>
+								<abbr key={i} title={dayName}>
+									{dayName.charAt(0)}
+								</abbr>
+							</th>
+						))}
 					</tr>
-				))}
+				</thead>
+				<tbody>
+					{weeks.map((week, i) => (
+						<tr
+							key={i}
+							className={classNames(theme['calendar-row'], 'tc-date-picker-calendar-row')}
+						>
+							{week.map((date, j) => {
+								if (this.isCurrentMonth(date)) {
+									const day = getDate(date);
+									const isDisabled = this.isDisabledDate(date);
+									const isSelected = this.isSelectedDate(date);
+									const shouldBeFocussable =
+										(selectedInCurrentCalendar && isSelected) ||
+										(!selectedInCurrentCalendar && day === 1);
+
+									const className = classNames(
+										theme['calendar-day'],
+										{
+											[theme.selected]: isSelected,
+											[theme.today]: isToday(date),
+										},
+										'tc-date-picker-day',
+									);
+
+									const tdProps = {
+										key: j,
+										className: theme['calendar-col'],
+									};
+									if (isSelected) {
+										tdProps['aria-current'] = 'date';
+									}
+									return (
+										<td {...tdProps}>
+											<button
+												type="button"
+												className={className}
+												onClick={event => {
+													this.props.onSelect(event, date);
+												}}
+												disabled={isDisabled}
+												tabIndex={this.props.allowFocus && shouldBeFocussable ? 0 : -1}
+												onKeyDown={event => this.props.onKeyDown(event, this.calendarRef, day - 1)}
+											>
+												{day}
+											</button>
+										</td>
+									);
+								}
+								return <td key={j} />;
+							})}
+						</tr>
+					))}
+				</tbody>
 			</table>
 		);
 	}

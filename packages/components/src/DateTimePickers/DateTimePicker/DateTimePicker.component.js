@@ -44,6 +44,14 @@ class DateTimePicker extends React.Component {
 		this.onSelectCalendarMonthYear = this.onSelectCalendarMonthYear.bind(this);
 		this.onSelectDate = this.onSelectDate.bind(this);
 		this.onSelectTime = this.onSelectTime.bind(this);
+
+		this.allowFocus = this.setAllowFocus.bind(this, true);
+		this.disallowFocus = this.setAllowFocus.bind(this, false);
+	}
+
+	componentDidMount() {
+		this.ref.addEventListener('focusin', this.allowFocus);
+		this.ref.addEventListener('focusout', this.disallowFocus);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -85,15 +93,9 @@ class DateTimePicker extends React.Component {
 		this.setState(newState);
 	}
 
-	componentDidMount() {
-		this.ref.addEventListener('focusin', event => {
-			console.log('focusin', event.target);
-			this.setState({ allowFocus: true });
-		});
-		this.ref.addEventListener('focusout', event => {
-			console.log('focusout', event.target);
-			this.setState({ allowFocus: false });
-		});
+	componentWillUnmount() {
+		this.ref.removeEventListener('focusin', this.allowFocus);
+		this.ref.removeEventListener('focusout', this.disallowFocus);
 	}
 
 	onSelectDate(event, selectedDate) {
@@ -128,6 +130,10 @@ class DateTimePicker extends React.Component {
 
 	onSelectCalendarYear(event, year) {
 		this.onSelectCalendarMonthYear({ year });
+	}
+
+	setAllowFocus(value) {
+		this.setState({ allowFocus: value });
 	}
 
 	setView(isDateTimeView) {

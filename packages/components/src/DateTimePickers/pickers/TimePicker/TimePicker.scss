@@ -1,3 +1,28 @@
-.time-picker {
+@import '../../shared/styles/mixins';
 
+.time-picker {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0 1rem;
+
+	legend {
+		@include picker-header;
+	}
+
+	hr {
+		width: 100%;
+		border-color: $gallery;
+	}
+
+	> input.time-input {
+		padding: 0.7rem 1rem;
+		text-align: center;
+		width: 100%;
+		border: 1px solid $gallery;
+
+		&:focus {
+			border-color: $scooter;
+		}
+	}
 }

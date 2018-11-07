@@ -9,7 +9,7 @@ import theme from './TimePicker.scss';
 const HOURS = 'HOURS';
 const MINUTES = 'MINUTES';
 
-class TimePicker extends React.Component {
+class TimePicker extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		const id = uuid.v4();
@@ -48,9 +48,7 @@ class TimePicker extends React.Component {
 				</label>
 				<DebounceInput
 					id={this.hourId}
-					type="number"
-					min="0"
-					max="23"
+					className={theme['time-input']}
 					value={hours}
 					tabIndex={tabIndex}
 					onChange={event => this.onChange(event, HOURS)}
@@ -61,9 +59,7 @@ class TimePicker extends React.Component {
 				</label>
 				<DebounceInput
 					id={this.minuteId}
-					type="number"
-					min="0"
-					max="59"
+					className={theme['time-input']}
 					value={minutes}
 					tabIndex={tabIndex}
 					onChange={event => this.onChange(event, MINUTES)}

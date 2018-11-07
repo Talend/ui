@@ -21,7 +21,6 @@ import {
 	strToTime,
 } from './date-extraction';
 
-const DEBOUNCE_TIMEOUT = 300;
 const INVALID_PLACEHOLDER = 'INVALID DATE';
 
 const warnOnce = {};
@@ -34,7 +33,6 @@ class InputDateTimePicker extends React.Component {
 		selectedDateTime: PropTypes.instanceOf(Date),
 		onChange: PropTypes.func,
 		onBlur: PropTypes.func,
-		readOnly: PropTypes.bool,
 	};
 
 	constructor(props) {
@@ -55,69 +53,23 @@ class InputDateTimePicker extends React.Component {
 		this.state = {
 			...extractDateTimeParts(this.props.selectedDateTime),
 			inputFocused: false,
-			isDropdownShown: false,
+			showPicker: false,
 		};
 
-		this.onChangeInput = this.onChangeInput.bind(this);
+		this.onInputChange = this.onInputChange.bind(this);
 		this.onSubmitPicker = this.onSubmitPicker.bind(this);
-		this.onFocus = this.onFocus.bind(this);
-		this.onBlur = this.onBlur.bind(this);
-		this.documentHandler = this.documentHandler.bind(this);
-		this.componentContainerHandler = this.componentContainerHandler.bind(this);
+		this.onInputFocus = this.onInputFocus.bind(this);
+		this.onInputBlur = this.onInputBlur.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
+		this.openPicker = this.setPickerVisibility.bind(this, true, /* force */ true);
+		this.closePicker = this.setPickerVisibility.bind(this, false, /* force */ true);
 	}
-
-	/* Start of focus management. TODO : extract it in a HOC */
 
 	componentDidMount() {
-		this.mountDocumentHandler();
-		this.mountComponentContainerHandler();
+		this.containerRef.addEventListener('focusin', this.openPicker);
+		this.containerRef.addEventListener('focusout', this.closePicker);
 	}
 
-	componentWillUnmount() {
-		this.unmountDocumentHandler();
-		this.unmountComponentContainerHandler();
-	}
-
-	// eslint-disable-next-line react/sort-comp
-	mountDocumentHandler() {
-		document.addEventListener('click', this.documentHandler);
-		document.addEventListener('focusin', this.documentHandler);
-	}
-
-	unmountDocumentHandler() {
-		document.removeEventListener('click', this.documentHandler);
-		document.removeEventListener('focusin', this.documentHandler);
-	}
-
-	mountComponentContainerHandler() {
-		this.containerRef.addEventListener('click', this.componentContainerHandler);
-		this.containerRef.addEventListener('focusin', this.componentContainerHandler);
-	}
-
-	unmountComponentContainerHandler() {
-		this.containerRef.removeEventListener('click', this.componentContainerHandler);
-		this.containerRef.removeEventListener('focusin', this.componentContainerHandler);
-	}
-
-	documentHandler(event) {
-		const eventIndex = this.componentContainerEvents.indexOf(event);
-		const isActionOutOfComponent = eventIndex === -1;
-
-		if (isActionOutOfComponent) {
-			this.setPickerVisibility(false);
-		} else {
-			this.componentContainerEvents.splice(eventIndex, 1);
-		}
-	}
-
-	componentContainerHandler(e) {
-		this.componentContainerEvents.push(e);
-	}
-
-	/* End of possible HOC */
-
-	// eslint-disable-next-line react/sort-comp
 	componentWillReceiveProps(nextProps) {
 		const newSelectedDateTime = nextProps.selectedDateTime;
 
@@ -132,24 +84,37 @@ class InputDateTimePicker extends React.Component {
 		}
 	}
 
-	focusOnInput() {
-		this.inputRef.focus();
+	componentWillUnmount() {
+		this.containerRef.removeEventListener('focusin', this.openPicker);
+		this.containerRef.removeEventListener('focusout', this.closePicker);
 	}
 
-	focusOnPicker() {
-		let target = this.containerRef.querySelector('[aria-current="date"] > .tc-date-picker-day');
-		if (!target) {
-			target = this.containerRef.querySelector('.tc-date-picker-day[disabled=false]');
-		}
-		if (!target) {
-			target = this.containerRef.querySelector('.tc-date-picker-day');
-		}
-		if (target) {
-			target.focus();
+	onChange(event, nextState, origin) {
+		const { errorMessage, datetime } = nextState;
+
+		const datetimeUpdated =
+			datetime !== this.state.datetime && !isSameMinute(datetime, this.state.datetime);
+
+		const errorUpdated = errorMessage !== this.state.errorMessage;
+
+		this.setState(nextState, () => {
+			if (this.props.onChange && (datetimeUpdated || errorUpdated)) {
+				this.props.onChange(event, { errorMessage, datetime, origin });
+			}
+		});
+	}
+
+	onInputBlur(event) {
+		this.setState({
+			inputFocused: false,
+		});
+
+		if (this.props.onBlur) {
+			this.props.onBlur(event);
 		}
 	}
 
-	onChangeInput(event) {
+	onInputChange(event) {
 		const textInput = event.target.value;
 		if (textInput === '') {
 			return this.onChange(
@@ -201,18 +166,24 @@ class InputDateTimePicker extends React.Component {
 		);
 	}
 
+	onInputFocus() {
+		this.setState({
+			inputFocused: true,
+		});
+	}
+
 	onKeyDown(event) {
 		switch (event.keyCode) {
 			case keycode.codes.esc:
-				this.setPickerVisibility(false);
 				this.focusOnInput();
+				this.setPickerVisibility(false);
 				break;
 			case keycode.codes.down:
 				if (event.target !== this.inputRef) {
 					return;
 				}
 
-				if (this.state.isDropdownShown) {
+				if (this.state.showPicker) {
 					this.focusOnPicker();
 				} else {
 					this.setPickerVisibility(true);
@@ -235,47 +206,28 @@ class InputDateTimePicker extends React.Component {
 		return this.onChange(event, nextState, 'PICKER');
 	}
 
-	onFocus() {
-		this.setState({
-			inputFocused: true,
-		});
-
-		if (!this.props.readOnly) {
-			this.setPickerVisibility(true);
-		}
-	}
-
-	onBlur(event) {
-		this.setState({
-			inputFocused: false,
-		});
-
-		if (this.props.onBlur) {
-			this.props.onBlur(event);
-		}
-	}
-
-	setPickerVisibility(isShown) {
-		if (this.state.isDropdownShown === isShown) {
+	setPickerVisibility(isShown, force) {
+		if (!force && this.state.showPicker === isShown) {
 			return;
 		}
-
-		this.setState({ isDropdownShown: isShown });
+		this.setState({ showPicker: isShown });
 	}
 
-	onChange(event, nextState, origin) {
-		const { errorMessage, datetime } = nextState;
+	focusOnInput() {
+		this.inputRef.focus();
+	}
 
-		const datetimeUpdated =
-			datetime !== this.state.datetime && !isSameMinute(datetime, this.state.datetime);
-
-		const errorUpdated = errorMessage !== this.state.errorMessage;
-
-		this.setState(nextState, () => {
-			if (this.props.onChange && (datetimeUpdated || errorUpdated)) {
-				this.props.onChange(event, { errorMessage, datetime, origin });
-			}
-		});
+	focusOnPicker() {
+		let target = this.containerRef.querySelector('[aria-current="date"] > .tc-date-picker-day');
+		if (!target) {
+			target = this.containerRef.querySelector('.tc-date-picker-day[disabled=false]');
+		}
+		if (!target) {
+			target = this.containerRef.querySelector('.tc-date-picker-day');
+		}
+		if (target) {
+			target.focus();
+		}
 	}
 
 	render() {
@@ -291,6 +243,7 @@ class InputDateTimePicker extends React.Component {
 		const textInput = this.state.textInput;
 
 		return (
+			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 			<div
 				ref={ref => {
 					this.containerRef = ref;
@@ -303,12 +256,12 @@ class InputDateTimePicker extends React.Component {
 						this.inputRef = ref;
 					}}
 					type="text"
-					onFocus={this.onFocus}
-					onBlur={this.onBlur}
+					onFocus={this.onInputFocus}
+					onBlur={this.onInputBlur}
 					placeholder={placeholder}
 					value={textInput}
-					debounceTimeout={DEBOUNCE_TIMEOUT}
-					onChange={this.onChangeInput}
+					debounceTimeout={300}
+					onChange={this.onInputChange}
 					className="form-control"
 					autoComplete="off"
 				/>
@@ -318,7 +271,7 @@ class InputDateTimePicker extends React.Component {
 						this.dropdownWrapperRef = ref;
 					}}
 				>
-					<Overlay container={this.dropdownWrapperRef} show={this.state.isDropdownShown}>
+					<Overlay container={this.dropdownWrapperRef} show={this.state.showPicker}>
 						<Popover className={theme.popover} id={this.popoverId}>
 							<DateTimePicker
 								selection={{

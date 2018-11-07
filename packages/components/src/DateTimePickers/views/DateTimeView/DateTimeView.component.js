@@ -18,7 +18,7 @@ export function euclideanModulo(dividend, divisor) {
 	return modulo < 0 ? modulo + Math.abs(divisor) : modulo;
 }
 
-class DateTimeView extends React.Component {
+class DateTimeView extends React.PureComponent {
 	constructor(props) {
 		super(props);
 
@@ -42,7 +42,7 @@ class DateTimeView extends React.Component {
 	}
 
 	render() {
-		const tabIndex = this.props.focusin ? 0 : -1;
+		const tabIndex = this.props.allowFocus ? 0 : -1;
 
 		const header = {
 			leftElement: (

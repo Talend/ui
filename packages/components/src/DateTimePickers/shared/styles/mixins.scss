@@ -18,3 +18,14 @@
 	background-color: $scooter;
 	color: $white;
 }
+
+@mixin picker-header {
+	border: none;
+	color: $gray;
+	font-size: inherit;
+	font-weight: normal;
+	font-variant: none;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+}
