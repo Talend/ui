@@ -31,6 +31,7 @@ matrix:
         - .travis/after_success_static.sh
         - .travis/after_success_demo.sh
         - .travis/after_success_deploy.sh
+        - CYPRESS_baseUrl=$TRAVIS_PULL_REQUEST.talend.surge.sh/components yarn 2e2
       script:
         - .travis/after_success_e2e.sh
 
