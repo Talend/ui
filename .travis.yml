@@ -52,12 +52,11 @@ matrix:
         - .travis/after_success_lint.sh
         - .travis/after_success_git.sh
 
-    - language: java
-      jdk: oraclejdk8
+    - language: node_js
+      node_js:
+        - '10'
       env:
-        - NAME=demo NODE_VERSION=8 CC=clang CXX=clang++
-      before_install:
-        - nvm install $NODE_VERSION
+        - NAME=demo E2E cypress
       before_script:
         - yarn global add surge
         - yarn install
@@ -67,7 +66,7 @@ matrix:
         - .travis/after_success_demo.sh
         - .travis/after_success_deploy.sh
       script:
-#        - .travis/after_success_e2e.sh
+        - .travis/after_success_e2e.sh
         - echo "wait for licence"
 
 branches:
