@@ -206,6 +206,15 @@ describe('cmfConnect', () => {
 		};
 		Button.displayName = 'Button';
 		const CMFConnectedButton = cmfConnect({})(Button);
+		it('should create a connected component even without params', () => {
+			const TestComponent = jest.fn();
+			TestComponent.displayName = 'TestComponent';
+			mapStateToViewProps.cache.clear();
+			const CMFConnected = cmfConnect()(TestComponent);
+			expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
+			expect(CMFConnected.WrappedComponent).toBe(TestComponent);
+		});
+
 		it('should create a connected component', () => {
 			const TestComponent = jest.fn();
 			TestComponent.displayName = 'TestComponent';

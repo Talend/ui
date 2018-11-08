@@ -189,7 +189,7 @@ const props = {
 			},
 			{
 				id: 1,
-				name: 'Title with a lot of actions',
+				name: 'Title with a lot of actions with super super super super super super super super super super super super super super super super super super super super super super super super super super super super super super long title oh yeah',
 				created: '2016-09-22',
 				modified: '2016-09-22',
 				author: 'Jean-Pierre DUPONT',
@@ -215,7 +215,7 @@ const props = {
 				created: '2016-09-22',
 				modified: '2016-09-22',
 				author:
-					'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
+					'Jean-Pierre DUPONT with super super super super super super super super super super super super super super super super super super super super super super super long name, but there was not enough long text',
 				className: 'item-3-class',
 			},
 		],

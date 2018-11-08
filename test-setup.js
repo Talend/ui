@@ -3,6 +3,7 @@ import 'babel-polyfill';
 import 'isomorphic-fetch';
 import 'raf/polyfill';
 import { configure } from 'enzyme';
+import dateMock from './mocks/dateMock';
 
 function getMajorVersion() {
 	if (!process.env.REACT_VERSION) {
@@ -65,3 +66,5 @@ Element.prototype.closest = function closest(selector) {
 
 	return null;
 };
+
+global.dateMock = dateMock;

@@ -6,7 +6,7 @@ const assert = require('yeoman-assert');
 
 const BASE_FILES = [
 	'src/app/components/HelloWorld/HelloWorld.component.js',
-	'src/app/components/HelloWorld/HelloWorld.test.js',
+	'src/app/components/HelloWorld/HelloWorld.component.test.js',
 	'src/app/components/HelloWorld/index.js',
 ];
 
@@ -26,6 +26,7 @@ describe('talend:react-component', () => {
 				.withOptions({})
 				.withPrompts({
 					name: 'HelloWorld',
+					extraTypes: [],
 				});
 			this.gen.on('end', done);
 		});
@@ -34,15 +35,15 @@ describe('talend:react-component', () => {
 			assert.file(BASE_FILES);
 		});
 
-		it('generate es6 class extends from React.Component', () => {
+		it('generate pure function by default', () => {
 			assert.fileContent(
 				'src/app/components/HelloWorld/HelloWorld.component.js',
-				/class HelloWorld extends React\.Component {/
+				/function HelloWorld\(props\)/
 			);
 		});
 	});
 
-	describe('component type = stateless', () => {
+	describe('extraTypes = [container]', () => {
 		beforeEach(function onDone(done) {
 			this.gen = helpers
 				.run(path.join(__dirname, '../generators/react-component'))
@@ -50,7 +51,7 @@ describe('talend:react-component', () => {
 				.withOptions({})
 				.withPrompts({
 					name: 'HelloWorld',
-					type: 'stateless',
+					extraTypes: ['container'],
 				});
 			this.gen.on('end', done);
 		});
@@ -61,8 +62,8 @@ describe('talend:react-component', () => {
 
 		it('generate a function', () => {
 			assert.fileContent(
-				'src/app/components/HelloWorld/HelloWorld.component.js',
-				/function HelloWorld\(props\) {/
+				'src/app/components/HelloWorld/HelloWorld.container.js',
+				/class HelloWorld extends React\.Component {/
 			);
 		});
 		it('add it to parent index.js', () => {
@@ -75,19 +76,9 @@ describe('talend:react-component', () => {
 				/HelloWorld,/
 			);
 		});
-		it('add HelloWorld.json', () => {
-			assert.fileContent(
-				'src/settings/HelloWorld.json',
-				/"props": {/
-			);
-			assert.fileContent(
-				'src/settings/HelloWorld.json',
-				/"HelloWorld#default": {/
-			);
-		});
 	});
 
-	describe('component type = connect', () => {
+	describe('extraTypes = [cmfConnect]', () => {
 		beforeEach(function onDone(done) {
 			this.gen = helpers
 				.run(path.join(__dirname, '../generators/react-component'))
@@ -95,7 +86,7 @@ describe('talend:react-component', () => {
 				.withOptions({})
 				.withPrompts({
 					name: 'HelloWorld',
-					type: 'connect',
+					extraTypes: ['cmfConnect'],
 				});
 			this.gen.on('end', done);
 		});
@@ -106,17 +97,17 @@ describe('talend:react-component', () => {
 
 		it('generate some functions', () => {
 			assert.fileContent(
-				'src/app/components/HelloWorld/HelloWorld.component.js',
+				'src/app/components/HelloWorld/HelloWorld.connect.js',
 				/export default cmfConnect\({/
 			);
 			assert.fileContent(
-				'src/app/components/HelloWorld/HelloWorld.test.js',
+				'src/app/components/HelloWorld/HelloWorld.connect.test.js',
 				/it\('should connect/
 			);
 		});
 	});
 
-	describe('css option', () => {
+	describe('tools = [actions]', () => {
 		beforeEach(function onDone(done) {
 			this.gen = helpers
 				.run(path.join(__dirname, '../generators/react-component'))
@@ -124,8 +115,36 @@ describe('talend:react-component', () => {
 				.withOptions({})
 				.withPrompts({
 					name: 'HelloWorld',
-					type: 'stateless',
-					css: 'y'
+					extraTypes: ['cmfConnect'],
+					tools: ['actions'],
+				});
+			this.gen.on('end', done);
+		});
+
+		it('generates base files', () => {
+			assert.file(BASE_FILES);
+			assert.file('src/app/components/HelloWorld/actions.js');
+			assert.fileContent(
+				'src/app/components/HelloWorld/index.js',
+				/import actions from '\.\/actions'/
+			);
+			assert.fileContent(
+				'src/app/components/HelloWorld/index.js',
+				/HelloWorld.actions = actions;/
+			);
+		});
+	});
+
+	describe('css=true', () => {
+		beforeEach(function onDone(done) {
+			this.gen = helpers
+				.run(path.join(__dirname, '../generators/react-component'))
+				.inTmpDir(addIndexAndSettings)
+				.withOptions({})
+				.withPrompts({
+					name: 'HelloWorld',
+					extraTypes: [],
+					css: true,
 				});
 			this.gen.on('end', done);
 		});
@@ -133,10 +152,14 @@ describe('talend:react-component', () => {
 		it('generates base files', () => {
 			assert.file(BASE_FILES);
 			assert.file('src/app/components/HelloWorld/HelloWorld.scss');
+			assert.fileContent(
+				'src/app/components/HelloWorld/HelloWorld.component.js',
+				/import theme from '\.\/HelloWorld\.scss'/
+			);
 		});
 	});
 
-	describe('full', () => {
+	describe('tools = [settings]', () => {
 		beforeEach(function onDone(done) {
 			this.gen = helpers
 				.run(path.join(__dirname, '../generators/react-component'))
@@ -144,20 +167,19 @@ describe('talend:react-component', () => {
 				.withOptions({})
 				.withPrompts({
 					name: 'HelloWorld',
-					isFull: true,
+					extraTypes: ['cmfConnect'],
+					tools: ['settings'],
 				});
 			this.gen.on('end', done);
 		});
 
 		it('generates base files', () => {
-			assert.file([
-				'src/app/components/HelloWorld/HelloWorld.component.js',
-				'src/app/components/HelloWorld/HelloWorld.container.js',
-				'src/app/components/HelloWorld/HelloWorld.connect.js',
-				'src/app/components/HelloWorld/HelloWorld.test.js',
-				'src/app/components/HelloWorld/HelloWorld.scss',
-				'src/app/components/HelloWorld/index.js',
-			]);
+			assert.file(BASE_FILES);
+			assert.file('src/settings/HelloWorld.json');
+			assert.fileContent(
+				'src/settings/HelloWorld.json',
+				/"HelloWorld#default": {/
+			);
 		});
 	});
 });

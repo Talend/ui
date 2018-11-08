@@ -39,7 +39,14 @@ export default class DefaultValueRenderer extends React.Component {
 	}
 
 	render() {
-		const stringValue = String(this.props.value);
+		let stringValue;
+
+		if (this.props.value === null) {
+			stringValue = '';
+		} else {
+			stringValue = String(this.props.value);
+		}
+
 		const hasWhiteSpace = hasWhiteSpaceCharacters(stringValue);
 		const formattedContent = hasWhiteSpace ? <FormatValue value={stringValue} /> : stringValue;
 
