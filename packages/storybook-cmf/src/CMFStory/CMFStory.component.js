@@ -37,7 +37,18 @@ class CMFStory extends React.Component {
 	}
 
 	getChildContext() {
-		return { router: { route: { location: {}, match: true } } };
+		return {
+			router: {
+				push: location => console.log(`push to ${location}`),
+				replace: location => console.log(`replace to ${location}`),
+				go: location => console.log(`go to ${location}`),
+				goBack: location => console.log(`goBack to ${location}`),
+				goForward: location => console.log(`goForward to ${location}`),
+				setRouteLeaveHook: location => console.log(`setRouteLeaveHook to ${location}`),
+				isActive: location => console.log(`isActive to ${location}`),
+				route: { location: {}, match: true },
+			},
+		};
 	}
 
 	render() {

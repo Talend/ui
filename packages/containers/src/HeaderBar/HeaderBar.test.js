@@ -21,9 +21,10 @@ describe('Container HeaderBar', () => {
 			...containerProps,
 			productsItems: [
 				{
-					url: 'http://foo',
-					name: 'foo',
+					id: 'foo',
 					icon: 'icon',
+					name: 'Foo',
+					url: 'http://foo.bar',
 				},
 			],
 			state: new Map({

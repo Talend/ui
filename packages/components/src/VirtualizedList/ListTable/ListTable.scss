@@ -18,7 +18,7 @@ $tc-list-table-border: 1px solid darken($concrete, 5%);
 		&:global(.ally-focus-within) {
 			background-color: $wild-sand;
 			.cell {
-				border-left: 1px solid $white;
+				border-right: 1px solid $white;
 			}
 		}
 	}
@@ -32,7 +32,6 @@ $tc-list-table-border: 1px solid darken($concrete, 5%);
 			font-size: 1.2rem;
 			font-weight: 600;
 			padding: $tc-list-table-cell-padding;
-			text-transform: uppercase;
 		}
 	}
 
@@ -44,10 +43,13 @@ $tc-list-table-border: 1px solid darken($concrete, 5%);
 		box-shadow: $shadow-default;
 
 		.cell {
-			&:first-child {
-				border-left: none;
+			// selection's checkbox has no "name" attribute, so "tc-list-cell-" refer to this cell
+			&:global(.tc-list-cell-),
+			&:last-child {
+				border-right: none;
 			}
-			border-left: $tc-list-table-border;
+
+			border-right: $tc-list-table-border;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;

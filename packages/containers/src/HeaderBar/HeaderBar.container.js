@@ -25,8 +25,9 @@ class HeaderBar extends React.Component {
 		productsItems: PropTypes.arrayOf(
 			PropTypes.shape({
 				icon: PropTypes.string,
-				uri: PropTypes.string,
-				label: PropTypes.string,
+				id: PropTypes.string,
+				name: PropTypes.string,
+				url: PropTypes.string,
 			}),
 		),
 		...cmfConnect.propTypes,
@@ -36,7 +37,8 @@ class HeaderBar extends React.Component {
 		// Trigger product fetch when there's an URL and
 		// products URL has changed or products have not been loaded yet
 		const hasProductsUrlChanged = this.props.productsUrl !== prevProps.productsUrl;
-		const hasProductsNotBeenLoaded = this.props.state.get('productsFetchState') === Constants.PRODUCTS_NOT_LOADED;
+		const hasProductsNotBeenLoaded =
+			this.props.state.get('productsFetchState') === Constants.PRODUCTS_NOT_LOADED;
 
 		if (this.props.productsUrl && (hasProductsNotBeenLoaded || hasProductsUrlChanged)) {
 			this.props.dispatch(fetchProducts(this.props.productsUrl));
@@ -52,6 +54,7 @@ class HeaderBar extends React.Component {
 		if (hasFetchedProducts && productsItems) {
 			const items = productsItems
 				.map(product => ({
+					'data-feature': `product.${(product.id || '').toLowerCase()}`,
 					label: product.name,
 					icon: `talend-${product.icon}-colored`,
 					onClickDispatch: openProduct(product),

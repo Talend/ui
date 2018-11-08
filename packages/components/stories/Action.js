@@ -28,12 +28,57 @@ const mouseDownAction = {
 	onMouseDown: action('You clicked me'),
 };
 
+const ACTION1 = 'Action 1';
+const ACTION2 = 'Action 2';
+
+class DisableActionButton extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			active: ACTION1,
+		};
+	}
+
+	render() {
+		const props = {
+			icon: 'talend-panel-opener-right',
+			tooltipPlacement: 'top',
+			tooltip: true,
+		};
+		return (
+			<React.Fragment>
+				<p>Switch Button</p>
+				<Action
+					{...props}
+					label={ACTION1}
+					active={this.state.active === ACTION1}
+					disabled={this.state.active === ACTION1}
+					onClick={() => this.setState({ active: ACTION1 })}
+				/>
+				<Action
+					{...props}
+					label={ACTION2}
+					active={this.state.active === ACTION2}
+					disabled={this.state.active === ACTION2}
+					onClick={() => this.setState({ active: ACTION2 })}
+				/>
+			</React.Fragment>
+		);
+	}
+}
+
 storiesOf('Action', module)
 	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
 			<IconsProvider defaultIcons={icons} />
 			{story()}
+		</div>
+	))
+	.addWithInfo('Disable the buttons', () => (
+		<div>
+			<DisableActionButton />
 		</div>
 	))
 	.addWithInfo('default', () => (

@@ -59,16 +59,17 @@ describe('UIForm container', () => {
 			// given
 			const wrapper = shallow(<UIForm data={data} {...props} />);
 			const instance = wrapper.instance();
+			const properties = { lastname: 'toto' };
 
 			// when
 			instance.onChange(null, {
 				schema: mergedSchema[0],
 				value: 'toto',
-				properties: { lastname: 'toto' },
+				properties,
 			});
 
 			// then
-			expect(instance.state).toMatchSnapshot();
+			expect(instance.state.liveState.properties).toEqual(properties);
 		});
 
 		it('should call onChange callback', () => {
@@ -121,7 +122,7 @@ describe('UIForm container', () => {
 			instance.setErrors(null, errors);
 
 			// then
-			expect(instance.state).toMatchSnapshot();
+			expect(instance.state.liveState.errors).toEqual(errors);
 		});
 	});
 
@@ -158,7 +159,7 @@ describe('UIForm container', () => {
 
 			// then
 			triggerPromise.then(() => {
-				expect(instance.state.errors).toBe(errors);
+				expect(instance.state.liveState.errors).toBe(errors);
 				done();
 			});
 		});
