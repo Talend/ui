@@ -51,8 +51,10 @@ module.exports = class DotFilesGenerator extends Generator {
 
 	configuring() {
 		const jsFormatterPath = 'tools-javascript';
-		const jsDotFiles = ['.editorconfig', '.npmignore'];
+		const defaultDotFiles = ['.editorconfig', '.npmignore', '.prettier.rc'];
 		const scssFormatterPath = 'tools-scss-formatting';
+		const eslint = '.eslintrc';
+		const travis = '.travis.yml';
 		const sasslint = '.sass-lint.yml';
 		const githubRoot = 'tools-root-github';
 		const gitignore = '.gitignore';
@@ -60,17 +62,17 @@ module.exports = class DotFilesGenerator extends Generator {
 
 		const done = this.async();
 		remote('Talend', 'tools', 'master', (err, cachePath) => {
-			jsDotFiles.forEach(dotfile => {
+			defaultDotFiles.forEach(dotfile => {
 				this.fs.copy(path.join(cachePath, jsFormatterPath, dotfile),
 				this.destinationPath(dotfile));
 			});
 			if (this.props.eslint) {
-				this.fs.copy(path.join(cachePath, jsFormatterPath, '.eslintrc'),
-				this.destinationPath('.eslintrc'));
+				this.fs.copy(path.join(cachePath, jsFormatterPath, eslint),
+				this.destinationPath(eslint));
 			}
 			if (this.props.travis) {
-				this.fs.copy(path.join(cachePath, jsFormatterPath, '.travis.yml'),
-				this.destinationPath('.travis.yml'));
+				this.fs.copy(path.join(cachePath, jsFormatterPath, travis),
+				this.destinationPath(travis));
 			}
 			if (this.props.sasslint) {
 				this.fs.copy(path.join(cachePath, scssFormatterPath, sasslint),
