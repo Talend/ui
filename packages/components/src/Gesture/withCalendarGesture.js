@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import keycode from 'keycode';
 import omit from 'lodash/omit';
 
-const FIRST_DAY = 0;
-const LAST_DAY = Number.POSITIVE_INFINITY;
+const FIRST = 0;
+const LAST = Number.POSITIVE_INFINITY;
 
 function focusOn(element) {
 	if (element) {
@@ -13,10 +13,25 @@ function focusOn(element) {
 }
 
 /**
- * Select all days elements
+ * Select all items in current calendar
  */
-function getAllDays(calendarRef) {
+function getAllItems(calendarRef) {
 	return calendarRef.querySelectorAll('td > button');
+}
+
+/**
+ * Focus on the item within the current calendar.
+ * If the day index is out of the calendar's limits, it focuses on the limits.
+ */
+function focusWithinCurrentCalendar(calendarRef, indexToFocus) {
+	const allItems = getAllItems(calendarRef);
+	if (indexToFocus === FIRST || indexToFocus < 0) {
+		focusOn(allItems[0]);
+	} else if (indexToFocus === LAST || indexToFocus > allItems.length - 1) {
+		focusOn(allItems[allItems.length - 1]);
+	} else {
+		focusOn(allItems[indexToFocus]);
+	}
 }
 
 /**
@@ -25,41 +40,26 @@ function getAllDays(calendarRef) {
  * - negative offset < 0 : we count from the end of the month. 	 Ex : days 1-31 + offset -2 = day 29
  */
 function getDay(calendarRef, offset) {
-	const allDays = getAllDays(calendarRef);
-	const index = offset >= 0 ? offset : allDays.length + offset;
-	return allDays[index];
+	const allItems = getAllItems(calendarRef);
+	const index = offset >= 0 ? offset : allItems.length + offset;
+	return allItems[index];
 }
 
 /**
  * Focus on the day, managing the switch to previous/next month
  */
 function focusOnDay(calendarRef, indexToFocus, { goToPreviousMonth, goToNextMonth }) {
-	const allDays = getAllDays(calendarRef);
+	const allItems = getAllItems(calendarRef);
 	if (indexToFocus < 0) {
 		goToPreviousMonth(() => {
 			focusOn(getDay(calendarRef, indexToFocus));
 		});
-	} else if (indexToFocus > allDays.length - 1) {
+	} else if (indexToFocus > allItems.length - 1) {
 		goToNextMonth(() => {
-			focusOn(getDay(calendarRef, indexToFocus - allDays.length));
+			focusOn(getDay(calendarRef, indexToFocus - allItems.length));
 		});
 	} else {
-		focusOn(allDays[indexToFocus]);
-	}
-}
-
-/**
- * Focus on the day.
- * If the day index is out of the month's limits, it focuses on the month limits.
- */
-function focusOnDayWithinMonth(calendarRef, indexToFocus) {
-	const allDays = getAllDays(calendarRef);
-	if (indexToFocus === FIRST_DAY || indexToFocus < 0) {
-		focusOn(allDays[0]);
-	} else if (indexToFocus === LAST_DAY || indexToFocus > allDays.length - 1) {
-		focusOn(allDays[allDays.length - 1]);
-	} else {
-		focusOn(allDays[indexToFocus]);
+		focusOn(allItems[indexToFocus]);
 	}
 }
 
@@ -68,11 +68,30 @@ function focusOnDayWithinMonth(calendarRef, indexToFocus) {
  */
 function switchMonth(calendarRef, indexToFocus, monthSwitcher) {
 	monthSwitcher(() => {
-		focusOn(focusOnDayWithinMonth(calendarRef, indexToFocus));
+		focusOn(focusWithinCurrentCalendar(calendarRef, indexToFocus));
 	});
 }
 
-export default function withCalendarGesture(WrappedComponent) {
+/**
+ * Focus management on calendar.
+ * - try to focus on the selected item
+ * - try to focus on the 1st not disabled item
+ * - try to focus on the 1st item
+ */
+export function focusOnCalendar(containerRef) {
+	let target = containerRef.querySelector('td[aria-current="date"] > button');
+	if (!target) {
+		target = containerRef.querySelector('td > button[disabled=false]');
+	}
+	if (!target) {
+		target = containerRef.querySelector('td > button');
+	}
+	if (target) {
+		target.focus();
+	}
+}
+
+export function withCalendarGesture(WrappedComponent) {
 	class CalendarGesture extends React.Component {
 		constructor(props) {
 			super(props);
@@ -99,11 +118,11 @@ export default function withCalendarGesture(WrappedComponent) {
 					break;
 				case keycode.codes.home:
 					event.stopPropagation();
-					focusOnDayWithinMonth(calendarRef, FIRST_DAY);
+					focusWithinCurrentCalendar(calendarRef, FIRST);
 					break;
 				case keycode.codes.end:
 					event.stopPropagation();
-					focusOnDayWithinMonth(calendarRef, LAST_DAY);
+					focusWithinCurrentCalendar(calendarRef, LAST);
 					break;
 				case keycode.codes['page up']:
 					event.stopPropagation();
@@ -131,4 +150,55 @@ export default function withCalendarGesture(WrappedComponent) {
 	CalendarGesture.displayName = `CalendarGesture(${WrappedComponent.displayName})`;
 
 	return CalendarGesture;
+}
+
+export function withMonthCalendarGesture(WrappedComponent, rowSize) {
+	class MonthCalendarGesture extends React.Component {
+		constructor(props) {
+			super(props);
+			this.onKeyDown = this.onKeyDown.bind(this);
+		}
+
+		onKeyDown(event, calendarRef, dayIndex) {
+			switch (event.keyCode) {
+				case keycode.codes.left:
+					event.stopPropagation();
+					focusWithinCurrentCalendar(calendarRef, dayIndex - 1);
+					break;
+				case keycode.codes.right:
+					event.stopPropagation();
+					focusWithinCurrentCalendar(calendarRef, dayIndex + 1);
+					break;
+				case keycode.codes.up:
+					event.stopPropagation();
+					focusWithinCurrentCalendar(calendarRef, dayIndex - rowSize);
+					break;
+				case keycode.codes.down:
+					event.stopPropagation();
+					focusWithinCurrentCalendar(calendarRef, dayIndex + rowSize);
+					break;
+				case keycode.codes.home:
+					event.stopPropagation();
+					focusWithinCurrentCalendar(calendarRef, FIRST);
+					break;
+				case keycode.codes.end:
+					event.stopPropagation();
+					focusWithinCurrentCalendar(calendarRef, LAST);
+					break;
+				default:
+					break;
+			}
+		}
+
+		render() {
+			return <WrappedComponent {...this.props} onKeyDown={this.onKeyDown} />;
+		}
+	}
+
+	MonthCalendarGesture.propTypes = {
+		...omit(WrappedComponent.propTypes, 'onKeyDown'),
+	};
+	MonthCalendarGesture.displayName = `CalendarGesture(${WrappedComponent.displayName})`;
+
+	return MonthCalendarGesture;
 }

@@ -6,6 +6,7 @@ import getYear from 'date-fns/get_year';
 import theme from './DateTimePicker.scss';
 import DateTimeView from '../views/DateTimeView';
 import MonthYearView from '../views/MonthYearView';
+import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 
 const warnOnce = {};
 
@@ -123,7 +124,9 @@ class DateTimePicker extends React.Component {
 	}
 
 	setView(isDateTimeView) {
-		this.setState({ isDateTimeView });
+		this.setState({ isDateTimeView }, () => {
+			focusOnCalendar(this.ref);
+		});
 	}
 
 	trySubmit(event) {
@@ -141,24 +144,25 @@ class DateTimePicker extends React.Component {
 		if (this.state.isDateTimeView) {
 			viewElement = (
 				<DateTimeView
-					onClickTitle={this.setMonthYearView}
-					calendar={this.state.calendar}
-					onSelectMonthYear={this.onSelectCalendarMonthYear}
-					onSelectDate={this.onSelectDate}
-					selectedDate={this.state.selectedDate}
-					onSelectTime={this.onSelectTime}
-					selectedTime={this.state.selectedTime}
 					allowFocus={this.state.allowFocus}
+					calendar={this.state.calendar}
+					onClickTitle={this.setMonthYearView}
+					onSelectDate={this.onSelectDate}
+					onSelectMonthYear={this.onSelectCalendarMonthYear}
+					onSelectTime={this.onSelectTime}
+					selectedDate={this.state.selectedDate}
+					selectedTime={this.state.selectedTime}
 				/>
 			);
 		} else {
 			viewElement = (
 				<MonthYearView
+					allowFocus={this.state.allowFocus}
 					onClickBack={this.setDateTimeView}
-					selectedMonthIndex={this.state.calendar.monthIndex}
-					selectedYear={this.state.calendar.year}
 					onSelectMonth={this.onSelectCalendarMonth}
 					onSelectYear={this.onSelectCalendarYear}
+					selectedMonthIndex={this.state.calendar.monthIndex}
+					selectedYear={this.state.calendar.year}
 				/>
 			);
 		}

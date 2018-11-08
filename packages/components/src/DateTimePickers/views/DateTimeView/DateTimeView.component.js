@@ -42,8 +42,6 @@ class DateTimeView extends React.PureComponent {
 	}
 
 	render() {
-		const tabIndex = this.props.allowFocus ? 0 : -1;
-
 		const header = {
 			leftElement: (
 				<IconButton
@@ -52,7 +50,7 @@ class DateTimeView extends React.PureComponent {
 					}}
 					aria-label="Display previous calendar month"
 					onClick={() => this.goToPreviousMonth()}
-					tabIndex={tabIndex}
+					tabIndex="-1"
 				/>
 			),
 			middleElement: (
@@ -62,7 +60,7 @@ class DateTimeView extends React.PureComponent {
 					button={{
 						'aria-label': 'Switch to month and year pickers view',
 						onClick: this.props.onClickTitle,
-						tabIndex,
+						tabIndex: this.props.allowFocus ? 0 : -1,
 					}}
 				/>
 			),
@@ -74,7 +72,7 @@ class DateTimeView extends React.PureComponent {
 					}}
 					aria-label="Display next calendar month"
 					onClick={() => this.goToNextMonth()}
-					tabIndex={tabIndex}
+					tabIndex="-1"
 				/>
 			),
 		};

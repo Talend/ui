@@ -12,11 +12,9 @@ const MINUTES = 'MINUTES';
 function strToNumber(value) {
 	if (value) {
 		const num = Number(value);
-		if (!isNaN(num)) {
-			return num;
-		}
+		return isNaN(num) ? value : num;
 	}
-	return value;
+	return undefined;
 }
 
 class TimePicker extends React.PureComponent {
@@ -29,7 +27,7 @@ class TimePicker extends React.PureComponent {
 	}
 
 	onChange(event, field) {
-		const inputValue = strToNumber(event.target.value) || undefined;
+		const inputValue = strToNumber(event.target.value);
 		const newValue = { ...this.props.value };
 		if (field === HOURS) {
 			newValue.hours = inputValue;

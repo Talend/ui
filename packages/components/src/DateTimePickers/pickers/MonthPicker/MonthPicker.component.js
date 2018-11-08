@@ -1,50 +1,71 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import chunk from 'lodash/chunk';
-import addMonths from 'date-fns/add_months';
-import format from 'date-fns/format';
+import classNames from 'classnames';
+import { buildMonths } from '../../shared/utils/calendar/generator';
+
 import theme from './MonthPicker.scss';
-import PickerAction from '../../shared/components/PickerAction';
-import BASE_DATE from '../../shared/utils/constants/baseDate';
+import { withMonthCalendarGesture } from '../../../Gesture/withCalendarGesture';
 
-const indexes = new Array(12).fill(0).map((_, i) => i);
-
-const months = indexes.map(index => ({
-	index,
-	name: format(addMonths(BASE_DATE, index), 'MMMM'),
-}));
-const monthsRows = chunk(months, 3);
+const ROW_SIZE = 3;
+const months = buildMonths(ROW_SIZE);
 
 class MonthPicker extends React.PureComponent {
-	isSelected(index) {
-		return index === this.props.selectedMonthIndex;
-	}
-
 	render() {
 		return (
-			<div className={theme.container}>
-				{monthsRows.map((monthsRow, i) => (
-					<div className={theme.row} key={i}>
-						{monthsRow.map(month => (
-							<div key={month.index} className={theme.month}>
-								<PickerAction
-									aria-label={`Select '${month.name}'`}
-									isSelected={this.isSelected(month.index)}
-									label={month.name}
-									onClick={event => this.props.onSelect(event, month.index)}
-								/>
-							</div>
-						))}
-					</div>
-				))}
-			</div>
+			<table
+				className={theme.container}
+				ref={ref => {
+					this.ref = ref;
+				}}
+			>
+				<caption className="sr-only">TODO: caption, month aria-label</caption>
+				<tbody>
+					{months.map((monthsRow, i) => (
+						<tr key={i} className={theme['calendar-row']}>
+							{monthsRow.map(({ index, name }) => {
+								const isSelected = index === this.props.selectedMonthIndex;
+								const className = classNames(
+									theme['calendar-month'],
+									{ [theme.selected]: isSelected },
+									'tc-date-picker-month',
+								);
+
+								const tdProps = {
+									key: index,
+									className: theme['calendar-col'],
+								};
+								if (isSelected) {
+									tdProps['aria-current'] = 'date';
+								}
+								return (
+									<td key={index} {...tdProps}>
+										<button
+											type="button"
+											className={className}
+											onClick={event => {
+												this.props.onSelect(event, index);
+											}}
+											tabIndex={this.props.allowFocus && isSelected ? 0 : -1}
+											onKeyDown={event => this.props.onKeyDown(event, this.ref, index)}
+										>
+											{name}
+										</button>
+									</td>
+								);
+							})}
+						</tr>
+					))}
+				</tbody>
+			</table>
 		);
 	}
 }
 
 MonthPicker.propTypes = {
-	selectedMonthIndex: PropTypes.number,
+	allowFocus: PropTypes.bool,
+	onKeyDown: PropTypes.func.isRequired,
 	onSelect: PropTypes.func.isRequired,
+	selectedMonthIndex: PropTypes.number,
 };
 
-export default MonthPicker;
+export default withMonthCalendarGesture(MonthPicker, ROW_SIZE);

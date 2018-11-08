@@ -10,7 +10,7 @@ import isSameDay from 'date-fns/is_same_day';
 
 import theme from './DatePicker.scss';
 import { buildDayNames, buildWeeks } from '../../shared/utils/calendar/generator';
-import withCalendarGesture from '../../../Gesture/withCalendarGesture';
+import { withCalendarGesture } from '../../../Gesture/withCalendarGesture';
 
 const FIRST_DAY_OF_WEEK = 1;
 

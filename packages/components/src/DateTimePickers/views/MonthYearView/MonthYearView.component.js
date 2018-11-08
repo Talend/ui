@@ -26,10 +26,18 @@ function MonthYearView(props) {
 	const bodyElement = (
 		<div className={theme.body}>
 			<div className={theme.month}>
-				<MonthPicker selectedMonthIndex={props.selectedMonthIndex} onSelect={props.onSelectMonth} />
+				<MonthPicker
+					allowFocus={props.allowFocus}
+					selectedMonthIndex={props.selectedMonthIndex}
+					onSelect={props.onSelectMonth}
+				/>
 			</div>
 			<div className={theme.year}>
-				<YearPicker selectedYear={props.selectedYear} onSelect={props.onSelectYear} />
+				<YearPicker
+					allowFocus={props.allowFocus}
+					selectedYear={props.selectedYear}
+					onSelect={props.onSelectYear}
+				/>
 			</div>
 		</div>
 	);
@@ -38,6 +46,7 @@ function MonthYearView(props) {
 }
 
 MonthYearView.propTypes = {
+	allowFocus: PropTypes.bool,
 	selectedMonthIndex: PropTypes.number.isRequired,
 	selectedYear: PropTypes.number.isRequired,
 	onClickBack: PropTypes.func.isRequired,

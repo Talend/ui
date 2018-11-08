@@ -5,11 +5,10 @@ import DebounceInput from 'react-debounce-input';
 import { Overlay, Popover } from 'react-bootstrap';
 import isSameMinute from 'date-fns/is_same_minute';
 import keycode from 'keycode';
-
 import uuid from 'uuid';
-import DateTimePicker from '../DateTimePicker';
-import theme from './InputDateTimePicker.scss';
 
+import DateTimePicker from '../DateTimePicker';
+import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 import {
 	INPUT_FULL_FORMAT,
 	splitDateAndTimePartsRegex,
@@ -21,6 +20,8 @@ import {
 	strToDate,
 	strToTime,
 } from './date-extraction';
+
+import theme from './InputDateTimePicker.scss';
 
 const INVALID_PLACEHOLDER = 'INVALID DATE';
 
@@ -100,7 +101,6 @@ class InputDateTimePicker extends React.Component {
 
 		this.setState(nextState, () => {
 			if (this.props.onChange && (datetimeUpdated || errorUpdated)) {
-				console.log({ errorMessage, datetime, origin });
 				this.props.onChange(event, { errorMessage, datetime, origin });
 			}
 		});
@@ -187,7 +187,7 @@ class InputDateTimePicker extends React.Component {
 				}
 
 				if (this.state.showPicker) {
-					this.focusOnPicker();
+					focusOnCalendar(this.containerRef);
 				} else {
 					this.setPickerVisibility(true);
 				}
@@ -224,19 +224,6 @@ class InputDateTimePicker extends React.Component {
 
 	focusOnInput() {
 		this.inputRef.focus();
-	}
-
-	focusOnPicker() {
-		let target = this.containerRef.querySelector('[aria-current="date"] > .tc-date-picker-day');
-		if (!target) {
-			target = this.containerRef.querySelector('.tc-date-picker-day[disabled=false]');
-		}
-		if (!target) {
-			target = this.containerRef.querySelector('.tc-date-picker-day');
-		}
-		if (target) {
-			target.focus();
-		}
 	}
 
 	render() {

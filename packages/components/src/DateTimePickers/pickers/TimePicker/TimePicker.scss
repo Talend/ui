@@ -4,7 +4,6 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 0 1rem;
 
 	legend {
 		@include picker-header;
