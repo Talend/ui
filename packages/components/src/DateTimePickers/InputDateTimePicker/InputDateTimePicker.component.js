@@ -13,6 +13,7 @@ import theme from './InputDateTimePicker.scss';
 import {
 	INPUT_FULL_FORMAT,
 	splitDateAndTimePartsRegex,
+	checkTime,
 	extractDateTimeParts,
 	dateTimeToStr,
 	dateAndTimeToDateTime,
@@ -57,7 +58,7 @@ class InputDateTimePicker extends React.Component {
 		};
 
 		this.onInputChange = this.onInputChange.bind(this);
-		this.onPickerSubmit = this.onPickerSubmit.bind(this);
+		this.onPickerChange = this.onPickerChange.bind(this);
 		this.onInputFocus = this.onInputFocus.bind(this);
 		this.onInputBlur = this.onInputBlur.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
@@ -99,6 +100,7 @@ class InputDateTimePicker extends React.Component {
 
 		this.setState(nextState, () => {
 			if (this.props.onChange && (datetimeUpdated || errorUpdated)) {
+				console.log({ errorMessage, datetime, origin });
 				this.props.onChange(event, { errorMessage, datetime, origin });
 			}
 		});
@@ -149,6 +151,7 @@ class InputDateTimePicker extends React.Component {
 
 		try {
 			time = strToTime(timeTextToParse);
+			checkTime(time);
 		} catch (error) {
 			errorMessage = errorMessage || error.message;
 		}
@@ -194,14 +197,20 @@ class InputDateTimePicker extends React.Component {
 		}
 	}
 
-	onPickerSubmit(event, { date, time }) {
-		event.persist();
+	onPickerChange(event, { date, time }) {
+		let errorMessage;
+		try {
+			checkTime(time);
+		} catch (error) {
+			errorMessage = error.message;
+		}
+
 		const nextState = {
 			date,
 			time,
 			textInput: dateTimeToStr(date, time),
 			datetime: dateAndTimeToDateTime(date, time),
-			errorMessage: undefined,
+			errorMessage,
 		};
 		return this.onChange(event, nextState, 'PICKER');
 	}
@@ -278,7 +287,7 @@ class InputDateTimePicker extends React.Component {
 									date: this.state.date,
 									time: this.state.time,
 								}}
-								onSubmit={this.onPickerSubmit}
+								onSubmit={this.onPickerChange}
 							/>
 						</Popover>
 					</Overlay>

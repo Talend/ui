@@ -18,7 +18,7 @@ const datePartRegex = new RegExp(/^\s*([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})\s*$/)
  * Split the time part into hours and minutes
  * ex : ' 14:35  ' => ['14', '35']
  */
-const timePartRegex = new RegExp(/^\s*([0-9]{1,2}):([0-9]{2})\s*$/);
+const timePartRegex = new RegExp(/^(.*):(.*)$/);
 
 const INPUT_FULL_FORMAT = 'YYYY-MM-DD HH:mm';
 const INPUT_DATE_ONLY_FORMAT = 'YYYY-MM-DD';
@@ -36,12 +36,25 @@ function isDateValid(date) {
 }
 
 /**
+ * Check if time is correct
+ */
+function checkTime({ hours, minutes }) {
+	if (typeof hours !== 'number' || hours < 0 || hours > 23) {
+		throw new Error('TIME - INCORRECT HOUR NUMBER');
+	}
+	if (typeof minutes !== 'number' || minutes < 0 || minutes > 59) {
+		throw new Error('TIME - INCORRECT MINUTES NUMBER');
+	}
+}
+
+/**
  * Convert hour and minutes into minutes
  * @param hours {number}
  * @param minutes {number}
  * @returns {number}
  */
 function hoursAndMinutesToTime(hours, minutes) {
+	checkTime({ hours, minutes });
 	return hours * 60 + minutes;
 }
 
@@ -61,13 +74,17 @@ function dateTimeToStr(date, time) {
 	}
 
 	const { hours, minutes } = time;
-	const timeInMinutes = hoursAndMinutesToTime(hours, minutes);
-	if (isNaN(timeInMinutes) && (hours !== undefined || minutes !== undefined)) {
-		return `${format(date, INPUT_DATE_ONLY_FORMAT)} ${hours}:${minutes}`;
+	try {
+		const timeInMinutes = hoursAndMinutesToTime(hours, minutes);
+		const fullDate = setMinutes(date, timeInMinutes);
+		return format(fullDate, INPUT_FULL_FORMAT);
+	} catch (e) {
+		const dateStr = format(date, INPUT_DATE_ONLY_FORMAT);
+		if (hours !== undefined && minutes !== undefined) {
+			return `${dateStr} ${hours}:${minutes}`;
+		}
+		return dateStr;
 	}
-
-	const fullDate = setMinutes(date, timeInMinutes);
-	return format(fullDate, INPUT_FULL_FORMAT);
 }
 
 /**
@@ -81,9 +98,13 @@ function dateAndTimeToDateTime(date, time) {
 		return INTERNAL_INVALID_DATE;
 	}
 
-	const { hours, minutes } = time;
-	const timeInMinutes = hoursAndMinutesToTime(hours, minutes);
-	return setMinutes(date, timeInMinutes);
+	try {
+		const { hours, minutes } = time;
+		const timeInMinutes = hoursAndMinutesToTime(hours, minutes);
+		return setMinutes(date, timeInMinutes);
+	} catch (e) {
+		return INTERNAL_INVALID_DATE;
+	}
 }
 
 /**
@@ -129,17 +150,12 @@ function strToTime(strToParse) {
 		throw new Error('TIME - INCORRECT FORMAT');
 	}
 
+	const numbersRegex = /^\d+$/;
 	const hoursString = timeMatches[1];
-	const hours = parseInt(hoursString, 10);
-	if (hours >= 24) {
-		throw new Error('TIME - INCORRECT HOUR NUMBER');
-	}
+	const hours = numbersRegex.test(hoursString) ? parseInt(hoursString, 10) : hoursString;
 
 	const minutesString = timeMatches[2];
-	const minutes = parseInt(minutesString, 10);
-	if (minutes >= 60) {
-		throw new Error('TIME - INCORRECT MINUTES NUMBER');
-	}
+	const minutes = numbersRegex.test(minutesString) ? parseInt(minutesString, 10) : minutesString;
 
 	return { hours, minutes };
 }
@@ -178,6 +194,7 @@ function extractDateTimeParts(selectedDateTime) {
 export {
 	INPUT_FULL_FORMAT,
 	splitDateAndTimePartsRegex,
+	checkTime,
 	dateAndTimeToDateTime,
 	dateTimeToStr,
 	extractDateTimeParts,

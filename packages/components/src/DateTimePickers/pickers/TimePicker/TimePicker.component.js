@@ -29,7 +29,7 @@ class TimePicker extends React.PureComponent {
 	}
 
 	onChange(event, field) {
-		const inputValue = strToNumber(event.target.value);
+		const inputValue = strToNumber(event.target.value) || undefined;
 		const newValue = { ...this.props.value };
 		if (field === HOURS) {
 			newValue.hours = inputValue;
