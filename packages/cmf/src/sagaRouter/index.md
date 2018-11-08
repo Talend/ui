@@ -43,8 +43,8 @@ const routes = {
   }
 };
 
-// router saga is forked and given router history, and route configuration
-yield fork(routerSaga, history, routes);
+// router saga is spawned and given router history, and route configuration
+yield spawn(routerSaga, history, routes);
 ```
 
 ## Matching pattern
