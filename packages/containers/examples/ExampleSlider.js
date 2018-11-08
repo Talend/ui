@@ -64,7 +64,7 @@ const actions = [
 	},
 ];
 
-const functionToFormat = value => `${value}%`;
+const functionToFormat = value => `${value}k`;
 
 const nullState = new Map();
 const initialState = new Map({
@@ -88,7 +88,7 @@ const ExampleSlider = {
 				<Slider id="slider3" captionActions={actions} initialState={initialState} />
 			</div>
 			<div style={delimiterStyle}>
-				<p style={paragraphStyle}>with icon close to label</p>
+				<p style={paragraphStyle}>with step number</p>
 				<Slider
 					id="slider4"
 					initialState={initialState}

@@ -20,7 +20,7 @@ $tc-slider-line-height: 24px;
 }
 
 .tc-slider {
-	padding: 0 12px;
+	padding: 0 ($tc-slider-line-height / 2);
 	:global(.rc-slider-disabled) {
 		background-color: transparent;
 		opacity: 0.4;
@@ -42,12 +42,15 @@ $tc-slider-line-height: 24px;
 			}
 		}
 		:global(svg) {
-			height: $tc-slider-line-height;
-			width: $tc-slider-line-height;
 			fill: $gray;
 			&.selected {
 				fill: $brand-primary;
 			}
+		}
+		:global(svg),
+		&-text {
+			height: $tc-slider-line-height;
+			width: $tc-slider-line-height;
 		}
 	}
 

@@ -67,7 +67,7 @@ const actions = [
 ];
 
 const functionToFormat = value => `${value}-test`;
-const functionFormatFloor = value => Math.floor(value);
+const functionFormatFloor = value => `${Math.floor(value)}k`;
 
 storiesOf('Slider', module)
 	.addDecorator(checkA11y)
@@ -75,41 +75,29 @@ storiesOf('Slider', module)
 		<section>
 			<IconsProvider />
 			<div style={style}>
-				<div style={delimiterStyle}>
-					<p>By default :</p>
+				<div style={delimiterStyle} >
+					<p>By default</p>
 					<Slider />
+				</div>
+				<div style={delimiterStyle}>
+					<p>With disabled</p>
+					<Slider disabled />
 				</div>
 				<div style={delimiterStyle}>
 					<p>With value & format</p>
 					<Slider id="selectable" captionsFormat={functionToFormat} value={10} />
 				</div>
 				<div style={delimiterStyle}>
-					<p>With disabled label</p>
-				</div>
-				<Slider disabled />
-				<div style={delimiterStyle}>
-					<p> with default value :</p>
-				</div>
-				<Slider value={45} />
-				<div style={delimiterStyle}>
-					<p> With a label:</p>
-					<Slider value={null} captionIcons={icons} />
-				</div>
-				<div style={delimiterStyle}>
-					<p> With a label:</p>
-					<Slider value={50} captionIcons={icons} />
+					<p>With icons</p>
+					<Slider captionIcons={icons} />
 				</div>
 				<div style={delimiterStyle}>
 					<p>with icon buttons</p>
 					<Slider captionActions={actions} value={50} />
 				</div>
 				<div style={delimiterStyle}>
-					<p>with some icons</p>
-					<Slider value={40} captionTextStepNumber={4} captionsFormat={functionFormatFloor} />
-				</div>
-				<div style={delimiterStyle}>
-					<p>with icon close to label</p>
-					<Slider value={96} />
+					<p>with step number</p>
+					<Slider value={25} captionTextStepNumber={5} captionsFormat={functionFormatFloor} />
 				</div>
 			</div>
 		</section>

@@ -116,7 +116,12 @@ function renderTextCaptions(captionTextStepNumber, captionsFormat, min, max) {
 		return (
 			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-text-captions')}>
 				{captions.map((caption, index) => (
-					<span key={index}>{captionsFormat(caption)}</span>
+					<div
+						className={classnames(theme['tc-slider-captions-text'], 'tc-slider-text-captions-text')}
+						key={index}
+					>
+						{captionsFormat(caption)}
+					</div>
 				))}
 			</div>
 		);
@@ -219,7 +224,7 @@ class Slider extends React.Component {
 		} = this.props;
 		const noValue = value === null || value === undefined;
 		return (
-			<React.Fragment>
+			<div>
 				<div className={classnames(theme['tc-slider'], 'tc-slider')}>
 					<RcSlider
 						id={id}
@@ -242,7 +247,7 @@ class Slider extends React.Component {
 					max,
 					onChange,
 				)}
-			</React.Fragment>
+			</div>
 		);
 	}
 }
