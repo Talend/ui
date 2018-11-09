@@ -96,6 +96,15 @@ export function withCalendarGesture(WrappedComponent) {
 		constructor(props) {
 			super(props);
 			this.onKeyDown = this.onKeyDown.bind(this);
+			this.preventScroll = this.preventScroll.bind(this);
+		}
+
+		componentDidMount() {
+			this.ref.addEventListener('keydown', this.preventScroll);
+		}
+
+		componentWillUnmount() {
+			this.ref.removeEventListener('keydown', this.preventScroll);
 		}
 
 		onKeyDown(event, calendarRef, dayIndex) {
@@ -137,8 +146,31 @@ export function withCalendarGesture(WrappedComponent) {
 			}
 		}
 
+		preventScroll(event) {
+			const arrows = [
+				keycode.codes.left,
+				keycode.codes.right,
+				keycode.codes.up,
+				keycode.codes.down,
+				keycode.codes.home,
+				keycode.codes['page up'],
+				keycode.codes['page down'],
+			];
+			if (arrows.includes(event.keyCode)) {
+				event.preventDefault();
+			}
+		}
+
 		render() {
-			return <WrappedComponent {...this.props} onKeyDown={this.onKeyDown} />;
+			return (
+				<div
+					ref={ref => {
+						this.ref = ref;
+					}}
+				>
+					<WrappedComponent {...this.props} onKeyDown={this.onKeyDown} />
+				</div>
+			);
 		}
 	}
 
@@ -157,6 +189,15 @@ export function withMonthCalendarGesture(WrappedComponent, rowSize) {
 		constructor(props) {
 			super(props);
 			this.onKeyDown = this.onKeyDown.bind(this);
+			this.preventScroll = this.preventScroll.bind(this);
+		}
+
+		componentDidMount() {
+			this.ref.addEventListener('keydown', this.preventScroll);
+		}
+
+		componentWillUnmount() {
+			this.ref.removeEventListener('keydown', this.preventScroll);
 		}
 
 		onKeyDown(event, calendarRef, dayIndex) {
@@ -171,10 +212,12 @@ export function withMonthCalendarGesture(WrappedComponent, rowSize) {
 					break;
 				case keycode.codes.up:
 					event.stopPropagation();
+					event.view.event.preventDefault();
 					focusWithinCurrentCalendar(calendarRef, dayIndex - rowSize);
 					break;
 				case keycode.codes.down:
 					event.stopPropagation();
+					event.view.event.preventDefault();
 					focusWithinCurrentCalendar(calendarRef, dayIndex + rowSize);
 					break;
 				case keycode.codes.home:
@@ -190,8 +233,30 @@ export function withMonthCalendarGesture(WrappedComponent, rowSize) {
 			}
 		}
 
+		preventScroll(event) {
+			const arrows = [
+				keycode.codes.left,
+				keycode.codes.right,
+				keycode.codes.up,
+				keycode.codes.down,
+				keycode.codes.home,
+				keycode.codes.end,
+			];
+			if (arrows.includes(event.keyCode)) {
+				event.preventDefault();
+			}
+		}
+
 		render() {
-			return <WrappedComponent {...this.props} onKeyDown={this.onKeyDown} />;
+			return (
+				<div
+					ref={ref => {
+						this.ref = ref;
+					}}
+				>
+					<WrappedComponent {...this.props} onKeyDown={this.onKeyDown} />
+				</div>
+			);
 		}
 	}
 
