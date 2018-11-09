@@ -65,7 +65,7 @@ describe('SidePanel.mapStateToProps', () => {
 	});
 
 	describe('integrated menu item routing with "actions" prop', () => {
-		it('should do nothing if prop not exists', () => {
+		it('should do nothing if prop does not exist', () => {
 			const props = mapStateToProps(state, {});
 			expect(props.actions).toBeUndefined();
 		});
@@ -169,12 +169,6 @@ describe('SidePanel.mapStateToProps', () => {
 					isMatching: true,
 				},
 				{
-					name: 'Complex subset path starting at the beginning',
-					currentRoute: '/some/path/not/super/really/usual/but/which/can/occur',
-					itemRoute: '/some/path/not/super/really/usual',
-					isMatching: true,
-				},
-				{
 					name:
 						'Subset path starting at the beginning but without the exact last segment (currentRoute longer)',
 					currentRoute: '/a/usual/path',
@@ -189,28 +183,9 @@ describe('SidePanel.mapStateToProps', () => {
 					isMatching: false,
 				},
 				{
-					name:
-						'Subset path starting at the beginning but without the last item path segment matching (currentRoute with more segments)',
-					currentRoute: '/a/usual/path/with/some/others/paths',
-					itemRoute: '/a/usual/pat',
-					isMatching: false,
-				},
-				{
 					name: 'Subset path but not starting at the beginning',
 					currentRoute: '/a/usual/path',
 					itemRoute: '/usual/path',
-					isMatching: false,
-				},
-				{
-					name: 'Just a total other path',
-					currentRoute: '/a/usual/path',
-					itemRoute: '/this/path/has/nothing/in/common',
-					isMatching: false,
-				},
-				{
-					name: 'More specific path than the current route',
-					currentRoute: '/a/usual',
-					itemRoute: '/a/usual/path',
 					isMatching: false,
 				},
 			],
