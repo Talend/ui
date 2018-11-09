@@ -332,7 +332,6 @@ function loadStories() {
 		actions['menu:first'] = {
 			label: 'First',
 			icon: 'talend-streams',
-			href: '/storybook',
 			payload: {
 				type: 'MENU_',
 			},
