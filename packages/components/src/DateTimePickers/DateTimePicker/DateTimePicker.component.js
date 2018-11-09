@@ -158,7 +158,7 @@ class DateTimePicker extends React.Component {
 			viewElement = (
 				<MonthYearView
 					allowFocus={this.state.allowFocus}
-					onClickBack={this.setDateTimeView}
+					onBackClick={this.setDateTimeView}
 					onSelectMonth={this.onSelectCalendarMonth}
 					onSelectYear={this.onSelectCalendarYear}
 					selectedMonthIndex={this.state.calendar.monthIndex}

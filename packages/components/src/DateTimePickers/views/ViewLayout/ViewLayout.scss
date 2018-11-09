@@ -15,6 +15,17 @@
 		.middle {
 			flex: 3;
 		}
+
+		:global(.btn-icon-only) {
+			color: $silver;
+			svg {
+				width: $svg-sm-size;
+			}
+
+			&:hover {
+				color: $scooter;
+			}
+		}
 	}
 
 	.body {

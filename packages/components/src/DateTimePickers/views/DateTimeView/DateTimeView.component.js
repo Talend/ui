@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Action } from '../../../Actions';
 import DatePicker from '../../pickers/DatePicker';
 import TimePicker from '../../pickers/TimePicker';
 import ViewLayout from '../ViewLayout';
-import IconButton from '../../shared/components/IconButton';
 import HeaderTitle from '../HeaderTitle';
 import theme from './DateTimeView.scss';
 
@@ -44,13 +44,11 @@ class DateTimeView extends React.PureComponent {
 	render() {
 		const header = {
 			leftElement: (
-				<IconButton
-					icon={{
-						name: 'talend-chevron-left',
-					}}
-					aria-label="Display previous calendar month"
+				<Action
+					icon="talend-chevron-left"
 					onClick={() => this.goToPreviousMonth()}
 					tabIndex="-1"
+					link
 				/>
 			),
 			middleElement: (
@@ -65,14 +63,12 @@ class DateTimeView extends React.PureComponent {
 				/>
 			),
 			rightElement: (
-				<IconButton
-					icon={{
-						name: 'talend-chevron-left',
-						transform: 'rotate-180',
-					}}
-					aria-label="Display next calendar month"
-					onClick={() => this.goToNextMonth()}
+				<Action
+					icon="talend-chevron-left"
+					iconTransform="rotate-180"
+					onClick={() => this.goToPreviousMonth()}
 					tabIndex="-1"
+					link
 				/>
 			),
 		};

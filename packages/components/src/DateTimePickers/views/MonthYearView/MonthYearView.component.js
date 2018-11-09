@@ -1,23 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Action } from '../../../Actions';
 import MonthPicker from '../../pickers/MonthPicker';
 import YearPicker from '../../pickers/YearPicker';
 import theme from './MonthYearView.scss';
 import ViewLayout from '../ViewLayout';
-import IconButton from '../../shared/components/IconButton';
 import HeaderTitle from '../HeaderTitle';
 
 function MonthYearView(props) {
 	const header = {
 		leftElement: (
-			<IconButton
-				icon={{
-					name: 'talend-arrow-left',
-					className: theme['action-left-icon'],
-				}}
-				className={theme['action-left']}
+			<Action
 				aria-label="Switch back to date and time pickers view"
-				onClick={props.onClickBack}
+				icon="talend-arrow-left"
+				onClick={props.onBackClick}
+				link
 			/>
 		),
 		middleElement: <HeaderTitle monthIndex={props.selectedMonthIndex} year={props.selectedYear} />,
@@ -49,7 +46,7 @@ MonthYearView.propTypes = {
 	allowFocus: PropTypes.bool,
 	selectedMonthIndex: PropTypes.number.isRequired,
 	selectedYear: PropTypes.number.isRequired,
-	onClickBack: PropTypes.func.isRequired,
+	onBackClick: PropTypes.func.isRequired,
 	onSelectMonth: PropTypes.func.isRequired,
 	onSelectYear: PropTypes.func.isRequired,
 };
