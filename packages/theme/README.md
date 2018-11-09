@@ -13,12 +13,6 @@ Note: The example has been taken from the excellent project [Bootstwatch](https:
 * [Example page](https://talend.github.io/bootstrap-theme)
 * [Sass Api](https://talend.github.io/bootstrap-theme/sassdoc)
 
-# Breaking changes log
-
-Before 1.0, `@talend/bootstrap-theme` does NOT follow semver version in releases.
-You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
-Before 2.0, we will try not to introduce breaking changes, as possible.
-After 2.0, we will only introduce breaking changes in major releases, and follow semver.
 
 # How to use
 
