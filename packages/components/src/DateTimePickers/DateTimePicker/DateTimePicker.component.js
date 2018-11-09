@@ -35,7 +35,7 @@ class DateTimePicker extends React.Component {
 			},
 			selectedDate,
 			selectedTime,
-			allowFocus: false,
+			allowFocus: !props.manageFocus,
 		};
 
 		this.setDateTimeView = this.setView.bind(this, true);
@@ -51,8 +51,10 @@ class DateTimePicker extends React.Component {
 	}
 
 	componentDidMount() {
-		this.ref.addEventListener('focusin', this.allowFocus);
-		this.ref.addEventListener('focusout', this.disallowFocus);
+		if (this.props.manageFocus) {
+			this.ref.addEventListener('focusin', this.allowFocus);
+			this.ref.addEventListener('focusout', this.disallowFocus);
+		}
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -81,8 +83,10 @@ class DateTimePicker extends React.Component {
 	}
 
 	componentWillUnmount() {
-		this.ref.removeEventListener('focusin', this.allowFocus);
-		this.ref.removeEventListener('focusout', this.disallowFocus);
+		if (this.props.manageFocus) {
+			this.ref.removeEventListener('focusin', this.allowFocus);
+			this.ref.removeEventListener('focusout', this.disallowFocus);
+		}
 	}
 
 	onSelectDate(event, selectedDate) {
@@ -181,6 +185,7 @@ class DateTimePicker extends React.Component {
 }
 
 DateTimePicker.propTypes = {
+	manageFocus: PropTypes.bool,
 	selection: PropTypes.shape({
 		date: PropTypes.instanceOf(Date),
 		time: PropTypes.shape({

@@ -270,6 +270,7 @@ class InputDateTimePicker extends React.Component {
 					<Overlay container={this.dropdownWrapperRef} show={this.state.showPicker}>
 						<Popover className={theme.popover} id={this.popoverId}>
 							<DateTimePicker
+								manageFocus
 								selection={{
 									date: this.state.date,
 									time: this.state.time,

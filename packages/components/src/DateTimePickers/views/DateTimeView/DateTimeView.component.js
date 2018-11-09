@@ -45,7 +45,9 @@ class DateTimeView extends React.PureComponent {
 		const header = {
 			leftElement: (
 				<Action
+					aria-label="Go to previous month"
 					icon="talend-chevron-left"
+					label=""
 					onClick={() => this.goToPreviousMonth()}
 					tabIndex="-1"
 					link
@@ -64,8 +66,10 @@ class DateTimeView extends React.PureComponent {
 			),
 			rightElement: (
 				<Action
+					aria-label="Go to next month"
 					icon="talend-chevron-left"
 					iconTransform="rotate-180"
+					label=""
 					onClick={() => this.goToPreviousMonth()}
 					tabIndex="-1"
 					link

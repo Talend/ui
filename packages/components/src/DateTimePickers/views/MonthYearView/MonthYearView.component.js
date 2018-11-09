@@ -11,6 +11,7 @@ function MonthYearView(props) {
 	const header = {
 		leftElement: (
 			<Action
+				label=""
 				aria-label="Switch back to date and time pickers view"
 				icon="talend-arrow-left"
 				onClick={props.onBackClick}
