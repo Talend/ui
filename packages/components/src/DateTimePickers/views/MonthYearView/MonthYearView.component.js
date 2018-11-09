@@ -15,6 +15,7 @@ function MonthYearView(props) {
 				aria-label="Switch back to date and time pickers view"
 				icon="talend-arrow-left"
 				onClick={props.onBackClick}
+				tabIndex={props.allowFocus ? 0 : -1}
 				link
 			/>
 		),

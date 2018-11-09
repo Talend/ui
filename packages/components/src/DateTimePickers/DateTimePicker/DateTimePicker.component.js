@@ -177,6 +177,8 @@ class DateTimePicker extends React.Component {
 				ref={ref => {
 					this.ref = ref;
 				}}
+				tabIndex={this.state.allowFocus ? 0 : -1}
+				aria-label="Date picker"
 			>
 				{viewElement}
 			</div>
