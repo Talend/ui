@@ -64,7 +64,7 @@ const actions = [
 	},
 ];
 
-const functionToFormat = value => `${value}k`;
+const functionToFormat = value => `${value}`;
 
 const nullState = new Map();
 const initialState = new Map({

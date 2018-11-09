@@ -67,7 +67,7 @@ const actions = [
 ];
 
 const functionToFormat = value => `${value}-test`;
-const functionFormatFloor = value => `${Math.floor(value)}k`;
+const functionFormatFloor = value => `${Math.floor(value)}`;
 
 storiesOf('Slider', module)
 	.addDecorator(checkA11y)
