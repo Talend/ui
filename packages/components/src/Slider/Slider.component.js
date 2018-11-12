@@ -91,7 +91,10 @@ function renderIcons(icons, value, min, max) {
 			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')}>
 				{icons.map((icon, index) => (
 					<div
-						className={classnames(theme['tc-slider-captions-element'], 'tc-slider-captions-element')}
+						className={classnames(
+							theme['tc-slider-captions-element'],
+							'tc-slider-captions-element',
+						)}
 					>
 						<Icon
 							name={icon}
@@ -123,7 +126,10 @@ function renderTextCaptions(captionTextStepNumber, captionsFormat, min, max) {
 			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')}>
 				{captions.map((caption, index) => (
 					<div
-						className={classnames(theme['tc-slider-captions-element'], 'tc-slider-captions-element')}
+						className={classnames(
+							theme['tc-slider-captions-element'],
+							'tc-slider-captions-element',
+						)}
 						key={index}
 					>
 						{captionsFormat(caption)}
