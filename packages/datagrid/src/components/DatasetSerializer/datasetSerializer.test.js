@@ -44,7 +44,6 @@ const sample = {
 			},
 			{
 				name: 'field1',
-				doc: 'Code UIC',
 				type: {
 					'@talend-quality@': {
 						0: 0,
