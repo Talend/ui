@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+import { withRouter } from 'react-router';
 import cmf, { cmfConnect } from '@talend/react-cmf';
 import Container, { DEFAULT_STATE } from './SidePanel.container';
 import { ACTION_TYPE_LINK } from './constants';
@@ -151,14 +152,16 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 	return props;
 }
 
-export default cmfConnect({
-	defaultState: DEFAULT_STATE,
-	omitCMFProps: true,
-	withComponentRegistry: true,
-	withDispatch: true,
-	withDispatchActionCreator: true,
-	withComponentId: true,
-	keepComponentState: true,
-	mapStateToProps,
-	mergeProps,
-})(Container);
+export default withRouter(
+	cmfConnect({
+		defaultState: DEFAULT_STATE,
+		omitCMFProps: true,
+		withComponentRegistry: true,
+		withDispatch: true,
+		withDispatchActionCreator: true,
+		withComponentId: true,
+		keepComponentState: true,
+		mapStateToProps,
+		mergeProps,
+	})(Container),
+);
