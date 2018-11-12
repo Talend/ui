@@ -78,10 +78,17 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 
 export default cmfConnect({
 	defaultState: DEFAULT_STATE,
+
 	defaultProps: {
 		saga: 'List#root',
 		listItems: new List(),
 	},
+
 	componentId,
 	mapStateToProps,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(Container);

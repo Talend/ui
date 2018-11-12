@@ -160,12 +160,5 @@ module.exports = class ComponentGenerator extends Generator {
 				parser.write(parentIndexPath, parsedCode);
 			}
 		}
-		if (this.props.settings) {
-			this.fs.copyTpl(
-				this.templatePath('src/settings.json'),
-				this.destinationPath(`${this.props.settings}/${this.props.name}.json`),
-				this
-			);
-		}
 	}
 };

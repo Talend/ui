@@ -60,4 +60,7 @@ ContainerActionButton.propTypes = {
 export default cmfConnect({
 	mapStateToProps,
 	mergeProps,
+	omitCMFProps: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
 })(ContainerActionButton);

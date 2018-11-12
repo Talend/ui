@@ -216,4 +216,9 @@ export function mapStateToProps(state, ownProps) {
 export default cmfConnect({
 	defaultState: DEFAULT_STATE,
 	mapStateToProps,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(TreeView);
