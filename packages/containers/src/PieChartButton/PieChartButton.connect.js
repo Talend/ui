@@ -61,11 +61,11 @@ ContainerPieChartButton.propTypes = {
 };
 
 export default cmfConnect({
-    componentId: ownProps => ownProps.componentId || ownProps.id,
-    defaultState: DEFAULT_STATE,
-    omitCMFProps: true,
-    withComponentRegistry: true,
-    withDispatch: true,
-    withDispatchActionCreator: true,
-    withComponentId: true,
+	componentId: ownProps => ownProps.componentId || ownProps.id,
+	defaultState: DEFAULT_STATE,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(ContainerPieChartButton);

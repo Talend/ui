@@ -36,9 +36,9 @@ RedirectContainer.contextTypes = {
 RedirectContainer.displayName = 'RedirectContainer';
 
 export default cmfConnect({
-    omitCMFProps: true,
-    withComponentRegistry: true,
-    withDispatch: true,
-    withDispatchActionCreator: true,
-    withComponentId: true,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(RedirectContainer);

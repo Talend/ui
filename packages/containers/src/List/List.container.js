@@ -16,11 +16,11 @@ import { getActionsProps } from '../actionAPI';
 import Constants from './List.constant';
 
 const ConnectedCellTitle = cmfConnect({
-    omitCMFProps: true,
-    withComponentRegistry: true,
-    withDispatch: true,
-    withDispatchActionCreator: true,
-    withComponentId: true,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(CellTitle);
 export const connectedCellDictionary = {
 	[cellTitleType]: {
