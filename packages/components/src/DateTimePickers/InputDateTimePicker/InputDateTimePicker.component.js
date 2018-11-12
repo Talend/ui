@@ -67,11 +67,6 @@ class InputDateTimePicker extends React.Component {
 		this.closePicker = this.setPickerVisibility.bind(this, false, /* force */ true);
 	}
 
-	// componentDidMount() {
-	// 	this.containerRef.addEventListener('focusin', this.openPicker);
-	// 	this.containerRef.addEventListener('focusout', this.closePicker);
-	// }
-
 	componentWillReceiveProps(nextProps) {
 		const newSelectedDateTime = nextProps.selectedDateTime;
 
@@ -85,11 +80,6 @@ class InputDateTimePicker extends React.Component {
 			this.setState(dateRelatedPartState);
 		}
 	}
-
-	// componentWillUnmount() {
-	// 	this.containerRef.removeEventListener('focusin', this.openPicker);
-	// 	this.containerRef.removeEventListener('focusout', this.closePicker);
-	// }
 
 	onChange(event, nextState, origin) {
 		const { errorMessage, datetime } = nextState;

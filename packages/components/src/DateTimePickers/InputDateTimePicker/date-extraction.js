@@ -90,7 +90,7 @@ function dateTimeToStr(date, time) {
 /**
  * Set the time to the provided date
  * @param date {Date}
- * @param time {number}
+ * @param time {{hours: number, minutes: number}}
  * @returns {Date}
  */
 function dateAndTimeToDateTime(date, time) {

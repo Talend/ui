@@ -2,9 +2,12 @@
 
 exports[`DateTimePicker should render 1`] = `
 <div
+  aria-label="Date picker"
   className="theme-container"
+  tabIndex={0}
 >
   <DateTimeView
+    allowFocus={true}
     calendar={
       Object {
         "monthIndex": 5,

@@ -38,8 +38,6 @@ class DateTimePicker extends React.Component {
 			allowFocus: !props.manageFocus,
 		};
 
-		this.setDateTimeView = this.setView.bind(this, true);
-		this.setMonthYearView = this.setView.bind(this, false);
 		this.onSelectCalendarMonth = this.onSelectCalendarMonth.bind(this);
 		this.onSelectCalendarYear = this.onSelectCalendarYear.bind(this);
 		this.onSelectCalendarMonthYear = this.onSelectCalendarMonthYear.bind(this);
@@ -48,6 +46,8 @@ class DateTimePicker extends React.Component {
 
 		this.allowFocus = this.setAllowFocus.bind(this, true);
 		this.disallowFocus = this.setAllowFocus.bind(this, false);
+		this.setDateTimeView = this.setView.bind(this, true);
+		this.setMonthYearView = this.setView.bind(this, false);
 	}
 
 	componentDidMount() {
@@ -187,7 +187,16 @@ class DateTimePicker extends React.Component {
 }
 
 DateTimePicker.propTypes = {
+	/**
+	 * By default, element in picker are focusable. So it is usable as is.
+	 * But when we want to disable focus to not interact with a form flow,
+	 * this option must be turned on.
+	 * It allows to disable focus, and activate it when the focus is set in the picker.
+	 */
 	manageFocus: PropTypes.bool,
+	/**
+	 * Current selected date/time
+	 */
 	selection: PropTypes.shape({
 		date: PropTypes.instanceOf(Date),
 		time: PropTypes.shape({
@@ -195,6 +204,9 @@ DateTimePicker.propTypes = {
 			minutes: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 		}),
 	}),
+	/**
+	 * Callback triggered when date and time are selected
+	 */
 	onSubmit: PropTypes.func.isRequired,
 };
 
