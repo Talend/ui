@@ -66,6 +66,8 @@ export function renderActions(actions, value, min, max, onChange) {
 					key={index}
 					onClick={() => onChange(captions[index])}
 					className={classnames(
+						theme['tc-slider-captions-element'],
+						'tc-slider-captions-element',
 						{ [theme.selected]: index === position },
 						{ selected: index === position },
 					)}
@@ -86,16 +88,20 @@ function renderIcons(icons, value, min, max) {
 	if (isIconsAvailables(icons)) {
 		const position = getSelectedIconPosition(icons, value, min, max);
 		return (
-			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-icons')}>
+			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')}>
 				{icons.map((icon, index) => (
-					<Icon
-						name={icon}
-						className={classnames(
-							{ [theme.selected]: index === position },
-							{ selected: index === position },
-						)}
-						key={index}
-					/>
+					<div
+						className={classnames(theme['tc-slider-captions-element'], 'tc-slider-captions-element')}
+					>
+						<Icon
+							name={icon}
+							className={classnames(
+								{ [theme.selected]: index === position },
+								{ selected: index === position },
+							)}
+							key={index}
+						/>
+					</div>
 				))}
 			</div>
 		);
@@ -114,10 +120,10 @@ function renderTextCaptions(captionTextStepNumber, captionsFormat, min, max) {
 	if (captionTextStepNumber > 1) {
 		const captions = getCaptionsValue(captionTextStepNumber, min, max);
 		return (
-			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-text-captions')}>
+			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')}>
 				{captions.map((caption, index) => (
 					<div
-						className={classnames(theme['tc-slider-captions-text'], 'tc-slider-text-captions-text')}
+						className={classnames(theme['tc-slider-captions-element'], 'tc-slider-captions-element')}
 						key={index}
 					>
 						{captionsFormat(caption)}

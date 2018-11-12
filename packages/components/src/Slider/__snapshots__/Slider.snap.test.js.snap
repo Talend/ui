@@ -82,7 +82,7 @@ exports[`Slider component snaps renderers should render Slider with captionActio
     className="theme-tc-slider-captions tc-slider-captions"
   >
     <Action
-      className=""
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
       data-feature="action"
       hideLabel={true}
       icon="talend-smiley-angry"
@@ -92,7 +92,7 @@ exports[`Slider component snaps renderers should render Slider with captionActio
       onClick={[Function]}
     />
     <Action
-      className=""
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
       data-feature="action"
       hideLabel={true}
       icon="talend-smiley-neutral"
@@ -102,7 +102,7 @@ exports[`Slider component snaps renderers should render Slider with captionActio
       onClick={[Function]}
     />
     <Action
-      className="theme-selected selected"
+      className="theme-tc-slider-captions-element tc-slider-captions-element theme-selected selected"
       data-feature="action"
       hideLabel={true}
       icon="talend-smiley-satisfied"
@@ -154,30 +154,30 @@ exports[`Slider component snaps renderers should render Slider with captionTextS
     />
   </div>
   <div
-    className="theme-tc-slider-captions tc-slider-text-captions"
+    className="theme-tc-slider-captions tc-slider-captions"
   >
     <div
-      className="theme-tc-slider-captions-text tc-slider-text-captions-text"
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
     >
       0%
     </div>
     <div
-      className="theme-tc-slider-captions-text tc-slider-text-captions-text"
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
     >
       25%
     </div>
     <div
-      className="theme-tc-slider-captions-text tc-slider-text-captions-text"
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
     >
       50%
     </div>
     <div
-      className="theme-tc-slider-captions-text tc-slider-text-captions-text"
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
     >
       75%
     </div>
     <div
-      className="theme-tc-slider-captions-text tc-slider-text-captions-text"
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
     >
       100%
     </div>
@@ -224,28 +224,48 @@ exports[`Slider component snaps renderers should render Slider with icons on sta
     />
   </div>
   <div
-    className="theme-tc-slider-captions tc-slider-icons"
+    className="theme-tc-slider-captions tc-slider-captions"
   >
-    <Icon
-      className=""
-      name="talend-smiley-rating"
-    />
-    <Icon
-      className=""
-      name="talend-most-trusted"
-    />
-    <Icon
-      className="theme-selected selected"
-      name="talend-network"
-    />
-    <Icon
-      className=""
-      name="talend-streams"
-    />
-    <Icon
-      className=""
-      name="talend-tdc-negative"
-    />
+    <div
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
+    >
+      <Icon
+        className=""
+        name="talend-smiley-rating"
+      />
+    </div>
+    <div
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
+    >
+      <Icon
+        className=""
+        name="talend-most-trusted"
+      />
+    </div>
+    <div
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
+    >
+      <Icon
+        className="theme-selected selected"
+        name="talend-network"
+      />
+    </div>
+    <div
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
+    >
+      <Icon
+        className=""
+        name="talend-streams"
+      />
+    </div>
+    <div
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
+    >
+      <Icon
+        className=""
+        name="talend-tdc-negative"
+      />
+    </div>
   </div>
 </div>
 `;

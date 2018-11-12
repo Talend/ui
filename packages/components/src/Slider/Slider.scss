@@ -33,6 +33,15 @@ $tc-slider-line-height: 24px;
 		margin-top: $padding-small;
 		color: $gray;
 		font-size: $tc-slider-font-size;
+		&-element {
+			height: $tc-slider-line-height;
+			width: $tc-slider-line-height;
+			line-height: $tc-slider-line-height;
+			min-height: $tc-slider-line-height;
+			display: flex;
+			justify-content: center;
+
+		}
 		:global(.btn) {
 			padding: 0;
 			&.selected {
@@ -42,15 +51,13 @@ $tc-slider-line-height: 24px;
 			}
 		}
 		:global(svg) {
+			height: $tc-slider-line-height;
+			width: $tc-slider-line-height;
+			margin: 0;
 			fill: $gray;
 			&.selected {
 				fill: $brand-primary;
 			}
-		}
-		:global(svg),
-		&-text {
-			height: $tc-slider-line-height;
-			width: $tc-slider-line-height;
 		}
 	}
 
