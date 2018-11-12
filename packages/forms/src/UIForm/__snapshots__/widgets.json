@@ -84,6 +84,12 @@
 				"title": "A readonly field",
 				"widget": "text",
 				"readonly": true
+			},
+			{
+				"key": "readonlyEmpty",
+				"title": "An empty readonly field",
+				"widget": "text",
+				"readonly": true
 			}
 		]
 	}
