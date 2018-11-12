@@ -23,5 +23,11 @@ export default cmfConnect({
 	defaultProps: {
 		saga: 'DeleteResource#handle',
 	},
+
 	mapStateToProps,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(Container);
