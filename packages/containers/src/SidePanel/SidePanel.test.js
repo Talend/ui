@@ -151,13 +151,13 @@ describe('SidePanel.mapStateToProps', () => {
 					isMatching: true,
 				},
 				{
-					name: 'Usual simple path with trainling /',
+					name: 'Usual simple path with trailing /',
 					currentRoute: '/a/usual/path/',
 					itemRoute: '/a/usual/path',
 					isMatching: true,
 				},
 				{
-					name: 'Usual simple path with trainling / on match',
+					name: 'Usual simple path with trailing / on match',
 					currentRoute: '/a/usual/path',
 					itemRoute: '/a/usual/path/',
 					isMatching: true,
