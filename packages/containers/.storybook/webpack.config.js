@@ -7,4 +7,14 @@
 // to "React Create App". This only has babel loader to load JavaScript.
 const commonConfiguration = require('../../../.storybook/webpack.config');
 
-module.exports = storybookBaseConfig => commonConfiguration(storybookBaseConfig);
+module.exports = storybookBaseConfig => commonConfiguration({
+	...storybookBaseConfig,
+	devServer: {
+		...storybookBaseConfig.devServer,
+		headers: {
+			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+			'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+		}
+	}
+});
