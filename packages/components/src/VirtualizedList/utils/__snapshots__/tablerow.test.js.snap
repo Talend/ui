@@ -2,7 +2,7 @@
 
 exports[`tablerow #insertSelectionConfiguration should NOT insert selection column when selection callback is NOT provided 1`] = `
 Array [
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="id"
@@ -14,7 +14,7 @@ Array [
     style={Object {}}
     width={50}
 />,
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="name"
@@ -51,7 +51,7 @@ Array [
     style={Object {}}
     width={35}
 />,
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="id"
@@ -63,7 +63,7 @@ Array [
     style={Object {}}
     width={50}
 />,
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="name"

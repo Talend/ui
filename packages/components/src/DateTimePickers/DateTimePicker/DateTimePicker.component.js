@@ -7,14 +7,19 @@ import theme from './DateTimePicker.scss';
 import DateTimeView from '../views/DateTimeView';
 import MonthYearView from '../views/MonthYearView';
 
+const warnOnce = {};
+
 class DateTimePicker extends React.Component {
 	constructor(props) {
 		super(props);
 
-		// eslint-disable-next-line
-		console.warn(
-			"UNSTABLE WARNING: The 'DateTimePicker' and all the sub components aren't ready to be used in Apps. Code can (will) change outside the release process until it's ready.",
-		);
+		if (!warnOnce.unstable) {
+			// eslint-disable-next-line
+			console.warn(
+				"UNSTABLE WARNING: The 'DateTimePicker' and all the sub components aren't ready to be used in Apps. Code can (will) change outside the release process until it's ready.",
+			);
+			warnOnce.unstable = true;
+		}
 
 		const selectedDate = props.selection.date;
 		const selectedTime = props.selection.time;
@@ -79,15 +84,17 @@ class DateTimePicker extends React.Component {
 		this.setState(newState);
 	}
 
-	onSelectDate(selectedDate) {
+	onSelectDate(event, selectedDate) {
+		event.persist();
 		this.setState({ selectedDate }, () => {
-			this.trySubmit();
+			this.trySubmit(event);
 		});
 	}
 
-	onSelectTime(selectedTime) {
+	onSelectTime(event, selectedTime) {
+		event.persist();
 		this.setState({ selectedTime }, () => {
-			this.trySubmit();
+			this.trySubmit(event);
 		});
 	}
 
@@ -100,11 +107,11 @@ class DateTimePicker extends React.Component {
 		}));
 	}
 
-	onSelectCalendarMonth(monthIndex) {
+	onSelectCalendarMonth(event, monthIndex) {
 		this.onSelectCalendarMonthYear({ monthIndex });
 	}
 
-	onSelectCalendarYear(year) {
+	onSelectCalendarYear(event, year) {
 		this.onSelectCalendarMonthYear({ year });
 	}
 
@@ -112,9 +119,9 @@ class DateTimePicker extends React.Component {
 		this.setState({ isDateTimeView });
 	}
 
-	trySubmit() {
+	trySubmit(event) {
 		if (this.state.selectedDate !== undefined && this.state.selectedTime !== undefined) {
-			this.props.onSubmit({
+			this.props.onSubmit(event, {
 				date: this.state.selectedDate,
 				time: this.state.selectedTime,
 			});

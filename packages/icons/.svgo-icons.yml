@@ -29,7 +29,6 @@ plugins:
   - convertShapeToPath
   - moveElemsAttrsToGroup
   - moveGroupAttrsToElems
-  - collapseGroups
   - convertTransform
   - removeEmptyAttrs
   - removeEmptyContainers
