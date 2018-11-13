@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InputDateTimePicker render should render 1`] = `
+exports[`InputDateTimePicker should render 1`] = `
 <div
   onBlur={[Function]}
   onFocus={[Function]}

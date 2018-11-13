@@ -159,6 +159,7 @@ class InputDateTimePicker extends React.Component {
 		);
 	}
 
+	// TODO JSO : remove that in favor of proper for validation in forms package
 	onInputFocus() {
 		this.setState({
 			inputFocused: true,
@@ -168,7 +169,7 @@ class InputDateTimePicker extends React.Component {
 	onKeyDown(event) {
 		switch (event.keyCode) {
 			case keycode.codes.esc:
-				this.focusOnInput();
+				this.inputRef.focus();
 				this.setPickerVisibility(false);
 				break;
 			case keycode.codes.down:
@@ -212,10 +213,6 @@ class InputDateTimePicker extends React.Component {
 		this.setState({ showPicker: isShown });
 	}
 
-	focusOnInput() {
-		this.inputRef.focus();
-	}
-
 	render() {
 		const inputProps = omit(this.props, PROPS_TO_OMIT_FOR_INPUT);
 
@@ -226,7 +223,6 @@ class InputDateTimePicker extends React.Component {
 		if (!isDatetimeValid && !inputFocused) {
 			placeholder = INVALID_PLACEHOLDER;
 		}
-		const textInput = this.state.textInput;
 
 		return (
 			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
@@ -247,7 +243,7 @@ class InputDateTimePicker extends React.Component {
 					onFocus={this.onInputFocus}
 					onBlur={this.onInputBlur}
 					placeholder={placeholder}
-					value={textInput}
+					value={this.state.textInput}
 					debounceTimeout={300}
 					onChange={this.onInputChange}
 					className="form-control"
