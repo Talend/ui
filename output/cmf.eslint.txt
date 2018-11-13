@@ -2,9 +2,6 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/cmf/src/cmfConnect.js
-  31:8  error  'invariant' is defined but never used  no-unused-vars
-
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
   87:3  warning  Unexpected console statement  no-console
 
@@ -19,5 +16,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/cmf/src/sagas/collection.js
   10:1  error  Prefer default export  import/prefer-default-export
 
-✖ 7 problems (4 errors, 3 warnings)
+✖ 6 problems (3 errors, 3 warnings)
 
