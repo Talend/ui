@@ -220,7 +220,11 @@ export default function cmfConnect({
 		if (!WrappedComponent.displayName && displayNameWarning) {
 			displayNameWarning = false;
 			// eslint-disable-next-line no-console
-			console.warn(`${WrappedComponent.name} has no displayName. Please read https://github.com/Talend/ui/issues/1808`);
+			console.warn(
+				`${
+					WrappedComponent.name
+				} has no displayName. Please read https://github.com/Talend/ui/issues/1808`,
+			);
 		}
 		function getState(state, id = 'default') {
 			return state.cmf.components.getIn([getComponentName(WrappedComponent), id], defaultState);
