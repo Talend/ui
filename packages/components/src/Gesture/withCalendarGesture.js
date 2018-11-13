@@ -1,3 +1,4 @@
+/* eslint-disable react/no-multi-comp,class-methods-use-this */
 import React from 'react';
 import PropTypes from 'prop-types';
 import keycode from 'keycode';
