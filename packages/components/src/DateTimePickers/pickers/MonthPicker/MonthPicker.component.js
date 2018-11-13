@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { buildMonths } from '../../shared/utils/calendar/generator';
+import { buildMonths } from '../../generator';
 
 import theme from './MonthPicker.scss';
 import { withMonthCalendarGesture } from '../../../Gesture/withCalendarGesture';

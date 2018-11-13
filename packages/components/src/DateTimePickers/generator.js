@@ -7,7 +7,7 @@ import format from 'date-fns/format';
 import setDay from 'date-fns/set_day';
 import startOfWeek from 'date-fns/start_of_week';
 
-export function buildDayNames(firstDayOfweek) {
+export function buildDayNames(firstDayOfweek = 1) {
 	return new Array(7)
 		.fill(0)
 		.map((_, i) => (i + firstDayOfweek) % 7)
@@ -15,7 +15,7 @@ export function buildDayNames(firstDayOfweek) {
 		.map(headerDate => format(headerDate, 'dddd'));
 }
 
-export function buildWeeks(year, monthIndex, firstDayOfWeek) {
+export function buildWeeks(year, monthIndex, firstDayOfWeek = 1) {
 	const firstDateOfMonth = new Date(year, monthIndex);
 	const firstDateOfCalendar = startOfWeek(firstDateOfMonth, {
 		weekStartsOn: firstDayOfWeek,

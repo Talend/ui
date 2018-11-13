@@ -9,10 +9,8 @@ import getYear from 'date-fns/get_year';
 import isSameDay from 'date-fns/is_same_day';
 
 import theme from './DatePicker.scss';
-import { buildDayNames, buildWeeks } from '../../shared/utils/calendar/generator';
+import { buildDayNames, buildWeeks } from '../../generator';
 import { withCalendarGesture } from '../../../Gesture/withCalendarGesture';
-
-const FIRST_DAY_OF_WEEK = 1;
 
 const getDayNames = memoize(buildDayNames);
 
@@ -57,8 +55,8 @@ class DatePicker extends React.PureComponent {
 	render() {
 		const { year, monthIndex } = this.props.calendar;
 
-		const weeks = this.getWeeks(year, monthIndex, FIRST_DAY_OF_WEEK);
-		const dayNames = getDayNames(FIRST_DAY_OF_WEEK);
+		const weeks = this.getWeeks(year, monthIndex);
+		const dayNames = getDayNames();
 		const selectedInCurrentCalendar = this.isSelectedInCurrentCalendar();
 
 		return (
@@ -137,7 +135,7 @@ class DatePicker extends React.PureComponent {
 		);
 	}
 }
-
+DatePicker.displayName = 'DatePicker';
 DatePicker.propTypes = {
 	allowFocus: PropTypes.bool,
 	calendar: PropTypes.shape({

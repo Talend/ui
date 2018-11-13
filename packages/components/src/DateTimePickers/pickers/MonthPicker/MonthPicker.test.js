@@ -1,47 +1,65 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 import MonthPicker from './MonthPicker.component';
 
 describe('MonthPicker', () => {
 	it('should render', () => {
-		const wrapper = shallow(<MonthPicker onSelect={() => {}} />);
+		// when
+		const wrapper = mount(<MonthPicker onSelect={jest.fn()} selectedMonthIndex={4} />);
 
-		expect(wrapper.getElement()).toMatchSnapshot();
+		// then
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
-	it('should have exactly one selected month', () => {
-		const monthIndex = 8;
-		const wrapper = shallow(<MonthPicker selectedMonthIndex={monthIndex} onSelect={() => {}} />);
+	it('should highlight selected month', () => {
+		// when
+		const wrapper = mount(<MonthPicker onSelect={jest.fn()} selectedMonthIndex={4} />);
 
-		const actions = wrapper.find('PickerAction');
-
-		expect(actions.length).toBe(12);
-
-		const selectedActions = actions.filterWhere(action => action.prop('isSelected') === true);
-
-		expect(selectedActions.length).toBe(1);
-		const selectedAction = selectedActions.first();
-		expect(selectedAction.parent().key()).toBe(monthIndex.toString());
+		// then
+		expect(
+			wrapper
+				.find('.tc-date-picker-month')
+				.at(4)
+				.prop('className'),
+		).toContain('theme-selected');
 	});
 
-	it('should callback with the month index picked', () => {
-		const monthIndexToSelect = 5;
+	it('should trigger props.onSelect on selection', () => {
+		// given
 		const onSelect = jest.fn();
+		const wrapper = mount(<MonthPicker onSelect={onSelect} />);
 
-		const wrapper = shallow(<MonthPicker onSelect={onSelect} />);
+		// when
+		wrapper
+			.find('.tc-date-picker-month')
+			.at(4)
+			.simulate('click');
 
-		const juneAction = wrapper
-			.findWhere(n => n.key() === monthIndexToSelect.toString())
-			.first()
-			.find('PickerAction');
+		// then
+		expect(onSelect).toBeCalledWith(expect.anything(), 4);
+	});
 
-		const mockedEvent = {
-			whatever: 'prop',
-		};
+	it('should manage tabIndex', () => {
+		// given
+		const wrapper = mount(<MonthPicker onSelect={jest.fn()} selectedMonthIndex={4} />);
+		expect(
+			wrapper
+				.find('.tc-date-picker-month')
+				.at(4)
+				.prop('tabIndex'),
+		).toBe(-1);
 
-		juneAction.simulate('click', mockedEvent);
+		// when
+		wrapper.setProps({ allowFocus: true });
 
-		expect(onSelect).toHaveBeenCalledWith(mockedEvent, monthIndexToSelect);
+		// then
+		expect(
+			wrapper
+				.find('.tc-date-picker-month')
+				.at(4)
+				.prop('tabIndex'),
+		).toBe(0);
 	});
 });
