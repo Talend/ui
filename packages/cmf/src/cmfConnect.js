@@ -28,7 +28,6 @@ export default cmfConnect({
 	mapStateToProps,
 });
  */
-import invariant from 'invariant';
 import PropTypes from 'prop-types';
 import React, { createElement } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
