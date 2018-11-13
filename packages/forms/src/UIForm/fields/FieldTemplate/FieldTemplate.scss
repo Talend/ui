@@ -2,4 +2,8 @@
 	&:global(.required) :global(.control-label):after {
 		content: '*';
 	}
+	&:global(.required) :global(.checkbox) :global(.control-label):after {
+		position: initial;
+		outline: none;
+	}
 }
