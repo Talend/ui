@@ -97,7 +97,7 @@ describe('DateTimePicker', () => {
 			wrapper.setState({ isDateTimeView: true });
 
 			// when
-			const clickTitleHandler = wrapper.find(DateTimeView).prop('onClickTitle');
+			const clickTitleHandler = wrapper.find(DateTimeView).prop('onTitleClick');
 			clickTitleHandler();
 
 			// then

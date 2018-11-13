@@ -13,7 +13,7 @@ import theme from './DateTimeView.scss';
  * @param {number} divisor Divisor
  * @return {number} The positive euclidean modulo
  */
-export function euclideanModulo(dividend, divisor) {
+function euclideanModulo(dividend, divisor) {
 	const modulo = ((dividend % divisor) + divisor) % divisor;
 	return modulo < 0 ? modulo + Math.abs(divisor) : modulo;
 }
@@ -59,7 +59,7 @@ class DateTimeView extends React.PureComponent {
 					year={this.props.calendar.year}
 					button={{
 						'aria-label': 'Switch to month and year pickers view',
-						onClick: this.props.onClickTitle,
+						onClick: this.props.onTitleClick,
 						tabIndex: this.props.allowFocus ? 0 : -1,
 					}}
 				/>
@@ -70,7 +70,7 @@ class DateTimeView extends React.PureComponent {
 					icon="talend-chevron-left"
 					iconTransform="rotate-180"
 					label=""
-					onClick={() => this.goToPreviousMonth()}
+					onClick={() => this.goToNextMonth()}
 					tabIndex="-1"
 					link
 				/>
@@ -109,7 +109,7 @@ DateTimeView.propTypes = {
 		monthIndex: PropTypes.number.isRequired,
 		year: PropTypes.number.isRequired,
 	}).isRequired,
-	onClickTitle: PropTypes.func.isRequired,
+	onTitleClick: PropTypes.func.isRequired,
 	onSelectMonthYear: PropTypes.func.isRequired,
 	onSelectDate: PropTypes.func.isRequired,
 	onSelectTime: PropTypes.func.isRequired,
