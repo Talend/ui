@@ -52,4 +52,9 @@ ContainerActionIconToggle.propTypes = {
 export default cmfConnect({
 	mapStateToProps,
 	mergeProps,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(ContainerActionIconToggle);

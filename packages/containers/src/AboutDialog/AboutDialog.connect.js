@@ -13,6 +13,11 @@ const connected = cmfConnect({
 		saga: 'AboutDialog#default',
 	},
 	mapStateToProps,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(Container);
 
 export default connected;
