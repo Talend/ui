@@ -215,9 +215,12 @@ export default function cmfConnect({
 			propsToOmit.push('dispatchActionCreator');
 		}
 	}
+	let displayNameWarning = true;
 	return function wrapWithCMF(WrappedComponent) {
-		if (!WrappedComponent.displayName) {
-			invariant(true, `${WrappedComponent.name} has no displayName`);
+		if (!WrappedComponent.displayName && displayNameWarning) {
+			displayNameWarning = false;
+			// eslint-disable-next-line no-console
+			console.warn(`${WrappedComponent.name} has no displayName. Please read https://github.com/Talend/ui/issues/1808`);
 		}
 		function getState(state, id = 'default') {
 			return state.cmf.components.getIn([getComponentName(WrappedComponent), id], defaultState);
