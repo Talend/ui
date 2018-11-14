@@ -1,12 +1,3 @@
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
-
-/home/travis/build/Talend/ui/packages/datagrid/src/register.test.js
-  4:8  error  'DefaultCellRenderer' is defined but never used       no-unused-vars
-  5:8  error  'DefaultHeaderRenderer' is defined but never used     no-unused-vars
-  6:8  error  'DefaultPinHeaderRenderer' is defined but never used  no-unused-vars
-  7:8  error  'DefaultIntCellRenderer' is defined but never used    no-unused-vars
-
-✖ 4 problems (4 errors, 0 warnings)
-
