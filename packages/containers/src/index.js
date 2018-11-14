@@ -12,6 +12,9 @@ const components = Object.keys(allComponents).reduce((acc, key) => {
 				withComponentRegistry: true,
 			};
 		}
+		if (!allComponents[key].displayName) {
+			allComponents[key].displayName = key;
+		}
 		// eslint-disable-next-line no-param-reassign
 		acc[key] = cmfConnect(options)(allComponents[key]);
 	}
