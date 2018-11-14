@@ -5,7 +5,13 @@ import { cmfConnect } from '@talend/react-cmf';
 import { AppLoader, Inject } from '@talend/react-components';
 import { appLoaderSaga } from './AppLoader.saga';
 
-const CustomInject = cmfConnect({})(Inject);
+const CustomInject = cmfConnect({
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
+})(Inject);
 /**
  * This container show the application's loader & bootstrap the app
  * @param {object} props the component props
@@ -48,6 +54,11 @@ export function mapStateToProps(state, ownProps) {
 
 const connected = cmfConnect({
 	mapStateToProps,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(AppLoaderContainer);
 
 connected.sagas = {
