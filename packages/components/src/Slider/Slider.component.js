@@ -160,7 +160,7 @@ function getCaption(
 	min,
 	max,
 	onChange,
-	disabled
+	disabled,
 ) {
 	if (captionActions) {
 		return renderActions(captionActions, value, min, max, onChange, disabled);
