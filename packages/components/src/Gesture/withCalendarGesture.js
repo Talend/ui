@@ -201,25 +201,23 @@ export function withMonthCalendarGesture(WrappedComponent, rowSize) {
 			this.ref.removeEventListener('keydown', this.preventScroll);
 		}
 
-		onKeyDown(event, calendarRef, dayIndex) {
+		onKeyDown(event, calendarRef, monthIndex) {
 			switch (event.keyCode) {
 				case keycode.codes.left:
 					event.stopPropagation();
-					focusWithinCurrentCalendar(calendarRef, dayIndex - 1);
+					focusWithinCurrentCalendar(calendarRef, monthIndex - 1);
 					break;
 				case keycode.codes.right:
 					event.stopPropagation();
-					focusWithinCurrentCalendar(calendarRef, dayIndex + 1);
+					focusWithinCurrentCalendar(calendarRef, monthIndex + 1);
 					break;
 				case keycode.codes.up:
 					event.stopPropagation();
-					event.view.event.preventDefault();
-					focusWithinCurrentCalendar(calendarRef, dayIndex - rowSize);
+					focusWithinCurrentCalendar(calendarRef, monthIndex - rowSize);
 					break;
 				case keycode.codes.down:
 					event.stopPropagation();
-					event.view.event.preventDefault();
-					focusWithinCurrentCalendar(calendarRef, dayIndex + rowSize);
+					focusWithinCurrentCalendar(calendarRef, monthIndex + rowSize);
 					break;
 				case keycode.codes.home:
 					event.stopPropagation();
