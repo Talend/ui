@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { translate } from 'react-i18next';
+import noop from 'lodash/noop';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
@@ -127,6 +128,7 @@ class FileWidget extends React.Component {
 						name={`input-filename-${id}`}
 						className={`form-control ${theme['file-replace']}`}
 						value={this.state.fileName}
+						onChange={noop}
 						type="text"
 						placeholder={placeholder}
 						tabIndex="-1"
