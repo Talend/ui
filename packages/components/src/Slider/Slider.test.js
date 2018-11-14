@@ -62,7 +62,7 @@ describe('getActions', () => {
 			},
 		];
 		// When
-		const wrapper = shallow(renderActions(actions, 76, 0, 100));
+		const wrapper = shallow(renderActions(actions, 76, 0, 100, false));
 		// Then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
