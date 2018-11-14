@@ -41,6 +41,83 @@ exports[`Slider component snaps renderers should render Slider 1`] = `
 </div>
 `;
 
+exports[`Slider component snaps renderers should render Slider disabled 1`] = `
+<div>
+  <div
+    className="theme-tc-slider tc-slider"
+  >
+    <ComponentEnhancer(undefined)
+      activeDotStyle={Object {}}
+      className="theme-tc-slider-rc-slider tc-slider-rc-slider"
+      disabled={true}
+      dotStyle={Object {}}
+      dots={false}
+      handle={[Function]}
+      handleStyle={
+        Array [
+          Object {},
+        ]
+      }
+      id={undefined}
+      included={true}
+      marks={Object {}}
+      max={100}
+      min={0}
+      onAfterChange={[Function]}
+      onBeforeChange={[Function]}
+      onChange={[Function]}
+      prefixCls="rc-slider"
+      railStyle={Object {}}
+      step={1}
+      trackStyle={
+        Array [
+          Object {},
+        ]
+      }
+      value={76}
+      vertical={false}
+    />
+  </div>
+  <div
+    className="theme-tc-slider-captions tc-slider-captions"
+  >
+    <Action
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
+      data-feature="action"
+      disabled={true}
+      hideLabel={true}
+      icon="talend-smiley-angry"
+      id="icon1"
+      label="Click Me"
+      link={true}
+      onClick={[Function]}
+    />
+    <Action
+      className="theme-tc-slider-captions-element tc-slider-captions-element"
+      data-feature="action"
+      disabled={true}
+      hideLabel={true}
+      icon="talend-smiley-neutral"
+      id="icon2"
+      label="Click Me"
+      link={true}
+      onClick={[Function]}
+    />
+    <Action
+      className="theme-tc-slider-captions-element tc-slider-captions-element theme-selected selected"
+      data-feature="action"
+      disabled={true}
+      hideLabel={true}
+      icon="talend-smiley-satisfied"
+      id="icon3"
+      label="Click Me"
+      link={true}
+      onClick={[Function]}
+    />
+  </div>
+</div>
+`;
+
 exports[`Slider component snaps renderers should render Slider with captionActions 1`] = `
 <div>
   <div
@@ -84,6 +161,7 @@ exports[`Slider component snaps renderers should render Slider with captionActio
     <Action
       className="theme-tc-slider-captions-element tc-slider-captions-element"
       data-feature="action"
+      disabled={undefined}
       hideLabel={true}
       icon="talend-smiley-angry"
       id="icon1"
@@ -94,6 +172,7 @@ exports[`Slider component snaps renderers should render Slider with captionActio
     <Action
       className="theme-tc-slider-captions-element tc-slider-captions-element"
       data-feature="action"
+      disabled={undefined}
       hideLabel={true}
       icon="talend-smiley-neutral"
       id="icon2"
@@ -104,6 +183,7 @@ exports[`Slider component snaps renderers should render Slider with captionActio
     <Action
       className="theme-tc-slider-captions-element tc-slider-captions-element theme-selected selected"
       data-feature="action"
+      disabled={undefined}
       hideLabel={true}
       icon="talend-smiley-satisfied"
       id="icon3"

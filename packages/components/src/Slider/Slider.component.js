@@ -214,6 +214,7 @@ class Slider extends React.Component {
 		min: PropTypes.number.isRequired,
 		max: PropTypes.number.isRequired,
 		captionsFormat: PropTypes.func,
+		disabled: PropTypes.bool,
 	};
 
 	constructor(props) {
