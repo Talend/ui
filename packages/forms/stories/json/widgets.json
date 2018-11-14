@@ -82,6 +82,11 @@
         "type": "string",
         "title": "A readonly field",
         "default": "I am read-only."
+      },
+      "readonlyEmpty": {
+        "type": "string",
+        "title": "An empty readonly field",
+        "default": ""
       }
     }
   },
@@ -112,6 +117,9 @@
       "ui:disabled": true
     },
     "readonly": {
+      "ui:readonly": true
+    },
+    "readonlyEmpty": {
       "ui:readonly": true
     }
   },

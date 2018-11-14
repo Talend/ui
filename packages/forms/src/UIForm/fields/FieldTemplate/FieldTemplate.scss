@@ -1,5 +1,11 @@
-.template {
-	&:global(.required) :global(.control-label):after {
-		content: '*';
+.template:global(.required) {
+	:global {
+		.control-label:after {
+			content: '*';
+		}
+		.checkbox .control-label:after {
+			position: static;
+			outline: none;
+		}
 	}
 }
