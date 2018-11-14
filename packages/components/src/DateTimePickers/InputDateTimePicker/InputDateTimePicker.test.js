@@ -1,12 +1,9 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-
 import cases from 'jest-in-case';
-import isSameDay from 'date-fns/is_same_day';
-import isEqual from 'date-fns/is_equal';
+import keycode from 'keycode/index';
 
 import InputDateTimePicker from './InputDateTimePicker.component';
-import keycode from 'keycode/index';
 
 const DEFAULT_ID = 'DEFAULT_ID';
 
