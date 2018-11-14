@@ -55,7 +55,7 @@ export function getCaptionsValue(captionsLength, min, max) {
  * @param {number} max
  * @param {function} onChange
  */
-export function renderActions(actions, value, min, max, onChange) {
+export function renderActions(actions, value, min, max, onChange, disabled) {
 	const captions = getCaptionsValue(actions.length, min, max);
 	const position = getSelectedIconPosition(actions, value, min, max);
 	return (
@@ -63,6 +63,7 @@ export function renderActions(actions, value, min, max, onChange) {
 			{actions.map((action, index) => (
 				<Action
 					{...action}
+					disabled={disabled}
 					key={index}
 					onClick={() => onChange(captions[index])}
 					className={classnames(
@@ -91,7 +92,10 @@ function renderIcons(icons, value, min, max) {
 			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')}>
 				{icons.map((icon, index) => (
 					<div
-						className={classnames(theme['tc-slider-captions-element'], 'tc-slider-captions-element')}
+						className={classnames(
+							theme['tc-slider-captions-element'],
+							'tc-slider-captions-element',
+						)}
 					>
 						<Icon
 							name={icon}
@@ -123,7 +127,10 @@ function renderTextCaptions(captionTextStepNumber, captionsFormat, min, max) {
 			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')}>
 				{captions.map((caption, index) => (
 					<div
-						className={classnames(theme['tc-slider-captions-element'], 'tc-slider-captions-element')}
+						className={classnames(
+							theme['tc-slider-captions-element'],
+							'tc-slider-captions-element',
+						)}
 						key={index}
 					>
 						{captionsFormat(caption)}
@@ -153,9 +160,10 @@ function getCaption(
 	min,
 	max,
 	onChange,
+	disabled
 ) {
 	if (captionActions) {
-		return renderActions(captionActions, value, min, max, onChange);
+		return renderActions(captionActions, value, min, max, onChange, disabled);
 	} else if (captionIcons) {
 		return renderIcons(captionIcons, value, min, max);
 	} else if (captionTextStepNumber) {
@@ -226,6 +234,7 @@ class Slider extends React.Component {
 			min,
 			max,
 			onChange,
+			disabled,
 			...rest
 		} = this.props;
 		const noValue = value === null || value === undefined;
@@ -240,6 +249,7 @@ class Slider extends React.Component {
 						handle={noValue ? undefined : this.state.handle}
 						className={classnames(theme['tc-slider-rc-slider'], 'tc-slider-rc-slider')}
 						onChange={onChange}
+						disabled={disabled}
 						{...rest}
 					/>
 				</div>
@@ -252,6 +262,7 @@ class Slider extends React.Component {
 					min,
 					max,
 					onChange,
+					disabled,
 				)}
 			</div>
 		);
