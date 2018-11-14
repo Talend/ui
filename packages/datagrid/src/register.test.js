@@ -1,10 +1,6 @@
 import api from '@talend/react-cmf';
 
 import register from './register';
-import DefaultCellRenderer from './components/DefaultCellRenderer';
-import DefaultHeaderRenderer from './components/DefaultHeaderRenderer';
-import DefaultPinHeaderRenderer from './components/DefaultPinHeaderRenderer';
-import DefaultIntCellRenderer from './components/DefaultIntCellRenderer';
 
 jest.mock('@talend/react-cmf', () => ({
 	component: {
