@@ -1,9 +1,6 @@
 > sass-lint -v -q
 
 
-src/DateTimePickers/pickers/DatePicker/DatePicker.scss
-  38:11  error  A value of `0` is not allowed. `none` must be used  border-zero
-
 src/DateTimePickers/pickers/TimePicker/TimePicker.scss
   17:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
@@ -19,5 +16,5 @@ src/Typeahead/Typeahead.scss
 src/VirtualizedList/RowCollapsiblePanel/RowCollapsiblePanel.scss
   2:24  error  Strings must use single quotes  quotes
 
-✖ 6 problems (4 errors, 2 warnings)
+✖ 5 problems (3 errors, 2 warnings)
 
