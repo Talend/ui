@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PickerAction from '../../../shared/components/PickerAction';
+import PickerAction from '../../PickerAction';
 
 export default function RowRenderer({ index, key, parent, style }) {
 	const { items, onSelect, selectedItemId } = parent.props;
