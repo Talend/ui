@@ -55,7 +55,7 @@ const drawers = [
 const content = (
 	<div>
 		<h1>Welcome to the content for testing scroll</h1>
-		<ul>{[...new Array(38)].map(() => <li>one</li>)}</ul>
+		<ul>{[...new Array(138)].map(() => <li>one</li>)}</ul>
 	</div>
 );
 const sidePanel = (
