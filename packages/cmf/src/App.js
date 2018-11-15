@@ -17,6 +17,7 @@ import PropTypes from 'prop-types';
 
 import React from 'react';
 import { Provider } from 'react-redux';
+import noop from 'lodash/noop';
 
 import history from './history';
 import RegistryProvider from './RegistryProvider';
@@ -28,20 +29,53 @@ import UIRouter from './UIRouter';
  * @param  {object} props { store, history }
  * @return {object} ReactElement
  */
-export default function App(props) {
-	const hist = props.history || history.get(props.store);
-	return (
-		<Provider store={props.store}>
-			<RegistryProvider>
-				{props.children || <UIRouter history={hist} loading={props.loading} />}
-			</RegistryProvider>
-		</Provider>
-	);
+export default class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {};
+	}
+
+	componentDidCatch(error, info) {
+		this.setState({
+			error,
+			info,
+		});
+		if (this.props.onError) {
+			this.props.onError.report(error, info);
+		}
+	}
+	render() {
+		const hist = this.props.history || history.get(this.props.store);
+		return (
+			<Provider store={this.props.store}>
+				<RegistryProvider>
+					{this.state.error ? (
+						<div className="alert alert-danger">
+							{this.props.onError.getUserFeedback(this.state.error)}
+						</div>
+					) : (
+						this.props.children || <UIRouter history={hist} loading={this.props.loading} />
+					)}
+				</RegistryProvider>
+			</Provider>
+		);
+	}
 }
 
+App.displayName = 'CMFApp';
 App.propTypes = {
 	store: PropTypes.object.isRequired,
 	children: PropTypes.node,
 	history: PropTypes.object,
 	loading: PropTypes.string,
+	onError: PropTypes.shape({
+		getUserFeedback: PropTypes.func,
+		report: PropTypes.func,
+	}),
+};
+App.defaultProps = {
+	onError: {
+		getUserFeedback: () => 'An error occured, please reload the app',
+		report: noop,
+	},
 };

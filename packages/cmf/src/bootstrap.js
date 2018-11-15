@@ -121,6 +121,7 @@ export default function bootstrap(appOptions = {}) {
 	const options = cmfModule(appOptions);
 	assertTypeOf(options, 'appId', 'string');
 	assertTypeOf(options, 'history', 'object');
+	assertTypeOf(options, 'onError', 'object');
 
 	bootstrapRegistry(options);
 	const appId = options.appId || 'app';
@@ -139,6 +140,8 @@ export default function bootstrap(appOptions = {}) {
 			store={store}
 			history={syncHistoryWithStore(history, store)}
 			loading={options.AppLoader}
+			onError={options.onError}
+			onErrorMessage={options.onErrorMessage}
 		/>,
 		document.getElementById(appId),
 	);
