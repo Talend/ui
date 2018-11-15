@@ -13,6 +13,7 @@ import actions from './actions';
 import { assertTypeOf } from './assert';
 import component from './component';
 import expression from './expression';
+import onError from './onError';
 import storeAPI from './store';
 import registry from './registry';
 import sagaRouter from './sagaRouter';
@@ -61,7 +62,7 @@ export function bootstrapSaga(options) {
 			yield call(options.saga);
 		}
 	}
-	const middleware = createSagaMiddleware();
+	const middleware = createSagaMiddleware({ onError: onError.report });
 	return {
 		middleware,
 		run: () => middleware.run(cmfSaga),
@@ -121,7 +122,8 @@ export default function bootstrap(appOptions = {}) {
 	const options = cmfModule(appOptions);
 	assertTypeOf(options, 'appId', 'string');
 	assertTypeOf(options, 'history', 'object');
-	assertTypeOf(options, 'onError', 'object');
+	assertTypeOf(options, 'onErrorReportURL', 'string');
+	assertTypeOf(options, 'ErrorFeedBack', 'function');
 
 	bootstrapRegistry(options);
 	const appId = options.appId || 'app';
@@ -132,16 +134,20 @@ export default function bootstrap(appOptions = {}) {
 		storeAPI.setRouterMiddleware(routerMiddleware(options.history));
 	}
 	const store = bootstrapRedux(options, saga.middleware);
-
+	onError.setStore(store);
+	onError.setReportURL(options.onErrorReportURL);
 	saga.run();
-
+	window.onerror = (msg, url, lineNo, columnNo, error) => {
+		if (error) {
+			onError.report(error);
+		}
+	};
 	render(
 		<App
 			store={store}
 			history={syncHistoryWithStore(history, store)}
 			loading={options.AppLoader}
-			onError={options.onError}
-			onErrorMessage={options.onErrorMessage}
+			ErrorFeedBack={options.ErrorFeedBack}
 		/>,
 		document.getElementById(appId),
 	);

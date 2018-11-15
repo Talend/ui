@@ -17,11 +17,11 @@ import PropTypes from 'prop-types';
 
 import React from 'react';
 import { Provider } from 'react-redux';
-import noop from 'lodash/noop';
 
 import history from './history';
 import RegistryProvider from './RegistryProvider';
 import UIRouter from './UIRouter';
+import onError from './onError';
 
 /**
  * The React component that render your app and provide CMF environment.
@@ -32,27 +32,50 @@ import UIRouter from './UIRouter';
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			errors: [],
+		};
 	}
 
-	componentDidCatch(error, info) {
-		this.setState({
-			error,
-			info,
-		});
-		if (this.props.onError) {
-			this.props.onError.report(error, info);
-		}
+	componentDidMount() {
+		onError.subscribe(error => this.setState({ error }));
+	}
+
+	componentDidCatch(error) {
+		onError
+			.report(error)
+			.then(
+				response => {
+					this.setState({
+						errors: this.state.errors.concat([{
+							error,
+							reported: true,
+							response,
+						}]),
+					});
+				},
+				err => {
+					this.setState({
+						errors: this.state.errors.concat([{
+							error,
+							reported: false,
+							reason: err,
+						}]),
+					});
+				}
+			);
 	}
 	render() {
 		const hist = this.props.history || history.get(this.props.store);
+		const ErrorFeedback = this.props.ErrorFeedBack;
 		return (
 			<Provider store={this.props.store}>
 				<RegistryProvider>
 					{this.state.error ? (
-						<div className="alert alert-danger">
-							{this.props.onError.getUserFeedback(this.state.error)}
-						</div>
+						<ErrorFeedback
+							error={this.state.error}
+							errors={this.state.errors}
+						/>
 					) : (
 						this.props.children || <UIRouter history={hist} loading={this.props.loading} />
 					)}
@@ -68,14 +91,8 @@ App.propTypes = {
 	children: PropTypes.node,
 	history: PropTypes.object,
 	loading: PropTypes.string,
-	onError: PropTypes.shape({
-		getUserFeedback: PropTypes.func,
-		report: PropTypes.func,
-	}),
+	ErrorFeedBack: PropTypes.func,
 };
 App.defaultProps = {
-	onError: {
-		getUserFeedback: () => 'An error occured, please reload the app',
-		report: noop,
-	},
+	ErrorFeedBack: onError.ErrorFeedBack,
 };
