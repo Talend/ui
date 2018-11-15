@@ -16,6 +16,17 @@ yarn add @talend/react-datagrid
 import DataGrid from '@talend/react-datagrid'; //use the DataGrid Container
 ```
 
+Using CMF
+
+```javascript
+import cmf from '@talend/react-cmf';
+import datagridModule from '@talend/react-datagrid/lib/cmfModule';
+
+cmf.bootstrap({
+    modules: [datagridModule]
+});
+```
+
 ## DataGrid Component
 
 The dataGrid component used to show datagrid on all talend projects. This library use [Ag-Grid](http://ag-grid.com) to show the grid. It's an enhanced Ag-Grid.
