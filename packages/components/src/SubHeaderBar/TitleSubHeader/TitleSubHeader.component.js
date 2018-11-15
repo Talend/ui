@@ -7,6 +7,7 @@ import theme from './TitleSubHeader.scss';
 import Icon from '../../Icon';
 import Inject from '../../Inject';
 import getDefaultT from '../../translate';
+import TooltipTrigger from '../../TooltipTrigger';
 
 function TitleSubHeader({
 	title,
@@ -46,14 +47,16 @@ function TitleSubHeader({
 					{editable ? (
 						<InjectedEditableText text={title} inProgress={inProgress} {...rest} />
 					) : (
-						<h1
-							className={classNames(
-								theme['tc-subheader-details-text-title-wording'],
-								'tc-subheader-details-text-title-wording',
-							)}
-						>
-							{title}
-						</h1>
+						<TooltipTrigger label={title} tooltipPlacement="bottom">
+							<h1
+								className={classNames(
+									theme['tc-subheader-details-text-title-wording'],
+									'tc-subheader-details-text-title-wording',
+								)}
+							>
+								{title}
+							</h1>
+						</TooltipTrigger>
 					)}
 				</div>
 				{subTitle && (

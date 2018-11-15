@@ -1,8 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import uuid from 'uuid';
+import cases from 'jest-in-case';
 import mock from '@talend/react-cmf/lib/mock';
 import SidePanel from './SidePanel.container';
 import { mapStateToProps, mergeProps } from './SidePanel.connect';
+import { ACTION_TYPE_LINK } from './constants';
 
 describe('SidePanel', () => {
 	it('should render', () => {
@@ -19,41 +22,200 @@ describe('SidePanel', () => {
 });
 
 describe('SidePanel.mapStateToProps', () => {
+	let state;
+	beforeEach(() => {
+		state = mock.state();
+		state.routing = {
+			locationBeforeTransitions: {
+				pathname: '/test',
+			},
+		};
+	});
 	it('should check for each action if one goes to the current route', () => {
-		const state = mock.state();
 		const props = mapStateToProps(state, {
-			location: { pathname: '/test' },
 			actionIds: ['menu:routerReplace'],
 		});
 		expect(props.actions[0].active).toBe(true);
 
 		const notactive = mapStateToProps(state, {
-			location: { pathname: '/different' },
-			actionIds: ['menu:routerReplace'],
+			actionIds: ['menu:routerPush'],
 		});
 		expect(notactive.actions[0].active).toBeUndefined();
 
+		state.routing.locationBeforeTransitions.pathname = '/push';
 		const push = mapStateToProps(state, {
-			location: { pathname: '/push' },
 			actionIds: ['menu:routerPush'],
 		});
 		expect(push.actions[0].active).toBe(true);
 
+		state.routing.locationBeforeTransitions.pathname = '/href';
 		const href = mapStateToProps(state, {
-			location: { pathname: '/href' },
 			actionIds: ['menu:href'],
 		});
 		expect(href.actions[0].active).toBe(true);
 	});
 
 	xit('should handle actionCreator with href', () => {
-		const state = mock.state();
+		state.routing.locationBeforeTransitions.pathname = '/href';
 		const href = mapStateToProps(state, {
-			location: { pathname: '/href' },
 			actionIds: ['menu:href'],
 		});
 		expect(href.actions[0]).toBe();
 		expect(href.actions[0].href).toBe('/href');
+	});
+
+	describe('integrated menu item routing with "actions" prop', () => {
+		it('should do nothing if prop does not exist', () => {
+			const props = mapStateToProps(state, {});
+			expect(props.actions).toBeUndefined();
+		});
+
+		it('should construct the actions based on the props given in "actions" elements', () => {
+			state.routing.locationBeforeTransitions.pathname = '/whatever/current/path';
+			const ownProps = {
+				componentId: uuid.v4(),
+				actions: [
+					{
+						whateverAction: 'prop',
+					},
+					{
+						anotherRandomSpecificActionProp: 'other prop',
+					},
+				],
+			};
+			const props = mapStateToProps(state, ownProps);
+			expect(props.actions).not.toBe(ownProps.actions);
+			expect(props.actions.length).toBe(ownProps.actions.length);
+			expect(props.actions[0]).toBe(ownProps.actions[0]);
+			expect(props.actions[1]).toBe(ownProps.actions[1]);
+		});
+
+		it('should define the routing onClick for each "actions" item if "path" is specified', () => {
+			state.routing.locationBeforeTransitions.pathname = '/whatever/current/path';
+			const props = mapStateToProps(state, {
+				componentId: uuid.v4(),
+				actions: [
+					{
+						whateverAction: 'prop',
+						href: 'whatever/path/to/route',
+					},
+					{
+						anotherRandomSpecificActionProp: 'other prop',
+					},
+				],
+			});
+			expect(props.actions[0]).toMatchObject({
+				href: 'whatever/path/to/route',
+				onClick: expect.anything(),
+				onClickDispatch: {
+					type: ACTION_TYPE_LINK,
+					cmf: {
+						routerPush: 'whatever/path/to/route',
+					},
+				},
+			});
+			expect(props.actions[1].onClick).toBeUndefined();
+		});
+
+		cases(
+			'should define "selected" action based on the same "menuActions" item "path"',
+			({ currentRoute, itemRoute, isMatching }) => {
+				state.routing.locationBeforeTransitions.pathname = currentRoute;
+				const actionSelectable = {
+					identity: 'The one',
+					href: itemRoute,
+				};
+
+				const props = mapStateToProps(state, {
+					componentId: uuid.v4(),
+					actions: [
+						{
+							anotherRandomSpecificActionProp: 'other prop',
+							href: 'whatever/path/to/route',
+						},
+						actionSelectable,
+					],
+				});
+
+				if (isMatching) {
+					expect(props.selected).toMatchObject(actionSelectable);
+				} else {
+					expect(props.selected).toBeUndefined();
+				}
+			},
+			[
+				{
+					name: 'Usual simple path',
+					currentRoute: '/a/usual/path',
+					itemRoute: '/a/usual/path',
+					isMatching: true,
+				},
+				{
+					name: 'Usual simple path with trailing /',
+					currentRoute: '/a/usual/path/',
+					itemRoute: '/a/usual/path',
+					isMatching: true,
+				},
+				{
+					name: 'Usual simple path with trailing / on match',
+					currentRoute: '/a/usual/path',
+					itemRoute: '/a/usual/path/',
+					isMatching: true,
+				},
+				{
+					name: 'Subset path starting at the beginning',
+					currentRoute: '/a/usual/path',
+					itemRoute: '/a/usual',
+					isMatching: true,
+				},
+				{
+					name:
+						'Subset path starting at the beginning but without the exact last segment (currentRoute longer)',
+					currentRoute: '/a/usual/path',
+					itemRoute: '/a/usual/pat',
+					isMatching: false,
+				},
+				{
+					name:
+						'Subset path starting at the beginning but without the exact last segment (currentRoute shorter)',
+					currentRoute: '/a/usual/pat',
+					itemRoute: '/a/usual/path',
+					isMatching: false,
+				},
+				{
+					name: 'Subset path but not starting at the beginning',
+					currentRoute: '/a/usual/path',
+					itemRoute: '/usual/path',
+					isMatching: false,
+				},
+			],
+		);
+
+		it('should memoized "actions" and "selected" computed', () => {
+			const actions = [
+				{
+					href: 'whatever/path/to/route',
+				},
+				{
+					href: 'whatever/other/path/to/route',
+				},
+			];
+
+			state.routing.locationBeforeTransitions.pathname = 'whatever/path/to/route/somewhere';
+			const componentId = uuid.v4();
+			const propsStep1 = mapStateToProps(state, {
+				componentId,
+				actions,
+			});
+
+			const propsStep2 = mapStateToProps(state, {
+				componentId,
+				actions,
+			});
+
+			expect(propsStep1.actions).toBe(propsStep2.actions);
+			expect(propsStep1.selected).toBe(propsStep2.selected);
+		});
 	});
 });
 
