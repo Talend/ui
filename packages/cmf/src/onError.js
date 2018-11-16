@@ -50,9 +50,10 @@ function serialiseReduxState(originalState) {
 			});
 		} else if (valueType === 'object') {
 			acc[key] = serialiseReduxState(state[key]);
+		} else {
+			// anonym it
+			acc[key] = anon(state[key], key);
 		}
-		// anonym it
-		acc[key] = anon(state[key], key);
 		return acc;
 	}, {});
 }
@@ -94,9 +95,14 @@ function reportResponse(response) {
  * @param {Error} error instance of Error
  */
 function report(error) {
-	ref.callbacks.forEach(cb => cb(error));
-	ref.error = error;
-	ref.errors.push(error);
+	const info = {
+		error,
+		reported: false,
+		reason: 'On going',
+	};
+	ref.error = info;
+	ref.callbacks.forEach(cb => cb(info));
+	// ref.errors.push(error);
 	const options = {
 		method: 'POST',
 		headers: {
@@ -107,17 +113,23 @@ function report(error) {
 	};
 	if (ref.serverURL) {
 		try {
-			return fetch(ref.serverURL, options).then(reportResponse, reportError);
+			fetch(ref.serverURL, options).then(reportResponse, err => {
+				info.reported = false;
+				info.reason = err;
+				ref.callbacks.forEach(cb => cb(info));
+			}).then(response => {
+				info.reported = true;
+				info.response = response;
+				ref.callbacks.forEach(cb => cb(info));
+			});
 		} catch (err) {
-			return reportError(err);
+			info.reason = err;
+			ref.callbacks.forEach(cb => cb(info));
 		}
+	} else {
+		info.reason = new Error('no serverURL has been set to report Error');
+		ref.callbacks.forEach(cb => cb(info));
 	}
-	return reportError(new Error('no serverURL has been set to report Error'));
-}
-
-function getInfo(props, error) {
-	const searchFor = error || props.error;
-	return props.errors.find(info => info.error === searchFor);
 }
 
 function reload() {
@@ -134,12 +146,10 @@ class ErrorPanel extends React.Component {
 
 	render() {
 		let currentErrorStatus = 'Waiting for report response';
-		if (this.props.info) {
-			if (this.props.info.reported) {
-				currentErrorStatus = `Has been reported under ${this.props.info.response.id}`;
-			} else {
-				currentErrorStatus = this.props.info.reason;
-			}
+		if (this.props.reported) {
+			currentErrorStatus = `Has been reported under ${this.props.response.id}`;
+		} else {
+			currentErrorStatus = this.props.reason;
 		}
 		return (
 			<div className="panel panel-default" style={{ marginTop: 200 }}>
@@ -170,31 +180,28 @@ class ErrorPanel extends React.Component {
 	}
 }
 ErrorPanel.propTypes = {
-	info: PropTypes.shape({
-		reported: PropTypes.bool,
-		reason: PropTypes.string,
-		response: PropTypes.shape({ id: PropTypes.string }),
-	}),
-	error: {
+	reported: PropTypes.bool,
+	reason: PropTypes.string,
+	response: PropTypes.shape({ id: PropTypes.string }),
+	error: PropTypes.shape({
 		name: PropTypes.string,
 		message: PropTypes.string,
 		stack: PropTypes.string,
-	},
+	}),
 };
 
 function ErrorFeedBack(props) {
-	const info = getInfo(props);
 	return (
 		<div className="container">
 			<div className="row">
 				<div className="col-md-offset-3 col-md-4">
-					<ErrorPanel error={props.error} info={info} />
-					{props.errors.length > 1 && (
+					<ErrorPanel {...props.error} />
+					{ref.errors.length > 1 && (
 						<div>
 							<h2>Other errors</h2>
 							<ul>
-								{props.errors.map(error => (
-									<ErrorPanel key={error.error} error={error.error} info={error} />
+								{ref.errors.slice(1).map(error => (
+									<ErrorPanel key={error} {...error} />
 								))}
 							</ul>
 						</div>
@@ -211,7 +218,6 @@ const errorPropType = PropTypes.shape({
 
 ErrorFeedBack.propTypes = {
 	error: errorPropType,
-	errors: PropTypes.arrayOf(errorPropType),
 	// reported: PropTypes.arrayOf(PropTypes.bool),
 };
 
@@ -226,9 +232,19 @@ function subscribe(callback) {
 	ref.callbacks.push(callback);
 }
 
+function getError() {
+	return ref.error;
+}
+
+function getErrors() {
+	return ref.error;
+}
+
 export default {
 	report,
 	subscribe,
+	getError,
+	getErrors,
 	ErrorFeedBack,
 	setReportURL,
 	setStore,

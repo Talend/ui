@@ -32,39 +32,18 @@ import onError from './onError';
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			errors: [],
-		};
+		this.state = {};
 	}
 
 	componentDidMount() {
 		onError.subscribe(error => this.setState({ error }));
 	}
 
+	// eslint-disable-next-line class-methods-use-this
 	componentDidCatch(error) {
-		onError
-			.report(error)
-			.then(
-				response => {
-					this.setState({
-						errors: this.state.errors.concat([{
-							error,
-							reported: true,
-							response,
-						}]),
-					});
-				},
-				err => {
-					this.setState({
-						errors: this.state.errors.concat([{
-							error,
-							reported: false,
-							reason: err,
-						}]),
-					});
-				}
-			);
+		onError.report(error);
 	}
+
 	render() {
 		const hist = this.props.history || history.get(this.props.store);
 		const ErrorFeedback = this.props.ErrorFeedBack;
@@ -72,10 +51,7 @@ export default class App extends React.Component {
 			<Provider store={this.props.store}>
 				<RegistryProvider>
 					{this.state.error ? (
-						<ErrorFeedback
-							error={this.state.error}
-							errors={this.state.errors}
-						/>
+						<ErrorFeedback error={this.state.error} />
 					) : (
 						this.props.children || <UIRouter history={hist} loading={this.props.loading} />
 					)}

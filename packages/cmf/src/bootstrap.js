@@ -62,7 +62,10 @@ export function bootstrapSaga(options) {
 			yield call(options.saga);
 		}
 	}
-	const middleware = createSagaMiddleware({ onError: onError.report });
+	// https://github.com/abettadapur/redux-saga-devtools-extension
+	// eslint-disable-next-line no-underscore-dangle
+	const sagaMonitor = window.__SAGA_MONITOR_EXTENSION__;
+	const middleware = createSagaMiddleware({ onError: onError.report, sagaMonitor });
 	return {
 		middleware,
 		run: () => middleware.run(cmfSaga),
