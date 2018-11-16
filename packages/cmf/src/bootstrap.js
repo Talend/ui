@@ -4,7 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 import { hashHistory } from 'react-router';
 import { routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 import { batchedSubscribe } from 'redux-batched-subscribe';
-import { call, fork } from 'redux-saga/effects';
+import { spawn } from 'redux-saga/effects';
 import compose from 'redux';
 
 import App from './App';
@@ -52,14 +52,14 @@ export function bootstrapRegistry(options) {
 export function bootstrapSaga(options) {
 	assertTypeOf(options, 'saga', 'function');
 	function* cmfSaga() {
-		yield fork(sagas.component.handle);
+		yield spawn(sagas.component.handle);
 		if (options.sagaRouterConfig) {
 			// eslint-disable-next-line no-console
 			console.warn("sagaRouter is deprecated please use cmfConnect 'saga' props");
-			yield fork(sagaRouter, options.history || hashHistory, options.sagaRouterConfig);
+			yield spawn(sagaRouter, options.history || hashHistory, options.sagaRouterConfig);
 		}
 		if (typeof options.saga === 'function') {
-			yield call(options.saga);
+			yield spawn(options.saga);
 		}
 	}
 	// https://github.com/abettadapur/redux-saga-devtools-extension
