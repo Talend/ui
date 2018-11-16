@@ -297,7 +297,11 @@ function addAction(action) {
 		ref.actions.pop();
 	}
 	try {
-		ref.actions.push(prepareObject(action));
+		const safeAction = prepareObject(action);
+		if (safeAction.type === 'DID_MOUNT_SAGA_START') {
+			delete safeAction.props;
+		}
+		ref.actions.push(safeAction);
 	} catch (error) {
 		// eslint-disable-next-line no-console
 		console.error('onError.actions has not been able to add the following action', action, error);

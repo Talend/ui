@@ -123,11 +123,7 @@ export function bootstrapRedux(options, sagaMiddleware) {
  */
 export default function bootstrap(appOptions = {}) {
 	// setup asap
-	window.onerror = (msg, url, lineNo, columnNo, error) => {
-		if (error) {
-			onError.report(error);
-		}
-	};
+	onError.addOnErrorListener();
 	const options = cmfModule(appOptions);
 	assertTypeOf(options, 'appId', 'string');
 	assertTypeOf(options, 'history', 'object');
