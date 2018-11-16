@@ -46,6 +46,8 @@ $tc-circle-editable-text-size: 16px !default;
 		padding-left: $padding-small;
 		padding-right: $padding-small;
 		flex: 0 0 auto;
+		line-height: inherit;
+		min-height: inherit;
 
 		&:global(.btn-link) {
 			color: $silver;

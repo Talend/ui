@@ -8,10 +8,12 @@ import ActionDropdown from '../ActionDropdown';
 import ActionIconToggle from '../ActionIconToggle';
 import Inject from '../../Inject';
 
-const TYPE_FILE = 'file';
-const TYPE_DROPDOWN = 'dropdown';
-const TYPE_SPLIT_DROPDOWN = 'splitDropdown';
-const TYPE_ICON_TOGGLE = 'iconToggle';
+const ACTION_TYPES = {
+	TYPE_FILE: 'file',
+	TYPE_DROPDOWN: 'dropdown',
+	TYPE_SPLIT_DROPDOWN: 'splitDropdown',
+	TYPE_ICON_TOGGLE: 'iconToggle',
+};
 
 /**
  * @typedef {(Object|Function)} Component
@@ -54,13 +56,13 @@ export function getActionComponent({ displayMode, getComponent }) {
 	});
 
 	switch (displayMode) {
-		case TYPE_FILE:
+		case ACTION_TYPES.TYPE_FILE:
 			return Renderers.ActionFile;
-		case TYPE_DROPDOWN:
+		case ACTION_TYPES.TYPE_DROPDOWN:
 			return Renderers.ActionDropdown;
-		case TYPE_SPLIT_DROPDOWN:
+		case ACTION_TYPES.TYPE_SPLIT_DROPDOWN:
 			return Renderers.ActionSplitDropdown;
-		case TYPE_ICON_TOGGLE:
+		case ACTION_TYPES.TYPE_ICON_TOGGLE:
 			return Renderers.ActionIconToggle;
 		default:
 			return Inject.get(getComponent, displayMode, Renderers.ActionButton);
@@ -91,3 +93,4 @@ Action.propTypes = {
 };
 
 export default Action;
+export { ACTION_TYPES };
