@@ -19,6 +19,9 @@ const ref = {
 	errors: [],
 	actions: [],
 	sensibleKeys: [],
+	store: {
+		getState: () => {},
+	},
 };
 
 const DICT = 'abcdefghijklmnopqrst';
@@ -62,7 +65,6 @@ function anon(value, key) {
  * @return {Object} friendly with JSON.stringify
  */
 function prepareObject(originalState) {
-	console.log('prepareObject', originalState);
 	const state = originalState.toJS ? originalState.toJS() : originalState;
 	return Object.keys(state).reduce((acc, key) => {
 		const valueType = Array.isArray(acc[key]) ? 'array' : typeof acc[key];
@@ -139,7 +141,6 @@ function report(error) {
 	};
 	ref.error = info;
 	ref.callbacks.forEach(cb => cb(info));
-	// ref.errors.push(error);
 	const options = {
 		method: 'POST',
 		headers: {
@@ -265,22 +266,6 @@ ErrorFeedBack.propTypes = {
 };
 
 /**
- * This function store the serverURL so onError report can use it
- * @param {string} serverURL the URL to POST errors
- */
-function setReportURL(serverURL) {
-	ref.serverURL = serverURL;
-}
-
-/**
- * This function store the redux store so onError report can use it
- * @param {Object} store the redux store
- */
-function setStore(store) {
-	ref.store = store;
-}
-
-/**
  * Internal.
  * This function store a callback to call when onError.report is called
  * @param {function} callback a function with only error data structure as argument
@@ -300,6 +285,10 @@ function addAction(action) {
 		const safeAction = prepareObject(action);
 		if (safeAction.type === 'DID_MOUNT_SAGA_START') {
 			delete safeAction.props;
+		} else if (safeAction.type === 'REACT_CMF.REQUEST_SETTINGS_OK') {
+			delete safeAction.settings;
+		} else if (safeAction.url === ref.settingsURL) {
+			delete safeAction.response;
 		}
 		ref.actions.push(safeAction);
 	} catch (error) {
@@ -324,8 +313,9 @@ function addSensibleKeyRegexp(r) {
 function bootstrap(options, store) {
 	assertTypeOf(options, 'onErrorReportURL', 'string');
 	assertTypeOf(options, 'sensibleKeys', 'Array');
-	setStore(store);
-	setReportURL(options.onErrorReportURL);
+	ref.store = store;
+	ref.serverURL = options.onErrorReportURL;
+	ref.settingsURL = options.settingsURL;
 	if (options.sensibleKeys) {
 		options.sensibleKeys.forEach(r => addSensibleKeyRegexp(r));
 	}
@@ -349,6 +339,4 @@ export default {
 	report,
 	subscribe,
 	ErrorFeedBack,
-	setReportURL,
-	setStore,
 };
