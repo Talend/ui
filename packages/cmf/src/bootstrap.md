@@ -37,6 +37,7 @@ cmf.bootstrap({
 | middlewares | Array | undefined | Redux middlewares |
 | storeCallback | function | undefined | Let you call a function once the store is created |
 | AppLoader | React Component | undefined | Let you define the React component to use to show the app is currently loading (waiting for the settings) |
+| onError | object | undefined | configure error handling |
 
 ## Modules
 
@@ -59,3 +60,15 @@ cmf.boostrap({
 	modules: [containersModule],
 });
 ```
+
+## onError
+
+The error handling is well described in it's own [documentation page](./onError.md).
+
+In bootstrap you can pass the following options
+
+| attribute | default value | description |
+| -- | -- | -- |
+| reportURL | undefined | the error where to post. For example '/api/errors' |
+| homePath | '/' | the back to home button refer this path |
+| getUserInfo | undefined | a function to add user info in the error |

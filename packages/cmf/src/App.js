@@ -41,7 +41,9 @@ export default class App extends React.Component {
 
 	// eslint-disable-next-line class-methods-use-this
 	componentDidCatch(error) {
-		onError.report(error);
+		this.setState({ error: { error } });
+		// the error is redispatched by react to let it it the body
+		// so report will be done then
 	}
 
 	render() {
