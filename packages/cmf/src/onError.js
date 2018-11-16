@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { assertTypeOf } from './assert';
+
 /* eslint-disable no-param-reassign */
 /**
  * the ref will contains a reference to
@@ -27,10 +29,15 @@ function random() {
 }
 
 function isSensibleKey(key) {
-	if (key.match(SENSIBLE_REGEXP) !== null) {
+	if (key.toLowerCase().match(SENSIBLE_REGEXP) !== null) {
 		return true;
 	}
-	return ref.sensibleKeys.contains(key);
+	for (let index = 0; index < ref.sensibleKeys.length; index += 1) {
+		if (key.toLowerCase().match(ref.sensibleKeys[index]) !== null) {
+			return true;
+		}
+	}
+	return false;
 }
 
 /**
@@ -55,8 +62,9 @@ function anon(value, key) {
  * @return {Object} friendly with JSON.stringify
  */
 function prepareObject(originalState) {
+	console.log('prepareObject', originalState);
 	const state = originalState.toJS ? originalState.toJS() : originalState;
-	return Object.keys(originalState).reduce((acc, key) => {
+	return Object.keys(state).reduce((acc, key) => {
 		const valueType = Array.isArray(acc[key]) ? 'array' : typeof acc[key];
 		if (valueType === 'function') {
 			acc[key] = `function-${state[key].name}`;
@@ -86,6 +94,7 @@ function getErrorInfo(error) {
 		time: new Date().toISOString(),
 		browser: navigator.userAgent,
 		location: location.href,
+		uiState: prepareObject(ref.store.getState()),
 		error: {
 			message: error.message,
 			name: error.name,
@@ -295,7 +304,43 @@ function addAction(action) {
 	}
 }
 
+function addSensibleKeyRegexp(r) {
+	if (r instanceof RegExp) {
+		ref.sensibleKeys.push(r);
+	} else {
+		throw new Error(`${r} is not a regexp`);
+	}
+}
+
+/**
+ * bootstrap configure onError
+ * @param {Object} options to configure
+ * @param {Object} store redux
+ */
+function bootstrap(options, store) {
+	assertTypeOf(options, 'onErrorReportURL', 'string');
+	assertTypeOf(options, 'sensibleKeys', 'Array');
+	setStore(store);
+	setReportURL(options.onErrorReportURL);
+	if (options.sensibleKeys) {
+		options.sensibleKeys.forEach(r => addSensibleKeyRegexp(r));
+	}
+}
+
+/**
+ * addOnErrorListener plug window.onerror to onError.report
+ */
+function addOnErrorListener() {
+	window.onerror = (msg, url, lineNo, columnNo, error) => {
+		if (error) {
+			report(error);
+		}
+	};
+}
+
 export default {
+	addOnErrorListener,
+	bootstrap,
 	addAction,
 	report,
 	subscribe,

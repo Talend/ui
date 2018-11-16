@@ -41,3 +41,19 @@ CMF will post to the backend the following data structure:
 | `location` | https://www.myapp.com/path/#/hash | the location.href |
 | `error` | { message, name , stack } | the fields we have found in the error |
 | `uiState` | quite big object | the redux store |
+| `actions` | [ { type: 'REDUX_TYPE', payload }] | last actions |
+
+## Anonymisation / remove sensible data
+
+In the process of the report all data are anonymise if the `key` lowercase name match one of the following rules.
+
+* starts with $
+* starts with _
+* contains password
+* contains secret
+* contains key
+* contains mail
+
+In that case the content is transformed as a random string of the same length
+
+[bootstrap API](./bootstrap.md#onError) let you add some other regex to match sensible keys if the previous rules are not enought in your project

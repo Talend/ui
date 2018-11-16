@@ -122,11 +122,15 @@ export function bootstrapRedux(options, sagaMiddleware) {
  * @returns {object} app object with render function
  */
 export default function bootstrap(appOptions = {}) {
+	// setup asap
+	window.onerror = (msg, url, lineNo, columnNo, error) => {
+		if (error) {
+			onError.report(error);
+		}
+	};
 	const options = cmfModule(appOptions);
 	assertTypeOf(options, 'appId', 'string');
 	assertTypeOf(options, 'history', 'object');
-	assertTypeOf(options, 'onErrorReportURL', 'string');
-	assertTypeOf(options, 'ErrorFeedBack', 'function');
 
 	bootstrapRegistry(options);
 	const appId = options.appId || 'app';
@@ -137,20 +141,14 @@ export default function bootstrap(appOptions = {}) {
 		storeAPI.setRouterMiddleware(routerMiddleware(options.history));
 	}
 	const store = bootstrapRedux(options, saga.middleware);
-	onError.setStore(store);
-	onError.setReportURL(options.onErrorReportURL);
+	onError.bootstrap(options, store);
 	saga.run();
-	window.onerror = (msg, url, lineNo, columnNo, error) => {
-		if (error) {
-			onError.report(error);
-		}
-	};
+
 	render(
 		<App
 			store={store}
 			history={syncHistoryWithStore(history, store)}
 			loading={options.AppLoader}
-			ErrorFeedBack={options.ErrorFeedBack}
 		/>,
 		document.getElementById(appId),
 	);
