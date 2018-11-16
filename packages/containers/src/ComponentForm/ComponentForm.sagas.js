@@ -51,10 +51,15 @@ function* onFormSubmit(componentId, submitURL, action) {
 	if (action.componentId !== componentId) {
 		return;
 	}
-	console.error(
-		'__DEBUG__onFormSubmit'
-	);
-	// why it doesn't work ? because it return a function, side note line 13 never worked to
+	/**
+	 * below is a workaround, Component.setStateAction when called with a function as parameter
+	 * doesn't produce an object as result but a function.
+	 * a function that require as second parameter a function that uppon call return the state
+	 */
+	const prevState = yield select();
+	function getReduxState() {
+		return prevState;
+	}
 	yield put(
 		Component.setStateAction(
 			prev =>
@@ -63,8 +68,7 @@ function* onFormSubmit(componentId, submitURL, action) {
 					.setIn(['initialState', 'uiSchema'], prev.get('uiSchema'))
 					.setIn(['initialState', 'properties'], fromJS(action.properties)),
 			componentId,
-			'whatever'
-		)(),
+		)(undefined, getReduxState),
 	);
 	if (!submitURL) {
 		return;
