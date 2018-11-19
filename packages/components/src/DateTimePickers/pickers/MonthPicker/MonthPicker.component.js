@@ -15,7 +15,7 @@ class MonthPicker extends React.PureComponent {
 			<table
 				className={theme.container}
 				ref={ref => {
-					this.ref = ref;
+					this.monthPickerRef = ref;
 				}}
 			>
 				<caption className="sr-only">TODO: caption, month aria-label</caption>
@@ -46,7 +46,7 @@ class MonthPicker extends React.PureComponent {
 												this.props.onSelect(event, index);
 											}}
 											tabIndex={this.props.allowFocus && isSelected ? 0 : -1}
-											onKeyDown={event => this.props.onKeyDown(event, this.ref, index)}
+											onKeyDown={event => this.props.onKeyDown(event, this.monthPickerRef, index)}
 										>
 											{name}
 										</button>

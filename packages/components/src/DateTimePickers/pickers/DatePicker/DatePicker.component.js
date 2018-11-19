@@ -87,16 +87,16 @@ class DatePicker extends React.PureComponent {
 							{week.map((date, j) => {
 								if (this.isCurrentMonth(date)) {
 									const day = getDate(date);
-									const isDisabled = this.isDisabledDate(date);
-									const isSelected = this.isSelectedDate(date);
+									const disabled = this.isDisabledDate(date);
+									const selected = this.isSelectedDate(date);
 									const shouldBeFocussable =
-										(selectedInCurrentCalendar && isSelected) ||
+										(selectedInCurrentCalendar && selected) ||
 										(!selectedInCurrentCalendar && day === 1);
 
 									const className = classNames(
 										theme['calendar-day'],
 										{
-											[theme.selected]: isSelected,
+											[theme.selected]: selected,
 											[theme.today]: isToday(date),
 										},
 										'tc-date-picker-day',
@@ -106,7 +106,7 @@ class DatePicker extends React.PureComponent {
 										key: j,
 										className: theme['calendar-col'],
 									};
-									if (isSelected) {
+									if (selected) {
 										tdProps['aria-current'] = 'date';
 									}
 									return (
@@ -117,7 +117,7 @@ class DatePicker extends React.PureComponent {
 												onClick={event => {
 													this.props.onSelect(event, date);
 												}}
-												disabled={isDisabled}
+												disabled={disabled}
 												tabIndex={this.props.allowFocus && shouldBeFocussable ? 0 : -1}
 												onKeyDown={event => this.props.onKeyDown(event, this.calendarRef, day - 1)}
 											>

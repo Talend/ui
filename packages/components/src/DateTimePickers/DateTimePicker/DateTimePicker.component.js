@@ -52,8 +52,8 @@ class DateTimePicker extends React.Component {
 
 	componentDidMount() {
 		if (this.props.manageFocus) {
-			this.ref.addEventListener('focusin', this.allowFocus);
-			this.ref.addEventListener('focusout', this.disallowFocus);
+			this.pickerRef.addEventListener('focusin', this.allowFocus);
+			this.pickerRef.addEventListener('focusout', this.disallowFocus);
 		}
 	}
 
@@ -84,8 +84,8 @@ class DateTimePicker extends React.Component {
 
 	componentWillUnmount() {
 		if (this.props.manageFocus) {
-			this.ref.removeEventListener('focusin', this.allowFocus);
-			this.ref.removeEventListener('focusout', this.disallowFocus);
+			this.pickerRef.removeEventListener('focusin', this.allowFocus);
+			this.pickerRef.removeEventListener('focusout', this.disallowFocus);
 		}
 	}
 
@@ -129,7 +129,7 @@ class DateTimePicker extends React.Component {
 
 	setView(isDateTimeView) {
 		this.setState({ isDateTimeView }, () => {
-			focusOnCalendar(this.ref);
+			focusOnCalendar(this.pickerRef);
 		});
 	}
 
@@ -175,7 +175,7 @@ class DateTimePicker extends React.Component {
 			<div
 				className={theme.container}
 				ref={ref => {
-					this.ref = ref;
+					this.pickerRef = ref;
 				}}
 				tabIndex={this.state.allowFocus ? 0 : -1}
 				aria-label="Date picker"
