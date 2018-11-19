@@ -207,6 +207,16 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	setPickerVisibility(isShown, force) {
+		/*
+		 * We have a force arg because we have the check, comparing current state with wanted state.
+		 * We have 2 events : blur (we hide picker), focus (we open picker).
+		 * The problem is when we loose focus to focus on another element within the picker.
+		 * It triggers a hide + show (in this order. But with the check, the show is stripped,
+		 * so in this case, the picker is always hidden.
+		 *
+		 * With force, we force the state, so we will have hide + show in the same bash of state update,
+		 * changing nothing. The picker is still open.
+		 */
 		if (!force && this.state.showPicker === isShown) {
 			return;
 		}
