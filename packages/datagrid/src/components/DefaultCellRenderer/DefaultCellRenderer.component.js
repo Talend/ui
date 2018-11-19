@@ -69,7 +69,7 @@ class DefaultCellRenderer extends React.Component {
 		// todo try with a refresh method
 		console.log('DefaultCellRenderer', value);
 
-		if (this.state.loading) {
+		if (this.props.data.loading) {
 			content = <Skeleton key="1" />;
 		} else {
 			content = [

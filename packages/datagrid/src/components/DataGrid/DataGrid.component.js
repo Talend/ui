@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import keycode from 'keycode';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
+import isEqual from 'lodash/isEqual';
 import Inject from '@talend/react-components/lib/Inject';
 import Skeleton from '@talend/react-components/lib/Skeleton';
 
@@ -31,16 +32,49 @@ const COLUMN_MIN_WIDTH = 30;
 const ROW_HEIGHT = 39;
 const CELL_WIDTH = 150;
 
+// TODO: sad, try a new way to send to InjectedCellRenderer this data
+let datagridAvroRenderer;
+let datagridCellRenderer;
+let datagridGetComponent;
+
 export function injectedHeaderRenderer(getComponent, headerRenderer, onFocusedColumn, onKeyDown) {
 	const Component = Inject.get(getComponent, headerRenderer, DefaultHeaderRenderer);
 
 	return props => <Component {...props} onFocusedColumn={onFocusedColumn} onKeyDown={onKeyDown} />;
 }
 
-export function injectedCellRenderer(getComponent, cellRenderer, avroRenderer) {
-	const Component = Inject.get(getComponent, cellRenderer, DefaultCellRenderer);
+// export function injectedCellRenderer(getComponent, cellRenderer, avroRenderer) {
+// 	const Component = Inject.get(getComponent, cellRenderer, DefaultCellRenderer);
+//
+// 	return props =>
+// }
 
-	return props => <Component {...props} avroRenderer={avroRenderer} getComponent={getComponent} />;
+class InjectedCellRenderer extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = props;
+	}
+
+	refresh(params) {
+		if (!isEqual(params.data[params.colDef.field], this.state.data[params.colDef.field])) {
+			this.setState({ ...params });
+			return true;
+		}
+
+		return false;
+	}
+
+	render() {
+		const Component = Inject.get(datagridGetComponent, datagridCellRenderer, datagridAvroRenderer);
+
+		return (
+			<Component
+				{...this.state}
+				avroRenderer={datagridAvroRenderer}
+				getComponent={datagridGetComponent}
+			/>
+		);
+	}
 }
 
 export function getAvroRenderer(avroRenderer) {
@@ -88,7 +122,7 @@ export default class DataGrid extends React.Component {
 
 	componentDidUpdate() {
 		console.log('componentDidUpdate');
-		this.gridAPI.refreshCells();
+		// this.gridAPI.refreshCells();
 	}
 
 	onGridReady({ api }) {
@@ -213,10 +247,6 @@ export default class DataGrid extends React.Component {
 					lockPinned: true,
 					minWidth: this.props.columnMinWidth,
 					valueGetter: this.props.getCellValueFn,
-					equals: (olvValue, newValue) => {
-						console.log(olvValue, '->', newValue);
-						return false;
-					},
 					...columnDef,
 					[AG_GRID.CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
 					[AG_GRID.CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,
@@ -224,9 +254,13 @@ export default class DataGrid extends React.Component {
 			);
 		}
 
+		datagridAvroRenderer = getAvroRenderer(this.props.avroRenderer);
+		datagridCellRenderer = this.props.cellRenderer;
+		datagridGetComponent = this.props.getComponent;
+
 		agGridOptions.columnDefs = adaptedColumnDefs;
 		agGridOptions.frameworkComponents = {
-			[CELL_RENDERER_COMPONENT]: DefaultCellRenderer,
+			[CELL_RENDERER_COMPONENT]: InjectedCellRenderer,
 			// injectedCellRenderer(
 			// 	this.props.getComponent,
 			// 	this.props.cellRenderer,
@@ -291,9 +325,6 @@ export default class DataGrid extends React.Component {
 	}
 
 	render() {
-		// console.log('render datagrid component');
-		// console.log(this.getAgGridConfig().rowData);
-		// console.log(this.props.data);
 		let content;
 		if (this.props.loading) {
 			content = <Skeleton name="talend-table" type={Skeleton.TYPES.icon} />;
