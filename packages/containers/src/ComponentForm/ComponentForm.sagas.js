@@ -1,5 +1,6 @@
 import { call, put, select, take, takeEvery, takeLatest } from 'redux-saga/effects';
 import cmf from '@talend/react-cmf';
+import { fromJS } from 'immutable';
 import get from 'lodash/get';
 import Component from './ComponentForm.component';
 
@@ -21,17 +22,19 @@ export function* fetchDefinition(action) {
 			),
 		);
 	} else if (action.uiSpecPath) {
+		const formSpec = get(data, action.uiSpecPath);
 		yield put(
 			Component.setStateAction(
 				{
 					definition: data,
-					...get(data, action.uiSpecPath),
+					initialState: formSpec,
+					...formSpec,
 				},
 				action.componentId,
 			),
 		);
 	} else {
-		yield put(Component.setStateAction(data, action.componentId));
+		yield put(Component.setStateAction({ initialState: data, ...data }, action.componentId));
 	}
 }
 
@@ -45,7 +48,29 @@ export function* onDidMount({ componentId = 'default', definitionURL, uiSpecPath
 }
 
 function* onFormSubmit(componentId, submitURL, action) {
-	if (action.componentId !== componentId || !submitURL) {
+	if (action.componentId !== componentId) {
+		return;
+	}
+	/**
+	 * below is a workaround, Component.setStateAction when called with a function as parameter
+	 * doesn't produce an object as result but a function.
+	 * a function that require as second parameter a function that uppon call return the state
+	 */
+	const prevState = yield select();
+	function getReduxState() {
+		return prevState;
+	}
+	yield put(
+		Component.setStateAction(
+			prev =>
+				prev
+					.setIn(['initialState', 'jsonSchema'], prev.get('jsonSchema'))
+					.setIn(['initialState', 'uiSchema'], prev.get('uiSchema'))
+					.setIn(['initialState', 'properties'], fromJS(action.properties)),
+			componentId,
+		)(undefined, getReduxState),
+	);
+	if (!submitURL) {
 		return;
 	}
 	const { response, data } = yield call(cmf.sagas.http.post, submitURL, action.properties);
