@@ -22,6 +22,17 @@ describe('UIForm container', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render form without data', () => {
+		// when
+		const wrapper = shallow(<UIForm {...props} />);
+
+		// then
+		expect(
+			wrapper // eslint-disable-line no-underscore-dangle
+				.instance().state,
+		).toEqual({});
+	});
+
 	describe('#componentWillReceiveProps', () => {
 		it('should update state if form data structure changed', () => {
 			// given

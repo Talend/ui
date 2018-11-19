@@ -11,7 +11,7 @@ import { formPropTypes } from './utils/propTypes';
  * @return {FormSchema}
  */
 function addErrorObject(formSchema) {
-	if (!formSchema.errors) {
+	if (formSchema && !formSchema.errors) {
 		return { errors: {}, ...formSchema };
 	}
 	return formSchema;
