@@ -123,7 +123,7 @@ export function getColumnDefs(sample) {
 	return get(plainObjectSample, 'schema.fields', []).map(avroField => ({
 		avro: sanitizeAvro(avroField),
 		field: `${NAMESPACE_DATA}${avroField.name}`,
-		headerName: avroField.doc,
+		headerName: avroField.doc || avroField.name,
 		type: getType(avroField.type),
 		[QUALITY_KEY]: getFieldQuality(avroField.type),
 	}));

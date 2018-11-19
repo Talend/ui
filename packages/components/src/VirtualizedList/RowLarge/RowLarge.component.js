@@ -86,7 +86,7 @@ class RowLarge extends React.Component {
 				aria-setsize={parent.props.rowCount}
 				aria-label={titleField && getCellData(titleField, parent, index)}
 			>
-				<div className={theme['inner-box']} key="inner-box">
+				<div className={`tc-list-large-inner-box ${theme['inner-box']}`} key="inner-box">
 					<div className={theme.header} key="header">
 						{titleCell}
 						{selectionCell}

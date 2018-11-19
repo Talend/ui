@@ -43,7 +43,7 @@ if (process.env.NODE_ENV !== 'production') {
 	SimpleCheckBox.propTypes = {
 		describedby: PropTypes.string.isRequired,
 		id: PropTypes.string,
-		isValid: PropTypes.string,
+		isValid: PropTypes.bool,
 		label: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,

@@ -1,4 +1,5 @@
 import RowLarge, { rowType as rowLargeType } from '../RowLarge';
+import RowCollapsiblePanel, { rowType as rowCollapsiblePanelType } from '../RowCollapsiblePanel';
 
 import CellActionsRenderer, { cellType as cellActionsType } from '../CellActions';
 import CellCheckboxRenderer, { cellType as cellCheckboxType } from '../CellCheckbox';
@@ -21,6 +22,7 @@ export const cellDictionary = {
 /** Row renderers dictionary */
 export const rowDictionary = {
 	[rowLargeType]: RowLarge,
+	[rowCollapsiblePanelType]: RowCollapsiblePanel,
 };
 
 export const headerDictionary = {

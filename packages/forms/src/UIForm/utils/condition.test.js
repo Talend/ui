@@ -1,5 +1,4 @@
 import shouldRender from './condition';
-import { shallow } from 'enzyme/build/index';
 
 const properties = {
 	string: 'foo',

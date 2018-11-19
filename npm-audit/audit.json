@@ -178,6 +178,50 @@ SEMVER WARNING: Recommended action is a potentially breaking change
 └───────────────┴──────────────────────────────────────────────────────────────┘
 
 
+# Run  npm install webpack-dev-server@3.1.10  to resolve 1 vulnerability
+SEMVER WARNING: Recommended action is a potentially breaking change
+┌───────────────┬──────────────────────────────────────────────────────────────┐
+│ High          │ Missing Origin Validation                                    │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ Package       │ webpack-dev-server                                           │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ Dependency of │ webpack-dev-server                                           │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ Path          │ webpack-dev-server                                           │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ More info     │ https://nodesecurity.io/advisories/725                       │
+└───────────────┴──────────────────────────────────────────────────────────────┘
+
+
+# Run  npm install jest-cli@23.6.0  to resolve 2 vulnerabilities
+SEMVER WARNING: Recommended action is a potentially breaking change
+┌───────────────┬──────────────────────────────────────────────────────────────┐
+│ Low           │ Prototype pollution                                          │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ Package       │ merge                                                        │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ Dependency of │ jest-cli                                                     │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ Path          │ jest-cli > jest-haste-map > sane > exec-sh > merge           │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ More info     │ https://nodesecurity.io/advisories/722                       │
+└───────────────┴──────────────────────────────────────────────────────────────┘
+
+
+┌───────────────┬──────────────────────────────────────────────────────────────┐
+│ Low           │ Prototype pollution                                          │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ Package       │ merge                                                        │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ Dependency of │ jest-cli                                                     │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ Path          │ jest-cli > jest-runtime > jest-haste-map > sane > exec-sh >  │
+│               │ merge                                                        │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ More info     │ https://nodesecurity.io/advisories/722                       │
+└───────────────┴──────────────────────────────────────────────────────────────┘
+
+
 # Run  npm update react-dev-utils --depth 2  to resolve 1 vulnerability
 ┌───────────────┬──────────────────────────────────────────────────────────────┐
 │ High          │ Remote Code Execution                                        │
@@ -189,6 +233,34 @@ SEMVER WARNING: Recommended action is a potentially breaking change
 │ Path          │ @storybook/react > react-dev-utils                           │
 ├───────────────┼──────────────────────────────────────────────────────────────┤
 │ More info     │ https://nodesecurity.io/advisories/695                       │
+└───────────────┴──────────────────────────────────────────────────────────────┘
+
+
+# Run  npm update jest-cli --depth 2  to resolve 2 vulnerabilities
+┌───────────────┬──────────────────────────────────────────────────────────────┐
+│ Low           │ Prototype pollution                                          │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ Package       │ merge                                                        │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ Dependency of │ jest                                                         │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ Path          │ jest > jest-cli > jest-haste-map > sane > exec-sh > merge    │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ More info     │ https://nodesecurity.io/advisories/722                       │
+└───────────────┴──────────────────────────────────────────────────────────────┘
+
+
+┌───────────────┬──────────────────────────────────────────────────────────────┐
+│ Low           │ Prototype pollution                                          │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ Package       │ merge                                                        │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ Dependency of │ jest                                                         │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ Path          │ jest > jest-cli > jest-runtime > jest-haste-map > sane >     │
+│               │ exec-sh > merge                                              │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ More info     │ https://nodesecurity.io/advisories/722                       │
 └───────────────┴──────────────────────────────────────────────────────────────┘
 
 
@@ -238,7 +310,7 @@ SEMVER WARNING: Recommended action is a potentially breaking change
 ├───────────────┼──────────────────────────────────────────────────────────────┤
 │ More info     │ https://nodesecurity.io/advisories/48                        │
 └───────────────┴──────────────────────────────────────────────────────────────┘
-found 17 vulnerabilities (13 low, 4 high) in 34514 scanned packages
-  run `npm audit fix` to fix 1 of them.
-  13 vulnerabilities require semver-major dependency updates.
+found 22 vulnerabilities (17 low, 5 high) in 34514 scanned packages
+  run `npm audit fix` to fix 3 of them.
+  16 vulnerabilities require semver-major dependency updates.
   3 vulnerabilities require manual review. See the full report for details.
