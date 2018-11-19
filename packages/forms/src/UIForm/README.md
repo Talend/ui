@@ -562,4 +562,4 @@ Said copy is updated when the user submit the form or when the definition url is
 This is specially usefull when this component is used by `containers/ComponentForm`.
 
 When this value is provided, it is going to be used a the new initialState, if this value change over time, it will update the initialState.
-(So it is very important to no create new reference or useless mutation here)
+(So it is very important not to create new references or useless mutation here)
