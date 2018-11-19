@@ -24,7 +24,7 @@ Before continue I consider you have read and understood the following documentat
 * [Global Event Handlers onerror](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onerror)
 * [online and offline events](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine/Online_and_offline_events)
 
-At the CMF level we have decided to force handline error. When an error occured we the app rendering is completly replaced by the `ErrorFeedback` component. You can replace it for sure but be aware this component must be very clean. The worse situation may happens if this component fall in error.
+At the CMF level we have decided to force handling of error. When an error occured we the app rendering is completly replaced by an `ErrorFeedback` component. You can replace it for sure but be aware this component must be very clean. The worse situation may happens if this component fall in error.
 
 ![onError sequence diagram](../assets/diagram-onError-sequence.svg "onError sequence diagram")
 

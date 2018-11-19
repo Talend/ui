@@ -71,4 +71,4 @@ In bootstrap you can pass the following options
 | -- | -- | -- |
 | reportURL | undefined | the error where to post. For example '/api/errors' |
 | homePath | '/' | the back to home button refer this path |
-| getUserInfo | undefined | a function to add user info in the error |
+| sensibleKeys | [] | array of regex to remove sensible data from your app |

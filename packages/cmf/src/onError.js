@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import merge from 'lodash/merge';
 import { assertTypeOf } from './assert';
+import { handleCSRFToken, getDefaultConfig } from './sagas/http';
 
 /* eslint-disable no-param-reassign */
 /**
@@ -140,35 +142,42 @@ function report(error) {
 		reason: 'Draft',
 	};
 	ref.error = info;
-	ref.callbacks.forEach(cb => cb(info));
-	const options = {
+	ref.errors.push(info);
+	let options = {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
-			credentials: 'same-origin',
 		},
+		credentials: 'same-origin',
 		body: JSON.stringify(getErrorInfo(error)),
 	};
-	if (ref.serverURL) {
+	const httpDefault = getDefaultConfig();
+	if (httpDefault !== null) {
+		options = handleCSRFToken(merge(options, httpDefault));
+	}
+
+
+	if (!ref.serverURL) {
+		info.reason = new Error('no serverURL has been set to report Error');
+		ref.callbacks.forEach(cb => cb(ref.errors));
+	} else {
+		ref.callbacks.forEach(cb => cb(ref.errors));
 		try {
 			fetch(ref.serverURL, options)
 				.then(reportResponse, err => {
 					info.reported = false;
 					info.reason = err;
-					ref.callbacks.forEach(cb => cb(info));
+					ref.callbacks.forEach(cb => cb(ref.errors));
 				})
 				.then(response => {
 					info.reported = true;
 					info.response = response;
-					ref.callbacks.forEach(cb => cb(info));
+					ref.callbacks.forEach(cb => cb(ref.errors));
 				});
 		} catch (err) {
 			info.reason = err;
-			ref.callbacks.forEach(cb => cb(info));
+			ref.callbacks.forEach(cb => cb(ref.errors));
 		}
-	} else {
-		info.reason = new Error('no serverURL has been set to report Error');
-		ref.callbacks.forEach(cb => cb(info));
 	}
 }
 
@@ -199,7 +208,7 @@ class ErrorPanel extends React.Component {
 			currentErrorStatus = this.props.reason;
 		}
 		return (
-			<div className="panel panel-default" style={{ marginTop: 200 }}>
+			<div className="panel panel-default">
 				<div className="panel-heading">Whoops, an error occured</div>
 				<div className="panel-body">
 					<p className="text-danger">
@@ -234,26 +243,28 @@ ErrorPanel.propTypes = {
 	}),
 };
 
-function ErrorFeedBack(props) {
-	return (
-		<div className="container">
-			<div className="row">
-				<div className="col-md-offset-3 col-md-4">
-					<ErrorPanel {...props.error} />
-					{ref.errors.length > 1 && (
-						<div>
-							<h2>Other errors</h2>
-							<ul>
-								{ref.errors.slice(1).map(error => (
-									<ErrorPanel key={error} {...error} />
-								))}
-							</ul>
-						</div>
-					)}
+class ErrorFeedBack extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			errors: ref.errors,
+		};
+		subscribe(errors => this.setState({ errors }));
+	}
+
+	render() {
+		return (
+			<div className="container">
+				<div className="row">
+					<div className="col-md-offset-3 col-md-6" style={{ marginTop: 200 }}>
+						{this.state.errors.map(error => (
+							<ErrorPanel key={error} {...error} />
+						))}
+					</div>
 				</div>
 			</div>
-		</div>
-	);
+		);
+	}
 }
 
 const errorPropType = PropTypes.shape({
@@ -311,13 +322,14 @@ function addSensibleKeyRegexp(r) {
  * @param {Object} store redux
  */
 function bootstrap(options, store) {
-	assertTypeOf(options, 'onErrorReportURL', 'string');
-	assertTypeOf(options, 'sensibleKeys', 'Array');
+	assertTypeOf(options, 'onError', 'object');
 	ref.store = store;
-	ref.serverURL = options.onErrorReportURL;
+	const opt = options.onError || {};
+	ref.serverURL = opt.reportURL;
+	ref.homePath = opt.homePath;
 	ref.settingsURL = options.settingsURL;
-	if (options.sensibleKeys) {
-		options.sensibleKeys.forEach(r => addSensibleKeyRegexp(r));
+	if (opt.sensibleKeys) {
+		opt.sensibleKeys.forEach(r => addSensibleKeyRegexp(r));
 	}
 }
 

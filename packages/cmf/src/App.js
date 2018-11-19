@@ -33,17 +33,12 @@ export default class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {};
-	}
-
-	componentDidMount() {
-		onError.subscribe(error => this.setState({ error }));
+		onError.subscribe(errors => this.setState({ error: errors[0] }));
 	}
 
 	// eslint-disable-next-line class-methods-use-this
 	componentDidCatch(error) {
 		this.setState({ error: { error } });
-		// the error is redispatched by react to let it it the body
-		// so report will be done then
 	}
 
 	render() {
@@ -53,7 +48,7 @@ export default class App extends React.Component {
 			<Provider store={this.props.store}>
 				<RegistryProvider>
 					{this.state.error ? (
-						<ErrorFeedback error={this.state.error} />
+						<ErrorFeedback />
 					) : (
 						this.props.children || <UIRouter history={hist} loading={this.props.loading} />
 					)}
