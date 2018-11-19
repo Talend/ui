@@ -4,7 +4,7 @@ import cmf, { cmfConnect } from '@talend/react-cmf';
 import Form from '@talend/react-forms';
 import { getValue } from '@talend/react-forms/lib/UIForm/utils/properties';
 import omit from 'lodash/omit';
-import { Map, fromJS } from 'immutable';
+import { Map } from 'immutable';
 import memoizeOne from 'memoize-one';
 import kit from './kit';
 import tcompFieldsWidgets from './fields';
