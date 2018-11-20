@@ -20,7 +20,7 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date: undefined,
-				time: undefined,
+				time: { input: { hours: '', minutes: '' } },
 				datetime: 'lol',
 				textInput: '',
 			});
@@ -38,7 +38,7 @@ describe('Date extraction', () => {
 				date: new Date(2015, 8, 15),
 				datetime: validDate,
 				textInput: '2015-09-15 12:58',
-				time: { hours: 12, minutes: 58 },
+				time: { hours: 12, minutes: 58, input: { hours: '12', minutes: '58' } },
 			});
 		});
 	});
@@ -113,7 +113,7 @@ describe('Date extraction', () => {
 			const time = strToTime(strToParse);
 
 			// then
-			expect(time).toEqual({ hours: 2, minutes: 52 });
+			expect(time).toEqual({ hours: 2, minutes: 52, input: { hours: '02', minutes: '52' } });
 		});
 
 		it('should return error with incorrect format', done => {
@@ -140,7 +140,11 @@ describe('Date extraction', () => {
 			const time = strToTime(strToParse);
 
 			// then
-			expect(time).toEqual({ hours: 'aze', minutes: '66toto' });
+			expect(time).toEqual({
+				hours: 'aze',
+				minutes: '66toto',
+				input: { hours: 'aze', minutes: '66toto' },
+			});
 		});
 	});
 

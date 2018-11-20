@@ -40,21 +40,21 @@ describe('InputDateTimePicker', () => {
 				initialDate: undefined,
 				expectedTextInput: '',
 				expectedDate: undefined,
-				expectedTime: undefined,
+				expectedTime: { hours: '', minutes: '' },
 			},
 			{
 				name: 'should init default state from props invalid date',
 				initialDate: new Date(''), // invalid date
 				expectedTextInput: '',
 				expectedDate: undefined,
-				expectedTime: undefined,
+				expectedTime: { hours: '', minutes: '' },
 			},
 			{
 				name: 'should init state from props',
 				initialDate: new Date(2015, 3, 4, 12, 36),
 				expectedTextInput: '2015-04-04 12:36',
 				expectedDate: new Date(2015, 3, 4),
-				expectedTime: { hours: 12, minutes: 36 },
+				expectedTime: { hours: '12', minutes: '36' },
 			},
 		],
 	);
@@ -87,7 +87,7 @@ describe('InputDateTimePicker', () => {
 				newDate: undefined,
 				expectedTextInput: '',
 				expectedDate: undefined,
-				expectedTime: undefined,
+				expectedTime: { hours: '', minutes: '' },
 			},
 			{
 				name: 'from props invalid date',
@@ -95,7 +95,7 @@ describe('InputDateTimePicker', () => {
 				newDate: new Date(''), // invalid date
 				expectedTextInput: '',
 				expectedDate: undefined,
-				expectedTime: undefined,
+				expectedTime: { hours: '', minutes: '' },
 			},
 			{
 				name: 'from props valid date',
@@ -103,7 +103,7 @@ describe('InputDateTimePicker', () => {
 				newDate: new Date(2015, 3, 4, 12, 36),
 				expectedTextInput: '2015-04-04 12:36',
 				expectedDate: new Date(2015, 3, 4),
-				expectedTime: { hours: 12, minutes: 36 },
+				expectedTime: { hours: '12', minutes: '36' },
 			},
 		],
 	);
@@ -257,19 +257,19 @@ describe('InputDateTimePicker', () => {
 					name: 'with valid datetime',
 					textInput: '2015-01-15 15:45',
 					expectedDate: new Date(2015, 0, 15),
-					expectedTime: { hours: 15, minutes: 45 },
+					expectedTime: { hours: '15', minutes: '45' },
 				},
 				{
 					name: 'with invalid date',
 					textInput: '2015aze-01-15 15:45',
 					expectedDate: undefined,
-					expectedTime: { hours: 15, minutes: 45 },
+					expectedTime: { hours: '15', minutes: '45' },
 				},
 				{
 					name: 'with invalid time',
 					textInput: '2015-01-15 15aze:45',
-					expectedDate: new Date(2015, 0, 15),
-					expectedTime: { hours: '15aze', minutes: 45 },
+					expectedDate: new Date(2015, 0, '15'),
+					expectedTime: { hours: '15aze', minutes: '45' },
 				},
 				{
 					name: 'with empty string',
@@ -335,19 +335,19 @@ describe('InputDateTimePicker', () => {
 
 				const selection = wrapper.find('DateTimePicker').prop('selection');
 				expect(selection.date).toBe(date);
-				expect(selection.time).toBe(time);
+				expect(selection.time).toEqual(time);
 			},
 			[
 				{
 					name: 'with valid datetime',
 					date: new Date(2015, 0, 15),
-					time: { hours: 15, minutes: 45 },
+					time: { hours: '15', minutes: '45' },
 					expectedTextInput: '2015-01-15 15:45',
 				},
 				{
 					name: 'with invalid time',
 					date: new Date(2015, 0, 15),
-					time: { hours: '15aze', minutes: 45 },
+					time: { hours: '15aze', minutes: '45' },
 					expectedTextInput: '2015-01-15 15aze:45',
 				},
 			],

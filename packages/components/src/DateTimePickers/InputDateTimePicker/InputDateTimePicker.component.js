@@ -115,7 +115,7 @@ class InputDateTimePicker extends React.Component {
 					textInput,
 					errorMessage: undefined,
 					date: undefined,
-					time: undefined,
+					time: extractDateTimeParts(),
 					datetime: undefined,
 				},
 				'INPUT',
@@ -189,18 +189,19 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	onPickerChange(event, { date, time }) {
+		const parsedTime = strToTime(`${time.hours}:${time.minutes}`);
 		let errorMessage;
 		try {
-			checkTime(time);
+			checkTime(parsedTime);
 		} catch (error) {
 			errorMessage = error.message;
 		}
 
 		const nextState = {
 			date,
-			time,
-			textInput: dateTimeToStr(date, time),
-			datetime: dateAndTimeToDateTime(date, time),
+			time: parsedTime,
+			textInput: dateTimeToStr(date, parsedTime),
+			datetime: dateAndTimeToDateTime(date, parsedTime),
 			errorMessage,
 		};
 		return this.onChange(event, nextState, 'PICKER');
@@ -271,7 +272,7 @@ class InputDateTimePicker extends React.Component {
 								manageFocus
 								selection={{
 									date: this.state.date,
-									time: this.state.time,
+									time: this.state.time.input,
 								}}
 								onSubmit={this.onPickerChange}
 							/>

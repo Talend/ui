@@ -9,14 +9,6 @@ import theme from './TimePicker.scss';
 const HOURS = 'HOURS';
 const MINUTES = 'MINUTES';
 
-function strToNumber(value) {
-	if (value) {
-		const num = Number(value);
-		return isNaN(num) ? value : num;
-	}
-	return undefined;
-}
-
 class TimePicker extends React.PureComponent {
 	constructor(props) {
 		super(props);
@@ -27,7 +19,7 @@ class TimePicker extends React.PureComponent {
 	}
 
 	onChange(event, field) {
-		const inputValue = strToNumber(event.target.value);
+		const inputValue = event.target.value;
 		const newValue = { ...this.props.value };
 		if (field === HOURS) {
 			newValue.hours = inputValue;
@@ -77,8 +69,8 @@ TimePicker.propTypes = {
 	allowFocus: PropTypes.bool,
 	onChange: PropTypes.func.isRequired,
 	value: PropTypes.shape({
-		hours: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-		minutes: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+		hours: PropTypes.string,
+		minutes: PropTypes.string,
 	}),
 };
 

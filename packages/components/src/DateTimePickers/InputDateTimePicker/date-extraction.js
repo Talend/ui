@@ -61,7 +61,7 @@ function hoursAndMinutesToTime(hours, minutes) {
 /**
  * Convert date and time to string with 'YYYY-MM-DD HH:mm' format
  * @param date {Date}
- * @param time {number}
+ * @param time {Object}
  * @returns {string}
  */
 function dateTimeToStr(date, time) {
@@ -157,7 +157,15 @@ function strToTime(strToParse) {
 	const minutesString = timeMatches[2];
 	const minutes = numbersRegex.test(minutesString) ? parseInt(minutesString, 10) : minutesString;
 
-	return { hours, minutes };
+	return { hours, minutes, input: { hours: hoursString, minutes: minutesString } };
+}
+
+function pad(num, size) {
+	let s = String(num);
+	while (s.length < (size || 2)) {
+		s = `0${s}`;
+	}
+	return s;
 }
 
 /**
@@ -172,7 +180,14 @@ function extractDateTimeParts(selectedDateTime) {
 		const date = startOfDay(selectedDateTime);
 		const hours = getHours(selectedDateTime);
 		const minutes = getMinutes(selectedDateTime);
-		const time = { hours, minutes };
+		const time = {
+			hours,
+			minutes,
+			input: {
+				hours: pad(hours, 2),
+				minutes: pad(minutes, 2),
+			},
+		};
 		const datetime = startOfMinute(selectedDateTime);
 
 		return {
@@ -185,7 +200,7 @@ function extractDateTimeParts(selectedDateTime) {
 
 	return {
 		date: undefined,
-		time: undefined,
+		time: { input: { hours: '', minutes: '' } },
 		datetime: selectedDateTime,
 		textInput: '',
 	};
