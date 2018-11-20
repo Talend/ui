@@ -30,6 +30,7 @@ function MyDrawer({ opened }) {
 		null;
 }
 MyDrawer.propTypes = { opened: PropTypes.bool };
+MyDrawer.displayName = 'MyDrawer';
 const MyconnectedDrawer = cmfConnect({ mapStateToProps })(MyDrawer);
 
 export default function ExampleActionIconToggle() {

@@ -8,7 +8,7 @@ import theme from './DefaultValueRenderer.scss';
 
 export default class DefaultValueRenderer extends React.Component {
 	static propTypes = {
-		className: PropTypes.object,
+		className: PropTypes.string,
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number]),
 	};
 

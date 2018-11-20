@@ -29,13 +29,21 @@ describe('UIForm container', () => {
 
 			const previousState = wrapper.state();
 
+			const newData = {
+				jsonSchema: {},
+				uiSchema: {},
+				properties: {},
+			};
+
 			// when
 			wrapper.setProps({
-				data: Object.assign({}, data),
+				data: newData,
 			});
 
 			// then
 			expect(wrapper.state()).not.toBe(previousState);
+			expect(wrapper.state().initialState).toBe(previousState.initialState);
+			expect(wrapper.state().liveState).toEqual({ ...newData, errors: {} });
 		});
 
 		it("should not update state if form data structure didn't change", () => {
@@ -51,6 +59,28 @@ describe('UIForm container', () => {
 
 			// then
 			expect(wrapper.state()).toBe(previousState);
+		});
+
+		it('should update initialState and liveState if initialData has changed', () => {
+			// given
+			const initialData = {};
+			const wrapper = shallow(<UIForm intialData={initialData} data={data} {...props} />);
+
+			const previousState = wrapper.state();
+			const newInitialData = {
+				jsonSchema: {},
+				uiSchema: {},
+				properties: {},
+			};
+			// when
+			wrapper.setProps({
+				initialData: newInitialData,
+			});
+
+			// then
+			expect(wrapper.state()).not.toBe(previousState);
+			expect(wrapper.state().liveState).toEqual({ ...newInitialData, errors: {} });
+			expect(wrapper.state().initialState).toEqual({ ...newInitialData, errors: {} });
 		});
 	});
 
@@ -70,6 +100,7 @@ describe('UIForm container', () => {
 
 			// then
 			expect(instance.state.liveState.properties).toEqual(properties);
+			expect(instance.state.initialState.properties).not.toEqual(properties);
 		});
 
 		it('should call onChange callback', () => {
