@@ -275,7 +275,7 @@ describe('InputDateTimePicker', () => {
 					name: 'with empty string',
 					textInput: '',
 					expectedDate: undefined,
-					expectedTime: undefined,
+					expectedTime: { hours: '', minutes: '' },
 				},
 			],
 		);

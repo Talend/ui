@@ -109,17 +109,7 @@ class InputDateTimePicker extends React.Component {
 	onInputChange(event) {
 		const textInput = event.target.value;
 		if (textInput === '') {
-			return this.onChange(
-				event,
-				{
-					textInput,
-					errorMessage: undefined,
-					date: undefined,
-					time: extractDateTimeParts(),
-					datetime: undefined,
-				},
-				'INPUT',
-			);
+			return this.onChange(event, extractDateTimeParts(), 'INPUT');
 		}
 
 		let date;
@@ -272,7 +262,7 @@ class InputDateTimePicker extends React.Component {
 								manageFocus
 								selection={{
 									date: this.state.date,
-									time: this.state.time.input,
+									time: this.state.time,
 								}}
 								onSubmit={this.onPickerChange}
 							/>

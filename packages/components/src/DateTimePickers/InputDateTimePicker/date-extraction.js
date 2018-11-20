@@ -39,23 +39,26 @@ function isDateValid(date) {
  * Check if time is correct
  */
 function checkTime({ hours, minutes }) {
-	if (typeof hours !== 'number' || hours < 0 || hours > 23) {
+	const hoursNum = Number(hours);
+	if (hours.length !== 2 || isNaN(hoursNum) || hoursNum < 0 || hoursNum > 23) {
 		throw new Error('TIME - INCORRECT HOUR NUMBER');
 	}
-	if (typeof minutes !== 'number' || minutes < 0 || minutes > 59) {
+
+	const minsNum = Number(minutes);
+	if (minutes.length !== 2 || isNaN(minsNum) || minsNum < 0 || minsNum > 59) {
 		throw new Error('TIME - INCORRECT MINUTES NUMBER');
 	}
 }
 
 /**
  * Convert hour and minutes into minutes
- * @param hours {number}
- * @param minutes {number}
+ * @param hours {string}
+ * @param minutes {string}
  * @returns {number}
  */
 function hoursAndMinutesToTime(hours, minutes) {
 	checkTime({ hours, minutes });
-	return hours * 60 + minutes;
+	return Number(hours) * 60 + Number(minutes);
 }
 
 /**
@@ -90,7 +93,7 @@ function dateTimeToStr(date, time) {
 /**
  * Set the time to the provided date
  * @param date {Date}
- * @param time {{hours: number, minutes: number}}
+ * @param time {{hours: string, minutes: string}}
  * @returns {Date}
  */
 function dateAndTimeToDateTime(date, time) {
@@ -142,7 +145,7 @@ function strToDate(strToParse) {
 /**
  * Convert string in 'HH:mm' format into the corresponding number of minutes
  * @param strToParse {string}
- * @returns {{ hours: number, minutes: number }}
+ * @returns {{ hours: string, minutes: string }}
  */
 function strToTime(strToParse) {
 	const timeMatches = strToParse.match(timePartRegex);
@@ -150,14 +153,10 @@ function strToTime(strToParse) {
 		throw new Error('TIME - INCORRECT FORMAT');
 	}
 
-	const numbersRegex = /^\d+$/;
-	const hoursString = timeMatches[1];
-	const hours = numbersRegex.test(hoursString) ? parseInt(hoursString, 10) : hoursString;
+	const hours = timeMatches[1];
+	const minutes = timeMatches[2];
 
-	const minutesString = timeMatches[2];
-	const minutes = numbersRegex.test(minutesString) ? parseInt(minutesString, 10) : minutesString;
-
-	return { hours, minutes, input: { hours: hoursString, minutes: minutesString } };
+	return { hours, minutes };
 }
 
 function pad(num, size) {
@@ -171,7 +170,7 @@ function pad(num, size) {
 /**
  * Extract parts (date, time, date/time, string conversion) from a Date
  * @param selectedDateTime {Date}
- * @returns {{date: Date, time: number, datetime: Date, textInput: string}}
+ * @returns {{date: Date, time: { hours: string, minutes: string }, datetime: Date, textInput: string}}
  */
 function extractDateTimeParts(selectedDateTime) {
 	const isDateTimeValid = isDateValid(selectedDateTime);
@@ -181,12 +180,8 @@ function extractDateTimeParts(selectedDateTime) {
 		const hours = getHours(selectedDateTime);
 		const minutes = getMinutes(selectedDateTime);
 		const time = {
-			hours,
-			minutes,
-			input: {
-				hours: pad(hours, 2),
-				minutes: pad(minutes, 2),
-			},
+			hours: pad(hours, 2),
+			minutes: pad(minutes, 2),
 		};
 		const datetime = startOfMinute(selectedDateTime);
 
@@ -200,7 +195,7 @@ function extractDateTimeParts(selectedDateTime) {
 
 	return {
 		date: undefined,
-		time: { input: { hours: '', minutes: '' } },
+		time: { hours: '', minutes: '' },
 		datetime: selectedDateTime,
 		textInput: '',
 	};
