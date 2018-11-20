@@ -61,6 +61,7 @@ export default cmfConnect({
 	mapStateToProps,
 	mergeProps,
 	omitCMFProps: true,
+	withComponentRegistry: true,
 	withDispatch: true,
 	withDispatchActionCreator: true,
 })(ContainerActionButton);
