@@ -1,5 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import merge from 'lodash/merge';
 import { assertTypeOf } from './assert';
 import { handleCSRFToken, getDefaultConfig } from './sagas/http';
@@ -179,94 +177,6 @@ function report(error) {
 		}
 	}
 }
-
-/**
- * ErrorPanel is a React component responsible to display error
- * to the end user
- */
-// class ErrorPanel extends React.Component {
-// 	constructor(props) {
-// 		super(props);
-// 		this.state = {
-// 			hidden: true,
-// 		};
-// 	}
-
-// 	render() {
-// 		let currentErrorStatus = 'Waiting for report response';
-// 		if (this.props.reported) {
-// 			currentErrorStatus = `Has been reported under ${this.props.response.id}`;
-// 		} else {
-// 			currentErrorStatus = this.props.reason;
-// 		}
-// 		return (
-// 			<div className="panel panel-default">
-// 				<div className="panel-heading">Whoops, an error occured</div>
-// 				<div className="panel-body">
-// 					<p className="text-danger">
-// 						{this.props.error.name}: {this.props.error.message}
-// 					</p>
-// 					<p>Report status: {currentErrorStatus}</p>
-// 					<div className="btn-group" style={{ marginTop: 20 }}>
-// 						<button className="btn btn-default btn-sm" onClick={reload}>
-// 							Refresh
-// 						</button>
-// 						<button
-// 							className="btn btn-default btn-sm"
-// 							onClick={() => this.setState({ hidden: !this.state.hidden })}
-// 						>
-// 							Show error details
-// 						</button>
-// 					</div>
-// 					<pre className={this.state.hidden ? 'hidden' : ''}>{this.props.error.stack}</pre>
-// 				</div>
-// 			</div>
-// 		);
-// 	}
-// }
-// ErrorPanel.propTypes = {
-// 	reported: PropTypes.bool,
-// 	reason: PropTypes.string,
-// 	response: PropTypes.shape({ id: PropTypes.node }),
-// 	error: PropTypes.shape({
-// 		name: PropTypes.string,
-// 		message: PropTypes.string,
-// 		stack: PropTypes.string,
-// 	}),
-// };
-
-// class ErrorFeedBack extends React.Component {
-// 	constructor(props) {
-// 		super(props);
-// 		this.state = {
-// 			errors: ref.errors,
-// 		};
-// 		subscribe(errors => this.setState({ errors }));
-// 	}
-
-// 	render() {
-// 		return (
-// 			<div className="container">
-// 				<div className="row">
-// 					<div className="col-md-offset-3 col-md-6" style={{ marginTop: 200 }}>
-// 						{this.state.errors.map(error => (
-// 							<ErrorPanel key={error} {...error} />
-// 						))}
-// 					</div>
-// 				</div>
-// 			</div>
-// 		);
-// 	}
-// }
-
-// const errorPropType = PropTypes.shape({
-// 	message: PropTypes.string,
-// });
-
-// ErrorFeedBack.propTypes = {
-// 	error: errorPropType,
-// 	// reported: PropTypes.arrayOf(PropTypes.bool),
-// };
 
 /**
  * Internal.
