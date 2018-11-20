@@ -31,26 +31,6 @@
           "routerPush": "/tacokit/validation"
         }
       }
-    },
-    "menu:dssFieldSelector": {
-      "icon": "talend-burger",
-      "label": "DSS field selector",
-      "onClickDispatch": {
-        "type": "MENU_COMPONENT_FORM_CLICKED",
-        "cmf": {
-          "routerPush": "/tacokit/fieldselector"
-        }
-      }
-    },
-    "menu:dssTypeConverter": {
-      "icon": "talend-burger",
-      "label": "DSS type converter",
-      "onClickDispatch": {
-        "type": "MENU_COMPONENT_FORM_CLICKED",
-        "cmf": {
-          "routerPush": "/tacokit/typeconverter"
-        }
-      }
     }
   },
   "props": {
@@ -89,9 +69,7 @@
       "actionIds": [
         "menu:HeaderBar",
         "menu:tacokitTitleMap",
-        "menu:tacokitValidation",
-        "menu:dssFieldSelector",
-        "menu:dssTypeConverter"
+        "menu:tacokitValidation"
       ]
     },
     "Layout#default": {
@@ -114,18 +92,6 @@
     },
     "ComponentForm#validation": {
       "definitionURL": "/api/v1/forms/validation",
-      "uiSpecPath": "ui",
-      "triggerURL": "/api/v1/application/action",
-      "className": "well"
-    },
-    "ComponentForm#fieldselector": {
-      "definitionURL": "/api/v1/forms/fieldselector",
-      "uiSpecPath": "ui",
-      "triggerURL": "/api/v1/application/action",
-      "className": "well"
-    },
-    "ComponentForm#typeconverter": {
-      "definitionURL": "/api/v1/forms/typeconverter",
       "uiSpecPath": "ui",
       "triggerURL": "/api/v1/application/action",
       "className": "well"
@@ -156,16 +122,6 @@
             "path": "titleMap",
             "component": "ComponentForm",
             "componentId": "titleMap"
-          },
-          {
-            "path": "fieldselector",
-            "component": "ComponentForm",
-            "componentId": "fieldselector"
-          },
-          {
-            "path": "typeconverter",
-            "component": "ComponentForm",
-            "componentId": "typeconverter"
           }
         ]
       },
