@@ -37,46 +37,46 @@ function getItemWithRandomValue() {
 	return {
 		loading: false,
 		value: {
-			// field2: {
-			// 	value: random(0, 10000000),
-			// 	quality: 1,
-			// },
-			// field8: {
-			// 	value: random(0, 10000000),
-			// 	quality: 0,
-			// },
-			// field5: {
-			// 	value: random(0, 10000000),
-			// 	quality: -1,
-			// },
-			// field4: {
-			// 	value: random(0, 10000000),
-			// 	quality: 1,
-			// },
-			// field7: {
-			// 	value: random(0, 10000000),
-			// 	quality: 1,
-			// },
-			// field3: {
-			// 	value: random(0, 10000000),
-			// 	quality: 1,
-			// },
-			// field1: {
-			// 	value: random(0, 10000000),
-			// 	quality: 1,
-			// },
+			field2: {
+				value: random(0, 10000000),
+				quality: 1,
+			},
+			field8: {
+				value: random(0, 10000000),
+				quality: 0,
+			},
+			field5: {
+				value: random(0, 10000000),
+				quality: -1,
+			},
+			field4: {
+				value: random(0, 10000000),
+				quality: 1,
+			},
+			field7: {
+				value: random(0, 10000000),
+				quality: 1,
+			},
+			field3: {
+				value: random(0, 10000000),
+				quality: 1,
+			},
+			field1: {
+				value: random(0, 10000000),
+				quality: 1,
+			},
 			field0: {
 				value: `Aéroport ${random(0, 10000000)}`,
 				quality: 1,
 			},
-			// field9: {
-			// 	value: random(0, 10000000),
-			// 	quality: 1,
-			// },
-			// field6: {
-			// 	value: random(0, 10000000),
-			// 	quality: 1,
-			// },
+			field9: {
+				value: random(0, 10000000),
+				quality: 1,
+			},
+			field6: {
+				value: random(0, 10000000),
+				quality: 1,
+			},
 		},
 		quality: 1,
 	};
@@ -88,7 +88,6 @@ export default class DynamicDataGrid extends React.Component {
 		this.addLoadingsItems = this.addLoadingsItems.bind(this);
 		this.terminateItems = this.terminateItems.bind(this);
 		const datagridSample = Object.assign({}, sample);
-		datagridSample.schema.fields = [datagridSample.schema.fields[0]];
 		datagridSample.data = new Array(ADD_ITEMS_NUMBER).fill(LOADING_ITEM);
 		this.state = { sample: datagridSample, loading: true, index: 1 };
 

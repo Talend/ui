@@ -4,6 +4,7 @@ import keycode from 'keycode';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import isEqual from 'lodash/isEqual';
+import PropTypes from 'prop-types';
 import Inject from '@talend/react-components/lib/Inject';
 import Skeleton from '@talend/react-components/lib/Skeleton';
 
@@ -14,7 +15,7 @@ import DefaultPinHeaderRenderer, {
 } from '../DefaultPinHeaderRenderer';
 
 import DATAGRID_PROPTYPES from './DataGrid.proptypes';
-import { NAMESPACE_INDEX } from '../../constants';
+import { AVRO_TYPES, NAMESPACE_INDEX } from '../../constants';
 import serializer from '../DatasetSerializer';
 import theme from './DataGrid.scss';
 
@@ -43,26 +44,24 @@ export function injectedHeaderRenderer(getComponent, headerRenderer, onFocusedCo
 	return props => <Component {...props} onFocusedColumn={onFocusedColumn} onKeyDown={onKeyDown} />;
 }
 
-// export function injectedCellRenderer(getComponent, cellRenderer, avroRenderer) {
-// 	const Component = Inject.get(getComponent, cellRenderer, DefaultCellRenderer);
-//
-// 	return props =>
-// }
-
 class InjectedCellRenderer extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = props;
+		this.state = {
+			colDef: props.colDef,
+			value: props.value,
+			data: props.data,
+		};
 	}
 
-	refresh(params) {
-		if (!isEqual(params.data[params.colDef.field], this.state.data[params.colDef.field])) {
-			this.setState({ ...params });
-			return true;
-		}
-
-		return false;
-	}
+	// refresh(params) {
+	// 	if (!isEqual(params.data[params.colDef.field], this.state.data[params.colDef.field])) {
+	// 		this.setState({ ...params });
+	// 		return true;
+	// 	}
+	//
+	// 	return false;
+	// }
 
 	render() {
 		const Component = Inject.get(datagridGetComponent, datagridCellRenderer, datagridAvroRenderer);
@@ -76,6 +75,31 @@ class InjectedCellRenderer extends React.Component {
 		);
 	}
 }
+
+function injectedCellRenderer() {
+	const Component = Inject.get(datagridGetComponent, datagridCellRenderer, datagridAvroRenderer);
+
+	return props => (
+		<Component {...props} avroRenderer={datagridAvroRenderer} getComponent={datagridGetComponent} />
+	);
+}
+
+InjectedCellRenderer.defaultProps = {
+	value: {},
+	data: {},
+};
+
+InjectedCellRenderer.propTypes = {
+	colDef: PropTypes.shape({
+		avro: PropTypes.shape({
+			type: PropTypes.shape({
+				type: PropTypes.oneOf(AVRO_TYPES),
+			}),
+		}),
+	}),
+	value: PropTypes.object,
+	data: PropTypes.object,
+};
 
 export function getAvroRenderer(avroRenderer) {
 	return {
@@ -100,7 +124,6 @@ export default class DataGrid extends React.Component {
 		pinHeaderRenderer: 'DefaultPinHeaderRenderer',
 		rowHeight: ROW_HEIGHT,
 		rowSelection: AG_GRID.DEFAULT_ROW_SELECTION,
-		deltaRowDataMode: true,
 		rowNodeIdentifier: 'index.index',
 	};
 
@@ -120,14 +143,8 @@ export default class DataGrid extends React.Component {
 		this.onKeyDownHeaderColumn = this.onKeyDownHeaderColumn.bind(this);
 	}
 
-	componentDidUpdate() {
-		console.log('componentDidUpdate');
-		// this.gridAPI.refreshCells();
-	}
-
 	onGridReady({ api }) {
 		this.gridAPI = api;
-		// this.gridAPI.setRowData(this.props.getRowDataFn(this.props.data, this.props.startIndex));
 	}
 
 	onFocusedCell(props) {
@@ -191,13 +208,10 @@ export default class DataGrid extends React.Component {
 	}
 
 	getAgGridConfig() {
-		console.log('getAgGridConfig');
 		let rowData = this.props.rowData;
 		if (typeof this.props.getRowDataFn === 'function') {
 			rowData = this.props.getRowDataFn(this.props.data, this.props.startIndex);
 		}
-
-		console.log(rowData);
 
 		const agGridOptions = {
 			headerHeight: this.props.headerHeight,
@@ -208,7 +222,6 @@ export default class DataGrid extends React.Component {
 			overlayNoRowsTemplate: this.props.overlayNoRowsTemplate,
 			ref: this.setGridInstance, // use ref in AgGridReact to get the current instance
 			rowData,
-			deltaRowDataMode: this.props.deltaRowDataMode,
 			rowBuffer: this.props.rowBuffer,
 			getRowNodeId: data => data[this.props.rowNodeIdentifier],
 			rowHeight: this.props.rowHeight,
@@ -260,12 +273,7 @@ export default class DataGrid extends React.Component {
 
 		agGridOptions.columnDefs = adaptedColumnDefs;
 		agGridOptions.frameworkComponents = {
-			[CELL_RENDERER_COMPONENT]: InjectedCellRenderer,
-			// injectedCellRenderer(
-			// 	this.props.getComponent,
-			// 	this.props.cellRenderer,
-			// 	getAvroRenderer(this.props.avroRenderer),
-			// ),
+			[CELL_RENDERER_COMPONENT]: injectedCellRenderer(),
 			[HEADER_RENDERER_COMPONENT]: injectedHeaderRenderer(
 				this.props.getComponent,
 				this.props.headerRenderer,
