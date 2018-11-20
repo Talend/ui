@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ErrorPanel from '../ErrorPanel';
 
-
 function ErrorFeedBack(props) {
 	const style = {
 		'overflow-y': 'auto',

@@ -5,9 +5,7 @@ import Component from './ErrorPanel.component';
 
 describe('Component ErrorPanel', () => {
 	it('should render a panel', () => {
-		const wrapper = shallow(
-			<Component />
-		);
+		const wrapper = shallow(<Component />);
 		expect(wrapper.props().className).toBe('panel panel-default');
 		expect(wrapper.find('.panel-heading').props().children).toBe('Whoops, an error occured');
 	});
@@ -17,9 +15,7 @@ describe('Component ErrorPanel', () => {
 			description: 'cannot call blabla of undefined',
 			stack: 'here it is',
 		};
-		const wrapper = shallow(
-			<Component error={error} reported response={{ id: 42 }} />
-		);
+		const wrapper = shallow(<Component error={error} reported response={{ id: 42 }} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

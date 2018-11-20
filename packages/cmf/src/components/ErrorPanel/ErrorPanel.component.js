@@ -27,10 +27,7 @@ function ErrorPanel(props) {
 					<button className="btn btn-default btn-sm" onClick={reload}>
 						Refresh
 					</button>
-					<button
-						className="btn btn-default btn-sm"
-						onClick={props.onClickDetails}
-					>
+					<button className="btn btn-default btn-sm" onClick={props.onClickDetails}>
 						Show error details
 					</button>
 				</div>

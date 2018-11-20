@@ -16,9 +16,7 @@ class ErrorFeedBack extends React.Component {
 	}
 
 	render() {
-		return (
-			<Component errors={this.state.errors} />
-		);
+		return <Component errors={this.state.errors} />;
 	}
 }
 
