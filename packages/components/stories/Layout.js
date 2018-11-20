@@ -44,10 +44,10 @@ const actions = [
 ];
 
 const drawers = [
-	<Drawer stacked title="Hello drawers">
+	<Drawer stacked title="Hello drawers" footerActions={{}}>
 		<p>You should not being able to read this because I&apos;m first</p>
 	</Drawer>,
-	<Drawer title="Hello drawers">
+	<Drawer title="Hello drawers" footerActions={{}}>
 		<p>The content dictate the width</p>
 	</Drawer>,
 ];
@@ -55,7 +55,7 @@ const drawers = [
 const content = (
 	<div>
 		<h1>Welcome to the content for testing scroll</h1>
-		<ul>{[...new Array(38)].map(() => <li>one</li>)}</ul>
+		<ul>{[...new Array(138)].map(() => <li>one</li>)}</ul>
 	</div>
 );
 const sidePanel = (

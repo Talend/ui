@@ -20,6 +20,13 @@
 	}
 }
 
+:global(.tc-virtualizedlist-default-cell) {
+	min-width: 0;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
 .tc-list-progress {
 	width: 100%;
 	display: flex;

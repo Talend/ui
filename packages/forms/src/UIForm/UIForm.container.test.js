@@ -29,13 +29,21 @@ describe('UIForm container', () => {
 
 			const previousState = wrapper.state();
 
+			const newData = {
+				jsonSchema: {},
+				uiSchema: {},
+				properties: {},
+			};
+
 			// when
 			wrapper.setProps({
-				data: Object.assign({}, data),
+				data: newData,
 			});
 
 			// then
 			expect(wrapper.state()).not.toBe(previousState);
+			expect(wrapper.state().initialState).toBe(previousState.initialState);
+			expect(wrapper.state().liveState).toEqual({ ...newData, errors: {} });
 		});
 
 		it("should not update state if form data structure didn't change", () => {
@@ -52,6 +60,28 @@ describe('UIForm container', () => {
 			// then
 			expect(wrapper.state()).toBe(previousState);
 		});
+
+		it('should update initialState and liveState if initialData has changed', () => {
+			// given
+			const initialData = {};
+			const wrapper = shallow(<UIForm intialData={initialData} data={data} {...props} />);
+
+			const previousState = wrapper.state();
+			const newInitialData = {
+				jsonSchema: {},
+				uiSchema: {},
+				properties: {},
+			};
+			// when
+			wrapper.setProps({
+				initialData: newInitialData,
+			});
+
+			// then
+			expect(wrapper.state()).not.toBe(previousState);
+			expect(wrapper.state().liveState).toEqual({ ...newInitialData, errors: {} });
+			expect(wrapper.state().initialState).toEqual({ ...newInitialData, errors: {} });
+		});
 	});
 
 	describe('#onChange', () => {
@@ -59,16 +89,18 @@ describe('UIForm container', () => {
 			// given
 			const wrapper = shallow(<UIForm data={data} {...props} />);
 			const instance = wrapper.instance();
+			const properties = { lastname: 'toto' };
 
 			// when
 			instance.onChange(null, {
 				schema: mergedSchema[0],
 				value: 'toto',
-				properties: { lastname: 'toto' },
+				properties,
 			});
 
 			// then
-			expect(instance.state).toMatchSnapshot();
+			expect(instance.state.liveState.properties).toEqual(properties);
+			expect(instance.state.initialState.properties).not.toEqual(properties);
 		});
 
 		it('should call onChange callback', () => {
@@ -121,7 +153,7 @@ describe('UIForm container', () => {
 			instance.setErrors(null, errors);
 
 			// then
-			expect(instance.state).toMatchSnapshot();
+			expect(instance.state.liveState.errors).toEqual(errors);
 		});
 	});
 
@@ -158,7 +190,7 @@ describe('UIForm container', () => {
 
 			// then
 			triggerPromise.then(() => {
-				expect(instance.state.errors).toBe(errors);
+				expect(instance.state.liveState.errors).toBe(errors);
 				done();
 			});
 		});

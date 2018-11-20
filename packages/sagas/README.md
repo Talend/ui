@@ -24,11 +24,6 @@ A set of generic sagas that are reusable accross the app(http://guidelines.talen
 [quality-badge]: http://npm.packagequality.com/shield/react-talend-sagas.svg
 [quality-url]: http://packagequality.com/#?package=react-talend-sagas
 
-## Breaking changes log
-
-Before 1.0, `@talend/react-sagas` does NOT follow semver version in releases.
-You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
-
 ## Conventions
 
 Please look at our [CONTRIBUTING](https://github.com/Talend/tools/blob/master/tools-root-github/CONTRIBUTING.md) first.

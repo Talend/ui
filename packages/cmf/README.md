@@ -18,11 +18,6 @@ It provides a set of base APIs and patterns.
 [devdependencies-image]: https://david-dm.org/Talend/ui/dev-status.svg?path=packages/cmf
 [devdependencies-url]: https://david-dm.org/Talend/ui?path=packages/cmf&type=dev
 
-## Breaking changes log
-
-Before 1.0, `@talend/react-cmf` does NOT follow semver version in releases.
-You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
-
 ## Requirements
 
 Before trying CMF you must know:
@@ -48,11 +43,17 @@ repetitive tasks and some boiler plate every time and on each components.
 When working with a framework like angular you have the tools plus a guideline on how to use them.
 With CMF the idea is the same. Provide the good set of tools plus the guideline.
 
-A brief overview of how to do a project with react-cmf:
+To start a project using react-cmf you can either:
+* use yeoman generator `yo talend:react-cmf`
+* or use [bootstrap API](./src/bootstrap.md) in your already existing project
+
+Working with react-cmf means:
 
 * you write a set of configurable pure component connected using `cmfConnect`
 * you configure them using the settings
 * events are handled in a saga (effects are the way to write business code)
+
+![diagram rendering cycle](./assets/diagram-rendering-cycle.svg "Diagram rendering cycle")
 
 Side by side with angular 1:
 
@@ -70,6 +71,8 @@ Under the hood it uses the connect function and create a container.
 Once your component is connected:
 * you can read data from the store using [expression](./src/expression.md)
 * you can dispatch actions using [onEvent handler](./src/onEvent.md)
+
+![diagram cmfConnect](./assets/diagram-cmfConnect.svg "Diagram on cmfConnect")
 
 Read more about [cmfConnect](./src/cmfConnect.md)
 
@@ -207,14 +210,10 @@ you may change the following using simple props:
 
 ## ROADMAP
 
-For 1.0
+For 2.0
 
 * [ ] documentation review
 * [ ] provide an example OSS demo app
 * [ ] remove all deprecated code
 * [ ] update or remove react-router
 * [ ] move from peer dependencies to dependencies
-* [x] integrate redux-saga
-* [x] add a yeoman generator
-* [x] actionCreator should become first class
-* [x] embedable apps

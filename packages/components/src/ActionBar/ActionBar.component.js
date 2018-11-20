@@ -147,7 +147,7 @@ export function ActionBarComponent(props) {
 		props.className,
 	);
 	return (
-		<nav className={cssClass}>
+		<div className={cssClass}>
 			{(left || !!props.selected) && (
 				<SwitchActions
 					getComponent={props.getComponent}
@@ -179,7 +179,7 @@ export function ActionBarComponent(props) {
 					t={props.t}
 				/>
 			)}
-		</nav>
+		</div>
 	);
 }
 

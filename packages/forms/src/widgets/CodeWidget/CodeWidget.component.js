@@ -1,26 +1,18 @@
-/* eslint-disable no-console */
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable import/no-mutable-exports */
-/* eslint-disable global-require */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextareaWidget from 'react-jsonschema-form/lib/components/widgets/TextareaWidget';
 
-function TextareaCodeWidget(props) {
-	return <TextareaWidget {...props} />;
-}
-TextareaCodeWidget.displayName = 'TextareaCodeWidget';
-
-let CodeWidget = TextareaWidget;
-const SET_OPTIONS = {
-	enableBasicAutocompletion: true,
-	enableLiveAutocompletion: true,
-	enableSnippets: true,
-};
+let CodeWidget; // eslint-disable-line import/no-mutable-exports
 
 try {
+	// eslint-disable-next-line import/no-extraneous-dependencies, global-require
 	const AceEditor = require('react-ace').default;
+
+	const SET_OPTIONS = {
+		enableBasicAutocompletion: true,
+		enableLiveAutocompletion: true,
+		enableSnippets: true,
+	};
 
 	class AceCodeWidget extends React.Component {
 		static displayName = 'AceCodeWidget';
@@ -75,7 +67,7 @@ try {
 			);
 		}
 	}
-	CodeWidget = AceCodeWidget;
+
 	if (process.env.NODE_ENV !== 'production') {
 		AceCodeWidget.propTypes = {
 			onChange: PropTypes.func,
@@ -93,8 +85,26 @@ try {
 			autofocus: PropTypes.bool,
 		};
 	}
+
+	CodeWidget = AceCodeWidget;
 } catch (error) {
-	console.warn('CodeWidget react-ace not found, fallback to TextareaWidget', TextareaWidget);
+	// Fallback to TextareaWidget
+	// eslint-disable-next-line react/no-multi-comp
+	class TextareaCodeWidget extends React.PureComponent {
+		constructor() {
+			super();
+			// eslint-disable-next-line no-console
+			console.warn('CodeWidget react-ace not found, fallback to TextareaWidget', TextareaWidget);
+		}
+
+		render() {
+			return <TextareaWidget {...this.props} />;
+		}
+	}
+
+	TextareaCodeWidget.displayName = 'TextareaCodeWidget';
+
+	CodeWidget = TextareaWidget;
 }
 
 export default CodeWidget;

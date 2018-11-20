@@ -53,6 +53,7 @@ class TabBar extends React.Component {
 
 	render() {
 		const { className, id, items, selectedKey, children, generateChildId } = this.props;
+		const hasChildren = children || items.some(item => item.children);
 		return (
 			<Tab.Container
 				id={id}
@@ -76,7 +77,7 @@ class TabBar extends React.Component {
 							</NavItem>
 						))}
 					</Nav>
-					{children && (
+					{hasChildren && (
 						<Tab.Content>
 							{items.map(item => (
 								<Tab.Pane eventKey={item.key} key={item.key}>

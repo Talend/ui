@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`File field should render File with data 1`] = `
+<FieldTemplate
+  description="This is the file field"
+  descriptionId="my-file-field-description"
+  errorId="my-file-field-error"
+  errorMessage="This is wrong"
+  id="my-file-field"
+  isValid={true}
+  label="Upload file"
+  labelAfter={false}
+  required={undefined}
+>
+  <div
+    className="theme-file"
+  >
+    <input
+      aria-describedby="my-file-field-description my-file-field-error"
+      aria-invalid={false}
+      aria-required={undefined}
+      autoFocus={false}
+      className="form-control theme-file-input"
+      disabled={false}
+      id="input-my-file-field"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Select a file to upload"
+      readOnly={false}
+      type="file"
+    />
+    <input
+      autoComplete="off"
+      className="form-control theme-file-replace"
+      name="input-filename-my-file-field"
+      onChange={[Function]}
+      placeholder="Select a file to upload"
+      tabIndex="-1"
+      type="text"
+      value="test.xml"
+    />
+  </div>
+</FieldTemplate>
+`;
+
+exports[`File field should render default File 1`] = `
+<FieldTemplate
+  description="This is the file field"
+  descriptionId="my-file-field-description"
+  errorId="my-file-field-error"
+  errorMessage="This is wrong"
+  id="my-file-field"
+  isValid={true}
+  label="Upload file"
+  labelAfter={false}
+  required={undefined}
+>
+  <div
+    className="theme-file"
+  >
+    <input
+      aria-describedby="my-file-field-description my-file-field-error"
+      aria-invalid={false}
+      aria-required={undefined}
+      autoFocus={false}
+      className="form-control theme-file-input"
+      disabled={false}
+      id="input-my-file-field"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Select a file to upload"
+      readOnly={false}
+      type="file"
+    />
+    <input
+      autoComplete="off"
+      className="form-control theme-file-replace"
+      name="input-filename-my-file-field"
+      onChange={[Function]}
+      placeholder="Select a file to upload"
+      tabIndex="-1"
+      type="text"
+      value=""
+    />
+  </div>
+</FieldTemplate>
+`;
