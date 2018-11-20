@@ -195,34 +195,6 @@ exports[`ActionFile should render action with html property name = props.name if
 </span>
 `;
 
-exports[`ActionFile should render with accept attribute passed to it 1`] = `
-<span
-  className={undefined}
->
-  <input
-    accept=".zip"
-    className="theme-action-file-input sr-only"
-    disabled={false}
-    id={42}
-    name={undefined}
-    onChange={[Function]}
-    type="file"
-  />
-  <label
-    className="btn btn-default theme-btn-file"
-    htmlFor={42}
-  >
-    <Icon
-      name="talend-caret-down"
-      transform={undefined}
-    />
-    <span>
-      Click me
-    </span>
-  </label>
-</span>
-`;
-
 exports[`ActionFile should reverse icon/label 1`] = `
 <span
   className={undefined}
