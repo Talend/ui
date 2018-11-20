@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component ErrorPanel should render the error 1`] = `
+<div
+  className="panel panel-default"
+>
+  <div
+    className="panel-heading"
+  >
+    Whoops, an error occured
+  </div>
+  <div
+    className="panel-body"
+  >
+    <p
+      className="text-danger"
+    >
+      Error
+      : 
+    </p>
+    <p>
+      Report status: 
+      Has been reported under 42
+    </p>
+    <div
+      className="btn-group"
+      style={
+        Object {
+          "marginTop": 20,
+        }
+      }
+    >
+      <button
+        className="btn btn-default btn-sm"
+        onClick={[Function]}
+      >
+        Refresh
+      </button>
+      <button
+        className="btn btn-default btn-sm"
+        onClick={undefined}
+      >
+        Show error details
+      </button>
+    </div>
+    <pre
+      className="hidden"
+    >
+      here it is
+    </pre>
+  </div>
+</div>
+`;

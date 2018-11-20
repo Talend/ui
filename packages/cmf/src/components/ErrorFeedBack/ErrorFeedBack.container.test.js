@@ -10,6 +10,14 @@ describe('Container ErrorFeedBack', () => {
 			<Container />
 		);
 		expect(wrapper.find(Component).length).toBe(1);
-		expect(wrapper.props()).toMatchSnapshot();
+		expect(wrapper.props()).toEqual({ errors: [] });
+	});
+	it('should pass errors from its state', () => {
+		const wrapper = shallow(
+			<Container />
+		);
+		const errors = [{ foo: 'foo' }];
+		wrapper.setState({ errors });
+		expect(wrapper.props()).toEqual({ errors });
 	});
 });

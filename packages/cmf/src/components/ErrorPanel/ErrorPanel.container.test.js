@@ -10,6 +10,8 @@ describe('Container ErrorPanel', () => {
 			<Container />
 		);
 		expect(wrapper.find(Component).length).toBe(1);
-		expect(wrapper.props()).toMatchSnapshot();
+		const props = wrapper.props();
+		expect(props.hidden).toBe(true);
+		expect(props.onClickDetails).toBe(wrapper.instance().onClickDetails);
 	});
 });

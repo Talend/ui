@@ -5,35 +5,21 @@ import Component from './ErrorPanel.component';
 
 class ErrorPanel extends React.Component {
 	static displayName = 'Container(ErrorPanel)';
-	static propTypes = {
-		
-	};
-	static ACTION_TYPE_ON_EVENT = 'ErrorPanel.onClick';
+	static propTypes = {};
 
 	constructor(props) {
 		super(props);
-		this.state = {};
-		this.onClick = this.onClick.bind(this);
+		this.state = { hidden: true };
+		this.onClickDetails = this.onClickDetails.bind(this);
 	}
 
-	onClick(event) {
-		if (this.props.onClick) {
-			this.props.onClick(event);
-		}
-		this.props.dispatch({
-			type: ErrorPanel.ACTION_TYPE_ON_EVENT,
-			componentId: this.props.componentId,
-		});
+	onClickDetails() {
+		this.setState({ hidden: !this.state.hidden });
 	}
 
 	render() {
 		const props = this.props;
-		return (
-			<Component
-				{...props}
-				onClick={this.onClick}
-			/>
-		);
+		return <Component {...props} hidden={this.state.hidden} onClickDetails={this.onClickDetails} />;
 	}
 }
 

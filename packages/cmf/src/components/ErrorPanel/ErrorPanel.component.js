@@ -9,7 +9,7 @@ function reload() {
 }
 
 function ErrorPanel(props) {
-	let currentErrorStatus = 'Waiting for report response';
+	let currentErrorStatus;
 	if (props.reported) {
 		currentErrorStatus = `Has been reported under ${props.response.id}`;
 	} else {
@@ -17,7 +17,7 @@ function ErrorPanel(props) {
 	}
 	return (
 		<div className="panel panel-default">
-			<div className="panel-heading">Whoops, an error occured</div>
+			<div className="panel-heading">{props.title}</div>
 			<div className="panel-body">
 				<p className="text-danger">
 					{props.error.name}: {props.error.message}
@@ -29,7 +29,7 @@ function ErrorPanel(props) {
 					</button>
 					<button
 						className="btn btn-default btn-sm"
-						onClick={() => this.setState({ hidden: !props.hidden })}
+						onClick={props.onClickDetails}
 					>
 						Show error details
 					</button>
@@ -42,15 +42,25 @@ function ErrorPanel(props) {
 
 ErrorPanel.displayName = 'ErrorPanel';
 ErrorPanel.propTypes = {
+	title: PropTypes.string,
 	reported: PropTypes.bool,
 	hidden: PropTypes.bool,
+	onClickDetails: PropTypes.func,
 	reason: PropTypes.string,
 	response: PropTypes.shape({ id: PropTypes.node }),
 	error: PropTypes.shape({
 		name: PropTypes.string,
 		message: PropTypes.string,
 		stack: PropTypes.string,
-	}),
+	}).isRequired,
+};
+ErrorPanel.defaultProps = {
+	reported: false,
+	reason: 'Waiting for report response',
+	title: 'Whoops, an error occured',
+	response: {},
+	error: {},
+	hidden: true,
 };
 
 export default ErrorPanel;
