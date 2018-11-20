@@ -237,6 +237,10 @@ describe('ComponentForm saga', () => {
 							definition: data,
 							jsonSchema,
 							uiSchema,
+							initialState: {
+								jsonSchema,
+								uiSchema,
+							},
 						},
 						key: 'MyComponentId',
 						type: 'REACT_CMF.COMPONENT_MERGE_STATE',
@@ -264,7 +268,7 @@ describe('ComponentForm saga', () => {
 				cmf: {
 					componentState: {
 						componentName: 'ComponentForm',
-						componentState: data,
+						componentState: { ...data, initialState: data },
 						key: 'MyComponentId',
 						type: 'REACT_CMF.COMPONENT_MERGE_STATE',
 					},
