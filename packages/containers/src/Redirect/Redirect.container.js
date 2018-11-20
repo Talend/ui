@@ -35,4 +35,10 @@ RedirectContainer.contextTypes = {
 
 RedirectContainer.displayName = 'RedirectContainer';
 
-export default cmfConnect({})(RedirectContainer);
+export default cmfConnect({
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
+})(RedirectContainer);

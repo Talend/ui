@@ -4,24 +4,7 @@ import Widget from '../../Widget';
 import { shiftArrayErrorsKeys } from '../../utils/validation';
 import defaultTemplates from '../../utils/templates';
 import defaultWidgets from '../../utils/widgets';
-
-function adaptKeyWithIndex(keys, index) {
-	/*
-	2 cases :
-	- key = ["my", "array", "", "nested"] for nested items fields
-	- key = ["my", "array"] : this defines array itself. Each item will receive a key ["my", "array", index]
-	To check that, we spot the first empty string in the key
-	- find it: replace it, it's a nested element
-	- not found : it's an array item key, we add the index after
-	*/
-	let firstIndexPlaceholder = keys.indexOf('');
-	if (firstIndexPlaceholder === -1) {
-		firstIndexPlaceholder = keys.length;
-	}
-	const indexedKeys = [...keys];
-	indexedKeys[firstIndexPlaceholder] = index;
-	return indexedKeys;
-}
+import { getArrayElementSchema } from '../../utils/array';
 
 function getRange(previousIndex, nextIndex) {
 	if (previousIndex < nextIndex) {
@@ -34,34 +17,6 @@ function getRange(previousIndex, nextIndex) {
 	return {
 		minIndex: nextIndex,
 		maxIndex: previousIndex + 1,
-	};
-}
-
-function getNestedItemSchema(item, index) {
-	const adaptedItem = {
-		...item,
-		key: item.key && adaptKeyWithIndex(item.key, index),
-	};
-
-	if (item.items) {
-		adaptedItem.items = adaptedItem.items.map(nestedItem => getNestedItemSchema(nestedItem, index));
-	}
-
-	return adaptedItem;
-}
-
-function getArrayItemSchema(arraySchema, index) {
-	// insert index in all fields
-	const items = arraySchema.items.map(item => getNestedItemSchema(item, index));
-
-	// insert index in item schema key
-	const key = arraySchema.key && adaptKeyWithIndex(arraySchema.key, index);
-
-	return {
-		key,
-		items,
-		widget: arraySchema.itemWidget || 'fieldset',
-		title: arraySchema.itemTitle,
 	};
 }
 
@@ -155,7 +110,7 @@ export default class ArrayWidget extends React.Component {
 			<Widget
 				{...this.props}
 				id={this.props.id && `${this.props.id}-${index}`}
-				schema={getArrayItemSchema(this.props.schema, index)}
+				schema={getArrayElementSchema(this.props.schema, index)}
 				value={this.props.value[index]}
 			/>
 		);

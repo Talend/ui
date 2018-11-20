@@ -100,7 +100,7 @@ function addOnEventSupport(handlerType, instance, props, key) {
 		}
 		props.toOmit.push(key);
 		const handlerKey = key.replace(CONSTANT[`IS_HANDLER_${handlerType}`], '');
-		const originalEventHandler = props[handlerKey];
+		const originalEventHandler = props[handlerKey] || instance.props[handlerKey];
 		// eslint-disable-next-line no-param-reassign
 		props[handlerKey] = GET_HANDLER[handlerType](
 			instance,

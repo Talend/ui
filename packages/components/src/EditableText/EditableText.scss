@@ -57,10 +57,7 @@ $tc-circle-editable-text-size: 16px !default;
 		width: 100%;
 		display: flex;
 		align-items: center;
-		padding: {
-			left: $padding-large;
-			right: $padding-large;
-		}
+		padding-right: $padding-large;
 
 		:global(.form-group) {
 			width: 100%;

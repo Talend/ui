@@ -2,10 +2,6 @@
 
 This library provide a datagrid to show some datas !
 
-## Breaking changes log
-
-You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
-
 ## Guidelines
 
 [Datagrid](https://company-57688.frontify.com/document/92132#/navigation-layout/data-grid)
@@ -18,6 +14,17 @@ yarn add @talend/react-datagrid
 
 ```javascript
 import DataGrid from '@talend/react-datagrid'; //use the DataGrid Container
+```
+
+Using CMF
+
+```javascript
+import cmf from '@talend/react-cmf';
+import datagridModule from '@talend/react-datagrid/lib/cmfModule';
+
+cmf.bootstrap({
+    modules: [datagridModule]
+});
 ```
 
 ## DataGrid Component
