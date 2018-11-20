@@ -22,6 +22,7 @@ import history from './history';
 import RegistryProvider from './RegistryProvider';
 import UIRouter from './UIRouter';
 import onError from './onError';
+import { ErrorFeedBack } from './components';
 
 /**
  * The React component that render your app and provide CMF environment.
@@ -43,12 +44,11 @@ export default class App extends React.Component {
 
 	render() {
 		const hist = this.props.history || history.get(this.props.store);
-		const ErrorFeedback = this.props.ErrorFeedBack;
 		return (
 			<Provider store={this.props.store}>
 				<RegistryProvider>
 					{this.state.error ? (
-						<ErrorFeedback />
+						<ErrorFeedBack />
 					) : (
 						this.props.children || <UIRouter history={hist} loading={this.props.loading} />
 					)}
@@ -64,7 +64,6 @@ App.propTypes = {
 	children: PropTypes.node,
 	history: PropTypes.object,
 	loading: PropTypes.string,
-	ErrorFeedBack: PropTypes.func,
 };
 App.defaultProps = {
 	ErrorFeedBack: onError.ErrorFeedBack,

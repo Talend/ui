@@ -156,7 +156,6 @@ function report(error) {
 		options = handleCSRFToken(merge(options, httpDefault));
 	}
 
-
 	if (!ref.serverURL) {
 		info.reason = new Error('no serverURL has been set to report Error');
 		ref.callbacks.forEach(cb => cb(ref.errors));
@@ -182,99 +181,92 @@ function report(error) {
 }
 
 /**
- * reload is an event handler. It will reload the current page
- */
-function reload() {
-	location.reload(true);
-}
-
-/**
  * ErrorPanel is a React component responsible to display error
  * to the end user
  */
-class ErrorPanel extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			hidden: true,
-		};
-	}
+// class ErrorPanel extends React.Component {
+// 	constructor(props) {
+// 		super(props);
+// 		this.state = {
+// 			hidden: true,
+// 		};
+// 	}
 
-	render() {
-		let currentErrorStatus = 'Waiting for report response';
-		if (this.props.reported) {
-			currentErrorStatus = `Has been reported under ${this.props.response.id}`;
-		} else {
-			currentErrorStatus = this.props.reason;
-		}
-		return (
-			<div className="panel panel-default">
-				<div className="panel-heading">Whoops, an error occured</div>
-				<div className="panel-body">
-					<p className="text-danger">
-						{this.props.error.name}: {this.props.error.message}
-					</p>
-					<p>Report status: {currentErrorStatus}</p>
-					<div className="btn-group" style={{ marginTop: 20 }}>
-						<button className="btn btn-default btn-sm" onClick={reload}>
-							Refresh
-						</button>
-						<button
-							className="btn btn-default btn-sm"
-							onClick={() => this.setState({ hidden: !this.state.hidden })}
-						>
-							Show error details
-						</button>
-					</div>
-					<pre className={this.state.hidden ? 'hidden' : ''}>{this.props.error.stack}</pre>
-				</div>
-			</div>
-		);
-	}
-}
-ErrorPanel.propTypes = {
-	reported: PropTypes.bool,
-	reason: PropTypes.string,
-	response: PropTypes.shape({ id: PropTypes.node }),
-	error: PropTypes.shape({
-		name: PropTypes.string,
-		message: PropTypes.string,
-		stack: PropTypes.string,
-	}),
-};
+// 	render() {
+// 		let currentErrorStatus = 'Waiting for report response';
+// 		if (this.props.reported) {
+// 			currentErrorStatus = `Has been reported under ${this.props.response.id}`;
+// 		} else {
+// 			currentErrorStatus = this.props.reason;
+// 		}
+// 		return (
+// 			<div className="panel panel-default">
+// 				<div className="panel-heading">Whoops, an error occured</div>
+// 				<div className="panel-body">
+// 					<p className="text-danger">
+// 						{this.props.error.name}: {this.props.error.message}
+// 					</p>
+// 					<p>Report status: {currentErrorStatus}</p>
+// 					<div className="btn-group" style={{ marginTop: 20 }}>
+// 						<button className="btn btn-default btn-sm" onClick={reload}>
+// 							Refresh
+// 						</button>
+// 						<button
+// 							className="btn btn-default btn-sm"
+// 							onClick={() => this.setState({ hidden: !this.state.hidden })}
+// 						>
+// 							Show error details
+// 						</button>
+// 					</div>
+// 					<pre className={this.state.hidden ? 'hidden' : ''}>{this.props.error.stack}</pre>
+// 				</div>
+// 			</div>
+// 		);
+// 	}
+// }
+// ErrorPanel.propTypes = {
+// 	reported: PropTypes.bool,
+// 	reason: PropTypes.string,
+// 	response: PropTypes.shape({ id: PropTypes.node }),
+// 	error: PropTypes.shape({
+// 		name: PropTypes.string,
+// 		message: PropTypes.string,
+// 		stack: PropTypes.string,
+// 	}),
+// };
 
-class ErrorFeedBack extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			errors: ref.errors,
-		};
-		subscribe(errors => this.setState({ errors }));
-	}
+// class ErrorFeedBack extends React.Component {
+// 	constructor(props) {
+// 		super(props);
+// 		this.state = {
+// 			errors: ref.errors,
+// 		};
+// 		subscribe(errors => this.setState({ errors }));
+// 	}
 
-	render() {
-		return (
-			<div className="container">
-				<div className="row">
-					<div className="col-md-offset-3 col-md-6" style={{ marginTop: 200 }}>
-						{this.state.errors.map(error => (
-							<ErrorPanel key={error} {...error} />
-						))}
-					</div>
-				</div>
-			</div>
-		);
-	}
-}
+// 	render() {
+// 		return (
+// 			<div className="container">
+// 				<div className="row">
+// 					<div className="col-md-offset-3 col-md-6" style={{ marginTop: 200 }}>
+// 						{this.state.errors.map(error => (
+// 							<ErrorPanel key={error} {...error} />
+// 						))}
+// 					</div>
+// 				</div>
+// 			</div>
+// 		);
+// 	}
+// }
 
-const errorPropType = PropTypes.shape({
-	message: PropTypes.string,
-});
+// const errorPropType = PropTypes.shape({
+// 	message: PropTypes.string,
+// });
 
-ErrorFeedBack.propTypes = {
-	error: errorPropType,
-	// reported: PropTypes.arrayOf(PropTypes.bool),
-};
+// ErrorFeedBack.propTypes = {
+// 	error: errorPropType,
+// 	// reported: PropTypes.arrayOf(PropTypes.bool),
+// };
 
 /**
  * Internal.
@@ -340,8 +332,22 @@ function addOnErrorListener() {
 	window.onerror = (msg, url, lineNo, columnNo, error) => {
 		if (error) {
 			report(error);
+		} else {
+			// throw 'something bad happens' / no stack
+			report({
+				name: 'Error',
+				message: msg,
+				stack: `url: ${url}, lineNo: ${lineNo}, columnNo: ${columnNo}}`,
+			});
 		}
 	};
+}
+
+/**
+ * return reference to the array of errors
+ */
+function getErrors() {
+	return ref.errors;
 }
 
 export default {
@@ -350,5 +356,5 @@ export default {
 	addAction,
 	report,
 	subscribe,
-	ErrorFeedBack,
+	getErrors,
 };
