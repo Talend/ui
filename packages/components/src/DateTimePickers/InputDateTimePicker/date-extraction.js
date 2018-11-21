@@ -170,7 +170,8 @@ function pad(num, size) {
 /**
  * Extract parts (date, time, date/time, string conversion) from a Date
  * @param selectedDateTime {Date}
- * @returns {{date: Date, time: { hours: string, minutes: string }, datetime: Date, textInput: string}}
+ * @returns
+ *  {{date: Date, time: { hours: string, minutes: string }, datetime: Date, textInput: string}}
  */
 function extractDateTimeParts(selectedDateTime) {
 	const isDateTimeValid = isDateValid(selectedDateTime);
