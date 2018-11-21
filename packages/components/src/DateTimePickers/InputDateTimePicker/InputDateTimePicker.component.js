@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import DebounceInput from 'react-debounce-input';
 import { Overlay, Popover } from 'react-bootstrap';
-import isSameMinute from 'date-fns/is_same_minute';
+import isSameSecond from 'date-fns/is_same_second';
 import keycode from 'keycode';
 import uuid from 'uuid';
 
@@ -73,7 +73,7 @@ class InputDateTimePicker extends React.Component {
 		const needDateTimeStateUpdate =
 			newSelectedDateTime !== this.props.selectedDateTime && // selectedDateTime props updated
 			newSelectedDateTime !== this.state.datetime && // not the same ref as state date time
-			!isSameMinute(newSelectedDateTime, this.state.datetime); // not the same value as state
+			!isSameSecond(newSelectedDateTime, this.state.datetime); // not the same value as state
 
 		if (needDateTimeStateUpdate) {
 			const dateRelatedPartState = extractDateTimeParts(newSelectedDateTime);
@@ -85,7 +85,7 @@ class InputDateTimePicker extends React.Component {
 		const { errorMessage, datetime } = nextState;
 
 		const datetimeUpdated =
-			datetime !== this.state.datetime && !isSameMinute(datetime, this.state.datetime);
+			datetime !== this.state.datetime && !isSameSecond(datetime, this.state.datetime);
 
 		const errorUpdated = errorMessage !== this.state.errorMessage;
 
@@ -133,7 +133,7 @@ class InputDateTimePicker extends React.Component {
 			time = strToTime(timeTextToParse);
 			checkTime(time);
 		} catch (error) {
-			time = time || { hours: '', minutes: '' };
+			time = time || { hours: '', minutes: '', seconds: '' };
 			errorMessage = errorMessage || error.message;
 		}
 
