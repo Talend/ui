@@ -112,7 +112,6 @@ export function bootstrapRedux(options, sagaMiddleware) {
 export default function bootstrap(appOptions = {}) {
 	const options = cmfModule(appOptions);
 	assertTypeOf(options, 'appId', 'string');
-	assertTypeOf(options, 'history', 'object');
 	assertTypeOf(options, 'RootComponent', 'function');
 
 	bootstrapRegistry(options);

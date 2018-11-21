@@ -83,7 +83,6 @@ const MERGE_FNS = {
 	modules: () => undefined,
 	appId: getUnique,
 	RootComponent: getUnique,
-	history: getUnique,
 	AppLoader: getUnique,
 	saga: mergeSaga,
 	httpMiddleware: getUnique,
