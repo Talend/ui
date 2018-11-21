@@ -1,8 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 import createSagaMiddleware from 'redux-saga';
-// import { hashHistory } from 'react-router';
-// import { routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 import { batchedSubscribe } from 'redux-batched-subscribe';
 import { call, fork } from 'redux-saga/effects';
 import compose from 'redux';
@@ -15,7 +13,6 @@ import component from './component';
 import expression from './expression';
 import storeAPI from './store';
 import registry from './registry';
-// import sagaRouter from './sagaRouter';
 import sagas from './sagas';
 import { registerInternals } from './register';
 import cmfModule from './cmfModule';
@@ -52,11 +49,6 @@ export function bootstrapSaga(options) {
 	assertTypeOf(options, 'saga', 'function');
 	function* cmfSaga() {
 		yield fork(sagas.component.handle);
-		// if (options.sagaRouterConfig) {
-			// eslint-disable-next-line no-console
-			// console.warn("sagaRouter is deprecated please use cmfConnect 'saga' props");
-			// yield fork(sagaRouter, options.history || hashHistory, options.sagaRouterConfig);
-		// }
 		if (typeof options.saga === 'function') {
 			yield call(options.saga);
 		}
@@ -127,10 +119,6 @@ export default function bootstrap(appOptions = {}) {
 	const appId = options.appId || 'app';
 	const saga = bootstrapSaga(options);
 
-	// const history = options.history || hashHistory;
-	// if (options.history) {
-	// 	storeAPI.setRouterMiddleware(routerMiddleware(options.history));
-	// }
 	const store = bootstrapRedux(options, saga.middleware);
 
 	saga.run();
@@ -140,7 +128,6 @@ export default function bootstrap(appOptions = {}) {
 			store={store}
 			root={options.RootComponent}
 			loading={options.AppLoader}
-			// history={syncHistoryWithStore(history, store)}
 		><RootComponent /></App>,
 		document.getElementById(appId),
 	);
