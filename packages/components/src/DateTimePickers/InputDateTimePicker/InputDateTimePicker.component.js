@@ -133,6 +133,7 @@ class InputDateTimePicker extends React.Component {
 			time = strToTime(timeTextToParse);
 			checkTime(time);
 		} catch (error) {
+			time = time || { hours: '', minutes: '' };
 			errorMessage = errorMessage || error.message;
 		}
 
@@ -179,19 +180,18 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	onPickerChange(event, { date, time }) {
-		const parsedTime = strToTime(`${time.hours}:${time.minutes}`);
 		let errorMessage;
 		try {
-			checkTime(parsedTime);
+			checkTime(time);
 		} catch (error) {
 			errorMessage = error.message;
 		}
 
 		const nextState = {
 			date,
-			time: parsedTime,
-			textInput: dateTimeToStr(date, parsedTime),
-			datetime: dateAndTimeToDateTime(date, parsedTime),
+			time,
+			textInput: dateTimeToStr(date, time),
+			datetime: dateAndTimeToDateTime(date, time),
 			errorMessage,
 		};
 		return this.onChange(event, nextState, 'PICKER');

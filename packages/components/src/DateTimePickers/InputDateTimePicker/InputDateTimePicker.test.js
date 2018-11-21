@@ -268,7 +268,7 @@ describe('InputDateTimePicker', () => {
 				{
 					name: 'with invalid time',
 					textInput: '2015-01-15 15aze:45',
-					expectedDate: new Date(2015, 0, '15'),
+					expectedDate: new Date(2015, 0, 15),
 					expectedTime: { hours: '15aze', minutes: '45' },
 				},
 				{
@@ -363,7 +363,7 @@ describe('InputDateTimePicker', () => {
 			// when
 			wrapper.find('DateTimePicker').prop('onSubmit')(event, {
 				date: new Date(2015, 0, 15),
-				time: { hours: 15, minutes: 45 },
+				time: { hours: '15', minutes: '45' },
 			});
 
 			// then
@@ -384,7 +384,7 @@ describe('InputDateTimePicker', () => {
 			// when
 			wrapper.find('DateTimePicker').prop('onSubmit')(event, {
 				date: new Date(2015, 0, 15),
-				time: { hours: '15aze', minutes: 45 },
+				time: { hours: '15aze', minutes: '45' },
 			});
 
 			// then

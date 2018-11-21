@@ -64,7 +64,7 @@ function hoursAndMinutesToTime(hours, minutes) {
 /**
  * Convert date and time to string with 'YYYY-MM-DD HH:mm' format
  * @param date {Date}
- * @param time {Object}
+ * @param time {{hours: string, minutes: string}}
  * @returns {string}
  */
 function dateTimeToStr(date, time) {
@@ -83,7 +83,7 @@ function dateTimeToStr(date, time) {
 		return format(fullDate, INPUT_FULL_FORMAT);
 	} catch (e) {
 		const dateStr = format(date, INPUT_DATE_ONLY_FORMAT);
-		if (hours !== undefined && minutes !== undefined) {
+		if (hours !== '' && minutes !== '') {
 			return `${dateStr} ${hours}:${minutes}`;
 		}
 		return dateStr;
