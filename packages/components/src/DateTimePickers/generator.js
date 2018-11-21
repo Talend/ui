@@ -8,7 +8,7 @@ import setDay from 'date-fns/set_day';
 import startOfWeek from 'date-fns/start_of_week';
 import { getCurrentLanguage } from '../translate';
 
-export const locales = {
+const locales = {
 	fr: require('date-fns/locale/fr'),
 	zh: require('date-fns/locale/zh_cn'),
 	ja: require('date-fns/locale/ja'),
