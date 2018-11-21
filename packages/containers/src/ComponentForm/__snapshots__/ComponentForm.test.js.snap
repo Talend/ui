@@ -91,7 +91,9 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
       ],
     }
   }
+  initialData={null}
   onChange={[Function]}
+  onReset={[Function]}
   onSubmit={[Function]}
   onTrigger={[Function]}
   widgets={

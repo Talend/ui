@@ -9,10 +9,17 @@ export const mapStateToProps = state => ({
 
 const connected = cmfConnect({
 	defaultState: DEFAULT_STATE,
+
 	defaultProps: {
 		saga: 'HeaderBar#default',
 	},
+
 	mapStateToProps,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(Container);
 
 export default connected;
