@@ -7,8 +7,8 @@ import Inject from '@talend/react-components/lib/Inject';
 
 import DefaultCellRenderer from '../DefaultCellRenderer';
 
-const cellKeys = ['colDef', 'value', 'data'];
-const getCellKeys = partialRight(pick, cellKeys);
+const keptProperties = ['colDef', 'value', 'data'];
+const getCellKeys = partialRight(pick, keptProperties);
 
 export default class InjectedCellRenderer extends React.Component {
 	constructor(props) {
