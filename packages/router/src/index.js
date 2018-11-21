@@ -12,9 +12,7 @@ function getModule(options) {
 			yield fork(sagaRouter, history, options.sagaRouterConfig);
 		}
 	}
-	const middlewares = [
-		routerMiddleware(history),
-	];
+	const middlewares = [routerMiddleware(history)];
 	let routerHistory;
 	function storeCallback(store) {
 		routerHistory = syncHistoryWithStore(history, store);

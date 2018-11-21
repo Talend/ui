@@ -128,7 +128,9 @@ export default function bootstrap(appOptions = {}) {
 			store={store}
 			root={options.RootComponent}
 			loading={options.AppLoader}
-		><RootComponent /></App>,
+		>
+			<RootComponent />
+		</App>,
 		document.getElementById(appId),
 	);
 }

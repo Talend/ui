@@ -145,10 +145,10 @@ function initialize(appReducer, preloadedState, enhancer, middleware) {
 		enhancers.push(enhancer);
 	}
 	const middles = getMiddlewares(middleware);
-	const store = compose(applyMiddleware(...middles), ...enhancers)(createStore)(
-		reducer,
-		preloadedState,
-	);
+	const store = compose(
+		applyMiddleware(...middles),
+		...enhancers,
+	)(createStore)(reducer, preloadedState);
 
 	return store;
 }
