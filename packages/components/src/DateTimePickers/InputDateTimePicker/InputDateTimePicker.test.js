@@ -142,62 +142,96 @@ describe('InputDateTimePicker', () => {
 	describe('focus/blur', () => {
 		it('should open picker on focus', () => {
 			// given
-			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} />);
-			expect(wrapper.find('DateTimePicker').length).toBe(0);
+			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} />, { attachTo: document.body });
+			expect(
+				wrapper
+					.find('Overlay')
+					.first()
+					.prop('show'),
+			).toBeFalsy();
 
 			// when
 			wrapper.simulate('focus');
 
 			// then
-			expect(wrapper.find('DateTimePicker').length).toBe(1);
+			expect(
+				wrapper
+					.find('Overlay')
+					.first()
+					.prop('show'),
+			).toBe(true);
 		});
 
-		it('should close picker on blur', done => {
+		it('should close picker on blur', () => {
 			// given
 			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} />);
 			wrapper.simulate('focus');
+			expect(
+				wrapper
+					.find('Overlay')
+					.first()
+					.prop('show'),
+			).toBe(true);
 
 			// when
 			wrapper.simulate('blur');
 
 			// then
-			setTimeout(() => {
-				wrapper.update();
-				expect(wrapper.find('DateTimePicker').length).toBe(0);
-				done();
-			}, 300); // overlay fade animation
+			expect(
+				wrapper
+					.find('Overlay')
+					.first()
+					.prop('show'),
+			).toBe(false);
 		});
 	});
 
 	describe('keydown', () => {
-		it('should close the picker and focus on input with ESC', done => {
+		it('should close the picker and focus on input with ESC', () => {
 			// given
 			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} />);
 			wrapper.simulate('focus');
+			expect(
+				wrapper
+					.find('Overlay')
+					.first()
+					.prop('show'),
+			).toBe(true);
 			const event = { keyCode: keycode.codes.esc };
 
 			// when
 			wrapper.simulate('keydown', event);
 
 			// then
-			setTimeout(() => {
-				wrapper.update();
-				expect(wrapper.find('DateTimePicker').length).toBe(0);
-				done();
-			}, 300); // overlay fade animation
+			expect(
+				wrapper
+					.find('Overlay')
+					.first()
+					.prop('show'),
+			).toBe(false);
 		});
 
 		it('should focus open picker if it is closed with input DOWN', () => {
 			// given
 			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} />);
-			expect(wrapper.find('DateTimePicker').length).toBe(0);
+			expect(
+				wrapper
+					.find('Overlay')
+					.first()
+					.prop('show'),
+			).toBeFalsy();
 			const event = { keyCode: keycode.codes.down };
 
 			// when
 			wrapper.find('input').simulate('keydown', event);
 
 			// then
-			expect(wrapper.find('DateTimePicker').length).toBe(1);
+			expect(
+				wrapper
+					.find('Overlay')
+					.first()
+					.prop('show'),
+			).toBe(true);
 		});
 
 		it('should focus on calendar day if it is open with input DOWN', () => {
