@@ -3,23 +3,9 @@
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
 /home/travis/build/Talend/ui/packages/datagrid/src/components/DataGrid/DataGrid.component.js
-   11:8   error    'DefaultCellRenderer' is defined but never used                  no-unused-vars
-   88:16  error    Declare only one React component per file                        react/no-multi-comp
-  123:20  error    Expected 'this' to be used by class method 'componentDidUpdate'  class-methods-use-this
-  124:3   warning  Unexpected console statement                                     no-console
-  194:3   warning  Unexpected console statement                                     no-console
-  200:3   warning  Unexpected console statement                                     no-console
+    6:8   error  'isEqual' is defined but never used              no-unused-vars
+   12:8   error  'DefaultCellRenderer' is defined but never used  no-unused-vars
+  112:16  error  Declare only one React component per file        react/no-multi-comp
 
-/home/travis/build/Talend/ui/packages/datagrid/src/components/DefaultCellRenderer/DefaultCellRenderer.component.js
-  16:10  error    'DefaultCellRenderer2' is defined but never used  no-unused-vars
-  16:33  error    'avroRenderer' is missing in props validation     react/prop-types
-  16:47  error    'colDef' is missing in props validation           react/prop-types
-  16:55  error    'value' is missing in props validation            react/prop-types
-  16:62  error    'getComponent' is missing in props validation     react/prop-types
-  16:76  error    'data' is missing in props validation             react/prop-types
-  20:2   warning  Unexpected console statement                      no-console
-  54:3   warning  Unexpected console statement                      no-console
-  70:3   warning  Unexpected console statement                      no-console
-
-✖ 15 problems (9 errors, 6 warnings)
+✖ 3 problems (3 errors, 0 warnings)
 
