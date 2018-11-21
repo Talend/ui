@@ -84,6 +84,7 @@
     "packages/forms",
     "packages/generator",
     "packages/icons",
+    "packages/router",
     "packages/sagas",
     "packages/storybook-cmf",
     "packages/theme"

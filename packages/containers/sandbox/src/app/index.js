@@ -5,18 +5,22 @@
  */
 
 import '@talend/bootstrap-theme/src/theme/theme.scss';
+import getRouter from '@talend/react-router';
 import containersModule from '@talend/react-containers';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 import cmf from '@talend/react-cmf';
 import { createLogger } from 'redux-logger';
 import actions from './actions';
 
+const routerModule = getRouter({});
+
 const app = {
 	components: { ComponentForm },
 	settingsURL: '/settings.json',
 	actionCreators: actions,
 	middlewares: [createLogger({})],
-	modules: [containersModule],
+	modules: [routerModule, containersModule],
+	RootComponent: routerModule.components.Router,
 };
 
 /**

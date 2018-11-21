@@ -12,7 +12,7 @@ import ConnectedDispatcher from './Dispatcher';
 import expression from './expression';
 import expressions from './expressions';
 import Inject from './Inject.component.js';
-import matchPath from './sagaRouter/matchPath';
+import matchPath from './matchPath';
 import sagas from './sagas';
 import selectors from './selectors';
 
@@ -21,8 +21,8 @@ import action from './action';
 import App from './App';
 import reducers from './reducers';
 import registry from './registry';
-import route from './route';
-import sagaRouter from './sagaRouter';
+// import route from './route';
+// import sagaRouter from './sagaRouter';
 import RegistryProvider from './RegistryProvider';
 import UIRouter from './UIRouter';
 import history from './history';
@@ -54,9 +54,9 @@ export {
 	httpMiddleware,
 	reducers,
 	registry,
-	route,
+	// route,
 	RegistryProvider,
-	sagaRouter,
+	// sagaRouter,
 	store,
 	UIRouter,
 };
@@ -85,7 +85,7 @@ export default {
 	expressions,
 	registerInternals,
 	registry,
-	route,
+	// route,
 	router: {
 		matchPath,
 	},

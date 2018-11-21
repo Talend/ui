@@ -8,21 +8,21 @@
 import PropTypes from 'prop-types';
 
 import React from 'react';
-import cmfConnect from './cmfConnect';
-import registry from './registry';
-import deprecated from './deprecated';
+import cmf, { cmfConnect } from '@talend/react-cmf';
+// import registry from './registry';
+// import deprecated from './deprecated';
 import CONST from './constant';
-import component from './component';
+// import component from './component';
 
-const getComponentFromRegistry = deprecated(
-	(context, id) => component.get(id, context),
-	'stop use cmf.route.getComponentFromRegistry. Please use cmf.component.get',
-);
+// const getComponentFromRegistry = deprecated(
+// 	(context, id) => component.get(id, context),
+// 	'stop use cmf.route.getComponentFromRegistry. Please use cmf.component.get',
+// );
 
-const registerComponent = deprecated(
-	component.register,
-	'stop use cmf.route.registerComponent. please use cmf.component.register',
-);
+// const registerComponent = deprecated(
+// 	component.register,
+// 	'stop use cmf.route.registerComponent. please use cmf.component.register',
+// );
 
 /**
  * register a function for the router configuration
@@ -33,7 +33,7 @@ function registerFunction(id, func) {
 	if (typeof func !== 'function') {
 		throw new Error('registerFunction wait for a function');
 	}
-	registry.addToRegistry(`${CONST.REGISTRY_HOOK_PREFIX}:${id}`, func);
+	cmf.registry.addToRegistry(`${CONST.REGISTRY_HOOK_PREFIX}:${id}`, func);
 }
 
 /**
@@ -42,7 +42,7 @@ function registerFunction(id, func) {
  * @param  {object} contextcmf context
  */
 function getFunction(id, context) {
-	return registry.getFromRegistry(`${CONST.REGISTRY_HOOK_PREFIX}:${id}`, context);
+	return cmf.registry.getFromRegistry(`${CONST.REGISTRY_HOOK_PREFIX}:${id}`, context);
 }
 
 function withProps(Component, item) {
@@ -77,7 +77,7 @@ function loadComponents(context, item, dispatch) {
 	/* eslint no-param-reassign: ["error", { "props": false }] */
 	if (item.component) {
 		// we create an HOC to pass item.componentId
-		item.component = withProps(component.get(item.component, context), item);
+		item.component = withProps(cmf.component.get(item.component, context), item);
 	}
 	if (item.components) {
 		// TODO: iterate over all keys to call loadComponents
@@ -136,8 +136,6 @@ function getRoutesFromSettings(context, settings, dispatch) {
 export default {
 	loadComponents,
 	getRoutesFromSettings,
-	getComponentFromRegistry,
-	registerComponent,
 	registerFunction,
 	getFunction,
 };
