@@ -17,8 +17,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/cmf/src/sagas/documentTitle.js
   3:23  error  Unable to resolve path to module '../sagaRouter/matchPath'  import/no-unresolved
 
-/home/travis/build/Talend/ui/packages/cmf/src/UIRouter.js
-  13:19  error  Unable to resolve path to module './route'  import/no-unresolved
-
-✖ 6 problems (4 errors, 2 warnings)
+✖ 5 problems (3 errors, 2 warnings)
 
