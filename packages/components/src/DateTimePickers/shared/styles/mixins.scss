@@ -1,10 +1,4 @@
-@mixin main {
-	color: $dove-gray;
-	font-weight: 600;
-}
-
 @mixin nav-action {
-	font-weight: 600;
 	padding: 0;
 	background: none;
 	border: none;
@@ -17,4 +11,15 @@
 @mixin picker-action-selected {
 	background-color: $scooter;
 	color: $white;
+}
+
+@mixin picker-header {
+	border: none;
+	color: $gray;
+	font-size: inherit;
+	font-weight: normal;
+	font-variant: none;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
 }

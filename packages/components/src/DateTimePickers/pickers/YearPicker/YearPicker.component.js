@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IncrementableScrollList from '../IncrementableScrollList';
+import IncrementableScrollList from '../../shared/components/IncrementableScrollList';
 
 const yearRange = 300;
 
