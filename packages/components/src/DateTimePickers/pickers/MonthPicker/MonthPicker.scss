@@ -1,26 +1,37 @@
+@import '../../shared/styles/mixins';
 @import '../../shared/styles/variables';
 
 .container {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
+	width: 100%;
+}
 
-	.row {
-		display: flex;
-		flex: 1;
-		border-bottom: $border-default;
-
-		&:last-child {
-			border-bottom: none;
-		}
+.calendar-row {
+	border-bottom: $border-default;
+	&:last-child {
+		border-bottom: none;
 	}
+}
 
-	.month {
-		flex: 1;
-		border-right: $border-default;
+.calendar-col {
+	border-right: $border-default;
+	width: 33.33%;
+	&:last-child {
+		border-right: none;
+	}
+}
 
-		&:last-child {
-			border-right: none;
-		}
+.calendar-month {
+	flex: 1;
+	height: 5rem;
+	width: 100%;
+
+	background: transparent;
+	border: none;
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+
+	&.selected {
+		@include picker-action-selected;
 	}
 }

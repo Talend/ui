@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PickerAction from '../../../shared/components/PickerAction';
+import PickerAction from '../../PickerAction';
 
 export default function RowRenderer({ index, key, parent, style }) {
 	const { items, onSelect, selectedItemId } = parent.props;
@@ -14,6 +14,7 @@ export default function RowRenderer({ index, key, parent, style }) {
 			label={item.label}
 			onClick={event => onSelect(event, item)}
 			style={style}
+			tabIndex={-1}
 		/>
 	);
 }
