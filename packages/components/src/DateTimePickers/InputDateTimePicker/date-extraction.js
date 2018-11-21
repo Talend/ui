@@ -159,8 +159,9 @@ function strToDate(strToParse) {
  * @returns {{ hours: string, minutes: string }}
  */
 function strToTime(strToParse) {
-	const timeMatches = strToParse.match(timeWithSecondsPartRegex) ?
-		strToParse.match(timeWithSecondsPartRegex) : strToParse.match(timePartRegex);
+	const timeMatches = strToParse.match(timeWithSecondsPartRegex)
+		? strToParse.match(timeWithSecondsPartRegex)
+		: strToParse.match(timePartRegex);
 	if (!timeMatches) {
 		throw new Error('TIME - INCORRECT FORMAT');
 	}
@@ -198,7 +199,7 @@ function extractDateTimeParts(selectedDateTime) {
 		const time = {
 			hours: pad(hours, 2),
 			minutes: pad(minutes, 2),
-			seconds: pad(seconds, 2)
+			seconds: pad(seconds, 2),
 		};
 		const datetime = startOfSecond(selectedDateTime);
 
