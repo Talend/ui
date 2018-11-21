@@ -21,11 +21,7 @@ import action from './action';
 import App from './App';
 import reducers from './reducers';
 import registry from './registry';
-// import route from './route';
-// import sagaRouter from './sagaRouter';
 import RegistryProvider from './RegistryProvider';
-import UIRouter from './UIRouter';
-import history from './history';
 import store from './store';
 import getErrorMiddleware from './middlewares/error';
 import httpMiddleware from './middlewares/http';
@@ -50,15 +46,11 @@ export {
 	// DEPRECATED
 	componentState,
 	getErrorMiddleware,
-	history,
 	httpMiddleware,
 	reducers,
 	registry,
-	// route,
 	RegistryProvider,
-	// sagaRouter,
 	store,
-	UIRouter,
 };
 
 /**

@@ -9,20 +9,8 @@ import PropTypes from 'prop-types';
 
 import React from 'react';
 import cmf, { cmfConnect } from '@talend/react-cmf';
-// import registry from './registry';
-// import deprecated from './deprecated';
-import CONST from './constant';
-// import component from './component';
 
-// const getComponentFromRegistry = deprecated(
-// 	(context, id) => component.get(id, context),
-// 	'stop use cmf.route.getComponentFromRegistry. Please use cmf.component.get',
-// );
-
-// const registerComponent = deprecated(
-// 	component.register,
-// 	'stop use cmf.route.registerComponent. please use cmf.component.register',
-// );
+const REGISTRY_HOOK_PREFIX = '_.route.hook';
 
 /**
  * register a function for the router configuration
@@ -33,7 +21,7 @@ function registerFunction(id, func) {
 	if (typeof func !== 'function') {
 		throw new Error('registerFunction wait for a function');
 	}
-	cmf.registry.addToRegistry(`${CONST.REGISTRY_HOOK_PREFIX}:${id}`, func);
+	cmf.registry.addToRegistry(`${REGISTRY_HOOK_PREFIX}:${id}`, func);
 }
 
 /**
@@ -42,7 +30,7 @@ function registerFunction(id, func) {
  * @param  {object} contextcmf context
  */
 function getFunction(id, context) {
-	return cmf.registry.getFromRegistry(`${CONST.REGISTRY_HOOK_PREFIX}:${id}`, context);
+	return cmf.registry.getFromRegistry(`${REGISTRY_HOOK_PREFIX}:${id}`, context);
 }
 
 function withProps(Component, item) {
