@@ -29,9 +29,7 @@ import RegistryProvider from './RegistryProvider';
 export default function App(props) {
 	return (
 		<Provider store={props.store}>
-			<RegistryProvider>
-				{props.children}
-			</RegistryProvider>
+			<RegistryProvider>{props.children}</RegistryProvider>
 		</Provider>
 	);
 }
