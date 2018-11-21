@@ -188,7 +188,7 @@ const options = {
 	state: cmfState,
 };
 
-storiesOf('Container Datagrid')
+storiesOf('Container Datagrid', module)
 	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div>
