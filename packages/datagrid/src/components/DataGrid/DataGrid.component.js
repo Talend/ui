@@ -54,14 +54,14 @@ class InjectedCellRenderer extends React.Component {
 		};
 	}
 
-	// refresh(params) {
-	// 	if (!isEqual(params.data[params.colDef.field], this.state.data[params.colDef.field])) {
-	// 		this.setState({ ...params });
-	// 		return true;
-	// 	}
-	//
-	// 	return false;
-	// }
+	refresh(params) {
+		if (!isEqual(params.data[params.colDef.field], this.state.data[params.colDef.field])) {
+			this.setState({ ...params });
+			return true;
+		}
+
+		return false;
+	}
 
 	render() {
 		const Component = Inject.get(datagridGetComponent, datagridCellRenderer, datagridAvroRenderer);
@@ -214,6 +214,7 @@ export default class DataGrid extends React.Component {
 		}
 
 		const agGridOptions = {
+			deltaRowDataMode: true,
 			headerHeight: this.props.headerHeight,
 			tabToNextCell: this.handleKeyboard,
 			navigateToNextCell: this.handleKeyboard,
@@ -273,7 +274,7 @@ export default class DataGrid extends React.Component {
 
 		agGridOptions.columnDefs = adaptedColumnDefs;
 		agGridOptions.frameworkComponents = {
-			[CELL_RENDERER_COMPONENT]: injectedCellRenderer(),
+			[CELL_RENDERER_COMPONENT]: InjectedCellRenderer,
 			[HEADER_RENDERER_COMPONENT]: injectedHeaderRenderer(
 				this.props.getComponent,
 				this.props.headerRenderer,
