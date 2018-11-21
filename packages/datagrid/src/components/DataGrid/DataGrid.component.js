@@ -3,20 +3,19 @@ import classNames from 'classnames';
 import keycode from 'keycode';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
-import isEqual from 'lodash/isEqual';
-import PropTypes from 'prop-types';
 import Inject from '@talend/react-components/lib/Inject';
 import Skeleton from '@talend/react-components/lib/Skeleton';
 
 import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from '../DefaultHeaderRenderer';
-import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from '../DefaultCellRenderer';
+import { CELL_RENDERER_COMPONENT } from '../DefaultCellRenderer';
 import DefaultPinHeaderRenderer, {
 	PIN_HEADER_RENDERER_COMPONENT,
 } from '../DefaultPinHeaderRenderer';
 
 import DATAGRID_PROPTYPES from './DataGrid.proptypes';
-import { AVRO_TYPES, NAMESPACE_INDEX } from '../../constants';
+import { NAMESPACE_INDEX } from '../../constants';
 import serializer from '../DatasetSerializer';
+import InjectedCellRenderer from './InjectedCellRenderer.component';
 import theme from './DataGrid.scss';
 
 export const AG_GRID = {
@@ -33,73 +32,16 @@ const COLUMN_MIN_WIDTH = 30;
 const ROW_HEIGHT = 39;
 const CELL_WIDTH = 150;
 
-// TODO: sad, try a new way to send to InjectedCellRenderer this data
-let datagridAvroRenderer;
-let datagridCellRenderer;
-let datagridGetComponent;
-
-export function injectedHeaderRenderer(getComponent, headerRenderer, onFocusedColumn, onKeyDown) {
-	const Component = Inject.get(getComponent, headerRenderer, DefaultHeaderRenderer);
+export function injectHeaderRenderer(
+	getComponent,
+	injectedHeaderRenderer,
+	onFocusedColumn,
+	onKeyDown,
+) {
+	const Component = Inject.get(getComponent, injectedHeaderRenderer, DefaultHeaderRenderer);
 
 	return props => <Component {...props} onFocusedColumn={onFocusedColumn} onKeyDown={onKeyDown} />;
 }
-
-class InjectedCellRenderer extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			colDef: props.colDef,
-			value: props.value,
-			data: props.data,
-		};
-	}
-
-	refresh(params) {
-		if (!isEqual(params.data[params.colDef.field], this.state.data[params.colDef.field])) {
-			this.setState({ ...params });
-			return true;
-		}
-
-		return false;
-	}
-
-	render() {
-		const Component = Inject.get(datagridGetComponent, datagridCellRenderer, datagridAvroRenderer);
-
-		return (
-			<Component
-				{...this.state}
-				avroRenderer={datagridAvroRenderer}
-				getComponent={datagridGetComponent}
-			/>
-		);
-	}
-}
-
-function injectedCellRenderer() {
-	const Component = Inject.get(datagridGetComponent, datagridCellRenderer, datagridAvroRenderer);
-
-	return props => (
-		<Component {...props} avroRenderer={datagridAvroRenderer} getComponent={datagridGetComponent} />
-	);
-}
-
-InjectedCellRenderer.defaultProps = {
-	value: {},
-	data: {},
-};
-
-InjectedCellRenderer.propTypes = {
-	colDef: PropTypes.shape({
-		avro: PropTypes.shape({
-			type: PropTypes.shape({
-				type: PropTypes.oneOf(AVRO_TYPES),
-			}),
-		}),
-	}),
-	value: PropTypes.object,
-	data: PropTypes.object,
-};
 
 export function getAvroRenderer(avroRenderer) {
 	return {
@@ -112,19 +54,20 @@ export function getAvroRenderer(avroRenderer) {
 export default class DataGrid extends React.Component {
 	static defaultProps = {
 		cellRenderer: 'DefaultCellRenderer',
-		getRowDataFn: serializer.getRowData,
-		getPinnedColumnDefsFn: serializer.getPinnedColumnDefs,
-		getColumnDefsFn: serializer.getColumnDefs,
-		getCellValueFn: serializer.getCellValue,
-		headerHeight: HEADER_HEIGHT,
 		columnMinWidth: COLUMN_MIN_WIDTH,
+		deltaRowDataMode: true,
 		enableColResize: true,
-		startIndex: 0,
+		getCellValueFn: serializer.getCellValue,
+		getColumnDefsFn: serializer.getColumnDefs,
+		getPinnedColumnDefsFn: serializer.getPinnedColumnDefs,
+		getRowDataFn: serializer.getRowData,
+		headerHeight: HEADER_HEIGHT,
 		headerRenderer: 'DefaultHeaderRenderer',
 		pinHeaderRenderer: 'DefaultPinHeaderRenderer',
 		rowHeight: ROW_HEIGHT,
-		rowSelection: AG_GRID.DEFAULT_ROW_SELECTION,
 		rowNodeIdentifier: 'index.index',
+		rowSelection: AG_GRID.DEFAULT_ROW_SELECTION,
+		startIndex: 0,
 	};
 
 	static propTypes = DATAGRID_PROPTYPES;
@@ -214,23 +157,23 @@ export default class DataGrid extends React.Component {
 		}
 
 		const agGridOptions = {
-			deltaRowDataMode: true,
+			deltaRowDataMode: this.props.deltaRowDataMode,
+			enableColResize: this.props.enableColResize,
+			getRowNodeId: data => data[this.props.rowNodeIdentifier],
 			headerHeight: this.props.headerHeight,
-			tabToNextCell: this.handleKeyboard,
 			navigateToNextCell: this.handleKeyboard,
+			onCellFocused: this.onFocusedCell,
+			onGridReady: this.onGridReady,
 			onViewportChanged: this.updateStyleFocusColumn,
 			onVirtualColumnsChanged: this.updateStyleFocusColumn,
 			overlayNoRowsTemplate: this.props.overlayNoRowsTemplate,
 			ref: this.setGridInstance, // use ref in AgGridReact to get the current instance
-			rowData,
 			rowBuffer: this.props.rowBuffer,
-			getRowNodeId: data => data[this.props.rowNodeIdentifier],
+			rowData,
+			tabToNextCell: this.handleKeyboard,
 			rowHeight: this.props.rowHeight,
 			rowSelection: this.props.rowSelection,
 			suppressDragLeaveHidesColumns: true,
-			enableColResize: this.props.enableColResize,
-			onCellFocused: this.onFocusedCell,
-			onGridReady: this.onGridReady,
 			suppressPropertyNamesCheck: true,
 		};
 
@@ -257,10 +200,12 @@ export default class DataGrid extends React.Component {
 		if (columnDefs) {
 			adaptedColumnDefs = adaptedColumnDefs.concat(
 				columnDefs.map(columnDef => ({
-					width: CELL_WIDTH,
 					lockPinned: true,
 					minWidth: this.props.columnMinWidth,
 					valueGetter: this.props.getCellValueFn,
+					width: CELL_WIDTH,
+					avroRenderer: getAvroRenderer(this.props.avroRenderer),
+					injectedCellRenderer: this.props.cellRenderer,
 					...columnDef,
 					[AG_GRID.CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
 					[AG_GRID.CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,
@@ -268,14 +213,10 @@ export default class DataGrid extends React.Component {
 			);
 		}
 
-		datagridAvroRenderer = getAvroRenderer(this.props.avroRenderer);
-		datagridCellRenderer = this.props.cellRenderer;
-		datagridGetComponent = this.props.getComponent;
-
 		agGridOptions.columnDefs = adaptedColumnDefs;
 		agGridOptions.frameworkComponents = {
 			[CELL_RENDERER_COMPONENT]: InjectedCellRenderer,
-			[HEADER_RENDERER_COMPONENT]: injectedHeaderRenderer(
+			[HEADER_RENDERER_COMPONENT]: injectHeaderRenderer(
 				this.props.getComponent,
 				this.props.headerRenderer,
 				this.onFocusedColumn,
