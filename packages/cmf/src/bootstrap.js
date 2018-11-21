@@ -53,9 +53,9 @@ export function bootstrapSaga(options) {
 	function* cmfSaga() {
 		yield fork(sagas.component.handle);
 		// if (options.sagaRouterConfig) {
-			// eslint-disable-next-line no-console
-			// console.warn("sagaRouter is deprecated please use cmfConnect 'saga' props");
-			// yield fork(sagaRouter, options.history || hashHistory, options.sagaRouterConfig);
+		// eslint-disable-next-line no-console
+		// console.warn("sagaRouter is deprecated please use cmfConnect 'saga' props");
+		// yield fork(sagaRouter, options.history || hashHistory, options.sagaRouterConfig);
 		// }
 		if (typeof options.saga === 'function') {
 			yield call(options.saga);
@@ -141,7 +141,9 @@ export default function bootstrap(appOptions = {}) {
 			root={options.RootComponent}
 			loading={options.AppLoader}
 			// history={syncHistoryWithStore(history, store)}
-		><RootComponent /></App>,
+		>
+			<RootComponent />
+		</App>,
 		document.getElementById(appId),
 	);
 }
