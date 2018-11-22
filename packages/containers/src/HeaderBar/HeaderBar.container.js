@@ -57,13 +57,12 @@ class HeaderBar extends React.Component {
 
 			const items = [
 				...(baseProducts.items ? props.products.items : []),
-				...productsItems
-					.map(product => ({
-						'data-feature': `product.${(product.id || '').toLowerCase()}`,
-						label: product.name,
-						icon: `talend-${product.icon}-colored`,
-						onClickDispatch: openProduct(product),
-					})),
+				...productsItems.map(product => ({
+					'data-feature': `product.${(product.id || '').toLowerCase()}`,
+					label: product.name,
+					icon: `talend-${product.icon}-colored`,
+					onClickDispatch: openProduct(product),
+				})),
 			];
 
 			props.products = Object.assign({}, baseProducts, { items });
