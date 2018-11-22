@@ -55,8 +55,15 @@ class HeaderBar extends React.Component {
 		if (hasFetchedProducts && productsItems) {
 			const baseProducts = props.products || {};
 
+			const baseItems = (baseProducts.items ? props.products.items : [])
+				.map(item => {
+					return item.dispatch
+						? { ...item, onClickDispatch: item.dispatch }
+						: item;
+				});
+
 			const items = [
-				...(baseProducts.items ? props.products.items : []),
+				...baseItems,
 				...productsItems.map(product => ({
 					'data-feature': `product.${(product.id || '').toLowerCase()}`,
 					label: product.name,

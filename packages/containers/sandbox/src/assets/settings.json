@@ -65,7 +65,13 @@
         "items": [
           {
             "icon": "talend-star",
-            "label": "Static menu entry"
+            "label": "Static menu entry",
+            "dispatch": {
+              "type": "CUSTOM_ACTION_TYPE",
+              "payload": {
+                "foo": "bar"
+              }
+            }
           }
         ]
       },
