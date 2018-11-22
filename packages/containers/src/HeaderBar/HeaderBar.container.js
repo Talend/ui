@@ -53,17 +53,13 @@ class HeaderBar extends React.Component {
 			this.props.state.get('productsFetchState') === Constants.FETCH_PRODUCTS_SUCCESS;
 
 		if (hasFetchedProducts && productsItems) {
-			const baseProducts = props.products || {};
+			const productsFromProps = props.products || {};
 
-			const baseItems = (baseProducts.items ? props.products.items : [])
-				.map(item => {
-					return item.dispatch
-						? { ...item, onClickDispatch: item.dispatch }
-						: item;
-				});
+			const itemsFromProps = (productsFromProps.items ? props.products.items : [])
+				.map(item => (item.dispatch ? { ...item, onClickDispatch: item.dispatch } : item));
 
 			const items = [
-				...baseItems,
+				...itemsFromProps,
 				...productsItems.map(product => ({
 					'data-feature': `product.${(product.id || '').toLowerCase()}`,
 					label: product.name,
@@ -72,7 +68,7 @@ class HeaderBar extends React.Component {
 				})),
 			];
 
-			props.products = Object.assign({}, baseProducts, { items });
+			props.products = Object.assign({}, productsFromProps, { items });
 			props.products.items.sort(productsSort || sortProductsByLabel);
 		}
 
