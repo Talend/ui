@@ -1,4 +1,3 @@
-import TimePicker, { twoDigits } from './TimePicker.component';
+import TimePicker from './TimePicker.component';
 
 export default TimePicker;
-export { twoDigits };

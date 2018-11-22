@@ -1,85 +1,77 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IncrementableScrollList from '../IncrementableScrollList';
-import twoDigits from '../../shared/utils/format/twoDigits';
+import classNames from 'classnames';
+import uuid from 'uuid';
+import DebounceInput from 'react-debounce-input';
 
-// All times in this component represents a number of minutes since the beginning of the day
+import theme from './TimePicker.scss';
 
-const maxTime = 24 * 60;
+const HOURS = 'HOURS';
+const MINUTES = 'MINUTES';
 
-function getInitialTime(selectedTime) {
-	if (selectedTime === undefined) {
-		const now = new Date();
-		return now.getHours() * 60 + now.getMinutes();
-	}
-
-	return selectedTime;
-}
-
-function toItemWithDiff(initialTime) {
-	return function adaptWithDiff(item, index) {
-		return {
-			index,
-			item,
-			diff: Math.abs(item.id - initialTime),
-		};
-	};
-}
-
-function selectLowestDiff(previous, next) {
-	if (previous && previous.diff < next.diff) {
-		return previous;
-	}
-	return next;
-}
-
-class TimePicker extends React.Component {
+class TimePicker extends React.PureComponent {
 	constructor(props) {
 		super(props);
-		this.onSelect = this.onSelect.bind(this);
-
-		const nbTimeSelectable = Math.ceil(maxTime / props.interval);
-		this.items = new Array(nbTimeSelectable)
-			.fill(0)
-			.map((_, i) => i * props.interval)
-			.map(time => {
-				const hours = Math.floor(time / 60);
-				const minutes = time % 60;
-
-				return {
-					id: time,
-					label: `${twoDigits(hours)}:${twoDigits(minutes)}`,
-				};
-			});
-
-		const initialTime = getInitialTime(props.selectedTime);
-		this.initialIndex = this.items.map(toItemWithDiff(initialTime)).reduce(selectLowestDiff).index;
+		const id = uuid.v4();
+		this.hourId = `${id}-hour`;
+		this.minuteId = `${id}-minute`;
+		this.onChange = this.onChange.bind(this);
 	}
 
-	onSelect(event, item) {
-		return this.props.onSelect(event, item.id);
+	onChange(event, field) {
+		const inputValue = event.target.value;
+		const newValue = { ...this.props.value };
+		if (field === HOURS) {
+			newValue.hours = inputValue;
+		} else if (field === MINUTES) {
+			newValue.minutes = inputValue;
+		}
+		this.props.onChange(event, newValue);
 	}
 
 	render() {
+		const tabIndex = this.props.allowFocus ? 0 : -1;
+
 		return (
-			<IncrementableScrollList
-				initialIndex={this.initialIndex}
-				items={this.items}
-				onSelect={this.onSelect}
-				selectedItemId={this.props.selectedTime}
-			/>
+			<div className={classNames('tc-date-picker-time', theme['time-picker'])}>
+				<legend>Time</legend>
+				<label htmlFor={this.hourId} className="sr-only">
+					Hours
+				</label>
+				<DebounceInput
+					id={this.hourId}
+					className={theme['time-input']}
+					value={this.props.value.hours}
+					tabIndex={tabIndex}
+					onChange={event => this.onChange(event, HOURS)}
+				/>
+				<hr />
+				<label htmlFor={this.minuteId} className="sr-only">
+					Minutes
+				</label>
+				<DebounceInput
+					id={this.minuteId}
+					className={theme['time-input']}
+					value={this.props.value.minutes}
+					tabIndex={tabIndex}
+					onChange={event => this.onChange(event, MINUTES)}
+				/>
+			</div>
 		);
 	}
 }
 
 TimePicker.defaultProps = {
-	interval: 15,
+	value: {},
 };
 
 TimePicker.propTypes = {
-	selectedTime: PropTypes.number,
-	interval: PropTypes.number,
-	onSelect: PropTypes.func.isRequired,
+	allowFocus: PropTypes.bool,
+	onChange: PropTypes.func.isRequired,
+	value: PropTypes.shape({
+		hours: PropTypes.string,
+		minutes: PropTypes.string,
+	}),
 };
 
 export default TimePicker;
