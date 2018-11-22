@@ -6,7 +6,7 @@ import Container, { DEFAULT_STATE } from './HeaderBar.container';
 import Connected, { mapStateToProps } from './HeaderBar.connect';
 import Constants from './HeaderBar.constant';
 
-describe.only('Container HeaderBar', () => {
+describe('Container HeaderBar', () => {
 	const state = DEFAULT_STATE;
 	const dispatch = jest.fn();
 	const containerProps = { state, dispatch };
@@ -36,7 +36,7 @@ describe.only('Container HeaderBar', () => {
 		expect(wrapper.props().products.items).toHaveLength(1);
 	});
 
-	it('should merge static products entries with fetched products', () => {
+	it('should merge static products entries with fetched products and sort them by label', () => {
 		const props = {
 			...containerProps,
 			productsItems: [
@@ -52,7 +52,7 @@ describe.only('Container HeaderBar', () => {
 					{
 						id: 'bar',
 						icon: 'icon',
-						name: 'Bar',
+						label: 'Bar',
 						url: 'http://bar.baz',
 					},
 				],
@@ -64,6 +64,8 @@ describe.only('Container HeaderBar', () => {
 
 		const wrapper = shallow(<Container {...props} />);
 		expect(wrapper.props().products.items).toHaveLength(2);
+		expect(wrapper.props().products.items[0].label).toEqual('Bar');
+		expect(wrapper.props().products.items[1].label).toEqual('Foo');
 	});
 
 	it('should render HeaderBar container while fetching items', () => {
