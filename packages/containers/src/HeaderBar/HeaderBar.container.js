@@ -55,8 +55,9 @@ class HeaderBar extends React.Component {
 		if (hasFetchedProducts && productsItems) {
 			const productsFromProps = props.products || {};
 
-			const itemsFromProps = (productsFromProps.items ? props.products.items : [])
-				.map(item => (item.dispatch ? { ...item, onClickDispatch: item.dispatch } : item));
+			const itemsFromProps = (productsFromProps.items ? props.products.items : []).map(item =>
+				item.dispatch ? { ...item, onClickDispatch: item.dispatch } : item,
+			);
 
 			const items = [
 				...itemsFromProps,
