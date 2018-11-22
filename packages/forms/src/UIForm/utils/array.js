@@ -118,5 +118,6 @@ export function getArrayElementSchema(arraySchema, elementIndex) {
 		key: arraySchema.key.concat(elementIndex),
 		items: getArrayElementItems(arraySchema, elementIndex),
 		widget: arraySchema.itemWidget || 'fieldset',
+		title: arraySchema.itemTitle,
 	};
 }
