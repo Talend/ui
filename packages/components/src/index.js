@@ -1,5 +1,6 @@
 import bootstrap from './bootstrap';
 import { I18N_DOMAIN_COMPONENTS, CIRCULAR_PROGRESS_SIZE } from './constants';
+import AboutDialog from './AboutDialog';
 import {
 	Action,
 	Actions,
@@ -124,6 +125,7 @@ const BootstrapCheckbox = bootstrap.Checkbox;
 const BootstrapTable = bootstrap.Table;
 
 export {
+	AboutDialog,
 	Action,
 	Actions,
 	ActionBar,
@@ -153,7 +155,6 @@ export {
 	HttpError,
 	Icon,
 	IconsProvider,
-	Image,
 	Inject,
 	JSONSchemaRenderer,
 	Layout,

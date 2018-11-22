@@ -1,7 +1,9 @@
-const yeoman = require('yeoman-generator');
+const Generator = require('yeoman-generator');
 const yosay = require('yosay');
+const path = require('path');
+const parser = require('./parser');
 
-module.exports = yeoman.Base.extend({
+module.exports = class ComponentGenerator extends Generator {
 	prompting() {
 		// Have Yeoman greet the user.
 		this.log(yosay(
@@ -20,91 +22,143 @@ module.exports = yeoman.Base.extend({
 			},
 		}, {
 			type: 'confirm',
-			name: 'isFull',
-			message: 'full component (component + container + connect)',
-			default: false,
+			name: 'scss',
+			message: 'add a scss file imported as theme in your component',
+			default: true,
 		}, {
-			type: 'list',
-			name: 'type',
-			message: 'type',
-			default: 'es6.class',
-			choices: ['es6.class', 'es6.arrow', 'stateless', 'connect'],
-			when(answers) {
-				return !answers.isFull;
-			},
+			type: 'checkbox',
+			name: 'extraTypes',
+			message: 'choose extra types (function is already included)',
+			choices: ['container', 'cmfConnect'],
 		}, {
-			type: 'input',
-			name: 'purePath',
-			message: 'pure component import path',
-			default: 'react-talend-components',
-			when(answers) {
-				return answers.type === 'connect';
+			type: 'checkbox',
+			name: 'tools',
+			message: 'choose tools',
+			choices: ['actions', 'expressions', 'sagas', 'settings'],
+			when(a) {
+				return a.extraTypes.includes('cmfConnect');
 			},
-		}, {
-			type: 'confirm',
-			name: 'css',
-			message: 'css',
-			default(a) {
-				return a.isFull || a.type !== 'connect';
-			},
-			when(answers) {
-				return answers.type !== 'connect';
-			},
+			default: [],
 		}, {
 			type: 'input',
 			name: 'path',
 			message: 'path',
 			default: 'src/app/components',
+		}, {
+			type: 'confirm',
+			name: 'parentIndex',
+			message(a) {
+				return `import and export it in ${a.path}/index.js ?`;
+			},
+			default: true,
 		}];
 
-		return this.prompt(prompts).then((props) => {
+		return this.prompt(prompts).then(props => {
 			// To access props later use this.props.someAnswer;
 			this.props = props;
 		});
-	},
+	}
 
 	writing() {
-		if (!this.props.isFull) {
-			this.fs.copyTpl(
-				this.templatePath(`src/${this.props.type}.component.js`),
-				this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.component.js`),
-				this
-			);
-			this.fs.copyTpl(
-				this.templatePath(this.props.type === 'connect' ? 'src/connect.test.js' : 'src/enzyme.test.js'),
-				this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.test.js`),
-				this
-			);
-			this.fs.copyTpl(
-				this.templatePath('src/index.js'),
-				this.destinationPath(`${this.props.path}/${this.props.name}/index.js`),
-				this
-			);
-		} else {
-			['component', 'container', 'connect'].forEach((t) => {
-				this.fs.copyTpl(
-					this.templatePath(`src/full.${t}.js`),
-					this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.${t}.js`),
-					this
-				);
-			});
-			this.fs.copyTpl(
-				this.templatePath('src/full.index.js'),
-				this.destinationPath(`${this.props.path}/${this.props.name}/index.js`),
-				this
-			);
-			this.fs.copyTpl(
-				this.templatePath('src/full.test.js'),
-				this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.test.js`),
-				this
-			);
+		const folderPath = `${this.props.path}/${this.props.name}`;
+		this.props.indexPath = `${this.props.name}.component.js`;
+		let higherPath = `${folderPath}/${this.props.indexPath}`;
+		this.props.cmfConnect = {
+			import: 'import { cmfConnect } from \'@talend/react-cmf\';',
+			propTypes: '...cmfConnect.propTypes',
+			omitProps: 'const props = cmfConnect.omitAllProps(this.props);',
+		};
+		if (!this.props.extraTypes.includes('cmfConnect')) {
+			this.props.cmfConnect.import = '';
+			this.props.cmfConnect.propTypes = '';
+			// only used by the container:
+			this.props.cmfConnect.omitProps = 'const props = this.props;';
 		}
-		if (this.props.css) {
+		if (this.props.scss) {
+			this.props.theme = `import theme from './${this.props.name}.scss';`;
 			this.fs.copyTpl(
 				this.templatePath('src/scss'),
-				this.destinationPath(`${this.props.path}/${this.props.name}/${this.props.name}.scss`),
+				this.destinationPath(`${folderPath}/${this.props.name}.scss`),
 				this
 			);
 		}
-	},
-});
+		this.fs.copyTpl(
+			this.templatePath('src/component.js'),
+			this.destinationPath(higherPath),
+			this
+		);
+		this.fs.copyTpl(
+			this.templatePath('src/component.test.js'),
+			this.destinationPath(`${folderPath}/${this.props.name}.component.test.js`),
+			this
+		);
+		if (this.props.extraTypes.includes('container')) {
+			this.props.indexPath = `${this.props.name}.container.js`;
+			higherPath = `${folderPath}/${this.props.indexPath}`;
+			this.fs.copyTpl(
+				this.templatePath('src/container.js'),
+				this.destinationPath(higherPath),
+				this
+			);
+			this.fs.copyTpl(
+				this.templatePath('src/container.test.js'),
+				this.destinationPath(`${folderPath}/${this.props.name}.container.test.js`),
+				this
+			);
+		}
+		if (this.props.extraTypes.includes('cmfConnect')) {
+			this.props.toConnect = `./${this.props.indexPath}`;
+			this.props.indexPath = `${this.props.name}.connect.js`;
+			higherPath = `${folderPath}/${this.props.indexPath}`;
+			this.fs.copyTpl(
+				this.templatePath('src/connect.js'),
+				this.destinationPath(higherPath),
+				this
+			);
+			this.fs.copyTpl(
+				this.templatePath('src/connect.test.js'),
+				this.destinationPath(`${folderPath}/${this.props.name}.connect.test.js`),
+				this
+			);
+		}
+
+		// tools
+		const tools = this.props.tools || [];
+		this.props.indexImports = [];
+		this.props.indexAssignments = [];
+		tools.forEach(tool => {
+			if (tool === 'settings') {
+				this.fs.copyTpl(
+					this.templatePath('src/settings.json'),
+					this.destinationPath(`src/settings/${this.props.name}.json`),
+					this
+				);
+			} else {
+				this.props.indexImports.push(`import ${tool} from './${tool}';`);
+				this.props.indexAssignments.push(`${this.props.name}.${tool} = ${tool};`);
+				this.fs.copyTpl(
+					this.templatePath(`src/${tool}.js`),
+					this.destinationPath(`${folderPath}/${tool}.js`),
+					this
+				);
+			}
+		});
+		this.props.indexImports = this.props.indexImports.join('\n');
+		this.props.indexAssignments = this.props.indexAssignments.join('\n');
+		this.fs.copyTpl(
+			this.templatePath('src/index.js'),
+			this.destinationPath(`${folderPath}/index.js`),
+			this
+		);
+		if (this.props.parentIndex) {
+			const parentIndexPath = path.join(this.props.path, 'index.js');
+			const parsedCode = parser.parse(parentIndexPath);
+			if (parsedCode) {
+				this.log(`   update ${parentIndexPath}`);
+				parser.addDefaultImport(parsedCode, this.props.name);
+				parser.updateDefaultExport(parsedCode, this.props.name);
+				parser.write(parentIndexPath, parsedCode);
+			}
+		}
+	}
+};

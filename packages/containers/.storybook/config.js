@@ -178,6 +178,11 @@ api.expression.register('modelHasLabel', context => {
 function loadStories() {
 	Object.keys(examples).forEach(example => {
 		const state = mock.state();
+		state.routing = {
+			locationBeforeTransitions: {
+				pathname: '/storybook',
+			},
+		};
 		state.cmf.collections = state.cmf.collections.set(
 			'myResourceType',
 			List([Map({ id: 'myID', label: 'myLabel' })]),
@@ -193,6 +198,29 @@ function loadStories() {
 							new Map({
 								id: 11,
 								label: 'sub foo',
+								author: 'Jacques',
+								created: '10/12/2013',
+								modified: '13/02/2015',
+								children: new List([
+									new Map({
+										id: 111,
+										label: 'sub sub foo',
+										author: 'Jacques',
+										created: '10/12/2013',
+										modified: '13/02/2015',
+									}),
+									new Map({
+										id: 112,
+										label: 'sub sub foo bar',
+										author: 'Jacques',
+										created: '10/12/2013',
+										modified: '13/02/2015',
+									}),
+								]),
+							}),
+							new Map({
+								id: 12,
+								label: 'sub foo bar',
 								author: 'Jacques',
 								created: '10/12/2013',
 								modified: '13/02/2015',
@@ -288,6 +316,13 @@ function loadStories() {
 			notification: { name: 'appheaderbar:notification' },
 		};
 		const actions = state.cmf.settings.actions;
+		actions['show:about'] = {
+			label: 'Show',
+			payload: {
+				type: 'ABOUT_DIALOG_SHOW',
+				url: 'https://tdp.us.cloud.talend.com/api/version',
+			},
+		};
 		actions['appheaderbar:logo'] = {
 			icon: 'talend-logo',
 		};
@@ -431,8 +466,11 @@ function loadStories() {
 		};
 		actions[actionsSubHeader.actionSubHeaderSharing.id] = actionsSubHeader.actionSubHeaderSharing;
 		actions[actionsSubHeader.actionSubHeaderBubbles.id] = actionsSubHeader.actionSubHeaderBubbles;
-
-		const story = storiesOf(example);
+		// migrate some actions to props:
+		state.cmf.settings.props['ActionButton#first'] = actions['menu:first'];
+		state.cmf.settings.props['ActionButton#second'] = actions['menu:second'];
+		state.cmf.settings.props['ActionButton#configuration'] = actions['menu:third'];
+		const story = storiesOf(example, examples[example]);
 		story.addDecorator(checkA11y);
 
 		if (typeof examples[example] === 'function') {

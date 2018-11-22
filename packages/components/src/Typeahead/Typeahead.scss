@@ -85,14 +85,19 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		align-items: center;
 
 		.icon-cls {
-			position: absolute;
-			right: 0;
+			margin: -2em;
 			color: $tc-typeahead-icon-color;
 			pointer-events: none;
 
-			> svg {
-				height: 0.8rem;
-				width: 0.8rem;
+			&.icon-caret {
+				position: absolute;
+				margin: 0;
+				right: 0;
+
+				> svg {
+					height: 0.8rem;
+					width: 0.8rem;
+				}
 			}
 		}
 	}

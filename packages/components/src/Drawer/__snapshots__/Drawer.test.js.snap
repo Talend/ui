@@ -50,7 +50,7 @@ exports[`Drawer should render 1`] = `
       <div
         className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
       >
-        <nav
+        <div
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
         >
           <div
@@ -62,7 +62,7 @@ exports[`Drawer should render 1`] = `
           <div
             className="theme-navbar-right navbar-right"
           />
-        </nav>
+        </div>
       </div>
     </div>
   </div>
@@ -97,7 +97,7 @@ exports[`Drawer should render stacked 1`] = `
       <div
         className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
       >
-        <nav
+        <div
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
         >
           <div
@@ -109,7 +109,7 @@ exports[`Drawer should render stacked 1`] = `
           <div
             className="theme-navbar-right navbar-right"
           />
-        </nav>
+        </div>
       </div>
     </div>
   </div>
@@ -144,7 +144,7 @@ exports[`Drawer should render using custom className 1`] = `
       <div
         className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
       >
-        <nav
+        <div
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
         >
           <div
@@ -156,7 +156,7 @@ exports[`Drawer should render using custom className 1`] = `
           <div
             className="theme-navbar-right navbar-right"
           />
-        </nav>
+        </div>
       </div>
     </div>
   </div>
@@ -195,7 +195,7 @@ exports[`Drawer should render using custom styles 1`] = `
       <div
         className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
       >
-        <nav
+        <div
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
         >
           <div
@@ -207,7 +207,7 @@ exports[`Drawer should render using custom styles 1`] = `
           <div
             className="theme-navbar-right navbar-right"
           />
-        </nav>
+        </div>
       </div>
     </div>
   </div>
@@ -225,48 +225,55 @@ exports[`Drawer should render with tabs 1`] = `
     <div
       className="tc-drawer-tabs-container theme-tc-drawer-tabs-container"
     >
-      <nav
-        className="nav tc-tab-bar tc-drawer-tabs theme-tc-drawer-tabs theme-tc-tab-bar"
+      <div
+        className="tc-drawer-tabs theme-tc-drawer-tabs"
+        id="my-tabs"
+        onKeyDown={[Function]}
       >
         <ul
-          className="nav nav-tabs tc-tab-bar-actions"
+          className="tc-tab-bar nav nav-tabs"
+          role="tablist"
         >
           <li
-            className="tc-tab-bar-action"
+            className=""
+            role="presentation"
+            style={undefined}
           >
             <button
-              aria-label="Tab 1"
-              className="btn btn-link"
-              disabled={false}
+              aria-controls="my-tabs-pane-1"
+              aria-selected={false}
+              href="#"
+              id="my-tabs-tab-1"
+              label="Tab 1"
               onClick={[Function]}
-              onMouseDown={[Function]}
-              role={null}
-              type="button"
+              onKeyDown={[Function]}
+              role="tab"
+              tabIndex={-1}
             >
-              <span>
-                Tab 1
-              </span>
+              Tab 1
             </button>
           </li>
           <li
-            className="tc-tab-bar-action active"
+            className="active"
+            role="presentation"
+            style={undefined}
           >
             <button
-              aria-label="Tab 2"
-              className="btn btn-link"
-              disabled={false}
+              aria-controls="my-tabs-pane-2"
+              aria-selected={true}
+              href="#"
+              id="my-tabs-tab-2"
+              label="Tab 2"
               onClick={[Function]}
-              onMouseDown={[Function]}
-              role={null}
-              type="button"
+              onKeyDown={[Function]}
+              role="tab"
+              tabIndex={undefined}
             >
-              <span>
-                Tab 2
-              </span>
+              Tab 2
             </button>
           </li>
         </ul>
-      </nav>
+      </div>
     </div>
     <div
       style={
@@ -288,7 +295,7 @@ exports[`Drawer should render with tabs 1`] = `
       <div
         className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
       >
-        <nav
+        <div
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
         >
           <div
@@ -300,7 +307,7 @@ exports[`Drawer should render with tabs 1`] = `
           <div
             className="theme-navbar-right navbar-right"
           />
-        </nav>
+        </div>
       </div>
     </div>
   </div>
@@ -327,7 +334,7 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
   t={[Function]}
   tReady={false}
 >
-  <nav
+  <div
     className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
   >
     <SwitchActions
@@ -454,7 +461,7 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
         />
       </Content>
     </SwitchActions>
-  </nav>
+  </div>
 </ActionBar>
 `;
 
@@ -486,7 +493,7 @@ exports[`Drawer should render without tc-drawer-transition class 1`] = `
       <div
         className="tc-drawer-actionbar-container theme-tc-drawer-actionbar-container"
       >
-        <nav
+        <div
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
         >
           <div
@@ -498,7 +505,7 @@ exports[`Drawer should render without tc-drawer-transition class 1`] = `
           <div
             className="theme-navbar-right navbar-right"
           />
-        </nav>
+        </div>
       </div>
     </div>
   </div>

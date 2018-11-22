@@ -6,6 +6,8 @@ import {
 	configureGetFilteredItems,
 	configureGetPagination,
 	configureGetPagedItems,
+	getCollectionItems,
+	configureGetSortedItems,
 } from './selector';
 
 function componentId(ownProps) {
@@ -13,22 +15,32 @@ function componentId(ownProps) {
 }
 
 function getItems(state, config) {
-	const items = configureGetFilteredItems(config)(state);
-
-	return items || new List();
+	let items = config.items;
+	if (config.defaultFiltering !== false) {
+		items = configureGetFilteredItems(config)(state);
+	}
+	if (config.defaultSorting !== false) {
+		items = configureGetSortedItems(config, items)(state);
+	}
+	return items;
 }
 
-function getPagedItems(state, config) {
-	const items = configureGetPagedItems(config)(state);
-
-	return items || new List();
+function getPagedItems(state, config, items) {
+	if (config.defaultPaging !== false) {
+		return configureGetPagedItems(config, items)(state);
+	}
+	return items;
 }
 
 export function mapStateToProps(state, ownProps, cmfProps) {
 	const props = {};
+	const collectionItems = getCollectionItems(state, ownProps.collectionId);
 	const config = {
 		collectionId: ownProps.collectionId,
-		items: ownProps.items,
+		items: collectionItems || ownProps.items || ownProps.listItems,
+		defaultFiltering: get(ownProps, ['toolbar', 'filter', 'defaultFiltering']),
+		defaultSorting: get(ownProps, ['toolbar', 'sort', 'defaultSorting']),
+		defaultPaging: get(ownProps, ['toolbar', 'pagination', 'defaultPaging']),
 	};
 	if (ownProps.list) {
 		config.columns = ownProps.list.columns;
@@ -39,7 +51,7 @@ export function mapStateToProps(state, ownProps, cmfProps) {
 	const totalResults = props.items.size;
 
 	if (get(ownProps, ['toolbar', 'pagination'])) {
-		props.items = getPagedItems(state, config);
+		props.items = getPagedItems(state, config, props.items);
 	}
 
 	const cmfState = get(cmfProps, 'state');
@@ -66,6 +78,17 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 
 export default cmfConnect({
 	defaultState: DEFAULT_STATE,
+
+	defaultProps: {
+		saga: 'List#root',
+		listItems: new List(),
+	},
+
 	componentId,
 	mapStateToProps,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(Container);

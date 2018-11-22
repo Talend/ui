@@ -43,7 +43,9 @@ function getPathFromPattern(pattern, namespace, locale) {
 function manageEmptyNamespace(i18n) {
 	if (!i18n.key.split(NAMESPACE_SEPARATOR)[1]) {
 		throw new Error(
-			`The key '${i18n.key}' doesn't have namespace defined. if a key doesn't have a namespace defined, it will not be extracted.`,
+			`The key '${
+				i18n.key
+			}' doesn't have namespace defined. if a key doesn't have a namespace defined, it will not be extracted.`,
 		);
 	}
 }
@@ -281,15 +283,19 @@ function parseI18n(namespaces, languages, froms, sort) {
 		froms = [froms];
 	}
 
-	froms.forEach(from => {
-		namespaces.forEach(namespace => {
-			const i18nKeys = getLocalesFromNamespaceInFolder(
-				path.join(process.cwd(), ...from.split('/')),
-				namespace.name,
-			);
-
-			updateLocales(i18nKeys, languages, namespace.name, namespace.path, sort);
+	namespaces.forEach(namespace => {
+		let i18nKeys = new Map();
+		froms.forEach(from => {
+			i18nKeys = new Map([
+				...i18nKeys,
+				...getLocalesFromNamespaceInFolder(
+					path.join(process.cwd(), ...from.split('/')),
+					namespace.name,
+				),
+			]);
 		});
+
+		updateLocales(i18nKeys, languages, namespace.name, namespace.path, sort);
 	});
 }
 

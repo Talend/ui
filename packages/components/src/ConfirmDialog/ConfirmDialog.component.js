@@ -38,6 +38,7 @@ function ConfirmDialog({
 	cancelAction,
 	progressLabel,
 	progressValue,
+	onHide,
 	...props
 }) {
 	const actions = {
@@ -58,13 +59,19 @@ function ConfirmDialog({
 	if (progressValue) {
 		progress = { percent: progressValue, tooltip: progressLabel };
 	}
+	function onHideHandler(event) {
+		if (cancelAction && cancelAction.onClick) {
+			cancelAction.onClick();
+		}
+		return onHide ? onHide(event) : null;
+	}
 	return (
 		<Dialog
 			progress={progress}
 			closeButton={false}
 			actionbar={{ actions }}
 			children={children}
-			keyboard
+			onHide={onHideHandler}
 			{...props}
 		/>
 	);
@@ -80,12 +87,13 @@ ConfirmDialog.propTypes = {
 	size: PropTypes.oneOf(['small', 'large']),
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 	show: PropTypes.bool,
-	cancelAction: PropTypes.shape(Action.propTypes).isRequired,
-	validateAction: PropTypes.shape(Action.propTypes).isRequired,
+	cancelAction: PropTypes.shape(Action.propTypes),
+	validateAction: PropTypes.shape(Action.propTypes),
 	secondaryActions: PropTypes.arrayOf(PropTypes.shape(Action.propTypes)),
 	progressLabel: PropTypes.string,
 	progressValue: PropTypes.number,
 	bodyOverflow: PropTypes.bool,
+	onHide: PropTypes.func,
 	getComponent: PropTypes.func,
 };
 

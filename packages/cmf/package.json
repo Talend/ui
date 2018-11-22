@@ -2,6 +2,7 @@
   "name": "@talend/react-cmf",
   "description": "A framework built on top of best react libraries",
   "main": "lib/index.js",
+  "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
     "prepublish": "babel -d lib ./src/",
@@ -115,5 +116,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.204.1"
+  "version": "1.7.0"
 }

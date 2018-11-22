@@ -7,6 +7,12 @@
       "comments"
     ],
     "properties": {
+      "names": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
       "comments": {
         "type": "array",
         "maxItems": 2,
@@ -58,9 +64,11 @@
     }
   },
   "uiSchema": [
+    { "key": "names" },
     {
       "key": "comments",
       "triggers": ["validation"],
+      "itemTitle": "Comment",
       "items": [
         {
           "key": "comments[].name",
@@ -83,6 +91,7 @@
     {
       "key": "collapsibleComments",
       "itemWidget": "collapsibleFieldset",
+      "itemTitle": "Comment",
       "items": [
         {
           "key": "collapsibleComments[].name",
@@ -104,7 +113,13 @@
     }
   ],
   "properties": {
+    "names": ["aze", "bslkdjf"],
     "comments": [
+      {
+        "name": "Jimmy",
+        "email": "jimmy@lol.com",
+        "comment": "Let's do this"
+      },
       {
         "name": "Jimmy",
         "email": "jimmy@lol.com",

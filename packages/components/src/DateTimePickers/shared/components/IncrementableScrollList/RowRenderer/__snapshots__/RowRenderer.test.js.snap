@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RowRenderer should render 1`] = `
+<PickerAction
+  aria-label="Select 'item-2'"
+  isSelected={true}
+  label="item-2"
+  onClick={[Function]}
+  style={
+    Object {
+      "display": "flex",
+    }
+  }
+  tabIndex={-1}
+/>
+`;

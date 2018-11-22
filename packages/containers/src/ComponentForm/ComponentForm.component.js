@@ -22,6 +22,7 @@ const TO_OMIT = [
 
 export const DEFAULT_STATE = new Map({
 	dirty: false,
+	initialState: {},
 });
 
 /**
@@ -42,21 +43,28 @@ export function toJS(immutableObject) {
  * @param value The input value
  */
 export function resolveNameForTitleMap({ schema, properties, value }) {
-	if (schema.titleMap) {
-		// Here we add a field side by side with the value
-		// to keep the title associated to the value
-		const info = schema.titleMap.find(titleMap => titleMap.value === value);
+	if (!schema.titleMap) {
+		return;
+	}
 
-		const parentKey = schema.key.slice();
-		const key = parentKey.pop();
-		const nameKey = `$${key}_name`;
-		const parentValue = getValue(properties, { key: parentKey });
+	// Here we add a field side by side with the value
+	// to keep the title associated to the value
+	const valueIsArray = Array.isArray(value);
+	const uniformValue = valueIsArray ? value : [value];
 
-		if (info) {
-			parentValue[nameKey] = info.name;
-		} else {
-			delete parentValue[nameKey];
-		}
+	const names = uniformValue
+		.map(nextValue => schema.titleMap.find(titleMap => titleMap.value === nextValue))
+		.map(entry => entry && entry.name);
+
+	const parentKey = schema.key.slice();
+	const key = parentKey.pop();
+	const nameKey = `$${key}_name`;
+	const parentValue = getValue(properties, { key: parentKey });
+
+	if (names.some(name => name !== undefined)) {
+		parentValue[nameKey] = valueIsArray ? names : names[0];
+	} else {
+		delete parentValue[nameKey];
 	}
 }
 
@@ -67,13 +75,14 @@ export class TCompForm extends React.Component {
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
+		this.onReset = this.onReset.bind(this);
 		this.getUISpec = this.getUISpec.bind(this);
 		this.setupTrigger = this.setupTrigger.bind(this);
 		this.setupTrigger(props);
 
 		this.getMemoizedJsonSchema = memoizeOne(toJS);
 		this.getMemoizedUiSchema = memoizeOne(toJS);
-		this.getMemoizedErrors = memoizeOne(toJS);
+		this.getMemoizedInitialState = memoizeOne(toJS);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -134,11 +143,11 @@ export class TCompForm extends React.Component {
 			// need to rethink that, there are lots of potential issues :
 			// - race conditions,
 			// - trigger result that is does not fit user entry anymore,
-			// - ...
+			// - erase a good value put by the enduser
 			if (data.properties) {
 				this.setState({ properties: data.properties });
 			}
-			if (data.errors || data.jsonSchema || data.uiSchema) {
+			if (data.jsonSchema || data.uiSchema) {
 				this.props.setState(data);
 			}
 			return data;
@@ -158,6 +167,16 @@ export class TCompForm extends React.Component {
 		});
 	}
 
+	onReset() {
+		this.props.setState(prev =>
+			prev.state
+				.set('jsonSchema', this.props.state.getIn(['initialState', 'jsonSchema']))
+				.set('uiSchema', this.props.state.getIn(['initialState', 'uiSchema']))
+				.set('properties', this.props.state.getIn(['initialState', 'properties'])),
+		);
+		this.setState({ properties: this.props.state.getIn(['initialState', 'properties']).toJS() });
+	}
+
 	setupTrigger(props) {
 		const config = cmf.sagas.http.getDefaultConfig() || {};
 		this.trigger = kit.createTriggers({
@@ -165,6 +184,10 @@ export class TCompForm extends React.Component {
 			customRegistry: props.customTriggers,
 			headers: config.headers,
 			lang: props.lang,
+			security: {
+				CSRFTokenCookieKey: props.CSRFTokenCookieKey,
+				CSRFTokenHeaderKey: props.CSRFTokenHeaderKey,
+			},
 		});
 	}
 
@@ -190,18 +213,15 @@ export class TCompForm extends React.Component {
 		const props = {
 			...omit(this.props, TO_OMIT),
 			data: uiSpecs,
+			initialData: this.getMemoizedInitialState(this.props.state.get('initialState')),
 			onTrigger: this.onTrigger,
 			onChange: this.onChange,
 			onSubmit: this.onSubmit,
+			onReset: this.onReset,
 			widgets: { ...this.props.widgets, ...tcompFieldsWidgets },
 		};
 
-		const errors = this.props.state.get('errors');
-		if (errors) {
-			props.errors = this.getMemoizedErrors(errors);
-		}
-
-		return <Form {...props} uiform />;
+		return <Form {...props} />;
 	}
 }
 
@@ -221,11 +241,20 @@ TCompForm.propTypes = {
 	lang: PropTypes.string,
 	customTriggers: PropTypes.object,
 	dispatchOnChange: PropTypes.bool,
+	CSRFTokenCookieKey: PropTypes.string,
+	CSRFTokenHeaderKey: PropTypes.string,
 };
 
 export default cmfConnect({
 	defaultState: DEFAULT_STATE,
+
 	defaultProps: {
 		saga: 'ComponentForm#default',
 	},
+
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(TCompForm);

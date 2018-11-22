@@ -36,7 +36,9 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
   noRowsRenderer={[Function]}
   onRowClick={[Function]}
   onRowDoubleClick={[Function]}
+  onScroll={[Function]}
   rowHeight={50}
+  rowRenderers={undefined}
   sort={[Function]}
   sortBy="name"
   sortDirection="DESC"
@@ -107,17 +109,17 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
   <Column
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
-    className="theme-cell tc-list-cell-name"
+    className="theme-cell tc-list-cell-description"
     columnData={
       Object {
         "id": "my-list-id",
       }
     }
-    dataKey="name"
+    dataKey="description"
     defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={0}
-    headerClassName="theme-header tc-list-cell-name"
+    headerClassName="theme-header tc-list-cell-description"
     headerRenderer={[Function]}
     label="Description"
     style={Object {}}

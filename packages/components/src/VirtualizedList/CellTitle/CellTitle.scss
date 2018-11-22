@@ -1,6 +1,6 @@
 @import '../colors';
 $tc-list-title-color: $black !default;
-$tc-list-title-icon-size: $svg-lg-size !default;
+$tc-list-title-icon-size: $svg-rg-size !default;
 
 .tc-list-title {
 	display: flex;
@@ -9,6 +9,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	height: 100%;
 
 	.icon {
+		filter: url('#talend-grayscale');
 		flex-shrink: 0;
 		height: $tc-list-title-icon-size;
 		width: $tc-list-title-icon-size;
@@ -42,7 +43,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 
 		color: $tc-list-title-color;
 		font-size: inherit;
-		font-weight: 700;
+		font-weight: 600;
 		letter-spacing: inherit;
 		text-transform: none;
 		text-align: left;
@@ -62,8 +63,22 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	}
 }
 
+.tc-list-title-filter {
+	&:hover,
+	&:global(.ally-focus-within) {
+		.icon {
+			color: $brand-primary;
+			filter: none;
+		}
+
+		.main-title {
+			color: $scooter;
+		}
+	}
+}
+
 // manage actions display on row hover
-:global(.tc-list-large-row),
+:global(.tc-list-large-inner-box),
 :global(.ReactVirtualized__Table__row) {
 	&:hover,
 	&:focus,
@@ -76,7 +91,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	}
 }
 
-:global(.tc-list-large-row.active),
+:global(.tc-list-large-row.active .tc-list-large-inner-box),
 :global(.ReactVirtualized__Table__row.active) {
 	&:hover,
 	&:focus,
@@ -87,7 +102,7 @@ $tc-list-title-icon-size: $svg-lg-size !default;
 	}
 }
 
-:global(.tc-list-large-row.selected),
+:global(.tc-list-large-row.selected .tc-list-large-inner-box),
 :global(.ReactVirtualized__Table__row.selected) {
 	&:hover,
 	&:focus,

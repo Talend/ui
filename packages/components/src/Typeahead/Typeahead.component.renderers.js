@@ -32,7 +32,7 @@ export function renderInputComponent(props) {
 				<FormControl id={key} autoFocus inputRef={inputRef} {...rest} />
 			)}
 			{hasIcon && (
-				<div className={theme['icon-cls']}>
+				<div className={classNames(theme['icon-cls'], caret && theme['icon-caret'])}>
 					{icon && <Icon {...icon} />}
 					{caret && <Icon name="talend-caret-down" />}
 				</div>
@@ -171,7 +171,7 @@ export function renderItem(item, { value }) {
 	if (typeof item === 'string') {
 		title = item;
 	} else {
-		title = item.title ? item.title.trim() : '';
+		title = (item.title || item.name || '').trim();
 		description = item.description;
 	}
 	return (

@@ -6,11 +6,11 @@ import { checkA11y } from '@storybook/addon-a11y';
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
 import { I18nextProvider } from 'react-i18next';
-import { cloneDeep } from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 
 import { List, IconsProvider } from '../src/index';
 import i18n, { LanguageSwitcher } from './config/i18n';
-
+import { MyCustomRow } from './VirtualizedList';
 /**
  * Cell renderer that displays hello + text
  */
@@ -48,6 +48,7 @@ const icons = {
 	'talend-tiles': talendIcons['talend-tiles'],
 	'talend-trash': talendIcons['talend-trash'],
 	'talend-warning': talendIcons['talend-warning'],
+	'talend-file-s3-o': talendIcons['talend-file-s3-o'],
 };
 
 const selected = [
@@ -182,13 +183,13 @@ const props = {
 				modified: '2016-09-22',
 				author: 'Jean-Pierre DUPONT',
 				actions,
-				icon: 'talend-file-xls-o',
+				icon: 'talend-file-s3-o',
 				display: 'text',
 				className: 'item-0-class',
 			},
 			{
 				id: 1,
-				name: 'Title with a lot of actions',
+				name: 'Title with a lot of actions with super super super super super super super super super super super super super super super super super super super super super super super super super super super super super super long title oh yeah',
 				created: '2016-09-22',
 				modified: '2016-09-22',
 				author: 'Jean-Pierre DUPONT',
@@ -214,7 +215,7 @@ const props = {
 				created: '2016-09-22',
 				modified: '2016-09-22',
 				author:
-					'Jean-Pierre DUPONT with super super super super super super super super super super super super long name, but there was not enough long text',
+					'Jean-Pierre DUPONT with super super super super super super super super super super super super super super super super super super super super super super super long name, but there was not enough long text',
 				className: 'item-3-class',
 			},
 		],
@@ -511,6 +512,17 @@ storiesOf('List', module)
 			</p>
 			<pre>&lt;List displayMode="large" ... &gt;</pre>
 			<List {...props} rowHeight={140} displayMode="large" />
+		</div>
+	))
+	.add('Large display overrides by rowRenderers', () => (
+		<div style={{ height: '70vh' }} className="virtualized-list">
+			<h1>List</h1>
+			<p>
+				Display the list in large mode.<br />
+				You just need to pass the props displayMode.
+			</p>
+			<pre>&lt;List displayMode="large" rowRenderers= ... &gt;</pre>
+			<List {...props} rowHeight={116} displayMode="large" rowRenderers={{ LARGE: MyCustomRow }} />
 		</div>
 	))
 	.add('Large display with icons', () => {

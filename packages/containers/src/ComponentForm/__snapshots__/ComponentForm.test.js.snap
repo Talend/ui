@@ -91,18 +91,15 @@ exports[`ComponentForm #render should render a UIForm 1`] = `
       ],
     }
   }
-  errors={
-    Object {
-      "key": "This is wrong",
-    }
-  }
+  initialData={null}
   onChange={[Function]}
+  onReset={[Function]}
   onSubmit={[Function]}
   onTrigger={[Function]}
-  uiform={true}
   widgets={
     Object {
       "datalist": [Function],
+      "multiSelectTag": [Function],
     }
   }
 />

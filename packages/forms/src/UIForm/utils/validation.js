@@ -1,6 +1,8 @@
 import omit from 'lodash/omit';
 import { validate } from '@talend/json-schema-form-core';
 import { getValue } from '../utils/properties';
+import shouldValidate from '../utils/condition';
+import { getArrayElementItems } from './array';
 
 /**
  * Adapt merged schema from jsfc with additional rules
@@ -66,7 +68,7 @@ export function validateValue(schema, value, properties, customValidationFn) {
  */
 export function validateArray(mergedSchema, value, properties, customValidationFn, deepValidation) {
 	const results = {};
-	const { key, items } = mergedSchema;
+	const { key } = mergedSchema;
 
 	// validate array definition, not its sub-items here
 	const schemaWithoutItems = {
@@ -85,14 +87,7 @@ export function validateArray(mergedSchema, value, properties, customValidationF
 	if (deepValidation && value) {
 		for (let valueIndex = 0; valueIndex < value.length; valueIndex += 1) {
 			// adapt items schema with value index
-			const indexedItems = items.map(item => {
-				const indexedKey = [...item.key];
-				indexedKey[key.length] = valueIndex;
-				return {
-					...item,
-					key: indexedKey,
-				};
-			});
+			const indexedItems = getArrayElementItems(mergedSchema, valueIndex);
 			// eslint-disable-next-line no-use-before-define
 			const subResults = validateAll(indexedItems, properties, customValidationFn);
 			Object.assign(results, subResults);
@@ -171,13 +166,9 @@ export function validateAll(mergedSchema, properties, customValidationFn) {
 	const results = {};
 	mergedSchema.forEach(schema => {
 		const value = getValue(properties, schema);
-		const subResults = validateSingle(
-			schema,
-			value,
-			properties,
-			customValidationFn,
-			true, // deep validation
-		);
+		const subResults = !shouldValidate(schema.condition, properties)
+			? true
+			: validateSingle(schema, value, properties, customValidationFn, true); // deep validation
 		Object.assign(results, subResults);
 	});
 	return results;

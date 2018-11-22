@@ -3,12 +3,8 @@
 exports[`Storyshots ActionList default 1`] = `
 <div>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -54,9 +50,11 @@ exports[`Storyshots ActionList default 1`] = `
         viewBox="0 0 16 16"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M1 2h4v5H1zm5 5h9V2H6zm-5 7h4V9H1zm5 0h9V9H6z"
-        />
+        <g>
+          <path
+            d="M1,1 L15,1 C15.5522847,1 16,1.44771525 16,2 L16,14 C16,14.5522847 15.5522847,15 15,15 L1,15 C0.44771525,15 6.76353751e-17,14.5522847 0,14 L0,2 C-6.76353751e-17,1.44771525 0.44771525,1 1,1 Z M1,4 L1,8 L15,8 L15,4 L1,4 Z M1,9 L1,13 L15,13 L15,9 L1,9 Z"
+          />
+        </g>
       </svg>
     </symbol>
     <symbol
@@ -86,6 +84,72 @@ exports[`Storyshots ActionList default 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            colorInterpolationFilters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            colorInterpolationFilters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                exponent="7"
+                type="gamma"
+              />
+              <feFuncG
+                exponent="7"
+                type="gamma"
+              />
+              <feFuncB
+                exponent="7"
+                type="gamma"
+              />
+              <feFuncA
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div
     style={
@@ -297,12 +361,8 @@ exports[`Storyshots ActionList default 1`] = `
 exports[`Storyshots ActionList single 1`] = `
 <div>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -348,9 +408,11 @@ exports[`Storyshots ActionList single 1`] = `
         viewBox="0 0 16 16"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M1 2h4v5H1zm5 5h9V2H6zm-5 7h4V9H1zm5 0h9V9H6z"
-        />
+        <g>
+          <path
+            d="M1,1 L15,1 C15.5522847,1 16,1.44771525 16,2 L16,14 C16,14.5522847 15.5522847,15 15,15 L1,15 C0.44771525,15 6.76353751e-17,14.5522847 0,14 L0,2 C-6.76353751e-17,1.44771525 0.44771525,1 1,1 Z M1,4 L1,8 L15,8 L15,4 L1,4 Z M1,9 L1,13 L15,13 L15,9 L1,9 Z"
+          />
+        </g>
       </svg>
     </symbol>
     <symbol
@@ -380,6 +442,72 @@ exports[`Storyshots ActionList single 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            colorInterpolationFilters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            colorInterpolationFilters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                exponent="7"
+                type="gamma"
+              />
+              <feFuncG
+                exponent="7"
+                type="gamma"
+              />
+              <feFuncB
+                exponent="7"
+                type="gamma"
+              />
+              <feFuncA
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div
     style={
@@ -431,12 +559,8 @@ exports[`Storyshots ActionList single 1`] = `
 exports[`Storyshots ActionList with custom class names 1`] = `
 <div>
   <svg
+    className="sr-only"
     focusable="false"
-    style={
-      Object {
-        "display": "none",
-      }
-    }
     xmlns="http://www.w3.org/2000/svg"
   >
     <symbol
@@ -482,9 +606,11 @@ exports[`Storyshots ActionList with custom class names 1`] = `
         viewBox="0 0 16 16"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M1 2h4v5H1zm5 5h9V2H6zm-5 7h4V9H1zm5 0h9V9H6z"
-        />
+        <g>
+          <path
+            d="M1,1 L15,1 C15.5522847,1 16,1.44771525 16,2 L16,14 C16,14.5522847 15.5522847,15 15,15 L1,15 C0.44771525,15 6.76353751e-17,14.5522847 0,14 L0,2 C-6.76353751e-17,1.44771525 0.44771525,1 1,1 Z M1,4 L1,8 L15,8 L15,4 L1,4 Z M1,9 L1,13 L15,13 L15,9 L1,9 Z"
+          />
+        </g>
       </svg>
     </symbol>
     <symbol
@@ -514,6 +640,72 @@ exports[`Storyshots ActionList with custom class names 1`] = `
         />
       </svg>
     </symbol>
+    <svg
+      id="colormapping"
+    >
+      <svg>
+        <defs>
+          <filter
+            colorInterpolationFilters="sRGB"
+            id="colormapping"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feColorMatrix
+              in="grayscale"
+              values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
+    <svg
+      id="grayscale"
+    >
+      <svg>
+        <defs>
+          <filter
+            colorInterpolationFilters="sRGB"
+            id="talend-grayscale"
+          >
+            <feColorMatrix
+              in="SourceGraphic"
+              result="grayscale"
+              type="saturate"
+              values="0"
+            />
+            <feComponentTransfer
+              in="grayscale"
+              result="gammadarken"
+            >
+              <feFuncR
+                exponent="7"
+                type="gamma"
+              />
+              <feFuncG
+                exponent="7"
+                type="gamma"
+              />
+              <feFuncB
+                exponent="7"
+                type="gamma"
+              />
+              <feFuncA
+                type="gamma"
+              />
+            </feComponentTransfer>
+            <feColorMatrix
+              in="gammadarken"
+              values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
+            />
+          </filter>
+        </defs>
+      </svg>
+    </svg>
   </svg>
   <div>
     <p>

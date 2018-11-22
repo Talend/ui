@@ -58,7 +58,7 @@ function Skeleton({ heartbeat, type, size, width, height, name, className, t }) 
 	);
 
 	const ariaLabel = t('SKELETON_LOADING', {
-		defaultValue: ' {{type}} (loading)',
+		defaultValue: '{{type}} (loading)',
 		type: getTranslatedType(t, type),
 	});
 

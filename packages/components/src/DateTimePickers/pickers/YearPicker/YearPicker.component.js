@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IncrementableScrollList from '../IncrementableScrollList';
+import IncrementableScrollList from '../../shared/components/IncrementableScrollList';
 
 const yearRange = 300;
 
@@ -26,8 +26,8 @@ class YearPicker extends React.Component {
 		this.initialIndex = this.items.findIndex(year => year.id === definedMiddleYear);
 	}
 
-	onSelect(item) {
-		return this.props.onSelect(item.id);
+	onSelect(event, item) {
+		return this.props.onSelect(event, item.id);
 	}
 
 	render() {

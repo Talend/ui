@@ -1,7 +1,9 @@
+/* eslint-disable global-require,no-plusplus */
 import 'babel-polyfill';
 import 'isomorphic-fetch';
 import 'raf/polyfill';
 import { configure } from 'enzyme';
+import dateMock from './mocks/dateMock';
 
 function getMajorVersion() {
 	if (!process.env.REACT_VERSION) {
@@ -23,6 +25,7 @@ if (REACT_VERSION === '15') {
 
 configure({ adapter: new AdapterReact() });
 
+// define fetch
 const fetch = jest.fn(
 	(url, config) =>
 		new Promise(resolve => {
@@ -34,3 +37,34 @@ const fetch = jest.fn(
 );
 global.fetch = fetch;
 global.Headers = Headers;
+
+// define Element.closest
+if (typeof Element.prototype.matches !== 'function') {
+	Element.prototype.matches = function matches(selector) {
+		const element = this;
+		const elements = (element.document || element.ownerDocument).querySelectorAll(selector);
+		let index = 0;
+
+		while (elements[index] && elements[index] !== element) {
+			++index;
+		}
+
+		return Boolean(elements[index]);
+	};
+}
+
+Element.prototype.closest = function closest(selector) {
+	let element = this;
+
+	while (element && element.nodeType === 1) {
+		if (element.matches(selector)) {
+			return element;
+		}
+
+		element = element.parentNode;
+	}
+
+	return null;
+};
+
+global.dateMock = dateMock;

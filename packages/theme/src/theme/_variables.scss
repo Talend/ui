@@ -23,7 +23,7 @@ $brand-primary-dark: shade($brand-primary, 12) !default;
 $brand-primary-darker: shade($brand-primary, 25) !default;
 $brand-secondary: $rio-grande !default;
 $brand-success: $rio-grande !default;
-$brand-info: $scooter !default;
+$brand-info: $st-tropaz !default;
 $brand-warning: $lightning-yellow !default;
 $brand-danger: $chestnut-rose !default;
 
@@ -589,7 +589,7 @@ $label-link-hover-color: #fff !default;
 //##
 
 //** Padding applied to the modal body
-$modal-inner-padding: 15px !default;
+$modal-inner-padding: 15px 30px !default;
 
 //** Padding applied to the modal title
 $modal-title-padding: 30px !default;
@@ -615,8 +615,8 @@ $modal-header-border-color: #e5e5e5 !default;
 $modal-footer-border-color: transparent !default;
 
 $modal-lg: 900px !default;
-$modal-md: 600px !default;
-$modal-sm: 300px !default;
+$modal-md: 650px !default;
+$modal-sm: 550px !default;
 
 //== Alerts
 //
@@ -863,6 +863,3 @@ $hr-border: $gray-lighter !default;
 //
 //##
 $shadow-default: 0 1px 3px 0 $shadow inset;
-
-//== ObjectViewer
-$object-viewer-badge-offset: -0.2rem !default;

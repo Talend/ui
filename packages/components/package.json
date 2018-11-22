@@ -2,11 +2,12 @@
   "name": "@talend/react-components",
   "description": "Set of react widgets.",
   "main": "lib/index.js",
+  "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
+    "test": "cross-env TZ=Europe/Paris jest",
+    "test:watch": "cross-env TZ=Europe/Paris jest --watch",
+    "test:cov": "cross-env TZ=Europe/Paris jest --coverage",
     "test:slimerjs": "slimerjs stories/slimer.js",
     "test:demo": "build-storybook",
     "lint:style": "sass-lint -v -q",
@@ -55,7 +56,8 @@
     "react-dnd": "^2.5.4",
     "react-dnd-html5-backend": "^2.5.4",
     "react-immutable-proptypes": "^2.1.0",
-    "react-virtualized": "9.19.1"
+    "react-virtualized": "9.19.1",
+    "simulant": "^0.2.2"
   },
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
@@ -64,8 +66,8 @@
     "@storybook/addon-info": "^3.4.7",
     "@storybook/addon-storyshots": "^3.4.7",
     "@storybook/react": "^3.4.7",
-    "@talend/bootstrap-theme": "^0.204.1",
-    "@talend/icons": "^0.204.1",
+    "@talend/bootstrap-theme": "^1.7.0",
+    "@talend/icons": "^1.7.0",
     "autoprefixer": "^7.1.4",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
@@ -81,6 +83,7 @@
     "classnames": "^2.2.5",
     "codacy-coverage": "^2.0.0",
     "cpx": "^1.5.0",
+    "cross-env": "^5.2.0",
     "css-loader": "^0.28.7",
     "d3-shape": "1.2.0",
     "enzyme": "^3.1.0",
@@ -122,8 +125,8 @@
     "uuid": "^3.0.1"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "^0.204.1",
-    "@talend/icons": "^0.204.1",
+    "@talend/bootstrap-theme": "^1.7.0",
+    "@talend/icons": "^1.7.0",
     "bootstrap-sass": "3.3.7",
     "classnames": "^2.2.5",
     "d3-shape": "1.2.0",
@@ -161,5 +164,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.204.1"
+  "version": "1.7.0"
 }

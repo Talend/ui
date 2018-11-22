@@ -4,7 +4,7 @@ exports[`Toolbar should render actions toolbar 1`] = `
 <div
   className="tc-list-toolbar"
 >
-  <nav
+  <div
     className="theme-tc-actionbar-container tc-actionbar-container nav"
   >
     <div
@@ -36,7 +36,7 @@ exports[`Toolbar should render actions toolbar 1`] = `
         </span>
       </button>
     </div>
-  </nav>
+  </div>
 </div>
 `;
 
@@ -44,7 +44,7 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
 <div
   className="tc-list-toolbar"
 >
-  <nav
+  <div
     className="theme-tc-actionbar-container tc-actionbar-container nav"
   >
     <div
@@ -81,7 +81,7 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
         </span>
       </button>
     </div>
-  </nav>
+  </div>
 </div>
 `;
 
@@ -499,7 +499,7 @@ exports[`Toolbar should render select all checkbox 1`] = `
       className="container-fluid"
     >
       <form
-        className="navbar-form navbar-left"
+        className="theme-container navbar-form navbar-left"
       >
         <div
           className="checkbox-inline navbar-text theme-tc-list-toolbar-select-all"

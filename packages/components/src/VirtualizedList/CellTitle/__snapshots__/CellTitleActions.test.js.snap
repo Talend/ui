@@ -4,6 +4,7 @@ exports[`CellTitleActions should display 2 actions and the rest in an ellipsis d
 <div
   className="main-title-actions-group theme-main-title-actions-group"
   id="my-actions"
+  onKeyDown={[Function]}
 >
   <div
     className="cell-title-actions theme-cell-title-actions"
@@ -28,10 +29,10 @@ exports[`CellTitleActions should display 2 actions and the rest in an ellipsis d
       link={true}
       onClick={[Function]}
     />
-    <ActionDropdown
-      bsStyle="default"
+    <Translate(ActionDropdown)
       className="cell-title-actions-menu theme-cell-title-actions-menu"
       hideLabel={true}
+      id="my-actions-ellispsis-actions"
       items={
         Array [
           Object {
@@ -60,7 +61,6 @@ exports[`CellTitleActions should display 2 actions and the rest in an ellipsis d
       label="Open menu"
       link={true}
       noCaret={true}
-      tooltipPlacement="top"
     />
   </div>
 </div>
@@ -70,6 +70,7 @@ exports[`CellTitleActions should display all actions on LARGE display mode 1`] =
 <div
   className="main-title-actions-group theme-main-title-actions-group"
   id="my-actions"
+  onKeyDown={[Function]}
 >
   <Actions
     actions={
@@ -128,6 +129,7 @@ exports[`CellTitleActions should display all actions when there are only few (< 
 <div
   className="main-title-actions-group theme-main-title-actions-group"
   id="my-actions"
+  onKeyDown={[Function]}
 >
   <div
     className="cell-title-actions theme-cell-title-actions"
@@ -175,6 +177,7 @@ exports[`CellTitleActions should extract dropdown actions, completed with simple
 <div
   className="main-title-actions-group theme-main-title-actions-group"
   id="my-actions"
+  onKeyDown={[Function]}
 >
   <div
     className="cell-title-actions theme-cell-title-actions"
@@ -213,10 +216,10 @@ exports[`CellTitleActions should extract dropdown actions, completed with simple
       link={true}
       pullRight={true}
     />
-    <ActionDropdown
-      bsStyle="default"
+    <Translate(ActionDropdown)
       className="cell-title-actions-menu theme-cell-title-actions-menu"
       hideLabel={true}
+      id="my-actions-ellispsis-actions"
       items={
         Array [
           Object {
@@ -252,7 +255,6 @@ exports[`CellTitleActions should extract dropdown actions, completed with simple
       label="Open menu"
       link={true}
       noCaret={true}
-      tooltipPlacement="top"
     />
   </div>
 </div>
@@ -262,6 +264,7 @@ exports[`CellTitleActions should extract only dropdown actions, when there are l
 <div
   className="main-title-actions-group theme-main-title-actions-group"
   id="my-actions"
+  onKeyDown={[Function]}
 >
   <div
     className="cell-title-actions theme-cell-title-actions"
@@ -328,10 +331,10 @@ exports[`CellTitleActions should extract only dropdown actions, when there are l
       label="Open with Data Preparation"
       link={true}
     />
-    <ActionDropdown
-      bsStyle="default"
+    <Translate(ActionDropdown)
       className="cell-title-actions-menu theme-cell-title-actions-menu"
       hideLabel={true}
+      id="my-actions-ellispsis-actions"
       items={
         Array [
           Object {
@@ -374,7 +377,6 @@ exports[`CellTitleActions should extract only dropdown actions, when there are l
       label="Open menu"
       link={true}
       noCaret={true}
-      tooltipPlacement="top"
     />
   </div>
 </div>
@@ -384,6 +386,7 @@ exports[`CellTitleActions should render persistent actions 1`] = `
 <div
   className="main-title-actions-group theme-main-title-actions-group"
   id="my-actions"
+  onKeyDown={[Function]}
 >
   <Actions
     actions={

@@ -14,8 +14,10 @@
  *  limitations under the License.
  */
 /* eslint-disable no-param-reassign */
+
 import isEqual from 'lodash/isEqual';
 import merge from 'lodash/merge';
+import { mergeCSRFToken } from '@talend/react-cmf/lib/middlewares/http/csrfHandling';
 
 import flatten from './flatten';
 import defaultRegistry from './defaultRegistry';
@@ -25,7 +27,9 @@ const DEFAULT_HEADERS = {
 	Accept: 'application/json',
 };
 
-function passthroughTrigger({ body }) {
+function passthroughTrigger({ error, trigger, body }) {
+	// eslint-disable-next-line no-console
+	console.error(`${JSON.stringify(trigger)} doesnt exists or fails with error ${error || '-'}`);
 	return body;
 }
 
@@ -73,10 +77,19 @@ export function extractParameters(parameters, properties, schema) {
 	if (!parameters || !Array.isArray(parameters)) {
 		return {};
 	}
-	const flattenProps = flatten(properties);
+	const flattenProps = flatten(properties, { includeObjects: true });
 	return parameters.reduce((acc, param) => {
 		const path = getPathWithArrayIndex(param.path, schema);
-		acc[param.key] = flattenProps[path];
+		const value = flattenProps[path];
+		if (typeof value === 'object') {
+			Object.keys(value)
+				.filter(key => typeof value[key] !== 'object')
+				.forEach(key => {
+					acc[`${param.key}${key}`] = value[key];
+				});
+		} else {
+			acc[param.key] = value;
+		}
 		return acc;
 	}, {});
 }
@@ -113,7 +126,14 @@ export function toQueryParam(obj) {
 
 // customRegistry can be used to add extensions or custom trigger
 // (not portable accross integrations)
-export default function createTriggers({ url, customRegistry, lang = 'en', headers, fetchConfig }) {
+export default function createTriggers({
+	url,
+	customRegistry,
+	lang = 'en',
+	headers,
+	fetchConfig,
+	security,
+}) {
 	if (!url) {
 		throw new Error('url params is required to createTriggers');
 	}
@@ -168,13 +188,16 @@ export default function createTriggers({ url, customRegistry, lang = 'en', heade
 			family: trigger.family,
 			type: trigger.type,
 		})}`;
-		return fetch(fetchUrl, {
-			method: 'POST',
-			headers: actualHeaders,
-			body: JSON.stringify(parameters),
-			credentials: 'include',
-			...fetchConfig,
-		})
+		return fetch(
+			fetchUrl,
+			mergeCSRFToken({ security })({
+				method: 'POST',
+				headers: actualHeaders,
+				body: JSON.stringify(parameters),
+				credentials: 'include',
+				...fetchConfig,
+			}),
+		)
 			.then(toJSON)
 			.then(onSuccess)
 			.catch(onError);

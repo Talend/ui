@@ -1,7 +1,7 @@
 // import SagaTester from 'redux-saga-tester';
 import { Map } from 'immutable';
 import cmf from '@talend/react-cmf';
-import { take } from 'redux-saga/effects';
+import { take, put } from 'redux-saga/effects';
 import CONSTANTS from './constants';
 // import actions from './actions';
 import sagas, * as internals from './sagas';
@@ -21,7 +21,7 @@ describe('internals', () => {
 	});
 	describe('redirect', () => {
 		it('should put a redirect action', () => {
-			const gen = internals.redirect({ data: { model: { redirectUrl: '/foo' } } });
+			const gen = internals.redirect('/foo');
 			const effect = gen.next().value;
 			expect(effect.PUT.action.cmf.routerReplace).toBe('/foo');
 		});
@@ -49,6 +49,7 @@ describe('internals', () => {
 						uri: '/api',
 						resourceType: 'datasets',
 						id: '123',
+						redirectUrl: '/resources',
 					},
 				},
 			};
@@ -70,7 +71,7 @@ describe('internals', () => {
 			expect(effect.PUT.action.model.labelResource).toBe('Foo');
 			effect = gen.next().value;
 			expect(effect.CALL.fn).toBe(internals.redirect);
-			expect(effect.CALL.args[0]).toBe(action);
+			expect(effect.CALL.args[0]).toBe('/resources');
 		});
 		it('should use resourceUri as backend api to delete resource if provided', () => {
 			const action = {
@@ -158,16 +159,47 @@ describe('internals', () => {
 			expect(effect.SELECT.args[0]).toBe('myResource');
 			expect(effect.SELECT.args[1]).toBe('runProfileId');
 		});
+		it('should dispatch DIALOG_BOX_DELETE_RESOURCE_ERROR event when delete request fails', () => {
+			const action = {
+				type: CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_OK,
+				data: {
+					model: {
+						resourceType: 'myResource',
+						id: 'resourceId',
+					},
+				},
+			};
+			const resource = {
+				id: 'resourceId',
+			};
+			const failedRequest = {
+				response: {
+					ok: false
+				},
+				data: {
+					error: 'can\'t delete resource in use',
+				},
+			};
+
+			const gen = internals.deleteResourceValidate();
+			gen.next();
+			gen.next(action);
+			gen.next(resource);
+			expect(gen.next(failedRequest).value).toEqual(put({
+				type: CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_ERROR,
+				error: failedRequest.data,
+			}));
+		})
 	});
 	describe('deleteResourceCancel', () => {
 		it('should call redirect ', () => {
 			const gen = internals.deleteResourceCancel();
 			let effect = gen.next().value;
 			expect(effect.TAKE.pattern).toBe(CONSTANTS.DIALOG_BOX_DELETE_RESOURCE_CANCEL);
-			const action = {};
+			const action = { data: { model: { onCancelRedirectUrl: '/cancel' } } };
 			effect = gen.next(action).value;
 			expect(effect.CALL.fn).toBe(internals.redirect);
-			expect(effect.CALL.args[0]).toBe(action);
+			expect(effect.CALL.args[0]).toBe('/cancel');
 		});
 	});
 });

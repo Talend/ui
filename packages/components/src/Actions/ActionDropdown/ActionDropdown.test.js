@@ -10,6 +10,35 @@ function getComponent(key) {
 }
 
 describe('ActionDropdown', () => {
+	it('should call onToggle callback when click on trigger', () => {
+		// given
+		const onToggle = jest.fn();
+		const props = {
+			id: 'dropdwon-id',
+			label: 'Dropdown',
+			onToggle,
+			items: [
+				{ id: 'item1', label: 'Item 1', model: 'model' },
+				{ id: 'item2', label: 'Item 2', model: 'model' },
+			],
+		};
+
+		const actionDropdownInstance = mount(<ActionDropdown {...props} />);
+		const dropdownButton = actionDropdownInstance.find('DropdownToggle');
+
+		// when
+		dropdownButton.simulate('click');
+
+		// then
+		expect(onToggle).toBeCalledWith(true);
+
+		// when
+		dropdownButton.simulate('click');
+
+		// then
+		expect(onToggle).toBeCalledWith(false);
+	});
+
 	it('should call onSelect callback when click on item', () => {
 		// given
 		const onSelectClick = jest.fn();
@@ -110,9 +139,6 @@ describe('InjectDropdownMenuItem', () => {
 });
 
 describe('Dropup', () => {
-	const isDropup = true;
-	const isDropdown = false;
-
 	function testSwitch({ containerPosition, menuPosition, isInitialDropup, isDropupExpected }) {
 		// given
 		const container = document.createElement('div');

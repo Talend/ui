@@ -1,20 +1,26 @@
-/* eslint-disable import/no-mutable-exports */
 import PropTypes from 'prop-types';
 import React from 'react';
+import { translate } from 'react-i18next';
+import keyCode from 'keycode';
 import FieldTemplate from '../FieldTemplate';
 import TextArea from '../TextArea';
-
-const DEFAULT_SET_OPTIONS = {
-	enableBasicAutocompletion: true,
-	enableLiveAutocompletion: true,
-	enableSnippets: true,
-};
+import { generateId, generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import getDefaultT from '../../../translate';
+import { I18N_DOMAIN_FORMS } from '../../../constants';
 
 let CodeWidget = TextArea;
 
 try {
-	// eslint-disable-next-line global-require,import/no-extraneous-dependencies
+	/* eslint-disable global-require, import/no-extraneous-dependencies */
 	const AceEditor = require('react-ace').default;
+	require('brace/ext/language_tools'); // https://github.com/securingsincity/react-ace/issues/95
+	/* eslint-enable global-require, import/no-extraneous-dependencies */
+
+	const DEFAULT_SET_OPTIONS = {
+		enableBasicAutocompletion: true,
+		enableLiveAutocompletion: true,
+		enableSnippets: true,
+	};
 
 	class Code extends React.Component {
 		constructor(props) {
@@ -22,6 +28,15 @@ try {
 			this.onChange = this.onChange.bind(this);
 			this.onFinish = this.onFinish.bind(this);
 			this.onLoad = this.onLoad.bind(this);
+			this.onBlur = this.onBlur.bind(this);
+			this.onKeyDown = this.onKeyDown.bind(this);
+
+			// this hold the last time the ESC is pressed to offer an escape solution from keyboard trap
+			this.lastEsc = null;
+		}
+
+		componentDidUpdate() {
+			this.attachTextareaAttributes();
 		}
 
 		onChange(value, event) {
@@ -32,42 +47,98 @@ try {
 			this.props.onFinish(event, { schema: this.props.schema });
 		}
 
+		onKeyDown(event) {
+			if (event.keyCode === keyCode.codes.esc) {
+				const now = Date.now();
+				if (this.lastEsc && this.lastEsc - now < 1000) {
+					this.lastEsc = null;
+					this.ref.focus();
+					this.editor.textInput.getElement().setAttribute('tabindex', -1);
+				} else {
+					this.lastEsc = now;
+				}
+			} else {
+				this.lastEsc = null;
+			}
+		}
+
+		onBlur() {
+			this.editor.textInput.getElement().removeAttribute('tabindex');
+		}
+
 		onLoad(editor) {
-			editor.textInput.getElement().setAttribute('id', this.props.id);
+			this.editor = editor;
+			this.attachTextareaAttributes();
+		}
+
+		attachTextareaAttributes() {
+			if (this.editor) {
+				const textarea = this.editor.textInput.getElement();
+				textarea.setAttribute('id', this.props.id);
+				textarea.setAttribute(
+					'aria-describedby',
+					`${this.ids.instructionsId} ${this.ids.descriptionId} ${this.ids.errorId}`,
+				);
+			}
 		}
 
 		render() {
-			const { id, isValid, errorMessage, schema, value } = this.props;
+			const { id, isValid, errorMessage, schema, value, t } = this.props;
 			const { autoFocus, description, disabled = false, options, readOnly = false, title } = schema;
-
+			const descriptionId = generateDescriptionId(id);
+			const errorId = generateErrorId(id);
+			const instructionsId = generateId(id, 'instructions');
+			this.ids = {
+				descriptionId,
+				errorId,
+				instructionsId,
+			};
 			return (
 				<FieldTemplate
 					description={description}
+					descriptionId={descriptionId}
+					errorId={errorId}
 					errorMessage={errorMessage}
 					id={id}
 					isValid={isValid}
 					label={title}
 					required={schema.required}
 				>
-					<AceEditor
-						className="tf-widget-code form-control"
-						disabled={disabled}
-						focus={autoFocus}
-						name={`${id}_wrapper`}
-						enableSnippets
-						mode={options && options.language}
-						onBlur={this.onFinish}
-						onLoad={this.onLoad}
-						onChange={this.onChange}
-						readOnly={readOnly}
-						setOptions={DEFAULT_SET_OPTIONS}
-						showGutter={false}
-						showPrintMargin={false}
-						theme="chrome"
-						value={value}
-						width="auto"
-						{...options}
-					/>
+					<div // eslint-disable-line jsx-a11y/no-static-element-interactions
+						id={id && `${id}-editor-container`}
+						onBlur={this.onBlur}
+						onKeyDown={this.onKeyDown}
+						ref={ref => {
+							this.ref = ref;
+						}}
+						tabIndex="-1"
+					>
+						<div id={instructionsId} className="sr-only">
+							{t('TF_CODE_ESCAPE', {
+								defaultValue: 'To focus out of the editor, press ESC key twice.',
+							})}
+						</div>
+						<AceEditor
+							key="ace"
+							className="tf-widget-code form-control"
+							disabled={disabled}
+							editorProps={{ $blockScrolling: Infinity }} // https://github.com/securingsincity/react-ace/issues/29
+							focus={autoFocus}
+							name={`${id}_wrapper`}
+							mode={options && options.language}
+							onBlur={this.onFinish}
+							onLoad={this.onLoad}
+							onChange={this.onChange}
+							readOnly={readOnly}
+							setOptions={DEFAULT_SET_OPTIONS}
+							showGutter={false}
+							showPrintMargin={false}
+							theme="chrome"
+							value={value}
+							width="auto"
+							{...options}
+						/>
+					</div>
 				</FieldTemplate>
 			);
 		}
@@ -88,6 +159,7 @@ try {
 				title: PropTypes.string,
 				type: PropTypes.string,
 			}),
+			t: PropTypes.func,
 			value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		};
 	}
@@ -95,12 +167,25 @@ try {
 	Code.defaultProps = {
 		isValid: true,
 		schema: {},
+		t: getDefaultT(),
 	};
 
 	CodeWidget = Code;
 } catch (error) {
-	// eslint-disable-next-line no-console
-	console.warn('CodeWidget react-ace not found, fallback to Textarea');
+	// eslint-disable-next-line react/no-multi-comp
+	class WrappedTextArea extends React.PureComponent {
+		constructor() {
+			super();
+			// eslint-disable-next-line no-console
+			console.warn('CodeWidget react-ace not found, fallback to Textarea');
+		}
+
+		render() {
+			return <TextArea {...this.props} />;
+		}
+	}
+
+	CodeWidget = WrappedTextArea;
 }
 
-export default CodeWidget;
+export default translate(I18N_DOMAIN_FORMS)(CodeWidget);

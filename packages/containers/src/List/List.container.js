@@ -13,8 +13,15 @@ import pick from 'lodash/pick';
 import { cmfConnect } from '@talend/react-cmf';
 
 import { getActionsProps } from '../actionAPI';
+import Constants from './List.constant';
 
-const ConnectedCellTitle = cmfConnect({})(CellTitle);
+const ConnectedCellTitle = cmfConnect({
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
+})(CellTitle);
 export const connectedCellDictionary = {
 	[cellTitleType]: {
 		...CellTitleRenderer,
@@ -91,9 +98,6 @@ class List extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.onSelectSortBy = this.onSelectSortBy.bind(this);
-		this.onFilter = this.onFilter.bind(this);
-		this.onToggle = this.onToggle.bind(this);
 		this.onSelectDisplayMode = this.onSelectDisplayMode.bind(this);
 		this.onChangePage = this.onChangePage.bind(this);
 		this.onToggleMultiSelection = this.onToggleMultiSelection.bind(this);
@@ -101,27 +105,8 @@ class List extends React.Component {
 		this.isSelected = this.isSelected.bind(this);
 	}
 
-	onSelectSortBy(event, payload) {
-		this.props.setState({
-			sortOn: payload.field,
-			sortAsc: !payload.isDescending,
-		});
-	}
-
-	onFilter(event, payload) {
-		this.props.setState({ searchQuery: payload.query });
-	}
-
 	onChangePage(startIndex, itemsPerPage) {
 		this.props.setState({ startIndex, itemsPerPage });
-	}
-
-	onToggle() {
-		// clearing filter when toggle
-		this.props.setState({
-			filterDocked: !this.props.state.get('filterDocked'),
-			searchQuery: '',
-		});
 	}
 
 	onSelectDisplayMode(event, payload) {
@@ -191,7 +176,14 @@ class List extends React.Component {
 		props.list.sort = {
 			field: state.sortOn,
 			isDescending: !state.sortAsc,
-			onChange: this.onSelectSortBy,
+			onChange: (event, data) => {
+				this.props.dispatch({
+					type: Constants.LIST_CHANGE_SORT_ORDER,
+					payload: data,
+					collectionId: props.collectionId,
+					event,
+				});
+			},
 		};
 		if (!props.list.itemProps) {
 			props.list.itemProps = {};
@@ -259,16 +251,34 @@ class List extends React.Component {
 				props.toolbar.sort.isDescending = !state.sortAsc;
 				props.toolbar.sort.field = state.sortOn;
 				props.toolbar.sort.onChange = (event, data) => {
-					this.onSelectSortBy(event, data);
+					this.props.dispatch({
+						type: Constants.LIST_CHANGE_SORT_ORDER,
+						payload: data,
+						collectionId: props.collectionId,
+						event,
+					});
 				};
 			}
 
 			if (props.toolbar.filter) {
 				props.toolbar.filter.onToggle = (event, data) => {
-					this.onToggle(event, data);
+					this.props.dispatch({
+						type: Constants.LIST_TOGGLE_FILTER,
+						payload: Object.assign({}, data, {
+							filterDocked: state.filterDocked,
+							searchQuery: state.searchQuery,
+						}),
+						collectionId: props.collectionId,
+						event,
+					});
 				};
 				props.toolbar.filter.onFilter = (event, data) => {
-					this.onFilter(event, data);
+					this.props.dispatch({
+						type: Constants.LIST_FILTER_CHANGE,
+						payload: data,
+						collectionId: props.collectionId,
+						event,
+					});
 				};
 				props.toolbar.filter.docked = state.filterDocked;
 				props.toolbar.filter.value = state.searchQuery;

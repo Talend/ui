@@ -23,10 +23,6 @@ This is the set of SVG icons used in our apps.
 [quality-badge]: http://npm.packagequality.com/shield/talend-icons.svg
 [quality-url]: http://packagequality.com/#?package=talend-icons
 
-# Breaking changes log
-
-Before 1.0, `@talend/icons` does NOT follow semver version in releases.
-You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
 
 # How to use
 
@@ -105,3 +101,21 @@ polygon, circles, ellipse should be used instead of path.
 ## No display="none" elements
 
 those are useless as they can't be styled and only add size to icons
+
+# How to test in local
+
+```
+yarn docs
+cd docs
+# use your command-line http server to provide the content
+http-server
+```
+
+# How to build in local
+
+```
+# go the UI root
+cd ../..
+yarn build-icons
+# this builds the new icons and build components with this new icons and launch the unit test
+```

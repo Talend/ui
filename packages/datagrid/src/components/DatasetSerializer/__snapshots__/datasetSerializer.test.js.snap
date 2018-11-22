@@ -52,7 +52,6 @@ Array [
       },
     },
     "avro": Object {
-      "doc": "Code UIC",
       "name": "field1",
       "type": Object {
         "@talend-quality@": Object {
@@ -67,7 +66,7 @@ Array [
       },
     },
     "field": "data.field1",
-    "headerName": "Code UIC",
+    "headerName": "field1",
     "type": "int*",
   },
 ]
@@ -125,7 +124,6 @@ Array [
       },
     },
     "avro": Object {
-      "doc": "Code UIC",
       "name": "field1",
       "type": Object {
         "@talend-quality@": Object {
@@ -140,7 +138,7 @@ Array [
       },
     },
     "field": "data.field1",
-    "headerName": "Code UIC",
+    "headerName": "field1",
     "type": "int*",
   },
 ]
@@ -198,7 +196,6 @@ Array [
       },
     },
     "avro": Object {
-      "doc": "Code UIC",
       "name": "field1",
       "type": Object {
         "@talend-quality@": Object {
@@ -213,7 +210,7 @@ Array [
       },
     },
     "field": "data.field1",
-    "headerName": "Code UIC",
+    "headerName": "field1",
     "type": "int*",
   },
 ]

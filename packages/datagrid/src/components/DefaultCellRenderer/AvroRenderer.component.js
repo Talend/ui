@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Inject } from '@talend/react-components';
 
+import { AVRO_TYPES } from '../../constants';
 import DATAGRID_PROPTYPES from '../DataGrid/DataGrid.proptypes';
 
 import DefaultRenderer from './DefaultRenderer.component';
@@ -18,7 +19,7 @@ AvroRenderer.propTypes = {
 	colDef: PropTypes.shape({
 		avro: PropTypes.shape({
 			type: PropTypes.shape({
-				type: PropTypes.oneOf(['boolean', 'date', 'int', 'string']),
+				type: PropTypes.oneOf(AVRO_TYPES),
 			}),
 		}),
 	}),

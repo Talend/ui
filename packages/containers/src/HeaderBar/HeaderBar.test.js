@@ -19,7 +19,14 @@ describe('Container HeaderBar', () => {
 	it('should render HeaderBar container with a list of items', () => {
 		const props = {
 			...containerProps,
-			productsItems: [{ foo: 'bar' }],
+			productsItems: [
+				{
+					id: 'foo',
+					icon: 'icon',
+					name: 'Foo',
+					url: 'http://foo.bar',
+				},
+			],
 			state: new Map({
 				productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS,
 			}),

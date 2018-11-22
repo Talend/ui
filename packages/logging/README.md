@@ -9,11 +9,6 @@ A small library that provides a centralized error logger.
 * Redux [documentation](./src/redux)
 * Framework free: see next section
 
-#### Breaking changes log
-
-Before 1.0, `@talend/log` does NOT follow semver version in releases.
-You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
-
 #### Advanced config
 
 Look in ./src/errorTransformer.js for jsDoc on each parameter

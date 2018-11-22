@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalToIgnoringCase;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.startsWith;
 
 
 public class TabBarTest extends StorybookTest {
@@ -31,6 +33,19 @@ public class TabBarTest extends StorybookTest {
         // when
         final WebElement tab = tabBarObject.getActiveTab();
 
+        // then
         assertThat(tab.getText(), equalToIgnoringCase("tab2"));
+    }
+
+    @Test
+    public void should_get_tab_and_select_it() {
+        // given
+        assertThat(getActionLog(), not(startsWith("▶onSelect:")));
+
+        // when
+        tabBarObject.selectTab(3);
+
+        // then
+        assertThat(getActionLog(), startsWith("▶onSelect:"));
     }
 }

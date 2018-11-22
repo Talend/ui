@@ -12,13 +12,23 @@
         }
       }
     },
-    "menu:ComponentForm": {
+    "menu:tacokitTitleMap": {
       "icon": "talend-burger",
-      "label": "ComponentForm",
+      "label": "TCK async",
       "onClickDispatch": {
         "type": "MENU_COMPONENT_FORM_CLICKED",
         "cmf": {
-          "routerPush": "/ComponentForm"
+          "routerPush": "/tacokit/titleMap"
+        }
+      }
+    },
+    "menu:tacokitValidation": {
+      "icon": "talend-burger",
+      "label": "TCK validation",
+      "onClickDispatch": {
+        "type": "MENU_COMPONENT_FORM_CLICKED",
+        "cmf": {
+          "routerPush": "/tacokit/validation"
         }
       }
     }
@@ -53,14 +63,20 @@
       "products": {
         "id": "header-bar-demo-brands"
       },
-      "productsUrl": "/api/mock/header-bar/products-list",
-      "productsLang": "en-EN"
+      "productsUrl": "/api/mock/header-bar/products-list"
     },
     "SidePanel#default": {
       "actionIds": [
         "menu:HeaderBar",
-        "menu:ComponentForm"
+        "menu:tacokitTitleMap",
+        "menu:tacokitValidation"
       ]
+    },
+    "Layout#default": {
+      "mode": "TwoColumns",
+      "header": { "component": "HeaderBar" },
+      "one": { "component": "SidePanel" },
+      "content": {}
     },
     "Layout#HeaderBar": {
       "mode": "TwoColumns",
@@ -68,14 +84,14 @@
       "one": { "component": "SidePanel" },
       "content": {}
     },
-    "Layout#ComponentForm": {
-      "mode": "TwoColumns",
-      "header": [{ "component": "HeaderBar" }],
-      "one": [{ "component": "SidePanel" }],
-      "content": [{ "component": "ComponentForm", "componentId": "default" }]
+    "ComponentForm#titleMap": {
+      "definitionURL": "/api/v1/forms/titleMap",
+      "uiSpecPath": "ui",
+      "triggerURL": "/api/v1/application/action",
+      "className": "well"
     },
-    "ComponentForm#default": {
-      "definitionURL": "/api/v1/forms/example",
+    "ComponentForm#validation": {
+      "definitionURL": "/api/v1/forms/validation",
       "uiSpecPath": "ui",
       "triggerURL": "/api/v1/application/action",
       "className": "well"
@@ -94,9 +110,20 @@
         "componentId": "HeaderBar"
       },
       {
-        "path": "ComponentForm",
+        "path": "tacokit",
         "component": "Layout",
-        "componentId": "ComponentForm"
+        "childRoutes": [
+          {
+            "path": "validation",
+            "component": "ComponentForm",
+            "componentId": "validation"
+          },
+          {
+            "path": "titleMap",
+            "component": "ComponentForm",
+            "componentId": "titleMap"
+          }
+        ]
       },
       {
         "path": "*",

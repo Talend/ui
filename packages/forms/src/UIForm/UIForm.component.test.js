@@ -24,6 +24,14 @@ describe('UIForm component', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render form in text display mode', () => {
+		// when
+		const wrapper = shallow(<UIFormComponent {...data} {...props} displayMode="text" />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should render provided actions', () => {
 		// when
 		const wrapper = shallow(<UIFormComponent {...data} {...props} actions={actions} />);
@@ -262,6 +270,29 @@ describe('UIForm component', () => {
 			// then
 			expect(props.setErrors).toBeCalledWith(submitEvent, {
 				firstname: 'Missing required field',
+			});
+		});
+
+		it('should validate all fields with existing errors', () => {
+			// given
+			const dataProperties = { lastname: 'dupont' };
+			const errors = {
+				lastname: 'String is too short (6 chars), minimum 10',
+				checked: 'error added via a trigger',
+			};
+			// props.errors.lastname =
+			const wrapper = shallow(
+				<UIFormComponent {...data} properties={dataProperties} errors={errors} {...props} />,
+			);
+
+			// when
+			wrapper.instance().onSubmit(submitEvent);
+
+			// then
+			expect(props.setErrors).toBeCalledWith(submitEvent, {
+				checked: 'error added via a trigger',
+				firstname: 'Missing required field',
+				lastname: 'String is too short (6 chars), minimum 10',
 			});
 		});
 

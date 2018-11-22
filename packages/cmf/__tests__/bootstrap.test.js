@@ -7,6 +7,7 @@ import { registerInternals } from '../src/register';
 import actionCreator from '../src/actionCreator';
 import component from '../src/component';
 import expression from '../src/expression';
+import registry from '../src/registry';
 import storeAPI from '../src/store';
 import sagas from '../src/sagas';
 
@@ -26,6 +27,9 @@ jest.mock('redux-saga', () => {
 });
 
 // we mock all internal dependencies
+jest.mock('../src/registry', () => ({
+	registerMany: jest.fn(),
+}));
 jest.mock('../src/actionCreator', () => ({
 	registerMany: jest.fn(),
 }));
@@ -46,7 +50,7 @@ jest.mock('../src/store', () => ({
 	addPreReducer: jest.fn(),
 	setHttpMiddleware: jest.fn(),
 	setRouterMiddleware: jest.fn(),
-	initialize: jest.fn(() => ({ dispatch: jest.fn(), applyMiddleware: jest.fn(), })),
+	initialize: jest.fn(() => ({ dispatch: jest.fn(), applyMiddleware: jest.fn() })),
 }));
 
 describe('bootstrap', () => {
@@ -59,6 +63,16 @@ describe('bootstrap', () => {
 			registerInternals.mockClear();
 			bootstrap({});
 			expect(registerInternals).toHaveBeenCalled();
+		});
+		it('should register options.registry using registry.registerMany', () => {
+			registry.registerMany.mockClear();
+			const options = {
+				registry: {
+					foo: jest.fn(),
+				},
+			};
+			bootstrap(options);
+			expect(registry.registerMany).toHaveBeenCalledWith(options.registry);
 		});
 		it('should register options.components using component.registerMany', () => {
 			component.registerMany.mockClear();
@@ -129,7 +143,7 @@ describe('bootstrap', () => {
 			storeAPI.initialize.mockClear();
 			createSagaMiddleware.mockClear();
 			const options = {
-				reducer: jest.fn(),
+				reducer: { app: jest.fn() },
 				preloadedState: {},
 				middlewares: [],
 			};
