@@ -1,33 +1,22 @@
 # @talend/local-libs-webpack-plugin
 
-Easier local development on libraries. Skip prepublish, npm link, and copying libs into node_modules. 
+Easier local development on libraries. Skip the prepublish, npm link, copying libs into node_modules steps.
 
 **This plugin is meant to be used in development only**
 
-LocalLibsWebpackPlugin will let you use npm modules locally, without using npm link or modifying import paths. For best experience the library you want to use should have a `"mainSrc"` field in package.json, specifying where the **source** entry file is. `"main"` usually refer to a dist or lib folder. 
+LocalLibsWebpackPlugin will let you do 2 things:
+- import npm modules from local paths, without using npm link or modifying import paths.
+- Use the **source** files of your library without having to compile your code after each change.
+
+# Requirements for using source files
+- The library must have a `"mainSrc"` field in its package.json. This field specifies where the **source** entry file is. `"main"` usually refer to a dist or lib folder where the bundled files are.
+- Your app's webpack config and its loaders must be able to bundle the library on its own.
 
 # Install
 `$ yarn add --dev @talend/local-libs-webpack-plugin`
 
 # Usage
-
-```js
-// webpack.config.js
-const LocalLibsWebpackPlugin = require('@talend/local-libs-webpack-plugin');
-
-module.exports = {
-	plugins: [
-		new LocalLibsWebpackPlugin([
-			'../relative/path/to/package.json',
-			'./can/also/use/lerna.json',
-		]),
-	],
-};
-```
-
-It can also be useful to use webpack's env variables for conditional options:
-
-Example command (webpack): `$ yarn start --env.mylib --env.myotherlib`
+`$ webpack --env.mylib --env.myotherlib`
 
 ```js
 // webpack.config.js
@@ -42,6 +31,25 @@ module.exports = (env = {}) => ({
 	],
 });
 ```
+
+This uses webpack's env variables, but you can also pass `true` or `false` directly.
+
+# Tips
+
+If you have your webpack command in an npm script you can use that as well. The flags will be passed to webpack.
+
+`$ yarn start --env.myLib`
+
+package.json
+```json
+{
+  "scripts": {
+    "start": "webpack mode=development --config webpack.config.dev.js"
+  }
+}
+```
+
+This combination will run `webpack mode=development --config webpack.config.dev.js --env.myLib`
 
 ## LICENSE
 
