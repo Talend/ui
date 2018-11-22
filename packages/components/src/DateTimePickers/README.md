@@ -2,9 +2,9 @@
 
 ## Architecture
 
-[**_InputDateTimePicker_**](./InputDateTimePicker/InputDateTimePicker.md) is the full component usable in apps as is. It integrates the main picker in a dropdown and sycnhronize users actions between it and the input.
+[**_InputDateTimePicker_**](./InputDateTimePicker/README.md) is the full component usable in apps as is. It integrates the main picker in a dropdown and sycnhronize users actions between it and the input.
 
-[**_DateTimePicker_**](./DateTimePicker/DateTimePicker.md) is the main picker component which rely on two views in the **_views_** folder :
+[**_DateTimePicker_**](./DateTimePicker/README.md) is the main picker component which rely on two views in the **_views_** folder :
 
 - **_DateTimeView_** for picking :
   - the final date (by choosing a day on a specific month calendar)

@@ -1,6 +1,9 @@
 > sass-lint -v -q
 
 
+src/DateTimePickers/pickers/TimePicker/TimePicker.scss
+  17:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+
 src/Drawer/Drawer.scss
   14:4  warning  Statement must begin on a new line  brace-style
 
@@ -13,5 +16,5 @@ src/Typeahead/Typeahead.scss
 src/VirtualizedList/RowCollapsiblePanel/RowCollapsiblePanel.scss
   2:24  error  Strings must use single quotes  quotes
 
-✖ 4 problems (2 errors, 2 warnings)
+✖ 5 problems (3 errors, 2 warnings)
 
