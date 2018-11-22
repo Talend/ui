@@ -9,11 +9,14 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/EditableText/EditableText.selectors.js
   8:1  error  Prefer default export  import/prefer-default-export
 
+/home/travis/build/Talend/ui/packages/containers/src/HeaderBar/HeaderBar.container.js
+  58:85  error  Arrow function used ambiguously with a conditional expression  no-confusing-arrow
+
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
 
 /home/travis/build/Talend/ui/packages/containers/src/SubHeaderBar/SubHeaderBar.selectors.js
   8:1  error  Prefer default export  import/prefer-default-export
 
-✖ 5 problems (5 errors, 0 warnings)
+✖ 6 problems (6 errors, 0 warnings)
 
