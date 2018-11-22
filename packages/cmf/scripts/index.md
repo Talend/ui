@@ -136,8 +136,9 @@ If you need to use multiple settings in one project you can do so with an enviro
 
 `$ cross-env CMF_ENV=withoutMyOtherDep cmf-settings`
 
-```json
+```jsonc
 {
+	// will not be used
 	"settings": {
 		"sources": [
 			"src/settings",
@@ -152,6 +153,7 @@ If you need to use multiple settings in one project you can do so with an enviro
 		"destination": "src/assets/cmf-settings.json"
 	},
 	"withoutMyOtherDep": {
+		// will be used
 		"settings": {
 			"sources": [
 				"src/settings",
