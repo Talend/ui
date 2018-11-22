@@ -36,6 +36,10 @@ export function handleOpenProduct(action) {
 	if ('url' in action.payload) {
 		window.open(action.payload.url, '_blank');
 	}
+
+	if ('onClick' in action.payload) {
+		action.payload.onClick(action.payload);
+	}
 }
 
 function* defaultHandler() {
