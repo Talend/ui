@@ -1,4 +1,5 @@
 import {
+	checkTime,
 	dateAndTimeToDateTime,
 	dateTimeToStr,
 	extractDateTimeParts,
@@ -19,7 +20,7 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date: undefined,
-				time: undefined,
+				time: { hours: '', minutes: '' },
 				datetime: 'lol',
 				textInput: '',
 			});
@@ -37,7 +38,7 @@ describe('Date extraction', () => {
 				date: new Date(2015, 8, 15),
 				datetime: validDate,
 				textInput: '2015-09-15 12:58',
-				time: 778,
+				time: { hours: '12', minutes: '58' },
 			});
 		});
 	});
@@ -112,7 +113,7 @@ describe('Date extraction', () => {
 			const time = strToTime(strToParse);
 
 			// then
-			expect(time).toEqual(172);
+			expect(time).toEqual({ hours: '02', minutes: '52' });
 		});
 
 		it('should return error with incorrect format', done => {
@@ -131,37 +132,18 @@ describe('Date extraction', () => {
 			done();
 		});
 
-		it('should return error with incorrect hour', done => {
+		it('should convert invalid string that match a format', () => {
 			// given
-			const strToParse = '25:45';
-
-			try {
-				// when
-				strToTime(strToParse);
-				done.fail('strToTime should have thrown an error with incorrect hour');
-			} catch (error) {
-				// then
-				expect(error.message).toBe('TIME - INCORRECT HOUR NUMBER');
-			}
-
-			done();
-		});
-
-		it('should return error with incorrect minutes', done => {
-			// given
-			const strToParse = '23:66';
+			const strToParse = 'aze:66toto';
 
 			// when
-			try {
-				// when
-				strToTime(strToParse);
-				done.fail('strToTime should have thrown an error with incorrect minutes');
-			} catch (error) {
-				// then
-				expect(error.message).toBe('TIME - INCORRECT MINUTES NUMBER');
-			}
+			const time = strToTime(strToParse);
 
-			done();
+			// then
+			expect(time).toEqual({
+				hours: 'aze',
+				minutes: '66toto',
+			});
 		});
 	});
 
@@ -169,7 +151,7 @@ describe('Date extraction', () => {
 		it('should return empty string with no date', () => {
 			// given
 			const date = undefined;
-			const time = 172;
+			const time = { hours: '02', minutes: '52' };
 
 			// when
 			const result = dateTimeToStr(date, time);
@@ -193,7 +175,7 @@ describe('Date extraction', () => {
 		it('should convert date and time', () => {
 			// given
 			const date = new Date(2015, 8, 15);
-			const time = 172;
+			const time = { hours: '02', minutes: '52' };
 
 			// when
 			const result = dateTimeToStr(date, time);
@@ -201,13 +183,25 @@ describe('Date extraction', () => {
 			// then
 			expect(result).toBe('2015-09-15 02:52');
 		});
+
+		it('should convert date and invalid time', () => {
+			// given
+			const date = new Date(2015, 8, 15);
+			const time = { hours: 'aze', minutes: '66' };
+
+			// when
+			const result = dateTimeToStr(date, time);
+
+			// then
+			expect(result).toBe('2015-09-15 aze:66');
+		});
 	});
 
 	describe('dateAndTimeToDateTime', () => {
 		it('should merge date and time to a Date', () => {
 			// given
 			const date = new Date(2015, 8, 15);
-			const time = 172;
+			const time = { hours: '02', minutes: '52' };
 
 			// when
 			const result = dateAndTimeToDateTime(date, time);
@@ -216,18 +210,22 @@ describe('Date extraction', () => {
 			expect(result).toEqual(new Date(2015, 8, 15, 2, 52));
 		});
 
-		it('should return invalid date', () => {
-			// given
-			const date = new Date(2015, 8, 15);
-			const time = 172;
-
+		it('should return invalid date with undefined parts', () => {
 			// when
-			const resultWithoutDate = dateAndTimeToDateTime(undefined, time);
-			const resultWithoutTime = dateAndTimeToDateTime(date, undefined);
+			const resultWithoutDate = dateAndTimeToDateTime(undefined, { hours: '02', minutes: '25' });
+			const resultWithoutTime = dateAndTimeToDateTime(new Date(2015, 8, 15), undefined);
 
 			// then
 			expect(resultWithoutDate.getTime()).toEqual(NaN);
 			expect(resultWithoutTime.getTime()).toEqual(NaN);
+		});
+
+		it('should return invalid date with invalid time', () => {
+			// when
+			const result = dateAndTimeToDateTime(new Date(2015, 8, 15), { hours: '2', minutes: '66' });
+
+			// then
+			expect(result.getTime()).toEqual(NaN);
 		});
 	});
 
@@ -265,6 +263,41 @@ describe('Date extraction', () => {
 
 			// then
 			expect(isValid).toBe(false);
+		});
+	});
+
+	describe('checkTime', () => {
+		it('should return error with incorrect hour', done => {
+			// given
+			const time = { hours: '25', minutes: '45' };
+
+			try {
+				// when
+				checkTime(time);
+				done.fail('strToTime should have thrown an error with incorrect hour');
+			} catch (error) {
+				// then
+				expect(error.message).toBe('TIME - INCORRECT HOUR NUMBER');
+			}
+
+			done();
+		});
+
+		it('should return error with incorrect minutes', done => {
+			// given
+			const time = { hours: '23', minutes: '66' };
+
+			// when
+			try {
+				// when
+				checkTime(time);
+				done.fail('strToTime should have thrown an error with incorrect minutes');
+			} catch (error) {
+				// then
+				expect(error.message).toBe('TIME - INCORRECT MINUTES NUMBER');
+			}
+
+			done();
 		});
 	});
 });
