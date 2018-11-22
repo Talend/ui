@@ -36,6 +36,36 @@ describe('Container HeaderBar', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should merge static products entries with fetched products', () => {
+		const props = {
+			...containerProps,
+			productsItems: [
+				{
+					id: 'foo',
+					icon: 'icon',
+					name: 'Foo',
+					url: 'http://foo.bar',
+				},
+			],
+			products: {
+				items: [
+					{
+						id: 'bar',
+						icon: 'icon',
+						name: 'Bar',
+						url: 'http://bar.baz',
+					},
+				],
+			},
+			state: new Map({
+				productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS,
+			}),
+		};
+
+		const wrapper = shallow(<Container {...props} />);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should render HeaderBar container while fetching items', () => {
 		const props = {
 			...containerProps,

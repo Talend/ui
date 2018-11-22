@@ -89,5 +89,16 @@ describe('HeaderBar sagas', () => {
 			handleOpenProduct(action);
 			expect(global.open).not.toHaveBeenCalled();
 		});
+
+		it('should execute a callback method if provided', () => {
+			// given
+			const action = { payload: { onClick: jest.fn() } };
+
+			// when
+			handleOpenProduct(action);
+
+			// then
+			expect(action.payload.onClick).toHaveBeenCalled();
+		});
 	});
 });
