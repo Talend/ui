@@ -55,6 +55,12 @@ describe('Container HeaderBar', () => {
 						label: 'Bar',
 						url: 'http://bar.baz',
 					},
+					{
+						id: 'zeta',
+						icon: 'icon',
+						label: 'Zeta',
+						url: 'http://zeta.com',
+					},
 				],
 			},
 			state: new Map({
@@ -63,9 +69,10 @@ describe('Container HeaderBar', () => {
 		};
 
 		const wrapper = shallow(<Container {...props} />);
-		expect(wrapper.props().products.items).toHaveLength(2);
+		expect(wrapper.props().products.items).toHaveLength(3);
 		expect(wrapper.props().products.items[0].label).toEqual('Bar');
 		expect(wrapper.props().products.items[1].label).toEqual('Foo');
+		expect(wrapper.props().products.items[2].label).toEqual('Zeta');
 	});
 
 	it('should render HeaderBar container while fetching items', () => {
