@@ -31,7 +31,7 @@ describe('IconsProvider', () => {
 
 	it('should render default talend-icons and custom icons defined on icons prop', () => {
 		const customIcons = {
-			custom: (<svg />),
+			custom: <svg />,
 		};
 		const wrapper = mount(<IconsProvider icons={customIcons} />);
 		const symbols = wrapper.find('symbol');
@@ -40,7 +40,7 @@ describe('IconsProvider', () => {
 
 	it('should override talend icons by using defaultIcons props', () => {
 		const defaultIcons = {
-			default: (<svg id="OverrideDefaultIcon" />),
+			default: <svg id="OverrideDefaultIcon" />,
 		};
 		const wrapper = mount(<IconsProvider defaultIcons={defaultIcons} />);
 		const symbols = wrapper.find('symbol');
@@ -50,10 +50,10 @@ describe('IconsProvider', () => {
 
 	it('should override talend icons by using defaultIcons props and render custom icon', () => {
 		const defaultIcons = {
-			default: (<svg id="OverrideDefaultIcon" />),
+			default: <svg id="OverrideDefaultIcon" />,
 		};
 		const customIcons = {
-			custom: (<svg id="customIcon" />),
+			custom: <svg id="customIcon" />,
 		};
 		const wrapper = mount(<IconsProvider defaultIcons={defaultIcons} icons={customIcons} />);
 		const symbols = wrapper.find('symbol');
