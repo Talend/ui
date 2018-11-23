@@ -78,7 +78,7 @@ class TimePicker extends React.PureComponent {
 					tabIndex={tabIndex}
 					onChange={event => this.onChange(event, MINUTES)}
 				/>
-				{ this.renderSeconds(tabIndex) }
+				{this.renderSeconds(tabIndex)}
 			</div>
 		);
 	}
