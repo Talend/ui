@@ -35,7 +35,12 @@ class TestPickerWrapper extends React.Component {
 	}
 	render() {
 		return (
-			<div>
+			<form
+				onSubmit={event => {
+					event.preventDefault();
+					action('submit');
+				}}
+			>
 				<div>
 					<label htmlFor="TestWrapper_storybook_eval-input">
 						Text to eval for updating 'selectedDateTime' prop
@@ -47,7 +52,9 @@ class TestPickerWrapper extends React.Component {
 						onChange={this.onChangeEvalInput}
 						value={this.state.inputEvalValue}
 					/>
-					<button onClick={this.onSubmitEval}>Update</button>
+					<button onClick={this.onSubmitEval} type="button">
+						Update
+					</button>
 				</div>
 				<br />
 				<InputDateTimePicker
@@ -57,7 +64,7 @@ class TestPickerWrapper extends React.Component {
 					onBlur={action('onBlur')}
 					name="Datetime"
 				/>
-			</div>
+			</form>
 		);
 	}
 }
@@ -67,14 +74,12 @@ storiesOf('DateTimePicker', module)
 		<div>
 			<h1>InputDateTimePicker</h1>
 			<IconsProvider />
-
-			<div>
-				<TestPickerWrapper
-					selectedDateTime={new Date(2018, 4, 13, 12, 30)}
-					onChange={action('onChange')}
-					name="Datetime"
-				/>
-			</div>
+			<TestPickerWrapper
+				id="my-date-picker"
+				selectedDateTime={new Date(2018, 4, 13, 12, 30)}
+				onChange={action('onChange')}
+				name="Datetime"
+			/>
 		</div>
 	))
 	.add('DateTimePicker', () => (
