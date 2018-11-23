@@ -17,6 +17,18 @@ function isLerna(filePath) {
 }
 
 /**
+ * Remove file from a filepath
+ * @param {string} filePath filePath
+ */
+function pathWithoutFilename(filePath) {
+	const dirs = filePath.split('/');
+	if (dirs[dirs.length - 1].includes('.')) {
+		dirs.pop();
+	}
+	return dirs.join('/');
+}
+
+/**
  * Return an object with info about package
  * @param {string} packagePath path to package.json
  */
@@ -31,23 +43,11 @@ function getPackageJsonInfo(packagePath) {
 	};
 }
 
-/**
- * Remove file from a filepath
- * @param {string} filePath filePath
- */
-function pathWithoutFilename(filePath) {
-	const dirs = filePath.split('/');
-	if (dirs[dirs.length - 1].includes('.')) {
-		dirs.pop();
-	}
-	return dirs.join('/');
-}
-
 function getLinkedLibs(paths) {
 	const linkedLibs = [];
 	paths.forEach(packagePath => {
 		if (isLerna(packagePath)) {
-			getJson(packagePath).packages.map(subPackagePath => {
+			getJson(packagePath).packages.forEach(subPackagePath => {
 				const packageJsonPath = packagePath.replace('lerna.json', `${subPackagePath}/package.json`);
 				linkedLibs.push(getPackageJsonInfo(packageJsonPath));
 			});
@@ -61,8 +61,10 @@ function getLinkedLibs(paths) {
 function convertRequests(request, linkedLibs) {
 	linkedLibs.forEach(lib => {
 		if (request === lib.name) {
+			// myLib -> Users/me/projects/myLib/src/index.js
 			request = `${lib.path}/${lib.mainSrc}`;
 		} else if (request.includes(lib.name)) {
+			// myLib/something -> Users/me/projects/myLib/src/something
 			request = request.replace(`${lib.name}/${lib.main}`, `${lib.path}/${lib.mainSrc}`);
 		}
 	});
