@@ -8,21 +8,54 @@ import format from 'date-fns/format';
 import startOfMinute from 'date-fns/start_of_minute';
 import getHours from 'date-fns/get_hours';
 
-const splitDateAndTimePartsRegex = new RegExp(/^\s*([^\s]+?)\s+([^\s]+?)\s*$/);
-/*
- * Split the date part into year, month and day
- * ex : ' 2018-2-05  ' => ['2018', '2', '05']
- */
-const datePartRegex = new RegExp(/^\s*([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})\s*$/);
-/*
- * Split the time part into hours and minutes
- * ex : ' 14:35  ' => ['14', '35']
- */
+const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*))\s*$/);
 const timePartRegex = new RegExp(/^(.*):(.*)$/);
 
-const INPUT_FULL_FORMAT = 'YYYY-MM-DD HH:mm';
-const INPUT_DATE_ONLY_FORMAT = 'YYYY-MM-DD';
 const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
+
+/**
+ * Build date regexep from date format.
+ * It returns the YYYY, MM, DD parts order too.
+ * @param dateFormat {string}
+ * @returns {{partsOrder: array, regexp: RegExp}}
+ */
+function getDateRegexp(dateFormat) {
+	const partsOrder = dateFormat.split(/[^A-Za-z]/);
+	const dateFormatAsRegexp = dateFormat
+		.replace(/[A-Za-z]{4}/g, '([0-9]{4})')
+		.replace(/[A-Za-z]{2}/g, '([0-9]{2})');
+	return {
+		partsOrder,
+		regexp: new RegExp(`^\\s*${dateFormatAsRegexp}\\s*$`),
+	};
+}
+
+/**
+ * Check that the date format is a composition of YYYY, MM, DD.
+ * If not, it throws an error.
+ * @param dateFormat {string}
+ */
+function checkSupportedDateFormat(dateFormat) {
+	const partsOrder = dateFormat.split(/[^A-Za-z]/);
+	if (
+		partsOrder.indexOf('YYYY') === -1 ||
+		partsOrder.indexOf('MM') === -1 ||
+		partsOrder.indexOf('DD') === -1
+	) {
+		throw new Error(
+			`DATE FORMAT ${dateFormat} - NOT SUPPORTED. Please provide a composition of YYYY, MM, DD`,
+		);
+	}
+}
+
+/**
+ * Build the date format with time.
+ * @param dateFormat {string}
+ */
+function getFullDateFormat(dateFormat) {
+	const timeFormat = 'HH:mm';
+	return `${dateFormat} ${timeFormat}`;
+}
 
 /**
  * Check if a date is a valid date.
@@ -65,24 +98,25 @@ function hoursAndMinutesToTime(hours, minutes) {
  * Convert date and time to string with 'YYYY-MM-DD HH:mm' format
  * @param date {Date}
  * @param time {{hours: string, minutes: string}}
+ * @param dateFormat {string}
  * @returns {string}
  */
-function dateTimeToStr(date, time) {
+function dateTimeToStr(date, time, dateFormat) {
 	if (date === undefined) {
 		return '';
 	}
 
 	if (time === undefined) {
-		return format(date, INPUT_DATE_ONLY_FORMAT);
+		return format(date, dateFormat);
 	}
 
 	const { hours, minutes } = time;
 	try {
 		const timeInMinutes = hoursAndMinutesToTime(hours, minutes);
 		const fullDate = setMinutes(date, timeInMinutes);
-		return format(fullDate, INPUT_FULL_FORMAT);
+		return format(fullDate, getFullDateFormat(dateFormat));
 	} catch (e) {
-		const dateStr = format(date, INPUT_DATE_ONLY_FORMAT);
+		const dateStr = format(date, dateFormat);
 		if (hours !== '' && minutes !== '') {
 			return `${dateStr} ${hours}:${minutes}`;
 		}
@@ -113,25 +147,30 @@ function dateAndTimeToDateTime(date, time) {
 /**
  * Convert string in 'YYYY-MM-DD' format to date
  */
-function strToDate(strToParse) {
-	const dateMatches = strToParse.match(datePartRegex);
+function strToDate(strToParse, dateFormat) {
+	const { partsOrder, regexp } = getDateRegexp(dateFormat);
+	const dateMatches = strToParse.match(regexp);
 	if (!dateMatches) {
 		throw new Error('DATE - INCORRECT FORMAT');
 	}
 
-	const monthString = dateMatches[2];
+	const yearIndex = partsOrder.indexOf('YYYY');
+	const monthIndex = partsOrder.indexOf('MM');
+	const dayIndex = partsOrder.indexOf('DD');
+
+	const monthString = dateMatches[monthIndex + 1];
 	const month = parseInt(monthString, 10);
 	if (month === 0 || month > 12) {
 		throw new Error('DATE - INCORRECT MONTH NUMBER');
 	}
 
-	const dayString = dateMatches[3];
+	const dayString = dateMatches[dayIndex + 1];
 	const day = parseInt(dayString, 10);
 	if (day === 0) {
 		throw new Error('DATE - INCORRECT DAY NUMBER');
 	}
 
-	const yearString = dateMatches[1];
+	const yearString = dateMatches[yearIndex + 1];
 	const year = parseInt(yearString, 10);
 	const monthDate = new Date(year, month - 1);
 	const lastDateOfMonth = lastDayOfMonth(monthDate);
@@ -170,10 +209,11 @@ function pad(num, size) {
 /**
  * Extract parts (date, time, date/time, string conversion) from a Date
  * @param selectedDateTime {Date}
+ * @param dateFormat {string}
  * @returns
  *  {{date: Date, time: { hours: string, minutes: string }, datetime: Date, textInput: string}}
  */
-function extractDateTimeParts(selectedDateTime) {
+function extractDateTimeParts(selectedDateTime, dateFormat) {
 	const isDateTimeValid = isDateValid(selectedDateTime);
 
 	if (selectedDateTime !== undefined && isDateTimeValid) {
@@ -190,7 +230,7 @@ function extractDateTimeParts(selectedDateTime) {
 			date,
 			time,
 			datetime,
-			textInput: dateTimeToStr(date, time),
+			textInput: dateTimeToStr(date, time, dateFormat),
 		};
 	}
 
@@ -203,12 +243,13 @@ function extractDateTimeParts(selectedDateTime) {
 }
 
 export {
-	INPUT_FULL_FORMAT,
 	splitDateAndTimePartsRegex,
+	checkSupportedDateFormat,
 	checkTime,
 	dateAndTimeToDateTime,
 	dateTimeToStr,
 	extractDateTimeParts,
+	getFullDateFormat,
 	isDateValid,
 	strToDate,
 	strToTime,
