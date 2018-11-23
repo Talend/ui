@@ -22,13 +22,13 @@ function getState(key) {
 }
 
 /**
- * getStoreCall read localStorage and create a initilState for redux
+ * getStoreCallback read localStorage and create a initilState for redux
  * @param {string} key the localStorage key where to read
  * @param {Array} paths the list of paths (Array) to serialize in localStorage
  * @return {Object} initialState for redux
  * @example
 
- const storeCallback = getStoreCall('myappV1', [
+ const storeCallback = getStoreCallback('myappV1', [
 	 ['cmf', 'components', 'Container(List)', 'foo'],
 	 ['cmf', 'components', 'Container(SidePanel)'],
  ]);
@@ -37,7 +37,7 @@ function getState(key) {
 	 storeCallback,
  });
  */
-function getStoreCall(key, paths) {
+function getStoreCallback(key, paths) {
 	return store => {
 		window.addEventListener('beforeunload', () => {
 			const toKeep = {};
@@ -66,5 +66,5 @@ function getStoreCall(key, paths) {
 
 export default {
 	getState,
-	getStoreCall,
+	getStoreCallback,
 };
