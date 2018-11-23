@@ -2,7 +2,7 @@
   "name": "@talend/local-libs-webpack-plugin",
   "version": "0.1.2",
   "description": "Easier development on local libraries",
-  "main": "index.js",
+  "main": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
     "test": "jest"

@@ -1,4 +1,4 @@
-
+const { isLerna, pathWithoutFilename, convertRequest } = require('./');
 
 describe('link paths', () => {
 	xit('should link the following paths', () => {

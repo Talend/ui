@@ -1,4 +1,4 @@
-import pathWithoutFilename from '../lib/pathWithoutFilename';
+const pathWithoutFilename = require('./');
 
 describe('pathWithoutFilename', () => {
 	it('should remove the file part from a path', () => {

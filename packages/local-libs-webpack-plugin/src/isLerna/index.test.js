@@ -1,4 +1,4 @@
-const isLerna = require('../lib/isLerna');
+const isLerna = require('./');
 
 describe('isLerna', () => {
 	it('should return true if it is a lerna path', () => {
