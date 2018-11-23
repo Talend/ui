@@ -14,6 +14,10 @@ const CMF_MIDDLEWARE_BLACK_LIST = [
 ];
 
 function loadInitialState(options = {}) {
+	if (process.env.NODE_ENV !== 'production') {
+		// eslint-disable-next-line no-console
+		console.warn('DEPRECATED: this API will be removed in the next major release');
+	}
 	const {
 		key,
 		immutables = [],
@@ -45,6 +49,10 @@ function loadInitialState(options = {}) {
 }
 
 function saveOnReload({ engine, store }) {
+	if (process.env.NODE_ENV !== 'production') {
+		// eslint-disable-next-line no-console
+		console.warn('DEPRECATED: this API will be removed in the next major release');
+	}
 	window.addEventListener('beforeunload', () => {
 		engine.save(store.getState());  // localstorage is sync
 	});
