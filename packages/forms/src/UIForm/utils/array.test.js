@@ -22,6 +22,7 @@ const arraySchema = {
 			maxLength: 20,
 		},
 	],
+	itemTitle: 'comment',
 	title: 'comments',
 	type: 'array',
 };
@@ -119,6 +120,14 @@ describe('Array utils', () => {
 	});
 
 	describe('#getArrayElementSchema', () => {
+		it('should insert the title', () => {
+			// when
+			const result = getArrayElementSchema(arraySchema, 2);
+
+			// then
+			expect(result.title).toEqual('comment');
+		});
+
 		it('should insert the key', () => {
 			// when
 			const result = getArrayElementSchema(arraySchema, 2);
