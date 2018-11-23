@@ -25,6 +25,13 @@ function get(context, id) {
  * @param  {Function} actionCreator (event, data, context)
  */
 function register(id, actionCreator, context) {
+	if (actionCreator === undefined) {
+		throw new Error(
+			`CMF: you can't register an undefined value for the following action creator: '${id}'.
+			You may have an import error in your code. Check the stack trace and your bootstrap config imports.
+			https://github.com/Talend/ui/tree/master/packages/cmf/src/bootstrap.md`,
+		);
+	}
 	registry.addToRegistry(`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:${id}`, actionCreator, context);
 }
 
