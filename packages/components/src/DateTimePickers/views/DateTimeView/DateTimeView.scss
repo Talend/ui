@@ -5,10 +5,12 @@
 
 	.date {
 		flex: 3;
+		padding: $padding-normal;
 	}
 
 	.time {
 		flex: 1;
 		border-left: $border-default;
+		padding: $padding-normal;
 	}
 }
