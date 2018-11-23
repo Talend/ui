@@ -35,9 +35,19 @@ class TimePicker extends React.PureComponent {
 
 	renderSeconds(tabIndex) {
 		return this.props.useSeconds ? (
-			<span>
-
-			</span>
+			<div>
+				<hr />
+				<label htmlFor={this.secondId} className="sr-only">
+					Seconds
+				</label>
+				<DebounceInput
+					id={this.secondId}
+					className={theme['time-input']}
+					value={this.props.value.seconds}
+					tabIndex={tabIndex}
+					onChange={event => this.onChange(event, SECONDS)}
+				/>
+			</div>
 		) : null;
 	}
 
@@ -68,17 +78,7 @@ class TimePicker extends React.PureComponent {
 					tabIndex={tabIndex}
 					onChange={event => this.onChange(event, MINUTES)}
 				/>
-				<hr />
-				<label htmlFor={this.secondId} className="sr-only">
-					Seconds
-				</label>
-				<DebounceInput
-					id={this.secondId}
-					className={theme['time-input']}
-					value={this.props.value.seconds}
-					tabIndex={tabIndex}
-					onChange={event => this.onChange(event, SECONDS)}
-				/>
+				{ this.renderSeconds(tabIndex) }
 			</div>
 		);
 	}
@@ -94,7 +94,9 @@ TimePicker.propTypes = {
 	value: PropTypes.shape({
 		hours: PropTypes.string,
 		minutes: PropTypes.string,
+		seconds: PropTypes.string,
 	}),
+	useSeconds: PropTypes.bool,
 };
 
 export default TimePicker;

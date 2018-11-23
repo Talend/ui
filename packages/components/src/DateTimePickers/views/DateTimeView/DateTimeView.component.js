@@ -119,6 +119,7 @@ DateTimeView.propTypes = {
 		hours: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 		minutes: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	}),
+	useSeconds: PropTypes.bool,
 };
 
 export default DateTimeView;

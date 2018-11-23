@@ -209,6 +209,7 @@ DateTimePicker.propTypes = {
 	 * Callback triggered when date and time are selected
 	 */
 	onSubmit: PropTypes.func.isRequired,
+	useSeconds: PropTypes.bool,
 };
 
 DateTimePicker.defaultProps = {

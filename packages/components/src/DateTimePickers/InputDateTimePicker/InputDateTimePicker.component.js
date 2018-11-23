@@ -22,7 +22,6 @@ import {
 } from './date-extraction';
 
 import theme from './InputDateTimePicker.scss';
-import List from '../../List/List.component';
 
 const INVALID_PLACEHOLDER = 'INVALID DATE';
 
@@ -126,7 +125,7 @@ class InputDateTimePicker extends React.Component {
 		}
 
 		try {
-			date = strToDate(dateTextToParse, this.props.useSeconds);
+			date = strToDate(dateTextToParse);
 		} catch (error) {
 			errorMessage = errorMessage || error.message;
 		}
