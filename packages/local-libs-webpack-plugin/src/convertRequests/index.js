@@ -10,3 +10,5 @@ function convertRequests(request, linkedLibs) {
 	});
 	return request;
 }
+
+module.exports = convertRequests;

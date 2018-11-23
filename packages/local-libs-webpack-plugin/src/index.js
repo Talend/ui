@@ -1,7 +1,3 @@
-const path = require('path');
-const getJson = require('./getJson');
-const pathWithoutFilename = require('./pathWithoutFilename');
-const getPackageJsonInfo = require('./getPackageJsonInfo');
 const getLinkedLibs = require('./getLinkedLibs');
 const convertRequests = require('./convertRequests');
 const addAliases = require('./addAliases');

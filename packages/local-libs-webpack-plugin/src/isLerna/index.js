@@ -5,3 +5,5 @@
 function isLerna(filePath) {
 	return filePath.includes('lerna.json');
 }
+
+module.exports = isLerna;

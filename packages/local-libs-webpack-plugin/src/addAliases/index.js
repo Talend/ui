@@ -1,3 +1,5 @@
+const path = require('path');
+
 function addAliases(linkedLibs, aliases) {
 	// peerDependencies should use project's node_modules - not the library's
 	// this will avoid issues like "multiple instances of react running"
@@ -14,3 +16,5 @@ function addAliases(linkedLibs, aliases) {
 
 	return aliases;
 }
+
+module.exports = addAliases;

@@ -9,3 +9,5 @@ function pathWithoutFilename(filePath) {
 	}
 	return dirs.join('/');
 }
+
+module.exports = pathWithoutFilename;

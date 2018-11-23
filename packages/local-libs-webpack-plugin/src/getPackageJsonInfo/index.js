@@ -1,3 +1,7 @@
+const path = require('path');
+const getJson = require('../getJson');
+const pathWithoutFilename = require('../pathWithoutFilename');
+
 /**
  * Return an object with info about package
  * @param {string} packagePath path to package.json
@@ -12,3 +16,5 @@ function getPackageJsonInfo(packagePath) {
 		peerDependencies: packageJson.peerDependencies || {},
 	};
 }
+
+module.exports = getPackageJsonInfo;

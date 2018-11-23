@@ -1,3 +1,7 @@
+const getJson = require('../getJson');
+const isLerna = require('../isLerna');
+const getPackageJsonInfo = require('../getPackageJsonInfo');
+
 function getLinkedLibs(paths) {
 	const linkedLibs = [];
 	paths.forEach(packagePath => {
@@ -12,3 +16,5 @@ function getLinkedLibs(paths) {
 	});
 	return linkedLibs;
 }
+
+module.exports = getLinkedLibs;

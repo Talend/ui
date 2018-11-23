@@ -7,3 +7,5 @@ const path = require('path');
 function getJson(filePath) {
 	return require(path.resolve(filePath)); // eslint-disable-line global-require
 }
+
+module.exports = getJson;
