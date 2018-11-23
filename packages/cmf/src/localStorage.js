@@ -45,17 +45,15 @@ function getStoreCallback(key, paths) {
 			paths.forEach(path => {
 				if (path.length > 2) {
 					if (path[1] === 'components') {
-						set(
-							toKeep,
-							path,
-							state.cmf.components.getIn(path.slice(2), new Immutable.Map()).toJS(),
-						);
+						const value = state.cmf.components.getIn(path.slice(2));
+						if (value) {
+							set(toKeep, path, value.toJS());
+						}
 					} else if (path[1] === 'collections') {
-						set(
-							toKeep,
-							path,
-							state.cmf.collections.getIn(path.slice(2), new Immutable.Map()).toJS(),
-						);
+						const value = state.cmf.collections.getIn(path.slice(2));
+						if (value) {
+							set(toKeep, path, value.toJS());
+						}
 					}
 				}
 			});
