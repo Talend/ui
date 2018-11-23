@@ -22,13 +22,13 @@ function getState(key) {
 }
 
 /**
- * getStoreCallbackToPersistStateBeforeUnload read localStorage and create a initilState for redux
+ * getStoreCall read localStorage and create a initilState for redux
  * @param {string} key the localStorage key where to read
  * @param {Array} paths the list of paths (Array) to serialize in localStorage
  * @return {Object} initialState for redux
  * @example
 
- const storeCallback = getStoreCallbackToPersistStateBeforeUnload('myappV1', [
+ const storeCallback = getStoreCall('myappV1', [
 	 ['cmf', 'components', 'Container(List)', 'foo'],
 	 ['cmf', 'components', 'Container(SidePanel)'],
  ]);
