@@ -64,7 +64,7 @@ function checkTime({ hours, minutes, seconds }) {
  * @param seconds {string}
  * @returns {number}
  */
-function hoursAndMinutesAndSecondsToTime(hours, minutes, seconds) {
+function timeToSeconds(hours, minutes, seconds) {
 	checkTime({ hours, minutes, seconds });
 	return Number(hours) * 3600 + Number(minutes) * 60 + Number(seconds);
 }
@@ -75,7 +75,7 @@ function hoursAndMinutesAndSecondsToTime(hours, minutes, seconds) {
  * @param time {{hours: string, minutes: string, seconds: string}}
  * @returns {string}
  */
-function dateTimeToStr(date, time) {
+function dateTimeToStr(date, time, useSeconds) {
 	if (date === undefined) {
 		return '';
 	}
@@ -86,13 +86,13 @@ function dateTimeToStr(date, time) {
 
 	const { hours, minutes, seconds } = time;
 	try {
-		const timeInSeconds = hoursAndMinutesAndSecondsToTime(hours, minutes, seconds);
+		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
 		const fullDate = setSeconds(date, timeInSeconds);
-		return format(fullDate, seconds === '00' ? INPUT_WITHOUT_SECOND_FORMAT : INPUT_FULL_FORMAT);
+		return format(fullDate, useSeconds ? INPUT_FULL_FORMAT : INPUT_WITHOUT_SECOND_FORMAT);
 	} catch (e) {
 		const dateStr = format(date, INPUT_DATE_ONLY_FORMAT);
 		if (hours !== '' && minutes !== '') {
-			if (seconds !== undefined) {
+			if (useSeconds && seconds !== '') {
 				return `${dateStr} ${hours}:${minutes}:${seconds}`;
 			}
 			return `${dateStr} ${hours}:${minutes}`;
@@ -114,7 +114,7 @@ function dateAndTimeToDateTime(date, time) {
 
 	try {
 		const { hours, minutes, seconds = '00' } = time;
-		const timeInSeconds = hoursAndMinutesAndSecondsToTime(hours, minutes, seconds);
+		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
 		return setSeconds(date, timeInSeconds);
 	} catch (e) {
 		return INTERNAL_INVALID_DATE;
@@ -158,10 +158,9 @@ function strToDate(strToParse) {
  * @param strToParse {string}
  * @returns {{ hours: string, minutes: string }}
  */
-function strToTime(strToParse) {
-	const timeMatches = strToParse.match(timeWithSecondsPartRegex)
-		? strToParse.match(timeWithSecondsPartRegex)
-		: strToParse.match(timePartRegex);
+function strToTime(strToParse, useSeconds) {
+	const timeMatches = useSeconds ?
+		strToParse.match(timeWithSecondsPartRegex) : strToParse.match(timePartRegex);
 	if (!timeMatches) {
 		throw new Error('TIME - INCORRECT FORMAT');
 	}
@@ -169,7 +168,7 @@ function strToTime(strToParse) {
 	const hours = timeMatches[1];
 	const minutes = timeMatches[2];
 
-	const seconds = timeMatches[3] === undefined ? '00' : timeMatches[3];
+	const seconds = !useSeconds || timeMatches[3] === undefined ? '00' : timeMatches[3];
 	return { hours, minutes, seconds };
 }
 
@@ -187,7 +186,7 @@ function pad(num, size) {
  * @returns
  *  {{date: Date, time: { hours: string, minutes: string }, datetime: Date, textInput: string}}
  */
-function extractDateTimeParts(selectedDateTime) {
+function extractDateTimeParts(selectedDateTime, useSeconds) {
 	const isDateTimeValid = isDateValid(selectedDateTime);
 
 	if (selectedDateTime !== undefined && isDateTimeValid) {
@@ -207,7 +206,7 @@ function extractDateTimeParts(selectedDateTime) {
 			date,
 			time,
 			datetime,
-			textInput: dateTimeToStr(date, time),
+			textInput: dateTimeToStr(date, time, useSeconds),
 		};
 	}
 

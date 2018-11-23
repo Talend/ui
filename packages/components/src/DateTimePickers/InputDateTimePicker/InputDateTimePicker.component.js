@@ -22,6 +22,7 @@ import {
 } from './date-extraction';
 
 import theme from './InputDateTimePicker.scss';
+import List from '../../List/List.component';
 
 const INVALID_PLACEHOLDER = 'INVALID DATE';
 
@@ -35,6 +36,7 @@ class InputDateTimePicker extends React.Component {
 		selectedDateTime: PropTypes.instanceOf(Date),
 		onChange: PropTypes.func,
 		onBlur: PropTypes.func,
+		useSeconds: PropTypes.bool,
 	};
 
 	constructor(props) {
@@ -53,7 +55,7 @@ class InputDateTimePicker extends React.Component {
 		this.componentContainerEvents = [];
 		this.popoverId = `date-time-picker-${props.id || uuid.v4()}`;
 		this.state = {
-			...extractDateTimeParts(this.props.selectedDateTime),
+			...extractDateTimeParts(this.props.selectedDateTime, this.props.useSeconds),
 			inputFocused: false,
 			showPicker: false,
 		};
@@ -124,13 +126,13 @@ class InputDateTimePicker extends React.Component {
 		}
 
 		try {
-			date = strToDate(dateTextToParse);
+			date = strToDate(dateTextToParse, this.props.useSeconds);
 		} catch (error) {
 			errorMessage = errorMessage || error.message;
 		}
 
 		try {
-			time = strToTime(timeTextToParse);
+			time = strToTime(timeTextToParse, this.props.useSeconds);
 			checkTime(time);
 		} catch (error) {
 			time = time || { hours: '', minutes: '', seconds: '' };
@@ -190,7 +192,7 @@ class InputDateTimePicker extends React.Component {
 		const nextState = {
 			date,
 			time,
-			textInput: dateTimeToStr(date, time),
+			textInput: dateTimeToStr(date, time, this.props.useSeconds),
 			datetime: dateAndTimeToDateTime(date, time),
 			errorMessage,
 		};
@@ -265,6 +267,7 @@ class InputDateTimePicker extends React.Component {
 									time: this.state.time,
 								}}
 								onSubmit={this.onPickerChange}
+								useSeconds={this.props.useSeconds}
 							/>
 						</Popover>
 					</Overlay>
@@ -273,5 +276,9 @@ class InputDateTimePicker extends React.Component {
 		);
 	}
 }
+
+InputDateTimePicker.defaultProps = {
+	useSeconds: false,
+};
 
 export default InputDateTimePicker;

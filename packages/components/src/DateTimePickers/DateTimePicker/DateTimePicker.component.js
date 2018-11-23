@@ -156,6 +156,7 @@ class DateTimePicker extends React.Component {
 					onTitleClick={this.setMonthYearView}
 					selectedDate={this.state.selectedDate}
 					selectedTime={this.state.selectedTime}
+					useSeconds={this.props.useSeconds}
 				/>
 			);
 		} else {

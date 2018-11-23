@@ -94,6 +94,7 @@ class DateTimeView extends React.PureComponent {
 						allowFocus={this.props.allowFocus}
 						value={this.props.selectedTime}
 						onChange={this.props.onSelectTime}
+						useSeconds={this.props.useSeconds}
 					/>
 				</div>
 			</div>
