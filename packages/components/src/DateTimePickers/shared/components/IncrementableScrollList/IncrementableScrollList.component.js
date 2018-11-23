@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { AutoSizer, List } from 'react-virtualized';
 import classNames from 'classnames';
 import theme from './IncrementableScrollList.scss';
-import IconButton from '../../shared/components/IconButton';
+import IconButton from '../IconButton';
 import RowRenderer from './RowRenderer';
 
 const NB_ITEMS_DISPLAYED = 5;

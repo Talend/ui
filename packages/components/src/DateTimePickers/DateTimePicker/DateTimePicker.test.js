@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 
 import DateTimePicker from './DateTimePicker.component';
 import DateTimeView from '../views/DateTimeView';
@@ -17,285 +17,242 @@ describe('DateTimePicker', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should initialize calendar view to current date', () => {
+		// given
+		global.dateMock.mock(new Date(2016, 4, 12));
+
+		// when
+		const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
+
+		// then
+		const dateTimeView = wrapper.find(DateTimeView);
+		expect(dateTimeView.prop('calendar')).toEqual({
+			monthIndex: 4,
+			year: 2016,
+		});
+	});
+
+	it('should initialize calendar view to date from props', () => {
+		// when
+		const wrapper = shallow(
+			<DateTimePicker
+				selection={{
+					date: new Date(2013, 0, 15),
+				}}
+				onSubmit={() => {}}
+			/>,
+		);
+
+		// then
+		expect(wrapper.state('calendar')).toEqual({
+			monthIndex: 0,
+			year: 2013,
+		});
+	});
+
+	describe('focus management', () => {
+		it('should init allow focus state when option is off', () => {
+			// when
+			const wrapper = mount(<DateTimePicker manageFocus={false} onSubmit={() => {}} />);
+
+			// then
+			expect(wrapper.state('allowFocus')).toBe(true);
+		});
+
+		it('should disable focus when option is on', () => {
+			// when
+			const wrapper = mount(<DateTimePicker manageFocus onSubmit={() => {}} />);
+
+			// then
+			expect(wrapper.state('allowFocus')).toBe(false);
+		});
+
+		it('should allow focus when active element is in picker', () => {
+			// given
+			const wrapper = mount(<DateTimePicker manageFocus onSubmit={() => {}} />);
+			expect(wrapper.state('allowFocus')).toBe(false);
+			wrapper.getDOMNode().dispatchEvent(new Event('focusin'));
+
+			// then
+			expect(wrapper.state('allowFocus')).toBe(true);
+		});
+
+		it('should disable focus when active element is out of picker', () => {
+			// given
+			const wrapper = mount(<DateTimePicker manageFocus onSubmit={() => {}} />);
+			wrapper.setState({ allowFocus: true });
+			wrapper.getDOMNode().dispatchEvent(new Event('focusout'));
+
+			// then
+			expect(wrapper.state('allowFocus')).toBe(false);
+		});
+
+		it('should NOT allow focus when active element is outside of picker', () => {});
+	});
+
 	describe('view switching', () => {
-		it('should render with the DateTimeView based on state', () => {
-			const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
-
-			wrapper.setState({
-				isDateTimeView: true,
-			});
-
-			expect(wrapper.find(DateTimeView).exists()).toBe(true);
-			expect(wrapper.find(MonthYearView).exists()).toBe(false);
-		});
-
-		it('should render with the MonthYearView on state', () => {
-			const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
-
-			wrapper.setState({
-				isDateTimeView: false,
-			});
-
-			expect(wrapper.find(DateTimeView).exists()).toBe(false);
-			expect(wrapper.find(MonthYearView).exists()).toBe(true);
-		});
-
 		it('should switch state to MonthYearView when header title of DateTimeView is clicked', () => {
-			const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
+			// given
+			const wrapper = mount(<DateTimePicker onSubmit={() => {}} />);
+			wrapper.setState({ isDateTimeView: true });
 
-			wrapper.setState({
-				isDateTimeView: true,
-			});
-
-			const clickTitleHandler = wrapper.find(DateTimeView).prop('onClickTitle');
+			// when
+			const clickTitleHandler = wrapper.find(DateTimeView).prop('onTitleClick');
 			clickTitleHandler();
+
+			// then
 			expect(wrapper.state('isDateTimeView')).toBe(false);
 		});
 
 		it('should switch state to DateTimeView when header back action of MonthYearView is clicked', () => {
-			const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
+			// given
+			const wrapper = mount(<DateTimePicker onSubmit={() => {}} />);
+			wrapper.setState({ isDateTimeView: false });
 
-			wrapper.setState({
-				isDateTimeView: false,
-			});
-
-			const clickBackHandler = wrapper.find(MonthYearView).prop('onClickBack');
+			// when
+			const clickBackHandler = wrapper.find(MonthYearView).prop('onBackClick');
 			clickBackHandler();
+
+			// then
 			expect(wrapper.state('isDateTimeView')).toBe(true);
 		});
-	});
 
-	it('should have the last "date" data between props and selection in state', () => {
-		const d1 = new Date(2018, 2, 5);
-		const d2 = new Date(2019, 11, 21);
-		const d3 = new Date(2015, 6, 27);
-		const wrapper = shallow(
-			<DateTimePicker
-				selection={{
-					date: d1,
-				}}
-				onSubmit={() => {}}
-			/>,
-		);
-
-		wrapper.setState({
-			isDateTimeView: true,
-		});
-
-		const dateTimeView = wrapper.find(DateTimeView);
-		expect(wrapper.state('selectedDate')).toBe(d1);
-
-		const mockedEvent = { persist: jest.fn() };
-		dateTimeView.prop('onSelectDate')(mockedEvent, d2);
-		expect(wrapper.state('selectedDate')).toBe(d2);
-
-		wrapper.setProps({
-			selection: {
-				date: d3,
-			},
-		});
-		expect(wrapper.state('selectedDate')).toBe(d3);
-	});
-
-	it('should have the last "time" data between props and selection in state', () => {
-		const t1 = 810;
-		const t2 = 950;
-		const t3 = 1270;
-		const wrapper = shallow(
-			<DateTimePicker
-				selection={{
-					time: t1,
-				}}
-				onSubmit={() => {}}
-			/>,
-		);
-
-		wrapper.setState({
-			isDateTimeView: true,
-		});
-
-		const dateTimeView = wrapper.find(DateTimeView);
-		expect(wrapper.state('selectedTime')).toBe(t1);
-
-		const mockedEvent = { persist: jest.fn() };
-		dateTimeView.prop('onSelectTime')(mockedEvent, t2);
-		expect(wrapper.state('selectedTime')).toBe(t2);
-
-		wrapper.setProps({
-			selection: {
-				time: t3,
-			},
-		});
-		expect(wrapper.state('selectedTime')).toBe(t3);
-	});
-
-	it('should not update state if props selection wrapper has not changed', () => {
-		const initDate = new Date(2018, 0, 1);
-		const initTime = 1000;
-		const selection = {
-			date: initDate,
-			time: initTime,
-		};
-
-		const wrapper = shallow(<DateTimePicker selection={selection} onSubmit={() => {}} />);
-
-		selection.date = new Date(2020, 0, 1);
-		selection.time = 50;
-
-		wrapper.setProps({
-			selection,
-		});
-
-		expect(wrapper.state('selectedDate')).toBe(initDate);
-		expect(wrapper.state('selectedTime')).toBe(initTime);
-	});
-
-	it('should auto submit when a date or time is selected and both are selected at this time', () => {
-		const date = new Date(2018, 1, 1);
-		const time = 1000;
-		const onSubmit = jest.fn();
-		const wrapper = shallow(
-			<DateTimePicker
-				selection={{
-					date,
-				}}
-				onSubmit={onSubmit}
-			/>,
-		);
-
-		wrapper.setState({
-			isDateTimeView: true,
-		});
-
-		const dateTimeView = wrapper.find(DateTimeView);
-		const mockedEvent = { persist: jest.fn() };
-		dateTimeView.prop('onSelectTime')(mockedEvent, time);
-
-		expect(onSubmit).toHaveBeenCalledWith(mockedEvent, {
-			date,
-			time,
-		});
-		expect(mockedEvent.persist).toHaveBeenCalledTimes(1);
-	});
-
-	it('should not submit if one of date and time is not selected', () => {
-		const time = 1000;
-		const onSubmit = jest.fn();
-		const wrapper = shallow(<DateTimePicker onSubmit={onSubmit} />);
-
-		wrapper.setState({
-			isDateTimeView: true,
-		});
-
-		const dateTimeView = wrapper.find(DateTimeView);
-		const mockedEvent = { persist: jest.fn() };
-		dateTimeView.prop('onSelectTime')(mockedEvent, time);
-
-		expect(onSubmit).not.toHaveBeenCalled();
-	});
-
-	describe('calendar', () => {
-		it('should at initialization define the calendar displayed based on current date when no selection props given', () => {
-			global.dateMock.mock(new Date(2016, 4, 12));
-
+		it('should switch to new month/year value from day picker', () => {
+			// given
 			const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
+			wrapper.setState({ isDateTimeView: true, calendar: { monthIndex: 10, year: 2018 } });
 
-			wrapper.setState({
-				isDateTimeView: true,
-			});
+			// when
+			wrapper.find(DateTimeView).prop('onSelectMonthYear')({ monthIndex: 5, year: 2016 });
 
-			const dateTimeView = wrapper.find(DateTimeView);
-			expect(dateTimeView.prop('calendar')).toEqual({
-				monthIndex: 4,
-				year: 2016,
-			});
+			// then`
+			const calendar = wrapper.state('calendar');
+			expect(calendar.monthIndex).toBe(5);
+			expect(calendar.year).toBe(2016);
 		});
 
-		it('should at initialization define the calendar displayed based on date selection prop when given', () => {
-			const wrapper = shallow(
-				<DateTimePicker
-					selection={{
-						date: new Date(2013, 0, 15),
-					}}
-					onSubmit={() => {}}
-				/>,
-			);
+		it('should switch to new month from monthYear picker', () => {
+			// given
+			const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
+			wrapper.setState({ isDateTimeView: false, calendar: { monthIndex: 10, year: 2018 } });
+			const event = { target: {} };
 
-			wrapper.setState({
-				isDateTimeView: true,
-			});
+			// when
+			wrapper.find(MonthYearView).prop('onSelectMonth')(event, 5);
 
-			const dateTimeView = wrapper.find(DateTimeView);
-			expect(dateTimeView.prop('calendar')).toEqual({
-				monthIndex: 0,
-				year: 2013,
-			});
+			// then`
+			const calendar = wrapper.state('calendar');
+			expect(calendar.monthIndex).toBe(5);
 		});
 
-		it('should update the calendar displayed based on date selection prop update', () => {
-			const wrapper = shallow(
-				<DateTimePicker
-					selection={{
-						date: new Date(2013, 0, 15),
-					}}
-					onSubmit={() => {}}
-				/>,
-			);
+		it('should switch to new year from monthYear picker', () => {
+			// given
+			const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
+			wrapper.setState({ isDateTimeView: false, calendar: { monthIndex: 10, year: 2018 } });
+			const event = { target: {} };
 
-			wrapper.setState({
-				isDateTimeView: true,
-			});
+			// when
+			wrapper.find(MonthYearView).prop('onSelectYear')(event, 2016);
 
-			const dateTimeViewBefore = wrapper.find(DateTimeView);
-			expect(dateTimeViewBefore.prop('calendar')).toEqual({
-				monthIndex: 0,
-				year: 2013,
-			});
+			// then
+			const calendar = wrapper.state('calendar');
+			expect(calendar.year).toBe(2016);
+		});
+	});
 
-			wrapper.setProps({
-				selection: {
-					date: new Date(2015, 9, 4),
-				},
-			});
+	describe('date update', () => {
+		it('should update state on date props change', () => {
+			// given
+			const d1 = new Date(2018, 2, 5);
+			const d2 = new Date(2019, 11, 21);
+			const wrapper = shallow(<DateTimePicker selection={{ date: d1 }} onSubmit={() => {}} />);
 
-			const dateTimeViewAfter = wrapper.find(DateTimeView);
-			expect(dateTimeViewAfter.prop('calendar')).toEqual({
-				monthIndex: 9,
-				year: 2015,
-			});
+			// when
+			wrapper.setProps({ selection: { date: d2 } });
+
+			// then
+			expect(wrapper.state('selectedDate')).toBe(d2);
 		});
 
-		it('should keep actual calendar displayed if date selection prop update to undefined', () => {
+		it('should update state on time props change', () => {
+			// given
+			const t1 = { hours: 1, minutes: 15 };
+			const t2 = { hours: 23, minutes: 25 };
+			const wrapper = shallow(<DateTimePicker selection={{ time: t1 }} onSubmit={() => {}} />);
+
+			// when
+			wrapper.setProps({ selection: { time: t2 } });
+
+			// then
+			expect(wrapper.state('selectedTime')).toBe(t2);
+		});
+
+		it('should update state and submit on date picked', () => {
+			// given
+			const initialTime = { hours: 1, minutes: 15 };
+			const initialDate = new Date(2015, 10, 18);
+			const date = new Date(2018, 2, 5);
+			const event = { target: {}, persist() {} };
+			const onSubmit = jest.fn();
+
 			const wrapper = shallow(
-				<DateTimePicker
-					selection={{
-						date: new Date(2013, 0, 15),
-					}}
-					onSubmit={() => {}}
-				/>,
+				<DateTimePicker selection={{ date: initialDate, time: initialTime }} onSubmit={onSubmit} />,
 			);
 
-			wrapper.setState({
-				isDateTimeView: true,
-			});
+			// when
+			wrapper.find(DateTimeView).prop('onSelectDate')(event, date);
 
-			const dateTimeViewBefore = wrapper.find(DateTimeView);
-			expect(dateTimeViewBefore.prop('calendar')).toEqual({
-				monthIndex: 0,
-				year: 2013,
-			});
+			// then
+			expect(wrapper.state('selectedDate')).toBe(date);
+			expect(onSubmit).toBeCalledWith(event, { date, time: initialTime });
+		});
 
-			wrapper.setProps({
-				selection: {
-					date: undefined,
-				},
-			});
+		it('should update state and submit on time picked', () => {
+			// given
+			const initialTime = { hours: 1, minutes: 15 };
+			const initialDate = new Date(2015, 10, 18);
+			const time = { hours: 23, minutes: 59 };
+			const event = { target: {}, persist() {} };
+			const onSubmit = jest.fn();
 
-			const dateTimeViewAfter = wrapper.find(DateTimeView);
-			expect(dateTimeViewAfter.prop('calendar')).toEqual({
-				monthIndex: 0,
-				year: 2013,
-			});
+			const wrapper = shallow(
+				<DateTimePicker selection={{ date: initialDate, time: initialTime }} onSubmit={onSubmit} />,
+			);
+
+			// when
+			wrapper.find(DateTimeView).prop('onSelectTime')(event, time);
+
+			// then
+			expect(wrapper.state('selectedTime')).toBe(time);
+			expect(onSubmit).toBeCalledWith(event, { date: initialDate, time });
+		});
+
+		it('should NOT submit when day or time is missing', () => {
+			// given
+			const initialTime = { hours: 1, minutes: 15 };
+			const time = { hours: 23, minutes: 59 };
+
+			const initialDate = new Date(2015, 10, 18);
+			const date = new Date(2018, 2, 5);
+
+			const event = { target: {}, persist() {} };
+			const onSubmit = jest.fn();
+
+			const timeOnlyWrapper = shallow(
+				<DateTimePicker selection={{ time: initialTime }} onSubmit={onSubmit} />,
+			);
+
+			const dateOnlyWrapper = shallow(
+				<DateTimePicker selection={{ date: initialDate }} onSubmit={onSubmit} />,
+			);
+
+			// when/then
+			timeOnlyWrapper.find(DateTimeView).prop('onSelectTime')(event, time);
+			expect(onSubmit).not.toBeCalled();
+
+			// when/then
+			dateOnlyWrapper.find(DateTimeView).prop('onSelectDate')(event, date);
+			expect(onSubmit).not.toBeCalled();
 		});
 	});
 });
