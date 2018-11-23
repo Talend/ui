@@ -141,7 +141,7 @@ class InputDateTimePicker extends React.Component {
 		return this.onChange(
 			event,
 			{
-				textInput,
+				textInput: dateTimeToStr(date, time, this.props.useSeconds),
 				errorMessage,
 				date,
 				time,

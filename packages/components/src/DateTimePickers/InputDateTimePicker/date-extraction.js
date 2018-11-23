@@ -159,9 +159,8 @@ function strToDate(strToParse) {
  * @returns {{ hours: string, minutes: string }}
  */
 function strToTime(strToParse, useSeconds) {
-	const timeMatches = useSeconds
-		? strToParse.match(timeWithSecondsPartRegex)
-		: strToParse.match(timePartRegex);
+	const timeMatches = strToParse.match(timeWithSecondsPartRegex) ?
+		strToParse.match(timeWithSecondsPartRegex) : strToParse.match(timePartRegex);
 	if (!timeMatches) {
 		throw new Error('TIME - INCORRECT FORMAT');
 	}
