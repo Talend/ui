@@ -77,7 +77,6 @@ export default {
 	expressions,
 	registerInternals,
 	registry,
-	// route,
 	router: {
 		matchPath,
 	},

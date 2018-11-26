@@ -103,7 +103,6 @@ export function bootstrapRedux(options, sagaMiddleware) {
  * Bootstrap your cmf app
  * It takes your configuration and provides a very good default one.
  * By default it starts react with the following addons:
-//  * - react-router
  * - redux
  * - redux-saga
  * @param {object} options the set of supported options
