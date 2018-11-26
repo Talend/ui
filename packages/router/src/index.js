@@ -7,7 +7,7 @@ import expressions from './expressions';
 import sagaRouter from './sagaRouter';
 import * as selectors from './selectors';
 
-function getModule(options) {
+function getModule(options = {}) {
 	const history = options.history || hashHistory;
 	function* saga() {
 		if (options.sagaRouterConfig) {
