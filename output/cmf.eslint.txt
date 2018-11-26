@@ -5,17 +5,11 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
   87:3  warning  Unexpected console statement  no-console
 
-/home/travis/build/Talend/ui/packages/cmf/src/expressions/router.js
-  2:29  error  Unable to resolve path to module '../sagaRouter/matchPath'  import/no-unresolved
-
 /home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
   23:2  warning  Unexpected console statement  no-console
 
 /home/travis/build/Talend/ui/packages/cmf/src/sagas/collection.js
   10:1  error  Prefer default export  import/prefer-default-export
 
-/home/travis/build/Talend/ui/packages/cmf/src/sagas/documentTitle.js
-  3:23  error  Unable to resolve path to module '../sagaRouter/matchPath'  import/no-unresolved
-
-✖ 5 problems (3 errors, 2 warnings)
+✖ 3 problems (1 error, 2 warnings)
 
