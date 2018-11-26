@@ -36,11 +36,12 @@ class TimePicker extends React.PureComponent {
 	renderSeconds(tabIndex) {
 		if (this.props.useSeconds) {
 			return [
-				<hr />,
-				<label htmlFor={this.secondId} className="sr-only">
+				<hr key="hr-seconds" />,
+				<label key="label-seconds" htmlFor={this.secondId} className="sr-only">
 					Seconds
 				</label>,
 				<DebounceInput
+					key="input-seconds"
 					id={this.secondId}
 					className={theme['time-input']}
 					value={this.props.value.seconds}
