@@ -6,15 +6,6 @@ import endOfMonth from 'date-fns/end_of_month';
 import format from 'date-fns/format';
 import setDay from 'date-fns/set_day';
 import startOfWeek from 'date-fns/start_of_week';
-import { getCurrentLanguage } from '../translate';
-
-const locales = {
-	fr: require('date-fns/locale/fr'),
-	zh: require('date-fns/locale/zh_cn'),
-	ja: require('date-fns/locale/ja'),
-};
-
-export const pickerLocale = { locale: locales[getCurrentLanguage()] };
 
 /**
  * Generate days of week, starting from the provided index
@@ -24,7 +15,7 @@ export function buildDayNames(firstDayOfweek = 1) {
 		.fill(0)
 		.map((_, i) => (i + firstDayOfweek) % 7)
 		.map(dayOfWeek => setDay(new Date(0), dayOfWeek))
-		.map(headerDate => format(headerDate, 'dd', pickerLocale));
+		.map(headerDate => format(headerDate, 'dd'));
 }
 
 /**
@@ -58,7 +49,7 @@ export function buildMonths(chunkSize) {
 		.map((_, i) => i)
 		.map(index => ({
 			index,
-			name: format(addMonths(new Date(0), index), 'MMMM', pickerLocale),
+			name: format(addMonths(new Date(0), index), 'MMMM'),
 		}));
 	return chunk(months, chunkSize);
 }
