@@ -22,7 +22,7 @@ function getState(key) {
 }
 
 /**
- * getStoreCallback read localStorage and create a initilState for redux
+ * getStoreCallback read localStorage and create a initialState for redux
  * @param {string} key the localStorage key where to read
  * @param {Array} paths the list of paths (Array) to serialize in localStorage
  * @return {Object} initialState for redux
