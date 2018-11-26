@@ -24,6 +24,7 @@
     "@talend/bootstrap-theme": "link:../../theme",
     "@talend/icons": "link:../../icons",
     "@talend/react-cmf": "link:../../cmf",
+    "@talend/react-cmf-router": "3.0.0-0",
     "@talend/react-components": "link:../../components",
     "@talend/react-containers": "link:../../containers",
     "@talend/react-forms": "link:../../forms",

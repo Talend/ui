@@ -5,7 +5,7 @@
  */
 
 import '@talend/bootstrap-theme/src/theme/theme.scss';
-import getRouter from '@talend/react-router';
+import getRouter from '@talend/react-cmf-router';
 import containersModule from '@talend/react-containers';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 import cmf from '@talend/react-cmf';
