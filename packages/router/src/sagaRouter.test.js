@@ -1,12 +1,10 @@
 import { spawn, take, cancel } from 'redux-saga/effects';
 import { createMockTask } from 'redux-saga/utils';
-import sagaRouter from '../../src/sagaRouter/router';
-import { sagaRouter as sagaRouterFromRoot } from '../../src';
+import sagaRouter from './sagaRouter';
 
 describe('sagaRouter import', () => {
 	it('shouldBe defined', () => {
 		expect(sagaRouter).toBeDefined();
-		expect(sagaRouter).toBe(sagaRouterFromRoot);
 	});
 });
 

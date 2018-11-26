@@ -1,15 +1,8 @@
 /* eslint no-underscore-dangle: ["error", {"allow": ["_registry", "_isLocked"] }] */
 import React from 'react';
 import { shallow } from 'enzyme';
-import component from '../src/component';
-import route from '../src/route';
-import mock from '../src/mock';
-
-describe('CMF route', () => {
-	it('registerComponent should be an alias to component.get', () => {
-		expect(route.registerComponent.wrappedFunction).toBe(component.register);
-	});
-});
+import mock from '@talend/react-cmf/lib/mock';
+import route from './route';
 
 describe('loadComponent behavior', () => {
 	it('should replace component by regitry one', () => {

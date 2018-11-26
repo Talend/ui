@@ -66,9 +66,7 @@
       "!**/__snapshots__/**"
     ],
     "roots": [
-      "src",
-      "scripts",
-      "__tests__"
+      "src"
     ],
     "transform": {
       ".*": "<rootDir>/../../node_modules/babel-jest"

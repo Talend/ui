@@ -34,7 +34,7 @@
 import { spawn, take, cancel } from 'redux-saga/effects';
 import isEqual from 'lodash/isEqual';
 
-import matchPath from './matchPath';
+import cmf from '@talend/react-cmf';
 
 // TODO: Maybe saga shuld be implemented as a complete Maybe Monad
 
@@ -141,7 +141,7 @@ function shouldRestartSaga(maybeSaga, match, routeSaga) {
  */
 function parseSagaState(routeFragment, sagas, currentLocation) {
 	return {
-		match: matchPath(currentLocation.pathname, { path: routeFragment }),
+		match: cmf.router.matchPath(currentLocation.pathname, { path: routeFragment }),
 		maybeSaga: sagas[routeFragment],
 	};
 }

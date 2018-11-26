@@ -5,6 +5,7 @@ import { fork } from 'redux-saga/effects';
 import UIRouter from './UIRouter';
 import expressions from './expressions';
 import sagaRouter from './sagaRouter';
+import * as selectors from './selectors';
 
 function getModule(options) {
 	const history = options.history || hashHistory;
@@ -40,3 +41,9 @@ function getModule(options) {
 
 // cmfModule
 export default getModule;
+
+const routerAPI = {
+	selectors,
+};
+
+export { routerAPI };
