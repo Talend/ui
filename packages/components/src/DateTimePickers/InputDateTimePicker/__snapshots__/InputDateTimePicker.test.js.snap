@@ -20,8 +20,9 @@ exports[`InputDateTimePicker should render 1`] = `
     onChange={[Function]}
     onFocus={[Function]}
     onKeyDown={undefined}
-    placeholder="YYYY-MM-DD HH:mm"
+    placeholder="YYYY-MM-DD HH:mm:ss"
     type="text"
+    useSeconds={false}
     value="2017-04-04 15:27"
   />
   <div
@@ -49,9 +50,11 @@ exports[`InputDateTimePicker should render 1`] = `
               "time": Object {
                 "hours": "15",
                 "minutes": "27",
+                "seconds": "00",
               },
             }
           }
+          useSeconds={false}
         />
       </Popover>
     </Overlay>
