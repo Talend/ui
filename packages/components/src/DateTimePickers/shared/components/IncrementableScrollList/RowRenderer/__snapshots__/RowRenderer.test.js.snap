@@ -11,5 +11,6 @@ exports[`RowRenderer should render 1`] = `
       "display": "flex",
     }
   }
+  tabIndex={-1}
 />
 `;

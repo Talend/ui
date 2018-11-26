@@ -30,6 +30,7 @@ class HeaderBar extends React.Component {
 				url: PropTypes.string,
 			}),
 		),
+		productsSort: PropTypes.func,
 		...cmfConnect.propTypes,
 	};
 
@@ -46,25 +47,39 @@ class HeaderBar extends React.Component {
 	}
 
 	render() {
-		const { productsItems, ...props } = this.props;
+		const { productsItems: productsFromState, productsSort, ...props } = this.props;
 
 		const hasFetchedProducts =
 			this.props.state.get('productsFetchState') === Constants.FETCH_PRODUCTS_SUCCESS;
 
-		if (hasFetchedProducts && productsItems) {
-			const items = productsItems
-				.map(product => ({
+		const productsProps = {};
+
+		if (hasFetchedProducts && productsFromState) {
+			const productsFromProps = props.products || {};
+
+			const itemsFromProps = (productsFromProps.items ? props.products.items : []).map(item => {
+				if (item.dispatch) {
+					return { ...item, onClickDispatch: item.dispatch };
+				}
+
+				return item;
+			});
+
+			const items = [
+				...itemsFromProps,
+				...productsFromState.map(product => ({
 					'data-feature': `product.${(product.id || '').toLowerCase()}`,
 					label: product.name,
 					icon: `talend-${product.icon}-colored`,
 					onClickDispatch: openProduct(product),
-				}))
-				.sort(sortProductsByLabel);
+				})),
+			];
 
-			props.products = Object.assign({}, props.products || {}, { items });
+			productsProps.products = Object.assign({}, productsFromProps, { items });
+			productsProps.products.items.sort(productsSort || sortProductsByLabel);
 		}
 
-		return <Component {...omit(props, cmfConnect.INJECTED_PROPS)} />;
+		return <Component {...omit(props, cmfConnect.INJECTED_PROPS)} {...productsProps} />;
 	}
 }
 
