@@ -7,6 +7,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   13:6  error  Unexpected require()  global-require
   14:6  error  Unexpected require()  global-require
 
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/InputDateTimePicker.component.js
+  144:5  error  Expected property shorthand  object-shorthand
+
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
   105:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
 
@@ -16,5 +19,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 6 problems (5 errors, 1 warning)
+✖ 7 problems (6 errors, 1 warning)
 
