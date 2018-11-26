@@ -91,7 +91,7 @@ storiesOf('DateTimePicker', module)
 				selectedDateTime={new Date(2018, 4, 13, 12, 30, 44)}
 				onChange={action('onChange')}
 				name="Datetime"
-				useSeconds={true}
+				useSeconds
 			/>
 		</div>
 	))

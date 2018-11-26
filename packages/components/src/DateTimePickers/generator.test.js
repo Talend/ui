@@ -7,7 +7,15 @@ describe('Date generator', () => {
 			const result = buildDayNames();
 
 			// then
-			expect(result).toEqual(['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']);
+			expect(result).toEqual([
+				'Monday',
+				'Tuesday',
+				'Wednesday',
+				'Thursday',
+				'Friday',
+				'Saturday',
+				'Sunday',
+			]);
 		});
 
 		it('should generate week names starting with provided day of week', () => {
@@ -15,7 +23,15 @@ describe('Date generator', () => {
 			const result = buildDayNames(2);
 
 			// then
-			expect(result).toEqual(['Tu', 'We', 'Th', 'Fr', 'Sa', 'Su', 'Mo']);
+			expect(result).toEqual([
+				'Tuesday',
+				'Wednesday',
+				'Thursday',
+				'Friday',
+				'Saturday',
+				'Sunday',
+				'Monday',
+			]);
 		});
 	});
 

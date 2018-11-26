@@ -47,7 +47,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <abbr
                 key="0"
-                title="Mo"
+                title="Monday"
               >
                 M
               </abbr>
@@ -58,7 +58,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <abbr
                 key="1"
-                title="Tu"
+                title="Tuesday"
               >
                 T
               </abbr>
@@ -69,7 +69,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <abbr
                 key="2"
-                title="We"
+                title="Wednesday"
               >
                 W
               </abbr>
@@ -80,7 +80,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <abbr
                 key="3"
-                title="Th"
+                title="Thursday"
               >
                 T
               </abbr>
@@ -91,7 +91,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <abbr
                 key="4"
-                title="Fr"
+                title="Friday"
               >
                 F
               </abbr>
@@ -102,7 +102,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <abbr
                 key="5"
-                title="Sa"
+                title="Saturday"
               >
                 S
               </abbr>
@@ -113,7 +113,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <abbr
                 key="6"
-                title="Su"
+                title="Sunday"
               >
                 S
               </abbr>

@@ -15,7 +15,7 @@ export function buildDayNames(firstDayOfweek = 1) {
 		.fill(0)
 		.map((_, i) => (i + firstDayOfweek) % 7)
 		.map(dayOfWeek => setDay(new Date(0), dayOfWeek))
-		.map(headerDate => format(headerDate, 'dd'));
+		.map(headerDate => format(headerDate, 'dddd'));
 }
 
 /**
