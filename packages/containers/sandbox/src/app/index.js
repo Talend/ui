@@ -12,15 +12,15 @@ import cmf from '@talend/react-cmf';
 import { createLogger } from 'redux-logger';
 import actions from './actions';
 
-const routerModule = getRouter();
+const router = getRouter();
 
 const app = {
 	components: { ComponentForm },
 	settingsURL: '/settings.json',
 	actionCreators: actions,
 	middlewares: [createLogger({})],
-	modules: [routerModule, containersModule],
-	RootComponent: routerModule.components.Router,
+	modules: [router.cmfModule, containersModule],
+	RootComponent: router.RootComponent,
 };
 
 /**

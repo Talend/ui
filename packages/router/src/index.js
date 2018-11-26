@@ -27,19 +27,21 @@ function getModule(options = {}) {
 		Router,
 	};
 	return {
-		id: 'react-cmf-router',
-		expressions,
-		reducer: {
-			routing: routerReducer,
+		cmfModule: {
+			id: 'react-cmf-router',
+			expressions,
+			reducer: {
+				routing: routerReducer,
+			},
+			components,
+			middlewares,
+			saga,
+			storeCallback,
 		},
-		components,
-		middlewares,
-		saga,
-		storeCallback,
+		RootComponent: Router,
 	};
 }
 
-// cmfModule
 export default getModule;
 
 const routerAPI = {

@@ -10,9 +10,10 @@ First add it to your bootstrap app
 import cmf from '@talend/react-cmf';
 import getRouter from '@talend/react-cmf-router';
 
-const routerModule = getRouter({ history, sagaRouterConfig });
+const router = getRouter({ history, sagaRouterConfig });
 
 cmf.bootstrap({
-    modules: [routerModule],
+    modules: [router.cmfModule],
+    RootComponent: router.RootComponent,
 });
 ```
