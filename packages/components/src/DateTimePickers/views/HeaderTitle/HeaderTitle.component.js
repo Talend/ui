@@ -5,7 +5,6 @@ import setYear from 'date-fns/set_year';
 import setMonth from 'date-fns/set_month';
 import format from 'date-fns/format';
 import theme from './HeaderTitle.scss';
-import { pickerLocale } from '../../generator';
 
 function HeaderTitle(props) {
 	const isButton = !!props.button;
@@ -18,7 +17,7 @@ function HeaderTitle(props) {
 	};
 
 	const date = setYear(setMonth(new Date(0), props.monthIndex), props.year);
-	const label = format(date, 'MMMM YYYY', pickerLocale);
+	const label = format(date, 'MMMM YYYY');
 
 	if (isButton) {
 		return (
