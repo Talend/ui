@@ -1,6 +1,6 @@
-import * as router from '../../src/expressions/router';
+import mock from '@talend/react-cmf/lib/mock';
+import * as router from './index';
 import CONSTANTS from '../../src/constant';
-import mock from '../../src/mock';
 
 describe('expressions', () => {
 	it('should export some expressions', () => {

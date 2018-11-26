@@ -94,9 +94,6 @@ function getReducer(appReducer) {
 	if (!reducerObject.cmf) {
 		reducerObject.cmf = cmfReducers;
 	}
-	// if (!reducerObject.routing) {
-	// 	reducerObject.routing = routerReducer;
-	// }
 	return enableBatching(preApplyReducer(combineReducers(reducerObject)));
 }
 

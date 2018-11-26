@@ -1,4 +1,4 @@
-import matchPath from '../../src/sagaRouter/matchPath';
+import matchPath from '../src/matchPath';
 
 describe('matchPath', () => {
 	describe('with path="/"', () => {

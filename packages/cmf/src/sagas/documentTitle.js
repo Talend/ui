@@ -1,6 +1,6 @@
 import { take, takeLatest } from 'redux-saga/effects';
 
-import matchPath from '../sagaRouter/matchPath';
+import matchPath from '../matchPath';
 
 /**
  * Format the current full path

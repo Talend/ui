@@ -4,8 +4,6 @@ import mock from '../../src/mock';
 
 describe('expressions', () => {
 	it('should export some expressions', () => {
-		expect(expressions['cmf.router.matchPath']).toBeDefined();
-		expect(expressions['cmf.router.location']).toBeDefined();
 		expect(expressions['cmf.collections.get']).toBeDefined();
 		expect(expressions['cmf.components.get']).toBeDefined();
 		expect(expressions['cmf.collections.includes']).toBeDefined();

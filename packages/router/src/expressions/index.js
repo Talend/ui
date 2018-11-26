@@ -24,3 +24,8 @@ export function location({ context }, getPath) {
 	}
 	return loc;
 }
+
+export default {
+	'cmf.router.matchPath': matchPath,
+	'cmf.router.location': location,
+};

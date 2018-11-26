@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 
 import App from '../src/App';
 import RegistryProvider from '../src/RegistryProvider';
-import UIRouter from '../src/UIRouter';
 
 describe('CMF App', () => {
 	it('App should init stuff', () => {
@@ -19,9 +18,7 @@ describe('CMF App', () => {
 		const wrapper = shallow(<App store={store} history={history} loading="AppLoader" />);
 		expect(wrapper.contains(
 			<Provider store={store}>
-				<RegistryProvider>
-					<UIRouter history={history} loading="AppLoader" />
-				</RegistryProvider>
+				<RegistryProvider />
 			</Provider>)
 		).toEqual(true);
 	});

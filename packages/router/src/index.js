@@ -3,6 +3,7 @@ import { hashHistory } from 'react-router';
 import { routerReducer, routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 import { fork } from 'redux-saga/effects';
 import UIRouter from './UIRouter';
+import expressions from './expressions';
 import sagaRouter from './sagaRouter';
 
 function getModule(options) {
@@ -26,6 +27,7 @@ function getModule(options) {
 	};
 	return {
 		id: 'react-cmf-router',
+		expressions,
 		reducer: {
 			routing: routerReducer,
 		},

@@ -106,10 +106,6 @@ describe('mergeModule', () => {
 		const left = mergeModules({ appId: 'foo' }, {}, {});
 		expect(left.appId).toBe('foo');
 	});
-	it('should throw an exception if two config has history', () => {
-		const toThrow = () => mergeModules({ history: 'foo' }, { history: 'bar' });
-		expect(toThrow).toThrow();
-	});
 	it('should merge enhancer functions', () => {
 		const fn1 = jest.fn();
 		const fn2 = jest.fn();
