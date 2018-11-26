@@ -2,9 +2,6 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/InputDatePicker.component.js
-  297:9  error  Value must be omitted for boolean attributes  react/jsx-boolean-value
-
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/InputDateTimePicker.component.js
   277:7  error  Expected indentation of 5 tabs but found 6  indent
   278:7  error  Expected indentation of 5 tabs but found 6  indent
@@ -22,5 +19,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 8 problems (7 errors, 1 warning)
+✖ 7 problems (6 errors, 1 warning)
 
