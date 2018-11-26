@@ -61,10 +61,10 @@ describe('InputDateTimePicker', () => {
 
 	cases(
 		'props update should update state',
-		({ initialDate, newDate, expectedTextInput, expectedDate, expectedTime }) => {
+		({ initialDate, newDate, expectedTextInput, expectedDate, expectedTime, useSeconds }) => {
 			// given
 			const wrapper = shallow(
-				<InputDateTimePicker id={DEFAULT_ID} selectedDateTime={initialDate} />,
+				<InputDateTimePicker id={DEFAULT_ID} selectedDateTime={initialDate} useSeconds={useSeconds} />
 			);
 
 			// when
@@ -112,6 +112,7 @@ describe('InputDateTimePicker', () => {
 				expectedTextInput: '2015-04-04 12:36:30',
 				expectedDate: new Date(2015, 3, 4),
 				expectedTime: { hours: '12', minutes: '36', seconds: '30' },
+				useSeconds: true,
 			},
 		],
 	);
@@ -278,10 +279,12 @@ describe('InputDateTimePicker', () => {
 	describe('input change', () => {
 		cases(
 			'should update picker',
-			({ textInput, expectedDate, expectedTime }) => {
+			({ textInput, expectedDate, expectedTime, useSeconds }) => {
 				// given
 				const event = { target: { value: textInput } };
-				const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} />);
+				const wrapper = shallow(
+					<InputDateTimePicker id={DEFAULT_ID} useSeconds={useSeconds}/>
+				);
 
 				// when
 				wrapper.find('DebounceInput').simulate('change', event);
@@ -306,6 +309,7 @@ describe('InputDateTimePicker', () => {
 					textInput: '2015-01-15 15:45:22',
 					expectedDate: new Date(2015, 0, 15),
 					expectedTime: { hours: '15', minutes: '45', seconds: '22' },
+					useSeconds: true,
 				},
 				{
 					name: 'with invalid date',

@@ -8,13 +8,13 @@ describe('Date generator', () => {
 
 			// then
 			expect(result).toEqual([
-				'Monday',
-				'Tuesday',
-				'Wednesday',
-				'Thursday',
-				'Friday',
-				'Saturday',
-				'Sunday',
+				'Mo',
+				'Tu',
+				'We',
+				'Th',
+				'Fr',
+				'Sa',
+				'Su',
 			]);
 		});
 
@@ -24,13 +24,13 @@ describe('Date generator', () => {
 
 			// then
 			expect(result).toEqual([
-				'Tuesday',
-				'Wednesday',
-				'Thursday',
-				'Friday',
-				'Saturday',
-				'Sunday',
-				'Monday',
+				'Tu',
+				'We',
+				'Th',
+				'Fr',
+				'Sa',
+				'Su',
+				'Mo',
 			]);
 		});
 	});

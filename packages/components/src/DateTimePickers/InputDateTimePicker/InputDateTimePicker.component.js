@@ -77,7 +77,10 @@ class InputDateTimePicker extends React.Component {
 			!isSameSecond(newSelectedDateTime, this.state.datetime); // not the same value as state
 
 		if (needDateTimeStateUpdate) {
-			const dateRelatedPartState = extractDateTimeParts(newSelectedDateTime);
+			const dateRelatedPartState = extractDateTimeParts(
+				newSelectedDateTime,
+				this.props.useSeconds,
+			);
 			this.setState(dateRelatedPartState);
 		}
 	}
@@ -141,7 +144,7 @@ class InputDateTimePicker extends React.Component {
 		return this.onChange(
 			event,
 			{
-				textInput: dateTimeToStr(date, time, this.props.useSeconds),
+				textInput: textInput,
 				errorMessage,
 				date,
 				time,
