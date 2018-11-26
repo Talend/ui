@@ -28,7 +28,7 @@ const INVALID_PLACEHOLDER = 'INVALID DATE';
 
 const warnOnce = {};
 
-const PROPS_TO_OMIT_FOR_INPUT = ['selectedDateTime', 'onChange', 'onBlur'];
+const PROPS_TO_OMIT_FOR_INPUT = ['selectedDateTime', 'onChange', 'onBlur', 'dateFormat'];
 
 class InputDateTimePicker extends React.Component {
 	static propTypes = {

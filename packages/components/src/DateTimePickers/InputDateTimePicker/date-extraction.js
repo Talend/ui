@@ -145,7 +145,7 @@ function dateAndTimeToDateTime(date, time) {
 }
 
 /**
- * Convert string in 'YYYY-MM-DD' format to date
+ * Convert string in dateFormat to date
  */
 function strToDate(strToParse, dateFormat) {
 	const { partsOrder, regexp } = getDateRegexp(dateFormat);
