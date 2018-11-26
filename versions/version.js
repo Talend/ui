@@ -63,6 +63,7 @@ const files = [
 	path.join(__dirname, '../packages/forms/package.json'),
 	path.join(__dirname, '../packages/generator/package.json'),
 	path.join(__dirname, '../packages/icons/package.json'),
+	path.join(__dirname, '../packages/router/package.json'),
 	path.join(__dirname, '../packages/sagas/package.json'),
 	path.join(__dirname, '../packages/theme/package.json'),
 	path.join(__dirname, '../packages/datagrid/package.json'),
