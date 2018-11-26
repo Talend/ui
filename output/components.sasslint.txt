@@ -2,7 +2,7 @@
 
 
 src/DateTimePickers/pickers/TimePicker/TimePicker.scss
-  19:7  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  18:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/Drawer/Drawer.scss
   14:4  warning  Statement must begin on a new line  brace-style
