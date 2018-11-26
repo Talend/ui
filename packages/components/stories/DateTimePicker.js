@@ -71,6 +71,19 @@ class TestPickerWrapper extends React.Component {
 }
 
 storiesOf('DateTimePicker', module)
+	.add('InputDatePicker', () => (
+		<div>
+			<h1>InputDateTimePicker</h1>
+			<IconsProvider />
+			<TestPickerWrapper
+				id="my-date-picker"
+				selectedDateTime={new Date(2018, 4, 13, 12, 30)}
+				onChange={action('onChange')}
+				name="Datetime"
+				useTime={false}
+			/>
+		</div>
+	))
 	.add('InputDateTimePicker', () => (
 		<div>
 			<h1>InputDateTimePicker</h1>

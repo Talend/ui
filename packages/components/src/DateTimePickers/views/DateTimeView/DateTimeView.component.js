@@ -41,6 +41,19 @@ class DateTimeView extends React.PureComponent {
 		);
 	}
 
+	getTimePicker() {
+		return this.props.useTime ? (
+			<div className={theme.time}>
+				<TimePicker
+					allowFocus={this.props.allowFocus}
+					value={this.props.selectedTime}
+					onChange={this.props.onSelectTime}
+					useSeconds={this.props.useSeconds}
+				/>
+			</div>
+		) : null;
+	}
+
 	render() {
 		const header = {
 			leftElement: (
@@ -89,14 +102,7 @@ class DateTimeView extends React.PureComponent {
 						goToNextMonth={this.goToNextMonth}
 					/>
 				</div>
-				<div className={theme.time}>
-					<TimePicker
-						allowFocus={this.props.allowFocus}
-						value={this.props.selectedTime}
-						onChange={this.props.onSelectTime}
-						useSeconds={this.props.useSeconds}
-					/>
-				</div>
+				{ this.getTimePicker() }
 			</div>
 		);
 
@@ -120,6 +126,7 @@ DateTimeView.propTypes = {
 		minutes: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	}),
 	useSeconds: PropTypes.bool,
+	useTime: PropTypes.bool,
 };
 
 export default DateTimeView;

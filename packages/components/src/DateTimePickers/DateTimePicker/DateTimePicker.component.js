@@ -157,6 +157,7 @@ class DateTimePicker extends React.Component {
 					selectedDate={this.state.selectedDate}
 					selectedTime={this.state.selectedTime}
 					useSeconds={this.props.useSeconds}
+					useTime={this.props.useTime}
 				/>
 			);
 		} else {
@@ -213,6 +214,7 @@ DateTimePicker.propTypes = {
 	 * Display the seconds
 	 */
 	useSeconds: PropTypes.bool,
+	useTime: PropTypes.bool,
 };
 
 DateTimePicker.defaultProps = {

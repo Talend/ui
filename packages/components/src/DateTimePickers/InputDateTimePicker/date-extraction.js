@@ -114,8 +114,8 @@ function dateTimeToStr(date, time, options) {
 		return '';
 	}
 
-	const { dateFormat } = options;
-	if (time === undefined) {
+	const { dateFormat, useTime } = options;
+	if (time === undefined || useTime === false) {
 		return format(date, dateFormat);
 	}
 
@@ -271,4 +271,5 @@ export {
 	isDateValid,
 	strToDate,
 	strToTime,
+	getDateRegexp,
 };
