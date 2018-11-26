@@ -274,9 +274,9 @@ class InputDateTimePicker extends React.Component {
 		let placeholder =
 			inputProps.placeholder || this.props.useTime
 				? getFullDateFormat({
-						dateFormat: this.props.dateFormat,
-						useSeconds: this.props.useSeconds,
-				  })
+					dateFormat: this.props.dateFormat,
+					useSeconds: this.props.useSeconds,
+				})
 				: this.props.dateFormat;
 		if (!isDatetimeValid && !inputFocused) {
 			placeholder = INVALID_PLACEHOLDER;
