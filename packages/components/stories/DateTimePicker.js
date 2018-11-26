@@ -82,6 +82,19 @@ storiesOf('DateTimePicker', module)
 			/>
 		</div>
 	))
+	.add('InputDateTimePicker with seconds', () => (
+		<div>
+			<h1>InputDateTimePicker with seconds</h1>
+			<IconsProvider />
+			<TestPickerWrapper
+				id="my-date-picker"
+				selectedDateTime={new Date(2018, 4, 13, 12, 30, 44)}
+				onChange={action('onChange')}
+				name="Datetime"
+				useSeconds
+			/>
+		</div>
+	))
 	.add('DateTimePicker', () => (
 		<div>
 			<h1>DateTimePicker</h1>
