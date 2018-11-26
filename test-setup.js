@@ -37,9 +37,10 @@ const fetch = jest.fn(
 );
 global.fetch = fetch;
 global.Headers = Headers;
-global.localStorage = {};
-global.localStorage.setItem = (key, value) => {
-	global.localStorage[key] = value;
+global.localStorage = {
+	setItem(key, value) {
+		global.localStorage[key] = value;
+	},
 };
 
 // define Element.closest

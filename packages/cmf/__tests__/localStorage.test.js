@@ -42,6 +42,13 @@ const serializedState = JSON.stringify(Object.assign({}, state, {
 const KEY = 'test-cmf-localStorage';
 
 describe('reduxLocalStorage', () => {
+	const realEventListener = window.addEventListener;
+	beforeEach(() => {
+		window.addEventListener = jest.fn();
+	});
+	afterAll(() => {
+		window.addEventListener = realEventListener;
+	});
 	it('should expose API', () => {
 		expect(typeof localStorageAPI.getState).toBe('function');
 		expect(typeof localStorageAPI.getStoreCallback).toBe('function');
@@ -56,13 +63,10 @@ describe('reduxLocalStorage', () => {
 	it('should getStoreCallback return a function', () => {
 		const callback = localStorageAPI.getStoreCallback(KEY, PATHS);
 		expect(typeof callback).toBe('function');
-		const realEventListener = window.addEventListener;
-		const mock = jest.fn();
-		window.addEventListener = mock;
+
 		callback({ getState: () => state });
-		window.addEventListener = realEventListener;
-		expect(mock).toHaveBeenCalledWith('beforeunload', expect.anything());
-		const handler = mock.mock.calls[0][1];
+		expect(window.addEventListener).toHaveBeenCalledWith('beforeunload', expect.anything());
+		const handler = window.addEventListener.mock.calls[0][1];
 		handler();
 		expect(localStorage[KEY]).toBe(serializedState);
 	});
