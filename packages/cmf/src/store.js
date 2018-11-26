@@ -2,8 +2,6 @@
  * This module is here to help app to create the redux store
  * @module react-cmf/lib/store
  */
-// import { hashHistory } from 'react-router';
-// import { routerReducer, routerMiddleware } from 'react-router-redux';
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import { enableBatching } from 'redux-batched-actions';
 import thunk from 'redux-thunk';
@@ -30,16 +28,6 @@ if (window) {
 // Indicated wether or not the default router was overwritten
 // let defaultRouterOverwrite = false;
 let defaultHttpMiddlewareOverwrite = false;
-
-/**
- * setRouterMiddleware overwrites the default router middleware
- *
- * @param middleware a router middleware
- */
-// function setRouterMiddleware(middleware) {
-// 	middlewares.push(middleware);
-// 	defaultRouterOverwrite = true;
-// }
 
 /**
  * setHttpMiddleware overwrites the default router middleware
@@ -126,7 +114,6 @@ function getMiddlewares(middleware) {
  * the store look like this:
  * - root
  * |- app (with appReducer)
-//  * |- routing (for react-router)
  * |- cmf (for the internals)
  *
  * @param  {function} appReducer   the reducer for your app.
@@ -152,7 +139,6 @@ function initialize(appReducer, preloadedState, enhancer, middleware) {
 
 export default {
 	addPreReducer,
-	// setRouterMiddleware,
 	setHttpMiddleware,
 	initialize,
 	// for testing purepose only
