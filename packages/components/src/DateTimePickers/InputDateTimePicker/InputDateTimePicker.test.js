@@ -64,7 +64,11 @@ describe('InputDateTimePicker', () => {
 		({ initialDate, newDate, expectedTextInput, expectedDate, expectedTime, useSeconds }) => {
 			// given
 			const wrapper = shallow(
-				<InputDateTimePicker id={DEFAULT_ID} selectedDateTime={initialDate} useSeconds={useSeconds} />
+				<InputDateTimePicker
+					id={DEFAULT_ID}
+					selectedDateTime={initialDate}
+					useSeconds={useSeconds}
+				/>,
 			);
 
 			// when
@@ -282,9 +286,7 @@ describe('InputDateTimePicker', () => {
 			({ textInput, expectedDate, expectedTime, useSeconds }) => {
 				// given
 				const event = { target: { value: textInput } };
-				const wrapper = shallow(
-					<InputDateTimePicker id={DEFAULT_ID} useSeconds={useSeconds}/>
-				);
+				const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} useSeconds={useSeconds} />);
 
 				// when
 				wrapper.find('DebounceInput').simulate('change', event);
