@@ -68,8 +68,10 @@ class InputDateTimePicker extends React.Component {
 		}
 
 		checkSupportedDateFormat(props.dateFormat);
-		const selectedDate = props.useTime === false ?
-			startOfDay(this.props.selectedDateTime) : this.props.selectedDateTime;
+		const selectedDate =
+			props.useTime === false
+				? startOfDay(this.props.selectedDateTime)
+				: this.props.selectedDateTime;
 
 		this.popoverId = `date-time-picker-${props.id || uuid.v4()}`;
 		this.state = {
@@ -171,10 +173,9 @@ class InputDateTimePicker extends React.Component {
 		try {
 			if (this.props.useTime === false) {
 				time = { hours: '00', minutes: '00', seconds: '00' };
-			}
-			else {
+			} else {
 				time = strToTime(timeTextToParse, this.props.useSeconds);
-				checkTime(time)
+				checkTime(time);
 			}
 		} catch (error) {
 			time = time || { hours: '', minutes: '', seconds: '' };
@@ -241,10 +242,7 @@ class InputDateTimePicker extends React.Component {
 				useTime: this.props.useTime,
 				useSeconds: this.props.useSeconds,
 			}),
-			datetime: dateAndTimeToDateTime(
-				date,
-				this.props.useTime === false ? startOfDayTime : time,
-			),
+			datetime: dateAndTimeToDateTime(date, this.props.useTime === false ? startOfDayTime : time),
 			errorMessage,
 		};
 		return this.onChange(event, nextState, 'PICKER');
@@ -273,11 +271,13 @@ class InputDateTimePicker extends React.Component {
 		const isDatetimeValid = isDateValid(this.state.datetime);
 		const inputFocused = this.state.inputFocused;
 
-		let placeholder = inputProps.placeholder || this.props.useTime ?
-			getFullDateFormat({
-				dateFormat: this.props.dateFormat,
-				useSeconds: this.props.useSeconds,
-			}) : this.props.dateFormat;
+		let placeholder =
+			inputProps.placeholder || this.props.useTime
+				? getFullDateFormat({
+						dateFormat: this.props.dateFormat,
+						useSeconds: this.props.useSeconds,
+				  })
+				: this.props.dateFormat;
 		if (!isDatetimeValid && !inputFocused) {
 			placeholder = INVALID_PLACEHOLDER;
 		}

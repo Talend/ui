@@ -182,23 +182,23 @@ class InputDateTimePicker extends React.Component {
 
 	onKeyDown(event) {
 		switch (event.keyCode) {
-		case keycode.codes.esc:
-			this.inputRef.focus();
-			this.setPickerVisibility(false);
-			break;
-		case keycode.codes.down:
-			if (event.target !== this.inputRef) {
-				return;
-			}
+			case keycode.codes.esc:
+				this.inputRef.focus();
+				this.setPickerVisibility(false);
+				break;
+			case keycode.codes.down:
+				if (event.target !== this.inputRef) {
+					return;
+				}
 
-			if (this.state.showPicker) {
-				focusOnCalendar(this.containerRef);
-			} else {
-				this.setPickerVisibility(true);
-			}
-			break;
-		default:
-			break;
+				if (this.state.showPicker) {
+					focusOnCalendar(this.containerRef);
+				} else {
+					this.setPickerVisibility(true);
+				}
+				break;
+			default:
+				break;
 		}
 	}
 

@@ -102,7 +102,7 @@ class DateTimeView extends React.PureComponent {
 						goToNextMonth={this.goToNextMonth}
 					/>
 				</div>
-				{ this.getTimePicker() }
+				{this.getTimePicker()}
 			</div>
 		);
 
