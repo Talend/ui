@@ -40,31 +40,35 @@ describe('InputDateTimePicker', () => {
 				initialDate: undefined,
 				expectedTextInput: '',
 				expectedDate: undefined,
-				expectedTime: { hours: '', minutes: '' },
+				expectedTime: { hours: '', minutes: '', seconds: '' },
 			},
 			{
 				name: 'should init default state from props invalid date',
 				initialDate: new Date(''), // invalid date
 				expectedTextInput: '',
 				expectedDate: undefined,
-				expectedTime: { hours: '', minutes: '' },
+				expectedTime: { hours: '', minutes: '', seconds: '' },
 			},
 			{
 				name: 'should init state from props',
 				initialDate: new Date(2015, 3, 4, 12, 36),
 				expectedTextInput: '2015-04-04 12:36',
 				expectedDate: new Date(2015, 3, 4),
-				expectedTime: { hours: '12', minutes: '36' },
+				expectedTime: { hours: '12', minutes: '36', seconds: '00' },
 			},
 		],
 	);
 
 	cases(
 		'props update should update state',
-		({ initialDate, newDate, expectedTextInput, expectedDate, expectedTime }) => {
+		({ initialDate, newDate, expectedTextInput, expectedDate, expectedTime, useSeconds }) => {
 			// given
 			const wrapper = shallow(
-				<InputDateTimePicker id={DEFAULT_ID} selectedDateTime={initialDate} />,
+				<InputDateTimePicker
+					id={DEFAULT_ID}
+					selectedDateTime={initialDate}
+					useSeconds={useSeconds}
+				/>,
 			);
 
 			// when
@@ -87,7 +91,7 @@ describe('InputDateTimePicker', () => {
 				newDate: undefined,
 				expectedTextInput: '',
 				expectedDate: undefined,
-				expectedTime: { hours: '', minutes: '' },
+				expectedTime: { hours: '', minutes: '', seconds: '' },
 			},
 			{
 				name: 'from props invalid date',
@@ -95,7 +99,7 @@ describe('InputDateTimePicker', () => {
 				newDate: new Date(''), // invalid date
 				expectedTextInput: '',
 				expectedDate: undefined,
-				expectedTime: { hours: '', minutes: '' },
+				expectedTime: { hours: '', minutes: '', seconds: '' },
 			},
 			{
 				name: 'from props valid date',
@@ -103,7 +107,16 @@ describe('InputDateTimePicker', () => {
 				newDate: new Date(2015, 3, 4, 12, 36),
 				expectedTextInput: '2015-04-04 12:36',
 				expectedDate: new Date(2015, 3, 4),
-				expectedTime: { hours: '12', minutes: '36' },
+				expectedTime: { hours: '12', minutes: '36', seconds: '00' },
+			},
+			{
+				name: 'from props valid date with seconds',
+				initialDate: new Date(),
+				newDate: new Date(2015, 3, 4, 12, 36, 30),
+				expectedTextInput: '2015-04-04 12:36:30',
+				expectedDate: new Date(2015, 3, 4),
+				expectedTime: { hours: '12', minutes: '36', seconds: '30' },
+				useSeconds: true,
 			},
 		],
 	);
@@ -270,10 +283,12 @@ describe('InputDateTimePicker', () => {
 	describe('input change', () => {
 		cases(
 			'should update picker',
-			({ textInput, expectedDate, expectedTime, dateFormat }) => {
+			({ textInput, expectedDate, expectedTime, dateFormat, useSeconds }) => {
 				// given
 				const event = { target: { value: textInput } };
-				const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} dateFormat={dateFormat} />);
+				const wrapper = shallow(
+					<InputDateTimePicker id={DEFAULT_ID} dateFormat={dateFormat} useSeconds={useSeconds} />,
+				);
 
 				// when
 				wrapper.find('DebounceInput').simulate('change', event);
@@ -291,31 +306,38 @@ describe('InputDateTimePicker', () => {
 					name: 'with valid datetime',
 					textInput: '2015-01-15 15:45',
 					expectedDate: new Date(2015, 0, 15),
-					expectedTime: { hours: '15', minutes: '45' },
+					expectedTime: { hours: '15', minutes: '45', seconds: '00' },
+				},
+				{
+					name: 'with valid datetime with seconds',
+					textInput: '2015-01-15 15:45:22',
+					expectedDate: new Date(2015, 0, 15),
+					expectedTime: { hours: '15', minutes: '45', seconds: '22' },
+					useSeconds: true,
 				},
 				{
 					name: 'with invalid date',
 					textInput: '2015aze-01-15 15:45',
 					expectedDate: undefined,
-					expectedTime: { hours: '15', minutes: '45' },
+					expectedTime: { hours: '15', minutes: '45', seconds: '00' },
 				},
 				{
 					name: 'with invalid time',
 					textInput: '2015-01-15 15aze:45',
 					expectedDate: new Date(2015, 0, 15),
-					expectedTime: { hours: '15aze', minutes: '45' },
+					expectedTime: { hours: '15aze', minutes: '45', seconds: '00' },
 				},
 				{
 					name: 'with empty string',
 					textInput: '',
 					expectedDate: undefined,
-					expectedTime: { hours: '', minutes: '' },
+					expectedTime: { hours: '', minutes: '', seconds: '' },
 				},
 				{
 					name: 'with custom date format',
 					textInput: '15/01/2015 15:45',
 					expectedDate: new Date(2015, 0, 15),
-					expectedTime: { hours: '15', minutes: '45' },
+					expectedTime: { hours: '15', minutes: '45', seconds: '00' },
 					dateFormat: 'DD/MM/YYYY',
 				},
 			],
@@ -411,7 +433,7 @@ describe('InputDateTimePicker', () => {
 			// when
 			wrapper.find('DateTimePicker').prop('onSubmit')(event, {
 				date: new Date(2015, 0, 15),
-				time: { hours: '15', minutes: '45' },
+				time: { hours: '15', minutes: '45', seconds: '00' },
 			});
 
 			// then

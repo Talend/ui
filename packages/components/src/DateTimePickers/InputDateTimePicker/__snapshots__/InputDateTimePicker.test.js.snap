@@ -49,9 +49,11 @@ exports[`InputDateTimePicker should render 1`] = `
               "time": Object {
                 "hours": "15",
                 "minutes": "27",
+                "seconds": "00",
               },
             }
           }
+          useSeconds={false}
         />
       </Popover>
     </Overlay>

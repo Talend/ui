@@ -1,15 +1,17 @@
 import getDate from 'date-fns/get_date';
 import startOfDay from 'date-fns/start_of_day';
-import setMinutes from 'date-fns/set_minutes';
+import setSeconds from 'date-fns/set_seconds';
 import getMinutes from 'date-fns/get_minutes';
+import getSeconds from 'date-fns/get_seconds';
 import lastDayOfMonth from 'date-fns/last_day_of_month';
 import setDate from 'date-fns/set_date';
 import format from 'date-fns/format';
-import startOfMinute from 'date-fns/start_of_minute';
+import startOfSecond from 'date-fns/start_of_second';
 import getHours from 'date-fns/get_hours';
 
-const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*))\s*$/);
+const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
 const timePartRegex = new RegExp(/^(.*):(.*)$/);
+const timeWithSecondsPartRegex = new RegExp(/^(.*):(.*):(.*)$/);
 
 const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
 
@@ -51,9 +53,10 @@ function checkSupportedDateFormat(dateFormat) {
 /**
  * Build the date format with time.
  * @param dateFormat {string}
+ * @param useSeconds {boolean}
  */
-function getFullDateFormat(dateFormat) {
-	const timeFormat = 'HH:mm';
+function getFullDateFormat({ dateFormat, useSeconds }) {
+	const timeFormat = useSeconds ? 'HH:mm:ss' : 'HH:mm';
 	return `${dateFormat} ${timeFormat}`;
 }
 
@@ -71,7 +74,7 @@ function isDateValid(date) {
 /**
  * Check if time is correct
  */
-function checkTime({ hours, minutes }) {
+function checkTime({ hours, minutes, seconds }) {
 	const hoursNum = Number(hours);
 	if (hours.length !== 2 || isNaN(hoursNum) || hoursNum < 0 || hoursNum > 23) {
 		throw new Error('TIME - INCORRECT HOUR NUMBER');
@@ -81,43 +84,52 @@ function checkTime({ hours, minutes }) {
 	if (minutes.length !== 2 || isNaN(minsNum) || minsNum < 0 || minsNum > 59) {
 		throw new Error('TIME - INCORRECT MINUTES NUMBER');
 	}
+	const secondsNum = Number(seconds);
+	if (seconds.length !== 2 || isNaN(secondsNum) || secondsNum < 0 || secondsNum > 59) {
+		throw new Error('TIME - INCORRECT SECONDS NUMBER');
+	}
 }
 
 /**
- * Convert hour and minutes into minutes
+ * Convert hour minutes and seconds into seconds
  * @param hours {string}
  * @param minutes {string}
+ * @param seconds {string}
  * @returns {number}
  */
-function hoursAndMinutesToTime(hours, minutes) {
-	checkTime({ hours, minutes });
-	return Number(hours) * 60 + Number(minutes);
+function timeToSeconds(hours, minutes, seconds) {
+	checkTime({ hours, minutes, seconds });
+	return Number(hours) * 3600 + Number(minutes) * 60 + Number(seconds);
 }
 
 /**
  * Convert date and time to string with 'YYYY-MM-DD HH:mm' format
  * @param date {Date}
- * @param time {{hours: string, minutes: string}}
- * @param dateFormat {string}
+ * @param time {{hours: string, minutes: string, seconds: string}}
+ * @param options {Object}
  * @returns {string}
  */
-function dateTimeToStr(date, time, dateFormat) {
+function dateTimeToStr(date, time, options) {
 	if (date === undefined) {
 		return '';
 	}
 
+	const { dateFormat } = options;
 	if (time === undefined) {
 		return format(date, dateFormat);
 	}
 
-	const { hours, minutes } = time;
+	const { hours, minutes, seconds } = time;
 	try {
-		const timeInMinutes = hoursAndMinutesToTime(hours, minutes);
-		const fullDate = setMinutes(date, timeInMinutes);
-		return format(fullDate, getFullDateFormat(dateFormat));
+		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
+		const fullDate = setSeconds(date, timeInSeconds);
+		return format(fullDate, getFullDateFormat(options));
 	} catch (e) {
 		const dateStr = format(date, dateFormat);
 		if (hours !== '' && minutes !== '') {
+			if (options.useSeconds && seconds !== '') {
+				return `${dateStr} ${hours}:${minutes}:${seconds}`;
+			}
 			return `${dateStr} ${hours}:${minutes}`;
 		}
 		return dateStr;
@@ -136,9 +148,9 @@ function dateAndTimeToDateTime(date, time) {
 	}
 
 	try {
-		const { hours, minutes } = time;
-		const timeInMinutes = hoursAndMinutesToTime(hours, minutes);
-		return setMinutes(date, timeInMinutes);
+		const { hours, minutes, seconds = '00' } = time;
+		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
+		return setSeconds(date, timeInSeconds);
 	} catch (e) {
 		return INTERNAL_INVALID_DATE;
 	}
@@ -184,18 +196,21 @@ function strToDate(strToParse, dateFormat) {
 /**
  * Convert string in 'HH:mm' format into the corresponding number of minutes
  * @param strToParse {string}
+ * @param useSeconds {boolean}
  * @returns {{ hours: string, minutes: string }}
  */
-function strToTime(strToParse) {
-	const timeMatches = strToParse.match(timePartRegex);
+function strToTime(strToParse, useSeconds) {
+	const timeRegex = useSeconds ? timeWithSecondsPartRegex : timePartRegex;
+	const timeMatches = strToParse.match(timeRegex);
 	if (!timeMatches) {
 		throw new Error('TIME - INCORRECT FORMAT');
 	}
 
 	const hours = timeMatches[1];
 	const minutes = timeMatches[2];
+	const seconds = timeMatches[3] || '00';
 
-	return { hours, minutes };
+	return { hours, minutes, seconds };
 }
 
 function pad(num, size) {
@@ -209,34 +224,37 @@ function pad(num, size) {
 /**
  * Extract parts (date, time, date/time, string conversion) from a Date
  * @param selectedDateTime {Date}
- * @param dateFormat {string}
+ * @param options {Object}
  * @returns
  *  {{date: Date, time: { hours: string, minutes: string }, datetime: Date, textInput: string}}
  */
-function extractDateTimeParts(selectedDateTime, dateFormat) {
+function extractDateTimeParts(selectedDateTime, options) {
 	const isDateTimeValid = isDateValid(selectedDateTime);
 
 	if (selectedDateTime !== undefined && isDateTimeValid) {
 		const date = startOfDay(selectedDateTime);
 		const hours = getHours(selectedDateTime);
 		const minutes = getMinutes(selectedDateTime);
+		const seconds = getSeconds(selectedDateTime);
+
 		const time = {
 			hours: pad(hours, 2),
 			minutes: pad(minutes, 2),
+			seconds: pad(seconds, 2),
 		};
-		const datetime = startOfMinute(selectedDateTime);
+		const datetime = startOfSecond(selectedDateTime);
 
 		return {
 			date,
 			time,
 			datetime,
-			textInput: dateTimeToStr(date, time, dateFormat),
+			textInput: dateTimeToStr(date, time, options),
 		};
 	}
 
 	return {
 		date: undefined,
-		time: { hours: '', minutes: '' },
+		time: { hours: '', minutes: '', seconds: '' },
 		datetime: selectedDateTime,
 		textInput: '',
 	};

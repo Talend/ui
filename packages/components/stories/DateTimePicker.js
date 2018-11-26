@@ -40,7 +40,7 @@ class TestPickerWrapper extends React.Component {
 					event.preventDefault();
 					action('submit');
 				}}
-				style={{ width: 310 }}
+				style={{ width: 320 }}
 			>
 				<div>
 					<label htmlFor="TestWrapper_storybook_eval-input">
@@ -96,7 +96,7 @@ storiesOf('DateTimePicker', module)
 				Here we set date format to: DD/MM/YYYY. (default is YYYY-MM-DD)
 			</p>
 			<IconsProvider />
-			<form>
+			<form style={{ width: 320 }}>
 				<InputDateTimePicker
 					id="my-date-picker"
 					name="Datetime"
@@ -104,6 +104,22 @@ storiesOf('DateTimePicker', module)
 					onChange={action('onChange')}
 					selectedDateTime={new Date(2018, 4, 13, 12, 30)}
 					dateFormat="DD/MM/YYYY"
+				/>
+			</form>
+		</div>
+	))
+	.add('InputDateTimePicker with seconds', () => (
+		<div>
+			<h1>InputDateTimePicker with seconds</h1>
+			<IconsProvider />
+			<form style={{ width: 320 }}>
+				<InputDateTimePicker
+					id="my-date-picker"
+					name="Datetime"
+					onBlur={action('onBlur')}
+					onChange={action('onChange')}
+					selectedDateTime={new Date(2018, 4, 13, 12, 30, 44)}
+					useSeconds
 				/>
 			</form>
 		</div>
@@ -121,7 +137,7 @@ storiesOf('DateTimePicker', module)
 				</li>
 			</ul>
 
-			<div style={{ width: '320px', border: '1px solid black' }}>
+			<div style={{ width: 320, border: '1px solid black' }}>
 				<DateTimePicker onSubmit={action('onSubmit')} />
 			</div>
 		</div>

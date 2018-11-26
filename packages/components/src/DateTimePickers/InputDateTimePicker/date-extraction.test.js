@@ -15,12 +15,12 @@ describe('Date extraction', () => {
 			const invalidDate = 'lol';
 
 			// when
-			const parts = extractDateTimeParts(invalidDate, 'YYYY-MM-DD');
+			const parts = extractDateTimeParts(invalidDate, { dateFormat: 'YYYY-MM-DD' });
 
 			// then
 			expect(parts).toEqual({
 				date: undefined,
-				time: { hours: '', minutes: '' },
+				time: { hours: '', minutes: '', seconds: '' },
 				datetime: 'lol',
 				textInput: '',
 			});
@@ -31,14 +31,29 @@ describe('Date extraction', () => {
 			const validDate = new Date(2015, 8, 15, 12, 58);
 
 			// when
-			const parts = extractDateTimeParts(validDate, 'YYYY-MM-DD');
+			const parts = extractDateTimeParts(validDate, { dateFormat: 'YYYY-MM-DD' });
 
 			// then
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
 				datetime: validDate,
 				textInput: '2015-09-15 12:58',
-				time: { hours: '12', minutes: '58' },
+				time: { hours: '12', minutes: '58', seconds: '00' },
+			});
+		});
+		it('should return valid date parts with seconds', () => {
+			// given
+			const validDate = new Date(2015, 8, 15, 12, 58, 22);
+
+			// when
+			const parts = extractDateTimeParts(validDate, { dateFormat: 'YYYY-MM-DD', useSeconds: true });
+
+			// then
+			expect(parts).toEqual({
+				date: new Date(2015, 8, 15),
+				datetime: validDate,
+				textInput: '2015-09-15 12:58:22',
+				time: { hours: '12', minutes: '58', seconds: '22' },
 			});
 		});
 	});
@@ -113,7 +128,18 @@ describe('Date extraction', () => {
 			const time = strToTime(strToParse);
 
 			// then
-			expect(time).toEqual({ hours: '02', minutes: '52' });
+			expect(time).toEqual({ hours: '02', minutes: '52', seconds: '00' });
+		});
+
+		it('should convert valid time using seconds', () => {
+			// given
+			const strToParse = '02:52:22';
+
+			// when
+			const time = strToTime(strToParse, true);
+
+			// then
+			expect(time).toEqual({ hours: '02', minutes: '52', seconds: '22' });
 		});
 
 		it('should return error with incorrect format', done => {
@@ -132,7 +158,7 @@ describe('Date extraction', () => {
 			done();
 		});
 
-		it('should convert invalid string that match a format', () => {
+		it('should convert invalid string that match xx:xx format', () => {
 			// given
 			const strToParse = 'aze:66toto';
 
@@ -143,6 +169,22 @@ describe('Date extraction', () => {
 			expect(time).toEqual({
 				hours: 'aze',
 				minutes: '66toto',
+				seconds: '00',
+			});
+		});
+
+		it('should convert invalid string that match xx:xx:xx format using seconds part', () => {
+			// given
+			const strToParse = 'aze:66toto:tata';
+
+			// when
+			const time = strToTime(strToParse, true);
+
+			// then
+			expect(time).toEqual({
+				hours: 'aze',
+				minutes: '66toto',
+				seconds: 'tata',
 			});
 		});
 	});
@@ -154,7 +196,7 @@ describe('Date extraction', () => {
 			const time = { hours: '02', minutes: '52' };
 
 			// when
-			const result = dateTimeToStr(date, time, 'YYYY-MM-DD');
+			const result = dateTimeToStr(date, time, { dateFormat: 'YYYY-MM-DD' });
 
 			// then
 			expect(result).toBe('');
@@ -166,7 +208,7 @@ describe('Date extraction', () => {
 			const time = undefined;
 
 			// when
-			const result = dateTimeToStr(date, time, 'YYYY-MM-DD');
+			const result = dateTimeToStr(date, time, { dateFormat: 'YYYY-MM-DD' });
 
 			// then
 			expect(result).toBe('2015-09-15');
@@ -178,7 +220,7 @@ describe('Date extraction', () => {
 			const time = { hours: '02', minutes: '52' };
 
 			// when
-			const result = dateTimeToStr(date, time, 'YYYY-MM-DD');
+			const result = dateTimeToStr(date, time, { dateFormat: 'YYYY-MM-DD' });
 
 			// then
 			expect(result).toBe('2015-09-15 02:52');
@@ -190,7 +232,7 @@ describe('Date extraction', () => {
 			const time = { hours: 'aze', minutes: '66' };
 
 			// when
-			const result = dateTimeToStr(date, time, 'YYYY-MM-DD');
+			const result = dateTimeToStr(date, time, { dateFormat: 'YYYY-MM-DD' });
 
 			// then
 			expect(result).toBe('2015-09-15 aze:66');
