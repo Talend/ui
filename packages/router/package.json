@@ -49,7 +49,7 @@
     "rimraf": "^2.6.1"
   },
   "dependencies": {
-    "@talend/react-cmf": "1.7.0",
+    "@talend/react-cmf": "^1.7.0",
     "lodash": "^4.17.4",
     "path-to-regexp": "^2.0.0",
     "prop-types": "^15.5.10",

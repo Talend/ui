@@ -1,6 +1,7 @@
 import get from 'lodash/get';
 import { withRouter } from 'react-router';
 import cmf, { cmfConnect } from '@talend/react-cmf';
+import { routerAPI } from '@talend/react-cmf-router';
 import Container, { DEFAULT_STATE } from './SidePanel.container';
 import { ACTION_TYPE_LINK } from './constants';
 
@@ -136,7 +137,7 @@ function getActions(state, ownProps, currentRoute) {
 
 export function mapStateToProps(state, ownProps) {
 	const props = {};
-	const currentRoute = cmf.selectors.router.getPath(state);
+	const currentRoute = routerAPI.selectors.getPath(state);
 	props.actions = getActions(state, ownProps, currentRoute);
 	if (ownProps.actions) {
 		props.selected = getSelectedAction(currentRoute, props.actions);
