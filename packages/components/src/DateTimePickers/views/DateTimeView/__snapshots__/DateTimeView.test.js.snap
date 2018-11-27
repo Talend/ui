@@ -32,8 +32,8 @@ exports[`DateTimeView should render 1`] = `
           useSeconds={undefined}
           value={
             Object {
-              "hours": 15,
-              "minutes": 45,
+              "hours": "15",
+              "minutes": "45",
             }
           }
         />
