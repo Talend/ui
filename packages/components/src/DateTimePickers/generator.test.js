@@ -1,4 +1,4 @@
-import { buildDayNames, buildMonths, buildWeeks } from './generator';
+import { buildDayNames, buildMonths, buildWeeks, buildYears } from './generator';
 
 describe('Date generator', () => {
 	describe('buildDayNames', () => {
@@ -165,6 +165,24 @@ describe('Date generator', () => {
 					{ index: 11, name: 'December' },
 				],
 			]);
+		});
+	});
+
+	describe('buildYears', () => {
+		it('should generate years window', () => {
+			// when
+			const result = buildYears(2015, 5);
+
+			// then
+			expect(result).toEqual([2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020]);
+		});
+
+		it('should generate years with default window', () => {
+			// when
+			const result = buildYears(2015);
+
+			// then
+			expect(result).toEqual([2012, 2013, 2014, 2015, 2016, 2017, 2018]);
 		});
 	});
 });
