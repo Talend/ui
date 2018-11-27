@@ -156,6 +156,7 @@ class DateTimePicker extends React.Component {
 					onTitleClick={this.setMonthYearView}
 					selectedDate={this.state.selectedDate}
 					selectedTime={this.state.selectedTime}
+					useSeconds={this.props.useSeconds}
 				/>
 			);
 		} else {
@@ -208,6 +209,10 @@ DateTimePicker.propTypes = {
 	 * Callback triggered when date and time are selected
 	 */
 	onSubmit: PropTypes.func.isRequired,
+	/**
+	 * Display the seconds
+	 */
+	useSeconds: PropTypes.bool,
 };
 
 DateTimePicker.defaultProps = {

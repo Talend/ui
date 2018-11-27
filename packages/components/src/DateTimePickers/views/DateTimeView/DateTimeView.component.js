@@ -94,6 +94,7 @@ class DateTimeView extends React.PureComponent {
 						allowFocus={this.props.allowFocus}
 						value={this.props.selectedTime}
 						onChange={this.props.onSelectTime}
+						useSeconds={this.props.useSeconds}
 					/>
 				</div>
 			</div>
@@ -118,6 +119,7 @@ DateTimeView.propTypes = {
 		hours: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 		minutes: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	}),
+	useSeconds: PropTypes.bool,
 };
 
 export default DateTimeView;
