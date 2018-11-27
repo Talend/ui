@@ -50,7 +50,6 @@ $tc-input-subheader-title-weight: 900 !default;
 			&-wording-button {
 				@include input-text($tc-input-subheader-title-weight);
 				@include ellipsis;
-				text-transform: uppercase;
 				margin: 0;
 			}
 
