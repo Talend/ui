@@ -1,9 +1,34 @@
 const commonFormatterKeys = [
-	'M', 'MM', 'Q', 'D', 'DD', 'DDD', 'DDDD', 'd',
-	'E', 'W', 'WW', 'YY', 'YYYY', 'GG', 'GGGG',
-	'H', 'HH', 'h', 'hh', 'm', 'mm',
-	's', 'ss', 'S', 'SS', 'SSS',
-	'Z', 'ZZ', 'X', 'x',
+	'M',
+	'MM',
+	'Q',
+	'D',
+	'DD',
+	'DDD',
+	'DDDD',
+	'd',
+	'E',
+	'W',
+	'WW',
+	'YY',
+	'YYYY',
+	'GG',
+	'GGGG',
+	'H',
+	'HH',
+	'h',
+	'hh',
+	'm',
+	'mm',
+	's',
+	'ss',
+	'S',
+	'SS',
+	'SSS',
+	'Z',
+	'ZZ',
+	'X',
+	'x',
 ];
 
 function buildFormattingTokensRegExp(formatters) {
@@ -72,7 +97,6 @@ function buildFormatLocale(t) {
 		t('DATE_FNS_DECEMBER_3CHAR', {
 			defaultValue: 'Dec',
 		}),
-
 	];
 	const monthsFull = [
 		t('DATE_FNS_JANUARY_FULL', {
@@ -111,7 +135,6 @@ function buildFormatLocale(t) {
 		t('DATE_FNS_DECEMBER_FULL', {
 			defaultValue: 'December',
 		}),
-
 	];
 	const weekdays2char = [
 		t('DATE_FNS_SUNDAY_2CHAR', {
@@ -223,10 +246,10 @@ function buildFormatLocale(t) {
 		dddd: date => weekdaysFull[date.getDay()],
 
 		// AM, PM
-		A: date => ((date.getHours() / 12) >= 1 ? meridiemUppercase[1] : meridiemUppercase[0]),
+		A: date => (date.getHours() / 12 >= 1 ? meridiemUppercase[1] : meridiemUppercase[0]),
 
 		// am, pm
-		a: date => ((date.getHours() / 12) >= 1 ? meridiemLowercase[1] : meridiemLowercase[0]),
+		a: date => (date.getHours() / 12 >= 1 ? meridiemLowercase[1] : meridiemLowercase[0]),
 
 		// a.m., p.m.
 		aa: date => {
@@ -267,9 +290,7 @@ function buildFormatLocale(t) {
 	const monthsTokens = ['MMM', 'MMMM'];
 	monthsTokens.forEach(monthToken => {
 		formatters[`Do ${monthToken}`] = (date, commonFormatters) => {
-			const dayOfMonthToken = date.getDate() === 1
-				? 'Do'
-				: 'D';
+			const dayOfMonthToken = date.getDate() === 1 ? 'Do' : 'D';
 			const dayOfMonthFormatter = formatters[dayOfMonthToken] || commonFormatters[dayOfMonthToken];
 
 			return `${dayOfMonthFormatter(date, commonFormatters)} ${formatters[monthToken](date)}`;
