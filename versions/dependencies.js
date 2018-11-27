@@ -116,6 +116,6 @@ module.exports = {
 	'url-loader': '^0.6.2',
 	webpack: '^3.8.1',
 	'webpack-bundle-analyzer': '^2.9.0',
-	'webpack-dashboard': '^1.0.0-7',
+	'webpack-dashboard': '^2.0.0',
 	'webpack-dev-server': '^2.9.3',
 };

@@ -8526,7 +8526,7 @@ npm-run-path@^2.0.0:
   dependencies:
     path-key "^2.0.0"
 
-npm-watch@^0.1.6, npm-watch@^0.1.8:
+npm-watch@^0.1.6:
   version "0.1.9"
   resolved "https://registry.yarnpkg.com/npm-watch/-/npm-watch-0.1.9.tgz#30991072ce8cee0d72c0c75ac648c14a039b9902"
   dependencies:
