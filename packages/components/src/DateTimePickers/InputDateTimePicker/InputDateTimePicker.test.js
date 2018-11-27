@@ -131,11 +131,7 @@ describe('InputDateTimePicker', () => {
 		({ initialDate, newDate }) => {
 			// given
 			const wrapper = shallow(
-				<InputDateTimePicker
-					id={DEFAULT_ID}
-					selectedDateTime={initialDate}
-					useTime
-				/>,
+				<InputDateTimePicker id={DEFAULT_ID} selectedDateTime={initialDate} useTime />,
 			);
 			const previousState = wrapper.state();
 
@@ -164,13 +160,9 @@ describe('InputDateTimePicker', () => {
 	describe('focus/blur', () => {
 		it('should open picker on focus', () => {
 			// given
-			const wrapper = mount(
-				<InputDateTimePicker
-					id={DEFAULT_ID}
-					useTime
-				/>,
-				{ attachTo: document.body }
-			);
+			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} useTime />, {
+				attachTo: document.body,
+			});
 			expect(
 				wrapper
 					.find('Overlay')
@@ -407,11 +399,7 @@ describe('InputDateTimePicker', () => {
 			({ date, time, expectedTextInput, dateFormat }) => {
 				// given
 				const wrapper = shallow(
-					<InputDateTimePicker
-						id={DEFAULT_ID}
-						dateFormat={dateFormat}
-						useTime
-					/>
+					<InputDateTimePicker id={DEFAULT_ID} dateFormat={dateFormat} useTime />,
 				);
 
 				// when
