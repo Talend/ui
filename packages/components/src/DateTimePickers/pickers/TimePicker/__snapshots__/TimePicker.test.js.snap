@@ -27,7 +27,7 @@ exports[`TimePicker should render 1`] = `
     onKeyDown={undefined}
     tabIndex={-1}
     type="text"
-    value={15}
+    value="15"
   />
   <hr />
   <label
@@ -50,7 +50,7 @@ exports[`TimePicker should render 1`] = `
     onKeyDown={undefined}
     tabIndex={-1}
     type="text"
-    value={38}
+    value="38"
   />
 </div>
 `;

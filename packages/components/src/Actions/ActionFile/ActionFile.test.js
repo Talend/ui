@@ -30,6 +30,11 @@ describe('ActionFile', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render with accept attribute passed to it', () => {
+		const wrapper = shallow(<ActionFile {...myAction} accept=".zip" />);
+		expect(wrapper.find('input').props().accept).toBe('.zip');
+	});
+
 	it('change file value on the button trigger the onChange props', () => {
 		// given
 		const wrapper = shallow(<ActionFile extra="extra" {...myAction} />);
