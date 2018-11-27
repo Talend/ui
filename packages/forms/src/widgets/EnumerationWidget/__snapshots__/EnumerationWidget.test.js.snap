@@ -7938,6 +7938,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                                   tooltipPlacement="bottom"
                                                 >
                                                   <span
+                                                    className="theme-tc-action-disabled-btn-container tc-action-disabled-btn-container"
                                                     onFocus={[Function]}
                                                     onMouseOver={[Function]}
                                                   >
@@ -14617,6 +14618,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                               tooltipPlacement="top"
                             >
                               <span
+                                className="theme-tc-action-disabled-btn-container tc-action-disabled-btn-container"
                                 onFocus={[Function]}
                                 onMouseOver={[Function]}
                               >
