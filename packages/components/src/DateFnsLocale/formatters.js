@@ -6,20 +6,19 @@ const commonFormatterKeys = [
 	'Z', 'ZZ', 'X', 'x',
 ];
 
-function buildFormattingTokensRegExp (formatters) {
+function buildFormattingTokensRegExp(formatters) {
 	const formatterKeys = [];
-	for (const key in formatters) {
-		if (formatters.hasOwnProperty(key)) {
-			formatterKeys.push(key);
-		}
-	}
+	Object.keys(formatters).forEach(key => {
+		formatterKeys.push(key);
+	});
 
 	const formattingTokens = commonFormatterKeys
 		.concat(formatterKeys)
 		.sort()
 		.reverse();
 	const formattingTokensRegExp = new RegExp(
-		'(\\[[^\\[]*\\])|(\\\\)?' + '(' + formattingTokens.join('|') + '|.)', 'g'
+		`(\\[[^\\[]*\\])|(\\\\)?(${formattingTokens.join('|')}|.)`,
+		'g',
 	);
 
 	return formattingTokensRegExp;
@@ -27,15 +26,15 @@ function buildFormattingTokensRegExp (formatters) {
 
 // depends of the locale
 // might be hard to customize this they way we do translation on the lib
-function masculineOrdinal () {
+function masculineOrdinal() {
 	return '';
 }
 
-function feminineOrdinal () {
+function feminineOrdinal() {
 	return '';
 }
 
-function buildFormatLocale (t) {
+function buildFormatLocale(t) {
 	const months3char = [
 		t('DATE_FNS_JANUARY_3CHAR', {
 			defaultValue: 'Jan',
@@ -209,43 +208,29 @@ function buildFormatLocale (t) {
 	];
 	const formatters = {
 		// Month: Jan, Feb, …, Dec
-		'MMM': function (date) {
-			return months3char[date.getMonth()]
-		},
+		MMM: date => months3char[date.getMonth()],
 
 		// Month: January, February, …, December
-		'MMMM': function (date) {
-			return monthsFull[date.getMonth()];
-		},
+		MMMM: date => monthsFull[date.getMonth()],
 
 		// Day of week: Su, Mo, …, Sa
-		'dd': function (date) {
-			return weekdays2char[date.getDay()];
-		},
+		dd: date => weekdays2char[date.getDay()],
 
 		// Day of week: Sun, Mon, …, Sat
-		'ddd': function (date) {
-			return weekdays3char[date.getDay()]
-		},
+		ddd: date => weekdays3char[date.getDay()],
 
 		// Day of week: Sunday, Monday, …, Saturday
-		'dddd': function (date) {
-			return weekdaysFull[date.getDay()];
-		},
+		dddd: date => weekdaysFull[date.getDay()],
 
 		// AM, PM
-		'A': function (date) {
-			return (date.getHours() / 12) >= 1 ? meridiemUppercase[1] : meridiemUppercase[0];
-		},
+		A: date => ((date.getHours() / 12) >= 1 ? meridiemUppercase[1] : meridiemUppercase[0]),
 
 		// am, pm
-		'a': function (date) {
-			return (date.getHours() / 12) >= 1 ? meridiemLowercase[1] : meridiemLowercase[0];
-		},
+		a: date => ((date.getHours() / 12) >= 1 ? meridiemLowercase[1] : meridiemLowercase[0]),
 
 		// a.m., p.m.
-		'aa': function (date) {
-			var hours = date.getHours();
+		aa: date => {
+			const hours = date.getHours();
 
 			if (hours <= 12) {
 				return meridiemFull[0];
@@ -260,19 +245,16 @@ function buildFormatLocale (t) {
 
 		// ISO week, ordinal version: 1st, 2nd, …, 53rd
 		// NOTE: Week has feminine grammatical gender in French: semaine
-		'Wo': function (date, formatters) {
-			return feminineOrdinal(formatters.W(date));
-		}
-	}
+		Wo: (date, allFormatters) => feminineOrdinal(allFormatters.W(date)),
+	};
 
 	// Generate ordinal version of formatters: M → Mo, D → Do, etc.
 	// NOTE: For words with masculine grammatical gender in French: mois, jour, trimestre
 	const formatterTokens = ['M', 'D', 'DDD', 'd', 'Q'];
-	formatterTokens.forEach(function (formatterToken) {
-		formatters[formatterToken + 'o'] = function (date, formatters) {
-			return masculineOrdinal(formatters[formatterToken](date));
-		}
-	})
+	formatterTokens.forEach(formatterToken => {
+		formatters[`${formatterToken}o`] = (date, formatter) =>
+			masculineOrdinal(formatter[formatterToken](date));
+	});
 
 	// Special case for day of month ordinals in long date format context:
 	// 1er mars, 2 mars, 3 mars, …
@@ -283,15 +265,15 @@ function buildFormatLocale (t) {
 	// have priority. E.g. formatter for "Do MMMM" has priority over individual
 	// formatters for "Do" and "MMMM".
 	const monthsTokens = ['MMM', 'MMMM'];
-	monthsTokens.forEach(function (monthToken) {
-		formatters['Do ' + monthToken] = function (date, commonFormatters) {
+	monthsTokens.forEach(monthToken => {
+		formatters[`Do ${monthToken}`] = (date, commonFormatters) => {
 			const dayOfMonthToken = date.getDate() === 1
 				? 'Do'
 				: 'D';
 			const dayOfMonthFormatter = formatters[dayOfMonthToken] || commonFormatters[dayOfMonthToken];
 
-			return dayOfMonthFormatter(date, commonFormatters) + ' ' + formatters[monthToken](date);
-		}
+			return `${dayOfMonthFormatter(date, commonFormatters)} ${formatters[monthToken](date)}`;
+		};
 	});
 
 	return {
