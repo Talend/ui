@@ -27,7 +27,7 @@ class DateTimeView extends React.PureComponent {
 	}
 
 	getTimePicker() {
-		return this.props.useTime ? (
+		return (
 			<div className={theme.time}>
 				<TimePicker
 					allowFocus={this.props.allowFocus}
@@ -36,7 +36,7 @@ class DateTimeView extends React.PureComponent {
 					useSeconds={this.props.useSeconds}
 				/>
 			</div>
-		) : null;
+		);
 	}
 
 	incrementMonthIndex(monthIncrement, callback) {
@@ -102,7 +102,7 @@ class DateTimeView extends React.PureComponent {
 						goToNextMonth={this.goToNextMonth}
 					/>
 				</div>
-				{this.getTimePicker()}
+				{this.props.useTime && this.getTimePicker()}
 			</div>
 		);
 

@@ -53,7 +53,7 @@ class InputDateTimePicker extends React.Component {
 	static defaultProps = {
 		dateFormat: 'YYYY-MM-DD',
 		useSeconds: false,
-		useTime: true,
+		useTime: false,
 	};
 
 	constructor(props) {
@@ -69,9 +69,7 @@ class InputDateTimePicker extends React.Component {
 
 		checkSupportedDateFormat(props.dateFormat);
 		const selectedDate =
-			props.useTime === false
-				? startOfDay(this.props.selectedDateTime)
-				: this.props.selectedDateTime;
+			props.useTime ? this.props.selectedDateTime : startOfDay(this.props.selectedDateTime);
 
 		this.popoverId = `date-time-picker-${props.id || uuid.v4()}`;
 		this.state = {

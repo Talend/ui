@@ -80,7 +80,6 @@ storiesOf('DateTimePicker', module)
 				selectedDateTime={new Date(2018, 4, 13, 12, 30)}
 				onChange={action('onChange')}
 				name="Datetime"
-				useTime={false}
 			/>
 		</div>
 	))
@@ -93,6 +92,7 @@ storiesOf('DateTimePicker', module)
 				selectedDateTime={new Date(2018, 4, 13, 12, 30)}
 				onChange={action('onChange')}
 				name="Datetime"
+				useTime
 			/>
 		</div>
 	))
@@ -117,6 +117,7 @@ storiesOf('DateTimePicker', module)
 					onChange={action('onChange')}
 					selectedDateTime={new Date(2018, 4, 13, 12, 30)}
 					dateFormat="DD/MM/YYYY"
+					useTime
 				/>
 			</form>
 		</div>
@@ -133,6 +134,7 @@ storiesOf('DateTimePicker', module)
 					onChange={action('onChange')}
 					selectedDateTime={new Date(2018, 4, 13, 12, 30, 44)}
 					useSeconds
+					useTime
 				/>
 			</form>
 		</div>
