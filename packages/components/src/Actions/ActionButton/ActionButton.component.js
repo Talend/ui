@@ -193,7 +193,12 @@ export function ActionButton(props) {
 		btn = (
 			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
 				{btnIsDisabled ? (
-					<span className={classNames(theme['tc-action-disabled-btn-container'])}>{btn}</span>
+					<span
+						className={
+							classNames(theme['tc-action-disabled-btn-container'], 'tc-action-disabled-btn-container')
+						}>
+						{btn}
+					</span>
 				) : (
 					btn
 				)}

@@ -33,6 +33,10 @@ $tc-circle-editable-text-size: 16px !default;
 		display: flex;
 		align-items: center;
 		max-width: 90rem;
+
+		:global(.tc-action-disabled-btn-container) {
+			height: 19px;
+		}
 	}
 
 	&-wording {
