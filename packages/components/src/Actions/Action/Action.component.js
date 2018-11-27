@@ -8,12 +8,6 @@ import ActionDropdown from '../ActionDropdown';
 import ActionIconToggle from '../ActionIconToggle';
 import Inject from '../../Inject';
 
-const ACTION_TYPES = {
-	TYPE_FILE: 'file',
-	TYPE_DROPDOWN: 'dropdown',
-	TYPE_SPLIT_DROPDOWN: 'splitDropdown',
-	TYPE_ICON_TOGGLE: 'iconToggle',
-};
 
 /**
  * @typedef {(Object|Function)} Component
@@ -55,18 +49,20 @@ export function getActionComponent({ displayMode, getComponent }) {
 		ActionButton,
 	});
 
+	/* eslint-disable no-use-before-define */
 	switch (displayMode) {
-		case ACTION_TYPES.TYPE_FILE:
+		case Action.DISPLAY_MODE_FILE:
 			return Renderers.ActionFile;
-		case ACTION_TYPES.TYPE_DROPDOWN:
+		case Action.DISPLAY_MODE_DROPDOWN:
 			return Renderers.ActionDropdown;
-		case ACTION_TYPES.TYPE_SPLIT_DROPDOWN:
+		case Action.DISPLAY_MODE_SPLIT_DROPDOWN:
 			return Renderers.ActionSplitDropdown;
-		case ACTION_TYPES.TYPE_ICON_TOGGLE:
+		case Action.DISPLAY_MODE_ICON_TOGGLE:
 			return Renderers.ActionIconToggle;
 		default:
 			return Inject.get(getComponent, displayMode, Renderers.ActionButton);
 	}
+	/* eslint-enable no-use-before-define */
 }
 
 /**
@@ -85,6 +81,12 @@ function Action({ displayMode, getComponent, ...props }) {
 	return <ActionComponent {...props} />;
 }
 
+
+Action.DISPLAY_MODE_FILE = 'file';
+Action.DISPLAY_MODE_DROPDOWN = 'dropdown';
+Action.DISPLAY_MODE_SPLIT_DROPDOWN = 'splitDropdown';
+Action.DISPLAY_MODE_ICON_TOGGLE = 'iconToggle';
+
 Action.displayName = 'Action';
 
 Action.propTypes = {
@@ -93,4 +95,3 @@ Action.propTypes = {
 };
 
 export default Action;
-export { ACTION_TYPES };
