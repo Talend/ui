@@ -8,7 +8,6 @@ import ActionDropdown from '../ActionDropdown';
 import ActionIconToggle from '../ActionIconToggle';
 import Inject from '../../Inject';
 
-
 /**
  * @typedef {(Object|Function)} Component
  */
@@ -80,7 +79,6 @@ function Action({ displayMode, getComponent, ...props }) {
 	});
 	return <ActionComponent {...props} />;
 }
-
 
 Action.DISPLAY_MODE_FILE = 'file';
 Action.DISPLAY_MODE_DROPDOWN = 'dropdown';
