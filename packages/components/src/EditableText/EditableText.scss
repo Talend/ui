@@ -38,7 +38,6 @@ $tc-circle-editable-text-size: 16px !default;
 	&-wording {
 		@include input-text($tc-input-editable-text-title-weight);
 		@include ellipsis;
-		text-transform: uppercase;
 		flex: 0 1 auto;
 	}
 
