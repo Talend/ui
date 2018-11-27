@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 const fs = require('fs');
-const path = require('path');
 
 const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
