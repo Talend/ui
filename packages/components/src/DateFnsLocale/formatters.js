@@ -1,3 +1,4 @@
+/* eslint-disable new-cap */
 const commonFormatterKeys = [
 	'M',
 	'MM',
@@ -61,173 +62,80 @@ function feminineOrdinal() {
 
 function buildFormatLocale(t) {
 	const months3char = [
-		t('DATE_FNS_JANUARY_3CHAR', {
-			defaultValue: 'Jan',
-		}),
-		t('DATE_FNS_FEBRUARY_3CHAR', {
-			defaultValue: 'Feb',
-		}),
-		t('DATE_FNS_MARCH_3CHAR', {
-			defaultValue: 'Mar',
-		}),
-		t('DATE_FNS_APRIL_3CHAR', {
-			defaultValue: 'Apr',
-		}),
-		t('DATE_FNS_MAY_3CHAR', {
-			defaultValue: 'May',
-		}),
-		t('DATE_FNS_JUNE_3CHAR', {
-			defaultValue: 'Jun',
-		}),
-		t('DATE_FNS_JULY_3CHAR', {
-			defaultValue: 'Jul',
-		}),
-		t('DATE_FNS_AUGUST_3CHAR', {
-			defaultValue: 'Aug',
-		}),
-		t('DATE_FNS_SEPTEMBER_3CHAR', {
-			defaultValue: 'Sep',
-		}),
-		t('DATE_FNS_OCTOBER_3CHAR', {
-			defaultValue: 'Oct',
-		}),
-		t('DATE_FNS_NOVEMBER_3CHAR', {
-			defaultValue: 'Nov',
-		}),
-		t('DATE_FNS_DECEMBER_3CHAR', {
-			defaultValue: 'Dec',
-		}),
+		t('DATE_FNS_JANUARY_3CHAR', { defaultValue: 'Jan' }),
+		t('DATE_FNS_FEBRUARY_3CHAR', { defaultValue: 'Feb' }),
+		t('DATE_FNS_MARCH_3CHAR', { defaultValue: 'Mar' }),
+		t('DATE_FNS_APRIL_3CHAR', { defaultValue: 'Apr' }),
+		t('DATE_FNS_MAY_3CHAR', { defaultValue: 'May' }),
+		t('DATE_FNS_JUNE_3CHAR', { defaultValue: 'Jun' }),
+		t('DATE_FNS_JULY_3CHAR', { defaultValue: 'Jul' }),
+		t('DATE_FNS_AUGUST_3CHAR', { defaultValue: 'Aug' }),
+		t('DATE_FNS_SEPTEMBER_3CHAR', { defaultValue: 'Sep' }),
+		t('DATE_FNS_OCTOBER_3CHAR', { defaultValue: 'Oct' }),
+		t('DATE_FNS_NOVEMBER_3CHAR', { defaultValue: 'Nov' }),
+		t('DATE_FNS_DECEMBER_3CHAR', { defaultValue: 'Dec' }),
 	];
 	const monthsFull = [
-		t('DATE_FNS_JANUARY_FULL', {
-			defaultValue: 'January',
-		}),
-		t('DATE_FNS_FEBRUARY_FULL', {
-			defaultValue: 'February',
-		}),
-		t('DATE_FNS_MARCH_FULL', {
-			defaultValue: 'March',
-		}),
-		t('DATE_FNS_APRIL_FULL', {
-			defaultValue: 'April',
-		}),
-		t('DATE_FNS_MAY_FULL', {
-			defaultValue: 'May',
-		}),
-		t('DATE_FNS_JUNE_FULL', {
-			defaultValue: 'June',
-		}),
-		t('DATE_FNS_JULY_FULL', {
-			defaultValue: 'July',
-		}),
-		t('DATE_FNS_AUGUST_FULL', {
-			defaultValue: 'August',
-		}),
-		t('DATE_FNS_SEPTEMBER_FULL', {
-			defaultValue: 'September',
-		}),
-		t('DATE_FNS_OCTOBER_FULL', {
-			defaultValue: 'October',
-		}),
-		t('DATE_FNS_NOVEMBER_FULL', {
-			defaultValue: 'November',
-		}),
-		t('DATE_FNS_DECEMBER_FULL', {
-			defaultValue: 'December',
-		}),
+		t('DATE_FNS_JANUARY_FULL', { defaultValue: 'January' }),
+		t('DATE_FNS_FEBRUARY_FULL', { defaultValue: 'February' }),
+		t('DATE_FNS_MARCH_FULL', { defaultValue: 'March' }),
+		t('DATE_FNS_APRIL_FULL', { defaultValue: 'April' }),
+		t('DATE_FNS_MAY_FULL', { defaultValue: 'May' }),
+		t('DATE_FNS_JUNE_FULL', { defaultValue: 'June' }),
+		t('DATE_FNS_JULY_FULL', { defaultValue: 'July' }),
+		t('DATE_FNS_AUGUST_FULL', { defaultValue: 'August' }),
+		t('DATE_FNS_SEPTEMBER_FULL', { defaultValue: 'September' }),
+		t('DATE_FNS_OCTOBER_FULL', { defaultValue: 'October' }),
+		t('DATE_FNS_NOVEMBER_FULL', { defaultValue: 'November' }),
+		t('DATE_FNS_DECEMBER_FULL', { defaultValue: 'December' }),
+	];
+	const weekdays1char = [
+		t('DATE_FNS_SUNDAY_2CHAR', { defaultValue: 'S' }),
+		t('DATE_FNS_MONDAY_2CHAR', { defaultValue: 'M' }),
+		t('DATE_FNS_TUESDAY_2CHAR', { defaultValue: 'T' }),
+		t('DATE_FNS_WEDNESDAY_2CHAR', { defaultValue: 'W' }),
+		t('DATE_FNS_THURSDAY_2CHAR', { defaultValue: 'T' }),
+		t('DATE_FNS_FRIDAY_2CHAR', { defaultValue: 'F' }),
+		t('DATE_FNS_SATURDAY_2CHAR', { defaultValue: 'S' }),
 	];
 	const weekdays2char = [
-		t('DATE_FNS_SUNDAY_2CHAR', {
-			defaultValue: 'Su',
-		}),
-		t('DATE_FNS_MONDAY_2CHAR', {
-			defaultValue: 'Mo',
-		}),
-		t('DATE_FNS_TUESDAY_2CHAR', {
-			defaultValue: 'Tu',
-		}),
-		t('DATE_FNS_WEDNESDAY_2CHAR', {
-			defaultValue: 'We',
-		}),
-		t('DATE_FNS_THURSDAY_2CHAR', {
-			defaultValue: 'Th',
-		}),
-		t('DATE_FNS_FRIDAY_2CHAR', {
-			defaultValue: 'Fr',
-		}),
-		t('DATE_FNS_SATURDAY_2CHAR', {
-			defaultValue: 'Sa',
-		}),
+		t('DATE_FNS_SUNDAY_2CHAR', { defaultValue: 'Su' }),
+		t('DATE_FNS_MONDAY_2CHAR', { defaultValue: 'Mo' }),
+		t('DATE_FNS_TUESDAY_2CHAR', { defaultValue: 'Tu' }),
+		t('DATE_FNS_WEDNESDAY_2CHAR', { defaultValue: 'We' }),
+		t('DATE_FNS_THURSDAY_2CHAR', { defaultValue: 'Th' }),
+		t('DATE_FNS_FRIDAY_2CHAR', { defaultValue: 'Fr' }),
+		t('DATE_FNS_SATURDAY_2CHAR', { defaultValue: 'Sa' }),
 	];
 	const weekdays3char = [
-		t('DATE_FNS_SUNDAY_3CHAR', {
-			defaultValue: 'Sun',
-		}),
-		t('DATE_FNS_MONDAY_3CHAR', {
-			defaultValue: 'Mon',
-		}),
-		t('DATE_FNS_TUESDAY_3CHAR', {
-			defaultValue: 'Tue',
-		}),
-		t('DATE_FNS_WEDNESDAY_3CHAR', {
-			defaultValue: 'Wed',
-		}),
-		t('DATE_FNS_THURSDAY_3CHAR', {
-			defaultValue: 'Thu',
-		}),
-		t('DATE_FNS_FRIDAY_3CHAR', {
-			defaultValue: 'Fri',
-		}),
-		t('DATE_FNS_SATURDAY_3CHAR', {
-			defaultValue: 'Sat',
-		}),
+		t('DATE_FNS_SUNDAY_3CHAR', { defaultValue: 'Sun' }),
+		t('DATE_FNS_MONDAY_3CHAR', { defaultValue: 'Mon' }),
+		t('DATE_FNS_TUESDAY_3CHAR', { defaultValue: 'Tue' }),
+		t('DATE_FNS_WEDNESDAY_3CHAR', { defaultValue: 'Wed' }),
+		t('DATE_FNS_THURSDAY_3CHAR', { defaultValue: 'Thu' }),
+		t('DATE_FNS_FRIDAY_3CHAR', { defaultValue: 'Fri' }),
+		t('DATE_FNS_SATURDAY_3CHAR', { defaultValue: 'Sat' }),
 	];
 	const weekdaysFull = [
-		t('DATE_FNS_SUNDAY_FULL', {
-			defaultValue: 'Sunday',
-		}),
-		t('DATE_FNS_MONDAY_FULL', {
-			defaultValue: 'Monday',
-		}),
-		t('DATE_FNS_TUESDAY_FULL', {
-			defaultValue: 'Tuesday',
-		}),
-		t('DATE_FNS_WEDNESDAY_FULL', {
-			defaultValue: 'Wednesday',
-		}),
-		t('DATE_FNS_THURSDAY_FULL', {
-			defaultValue: 'Thursday',
-		}),
-		t('DATE_FNS_FRIDAY_FULL', {
-			defaultValue: 'Friday',
-		}),
-		t('DATE_FNS_SATURDAY_FULL', {
-			defaultValue: 'Saturday',
-		}),
+		t('DATE_FNS_SUNDAY_FULL', { defaultValue: 'Sunday' }),
+		t('DATE_FNS_MONDAY_FULL', { defaultValue: 'Monday' }),
+		t('DATE_FNS_TUESDAY_FULL', { defaultValue: 'Tuesday' }),
+		t('DATE_FNS_WEDNESDAY_FULL', { defaultValue: 'Wednesday' }),
+		t('DATE_FNS_THURSDAY_FULL', { defaultValue: 'Thursday' }),
+		t('DATE_FNS_FRIDAY_FULL', { defaultValue: 'Friday' }),
+		t('DATE_FNS_SATURDAY_FULL', { defaultValue: 'Saturday' }),
 	];
 	const meridiemUppercase = [
-		t('DATE_FNS_MERIDIEM_UPPERCASE_AM', {
-			defaultValue: 'AM',
-		}),
-		t('DATE_FNS_MERIDIEM_UPPERCASE_PM', {
-			defaultValue: 'PM',
-		}),
+		t('DATE_FNS_MERIDIEM_UPPERCASE_AM', { defaultValue: 'AM' }),
+		t('DATE_FNS_MERIDIEM_UPPERCASE_PM', { defaultValue: 'PM' }),
 	];
 	const meridiemLowercase = [
-		t('DATE_FNS_MERIDIEM_LOWERCASE_AM', {
-			defaultValue: 'am',
-		}),
-		t('DATE_FNS_MERIDIEM_LOWERCASE_PM', {
-			defaultValue: 'pm',
-		}),
+		t('DATE_FNS_MERIDIEM_LOWERCASE_AM', { defaultValue: 'am' }),
+		t('DATE_FNS_MERIDIEM_LOWERCASE_PM', { defaultValue: 'pm' }),
 	];
 	const meridiemFull = [
-		t('DATE_FNS_MERIDIEM_FULL_AM', {
-			defaultValue: 'a.m.',
-		}),
-		t('DATE_FNS_MERIDIEM_FULL_PM', {
-			defaultValue: 'p.m.',
-		}),
+		t('DATE_FNS_MERIDIEM_FULL_AM', { defaultValue: 'a.m.' }),
+		t('DATE_FNS_MERIDIEM_FULL_PM', { defaultValue: 'p.m.' }),
 	];
 	const formatters = {
 		// Month: Jan, Feb, …, Dec
@@ -235,6 +143,9 @@ function buildFormatLocale(t) {
 
 		// Month: January, February, …, December
 		MMMM: date => monthsFull[date.getMonth()],
+
+		// Day of week: S, M, …, S
+		d: date => weekdays1char[date.getDay()],
 
 		// Day of week: Su, Mo, …, Sa
 		dd: date => weekdays2char[date.getDay()],
