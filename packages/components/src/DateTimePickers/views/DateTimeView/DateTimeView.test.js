@@ -37,7 +37,7 @@ describe('DateTimeView', () => {
 				onSelectMonthYear={jest.fn()}
 				onSelectDate={jest.fn()}
 				onSelectTime={jest.fn()}
-				selectedTime={{ hours: 15, minutes: 45 }}
+				selectedTime={{ hours: '15', minutes: '45' }}
 			/>,
 		);
 

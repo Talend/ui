@@ -40,6 +40,7 @@ class TestPickerWrapper extends React.Component {
 					event.preventDefault();
 					action('submit');
 				}}
+				style={{ width: 320 }}
 			>
 				<div>
 					<label htmlFor="TestWrapper_storybook_eval-input">
@@ -82,17 +83,45 @@ storiesOf('DateTimePicker', module)
 			/>
 		</div>
 	))
+	.add('InputDateTimePicker - custom format', () => (
+		<div>
+			<h1>InputDateTimePicker with custom format</h1>
+			<p>
+				Date picker can accept a custom date format if it's a composition of DD, MM, YYYY only.
+				<br />
+				Once date-fns parse() accept a format (scheduled for 2.0), we can remove this specific code
+				and accept any format.
+				<br />
+				<br />
+				Here we set date format to: DD/MM/YYYY. (default is YYYY-MM-DD)
+			</p>
+			<IconsProvider />
+			<form style={{ width: 320 }}>
+				<InputDateTimePicker
+					id="my-date-picker"
+					name="Datetime"
+					onBlur={action('onBlur')}
+					onChange={action('onChange')}
+					selectedDateTime={new Date(2018, 4, 13, 12, 30)}
+					dateFormat="DD/MM/YYYY"
+				/>
+			</form>
+		</div>
+	))
 	.add('InputDateTimePicker with seconds', () => (
 		<div>
 			<h1>InputDateTimePicker with seconds</h1>
 			<IconsProvider />
-			<TestPickerWrapper
-				id="my-date-picker"
-				selectedDateTime={new Date(2018, 4, 13, 12, 30, 44)}
-				onChange={action('onChange')}
-				name="Datetime"
-				useSeconds
-			/>
+			<form style={{ width: 320 }}>
+				<InputDateTimePicker
+					id="my-date-picker"
+					name="Datetime"
+					onBlur={action('onBlur')}
+					onChange={action('onChange')}
+					selectedDateTime={new Date(2018, 4, 13, 12, 30, 44)}
+					useSeconds
+				/>
+			</form>
 		</div>
 	))
 	.add('DateTimePicker', () => (
@@ -108,7 +137,7 @@ storiesOf('DateTimePicker', module)
 				</li>
 			</ul>
 
-			<div style={{ width: '320px', border: '1px solid black' }}>
+			<div style={{ width: 320, border: '1px solid black' }}>
 				<DateTimePicker onSubmit={action('onSubmit')} />
 			</div>
 		</div>
