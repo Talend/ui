@@ -60,7 +60,7 @@ class YearPicker extends React.Component {
 	}
 
 	render() {
-		const { selectedYear } = this.props;
+		const { selectedYear, t } = this.props;
 		const { yearsWindow } = this.state;
 		const selectedIsInWindow = yearsWindow.includes(selectedYear);
 		const middleYear = this.getMiddleYear();

@@ -80,6 +80,7 @@ class DateTimeView extends React.PureComponent {
 	}
 
 	render() {
+		const { t } = this.props;
 		const header = {
 			leftElement: (
 				<Action

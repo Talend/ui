@@ -29,6 +29,7 @@ exports[`DateTimeView should render 1`] = `
         <TimePicker
           allowFocus={true}
           onChange={[Function]}
+          t={[Function]}
           useSeconds={undefined}
           value={
             Object {

@@ -51,7 +51,7 @@ class TimePicker extends React.PureComponent {
 		this.props.onChange(event, newValue);
 	}
 
-	renderSeconds(tabIndex) {
+	renderSeconds(tabIndex, t) {
 		if (this.props.useSeconds) {
 			return [
 				<hr key="hr-seconds" />,
@@ -72,6 +72,7 @@ class TimePicker extends React.PureComponent {
 	}
 
 	render() {
+		const { t } = this.props;
 		const tabIndex = this.props.allowFocus ? 0 : -1;
 
 		return (
@@ -98,7 +99,7 @@ class TimePicker extends React.PureComponent {
 					tabIndex={tabIndex}
 					onChange={event => this.onChange(event, MINUTES)}
 				/>
-				{this.renderSeconds(tabIndex)}
+				{this.renderSeconds(tabIndex, t)}
 			</div>
 		);
 	}
