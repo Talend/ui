@@ -33,7 +33,23 @@ const addInfo = {
 };
 
 const header = [<HeaderTitle title="Pipelines" />, <Action {...addInfo} />];
-const headerWithActions = [<HeaderTitle title="Pipelines" />, <Actions actions={[addInfo]} />];
+const headerWithActions = [
+	<HeaderTitle title="Pipelines" />,
+	<Actions
+		actions={[
+			{
+				label: 'Add',
+				className: 'btn-default btn-inverse',
+				onClick: action('footer.add.onClick'),
+			},
+			{
+				label: 'Valid',
+				className: 'btn-default btn-inverse',
+				onClick: action('footer.valid.onClick'),
+			},
+		]}
+	/>,
+];
 
 const footer = (
 	<ActionBar
