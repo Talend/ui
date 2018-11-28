@@ -70,7 +70,7 @@ class YearPicker extends React.Component {
 					className={classnames(theme.scroll, theme['scroll-up'], 'tc-date-picker-scroll-up')}
 					icon="talend-chevron-left"
 					iconTransform="rotate-90"
-					label={t('YEAR_PICKER_PREVIOUS', { defaultValue: 'Go to previous year' })}
+					label={t('DATEPICKER_YEAR_PREVIOUS', { defaultValue: 'Go to previous year' })}
 					onClick={this.scrollUp}
 					tabIndex="-1"
 					link
@@ -111,7 +111,7 @@ class YearPicker extends React.Component {
 					className={classnames(theme.scroll, theme['scroll-down'], 'tc-date-picker-scroll-down')}
 					icon="talend-chevron-left"
 					iconTransform="rotate-270"
-					label={t('YEAR_PICKER_NEXT', { defaultValue: 'Go to next year' })}
+					label={t('DATEPICKER_YEAR_NEXT', { defaultValue: 'Go to next year' })}
 					onClick={this.scrollDown}
 					tabIndex="-1"
 					link

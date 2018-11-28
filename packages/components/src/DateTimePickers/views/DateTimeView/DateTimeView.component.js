@@ -84,7 +84,7 @@ class DateTimeView extends React.PureComponent {
 		const header = {
 			leftElement: (
 				<Action
-					aria-label={t('MONTH_PICKER_PREVIOUS', { defaultValue: 'Go to previous month' })}
+					aria-label={t('DATEPICKER_MONTH_PREVIOUS', { defaultValue: 'Go to previous month' })}
 					icon="talend-chevron-left"
 					label=""
 					onClick={() => this.goToPreviousMonth()}
@@ -107,7 +107,7 @@ class DateTimeView extends React.PureComponent {
 			),
 			rightElement: (
 				<Action
-					aria-label={t('MONTH_PICKER_NEXT', { defaultValue: 'Go to next month' })}
+					aria-label={t('DATEPICKER_MONTH_NEXT', { defaultValue: 'Go to next month' })}
 					icon="talend-chevron-left"
 					iconTransform="rotate-180"
 					label=""
