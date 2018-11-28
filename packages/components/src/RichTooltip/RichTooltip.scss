@@ -40,6 +40,7 @@ $tc-popover-header-footer-height: 7rem !default;
 }
 
 .footer:not(:empty) {
+	overflow: hidden;
 	border-top: $tc-popover-border-width solid $tc-popover-header-border-color;
 	justify-content: space-between;
 	align-items: center;
@@ -66,7 +67,7 @@ $tc-popover-header-footer-height: 7rem !default;
 	color: $dove-gray;
 }
 
-.content {
+.content:not(:empty) {
 	// wrapper used to fix the ie11 bug with flexbox when (align-items: center & min-height)
 	// https://stackoverflow.com/a/47180276
 	width: 100%;

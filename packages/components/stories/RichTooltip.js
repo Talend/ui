@@ -5,6 +5,7 @@ import { checkA11y } from '@storybook/addon-a11y';
 
 import {
 	Action,
+	Actions,
 	ActionBar,
 	IconsProvider,
 	CircularProgress,
@@ -32,6 +33,7 @@ const addInfo = {
 };
 
 const header = [<HeaderTitle title="Pipelines" />, <Action {...addInfo} />];
+const headerWithActions = [<HeaderTitle title="Pipelines" />, <Actions actions={[addInfo]} />];
 
 const footer = (
 	<ActionBar
@@ -79,6 +81,30 @@ storiesOf('RichTooltip', module)
 			<Action
 				id="default"
 				overlayComponent={<RichTooltip Header={header} text={shortLoreum} Footer={footer} />}
+				overlayPlacement="bottom"
+				tooltipPlacement="right"
+				{...myAction}
+			/>
+		</div>
+	))
+	.addWithInfo('default with actions', () => (
+		<div>
+			<Action
+				id="default"
+				overlayComponent={
+					<RichTooltip Header={headerWithActions} text={shortLoreum} Footer={footer} />
+				}
+				overlayPlacement="bottom"
+				tooltipPlacement="right"
+				{...myAction}
+			/>
+		</div>
+	))
+	.addWithInfo('only with header', () => (
+		<div>
+			<Action
+				id="default"
+				overlayComponent={<RichTooltip Header={header} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
