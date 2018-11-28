@@ -6,7 +6,7 @@ const pathWithoutFilename = require('./pathWithoutFilename');
  * @param {string} packagePath path to package.json
  */
 function getPackageJsonInfo(packagePath) {
-	const packageJson = require(path.resolve(packagePath));
+	const packageJson = require(path.resolve(packagePath)); // eslint-disable-line global-require
 	return {
 		name: packageJson.name,
 		path: path.resolve(packagePath.replace('/package.json', '')),

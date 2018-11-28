@@ -9,12 +9,14 @@ const path = require('path');
 function addAliases(linkedLibs, aliases = {}) {
 	linkedLibs.forEach(lib => {
 		Object.keys(lib.peerDependencies).forEach(peerDependency => {
+			// eslint-disable-next-line no-param-reassign
 			aliases[peerDependency] = path.resolve('./node_modules', peerDependency);
 		});
 	});
 
 	// override linkedLibs with correct path (in case they are also a peerDependency)
 	linkedLibs.forEach(lib => {
+		// eslint-disable-next-line no-param-reassign
 		aliases[lib.name] = lib.path;
 	});
 

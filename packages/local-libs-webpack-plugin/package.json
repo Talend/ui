@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint lib/**"
   },
   "keywords": [
     "webpack",
