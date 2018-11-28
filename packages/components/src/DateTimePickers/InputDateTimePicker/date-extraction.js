@@ -55,7 +55,10 @@ function checkSupportedDateFormat(dateFormat) {
  * @param dateFormat {string}
  * @param useSeconds {boolean}
  */
-function getFullDateFormat({ dateFormat, useSeconds }) {
+function getFullDateFormat({ dateFormat, useTime, useSeconds }) {
+	if (!useTime) {
+		return dateFormat;
+	}
 	const timeFormat = useSeconds ? 'HH:mm:ss' : 'HH:mm';
 	return `${dateFormat} ${timeFormat}`;
 }
