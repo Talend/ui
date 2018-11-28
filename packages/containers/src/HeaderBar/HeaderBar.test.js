@@ -33,7 +33,46 @@ describe('Container HeaderBar', () => {
 		};
 
 		const wrapper = shallow(<Container {...props} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.props().products.items).toHaveLength(1);
+	});
+
+	it('should merge static products entries with fetched products and sort them by label', () => {
+		const props = {
+			...containerProps,
+			productsItems: [
+				{
+					id: 'foo',
+					icon: 'icon',
+					name: 'Foo',
+					url: 'http://foo.bar',
+				},
+			],
+			products: {
+				items: [
+					{
+						id: 'bar',
+						icon: 'icon',
+						label: 'Bar',
+						url: 'http://bar.baz',
+					},
+					{
+						id: 'zeta',
+						icon: 'icon',
+						label: 'Zeta',
+						url: 'http://zeta.com',
+					},
+				],
+			},
+			state: new Map({
+				productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS,
+			}),
+		};
+
+		const wrapper = shallow(<Container {...props} />);
+		expect(wrapper.props().products.items).toHaveLength(3);
+		expect(wrapper.props().products.items[0].label).toEqual('Bar');
+		expect(wrapper.props().products.items[1].label).toEqual('Foo');
+		expect(wrapper.props().products.items[2].label).toEqual('Zeta');
 	});
 
 	it('should render HeaderBar container while fetching items', () => {
@@ -45,7 +84,7 @@ describe('Container HeaderBar', () => {
 		};
 
 		const wrapper = shallow(<Container {...props} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.props().products).toBeUndefined();
 	});
 });
 

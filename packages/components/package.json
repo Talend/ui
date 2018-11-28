@@ -17,17 +17,8 @@
     "start": "start-storybook -p 6006",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "watch": "npm-watch",
     "cpx": "cpx \"./src/**/*.scss\" ./lib",
     "parse-i18n": "i18next ./src -r -o ../../i18n/components --fileFilter \"*.js\" --default-values"
-  },
-  "watch": {
-    "prepublish": {
-      "patterns": [
-        "src/**/*"
-      ],
-      "extensions": "js,scss"
-    }
   },
   "keywords": [
     "react",
@@ -66,8 +57,8 @@
     "@storybook/addon-info": "^3.4.7",
     "@storybook/addon-storyshots": "^3.4.7",
     "@storybook/react": "^3.4.7",
-    "@talend/bootstrap-theme": "^1.4.0",
-    "@talend/icons": "^1.4.0",
+    "@talend/bootstrap-theme": "^1.9.0-0",
+    "@talend/icons": "^1.9.0-0",
     "autoprefixer": "^7.1.4",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
@@ -104,7 +95,6 @@
     "jsdom": "^11.11.0",
     "keycode": "^2.2.0",
     "node-sass": "^4.7.2",
-    "npm-watch": "^0.1.6",
     "postcss-loader": "^2.0.8",
     "prop-types": "^15.5.10",
     "react": "^16.0.0",
@@ -125,8 +115,8 @@
     "uuid": "^3.0.1"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "^1.4.0",
-    "@talend/icons": "^1.4.0",
+    "@talend/bootstrap-theme": "^1.9.0-0",
+    "@talend/icons": "^1.9.0-0",
     "bootstrap-sass": "3.3.7",
     "classnames": "^2.2.5",
     "d3-shape": "1.2.0",
@@ -164,5 +154,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.4.0"
+  "version": "1.9.0-0"
 }

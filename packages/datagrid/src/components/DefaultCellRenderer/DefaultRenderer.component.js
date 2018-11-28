@@ -9,6 +9,6 @@ export default function DefaultRenderer({ data }) {
 
 DefaultRenderer.propTypes = {
 	data: PropTypes.shape({
-		value: PropTypes.string,
+		value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number]),
 	}),
 };

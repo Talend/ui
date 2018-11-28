@@ -36,4 +36,9 @@ export default cmfConnect({
 	componentId,
 	defaultState: DEFAULT_STATE,
 	mergeProps,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(Container);

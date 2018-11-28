@@ -65,6 +65,10 @@ export function handleBody(response) {
  * @return {Promise}           A promise that reject with the result of parsing the body
  */
 export function handleError(response) {
+	// in case of network issue
+	if (response instanceof Error) {
+		return new HTTPError({ response, data: response });
+	}
 	return handleBody(response).then(body => new HTTPError(body));
 }
 
@@ -153,6 +157,10 @@ export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload, opti
 	if (!get(options, 'silent') && answer instanceof Error) {
 		yield put({
 			error: { message: answer.data.message, stack: { status: answer.response.status } },
+			url,
+			config,
+			method,
+			payload,
 			type: ACTION_TYPE_HTTP_ERRORS,
 		});
 	}

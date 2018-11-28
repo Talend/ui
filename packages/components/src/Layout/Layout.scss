@@ -9,13 +9,6 @@ $tc-layout-header-height: $navbar-height;
 $tc-layout-skip-links-z-index: 20;
 $tc-layout-header-z-index: 10;
 
-body {
-	margin: 0;
-	max-height: 100vh;
-	overflow: hidden; /* due to borders */
-	width: 100vw;
-}
-
 .layout {
 	display: flex;
 	flex-direction: column;

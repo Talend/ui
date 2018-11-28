@@ -1,0 +1,13 @@
+{
+  "props": {
+    "HeaderBar#default": {
+      "logo": {
+        "icon": "talend-logo-square",
+        "isFull": false
+      },
+      "brand": {
+        "label": "Talend App Starter"
+      }
+    }
+  }
+}
