@@ -32,11 +32,6 @@ class LocalLibsWebpackPlugin {
 				return callback(null, result);
 			});
 		});
-
-		console.log('LocalLibsWebpackPlugin: Adding alias for the following libs:'); // eslint-disable-line no-console
-		Object.keys(compiler.options.resolve.alias).forEach(
-			item => console.log(`"${item}": "${compiler.options.resolve.alias[item]}"`), // eslint-disable-line no-console
-		);
 	}
 }
 
