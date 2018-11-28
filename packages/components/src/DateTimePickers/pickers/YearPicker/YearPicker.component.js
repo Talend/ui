@@ -3,9 +3,13 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Action } from '../../../Actions';
 import { buildYears } from '../../generator';
+import WithDynamicListGesture from '../../../Gesture/withDynamicListGesture';
 import getDefaultT from '../../../translate';
 
 import theme from './YearPicker.scss';
+
+const YEAR_WINDOW_SIZE = 7;
+const YEAR_WINDOW_OVERFLOW_SIZE = 3;
 
 class YearPicker extends React.Component {
 	static propTypes = {
@@ -21,10 +25,12 @@ class YearPicker extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onWheel = this.onWheel.bind(this);
-		this.scrollUp = this.scroll.bind(this, -1);
-		this.scrollDown = this.scroll.bind(this, 1);
+		this.scrollUp = this.scroll.bind(this, -1, null);
+		this.scrollDown = this.scroll.bind(this, 1, null);
+		this.goToPreviousPage = this.scroll.bind(this, -YEAR_WINDOW_SIZE);
+		this.goToNextPage = this.scroll.bind(this, YEAR_WINDOW_SIZE);
 
-		this.state = { yearsWindow: buildYears(props.selectedYear) };
+		this.state = { yearsWindow: buildYears(props.selectedYear, YEAR_WINDOW_OVERFLOW_SIZE) };
 	}
 
 	componentWillReceiveProps({ selectedYear }) {
@@ -33,7 +39,7 @@ class YearPicker extends React.Component {
 			selectedYear !== this.props.selectedYear &&
 			!this.state.yearsWindow.includes(selectedYear)
 		) {
-			this.setState({ yearsWindow: buildYears(selectedYear) });
+			this.setState({ yearsWindow: buildYears(selectedYear, YEAR_WINDOW_OVERFLOW_SIZE) });
 		}
 	}
 
@@ -55,8 +61,13 @@ class YearPicker extends React.Component {
 		return yearsWindow[Math.floor(yearsWindow.length / 2)];
 	}
 
-	scroll(pace) {
-		this.setState(() => ({ yearsWindow: buildYears(this.getMiddleYear() + pace) }));
+	scroll(pace, callback) {
+		this.setState(
+			() => ({
+				yearsWindow: buildYears(this.getMiddleYear() + pace, YEAR_WINDOW_OVERFLOW_SIZE),
+			}),
+			callback,
+		);
 	}
 
 	render() {
@@ -65,59 +76,68 @@ class YearPicker extends React.Component {
 		const selectedIsInWindow = yearsWindow.includes(selectedYear);
 		const middleYear = this.getMiddleYear();
 		return (
-			<div className={theme['year-picker']}>
-				<Action
-					className={classnames(theme.scroll, theme['scroll-up'], 'tc-date-picker-scroll-up')}
-					icon="talend-chevron-left"
-					iconTransform="rotate-90"
-					label={t('DATEPICKER_YEAR_PREVIOUS', { defaultValue: 'Go to previous year' })}
-					onClick={this.scrollUp}
-					tabIndex="-1"
-					link
-					hideLabel
-				/>
-				<ol onWheel={this.onWheel}>
-					{yearsWindow.map((year, index) => {
-						const isSelectedYear = year === selectedYear;
-						let tabIndex = -1;
-						if (isSelectedYear || (!selectedIsInWindow && index === middleYear)) {
-							tabIndex = 0;
-						}
+			<WithDynamicListGesture
+				className={theme['year-picker']}
+				goToPreviousPage={this.goToPreviousPage}
+				goToNextPage={this.goToNextPage}
+			>
+				{onKeyDown => [
+					<Action
+						key="previousPage"
+						className={classnames(theme.scroll, theme['scroll-up'], 'tc-date-picker-scroll-up')}
+						icon="talend-chevron-left"
+						iconTransform="rotate-90"
+						label={t('DATEPICKER_YEAR_PREVIOUS', { defaultValue: 'Go to previous year' })}
+						onClick={this.scrollUp}
+						tabIndex="-1"
+						link
+						hideLabel
+					/>,
+					<ol key="list" onWheel={this.onWheel}>
+						{yearsWindow.map((year, index) => {
+							const isSelectedYear = year === selectedYear;
+							let tabIndex = -1;
+							if (isSelectedYear || (!selectedIsInWindow && year === middleYear)) {
+								tabIndex = 0;
+							}
 
-						const liProps = {};
-						if (isSelectedYear) {
-							liProps['aria-current'] = true;
-						}
+							const liProps = {};
+							if (isSelectedYear) {
+								liProps['aria-current'] = true;
+							}
 
-						const classNames = classnames(
-							theme.year,
-							{ [theme.selected]: isSelectedYear },
-							'tc-date-picker-year',
-						);
-						return (
-							<li {...liProps} key={year}>
-								<button
-									className={classNames}
-									onClick={event => this.props.onSelect(event, year)}
-									tabIndex={tabIndex}
-								>
-									{year}
-								</button>
-							</li>
-						);
-					})}
-				</ol>
-				<Action
-					className={classnames(theme.scroll, theme['scroll-down'], 'tc-date-picker-scroll-down')}
-					icon="talend-chevron-left"
-					iconTransform="rotate-270"
-					label={t('DATEPICKER_YEAR_NEXT', { defaultValue: 'Go to next year' })}
-					onClick={this.scrollDown}
-					tabIndex="-1"
-					link
-					hideLabel
-				/>
-			</div>
+							const classNames = classnames(
+								theme.year,
+								{ [theme.selected]: isSelectedYear },
+								'tc-date-picker-year',
+							);
+							return (
+								<li {...liProps} key={year}>
+									<button
+										className={classNames}
+										onClick={event => this.props.onSelect(event, year)}
+										tabIndex={tabIndex}
+										onKeyDown={event => onKeyDown(event, { index, size: YEAR_WINDOW_SIZE })}
+									>
+										{year}
+									</button>
+								</li>
+							);
+						})}
+					</ol>,
+					<Action
+						key="nextPage"
+						className={classnames(theme.scroll, theme['scroll-down'], 'tc-date-picker-scroll-down')}
+						icon="talend-chevron-left"
+						iconTransform="rotate-270"
+						label={t('DATEPICKER_YEAR_NEXT', { defaultValue: 'Go to next year' })}
+						onClick={this.scrollDown}
+						tabIndex="-1"
+						link
+						hideLabel
+					/>,
+				]}
+			</WithDynamicListGesture>
 		);
 	}
 }

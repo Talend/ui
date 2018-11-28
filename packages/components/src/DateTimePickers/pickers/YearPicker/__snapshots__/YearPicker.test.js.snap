@@ -21,6 +21,7 @@ exports[`YearPicker should default render with current year in middle when "sele
       <button
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
+        onKeyDown={[Function]}
         tabIndex={-1}
       >
         2022
@@ -30,6 +31,7 @@ exports[`YearPicker should default render with current year in middle when "sele
       <button
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
+        onKeyDown={[Function]}
         tabIndex={-1}
       >
         2023
@@ -39,6 +41,7 @@ exports[`YearPicker should default render with current year in middle when "sele
       <button
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
+        onKeyDown={[Function]}
         tabIndex={-1}
       >
         2024
@@ -48,7 +51,8 @@ exports[`YearPicker should default render with current year in middle when "sele
       <button
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
-        tabIndex={-1}
+        onKeyDown={[Function]}
+        tabIndex={0}
       >
         2025
       </button>
@@ -57,6 +61,7 @@ exports[`YearPicker should default render with current year in middle when "sele
       <button
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
+        onKeyDown={[Function]}
         tabIndex={-1}
       >
         2026
@@ -66,6 +71,7 @@ exports[`YearPicker should default render with current year in middle when "sele
       <button
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
+        onKeyDown={[Function]}
         tabIndex={-1}
       >
         2027
@@ -75,6 +81,7 @@ exports[`YearPicker should default render with current year in middle when "sele
       <button
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
+        onKeyDown={[Function]}
         tabIndex={-1}
       >
         2028
@@ -115,6 +122,7 @@ exports[`YearPicker should render 1`] = `
       <button
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
+        onKeyDown={[Function]}
         tabIndex={-1}
       >
         2009
@@ -124,6 +132,7 @@ exports[`YearPicker should render 1`] = `
       <button
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
+        onKeyDown={[Function]}
         tabIndex={-1}
       >
         2010
@@ -133,6 +142,7 @@ exports[`YearPicker should render 1`] = `
       <button
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
+        onKeyDown={[Function]}
         tabIndex={-1}
       >
         2011
@@ -144,6 +154,7 @@ exports[`YearPicker should render 1`] = `
       <button
         className="theme-year theme-selected tc-date-picker-year"
         onClick={[Function]}
+        onKeyDown={[Function]}
         tabIndex={0}
       >
         2012
@@ -153,6 +164,7 @@ exports[`YearPicker should render 1`] = `
       <button
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
+        onKeyDown={[Function]}
         tabIndex={-1}
       >
         2013
@@ -162,6 +174,7 @@ exports[`YearPicker should render 1`] = `
       <button
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
+        onKeyDown={[Function]}
         tabIndex={-1}
       >
         2014
@@ -171,6 +184,7 @@ exports[`YearPicker should render 1`] = `
       <button
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
+        onKeyDown={[Function]}
         tabIndex={-1}
       >
         2015
