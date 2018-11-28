@@ -14,12 +14,8 @@
     "test:demo": "build-storybook",
     "lint:es": "eslint --config ../../.eslintrc src",
     "lint": "npm run lint:es",
-    "watch": "npm-watch",
     "storybook": "start-storybook -p 6010",
     "build-storybook": "build-storybook"
-  },
-  "watch": {
-    "prepublish": "src/*"
   },
   "keywords": [
     "react",
