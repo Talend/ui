@@ -11,7 +11,11 @@ describe('InputDateTimePicker', () => {
 	it('should render', () => {
 		// when
 		const wrapper = shallow(
-			<InputDateTimePicker id={DEFAULT_ID} selectedDateTime={new Date(2017, 3, 4, 15, 27)} />,
+			<InputDateTimePicker
+				id={DEFAULT_ID}
+				selectedDateTime={new Date(2017, 3, 4, 15, 27)}
+				useTime
+			/>,
 		);
 
 		// then
@@ -23,7 +27,7 @@ describe('InputDateTimePicker', () => {
 		({ initialDate, expectedTextInput, expectedDate, expectedTime }) => {
 			// when
 			const wrapper = shallow(
-				<InputDateTimePicker id={DEFAULT_ID} selectedDateTime={initialDate} />,
+				<InputDateTimePicker id={DEFAULT_ID} selectedDateTime={initialDate} useTime />,
 			);
 
 			// then
@@ -68,6 +72,7 @@ describe('InputDateTimePicker', () => {
 					id={DEFAULT_ID}
 					selectedDateTime={initialDate}
 					useSeconds={useSeconds}
+					useTime
 				/>,
 			);
 
@@ -126,7 +131,7 @@ describe('InputDateTimePicker', () => {
 		({ initialDate, newDate }) => {
 			// given
 			const wrapper = shallow(
-				<InputDateTimePicker id={DEFAULT_ID} selectedDateTime={initialDate} />,
+				<InputDateTimePicker id={DEFAULT_ID} selectedDateTime={initialDate} useTime />,
 			);
 			const previousState = wrapper.state();
 
@@ -155,7 +160,9 @@ describe('InputDateTimePicker', () => {
 	describe('focus/blur', () => {
 		it('should open picker on focus', () => {
 			// given
-			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} />, { attachTo: document.body });
+			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} useTime />, {
+				attachTo: document.body,
+			});
 			expect(
 				wrapper
 					.find('Overlay')
@@ -177,7 +184,7 @@ describe('InputDateTimePicker', () => {
 
 		it('should close picker on blur', () => {
 			// given
-			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} />);
+			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} useTime />);
 			wrapper.simulate('focus');
 			expect(
 				wrapper
@@ -202,7 +209,7 @@ describe('InputDateTimePicker', () => {
 	describe('keydown', () => {
 		it('should close the picker and focus on input with ESC', () => {
 			// given
-			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} />);
+			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} useTime />);
 			wrapper.simulate('focus');
 			expect(
 				wrapper
@@ -226,7 +233,7 @@ describe('InputDateTimePicker', () => {
 
 		it('should focus open picker if it is closed with input DOWN', () => {
 			// given
-			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} />);
+			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} useTime />);
 			expect(
 				wrapper
 					.find('Overlay')
@@ -249,7 +256,7 @@ describe('InputDateTimePicker', () => {
 
 		it('should focus on calendar day if it is open with input DOWN', () => {
 			// given
-			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} />);
+			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} useTime />);
 			wrapper.simulate('focus');
 			const event = { keyCode: keycode.codes.down };
 
@@ -269,7 +276,7 @@ describe('InputDateTimePicker', () => {
 			// given
 			const onBlur = jest.fn();
 			const event = { target: {} };
-			const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} onBlur={onBlur} />);
+			const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} onBlur={onBlur} useTime />);
 			expect(onBlur).not.toBeCalled();
 
 			// when
@@ -287,7 +294,12 @@ describe('InputDateTimePicker', () => {
 				// given
 				const event = { target: { value: textInput } };
 				const wrapper = shallow(
-					<InputDateTimePicker id={DEFAULT_ID} dateFormat={dateFormat} useSeconds={useSeconds} />,
+					<InputDateTimePicker
+						id={DEFAULT_ID}
+						dateFormat={dateFormat}
+						useSeconds={useSeconds}
+						useTime
+					/>,
 				);
 
 				// when
@@ -347,7 +359,7 @@ describe('InputDateTimePicker', () => {
 			// given
 			const onChange = jest.fn();
 			const event = { target: { value: '2015-01-15 15:45' } };
-			const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} onChange={onChange} />);
+			const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} onChange={onChange} useTime />);
 			expect(onChange).not.toBeCalled();
 
 			// when
@@ -365,7 +377,7 @@ describe('InputDateTimePicker', () => {
 			// given
 			const onChange = jest.fn();
 			const event = { target: { value: '2015aze-01-15 15:45' } };
-			const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} onChange={onChange} />);
+			const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} onChange={onChange} useTime />);
 			expect(onChange).not.toBeCalled();
 
 			// when
@@ -386,7 +398,9 @@ describe('InputDateTimePicker', () => {
 			'should update input',
 			({ date, time, expectedTextInput, dateFormat }) => {
 				// given
-				const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} dateFormat={dateFormat} />);
+				const wrapper = shallow(
+					<InputDateTimePicker id={DEFAULT_ID} dateFormat={dateFormat} useTime />,
+				);
 
 				// when
 				wrapper.find('DateTimePicker').prop('onSubmit')({}, { date, time });
@@ -427,7 +441,7 @@ describe('InputDateTimePicker', () => {
 			// given
 			const onChange = jest.fn();
 			const event = { target: {} };
-			const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} onChange={onChange} />);
+			const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} onChange={onChange} useTime />);
 			expect(onChange).not.toBeCalled();
 
 			// when
@@ -448,7 +462,7 @@ describe('InputDateTimePicker', () => {
 			// given
 			const onChange = jest.fn();
 			const event = { target: {} };
-			const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} onChange={onChange} />);
+			const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} onChange={onChange} useTime />);
 			expect(onChange).not.toBeCalled();
 
 			// when
