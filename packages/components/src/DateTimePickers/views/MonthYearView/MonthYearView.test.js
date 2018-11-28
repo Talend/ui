@@ -7,7 +7,7 @@ describe('MonthYearView', () => {
 	it('should render', () => {
 		// when
 		const wrapper = shallow(
-			<MonthYearView.WrappedComponent
+			<MonthYearView
 				allowFocus
 				onBackClick={jest.fn()}
 				onSelectMonth={jest.fn()}
@@ -24,7 +24,7 @@ describe('MonthYearView', () => {
 	it('should manage tabIndex', () => {
 		// given
 		const wrapper = shallow(
-			<MonthYearView.WrappedComponent
+			<MonthYearView
 				onBackClick={jest.fn()}
 				onSelectMonth={jest.fn()}
 				onSelectYear={jest.fn()}
@@ -59,7 +59,7 @@ describe('MonthYearView', () => {
 		// given
 		const onBackClick = jest.fn();
 		const wrapper = shallow(
-			<MonthYearView.WrappedComponent
+			<MonthYearView
 				onBackClick={onBackClick}
 				onSelectMonth={jest.fn()}
 				onSelectYear={jest.fn()}

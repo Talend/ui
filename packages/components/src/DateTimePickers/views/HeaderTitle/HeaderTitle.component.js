@@ -4,10 +4,8 @@ import classNames from 'classnames';
 import setYear from 'date-fns/set_year';
 import setMonth from 'date-fns/set_month';
 import format from 'date-fns/format';
-import { translate } from 'react-i18next';
 import theme from './HeaderTitle.scss';
 import { getPickerLocale } from '../../generator';
-import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import getDefaultT from '../../../translate';
 
 function HeaderTitle(props) {
@@ -47,4 +45,4 @@ HeaderTitle.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(HeaderTitle);
+export default HeaderTitle;

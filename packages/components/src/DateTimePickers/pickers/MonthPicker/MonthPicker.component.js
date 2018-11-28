@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
 import { buildMonths } from '../../generator';
 
 import theme from './MonthPicker.scss';
 import { withMonthCalendarGesture } from '../../../Gesture/withCalendarGesture';
-import I18N_DOMAIN_COMPONENTS from '../../../constants';
 
 const ROW_SIZE = 3;
 
@@ -75,4 +73,4 @@ MonthPicker.propTypes = {
 	t: PropTypes.func,
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(withMonthCalendarGesture(MonthPicker, ROW_SIZE));
+export default withMonthCalendarGesture(MonthPicker, ROW_SIZE);

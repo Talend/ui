@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import uuid from 'uuid';
-import { translate } from 'react-i18next';
 import DebounceInput from 'react-debounce-input';
 import getDefaultT from '../../../translate';
-import I18N_DOMAIN_COMPONENTS from '../../../constants';
 
 import theme from './TimePicker.scss';
 
@@ -107,4 +105,4 @@ class TimePicker extends React.PureComponent {
 	}
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS)(TimePicker);
+export default TimePicker;

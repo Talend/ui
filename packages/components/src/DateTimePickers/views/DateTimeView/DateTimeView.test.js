@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import cases from 'jest-in-case';
 
 import DateTimeView from './DateTimeView.component';
@@ -27,7 +27,7 @@ describe('DateTimeView', () => {
 	it('should render', () => {
 		// when
 		const wrapper = shallow(
-			<DateTimeView.WrappedComponent
+			<DateTimeView
 				allowFocus
 				calendar={{
 					monthIndex: 5,
@@ -49,7 +49,7 @@ describe('DateTimeView', () => {
 	it('should render without timePicker', () => {
 		// when
 		const wrapper = shallow(
-			<DateTimeView.WrappedComponent
+			<DateTimeView
 				allowFocus
 				calendar={{
 					monthIndex: 5,
@@ -70,8 +70,8 @@ describe('DateTimeView', () => {
 	it('should trigger props.onTitleClick when title is clicked', () => {
 		// given
 		const onTitleClick = jest.fn();
-		const wrapper = shallow(
-			<DateTimeView.WrappedComponent
+		const wrapper = mount(
+			<DateTimeView
 				calendar={{
 					monthIndex: 5,
 					year: 2006,
@@ -87,9 +87,7 @@ describe('DateTimeView', () => {
 		// when
 		const titleAction = wrapper
 			.find('ViewLayout')
-			.shallow()
-			.find('HeaderTitle')
-			.shallow()
+			.find('Translate(HeaderTitle)')
 			.find('button');
 		titleAction.simulate('click');
 
@@ -99,8 +97,8 @@ describe('DateTimeView', () => {
 
 	it('should manage tabIndex', () => {
 		// given
-		const wrapper = shallow(
-			<DateTimeView.WrappedComponent
+		const wrapper = mount(
+			<DateTimeView
 				calendar={{
 					monthIndex: 5,
 					year: 2006,
@@ -111,12 +109,11 @@ describe('DateTimeView', () => {
 				onTitleClick={jest.fn()}
 			/>,
 		);
+
 		expect(
 			wrapper
 				.find('ViewLayout')
-				.shallow()
-				.find('HeaderTitle')
-				.shallow()
+				.find('Translate(HeaderTitle)')
 				.find('button')
 				.prop('tabIndex'),
 		).toBe(-1);
@@ -128,9 +125,7 @@ describe('DateTimeView', () => {
 		expect(
 			wrapper
 				.find('ViewLayout')
-				.shallow()
 				.find('HeaderTitle')
-				.shallow()
 				.find('button')
 				.prop('tabIndex'),
 		).toBe(0);
@@ -142,7 +137,7 @@ describe('DateTimeView', () => {
 			// given
 			const onSelectMonthYear = jest.fn();
 			const wrapper = shallow(
-				<DateTimeView.WrappedComponent
+				<DateTimeView
 					calendar={calendar}
 					onTitleClick={jest.fn()}
 					onSelectMonthYear={onSelectMonthYear}

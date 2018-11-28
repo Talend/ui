@@ -28,7 +28,7 @@ describe('DatePicker', () => {
 
 		// when
 		const wrapper = mount(
-			<DatePicker.WrappedComponent
+			<DatePicker
 				calendar={calendar}
 				isDisabledChecker={isDisabledChecker}
 				onSelect={jest.fn()}
@@ -48,7 +48,7 @@ describe('DatePicker', () => {
 
 		// when
 		const wrapper = mount(
-			<DatePicker.WrappedComponent
+			<DatePicker
 				calendar={calendar}
 				onSelect={jest.fn()}
 				goToPreviousMonth={jest.fn()}
@@ -78,7 +78,7 @@ describe('DatePicker', () => {
 
 		// when
 		const wrapper = mount(
-			<DatePicker.WrappedComponent
+			<DatePicker
 				calendar={calendar}
 				onSelect={jest.fn()}
 				goToPreviousMonth={jest.fn()}
@@ -109,7 +109,7 @@ describe('DatePicker', () => {
 
 		// when
 		const wrapper = mount(
-			<DatePicker.WrappedComponent
+			<DatePicker
 				calendar={calendar}
 				isDisabledChecker={isDisabledChecker}
 				onSelect={jest.fn()}
@@ -138,7 +138,7 @@ describe('DatePicker', () => {
 		const calendar = { year: 2018, monthIndex: 5 };
 		const onSelect = jest.fn();
 		const wrapper = mount(
-			<DatePicker.WrappedComponent
+			<DatePicker
 				calendar={calendar}
 				onSelect={onSelect}
 				goToPreviousMonth={jest.fn()}
@@ -160,7 +160,7 @@ describe('DatePicker', () => {
 	it('should manage tabIndex', () => {
 		const calendar = { year: 2018, monthIndex: 5 };
 		const wrapper = mount(
-			<DatePicker.WrappedComponent
+			<DatePicker
 				calendar={calendar}
 				onSelect={jest.fn()}
 				goToPreviousMonth={jest.fn()}

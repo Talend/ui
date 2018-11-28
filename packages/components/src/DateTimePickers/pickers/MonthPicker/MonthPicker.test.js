@@ -8,7 +8,7 @@ describe('MonthPicker', () => {
 	it('should render', () => {
 		// when
 		const wrapper = mount(
-			<MonthPicker.WrappedComponent onSelect={jest.fn()} selectedMonthIndex={4} />
+			<MonthPicker onSelect={jest.fn()} selectedMonthIndex={4} />
 		);
 
 		// then
@@ -18,7 +18,7 @@ describe('MonthPicker', () => {
 	it('should highlight selected month', () => {
 		// when
 		const wrapper = mount(
-			<MonthPicker.WrappedComponent onSelect={jest.fn()} selectedMonthIndex={4} />
+			<MonthPicker onSelect={jest.fn()} selectedMonthIndex={4} />
 		);
 
 		// then
@@ -33,7 +33,7 @@ describe('MonthPicker', () => {
 	it('should trigger props.onSelect on selection', () => {
 		// given
 		const onSelect = jest.fn();
-		const wrapper = mount(<MonthPicker.WrappedComponent onSelect={onSelect} />);
+		const wrapper = mount(<MonthPicker onSelect={onSelect} />);
 
 		// when
 		wrapper
@@ -48,7 +48,7 @@ describe('MonthPicker', () => {
 	it('should manage tabIndex', () => {
 		// given
 		const wrapper = mount(
-			<MonthPicker.WrappedComponent onSelect={jest.fn()} selectedMonthIndex={4} />
+			<MonthPicker onSelect={jest.fn()} selectedMonthIndex={4} />
 		);
 		expect(
 			wrapper

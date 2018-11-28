@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
 import { Action } from '../../../Actions';
 import MonthPicker from '../../pickers/MonthPicker';
 import YearPicker from '../../pickers/YearPicker';
@@ -8,7 +7,6 @@ import theme from './MonthYearView.scss';
 import ViewLayout from '../ViewLayout';
 import HeaderTitle from '../HeaderTitle';
 import getDefaultT from '../../../translate';
-import I18N_DOMAIN_COMPONENTS from '../../../constants';
 
 function MonthYearView(props) {
 	const header = {
@@ -63,4 +61,4 @@ MonthYearView.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(MonthYearView);
+export default MonthYearView;
