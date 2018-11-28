@@ -5,18 +5,22 @@ Easier local development on libraries. Skip the prepublish, npm link, copying li
 **This plugin is meant to be used in development only**
 
 LocalLibsWebpackPlugin will let you do 2 things:
+
 - import npm modules from local paths, without using npm link or modifying import paths.
-- Use the **source** files of your library without having to compile your code after each change.
+- Use the **source** files of your library to avoid the manual compilation step after each code change.
 
 # Requirements for using source files
-- The library must have a `"mainSrc"` field in its package.json. This field specifies where the **source** entry file is. `"main"` usually refer to a dist or lib folder where the bundled files are.
-- Your app's webpack config and its loaders must be able to bundle the library on its own.
+
+- The library must have a `"mainSrc"` field in its package.json. This field specifies where the **source** entry file is. `"main"` usually refer to a dist or lib folder where the compiled files are located.
+- Your app's webpack config and its loaders must be able to bundle the library code on its own.
 
 # Install
+
 `$ yarn add --dev @talend/local-libs-webpack-plugin`
 
 # Usage
-`$ webpack --env.mylib --env.myotherlib`
+
+`$ webpack-dev-server --env.mylib --env.myotherlib`
 
 ```js
 // webpack.config.js
@@ -32,7 +36,7 @@ module.exports = (env = {}) => ({
 });
 ```
 
-This uses webpack's env variables, but you can also pass `true` or `false` directly.
+This example uses webpack's env variables, but you can use Node environment variables or anything you prefer.
 
 # Tips
 
@@ -41,15 +45,16 @@ If you have your webpack command in an npm script you can use that as well. The 
 `$ yarn start --env.myLib`
 
 package.json
+
 ```json
 {
-  "scripts": {
-    "start": "webpack mode=development --config webpack.config.dev.js"
-  }
+	"scripts": {
+		"start": "webpack-dev-server mode=development --config webpack.config.dev.js"
+	}
 }
 ```
 
-This combination will run `webpack mode=development --config webpack.config.dev.js --env.myLib`
+This combination will run `webpack-dev-server mode=development --config webpack.config.dev.js --env.myLib`
 
 ## LICENSE
 

@@ -1,4 +1,4 @@
-const pathWithoutFilename = require('./');
+const pathWithoutFilename = require('./pathWithoutFilename');
 
 describe('pathWithoutFilename', () => {
 	it('should remove the file part from a path', () => {
@@ -8,10 +8,9 @@ describe('pathWithoutFilename', () => {
 		expect(pathWithoutFilename('/index.js')).toEqual('');
 	});
 
-	xit('should not modify paths without json extension', () => {
+	it('should not modify paths without extension', () => {
 		expect(pathWithoutFilename('mylib/lib/package')).toEqual('mylib/lib/package');
 		expect(pathWithoutFilename('mylib/lib/package/')).toEqual('mylib/lib/package/');
 		expect(pathWithoutFilename('mylib/lib/package/json')).toEqual('mylib/lib/package/json');
-		expect(pathWithoutFilename('mylib/lib/package.')).toEqual('mylib/lib/package.');
 	});
 });

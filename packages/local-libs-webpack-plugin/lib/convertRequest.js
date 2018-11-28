@@ -1,4 +1,9 @@
-function convertRequests(request, linkedLibs) {
+/**
+ * Convert requests if they are a linkedLib
+ * @param {string} request the path to require
+ * @param {object} linkedLibs linkedLibs
+ */
+function convertRequest(request, linkedLibs) {
 	linkedLibs.forEach(lib => {
 		if (request === lib.name) {
 			// myLib -> Users/me/projects/myLib/src/index.js
@@ -11,4 +16,4 @@ function convertRequests(request, linkedLibs) {
 	return request;
 }
 
-module.exports = convertRequests;
+module.exports = convertRequest;

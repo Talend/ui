@@ -1,5 +1,5 @@
 const getLinkedLibs = require('./getLinkedLibs');
-const convertRequests = require('./convertRequests');
+const convertRequest = require('./convertRequest');
 const addAliases = require('./addAliases');
 
 class LocalLibsWebpackPlugin {
@@ -16,13 +16,7 @@ class LocalLibsWebpackPlugin {
 			return;
 		}
 
-		if (!compiler.options.resolve) {
-			compiler.options.resolve = {};
-		}
-
-		if (!compiler.options.resolve.alias) {
-			compiler.options.resolve.alias = {};
-		}
+		compiler.options.resolve = compiler.options.resolve || {};
 
 		// eslint-disable-next-line no-param-reassign
 		compiler.options.resolve.alias = addAliases(this.linkedLibs, compiler.options.resolve.alias);
@@ -34,14 +28,14 @@ class LocalLibsWebpackPlugin {
 				if (!result) {
 					return callback();
 				}
-				result.request = convertRequests(result.request, this.linkedLibs);
+				result.request = convertRequest(result.request, this.linkedLibs);
 				return callback(null, result);
 			});
 		});
 
-		console.log('LocalLibsWebpackPlugin: Link the following libs:'); // eslint-disable-line no-console
+		console.log('LocalLibsWebpackPlugin: Adding alias for the following libs:'); // eslint-disable-line no-console
 		Object.keys(compiler.options.resolve.alias).forEach(
-			item => console.log(`Link "${item}" to: "${compiler.options.resolve.alias[item]}"`), // eslint-disable-line no-console
+			item => console.log(`"${item}": "${compiler.options.resolve.alias[item]}"`), // eslint-disable-line no-console
 		);
 	}
 }

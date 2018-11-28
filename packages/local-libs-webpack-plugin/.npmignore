@@ -56,3 +56,4 @@ test
 .sass-lint.yml
 screenshots.config.json
 yarn.lock
+*.test.js
