@@ -7,9 +7,7 @@ import MonthPicker from './MonthPicker.component';
 describe('MonthPicker', () => {
 	it('should render', () => {
 		// when
-		const wrapper = mount(
-			<MonthPicker onSelect={jest.fn()} selectedMonthIndex={4} />
-		);
+		const wrapper = mount(<MonthPicker onSelect={jest.fn()} selectedMonthIndex={4} />);
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
@@ -17,9 +15,7 @@ describe('MonthPicker', () => {
 
 	it('should highlight selected month', () => {
 		// when
-		const wrapper = mount(
-			<MonthPicker onSelect={jest.fn()} selectedMonthIndex={4} />
-		);
+		const wrapper = mount(<MonthPicker onSelect={jest.fn()} selectedMonthIndex={4} />);
 
 		// then
 		expect(
@@ -47,9 +43,7 @@ describe('MonthPicker', () => {
 
 	it('should manage tabIndex', () => {
 		// given
-		const wrapper = mount(
-			<MonthPicker onSelect={jest.fn()} selectedMonthIndex={4} />
-		);
+		const wrapper = mount(<MonthPicker onSelect={jest.fn()} selectedMonthIndex={4} />);
 		expect(
 			wrapper
 				.find('.tc-date-picker-month')

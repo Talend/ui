@@ -9,7 +9,7 @@ exports[`MonthYearView should render 1`] = `
       <div
         className="theme-month"
       >
-        <Translate(CalendarGesture(undefined))
+        <Translate(MonthCalendarGesture(MonthPicker))
           allowFocus={true}
           onSelect={[Function]}
           selectedMonthIndex={8}

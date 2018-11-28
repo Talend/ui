@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MonthPicker should render 1`] = `
-<CalendarGesture(undefined)
+<MonthCalendarGesture(MonthPicker)
   onSelect={[Function]}
   selectedMonthIndex={4}
 >
@@ -213,5 +213,5 @@ exports[`MonthPicker should render 1`] = `
       </table>
     </MonthPicker>
   </div>
-</CalendarGesture(undefined)>
+</MonthCalendarGesture(MonthPicker)>
 `;

@@ -64,7 +64,7 @@ class MonthPicker extends React.PureComponent {
 		);
 	}
 }
-
+MonthPicker.displayName = 'MonthPicker';
 MonthPicker.propTypes = {
 	allowFocus: PropTypes.bool,
 	onKeyDown: PropTypes.func.isRequired,

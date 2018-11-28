@@ -87,7 +87,7 @@ describe('DateTimeView', () => {
 		// when
 		const titleAction = wrapper
 			.find('ViewLayout')
-			.find('Translate(HeaderTitle)')
+			.find('HeaderTitle')
 			.find('button');
 		titleAction.simulate('click');
 
@@ -113,7 +113,7 @@ describe('DateTimeView', () => {
 		expect(
 			wrapper
 				.find('ViewLayout')
-				.find('Translate(HeaderTitle)')
+				.find('HeaderTitle')
 				.find('button')
 				.prop('tabIndex'),
 		).toBe(-1);
