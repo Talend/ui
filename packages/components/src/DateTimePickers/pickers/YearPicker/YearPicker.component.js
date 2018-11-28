@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { Action } from '../../../Actions';
 import { buildYears } from '../../generator';
 import WithDynamicListGesture from '../../../Gesture/withDynamicListGesture';
+import getDefaultT from '../../../translate';
 
 import theme from './YearPicker.scss';
 
@@ -11,6 +12,16 @@ const YEAR_WINDOW_SIZE = 7;
 const YEAR_WINDOW_OVERFLOW_SIZE = 3;
 
 class YearPicker extends React.Component {
+	static propTypes = {
+		selectedYear: PropTypes.number,
+		onSelect: PropTypes.func.isRequired,
+		t: PropTypes.func.isRequired,
+	};
+
+	static defaultProps = {
+		t: getDefaultT(),
+	};
+
 	constructor(props) {
 		super(props);
 		this.onWheel = this.onWheel.bind(this);
@@ -60,7 +71,7 @@ class YearPicker extends React.Component {
 	}
 
 	render() {
-		const { selectedYear } = this.props;
+		const { selectedYear, t } = this.props;
 		const { yearsWindow } = this.state;
 		const selectedIsInWindow = yearsWindow.includes(selectedYear);
 		const middleYear = this.getMiddleYear();
@@ -76,7 +87,7 @@ class YearPicker extends React.Component {
 						className={classnames(theme.scroll, theme['scroll-up'], 'tc-date-picker-scroll-up')}
 						icon="talend-chevron-left"
 						iconTransform="rotate-90"
-						label="Go to previous year"
+						label={t('DATEPICKER_YEAR_PREVIOUS', { defaultValue: 'Go to previous year' })}
 						onClick={this.scrollUp}
 						tabIndex="-1"
 						link
@@ -119,7 +130,7 @@ class YearPicker extends React.Component {
 						className={classnames(theme.scroll, theme['scroll-down'], 'tc-date-picker-scroll-down')}
 						icon="talend-chevron-left"
 						iconTransform="rotate-270"
-						label="Go to next year"
+						label={t('DATEPICKER_YEAR_NEXT', { defaultValue: 'Go to next year' })}
 						onClick={this.scrollDown}
 						tabIndex="-1"
 						link
@@ -130,10 +141,5 @@ class YearPicker extends React.Component {
 		);
 	}
 }
-
-YearPicker.propTypes = {
-	selectedYear: PropTypes.number,
-	onSelect: PropTypes.func.isRequired,
-};
 
 export default YearPicker;
