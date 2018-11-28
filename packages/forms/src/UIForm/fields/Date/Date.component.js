@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import memoizeOne from 'memoize-one';
 import InputDateTimePicker from '@talend/react-components/lib/DateTimePickers';
-import FieldTemplate from '../../FieldTemplate';
-import { isoDateTimeRegExp } from '../../../customFormats';
-import { WidgetUnhandleTypeError, WidgetUnexpectedTypeError } from '../WrongTypeError';
-import { generateDescriptionId, generateErrorId } from '../../../Message/generateId';
+import FieldTemplate from '../FieldTemplate';
+import { isoDateTimeRegExp } from '../../customFormats';
+import { WidgetUnhandleTypeError, WidgetUnexpectedTypeError } from './WrongTypeError';
+import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 const HANDLE_CONVERTION_TYPE = ['string', 'number'];
 const UNIQUE_ERROR_MESSAGE = 'The date is invalid. Expected format: YYYY-MM-DD HH:mm';
@@ -55,7 +55,7 @@ function convertFromDate({ schema }, date) {
 	}
 }
 
-class DateTime extends React.Component {
+class DateWidget extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -84,7 +84,7 @@ class DateTime extends React.Component {
 	}
 
 	render() {
-		const { id, isValid, schema, value } = this.props;
+		const { id, isValid, schema, useTime, value } = this.props;
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
 		const isAlreadyADate = value instanceof Date;
@@ -112,6 +112,7 @@ class DateTime extends React.Component {
 					disabled={schema.disabled}
 					readOnly={schema.readOnly}
 					placeholder={schema.placeholder}
+					useTime={useTime}
 					// eslint-disable-next-line jsx-a11y/aria-proptypes
 					aria-invalid={!isValid}
 					aria-required={schema.required}
@@ -122,10 +123,10 @@ class DateTime extends React.Component {
 	}
 }
 
-DateTime.displayName = 'DateTime Widget';
+DateWidget.displayName = 'DateTime Widget';
 
 if (process.env.NODE_ENV !== 'production') {
-	DateTime.propTypes = {
+	DateWidget.propTypes = {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
@@ -143,8 +144,9 @@ if (process.env.NODE_ENV !== 'production') {
 				type: PropTypes.string,
 			}),
 		}),
+		useTime: PropTypes.bool,
 		value: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.instanceOf(Date)]),
 	};
 }
 
-export default DateTime;
+export default DateWidget;

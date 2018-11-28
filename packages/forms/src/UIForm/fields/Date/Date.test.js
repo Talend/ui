@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import DateTime from './DateTime.component';
+import DateWidget from './Date.component';
 
 const defaultSchema = {
 	autoFocus: true,
@@ -21,12 +21,12 @@ function getSchema(type) {
 	};
 }
 
-describe('InputDateTimePicker', () => {
+describe('Date', () => {
 	describe('render', () => {
 		it('should render', () => {
 			// when
 			const wrapper = shallow(
-				<DateTime
+				<DateWidget
 					id="my-datepicker"
 					isValid={false}
 					errorMessage="You've done something wrong"
@@ -44,7 +44,7 @@ describe('InputDateTimePicker', () => {
 		it('should render from timestamp', () => {
 			// when
 			const wrapper = shallow(
-				<DateTime
+				<DateWidget
 					id="my-datepicker"
 					onChange={jest.fn()}
 					onFinish={jest.fn()}
@@ -62,7 +62,7 @@ describe('InputDateTimePicker', () => {
 		it('should render from string', () => {
 			// when
 			const wrapper = shallow(
-				<DateTime
+				<DateWidget
 					id="my-datepicker"
 					onChange={jest.fn()}
 					onFinish={jest.fn()}
@@ -82,7 +82,7 @@ describe('InputDateTimePicker', () => {
 		// given
 		const onFinish = jest.fn();
 		const wrapper = shallow(
-			<DateTime
+			<DateWidget
 				id="my-datepicker"
 				onChange={jest.fn()}
 				onFinish={onFinish}
@@ -106,7 +106,7 @@ describe('InputDateTimePicker', () => {
 			const schema = getSchema('string');
 			const value = '2015-02-15T22:54:00.000Z';
 			const wrapper = shallow(
-				<DateTime id="my-datepicker" onChange={onChange} onFinish={jest.fn()} schema={schema} />,
+				<DateWidget id="my-datepicker" onChange={onChange} onFinish={jest.fn()} schema={schema} />,
 			);
 			expect(onChange).not.toBeCalled();
 
@@ -128,7 +128,7 @@ describe('InputDateTimePicker', () => {
 			const schema = getSchema('number');
 			const value = 1533884400000;
 			const wrapper = shallow(
-				<DateTime id="my-datepicker" onChange={onChange} onFinish={jest.fn()} schema={schema} />,
+				<DateWidget id="my-datepicker" onChange={onChange} onFinish={jest.fn()} schema={schema} />,
 			);
 			expect(onChange).not.toBeCalled();
 
@@ -150,7 +150,7 @@ describe('InputDateTimePicker', () => {
 			const schema = getSchema('string');
 			const value = '2015-02-15T22:54:00.000Z';
 			const wrapper = shallow(
-				<DateTime id="my-datepicker" onChange={jest.fn()} onFinish={onFinish} schema={schema} />,
+				<DateWidget id="my-datepicker" onChange={jest.fn()} onFinish={onFinish} schema={schema} />,
 			);
 			expect(onFinish).not.toBeCalled();
 

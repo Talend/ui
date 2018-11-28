@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InputDateTimePicker render should render 1`] = `
+exports[`Date render should render 1`] = `
 <FieldTemplate
   description="This is my date picker"
   descriptionId="my-datepicker-description"
@@ -16,6 +16,7 @@ exports[`InputDateTimePicker render should render 1`] = `
     aria-invalid={true}
     aria-required={undefined}
     autoFocus={true}
+    dateFormat="YYYY-MM-DD"
     disabled={false}
     id="my-datepicker"
     onBlur={[Function]}
@@ -23,6 +24,8 @@ exports[`InputDateTimePicker render should render 1`] = `
     placeholder="Type here"
     readOnly={false}
     selectedDateTime={2018-08-10T07:00:00.000Z}
+    useSeconds={false}
+    useTime={false}
   />
 </FieldTemplate>
 `;

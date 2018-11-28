@@ -44,6 +44,7 @@ class InputDateTimePicker extends React.Component {
 		selectedDateTime: PropTypes.instanceOf(Date),
 		onChange: PropTypes.func,
 		onBlur: PropTypes.func,
+		readOnly: PropTypes.bool,
 		dateFormat: PropTypes.string,
 		useSeconds: PropTypes.bool,
 		useTime: PropTypes.bool,
@@ -239,6 +240,9 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	setPickerVisibility(isShown, force) {
+		if (this.props.readOnly) {
+			return;
+		}
 		/*
 		 * We have a force arg because we have the check, comparing current state with wanted state.
 		 * We have 2 events : blur (we hide picker), focus (we open picker).
