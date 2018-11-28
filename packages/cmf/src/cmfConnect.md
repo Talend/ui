@@ -19,7 +19,6 @@ cmfConnect({
 	defaultState, // active the state management on top of redux (`props.state`, `props.setState`)
 	keepComponent, // boolean, when the component is unmount, to keep its state in redux store
 	mapStateToProps, // function(state, ownProps) that should return the props (same as redux)
-	omitCMFProps: true, // default:false; will be true in 2.0
 	withDispatch, // to receive `props.dispatch`
 	withDispatchActionCreator, // to receive `props.dispatchActionCreator`
 	withComponentRegistry, // to receive `props.getComponent`
@@ -83,7 +82,6 @@ class Clock extends React.Component {
 
 export default cmfConnect({
 	defaultState: DEFAULT_STATE,
-	omitCMFProps: true,
 })(Clock);
 
 // This will create the state in redux at state.cmf.components.getIn(['Clock', 'default'])
@@ -162,7 +160,6 @@ function mapStateToProps(state) {
 
 export default cmfConnect({
 	mapStateToProps,
-	omitCMFProps: true,
 	withDispatchActionCreator: true,
 })(SimpleButton);
 ```

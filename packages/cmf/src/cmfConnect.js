@@ -216,24 +216,6 @@ export default function cmfConnect({
 	}
 	let displayNameWarning = true;
 	return function wrapWithCMF(WrappedComponent) {
-		if (process.env.NODE_ENV !== 'production') {
-			if (omitCMFProps === false) {
-				// eslint-disable-next-line no-console
-				console.warn(
-					`cmfConnect({omitCMFProps: false})(${
-						WrappedComponent.name
-					}) support will be removed in 3.0, please update read cmfConnect documentation.`,
-				);
-			}
-			if (omitCMFProps === true) {
-				// eslint-disable-next-line no-console
-				console.warn(
-					`cmfConnect({omitCMFProps: true})(${
-						WrappedComponent.name
-					}) is the default now you can remove it from your cmfConnect`,
-				);
-			}
-		}
 		if (!WrappedComponent.displayName && displayNameWarning) {
 			displayNameWarning = false;
 			// eslint-disable-next-line no-console
