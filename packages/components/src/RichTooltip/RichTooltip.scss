@@ -31,10 +31,10 @@ $tc-popover-header-footer-height: 7rem !default;
 	padding: 0 $padding-large;
 	height: $tc-popover-header-footer-height;
 	min-width: $tc-popover-max-width;
-	> :global(.btn) {
+	:global(.btn) {
 		margin: $padding-normal $padding-small;
 	}
-	> :global(.btn):last-child {
+	:global(.btn:last-child) {
 		margin-right: 0;
 	}
 }
