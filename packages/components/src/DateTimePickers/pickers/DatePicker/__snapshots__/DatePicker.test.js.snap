@@ -28,6 +28,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       onKeyDown={[Function]}
       onSelect={[Function]}
       selectedDate={2018-06-11T22:00:00.000Z}
+      t={[Function]}
     >
       <table
         className="theme-container"
