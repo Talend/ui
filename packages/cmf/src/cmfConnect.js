@@ -222,7 +222,7 @@ export default function cmfConnect({
 				console.warn(
 					`cmfConnect({omitCMFProps: false})(${
 						WrappedComponent.name
-					}) support will be removed in 3.0`,
+					}) support will be removed in 3.0, please update read cmfConnect documentation.`,
 				);
 			}
 			if (omitCMFProps === true) {
