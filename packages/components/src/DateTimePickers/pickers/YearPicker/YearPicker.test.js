@@ -13,9 +13,7 @@ describe('YearPicker', () => {
 		global.dateMock.mock(new Date(2015, 11, 31));
 
 		// when
-		const wrapper = shallow(
-			<YearPicker selectedYear={2012} onSelect={jest.fn()} />
-		);
+		const wrapper = shallow(<YearPicker selectedYear={2012} onSelect={jest.fn()} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -37,9 +35,7 @@ describe('YearPicker', () => {
 		const firstSelectableYear = 2011;
 		const selectedYear = 2014;
 		const onSelect = jest.fn();
-		const wrapper = shallow(
-			<YearPicker selectedYear={selectedYear} onSelect={onSelect} />
-		);
+		const wrapper = shallow(<YearPicker selectedYear={selectedYear} onSelect={onSelect} />);
 		expect(onSelect).not.toBeCalled();
 
 		const event = { target: {} };
@@ -55,9 +51,7 @@ describe('YearPicker', () => {
 
 	it('should scroll up by 1 year', () => {
 		// given
-		const wrapper = shallow(
-			<YearPicker selectedYear={2012} onSelect={jest.fn()} />
-		);
+		const wrapper = shallow(<YearPicker selectedYear={2012} onSelect={jest.fn()} />);
 		expect(
 			wrapper
 				.find('.tc-date-picker-year')
@@ -79,9 +73,7 @@ describe('YearPicker', () => {
 
 	it('should scroll down by 1 year', () => {
 		// given
-		const wrapper = shallow(
-			<YearPicker selectedYear={2012} onSelect={jest.fn()} />
-		);
+		const wrapper = shallow(<YearPicker selectedYear={2012} onSelect={jest.fn()} />);
 		expect(
 			wrapper
 				.find('.tc-date-picker-year')
@@ -103,9 +95,7 @@ describe('YearPicker', () => {
 
 	it('should scroll down via mouse', () => {
 		// given
-		const wrapper = shallow(
-			<YearPicker selectedYear={2012} onSelect={jest.fn()} />
-		);
+		const wrapper = shallow(<YearPicker selectedYear={2012} onSelect={jest.fn()} />);
 		expect(
 			wrapper
 				.find('.tc-date-picker-year')
@@ -129,9 +119,7 @@ describe('YearPicker', () => {
 
 	it('should scroll up via mouse', () => {
 		// given
-		const wrapper = shallow(
-			<YearPicker selectedYear={2012} onSelect={jest.fn()} />
-		);
+		const wrapper = shallow(<YearPicker selectedYear={2012} onSelect={jest.fn()} />);
 		expect(
 			wrapper
 				.find('.tc-date-picker-year')
@@ -155,9 +143,7 @@ describe('YearPicker', () => {
 
 	it('should scroll slowly via mouse', () => {
 		// given
-		const wrapper = shallow(
-			<YearPicker selectedYear={2012} onSelect={jest.fn()} />
-		);
+		const wrapper = shallow(<YearPicker selectedYear={2012} onSelect={jest.fn()} />);
 		expect(
 			wrapper
 				.find('.tc-date-picker-year')
@@ -181,9 +167,7 @@ describe('YearPicker', () => {
 
 	it('should scroll fastly via mouse', () => {
 		// given
-		const wrapper = shallow(
-			<YearPicker selectedYear={2012} onSelect={jest.fn()} />
-		);
+		const wrapper = shallow(<YearPicker selectedYear={2012} onSelect={jest.fn()} />);
 		expect(
 			wrapper
 				.find('.tc-date-picker-year')
