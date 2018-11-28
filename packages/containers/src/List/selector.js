@@ -103,7 +103,7 @@ export function configureGetSortedItems(configure, listItems) {
 					.filter(column => column.key === sortBy)
 					.pop();
 				if (sortedColumn && sortedColumn.sortFunction) {
-					compare = cmf.registry.getFromRegistry(sortedColumn.sortFunction)(sortBy);
+					compare = cmf.registry.getFromRegistry(sortedColumn.sortFunction)(sortBy, sortAsc);
 				}
 				results = results.sort(compare);
 				if (!sortAsc) {
