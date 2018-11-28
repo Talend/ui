@@ -3,6 +3,9 @@
 
 .container {
 	width: 100%;
+	tbody {
+		border: $border-default;
+	}
 }
 
 .calendar-row {
@@ -22,7 +25,7 @@
 
 .calendar-month {
 	flex: 1;
-	height: 5rem;
+	height: 5.4rem;
 	width: 100%;
 
 	background: transparent;
