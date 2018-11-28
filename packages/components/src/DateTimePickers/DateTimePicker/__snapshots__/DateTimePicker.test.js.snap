@@ -21,6 +21,7 @@ exports[`DateTimePicker should render 1`] = `
     selectedDate={undefined}
     selectedTime={undefined}
     useSeconds={undefined}
+    useTime={undefined}
   />
 </div>
 `;
