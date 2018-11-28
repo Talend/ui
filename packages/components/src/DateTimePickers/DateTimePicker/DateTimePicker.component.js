@@ -214,6 +214,9 @@ DateTimePicker.propTypes = {
 	 * Display the seconds
 	 */
 	useSeconds: PropTypes.bool,
+	/**
+	 * Display time picker
+	 */
 	useTime: PropTypes.bool,
 };
 
