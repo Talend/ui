@@ -63,7 +63,7 @@ export function buildYears(middle, window = 3) {
 	const start = middleYear - window;
 	const end = middleYear + window;
 	const years = [];
-	for (let i = start; i <= end; i++) {
+	for (let i = start; i <= end; i += 1) {
 		years.push(i);
 	}
 	return years;
