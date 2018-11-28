@@ -3,10 +3,21 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Action } from '../../../Actions';
 import { buildYears } from '../../generator';
+import getDefaultT from '../../../translate';
 
 import theme from './YearPicker.scss';
 
 class YearPicker extends React.Component {
+
+	static propTypes = {
+		selectedYear: PropTypes.number,
+		onSelect: PropTypes.func.isRequired,
+	};
+
+	static defaultProps = {
+		t: getDefaultT(),
+	};
+
 	constructor(props) {
 		super(props);
 		this.onWheel = this.onWheel.bind(this);
@@ -59,7 +70,7 @@ class YearPicker extends React.Component {
 					className={classnames(theme.scroll, theme['scroll-up'], 'tc-date-picker-scroll-up')}
 					icon="talend-chevron-left"
 					iconTransform="rotate-90"
-					label="Go to previous year"
+					label={ t('YEAR_PICKER_PREVIOUS', { defaultValue: 'Go to previous year' }) }
 					onClick={this.scrollUp}
 					tabIndex="-1"
 					link
@@ -100,7 +111,7 @@ class YearPicker extends React.Component {
 					className={classnames(theme.scroll, theme['scroll-down'], 'tc-date-picker-scroll-down')}
 					icon="talend-chevron-left"
 					iconTransform="rotate-270"
-					label="Go to next year"
+					label={ t('YEAR_PICKER_NEXT', { defaultValue: 'Go to next year' }) }
 					onClick={this.scrollDown}
 					tabIndex="-1"
 					link
@@ -110,10 +121,5 @@ class YearPicker extends React.Component {
 		);
 	}
 }
-
-YearPicker.propTypes = {
-	selectedYear: PropTypes.number,
-	onSelect: PropTypes.func.isRequired,
-};
 
 export default YearPicker;

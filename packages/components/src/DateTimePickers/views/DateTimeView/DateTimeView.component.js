@@ -6,6 +6,7 @@ import TimePicker from '../../pickers/TimePicker';
 import ViewLayout from '../ViewLayout';
 import HeaderTitle from '../HeaderTitle';
 import theme from './DateTimeView.scss';
+import getDefaultT from '../../../translate';
 
 /**
  * Get the positive euclidean modulo number from a dividend and a divisor
@@ -19,6 +20,30 @@ function euclideanModulo(dividend, divisor) {
 }
 
 class DateTimeView extends React.PureComponent {
+
+	static propTypes = {
+		allowFocus: PropTypes.bool,
+		calendar: PropTypes.shape({
+			monthIndex: PropTypes.number.isRequired,
+			year: PropTypes.number.isRequired,
+		}).isRequired,
+		onTitleClick: PropTypes.func.isRequired,
+		onSelectMonthYear: PropTypes.func.isRequired,
+		onSelectDate: PropTypes.func.isRequired,
+		onSelectTime: PropTypes.func.isRequired,
+		selectedDate: PropTypes.instanceOf(Date),
+		selectedTime: PropTypes.shape({
+			hours: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+			minutes: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+		}),
+		useSeconds: PropTypes.bool,
+		useTime: PropTypes.bool,
+	};
+
+	static defaultProps = {
+		t: getDefaultT(),
+	};
+
 	constructor(props) {
 		super(props);
 
@@ -58,7 +83,7 @@ class DateTimeView extends React.PureComponent {
 		const header = {
 			leftElement: (
 				<Action
-					aria-label="Go to previous month"
+					aria-label={ t('MONTH_PICKER_PREVIOUS', { defaultValue: 'Go to previous month' }) }
 					icon="talend-chevron-left"
 					label=""
 					onClick={() => this.goToPreviousMonth()}
@@ -71,7 +96,7 @@ class DateTimeView extends React.PureComponent {
 					monthIndex={this.props.calendar.monthIndex}
 					year={this.props.calendar.year}
 					button={{
-						'aria-label': 'Switch to month and year pickers view',
+						'aria-label': t('DATEPICKER_TO_MONTH_YEAR', { defaultValue: 'Switch to month and year pickers view' }),
 						onClick: this.props.onTitleClick,
 						tabIndex: this.props.allowFocus ? 0 : -1,
 					}}
@@ -79,7 +104,7 @@ class DateTimeView extends React.PureComponent {
 			),
 			rightElement: (
 				<Action
-					aria-label="Go to next month"
+					aria-label={ t('MONTH_PICKER_NEXT', { defaultValue: 'Go to next month' }) }
 					icon="talend-chevron-left"
 					iconTransform="rotate-180"
 					label=""
@@ -109,24 +134,5 @@ class DateTimeView extends React.PureComponent {
 		return <ViewLayout header={header} bodyElement={bodyElement} />;
 	}
 }
-
-DateTimeView.propTypes = {
-	allowFocus: PropTypes.bool,
-	calendar: PropTypes.shape({
-		monthIndex: PropTypes.number.isRequired,
-		year: PropTypes.number.isRequired,
-	}).isRequired,
-	onTitleClick: PropTypes.func.isRequired,
-	onSelectMonthYear: PropTypes.func.isRequired,
-	onSelectDate: PropTypes.func.isRequired,
-	onSelectTime: PropTypes.func.isRequired,
-	selectedDate: PropTypes.instanceOf(Date),
-	selectedTime: PropTypes.shape({
-		hours: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-		minutes: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-	}),
-	useSeconds: PropTypes.bool,
-	useTime: PropTypes.bool,
-};
 
 export default DateTimeView;
