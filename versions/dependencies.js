@@ -108,7 +108,7 @@ module.exports = {
 	'css-loader': '^0.28.7',
 	'extract-text-webpack-plugin': '^3.0.2',
 	'file-loader': '^1.1.5',
-	'fontgen-loader': '^0.2.1',
+	'webfonts-loader': '^4.2.1',
 	'node-sass': '^4.7.2',
 	'postcss-loader': '^2.0.8',
 	'sass-loader': '^6.0.6',
@@ -116,6 +116,6 @@ module.exports = {
 	'url-loader': '^0.6.2',
 	webpack: '^3.8.1',
 	'webpack-bundle-analyzer': '^2.9.0',
-	'webpack-dashboard': '^1.0.0-7',
+	'webpack-dashboard': '^2.0.0',
 	'webpack-dev-server': '^2.9.3',
 };

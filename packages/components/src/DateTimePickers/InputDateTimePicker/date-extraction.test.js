@@ -31,7 +31,7 @@ describe('Date extraction', () => {
 			const validDate = new Date(2015, 8, 15, 12, 58);
 
 			// when
-			const parts = extractDateTimeParts(validDate, { dateFormat: 'YYYY-MM-DD' });
+			const parts = extractDateTimeParts(validDate, { dateFormat: 'YYYY-MM-DD', useTime: true });
 
 			// then
 			expect(parts).toEqual({
@@ -46,7 +46,11 @@ describe('Date extraction', () => {
 			const validDate = new Date(2015, 8, 15, 12, 58, 22);
 
 			// when
-			const parts = extractDateTimeParts(validDate, { dateFormat: 'YYYY-MM-DD', useSeconds: true });
+			const parts = extractDateTimeParts(validDate, {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+			});
 
 			// then
 			expect(parts).toEqual({

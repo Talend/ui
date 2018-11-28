@@ -8,13 +8,13 @@ describe('Date generator', () => {
 
 			// then
 			expect(result).toEqual([
-				'Monday',
-				'Tuesday',
-				'Wednesday',
-				'Thursday',
-				'Friday',
-				'Saturday',
-				'Sunday',
+				{ abbr: 'M', full: 'Monday' },
+				{ abbr: 'T', full: 'Tuesday' },
+				{ abbr: 'W', full: 'Wednesday' },
+				{ abbr: 'T', full: 'Thursday' },
+				{ abbr: 'F', full: 'Friday' },
+				{ abbr: 'S', full: 'Saturday' },
+				{ abbr: 'S', full: 'Sunday' },
 			]);
 		});
 
@@ -24,13 +24,13 @@ describe('Date generator', () => {
 
 			// then
 			expect(result).toEqual([
-				'Tuesday',
-				'Wednesday',
-				'Thursday',
-				'Friday',
-				'Saturday',
-				'Sunday',
-				'Monday',
+				{ abbr: 'T', full: 'Tuesday' },
+				{ abbr: 'W', full: 'Wednesday' },
+				{ abbr: 'T', full: 'Thursday' },
+				{ abbr: 'F', full: 'Friday' },
+				{ abbr: 'S', full: 'Saturday' },
+				{ abbr: 'S', full: 'Sunday' },
+				{ abbr: 'M', full: 'Monday' },
 			]);
 		});
 	});
