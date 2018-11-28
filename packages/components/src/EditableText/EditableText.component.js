@@ -85,10 +85,7 @@ export function EditableTextComponent({ editMode, loading, inProgress, ...rest }
 			})}
 			{...allyProps}
 		>
-			<Component
-				inProgress={inProgress}
-				{...restWithoutFeature}
-			/>
+			<Component inProgress={inProgress} {...restWithoutFeature} />
 		</div>
 	);
 }
