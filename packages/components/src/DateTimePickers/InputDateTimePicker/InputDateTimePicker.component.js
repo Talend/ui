@@ -21,7 +21,6 @@ import {
 	isDateValid,
 	strToDate,
 	strToTime,
-	getDateRegexp,
 } from './date-extraction';
 
 import theme from './InputDateTimePicker.scss';
@@ -138,38 +137,34 @@ class InputDateTimePicker extends React.Component {
 		}
 
 		let date;
-		let time;
+		let time = { hours: '00', minutes: '00', seconds: '00' };
 		let errorMessage;
-		let splitMatches;
-		let dateTextToParse;
-		let timeTextToParse;
+		let dateTextToParse = textInput;
+
 		if (this.props.useTime) {
-			splitMatches = textInput.match(splitDateAndTimePartsRegex) || [];
+			// extract date part from datetime
+			const splitMatches = textInput.match(splitDateAndTimePartsRegex) || [];
 			dateTextToParse = splitMatches[1] || textInput;
-			timeTextToParse = splitMatches[2] || textInput;
-		} else {
-			splitMatches = textInput.match(getDateRegexp(this.props.dateFormat).regexp) || [];
-			dateTextToParse = splitMatches[0] || textInput;
-		}
-		if (!splitMatches.length) {
-			errorMessage = 'DATETIME - INCORRECT FORMAT';
+
+			if (!splitMatches.length) {
+				errorMessage = 'DATETIME - INCORRECT FORMAT';
+			}
+
+			// extract time part and parse it
+			try {
+				const timeTextToParse = splitMatches[2] || textInput;
+				time = strToTime(timeTextToParse, this.props.useSeconds);
+				checkTime(time);
+			} catch (error) {
+				time = time || { hours: '', minutes: '', seconds: '' };
+				errorMessage = errorMessage || error.message;
+			}
 		}
 
+		// parse date
 		try {
 			date = strToDate(dateTextToParse, this.props.dateFormat);
 		} catch (error) {
-			errorMessage = errorMessage || error.message;
-		}
-
-		try {
-			if (this.props.useTime) {
-				time = strToTime(timeTextToParse, this.props.useSeconds);
-				checkTime(time);
-			} else {
-				time = { hours: '00', minutes: '00', seconds: '00' };
-			}
-		} catch (error) {
-			time = time || { hours: '', minutes: '', seconds: '' };
 			errorMessage = errorMessage || error.message;
 		}
 
