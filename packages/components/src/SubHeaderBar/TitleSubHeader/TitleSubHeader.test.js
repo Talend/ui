@@ -32,6 +32,7 @@ describe('TitleSubHeader', () => {
 	it('should render EditableText', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} editable />);
 		expect(wrapper.find(EditableText)).toHaveLength(1);
+		expect(wrapper.find(EditableText).get(0).props.feature).toBe('subheaderbar.rename');
 		expect(wrapper.find('h1')).toHaveLength(0);
 	});
 	it('should render skeleton', () => {

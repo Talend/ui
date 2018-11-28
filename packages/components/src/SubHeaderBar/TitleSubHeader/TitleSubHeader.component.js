@@ -45,7 +45,7 @@ function TitleSubHeader({
 					)}
 				>
 					{editable ? (
-						<InjectedEditableText text={title} inProgress={inProgress} {...rest} />
+						<InjectedEditableText text={title} inProgress={inProgress} feature="subheaderbar.rename" {...rest} />
 					) : (
 						<TooltipTrigger label={title} tooltipPlacement="bottom">
 							<h1
