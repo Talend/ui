@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
+import omit from 'lodash/omit';
 import Skeleton from '../Skeleton';
 import TooltipTrigger from '../TooltipTrigger';
 import { Action } from '../Actions';
@@ -60,10 +61,17 @@ export function EditableTextComponent({ editMode, loading, inProgress, ...rest }
 		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
 	}
 
-	const Component = editMode ? InlineForm : PlainTextTitle;
+	let Component;
+	let restWithoutFeature = { ...rest };
+	if (editMode) {
+		Component = InlineForm;
+		restWithoutFeature = omit(rest, 'feature');
+	} else {
+		Component = PlainTextTitle;
+	}
 	const allyProps = {};
 	if (inProgress) {
-		allyProps['aria-label'] = rest.t('EDITABLE_TEXT_IN_PROGRESS', {
+		allyProps['aria-label'] = restWithoutFeature.t('EDITABLE_TEXT_IN_PROGRESS', {
 			defaultValue: 'Edit in progress',
 		});
 		allyProps['aria-busy'] = true;
@@ -79,7 +87,7 @@ export function EditableTextComponent({ editMode, loading, inProgress, ...rest }
 		>
 			<Component
 				inProgress={inProgress}
-				{...rest}
+				{...restWithoutFeature}
 			/>
 		</div>
 	);

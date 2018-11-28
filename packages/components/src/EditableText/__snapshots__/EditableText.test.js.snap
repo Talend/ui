@@ -20,7 +20,6 @@ exports[`EditableText should render InlineForm 1`] = `
   className="theme-tc-editable-text tc-editable-text"
 >
   <InlineForm
-    feature="my.custom.feature"
     inProgress={false}
     onEdit={[Function]}
     onSubmit={[Function]}
