@@ -26,6 +26,19 @@ class DateTimeView extends React.PureComponent {
 		this.goToNextMonth = this.incrementMonthIndex.bind(this, 1);
 	}
 
+	getTimePicker() {
+		return (
+			<div className={theme.time}>
+				<TimePicker
+					allowFocus={this.props.allowFocus}
+					value={this.props.selectedTime}
+					onChange={this.props.onSelectTime}
+					useSeconds={this.props.useSeconds}
+				/>
+			</div>
+		);
+	}
+
 	incrementMonthIndex(monthIncrement, callback) {
 		const monthIndexIncremented = this.props.calendar.monthIndex + monthIncrement;
 		const newMonthIndex = euclideanModulo(monthIndexIncremented, 12);
@@ -89,14 +102,7 @@ class DateTimeView extends React.PureComponent {
 						goToNextMonth={this.goToNextMonth}
 					/>
 				</div>
-				<div className={theme.time}>
-					<TimePicker
-						allowFocus={this.props.allowFocus}
-						value={this.props.selectedTime}
-						onChange={this.props.onSelectTime}
-						useSeconds={this.props.useSeconds}
-					/>
-				</div>
+				{this.props.useTime && this.getTimePicker()}
 			</div>
 		);
 
@@ -120,6 +126,7 @@ DateTimeView.propTypes = {
 		minutes: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	}),
 	useSeconds: PropTypes.bool,
+	useTime: PropTypes.bool,
 };
 
 export default DateTimeView;
