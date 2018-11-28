@@ -9,7 +9,7 @@ exports[`MonthYearView should render 1`] = `
       <div
         className="theme-month"
       >
-        <CalendarGesture(undefined)
+        <Translate(CalendarGesture(undefined))
           allowFocus={true}
           onSelect={[Function]}
           selectedMonthIndex={8}
@@ -18,11 +18,10 @@ exports[`MonthYearView should render 1`] = `
       <div
         className="theme-year"
       >
-        <YearPicker
+        <Translate(YearPicker)
           allowFocus={true}
           onSelect={[Function]}
           selectedYear={2012}
-          t={[Function]}
         />
       </div>
     </div>
@@ -37,7 +36,7 @@ exports[`MonthYearView should render 1`] = `
         onClick={[Function]}
         tabIndex={0}
     />,
-      "middleElement": <HeaderTitle
+      "middleElement": <Translate(HeaderTitle)
         monthIndex={8}
         year={2012}
     />,

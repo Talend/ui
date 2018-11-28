@@ -1,15 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { translate } from 'react-i18next';
 import { buildMonths } from '../../generator';
 
 import theme from './MonthPicker.scss';
 import { withMonthCalendarGesture } from '../../../Gesture/withCalendarGesture';
+import I18N_DOMAIN_COMPONENTS from '../../../constants';
 
 const ROW_SIZE = 3;
-const months = buildMonths(ROW_SIZE);
 
 class MonthPicker extends React.PureComponent {
+	constructor(props) {
+		super(props);
+		this.months = buildMonths(ROW_SIZE, props.t);
+	}
+
 	render() {
 		return (
 			<table
@@ -20,7 +26,7 @@ class MonthPicker extends React.PureComponent {
 			>
 				<caption className="sr-only">TODO: caption, month aria-label</caption>
 				<tbody>
-					{months.map((monthsRow, i) => (
+					{this.months.map((monthsRow, i) => (
 						<tr key={i} className={theme['calendar-row']}>
 							{monthsRow.map(({ index, name }) => {
 								const isSelected = index === this.props.selectedMonthIndex;
@@ -66,6 +72,7 @@ MonthPicker.propTypes = {
 	onKeyDown: PropTypes.func.isRequired,
 	onSelect: PropTypes.func.isRequired,
 	selectedMonthIndex: PropTypes.number,
+	t: PropTypes.func,
 };
 
-export default withMonthCalendarGesture(MonthPicker, ROW_SIZE);
+export default translate(I18N_DOMAIN_COMPONENTS)(withMonthCalendarGesture(MonthPicker, ROW_SIZE));

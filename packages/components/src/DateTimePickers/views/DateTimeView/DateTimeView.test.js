@@ -27,7 +27,7 @@ describe('DateTimeView', () => {
 	it('should render', () => {
 		// when
 		const wrapper = shallow(
-			<DateTimeView
+			<DateTimeView.WrappedComponent
 				allowFocus
 				calendar={{
 					monthIndex: 5,
@@ -49,7 +49,7 @@ describe('DateTimeView', () => {
 	it('should render without timePicker', () => {
 		// when
 		const wrapper = shallow(
-			<DateTimeView
+			<DateTimeView.WrappedComponent
 				allowFocus
 				calendar={{
 					monthIndex: 5,
@@ -71,7 +71,7 @@ describe('DateTimeView', () => {
 		// given
 		const onTitleClick = jest.fn();
 		const wrapper = shallow(
-			<DateTimeView
+			<DateTimeView.WrappedComponent
 				calendar={{
 					monthIndex: 5,
 					year: 2006,
@@ -100,7 +100,7 @@ describe('DateTimeView', () => {
 	it('should manage tabIndex', () => {
 		// given
 		const wrapper = shallow(
-			<DateTimeView
+			<DateTimeView.WrappedComponent
 				calendar={{
 					monthIndex: 5,
 					year: 2006,
@@ -142,7 +142,7 @@ describe('DateTimeView', () => {
 			// given
 			const onSelectMonthYear = jest.fn();
 			const wrapper = shallow(
-				<DateTimeView
+				<DateTimeView.WrappedComponent
 					calendar={calendar}
 					onTitleClick={jest.fn()}
 					onSelectMonthYear={onSelectMonthYear}

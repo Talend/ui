@@ -7,7 +7,7 @@ describe('TimePicker', () => {
 	it('should render', () => {
 		// when
 		const wrapper = shallow(
-			<TimePicker value={{ hours: '15', minutes: '38' }} onChange={jest.fn()} />,
+			<TimePicker.WrappedComponent value={{ hours: '15', minutes: '38' }} onChange={jest.fn()} />,
 		);
 
 		// then
@@ -18,7 +18,7 @@ describe('TimePicker', () => {
 		// given
 		const onChange = jest.fn();
 		const wrapper = shallow(
-			<TimePicker value={{ hours: '15', minutes: '38' }} onChange={onChange} />,
+			<TimePicker.WrappedComponent value={{ hours: '15', minutes: '38' }} onChange={onChange} />,
 		);
 		const event = { target: { value: '17' } };
 		expect(onChange).not.toBeCalled();
@@ -37,7 +37,7 @@ describe('TimePicker', () => {
 		// given
 		const onChange = jest.fn();
 		const wrapper = shallow(
-			<TimePicker value={{ hours: '15', minutes: '38' }} onChange={onChange} />,
+			<TimePicker.WrappedComponent value={{ hours: '15', minutes: '38' }} onChange={onChange} />,
 		);
 		const event = { target: { value: '17' } };
 		expect(onChange).not.toBeCalled();
@@ -54,7 +54,7 @@ describe('TimePicker', () => {
 
 	it('should manage tabIndex', () => {
 		// given
-		const wrapper = shallow(<TimePicker onChange={jest.fn()} />);
+		const wrapper = shallow(<TimePicker.WrappedComponent onChange={jest.fn()} />);
 		expect(
 			wrapper
 				.find('DebounceInput')

@@ -7,10 +7,13 @@ import getDate from 'date-fns/get_date';
 import getMonth from 'date-fns/get_month';
 import getYear from 'date-fns/get_year';
 import isSameDay from 'date-fns/is_same_day';
+import { translate } from 'react-i18next';
 
 import theme from './DatePicker.scss';
 import { buildDayNames, buildWeeks } from '../../generator';
 import { withCalendarGesture } from '../../../Gesture/withCalendarGesture';
+import I18N_DOMAIN_COMPONENTS from '../../../constants';
+import getDefaultT from '../../../translate';
 
 const getDayNames = memoize(buildDayNames);
 
@@ -56,7 +59,7 @@ class DatePicker extends React.PureComponent {
 		const { year, monthIndex } = this.props.calendar;
 
 		const weeks = this.getWeeks(year, monthIndex);
-		const dayNames = getDayNames();
+		const dayNames = getDayNames(undefined, this.props.t);
 		const selectedInCurrentCalendar = this.isSelectedInCurrentCalendar();
 
 		return (
@@ -146,6 +149,11 @@ DatePicker.propTypes = {
 	selectedDate: PropTypes.instanceOf(Date),
 	isDisabledChecker: PropTypes.func,
 	onKeyDown: PropTypes.func.isRequired,
+	t: PropTypes.func,
 };
 
-export default withCalendarGesture(DatePicker);
+DatePicker.defaultProps = {
+	t: getDefaultT(),
+};
+
+export default translate(I18N_DOMAIN_COMPONENTS)(withCalendarGesture(DatePicker));

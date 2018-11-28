@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
 import { Action } from '../../../Actions';
 import DatePicker from '../../pickers/DatePicker';
 import TimePicker from '../../pickers/TimePicker';
@@ -7,6 +8,7 @@ import ViewLayout from '../ViewLayout';
 import HeaderTitle from '../HeaderTitle';
 import theme from './DateTimeView.scss';
 import getDefaultT from '../../../translate';
+import I18N_DOMAIN_COMPONENTS from '../../../constants';
 
 /**
  * Get the positive euclidean modulo number from a dividend and a divisor
@@ -138,4 +140,4 @@ class DateTimeView extends React.PureComponent {
 	}
 }
 
-export default DateTimeView;
+export default translate(I18N_DOMAIN_COMPONENTS)(DateTimeView);

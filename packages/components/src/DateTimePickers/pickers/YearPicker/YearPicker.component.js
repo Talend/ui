@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { translate } from 'react-i18next';
 import { Action } from '../../../Actions';
 import { buildYears } from '../../generator';
 import getDefaultT from '../../../translate';
+import I18N_DOMAIN_COMPONENTS from '../../../constants';
 
 import theme from './YearPicker.scss';
 
@@ -122,4 +124,4 @@ class YearPicker extends React.Component {
 	}
 }
 
-export default YearPicker;
+export default translate(I18N_DOMAIN_COMPONENTS)(YearPicker);
