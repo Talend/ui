@@ -71,8 +71,8 @@ class DatePicker extends React.PureComponent {
 					<tr className={theme['calendar-header']}>
 						{dayNames.map((dayName, i) => (
 							<th scope="col" key={i}>
-								<abbr key={i} title={dayName}>
-									{dayName.charAt(0)}
+								<abbr key={i} title={dayName.full}>
+									{dayName.abbr}
 								</abbr>
 							</th>
 						))}

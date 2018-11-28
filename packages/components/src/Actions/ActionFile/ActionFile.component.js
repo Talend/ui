@@ -117,6 +117,7 @@ class ActionFile extends React.Component {
 			tooltipLabel,
 			label,
 			tooltipPlacement,
+			accept,
 		} = this.props;
 		if (!available) {
 			return null;
@@ -134,6 +135,7 @@ class ActionFile extends React.Component {
 				<input
 					onChange={this.handleChange}
 					type="file"
+					accept={accept}
 					name={name}
 					id={localId}
 					disabled={inProgress || disabled}

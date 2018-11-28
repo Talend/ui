@@ -37,7 +37,29 @@ describe('DateTimeView', () => {
 				onSelectMonthYear={jest.fn()}
 				onSelectDate={jest.fn()}
 				onSelectTime={jest.fn()}
-				selectedTime={{ hours: 15, minutes: 45 }}
+				selectedTime={{ hours: '15', minutes: '45' }}
+				useTime
+			/>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render without timePicker', () => {
+		// when
+		const wrapper = shallow(
+			<DateTimeView
+				allowFocus
+				calendar={{
+					monthIndex: 5,
+					year: 2006,
+				}}
+				onTitleClick={jest.fn()}
+				onSelectMonthYear={jest.fn()}
+				onSelectDate={jest.fn()}
+				onSelectTime={jest.fn()}
+				selectedTime={{ hours: '15', minutes: '45' }}
 			/>,
 		);
 

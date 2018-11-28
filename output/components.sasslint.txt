@@ -2,7 +2,7 @@
 
 
 src/DateTimePickers/pickers/TimePicker/TimePicker.scss
-  17:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  18:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/Drawer/Drawer.scss
   14:4  warning  Statement must begin on a new line  brace-style
@@ -10,11 +10,15 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
+src/SubHeaderBar/SubHeaderBar.scss
+  21:5  error  Nesting depth 4 greater than max of 3  nesting-depth
+  25:5  error  Nesting depth 4 greater than max of 3  nesting-depth
+
 src/Typeahead/Typeahead.scss
   97:5  error  Nesting depth 4 greater than max of 3  nesting-depth
 
 src/VirtualizedList/RowCollapsiblePanel/RowCollapsiblePanel.scss
   2:24  error  Strings must use single quotes  quotes
 
-✖ 5 problems (3 errors, 2 warnings)
+✖ 7 problems (5 errors, 2 warnings)
 
