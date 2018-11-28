@@ -52,6 +52,7 @@ MonthYearView.propTypes = {
 	onBackClick: PropTypes.func.isRequired,
 	onSelectMonth: PropTypes.func.isRequired,
 	onSelectYear: PropTypes.func.isRequired,
+	t: PropTypes.func.isRequired,
 };
 
 MonthYearView.defaultProps = {

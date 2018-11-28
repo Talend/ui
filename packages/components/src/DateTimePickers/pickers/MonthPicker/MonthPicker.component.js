@@ -66,6 +66,7 @@ MonthPicker.propTypes = {
 	onKeyDown: PropTypes.func.isRequired,
 	onSelect: PropTypes.func.isRequired,
 	selectedMonthIndex: PropTypes.number,
+	t: PropTypes.func.isRequired,
 };
 
 export default withMonthCalendarGesture(MonthPicker, ROW_SIZE);

@@ -38,6 +38,7 @@ class DateTimeView extends React.PureComponent {
 		}),
 		useSeconds: PropTypes.bool,
 		useTime: PropTypes.bool,
+		t: PropTypes.func.isRequired,
 	};
 
 	static defaultProps = {
