@@ -2,21 +2,26 @@
 
 exports[`DateTimePicker should render 1`] = `
 <div
+  aria-label="Date picker"
   className="theme-container"
+  tabIndex={0}
 >
   <DateTimeView
+    allowFocus={true}
     calendar={
       Object {
         "monthIndex": 5,
         "year": 2018,
       }
     }
-    onClickTitle={[Function]}
     onSelectDate={[Function]}
     onSelectMonthYear={[Function]}
     onSelectTime={[Function]}
+    onTitleClick={[Function]}
     selectedDate={undefined}
     selectedTime={undefined}
+    useSeconds={undefined}
+    useTime={undefined}
   />
 </div>
 `;

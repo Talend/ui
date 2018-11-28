@@ -9,13 +9,16 @@ exports[`DateTimeView should render 1`] = `
       <div
         className="theme-date"
       >
-        <DatePicker
+        <CalendarGesture(DatePicker)
+          allowFocus={true}
           calendar={
             Object {
               "monthIndex": 5,
               "year": 2006,
             }
           }
+          goToNextMonth={[Function]}
+          goToPreviousMonth={[Function]}
           onSelect={[Function]}
           selectedDate={undefined}
         />
@@ -24,43 +27,108 @@ exports[`DateTimeView should render 1`] = `
         className="theme-time"
       >
         <TimePicker
-          interval={15}
-          onSelect={[Function]}
-          selectedTime={undefined}
+          allowFocus={true}
+          onChange={[Function]}
+          useSeconds={undefined}
+          value={
+            Object {
+              "hours": "15",
+              "minutes": "45",
+            }
+          }
         />
       </div>
     </div>
   }
   header={
     Object {
-      "leftElement": <IconButton
-        aria-label="Display previous calendar month"
-        icon={
-            Object {
-                "name": "talend-chevron-left",
-              }
-        }
+      "leftElement": <Action
+        aria-label="Go to previous month"
+        icon="talend-chevron-left"
+        label=""
+        link={true}
         onClick={[Function]}
+        tabIndex="-1"
     />,
       "middleElement": <HeaderTitle
         button={
             Object {
                 "aria-label": "Switch to month and year pickers view",
                 "onClick": [Function],
+                "tabIndex": 0,
               }
         }
         monthIndex={5}
         year={2006}
     />,
-      "rightElement": <IconButton
-        aria-label="Display next calendar month"
-        icon={
+      "rightElement": <Action
+        aria-label="Go to next month"
+        icon="talend-chevron-left"
+        iconTransform="rotate-180"
+        label=""
+        link={true}
+        onClick={[Function]}
+        tabIndex="-1"
+    />,
+    }
+  }
+/>
+`;
+
+exports[`DateTimeView should render without timePicker 1`] = `
+<ViewLayout
+  bodyElement={
+    <div
+      className="theme-body"
+    >
+      <div
+        className="theme-date"
+      >
+        <CalendarGesture(DatePicker)
+          allowFocus={true}
+          calendar={
             Object {
-                "name": "talend-chevron-left",
-                "transform": "rotate-180",
+              "monthIndex": 5,
+              "year": 2006,
+            }
+          }
+          goToNextMonth={[Function]}
+          goToPreviousMonth={[Function]}
+          onSelect={[Function]}
+          selectedDate={undefined}
+        />
+      </div>
+    </div>
+  }
+  header={
+    Object {
+      "leftElement": <Action
+        aria-label="Go to previous month"
+        icon="talend-chevron-left"
+        label=""
+        link={true}
+        onClick={[Function]}
+        tabIndex="-1"
+    />,
+      "middleElement": <HeaderTitle
+        button={
+            Object {
+                "aria-label": "Switch to month and year pickers view",
+                "onClick": [Function],
+                "tabIndex": 0,
               }
         }
+        monthIndex={5}
+        year={2006}
+    />,
+      "rightElement": <Action
+        aria-label="Go to next month"
+        icon="talend-chevron-left"
+        iconTransform="rotate-180"
+        label=""
+        link={true}
         onClick={[Function]}
+        tabIndex="-1"
     />,
     }
   }

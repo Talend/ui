@@ -12,6 +12,9 @@ const components = Object.keys(allComponents).reduce((acc, key) => {
 				withComponentRegistry: true,
 			};
 		}
+		if (!allComponents[key].displayName) {
+			allComponents[key].displayName = key;
+		}
 		// eslint-disable-next-line no-param-reassign
 		acc[key] = cmfConnect(options)(allComponents[key]);
 	}
@@ -25,11 +28,22 @@ export const Layout = cmfConnect({
 	omitCMFProps: true,
 	withComponentRegistry: true,
 })(allComponents.Layout);
-export const CircularProgress = cmfConnect({})(allComponents.CircularProgress);
-export const Drawer = cmfConnect({})(allComponents.Drawer);
-export const Icon = cmfConnect({})(allComponents.Icon);
-export const IconsProvider = cmfConnect({})(allComponents.IconsProvider);
-export const TooltipTrigger = cmfConnect({})(allComponents.TooltipTrigger);
+export const CircularProgress = cmfConnect({
+	omitCMFProps: true,
+})(allComponents.CircularProgress);
+export const Drawer = cmfConnect({
+	omitCMFProps: true,
+	withComponentRegistry: true,
+})(allComponents.Drawer);
+export const Icon = cmfConnect({
+	omitCMFProps: true,
+})(allComponents.Icon);
+export const IconsProvider = cmfConnect({
+	omitCMFProps: true,
+})(allComponents.IconsProvider);
+export const TooltipTrigger = cmfConnect({
+	omitCMFProps: true,
+})(allComponents.TooltipTrigger);
 
 // cmfModule
 export default {

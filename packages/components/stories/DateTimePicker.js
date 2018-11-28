@@ -5,20 +5,172 @@ import { IconsProvider } from '../src/index';
 
 import InputDateTimePicker, { DateTimePicker } from '../src/DateTimePickers';
 
-storiesOf('DateTimePicker', module)
-	.add('InputDateTimePicker', () => (
-		<div>
-			<h1>InputDateTimePicker</h1>
-			<IconsProvider />
+class TestPickerWrapper extends React.Component {
+	static propTypes = {
+		...InputDateTimePicker.propTypes,
+	};
 
-			<div>
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			inputEvalValue: '',
+			selectedDateTime: this.props.selectedDateTime,
+		};
+		this.onSubmitEval = this.onSubmitEval.bind(this);
+		this.onChangeEvalInput = this.onChangeEvalInput.bind(this);
+	}
+
+	onSubmitEval() {
+		this.setState(prevState => ({
+			// eslint-disable-next-line no-eval
+			selectedDateTime: eval(prevState.inputEvalValue),
+		}));
+	}
+
+	onChangeEvalInput(event) {
+		this.setState({
+			inputEvalValue: event.target.value,
+		});
+	}
+	render() {
+		return (
+			<form
+				onSubmit={event => {
+					event.preventDefault();
+					action('submit');
+				}}
+				style={{ width: 320 }}
+			>
+				<div>
+					<label htmlFor="TestWrapper_storybook_eval-input">
+						Text to eval for updating 'selectedDateTime' prop
+					</label>
+					<br />
+					<input
+						id="TestWrapper_storybook_eval-input"
+						type="text"
+						onChange={this.onChangeEvalInput}
+						value={this.state.inputEvalValue}
+					/>
+					<button onClick={this.onSubmitEval} type="button">
+						Update
+					</button>
+				</div>
+				<br />
 				<InputDateTimePicker
-					selectedDateTime={new Date(2018, 4, 13, 12, 30)}
-					onChange={action('onChange (DateTime)')}
-					onError={action('onError (message)')}
+					{...this.props}
+					selectedDateTime={this.state.selectedDateTime}
+					onChange={action('onChange')}
+					onBlur={action('onBlur')}
 					name="Datetime"
 				/>
-			</div>
+			</form>
+		);
+	}
+}
+
+storiesOf('DateTimePicker', module)
+	.add('InputDatePicker', () => (
+		<div>
+			<IconsProvider />
+			<h1>InputDateTimePicker</h1>
+			<p>
+				Default date picker doesn't include time<br />
+				It comes with classical keyboard gesture.
+			</p>
+			<TestPickerWrapper
+				id="my-date-picker"
+				selectedDateTime={new Date(2018, 4, 13, 12, 30)}
+				onChange={action('onChange')}
+				name="Datetime"
+			/>
+		</div>
+	))
+	.add('InputDateTimePicker', () => (
+		<div>
+			<IconsProvider />
+			<h1>InputDateTimePicker</h1>
+			<p>You can require time with a simple "useTime" props.</p>
+			<pre>{`
+<InputDateTimePicker
+	id="my-date-picker"
+	...
+	useTime
+/>
+			`}</pre>
+			<form style={{ width: 320 }}>
+				<InputDateTimePicker
+					id="my-date-picker"
+					name="Datetime"
+					onBlur={action('onBlur')}
+					onChange={action('onChange')}
+					selectedDateTime={new Date(2018, 4, 13, 12, 30, 44)}
+					useTime
+				/>
+			</form>
+		</div>
+	))
+	.add('InputDateTimePicker - seconds', () => (
+		<div>
+			<IconsProvider />
+			<h1>InputDateTimePicker with seconds</h1>
+			<p>
+				By default, time is only hours and minutes (HH:mm). You can require seconds with a simple
+				"useSeconds" props.
+			</p>
+			<pre>{`
+<InputDateTimePicker
+	id="my-date-picker"
+	...
+	useTime
+	useSeconds
+/>
+			`}</pre>
+			<form style={{ width: 320 }}>
+				<InputDateTimePicker
+					id="my-date-picker"
+					name="Datetime"
+					onBlur={action('onBlur')}
+					onChange={action('onChange')}
+					selectedDateTime={new Date(2018, 4, 13, 12, 30, 44)}
+					useSeconds
+					useTime
+				/>
+			</form>
+		</div>
+	))
+	.add('InputDateTimePicker - custom format', () => (
+		<div>
+			<h1>InputDateTimePicker with custom format</h1>
+			<p>
+				Date picker can accept a custom date format if it's a composition of DD, MM, YYYY only.
+				<br />
+				Once date-fns parse() accept a format (scheduled for 2.0), we can remove this specific code
+				and accept any format.
+				<br />
+				<br />
+				Here we set date format to: DD/MM/YYYY. (default is YYYY-MM-DD)
+			</p>
+			<pre>{`
+<InputDateTimePicker
+	id="my-date-picker"
+	...
+	dateFormat="DD/MM/YYYY"
+/>
+			`}</pre>
+			<IconsProvider />
+			<form style={{ width: 320 }}>
+				<InputDateTimePicker
+					id="my-date-picker"
+					name="Datetime"
+					onBlur={action('onBlur')}
+					onChange={action('onChange')}
+					selectedDateTime={new Date(2018, 4, 13, 12, 30)}
+					dateFormat="DD/MM/YYYY"
+					useTime
+				/>
+			</form>
 		</div>
 	))
 	.add('DateTimePicker', () => (
@@ -34,8 +186,8 @@ storiesOf('DateTimePicker', module)
 				</li>
 			</ul>
 
-			<div style={{ width: '320px', border: '1px solid black' }}>
-				<DateTimePicker onSubmit={action('onSubmit (Date and time)')} />
+			<div style={{ width: 320, border: '1px solid black' }}>
+				<DateTimePicker onSubmit={action('onSubmit')} />
 			</div>
 		</div>
 	));

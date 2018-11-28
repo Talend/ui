@@ -6,7 +6,6 @@ import { I18nextProvider } from 'react-i18next';
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, object } from '@storybook/addon-knobs';
 import { checkA11y } from '@storybook/addon-a11y';
 
 import Well from 'react-bootstrap/lib/Well';
@@ -24,7 +23,6 @@ a11y(ReactDOM);
 
 const decoratedStories = storiesOf('Form', module)
 	.addDecorator(checkA11y)
-	.addDecorator(withKnobs)
 	.addDecorator(story => (
 		<I18nextProvider i18n={i18n}>
 			<section>
@@ -67,7 +65,7 @@ sampleFilenames.keys().forEach(filename => {
 	decoratedStories.add(capitalizedSampleName, () => (
 		<Form
 			autocomplete="off"
-			data={object(capitalizedSampleName, sampleFilenames(filename))}
+			data={sampleFilenames(filename)}
 			onChange={action('Change')}
 			onBlur={action('Blur')}
 			onSubmit={action('Submit')}

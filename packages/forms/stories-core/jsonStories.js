@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
-import { object } from '@storybook/addon-knobs';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import { UIForm } from '../src/UIForm';
 
@@ -122,7 +121,7 @@ function createStory(category, sampleFilenames, filename) {
 		category,
 		name,
 		story() {
-			const { doc, ...data } = object(name, sampleFilenames(filename));
+			const { doc, ...data } = sampleFilenames(filename);
 			return (
 				<DisplayModeForm
 					{...createCommonProps('state')}

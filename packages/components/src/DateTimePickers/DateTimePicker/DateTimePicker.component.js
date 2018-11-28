@@ -6,6 +6,7 @@ import getYear from 'date-fns/get_year';
 import theme from './DateTimePicker.scss';
 import DateTimeView from '../views/DateTimeView';
 import MonthYearView from '../views/MonthYearView';
+import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 
 const warnOnce = {};
 
@@ -34,24 +35,29 @@ class DateTimePicker extends React.Component {
 			},
 			selectedDate,
 			selectedTime,
+			allowFocus: !props.manageFocus,
 		};
 
-		this.setDateTimeView = this.setView.bind(this, true);
-		this.setMonthYearView = this.setView.bind(this, false);
 		this.onSelectCalendarMonth = this.onSelectCalendarMonth.bind(this);
 		this.onSelectCalendarYear = this.onSelectCalendarYear.bind(this);
 		this.onSelectCalendarMonthYear = this.onSelectCalendarMonthYear.bind(this);
 		this.onSelectDate = this.onSelectDate.bind(this);
 		this.onSelectTime = this.onSelectTime.bind(this);
+
+		this.allowFocus = this.setAllowFocus.bind(this, true);
+		this.disallowFocus = this.setAllowFocus.bind(this, false);
+		this.setDateTimeView = this.setView.bind(this, true);
+		this.setMonthYearView = this.setView.bind(this, false);
+	}
+
+	componentDidMount() {
+		if (this.props.manageFocus) {
+			this.pickerRef.addEventListener('focusin', this.allowFocus);
+			this.pickerRef.addEventListener('focusout', this.disallowFocus);
+		}
 	}
 
 	componentWillReceiveProps(nextProps) {
-		const selectionPropNotUpdated = this.props.selection === nextProps.selection;
-
-		if (selectionPropNotUpdated) {
-			return;
-		}
-
 		const newSelectedDate = nextProps.selection.date;
 		const newSelectedTime = nextProps.selection.time;
 		const needToUpdateDate = newSelectedDate !== this.state.selectedDate;
@@ -62,19 +68,11 @@ class DateTimePicker extends React.Component {
 			return;
 		}
 
-		const needToUpdateCalendar = needToUpdateDate && newSelectedDate !== undefined;
-
-		const newState = {};
-
-		if (needToUpdateDate) {
-			newState.selectedDate = newSelectedDate;
-		}
-
-		if (needToUpdateTime) {
-			newState.selectedTime = newSelectedTime;
-		}
-
-		if (needToUpdateCalendar) {
+		const newState = {
+			selectedDate: newSelectedDate,
+			selectedTime: newSelectedTime,
+		};
+		if (needToUpdateDate && newSelectedDate) {
 			newState.calendar = {
 				monthIndex: getMonth(newSelectedDate),
 				year: getYear(newSelectedDate),
@@ -84,42 +82,60 @@ class DateTimePicker extends React.Component {
 		this.setState(newState);
 	}
 
-	onSelectDate(selectedDate) {
+	componentWillUnmount() {
+		if (this.props.manageFocus) {
+			this.pickerRef.removeEventListener('focusin', this.allowFocus);
+			this.pickerRef.removeEventListener('focusout', this.disallowFocus);
+		}
+	}
+
+	onSelectDate(event, selectedDate) {
+		event.persist();
 		this.setState({ selectedDate }, () => {
-			this.trySubmit();
+			this.trySubmit(event);
 		});
 	}
 
-	onSelectTime(selectedTime) {
+	onSelectTime(event, selectedTime) {
+		event.persist();
 		this.setState({ selectedTime }, () => {
-			this.trySubmit();
+			this.trySubmit(event);
 		});
 	}
 
-	onSelectCalendarMonthYear(newCalendar) {
-		this.setState(previousState => ({
-			calendar: {
-				...previousState.calendar,
-				...newCalendar,
-			},
-		}));
+	onSelectCalendarMonthYear(newCalendar, callback) {
+		this.setState(
+			previousState => ({
+				calendar: {
+					...previousState.calendar,
+					...newCalendar,
+				},
+			}),
+			callback,
+		);
 	}
 
-	onSelectCalendarMonth(monthIndex) {
+	onSelectCalendarMonth(event, monthIndex) {
 		this.onSelectCalendarMonthYear({ monthIndex });
 	}
 
-	onSelectCalendarYear(year) {
+	onSelectCalendarYear(event, year) {
 		this.onSelectCalendarMonthYear({ year });
 	}
 
-	setView(isDateTimeView) {
-		this.setState({ isDateTimeView });
+	setAllowFocus(value) {
+		this.setState({ allowFocus: value });
 	}
 
-	trySubmit() {
+	setView(isDateTimeView) {
+		this.setState({ isDateTimeView }, () => {
+			focusOnCalendar(this.pickerRef);
+		});
+	}
+
+	trySubmit(event) {
 		if (this.state.selectedDate !== undefined && this.state.selectedTime !== undefined) {
-			this.props.onSubmit({
+			this.props.onSubmit(event, {
 				date: this.state.selectedDate,
 				time: this.state.selectedTime,
 			});
@@ -132,37 +148,76 @@ class DateTimePicker extends React.Component {
 		if (this.state.isDateTimeView) {
 			viewElement = (
 				<DateTimeView
-					onClickTitle={this.setMonthYearView}
+					allowFocus={this.state.allowFocus}
 					calendar={this.state.calendar}
-					onSelectMonthYear={this.onSelectCalendarMonthYear}
 					onSelectDate={this.onSelectDate}
-					selectedDate={this.state.selectedDate}
+					onSelectMonthYear={this.onSelectCalendarMonthYear}
 					onSelectTime={this.onSelectTime}
+					onTitleClick={this.setMonthYearView}
+					selectedDate={this.state.selectedDate}
 					selectedTime={this.state.selectedTime}
+					useSeconds={this.props.useSeconds}
+					useTime={this.props.useTime}
 				/>
 			);
 		} else {
 			viewElement = (
 				<MonthYearView
-					onClickBack={this.setDateTimeView}
-					selectedMonthIndex={this.state.calendar.monthIndex}
-					selectedYear={this.state.calendar.year}
+					allowFocus={this.state.allowFocus}
+					onBackClick={this.setDateTimeView}
 					onSelectMonth={this.onSelectCalendarMonth}
 					onSelectYear={this.onSelectCalendarYear}
+					selectedMonthIndex={this.state.calendar.monthIndex}
+					selectedYear={this.state.calendar.year}
 				/>
 			);
 		}
 
-		return <div className={theme.container}>{viewElement}</div>;
+		return (
+			<div
+				className={theme.container}
+				ref={ref => {
+					this.pickerRef = ref;
+				}}
+				tabIndex={this.state.allowFocus ? 0 : -1}
+				aria-label="Date picker"
+			>
+				{viewElement}
+			</div>
+		);
 	}
 }
 
 DateTimePicker.propTypes = {
+	/**
+	 * By default, element in picker are focusable. So it is usable as is.
+	 * But when we want to disable focus to not interact with a form flow,
+	 * this option must be turned on.
+	 * It allows to disable focus, and activate it when the focus is set in the picker.
+	 */
+	manageFocus: PropTypes.bool,
+	/**
+	 * Current selected date/time
+	 */
 	selection: PropTypes.shape({
 		date: PropTypes.instanceOf(Date),
-		time: PropTypes.number,
+		time: PropTypes.shape({
+			hours: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+			minutes: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+		}),
 	}),
+	/**
+	 * Callback triggered when date and time are selected
+	 */
 	onSubmit: PropTypes.func.isRequired,
+	/**
+	 * Display the seconds
+	 */
+	useSeconds: PropTypes.bool,
+	/**
+	 * Display time picker
+	 */
+	useTime: PropTypes.bool,
 };
 
 DateTimePicker.defaultProps = {
