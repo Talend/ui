@@ -77,7 +77,7 @@ $form-input-font-size: 16px !default;
 
 //** By default, this inherits from the `<body>`.
 $headings-font-family: inherit !default;
-$headings-font-weight: 600 !default;
+$headings-font-weight: $font-weight-bold;
 $headings-line-height: 1.1 !default;
 $headings-color: inherit !default;
 
