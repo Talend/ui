@@ -12,8 +12,7 @@ const MINUTES = 'MINUTES';
 const SECONDS = 'SECONDS';
 
 class TimePicker extends React.PureComponent {
-
-	static  defaultProps = {
+	static defaultProps = {
 		value: {},
 		t: getDefaultT(),
 	};
@@ -57,7 +56,7 @@ class TimePicker extends React.PureComponent {
 			return [
 				<hr key="hr-seconds" />,
 				<label key="label-seconds" htmlFor={this.secondId} className="sr-only">
-					{ t('TIME_PICKER_SECONDS', { defaultValue: 'Seconds' }) }
+					{t('TIME_PICKER_SECONDS', { defaultValue: 'Seconds' })}
 				</label>,
 				<DebounceInput
 					key="input-seconds"
@@ -80,7 +79,7 @@ class TimePicker extends React.PureComponent {
 			<div className={classNames('tc-date-picker-time', theme['time-picker'])}>
 				<legend>Time</legend>
 				<label htmlFor={this.hourId} className="sr-only">
-					{ t('TIME_PICKER_HOURS', { defaultValue: 'Hours' }) }
+					{t('TIME_PICKER_HOURS', { defaultValue: 'Hours' })}
 				</label>
 				<DebounceInput
 					id={this.hourId}
@@ -91,7 +90,7 @@ class TimePicker extends React.PureComponent {
 				/>
 				<hr />
 				<label htmlFor={this.minuteId} className="sr-only">
-					{ t('TIME_PICKER_MINUTES', { defaultValue: 'Minutes' }) }
+					{t('TIME_PICKER_MINUTES', { defaultValue: 'Minutes' })}
 				</label>
 				<DebounceInput
 					id={this.minuteId}

@@ -20,7 +20,6 @@ function euclideanModulo(dividend, divisor) {
 }
 
 class DateTimeView extends React.PureComponent {
-
 	static propTypes = {
 		allowFocus: PropTypes.bool,
 		calendar: PropTypes.shape({
@@ -85,7 +84,7 @@ class DateTimeView extends React.PureComponent {
 		const header = {
 			leftElement: (
 				<Action
-					aria-label={ t('MONTH_PICKER_PREVIOUS', { defaultValue: 'Go to previous month' }) }
+					aria-label={t('MONTH_PICKER_PREVIOUS', { defaultValue: 'Go to previous month' })}
 					icon="talend-chevron-left"
 					label=""
 					onClick={() => this.goToPreviousMonth()}
@@ -98,7 +97,9 @@ class DateTimeView extends React.PureComponent {
 					monthIndex={this.props.calendar.monthIndex}
 					year={this.props.calendar.year}
 					button={{
-						'aria-label': t('DATEPICKER_TO_MONTH_YEAR', { defaultValue: 'Switch to month and year pickers view' }),
+						'aria-label': t('DATEPICKER_TO_MONTH_YEAR', {
+							defaultValue: 'Switch to month and year pickers view',
+						}),
 						onClick: this.props.onTitleClick,
 						tabIndex: this.props.allowFocus ? 0 : -1,
 					}}
@@ -106,7 +107,7 @@ class DateTimeView extends React.PureComponent {
 			),
 			rightElement: (
 				<Action
-					aria-label={ t('MONTH_PICKER_NEXT', { defaultValue: 'Go to next month' }) }
+					aria-label={t('MONTH_PICKER_NEXT', { defaultValue: 'Go to next month' })}
 					icon="talend-chevron-left"
 					iconTransform="rotate-180"
 					label=""
