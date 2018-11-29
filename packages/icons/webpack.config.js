@@ -25,7 +25,7 @@ module.exports = {
 							loader: 'css-loader',
 						},
 						{
-							loader: 'fontgen-loader',
+							loader: 'webfonts-loader',
 						}
 					],
 				}),

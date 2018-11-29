@@ -14,15 +14,17 @@ $tc-svg-icon-size: $padding-large !default;
 	width: 100%;
 
 	button {
-		&:global(.btn-link) {
-			color: $tc-subheader-color;
+		:global {
+			.btn-link:not(.tc-icon-toggle) {
+				color: $tc-subheader-color;
 
-			&:focus,
-			&:hover {
-				color: $tc-subheader-hover-focus-color;
-			}
-			&:active {
-				color: $tc-subheader-active-color;
+				&:focus,
+				&:hover {
+					color: $tc-subheader-hover-focus-color;
+				}
+				&:active {
+					color: $tc-subheader-active-color;
+				}
 			}
 		}
 	}
@@ -31,7 +33,10 @@ $tc-svg-icon-size: $padding-large !default;
 		height: $tc-subheader-bar-height;
 		background-color: $wild-sand;
 		display: flex;
-		padding-left: 0;
+		padding: {
+			left: 0;
+			right: $padding-large;
+		}
 
 		&-left,
 		&-center,
@@ -46,6 +51,13 @@ $tc-svg-icon-size: $padding-large !default;
 		&-right {
 			margin-left: $padding-normal;
 			justify-content: flex-end;
+
+			:global(.btn-icon-only) {
+				padding: {
+					left: 0;
+					right: 0;
+				}
+			}
 		}
 
 		&-center {
@@ -65,6 +77,10 @@ $tc-svg-icon-size: $padding-large !default;
 		background-color: $gallery;
 		width: $tc-subheader-bar-height;
 		height: $tc-subheader-bar-height;
+
+		&:global(.btn) {
+			margin: $padding-small $padding-large $padding-small 0;
+		}
 
 		&:focus,
 		&:hover,

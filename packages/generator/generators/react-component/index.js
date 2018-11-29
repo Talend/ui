@@ -1,10 +1,9 @@
-const yeoman = require('yeoman-generator');
+const Generator = require('yeoman-generator');
 const yosay = require('yosay');
 const path = require('path');
 const parser = require('./parser');
 
-
-module.exports = yeoman.Base.extend({
+module.exports = class ComponentGenerator extends Generator {
 	prompting() {
 		// Have Yeoman greet the user.
 		this.log(yosay(
@@ -58,7 +57,7 @@ module.exports = yeoman.Base.extend({
 			// To access props later use this.props.someAnswer;
 			this.props = props;
 		});
-	},
+	}
 
 	writing() {
 		const folderPath = `${this.props.path}/${this.props.name}`;
@@ -161,6 +160,5 @@ module.exports = yeoman.Base.extend({
 				parser.write(parentIndexPath, parsedCode);
 			}
 		}
-	},
-});
-
+	}
+};

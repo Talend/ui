@@ -5,6 +5,7 @@ exports[`Connected ActionFile should render 1`] = `
   className={undefined}
 >
   <input
+    accept={undefined}
     className="theme-action-file-input sr-only"
     disabled={false}
     id="42"

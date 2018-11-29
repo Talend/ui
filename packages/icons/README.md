@@ -23,12 +23,6 @@ This is the set of SVG icons used in our apps.
 [quality-badge]: http://npm.packagequality.com/shield/talend-icons.svg
 [quality-url]: http://packagequality.com/#?package=talend-icons
 
-# Breaking changes log
-
-Before 1.0, `@talend/icons` does NOT follow semver version in releases.
-You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
-Before 2.0, we will try not to introduce breaking changes, as possible.
-After 2.0, we will only introduce breaking changes in major releases, and follow semver.
 
 # How to use
 

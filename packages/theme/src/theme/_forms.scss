@@ -396,7 +396,7 @@ form {
 	}
 
 	&-control-container,
-	&-control:focus,
+	&-control:focus:not([readonly]),
 	&-control[placeholder]:not([placeholder='']),
 	&-control:not(:empty),
 	&-control:disabled,

@@ -33,12 +33,15 @@ $tc-circle-editable-text-size: 16px !default;
 		display: flex;
 		align-items: center;
 		max-width: 90rem;
+
+		:global(.tc-action-disabled-btn-container) {
+			height: 19px;
+		}
 	}
 
 	&-wording {
 		@include input-text($tc-input-editable-text-title-weight);
 		@include ellipsis;
-		text-transform: uppercase;
 		flex: 0 1 auto;
 	}
 
@@ -46,6 +49,8 @@ $tc-circle-editable-text-size: 16px !default;
 		padding-left: $padding-small;
 		padding-right: $padding-small;
 		flex: 0 0 auto;
+		line-height: inherit;
+		min-height: inherit;
 
 		&:global(.btn-link) {
 			color: $silver;
@@ -57,10 +62,7 @@ $tc-circle-editable-text-size: 16px !default;
 		width: 100%;
 		display: flex;
 		align-items: center;
-		padding: {
-			left: $padding-large;
-			right: $padding-large;
-		}
+		padding-right: $padding-large;
 
 		:global(.form-group) {
 			width: 100%;
