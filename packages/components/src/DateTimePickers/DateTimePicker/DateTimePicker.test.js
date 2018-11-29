@@ -196,7 +196,11 @@ describe('DateTimePicker', () => {
 			const onSubmit = jest.fn();
 
 			const wrapper = shallow(
-				<DateTimePicker selection={{ date: initialDate, time: initialTime }} onSubmit={onSubmit} />,
+				<DateTimePicker
+					selection={{ date: initialDate, time: initialTime }}
+					onSubmit={onSubmit}
+					useTime
+				/>,
 			);
 
 			// when
@@ -205,6 +209,26 @@ describe('DateTimePicker', () => {
 			// then
 			expect(wrapper.state('selectedDate')).toBe(date);
 			expect(onSubmit).toBeCalledWith(event, { date, time: initialTime });
+		});
+
+		it('should update state with time to 0 and submit on date picked', () => {
+			// given
+			const date = new Date(2018, 2, 5);
+			const expectedTime = { hours: '00', minutes: '00', seconds: '00' };
+			const event = { target: {}, persist() {} };
+			const onSubmit = jest.fn();
+
+			const wrapper = shallow(
+				<DateTimePicker onSubmit={onSubmit} useTime={false}/>,
+			);
+
+			// when
+			wrapper.find(DateTimeView).prop('onSelectDate')(event, date);
+
+			// then
+			expect(wrapper.state('selectedDate')).toBe(date);
+			expect(wrapper.state('selectedTime')).toEqual(expectedTime);
+			expect(onSubmit).toBeCalledWith(event, { date, time: expectedTime });
 		});
 
 		it('should update state and submit on time picked', () => {
@@ -239,11 +263,11 @@ describe('DateTimePicker', () => {
 			const onSubmit = jest.fn();
 
 			const timeOnlyWrapper = shallow(
-				<DateTimePicker selection={{ time: initialTime }} onSubmit={onSubmit} />,
+				<DateTimePicker selection={{ time: initialTime }} onSubmit={onSubmit} useTime />,
 			);
 
 			const dateOnlyWrapper = shallow(
-				<DateTimePicker selection={{ date: initialDate }} onSubmit={onSubmit} />,
+				<DateTimePicker selection={{ date: initialDate }} onSubmit={onSubmit} useTime />,
 			);
 
 			// when/then

@@ -67,15 +67,18 @@ class InputDateTimePicker extends React.Component {
 		}
 
 		checkSupportedDateFormat(props.dateFormat);
-		const selectedDate = props.useTime
-			? this.props.selectedDateTime
-			: startOfDay(this.props.selectedDateTime);
-
 		this.popoverId = `date-time-picker-${props.id || uuid.v4()}`;
+		let selectedDate = this.props.selectedDateTime;
+		if (selectedDate) {
+			selectedDate =
+				props.useTime
+					? this.props.selectedDateTime
+					: startOfDay(this.props.selectedDateTime);
+		}
 		this.state = {
-			...extractDateTimeParts(selectedDate, this.getDateOptions()),
 			inputFocused: false,
 			showPicker: false,
+			...extractDateTimeParts(selectedDate, this.getDateOptions()),
 		};
 
 		this.onInputChange = this.onInputChange.bind(this);

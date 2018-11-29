@@ -87,6 +87,21 @@ storiesOf('DateTimePicker', module)
 			/>
 		</div>
 	))
+	.add('InputDatePicker without default selection', () => (
+		<div>
+			<IconsProvider />
+			<h1>InputDateTimePicker</h1>
+			<p>
+				Default date picker doesn't include time<br />
+				It comes with classical keyboard gesture.
+			</p>
+			<TestPickerWrapper
+				id="my-date-picker"
+				onChange={action('onChange')}
+				name="Datetime"
+			/>
+		</div>
+	))
 	.add('InputDateTimePicker', () => (
 		<div>
 			<IconsProvider />

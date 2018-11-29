@@ -91,7 +91,11 @@ class DateTimePicker extends React.Component {
 
 	onSelectDate(event, selectedDate) {
 		event.persist();
-		this.setState({ selectedDate }, () => {
+		let selectedTime = this.state.selectedTime;
+		if (!this.props.useTime) {
+			selectedTime = { hours: '00', minutes: '00', seconds: '00' };
+		}
+		this.setState({ selectedDate, selectedTime }, () => {
 			this.trySubmit(event);
 		});
 	}
