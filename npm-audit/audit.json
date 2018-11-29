@@ -1,5 +1,5 @@
-=== npm audit security report ===                        
-                                                                                
+=== npm audit security report ===
+
 # Run  npm install webpack-dev-server@3.1.10  to resolve 1 vulnerability
 SEMVER WARNING: Recommended action is a potentially breaking change
 ┌───────────────┬──────────────────────────────────────────────────────────────┐
@@ -86,53 +86,6 @@ SEMVER WARNING: Recommended action is a potentially breaking change
 └───────────────┴──────────────────────────────────────────────────────────────┘
 
 
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                                Manual Review                                 │
-│            Some vulnerabilities require your attention to resolve            │
-│                                                                              │
-│         Visit https://go.npm.me/audit-guide for additional guidance          │
-└──────────────────────────────────────────────────────────────────────────────┘
-┌───────────────┬──────────────────────────────────────────────────────────────┐
-│ High          │ Cross-Site Scripting                                         │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ Package       │ handlebars                                                   │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ Patched in    │ >=4.0.0                                                      │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ Dependency of │ fontgen-loader                                               │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ Path          │ fontgen-loader > webfonts-generator > handlebars             │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ More info     │ https://nodesecurity.io/advisories/61                        │
-└───────────────┴──────────────────────────────────────────────────────────────┘
-┌───────────────┬──────────────────────────────────────────────────────────────┐
-│ Low           │ Incorrect Handling of Non-Boolean Comparisons During         │
-│               │ Minification                                                 │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ Package       │ uglify-js                                                    │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ Patched in    │ >= 2.4.24                                                    │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ Dependency of │ fontgen-loader                                               │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ Path          │ fontgen-loader > webfonts-generator > handlebars > uglify-js │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ More info     │ https://nodesecurity.io/advisories/39                        │
-└───────────────┴──────────────────────────────────────────────────────────────┘
-┌───────────────┬──────────────────────────────────────────────────────────────┐
-│ Low           │ Regular Expression Denial of Service                         │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ Package       │ uglify-js                                                    │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ Patched in    │ >=2.6.0                                                      │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ Dependency of │ fontgen-loader                                               │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ Path          │ fontgen-loader > webfonts-generator > handlebars > uglify-js │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ More info     │ https://nodesecurity.io/advisories/48                        │
-└───────────────┴──────────────────────────────────────────────────────────────┘
-found 9 vulnerabilities (6 low, 3 high) in 34169 scanned packages
+found 6 vulnerabilities (4 low, 2 high) in 34402 scanned packages
   run `npm audit fix` to fix 3 of them.
   3 vulnerabilities require semver-major dependency updates.
-  3 vulnerabilities require manual review. See the full report for details.

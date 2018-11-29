@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import cases from 'jest-in-case';
 
 import DateTimeView from './DateTimeView.component';
@@ -38,6 +38,28 @@ describe('DateTimeView', () => {
 				onSelectDate={jest.fn()}
 				onSelectTime={jest.fn()}
 				selectedTime={{ hours: '15', minutes: '45' }}
+				useTime
+			/>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render without timePicker', () => {
+		// when
+		const wrapper = shallow(
+			<DateTimeView
+				allowFocus
+				calendar={{
+					monthIndex: 5,
+					year: 2006,
+				}}
+				onTitleClick={jest.fn()}
+				onSelectMonthYear={jest.fn()}
+				onSelectDate={jest.fn()}
+				onSelectTime={jest.fn()}
+				selectedTime={{ hours: '15', minutes: '45' }}
 			/>,
 		);
 
@@ -48,7 +70,7 @@ describe('DateTimeView', () => {
 	it('should trigger props.onTitleClick when title is clicked', () => {
 		// given
 		const onTitleClick = jest.fn();
-		const wrapper = shallow(
+		const wrapper = mount(
 			<DateTimeView
 				calendar={{
 					monthIndex: 5,
@@ -65,9 +87,7 @@ describe('DateTimeView', () => {
 		// when
 		const titleAction = wrapper
 			.find('ViewLayout')
-			.shallow()
 			.find('HeaderTitle')
-			.shallow()
 			.find('button');
 		titleAction.simulate('click');
 
@@ -77,7 +97,7 @@ describe('DateTimeView', () => {
 
 	it('should manage tabIndex', () => {
 		// given
-		const wrapper = shallow(
+		const wrapper = mount(
 			<DateTimeView
 				calendar={{
 					monthIndex: 5,
@@ -89,12 +109,11 @@ describe('DateTimeView', () => {
 				onTitleClick={jest.fn()}
 			/>,
 		);
+
 		expect(
 			wrapper
 				.find('ViewLayout')
-				.shallow()
 				.find('HeaderTitle')
-				.shallow()
 				.find('button')
 				.prop('tabIndex'),
 		).toBe(-1);
@@ -106,9 +125,7 @@ describe('DateTimeView', () => {
 		expect(
 			wrapper
 				.find('ViewLayout')
-				.shallow()
 				.find('HeaderTitle')
-				.shallow()
 				.find('button')
 				.prop('tabIndex'),
 		).toBe(0);

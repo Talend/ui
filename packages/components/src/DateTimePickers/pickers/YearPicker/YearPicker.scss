@@ -1,0 +1,44 @@
+@import '../../shared/styles/mixins';
+
+.year-picker {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	ol {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.scroll {
+		line-height: unset;
+		min-height: auto;
+
+		&.scroll-up {
+			margin-bottom: $padding-small;
+		}
+
+		&.scroll-down {
+			margin-top: $padding-small;
+		}
+	}
+
+	.year {
+		background: none;
+		border: none;
+		width: 100%;
+
+		&.selected {
+			background: red;
+		}
+
+		&:disabled {
+			color: $silver-chalice;
+		}
+
+		&.selected {
+			@include picker-action-selected;
+		}
+	}
+}
