@@ -1,4 +1,5 @@
 import mock from '@talend/react-cmf/lib/mock';
+import { routerAPI } from '@talend/react-cmf-router';
 
 import action, { getActionsProps } from './actionAPI';
 
@@ -101,7 +102,7 @@ describe('actionAPI.evalExpressions', () => {
 			return payload.model.value;
 		}
 		function isInTest({ context }) {
-			return context.router.location === '/test';
+			return routerAPI.selectors.getPath(context.store.getState()) === '/test';
 		}
 		function isDisabled({ payload }) {
 			return payload.model.value;
@@ -128,8 +129,14 @@ describe('actionAPI.evalExpressions', () => {
 				'expression:getLabel': getLabel,
 				'expression:getIcon': getIcon,
 			},
-			router: {
-				location: '/test',
+			store: {
+				getState: () => ({
+					routing: {
+						locationBeforeTransitions: {
+							pathname: '/test',
+						},
+					},
+				}),
 			},
 		};
 		const truthyAction = action.evalExpressions(actionInfo, context, { model: modelTruthy });
@@ -166,7 +173,7 @@ describe('actionAPI.evalExpressions', () => {
 			return payload.model.value;
 		}
 		function isInTest({ context }) {
-			return context.router.location === '/test';
+			return routerAPI.selectors.getPath(context.store.getState()) === '/test';
 		}
 		function isDisabled({ payload }) {
 			return payload.model.value;
@@ -198,8 +205,14 @@ describe('actionAPI.evalExpressions', () => {
 				'expression:getIcon': getIcon,
 				'expression:getHref': getHref,
 			},
-			router: {
-				location: '/test',
+			store: {
+				getState: () => ({
+					routing: {
+						locationBeforeTransitions: {
+							pathname: '/test',
+						},
+					},
+				}),
 			},
 		};
 		const truthyAction = action.evalExpressions(actionInfo, context, { model: modelTruthy });

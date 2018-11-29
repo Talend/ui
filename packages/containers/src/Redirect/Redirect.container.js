@@ -10,9 +10,10 @@ export const REDIRECT_ACTION_TYPE = 'REDIRECT';
  * @example
 <Redirect name="Hello world"></Redirect>
  */
-export function RedirectContainer({ path, to }, context) {
-	context.store.dispatch({
+export function Redirect({ path, to, dispatch, componentId }) {
+	dispatch({
 		type: REDIRECT_ACTION_TYPE,
+		componentId,
 		cmf: {
 			routerReplace: to || path,
 		},
@@ -25,20 +26,17 @@ export function RedirectContainer({ path, to }, context) {
 	);
 }
 
-RedirectContainer.propTypes = {
+Redirect.propTypes = {
 	path: PropTypes.string,
 	to: PropTypes.string,
-};
-RedirectContainer.contextTypes = {
-	store: PropTypes.object.isRequired,
+	dispatch: PropTypes.func,
+	componentId: PropTypes.string,
 };
 
-RedirectContainer.displayName = 'RedirectContainer';
+Redirect.displayName = 'Redirect';
 
 export default cmfConnect({
 	omitCMFProps: true,
-	withComponentRegistry: true,
 	withDispatch: true,
-	withDispatchActionCreator: true,
 	withComponentId: true,
-})(RedirectContainer);
+})(Redirect);

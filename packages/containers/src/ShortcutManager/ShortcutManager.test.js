@@ -27,6 +27,11 @@ describe('handles routes', () => {
 		redirectMap: {},
 	};
 	state.cmf.components = new Map();
+	state.routing = {
+		locationBeforeTransitions: {
+			pathname: '/test',
+		},
+	};
 
 	it('should get the redirectMap', () => {
 		const wrapper = mount(
@@ -53,9 +58,7 @@ describe('handles routes', () => {
 	it('should call redirect actionCreator', () => {
 		const fn = jest.fn();
 		const redirectMap = { esc: { '/test': '/test/next' } };
-		const context = { router: { getCurrentLocation: () => ({ pathname: '/test' }) } };
-
-		mount(<Container redirectMap={redirectMap} dispatchActionCreator={fn} />, { context });
+		mount(<Container redirectMap={redirectMap} dispatchActionCreator={fn} pathname="/test" />);
 
 		const event = new KeyboardEvent('keydown', { keyCode: keycode('esc') });
 		document.dispatchEvent(event);
@@ -66,9 +69,10 @@ describe('handles routes', () => {
 	it('should call matching actionCreator', () => {
 		const fn = jest.fn();
 		const redirectMap = { esc: { '^[/]test[/].*$': 'test' } };
-		const context = { router: { getCurrentLocation: () => ({ pathname: '/test/12345' }) } };
 
-		mount(<Container redirectMap={redirectMap} dispatchActionCreator={fn} />, { context });
+		mount(
+			<Container redirectMap={redirectMap} dispatchActionCreator={fn} pathname="/test/12345" />,
+		);
 
 		const event = new KeyboardEvent('keydown', { keyCode: keycode('esc') });
 		document.dispatchEvent(event);
