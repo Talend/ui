@@ -90,13 +90,13 @@ function buildFormatLocale(t) {
 		t('DATE_FNS_DECEMBER_FULL', { defaultValue: 'December' }),
 	];
 	const weekdays1char = [
-		t('DATE_FNS_SUNDAY_2CHAR', { defaultValue: 'S' }),
-		t('DATE_FNS_MONDAY_2CHAR', { defaultValue: 'M' }),
-		t('DATE_FNS_TUESDAY_2CHAR', { defaultValue: 'T' }),
-		t('DATE_FNS_WEDNESDAY_2CHAR', { defaultValue: 'W' }),
-		t('DATE_FNS_THURSDAY_2CHAR', { defaultValue: 'T' }),
-		t('DATE_FNS_FRIDAY_2CHAR', { defaultValue: 'F' }),
-		t('DATE_FNS_SATURDAY_2CHAR', { defaultValue: 'S' }),
+		t('DATE_FNS_SUNDAY_1CHAR', { defaultValue: 'S' }),
+		t('DATE_FNS_MONDAY_1CHAR', { defaultValue: 'M' }),
+		t('DATE_FNS_TUESDAY_1CHAR', { defaultValue: 'T' }),
+		t('DATE_FNS_WEDNESDAY_1CHAR', { defaultValue: 'W' }),
+		t('DATE_FNS_THURSDAY_1CHAR', { defaultValue: 'T' }),
+		t('DATE_FNS_FRIDAY_1CHAR', { defaultValue: 'F' }),
+		t('DATE_FNS_SATURDAY_1CHAR', { defaultValue: 'S' }),
 	];
 	const weekdays2char = [
 		t('DATE_FNS_SUNDAY_2CHAR', { defaultValue: 'Su' }),
