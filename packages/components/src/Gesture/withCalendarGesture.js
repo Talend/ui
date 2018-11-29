@@ -262,7 +262,7 @@ export function withMonthCalendarGesture(WrappedComponent, rowSize) {
 	MonthCalendarGesture.propTypes = {
 		...omit(WrappedComponent.propTypes, 'onKeyDown'),
 	};
-	MonthCalendarGesture.displayName = `CalendarGesture(${WrappedComponent.displayName})`;
+	MonthCalendarGesture.displayName = `MonthCalendarGesture(${WrappedComponent.displayName})`;
 
 	return MonthCalendarGesture;
 }
