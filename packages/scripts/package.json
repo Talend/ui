@@ -2,6 +2,7 @@
   "name": "@talend/scripts",
   "version": "0.4.0",
   "main": "index.js",
+  "mainSrc": "index.js",
   "bin": {
     "talend-scripts": "./index.js"
   },
