@@ -218,9 +218,7 @@ describe('DateTimePicker', () => {
 			const event = { target: {}, persist() {} };
 			const onSubmit = jest.fn();
 
-			const wrapper = shallow(
-				<DateTimePicker onSubmit={onSubmit} useTime={false} />,
-			);
+			const wrapper = shallow(<DateTimePicker onSubmit={onSubmit} useTime={false} />);
 
 			// when
 			wrapper.find(DateTimeView).prop('onSelectDate')(event, date);

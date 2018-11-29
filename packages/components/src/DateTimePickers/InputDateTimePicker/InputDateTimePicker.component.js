@@ -70,10 +70,9 @@ class InputDateTimePicker extends React.Component {
 		this.popoverId = `date-time-picker-${props.id || uuid.v4()}`;
 		let selectedDate = this.props.selectedDateTime;
 		if (selectedDate) {
-			selectedDate =
-				props.useTime
-					? this.props.selectedDateTime
-					: startOfDay(this.props.selectedDateTime);
+			selectedDate = props.useTime
+				? this.props.selectedDateTime
+				: startOfDay(this.props.selectedDateTime);
 		}
 		this.state = {
 			inputFocused: false,
