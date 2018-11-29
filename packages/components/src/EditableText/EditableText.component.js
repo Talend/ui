@@ -13,10 +13,6 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 
 export function PlainTextTitle({ onEdit, disabled, text, inProgress, feature, t }) {
 	const isDisabled = disabled || inProgress;
-	const dataProps = {};
-	if (feature) {
-		dataProps['data-feature'] = feature;
-	}
 	return (
 		<div className={theme['tc-editable-text-title']}>
 			<TooltipTrigger label={text} tooltipPlacement="bottom">
@@ -36,7 +32,7 @@ export function PlainTextTitle({ onEdit, disabled, text, inProgress, feature, t 
 				className={classNames(theme['tc-editable-text-pencil'], 'tc-editable-text-pencil')}
 				disabled={disabled || inProgress}
 				hideLabel
-				{...dataProps}
+				data-feature={feature}
 			/>
 		</div>
 	);

@@ -76,6 +76,7 @@ exports[`InlineForm should render 1`] = `
     <Action
       bsStyle="link"
       className="theme-tc-editable-text-form-buttons-icon tc-editable-text-form-buttons-icon theme-tc-editable-text-form-buttons-cancel tc-editable-text-form-buttons-cancel"
+      data-feature="my.custom.feature.cancel"
       hideLabel={true}
       icon="talend-cross"
       label={undefined}
@@ -85,6 +86,7 @@ exports[`InlineForm should render 1`] = `
     <Action
       bsStyle="link"
       className="theme-tc-editable-text-form-buttons-icon tc-editable-text-form-buttons-icon theme-tc-editable-text-form-buttons-submit tc-editable-text-form-buttons-submit"
+      data-feature="my.custom.feature.submit"
       disabled={false}
       hideLabel={true}
       icon="talend-check"

@@ -83,6 +83,7 @@ describe('InlineForm', () => {
 	beforeEach(() => {
 		defaultProps = {
 			text: 'my text',
+			feature: 'my.custom.feature',
 			onSubmit: jest.fn(),
 			onChange: jest.fn(),
 			onCancel: jest.fn(),
