@@ -9,39 +9,71 @@
       "selector": "#navbar-inverse"
     },
     {
-      "name": "buttons",
+      "name": "btn",
       "selector": "#btn"
     },
     {
-      "name": "buttons_disabled",
-      "selector": "#btn_disabled"
+      "name": "btn-disabled",
+      "selector": "#btn-disabled"
     },
     {
-      "name": "dropdowns",
-      "selector": "#btn-dropdown"
+      "name": "btn-left-icons",
+      "selector": "#btn-left-icons"
     },
     {
-      "name": "buttons-left-icons",
-      "selector": "#buttons-left-icons"
-    },
-    {
-      "name": "buttons-dropdowns-icons",
-      "selector": "#btn-dropdown-icons"
-    },
-		{
-			"name": "btn-dropup-icons",
-			"selector": "#btn-dropup-icons"
-		},
-    {
-      "name": "buttons-no-icons",
-      "selector": "#buttons-no-icons"
+      "name": "btn-only-icons",
+      "selector": "#btn-only-icon"
     },
     {
       "name": "buttons-right-icons",
       "selector": "#buttons-right-icons"
     },
     {
-      "name": "button-sizes",
+      "name": "btn-dropdown",
+      "selector": "#btn-dropdown"
+    },
+    {
+      "name": "btn-dropdowns-icons",
+      "selector": "#btn-dropdown-icons"
+    },
+		{
+			"name": "btn-dropup-icons",
+			"selector": "#btn-dropup-icons"
+    },
+    {
+      "name": "btn-inverse",
+      "selector": "#btn-inverse"
+    },
+    {
+      "name": "btn-inverse-disabled",
+      "selector": "#btn-inverse-disabled"
+    },
+    {
+      "name": "btn-inverse-left-icons",
+      "selector": "#btn-inverse-left-icons"
+    },
+    {
+      "name": "btn-inverse-only-icon",
+      "selector": "#btn-inverse-only-icon"
+    },
+    {
+      "name": "btn-inverse-right-icons",
+      "selector": "#btn-inverse-right-icons"
+    },
+    {
+      "name": "btn-inverse-dropdown",
+      "selector": "#btn-inverse-dropdown"
+    },
+    {
+      "name": "btn-inverse-dropdown-icons",
+      "selector": "#btn-inverse-dropdown-icons"
+    },
+    {
+      "name": "btn-inverse-dropup-icons",
+      "selector": "#btn-inverse-dropup-icons"
+    },
+    {
+      "name": "btn-sizes",
       "selector": "#btn-sizes"
     },
     {
@@ -49,7 +81,7 @@
       "selector": "#btn-sizes-icons"
     },
     {
-      "name": "button-groups",
+      "name": "btn-groups",
       "selector": "#btn-groups"
     },
     {

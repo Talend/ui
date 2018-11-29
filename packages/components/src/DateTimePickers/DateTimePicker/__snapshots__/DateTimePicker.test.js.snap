@@ -6,7 +6,7 @@ exports[`DateTimePicker should render 1`] = `
   className="theme-container"
   tabIndex={0}
 >
-  <DateTimeView
+  <Translate(DateTimeView)
     allowFocus={true}
     calendar={
       Object {
@@ -21,6 +21,7 @@ exports[`DateTimePicker should render 1`] = `
     selectedDate={undefined}
     selectedTime={undefined}
     useSeconds={undefined}
+    useTime={undefined}
   />
 </div>
 `;
