@@ -9,7 +9,8 @@ function getLinkedLibs(paths) {
 	const linkedLibs = [];
 	paths.forEach(packagePath => {
 		if (packagePath.endsWith('lerna.json')) {
-			const packages = require(path.resolve(packagePath)); // eslint-disable-line global-require
+			// eslint-disable-next-line global-require
+			const packages = require(path.resolve(packagePath)).packages;
 			packages.forEach(subPackagePath => {
 				const packageJsonPath = packagePath.replace('lerna.json', `${subPackagePath}/package.json`);
 				linkedLibs.push(getPackageJsonInfo(packageJsonPath));
