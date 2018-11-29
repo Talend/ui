@@ -22,6 +22,7 @@ LocalLibsWebpackPlugin will let you do 2 things:
 
 `$ webpack-dev-server --env.mylib --env.myotherlib`
 
+Add the relative paths to the package.json of the packages you want to use locally. If you specify a lerna.json path it will automatically use all packages listed in lerna.json `packages` field. 
 ```js
 // webpack.config.js
 const LocalLibsWebpackPlugin = require('@talend/local-libs-webpack-plugin');
