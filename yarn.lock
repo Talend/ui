@@ -279,10 +279,10 @@
     objectpath "^1.2.1"
     tv4 "^1.3.0"
 
-"@talend/react-cmf-router@3.0.0-1":
-  version "3.0.0-1"
-  resolved "https://registry.yarnpkg.com/@talend/react-cmf-router/-/react-cmf-router-3.0.0-1.tgz#1f890a19ce63b3f2ae06be64e7f6a4642c2cd7fc"
-  integrity sha512-wm6FHC0eCtX2t0Op3rJ3slfP8KUv7ZdHsXIcDLO2FU6jCIh1TucrVuw7N8SBBvXMBjPI+jPiD/AzgUQ4zc0pJg==
+"@talend/react-cmf-router@3.0.0-2":
+  version "3.0.0-2"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf-router/-/react-cmf-router-3.0.0-2.tgz#e64039a1400ef76eb071f9cffb2e31bbd9adc006"
+  integrity sha512-iTP0E0JZ+AAsXOQzs2dlYKxdruBAuedgM9FfJKxWnN6qCAKhICZzWsG3OBLabZov6Vd2BXQzaK/uqDj8RZ8z8g==
   dependencies:
     lodash "^4.17.4"
     path-to-regexp "^2.0.0"

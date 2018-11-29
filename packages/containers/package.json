@@ -40,7 +40,7 @@
     "@talend/bootstrap-theme": "^1.9.0-1",
     "@talend/icons": "^1.9.0-1",
     "@talend/react-cmf": "^1.9.0-1",
-    "@talend/react-cmf-router": "3.0.0-1",
+    "@talend/react-cmf-router": "3.0.0-2",
     "@talend/react-components": "^1.9.0-1",
     "@talend/react-forms": "^1.9.0-1",
     "@talend/react-storybook-cmf": "^1.9.0-1",
@@ -107,7 +107,7 @@
   "peerDependencies": {
     "@talend/icons": "^1.9.0-1",
     "@talend/react-cmf": "^1.9.0-1",
-    "@talend/react-cmf-router": "3.0.0-1",
+    "@talend/react-cmf-router": "3.0.0-2",
     "@talend/react-components": "^1.9.0-1",
     "@talend/react-forms": "^1.9.0-1",
     "bson-objectid": "^1.1.5",
@@ -151,6 +151,6 @@
     "memoize-one": "^4.0.0",
     "react-immutable-proptypes": "^2.1.0",
     "react-router": "^3.2.0",
-    "@talend/react-cmf-router": "3.0.0-1"
+    "@talend/react-cmf-router": "3.0.0-2"
   }
 }
