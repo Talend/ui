@@ -5,5 +5,12 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
   82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-✖ 1 problem (1 error, 0 warnings)
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/customFormats.js
+  84:18  warning  Unexpected unnamed method 'iso-datetime'   func-names
+  84:26  error    Missing space before function parentheses  space-before-function-paren
+
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Date/Date.component.js
+  83:32  error  'useSeconds' is missing in props validation  react/prop-types
+
+✖ 4 problems (3 errors, 1 warning)
 
