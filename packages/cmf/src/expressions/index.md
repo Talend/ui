@@ -131,5 +131,3 @@ let say you want to know the state of component
 		}
 	}
 ```
-
-## [cmf.router](./router.md)

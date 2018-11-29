@@ -12,7 +12,6 @@ const regexExpression = new RegExp('(.*)Expression');
  * @typedef {Object} Context
  * @property {string} store
  * @property {string} registry
- * @property {string} router
  */
 
 /**
@@ -157,7 +156,6 @@ function withExpression(Component, attrs) {
 	}
 	WithExpression.contextTypes = {
 		registry: PropTypes.object,
-		router: PropTypes.object,
 		store: PropTypes.object,
 	};
 	WithExpression.displayName = `WithExpression(${Component.displayName || Component.name})`;

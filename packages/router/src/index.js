@@ -6,10 +6,12 @@ import UIRouter from './UIRouter';
 import expressions from './expressions';
 import sagaRouter from './sagaRouter';
 import * as selectors from './selectors';
+import documentTitle from './sagas/documentTitle';
 
 function getModule(options = {}) {
 	const history = options.history || hashHistory;
 	function* saga() {
+		yield fork(documentTitle);
 		if (options.sagaRouterConfig) {
 			yield fork(sagaRouter, history, options.sagaRouterConfig);
 		}

@@ -1,6 +1,6 @@
 import { take, takeLatest } from 'redux-saga/effects';
 
-import matchPath from '../matchPath';
+import cmf from '@talend/react-cmf';
 
 /**
  * Format the current full path
@@ -47,7 +47,7 @@ export function buildMapFromRoutes(routes, mapRoutes, parentPath) {
 export function getTitleFromRoutes(mapRoutes, location, defaultDocTitle) {
 	let title = defaultDocTitle;
 	mapRoutes.forEach((value, key) => {
-		const ret = matchPath(location, { path: key });
+		const ret = cmf.router.matchPath(location, { path: key });
 		if (ret && ret.isExact) {
 			title = value;
 		}

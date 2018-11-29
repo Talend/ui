@@ -25,15 +25,13 @@ if (window) {
 	}
 }
 
-// Indicated wether or not the default router was overwritten
-// let defaultRouterOverwrite = false;
 let defaultHttpMiddlewareOverwrite = false;
 
 /**
- * setHttpMiddleware overwrites the default router middleware
+ * setHttpMiddleware overwrites the default http middleware
  * httpMiddleware NEED to be executed before cmfMiddleware
  *
- * @param middleware a router middleware
+ * @param middleware a http middleware
  */
 function setHttpMiddleware(middleware) {
 	const cmfMiddlewareIndex = middlewares.indexOf(cmfMiddleware);
@@ -100,9 +98,6 @@ function getMiddlewares(middleware) {
 	} else if (middleware) {
 		middlewares.push(middleware);
 	}
-	// if (!defaultRouterOverwrite) {
-	// 	setRouterMiddleware(routerMiddleware(hashHistory));
-	// }
 	if (!defaultHttpMiddlewareOverwrite) {
 		setHttpMiddleware(httpMiddleware());
 	}

@@ -151,7 +151,7 @@ So you can use them either in CLI or in npm scripts.
 ## Tests & mocks
 
 When you are in the context of CMF and you want to test your component you
-will need to mock some stuff (context, router, ...).
+will need to mock some stuff (context, ...).
 
 We want testing experience to be easy so CMF provides some mocks for you.
 
@@ -178,7 +178,6 @@ describe('App', () => {
 
 This way MyComponent may request for the following context:
 
-* router
 * registry
 * store
 
@@ -186,7 +185,6 @@ you may change the following using simple props:
 
 * store
 * state
-* router
 * registry
 
 ## More
@@ -207,13 +205,3 @@ you may change the following using simple props:
 * [registry](./src/registry.md).
 * [middleware/cmf](./src/middlewares/cmf/index.md)
 * [middleware/http](./src/middlewares/http/index.md)
-
-## ROADMAP
-
-For 2.0
-
-* [ ] documentation review
-* [ ] provide an example OSS demo app
-* [ ] remove all deprecated code
-* [ ] update or remove react-router
-* [ ] move from peer dependencies to dependencies

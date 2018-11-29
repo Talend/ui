@@ -26,7 +26,7 @@ function get(id, context) {
 }
 
 /**
- * register a component for the router configuration
+ * register a component to let CMF be able to Inject it.
  * @param  {string} id the component id you want to register
  * @param  {any} component the component you want to register
  * @param  {object} context optional context to get the registry

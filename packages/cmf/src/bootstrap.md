@@ -13,7 +13,6 @@ configure.initialize();
 cmf.bootstrap({
 	components,
 	saga: sagas.appSaga, // function* appSaga() {...}
-	sagaRouterConfig: sagas.routes, // { '/foo/bar': function* bar() {...}, ... },
 	...manyMoreOptions
 });
 ```
@@ -24,10 +23,10 @@ cmf.bootstrap({
 | -- | -- | -- | -- |
 | settingsURL | string | '/settings.json' | REQUIRED This URL to fetch the cmf settings.json file |
 | appId | string | 'app' | DOM element id, where to render the React application |
-| history | Object | `{ hashHistory } from 'react-router'` | The history object to control the router |
 | components | Object | undefined | A components dictionary where each key/value are registered in cmf registry so you can refer them in settings |
 | actionCreators | Object | undefined | Same as `components` |
 | expressions | Object | undefined | Same as `components` |
+| saga | function | the main saga to start  |
 | sagas | Object | undefined | Same as `components`  |
 | httpMiddleware | function | undefined | Override the default http middleware |
 | preReducer | function | undefined | Redux preReducer, called on every actions before reducer |

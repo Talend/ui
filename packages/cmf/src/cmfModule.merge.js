@@ -98,7 +98,6 @@ const MERGE_FNS = {
 	components: mergeObjects,
 	expressions: mergeObjects,
 	actionCreators: mergeObjects,
-	sagaRouterConfig: mergeObjects,
 };
 
 function reduceConfig(acc, config) {
