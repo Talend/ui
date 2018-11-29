@@ -12,7 +12,7 @@ import RegistryProvider from './RegistryProvider';
 
 /**
  * The React component that render your app and provide CMF environment.
- * @param  {object} props { store, history }
+ * @param  {object} props { store }
  * @return {object} ReactElement
  */
 export default function App(props) {

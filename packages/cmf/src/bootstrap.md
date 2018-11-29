@@ -36,6 +36,7 @@ cmf.bootstrap({
 | middlewares | Array | undefined | Redux middlewares |
 | storeCallback | function | undefined | Let you call a function once the store is created |
 | AppLoader | React Component | undefined | Let you define the React component to use to show the app is currently loading (waiting for the settings) |
+| RootComponent | React Component | undefined | Let you define the React component to use to wrapp the App. It can be a react-router for example. |
 
 ## Modules
 

@@ -1,5 +1,5 @@
-import deleteResourceConst from './constants';
 import { routerAPI } from '@talend/react-cmf-router';
+import deleteResourceConst from './constants';
 
 /**
  * Action called at the dialog opening|mounting.
