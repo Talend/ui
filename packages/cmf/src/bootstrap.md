@@ -59,3 +59,7 @@ cmf.boostrap({
 	modules: [containersModule],
 });
 ```
+
+## How to setup store using localStorage ?
+
+We provide a [simple API for that](./localStorage.md).
