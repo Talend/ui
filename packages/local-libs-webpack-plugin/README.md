@@ -58,6 +58,6 @@ This combination will run `webpack-dev-server mode=development --config webpack.
 
 ## LICENSE
 
-Copyright (c) 2006-2016 Talend
+Copyright (c) 2006-2019 Talend
 
 Licensed under the Apache V2 License
