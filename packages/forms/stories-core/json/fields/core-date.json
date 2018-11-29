@@ -1,100 +1,48 @@
 {
-  "doc": "Date/DateTime/README.md",
+  "doc": "Date/README.md",
   "jsonSchema": {
     "type": "object",
     "title": "Date",
     "properties": {
-      "propSimpleNumber": {
-        "type": "number",
-        "format": "timestamp"
+      "dateAsString": {
+        "type": "string"
       },
-      "propWithTimeSimpleNumber": {
-        "type": "number",
-        "format": "timestamp"
+      "dateAsTimestamp": {
+        "type": "number"
       },
-      "propAutofocus": {
-        "type": "number",
-        "format": "timestamp"
+      "dateTime": {
+        "type": "string"
       },
-      "propSimpleString": {
-        "type": "string",
-        "format": "iso-datetime"
-      },
-      "propNumberInitWithError": {
-        "type": "number",
-        "format": "timestamp"
-      },
-      "propStringInitWithError": {
-        "type": "string",
-        "format": "iso-datetime"
-      },
-      "propDisabled": {
-        "type": "number",
-        "format": "timestamp"
-      },
-      "propReadOnly": {
-        "type": "number",
-        "format": "timestamp"
+      "dateTimeWitSeconds": {
+        "type": "string"
       }
     },
-    "required": ["propAutofocus"]
+    "required": []
   },
   "uiSchema": [
     {
-      "key": "propSimpleNumber",
-      "title": "Basic with number type",
+      "key": "dateAsString",
+      "title": "Date as string",
       "widget": "date"
     },
     {
-      "key": "propWithTimeSimpleNumber",
-      "title": "With time and number type",
-      "widget": "dateTime"
-    },
-    {
-      "key": "propAutofocus",
-      "title": "Autofocus input",
-      "widget": "date",
-      "autoFocus": true,
-      "placeholder": "Type the date here..."
-    },
-    {
-      "key": "propSimpleString",
-      "title": "Basic with string type",
+      "key": "dateAsTimestamp",
+      "title": "Date as timestamp",
       "widget": "date"
     },
     {
-      "key": "propNumberInitWithError",
-      "title": "Basic with number type",
-      "description": "Initialised with a bad format",
-      "widget": "date"
+      "key": "dateTime",
+      "title": "Datetime",
+      "widget": "datetime"
     },
     {
-      "key": "propStringInitWithError",
-      "title": "Basic with string type",
-      "description": "Initialised with a bad format",
-      "widget": "date"
-    },
-    {
-      "key": "propDisabled",
-      "title": "Disabled widget",
-      "widget": "date",
-      "description": "You can always try to click...",
-      "disabled": true
-    },
-    {
-      "key": "propReadOnly",
-      "title": "Readonly widget",
-      "widget": "date",
-      "description": "You can always try to change me",
-      "readOnly": true
+      "key": "dateTimeWitSeconds",
+      "title": "Datetime with seconds",
+      "widget": "datetime",
+      "options": {
+        "useSeconds": true
+      }
     }
   ],
-  "properties": {
-    "propSimpleNumber": 1514764800000,
-    "propSimpleString": "2018-01-01T00:00:00.000Z",
-    "propNumberInitWithError": 8640000099000000,
-    "propStringInitWithError": "whatever-bad-format-defined-in-the-form-side",
-    "propDisabled": 946684800000,
-    "propReadOnly": 0
-  }
+  "properties": {}
 }

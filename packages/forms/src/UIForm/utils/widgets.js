@@ -62,7 +62,7 @@ const widgets = {
 	code: Code,
 	datalist: Datalist,
 	date: DateWidget,
-	dateTime: DateTimeWidget,
+	datetime: DateTimeWidget,
 	keyValue: KeyValue,
 	listView: ListView,
 	multiSelectTag: MultiSelectTag,

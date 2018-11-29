@@ -236,15 +236,19 @@ function extractDateTimeParts(selectedDateTime, options) {
 
 	if (selectedDateTime !== undefined && isDateTimeValid) {
 		const date = startOfDay(selectedDateTime);
-		const hours = getHours(selectedDateTime);
-		const minutes = getMinutes(selectedDateTime);
-		const seconds = getSeconds(selectedDateTime);
+		let time = { hours: '00', minutes: '00', seconds: '00' };
 
-		const time = {
-			hours: pad(hours, 2),
-			minutes: pad(minutes, 2),
-			seconds: pad(seconds, 2),
-		};
+		if (options.useTime) {
+			const hours = getHours(selectedDateTime);
+			const minutes = getMinutes(selectedDateTime);
+			const seconds = getSeconds(selectedDateTime);
+
+			time = {
+				hours: pad(hours, 2),
+				minutes: pad(minutes, 2),
+				seconds: pad(seconds, 2),
+			};
+		}
 		const datetime = startOfSecond(selectedDateTime);
 
 		return {

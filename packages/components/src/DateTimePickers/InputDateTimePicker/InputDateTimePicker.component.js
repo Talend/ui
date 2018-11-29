@@ -4,7 +4,6 @@ import omit from 'lodash/omit';
 import DebounceInput from 'react-debounce-input';
 import { Overlay, Popover } from 'react-bootstrap';
 import isSameSecond from 'date-fns/is_same_second';
-import startOfDay from 'date-fns/start_of_day';
 import keycode from 'keycode';
 import uuid from 'uuid';
 
@@ -18,14 +17,11 @@ import {
 	dateTimeToStr,
 	dateAndTimeToDateTime,
 	getFullDateFormat,
-	isDateValid,
 	strToDate,
 	strToTime,
 } from './date-extraction';
 
 import theme from './InputDateTimePicker.scss';
-
-const INVALID_PLACEHOLDER = 'INVALID DATE';
 
 const warnOnce = {};
 
@@ -68,21 +64,15 @@ class InputDateTimePicker extends React.Component {
 		}
 
 		checkSupportedDateFormat(props.dateFormat);
-		const selectedDate = props.useTime
-			? this.props.selectedDateTime
-			: startOfDay(this.props.selectedDateTime);
 
 		this.popoverId = `date-time-picker-${props.id || uuid.v4()}`;
 		this.state = {
-			...extractDateTimeParts(selectedDate, this.getDateOptions()),
-			inputFocused: false,
+			...extractDateTimeParts(this.props.selectedDateTime, this.getDateOptions()),
 			showPicker: false,
 		};
 
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onPickerChange = this.onPickerChange.bind(this);
-		this.onInputFocus = this.onInputFocus.bind(this);
-		this.onInputBlur = this.onInputBlur.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
 		this.openPicker = this.setPickerVisibility.bind(this, true, /* force */ true);
 		this.closePicker = this.setPickerVisibility.bind(this, false, /* force */ true);
@@ -119,16 +109,6 @@ class InputDateTimePicker extends React.Component {
 				this.props.onChange(event, { errorMessage, datetime, origin });
 			}
 		});
-	}
-
-	onInputBlur(event) {
-		this.setState({
-			inputFocused: false,
-		});
-
-		if (this.props.onBlur) {
-			this.props.onBlur(event);
-		}
 	}
 
 	onInputChange(event) {
@@ -180,13 +160,6 @@ class InputDateTimePicker extends React.Component {
 			},
 			'INPUT',
 		);
-	}
-
-	// TODO JSO : remove that in favor of proper for validation in forms package
-	onInputFocus() {
-		this.setState({
-			inputFocused: true,
-		});
 	}
 
 	onKeyDown(event) {
@@ -262,17 +235,6 @@ class InputDateTimePicker extends React.Component {
 	render() {
 		const inputProps = omit(this.props, PROPS_TO_OMIT_FOR_INPUT);
 
-		const isDatetimeValid = isDateValid(this.state.datetime);
-		const inputFocused = this.state.inputFocused;
-
-		let placeholder =
-			inputProps.placeholder || this.props.useTime
-				? getFullDateFormat(this.getDateOptions())
-				: this.props.dateFormat;
-		if (!isDatetimeValid && !inputFocused) {
-			placeholder = INVALID_PLACEHOLDER;
-		}
-
 		return (
 			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 			<div
@@ -290,8 +252,8 @@ class InputDateTimePicker extends React.Component {
 					}}
 					type="text"
 					onFocus={this.onInputFocus}
-					onBlur={this.onInputBlur}
-					placeholder={placeholder}
+					onBlur={this.props.onBlur}
+					placeholder={getFullDateFormat(this.getDateOptions())}
 					value={this.state.textInput}
 					debounceTimeout={300}
 					onChange={this.onInputChange}
