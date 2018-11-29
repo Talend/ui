@@ -219,7 +219,7 @@ describe('DateTimePicker', () => {
 			const onSubmit = jest.fn();
 
 			const wrapper = shallow(
-				<DateTimePicker onSubmit={onSubmit} useTime={false}/>,
+				<DateTimePicker onSubmit={onSubmit} useTime={false} />,
 			);
 
 			// when
