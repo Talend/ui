@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import uuid from 'uuid';
 import DebounceInput from 'react-debounce-input';
+import getDefaultT from '../../../translate';
 
 import theme from './TimePicker.scss';
 
@@ -11,6 +12,23 @@ const MINUTES = 'MINUTES';
 const SECONDS = 'SECONDS';
 
 class TimePicker extends React.PureComponent {
+	static defaultProps = {
+		value: {},
+		t: getDefaultT(),
+	};
+
+	static propTypes = {
+		allowFocus: PropTypes.bool,
+		onChange: PropTypes.func.isRequired,
+		value: PropTypes.shape({
+			hours: PropTypes.string,
+			minutes: PropTypes.string,
+			seconds: PropTypes.string,
+		}),
+		useSeconds: PropTypes.bool,
+		t: PropTypes.func.isRequired,
+	};
+
 	constructor(props) {
 		super(props);
 		const id = uuid.v4();
@@ -36,11 +54,12 @@ class TimePicker extends React.PureComponent {
 	renderSeconds(tabIndex) {
 		if (this.props.useSeconds) {
 			return [
-				<hr />,
-				<label htmlFor={this.secondId} className="sr-only">
-					Seconds
+				<hr key="hr-seconds" />,
+				<label key="label-seconds" htmlFor={this.secondId} className="sr-only">
+					{this.props.t('DATEPICKER_TIME_SECONDS', { defaultValue: 'Seconds' })}
 				</label>,
 				<DebounceInput
+					key="input-seconds"
 					id={this.secondId}
 					className={theme['time-input']}
 					value={this.props.value.seconds}
@@ -53,13 +72,14 @@ class TimePicker extends React.PureComponent {
 	}
 
 	render() {
+		const { t } = this.props;
 		const tabIndex = this.props.allowFocus ? 0 : -1;
 
 		return (
 			<div className={classNames('tc-date-picker-time', theme['time-picker'])}>
 				<legend>Time</legend>
 				<label htmlFor={this.hourId} className="sr-only">
-					Hours
+					{t('DATEPICKER_TIME_HOURS', { defaultValue: 'Hours' })}
 				</label>
 				<DebounceInput
 					id={this.hourId}
@@ -70,7 +90,7 @@ class TimePicker extends React.PureComponent {
 				/>
 				<hr />
 				<label htmlFor={this.minuteId} className="sr-only">
-					Minutes
+					{t('DATEPICKER_TIME_MINUTES', { defaultValue: 'Minutes' })}
 				</label>
 				<DebounceInput
 					id={this.minuteId}
@@ -84,20 +104,5 @@ class TimePicker extends React.PureComponent {
 		);
 	}
 }
-
-TimePicker.defaultProps = {
-	value: {},
-};
-
-TimePicker.propTypes = {
-	allowFocus: PropTypes.bool,
-	onChange: PropTypes.func.isRequired,
-	value: PropTypes.shape({
-		hours: PropTypes.string,
-		minutes: PropTypes.string,
-		seconds: PropTypes.string,
-	}),
-	useSeconds: PropTypes.bool,
-};
 
 export default TimePicker;

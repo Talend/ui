@@ -15,12 +15,12 @@ describe('Date extraction', () => {
 			const invalidDate = 'lol';
 
 			// when
-			const parts = extractDateTimeParts(invalidDate);
+			const parts = extractDateTimeParts(invalidDate, { dateFormat: 'YYYY-MM-DD' });
 
 			// then
 			expect(parts).toEqual({
 				date: undefined,
-				time: { hours: '', minutes: '' },
+				time: { hours: '', minutes: '', seconds: '' },
 				datetime: 'lol',
 				textInput: '',
 			});
@@ -31,7 +31,7 @@ describe('Date extraction', () => {
 			const validDate = new Date(2015, 8, 15, 12, 58);
 
 			// when
-			const parts = extractDateTimeParts(validDate);
+			const parts = extractDateTimeParts(validDate, { dateFormat: 'YYYY-MM-DD', useTime: true });
 
 			// then
 			expect(parts).toEqual({
@@ -46,13 +46,17 @@ describe('Date extraction', () => {
 			const validDate = new Date(2015, 8, 15, 12, 58, 22);
 
 			// when
-			const parts = extractDateTimeParts(validDate);
+			const parts = extractDateTimeParts(validDate, {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+			});
 
 			// then
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
 				datetime: validDate,
-				textInput: '2015-09-15 12:58',
+				textInput: '2015-09-15 12:58:22',
 				time: { hours: '12', minutes: '58', seconds: '22' },
 			});
 		});
@@ -64,7 +68,7 @@ describe('Date extraction', () => {
 			const strToParse = '2014-12-25';
 
 			// when
-			const date = strToDate(strToParse);
+			const date = strToDate(strToParse, 'YYYY-MM-DD');
 
 			// then
 			expect(date).toEqual(new Date(2014, 11, 25));
@@ -77,15 +81,15 @@ describe('Date extraction', () => {
 
 			// when/then
 			try {
-				strToDate(strWithZeroMonth);
+				strToDate(strWithZeroMonth, 'YYYY-MM-DD');
 				done.fail('strToDate should have thrown an error with incorrect month');
 			} catch (error) {
-				expect(error.message).toBe('DATE - INCORRECT MONTH NUMBER');
+				expect(error.message).toBe('DATE - INCORRECT FORMAT');
 			}
 
 			// when/then
 			try {
-				strToDate(strWithTooHighMonth);
+				strToDate(strWithTooHighMonth, 'YYYY-MM-DD');
 				done.fail('strToDate should have thrown an error with incorrect month');
 			} catch (error) {
 				expect(error.message).toBe('DATE - INCORRECT MONTH NUMBER');
@@ -101,7 +105,7 @@ describe('Date extraction', () => {
 
 			// when/then
 			try {
-				strToDate(strWithZeroDay);
+				strToDate(strWithZeroDay, 'YYYY-MM-DD');
 				done.fail('strToDate should have thrown an error with incorrect day');
 			} catch (error) {
 				expect(error.message).toBe('DATE - INCORRECT DAY NUMBER');
@@ -109,7 +113,7 @@ describe('Date extraction', () => {
 
 			// when/then
 			try {
-				strToDate(strWithTooHighDay);
+				strToDate(strWithTooHighDay, 'YYYY-MM-DD');
 				done.fail('strToDate should have thrown an error with incorrect day');
 			} catch (error) {
 				expect(error.message).toBe('DATE - INCORRECT DAY NUMBER RELATIVE TO MONTH');
@@ -123,17 +127,6 @@ describe('Date extraction', () => {
 		it('should convert valid time', () => {
 			// given
 			const strToParse = '02:52';
-
-			// when
-			const time = strToTime(strToParse);
-
-			// then
-			expect(time).toEqual({ hours: '02', minutes: '52', seconds: '00' });
-		});
-
-		it('should convert valid time with seconds', () => {
-			// given
-			const strToParse = '02:52:22';
 
 			// when
 			const time = strToTime(strToParse);
@@ -183,20 +176,7 @@ describe('Date extraction', () => {
 				seconds: '00',
 			});
 		});
-		it('should convert invalid string that match xx:xx:xx format', () => {
-			// given
-			const strToParse = 'aze:66toto:tata';
 
-			// when
-			const time = strToTime(strToParse);
-
-			// then
-			expect(time).toEqual({
-				hours: 'aze',
-				minutes: '66toto',
-				seconds: '00',
-			});
-		});
 		it('should convert invalid string that match xx:xx:xx format using seconds part', () => {
 			// given
 			const strToParse = 'aze:66toto:tata';
@@ -220,7 +200,7 @@ describe('Date extraction', () => {
 			const time = { hours: '02', minutes: '52' };
 
 			// when
-			const result = dateTimeToStr(date, time);
+			const result = dateTimeToStr(date, time, { dateFormat: 'YYYY-MM-DD' });
 
 			// then
 			expect(result).toBe('');
@@ -232,7 +212,7 @@ describe('Date extraction', () => {
 			const time = undefined;
 
 			// when
-			const result = dateTimeToStr(date, time);
+			const result = dateTimeToStr(date, time, { dateFormat: 'YYYY-MM-DD' });
 
 			// then
 			expect(result).toBe('2015-09-15');
@@ -244,7 +224,7 @@ describe('Date extraction', () => {
 			const time = { hours: '02', minutes: '52' };
 
 			// when
-			const result = dateTimeToStr(date, time);
+			const result = dateTimeToStr(date, time, { dateFormat: 'YYYY-MM-DD' });
 
 			// then
 			expect(result).toBe('2015-09-15 02:52');
@@ -256,7 +236,7 @@ describe('Date extraction', () => {
 			const time = { hours: 'aze', minutes: '66' };
 
 			// when
-			const result = dateTimeToStr(date, time);
+			const result = dateTimeToStr(date, time, { dateFormat: 'YYYY-MM-DD' });
 
 			// then
 			expect(result).toBe('2015-09-15 aze:66');

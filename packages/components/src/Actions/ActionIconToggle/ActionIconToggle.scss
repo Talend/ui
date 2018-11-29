@@ -19,7 +19,6 @@ $tc-icon-toggle-icon-size: $svg-sm-size !default;
 	justify-content: center;
 	align-items: center;
 
-	background-color: $white;
 	border: 1px solid $gray;
 	color: $gray;
 
@@ -38,7 +37,6 @@ $tc-icon-toggle-icon-size: $svg-sm-size !default;
 	&:hover,
 	&:active {
 		box-shadow: none;
-		background-color: $white;
 		border-color: $scooter;
 		color: $scooter;
 	}
