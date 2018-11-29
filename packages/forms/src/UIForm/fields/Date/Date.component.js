@@ -64,7 +64,7 @@ class DateWidget extends React.Component {
 		this.convertToDate = memoizeOne(convertToDate);
 	}
 
-	onChange(event, { datetime, errorMessage, origin }) {
+	onChange(event, { datetime, errorMessage }) {
 		const hasError = errorMessage !== undefined;
 		const value = hasError ? datetime : convertFromDate(this.props.schema, datetime);
 
@@ -73,10 +73,6 @@ class DateWidget extends React.Component {
 			value,
 		};
 		this.props.onChange(event, payload);
-
-		if (origin === 'PICKER') {
-			this.props.onFinish(event, payload);
-		}
 	}
 
 	onBlur(event) {
@@ -84,7 +80,7 @@ class DateWidget extends React.Component {
 	}
 
 	render() {
-		const { id, isValid, schema, useTime, value } = this.props;
+		const { id, isValid, schema, useSeconds, useTime, value } = this.props;
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
 		const isAlreadyADate = value instanceof Date;
@@ -113,6 +109,7 @@ class DateWidget extends React.Component {
 					readOnly={schema.readOnly}
 					placeholder={schema.placeholder}
 					useTime={useTime}
+					useSeconds={useSeconds}
 					// eslint-disable-next-line jsx-a11y/aria-proptypes
 					aria-invalid={!isValid}
 					aria-required={schema.required}

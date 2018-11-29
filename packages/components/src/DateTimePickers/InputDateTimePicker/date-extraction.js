@@ -211,7 +211,7 @@ function strToTime(strToParse, useSeconds) {
 
 	const hours = timeMatches[1];
 	const minutes = timeMatches[2];
-	const seconds = timeMatches[3] || '00';
+	const seconds = useSeconds ? timeMatches[3] : '00';
 
 	return { hours, minutes, seconds };
 }
@@ -225,23 +225,36 @@ function pad(num, size) {
 }
 
 /**
+ * Init time (hours, minutes, seconds), depending on the options.
+ * If a part is not used, it is init to 00, otherwise it's empty, so user have to enter it.
+ */
+function initTime({ useTime, useSeconds }) {
+	if (!useTime) {
+		return { hours: '00', minutes: '00', seconds: '00' };
+	} else if (!useSeconds) {
+		return { hours: '', minutes: '', seconds: '00' };
+	}
+	return { hours: '', minutes: '', seconds: '' };
+}
+
+/**
  * Extract parts (date, time, date/time, string conversion) from a Date
- * @param selectedDateTime {Date}
+ * @param datetime {Date}
  * @param options {Object}
  * @returns
  *  {{date: Date, time: { hours: string, minutes: string }, datetime: Date, textInput: string}}
  */
-function extractDateTimeParts(selectedDateTime, options) {
-	const isDateTimeValid = isDateValid(selectedDateTime);
+function extractDateTimeParts(datetime, options) {
+	const isDateTimeValid = isDateValid(datetime);
+	let time = initTime(options);
 
-	if (selectedDateTime !== undefined && isDateTimeValid) {
-		const date = startOfDay(selectedDateTime);
-		let time = { hours: '00', minutes: '00', seconds: '00' };
+	if (datetime !== undefined && isDateTimeValid) {
+		const date = startOfDay(datetime);
 
 		if (options.useTime) {
-			const hours = getHours(selectedDateTime);
-			const minutes = getMinutes(selectedDateTime);
-			const seconds = getSeconds(selectedDateTime);
+			const hours = getHours(datetime);
+			const minutes = getMinutes(datetime);
+			const seconds = getSeconds(datetime);
 
 			time = {
 				hours: pad(hours, 2),
@@ -249,20 +262,19 @@ function extractDateTimeParts(selectedDateTime, options) {
 				seconds: pad(seconds, 2),
 			};
 		}
-		const datetime = startOfSecond(selectedDateTime);
 
 		return {
 			date,
 			time,
-			datetime,
+			datetime: startOfSecond(datetime),
 			textInput: dateTimeToStr(date, time, options),
 		};
 	}
 
 	return {
 		date: undefined,
-		time: { hours: '', minutes: '', seconds: '' },
-		datetime: selectedDateTime,
+		time,
+		datetime,
 		textInput: '',
 	};
 }
@@ -275,6 +287,7 @@ export {
 	dateTimeToStr,
 	extractDateTimeParts,
 	getFullDateFormat,
+	initTime,
 	isDateValid,
 	strToDate,
 	strToTime,

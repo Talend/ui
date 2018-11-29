@@ -81,7 +81,7 @@ const customFormats = t => ({
 		}
 		return null;
 	},
-	'iso-datetime': fieldData => {
+	'iso-datetime': function(fieldData) {
 		if (typeof fieldData !== 'string') {
 			return null;
 		}

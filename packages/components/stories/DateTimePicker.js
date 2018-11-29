@@ -187,7 +187,7 @@ storiesOf('DateTimePicker', module)
 			</ul>
 
 			<div style={{ width: 320, border: '1px solid black' }}>
-				<DateTimePicker onSubmit={action('onSubmit')} />
+				<DateTimePicker onSubmit={action('onSubmit')} useTime useSeconds />
 			</div>
 		</div>
 	));

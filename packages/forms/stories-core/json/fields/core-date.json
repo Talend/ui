@@ -5,13 +5,16 @@
     "title": "Date",
     "properties": {
       "dateAsString": {
-        "type": "string"
+        "type": "string",
+        "format": "iso-datetime"
       },
       "dateAsTimestamp": {
-        "type": "number"
+        "type": "number",
+        "format": "timestamp"
       },
       "dateTime": {
-        "type": "string"
+        "type": "string",
+        "format": "iso-datetime"
       },
       "dateTimeWitSeconds": {
         "type": "string"

@@ -19,6 +19,7 @@ import {
 	getFullDateFormat,
 	strToDate,
 	strToTime,
+	initTime,
 } from './date-extraction';
 
 import theme from './InputDateTimePicker.scss';
@@ -71,6 +72,8 @@ class InputDateTimePicker extends React.Component {
 			showPicker: false,
 		};
 
+		this.onBlur = this.onBlur.bind(this);
+		this.onFocus = this.onFocus.bind(this);
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onPickerChange = this.onPickerChange.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
@@ -118,7 +121,7 @@ class InputDateTimePicker extends React.Component {
 		}
 
 		let date;
-		let time = { hours: '00', minutes: '00', seconds: '00' };
+		let time = initTime(this.getDateOptions());
 		let errorMessage;
 		let dateTextToParse = textInput;
 
@@ -137,7 +140,6 @@ class InputDateTimePicker extends React.Component {
 				time = strToTime(timeTextToParse, this.props.useSeconds);
 				checkTime(time);
 			} catch (error) {
-				time = time || { hours: '', minutes: '', seconds: '' };
 				errorMessage = errorMessage || error.message;
 			}
 		}
@@ -232,6 +234,20 @@ class InputDateTimePicker extends React.Component {
 		this.setState({ showPicker: isShown });
 	}
 
+	onBlur(event) {
+		this.blurTimeout = setTimeout(() => {
+			this.closePicker();
+			if (this.props.onBlur) {
+				this.props.onBlur(event);
+			}
+		});
+	}
+
+	onFocus() {
+		clearTimeout(this.blurTimeout);
+		this.openPicker();
+	}
+
 	render() {
 		const inputProps = omit(this.props, PROPS_TO_OMIT_FOR_INPUT);
 
@@ -242,8 +258,8 @@ class InputDateTimePicker extends React.Component {
 					this.containerRef = ref;
 				}}
 				onKeyDown={this.onKeyDown}
-				onFocus={this.openPicker}
-				onBlur={this.closePicker}
+				onFocus={this.onFocus}
+				onBlur={this.onBlur}
 			>
 				<DebounceInput
 					{...inputProps}
@@ -251,8 +267,6 @@ class InputDateTimePicker extends React.Component {
 						this.inputRef = ref;
 					}}
 					type="text"
-					onFocus={this.onInputFocus}
-					onBlur={this.props.onBlur}
 					placeholder={getFullDateFormat(this.getDateOptions())}
 					value={this.state.textInput}
 					debounceTimeout={300}
