@@ -1,5 +1,5 @@
-=== npm audit security report ===
-
+=== npm audit security report ===                        
+                                                                                
 # Run  npm install webpack-dev-server@3.1.10  to resolve 1 vulnerability
 SEMVER WARNING: Recommended action is a potentially breaking change
 ┌───────────────┬──────────────────────────────────────────────────────────────┐
