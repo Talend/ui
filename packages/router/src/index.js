@@ -1,6 +1,7 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
 import { routerReducer, routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
+import cmf from '@talend/react-cmf';
 import { fork } from 'redux-saga/effects';
 import UIRouter from './UIRouter';
 import expressions from './expressions';
@@ -48,6 +49,7 @@ export default getModule;
 
 const routerAPI = {
 	selectors,
+	matchPath: cmf.router.matchPath,
 };
 
 export { routerAPI };

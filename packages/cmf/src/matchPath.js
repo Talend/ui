@@ -30,7 +30,7 @@ const compilePath = (pattern, options) => {
 /**
  * Public API for matching a URL pathname to a path pattern.
  */
-const matchPath = (pathname, options = {}) => {
+export default function matchPath(pathname, options = {}) {
 	if (typeof options === 'string') options = { path: options }; // eslint-disable-line no-param-reassign
 
 	const { path = '/', exact = false, strict = false } = options;
@@ -53,6 +53,4 @@ const matchPath = (pathname, options = {}) => {
 			return memo;
 		}, {}),
 	};
-};
-
-export default matchPath;
+}

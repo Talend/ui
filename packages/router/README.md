@@ -2,7 +2,7 @@
 
 This is the old router of react-cmf packaged as external dependency.
 
-## Migration path
+## Setup
 
 First add it to your bootstrap app
 
@@ -18,6 +18,14 @@ cmf.bootstrap({
 });
 ```
 
+Then every cmfConnect component do not have anymore the context.router. That means you have to search for context.router in your code and update it.
+
+before
+```
+function myaction(event, data context) {
+
+}
+```
 
 ## routerAPI
 
