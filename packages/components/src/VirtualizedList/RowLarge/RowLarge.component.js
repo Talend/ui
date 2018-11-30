@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import {
 	extractSpecialFields,
 	getCellData,
+	getDataKey,
 	getId,
 	getLabel,
 	getRowData,
@@ -28,19 +29,24 @@ class RowLarge extends React.Component {
 
 	renderKeyValue(field, fieldIndex) {
 		const { index, parent } = this.props;
-		const cellContent = renderCell(index, parent, field);
-		const tooltip = typeof cellContent === 'string' ? cellContent : null;
-		const label = getLabel(field);
-		return (
-			<div className={theme['field-group']} role="group" key={label || index}>
-				<dt key={fieldIndex} className={theme['field-label']}>
-					{label}
-				</dt>
-				<dd className={theme['field-value']} title={tooltip}>
-					{cellContent}
-				</dd>
-			</div>
-		);
+		const rawContent = getRowData(parent, index);
+		const dataKey = getDataKey(field);
+		if (rawContent[dataKey] != null) {
+			const cellContent = renderCell(index, parent, field);
+			const tooltip = typeof cellContent === 'string' ? cellContent : null;
+			const label = getLabel(field);
+			return (
+				<div className={theme['field-group']} role="group" key={label || index}>
+					<dt key={fieldIndex} className={theme['field-label']}>
+						{label}
+					</dt>
+					<dd className={theme['field-value']} title={tooltip}>
+						{cellContent}
+					</dd>
+				</div>
+			);
+		}
+		return null;
 	}
 
 	render() {
@@ -61,7 +67,6 @@ class RowLarge extends React.Component {
 		if (parent.props.onRowDoubleClick) {
 			onRowDoubleClick = event => parent.props.onRowDoubleClick({ event, rowData });
 		}
-
 		return (
 			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 			<div
