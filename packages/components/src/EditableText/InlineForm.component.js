@@ -8,6 +8,7 @@ import getDefaultT from '../translate';
 class InlineForm extends React.Component {
 	static propTypes = {
 		text: PropTypes.string.isRequired,
+		feature: PropTypes.string,
 		onSubmit: PropTypes.func.isRequired,
 		onCancel: PropTypes.func,
 		onChange: PropTypes.func,
@@ -60,7 +61,7 @@ class InlineForm extends React.Component {
 
 	render() {
 		const notFilled = this.state.value.trim().length === 0;
-		const t = this.props.t;
+		const { feature, t } = this.props;
 		return (
 			<form
 				onSubmit={this.onSubmit}
@@ -99,6 +100,7 @@ class InlineForm extends React.Component {
 							'tc-editable-text-form-buttons-cancel',
 						)}
 						hideLabel
+						data-feature={feature && `${feature}.cancel`}
 					/>
 					<Action
 						type="submit"
@@ -114,6 +116,7 @@ class InlineForm extends React.Component {
 						)}
 						disabled={notFilled}
 						hideLabel
+						data-feature={feature && `${feature}.submit`}
 					/>
 				</div>
 			</form>
