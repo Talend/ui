@@ -65,7 +65,7 @@ There are multiple libraries to get immutable data structure.
 Without immutable datastructure, first it s hard to know if data has changed. So react may not re-render a component
 because the props has not changed, you have just mute it.
 
-## Why props.state and props.setState ?
+## Why props.state and props.setState?
 
 We want all the state of all components to be in redux.
 
