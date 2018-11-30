@@ -49,16 +49,16 @@ Bad examples : `YYYY MMM DD` - `MM DD`
 
 ## UI Schema
 
-| Property              | Description                                                                                                                                       | Default |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| widget                | `date` or `datetime`                                                                                                                              |         |
-| title                 | The title to display above field                                                                                                                  |         |
-| autoFocus             | Focus input on render                                                                                                                             | `false` |
-| disabled              | Disable the input                                                                                                                                 | `false` |
-| placeholder           | Text to display as placeholder                                                                                                                    |         |
-| readOnly              | Set the input as non modifiable and prevent datepicker to open                                                                                    | `false` |
-| options.dateFormat    | A combination of `YYYY`, `MM`, `DD`. This is used for display purpose. If no format is defined in jsonSchema, this is the value date format too.  | `false` |
-| options.useSeconds    | Enable the date picker seconds input                                                                                                              | `false` |
+| Property              | Description                                                                                                                                       | Default       |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| widget                | `date` or `datetime`                                                                                                                              |               |
+| title                 | The title to display above field                                                                                                                  |               |
+| autoFocus             | Focus input on render                                                                                                                             | `false`       |
+| disabled              | Disable the input                                                                                                                                 | `false`       |
+| placeholder           | Text to display as placeholder                                                                                                                    |               |
+| readOnly              | Set the input as non modifiable and prevent datepicker to open                                                                                    | `false`       |
+| options.dateFormat    | A combination of `YYYY`, `MM`, `DD`. This is used for display purpose. If no format is defined in jsonSchema, this is the value date format too.  | `YYYY-MM-DD`  |
+| options.useSeconds    | Enable the date picker seconds input                                                                                                              | `false`       |
 
 ```json
 [
