@@ -252,7 +252,7 @@ function checkSupportedDateFormat(dateFormat) {
  */
 function extractPartsFromDateTime(datetime, options) {
 	let time = initTime(options);
-	if (datetime === undefined || !isDateValid(datetime)) {
+	if (!isDateValid(datetime)) {
 		return {
 			date: undefined,
 			time,
@@ -380,8 +380,27 @@ function extractPartsFromTextInput(textInput, options) {
 	};
 }
 
+function extractParts(value, options) {
+	const typeOfValue = typeof value;
+	if (typeOfValue === 'number') {
+		return extractPartsFromDateTime(new Date(value), options);
+	} else if (typeOfValue === Date) {
+		return extractPartsFromDateTime(value, options);
+	} else if (typeOfValue === 'string') {
+		return extractPartsFromTextInput(value, options);
+	}
+
+	return {
+		date: undefined,
+		time: initTime(options),
+		datetime: undefined,
+		textInput: '',
+	};
+}
+
 export {
 	checkSupportedDateFormat,
+	extractParts,
 	extractPartsFromDateTime,
 	extractPartsFromDateAndTime,
 	extractPartsFromTextInput,

@@ -4,75 +4,56 @@ import memoizeOne from 'memoize-one';
 import InputDateTimePicker from '@talend/react-components/lib/DateTimePickers';
 import FieldTemplate from '../FieldTemplate';
 import { isoDateTimeRegExp } from '../../customFormats';
-import { WidgetUnhandleTypeError, WidgetUnexpectedTypeError } from './WrongTypeError';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
-const HANDLE_CONVERTION_TYPE = ['string', 'number'];
-const UNIQUE_ERROR_MESSAGE = 'The date is invalid. Expected format: YYYY-MM-DD HH:mm';
 const INVALID_DATE = new Date('');
 
-function convertToDate({ schema }, value) {
-	if (value === undefined) {
-		return undefined;
+function isoStrToDate(isoStr) {
+	if (isoDateTimeRegExp.test(isoStr)) {
+		return new Date(isoStr);
 	}
-
-	const { type } = schema;
-	const typeOfValue = typeof value;
-	if (typeOfValue !== type) {
-		// eslint-disable-next-line no-console
-		console.error(new WidgetUnexpectedTypeError(type, typeOfValue));
-		return INVALID_DATE;
-	}
-
-	switch (type) {
-		case 'number':
-			return new Date(value);
-		case 'string':
-			return isoDateTimeRegExp.test(value) ? new Date(value) : INVALID_DATE;
-		default:
-			// eslint-disable-next-line no-console
-			console.error(new WidgetUnhandleTypeError(HANDLE_CONVERTION_TYPE, type));
-			return INVALID_DATE;
-	}
+	return INVALID_DATE;
 }
 
-function convertFromDate({ schema }, date) {
-	if (date === undefined) {
-		return undefined;
-	}
-
-	const { type } = schema;
-	switch (type) {
-		case 'number':
-			return date.getTime();
-		case 'string':
-			return date.toISOString();
-		default: {
-			// eslint-disable-next-line no-console
-			console.error(new WidgetUnhandleTypeError(HANDLE_CONVERTION_TYPE, type));
-			return INVALID_DATE;
-		}
-	}
+function dateToIsoStr(date) {
+	return date.toISOString();
 }
 
 class DateWidget extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = { errorMessage: '' };
 
+		this.isoStrToDate = memoizeOne(isoStrToDate);
+		this.dateToIsoStr = memoizeOne(dateToIsoStr);
 		this.onChange = this.onChange.bind(this);
 		this.onBlur = this.onBlur.bind(this);
-		this.convertToDate = memoizeOne(convertToDate);
 	}
 
-	onChange(event, { datetime, errorMessage }) {
-		const hasError = errorMessage !== undefined;
-		const value = hasError ? datetime : convertFromDate(this.props.schema, datetime);
+	onChange(event, { errorMessage, datetime, textInput }) {
+		this.setState({ errorMessage });
+
+		let value = datetime;
+		if (!errorMessage) {
+			const { schema } = this.props.schema;
+			if (schema.format === 'iso-datetime') {
+				value = this.dateToIsoStr(datetime);
+			} else if (schema.type === 'number') {
+				value = datetime.getTime();
+			} else {
+				value = textInput;
+			}
+		}
 
 		const payload = {
 			schema: this.props.schema,
 			value,
 		};
 		this.props.onChange(event, payload);
+
+		if (!errorMessage) {
+			this.props.onFinish(event, payload);
+		}
 	}
 
 	onBlur(event) {
@@ -80,34 +61,32 @@ class DateWidget extends React.Component {
 	}
 
 	render() {
-		const { id, isValid, schema, useSeconds, useTime, value } = this.props;
+		const { errorMessage, id, isValid, options, schema, useSeconds, useTime, value } = this.props;
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
-		const isAlreadyADate = value instanceof Date;
-		const datetime = isAlreadyADate ? value : this.convertToDate(schema, value);
-
-		const errorMessage = this.props.errorMessage ? UNIQUE_ERROR_MESSAGE : undefined;
+		const convertedValue = schema.format === 'iso-datetime' ? this.isoStrToDate(value) : value;
 
 		return (
 			<FieldTemplate
 				description={schema.description}
 				descriptionId={descriptionId}
 				errorId={errorId}
-				errorMessage={errorMessage}
+				errorMessage={this.state.errorMessage || errorMessage}
 				id={id}
 				isValid={isValid}
 				label={schema.title}
 				required={schema.required}
 			>
 				<InputDateTimePicker
+					autoFocus={schema.autoFocus}
+					dateFormat={options.dateFormat}
+					disabled={schema.disabled}
 					id={id}
-					selectedDateTime={datetime}
 					onChange={this.onChange}
 					onBlur={this.onBlur}
-					autoFocus={schema.autoFocus}
-					disabled={schema.disabled}
-					readOnly={schema.readOnly}
 					placeholder={schema.placeholder}
+					readOnly={schema.readOnly}
+					selectedDateTime={convertedValue}
 					useTime={useTime}
 					useSeconds={useSeconds}
 					// eslint-disable-next-line jsx-a11y/aria-proptypes
@@ -123,16 +102,23 @@ class DateWidget extends React.Component {
 DateWidget.displayName = 'DateTime Widget';
 
 if (process.env.NODE_ENV !== 'production') {
+	DateWidget.defaultProps = {
+		options: {},
+	};
 	DateWidget.propTypes = {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
+		options: PropTypes.shape({
+			dateFormat: PropTypes.bool,
+		}),
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
+			format: PropTypes.string,
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
 			required: PropTypes.bool,
@@ -142,6 +128,7 @@ if (process.env.NODE_ENV !== 'production') {
 			}),
 		}),
 		useTime: PropTypes.bool,
+		useSeconds: PropTypes.bool,
 		value: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.instanceOf(Date)]),
 	};
 }

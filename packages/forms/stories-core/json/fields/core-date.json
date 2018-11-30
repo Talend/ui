@@ -5,6 +5,9 @@
     "title": "Date",
     "properties": {
       "dateAsString": {
+        "type": "string"
+      },
+      "dateAsIsoString": {
         "type": "string",
         "format": "iso-datetime"
       },
@@ -13,10 +16,9 @@
         "format": "timestamp"
       },
       "dateTime": {
-        "type": "string",
-        "format": "iso-datetime"
+        "type": "string"
       },
-      "dateTimeWitSeconds": {
+      "dateTimeWithSeconds": {
         "type": "string"
       }
     },
@@ -26,6 +28,14 @@
     {
       "key": "dateAsString",
       "title": "Date as string",
+      "widget": "date",
+      "options": {
+        "dateFormat": "DD/MM/YYYY"
+      }
+    },
+    {
+      "key": "dateAsIsoString",
+      "title": "Date as iso date string",
       "widget": "date"
     },
     {
@@ -39,7 +49,7 @@
       "widget": "datetime"
     },
     {
-      "key": "dateTimeWitSeconds",
+      "key": "dateTimeWithSeconds",
       "title": "Datetime with seconds",
       "widget": "datetime",
       "options": {
