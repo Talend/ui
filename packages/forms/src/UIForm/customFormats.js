@@ -26,7 +26,7 @@ const stringWithoutSpaceRegExp = /^\S+$/;
 
 const MAX_TIMESTAMP = 8640000000000000;
 
-function parseToValidDate(rawString) {
+function isValidDate(rawString) {
 	const date = new Date(rawString);
 	return !isNaN(date.getTime());
 }
@@ -87,7 +87,7 @@ const customFormats = t => ({
 		}
 
 		const formatMatches = isoDateTimeRegExp.test(fieldData);
-		if (formatMatches && parseToValidDate(fieldData)) {
+		if (formatMatches && isValidDate(fieldData)) {
 			return null;
 		}
 
