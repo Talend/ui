@@ -1,4 +1,3 @@
-
 # Documentation
 
 * Add presentation of CMF (video / powerpoint )
