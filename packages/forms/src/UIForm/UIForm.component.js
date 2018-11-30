@@ -215,7 +215,18 @@ export class UIFormComponent extends React.Component {
 		const { mergedSchema } = this.state;
 		const { properties, customValidation } = this.props;
 		const newErrors = validateAll(mergedSchema, properties, customValidation);
-		const errors = { ...this.props.errors, ...newErrors };
+		Object.keys(this.props.errors).forEach(errorKey => {
+			if (newErrors[errorKey]) {
+				newErrors[errorKey] = this.props.errors[errorKey];
+			}
+		});
+		const errors = {};
+		Object.keys(newErrors).forEach(errorKey => {
+			if (newErrors[errorKey]) {
+				errors[errorKey] = newErrors[errorKey];
+			}
+		});
+
 		this.props.setErrors(event, errors);
 
 		const isValid = !Object.keys(errors).length;

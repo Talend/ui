@@ -78,10 +78,7 @@ export function validateArray(mergedSchema, value, properties, customValidationF
 			items: [],
 		},
 	};
-	const error = validateValue(schemaWithoutItems, value, properties, customValidationFn);
-	if (error) {
-		results[key] = error;
-	}
+	results[key] = validateValue(schemaWithoutItems, value, properties, customValidationFn);
 
 	// validate each value of the array
 	if (deepValidation && value) {
@@ -117,10 +114,8 @@ export function validateSimple(
 	const results = {};
 	const { key, items } = mergedSchema;
 
-	const error = validateValue(mergedSchema, value, properties, customValidationFn);
-	if (error) {
-		results[key] = error;
-	}
+	results[key] = validateValue(mergedSchema, value, properties, customValidationFn);
+
 	if (deepValidation && items) {
 		// eslint-disable-next-line no-use-before-define
 		const subResults = validateAll(items, properties, customValidationFn);
