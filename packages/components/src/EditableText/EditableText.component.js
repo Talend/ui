@@ -11,7 +11,7 @@ import getDefaultT from '../translate';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-export function PlainTextTitle({ onEdit, disabled, text, inProgress, t }) {
+export function PlainTextTitle({ onEdit, disabled, text, inProgress, feature, t }) {
 	const isDisabled = disabled || inProgress;
 	return (
 		<div className={theme['tc-editable-text-title']}>
@@ -32,6 +32,7 @@ export function PlainTextTitle({ onEdit, disabled, text, inProgress, t }) {
 				className={classNames(theme['tc-editable-text-pencil'], 'tc-editable-text-pencil')}
 				disabled={disabled || inProgress}
 				hideLabel
+				data-feature={feature}
 			/>
 		</div>
 	);
@@ -42,6 +43,7 @@ PlainTextTitle.propTypes = {
 	onEdit: PropTypes.func.isRequired,
 	disabled: PropTypes.bool,
 	inProgress: PropTypes.bool,
+	feature: PropTypes.string,
 	t: PropTypes.func,
 };
 
@@ -53,7 +55,6 @@ export function EditableTextComponent({ editMode, loading, inProgress, ...rest }
 	if (loading) {
 		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
 	}
-
 	const Component = editMode ? InlineForm : PlainTextTitle;
 	const allyProps = {};
 	if (inProgress) {
@@ -62,6 +63,7 @@ export function EditableTextComponent({ editMode, loading, inProgress, ...rest }
 		});
 		allyProps['aria-busy'] = true;
 	}
+
 	return (
 		<div
 			className={classNames(theme['tc-editable-text'], 'tc-editable-text', {
