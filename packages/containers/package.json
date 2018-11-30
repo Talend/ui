@@ -13,13 +13,9 @@
     "test:demo": "build-storybook",
     "lint:es": "eslint --config ../../.eslintrc src",
     "lint": "npm run lint:es",
-    "watch": "npm-watch",
     "storybook": "start-storybook -p 6007",
     "build-storybook": "build-storybook",
     "parse-i18n": "i18next ./src -r -o ../../i18n/containers --fileFilter \"*.js\" --default-values"
-  },
-  "watch": {
-    "prepublish": "src/*"
   },
   "keywords": [
     "react",
@@ -41,12 +37,12 @@
     "@storybook/addon-a11y": "^3.4.7",
     "@storybook/addon-actions": "^3.4.7",
     "@storybook/react": "^3.4.7",
-    "@talend/bootstrap-theme": "^1.7.0",
-    "@talend/icons": "^1.7.0",
-    "@talend/react-cmf": "^1.7.0",
-    "@talend/react-components": "^1.7.0",
-    "@talend/react-forms": "^1.7.0",
-    "@talend/react-storybook-cmf": "^1.7.0",
+    "@talend/bootstrap-theme": "^1.9.0-1",
+    "@talend/icons": "^1.9.0-1",
+    "@talend/react-cmf": "^1.9.0-1",
+    "@talend/react-components": "^1.9.0-1",
+    "@talend/react-forms": "^1.9.0-1",
+    "@talend/react-storybook-cmf": "^1.9.0-1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "8.0.1",
@@ -108,10 +104,10 @@
     "uuid": "^3.0.1"
   },
   "peerDependencies": {
-    "@talend/icons": "^1.7.0",
-    "@talend/react-cmf": "^1.7.0",
-    "@talend/react-components": "^1.7.0",
-    "@talend/react-forms": "^1.7.0",
+    "@talend/icons": "^1.9.0-1",
+    "@talend/react-cmf": "^1.9.0-1",
+    "@talend/react-components": "^1.9.0-1",
+    "@talend/react-forms": "^1.9.0-1",
     "bson-objectid": "^1.1.5",
     "classnames": "^2.2.5",
     "i18next": "^9.0.0",
@@ -148,7 +144,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.7.0",
+  "version": "1.9.0-1",
   "dependencies": {
     "memoize-one": "^4.0.0",
     "react-immutable-proptypes": "^2.1.0",
