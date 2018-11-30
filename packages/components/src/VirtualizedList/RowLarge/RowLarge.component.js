@@ -31,7 +31,8 @@ class RowLarge extends React.Component {
 		const { index, parent } = this.props;
 		const rawContent = getRowData(parent, index);
 		const dataKey = getDataKey(field);
-		if (rawContent[dataKey] != null) {
+		const value = rawContent[dataKey];
+		if (value != null && `${value}`.trim().length) {
 			const cellContent = renderCell(index, parent, field);
 			const tooltip = typeof cellContent === 'string' ? cellContent : null;
 			const label = getLabel(field);
