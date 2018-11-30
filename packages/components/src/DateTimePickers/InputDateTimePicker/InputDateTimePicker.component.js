@@ -10,16 +10,11 @@ import uuid from 'uuid';
 import DateTimePicker from '../DateTimePicker';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 import {
-	splitDateAndTimePartsRegex,
 	checkSupportedDateFormat,
-	checkTime,
-	extractDateTimeParts,
-	dateTimeToStr,
-	dateAndTimeToDateTime,
+	extractPartsFromDateTime,
+	extractPartsFromDateAndTime,
+	extractPartsFromTextInput,
 	getFullDateFormat,
-	strToDate,
-	strToTime,
-	initTime,
 } from './date-extraction';
 
 import theme from './InputDateTimePicker.scss';
@@ -65,10 +60,9 @@ class InputDateTimePicker extends React.Component {
 		}
 
 		checkSupportedDateFormat(props.dateFormat);
-
 		this.popoverId = `date-time-picker-${props.id || uuid.v4()}`;
 		this.state = {
-			...extractDateTimeParts(this.props.selectedDateTime, this.getDateOptions()),
+			...extractPartsFromDateTime(props.selectedDateTime, this.getDateOptions()),
 			showPicker: false,
 		};
 
@@ -77,8 +71,8 @@ class InputDateTimePicker extends React.Component {
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onPickerChange = this.onPickerChange.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
-		this.openPicker = this.setPickerVisibility.bind(this, true, /* force */ true);
-		this.closePicker = this.setPickerVisibility.bind(this, false, /* force */ true);
+		this.openPicker = this.setPickerVisibility.bind(this, true);
+		this.closePicker = this.setPickerVisibility.bind(this, false);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -94,7 +88,10 @@ class InputDateTimePicker extends React.Component {
 		}
 
 		if (needDateTimeStateUpdate) {
-			const dateRelatedPartState = extractDateTimeParts(newSelectedDateTime, this.getDateOptions());
+			const dateRelatedPartState = extractPartsFromDateTime(
+				newSelectedDateTime,
+				this.getDateOptions(),
+			);
 			this.setState(dateRelatedPartState);
 		}
 	}
@@ -116,52 +113,8 @@ class InputDateTimePicker extends React.Component {
 
 	onInputChange(event) {
 		const textInput = event.target.value;
-		if (textInput === '') {
-			return this.onChange(event, extractDateTimeParts(), 'INPUT');
-		}
-
-		let date;
-		let time = initTime(this.getDateOptions());
-		let errorMessage;
-		let dateTextToParse = textInput;
-
-		if (this.props.useTime) {
-			// extract date part from datetime
-			const splitMatches = textInput.match(splitDateAndTimePartsRegex) || [];
-			dateTextToParse = splitMatches[1] || textInput;
-
-			if (!splitMatches.length) {
-				errorMessage = 'DATETIME - INCORRECT FORMAT';
-			}
-
-			// extract time part and parse it
-			try {
-				const timeTextToParse = splitMatches[2] || textInput;
-				time = strToTime(timeTextToParse, this.props.useSeconds);
-				checkTime(time);
-			} catch (error) {
-				errorMessage = errorMessage || error.message;
-			}
-		}
-
-		// parse date
-		try {
-			date = strToDate(dateTextToParse, this.props.dateFormat);
-		} catch (error) {
-			errorMessage = errorMessage || error.message;
-		}
-
-		return this.onChange(
-			event,
-			{
-				textInput,
-				errorMessage,
-				date,
-				time,
-				datetime: dateAndTimeToDateTime(date, time),
-			},
-			'INPUT',
-		);
+		const nextState = extractPartsFromTextInput(textInput, this.getDateOptions());
+		return this.onChange(event, nextState, 'INPUT');
 	}
 
 	onKeyDown(event) {
@@ -187,54 +140,17 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	onPickerChange(event, { date, time }) {
-		let errorMessage;
-		const startOfDayTime = { hours: '00', minutes: '00', seconds: '00' };
-
-		try {
-			checkTime(time);
-		} catch (error) {
-			errorMessage = error.message;
-		}
-
-		const nextState = {
-			date,
-			time,
-			textInput: dateTimeToStr(date, time, this.getDateOptions()),
-			datetime: dateAndTimeToDateTime(date, this.props.useTime ? time : startOfDayTime),
-			errorMessage,
-		};
+		const nextState = extractPartsFromDateAndTime(date, time, this.getDateOptions());
 		return this.onChange(event, nextState, 'PICKER');
 	}
 
-	getDateOptions() {
-		return {
-			dateFormat: this.props.dateFormat,
-			useTime: this.props.useTime,
-			useSeconds: this.props.useSeconds,
-		};
-	}
-
-	setPickerVisibility(isShown, force) {
-		if (this.props.readOnly) {
-			return;
-		}
-		/*
-		 * We have a force arg because we have the check, comparing current state with wanted state.
-		 * We have 2 events : blur (we hide picker), focus (we open picker).
-		 * The problem is when we loose focus to focus on another element within the picker.
-		 * It triggers a hide + show (in this order. But with the check, the show is stripped,
-		 * so in this case, the picker is always hidden.
-		 *
-		 * With force, we force the state, so we will have hide + show in the same bash of state update,
-		 * changing nothing. The picker is still open.
-		 */
-		if (!force && this.state.showPicker === isShown) {
-			return;
-		}
-		this.setState({ showPicker: isShown });
-	}
-
 	onBlur(event) {
+		/*
+		 This is wrapped in a timeout because when you switch focus via clic or gesture
+		 within the picker, you will have a blur event followed by a focus event.
+		 We don't want it to trigger the onBlur and to hide the picker if a focus happens just after.
+		 So here we schedule it, and on focus we cancel it.
+		 */
 		this.blurTimeout = setTimeout(() => {
 			this.closePicker();
 			if (this.props.onBlur) {
@@ -246,6 +162,27 @@ class InputDateTimePicker extends React.Component {
 	onFocus() {
 		clearTimeout(this.blurTimeout);
 		this.openPicker();
+	}
+
+	setPickerVisibility(isShown) {
+		if (this.props.readOnly) {
+			return;
+		}
+
+		this.setState(({ showPicker }) => {
+			if (showPicker === isShown) {
+				return null;
+			}
+			return { showPicker: isShown };
+		});
+	}
+
+	getDateOptions() {
+		return {
+			dateFormat: this.props.dateFormat,
+			useTime: this.props.useTime,
+			useSeconds: this.props.useSeconds,
+		};
 	}
 
 	render() {
