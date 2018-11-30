@@ -184,6 +184,7 @@ describe('InputDateTimePicker', () => {
 
 		it('should close picker on blur', () => {
 			// given
+			jest.useFakeTimers();
 			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} useTime />);
 			wrapper.simulate('focus');
 			expect(
@@ -195,6 +196,8 @@ describe('InputDateTimePicker', () => {
 
 			// when
 			wrapper.simulate('blur');
+			jest.runAllTimers();
+			wrapper.update();
 
 			// then
 			expect(
@@ -203,6 +206,22 @@ describe('InputDateTimePicker', () => {
 					.first()
 					.prop('show'),
 			).toBe(false);
+		});
+
+		it('should trigger props.onBlur', () => {
+			// given
+			jest.useFakeTimers();
+			const onBlur = jest.fn();
+			const event = { target: {} };
+			const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} onBlur={onBlur} useTime />);
+			expect(onBlur).not.toBeCalled();
+
+			// when
+			wrapper.simulate('blur', event);
+			jest.runAllTimers();
+
+			// then
+			expect(onBlur).toBeCalledWith(event);
 		});
 	});
 
@@ -268,22 +287,6 @@ describe('InputDateTimePicker', () => {
 
 			// then
 			expect(document.activeElement.classList.contains('tc-date-picker-day')).toBe(true);
-		});
-	});
-
-	describe('input blur', () => {
-		it('should trigger props.onBlur', () => {
-			// given
-			const onBlur = jest.fn();
-			const event = { target: {} };
-			const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} onBlur={onBlur} useTime />);
-			expect(onBlur).not.toBeCalled();
-
-			// when
-			wrapper.find('DebounceInput').simulate('blur', event);
-
-			// then
-			expect(onBlur).toBeCalledWith(event);
 		});
 	});
 

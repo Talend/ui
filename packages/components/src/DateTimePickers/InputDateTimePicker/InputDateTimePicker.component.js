@@ -60,7 +60,6 @@ class InputDateTimePicker extends React.Component {
 		}
 
 		checkSupportedDateFormat(props.dateFormat);
-		debugger;
 		this.popoverId = `date-time-picker-${props.id || uuid.v4()}`;
 		this.state = {
 			...extractPartsFromDateTime(props.selectedDateTime, this.getDateOptions()),
@@ -72,8 +71,8 @@ class InputDateTimePicker extends React.Component {
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onPickerChange = this.onPickerChange.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
-		this.openPicker = this.setPickerVisibility.bind(this, true, /* force */ true);
-		this.closePicker = this.setPickerVisibility.bind(this, false, /* force */ true);
+		this.openPicker = this.setPickerVisibility.bind(this, true);
+		this.closePicker = this.setPickerVisibility.bind(this, false);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -146,6 +145,12 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	onBlur(event) {
+		/*
+		 This is wrapped in a timeout because when you switch focus via clic or gesture
+		 within the picker, you will have a blur event followed by a focus event.
+		 We don't want it to trigger the onBlur and to hide the picker if a focus happens just after.
+		 So here we schedule it, and on focus we cancel it.
+		 */
 		this.blurTimeout = setTimeout(() => {
 			this.closePicker();
 			if (this.props.onBlur) {
@@ -159,24 +164,17 @@ class InputDateTimePicker extends React.Component {
 		this.openPicker();
 	}
 
-	setPickerVisibility(isShown, force) {
+	setPickerVisibility(isShown) {
 		if (this.props.readOnly) {
 			return;
 		}
-		/*
-		 * We have a force arg because we have the check, comparing current state with wanted state.
-		 * We have 2 events : blur (we hide picker), focus (we open picker).
-		 * The problem is when we loose focus to focus on another element within the picker.
-		 * It triggers a hide + show (in this order. But with the check, the show is stripped,
-		 * so in this case, the picker is always hidden.
-		 *
-		 * With force, we force the state, so we will have hide + show in the same bash of state update,
-		 * changing nothing. The picker is still open.
-		 */
-		if (!force && this.state.showPicker === isShown) {
-			return;
-		}
-		this.setState({ showPicker: isShown });
+
+		this.setState(({ showPicker }) => {
+			if (showPicker === isShown) {
+				return null;
+			}
+			return { showPicker: isShown };
+		});
 	}
 
 	getDateOptions() {
