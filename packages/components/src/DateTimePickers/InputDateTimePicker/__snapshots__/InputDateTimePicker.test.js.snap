@@ -1,7 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InputDateTimePicker render should render 1`] = `
-<div>
+exports[`InputDateTimePicker should render 1`] = `
+<div
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+>
   <DebounceInput
     autoComplete="off"
     className="form-control"
@@ -10,7 +14,7 @@ exports[`InputDateTimePicker render should render 1`] = `
     forceNotifyByEnter={true}
     forceNotifyOnBlur={true}
     id="DEFAULT_ID"
-    inputRef={undefined}
+    inputRef={[Function]}
     minLength={0}
     onBlur={[Function]}
     onChange={[Function]}
@@ -37,13 +41,20 @@ exports[`InputDateTimePicker render should render 1`] = `
         placement="right"
       >
         <DateTimePicker
+          manageFocus={true}
           onSubmit={[Function]}
           selection={
             Object {
               "date": 2017-04-03T22:00:00.000Z,
-              "time": 927,
+              "time": Object {
+                "hours": "15",
+                "minutes": "27",
+                "seconds": "00",
+              },
             }
           }
+          useSeconds={false}
+          useTime={true}
         />
       </Popover>
     </Overlay>

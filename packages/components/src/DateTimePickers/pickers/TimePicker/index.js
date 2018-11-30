@@ -1,4 +1,5 @@
-import TimePicker, { twoDigits } from './TimePicker.component';
+import { translate } from 'react-i18next';
+import TimePicker from './TimePicker.component';
+import I18N_DOMAIN_COMPONENTS from '../../../constants';
 
-export default TimePicker;
-export { twoDigits };
+export default translate(I18N_DOMAIN_COMPONENTS)(TimePicker);

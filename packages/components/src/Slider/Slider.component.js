@@ -55,7 +55,7 @@ export function getCaptionsValue(captionsLength, min, max) {
  * @param {number} max
  * @param {function} onChange
  */
-export function renderActions(actions, value, min, max, onChange) {
+export function renderActions(actions, value, min, max, onChange, disabled) {
 	const captions = getCaptionsValue(actions.length, min, max);
 	const position = getSelectedIconPosition(actions, value, min, max);
 	return (
@@ -63,9 +63,12 @@ export function renderActions(actions, value, min, max, onChange) {
 			{actions.map((action, index) => (
 				<Action
 					{...action}
+					disabled={disabled}
 					key={index}
 					onClick={() => onChange(captions[index])}
 					className={classnames(
+						theme['tc-slider-captions-element'],
+						'tc-slider-captions-element',
 						{ [theme.selected]: index === position },
 						{ selected: index === position },
 					)}
@@ -86,16 +89,23 @@ function renderIcons(icons, value, min, max) {
 	if (isIconsAvailables(icons)) {
 		const position = getSelectedIconPosition(icons, value, min, max);
 		return (
-			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-icons')}>
+			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')}>
 				{icons.map((icon, index) => (
-					<Icon
-						name={icon}
+					<div
 						className={classnames(
-							{ [theme.selected]: index === position },
-							{ selected: index === position },
+							theme['tc-slider-captions-element'],
+							'tc-slider-captions-element',
 						)}
-						key={index}
-					/>
+					>
+						<Icon
+							name={icon}
+							className={classnames(
+								{ [theme.selected]: index === position },
+								{ selected: index === position },
+							)}
+							key={index}
+						/>
+					</div>
 				))}
 			</div>
 		);
@@ -114,9 +124,17 @@ function renderTextCaptions(captionTextStepNumber, captionsFormat, min, max) {
 	if (captionTextStepNumber > 1) {
 		const captions = getCaptionsValue(captionTextStepNumber, min, max);
 		return (
-			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-text-captions')}>
+			<div className={classnames(theme['tc-slider-captions'], 'tc-slider-captions')}>
 				{captions.map((caption, index) => (
-					<span key={index}>{captionsFormat(caption)}</span>
+					<div
+						className={classnames(
+							theme['tc-slider-captions-element'],
+							'tc-slider-captions-element',
+						)}
+						key={index}
+					>
+						{captionsFormat(caption)}
+					</div>
 				))}
 			</div>
 		);
@@ -142,9 +160,10 @@ function getCaption(
 	min,
 	max,
 	onChange,
+	disabled,
 ) {
 	if (captionActions) {
-		return renderActions(captionActions, value, min, max, onChange);
+		return renderActions(captionActions, value, min, max, onChange, disabled);
 	} else if (captionIcons) {
 		return renderIcons(captionIcons, value, min, max);
 	} else if (captionTextStepNumber) {
@@ -195,6 +214,7 @@ class Slider extends React.Component {
 		min: PropTypes.number.isRequired,
 		max: PropTypes.number.isRequired,
 		captionsFormat: PropTypes.func,
+		disabled: PropTypes.bool,
 	};
 
 	constructor(props) {
@@ -215,21 +235,25 @@ class Slider extends React.Component {
 			min,
 			max,
 			onChange,
+			disabled,
 			...rest
 		} = this.props;
 		const noValue = value === null || value === undefined;
 		return (
-			<span className={classnames(theme['tc-slider'], 'tc-slider')}>
-				<RcSlider
-					id={id}
-					value={value}
-					min={min}
-					max={max}
-					handle={noValue ? undefined : this.state.handle}
-					className={classnames(theme['tc-slider-rc-slider'], 'tc-slider-rc-slider')}
-					onChange={onChange}
-					{...rest}
-				/>
+			<div>
+				<div className={classnames(theme['tc-slider'], 'tc-slider')}>
+					<RcSlider
+						id={id}
+						value={value}
+						min={min}
+						max={max}
+						handle={noValue ? undefined : this.state.handle}
+						className={classnames(theme['tc-slider-rc-slider'], 'tc-slider-rc-slider')}
+						onChange={onChange}
+						disabled={disabled}
+						{...rest}
+					/>
+				</div>
 				{getCaption(
 					captionActions,
 					captionIcons,
@@ -239,8 +263,9 @@ class Slider extends React.Component {
 					min,
 					max,
 					onChange,
+					disabled,
 				)}
-			</span>
+			</div>
 		);
 	}
 }

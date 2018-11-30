@@ -262,7 +262,7 @@ export class UIFormComponent extends React.Component {
 				/>
 			));
 		const buttonsRenderer = () => (
-			<div className={classNames(theme['form-actions'], 'tf-actions-wrapper')}>
+			<div className={classNames(theme['form-actions'], 'tf-actions-wrapper')} key="form-buttons">
 				<Buttons
 					id={`${this.props.id}-${this.props.id}-actions`}
 					onTrigger={this.onTrigger}

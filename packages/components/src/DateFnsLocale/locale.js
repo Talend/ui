@@ -1,4 +1,5 @@
 import { getCurrentLanguage } from '../translate';
+import buildFormatLocale from './formatters';
 
 export function buildDistanceInWordsLocale(t) {
 	function localize(token, count, options = {}) {
@@ -51,6 +52,7 @@ export default function getLocale(t) {
 	if (language !== currentlanguage) {
 		locale = {
 			distanceInWords: buildDistanceInWordsLocale(t),
+			format: buildFormatLocale(t),
 		};
 		language = getCurrentLanguage();
 	}
