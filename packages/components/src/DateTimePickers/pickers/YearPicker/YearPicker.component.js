@@ -101,9 +101,14 @@ class YearPicker extends React.Component {
 								tabIndex = 0;
 							}
 
+							let ariaLabel;
 							const liProps = {};
 							if (isSelectedYear) {
 								liProps['aria-current'] = true;
+								ariaLabel = t('DATEPICKER_YEAR_SELECTED', {
+									defaultValue: '{{year}}, selected',
+									year,
+								});
 							}
 
 							const classNames = classnames(
@@ -118,6 +123,7 @@ class YearPicker extends React.Component {
 										onClick={event => this.props.onSelect(event, year)}
 										tabIndex={tabIndex}
 										onKeyDown={event => onKeyDown(event, { index, size: YEAR_WINDOW_SIZE })}
+										aria-label={ariaLabel}
 									>
 										{year}
 									</button>
