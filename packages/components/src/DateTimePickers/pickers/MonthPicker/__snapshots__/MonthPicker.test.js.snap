@@ -4,12 +4,15 @@ exports[`MonthPicker should render 1`] = `
 <MonthCalendarGesture(MonthPicker)
   onSelect={[Function]}
   selectedMonthIndex={4}
+  selectedYear={2018}
 >
   <div>
     <MonthPicker
       onKeyDown={[Function]}
       onSelect={[Function]}
       selectedMonthIndex={4}
+      selectedYear={2018}
+      t={[Function]}
     >
       <table
         className="theme-container"
@@ -17,7 +20,7 @@ exports[`MonthPicker should render 1`] = `
         <caption
           className="sr-only"
         >
-          TODO: caption, month aria-label
+          Year 2018
         </caption>
         <tbody>
           <tr
@@ -29,6 +32,7 @@ exports[`MonthPicker should render 1`] = `
               key="0"
             >
               <button
+                aria-label="January 2018"
                 className="theme-calendar-month tc-date-picker-month"
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -43,6 +47,7 @@ exports[`MonthPicker should render 1`] = `
               key="1"
             >
               <button
+                aria-label="February 2018"
                 className="theme-calendar-month tc-date-picker-month"
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -57,6 +62,7 @@ exports[`MonthPicker should render 1`] = `
               key="2"
             >
               <button
+                aria-label="March 2018"
                 className="theme-calendar-month tc-date-picker-month"
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -76,6 +82,7 @@ exports[`MonthPicker should render 1`] = `
               key="3"
             >
               <button
+                aria-label="April 2018"
                 className="theme-calendar-month tc-date-picker-month"
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -91,6 +98,7 @@ exports[`MonthPicker should render 1`] = `
               key="4"
             >
               <button
+                aria-label="May 2018, selected"
                 className="theme-calendar-month theme-selected tc-date-picker-month"
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -105,6 +113,7 @@ exports[`MonthPicker should render 1`] = `
               key="5"
             >
               <button
+                aria-label="June 2018"
                 className="theme-calendar-month tc-date-picker-month"
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -124,6 +133,7 @@ exports[`MonthPicker should render 1`] = `
               key="6"
             >
               <button
+                aria-label="July 2018"
                 className="theme-calendar-month tc-date-picker-month"
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -138,6 +148,7 @@ exports[`MonthPicker should render 1`] = `
               key="7"
             >
               <button
+                aria-label="August 2018"
                 className="theme-calendar-month tc-date-picker-month"
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -152,6 +163,7 @@ exports[`MonthPicker should render 1`] = `
               key="8"
             >
               <button
+                aria-label="September 2018"
                 className="theme-calendar-month tc-date-picker-month"
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -171,6 +183,7 @@ exports[`MonthPicker should render 1`] = `
               key="9"
             >
               <button
+                aria-label="October 2018"
                 className="theme-calendar-month tc-date-picker-month"
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -185,6 +198,7 @@ exports[`MonthPicker should render 1`] = `
               key="10"
             >
               <button
+                aria-label="November 2018"
                 className="theme-calendar-month tc-date-picker-month"
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -199,6 +213,7 @@ exports[`MonthPicker should render 1`] = `
               key="11"
             >
               <button
+                aria-label="December 2018"
                 className="theme-calendar-month tc-date-picker-month"
                 onClick={[Function]}
                 onKeyDown={[Function]}
