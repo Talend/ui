@@ -32,22 +32,22 @@ class RowLarge extends React.Component {
 		const rawContent = getRowData(parent, index);
 		const dataKey = getDataKey(field);
 		const value = rawContent[dataKey];
-		if (value != null && `${value}`.trim().length) {
-			const cellContent = renderCell(index, parent, field);
-			const tooltip = typeof cellContent === 'string' ? cellContent : null;
-			const label = getLabel(field);
-			return (
-				<div className={theme['field-group']} role="group" key={label || index}>
-					<dt key={fieldIndex} className={theme['field-label']}>
-						{label}
-					</dt>
-					<dd className={theme['field-value']} title={tooltip}>
-						{cellContent}
-					</dd>
-				</div>
-			);
+		if (value == null) {
+			return null;
 		}
-		return null;
+		const cellContent = renderCell(index, parent, field);
+		const tooltip = typeof cellContent === 'string' ? cellContent : null;
+		const label = getLabel(field);
+		return (
+			<div className={theme['field-group']} role="group" key={label || index}>
+				<dt key={fieldIndex} className={theme['field-label']}>
+					{label}
+				</dt>
+				<dd className={theme['field-value']} title={tooltip}>
+					{cellContent}
+				</dd>
+			</div>
+		);
 	}
 
 	render() {

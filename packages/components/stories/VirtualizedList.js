@@ -266,7 +266,7 @@ const collection = [
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		description: 'Simple row with icon and actions',
-		author: ' ',
+		author: 'Jean-Pierre DUPONT',
 		display: 'text',
 		className: 'item-2-class',
 		persistentActions,
