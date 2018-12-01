@@ -68,6 +68,7 @@ class RowLarge extends React.Component {
 		if (parent.props.onRowDoubleClick) {
 			onRowDoubleClick = event => parent.props.onRowDoubleClick({ event, rowData });
 		}
+
 		return (
 			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 			<div
