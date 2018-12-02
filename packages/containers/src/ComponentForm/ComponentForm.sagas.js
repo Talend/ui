@@ -75,13 +75,18 @@ function* onFormSubmit(componentId, submitURL, action) {
 	}
 	const { response, data } = yield call(cmf.sagas.http.post, submitURL, action.properties);
 	if (!response.ok) {
-		return;
+		yield put({
+			type: Component.ON_SUBMIT_FAILED,
+			data,
+			componentId,
+		});
+	} else {
+		yield put({
+			type: Component.ON_SUBMIT_SUCCEED,
+			data,
+			componentId,
+		});
 	}
-	yield put({
-		type: Component.ON_SUBMIT_SUCCEED,
-		data,
-		componentId,
-	});
 }
 
 /**
