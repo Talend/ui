@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import HeaderTitle from '../HeaderTitle';
-import { Actions } from '../Actions';
+import { Action, Actions } from '../Actions';
 import Inject from '../Inject';
 
 export default function RichTitle(props) {
@@ -16,5 +16,5 @@ export default function RichTitle(props) {
 RichTitle.propTypes = {
 	getComponent: PropTypes.func,
 	title: PropTypes.string,
-	right: PropTypes.array,
+	right: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.shape(Action.propTypes)])),
 };
