@@ -1,5 +1,6 @@
 import {
 	checkSupportedDateFormat,
+	extractParts,
 	extractPartsFromDateAndTime,
 	extractPartsFromDateTime,
 	extractPartsFromTextInput,
@@ -43,6 +44,80 @@ describe('Date extraction', () => {
 		});
 	});
 
+	describe('extractParts', () => {
+		it('should return empty parts on undefined value', () => {
+			// given
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+			};
+
+			// when
+			const parts = extractParts(undefined, options);
+
+			// then
+			expect(parts).toEqual({
+				date: undefined,
+				time: { hours: '', minutes: '', seconds: '' },
+				datetime: undefined,
+				textInput: '',
+			});
+		});
+
+		it('should return parts from timestamp', () => {
+			// given
+			const date = new Date(2015, 8, 15, 12, 58, 22);
+			const timestamp = date.getTime();
+			const options = { dateFormat: 'YYYY-MM-DD' };
+
+			// when
+			const parts = extractParts(timestamp, options);
+
+			// then
+			expect(parts).toEqual({
+				date: new Date(2015, 8, 15),
+				datetime: date,
+				textInput: '2015-09-15',
+				time: { hours: '00', minutes: '00', seconds: '00' },
+			});
+		});
+
+		it('should return parts from Date', () => {
+			// given
+			const validDate = new Date(2015, 8, 15, 12, 58, 22);
+			const options = { dateFormat: 'YYYY-MM-DD' };
+
+			// when
+			const parts = extractParts(validDate, options);
+
+			// then
+			expect(parts).toEqual({
+				date: new Date(2015, 8, 15),
+				datetime: validDate,
+				textInput: '2015-09-15',
+				time: { hours: '00', minutes: '00', seconds: '00' },
+			});
+		});
+
+		it('should return parts from string', () => {
+			// given
+			const value = '2015-09-15';
+			const options = { dateFormat: 'YYYY-MM-DD' };
+
+			// when
+			const parts = extractParts(value, options);
+
+			// then
+			expect(parts).toEqual({
+				date: new Date(2015, 8, 15),
+				datetime: new Date(2015, 8, 15),
+				textInput: value,
+				time: { hours: '00', minutes: '00', seconds: '00' },
+			});
+		});
+	});
+
 	describe('extractPartsFromDateTime', () => {
 		it('should return empty parts on invalid date', () => {
 			// given
@@ -61,26 +136,6 @@ describe('Date extraction', () => {
 				date: undefined,
 				time: { hours: '', minutes: '', seconds: '' },
 				datetime: 'lol',
-				textInput: '',
-			});
-		});
-
-		it('should return empty parts on undefined date', () => {
-			// given
-			const options = {
-				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
-				useSeconds: true,
-			};
-
-			// when
-			const parts = extractPartsFromDateTime(undefined, options);
-
-			// then
-			expect(parts).toEqual({
-				date: undefined,
-				time: { hours: '', minutes: '', seconds: '' },
-				datetime: undefined,
 				textInput: '',
 			});
 		});

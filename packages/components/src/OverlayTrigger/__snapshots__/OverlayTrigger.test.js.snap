@@ -14,7 +14,7 @@ exports[`OverlayTrigger should inject the overlay 1`] = `
 
 exports[`OverlayTrigger should wrap the children with an overlay 1`] = `
 <span
-  className="theme-tc-action-button-positionned"
+  className="theme-tc-action-button-positionned tc-action-button-positionned"
 >
   <OverlayTrigger
     defaultOverlayShown={false}

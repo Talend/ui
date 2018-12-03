@@ -31,15 +31,10 @@ $tc-popover-header-footer-height: 7rem !default;
 	padding: 0 $padding-large;
 	height: $tc-popover-header-footer-height;
 	min-width: $tc-popover-max-width;
-	> :global(.btn) {
-		margin: $padding-normal $padding-small;
-	}
-	> :global(.btn):last-child {
-		margin-right: 0;
-	}
 }
 
 .footer:not(:empty) {
+	overflow: hidden;
 	border-top: $tc-popover-border-width solid $tc-popover-header-border-color;
 	justify-content: space-between;
 	align-items: center;
@@ -52,6 +47,11 @@ $tc-popover-header-footer-height: 7rem !default;
 
 .header:not(:empty) {
 	border-bottom: $tc-popover-border-width solid $tc-popover-header-border-color;
+
+	:global(.btn) {
+		margin-top: $padding-normal;
+		margin-bottom: $padding-normal;
+	}
 }
 
 .header:not(:empty) + .body {
@@ -66,7 +66,7 @@ $tc-popover-header-footer-height: 7rem !default;
 	color: $dove-gray;
 }
 
-.content {
+.content:not(:empty) {
 	// wrapper used to fix the ie11 bug with flexbox when (align-items: center & min-height)
 	// https://stackoverflow.com/a/47180276
 	width: 100%;

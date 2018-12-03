@@ -62,6 +62,21 @@ const screenshotTest = (async () => {
 
 	async function getScreenShot(page, config) {
 		let screenshot;
+		if (config.click) {
+			await page.evaluate(() => {
+				return new Promise(resolve => {
+					setInterval(() => {
+						// the code can t rely on config ...
+						const btn = document.querySelector('button');
+						if (btn) {
+							btn.click();
+							resolve();
+						}
+					}, 100);
+					return true;
+				});
+			});
+		}
 		const element = await page.$(`${config.selector}`);
 		if (element) {
 			screenshot = await tmp.file(TMP_CONFIG);
