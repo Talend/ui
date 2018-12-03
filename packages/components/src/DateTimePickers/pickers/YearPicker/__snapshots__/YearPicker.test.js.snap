@@ -24,6 +24,7 @@ exports[`YearPicker should default render with current year in middle when "sele
         onClick={[Function]}
         onKeyDown={[Function]}
         tabIndex={-1}
+        type="button"
       >
         2022
       </button>
@@ -35,6 +36,7 @@ exports[`YearPicker should default render with current year in middle when "sele
         onClick={[Function]}
         onKeyDown={[Function]}
         tabIndex={-1}
+        type="button"
       >
         2023
       </button>
@@ -46,6 +48,7 @@ exports[`YearPicker should default render with current year in middle when "sele
         onClick={[Function]}
         onKeyDown={[Function]}
         tabIndex={-1}
+        type="button"
       >
         2024
       </button>
@@ -57,6 +60,7 @@ exports[`YearPicker should default render with current year in middle when "sele
         onClick={[Function]}
         onKeyDown={[Function]}
         tabIndex={0}
+        type="button"
       >
         2025
       </button>
@@ -68,6 +72,7 @@ exports[`YearPicker should default render with current year in middle when "sele
         onClick={[Function]}
         onKeyDown={[Function]}
         tabIndex={-1}
+        type="button"
       >
         2026
       </button>
@@ -79,6 +84,7 @@ exports[`YearPicker should default render with current year in middle when "sele
         onClick={[Function]}
         onKeyDown={[Function]}
         tabIndex={-1}
+        type="button"
       >
         2027
       </button>
@@ -90,6 +96,7 @@ exports[`YearPicker should default render with current year in middle when "sele
         onClick={[Function]}
         onKeyDown={[Function]}
         tabIndex={-1}
+        type="button"
       >
         2028
       </button>
@@ -132,6 +139,7 @@ exports[`YearPicker should render 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         tabIndex={-1}
+        type="button"
       >
         2009
       </button>
@@ -143,6 +151,7 @@ exports[`YearPicker should render 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         tabIndex={-1}
+        type="button"
       >
         2010
       </button>
@@ -154,6 +163,7 @@ exports[`YearPicker should render 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         tabIndex={-1}
+        type="button"
       >
         2011
       </button>
@@ -167,6 +177,7 @@ exports[`YearPicker should render 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         tabIndex={0}
+        type="button"
       >
         2012
       </button>
@@ -178,6 +189,7 @@ exports[`YearPicker should render 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         tabIndex={-1}
+        type="button"
       >
         2013
       </button>
@@ -189,6 +201,7 @@ exports[`YearPicker should render 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         tabIndex={-1}
+        type="button"
       >
         2014
       </button>
@@ -200,6 +213,7 @@ exports[`YearPicker should render 1`] = `
         onClick={[Function]}
         onKeyDown={[Function]}
         tabIndex={-1}
+        type="button"
       >
         2015
       </button>
