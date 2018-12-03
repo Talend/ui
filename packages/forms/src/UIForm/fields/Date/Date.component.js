@@ -99,12 +99,12 @@ class DateWidget extends React.Component {
 	}
 }
 
-DateWidget.displayName = 'DateTime Widget';
+DateWidget.displayName = 'Date Widget';
+DateWidget.defaultProps = {
+	options: {},
+};
 
 if (process.env.NODE_ENV !== 'production') {
-	DateWidget.defaultProps = {
-		options: {},
-	};
 	DateWidget.propTypes = {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
