@@ -1,7 +1,6 @@
 /**
  * Internal module, you should not use it directly
  * @module react-cmf/lib/App
- * @example
  */
 import PropTypes from 'prop-types';
 
