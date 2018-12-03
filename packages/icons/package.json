@@ -3,7 +3,7 @@
   "description": "A scalable set of icons handcrafted with <3 by Talend.",
   "main": "index.js",
   "style": "build/octicons.css",
-  "license": "(OFL-1.1 OR MIT)",
+  "license": "Apache-2.0",
   "scripts": {
     "build-react": "node scripts/react.js",
     "build-webfont": "webpack --progress",
