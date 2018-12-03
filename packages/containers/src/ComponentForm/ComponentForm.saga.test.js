@@ -296,12 +296,12 @@ describe('ComponentForm saga', () => {
 			},
 			type: 'ComponentForm.setState',
 		};
+		let submitUrl = 'http://test.com';
+		let action = { componentId: 'form', properties: 'prop' };
+		const data = { message: 'fetch failed' };
 
 		it('should return on submit success if the http request has worked', () => {
 			// given
-			const submitUrl = 'http://test.com';
-			const action = { componentId: 'form', properties: 'prop' };
-			const data = { message: 'fetch failed' };
 			const response = { ok: true };
 			const gen = sagas.onFormSubmit(componentId, submitUrl, action);
 			// when
@@ -322,9 +322,6 @@ describe('ComponentForm saga', () => {
 
 		it('should return on submit failed if the http request has failed', () => {
 			// given
-			const submitUrl = 'http://test.com';
-			const action = { componentId: 'form', properties: 'prop' };
-			const data = { message: 'fetch failed' };
 			const response = { ok: false };
 			const gen = sagas.onFormSubmit(componentId, submitUrl, action);
 			// when
@@ -345,8 +342,7 @@ describe('ComponentForm saga', () => {
 
 		it('should return nothing if there is not the matched component id', () => {
 			// given
-			const submitUrl = 'http://test.com';
-			const action = { componentId: 'form2', properties: 'prop' };
+			action = { componentId: 'form2', properties: 'prop' };
 			const gen = sagas.onFormSubmit(componentId, submitUrl, action);
 			// when
 			const value = gen.next().value;
@@ -357,8 +353,8 @@ describe('ComponentForm saga', () => {
 		it('should return nothing if there is no submit url', () => {
 			// given
 
-			const submitUrl = '';
-			const action = { componentId: 'form', properties: 'prop' };
+			submitUrl = '';
+			action = { componentId: 'form', properties: 'prop' };
 			const gen = sagas.onFormSubmit(componentId, submitUrl, action);
 			// when
 			expect(gen.next().value).toEqual(select());
