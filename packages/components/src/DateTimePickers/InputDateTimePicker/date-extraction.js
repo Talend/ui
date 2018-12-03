@@ -383,7 +383,7 @@ function extractPartsFromTextInput(textInput, options) {
 /**
  * Extract parts (date, time, date/time, textInput) from a value with
  * different possible types
- * @param value {string | Date \ number}
+ * @param value {string | Date | number}
  * @param options {Object}
  * @returns
  *	{{
