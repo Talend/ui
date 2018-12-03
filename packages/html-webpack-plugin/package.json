@@ -13,14 +13,14 @@
     "url": "github:Talend/ui"
   },
   "devDependencies": {
-    "@talend/react-components": "^0.180.0",
+    "@talend/react-components": "^1.9.0",
     "eslint": "3.4.0",
     "eslint-config-airbnb": "10.0.1",
     "eslint-plugin-import": "1.14.0",
-    "jest": "20.0.3"
+    "jest": "^23.6.0"
   },
   "peerDependencies": {
-    "@talend/react-components": "^0.180.0"
+    "@talend/react-components": "^1.8.0"
   },
   "publishConfig": {
     "access": "public"

@@ -40,7 +40,7 @@
     "eslint-plugin-react": "^6.3.0",
     "immutable": "3.8.1",
     "invariant": "2.2.2",
-    "jest": "^23.0.0",
+    "jest": "^23.6.0",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "react-redux": "5.0.5",
