@@ -108,7 +108,7 @@ describe('Default Array Template component', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render with error', () => {
+	it('should render error with error classname', () => {
 		// when
 		const wrapper = shallow(
 			<DefaultArrayTemplate.WrappedComponent
@@ -126,6 +126,7 @@ describe('Default Array Template component', () => {
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const message = wrapper.find('Message');
+		expect(message.prop('className')).toBe('has-error');
 	});
 });
