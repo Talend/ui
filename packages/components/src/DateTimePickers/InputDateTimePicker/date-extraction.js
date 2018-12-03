@@ -58,6 +58,33 @@ function isDateValid(date) {
 }
 
 /**
+ * Convert a date in local timezone to UTC
+ * @param date {Object} a valid Date object
+ */
+export function convertToUTC(date, dateIsUtc = false) {
+	// the date is already in UTC
+	// converting the date to get UTC values
+	if (dateIsUtc) {
+		return new Date(
+			date.getUTCFullYear(),
+			date.getUTCMonth(),
+			date.getUTCDate(),
+			date.getUTCHours(),
+			date.getUTCMinutes(),
+			date.getUTCSeconds(),
+		);
+	}
+	return new Date(Date.UTC(
+		date.getFullYear(),
+		date.getMonth(),
+		date.getDate(),
+		date.getHours(),
+		date.getMinutes(),
+		date.getSeconds(),
+	));
+}
+
+/**
  * Check if time is correct
  */
 function checkTime({ hours, minutes, seconds }) {
@@ -128,7 +155,7 @@ function dateTimeToStr(date, time, options) {
  * @param time {{hours: string, minutes: string, seconds: string}}
  * @returns {Date}
  */
-function dateAndTimeToDateTime(date, time) {
+function dateAndTimeToDateTime(date, time, options) {
 	if (date === undefined || time === undefined) {
 		return INTERNAL_INVALID_DATE;
 	}
@@ -136,7 +163,9 @@ function dateAndTimeToDateTime(date, time) {
 	try {
 		const { hours, minutes, seconds } = time;
 		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
-		return setSeconds(date, timeInSeconds);
+		const localTimezoneDate = setSeconds(date, timeInSeconds);
+		return options.useUTC ?
+			convertToUTC(localTimezoneDate) : localTimezoneDate;
 	} catch (e) {
 		return INTERNAL_INVALID_DATE;
 	}
@@ -261,11 +290,11 @@ function extractPartsFromDateTime(datetime, options) {
 		};
 	}
 
-	const date = startOfDay(datetime);
+	const date = options.useUTC ? convertToUTC(datetime, true) : datetime;
 	if (options.useTime) {
-		const hours = getHours(datetime);
-		const minutes = getMinutes(datetime);
-		const seconds = getSeconds(datetime);
+		const hours = getHours(date);
+		const minutes = getMinutes(date);
+		const seconds = getSeconds(date);
 
 		time = {
 			hours: pad(hours, 2),
@@ -275,10 +304,10 @@ function extractPartsFromDateTime(datetime, options) {
 	}
 
 	return {
-		date,
+		date: startOfDay(date),
 		time,
 		datetime: startOfSecond(datetime),
-		textInput: dateTimeToStr(date, time, options),
+		textInput: dateTimeToStr(startOfDay(date), time, options),
 	};
 }
 
@@ -313,7 +342,7 @@ function extractPartsFromDateAndTime(date, time, options) {
 		date,
 		time: timeToUse,
 		textInput: dateTimeToStr(date, timeToUse, options),
-		datetime: dateAndTimeToDateTime(date, timeToUse),
+		datetime: dateAndTimeToDateTime(date, timeToUse, options),
 		errorMessage,
 	};
 }
@@ -374,7 +403,7 @@ function extractPartsFromTextInput(textInput, options) {
 	return {
 		date,
 		time,
-		datetime: dateAndTimeToDateTime(date, time),
+		datetime: dateAndTimeToDateTime(date, time, options),
 		textInput,
 		errorMessage,
 	};

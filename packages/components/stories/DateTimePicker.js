@@ -111,6 +111,31 @@ storiesOf('DateTimePicker', module)
 			</form>
 		</div>
 	))
+	.add('InputDateTimePicker in UTC', () => (
+		<div>
+			<IconsProvider />
+			<h1>InputDateTimePicker</h1>
+			<p>You can require time with a simple "useTime" props.</p>
+			<pre>{`
+<InputDateTimePicker
+	id="my-date-picker"
+	...
+	useTime
+/>
+			`}</pre>
+			<form style={{ width: 320 }}>
+				<InputDateTimePicker
+					id="my-date-picker"
+					name="Datetime"
+					onBlur={action('onBlur')}
+					onChange={action('onChange')}
+					selectedDateTime={new Date(Date.UTC(2018, 4, 13, 12, 30, 44))}
+					useTime
+					useUTC
+				/>
+			</form>
+		</div>
+	))
 	.add('InputDateTimePicker - seconds', () => (
 		<div>
 			<IconsProvider />
