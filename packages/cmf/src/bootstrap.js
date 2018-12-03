@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import createSagaMiddleware from 'redux-saga';
 import { batchedSubscribe } from 'redux-batched-subscribe';
-import { call, fork } from 'redux-saga/effects';
+import { spawn } from 'redux-saga/effects';
 import compose from 'redux';
 
 import App from './App';
@@ -48,9 +48,9 @@ export function bootstrapRegistry(options) {
 export function bootstrapSaga(options) {
 	assertTypeOf(options, 'saga', 'function');
 	function* cmfSaga() {
-		yield fork(sagas.component.handle);
+		yield spawn(sagas.component.handle);
 		if (typeof options.saga === 'function') {
-			yield call(options.saga);
+			yield spawn(options.saga);
 		}
 	}
 	const middleware = createSagaMiddleware();

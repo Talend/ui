@@ -186,8 +186,18 @@ storiesOf('DateTimePicker', module)
 				</li>
 			</ul>
 
-			<div style={{ width: 320, border: '1px solid black' }}>
-				<DateTimePicker onSubmit={action('onSubmit')} />
+			<div style={{ display: 'flex', alignItems: 'flex-start' }}>
+				<div style={{ width: 320, border: '1px solid black', marginRight: '1rem' }}>
+					<DateTimePicker onSubmit={action('onSubmit')} useTime useSeconds />
+				</div>
+
+				<div style={{ width: 320, border: '1px solid black', marginRight: '1rem' }}>
+					<DateTimePicker onSubmit={action('onSubmit')} useTime />
+				</div>
+
+				<div style={{ width: 320, border: '1px solid black', marginRight: '1rem' }}>
+					<DateTimePicker onSubmit={action('onSubmit')} />
+				</div>
 			</div>
 		</div>
 	));
