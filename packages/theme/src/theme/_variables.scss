@@ -57,12 +57,12 @@ $font-size-base: 14px !default;
 $font-size-large: ceil(($font-size-base * 1.25)) !default; // ~18px
 $font-size-small: ceil(($font-size-base * 0.85)) !default; // ~12px
 
-$font-size-h1: floor(($font-size-base * 2.6)) !default; // ~36px
-$font-size-h2: floor(($font-size-base * 2.15)) !default; // ~30px
-$font-size-h3: ceil(($font-size-base * 1.7)) !default; // ~24px
-$font-size-h4: ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-h5: $font-size-base !default;
-$font-size-h6: ceil(($font-size-base * 0.85)) !default; // ~12px
+$font-size-h1: $font-size-large !default;
+$font-size-h2: ceil(($font-size-base * 1.14)) !default; // ~16px
+$font-size-h3: $font-size-base !default;
+$font-size-h4: $font-size-small;
+$font-size-h5: $font-size-small;
+$font-size-h6: $font-size-small;
 
 $font-weight-bold: 600;
 
@@ -77,7 +77,7 @@ $form-input-font-size: 16px !default;
 
 //** By default, this inherits from the `<body>`.
 $headings-font-family: inherit !default;
-$headings-font-weight: 500 !default;
+$headings-font-weight: $font-weight-bold;
 $headings-line-height: 1.1 !default;
 $headings-color: inherit !default;
 
