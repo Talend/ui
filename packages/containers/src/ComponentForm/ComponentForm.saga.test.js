@@ -1,4 +1,4 @@
-import { call } from 'redux-saga/effects';
+import { call, select, put } from 'redux-saga/effects';
 import { fromJS, Map } from 'immutable';
 import cmf from '@talend/react-cmf';
 
@@ -275,6 +275,96 @@ describe('ComponentForm saga', () => {
 				},
 				type: 'ComponentForm.setState',
 			});
+		});
+	});
+
+	describe('onFormSubmit', () => {
+		const componentId = 'form';
+		const prevState = {
+			cmf: { components: fromJS({ [TCompForm.displayName]: { [componentId]: {} } }) },
+		};
+		const mergeStatePayload = {
+			cmf: {
+				componentState: {
+					componentName: 'ComponentForm',
+					componentState: fromJS({
+						initialState: { jsonSchema: undefined, uiSchema: undefined, properties: 'prop' },
+					}),
+					key: 'form',
+					type: 'REACT_CMF.COMPONENT_MERGE_STATE',
+				},
+			},
+			type: 'ComponentForm.setState',
+		};
+
+		it('should return on submit success if the http request has worked', () => {
+			// given
+			const submitUrl = 'http://test.com';
+			const action = { componentId: 'form', properties: 'prop' };
+			const data = { message: 'fetch failed' };
+			const response = { ok: true };
+			const gen = sagas.onFormSubmit(componentId, submitUrl, action);
+			// when
+			expect(gen.next().value).toEqual(select());
+			expect(gen.next(prevState).value).toEqual(put(mergeStatePayload));
+			expect(gen.next().value).toEqual(call(cmf.sagas.http.post, submitUrl, action.properties));
+			expect(gen.next({ response, data }).value).toEqual(
+				put({
+					type: TCompForm.ON_SUBMIT_SUCCEED,
+					data,
+					response,
+					componentId,
+				}),
+			);
+			// then
+			expect(gen.next().value).toEqual(undefined);
+		});
+
+		it('should return on submit failed if the http request has failed', () => {
+			// given
+			const submitUrl = 'http://test.com';
+			const action = { componentId: 'form', properties: 'prop' };
+			const data = { message: 'fetch failed' };
+			const response = { ok: false };
+			const gen = sagas.onFormSubmit(componentId, submitUrl, action);
+			// when
+			expect(gen.next().value).toEqual(select());
+			expect(gen.next(prevState).value).toEqual(put(mergeStatePayload));
+			expect(gen.next().value).toEqual(call(cmf.sagas.http.post, submitUrl, action.properties));
+			expect(gen.next({ response, data }).value).toEqual(
+				put({
+					type: TCompForm.ON_SUBMIT_FAILED,
+					data,
+					response,
+					componentId,
+				}),
+			);
+			// then
+			expect(gen.next().value).toEqual(undefined);
+		});
+
+		it('should return nothing if there is not the matched component id', () => {
+			// given
+			const submitUrl = 'http://test.com';
+			const action = { componentId: 'form2', properties: 'prop' };
+			const gen = sagas.onFormSubmit(componentId, submitUrl, action);
+			// when
+			const value = gen.next().value;
+			// then
+			expect(value).toEqual(undefined);
+		});
+
+		it('should return nothing if there is no submit url', () => {
+			// given
+
+			const submitUrl = '';
+			const action = { componentId: 'form', properties: 'prop' };
+			const gen = sagas.onFormSubmit(componentId, submitUrl, action);
+			// when
+			expect(gen.next().value).toEqual(select());
+			expect(gen.next(prevState).value).toEqual(put(mergeStatePayload));
+			// then
+			expect(gen.next().value).toEqual(undefined);
 		});
 	});
 });
