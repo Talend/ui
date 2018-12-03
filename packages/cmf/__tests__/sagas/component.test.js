@@ -1,4 +1,4 @@
-import { fork, take, takeEvery, cancel } from 'redux-saga/effects';
+import { spawn, takeEvery, cancel } from 'redux-saga/effects';
 import { createMockTask } from 'redux-saga/utils';
 import registry from '../../src/registry';
 import { onSagaStart, handle } from '../../src/sagas/component';
@@ -21,7 +21,7 @@ describe('sagas.component', () => {
 		const gen = onSagaStart(testAction);
 
 		// then
-		expect(gen.next().value).toEqual(fork(saga, { componentId: 'myComponent' }));
+		expect(gen.next().value).toEqual(spawn(saga, { componentId: 'myComponent' }));
 		const next = gen.next(task).value;
 		expect(next.TAKE).toBeDefined();
 		expect(
@@ -52,7 +52,7 @@ describe('sagas.component', () => {
 		expect(gen.next().done).toBe(true);
 	});
 
-	it('should onSagaStart forks action.saga with params and waits for unmount cancelling*', () => {
+	it('should onSagaStart spawns action.saga with params and waits for unmount cancelling*', () => {
 		// given
 		const testAction = {
 			type: 'TEST',
@@ -68,7 +68,7 @@ describe('sagas.component', () => {
 		const gen = onSagaStart(testAction);
 
 		// then
-		expect(gen.next().value).toEqual(fork(saga, { componentId: 'myComponent' }));
+		expect(gen.next().value).toEqual(spawn(saga, { componentId: 'myComponent' }));
 		const next = gen.next(task).value;
 		expect(next.TAKE).toBeDefined();
 		expect(gen.next({ event: { componentId: 42 } }).value).toEqual(cancel(task));
@@ -94,7 +94,7 @@ describe('sagas.component', () => {
 
 		// then
 		expect(gen.next().value).toEqual(
-			fork(saga, { componentId: 'myComponent' }, 'foo', { bar: true }),
+			spawn(saga, { componentId: 'myComponent' }, 'foo', { bar: true }),
 		);
 	});
 
