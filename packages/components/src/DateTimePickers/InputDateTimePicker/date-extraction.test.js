@@ -1,21 +1,60 @@
 import {
-	checkTime,
-	dateAndTimeToDateTime,
-	dateTimeToStr,
-	extractDateTimeParts,
-	isDateValid,
-	strToDate,
-	strToTime,
+	checkSupportedDateFormat,
+	extractPartsFromDateAndTime,
+	extractPartsFromDateTime,
+	extractPartsFromTextInput,
+	getFullDateFormat,
 } from './date-extraction';
 
 describe('Date extraction', () => {
-	describe('extractDateTimeParts', () => {
+	describe('checkSupportedDateFormat', () => {
+		it('should pass', () => {
+			// given
+			const format = 'DD/MM/YYYY';
+
+			// when
+			try {
+				checkSupportedDateFormat(format);
+			} catch (e) {
+				// then
+				fail(
+					`checkSupportedDateFormat() should not throw an error on ${format} because it is a composition of YYY MM DD`,
+				);
+			}
+		});
+
+		it('should throw an error when not a composition of YYYY MM DD', () => {
+			// given
+			const format = 'YYYY MMM DD';
+
+			// when
+			try {
+				checkSupportedDateFormat(format);
+			} catch (e) {
+				// then
+				expect(e.message).toBe(
+					'DATE FORMAT YYYY MMM DD - NOT SUPPORTED. Please provide a composition of YYYY, MM, DD',
+				);
+				return;
+			}
+			fail(
+				`checkSupportedDateFormat() should throw an error on ${format} because it is not a composition of YYY MM DD`,
+			);
+		});
+	});
+
+	describe('extractPartsFromDateTime', () => {
 		it('should return empty parts on invalid date', () => {
 			// given
 			const invalidDate = 'lol';
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+			};
 
 			// when
-			const parts = extractDateTimeParts(invalidDate, { dateFormat: 'YYYY-MM-DD' });
+			const parts = extractPartsFromDateTime(invalidDate, options);
 
 			// then
 			expect(parts).toEqual({
@@ -26,12 +65,53 @@ describe('Date extraction', () => {
 			});
 		});
 
-		it('should return valid date parts', () => {
+		it('should return empty parts on undefined date', () => {
 			// given
-			const validDate = new Date(2015, 8, 15, 12, 58);
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+			};
 
 			// when
-			const parts = extractDateTimeParts(validDate, { dateFormat: 'YYYY-MM-DD' });
+			const parts = extractPartsFromDateTime(undefined, options);
+
+			// then
+			expect(parts).toEqual({
+				date: undefined,
+				time: { hours: '', minutes: '', seconds: '' },
+				datetime: undefined,
+				textInput: '',
+			});
+		});
+
+		it('should return valid date parts', () => {
+			// given
+			const validDate = new Date(2015, 8, 15, 12, 58, 22);
+			const options = { dateFormat: 'YYYY-MM-DD' };
+
+			// when
+			const parts = extractPartsFromDateTime(validDate, options);
+
+			// then
+			expect(parts).toEqual({
+				date: new Date(2015, 8, 15),
+				datetime: validDate,
+				textInput: '2015-09-15',
+				time: { hours: '00', minutes: '00', seconds: '00' },
+			});
+		});
+
+		it('should return valid date parts with time', () => {
+			// given
+			const validDate = new Date(2015, 8, 15, 12, 58, 22);
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+			};
+
+			// when
+			const parts = extractPartsFromDateTime(validDate, options);
 
 			// then
 			expect(parts).toEqual({
@@ -41,12 +121,18 @@ describe('Date extraction', () => {
 				time: { hours: '12', minutes: '58', seconds: '00' },
 			});
 		});
+
 		it('should return valid date parts with seconds', () => {
 			// given
 			const validDate = new Date(2015, 8, 15, 12, 58, 22);
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+			};
 
 			// when
-			const parts = extractDateTimeParts(validDate, { dateFormat: 'YYYY-MM-DD', useSeconds: true });
+			const parts = extractPartsFromDateTime(validDate, options);
 
 			// then
 			expect(parts).toEqual({
@@ -58,288 +144,376 @@ describe('Date extraction', () => {
 		});
 	});
 
-	describe('strToDate', () => {
-		it('should convert valid date', () => {
+	describe('extractPartsFromDateAndTime', () => {
+		it('should extract parts from date', () => {
 			// given
-			const strToParse = '2014-12-25';
+			const date = new Date(2015, 8, 15);
+			const time = { hours: '12', minutes: '58', seconds: '22' };
+			const options = { dateFormat: 'YYYY-MM-DD' };
 
 			// when
-			const date = strToDate(strToParse, 'YYYY-MM-DD');
+			const parts = extractPartsFromDateAndTime(date, time, options);
 
 			// then
-			expect(date).toEqual(new Date(2014, 11, 25));
-		});
-
-		it('should return error with incorrect month', done => {
-			// given
-			const strWithZeroMonth = '2014-0-25';
-			const strWithTooHighMonth = '2014-15-25';
-
-			// when/then
-			try {
-				strToDate(strWithZeroMonth, 'YYYY-MM-DD');
-				done.fail('strToDate should have thrown an error with incorrect month');
-			} catch (error) {
-				expect(error.message).toBe('DATE - INCORRECT FORMAT');
-			}
-
-			// when/then
-			try {
-				strToDate(strWithTooHighMonth, 'YYYY-MM-DD');
-				done.fail('strToDate should have thrown an error with incorrect month');
-			} catch (error) {
-				expect(error.message).toBe('DATE - INCORRECT MONTH NUMBER');
-			}
-
-			done();
-		});
-
-		it('should return error with incorrect day', done => {
-			// given
-			const strWithZeroDay = '2014-11-00';
-			const strWithTooHighDay = '2014-02-31';
-
-			// when/then
-			try {
-				strToDate(strWithZeroDay, 'YYYY-MM-DD');
-				done.fail('strToDate should have thrown an error with incorrect day');
-			} catch (error) {
-				expect(error.message).toBe('DATE - INCORRECT DAY NUMBER');
-			}
-
-			// when/then
-			try {
-				strToDate(strWithTooHighDay, 'YYYY-MM-DD');
-				done.fail('strToDate should have thrown an error with incorrect day');
-			} catch (error) {
-				expect(error.message).toBe('DATE - INCORRECT DAY NUMBER RELATIVE TO MONTH');
-			}
-
-			done();
-		});
-	});
-
-	describe('strToTime', () => {
-		it('should convert valid time', () => {
-			// given
-			const strToParse = '02:52';
-
-			// when
-			const time = strToTime(strToParse);
-
-			// then
-			expect(time).toEqual({ hours: '02', minutes: '52', seconds: '00' });
-		});
-
-		it('should convert valid time using seconds', () => {
-			// given
-			const strToParse = '02:52:22';
-
-			// when
-			const time = strToTime(strToParse, true);
-
-			// then
-			expect(time).toEqual({ hours: '02', minutes: '52', seconds: '22' });
-		});
-
-		it('should return error with incorrect format', done => {
-			// given
-			const strToParse = 'azerty';
-
-			try {
-				// when
-				strToTime(strToParse);
-				done.fail('strToTime should have thrown an error with incorrect format');
-			} catch (error) {
-				// then
-				expect(error.message).toBe('TIME - INCORRECT FORMAT');
-			}
-
-			done();
-		});
-
-		it('should convert invalid string that match xx:xx format', () => {
-			// given
-			const strToParse = 'aze:66toto';
-
-			// when
-			const time = strToTime(strToParse);
-
-			// then
-			expect(time).toEqual({
-				hours: 'aze',
-				minutes: '66toto',
-				seconds: '00',
+			expect(parts).toEqual({
+				date,
+				datetime: date,
+				textInput: '2015-09-15',
+				time: { hours: '00', minutes: '00', seconds: '00' },
 			});
 		});
 
-		it('should convert invalid string that match xx:xx:xx format using seconds part', () => {
+		it('should extract parts from date with time', () => {
 			// given
-			const strToParse = 'aze:66toto:tata';
+			const date = new Date(2015, 8, 15);
+			const time = { hours: '12', minutes: '58', seconds: '00' };
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+			};
 
 			// when
-			const time = strToTime(strToParse, true);
+			const parts = extractPartsFromDateAndTime(date, time, options);
 
 			// then
-			expect(time).toEqual({
-				hours: 'aze',
-				minutes: '66toto',
-				seconds: 'tata',
+			expect(parts).toEqual({
+				date,
+				datetime: new Date(2015, 8, 15, 12, 58),
+				textInput: '2015-09-15 12:58',
+				time: { hours: '12', minutes: '58', seconds: '00' },
+				errorMessage: undefined,
 			});
 		});
-	});
 
-	describe('dateTimeToStr', () => {
-		it('should return empty string with no date', () => {
-			// given
-			const date = undefined;
-			const time = { hours: '02', minutes: '52' };
-
-			// when
-			const result = dateTimeToStr(date, time, { dateFormat: 'YYYY-MM-DD' });
-
-			// then
-			expect(result).toBe('');
-		});
-
-		it('should convert only the date', () => {
+		it('should extract parts from date with seconds', () => {
 			// given
 			const date = new Date(2015, 8, 15);
-			const time = undefined;
+			const time = { hours: '12', minutes: '58', seconds: '22' };
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+			};
 
 			// when
-			const result = dateTimeToStr(date, time, { dateFormat: 'YYYY-MM-DD' });
+			const parts = extractPartsFromDateAndTime(date, time, options);
 
 			// then
-			expect(result).toBe('2015-09-15');
+			expect(parts).toEqual({
+				date,
+				datetime: new Date(2015, 8, 15, 12, 58, 22),
+				textInput: '2015-09-15 12:58:22',
+				time,
+				errorMessage: undefined,
+			});
 		});
 
-		it('should convert date and time', () => {
+		it('should extract parts with invalid hours', () => {
 			// given
 			const date = new Date(2015, 8, 15);
-			const time = { hours: '02', minutes: '52' };
+			const time = { hours: '66', minutes: '58', seconds: '12' };
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+			};
 
 			// when
-			const result = dateTimeToStr(date, time, { dateFormat: 'YYYY-MM-DD' });
+			const parts = extractPartsFromDateAndTime(date, time, options);
 
 			// then
-			expect(result).toBe('2015-09-15 02:52');
+			expect(parts.date).toBe(date);
+			expect(isNaN(parts.datetime.getTime())).toBe(true);
+			expect(parts.textInput).toBe('2015-09-15 66:58:12');
+			expect(parts.time).toBe(time);
+			expect(parts.errorMessage).toBe('TIME - INCORRECT HOUR NUMBER');
 		});
 
-		it('should convert date and invalid time', () => {
+		it('should extract parts with invalid minutes', () => {
 			// given
 			const date = new Date(2015, 8, 15);
-			const time = { hours: 'aze', minutes: '66' };
+			const time = { hours: '12', minutes: '66', seconds: '12' };
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+			};
 
 			// when
-			const result = dateTimeToStr(date, time, { dateFormat: 'YYYY-MM-DD' });
+			const parts = extractPartsFromDateAndTime(date, time, options);
 
 			// then
-			expect(result).toBe('2015-09-15 aze:66');
+			expect(parts.date).toBe(date);
+			expect(isNaN(parts.datetime.getTime())).toBe(true);
+			expect(parts.textInput).toBe('2015-09-15 12:66:12');
+			expect(parts.time).toBe(time);
+			expect(parts.errorMessage).toBe('TIME - INCORRECT MINUTES NUMBER');
 		});
-	});
 
-	describe('dateAndTimeToDateTime', () => {
-		it('should merge date and time to a Date', () => {
+		it('should extract parts with invalid seconds', () => {
 			// given
 			const date = new Date(2015, 8, 15);
-			const time = { hours: '02', minutes: '52' };
+			const time = { hours: '12', minutes: '58', seconds: '66' };
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+			};
 
 			// when
-			const result = dateAndTimeToDateTime(date, time);
+			const parts = extractPartsFromDateAndTime(date, time, options);
 
 			// then
-			expect(result).toEqual(new Date(2015, 8, 15, 2, 52));
+			expect(parts.date).toBe(date);
+			expect(isNaN(parts.datetime.getTime())).toBe(true);
+			expect(parts.textInput).toBe('2015-09-15 12:58:66');
+			expect(parts.time).toBe(time);
+			expect(parts.errorMessage).toBe('TIME - INCORRECT SECONDS NUMBER');
 		});
 
-		it('should return invalid date with undefined parts', () => {
-			// when
-			const resultWithoutDate = dateAndTimeToDateTime(undefined, { hours: '02', minutes: '25' });
-			const resultWithoutTime = dateAndTimeToDateTime(new Date(2015, 8, 15), undefined);
-
-			// then
-			expect(resultWithoutDate.getTime()).toEqual(NaN);
-			expect(resultWithoutTime.getTime()).toEqual(NaN);
-		});
-
-		it('should return invalid date with invalid time', () => {
-			// when
-			const result = dateAndTimeToDateTime(new Date(2015, 8, 15), { hours: '2', minutes: '66' });
-
-			// then
-			expect(result.getTime()).toEqual(NaN);
-		});
-	});
-
-	describe('isDateValid', () => {
-		it('should return true with valid date', () => {
+		it('should extract parts with invalid date', () => {
 			// given
-			const date = new Date(2015, 8, 15);
+			const date = 'lol';
+			const time = { hours: '12', minutes: '58', seconds: '12' };
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+			};
 
 			// when
-			const isValid = isDateValid(date);
+			const parts = extractPartsFromDateAndTime(date, time, options);
 
 			// then
-			expect(isValid).toBe(true);
-		});
-
-		it('should return true with undefined', () => {
-			// when
-			const isValid = isDateValid(undefined);
-
-			// then
-			expect(isValid).toBe(true);
-		});
-
-		it('should return false with non date', () => {
-			// when
-			const isValid = isDateValid('aze');
-
-			// then
-			expect(isValid).toBe(false);
-		});
-
-		it('should return false with invalid date', () => {
-			// when
-			const isValid = isDateValid(new Date('lol'));
-
-			// then
-			expect(isValid).toBe(false);
+			expect(parts.date).toBe(date);
+			expect(isNaN(parts.datetime.getTime())).toBe(true);
+			expect(parts.textInput).toBe('Invalid Date');
+			expect(parts.time).toBe(time);
 		});
 	});
 
-	describe('checkTime', () => {
-		it('should return error with incorrect hour', done => {
+	describe('extractPartsFromTextInput', () => {
+		it('should extract parts with empty string', () => {
 			// given
-			const time = { hours: '25', minutes: '45' };
-
-			try {
-				// when
-				checkTime(time);
-				done.fail('strToTime should have thrown an error with incorrect hour');
-			} catch (error) {
-				// then
-				expect(error.message).toBe('TIME - INCORRECT HOUR NUMBER');
-			}
-
-			done();
-		});
-
-		it('should return error with incorrect minutes', done => {
-			// given
-			const time = { hours: '23', minutes: '66' };
+			const textInput = '';
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+			};
 
 			// when
-			try {
-				// when
-				checkTime(time);
-				done.fail('strToTime should have thrown an error with incorrect minutes');
-			} catch (error) {
-				// then
-				expect(error.message).toBe('TIME - INCORRECT MINUTES NUMBER');
-			}
+			const parts = extractPartsFromTextInput(textInput, options);
 
-			done();
+			// then
+			expect(parts).toEqual({
+				date: undefined,
+				time: { hours: '', minutes: '', seconds: '00' },
+				datetime: undefined,
+				textInput: '',
+			});
+		});
+
+		it('should extract parts with valid date', () => {
+			// given
+			const textInput = '2018-12-25';
+			const options = { dateFormat: 'YYYY-MM-DD' };
+
+			// when
+			const parts = extractPartsFromTextInput(textInput, options);
+
+			// then
+			expect(parts).toEqual({
+				date: new Date(2018, 11, 25),
+				time: { hours: '00', minutes: '00', seconds: '00' },
+				datetime: new Date(2018, 11, 25),
+				textInput,
+				errorMessage: undefined,
+			});
+		});
+
+		it('should extract parts with valid date and time', () => {
+			// given
+			const textInput = '2018-12-25 22:58';
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+			};
+
+			// when
+			const parts = extractPartsFromTextInput(textInput, options);
+
+			// then
+			expect(parts).toEqual({
+				date: new Date(2018, 11, 25),
+				time: { hours: '22', minutes: '58', seconds: '00' },
+				datetime: new Date(2018, 11, 25, 22, 58),
+				textInput,
+				errorMessage: undefined,
+			});
+		});
+
+		it('should extract parts with valid date and time with seconds', () => {
+			// given
+			const textInput = '2018-12-25 22:58:12';
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+			};
+
+			// when
+			const parts = extractPartsFromTextInput(textInput, options);
+
+			// then
+			expect(parts).toEqual({
+				date: new Date(2018, 11, 25),
+				time: { hours: '22', minutes: '58', seconds: '12' },
+				datetime: new Date(2018, 11, 25, 22, 58, 12),
+				textInput,
+				errorMessage: undefined,
+			});
+		});
+
+		it('should extract parts with invalid day', () => {
+			// given
+			const textInput = '2018-12-36 22:58:12';
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+			};
+
+			// when
+			const parts = extractPartsFromTextInput(textInput, options);
+
+			// then
+			expect(parts.date).toBe(undefined);
+			expect(isNaN(parts.datetime.getTime())).toBe(true);
+			expect(parts.textInput).toBe(textInput);
+			expect(parts.time).toEqual({ hours: '22', minutes: '58', seconds: '12' });
+			expect(parts.errorMessage).toBe('DATE - INCORRECT DAY NUMBER RELATIVE TO MONTH');
+		});
+
+		it('should extract parts with invalid month', () => {
+			// given
+			const textInput = '2018-13-25 22:58:12';
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+			};
+
+			// when
+			const parts = extractPartsFromTextInput(textInput, options);
+
+			// then
+			expect(parts.date).toBe(undefined);
+			expect(isNaN(parts.datetime.getTime())).toBe(true);
+			expect(parts.textInput).toBe(textInput);
+			expect(parts.time).toEqual({ hours: '22', minutes: '58', seconds: '12' });
+			expect(parts.errorMessage).toBe('DATE - INCORRECT MONTH NUMBER');
+		});
+
+		it('should extract parts with hour', () => {
+			// given
+			const textInput = '2018-12-25 66:58:12';
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+			};
+
+			// when
+			const parts = extractPartsFromTextInput(textInput, options);
+
+			// then
+			expect(parts.date).toEqual(new Date(2018, 11, 25));
+			expect(isNaN(parts.datetime.getTime())).toBe(true);
+			expect(parts.textInput).toBe(textInput);
+			expect(parts.time).toEqual({ hours: '66', minutes: '58', seconds: '12' });
+			expect(parts.errorMessage).toBe('TIME - INCORRECT HOUR NUMBER');
+		});
+
+		it('should extract parts with minutes', () => {
+			// given
+			const textInput = '2018-12-25 22:66:12';
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+			};
+
+			// when
+			const parts = extractPartsFromTextInput(textInput, options);
+
+			// then
+			expect(parts.date).toEqual(new Date(2018, 11, 25));
+			expect(isNaN(parts.datetime.getTime())).toBe(true);
+			expect(parts.textInput).toBe(textInput);
+			expect(parts.time).toEqual({ hours: '22', minutes: '66', seconds: '12' });
+			expect(parts.errorMessage).toBe('TIME - INCORRECT MINUTES NUMBER');
+		});
+
+		it('should extract parts with seconds', () => {
+			// given
+			const textInput = '2018-12-25 22:58:66';
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+			};
+
+			// when
+			const parts = extractPartsFromTextInput(textInput, options);
+
+			// then
+			expect(parts.date).toEqual(new Date(2018, 11, 25));
+			expect(isNaN(parts.datetime.getTime())).toBe(true);
+			expect(parts.textInput).toBe(textInput);
+			expect(parts.time).toEqual({ hours: '22', minutes: '58', seconds: '66' });
+			expect(parts.errorMessage).toBe('TIME - INCORRECT SECONDS NUMBER');
+		});
+	});
+
+	describe('getFullDateFormat', () => {
+		it('should return date format only', () => {
+			// given
+			const options = { dateFormat: 'YYYY-MM-DD' };
+
+			// when
+			const format = getFullDateFormat(options);
+
+			// then
+			expect(format).toBe('YYYY-MM-DD');
+		});
+
+		it('should return date format with time', () => {
+			// given
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+			};
+
+			// when
+			const format = getFullDateFormat(options);
+
+			// then
+			expect(format).toBe('YYYY-MM-DD HH:mm');
+		});
+
+		it('should return date format with time and seconds', () => {
+			// given
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+			};
+
+			// when
+			const format = getFullDateFormat(options);
+
+			// then
+			expect(format).toBe('YYYY-MM-DD HH:mm:ss');
 		});
 	});
 });

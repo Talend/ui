@@ -1,4 +1,4 @@
-import { fork } from 'redux-saga/effects';
+import { spawn } from 'redux-saga/effects';
 import { assertValueTypeOf } from './assert';
 
 function mergeObjects(obj1, obj2) {
@@ -58,8 +58,8 @@ function mergeSaga(saga, newSaga) {
 
 	if (saga && newSaga) {
 		return function* mergedSaga() {
-			yield fork(saga);
-			yield fork(newSaga);
+			yield spawn(saga);
+			yield spawn(newSaga);
 		};
 	}
 	if (newSaga) {

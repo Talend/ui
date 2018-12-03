@@ -4,17 +4,24 @@ import differenceInCalendarWeeks from 'date-fns/difference_in_calendar_weeks';
 import addMonths from 'date-fns/add_months';
 import endOfMonth from 'date-fns/end_of_month';
 import format from 'date-fns/format';
+import getYear from 'date-fns/get_year';
 import setDay from 'date-fns/set_day';
 import startOfWeek from 'date-fns/start_of_week';
+import memoize from 'lodash/memoize';
 import getLocale from '../DateFnsLocale/locale';
 import getDefaultT from '../translate';
 
-export const pickerLocale = { locale: getLocale(getDefaultT()) };
+function buildDateFnsLocale(t) {
+	return { locale: getLocale(t || getDefaultT()) };
+}
+
+export const getPickerLocale = memoize(buildDateFnsLocale);
 
 /**
  * Generate days of week, starting from the provided index
  */
-export function buildDayNames(firstDayOfweek = 1) {
+export function buildDayNames(firstDayOfweek = 1, t) {
+	const pickerLocale = getPickerLocale(t);
 	return new Array(7)
 		.fill(0)
 		.map((_, i) => (i + firstDayOfweek) % 7)
@@ -50,7 +57,8 @@ export function buildWeeks(year, monthIndex, firstDayOfWeek = 1) {
 /**
  * Generate th sets of months, each set has the size of provided "chunkSize"
  */
-export function buildMonths(chunkSize) {
+export function buildMonths(chunkSize, t) {
+	const pickerLocale = getPickerLocale(t);
 	const months = new Array(12)
 		.fill(0)
 		.map((_, i) => i)
@@ -59,4 +67,18 @@ export function buildMonths(chunkSize) {
 			name: format(addMonths(new Date(0), index), 'MMMM', pickerLocale),
 		}));
 	return chunk(months, chunkSize);
+}
+
+/**
+ * Generate a years window, centered on the current year by default, or the provided one
+ */
+export function buildYears(middle, window = 3) {
+	const middleYear = middle === undefined ? getYear(new Date()) : middle;
+	const start = middleYear - window;
+	const end = middleYear + window;
+	const years = [];
+	for (let i = start; i <= end; i += 1) {
+		years.push(i);
+	}
+	return years;
 }

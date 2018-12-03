@@ -6,6 +6,7 @@ import TimePicker from '../../pickers/TimePicker';
 import ViewLayout from '../ViewLayout';
 import HeaderTitle from '../HeaderTitle';
 import theme from './DateTimeView.scss';
+import getDefaultT from '../../../translate';
 
 /**
  * Get the positive euclidean modulo number from a dividend and a divisor
@@ -19,11 +20,48 @@ function euclideanModulo(dividend, divisor) {
 }
 
 class DateTimeView extends React.PureComponent {
+	static propTypes = {
+		allowFocus: PropTypes.bool,
+		calendar: PropTypes.shape({
+			monthIndex: PropTypes.number.isRequired,
+			year: PropTypes.number.isRequired,
+		}).isRequired,
+		onTitleClick: PropTypes.func.isRequired,
+		onSelectMonthYear: PropTypes.func.isRequired,
+		onSelectDate: PropTypes.func.isRequired,
+		onSelectTime: PropTypes.func.isRequired,
+		selectedDate: PropTypes.instanceOf(Date),
+		selectedTime: PropTypes.shape({
+			hours: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+			minutes: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+		}),
+		useSeconds: PropTypes.bool,
+		useTime: PropTypes.bool,
+		t: PropTypes.func.isRequired,
+	};
+
+	static defaultProps = {
+		t: getDefaultT(),
+	};
+
 	constructor(props) {
 		super(props);
 
 		this.goToPreviousMonth = this.incrementMonthIndex.bind(this, -1);
 		this.goToNextMonth = this.incrementMonthIndex.bind(this, 1);
+	}
+
+	getTimePicker() {
+		return (
+			<div className={theme.time}>
+				<TimePicker
+					allowFocus={this.props.allowFocus}
+					value={this.props.selectedTime}
+					onChange={this.props.onSelectTime}
+					useSeconds={this.props.useSeconds}
+				/>
+			</div>
+		);
 	}
 
 	incrementMonthIndex(monthIncrement, callback) {
@@ -42,10 +80,11 @@ class DateTimeView extends React.PureComponent {
 	}
 
 	render() {
+		const { t } = this.props;
 		const header = {
 			leftElement: (
 				<Action
-					aria-label="Go to previous month"
+					aria-label={t('DATEPICKER_MONTH_PREVIOUS', { defaultValue: 'Go to previous month' })}
 					icon="talend-chevron-left"
 					label=""
 					onClick={() => this.goToPreviousMonth()}
@@ -58,7 +97,9 @@ class DateTimeView extends React.PureComponent {
 					monthIndex={this.props.calendar.monthIndex}
 					year={this.props.calendar.year}
 					button={{
-						'aria-label': 'Switch to month and year pickers view',
+						'aria-label': t('DATEPICKER_TO_MONTH_YEAR', {
+							defaultValue: 'Switch to month and year pickers view',
+						}),
 						onClick: this.props.onTitleClick,
 						tabIndex: this.props.allowFocus ? 0 : -1,
 					}}
@@ -66,7 +107,7 @@ class DateTimeView extends React.PureComponent {
 			),
 			rightElement: (
 				<Action
-					aria-label="Go to next month"
+					aria-label={t('DATEPICKER_MONTH_NEXT', { defaultValue: 'Go to next month' })}
 					icon="talend-chevron-left"
 					iconTransform="rotate-180"
 					label=""
@@ -89,37 +130,12 @@ class DateTimeView extends React.PureComponent {
 						goToNextMonth={this.goToNextMonth}
 					/>
 				</div>
-				<div className={theme.time}>
-					<TimePicker
-						allowFocus={this.props.allowFocus}
-						value={this.props.selectedTime}
-						onChange={this.props.onSelectTime}
-						useSeconds={this.props.useSeconds}
-					/>
-				</div>
+				{this.props.useTime && this.getTimePicker()}
 			</div>
 		);
 
 		return <ViewLayout header={header} bodyElement={bodyElement} />;
 	}
 }
-
-DateTimeView.propTypes = {
-	allowFocus: PropTypes.bool,
-	calendar: PropTypes.shape({
-		monthIndex: PropTypes.number.isRequired,
-		year: PropTypes.number.isRequired,
-	}).isRequired,
-	onTitleClick: PropTypes.func.isRequired,
-	onSelectMonthYear: PropTypes.func.isRequired,
-	onSelectDate: PropTypes.func.isRequired,
-	onSelectTime: PropTypes.func.isRequired,
-	selectedDate: PropTypes.instanceOf(Date),
-	selectedTime: PropTypes.shape({
-		hours: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-		minutes: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-	}),
-	useSeconds: PropTypes.bool,
-};
 
 export default DateTimeView;

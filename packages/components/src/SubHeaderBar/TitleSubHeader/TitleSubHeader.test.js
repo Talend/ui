@@ -5,12 +5,14 @@ import TitleSubHeader from './TitleSubHeader.component';
 
 describe('TitleSubHeader', () => {
 	let defaultProps;
-	beforeEach(() =>
-		(defaultProps = {
-			title: 'myTitle',
-			onEdit: jest.fn(),
-			onSubmit: jest.fn(),
-		}));
+	beforeEach(
+		() =>
+			(defaultProps = {
+				title: 'myTitle',
+				onEdit: jest.fn(),
+				onSubmit: jest.fn(),
+			}),
+	);
 	it('should render', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} iconId="myIconId" />);
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -32,6 +34,7 @@ describe('TitleSubHeader', () => {
 	it('should render EditableText', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} editable />);
 		expect(wrapper.find(EditableText)).toHaveLength(1);
+		expect(wrapper.find(EditableText).get(0).props.feature).toBe('subheaderbar.rename');
 		expect(wrapper.find('h1')).toHaveLength(0);
 	});
 	it('should render skeleton', () => {
