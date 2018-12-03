@@ -3,7 +3,7 @@
 
 const REACT_VERSION = process.env.REACT_VERSION || '^16.0.0';
 console.log('REACT_VERSION: ', REACT_VERSION);
-const JEST_VERSION = '^23.0.0';
+const JEST_VERSION = '^23.6.0';
 
 module.exports = {
 	// addons
