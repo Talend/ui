@@ -139,10 +139,7 @@ export function httpFetch(url, config, method, payload) {
 	}
 	params.body = body;
 
-	return fetch(
-		url,
-		handleCSRFToken(params),
-	)
+	return fetch(url, handleCSRFToken(params))
 		.then(handleHttpResponse)
 		.catch(handleError);
 }
