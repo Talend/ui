@@ -10,7 +10,7 @@ import {
 	IconsProvider,
 	CircularProgress,
 	RichError,
-	HeaderTitle,
+	RichTitle,
 	RichTooltip,
 } from '../src/index';
 
@@ -32,11 +32,11 @@ const addInfo = {
 	onClick: action('header.add.onClick'),
 };
 
-const header = [<HeaderTitle title="Pipelines" />, <Action {...addInfo} />];
-const headerWithActions = [
-	<HeaderTitle title="Pipelines" />,
-	<Actions
-		actions={[
+const header = <RichTitle title="Pipelines" right={[addInfo]} />;
+const headerWithActions = (
+	<RichTitle
+		title="Pipelines"
+		right={[
 			{
 				label: 'Add',
 				className: 'btn-default btn-inverse',
@@ -48,8 +48,8 @@ const headerWithActions = [
 				onClick: action('footer.valid.onClick'),
 			},
 		]}
-	/>,
-];
+	/>
+);
 
 const footer = (
 	<ActionBar

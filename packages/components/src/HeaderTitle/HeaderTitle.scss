@@ -9,6 +9,7 @@ $tc-header-title-font-weight: 600 !default;
 
 .title {
 	flex-grow: 1;
+	text-transform: uppercase;
 	margin: 0;
 	white-space: nowrap;
 	overflow: hidden;

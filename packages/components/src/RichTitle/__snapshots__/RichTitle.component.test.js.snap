@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RichTitle should render with a title and actions 1`] = `
+<RichTitle
+  right={Array []}
+  title=""
+/>
+`;
