@@ -84,17 +84,25 @@
 			background: linear-gradient(#{$gradient-angle}, $regal-blue 20%, $brand-primary 80%);
 		}
 
-		[role='heading'] span:last-of-type {
-			display: inline-flex;
-			align-items: center;
+		[role='heading'] {
+			span:first-child {
+				display: inline-flex;
+				align-items: center;
 
-			&:before {
-				display: block;
-				content: '';
-				margin-right: $padding-small;
-				height: $navbar-brand-logo-height;
-				width: $navbar-brand-logo-height;
-				background-repeat: no-repeat;
+				&:before {
+					display: block;
+					content: '';
+					margin-right: $padding-small;
+					height: $navbar-brand-logo-height;
+					width: $navbar-brand-logo-height;
+					background-repeat: no-repeat;
+				}
+			}
+
+			svg + span:first-child {
+				&:before {
+					display: none;
+				}
 			}
 		}
 

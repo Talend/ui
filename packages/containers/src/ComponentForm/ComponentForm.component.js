@@ -22,6 +22,7 @@ const TO_OMIT = [
 
 export const DEFAULT_STATE = new Map({
 	dirty: false,
+	initialState: {},
 });
 
 /**
@@ -74,12 +75,14 @@ export class TCompForm extends React.Component {
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
+		this.onReset = this.onReset.bind(this);
 		this.getUISpec = this.getUISpec.bind(this);
 		this.setupTrigger = this.setupTrigger.bind(this);
 		this.setupTrigger(props);
 
 		this.getMemoizedJsonSchema = memoizeOne(toJS);
 		this.getMemoizedUiSchema = memoizeOne(toJS);
+		this.getMemoizedInitialState = memoizeOne(toJS);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -164,6 +167,16 @@ export class TCompForm extends React.Component {
 		});
 	}
 
+	onReset() {
+		this.props.setState(prev =>
+			prev.state
+				.set('jsonSchema', this.props.state.getIn(['initialState', 'jsonSchema']))
+				.set('uiSchema', this.props.state.getIn(['initialState', 'uiSchema']))
+				.set('properties', this.props.state.getIn(['initialState', 'properties'])),
+		);
+		this.setState({ properties: this.props.state.getIn(['initialState', 'properties']).toJS() });
+	}
+
 	setupTrigger(props) {
 		const config = cmf.sagas.http.getDefaultConfig() || {};
 		this.trigger = kit.createTriggers({
@@ -200,9 +213,11 @@ export class TCompForm extends React.Component {
 		const props = {
 			...omit(this.props, TO_OMIT),
 			data: uiSpecs,
+			initialData: this.getMemoizedInitialState(this.props.state.get('initialState')),
 			onTrigger: this.onTrigger,
 			onChange: this.onChange,
 			onSubmit: this.onSubmit,
+			onReset: this.onReset,
 			widgets: { ...this.props.widgets, ...tcompFieldsWidgets },
 		};
 
@@ -213,6 +228,7 @@ export class TCompForm extends React.Component {
 TCompForm.ON_CHANGE = 'TCOMP_FORM_CHANGE';
 TCompForm.ON_SUBMIT = 'TCOMP_FORM_SUBMIT';
 TCompForm.ON_SUBMIT_SUCCEED = 'TCOMP_FORM_SUBMIT_SUCCEED';
+TCompForm.ON_SUBMIT_FAILED = 'TCOMP_FORM_SUBMIT_FAILED';
 TCompForm.ON_TRIGGER_BEGIN = 'TCOMP_FORM_TRIGGER_BEGIN';
 TCompForm.ON_TRIGGER_END = 'TCOMP_FORM_TRIGGER_END';
 TCompForm.ON_DEFINITION_URL_CHANGED = 'TCOMP_FORM_DEFINITION_URL_CHANGE';
@@ -232,7 +248,14 @@ TCompForm.propTypes = {
 
 export default cmfConnect({
 	defaultState: DEFAULT_STATE,
+
 	defaultProps: {
 		saga: 'ComponentForm#default',
 	},
+
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(TCompForm);

@@ -7,14 +7,14 @@ const defaultState = {
 
 export default function myExampleReducer(state = defaultState, action) {
 	switch (action.type) {
-	case MY_ACTION: {
-		return {
-			...state,
-			myStateBool: false,
-		};
-	}
-	default: {
-		return state;
-	}
+		case MY_ACTION: {
+			return {
+				...state,
+				myStateBool: false,
+			};
+		}
+		default: {
+			return state;
+		}
 	}
 }

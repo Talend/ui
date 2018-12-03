@@ -4,7 +4,7 @@ exports[`Toolbar should render actions toolbar 1`] = `
 <div
   className="tc-list-toolbar"
 >
-  <nav
+  <div
     className="theme-tc-actionbar-container tc-actionbar-container nav"
   >
     <div
@@ -36,7 +36,7 @@ exports[`Toolbar should render actions toolbar 1`] = `
         </span>
       </button>
     </div>
-  </nav>
+  </div>
 </div>
 `;
 
@@ -44,7 +44,7 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
 <div
   className="tc-list-toolbar"
 >
-  <nav
+  <div
     className="theme-tc-actionbar-container tc-actionbar-container nav"
   >
     <div
@@ -81,7 +81,7 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
         </span>
       </button>
     </div>
-  </nav>
+  </div>
 </div>
 `;
 

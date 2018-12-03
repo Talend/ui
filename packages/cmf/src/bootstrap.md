@@ -37,3 +37,29 @@ cmf.bootstrap({
 | middlewares | Array | undefined | Redux middlewares |
 | storeCallback | function | undefined | Let you call a function once the store is created |
 | AppLoader | React Component | undefined | Let you define the React component to use to show the app is currently loading (waiting for the settings) |
+
+## Modules
+
+You apps may be splitted into different modules, like a core set of components and some other business logics.
+
+For that CMF expose an API to let you merge your settings:
+
+```javascript
+import cmf from '@talend/react-cmf';
+
+import containersModule from '@talend/react-containers';
+import components from './components';
+import saga from './saga';
+import sagas from './sagas';
+
+cmf.boostrap({
+	components,
+	saga,
+	sagas,
+	modules: [containersModule],
+});
+```
+
+## How to setup store using localStorage ?
+
+We provide a [simple API for that](./localStorage.md).

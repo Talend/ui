@@ -1,85 +1,108 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IncrementableScrollList from '../IncrementableScrollList';
-import twoDigits from '../../shared/utils/format/twoDigits';
+import classNames from 'classnames';
+import uuid from 'uuid';
+import DebounceInput from 'react-debounce-input';
+import getDefaultT from '../../../translate';
 
-// All times in this component represents a number of minutes since the beginning of the day
+import theme from './TimePicker.scss';
 
-const maxTime = 24 * 60;
+const HOURS = 'HOURS';
+const MINUTES = 'MINUTES';
+const SECONDS = 'SECONDS';
 
-function getInitialTime(selectedTime) {
-	if (selectedTime === undefined) {
-		const now = new Date();
-		return now.getHours() * 60 + now.getMinutes();
-	}
-
-	return selectedTime;
-}
-
-function toItemWithDiff(initialTime) {
-	return function adaptWithDiff(item, index) {
-		return {
-			index,
-			item,
-			diff: Math.abs(item.id - initialTime),
-		};
+class TimePicker extends React.PureComponent {
+	static defaultProps = {
+		value: {},
+		t: getDefaultT(),
 	};
-}
 
-function selectLowestDiff(previous, next) {
-	if (previous && previous.diff < next.diff) {
-		return previous;
-	}
-	return next;
-}
+	static propTypes = {
+		allowFocus: PropTypes.bool,
+		onChange: PropTypes.func.isRequired,
+		value: PropTypes.shape({
+			hours: PropTypes.string,
+			minutes: PropTypes.string,
+			seconds: PropTypes.string,
+		}),
+		useSeconds: PropTypes.bool,
+		t: PropTypes.func.isRequired,
+	};
 
-class TimePicker extends React.Component {
 	constructor(props) {
 		super(props);
-		this.onSelect = this.onSelect.bind(this);
-
-		const nbTimeSelectable = Math.ceil(maxTime / props.interval);
-		this.items = new Array(nbTimeSelectable)
-			.fill(0)
-			.map((_, i) => i * props.interval)
-			.map(time => {
-				const hours = Math.floor(time / 60);
-				const minutes = time % 60;
-
-				return {
-					id: time,
-					label: `${twoDigits(hours)}:${twoDigits(minutes)}`,
-				};
-			});
-
-		const initialTime = getInitialTime(props.selectedTime);
-		this.initialIndex = this.items.map(toItemWithDiff(initialTime)).reduce(selectLowestDiff).index;
+		const id = uuid.v4();
+		this.hourId = `${id}-hour`;
+		this.minuteId = `${id}-minute`;
+		this.secondId = `${id}-second`;
+		this.onChange = this.onChange.bind(this);
 	}
 
-	onSelect(item) {
-		return this.props.onSelect(item.id);
+	onChange(event, field) {
+		const inputValue = event.target.value;
+		const newValue = { ...this.props.value };
+		if (field === HOURS) {
+			newValue.hours = inputValue;
+		} else if (field === MINUTES) {
+			newValue.minutes = inputValue;
+		} else if (field === SECONDS) {
+			newValue.seconds = inputValue;
+		}
+		this.props.onChange(event, newValue);
+	}
+
+	renderSeconds(tabIndex) {
+		if (this.props.useSeconds) {
+			return [
+				<hr key="hr-seconds" />,
+				<label key="label-seconds" htmlFor={this.secondId} className="sr-only">
+					{this.props.t('DATEPICKER_TIME_SECONDS', { defaultValue: 'Seconds' })}
+				</label>,
+				<DebounceInput
+					key="input-seconds"
+					id={this.secondId}
+					className={theme['time-input']}
+					value={this.props.value.seconds}
+					tabIndex={tabIndex}
+					onChange={event => this.onChange(event, SECONDS)}
+				/>,
+			];
+		}
+		return null;
 	}
 
 	render() {
+		const { t } = this.props;
+		const tabIndex = this.props.allowFocus ? 0 : -1;
+
 		return (
-			<IncrementableScrollList
-				initialIndex={this.initialIndex}
-				items={this.items}
-				onSelect={this.onSelect}
-				selectedItemId={this.props.selectedTime}
-			/>
+			<div className={classNames('tc-date-picker-time', theme['time-picker'])}>
+				<legend>Time</legend>
+				<label htmlFor={this.hourId} className="sr-only">
+					{t('DATEPICKER_TIME_HOURS', { defaultValue: 'Hours' })}
+				</label>
+				<DebounceInput
+					id={this.hourId}
+					className={theme['time-input']}
+					value={this.props.value.hours}
+					tabIndex={tabIndex}
+					onChange={event => this.onChange(event, HOURS)}
+				/>
+				<hr />
+				<label htmlFor={this.minuteId} className="sr-only">
+					{t('DATEPICKER_TIME_MINUTES', { defaultValue: 'Minutes' })}
+				</label>
+				<DebounceInput
+					id={this.minuteId}
+					className={theme['time-input']}
+					value={this.props.value.minutes}
+					tabIndex={tabIndex}
+					onChange={event => this.onChange(event, MINUTES)}
+				/>
+				{this.renderSeconds(tabIndex)}
+			</div>
 		);
 	}
 }
-
-TimePicker.defaultProps = {
-	interval: 15,
-};
-
-TimePicker.propTypes = {
-	selectedTime: PropTypes.number,
-	interval: PropTypes.number,
-	onSelect: PropTypes.func.isRequired,
-};
 
 export default TimePicker;
