@@ -146,7 +146,6 @@
   },
   "version": "1.9.0",
   "dependencies": {
-    "jest-environment-jsdom": "^23.4.0",
     "memoize-one": "^4.0.0",
     "react-immutable-proptypes": "^2.1.0",
     "react-router": "^3.2.0"
