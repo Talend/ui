@@ -117,25 +117,31 @@ export function httpFetch(url, config, method, payload) {
 	if (payload instanceof FormData) {
 		body = payload;
 		delete defaultHeaders['Content-Type'];
-	} else {
-		body = JSON.stringify(payload);
 	}
+
+	const params = merge(
+		{
+			credentials: 'same-origin',
+			headers: defaultHeaders,
+			method,
+		},
+		{
+			...HTTP.defaultConfig,
+			...config,
+		},
+	);
+
+	const type = params.headers['Content-Type'];
+	if (type && type.includes('json')) {
+		body = JSON.stringify(payload);
+	} else {
+		body = payload;
+	}
+	params.body = body;
+
 	return fetch(
 		url,
-		handleCSRFToken(
-			merge(
-				{
-					credentials: 'same-origin',
-					headers: defaultHeaders,
-					method,
-					body,
-				},
-				{
-					...HTTP.defaultConfig,
-					...config,
-				},
-			),
-		),
+		handleCSRFToken(params),
 	)
 		.then(handleHttpResponse)
 		.catch(handleError);
