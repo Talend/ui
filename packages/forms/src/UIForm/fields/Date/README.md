@@ -6,7 +6,7 @@ This widget allows you to render a date/time picker.
 
 You can request 3 format :
 * timestamp (number)
-* ISO-8601 ewtended format (string)
+* ISO-8601 extended format (string)
 * custom date format (limited range of format)
 
 ### Timestamp format
