@@ -74,14 +74,16 @@ export function convertToUTC(date, dateIsUtc = false) {
 			date.getUTCSeconds(),
 		);
 	}
-	return new Date(Date.UTC(
-		date.getFullYear(),
-		date.getMonth(),
-		date.getDate(),
-		date.getHours(),
-		date.getMinutes(),
-		date.getSeconds(),
-	));
+	return new Date(
+		Date.UTC(
+			date.getFullYear(),
+			date.getMonth(),
+			date.getDate(),
+			date.getHours(),
+			date.getMinutes(),
+			date.getSeconds(),
+		),
+	);
 }
 
 /**
@@ -164,8 +166,7 @@ function dateAndTimeToDateTime(date, time, options) {
 		const { hours, minutes, seconds } = time;
 		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
 		const localTimezoneDate = setSeconds(date, timeInSeconds);
-		return options.useUTC ?
-			convertToUTC(localTimezoneDate) : localTimezoneDate;
+		return options.useUTC ? convertToUTC(localTimezoneDate) : localTimezoneDate;
 	} catch (e) {
 		return INTERNAL_INVALID_DATE;
 	}
