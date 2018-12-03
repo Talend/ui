@@ -150,7 +150,7 @@ if (process.env.NODE_ENV !== 'production') {
 		schema: PropTypes.object.isRequired,
 		templates: PropTypes.object.isRequired,
 		value: PropTypes.arrayOf(
-			PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.number]),
+			PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.number, PropTypes.bool]),
 		).isRequired,
 		widgets: PropTypes.object.isRequired,
 	};
