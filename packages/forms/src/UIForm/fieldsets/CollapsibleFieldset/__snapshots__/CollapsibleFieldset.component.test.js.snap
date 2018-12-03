@@ -31,7 +31,7 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
     >
       <Icon
         name="talend-caret-down"
-        transform=""
+        transform={undefined}
       />
     </button>
   </div>

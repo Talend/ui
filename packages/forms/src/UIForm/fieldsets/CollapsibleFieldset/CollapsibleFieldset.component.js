@@ -33,7 +33,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 		render() {
 			const { id, schema, value, ...restProps } = this.props;
 			const { items } = schema;
-			const iconTransform = classNames({ 'flip-vertical': !this.props.value.isClosed });
+			const iconTransform = !this.props.value.isClosed ? 'flip-vertical' : undefined;
 
 			return (
 				<fieldset

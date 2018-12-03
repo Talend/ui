@@ -74,7 +74,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onReorder: PropTypes.func.isRequired,
 		renderItem: PropTypes.func.isRequired,
 		schema: PropTypes.object.isRequired,
-		value: PropTypes.arrayOf(PropTypes.object).isRequired,
+		value: PropTypes.array.isRequired,
 		options: PropTypes.shape({
 			btnLabel: PropTypes.string,
 		}),

@@ -149,7 +149,9 @@ if (process.env.NODE_ENV !== 'production') {
 		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.object.isRequired,
 		templates: PropTypes.object.isRequired,
-		value: PropTypes.arrayOf(PropTypes.object).isRequired,
+		value: PropTypes.arrayOf(
+			PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.number]),
+		).isRequired,
 		widgets: PropTypes.object.isRequired,
 	};
 }
