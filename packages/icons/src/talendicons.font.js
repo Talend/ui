@@ -1,4 +1,4 @@
-{
+module.exports = {
   "baseClass": "icon",
   "classPrefix": "icon-",
   "cssTemplate": "./talendicons.template.css",
@@ -8,4 +8,4 @@
   ],
   "fixedWidth": true,
   "fontName": "talendicons"
-}
+};

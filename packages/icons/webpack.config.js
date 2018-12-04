@@ -1,13 +1,9 @@
 const path = require('path');
 
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
-const extractFonts = new ExtractTextPlugin({
-	filename: 'talend-icons-webfont.css',
-	allChunks: true,
-});
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
+	mode: "production",
 	context: path.resolve(__dirname),
 	entry: './index.js',
 	output: {
@@ -17,18 +13,12 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.font\.(js|json)$/,
-				loader: extractFonts.extract({
-					fallback: 'style-loader',
-					use: [
-						{
-							loader: 'css-loader',
-						},
-						{
-							loader: 'webfonts-loader',
-						}
-					],
-				}),
+				test: /\.font\.(js)$/,
+				use: [
+					MiniCssExtractPlugin.loader,
+					'css-loader',
+					'webfonts-loader',
+				],
 			}, {
 				test: /\.(woff|eot|ttf|svg)$/,
 				loader: 'url-loader'
@@ -36,7 +26,10 @@ module.exports = {
 		]
 	},
 	plugins: [
-		extractFonts,
+		new MiniCssExtractPlugin({
+			filename: 'talend-icons-webfont.css',
+			allChunks: true,
+		}),
 	],
 	node: {
 		fs: 'empty'

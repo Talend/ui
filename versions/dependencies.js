@@ -114,8 +114,8 @@ module.exports = {
 
 	// webpack
 	'babel-loader': '^8.0.0',
-	'copy-webpack-plugin': '^4.1.1',
-	'css-loader': '^0.28.7',
+	'copy-webpack-plugin': '^4.6.0',
+	'css-loader': '^1.0.1',
 	'extract-text-webpack-plugin': 'next',
 	'file-loader': '^2.0.0',
 	'webfonts-loader': '^4.2.1',

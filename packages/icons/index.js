@@ -1,3 +1,3 @@
 const lib = require('./src');
-const fonts = require('./src/talendicons.font.json');
+const fonts = require('./src/talendicons.font');
 module.exports.default = lib;
