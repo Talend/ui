@@ -11,7 +11,7 @@ public class LocalWebDriverTest extends WebDriverTest {
     public void setUp() {
         LOGGER.info("Using local version of WebDriver: " + System.getProperty("webdriver.chrome.driver"));
         driver = new ChromeDriver();
-        //driver.manage().window().maximize();
+        driver.manage().window().maximize();
     }
 
     public void tearDown() {
