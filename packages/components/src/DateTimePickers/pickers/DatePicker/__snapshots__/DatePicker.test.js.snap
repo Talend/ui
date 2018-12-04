@@ -8,10 +8,10 @@ exports[`DatePicker should render a DatePicker 1`] = `
       "year": 2018,
     }
   }
-  goToNextMonth={[Function]}
-  goToPreviousMonth={[Function]}
+  goToNextMonth={[MockFunction]}
+  goToPreviousMonth={[MockFunction]}
   isDisabledChecker={[Function]}
-  onSelect={[Function]}
+  onSelect={[MockFunction]}
   selectedDate={2018-06-11T22:00:00.000Z}
 >
   <div>
@@ -22,11 +22,11 @@ exports[`DatePicker should render a DatePicker 1`] = `
           "year": 2018,
         }
       }
-      goToNextMonth={[Function]}
-      goToPreviousMonth={[Function]}
+      goToNextMonth={[MockFunction]}
+      goToPreviousMonth={[MockFunction]}
       isDisabledChecker={[Function]}
       onKeyDown={[Function]}
-      onSelect={[Function]}
+      onSelect={[MockFunction]}
       selectedDate={2018-06-11T22:00:00.000Z}
       t={[Function]}
     >

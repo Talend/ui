@@ -4,7 +4,6 @@ exports[`RowCollapsiblePanel should render collapsible panel row 1`] = `
 <div
   aria-label="Canceled"
   aria-posinset={2}
-  aria-setsize={undefined}
   className="tc-collapsible-row my-class-names"
   id="my-list-1"
   onKeyDown={[Function]}
@@ -17,7 +16,7 @@ exports[`RowCollapsiblePanel should render collapsible panel row 1`] = `
   tabIndex="0"
 >
   <PureCollapsiblePanel
-    measure={[Function]}
+    measure={[MockFunction]}
     onToggle={[Function]}
     rowData={
       Object {

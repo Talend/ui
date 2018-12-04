@@ -7,7 +7,6 @@ exports[`SelectDisplayMode should render 1`] = `
 >
   <li
     className="dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
@@ -44,12 +43,10 @@ exports[`SelectDisplayMode should render 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           aria-label="Set Table as current display mode."
           href="#"
-          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -72,12 +69,10 @@ exports[`SelectDisplayMode should render 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           aria-label="Set Expanded as current display mode."
           href="#"
-          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -109,7 +104,6 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
 >
   <li
     className="dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
@@ -146,7 +140,6 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           aria-label="Set Table as current display mode."
@@ -174,7 +167,6 @@ exports[`SelectDisplayMode should render id if provided 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           aria-label="Set Expanded as current display mode."
@@ -211,7 +203,6 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
 >
   <li
     className="dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
@@ -248,12 +239,10 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           aria-label="Set Table as current display mode."
           href="#"
-          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -276,12 +265,10 @@ exports[`SelectDisplayMode should render with displayMode = large 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           aria-label="Set Expanded as current display mode."
           href="#"
-          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -313,7 +300,6 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
 >
   <li
     className="dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
@@ -350,12 +336,10 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           aria-label="Set Table as current display mode."
           href="#"
-          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -378,12 +362,10 @@ exports[`SelectDisplayMode should render with displayMode = table 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           aria-label="Set Expanded as current display mode."
           href="#"
-          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"

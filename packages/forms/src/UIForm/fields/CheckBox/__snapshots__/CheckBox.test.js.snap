@@ -7,15 +7,14 @@ exports[`CheckBox field should render disabled input 1`] = `
   errorId="myForm-error"
   errorMessage="My error message"
   isValid={true}
-  required={undefined}
 >
   <SimpleCheckBox
     describedby="myForm-description myForm-error"
     id="myForm"
     isValid={true}
     label="My checkbox title"
-    onChange={[Function]}
-    onFinish={[Function]}
+    onChange={[MockFunction]}
+    onFinish={[MockFunction]}
     schema={
       Object {
         "autoFocus": true,
@@ -37,15 +36,14 @@ exports[`CheckBox field should render input 1`] = `
   errorId="myForm-error"
   errorMessage="My error message"
   isValid={true}
-  required={undefined}
 >
   <SimpleCheckBox
     describedby="myForm-description myForm-error"
     id="myForm"
     isValid={true}
     label="My checkbox title"
-    onChange={[Function]}
-    onFinish={[Function]}
+    onChange={[MockFunction]}
+    onFinish={[MockFunction]}
     schema={
       Object {
         "autoFocus": true,

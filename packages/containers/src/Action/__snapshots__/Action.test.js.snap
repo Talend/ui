@@ -6,12 +6,10 @@ exports[`Action should render from name props keeping extra props 1`] = `
   deleteState={[Function]}
   dispatch={[Function]}
   dispatchActionCreator={[Function]}
-  displayMode={undefined}
   extra="foo"
   getComponent={[Function]}
   initState={[Function]}
   setState={[Function]}
-  state={undefined}
   updateState={[Function]}
 />
 `;
