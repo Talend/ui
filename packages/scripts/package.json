@@ -18,7 +18,6 @@
     "@talend/html-webpack-plugin": "1.0.0",
     "@talend/react-cmf-webpack-plugin": "^0.186.0",
     "autoprefixer": "^7.1.4",
-    "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.0",

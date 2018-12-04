@@ -81,7 +81,7 @@ module.exports = ({ getUserConfig }) => {
 	const sassData = getSassData(getUserConfig);
 
 	return {
-		entry: ['babel-polyfill', 'whatwg-fetch', `${process.cwd()}/src/app/index.js`],
+		entry: ['@babel/polyfill', 'whatwg-fetch', `${process.cwd()}/src/app/index.js`],
 		output: {
 			filename: '[name]-[hash].js',
 		},

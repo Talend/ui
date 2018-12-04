@@ -1,5 +1,5 @@
 /* eslint-disable global-require,no-plusplus */
-import 'babel-polyfill';
+import '@babel/polyfill';
 import 'isomorphic-fetch';
 import 'raf/polyfill';
 import { configure } from 'enzyme';
