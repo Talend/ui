@@ -68,7 +68,7 @@ const files = [
 	path.join(__dirname, '../packages/generator/generators/app/templates/package.json'),
 	path.join(__dirname, '../packages/html-webpack-plugin/package.json'),
 	path.join(__dirname, '../packages/icons/package.json'),
-	path.join(__dirname, '../packages/logging/package.json'),
+	// path.join(__dirname, '../packages/logging/package.json'),
 	path.join(__dirname, '../packages/sagas/package.json'),
 	path.join(__dirname, '../packages/scripts/package.json'),
 	path.join(__dirname, '../packages/storybook-cmf/package.json'),

@@ -73,7 +73,7 @@ module.exports = {
 	'@storybook/addon-knobs': '^4.0.11',
 	'@storybook/addons': '^4.0.11',
 	autoprefixer: '^7.1.4',
-	'babel-core': '7.0.0-bridge.0', // to fix jest
+	'babel-core': '^7.0.0-bridge.0', // to fix jest
 	'babel-eslint': '^8.2.3',
 	'babel-jest': JEST_VERSION,
 	// babel 7
@@ -85,17 +85,17 @@ module.exports = {
 	'@babel/plugin-proposal-export-namespace-from': '^7.2.0',
 	'@babel/plugin-proposal-export-default-from': '^7.2.0',
 	'@babel/preset-env': '^7.2.0',
-	'@babel/preset-react': '^7.2.0',
+	'@babel/preset-react': '^7.0.0',
 	cpx: '^1.5.0',
 	enzyme: '^3.1.0',
 	'enzyme-adapter-react-15': '^1.0.1',
 	'enzyme-adapter-react-16': '^1.1.1',
 	'enzyme-to-json': '^3.0.0',
-	eslint: '^4.19.1',
-	'eslint-config-airbnb': '^16.1.0',
-	'eslint-plugin-import': '^2.12.0',
-	'eslint-plugin-jsx-a11y': '^6.0.3',
-	'eslint-plugin-react': '^7.9.1',
+	eslint: '^3.6.1',
+	'eslint-config-airbnb': '^11.1.0',
+	'eslint-plugin-import': '^1.16.0',
+	'eslint-plugin-jsx-a11y': '^2.2.2',
+	'eslint-plugin-react': '^6.3.0',
 	jest: JEST_VERSION,
 	'jest-cli': JEST_VERSION,
 	'jest-in-case': '^1.0.2', // this is integrated in jest 23
