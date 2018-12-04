@@ -665,47 +665,4 @@ describe('Date extraction', () => {
 			expect(format).toBe('YYYY-MM-DD HH:mm:ss');
 		});
 	});
-
-	describe('convertToUTC', () => {
-		it('should convert given date to UTC', () => {
-			// given
-			// date in +1
-			const date = new Date(2018, 11, 14, 20, 30, 40);
-			// when
-
-			const dateInUtc = convertToUTC(date);
-
-			// then
-			expect(date.getUTCHours()).toBe(19);
-			expect(dateInUtc.getUTCHours()).toBe(20);
-		});
-		it('should convert given date to UTC', () => {
-			// given
-			// date in +1
-			const date = new Date(2018, 11, 14, 0, 30, 40);
-			// when
-
-			const dateInUtc = convertToUTC(date);
-
-			// then
-			expect(date.getUTCDate()).toBe(13);
-			expect(date.getUTCHours()).toBe(23);
-			expect(dateInUtc.getUTCDate()).toBe(14);
-			expect(dateInUtc.getUTCHours()).toBe(0);
-		});
-		it('should convert given UTC date to GMT for the same hour', () => {
-			// given
-			// date in in UTC 2018-12-14T19:30:40.000Z
-			const date = new Date(1544815840000);
-
-			// when
-			const dateUtcToGmt = convertToUTC(date, true);
-
-			// then
-			expect(date.getDate()).toBe(14);
-			expect(date.getHours()).toBe(20);
-			expect(dateUtcToGmt.getDate()).toBe(14);
-			expect(dateUtcToGmt.getHours()).toBe(19);
-		});
-	});
 });

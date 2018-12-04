@@ -70,11 +70,11 @@ class TestPickerWrapper extends React.Component {
 	}
 }
 
-storiesOf('DateTimePicker', module)
-	.add('InputDatePicker', () => (
+storiesOf('DatePicker', module)
+	.add('Date picker', () => (
 		<div>
 			<IconsProvider />
-			<h1>InputDateTimePicker</h1>
+			<h1>DatePicker</h1>
 			<p>
 				Default date picker doesn't include time<br />
 				It comes with classical keyboard gesture.
@@ -87,10 +87,10 @@ storiesOf('DateTimePicker', module)
 			/>
 		</div>
 	))
-	.add('InputDateTimePicker', () => (
+	.add('Date picker - time', () => (
 		<div>
 			<IconsProvider />
-			<h1>InputDateTimePicker</h1>
+			<h1>DatePicker with time</h1>
 			<p>You can require time with a simple "useTime" props.</p>
 			<pre>{`
 <InputDateTimePicker
@@ -111,35 +111,10 @@ storiesOf('DateTimePicker', module)
 			</form>
 		</div>
 	))
-	.add('InputDateTimePicker in UTC', () => (
+	.add('Date picker - seconds', () => (
 		<div>
 			<IconsProvider />
-			<h1>InputDateTimePicker</h1>
-			<p>You can require time with a simple "useTime" props.</p>
-			<pre>{`
-<InputDateTimePicker
-	id="my-date-picker"
-	...
-	useTime
-/>
-			`}</pre>
-			<form style={{ width: 320 }}>
-				<InputDateTimePicker
-					id="my-date-picker"
-					name="Datetime"
-					onBlur={action('onBlur')}
-					onChange={action('onChange')}
-					selectedDateTime={new Date(Date.UTC(2018, 4, 13, 12, 30, 44))}
-					useTime
-					useUTC
-				/>
-			</form>
-		</div>
-	))
-	.add('InputDateTimePicker - seconds', () => (
-		<div>
-			<IconsProvider />
-			<h1>InputDateTimePicker with seconds</h1>
+			<h1>DatePicker with seconds</h1>
 			<p>
 				By default, time is only hours and minutes (HH:mm). You can require seconds with a simple
 				"useSeconds" props.
@@ -165,9 +140,35 @@ storiesOf('DateTimePicker', module)
 			</form>
 		</div>
 	))
-	.add('InputDateTimePicker - custom format', () => (
+	.add('Date picker - UTC', () => (
 		<div>
-			<h1>InputDateTimePicker with custom format</h1>
+			<IconsProvider />
+			<h1>DatePicker in UTC TZ</h1>
+			<p>You can require to work with only UTC dates (input and output).</p>
+			<pre>{`
+<InputDateTimePicker
+	id="my-date-picker"
+	...
+	useTime
+	useUTC
+/>
+			`}</pre>
+			<form style={{ width: 320 }}>
+				<InputDateTimePicker
+					id="my-date-picker"
+					name="Datetime"
+					onBlur={action('onBlur')}
+					onChange={action('onChange')}
+					selectedDateTime={new Date(Date.UTC(2018, 4, 13, 12, 30, 44))}
+					useTime
+					useUTC
+				/>
+			</form>
+		</div>
+	))
+	.add('Date picker - custom format', () => (
+		<div>
+			<h1>DatePicker with custom format</h1>
 			<p>
 				Date picker can accept a custom date format if it's a composition of DD, MM, YYYY only.
 				<br />
@@ -198,9 +199,9 @@ storiesOf('DateTimePicker', module)
 			</form>
 		</div>
 	))
-	.add('DateTimePicker', () => (
+	.add('Date picker - no input', () => (
 		<div>
-			<h1>DateTimePicker</h1>
+			<h1>DatePicker without input</h1>
 			<IconsProvider />
 			<ul>
 				<li>Width is defined by the parent (here fixed to 320px) but is responsive </li>

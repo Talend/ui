@@ -1,19 +1,66 @@
-import getDate from 'date-fns/get_date';
-import startOfDay from 'date-fns/start_of_day';
-import setSeconds from 'date-fns/set_seconds';
-import getMinutes from 'date-fns/get_minutes';
-import getSeconds from 'date-fns/get_seconds';
-import lastDayOfMonth from 'date-fns/last_day_of_month';
-import setDate from 'date-fns/set_date';
 import format from 'date-fns/format';
+import getDate from 'date-fns/get_date';
+import lastDayOfMonth from 'date-fns/last_day_of_month';
+import setSeconds from 'date-fns/set_seconds';
+import setDate from 'date-fns/set_date';
 import startOfSecond from 'date-fns/start_of_second';
-import getHours from 'date-fns/get_hours';
 
 const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
 const timePartRegex = new RegExp(/^(.*):(.*)$/);
 const timeWithSecondsPartRegex = new RegExp(/^(.*):(.*):(.*)$/);
 
 const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
+
+function pad(num, size) {
+	let s = String(num);
+	while (s.length < (size || 2)) {
+		s = `0${s}`;
+	}
+	return s;
+}
+
+/**
+ * Extract date and apply the current timezone, from datetime
+ * Ex :
+ * 2014-03-25 23:00:00 (UTC) 		--> 2014-03-25 OO:OO:OO (current TZ)
+ * 2014-03-25 23:00:00 (current TZ) --> 2014-03-25 OO:OO:OO (current TZ)
+ * @param date {Date} The date to extract
+ * @param useUTC {boolean} Indicates if date is in UTC
+ */
+function extractDateOnly(date, { useUTC }) {
+	if (useUTC) {
+		return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
+	}
+	return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+}
+
+/**
+ * Extract time
+ * @param date {Date} The date to extract
+ * @param useSeconds {boolean} Indicates if we should extract seconds
+ * @param useUTC {boolean} Indicates if date is in UTC
+ * @returns {*}
+ */
+function extractTimeOnly(date, { useSeconds, useUTC }) {
+	let hours;
+	let minutes;
+	let seconds;
+	if (useUTC) {
+		hours = date.getUTCHours();
+		minutes = date.getUTCMinutes();
+		seconds = date.getUTCSeconds();
+	} else {
+		hours = date.getHours();
+		minutes = date.getMinutes();
+		seconds = date.getSeconds();
+	}
+
+	return {
+		hours: pad(hours, 2),
+		minutes: pad(minutes, 2),
+		seconds: useSeconds ? pad(seconds, 2) : '00',
+	};
+}
 
 /**
  * Build date regexep from date format.
@@ -58,22 +105,10 @@ function isDateValid(date) {
 }
 
 /**
- * Convert a date in local timezone to UTC
- * @param date {Object} a valid Date object
+ * Convert a date in local TZ to UTC
+ * Ex: 2015-05-23 23:58:46 (current TZ) --> 2015-05-23 23:58:46 (UTC)
  */
-function convertToUTC(date, dateIsUtc = false) {
-	// the date is already in UTC
-	// converting the date to get UTC values
-	if (dateIsUtc) {
-		return new Date(
-			date.getUTCFullYear(),
-			date.getUTCMonth(),
-			date.getUTCDate(),
-			date.getUTCHours(),
-			date.getUTCMinutes(),
-			date.getUTCSeconds(),
-		);
-	}
+function convertToUTC(date) {
 	return new Date(
 		Date.UTC(
 			date.getFullYear(),
@@ -153,11 +188,12 @@ function dateTimeToStr(date, time, options) {
 
 /**
  * Set the time to the provided date
- * @param date {Date}
- * @param time {{hours: string, minutes: string, seconds: string}}
+ * @param date {Date} Date in current TZ
+ * @param time {{hours: string, minutes: string, seconds: string}} Time in current TZ
+ * @param useUTC {boolean} Indicates that we ask for a date in UTC TZ
  * @returns {Date}
  */
-function dateAndTimeToDateTime(date, time, options) {
+function dateAndTimeToDateTime(date, time, { useUTC }) {
 	if (date === undefined || time === undefined) {
 		return INTERNAL_INVALID_DATE;
 	}
@@ -166,7 +202,7 @@ function dateAndTimeToDateTime(date, time, options) {
 		const { hours, minutes, seconds } = time;
 		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
 		const localTimezoneDate = setSeconds(date, timeInSeconds);
-		return options.useUTC ? convertToUTC(localTimezoneDate) : localTimezoneDate;
+		return useUTC ? convertToUTC(localTimezoneDate) : localTimezoneDate;
 	} catch (e) {
 		return INTERNAL_INVALID_DATE;
 	}
@@ -229,14 +265,6 @@ function strToTime(strToParse, useSeconds) {
 	return { hours, minutes, seconds };
 }
 
-function pad(num, size) {
-	let s = String(num);
-	while (s.length < (size || 2)) {
-		s = `0${s}`;
-	}
-	return s;
-}
-
 /**
  * Init time (hours, minutes, seconds), depending on the options.
  * If a part is not used, it is init to 00, otherwise it's empty, so user have to enter it.
@@ -291,24 +319,16 @@ function extractPartsFromDateTime(datetime, options) {
 		};
 	}
 
-	const date = options.useUTC ? convertToUTC(datetime, true) : datetime;
+	const date = extractDateOnly(datetime, options);
 	if (options.useTime) {
-		const hours = getHours(date);
-		const minutes = getMinutes(date);
-		const seconds = getSeconds(date);
-
-		time = {
-			hours: pad(hours, 2),
-			minutes: pad(minutes, 2),
-			seconds: options.useSeconds ? pad(seconds, 2) : '00',
-		};
+		time = extractTimeOnly(datetime, options);
 	}
 
 	return {
-		date: startOfDay(date),
+		date,
 		time,
 		datetime: startOfSecond(datetime),
-		textInput: dateTimeToStr(startOfDay(date), time, options),
+		textInput: dateTimeToStr(date, time, options),
 	};
 }
 
@@ -448,5 +468,4 @@ export {
 	extractPartsFromDateAndTime,
 	extractPartsFromTextInput,
 	getFullDateFormat,
-	convertToUTC,
 };
