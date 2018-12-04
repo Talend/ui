@@ -44,12 +44,14 @@ class InputDateTimePicker extends React.Component {
 		dateFormat: PropTypes.string,
 		useSeconds: PropTypes.bool,
 		useTime: PropTypes.bool,
+		useUTC: PropTypes.bool,
 	};
 
 	static defaultProps = {
 		dateFormat: 'YYYY-MM-DD',
 		useSeconds: false,
 		useTime: false,
+		useUTC: false,
 	};
 
 	constructor(props) {
@@ -183,6 +185,7 @@ class InputDateTimePicker extends React.Component {
 			dateFormat: this.props.dateFormat,
 			useTime: this.props.useTime,
 			useSeconds: this.props.useSeconds,
+			useUTC: this.props.useUTC,
 		};
 	}
 
@@ -229,6 +232,7 @@ class InputDateTimePicker extends React.Component {
 								onSubmit={this.onPickerChange}
 								useTime={this.props.useTime}
 								useSeconds={this.props.useSeconds}
+								useUTC={this.props.useUTC}
 							/>
 						</Popover>
 					</Overlay>

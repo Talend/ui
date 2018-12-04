@@ -37,6 +37,7 @@ class DateTimeView extends React.PureComponent {
 		}),
 		useSeconds: PropTypes.bool,
 		useTime: PropTypes.bool,
+		useUTC: PropTypes.bool,
 		t: PropTypes.func.isRequired,
 	};
 
@@ -59,6 +60,7 @@ class DateTimeView extends React.PureComponent {
 					value={this.props.selectedTime}
 					onChange={this.props.onSelectTime}
 					useSeconds={this.props.useSeconds}
+					useUTC={this.props.useUTC}
 				/>
 			</div>
 		);

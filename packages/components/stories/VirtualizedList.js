@@ -335,7 +335,15 @@ const collectionWithTooltupLabel = collection.map(item => {
 
 const collapsibleListCollection = [
 	{
-		header: [{ displayMode: 'status', actions: [], status: 'successful', label: 'Successful', icon: 'talend-check' }],
+		header: [
+			{
+				displayMode: 'status',
+				actions: [],
+				status: 'successful',
+				label: 'Successful',
+				icon: 'talend-check',
+			},
+		],
 		content: [
 			{
 				label: 'Content1',
@@ -347,10 +355,18 @@ const collapsibleListCollection = [
 			},
 		],
 		expanded: true,
-		children: <div>HELLO WORLDa</div>
+		children: <div>HELLO WORLDa</div>,
 	},
 	{
-		header: [{ displayMode: 'status', actions: [], status: 'canceled', label: 'Canceled', icon: 'talend-cross' }],
+		header: [
+			{
+				displayMode: 'status',
+				actions: [],
+				status: 'canceled',
+				label: 'Canceled',
+				icon: 'talend-cross',
+			},
+		],
 		content: [
 			{
 				label: 'Content1',
@@ -364,7 +380,15 @@ const collapsibleListCollection = [
 		expanded: false,
 	},
 	{
-		header: [{ displayMode: 'status', actions: [], status: 'failed', label: 'Failure', icon: 'talend-cross' }],
+		header: [
+			{
+				displayMode: 'status',
+				actions: [],
+				status: 'failed',
+				label: 'Failure',
+				icon: 'talend-cross',
+			},
+		],
 		content: [
 			{
 				label: 'Content1',
@@ -376,14 +400,14 @@ const collapsibleListCollection = [
 			},
 		],
 		expanded: true,
-	}
+	},
 ];
 
-const sourceItems = [...new Array(20000)]
-	.map((item, index) => collapsibleListCollection[index % collapsibleListCollection.length]);
+const sourceItems = [...new Array(20000)].map(
+	(item, index) => collapsibleListCollection[index % collapsibleListCollection.length],
+);
 
-
-storiesOf('Virtualized List', module)
+storiesOf('VirtualizedList', module)
 	.addDecorator(checkA11y)
 	.add('List > Table', () => (
 		<div className="virtualized-list">
@@ -761,7 +785,13 @@ storiesOf('Virtualized List', module)
 			<h1>Virtualized List</h1>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
-				<VirtualizedList collection={collectionWithTooltupLabel} id={'my-list'} type="custom" rowHeight={116} rowRenderers={{ custom: MyCustomRow }}>
+				<VirtualizedList
+					collection={collectionWithTooltupLabel}
+					id={'my-list'}
+					type="custom"
+					rowHeight={116}
+					rowRenderers={{ custom: MyCustomRow }}
+				>
 					<VirtualizedList.Content label="Id" dataKey="id" width={-1} />
 					<VirtualizedList.Content
 						label="Description (non sortable)"
@@ -774,5 +804,4 @@ storiesOf('Virtualized List', module)
 				</VirtualizedList>
 			</section>
 		</div>
-	)
-);
+	));
