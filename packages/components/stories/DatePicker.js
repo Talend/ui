@@ -224,6 +224,10 @@ storiesOf('DatePicker', module)
 				<div style={{ width: 320, border: '1px solid black', marginRight: '1rem' }}>
 					<DateTimePicker onSubmit={action('onSubmit')} />
 				</div>
+
+				<div style={{ width: 320, border: '1px solid black', marginRight: '1rem' }}>
+					<DateTimePicker onSubmit={action('onSubmit')} useTime useUTC />
+				</div>
 			</div>
 		</div>
 	));

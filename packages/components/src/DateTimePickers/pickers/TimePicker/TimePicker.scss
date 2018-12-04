@@ -7,6 +7,10 @@
 
 	legend {
 		@include picker-header;
+
+		.utc {
+			font-size: 1rem;
+		}
 	}
 
 	hr {

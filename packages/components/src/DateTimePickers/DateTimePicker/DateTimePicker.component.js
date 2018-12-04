@@ -158,6 +158,7 @@ class DateTimePicker extends React.Component {
 					selectedTime={this.state.selectedTime}
 					useSeconds={this.props.useSeconds}
 					useTime={this.props.useTime}
+					useUTC={this.props.useUTC}
 				/>
 			);
 		} else {
@@ -218,6 +219,10 @@ DateTimePicker.propTypes = {
 	 * Display time picker
 	 */
 	useTime: PropTypes.bool,
+	/**
+	 * Timezone is UTC
+	 */
+	useUTC: PropTypes.bool,
 };
 
 DateTimePicker.defaultProps = {

@@ -232,6 +232,7 @@ class InputDateTimePicker extends React.Component {
 								onSubmit={this.onPickerChange}
 								useTime={this.props.useTime}
 								useSeconds={this.props.useSeconds}
+								useUTC={this.props.useUTC}
 							/>
 						</Popover>
 					</Overlay>

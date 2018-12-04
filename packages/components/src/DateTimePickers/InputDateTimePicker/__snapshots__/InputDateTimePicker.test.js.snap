@@ -52,6 +52,7 @@ exports[`InputDateTimePicker should render 1`] = `
           }
           useSeconds={false}
           useTime={true}
+          useUTC={false}
         />
       </Popover>
     </Overlay>
