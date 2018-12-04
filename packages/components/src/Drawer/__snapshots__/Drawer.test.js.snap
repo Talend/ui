@@ -25,7 +25,6 @@ exports[`Drawer should not render if no children 1`] = `null`;
 exports[`Drawer should render 1`] = `
 <div
   className="theme-tc-drawer tc-drawer theme-tc-drawer-transition tc-drawer-transition"
-  style={undefined}
 >
   <div
     className="tc-drawer-container theme-tc-drawer-container"
@@ -72,7 +71,6 @@ exports[`Drawer should render 1`] = `
 exports[`Drawer should render stacked 1`] = `
 <div
   className="theme-tc-drawer tc-drawer theme-tc-drawer-transition tc-drawer-transition theme-drawer-stacked stacked"
-  style={undefined}
 >
   <div
     className="tc-drawer-container theme-tc-drawer-container"
@@ -119,7 +117,6 @@ exports[`Drawer should render stacked 1`] = `
 exports[`Drawer should render using custom className 1`] = `
 <div
   className="theme-tc-drawer my-custom-drawer tc-drawer theme-tc-drawer-transition tc-drawer-transition"
-  style={undefined}
 >
   <div
     className="tc-drawer-container theme-tc-drawer-container"
@@ -217,7 +214,6 @@ exports[`Drawer should render using custom styles 1`] = `
 exports[`Drawer should render with tabs 1`] = `
 <div
   className="theme-tc-drawer tc-drawer theme-tc-drawer-transition tc-drawer-transition"
-  style={undefined}
 >
   <div
     className="tc-drawer-container theme-tc-drawer-container"
@@ -237,7 +233,6 @@ exports[`Drawer should render with tabs 1`] = `
           <li
             className=""
             role="presentation"
-            style={undefined}
           >
             <button
               aria-controls="my-tabs-pane-1"
@@ -256,7 +251,6 @@ exports[`Drawer should render with tabs 1`] = `
           <li
             className="active"
             role="presentation"
-            style={undefined}
           >
             <button
               aria-controls="my-tabs-pane-2"
@@ -267,7 +261,6 @@ exports[`Drawer should render with tabs 1`] = `
               onClick={[Function]}
               onKeyDown={[Function]}
               role="tab"
-              tabIndex={undefined}
             >
               Tab 2
             </button>
@@ -468,7 +461,6 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
 exports[`Drawer should render without tc-drawer-transition class 1`] = `
 <div
   className="theme-tc-drawer tc-drawer"
-  style={undefined}
 >
   <div
     className="tc-drawer-container theme-tc-drawer-container"

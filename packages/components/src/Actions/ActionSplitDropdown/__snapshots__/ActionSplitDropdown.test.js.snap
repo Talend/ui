@@ -6,7 +6,7 @@ exports[`ActionSplitDropdown should render "no option" item when items array is 
   className="theme-tc-split-dropdown"
   data-feature="action.add"
   id={42}
-  onClick={[Function]}
+  onClick={[MockFunction]}
   title={
     <span>
       <Icon
@@ -36,7 +36,7 @@ exports[`ActionSplitDropdown should render a button with icon and label 1`] = `
   className="theme-tc-split-dropdown"
   data-feature="action.add"
   id={42}
-  onClick={[Function]}
+  onClick={[MockFunction]}
   title={
     <span>
       <Icon
@@ -80,7 +80,7 @@ exports[`ActionSplitDropdown should render a button with label 1`] = `
   className="theme-tc-split-dropdown"
   data-feature="action.add"
   id={42}
-  onClick={[Function]}
+  onClick={[MockFunction]}
   title={
     <span>
       <span>
@@ -121,7 +121,7 @@ exports[`ActionSplitDropdown should render items with icons 1`] = `
   className="theme-tc-split-dropdown"
   data-feature="action.add"
   id={42}
-  onClick={[Function]}
+  onClick={[MockFunction]}
   title={
     <span>
       <Icon

@@ -14,9 +14,19 @@ exports[`Default Array Template component should render default array template 1
     bsStyle="info"
     className="theme-tf-array-add tf-array-add"
     label="New Element"
-    onClick={[Function]}
+    onClick={[MockFunction]}
+  />
+  <Message
+    className={undefined}
+    description="Tnstructions to fill it"
+    descriptionId="my-template-description"
+    errorId="my-template-error"
+    errorMessage="This is an error"
+    isValid={true}
   />
   <ol
+    aria-describedby="my-template-description my-template-error"
+    aria-invalid={true}
     className="theme-tf-array tf-array"
     id="my-template"
   >
@@ -28,9 +38,8 @@ exports[`Default Array Template component should render default array template 1
         hasMoveUp={false}
         id="my-template-control-0"
         index={0}
-        isClosed={undefined}
-        onRemove={[Function]}
-        onReorder={[Function]}
+        onRemove={[MockFunction]}
+        onReorder={[MockFunction]}
       >
         <div>
           Render item 
@@ -46,9 +55,8 @@ exports[`Default Array Template component should render default array template 1
         hasMoveUp={true}
         id="my-template-control-1"
         index={1}
-        isClosed={undefined}
-        onRemove={[Function]}
-        onReorder={[Function]}
+        onRemove={[MockFunction]}
+        onReorder={[MockFunction]}
       >
         <div>
           Render item 
@@ -64,9 +72,8 @@ exports[`Default Array Template component should render default array template 1
         hasMoveUp={true}
         id="my-template-control-2"
         index={2}
-        isClosed={undefined}
-        onRemove={[Function]}
-        onReorder={[Function]}
+        onRemove={[MockFunction]}
+        onReorder={[MockFunction]}
       >
         <div>
           Render item 
@@ -75,10 +82,5 @@ exports[`Default Array Template component should render default array template 1
       </ArrayItem>
     </li>
   </ol>
-  <Message
-    description="Tnstructions to fill it"
-    errorMessage="This is an error"
-    isValid={true}
-  />
 </fieldset>
 `;

@@ -27,19 +27,16 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
       },
     ]
   }
-  disableHeader={undefined}
   height={600}
   id="my-list-id"
-  inProgress={undefined}
-  isActive={[Function]}
-  isSelected={[Function]}
+  isActive={[MockFunction]}
+  isSelected={[MockFunction]}
   noRowsRenderer={[Function]}
-  onRowClick={[Function]}
-  onRowDoubleClick={[Function]}
-  onScroll={[Function]}
+  onRowClick={[MockFunction]}
+  onRowDoubleClick={[MockFunction]}
+  onScroll={[MockFunction]}
   rowHeight={50}
-  rowRenderers={undefined}
-  sort={[Function]}
+  sort={[MockFunction]}
   sortBy="name"
   sortDirection="DESC"
   type="TABLE"
@@ -53,7 +50,7 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
       Object {
         "id": "my-list-id",
         "label": "Select this element",
-        "onChange": [Function],
+        "onChange": [MockFunction],
       }
     }
     dataKey=""

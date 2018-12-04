@@ -13,7 +13,7 @@ Array [
     label="Id"
     style={Object {}}
     width={50}
-/>,
+  />,
   <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
@@ -25,7 +25,7 @@ Array [
     label="Name"
     style={Object {}}
     width={350}
-/>,
+  />,
 ]
 `;
 
@@ -35,10 +35,10 @@ Array [
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     columnData={
-        Object {
-            "label": "Select this element",
-            "onChange": [Function],
-          }
+      Object {
+        "label": "Select this element",
+        "onChange": [MockFunction],
+      }
     }
     dataKey=""
     defaultSortDirection="ASC"
@@ -50,7 +50,7 @@ Array [
     label=""
     style={Object {}}
     width={35}
-/>,
+  />,
   <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
@@ -62,7 +62,7 @@ Array [
     label="Id"
     style={Object {}}
     width={50}
-/>,
+  />,
   <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
@@ -74,7 +74,7 @@ Array [
     label="Name"
     style={Object {}}
     width={350}
-/>,
+  />,
 ]
 `;
 
@@ -85,10 +85,10 @@ Array [
     cellRenderer={[Function]}
     className="tc-list-cell-id"
     columnData={
-        Object {
-            "custom": "lol",
-            "id": "my-id",
-          }
+      Object {
+        "custom": "lol",
+        "id": "my-id",
+      }
     }
     dataKey="id"
     defaultSortDirection="ASC"
@@ -99,7 +99,7 @@ Array [
     label="Id"
     style={Object {}}
     width={50}
-/>,
+  />,
 ]
 `;
 
@@ -110,9 +110,9 @@ Array [
     cellRenderer={[Function]}
     className="my-classname theme-classname tc-list-cell-id"
     columnData={
-        Object {
-            "id": undefined,
-          }
+      Object {
+        "id": undefined,
+      }
     }
     dataKey="id"
     defaultSortDirection="ASC"
@@ -123,7 +123,7 @@ Array [
     label="Id"
     style={Object {}}
     width={50}
-/>,
+  />,
 ]
 `;
 
@@ -134,9 +134,9 @@ Array [
     cellRenderer={[Function]}
     className="tc-list-cell-id"
     columnData={
-        Object {
-            "id": undefined,
-          }
+      Object {
+        "id": undefined,
+      }
     }
     dataKey="id"
     defaultSortDirection="ASC"
@@ -147,6 +147,6 @@ Array [
     label="Id"
     style={Object {}}
     width={50}
-/>,
+  />,
 ]
 `;
