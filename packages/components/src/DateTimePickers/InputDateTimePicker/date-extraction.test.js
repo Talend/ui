@@ -5,7 +5,6 @@ import {
 	extractPartsFromDateTime,
 	extractPartsFromTextInput,
 	getFullDateFormat,
-	convertToUTC,
 } from './date-extraction';
 
 describe('Date extraction', () => {
@@ -199,7 +198,7 @@ describe('Date extraction', () => {
 			});
 		});
 
-		it('should return convert the gmt date to utc value', () => {
+		it('should create the gmt date from utc value', () => {
 			// given
 			// date is 2015-09-15T10:58:22.000Z UTC
 			const validDate = new Date(1442314702000);
@@ -222,7 +221,7 @@ describe('Date extraction', () => {
 			});
 		});
 
-		it('should return convert the gmt date to utc value from previous day', () => {
+		it('should create the gmt date from utc value (previous day)', () => {
 			// given
 			// date is 2015-09-15T10:58:22.000Z UTC
 			const validDate = new Date(2015, 8, 15, 1, 0, 22);
