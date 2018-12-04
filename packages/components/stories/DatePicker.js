@@ -199,35 +199,50 @@ storiesOf('DatePicker', module)
 			</form>
 		</div>
 	))
-	.add('Date picker - no input', () => (
-		<div>
-			<h1>DatePicker without input</h1>
-			<IconsProvider />
-			<ul>
-				<li>Width is defined by the parent (here fixed to 320px) but is responsive </li>
-				<li>Height is responsive relatively to the default font-size</li>
-				<li>
-					The outer border style (black) is here just as visual shape indication, it's not part of
-					the component rendered
-				</li>
-			</ul>
+	.add('Date picker - no input', () => {
+		const blockStyle = { width: 320, border: '1px solid black', marginRight: '1rem' };
+		return (
+			<div>
+				<h1>DatePicker without input</h1>
+				<IconsProvider />
+				<ul>
+					<li>Width is defined by the parent (here fixed to 320px) but is responsive </li>
+					<li>Height is responsive relatively to the default font-size</li>
+					<li>
+						The outer border style (black) is here just as visual shape indication, it's not part of
+						the component rendered
+					</li>
+				</ul>
 
-			<div style={{ display: 'flex', alignItems: 'flex-start' }}>
-				<div style={{ width: 320, border: '1px solid black', marginRight: '1rem' }}>
-					<DateTimePicker onSubmit={action('onSubmit')} useTime useSeconds />
-				</div>
+				<div style={{ display: 'flex', alignItems: 'flex-start' }}>
+					<div>
+						<h2>Date</h2>
+						<div style={blockStyle}>
+							<DateTimePicker onSubmit={action('onSubmit')} />
+						</div>
+					</div>
 
-				<div style={{ width: 320, border: '1px solid black', marginRight: '1rem' }}>
-					<DateTimePicker onSubmit={action('onSubmit')} useTime />
-				</div>
+					<div>
+						<h2>Date time</h2>
+						<div style={blockStyle}>
+							<DateTimePicker onSubmit={action('onSubmit')} useTime />
+						</div>
+					</div>
 
-				<div style={{ width: 320, border: '1px solid black', marginRight: '1rem' }}>
-					<DateTimePicker onSubmit={action('onSubmit')} />
-				</div>
+					<div>
+						<h2>Date time seconds</h2>
+						<div style={blockStyle}>
+							<DateTimePicker onSubmit={action('onSubmit')} useTime useSeconds />
+						</div>
+					</div>
 
-				<div style={{ width: 320, border: '1px solid black', marginRight: '1rem' }}>
-					<DateTimePicker onSubmit={action('onSubmit')} useTime useUTC />
+					<div>
+						<h2>Date time seconds UTC</h2>
+						<div style={blockStyle}>
+							<DateTimePicker onSubmit={action('onSubmit')} useTime useSeconds useUTC />
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-	));
+		);
+	});
