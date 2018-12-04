@@ -5,7 +5,7 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx -v \"./src/**/*.scss\" ./lib",
+    "prepublish": "babel --root-mode upward -d lib ./src/ && rimraf lib/**/*.test.js && cpx -v \"./src/**/*.scss\" ./lib",
     "start": "start-storybook -p 6010",
     "test": "jest --silent",
     "test:noisy": "jest",

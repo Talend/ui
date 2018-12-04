@@ -14,7 +14,7 @@
     "addon"
   ],
   "scripts": {
-    "prepublish": "babel -d lib ./src/",
+    "prepublish": "babel --root-mode upward -d lib ./src/",
     "lint": "eslint --config ../../.eslintrc src",
     "test": "jest",
     "test:demo": "echo nothing to demo"

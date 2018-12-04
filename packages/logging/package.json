@@ -5,7 +5,7 @@
   "mainSrc": "src/api/errorTransformer.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js",
+    "prepublish": "babel --root-mode upward -d lib ./src/ && rimraf lib/**/*.test.js",
     "start": "echo nothing to start",
     "test": "jest",
     "test:watch": "jest --watch",
