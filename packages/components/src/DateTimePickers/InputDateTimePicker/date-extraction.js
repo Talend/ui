@@ -252,7 +252,7 @@ function checkSupportedDateFormat(dateFormat) {
  */
 function extractPartsFromDateTime(datetime, options) {
 	let time = initTime(options);
-	if (datetime === undefined || !isDateValid(datetime)) {
+	if (!isDateValid(datetime)) {
 		return {
 			date: undefined,
 			time,
@@ -380,8 +380,40 @@ function extractPartsFromTextInput(textInput, options) {
 	};
 }
 
+/**
+ * Extract parts (date, time, date/time, textInput) from a value with
+ * different possible types
+ * @param value {string | Date | number}
+ * @param options {Object}
+ * @returns
+ *	{{
+ *		date: Date,
+ *		time: { hours: string, minutes: string, seconds: string },
+ *		datetime: Date,
+ *		textInput: string
+ * 	}}
+ */
+function extractParts(value, options) {
+	const typeOfValue = typeof value;
+	if (typeOfValue === 'number') {
+		return extractPartsFromDateTime(new Date(value), options);
+	} else if (typeOfValue === 'string') {
+		return extractPartsFromTextInput(value, options);
+	} else if (value instanceof Date) {
+		return extractPartsFromDateTime(value, options);
+	}
+
+	return {
+		date: undefined,
+		time: initTime(options),
+		datetime: undefined,
+		textInput: '',
+	};
+}
+
 export {
 	checkSupportedDateFormat,
+	extractParts,
 	extractPartsFromDateTime,
 	extractPartsFromDateAndTime,
 	extractPartsFromTextInput,

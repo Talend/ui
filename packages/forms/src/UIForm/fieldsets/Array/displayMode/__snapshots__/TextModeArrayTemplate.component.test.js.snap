@@ -57,19 +57,13 @@ exports[`Array Template in text mode should render array template with simple it
     <ol
       aria-labelledby="my-template"
     >
-      <li
-        className={undefined}
-      >
+      <li>
         Jimmy
       </li>
-      <li
-        className={undefined}
-      >
+      <li>
         JM
       </li>
-      <li
-        className={undefined}
-      >
+      <li>
         Geoffroy
       </li>
     </ol>

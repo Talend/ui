@@ -11,7 +11,7 @@ import DateTimePicker from '../DateTimePicker';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 import {
 	checkSupportedDateFormat,
-	extractPartsFromDateTime,
+	extractParts,
 	extractPartsFromDateAndTime,
 	extractPartsFromTextInput,
 	getFullDateFormat,
@@ -33,7 +33,11 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 class InputDateTimePicker extends React.Component {
 	static propTypes = {
 		id: PropTypes.string.isRequired,
-		selectedDateTime: PropTypes.instanceOf(Date),
+		selectedDateTime: PropTypes.oneOfType([
+			PropTypes.instanceOf(Date),
+			PropTypes.number,
+			PropTypes.string,
+		]),
 		onChange: PropTypes.func,
 		onBlur: PropTypes.func,
 		readOnly: PropTypes.bool,
@@ -62,7 +66,7 @@ class InputDateTimePicker extends React.Component {
 		checkSupportedDateFormat(props.dateFormat);
 		this.popoverId = `date-time-picker-${props.id || uuid.v4()}`;
 		this.state = {
-			...extractPartsFromDateTime(props.selectedDateTime, this.getDateOptions()),
+			...extractParts(props.selectedDateTime, this.getDateOptions()),
 			showPicker: false,
 		};
 
@@ -88,16 +92,13 @@ class InputDateTimePicker extends React.Component {
 		}
 
 		if (needDateTimeStateUpdate) {
-			const dateRelatedPartState = extractPartsFromDateTime(
-				newSelectedDateTime,
-				this.getDateOptions(),
-			);
+			const dateRelatedPartState = extractParts(newSelectedDateTime, this.getDateOptions());
 			this.setState(dateRelatedPartState);
 		}
 	}
 
 	onChange(event, nextState, origin) {
-		const { errorMessage, datetime } = nextState;
+		const { errorMessage, datetime, textInput } = nextState;
 
 		const datetimeUpdated =
 			datetime !== this.state.datetime && !isSameSecond(datetime, this.state.datetime);
@@ -106,7 +107,7 @@ class InputDateTimePicker extends React.Component {
 
 		this.setState(nextState, () => {
 			if (this.props.onChange && (datetimeUpdated || errorUpdated)) {
-				this.props.onChange(event, { errorMessage, datetime, origin });
+				this.props.onChange(event, { errorMessage, datetime, textInput, origin });
 			}
 		});
 	}

@@ -10,9 +10,8 @@ exports[`Widget component should render custom widget 1`] = `
   }
   id="myForm_user_firstname"
   isValid={false}
-  onChange={[Function]}
-  onTrigger={[Function]}
-  options={undefined}
+  onChange={[MockFunction]}
+  onTrigger={[MockFunction]}
   properties={
     Object {
       "comment": "",
@@ -52,9 +51,8 @@ exports[`Widget component should render custom widget in specific display mode 1
   }
   id="myForm_user_firstname"
   isValid={false}
-  onChange={[Function]}
-  onTrigger={[Function]}
-  options={undefined}
+  onChange={[MockFunction]}
+  onTrigger={[MockFunction]}
   properties={
     Object {
       "comment": "",
@@ -102,10 +100,9 @@ exports[`Widget component should render widget 1`] = `
   }
   id="myForm_user_firstname"
   isValid={false}
-  onChange={[Function]}
-  onFinish={[Function]}
-  onTrigger={[Function]}
-  options={undefined}
+  onChange={[MockFunction]}
+  onFinish={[MockFunction]}
+  onTrigger={[MockFunction]}
   properties={
     Object {
       "comment": "",
@@ -140,10 +137,9 @@ exports[`Widget component should render widget with the specific displayMode 1`]
   }
   id="myForm_user_firstname"
   isValid={false}
-  onChange={[Function]}
-  onFinish={[Function]}
-  onTrigger={[Function]}
-  options={undefined}
+  onChange={[MockFunction]}
+  onFinish={[MockFunction]}
+  onTrigger={[MockFunction]}
   properties={
     Object {
       "comment": "",

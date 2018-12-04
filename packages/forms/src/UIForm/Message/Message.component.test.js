@@ -8,9 +8,9 @@ describe('Message component', () => {
 		// when
 		const wrapper = shallow(
 			<Message
-				id={'my-message'}
-				errorMessage={'My error message'}
-				description={'My description'}
+				id="my-message"
+				errorMessage="My error message"
+				description="My description"
 				isValid
 			/>,
 		);
@@ -23,9 +23,10 @@ describe('Message component', () => {
 		// when
 		const wrapper = shallow(
 			<Message
-				id={'my-message'}
-				errorMessage={'My error message'}
-				description={'My description'}
+				id="my-message"
+				className="has-error"
+				errorMessage="My error message"
+				description="My description"
 				isValid={false}
 			/>,
 		);
@@ -36,9 +37,7 @@ describe('Message component', () => {
 
 	it('should render nothing when field is valid and no description is provided', () => {
 		// when
-		const wrapper = shallow(
-			<Message id={'my-message'} errorMessage={'My error message'} isValid />,
-		);
+		const wrapper = shallow(<Message id="my-message" errorMessage="My error message" isValid />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();

@@ -2,17 +2,9 @@
 
 exports[`<Form/> actions should render form with custom css 1`] = `
 <form
-  acceptCharset={undefined}
-  action={undefined}
-  autoComplete={undefined}
   className="form"
-  encType={undefined}
-  id={undefined}
-  method={undefined}
-  name={undefined}
   noValidate={false}
   onSubmit={[Function]}
-  target={undefined}
 >
   <div
     className="form-group field field-object"
@@ -59,7 +51,6 @@ exports[`<Form/> actions should render form with custom css 1`] = `
           className="form-control"
           disabled={false}
           id="root_roles"
-          multiple={undefined}
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}

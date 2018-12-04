@@ -19,8 +19,7 @@ exports[`DateTimeView should render 1`] = `
           }
           goToNextMonth={[Function]}
           goToPreviousMonth={[Function]}
-          onSelect={[Function]}
-          selectedDate={undefined}
+          onSelect={[MockFunction]}
         />
       </div>
       <div
@@ -28,8 +27,7 @@ exports[`DateTimeView should render 1`] = `
       >
         <Translate(TimePicker)
           allowFocus={true}
-          onChange={[Function]}
-          useSeconds={undefined}
+          onChange={[MockFunction]}
           value={
             Object {
               "hours": "15",
@@ -49,18 +47,18 @@ exports[`DateTimeView should render 1`] = `
         link={true}
         onClick={[Function]}
         tabIndex="-1"
-    />,
+      />,
       "middleElement": <Translate(HeaderTitle)
         button={
-            Object {
-                "aria-label": "Switch to month and year pickers view",
-                "onClick": [Function],
-                "tabIndex": 0,
-              }
+          Object {
+            "aria-label": "Switch to month and year pickers view",
+            "onClick": [MockFunction],
+            "tabIndex": 0,
+          }
         }
         monthIndex={5}
         year={2006}
-    />,
+      />,
       "rightElement": <Action
         aria-label="Go to next month"
         icon="talend-chevron-left"
@@ -69,7 +67,7 @@ exports[`DateTimeView should render 1`] = `
         link={true}
         onClick={[Function]}
         tabIndex="-1"
-    />,
+      />,
     }
   }
 />
@@ -94,8 +92,7 @@ exports[`DateTimeView should render without timePicker 1`] = `
           }
           goToNextMonth={[Function]}
           goToPreviousMonth={[Function]}
-          onSelect={[Function]}
-          selectedDate={undefined}
+          onSelect={[MockFunction]}
         />
       </div>
     </div>
@@ -109,18 +106,18 @@ exports[`DateTimeView should render without timePicker 1`] = `
         link={true}
         onClick={[Function]}
         tabIndex="-1"
-    />,
+      />,
       "middleElement": <Translate(HeaderTitle)
         button={
-            Object {
-                "aria-label": "Switch to month and year pickers view",
-                "onClick": [Function],
-                "tabIndex": 0,
-              }
+          Object {
+            "aria-label": "Switch to month and year pickers view",
+            "onClick": [MockFunction],
+            "tabIndex": 0,
+          }
         }
         monthIndex={5}
         year={2006}
-    />,
+      />,
       "rightElement": <Action
         aria-label="Go to next month"
         icon="talend-chevron-left"
@@ -129,7 +126,7 @@ exports[`DateTimeView should render without timePicker 1`] = `
         link={true}
         onClick={[Function]}
         tabIndex="-1"
-    />,
+      />,
     }
   }
 />

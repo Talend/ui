@@ -14,10 +14,6 @@ exports[`PieChartButton snapshots render should render a PieChartButton 1`] = `
 >
   <Translate(PieChartIcon)
     display="small"
-    hideLabel={undefined}
-    labelIndex={undefined}
-    loading={undefined}
-    minimumPercentage={undefined}
     model={
       Array [
         Object {
@@ -42,7 +38,6 @@ exports[`PieChartButton snapshots render should render a PieChartButton 1`] = `
         },
       ]
     }
-    size={undefined}
   />
 </Button>
 `;
@@ -79,10 +74,7 @@ exports[`PieChartButton snapshots render should render a PieChartButton with an 
     >
       <Translate(PieChartIcon)
         display="medium"
-        hideLabel={undefined}
         labelIndex={2}
-        loading={undefined}
-        minimumPercentage={undefined}
         model={
           Array [
             Object {
@@ -107,7 +99,6 @@ exports[`PieChartButton snapshots render should render a PieChartButton with an 
             },
           ]
         }
-        size={undefined}
       />
     </Button>
   </OverlayTrigger>
