@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Message component should render nothing when field is valid and no description is provided 1`] = `
-<div
-  className={undefined}
->
+<div>
   <p
     className="help-block"
   />
@@ -18,9 +16,7 @@ exports[`Message component should render nothing when field is valid and no desc
 `;
 
 exports[`Message component should render provided description and no error if the field is valid 1`] = `
-<div
-  className={undefined}
->
+<div>
   <p
     className="help-block"
   >
