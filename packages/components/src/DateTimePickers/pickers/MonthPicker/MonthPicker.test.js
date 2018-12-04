@@ -7,7 +7,9 @@ import MonthPicker from './MonthPicker.component';
 describe('MonthPicker', () => {
 	it('should render', () => {
 		// when
-		const wrapper = mount(<MonthPicker onSelect={jest.fn()} selectedMonthIndex={4} />);
+		const wrapper = mount(
+			<MonthPicker onSelect={jest.fn()} selectedMonthIndex={4} selectedYear={2018} />,
+		);
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();

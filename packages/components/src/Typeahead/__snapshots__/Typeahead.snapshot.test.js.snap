@@ -27,19 +27,13 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
       disabled={false}
       id="my-search"
       onBlur={[Function]}
-      onChange={undefined}
       onFocus={[Function]}
-      onKeyDown={undefined}
-      placeholder={undefined}
       readOnly={false}
-      role={undefined}
       type="text"
       value="le"
     />
   </div>
-  <div
-    id={undefined}
-  >
+  <div>
     <div
       className="theme-items-container tc-typeahead-items-container theme-item-container"
       id="react-autowhatever-my-search"
@@ -74,7 +68,6 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           <li
             aria-selected={false}
             id="react-autowhatever-my-search-section-0-item-0"
-            onMouseDown={undefined}
             role="option"
             style={Object {}}
           >
@@ -118,7 +111,6 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           <li
             aria-selected={false}
             id="react-autowhatever-my-search-section-0-item-1"
-            onMouseDown={undefined}
             role="option"
             style={Object {}}
           >
@@ -202,7 +194,6 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
           <li
             aria-selected={false}
             id="react-autowhatever-my-search-section-1-item-0"
-            onMouseDown={undefined}
             role="option"
             style={Object {}}
           >
@@ -272,19 +263,12 @@ exports[`Typeahead items should render typeahead with loading entry 1`] = `
       disabled={false}
       id="my-search"
       onBlur={[Function]}
-      onChange={undefined}
       onFocus={[Function]}
-      onKeyDown={undefined}
-      placeholder={undefined}
       readOnly={false}
-      role={undefined}
       type="text"
-      value={undefined}
     />
   </div>
-  <div
-    id={undefined}
-  >
+  <div>
     <div
       className="theme-items-container tc-typeahead-items-container theme-item-container theme-is-loading"
       id="react-autowhatever-my-search"
@@ -327,19 +311,12 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
       disabled={false}
       id="my-search"
       onBlur={[Function]}
-      onChange={undefined}
       onFocus={[Function]}
-      onKeyDown={undefined}
-      placeholder={undefined}
       readOnly={false}
-      role={undefined}
       type="text"
-      value={undefined}
     />
   </div>
-  <div
-    id={undefined}
-  >
+  <div>
     <div
       className="theme-items-container tc-typeahead-items-container theme-item-container"
       id="react-autowhatever-my-search"
@@ -374,7 +351,6 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           <li
             aria-selected={false}
             id="react-autowhatever-my-search-section-0-item-0"
-            onMouseDown={undefined}
             role="option"
             style={Object {}}
           >
@@ -401,7 +377,6 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           <li
             aria-selected={false}
             id="react-autowhatever-my-search-section-0-item-1"
-            onMouseDown={undefined}
             role="option"
             style={Object {}}
           >
@@ -456,7 +431,6 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
           <li
             aria-selected={false}
             id="react-autowhatever-my-search-section-1-item-0"
-            onMouseDown={undefined}
             role="option"
             style={Object {}}
           >
@@ -514,19 +488,12 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
       disabled={false}
       id="my-search"
       onBlur={[Function]}
-      onChange={undefined}
       onFocus={[Function]}
-      onKeyDown={undefined}
-      placeholder={undefined}
       readOnly={false}
-      role={undefined}
       type="text"
-      value={undefined}
     />
   </div>
-  <div
-    id={undefined}
-  >
+  <div>
     <div
       className="theme-items-container tc-typeahead-items-container theme-item-container"
       id="react-autowhatever-my-search"
@@ -539,7 +506,6 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
         <li
           aria-selected={false}
           id="react-autowhatever-my-search--item-0"
-          onMouseDown={undefined}
           role="option"
           style={Object {}}
         >
@@ -559,7 +525,6 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
         <li
           aria-selected={false}
           id="react-autowhatever-my-search--item-1"
-          onMouseDown={undefined}
           role="option"
           style={Object {}}
         >
@@ -609,19 +574,12 @@ exports[`Typeahead items should render typeahead without items 1`] = `
       disabled={false}
       id="my-search"
       onBlur={[Function]}
-      onChange={undefined}
       onFocus={[Function]}
-      onKeyDown={undefined}
-      placeholder={undefined}
       readOnly={false}
-      role={undefined}
       type="text"
-      value={undefined}
     />
   </div>
-  <div
-    id={undefined}
-  >
+  <div>
     <div
       className="theme-items-container tc-typeahead-items-container theme-item-container theme-no-result"
       id="react-autowhatever-my-search"
@@ -664,19 +622,13 @@ exports[`Typeahead position should render search bar on the right 1`] = `
       disabled={false}
       id="my-search"
       onBlur={[Function]}
-      onChange={undefined}
       onFocus={[Function]}
-      onKeyDown={undefined}
-      placeholder={undefined}
       readOnly={false}
       role="searchbox"
       type="text"
-      value={undefined}
     />
   </div>
-  <div
-    id={undefined}
-  >
+  <div>
     <div
       className="theme-items-container tc-typeahead-items-container theme-item-container"
       id="react-autowhatever-my-search"
@@ -715,19 +667,13 @@ exports[`Typeahead should pass input extra props 1`] = `
       disabled={false}
       id="my-search"
       onBlur={[Function]}
-      onChange={undefined}
       onFocus={[Function]}
-      onKeyDown={undefined}
-      placeholder={undefined}
       readOnly={false}
       role="searchbox"
       type="text"
-      value={undefined}
     />
   </div>
-  <div
-    id={undefined}
-  >
+  <div>
     <div
       className="theme-items-container tc-typeahead-items-container theme-item-container"
       id="react-autowhatever-my-search"
@@ -746,7 +692,6 @@ exports[`Typeahead with toggle should render button 1`] = `
   onFocus={[Function]}
   onMouseDown={[Function]}
   onMouseOver={[Function]}
-  role={undefined}
   type="button"
 >
   <i

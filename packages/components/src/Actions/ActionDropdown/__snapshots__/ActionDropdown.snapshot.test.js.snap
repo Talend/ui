@@ -67,11 +67,11 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
       Object {
         "icon": "talend-icon",
         "label": "document 1",
-        "onClick": [Function],
+        "onClick": [MockFunction],
       },
       Object {
         "label": "document 2",
-        "onClick": [Function],
+        "onClick": [MockFunction],
       },
     ]
   }
@@ -94,9 +94,9 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
         null,
         <span
           className="tc-dropdown-button-title-label"
-      >
+        >
           related items
-      </span>,
+        </span>,
       ]
     }
   >
@@ -212,7 +212,7 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
                       Object {
                         "icon": "talend-icon",
                         "label": "document 1",
-                        "onClick": [Function],
+                        "onClick": [MockFunction],
                       }
                     }
                     header={false}
@@ -276,7 +276,7 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
                     eventKey={
                       Object {
                         "label": "document 2",
-                        "onClick": [Function],
+                        "onClick": [MockFunction],
                       }
                     }
                     header={false}
@@ -340,9 +340,9 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
       null,
       <span
         className="tc-dropdown-button-title-label"
-    >
+      >
         related items
-    </span>,
+      </span>,
     ]
   }
 >
@@ -458,7 +458,7 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
                     Object {
                       "icon": "talend-icon",
                       "label": "document 1",
-                      "onClick": [Function],
+                      "onClick": [MockFunction],
                     }
                   }
                   header={false}
@@ -522,7 +522,7 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
                   eventKey={
                     Object {
                       "label": "document 2",
-                      "onClick": [Function],
+                      "onClick": [MockFunction],
                     }
                   }
                   header={false}
@@ -584,12 +584,12 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
     Array [
       <Icon
         name="fa fa-file-excel-o"
-    />,
+      />,
       <span
         className="tc-dropdown-button-title-label"
-    >
+      >
         related items
-    </span>,
+      </span>,
     ]
   }
 >
@@ -716,7 +716,7 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
                     Object {
                       "icon": "talend-icon",
                       "label": "document 1",
-                      "onClick": [Function],
+                      "onClick": [MockFunction],
                     }
                   }
                   header={false}
@@ -780,7 +780,7 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
                   eventKey={
                     Object {
                       "label": "document 2",
-                      "onClick": [Function],
+                      "onClick": [MockFunction],
                     }
                   }
                   header={false}
@@ -844,7 +844,7 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
     Array [
       <Icon
         name="fa fa-file-excel-o"
-    />,
+      />,
       null,
     ]
   }
@@ -972,7 +972,7 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
                     Object {
                       "icon": "talend-icon",
                       "label": "document 1",
-                      "onClick": [Function],
+                      "onClick": [MockFunction],
                     }
                   }
                   header={false}
@@ -1036,7 +1036,7 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
                   eventKey={
                     Object {
                       "label": "document 2",
-                      "onClick": [Function],
+                      "onClick": [MockFunction],
                     }
                   }
                   header={false}
@@ -1114,7 +1114,7 @@ exports[`ActionDropdown should render icon-only items with item hideLabel props 
             "hideLabel": true,
             "icon": "talend-icon",
             "label": "document 1",
-            "onClick": [Function],
+            "onClick": [MockFunction],
           }
         }
         header={false}
@@ -1181,7 +1181,7 @@ exports[`ActionDropdown should render icon-only items with item hideLabel props 
           Object {
             "hideLabel": true,
             "label": "document 2",
-            "onClick": [Function],
+            "onClick": [MockFunction],
           }
         }
         header={false}
@@ -1233,13 +1233,13 @@ exports[`ActionDropdown should render immutable items 1`] = `
   items={
     Immutable.List [
       Immutable.Map {
-        icon: "talend-icon",
-        label: "document 1",
-        onClick: [Function],
+        "icon": "talend-icon",
+        "label": "document 1",
+        "onClick": [MockFunction],
       },
       Immutable.Map {
-        label: "document 2",
-        onClick: [Function],
+        "label": "document 2",
+        "onClick": [MockFunction],
       },
     ]
   }
@@ -1262,9 +1262,9 @@ exports[`ActionDropdown should render immutable items 1`] = `
         null,
         <span
           className="tc-dropdown-button-title-label"
-      >
+        >
           related items
-      </span>,
+        </span>,
       ]
     }
   >
@@ -1380,7 +1380,7 @@ exports[`ActionDropdown should render immutable items 1`] = `
                       Object {
                         "icon": "talend-icon",
                         "label": "document 1",
-                        "onClick": [Function],
+                        "onClick": [MockFunction],
                       }
                     }
                     header={false}
@@ -1444,7 +1444,7 @@ exports[`ActionDropdown should render immutable items 1`] = `
                     eventKey={
                       Object {
                         "label": "document 2",
-                        "onClick": [Function],
+                        "onClick": [MockFunction],
                       }
                     }
                     header={false}
@@ -1610,7 +1610,7 @@ exports[`ActionDropdown should render loader item below existing items 1`] = `
           Object {
             "icon": "talend-icon",
             "label": "document 1",
-            "onClick": [Function],
+            "onClick": [MockFunction],
           }
         }
         header={false}
@@ -1674,7 +1674,7 @@ exports[`ActionDropdown should render loader item below existing items 1`] = `
         eventKey={
           Object {
             "label": "document 2",
-            "onClick": [Function],
+            "onClick": [MockFunction],
           }
         }
         header={false}

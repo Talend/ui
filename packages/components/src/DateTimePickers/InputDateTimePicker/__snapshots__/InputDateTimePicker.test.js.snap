@@ -16,9 +16,7 @@ exports[`InputDateTimePicker should render 1`] = `
     id="DEFAULT_ID"
     inputRef={[Function]}
     minLength={0}
-    onBlur={undefined}
     onChange={[Function]}
-    onKeyDown={undefined}
     placeholder="YYYY-MM-DD HH:mm"
     type="text"
     useUTC={false}
@@ -29,7 +27,6 @@ exports[`InputDateTimePicker should render 1`] = `
   >
     <Overlay
       animation={[Function]}
-      container={undefined}
       placement="right"
       rootClose={false}
       show={false}

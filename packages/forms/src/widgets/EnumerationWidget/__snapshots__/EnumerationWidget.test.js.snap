@@ -20,7 +20,7 @@ exports[`EnumerationWidget delete all 1`] = `
       },
     ]
   }
-  onChange={[Function]}
+  onChange={[MockFunction]}
   t={[Function]}
 >
   <div>
@@ -3368,7 +3368,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
       },
     ]
   }
-  onChange={[Function]}
+  onChange={[MockFunction]}
   t={[Function]}
 >
   <div>
@@ -5751,7 +5751,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
       },
     ]
   }
-  onChange={[Function]}
+  onChange={[MockFunction]}
   t={[Function]}
 >
   <div>
@@ -6623,11 +6623,29 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
       },
     ]
   }
-  onChange={[Function]}
+  onChange={[MockFunction]}
   registry={
     Object {
       "formContext": Object {
-        "handleAction": [Function],
+        "handleAction": [MockFunction] {
+          "calls": Array [
+            Array [
+              undefined,
+              "ENUMERATION_REMOVE_ACTION",
+              Array [
+                "11212242",
+              ],
+              [Function],
+              [Function],
+            ],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        },
       },
     }
   }
@@ -8056,7 +8074,7 @@ exports[`EnumerationWidget should select an item 1`] = `
       },
     ]
   }
-  onChange={[Function]}
+  onChange={[MockFunction]}
   t={[Function]}
 >
   <div>
@@ -9555,7 +9573,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
       },
     ]
   }
-  onChange={[Function]}
+  onChange={[MockFunction]}
   t={[Function]}
 >
   <div>
@@ -13470,7 +13488,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                 Array [
                                   <Icon
                                     name="talend-download"
-                                />,
+                                  />,
                                   null,
                                 ]
                               }
@@ -16976,7 +16994,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 Array [
                                   <Icon
                                     name="talend-download"
-                                />,
+                                  />,
                                   null,
                                 ]
                               }

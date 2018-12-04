@@ -37,6 +37,13 @@ matrix:
         - yarn test
 
     - language: node_js
+      env: NAME=test_react_16 REACT_VERSION="^16.0.0"
+      node_js:
+        - '10'
+      script:
+        - yarn test:extra
+
+    - language: node_js
       node_js:
         - '10'
       env: NAME=analysis
