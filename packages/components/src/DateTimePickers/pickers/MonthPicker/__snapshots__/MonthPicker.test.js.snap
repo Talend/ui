@@ -2,14 +2,14 @@
 
 exports[`MonthPicker should render 1`] = `
 <MonthCalendarGesture(MonthPicker)
-  onSelect={[Function]}
+  onSelect={[MockFunction]}
   selectedMonthIndex={4}
   selectedYear={2018}
 >
   <div>
     <MonthPicker
       onKeyDown={[Function]}
-      onSelect={[Function]}
+      onSelect={[MockFunction]}
       selectedMonthIndex={4}
       selectedYear={2018}
       t={[Function]}

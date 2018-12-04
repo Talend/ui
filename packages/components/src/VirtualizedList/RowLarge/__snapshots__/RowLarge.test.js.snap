@@ -20,18 +20,18 @@ exports[`RowLarge should render large row 1`] = `
             label="Id"
             style={Object {}}
             width={50}
-    />,
+          />,
           <Content
             cellDataGetter={[Function]}
             cellRenderer={[Function]}
             cellType="title"
             className="tc-list-title-cell"
             columnData={
-                    Object {
-                            "actionsKey": "titleActions",
-                            "displayModeKey": "display",
-                            "iconKey": "icon",
-                          }
+              Object {
+                "actionsKey": "titleActions",
+                "displayModeKey": "display",
+                "iconKey": "icon",
+              }
             }
             dataKey="name"
             defaultSortDirection="ASC"
@@ -41,7 +41,7 @@ exports[`RowLarge should render large row 1`] = `
             label="Name"
             style={Object {}}
             width={350}
-    />,
+          />,
           <Content
             cellDataGetter={[Function]}
             cellRenderer={[Function]}
@@ -53,7 +53,7 @@ exports[`RowLarge should render large row 1`] = `
             label="Description"
             style={Object {}}
             width={350}
-    />,
+          />,
         ],
         "collection": Array [
           Object {
@@ -64,12 +64,12 @@ exports[`RowLarge should render large row 1`] = `
               Object {
                 "icon": "talend-pencil",
                 "label": "edit",
-                "onClick": [Function],
+                "onClick": [MockFunction],
               },
               Object {
                 "icon": "talend-trash",
                 "label": "delete",
-                "onClick": [Function],
+                "onClick": [MockFunction],
               },
             ],
           },
@@ -81,12 +81,12 @@ exports[`RowLarge should render large row 1`] = `
               Object {
                 "icon": "talend-pencil",
                 "label": "edit",
-                "onClick": [Function],
+                "onClick": [MockFunction],
               },
               Object {
                 "icon": "talend-trash",
                 "label": "delete",
-                "onClick": [Function],
+                "onClick": [MockFunction],
               },
             ],
           },

@@ -2,24 +2,17 @@
 
 exports[`UIForm component should render form 1`] = `
 <form
-  acceptCharset={undefined}
-  action={undefined}
   autoComplete="off"
   className="tf-uiform theme-uiform my-form-class"
-  encType={undefined}
   id="myFormId"
-  method={undefined}
-  name={undefined}
   noValidate={true}
-  onReset={[Function]}
+  onReset={[MockFunction]}
   onSubmit={[Function]}
-  target={undefined}
 >
   <div
     className="theme-form-content"
   >
     <Widget
-      displayMode={undefined}
       errors={Object {}}
       id="myFormId"
       onChange={[Function]}
@@ -43,7 +36,6 @@ exports[`UIForm component should render form 1`] = `
           "type": "text",
         }
       }
-      templates={undefined}
       widgets={
         Object {
           "custom": [Function],
@@ -51,7 +43,6 @@ exports[`UIForm component should render form 1`] = `
       }
     />
     <Widget
-      displayMode={undefined}
       errors={Object {}}
       id="myFormId"
       onChange={[Function]}
@@ -76,7 +67,6 @@ exports[`UIForm component should render form 1`] = `
           "type": "text",
         }
       }
-      templates={undefined}
       widgets={
         Object {
           "custom": [Function],
@@ -84,7 +74,6 @@ exports[`UIForm component should render form 1`] = `
       }
     />
     <Widget
-      displayMode={undefined}
       errors={Object {}}
       id="myFormId"
       onChange={[Function]}
@@ -103,7 +92,6 @@ exports[`UIForm component should render form 1`] = `
           "widget": "button",
         }
       }
-      templates={undefined}
       widgets={
         Object {
           "custom": [Function],
@@ -116,7 +104,6 @@ exports[`UIForm component should render form 1`] = `
   >
     <Buttons
       className="form-actions"
-      getComponent={undefined}
       id="myFormId-myFormId-actions"
       onClick={[Function]}
       onTrigger={[Function]}
@@ -140,18 +127,12 @@ exports[`UIForm component should render form 1`] = `
 
 exports[`UIForm component should render form in text display mode 1`] = `
 <form
-  acceptCharset={undefined}
-  action={undefined}
   autoComplete="off"
   className="tf-uiform theme-uiform my-form-class"
-  encType={undefined}
   id="myFormId"
-  method={undefined}
-  name={undefined}
   noValidate={true}
-  onReset={[Function]}
+  onReset={[MockFunction]}
   onSubmit={[Function]}
-  target={undefined}
 >
   <dl
     className="theme-form-content"
@@ -181,7 +162,6 @@ exports[`UIForm component should render form in text display mode 1`] = `
           "type": "text",
         }
       }
-      templates={undefined}
       widgets={
         Object {
           "custom": [Function],
@@ -214,7 +194,6 @@ exports[`UIForm component should render form in text display mode 1`] = `
           "type": "text",
         }
       }
-      templates={undefined}
       widgets={
         Object {
           "custom": [Function],
@@ -241,7 +220,6 @@ exports[`UIForm component should render form in text display mode 1`] = `
           "widget": "button",
         }
       }
-      templates={undefined}
       widgets={
         Object {
           "custom": [Function],
@@ -254,24 +232,17 @@ exports[`UIForm component should render form in text display mode 1`] = `
 
 exports[`UIForm component should render provided actions 1`] = `
 <form
-  acceptCharset={undefined}
-  action={undefined}
   autoComplete="off"
   className="tf-uiform theme-uiform my-form-class"
-  encType={undefined}
   id="myFormId"
-  method={undefined}
-  name={undefined}
   noValidate={true}
-  onReset={[Function]}
+  onReset={[MockFunction]}
   onSubmit={[Function]}
-  target={undefined}
 >
   <div
     className="theme-form-content"
   >
     <Widget
-      displayMode={undefined}
       errors={Object {}}
       id="myFormId"
       onChange={[Function]}
@@ -295,7 +266,6 @@ exports[`UIForm component should render provided actions 1`] = `
           "type": "text",
         }
       }
-      templates={undefined}
       widgets={
         Object {
           "custom": [Function],
@@ -303,7 +273,6 @@ exports[`UIForm component should render provided actions 1`] = `
       }
     />
     <Widget
-      displayMode={undefined}
       errors={Object {}}
       id="myFormId"
       onChange={[Function]}
@@ -328,7 +297,6 @@ exports[`UIForm component should render provided actions 1`] = `
           "type": "text",
         }
       }
-      templates={undefined}
       widgets={
         Object {
           "custom": [Function],
@@ -336,7 +304,6 @@ exports[`UIForm component should render provided actions 1`] = `
       }
     />
     <Widget
-      displayMode={undefined}
       errors={Object {}}
       id="myFormId"
       onChange={[Function]}
@@ -355,7 +322,6 @@ exports[`UIForm component should render provided actions 1`] = `
           "widget": "button",
         }
       }
-      templates={undefined}
       widgets={
         Object {
           "custom": [Function],
@@ -368,7 +334,6 @@ exports[`UIForm component should render provided actions 1`] = `
   >
     <Buttons
       className="form-actions"
-      getComponent={undefined}
       id="myFormId-myFormId-actions"
       onClick={[Function]}
       onTrigger={[Function]}

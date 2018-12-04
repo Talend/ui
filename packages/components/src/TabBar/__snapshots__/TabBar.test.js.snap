@@ -4,7 +4,6 @@ exports[`TabBar component should render with selected children from item definit
 <Uncontrolled(TabContainer)
   activeKey="3"
   className="tabs-classname"
-  generateChildId={undefined}
   id="my-tabs"
   onKeyDown={[Function]}
   onSelect={[Function]}
@@ -131,7 +130,6 @@ exports[`TabBar component should render with selected children managed by user 1
 <Uncontrolled(TabContainer)
   activeKey="3"
   className="tabs-classname"
-  generateChildId={undefined}
   id="my-tabs"
   onKeyDown={[Function]}
   onSelect={[Function]}
@@ -207,15 +205,11 @@ exports[`TabBar component should render with selected children managed by user 1
       <TabPane
         bsClass="tab-pane"
         eventKey="1"
-      >
-        
-      </TabPane>
+      />
       <TabPane
         bsClass="tab-pane"
         eventKey="2"
-      >
-        
-      </TabPane>
+      />
       <TabPane
         bsClass="tab-pane"
         eventKey="3"
@@ -225,15 +219,11 @@ exports[`TabBar component should render with selected children managed by user 1
       <TabPane
         bsClass="tab-pane"
         eventKey="4"
-      >
-        
-      </TabPane>
+      />
       <TabPane
         bsClass="tab-pane"
         eventKey="5"
-      >
-        
-      </TabPane>
+      />
     </TabContent>
   </div>
 </Uncontrolled(TabContainer)>
