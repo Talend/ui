@@ -13,6 +13,7 @@ exports[`MonthYearView should render 1`] = `
           allowFocus={true}
           onSelect={[MockFunction]}
           selectedMonthIndex={8}
+          selectedYear={2012}
         />
       </div>
       <div

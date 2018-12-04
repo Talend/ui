@@ -107,4 +107,26 @@ describe('Default Array Template component', () => {
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+
+	it('should render error with error classname', () => {
+		// when
+		const wrapper = shallow(
+			<DefaultArrayTemplate.WrappedComponent
+				canReorder
+				id={'my-template'}
+				onAdd={jest.fn()}
+				onRemove={jest.fn()}
+				onReorder={jest.fn()}
+				renderItem={index => <div>Render item {index}</div>}
+				schema={schema}
+				value={value}
+				errorMessage={'This is an error'}
+				isValid={false}
+			/>,
+		);
+
+		// then
+		const message = wrapper.find('Message');
+		expect(message.prop('className')).toBe('has-error');
+	});
 });

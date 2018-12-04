@@ -16,7 +16,17 @@ exports[`Default Array Template component should render default array template 1
     label="New Element"
     onClick={[MockFunction]}
   />
+  <Message
+    className={undefined}
+    description="Tnstructions to fill it"
+    descriptionId="my-template-description"
+    errorId="my-template-error"
+    errorMessage="This is an error"
+    isValid={true}
+  />
   <ol
+    aria-describedby="my-template-description my-template-error"
+    aria-invalid={true}
     className="theme-tf-array tf-array"
     id="my-template"
   >
@@ -72,10 +82,5 @@ exports[`Default Array Template component should render default array template 1
       </ArrayItem>
     </li>
   </ol>
-  <Message
-    description="Tnstructions to fill it"
-    errorMessage="This is an error"
-    isValid={true}
-  />
 </fieldset>
 `;

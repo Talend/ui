@@ -5,7 +5,7 @@ export default function Message(props) {
 	const { description, descriptionId, errorId, errorMessage, isValid } = props;
 
 	return (
-		<div>
+		<div className={props.className}>
 			<p key="description" className="help-block" id={descriptionId}>
 				{isValid ? description : ''}
 			</p>
@@ -18,6 +18,7 @@ export default function Message(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	Message.propTypes = {
+		className: PropTypes.string,
 		description: PropTypes.string,
 		descriptionId: PropTypes.string.isRequired,
 		errorId: PropTypes.string.isRequired,
