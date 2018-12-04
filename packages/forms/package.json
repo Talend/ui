@@ -106,11 +106,7 @@
     "sass-loader": "^7.1.0"
   },
   "peerDependencies": {
-<<<<<<< HEAD
-    "@talend/react-components": "1.10.0-0",
-=======
     "@talend/react-components": "^1.10.0-0",
->>>>>>> master
     "i18next": "^9.0.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.2 || ^16.0.0",
