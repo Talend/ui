@@ -2,9 +2,6 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/date-extraction.test.js
-  8:2  error  'convertToUTC' is defined but never used  no-unused-vars
-
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
   105:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
 
@@ -14,5 +11,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 4 problems (3 errors, 1 warning)
+✖ 3 problems (2 errors, 1 warning)
 
