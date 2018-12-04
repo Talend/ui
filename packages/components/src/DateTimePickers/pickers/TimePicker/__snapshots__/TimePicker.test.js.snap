@@ -48,3 +48,14 @@ exports[`TimePicker should render 1`] = `
   />
 </div>
 `;
+
+exports[`TimePicker should render UTC legend 1`] = `
+<legend>
+  Time
+  <div
+    className="theme-utc"
+  >
+    UTC
+  </div>
+</legend>
+`;
