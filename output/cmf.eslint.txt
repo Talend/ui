@@ -1,20 +1,126 @@
 > eslint --config ../../.eslintrc --ext .js src
 
-The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+
+/home/travis/build/Talend/ui/packages/cmf/src/action.js
+  81:34  error  Unexpected newline after '('   function-paren-newline
+  83:2   error  Unexpected newline before ')'  function-paren-newline
+
+/home/travis/build/Talend/ui/packages/cmf/src/actionCreator.js
+  29:18  error  Unexpected newline after '('   function-paren-newline
+  33:3   error  Unexpected newline before ')'  function-paren-newline
+
+/home/travis/build/Talend/ui/packages/cmf/src/actions/http.js
+  67:8   error  Expected a line break after this opening brace   object-curly-newline
+  67:37  error  Expected a line break before this closing brace  object-curly-newline
+
+/home/travis/build/Talend/ui/packages/cmf/src/App.js
+  44:2  error  propType "children" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+  45:2  error  propType "history" is not required, but has no corresponding defaultProp declaration   react/require-default-props
+  46:2  error  propType "loading" is not required, but has no corresponding defaultProp declaration   react/require-default-props
+
+/home/travis/build/Talend/ui/packages/cmf/src/cmfConnect.js
+  137:31  error  Expected a line break after this opening brace   object-curly-newline
+  137:81  error  Expected a line break before this closing brace  object-curly-newline
+  222:16  error  Unexpected newline after '('                     function-paren-newline
+  226:4   error  Unexpected newline before ')'                    function-paren-newline
+
+/home/travis/build/Talend/ui/packages/cmf/src/cmfModule.merge.js
+  41:18  error  Unexpected newline after '('   function-paren-newline
+  43:3   error  Unexpected newline before ')'  function-paren-newline
 
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
-  87:3  warning  Unexpected console statement  no-console
+  36:20  error    Expected a line break after this opening brace   object-curly-newline
+  36:58  error    Expected a line break before this closing brace  object-curly-newline
+  46:11  error    Unexpected newline after '('                     function-paren-newline
+  53:3   error    Unexpected newline before ')'                    function-paren-newline
+  87:3   warning  Unexpected console statement                     no-console
+
+/home/travis/build/Talend/ui/packages/cmf/src/deprecated.js
+  7:1  error  Expected space or tab before '*/' in comment  spaced-comment
+
+/home/travis/build/Talend/ui/packages/cmf/src/Dispatcher.js
+  44:3  error  propType "dispatchActionCreator" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+
+/home/travis/build/Talend/ui/packages/cmf/src/expression.js
+  54:3  error  Use object destructuring       prefer-destructuring
+  55:3  error  Use object destructuring       prefer-destructuring
+  95:4  error  Unexpected newline before ')'  function-paren-newline
+
+/home/travis/build/Talend/ui/packages/cmf/src/index.js
+  14:20  error  Unexpected use of file extension "js" for "./Inject.component.js"  import/extensions
 
 /home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
   23:2  warning  Unexpected console statement  no-console
 
+/home/travis/build/Talend/ui/packages/cmf/src/middlewares/error/index.js
+  17:15  error  Unexpected newline after '('   function-paren-newline
+  24:4   error  Unexpected newline before ')'  function-paren-newline
+
+/home/travis/build/Talend/ui/packages/cmf/src/middlewares/http/csrfHandling.js
+  74:35  error  Unexpected newline after '('   function-paren-newline
+  81:1   error  Unexpected newline before ')'  function-paren-newline
+
+/home/travis/build/Talend/ui/packages/cmf/src/mock/provider.js
+  56:2  error  propType "store" is not required, but has no corresponding defaultProp declaration     react/require-default-props
+  57:2  error  propType "state" is not required, but has no corresponding defaultProp declaration     react/require-default-props
+  58:2  error  propType "router" is not required, but has no corresponding defaultProp declaration    react/require-default-props
+  59:2  error  propType "registry" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+
+/home/travis/build/Talend/ui/packages/cmf/src/reducers/collectionsReducers.js
+  14:8  error  Use object destructuring  prefer-destructuring
+
+/home/travis/build/Talend/ui/packages/cmf/src/reducers/settingsReducers.js
+   4:1   error  Expected space or tab before '*/' in comment     spaced-comment
+  47:26  error  Expected a line break after this opening brace   object-curly-newline
+  47:55  error  Expected a line break before this closing brace  object-curly-newline
+
+/home/travis/build/Talend/ui/packages/cmf/src/registry.js
+   6:1   error  Expected space or tab before '*/' in comment  spaced-comment
+  55:18  error  Unexpected newline after '('                  function-paren-newline
+  59:3   error  Unexpected newline before ')'                 function-paren-newline
+  65:15  error  Unexpected newline after '('                  function-paren-newline
+  68:3   error  Unexpected newline before ')'                 function-paren-newline
+  71:18  error  Unexpected newline after '('                  function-paren-newline
+  74:3   error  Unexpected newline before ')'                 function-paren-newline
+
+/home/travis/build/Talend/ui/packages/cmf/src/RegistryProvider.js
+  15:63  error  Block must not be padded by blank lines  padded-blocks
+
+/home/travis/build/Talend/ui/packages/cmf/src/route.js
+   6:1  error  Expected space or tab before '*/' in comment                                              spaced-comment
+  63:3  error  propType "view" is not required, but has no corresponding defaultProp declaration         react/require-default-props
+  64:3  error  propType "componentId" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+
 /home/travis/build/Talend/ui/packages/cmf/src/sagaRouter/router.js
-  158:2   warning  Unexpected constant condition                no-constant-condition
-  163:54  error    There should be no spaces inside this paren  space-in-parens
-  177:51  error    There should be no spaces inside this paren  space-in-parens
+  163:54  error  There should be no spaces inside this paren  space-in-parens
+  177:51  error  There should be no spaces inside this paren  space-in-parens
 
 /home/travis/build/Talend/ui/packages/cmf/src/sagas/collection.js
   10:1  error  Prefer default export  import/prefer-default-export
 
-✖ 6 problems (3 errors, 3 warnings)
+/home/travis/build/Talend/ui/packages/cmf/src/sagas/documentTitle.js
+  30:8  error  Use object destructuring  prefer-destructuring
+
+/home/travis/build/Talend/ui/packages/cmf/src/sagas/http.js
+  125:18  error  Unexpected newline after '('   function-paren-newline
+  138:3   error  Unexpected newline before ')'  function-paren-newline
+  262:18  error  Unexpected newline after '('   function-paren-newline
+  264:3   error  Unexpected newline before ')'  function-paren-newline
+  296:1   error  Unexpected newline before ')'  function-paren-newline
+
+/home/travis/build/Talend/ui/packages/cmf/src/selectors/collections.js
+  41:13  error  Unexpected newline after '('   function-paren-newline
+  44:2   error  Unexpected newline before ')'  function-paren-newline
+
+/home/travis/build/Talend/ui/packages/cmf/src/selectors/toJS.js
+  29:4  error  Use array destructuring  prefer-destructuring
+
+/home/travis/build/Talend/ui/packages/cmf/src/UIRouter.js
+  39:2  error  propType "dispatch" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+  40:2  error  propType "history" is not required, but has no corresponding defaultProp declaration   react/require-default-props
+  41:2  error  propType "routes" is not required, but has no corresponding defaultProp declaration    react/require-default-props
+  42:2  error  propType "loading" is not required, but has no corresponding defaultProp declaration   react/require-default-props
+
+✖ 66 problems (64 errors, 2 warnings)
+  43 errors, 0 warnings potentially fixable with the `--fix` option.
 

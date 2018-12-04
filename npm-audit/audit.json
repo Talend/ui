@@ -1,19 +1,4 @@
 === npm audit security report ===                        
                                                                                 
-# Run  npm install webpack-dev-server@3.1.10  to resolve 1 vulnerability
-SEMVER WARNING: Recommended action is a potentially breaking change
-┌───────────────┬──────────────────────────────────────────────────────────────┐
-│ High          │ Missing Origin Validation                                    │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ Package       │ webpack-dev-server                                           │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ Dependency of │ webpack-dev-server                                           │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ Path          │ webpack-dev-server                                           │
-├───────────────┼──────────────────────────────────────────────────────────────┤
-│ More info     │ https://nodesecurity.io/advisories/725                       │
-└───────────────┴──────────────────────────────────────────────────────────────┘
-
-
-found 1 high severity vulnerability in 61833 scanned packages
-  1 vulnerability requires semver-major dependency updates.
+found 0 vulnerabilities
+ in 69409 scanned packages

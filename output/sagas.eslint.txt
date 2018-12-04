@@ -1,3 +1,18 @@
 > eslint --config ../../.eslintrc src
 
-The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
+
+/home/travis/build/Talend/ui/packages/sagas/src/pending/pending.js
+  8:7  error  Use object destructuring  prefer-destructuring
+
+/home/travis/build/Talend/ui/packages/sagas/src/pending/pending.test.js
+  13:7   error  Use object destructuring       prefer-destructuring
+  21:44  error  Unexpected newline after '('   function-paren-newline
+  23:3   error  Unexpected newline before ')'  function-paren-newline
+  42:52  error  Unexpected newline after '('   function-paren-newline
+  44:3   error  Unexpected newline before ')'  function-paren-newline
+  51:52  error  Unexpected newline after '('   function-paren-newline
+  53:3   error  Unexpected newline before ')'  function-paren-newline
+
+✖ 8 problems (8 errors, 0 warnings)
+  6 errors, 0 warnings potentially fixable with the `--fix` option.
+
