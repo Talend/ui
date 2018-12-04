@@ -7,42 +7,37 @@ import { Provider, store as mock } from '@talend/react-cmf/lib/mock';
 import Container from './ShortcutManager.container';
 import Connected from './ShortcutManager.connect';
 
-describe('Container ShortcutManager', () => {
-	it('should render', () => {
-		const wrapper = shallow(<Container redirectMap={{}} />);
-		expect(wrapper.getElement()).toBeNull();
+describe('Shortcut container', () => {
+	let wrapper;
+	const context = { router: { getCurrentLocation: () => ({ pathname: '/test' }) } };
+	afterEach(() => {
 		wrapper.unmount();
 	});
-});
 
-describe('Connected ShortcutManager', () => {
-	it('should connect ShortcutManager', () => {
-		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
-		expect(Connected.WrappedComponent).toBe(Container);
+	it('should render', () => {
+		wrapper = shallow(<Container redirectMap={{}} />, { context });
+		expect(wrapper.getElement()).toBeNull();
 	});
-});
-
-describe('handles routes', () => {
-	const state = mock.state();
-	state.cmf.settings.props.shortcuts = {
-		redirectMap: {},
-	};
-	state.cmf.components = new Map();
 
 	it('should get the redirectMap', () => {
-		const wrapper = mount(
+		const state = mock.state();
+		state.cmf.settings.props.shortcuts = {
+			redirectMap: {},
+		};
+		state.cmf.components = new Map();
+		wrapper = mount(
 			<Provider state={state}>
 				<Connected view="shortcuts" />
 			</Provider>,
+			{ context },
 		);
 		expect(wrapper.find(Container.displayName).props().redirectMap).toBeDefined();
-		wrapper.unmount();
 	});
 
 	it('should handle global keypresses', () => {
 		const spy = jest.spyOn(Container.prototype, 'handleKeyPress');
 
-		const wrapper = mount(<Container redirectMap={{}} />);
+		wrapper = mount(<Container redirectMap={{}} />, { context });
 
 		const event = new KeyboardEvent('keydown', { keyCode: keycode('esc') });
 		document.dispatchEvent(event);
@@ -50,15 +45,12 @@ describe('handles routes', () => {
 		expect(spy).toHaveBeenCalled();
 		spy.mockReset();
 		spy.mockRestore();
-		wrapper.unmount();
 	});
 
 	it('should call redirect actionCreator', () => {
 		const fn = jest.fn();
 		const redirectMap = { esc: { '/test': '/test/next' } };
-		const context = { router: { getCurrentLocation: () => ({ pathname: '/test' }) } };
-
-		const wrapper = mount(<Container redirectMap={redirectMap} dispatchActionCreator={fn} />, {
+		wrapper = mount(<Container redirectMap={redirectMap} dispatchActionCreator={fn} />, {
 			context,
 		});
 
@@ -66,22 +58,27 @@ describe('handles routes', () => {
 		document.dispatchEvent(event);
 
 		expect(fn).toHaveBeenCalledWith('redirect', event, { action: { path: '/test/next' } });
-		wrapper.unmount();
 	});
 
 	it('should call matching actionCreator', () => {
 		const fn = jest.fn();
 		const redirectMap = { esc: { '^[/]test[/].*$': 'test' } };
-		const context = { router: { getCurrentLocation: () => ({ pathname: '/test/12345' }) } };
+		const customContext = { router: { getCurrentLocation: () => ({ pathname: '/test/12345' }) } };
 
-		const wrapper = mount(<Container redirectMap={redirectMap} dispatchActionCreator={fn} />, {
-			context,
+		wrapper = mount(<Container redirectMap={redirectMap} dispatchActionCreator={fn} />, {
+			context: customContext,
 		});
 
 		const event = new KeyboardEvent('keydown', { keyCode: keycode('esc') });
 		document.dispatchEvent(event);
 
 		expect(fn).toHaveBeenCalledWith('test', event);
-		wrapper.unmount();
+	});
+});
+
+describe('Connected ShortcutManager', () => {
+	it('should connect ShortcutManager', () => {
+		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
+		expect(Connected.WrappedComponent).toBe(Container);
 	});
 });
