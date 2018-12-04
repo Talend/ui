@@ -55,6 +55,18 @@
 		box-shadow: none;
 		border: $border-width solid $btn-color;
 		line-height: $btn-line-height - (2 * $border-width);
+		// this is to avoid background issue in case of an inverse button
+		// being in disabled and focused state
+		&:disabled, &.disabled {
+			&:focus, &:hover {
+				background-color: transparent;
+				color: $btn-color;
+				box-shadow: none;
+				border: $border-width solid $btn-color;
+				line-height: $btn-line-height - (2 * $border-width);
+				opacity: 0.4;
+			}
+		}
 
 		&:active,
 		&.active,
