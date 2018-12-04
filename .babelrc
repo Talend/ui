@@ -18,8 +18,8 @@
     "**/**/*.css"
   ],
   "plugins": [
-    "transform-class-properties",
-    "transform-object-assign",
-    "transform-object-rest-spread"
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-object-assign",
+    "@babel/plugin-proposal-object-rest-spread"
   ]
 }

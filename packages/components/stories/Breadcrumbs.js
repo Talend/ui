@@ -1,12 +1,12 @@
 import React from 'react';
-import { storiesOf, setAddon } from '@storybook/react';
+import { storiesOf, addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import infoAddon from '@storybook/addon-info';
+import withInfo from '@storybook/addon-info';
 import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 import { Breadcrumbs, IconsProvider } from '../src/index';
 
-setAddon(infoAddon);
+addDecorator(withInfo);
 
 const icons = {
 	'talend-chevron-left': talendIcons['talend-chevron-left'],

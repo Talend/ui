@@ -55,17 +55,24 @@ const VERSIONS = require('./dependencies');
 const REACT_VERSION_PEER = '^15.6.2 || ^16.0.0';
 
 const files = [
+	path.join(__dirname, '../npm-audit/package.json'),
 	path.join(__dirname, '../packages/cmf/package.json'),
 	path.join(__dirname, '../packages/cmf-cqrs/package.json'),
 	path.join(__dirname, '../packages/cmf-webpack-plugin/package.json'),
 	path.join(__dirname, '../packages/components/package.json'),
 	path.join(__dirname, '../packages/containers/package.json'),
+	path.join(__dirname, '../packages/datagrid/package.json'),
+	path.join(__dirname, '../packages/eslint-config/package.json'),
 	path.join(__dirname, '../packages/forms/package.json'),
 	path.join(__dirname, '../packages/generator/package.json'),
+	path.join(__dirname, '../packages/generator/generators/app/templates/package.json'),
+	path.join(__dirname, '../packages/html-webpack-plugin/package.json'),
 	path.join(__dirname, '../packages/icons/package.json'),
+	path.join(__dirname, '../packages/logging/package.json'),
 	path.join(__dirname, '../packages/sagas/package.json'),
+	path.join(__dirname, '../packages/scripts/package.json'),
+	path.join(__dirname, '../packages/storybook-cmf/package.json'),
 	path.join(__dirname, '../packages/theme/package.json'),
-	path.join(__dirname, '../packages/datagrid/package.json'),
 ];
 
 const templates = [

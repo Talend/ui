@@ -11,7 +11,7 @@
     "tmp-promise": "^1.0.4"
   },
   "scripts": {
-    "postinstall": "lerna exec -- yarn --pure-lockfile --no-progress --mutex network",
+    "postinstall": "lerna exec --concurrency 1 -- yarn --pure-lockfile --no-progress --mutex network",
     "update-versions": "node version.js && yarn",
     "build": "lerna exec -- yarn run prepublish",
     "build-cmf": "lerna exec --scope=@talend/react-cmf -- yarn run prepublish",
