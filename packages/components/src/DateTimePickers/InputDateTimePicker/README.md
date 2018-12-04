@@ -1,6 +1,6 @@
 # InputDateTimePicker
 
-This component display an input with a [datetime picker](../DateTimePicker/DateTimePicker.md) for choosing a datetime.
+This component display an input with a datetime picker.
 
 ## props
 

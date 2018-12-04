@@ -8,19 +8,9 @@ import DateTimeView from '../views/DateTimeView';
 import MonthYearView from '../views/MonthYearView';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 
-const warnOnce = {};
-
 class DateTimePicker extends React.Component {
 	constructor(props) {
 		super(props);
-
-		if (!warnOnce.unstable) {
-			// eslint-disable-next-line
-			console.warn(
-				"UNSTABLE WARNING: The 'DateTimePicker' and all the sub components aren't ready to be used in Apps. Code can (will) change outside the release process until it's ready.",
-			);
-			warnOnce.unstable = true;
-		}
 
 		const selectedDate = props.selection.date;
 		const selectedTime = props.selection.time;
