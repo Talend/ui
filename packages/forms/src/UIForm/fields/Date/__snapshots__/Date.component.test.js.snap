@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Date widget should render date picker 1`] = `
+<FieldTemplate
+  description="my date picker"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
+  errorMessage="My error message"
+  id="myForm"
+  isValid={false}
+  label="My date title"
+  required={true}
+>
+  <InputDateTimePicker
+    aria-describedby="myForm-description myForm-error"
+    aria-invalid={true}
+    aria-required={true}
+    autoFocus={true}
+    dateFormat="YYYY-MM-DD"
+    disabled={undefined}
+    id="myForm"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="Type your date here"
+    readOnly={undefined}
+    selectedDateTime="15/02/2018 23:55:32"
+    useSeconds={true}
+    useTime={true}
+  />
+</FieldTemplate>
+`;

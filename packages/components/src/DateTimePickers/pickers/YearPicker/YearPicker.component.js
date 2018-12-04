@@ -114,6 +114,7 @@ class YearPicker extends React.Component {
 							return (
 								<li {...liProps} key={year}>
 									<button
+										type="button"
 										className={classNames}
 										onClick={event => this.props.onSelect(event, year)}
 										tabIndex={tabIndex}
