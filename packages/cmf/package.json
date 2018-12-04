@@ -34,13 +34,13 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.2.0",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/plugin-transform-object-assign": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
-    "babel-core": "^6.26.0",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^23.6.0",
     "codacy-coverage": "^2.0.2",
@@ -63,6 +63,7 @@
     "react-test-renderer": "^16.0.0",
     "redux-mock-store": "^1.2.3",
     "redux-saga-tester": "^1.0.345",
+    "regenerator-runtime": "^0.13.1",
     "rimraf": "^2.6.1"
   },
   "peerDependencies": {

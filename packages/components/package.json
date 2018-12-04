@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.2.0",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/plugin-transform-object-assign": "^7.0.0",
@@ -68,6 +68,7 @@
     "@talend/bootstrap-theme": "^1.9.0",
     "@talend/icons": "^1.9.0",
     "autoprefixer": "^7.1.4",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^23.6.0",
     "bootstrap-sass": "3.3.7",
@@ -107,6 +108,7 @@
     "react-storybook-addon-props-combinations": "^0.3.0",
     "react-test-renderer": "^16.0.0",
     "react-transition-group": "^2.3.1",
+    "regenerator-runtime": "^0.13.1",
     "rimraf": "^2.6.1",
     "sass-lint": "^1.10.2",
     "sass-loader": "^7.1.0",
@@ -138,9 +140,6 @@
       "!**/node_modules/**",
       "!**/__snapshots__/**"
     ],
-    "transform": {
-      ".*": "<rootDir>/../../node_modules/babel-jest"
-    },
     "roots": [
       "src",
       "__mocks__"
