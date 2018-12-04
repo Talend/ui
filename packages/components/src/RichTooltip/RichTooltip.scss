@@ -52,12 +52,6 @@ $tc-popover-header-footer-height: 7rem !default;
 		margin-top: $padding-normal;
 		margin-bottom: $padding-normal;
 	}
-
-	:global(.tc-header-title-text) {
-		color: black;
-		font-weight: 700;
-		text-transform: none;
-	}
 }
 
 .header:not(:empty) + .body {
