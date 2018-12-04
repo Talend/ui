@@ -61,7 +61,7 @@ function isDateValid(date) {
  * Convert a date in local timezone to UTC
  * @param date {Object} a valid Date object
  */
-export function convertToUTC(date, dateIsUtc = false) {
+function convertToUTC(date, dateIsUtc = false) {
 	// the date is already in UTC
 	// converting the date to get UTC values
 	if (dateIsUtc) {
@@ -448,4 +448,5 @@ export {
 	extractPartsFromDateAndTime,
 	extractPartsFromTextInput,
 	getFullDateFormat,
+	convertToUTC,
 };
