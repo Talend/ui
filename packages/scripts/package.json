@@ -16,7 +16,7 @@
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
     "@talend/html-webpack-plugin": "1.0.0",
-    "@talend/react-cmf-webpack-plugin": "^0.186.0",
+    "@talend/react-cmf-webpack-plugin": "1.10.0-0",
     "autoprefixer": "^7.1.4",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^23.6.0",
@@ -57,8 +57,8 @@
     "yargs-parser": "^9.0.2"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": ">=0.150.0",
-    "@talend/react-components": ">=0.170.0"
+    "@talend/bootstrap-theme": "1.10.0-0",
+    "@talend/react-components": "1.10.0-0"
   },
   "publishConfig": {
     "access": "public"

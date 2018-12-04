@@ -65,8 +65,8 @@
     "@storybook/addon-info": "^4.0.11",
     "@storybook/addon-storyshots": "^4.0.11",
     "@storybook/react": "^4.0.11",
-    "@talend/bootstrap-theme": "^1.9.0",
-    "@talend/icons": "^1.9.0",
+    "@talend/bootstrap-theme": "1.10.0-0",
+    "@talend/icons": "1.10.0-0",
     "autoprefixer": "^7.1.4",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.3",
@@ -117,8 +117,8 @@
     "uuid": "^3.0.1"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "^1.9.0",
-    "@talend/icons": "^1.9.0",
+    "@talend/bootstrap-theme": "1.10.0-0",
+    "@talend/icons": "1.10.0-0",
     "bootstrap-sass": "3.3.7",
     "classnames": "^2.2.5",
     "d3-shape": "1.2.0",

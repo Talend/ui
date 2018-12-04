@@ -13,7 +13,7 @@
     "url": "github:Talend/ui"
   },
   "devDependencies": {
-    "@talend/react-components": "^1.9.0",
+    "@talend/react-components": "1.10.0-0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "eslint": "^3.6.1",
@@ -22,7 +22,7 @@
     "jest": "^23.6.0"
   },
   "peerDependencies": {
-    "@talend/react-components": "^1.8.0"
+    "@talend/react-components": "1.10.0-0"
   },
   "publishConfig": {
     "access": "public"

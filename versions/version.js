@@ -200,6 +200,6 @@ if (program.path) {
 	const filesList = [filePath];
 	updateFiles(filesList, Object.assign({}, VERSIONS, STACK_VERSION));
 } else {
-	updateFiles(files, Object.assign(VERSIONS));
+	updateFiles(files, Object.assign({}, VERSIONS, STACK_VERSION));
 	updateFiles(templates, Object.assign({}, VERSIONS, STACK_VERSION));
 }

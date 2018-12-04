@@ -26,7 +26,7 @@
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
     "@storybook/react": "^4.0.11",
-    "@talend/react-cmf": "^1.9.0",
+    "@talend/react-cmf": "1.10.0-0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^23.6.0",
@@ -64,7 +64,7 @@
   },
   "peerDependencies": {
     "@kadira/storybook": "^2",
-    "@talend/react-cmf": "^1.9.0"
+    "@talend/react-cmf": "1.10.0-0"
   },
   "jest": {
     "roots": [
