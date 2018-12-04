@@ -60,7 +60,7 @@ module.exports = {
 	'react-autowhatever': '10.1.2',
 	'react-debounce-input': '3.2.0',
 	'react-jsonschema-form': '0.51.0',
-	'react-virtualized': '9.19.1',
+	'react-virtualized': '9.21.0',
 
 	// script dep
 	deepmerge: '^1.5.1',
