@@ -1,6 +1,6 @@
 # InputDateTimePicker
 
-This component display an input with a [datetime picker](../DateTimePicker/DateTimePicker.md) for choosing a datetime.
+This component display an input with a datetime picker.
 
 ## props
 
@@ -11,5 +11,6 @@ This component display an input with a [datetime picker](../DateTimePicker/DateT
 | onBlur           | Trigger when the component loose focus (outside the picker AND the input)|
 | dateFormat       | Default `YYYY-MM-DD`. A combination of `YYYY` (year), `MM` (month), `DD` (day). Other format are consider invalid. |
 | useSeconds       | Display and convert the seconds |
+| useUTC           | Default `false` convert the date to UTC for the output and convert the input selectedDate (UTC) to retrieve the utc values. |
 
 All the remaining props are spread to the input
