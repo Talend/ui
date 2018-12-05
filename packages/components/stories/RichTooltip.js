@@ -9,8 +9,8 @@ import {
 	ActionBar,
 	IconsProvider,
 	CircularProgress,
-	RichError,
 	HeaderTitle,
+	RichError,
 	RichLayout,
 } from '../src/index';
 
