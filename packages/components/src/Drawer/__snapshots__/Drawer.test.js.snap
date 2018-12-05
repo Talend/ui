@@ -324,8 +324,9 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
   }
   className="tc-drawer-actionbar theme-tc-drawer-actionbar"
   i18n={Object {}}
+  lng="en"
   t={[Function]}
-  tReady={false}
+  tReady={true}
 >
   <div
     className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
@@ -385,6 +386,7 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
                   ]
                 }
                 nsMode="default"
+                omitBoundRerender={true}
                 translateFuncName="t"
                 usePureComponent={false}
                 wait={false}
@@ -398,9 +400,10 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
                   id="view-center-tab-2"
                   inProgress={false}
                   label="ActionCenter-tab-2"
+                  lng="en"
                   loading={false}
                   t={[Function]}
-                  tReady={false}
+                  tReady={true}
                   tooltipPlacement="top"
                 >
                   <Button

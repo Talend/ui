@@ -3,7 +3,9 @@ import { shallow, mount } from 'enzyme';
 
 import { FilterBarComponent } from './FilterBar.component';
 import Icon from '../Icon';
-
+jest.mock('react-dom');
+jest.mock('react-debounce-input', () => props => <input {...props} />);
+jest.mock('react-bootstrap/lib/FormControl', () => props => <div {...props} />);
 jest.useFakeTimers();
 
 let defaultProps = {};
@@ -16,7 +18,6 @@ describe('FilterBar', () => {
 			onBlur: jest.fn(),
 			onFilter: jest.fn(),
 			onToggle: jest.fn(),
-			ref: 'inputFilter',
 		};
 	});
 	it('should call onToggle on search icon click', () => {

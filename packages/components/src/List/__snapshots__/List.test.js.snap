@@ -542,6 +542,7 @@ exports[`List should render 1`] = `
           ]
         }
         nsMode="default"
+        omitBoundRerender={true}
         pagination={
           Object {
             "itemsPerPage": 5,
@@ -607,6 +608,7 @@ exports[`List should render 1`] = `
             }
           }
           i18n={Object {}}
+          lng="en"
           pagination={
             Object {
               "itemsPerPage": 5,
@@ -653,7 +655,7 @@ exports[`List should render 1`] = `
             }
           }
           t={[Function]}
-          tReady={false}
+          tReady={true}
         >
           <div
             className="tc-list-toolbar"
@@ -1711,6 +1713,7 @@ exports[`List should render 1`] = `
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onFilter={[MockFunction]}
                           onToggle={[MockFunction]}
                           t={[Function]}
@@ -1727,12 +1730,13 @@ exports[`List should render 1`] = `
                             focus={false}
                             i18n={Object {}}
                             iconAlwaysVisible={false}
+                            lng="en"
                             navbar={true}
                             onFilter={[MockFunction]}
                             onToggle={[MockFunction]}
                             placeholder="Filter"
                             t={[Function]}
-                            tReady={false}
+                            tReady={true}
                           >
                             <Action
                               bsStyle="link"
@@ -1767,6 +1771,7 @@ exports[`List should render 1`] = `
                                     ]
                                   }
                                   nsMode="default"
+                                  omitBoundRerender={true}
                                   onClick={[MockFunction]}
                                   role="search"
                                   translateFuncName="t"
@@ -1784,11 +1789,12 @@ exports[`List should render 1`] = `
                                     icon="talend-search"
                                     inProgress={false}
                                     label="Toggle filter"
+                                    lng="en"
                                     loading={false}
                                     onClick={[MockFunction]}
                                     role="search"
                                     t={[Function]}
-                                    tReady={false}
+                                    tReady={true}
                                     tooltipPlacement="top"
                                   >
                                     <TooltipTrigger
@@ -2355,6 +2361,7 @@ exports[`List should render id if provided 1`] = `
           ]
         }
         nsMode="default"
+        omitBoundRerender={true}
         pagination={
           Object {
             "itemsPerPage": 5,
@@ -2421,6 +2428,7 @@ exports[`List should render id if provided 1`] = `
           }
           i18n={Object {}}
           id="context"
+          lng="en"
           pagination={
             Object {
               "itemsPerPage": 5,
@@ -2467,7 +2475,7 @@ exports[`List should render id if provided 1`] = `
             }
           }
           t={[Function]}
-          tReady={false}
+          tReady={true}
         >
           <div
             className="tc-list-toolbar"
@@ -3569,6 +3577,7 @@ exports[`List should render id if provided 1`] = `
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onFilter={[MockFunction]}
                           onToggle={[MockFunction]}
                           t={[Function]}
@@ -3586,12 +3595,13 @@ exports[`List should render id if provided 1`] = `
                             i18n={Object {}}
                             iconAlwaysVisible={false}
                             id="context-filter"
+                            lng="en"
                             navbar={true}
                             onFilter={[MockFunction]}
                             onToggle={[MockFunction]}
                             placeholder="Filter"
                             t={[Function]}
-                            tReady={false}
+                            tReady={true}
                           >
                             <Action
                               bsStyle="link"
@@ -3629,6 +3639,7 @@ exports[`List should render id if provided 1`] = `
                                     ]
                                   }
                                   nsMode="default"
+                                  omitBoundRerender={true}
                                   onClick={[MockFunction]}
                                   role="search"
                                   translateFuncName="t"
@@ -3647,11 +3658,12 @@ exports[`List should render id if provided 1`] = `
                                     id="context-filter"
                                     inProgress={false}
                                     label="Toggle filter"
+                                    lng="en"
                                     loading={false}
                                     onClick={[MockFunction]}
                                     role="search"
                                     t={[Function]}
-                                    tReady={false}
+                                    tReady={true}
                                     tooltipPlacement="top"
                                   >
                                     <TooltipTrigger

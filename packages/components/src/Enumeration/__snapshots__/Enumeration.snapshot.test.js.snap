@@ -807,8 +807,9 @@ exports[`Enumeration should render with EmptyListPlaceholder in default mode whe
   i18n={Object {}}
   id="tc-enumeration"
   items={Array []}
+  lng="en"
   t={[Function]}
-  tReady={false}
+  tReady={true}
 >
   <EmptyListPlaceholder
     displayMode="DISPLAY_MODE_DEFAULT"
@@ -831,8 +832,9 @@ exports[`Enumeration should render with EmptyListPlaceholder in search mode when
   i18n={Object {}}
   id="tc-enumeration"
   items={Array []}
+  lng="en"
   t={[Function]}
-  tReady={false}
+  tReady={true}
 >
   <EmptyListPlaceholder
     displayMode="DISPLAY_MODE_SEARCH"

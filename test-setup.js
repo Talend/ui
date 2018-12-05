@@ -2,9 +2,36 @@
 import '@babel/polyfill';
 import 'isomorphic-fetch';
 import 'raf/polyfill';
+import i18next from 'i18next';
+import { reactI18nextModule } from 'react-i18next';
 import { Headers } from 'node-fetch';
 import { configure } from 'enzyme';
 import dateMock from './mocks/dateMock';
+
+i18next.use(reactI18nextModule).init(
+	{
+		lng: 'en',
+		debug: false,
+		resources: { en: {} },
+	},
+	function onInit(err, t) {
+		if (err) {
+			console.error(err);
+		}
+		global.I18NEXT_T = t;
+	},
+);
+beforeAll((done) => {
+	if (global.I18NEXT_T === undefined) {
+		const stop = setInterval(() => {
+			if (global.I18NEXT_T) {
+				clearInterval(stop);
+				done();
+			}
+		}, 100);
+	}
+	done();
+});
 
 function getMajorVersion() {
 	if (!process.env.REACT_VERSION) {
