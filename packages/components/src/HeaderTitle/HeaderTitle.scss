@@ -1,5 +1,5 @@
 $tc-header-title-font-size: 1.6rem !default;
-$tc-header-title-font-weight: 600 !default;
+$tc-header-title-font-weight: 700 !default;
 
 .container {
 	display: flex;
@@ -8,6 +8,7 @@ $tc-header-title-font-weight: 600 !default;
 }
 
 .title {
+	color: $black;
 	flex-grow: 1;
 	margin: 0;
 	white-space: nowrap;
