@@ -53,8 +53,8 @@ import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
 import Inject from './Inject';
-import RichError from './RichError';
 import RichLayout from './RichLayout';
+import RichError from './RichLayout/RichError';
 
 const {
 	Alert,
