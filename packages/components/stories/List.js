@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
 import { I18nextProvider } from 'react-i18next';
@@ -463,7 +462,6 @@ const itemsForListWithIcons = [
 ];
 
 storiesOf('List', module)
-	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div>
 			<LanguageSwitcher />

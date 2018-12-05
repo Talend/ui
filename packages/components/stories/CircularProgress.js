@@ -1,15 +1,10 @@
 import React from 'react';
-import { storiesOf, addDecorator } from '@storybook/react';
-import withInfo from '@storybook/addon-info';
-import { checkA11y } from '@storybook/addon-a11y';
+import { storiesOf } from '@storybook/react';
 
 import { CircularProgress } from '../src';
 
-addDecorator(withInfo);
-
 storiesOf('CircularProgress', module)
-	.addDecorator(checkA11y)
-	.addWithInfo('default', () => (
+	.add('default', () => (
 		<div>
 			<h1>CircularProgress</h1>
 			<h2>Definition</h2>

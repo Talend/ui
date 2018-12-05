@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 import { EditableText, IconsProvider } from '../src/index';
 
 const props = {
@@ -13,7 +12,6 @@ const props = {
 };
 
 storiesOf('EditableText', module)
-	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div>
 			<IconsProvider />
@@ -21,8 +19,8 @@ storiesOf('EditableText', module)
 			{story()}
 		</div>
 	))
-	.addWithInfo('default', () => <EditableText {...props} />)
-	.addWithInfo('loading', () => <EditableText loading {...props} />)
-	.addWithInfo('disabled', () => <EditableText disabled {...props} />)
-	.addWithInfo('in progress', () => <EditableText inProgress {...props} />)
-	.addWithInfo('edit mode', () => <EditableText editMode {...props} />);
+	.add('default', () => <EditableText {...props} />)
+	.add('loading', () => <EditableText loading {...props} />)
+	.add('disabled', () => <EditableText disabled {...props} />)
+	.add('in progress', () => <EditableText inProgress {...props} />)
+	.add('edit mode', () => <EditableText editMode {...props} />);

@@ -164,7 +164,7 @@ The stories are registred this way:
 ```
 
 * _Action_ is the string name of 'storiesOf(' call
-* _default_ is the exact string of the .add / .addWithInfo call
+* _default_ is the exact string of the .add / .add call
 * the content is an array of Object with name + selector
 * _name_ will be the name of the screenshot(s)
 * _selector_ is a string or an array of string which is behind used to call document.querySelect(_selector_) so you can try your selector.

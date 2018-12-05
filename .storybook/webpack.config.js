@@ -6,10 +6,10 @@ const autoPrefixerPlugin = autoprefixer({ browsers: ['last 2 versions'] })
 
 module.exports = storybookBaseConfig => {
 	// remove Uglification plugin to improve build time in CI
-	const uglifyIndex = storybookBaseConfig.plugins.findIndex(
-		element => element instanceof webpack.optimize.UglifyJsPlugin
-	);
-	storybookBaseConfig.plugins.splice(uglifyIndex, 1);
+	// const uglifyIndex = storybookBaseConfig.plugins.findIndex(
+	// 	element => element instanceof webpack.optimize.UglifyJsPlugin
+	// );
+	// storybookBaseConfig.plugins.splice(uglifyIndex, 1);
 	storybookBaseConfig.module.rules.push(
 		{
 			test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,

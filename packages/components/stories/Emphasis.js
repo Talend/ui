@@ -1,12 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from '@storybook/addon-a11y';
 
 import { Emphasis } from '../src/index';
 
 storiesOf('Emphasis', module)
-	.addDecorator(checkA11y)
-	.addWithInfo('with value', () => (
+	.add('with value', () => (
 		<div>
 			<h1>With value</h1>
 			<p>The emphasised text is returned (value = BroWn) :</p>

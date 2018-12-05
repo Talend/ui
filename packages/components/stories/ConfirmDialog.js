@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
 import { List, ConfirmDialog, IconsProvider } from '../src/index';
@@ -110,38 +109,37 @@ const children = (<div>BODY content. You can put what ever you want here</div>);
 
 
 storiesOf('ConfirmDialog', module)
-	.addDecorator(checkA11y)
-	.addWithInfo('default', () => (
+	.add('default', () => (
 		<div>
 			<h1>Dialog</h1>
 			<ConfirmDialog {...defaultProps}>{children}</ConfirmDialog>
 		</div>
 	))
-	.addWithInfo('without header', () => (
+	.add('without header', () => (
 		<div>
 			<h1>Dialog</h1>
 			<ConfirmDialog {...propsWithoutHeader}>{children}</ConfirmDialog>
 		</div>
 	))
-	.addWithInfo('small', () => (
+	.add('small', () => (
 		<div>
 			<h1>Dialog</h1>
 			<ConfirmDialog {...smallProps}>{children}</ConfirmDialog>
 		</div>
 	))
-	.addWithInfo('large', () => (
+	.add('large', () => (
 		<div>
 			<h1>Dialog</h1>
 			<ConfirmDialog {...largeProps}>{children}</ConfirmDialog>
 		</div>
 	))
-	.addWithInfo('with progress bar', () => (
+	.add('with progress bar', () => (
 		<div>
 			<h1>Dialog</h1>
 			<ConfirmDialog {...withProgressBarProps}>{children}</ConfirmDialog>
 		</div>
 	))
-	.addWithInfo('with lots of content', () => {
+	.add('with lots of content', () => {
 		const rows = [];
 		for (let index = 0; index < 50; index++) {
 			rows.push(<p key={index}>The content dictate the height</p>);
@@ -155,7 +153,7 @@ storiesOf('ConfirmDialog', module)
 			</div>
 		);
 	})
-	.addWithInfo('overflow set to false', () => {
+	.add('overflow set to false', () => {
 		const rows = [];
 		for (let index = 0; index < 50; index++) {
 			rows.push(<p key={index}>The content dictate the height</p>);
@@ -169,7 +167,7 @@ storiesOf('ConfirmDialog', module)
 			</div>
 		);
 	})
-	.addWithInfo('user manage overflow', () => {
+	.add('user manage overflow', () => {
 		const actions = [
 			{
 				label: 'edit',
@@ -311,7 +309,7 @@ storiesOf('ConfirmDialog', module)
 			</div>
 		);
 	})
-	.addWithInfo('with secondary actions', () => {
+	.add('with secondary actions', () => {
 		const propsWithMoreActions = {
 			...defaultProps,
 			header: 'Delete elements',

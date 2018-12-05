@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from '@storybook/addon-a11y';
 
 import { JSONSchemaRenderer } from '../src/index';
 
@@ -118,8 +117,7 @@ const schema = {
 };
 
 storiesOf('JSONSchemaRenderer')
-	.addDecorator(checkA11y)
-	.addWithInfo('default', () => (
+	.add('default', () => (
 		<div>
 			<h1>Basic</h1>
 			<JSONSchemaRenderer schema={schema} />

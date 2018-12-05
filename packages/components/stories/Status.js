@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 
 import { Status, IconsProvider } from '../src/index';
 
@@ -27,8 +26,7 @@ const myStatus = {
 };
 
 storiesOf('Status', module)
-	.addDecorator(checkA11y)
-	.addWithInfo('default', () => (
+	.add('default', () => (
 		<div>
 			<IconsProvider />
 			<h1>Status</h1>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from '@storybook/addon-a11y';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 
@@ -59,7 +58,6 @@ storiesOf('HttpError', module)
 			{story()}
 		</div>
 	))
-	.addDecorator(checkA11y)
-	.addWithInfo('Forbidden', () => <HttpError style={forbiddenStyle} {...forbiddenProps} />)
-	.addWithInfo('NotFound', () => <HttpError style={notFoundStyle} {...notFoundProps} />)
-	.addWithInfo('NotFound with redirect action', () => <HttpError style={notFoundStyle} {...notFoundWithRedirectProps} />);
+	.add('Forbidden', () => <HttpError style={forbiddenStyle} {...forbiddenProps} />)
+	.add('NotFound', () => <HttpError style={notFoundStyle} {...notFoundProps} />)
+	.add('NotFound with redirect action', () => <HttpError style={notFoundStyle} {...notFoundWithRedirectProps} />);

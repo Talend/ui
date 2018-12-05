@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from '@storybook/addon-a11y';
 
 import { Progress } from '../src/index';
 
@@ -11,8 +10,7 @@ const containerStyle = {
 };
 
 storiesOf('Progress', module)
-	.addDecorator(checkA11y)
-	.addWithInfo('Percent', () => (
+	.add('Percent', () => (
 		<div>
 			<h1>Action</h1>
 			<h2>Definition</h2>
@@ -27,7 +25,7 @@ storiesOf('Progress', module)
 			<Progress id="my-progress" percent={75} tooltip="Hey ! Already 75% !" />
 		</div>
 	))
-	.addWithInfo('Infinite', () => (
+	.add('Infinite', () => (
 		<div>
 			<h1>Action</h1>
 			<h2>Definition</h2>
@@ -42,7 +40,7 @@ storiesOf('Progress', module)
 			<Progress id="my-progress" infinite tooltip="Hey !" />
 		</div>
 	))
-	.addWithInfo('Contained', () => (
+	.add('Contained', () => (
 		<div>
 			<h1>Action</h1>
 			<h2>Definition</h2>

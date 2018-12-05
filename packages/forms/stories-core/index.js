@@ -63,19 +63,19 @@ const forStoryDecorator = story => (
 );
 
 const coreConceptsStories = storiesOf('Core concepts', module)
-	.addDecorator(checkA11y)
+	
 	.addDecorator(forStoryDecorator);
 
 const coreFieldsetsStories = storiesOf('Core fieldsets', module)
-	.addDecorator(checkA11y)
+	
 	.addDecorator(forStoryDecorator);
 
 const coreFieldsStories = storiesOf('Core fields', module)
-	.addDecorator(checkA11y)
+	
 	.addDecorator(forStoryDecorator);
 
 const oldStories = storiesOf('Migration', module)
-	.addDecorator(checkA11y)
+	
 	.addDecorator(forStoryDecorator);
 
 const layout = storiesOf('Layout', module);

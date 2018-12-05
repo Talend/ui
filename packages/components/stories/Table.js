@@ -5,7 +5,6 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import classnames from 'classnames';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
-import { checkA11y } from '@storybook/addon-a11y';
 import { DraggableComponent as draggable, IconsProvider, Table } from '../src/index';
 
 const dataPrepSchema = {
@@ -642,24 +641,20 @@ SortedFilteredTable.propTypes = {
 const SortedFilteredTableWithDND = dndContext(HTML5Backend)(SortedFilteredTable);
 
 const stories = storiesOf('Table', module);
-if (!stories.addWithInfo) {
-	stories.addWithInfo = stories.add;
-}
 
 stories
-	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div style={{ display: 'flex', justifyContent: 'center' }}>
 			<IconsProvider />
 			{story()}
 		</div>
 	))
-	.addWithInfo('Table', () => (
+	.add('Table', () => (
 		<div className="story-table">
 			<Table elements={schema1.elements} columns={columns1} withHeader />
 		</div>
 		))
-	.addWithInfo('Table (as list)', () => (
+	.add('Table (as list)', () => (
 		<div className="default-table">
 			<Table
 				elements={schema2.elements}
@@ -669,7 +664,7 @@ stories
 			/>
 		</div>
 		))
-	.addWithInfo('Table with drag and drop', () => (
+	.add('Table with drag and drop', () => (
 		<div className="table-with-dnd">
 			<TableWithDND
 				elements={schema3.elements}
@@ -679,7 +674,7 @@ stories
 			/>
 		</div>
 		))
-	.addWithInfo('Table with filters', () => (
+	.add('Table with filters', () => (
 		<div className="filtered-table">
 			<SortedFilteredTable
 				elements={schema3.elements}
@@ -689,7 +684,7 @@ stories
 			/>
 		</div>
 		))
-	.addWithInfo('Table with sorters', () => (
+	.add('Table with sorters', () => (
 		<div className="sorted-table">
 			<SortedFilteredTable
 				elements={schema3.elements}
@@ -698,7 +693,7 @@ stories
 			/>
 		</div>
 		))
-	.addWithInfo('Table with dnd, sorters & filters', () => (
+	.add('Table with dnd, sorters & filters', () => (
 		<div className={classnames('table-with-dnd', 'filtered-table', 'sorted-table')}>
 			<SortedFilteredTableWithDND
 				elements={schema3.elements}

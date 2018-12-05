@@ -5,15 +5,15 @@ import ReactDOM from 'react-dom';
 import a11y from 'react-a11y';
 
 import { configure, addDecorator } from '@storybook/react';
-import withInfo from '@storybook/addon-info';
-import withPropsCombinations from 'react-storybook-addon-props-combinations';
+import { withInfo } from '@storybook/addon-info';
+import { checkA11y } from '@storybook/addon-a11y';
 
 import '@talend/bootstrap-theme/src/theme/theme.scss';
 import 'focus-outline-manager';
 
 a11y(ReactDOM);
 addDecorator(withInfo);
-addDecorator(withPropsCombinations);
+addDecorator(checkA11y);
 
 function loadStories() {
 	require('../stories');

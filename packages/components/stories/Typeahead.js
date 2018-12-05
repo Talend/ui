@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 import { Typeahead } from '../src';
 import IconsProvider from '../src/IconsProvider';
 
@@ -88,17 +87,14 @@ const noHeaderItems = [
 	},
 ];
 
-const decoratedStories = storiesOf('Typeahead', module)
-	.addDecorator(checkA11y)
+storiesOf('Typeahead', module)
 	.addDecorator(story => (
 		<div>
 			<IconsProvider />
 			{story()}
 		</div>
-	));
-
-decoratedStories
-	.addWithInfo('default with debounce input', () => {
+	))
+	.add('default with debounce input', () => {
 		const props = {
 			placeholder: 'Search...',
 			onBlur: action('onBlur'),
@@ -108,7 +104,7 @@ decoratedStories
 		};
 		return <Typeahead {...props} />;
 	})
-	.addWithInfo('searching', () => {
+	.add('searching', () => {
 		const props = {
 			value: 'Lorem ipsum',
 			onBlur: action('onBlur'),
@@ -118,7 +114,7 @@ decoratedStories
 		};
 		return <Typeahead {...props} />;
 	})
-	.addWithInfo('with results', () => {
+	.add('with results', () => {
 		const props = {
 			value: 'le',
 			items,
@@ -129,7 +125,7 @@ decoratedStories
 		};
 		return <Typeahead {...props} />;
 	})
-	.addWithInfo('without results', () => {
+	.add('without results', () => {
 		const props = {
 			value: 'Text without results',
 			onBlur: action('onBlur'),
@@ -139,7 +135,7 @@ decoratedStories
 		};
 		return <Typeahead {...props} />;
 	})
-	.addWithInfo('on the right', () => {
+	.add('on the right', () => {
 		const props = {
 			value: 'le',
 			items,
@@ -151,7 +147,7 @@ decoratedStories
 		};
 		return <Typeahead {...props} />;
 	})
-	.addWithInfo('with toggle button', () => {
+	.add('with toggle button', () => {
 		const props = {
 			icon: {
 				name: 'talend-search',
@@ -164,7 +160,7 @@ decoratedStories
 		};
 		return <Typeahead {...props} />;
 	})
-	.addWithInfo('with focused item', () => {
+	.add('with focused item', () => {
 		const props = {
 			icon: {
 				name: 'talend-search',
@@ -179,7 +175,7 @@ decoratedStories
 		};
 		return <Typeahead {...props} />;
 	})
-	.addWithInfo('without section header', () => {
+	.add('without section header', () => {
 		const props = {
 			value: 'le',
 			items: noHeaderItems,

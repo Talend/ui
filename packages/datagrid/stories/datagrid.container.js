@@ -189,7 +189,7 @@ const options = {
 };
 
 storiesOf('Container Datagrid', module)
-	.addDecorator(checkA11y)
+	
 	.addDecorator(story => (
 		<div>
 			<LanguageSwitcher />

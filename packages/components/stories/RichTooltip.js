@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 
 import {
 	Action,
@@ -85,14 +84,13 @@ const footer = (
 const customBody = <div>my custom body rich tolltip</div>;
 
 storiesOf('RichTooltip', module)
-	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
 			<IconsProvider />
 			{story()}
 		</div>
 	))
-	.addWithInfo('default', () => (
+	.add('default', () => (
 		<div>
 			<Action
 				id="default"
@@ -103,7 +101,7 @@ storiesOf('RichTooltip', module)
 			/>
 		</div>
 	))
-	.addWithInfo('default with actions', () => (
+	.add('default with actions', () => (
 		<div>
 			<Action
 				id="default"
@@ -116,7 +114,7 @@ storiesOf('RichTooltip', module)
 			/>
 		</div>
 	))
-	.addWithInfo('only with header', () => (
+	.add('only with header', () => (
 		<div>
 			<Action
 				id="default"
@@ -127,7 +125,7 @@ storiesOf('RichTooltip', module)
 			/>
 		</div>
 	))
-	.addWithInfo('in loading state', () => (
+	.add('in loading state', () => (
 		<div>
 			<Action
 				id="loading"
@@ -138,7 +136,7 @@ storiesOf('RichTooltip', module)
 			/>
 		</div>
 	))
-	.addWithInfo('with error message', () => (
+	.add('with error message', () => (
 		<div>
 			<Action
 				id="error"
@@ -151,7 +149,7 @@ storiesOf('RichTooltip', module)
 			/>
 		</div>
 	))
-	.addWithInfo('body', () => (
+	.add('body', () => (
 		<div>
 			<p>with a short text</p>
 			<Action
@@ -171,7 +169,7 @@ storiesOf('RichTooltip', module)
 			/>
 		</div>
 	))
-	.addWithInfo('custom body', () => (
+	.add('custom body', () => (
 		<div>
 			<Action
 				id="custom-body"

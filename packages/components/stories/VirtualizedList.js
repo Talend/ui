@@ -408,7 +408,7 @@ const sourceItems = [...new Array(20000)].map(
 );
 
 storiesOf('VirtualizedList', module)
-	.addDecorator(checkA11y)
+	
 	.add('List > Table', () => (
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>

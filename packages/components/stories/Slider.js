@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from '@storybook/addon-a11y';
 
 import Slider from '../src/Slider';
 import IconsProvider from '../src/IconsProvider';
@@ -70,8 +69,7 @@ const functionToFormat = value => `${value}-test`;
 const functionFormatFloor = value => `${Math.floor(value)}`;
 
 storiesOf('Slider', module)
-	.addDecorator(checkA11y)
-	.addWithInfo('default', () => (
+	.add('default', () => (
 		<section>
 			<IconsProvider />
 			<div style={style}>

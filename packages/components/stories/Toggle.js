@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 
 import { Toggle } from '../src/index';
 
@@ -33,8 +32,7 @@ const withLabel = {
 };
 
 storiesOf('Toggle', module)
-	.addDecorator(checkA11y)
-	.addWithInfo('default', () => (
+	.add('default', () => (
 		<div>
 			<h1>Toggle</h1>
 			<h2>Definition</h2>

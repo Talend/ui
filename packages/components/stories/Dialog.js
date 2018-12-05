@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 
 import { Dialog } from '../src/index';
 
@@ -99,62 +98,61 @@ const children = (<div>BODY content. You can put what ever you want here</div>);
 
 
 storiesOf('Dialog', module)
-	.addDecorator(checkA11y)
-	.addWithInfo('default', () => (
+	.add('default', () => (
 		<div>
 			<h1>Dialog</h1>
 			<Dialog {...defaultProps}>{children}</Dialog>
 		</div>
 	))
-	.addWithInfo('with header', () => (
+	.add('with header', () => (
 		<div>
 			<h1>Dialog</h1>
 			<Dialog {...headerProps}>{children}</Dialog>
 		</div>
 	))
-	.addWithInfo('header + action', () => (
+	.add('header + action', () => (
 		<div>
 			<h1>Dialog</h1>
 			<Dialog {...actionProps}>{children}</Dialog>
 		</div>
 	))
-	.addWithInfo('with subtitle', () => (
+	.add('with subtitle', () => (
 		<div>
 			<h1>Dialog</h1>
 			<Dialog {...subtitle}>{children}</Dialog>
 		</div>
 	))
-	.addWithInfo('with long title and subtitle', () => (
+	.add('with long title and subtitle', () => (
 		<div>
 			<h1>Dialog</h1>
 			<Dialog {...bigTitle}>{children}</Dialog>
 		</div>
 	))
-	.addWithInfo('with error', () => (
+	.add('with error', () => (
 		<div>
 			<h1>Dialog</h1>
 			<Dialog {...errored}>{children}</Dialog>
 		</div>
 	))
-	.addWithInfo('informative', () => (
+	.add('informative', () => (
 		<div>
 			<h1>Dialog</h1>
 			<Dialog {...informative}>{children}</Dialog>
 		</div>
 	))
-	.addWithInfo('small', () => (
+	.add('small', () => (
 		<div>
 			<h1>Dialog</h1>
 			<Dialog {...smallProps}>{children}</Dialog>
 		</div>
 	))
-	.addWithInfo('large', () => (
+	.add('large', () => (
 		<div>
 			<h1>Dialog</h1>
 			<Dialog {...largeProps}>{children}</Dialog>
 		</div>
 	))
-	.addWithInfo('passing bootstrap modal options', () => (
+	.add('passing bootstrap modal options', () => (
 		<div>
 			<h1>Dialog</h1>
 			<Dialog {...bsProps}>{children}</Dialog>

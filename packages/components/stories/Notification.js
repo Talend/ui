@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
 import { Notification, IconsProvider } from '../src/index';
@@ -89,8 +88,7 @@ class NotificationWrapper extends React.Component {
 }
 
 storiesOf('Notification', module)
-	.addDecorator(checkA11y)
-	.addWithInfo('default', () => (
+	.add('default', () => (
 		<nav>
 			<h1>Notification</h1>
 			<IconsProvider defaultIcons={icons} />

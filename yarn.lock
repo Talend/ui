@@ -934,14 +934,6 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.1.3.tgz#b700d97385fa91affed60c71dfd51c67e9dad762"
   integrity sha512-QsYGKdhhuDFNq7bjm2r44y0mp5xW3uO3csuTPDWZc0OIiMQv+AIY5Cqwd4mJiC5N8estVl7qlvOx1hbtOuUWbw==
 
-"@kadira/react-storybook-addon-info@^3.3.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@kadira/react-storybook-addon-info/-/react-storybook-addon-info-3.4.0.tgz#f603dba8750f93318c33aa96f1e7bdfeeb61b7b0"
-  dependencies:
-    babel-runtime "^6.5.0"
-    markdown-to-react-components "^0.2.1"
-    react-addons-create-fragment "^15.3.2"
-
 "@kadira/storybook-addons@^1.5.0":
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/@kadira/storybook-addons/-/storybook-addons-1.6.1.tgz#e84923d298b38c7c1231ddebc219dfb87b2858a6"
@@ -963,16 +955,19 @@
   dependencies:
     samsam "1.3.0"
 
-"@storybook/addon-a11y@^3.4.7":
-  version "3.4.8"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-a11y/-/addon-a11y-3.4.8.tgz#0d13945ad1efedbeec38b6b27f17c2a7a3b27030"
+"@storybook/addon-a11y@^4.0.11":
+  version "4.0.11"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-a11y/-/addon-a11y-4.0.11.tgz#ef997f4553e02fcfefbcf610127dd9ed69fe1ae3"
+  integrity sha512-yrz5kxSxFqh/dONLXGiVnmz9CL9RXEojEaK6BseoNYzruymBOYOdCf286jGbSY3ATisYFocc97TLh8/M089CLQ==
   dependencies:
-    "@storybook/components" "3.4.8"
-    axe-core "^2.6.1"
-    babel-runtime "^6.26.0"
-    glamor "^2.20.40"
-    glamorous "^4.12.1"
-    prop-types "^15.6.1"
+    "@emotion/styled" "^0.10.6"
+    "@storybook/addons" "4.0.11"
+    "@storybook/client-logger" "4.0.11"
+    "@storybook/components" "4.0.11"
+    "@storybook/core-events" "4.0.11"
+    axe-core "^3.1.2"
+    global "^4.3.2"
+    prop-types "^15.6.2"
 
 "@storybook/addon-actions@^3.3.14":
   version "3.4.11"
@@ -1099,14 +1094,6 @@
   version "3.4.11"
   resolved "https://registry.yarnpkg.com/@storybook/components/-/components-3.4.11.tgz#dbaa1ee19036cd8617993fb6bf4a07780d111f7e"
   integrity sha512-M3WhGPR4LNB2NabKyLtxDMevB1LAHOrmrII2U19XYIph93k3SReIwLKWEds0/jWwajgQtI3hBftDCu/QA5bTOA==
-  dependencies:
-    glamor "^2.20.40"
-    glamorous "^4.12.1"
-    prop-types "^15.6.1"
-
-"@storybook/components@3.4.8":
-  version "3.4.8"
-  resolved "https://registry.yarnpkg.com/@storybook/components/-/components-3.4.8.tgz#45934d9a25374e68152826a162e61b9732871eaf"
   dependencies:
     glamor "^2.20.40"
     glamorous "^4.12.1"
@@ -2033,9 +2020,10 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
   integrity sha512-ReZxvNHIOv88FlT7rxcXIIC0fPt4KZqZbOlivyWtXLt8ESx84zd3kMC6iK5jVeS2qt+g7ftS7ye4fi06X5rtRQ==
 
-axe-core@^2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-2.6.1.tgz#28772c4f76966d373acda35b9a409299dc00d1b5"
+axe-core@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-3.1.2.tgz#ca0aff897ebefca7552f97859dc1217c06c4f9e6"
+  integrity sha512-e1WVs0SQu3tM29J9a/mISGvlo2kdCStE+yffIAJF6eb42FS+eUFEVz9j4rgDeV2TAfPJmuOZdRetWYycIbK7Vg==
 
 babel-code-frame@^6.16.0, babel-code-frame@^6.26.0:
   version "6.26.0"
@@ -6456,7 +6444,7 @@ hawk@3.1.3, hawk@~3.1.3:
     hoek "2.x.x"
     sntp "1.x.x"
 
-he@1.1.1, he@^1.1.0, he@^1.1.1:
+he@1.1.1, he@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
 
@@ -8724,14 +8712,7 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-markdown-to-react-components@^0.2.1:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/markdown-to-react-components/-/markdown-to-react-components-0.2.4.tgz#e2854edc4ff0fe9e360282e8b1c3e5637d57c3db"
-  dependencies:
-    he "^1.1.0"
-    marked "^0.3.3"
-
-marked@^0.3.12, marked@^0.3.3, marked@~0.3.6:
+marked@^0.3.12, marked@~0.3.6:
   version "0.3.19"
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.3.19.tgz#5d47f709c4c9fc3c216b6d46127280f40b39d790"
 
@@ -9587,9 +9568,10 @@ object-copy@^0.1.0:
     define-property "^0.2.5"
     kind-of "^3.0.3"
 
-object-hash@^1.1.5:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/object-hash/-/object-hash-1.3.0.tgz#76d9ba6ff113cf8efc0d996102851fe6723963e2"
+object-hash@^1.1.8:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/object-hash/-/object-hash-1.3.1.tgz#fde452098a951cb145f039bb7d455449ddc126df"
+  integrity sha512-OSuu/pU4ENM9kmREg0BdNrUDIl1heYa4mBZacJc+vVWz4GtAwu7jO8s4AIt2aGRUTqxykpWzI3Oqnsm13tTMDA==
 
 object-inspect@^1.5.0:
   version "1.6.0"
@@ -10331,11 +10313,13 @@ pretty-error@^2.1.1:
     renderkid "^2.0.1"
     utila "~0.4"
 
-pretty-format@^18.1.0:
-  version "18.1.0"
-  resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-18.1.0.tgz#fb65a86f7a7f9194963eee91865c1bcf1039e284"
+pretty-format@^21.2.1:
+  version "21.2.1"
+  resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-21.2.1.tgz#ae5407f3cf21066cd011aa1ba5fce7b6a2eddb36"
+  integrity sha512-ZdWPGYAnYfcVP8yKA3zFjCn8s4/17TeYH28MXuC8vTp0o21eXjbFGcOAXZEaDaOFJjc3h2qa7HQNHNshhvoh2A==
   dependencies:
-    ansi-styles "^2.2.1"
+    ansi-regex "^3.0.0"
+    ansi-styles "^3.2.0"
 
 pretty-format@^23.2.0:
   version "23.2.0"
@@ -10721,7 +10705,7 @@ react-ace@5.2.0:
     opencollective "^1.0.3"
     prop-types "^15.5.8"
 
-react-addons-create-fragment@^15.3.2, react-addons-create-fragment@^15.5.3:
+react-addons-create-fragment@^15.5.3:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/react-addons-create-fragment/-/react-addons-create-fragment-15.6.2.tgz#a394de7c2c7becd6b5475ba1b97ac472ce7c74f8"
   dependencies:
@@ -10979,12 +10963,13 @@ react-split-pane@^0.1.84:
     react-lifecycles-compat "^3.0.4"
     react-style-proptype "^3.0.0"
 
-react-storybook-addon-props-combinations@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/react-storybook-addon-props-combinations/-/react-storybook-addon-props-combinations-0.3.0.tgz#55f41cfb3f45f820f897d1325e4b57dfb6efab58"
+react-storybook-addon-props-combinations@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-storybook-addon-props-combinations/-/react-storybook-addon-props-combinations-1.1.0.tgz#22a61794cc3c106bf44be809af3c3241f6988e72"
+  integrity sha512-gCHyLTkXthuP3wV5nQn3A6ZrBjYnRniRtVprSrq+7Vu9SX1jUhIEPvqdLdPVRmlq9rwgKAX2QVo6kNd95kZ7Hw==
   dependencies:
-    object-hash "^1.1.5"
-    pretty-format "^18.1.0"
+    object-hash "^1.1.8"
+    pretty-format "^21.2.1"
 
 react-storybook-cmf@^0.4.0:
   version "0.4.1"

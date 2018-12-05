@@ -1,7 +1,6 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { storiesOf, addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 import { AboutDialog, IconsProvider } from '../src/index';
 
 const props = {
@@ -18,7 +17,6 @@ const props = {
 
 
 storiesOf('AboutDialog', module)
-	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div>
 			<IconsProvider />
@@ -26,7 +24,7 @@ storiesOf('AboutDialog', module)
 			{story()}
 		</div>
 	))
-	.addWithInfo('default', () => <AboutDialog {...props} />)
-	.addWithInfo('loading', () => <AboutDialog loading {...props} />)
-	.addWithInfo('expanded', () => <AboutDialog expanded {...props} />)
-	.addWithInfo('expanded & loading', () => <AboutDialog expanded loading {...props} />);
+	.add('default', () => <AboutDialog {...props} />)
+	.add('loading', () => <AboutDialog loading {...props} />)
+	.add('expanded', () => <AboutDialog expanded {...props} />)
+	.add('expanded & loading', () => <AboutDialog expanded loading {...props} />);

@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
 import { Action, IconsProvider } from '../src/index';
@@ -19,14 +18,13 @@ const myAction = {
 };
 
 storiesOf('ActionFile', module)
-	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
 			<IconsProvider defaultIcons={icons} />
 			{story()}
 		</div>
 	))
-	.addWithInfo('default', () => (
+	.add('default', () => (
 		<div>
 			<p>By default :</p>
 			<Action id="default" {...myAction} />

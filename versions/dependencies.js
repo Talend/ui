@@ -67,6 +67,7 @@ module.exports = {
 
 	// dev deps
 	'@storybook/react': '^4.0.11',
+	'@storybook/addon-a11y': '^4.0.11',
 	'@storybook/addon-storyshots': '^4.0.11',
 	'@storybook/addon-actions': '^4.0.11',
 	'@storybook/addon-info': '^4.0.11',
@@ -102,6 +103,7 @@ module.exports = {
 	jsdom: '^11.11.0',
 	prettier: '^1.6.1',
 	'react-storybook-cmf': '^0.4.0',
+	'react-storybook-addon-props-combinations': '^1.1.0',
 	'react-stub-context': '^0.7.0',
 	'regenerator-runtime': '^0.13.1',
 	rimraf: '^2.6.1',

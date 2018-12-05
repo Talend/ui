@@ -22,7 +22,7 @@ import ArrayFieldTemplate from '../src/templates/ArrayFieldTemplate';
 a11y(ReactDOM);
 
 const decoratedStories = storiesOf('Form', module)
-	.addDecorator(checkA11y)
+	
 	.addDecorator(story => (
 		<I18nextProvider i18n={i18n}>
 			<section>

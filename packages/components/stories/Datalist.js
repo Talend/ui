@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 
 import { Datalist, IconsProvider } from '../src/index';
 
@@ -38,9 +37,8 @@ const singleSectionProps = {
 };
 
 storiesOf('Datalist', module)
-	.addDecorator(checkA11y)
 	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
-	.addWithInfo('default multiSection', () => {
+	.add('default multiSection', () => {
 		const restrictedValues = { ...propsMultiSection, restricted: true };
 		const defaultValue = { ...propsMultiSection, value: 'lol' };
 		return (
@@ -57,7 +55,7 @@ storiesOf('Datalist', module)
 			</form>
 		);
 	})
-	.addWithInfo('default single section', () => {
+	.add('default single section', () => {
 		const restrictedValues = { ...singleSectionProps, restricted: true };
 		const defaultValue = { ...singleSectionProps, value: 'lol' };
 		return (

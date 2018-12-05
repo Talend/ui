@@ -1,31 +1,24 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 import Skeleton from '../src/Skeleton';
 import IconsProvider from '../src/IconsProvider';
 
 import theme from './Skeleton.scss';
 
-const stories = storiesOf(Skeleton.displayName, module);
 const icons = {
 	'talend-locked': talendIcons['talend-locked'],
 	'talend-table': talendIcons['talend-table'],
 };
 
-if (!stories.addWithInfo) {
-	stories.addWithInfo = stories.add;
-}
-
-stories
-	.addDecorator(checkA11y)
+storiesOf('Skeleton', module)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
 			<IconsProvider defaultIcons={icons}/>
 			{story()}
 		</div>
 	))
-	.addWithInfo('default', () => (
+	.add('default', () => (
 		<div>
 			<h4>Circles :</h4>
 			<div>small</div>

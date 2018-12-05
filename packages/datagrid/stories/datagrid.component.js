@@ -47,7 +47,7 @@ sample.data[2].value.field0.value =
 	'very looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong value';
 
 storiesOf('Component Datagrid', module)
-	.addDecorator(checkA11y)
+	
 	.add('default', () => (
 		<div style={{ height: '100vh' }}>
 			<IconsProvider />

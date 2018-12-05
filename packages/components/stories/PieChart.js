@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 
 import ActionButton from '../src/Actions/ActionButton';
 import PieChart from '../src/PieChart';
@@ -62,14 +61,9 @@ const onMouseDown = action('You mousedown me');
 const overlayComponent = <div>I am an overlay</div>;
 
 const stories = storiesOf('PieChart', module);
-if (!stories.addWithInfo) {
-	stories.addWithInfo = stories.add;
-}
-
 stories
-	.addDecorator(checkA11y)
 	.addDecorator(story => <div className="col-lg-offset-2 col-lg-8">{story()}</div>)
-	.addWithInfo('PieChartIcon default', () => (
+	.add('PieChartIcon default', () => (
 		<div>
 			<p>Small :</p>
 			<PieChart display="small" model={pieChartData1} />
@@ -95,7 +89,7 @@ stories
 			/>
 		</div>
 	))
-	.addWithInfo('PieChart lot of sizes', () => (
+	.add('PieChart lot of sizes', () => (
 		<div>
 			{sizes.map(size => (
 				<div key={size}>
@@ -105,7 +99,7 @@ stories
 			))}
 		</div>
 	))
-	.addWithInfo('PieChart	 lot of loading', () => (
+	.add('PieChart	 lot of loading', () => (
 		<div>
 			<div>
 				{sizes.map(size => (
@@ -117,7 +111,7 @@ stories
 			</div>
 		</div>
 	))
-	.addWithInfo('PieChartButton default', () => (
+	.add('PieChartButton default', () => (
 		<div>
 			<p>Small :</p>
 			<PieChart display="small" model={pieChartData1} onClick={onClick} />
@@ -158,7 +152,7 @@ stories
 			/>
 		</div>
 	))
-	.addWithInfo('Loading state', () => {
+	.add('Loading state', () => {
 		class WithLayout extends React.Component {
 			constructor() {
 				super();

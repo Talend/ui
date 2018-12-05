@@ -1,12 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from '@storybook/addon-a11y';
 
 import { TooltipTrigger, Button } from '../src/index';
 
 storiesOf('TooltipTrigger', module)
-	.addDecorator(checkA11y)
-	.addWithInfo('default', () => (
+	.add('default', () => (
 		<div>
 			<h1>TooltipTrigger</h1>
 			<h2>Definition</h2>

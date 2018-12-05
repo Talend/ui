@@ -1,20 +1,15 @@
 import React from 'react';
-import { storiesOf, addDecorator } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import withInfo from '@storybook/addon-info';
-import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 import { Breadcrumbs, IconsProvider } from '../src/index';
-
-addDecorator(withInfo);
 
 const icons = {
 	'talend-chevron-left': talendIcons['talend-chevron-left'],
 };
 
 storiesOf('Breadcrumbs', module)
-	.addDecorator(checkA11y)
-	.addWithInfo('default', () => {
+	.add('default', () => {
 		const items = [
 			{ text: 'Text A', title: 'Text title A', onClick: action('Text A clicked') },
 			{ text: 'Text B', title: 'Text title B', onClick: action('Text B clicked') },
@@ -27,7 +22,7 @@ storiesOf('Breadcrumbs', module)
 			</div>
 		);
 	})
-	.addWithInfo('with max items reached', () => {
+	.add('with max items reached', () => {
 		const items = [
 			{ text: 'Text A', title: 'Text title A', onClick: action('Text A clicked') },
 			{ text: 'Text B', title: 'Text title B', onClick: action('Text B clicked') },

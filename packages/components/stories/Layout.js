@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
 import {
@@ -182,7 +181,7 @@ const appStyle = require('./config/themes.scss');
  * @param layoutStoryContent Optional custom children
  */
 function layoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent = content) {
-	stories.addWithInfo(layoutStoryName, () => (
+	stories.add(layoutStoryName, () => (
 		<Layout {...layoutStoryProps}>{layoutStoryContent}</Layout>
 	));
 }
@@ -201,7 +200,7 @@ function decoratedLayoutStory(layoutStoryName, layoutStoryProps, layoutStoryCont
 			...layoutStoryProps,
 			// hasTheme: true, should be enabled if we have one and only one Layout theme scss import
 		};
-		stories.addWithInfo(`🎨 [${app.toUpperCase()}] ${layoutStoryName} `, () => (
+		stories.add(`🎨 [${app.toUpperCase()}] ${layoutStoryName} `, () => (
 			<div className={appStyle[app]}>
 				<div className={TALEND_T7_THEME_CLASSNAME}>
 					<Layout {...decoratedPropsWithTheme}>{layoutStoryContent}</Layout>
@@ -210,8 +209,6 @@ function decoratedLayoutStory(layoutStoryName, layoutStoryProps, layoutStoryCont
 		));
 	});
 }
-
-stories.addDecorator(checkA11y);
 
 decoratedLayoutStory('OneColumn', {
 	header,

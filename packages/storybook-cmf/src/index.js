@@ -6,8 +6,8 @@ import register from './register';
 export default {
 	addWithCMF(storyName, storyFn, options) {
 		let add = this.add;
-		if (this.addWithInfo) {
-			add = this.addWithInfo;
+		if (this.add) {
+			add = this.add;
 		}
 		let state;
 		if (options) {

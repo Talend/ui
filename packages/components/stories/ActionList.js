@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 import { IconsProvider, ActionList } from '../src/index';
 
@@ -57,20 +56,19 @@ const actions = [
 
 
 const stories = storiesOf('ActionList', module);
-if (!stories.addWithInfo) {
-	stories.addWithInfo = stories.add;
+if (!stories.add) {
+	stories.add = stories.add;
 }
 
 
 stories
-	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			{story()}
 		</div>
 	))
-	.addWithInfo('default', () => (
+	.add('default', () => (
 		<div style={{ display: 'inline-table' }}>
 			<ActionList
 				id="context"
@@ -81,7 +79,7 @@ stories
 			/>
 		</div>
 	))
-	.addWithInfo('with custom class names', () => (
+	.add('with custom class names', () => (
 		<div>
 			<p>You can add your custom classnames to the container and items</p>
 			<pre>
@@ -132,7 +130,7 @@ stories
 			</div>
 		</div>
 	))
-	.addWithInfo('single', () => (
+	.add('single', () => (
 		<div style={{ display: 'inline-table' }}>
 			<ActionList
 				id="context"

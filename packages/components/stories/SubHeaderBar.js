@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 import { IconsProvider, SubHeaderBar, FilterBar } from '../src/index';
 
 const viewProps = {
@@ -58,43 +57,39 @@ const center = (
 );
 
 const stories = storiesOf('SubHeaderBar', module);
-if (!stories.addWithInfo) {
-	stories.addWithInfo = stories.add;
-}
 
 stories
-	.addDecorator(checkA11y)
-	.addWithInfo('with default', () => (
+	.add('with default', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...viewProps} onGoBack={backAction} />
 		</div>
 	))
-	.addWithInfo('with editable', () => (
+	.add('with editable', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...viewProps} onGoBack={backAction} editable />
 		</div>
 	))
-	.addWithInfo('with icon', () => (
+	.add('with icon', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...viewProps} iconId="talend-file-csv-o" onGoBack={backAction} />
 		</div>
 	))
-	.addWithInfo('with subtitle', () => (
+	.add('with subtitle', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...viewProps} subTitle="mySubTitle" onGoBack={backAction} />
 		</div>
 	))
-	.addWithInfo('with right components', () => (
+	.add('with right components', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...viewProps} onGoBack={backAction} right={injectedComponentsRight} />
 		</div>
 	))
-	.addWithInfo('with center components', () => (
+	.add('with center components', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...viewProps} onGoBack={backAction} center={[componentAction]}>
@@ -102,7 +97,7 @@ stories
 			</SubHeaderBar>
 		</div>
 	))
-	.addWithInfo('with center components with tag props', () => (
+	.add('with center components with tag props', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...viewProps} onGoBack={backAction}>
@@ -112,7 +107,7 @@ stories
 			</SubHeaderBar>
 		</div>
 	))
-	.addWithInfo('with center && right components', () => (
+	.add('with center && right components', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...viewProps} onGoBack={backAction} right={injectedComponentsRight}>
@@ -120,7 +115,7 @@ stories
 			</SubHeaderBar>
 		</div>
 	))
-	.addWithInfo('with all', () => (
+	.add('with all', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar
@@ -134,7 +129,7 @@ stories
 			</SubHeaderBar>
 		</div>
 	))
-	.addWithInfo('with skeleton', () => (
+	.add('with skeleton', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar
@@ -148,7 +143,7 @@ stories
 			</SubHeaderBar>
 		</div>
 	))
-	.addWithInfo('with inProgress', () => (
+	.add('with inProgress', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar
@@ -163,7 +158,7 @@ stories
 			</SubHeaderBar>
 		</div>
 	))
-	.addWithInfo('with right actions loading', () => (
+	.add('with right actions loading', () => (
 		<div>
 			<IconsProvider />
 			<SubHeaderBar {...viewProps} onGoBack={backAction} rightActionsLoading />
