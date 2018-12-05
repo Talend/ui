@@ -38,6 +38,8 @@ exports[`ListGrid should render noRows 1`] = `
     width={1024}
   >
     <div
+      aria-colcount={2}
+      aria-rowcount={0}
       className="ReactVirtualized__Table tc-list-table theme-tc-list-table"
       id="my-list"
       role="grid"
@@ -118,6 +120,7 @@ exports[`ListGrid should render noRows 1`] = `
         headerRowRenderer={[Function]}
         headerStyle={Object {}}
         height={560}
+        isScrollingOptOut={false}
         noContentRenderer={[Function]}
         noRowsRenderer={[Function]}
         onRowsRendered={[Function]}

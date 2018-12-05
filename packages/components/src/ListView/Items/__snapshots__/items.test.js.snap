@@ -78,6 +78,7 @@ exports[`Items should render 1`] = `
             estimatedRowSize={30}
             getScrollbarSize={[Function]}
             height={30}
+            isScrollingOptOut={false}
             items={
               Array [
                 Object {
@@ -681,6 +682,7 @@ exports[`Items should render with nested items 1`] = `
             estimatedRowSize={30}
             getScrollbarSize={[Function]}
             height={30}
+            isScrollingOptOut={false}
             items={
               Array [
                 Object {
@@ -1291,6 +1293,7 @@ exports[`Items should render with provided id 1`] = `
             estimatedRowSize={30}
             getScrollbarSize={[Function]}
             height={30}
+            isScrollingOptOut={false}
             items={
               Array [
                 Object {
