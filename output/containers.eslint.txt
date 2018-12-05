@@ -1,489 +1,98 @@
 > eslint --config ../../.eslintrc src
 
+The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/containers/src/AboutDialog/AboutDialog.container.js
-  16:3  error  propType "icon" is not required, but has no corresponding defaultProp declaration        react/require-default-props
-  17:3  error  propType "copyrights" is not required, but has no corresponding defaultProp declaration  react/require-default-props
+/Users/jmfrancois/github/talend/ui/packages/containers/src/AboutDialog/AboutDialog.container.js
+  14:9  error  'displayName' is not defined  no-undef
+  15:9  error  'propTypes' is not defined    no-undef
 
-/home/travis/build/Talend/ui/packages/containers/src/AboutDialog/AboutDialog.sagas.js
-  17:12  error  Unexpected newline after '('   function-paren-newline
-  26:3   error  Unexpected newline before ')'  function-paren-newline
+/Users/jmfrancois/github/talend/ui/packages/containers/src/ConfirmDialog/ConfirmDialog.container.js
+  15:9  error  'displayName' is not defined   no-undef
+  16:9  error  'propTypes' is not defined     no-undef
+  19:9  error  'contextTypes' is not defined  no-undef
 
-/home/travis/build/Talend/ui/packages/containers/src/actionAPI.js
-  46:29  error  Unexpected newline after '('   function-paren-newline
-  53:7   error  Unexpected newline before ')'  function-paren-newline
-  59:2   error  Unexpected newline before ')'  function-paren-newline
+/Users/jmfrancois/github/talend/ui/packages/containers/src/DeleteResource/DeleteResource.container.js
+  27:9  error  'displayName' is not defined   no-undef
+  28:9  error  'propTypes' is not defined     no-undef
+  42:9  error  'contextTypes' is not defined  no-undef
+  46:9  error  'defaultProps' is not defined  no-undef
 
-/home/travis/build/Talend/ui/packages/containers/src/actionAPI.test.js
-  19:9  error  Use object destructuring  prefer-destructuring
-  57:9  error  Use object destructuring  prefer-destructuring
-
-/home/travis/build/Talend/ui/packages/containers/src/ActionBar/ActionBar.test.js
-  83:31  error  Missing trailing comma                      comma-dangle
-  90:1   error  Expected indentation of 3 tabs but found 2  indent
-  90:32  error  Expected a newline before ')'               function-paren-newline
-
-/home/travis/build/Talend/ui/packages/containers/src/ActionButton/ActionButton.connect.js
-  36:19  error  Unexpected newline after '('                                                                        function-paren-newline
-  43:5   error  Unexpected newline before ')'                                                                       function-paren-newline
-  53:2   error  propType "actionCreator" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  54:2   error  propType "dispatch" is not required, but has no corresponding defaultProp declaration               react/require-default-props
-  55:2   error  propType "dispatchActionCreator" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  56:2   error  propType "model" is not required, but has no corresponding defaultProp declaration                  react/require-default-props
-  57:2   error  propType "payload" is not required, but has no corresponding defaultProp declaration                react/require-default-props
-
-/home/travis/build/Talend/ui/packages/containers/src/ActionDropdown/ActionDropdown.connect.js
-  54:2  error  propType "items" is not required, but has no corresponding defaultProp declaration      react/require-default-props
-  55:2  error  propType "noCaret" is not required, but has no corresponding defaultProp declaration    react/require-default-props
-  56:2  error  propType "pullRight" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  57:2  error  propType "hideLabel" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-
-/home/travis/build/Talend/ui/packages/containers/src/ActionFile/ActionFile.connect.js
-  35:19  error  Unexpected newline after '('                                                                        function-paren-newline
-  43:5   error  Unexpected newline before ')'                                                                       function-paren-newline
-  53:2   error  propType "onChange" is not required, but has no corresponding defaultProp declaration               react/require-default-props
-  54:2   error  propType "actionCreator" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  55:2   error  propType "dispatch" is not required, but has no corresponding defaultProp declaration               react/require-default-props
-  56:2   error  propType "dispatchActionCreator" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  57:2   error  propType "model" is not required, but has no corresponding defaultProp declaration                  react/require-default-props
-  58:2   error  propType "payload" is not required, but has no corresponding defaultProp declaration                react/require-default-props
-
-/home/travis/build/Talend/ui/packages/containers/src/ActionIconToggle/ActionIconToggle.connect.js
-  46:2  error  propType "actionCreator" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  47:2  error  propType "dispatchActionCreator" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  48:2  error  propType "dispatch" is not required, but has no corresponding defaultProp declaration               react/require-default-props
-  49:2  error  propType "payload" is not required, but has no corresponding defaultProp declaration                react/require-default-props
-
-/home/travis/build/Talend/ui/packages/containers/src/ActionIconToggle/ActionIconToggle.test.js
-  35:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  36:10  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  37:8   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  38:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  39:22  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  58:15  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  59:10  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  60:8   error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  61:11  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-  62:22  error  Curly braces are unnecessary here  react/jsx-curly-brace-presence
-
-/home/travis/build/Talend/ui/packages/containers/src/actionOnClick.js
-  17:19  error  Unexpected newline after '('   function-paren-newline
-  24:5   error  Unexpected newline before ')'  function-paren-newline
-
-/home/travis/build/Talend/ui/packages/containers/src/ActionSplitDropdown/ActionSplitDropdown.connect.js
-  61:2  error  propType "items" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-
-/home/travis/build/Talend/ui/packages/containers/src/AppLoader/AppLoader.connect.js
-  38:2  error  propType "children" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  39:2  error  propType "loading" is not required, but has no corresponding defaultProp declaration   react/require-default-props
-  51:3  error  Unexpected newline before ')'                                                          function-paren-newline
-
-/home/travis/build/Talend/ui/packages/containers/src/AppLoader/AppLoader.connect.test.js
-  10:27  error  Unexpected newline after '('   function-paren-newline
-  14:4   error  Unexpected newline before ')'  function-paren-newline
-  19:27  error  Unexpected newline after '('   function-paren-newline
-  23:4   error  Unexpected newline before ')'  function-paren-newline
-
-/home/travis/build/Talend/ui/packages/containers/src/AppLoader/AppLoader.saga.js
-  35:19  error  Unexpected newline after '('                                                                                                                                               function-paren-newline
-  37:3   error  Unexpected newline before ')'                                                                                                                                              function-paren-newline
-  55:2   error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
-
-/home/travis/build/Talend/ui/packages/containers/src/AppLoader/AppLoader.saga.test.js
-  48:36  error  Unexpected newline after '('   function-paren-newline
-  50:4   error  Unexpected newline before ')'  function-paren-newline
-
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/ComponentForm.component.js
-  176:3  error  Unexpected newline before ')'                                                                    function-paren-newline
-  240:2  error  propType "submitURL" is not required, but has no corresponding defaultProp declaration           react/require-default-props
-  241:2  error  propType "uiSpecPath" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  242:2  error  propType "lang" is not required, but has no corresponding defaultProp declaration                react/require-default-props
-  243:2  error  propType "customTriggers" is not required, but has no corresponding defaultProp declaration      react/require-default-props
-  244:2  error  propType "dispatchOnChange" is not required, but has no corresponding defaultProp declaration    react/require-default-props
-  245:2  error  propType "CSRFTokenCookieKey" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  246:2  error  propType "CSRFTokenHeaderKey" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/ComponentForm.saga.test.js
-   71:10  error  Use object destructuring       prefer-destructuring
-  311:54  error  Unexpected newline after '('   function-paren-newline
-  318:4   error  Unexpected newline before ')'  function-paren-newline
-  331:54  error  Unexpected newline after '('   function-paren-newline
-  338:4   error  Unexpected newline before ')'  function-paren-newline
-  348:10  error  Use object destructuring       prefer-destructuring
-
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/ComponentForm.sagas.js
-  13:12  error  Unexpected newline after '('   function-paren-newline
-  23:3   error  Unexpected newline before ')'  function-paren-newline
-  26:12  error  Unexpected newline after '('   function-paren-newline
-  35:3   error  Unexpected newline before ')'  function-paren-newline
-  44:2   error  Unexpected newline before ')'  function-paren-newline
-  63:11  error  Unexpected newline after '('   function-paren-newline
-  72:2   error  Unexpected newline before ')'  function-paren-newline
-
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/ComponentForm.test.js
-    4:27  error  Missing file extension "json" for "./ComponentForm.test.schema"  import/extensions
-  185:10  error  Use object destructuring                                         prefer-destructuring
-  186:10  error  Use object destructuring                                         prefer-destructuring
-  201:27  error  Unexpected newline after '('                                     function-paren-newline
-  208:4   error  Unexpected newline before ')'                                    function-paren-newline
-  209:10  error  Use object destructuring                                         prefer-destructuring
-  224:27  error  Unexpected newline after '('                                     function-paren-newline
-  226:4   error  Unexpected newline before ')'                                    function-paren-newline
-  260:27  error  Unexpected newline after '('                                     function-paren-newline
-  262:4   error  Unexpected newline before ')'                                    function-paren-newline
-  350:28  error  Unexpected newline after '('                                     function-paren-newline
-  358:5   error  Unexpected newline before ')'                                    function-paren-newline
-  379:11  error  Use object destructuring                                         prefer-destructuring
-  393:11  error  Use object destructuring                                         prefer-destructuring
-  408:28  error  Unexpected newline after '('                                     function-paren-newline
-  410:5   error  Unexpected newline before ')'                                    function-paren-newline
-  411:11  error  Use object destructuring                                         prefer-destructuring
-  438:28  error  Unexpected newline after '('                                     function-paren-newline
-  440:5   error  Unexpected newline before ')'                                    function-paren-newline
-
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/fields/NameResolver/NameResolver.component.js
-  20:3  error  propType "properties" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  21:3  error  propType "schema" is not required, but has no corresponding defaultProp declaration      react/require-default-props
-
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/createTriggers.js
-  142:42  error  Expected a line break after this opening brace   object-curly-newline
-  142:80  error  Expected a line break before this closing brace  object-curly-newline
-
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/createTriggers.test.js
-  128:9  error  Unexpected newline after '('   function-paren-newline
-  135:3  error  Unexpected newline before ')'  function-paren-newline
-
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/defaultRegistry.js
-  67:23  error  Expected a line break after this opening brace   object-curly-newline
-  67:67  error  Expected a line break before this closing brace  object-curly-newline
-
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/kit/defaultRegistry.test.js
-   22:35  error  Expected a line break after this opening brace   object-curly-newline
-   22:79  error  Expected a line break before this closing brace  object-curly-newline
-   51:35  error  Expected a line break after this opening brace   object-curly-newline
-   51:79  error  Expected a line break before this closing brace  object-curly-newline
-   65:10  error  Unexpected newline after '('                     function-paren-newline
-   72:4   error  Unexpected newline before ')'                    function-paren-newline
-   90:10  error  Unexpected newline after '('                     function-paren-newline
-   96:4   error  Unexpected newline before ')'                    function-paren-newline
-  104:10  error  Unexpected newline after '('                     function-paren-newline
-  110:4   error  Unexpected newline before ')'                    function-paren-newline
-  119:10  error  Unexpected newline after '('                     function-paren-newline
-  125:4   error  Unexpected newline before ')'                    function-paren-newline
-  131:10  error  Unexpected newline after '('                     function-paren-newline
-  137:4   error  Unexpected newline before ')'                    function-paren-newline
-  201:10  error  Unexpected newline after '('                     function-paren-newline
-  207:4   error  Unexpected newline before ')'                    function-paren-newline
-  212:10  error  Unexpected newline after '('                     function-paren-newline
-  218:4   error  Unexpected newline before ')'                    function-paren-newline
-  221:10  error  Unexpected newline after '('                     function-paren-newline
-  227:4   error  Unexpected newline before ')'                    function-paren-newline
-
-/home/travis/build/Talend/ui/packages/containers/src/ConfirmDialog/ConfirmDialog.container.js
-  14:1  error  Component should be written as a pure function  react/prefer-stateless-function
-
-/home/travis/build/Talend/ui/packages/containers/src/ConfirmDialog/ConfirmDialog.test.js
-  37:11  error  Unexpected newline after '('   function-paren-newline
-  41:4   error  Unexpected newline before ')'  function-paren-newline
-
-/home/travis/build/Talend/ui/packages/containers/src/ConfirmDialog/showHideConfirmDialog.js
-  7:45  error  Missing trailing comma  comma-dangle
-
-/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/DeleteResource.connect.js
-  8:6  error  Use object destructuring  prefer-destructuring
-
-/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/DeleteResource.container.js
-  32:3  error  propType "header" is not required, but has no corresponding defaultProp declaration               react/require-default-props
-  35:3  error  propType "resourceTypeLabel" is not required, but has no corresponding defaultProp declaration    react/require-default-props
-  36:3  error  propType "resourceId" is not required, but has no corresponding defaultProp declaration           react/require-default-props
-  37:3  error  propType "resourceUri" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  38:3  error  propType "collectionId" is not required, but has no corresponding defaultProp declaration         react/require-default-props
-  39:3  error  propType "female" is not required, but has no corresponding defaultProp declaration               react/require-default-props
-  40:3  error  propType "onCancelRedirectUrl" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  47:3  error  defaultProp "t" has no corresponding propTypes declaration                                        react/default-props-match-prop-types
-
-/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/DeleteResource.test.js
-  67:92  error  Unexpected newline after '('   function-paren-newline
-  69:4   error  Unexpected newline before ')'  function-paren-newline
-  72:96  error  Unexpected newline after '('   function-paren-newline
-  74:4   error  Unexpected newline before ')'  function-paren-newline
-
-/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/sagas.js
-  19:14  error  Unexpected newline after '('   function-paren-newline
-  22:3   error  Unexpected newline before ')'  function-paren-newline
-
-/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/sagas.test.js
+/Users/jmfrancois/github/talend/ui/packages/containers/src/DeleteResource/sagas.test.js
   177:15  error  Missing trailing comma  comma-dangle
   192:5   error  Missing semicolon       semi
 
-/home/travis/build/Talend/ui/packages/containers/src/EditableText/EditableText.container.js
-  18:3  error  propType "actionCreatorCancel" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  19:3  error  propType "actionCreatorEdit" is not required, but has no corresponding defaultProp declaration    react/require-default-props
-  20:3  error  propType "actionCreatorSubmit" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  21:3  error  propType "actionCreatorChange" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  22:3  error  propType "onCancel" is not required, but has no corresponding defaultProp declaration             react/require-default-props
-  23:3  error  propType "onEdit" is not required, but has no corresponding defaultProp declaration               react/require-default-props
-  24:3  error  propType "onSubmit" is not required, but has no corresponding defaultProp declaration             react/require-default-props
-  25:3  error  propType "onChange" is not required, but has no corresponding defaultProp declaration             react/require-default-props
-  26:3  error  propType "text" is not required, but has no corresponding defaultProp declaration                 react/require-default-props
+/Users/jmfrancois/github/talend/ui/packages/containers/src/EditableText/EditableText.container.js
+  14:9  error  'displayName' is not defined   no-undef
+  16:9  error  'propTypes' is not defined     no-undef
+  29:9  error  'contextTypes' is not defined  no-undef
 
-/home/travis/build/Talend/ui/packages/containers/src/EditableText/EditableText.selectors.js
+/Users/jmfrancois/github/talend/ui/packages/containers/src/EditableText/EditableText.selectors.js
   8:1  error  Prefer default export  import/prefer-default-export
 
-/home/travis/build/Talend/ui/packages/containers/src/EditableText/EditableText.test.js
-  25:22  error  Arrow function should not return assignment  no-return-assign
-  63:22  error  Arrow function should not return assignment  no-return-assign
-  98:22  error  Arrow function should not return assignment  no-return-assign
+/Users/jmfrancois/github/talend/ui/packages/containers/src/FilterBar/FilterBar.container.js
+  19:9  error  'displayName' is not defined   no-undef
+  21:9  error  'contextTypes' is not defined  no-undef
+  26:9  error  'propTypes' is not defined     no-undef
+  34:9  error  'defaultProps' is not defined  no-undef
 
-/home/travis/build/Talend/ui/packages/containers/src/FilterBar/FilterBar.container.js
-  28:3  error  propType "id" is not required, but has no corresponding defaultProp declaration                react/require-default-props
-  29:3  error  propType "placeholder" is not required, but has no corresponding defaultProp declaration       react/require-default-props
-  30:3  error  propType "filterInputValue" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  58:8  error  Use object destructuring                                                                       prefer-destructuring
+/Users/jmfrancois/github/talend/ui/packages/containers/src/Form/Form.container.js
+  17:9  error  'displayName' is not defined  no-undef
+  18:9  error  'propTypes' is not defined    no-undef
 
-/home/travis/build/Talend/ui/packages/containers/src/Form/Form.container.js
-  153:2  error  defaultProp "data" has no corresponding propTypes declaration  react/default-props-match-prop-types
+/Users/jmfrancois/github/talend/ui/packages/containers/src/HeaderBar/HeaderBar.container.js
+  21:9  error  'displayName' is not defined  no-undef
+  23:9  error  'propTypes' is not defined    no-undef
 
-/home/travis/build/Talend/ui/packages/containers/src/Form/Form.test.js
-   10:26  error  Unexpected newline after '('   function-paren-newline
-   21:3   error  Unexpected newline before ')'  function-paren-newline
-   27:26  error  Unexpected newline after '('   function-paren-newline
-   35:3   error  Unexpected newline before ')'  function-paren-newline
-   53:24  error  Unexpected newline after '('   function-paren-newline
-   63:3   error  Unexpected newline before ')'  function-paren-newline
-   80:24  error  Unexpected newline after '('   function-paren-newline
-   91:3   error  Unexpected newline before ')'  function-paren-newline
-  211:26  error  Unexpected newline after '('   function-paren-newline
-  221:3   error  Unexpected newline before ')'  function-paren-newline
+/Users/jmfrancois/github/talend/ui/packages/containers/src/List/List.container.js
+  59:9  error  'displayName' is not defined   no-undef
+  60:9  error  'propTypes' is not defined     no-undef
+  89:9  error  'defaultProps' is not defined  no-undef
+  93:9  error  'contextTypes' is not defined  no-undef
 
-/home/travis/build/Talend/ui/packages/containers/src/HeaderBar/HeaderBar.container.js
-  24:3   error  propType "productsUrl" is not required, but has no corresponding defaultProp declaration    react/require-default-props
-  25:3   error  propType "productsItems" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  25:35  error  Unexpected newline after '('                                                                function-paren-newline
-  32:3   error  Unexpected newline before ')'                                                               function-paren-newline
-  33:3   error  propType "productsSort" is not required, but has no corresponding defaultProp declaration   react/require-default-props
-
-/home/travis/build/Talend/ui/packages/containers/src/HeaderBar/HeaderBar.sagas.test.js
-  51:37  error  Unexpected newline after '('   function-paren-newline
-  53:4   error  Unexpected newline before ')'  function-paren-newline
-  62:37  error  Unexpected newline after '('   function-paren-newline
-  64:4   error  Unexpected newline before ')'  function-paren-newline
-
-/home/travis/build/Talend/ui/packages/containers/src/HomeListView/HomeListView.component.js
-  63:2  error  propType "getComponent" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  64:2  error  propType "id" is not required, but has no corresponding defaultProp declaration            react/require-default-props
-  65:2  error  propType "hasTheme" is not required, but has no corresponding defaultProp declaration      react/require-default-props
-  66:2  error  propType "components" is not required, but has no corresponding defaultProp declaration    react/require-default-props
-  67:2  error  propType "header" is not required, but has no corresponding defaultProp declaration        react/require-default-props
-  70:2  error  propType "children" is not required, but has no corresponding defaultProp declaration      react/require-default-props
-
-/home/travis/build/Talend/ui/packages/containers/src/HomeListView/HomeListView.test.js
-   54:26  error  Unexpected newline after '('                                                                function-paren-newline
-   58:3   error  Unexpected newline before ')'                                                               function-paren-newline
-   63:26  error  Unexpected newline after '('                                                                function-paren-newline
-   72:3   error  Unexpected newline before ')'                                                               function-paren-newline
-   77:26  error  Unexpected newline after '('                                                                function-paren-newline
-   85:3   error  Unexpected newline before ')'                                                               function-paren-newline
-  105:26  error  Unexpected newline after '('                                                                function-paren-newline
-  110:5   error  Do not pass children as props. Instead, nest children between the opening and closing tags  react/no-children-prop
-  112:3   error  Unexpected newline before ')'                                                               function-paren-newline
-  120:26  error  Unexpected newline after '('                                                                function-paren-newline
-  128:3   error  Unexpected newline before ')'                                                               function-paren-newline
-
-/home/travis/build/Talend/ui/packages/containers/src/List/List.connect.js
-  18:6  error  Use object destructuring  prefer-destructuring
-
-/home/travis/build/Talend/ui/packages/containers/src/List/List.container.js
-    6:27  error  Unexpected line break after this opening brace                                                   object-curly-newline
-    8:1   error  Unexpected line break before this closing brace                                                  object-curly-newline
-   55:2   error  Unexpected newline before ')'                                                                    function-paren-newline
-   61:3   error  propType "actions" is not required, but has no corresponding defaultProp declaration             react/require-default-props
-   66:3   error  propType "multiSelectActions" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-   71:3   error  propType "idKey" is not required, but has no corresponding defaultProp declaration               react/require-default-props
-   72:3   error  propType "list" is not required, but has no corresponding defaultProp declaration                react/require-default-props
-   76:3   error  propType "toolbar" is not required, but has no corresponding defaultProp declaration             react/require-default-props
-   83:3   error  propType "cellDictionary" is not required, but has no corresponding defaultProp declaration      react/require-default-props
-   84:3   error  propType "displayMode" is not required, but has no corresponding defaultProp declaration         react/require-default-props
-  132:9   error  Use object destructuring                                                                         prefer-destructuring
-  200:67  error  Unexpected newline after '('                                                                     function-paren-newline
-  202:5   error  Unexpected newline before ')'                                                                    function-paren-newline
-  205:67  error  Unexpected newline after '('                                                                     function-paren-newline
-  207:5   error  Unexpected newline before ')'                                                                    function-paren-newline
-  297:10  error  Use object destructuring                                                                         prefer-destructuring
-  298:10  error  Use object destructuring                                                                         prefer-destructuring
-  306:85  error  Unexpected newline after '('                                                                     function-paren-newline
-  310:6   error  Unexpected newline before ')'                                                                    function-paren-newline
-  325:11  error  Use object destructuring                                                                         prefer-destructuring
-
-/home/travis/build/Talend/ui/packages/containers/src/List/List.sagas.js
-   6:11  error  Unexpected newline after '('   function-paren-newline
-  13:2   error  Unexpected newline before ')'  function-paren-newline
-  17:11  error  Unexpected newline after '('   function-paren-newline
-  25:2   error  Unexpected newline before ')'  function-paren-newline
-  29:11  error  Unexpected newline after '('   function-paren-newline
-  37:2   error  Unexpected newline before ')'  function-paren-newline
-
-/home/travis/build/Talend/ui/packages/containers/src/List/List.sagas.test.js
-  57:35  error  Unexpected newline after '('   function-paren-newline
-  58:7   error  Unexpected newline after '('   function-paren-newline
-  66:4   error  Unexpected newline before ')'  function-paren-newline
-  67:3   error  Unexpected newline before ')'  function-paren-newline
-  72:35  error  Unexpected newline after '('   function-paren-newline
-  73:7   error  Unexpected newline after '('   function-paren-newline
-  80:4   error  Unexpected newline before ')'  function-paren-newline
-  81:3   error  Unexpected newline before ')'  function-paren-newline
-  86:35  error  Unexpected newline after '('   function-paren-newline
-  87:7   error  Unexpected newline after '('   function-paren-newline
-  95:4   error  Unexpected newline before ')'  function-paren-newline
-  96:3   error  Unexpected newline before ')'  function-paren-newline
-
-/home/travis/build/Talend/ui/packages/containers/src/List/List.test.js
-  110:26  error  Unexpected newline after '('   function-paren-newline
-  116:3   error  Unexpected newline before ')'  function-paren-newline
-  132:26  error  Unexpected newline after '('   function-paren-newline
-  138:3   error  Unexpected newline before ')'  function-paren-newline
-  192:9   error  Use object destructuring       prefer-destructuring
-  197:9   error  Use object destructuring       prefer-destructuring
-  225:9   error  Use object destructuring       prefer-destructuring
-  230:9   error  Use object destructuring       prefer-destructuring
-  258:9   error  Use object destructuring       prefer-destructuring
-  263:9   error  Use object destructuring       prefer-destructuring
-
-/home/travis/build/Talend/ui/packages/containers/src/List/selector.js
-  11:2  error  iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations  no-restricted-syntax
-
-/home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.container.js
-  24:2  error  propType "deleteNotification" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  25:2  error  propType "autoLeaveError" is not required, but has no corresponding defaultProp declaration      react/require-default-props
-
-/home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
+/Users/jmfrancois/github/talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
-  17:11  error  Unexpected newline after '('                    function-paren-newline
-  21:4   error  Unexpected newline before ')'                   function-paren-newline
 
-/home/travis/build/Talend/ui/packages/containers/src/Notification/pushNotification.js
-  18:22  error  Unexpected newline after '('   function-paren-newline
-  25:2   error  Unexpected newline before ')'  function-paren-newline
+/Users/jmfrancois/github/talend/ui/packages/containers/src/ObjectViewer/ObjectViewer.container.js
+  73:9  error  'displayName' is not defined  no-undef
+  74:9  error  'propTypes' is not defined    no-undef
 
-/home/travis/build/Talend/ui/packages/containers/src/ObjectViewer/ObjectViewer.container.js
-  75:3  error  propType "id" is not required, but has no corresponding defaultProp declaration           react/require-default-props
-  76:3  error  propType "data" is not required, but has no corresponding defaultProp declaration         react/require-default-props
-  77:3  error  propType "displayMode" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  78:3  error  propType "onSubmit" is not required, but has no corresponding defaultProp declaration     react/require-default-props
+/Users/jmfrancois/github/talend/ui/packages/containers/src/SelectObject/SelectObject.container.js
+  126:9  error  'displayName' is not defined   no-undef
+  127:9  error  'FILTER_MODE' is not defined   no-undef
+  131:9  error  'propTypes' is not defined     no-undef
+  141:9  error  'defaultProps' is not defined  no-undef
 
-/home/travis/build/Talend/ui/packages/containers/src/ObjectViewer/ObjectViewer.test.js
-  70:24  error  Unexpected newline after '('   function-paren-newline
-  72:3   error  Unexpected newline before ')'  function-paren-newline
-  79:26  error  Unexpected newline after '('   function-paren-newline
-  81:3   error  Unexpected newline before ')'  function-paren-newline
+/Users/jmfrancois/github/talend/ui/packages/containers/src/ShortcutManager/ShortcutManager.container.js
+  14:9  error  'displayName' is not defined   no-undef
+  15:9  error  'propTypes' is not defined     no-undef
+  19:9  error  'contextTypes' is not defined  no-undef
 
-/home/travis/build/Talend/ui/packages/containers/src/PieChartButton/PieChartButton.connect.js
-  53:2  error  propType "actionCreator" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  54:2  error  propType "dispatch" is not required, but has no corresponding defaultProp declaration               react/require-default-props
-  55:2  error  propType "dispatchActionCreator" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  56:2  error  propType "model" is not required, but has no corresponding defaultProp declaration                  react/require-default-props
-  57:2  error  propType "onClick" is not required, but has no corresponding defaultProp declaration                react/require-default-props
-  58:2  error  propType "overlayComponent" is not required, but has no corresponding defaultProp declaration       react/require-default-props
-  59:2  error  propType "overlayComponentProps" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  60:2  error  propType "payload" is not required, but has no corresponding defaultProp declaration                react/require-default-props
+/Users/jmfrancois/github/talend/ui/packages/containers/src/SidePanel/SidePanel.container.js
+  17:9  error  'displayName' is not defined  no-undef
+  18:9  error  'propTypes' is not defined    no-undef
 
-/home/travis/build/Talend/ui/packages/containers/src/PieChartButton/PieChartButton.test.js
-  24:9  error  Unexpected newline after '('   function-paren-newline
-  26:3  error  Unexpected newline before ')'  function-paren-newline
-  40:9  error  Unexpected newline after '('   function-paren-newline
-  42:3  error  Unexpected newline before ')'  function-paren-newline
-  56:9  error  Unexpected newline after '('   function-paren-newline
-  58:3  error  Unexpected newline before ')'  function-paren-newline
-  73:9  error  Unexpected newline after '('   function-paren-newline
-  75:3  error  Unexpected newline before ')'  function-paren-newline
+/Users/jmfrancois/github/talend/ui/packages/containers/src/Slider/Slider.container.js
+  16:9  error  'displayName' is not defined   no-undef
+  18:9  error  'contextTypes' is not defined  no-undef
+  23:9  error  'propTypes' is not defined     no-undef
+  29:9  error  'defaultProps' is not defined  no-undef
 
-/home/travis/build/Talend/ui/packages/containers/src/Redirect/Redirect.container.js
-  29:2  error  propType "path" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  30:2  error  propType "to" is not required, but has no corresponding defaultProp declaration    react/require-default-props
+/Users/jmfrancois/github/talend/ui/packages/containers/src/SubHeaderBar/SubHeaderBar.container.js
+  12:9  error  'displayName' is not defined   no-undef
+  14:9  error  'propTypes' is not defined     no-undef
+  29:9  error  'contextTypes' is not defined  no-undef
 
-/home/travis/build/Talend/ui/packages/containers/src/SelectObject/SelectObject.component.js
-  41:1  error  Expected indentation of 5 tabs but found 6                                                 indent
-  42:1  error  Expected indentation of 6 tabs but found 7                                                 indent
-  43:1  error  Expected indentation of 6 tabs but found 7                                                 indent
-  44:1  error  Expected indentation of 6 tabs but found 7                                                 indent
-  45:1  error  Expected indentation of 6 tabs but found 7                                                 indent
-  46:1  error  Expected indentation of 5 tabs but found 6                                                 indent
-  47:1  error  Expected indentation of 4 tabs but found 5                                                 indent
-  50:1  error  Expected indentation of 5 tabs but found 6                                                 indent
-  51:1  error  Expected indentation of 6 tabs but found 7                                                 indent
-  52:1  error  Expected indentation of 6 tabs but found 7                                                 indent
-  53:1  error  Expected indentation of 6 tabs but found 7                                                 indent
-  54:1  error  Expected indentation of 6 tabs but found 7                                                 indent
-  55:1  error  Expected indentation of 6 tabs but found 7                                                 indent
-  56:1  error  Expected indentation of 5 tabs but found 6                                                 indent
-  57:1  error  Expected indentation of 4 tabs but found 5                                                 indent
-  80:2  error  propType "id" is not required, but has no corresponding defaultProp declaration            react/require-default-props
-  82:2  error  propType "nameAttr" is not required, but has no corresponding defaultProp declaration      react/require-default-props
-  83:2  error  propType "tree" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  84:2  error  propType "list" is not required, but has no corresponding defaultProp declaration          react/require-default-props
-  85:2  error  propType "filter" is not required, but has no corresponding defaultProp declaration        react/require-default-props
-  86:2  error  propType "schema" is not required, but has no corresponding defaultProp declaration        react/require-default-props
-  87:2  error  propType "filteredData" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  88:2  error  propType "results" is not required, but has no corresponding defaultProp declaration       react/require-default-props
-  92:2  error  propType "sourceData" is not required, but has no corresponding defaultProp declaration    react/require-default-props
-  93:2  error  propType "selected" is not required, but has no corresponding defaultProp declaration      react/require-default-props
-
-/home/travis/build/Talend/ui/packages/containers/src/SelectObject/SelectObject.container.js
-  114:29  error  Unexpected newline after '('                                                             function-paren-newline
-  116:5   error  Unexpected newline before ')'                                                            function-paren-newline
-  134:3   error  propType "selectedId" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  135:3   error  propType "tree" is not required, but has no corresponding defaultProp declaration        react/require-default-props
-  139:3   error  propType "filterMode" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-
-/home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.connect.js
-   35:8   error  Use object destructuring       prefer-destructuring
-  155:26  error  Unexpected newline after '('   function-paren-newline
-  167:1   error  Unexpected newline before ')'  function-paren-newline
-
-/home/travis/build/Talend/ui/packages/containers/src/Slider/Slider.container.js
-  25:3  error  propType "id" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-
-/home/travis/build/Talend/ui/packages/containers/src/Slider/Slider.test.js
-  23:9  error  Unexpected newline after '('   function-paren-newline
-  25:3  error  Unexpected newline before ')'  function-paren-newline
-
-/home/travis/build/Talend/ui/packages/containers/src/SubHeaderBar/SubHeaderBar.container.js
-  16:3  error  propType "actionCreatorCancel" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  17:3  error  propType "actionCreatorEdit" is not required, but has no corresponding defaultProp declaration    react/require-default-props
-  18:3  error  propType "actionCreatorSubmit" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  19:3  error  propType "actionCreatorChange" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  20:3  error  propType "actionCreatorGoBack" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  21:3  error  propType "onCancel" is not required, but has no corresponding defaultProp declaration             react/require-default-props
-  22:3  error  propType "onEdit" is not required, but has no corresponding defaultProp declaration               react/require-default-props
-  23:3  error  propType "onSubmit" is not required, but has no corresponding defaultProp declaration             react/require-default-props
-  24:3  error  propType "onChange" is not required, but has no corresponding defaultProp declaration             react/require-default-props
-  25:3  error  propType "onGoBack" is not required, but has no corresponding defaultProp declaration             react/require-default-props
-  26:3  error  propType "title" is not required, but has no corresponding defaultProp declaration                react/require-default-props
-
-/home/travis/build/Talend/ui/packages/containers/src/SubHeaderBar/SubHeaderBar.selectors.js
+/Users/jmfrancois/github/talend/ui/packages/containers/src/SubHeaderBar/SubHeaderBar.selectors.js
   8:1  error  Prefer default export  import/prefer-default-export
 
-/home/travis/build/Talend/ui/packages/containers/src/TreeView/TreeView.container.js
-   15:2   error  defaultProp "childrenAttr" has no corresponding propTypes declaration                               react/default-props-match-prop-types
-   26:27  error  Unexpected newline after '('                                                                        function-paren-newline
-   28:2   error  Unexpected newline before ')'                                                                       function-paren-newline
-  104:3   error  propType "data" is not required, but has no corresponding defaultProp declaration                   react/require-default-props
-  107:3   error  propType "onClick" is not required, but has no corresponding defaultProp declaration                react/require-default-props
-  108:3   error  propType "onToggle" is not required, but has no corresponding defaultProp declaration               react/require-default-props
-  109:3   error  propType "onSelect" is not required, but has no corresponding defaultProp declaration               react/require-default-props
-  110:3   error  propType "onClickActionCreator" is not required, but has no corresponding defaultProp declaration   react/require-default-props
-  111:3   error  propType "onSelectActionCreator" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  125:16  error  Unexpected newline after '('                                                                        function-paren-newline
-  127:4   error  Unexpected newline before ')'                                                                       function-paren-newline
+/Users/jmfrancois/github/talend/ui/packages/containers/src/TreeView/TreeView.container.js
+  102:9  error  'displayName' is not defined   no-undef
+  103:9  error  'propTypes' is not defined     no-undef
+  115:9  error  'defaultProps' is not defined  no-undef
 
-/home/travis/build/Talend/ui/packages/containers/src/Typeahead/Typeahead.container.js
-  25:3  error  propType "onSelect" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  26:3  error  propType "onChange" is not required, but has no corresponding defaultProp declaration  react/require-default-props
-  27:3  error  propType "onBlur" is not required, but has no corresponding defaultProp declaration    react/require-default-props
+/Users/jmfrancois/github/talend/ui/packages/containers/src/Typeahead/Typeahead.container.js
+  22:9  error  'displayName' is not defined  no-undef
+  23:9  error  'propTypes' is not defined    no-undef
 
-/home/travis/build/Talend/ui/packages/containers/src/Typeahead/Typeahead.test.js
-  34:22  error  Arrow function should not return assignment  no-return-assign
-
-✖ 349 problems (349 errors, 0 warnings)
-  192 errors, 0 warnings potentially fixable with the `--fix` option.
+✖ 52 problems (52 errors, 0 warnings)
 
