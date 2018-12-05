@@ -54,6 +54,7 @@ exports[`ListGrid should render noRows 1`] = `
       getScrollbarSize={[Function]}
       height={600}
       id="my-list"
+      isScrollingOptOut={false}
       noContentRenderer={[Function]}
       noRowsRenderer={[Function]}
       onRowsRendered={[Function]}
