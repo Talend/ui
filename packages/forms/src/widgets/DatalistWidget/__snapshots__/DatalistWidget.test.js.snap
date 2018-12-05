@@ -11,6 +11,7 @@ exports[`DatalistWidget should render "empty list" message 1`] = `
   schema={Object {}}
 >
   <Autowhatever
+    containerProps={Object {}}
     getSectionItems={[Function]}
     highlightedItemIndex={null}
     highlightedSectionIndex={null}
@@ -133,6 +134,7 @@ exports[`DatalistWidget should render "no match" message 1`] = `
   }
 >
   <Autowhatever
+    containerProps={Object {}}
     getSectionItems={[Function]}
     highlightedItemIndex={null}
     highlightedSectionIndex={null}
@@ -261,6 +263,7 @@ exports[`DatalistWidget should render all suggestions on focus 1`] = `
   }
 >
   <Autowhatever
+    containerProps={Object {}}
     getSectionItems={[Function]}
     highlightedItemIndex={null}
     highlightedSectionIndex={null}
@@ -644,6 +647,7 @@ exports[`DatalistWidget should render hightlighted matching suggestions on value
   }
 >
   <Autowhatever
+    containerProps={Object {}}
     getSectionItems={[Function]}
     highlightedItemIndex={null}
     highlightedSectionIndex={null}
@@ -820,6 +824,7 @@ exports[`DatalistWidget should render items under category when it has "category
   }
 >
   <Autowhatever
+    containerProps={Object {}}
     getSectionItems={[Function]}
     highlightedItemIndex={null}
     highlightedSectionIndex={null}
@@ -1215,6 +1220,7 @@ exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
   }
 >
   <Autowhatever
+    containerProps={Object {}}
     getSectionItems={[Function]}
     highlightedItemIndex={null}
     highlightedSectionIndex={null}
@@ -1364,6 +1370,7 @@ exports[`DatalistWidget should select item under category when press enter on fo
   }
 >
   <Autowhatever
+    containerProps={Object {}}
     getSectionItems={[Function]}
     highlightedItemIndex={null}
     highlightedSectionIndex={null}
@@ -1503,6 +1510,7 @@ exports[`DatalistWidget should set value and reset suggestions on suggestion sel
   }
 >
   <Autowhatever
+    containerProps={Object {}}
     getSectionItems={[Function]}
     highlightedItemIndex={null}
     highlightedSectionIndex={null}
