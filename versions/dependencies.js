@@ -55,7 +55,7 @@ module.exports = {
 	'd3-shape': '1.2.0',
 	'react-ace': '5.2.0',
 	'react-bootstrap': '0.31.5',
-	'rc-slider': '8.6.1',
+	'rc-slider': '8.6.3',
 	'rc-tooltip': '3.7.2',
 	'react-autowhatever': '10.1.2',
 	'react-debounce-input': '3.2.0',
