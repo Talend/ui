@@ -74,8 +74,8 @@ function ArrayItem(props) {
 			<div className={theme.control}>
 				{!isClosed &&
 					onReorder && [
-						<TranslatedReorderButton {...props} index={index} />,
-						<TranslatedReorderButton {...props} index={index} isMoveDown />,
+						<TranslatedReorderButton {...props} key="up" index={index} />,
+						<TranslatedReorderButton {...props} key="down" index={index} isMoveDown />,
 					]}
 			</div>
 			{children}

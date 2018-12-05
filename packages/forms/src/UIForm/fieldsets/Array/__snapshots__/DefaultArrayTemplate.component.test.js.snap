@@ -17,7 +17,6 @@ exports[`Default Array Template component should render default array template 1
     onClick={[MockFunction]}
   />
   <Message
-    className={undefined}
     description="Tnstructions to fill it"
     descriptionId="my-template-description"
     errorId="my-template-error"

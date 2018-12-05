@@ -20,6 +20,10 @@
       },
       "dateTimeWithSeconds": {
         "type": "string"
+      },
+      "dateTimeUTC": {
+        "type": "string",
+        "format": "iso-datetime"
       }
     },
     "required": ["dateAsString"]
@@ -54,6 +58,15 @@
       "widget": "datetime",
       "options": {
         "useSeconds": true
+      }
+    },
+    {
+      "key": "dateTimeUTC",
+      "title": "Datetime in UTC",
+      "widget": "datetime",
+      "options": {
+        "useSeconds": true,
+        "useUTC": true
       }
     }
   ],

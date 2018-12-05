@@ -19,7 +19,6 @@ exports[`YearPicker should default render with current year in middle when "sele
   >
     <li>
       <button
-        aria-label={undefined}
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -31,7 +30,6 @@ exports[`YearPicker should default render with current year in middle when "sele
     </li>
     <li>
       <button
-        aria-label={undefined}
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -43,7 +41,6 @@ exports[`YearPicker should default render with current year in middle when "sele
     </li>
     <li>
       <button
-        aria-label={undefined}
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -55,7 +52,6 @@ exports[`YearPicker should default render with current year in middle when "sele
     </li>
     <li>
       <button
-        aria-label={undefined}
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -67,7 +63,6 @@ exports[`YearPicker should default render with current year in middle when "sele
     </li>
     <li>
       <button
-        aria-label={undefined}
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -79,7 +74,6 @@ exports[`YearPicker should default render with current year in middle when "sele
     </li>
     <li>
       <button
-        aria-label={undefined}
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -91,7 +85,6 @@ exports[`YearPicker should default render with current year in middle when "sele
     </li>
     <li>
       <button
-        aria-label={undefined}
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -134,7 +127,6 @@ exports[`YearPicker should render 1`] = `
   >
     <li>
       <button
-        aria-label={undefined}
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -146,7 +138,6 @@ exports[`YearPicker should render 1`] = `
     </li>
     <li>
       <button
-        aria-label={undefined}
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -158,7 +149,6 @@ exports[`YearPicker should render 1`] = `
     </li>
     <li>
       <button
-        aria-label={undefined}
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -184,7 +174,6 @@ exports[`YearPicker should render 1`] = `
     </li>
     <li>
       <button
-        aria-label={undefined}
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -196,7 +185,6 @@ exports[`YearPicker should render 1`] = `
     </li>
     <li>
       <button
-        aria-label={undefined}
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -208,7 +196,6 @@ exports[`YearPicker should render 1`] = `
     </li>
     <li>
       <button
-        aria-label={undefined}
         className="theme-year tc-date-picker-year"
         onClick={[Function]}
         onKeyDown={[Function]}

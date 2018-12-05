@@ -24,6 +24,7 @@ exports[`Date widget should render date picker 1`] = `
     selectedDateTime="15/02/2018 23:55:32"
     useSeconds={true}
     useTime={true}
+    useUTC={false}
   />
 </FieldTemplate>
 `;
