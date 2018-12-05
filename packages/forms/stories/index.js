@@ -13,47 +13,12 @@ import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import Action from '@talend/react-components/lib/Actions/Action';
 import Dialog from '@talend/react-components/lib/Dialog';
 
-import i18n from './config/i18n';
 import Form from '../src/Form';
 import DatalistWidget from '../src/widgets/DatalistWidget';
 import createCollapsibleFieldset from '../src/fields/CollapsibleFieldset';
 import ArrayFieldTemplate from '../src/templates/ArrayFieldTemplate';
 
-a11y(ReactDOM);
-
-const decoratedStories = storiesOf('Form', module)
-	
-	.addDecorator(story => (
-		<I18nextProvider i18n={i18n}>
-			<section>
-				<nav
-					style={{ position: 'fixed', bottom: 0, width: '100vw', textAlign: 'center', zIndex: 1 }}
-				>
-					<div className="btn-group">
-						<button className="btn" onClick={() => i18n.changeLanguage('en')}>
-							Default (en)
-						</button>
-						<button className="btn" onClick={() => i18n.changeLanguage('fr')}>
-							fr
-						</button>
-						<button className="btn" onClick={() => i18n.changeLanguage('it')}>
-							it
-						</button>
-					</div>
-				</nav>
-				<IconsProvider />
-				<div className="container-fluid">
-					<div
-						className="col-md-offset-1 col-md-10"
-						style={{ marginTop: '20px', marginBottom: '20px' }}
-					>
-						<Well>{story()}</Well>
-					</div>
-				</div>
-			</section>
-		</I18nextProvider>
-	));
-
+const decoratedStories = storiesOf('Form', module);
 const capitalizeFirstLetter = string => string.charAt(0).toUpperCase() + string.slice(1);
 const sampleFilenames = require.context('./json', true, /.(js|json)$/);
 const sampleFilenameRegex = /^.\/(.*).js/;

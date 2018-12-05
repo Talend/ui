@@ -35,11 +35,17 @@ export default [
 				<Form data={simple} />
 			</div>
 		),
+		options: { layout: false },
 	},
-	{ name: 'drawer', story: () => <LayoutDrawer title="UIForm in a drawer" data={simple} /> },
+	{
+		name: 'drawer',
+		story: () => <LayoutDrawer title="UIForm in a drawer" data={simple} />,
+		options: { layout: false },
+	},
 	{
 		name: 'drawer-stacked',
 		story: () => <LayoutDrawer title="UIForm in a drawer" data={simple} stacked />,
+		options: { layout: false },
 	},
 	{
 		name: 'modal',
@@ -48,17 +54,21 @@ export default [
 				<Form data={simple} />
 			</Dialog>
 		),
+		options: { layout: false },
 	},
 	{
 		name: 'skeleton',
 		story: () => <Form loading />,
+		options: { layout: false },
 	},
 	{
 		name: 'skeleton-drawer',
 		story: () => <LayoutDrawer loading title="Form in loading in drawer" />,
+		options: { layout: false },
 	},
 	{
 		name: 'skeleton-srawer-stacked',
 		story: () => <LayoutDrawer loading title="Form in loading in drawer" stacked />,
+		options: { layout: false },
 	},
 ];
