@@ -89,6 +89,7 @@ class DateWidget extends React.Component {
 					selectedDateTime={convertedValue}
 					useTime={useTime}
 					useSeconds={useSeconds}
+					useUTC={options.useUTC}
 					// eslint-disable-next-line jsx-a11y/aria-proptypes
 					aria-invalid={!isValid}
 					aria-required={schema.required}

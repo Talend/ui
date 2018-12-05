@@ -4468,6 +4468,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                           estimatedRowSize={30}
                           getScrollbarSize={[Function]}
                           height={3000}
+                          isScrollingOptOut={false}
                           items={
                             Array [
                               Object {
@@ -7621,6 +7622,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                           estimatedRowSize={30}
                           getScrollbarSize={[Function]}
                           height={3000}
+                          isScrollingOptOut={false}
                           items={
                             Array [
                               Object {
@@ -8990,6 +8992,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                           estimatedRowSize={30}
                           getScrollbarSize={[Function]}
                           height={3000}
+                          isScrollingOptOut={false}
                           items={
                             Array [
                               Object {
@@ -10687,6 +10690,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                           estimatedRowSize={30}
                           getScrollbarSize={[Function]}
                           height={3000}
+                          isScrollingOptOut={false}
                           items={
                             Array [
                               Object {
@@ -15007,6 +15011,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                           estimatedRowSize={30}
                           getScrollbarSize={[Function]}
                           height={3000}
+                          isScrollingOptOut={false}
                           items={
                             Array [
                               Object {
@@ -17667,6 +17672,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                           estimatedRowSize={30}
                           getScrollbarSize={[Function]}
                           height={3000}
+                          isScrollingOptOut={false}
                           items={
                             Array [
                               Object {
