@@ -97,7 +97,7 @@
     "react-redux": "^5.0.7",
     "react-test-renderer": "^16.0.0",
     "react-transition-group": "^2.3.1",
-    "react-virtualized": "9.19.1",
+    "react-virtualized": "9.21.0",
     "redux-mock-store": "^1.2.3",
     "rimraf": "^2.6.1",
     "sass-lint": "^1.10.2",
