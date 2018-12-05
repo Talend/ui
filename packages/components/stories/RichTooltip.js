@@ -84,7 +84,7 @@ const footer = (
 
 const customBody = <div>my custom body rich tolltip</div>;
 
-storiesOf('RichLayout', module)
+storiesOf('RichTooltip', module)
 	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
@@ -142,9 +142,7 @@ storiesOf('RichLayout', module)
 		<div>
 			<Action
 				id="error"
-				overlayComponent={
-					<RichLayout Content={<RichError title="Whoops!" error="One error." />} />
-				}
+				overlayComponent={<RichLayout Content={<RichError title="Whoops!" error="One error." />} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
