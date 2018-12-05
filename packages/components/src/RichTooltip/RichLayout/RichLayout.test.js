@@ -1,20 +1,20 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import RichTooltip from './RichTooltip.component';
+import RichLayout from './RichLayout.component';
 
 const Content = <div>Content</div>;
 const Header = <div>Header</div>;
 const Footer = <div>Footer</div>;
 
-describe('RichTooltip', () => {
-	it('should render RichTooltip with header, content and footer', () => {
-		const wrapper = shallow(<RichTooltip Header={Header} Content={Content} Footer={Footer} />);
+describe('RichLayout', () => {
+	it('should render RichLayout with header, content and footer', () => {
+		const wrapper = shallow(<RichLayout Header={Header} Content={Content} Footer={Footer} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render with a text in the body', () => {
-		const wrapper = shallow(<RichTooltip text="loreum" />);
+		const wrapper = shallow(<RichLayout text="loreum" />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
