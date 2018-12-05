@@ -189,8 +189,7 @@ const props = {
 			},
 			{
 				id: 1,
-				name:
-					'Title with a lot of actions with super super super super super super super super super super super super super super super super super super super super super super super super super super super super super super long title oh yeah',
+				name: 'Title with a lot of actions',
 				created: '2016-09-22',
 				modified: '2016-09-22',
 				author: 'Jean-Pierre DUPONT',
@@ -201,6 +200,17 @@ const props = {
 			},
 			{
 				id: 2,
+				name:
+					'Title with super super super super super super super super super super super super super super super super super super super super super super super super super super super super super super long title oh yeah',
+				created: '2016-09-22',
+				modified: '2016-09-22',
+				author: 'Jean-Pierre DUPONT',
+				icon: 'talend-file-xls-o',
+				display: 'text',
+				className: 'item-1-class',
+			},
+			{
+				id: 3,
 				name: 'Title in input mode',
 				created: '2016-09-22',
 				modified: '2016-09-22',
@@ -211,7 +221,7 @@ const props = {
 			},
 			{
 				persistentActions,
-				id: 3,
+				id: 4,
 				name: 'Super long title to trigger overflow on tile rendering',
 				created: '2016-09-22',
 				modified: '2016-09-22',
