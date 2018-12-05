@@ -147,10 +147,13 @@ export function httpFetch(url, config, method, payload) {
 		},
 	);
 
-	return fetch(url, handleCSRFToken({
-		...params,
-		body: encodePayload(params.headers, payload),
-	}))
+	return fetch(
+		url,
+		handleCSRFToken({
+			...params,
+			body: encodePayload(params.headers, payload),
+		}),
+	)
 		.then(handleHttpResponse)
 		.catch(handleError);
 }
