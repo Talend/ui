@@ -54,7 +54,7 @@ import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
 import Inject from './Inject';
 import RichError from './RichError';
-import RichTooltip from './RichTooltip';
+import RichLayout from './RichLayout';
 
 const {
 	Alert,
@@ -165,7 +165,7 @@ export {
 	ObjectViewer,
 	Progress,
 	RichError,
-	RichTooltip,
+	RichLayout,
 	SidePanel,
 	Status,
 	SubHeaderBar,

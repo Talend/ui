@@ -11,7 +11,7 @@ import {
 	CircularProgress,
 	RichError,
 	HeaderTitle,
-	RichTooltip,
+	RichLayout,
 } from '../src/index';
 
 const myAction = {
@@ -84,7 +84,7 @@ const footer = (
 
 const customBody = <div>my custom body rich tolltip</div>;
 
-storiesOf('RichTooltip', module)
+storiesOf('RichLayout', module)
 	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
@@ -96,7 +96,7 @@ storiesOf('RichTooltip', module)
 		<div>
 			<Action
 				id="default"
-				overlayComponent={<RichTooltip Header={header} text={shortLoreum} Footer={footer} />}
+				overlayComponent={<RichLayout Header={header} text={shortLoreum} Footer={footer} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
@@ -108,7 +108,7 @@ storiesOf('RichTooltip', module)
 			<Action
 				id="default"
 				overlayComponent={
-					<RichTooltip Header={headerWithActions} text={shortLoreum} Footer={footer} />
+					<RichLayout Header={headerWithActions} text={shortLoreum} Footer={footer} />
 				}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
@@ -120,7 +120,7 @@ storiesOf('RichTooltip', module)
 		<div>
 			<Action
 				id="default"
-				overlayComponent={<RichTooltip Header={header} />}
+				overlayComponent={<RichLayout Header={header} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
@@ -131,7 +131,7 @@ storiesOf('RichTooltip', module)
 		<div>
 			<Action
 				id="loading"
-				overlayComponent={<RichTooltip Content={<CircularProgress />} />}
+				overlayComponent={<RichLayout Content={<CircularProgress />} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
@@ -143,7 +143,7 @@ storiesOf('RichTooltip', module)
 			<Action
 				id="error"
 				overlayComponent={
-					<RichTooltip Content={<RichError title="Whoops!" error="One error." />} />
+					<RichLayout Content={<RichError title="Whoops!" error="One error." />} />
 				}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
@@ -156,7 +156,7 @@ storiesOf('RichTooltip', module)
 			<p>with a short text</p>
 			<Action
 				id="short-text"
-				overlayComponent={<RichTooltip text={shortLoreum} />}
+				overlayComponent={<RichLayout text={shortLoreum} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
@@ -164,7 +164,7 @@ storiesOf('RichTooltip', module)
 			<p>with a long text</p>
 			<Action
 				id="body-long-text"
-				overlayComponent={<RichTooltip text={LongLoreum} />}
+				overlayComponent={<RichLayout text={LongLoreum} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}
@@ -175,7 +175,7 @@ storiesOf('RichTooltip', module)
 		<div>
 			<Action
 				id="custom-body"
-				overlayComponent={<RichTooltip Header={header} Content={customBody} Footer={footer} />}
+				overlayComponent={<RichLayout Header={header} Content={customBody} Footer={footer} />}
 				overlayPlacement="bottom"
 				tooltipPlacement="right"
 				{...myAction}

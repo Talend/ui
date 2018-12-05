@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Inject from '../Inject';
-import theme from './RichTooltip.scss';
+import theme from './RichLayout.scss';
 
-export default function RichTooltip(props) {
+export default function RichLayout(props) {
 	return (
 		<span>
 			<header className={classNames(theme.header, 'tc-tooltip-header')}>
@@ -23,7 +23,7 @@ export default function RichTooltip(props) {
 	);
 }
 
-RichTooltip.propTypes = {
+RichLayout.propTypes = {
 	className: PropTypes.string,
 	Content: Inject.getReactElement.propTypes,
 	getComponent: PropTypes.func,

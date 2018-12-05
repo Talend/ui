@@ -34,7 +34,7 @@ import './Notification';
 import './ObjectViewer';
 import './PieChart';
 import './Progress';
-import './RichTooltip';
+import './RichLayout';
 import './SidePanel';
 import './Slider';
 import './Skeleton';
