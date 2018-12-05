@@ -1,17 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import a11y from 'react-a11y';
-import { Provider } from 'react-redux';
 import { storiesOf } from '@storybook/react';
-
-import Well from 'react-bootstrap/lib/Well';
 
 import jsonStories from './jsonStories';
 import layouts from './layouts';
 import customTemplateStory from './customTemplateStory';
 import customWidgetStory from './customWidgetStory';
 import customActionsStory from './customActionsStory';
-
 
 const coreConceptsStories = storiesOf('Core concepts', module);
 

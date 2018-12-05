@@ -2,6 +2,7 @@
 import '@babel/polyfill';
 import 'isomorphic-fetch';
 import 'raf/polyfill';
+import { Headers } from 'node-fetch';
 import { configure } from 'enzyme';
 import dateMock from './mocks/dateMock';
 

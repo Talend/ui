@@ -1,15 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
-import a11y from 'react-a11y';
-import { I18nextProvider } from 'react-i18next';
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 
-import Well from 'react-bootstrap/lib/Well';
-import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import Action from '@talend/react-components/lib/Actions/Action';
 import Dialog from '@talend/react-components/lib/Dialog';
 
