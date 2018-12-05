@@ -59,6 +59,7 @@ Bad examples : `YYYY MMM DD` - `MM DD`
 | readOnly              | Set the input as non modifiable and prevent datepicker to open                                                                                    | `false`       |
 | options.dateFormat    | A combination of `YYYY`, `MM`, `DD`. This is used for display purpose. If no format is defined in jsonSchema, this is the value date format too.  | `YYYY-MM-DD`  |
 | options.useSeconds    | Enable the date picker seconds input                                                                                                              | `false`       |
+| options.useUTC        | Selected date is considered to be in UTC timezone (GMT)                                                                                           | `false`       |
 
 ```json
 [
@@ -70,7 +71,7 @@ Bad examples : `YYYY MMM DD` - `MM DD`
 		"disabled": false,
 		"placeholder": "Type the date here...",
 		"readOnly": false,
-		"options": { "useSeconds": true }
+		"options": { "useSeconds": true, "useUTC": true }
 	}
 ]
 ```
