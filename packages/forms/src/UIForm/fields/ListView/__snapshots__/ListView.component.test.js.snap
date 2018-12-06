@@ -359,6 +359,7 @@ exports[`ListView field render should render ListView 1`] = `
     ]
   }
   nsMode="default"
+  omitBoundRerender={true}
   onChange={[MockFunction]}
   onFinish={[MockFunction]}
   schema={
@@ -397,7 +398,9 @@ exports[`ListView field render should render ListView 1`] = `
   }
   wait={false}
   withRef={false}
-/>
+>
+  <Component />
+</I18n>
 `;
 
 exports[`ListView field render should render no items message 1`] = `
@@ -477,6 +480,7 @@ exports[`ListView field render should render no items message 1`] = `
           ]
         }
         nsMode="default"
+        omitBoundRerender={true}
         required={true}
         t={[Function]}
         translateFuncName="t"
@@ -545,6 +549,7 @@ exports[`ListView field render should render no items message 1`] = `
                       ]
                     }
                     nsMode="default"
+                    omitBoundRerender={true}
                     onClick={[Function]}
                     translateFuncName="t"
                     usePureComponent={false}
