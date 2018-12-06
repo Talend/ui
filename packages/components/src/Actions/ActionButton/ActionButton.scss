@@ -6,3 +6,16 @@
 	margin-left: $padding-smaller;
 	margin-right: $padding-small;
 }
+
+:global {
+	.btn-link {
+		color: $gray;
+	}
+
+	.btn-link:hover {
+		color: $scooter;
+	}
+	.btn-link:active {
+		color: darken($scooter, 12%);
+	}
+}
