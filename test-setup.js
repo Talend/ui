@@ -2,8 +2,6 @@
 import '@babel/polyfill';
 import 'isomorphic-fetch';
 import 'raf/polyfill';
-// import i18next from 'i18next';
-import { reactI18nextModule } from 'react-i18next';
 import { Headers } from 'node-fetch';
 import { configure } from 'enzyme';
 import dateMock from './mocks/dateMock';
@@ -23,7 +21,6 @@ jest.mock('i18next', () => {
 					if (value === undefined) {
 						value = '';
 					}
-					// console.log(`t(${sub[0]}, ${sub[1]})`);
 					return `${acc}${sub[0]}${value}`;
 				}, '');
 			}
