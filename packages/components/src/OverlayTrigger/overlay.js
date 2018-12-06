@@ -2,7 +2,7 @@ const OVERLAY_PLACEMENT_TOP = 'top';
 const OVERLAY_PLACEMENT_BOTTOM = 'bottom';
 const BODY = 'BODY';
 const OVERLAY_CONTAINER_CLASS_NAME = 'tc-dropdown-container';
-const REACT_BOOSTRAP_OVERLAY_CLASS_NAME = 'popover';
+const REACT_BOOTSTRAP_OVERLAY_CLASS_NAME = 'popover';
 
 /**
  * getOverlayElement - return the overlay element
@@ -12,7 +12,7 @@ const REACT_BOOSTRAP_OVERLAY_CLASS_NAME = 'popover';
  */
 export function getOverlayElement(innerElement) {
 	let overlayElement = innerElement;
-	while (!overlayElement.classList.contains(REACT_BOOSTRAP_OVERLAY_CLASS_NAME)) {
+	while (!overlayElement.classList.contains(REACT_BOOTSTRAP_OVERLAY_CLASS_NAME)) {
 		overlayElement = overlayElement.parentElement;
 	}
 	return overlayElement;
