@@ -114,7 +114,6 @@ export function bootstrapRedux(options, sagaMiddleware) {
  * - redux
  * - redux-saga
  * @param {object} options the set of supported options
- * @returns {object} app object with render function
  */
 export default function bootstrap(appOptions = {}) {
 	const options = cmfModule(appOptions);
