@@ -1,5 +1,4 @@
 $tc-list-large-hover-bg: $white !default;
-$tc-list-large-field-label-color: $brand-primary-darker !default;
 $tc-list-large-field-value-color: $dove-gray !default;
 
 .tc-list-large {
@@ -48,11 +47,9 @@ $tc-list-large-field-value-color: $dove-gray !default;
 	}
 
 	.field-label {
-		color: $tc-list-large-field-label-color;
-		font-weight: normal;
+		font-weight: 600;
 		margin-bottom: $padding-small;
-		margin-right: $padding-small;
-		text-transform: uppercase;
+		margin-right: .5rem;
 	}
 
 	.field-value {
