@@ -45,7 +45,8 @@ class RowLarge extends React.Component {
 		return (
 			<div className={theme['field-group']} role="group" key={label || index}>
 				<dt key={fieldIndex} className={theme['field-label']}>
-					{label}{this.props.t('COLON', { defaultValue: ':' })}
+					{label}
+					{this.props.t('COLON', { defaultValue: ':' })}
 				</dt>
 				<dd className={theme['field-value']} title={tooltip}>
 					{cellContent}

@@ -115,7 +115,9 @@ describe('RendererSelector', () => {
 		);
 
 		// then
-		expect(wrapper.prop('rowRenderer').displayName).toBe('ListGesture(Translate(VirtualizedList(RowLarge)))');
+		expect(wrapper.prop('rowRenderer').displayName).toBe(
+			'ListGesture(Translate(VirtualizedList(RowLarge)))',
+		);
 	});
 
 	it('should render the table with the default NoRows', () => {
