@@ -38,6 +38,7 @@ cmf.bootstrap({
 | storeCallback | function | undefined | Let you call a function once the store is created |
 | AppLoader | React Component | undefined | Let you define the React component to use to show the app is currently loading (waiting for the settings) |
 | saga | generator function | undefined | An independant top level saga of the app |
+| sagaRouterConfig | Object | undefined | (DEPRECATED) A route dictionnary of path (as key) associatied with saga (as value)
 | modules | Array | undefined | Array of module definition to bootstrap with the app |
 
 ## Modules
