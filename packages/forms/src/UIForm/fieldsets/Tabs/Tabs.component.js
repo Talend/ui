@@ -4,7 +4,7 @@ import TabBar from '@talend/react-components/lib/TabBar';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
 
-import Fieldset from '../Fieldset';
+import Widget from '../../Widget';
 import { isValid } from '../../utils/validation';
 import theme from './Tabs.scss';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
@@ -32,7 +32,7 @@ class Tabs extends React.Component {
 				'aria-label': tabIsValid
 					? undefined
 					: `${item.title} (${t('TF_TABS_HAS_ERRORS', { defaultValue: 'has errors' })})`,
-				children: <Fieldset {...restProps} schema={item} />,
+				children: <Widget {...restProps} schema={{ widget: 'fieldset', ...item }} />,
 			};
 		});
 		const { selectedKey } = this.state;

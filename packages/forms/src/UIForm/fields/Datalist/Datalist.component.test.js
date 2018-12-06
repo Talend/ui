@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import DatalistComponent from '@talend/react-components/lib/Datalist';
 import Datalist from './Datalist.component';
 
 const schema = {
@@ -215,9 +216,8 @@ describe('Datalist component', () => {
 
 			// when
 			wrapper
-				.find('FieldTemplate')
-				.find('Datalist')
-				.prop('onFocus')(event);
+				.find(DatalistComponent)
+				.props().onFocus(event);
 
 			// then
 			expect(props.onTrigger).toBeCalledWith(event, {
@@ -286,8 +286,7 @@ describe('Datalist component', () => {
 			// then
 			expect(
 				wrapper
-					.find('FieldTemplate')
-					.find('Datalist')
+					.find(DatalistComponent)
 					.prop('titleMap'),
 			).toEqual([
 				{ name: 'Foo', value: 'foo' },
@@ -331,8 +330,7 @@ describe('Datalist component', () => {
 			// then
 			expect(
 				wrapper
-					.find('FieldTemplate')
-					.find('Datalist')
+					.find(DatalistComponent)
 					.prop('titleMap'),
 			).toEqual([
 				{
@@ -361,8 +359,7 @@ describe('Datalist component', () => {
 			// then
 			expect(
 				wrapper
-					.find('FieldTemplate')
-					.find('Datalist')
+					.find(DatalistComponent)
 					.prop('titleMap'),
 			).toEqual([
 				{ name: 'Foo', value: 'foo' },

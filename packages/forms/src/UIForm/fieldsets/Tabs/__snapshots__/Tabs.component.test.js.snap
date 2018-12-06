@@ -8,7 +8,7 @@ exports[`Tabs widget should render fieldset 1`] = `
     Array [
       Object {
         "aria-label": undefined,
-        "children": <Fieldset
+        "children": <Widget
           errors={Object {}}
           schema={
             Object {
@@ -35,8 +35,10 @@ exports[`Tabs widget should render fieldset 1`] = `
                 },
               ],
               "title": "User",
+              "widget": "fieldset",
             }
           }
+          widgets={Object {}}
         />,
         "className": "",
         "key": 0,
@@ -44,7 +46,7 @@ exports[`Tabs widget should render fieldset 1`] = `
       },
       Object {
         "aria-label": undefined,
-        "children": <Fieldset
+        "children": <Widget
           errors={Object {}}
           schema={
             Object {
@@ -60,8 +62,10 @@ exports[`Tabs widget should render fieldset 1`] = `
                 },
               ],
               "title": "Other",
+              "widget": "fieldset",
             }
           }
+          widgets={Object {}}
         />,
         "className": "",
         "key": 1,
