@@ -87,7 +87,7 @@ describe('Container HeaderBar', () => {
 				},
 			],
 			prepareProducts: jest.fn(products => products.map(
-				product => ({ ...product, label: `${product.name} and bar` })
+				product => ({ ...product, label: `${product.label} and bar` })
 			)),
 			state: new Map({
 				productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS,
