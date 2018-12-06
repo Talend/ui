@@ -37,6 +37,7 @@ cmf.bootstrap({
 | middlewares | Array | undefined | Redux middlewares |
 | storeCallback | function | undefined | Let you call a function once the store is created |
 | AppLoader | React Component | undefined | Let you define the React component to use to show the app is currently loading (waiting for the settings) |
+| saga | generator function | undefined | An independant top level saga of the app |
 | modules | Array | undefined | Array of module definition to bootstrap with the app |
 
 ## Modules
