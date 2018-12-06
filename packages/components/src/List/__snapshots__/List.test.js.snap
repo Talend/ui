@@ -21,8 +21,8 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
         ],
         "itemProps": Object {
           "isSelected": [Function],
-          "onToggle": [Function],
-          "onToggleAll": [Function],
+          "onToggle": [MockFunction],
+          "onToggleAll": [MockFunction],
         },
         "items": Array [
           Object {
@@ -40,7 +40,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
         ],
         "titleProps": Object {
           "actionsKey": "actions",
-          "onClick": [Function],
+          "onClick": [MockFunction],
           "persistentActionsKey": "persistentActions",
         },
       }
@@ -66,8 +66,8 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
       itemProps={
         Object {
           "isSelected": [Function],
-          "onToggle": [Function],
-          "onToggleAll": [Function],
+          "onToggle": [MockFunction],
+          "onToggleAll": [MockFunction],
         }
       }
       items={
@@ -89,7 +89,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
       titleProps={
         Object {
           "actionsKey": "actions",
-          "onClick": [Function],
+          "onClick": [MockFunction],
           "persistentActionsKey": "persistentActions",
         }
       }
@@ -113,8 +113,8 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
         }
         defaultHeight={250}
         isSelected={[Function]}
-        onRowDoubleClick={[Function]}
-        selectionToggle={[Function]}
+        onRowDoubleClick={[MockFunction]}
+        selectionToggle={[MockFunction]}
         sort={null}
         sortDirection="ASC"
         type="TABLE"
@@ -154,7 +154,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
               height={250}
               isSelected={[Function]}
               noRowsRenderer={[Function]}
-              onRowDoubleClick={[Function]}
+              onRowDoubleClick={[MockFunction]}
               sort={null}
               sortDirection="ASC"
               type="TABLE"
@@ -181,7 +181,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                 height={250}
                 isSelected={[Function]}
                 noRowsRenderer={[Function]}
-                onRowDoubleClick={[Function]}
+                onRowDoubleClick={[MockFunction]}
                 rowHeight={50}
                 sort={null}
                 sortDirection="ASC"
@@ -216,6 +216,8 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   width={0}
                 >
                   <div
+                    aria-colcount={3}
+                    aria-rowcount={3}
                     className="ReactVirtualized__Table tc-list-table theme-tc-list-table"
                     role="grid"
                     style={Object {}}
@@ -314,6 +316,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                       headerRowRenderer={[Function]}
                       headerStyle={Object {}}
                       height={210}
+                      isScrollingOptOut={false}
                       noContentRenderer={[Function]}
                       noRowsRenderer={[Function]}
                       onRowDoubleClick={[Function]}
@@ -402,8 +405,8 @@ exports[`List should render 1`] = `
         ],
         "itemProps": Object {
           "isSelected": [Function],
-          "onToggle": [Function],
-          "onToggleAll": [Function],
+          "onToggle": [MockFunction],
+          "onToggleAll": [MockFunction],
         },
         "items": Array [
           Object {
@@ -421,7 +424,7 @@ exports[`List should render 1`] = `
         ],
         "titleProps": Object {
           "actionsKey": "actions",
-          "onClick": [Function],
+          "onClick": [MockFunction],
           "persistentActionsKey": "persistentActions",
         },
       }
@@ -430,21 +433,21 @@ exports[`List should render 1`] = `
       Object {
         "display": Object {
           "mode": "table",
-          "onChange": [Function],
+          "onChange": [MockFunction],
         },
         "filter": Object {
-          "onFilter": [Function],
-          "onToggle": [Function],
+          "onFilter": [MockFunction],
+          "onToggle": [MockFunction],
         },
         "pagination": Object {
           "itemsPerPage": 5,
-          "onChange": [Function],
+          "onChange": [MockFunction],
           "startIndex": 6,
           "totalResults": 13,
         },
         "sort": Object {
           "field": "name",
-          "onChange": [Function],
+          "onChange": [MockFunction],
           "options": Array [
             Object {
               "id": "id",
@@ -464,19 +467,19 @@ exports[`List should render 1`] = `
       display={
         Object {
           "mode": "table",
-          "onChange": [Function],
+          "onChange": [MockFunction],
         }
       }
       filter={
         Object {
-          "onFilter": [Function],
-          "onToggle": [Function],
+          "onFilter": [MockFunction],
+          "onToggle": [MockFunction],
         }
       }
       pagination={
         Object {
           "itemsPerPage": 5,
-          "onChange": [Function],
+          "onChange": [MockFunction],
           "startIndex": 6,
           "totalResults": 13,
         }
@@ -499,13 +502,13 @@ exports[`List should render 1`] = `
               "name": "Bar",
             },
           ],
-          "onToggleAll": [Function],
+          "onToggleAll": [MockFunction],
         }
       }
       sort={
         Object {
           "field": "name",
-          "onChange": [Function],
+          "onChange": [MockFunction],
           "options": Array [
             Object {
               "id": "id",
@@ -526,13 +529,13 @@ exports[`List should render 1`] = `
         display={
           Object {
             "mode": "table",
-            "onChange": [Function],
+            "onChange": [MockFunction],
           }
         }
         filter={
           Object {
-            "onFilter": [Function],
-            "onToggle": [Function],
+            "onFilter": [MockFunction],
+            "onToggle": [MockFunction],
           }
         }
         i18n={Object {}}
@@ -545,7 +548,7 @@ exports[`List should render 1`] = `
         pagination={
           Object {
             "itemsPerPage": 5,
-            "onChange": [Function],
+            "onChange": [MockFunction],
             "startIndex": 6,
             "totalResults": 13,
           }
@@ -568,13 +571,13 @@ exports[`List should render 1`] = `
                 "name": "Bar",
               },
             ],
-            "onToggleAll": [Function],
+            "onToggleAll": [MockFunction],
           }
         }
         sort={
           Object {
             "field": "name",
-            "onChange": [Function],
+            "onChange": [MockFunction],
             "options": Array [
               Object {
                 "id": "id",
@@ -597,20 +600,20 @@ exports[`List should render 1`] = `
           display={
             Object {
               "mode": "table",
-              "onChange": [Function],
+              "onChange": [MockFunction],
             }
           }
           filter={
             Object {
-              "onFilter": [Function],
-              "onToggle": [Function],
+              "onFilter": [MockFunction],
+              "onToggle": [MockFunction],
             }
           }
           i18n={Object {}}
           pagination={
             Object {
               "itemsPerPage": 5,
-              "onChange": [Function],
+              "onChange": [MockFunction],
               "startIndex": 6,
               "totalResults": 13,
             }
@@ -633,13 +636,13 @@ exports[`List should render 1`] = `
                   "name": "Bar",
                 },
               ],
-              "onToggleAll": [Function],
+              "onToggleAll": [MockFunction],
             }
           }
           sort={
             Object {
               "field": "name",
-              "onChange": [Function],
+              "onChange": [MockFunction],
               "options": Array [
                 Object {
                   "id": "id",
@@ -709,7 +712,7 @@ exports[`List should render 1`] = `
                             },
                           ]
                         }
-                        onToggleAll={[Function]}
+                        onToggleAll={[MockFunction]}
                         t={[Function]}
                       >
                         <form
@@ -753,7 +756,7 @@ exports[`List should render 1`] = `
                       </Label>
                       <SelectDisplayMode
                         mode="table"
-                        onChange={[Function]}
+                        onChange={[MockFunction]}
                         t={[Function]}
                       >
                         <Nav
@@ -1000,7 +1003,7 @@ exports[`List should render 1`] = `
                       </Label>
                       <SelectSortBy
                         field="name"
-                        onChange={[Function]}
+                        onChange={[MockFunction]}
                         options={
                           Array [
                             Object {
@@ -1261,7 +1264,7 @@ exports[`List should render 1`] = `
                             50,
                           ]
                         }
-                        onChange={[Function]}
+                        onChange={[MockFunction]}
                         startIndex={6}
                         t={[Function]}
                         totalResults={13}
@@ -1695,8 +1698,8 @@ exports[`List should render 1`] = `
                       <Translate(FilterBar)
                         className="navbar-right"
                         navbar={true}
-                        onFilter={[Function]}
-                        onToggle={[Function]}
+                        onFilter={[MockFunction]}
+                        onToggle={[MockFunction]}
                         t={[Function]}
                       >
                         <I18n
@@ -1711,8 +1714,8 @@ exports[`List should render 1`] = `
                             ]
                           }
                           nsMode="default"
-                          onFilter={[Function]}
-                          onToggle={[Function]}
+                          onFilter={[MockFunction]}
+                          onToggle={[MockFunction]}
                           t={[Function]}
                           translateFuncName="t"
                           usePureComponent={false}
@@ -1728,8 +1731,8 @@ exports[`List should render 1`] = `
                             i18n={Object {}}
                             iconAlwaysVisible={false}
                             navbar={true}
-                            onFilter={[Function]}
-                            onToggle={[Function]}
+                            onFilter={[MockFunction]}
+                            onToggle={[MockFunction]}
                             placeholder="Filter"
                             t={[Function]}
                             tReady={false}
@@ -1740,7 +1743,7 @@ exports[`List should render 1`] = `
                               hideLabel={true}
                               icon="talend-search"
                               label="Toggle filter"
-                              onClick={[Function]}
+                              onClick={[MockFunction]}
                               role="search"
                             >
                               <Translate(ActionButton)
@@ -1749,7 +1752,7 @@ exports[`List should render 1`] = `
                                 hideLabel={true}
                                 icon="talend-search"
                                 label="Toggle filter"
-                                onClick={[Function]}
+                                onClick={[MockFunction]}
                                 role="search"
                               >
                                 <I18n
@@ -1767,7 +1770,7 @@ exports[`List should render 1`] = `
                                     ]
                                   }
                                   nsMode="default"
-                                  onClick={[Function]}
+                                  onClick={[MockFunction]}
                                   role="search"
                                   translateFuncName="t"
                                   usePureComponent={false}
@@ -1785,7 +1788,7 @@ exports[`List should render 1`] = `
                                     inProgress={false}
                                     label="Toggle filter"
                                     loading={false}
-                                    onClick={[Function]}
+                                    onClick={[MockFunction]}
                                     role="search"
                                     t={[Function]}
                                     tReady={false}
@@ -1876,8 +1879,8 @@ exports[`List should render 1`] = `
       itemProps={
         Object {
           "isSelected": [Function],
-          "onToggle": [Function],
-          "onToggleAll": [Function],
+          "onToggle": [MockFunction],
+          "onToggleAll": [MockFunction],
         }
       }
       items={
@@ -1899,7 +1902,7 @@ exports[`List should render 1`] = `
       titleProps={
         Object {
           "actionsKey": "actions",
-          "onClick": [Function],
+          "onClick": [MockFunction],
           "persistentActionsKey": "persistentActions",
         }
       }
@@ -1923,8 +1926,8 @@ exports[`List should render 1`] = `
         }
         defaultHeight={250}
         isSelected={[Function]}
-        onRowDoubleClick={[Function]}
-        selectionToggle={[Function]}
+        onRowDoubleClick={[MockFunction]}
+        selectionToggle={[MockFunction]}
         sort={null}
         sortDirection="ASC"
         type="TABLE"
@@ -1964,7 +1967,7 @@ exports[`List should render 1`] = `
               height={250}
               isSelected={[Function]}
               noRowsRenderer={[Function]}
-              onRowDoubleClick={[Function]}
+              onRowDoubleClick={[MockFunction]}
               sort={null}
               sortDirection="ASC"
               type="TABLE"
@@ -1991,7 +1994,7 @@ exports[`List should render 1`] = `
                 height={250}
                 isSelected={[Function]}
                 noRowsRenderer={[Function]}
-                onRowDoubleClick={[Function]}
+                onRowDoubleClick={[MockFunction]}
                 rowHeight={50}
                 sort={null}
                 sortDirection="ASC"
@@ -2026,6 +2029,8 @@ exports[`List should render 1`] = `
                   width={0}
                 >
                   <div
+                    aria-colcount={3}
+                    aria-rowcount={3}
                     className="ReactVirtualized__Table tc-list-table theme-tc-list-table"
                     role="grid"
                     style={Object {}}
@@ -2124,6 +2129,7 @@ exports[`List should render 1`] = `
                       headerRowRenderer={[Function]}
                       headerStyle={Object {}}
                       height={210}
+                      isScrollingOptOut={false}
                       noContentRenderer={[Function]}
                       noRowsRenderer={[Function]}
                       onRowDoubleClick={[Function]}
@@ -2213,8 +2219,8 @@ exports[`List should render id if provided 1`] = `
         ],
         "itemProps": Object {
           "isSelected": [Function],
-          "onToggle": [Function],
-          "onToggleAll": [Function],
+          "onToggle": [MockFunction],
+          "onToggleAll": [MockFunction],
         },
         "items": Array [
           Object {
@@ -2232,7 +2238,7 @@ exports[`List should render id if provided 1`] = `
         ],
         "titleProps": Object {
           "actionsKey": "actions",
-          "onClick": [Function],
+          "onClick": [MockFunction],
           "persistentActionsKey": "persistentActions",
         },
       }
@@ -2241,21 +2247,21 @@ exports[`List should render id if provided 1`] = `
       Object {
         "display": Object {
           "mode": "table",
-          "onChange": [Function],
+          "onChange": [MockFunction],
         },
         "filter": Object {
-          "onFilter": [Function],
-          "onToggle": [Function],
+          "onFilter": [MockFunction],
+          "onToggle": [MockFunction],
         },
         "pagination": Object {
           "itemsPerPage": 5,
-          "onChange": [Function],
+          "onChange": [MockFunction],
           "startIndex": 6,
           "totalResults": 13,
         },
         "sort": Object {
           "field": "name",
-          "onChange": [Function],
+          "onChange": [MockFunction],
           "options": Array [
             Object {
               "id": "id",
@@ -2275,20 +2281,20 @@ exports[`List should render id if provided 1`] = `
       display={
         Object {
           "mode": "table",
-          "onChange": [Function],
+          "onChange": [MockFunction],
         }
       }
       filter={
         Object {
-          "onFilter": [Function],
-          "onToggle": [Function],
+          "onFilter": [MockFunction],
+          "onToggle": [MockFunction],
         }
       }
       id="context"
       pagination={
         Object {
           "itemsPerPage": 5,
-          "onChange": [Function],
+          "onChange": [MockFunction],
           "startIndex": 6,
           "totalResults": 13,
         }
@@ -2311,13 +2317,13 @@ exports[`List should render id if provided 1`] = `
               "name": "Bar",
             },
           ],
-          "onToggleAll": [Function],
+          "onToggleAll": [MockFunction],
         }
       }
       sort={
         Object {
           "field": "name",
-          "onChange": [Function],
+          "onChange": [MockFunction],
           "options": Array [
             Object {
               "id": "id",
@@ -2338,13 +2344,13 @@ exports[`List should render id if provided 1`] = `
         display={
           Object {
             "mode": "table",
-            "onChange": [Function],
+            "onChange": [MockFunction],
           }
         }
         filter={
           Object {
-            "onFilter": [Function],
-            "onToggle": [Function],
+            "onFilter": [MockFunction],
+            "onToggle": [MockFunction],
           }
         }
         i18n={Object {}}
@@ -2358,7 +2364,7 @@ exports[`List should render id if provided 1`] = `
         pagination={
           Object {
             "itemsPerPage": 5,
-            "onChange": [Function],
+            "onChange": [MockFunction],
             "startIndex": 6,
             "totalResults": 13,
           }
@@ -2381,13 +2387,13 @@ exports[`List should render id if provided 1`] = `
                 "name": "Bar",
               },
             ],
-            "onToggleAll": [Function],
+            "onToggleAll": [MockFunction],
           }
         }
         sort={
           Object {
             "field": "name",
-            "onChange": [Function],
+            "onChange": [MockFunction],
             "options": Array [
               Object {
                 "id": "id",
@@ -2410,13 +2416,13 @@ exports[`List should render id if provided 1`] = `
           display={
             Object {
               "mode": "table",
-              "onChange": [Function],
+              "onChange": [MockFunction],
             }
           }
           filter={
             Object {
-              "onFilter": [Function],
-              "onToggle": [Function],
+              "onFilter": [MockFunction],
+              "onToggle": [MockFunction],
             }
           }
           i18n={Object {}}
@@ -2424,7 +2430,7 @@ exports[`List should render id if provided 1`] = `
           pagination={
             Object {
               "itemsPerPage": 5,
-              "onChange": [Function],
+              "onChange": [MockFunction],
               "startIndex": 6,
               "totalResults": 13,
             }
@@ -2447,13 +2453,13 @@ exports[`List should render id if provided 1`] = `
                   "name": "Bar",
                 },
               ],
-              "onToggleAll": [Function],
+              "onToggleAll": [MockFunction],
             }
           }
           sort={
             Object {
               "field": "name",
-              "onChange": [Function],
+              "onChange": [MockFunction],
               "options": Array [
                 Object {
                   "id": "id",
@@ -2524,7 +2530,7 @@ exports[`List should render id if provided 1`] = `
                             },
                           ]
                         }
-                        onToggleAll={[Function]}
+                        onToggleAll={[MockFunction]}
                         t={[Function]}
                       >
                         <form
@@ -2574,7 +2580,7 @@ exports[`List should render id if provided 1`] = `
                       <SelectDisplayMode
                         id="context-display-mode"
                         mode="table"
-                        onChange={[Function]}
+                        onChange={[MockFunction]}
                         t={[Function]}
                       >
                         <Nav
@@ -2831,7 +2837,7 @@ exports[`List should render id if provided 1`] = `
                       <SelectSortBy
                         field="name"
                         id="context-sort"
-                        onChange={[Function]}
+                        onChange={[MockFunction]}
                         options={
                           Array [
                             Object {
@@ -3105,7 +3111,7 @@ exports[`List should render id if provided 1`] = `
                             50,
                           ]
                         }
-                        onChange={[Function]}
+                        onChange={[MockFunction]}
                         startIndex={6}
                         t={[Function]}
                         totalResults={13}
@@ -3552,8 +3558,8 @@ exports[`List should render id if provided 1`] = `
                         className="navbar-right"
                         id="context-filter"
                         navbar={true}
-                        onFilter={[Function]}
-                        onToggle={[Function]}
+                        onFilter={[MockFunction]}
+                        onToggle={[MockFunction]}
                         t={[Function]}
                       >
                         <I18n
@@ -3569,8 +3575,8 @@ exports[`List should render id if provided 1`] = `
                             ]
                           }
                           nsMode="default"
-                          onFilter={[Function]}
-                          onToggle={[Function]}
+                          onFilter={[MockFunction]}
+                          onToggle={[MockFunction]}
                           t={[Function]}
                           translateFuncName="t"
                           usePureComponent={false}
@@ -3587,8 +3593,8 @@ exports[`List should render id if provided 1`] = `
                             iconAlwaysVisible={false}
                             id="context-filter"
                             navbar={true}
-                            onFilter={[Function]}
-                            onToggle={[Function]}
+                            onFilter={[MockFunction]}
+                            onToggle={[MockFunction]}
                             placeholder="Filter"
                             t={[Function]}
                             tReady={false}
@@ -3600,7 +3606,7 @@ exports[`List should render id if provided 1`] = `
                               icon="talend-search"
                               id="context-filter"
                               label="Toggle filter"
-                              onClick={[Function]}
+                              onClick={[MockFunction]}
                               role="search"
                             >
                               <Translate(ActionButton)
@@ -3610,7 +3616,7 @@ exports[`List should render id if provided 1`] = `
                                 icon="talend-search"
                                 id="context-filter"
                                 label="Toggle filter"
-                                onClick={[Function]}
+                                onClick={[MockFunction]}
                                 role="search"
                               >
                                 <I18n
@@ -3629,7 +3635,7 @@ exports[`List should render id if provided 1`] = `
                                     ]
                                   }
                                   nsMode="default"
-                                  onClick={[Function]}
+                                  onClick={[MockFunction]}
                                   role="search"
                                   translateFuncName="t"
                                   usePureComponent={false}
@@ -3648,7 +3654,7 @@ exports[`List should render id if provided 1`] = `
                                     inProgress={false}
                                     label="Toggle filter"
                                     loading={false}
-                                    onClick={[Function]}
+                                    onClick={[MockFunction]}
                                     role="search"
                                     t={[Function]}
                                     tReady={false}
@@ -3742,8 +3748,8 @@ exports[`List should render id if provided 1`] = `
       itemProps={
         Object {
           "isSelected": [Function],
-          "onToggle": [Function],
-          "onToggleAll": [Function],
+          "onToggle": [MockFunction],
+          "onToggleAll": [MockFunction],
         }
       }
       items={
@@ -3765,7 +3771,7 @@ exports[`List should render id if provided 1`] = `
       titleProps={
         Object {
           "actionsKey": "actions",
-          "onClick": [Function],
+          "onClick": [MockFunction],
           "persistentActionsKey": "persistentActions",
         }
       }
@@ -3790,8 +3796,8 @@ exports[`List should render id if provided 1`] = `
         defaultHeight={250}
         id="context"
         isSelected={[Function]}
-        onRowDoubleClick={[Function]}
-        selectionToggle={[Function]}
+        onRowDoubleClick={[MockFunction]}
+        selectionToggle={[MockFunction]}
         sort={null}
         sortDirection="ASC"
         type="TABLE"
@@ -3832,7 +3838,7 @@ exports[`List should render id if provided 1`] = `
               id="context"
               isSelected={[Function]}
               noRowsRenderer={[Function]}
-              onRowDoubleClick={[Function]}
+              onRowDoubleClick={[MockFunction]}
               sort={null}
               sortDirection="ASC"
               type="TABLE"
@@ -3860,7 +3866,7 @@ exports[`List should render id if provided 1`] = `
                 id="context"
                 isSelected={[Function]}
                 noRowsRenderer={[Function]}
-                onRowDoubleClick={[Function]}
+                onRowDoubleClick={[MockFunction]}
                 rowHeight={50}
                 sort={null}
                 sortDirection="ASC"
@@ -3896,6 +3902,8 @@ exports[`List should render id if provided 1`] = `
                   width={0}
                 >
                   <div
+                    aria-colcount={3}
+                    aria-rowcount={3}
                     className="ReactVirtualized__Table tc-list-table theme-tc-list-table"
                     id="context"
                     role="grid"
@@ -3995,6 +4003,7 @@ exports[`List should render id if provided 1`] = `
                       headerRowRenderer={[Function]}
                       headerStyle={Object {}}
                       height={210}
+                      isScrollingOptOut={false}
                       noContentRenderer={[Function]}
                       noRowsRenderer={[Function]}
                       onRowDoubleClick={[Function]}

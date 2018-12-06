@@ -3,7 +3,7 @@
 
 const REACT_VERSION = process.env.REACT_VERSION || '^16.0.0';
 console.log('REACT_VERSION: ', REACT_VERSION);
-const JEST_VERSION = '20.0.3';
+const JEST_VERSION = '^23.6.0';
 
 module.exports = {
 	// addons
@@ -55,12 +55,12 @@ module.exports = {
 	'd3-shape': '1.2.0',
 	'react-ace': '5.2.0',
 	'react-bootstrap': '0.31.5',
-	'rc-slider': '8.6.1',
-	'rc-tooltip': '3.7.2',
-	'react-autowhatever': '10.1.2',
+	'rc-slider': '8.6.3',
+	'rc-tooltip': '3.7.3',
+	'react-autowhatever': '10.2.0',
 	'react-debounce-input': '3.2.0',
 	'react-jsonschema-form': '0.51.0',
-	'react-virtualized': '9.19.1',
+	'react-virtualized': '9.21.0',
 
 	// script dep
 	deepmerge: '^1.5.1',

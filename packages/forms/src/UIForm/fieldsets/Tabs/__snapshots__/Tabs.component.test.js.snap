@@ -11,33 +11,33 @@ exports[`Tabs widget should render fieldset 1`] = `
         "children": <Fieldset
           errors={Object {}}
           schema={
+            Object {
+              "items": Array [
                 Object {
-                      "items": Array [
-                        Object {
-                          "key": Array [
-                            "user",
-                            "firstname",
-                          ],
-                          "schema": Object {
-                            "type": "string",
-                          },
-                          "type": "text",
-                        },
-                        Object {
-                          "key": Array [
-                            "user",
-                            "lastname",
-                          ],
-                          "schema": Object {
-                            "type": "string",
-                          },
-                          "type": "text",
-                        },
-                      ],
-                      "title": "User",
-                    }
+                  "key": Array [
+                    "user",
+                    "firstname",
+                  ],
+                  "schema": Object {
+                    "type": "string",
+                  },
+                  "type": "text",
+                },
+                Object {
+                  "key": Array [
+                    "user",
+                    "lastname",
+                  ],
+                  "schema": Object {
+                    "type": "string",
+                  },
+                  "type": "text",
+                },
+              ],
+              "title": "User",
+            }
           }
-    />,
+        />,
         "className": "",
         "key": 0,
         "label": "User",
@@ -47,22 +47,22 @@ exports[`Tabs widget should render fieldset 1`] = `
         "children": <Fieldset
           errors={Object {}}
           schema={
+            Object {
+              "items": Array [
                 Object {
-                      "items": Array [
-                        Object {
-                          "key": Array [
-                            "comment",
-                          ],
-                          "schema": Object {
-                            "type": "string",
-                          },
-                          "type": "text",
-                        },
-                      ],
-                      "title": "Other",
-                    }
+                  "key": Array [
+                    "comment",
+                  ],
+                  "schema": Object {
+                    "type": "string",
+                  },
+                  "type": "text",
+                },
+              ],
+              "title": "Other",
+            }
           }
-    />,
+        />,
         "className": "",
         "key": 1,
         "label": "Other",

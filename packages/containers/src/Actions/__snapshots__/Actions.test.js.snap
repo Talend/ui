@@ -20,7 +20,6 @@ exports[`Actions should render 1`] = `
     }
   }
   setState={[Function]}
-  state={undefined}
   updateState={[Function]}
 />
 `;

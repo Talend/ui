@@ -91,7 +91,7 @@ if (process.env.NODE_ENV !== 'production') {
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
-			key: PropTypes.arrayOf(PropTypes.string),
+			key: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
 			items: PropTypes.array,
 			readOnly: PropTypes.bool,
 			title: PropTypes.string,

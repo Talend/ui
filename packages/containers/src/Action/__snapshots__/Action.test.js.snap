@@ -21,7 +21,6 @@ exports[`Action should render from name props keeping extra props 1`] = `
     }
   }
   setState={[Function]}
-  state={undefined}
   updateState={[Function]}
 />
 `;
