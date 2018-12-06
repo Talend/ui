@@ -75,7 +75,6 @@ describe('ListView field', () => {
 		it('should render ListView', () => {
 			// when
 			const wrapper = shallow(<ListView {...props} />);
-
 			// then
 			expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 		});
