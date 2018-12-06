@@ -216,6 +216,8 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                   width={0}
                 >
                   <div
+                    aria-colcount={3}
+                    aria-rowcount={3}
                     className="ReactVirtualized__Table tc-list-table theme-tc-list-table"
                     role="grid"
                     style={Object {}}
@@ -314,6 +316,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                       headerRowRenderer={[Function]}
                       headerStyle={Object {}}
                       height={210}
+                      isScrollingOptOut={false}
                       noContentRenderer={[Function]}
                       noRowsRenderer={[Function]}
                       onRowDoubleClick={[Function]}
@@ -2032,6 +2035,8 @@ exports[`List should render 1`] = `
                   width={0}
                 >
                   <div
+                    aria-colcount={3}
+                    aria-rowcount={3}
                     className="ReactVirtualized__Table tc-list-table theme-tc-list-table"
                     role="grid"
                     style={Object {}}
@@ -2130,6 +2135,7 @@ exports[`List should render 1`] = `
                       headerRowRenderer={[Function]}
                       headerStyle={Object {}}
                       height={210}
+                      isScrollingOptOut={false}
                       noContentRenderer={[Function]}
                       noRowsRenderer={[Function]}
                       onRowDoubleClick={[Function]}
@@ -3908,6 +3914,8 @@ exports[`List should render id if provided 1`] = `
                   width={0}
                 >
                   <div
+                    aria-colcount={3}
+                    aria-rowcount={3}
                     className="ReactVirtualized__Table tc-list-table theme-tc-list-table"
                     id="context"
                     role="grid"
@@ -4007,6 +4015,7 @@ exports[`List should render id if provided 1`] = `
                       headerRowRenderer={[Function]}
                       headerStyle={Object {}}
                       height={210}
+                      isScrollingOptOut={false}
                       noContentRenderer={[Function]}
                       noRowsRenderer={[Function]}
                       onRowDoubleClick={[Function]}

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RichTooltip should render RichTooltip with header, content and footer 1`] = `
+exports[`RichLayout should render RichLayout with header, content and footer 1`] = `
 <div
   className="theme-wrapper tc-rich-error"
 >
