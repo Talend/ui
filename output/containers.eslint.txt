@@ -2,95 +2,95 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/Users/jmfrancois/github/talend/ui/packages/containers/src/AboutDialog/AboutDialog.container.js
+/home/travis/build/Talend/ui/packages/containers/src/AboutDialog/AboutDialog.container.js
   14:9  error  'displayName' is not defined  no-undef
   15:9  error  'propTypes' is not defined    no-undef
 
-/Users/jmfrancois/github/talend/ui/packages/containers/src/ConfirmDialog/ConfirmDialog.container.js
+/home/travis/build/Talend/ui/packages/containers/src/ConfirmDialog/ConfirmDialog.container.js
   15:9  error  'displayName' is not defined   no-undef
   16:9  error  'propTypes' is not defined     no-undef
   19:9  error  'contextTypes' is not defined  no-undef
 
-/Users/jmfrancois/github/talend/ui/packages/containers/src/DeleteResource/DeleteResource.container.js
+/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/DeleteResource.container.js
   27:9  error  'displayName' is not defined   no-undef
   28:9  error  'propTypes' is not defined     no-undef
   42:9  error  'contextTypes' is not defined  no-undef
   46:9  error  'defaultProps' is not defined  no-undef
 
-/Users/jmfrancois/github/talend/ui/packages/containers/src/DeleteResource/sagas.test.js
+/home/travis/build/Talend/ui/packages/containers/src/DeleteResource/sagas.test.js
   177:15  error  Missing trailing comma  comma-dangle
   192:5   error  Missing semicolon       semi
 
-/Users/jmfrancois/github/talend/ui/packages/containers/src/EditableText/EditableText.container.js
+/home/travis/build/Talend/ui/packages/containers/src/EditableText/EditableText.container.js
   14:9  error  'displayName' is not defined   no-undef
   16:9  error  'propTypes' is not defined     no-undef
   29:9  error  'contextTypes' is not defined  no-undef
 
-/Users/jmfrancois/github/talend/ui/packages/containers/src/EditableText/EditableText.selectors.js
+/home/travis/build/Talend/ui/packages/containers/src/EditableText/EditableText.selectors.js
   8:1  error  Prefer default export  import/prefer-default-export
 
-/Users/jmfrancois/github/talend/ui/packages/containers/src/FilterBar/FilterBar.container.js
+/home/travis/build/Talend/ui/packages/containers/src/FilterBar/FilterBar.container.js
   19:9  error  'displayName' is not defined   no-undef
   21:9  error  'contextTypes' is not defined  no-undef
   26:9  error  'propTypes' is not defined     no-undef
   34:9  error  'defaultProps' is not defined  no-undef
 
-/Users/jmfrancois/github/talend/ui/packages/containers/src/Form/Form.container.js
+/home/travis/build/Talend/ui/packages/containers/src/Form/Form.container.js
   17:9  error  'displayName' is not defined  no-undef
   18:9  error  'propTypes' is not defined    no-undef
 
-/Users/jmfrancois/github/talend/ui/packages/containers/src/HeaderBar/HeaderBar.container.js
+/home/travis/build/Talend/ui/packages/containers/src/HeaderBar/HeaderBar.container.js
   21:9  error  'displayName' is not defined  no-undef
   23:9  error  'propTypes' is not defined    no-undef
 
-/Users/jmfrancois/github/talend/ui/packages/containers/src/List/List.container.js
+/home/travis/build/Talend/ui/packages/containers/src/List/List.container.js
   59:9  error  'displayName' is not defined   no-undef
   60:9  error  'propTypes' is not defined     no-undef
   89:9  error  'defaultProps' is not defined  no-undef
   93:9  error  'contextTypes' is not defined  no-undef
 
-/Users/jmfrancois/github/talend/ui/packages/containers/src/Notification/Notification.test.js
+/home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
 
-/Users/jmfrancois/github/talend/ui/packages/containers/src/ObjectViewer/ObjectViewer.container.js
+/home/travis/build/Talend/ui/packages/containers/src/ObjectViewer/ObjectViewer.container.js
   73:9  error  'displayName' is not defined  no-undef
   74:9  error  'propTypes' is not defined    no-undef
 
-/Users/jmfrancois/github/talend/ui/packages/containers/src/SelectObject/SelectObject.container.js
+/home/travis/build/Talend/ui/packages/containers/src/SelectObject/SelectObject.container.js
   126:9  error  'displayName' is not defined   no-undef
   127:9  error  'FILTER_MODE' is not defined   no-undef
   131:9  error  'propTypes' is not defined     no-undef
   141:9  error  'defaultProps' is not defined  no-undef
 
-/Users/jmfrancois/github/talend/ui/packages/containers/src/ShortcutManager/ShortcutManager.container.js
+/home/travis/build/Talend/ui/packages/containers/src/ShortcutManager/ShortcutManager.container.js
   14:9  error  'displayName' is not defined   no-undef
   15:9  error  'propTypes' is not defined     no-undef
   19:9  error  'contextTypes' is not defined  no-undef
 
-/Users/jmfrancois/github/talend/ui/packages/containers/src/SidePanel/SidePanel.container.js
+/home/travis/build/Talend/ui/packages/containers/src/SidePanel/SidePanel.container.js
   17:9  error  'displayName' is not defined  no-undef
   18:9  error  'propTypes' is not defined    no-undef
 
-/Users/jmfrancois/github/talend/ui/packages/containers/src/Slider/Slider.container.js
+/home/travis/build/Talend/ui/packages/containers/src/Slider/Slider.container.js
   16:9  error  'displayName' is not defined   no-undef
   18:9  error  'contextTypes' is not defined  no-undef
   23:9  error  'propTypes' is not defined     no-undef
   29:9  error  'defaultProps' is not defined  no-undef
 
-/Users/jmfrancois/github/talend/ui/packages/containers/src/SubHeaderBar/SubHeaderBar.container.js
+/home/travis/build/Talend/ui/packages/containers/src/SubHeaderBar/SubHeaderBar.container.js
   12:9  error  'displayName' is not defined   no-undef
   14:9  error  'propTypes' is not defined     no-undef
   29:9  error  'contextTypes' is not defined  no-undef
 
-/Users/jmfrancois/github/talend/ui/packages/containers/src/SubHeaderBar/SubHeaderBar.selectors.js
+/home/travis/build/Talend/ui/packages/containers/src/SubHeaderBar/SubHeaderBar.selectors.js
   8:1  error  Prefer default export  import/prefer-default-export
 
-/Users/jmfrancois/github/talend/ui/packages/containers/src/TreeView/TreeView.container.js
+/home/travis/build/Talend/ui/packages/containers/src/TreeView/TreeView.container.js
   102:9  error  'displayName' is not defined   no-undef
   103:9  error  'propTypes' is not defined     no-undef
   115:9  error  'defaultProps' is not defined  no-undef
 
-/Users/jmfrancois/github/talend/ui/packages/containers/src/Typeahead/Typeahead.container.js
+/home/travis/build/Talend/ui/packages/containers/src/Typeahead/Typeahead.container.js
   22:9  error  'displayName' is not defined  no-undef
   23:9  error  'propTypes' is not defined    no-undef
 
