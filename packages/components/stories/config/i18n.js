@@ -2,7 +2,6 @@ import React from 'react';
 import i18n from 'i18next';
 import I18N_DOMAIN_COMPONENTS from '../../src/constants';
 
-console.log('############ setup i18next for storybook', i18n);
 i18n.init({
 	resources: {
 		fr: {
