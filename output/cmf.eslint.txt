@@ -2,29 +2,29 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/Users/jmfrancois/github/talend/ui/packages/cmf/src/cmfConnect.js
+/home/travis/build/Talend/ui/packages/cmf/src/cmfConnect.js
   244:11  error  'displayName' is not defined     no-undef
   245:11  error  'propTypes' is not defined       no-undef
   248:11  error  'contextTypes' is not defined    no-undef
   255:11  error  'setStateAction' is not defined  no-undef
 
-/Users/jmfrancois/github/talend/ui/packages/cmf/src/componentState.js
+/home/travis/build/Talend/ui/packages/cmf/src/componentState.js
   87:3  warning  Unexpected console statement  no-console
 
-/Users/jmfrancois/github/talend/ui/packages/cmf/src/Dispatcher.js
+/home/travis/build/Talend/ui/packages/cmf/src/Dispatcher.js
   39:9  error  'displayName' is not defined   no-undef
   40:9  error  'propTypes' is not defined     no-undef
   47:9  error  'contextTypes' is not defined  no-undef
 
-/Users/jmfrancois/github/talend/ui/packages/cmf/src/Inject.component.js
+/home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
   23:2  warning  Unexpected console statement  no-console
 
-/Users/jmfrancois/github/talend/ui/packages/cmf/src/sagaRouter/router.js
+/home/travis/build/Talend/ui/packages/cmf/src/sagaRouter/router.js
   158:2   warning  Unexpected constant condition                no-constant-condition
   163:54  error    There should be no spaces inside this paren  space-in-parens
   177:51  error    There should be no spaces inside this paren  space-in-parens
 
-/Users/jmfrancois/github/talend/ui/packages/cmf/src/sagas/collection.js
+/home/travis/build/Talend/ui/packages/cmf/src/sagas/collection.js
   10:1  error  Prefer default export  import/prefer-default-export
 
 ✖ 13 problems (10 errors, 3 warnings)
