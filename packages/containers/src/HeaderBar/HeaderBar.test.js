@@ -86,7 +86,9 @@ describe('Container HeaderBar', () => {
 					url: 'http://foo.bar',
 				},
 			],
-			prepareProducts: jest.fn(products => products),
+			prepareProducts: jest.fn(products => products.map(
+				product => ({ ...product, label: `${product.name} and bar` })
+			)),
 			state: new Map({
 				productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS,
 			}),
@@ -94,7 +96,7 @@ describe('Container HeaderBar', () => {
 
 		const wrapper = shallow(<Container {...props} />);
 		expect(wrapper.props().products.items).toHaveLength(1);
-		expect(wrapper.props().products.items[0].label).toEqual('Foo');
+		expect(wrapper.props().products.items[0].label).toEqual('Foo and bar');
 		expect(props.prepareProducts).toHaveBeenCalled();
 	});
 
