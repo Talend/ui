@@ -26,9 +26,9 @@ cmf.bootstrap({
 | appId | string | 'app' | DOM element id, where to render the React application |
 | history | Object | `{ hashHistory } from 'react-router'` | The history object to control the router |
 | components | Object | undefined | A components dictionary where each key/value are registered in cmf registry so you can refer them in settings |
-| actionCreators | Object | undefined | Same as `components` |
-| expressions | Object | undefined | Same as `components` |
-| sagas | Object | undefined | Same as `components`  |
+| actionCreators | Object | undefined | Same dictionary as `components` option for actionsCreators |
+| expressions | Object | undefined | Same dictionary as `components` option for expressions |
+| sagas | Object | undefined | Same dictionary as `components` option for sagas |
 | httpMiddleware | function | undefined | Override the default http middleware |
 | preReducer | function | undefined | Redux preReducer, called on every actions before reducer |
 | enhancer | function | undefined |Redux enhancer |
