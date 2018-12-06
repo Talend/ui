@@ -100,7 +100,7 @@ exports[`Component HomeListView should render with object props 1`] = `
     ]
   }
   header={
-    <WithMergedOptions(HeaderBar)
+    <Translate(HeaderBar)
       app="hello app"
     />
   }
