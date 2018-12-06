@@ -29,6 +29,7 @@ cmf.bootstrap({
 | actionCreators | Object | undefined | Same dictionary as `components` option for actionsCreators |
 | expressions | Object | undefined | Same dictionary as `components` option for expressions |
 | sagas | Object | undefined | Same dictionary as `components` option for sagas |
+| registry | Object | undefined | A low level dictionnary to register anything in the cmf registry. Caution : use a proper prefix for key to not conflict with all the others registered key |
 | httpMiddleware | function | undefined | Override the default http middleware |
 | preReducer | function | undefined | Redux preReducer, called on every actions before reducer |
 | enhancer | function | undefined |Redux enhancer |
