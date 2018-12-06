@@ -1,9 +1,9 @@
 import '@babel/polyfill';
-import { storiesOf, configure, setAddon } from '@storybook/react';
+import { storiesOf, configure, addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { checkA11y } from '@storybook/addon-a11y';
 import createSagaMiddleware from 'redux-saga';
-import cmf from '@talend/react-storybook-cmf';
+import cmfStorybook from '@talend/react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
 import api, { actions, sagas } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
@@ -19,7 +19,8 @@ import {
 import { actionsCreators as actionsCreatorsEditableText } from './editabletext.storybook';
 import { registerAllContainers } from '../src/register';
 
-setAddon({ addWithCMF: cmf.addWithCMF });
+addDecorator(cmfStorybook);
+addDecorator(checkA11y);
 
 registerAllContainers();
 const actionLogger = action('dispatch');
@@ -474,17 +475,21 @@ function loadStories() {
 		story;
 
 		if (typeof examples[example] === 'function') {
-			story.addWithCMF('Default', examples[example], {
-				state,
-				reducer,
-				sagaMiddleware,
-			});
-		} else {
-			Object.keys(examples[example]).forEach(usecase => {
-				story.addWithCMF(usecase, examples[example][usecase], {
+			story.add('Default', examples[example], {
+				cmf: {
 					state,
 					reducer,
 					sagaMiddleware,
+				},
+			});
+		} else {
+			Object.keys(examples[example]).forEach(usecase => {
+				story.add(usecase, examples[example][usecase], {
+					cmf: {
+						state,
+						reducer,
+						sagaMiddleware,
+					},
 				});
 			});
 		}

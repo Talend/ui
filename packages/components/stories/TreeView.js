@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from '@storybook/addon-a11y';
 import { action } from '@storybook/addon-actions';
 
 import { TreeView, IconsProvider } from '../src/index';
@@ -282,7 +281,7 @@ cornerCaseLongName.structure = [
 const style = { width: '300px', border: '1px solid #eee', marginLeft: '10px' };
 
 storiesOf('TreeView', module)
-	
+
 	.add('default', () => (
 		<div>
 			<h1>TreeView</h1>

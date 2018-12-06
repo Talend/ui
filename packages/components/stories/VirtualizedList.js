@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
-import { checkA11y } from '@storybook/addon-a11y'; // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
 
@@ -408,7 +407,7 @@ const sourceItems = [...new Array(20000)].map(
 );
 
 storiesOf('VirtualizedList', module)
-	
+
 	.add('List > Table', () => (
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>
