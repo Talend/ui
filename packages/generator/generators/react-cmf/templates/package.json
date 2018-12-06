@@ -41,7 +41,7 @@
     "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
     "react": "^16.0.0",
-    "react-bootstrap": "0.31.5",
+    "react-bootstrap": "0.32.4",
     "react-css-transition": "^0.7.4",
     "react-dom": "^16.0.0",
     "react-i18next": "^7.6.1",

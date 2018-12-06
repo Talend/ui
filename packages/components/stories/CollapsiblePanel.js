@@ -14,7 +14,7 @@ const icons = {
 	'talend-warning': talendIcons['talend-warning'],
 };
 
-const content = [
+const keyValueContent = [
 	{
 		label: 'Content1',
 		description: 'Description1',
@@ -25,21 +25,66 @@ const content = [
 	},
 ];
 
-const status = {
-	displayMode: 'status',
-	status: 'inProgress',
-	label: 'In Progress',
-	actions: [
-		{
-			label: 'cancel',
-			icon: 'talend-cross',
-			onClick: action('onCancel'),
-			bsSize: 'small',
-		},
-	],
-};
+const statusSuccessfulHeader = [
+	{
+		displayMode: 'status',
+		status: 'successful',
+		label: 'Successful',
+		icon: 'talend-check',
+		actions: [
+			{
+				label: 'cancel',
+				icon: 'talend-cross',
+				onClick: action('onCancel'),
+				bsSize: 'small',
+			},
+		],
+	},
+];
+const statusFailedHeader = [
+	{
+		displayMode: 'status',
+		status: 'failed',
+		label: 'Failed',
+		icon: 'talend-cross',
+		actions: [],
+	},
+];
+const statusWarningHeader = [
+	{
+		displayMode: 'status',
+		status: 'warning',
+		label: 'Warning',
+		icon: 'talend-warning',
+		actions: [],
+	},
+];
+const statusCanceledHeader = [
+	{
+		displayMode: 'status',
+		status: 'canceled',
+		label: 'Canceled',
+		icon: 'talend-cross',
+		actions: [],
+	},
+];
+const statusInProgressHeader = [
+	{
+		displayMode: 'status',
+		status: 'inProgress',
+		label: 'In Progress',
+		actions: [
+			{
+				label: 'cancel',
+				icon: 'talend-cross',
+				onClick: action('onCancel'),
+				bsSize: 'small',
+			},
+		],
+	},
+];
 
-const button = {
+const buttonDownload = {
 	displayMode: 'action',
 	label: 'Download',
 	icon: 'talend-download',
@@ -47,376 +92,206 @@ const button = {
 	hideLabel: true,
 	link: true,
 };
-
-const label1 = {
-	label: 'by Charles',
-	bsStyle: 'default',
-	tooltipPlacement: 'top',
-};
-
-const label2 = {
-	label: 'on Talend Data Preparation Server',
-	bsStyle: 'default',
-	tooltipPlacement: 'top',
-};
-
-const label3 = {
+const badge = {
 	displayMode: 'badge',
 	label: 'XML',
 	bsStyle: 'info',
 	tooltipPlacement: 'top',
 	tooltipLabel: 'Extensible Markup Language',
 };
-
-const label4 = {
-	label: 'on Hadoop Cluster',
-	bsStyle: 'default',
-	tooltipPlacement: 'top',
-};
-
-const label5 = {
+const customElement = {
 	tooltipPlacement: 'top',
 	tooltipLabel: 'Webhook job',
-	element: (<div className="custom-element">Custom element can be here</div>),
+	element: <div className="custom-element">Custom element can be here</div>,
 };
 
-const propsPanel = {
-	header: [status, label1, label2, button, label3],
-};
-
-const propsPanelWithActions = {
-	header: [
-		{ ...status, actions: [], status: 'successful', label: 'Successful', icon: 'talend-check' },
-		label1,
-		label4,
-		button,
-		label3,
-	],
-	content,
-	id: 'panel-id-1',
-	onToggle: action('onToggle'),
-};
-
-const propsPanelWithoutActions = {
-	header: [
-		{ ...status, actions: [], status: 'canceled', label: 'Canceled', icon: 'talend-cross' },
-		label1,
-		label2,
-		{},
-		label3,
-	],
-	id: 'panel-id-2',
-};
-
-const propsCollapsiblePanel = {
-	header: [
-		{ ...status, status: 'failed', label: 'Failed', icon: 'talend-cross' },
-		label1,
-		label4,
-		button,
-		label3,
-	],
-	content,
-	id: 'panel-id-3',
-	onToggle: action('onToggle'),
-};
-
-const propsCollapsiblePanelOnSelect = {
-	header: [
-		{ ...status, status: 'failed', label: 'Failed', icon: 'talend-cross' },
-		label1,
-		label4,
-		button,
-		label3,
-	],
-	content,
-	id: 'panel-id-4',
-	onToggle: action('onToggle'),
-	onSelect: action('onSelect'),
-};
-
-const propsInProgressCollapsiblePanel = {
-	header: [status, label1, label4, button, label3],
-	content,
-	id: 'panel-id-5',
-	onToggle: action('onToggle'),
-};
-
-const propsFailedCollapsiblePanel = {
-	header: [
-		{ ...status, status: 'failed', label: 'Failed', icon: 'talend-cross' },
-		label1,
-		label4,
-		button,
-		label3,
-	],
-	content,
-	id: 'panel-id-6',
-	onToggle: action('onToggle'),
-};
-
-const propsSuccessfulCollapsiblePanel = {
-	header: [
-		{ ...status, status: 'successful', label: 'Successful', icon: 'talend-check' },
-		label1,
-		label4,
-		button,
-		label3,
-	],
-	content,
-	id: 'panel-id-7',
-	onToggle: action('onToggle'),
-};
-const propsWarningCollapsiblePanel = {
-	header: [
-		{ ...status, status: 'warning', label: 'Warning', icon: 'talend-warning' },
-		label1,
-		label4,
-		button,
-		label3,
-	],
-	content,
-	id: 'panel-id-8',
-	onToggle: action('onToggle'),
-};
-
-const propsCanceledCollapsiblePanel = {
-	header: [
-		{ ...status, status: 'canceled', label: 'Canceled', icon: 'talend-cross' },
-		label1,
-		label4,
-		button,
-		label3,
-	],
-	content,
-	id: 'panel-id-9',
-	onToggle: action('onToggle'),
-};
-
-const propsCollapsiblePanelWithCustomElement = {
-	header: [
-		{ ...status, status: 'successful', label: 'Successful', icon: 'talend-check' },
-		label1,
-		label5,
-		button,
-		label3,
-	],
-	content,
-	id: 'panel-id-10',
-	onToggle: action('onToggle'),
-};
-
-const propsCollapsiblePanelWithHeaderGroups = {
-	header: [
-		{ ...status, status: 'failed', label: 'Failed', icon: 'talend-cross' },
-		label1,
-		label4,
-		[button, label3],
-	],
-	content,
-	id: 'panel-id-11',
-	onToggle: action('onToggle'),
-	expanded: true,
-};
-
-const propsCollapsiblePanelWithHeaderGroupsWithProgress = {
-	header: [{ ...status, progress: '70' }, label1, label4, [button, label3]],
-	content,
-	id: 'panel-id-12',
-	onToggle: action('onToggle'),
-	expanded: true,
-};
-
-const version1 = {
-	label: 'Version 1 Version 1 Version 1 Version 1',
+const descriptiveTitle = {
+	label: 'Panel with descriptive-panel theme',
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
 	className: 'title',
 };
-const readOnlyLabel = {
-	label: '(Read Only)',
+const descriptiveTag = {
+	label: '(Tag element)',
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
 	className: 'tag',
 };
-const timeStamp = {
-	label: '05/02/2017 14:44:55',
+const descriptiveDetail = {
+	label: 'Detail element',
 	bsStyle: 'default',
 	tooltipPlacement: 'top',
 	className: 'detail',
 };
 
-const propsCollapsibleSelectablePanel = {
-	header: [[version1, readOnlyLabel], timeStamp],
-	content: {
-		head: [
-			{
-				label: '21 steps',
-				bsStyle: 'default',
-				tooltipPlacement: 'top',
-			},
-			{
-				label: 'by Henry-Mayeul de Benque',
-				bsStyle: 'default',
-				tooltipPlacement: 'top',
-				className: 'text-right',
-			},
-		],
-		description: `1 - First row, ...\n2 - Second row, ...\n3 - Third row, ...\nLast row, ...`,
-	},
-	id: 'panel-id-13',
-	onSelect: action('onselect'),
-	onToggle: action('onToggle'),
-	theme: 'descriptive-panel',
-};
-
-const propsCollapsibleSelectedPanel = {
-	...propsCollapsibleSelectablePanel,
-	expanded: true,
-	id: 'panel-id-14',
-	status: 'selected',
-	theme: 'descriptive-panel',
-};
-
-const propsSelectedPanelWithoutContent = {
-	header: [[version1, readOnlyLabel], timeStamp],
-	id: 'panel-id-15',
-	onSelect: action('onselect'),
-	onToggle: action('onToggle'),
-	expanded: true,
-	status: 'selected',
-	theme: 'descriptive-panel',
-};
-
-const propsCollapsibleSelectablePanelWithoutTag = {
-	...propsSelectedPanelWithoutContent,
-	id: 'panel-id-16',
-	header: [version1, timeStamp],
-	theme: 'descriptive-panel',
-};
-
 storiesOf('CollapsiblePanel', module)
 	.addDecorator(checkA11y)
-	.addWithInfo('Key/Value content', () => (
+	.addWithInfo('Default', () => (
 		<div className="col-lg-offset-1 col-lg-10">
 			<IconsProvider defaultIcons={icons} />
-			<p>By default :</p>
-			<div id="default">
-				<CollapsiblePanel {...propsCollapsiblePanel} />
-			</div>
-			<p>No content :</p>
-			<div id="no-content">
-				<CollapsiblePanel {...propsPanel} />
-			</div>
-			<p>No content - Header with Actions :</p>
-			<div id="with-actions">
-				<CollapsiblePanel {...propsPanelWithActions} />
-			</div>
-			<p>No content - Header without Actions :</p>
-			<div id="without-actions">
-				<CollapsiblePanel {...propsPanelWithoutActions} />
-			</div>
-			<p>No content - With onSelect handler :</p>
-			<div id="on-select">
-				<CollapsiblePanel {...propsCollapsiblePanelOnSelect} />
-			</div>
-			<p>Header with groups :</p>
-			<div id="with-groups">
-				<CollapsiblePanel {...propsCollapsiblePanelWithHeaderGroups} />
-			</div>
-			<p>Header with fixed circularProgress :</p>
-			<div id="with-fixed-progress">
-				<CollapsiblePanel {...propsCollapsiblePanelWithHeaderGroupsWithProgress} />
-			</div>
+			<h1>Collapsible Panel</h1>
+			<CollapsiblePanel
+				id="panel-default-1"
+				header={[{ label: 'Controlled collapsed panel' }]}
+				onToggle={action('onToggle')}
+			>
+				Coucou
+			</CollapsiblePanel>
+			<CollapsiblePanel
+				id="panel-default-2"
+				header={[{ label: 'Controlled expanded panel' }]}
+				onToggle={action('onToggle')}
+				expanded
+			>
+				Coucou
+			</CollapsiblePanel>
+			<CollapsiblePanel id="panel-default-3" header={[{ label: 'No content panel' }]} />
+			<CollapsiblePanel id="panel-default-4" header={[{ label: 'Uncontrolled panel' }]}>
+				Coucou
+			</CollapsiblePanel>
 		</div>
 	))
-	.addWithInfo('Textual content', () => (
+	.addWithInfo('Header', () => (
 		<div className="col-lg-offset-1 col-lg-10">
 			<IconsProvider defaultIcons={icons} />
-			<p>With Content:</p>
-			<div id="textual-with-content">
-				<CollapsiblePanel {...propsCollapsibleSelectablePanel} />
-			</div>
-			<p>Opened with Content:</p>
-			<div id="textual-opened-with-content">
-				<CollapsiblePanel {...propsCollapsibleSelectablePanel} expanded />
-			</div>
-			<p>Panel Without readonly tag and without content:</p>
-			<div id="textual-without-readonly">
-				<CollapsiblePanel {...propsCollapsibleSelectablePanelWithoutTag} status={''} />
-			</div>
+			<h1>Collapsible Panel Headers</h1>
+			<CollapsiblePanel id="panel-header-1" header={[{ label: 'Simple header' }]} />
+			<CollapsiblePanel
+				id="panel-header-2"
+				header={[{ label: 'Header with actions' }, buttonDownload]}
+			/>
+			<CollapsiblePanel id="panel-header-3" header={[{ label: 'Header with badge' }, badge]} />
+			<CollapsiblePanel
+				id="panel-header-4"
+				header={[{ label: 'Header with custom element' }, customElement]}
+			/>
+			<CollapsiblePanel
+				id="panel-header-5"
+				header={[{ label: 'Header with groups' }, [badge, buttonDownload], customElement]}
+			/>
+			<CollapsiblePanel
+				id="panel-header-6"
+				header={[{ label: 'Header with caret' }, badge, buttonDownload, customElement]}
+			>
+				Coucou
+			</CollapsiblePanel>
+			<CollapsiblePanel id="panel-header-7" header={statusSuccessfulHeader} status={'successful'} />
+			<CollapsiblePanel id="panel-header-8" header={statusFailedHeader} status={'failed'} />
+			<CollapsiblePanel id="panel-header-9" header={statusWarningHeader} status={'warning'} />
+			<CollapsiblePanel id="panel-header-10" header={statusCanceledHeader} status={'canceled'} />
+			<CollapsiblePanel
+				id="panel-header-11"
+				header={statusInProgressHeader}
+				status={'inProgress'}
+			/>
 		</div>
 	))
-	.addWithInfo('Selected Collapsible', () => (
+	.addWithInfo('Body', () => (
 		<div className="col-lg-offset-1 col-lg-10">
 			<IconsProvider defaultIcons={icons} />
-			<p>Selected Panel With Content:</p>
-			<div id="selected-with-content">
-				<CollapsiblePanel {...propsCollapsibleSelectedPanel} />
-			</div>
-			<p>Selected Panel Without readonly tag and without content:</p>
-			<div id="selected-without-readonly">
-				<CollapsiblePanel {...propsCollapsibleSelectablePanelWithoutTag} />
-			</div>
-			<p>Selected Panel Without content:</p>
-			<div id="selected-without-content">
-				<CollapsiblePanel {...propsSelectedPanelWithoutContent} />
-			</div>
-			<p>Selected key/Value CollapsiblePanel:</p>
-			<div id="selected-key-value">
-				<CollapsiblePanel {...propsCollapsiblePanel} status={'selected'} />
-			</div>
-			<p>Selected key/Value CollapsiblePanel without content:</p>
-			<CollapsiblePanel {...propsPanelWithoutActions} status={'selected'} />
+			<h1>Collapsible Panel</h1>
+			<CollapsiblePanel
+				id="panel-content-1"
+				header={[{ label: 'Body with children' }]}
+				onToggle={action('onToggle')}
+				expanded
+			>
+				Coucou from children
+			</CollapsiblePanel>
+			<CollapsiblePanel
+				id="panel-default-2"
+				header={[{ label: 'Body with key/value' }]}
+				onToggle={action('onToggle')}
+				expanded
+				content={keyValueContent}
+			/>
 		</div>
 	))
-	.addWithInfo('Status Collapsible', () => (
+	.addWithInfo('Theme: descriptive-panel', () => (
 		<div className="col-lg-offset-1 col-lg-10">
 			<IconsProvider defaultIcons={icons} />
-			<p>CollapsiblePanel with status info:</p>
-			<div id="status-info">
-				<CollapsiblePanel {...propsInProgressCollapsiblePanel} status={'inProgress'} />
-			</div>
-			<p>CollapsiblePanel with status successful:</p>
-			<div id="status-success">
-				<CollapsiblePanel {...propsSuccessfulCollapsiblePanel} status={'successful'} />
-			</div>
-			<p>CollapsiblePanel with status failed:</p>
-			<div id="status-failed">
-				<CollapsiblePanel {...propsFailedCollapsiblePanel} status={'failed'} />
-			</div>
-			<p>CollapsiblePanel with status warning:</p>
-			<div id="status-warning">
-				<CollapsiblePanel {...propsWarningCollapsiblePanel} status={'warning'} />
-			</div>
-			<p>CollapsiblePanel with status canceled:</p>
-			<div id="status-canceled">
-				<CollapsiblePanel {...propsCanceledCollapsiblePanel} status={'canceled'} />
-			</div>
-			<p>CollapsiblePanel with successful status and custom element:</p>
-			<div id="status-successful">
-				<CollapsiblePanel {...propsCollapsiblePanelWithCustomElement} status={'successful'} />
-			</div>
+			<h1>Theme : descriptive-panel</h1>
+			<CollapsiblePanel
+				id="panel-textual-1"
+				header={[[descriptiveTitle, descriptiveTag], descriptiveDetail]}
+				content={{
+					head: [
+						{
+							label: 'Content head element',
+							bsStyle: 'default',
+							tooltipPlacement: 'top',
+						},
+						{
+							label: 'Content head right element',
+							bsStyle: 'default',
+							tooltipPlacement: 'top',
+							className: 'text-right',
+						},
+					],
+					description:
+						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+				}}
+				theme="descriptive-panel"
+				onToggle={action('onToggle')}
+				expanded
+			/>
+			<CollapsiblePanel
+				id="panel-textual-2"
+				header={[[descriptiveTitle, descriptiveTag], descriptiveDetail]}
+				theme="descriptive-panel"
+			/>
 		</div>
 	))
-	.addWithInfo('Adjustment textual collapsibles', () => (
+	.addWithInfo('Selection', () => (
 		<div className="col-lg-offset-1 col-lg-10">
 			<IconsProvider defaultIcons={icons} />
-			<p>Adjustement Story:</p>
-			<div id="selectable-panel-with-content1">
-				<CollapsiblePanel {...propsCollapsibleSelectedPanel} />
-			</div>
-			<div id="selectable-panel-with-content2">
-				<CollapsiblePanel {...propsCollapsibleSelectablePanel} expanded />
-			</div>
-			<div id="selectable-panel-with-content3">
-				<CollapsiblePanel {...propsCollapsibleSelectablePanelWithoutTag} />
-			</div>
-			<div id="selectable-panel-with-content4">
-				<CollapsiblePanel {...propsCollapsibleSelectablePanel} />
-			</div>
-			<div id="selected-panel-without-content5">
-				<CollapsiblePanel {...propsSelectedPanelWithoutContent} />
-			</div>
+			<h1>Selection</h1>
+			<CollapsiblePanel
+				id="panel-selection-1"
+				header={[{ label: 'Controlled collapsed panel' }]}
+				onToggle={action('onToggle')}
+				onSelect={action('onSelect')}
+				status="selected"
+			>
+				Coucou
+			</CollapsiblePanel>
+			<CollapsiblePanel
+				id="panel-selection-2"
+				header={[{ label: 'Controlled expanded panel' }]}
+				onToggle={action('onToggle')}
+				onSelect={action('onSelect')}
+				status="selected"
+				expanded
+			>
+				Coucou
+			</CollapsiblePanel>
+
+			<CollapsiblePanel
+				id="panel-selection-3"
+				header={[[descriptiveTitle, descriptiveTag], descriptiveDetail]}
+				content={{
+					head: [],
+					description:
+						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+				}}
+				theme="descriptive-panel"
+				onToggle={action('onToggle')}
+				onSelect={action('onSelect')}
+				status="selected"
+			/>
+			<CollapsiblePanel
+				id="panel-selection-4"
+				header={[[descriptiveTitle, descriptiveTag], descriptiveDetail]}
+				content={{
+					head: [],
+					description:
+						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+				}}
+				theme="descriptive-panel"
+				onToggle={action('onToggle')}
+				onSelect={action('onSelect')}
+				status="selected"
+				expanded
+			/>
 		</div>
 	));

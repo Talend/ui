@@ -2,191 +2,193 @@
 
 exports[`CollapsiblePanel should render default with expanded key/value content 1`] = `
 <div
-  className="panel panel-default theme-tc-collapsible-panel theme-default-panel theme-open"
+  className="panel panel-default theme-tc-collapsible-panel theme-default-panel theme-open panel panel-default"
 >
   <div
-    className="theme-panel-heading panel-heading"
-  >
-    <button
-      className="theme-panel-title panel-title btn btn-link"
-      disabled={false}
-      onClick={[MockFunction]}
-      type="button"
-    >
-      <div
-        className="theme-panel-title panel-title"
-      >
-        <div
-          className="theme-undefined theme-col-4"
-        >
-          <div
-            className="theme-tc-status tc-status theme-action"
-            role="status"
-          >
-            <span
-              className="theme-tc-status-icon tc-status-icon theme-info"
-            >
-              <i
-                aria-hidden="true"
-                className="fa fa-check"
-                focusable="false"
-                title={null}
-              />
-            </span>
-            <span
-              className="theme-tc-status-label tc-status-label"
-            >
-              inProgress
-            </span>
-            <div
-              className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
-            >
-              <button
-                aria-label="cancel"
-                className="btn btn-default"
-                disabled={false}
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-cancel"
-                  focusable="false"
-                  title={null}
-                />
-                <span>
-                  cancel
-                </span>
-              </button>
-              <button
-                aria-label="delete"
-                className="btn btn-default"
-                disabled={false}
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-delete"
-                  focusable="false"
-                  title={null}
-                />
-                <span>
-                  delete
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div
-          className="theme-undefined theme-col-4"
-        >
-          <button
-            aria-label="edit"
-            className="theme-undefined btn-icon-only btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseDown={[Function]}
-            onMouseOver={[Function]}
-            role="link"
-            type="button"
-          >
-            <i
-              aria-hidden="true"
-              className="fa fa-edit"
-              focusable="false"
-              title={null}
-            />
-          </button>
-        </div>
-        <div
-          className="theme-undefined theme-col-4"
-        >
-          <div
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            by Charles
-          </div>
-        </div>
-        <div
-          className="theme-group theme-col-4"
-        >
-          <div
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            on TDP
-          </div>
-          <span
-            className="theme-undefined label label-default"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            XML
-          </span>
-        </div>
-      </div>
-    </button>
-    <button
-      aria-expanded={true}
-      className="theme-toggle toggle btn btn-link"
-      disabled={false}
-      onClick={[MockFunction]}
-      title="Collapse panel"
-      type="button"
-    >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
-        name="talend-caret-down"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-caret-down"
-        />
-      </svg>
-    </button>
-  </div>
-  <div
-    className="panel panel-default"
-    id={null}
+    className="panel-heading"
   >
     <div
-      aria-expanded={null}
-      aria-hidden={false}
-      className="panel-collapse collapse in"
+      className="panel-title"
     >
       <div
-        className="panel-body"
+        className="theme-panel-heading panel-heading"
       >
-        <dl
-          className="theme-content"
+        <button
+          className="theme-panel-title panel-title btn btn-link"
+          disabled={false}
+          onClick={[MockFunction]}
+          type="button"
         >
-          <dt
-            className="theme-label"
+          <div
+            className="theme-panel-title panel-title"
           >
-            <span
-              className="label label-default"
+            <div
+              className="theme-undefined theme-col-4"
             >
-              Content
-            </span>
-          </dt>
-          <dd
-            className="theme-description"
+              <div
+                className="theme-tc-status tc-status theme-action"
+                role="status"
+              >
+                <span
+                  className="theme-tc-status-icon tc-status-icon theme-info"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-check"
+                    focusable="false"
+                    title={null}
+                  />
+                </span>
+                <span
+                  className="theme-tc-status-label tc-status-label"
+                >
+                  inProgress
+                </span>
+                <div
+                  className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
+                >
+                  <button
+                    aria-label="cancel"
+                    className="btn btn-default"
+                    disabled={false}
+                    onClick={[Function]}
+                    onMouseDown={[Function]}
+                    role={null}
+                    type="button"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa-cancel"
+                      focusable="false"
+                      title={null}
+                    />
+                    <span>
+                      cancel
+                    </span>
+                  </button>
+                  <button
+                    aria-label="delete"
+                    className="btn btn-default"
+                    disabled={false}
+                    onClick={[Function]}
+                    onMouseDown={[Function]}
+                    role={null}
+                    type="button"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa-delete"
+                      focusable="false"
+                      title={null}
+                    />
+                    <span>
+                      delete
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              className="theme-undefined theme-col-4"
+            >
+              <button
+                aria-label="edit"
+                className="theme-undefined btn-icon-only btn btn-link"
+                disabled={false}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseDown={[Function]}
+                onMouseOver={[Function]}
+                role="link"
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  className="fa fa-edit"
+                  focusable="false"
+                  title={null}
+                />
+              </button>
+            </div>
+            <div
+              className="theme-undefined theme-col-4"
+            >
+              <div
+                className="theme-undefined"
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+              >
+                by Charles
+              </div>
+            </div>
+            <div
+              className="theme-group theme-col-4"
+            >
+              <div
+                className="theme-undefined"
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+              >
+                on TDP
+              </div>
+              <span
+                className="theme-undefined label label-default"
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+              >
+                XML
+              </span>
+            </div>
+          </div>
+        </button>
+        <button
+          aria-expanded={true}
+          className="theme-toggle toggle btn btn-link"
+          disabled={false}
+          onClick={[MockFunction]}
+          title="Collapse panel"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon"
+            focusable="false"
+            name="talend-caret-down"
+            title={null}
           >
-            Description3
-          </dd>
-        </dl>
+            <use
+              xlinkHref="#talend-caret-down"
+            />
+          </svg>
+        </button>
       </div>
+    </div>
+  </div>
+  <div
+    aria-expanded={null}
+    className="panel-collapse collapse in"
+  >
+    <div
+      className="panel-body"
+    >
+      <dl
+        className="theme-content"
+      >
+        <dt
+          className="theme-label"
+        >
+          <span
+            className="label label-default"
+          >
+            Content
+          </span>
+        </dt>
+        <dd
+          className="theme-description"
+        >
+          Description3
+        </dd>
+      </dl>
     </div>
   </div>
 </div>
@@ -194,190 +196,192 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
 
 exports[`CollapsiblePanel should render default with key/value content 1`] = `
 <div
-  className="panel panel-default theme-tc-collapsible-panel theme-default-panel"
+  className="panel panel-default theme-tc-collapsible-panel theme-default-panel panel panel-default"
 >
   <div
-    className="theme-panel-heading panel-heading"
-  >
-    <button
-      className="theme-panel-title panel-title btn btn-link"
-      disabled={false}
-      onClick={[MockFunction]}
-      type="button"
-    >
-      <div
-        className="theme-panel-title panel-title"
-      >
-        <div
-          className="theme-undefined theme-col-4"
-        >
-          <div
-            className="theme-tc-status tc-status theme-action"
-            role="status"
-          >
-            <span
-              className="theme-tc-status-icon tc-status-icon theme-info"
-            >
-              <i
-                aria-hidden="true"
-                className="fa fa-check"
-                focusable="false"
-                title={null}
-              />
-            </span>
-            <span
-              className="theme-tc-status-label tc-status-label"
-            >
-              inProgress
-            </span>
-            <div
-              className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
-            >
-              <button
-                aria-label="cancel"
-                className="btn btn-default"
-                disabled={false}
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-cancel"
-                  focusable="false"
-                  title={null}
-                />
-                <span>
-                  cancel
-                </span>
-              </button>
-              <button
-                aria-label="delete"
-                className="btn btn-default"
-                disabled={false}
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-delete"
-                  focusable="false"
-                  title={null}
-                />
-                <span>
-                  delete
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div
-          className="theme-undefined theme-col-4"
-        >
-          <button
-            aria-label="edit"
-            className="theme-undefined btn-icon-only btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseDown={[Function]}
-            onMouseOver={[Function]}
-            role="link"
-            type="button"
-          >
-            <i
-              aria-hidden="true"
-              className="fa fa-edit"
-              focusable="false"
-              title={null}
-            />
-          </button>
-        </div>
-        <div
-          className="theme-undefined theme-col-4"
-        >
-          <div
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            by Charles
-          </div>
-        </div>
-        <div
-          className="theme-group theme-col-4"
-        >
-          <div
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            on TDP
-          </div>
-          <span
-            className="theme-undefined label label-default"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            XML
-          </span>
-        </div>
-      </div>
-    </button>
-    <button
-      className="theme-toggle toggle btn btn-link"
-      disabled={false}
-      onClick={[MockFunction]}
-      title="Expand panel"
-      type="button"
-    >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
-        name="talend-caret-down"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-caret-down"
-        />
-      </svg>
-    </button>
-  </div>
-  <div
-    className="panel panel-default"
-    id={null}
+    className="panel-heading"
   >
     <div
-      aria-expanded={null}
-      aria-hidden={true}
-      className="panel-collapse collapse"
+      className="panel-title"
     >
       <div
-        className="panel-body"
+        className="theme-panel-heading panel-heading"
       >
-        <dl
-          className="theme-content"
+        <button
+          className="theme-panel-title panel-title btn btn-link"
+          disabled={false}
+          onClick={[MockFunction]}
+          type="button"
         >
-          <dt
-            className="theme-label"
+          <div
+            className="theme-panel-title panel-title"
           >
-            <span
-              className="label label-default"
+            <div
+              className="theme-undefined theme-col-4"
             >
-              Content
-            </span>
-          </dt>
-          <dd
-            className="theme-description"
+              <div
+                className="theme-tc-status tc-status theme-action"
+                role="status"
+              >
+                <span
+                  className="theme-tc-status-icon tc-status-icon theme-info"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-check"
+                    focusable="false"
+                    title={null}
+                  />
+                </span>
+                <span
+                  className="theme-tc-status-label tc-status-label"
+                >
+                  inProgress
+                </span>
+                <div
+                  className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
+                >
+                  <button
+                    aria-label="cancel"
+                    className="btn btn-default"
+                    disabled={false}
+                    onClick={[Function]}
+                    onMouseDown={[Function]}
+                    role={null}
+                    type="button"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa-cancel"
+                      focusable="false"
+                      title={null}
+                    />
+                    <span>
+                      cancel
+                    </span>
+                  </button>
+                  <button
+                    aria-label="delete"
+                    className="btn btn-default"
+                    disabled={false}
+                    onClick={[Function]}
+                    onMouseDown={[Function]}
+                    role={null}
+                    type="button"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa-delete"
+                      focusable="false"
+                      title={null}
+                    />
+                    <span>
+                      delete
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              className="theme-undefined theme-col-4"
+            >
+              <button
+                aria-label="edit"
+                className="theme-undefined btn-icon-only btn btn-link"
+                disabled={false}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseDown={[Function]}
+                onMouseOver={[Function]}
+                role="link"
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  className="fa fa-edit"
+                  focusable="false"
+                  title={null}
+                />
+              </button>
+            </div>
+            <div
+              className="theme-undefined theme-col-4"
+            >
+              <div
+                className="theme-undefined"
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+              >
+                by Charles
+              </div>
+            </div>
+            <div
+              className="theme-group theme-col-4"
+            >
+              <div
+                className="theme-undefined"
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+              >
+                on TDP
+              </div>
+              <span
+                className="theme-undefined label label-default"
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+              >
+                XML
+              </span>
+            </div>
+          </div>
+        </button>
+        <button
+          className="theme-toggle toggle btn btn-link"
+          disabled={false}
+          onClick={[MockFunction]}
+          title="Expand panel"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon"
+            focusable="false"
+            name="talend-caret-down"
+            title={null}
           >
-            Description3
-          </dd>
-        </dl>
+            <use
+              xlinkHref="#talend-caret-down"
+            />
+          </svg>
+        </button>
       </div>
+    </div>
+  </div>
+  <div
+    aria-expanded={null}
+    className="panel-collapse collapse"
+  >
+    <div
+      className="panel-body"
+    >
+      <dl
+        className="theme-content"
+      >
+        <dt
+          className="theme-label"
+        >
+          <span
+            className="label label-default"
+          >
+            Content
+          </span>
+        </dt>
+        <dd
+          className="theme-description"
+        >
+          Description3
+        </dd>
+      </dl>
     </div>
   </div>
 </div>
@@ -385,309 +389,338 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
 
 exports[`CollapsiblePanel should render default without content 1`] = `
 <div
-  className="panel panel-default theme-tc-collapsible-panel theme-default-panel"
+  className="panel panel-default theme-tc-collapsible-panel theme-default-panel panel panel-default"
 >
   <div
-    className="theme-panel-heading panel-heading"
+    className="panel-heading"
   >
-    <button
-      className="theme-panel-title panel-title btn btn-link"
-      disabled={false}
-      onClick={[MockFunction]}
-      type="button"
+    <div
+      className="panel-title"
     >
       <div
-        className="theme-panel-title panel-title"
+        className="theme-panel-heading panel-heading"
       >
-        <div
-          className="theme-undefined theme-col-4"
+        <button
+          className="theme-panel-title panel-title btn btn-link"
+          disabled={false}
+          onClick={[MockFunction]}
+          type="button"
         >
           <div
-            className="theme-tc-status tc-status theme-action"
-            role="status"
+            className="theme-panel-title panel-title"
           >
-            <span
-              className="theme-tc-status-icon tc-status-icon theme-info"
-            >
-              <i
-                aria-hidden="true"
-                className="fa fa-check"
-                focusable="false"
-                title={null}
-              />
-            </span>
-            <span
-              className="theme-tc-status-label tc-status-label"
-            >
-              inProgress
-            </span>
             <div
-              className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
+              className="theme-undefined theme-col-4"
+            >
+              <div
+                className="theme-tc-status tc-status theme-action"
+                role="status"
+              >
+                <span
+                  className="theme-tc-status-icon tc-status-icon theme-info"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-check"
+                    focusable="false"
+                    title={null}
+                  />
+                </span>
+                <span
+                  className="theme-tc-status-label tc-status-label"
+                >
+                  inProgress
+                </span>
+                <div
+                  className="tc-actions theme-tc-status-actions tc-status-actions btn-group"
+                >
+                  <button
+                    aria-label="cancel"
+                    className="btn btn-default"
+                    disabled={false}
+                    onClick={[Function]}
+                    onMouseDown={[Function]}
+                    role={null}
+                    type="button"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa-cancel"
+                      focusable="false"
+                      title={null}
+                    />
+                    <span>
+                      cancel
+                    </span>
+                  </button>
+                  <button
+                    aria-label="delete"
+                    className="btn btn-default"
+                    disabled={false}
+                    onClick={[Function]}
+                    onMouseDown={[Function]}
+                    role={null}
+                    type="button"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="fa fa-delete"
+                      focusable="false"
+                      title={null}
+                    />
+                    <span>
+                      delete
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              className="theme-undefined theme-col-4"
             >
               <button
-                aria-label="cancel"
-                className="btn btn-default"
+                aria-label="edit"
+                className="theme-undefined btn-icon-only btn btn-link"
                 disabled={false}
                 onClick={[Function]}
+                onFocus={[Function]}
                 onMouseDown={[Function]}
-                role={null}
+                onMouseOver={[Function]}
+                role="link"
                 type="button"
               >
                 <i
                   aria-hidden="true"
-                  className="fa fa-cancel"
+                  className="fa fa-edit"
                   focusable="false"
                   title={null}
                 />
-                <span>
-                  cancel
-                </span>
-              </button>
-              <button
-                aria-label="delete"
-                className="btn btn-default"
-                disabled={false}
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                role={null}
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-delete"
-                  focusable="false"
-                  title={null}
-                />
-                <span>
-                  delete
-                </span>
               </button>
             </div>
+            <div
+              className="theme-undefined theme-col-4"
+            >
+              <div
+                className="theme-undefined"
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+              >
+                by Charles
+              </div>
+            </div>
+            <div
+              className="theme-group theme-col-4"
+            >
+              <div
+                className="theme-undefined"
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+              >
+                on TDP
+              </div>
+              <span
+                className="theme-undefined label label-default"
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+              >
+                XML
+              </span>
+            </div>
           </div>
-        </div>
-        <div
-          className="theme-undefined theme-col-4"
-        >
-          <button
-            aria-label="edit"
-            className="theme-undefined btn-icon-only btn btn-link"
-            disabled={false}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseDown={[Function]}
-            onMouseOver={[Function]}
-            role="link"
-            type="button"
-          >
-            <i
-              aria-hidden="true"
-              className="fa fa-edit"
-              focusable="false"
-              title={null}
-            />
-          </button>
-        </div>
-        <div
-          className="theme-undefined theme-col-4"
-        >
-          <div
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            by Charles
-          </div>
-        </div>
-        <div
-          className="theme-group theme-col-4"
-        >
-          <div
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            on TDP
-          </div>
-          <span
-            className="theme-undefined label label-default"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            XML
-          </span>
-        </div>
+        </button>
       </div>
-    </button>
+    </div>
   </div>
   <div
-    className="panel panel-default"
-  />
+    aria-expanded={null}
+    className="panel-collapse collapse"
+  >
+    <div
+      className="panel-body"
+    />
+  </div>
 </div>
 `;
 
 exports[`CollapsiblePanel should render panel with custom element 1`] = `
 <div
-  className="panel panel-default theme-tc-collapsible-panel theme-default-panel"
+  className="panel panel-default theme-tc-collapsible-panel theme-default-panel panel panel-default"
 >
   <div
-    className="theme-panel-heading panel-heading"
+    className="panel-heading"
   >
-    <button
-      className="theme-panel-title panel-title btn btn-link"
-      disabled={false}
-      onClick={[MockFunction]}
-      type="button"
+    <div
+      className="panel-title"
     >
       <div
-        className="theme-panel-title panel-title"
+        className="theme-panel-heading panel-heading"
       >
-        <div
-          className="theme-undefined theme-col-3"
+        <button
+          className="theme-panel-title panel-title btn btn-link"
+          disabled={false}
+          onClick={[MockFunction]}
+          type="button"
         >
           <div
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
+            className="theme-panel-title panel-title"
           >
-            Version 1 Version 1
+            <div
+              className="theme-undefined theme-col-3"
+            >
+              <div
+                className="theme-undefined"
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+              >
+                Version 1 Version 1
+              </div>
+            </div>
+            <div
+              className="theme-undefined theme-col-3"
+            >
+              <div
+                className="theme-undefined"
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+              >
+                <span>
+                  Custom element
+                </span>
+              </div>
+            </div>
+            <div
+              className="theme-undefined theme-col-3"
+            >
+              <div
+                className="theme-undefined"
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+              >
+                03/02/2017 14:44:55
+              </div>
+            </div>
           </div>
-        </div>
-        <div
-          className="theme-undefined theme-col-3"
-        >
-          <div
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            <span>
-              Custom element
-            </span>
-          </div>
-        </div>
-        <div
-          className="theme-undefined theme-col-3"
-        >
-          <div
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            03/02/2017 14:44:55
-          </div>
-        </div>
+        </button>
       </div>
-    </button>
+    </div>
   </div>
   <div
-    className="panel panel-default"
-  />
+    aria-expanded={null}
+    className="panel-collapse collapse"
+  >
+    <div
+      className="panel-body"
+    />
+  </div>
 </div>
 `;
 
 exports[`CollapsiblePanel should render themed with textual content 1`] = `
 <div
-  className="panel panel-default theme-tc-collapsible-panel theme-descriptive-panel"
+  className="panel panel-default theme-tc-collapsible-panel theme-descriptive-panel panel panel-default"
 >
   <div
-    className="theme-panel-heading panel-heading"
-  >
-    <button
-      className="theme-panel-title panel-title btn btn-link"
-      disabled={false}
-      onClick={[MockFunction]}
-      type="button"
-    >
-      <div
-        className="theme-panel-title panel-title"
-      >
-        <div
-          className="theme-group theme-col-2"
-        >
-          <div
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            Version 1 Version 1
-          </div>
-          <div
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            (Read Only)
-          </div>
-        </div>
-        <div
-          className="theme-undefined theme-col-2"
-        >
-          <div
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            03/02/2017 14:44:55
-          </div>
-        </div>
-      </div>
-    </button>
-    <button
-      className="theme-toggle toggle btn btn-link"
-      disabled={false}
-      onClick={[MockFunction]}
-      title="Expand panel"
-      type="button"
-    >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
-        name="talend-caret-down"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-caret-down"
-        />
-      </svg>
-    </button>
-  </div>
-  <div
-    className="panel panel-default"
-    id={null}
+    className="panel-heading"
   >
     <div
-      aria-expanded={null}
-      aria-hidden={true}
-      className="panel-collapse collapse"
+      className="panel-title"
     >
       <div
-        className="panel-body"
+        className="theme-panel-heading panel-heading"
       >
-        <div
-          className="theme-content"
+        <button
+          className="theme-panel-title panel-title btn btn-link"
+          disabled={false}
+          onClick={[MockFunction]}
+          type="button"
         >
           <div
-            className="theme-head"
+            className="theme-panel-title panel-title"
           >
-            <span
-              onFocus={[Function]}
-              onMouseOver={[Function]}
+            <div
+              className="theme-group theme-col-2"
             >
-              21 step
-            </span>
-            <span
-              className="text-right"
-              onFocus={[Function]}
-              onMouseOver={[Function]}
+              <div
+                className="theme-undefined"
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+              >
+                Version 1 Version 1
+              </div>
+              <div
+                className="theme-undefined"
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+              >
+                (Read Only)
+              </div>
+            </div>
+            <div
+              className="theme-undefined theme-col-2"
             >
-              by Abdelaziz Maalej test 1 test 2 test 1 test 2
-            </span>
+              <div
+                className="theme-undefined"
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+              >
+                03/02/2017 14:44:55
+              </div>
+            </div>
           </div>
-          <div
-            className="theme-content-description content-description"
+        </button>
+        <button
+          className="theme-toggle toggle btn btn-link"
+          disabled={false}
+          onClick={[MockFunction]}
+          title="Expand panel"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="theme-tc-svg-icon tc-svg-icon"
+            focusable="false"
+            name="talend-caret-down"
+            title={null}
           >
-            Lorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit.
+            <use
+              xlinkHref="#talend-caret-down"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-expanded={null}
+    className="panel-collapse collapse"
+  >
+    <div
+      className="panel-body"
+    >
+      <div
+        className="theme-content"
+      >
+        <div
+          className="theme-head"
+        >
+          <span
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            21 step
+          </span>
+          <span
+            className="text-right"
+            onFocus={[Function]}
+            onMouseOver={[Function]}
+          >
+            by Abdelaziz Maalej test 1 test 2 test 1 test 2
+          </span>
+        </div>
+        <div
+          className="theme-content-description content-description"
+        >
+          Lorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit.
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
 		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
 		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
@@ -696,7 +729,6 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
 		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
 		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
 		 adipiscing elit
-          </div>
         </div>
       </div>
     </div>
@@ -706,54 +738,67 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
 
 exports[`CollapsiblePanel should render themed without textual content 1`] = `
 <div
-  className="panel panel-default theme-tc-collapsible-panel theme-default-panel"
+  className="panel panel-default theme-tc-collapsible-panel theme-default-panel panel panel-default"
 >
   <div
-    className="theme-panel-heading panel-heading"
+    className="panel-heading"
   >
-    <button
-      className="theme-panel-title panel-title btn btn-link"
-      disabled={false}
-      onClick={[MockFunction]}
-      type="button"
+    <div
+      className="panel-title"
     >
       <div
-        className="theme-panel-title panel-title"
+        className="theme-panel-heading panel-heading"
       >
-        <div
-          className="theme-group theme-col-2"
+        <button
+          className="theme-panel-title panel-title btn btn-link"
+          disabled={false}
+          onClick={[MockFunction]}
+          type="button"
         >
           <div
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
+            className="theme-panel-title panel-title"
           >
-            Version 1 Version 1
+            <div
+              className="theme-group theme-col-2"
+            >
+              <div
+                className="theme-undefined"
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+              >
+                Version 1 Version 1
+              </div>
+              <div
+                className="theme-undefined"
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+              >
+                (Read Only)
+              </div>
+            </div>
+            <div
+              className="theme-undefined theme-col-2"
+            >
+              <div
+                className="theme-undefined"
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+              >
+                03/02/2017 14:44:55
+              </div>
+            </div>
           </div>
-          <div
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            (Read Only)
-          </div>
-        </div>
-        <div
-          className="theme-undefined theme-col-2"
-        >
-          <div
-            className="theme-undefined"
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-          >
-            03/02/2017 14:44:55
-          </div>
-        </div>
+        </button>
       </div>
-    </button>
+    </div>
   </div>
   <div
-    className="panel panel-default"
-  />
+    aria-expanded={null}
+    className="panel-collapse collapse"
+  >
+    <div
+      className="panel-body"
+    />
+  </div>
 </div>
 `;

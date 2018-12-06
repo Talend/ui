@@ -61,17 +61,6 @@ $tc-toggle-color: #555964 !default;
 .tc-collapsible-panel {
 	position: relative;
 
-	&:hover {
-		.panel-heading {
-			background: $white;
-			cursor: pointer;
-		}
-
-		:global(.tc-status-label) {
-			text-decoration: underline;
-		}
-	}
-
 	&.selected {
 		border-left: 5px solid $brand-primary;
 		padding-left: 1px;
@@ -135,6 +124,22 @@ $tc-toggle-color: #555964 !default;
 		display: flex;
 	}
 
+	:global {
+		.panel-heading {
+			padding-top: 0;
+			padding-bottom: 0;
+
+			&:hover {
+				background: $white;
+				cursor: pointer;
+
+				.tc-status-label {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+
 	.panel-heading {
 		display: flex;
 		justify-content: space-between;
@@ -171,8 +176,6 @@ $tc-toggle-color: #555964 !default;
 .default-panel {
 	.panel-heading {
 		.panel-title {
-			flex-basis: calc(100% - 35px);
-
 			:global(.label) {
 				padding: 0.3em 0.6em;
 			}
@@ -243,12 +246,16 @@ $tc-toggle-color: #555964 !default;
 	}
 
 	:global(.panel-heading) {
-		background-color: white;
+		padding: 0;
+		background-color: $white;
 		border-color: transparent;
 	}
 
 	.group {
 		justify-content: flex-start;
+		> * {
+			margin-right: 0.5rem;
+		}
 	}
 
 	.title {
@@ -260,9 +267,8 @@ $tc-toggle-color: #555964 !default;
 	}
 
 	.tag {
-		margin-left: 2px;
 		white-space: nowrap;
-		font-size: 12px;
+		font-size: 1.2rem;
 	}
 
 	.detail {

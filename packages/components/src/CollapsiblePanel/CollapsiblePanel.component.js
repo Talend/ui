@@ -209,24 +209,8 @@ function getTextualContent(content) {
 	);
 }
 
-/**
- * Show collapsible panels
- * @example
- *
- * @param header required, an array gathering the header elements except the caret
- * @param onSelect optional, on header click callback function
- * @param onToggle optional, on caret click callback function
- * @param expanded optional, defines if the panel should be expanded or not
- * @param theme optional, defines the theme of the collapsible, there is a default theme
- * @param status optional, defines the status of the panel
- * @param content optional, defines the content of the panel's body:
- * if content is an array a key value content list is rendered otherwise it is a textual content
- *
- * @example
- * <CollapsiblePanel {...props} />
- */
 function CollapsiblePanel(props) {
-	const { content, id, status, expanded, theme } = props;
+	const { content, id, onToggle, status, expanded, theme } = props;
 	const className = classNames('panel panel-default', css['tc-collapsible-panel'], {
 		[css['default-panel']]: !theme,
 		[css[theme]]: !!theme,
@@ -240,13 +224,19 @@ function CollapsiblePanel(props) {
 		children = Array.isArray(content) ? getKeyValueContent(content) : getTextualContent(content);
 	}
 	return (
-		<div className={className}>
-			<CollapsiblePanelHeader {...props} />
-			<Panel id={id} collapsible={!!content || !!props.children} expanded={expanded}>
-				{children}
-				{props.children}
-			</Panel>
-		</div>
+		<Panel id={id} className={className} expanded={expanded} onToggle={onToggle}>
+			<Panel.Heading>
+				<Panel.Title toggle={(content || props.children) && !onToggle}>
+					<CollapsiblePanelHeader {...props} />
+				</Panel.Title>
+			</Panel.Heading>
+			<Panel.Collapse>
+				<Panel.Body>
+					{children}
+					{props.children}
+				</Panel.Body>
+			</Panel.Collapse>
+		</Panel>
 	);
 }
 
@@ -257,6 +247,10 @@ CollapsiblePanel.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
 	CollapsiblePanelHeader.propTypes = {
+		/** Content of the panel's body
+		 *  If content is an array a key value content list is rendered
+		 *  otherwise it is a textual content
+		 */
 		content: PropTypes.oneOfType([
 			PropTypes.arrayOf(
 				PropTypes.shape({
@@ -269,17 +263,23 @@ if (process.env.NODE_ENV !== 'production') {
 				description: PropTypes.string,
 			}),
 		]),
+		/** Expanded state for controlled panel */
 		expanded: PropTypes.bool,
+		/** Header elements */
 		header: PropTypes.arrayOf(renderHeaderItem.propTypes).isRequired,
 		id: PropTypes.string.isRequired,
+		/** Header click callback function */
 		onSelect: PropTypes.func,
+		/** Caret click callback function, needed for controlled panel */
 		onToggle: PropTypes.func,
 		t: PropTypes.func.isRequired,
 	};
 
 	CollapsiblePanel.propTypes = {
 		...CollapsiblePanelHeader.propTypes,
+		/** Apply a status style */
 		status: PropTypes.string,
+		/** Styling theme to apply */
 		theme: PropTypes.string,
 	};
 }
