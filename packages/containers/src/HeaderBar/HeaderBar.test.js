@@ -75,6 +75,29 @@ describe('Container HeaderBar', () => {
 		expect(wrapper.props().products.items[2].label).toEqual('Zeta');
 	});
 
+	it('should use the provided prepare method to make a final preparation of the items', () => {
+		const props = {
+			...containerProps,
+			productsItems: [
+				{
+					id: 'foo',
+					icon: 'icon',
+					name: 'Foo',
+					url: 'http://foo.bar',
+				},
+			],
+			prepareProducts: jest.fn(products => products),
+			state: new Map({
+				productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS,
+			}),
+		};
+
+		const wrapper = shallow(<Container {...props} />);
+		expect(wrapper.props().products.items).toHaveLength(1);
+		expect(wrapper.props().products.items[0].label).toEqual('Foo');
+		expect(props.prepareProducts).toHaveBeenCalled();
+	});
+
 	it('should render HeaderBar container while fetching items', () => {
 		const props = {
 			...containerProps,
