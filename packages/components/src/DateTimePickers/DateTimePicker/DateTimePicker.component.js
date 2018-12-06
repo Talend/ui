@@ -8,19 +8,9 @@ import DateTimeView from '../views/DateTimeView';
 import MonthYearView from '../views/MonthYearView';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 
-const warnOnce = {};
-
 class DateTimePicker extends React.Component {
 	constructor(props) {
 		super(props);
-
-		if (!warnOnce.unstable) {
-			// eslint-disable-next-line
-			console.warn(
-				"UNSTABLE WARNING: The 'DateTimePicker' and all the sub components aren't ready to be used in Apps. Code can (will) change outside the release process until it's ready.",
-			);
-			warnOnce.unstable = true;
-		}
 
 		const selectedDate = props.selection.date;
 		const selectedTime = props.selection.time;
@@ -157,6 +147,8 @@ class DateTimePicker extends React.Component {
 					selectedDate={this.state.selectedDate}
 					selectedTime={this.state.selectedTime}
 					useSeconds={this.props.useSeconds}
+					useTime={this.props.useTime}
+					useUTC={this.props.useUTC}
 				/>
 			);
 		} else {
@@ -213,6 +205,14 @@ DateTimePicker.propTypes = {
 	 * Display the seconds
 	 */
 	useSeconds: PropTypes.bool,
+	/**
+	 * Display time picker
+	 */
+	useTime: PropTypes.bool,
+	/**
+	 * Timezone is UTC
+	 */
+	useUTC: PropTypes.bool,
 };
 
 DateTimePicker.defaultProps = {

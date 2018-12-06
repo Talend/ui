@@ -6,11 +6,9 @@ exports[`Filter should render 1`] = `
   className=""
   hideLabel={true}
   icon="talend-search"
-  id={undefined}
   label="Toggle filter"
-  onClick={[Function]}
+  onClick={[MockFunction]}
   role="search"
-  tooltipPlacement={undefined}
 />
 `;
 
@@ -29,27 +27,19 @@ exports[`Filter should render filter input with default placeholder 1`] = `
     />
     <FilterInput
       autoFocus={true}
-      debounceMinLength={undefined}
-      debounceTimeout={undefined}
       dockable={true}
-      id={undefined}
       onBlur={[Function]}
       onFilter={[Function]}
       onFocus={[Function]}
-      onToggle={undefined}
       placeholder="Filter"
       t={[Function]}
-      value={undefined}
     />
     <Action
       bsStyle="link"
       className="theme-remove"
       hideLabel={true}
       icon="talend-cross"
-      id={undefined}
       label="Remove filter"
-      onClick={undefined}
-      tooltipPlacement={undefined}
     />
   </div>
 </form>
@@ -70,27 +60,19 @@ exports[`Filter should render filter input with given placeholder 1`] = `
     />
     <FilterInput
       autoFocus={true}
-      debounceMinLength={undefined}
-      debounceTimeout={undefined}
       dockable={true}
-      id={undefined}
       onBlur={[Function]}
       onFilter={[Function]}
       onFocus={[Function]}
-      onToggle={undefined}
       placeholder="find something"
       t={[Function]}
-      value={undefined}
     />
     <Action
       bsStyle="link"
       className="theme-remove"
       hideLabel={true}
       icon="talend-cross"
-      id={undefined}
       label="Remove filter"
-      onClick={undefined}
-      tooltipPlacement={undefined}
     />
   </div>
 </form>
@@ -102,11 +84,9 @@ exports[`Filter should render highlighted filter 1`] = `
   className=""
   hideLabel={true}
   icon="talend-search"
-  id={undefined}
   label="Toggle filter"
-  onClick={[Function]}
+  onClick={[MockFunction]}
   role="search"
-  tooltipPlacement={undefined}
 />
 `;
 
@@ -118,9 +98,8 @@ exports[`Filter should render id if provided 1`] = `
   icon="talend-search"
   id="toolbar-filter"
   label="Toggle filter"
-  onClick={[Function]}
+  onClick={[MockFunction]}
   role="search"
-  tooltipPlacement={undefined}
 />
 `;
 
@@ -130,10 +109,8 @@ exports[`Filter should render only toggle icon 1`] = `
   className=""
   hideLabel={true}
   icon="talend-search"
-  id={undefined}
   label="Toggle filter"
-  onClick={[Function]}
+  onClick={[MockFunction]}
   role="search"
-  tooltipPlacement={undefined}
 />
 `;

@@ -6,13 +6,16 @@ import YearPicker from '../../pickers/YearPicker';
 import theme from './MonthYearView.scss';
 import ViewLayout from '../ViewLayout';
 import HeaderTitle from '../HeaderTitle';
+import getDefaultT from '../../../translate';
 
 function MonthYearView(props) {
 	const header = {
 		leftElement: (
 			<Action
 				label=""
-				aria-label="Switch back to date and time pickers view"
+				aria-label={props.t('DATEPICKER_TO_DATE_VIEW', {
+					defaultValue: 'Switch back to date and time pickers view',
+				})}
 				icon="talend-arrow-left"
 				onClick={props.onBackClick}
 				tabIndex={props.allowFocus ? 0 : -1}
@@ -28,6 +31,7 @@ function MonthYearView(props) {
 				<MonthPicker
 					allowFocus={props.allowFocus}
 					selectedMonthIndex={props.selectedMonthIndex}
+					selectedYear={props.selectedYear}
 					onSelect={props.onSelectMonth}
 				/>
 			</div>
@@ -51,6 +55,11 @@ MonthYearView.propTypes = {
 	onBackClick: PropTypes.func.isRequired,
 	onSelectMonth: PropTypes.func.isRequired,
 	onSelectYear: PropTypes.func.isRequired,
+	t: PropTypes.func.isRequired,
+};
+
+MonthYearView.defaultProps = {
+	t: getDefaultT(),
 };
 
 export default MonthYearView;

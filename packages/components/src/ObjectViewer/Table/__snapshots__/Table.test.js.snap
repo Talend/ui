@@ -37,7 +37,6 @@ exports[`Table should render Table with props data as an array 1`] = `
         headers="my-viewer-field0"
       >
         <Translate(TreeGesture(JSONLike))
-          data={undefined}
           id="my-viewer"
           jsonpath="$[1]['field0']"
           nativeValueClassName="theme-nativevalue"
@@ -92,7 +91,6 @@ exports[`Table should render Table with props data as an object 1`] = `
         headers="my-viewer-field0"
       >
         <Translate(TreeGesture(JSONLike))
-          data={undefined}
           id="my-viewer"
           jsonpath="$[1]['field0']"
           nativeValueClassName="theme-nativevalue"
@@ -122,9 +120,7 @@ exports[`Table should render if data is empty 1`] = `
       </th>
     </tr>
   </thead>
-  <tbody>
-    
-  </tbody>
+  <tbody />
 </table>
 `;
 
@@ -134,28 +130,28 @@ exports[`buildContentHeaders should return a jsx array with a type 1`] = `
 Array [
   <th
     id="myHeader1Id"
->
+  >
     <div>
-        myHeader1
+      myHeader1
     </div>
     <div
-        className="text-right"
+      className="text-right"
     >
-        type1
+      type1
     </div>
-</th>,
+  </th>,
   <th
     id="myHeader2Id"
->
+  >
     <div>
-        myHeader2
+      myHeader2
     </div>
     <div
-        className="text-right"
+      className="text-right"
     >
-        type2
+      type2
     </div>
-</th>,
+  </th>,
 ]
 `;
 
@@ -163,13 +159,13 @@ exports[`buildContentHeaders should return a jsx array with no type 1`] = `
 Array [
   <th
     id="myHeader1Id"
->
+  >
     myHeader1
-</th>,
+  </th>,
   <th
     id="myHeader2Id"
->
+  >
     myHeader2
-</th>,
+  </th>,
 ]
 `;

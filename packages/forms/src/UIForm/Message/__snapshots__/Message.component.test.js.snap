@@ -4,14 +4,14 @@ exports[`Message component should render nothing when field is valid and no desc
 <div>
   <p
     className="help-block"
-    id={undefined}
   />
   <p
     aria-live="assertive"
     className="help-block"
-    id={undefined}
     role="status"
-  />
+  >
+    
+  </p>
 </div>
 `;
 
@@ -19,29 +19,31 @@ exports[`Message component should render provided description and no error if th
 <div>
   <p
     className="help-block"
-    id={undefined}
   >
     My description
   </p>
   <p
     aria-live="assertive"
     className="help-block"
-    id={undefined}
     role="status"
-  />
+  >
+    
+  </p>
 </div>
 `;
 
 exports[`Message component should render provided error message and no description if the field is invalid 1`] = `
-<div>
+<div
+  className="has-error"
+>
   <p
     className="help-block"
-    id={undefined}
-  />
+  >
+    
+  </p>
   <p
     aria-live="assertive"
     className="help-block"
-    id={undefined}
     role="status"
   >
     My error message

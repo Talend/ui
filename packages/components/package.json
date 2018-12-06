@@ -17,17 +17,8 @@
     "start": "start-storybook -p 6006",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "watch": "npm-watch",
     "cpx": "cpx \"./src/**/*.scss\" ./lib",
     "parse-i18n": "i18next ./src -r -o ../../i18n/components --fileFilter \"*.js\" --default-values"
-  },
-  "watch": {
-    "prepublish": {
-      "patterns": [
-        "src/**/*"
-      ],
-      "extensions": "js,scss"
-    }
   },
   "keywords": [
     "react",
@@ -49,14 +40,14 @@
     "date-fns": "^1.27.2",
     "immutable": "^3.8.1",
     "lodash": "^4.17.4",
-    "rc-slider": "8.6.1",
-    "rc-tooltip": "3.7.2",
-    "react-autowhatever": "10.1.2",
+    "rc-slider": "8.6.3",
+    "rc-tooltip": "3.7.3",
+    "react-autowhatever": "10.2.0",
     "react-debounce-input": "3.2.0",
     "react-dnd": "^2.5.4",
     "react-dnd-html5-backend": "^2.5.4",
     "react-immutable-proptypes": "^2.1.0",
-    "react-virtualized": "9.19.1",
+    "react-virtualized": "9.21.0",
     "simulant": "^0.2.2"
   },
   "devDependencies": {
@@ -66,13 +57,13 @@
     "@storybook/addon-info": "^3.4.7",
     "@storybook/addon-storyshots": "^3.4.7",
     "@storybook/react": "^3.4.7",
-    "@talend/bootstrap-theme": "^1.8.0",
-    "@talend/icons": "^1.8.0",
+    "@talend/bootstrap-theme": "^1.10.0-1",
+    "@talend/icons": "^1.10.0-1",
     "autoprefixer": "^7.1.4",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "8.0.1",
-    "babel-jest": "20.0.3",
+    "babel-jest": "^23.6.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-assign": "^6.22.0",
@@ -99,12 +90,11 @@
     "i18next": "^9.0.0",
     "i18next-parser": "^0.13.0",
     "invariant": "^2.2.2",
-    "jest": "20.0.3",
+    "jest": "^23.6.0",
     "jest-in-case": "^1.0.2",
     "jsdom": "^11.11.0",
     "keycode": "^2.2.0",
     "node-sass": "^4.7.2",
-    "npm-watch": "^0.1.6",
     "postcss-loader": "^2.0.8",
     "prop-types": "^15.5.10",
     "react": "^16.0.0",
@@ -125,8 +115,8 @@
     "uuid": "^3.0.1"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "^1.8.0",
-    "@talend/icons": "^1.8.0",
+    "@talend/bootstrap-theme": "^1.10.0-1",
+    "@talend/icons": "^1.10.0-1",
     "bootstrap-sass": "3.3.7",
     "classnames": "^2.2.5",
     "d3-shape": "1.2.0",
@@ -164,5 +154,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.8.0"
+  "version": "1.10.0-1"
 }

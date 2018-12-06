@@ -7,7 +7,6 @@ exports[`getActions should render some action 1`] = `
   <Action
     className="theme-tc-slider-captions-element tc-slider-captions-element"
     data-feature="action"
-    disabled={undefined}
     hideLabel={true}
     icon="talend-smiley-angry"
     id="icon1"
@@ -18,7 +17,6 @@ exports[`getActions should render some action 1`] = `
   <Action
     className="theme-tc-slider-captions-element tc-slider-captions-element"
     data-feature="action"
-    disabled={undefined}
     hideLabel={true}
     icon="talend-smiley-neutral"
     id="icon2"
@@ -29,7 +27,6 @@ exports[`getActions should render some action 1`] = `
   <Action
     className="theme-tc-slider-captions-element tc-slider-captions-element theme-selected selected"
     data-feature="action"
-    disabled={undefined}
     hideLabel={true}
     icon="talend-smiley-satisfied"
     id="icon3"

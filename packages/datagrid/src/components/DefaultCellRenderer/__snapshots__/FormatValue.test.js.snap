@@ -27,7 +27,7 @@ exports[`FormatValue should replace the leading/trainling white space and the li
       name="talend-carriage-return"
     />
     
-    
+
   </span>
   <Icon
     aria-label="white space character"

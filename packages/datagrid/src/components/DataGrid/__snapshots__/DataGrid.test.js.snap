@@ -22,8 +22,6 @@ exports[`#DataGrid should render DataGrid 1`] = `
     onGridReady={[Function]}
     onViewportChanged={[Function]}
     onVirtualColumnsChanged={[Function]}
-    overlayNoRowsTemplate={undefined}
-    rowBuffer={undefined}
     rowData={Array []}
     rowHeight={39}
     rowSelection="single"
@@ -148,8 +146,6 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
     onGridReady={[Function]}
     onViewportChanged={[Function]}
     onVirtualColumnsChanged={[Function]}
-    overlayNoRowsTemplate={undefined}
-    rowBuffer={undefined}
     rowData={
       Array [
         Object {

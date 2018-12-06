@@ -51,7 +51,7 @@ This preset allows some customisation through specific entry points. The configu
 }
 ```
 
-All those options are passed as `html-webpack-plugin` options. It goes in pair with your index.html template.  
+All those options are passed as `html-webpack-plugin` options. It goes in pair with your index.html template.
 By default, your html template is located in `src/app/index.html`, which can be overridden with the preset html configuration.
 
 ```json
@@ -139,9 +139,23 @@ Talend preset integrates `cmf-webpack-plugin`. By default it is active, it is po
   "cmf": false
 }
 ```
- 
+
 It has an incompatibility with `copy-webpack-plugin`. To use it correctly
 
 1. Create your `settings.json`, be careful not to create it in one of the folders copied by `copy-webpack-plugin`. Otherwise the merge will be overridden.
 2. Create a `cmf.json` at your app root folder and configure it. *Important* : remove the destination property. `cmf-webpack-plugin` will output the result in a `settings.json` in the webpack output folder.
 3. In your cmf app index file, you can fetch the settings from `/settings.json`.
+
+## Babelrc
+
+You can use your own babelrc if you want but please extends our babelrc in that case.
+
+```json
+{
+  "extends": "node_modules/@talend/scripts/preset/config/babelrc.json",
+  ...
+}
+```
+
+If you don't do so the app will fail in Error describe the above need.
+Also please be sure to have read that file.

@@ -16,7 +16,6 @@ exports[`title-bar 1`] = `
       aria-label="Toggle filter"
       className="tc-string-filter tc-filter theme-tc-filter name-filter btn-icon-only btn btn-link"
       disabled={false}
-      id={undefined}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
@@ -40,7 +39,6 @@ exports[`title-bar 1`] = `
       className="checkbox tc-toggle tc-boolean-filter tc-filter theme-tc-filter mandatory-field-filter"
     >
       <label
-        data-feature={undefined}
         htmlFor="mandatory-field-filter"
       >
         <input

@@ -4,7 +4,6 @@ exports[`CodeWidget should render ReactAce 1`] = `
 <ReactAce
   className="tf-widget-code form-control"
   cursorStart={1}
-  disabled={undefined}
   editorProps={Object {}}
   enableBasicAutocompletion={false}
   enableLiveAutocompletion={false}

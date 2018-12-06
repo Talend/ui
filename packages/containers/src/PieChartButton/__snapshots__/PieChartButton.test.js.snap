@@ -3,8 +3,6 @@
 exports[`PieChartButton container should render 1`] = `
 <PieChartButton
   available={true}
-  inProgress={undefined}
-  loading={undefined}
   model={
     Array [
       Object {
@@ -39,8 +37,6 @@ exports[`PieChartButton container should render 1`] = `
 exports[`PieChartButton container should render 2`] = `
 <PieChartButton
   available={true}
-  inProgress={undefined}
-  loading={undefined}
   model={
     Array [
       Object {

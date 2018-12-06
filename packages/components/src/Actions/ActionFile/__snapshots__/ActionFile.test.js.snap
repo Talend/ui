@@ -1,15 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ActionFile should apply transformation on icon 1`] = `
-<span
-  className={undefined}
->
+<span>
   <input
-    accept={undefined}
     className="theme-action-file-input sr-only"
     disabled={false}
     id={42}
-    name={undefined}
     onChange={[Function]}
     type="file"
   />
@@ -33,11 +29,9 @@ exports[`ActionFile should display a Progress indicator if set 1`] = `
   className="navbar-btn"
 >
   <input
-    accept={undefined}
     className="theme-action-file-input sr-only"
     disabled={true}
     id={42}
-    name={undefined}
     onChange={[Function]}
     type="file"
   />
@@ -60,11 +54,9 @@ exports[`ActionFile should display a disabled Icon 1`] = `
   className="navbar-btn"
 >
   <input
-    accept={undefined}
     className="theme-action-file-input sr-only"
     disabled={true}
     id={42}
-    name={undefined}
     onChange={[Function]}
     type="file"
   />
@@ -74,7 +66,6 @@ exports[`ActionFile should display a disabled Icon 1`] = `
   >
     <Icon
       name="talend-caret-down"
-      transform={undefined}
     />
     <span>
       Click me
@@ -88,11 +79,9 @@ exports[`ActionFile should pass all props to the Button 1`] = `
   className="navbar-btn"
 >
   <input
-    accept={undefined}
     className="theme-action-file-input sr-only"
     disabled={false}
     id={42}
-    name={undefined}
     onChange={[Function]}
     type="file"
   />
@@ -102,7 +91,6 @@ exports[`ActionFile should pass all props to the Button 1`] = `
   >
     <Icon
       name="talend-caret-down"
-      transform={undefined}
     />
     <span>
       Click me
@@ -112,15 +100,11 @@ exports[`ActionFile should pass all props to the Button 1`] = `
 `;
 
 exports[`ActionFile should render a div with a input[type="file"] and a label to mimic a button 1`] = `
-<span
-  className={undefined}
->
+<span>
   <input
-    accept={undefined}
     className="theme-action-file-input sr-only"
     disabled={false}
     id={42}
-    name={undefined}
     onChange={[Function]}
     type="file"
   />
@@ -130,7 +114,6 @@ exports[`ActionFile should render a div with a input[type="file"] and a label to
   >
     <Icon
       name="talend-caret-down"
-      transform={undefined}
     />
     <span>
       Click me
@@ -144,11 +127,9 @@ exports[`ActionFile should render a div with a input[type="file"] with some clas
   className="testClassName"
 >
   <input
-    accept={undefined}
     className="theme-action-file-input sr-only"
     disabled={false}
     id={42}
-    name={undefined}
     onChange={[Function]}
     type="file"
   />
@@ -158,7 +139,6 @@ exports[`ActionFile should render a div with a input[type="file"] with some clas
   >
     <Icon
       name="talend-caret-down"
-      transform={undefined}
     />
     <span>
       Click me
@@ -168,11 +148,8 @@ exports[`ActionFile should render a div with a input[type="file"] with some clas
 `;
 
 exports[`ActionFile should render action with html property name = props.name if set 1`] = `
-<span
-  className={undefined}
->
+<span>
   <input
-    accept={undefined}
     className="theme-action-file-input sr-only"
     disabled={false}
     id={42}
@@ -186,7 +163,6 @@ exports[`ActionFile should render action with html property name = props.name if
   >
     <Icon
       name="talend-caret-down"
-      transform={undefined}
     />
     <span>
       Click me
@@ -196,15 +172,11 @@ exports[`ActionFile should render action with html property name = props.name if
 `;
 
 exports[`ActionFile should reverse icon/label 1`] = `
-<span
-  className={undefined}
->
+<span>
   <input
-    accept={undefined}
     className="theme-action-file-input sr-only"
     disabled={false}
     id={42}
-    name={undefined}
     onChange={[Function]}
     type="file"
   />
@@ -217,7 +189,6 @@ exports[`ActionFile should reverse icon/label 1`] = `
     </span>
     <Icon
       name="talend-caret-down"
-      transform={undefined}
     />
   </label>
 </span>
