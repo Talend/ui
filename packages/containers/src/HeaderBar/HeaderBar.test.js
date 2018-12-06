@@ -86,9 +86,9 @@ describe('Container HeaderBar', () => {
 					url: 'http://foo.bar',
 				},
 			],
-			prepareProducts: jest.fn(products => products.map(
-				product => ({ ...product, label: `${product.label} and bar` })
-			)),
+			prepareProducts: jest.fn(products =>
+				products.map(product => ({ ...product, label: `${product.label} and bar` })),
+			),
 			state: new Map({
 				productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS,
 			}),
