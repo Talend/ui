@@ -2,35 +2,55 @@
 import '@babel/polyfill';
 import 'isomorphic-fetch';
 import 'raf/polyfill';
-import i18next from 'i18next';
+// import i18next from 'i18next';
 import { reactI18nextModule } from 'react-i18next';
 import { Headers } from 'node-fetch';
 import { configure } from 'enzyme';
 import dateMock from './mocks/dateMock';
 
-i18next.use(reactI18nextModule).init(
-	{
-		lng: 'en',
-		debug: false,
-		resources: { en: {} },
-	},
-	function onInit(err, t) {
-		if (err) {
-			console.error(err);
-		}
-		global.I18NEXT_T = t;
-	},
-);
-beforeAll((done) => {
-	if (global.I18NEXT_T === undefined) {
-		const stop = setInterval(() => {
-			if (global.I18NEXT_T) {
-				clearInterval(stop);
-				done();
+/**
+ * lets mock i18next for all tests
+ */
+jest.mock('i18next', () => {
+	const i18n = {
+		t: (msg, options) => {
+			let buff = options.defaultValue || msg;
+			const split = buff.split('}}');
+			if (split.length > 1) {
+				buff = split.reduce((acc, current) => {
+					const sub = current.split('{{');
+					let value = sub.length > 1 ? options[sub[1]] : '';
+					if (value === undefined) {
+						value = '';
+					}
+					// console.log(`t(${sub[0]}, ${sub[1]})`);
+					return `${acc}${sub[0]}${value}`;
+				}, '');
 			}
-		}, 100);
-	}
-	done();
+			return buff;
+		},
+		getFixedT: () => i18n.t,
+		options: {},
+		language: 'en',
+		languages: ['en'],
+		isInitialized: true,
+		on: (type, cb) => {},
+		off: (type, cb) => {},
+		loadNamespaces: () => {},
+		hasResourceBundle: () => false,
+		services: {
+			resourceStore: {
+				data: {},
+			},
+		},
+		changeLanguage: () => {},
+	};
+	i18n.init = () => {};
+	return {
+		default: i18n,
+		createInstance: () => i18n,
+		...i18n,
+	};
 });
 
 function getMajorVersion() {

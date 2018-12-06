@@ -32,7 +32,7 @@
   "homepage": "https://github.com/Talend/ui/cmf-cqrs#readme",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "hoist-non-react-statics": "^1.2.0",
+    "hoist-non-react-statics": "2.5.5",
     "mock-socket": "^7.0.0"
   },
   "devDependencies": {

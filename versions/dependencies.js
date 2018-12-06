@@ -22,6 +22,7 @@ module.exports = {
 	classnames: '^2.2.5',
 	'date-fns': '^1.27.2',
 	keycode: '^2.2.0',
+	'hoist-non-react-statics': '2.5.5',
 	immutable: '^3.8.1',
 	immutablediff: '^0.4.4',
 	invariant: '^2.2.2',

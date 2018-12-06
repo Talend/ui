@@ -77,7 +77,7 @@
     "bson-objectid": "^1.1.5",
     "classnames": "^2.2.5",
     "deepmerge": "^1.5.1",
-    "hoist-non-react-statics": "^1.2.0",
+    "hoist-non-react-statics": "2.5.5",
     "immutable": "^3.8.1",
     "invariant": "^2.2.2",
     "jsonpath": "^1.0.0",

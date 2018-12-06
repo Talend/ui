@@ -326,7 +326,7 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
   i18n={Object {}}
   lng="en"
   t={[Function]}
-  tReady={true}
+  tReady={false}
 >
   <div
     className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
@@ -403,7 +403,7 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
                   lng="en"
                   loading={false}
                   t={[Function]}
-                  tReady={true}
+                  tReady={false}
                   tooltipPlacement="top"
                 >
                   <Button

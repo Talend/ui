@@ -78,7 +78,7 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
   label="related items"
   lng="en"
   t={[Function]}
-  tReady={true}
+  tReady={false}
   tooltipPlacement="top"
 >
   <DropdownButton
@@ -1263,7 +1263,7 @@ exports[`ActionDropdown should render immutable items 1`] = `
   label="related items"
   lng="en"
   t={[Function]}
-  tReady={true}
+  tReady={false}
   tooltipPlacement="top"
 >
   <DropdownButton
@@ -1572,7 +1572,7 @@ exports[`ActionDropdown should render loader item 1`] = `
                 lng="en"
                 size="default"
                 t={[Function]}
-                tReady={true}
+                tReady={false}
               >
                 <svg
                   aria-busy="true"
@@ -1773,7 +1773,7 @@ exports[`ActionDropdown should render loader item below existing items 1`] = `
                 lng="en"
                 size="default"
                 t={[Function]}
-                tReady={true}
+                tReady={false}
               >
                 <svg
                   aria-busy="true"

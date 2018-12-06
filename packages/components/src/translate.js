@@ -1,5 +1,10 @@
-import i18next, { createInstance } from 'i18next';
+import * as i18next from 'i18next';
 import { setI18n, getI18n } from 'react-i18next';
+
+// https://github.com/i18next/i18next/issues/936#issuecomment-307550677
+if (i18next.createInstance) {
+	setI18n(i18next.createInstance({}, () => {}));
+}
 
 export default function getDefaultT() {
 	const i18n = getI18n();
@@ -14,10 +19,4 @@ export function getCurrentLanguage() {
 		return i18next.language;
 	}
 	return 'en';
-}
-// https://github.com/i18next/i18next/issues/936#issuecomment-307550677
-if (createInstance) {
-	setI18n(createInstance({}, () => {}));
-} else {
-	console.error('createInstance is undefined');
 }
