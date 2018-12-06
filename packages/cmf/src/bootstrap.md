@@ -21,7 +21,7 @@ cmf.bootstrap({
 
 | name | type | default | description |
 | -- | -- | -- | -- |
-| settingsURL | string | '/settings.json' | REQUIRED This URL to fetch the cmf settings.json file |
+| settingsURL | string | '/settings.json' | URL to fetch the cmf settings.json file |
 | appId | string | 'app' | DOM element id, where to render the React application |
 | history | Object | `{ hashHistory } from 'react-router'` | The history object to control the router |
 | components | Object | undefined | A components dictionary where each key/value are registered in cmf registry so you can refer them in settings |
