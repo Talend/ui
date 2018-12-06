@@ -48,7 +48,7 @@
     "@talend/react-cmf": "1.10.0-1",
     "@talend/react-components": "1.10.0-1",
     "@talend/react-forms": "1.10.0-1",
-    "@talend/react-storybook-cmf": "^1.9.0",
+    "@talend/react-storybook-cmf": "1.10.0-1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^23.6.0",
