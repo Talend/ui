@@ -15,5 +15,5 @@ SEMVER WARNING: Recommended action is a potentially breaking change
 └───────────────┴──────────────────────────────────────────────────────────────┘
 
 
-found 1 high severity vulnerability in 61833 scanned packages
+found 1 high severity vulnerability in 61859 scanned packages
   1 vulnerability requires semver-major dependency updates.
