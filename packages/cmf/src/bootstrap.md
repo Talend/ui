@@ -5,16 +5,15 @@ This api help you to start without importing anything except your code and cmf i
 Quick start:
 
 ```javascript
+// /src/app/index.js
 import cmf from '@talend/react-cmf';
 import components from './components';
 import sagas from './sagas';
 
-configure.initialize();
 cmf.bootstrap({
 	components,
-	saga: sagas.appSaga, // function* appSaga() {...}
-	sagaRouterConfig: sagas.routes, // { '/foo/bar': function* bar() {...}, ... },
-	...manyMoreOptions
+	saga: sagas.appSaga,
+	sagaRouterConfig: sagas.routes,
 });
 ```
 
