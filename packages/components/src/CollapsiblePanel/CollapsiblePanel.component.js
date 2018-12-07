@@ -249,7 +249,7 @@ CollapsiblePanel.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
 	CollapsiblePanelHeader.propTypes = {
-		/** Content of the panel's body
+		/** Content of the panel body
 		 *  If content is an array a key value content list is rendered
 		 *  otherwise it is a textual content
 		 */
