@@ -54,9 +54,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   84:2  error  'onKeyDown' is not defined    no-undef
   94:2  error  'onKeyUp' is not defined      no-undef
 
-/home/travis/build/Talend/ui/packages/components/src/translate.js
-  22:2  warning  Unexpected console statement  no-console
-
 /home/travis/build/Talend/ui/packages/components/src/TreeView/TreeViewItem/TreeViewItem.component.js
   61:9  error  'propTypes' is not defined     no-undef
   88:9  error  'defaultProps' is not defined  no-undef
@@ -67,5 +64,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 33 problems (31 errors, 2 warnings)
+✖ 32 problems (31 errors, 1 warning)
 
