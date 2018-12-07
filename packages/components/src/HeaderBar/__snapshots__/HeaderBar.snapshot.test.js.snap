@@ -840,31 +840,11 @@ exports[`Storyshots HeaderBar default 1`] = `
                 Object {
                   "changeLanguage": [Function],
                   "createInstance": [Function],
-                  "default": Object {
-                    "changeLanguage": [Function],
-                    "getFixedT": [Function],
-                    "hasResourceBundle": [Function],
-                    "init": [Function],
-                    "isInitialized": true,
-                    "language": "en",
-                    "languages": Array [
-                      "en",
-                    ],
-                    "loadNamespaces": [Function],
-                    "off": [Function],
-                    "on": [Function],
-                    "options": Object {},
-                    "services": Object {
-                      "resourceStore": Object {
-                        "data": Object {},
-                      },
-                    },
-                    "t": [Function],
-                  },
                   "getFixedT": [Function],
                   "hasResourceBundle": [Function],
                   "init": [Function],
                   "isInitialized": true,
+                  "isMock": true,
                   "language": "en",
                   "languages": Array [
                     "en",
@@ -877,6 +857,11 @@ exports[`Storyshots HeaderBar default 1`] = `
                     "resourceStore": Object {
                       "data": Object {},
                     },
+                  },
+                  "store": Object {
+                    "data": Object {},
+                    "off": [Function],
+                    "on": [Function],
                   },
                   "t": [Function],
                 }
@@ -1074,31 +1059,11 @@ exports[`Storyshots HeaderBar default 1`] = `
               Object {
                 "changeLanguage": [Function],
                 "createInstance": [Function],
-                "default": Object {
-                  "changeLanguage": [Function],
-                  "getFixedT": [Function],
-                  "hasResourceBundle": [Function],
-                  "init": [Function],
-                  "isInitialized": true,
-                  "language": "en",
-                  "languages": Array [
-                    "en",
-                  ],
-                  "loadNamespaces": [Function],
-                  "off": [Function],
-                  "on": [Function],
-                  "options": Object {},
-                  "services": Object {
-                    "resourceStore": Object {
-                      "data": Object {},
-                    },
-                  },
-                  "t": [Function],
-                },
                 "getFixedT": [Function],
                 "hasResourceBundle": [Function],
                 "init": [Function],
                 "isInitialized": true,
+                "isMock": true,
                 "language": "en",
                 "languages": Array [
                   "en",
@@ -1111,6 +1076,11 @@ exports[`Storyshots HeaderBar default 1`] = `
                   "resourceStore": Object {
                     "data": Object {},
                   },
+                },
+                "store": Object {
+                  "data": Object {},
+                  "off": [Function],
+                  "on": [Function],
                 },
                 "t": [Function],
               }
@@ -1630,31 +1600,11 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 Object {
                   "changeLanguage": [Function],
                   "createInstance": [Function],
-                  "default": Object {
-                    "changeLanguage": [Function],
-                    "getFixedT": [Function],
-                    "hasResourceBundle": [Function],
-                    "init": [Function],
-                    "isInitialized": true,
-                    "language": "en",
-                    "languages": Array [
-                      "en",
-                    ],
-                    "loadNamespaces": [Function],
-                    "off": [Function],
-                    "on": [Function],
-                    "options": Object {},
-                    "services": Object {
-                      "resourceStore": Object {
-                        "data": Object {},
-                      },
-                    },
-                    "t": [Function],
-                  },
                   "getFixedT": [Function],
                   "hasResourceBundle": [Function],
                   "init": [Function],
                   "isInitialized": true,
+                  "isMock": true,
                   "language": "en",
                   "languages": Array [
                     "en",
@@ -1667,6 +1617,11 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                     "resourceStore": Object {
                       "data": Object {},
                     },
+                  },
+                  "store": Object {
+                    "data": Object {},
+                    "off": [Function],
+                    "on": [Function],
                   },
                   "t": [Function],
                 }
@@ -1911,31 +1866,11 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               Object {
                 "changeLanguage": [Function],
                 "createInstance": [Function],
-                "default": Object {
-                  "changeLanguage": [Function],
-                  "getFixedT": [Function],
-                  "hasResourceBundle": [Function],
-                  "init": [Function],
-                  "isInitialized": true,
-                  "language": "en",
-                  "languages": Array [
-                    "en",
-                  ],
-                  "loadNamespaces": [Function],
-                  "off": [Function],
-                  "on": [Function],
-                  "options": Object {},
-                  "services": Object {
-                    "resourceStore": Object {
-                      "data": Object {},
-                    },
-                  },
-                  "t": [Function],
-                },
                 "getFixedT": [Function],
                 "hasResourceBundle": [Function],
                 "init": [Function],
                 "isInitialized": true,
+                "isMock": true,
                 "language": "en",
                 "languages": Array [
                   "en",
@@ -1948,6 +1883,11 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                   "resourceStore": Object {
                     "data": Object {},
                   },
+                },
+                "store": Object {
+                  "data": Object {},
+                  "off": [Function],
+                  "on": [Function],
                 },
                 "t": [Function],
               }
@@ -2467,31 +2407,11 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                 Object {
                   "changeLanguage": [Function],
                   "createInstance": [Function],
-                  "default": Object {
-                    "changeLanguage": [Function],
-                    "getFixedT": [Function],
-                    "hasResourceBundle": [Function],
-                    "init": [Function],
-                    "isInitialized": true,
-                    "language": "en",
-                    "languages": Array [
-                      "en",
-                    ],
-                    "loadNamespaces": [Function],
-                    "off": [Function],
-                    "on": [Function],
-                    "options": Object {},
-                    "services": Object {
-                      "resourceStore": Object {
-                        "data": Object {},
-                      },
-                    },
-                    "t": [Function],
-                  },
                   "getFixedT": [Function],
                   "hasResourceBundle": [Function],
                   "init": [Function],
                   "isInitialized": true,
+                  "isMock": true,
                   "language": "en",
                   "languages": Array [
                     "en",
@@ -2504,6 +2424,11 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                     "resourceStore": Object {
                       "data": Object {},
                     },
+                  },
+                  "store": Object {
+                    "data": Object {},
+                    "off": [Function],
+                    "on": [Function],
                   },
                   "t": [Function],
                 }
@@ -2635,31 +2560,11 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               Object {
                 "changeLanguage": [Function],
                 "createInstance": [Function],
-                "default": Object {
-                  "changeLanguage": [Function],
-                  "getFixedT": [Function],
-                  "hasResourceBundle": [Function],
-                  "init": [Function],
-                  "isInitialized": true,
-                  "language": "en",
-                  "languages": Array [
-                    "en",
-                  ],
-                  "loadNamespaces": [Function],
-                  "off": [Function],
-                  "on": [Function],
-                  "options": Object {},
-                  "services": Object {
-                    "resourceStore": Object {
-                      "data": Object {},
-                    },
-                  },
-                  "t": [Function],
-                },
                 "getFixedT": [Function],
                 "hasResourceBundle": [Function],
                 "init": [Function],
                 "isInitialized": true,
+                "isMock": true,
                 "language": "en",
                 "languages": Array [
                   "en",
@@ -2672,6 +2577,11 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                   "resourceStore": Object {
                     "data": Object {},
                   },
+                },
+                "store": Object {
+                  "data": Object {},
+                  "off": [Function],
+                  "on": [Function],
                 },
                 "t": [Function],
               }
@@ -2811,31 +2721,11 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
               Object {
                 "changeLanguage": [Function],
                 "createInstance": [Function],
-                "default": Object {
-                  "changeLanguage": [Function],
-                  "getFixedT": [Function],
-                  "hasResourceBundle": [Function],
-                  "init": [Function],
-                  "isInitialized": true,
-                  "language": "en",
-                  "languages": Array [
-                    "en",
-                  ],
-                  "loadNamespaces": [Function],
-                  "off": [Function],
-                  "on": [Function],
-                  "options": Object {},
-                  "services": Object {
-                    "resourceStore": Object {
-                      "data": Object {},
-                    },
-                  },
-                  "t": [Function],
-                },
                 "getFixedT": [Function],
                 "hasResourceBundle": [Function],
                 "init": [Function],
                 "isInitialized": true,
+                "isMock": true,
                 "language": "en",
                 "languages": Array [
                   "en",
@@ -2848,6 +2738,11 @@ exports[`Storyshots HeaderBar with environment dropdown 1`] = `
                   "resourceStore": Object {
                     "data": Object {},
                   },
+                },
+                "store": Object {
+                  "data": Object {},
+                  "off": [Function],
+                  "on": [Function],
                 },
                 "t": [Function],
               }
@@ -3367,31 +3262,11 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                 Object {
                   "changeLanguage": [Function],
                   "createInstance": [Function],
-                  "default": Object {
-                    "changeLanguage": [Function],
-                    "getFixedT": [Function],
-                    "hasResourceBundle": [Function],
-                    "init": [Function],
-                    "isInitialized": true,
-                    "language": "en",
-                    "languages": Array [
-                      "en",
-                    ],
-                    "loadNamespaces": [Function],
-                    "off": [Function],
-                    "on": [Function],
-                    "options": Object {},
-                    "services": Object {
-                      "resourceStore": Object {
-                        "data": Object {},
-                      },
-                    },
-                    "t": [Function],
-                  },
                   "getFixedT": [Function],
                   "hasResourceBundle": [Function],
                   "init": [Function],
                   "isInitialized": true,
+                  "isMock": true,
                   "language": "en",
                   "languages": Array [
                     "en",
@@ -3404,6 +3279,11 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                     "resourceStore": Object {
                       "data": Object {},
                     },
+                  },
+                  "store": Object {
+                    "data": Object {},
+                    "off": [Function],
+                    "on": [Function],
                   },
                   "t": [Function],
                 }
@@ -3601,31 +3481,11 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
               Object {
                 "changeLanguage": [Function],
                 "createInstance": [Function],
-                "default": Object {
-                  "changeLanguage": [Function],
-                  "getFixedT": [Function],
-                  "hasResourceBundle": [Function],
-                  "init": [Function],
-                  "isInitialized": true,
-                  "language": "en",
-                  "languages": Array [
-                    "en",
-                  ],
-                  "loadNamespaces": [Function],
-                  "off": [Function],
-                  "on": [Function],
-                  "options": Object {},
-                  "services": Object {
-                    "resourceStore": Object {
-                      "data": Object {},
-                    },
-                  },
-                  "t": [Function],
-                },
                 "getFixedT": [Function],
                 "hasResourceBundle": [Function],
                 "init": [Function],
                 "isInitialized": true,
+                "isMock": true,
                 "language": "en",
                 "languages": Array [
                   "en",
@@ -3638,6 +3498,11 @@ exports[`Storyshots HeaderBar with full logo 1`] = `
                   "resourceStore": Object {
                     "data": Object {},
                   },
+                },
+                "store": Object {
+                  "data": Object {},
+                  "off": [Function],
+                  "on": [Function],
                 },
                 "t": [Function],
               }
@@ -4157,31 +4022,11 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                 Object {
                   "changeLanguage": [Function],
                   "createInstance": [Function],
-                  "default": Object {
-                    "changeLanguage": [Function],
-                    "getFixedT": [Function],
-                    "hasResourceBundle": [Function],
-                    "init": [Function],
-                    "isInitialized": true,
-                    "language": "en",
-                    "languages": Array [
-                      "en",
-                    ],
-                    "loadNamespaces": [Function],
-                    "off": [Function],
-                    "on": [Function],
-                    "options": Object {},
-                    "services": Object {
-                      "resourceStore": Object {
-                        "data": Object {},
-                      },
-                    },
-                    "t": [Function],
-                  },
                   "getFixedT": [Function],
                   "hasResourceBundle": [Function],
                   "init": [Function],
                   "isInitialized": true,
+                  "isMock": true,
                   "language": "en",
                   "languages": Array [
                     "en",
@@ -4194,6 +4039,11 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                     "resourceStore": Object {
                       "data": Object {},
                     },
+                  },
+                  "store": Object {
+                    "data": Object {},
+                    "off": [Function],
+                    "on": [Function],
                   },
                   "t": [Function],
                 }
@@ -4391,31 +4241,11 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
               Object {
                 "changeLanguage": [Function],
                 "createInstance": [Function],
-                "default": Object {
-                  "changeLanguage": [Function],
-                  "getFixedT": [Function],
-                  "hasResourceBundle": [Function],
-                  "init": [Function],
-                  "isInitialized": true,
-                  "language": "en",
-                  "languages": Array [
-                    "en",
-                  ],
-                  "loadNamespaces": [Function],
-                  "off": [Function],
-                  "on": [Function],
-                  "options": Object {},
-                  "services": Object {
-                    "resourceStore": Object {
-                      "data": Object {},
-                    },
-                  },
-                  "t": [Function],
-                },
                 "getFixedT": [Function],
                 "hasResourceBundle": [Function],
                 "init": [Function],
                 "isInitialized": true,
+                "isMock": true,
                 "language": "en",
                 "languages": Array [
                   "en",
@@ -4428,6 +4258,11 @@ exports[`Storyshots HeaderBar with help split dropdown 1`] = `
                   "resourceStore": Object {
                     "data": Object {},
                   },
+                },
+                "store": Object {
+                  "data": Object {},
+                  "off": [Function],
+                  "on": [Function],
                 },
                 "t": [Function],
               }
@@ -4947,31 +4782,11 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 Object {
                   "changeLanguage": [Function],
                   "createInstance": [Function],
-                  "default": Object {
-                    "changeLanguage": [Function],
-                    "getFixedT": [Function],
-                    "hasResourceBundle": [Function],
-                    "init": [Function],
-                    "isInitialized": true,
-                    "language": "en",
-                    "languages": Array [
-                      "en",
-                    ],
-                    "loadNamespaces": [Function],
-                    "off": [Function],
-                    "on": [Function],
-                    "options": Object {},
-                    "services": Object {
-                      "resourceStore": Object {
-                        "data": Object {},
-                      },
-                    },
-                    "t": [Function],
-                  },
                   "getFixedT": [Function],
                   "hasResourceBundle": [Function],
                   "init": [Function],
                   "isInitialized": true,
+                  "isMock": true,
                   "language": "en",
                   "languages": Array [
                     "en",
@@ -4984,6 +4799,11 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                     "resourceStore": Object {
                       "data": Object {},
                     },
+                  },
+                  "store": Object {
+                    "data": Object {},
+                    "off": [Function],
+                    "on": [Function],
                   },
                   "t": [Function],
                 }
@@ -5206,31 +5026,11 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               Object {
                 "changeLanguage": [Function],
                 "createInstance": [Function],
-                "default": Object {
-                  "changeLanguage": [Function],
-                  "getFixedT": [Function],
-                  "hasResourceBundle": [Function],
-                  "init": [Function],
-                  "isInitialized": true,
-                  "language": "en",
-                  "languages": Array [
-                    "en",
-                  ],
-                  "loadNamespaces": [Function],
-                  "off": [Function],
-                  "on": [Function],
-                  "options": Object {},
-                  "services": Object {
-                    "resourceStore": Object {
-                      "data": Object {},
-                    },
-                  },
-                  "t": [Function],
-                },
                 "getFixedT": [Function],
                 "hasResourceBundle": [Function],
                 "init": [Function],
                 "isInitialized": true,
+                "isMock": true,
                 "language": "en",
                 "languages": Array [
                   "en",
@@ -5243,6 +5043,11 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                   "resourceStore": Object {
                     "data": Object {},
                   },
+                },
+                "store": Object {
+                  "data": Object {},
+                  "off": [Function],
+                  "on": [Function],
                 },
                 "t": [Function],
               }
@@ -5762,31 +5567,11 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                 Object {
                   "changeLanguage": [Function],
                   "createInstance": [Function],
-                  "default": Object {
-                    "changeLanguage": [Function],
-                    "getFixedT": [Function],
-                    "hasResourceBundle": [Function],
-                    "init": [Function],
-                    "isInitialized": true,
-                    "language": "en",
-                    "languages": Array [
-                      "en",
-                    ],
-                    "loadNamespaces": [Function],
-                    "off": [Function],
-                    "on": [Function],
-                    "options": Object {},
-                    "services": Object {
-                      "resourceStore": Object {
-                        "data": Object {},
-                      },
-                    },
-                    "t": [Function],
-                  },
                   "getFixedT": [Function],
                   "hasResourceBundle": [Function],
                   "init": [Function],
                   "isInitialized": true,
+                  "isMock": true,
                   "language": "en",
                   "languages": Array [
                     "en",
@@ -5799,6 +5584,11 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                     "resourceStore": Object {
                       "data": Object {},
                     },
+                  },
+                  "store": Object {
+                    "data": Object {},
+                    "off": [Function],
+                    "on": [Function],
                   },
                   "t": [Function],
                 }
@@ -6024,31 +5814,11 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
               Object {
                 "changeLanguage": [Function],
                 "createInstance": [Function],
-                "default": Object {
-                  "changeLanguage": [Function],
-                  "getFixedT": [Function],
-                  "hasResourceBundle": [Function],
-                  "init": [Function],
-                  "isInitialized": true,
-                  "language": "en",
-                  "languages": Array [
-                    "en",
-                  ],
-                  "loadNamespaces": [Function],
-                  "off": [Function],
-                  "on": [Function],
-                  "options": Object {},
-                  "services": Object {
-                    "resourceStore": Object {
-                      "data": Object {},
-                    },
-                  },
-                  "t": [Function],
-                },
                 "getFixedT": [Function],
                 "hasResourceBundle": [Function],
                 "init": [Function],
                 "isInitialized": true,
+                "isMock": true,
                 "language": "en",
                 "languages": Array [
                   "en",
@@ -6061,6 +5831,11 @@ exports[`Storyshots HeaderBar with read notifications 1`] = `
                   "resourceStore": Object {
                     "data": Object {},
                   },
+                },
+                "store": Object {
+                  "data": Object {},
+                  "off": [Function],
+                  "on": [Function],
                 },
                 "t": [Function],
               }
@@ -6580,31 +6355,11 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 Object {
                   "changeLanguage": [Function],
                   "createInstance": [Function],
-                  "default": Object {
-                    "changeLanguage": [Function],
-                    "getFixedT": [Function],
-                    "hasResourceBundle": [Function],
-                    "init": [Function],
-                    "isInitialized": true,
-                    "language": "en",
-                    "languages": Array [
-                      "en",
-                    ],
-                    "loadNamespaces": [Function],
-                    "off": [Function],
-                    "on": [Function],
-                    "options": Object {},
-                    "services": Object {
-                      "resourceStore": Object {
-                        "data": Object {},
-                      },
-                    },
-                    "t": [Function],
-                  },
                   "getFixedT": [Function],
                   "hasResourceBundle": [Function],
                   "init": [Function],
                   "isInitialized": true,
+                  "isMock": true,
                   "language": "en",
                   "languages": Array [
                     "en",
@@ -6617,6 +6372,11 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                     "resourceStore": Object {
                       "data": Object {},
                     },
+                  },
+                  "store": Object {
+                    "data": Object {},
+                    "off": [Function],
+                    "on": [Function],
                   },
                   "t": [Function],
                 }
@@ -6833,31 +6593,11 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               Object {
                 "changeLanguage": [Function],
                 "createInstance": [Function],
-                "default": Object {
-                  "changeLanguage": [Function],
-                  "getFixedT": [Function],
-                  "hasResourceBundle": [Function],
-                  "init": [Function],
-                  "isInitialized": true,
-                  "language": "en",
-                  "languages": Array [
-                    "en",
-                  ],
-                  "loadNamespaces": [Function],
-                  "off": [Function],
-                  "on": [Function],
-                  "options": Object {},
-                  "services": Object {
-                    "resourceStore": Object {
-                      "data": Object {},
-                    },
-                  },
-                  "t": [Function],
-                },
                 "getFixedT": [Function],
                 "hasResourceBundle": [Function],
                 "init": [Function],
                 "isInitialized": true,
+                "isMock": true,
                 "language": "en",
                 "languages": Array [
                   "en",
@@ -6870,6 +6610,11 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                   "resourceStore": Object {
                     "data": Object {},
                   },
+                },
+                "store": Object {
+                  "data": Object {},
+                  "off": [Function],
+                  "on": [Function],
                 },
                 "t": [Function],
               }
@@ -7389,31 +7134,11 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 Object {
                   "changeLanguage": [Function],
                   "createInstance": [Function],
-                  "default": Object {
-                    "changeLanguage": [Function],
-                    "getFixedT": [Function],
-                    "hasResourceBundle": [Function],
-                    "init": [Function],
-                    "isInitialized": true,
-                    "language": "en",
-                    "languages": Array [
-                      "en",
-                    ],
-                    "loadNamespaces": [Function],
-                    "off": [Function],
-                    "on": [Function],
-                    "options": Object {},
-                    "services": Object {
-                      "resourceStore": Object {
-                        "data": Object {},
-                      },
-                    },
-                    "t": [Function],
-                  },
                   "getFixedT": [Function],
                   "hasResourceBundle": [Function],
                   "init": [Function],
                   "isInitialized": true,
+                  "isMock": true,
                   "language": "en",
                   "languages": Array [
                     "en",
@@ -7426,6 +7151,11 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                     "resourceStore": Object {
                       "data": Object {},
                     },
+                  },
+                  "store": Object {
+                    "data": Object {},
+                    "off": [Function],
+                    "on": [Function],
                   },
                   "t": [Function],
                 }
@@ -7981,31 +7711,11 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               Object {
                 "changeLanguage": [Function],
                 "createInstance": [Function],
-                "default": Object {
-                  "changeLanguage": [Function],
-                  "getFixedT": [Function],
-                  "hasResourceBundle": [Function],
-                  "init": [Function],
-                  "isInitialized": true,
-                  "language": "en",
-                  "languages": Array [
-                    "en",
-                  ],
-                  "loadNamespaces": [Function],
-                  "off": [Function],
-                  "on": [Function],
-                  "options": Object {},
-                  "services": Object {
-                    "resourceStore": Object {
-                      "data": Object {},
-                    },
-                  },
-                  "t": [Function],
-                },
                 "getFixedT": [Function],
                 "hasResourceBundle": [Function],
                 "init": [Function],
                 "isInitialized": true,
+                "isMock": true,
                 "language": "en",
                 "languages": Array [
                   "en",
@@ -8018,6 +7728,11 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                   "resourceStore": Object {
                     "data": Object {},
                   },
+                },
+                "store": Object {
+                  "data": Object {},
+                  "off": [Function],
+                  "on": [Function],
                 },
                 "t": [Function],
               }
@@ -8537,31 +8252,11 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                 Object {
                   "changeLanguage": [Function],
                   "createInstance": [Function],
-                  "default": Object {
-                    "changeLanguage": [Function],
-                    "getFixedT": [Function],
-                    "hasResourceBundle": [Function],
-                    "init": [Function],
-                    "isInitialized": true,
-                    "language": "en",
-                    "languages": Array [
-                      "en",
-                    ],
-                    "loadNamespaces": [Function],
-                    "off": [Function],
-                    "on": [Function],
-                    "options": Object {},
-                    "services": Object {
-                      "resourceStore": Object {
-                        "data": Object {},
-                      },
-                    },
-                    "t": [Function],
-                  },
                   "getFixedT": [Function],
                   "hasResourceBundle": [Function],
                   "init": [Function],
                   "isInitialized": true,
+                  "isMock": true,
                   "language": "en",
                   "languages": Array [
                     "en",
@@ -8574,6 +8269,11 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                     "resourceStore": Object {
                       "data": Object {},
                     },
+                  },
+                  "store": Object {
+                    "data": Object {},
+                    "off": [Function],
+                    "on": [Function],
                   },
                   "t": [Function],
                 }
@@ -8799,31 +8499,11 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
               Object {
                 "changeLanguage": [Function],
                 "createInstance": [Function],
-                "default": Object {
-                  "changeLanguage": [Function],
-                  "getFixedT": [Function],
-                  "hasResourceBundle": [Function],
-                  "init": [Function],
-                  "isInitialized": true,
-                  "language": "en",
-                  "languages": Array [
-                    "en",
-                  ],
-                  "loadNamespaces": [Function],
-                  "off": [Function],
-                  "on": [Function],
-                  "options": Object {},
-                  "services": Object {
-                    "resourceStore": Object {
-                      "data": Object {},
-                    },
-                  },
-                  "t": [Function],
-                },
                 "getFixedT": [Function],
                 "hasResourceBundle": [Function],
                 "init": [Function],
                 "isInitialized": true,
+                "isMock": true,
                 "language": "en",
                 "languages": Array [
                   "en",
@@ -8836,6 +8516,11 @@ exports[`Storyshots HeaderBar with unread notifications 1`] = `
                   "resourceStore": Object {
                     "data": Object {},
                   },
+                },
+                "store": Object {
+                  "data": Object {},
+                  "off": [Function],
+                  "on": [Function],
                 },
                 "t": [Function],
               }
@@ -9440,31 +9125,11 @@ exports[`Storyshots HeaderBar without products 1`] = `
               Object {
                 "changeLanguage": [Function],
                 "createInstance": [Function],
-                "default": Object {
-                  "changeLanguage": [Function],
-                  "getFixedT": [Function],
-                  "hasResourceBundle": [Function],
-                  "init": [Function],
-                  "isInitialized": true,
-                  "language": "en",
-                  "languages": Array [
-                    "en",
-                  ],
-                  "loadNamespaces": [Function],
-                  "off": [Function],
-                  "on": [Function],
-                  "options": Object {},
-                  "services": Object {
-                    "resourceStore": Object {
-                      "data": Object {},
-                    },
-                  },
-                  "t": [Function],
-                },
                 "getFixedT": [Function],
                 "hasResourceBundle": [Function],
                 "init": [Function],
                 "isInitialized": true,
+                "isMock": true,
                 "language": "en",
                 "languages": Array [
                   "en",
@@ -9477,6 +9142,11 @@ exports[`Storyshots HeaderBar without products 1`] = `
                   "resourceStore": Object {
                     "data": Object {},
                   },
+                },
+                "store": Object {
+                  "data": Object {},
+                  "off": [Function],
+                  "on": [Function],
                 },
                 "t": [Function],
               }
@@ -9996,31 +9666,11 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
                 Object {
                   "changeLanguage": [Function],
                   "createInstance": [Function],
-                  "default": Object {
-                    "changeLanguage": [Function],
-                    "getFixedT": [Function],
-                    "hasResourceBundle": [Function],
-                    "init": [Function],
-                    "isInitialized": true,
-                    "language": "en",
-                    "languages": Array [
-                      "en",
-                    ],
-                    "loadNamespaces": [Function],
-                    "off": [Function],
-                    "on": [Function],
-                    "options": Object {},
-                    "services": Object {
-                      "resourceStore": Object {
-                        "data": Object {},
-                      },
-                    },
-                    "t": [Function],
-                  },
                   "getFixedT": [Function],
                   "hasResourceBundle": [Function],
                   "init": [Function],
                   "isInitialized": true,
+                  "isMock": true,
                   "language": "en",
                   "languages": Array [
                     "en",
@@ -10033,6 +9683,11 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
                     "resourceStore": Object {
                       "data": Object {},
                     },
+                  },
+                  "store": Object {
+                    "data": Object {},
+                    "off": [Function],
+                    "on": [Function],
                   },
                   "t": [Function],
                 }
@@ -10231,31 +9886,11 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
               Object {
                 "changeLanguage": [Function],
                 "createInstance": [Function],
-                "default": Object {
-                  "changeLanguage": [Function],
-                  "getFixedT": [Function],
-                  "hasResourceBundle": [Function],
-                  "init": [Function],
-                  "isInitialized": true,
-                  "language": "en",
-                  "languages": Array [
-                    "en",
-                  ],
-                  "loadNamespaces": [Function],
-                  "off": [Function],
-                  "on": [Function],
-                  "options": Object {},
-                  "services": Object {
-                    "resourceStore": Object {
-                      "data": Object {},
-                    },
-                  },
-                  "t": [Function],
-                },
                 "getFixedT": [Function],
                 "hasResourceBundle": [Function],
                 "init": [Function],
                 "isInitialized": true,
+                "isMock": true,
                 "language": "en",
                 "languages": Array [
                   "en",
@@ -10268,6 +9903,11 @@ exports[`Storyshots HeaderBar without user and with information 1`] = `
                   "resourceStore": Object {
                     "data": Object {},
                   },
+                },
+                "store": Object {
+                  "data": Object {},
+                  "off": [Function],
+                  "on": [Function],
                 },
                 "t": [Function],
               }
@@ -10815,31 +10455,11 @@ exports[`Storyshots HeaderBar 🎨 [MDM] HeaderBar 1`] = `
                       Object {
                         "changeLanguage": [Function],
                         "createInstance": [Function],
-                        "default": Object {
-                          "changeLanguage": [Function],
-                          "getFixedT": [Function],
-                          "hasResourceBundle": [Function],
-                          "init": [Function],
-                          "isInitialized": true,
-                          "language": "en",
-                          "languages": Array [
-                            "en",
-                          ],
-                          "loadNamespaces": [Function],
-                          "off": [Function],
-                          "on": [Function],
-                          "options": Object {},
-                          "services": Object {
-                            "resourceStore": Object {
-                              "data": Object {},
-                            },
-                          },
-                          "t": [Function],
-                        },
                         "getFixedT": [Function],
                         "hasResourceBundle": [Function],
                         "init": [Function],
                         "isInitialized": true,
+                        "isMock": true,
                         "language": "en",
                         "languages": Array [
                           "en",
@@ -10852,6 +10472,11 @@ exports[`Storyshots HeaderBar 🎨 [MDM] HeaderBar 1`] = `
                           "resourceStore": Object {
                             "data": Object {},
                           },
+                        },
+                        "store": Object {
+                          "data": Object {},
+                          "off": [Function],
+                          "on": [Function],
                         },
                         "t": [Function],
                       }
@@ -11049,31 +10674,11 @@ exports[`Storyshots HeaderBar 🎨 [MDM] HeaderBar 1`] = `
                     Object {
                       "changeLanguage": [Function],
                       "createInstance": [Function],
-                      "default": Object {
-                        "changeLanguage": [Function],
-                        "getFixedT": [Function],
-                        "hasResourceBundle": [Function],
-                        "init": [Function],
-                        "isInitialized": true,
-                        "language": "en",
-                        "languages": Array [
-                          "en",
-                        ],
-                        "loadNamespaces": [Function],
-                        "off": [Function],
-                        "on": [Function],
-                        "options": Object {},
-                        "services": Object {
-                          "resourceStore": Object {
-                            "data": Object {},
-                          },
-                        },
-                        "t": [Function],
-                      },
                       "getFixedT": [Function],
                       "hasResourceBundle": [Function],
                       "init": [Function],
                       "isInitialized": true,
+                      "isMock": true,
                       "language": "en",
                       "languages": Array [
                         "en",
@@ -11086,6 +10691,11 @@ exports[`Storyshots HeaderBar 🎨 [MDM] HeaderBar 1`] = `
                         "resourceStore": Object {
                           "data": Object {},
                         },
+                      },
+                      "store": Object {
+                        "data": Object {},
+                        "off": [Function],
+                        "on": [Function],
                       },
                       "t": [Function],
                     }
@@ -11617,31 +11227,11 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                       Object {
                         "changeLanguage": [Function],
                         "createInstance": [Function],
-                        "default": Object {
-                          "changeLanguage": [Function],
-                          "getFixedT": [Function],
-                          "hasResourceBundle": [Function],
-                          "init": [Function],
-                          "isInitialized": true,
-                          "language": "en",
-                          "languages": Array [
-                            "en",
-                          ],
-                          "loadNamespaces": [Function],
-                          "off": [Function],
-                          "on": [Function],
-                          "options": Object {},
-                          "services": Object {
-                            "resourceStore": Object {
-                              "data": Object {},
-                            },
-                          },
-                          "t": [Function],
-                        },
                         "getFixedT": [Function],
                         "hasResourceBundle": [Function],
                         "init": [Function],
                         "isInitialized": true,
+                        "isMock": true,
                         "language": "en",
                         "languages": Array [
                           "en",
@@ -11654,6 +11244,11 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                           "resourceStore": Object {
                             "data": Object {},
                           },
+                        },
+                        "store": Object {
+                          "data": Object {},
+                          "off": [Function],
+                          "on": [Function],
                         },
                         "t": [Function],
                       }
@@ -11851,31 +11446,11 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                     Object {
                       "changeLanguage": [Function],
                       "createInstance": [Function],
-                      "default": Object {
-                        "changeLanguage": [Function],
-                        "getFixedT": [Function],
-                        "hasResourceBundle": [Function],
-                        "init": [Function],
-                        "isInitialized": true,
-                        "language": "en",
-                        "languages": Array [
-                          "en",
-                        ],
-                        "loadNamespaces": [Function],
-                        "off": [Function],
-                        "on": [Function],
-                        "options": Object {},
-                        "services": Object {
-                          "resourceStore": Object {
-                            "data": Object {},
-                          },
-                        },
-                        "t": [Function],
-                      },
                       "getFixedT": [Function],
                       "hasResourceBundle": [Function],
                       "init": [Function],
                       "isInitialized": true,
+                      "isMock": true,
                       "language": "en",
                       "languages": Array [
                         "en",
@@ -11888,6 +11463,11 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
                         "resourceStore": Object {
                           "data": Object {},
                         },
+                      },
+                      "store": Object {
+                        "data": Object {},
+                        "off": [Function],
+                        "on": [Function],
                       },
                       "t": [Function],
                     }
@@ -12419,31 +11999,11 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                       Object {
                         "changeLanguage": [Function],
                         "createInstance": [Function],
-                        "default": Object {
-                          "changeLanguage": [Function],
-                          "getFixedT": [Function],
-                          "hasResourceBundle": [Function],
-                          "init": [Function],
-                          "isInitialized": true,
-                          "language": "en",
-                          "languages": Array [
-                            "en",
-                          ],
-                          "loadNamespaces": [Function],
-                          "off": [Function],
-                          "on": [Function],
-                          "options": Object {},
-                          "services": Object {
-                            "resourceStore": Object {
-                              "data": Object {},
-                            },
-                          },
-                          "t": [Function],
-                        },
                         "getFixedT": [Function],
                         "hasResourceBundle": [Function],
                         "init": [Function],
                         "isInitialized": true,
+                        "isMock": true,
                         "language": "en",
                         "languages": Array [
                           "en",
@@ -12456,6 +12016,11 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                           "resourceStore": Object {
                             "data": Object {},
                           },
+                        },
+                        "store": Object {
+                          "data": Object {},
+                          "off": [Function],
+                          "on": [Function],
                         },
                         "t": [Function],
                       }
@@ -12653,31 +12218,11 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                     Object {
                       "changeLanguage": [Function],
                       "createInstance": [Function],
-                      "default": Object {
-                        "changeLanguage": [Function],
-                        "getFixedT": [Function],
-                        "hasResourceBundle": [Function],
-                        "init": [Function],
-                        "isInitialized": true,
-                        "language": "en",
-                        "languages": Array [
-                          "en",
-                        ],
-                        "loadNamespaces": [Function],
-                        "off": [Function],
-                        "on": [Function],
-                        "options": Object {},
-                        "services": Object {
-                          "resourceStore": Object {
-                            "data": Object {},
-                          },
-                        },
-                        "t": [Function],
-                      },
                       "getFixedT": [Function],
                       "hasResourceBundle": [Function],
                       "init": [Function],
                       "isInitialized": true,
+                      "isMock": true,
                       "language": "en",
                       "languages": Array [
                         "en",
@@ -12690,6 +12235,11 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
                         "resourceStore": Object {
                           "data": Object {},
                         },
+                      },
+                      "store": Object {
+                        "data": Object {},
+                        "off": [Function],
+                        "on": [Function],
                       },
                       "t": [Function],
                     }
@@ -13221,31 +12771,11 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                       Object {
                         "changeLanguage": [Function],
                         "createInstance": [Function],
-                        "default": Object {
-                          "changeLanguage": [Function],
-                          "getFixedT": [Function],
-                          "hasResourceBundle": [Function],
-                          "init": [Function],
-                          "isInitialized": true,
-                          "language": "en",
-                          "languages": Array [
-                            "en",
-                          ],
-                          "loadNamespaces": [Function],
-                          "off": [Function],
-                          "on": [Function],
-                          "options": Object {},
-                          "services": Object {
-                            "resourceStore": Object {
-                              "data": Object {},
-                            },
-                          },
-                          "t": [Function],
-                        },
                         "getFixedT": [Function],
                         "hasResourceBundle": [Function],
                         "init": [Function],
                         "isInitialized": true,
+                        "isMock": true,
                         "language": "en",
                         "languages": Array [
                           "en",
@@ -13258,6 +12788,11 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                           "resourceStore": Object {
                             "data": Object {},
                           },
+                        },
+                        "store": Object {
+                          "data": Object {},
+                          "off": [Function],
+                          "on": [Function],
                         },
                         "t": [Function],
                       }
@@ -13455,31 +12990,11 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                     Object {
                       "changeLanguage": [Function],
                       "createInstance": [Function],
-                      "default": Object {
-                        "changeLanguage": [Function],
-                        "getFixedT": [Function],
-                        "hasResourceBundle": [Function],
-                        "init": [Function],
-                        "isInitialized": true,
-                        "language": "en",
-                        "languages": Array [
-                          "en",
-                        ],
-                        "loadNamespaces": [Function],
-                        "off": [Function],
-                        "on": [Function],
-                        "options": Object {},
-                        "services": Object {
-                          "resourceStore": Object {
-                            "data": Object {},
-                          },
-                        },
-                        "t": [Function],
-                      },
                       "getFixedT": [Function],
                       "hasResourceBundle": [Function],
                       "init": [Function],
                       "isInitialized": true,
+                      "isMock": true,
                       "language": "en",
                       "languages": Array [
                         "en",
@@ -13492,6 +13007,11 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
                         "resourceStore": Object {
                           "data": Object {},
                         },
+                      },
+                      "store": Object {
+                        "data": Object {},
+                        "off": [Function],
+                        "on": [Function],
                       },
                       "t": [Function],
                     }
@@ -14023,31 +13543,11 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                       Object {
                         "changeLanguage": [Function],
                         "createInstance": [Function],
-                        "default": Object {
-                          "changeLanguage": [Function],
-                          "getFixedT": [Function],
-                          "hasResourceBundle": [Function],
-                          "init": [Function],
-                          "isInitialized": true,
-                          "language": "en",
-                          "languages": Array [
-                            "en",
-                          ],
-                          "loadNamespaces": [Function],
-                          "off": [Function],
-                          "on": [Function],
-                          "options": Object {},
-                          "services": Object {
-                            "resourceStore": Object {
-                              "data": Object {},
-                            },
-                          },
-                          "t": [Function],
-                        },
                         "getFixedT": [Function],
                         "hasResourceBundle": [Function],
                         "init": [Function],
                         "isInitialized": true,
+                        "isMock": true,
                         "language": "en",
                         "languages": Array [
                           "en",
@@ -14060,6 +13560,11 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                           "resourceStore": Object {
                             "data": Object {},
                           },
+                        },
+                        "store": Object {
+                          "data": Object {},
+                          "off": [Function],
+                          "on": [Function],
                         },
                         "t": [Function],
                       }
@@ -14257,31 +13762,11 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                     Object {
                       "changeLanguage": [Function],
                       "createInstance": [Function],
-                      "default": Object {
-                        "changeLanguage": [Function],
-                        "getFixedT": [Function],
-                        "hasResourceBundle": [Function],
-                        "init": [Function],
-                        "isInitialized": true,
-                        "language": "en",
-                        "languages": Array [
-                          "en",
-                        ],
-                        "loadNamespaces": [Function],
-                        "off": [Function],
-                        "on": [Function],
-                        "options": Object {},
-                        "services": Object {
-                          "resourceStore": Object {
-                            "data": Object {},
-                          },
-                        },
-                        "t": [Function],
-                      },
                       "getFixedT": [Function],
                       "hasResourceBundle": [Function],
                       "init": [Function],
                       "isInitialized": true,
+                      "isMock": true,
                       "language": "en",
                       "languages": Array [
                         "en",
@@ -14294,6 +13779,11 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
                         "resourceStore": Object {
                           "data": Object {},
                         },
+                      },
+                      "store": Object {
+                        "data": Object {},
+                        "off": [Function],
+                        "on": [Function],
                       },
                       "t": [Function],
                     }
@@ -14825,31 +14315,11 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                       Object {
                         "changeLanguage": [Function],
                         "createInstance": [Function],
-                        "default": Object {
-                          "changeLanguage": [Function],
-                          "getFixedT": [Function],
-                          "hasResourceBundle": [Function],
-                          "init": [Function],
-                          "isInitialized": true,
-                          "language": "en",
-                          "languages": Array [
-                            "en",
-                          ],
-                          "loadNamespaces": [Function],
-                          "off": [Function],
-                          "on": [Function],
-                          "options": Object {},
-                          "services": Object {
-                            "resourceStore": Object {
-                              "data": Object {},
-                            },
-                          },
-                          "t": [Function],
-                        },
                         "getFixedT": [Function],
                         "hasResourceBundle": [Function],
                         "init": [Function],
                         "isInitialized": true,
+                        "isMock": true,
                         "language": "en",
                         "languages": Array [
                           "en",
@@ -14862,6 +14332,11 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                           "resourceStore": Object {
                             "data": Object {},
                           },
+                        },
+                        "store": Object {
+                          "data": Object {},
+                          "off": [Function],
+                          "on": [Function],
                         },
                         "t": [Function],
                       }
@@ -15059,31 +14534,11 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                     Object {
                       "changeLanguage": [Function],
                       "createInstance": [Function],
-                      "default": Object {
-                        "changeLanguage": [Function],
-                        "getFixedT": [Function],
-                        "hasResourceBundle": [Function],
-                        "init": [Function],
-                        "isInitialized": true,
-                        "language": "en",
-                        "languages": Array [
-                          "en",
-                        ],
-                        "loadNamespaces": [Function],
-                        "off": [Function],
-                        "on": [Function],
-                        "options": Object {},
-                        "services": Object {
-                          "resourceStore": Object {
-                            "data": Object {},
-                          },
-                        },
-                        "t": [Function],
-                      },
                       "getFixedT": [Function],
                       "hasResourceBundle": [Function],
                       "init": [Function],
                       "isInitialized": true,
+                      "isMock": true,
                       "language": "en",
                       "languages": Array [
                         "en",
@@ -15096,6 +14551,11 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
                         "resourceStore": Object {
                           "data": Object {},
                         },
+                      },
+                      "store": Object {
+                        "data": Object {},
+                        "off": [Function],
+                        "on": [Function],
                       },
                       "t": [Function],
                     }
@@ -15627,31 +15087,11 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                       Object {
                         "changeLanguage": [Function],
                         "createInstance": [Function],
-                        "default": Object {
-                          "changeLanguage": [Function],
-                          "getFixedT": [Function],
-                          "hasResourceBundle": [Function],
-                          "init": [Function],
-                          "isInitialized": true,
-                          "language": "en",
-                          "languages": Array [
-                            "en",
-                          ],
-                          "loadNamespaces": [Function],
-                          "off": [Function],
-                          "on": [Function],
-                          "options": Object {},
-                          "services": Object {
-                            "resourceStore": Object {
-                              "data": Object {},
-                            },
-                          },
-                          "t": [Function],
-                        },
                         "getFixedT": [Function],
                         "hasResourceBundle": [Function],
                         "init": [Function],
                         "isInitialized": true,
+                        "isMock": true,
                         "language": "en",
                         "languages": Array [
                           "en",
@@ -15664,6 +15104,11 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                           "resourceStore": Object {
                             "data": Object {},
                           },
+                        },
+                        "store": Object {
+                          "data": Object {},
+                          "off": [Function],
+                          "on": [Function],
                         },
                         "t": [Function],
                       }
@@ -15861,31 +15306,11 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                     Object {
                       "changeLanguage": [Function],
                       "createInstance": [Function],
-                      "default": Object {
-                        "changeLanguage": [Function],
-                        "getFixedT": [Function],
-                        "hasResourceBundle": [Function],
-                        "init": [Function],
-                        "isInitialized": true,
-                        "language": "en",
-                        "languages": Array [
-                          "en",
-                        ],
-                        "loadNamespaces": [Function],
-                        "off": [Function],
-                        "on": [Function],
-                        "options": Object {},
-                        "services": Object {
-                          "resourceStore": Object {
-                            "data": Object {},
-                          },
-                        },
-                        "t": [Function],
-                      },
                       "getFixedT": [Function],
                       "hasResourceBundle": [Function],
                       "init": [Function],
                       "isInitialized": true,
+                      "isMock": true,
                       "language": "en",
                       "languages": Array [
                         "en",
@@ -15898,6 +15323,11 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
                         "resourceStore": Object {
                           "data": Object {},
                         },
+                      },
+                      "store": Object {
+                        "data": Object {},
+                        "off": [Function],
+                        "on": [Function],
                       },
                       "t": [Function],
                     }
@@ -16429,31 +15859,11 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                       Object {
                         "changeLanguage": [Function],
                         "createInstance": [Function],
-                        "default": Object {
-                          "changeLanguage": [Function],
-                          "getFixedT": [Function],
-                          "hasResourceBundle": [Function],
-                          "init": [Function],
-                          "isInitialized": true,
-                          "language": "en",
-                          "languages": Array [
-                            "en",
-                          ],
-                          "loadNamespaces": [Function],
-                          "off": [Function],
-                          "on": [Function],
-                          "options": Object {},
-                          "services": Object {
-                            "resourceStore": Object {
-                              "data": Object {},
-                            },
-                          },
-                          "t": [Function],
-                        },
                         "getFixedT": [Function],
                         "hasResourceBundle": [Function],
                         "init": [Function],
                         "isInitialized": true,
+                        "isMock": true,
                         "language": "en",
                         "languages": Array [
                           "en",
@@ -16466,6 +15876,11 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                           "resourceStore": Object {
                             "data": Object {},
                           },
+                        },
+                        "store": Object {
+                          "data": Object {},
+                          "off": [Function],
+                          "on": [Function],
                         },
                         "t": [Function],
                       }
@@ -16663,31 +16078,11 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                     Object {
                       "changeLanguage": [Function],
                       "createInstance": [Function],
-                      "default": Object {
-                        "changeLanguage": [Function],
-                        "getFixedT": [Function],
-                        "hasResourceBundle": [Function],
-                        "init": [Function],
-                        "isInitialized": true,
-                        "language": "en",
-                        "languages": Array [
-                          "en",
-                        ],
-                        "loadNamespaces": [Function],
-                        "off": [Function],
-                        "on": [Function],
-                        "options": Object {},
-                        "services": Object {
-                          "resourceStore": Object {
-                            "data": Object {},
-                          },
-                        },
-                        "t": [Function],
-                      },
                       "getFixedT": [Function],
                       "hasResourceBundle": [Function],
                       "init": [Function],
                       "isInitialized": true,
+                      "isMock": true,
                       "language": "en",
                       "languages": Array [
                         "en",
@@ -16700,6 +16095,11 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
                         "resourceStore": Object {
                           "data": Object {},
                         },
+                      },
+                      "store": Object {
+                        "data": Object {},
+                        "off": [Function],
+                        "on": [Function],
                       },
                       "t": [Function],
                     }

@@ -1,9 +1,9 @@
-import * as i18next from 'i18next';
+import i18next, { createInstance } from 'i18next';
 import { setI18n, getI18n } from 'react-i18next';
 
 // https://github.com/i18next/i18next/issues/936#issuecomment-307550677
-if (i18next.createInstance) {
-	setI18n(i18next.createInstance({}, () => {}));
+if (createInstance) {
+	setI18n(createInstance({}, () => {}));
 }
 
 export default function getDefaultT() {

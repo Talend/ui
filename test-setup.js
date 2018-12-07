@@ -10,6 +10,7 @@ import dateMock from './mocks/dateMock';
  * lets mock i18next for all tests
  */
 jest.mock('i18next', () => {
+	const noop = () => {};
 	const i18n = {
 		t: (msg, options) => {
 			let buff = options.defaultValue || msg;
@@ -26,25 +27,33 @@ jest.mock('i18next', () => {
 			}
 			return buff;
 		},
+		isMock: true,
 		getFixedT: () => i18n.t,
 		options: {},
 		language: 'en',
 		languages: ['en'],
 		isInitialized: true,
-		on: (type, cb) => {},
-		off: (type, cb) => {},
-		loadNamespaces: () => {},
+		on: noop,
+		off: noop,
+		loadNamespaces: noop,
 		hasResourceBundle: () => false,
 		services: {
 			resourceStore: {
 				data: {},
 			},
 		},
-		changeLanguage: () => {},
+		store: {
+			data: {},
+			on: noop,
+			off: noop,
+		},
+		changeLanguage: noop,
 	};
-	i18n.init = () => {};
+	i18n.init = (options) => {
+		// i18n.store.data = options.resources;
+	};
 	return {
-		default: i18n,
+		// default: i18n,
 		createInstance: () => i18n,
 		...i18n,
 	};
