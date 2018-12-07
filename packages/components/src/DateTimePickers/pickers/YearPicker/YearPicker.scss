@@ -12,33 +12,20 @@
 	}
 
 	.scroll {
-		line-height: unset;
+		line-height: 1.2rem;
 		min-height: auto;
 
-		&.scroll-up {
-			margin-bottom: $padding-small;
-		}
-
-		&.scroll-down {
-			margin-top: $padding-small;
+		svg {
+			height: 1.2rem;
 		}
 	}
 
 	.year {
+		@include picker-action;
+
 		background: none;
 		border: none;
+		height: 2.5rem;
 		width: 100%;
-
-		&.selected {
-			background: red;
-		}
-
-		&:disabled {
-			color: $silver-chalice;
-		}
-
-		&.selected {
-			@include picker-action-selected;
-		}
 	}
 }
