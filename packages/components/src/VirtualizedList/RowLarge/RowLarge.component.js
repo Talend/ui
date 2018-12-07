@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import { translate } from 'react-i18next';
 import {
 	extractSpecialFields,
 	getCellData,
@@ -11,10 +12,13 @@ import {
 	renderCell,
 } from '../utils/gridrow';
 
+import getDefaultT from '../../translate';
 import { listTypes } from '../utils/constants';
 import withListGesture from '../../Gesture/withListGesture';
 import rowThemes from './RowThemes';
 import theme from './RowLarge.scss';
+
+import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 const { LARGE } = listTypes;
 
@@ -42,6 +46,7 @@ class RowLarge extends React.Component {
 			<div className={theme['field-group']} role="group" key={label || index}>
 				<dt key={fieldIndex} className={theme['field-label']}>
 					{label}
+					{this.props.t('COLON', { defaultValue: ':' })}
 				</dt>
 				<dd className={theme['field-value']} title={tooltip}>
 					{cellContent}
@@ -119,6 +124,10 @@ RowLarge.propTypes = {
 	parent: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	/** Custom style that react-virtualized provides */
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+	t: PropTypes.func.isRequired,
+};
+RowLarge.defaultProps = {
+	t: getDefaultT(),
 };
 
-export default withListGesture(RowLarge);
+export default withListGesture(translate(I18N_DOMAIN_COMPONENTS)(RowLarge));
