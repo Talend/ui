@@ -6,7 +6,7 @@ $tc-status-space-btn-icon-label: 5px !default;
 	position: relative;
 	display: flex;
 	align-items: center;
-	min-height: $tc-status-action-min-size;
+	height: 100%;
 
 	&-label {
 		text-transform: uppercase;
@@ -42,7 +42,6 @@ $tc-status-space-btn-icon-label: 5px !default;
 
 	&-actions {
 		position: absolute;
-		top: 0;
 		left: 0;
 		opacity: 0;
 	}

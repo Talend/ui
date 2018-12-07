@@ -31,14 +31,6 @@ const statusSuccessfulHeader = [
 		status: 'successful',
 		label: 'Successful',
 		icon: 'talend-check',
-		actions: [
-			{
-				label: 'cancel',
-				icon: 'talend-cross',
-				onClick: action('onCancel'),
-				bsSize: 'small',
-			},
-		],
 	},
 ];
 const statusFailedHeader = [
@@ -47,7 +39,6 @@ const statusFailedHeader = [
 		status: 'failed',
 		label: 'Failed',
 		icon: 'talend-cross',
-		actions: [],
 	},
 ];
 const statusWarningHeader = [
@@ -56,7 +47,6 @@ const statusWarningHeader = [
 		status: 'warning',
 		label: 'Warning',
 		icon: 'talend-warning',
-		actions: [],
 	},
 ];
 const statusCanceledHeader = [
@@ -65,7 +55,6 @@ const statusCanceledHeader = [
 		status: 'canceled',
 		label: 'Canceled',
 		icon: 'talend-cross',
-		actions: [],
 	},
 ];
 const statusInProgressHeader = [
@@ -76,9 +65,8 @@ const statusInProgressHeader = [
 		actions: [
 			{
 				label: 'cancel',
-				icon: 'talend-cross',
 				onClick: action('onCancel'),
-				bsSize: 'small',
+				link: true,
 			},
 		],
 	},

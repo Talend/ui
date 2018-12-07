@@ -52,10 +52,12 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 	switch (displayMode) {
 		case TYPE_STATUS: {
 			const { actions, ...restStatus } = headerItem;
-			const statusActions = actions.map(action => ({
-				...action,
-				onClick: getActionHandler(action.onClick, headerItem),
-			}));
+			const statusActions =
+				actions &&
+				actions.map(action => ({
+					...action,
+					onClick: getActionHandler(action.onClick, headerItem),
+				}));
 			return (
 				<Status key={key} actions={statusActions} {...restStatus} className={css[className]} />
 			);
