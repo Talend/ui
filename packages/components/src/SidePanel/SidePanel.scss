@@ -25,6 +25,12 @@ $toggle-button-padding: $padding-small - 1;
 	overflow-x: hidden;
 	background: $list-item-reverse-color;
 
+	:global {
+		.btn.btn-link {
+			color: inherit;
+		}
+	}
+
 	&,
 	> ul {
 		min-width: $tc-side-panel-minwidth;
