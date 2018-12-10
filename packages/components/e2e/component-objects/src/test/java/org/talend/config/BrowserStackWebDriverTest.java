@@ -19,7 +19,7 @@ public class BrowserStackWebDriverTest extends WebDriverTest {
         capabilities.setCapability("os", "Windows");
         capabilities.setCapability("os_version", "10");
         capabilities.setCapability("resolution", "1600x1200");
-        capabilities.setCapability("browserstack.debug", "true");
+        // capabilities.setCapability("browserstack.debug", "false");
         if (System.getProperty("storybook.host") == "localhost") {
             capabilities.setCapability("browserstack.local", "true");
         }
