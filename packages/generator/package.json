@@ -47,7 +47,7 @@
     "@babel/preset-env": "^7.2.0",
     "@babel/register": "^7.0.0",
     "babel-eslint": "^10.0.1",
-    "eslint": "^3.6.1",
+    "eslint": "^4.0.0",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
     "yeoman-assert": "^3.1.1",

@@ -16,7 +16,7 @@
     "@talend/react-components": "1.10.0-0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
-    "eslint": "^3.6.1",
+    "eslint": "^4.0.0",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.16.0",
     "jest": "^23.6.0"

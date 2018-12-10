@@ -93,7 +93,7 @@ module.exports = {
 	'enzyme-adapter-react-15': '^1.2.0',
 	'enzyme-adapter-react-16': '^1.7.0',
 	'enzyme-to-json': '^3.0.0',
-	eslint: '^3.6.1',
+	eslint: '^4.0.0',
 	'eslint-config-airbnb': '^11.1.0',
 	'eslint-plugin-import': '^1.16.0',
 	'eslint-plugin-jsx-a11y': '^2.2.2',
@@ -109,6 +109,7 @@ module.exports = {
 	'react-stub-context': '^0.7.0',
 	'regenerator-runtime': '^0.13.1',
 	rimraf: '^2.6.1',
+	'sass-lint': '1.12.1',
 
 	// webpack
 	'babel-loader': '^8.0.0',
