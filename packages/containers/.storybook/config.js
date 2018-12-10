@@ -3,7 +3,7 @@ import { storiesOf, configure, addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { checkA11y } from '@storybook/addon-a11y';
 import createSagaMiddleware from 'redux-saga';
-import cmfStorybook from '@talend/react-storybook-cmf';
+import withCMF from '@talend/react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
 import api, { actions, sagas } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
@@ -19,7 +19,7 @@ import {
 import { actionsCreators as actionsCreatorsEditableText } from './editabletext.storybook';
 import { registerAllContainers } from '../src/register';
 
-addDecorator(cmfStorybook);
+addDecorator(withCMF);
 addDecorator(checkA11y);
 
 registerAllContainers();

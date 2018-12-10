@@ -1,6 +1,6 @@
 import React from 'react';
-import { storiesOf, setAddon } from '@storybook/react';
-import cmf from '@talend/react-storybook-cmf';
+import { storiesOf } from '@storybook/react';
+import withCMF from '@talend/react-storybook-cmf';
 import { I18nextProvider } from 'react-i18next';
 import mock from '@talend/react-cmf/lib/mock';
 import { IconsProvider } from '@talend/react-components';
@@ -11,8 +11,6 @@ import register from '../src/register';
 import theme from '../src/components/DataGrid/DataGrid.scss';
 import i18n, { LanguageSwitcher } from './config/i18n';
 import sample from './sample.json';
-
-setAddon({ addWithCMF: cmf.addWithCMF });
 
 Object.keys(api.expressions).forEach(id => api.expression.register(id, api.expressions[id]));
 
@@ -183,8 +181,10 @@ register();
 registerCustomizedComponents();
 
 const options = {
-	reducer,
-	state: cmfState,
+	cmf: {
+		reducer,
+		state: cmfState,
+	},
 };
 
 storiesOf('Container Datagrid', module)
@@ -195,7 +195,8 @@ storiesOf('Container Datagrid', module)
 			<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
 		</div>
 	))
-	.addWithCMF(
+	.addDecorator(withCMF)
+	.add(
 		'default',
 		() => (
 			<div style={{ height: '100vh' }}>
@@ -203,9 +204,9 @@ storiesOf('Container Datagrid', module)
 				<DataGrid />
 			</div>
 		),
-		options,
+		{ ...options }
 	)
-	.addWithCMF(
+	.add(
 		'loading',
 		() => (
 			<div style={{ height: '100vh' }}>
@@ -213,9 +214,9 @@ storiesOf('Container Datagrid', module)
 				<DataGrid componentId="ProgressDatagrid" />
 			</div>
 		),
-		options,
+		{ ...options }
 	)
-	.addWithCMF(
+	.add(
 		'with custom renderers',
 		() => (
 			<div style={{ height: '100vh' }}>
@@ -223,9 +224,9 @@ storiesOf('Container Datagrid', module)
 				<DataGrid componentId="CustomizedDatagrid" />
 			</div>
 		),
-		options,
+		{ ...options }
 	)
-	.addWithCMF(
+	.add(
 		'with custom avro renderers',
 		() => (
 			<div style={{ height: '100vh' }}>
@@ -233,9 +234,9 @@ storiesOf('Container Datagrid', module)
 				<DataGrid componentId="CustomizedAvroDatagrid" />
 			</div>
 		),
-		options,
+		{ ...options }
 	)
-	.addWithCMF(
+	.add(
 		'with selected rows',
 		() => (
 			<div style={{ height: '100vh' }}>
@@ -243,9 +244,9 @@ storiesOf('Container Datagrid', module)
 				<DataGrid componentId="HightLightRows" className={theme['td-grid-focus-row']} />
 			</div>
 		),
-		options,
+		{ ...options }
 	)
-	.addWithCMF(
+	.add(
 		'multiple grid',
 		() => (
 			<div>
@@ -258,5 +259,5 @@ storiesOf('Container Datagrid', module)
 				</div>
 			</div>
 		),
-		options,
+		{ ...options }
 	);

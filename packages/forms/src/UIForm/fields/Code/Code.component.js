@@ -27,7 +27,6 @@ class WrappedTextArea extends React.PureComponent {
 		return <TextArea {...this.props} />;
 	}
 }
-WrappedTextArea.propTypes = {};
 
 // eslint-disable-next-line react/no-multi-comp
 class Code extends React.Component {
@@ -152,6 +151,7 @@ class Code extends React.Component {
 	}
 }
 if (process.env.NODE_ENV !== 'production') {
+	WrappedTextArea.propTypes = TextArea.propTypes;
 	Code.propTypes = {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,

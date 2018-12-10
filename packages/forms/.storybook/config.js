@@ -16,7 +16,7 @@ function loadStories() {
 a11y(ReactDOM);
 addDecorator(checkA11y);
 
-const withFormLayout = (story, options, other) => {
+const withFormLayout = (story, options) => {
 	if (options.kind === 'Layout') {
 		return story();
 	}

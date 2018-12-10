@@ -5,7 +5,7 @@ import CMFDecorator from './CMFDecorator';
 import register from './register';
 
 export default makeDecorator({
-	name: 'withNotes',
+	name: 'withCMF',
 	parameterName: 'cmf',
 	skipIfNoParametersOrOptions: false,
 	wrapper: (getStory, context, { parameters = {} }) => (

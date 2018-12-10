@@ -66,6 +66,7 @@
     "prop-types": "^15.5.10"
   },
   "peerDependencies": {
+    "react": "^16.0.0",
     "@kadira/storybook": "^2",
     "@talend/react-cmf": "^1.10.0"
   },
