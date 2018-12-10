@@ -8,7 +8,6 @@ jest.mock(
 	() => props => <div id="autoSizer">{props.children({ height: 30, width: 30 })}</div>, // eslint-disable-line react/prop-types
 );
 
-
 describe('Items', () => {
 	const props = {
 		items: [
