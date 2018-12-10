@@ -74,14 +74,14 @@ describe('ListView field', () => {
 	describe('render', () => {
 		it('should render ListView', () => {
 			// when
-			const wrapper = shallow(<ListView {...props} />);
+			const wrapper = shallow(<ListView.WrappedComponent {...props} />);
 			// then
-			expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
 		it('should render no items message', () => {
 			// when
-			const wrapper = mount(<ListView {...props} schema={noItemsSchema} />);
+			const wrapper = mount(<ListView.WrappedComponent {...props} schema={noItemsSchema} />);
 
 			// then
 			expect(toJsonWithoutI18n(wrapper.find('.tc-listview').at(0))).toMatchSnapshot();

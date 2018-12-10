@@ -345,62 +345,107 @@ Object {
 `;
 
 exports[`ListView field render should render ListView 1`] = `
-<I18n
-  bindI18n="languageChanged loaded"
-  bindStore="added removed"
+<FieldTemplate
+  description="This is the ListView field"
+  descriptionId="my-list-view-description"
+  errorId="my-list-view-error"
   errorMessage="This is wrong"
-  i18n={Object {}}
   id="my-list-view"
-  isSwitchBox={true}
   isValid={true}
-  ns={
-    Array [
-      "tui-forms",
-    ]
-  }
-  nsMode="default"
-  omitBoundRerender={true}
-  onChange={[MockFunction]}
-  onFinish={[MockFunction]}
-  schema={
-    Object {
-      "description": "This is the ListView field",
-      "disabled": false,
-      "required": true,
-      "title": "Countries",
-      "titleMap": Array [
+  required={true}
+>
+  <Translate(ListView)
+    containerProps={
+      Object {
+        "aria-describedby": "my-list-view-description my-list-view-error",
+      }
+    }
+    displayedItems={
+      Array [
         Object {
-          "name": "Afghanistan",
+          "checked": false,
+          "index": 0,
+          "label": "Afghanistan",
+          "onChange": [Function],
           "value": "country1",
         },
         Object {
-          "name": "Albania",
+          "checked": true,
+          "index": 1,
+          "label": "Albania",
+          "onChange": [Function],
           "value": "country2",
         },
         Object {
-          "name": "Algeria",
+          "checked": true,
+          "index": 2,
+          "label": "Algeria",
+          "onChange": [Function],
           "value": "country3",
         },
         Object {
-          "name": "Andorra",
+          "checked": false,
+          "index": 3,
+          "label": "Andorra",
+          "onChange": [Function],
           "value": "country4",
         },
-      ],
+      ]
     }
-  }
-  translateFuncName="t"
-  usePureComponent={false}
-  value={
-    Array [
-      "country2",
-      "country3",
-    ]
-  }
-  wait={false}
-  withRef={false}
->
-  <Component />
-</I18n>
+    getItemHeight={[Function]}
+    headerDefault={
+      Array [
+        Object {
+          "icon": "talend-search",
+          "id": "my-list-view-search",
+          "label": "Search for specific values",
+          "onClick": [Function],
+        },
+      ]
+    }
+    headerLabel="Countries"
+    id="my-list-view"
+    items={
+      Array [
+        Object {
+          "checked": false,
+          "index": 0,
+          "label": "Afghanistan",
+          "onChange": [Function],
+          "value": "country1",
+        },
+        Object {
+          "checked": true,
+          "index": 1,
+          "label": "Albania",
+          "onChange": [Function],
+          "value": "country2",
+        },
+        Object {
+          "checked": true,
+          "index": 2,
+          "label": "Algeria",
+          "onChange": [Function],
+          "value": "country3",
+        },
+        Object {
+          "checked": false,
+          "index": 3,
+          "label": "Andorra",
+          "onChange": [Function],
+          "value": "country4",
+        },
+      ]
+    }
+    onAddKeyDown={[Function]}
+    onInputChange={[Function]}
+    onToggleAll={[Function]}
+    required={true}
+    searchCriteria={null}
+    t={[Function]}
+    toggleAllChecked={false}
+  />
+</FieldTemplate>
 `;
 
 exports[`ListView field render should render no items message 1`] = `
@@ -431,7 +476,6 @@ exports[`ListView field render should render no items message 1`] = `
     id="my-list-view"
     isSwitchBox={false}
     items={Array []}
-    lng="en"
     onAddKeyDown={[Function]}
     onInputChange={[Function]}
     onToggleAll={[Function]}
@@ -502,7 +546,6 @@ exports[`ListView field render should render no items message 1`] = `
           }
           headerLabel="Countries"
           i18n={Object {}}
-          lng="en"
           nbItems={0}
           nbItemsSelected={0}
           required={true}
@@ -569,7 +612,6 @@ exports[`ListView field render should render no items message 1`] = `
                       inProgress={false}
                       label="Search for specific values"
                       link={true}
-                      lng="en"
                       loading={false}
                       onClick={[Function]}
                       t={[Function]}
