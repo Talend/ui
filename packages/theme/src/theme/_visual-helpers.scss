@@ -62,11 +62,7 @@
 			&:focus,
 			&:hover {
 				background-color: transparent;
-				color: $btn-color;
-				box-shadow: none;
 				border: $border-width solid $btn-color;
-				line-height: $btn-line-height - (2 * $border-width);
-				opacity: 0.4;
 			}
 		}
 
