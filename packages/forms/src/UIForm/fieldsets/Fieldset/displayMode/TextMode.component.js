@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import Widget from '../../../Widget';
+import Widget from '../../../Widget';
 
 export default function FieldsetTextMode(props) {
 	const { schema, ...restProps } = props;
@@ -8,9 +8,7 @@ export default function FieldsetTextMode(props) {
 
 	const definitionList = (
 		<dl>
-			{/* {items.map((itemSchema, index) => (
-				<Widget {...restProps} key={index} schema={itemSchema} />
-			))} */}
+			{items.map((itemSchema, index) => <Widget {...restProps} key={index} schema={itemSchema} />)}
 		</dl>
 	);
 
