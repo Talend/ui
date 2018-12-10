@@ -56,10 +56,6 @@ const actions = [
 
 
 const stories = storiesOf('ActionList', module);
-if (!stories.add) {
-	stories.add = stories.add;
-}
-
 
 stories
 	.addDecorator(story => (

@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from '@storybook/addon-a11y';
 import { IconsProvider } from '@talend/react-components';
 
 import DataGrid from '../src/components/';
@@ -11,7 +10,6 @@ import DefaultPinHeaderRenderer from '../src/components/DefaultPinHeaderRenderer
 import DefaultCellRenderer from '../src/components/DefaultCellRenderer';
 import DefaultHeaderRenderer from '../src/components/DefaultHeaderRenderer';
 
-import serializer from '../src/components/DatasetSerializer';
 import sample from './sample.json';
 import sample2 from './sample2.json';
 import sample3 from './sample3.json';
@@ -47,7 +45,7 @@ sample.data[2].value.field0.value =
 	'very looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong value';
 
 storiesOf('Component Datagrid', module)
-	
+
 	.add('default', () => (
 		<div style={{ height: '100vh' }}>
 			<IconsProvider />

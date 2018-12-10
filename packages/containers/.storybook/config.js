@@ -472,7 +472,6 @@ function loadStories() {
 		state.cmf.settings.props['ActionButton#second'] = actions['menu:second'];
 		state.cmf.settings.props['ActionButton#configuration'] = actions['menu:third'];
 		const story = storiesOf(example, examples[example]);
-		story;
 
 		if (typeof examples[example] === 'function') {
 			story.add('Default', examples[example], {

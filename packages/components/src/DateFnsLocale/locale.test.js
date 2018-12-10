@@ -2,8 +2,6 @@ import i18next from 'i18next';
 import getDefaultT from '../translate';
 import getLocale, { buildDistanceInWordsLocale } from './locale';
 
-const originalLang = i18next.language;
-
 describe('buildDistanceInWordsLocale', () => {
 	it('should return the formatDistance with ', () => {
 		const distanceInWords = buildDistanceInWordsLocale(getDefaultT());
@@ -89,6 +87,10 @@ describe('buildDistanceInWordsLocale', () => {
 });
 
 describe('getLocale', () => {
+	let originalLang;
+	beforeEach(() => {
+		originalLang = i18next.language;
+	});
 	afterEach(() => {
 		i18next.language = originalLang;
 	});
