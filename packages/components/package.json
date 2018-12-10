@@ -68,7 +68,7 @@
     "@talend/icons": "1.10.0",
     "autoprefixer": "^7.1.4",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "^8.2.3",
+    "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "bootstrap-sass": "3.3.7",
     "classnames": "^2.2.5",

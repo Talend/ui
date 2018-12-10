@@ -76,7 +76,7 @@ module.exports = {
 	'@storybook/addons': '^4.0.12',
 	autoprefixer: '^7.1.4',
 	'babel-core': '^7.0.0-bridge.0', // to fix jest
-	'babel-eslint': '^8.2.3',
+	'babel-eslint': '^10.0.1',
 	'babel-jest': JEST_VERSION,
 	// babel 7
 	'@babel/cli': '^7.2.0',
