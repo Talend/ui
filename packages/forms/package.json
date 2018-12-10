@@ -92,7 +92,7 @@
     "prop-types": "^15.5.10",
     "react": "^16.0.0",
     "react-a11y": "^0.3.3",
-    "react-ace": "5.2.0",
+    "react-ace": "6.2.0",
     "react-bootstrap": "0.31.5",
     "react-css-transition": "^0.7.4",
     "react-dom": "^16.0.0",

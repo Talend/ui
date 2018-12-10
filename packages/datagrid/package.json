@@ -75,7 +75,7 @@
     "node-sass": "^4.7.2",
     "prop-types": "^15.5.10",
     "react": "^16.0.0",
-    "react-ace": "5.2.0",
+    "react-ace": "6.2.0",
     "react-bootstrap": "0.31.5",
     "react-components": "^0.5.1",
     "react-css-transition": "^0.7.4",
