@@ -18,7 +18,7 @@ jest.mock('i18next', () => {
 			if (split.length > 1) {
 				buff = split.reduce((acc, current) => {
 					const sub = current.split('{{');
-					let value = sub.length > 1 ? options[sub[1]] : '';
+					let value = sub.length > 1 ? options[sub[1].trim()] : '';
 					if (value === undefined) {
 						value = '';
 					}

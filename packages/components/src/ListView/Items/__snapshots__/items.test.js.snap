@@ -323,7 +323,7 @@ exports[`Items should render 1`] = `
                           >
                             <label>
                               <input
-                                aria-label="Select "
+                                aria-label="Select Lorem ipsum dolor sit amet 0"
                                 onChange={[Function]}
                                 type="checkbox"
                               />
@@ -446,7 +446,7 @@ exports[`Items should render 1`] = `
                           >
                             <label>
                               <input
-                                aria-label="Deselect "
+                                aria-label="Deselect Lorem ipsum dolor sit amet 1"
                                 checked={true}
                                 onChange={[Function]}
                                 type="checkbox"
@@ -566,7 +566,7 @@ exports[`Items should render 1`] = `
                           >
                             <label>
                               <input
-                                aria-label="Select "
+                                aria-label="Select Lorem ipsum dolor sit amet 2"
                                 onChange={[Function]}
                                 type="checkbox"
                               />
@@ -936,7 +936,7 @@ exports[`Items should render with nested items 1`] = `
                           >
                             <label>
                               <input
-                                aria-label="Select "
+                                aria-label="Select Lorem ipsum dolor default"
                                 onChange={[Function]}
                                 type="checkbox"
                               />
@@ -1092,7 +1092,7 @@ exports[`Items should render with nested items 1`] = `
                           >
                             <label>
                               <input
-                                aria-label="Deselect "
+                                aria-label="Deselect Lorem ipsum dolor Parent"
                                 checked={true}
                                 onChange={[Function]}
                                 type="checkbox"
@@ -1110,14 +1110,14 @@ exports[`Items should render with nested items 1`] = `
                                 bsStyle="link"
                                 hideLabel={true}
                                 icon="talend-caret-down"
-                                label="Expand "
+                                label="Expand Lorem ipsum dolor Parent"
                                 onClick={[Function]}
                               >
                                 <Translate(ActionButton)
                                   bsStyle="link"
                                   hideLabel={true}
                                   icon="talend-caret-down"
-                                  label="Expand "
+                                  label="Expand Lorem ipsum dolor Parent"
                                   onClick={[Function]}
                                 >
                                   <I18n
@@ -1127,7 +1127,7 @@ exports[`Items should render with nested items 1`] = `
                                     hideLabel={true}
                                     i18n={Object {}}
                                     icon="talend-caret-down"
-                                    label="Expand "
+                                    label="Expand Lorem ipsum dolor Parent"
                                     ns={
                                       Array [
                                         "tui-components",
@@ -1149,7 +1149,7 @@ exports[`Items should render with nested items 1`] = `
                                       i18n={Object {}}
                                       icon="talend-caret-down"
                                       inProgress={false}
-                                      label="Expand "
+                                      label="Expand Lorem ipsum dolor Parent"
                                       lng="en"
                                       loading={false}
                                       onClick={[Function]}
@@ -1158,12 +1158,12 @@ exports[`Items should render with nested items 1`] = `
                                       tooltipPlacement="top"
                                     >
                                       <TooltipTrigger
-                                        label="Expand "
+                                        label="Expand Lorem ipsum dolor Parent"
                                         tooltipPlacement="top"
                                       >
                                         <Button
                                           active={false}
-                                          aria-label="Expand "
+                                          aria-label="Expand Lorem ipsum dolor Parent"
                                           block={false}
                                           bsClass="btn"
                                           bsStyle="link"
@@ -1176,7 +1176,7 @@ exports[`Items should render with nested items 1`] = `
                                           role={null}
                                         >
                                           <button
-                                            aria-label="Expand "
+                                            aria-label="Expand Lorem ipsum dolor Parent"
                                             className="btn-icon-only btn btn-link"
                                             disabled={false}
                                             onClick={[Function]}
@@ -1557,7 +1557,7 @@ exports[`Items should render with provided id 1`] = `
                               htmlFor="checkbox-my-widget-1-item"
                             >
                               <input
-                                aria-label="Select "
+                                aria-label="Select Lorem ipsum dolor sit amet 0"
                                 id="checkbox-my-widget-1-item"
                                 onChange={[Function]}
                                 type="checkbox"
@@ -1688,7 +1688,7 @@ exports[`Items should render with provided id 1`] = `
                               htmlFor="checkbox-my-widget-2-item"
                             >
                               <input
-                                aria-label="Deselect "
+                                aria-label="Deselect Lorem ipsum dolor sit amet 1"
                                 checked={true}
                                 id="checkbox-my-widget-2-item"
                                 onChange={[Function]}
@@ -1816,7 +1816,7 @@ exports[`Items should render with provided id 1`] = `
                               htmlFor="checkbox-my-widget-3-item"
                             >
                               <input
-                                aria-label="Select "
+                                aria-label="Select Lorem ipsum dolor sit amet 2"
                                 id="checkbox-my-widget-3-item"
                                 onChange={[Function]}
                                 type="checkbox"
