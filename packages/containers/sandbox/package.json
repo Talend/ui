@@ -18,7 +18,7 @@
   "author": "Talend Frontend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@talend/scripts": "0.2.1"
+    "@talend/scripts": "link:../../scripts"
   },
   "dependencies": {
     "@talend/bootstrap-theme": "link:../../theme",

@@ -47,7 +47,7 @@
     "resolve-url-loader": "2.3.0",
     "rimraf": "^2.6.1",
     "sass-loader": "^7.1.0",
-    "uglifyjs-webpack-plugin": "1.2.5",
+    "uglifyjs-webpack-plugin": "1.2.7",
     "url-loader": "^1.1.2",
     "webpack": "^4.19.0",
     "webpack-cli": "^3.1.0",
@@ -57,8 +57,8 @@
     "yargs-parser": "^9.0.2"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "1.10.0-0",
-    "@talend/react-components": "1.10.0-0"
+    "@talend/bootstrap-theme": "1.10.0",
+    "@talend/react-components": "1.10.0"
   },
   "publishConfig": {
     "access": "public"
