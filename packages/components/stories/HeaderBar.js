@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
+import { makeDecorator } from '@storybook/addons';
 
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
@@ -169,24 +170,33 @@ const infoStyle = stylesheet => ({
 	},
 });
 
+const withIcons = makeDecorator({
+	name: 'withIcons',
+	wrapper: (getStory, context) => {
+		const story = getStory(context);
+		return (
+			<I18nextProvider i18n={i18n}>
+				<div>
+					<IconsProvider defaultIcons={icons} />
+					{story}
+					<div className="container" style={{ paddingTop: 40 }} />
+				</div>
+			</I18nextProvider>
+		);
+	},
+});
+
 const decoratedStories = storiesOf('HeaderBar', module);
 
-decoratedStories.addDecorator(story => (
-		<I18nextProvider i18n={i18n}>
-			<div>
-				<IconsProvider defaultIcons={icons} />
-				{story()}
-				<div className="container" style={{ paddingTop: 40 }} />
-			</div>
-		</I18nextProvider>
-	))
+decoratedStories
+	.addDecorator(withIcons)
 	.add(
 		'default',
 		() => {
 			const headerProps = Immutable.fromJS(props).toJS();
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
 	.add(
 		'with full logo',
@@ -195,7 +205,7 @@ decoratedStories.addDecorator(story => (
 			headerProps.logo.isFull = true;
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
 	.add(
 		'without products',
@@ -207,7 +217,7 @@ decoratedStories.addDecorator(story => (
 			headerProps.logo.isFull = true;
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
 	.add(
 		'with environment dropdown',
@@ -225,7 +235,7 @@ decoratedStories.addDecorator(story => (
 			};
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
 	.add(
 		'with unread notifications',
@@ -236,7 +246,7 @@ decoratedStories.addDecorator(story => (
 			};
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
 	.add(
 		'with read notifications',
@@ -247,7 +257,7 @@ decoratedStories.addDecorator(story => (
 			};
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
 	.add(
 		'with help split dropdown',
@@ -267,7 +277,7 @@ decoratedStories.addDecorator(story => (
 			];
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
 	.add(
 		'with search input',
@@ -280,7 +290,7 @@ decoratedStories.addDecorator(story => (
 			};
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
 	.add(
 		'while searching',
@@ -295,7 +305,7 @@ decoratedStories.addDecorator(story => (
 			};
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
 	.add(
 		'with search results',
@@ -311,7 +321,7 @@ decoratedStories.addDecorator(story => (
 			};
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
 	.add(
 		'with no search result',
@@ -326,7 +336,7 @@ decoratedStories.addDecorator(story => (
 			};
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
 	.add(
 		'without user and with information',
@@ -365,9 +375,9 @@ decoratedStories.addDecorator(story => (
 			};
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
-	.add('barebone', () => <HeaderBar />, { styles: infoStyle });
+	.add('barebone', () => <HeaderBar />, { info: { styles: infoStyle } });
 
 const appStyle = require('./config/themes.scss');
 

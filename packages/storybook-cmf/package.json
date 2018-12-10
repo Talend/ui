@@ -17,7 +17,7 @@
     "addon"
   ],
   "scripts": {
-    "prepublish": "babel --root-mode upward -d lib ./src/",
+    "prepublish": "babel -d lib ./src/",
     "lint": "eslint --config ../../.eslintrc src",
     "test": "jest",
     "test:demo": "echo nothing to demo"
@@ -28,7 +28,7 @@
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
-    "@storybook/react": "^4.0.11",
+    "@storybook/react": "^4.0.12",
     "@talend/react-cmf": "1.10.0-1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.3",
@@ -60,9 +60,9 @@
     "webpack-cli": "^3.1.0"
   },
   "dependencies": {
-    "@storybook/addon-actions": "^4.0.11",
-    "@storybook/addon-info": "^4.0.11",
-    "@storybook/addons": "^4.0.11",
+    "@storybook/addon-actions": "^4.0.12",
+    "@storybook/addon-info": "^4.0.12",
+    "@storybook/addons": "^4.0.12",
     "prop-types": "^15.5.10"
   },
   "peerDependencies": {

@@ -6,7 +6,7 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "prepublish": "rimraf lib && babel --root-mode upward -d lib ./src/",
+    "prepublish": "rimraf lib && babel -d lib ./src/",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",

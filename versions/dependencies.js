@@ -67,13 +67,13 @@ module.exports = {
 	deepmerge: '^1.5.1',
 
 	// dev deps
-	'@storybook/react': '^4.0.11',
-	'@storybook/addon-a11y': '^4.0.11',
-	'@storybook/addon-storyshots': '^4.0.11',
-	'@storybook/addon-actions': '^4.0.11',
-	'@storybook/addon-info': '^4.0.11',
-	'@storybook/addon-knobs': '^4.0.11',
-	'@storybook/addons': '^4.0.11',
+	'@storybook/react': '^4.0.12',
+	'@storybook/addon-a11y': '^4.0.12',
+	'@storybook/addon-storyshots': '^4.0.12',
+	'@storybook/addon-actions': '^4.0.12',
+	'@storybook/addon-info': '^4.0.12',
+	'@storybook/addon-knobs': '^4.0.12',
+	'@storybook/addons': '^4.0.12',
 	autoprefixer: '^7.1.4',
 	'babel-core': '^7.0.0-bridge.0', // to fix jest
 	'babel-eslint': '^8.2.3',

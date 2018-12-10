@@ -5,7 +5,7 @@
   "mainSrc": "src/index.js",
   "scripts": {
     "prepublish": "npm run build && npm run test",
-    "build": "rimraf ./dist && babel --root-mode upward -d dist ./src/ --ignore **/*.test.js",
+    "build": "rimraf ./dist && babel -d dist ./src/ --ignore **/*.test.js",
     "start": "echo nothing to start",
     "test": "echo nothing to test yet in @talend/react-cmf-webpack-plugin",
     "test:cov": "npm run test",
