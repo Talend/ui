@@ -74,8 +74,12 @@
 	&-link {
 		font-size: $font-size-base;
 		font-weight: inherit;
+	}
+
+	&-icon-only {
 		color: $gray;
 
+		&:focus,
 		&:hover {
 			color: $scooter;
 		}

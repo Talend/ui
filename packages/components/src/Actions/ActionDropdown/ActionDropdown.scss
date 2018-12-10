@@ -2,16 +2,10 @@ $tc-dropdown-loader-padding: $padding-small !default;
 
 .tc-dropdown {
 	&-button:global(.btn-link) {
-		color: $st-tropaz;
 		&:hover,
 		&:focus,
 		&:active {
 			text-decoration: none;
-		}
-
-		&:hover,
-		&:focus {
-			color: #143854;
 		}
 	}
 
