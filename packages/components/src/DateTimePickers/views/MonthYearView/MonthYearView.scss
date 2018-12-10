@@ -2,14 +2,15 @@
 
 .body {
 	display: flex;
-	padding-top: $padding-normal;
 
 	.month {
 		flex: 3 0 200px;
 	}
 
 	.year {
+		border-left: $border-default;
 		flex: 1 0 70px;
-		padding: 0 $padding-normal;
+		margin-left: $padding-normal;
+		padding-left: $padding-normal;
 	}
 }

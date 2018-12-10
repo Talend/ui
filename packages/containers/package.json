@@ -43,12 +43,12 @@
     "@storybook/addon-a11y": "^4.0.12",
     "@storybook/addon-actions": "^4.0.12",
     "@storybook/react": "^4.0.12",
-    "@talend/bootstrap-theme": "1.10.0-1",
-    "@talend/icons": "1.10.0-1",
-    "@talend/react-cmf": "1.10.0-1",
-    "@talend/react-components": "1.10.0-1",
-    "@talend/react-forms": "1.10.0-1",
-    "@talend/react-storybook-cmf": "1.10.0-1",
+    "@talend/bootstrap-theme": "1.10.0",
+    "@talend/icons": "1.10.0",
+    "@talend/react-cmf": "1.10.0",
+    "@talend/react-components": "1.10.0",
+    "@talend/react-forms": "1.10.0",
+    "@talend/react-storybook-cmf": "1.10.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^23.6.0",
@@ -105,10 +105,10 @@
     "uuid": "^3.0.1"
   },
   "peerDependencies": {
-    "@talend/icons": "^1.10.0-1",
-    "@talend/react-cmf": "^1.10.0-1",
-    "@talend/react-components": "^1.10.0-1",
-    "@talend/react-forms": "^1.10.0-1",
+    "@talend/icons": "^1.10.0",
+    "@talend/react-cmf": "^1.10.0",
+    "@talend/react-components": "^1.10.0",
+    "@talend/react-forms": "^1.10.0",
     "bson-objectid": "^1.1.5",
     "classnames": "^2.2.5",
     "i18next": "^9.0.0",
@@ -142,7 +142,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.10.0-1",
+  "version": "1.10.0",
   "dependencies": {
     "memoize-one": "^4.0.0",
     "react-immutable-proptypes": "^2.1.0",
