@@ -1,6 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Fieldset widget in text mode should render a simple definition list without title 1`] = `<dl />`;
+exports[`Fieldset widget in text mode should render a simple definition list without title 1`] = `
+<dl>
+  <Widget
+    schema={
+      Object {
+        "key": Array [
+          "user",
+          "firstname",
+        ],
+        "schema": Object {
+          "type": "string",
+        },
+        "type": "text",
+      }
+    }
+    widgets={Object {}}
+  />
+  <Widget
+    schema={
+      Object {
+        "key": Array [
+          "user",
+          "lastname",
+        ],
+        "schema": Object {
+          "type": "string",
+        },
+        "type": "text",
+      }
+    }
+    widgets={Object {}}
+  />
+</dl>
+`;
 
 exports[`Fieldset widget in text mode should render a title described by a definition list 1`] = `
 <div
@@ -12,7 +45,38 @@ exports[`Fieldset widget in text mode should render a title described by a defin
     My fieldset
   </dt>
   <dd>
-    <dl />
+    <dl>
+      <Widget
+        schema={
+          Object {
+            "key": Array [
+              "user",
+              "firstname",
+            ],
+            "schema": Object {
+              "type": "string",
+            },
+            "type": "text",
+          }
+        }
+        widgets={Object {}}
+      />
+      <Widget
+        schema={
+          Object {
+            "key": Array [
+              "user",
+              "lastname",
+            ],
+            "schema": Object {
+              "type": "string",
+            },
+            "type": "text",
+          }
+        }
+        widgets={Object {}}
+      />
+    </dl>
   </dd>
 </div>
 `;

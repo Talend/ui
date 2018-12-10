@@ -2,30 +2,22 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/cmf/src/cmfConnect.js
-  244:11  error  'displayName' is not defined     no-undef
-  245:11  error  'propTypes' is not defined       no-undef
-  248:11  error  'contextTypes' is not defined    no-undef
-  255:11  error  'setStateAction' is not defined  no-undef
-
 /home/travis/build/Talend/ui/packages/cmf/src/componentState.js
   87:3  warning  Unexpected console statement  no-console
-
-/home/travis/build/Talend/ui/packages/cmf/src/Dispatcher.js
-  39:9  error  'displayName' is not defined   no-undef
-  40:9  error  'propTypes' is not defined     no-undef
-  47:9  error  'contextTypes' is not defined  no-undef
 
 /home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
   23:2  warning  Unexpected console statement  no-console
 
+/home/travis/build/Talend/ui/packages/cmf/src/RegistryProvider.js
+  15:63  error  Block must not be padded by blank lines  padded-blocks
+
 /home/travis/build/Talend/ui/packages/cmf/src/sagaRouter/router.js
-  158:2   warning  Unexpected constant condition                no-constant-condition
-  163:54  error    There should be no spaces inside this paren  space-in-parens
-  177:51  error    There should be no spaces inside this paren  space-in-parens
+  163:54  error  There should be no spaces inside this paren  space-in-parens
+  177:51  error  There should be no spaces inside this paren  space-in-parens
 
 /home/travis/build/Talend/ui/packages/cmf/src/sagas/collection.js
   10:1  error  Prefer default export  import/prefer-default-export
 
-✖ 13 problems (10 errors, 3 warnings)
+✖ 6 problems (4 errors, 2 warnings)
+  3 errors, 0 warnings potentially fixable with the `--fix` option.
 
