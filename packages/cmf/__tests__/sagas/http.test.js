@@ -13,6 +13,7 @@ import http, {
 	handleHttpResponse,
 	httpFetch,
 	HTTPError,
+	encodePayload,
 	wrapFetch,
 	httpGet,
 	httpDelete,
@@ -236,6 +237,37 @@ describe('#handleError', () => {
 			expect(error.response instanceof Response).toBe(true);
 			done();
 		});
+	});
+});
+
+describe('#encodePayload', () => {
+	it('should json stringify the payload if content-type is application/json', () => {
+		const headers = {
+			'Content-Type': 'application/json',
+		};
+		const test = { abc: 'def' };
+
+		// eslint-disable-next-line quotes
+		expect(encodePayload(headers, test)).toEqual("{\"abc\":\"def\"}");
+	});
+
+	it('should not json stringify the payload if content-type is not application/json', () => {
+		const headers = {
+			'Content-Type': 'plain/text',
+		};
+		const test = { abc: 'def' };
+
+		// eslint-disable-next-line quotes
+		expect(encodePayload(headers, test)).toEqual({ abc: 'def' });
+	});
+
+	it('should not json stringify the payload if it is a FormData instance', () => {
+		const headers = {
+			'Content-Type': 'application/json',
+		};
+
+		// eslint-disable-next-line quotes
+		expect(encodePayload(headers, new FormData()) instanceof FormData).toBe(true);
 	});
 });
 

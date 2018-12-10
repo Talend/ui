@@ -30,7 +30,7 @@ describe('ListGrid', () => {
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 		expect(wrapper.getElement().props.rowRenderer.displayName).toBe(
-			'ListGesture(VirtualizedList(RowLarge))',
+			'ListGesture(Translate(VirtualizedList(RowLarge)))',
 		);
 	});
 
@@ -53,7 +53,7 @@ describe('ListGrid', () => {
 
 		// then
 		expect(wrapper.getElement().props.rowRenderer.displayName).toBe(
-			'RowSelection(ListGesture(VirtualizedList(RowLarge)))',
+			'RowSelection(ListGesture(Translate(VirtualizedList(RowLarge))))',
 		);
 	});
 

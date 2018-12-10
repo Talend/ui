@@ -1,12 +1,13 @@
 @import '../colors';
 
-$tc-list-title-actions-color: $brand-primary-darker !default;
+$tc-list-title-actions-hover-color: $brand-primary-darker !default;
 $tc-list-title-actions-ellipsis: '\22ee';
 $tc-list-title-dropdown-menu-triangle: '\25b2';
 $tc-list-title-dropup-menu-triangle: '\25bc';
 
 .main-title-actions-group {
 	flex-grow: 0;
+	position: relative;
 	right: 0;
 	top: 0;
 	height: $btn-line-height;
@@ -15,9 +16,9 @@ $tc-list-title-dropup-menu-triangle: '\25bc';
 		background: linear-gradient(to right, rgba(255, 255, 255, 0), $tc-list-row-hover-bg $padding-large);
 		opacity: 0;
 		visibility: hidden;
-		right: 0;
 
 		position: absolute;
+		right: 100%;
 
 		padding-left: $padding-larger;
 		margin-right: $padding-smaller;
@@ -38,8 +39,12 @@ $tc-list-title-dropup-menu-triangle: '\25bc';
 
 	:global {
 		.btn-link {
-			color: $tc-list-title-actions-color;
 			padding: 0 $padding-small;
+			color: $dove-gray;
+
+			&:hover {
+				color: $tc-list-title-actions-hover-color;
+			}
 		}
 
 		.btn-group > .dropdown-menu,
