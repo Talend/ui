@@ -147,19 +147,6 @@ describe('SubHeaderBar', () => {
 			],
 		};
 	});
-	xit('should render with i18n', () => {
-		const props = {
-			title: 'myTitle',
-			left: false,
-			center: true,
-			right: false,
-			className: 'myClassName',
-			onGoBack: jest.fn(),
-			...actions,
-		};
-		const wrapper = shallow(<Container {...props} />);
-		expect(wrapper.getElement().props.i18n).toBeDefined();
-	});
 	it('should render without i18n', () => {
 		const props = {
 			title: 'myTitle',

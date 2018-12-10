@@ -1,8 +1,11 @@
 import i18next from 'i18next';
 import { getCurrentLanguage } from './translate';
 
-const originalLang = i18next.language;
 describe('getCurrentLanguage', () => {
+	let originalLang;
+	beforeEach(() => {
+		originalLang = i18next.language;
+	});
 	afterEach(() => {
 		i18next.language = originalLang;
 	});
