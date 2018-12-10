@@ -94,9 +94,9 @@ storiesOf('Action', module)
 			<Action id="inprogress" {...myAction} inProgress />
 			<h3>Loading</h3>
 			<Action id="loading" loading label="loading" />
-			<h3>Icon button</h3>
+			<h3>Icon button with label</h3>
 			<Action id="icon" {...myAction} link />
-			<h3>Icon button without icon</h3>
+			<h3>Icon button without label</h3>
 			<Action id="icon" {...myAction} link label="" />
 			<h3>Loading Icon button</h3>
 			<Action id="icon" link label="Click me" loading />
