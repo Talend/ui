@@ -178,6 +178,11 @@ api.expression.register('modelHasLabel', context => {
 function loadStories() {
 	Object.keys(examples).forEach(example => {
 		const state = mock.state();
+		state.routing = {
+			locationBeforeTransitions: {
+				pathname: '/storybook',
+			},
+		};
 		state.cmf.collections = state.cmf.collections.set(
 			'myResourceType',
 			List([Map({ id: 'myID', label: 'myLabel' })]),
@@ -461,8 +466,11 @@ function loadStories() {
 		};
 		actions[actionsSubHeader.actionSubHeaderSharing.id] = actionsSubHeader.actionSubHeaderSharing;
 		actions[actionsSubHeader.actionSubHeaderBubbles.id] = actionsSubHeader.actionSubHeaderBubbles;
-
-		const story = storiesOf(example);
+		// migrate some actions to props:
+		state.cmf.settings.props['ActionButton#first'] = actions['menu:first'];
+		state.cmf.settings.props['ActionButton#second'] = actions['menu:second'];
+		state.cmf.settings.props['ActionButton#configuration'] = actions['menu:third'];
+		const story = storiesOf(example, examples[example]);
 		story.addDecorator(checkA11y);
 
 		if (typeof examples[example] === 'function') {

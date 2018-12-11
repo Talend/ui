@@ -53,7 +53,7 @@ Object {
         "bsStyle": "primary",
         "icon": "fa fa-asterisk",
         "label": "Preparations",
-        "onClick": [Function],
+        "onClick": [MockFunction],
       },
       Object {
         "displayMode": "dropdown",
@@ -61,11 +61,11 @@ Object {
         "items": Array [
           Object {
             "label": "document 1",
-            "onClick": [Function],
+            "onClick": [MockFunction],
           },
           Object {
             "label": "document 2",
-            "onClick": [Function],
+            "onClick": [MockFunction],
           },
         ],
         "label": "related items",
@@ -75,22 +75,22 @@ Object {
       Object {
         "icon": "fa fa-file-excel-o",
         "label": "Datasets",
-        "onClick": [Function],
+        "onClick": [MockFunction],
       },
       Object {
         "icon": "fa fa-star",
         "label": "Favorites",
-        "onClick": [Function],
+        "onClick": [MockFunction],
       },
       Object {
         "actions": Array [
           Object {
             "label": "document 1",
-            "onClick": [Function],
+            "onClick": [MockFunction],
           },
           Object {
             "label": "document 2",
-            "onClick": [Function],
+            "onClick": [MockFunction],
           },
         ],
         "displayMode": "btnGroup",

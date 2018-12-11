@@ -1,11 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SubHeaderBar container should render 1`] = `
-<Translate(SubHeaderBar)
-  onCancel={undefined}
-  onChange={undefined}
-  onEdit={undefined}
-  onGoBack={undefined}
-  onSubmit={undefined}
-/>
-`;
+exports[`SubHeaderBar container should render 1`] = `<Translate(SubHeaderBar) />`;

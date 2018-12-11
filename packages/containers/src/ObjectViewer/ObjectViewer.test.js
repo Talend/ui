@@ -38,9 +38,7 @@ const data = [
 describe('Container ObjectViewer', () => {
 	it('should pass needed props to pure component', () => {
 		const setState = jest.fn();
-		const wrapper = shallow(
-			<Container data={data} state={DEFAULT_STATE} setState={setState} />,
-		);
+		const wrapper = shallow(<Container data={data} state={DEFAULT_STATE} setState={setState} />);
 		expect(wrapper.find(Component).length).toBe(1);
 		const props = wrapper.props();
 		expect(props.onChange).toBe(undefined);
@@ -63,9 +61,7 @@ describe('Container ObjectViewer', () => {
 	});
 	xit('should not display types by default', () => {
 		const setState = jest.fn();
-		const wrapper = shallow(
-			<Container data={data} state={DEFAULT_STATE} setState={setState} />,
-		);
+		const wrapper = shallow(<Container data={data} state={DEFAULT_STATE} setState={setState} />);
 
 		expect(wrapper.find('.tc-object-viewer-line-type').length).toBe(0);
 	});
@@ -153,7 +149,7 @@ describe('toggleState', () => {
 describe('select', () => {
 	it('should highlight', () => {
 		const prevState = { state: DEFAULT_STATE };
-		prevState.state = selectWrapper(prevState, path);
+		prevState.state = selectWrapper(prevState, { jsonpath: path });
 
 		expect(prevState.state.get('selectedJsonpath')).toEqual(path);
 	});

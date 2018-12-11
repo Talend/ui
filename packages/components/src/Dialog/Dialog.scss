@@ -2,6 +2,18 @@
 	.modal-flex .modal-body {
 		display: flex;
 		flex-direction: column;
+		padding-top: $padding-larger;
+	}
+
+	.modal-body {
+		padding-top: $padding-larger;
+	}
+
+	.modal-footer {
+		padding-bottom: $padding-larger;
+		.tc-actionbar-container {
+			padding: 0;
+		}
 	}
 
 	.modal-content,
@@ -23,12 +35,13 @@
 		}
 
 		.modal-title {
+			text-transform: inherit;
+			font-weight: bold;
 			line-height: 1;
 		}
 
 		.modal-subtitle {
 			margin-bottom: 0;
-			padding-top: 0.5rem;
 		}
 
 		.close {

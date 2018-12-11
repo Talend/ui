@@ -58,7 +58,6 @@ ListToolbar.propTypes = {
 		}),
 	}),
 	toolbar: PropTypes.shape(omit(Toolbar.propTypes, 't')),
-	renderers: PropTypes.object,
 };
 
 /**
@@ -105,6 +104,7 @@ function List({
 	rowHeight,
 	getComponent,
 	components = {},
+	rowRenderers,
 }) {
 	const classnames = classNames('tc-list', theme.list);
 	const injected = Inject.all(getComponent, omit(components, ['toolbar', 'list']));
@@ -131,6 +131,7 @@ function List({
 					defaultHeight={defaultHeight}
 					rowHeight={rowHeight}
 					getComponent={getComponent}
+					rowRenderers={rowRenderers}
 					{...list}
 				/>
 				{injected('after-list')}

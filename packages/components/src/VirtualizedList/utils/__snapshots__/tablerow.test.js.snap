@@ -2,7 +2,7 @@
 
 exports[`tablerow #insertSelectionConfiguration should NOT insert selection column when selection callback is NOT provided 1`] = `
 Array [
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="id"
@@ -13,8 +13,8 @@ Array [
     label="Id"
     style={Object {}}
     width={50}
-/>,
-  <Column
+  />,
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="name"
@@ -25,7 +25,7 @@ Array [
     label="Name"
     style={Object {}}
     width={350}
-/>,
+  />,
 ]
 `;
 
@@ -35,10 +35,10 @@ Array [
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     columnData={
-        Object {
-            "label": "Select this element",
-            "onChange": [Function],
-          }
+      Object {
+        "label": "Select this element",
+        "onChange": [MockFunction],
+      }
     }
     dataKey=""
     defaultSortDirection="ASC"
@@ -50,8 +50,8 @@ Array [
     label=""
     style={Object {}}
     width={35}
-/>,
-  <Column
+  />,
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="id"
@@ -62,8 +62,8 @@ Array [
     label="Id"
     style={Object {}}
     width={50}
-/>,
-  <Column
+  />,
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="name"
@@ -74,7 +74,7 @@ Array [
     label="Name"
     style={Object {}}
     width={350}
-/>,
+  />,
 ]
 `;
 
@@ -85,10 +85,10 @@ Array [
     cellRenderer={[Function]}
     className="tc-list-cell-id"
     columnData={
-        Object {
-            "custom": "lol",
-            "id": "my-id",
-          }
+      Object {
+        "custom": "lol",
+        "id": "my-id",
+      }
     }
     dataKey="id"
     defaultSortDirection="ASC"
@@ -99,7 +99,7 @@ Array [
     label="Id"
     style={Object {}}
     width={50}
-/>,
+  />,
 ]
 `;
 
@@ -110,9 +110,9 @@ Array [
     cellRenderer={[Function]}
     className="my-classname theme-classname tc-list-cell-id"
     columnData={
-        Object {
-            "id": undefined,
-          }
+      Object {
+        "id": undefined,
+      }
     }
     dataKey="id"
     defaultSortDirection="ASC"
@@ -123,7 +123,7 @@ Array [
     label="Id"
     style={Object {}}
     width={50}
-/>,
+  />,
 ]
 `;
 
@@ -134,9 +134,9 @@ Array [
     cellRenderer={[Function]}
     className="tc-list-cell-id"
     columnData={
-        Object {
-            "id": undefined,
-          }
+      Object {
+        "id": undefined,
+      }
     }
     dataKey="id"
     defaultSortDirection="ASC"
@@ -147,6 +147,6 @@ Array [
     label="Id"
     style={Object {}}
     width={50}
-/>,
+  />,
 ]
 `;

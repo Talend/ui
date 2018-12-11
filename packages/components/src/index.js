@@ -53,8 +53,8 @@ import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
 import Inject from './Inject';
-import RichError from './RichError';
-import RichTooltip from './RichTooltip';
+import RichLayout from './RichTooltip/RichLayout';
+import RichError from './RichTooltip/RichError';
 
 const {
 	Alert,
@@ -155,7 +155,6 @@ export {
 	HttpError,
 	Icon,
 	IconsProvider,
-	Image,
 	Inject,
 	JSONSchemaRenderer,
 	Layout,
@@ -166,7 +165,7 @@ export {
 	ObjectViewer,
 	Progress,
 	RichError,
-	RichTooltip,
+	RichLayout,
 	SidePanel,
 	Status,
 	SubHeaderBar,

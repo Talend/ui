@@ -44,7 +44,6 @@ const sample = {
 			},
 			{
 				name: 'field1',
-				doc: 'Code UIC',
 				type: {
 					'@talend-quality@': {
 						0: 0,
@@ -395,7 +394,11 @@ describe('convertSample', () => {
 				name: 'field0',
 				doc: 'Nom de la gare',
 				type: [
-					'null',
+					{
+						type: 'null',
+						dqType: '',
+						dqTypeKey: '',
+					},
 					{
 						type: 'string',
 						dqType: 'FR Commune',

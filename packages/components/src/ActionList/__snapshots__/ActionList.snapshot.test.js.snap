@@ -50,9 +50,11 @@ exports[`Storyshots ActionList default 1`] = `
         viewBox="0 0 16 16"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M1 2h4v5H1zm5 5h9V2H6zm-5 7h4V9H1zm5 0h9V9H6z"
-        />
+        <g>
+          <path
+            d="M1,1 L15,1 C15.5522847,1 16,1.44771525 16,2 L16,14 C16,14.5522847 15.5522847,15 15,15 L1,15 C0.44771525,15 6.76353751e-17,14.5522847 0,14 L0,2 C-6.76353751e-17,1.44771525 0.44771525,1 1,1 Z M1,4 L1,8 L15,8 L15,4 L1,4 Z M1,9 L1,13 L15,13 L15,9 L1,9 Z"
+          />
+        </g>
       </svg>
     </symbol>
     <symbol
@@ -88,7 +90,7 @@ exports[`Storyshots ActionList default 1`] = `
       <svg>
         <defs>
           <filter
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
             id="colormapping"
           >
             <feColorMatrix
@@ -99,7 +101,6 @@ exports[`Storyshots ActionList default 1`] = `
             />
             <feColorMatrix
               in="grayscale"
-              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -112,7 +113,7 @@ exports[`Storyshots ActionList default 1`] = `
       <svg>
         <defs>
           <filter
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -126,33 +127,23 @@ exports[`Storyshots ActionList default 1`] = `
               result="gammadarken"
             >
               <feFuncR
-                amplitude="1"
                 exponent="7"
-                offset="0.0"
                 type="gamma"
               />
               <feFuncG
-                amplitude="1"
                 exponent="7"
-                offset="0.0"
                 type="gamma"
               />
               <feFuncB
-                amplitude="1"
                 exponent="7"
-                offset="0.0"
                 type="gamma"
               />
               <feFuncA
-                amplitude="1"
-                exponent="1"
-                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
-              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -417,9 +408,11 @@ exports[`Storyshots ActionList single 1`] = `
         viewBox="0 0 16 16"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M1 2h4v5H1zm5 5h9V2H6zm-5 7h4V9H1zm5 0h9V9H6z"
-        />
+        <g>
+          <path
+            d="M1,1 L15,1 C15.5522847,1 16,1.44771525 16,2 L16,14 C16,14.5522847 15.5522847,15 15,15 L1,15 C0.44771525,15 6.76353751e-17,14.5522847 0,14 L0,2 C-6.76353751e-17,1.44771525 0.44771525,1 1,1 Z M1,4 L1,8 L15,8 L15,4 L1,4 Z M1,9 L1,13 L15,13 L15,9 L1,9 Z"
+          />
+        </g>
       </svg>
     </symbol>
     <symbol
@@ -455,7 +448,7 @@ exports[`Storyshots ActionList single 1`] = `
       <svg>
         <defs>
           <filter
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
             id="colormapping"
           >
             <feColorMatrix
@@ -466,7 +459,6 @@ exports[`Storyshots ActionList single 1`] = `
             />
             <feColorMatrix
               in="grayscale"
-              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -479,7 +471,7 @@ exports[`Storyshots ActionList single 1`] = `
       <svg>
         <defs>
           <filter
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -493,33 +485,23 @@ exports[`Storyshots ActionList single 1`] = `
               result="gammadarken"
             >
               <feFuncR
-                amplitude="1"
                 exponent="7"
-                offset="0.0"
                 type="gamma"
               />
               <feFuncG
-                amplitude="1"
                 exponent="7"
-                offset="0.0"
                 type="gamma"
               />
               <feFuncB
-                amplitude="1"
                 exponent="7"
-                offset="0.0"
                 type="gamma"
               />
               <feFuncA
-                amplitude="1"
-                exponent="1"
-                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
-              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -624,9 +606,11 @@ exports[`Storyshots ActionList with custom class names 1`] = `
         viewBox="0 0 16 16"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M1 2h4v5H1zm5 5h9V2H6zm-5 7h4V9H1zm5 0h9V9H6z"
-        />
+        <g>
+          <path
+            d="M1,1 L15,1 C15.5522847,1 16,1.44771525 16,2 L16,14 C16,14.5522847 15.5522847,15 15,15 L1,15 C0.44771525,15 6.76353751e-17,14.5522847 0,14 L0,2 C-6.76353751e-17,1.44771525 0.44771525,1 1,1 Z M1,4 L1,8 L15,8 L15,4 L1,4 Z M1,9 L1,13 L15,13 L15,9 L1,9 Z"
+          />
+        </g>
       </svg>
     </symbol>
     <symbol
@@ -662,7 +646,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
       <svg>
         <defs>
           <filter
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
             id="colormapping"
           >
             <feColorMatrix
@@ -673,7 +657,6 @@ exports[`Storyshots ActionList with custom class names 1`] = `
             />
             <feColorMatrix
               in="grayscale"
-              type="matrix"
               values="0.64 0 0 0 0.36 0.47 0 0 0 0.53 0.33 0 0 0 0.67 0 0 0 1 0"
             />
           </filter>
@@ -686,7 +669,7 @@ exports[`Storyshots ActionList with custom class names 1`] = `
       <svg>
         <defs>
           <filter
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
             id="talend-grayscale"
           >
             <feColorMatrix
@@ -700,33 +683,23 @@ exports[`Storyshots ActionList with custom class names 1`] = `
               result="gammadarken"
             >
               <feFuncR
-                amplitude="1"
                 exponent="7"
-                offset="0.0"
                 type="gamma"
               />
               <feFuncG
-                amplitude="1"
                 exponent="7"
-                offset="0.0"
                 type="gamma"
               />
               <feFuncB
-                amplitude="1"
                 exponent="7"
-                offset="0.0"
                 type="gamma"
               />
               <feFuncA
-                amplitude="1"
-                exponent="1"
-                offset="0.0"
                 type="gamma"
               />
             </feComponentTransfer>
             <feColorMatrix
               in="gammadarken"
-              type="matrix"
               values="0.77 0 0 0 0.33 0 0.77 0 0 0.33 0 0 0.77 0 0.33 0 0 0 1 0"
             />
           </filter>
@@ -740,32 +713,32 @@ exports[`Storyshots ActionList with custom class names 1`] = `
     </p>
     <pre>
       
-      .custom-container-classname {
-      	border: 5px solid turquoise;
-      }
-      
-      .custom-item-classname {
-      	background-color: pink;
-      }
-      					
+.custom-container-classname {
+	border: 5px solid turquoise;
+}
+
+.custom-item-classname {
+	background-color: pink;
+}
+					
     </pre>
     <pre>
       
-      &lt;ActionList
-      	className={'custom-container-classname'}
-      	itemClassName={'custom-item-classname'}
-      	{...otherProps}
-      /&gt;
-      			
+&lt;ActionList
+	className={'custom-container-classname'}
+	itemClassName={'custom-item-classname'}
+	{...otherProps}
+/&gt;
+			
     </pre>
     <style>
       .custom-container-classname {
-      						border: 5px solid turquoise;
-      					}
-      
-      					.custom-item-classname {
-      						background-color: pink;
-      					}
+						border: 5px solid turquoise;
+					}
+
+					.custom-item-classname {
+						background-color: pink;
+					}
     </style>
     <div
       style={

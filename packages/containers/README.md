@@ -11,21 +11,15 @@ This library provide a set of widgets to be ready to start with [react-cmf](http
 
 [npm-icon]: https://nodei.co/npm/@talend/react-containers.png?downloads=true
 [npm-url]: https://npmjs.org/package/@talend/react-containers
-[travis-ci-image]: https://travis-ci.org/Talend/react-talend-containers.svg?branch=master
-[travis-ci-url]: https://travis-ci.org/Talend/react-talend-containers
+[travis-ci-image]: https://travis-ci.org/Talend/ui.svg?branch=master
+[travis-ci-url]: https://travis-ci.org/Talend/ui
 [dependencies-image]: https://david-dm.org/Talend/ui/status.svg?path=packages/containers
 [dependencies-url]: https://david-dm.org/Talend/ui?path=packages/containers
 [devdependencies-image]: https://david-dm.org/Talend/ui/dev-status.png?path=packages/containers
 [devdependencies-url]: https://david-dm.org/Talend/ui?path=packages/containers&type=dev
 [peerdependencies-image]: https://david-dm.org/Talend/ui/peer-status.svg?path=packages/containers
 [peerdependencies-url]: https://david-dm.org/Talend/ui?path=packages/containers&type=peer
-[quality-badge]: http://npm.packagequality.com/shield/react-talend-containers.svg
-[quality-url]: http://packagequality.com/#?package=react-talend-containers
 
-## Breaking changes log
-
-Before 1.0, `@talend/react-containers` does NOT follow semver in releases.
-You will find a [list of breaking changes here](https://github.com/Talend/ui/wiki/BREAKING-CHANGE).
 
 ## Dependencies
 
@@ -34,10 +28,30 @@ You will find a [list of breaking changes here](https://github.com/Talend/ui/wik
 * @talend/react-components
 * classnames
 
+## How to use
+
+in your app index.js file
+
+```javascript
+import '@talend/bootstrap-theme/src/theme/theme.scss';
+import containersModule from '@talend/react-containers';
+import cmf from '@talend/react-cmf';
+import components from './components';
+import expressions from './expressions';
+
+const myApp = {
+    components,
+    expressions,
+    settingsURL: '/settings.json',
+    modules: [ containersModule ],
+};
+cmf.bootstrap(myApp));
+```
+
 ## Architecture
 
 This library is architectured around one concept:
-Connect components provided by react-talend-components which implement our [style guide](http://guidelines.talend.com)
+Connect components provided by @talend/react-components which implement our [style guide](http://guidelines.talend.com)
 
 A component here should never embed HTML or CSS.
 Only connection to the store and behavior should be done.

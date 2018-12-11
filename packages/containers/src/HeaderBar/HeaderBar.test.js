@@ -19,14 +19,85 @@ describe('Container HeaderBar', () => {
 	it('should render HeaderBar container with a list of items', () => {
 		const props = {
 			...containerProps,
-			productsItems: [{ foo: 'bar' }],
+			productsItems: [
+				{
+					id: 'foo',
+					icon: 'icon',
+					name: 'Foo',
+					url: 'http://foo.bar',
+				},
+			],
 			state: new Map({
 				productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS,
 			}),
 		};
 
 		const wrapper = shallow(<Container {...props} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.props().products.items).toHaveLength(1);
+	});
+
+	it('should merge static products entries with fetched products and sort them by label', () => {
+		const props = {
+			...containerProps,
+			productsItems: [
+				{
+					id: 'foo',
+					icon: 'icon',
+					name: 'Foo',
+					url: 'http://foo.bar',
+				},
+			],
+			products: {
+				items: [
+					{
+						id: 'bar',
+						icon: 'icon',
+						label: 'Bar',
+						url: 'http://bar.baz',
+					},
+					{
+						id: 'zeta',
+						icon: 'icon',
+						label: 'Zeta',
+						url: 'http://zeta.com',
+					},
+				],
+			},
+			state: new Map({
+				productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS,
+			}),
+		};
+
+		const wrapper = shallow(<Container {...props} />);
+		expect(wrapper.props().products.items).toHaveLength(3);
+		expect(wrapper.props().products.items[0].label).toEqual('Bar');
+		expect(wrapper.props().products.items[1].label).toEqual('Foo');
+		expect(wrapper.props().products.items[2].label).toEqual('Zeta');
+	});
+
+	it('should use the provided prepare method to make a final preparation of the items', () => {
+		const props = {
+			...containerProps,
+			productsItems: [
+				{
+					id: 'foo',
+					icon: 'icon',
+					name: 'Foo',
+					url: 'http://foo.bar',
+				},
+			],
+			prepareProducts: jest.fn(products =>
+				products.map(product => ({ ...product, label: `${product.label} and bar` })),
+			),
+			state: new Map({
+				productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS,
+			}),
+		};
+
+		const wrapper = shallow(<Container {...props} />);
+		expect(wrapper.props().products.items).toHaveLength(1);
+		expect(wrapper.props().products.items[0].label).toEqual('Foo and bar');
+		expect(props.prepareProducts).toHaveBeenCalled();
 	});
 
 	it('should render HeaderBar container while fetching items', () => {
@@ -38,7 +109,7 @@ describe('Container HeaderBar', () => {
 		};
 
 		const wrapper = shallow(<Container {...props} />);
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.props().products).toBeUndefined();
 	});
 });
 

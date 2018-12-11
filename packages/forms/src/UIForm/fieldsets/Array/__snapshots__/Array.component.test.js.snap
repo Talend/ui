@@ -63,6 +63,7 @@ exports[`Array component #renderItem should render item at given index 1`] = `
         "comments",
         1,
       ],
+      "title": undefined,
       "widget": "fieldset",
     }
   }
@@ -87,8 +88,8 @@ exports[`Array component should render array 1`] = `
   isValid={true}
   items={Array []}
   onAdd={[Function]}
-  onChange={[Function]}
-  onFinish={[Function]}
+  onChange={[MockFunction]}
+  onFinish={[MockFunction]}
   onRemove={[Function]}
   onReorder={[Function]}
   renderItem={[Function]}
@@ -214,8 +215,8 @@ exports[`Array component should render array that can't be reordered 1`] = `
   isValid={true}
   items={Array []}
   onAdd={[Function]}
-  onChange={[Function]}
-  onFinish={[Function]}
+  onChange={[MockFunction]}
+  onFinish={[MockFunction]}
   onRemove={[Function]}
   onReorder={[Function]}
   renderItem={[Function]}

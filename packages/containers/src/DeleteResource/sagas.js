@@ -70,14 +70,19 @@ export function* deleteResourceValidate(
 		resourceUri || `${safeURI}/${safeType}/${safeId}`,
 	);
 	if (resource && safeResourceUri) {
-		const { response } = yield call(cmf.sagas.http.delete, safeResourceUri);
-		if (response.ok) {
+		const result = yield call(cmf.sagas.http.delete, safeResourceUri);
+		if (result.response.ok) {
 			yield put({
 				type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
 				model: {
 					id: safeId,
 					labelResource: resource.get('label') || resource.get('name', ''),
 				},
+			});
+		} else {
+			yield put({
+				type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_ERROR,
+				error: result.data,
 			});
 		}
 		yield call(redirect, get(action, 'data.model.redirectUrl'));

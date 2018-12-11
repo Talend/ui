@@ -3,13 +3,14 @@
 exports[`Button field should render button wrapped with field template 1`] = `
 <FieldTemplate
   description="Click here to trigger a trigger"
+  descriptionId="myForm-description"
+  errorId="myForm-error"
   errorMessage="This is wrong"
   isValid={true}
-  required={undefined}
 >
   <SingleButton
     id="myForm"
-    onTrigger={[Function]}
+    onTrigger={[MockFunction]}
     schema={
       Object {
         "description": "Click here to trigger a trigger",

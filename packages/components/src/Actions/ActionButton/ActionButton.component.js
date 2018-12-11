@@ -25,6 +25,7 @@ function getIcon({ icon, iconTransform, inProgress, loading }) {
 	if (loading) {
 		return (
 			<Skeleton
+				key="icon-skeleton"
 				size="small"
 				type="circle"
 				className={classNames(
@@ -52,7 +53,7 @@ function getLabel({ hideLabel, label, loading }) {
 		return null;
 	}
 	if (loading) {
-		return <Skeleton type="text" size="medium" />;
+		return <Skeleton key="label-skeleton" type="text" size="medium" />;
 	}
 	return <span key="label">{label}</span>;
 }
@@ -191,7 +192,18 @@ export function ActionButton(props) {
 	if (hideLabel || tooltip || tooltipLabel) {
 		btn = (
 			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
-				{btnIsDisabled ? <span>{btn}</span> : btn}
+				{btnIsDisabled ? (
+					<span
+						className={classNames(
+							theme['tc-action-disabled-btn-container'],
+							'tc-action-disabled-btn-container',
+						)}
+					>
+						{btn}
+					</span>
+				) : (
+					btn
+				)}
 			</TooltipTrigger>
 		);
 	}

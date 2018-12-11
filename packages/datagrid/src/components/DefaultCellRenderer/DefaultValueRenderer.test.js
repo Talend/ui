@@ -4,13 +4,25 @@ import { shallow } from 'enzyme';
 import DefaultValueRenderer from './DefaultValueRenderer.component';
 
 describe('#DefaultValueRenderer', () => {
-	it('should render DefaultValueRenderer without the tooltip', () => {
+	it('should render without the tooltip', () => {
 		const wrapper = shallow(<DefaultValueRenderer value="loreum" />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render DefaultValueRenderer (custom renderer)', () => {
+	it('should render a boolean', () => {
+		const wrapper = shallow(<DefaultValueRenderer value={false} />);
+
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render empty when the value is null', () => {
+		const wrapper = shallow(<DefaultValueRenderer value={null} />);
+
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render the leading/trailing special character', () => {
 		const wrapper = shallow(<DefaultValueRenderer value=" loreum " />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();

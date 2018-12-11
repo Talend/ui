@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types';
-import { SORT_BY, listTypes } from './utils/constants';
-
-const { TABLE, LARGE } = listTypes;
+import { SORT_BY } from './utils/constants';
 
 export default {
 	// <VirtualizedList.Content> elements to configure the content fields
@@ -28,6 +26,8 @@ export default {
 	onRowClick: PropTypes.func,
 	// The row double click
 	onRowDoubleClick: PropTypes.func,
+	// The list scroll
+	onScroll: PropTypes.func,
 	// The row height in ListGrid rendering
 	rowHeight: PropTypes.number,
 	/** Function to call on element selection
@@ -40,5 +40,6 @@ export default {
 	// Current sort direction ('ASC' | 'DESC')
 	sortDirection: PropTypes.oneOf([SORT_BY.ASC, SORT_BY.DESC]),
 	// List type ('TABLE' | 'LARGE' | ...)
-	type: PropTypes.oneOf([TABLE, LARGE]),
+	type: PropTypes.string,
+	rowRenderers: PropTypes.object,
 };

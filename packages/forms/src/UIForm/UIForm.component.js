@@ -214,7 +214,8 @@ export class UIFormComponent extends React.Component {
 
 		const { mergedSchema } = this.state;
 		const { properties, customValidation } = this.props;
-		const errors = validateAll(mergedSchema, properties, customValidation);
+		const newErrors = validateAll(mergedSchema, properties, customValidation);
+		const errors = { ...this.props.errors, ...newErrors };
 		this.props.setErrors(event, errors);
 
 		const isValid = !Object.keys(errors).length;
@@ -261,7 +262,7 @@ export class UIFormComponent extends React.Component {
 				/>
 			));
 		const buttonsRenderer = () => (
-			<div className={classNames(theme['form-actions'], 'tf-actions-wrapper')}>
+			<div className={classNames(theme['form-actions'], 'tf-actions-wrapper')} key="form-buttons">
 				<Buttons
 					id={`${this.props.id}-${this.props.id}-actions`}
 					onTrigger={this.onTrigger}

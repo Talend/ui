@@ -21,10 +21,10 @@ matrix:
     - language: node_js
       env: NAME=test_react_15 REACT_VERSION="^15.6.2"
       node_js:
-        - '10'
+        - '8'
       before_install:
-        # this install is necessary to get version.js dependencies
-        - npm install commander
+        - export NODE_PATH=$NODE_PATH:`npm root -g`
+        - npm install -g commander
         - ./versions/version.js
       script:
         - yarn test
@@ -32,13 +32,20 @@ matrix:
     - language: node_js
       env: NAME=test_react_16 REACT_VERSION="^16.0.0"
       node_js:
-        - '10'
+        - '11'
       script:
         - yarn test
 
     - language: node_js
+      env: NAME=test_react_16 REACT_VERSION="^16.0.0"
       node_js:
-        - '10'
+        - '11'
+      script:
+        - yarn test:extra
+
+    - language: node_js
+      node_js:
+        - '11'
       env: NAME=analysis
       before_script:
         - yarn global add prettier
@@ -68,6 +75,7 @@ matrix:
         - .travis/after_success_deploy.sh
       script:
         - .travis/after_success_e2e.sh
+        - echo "wait for licence"
 
 branches:
   only:

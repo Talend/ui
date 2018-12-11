@@ -33,7 +33,7 @@ function ListGrid(props) {
 
 	return (
 		<VirtualizedList
-			className={theme['tc-list-list']}
+			className={`tc-list-list ${theme['tc-list-list']}`}
 			collection={collection}
 			overscanRowCount={10}
 			onRowClick={decorateRowClick(onRowClick)}
@@ -41,6 +41,9 @@ function ListGrid(props) {
 			rowCount={collection.length}
 			rowRenderer={enhancedRowRenderer}
 			rowGetter={index => collection[index]}
+			role="group"
+			aria-label="list"
+			containerRole="list"
 			{...restProps}
 		/>
 	);

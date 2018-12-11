@@ -3,7 +3,6 @@
 exports[`TreeView should render 1`] = `
 <div
   className="tc-treeview theme-tc-treeview"
-  style={undefined}
 >
   <header
     className="theme-tc-treeview-header"
@@ -19,7 +18,7 @@ exports[`TreeView should render 1`] = `
       id="id-add"
       label="add element"
       link={true}
-      onClick={[Function]}
+      onClick={[MockFunction]}
       tooltipPlacement="right"
     />
   </header>
@@ -70,7 +69,11 @@ exports[`TreeView should render 1`] = `
           "toggled": true,
         }
       }
-      itemSiblings={
+      level={1}
+      onKeyDown={[Function]}
+      onSelect={[MockFunction]}
+      onToggle={[MockFunction]}
+      siblings={
         Array [
           Object {
             "actions": Array [
@@ -111,11 +114,6 @@ exports[`TreeView should render 1`] = `
           },
         ]
       }
-      level={1}
-      onSelect={[Function]}
-      onToggle={[Function]}
-      onToggleAllSiblings={[Function]}
-      selectedId={undefined}
     />
   </ul>
 </div>

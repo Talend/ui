@@ -3,28 +3,41 @@
 exports[`Table should render Table with props data as an array 1`] = `
 <table
   className="theme-table tc-object-viewer table table-bordered table-striped table-hover"
+  id="my-viewer"
 >
+  <caption
+    className="sr-only"
+  >
+    my-viewer
+  </caption>
   <thead>
     <tr>
-      <td>
+      <th
+        id="my-viewer-field0"
+      >
         field0
-      </td>
+      </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>
-        <JSONLike
+      <td
+        headers="my-viewer-field0"
+      >
+        <Translate(TreeGesture(JSONLike))
           data="header1"
+          id="my-viewer"
           jsonpath="$[0]['field0']"
           nativeValueClassName="theme-nativevalue"
         />
       </td>
     </tr>
     <tr>
-      <td>
-        <JSONLike
-          data={undefined}
+      <td
+        headers="my-viewer-field0"
+      >
+        <Translate(TreeGesture(JSONLike))
+          id="my-viewer"
           jsonpath="$[1]['field0']"
           nativeValueClassName="theme-nativevalue"
         />
@@ -37,10 +50,18 @@ exports[`Table should render Table with props data as an array 1`] = `
 exports[`Table should render Table with props data as an object 1`] = `
 <table
   className="theme-table tc-object-viewer table table-bordered table-striped table-hover"
+  id="my-viewer"
 >
+  <caption
+    className="sr-only"
+  >
+    my-viewer
+  </caption>
   <thead>
     <tr>
-      <td>
+      <th
+        id="my-viewer-field0"
+      >
         <div>
           field0
         </div>
@@ -49,23 +70,28 @@ exports[`Table should render Table with props data as an object 1`] = `
         >
           type1
         </div>
-      </td>
+      </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>
-        <JSONLike
+      <td
+        headers="my-viewer-field0"
+      >
+        <Translate(TreeGesture(JSONLike))
           data="header1"
+          id="my-viewer"
           jsonpath="$[0]['field0']"
           nativeValueClassName="theme-nativevalue"
         />
       </td>
     </tr>
     <tr>
-      <td>
-        <JSONLike
-          data={undefined}
+      <td
+        headers="my-viewer-field0"
+      >
+        <Translate(TreeGesture(JSONLike))
+          id="my-viewer"
           jsonpath="$[1]['field0']"
           nativeValueClassName="theme-nativevalue"
         />
@@ -78,17 +104,23 @@ exports[`Table should render Table with props data as an object 1`] = `
 exports[`Table should render if data is empty 1`] = `
 <table
   className="theme-table tc-object-viewer table table-bordered table-striped table-hover"
+  id="my-viewer"
 >
+  <caption
+    className="sr-only"
+  >
+    my-viewer
+  </caption>
   <thead>
     <tr>
-      <td>
+      <th
+        id="my-viewer-$"
+      >
         $
-      </td>
+      </th>
     </tr>
   </thead>
-  <tbody>
-    
-  </tbody>
+  <tbody />
 </table>
 `;
 
@@ -96,36 +128,44 @@ exports[`Table should render null if data.datas is not an array 1`] = `null`;
 
 exports[`buildContentHeaders should return a jsx array with a type 1`] = `
 Array [
-  <td>
+  <th
+    id="myHeader1Id"
+  >
     <div>
-        myHeader1
+      myHeader1
     </div>
     <div
-        className="text-right"
+      className="text-right"
     >
-        type1
+      type1
     </div>
-</td>,
-  <td>
+  </th>,
+  <th
+    id="myHeader2Id"
+  >
     <div>
-        myHeader2
+      myHeader2
     </div>
     <div
-        className="text-right"
+      className="text-right"
     >
-        type2
+      type2
     </div>
-</td>,
+  </th>,
 ]
 `;
 
 exports[`buildContentHeaders should return a jsx array with no type 1`] = `
 Array [
-  <td>
+  <th
+    id="myHeader1Id"
+  >
     myHeader1
-</td>,
-  <td>
+  </th>,
+  <th
+    id="myHeader2Id"
+  >
     myHeader2
-</td>,
+  </th>,
 ]
 `;

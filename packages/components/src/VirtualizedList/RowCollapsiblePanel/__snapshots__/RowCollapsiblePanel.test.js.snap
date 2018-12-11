@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RowCollapsiblePanel should render collapsible panel row 1`] = `
+<div
+  aria-label="Canceled"
+  aria-posinset={2}
+  className="tc-collapsible-row my-class-names"
+  id="my-list-1"
+  onKeyDown={[Function]}
+  role="listitem"
+  style={
+    Object {
+      "background": "red",
+    }
+  }
+  tabIndex="0"
+>
+  <PureCollapsiblePanel
+    measure={[MockFunction]}
+    onToggle={[Function]}
+    rowData={
+      Object {
+        "content": Array [
+          Object {
+            "description": "Description1",
+            "label": "Content1",
+          },
+          Object {
+            "description": "Description2",
+            "label": "Content2",
+          },
+        ],
+        "expanded": true,
+        "header": Array [
+          Object {
+            "actions": Array [],
+            "displayMode": "status",
+            "icon": "talend-cross",
+            "label": "Canceled",
+            "status": "canceled",
+          },
+        ],
+      }
+    }
+  />
+</div>
+`;

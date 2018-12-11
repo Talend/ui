@@ -2,9 +2,8 @@ import cmf, { cmfConnect } from '@talend/react-cmf';
 import { Action } from '@talend/react-components';
 
 export function mapStateToProps(state, ownProps) {
-	const props = {};
 	if (ownProps.actionId) {
-		const info = cmf.action.getActionInfo(
+		return cmf.action.getActionInfo(
 			{
 				registry: cmf.registry.getRegistry(),
 				store: {
@@ -13,10 +12,8 @@ export function mapStateToProps(state, ownProps) {
 			},
 			ownProps.actionId,
 		);
-
-		props.displayMode = info.displayMode;
 	}
-	return props;
+	return {};
 }
 
 export function mergeProps(stateProps, dispatchProps, ownProps) {
@@ -28,4 +25,10 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 export default cmfConnect({
 	componentId: ownProps => ownProps.componentId || ownProps.actionId || ownProps.id,
 	mapStateToProps,
+	mergeProps,
+	omitCMFProps: true,
+	withComponentRegistry: true,
+	withDispatch: true,
+	withDispatchActionCreator: true,
+	withComponentId: true,
 })(Action);

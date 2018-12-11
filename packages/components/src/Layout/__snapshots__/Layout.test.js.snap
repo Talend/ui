@@ -3,8 +3,14 @@
 exports[`Layout should render layout with footer component 1`] = `
 <div
   className="tc-layout theme-layout"
-  id={undefined}
 >
+  <div
+    className="theme-skip-links"
+  >
+    <Translate(SkipLinks)
+      mainId="#tc-layout-main"
+    />
+  </div>
   <header
     className="tc-layout-header theme-header"
     role="banner"
@@ -13,11 +19,7 @@ exports[`Layout should render layout with footer component 1`] = `
       Header
     </h1>
   </header>
-  <OneColumn
-    drawers={undefined}
-    getComponent={undefined}
-    tabs={undefined}
-  >
+  <OneColumn>
     <h1>
       Column one
     </h1>

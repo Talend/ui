@@ -6,7 +6,11 @@
             "name": "field0",
             "doc": "Nom de la gare",
             "type": [
-              "null",
+              {
+                "type": "null",
+                "dqType": "",
+                "dqTypeKey": ""
+              },
               {
                 "type": "string",
                 "dqType": "FR Commune",
@@ -21,18 +25,21 @@
             ]
         }, {
             "name": "field1",
-            "doc": "Code UIC",
-            "type": {
-                "type": "int",
-                "dqType": "",
-                "dqTypeKey": "",
-                "@talend-quality@": {
-                    "0": 1,
-                    "1": 99,
-                    "-1": 0,
-                    "total": 100
-                }
-            }
+            "type": [{
+              "type": "null",
+              "dqType": "",
+              "dqTypeKey": ""
+            }, {
+              "type": "int",
+              "dqType": "",
+              "dqTypeKey": "",
+              "@talend-quality@": {
+                  "0": 1,
+                  "1": 99,
+                  "-1": 0,
+                  "total": 100
+              }
+          }]
         }, {
             "name": "field2",
             "doc": "Code postal",
@@ -51,7 +58,7 @@
             "name": "field3",
             "doc": "Segmentation",
             "type": {
-                "type": "string",
+                "type": "boolean",
                 "dqType": "",
                 "dqTypeKey": "",
                 "@talend-quality@": {
@@ -65,7 +72,7 @@
             "name": "field4",
             "doc": "voyageurs 2016",
             "type": {
-                "type": "string",
+                "type": "date",
                 "dqType": "",
                 "dqTypeKey": "",
                 "@talend-quality@": {
@@ -79,7 +86,7 @@
             "name": "field5",
             "doc": "volume total d'usagers 2016 (voyageurs+ non voyageurs)",
             "type": {
-                "type": "string",
+                "type": "unknown",
                 "dqType": "",
                 "dqTypeKey": "",
                 "@talend-quality@": {
@@ -151,7 +158,7 @@
     "data": [{
         "value": {
             "field2": {
-                "value": "95716",
+                "value": null,
                 "quality": 1
             },
             "field8": {
@@ -171,7 +178,7 @@
                 "quality": 1
             },
             "field3": {
-                "value": "",
+                "value": true,
                 "quality": 1
             },
             "field1": {
@@ -207,7 +214,7 @@
                 "quality": 0
             },
             "field3": {
-                "value": "c",
+                "value": false,
                 "quality": -1
             },
             "field0": {
@@ -267,7 +274,7 @@
                 "quality": 0
             },
             "field3": {
-                "value": "b",
+                "value": 0,
                 "quality": 1
             },
             "field8": {
@@ -303,7 +310,7 @@
                 "quality": 0
             },
             "field3": {
-                "value": "b",
+                "value": 1,
                 "quality": 1
             },
             "field9": {
@@ -351,8 +358,8 @@
                 "quality": 1
             },
             "field3": {
-                "value": "b",
-                "quality": 1
+                "value": " sqdqsd qssq ",
+                "quality": -1
             },
             "field9": {
                 "value": "",
@@ -407,8 +414,8 @@
                 "quality": 0
             },
             "field3": {
-                "value": "c",
-                "quality": 1
+                "value": 3223232,
+                "quality": -1
             }
         },
         "quality": 1
@@ -451,8 +458,8 @@
                 "quality": 0
             },
             "field3": {
-                "value": "c",
-                "quality": 1
+                "value": "csqd qsd qsd qsd sdsq dqs dqsdqs dqs long text",
+                "quality": -1
             }
         },
         "quality": 1

@@ -1,9 +1,0 @@
-.tc-tab-bar {
-	:global(.tc-tab-bar-action) {
-		color: tint($black, 40);
-
-		&:global(.active) {
-			color: tint($black, 15);
-		}
-	}
-}

@@ -1,71 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RendererSelector should render grid list 1`] = `
-<VirtualizedList(ListGrid)
-  collection={
-    Array [
-      Object {
-        "description": "Simple row with icon and actions",
-        "id": 0,
-        "name": "Title with icon and actions",
-      },
-      Object {
-        "description": "Simple row without actions",
-        "id": 1,
-        "name": "Title without actions",
-      },
-    ]
-  }
-  height={600}
-  id="my-list-id"
-  isActive={[Function]}
-  isSelected={[Function]}
-  noRowsRenderer={[Function]}
-  onRowClick={[Function]}
-  onRowDoubleClick={[Function]}
-  rowHeight={50}
-  rowRenderer={[Function]}
-  width={1024}
->
-  <Column
-    cellDataGetter={[Function]}
-    cellRenderer={[Function]}
-    dataKey="id"
-    defaultSortDirection="ASC"
-    flexGrow={0}
-    flexShrink={0}
-    headerRenderer={[Function]}
-    label="Id"
-    style={Object {}}
-    width={50}
-  />
-  <Column
-    cellDataGetter={[Function]}
-    cellRenderer={[Function]}
-    dataKey="name"
-    defaultSortDirection="ASC"
-    flexGrow={0}
-    flexShrink={0}
-    headerRenderer={[Function]}
-    label="Name"
-    style={Object {}}
-    width={350}
-  />
-  <Column
-    cellDataGetter={[Function]}
-    cellRenderer={[Function]}
-    dataKey="name"
-    defaultSortDirection="ASC"
-    flexGrow={0}
-    flexShrink={0}
-    headerRenderer={[Function]}
-    label="Description"
-    style={Object {}}
-    width={350}
-  />
-</VirtualizedList(ListGrid)>
-`;
-
 exports[`RendererSelector should render table list by default 1`] = `
 <VirtualizedList(ListTable)
   collection={
@@ -85,18 +19,19 @@ exports[`RendererSelector should render table list by default 1`] = `
   disableHeader={false}
   height={600}
   id="my-list-id"
-  isActive={[Function]}
-  isSelected={[Function]}
+  isActive={[MockFunction]}
+  isSelected={[MockFunction]}
   noRowsRenderer={[Function]}
-  onRowClick={[Function]}
-  onRowDoubleClick={[Function]}
+  onRowClick={[MockFunction]}
+  onRowDoubleClick={[MockFunction]}
+  onScroll={[MockFunction]}
   rowHeight={50}
-  sort={[Function]}
+  sort={[MockFunction]}
   sortBy="name"
   sortDirection="DESC"
   width={1024}
 >
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="id"
@@ -108,7 +43,7 @@ exports[`RendererSelector should render table list by default 1`] = `
     style={Object {}}
     width={50}
   />
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="name"
@@ -120,10 +55,10 @@ exports[`RendererSelector should render table list by default 1`] = `
     style={Object {}}
     width={350}
   />
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
-    dataKey="name"
+    dataKey="description"
     defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={0}
@@ -154,18 +89,19 @@ exports[`RendererSelector should render table list when requested 1`] = `
   disableHeader={false}
   height={600}
   id="my-list-id"
-  isActive={[Function]}
-  isSelected={[Function]}
+  isActive={[MockFunction]}
+  isSelected={[MockFunction]}
   noRowsRenderer={[Function]}
-  onRowClick={[Function]}
-  onRowDoubleClick={[Function]}
+  onRowClick={[MockFunction]}
+  onRowDoubleClick={[MockFunction]}
+  onScroll={[MockFunction]}
   rowHeight={50}
-  sort={[Function]}
+  sort={[MockFunction]}
   sortBy="name"
   sortDirection="DESC"
   width={1024}
 >
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="id"
@@ -177,7 +113,7 @@ exports[`RendererSelector should render table list when requested 1`] = `
     style={Object {}}
     width={50}
   />
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
     dataKey="name"
@@ -189,10 +125,10 @@ exports[`RendererSelector should render table list when requested 1`] = `
     style={Object {}}
     width={350}
   />
-  <Column
+  <Content
     cellDataGetter={[Function]}
     cellRenderer={[Function]}
-    dataKey="name"
+    dataKey="description"
     defaultSortDirection="ASC"
     flexGrow={0}
     flexShrink={0}

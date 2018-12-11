@@ -261,7 +261,6 @@ exports[`<CollapsibleFieldset /> should collapse on click on title 1`] = `
         classNames="form-group field field-string"
         description={
           <DescriptionField
-            description={undefined}
             formContext={
               Object {
                 "handleAction": undefined,
@@ -272,11 +271,7 @@ exports[`<CollapsibleFieldset /> should collapse on click on title 1`] = `
           />
         }
         displayLabel={true}
-        errors={
-          <ErrorList
-            errors={undefined}
-          />
-        }
+        errors={<ErrorList />}
         fields={
           Object {
             "ArrayField": [Function],
@@ -297,11 +292,7 @@ exports[`<CollapsibleFieldset /> should collapse on click on title 1`] = `
             "handleSchemaChange": [Function],
           }
         }
-        help={
-          <Help
-            help={undefined}
-          />
-        }
+        help={<Help />}
         hidden={false}
         id="root_filters_0_function"
         label="function"
@@ -931,7 +922,6 @@ exports[`<CollapsibleFieldset /> should collapse on click on toggle button 1`] =
         classNames="form-group field field-string"
         description={
           <DescriptionField
-            description={undefined}
             formContext={
               Object {
                 "handleAction": undefined,
@@ -942,11 +932,7 @@ exports[`<CollapsibleFieldset /> should collapse on click on toggle button 1`] =
           />
         }
         displayLabel={true}
-        errors={
-          <ErrorList
-            errors={undefined}
-          />
-        }
+        errors={<ErrorList />}
         fields={
           Object {
             "ArrayField": [Function],
@@ -967,11 +953,7 @@ exports[`<CollapsibleFieldset /> should collapse on click on toggle button 1`] =
             "handleSchemaChange": [Function],
           }
         }
-        help={
-          <Help
-            help={undefined}
-          />
-        }
+        help={<Help />}
         hidden={false}
         id="root_filters_0_function"
         label="function"
@@ -1601,7 +1583,6 @@ exports[`<CollapsibleFieldset /> should collapse on doubleClick on title bar 1`]
         classNames="form-group field field-string"
         description={
           <DescriptionField
-            description={undefined}
             formContext={
               Object {
                 "handleAction": undefined,
@@ -1612,11 +1593,7 @@ exports[`<CollapsibleFieldset /> should collapse on doubleClick on title bar 1`]
           />
         }
         displayLabel={true}
-        errors={
-          <ErrorList
-            errors={undefined}
-          />
-        }
+        errors={<ErrorList />}
         fields={
           Object {
             "ArrayField": [Function],
@@ -1637,11 +1614,7 @@ exports[`<CollapsibleFieldset /> should collapse on doubleClick on title bar 1`]
             "handleSchemaChange": [Function],
           }
         }
-        help={
-          <Help
-            help={undefined}
-          />
-        }
+        help={<Help />}
         hidden={false}
         id="root_filters_0_function"
         label="function"
@@ -2271,7 +2244,6 @@ exports[`<CollapsibleFieldset /> should render 1`] = `
         classNames="form-group field field-string"
         description={
           <DescriptionField
-            description={undefined}
             formContext={
               Object {
                 "handleAction": undefined,
@@ -2282,11 +2254,7 @@ exports[`<CollapsibleFieldset /> should render 1`] = `
           />
         }
         displayLabel={true}
-        errors={
-          <ErrorList
-            errors={undefined}
-          />
-        }
+        errors={<ErrorList />}
         fields={
           Object {
             "ArrayField": [Function],
@@ -2307,11 +2275,7 @@ exports[`<CollapsibleFieldset /> should render 1`] = `
             "handleSchemaChange": [Function],
           }
         }
-        help={
-          <Help
-            help={undefined}
-          />
-        }
+        help={<Help />}
         hidden={false}
         id="root_filters_0_function"
         label="function"

@@ -23,7 +23,7 @@ $brand-primary-dark: shade($brand-primary, 12) !default;
 $brand-primary-darker: shade($brand-primary, 25) !default;
 $brand-secondary: $rio-grande !default;
 $brand-success: $rio-grande !default;
-$brand-info: $scooter !default;
+$brand-info: $st-tropaz !default;
 $brand-warning: $lightning-yellow !default;
 $brand-danger: $chestnut-rose !default;
 
@@ -863,6 +863,3 @@ $hr-border: $gray-lighter !default;
 //
 //##
 $shadow-default: 0 1px 3px 0 $shadow inset;
-
-//== ObjectViewer
-$object-viewer-badge-offset: -0.2rem !default;
