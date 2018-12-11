@@ -54,7 +54,7 @@ class DateTimeView extends React.PureComponent {
 
 	getTimePicker() {
 		return (
-			<div className={theme.time}>
+			<div key="time" className={theme.time}>
 				<TimePicker
 					allowFocus={this.props.allowFocus}
 					value={this.props.selectedTime}
@@ -122,7 +122,7 @@ class DateTimeView extends React.PureComponent {
 
 		const bodyElement = (
 			<div className={theme.body}>
-				<div className={theme.date}>
+				<div key="date" className={theme.date}>
 					<DatePicker
 						allowFocus={this.props.allowFocus}
 						calendar={this.props.calendar}
