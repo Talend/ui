@@ -74,18 +74,18 @@
 	&-link {
 		font-size: $font-size-base;
 		font-weight: inherit;
-	}
 
-	&-icon-only {
-		color: $gray;
+		&.btn-icon-only {
+			color: $gray;
 
-		&:focus,
-		&:hover {
-			color: $scooter;
-		}
+			&:focus,
+			&:hover {
+				color: $scooter;
+			}
 
-		&:active {
-			color: darken($scooter, 12%);
+			&:active {
+				color: darken($scooter, 12%);
+			}
 		}
 	}
 
