@@ -13,19 +13,17 @@ $tc-svg-icon-size: $padding-large !default;
 	border-bottom: 0.1rem solid $gallery;
 	width: 100%;
 
-	:global {
-		.btn-link,
-		.btn-icon-only {
-			color: $tc-subheader-color;
+	:global(.btn-link),
+	:global(.btn-icon-only) {
+		color: $tc-subheader-color;
 
-			&:focus,
-			&:hover {
-				color: $scooter;
-			}
+		&:focus,
+		&:hover {
+			color: $scooter;
+		}
 
-			&:active {
-				color: darken($scooter, 12%);
-			}
+		&:active {
+			color: darken($scooter, 12%);
 		}
 	}
 
