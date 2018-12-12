@@ -16,7 +16,6 @@ describe('FilterBar', () => {
 			onBlur: jest.fn(),
 			onFilter: jest.fn(),
 			onToggle: jest.fn(),
-			ref: 'inputFilter',
 		};
 	});
 	it('should call onToggle on search icon click', () => {

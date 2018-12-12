@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 import { I18nextProvider } from 'react-i18next';
 
 import i18n, { LanguageSwitcher } from './config/i18n';
@@ -118,7 +117,6 @@ const withNestedItems = {
 };
 
 storiesOf('ListView', module)
-	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<I18nextProvider i18n={i18n}>
 			<div>
@@ -129,7 +127,7 @@ storiesOf('ListView', module)
 			</div>
 		</I18nextProvider>
 	))
-	.addWithInfo('empty', () => {
+	.add('empty', () => {
 		const emptyProps = { ...props };
 		emptyProps.items = [];
 		return (
@@ -138,7 +136,7 @@ storiesOf('ListView', module)
 			</div>
 		);
 	})
-	.addWithInfo('single entry', () => {
+	.add('single entry', () => {
 		const singleEntryProps = { ...props };
 		singleEntryProps.items = [props.items[0]];
 		return (
@@ -147,22 +145,22 @@ storiesOf('ListView', module)
 			</div>
 		);
 	})
-	.addWithInfo('several values', () => (
+	.add('several values', () => (
 		<div id="listview-several">
 			<ListView {...props} />
 		</div>
 	))
-	.addWithInfo('search mode', () => (
+	.add('search mode', () => (
 		<div id="listview-search">
 			<ListView {...searchProps} />
 		</div>
 	))
-	.addWithInfo('search mode without results', () => (
+	.add('search mode without results', () => (
 		<div id="listview-search-no-result">
 			<ListView {...noResultsSearch} />
 		</div>
 	))
-	.addWithInfo('selected values', () => {
+	.add('selected values', () => {
 		const selectedValuesProps = { ...props };
 
 		selectedValuesProps.items[1].checked = true;
@@ -173,21 +171,21 @@ storiesOf('ListView', module)
 			</div>
 		);
 	})
-	.addWithInfo('with switch box', () => {
+	.add('with switch box', () => {
 		return (
 			<div id="listview-switch">
 				<ListView {...withSwitchBox} />
 			</div>
 		);
 	})
-	.addWithInfo('with nested items', () => {
+	.add('with nested items', () => {
 		return (
 			<div id="listview-nested">
 				<ListView {...withNestedItems} />
 			</div>
 		);
 	})
-	.addWithInfo('without toggleAll', () => {
+	.add('without toggleAll', () => {
 		const withoutToggleALLProps = { ...props };
 		withoutToggleALLProps.showToggleAll = false;
 
