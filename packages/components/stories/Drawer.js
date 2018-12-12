@@ -233,7 +233,7 @@ const drawersNoTransition = [
 const sidePanel = <SidePanel actions={actions} onToggleDock={action('Toggle dock clicked')} />;
 
 storiesOf('Drawer', module)
-	.add('Default', () => {
+	.add('default', () => {
 		const rows = [];
 		for (let index = 0; index < 20; index++) {
 			rows.push(<p key={index}>The content dictate the width</p>);
@@ -246,7 +246,7 @@ storiesOf('Drawer', module)
 			</Layout>
 		);
 	})
-	.add('Default with no transition', () => {
+	.add('no-transition', () => {
 		const rows = [];
 		for (let index = 0; index < 20; index++) {
 			rows.push(<p key={index}>The content dictate the width</p>);
@@ -259,7 +259,7 @@ storiesOf('Drawer', module)
 			</Layout>
 		);
 	})
-	.add('stacked drawers', () => {
+	.add('stacked', () => {
 		const stackedDrawers = [
 			<Drawer
 				stacked
@@ -300,7 +300,7 @@ storiesOf('Drawer', module)
 			</Layout>
 		);
 	})
-	.add('With tabs', () => {
+	.add('tabs', () => {
 		const drawersWithTabs = [
 			<Drawer stacked title="I'm a stacked drawer with tabs" footerActions={basicProps} tabs={tabs}>
 				<p>The content</p>
@@ -316,7 +316,7 @@ storiesOf('Drawer', module)
 			</Layout>
 		);
 	})
-	.add('With tabs with specific footers', () => {
+	.add('tabs-and-footer', () => {
 		const drawersWithTabs = [
 			<Drawer
 				stacked
@@ -345,7 +345,7 @@ storiesOf('Drawer', module)
 			</Layout>
 		);
 	})
-	.add('Custom', () => {
+	.add('custom', () => {
 		const customDrawers = [
 			<Drawer.Container>
 				<Tab.Container defaultActiveKey="info">
@@ -400,7 +400,7 @@ storiesOf('Drawer', module)
 			</Layout>
 		);
 	})
-	.add('Custom stacked', () => {
+	.add('custom-stacked', () => {
 		const customDrawers = [
 			<Drawer.Container stacked>
 				<Tab.Container defaultActiveKey="info">

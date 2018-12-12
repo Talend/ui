@@ -1,0 +1,14 @@
+{
+  "components/iframe.html?selectedKind=Checkbox&selectedStory=default": [
+    {
+      "name": "Checkbox-default",
+      "selector": ".tc-toggle"
+    }
+  ],
+  "components/iframe.html?selectedKind=AboutDialog&selectedStory=expanded": [
+    {
+      "name": "aboutdialog-expanded",
+      "selector": ".modal-content"
+    }
+  ]
+}
