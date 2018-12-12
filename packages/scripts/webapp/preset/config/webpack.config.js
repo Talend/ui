@@ -15,7 +15,7 @@ const DEFAULT_APP_LOADER_ICON =
 const LICENSE_BANNER = require('./licence');
 
 const userBabelrc = `${process.cwd()}/.babelrc`;
-const babelrcPath = 'node_modules/@talend/scripts/preset/config/babelrc.json';
+const babelrcPath = '@talend/scripts/webapp/preset/config/.babelrc.json';
 let babelrc;
 
 // require support json only if filename ends with json
