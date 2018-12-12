@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import talendIcons from '@talend/icons/dist/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 
 import { ActionSplitDropdown, IconsProvider } from '../src/index';
 
@@ -45,17 +44,15 @@ const myAction = {
 	emptyDropdownLabel: 'No option',
 };
 
-const decoratedStories = storiesOf('ActionSplitDropdown', module).addDecorator(story => (
-	<div>
-		{story()}
-		<div className="container" style={{ paddingTop: 40 }} />
-		<IconsProvider defaultIcons={icons} />
-	</div>
-));
-
-decoratedStories
-	.addDecorator(checkA11y)
-	.addWithInfo('default', () => (
+storiesOf('ActionSplitDropdown', module)
+	.addDecorator(story => (
+		<div>
+			{story()}
+			<div className="container" style={{ paddingTop: 40 }} />
+			<IconsProvider defaultIcons={icons} />
+		</div>
+	))
+	.add('default', () => (
 		<div>
 			<p>By default :</p>
 			<div id="default">
@@ -79,7 +76,7 @@ decoratedStories
 			</div>
 		</div>
 	))
-	.addWithInfo('style variatons', () => {
+	.add('style variatons', () => {
 		const btnStyles = {
 			margin: '0 5px',
 		};

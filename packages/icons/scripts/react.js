@@ -29,8 +29,9 @@ buff.push('export { filters };');
 
 const dist = path.join(__dirname, '../dist/');
 mkdirp.sync(dist);
-const options = JSON.parse(fs.readFileSync('.babelrc', 'utf8'));
-const code = require('babel-core').transform(buff.join('\n'), options);
+const options = require('../../../babel.config')();
+options.filename = 'react.js';
+const code = require('@babel/core').transformSync(buff.join('\n'), options);
 fs.writeFileSync(path.join(dist, 'react.js'), code.code);
 
 const styleSrc = path.join(__dirname, '../src/talendicons.css');
