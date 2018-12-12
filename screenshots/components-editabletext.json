@@ -1,19 +1,19 @@
 {
   "components/iframe.html?selectedKind=EditableText&selectedStory=default": [
     {
-      "name": "editabletext-default",
+      "name": "EditableText-default",
       "selector": ".tc-editable-text"
     }
   ],
   "components/iframe.html?selectedKind=EditableText&selectedStory=disabled": [
     {
-      "name": "editabletext-disabled",
+      "name": "EditableText-disabled",
       "selector": ".tc-editable-text"
     }
   ],
   "components/iframe.html?selectedKind=EditableText&selectedStory=edit%20mode": [
     {
-      "name": "editabletext-editmode",
+      "name": "EditableText-editmode",
       "selector": ".tc-editable-text"
     }
   ]

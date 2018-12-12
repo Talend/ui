@@ -1,13 +1,13 @@
 {
   "components/iframe.html?selectedKind=AboutDialog&selectedStory=default": [
     {
-      "name": "aboutdialog-default",
+      "name": "AboutDialog-default",
       "selector": ".modal-content"
     }
   ],
   "components/iframe.html?selectedKind=AboutDialog&selectedStory=expanded": [
     {
-      "name": "aboutdialog-expanded",
+      "name": "AboutDialog-expanded",
       "selector": ".modal-content"
     }
   ]
