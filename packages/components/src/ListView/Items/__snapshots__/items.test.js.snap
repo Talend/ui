@@ -298,6 +298,7 @@ exports[`Items should render 1`] = `
                           ]
                         }
                         nsMode="default"
+                        omitBoundRerender={true}
                         translateFuncName="t"
                         usePureComponent={false}
                         wait={false}
@@ -311,6 +312,7 @@ exports[`Items should render 1`] = `
                               "label": "Lorem ipsum dolor sit amet 0",
                             }
                           }
+                          lng="en"
                           measure={[Function]}
                           t={[Function]}
                           tReady={false}
@@ -417,6 +419,7 @@ exports[`Items should render 1`] = `
                           ]
                         }
                         nsMode="default"
+                        omitBoundRerender={true}
                         translateFuncName="t"
                         usePureComponent={false}
                         wait={false}
@@ -431,6 +434,7 @@ exports[`Items should render 1`] = `
                               "label": "Lorem ipsum dolor sit amet 1",
                             }
                           }
+                          lng="en"
                           measure={[Function]}
                           t={[Function]}
                           tReady={false}
@@ -537,6 +541,7 @@ exports[`Items should render 1`] = `
                           ]
                         }
                         nsMode="default"
+                        omitBoundRerender={true}
                         translateFuncName="t"
                         usePureComponent={false}
                         wait={false}
@@ -550,6 +555,7 @@ exports[`Items should render 1`] = `
                               "label": "Lorem ipsum dolor sit amet 2",
                             }
                           }
+                          lng="en"
                           measure={[Function]}
                           t={[Function]}
                           tReady={false}
@@ -905,6 +911,7 @@ exports[`Items should render with nested items 1`] = `
                           ]
                         }
                         nsMode="default"
+                        omitBoundRerender={true}
                         translateFuncName="t"
                         usePureComponent={false}
                         wait={false}
@@ -918,6 +925,7 @@ exports[`Items should render with nested items 1`] = `
                               "label": "Lorem ipsum dolor default",
                             }
                           }
+                          lng="en"
                           measure={[Function]}
                           t={[Function]}
                           tReady={false}
@@ -1045,6 +1053,7 @@ exports[`Items should render with nested items 1`] = `
                           ]
                         }
                         nsMode="default"
+                        omitBoundRerender={true}
                         translateFuncName="t"
                         usePureComponent={false}
                         wait={false}
@@ -1071,6 +1080,7 @@ exports[`Items should render with nested items 1`] = `
                               "label": "Lorem ipsum dolor Parent",
                             }
                           }
+                          lng="en"
                           measure={[Function]}
                           t={[Function]}
                           tReady={false}
@@ -1124,6 +1134,7 @@ exports[`Items should render with nested items 1`] = `
                                       ]
                                     }
                                     nsMode="default"
+                                    omitBoundRerender={true}
                                     onClick={[Function]}
                                     translateFuncName="t"
                                     usePureComponent={false}
@@ -1139,6 +1150,7 @@ exports[`Items should render with nested items 1`] = `
                                       icon="talend-caret-down"
                                       inProgress={false}
                                       label="Expand Lorem ipsum dolor Parent"
+                                      lng="en"
                                       loading={false}
                                       onClick={[Function]}
                                       t={[Function]}
@@ -1516,6 +1528,7 @@ exports[`Items should render with provided id 1`] = `
                           ]
                         }
                         nsMode="default"
+                        omitBoundRerender={true}
                         translateFuncName="t"
                         usePureComponent={false}
                         wait={false}
@@ -1530,6 +1543,7 @@ exports[`Items should render with provided id 1`] = `
                               "label": "Lorem ipsum dolor sit amet 0",
                             }
                           }
+                          lng="en"
                           measure={[Function]}
                           t={[Function]}
                           tReady={false}
@@ -1643,6 +1657,7 @@ exports[`Items should render with provided id 1`] = `
                           ]
                         }
                         nsMode="default"
+                        omitBoundRerender={true}
                         translateFuncName="t"
                         usePureComponent={false}
                         wait={false}
@@ -1658,6 +1673,7 @@ exports[`Items should render with provided id 1`] = `
                               "label": "Lorem ipsum dolor sit amet 1",
                             }
                           }
+                          lng="en"
                           measure={[Function]}
                           t={[Function]}
                           tReady={false}
@@ -1771,6 +1787,7 @@ exports[`Items should render with provided id 1`] = `
                           ]
                         }
                         nsMode="default"
+                        omitBoundRerender={true}
                         translateFuncName="t"
                         usePureComponent={false}
                         wait={false}
@@ -1785,6 +1802,7 @@ exports[`Items should render with provided id 1`] = `
                               "label": "Lorem ipsum dolor sit amet 2",
                             }
                           }
+                          lng="en"
                           measure={[Function]}
                           t={[Function]}
                           tReady={false}

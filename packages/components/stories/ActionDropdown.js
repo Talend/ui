@@ -3,7 +3,6 @@ import Immutable from 'immutable';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 
 import { ActionDropdown, IconsProvider, FilterBar, Action } from '../src/index';
 
@@ -194,8 +193,7 @@ const oneEventAction = {
 };
 
 storiesOf('ActionDropdown', module)
-	.addDecorator(checkA11y)
-	.addWithInfo('default', () => (
+	.add('default', () => (
 		<div>
 			<h3>By default :</h3>
 			<div id="default">
