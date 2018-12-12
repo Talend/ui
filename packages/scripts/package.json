@@ -2,7 +2,7 @@
   "name": "@talend/scripts",
   "version": "0.4.0",
   "bin": {
-    "talend-scripts": "./webapp/index.js"
+    "talend-scripts": "./index.js"
   },
   "dependencies": {
     "@babel/cli": "^7.2.0",
