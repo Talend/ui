@@ -1,0 +1,18 @@
+// SelectSortBy styles
+
+$tc-list-toolbar-display-color: $dove-gray !default;
+
+.tc-list-toolbar-sort-by {
+	display: flex;
+
+	:global(.navbar-btn.btn) {
+		color: $tc-list-toolbar-display-color;
+		font-size: 1em;
+		margin: 0;
+		letter-spacing: 0;
+	}
+}
+
+.sort-by-items {
+	text-transform: capitalize;
+}
