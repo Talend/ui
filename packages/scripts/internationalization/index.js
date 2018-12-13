@@ -3,9 +3,6 @@
 const fs = require('fs');
 const path = require('path');
 const error = require('./common/error');
-const extract = require('./extract');
-const upload = require('./upload');
-const download = require('./download');
 
 module.exports = function runInI18n(command) {
 	function processConfigFile() {
@@ -20,19 +17,6 @@ module.exports = function runInI18n(command) {
 	}
 
 	const configuration = processConfigFile();
-
-	switch (command) {
-		case 'i18n-extract':
-			extract(configuration);
-			break;
-		case 'i18n-upload':
-			upload(configuration);
-			break;
-		case 'i18n-download':
-			download(configuration);
-			break;
-		default:
-			console.log(`Command ${command} not found.`);
-			process.exit(-1);
-	}
+	const scriptName = command.replace('i18n-', '');
+	require(`./scripts/${scriptName}`)(configuration);
 };

@@ -1,7 +1,7 @@
 const path = require('path');
 const Zip = require('adm-zip');
-const { getXTMVariables, login, getProject, downloadFile } = require('./common/xtm');
-const error = require('./common/error');
+const { getXTMVariables, login, getProject, downloadFile } = require('../common/xtm');
+const error = require('../common/error');
 
 const languageRegex = /^[a-z]{2}_[A-Z]{2}$/;
 

@@ -4,7 +4,7 @@ const spawn = require('cross-spawn');
 const mkdirp = require('mkdirp');
 const Zip = require('adm-zip');
 
-const error = require('./common/error');
+const error = require('../common/error');
 
 function extractNpmYarn({ script, method, target }) {
 	if (!script || !target) {
