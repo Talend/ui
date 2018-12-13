@@ -1,16 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Navbar from 'react-bootstrap/lib/Navbar';
-import omit from 'lodash/omit';
 import { translate } from 'react-i18next';
-
-// import FilterBar from '@talend/react-components/lib/FilterBar';
-// import ActionBar from '@talend/react-components/lib/ActionBar';
 import I18N_DOMAIN_COMPONENTS from '@talend/react-components/lib/constants';
 import { ActionBar, FilterBar } from '@talend/react-containers';
 import '@talend/react-components/lib/translate';
-// import Inject from '@talend/react-components/lib/Inject';
-
 // import SelectAll from './SelectAll';
 import SelectDisplayMode from './SelectDisplayMode';
 import SelectSortBy from './SelectSortBy';
