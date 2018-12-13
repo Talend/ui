@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-// import VirtualizedList, { SORT_BY, cellDictionary, headerDictionary } from '../../VirtualizedList';
 import VirtualizedList, {
 	SORT_BY,
 	cellDictionary,
@@ -98,6 +97,7 @@ export function ListToVirtualizedList(props) {
 			}
 			return <VirtualizedList.Content key={index} {...cProps} />;
 		});
+		console.log({ composedCells })
 	return (
 		<VirtualizedList
 			id={props.id}

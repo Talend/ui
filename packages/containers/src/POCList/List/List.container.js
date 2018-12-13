@@ -37,34 +37,33 @@ export const DEFAULT_STATE = new Map({
 });
 
 class List extends React.Component {
-	static displayName = 'Container(List)';
+	static displayName = 'List';
 	static propTypes = {
-		actions: PropTypes.shape({
-			title: PropTypes.string,
-			left: PropTypes.arrayOf(PropTypes.string),
-			right: PropTypes.arrayOf(PropTypes.string),
-		}),
-		multiSelectActions: PropTypes.shape({
-			title: PropTypes.string,
-			left: PropTypes.arrayOf(PropTypes.string),
-			right: PropTypes.arrayOf(PropTypes.string),
-		}),
-		idKey: PropTypes.string,
-		list: PropTypes.shape({
-			columns: PropTypes.array,
-			titleProps: PropTypes.object,
-		}),
-		toolbar: PropTypes.shape({
-			sort: PropTypes.object,
-			filter: PropTypes.object,
-			pagination: PropTypes.shape({
-				onChange: PropTypes.func,
-			}),
-		}),
-		cellDictionary: PropTypes.object,
-		displayMode: PropTypes.string,
-		items: ImmutablePropTypes.list.isRequired,
-		...cmfConnect.propTypes,
+		// actions: PropTypes.shape({
+		// 	title: PropTypes.string,
+		// 	left: PropTypes.arrayOf(PropTypes.string),
+		// 	right: PropTypes.arrayOf(PropTypes.string),
+		// }),
+		// multiSelectActions: PropTypes.shape({
+		// 	title: PropTypes.string,
+		// 	left: PropTypes.arrayOf(PropTypes.string),
+		// 	right: PropTypes.arrayOf(PropTypes.string),
+		// }),
+		// idKey: PropTypes.string,
+		// list: PropTypes.shape({
+		// 	columns: PropTypes.array,
+		// 	titleProps: PropTypes.object,
+		// }),
+		// toolbar: PropTypes.shape({
+		// 	sort: PropTypes.object,
+		// 	filter: PropTypes.object,
+		// 	pagination: PropTypes.shape({
+		// 		onChange: PropTypes.func,
+		// 	}),
+		// }),
+		// cellDictionary: PropTypes.object,
+		// displayMode: PropTypes.string,
+		// items: ImmutablePropTypes.list.isRequired,
 	};
 
 	static defaultProps = {
@@ -147,9 +146,7 @@ class List extends React.Component {
 		};
 		return (
 			<div className={classnames}>
-				<ListContext.Provider value={contextValues}>
-					{this.props.children}
-				</ListContext.Provider>
+				<ListContext.Provider value={contextValues}>{this.props.children}</ListContext.Provider>
 			</div>
 		);
 	}
@@ -164,15 +161,14 @@ List.Toolbar.Sort = Toolbar.Sort;
 List.Toolbar.ActionBar = Toolbar.ActionBar;
 
 List.Toolbar.FilterBar = Toolbar.FilterBar;
+List.Toolbar.FilterBar.displayName = 'Toolbar.FilterBar';
 
 List.Toolbar.DisplayMode = Toolbar.DisplayMode;
 
 List.VirtualizedList = props => {
 	return (
 		<ListContext.Consumer>
-			{({ cellDictionary }) => (
-				<ListToVirtualizedList {...props} cellDictionary={cellDictionary} />
-			)}
+			{({ cellDictionary }) => <ListToVirtualizedList {...props} cellDictionary={cellDictionary} />}
 		</ListContext.Consumer>
 	);
 };

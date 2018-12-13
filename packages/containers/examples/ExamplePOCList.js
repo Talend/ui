@@ -35,31 +35,14 @@ const items = [
 
 const titleProps = {
 	key: 'label',
-	iconKey: 'icon',
-	actionsKey: 'actions',
-	persistentActionsKey: 'persistentActions',
 };
 
 const columns = [
-	{
-		key: 'label',
-		order: 10,
-		label: 'Name',
-	},
-	{
-		key: 'updated',
-		order: 30,
-		label: 'Updated',
-		type: 'datetime',
-		data: {
-			mode: 'ago',
-		},
-	},
-	{
-		key: 'creator',
-		order: 25,
-		label: 'Author',
-	},
+	{ key: 'id', label: 'Id' },
+	{ key: 'label', label: 'Name' },
+	{ key: 'author', label: 'Author' },
+	{ key: 'created', label: 'Created' },
+	{ key: 'modified', label: 'Modified' },
 ];
 
 const actions = {};
