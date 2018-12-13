@@ -8,7 +8,7 @@ const error = require('./error');
 function throwError(missingVar) {
 	error(`
 		In order to connect to XTM, you need to pass the ${missingVar} env variable.
-		> API_URL=http://XXX CLIENT=YYY USER_ID=ZZZ PASSWORD=AAA talend-i18n upload
+		> API_URL=http://XXX CLIENT=YYY USER_ID=ZZZ PASSWORD=AAA talend-scripts i18n-upload
 	`);
 }
 
