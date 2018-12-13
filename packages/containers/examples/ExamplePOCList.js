@@ -78,7 +78,7 @@ class ListFilter extends React.Component {
 const MyCustomToolbarComponent = props => <button onClick={props.onClick}>{props.label}</button>;
 
 MyCustomToolbarComponent.propTypes = {
-	onClick: PropTypes.fun.isRequired,
+	onClick: PropTypes.func.isRequired,
 	label: PropTypes.string.isRequired,
 };
 
