@@ -23,6 +23,7 @@ This preset allows some customisation through specific entry points. The configu
     "theme": "tdp"
   },
   "webpack": {
+    "debug": true,
     "config": {
       "development": "./webpack.config.dev.js",
       "production": "./webpack.config.prod.js"
@@ -128,6 +129,8 @@ By default, a devServer proxy is in place, mapping all `/api` urls to `http://lo
   }
 }
 ```
+
+You can add the debug option to true so the webpack configuration will be printed to the output.
 
 ## CMF
 
