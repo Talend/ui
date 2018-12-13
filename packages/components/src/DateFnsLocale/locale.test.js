@@ -87,8 +87,12 @@ describe('buildDistanceInWordsLocale', () => {
 });
 
 describe('getLocale', () => {
+	let originalLang;
+	beforeEach(() => {
+		originalLang = i18next.language;
+	});
 	afterEach(() => {
-		i18next.language = undefined;
+		i18next.language = originalLang;
 	});
 	it('should return the locale', () => {
 		const locale = getLocale(getDefaultT());
