@@ -6,10 +6,14 @@
 	align-items: center;
 
 	legend {
-		@include picker-header;
+		border: none;
+		font-size: inherit;
+		text-align: center;
+		text-transform: uppercase;
 
 		.utc {
-			font-size: 1rem;
+			color: $silver-chalice;
+			font-size: 1.2rem;
 		}
 	}
 
@@ -20,10 +24,10 @@
 	}
 
 	> input.time-input {
-		padding: 0.7rem 1rem;
+		border: 1px solid $concrete;
+		height: 3rem;
 		text-align: center;
 		width: 100%;
-		border: 1px solid $gallery;
 
 		&:focus {
 			border-color: $scooter;

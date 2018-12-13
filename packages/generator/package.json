@@ -9,7 +9,7 @@
     "test:cov": "istanbul cover _mocha",
     "test:demo": "echo nothing to demo in generator-talend",
     "test:lint": "eslint generator/**/index.js",
-    "test:unit": "mocha --compilers js:babel-register",
+    "test:unit": "mocha --compilers js:@babel/register",
     "test": "npm run test:lint && npm run test:unit"
   },
   "files": [
@@ -42,15 +42,16 @@
     "yosay": "^1.0.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-eslint": "8.0.1",
-    "babel-preset-env": "^1.6.0",
-    "babel-register": "^6.14.0",
-    "eslint": "^3.6.1",
+    "@babel/core": "^7.2.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/register": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^4.0.0",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^1.9.1"
   },
-  "version": "1.10.0-0"
+  "version": "1.10.0-webpack4"
 }

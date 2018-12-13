@@ -28,6 +28,7 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'dateFormat',
 	'useSeconds',
 	'useTime',
+	'useUTC',
 ];
 
 class InputDateTimePicker extends React.Component {

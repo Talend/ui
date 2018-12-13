@@ -66,6 +66,7 @@ class TimePicker extends React.PureComponent {
 					value={this.props.value.seconds}
 					tabIndex={tabIndex}
 					onChange={event => this.onChange(event, SECONDS)}
+					placeholder="SS"
 				/>,
 			];
 		}
@@ -95,6 +96,7 @@ class TimePicker extends React.PureComponent {
 					value={this.props.value.hours}
 					tabIndex={tabIndex}
 					onChange={event => this.onChange(event, HOURS)}
+					placeholder="HH"
 				/>
 				<hr />
 				<label htmlFor={this.minuteId} className="sr-only">
@@ -106,6 +108,7 @@ class TimePicker extends React.PureComponent {
 					value={this.props.value.minutes}
 					tabIndex={tabIndex}
 					onChange={event => this.onChange(event, MINUTES)}
+					placeholder="MM"
 				/>
 				{this.renderSeconds(tabIndex)}
 			</div>

@@ -273,12 +273,12 @@ describe('ComponentForm', () => {
 	});
 
 	describe('events', () => {
-		const state = fromJS(addSchemaMock.ui);
+		const state = fromJS({ ...addSchemaMock.ui, initialState: addSchemaMock.ui });
 
 		// extract type field schema
 		const typeSchema = {
 			...addSchemaMock.ui.uiSchema[0].items[1],
-			key: ['$datasetMetadata', 'type'],
+			key: ['_datasetMetadata', 'type'],
 		};
 		const selectedType = typeSchema.titleMap[0];
 
@@ -287,7 +287,7 @@ describe('ComponentForm', () => {
 		const changePayload = {
 			schema: typeSchema,
 			properties: {
-				$datasetMetadata: {
+				_datasetMetadata: {
 					type: selectedType.value,
 				},
 			},
@@ -334,7 +334,7 @@ describe('ComponentForm', () => {
 				// then
 				expect(wrapper.state()).toEqual({
 					properties: {
-						$datasetMetadata: {
+						_datasetMetadata: {
 							type: selectedType.value,
 							$type_name: selectedType.name,
 						},
@@ -449,6 +449,49 @@ describe('ComponentForm', () => {
 				expect(args.componentId).toBe(componentId);
 				expect(args.event).toBe(event);
 				expect(args.properties).toEqual(payload);
+			});
+		});
+
+		describe('#onReset', () => {
+			it('should reset form state, and set dirty to false', () => {
+				// given
+				const setState = jest.fn();
+				const dispatch = jest.fn();
+				const componentId = 'MyComponentId';
+				const wrapper = shallow(
+					<TCompForm
+						componentId={componentId}
+						setState={setState}
+						state={state}
+						dispatch={dispatch}
+					/>,
+				);
+
+				// when
+				wrapper.instance().onChange(event, changePayload);
+				// then
+				// dispatch dirty
+				expect(setState).toBeCalledWith({ dirty: true });
+				// change state
+				expect(wrapper.state()).toEqual({
+					properties: {
+						_datasetMetadata: {
+							type: selectedType.value,
+							$type_name: selectedType.name,
+						},
+					},
+				});
+				// when
+				wrapper.instance().onReset();
+
+				// change state back to initial state provided by addSchemaMock.ui
+				// with dirty set to false since the form got reseted
+				expect(wrapper.state()).toEqual({
+					properties: {
+						_datasetMetadata: {},
+					},
+					dirty: false,
+				});
 			});
 		});
 	});

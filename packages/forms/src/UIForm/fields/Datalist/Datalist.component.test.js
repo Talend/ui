@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import DatalistComponent from '@talend/react-components/lib/Datalist';
 import Datalist from './Datalist.component';
 
 const schema = {
@@ -215,9 +216,9 @@ describe('Datalist component', () => {
 
 			// when
 			wrapper
-				.find('FieldTemplate')
-				.find('Datalist')
-				.prop('onFocus')(event);
+				.find(DatalistComponent)
+				.props()
+				.onFocus(event);
 
 			// then
 			expect(props.onTrigger).toBeCalledWith(event, {
@@ -284,12 +285,7 @@ describe('Datalist component', () => {
 			const wrapper = shallow(<Datalist.WrappedComponent {...props} />);
 
 			// then
-			expect(
-				wrapper
-					.find('FieldTemplate')
-					.find('Datalist')
-					.prop('titleMap'),
-			).toEqual([
+			expect(wrapper.find(DatalistComponent).prop('titleMap')).toEqual([
 				{ name: 'Foo', value: 'foo' },
 				{ name: 'Bar', value: 'bar' },
 				{ name: 'Lol', value: 'lol' },
@@ -329,12 +325,7 @@ describe('Datalist component', () => {
 			const wrapper = shallow(<Datalist.WrappedComponent {...props} />);
 
 			// then
-			expect(
-				wrapper
-					.find('FieldTemplate')
-					.find('Datalist')
-					.prop('titleMap'),
-			).toEqual([
+			expect(wrapper.find(DatalistComponent).prop('titleMap')).toEqual([
 				{
 					suggestions: [
 						{ name: 'Foo', value: 'foo' },
@@ -359,12 +350,7 @@ describe('Datalist component', () => {
 			const wrapper = shallow(<Datalist.WrappedComponent {...props} />);
 
 			// then
-			expect(
-				wrapper
-					.find('FieldTemplate')
-					.find('Datalist')
-					.prop('titleMap'),
-			).toEqual([
+			expect(wrapper.find(DatalistComponent).prop('titleMap')).toEqual([
 				{ name: 'Foo', value: 'foo' },
 				{ name: 'Bar', value: 'bar' },
 				{ name: 'Lol', value: 'lol' },
