@@ -137,11 +137,6 @@ module.exports = ({ getUserConfig, mode }) => {
 			}),
 			new CopyWebpackPlugin([
 				{ from: 'src/assets' },
-				{
-					from: 'node_modules/@talend/bootstrap-theme/src/theme/fonts/**/*.woff*',
-					to: 'fonts',
-					flatten: true,
-				},
 			]),
 			new webpack.BannerPlugin({
 				banner: LICENSE_BANNER,
