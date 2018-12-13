@@ -82,6 +82,12 @@ MyCustomToolbarComponent.propTypes = {
 	label: PropTypes.string.isRequired,
 };
 
+/*
+	Only one feature, the filtering on the items.
+	List is a dumb component, no default behavior or logic implemented.
+	You have to compose with the components exposed by the list library
+	to make your own list.
+*/
 const POCList = {
 	withAllElement: () => (
 		<div>
@@ -112,6 +118,9 @@ const POCList = {
 			</div>
 		</div>
 	),
+	/*
+		Here we have to create a component to implement our handlers.
+	*/
 	withFilter: () => (
 		<div>
 			<IconsProvider />
