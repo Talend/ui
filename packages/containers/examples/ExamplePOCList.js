@@ -1,9 +1,62 @@
 import React from 'react';
-import Immutable from 'immutable';
-import List from '../src/POCList/List';
 import { IconsProvider } from '@talend/react-components';
+import { action as stAction } from '@storybook/addon-actions';
+import List from '../src/POCList/List';
 
-const myItems = Immutable.fromJS([
+/*
+		const cellDictionary = {
+			connection: {
+				component: 'ConnectionCellRenderer',
+			},
+			favorite: {
+				component: 'FavoriteCellRenderer',
+			},
+			quality: {
+				component: 'QualityCellRenderer',
+			},
+			certification: {
+				component: 'CertificationCellRenderer',
+			},
+		};
+		// const actions = { left: [{ actionId: 'dataset:add' }, { actionId: 'dataset:upload' }] };
+(
+	<List
+		getComponent={this.props.getComponent}
+		collectionId={this.props.collectionId}
+		cellDictionary={cellDictionary}
+	>
+		<List.Toolbar
+			handleInputFilter={this.handleInputFilter}
+			handleToggleFilter={this.handleToggleFilter}
+		>
+			<List.Toolbar.ActionBar actions={actions} />
+			<List.Toolbar.Sort
+				options={[
+					{
+						id: 'label',
+						name: 'Name',
+					},
+					{
+						id: 'datastore',
+						name: 'Connection Name',
+					},
+					{
+						id: 'updated',
+						name: 'Updated',
+					},
+				]}
+			/>
+			<List.Toolbar.DisplayMode />
+			<div>
+				<List.Toolbar.FilterBar id={'dataset'} placeholder={'Find a dataset'} />
+			</div>
+		</List.Toolbar>
+		<List.VirtualizedList titleProps={titleProps} items={items} columns={columns} />
+	</List>
+);
+*/
+
+const items = [
 	{
 		id: 'id1',
 		label: 'Title with actions',
@@ -31,7 +84,7 @@ const myItems = Immutable.fromJS([
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT with super long name',
 	},
-]);
+];
 
 const titleProps = {
 	key: 'label',
@@ -61,49 +114,28 @@ const columns = [
 		label: 'Author',
 	},
 ];
-
+/*
 class ListWithFilter extends React.Component {
 	state = {
 		filterQuery: '',
 	};
 
+	getState = () => ({ filterQuery: this.props.filterQuery || this.state.filterQuery });
 	handleInputFilter = (event, values) => {
 		this.setState({ filterQuery: values.query });
 	};
 	handleToggleFilter = () => {
 		this.setState({ filterQuery: '' });
 	};
-
-	filterDatasets = items => items.filter(item => item.label.includes(this.state.filterQuery));
+	filterDatasets = items => items.filter(item => item.label.includes(this.getState().filterQuery));
 
 	render() {
-		const items = this.filterDatasets(this.props.items.toJS());
-
-		/*
-		const cellDictionary = {
-			connection: {
-				component: 'ConnectionCellRenderer',
-			},
-			favorite: {
-				component: 'FavoriteCellRenderer',
-			},
-			quality: {
-				component: 'QualityCellRenderer',
-			},
-			certification: {
-				component: 'CertificationCellRenderer',
-			},
-		};
-		*/
-		// const actions = { left: [{ actionId: 'dataset:add' }, { actionId: 'dataset:upload' }] };
+		const items = this.filterDatasets(this.props.items);
 		const actions = {};
 		const cellDictionary = {};
+
 		return (
-			<List
-				getComponent={this.props.getComponent}
-				collectionId={this.props.collectionId}
-				cellDictionary={cellDictionary}
-			>
+			<List collectionId={this.props.collectionId} cellDictionary={cellDictionary}>
 				<List.Toolbar
 					handleInputFilter={this.handleInputFilter}
 					handleToggleFilter={this.handleToggleFilter}
@@ -127,7 +159,7 @@ class ListWithFilter extends React.Component {
 					/>
 					<List.Toolbar.DisplayMode />
 					<div>
-						<List.Toolbar.FilterBar id={'dataset'} placeholder={'Find a dataset'} />
+						<List.Toolbar.FilterBar id={'myFilterBar'} placeholder={'Find something'} />
 					</div>
 				</List.Toolbar>
 				<List.VirtualizedList titleProps={titleProps} items={items} columns={columns} />
@@ -135,16 +167,69 @@ class ListWithFilter extends React.Component {
 		);
 	}
 }
+*/
+
+const actions = {};
+
+/**
+ * To handle filtering you need to create your callback and make the filtering in an upper component.
+ */
+class ListFilter extends React.Component {
+	state = { filter: '' };
+	filter = (event, values) => {
+		this.setState({ filter: values.query });
+	};
+	toggle = () => {
+		this.setState({ filter: '' });
+	};
+	render() {
+		const filteredItems = this.props.items.filter(item => item.label.includes(this.state.filter));
+		return (
+			<List collectionId={'myCollection'}>
+				<List.Toolbar handleInputFilter={this.filter} handleToggleFilter={this.toggle}>
+					<List.Toolbar.FilterBar id={'myFilterBar'} placeholder={'Find something'} />
+				</List.Toolbar>
+				<List.VirtualizedList items={filteredItems} columns={columns} />
+			</List>
+		);
+	}
+}
 
 const POCList = {
-	default: () => (
+	withAllElement: () => (
 		<div>
 			<IconsProvider />
 			<div className="list-container">
-				<ListWithFilter
-					collectionId={'datasets'}
-					items={myItems}
-				/>
+				<List collectionId={'myCollection'}>
+					<List.Toolbar
+						handleInputFilter={stAction('input filter')}
+						handleToggleFilter={stAction('toggle filter')}
+					>
+						<List.Toolbar.Sort
+							options={[
+								{
+									id: 'sort1',
+									name: 'sort1',
+								},
+								{
+									id: 'sort2',
+									name: 'sort2',
+								},
+							]}
+						/>
+						<List.Toolbar.DisplayMode />
+						<List.Toolbar.FilterBar id={'myFilterBar'} placeholder={'Find something'} />
+					</List.Toolbar>
+					<List.VirtualizedList items={items} columns={columns} />
+				</List>
+			</div>
+		</div>
+	),
+	withFilter: () => (
+		<div>
+			<IconsProvider />
+			<div className="list-container">
+				<ListFilter items={items} />
 			</div>
 		</div>
 	),
