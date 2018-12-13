@@ -13,6 +13,7 @@ import http, {
 	handleHttpResponse,
 	httpFetch,
 	HTTPError,
+	encodePayload,
 	wrapFetch,
 	httpGet,
 	httpDelete,
@@ -239,6 +240,37 @@ describe('#handleError', () => {
 	});
 });
 
+describe('#encodePayload', () => {
+	it('should json stringify the payload if content-type is application/json', () => {
+		const headers = {
+			'Content-Type': 'application/json',
+		};
+		const test = { abc: 'def' };
+
+		// eslint-disable-next-line quotes
+		expect(encodePayload(headers, test)).toEqual("{\"abc\":\"def\"}");
+	});
+
+	it('should not json stringify the payload if content-type is not application/json', () => {
+		const headers = {
+			'Content-Type': 'plain/text',
+		};
+		const test = { abc: 'def' };
+
+		// eslint-disable-next-line quotes
+		expect(encodePayload(headers, test)).toEqual({ abc: 'def' });
+	});
+
+	it('should not json stringify the payload if it is a FormData instance', () => {
+		const headers = {
+			'Content-Type': 'application/json',
+		};
+
+		// eslint-disable-next-line quotes
+		expect(encodePayload(headers, new FormData()) instanceof FormData).toBe(true);
+	});
+});
+
 describe('#httpFetch', () => {
 	it('should wrap the request as a GET by default and provide an undefined payload', () => {
 		const url = '/foo';
@@ -336,7 +368,7 @@ describe('#httpFetch', () => {
 		expect(gen.next().done).toBe(true);
 	});
 
-	it('should wrap the request and notify errors', () => {
+	it('should wrap the request and notify business error', () => {
 		const url = '/foo';
 		const config = {
 			headers: {
@@ -361,12 +393,63 @@ describe('#httpFetch', () => {
 		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.PUT, payload));
 		expect(gen.next(httpError).value).toEqual(
 			put({
+				config: {
+					headers: {
+						'Content-Type': 'application/json',
+					},
+				},
 				error: {
 					message: 'Error occured',
 					stack: {
 						status: HTTP_STATUS.FORBIDDEN,
 					},
 				},
+				method: 'PUT',
+				payload: {
+					bar: 42,
+				},
+				url: '/foo',
+				type: ACTION_TYPE_HTTP_ERRORS,
+			}),
+		);
+		expect(gen.next().value).toEqual(httpError);
+		expect(gen.next().done).toBe(true);
+	});
+	it('should wrap the request and notify network error', () => {
+		const url = '/foo';
+		const config = {
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		};
+		const payload = {
+			bar: 42,
+		};
+		const response = new TypeError('Failed to fetch');
+		const httpError = new HTTPError({
+			data: response,
+			response,
+		});
+
+		const gen = wrapFetch(url, config, HTTP_METHODS.PUT, payload);
+
+		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.PUT, payload));
+		expect(gen.next(httpError).value).toEqual(
+			put({
+				config: {
+					headers: {
+						'Content-Type': 'application/json',
+					},
+				},
+				error: {
+					message: 'Failed to fetch',
+					stack: {},
+				},
+				method: 'PUT',
+				payload: {
+					bar: 42,
+				},
+				url: '/foo',
 				type: ACTION_TYPE_HTTP_ERRORS,
 			}),
 		);

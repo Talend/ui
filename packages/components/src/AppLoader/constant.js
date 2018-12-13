@@ -9,13 +9,6 @@ html {
 	-webkit-text-size-adjust: 100%;
 }
 
-body {
-	margin: 0;
-	height: 100vh;
-	width: 100vw;
-	overflow: hidden;
-}
-
 .tc-app-loader-container {
   display: flex;
   height: 100vh;

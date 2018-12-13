@@ -1,6 +1,6 @@
 import React from 'react';
 import Immutable from 'immutable';
-import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
+import { action } from '@storybook/addon-actions';
 import { IconsProvider } from '@talend/react-components';
 
 import { ActionDropdown } from '../src';

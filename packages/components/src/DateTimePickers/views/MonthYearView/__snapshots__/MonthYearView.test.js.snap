@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MonthYearView should render a MonthYearView 1`] = `
+exports[`MonthYearView should render 1`] = `
 <ViewLayout
   bodyElement={
     <div
@@ -9,16 +9,19 @@ exports[`MonthYearView should render a MonthYearView 1`] = `
       <div
         className="theme-month"
       >
-        <MonthPicker
-          onSelect={[Function]}
+        <Translate(MonthCalendarGesture(MonthPicker))
+          allowFocus={true}
+          onSelect={[MockFunction]}
           selectedMonthIndex={8}
+          selectedYear={2012}
         />
       </div>
       <div
         className="theme-year"
       >
-        <YearPicker
-          onSelect={[Function]}
+        <Translate(YearPicker)
+          allowFocus={true}
+          onSelect={[MockFunction]}
           selectedYear={2012}
         />
       </div>
@@ -26,21 +29,18 @@ exports[`MonthYearView should render a MonthYearView 1`] = `
   }
   header={
     Object {
-      "leftElement": <IconButton
+      "leftElement": <Action
         aria-label="Switch back to date and time pickers view"
-        className="theme-action-left"
-        icon={
-            Object {
-                "className": "theme-action-left-icon",
-                "name": "talend-arrow-left",
-              }
-        }
-        onClick={[Function]}
-    />,
-      "middleElement": <HeaderTitle
+        icon="talend-arrow-left"
+        label=""
+        link={true}
+        onClick={[MockFunction]}
+        tabIndex={0}
+      />,
+      "middleElement": <Translate(HeaderTitle)
         monthIndex={8}
         year={2012}
-    />,
+      />,
     }
   }
 />

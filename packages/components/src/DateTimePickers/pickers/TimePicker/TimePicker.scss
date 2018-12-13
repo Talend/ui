@@ -1,0 +1,36 @@
+@import '../../shared/styles/mixins';
+
+.time-picker {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	legend {
+		border: none;
+		font-size: inherit;
+		text-align: center;
+		text-transform: uppercase;
+
+		.utc {
+			color: $silver-chalice;
+			font-size: 1.2rem;
+		}
+	}
+
+	hr {
+		width: 100%;
+		border-color: $gallery;
+		margin: $padding-small 0;
+	}
+
+	> input.time-input {
+		border: 1px solid $concrete;
+		height: 3rem;
+		text-align: center;
+		width: 100%;
+
+		&:focus {
+			border-color: $scooter;
+		}
+	}
+}

@@ -13,13 +13,13 @@ exports[`ActionBar should render a btn-group 1`] = `
               "hideLabel": true,
               "icon": "talend-cog",
               "label": "hidden mean tooltips",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
             Object {
               "hideLabel": true,
               "icon": "talend-badge",
               "label": "you are a super star",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
           ],
           "displayMode": "btnGroup",
@@ -44,12 +44,12 @@ exports[`ActionBar should render no-selected actions, all on left  1`] = `
           "bsStyle": "primary",
           "icon": "fa fa-asterisk",
           "label": "Primary",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "displayMode": "splitDropdown",
@@ -58,15 +58,15 @@ exports[`ActionBar should render no-selected actions, all on left  1`] = `
           "items": Array [
             Object {
               "label": "From Local",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
             Object {
               "label": "From Remote",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
           ],
           "label": "Add File",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
@@ -91,7 +91,7 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
           "bsStyle": "primary",
           "icon": "fa fa-asterisk",
           "label": "Primary",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
@@ -106,7 +106,7 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
         Object {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "displayMode": "splitDropdown",
@@ -115,15 +115,15 @@ exports[`ActionBar should render no-selected actions, some on left, the other on
           "items": Array [
             Object {
               "label": "From Local",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
             Object {
               "label": "From Remote",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
           ],
           "label": "Add File",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
@@ -145,12 +145,12 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
         Object {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "displayMode": "splitDropdown",
@@ -159,15 +159,15 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
           "items": Array [
             Object {
               "label": "From Local",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
             Object {
               "label": "From Remote",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
           ],
           "label": "Add File",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
@@ -196,12 +196,12 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
         Object {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "displayMode": "splitDropdown",
@@ -210,15 +210,15 @@ exports[`ActionBar should render selected count and multi-selected actions, all 
           "items": Array [
             Object {
               "label": "From Local",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
             Object {
               "label": "From Remote",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
           ],
           "label": "Add File",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
@@ -240,7 +240,7 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
         Object {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
@@ -255,7 +255,7 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
         Object {
           "icon": "fa fa-asterisk",
           "label": "Secondary",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
         Object {
           "displayMode": "splitDropdown",
@@ -264,15 +264,15 @@ exports[`ActionBar should render selected count and multi-selected actions, coun
           "items": Array [
             Object {
               "label": "From Local",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
             Object {
               "label": "From Remote",
-              "onClick": [Function],
+              "onClick": [MockFunction],
             },
           ],
           "label": "Add File",
-          "onClick": [Function],
+          "onClick": [MockFunction],
         },
       ]
     }
@@ -294,19 +294,13 @@ exports[`ActionBar.Count should render if selected 1`] = `
 
 exports[`ActionBar.SwitchActions should not render selected on right 1`] = `
 <Content
-  center={undefined}
-  left={undefined}
   right={true}
->
-  
-</Content>
+/>
 `;
 
 exports[`ActionBar.SwitchActions should render one Action on navbar-left 1`] = `
 <Content
-  center={undefined}
   left={true}
-  right={undefined}
 >
   <Action
     label="action"
@@ -331,8 +325,6 @@ exports[`ActionBar.SwitchActions should render one Action on navbar-left with se
 
 exports[`ActionBar.SwitchActions should render one Action on navbar-right 1`] = `
 <Content
-  center={undefined}
-  left={undefined}
   right={true}
 >
   <Action

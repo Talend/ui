@@ -4,11 +4,13 @@
 	display: flex;
 
 	.date {
-		flex: 3;
+		flex: 3 0 200px;
 	}
 
 	.time {
-		flex: 1;
 		border-left: $border-default;
+		flex: 1 0 70px;
+		margin-left: $padding-normal;
+		padding-left: $padding-normal;
 	}
 }

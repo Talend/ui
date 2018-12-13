@@ -61,6 +61,11 @@ cmf.boostrap({
 });
 ```
 
+## How to setup store using localStorage ?
+
+We provide a [simple API for that](./localStorage.md).
+
+
 ## onError
 
 The error handling is well described in it's own [documentation page](./onError.md).

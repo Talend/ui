@@ -1,16 +1,15 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from '@storybook/addon-a11y';
 import { IconsProvider } from '@talend/react-components';
 
 import DataGrid from '../src/components/';
+import DynamicDataGrid from './DynamicDataGrid.component';
 import DefaultRenderer from '../src/components/DefaultCellRenderer/DefaultRenderer.component';
 import DefaultIntCellRenderer from '../src/components/DefaultIntCellRenderer';
 import DefaultPinHeaderRenderer from '../src/components/DefaultPinHeaderRenderer';
 import DefaultCellRenderer from '../src/components/DefaultCellRenderer';
 import DefaultHeaderRenderer from '../src/components/DefaultHeaderRenderer';
 
-import serializer from '../src/components/DatasetSerializer';
 import sample from './sample.json';
 import sample2 from './sample2.json';
 import sample3 from './sample3.json';
@@ -46,7 +45,7 @@ sample.data[2].value.field0.value =
 	'very looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong value';
 
 storiesOf('Component Datagrid', module)
-	.addDecorator(checkA11y)
+
 	.add('default', () => (
 		<div style={{ height: '100vh' }}>
 			<IconsProvider />
@@ -151,46 +150,4 @@ storiesOf('Component Datagrid', module)
 		}
 		return <WithLayout />;
 	})
-	.add('dynamic change data', () => {
-		class WithLayout extends React.Component {
-			constructor() {
-				super();
-				this.changeState = this.changeState.bind(this);
-				const datagridSample = Object.assign({}, sample);
-				datagridSample.data = [
-					{
-						value: {},
-						loading: true,
-					},
-				];
-				this.state = { sample: datagridSample };
-			}
-
-			changeState() {
-				const datagridSample = Object.assign({}, this.state.sample);
-				datagridSample.data[0] = sample.data[0];
-
-				this.setState({
-					sample: datagridSample,
-				});
-			}
-
-			render() {
-				return (
-					<div style={{ height: '100vh' }}>
-						<input type="button" value="changestatus" onClick={this.changeState} />
-						Number of data : {this.state.sample.data.length}
-						<IconsProvider />
-						<DataGrid
-							data={this.state.sample}
-							getComponent={getComponent}
-							rowData={serializer.getRowData(this.state.sample)}
-							rowSelection="multiple"
-							forceRedrawRows={forceRedrawRows}
-						/>
-					</div>
-				);
-			}
-		}
-		return <WithLayout />;
-	});
+	.add('dynamic change data', () => <DynamicDataGrid />);

@@ -172,9 +172,13 @@ export class TCompForm extends React.Component {
 			prev.state
 				.set('jsonSchema', this.props.state.getIn(['initialState', 'jsonSchema']))
 				.set('uiSchema', this.props.state.getIn(['initialState', 'uiSchema']))
-				.set('properties', this.props.state.getIn(['initialState', 'properties'])),
+				.set('properties', this.props.state.getIn(['initialState', 'properties']))
+				.set('dirty', false),
 		);
-		this.setState({ properties: this.props.state.getIn(['initialState', 'properties']).toJS() });
+		this.setState({
+			properties: this.props.state.getIn(['initialState', 'properties']).toJS(),
+			dirty: false,
+		});
 	}
 
 	setupTrigger(props) {
@@ -228,6 +232,7 @@ export class TCompForm extends React.Component {
 TCompForm.ON_CHANGE = 'TCOMP_FORM_CHANGE';
 TCompForm.ON_SUBMIT = 'TCOMP_FORM_SUBMIT';
 TCompForm.ON_SUBMIT_SUCCEED = 'TCOMP_FORM_SUBMIT_SUCCEED';
+TCompForm.ON_SUBMIT_FAILED = 'TCOMP_FORM_SUBMIT_FAILED';
 TCompForm.ON_TRIGGER_BEGIN = 'TCOMP_FORM_TRIGGER_BEGIN';
 TCompForm.ON_TRIGGER_END = 'TCOMP_FORM_TRIGGER_END';
 TCompForm.ON_DEFINITION_URL_CHANGED = 'TCOMP_FORM_DEFINITION_URL_CHANGE';

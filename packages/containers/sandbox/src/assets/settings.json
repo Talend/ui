@@ -61,7 +61,19 @@
         "label": "Choose a product"
       },
       "products": {
-        "id": "header-bar-demo-brands"
+        "id": "header-bar-demo-brands",
+        "items": [
+          {
+            "icon": "talend-star",
+            "label": "Static menu entry",
+            "dispatch": {
+              "type": "CUSTOM_ACTION_TYPE",
+              "payload": {
+                "foo": "bar"
+              }
+            }
+          }
+        ]
       },
       "productsUrl": "/api/mock/header-bar/products-list"
     },

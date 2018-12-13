@@ -5,26 +5,22 @@ import setYear from 'date-fns/set_year';
 import setMonth from 'date-fns/set_month';
 import format from 'date-fns/format';
 import theme from './HeaderTitle.scss';
-import BASE_DATE from '../../shared/utils/constants/baseDate';
+import { getPickerLocale } from '../../generator';
+import getDefaultT from '../../../translate';
 
 function HeaderTitle(props) {
 	const isButton = !!props.button;
 
-	const className = classNames(
-		theme.common,
-		{
-			[theme.button]: isButton,
-		},
-		props.className,
-	);
+	const className = classNames(theme.common, { [theme.button]: isButton }, props.className);
 
 	const propsToSpread = {
 		className,
 		...(isButton ? props.button : {}),
 	};
 
-	const date = setYear(setMonth(BASE_DATE, props.monthIndex), props.year);
-	const label = format(date, 'MMMM YYYY');
+	const pickerLocale = getPickerLocale(props.t);
+	const date = setYear(setMonth(new Date(0), props.monthIndex), props.year);
+	const label = format(date, 'MMMM YYYY', pickerLocale);
 
 	if (isButton) {
 		return (
@@ -42,6 +38,11 @@ HeaderTitle.propTypes = {
 	year: PropTypes.number.isRequired,
 	button: PropTypes.object,
 	className: PropTypes.string,
+	t: PropTypes.func,
+};
+
+HeaderTitle.defaultProps = {
+	t: getDefaultT(),
 };
 
 export default HeaderTitle;

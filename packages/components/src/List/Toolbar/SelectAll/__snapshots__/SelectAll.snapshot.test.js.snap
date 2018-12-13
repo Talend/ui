@@ -9,12 +9,10 @@ exports[`SelectAll should be unchecked when there is no items 1`] = `
   >
     <label
       className="tc-list-toolbar-select-all"
-      htmlFor={undefined}
     >
       <input
         checked={false}
         disabled={true}
-        id={undefined}
         onChange={[Function]}
         type="checkbox"
       />
@@ -35,12 +33,10 @@ exports[`SelectAll should render 1`] = `
   >
     <label
       className="tc-list-toolbar-select-all"
-      htmlFor={undefined}
     >
       <input
         checked={false}
         disabled={false}
-        id={undefined}
         onChange={[Function]}
         type="checkbox"
       />

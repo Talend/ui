@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
+import withPropsCombinations from 'react-storybook-addon-props-combinations';
 
 import { Action, IconsProvider } from '../src/index';
 
@@ -69,19 +69,18 @@ class DisableActionButton extends React.Component {
 }
 
 storiesOf('Action', module)
-	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
 			<IconsProvider defaultIcons={icons} />
 			{story()}
 		</div>
 	))
-	.addWithInfo('Disable the buttons', () => (
+	.add('Disable the buttons', () => (
 		<div>
 			<DisableActionButton />
 		</div>
 	))
-	.addWithInfo('default', () => (
+	.add('default', () => (
 		<div>
 			<h3>By default :</h3>
 			<Action id="default" {...myAction} />
@@ -94,8 +93,10 @@ storiesOf('Action', module)
 			<Action id="inprogress" {...myAction} inProgress />
 			<h3>Loading</h3>
 			<Action id="loading" loading label="loading" />
-			<h3>Icon button</h3>
+			<h3>Icon button with label</h3>
 			<Action id="icon" {...myAction} link />
+			<h3>Icon button without label</h3>
+			<Action id="icon-without-label" {...myAction} link label="" />
 			<h3>Loading Icon button</h3>
 			<Action id="icon" link label="Click me" loading />
 			<h3>Disabled</h3>
@@ -161,13 +162,16 @@ storiesOf('Action', module)
 			</div>
 		</div>
 	))
-	.addWithPropsCombinations('combinations', Action, {
-		label: ['Click me'],
-		icon: ['talend-dataprep'],
-		'data-feature': ['my.feature'],
-		onClick: [action('You clicked me')],
-		hideLabel: [false, true],
-		inProgress: [true, false],
-		disabled: [false, true],
-		tooltipLabel: [undefined, 'Tooltip custom label'],
-	});
+	.add(
+		'combinations',
+		withPropsCombinations(Action, {
+			label: ['Click me'],
+			icon: ['talend-dataprep'],
+			'data-feature': ['my.feature'],
+			onClick: [action('You clicked me')],
+			hideLabel: [false, true],
+			inProgress: [true, false],
+			disabled: [false, true],
+			tooltipLabel: [undefined, 'Tooltip custom label'],
+		}),
+	);

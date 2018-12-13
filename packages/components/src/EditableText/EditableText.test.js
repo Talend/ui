@@ -10,6 +10,7 @@ describe('EditableText', () => {
 		() =>
 			(defaultProps = {
 				text: 'my text',
+				feature: 'my.custom.feature',
 				onEdit: jest.fn(),
 				onSubmit: jest.fn(),
 			}),
@@ -36,6 +37,7 @@ describe('PlainTextTitle', () => {
 	it('should render', () => {
 		const props = {
 			text: 'text',
+			feature: 'my.custom.feature',
 			onEdit: jest.fn(),
 		};
 		const wrapper = shallow(<PlainTextTitle {...props} />);
@@ -81,6 +83,7 @@ describe('InlineForm', () => {
 	beforeEach(() => {
 		defaultProps = {
 			text: 'my text',
+			feature: 'my.custom.feature',
 			onSubmit: jest.fn(),
 			onChange: jest.fn(),
 			onCancel: jest.fn(),
