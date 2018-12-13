@@ -103,10 +103,22 @@ function toGithub({ load, github }) {
 	}
 	rimraf.sync(localesRepoPath);
 	spawn.sync('git', ['clone', githubUrl, localesRepoPath], { stdio: 'inherit' });
+	spawn.sync('cd', [localesRepoPath], { stdio: 'inherit' });
 
 	// pull or create branch
+	const branchTestCode = spawn.sync(
+		'git',
+		['ls-remote', '--exit-code', '--heads', localesRepoPath, branch],
+		{ stdio: 'inherit' },
+	);
+	if (branchTestCode === 2) {
+		spawn.sync('git', ['checkout', '-b', branch], { stdio: 'inherit' });
+	} else {
+		spawn.sync('git', ['checkout', branch], { stdio: 'inherit' });
+	}
 
 	// copy files (overwrite)
+
 	// check if there are changes
 	// commit / push / tag if there are
 }
