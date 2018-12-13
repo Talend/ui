@@ -43,6 +43,8 @@ Each action is based on a configuration file, located in the project folder `./t
 
 # Configuration
 
+The scripts are based on a `talend-i18n.json` configuration file at project root.
+
 ## Extract
 
 This step will extract the i18n files from the project and create a zip.
