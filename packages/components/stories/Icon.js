@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from '@storybook/addon-a11y';
 import icons from '@talend/icons/dist/react';
 
 import { Icon, IconsProvider } from '../src/index';
@@ -16,8 +15,7 @@ const defaultIcons = {
 };
 
 storiesOf('Icon', module)
-	.addDecorator(checkA11y)
-	.addWithInfo('default use svg', () => (
+	.add('default use svg', () => (
 		<div>
 			<h1>Icon</h1>
 			<IconsProvider />
@@ -29,7 +27,7 @@ storiesOf('Icon', module)
 			</ul>
 		</div>
 	))
-	.addWithInfo('fontawesome', () => (
+	.add('fontawesome', () => (
 		<div>
 			<h1>Icon</h1>
 			<IconsProvider />
@@ -39,7 +37,7 @@ storiesOf('Icon', module)
 			</ul>
 		</div>
 	))
-	.addWithInfo('extends defaults', () => (
+	.add('extends defaults', () => (
 		<div>
 			<h1>Icon</h1>
 			<IconsProvider icons={newIcons} />
@@ -49,7 +47,7 @@ storiesOf('Icon', module)
 			</ul>
 		</div>
 	))
-	.addWithInfo('override defaults', () => (
+	.add('override defaults', () => (
 		<div>
 			<h1>Icon</h1>
 			<IconsProvider defaultIcons={defaultIcons} />
@@ -59,7 +57,7 @@ storiesOf('Icon', module)
 			</ul>
 		</div>
 	))
-	.addWithInfo('svg transform', () => (
+	.add('svg transform', () => (
 		<div>
 			<IconsProvider />
 			<p>Here we are changing the icon talend-apache</p>
