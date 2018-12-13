@@ -3,7 +3,7 @@ import React from 'react';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import { translate } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '@talend/react-components/lib/constants';
-import { ActionBar, FilterBar } from '@talend/react-containers';
+import { ActionBar, FilterBar } from '../../../index';
 import '@talend/react-components/lib/translate';
 // import SelectAll from './SelectAll';
 import SelectDisplayMode from './SelectDisplayMode';
@@ -12,20 +12,84 @@ import SelectSortBy from './SelectSortBy';
 import Label from './Label';
 
 import theme from './Toolbar.scss';
-// import { throws } from 'assert';
 
 const ToolbarContext = React.createContext();
 
-const Consumer = props => {
+/**
+ * Here to enforce our component api
+ * @param {object} props
+ */
+const Consumer = props => (
+	<ToolbarContext.Consumer>
+		{context => {
+			if (!context) {
+				throw Error('You are using the components out of Toobar provider scope');
+			}
+			return props.children(context);
+		}}
+	</ToolbarContext.Consumer>
+);
+
+Consumer.propTypes = {
+	children: PropTypes.array,
+};
+
+class Toolbar extends React.Component {
+	static defaultProps = {
+		handleInputFilter: () => {},
+		handleToggleFilter: () => {},
+	};
+
+	static propTypes = {
+		children: PropTypes.array,
+		handleInputFilter: PropTypes.func,
+		handleToggleFilter: PropTypes.func,
+	};
+
+	handleInputFilter = (event, values) => {
+		// Add specific toolbar handle behavior here
+		console.log({ values });
+		this.props.handleInputFilter(event, values);
+	};
+
+	handleToggleFilter = event => {
+		// Add specific toolbar handle behavior here
+		this.props.handleToggleFilter(event);
+	};
+
+	/*
+		To avoid unecessary creation of our context handler,
+		we put them in the state of the toolbar.
+		So the state is declared after the handlers.
+		That's not the main point of react state,
+		just an idea.
+	*/
+	state = {
+		handleInput: this.handleInputFilter,
+		handleToggle: this.handleToggleFilter,
+	};
+
+	render() {
+		return (
+			<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
+				<ToolbarContext.Provider value={this.state}>{this.props.children}</ToolbarContext.Provider>
+			</Navbar>
+		);
+	}
+}
+
+Toolbar.Sort = props => {
+	const sortProps = {
+		...props,
+		onChange: props.onChange,
+		isDescending: !props.sortAsc,
+		field: props.sortOn,
+	};
 	return (
-		<ToolbarContext.Consumer>
-			{context => {
-				if (!context) {
-					throw Error('You are using the components out of provider scope');
-				}
-				return props.children(context);
-			}}
-		</ToolbarContext.Consumer>
+		<React.Fragment>
+			<Label text="Sort by:" htmlFor={props.id && `${props.id}-sort-by`} />
+			<SelectSortBy id={props.id && `${props.id}-sort`} {...sortProps} />
+		</React.Fragment>
 	);
 };
 
@@ -53,220 +117,6 @@ function adaptLeftAndRightActions(actions, parentId) {
 	);
 }
 
-/**
- * @param {string} id the id of Toolbar
- * @param {object} actionBar the ActionBar properties
- * @param {object} selectAllCheckbox the select all checkbox props
- * @param {object} display the SelectDisplayMode properties
- * @param {object} sort the SelectSortBy properties
- * @param {object} pagination the Pagination properties
- * @param {object} filter the Filter properties
- * @param {function} t the translate function
- * @example
- <Toolbar id="my-toolbar"></Toolbar>
- */
-class Toolbar extends React.Component {
-	defaultProps = {
-		handleSort: () => {},
-	};
-
-	handleSort = () => {
-		// if (props.toolbar.sort) {
-		// 	props.toolbar.sort.isDescending = !state.sortAsc;
-		// 	props.toolbar.sort.field = state.sortOn;
-		// 	props.toolbar.sort.onChange = (event, data) => {
-		// 		this.props.dispatch({
-		// 			type: Constants.LIST_CHANGE_SORT_ORDER,
-		// 			payload: data,
-		// 			collectionId: props.collectionId,
-		// 			event,
-		// 		});
-		// 	};
-		// }
-		this.setState(prevState => {
-			return { ...prevState };
-		}, this.props.handleSort());
-	};
-
-	// 	props.toolbar.filter.onToggle = (event, data) => {
-	// 		this.props.dispatch({
-	// 			type: Constants.LIST_TOGGLE_FILTER,
-	// 			payload: Object.assign({}, data, {
-	// 				filterDocked: state.filterDocked,
-	// 				searchQuery: state.searchQuery,
-	// 			}),
-	// 			collectionId: props.collectionId,
-	// 			event,
-	// 		});
-	// 	};
-	// 	props.toolbar.filter.onFilter = (event, data) => {
-	// 		this.props.dispatch({
-	// 			type: Constants.LIST_FILTER_CHANGE,
-	// 			payload: data,
-	// 			collectionId: props.collectionId,
-	// 			event,
-	// 		});
-	// 	};
-	// 	props.toolbar.filter.docked = state.filterDocked;
-	// 	props.toolbar.filter.value = state.searchQuery;
-	// }
-
-	/*
-	onToggleMultiSelection = (event, data) => {
-		const selectedItems = this.getSelectedItems();
-		const dataIndex = selectedItems.indexOf(data[this.props.idKey]);
-		if (dataIndex > -1) {
-			this.props.setState({
-				selectedItems: selectedItems.splice(dataIndex, 1),
-			});
-		} else {
-			this.props.setState({
-				selectedItems: selectedItems.push(data[this.props.idKey]),
-			});
-		}
-	}
-	*/
-
-	/*
-	onToggleAllMultiSelection() {
-		const selectedItems = this.getSelectedItems();
-		const items = this.props.items;
-		if (selectedItems.size !== items.size) {
-			this.props.setState({
-				selectedItems: items.map(item => item.get(this.props.idKey)),
-			});
-		} else {
-			this.props.setState({
-				selectedItems: new ImmutableList([]),
-			});
-		}
-	}
-	*/
-
-	state = {
-		sortOn: 'name',
-		sortAsc: true,
-		onChange: this.handleSort,
-	};
-
-	handleInputFilterbar = event => {
-		/*
-		this.setState(event, callback) ||
-		this.props.setState(event, callback)
-		*/
-		this.props.handleInputFilterbar(event);
-	};
-
-	handleToggleFilterbar = event => {
-		/*
-		this.setState(event, callback) ||
-		this.props.setState(event, callback)
-		*/
-		this.props.handleToggleFilterBar(event);
-	};
-
-	render() {
-		const {
-			id,
-			actionBar,
-			// selectAllCheckbox,
-			displayMode,
-			// sort,
-			// pagination,
-			filter,
-			t,
-			getComponent,
-			// components,
-		} = this.props;
-		// const Renderer = Inject.getAll(getComponent, {
-		// 	ActionBar,
-		// 	FilterBar,
-		// });
-
-		// settings up multi selection
-		/*
-		if (props.multiSelectActions && props.idKey) {
-			props.list.itemProps.onToggle = this.onToggleMultiSelection;
-			props.list.itemProps.onToggleAll = this.onToggleAllMultiSelection;
-			props.list.itemProps.isSelected = this.isSelected;
-			props.toolbar.actionBar.selected = this.getSelectedItems().size;
-		}
-
-		const actions = this.props.actions;
-		const multiSelectActions = this.props.multiSelectActions;
-		if (multiSelectActions) {
-			if (multiSelectActions.left) {
-				props.toolbar.actionBar.multiSelectActions.left = multiSelectActions.left.map(
-					action => ({
-						actionId: action,
-					}),
-				);
-			}
-			if (multiSelectActions.right) {
-				props.toolbar.actionBar.multiSelectActions.right = multiSelectActions.right.map(
-					action => ({
-						actionId: action,
-					}),
-				);
-			}
-		}
-		if (actions) {
-			if (actions.left) {
-				props.toolbar.actionBar.actions.left = actions.left.map(action => ({
-					actionId: action,
-				}));
-			}
-			if (actions.right) {
-				props.toolbar.actionBar.actions.right = actions.right.map(action => ({
-					actionId: action,
-				}));
-			}
-		}
-		*/
-
-		// const injected = Inject.all(getComponent, components);
-		// let actionBarProps = actionBar;
-		// if (id && actionBar) {
-		// 	const { actions, multiSelectActions } = actionBar;
-		// 	actionBarProps = {
-		// 		...actionBar,
-		// 		actions: adaptLeftAndRightActions(actions, id),
-		// 		multiSelectActions: adaptLeftAndRightActions(multiSelectActions, id),
-		// 	};
-		// }
-		// const displayModeId = id && `${id}-display-mode`;
-		// const hasToolbarItem = selectAllCheckbox || displayMode || sort || pagination || filter;
-		// const hasToolbarItem = selectAllCheckbox || displayMode || filter;
-		// const hasToolbarItem = true;
-		const contextProps = {
-			handleInput: this.props.handleInputFilter,
-			handleToggle: this.props.handleToggleFilter,
-		};
-		return (
-			<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
-				<ToolbarContext.Provider value={contextProps}>
-					{this.props.children}
-				</ToolbarContext.Provider>
-			</Navbar>
-		);
-	}
-}
-
-Toolbar.Sort = props => {
-	const sortProps = {
-		...props,
-		onChange: props.onChange,
-		isDescending: !props.sortAsc,
-		field: props.sortOn,
-	};
-	return (
-		<React.Fragment>
-			<Label text="Sort by:" htmlFor={props.id && `${props.id}-sort-by`} />
-			<SelectSortBy id={props.id && `${props.id}-sort`} {...sortProps} />
-		</React.Fragment>
-	);
-};
-
 Toolbar.ActionBar = ({ actions, multiSelectActions, id }) => {
 	return <ActionBar actions={adaptLeftAndRightActions(actions, id)} />;
 };
@@ -280,13 +130,13 @@ Toolbar.DisplayMode = props => {
 	);
 };
 
-Toolbar.FilterBar = ({ placeholder }) => {
+Toolbar.FilterBar = ({ id, placeholder }) => {
 	return (
 		<Consumer>
 			{({ collectionId, handleInput, handleToggle }) => (
 				<FilterBar
 					className="navbar-right"
-					id={collectionId && `${collectionId}-filter`}
+					id={id || (collectionId && `${id || collectionId}-filter`)}
 					navbar
 					onFilter={handleInput}
 					onToggle={handleToggle}
@@ -295,6 +145,11 @@ Toolbar.FilterBar = ({ placeholder }) => {
 			)}
 		</Consumer>
 	);
+};
+
+Toolbar.FilterBar.propTypes = {
+	id: PropTypes.string,
+	placeholder: PropTypes.string,
 };
 
 export default translate(I18N_DOMAIN_COMPONENTS)(Toolbar);
