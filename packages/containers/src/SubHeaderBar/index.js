@@ -1,8 +1,7 @@
 import SubHeaderBar from './SubHeaderBar.connect';
-import { getQuery, getComponentState } from './SubHeaderBar.selectors';
+import { getComponentState } from './SubHeaderBar.selectors';
 
 SubHeaderBar.selectors = {
-	getQuery,
 	getComponentState,
 };
 
