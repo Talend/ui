@@ -1,7 +1,9 @@
 /* eslint-disable global-require */
 const fs = require('fs');
 const path = require('path');
+const rimraf = require('rimraf');
 const xmlParser = require('xml2json');
+const spawn = require('cross-spawn');
 
 const error = require('../common/error');
 
@@ -94,9 +96,17 @@ function toGithub({ load, github }) {
 	});
 
 	// pull repo using token
+	const tmpFolderPath = path.join(process.cwd(), 'tmp');
+	const localesRepoPath = path.join(tmpFolderPath, 'locales');
+	if (!fs.existsSync(tmpFolderPath)) {
+		fs.mkdirSync(tmpFolderPath);
+	}
+	rimraf.sync(localesRepoPath);
+	spawn.sync('git', ['clone', githubUrl, localesRepoPath], { stdio: 'inherit' });
 
 	// pull or create branch
-	// copie files (overwrite)
+
+	// copy files (overwrite)
 	// check if there are changes
 	// commit / push / tag if there are
 }
