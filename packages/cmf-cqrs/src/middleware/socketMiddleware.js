@@ -19,7 +19,7 @@ if (window.location.protocol === 'https:') {
  * @param socketUrl
  * @returns {boolean} true if it starts with a WS protocol
  */
-export function isWebSocketAbsoluteUrl(socketUrl) {
+export function isAbsoluteWebSocketUrl(socketUrl) {
 	return (typeof socketUrl === 'string' && (socketUrl.startsWith('ws://') || socketUrl.startsWith('wss://')));
 }
 
@@ -45,7 +45,7 @@ function createWebsocketMiddleware(
 	let ws;
 	let url;
 
-	if (isWebSocketAbsoluteUrl(socketUrl)) {
+	if (isAbsoluteWebSocketUrl(socketUrl)) {
 		url = socketUrl;
 	} else {
 		url = `${protocol}://${host}${socketUrl}`;

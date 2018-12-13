@@ -1,6 +1,6 @@
 import configureStore from 'redux-mock-store';
 import { Map } from 'immutable';
-import createStatePatchLogger, { isWebSocketAbsoluteUrl } from './socketMiddleware';
+import createStatePatchLogger, { isAbsoluteWebSocketUrl } from './socketMiddleware';
 import smartWebsocket from './smartWebsocket';
 
 jest.mock('./smartWebsocket', () => (
@@ -29,15 +29,15 @@ const state = {
 
 describe('hasWebSocketProtocol', () => {
 	it('should return true for Web Socket url', () => {
-		expect(isWebSocketAbsoluteUrl('ws://provider/api/v1/ws/relay')).toBeTruthy();
+		expect(isAbsoluteWebSocketUrl('ws://provider/api/v1/ws/relay')).toBe(true);
 	});
 
 	it('should return true for Web Socket Security url', () => {
-		expect(isWebSocketAbsoluteUrl('wss://provider/api/v1/ws/relay')).toBeTruthy();
+		expect(isAbsoluteWebSocketUrl('wss://provider/api/v1/ws/relay')).toBe(true);
 	});
 
 	it('should return false for simple path', () => {
-		expect(isWebSocketAbsoluteUrl('/api/v1/ws/relay')).toBeFalsy();
+		expect(isAbsoluteWebSocketUrl('/api/v1/ws/relay')).toBe(false);
 	});
 });
 
