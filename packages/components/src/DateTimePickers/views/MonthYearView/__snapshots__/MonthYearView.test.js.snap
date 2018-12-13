@@ -11,8 +11,9 @@ exports[`MonthYearView should render 1`] = `
       >
         <Translate(MonthCalendarGesture(MonthPicker))
           allowFocus={true}
-          onSelect={[Function]}
+          onSelect={[MockFunction]}
           selectedMonthIndex={8}
+          selectedYear={2012}
         />
       </div>
       <div
@@ -20,7 +21,7 @@ exports[`MonthYearView should render 1`] = `
       >
         <Translate(YearPicker)
           allowFocus={true}
-          onSelect={[Function]}
+          onSelect={[MockFunction]}
           selectedYear={2012}
         />
       </div>
@@ -33,13 +34,13 @@ exports[`MonthYearView should render 1`] = `
         icon="talend-arrow-left"
         label=""
         link={true}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         tabIndex={0}
-    />,
+      />,
       "middleElement": <Translate(HeaderTitle)
         monthIndex={8}
         year={2012}
-    />,
+      />,
     }
   }
 />

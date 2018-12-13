@@ -373,6 +373,7 @@ describe('InputDateTimePicker', () => {
 				errorMessage: undefined,
 				datetime: new Date(2015, 0, 15, 15, 45),
 				origin: 'INPUT',
+				textInput: '2015-01-15 15:45',
 			});
 		});
 
@@ -458,6 +459,7 @@ describe('InputDateTimePicker', () => {
 				errorMessage: undefined,
 				datetime: new Date(2015, 0, 15, 15, 45),
 				origin: 'PICKER',
+				textInput: '2015-01-15 15:45',
 			});
 		});
 

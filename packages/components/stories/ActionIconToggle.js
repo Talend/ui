@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
 import { ActionIconToggle, IconsProvider } from '../src/index';
@@ -69,19 +68,18 @@ class DisableActionIconToggle extends React.Component {
 }
 
 storiesOf('Action Icon Toggle', module)
-	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
 			<IconsProvider defaultIcons={icons} />
 			{story()}
 		</div>
 	))
-	.addWithInfo('disable the buttons', () => (
+	.add('disable the buttons', () => (
 		<div>
 			<DisableActionIconToggle />
 		</div>
 	))
-	.addWithInfo('default', () => (
+	.add('default', () => (
 		<div>
 			<p>Inactive (By default)</p>
 			<ActionIconToggle {...inactiveIconToggle} />
@@ -90,7 +88,7 @@ storiesOf('Action Icon Toggle', module)
 			<ActionIconToggle {...activeIconToggle} />
 		</div>
 	))
-	.addWithInfo('customize sizes', () => (
+	.add('customize sizes', () => (
 		<div>
 			<p>You can customize a specific icon toggle using a sass mixin</p>
 			<pre>

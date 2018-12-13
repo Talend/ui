@@ -1,0 +1,9 @@
+{
+  "components/iframe.html?selectedKind=RichTooltip&selectedStory=default": [
+    {
+      "name": "richtooltip-default",
+      "click": "#default",
+      "selector": ".popover"
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import {
 	checkSupportedDateFormat,
+	extractParts,
 	extractPartsFromDateAndTime,
 	extractPartsFromDateTime,
 	extractPartsFromTextInput,
@@ -43,6 +44,80 @@ describe('Date extraction', () => {
 		});
 	});
 
+	describe('extractParts', () => {
+		it('should return empty parts on undefined value', () => {
+			// given
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+			};
+
+			// when
+			const parts = extractParts(undefined, options);
+
+			// then
+			expect(parts).toEqual({
+				date: undefined,
+				time: { hours: '', minutes: '', seconds: '' },
+				datetime: undefined,
+				textInput: '',
+			});
+		});
+
+		it('should return parts from timestamp', () => {
+			// given
+			const date = new Date(2015, 8, 15, 12, 58, 22);
+			const timestamp = date.getTime();
+			const options = { dateFormat: 'YYYY-MM-DD' };
+
+			// when
+			const parts = extractParts(timestamp, options);
+
+			// then
+			expect(parts).toEqual({
+				date: new Date(2015, 8, 15),
+				datetime: date,
+				textInput: '2015-09-15',
+				time: { hours: '00', minutes: '00', seconds: '00' },
+			});
+		});
+
+		it('should return parts from Date', () => {
+			// given
+			const validDate = new Date(2015, 8, 15, 12, 58, 22);
+			const options = { dateFormat: 'YYYY-MM-DD' };
+
+			// when
+			const parts = extractParts(validDate, options);
+
+			// then
+			expect(parts).toEqual({
+				date: new Date(2015, 8, 15),
+				datetime: validDate,
+				textInput: '2015-09-15',
+				time: { hours: '00', minutes: '00', seconds: '00' },
+			});
+		});
+
+		it('should return parts from string', () => {
+			// given
+			const value = '2015-09-15';
+			const options = { dateFormat: 'YYYY-MM-DD' };
+
+			// when
+			const parts = extractParts(value, options);
+
+			// then
+			expect(parts).toEqual({
+				date: new Date(2015, 8, 15),
+				datetime: new Date(2015, 8, 15),
+				textInput: value,
+				time: { hours: '00', minutes: '00', seconds: '00' },
+			});
+		});
+	});
+
 	describe('extractPartsFromDateTime', () => {
 		it('should return empty parts on invalid date', () => {
 			// given
@@ -61,26 +136,6 @@ describe('Date extraction', () => {
 				date: undefined,
 				time: { hours: '', minutes: '', seconds: '' },
 				datetime: 'lol',
-				textInput: '',
-			});
-		});
-
-		it('should return empty parts on undefined date', () => {
-			// given
-			const options = {
-				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
-				useSeconds: true,
-			};
-
-			// when
-			const parts = extractPartsFromDateTime(undefined, options);
-
-			// then
-			expect(parts).toEqual({
-				date: undefined,
-				time: { hours: '', minutes: '', seconds: '' },
-				datetime: undefined,
 				textInput: '',
 			});
 		});
@@ -140,6 +195,52 @@ describe('Date extraction', () => {
 				datetime: validDate,
 				textInput: '2015-09-15 12:58:22',
 				time: { hours: '12', minutes: '58', seconds: '22' },
+			});
+		});
+
+		it('should create the gmt date from utc value', () => {
+			// given
+			// date is 2015-09-15T10:58:22.000Z UTC
+			const validDate = new Date(1442314702000);
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+				useUTC: true,
+			};
+
+			// when
+			const parts = extractPartsFromDateTime(validDate, options);
+
+			// then
+			expect(parts).toEqual({
+				date: new Date(2015, 8, 15),
+				datetime: validDate,
+				textInput: '2015-09-15 10:58:22',
+				time: { hours: '10', minutes: '58', seconds: '22' },
+			});
+		});
+
+		it('should create the gmt date from utc value (previous day)', () => {
+			// given
+			// date is 2015-09-15T10:58:22.000Z UTC
+			const validDate = new Date(2015, 8, 15, 1, 0, 22);
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+				useUTC: true,
+			};
+
+			// when
+			const parts = extractPartsFromDateTime(validDate, options);
+
+			// then
+			expect(parts).toEqual({
+				date: new Date(2015, 8, 14),
+				datetime: validDate,
+				textInput: '2015-09-14 23:00:22',
+				time: { hours: '23', minutes: '00', seconds: '22' },
 			});
 		});
 	});
@@ -289,6 +390,30 @@ describe('Date extraction', () => {
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
 			expect(parts.textInput).toBe('Invalid Date');
 			expect(parts.time).toBe(time);
+		});
+
+		it('should convert date to UTC', () => {
+			// given
+			const date = new Date(2015, 8, 15);
+			const time = { hours: '12', minutes: '58', seconds: '22' };
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+				useUTC: true,
+			};
+
+			// when
+			const parts = extractPartsFromDateAndTime(date, time, options);
+
+			// then
+			expect(parts).toEqual({
+				date,
+				datetime: new Date(2015, 8, 15, 14, 58, 22),
+				textInput: '2015-09-15 12:58:22',
+				time,
+				errorMessage: undefined,
+			});
 		});
 	});
 
@@ -472,6 +597,29 @@ describe('Date extraction', () => {
 			expect(parts.textInput).toBe(textInput);
 			expect(parts.time).toEqual({ hours: '22', minutes: '58', seconds: '66' });
 			expect(parts.errorMessage).toBe('TIME - INCORRECT SECONDS NUMBER');
+		});
+
+		it('should convert date to UTC', () => {
+			// given
+			const textInput = '2018-12-25 22:58:12';
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+				useUTC: true,
+			};
+
+			// when
+			const parts = extractPartsFromTextInput(textInput, options);
+
+			// then
+			expect(parts).toEqual({
+				date: new Date(2018, 11, 25),
+				time: { hours: '22', minutes: '58', seconds: '12' },
+				datetime: new Date(2018, 11, 25, 23, 58, 12),
+				textInput,
+				errorMessage: undefined,
+			});
 		});
 	});
 

@@ -4,9 +4,7 @@ exports[`Label should render 1`] = `
 <p
   className="navbar-text"
 >
-  <label
-    htmlFor={undefined}
-  >
+  <label>
     Text:
   </label>
 </p>
