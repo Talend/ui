@@ -31,6 +31,7 @@ class HeaderBar extends React.Component {
 			}),
 		),
 		productsSort: PropTypes.func,
+		prepareProducts: PropTypes.func,
 		...cmfConnect.propTypes,
 	};
 
@@ -47,7 +48,12 @@ class HeaderBar extends React.Component {
 	}
 
 	render() {
-		const { productsItems: productsFromState, productsSort, ...props } = this.props;
+		const {
+			productsItems: productsFromState,
+			productsSort,
+			prepareProducts,
+			...props
+		} = this.props;
 
 		const hasFetchedProducts =
 			this.props.state.get('productsFetchState') === Constants.FETCH_PRODUCTS_SUCCESS;
@@ -77,6 +83,10 @@ class HeaderBar extends React.Component {
 
 			productsProps.products = Object.assign({}, productsFromProps, { items });
 			productsProps.products.items.sort(productsSort || sortProductsByLabel);
+
+			if (prepareProducts) {
+				productsProps.products.items = prepareProducts(productsProps.products.items);
+			}
 		}
 
 		return <Component {...omit(props, cmfConnect.INJECTED_PROPS)} {...productsProps} />;

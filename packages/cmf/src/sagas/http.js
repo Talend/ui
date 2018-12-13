@@ -93,6 +93,23 @@ export function handleHttpResponse(response) {
 
 	return handleBody(response);
 }
+/**
+ * encodePayload - encore the payload if necessary
+ *
+ * @param  {object} headers                   request headers
+ * @param  {object} payload                   payload to send with the request
+ * @return {object}                           The encoded payload.
+ */
+export function encodePayload(headers, payload) {
+	const type = headers['Content-Type'];
+
+	if (payload instanceof FormData) {
+		return payload;
+	} else if (type && type.includes('json')) {
+		return JSON.stringify(payload);
+	}
+	return payload;
+}
 
 /**
  * httpFetch - call the api fetch to request the url
@@ -104,38 +121,38 @@ export function handleHttpResponse(response) {
  * @return {Promise}                          A Promise that resolves to a Response object.
  */
 export function httpFetch(url, config, method, payload) {
-	let body;
 	const defaultHeaders = {
 		Accept: 'application/json',
 		'Content-Type': 'application/json',
 	};
+
 	/**
 	 * If the playload is an instance of FormData the body should be set to this object
 	 * and the Content-type header should be stripped since the browser
 	 * have to build a special headers with file boundary in if said FormData is used to upload file
 	 */
 	if (payload instanceof FormData) {
-		body = payload;
 		delete defaultHeaders['Content-Type'];
-	} else {
-		body = JSON.stringify(payload);
 	}
+
+	const params = merge(
+		{
+			credentials: 'same-origin',
+			headers: defaultHeaders,
+			method,
+		},
+		{
+			...HTTP.defaultConfig,
+			...config,
+		},
+	);
+
 	return fetch(
 		url,
-		handleCSRFToken(
-			merge(
-				{
-					credentials: 'same-origin',
-					headers: defaultHeaders,
-					method,
-					body,
-				},
-				{
-					...HTTP.defaultConfig,
-					...config,
-				},
-			),
-		),
+		handleCSRFToken({
+			...params,
+			body: encodePayload(params.headers, payload),
+		}),
 	)
 		.then(handleHttpResponse)
 		.catch(handleError);

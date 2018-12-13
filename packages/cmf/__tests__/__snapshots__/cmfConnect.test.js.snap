@@ -18,8 +18,7 @@ Object {
   "cmf": Object {
     "componentState": Object {
       "componentName": "TestComponent",
-      "initialComponentState": Immutable.Map {
-},
+      "initialComponentState": Immutable.Map {},
       "key": "default",
       "type": "REACT_CMF.COMPONENT_ADD_STATE",
     },
@@ -34,8 +33,7 @@ Object {
   "cmf": Object {
     "componentState": Object {
       "componentName": "TestComponent",
-      "initialComponentState": Immutable.Map {
-},
+      "initialComponentState": Immutable.Map {},
       "key": "default",
       "type": "REACT_CMF.COMPONENT_ADD_STATE",
     },
@@ -50,8 +48,7 @@ Object {
   "cmf": Object {
     "componentState": Object {
       "componentName": "TestComponent",
-      "initialComponentState": Immutable.Map {
-},
+      "initialComponentState": Immutable.Map {},
       "key": "default",
       "type": "REACT_CMF.COMPONENT_ADD_STATE",
     },
@@ -80,8 +77,7 @@ Object {
   "cmf": Object {
     "componentState": Object {
       "componentName": "TestComponent",
-      "initialComponentState": Immutable.Map {
-},
+      "initialComponentState": Immutable.Map {},
       "key": "default",
       "type": "REACT_CMF.COMPONENT_ADD_STATE",
     },

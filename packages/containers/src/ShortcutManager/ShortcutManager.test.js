@@ -7,17 +7,16 @@ import { Provider, store as mock } from '@talend/react-cmf/lib/mock';
 import Container from './ShortcutManager.container';
 import Connected from './ShortcutManager.connect';
 
-describe('Container ShortcutManager', () => {
-	it('should render', () => {
-		const wrapper = shallow(<Container />);
-		expect(wrapper.getElement()).toBeNull();
+describe('Shortcut container', () => {
+	let wrapper;
+	const context = { router: { getCurrentLocation: () => ({ pathname: '/test' }) } };
+	afterEach(() => {
+		wrapper.unmount();
 	});
-});
 
-describe('Connected ShortcutManager', () => {
-	it('should connect ShortcutManager', () => {
-		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
-		expect(Connected.WrappedComponent).toBe(Container);
+	it('should render', () => {
+		wrapper = shallow(<Container redirectMap={{}} />, { context });
+		expect(wrapper.getElement()).toBeNull();
 	});
 });
 
@@ -34,10 +33,16 @@ describe('handles routes', () => {
 	};
 
 	it('should get the redirectMap', () => {
-		const wrapper = mount(
+		const state = mock.state();
+		state.cmf.settings.props.shortcuts = {
+			redirectMap: {},
+		};
+		state.cmf.components = new Map();
+		wrapper = mount(
 			<Provider state={state}>
 				<Connected view="shortcuts" />
 			</Provider>,
+			{ context },
 		);
 		expect(wrapper.find(Container.displayName).props().redirectMap).toBeDefined();
 	});
@@ -45,7 +50,7 @@ describe('handles routes', () => {
 	it('should handle global keypresses', () => {
 		const spy = jest.spyOn(Container.prototype, 'handleKeyPress');
 
-		mount(<Container redirectMap={{}} />);
+		wrapper = mount(<Container redirectMap={{}} />, { context });
 
 		const event = new KeyboardEvent('keydown', { keyCode: keycode('esc') });
 		document.dispatchEvent(event);
@@ -78,5 +83,12 @@ describe('handles routes', () => {
 		document.dispatchEvent(event);
 
 		expect(fn).toHaveBeenCalledWith('test', event);
+	});
+});
+
+describe('Connected ShortcutManager', () => {
+	it('should connect ShortcutManager', () => {
+		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
+		expect(Connected.WrappedComponent).toBe(Container);
 	});
 });

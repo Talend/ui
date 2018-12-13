@@ -8,8 +8,16 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/cmf/src/Inject.component.js
   23:2  warning  Unexpected console statement  no-console
 
+/home/travis/build/Talend/ui/packages/cmf/src/RegistryProvider.js
+  15:63  error  Block must not be padded by blank lines  padded-blocks
+
+/home/travis/build/Talend/ui/packages/cmf/src/sagaRouter/router.js
+  163:54  error  There should be no spaces inside this paren  space-in-parens
+  177:51  error  There should be no spaces inside this paren  space-in-parens
+
 /home/travis/build/Talend/ui/packages/cmf/src/sagas/collection.js
   10:1  error  Prefer default export  import/prefer-default-export
 
-✖ 3 problems (1 error, 2 warnings)
+✖ 6 problems (4 errors, 2 warnings)
+  3 errors, 0 warnings potentially fixable with the `--fix` option.
 

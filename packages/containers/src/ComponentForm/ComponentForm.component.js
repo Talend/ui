@@ -172,9 +172,13 @@ export class TCompForm extends React.Component {
 			prev.state
 				.set('jsonSchema', this.props.state.getIn(['initialState', 'jsonSchema']))
 				.set('uiSchema', this.props.state.getIn(['initialState', 'uiSchema']))
-				.set('properties', this.props.state.getIn(['initialState', 'properties'])),
+				.set('properties', this.props.state.getIn(['initialState', 'properties']))
+				.set('dirty', false),
 		);
-		this.setState({ properties: this.props.state.getIn(['initialState', 'properties']).toJS() });
+		this.setState({
+			properties: this.props.state.getIn(['initialState', 'properties']).toJS(),
+			dirty: false,
+		});
 	}
 
 	setupTrigger(props) {
