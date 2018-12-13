@@ -1,8 +1,19 @@
 {
   "name": "@talend/scripts",
+  "description": "Set of scripts",
   "version": "0.4.0",
+  "license": "Apache-2.0",
   "bin": {
     "talend-scripts": "./index.js"
+  },
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/scripts#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
     "@babel/cli": "^7.2.0",
