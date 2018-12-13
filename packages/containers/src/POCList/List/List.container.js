@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import ImmutablePropTypes from 'react-immutable-proptypes';
+// import ImmutablePropTypes from 'react-immutable-proptypes';
 import React from 'react';
 import { Map, List as ImmutableList } from 'immutable';
 import CellTitleRenderer, {
@@ -67,7 +67,7 @@ class List extends React.Component {
 	};
 
 	static defaultProps = {
-		state: DEFAULT_STATE,
+		// state: DEFAULT_STATE,
 	};
 
 	static contextTypes = {
@@ -76,17 +76,17 @@ class List extends React.Component {
 		router: PropTypes.object,
 	};
 
-	onChangePage = (startIndex, itemsPerPage) => {
-		this.props.setState({ startIndex, itemsPerPage });
-	};
+	// onChangePage = (startIndex, itemsPerPage) => {
+	// 	this.props.setState({ startIndex, itemsPerPage });
+	// };
 
-	onSelectDisplayMode = (event, payload) => {
-		this.props.setState({ displayMode: payload });
-	};
+	// onSelectDisplayMode = (event, payload) => {
+	// 	this.props.setState({ displayMode: payload });
+	// };
 
-	getSelectedItems() {
-		return this.props.state.get('selectedItems', new ImmutableList());
-	}
+	// getSelectedItems() {
+	// 	return this.props.state.get('selectedItems', new ImmutableList());
+	// }
 
 	getGenericDispatcher(property) {
 		return (event, data) => {
@@ -94,20 +94,20 @@ class List extends React.Component {
 		};
 	}
 
-	isSelected = item => {
-		const selectedItems = this.getSelectedItems();
-		return selectedItems.some(itemKey => itemKey === item[this.props.idKey]);
-	};
+	// isSelected = item => {
+	// 	const selectedItems = this.getSelectedItems();
+	// 	return selectedItems.some(itemKey => itemKey === item[this.props.idKey]);
+	// };
 
 	render() {
-		const state = this.props.state.toJS();
+		// const state = this.props.state.toJS();
 		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS));
-		if (!props.displayMode) {
-			props.displayMode = state.displayMode;
-		}
-		if (this.props.rowHeight) {
-			props.rowHeight = this.props.rowHeight[props.displayMode];
-		}
+		// if (!props.displayMode) {
+		// 	props.displayMode = state.displayMode;
+		// }
+		// if (this.props.rowHeight) {
+		// 	props.rowHeight = this.props.rowHeight[props.displayMode];
+		// }
 
 		const cellDictionary = { ...connectedCellDictionary };
 		if (props.cellDictionary) {
@@ -115,7 +115,7 @@ class List extends React.Component {
 				const current = props.cellDictionary[key];
 				// eslint-disable-next-line no-param-reassign
 				accumulator[key] = {
-					...omit(current, ['component']),
+					// ...omit(current, ['component']),
 					cellRenderer: props.getComponent(current.component),
 				};
 				return accumulator;
@@ -127,7 +127,7 @@ class List extends React.Component {
 					const current = props.headerDictionary[key];
 					// eslint-disable-next-line no-param-reassign
 					accumulator[key] = {
-						...omit(current, ['component']),
+						// ...omit(current, ['component']),
 						headerRenderer: props.getComponent(current.component),
 					};
 					return accumulator;
@@ -152,9 +152,7 @@ class List extends React.Component {
 	}
 }
 
-List.Toolbar = props => {
-	return <Toolbar {...props} />;
-};
+List.Toolbar = props => <Toolbar {...props} />;
 
 List.Toolbar.Sort = Toolbar.Sort;
 

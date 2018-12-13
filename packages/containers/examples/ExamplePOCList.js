@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { IconsProvider } from '@talend/react-components';
 import { action as stAction } from '@storybook/addon-actions';
 import List from '../src/POCList/List';
@@ -51,6 +52,9 @@ const actions = {};
  * To handle filtering you need to create your callback and apply the filter in an upper component.
  */
 class ListFilter extends React.Component {
+	static propTypes = {
+		items: PropTypes.array,
+	};
 	state = { filter: '' };
 	filter = (event, values) => {
 		this.setState({ filter: values.query });
@@ -71,9 +75,12 @@ class ListFilter extends React.Component {
 	}
 }
 
-const MyCustomToolbarComponent = props => (
-	<button onClick={props.onClick}>{props.label}</button>
-);
+const MyCustomToolbarComponent = props => <button onClick={props.onClick}>{props.label}</button>;
+
+MyCustomToolbarComponent.propTypes = {
+	onClick: PropTypes.fun.isRequired,
+	label: PropTypes.string.isRequired,
+};
 
 const POCList = {
 	withAllElement: () => (
@@ -118,9 +125,7 @@ const POCList = {
 			<IconsProvider />
 			<div className="list-container">
 				<List collectionId={'myCollection'}>
-					<List.Toolbar
-						handleToggleFilter={stAction('toggle filter')}
-					>
+					<List.Toolbar handleToggleFilter={stAction('toggle filter')}>
 						<List.Toolbar.Custom>
 							{({ handleToggle }) => (
 								<MyCustomToolbarComponent label={'myCustomComponent'} onClick={handleToggle} />
