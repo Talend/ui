@@ -15,6 +15,12 @@ const backAction = action('onGoBack');
 
 const injectedComponentsRight = [
 	{
+		label: 'icon + text',
+		bsStyle: 'link',
+		icon: 'talend-share-alt',
+		onClick: action('icon + text'),
+	},
+	{
 		label: 'action1',
 		bsStyle: 'link',
 		icon: 'talend-share-alt',
@@ -26,6 +32,8 @@ const injectedComponentsRight = [
 		bsStyle: 'link',
 		icon: 'talend-activity',
 		onClick: action('return action2'),
+		displayMode: 'iconToggle',
+		active: true,
 	},
 	{
 		label: 'action3',
@@ -33,6 +41,7 @@ const injectedComponentsRight = [
 		icon: 'talend-bell',
 		onClick: action('return action3'),
 		hideLabel: true,
+		displayMode: 'iconToggle',
 	},
 ];
 
