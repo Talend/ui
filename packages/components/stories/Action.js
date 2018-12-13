@@ -96,7 +96,7 @@ storiesOf('Action', module)
 			<h3>Icon button with label</h3>
 			<Action id="icon" {...myAction} link />
 			<h3>Icon button without label</h3>
-			<Action id="icon" {...myAction} link label="" />
+			<Action id="icon-without-label" {...myAction} link label="" />
 			<h3>Loading Icon button</h3>
 			<Action id="icon" link label="Click me" loading />
 			<h3>Disabled</h3>
@@ -162,13 +162,16 @@ storiesOf('Action', module)
 			</div>
 		</div>
 	))
-	.add('combinations', withPropsCombinations(Action, {
-		label: ['Click me'],
-		icon: ['talend-dataprep'],
-		'data-feature': ['my.feature'],
-		onClick: [action('You clicked me')],
-		hideLabel: [false, true],
-		inProgress: [true, false],
-		disabled: [false, true],
-		tooltipLabel: [undefined, 'Tooltip custom label'],
-	}));
+	.add(
+		'combinations',
+		withPropsCombinations(Action, {
+			label: ['Click me'],
+			icon: ['talend-dataprep'],
+			'data-feature': ['my.feature'],
+			onClick: [action('You clicked me')],
+			hideLabel: [false, true],
+			inProgress: [true, false],
+			disabled: [false, true],
+			tooltipLabel: [undefined, 'Tooltip custom label'],
+		}),
+	);
