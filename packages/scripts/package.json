@@ -1,6 +1,6 @@
 {
   "name": "@talend/scripts",
-  "version": "0.5.0",
+  "version": "0.5.2",
   "license": "Apache-2.0",
   "bin": {
     "talend-scripts": "./index.js"
