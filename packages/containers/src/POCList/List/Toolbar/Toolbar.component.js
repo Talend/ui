@@ -152,4 +152,12 @@ Toolbar.FilterBar.propTypes = {
 	placeholder: PropTypes.string,
 };
 
+Toolbar.Custom = props => {
+	return <Consumer>{consumerValues => props.children(...props, consumerValues)}</Consumer>;
+};
+
+Toolbar.Custom.propTypes = {
+	children: PropTypes.func.isRequired,
+};
+
 export default translate(I18N_DOMAIN_COMPONENTS)(Toolbar);

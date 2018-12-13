@@ -48,7 +48,7 @@ const columns = [
 const actions = {};
 
 /**
- * To handle filtering you need to create your callback and make the filtering in an upper component.
+ * To handle filtering you need to create your callback and apply the filter in an upper component.
  */
 class ListFilter extends React.Component {
 	state = { filter: '' };
@@ -70,6 +70,10 @@ class ListFilter extends React.Component {
 		);
 	}
 }
+
+const MyCustomToolbarComponent = props => (
+	<button onClick={props.onClick}>{props.label}</button>
+);
 
 const POCList = {
 	withAllElement: () => (
@@ -106,6 +110,26 @@ const POCList = {
 			<IconsProvider />
 			<div className="list-container">
 				<ListFilter items={items} />
+			</div>
+		</div>
+	),
+	withCustomElementInToolBar: () => (
+		<div>
+			<IconsProvider />
+			<div className="list-container">
+				<List collectionId={'myCollection'}>
+					<List.Toolbar
+						handleToggleFilter={stAction('toggle filter')}
+					>
+						<List.Toolbar.Custom>
+							{({ handleToggle }) => (
+								<MyCustomToolbarComponent label={'myCustomComponent'} onClick={handleToggle} />
+							)}
+						</List.Toolbar.Custom>
+						<div>MyCustom HTML in the toolbar</div>
+					</List.Toolbar>
+					<List.VirtualizedList items={items} columns={columns} />
+				</List>
 			</div>
 		</div>
 	),

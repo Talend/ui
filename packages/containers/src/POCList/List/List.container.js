@@ -161,9 +161,10 @@ List.Toolbar.Sort = Toolbar.Sort;
 List.Toolbar.ActionBar = Toolbar.ActionBar;
 
 List.Toolbar.FilterBar = Toolbar.FilterBar;
-List.Toolbar.FilterBar.displayName = 'Toolbar.FilterBar';
 
 List.Toolbar.DisplayMode = Toolbar.DisplayMode;
+
+List.Toolbar.Custom = Toolbar.Custom;
 
 List.VirtualizedList = props => {
 	return (
