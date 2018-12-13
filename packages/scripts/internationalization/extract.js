@@ -61,7 +61,7 @@ function extractFiles({ files, target }) {
 	});
 }
 
-function extract({ extract }) {
+function runExtract({ extract }) {
 	const { method, target } = extract;
 	switch (method) {
 		case 'npm':
@@ -84,4 +84,4 @@ function extract({ extract }) {
 	zip.writeZip(path.join(process.cwd(), 'i18n.zip'));
 }
 
-module.exports = extract;
+module.exports = runExtract;

@@ -18,25 +18,25 @@ The talend-i18n module targets steps 1 - 2 - 3.
 # Installation
 
 ```shell
-yarn global install @talend/i18n-scripts
+yarn global install @talend/scripts
 ```
 
 or
 
 ```shell
-npm install -g @talend/i18n-scripts
+npm install -g @talend/scripts
 ```
 
-Now the cli `talend-i18n` is available.
+Now the cli `talend-scripts` is available.
 
 # Actions
 
 There are 3 actions you can perform
 
 ```shell
-talend-i18n extract
-talend-i18n upload
-talend-i18n download
+talend-scripts i18n-extract
+talend-scripts i18n-upload
+talend-scripts i18n-download
 ```
 
 Each action is based on a configuration file, located in the project folder `./talend-i18n.json`.

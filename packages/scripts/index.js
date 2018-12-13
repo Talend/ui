@@ -9,22 +9,19 @@ const command = process.argv[2];
 const options = process.argv.slice(3);
 console.log(`Running command: ${command}`, `With options: ${options}`);
 
-let result;
 switch (command) {
 	case 'start':
 	case 'build':
 	case 'lint:es':
 	case 'test':
-		result = require('./webapp')(command, options);
+		require('./webapp')(command, options);
 		break;
 	case 'i18n-extract':
 	case 'i18n-upload':
 	case 'i18n-download':
-		result = require('./i18n')(command);
+		require('./internationalization')(command);
 		break;
 	default:
 		console.log(`Command ${command} not found.`);
 		process.exit(-1);
 }
-
-process.exit(result.status);
