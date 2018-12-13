@@ -3,59 +3,6 @@ import { IconsProvider } from '@talend/react-components';
 import { action as stAction } from '@storybook/addon-actions';
 import List from '../src/POCList/List';
 
-/*
-		const cellDictionary = {
-			connection: {
-				component: 'ConnectionCellRenderer',
-			},
-			favorite: {
-				component: 'FavoriteCellRenderer',
-			},
-			quality: {
-				component: 'QualityCellRenderer',
-			},
-			certification: {
-				component: 'CertificationCellRenderer',
-			},
-		};
-		// const actions = { left: [{ actionId: 'dataset:add' }, { actionId: 'dataset:upload' }] };
-(
-	<List
-		getComponent={this.props.getComponent}
-		collectionId={this.props.collectionId}
-		cellDictionary={cellDictionary}
-	>
-		<List.Toolbar
-			handleInputFilter={this.handleInputFilter}
-			handleToggleFilter={this.handleToggleFilter}
-		>
-			<List.Toolbar.ActionBar actions={actions} />
-			<List.Toolbar.Sort
-				options={[
-					{
-						id: 'label',
-						name: 'Name',
-					},
-					{
-						id: 'datastore',
-						name: 'Connection Name',
-					},
-					{
-						id: 'updated',
-						name: 'Updated',
-					},
-				]}
-			/>
-			<List.Toolbar.DisplayMode />
-			<div>
-				<List.Toolbar.FilterBar id={'dataset'} placeholder={'Find a dataset'} />
-			</div>
-		</List.Toolbar>
-		<List.VirtualizedList titleProps={titleProps} items={items} columns={columns} />
-	</List>
-);
-*/
-
 const items = [
 	{
 		id: 'id1',
@@ -114,60 +61,6 @@ const columns = [
 		label: 'Author',
 	},
 ];
-/*
-class ListWithFilter extends React.Component {
-	state = {
-		filterQuery: '',
-	};
-
-	getState = () => ({ filterQuery: this.props.filterQuery || this.state.filterQuery });
-	handleInputFilter = (event, values) => {
-		this.setState({ filterQuery: values.query });
-	};
-	handleToggleFilter = () => {
-		this.setState({ filterQuery: '' });
-	};
-	filterDatasets = items => items.filter(item => item.label.includes(this.getState().filterQuery));
-
-	render() {
-		const items = this.filterDatasets(this.props.items);
-		const actions = {};
-		const cellDictionary = {};
-
-		return (
-			<List collectionId={this.props.collectionId} cellDictionary={cellDictionary}>
-				<List.Toolbar
-					handleInputFilter={this.handleInputFilter}
-					handleToggleFilter={this.handleToggleFilter}
-				>
-					<List.Toolbar.ActionBar actions={actions} />
-					<List.Toolbar.Sort
-						options={[
-							{
-								id: 'label',
-								name: 'Name',
-							},
-							{
-								id: 'datastore',
-								name: 'Connection Name',
-							},
-							{
-								id: 'updated',
-								name: 'Updated',
-							},
-						]}
-					/>
-					<List.Toolbar.DisplayMode />
-					<div>
-						<List.Toolbar.FilterBar id={'myFilterBar'} placeholder={'Find something'} />
-					</div>
-				</List.Toolbar>
-				<List.VirtualizedList titleProps={titleProps} items={items} columns={columns} />
-			</List>
-		);
-	}
-}
-*/
 
 const actions = {};
 
