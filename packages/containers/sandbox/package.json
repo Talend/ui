@@ -5,7 +5,9 @@
   "private": true,
   "main": "app/index.js",
   "scripts": {
-    "start": "talend-scripts start"
+    "build": "talend-scripts build",
+    "start": "talend-scripts start",
+    "start-dist": "node dist"
   },
   "repository": {
     "type": "git",
