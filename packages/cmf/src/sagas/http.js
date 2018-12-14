@@ -96,14 +96,14 @@ export function handleHttpResponse(response) {
 /**
  * encodePayload - encore the payload if necessary
  *
- * @param  {object} headers                   request headers
- * @param  {object} payload                   payload to send with the request
- * @return {object}                           The encoded payload.
+ * @param  {object} headers request headers
+ * @param  {object} payload payload to send with the request
+ * @return {string|FormData} The encoded payload.
  */
 export function encodePayload(headers, payload) {
 	const type = headers['Content-Type'];
 
-	if (payload instanceof FormData) {
+	if (payload instanceof FormData || typeof payload === 'string') {
 		return payload;
 	} else if (type && type.includes('json')) {
 		return JSON.stringify(payload);
