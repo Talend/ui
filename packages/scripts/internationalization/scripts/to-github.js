@@ -14,7 +14,10 @@ function printSection(title) {
 }
 
 function printSuccess(text) {
-	console.log(`✔ ${text}`);
+	console.log(`✅ ${text}`);
+}
+function printRunning(text) {
+	console.log(`🏃 ${text}`);
 }
 
 function getGithubVariables() {
@@ -96,8 +99,7 @@ function getVersion() {
 	return extractedVersion;
 }
 
-function cloneLocalesRepo(githubUrl, localesRepoPath) {
-	printSection('Cloned repository');
+function cloneLocalesRepo({ githubUrl, localesRepoPath }) {
 	rimraf.sync(localesRepoPath);
 	const { status } = spawn.sync('git', ['clone', githubUrl, localesRepoPath], { stdio: 'inherit' });
 	if (status !== 0) {
@@ -105,6 +107,62 @@ function cloneLocalesRepo(githubUrl, localesRepoPath) {
 	} else {
 		printSuccess(`Repositiory cloned to ${localesRepoPath}`);
 	}
+}
+
+function switchToBranch({ githubUrl, branchName }, repoCmdContext) {
+	const branchTestCode = spawn.sync(
+		'git',
+		['ls-remote', '--exit-code', '--heads', githubUrl, branchName],
+		{ stdio: 'inherit' },
+	);
+
+	const { status } =
+		branchTestCode.status === 2
+			? spawn.sync('git', ['checkout', '-b', branchName], repoCmdContext)
+			: spawn.sync('git', ['checkout', branchName], repoCmdContext);
+
+	if (status !== 0) {
+		error('Error while switching branch');
+	} else {
+		printSuccess(`Branch set to ${branchName}`);
+	}
+}
+
+function pushI18nFiles(options, repoCmdContext) {
+	const { branchName, i18nFolder, localesRepoPath, project, version } = options;
+	spawn.sync('cp', ['-r', `${i18nFolder}/.`, localesRepoPath], { stdio: 'inherit' });
+
+	printRunning('git add .');
+	spawn.sync('git', ['add', '.'], repoCmdContext);
+
+	printRunning(`git commit -m 'feat(${project}): update locales files for ${version}'`);
+	spawn.sync(
+		'git',
+		['commit', '-m', `feat(${project}): update locales files for ${version}`],
+		repoCmdContext,
+	);
+
+	printRunning(`git push origin ${branchName}`);
+	const { status } = spawn.sync('git', ['push', 'origin', branchName], repoCmdContext);
+	if (status !== 0) {
+		error('Error while pushing');
+	}
+	printSuccess('pushed');
+}
+
+function pushTag({ tagName }, repoCmdContext) {
+	printRunning(`git tag ${tagName} -f`);
+	spawn.sync('git', ['tag', tagName, '-f'], repoCmdContext);
+
+	printRunning(`git push origin :refs/tags/${tagName}`);
+	spawn.sync('git', ['push', 'origin', `:refs/tags/${tagName}`], repoCmdContext);
+
+	const { status } = printRunning('git push --tags');
+	spawn.sync('git', ['push', '--tags'], repoCmdContext);
+	if (status !== 0) {
+		error('Error while setting tag to current head');
+	}
+	printSuccess('Tag placed to current head');
 }
 
 function toGithub({ load, github }) {
@@ -118,48 +176,29 @@ function toGithub({ load, github }) {
 
 	// extract version (major.minor)
 	const version = getVersion();
-	const tagName = `${project}/${version}`;
-	const branchName = `release/${tagName}`;
+	const options = {
+		branchName: `release/${project}/${version}`,
+		githubUrl: url.replace('https://github.com', `https://${login}:${token}@github.com`),
+		i18nFolder,
+		localesRepoPath: path.join(process.cwd(), 'tmp', 'locales'),
+		project,
+		tagName: `${project}/${version}`,
+		version,
+	};
 
 	// pull repo using token
-	const githubUrl = url.replace('https://github.com', `https://${login}:${token}@github.com`);
-	const tmpFolderPath = path.join(process.cwd(), 'tmp');
-	const localesRepoPath = path.join(tmpFolderPath, 'locales');
-	cloneLocalesRepo(githubUrl, localesRepoPath);
-	const repoCmdContext = { stdio: 'inherit', cwd: localesRepoPath };
+	printSection('i18n to github');
+	cloneLocalesRepo(options);
+	const repoCmdContext = { stdio: 'inherit', cwd: options.localesRepoPath };
 
 	// pull or create branch
-	const branchTestCode = spawn.sync(
-		'git',
-		['ls-remote', '--exit-code', '--heads', githubUrl, branchName],
-		{ stdio: 'inherit' },
-	);
-	if (branchTestCode.status === 2) {
-		spawn.sync('git', ['checkout', '-b', branchName], repoCmdContext);
-	} else {
-		spawn.sync('git', ['checkout', branchName], repoCmdContext);
-	}
+	switchToBranch(options, repoCmdContext);
 
-	// copy files (overwrite)
-	spawn.sync('cp', ['-r', `${i18nFolder}/.`, localesRepoPath], { stdio: 'inherit' });
+	// copy files (overwrite) / commit / push
+	pushI18nFiles(options, repoCmdContext);
 
-	// commit / tag / push
-	console.log('git add .');
-	spawn.sync('git', ['add', '.'], repoCmdContext);
-	console.log(`git commit -m 'feat(${project}): update locales files for ${version}'`);
-	spawn.sync(
-		'git',
-		['commit', '-m', `feat(${project}): update locales files for ${version}`],
-		repoCmdContext,
-	);
-	console.log(`git tag ${tagName} -f`);
-	spawn.sync('git', ['tag', tagName, '-f'], repoCmdContext);
-	console.log(`git push origin ${branchName}`);
-	spawn.sync('git', ['push', 'origin', branchName], repoCmdContext);
-	console.log(`git push origin :refs/tags/${tagName}`);
-	spawn.sync('git', ['push', 'origin', `:refs/tags/${tagName}`], repoCmdContext);
-	console.log('git push --tags');
-	spawn.sync('git', ['push', '--tags'], repoCmdContext);
+	// create or move tag
+	pushTag(options, repoCmdContext);
 }
 
 module.exports = toGithub;
