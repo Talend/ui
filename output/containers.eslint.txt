@@ -26,9 +26,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   53:3   error  'wrapper' is not defined                        no-undef
   53:53  error  'context' is not defined                        no-undef
 
-/home/travis/build/Talend/ui/packages/containers/src/SubHeaderBar/SubHeaderBar.selectors.js
-  8:1  error  Prefer default export  import/prefer-default-export
-
-✖ 13 problems (13 errors, 0 warnings)
+✖ 12 problems (12 errors, 0 warnings)
   3 errors, 0 warnings potentially fixable with the `--fix` option.
 
