@@ -23,8 +23,14 @@ if (userConfigPath) {
 }
 
 // Merge all configuration. User config can override preset ones,
-module.exports = mergeWith({}, ...webpackConfigurations, function customizer(objValue, srcValue) {
+const config = mergeWith({}, ...webpackConfigurations, (objValue, srcValue) => {
 	if (Array.isArray(objValue)) {
 		return objValue.concat(srcValue);
 	}
 });
+
+if (presetApi.getUserConfig(['webpack', 'debug'], false)) {
+	console.log(JSON.stringify(config, null, 2));
+}
+
+module.exports = config;
