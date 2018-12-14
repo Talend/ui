@@ -157,8 +157,8 @@ function pushTag({ tagName }, repoCmdContext) {
 	printRunning(`git push origin :refs/tags/${tagName}`);
 	spawn.sync('git', ['push', 'origin', `:refs/tags/${tagName}`], repoCmdContext);
 
-	const { status } = printRunning('git push --tags');
-	spawn.sync('git', ['push', '--tags'], repoCmdContext);
+	printRunning('git push --tags');
+	const { status } = spawn.sync('git', ['push', '--tags'], repoCmdContext);
 	if (status !== 0) {
 		error('Error while setting tag to current head');
 	}
