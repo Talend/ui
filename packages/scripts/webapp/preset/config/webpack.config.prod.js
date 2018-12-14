@@ -12,6 +12,22 @@ module.exports = ({ getUserConfig }) => {
 	return {
 		mode: 'production',
 		optimization: {
+			/**
+			 * Let’s create a vendor chunk which contain all code from
+			 * node_modules imported in the project.
+			 * Whenever, Webpack encounters import statement of npm module,
+			 * it will push that code inside vendor chunk.
+			 */
+			splitChunks: {
+				cacheGroups: {
+					default: false,
+					vendors: false,
+					vendor: {
+						chunks: 'all',
+						test: /node_modules/,
+					},
+				},
+			},
 			minimizer: [
 				new UglifyJsPlugin({
 					cache: true,

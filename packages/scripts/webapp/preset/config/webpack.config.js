@@ -5,6 +5,7 @@ const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 const webpack = require('webpack');
 
 const TalendHTML = require('@talend/html-webpack-plugin');
@@ -47,14 +48,13 @@ function getSassData(getUserConfig) {
 }
 
 function getCommonStyleLoaders(enableModules, mode) {
-	let cssOptions = {};
+	const cssOptions = {
+		sourceMap: mode !== 'production',
+	};
 	if (enableModules) {
-		cssOptions = {
-			sourceMap: mode !== 'production',
-			modules: true,
-			importLoaders: 1,
-			localIdentName: '[name]__[local]___[hash:base64:5]',
-		};
+		cssOptions.modules = true;
+		cssOptions.importLoaders = 1;
+		cssOptions.localIdentName = '[name]__[local]___[hash:base64:5]';
 	}
 	return [
 		{ loader: MiniCssExtractPlugin.loader },
@@ -73,7 +73,7 @@ function getCommonStyleLoaders(enableModules, mode) {
 function getSassLoaders(enableModules, sassData, mode) {
 	return getCommonStyleLoaders(enableModules, mode).concat({
 		loader: 'sass-loader',
-		options: { sourceMap: true, data: sassData },
+		options: { sourceMap: mode !== 'production', data: sassData },
 	});
 }
 
@@ -81,7 +81,11 @@ module.exports = ({ getUserConfig, mode }) => {
 	const sassData = getSassData(getUserConfig);
 
 	return {
-		entry: ['@babel/polyfill', 'whatwg-fetch', `${process.cwd()}/src/app/index.js`],
+		mode,
+		entry: {
+			...getUserConfig(['webpack', 'entry'], {}),
+			app: ['@babel/polyfill', 'whatwg-fetch', `${process.cwd()}/src/app/index.js`],
+		},
 		output: {
 			filename: '[name]-[hash].js',
 		},
@@ -103,12 +107,16 @@ module.exports = ({ getUserConfig, mode }) => {
 				{
 					test: /\.scss$/,
 					use: getSassLoaders(false, sassData, mode),
-					include: /bootstrap-theme/,
+					include: [
+						/theme\/src\/theme\/theme\.scss$/,
+					],
 				},
 				{
 					test: /\.scss$/,
 					use: getSassLoaders(true, sassData, mode),
-					exclude: /bootstrap-theme/,
+					exclude: [
+						/theme\/src\/theme\/theme\.scss$/,
+					],
 				},
 				{
 					test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,

@@ -1,6 +1,9 @@
 {
   "cmf": false,
 	"webpack": {
+    "entry": {
+      "theme": "@talend/bootstrap-theme/src/theme/theme.scss"
+    },
 		"config": {
 			"development": "./webpack.config.dev.js"
 		}
