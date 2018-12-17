@@ -172,6 +172,7 @@ describe('Inject.all', () => {
 			slotX: myComponent,
 		};
 		const injections = Inject.all(getComponent, components);
+		expect(getComponent).not.toHaveBeenCalled();
 		expect(injections('slotX')).toBe(myComponent);
 	});
 });
