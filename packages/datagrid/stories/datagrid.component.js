@@ -1,10 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from '@storybook/addon-a11y';
 import { IconsProvider } from '@talend/react-components';
 
 import DataGrid from '../src/components/';
-
 import DynamicDataGrid, { getComponent } from './DynamicDataGrid.component';
 import sample from './sample.json';
 import sample2 from './sample2.json';
@@ -20,7 +18,7 @@ sample.data[2].value.field0.value =
 	'very looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong value';
 
 storiesOf('Component Datagrid', module)
-	.addDecorator(checkA11y)
+
 	.add('default', () => (
 		<div style={{ height: '100vh' }}>
 			<IconsProvider />

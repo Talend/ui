@@ -17,6 +17,14 @@ const {
 
 const DEFAULT_CONFIG_FILENAME = 'cmf.json';
 
+function getCmfconfig(cmfconfigPath, onError) {
+	const cmfconfig = importAndValidate(cmfconfigPath, onError);
+	if (process.env.CMF_ENV) {
+		return cmfconfig[process.env.CMF_ENV];
+	}
+	return cmfconfig;
+}
+
 function merge(options, errorCallback) {
 	const onErrorCallback = errorCallback || Function.prototype;
 	function onError(...args) {
@@ -38,7 +46,7 @@ function merge(options, errorCallback) {
 
 	// Init some stuff to use next
 	const cmfconfigPath = path.join(process.cwd(), DEFAULT_CONFIG_FILENAME);
-	const cmfconfig = options.cmfConfig || importAndValidate(cmfconfigPath, onError);
+	const cmfconfig = options.cmfConfig || getCmfconfig(cmfconfigPath, onError);
 	const sources = dev ? cmfconfig.settings['sources-dev'] : cmfconfig.settings.sources;
 	let destination = cmfconfig.settings.destination;
 	if (destination && !path.isAbsolute(destination)) {

@@ -3,6 +3,9 @@
 
 .container {
 	width: 100%;
+	tbody {
+		border: $border-default;
+	}
 }
 
 .calendar-row {
@@ -21,17 +24,14 @@
 }
 
 .calendar-month {
+	@include picker-action;
+
 	flex: 1;
 	height: 5rem;
 	width: 100%;
 
 	background: transparent;
 	border: none;
-	margin: 0;
 	padding: 0;
 	text-transform: uppercase;
-
-	&.selected {
-		@include picker-action-selected;
-	}
 }

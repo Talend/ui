@@ -10,7 +10,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
     <button
       className="theme-panel-title panel-title btn btn-link"
       disabled={false}
-      onClick={[Function]}
+      onClick={[MockFunction]}
       type="button"
     >
       <div
@@ -136,11 +136,10 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
       </div>
     </button>
     <button
-      aria-controls={undefined}
       aria-expanded={true}
       className="theme-toggle toggle btn btn-link"
       disabled={false}
-      onClick={[Function]}
+      onClick={[MockFunction]}
       title="Collapse panel"
       type="button"
     >
@@ -165,8 +164,6 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
       aria-expanded={null}
       aria-hidden={false}
       className="panel-collapse collapse in"
-      id={undefined}
-      role={undefined}
     >
       <div
         className="panel-body"
@@ -205,7 +202,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
     <button
       className="theme-panel-title panel-title btn btn-link"
       disabled={false}
-      onClick={[Function]}
+      onClick={[MockFunction]}
       type="button"
     >
       <div
@@ -331,11 +328,9 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
       </div>
     </button>
     <button
-      aria-controls={undefined}
-      aria-expanded={undefined}
       className="theme-toggle toggle btn btn-link"
       disabled={false}
-      onClick={[Function]}
+      onClick={[MockFunction]}
       title="Expand panel"
       type="button"
     >
@@ -360,8 +355,6 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
       aria-expanded={null}
       aria-hidden={true}
       className="panel-collapse collapse"
-      id={undefined}
-      role={undefined}
     >
       <div
         className="panel-body"
@@ -400,7 +393,7 @@ exports[`CollapsiblePanel should render default without content 1`] = `
     <button
       className="theme-panel-title panel-title btn btn-link"
       disabled={false}
-      onClick={[Function]}
+      onClick={[MockFunction]}
       type="button"
     >
       <div
@@ -528,7 +521,6 @@ exports[`CollapsiblePanel should render default without content 1`] = `
   </div>
   <div
     className="panel panel-default"
-    id={undefined}
   />
 </div>
 `;
@@ -543,7 +535,7 @@ exports[`CollapsiblePanel should render panel with custom element 1`] = `
     <button
       className="theme-panel-title panel-title btn btn-link"
       disabled={false}
-      onClick={[Function]}
+      onClick={[MockFunction]}
       type="button"
     >
       <div
@@ -589,7 +581,6 @@ exports[`CollapsiblePanel should render panel with custom element 1`] = `
   </div>
   <div
     className="panel panel-default"
-    id={undefined}
   />
 </div>
 `;
@@ -604,7 +595,7 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
     <button
       className="theme-panel-title panel-title btn btn-link"
       disabled={false}
-      onClick={[Function]}
+      onClick={[MockFunction]}
       type="button"
     >
       <div
@@ -642,11 +633,9 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
       </div>
     </button>
     <button
-      aria-controls={undefined}
-      aria-expanded={undefined}
       className="theme-toggle toggle btn btn-link"
       disabled={false}
-      onClick={[Function]}
+      onClick={[MockFunction]}
       title="Expand panel"
       type="button"
     >
@@ -671,8 +660,6 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
       aria-expanded={null}
       aria-hidden={true}
       className="panel-collapse collapse"
-      id={undefined}
-      role={undefined}
     >
       <div
         className="panel-body"
@@ -684,7 +671,6 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
             className="theme-head"
           >
             <span
-              className={undefined}
               onFocus={[Function]}
               onMouseOver={[Function]}
             >
@@ -702,14 +688,14 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
             className="theme-content-description content-description"
           >
             Lorem ipsum dolor sit amet, consectv eturelit Lorem  adipiscing elit.
-            		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
-            		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
-            		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
-            		 adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipis decing elit.
-            		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
-            		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
-            		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
-            		 adipiscing elit
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
+		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
+		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
+		 adipiscing elitipsum dolor sit amet, consectv eturelit Lorem  adipis decing elit.
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet,
+		 consectetur adipiscing elit Lorem ipsum dolor sit nsectetur adipiscing elit Lorem
+		ipsum dolor sit amet, consectetur adipiscing elit Lorem dolor sit amet, consectetur
+		 adipiscing elit
           </div>
         </div>
       </div>
@@ -728,7 +714,7 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
     <button
       className="theme-panel-title panel-title btn btn-link"
       disabled={false}
-      onClick={[Function]}
+      onClick={[MockFunction]}
       type="button"
     >
       <div
@@ -768,7 +754,6 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
   </div>
   <div
     className="panel panel-default"
-    id={undefined}
   />
 </div>
 `;

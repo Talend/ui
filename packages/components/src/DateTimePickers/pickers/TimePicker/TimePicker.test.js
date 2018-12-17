@@ -6,10 +6,22 @@ import TimePicker from './TimePicker.component';
 describe('TimePicker', () => {
 	it('should render', () => {
 		// when
-		const wrapper = shallow(<TimePicker value={{ hours: 15, minutes: 38 }} onChange={jest.fn()} />);
+		const wrapper = shallow(
+			<TimePicker value={{ hours: '15', minutes: '38' }} onChange={jest.fn()} />,
+		);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render UTC legend', () => {
+		// when
+		const wrapper = shallow(
+			<TimePicker value={{ hours: '15', minutes: '38' }} onChange={jest.fn()} useUTC />,
+		);
+
+		// then
+		expect(wrapper.find('legend').getElement()).toMatchSnapshot();
 	});
 
 	it('should trigger onChange on hours change', () => {

@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 
 import { TabBar } from '../src/';
 
@@ -64,13 +63,9 @@ class InteractiveTabs extends React.Component {
 }
 
 const stories = storiesOf('TabBar', module);
-if (!stories.addWithInfo) {
-	stories.addWithInfo = stories.add;
-}
 
 stories
-	.addDecorator(checkA11y)
-	.addWithInfo('default', () => (
+	.add('default', () => (
 		<nav>
 			<h3>Default TabBar</h3>
 			<div id="default">
@@ -78,7 +73,7 @@ stories
 			</div>
 		</nav>
 	))
-	.addWithInfo('custom id generator', () => (
+	.add('custom id generator', () => (
 		<nav>
 			<h3>TabBar with custom ids</h3>
 			<p>
@@ -110,7 +105,7 @@ function generateChildId(key, kind) {
 			</div>
 		</nav>
 	))
-	.addWithInfo('With existing content', () => (
+	.add('With existing content', () => (
 		<nav>
 			<h3>TabBar with custom content</h3>
 			<div id="customContent">
@@ -123,7 +118,7 @@ function generateChildId(key, kind) {
 			</div>
 		</nav>
 	))
-	.addWithInfo('Fully interactive', () => (
+	.add('Fully interactive', () => (
 		<nav>
 			<h3>Interactive TabBar demo</h3>
 			<div id="interactive">

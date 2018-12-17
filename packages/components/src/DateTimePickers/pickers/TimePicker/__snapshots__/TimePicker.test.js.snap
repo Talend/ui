@@ -20,14 +20,12 @@ exports[`TimePicker should render 1`] = `
     forceNotifyByEnter={true}
     forceNotifyOnBlur={true}
     id="42-hour"
-    inputRef={undefined}
     minLength={0}
-    onBlur={undefined}
     onChange={[Function]}
-    onKeyDown={undefined}
+    placeholder="HH"
     tabIndex={-1}
     type="text"
-    value={15}
+    value="15"
   />
   <hr />
   <label
@@ -43,14 +41,23 @@ exports[`TimePicker should render 1`] = `
     forceNotifyByEnter={true}
     forceNotifyOnBlur={true}
     id="42-minute"
-    inputRef={undefined}
     minLength={0}
-    onBlur={undefined}
     onChange={[Function]}
-    onKeyDown={undefined}
+    placeholder="MM"
     tabIndex={-1}
     type="text"
-    value={38}
+    value="38"
   />
 </div>
+`;
+
+exports[`TimePicker should render UTC legend 1`] = `
+<legend>
+  Time
+  <div
+    className="theme-utc"
+  >
+    UTC
+  </div>
+</legend>
 `;

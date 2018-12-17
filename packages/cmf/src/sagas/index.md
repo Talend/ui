@@ -133,7 +133,7 @@ cmf.sagas.http.setDefaultLanguage('fr-FR');
 
 # Component Saga
 
-CMF let you register saga so a saga can be forked/cancelled with a component life.
+CMF let you register saga so a saga can be spawned/cancelled with the component life.
 
 let s add settings for a component :
 

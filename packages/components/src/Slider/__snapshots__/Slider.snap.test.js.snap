@@ -34,7 +34,6 @@ exports[`Slider component snaps renderers should render Slider 1`] = `
           Object {},
         ]
       }
-      value={undefined}
       vertical={false}
     />
   </div>
@@ -58,7 +57,6 @@ exports[`Slider component snaps renderers should render Slider disabled 1`] = `
           Object {},
         ]
       }
-      id={undefined}
       included={true}
       marks={Object {}}
       max={100}
@@ -135,7 +133,6 @@ exports[`Slider component snaps renderers should render Slider with captionActio
           Object {},
         ]
       }
-      id={undefined}
       included={true}
       marks={Object {}}
       max={100}
@@ -161,7 +158,6 @@ exports[`Slider component snaps renderers should render Slider with captionActio
     <Action
       className="theme-tc-slider-captions-element tc-slider-captions-element"
       data-feature="action"
-      disabled={undefined}
       hideLabel={true}
       icon="talend-smiley-angry"
       id="icon1"
@@ -172,7 +168,6 @@ exports[`Slider component snaps renderers should render Slider with captionActio
     <Action
       className="theme-tc-slider-captions-element tc-slider-captions-element"
       data-feature="action"
-      disabled={undefined}
       hideLabel={true}
       icon="talend-smiley-neutral"
       id="icon2"
@@ -183,7 +178,6 @@ exports[`Slider component snaps renderers should render Slider with captionActio
     <Action
       className="theme-tc-slider-captions-element tc-slider-captions-element theme-selected selected"
       data-feature="action"
-      disabled={undefined}
       hideLabel={true}
       icon="talend-smiley-satisfied"
       id="icon3"

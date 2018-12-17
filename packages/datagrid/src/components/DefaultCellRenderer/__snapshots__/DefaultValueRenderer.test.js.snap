@@ -71,7 +71,9 @@ exports[`#DefaultValueRenderer should render empty when the value is null 1`] = 
 <div
   className="theme-td-default-cell td-default-cell"
   onMouseOver={[Function]}
-/>
+>
+  
+</div>
 `;
 
 exports[`#DefaultValueRenderer should render the leading/trailing special character 1`] = `

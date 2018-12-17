@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import tv4 from 'tv4';
 import { actions, data, mergedSchema, initProps } from '../../__mocks__/data';
-
 import UIForm, { UIFormComponent } from './UIForm.component';
 
 describe('UIForm component', () => {
@@ -38,6 +37,12 @@ describe('UIForm component', () => {
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should not render any div if an empty "actions" array is provided', () => {
+		const wrapper = shallow(<UIFormComponent {...data} {...props} actions={[]} />);
+		const buttonsWrapper = wrapper.find('div.tf-actions-wrapper');
+		expect(buttonsWrapper).toHaveLength(0);
 	});
 
 	it('should take in account customFormat', () => {

@@ -15,6 +15,7 @@ import Inject from './Inject.component.js';
 import matchPath from './sagaRouter/matchPath';
 import sagas from './sagas';
 import selectors from './selectors';
+import localStorage from './localStorage';
 
 // DEPRECATED APIs
 import action from './action';
@@ -92,4 +93,5 @@ export default {
 	saga: sagas,
 	sagas,
 	selectors,
+	localStorage,
 };

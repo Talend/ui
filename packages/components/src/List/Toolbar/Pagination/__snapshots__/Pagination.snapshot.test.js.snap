@@ -7,7 +7,6 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
 >
   <li
     className="dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
@@ -33,7 +32,6 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -48,7 +46,6 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -63,7 +60,6 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -78,7 +74,6 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -95,12 +90,10 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
   <li
     className="btn-link disabled"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to first page."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -127,12 +120,10 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
   <li
     className="btn-link disabled"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to previous page. Current page: 1."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -157,9 +148,6 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
     </a>
   </li>
   <li
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
     className="theme-page-index"
     onSelect={[Function]}
   >
@@ -170,12 +158,10 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to next page. Current page: 1."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -196,12 +182,10 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to last page."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -229,7 +213,6 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
 >
   <li
     className="dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
@@ -255,7 +238,6 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -270,7 +252,6 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -285,7 +266,6 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -300,7 +280,6 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -317,12 +296,10 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to first page."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -343,12 +320,10 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to previous page. Current page: 2."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -367,9 +342,6 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
     </a>
   </li>
   <li
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
     className="theme-page-index"
     onSelect={[Function]}
   >
@@ -380,12 +352,10 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
   <li
     className="btn-link disabled"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to next page. Current page: 2."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -412,12 +382,10 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
   <li
     className="btn-link disabled"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to last page."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -451,7 +419,6 @@ exports[`Pagination should not render navigation when show all items 1`] = `
 >
   <li
     className="dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
@@ -477,7 +444,6 @@ exports[`Pagination should not render navigation when show all items 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -492,7 +458,6 @@ exports[`Pagination should not render navigation when show all items 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -507,7 +472,6 @@ exports[`Pagination should not render navigation when show all items 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -522,7 +486,6 @@ exports[`Pagination should not render navigation when show all items 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -546,7 +509,6 @@ exports[`Pagination should not show navigation when there is no items 1`] = `
 >
   <li
     className="dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
@@ -572,7 +534,6 @@ exports[`Pagination should not show navigation when there is no items 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -587,7 +548,6 @@ exports[`Pagination should not show navigation when there is no items 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -602,7 +562,6 @@ exports[`Pagination should not show navigation when there is no items 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -617,7 +576,6 @@ exports[`Pagination should not show navigation when there is no items 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -641,7 +599,6 @@ exports[`Pagination should not show navigation when there is only one page 1`] =
 >
   <li
     className="dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
@@ -667,7 +624,6 @@ exports[`Pagination should not show navigation when there is only one page 1`] =
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -682,7 +638,6 @@ exports[`Pagination should not show navigation when there is only one page 1`] =
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -697,7 +652,6 @@ exports[`Pagination should not show navigation when there is only one page 1`] =
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -712,7 +666,6 @@ exports[`Pagination should not show navigation when there is only one page 1`] =
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -736,7 +689,6 @@ exports[`Pagination should render 1`] = `
 >
   <li
     className="dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
@@ -762,7 +714,6 @@ exports[`Pagination should render 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -777,7 +728,6 @@ exports[`Pagination should render 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -792,7 +742,6 @@ exports[`Pagination should render 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -807,7 +756,6 @@ exports[`Pagination should render 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -824,12 +772,10 @@ exports[`Pagination should render 1`] = `
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to first page."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -850,12 +796,10 @@ exports[`Pagination should render 1`] = `
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to previous page. Current page: 2."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -874,9 +818,6 @@ exports[`Pagination should render 1`] = `
     </a>
   </li>
   <li
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
     className="theme-page-index"
     onSelect={[Function]}
   >
@@ -887,12 +828,10 @@ exports[`Pagination should render 1`] = `
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to next page. Current page: 2."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -913,12 +852,10 @@ exports[`Pagination should render 1`] = `
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to last page."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -946,7 +883,6 @@ exports[`Pagination should render id if provided 1`] = `
 >
   <li
     className="dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
@@ -972,7 +908,6 @@ exports[`Pagination should render id if provided 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -987,7 +922,6 @@ exports[`Pagination should render id if provided 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -1002,7 +936,6 @@ exports[`Pagination should render id if provided 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -1017,7 +950,6 @@ exports[`Pagination should render id if provided 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -1034,7 +966,6 @@ exports[`Pagination should render id if provided 1`] = `
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to first page."
@@ -1060,7 +991,6 @@ exports[`Pagination should render id if provided 1`] = `
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to previous page. Current page: 2."
@@ -1084,9 +1014,6 @@ exports[`Pagination should render id if provided 1`] = `
     </a>
   </li>
   <li
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
     className="theme-page-index"
     onSelect={[Function]}
   >
@@ -1097,7 +1024,6 @@ exports[`Pagination should render id if provided 1`] = `
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to next page. Current page: 2."
@@ -1123,7 +1049,6 @@ exports[`Pagination should render id if provided 1`] = `
   <li
     className="btn-link"
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Go to last page."
@@ -1156,7 +1081,6 @@ exports[`Pagination should render menu item with "All" title when size is -1 1`]
 >
   <li
     className="dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
@@ -1182,7 +1106,6 @@ exports[`Pagination should render menu item with "All" title when size is -1 1`]
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -1197,7 +1120,6 @@ exports[`Pagination should render menu item with "All" title when size is -1 1`]
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -1212,7 +1134,6 @@ exports[`Pagination should render menu item with "All" title when size is -1 1`]
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
@@ -1227,7 +1148,6 @@ exports[`Pagination should render menu item with "All" title when size is -1 1`]
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           href="#"
