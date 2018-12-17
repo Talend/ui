@@ -177,7 +177,7 @@ function toGithub({ load, github }) {
 	// extract version (major.minor)
 	const version = getVersion();
 	const options = {
-		branchName: `release/${project}/${version}`,
+		branchName: `${project}/${version}.x`,
 		githubUrl: url.replace('https://github.com', `https://${login}:${token}@github.com`),
 		i18nFolder,
 		localesRepoPath: path.join(process.cwd(), 'tmp', 'locales'),
