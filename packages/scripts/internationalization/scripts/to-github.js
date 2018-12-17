@@ -46,8 +46,8 @@ function checkI18nFolder(i18nFolder) {
 		!fs.readdirSync(i18nFolder).length // folder is empty
 	) {
 		error(`
-			"talend-scripts i18n-to-github" need to consume files from xtm.
-			 Please run "talend-scripts download before"
+			No folder found at ${i18nFolder} or the folder is empty.
+			Are you sure you run "talend-scripts download" before ?
 		`);
 	} else {
 		printSuccess(`${i18nFolder} found and contains files to add.`);
