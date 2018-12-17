@@ -1,29 +1,26 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 // See https://docusaurus.io/docs/site-config for all the possible
 // site configuration options.
 
+
+const baseUrl = process.env.NODE_ENV === 'development' ? '/' : '/cmf/';
+
 // List of projects/orgs using your project for the users page.
-const users = [
-	{
-		caption: 'User1',
-		image: '/img/docusaurus.svg',
-		infoLink: 'https://github.com/',
-		pinned: true,
-	},
-];
+// const users = [
+// 	{
+// 		caption: 'User1',
+// 		image: '/img/docusaurus.svg',
+// 		infoLink: 'https://github.com/',
+// 		pinned: true,
+// 	},
+// ];
+
 
 const siteConfig = {
 	title: 'CMF', // Title for your website.
 	tagline: 'A framework to create React webapp',
 	customDocsPath: 'docs',
-	url: 'https://talend.github.io', // Your website URL
-	baseUrl: '/cmf', // Base URL for your project */
+	url: 'http://talend.surge.sh', // Your website URL
+	baseUrl, // Base URL for your project */
 	// For github.io type URLs, you would set the url and baseUrl like:
 	//   url: 'https://facebook.github.io',
 	//   baseUrl: '/test-site/',
@@ -38,13 +35,13 @@ const siteConfig = {
 	// For no header links in the top nav bar -> headerLinks: [],
 	headerLinks: [
 		{ doc: 'getting-started', label: 'Docs' },
-		{ href: '/jsdoc', label: 'API' },
+		{ href: 'jsdoc', label: 'API' },
 		{ page: 'help', label: 'Help' },
 		{ blog: true, label: 'Blog' },
 	],
 
 	// If you have users set above, you add it here:
-	users,
+	// users,
 
 	/* path to images for header/footer */
 	headerIcon: 'img/docusaurus.svg',
@@ -53,7 +50,7 @@ const siteConfig = {
 
 	/* Colors for website */
 	colors: {
-		primaryColor: '#2E8555',
+		primaryColor: '#236192',
 		secondaryColor: '#205C3B',
 	},
 
