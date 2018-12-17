@@ -150,21 +150,6 @@ function pushI18nFiles(options, repoCmdContext) {
 	printSuccess('pushed');
 }
 
-function pushTag({ tagName }, repoCmdContext) {
-	printRunning(`git tag ${tagName} -f`);
-	spawn.sync('git', ['tag', tagName, '-f'], repoCmdContext);
-
-	printRunning(`git push origin :refs/tags/${tagName}`);
-	spawn.sync('git', ['push', 'origin', `:refs/tags/${tagName}`], repoCmdContext);
-
-	printRunning('git push --tags');
-	const { status } = spawn.sync('git', ['push', '--tags'], repoCmdContext);
-	if (status !== 0) {
-		error('Error while setting tag to current head');
-	}
-	printSuccess('Tag placed to current head');
-}
-
 function toGithub({ load, github }) {
 	const { login, token } = getGithubVariables();
 	const { url } = github;
@@ -177,12 +162,11 @@ function toGithub({ load, github }) {
 	// extract version (major.minor)
 	const version = getVersion();
 	const options = {
-		branchName: `${project}/${version}.x`,
+		branchName: `${project}/${version}`,
 		githubUrl: url.replace('https://github.com', `https://${login}:${token}@github.com`),
 		i18nFolder,
 		localesRepoPath: path.join(process.cwd(), 'tmp', 'locales'),
 		project,
-		tagName: `${project}/${version}`,
 		version,
 	};
 
@@ -196,9 +180,6 @@ function toGithub({ load, github }) {
 
 	// copy files (overwrite) / commit / push
 	pushI18nFiles(options, repoCmdContext);
-
-	// create or move tag
-	pushTag(options, repoCmdContext);
 }
 
 module.exports = toGithub;
