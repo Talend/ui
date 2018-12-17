@@ -1,0 +1,10 @@
+{
+  "docs": {
+    "Getting Started": ["getting-started", "what-is-cmf"],
+    "Core concept": ["core-settings", "core-registry"],
+    "How to": ["howto-addpage", "howto-collections", "howto-connect", "howto-configure-redux"],
+    "Pattern": ["best-practices"]
+  },
+  "docs-other": {
+  }
+}

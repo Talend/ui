@@ -4,6 +4,7 @@ echo "cp DEMO"
 cd "$TRAVIS_BUILD_DIR"
 
 cp -R packages/cmf/docs/jsdoc .static/cmf
+cp -R packages/cmf/website/build/cmf-docs/* .static/cmf
 echo "✓ Copy cmf jsdoc to .static"
 
 cp -R packages/components/storybook-static/* .static/components

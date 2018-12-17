@@ -1,6 +1,6 @@
 
-Settings
-==
+# Settings
+
 
 Settings are your app configuration.
 You configure 3 things :
