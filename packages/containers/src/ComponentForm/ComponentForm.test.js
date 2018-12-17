@@ -365,7 +365,7 @@ describe('ComponentForm', () => {
 				expect(args.type).toBe(TCompForm.ON_CHANGE);
 				expect(args.component).toBe(TCompForm.displayName);
 				expect(args.componentId).toBe(componentId);
-				expect(args.event).toBe(event);
+				expect(args.event).toBe(undefined);
 				expect(args.schema).toBe(changePayload.schema);
 				expect(args.value).toBe(changePayload.value);
 				expect(args.properties).toBe(changePayload.properties);
@@ -447,7 +447,7 @@ describe('ComponentForm', () => {
 				expect(args.type).toBe(TCompForm.ON_SUBMIT);
 				expect(args.component).toBe(TCompForm.displayName);
 				expect(args.componentId).toBe(componentId);
-				expect(args.event).toBe(event);
+				expect(args.event).toBe(undefined);
 				expect(args.properties).toEqual(payload);
 			});
 		});
