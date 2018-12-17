@@ -1,4 +1,11 @@
 {
+  "name": "@talend/react-cmf-docs",
+  "private": true,
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
   "scripts": {
     "postinstall": "yarn build",
     "examples": "docusaurus-examples",
