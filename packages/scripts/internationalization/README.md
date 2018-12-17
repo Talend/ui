@@ -186,9 +186,9 @@ This scripts will extract the version (major.minor) from files at project root.
 * package.json
 * pom.xml
 
-The i18n files will be pushed to a branch `{XTM_project}/major.minor.x`, and a tag `{XTM_project}/major.minor` is set at each new push.
+The i18n files will be pushed to a branch `{XTM_project}/{version}`.
 
-With this branch and tag structure, the locales for your project can be downloaded from a defined url.
+With this branch structure, the locales for your project can be downloaded from a defined url.
 ```
 https://github.com/{github_org}/{repo_name}/archive/{XTM_project}/{version}.zip
 ```
