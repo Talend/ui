@@ -89,7 +89,7 @@ class Datalist extends Component {
 
 		let titleMapFind = titleMap;
 
-		if (!restricted) {
+		if (!restricted && propsValue) {
 			const isMultiple = type === 'array';
 			const values = isMultiple ? propsValue : [propsValue];
 
