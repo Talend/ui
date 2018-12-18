@@ -10,27 +10,12 @@ import CellTitle from '@talend/react-components/lib/VirtualizedList/CellTitle/Ce
 import get from 'lodash/get';
 import omit from 'lodash/omit';
 import pick from 'lodash/pick';
-import cmf, { cmfConnect } from '@talend/react-cmf';
+import { cmfConnect } from '@talend/react-cmf';
 
 import { getActionsProps } from '../actionAPI';
 import Constants from './List.constant';
 
-function mapStateToProps(state, ownProps) {
-	let props = {};
-	if (ownProps.columnData) {
-		props = {
-			columnData: cmf.expression.getProps(ownProps.columnData, [], {
-				store: {
-					getState: () => state,
-				},
-			}),
-		};
-	}
-	return props;
-}
-
 const ConnectedCellTitle = cmfConnect({
-	mapStateToProps,
 	omitCMFProps: true,
 	withComponentRegistry: true,
 	withDispatch: true,
