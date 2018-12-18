@@ -16,22 +16,16 @@ import { getActionsProps } from '../actionAPI';
 import Constants from './List.constant';
 
 function mapStateToProps(state, ownProps) {
-	let props = {};
 	if (ownProps.columnData) {
-		props = {
-			columnData: cmf.expression.getProps(
-				ownProps.columnData,
-				[],
-				{
-					store: {
-						getState: () => state,
-					},
-					props: ownProps,
-				},
-			),
-		};
+		const exp = cmf.expression.mapStateToProps(state, ownProps.columnData);
+		return Object.keys(exp).length ? {
+			columnData: {
+				...ownProps.columnData,
+				...exp,
+			},
+		} : {};
 	}
-	return props;
+	return {};
 }
 
 const ConnectedCellTitle = cmfConnect({
