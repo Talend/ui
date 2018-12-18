@@ -21,10 +21,14 @@ The examples below configure
 
 ## Create your connected container
 
+you can use our component generator with the command `yo talend:react-component` and choose cmfConnect option.
+
+Then in your component just do the following:
+
 ```javascript
 import React from 'react';
 import PropTypes from 'prop-types';
-import cmf, { cmfConnect } from 'react-cmf';
+import { cmfConnect } from 'react-cmf';
 
 /**
  * Pure component
@@ -90,7 +94,7 @@ To learn more on that take a look at [cmfConnect](https://github.com/Talend/ui/t
 
 ## Register your component
 
-In your app configuration phase, _index.js_
+In your app _index.js_ add in the bootstrap your new component:
 
 ```javascript
 import cmf from 'react-cmf';
@@ -105,7 +109,7 @@ cmf.bootstrap({
 
 ## Register your action creator
 
-In your app configuration phase, index.js_
+In your app index.js_ add the actionCreator:
 
 ```javascript
 import cmf from 'react-cmf';
@@ -115,12 +119,15 @@ cmf.bootstrap({
     actionCreators: {
         'my:action': myAction,
     },
+    components: {
+        //...
+    }
 });
 ```
 
 ## Add your route Settings configuration
 
-In your app _settings.json_
+In your app src/settings/_routes.json_ you can add the new route to that page
 
 ```json
 {
@@ -140,7 +147,7 @@ In your app _settings.json_
 
 ## Add your props settings configuration
 
-In your app _settings.json_
+In your app _MyContainer.json_
 
 ```json
 {
