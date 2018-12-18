@@ -134,10 +134,10 @@ export default class UIForm extends React.Component {
 	/**
 	 * On user reset change local state and call this.props.onReset
 	 */
-	onReset() {
+	onReset(event) {
 		this.setState(setInitialStateAsLiveState);
 		if (typeof this.props.onReset === 'function') {
-			this.props.onReset();
+			this.props.onReset(event);
 		}
 	}
 
