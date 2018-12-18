@@ -17,18 +17,15 @@ import Constants from './List.constant';
 
 function mapStateToProps(state, ownProps) {
 	if (ownProps.columnData) {
-		const exp = cmf.expression.mapStateToProps(
-			state,
-			ownProps.columnData,
-			{ props: ownProps },
-		);
-		return Object.keys(exp).length ?
-			{
-				columnData: {
-					...cmf.expression.mergeProps(ownProps.columnData),
-					...exp,
-				},
-			} : {};
+		const exp = cmf.expression.mapStateToProps(state, ownProps.columnData, { props: ownProps });
+		return Object.keys(exp).length
+			? {
+					columnData: {
+						...cmf.expression.mergeProps(ownProps.columnData),
+						...exp,
+					},
+			  }
+			: {};
 	}
 	return {};
 }
