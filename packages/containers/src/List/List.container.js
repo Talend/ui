@@ -19,16 +19,12 @@ function mapStateToProps(state, ownProps) {
 	let props = {};
 	if (ownProps.columnData) {
 		props = {
-			columnData: cmf.expression.getProps(
-				ownProps.columnData,
-				[],
-				{
-					store: {
-						getState: () => state,
-					},
-					props: ownProps,
+			columnData: cmf.expression.getProps(ownProps.columnData, [], {
+				store: {
+					getState: () => state,
 				},
-			),
+				props: ownProps,
+			}),
 		};
 	}
 	return props;
