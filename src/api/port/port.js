@@ -61,7 +61,7 @@ export function isTopologyElseThrow(topology) {
 		return true;
 	}
 	throwInDev(
-		`Should be a topology 'SOURCE' or 'SINK', was given ${topology && topology.toString()}`,
+		`Should be a topology 'OUTGOING' or 'INCOMING', was given ${topology && topology.toString()}`,
 	);
 	return false;
 }

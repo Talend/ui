@@ -11,6 +11,7 @@ import {
 	FLOWDESIGNER_NODE_REMOVE_DATA,
 	FLOWDESIGNER_NODE_SET_SIZE,
 	FLOWDESIGNER_NODE_REMOVE,
+	FLOWDESIGNER_NODE_UPDATE,
 } from '../constants/flowdesigner.constants';
 
 /**
@@ -170,5 +171,11 @@ export const removeNodeData = (nodeId, dataKey) => ({
  */
 export const removeNode = nodeId => ({
 	type: FLOWDESIGNER_NODE_REMOVE,
+	nodeId,
+});
+
+export const update = (nodeId, node) => ({
+	type: FLOWDESIGNER_NODE_UPDATE,
+	node,
 	nodeId,
 });

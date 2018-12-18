@@ -1919,7 +1919,7 @@ Object {
   "parents": Object {
     "id1": Object {},
     "id2": Object {
-      "id1": undefined,
+      "id1": "id1",
     },
     "id3": Object {},
   },
@@ -2058,7 +2058,7 @@ exports[`check linkreducer FLOWDESIGNER_LINK_SET_TARGET switch target to correct
 Object {
   "childrens": Object {
     "id1": Object {
-      "id3": undefined,
+      "id3": "id3",
     },
     "id2": Object {},
     "id3": Object {},
