@@ -1,7 +1,7 @@
 {
     "opts": {
       "recurse": true,
-      "destination": "website/static/jsdoc",
+      "destination": "jsdoc",
       "readme": "README.md"
     },
     "source": {
