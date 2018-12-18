@@ -22,12 +22,13 @@ function mapStateToProps(state, ownProps) {
 			ownProps.columnData,
 			{ props: ownProps },
 		);
-		return Object.keys(exp).length ? {
-			columnData: {
-				...ownProps.columnData,
-				...exp,
-			},
-		} : {};
+		return Object.keys(exp).length ?
+			{
+				columnData: {
+					...cmf.expression.mergeProps(ownProps.columnData),
+					...exp,
+				},
+			} : {};
 	}
 	return {};
 }
