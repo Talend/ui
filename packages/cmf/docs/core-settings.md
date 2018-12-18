@@ -12,8 +12,6 @@ The settings are your app configuration. You configure 3 things :
 
 There is a `settingsURL` option in bootstrap, will trigger an action to fetch it. The proper settings reducer will store them in `state.cmf.settings`.
 
-It's purely internal API and should be used only for extension purpose (like add a new entry in the settings)
-
 ```javascript
 cmf.bootstrap({
     settingsURL: '/settings.en.json',
@@ -22,8 +20,7 @@ cmf.bootstrap({
 
 ## props
 
-props will be pass to a `connected component` automaticly.
-Connected component try to find in settings this props by themself. This is a core feature of CMF.
+When you `cmfConnect` a component on each render it will try to find settings for him. The lookup is based on the `displayName#componentId`.
 
 The following settings structure do that:
 
@@ -60,7 +57,7 @@ The following settings structure do that:
 }
 ```
 
-The props `HomeListView#datasets` will be injected to the component `HomeListView` which must be **cmfConnect**ed and instanciate with a `componentId`=**datasets**
+The `HomeListView` component rendered with componentId="datasets" will map this settings to its props.
 
 Something like this
 
@@ -78,11 +75,11 @@ export default cmfConnect()(HomeListView);
 ```
 
 
-The props settings are a dictionary. It should follow some rules :
+The props settings are dictionaries. It propose the following features to help you pass the wanted props:
 
-* `actions` are references to an action setting id (ex : `"didMountActionCreator": "dataset:fetchAll"` where `dataset:fetchAll` is an action id)
+* if the props name ends with **Expression** it will be evaluated. [Read more on expressions](./core-expressions)
 * it can have references to common settings parts (ex: `"header": { "_ref": "AppHeaderBar#default" }` where `AppHeaderBar#default` is a definition from `ref` part). CMF will replace the refs by the actual definitions.
-* it can use event handler static description using [onEvent data structure](https://github.com/Talend/ui/tree/master/packages/cmf/onEvent.md)
+* it can use event handler static description using [onEvent data structure](https://github.com/Talend/ui/tree/master/packages/cmf/src/onEvent.md)
 
 ## Routes
 

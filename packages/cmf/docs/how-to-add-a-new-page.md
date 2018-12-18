@@ -49,7 +49,7 @@ MyComponent.propTypes = {
  * The container will resolve the action from actionId and pass the dispatcher to the pure component
  */
 class MyContainer extends React.Component {
-    static displayName = 'MyContainer';
+    static displayName = 'MyContainer'; // this is mandatory
     static propTypes = {
         label: PropTypes.string.isRequired,
         link: PropTypes.bool,
@@ -58,6 +58,9 @@ class MyContainer extends React.Component {
 
     onClick(event) {
         this.props.dispatchActionCreator('my:action');
+        if (props.onClick) {
+            props.onClick(event);
+        }
     }
 
     render() {
@@ -77,31 +80,42 @@ function mapStateToProps(state, ownProps) {
 }
 
 // connect your container to redux
-export default cmfConnect({mapStateToProps})(MyContainer);
+export default cmfConnect({
+    mapStateToProps
+    withDispatchActionCreator: true,
+})(MyContainer);
 ```
 
 To learn more on that take a look at [cmfConnect](https://github.com/Talend/ui/tree/master/packages/cmf/src/cmfConnect.md)
 
 ## Register your component
 
-In your app configuration phase, _configure.js_
+In your app configuration phase, _index.js_
 
 ```javascript
 import cmf from 'react-cmf';
 import MyContainer from '../components/my-container';
 
-cmf.component.register('MyContainer', MyContainer);
+cmf.bootstrap({
+    components: {
+        'MyContainer': MyContainer,
+    },
+});
 ```
 
 ## Register your action creator
 
-In your app configuration phase, _configure.js_
+In your app configuration phase, index.js_
 
 ```javascript
 import cmf from 'react-cmf';
 import myAction from '../actions/my-action';
 
-cmf.actionCreator.register('my:action', myAction);
+cmf.bootstrap({
+    actionCreators: {
+        'my:action': myAction,
+    },
+});
 ```
 
 ## Add your route Settings configuration
@@ -117,7 +131,7 @@ In your app _settings.json_
             {
                 "path": "newRoute",
                 "component": "MyContainer",
-                "view": "myContainerView"
+                "componentId": "my"
             }
         ]
     }
@@ -131,26 +145,9 @@ In your app _settings.json_
 ```json
 {
     "props": {
-        "MyContainer#myContainerView": {
+        "MyContainer#my": {
             "label": "my action",
             "link": true
-        }
-    }
-}
-```
-
-## Add your actions settings configuration
-
-In your app _settings.json_
-
-Here we rely on an actionCreator, but you can pass a `payload` object property instead of the `actionCreator` that would be dispatched to redux.
-
-```json
-{
-    "actions": {
-        "myClickAction": {
-            "id": "myClickAction",
-            "actionCreator": "my:action"
         }
     }
 }
