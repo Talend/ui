@@ -2,7 +2,8 @@
   "docs": {
     "Getting Started": ["getting-started", "what-is-cmf"],
     "Core concept": ["core-settings", "core-registry"],
-    "How to": ["howto-addpage", "howto-collections", "howto-connect", "howto-configure-redux"],
+    "Integration": ["package-redux", "package-saga", "package-router"],
+    "How to": ["howto-addpage", "howto-collections", "howto-connect"],
     "Other": ["best-practices", "api"]
   },
   "docs-other": {

@@ -4,11 +4,12 @@ title: "What is CMF ?"
 sidebar_label: What is CMF
 ---
 
-CMF stands for Content Management Framework. It helps you to build an application in React with a system to configure your contents and much more.
+CMF is a framework to helps you to build an application in React with a system to configure your components and much more.
 
 It combines
 * [React](https://reactjs.org)
 * [Redux](https://redux.js.org/)
+* [Saga](https://redux-saga.js.org)
 
 Based on a `component / action creator` registry and a `settings` format, you configure your entire app
 * the routes
@@ -34,16 +35,9 @@ Based on a `component / action creator` registry and a `settings` format, you co
 
 ![CMF Bootstrap sequence diagram](assets/CMF-bootstrap-diagram.png)
 
-* Bootstrap your app with the provided `<App />` component
-* CMF instantiates the right component on a requested route, injecting the props
+* Bootstrap will fill the registry and configure all addons
+* Then it will then render the `RootComponent` into the DOM
+
+A typical user interaction will look like this:
 
 ![CMF action sequence diagram](assets/CMF-action-diagram.png)
-
-
-## Extra features
-
-CMF comes with handy features
-* Error redux `middleware` [Doc](https://github.com/Talend/ui/tree/master/packages/cmf/src/middlewares/error/index.md).
-* HTTP operations `actions` and redux `middleware` [Doc](https://github.com/Talend/ui/tree/master/packages/cmf/src/middlewares/http/index.md).
-* CMF internal `middleware` [Doc](https://github.com/Talend/ui/tree/master/packages/cmf/src/middlewares/cmf/index.md).
-* Actions utility to get and configure easily the `action creators` [Doc](./api-action).

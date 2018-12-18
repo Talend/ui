@@ -35,23 +35,23 @@ const siteConfig = {
 	// For no header links in the top nav bar -> headerLinks: [],
 	headerLinks: [
 		{ doc: 'getting-started', label: 'Docs' },
-		{ href: 'jsdoc', label: 'API' },
-		{ page: 'help', label: 'Help' },
+		{ doc: 'api', label: 'API' },
 		{ blog: true, label: 'Blog' },
+		{ href: 'https://github.com/Talend/ui', label: 'Github', external: true },
 	],
 
 	// If you have users set above, you add it here:
 	// users,
 
 	/* path to images for header/footer */
-	headerIcon: 'img/docusaurus.svg',
-	footerIcon: 'img/docusaurus.svg',
+	// headerIcon: 'img/docusaurus.svg',
+	// footerIcon: 'img/docusaurus.svg',
 	favicon: 'img/favicon.png',
 
 	/* Colors for website */
 	colors: {
 		primaryColor: '#236192',
-		secondaryColor: '#205C3B',
+		secondaryColor: '#b6be00',
 	},
 
 	/* Custom fonts for website */
@@ -85,8 +85,8 @@ const siteConfig = {
 	cleanUrl: true,
 
 	// Open Graph and Twitter card images.
-	ogImage: 'img/docusaurus.png',
-	twitterImage: 'img/docusaurus.png',
+	// ogImage: 'img/docusaurus.png',
+	// twitterImage: 'img/docusaurus.png',
 
 	// Show documentation's last contributor's name.
 	// enableUpdateBy: true,

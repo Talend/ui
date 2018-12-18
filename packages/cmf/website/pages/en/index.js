@@ -70,13 +70,13 @@ function HomeSplash(props) {
 
 	return (
 		<SplashContainer>
-			<Logo img_src={`${baseUrl}img/docusaurus.svg`} />
+			<Logo img_src={`${baseUrl}img/react.png`} />
 			<div className="inner">
 				<ProjectTitle siteConfig={siteConfig} />
 				<PromoSection>
 					<Button siteConfig={siteConfig} href="#try">Try It Out</Button>
-					<Button siteConfig={siteConfig} href={docUrl('doc1.html')}>Example Link</Button>
-					<Button siteConfig={siteConfig} href={docUrl('howto.html')}>Example Link 2</Button>
+					<Button siteConfig={siteConfig} href={docUrl('getting-started')}>Getting started</Button>
+					<Button siteConfig={siteConfig} href={docUrl('api')}>API</Button>
 				</PromoSection>
 			</div>
 		</SplashContainer>
@@ -98,7 +98,15 @@ function FeatureCallout() {
 	return (
 		<div className="productShowcaseSection paddingBottom" style={{ textAlign: 'center' }}>
 			<h2>Feature Callout</h2>
-			<MarkdownBlock>These are features of this project</MarkdownBlock>
+			<MarkdownBlock>{
+`**React**: for rendering
+
+**Redux** to centralize state
+
+**Saga** to manage effects
+`
+			}
+			</MarkdownBlock>
 		</div>
 	);
 }
@@ -108,7 +116,7 @@ function Index(props) {
 	const { baseUrl } = siteConfig;
 
 	const TryOut = () => (
-		<Block id="try" align="left">
+		<Block id="try" align="left" background="light">
 			{[
 				{
 					title: 'Try out CMF',
@@ -127,26 +135,18 @@ yo talend:react-cmf
 	);
 
 	const Description = () => (
-		<Block background="dark">
+		<Block align="left">
 			{[
 				{
-					content: 'This is another description of how this project is useful',
-					image: `${baseUrl}img/docusaurus.svg`,
+					title: 'Why CMF ?',
+					content: `
+* add a framework thin layer so every teams work the same way
+* bring a set of common addons to have same solutions
+* it must be easy to extend an app (entreprise version of it)
+* it must be easy to use any components library with it
+					`,
+					image: `${baseUrl}img/books.png`,
 					imageAlign: 'right',
-					title: 'Description',
-				},
-			]}
-		</Block>
-	);
-
-	const LearnHow = () => (
-		<Block background="light">
-			{[
-				{
-					content: 'Talk about learning how to use this',
-					image: `${baseUrl}img/docusaurus.svg`,
-					imageAlign: 'right',
-					title: 'Learn How',
 				},
 			]}
 		</Block>
@@ -157,48 +157,21 @@ yo talend:react-cmf
 			{[
 				{
 					title: 'Settings',
-					content: 'cmfConnect()(Component) and your Component bring powerfull tools. [Read more](/docs/core-settings)',
-					image: `${baseUrl}img/docusaurus.svg`,
+					content: 'Control all your components without code.',
+					image: `${baseUrl}img/settings.svg`,
 					imageAlign: 'top',
+					imageLink: '/docs/core-settings',
 				},
 				{
 					title: 'Registry for DI',
-					content: 'start your app in just two lines of code and bring redux for free [Read more](/docs/core-registry)',
-					image: `${baseUrl}img/docusaurus.svg`,
+					content: 'start your app in just two lines of code and bring redux for free',
+					image: `${baseUrl}img/di.svg`,
 					imageAlign: 'top',
+					imageLink: '/docs/core-registry',
 				},
 			]}
 		</Block>
 	);
-
-	const Showcase = () => {
-		if ((siteConfig.users || []).length === 0) {
-			return null;
-		}
-
-		const showcase = siteConfig.users
-			.filter(user => user.pinned)
-			.map(user => (
-				<a href={user.infoLink} key={user.infoLink}>
-					<img src={user.image} alt={user.caption} title={user.caption} />
-				</a>
-			));
-
-		const pageUrl = page => baseUrl + (language ? `${language}/` : '') + page;
-
-		return (
-			<div className="productShowcaseSection paddingBottom">
-				<h2>Who is Using This?</h2>
-				<p>This project is used by all these people</p>
-				<div className="logos">{showcase}</div>
-				<div className="more-users">
-					<a className="button" href={pageUrl('users.html')}>
-						More {siteConfig.title} Users
-					</a>
-				</div>
-			</div>
-		);
-	};
 
 	return (
 		<div>
@@ -206,10 +179,8 @@ yo talend:react-cmf
 			<div className="mainContainer">
 				<Features />
 				<FeatureCallout />
-				<LearnHow />
 				<TryOut />
 				<Description />
-				<Showcase />
 			</div>
 		</div>
 	);

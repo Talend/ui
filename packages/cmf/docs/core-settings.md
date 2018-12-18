@@ -4,9 +4,9 @@ title: Settings
 ---
 
 The settings are your app configuration. You configure 3 things :
-* the `props`, which are basically the props to pass to a `component`
+* the `props`, which are taken by cmfConnected *component*
 * the `actions`, which are the actions definitions (Deprecated in favor of props)
-* the `routes`, which is a combination of a `path`, a `component`, and a `componentId` (component configuration or props)
+* the `routes`, which is a combination of a *path*, a *component*, and a `componentId` (component configuration or props) provided by `@talend/react-cmf-router`
 
 ## Load settings in CMF
 
@@ -121,6 +121,8 @@ CMF uses [React router](https://github.com/ReactTraining/react-router). The defi
 
 
 ## Actions (Deperacted)
+
+This is deprecated because it serve the exact same feature as `props` without many features of it.
 
 An action is a definition that holds **at least** the info to dispatch.
 
