@@ -4,6 +4,7 @@ How uncertainty is handled in this API.
 ## extracting values from a given value (get*)
 On dev mode:
 - if the parameters are not fitting, throw an exception
+
 On prod mode:
 - if parameter are not fitting, don't throw, but return null.
 

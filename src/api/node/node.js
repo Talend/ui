@@ -18,7 +18,7 @@ const sizeSelector = ['graphicalAttributes', 'nodeSize'];
 const componentTypeSelector = ['graphicalAttributes', 'nodeType'];
 
 /** in future properties should be removed from the react-flow-designer lib */
-const FORBIDEN_GRAPHICAL_ATTRIBUTES = ['properties', 'position', 'nodeSize', 'nodeType'];
+const FORBIDEN_GRAPHICAL_ATTRIBUTES = ['position', 'nodeSize', 'nodeType'];
 
 /**
  * @desc represent a Node on the flow diagram

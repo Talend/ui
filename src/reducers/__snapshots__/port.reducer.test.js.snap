@@ -95,7 +95,7 @@ Object {
         },
         "properties": Object {
           "index": 1,
-          "type": "SOURCE",
+          "type": "OUTGOING",
         },
       },
       "id": "portId",
@@ -215,7 +215,7 @@ Object {
         },
         "properties": Object {
           "index": 0,
-          "type": "SOURCE",
+          "type": "OUTGOING",
         },
       },
       "id": "portId1",
@@ -241,7 +241,7 @@ Object {
         },
         "properties": Object {
           "index": 0,
-          "type": "SINK",
+          "type": "INCOMING",
         },
       },
       "id": "portId2",
@@ -267,7 +267,7 @@ Object {
         },
         "properties": Object {
           "index": 1,
-          "type": "SINK",
+          "type": "INCOMING",
         },
       },
       "id": "portId3",

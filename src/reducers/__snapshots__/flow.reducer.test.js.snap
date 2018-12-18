@@ -13,9 +13,6 @@ Object {
   "nodes": Object {
     "node2": Object {
       "data": Object {
-        "datasetInfo": Object {},
-        "description": "",
-        "label": "",
         "properties": Object {},
       },
       "getNodeType": [Function],
@@ -40,9 +37,6 @@ Object {
     },
     "nodeId": Object {
       "data": Object {
-        "datasetInfo": Object {},
-        "description": "",
-        "label": "",
         "properties": Object {},
       },
       "getNodeType": [Function],
@@ -79,7 +73,6 @@ Object {
   "ports": Object {
     "portId": Object {
       "data": Object {
-        "flowType": undefined,
         "properties": Object {},
       },
       "getIndex": [Function],
@@ -88,14 +81,13 @@ Object {
       "getPortType": [Function],
       "getPosition": [Function],
       "graphicalAttributes": Object {
-        "portType": undefined,
         "position": Object {
           "x": undefined,
           "y": undefined,
         },
         "properties": Object {
           "index": 0,
-          "type": "SOURCE",
+          "type": "OUTGOING",
         },
       },
       "id": "portId",
@@ -126,9 +118,6 @@ Object {
   "nodes": Object {
     "nodeId": Object {
       "data": Object {
-        "datasetInfo": Object {},
-        "description": "",
-        "label": "",
         "properties": Object {},
       },
       "getNodeType": [Function],
@@ -202,9 +191,6 @@ Object {
   "nodes": Object {
     "node2": Object {
       "data": Object {
-        "datasetInfo": Object {},
-        "description": "",
-        "label": "",
         "properties": Object {},
       },
       "getNodeType": [Function],
@@ -229,9 +215,6 @@ Object {
     },
     "nodeId": Object {
       "data": Object {
-        "datasetInfo": Object {},
-        "description": "",
-        "label": "",
         "properties": Object {},
       },
       "getNodeType": [Function],
@@ -268,7 +251,6 @@ Object {
   "ports": Object {
     "portId": Object {
       "data": Object {
-        "flowType": undefined,
         "properties": Object {},
       },
       "getIndex": [Function],
@@ -277,14 +259,13 @@ Object {
       "getPortType": [Function],
       "getPosition": [Function],
       "graphicalAttributes": Object {
-        "portType": undefined,
         "position": Object {
           "x": undefined,
           "y": undefined,
         },
         "properties": Object {
           "index": 0,
-          "type": "SOURCE",
+          "type": "OUTGOING",
         },
       },
       "id": "portId",

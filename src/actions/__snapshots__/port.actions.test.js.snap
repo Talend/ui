@@ -7,7 +7,7 @@ Array [
     "graphicalAttributes": Object {
       "portType": "test",
       "properties": Object {
-        "type": "SINK",
+        "type": "INCOMING",
       },
     },
     "id": "portId",

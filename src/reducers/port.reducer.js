@@ -77,6 +77,11 @@ function indexPortMap(ports: PortRecordMap): PortRecordMap {
 		});
 }
 
+/**
+ * @todo migration to new API
+ * @param {*} state 
+ * @param {*} port 
+ */
 function setPort(state: State, port: Port) {
 	const index: number =
 		port.graphicalAttributes.properties.index ||
@@ -86,11 +91,11 @@ function setPort(state: State, port: Port) {
 		new PortRecord({
 			id: port.id,
 			nodeId: port.nodeId,
-			data: new PortData(port.data).set(
+			data: new Map(port.data).set(
 				'properties',
 				fromJS(port.data && port.data.properties) || new Map(),
 			),
-			graphicalAttributes: new PortGraphicalAttributes(port.graphicalAttributes)
+			graphicalAttributes: new Map(port.graphicalAttributes)
 				.set('position', new PositionRecord(port.graphicalAttributes.position))
 				.set(
 					'properties',

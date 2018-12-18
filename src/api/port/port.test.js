@@ -36,13 +36,13 @@ describe('isPortElseThrow', () => {
 });
 
 describe('isTopologyElseThrow', () => {
-	it('return true if given parameter is a valid Typologu', () => {
-		expect(Port.isTopologyElseThrow('SINK')).toBe(true);
+	it('return true if given parameter is a valid Topology', () => {
+		expect(Port.isTopologyElseThrow('INCOMING')).toBe(true);
 	});
-	it('throw if given parameter is not  a valid Typologu and doThrow is true', () => {
+	it('throw if given parameter is not  a valid Topology and doThrow is true', () => {
 		const invalidtopology = 'LOOKUP';
 		expect(() => Port.isTopologyElseThrow('LOOKUP', true)).toThrow(
-			`Should be a topology 'SOURCE' or 'SINK', was given ${invalidtopology}`,
+			`Should be a topology 'OUTGOING' or 'INCOMING', was given ${invalidtopology}`,
 		);
 	});
 });
@@ -52,7 +52,7 @@ describe('port api', () => {
 	const nodeId = 'NODE_ID';
 	const position = Position.create(10, 10);
 	const index = 1;
-	const topology = 'SOURCE';
+	const topology = 'OUTGOING';
 	const portType = 'PortType';
 	const testPort = Port.create(id, nodeId, index, topology, portType);
 	const key = 'KEY';
@@ -253,7 +253,7 @@ describe('port api', () => {
 	describe('setTopology', () => {
 		it('given a proper Port and topology return a Port with updated topology', () => {
 			// given
-			const newTopology = 'SINK';
+			const newTopology = 'INCOMING';
 			// when
 			const test = Port.setTopology(newTopology, testPort);
 			// expect

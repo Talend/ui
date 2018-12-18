@@ -1,4 +1,4 @@
-import { Map, fromJS } from 'immutable';
+import Immutable, { Map, fromJS } from 'immutable';
 import invariant from 'invariant';
 import { removePort } from '../actions/port.actions';
 import portReducer from './port.reducer';
@@ -17,13 +17,14 @@ import {
 	FLOWDESIGNER_NODE_REMOVE_DATA,
 	FLOWDESIGNER_NODE_SET_SIZE,
 	FLOWDESIGNER_NODE_REMOVE,
+	FLOWDESIGNER_NODE_UPDATE,
 } from '../constants/flowdesigner.constants';
+import { Node } from './../api';
 import {
 	NodeRecord,
 	PositionRecord,
 	SizeRecord,
 	NodeGraphicalAttributes,
-	NodeData,
 } from '../constants/flowdesigner.model';
 
 const defaultState = new Map();
@@ -42,7 +43,7 @@ const nodeReducer = (state = defaultState, action) => {
 					new NodeRecord({
 						id: action.nodeId,
 						type: action.nodeType,
-						data: new NodeData(action.data).set(
+						data: new Immutable.Map(action.data).set(
 							'properties',
 							fromJS(action.data && action.data.properties) || new Map(),
 						),
@@ -64,6 +65,18 @@ const nodeReducer = (state = defaultState, action) => {
 				.setIn(['in', action.nodeId], new Map())
 				.setIn(['childrens', action.nodeId], new Map())
 				.setIn(['parents', action.nodeId], new Map());
+		case FLOWDESIGNER_NODE_UPDATE:
+			if (action.nodeId === Node.getId(action.node)) {
+				return state.setIn(['nodes', Node.getId(action.node)], action.node);
+			}
+			// special case here, the id got changed and it have lots of implication
+			return state
+				.setIn(['nodes', Node.getId(action.node)], action.node)
+				.deleteIn(['nodes', action.nodeId])
+				.setIn(['out', Node.getId(action.node)], new Map())
+				.setIn(['in', Node.getId(action.node)], new Map())
+				.setIn(['childrens', Node.getId(action.node)], new Map())
+				.setIn(['parents', Node.getId(action.node)], new Map());
 		case FLOWDESIGNER_NODE_MOVE_START:
 			if (!state.getIn('nodes', action.nodeId)) {
 				invariant(false, `Can't move node ${action.nodeId} since it doesn't exist`);
