@@ -17,6 +17,7 @@ import Constants from './List.constant';
 
 function mapStateToProps(state, ownProps) {
 	if (ownProps.columnData) {
+<<<<<<< HEAD
 		const exp = cmf.expression.mapStateToProps(state, ownProps.columnData);
 		return Object.keys(exp).length ? {
 			columnData: {
@@ -24,6 +25,16 @@ function mapStateToProps(state, ownProps) {
 				...exp,
 			},
 		} : {};
+=======
+		props = {
+			columnData: cmf.expression.getProps(ownProps.columnData, [], {
+				store: {
+					getState: () => state,
+				},
+				props: ownProps,
+			}),
+		};
+>>>>>>> 35b982bf64ab18bc4f5156eb55d6a73f5124fbeb
 	}
 	return {};
 }
