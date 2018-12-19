@@ -52,7 +52,7 @@ CMF take the settings, setup the router using the settings, then the router rend
 
 Please read: https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367
 
-## Why Immutable
+## Why Immutable?
 
 By Lee Byron [this video](https://www.youtube.com/watch?v=oTcDmnAXZ4E) explain why immutability is great.
 But it adds API and weight to the bundle.
