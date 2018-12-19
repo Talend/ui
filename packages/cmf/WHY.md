@@ -31,7 +31,7 @@ So now let s try to details each items.
 
 Dependency injection make your app less wired. To understand that we need also to understand import.
 Import is a static link between to files. It creates a dependency.
-When the dependency are locals it s ok but when it comes from external addons it becomes more hard to maintain.
+When the dependency are locals it's OK but when it comes from external add-ons it becomes more hard to maintain.
 
 DI is very nice to create multiple versions of the same product. Without changing code of the original app you can
 change implementation of a given component.
