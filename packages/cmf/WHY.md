@@ -33,7 +33,7 @@ Dependency injection make your app less wired. To understand that we need also t
 Import is a static link between to files. It creates a dependency.
 When the dependency are locals it's OK but when it comes from external add-ons it becomes more hard to maintain.
 
-DI is very nice to create multiple versions of the same product. Without changing code of the original app you can
+Dependency injection is very nice to create multiple versions of the same product. Without changing code of the original app you can
 change implementation of a given component.
 
 If you take angularjs (the one) for example it s all about that.
