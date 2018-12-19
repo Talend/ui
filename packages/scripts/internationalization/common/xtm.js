@@ -115,12 +115,35 @@ function uploadFile(data) {
 		.then(() => data);
 }
 
+function getFilesToDownload(data) {
+	const { project, xtm, version } = data;
+	if (!version) {
+		return data;
+	}
+
+	printRunning(`Get files to download, matching version ${version}...`);
+	return fetch(`${xtm.apiUrl}/projects/${project.id}/status?fetchLevel=JOBS`, {
+		headers: { Authorization: `XTM-Basic ${xtm.token}` },
+	})
+		.then(handleError)
+		.then(res => res.json())
+		.then(({ jobs }) => {
+			data.project.jobs = jobs.filter(({ fileName }) => fileName.startsWith(`${version}/`));
+			printSuccess('Files to download');
+			console.table(data.project.jobs);
+		})
+		.then(() => data);
+}
+
 function downloadFile(data) {
 	const { targetPath, project, xtm } = data;
 
 	printRunning('Download file from XTM project...');
-
-	return fetch(`${xtm.apiUrl}/projects/${project.id}/files/download?fileType=TARGET`, {
+	let jobIds;
+	if (project.jobs) {
+		jobIds = project.jobs.map(({ jobId }) => `jobIds=${jobId}`).join('&');
+	}
+	return fetch(`${xtm.apiUrl}/projects/${project.id}/files/download?fileType=TARGET&${jobIds}`, {
 		headers: { Authorization: `XTM-Basic ${xtm.token}` },
 	})
 		.then(handleError)
@@ -142,6 +165,7 @@ function downloadFile(data) {
 }
 
 module.exports = {
+	getFilesToDownload,
 	getXTMVariables,
 	login,
 	getProject,

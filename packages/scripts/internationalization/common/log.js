@@ -15,12 +15,18 @@ function printSection(title) {
 function printSuccess(text) {
 	console.log(`✅ ${text}`);
 }
+
 function printRunning(text) {
 	console.log(`🏃 ${text}`);
 }
 
+function printInfo(text) {
+	console.log(`ℹ️ ${text}`);
+}
+
 module.exports = {
 	error,
+	printInfo,
 	printSection,
 	printSuccess,
 	printRunning,

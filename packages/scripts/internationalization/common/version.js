@@ -3,40 +3,56 @@ const fs = require('fs');
 const path = require('path');
 const xmlParser = require('xml2json');
 
-const { error, printSection, printSuccess } = require('./log');
+const { error, printInfo, printSection, printSuccess } = require('./log');
 
-module.exports = function getVersion() {
+function getPossibleVersion() {
 	printSection('Extract version');
 	const lernaJsonPath = path.join(process.cwd(), 'lerna.json');
 	const packageJsonPath = path.join(process.cwd(), 'package.json');
 	const pomXmlPath = path.join(process.cwd(), 'pom.xml');
 	const VERSION_REGEX = /^([0-9]+\.[0-9]+).*/;
 
-	let extractedVersion;
-	let source;
 	if (fs.existsSync(lernaJsonPath)) {
 		const { version } = require(lernaJsonPath);
 		const match = version.match(VERSION_REGEX);
 		if (match) {
-			source = 'lerna.json';
-			extractedVersion = match[1];
+			printSuccess('Version found');
+			return {
+				source: 'lerna.json',
+				version: match[1],
+			};
 		}
-	} else if (!extractedVersion && fs.existsSync(packageJsonPath)) {
+	}
+	if (fs.existsSync(packageJsonPath)) {
 		const { version } = require(packageJsonPath);
 		const match = version.match(VERSION_REGEX);
 		if (match) {
-			source = 'package.json';
-			extractedVersion = match[1];
+			printSuccess('Version found');
+			return {
+				source: 'package.json',
+				version: match[1],
+			};
 		}
-	} else if (!extractedVersion && fs.existsSync(pomXmlPath)) {
+	}
+	if (fs.existsSync(pomXmlPath)) {
 		const data = fs.readFileSync(pomXmlPath);
 		const { version } = xmlParser.toJson(data);
 		const match = version.match(VERSION_REGEX);
 		if (match) {
-			source = 'pom.xml';
-			extractedVersion = match[1];
+			printSuccess('Version found');
+			return {
+				source: 'pom.xml',
+				version: match[1],
+			};
 		}
 	}
+
+	printInfo('No version file detected');
+	return null;
+}
+
+function getVersion() {
+	const { source, extractedVersion } = getPossibleVersion();
 
 	if (!extractedVersion) {
 		error(`
@@ -48,4 +64,9 @@ module.exports = function getVersion() {
 
 	printSuccess(`Version extracted from ${source}: ${extractedVersion}`);
 	return extractedVersion;
+}
+
+module.exports = {
+	getPossibleVersion,
+	getVersion,
 };

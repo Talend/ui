@@ -6,7 +6,7 @@ const rimraf = require('rimraf');
 const Zip = require('adm-zip');
 
 const { error, printRunning, printSection, printSuccess } = require('../common/log');
-const getVersion = require('../common/version');
+const { getVersion } = require('../common/version');
 
 function extractNpmYarn({ script, method, target }) {
 	if (!script || !target) {
