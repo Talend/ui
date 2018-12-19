@@ -4,7 +4,6 @@ const rimraf = require('rimraf');
 const spawn = require('cross-spawn');
 
 const { error, printSection, printSuccess, printRunning } = require('../common/log');
-const getVersion = require('../common/version');
 
 function getGithubVariables() {
 	const { GITHUB_LOGIN, GITHUB_TOKEN } = process.env;
@@ -40,7 +39,7 @@ function checkI18nFolder(i18nFolder) {
 	}
 }
 
-function cloneLocalesRepo({ githubUrl, localesRepoPath }) {
+function cloneLocalesRepo(githubUrl, localesRepoPath) {
 	rimraf.sync(localesRepoPath);
 	const { status } = spawn.sync('git', ['clone', githubUrl, localesRepoPath], { stdio: 'inherit' });
 	if (status !== 0) {
@@ -71,6 +70,8 @@ function switchToBranch({ githubUrl, branchName }, repoCmdContext) {
 
 function pushI18nFiles(options, repoCmdContext) {
 	const { branchName, i18nFolder, localesRepoPath, project, version } = options;
+
+	printRunning(`Copy ${i18nFolder}/ files into locales repository ${localesRepoPath}`);
 	spawn.sync('cp', ['-r', `${i18nFolder}/.`, localesRepoPath], { stdio: 'inherit' });
 
 	printRunning('git add .');
@@ -88,7 +89,7 @@ function pushI18nFiles(options, repoCmdContext) {
 	if (status !== 0) {
 		error('Error while pushing');
 	}
-	printSuccess('pushed');
+	printSuccess(`Version ${version} pushed to repository on branch ${branchName}`);
 }
 
 function toGithub({ load, github }) {
@@ -97,30 +98,33 @@ function toGithub({ load, github }) {
 	const { project, target } = load;
 
 	// check if i18n files are here or ask user to perform download
-	const i18nFolder = path.join(process.cwd(), target, 'i18n');
+	const i18nFolder = path.join(process.cwd(), target);
 	checkI18nFolder(i18nFolder);
 
-	// extract version (major.minor)
-	const version = getVersion();
-	const options = {
-		branchName: `${project}/${version}`,
-		githubUrl: url.replace('https://github.com', `https://${login}:${token}@github.com`),
-		i18nFolder,
-		localesRepoPath: path.join(process.cwd(), 'tmp', 'locales'),
-		project,
-		version,
-	};
+	const localesRepoPath = path.join(process.cwd(), 'tmp', 'locales');
+	const githubUrl = url.replace('https://github.com', `https://${login}:${token}@github.com`);
+	const repoCmdContext = { stdio: 'inherit', cwd: localesRepoPath };
 
-	// pull repo using token
-	printSection('i18n to github');
-	cloneLocalesRepo(options);
-	const repoCmdContext = { stdio: 'inherit', cwd: options.localesRepoPath };
+	// clone locales repo to commit the i18n files
+	printSection('Clone repo');
+	cloneLocalesRepo(githubUrl, localesRepoPath);
+	printSuccess(`Locales repository cloned to ${localesRepoPath}`);
 
-	// pull or create branch
-	switchToBranch(options, repoCmdContext);
-
-	// copy files (overwrite) / commit / push
-	pushI18nFiles(options, repoCmdContext);
+	// for each version folder, push the files to github
+	const i18nContent = fs.readdirSync(i18nFolder);
+	i18nContent.forEach(version => {
+		printSection(`Version ${version}`);
+		const versionOptions = {
+			branchName: `${project}/${version}`,
+			githubUrl,
+			i18nFolder: path.join(i18nFolder, version),
+			localesRepoPath,
+			project,
+			version,
+		};
+		switchToBranch(versionOptions, repoCmdContext);
+		pushI18nFiles(versionOptions, repoCmdContext);
+	});
 }
 
 module.exports = toGithub;

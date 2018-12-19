@@ -1,9 +1,10 @@
+/* eslint-disable no-param-reassign */
 const fs = require('fs');
 const fetch = require('node-fetch');
 const FormData = require('form-data');
 const shell = require('shelljs');
 
-const error = require('./error');
+const { error, printRunning, printSuccess } = require('./log');
 
 function throwError(missingVar) {
 	error(`
@@ -51,7 +52,7 @@ function handleError(res) {
 function login(data) {
 	const { xtm } = data;
 
-	console.log(`\nLogin with user ${xtm.userId}...`);
+	printRunning(`Login with user ${xtm.userId}...`);
 
 	const body = { client: xtm.client, userId: xtm.userId, password: xtm.password };
 	return fetch(`${xtm.apiUrl}/auth/token`, {
@@ -62,14 +63,14 @@ function login(data) {
 		.then(handleError)
 		.then(res => res.json())
 		.then(res => (xtm.token = res.token))
-		.then(() => console.log('Logged in successfully.'))
+		.then(() => printSuccess('Logged in successfully.'))
 		.then(() => data);
 }
 
 function getProject(data) {
 	const { projectName, xtm } = data;
 
-	console.log(`\nFetch project ${projectName}...`);
+	printRunning(`Fetch project ${projectName}...`);
 
 	function filterProjectList(projects) {
 		const uiProject = projects.find(({ name }) => name === projectName);
@@ -87,7 +88,7 @@ function getProject(data) {
 		.then(filterProjectList)
 		.then(project => (data.project = project))
 		.then(() => {
-			console.log('Project found');
+			printSuccess('Project found');
 			console.table(data.project);
 		})
 		.then(() => data);
@@ -96,7 +97,7 @@ function getProject(data) {
 function uploadFile(data) {
 	const { filePath, project, xtm } = data;
 
-	console.log(`\nUpload file ${filePath} to XTM project...`);
+	printRunning(`Upload file ${filePath} to XTM project...`);
 
 	const form = new FormData();
 	form.append('matchType', 'MATCH_NAMES');
@@ -110,14 +111,14 @@ function uploadFile(data) {
 		.then(handleError)
 		.then(res => res.json())
 		.then(res => console.table(res.jobs))
-		.then(() => console.log(`Project has been updated with ${filePath}`))
+		.then(() => printSuccess(`Project has been updated with ${filePath}`))
 		.then(() => data);
 }
 
 function downloadFile(data) {
 	const { targetPath, project, xtm } = data;
 
-	console.log(`\nDownload file from XTM project...`);
+	printRunning('Download file from XTM project...');
 
 	return fetch(`${xtm.apiUrl}/projects/${project.id}/files/download?fileType=TARGET`, {
 		headers: { Authorization: `XTM-Basic ${xtm.token}` },
@@ -131,12 +132,12 @@ function downloadFile(data) {
 				res.body.on('error', err => {
 					reject(err);
 				});
-				fileStream.on('finish', function() {
+				fileStream.on('finish', () => {
 					resolve();
 				});
 			});
 		})
-		.then(() => console.log(`Translations downloaded to ${targetPath}/i18n.zip`))
+		.then(() => printSuccess(`Translations downloaded to ${targetPath}/i18n.zip`))
 		.then(() => data);
 }
 
