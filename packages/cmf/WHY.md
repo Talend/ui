@@ -17,7 +17,7 @@ Then comes the constraints:
 * must be easy to create different versions of the same product (enterprise, free, oss, ...)
 * create sub app to share complete screens between apps
 
-So we comes with the following pattern in mind: [IoC](https://en.wikipedia.org/wiki/Inversion_of_control) and [DI](https://en.wikipedia.org/wiki/Dependency_injection).
+So we comes with the following pattern in mind: [Inversion of control](https://en.wikipedia.org/wiki/Inversion_of_control) and [Dependency injection](https://en.wikipedia.org/wiki/Dependency_injection).
 
 But CMF is also a set of libs integrated together:
 
