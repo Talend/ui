@@ -113,13 +113,14 @@ function getProps(props, attrs, context, payload = {}) {
  * @param {object} state redux state
  * @param {object} ownProps any props you want to process with expression
  */
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state, ownProps, ctx = {}) {
 	const props = {};
 	const context = {
 		store: {
 			getState: () => state,
 		},
 		registry: registry.getRegistry(),
+		...ctx,
 	};
 	forIn(ownProps, (value, key) => {
 		const match = regexExpression.exec(key);
