@@ -1,11 +1,11 @@
 {
   "components/iframe.html?selectedKind=Badge&selectedStory=default": [
     {
-      "name": "badge-default",
+      "name": "Badge-default",
       "selector": "#default"
     },
     {
-      "name": "badge-category",
+      "name": "Badge-category",
       "selector": "#category"
     }
   ]
