@@ -37,7 +37,7 @@ Dependency injection is very nice to create multiple versions of the same produc
 change implementation of a given component.
 
 If you take [AngularJS](https://angularjs.org/) (the one) for example it's all about that.
-The app configure all the service, then you just said you want the service by an id (string) and angularjs will inject it
+The app configure all the service, then you just said you want the service by an id (string) and AngularJS will inject it
 for you.
 
 ## Why IoC
