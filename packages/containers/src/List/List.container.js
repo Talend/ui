@@ -16,17 +16,20 @@ import { getActionsProps } from '../actionAPI';
 import Constants from './List.constant';
 
 function mapStateToProps(state, ownProps) {
-	if (ownProps.columnData) {
-		const exp = cmf.expression.mapStateToProps(state, ownProps.columnData, { props: ownProps });
-		return Object.keys(exp).length
-			? {
-					columnData: {
-						...cmf.expression.mergeProps(ownProps.columnData),
-						...exp,
-					},
-			  }
-			: {};
+	if (!ownProps.columnData) {
+		return {};
 	}
+
+	const exp = cmf.expression.mapStateToProps(state, ownProps.columnData, { props: ownProps });
+	if (Object.keys(exp).length) {
+		return {
+			columnData: {
+				...cmf.expression.mergeProps(ownProps.columnData),
+				...exp,
+			},
+		};
+	}
+
 	return {};
 }
 
