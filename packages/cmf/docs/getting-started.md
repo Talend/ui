@@ -59,7 +59,11 @@ $> yarn start
 `/app/actions` contains your app action creators<br>
 `/app/components` contains your app components<br>
 `/app/constants` contains your app constants (redux actions types, ...)<br>
+`/app/expressions` contains your app expressions (redux actions types, ...)<br>
 `/app/reducers` contains your app reducers<br>
+`/app/saga` contains the main saga attached to the app lifecycle<br>
+`/app/sagas` contains sagas attached to component lifecycle<br>
+`/app/selectors` contains redux selectors<br>
 `/app/index.js` is your app bootstrap<br>
 
 ## App entry point
