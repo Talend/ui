@@ -76,7 +76,7 @@ To shift all component state we need a simple api. Without any core API you have
 
 It would make the app code base grow very fast if for every components you write that.
 
-Next a react dev know very well state and setState API. Why not doing exactly the same API ?
+Next a React developer know very well state and setState API. Why not doing exactly the same API?
 
 Under the hood this API provided by CMF is just one action, one reducer and one selector.
 
