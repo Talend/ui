@@ -23,7 +23,7 @@ But CMF is also a set of libs integrated together:
 
 * [redux](https://redux.js.org/)
 * [immutablejs](https://facebook.github.io/immutable-js/)
-* redux-saga
+* [redux-saga](https://redux-saga.js.org/)
 
 So now let s try to details each items.
 
