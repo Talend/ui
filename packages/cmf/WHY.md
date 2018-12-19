@@ -22,7 +22,7 @@ So we comes with the following pattern in mind: [Inversion of control](https://e
 But CMF is also a set of libs integrated together:
 
 * [redux](https://redux.js.org/)
-* immutablejs
+* [immutablejs](https://facebook.github.io/immutable-js/)
 * redux-saga
 
 So now let s try to details each items.
