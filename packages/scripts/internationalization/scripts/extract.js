@@ -5,7 +5,8 @@ const mkdirp = require('mkdirp');
 const rimraf = require('rimraf');
 const Zip = require('adm-zip');
 
-const error = require('../common/error');
+const { error, printRunning, printSection, printSuccess } = require('../common/log');
+const getVersion = require('../common/version');
 
 function extractNpmYarn({ script, method, target }) {
 	if (!script || !target) {
@@ -64,40 +65,51 @@ function extractFiles({ files, target }) {
 
 function runTransform({ transform, target }) {
 	if (transform === 'flatten') {
-		const child = spawn.sync('find', [target]);
-
-		if (child.status !== 0) {
-			error(child.stderr.toString());
+		const filesChild = spawn.sync('find', [target, '-type', 'f']);
+		if (filesChild.status !== 0) {
+			error(filesChild.stderr.toString());
 		}
-
-		const files = [];
-		const folders = [];
-		child.stdout
+		filesChild.stdout
 			.toString()
 			.split('\n')
-			.filter(filePath => filePath && filePath !== target)
+			.filter(filePath => filePath)
 			.forEach(filePath => {
-				if (fs.lstatSync(filePath).isFile()) {
-					files.push(filePath);
-				} else {
-					folders.push(filePath);
-				}
+				const fileName = path.basename(filePath);
+				fs.renameSync(filePath, path.join(target, fileName));
 			});
 
-		files.forEach(filePath => {
-			const fileName = path.basename(filePath);
-			fs.renameSync(filePath, path.join(target, fileName));
-		});
-		folders.forEach(folderPath => {
-			rimraf.sync(folderPath);
-		});
+		const directoriesChild = spawn.sync('find', [target, '-type', 'd']);
+		if (directoriesChild.status !== 0) {
+			error(directoriesChild.stderr.toString());
+		}
+		directoriesChild.stdout
+			.toString()
+			.split('\n')
+			.filter(folderPath => folderPath && folderPath !== target)
+			.forEach(folderPath => rimraf.sync(folderPath));
 	}
 }
 
-function wrapWithVersion({ target }) {}
+function wrapWithVersion({ target }) {
+	const version = getVersion();
+	const versionFolderPath = path.join(target, version);
+
+	printSection('Wrap i18n files into version folder');
+	const i18nContent = fs.readdirSync(target);
+	mkdirp.sync(versionFolderPath);
+	i18nContent.forEach(fileName => {
+		const originalPath = path.join(target, fileName);
+		const newPath = path.join(versionFolderPath, fileName);
+		printRunning(`Move ${originalPath} --> ${newPath}`);
+		fs.renameSync(originalPath, newPath);
+	});
+	printSuccess(`Moved i18n files into version folder ${versionFolderPath}`);
+}
 
 function runExtract({ extract }) {
 	const { method, target } = extract;
+	rimraf.sync(target);
+
 	switch (method) {
 		case 'npm':
 		case 'yarn':
