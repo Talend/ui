@@ -15,7 +15,7 @@ const DEFAULT_APP_LOADER_ICON =
 const LICENSE_BANNER = require('./licence');
 
 const userBabelrc = `${process.cwd()}/.babelrc`;
-const babelrcPath = 'node_modules/@talend/scripts/preset/config/babelrc.json';
+const babelrcPath = '@talend/scripts/webapp/preset/config/.babelrc.json';
 let babelrc;
 
 // require support json only if filename ends with json
@@ -46,11 +46,11 @@ function getSassData(getUserConfig) {
 	return sassData.join('\n');
 }
 
-function getCommonStyleLoaders(enableModules) {
+function getCommonStyleLoaders(enableModules, mode) {
 	let cssOptions = {};
 	if (enableModules) {
 		cssOptions = {
-			sourceMap: true,
+			sourceMap: mode !== 'production',
 			modules: true,
 			importLoaders: 1,
 			localIdentName: '[name]__[local]___[hash:base64:5]',
@@ -62,7 +62,7 @@ function getCommonStyleLoaders(enableModules) {
 		{
 			loader: 'postcss-loader',
 			options: {
-				sourceMap: true,
+				sourceMap: mode !== 'production',
 				plugins: () => [autoprefixer({ browsers: ['>0.25%', 'IE 11', 'not op_mini all'] })],
 			},
 		},
@@ -70,18 +70,18 @@ function getCommonStyleLoaders(enableModules) {
 	];
 }
 
-function getSassLoaders(enableModules, sassData) {
-	return getCommonStyleLoaders(enableModules).concat({
+function getSassLoaders(enableModules, sassData, mode) {
+	return getCommonStyleLoaders(enableModules, mode).concat({
 		loader: 'sass-loader',
 		options: { sourceMap: true, data: sassData },
 	});
 }
 
-module.exports = ({ getUserConfig }) => {
+module.exports = ({ getUserConfig, mode }) => {
 	const sassData = getSassData(getUserConfig);
 
 	return {
-		entry: ['babel-polyfill', 'whatwg-fetch', `${process.cwd()}/src/app/index.js`],
+		entry: ['@babel/polyfill', 'whatwg-fetch', `${process.cwd()}/src/app/index.js`],
 		output: {
 			filename: '[name]-[hash].js',
 		},
@@ -97,17 +97,17 @@ module.exports = ({ getUserConfig }) => {
 				},
 				{
 					test: /\.css$/,
-					use: getCommonStyleLoaders(),
+					use: getCommonStyleLoaders(false, mode),
 					exclude: /@talend/,
 				},
 				{
 					test: /\.scss$/,
-					use: getSassLoaders(false, sassData),
+					use: getSassLoaders(false, sassData, mode),
 					include: /bootstrap-theme/,
 				},
 				{
 					test: /\.scss$/,
-					use: getSassLoaders(true, sassData),
+					use: getSassLoaders(true, sassData, mode),
 					exclude: /bootstrap-theme/,
 				},
 				{
@@ -115,7 +115,7 @@ module.exports = ({ getUserConfig }) => {
 					loader: 'url-loader',
 					options: {
 						name: './fonts/[name].[ext]',
-						limit: 50000,
+						limit: 10000,
 						mimetype: 'application/font-woff',
 					},
 				},
@@ -135,7 +135,9 @@ module.exports = ({ getUserConfig }) => {
 				loadCSSAsync: true,
 				appLoaderIcon: getUserConfig(['html', 'appLoaderIcon'], DEFAULT_APP_LOADER_ICON),
 			}),
-			new CopyWebpackPlugin([{ from: 'src/assets' }]),
+			new CopyWebpackPlugin([
+				{ from: 'src/assets' },
+			]),
 			new webpack.BannerPlugin({
 				banner: LICENSE_BANNER,
 			}),

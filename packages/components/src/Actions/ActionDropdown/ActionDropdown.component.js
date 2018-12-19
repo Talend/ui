@@ -219,14 +219,11 @@ class ActionDropdown extends React.Component {
 				onToggle={this.onToggle}
 				ref={ref => (this.ref = ref)}
 			>
-				{!items.length &&
-					!items.size &&
-					!loading &&
-					!components && (
-						<Renderers.MenuItem key="empty" disabled>
-							{t('ACTION_DROPDOWN_EMPTY', { defaultValue: 'No options' })}
-						</Renderers.MenuItem>
-					)}
+				{!items.length && !items.size && !loading && !components && (
+					<Renderers.MenuItem key="empty" disabled>
+						{t('ACTION_DROPDOWN_EMPTY', { defaultValue: 'No options' })}
+					</Renderers.MenuItem>
+				)}
 				{injected('beforeItemsDropdown')}
 				{items.map((item, key) => getMenuItem(item, key, getComponent))}
 				{loading && (

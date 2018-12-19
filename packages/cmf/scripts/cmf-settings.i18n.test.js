@@ -80,12 +80,11 @@ describe('i18n scripts', () => {
 	});
 
 	describe('#getI18Next', () => {
-		it('should get initiailized i18next with the locales', () => {
+		// we have mock i18next
+		it('should get i18next mock', () => {
 			expect(
-				getI18Next(['fr'], [{ name: 'ns1', path: 'src/{{namespace}}/{{locale}}' }]).store.data,
-			).toEqual({
-				fr: { ns1: { key1: 'bar', oldKey: 'bar' } },
-			});
+				getI18Next(['fr'], [{ name: 'ns1', path: 'src/{{namespace}}/{{locale}}' }]).isMock,
+			).toBe(true);
 		});
 	});
 
