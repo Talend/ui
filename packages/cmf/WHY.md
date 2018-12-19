@@ -1,4 +1,3 @@
-
 # Why CMF
 
 First we want to get back on the history. When we have vote to use react and we have start some projects we have list the following needs:
