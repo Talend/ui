@@ -27,7 +27,7 @@ But CMF is also a set of libs integrated together:
 
 So now let s try to details each items.
 
-## Why DI
+## Why dependency injection?
 
 DI make your app less wired. To understand that we need also to understand import.
 Import is a static wire between to files. It creates a dependency.
