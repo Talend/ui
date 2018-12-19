@@ -1,6 +1,6 @@
 {
   "docs": {
-    "Getting Started": ["getting-started", "what-is-cmf"],
+    "Getting Started": ["getting-started", "what-is-cmf", "examples"],
     "Core concept": ["core-settings", "core-registry"],
     "Integration": ["package-redux", "package-saga", "package-router"],
     "How to": ["howto-addpage", "howto-collections", "howto-connect"],

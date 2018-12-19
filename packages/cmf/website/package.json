@@ -9,7 +9,7 @@
   "scripts": {
     "postinstall": "yarn build",
     "examples": "docusaurus-examples",
-    "start": "docusaurus-start",
+    "start": "cross-env NODE_ENV=development docusaurus-start",
     "build": "docusaurus-build",
     "publish-gh-pages": "docusaurus-publish",
     "write-translations": "docusaurus-write-translations",
@@ -17,6 +17,7 @@
     "rename-version": "docusaurus-rename-version"
   },
   "devDependencies": {
-    "docusaurus": "^1.6.2"
+    "docusaurus": "^1.6.2",
+    "cross-env": "^5.2.0"
   }
 }

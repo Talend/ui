@@ -76,7 +76,7 @@ function HomeSplash(props) {
 				<PromoSection>
 					<Button siteConfig={siteConfig} href="#try">Try It Out</Button>
 					<Button siteConfig={siteConfig} href={docUrl('getting-started')}>Getting started</Button>
-					<Button siteConfig={siteConfig} href={docUrl('api')}>API</Button>
+					<Button siteConfig={siteConfig} href={docUrl('examples')}>Examples</Button>
 				</PromoSection>
 			</div>
 		</SplashContainer>
