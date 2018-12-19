@@ -3,7 +3,7 @@
     "Getting Started": ["getting-started", "what-is-cmf", "examples"],
     "Core concept": ["core-settings", "core-registry"],
     "Integration": ["package-redux", "package-saga", "package-router"],
-    "How to": ["howto-addpage", "howto-collections", "howto-connect"],
+    "How to": ["howto-edit-doc", "howto-addpage", "howto-collections", "howto-connect"],
     "Other": ["best-practices", "api"]
   },
   "docs-other": {

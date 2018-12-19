@@ -101,7 +101,7 @@ It basically will
 
 In this part, we'll go through the code allowing to display the list of datastores (entities).
 
-**1. assets/settings.json**
+**1. settings/routes.json**
 ```json
 {
   "routes": {
@@ -118,21 +118,23 @@ In this part, we'll go through the code allowing to display the list of datastor
 }
 ```
 
-The url [http://localhost:8080/datastores](http://localhost:8080/datastores) will display the `HomeListView` container, passing the `datastores` views settings as props.
+The url [http://localhost:8080/datastores](http://localhost:8080/datastores) will display the `HomeListView` container, passing the props `componentId="datastores"`.
+The HomeListView will try to find `HomeListView#datastores` in settings:
 
 ```json
 {
   "props": {
     "HomeListView#datastores": {
-      "didMountActionCreator": "datastore:fetchAll"
+      "didMountActionCreator": "datastore:fetchAll",
+      "collectionId": "datastores"
     }
   }
 }
 ```
 
-The `datastores` views settings has props that refer to an action `datastore:fetchAll`.
+The `HomeListView#datastores` settings has props that refer to an action `datastore:fetchAll`.
 
-**2. app/actions/datastore.js**
+**2. app/actions/datastores.js**
 
 ```javascript
 import cmf from '@talend/react-cmf';
@@ -142,7 +144,7 @@ export function fetchDataStores() {
 	 * CMF actions.http is an action creator that will dispatch an http action.
 	 * This action will be caught and executed by the CMF http middleware
 	 */
-	return actions.http.get('/datastores.json', {
+	return cmf.actions.http.get('/datastores.json', {
 		// action type to dispatch before fetch
 		onSend: GETTING_DATASTORES,
 		// action type to dispatch on fetch error
@@ -152,18 +154,18 @@ export function fetchDataStores() {
 		cmf: {
 			collectionId: 'datastores',
 		},
-	});
+  });
 }
 ```
 
 This action creator uses the [http](https://github.com/Talend/ui/tree/master/packages/cmf/src/middlewares/http/index.md) utility and middleware to
 * perform the GET request
 * orchestrate the requests steps actions dispatch
-* store the resulting collection in `state.cmf.collections.datastores`
+* store the resulting collection in `state.cmf.collections.get('datastores')`
 
 **4. HomeListView container**
 
 `HomeListView` container is from [react-talend-containers](https://github.com/Talend/ui/tree/master/packages/containers).
-* it receives the `datastores settings` as props
+* it map from the state its `datastores settings` as props
 * it is connected to the redux store to get the collection in `state.cmf.collections.datastores`
 * it uses internal action API to resolve the `datastore:fetchAll` action.

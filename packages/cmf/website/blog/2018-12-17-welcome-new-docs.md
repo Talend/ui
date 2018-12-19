@@ -3,7 +3,7 @@ title: "A new site for the documentation"
 author: Jean-Michel FRANCOIS
 ---
 
-Hey the old documentation has been completly migrated here using docusaurus.
+Hey the old documentation has been completly migrated here using [docusaurus](https://docusaurus.io).
 
 What the documentation contains:
 
