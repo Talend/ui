@@ -45,7 +45,7 @@ for you.
 The idea here is your app is not one app. It s a set of components + some business code.
 We want the backend to serve an configuration that will setup your app. So the backend may add or remove some part of it.
 
-So reading the app code doesn t tell you which component will be renderered.
+So reading the app code doesn't tell you which component will be rendered.
 CMF take the settings, setup the router using the settings, then the router render the given component as children of the App.
 
 ## Why Redux
