@@ -36,7 +36,7 @@ When the dependency are locals it's OK but when it comes from external add-ons i
 Dependency injection is very nice to create multiple versions of the same product. Without changing code of the original app you can
 change implementation of a given component.
 
-If you take angularjs (the one) for example it s all about that.
+If you take [AngularJS](https://angularjs.org/) (the one) for example it's all about that.
 The app configure all the service, then you just said you want the service by an id (string) and angularjs will inject it
 for you.
 
