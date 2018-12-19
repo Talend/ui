@@ -1,4 +1,4 @@
-import { fork, cancel, take, takeEvery } from 'redux-saga/effects';
+import { spawn, cancel, take, takeEvery } from 'redux-saga/effects';
 import CONST from '../constant';
 import registry from '../registry';
 
@@ -41,7 +41,7 @@ export function* onSagaStart(action) {
 		throw new Error(`saga not found: ${sagaId}`);
 	}
 
-	const task = yield fork(
+	const task = yield spawn(
 		saga,
 		{
 			...action.props, // deprecated: you should only read { componentId }

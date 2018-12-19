@@ -37,6 +37,7 @@ class DateTimeView extends React.PureComponent {
 		}),
 		useSeconds: PropTypes.bool,
 		useTime: PropTypes.bool,
+		useUTC: PropTypes.bool,
 		t: PropTypes.func.isRequired,
 	};
 
@@ -53,12 +54,13 @@ class DateTimeView extends React.PureComponent {
 
 	getTimePicker() {
 		return (
-			<div className={theme.time}>
+			<div key="time" className={theme.time}>
 				<TimePicker
 					allowFocus={this.props.allowFocus}
 					value={this.props.selectedTime}
 					onChange={this.props.onSelectTime}
 					useSeconds={this.props.useSeconds}
+					useUTC={this.props.useUTC}
 				/>
 			</div>
 		);
@@ -120,7 +122,7 @@ class DateTimeView extends React.PureComponent {
 
 		const bodyElement = (
 			<div className={theme.body}>
-				<div className={theme.date}>
+				<div key="date" className={theme.date}>
 					<DatePicker
 						allowFocus={this.props.allowFocus}
 						calendar={this.props.calendar}

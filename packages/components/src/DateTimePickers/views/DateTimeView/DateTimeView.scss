@@ -2,16 +2,15 @@
 
 .body {
 	display: flex;
-	padding: $padding-normal 0;
 
 	.date {
 		flex: 3 0 200px;
-		padding: 0 $padding-normal;
 	}
 
 	.time {
-		flex: 1 0 70px;
 		border-left: $border-default;
-		padding: 0 $padding-normal;
+		flex: 1 0 70px;
+		margin-left: $padding-normal;
+		padding-left: $padding-normal;
 	}
 }

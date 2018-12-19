@@ -100,7 +100,10 @@ export default class OverlayTrigger extends React.Component {
 		return (
 			<span
 				ref={this.setTriggerElement}
-				className={classNames(theme['tc-action-button-positionned'])}
+				className={classNames(
+					theme['tc-action-button-positionned'],
+					'tc-action-button-positionned',
+				)}
 			>
 				<BaseOverlayTrigger {...props}>{this.props.children}</BaseOverlayTrigger>
 			</span>

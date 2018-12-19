@@ -21,32 +21,24 @@ describe('reduxLocalStorage', () => {
 		window.addEventListener = original;
 		expect(listener).toHaveBeenCalled();
 	});
-	it('should loadInitialState', (done) => {
-		const localStorage = {
-			'data-streams-redux': '{"cmf":{"components":{"SidePanel":{"default":{"toggle":true}}}}}',
-		};
-		function getItem(key) {
-			return localStorage[key];
-		}
-		localStorage.getItem = getItem;
-		const origin = window.localStorage;
-		window.localStorage = localStorage;
+	it('should loadInitialState', done => {
+		const content = '{"cmf":{"components":{"SidePanel":{"default":{"toggle":true}}}}}';
+		window.localStorage.setItem('data-streams-redux', content);
 		reduxLocalStorage
 			.loadInitialState({
 				key: 'data-streams-redux',
 				whitelist: [['cmf', 'components', 'SidePanel'], ['cmf', 'components', 'Container(Form)']],
 			})
 			.then(
-				(storage) => {
+				storage => {
 					expect(
-						storage.initialState.cmf.components.getIn(['SidePanel', 'default', 'toggle'])
+						storage.initialState.cmf.components.getIn(['SidePanel', 'default', 'toggle']),
 					).toBe(true);
 					done();
-					window.localStorage = origin;
 				},
-				(error) => {
+				error => {
 					throw new Error(error);
-				}
+				},
 			);
 	});
 });

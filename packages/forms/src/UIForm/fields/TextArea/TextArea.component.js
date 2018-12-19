@@ -8,7 +8,6 @@ export default function TextArea({ id, isValid, errorMessage, onChange, onFinish
 		autoFocus,
 		description,
 		disabled = false,
-		key,
 		placeholder,
 		readOnly = false,
 		rows = 5,
@@ -34,7 +33,6 @@ export default function TextArea({ id, isValid, errorMessage, onChange, onFinish
 				autoFocus={autoFocus}
 				className="form-control"
 				disabled={disabled}
-				name={key[key.length - 1]}
 				placeholder={placeholder}
 				onBlur={event => onFinish(event, { schema })}
 				onChange={event => onChange(event, { schema, value: event.target.value })}
@@ -61,7 +59,6 @@ if (process.env.NODE_ENV !== 'production') {
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
-			key: PropTypes.arrayOf(PropTypes.string),
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
 			rows: PropTypes.number,

@@ -4,7 +4,6 @@ exports[`CellTitleSelector should render the button 1`] = `
 <Action
   bsStyle="link"
   className="my-title-classname"
-  icon={undefined}
   id="my-title-btn"
   label="my value"
   onClick={[Function]}
@@ -18,8 +17,8 @@ exports[`CellTitleSelector should render the input 1`] = `
 <CellTitleInput
   cellData="my value"
   id="my-title-input"
-  onEditCancel={[Function]}
-  onEditSubmit={[Function]}
+  onEditCancel={[MockFunction]}
+  onEditSubmit={[MockFunction]}
   rowData={
     Object {
       "id": 1,
