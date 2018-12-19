@@ -74,7 +74,7 @@ storiesOf('ActionIconToggle', module)
 			{story()}
 		</div>
 	))
-	.add('disable-buttons', () => (
+	.add('disable the buttons', () => (
 		<div>
 			<DisableActionIconToggle />
 		</div>
@@ -88,7 +88,7 @@ storiesOf('ActionIconToggle', module)
 			<ActionIconToggle {...activeIconToggle} />
 		</div>
 	))
-	.add('customize-sizes', () => (
+	.add('customize sizes', () => (
 		<div>
 			<p>You can customize a specific icon toggle using a sass mixin</p>
 			<pre>
