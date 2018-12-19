@@ -40,7 +40,7 @@ If you take [AngularJS](https://angularjs.org/) (the one) for example it's all a
 The app configure all the service, then you just said you want the service by an id (string) and AngularJS will inject it
 for you.
 
-## Why IoC
+## Why inversion of control?
 
 The idea here is your app is not one app. It s a set of components + some business code.
 We want the backend to serve an configuration that will setup your app. So the backend may add or remove some part of it.
