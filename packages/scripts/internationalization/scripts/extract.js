@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const spawn = require('cross-spawn');
 const mkdirp = require('mkdirp');
+const rimraf = require('rimraf');
 const Zip = require('adm-zip');
 
 const error = require('../common/error');
@@ -61,6 +62,40 @@ function extractFiles({ files, target }) {
 	});
 }
 
+function runTransform({ transform, target }) {
+	if (transform === 'flatten') {
+		const child = spawn.sync('find', [target]);
+
+		if (child.status !== 0) {
+			error(child.stderr.toString());
+		}
+
+		const files = [];
+		const folders = [];
+		child.stdout
+			.toString()
+			.split('\n')
+			.filter(filePath => filePath && filePath !== target)
+			.forEach(filePath => {
+				if (fs.lstatSync(filePath).isFile()) {
+					files.push(filePath);
+				} else {
+					folders.push(filePath);
+				}
+			});
+
+		files.forEach(filePath => {
+			const fileName = path.basename(filePath);
+			fs.renameSync(filePath, path.join(target, fileName));
+		});
+		folders.forEach(folderPath => {
+			rimraf.sync(folderPath);
+		});
+	}
+}
+
+function wrapWithVersion({ target }) {}
+
 function runExtract({ extract }) {
 	const { method, target } = extract;
 	switch (method) {
@@ -78,6 +113,9 @@ function runExtract({ extract }) {
 					: 'Extraction method is needed, but not provided in your talend-i18n config file.',
 			);
 	}
+
+	runTransform(extract);
+	wrapWithVersion(extract);
 
 	const zip = new Zip();
 	zip.addLocalFolder(path.join(process.cwd(), target));
