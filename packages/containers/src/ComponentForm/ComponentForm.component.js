@@ -106,10 +106,7 @@ export class TCompForm extends React.Component {
 		}
 	}
 
-	onChange(event, payload) {
-		if (event.persist) {
-			event.persist();
-		}
+	onChange(_, payload) {
 		if (!this.props.state.get('dirty')) {
 			this.props.setState({ dirty: true });
 		}
@@ -122,7 +119,6 @@ export class TCompForm extends React.Component {
 				type: TCompForm.ON_CHANGE,
 				component: TCompForm.displayName,
 				componentId: this.props.componentId,
-				event,
 				...payload,
 			});
 		}
@@ -154,15 +150,11 @@ export class TCompForm extends React.Component {
 		});
 	}
 
-	onSubmit(event, properties) {
-		if (event.persist) {
-			event.persist();
-		}
+	onSubmit(_, properties) {
 		this.props.dispatch({
 			type: TCompForm.ON_SUBMIT,
 			component: TCompForm.displayName,
 			componentId: this.props.componentId,
-			event,
 			properties,
 		});
 	}
