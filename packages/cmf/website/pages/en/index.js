@@ -164,7 +164,7 @@ yo talend:react-cmf
 				},
 				{
 					title: 'Registry for DI',
-					content: 'start your app in just two lines of code and bring redux for free',
+					content: 'You can use dependency injection every where',
 					image: `${baseUrl}img/di.svg`,
 					imageAlign: 'top',
 					imageLink: '/docs/core-registry',
