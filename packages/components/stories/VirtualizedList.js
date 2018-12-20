@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
-import { checkA11y } from '@storybook/addon-a11y'; // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
 
@@ -255,7 +254,6 @@ const collection = [
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		description: 'Simple row with lot of actions',
-		author: 'Jean-Pierre DUPONT',
 		display: 'text',
 		className: 'item-1-class',
 		titleActions: lotOfTitleActions,
@@ -279,7 +277,7 @@ const collection = [
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		description: 'Simple row without icon',
-		author: 'Jean-Pierre DUPONT',
+		author: '',
 		icon: 'talend-file-xls-o',
 		display: 'text',
 		className: 'item-3-class',
@@ -336,7 +334,15 @@ const collectionWithTooltupLabel = collection.map(item => {
 
 const collapsibleListCollection = [
 	{
-		header: [{ displayMode: 'status', actions: [], status: 'successful', label: 'Successful', icon: 'talend-check' }],
+		header: [
+			{
+				displayMode: 'status',
+				actions: [],
+				status: 'successful',
+				label: 'Successful',
+				icon: 'talend-check',
+			},
+		],
 		content: [
 			{
 				label: 'Content1',
@@ -348,10 +354,18 @@ const collapsibleListCollection = [
 			},
 		],
 		expanded: true,
-		children: <div>HELLO WORLDa</div>
+		children: <div>HELLO WORLDa</div>,
 	},
 	{
-		header: [{ displayMode: 'status', actions: [], status: 'canceled', label: 'Canceled', icon: 'talend-cross' }],
+		header: [
+			{
+				displayMode: 'status',
+				actions: [],
+				status: 'canceled',
+				label: 'Canceled',
+				icon: 'talend-cross',
+			},
+		],
 		content: [
 			{
 				label: 'Content1',
@@ -365,7 +379,15 @@ const collapsibleListCollection = [
 		expanded: false,
 	},
 	{
-		header: [{ displayMode: 'status', actions: [], status: 'failed', label: 'Failure', icon: 'talend-cross' }],
+		header: [
+			{
+				displayMode: 'status',
+				actions: [],
+				status: 'failed',
+				label: 'Failure',
+				icon: 'talend-cross',
+			},
+		],
 		content: [
 			{
 				label: 'Content1',
@@ -377,15 +399,15 @@ const collapsibleListCollection = [
 			},
 		],
 		expanded: true,
-	}
+	},
 ];
 
-const sourceItems = [...new Array(20000)]
-	.map((item, index) => collapsibleListCollection[index % collapsibleListCollection.length]);
+const sourceItems = [...new Array(20000)].map(
+	(item, index) => collapsibleListCollection[index % collapsibleListCollection.length],
+);
 
+storiesOf('VirtualizedList', module)
 
-storiesOf('Virtualized List', module)
-	.addDecorator(checkA11y)
 	.add('List > Table', () => (
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>
@@ -762,7 +784,13 @@ storiesOf('Virtualized List', module)
 			<h1>Virtualized List</h1>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
-				<VirtualizedList collection={collectionWithTooltupLabel} id={'my-list'} type="custom" rowHeight={116} rowRenderers={{ custom: MyCustomRow }}>
+				<VirtualizedList
+					collection={collectionWithTooltupLabel}
+					id={'my-list'}
+					type="custom"
+					rowHeight={116}
+					rowRenderers={{ custom: MyCustomRow }}
+				>
 					<VirtualizedList.Content label="Id" dataKey="id" width={-1} />
 					<VirtualizedList.Content
 						label="Description (non sortable)"
@@ -775,5 +803,4 @@ storiesOf('Virtualized List', module)
 				</VirtualizedList>
 			</section>
 		</div>
-	)
-);
+	));

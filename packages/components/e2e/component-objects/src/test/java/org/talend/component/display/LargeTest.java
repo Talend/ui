@@ -81,7 +81,7 @@ public class LargeTest extends StorybookTest {
     @Test
     public void should_scroll_and_click_on_item_title() {
         // given
-        goToStory("Virtualized List", "List > Large");
+        goToStory("VirtualizedList", "List > Large");
         assertThat(getActionLog(), not(startsWith("▶onTitleClick:")));
 
         // when

@@ -222,7 +222,7 @@ export default function cmfConnect({
 			console.warn(
 				`${
 					WrappedComponent.name
-				} has no displayName. Please read https://github.com/Talend/ui/issues/1808`,
+				} has no displayName. Please read https://jira.talendforge.org/browse/TUI-302`,
 			);
 		}
 		function getState(state, id = 'default') {

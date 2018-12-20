@@ -35,12 +35,13 @@
 		}
 
 		.modal-title {
+			text-transform: inherit;
+			font-weight: bold;
 			line-height: 1;
 		}
 
 		.modal-subtitle {
 			margin-bottom: 0;
-			padding-top: 0.5rem;
 		}
 
 		.close {

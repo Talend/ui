@@ -508,18 +508,15 @@ exports[`Storyshots SidePanel docked 1`] = `
   <nav
     aria-expanded={false}
     className="theme-tc-side-panel tc-side-panel docked theme-docked"
-    id={undefined}
     role="navigation"
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
     >
       <button
-        aria-controls={undefined}
         aria-label="Expand menu"
         className="btn-icon-only btn btn-link"
         disabled={false}
-        id={undefined}
         onClick={[Function]}
         onFocus={[Function]}
         onMouseDown={[Function]}
@@ -553,7 +550,6 @@ exports[`Storyshots SidePanel docked 1`] = `
           aria-label="Preparations"
           className="btn btn-link"
           disabled={false}
-          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role="link"
@@ -584,7 +580,6 @@ exports[`Storyshots SidePanel docked 1`] = `
           aria-label="Datasets"
           className="btn btn-link"
           disabled={false}
-          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role="link"
@@ -615,7 +610,6 @@ exports[`Storyshots SidePanel docked 1`] = `
           aria-label="Favorites"
           className="btn btn-link"
           disabled={false}
-          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role="link"
@@ -829,18 +823,15 @@ exports[`Storyshots SidePanel large docked 1`] = `
   <nav
     aria-expanded={false}
     className="theme-tc-side-panel tc-side-panel docked theme-docked large theme-large"
-    id={undefined}
     role="navigation"
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
     >
       <button
-        aria-controls={undefined}
         aria-label="Expand menu"
         className="btn-icon-only btn btn-link"
         disabled={false}
-        id={undefined}
         onClick={[Function]}
         onFocus={[Function]}
         onMouseDown={[Function]}
@@ -874,7 +865,6 @@ exports[`Storyshots SidePanel large docked 1`] = `
           aria-label="Preparations"
           className="btn btn-link"
           disabled={false}
-          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role="link"
@@ -905,7 +895,6 @@ exports[`Storyshots SidePanel large docked 1`] = `
           aria-label="Datasets"
           className="btn btn-link"
           disabled={false}
-          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role="link"
@@ -936,7 +925,6 @@ exports[`Storyshots SidePanel large docked 1`] = `
           aria-label="Favorites"
           className="btn btn-link"
           disabled={false}
-          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role="link"
@@ -1150,18 +1138,15 @@ exports[`Storyshots SidePanel large reverse 1`] = `
   <nav
     aria-expanded={true}
     className="theme-tc-side-panel tc-side-panel large theme-large reverse theme-reverse"
-    id={undefined}
     role="navigation"
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
     >
       <button
-        aria-controls={undefined}
         aria-label="Collapse menu"
         className="btn-icon-only btn btn-link"
         disabled={false}
-        id={undefined}
         onClick={[Function]}
         onFocus={[Function]}
         onMouseDown={[Function]}
@@ -1194,7 +1179,6 @@ exports[`Storyshots SidePanel large reverse 1`] = `
           aria-label="Preparations"
           className="btn btn-link"
           disabled={false}
-          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role="link"
@@ -1226,7 +1210,6 @@ exports[`Storyshots SidePanel large reverse 1`] = `
           aria-label="Datasets"
           className="btn btn-link"
           disabled={false}
-          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role="link"
@@ -1257,7 +1240,6 @@ exports[`Storyshots SidePanel large reverse 1`] = `
           aria-label="Favorites"
           className="btn btn-link"
           disabled={false}
-          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role="link"
@@ -1792,7 +1774,6 @@ exports[`Storyshots SidePanel not dockable 1`] = `
   <nav
     aria-expanded={true}
     className="theme-tc-side-panel tc-side-panel"
-    id={undefined}
     role="navigation"
   >
     <ul
@@ -1807,7 +1788,6 @@ exports[`Storyshots SidePanel not dockable 1`] = `
           aria-label="Preparations"
           className="btn btn-link"
           disabled={false}
-          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role="link"
@@ -1839,7 +1819,6 @@ exports[`Storyshots SidePanel not dockable 1`] = `
           aria-label="Datasets"
           className="btn btn-link"
           disabled={false}
-          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role="link"
@@ -1870,7 +1849,6 @@ exports[`Storyshots SidePanel not dockable 1`] = `
           aria-label="Favorites"
           className="btn btn-link"
           disabled={false}
-          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role="link"
@@ -2084,18 +2062,15 @@ exports[`Storyshots SidePanel reverse 1`] = `
   <nav
     aria-expanded={true}
     className="theme-tc-side-panel tc-side-panel reverse theme-reverse"
-    id={undefined}
     role="navigation"
   >
     <div
       className="theme-toggle-btn tc-side-panel-toggle-btn"
     >
       <button
-        aria-controls={undefined}
         aria-label="Collapse menu"
         className="btn-icon-only btn btn-link"
         disabled={false}
-        id={undefined}
         onClick={[Function]}
         onFocus={[Function]}
         onMouseDown={[Function]}
@@ -2128,7 +2103,6 @@ exports[`Storyshots SidePanel reverse 1`] = `
           aria-label="Preparations"
           className="btn btn-link"
           disabled={false}
-          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role="link"
@@ -2160,7 +2134,6 @@ exports[`Storyshots SidePanel reverse 1`] = `
           aria-label="Datasets"
           className="btn btn-link"
           disabled={false}
-          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role="link"
@@ -2191,7 +2164,6 @@ exports[`Storyshots SidePanel reverse 1`] = `
           aria-label="Favorites"
           className="btn btn-link"
           disabled={false}
-          id={undefined}
           onClick={[Function]}
           onMouseDown={[Function]}
           role="link"
@@ -2404,7 +2376,6 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
   </svg>
   <div
     className="tc-layout theme-layout"
-    id={undefined}
   >
     <div
       className="theme-skip-links"
@@ -2480,18 +2451,15 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
         <nav
           aria-expanded={true}
           className="theme-tc-side-panel tc-side-panel reverse theme-reverse"
-          id={undefined}
           role="navigation"
         >
           <div
             className="theme-toggle-btn tc-side-panel-toggle-btn"
           >
             <button
-              aria-controls={undefined}
               aria-label="Collapse menu"
               className="btn-icon-only btn btn-link"
               disabled={false}
-              id={undefined}
               onClick={[Function]}
               onFocus={[Function]}
               onMouseDown={[Function]}
@@ -2524,7 +2492,6 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
                 aria-label="Preparations"
                 className="btn btn-link"
                 disabled={false}
-                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role="link"
@@ -2555,7 +2522,6 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
                 aria-label="Datasets"
                 className="btn btn-link"
                 disabled={false}
-                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role="link"
@@ -2586,7 +2552,6 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
                 aria-label="Favorites"
                 className="btn btn-link"
                 disabled={false}
-                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role="link"
@@ -2617,7 +2582,6 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
                 aria-label="Some super super super long name"
                 className="btn btn-link"
                 disabled={false}
-                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role="link"
@@ -3160,7 +3124,6 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
   </svg>
   <div
     className="tc-layout theme-layout"
-    id={undefined}
   >
     <div
       className="theme-skip-links"
@@ -3236,18 +3199,15 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
         <nav
           aria-expanded={true}
           className="theme-tc-side-panel tc-side-panel"
-          id={undefined}
           role="navigation"
         >
           <div
             className="theme-toggle-btn tc-side-panel-toggle-btn"
           >
             <button
-              aria-controls={undefined}
               aria-label="Collapse menu"
               className="btn-icon-only btn btn-link"
               disabled={false}
-              id={undefined}
               onClick={[Function]}
               onFocus={[Function]}
               onMouseDown={[Function]}
@@ -3280,7 +3240,6 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
                 aria-label="Preparations"
                 className="btn btn-link"
                 disabled={false}
-                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role="link"
@@ -3311,7 +3270,6 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
                 aria-label="Datasets"
                 className="btn btn-link"
                 disabled={false}
-                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role="link"
@@ -3342,7 +3300,6 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
                 aria-label="Favorites"
                 className="btn btn-link"
                 disabled={false}
-                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role="link"
@@ -3373,7 +3330,6 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
                 aria-label="Some super super super long name"
                 className="btn btn-link"
                 disabled={false}
-                id={undefined}
                 onClick={[Function]}
                 onMouseDown={[Function]}
                 role="link"

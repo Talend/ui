@@ -30,5 +30,4 @@ if [[ $TRAVIS_BRANCH == 'master' ]]; then
 	git branch -u origin/$TRAVIS_BRANCH
 	git fsck --full #debug
 	#git tag --list #debug
-	npm whoami #debug
 fi

@@ -4,7 +4,6 @@
     "cpx": "^1.5.0",
     "i18next-parser": "^0.13.0",
     "lerna": "2.5.1",
-    "npm-watch": "^0.1.8",
     "pixelmatch": "^4.0.2",
     "pngjs": "^3.3.2",
     "puppeteer": "^1.2.0",
@@ -21,17 +20,20 @@
     "build-forms": "lerna exec --scope=@talend/react-forms -- yarn run prepublish",
     "build-icons": "lerna exec --scope=@talend/icons -- yarn run prepublish && lerna exec --scope=@talend/react-components -- yarn test -- -u",
     "build-theme": "lerna exec --scope=@talend/bootstrap-theme -- yarn run prepublish",
-    "test": "lerna exec --concurrency 1 -- TZ=Europe/Paris yarn test",
+    "test": "lerna exec --concurrency 1 -- TZ=Europe/Paris yarn test --silent",
+    "test:update": "lerna exec --concurrency 1 -- TZ=Europe/Paris yarn test --silent -u",
     "test:cov": "lerna exec --concurrency 1 -- TZ=Europe/Paris yarn test:cov",
     "test:demo": "lerna exec -- yarn test:demo",
     "test:nonreg": "node screenshots.js",
+    "test:extra": "yarn test:html-webpack-plugin && yarn test:logging",
+    "test:html-webpack-plugin": "cd packages/html-webpack-plugin && yarn && yarn test",
+    "test:logging": "cd packages/logging && yarn && yarn test",
     "start": "echo Please use an other npm script like start-components",
     "start-components": "cd packages/components && yarn start",
     "start-containers": "cd packages/containers && yarn start",
     "start-datagrid": "cd packages/datagrid && yarn start",
     "start-forms": "cd packages/forms && yarn start",
     "start-theme": "cd packages/theme && yarn start",
-    "watch": "npm-watch",
     "publish": "lerna publish --force-publish=*",
     "build-storybook": "npm run test:demo && export ACTION=\"test:demo\" && export TRAVIS_BRANCH=\"master\" && export TRAVIS_BUILD_DIR=`pwd` && .travis/after_success_static.sh && .travis/after_success_demo.sh && .travis/after_success_coverage.sh",
     "publish-storybook": "npm run build-storybook && cd .static && surge",
@@ -40,33 +42,7 @@
     "extract-i18n-components": "i18next packages/components/src -r --default-values -o i18n/components -n tui-components -l en --write-old false --fileFilter \"*.js\" --directoryFilter \"!__snapshots__\"",
     "extract-i18n-forms": "i18next packages/forms/src -r --default-values -o i18n/forms -n tui-forms -l en --write-old false --fileFilter \"*.js\" --directoryFilter \"!__snapshots__\"",
     "extract-i18n-containers": "i18next packages/containers/src -r --default-values -o i18n/containers -n tui-containers -l en --write-old false --fileFilter \"*.js\" --directoryFilter \"!__snapshots__\"",
-    "audit": "./versions/generate-version-audit.js && cd npm-audit && npm i --package-lock-only && npm audit > audit.json"
-  },
-  "watch": {
-    "build-cmf": {
-      "patterns": ["packages/cmf/src/**/*"],
-      "extensions": "js"
-    },
-    "build-components": {
-      "patterns": ["packages/components/src/**/*"],
-      "extensions": "js,css,scss,svg"
-    },
-    "build-containers": {
-      "patterns": ["packages/containers/src/**/*"],
-      "extensions": "js,css,scss,svg"
-    },
-    "build-forms": {
-      "patterns": ["packages/forms/src/**/*"],
-      "extensions": "js,scss"
-    },
-    "build-icons": {
-      "patterns": ["packages/icons/src/svg/*"],
-      "extensions": "svg"
-    },
-    "build-theme": {
-      "patterns": ["packages/theme/src/**/*"],
-      "extensions": "css,scss"
-    }
+    "audit": "./versions/generate-version-audit.js && cd npm-audit && npm i && npm audit > audit.json"
   },
   "repository": {
     "type": "git",

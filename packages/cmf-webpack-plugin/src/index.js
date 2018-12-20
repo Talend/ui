@@ -27,17 +27,30 @@ function ReactCMFWebpackPlugin(options = {}) {
 	};
 }
 
+function getCmfconfig(cmfconfigPath) {
+	const cmfconfig = require(cmfconfigPath);
+	if (process.env.CMF_ENV) {
+		return cmfconfig[process.env.CMF_ENV];
+	}
+	return cmfconfig;
+}
+
 ReactCMFWebpackPlugin.prototype.apply = function reactCMFWebpackPluginApply(compiler) {
 	this.log('apply');
 
 	// adapt cmf settings result to output to /settings.json by default
-	const outputPath = get(compiler.options, ['devServer', 'outputPath'], compiler.options.output.path);
-	const cmfConfig = require(path.join(process.cwd(), 'cmf.json'));
-	const destination = cmfConfig.settings.destination;
+	const outputPath = get(
+		compiler.options,
+		['devServer', 'outputPath'],
+		compiler.options.output.path,
+	);
+	const cmfconfigPath = path.join(process.cwd(), 'cmf.json');
+	const cmfconfig = getCmfconfig(cmfconfigPath);
+	const destination = cmfconfig.settings.destination;
 	if (!destination) {
-		cmfConfig.settings.destination = path.join(outputPath, 'settings.json');
+		cmfconfig.settings.destination = path.join(outputPath, 'settings.json');
 	}
-	this.options.cmfConfig = cmfConfig;
+	this.options.cmfconfig = cmfconfig;
 
 	/**
 	 * Runs at each webpack run.
