@@ -131,7 +131,7 @@ function runExtract({ extract }) {
 
 	const zip = new Zip();
 	zip.addLocalFolder(path.join(process.cwd(), target));
-	zip.writeZip(path.join(process.cwd(), 'i18n.zip'));
+	zip.writeZip(path.join(process.cwd(), target, 'i18n.zip'));
 }
 
 module.exports = runExtract;

@@ -3,6 +3,7 @@ const fs = require('fs');
 const fetch = require('node-fetch');
 const FormData = require('form-data');
 const shell = require('shelljs');
+const rimraf = require('rimraf');
 
 const { error, printRunning, printSuccess } = require('./log');
 
@@ -13,6 +14,7 @@ function throwError(missingVar) {
 	`);
 }
 
+let authToken;
 function getXTMVariables() {
 	const { API_URL, CLIENT, CUSTOMER_ID, USER_ID, PASSWORD } = process.env;
 	if (!API_URL) {
@@ -37,6 +39,7 @@ function getXTMVariables() {
 		customerId: CUSTOMER_ID,
 		userId: USER_ID,
 		password: PASSWORD,
+		token: authToken,
 	};
 }
 
@@ -50,7 +53,7 @@ function handleError(res) {
 }
 
 function login(data) {
-	const { xtm } = data;
+	const xtm = getXTMVariables();
 
 	printRunning(`Login with user ${xtm.userId}...`);
 
@@ -62,13 +65,14 @@ function login(data) {
 	})
 		.then(handleError)
 		.then(res => res.json())
-		.then(res => (xtm.token = res.token))
+		.then(res => (authToken = res.token))
 		.then(() => printSuccess('Logged in successfully.'))
 		.then(() => data);
 }
 
 function getProject(data) {
-	const { projectName, xtm } = data;
+	const { projectName } = data;
+	const xtm = getXTMVariables();
 
 	printRunning(`Fetch project ${projectName}...`);
 
@@ -95,7 +99,8 @@ function getProject(data) {
 }
 
 function uploadFile(data) {
-	const { filePath, project, xtm } = data;
+	const { filePath, project } = data;
+	const xtm = getXTMVariables();
 
 	printRunning(`Upload file ${filePath} to XTM project...`);
 
@@ -116,40 +121,47 @@ function uploadFile(data) {
 }
 
 function getFilesToDownload(data) {
-	const { project, xtm, version } = data;
+	const { project, version } = data;
+
 	if (!version) {
 		return data;
 	}
 
 	printRunning(`Get files to download, matching version ${version}...`);
+	const xtm = getXTMVariables();
 	return fetch(`${xtm.apiUrl}/projects/${project.id}/status?fetchLevel=JOBS`, {
 		headers: { Authorization: `XTM-Basic ${xtm.token}` },
 	})
 		.then(handleError)
 		.then(res => res.json())
 		.then(({ jobs }) => {
-			data.project.jobs = jobs.filter(({ fileName }) => fileName.startsWith(`${version}/`));
+			const filteredJobs = jobs.filter(({ fileName }) => fileName.startsWith(`${version}/`));
 			printSuccess('Files to download');
-			console.table(data.project.jobs);
+			console.table(filteredJobs);
+
+			const jobsChunks = [];
+			while (filteredJobs.length) {
+				jobsChunks.push(filteredJobs.splice(0, 100));
+			}
+			data.project.jobs = jobsChunks;
 		})
 		.then(() => data);
 }
 
-function downloadFile(data) {
-	const { targetPath, project, xtm } = data;
-
-	printRunning('Download file from XTM project...');
+function downloadChunk(project, jobs, index, targetPath) {
+	const xtm = getXTMVariables();
 	let jobIds;
-	if (project.jobs) {
-		jobIds = project.jobs.map(({ jobId }) => `jobIds=${jobId}`).join('&');
+	if (jobs) {
+		jobIds = jobs.map(({ jobId }) => `jobIds=${jobId}`).join('&');
 	}
+
+	const filePath = `${targetPath}/i18n_${index}.zip`;
 	return fetch(`${xtm.apiUrl}/projects/${project.id}/files/download?fileType=TARGET&${jobIds}`, {
 		headers: { Authorization: `XTM-Basic ${xtm.token}` },
 	})
 		.then(handleError)
 		.then(res => {
-			shell.mkdir('-p', targetPath);
-			const fileStream = fs.createWriteStream(`${targetPath}/i18n.zip`);
+			const fileStream = fs.createWriteStream(filePath);
 			return new Promise((resolve, reject) => {
 				res.body.pipe(fileStream);
 				res.body.on('error', err => {
@@ -160,15 +172,33 @@ function downloadFile(data) {
 				});
 			});
 		})
-		.then(() => printSuccess(`Translations downloaded to ${targetPath}/i18n.zip`))
-		.then(() => data);
+		.then(() => printSuccess(`Translations downloaded to ${filePath}`));
+}
+
+function downloadFiles(data) {
+	const { targetPath, project } = data;
+
+	printRunning('Download files from XTM project...');
+	rimraf.sync(data.targetPath);
+	shell.mkdir('-p', targetPath);
+
+	let promise;
+	if (project.jobs) {
+		const fetchPromises = project.jobs.map((jobsChunk, index) =>
+			downloadChunk(project, jobsChunk, index, targetPath),
+		);
+		promise = Promise.all(fetchPromises);
+	} else {
+		promise = downloadChunk(project);
+	}
+
+	return promise.then(() => printSuccess('All files downloaded with success')).then(() => data);
 }
 
 module.exports = {
 	getFilesToDownload,
-	getXTMVariables,
 	login,
 	getProject,
 	uploadFile,
-	downloadFile,
+	downloadFiles,
 };

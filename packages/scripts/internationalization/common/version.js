@@ -12,39 +12,42 @@ function getPossibleVersion() {
 	const pomXmlPath = path.join(process.cwd(), 'pom.xml');
 	const VERSION_REGEX = /^([0-9]+\.[0-9]+).*/;
 
+	let info;
 	if (fs.existsSync(lernaJsonPath)) {
 		const { version } = require(lernaJsonPath);
 		const match = version.match(VERSION_REGEX);
 		if (match) {
-			printSuccess('Version found');
-			return {
+			info = {
 				source: 'lerna.json',
 				version: match[1],
 			};
 		}
 	}
-	if (fs.existsSync(packageJsonPath)) {
+	if (!info && fs.existsSync(packageJsonPath)) {
 		const { version } = require(packageJsonPath);
 		const match = version.match(VERSION_REGEX);
 		if (match) {
-			printSuccess('Version found');
-			return {
+			info = {
 				source: 'package.json',
 				version: match[1],
 			};
 		}
 	}
-	if (fs.existsSync(pomXmlPath)) {
+	if (!info && fs.existsSync(pomXmlPath)) {
 		const data = fs.readFileSync(pomXmlPath);
 		const { version } = xmlParser.toJson(data);
 		const match = version.match(VERSION_REGEX);
 		if (match) {
-			printSuccess('Version found');
-			return {
+			info = {
 				source: 'pom.xml',
 				version: match[1],
 			};
 		}
+	}
+
+	if (info) {
+		printSuccess(`Version extracted from ${info.source}: ${info.version}`);
+		return info.version;
 	}
 
 	printInfo('No version file detected');
@@ -52,9 +55,9 @@ function getPossibleVersion() {
 }
 
 function getVersion() {
-	const { source, extractedVersion } = getPossibleVersion();
+	const version = getPossibleVersion();
 
-	if (!extractedVersion) {
+	if (!version) {
 		error(`
 			talend-scripts can't determine your project version. Possible reasons : 
 				* no package.json or pom.xml in this directory
@@ -62,8 +65,7 @@ function getVersion() {
 		`);
 	}
 
-	printSuccess(`Version extracted from ${source}: ${extractedVersion}`);
-	return extractedVersion;
+	return version;
 }
 
 module.exports = {
