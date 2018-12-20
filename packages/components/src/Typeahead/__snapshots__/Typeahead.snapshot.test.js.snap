@@ -1,5 +1,108 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Typeahead injection should use render props to inject extra components 1`] = `
+<div
+  aria-expanded={true}
+  aria-haspopup="listbox"
+  aria-owns="react-autowhatever-my-search"
+  className="theme-tc-typeahead-container tc-typeahead-container theme-container-open tc-typeahead-container-open"
+  role="combobox"
+>
+  <div
+    className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
+  >
+    <label
+      className="control-label sr-only"
+      htmlFor="react-autowhatever-my-search-input"
+    >
+      Search
+    </label>
+    <input
+      aria-activedescendant={null}
+      aria-autocomplete="list"
+      aria-controls="react-autowhatever-my-search"
+      autoComplete="off"
+      autoFocus={false}
+      className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+      disabled={false}
+      id="my-search"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      readOnly={false}
+      type="text"
+    />
+  </div>
+  <div
+    className="theme-items-container tc-typeahead-items-container theme-item-container"
+    id="react-autowhatever-my-search"
+    role="listbox"
+  >
+    <div>
+      <div>
+        Searching: 
+      </div>
+      <div>
+        Loading: 
+      </div>
+      <div>
+        No Result: 
+      </div>
+      <div>
+        Is Shown: 
+        category 1
+        category 2
+      </div>
+      <ul
+        className="theme-items"
+        role="listbox"
+      >
+        <li
+          aria-selected={false}
+          id="react-autowhatever-my-search--item-0"
+          role="option"
+          style={Object {}}
+        >
+          <div
+            className="theme-item"
+            title="category 1"
+          >
+            <span
+              className="theme-item-title tc-typeahead-item-title"
+            >
+              <span>
+                category 1
+              </span>
+            </span>
+          </div>
+        </li>
+        <li
+          aria-selected={false}
+          id="react-autowhatever-my-search--item-1"
+          role="option"
+          style={Object {}}
+        >
+          <div
+            className="theme-item"
+            title="category 2"
+          >
+            <span
+              className="theme-item-title tc-typeahead-item-title"
+            >
+              <span>
+                category 2
+              </span>
+            </span>
+          </div>
+        </li>
+      </ul>
+      <button>
+        Click
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Typeahead items should render typeahead items with match 1`] = `
 <div
   aria-expanded={true}
