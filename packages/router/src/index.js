@@ -33,7 +33,6 @@ function getModule(options = {}) {
 			reducer: {
 				routing: routerReducer,
 			},
-			components,
 			middlewares,
 			saga,
 			storeCallback,

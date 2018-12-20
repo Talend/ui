@@ -1,5 +1,3 @@
-import actions from '../../actions';
-
 const cmfMiddleware = store => next => action => {
 	const config = action.cmf;
 	if (!config) {
