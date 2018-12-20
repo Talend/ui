@@ -28,8 +28,8 @@
  *			});
  *		}
  *	};
- *	// router saga is forked and given router history, and route configuration
- *	yield fork(routerSaga, history, routes);
+ *	// router saga is spawned and given router history, and route configuration
+ *	yield spawn(routerSaga, history, routes);
  */
 import { spawn, take, cancel } from 'redux-saga/effects';
 import isEqual from 'lodash/isEqual';

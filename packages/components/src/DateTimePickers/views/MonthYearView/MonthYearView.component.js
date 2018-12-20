@@ -31,6 +31,7 @@ function MonthYearView(props) {
 				<MonthPicker
 					allowFocus={props.allowFocus}
 					selectedMonthIndex={props.selectedMonthIndex}
+					selectedYear={props.selectedYear}
 					onSelect={props.onSelectMonth}
 				/>
 			</div>

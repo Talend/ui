@@ -10,7 +10,6 @@ exports[`File field should render File with data 1`] = `
   isValid={true}
   label="Upload file"
   labelAfter={false}
-  required={undefined}
 >
   <div
     className="theme-file"
@@ -18,7 +17,6 @@ exports[`File field should render File with data 1`] = `
     <input
       aria-describedby="my-file-field-description my-file-field-error"
       aria-invalid={false}
-      aria-required={undefined}
       autoFocus={false}
       className="form-control theme-file-input"
       disabled={false}
@@ -53,7 +51,6 @@ exports[`File field should render default File 1`] = `
   isValid={true}
   label="Upload file"
   labelAfter={false}
-  required={undefined}
 >
   <div
     className="theme-file"
@@ -61,7 +58,6 @@ exports[`File field should render default File 1`] = `
     <input
       aria-describedby="my-file-field-description my-file-field-error"
       aria-invalid={false}
-      aria-required={undefined}
       autoFocus={false}
       className="form-control theme-file-input"
       disabled={false}

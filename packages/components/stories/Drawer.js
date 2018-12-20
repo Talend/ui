@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 
 import talendIcons from '@talend/icons/dist/react';
 import {
@@ -234,8 +233,7 @@ const drawersNoTransition = [
 const sidePanel = <SidePanel actions={actions} onToggleDock={action('Toggle dock clicked')} />;
 
 storiesOf('Drawer', module)
-	.addDecorator(checkA11y)
-	.addWithInfo('Default', () => {
+	.add('Default', () => {
 		const rows = [];
 		for (let index = 0; index < 20; index++) {
 			rows.push(<p key={index}>The content dictate the width</p>);
@@ -248,7 +246,7 @@ storiesOf('Drawer', module)
 			</Layout>
 		);
 	})
-	.addWithInfo('Default with no transition', () => {
+	.add('Default with no transition', () => {
 		const rows = [];
 		for (let index = 0; index < 20; index++) {
 			rows.push(<p key={index}>The content dictate the width</p>);
@@ -261,7 +259,7 @@ storiesOf('Drawer', module)
 			</Layout>
 		);
 	})
-	.addWithInfo('stacked drawers', () => {
+	.add('stacked drawers', () => {
 		const stackedDrawers = [
 			<Drawer
 				stacked
@@ -302,7 +300,7 @@ storiesOf('Drawer', module)
 			</Layout>
 		);
 	})
-	.addWithInfo('With tabs', () => {
+	.add('With tabs', () => {
 		const drawersWithTabs = [
 			<Drawer stacked title="I'm a stacked drawer with tabs" footerActions={basicProps} tabs={tabs}>
 				<p>The content</p>
@@ -318,7 +316,7 @@ storiesOf('Drawer', module)
 			</Layout>
 		);
 	})
-	.addWithInfo('With tabs with specific footers', () => {
+	.add('With tabs with specific footers', () => {
 		const drawersWithTabs = [
 			<Drawer
 				stacked
@@ -347,7 +345,7 @@ storiesOf('Drawer', module)
 			</Layout>
 		);
 	})
-	.addWithInfo('Custom', () => {
+	.add('Custom', () => {
 		const customDrawers = [
 			<Drawer.Container>
 				<Tab.Container defaultActiveKey="info">
@@ -402,7 +400,7 @@ storiesOf('Drawer', module)
 			</Layout>
 		);
 	})
-	.addWithInfo('Custom stacked', () => {
+	.add('Custom stacked', () => {
 		const customDrawers = [
 			<Drawer.Container stacked>
 				<Tab.Container defaultActiveKey="info">

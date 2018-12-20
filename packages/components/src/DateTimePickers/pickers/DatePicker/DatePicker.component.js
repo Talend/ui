@@ -7,9 +7,11 @@ import getDate from 'date-fns/get_date';
 import getMonth from 'date-fns/get_month';
 import getYear from 'date-fns/get_year';
 import isSameDay from 'date-fns/is_same_day';
+import setMonth from 'date-fns/set_month';
+import format from 'date-fns/format';
 
 import theme from './DatePicker.scss';
-import { buildDayNames, buildWeeks } from '../../generator';
+import { buildDayNames, buildWeeks, getPickerLocale } from '../../generator';
 import { withCalendarGesture } from '../../../Gesture/withCalendarGesture';
 import getDefaultT from '../../../translate';
 
@@ -54,11 +56,15 @@ class DatePicker extends React.PureComponent {
 	}
 
 	render() {
-		const { year, monthIndex } = this.props.calendar;
+		const { calendar, t } = this.props;
+		const { year, monthIndex } = calendar;
+		const pickerLocale = getPickerLocale(t);
 
 		const weeks = this.getWeeks(year, monthIndex);
 		const dayNames = getDayNames(undefined, this.props.t);
 		const selectedInCurrentCalendar = this.isSelectedInCurrentCalendar();
+
+		const monthStr = format(setMonth(new Date(0), monthIndex), 'MMMM', pickerLocale);
 
 		return (
 			<table
@@ -67,7 +73,7 @@ class DatePicker extends React.PureComponent {
 					this.calendarRef = ref;
 				}}
 			>
-				<caption className="sr-only">TODO: caption, days aria-label, today aria-label</caption>
+				<caption className="sr-only">{`${monthStr} ${year}`}</caption>
 				<thead>
 					<tr className={theme['calendar-header']}>
 						{dayNames.map((dayName, i) => (
@@ -90,6 +96,7 @@ class DatePicker extends React.PureComponent {
 									const day = getDate(date);
 									const disabled = this.isDisabledDate(date);
 									const selected = this.isSelectedDate(date);
+									const today = isToday(date);
 									const shouldBeFocussable =
 										(selectedInCurrentCalendar && selected) ||
 										(!selectedInCurrentCalendar && day === 1);
@@ -98,17 +105,28 @@ class DatePicker extends React.PureComponent {
 										theme['calendar-day'],
 										{
 											[theme.selected]: selected,
-											[theme.today]: isToday(date),
+											[theme.today]: today,
 										},
 										'tc-date-picker-day',
 									);
 
+									let ariaLabel = format(date, 'dddd DD MMMM YYYY', pickerLocale);
 									const tdProps = {
 										key: j,
 										className: theme['calendar-col'],
 									};
 									if (selected) {
 										tdProps['aria-current'] = 'date';
+										ariaLabel = t('DATEPICKER_DAY_SELECTED', {
+											defaultValue: '{{date}}, selected',
+											date: ariaLabel,
+										});
+									}
+									if (today) {
+										ariaLabel = t('DATEPICKER_DAY_TODAY', {
+											defaultValue: 'Today, {{date}}',
+											date: ariaLabel,
+										});
 									}
 									return (
 										<td {...tdProps}>
@@ -121,6 +139,7 @@ class DatePicker extends React.PureComponent {
 												disabled={disabled}
 												tabIndex={this.props.allowFocus && shouldBeFocussable ? 0 : -1}
 												onKeyDown={event => this.props.onKeyDown(event, this.calendarRef, day - 1)}
+												aria-label={ariaLabel}
 											>
 												{day}
 											</button>

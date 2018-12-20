@@ -15,7 +15,7 @@ import './CollapsiblePanel';
 import './ConfirmDialog';
 import './Checkbox';
 import './Datalist';
-import './DateTimePicker';
+import './DatePicker';
 import './Dialog';
 import './Drawer';
 import './Emphasis';

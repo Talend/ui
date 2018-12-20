@@ -20,13 +20,15 @@ $tc-icon-toggle-icon-size: $svg-sm-size !default;
 	align-items: center;
 
 	border: 1px solid $gray;
-	color: $gray;
 
 	box-shadow: none;
 	line-height: unset;
 	min-height: auto;
 	padding: 0;
 
+	svg {
+		color: $gray;
+	}
 	&[disabled] {
 		&:hover,
 		&:focus {
@@ -38,14 +40,19 @@ $tc-icon-toggle-icon-size: $svg-sm-size !default;
 	&:active {
 		box-shadow: none;
 		border-color: $scooter;
-		color: $scooter;
+
+		svg {
+			color: $scooter;
+		}
 	}
 
 	&.active {
 		background-color: $brand-primary;
 		border-color: $brand-primary;
-		color: $white;
 
+		svg {
+			color: white;
+		}
 		&:hover:not([disabled]),
 		&:active {
 			background-color: $scooter;
