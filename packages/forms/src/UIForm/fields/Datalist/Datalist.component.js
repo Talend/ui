@@ -87,29 +87,29 @@ class Datalist extends Component {
 		const type = this.props.schema.schema.type;
 		const propsValue = this.props.value;
 
-		let titleMapFind = titleMap;
-
-		if (!restricted && propsValue) {
-			const isMultiple = type === 'array';
-			const values = isMultiple ? propsValue : [propsValue];
-
-			if (isMultiSection) {
-				titleMapFind = titleMap.reduce((prev, current) => {
-					prev.push(...current.suggestions);
-					return prev;
-				}, []);
-			}
-
-			const additionalOptions = values
-				.filter(value => !titleMapFind.find(option => option.value === value))
-				.map(value => this.addCustomValue(value, isMultiSection))
-				.reduce((acc, titleMapEntry) => {
-					acc.push(titleMapEntry);
-					return acc;
-				}, []);
-			return titleMap.concat(additionalOptions);
+		if (restricted || !propsValue) {
+			return titleMap;
 		}
-		return titleMap;
+
+		let titleMapFind = titleMap;
+		const isMultiple = type === 'array';
+		const values = isMultiple ? propsValue : [propsValue];
+
+		if (isMultiSection) {
+			titleMapFind = titleMap.reduce((prev, current) => {
+				prev.push(...current.suggestions);
+				return prev;
+			}, []);
+		}
+
+		const additionalOptions = values
+			.filter(value => !titleMapFind.find(option => option.value === value))
+			.map(value => this.addCustomValue(value, isMultiSection))
+			.reduce((acc, titleMapEntry) => {
+				acc.push(titleMapEntry);
+				return acc;
+			}, []);
+		return titleMap.concat(additionalOptions);
 	}
 
 	addCustomValue(value, isMultiSection) {
