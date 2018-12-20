@@ -22,6 +22,7 @@ export default function DefaultHeaderRenderer({ column, displayName, onFocusedCo
 				className={classNames(theme['td-header'], 'td-header')}
 				onClick={onHeaderClick}
 				onKeyDown={onHeaderKeyDown}
+				type="button"
 			>
 				<div className={classNames(theme['td-header-title'], 'td-header-title')}>
 					<span
