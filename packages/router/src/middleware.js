@@ -1,4 +1,3 @@
-
 import actions from '../../actions';
 
 const cmfMiddleware = store => next => action => {
@@ -6,19 +5,19 @@ const cmfMiddleware = store => next => action => {
 	if (!config) {
 		return next(action);
 	}
-    if (config.routerPush || config.routerReplace) {
-        let route = config.routerPush || config.routerReplace;
-        if (typeof route === 'function') {
-            route = route(action);
-        }
-        store.dispatch({
-            type: '@@router/CALL_HISTORY_METHOD',
-            payload: {
-                method: config.routerPush ? 'push' : 'replace',
-                args: [route],
-            },
-        });
-    }
+	if (config.routerPush || config.routerReplace) {
+		let route = config.routerPush || config.routerReplace;
+		if (typeof route === 'function') {
+			route = route(action);
+		}
+		store.dispatch({
+			type: '@@router/CALL_HISTORY_METHOD',
+			payload: {
+				method: config.routerPush ? 'push' : 'replace',
+				args: [route],
+			},
+		});
+	}
 	return next(action);
 };
 
