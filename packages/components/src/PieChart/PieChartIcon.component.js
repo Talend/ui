@@ -192,17 +192,34 @@ export function getPercentageToIndex(values, index) {
 }
 
 /**
+ * This function return the percentage label rounded or with some prefix
+ * @param {number} percentage percentage to show as label
+ */
+function getPercentageAndPrefix(percentage) {
+	if (percentage > 0 && percentage < 1) {
+		return [1, '< '];
+	} else if (percentage > 99 && percentage < 100) {
+		return [99, '> '];
+	}
+	return [Math.round(percentage), ''];
+}
+
+/**
  * This function return the label or nothing if the label is npt passed or hidden
  * @param {boolean} hideLabel tell if the label has to be hidden or not
  * @param {number} labelValue the label value ( percentage )
  * @param {function} t translate function
  */
-function getLabel(hideLabel, labelValue, t) {
+export function getLabel(hideLabel, labelValue, t) {
 	if (!hideLabel && labelValue.percentage != null) {
-		return t('PIE_CHART_PERCENTAGE', {
-			defaultValue: '{{percentage}}%',
-			percentage: labelValue.percentage,
-		});
+		const [percentage, prefix] = getPercentageAndPrefix(labelValue.percentage);
+		return (
+			prefix +
+			t('PIE_CHART_PERCENTAGE', {
+				defaultValue: '{{percentage}}%',
+				percentage,
+			})
+		);
 	}
 	return '';
 }
