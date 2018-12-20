@@ -23,6 +23,7 @@
     "test:demo": "echo nothing to demo"
   },
   "main": "lib/index.js",
+  "mainSrc": "src/index.js",
   "devDependencies": {
     "@babel/cli": "^7.2.0",
     "@babel/core": "^7.2.0",
