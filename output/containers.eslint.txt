@@ -18,14 +18,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/Redirect/index.js
   1:8  error  Using exported name 'Redirect' as identifier for default export  import/no-named-as-default
 
-/home/travis/build/Talend/ui/packages/containers/src/ShortcutManager/ShortcutManager.test.js
-  36:9   error  'state' is already declared in the upper scope  no-shadow
-  41:3   error  'wrapper' is not defined                        no-undef
-  45:6   error  'context' is not defined                        no-undef
-  47:10  error  'wrapper' is not defined                        no-undef
-  53:3   error  'wrapper' is not defined                        no-undef
-  53:53  error  'context' is not defined                        no-undef
-
-✖ 12 problems (12 errors, 0 warnings)
+✖ 6 problems (6 errors, 0 warnings)
   3 errors, 0 warnings potentially fixable with the `--fix` option.
 
