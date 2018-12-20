@@ -1,3 +1,9 @@
+/**
+ * This file is here because this module is not part of the lerna.
+ * So we have enzyme in the current node_module.
+ * If we use ../../test-setup it doesn t work because we have two enzyme
+ * so it complains about not having any enzyme-adapter for react.
+ */
 /* eslint-disable global-require,no-plusplus */
 import { configure } from 'enzyme';
 
