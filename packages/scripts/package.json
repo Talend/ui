@@ -3,6 +3,8 @@
   "description": "Set of scripts",
   "version": "0.5.2",
   "license": "Apache-2.0",
+  "main": "index.js",
+  "mainSrc": "index.js",
   "bin": {
     "talend-scripts": "./index.js"
   },
