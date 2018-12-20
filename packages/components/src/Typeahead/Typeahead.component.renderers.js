@@ -52,69 +52,6 @@ renderInputComponent.propTypes = {
 	caret: PropTypes.bool,
 };
 
-function ItemContainer(props) {
-	const {
-		items,
-		loading,
-		loadingText,
-		noResultText,
-		searching,
-		searchingText,
-		containerProps,
-		children,
-	} = props;
-	const { className, ...restProps } = containerProps;
-	const containerClassName = classNames(className, theme['item-container']);
-	if (searching) {
-		return (
-			<div className={`${containerClassName} ${theme['is-searching']}`} {...restProps}>
-				<span className="is-searching">{searchingText}</span> <CircularProgress />
-			</div>
-		);
-	}
-	if (items && !items.length) {
-		if (loading) {
-			return (
-				<div className={`${containerClassName} ${theme['is-loading']}`} {...restProps}>
-					<span className="is-loading">{loadingText}</span>
-				</div>
-			);
-		}
-		return (
-			<div className={`${containerClassName} ${theme['no-result']}`} {...restProps}>
-				<span className="no-result">{noResultText}</span>
-			</div>
-		);
-	}
-	return <div {...containerProps} className={containerClassName} children={children} />;
-}
-ItemContainer.propTypes = {
-	children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-	containerProps: PropTypes.shape({
-		className: PropTypes.string,
-	}),
-	items: PropTypes.arrayOf(
-		PropTypes.oneOfType([
-			PropTypes.string,
-			PropTypes.shape({
-				title: PropTypes.string,
-				description: PropTypes.string,
-				suggestions: PropTypes.arrayOf(
-					PropTypes.shape({
-						title: PropTypes.string,
-						description: PropTypes.string,
-					}),
-				),
-			}),
-		]),
-	),
-	loading: PropTypes.bool,
-	loadingText: PropTypes.string,
-	noResultText: PropTypes.string,
-	searching: PropTypes.bool,
-	searchingText: PropTypes.string,
-};
-
 export function renderItemsContainerFactory(
 	items,
 	noResultText,
@@ -122,31 +59,56 @@ export function renderItemsContainerFactory(
 	searchingText,
 	loading,
 	loadingText,
+	render = content => content,
 ) {
-	const renderItemsContainerComponent = props => {
-		const { id, key, ref, ...rest } = props;
+	const isShown = items;
+	const noResult = items && !items.length;
+
+	function ItemsContainerComponent(props) {
+		const { id, ref, containerProps, children } = props;
+		const { className, ...restProps } = containerProps;
+
+		const containerClassName = classNames(className, theme['item-container'], {});
+
+		let content;
+		if (searching) {
+			content = (
+				<div key="searching" className={`${theme['is-searching']} is-searching`}>
+					{searchingText}
+					<CircularProgress />
+				</div>
+			);
+		} else if (noResult && loading) {
+			content = (
+				<div key="loading" className={`${theme['is-loading']} is-loading`}>
+					{loadingText}
+				</div>
+			);
+		} else if (noResult) {
+			content = (
+				<div key="no-result" className={`${theme['no-result']} no-result`}>
+					{noResultText}
+				</div>
+			);
+		} else {
+			content = children;
+		}
+
 		return (
-			<div id={id} ref={ref} key={key}>
-				<ItemContainer
-					{...rest}
-					items={items}
-					noResultText={noResultText}
-					searching={searching}
-					searchingText={searchingText}
-					loading={loading}
-					loadingText={loadingText}
-				/>
+			<div id={id} ref={ref} className={containerClassName} {...restProps}>
+				{render(content, { searching, loading, noResult, isShown })}
 			</div>
 		);
-	};
+	}
 
-	renderItemsContainerComponent.propTypes = {
+	ItemsContainerComponent.propTypes = {
 		id: PropTypes.string,
-		key: PropTypes.string,
 		ref: PropTypes.func,
+		containerProps: PropTypes.object,
+		children: PropTypes.node,
 	};
 
-	return renderItemsContainerComponent;
+	return ItemsContainerComponent;
 }
 
 export function renderSectionTitle(section) {
