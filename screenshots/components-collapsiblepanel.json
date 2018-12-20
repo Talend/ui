@@ -1,77 +1,77 @@
 {
   "components/iframe.html?selectedKind=CollapsiblePanel&selectedStory=Key/Value%20content": [
     {
-      "name": "collapsiblepanel-default",
+      "name": "CollapsiblePanel-default",
       "selector": "#default"
     },
     {
-      "name": "collapsiblepanel-no-content",
+      "name": "CollapsiblePanel-no-content",
       "selector": "#no-content"
     },
     {
-      "name": "collapsiblepanel-with-actions",
+      "name": "CollapsiblePanel-with-actions",
       "selector": "#with-actions"
     },
     {
-      "name": "collapsiblepanel-without-actions",
+      "name": "CollapsiblePanel-without-actions",
       "selector": "#without-actions"
     },
     {
-      "name": "collapsiblepanel-with-groups",
+      "name": "CollapsiblePanel-with-groups",
       "selector": "#with-groups"
     },
     {
-      "name": "collapsiblepanel-with-fixed-progress",
+      "name": "CollapsiblePanel-with-fixed-progress",
       "selector": "#with-fixed-progress"
     }
   ],
   "components/iframe.html?selectedKind=CollapsiblePanel&selectedStory=Textual%20content": [
     {
-      "name": "collapsiblepanel-textual-with-content",
+      "name": "CollapsiblePanel-textual-with-content",
       "selector": "#textual-with-content"
     },
     {
-      "name": "collapsiblepanel-textual-opened-with-content",
+      "name": "CollapsiblePanel-textual-opened-with-content",
       "selector": "#textual-opened-with-content"
     },
     {
-      "name": "collapsiblepanel-textual-without-readonly",
+      "name": "CollapsiblePanel-textual-without-readonly",
       "selector": "#textual-without-readonly"
     }
   ],
   "components/iframe.html?selectedKind=CollapsiblePanel&selectedStory=Selected%20Collapsible": [
     {
-      "name": "collapsiblepanel-selected-with-content",
+      "name": "CollapsiblePanel-selected-with-content",
       "selector": "#selected-with-content"
     },
     {
-      "name": "collapsiblepanel-selected-without-readonly",
+      "name": "CollapsiblePanel-selected-without-readonly",
       "selector": "#selected-without-readonly"
     },
     {
-      "name": "collapsiblepanel-selected-without-content",
+      "name": "CollapsiblePanel-selected-without-content",
       "selector": "#selected-without-content"
     },
     {
-      "name": "collapsiblepanel-selected-key-value",
+      "name": "CollapsiblePanel-selected-key-value",
       "selector": "#selected-key-value"
     }
   ],
   "components/iframe.html?selectedKind=CollapsiblePanel&selectedStory=Status%20Collapsible": [
     {
-      "name": "collapsiblepanel-status-info",
+      "name": "CollapsiblePanel-status-info",
       "selector": "#status-info"
     },
     {
-      "name": "collapsiblepanel-status-success",
+      "name": "CollapsiblePanel-status-success",
       "selector": "#status-success"
     },
     {
-      "name": "collapsiblepanel-status-failed",
+      "name": "CollapsiblePanel-status-failed",
       "selector": "#status-failed"
     },
     {
-      "name": "collapsiblepanel-status-canceled",
+      "name": "CollapsiblePanel-status-canceled",
       "selector": "#status-canceled"
     }
   ]
