@@ -15,10 +15,12 @@ describe('CMF App', () => {
 			},
 		};
 		const history = {};
-		const wrapper = shallow(<App store={store} history={history} loading="AppLoader" />);
+		const wrapper = shallow(<App store={store} history={history} loading="AppLoader" ><div className="children" /></App>);
 		expect(wrapper.contains(
 			<Provider store={store}>
-				<RegistryProvider />
+				<RegistryProvider>
+					<div className="children" />
+				</RegistryProvider>
 			</Provider>)
 		).toEqual(true);
 	});
