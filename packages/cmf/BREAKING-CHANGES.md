@@ -7,6 +7,30 @@
 
 First setup it reading the [@talend/react-cmf-router documentation](https://www.npmjs.com/package/@talend/react-cmf-router).
 
+brefore
+```javascript
+import cmf from '@talend/react-cmf';
+
+cmf.bootstrap({
+    history,
+    sagaRouterConfig,
+});
+```
+
+after
+```javascript
+import cmf from '@talend/react-cmf';
+import getRouter from '@talend/react-cmf-router';
+
+const router = getRouter({ history, sagaRouterConfig });
+
+cmf.bootstrap({
+    modules: [router.cmfModule],
+    RootComponent: router.RootComponent,
+});
+```
+
+
 ### matchPath
 
 ```javascript

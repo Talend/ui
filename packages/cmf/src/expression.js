@@ -158,6 +158,7 @@ function withExpression(Component, attrs) {
 	WithExpression.contextTypes = {
 		registry: PropTypes.object,
 		store: PropTypes.object,
+		router: PropTypes.object,
 	};
 	WithExpression.displayName = `WithExpression(${Component.displayName || Component.name})`;
 	return WithExpression;
