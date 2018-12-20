@@ -1,8 +1,6 @@
 # Middleware CMF
 
-CMF middleware is loaded by default. It manages multiple features
-* collections
-* router
+CMF middleware is loaded by default. It manages collections.
 
 To let the CMF middleware manage your action, add a `cmf` configuration in your dispatched action.
 ```javascript
