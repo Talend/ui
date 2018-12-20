@@ -26,9 +26,6 @@ function getModule(options = {}) {
 	function Router() {
 		return <UIRouter history={routerHistory} />;
 	}
-	const components = {
-		Router,
-	};
 	return {
 		cmfModule: {
 			id: 'react-cmf-router',

@@ -33,16 +33,10 @@ describe('handles routes', () => {
 	};
 
 	it('should get the redirectMap', () => {
-		const state = mock.state();
-		state.cmf.settings.props.shortcuts = {
-			redirectMap: {},
-		};
-		state.cmf.components = new Map();
-		wrapper = mount(
+		const wrapper = mount(
 			<Provider state={state}>
 				<Connected view="shortcuts" />
 			</Provider>,
-			{ context },
 		);
 		expect(wrapper.find(Container.displayName).props().redirectMap).toBeDefined();
 	});
@@ -50,7 +44,7 @@ describe('handles routes', () => {
 	it('should handle global keypresses', () => {
 		const spy = jest.spyOn(Container.prototype, 'handleKeyPress');
 
-		wrapper = mount(<Container redirectMap={{}} />, { context });
+		mount(<Container redirectMap={{}} />);
 
 		const event = new KeyboardEvent('keydown', { keyCode: keycode('esc') });
 		document.dispatchEvent(event);
