@@ -1,5 +1,4 @@
-import cmfMiddleware from '../../src/middlewares/cmf';
-import CONSTANT from '../../src/constant';
+import cmfMiddleware from './middleware';
 
 describe('CMF middleware', () => {
 	let store;
