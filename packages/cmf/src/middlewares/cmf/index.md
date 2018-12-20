@@ -31,29 +31,3 @@ By dispatching an action containing a `collectionId` and a `response`, CMF will 
 
 Further information about managing collections is available [here](how-to-manage-collections.md).
 
-## Router
-
-
-Note: this will work only if you have setup `@talend/react-cmf-router`
-
-```javascript
-const pushAction = {
-    cmf: {
-        routerPush: '/my/new/route'
-    }
-}
-dispatch(pushAction);
-
-...
-
-const replaceAction = {
-    cmf: {
-        routerReplace: '/my/new/route'
-    }
-}
-dispatch(replaceAction);
-```
-
-By dispatching an action, with routerReplace/routerPush, the middleware will convert the action to the [react-redux-router](https://github.com/reactjs/react-router-redux/blob/master/src/actions.js) format.
-The value of routerReplace/routerPush can be a `function` that accepts the action and returns the new route.
-

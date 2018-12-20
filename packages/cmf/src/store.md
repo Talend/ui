@@ -22,7 +22,7 @@ const store = cmfstore.initialize(appReducer, preloadedState, enhancer, middlewa
 ## Reducers
 
 The CMF store comes with some reducers out of the box
-* settings,
+* settings
 * component state
 * collections
 

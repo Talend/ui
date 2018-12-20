@@ -189,7 +189,6 @@ you may change the following using simple props:
 
 ## More
 
-* [App](src/App.md)
 * [cmfConnect](src/cmfConnect.md)
 * [settings](src/settings.md)
 * [api](src/api.md)

@@ -248,6 +248,7 @@ export default function cmfConnect({
 			static contextTypes = {
 				store: PropTypes.object,
 				registry: PropTypes.object,
+				router: PropTypes.object,
 			};
 			static WrappedComponent = WrappedComponent;
 			static getState = getState;
