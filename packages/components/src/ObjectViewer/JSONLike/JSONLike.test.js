@@ -28,9 +28,7 @@ describe('JSONLike', () => {
 				hello: 'hello',
 			},
 		};
-		const wrapper = shallow(
-			<Component id="my-object" data={data} {...callbacksProps} />,
-		);
+		const wrapper = shallow(<Component id="my-object" data={data} {...callbacksProps} />);
 		expect(wrapper.dive().getElement()).toMatchSnapshot();
 	});
 
@@ -41,9 +39,7 @@ describe('JSONLike', () => {
 				hello: 'hello',
 			},
 		};
-		const wrapper = shallow(
-			<Component {...callbacksProps} data={data} className="extra-test" />,
-		);
+		const wrapper = shallow(<Component {...callbacksProps} data={data} className="extra-test" />);
 		expect(wrapper.props().className).toContain('extra-test');
 	});
 
