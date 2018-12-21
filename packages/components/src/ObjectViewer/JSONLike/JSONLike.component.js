@@ -275,7 +275,7 @@ export function getDataAbstract(data) {
 	return abstract;
 }
 
-export function ComplexItem(props) {
+function ComplexItemUntranslated(props) {
 	const { data, id, info, jsonpath, level, opened, t } = props;
 	const isOpened = opened.indexOf(jsonpath) !== -1;
 
@@ -357,10 +357,13 @@ export function ComplexItem(props) {
 		</LineItem>
 	);
 }
-ComplexItem.defaultProps = {
+ComplexItemUntranslated.defaultProps = {
 	t: getDefaultT(),
 };
-ComplexItem.propTypes = {
+
+ComplexItemUntranslated.displayName = 'ComplexItem';
+
+ComplexItemUntranslated.propTypes = {
 	data: PropTypes.oneOfType([
 		PropTypes.bool,
 		PropTypes.number,
@@ -381,6 +384,8 @@ ComplexItem.propTypes = {
 	showType: PropTypes.bool,
 	t: PropTypes.func,
 };
+
+export const ComplexItem = translate(I18N_DOMAIN_COMPONENTS)(ComplexItemUntranslated);
 
 export function Item(props) {
 	const { data, tagged, jsonpath, tupleLabel } = props;
@@ -522,4 +527,4 @@ JSONLike.propTypes = {
 	tupleLabel: PropTypes.string,
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(withTreeGesture(JSONLike));
+export default withTreeGesture(JSONLike);
