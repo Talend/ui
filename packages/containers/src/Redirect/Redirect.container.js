@@ -10,7 +10,7 @@ export const REDIRECT_ACTION_TYPE = 'REDIRECT';
  * @example
 <Redirect name="Hello world"></Redirect>
  */
-export function Redirect({ path, to, dispatch, componentId }) {
+function Redirect({ path, to, dispatch, componentId }) {
 	dispatch({
 		type: REDIRECT_ACTION_TYPE,
 		componentId,
