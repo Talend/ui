@@ -15,9 +15,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
 
-/home/travis/build/Talend/ui/packages/containers/src/Redirect/index.js
-  1:8  error  Using exported name 'Redirect' as identifier for default export  import/no-named-as-default
-
-✖ 6 problems (6 errors, 0 warnings)
+✖ 5 problems (5 errors, 0 warnings)
   3 errors, 0 warnings potentially fixable with the `--fix` option.
 
