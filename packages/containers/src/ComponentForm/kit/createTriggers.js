@@ -183,7 +183,7 @@ export default function createTriggers({
 			});
 		}
 		if (trigger.remote === false) {
-			const result = onSuccess();
+			const result = onSuccess({});
 			if (result && result.then) {
 				return result.catch(onError);
 			}
