@@ -61,6 +61,22 @@ function extractFiles({ files, target }) {
 	});
 }
 
+function extractByExpression({ expression, rootPath, target }) {
+	const child = spawn.sync('find', [rootPath, '-iname', `${expression}`]);
+	if (child.status !== 0) {
+		error(child.stderr.toString());
+	}
+
+	const files = child.stdout
+		.toString()
+		.split('\n')
+		.filter(filePath => filePath);
+	if (!files.length) {
+		error(`No file matches the expression "${expression}" from ${rootPath}`);
+	}
+	return extractFiles({ files, target });
+}
+
 function runExtract({ extract }) {
 	const { method, target } = extract;
 	switch (method) {
@@ -70,6 +86,9 @@ function runExtract({ extract }) {
 			break;
 		case 'files':
 			extractFiles(extract);
+			break;
+		case 'expression':
+			extractByExpression(extract);
 			break;
 		default:
 			error(
