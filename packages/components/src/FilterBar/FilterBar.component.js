@@ -164,9 +164,7 @@ export class FilterBarComponent extends React.Component {
 						[theme.animate]: this.props.dockable,
 					})}
 				>
-					{(this.props.iconAlwaysVisible || !(this.state.focus || this.state.value)) && (
-						<Icon name="talend-search" className={theme['search-icon']} />
-					)}
+					<Icon name="talend-search" className={theme['search-icon']} />
 					<FilterInput
 						autoFocus={this.props.autoFocus}
 						id={this.props.id && `${this.props.id}-input`}
@@ -200,7 +198,6 @@ export class FilterBarComponent extends React.Component {
 FilterBarComponent.displayName = 'FilterBar';
 FilterBarComponent.propTypes = {
 	autoFocus: PropTypes.bool,
-	iconAlwaysVisible: PropTypes.bool,
 	id: PropTypes.string,
 	className: PropTypes.string,
 	debounceMinLength: PropTypes.number,
@@ -224,7 +221,6 @@ FilterBarComponent.defaultProps = {
 	autoFocus: true,
 	dockable: true,
 	docked: true,
-	iconAlwaysVisible: true,
 	navbar: true,
 	focus: false,
 	placeholder: 'Filter',
