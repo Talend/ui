@@ -1,6 +1,7 @@
 import get from 'lodash/get';
 import isArray from 'lodash/isArray';
 import round from 'lodash/round';
+import negate from 'lodash/negate';
 
 import {
 	NAMESPACE_INDEX,
@@ -55,7 +56,24 @@ export function sanitizeAvro(avro) {
  * @param {boolean} optional;
  */
 export function getTypeValue(type, optional) {
+	if (typeof type === 'string') {
+		return `${type}${optional ? '' : '*'}`;
+	}
 	return `${type.dqType || type.type}${optional ? '' : '*'}`;
+}
+
+/**
+ * isNull - check if the type is null
+ *
+ * @param  {type} string|object type to check
+ * @return {boolean} return if the type is null
+ */
+export function isNull(type) {
+	if (typeof type === 'string') {
+		return type === 'null';
+	}
+
+	return type.type === 'null';
 }
 
 /**
@@ -67,10 +85,7 @@ export function getTypeValue(type, optional) {
  */
 export function getType(type) {
 	if (Array.isArray(type)) {
-		return getTypeValue(
-			type.find(subType => subType.type !== 'null'),
-			type.find(subType => subType.type === 'null'),
-		);
+		return getTypeValue(type.find(negate(isNull)), type.find(isNull));
 	}
 	return getTypeValue(type);
 }
@@ -88,20 +103,28 @@ export function getQuality(qualityTotal, rowsTotal) {
  */
 export function getQualityValue(type) {
 	if (isArray(type)) {
-		return type.find(value => value[QUALITY_KEY] !== undefined)[QUALITY_KEY];
+		return get(type.find(value => value[QUALITY_KEY] !== undefined), QUALITY_KEY, null);
 	}
-	return type[QUALITY_KEY];
+	return get(type, QUALITY_KEY, null);
 }
 
 export function getFieldQuality(type) {
 	if (!type) {
 		return {};
 	}
+
 	const quality = getQualityValue(type);
+
+	if (!quality) {
+		return {};
+	}
+
 	return {
-		[QUALITY_INVALID_KEY]: getQuality(quality[QUALITY_INVALID_KEY], quality.total),
-		[QUALITY_EMPTY_KEY]: getQuality(quality[QUALITY_EMPTY_KEY], quality.total),
-		[QUALITY_VALID_KEY]: getQuality(quality[QUALITY_VALID_KEY], quality.total),
+		[QUALITY_KEY]: {
+			[QUALITY_INVALID_KEY]: getQuality(quality[QUALITY_INVALID_KEY], quality.total),
+			[QUALITY_EMPTY_KEY]: getQuality(quality[QUALITY_EMPTY_KEY], quality.total),
+			[QUALITY_VALID_KEY]: getQuality(quality[QUALITY_VALID_KEY], quality.total),
+		},
 	};
 }
 
@@ -125,7 +148,7 @@ export function getColumnDefs(sample) {
 		field: `${NAMESPACE_DATA}${avroField.name}`,
 		headerName: avroField.doc || avroField.name,
 		type: getType(avroField.type),
-		[QUALITY_KEY]: getFieldQuality(avroField.type),
+		...getFieldQuality(avroField.type),
 	}));
 }
 
