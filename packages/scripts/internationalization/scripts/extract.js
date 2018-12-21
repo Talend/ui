@@ -61,8 +61,8 @@ function extractFiles({ files, target }) {
 	});
 }
 
-function extractByExtension({ extension, rootPath, target }) {
-	const child = spawn.sync('find', [rootPath, '-iname', `*${extension}`]);
+function extractByExpression({ expression, rootPath, target }) {
+	const child = spawn.sync('find', [rootPath, '-iname', `${expression}`]);
 	if (child.status !== 0) {
 		error(child.stderr.toString());
 	}
@@ -72,7 +72,7 @@ function extractByExtension({ extension, rootPath, target }) {
 		.split('\n')
 		.filter(filePath => filePath);
 	if (!files.length) {
-		error(`No file matches the extension "${extension}" from ${rootPath}`);
+		error(`No file matches the expression "${expression}" from ${rootPath}`);
 	}
 	return extractFiles({ files, target });
 }
@@ -87,8 +87,8 @@ function runExtract({ extract }) {
 		case 'files':
 			extractFiles(extract);
 			break;
-		case 'extension':
-			extractByExtension(extract);
+		case 'expression':
+			extractByExpression(extract);
 			break;
 		default:
 			error(
