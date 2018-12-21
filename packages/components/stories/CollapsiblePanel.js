@@ -113,8 +113,7 @@ const descriptiveDetail = {
 };
 
 storiesOf('CollapsiblePanel', module)
-	.addDecorator(checkA11y)
-	.addWithInfo('Default', () => (
+	.add('Default', () => (
 		<div className="col-lg-offset-1 col-lg-10">
 			<IconsProvider defaultIcons={icons} />
 			<h1>Collapsible Panel</h1>
@@ -139,7 +138,7 @@ storiesOf('CollapsiblePanel', module)
 			</CollapsiblePanel>
 		</div>
 	))
-	.addWithInfo('Header', () => (
+	.add('Header', () => (
 		<div className="col-lg-offset-1 col-lg-10">
 			<IconsProvider defaultIcons={icons} />
 			<h1>Collapsible Panel Headers</h1>
@@ -174,7 +173,7 @@ storiesOf('CollapsiblePanel', module)
 			/>
 		</div>
 	))
-	.addWithInfo('Body', () => (
+	.add('Body', () => (
 		<div className="col-lg-offset-1 col-lg-10">
 			<IconsProvider defaultIcons={icons} />
 			<h1>Collapsible Panel</h1>
@@ -195,7 +194,7 @@ storiesOf('CollapsiblePanel', module)
 			/>
 		</div>
 	))
-	.addWithInfo('Theme: descriptive-panel', () => (
+	.add('Theme: descriptive-panel', () => (
 		<div className="col-lg-offset-1 col-lg-10">
 			<IconsProvider defaultIcons={icons} />
 			<h1>Theme : descriptive-panel</h1>
@@ -230,7 +229,7 @@ storiesOf('CollapsiblePanel', module)
 			/>
 		</div>
 	))
-	.addWithInfo('Selection', () => (
+	.add('Selection', () => (
 		<div className="col-lg-offset-1 col-lg-10">
 			<IconsProvider defaultIcons={icons} />
 			<h1>Selection</h1>
