@@ -20,7 +20,7 @@ exports[`EnumerationWidget delete all 1`] = `
       },
     ]
   }
-  onChange={[Function]}
+  onChange={[MockFunction]}
   t={[Function]}
 >
   <div>
@@ -244,6 +244,7 @@ exports[`EnumerationWidget delete all 1`] = `
           ]
         }
         nsMode="default"
+        omitBoundRerender={true}
         onAddKeyDown={[Function]}
         onInputChange={[Function]}
         required={false}
@@ -358,6 +359,7 @@ exports[`EnumerationWidget delete all 1`] = `
               "onSubmitItem": [Function],
             }
           }
+          lng="en"
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
           required={false}
@@ -474,6 +476,7 @@ exports[`EnumerationWidget delete all 1`] = `
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -550,6 +553,7 @@ exports[`EnumerationWidget delete all 1`] = `
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onClick={[Function]}
                           translateFuncName="t"
                           usePureComponent={false}
@@ -568,6 +572,7 @@ exports[`EnumerationWidget delete all 1`] = `
                             inProgress={false}
                             label="Search for specific values"
                             link={true}
+                            lng="en"
                             loading={false}
                             onClick={[Function]}
                             t={[Function]}
@@ -666,6 +671,7 @@ exports[`EnumerationWidget delete all 1`] = `
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onClick={[Function]}
                           translateFuncName="t"
                           usePureComponent={false}
@@ -684,6 +690,7 @@ exports[`EnumerationWidget delete all 1`] = `
                             inProgress={false}
                             label="Add item"
                             link={true}
+                            lng="en"
                             loading={false}
                             onClick={[Function]}
                             t={[Function]}
@@ -853,6 +860,7 @@ exports[`EnumerationWidget delete all 1`] = `
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -1104,6 +1112,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
           ]
         }
         nsMode="default"
+        omitBoundRerender={true}
         onAddKeyDown={[Function]}
         onInputChange={[Function]}
         required={false}
@@ -1218,6 +1227,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
               "onSubmitItem": [Function],
             }
           }
+          lng="en"
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
           required={false}
@@ -1334,6 +1344,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -1420,6 +1431,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                           ]
                         }
                         nsMode="default"
+                        omitBoundRerender={true}
                         onClick={[Function]}
                         tooltipPlacement="bottom"
                         translateFuncName="t"
@@ -1437,6 +1449,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                           inProgress={false}
                           label="Abort"
                           link={true}
+                          lng="en"
                           loading={false}
                           onClick={[Function]}
                           t={[Function]}
@@ -1603,6 +1616,7 @@ exports[`EnumerationWidget should be in add mode 1`] = `
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -1854,6 +1868,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
           ]
         }
         nsMode="default"
+        omitBoundRerender={true}
         onAddKeyDown={[Function]}
         onInputChange={[Function]}
         required={false}
@@ -1968,6 +1983,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
               "onSubmitItem": [Function],
             }
           }
+          lng="en"
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
           required={false}
@@ -2084,6 +2100,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -2160,6 +2177,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onClick={[Function]}
                           translateFuncName="t"
                           usePureComponent={false}
@@ -2178,6 +2196,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                             inProgress={false}
                             label="Search for specific values"
                             link={true}
+                            lng="en"
                             loading={false}
                             onClick={[Function]}
                             t={[Function]}
@@ -2276,6 +2295,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onClick={[Function]}
                           translateFuncName="t"
                           usePureComponent={false}
@@ -2294,6 +2314,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                             inProgress={false}
                             label="Add item"
                             link={true}
+                            lng="en"
                             loading={false}
                             onClick={[Function]}
                             t={[Function]}
@@ -2463,6 +2484,7 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -2719,6 +2741,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
           ]
         }
         nsMode="default"
+        omitBoundRerender={true}
         onAddKeyDown={[Function]}
         onInputChange={[Function]}
         required={true}
@@ -2833,6 +2856,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
               "onSubmitItem": [Function],
             }
           }
+          lng="en"
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
           required={true}
@@ -2949,6 +2973,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={true}
@@ -3026,6 +3051,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onClick={[Function]}
                           translateFuncName="t"
                           usePureComponent={false}
@@ -3044,6 +3070,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                             inProgress={false}
                             label="Search for specific values"
                             link={true}
+                            lng="en"
                             loading={false}
                             onClick={[Function]}
                             t={[Function]}
@@ -3142,6 +3169,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onClick={[Function]}
                           translateFuncName="t"
                           usePureComponent={false}
@@ -3160,6 +3188,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                             inProgress={false}
                             label="Add item"
                             link={true}
+                            lng="en"
                             loading={false}
                             onClick={[Function]}
                             t={[Function]}
@@ -3329,6 +3358,7 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={true}
@@ -3368,7 +3398,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
       },
     ]
   }
-  onChange={[Function]}
+  onChange={[MockFunction]}
   t={[Function]}
 >
   <div>
@@ -3632,6 +3662,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
           ]
         }
         nsMode="default"
+        omitBoundRerender={true}
         onAddKeyDown={[Function]}
         onInputChange={[Function]}
         required={false}
@@ -3766,6 +3797,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
               "onSubmitItem": [Function],
             }
           }
+          lng="en"
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
           required={false}
@@ -3902,6 +3934,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -3978,6 +4011,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onClick={[Function]}
                           translateFuncName="t"
                           usePureComponent={false}
@@ -3996,6 +4030,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                             inProgress={false}
                             label="Search for specific values"
                             link={true}
+                            lng="en"
                             loading={false}
                             onClick={[Function]}
                             t={[Function]}
@@ -4094,6 +4129,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onClick={[Function]}
                           translateFuncName="t"
                           usePureComponent={false}
@@ -4112,6 +4148,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                             inProgress={false}
                             label="Add item"
                             link={true}
+                            lng="en"
                             loading={false}
                             onClick={[Function]}
                             t={[Function]}
@@ -4301,6 +4338,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -4468,6 +4506,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                           estimatedRowSize={30}
                           getScrollbarSize={[Function]}
                           height={3000}
+                          isScrollingOptOut={false}
                           items={
                             Array [
                               Object {
@@ -4648,6 +4687,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                     ]
                                   }
                                   nsMode="default"
+                                  omitBoundRerender={true}
                                   style={
                                     Object {
                                       "height": 33,
@@ -4707,6 +4747,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                         ],
                                       }
                                     }
+                                    lng="en"
                                     style={
                                       Object {
                                         "height": 33,
@@ -4782,6 +4823,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                                 ]
                                               }
                                               nsMode="default"
+                                              omitBoundRerender={true}
                                               onClick={[Function]}
                                               tooltipPlacement="bottom"
                                               translateFuncName="t"
@@ -4799,6 +4841,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                                 inProgress={false}
                                                 label="Validate"
                                                 link={true}
+                                                lng="en"
                                                 loading={false}
                                                 onClick={[Function]}
                                                 t={[Function]}
@@ -4891,6 +4934,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                                 ]
                                               }
                                               nsMode="default"
+                                              omitBoundRerender={true}
                                               onClick={[Function]}
                                               tooltipPlacement="bottom"
                                               translateFuncName="t"
@@ -4908,6 +4952,7 @@ exports[`EnumerationWidget should be in edit mode 1`] = `
                                                 inProgress={false}
                                                 label="Abort"
                                                 link={true}
+                                                lng="en"
                                                 loading={false}
                                                 onClick={[Function]}
                                                 t={[Function]}
@@ -5213,6 +5258,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
           ]
         }
         nsMode="default"
+        omitBoundRerender={true}
         onAddKeyDown={[Function]}
         onInputChange={[Function]}
         required={false}
@@ -5327,6 +5373,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
               "onSubmitItem": [Function],
             }
           }
+          lng="en"
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
           required={false}
@@ -5443,6 +5490,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -5529,6 +5577,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                           ]
                         }
                         nsMode="default"
+                        omitBoundRerender={true}
                         onClick={[Function]}
                         tooltipPlacement="bottom"
                         translateFuncName="t"
@@ -5546,6 +5595,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                           inProgress={false}
                           label="Abort"
                           link={true}
+                          lng="en"
                           loading={false}
                           onClick={[Function]}
                           t={[Function]}
@@ -5712,6 +5762,7 @@ exports[`EnumerationWidget should be in search mode 1`] = `
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -5751,7 +5802,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
       },
     ]
   }
-  onChange={[Function]}
+  onChange={[MockFunction]}
   t={[Function]}
 >
   <div>
@@ -5975,6 +6026,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
           ]
         }
         nsMode="default"
+        omitBoundRerender={true}
         onAddKeyDown={[Function]}
         onInputChange={[Function]}
         required={false}
@@ -6089,6 +6141,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
               "onSubmitItem": [Function],
             }
           }
+          lng="en"
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
           required={false}
@@ -6205,6 +6258,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -6281,6 +6335,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onClick={[Function]}
                           translateFuncName="t"
                           usePureComponent={false}
@@ -6299,6 +6354,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                             inProgress={false}
                             label="Search for specific values"
                             link={true}
+                            lng="en"
                             loading={false}
                             onClick={[Function]}
                             t={[Function]}
@@ -6397,6 +6453,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onClick={[Function]}
                           translateFuncName="t"
                           usePureComponent={false}
@@ -6415,6 +6472,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                             inProgress={false}
                             label="Add item"
                             link={true}
+                            lng="en"
                             loading={false}
                             onClick={[Function]}
                             t={[Function]}
@@ -6584,6 +6642,7 @@ exports[`EnumerationWidget should delete an item 1`] = `
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -6623,11 +6682,29 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
       },
     ]
   }
-  onChange={[Function]}
+  onChange={[MockFunction]}
   registry={
     Object {
       "formContext": Object {
-        "handleAction": [Function],
+        "handleAction": [MockFunction] {
+          "calls": Array [
+            Array [
+              undefined,
+              "ENUMERATION_REMOVE_ACTION",
+              Array [
+                "11212242",
+              ],
+              [Function],
+              [Function],
+            ],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        },
       },
     }
   }
@@ -6858,6 +6935,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
           ]
         }
         nsMode="default"
+        omitBoundRerender={true}
         onAddKeyDown={[Function]}
         onInputChange={[Function]}
         required={false}
@@ -6974,6 +7052,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
               "onSubmitItem": [Function],
             }
           }
+          lng="en"
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
           required={false}
@@ -7092,6 +7171,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -7168,6 +7248,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onClick={[Function]}
                           translateFuncName="t"
                           usePureComponent={false}
@@ -7186,6 +7267,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                             inProgress={false}
                             label="Search for specific values"
                             link={true}
+                            lng="en"
                             loading={false}
                             onClick={[Function]}
                             t={[Function]}
@@ -7284,6 +7366,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onClick={[Function]}
                           translateFuncName="t"
                           usePureComponent={false}
@@ -7302,6 +7385,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                             inProgress={false}
                             label="Add item"
                             link={true}
+                            lng="en"
                             loading={false}
                             onClick={[Function]}
                             t={[Function]}
@@ -7473,6 +7557,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -7603,6 +7688,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                           estimatedRowSize={30}
                           getScrollbarSize={[Function]}
                           height={3000}
+                          isScrollingOptOut={false}
                           items={
                             Array [
                               Object {
@@ -7768,6 +7854,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                     ]
                                   }
                                   nsMode="default"
+                                  omitBoundRerender={true}
                                   style={
                                     Object {
                                       "height": 33,
@@ -7821,6 +7908,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                         "onSelectItem": [Function],
                                       }
                                     }
+                                    lng="en"
                                     style={
                                       Object {
                                         "height": 33,
@@ -7910,6 +7998,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                                 ]
                                               }
                                               nsMode="default"
+                                              omitBoundRerender={true}
                                               onClick={[Function]}
                                               tooltipPlacement="bottom"
                                               translateFuncName="t"
@@ -7927,6 +8016,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                                 inProgress={true}
                                                 label="Loading"
                                                 link={true}
+                                                lng="en"
                                                 loading={false}
                                                 onClick={[Function]}
                                                 t={[Function]}
@@ -7977,6 +8067,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                                               ]
                                                             }
                                                             nsMode="default"
+                                                            omitBoundRerender={true}
                                                             size="small"
                                                             translateFuncName="t"
                                                             usePureComponent={false}
@@ -7985,6 +8076,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
                                                           >
                                                             <CircularProgress
                                                               i18n={Object {}}
+                                                              lng="en"
                                                               size="small"
                                                               t={[Function]}
                                                               tReady={false}
@@ -8056,7 +8148,7 @@ exports[`EnumerationWidget should select an item 1`] = `
       },
     ]
   }
-  onChange={[Function]}
+  onChange={[MockFunction]}
   t={[Function]}
 >
   <div>
@@ -8304,6 +8396,7 @@ exports[`EnumerationWidget should select an item 1`] = `
           ]
         }
         nsMode="default"
+        omitBoundRerender={true}
         onAddKeyDown={[Function]}
         onInputChange={[Function]}
         required={false}
@@ -8430,6 +8523,7 @@ exports[`EnumerationWidget should select an item 1`] = `
               "onSubmitItem": [Function],
             }
           }
+          lng="en"
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
           required={false}
@@ -8558,6 +8652,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -8619,6 +8714,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                           ]
                         }
                         nsMode="default"
+                        omitBoundRerender={true}
                         onClick={[Function]}
                         tooltipPlacement="bottom"
                         translateFuncName="t"
@@ -8636,6 +8732,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                           inProgress={false}
                           label="Remove selected values"
                           link={true}
+                          lng="en"
                           loading={false}
                           onClick={[Function]}
                           t={[Function]}
@@ -8814,6 +8911,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -8972,6 +9070,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                           estimatedRowSize={30}
                           getScrollbarSize={[Function]}
                           height={3000}
+                          isScrollingOptOut={false}
                           items={
                             Array [
                               Object {
@@ -9175,6 +9274,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                     ]
                                   }
                                   nsMode="default"
+                                  omitBoundRerender={true}
                                   style={
                                     Object {
                                       "height": 33,
@@ -9246,6 +9346,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                         "onSelectItem": [Function],
                                       }
                                     }
+                                    lng="en"
                                     style={
                                       Object {
                                         "height": 33,
@@ -9332,6 +9433,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                                 ]
                                               }
                                               nsMode="default"
+                                              omitBoundRerender={true}
                                               onClick={[Function]}
                                               tooltipPlacement="bottom"
                                               translateFuncName="t"
@@ -9349,6 +9451,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                                 inProgress={false}
                                                 label="Edit"
                                                 link={true}
+                                                lng="en"
                                                 loading={false}
                                                 onClick={[Function]}
                                                 t={[Function]}
@@ -9438,6 +9541,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                                 ]
                                               }
                                               nsMode="default"
+                                              omitBoundRerender={true}
                                               onClick={[Function]}
                                               tooltipPlacement="bottom"
                                               translateFuncName="t"
@@ -9455,6 +9559,7 @@ exports[`EnumerationWidget should select an item 1`] = `
                                                 inProgress={false}
                                                 label="Remove value"
                                                 link={true}
+                                                lng="en"
                                                 loading={false}
                                                 onClick={[Function]}
                                                 t={[Function]}
@@ -9555,7 +9660,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
       },
     ]
   }
-  onChange={[Function]}
+  onChange={[MockFunction]}
   t={[Function]}
 >
   <div>
@@ -9821,6 +9926,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
           ]
         }
         nsMode="default"
+        omitBoundRerender={true}
         onAddKeyDown={[Function]}
         onInputChange={[Function]}
         required={false}
@@ -9956,6 +10062,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
               "onSubmitItem": [Function],
             }
           }
+          lng="en"
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
           required={false}
@@ -10093,6 +10200,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -10169,6 +10277,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onClick={[Function]}
                           translateFuncName="t"
                           usePureComponent={false}
@@ -10187,6 +10296,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                             inProgress={false}
                             label="Search for specific values"
                             link={true}
+                            lng="en"
                             loading={false}
                             onClick={[Function]}
                             t={[Function]}
@@ -10285,6 +10395,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onClick={[Function]}
                           translateFuncName="t"
                           usePureComponent={false}
@@ -10303,6 +10414,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                             inProgress={false}
                             label="Add item"
                             link={true}
+                            lng="en"
                             loading={false}
                             onClick={[Function]}
                             t={[Function]}
@@ -10493,6 +10605,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -10669,6 +10782,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                           estimatedRowSize={30}
                           getScrollbarSize={[Function]}
                           height={3000}
+                          isScrollingOptOut={false}
                           items={
                             Array [
                               Object {
@@ -10881,6 +10995,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                     ]
                                   }
                                   nsMode="default"
+                                  omitBoundRerender={true}
                                   style={
                                     Object {
                                       "height": 33,
@@ -10952,6 +11067,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         "onSelectItem": [Function],
                                       }
                                     }
+                                    lng="en"
                                     style={
                                       Object {
                                         "height": 33,
@@ -11038,6 +11154,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                 ]
                                               }
                                               nsMode="default"
+                                              omitBoundRerender={true}
                                               onClick={[Function]}
                                               tooltipPlacement="bottom"
                                               translateFuncName="t"
@@ -11055,6 +11172,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                 inProgress={false}
                                                 label="Edit"
                                                 link={true}
+                                                lng="en"
                                                 loading={false}
                                                 onClick={[Function]}
                                                 t={[Function]}
@@ -11144,6 +11262,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                 ]
                                               }
                                               nsMode="default"
+                                              omitBoundRerender={true}
                                               onClick={[Function]}
                                               tooltipPlacement="bottom"
                                               translateFuncName="t"
@@ -11161,6 +11280,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                 inProgress={false}
                                                 label="Remove value"
                                                 link={true}
+                                                lng="en"
                                                 loading={false}
                                                 onClick={[Function]}
                                                 t={[Function]}
@@ -11356,6 +11476,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                     ]
                                   }
                                   nsMode="default"
+                                  omitBoundRerender={true}
                                   style={
                                     Object {
                                       "height": 33,
@@ -11427,6 +11548,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                         "onSelectItem": [Function],
                                       }
                                     }
+                                    lng="en"
                                     style={
                                       Object {
                                         "height": 33,
@@ -11513,6 +11635,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                 ]
                                               }
                                               nsMode="default"
+                                              omitBoundRerender={true}
                                               onClick={[Function]}
                                               tooltipPlacement="bottom"
                                               translateFuncName="t"
@@ -11530,6 +11653,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                 inProgress={false}
                                                 label="Edit"
                                                 link={true}
+                                                lng="en"
                                                 loading={false}
                                                 onClick={[Function]}
                                                 t={[Function]}
@@ -11619,6 +11743,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                 ]
                                               }
                                               nsMode="default"
+                                              omitBoundRerender={true}
                                               onClick={[Function]}
                                               tooltipPlacement="bottom"
                                               translateFuncName="t"
@@ -11636,6 +11761,7 @@ exports[`EnumerationWidget should select multiple  items 1`] = `
                                                 inProgress={false}
                                                 label="Remove value"
                                                 link={true}
+                                                lng="en"
                                                 loading={false}
                                                 onClick={[Function]}
                                                 t={[Function]}
@@ -11728,6 +11854,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
       ]
     }
     nsMode="default"
+    omitBoundRerender={true}
     translateFuncName="t"
     usePureComponent={false}
     wait={false}
@@ -11735,6 +11862,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
   >
     <EnumerationForm
       i18n={Object {}}
+      lng="en"
       t={[Function]}
       tReady={false}
     >
@@ -11959,6 +12087,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
               ]
             }
             nsMode="default"
+            omitBoundRerender={true}
             onAddKeyDown={[Function]}
             onInputChange={[Function]}
             required={false}
@@ -12073,6 +12202,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -12189,6 +12319,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                       "onSubmitItem": [Function],
                     }
                   }
+                  lng="en"
                   onAddKeyDown={[Function]}
                   onInputChange={[Function]}
                   required={false}
@@ -12265,6 +12396,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                 ]
                               }
                               nsMode="default"
+                              omitBoundRerender={true}
                               onClick={[Function]}
                               translateFuncName="t"
                               usePureComponent={false}
@@ -12283,6 +12415,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                 inProgress={false}
                                 label="Search for specific values"
                                 link={true}
+                                lng="en"
                                 loading={false}
                                 onClick={[Function]}
                                 t={[Function]}
@@ -12381,6 +12514,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                 ]
                               }
                               nsMode="default"
+                              omitBoundRerender={true}
                               onClick={[Function]}
                               translateFuncName="t"
                               usePureComponent={false}
@@ -12399,6 +12533,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                 inProgress={false}
                                 label="Add item"
                                 link={true}
+                                lng="en"
                                 loading={false}
                                 onClick={[Function]}
                                 t={[Function]}
@@ -12568,6 +12703,7 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                       "onSubmitItem": [Function],
                     }
                   }
+                  lng="en"
                   onAddKeyDown={[Function]}
                   onInputChange={[Function]}
                   required={false}
@@ -12886,6 +13022,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
           ]
         }
         nsMode="default"
+        omitBoundRerender={true}
         onAddKeyDown={[Function]}
         onInputChange={[Function]}
         required={false}
@@ -13023,6 +13160,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
               "onSubmitItem": [Function],
             }
           }
+          lng="en"
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
           required={false}
@@ -13162,6 +13300,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -13261,6 +13400,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onClick={[Function]}
                           translateFuncName="t"
                           usePureComponent={false}
@@ -13279,6 +13419,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                             inProgress={false}
                             label="Search for specific values"
                             link={true}
+                            lng="en"
                             loading={false}
                             onClick={[Function]}
                             t={[Function]}
@@ -13404,6 +13545,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                           ]
                         }
                         nsMode="default"
+                        omitBoundRerender={true}
                         onClick={[Function]}
                         pullRight={true}
                         translateFuncName="t"
@@ -13438,6 +13580,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                           }
                           label="Import values from a file"
                           link={true}
+                          lng="en"
                           noCaret={true}
                           onClick={[Function]}
                           pullRight={true}
@@ -13458,6 +13601,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                               displayMode="dropdown"
                               i18n={Object {}}
                               id="upload"
+                              lng="en"
                               noCaret={true}
                               onClick={[Function]}
                               onFocus={[Function]}
@@ -13470,7 +13614,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                 Array [
                                   <Icon
                                     name="talend-download"
-                                />,
+                                  />,
                                   null,
                                 ]
                               }
@@ -13516,6 +13660,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                         i18n={Object {}}
                                         id="upload"
                                         key=".0"
+                                        lng="en"
                                         noCaret={true}
                                         onClick={[Function]}
                                         onFocus={[Function]}
@@ -13540,6 +13685,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                           displayMode="dropdown"
                                           i18n={Object {}}
                                           id="upload"
+                                          lng="en"
                                           onClick={[Function]}
                                           onFocus={[Function]}
                                           onKeyDown={[Function]}
@@ -13557,6 +13703,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                             displayMode="dropdown"
                                             i18n={Object {}}
                                             id="upload"
+                                            lng="en"
                                             onClick={[Function]}
                                             onFocus={[Function]}
                                             onKeyDown={[Function]}
@@ -13757,6 +13904,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onClick={[Function]}
                           translateFuncName="t"
                           usePureComponent={false}
@@ -13775,6 +13923,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                             inProgress={false}
                             label="Add item"
                             link={true}
+                            lng="en"
                             loading={false}
                             onClick={[Function]}
                             t={[Function]}
@@ -13967,6 +14116,7 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -14273,6 +14423,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
           ]
         }
         nsMode="default"
+        omitBoundRerender={true}
         onAddKeyDown={[Function]}
         onInputChange={[Function]}
         required={false}
@@ -14396,6 +14547,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
               "onSubmitItem": [Function],
             }
           }
+          lng="en"
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
           required={false}
@@ -14521,6 +14673,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -14589,6 +14742,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onClick={[Function]}
                           translateFuncName="t"
                           usePureComponent={false}
@@ -14607,6 +14761,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                             inProgress={true}
                             label="Loading"
                             link={true}
+                            lng="en"
                             loading={false}
                             onClick={[Function]}
                             t={[Function]}
@@ -14659,6 +14814,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           ]
                                         }
                                         nsMode="default"
+                                        omitBoundRerender={true}
                                         size="small"
                                         translateFuncName="t"
                                         usePureComponent={false}
@@ -14667,6 +14823,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                       >
                                         <CircularProgress
                                           i18n={Object {}}
+                                          lng="en"
                                           size="small"
                                           t={[Function]}
                                           tReady={false}
@@ -14821,6 +14978,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -14989,6 +15147,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                           estimatedRowSize={30}
                           getScrollbarSize={[Function]}
                           height={3000}
+                          isScrollingOptOut={false}
                           items={
                             Array [
                               Object {
@@ -15193,6 +15352,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     ]
                                   }
                                   nsMode="default"
+                                  omitBoundRerender={true}
                                   style={
                                     Object {
                                       "height": 33,
@@ -15262,6 +15422,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         "onSelectItem": [Function],
                                       }
                                     }
+                                    lng="en"
                                     style={
                                       Object {
                                         "height": 33,
@@ -15348,6 +15509,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                 ]
                                               }
                                               nsMode="default"
+                                              omitBoundRerender={true}
                                               onClick={[Function]}
                                               tooltipPlacement="bottom"
                                               translateFuncName="t"
@@ -15365,6 +15527,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                 inProgress={false}
                                                 label="Edit"
                                                 link={true}
+                                                lng="en"
                                                 loading={false}
                                                 onClick={[Function]}
                                                 t={[Function]}
@@ -15454,6 +15617,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                 ]
                                               }
                                               nsMode="default"
+                                              omitBoundRerender={true}
                                               onClick={[Function]}
                                               tooltipPlacement="bottom"
                                               translateFuncName="t"
@@ -15471,6 +15635,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                 inProgress={false}
                                                 label="Remove value"
                                                 link={true}
+                                                lng="en"
                                                 loading={false}
                                                 onClick={[Function]}
                                                 t={[Function]}
@@ -15662,6 +15827,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     ]
                                   }
                                   nsMode="default"
+                                  omitBoundRerender={true}
                                   style={
                                     Object {
                                       "height": 33,
@@ -15731,6 +15897,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         "onSelectItem": [Function],
                                       }
                                     }
+                                    lng="en"
                                     style={
                                       Object {
                                         "height": 33,
@@ -15817,6 +15984,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                 ]
                                               }
                                               nsMode="default"
+                                              omitBoundRerender={true}
                                               onClick={[Function]}
                                               tooltipPlacement="bottom"
                                               translateFuncName="t"
@@ -15834,6 +16002,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                 inProgress={false}
                                                 label="Edit"
                                                 link={true}
+                                                lng="en"
                                                 loading={false}
                                                 onClick={[Function]}
                                                 t={[Function]}
@@ -15923,6 +16092,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                 ]
                                               }
                                               nsMode="default"
+                                              omitBoundRerender={true}
                                               onClick={[Function]}
                                               tooltipPlacement="bottom"
                                               translateFuncName="t"
@@ -15940,6 +16110,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                 inProgress={false}
                                                 label="Remove value"
                                                 link={true}
+                                                lng="en"
                                                 loading={false}
                                                 onClick={[Function]}
                                                 t={[Function]}
@@ -16362,6 +16533,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
           ]
         }
         nsMode="default"
+        omitBoundRerender={true}
         onAddKeyDown={[Function]}
         onInputChange={[Function]}
         required={false}
@@ -16516,6 +16688,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
               "onSubmitItem": [Function],
             }
           }
+          lng="en"
           onAddKeyDown={[Function]}
           onInputChange={[Function]}
           required={false}
@@ -16672,6 +16845,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -16771,6 +16945,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onClick={[Function]}
                           translateFuncName="t"
                           usePureComponent={false}
@@ -16789,6 +16964,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                             inProgress={false}
                             label="Search for specific values"
                             link={true}
+                            lng="en"
                             loading={false}
                             onClick={[Function]}
                             t={[Function]}
@@ -16912,6 +17088,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                           ]
                         }
                         nsMode="default"
+                        omitBoundRerender={true}
                         onClick={[Function]}
                         pullRight={true}
                         translateFuncName="t"
@@ -16945,6 +17122,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                           }
                           label="Import values from a file"
                           link={true}
+                          lng="en"
                           noCaret={true}
                           onClick={[Function]}
                           pullRight={true}
@@ -16964,6 +17142,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                               displayMode="dropdown"
                               i18n={Object {}}
                               id="upload"
+                              lng="en"
                               noCaret={true}
                               onClick={[Function]}
                               onFocus={[Function]}
@@ -16976,7 +17155,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                 Array [
                                   <Icon
                                     name="talend-download"
-                                />,
+                                  />,
                                   null,
                                 ]
                               }
@@ -17021,6 +17200,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         i18n={Object {}}
                                         id="upload"
                                         key=".0"
+                                        lng="en"
                                         noCaret={true}
                                         onClick={[Function]}
                                         onFocus={[Function]}
@@ -17044,6 +17224,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                           displayMode="dropdown"
                                           i18n={Object {}}
                                           id="upload"
+                                          lng="en"
                                           onClick={[Function]}
                                           onFocus={[Function]}
                                           onKeyDown={[Function]}
@@ -17060,6 +17241,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                             displayMode="dropdown"
                                             i18n={Object {}}
                                             id="upload"
+                                            lng="en"
                                             onClick={[Function]}
                                             onFocus={[Function]}
                                             onKeyDown={[Function]}
@@ -17254,6 +17436,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                             ]
                           }
                           nsMode="default"
+                          omitBoundRerender={true}
                           onClick={[Function]}
                           translateFuncName="t"
                           usePureComponent={false}
@@ -17272,6 +17455,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                             inProgress={false}
                             label="Add item"
                             link={true}
+                            lng="en"
                             loading={false}
                             onClick={[Function]}
                             t={[Function]}
@@ -17481,6 +17665,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                   "onSubmitItem": [Function],
                 }
               }
+              lng="en"
               onAddKeyDown={[Function]}
               onInputChange={[Function]}
               required={false}
@@ -17649,6 +17834,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                           estimatedRowSize={30}
                           getScrollbarSize={[Function]}
                           height={3000}
+                          isScrollingOptOut={false}
                           items={
                             Array [
                               Object {
@@ -17853,6 +18039,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     ]
                                   }
                                   nsMode="default"
+                                  omitBoundRerender={true}
                                   style={
                                     Object {
                                       "height": 33,
@@ -17922,6 +18109,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         "onSelectItem": [Function],
                                       }
                                     }
+                                    lng="en"
                                     style={
                                       Object {
                                         "height": 33,
@@ -18008,6 +18196,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                 ]
                                               }
                                               nsMode="default"
+                                              omitBoundRerender={true}
                                               onClick={[Function]}
                                               tooltipPlacement="bottom"
                                               translateFuncName="t"
@@ -18025,6 +18214,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                 inProgress={false}
                                                 label="Edit"
                                                 link={true}
+                                                lng="en"
                                                 loading={false}
                                                 onClick={[Function]}
                                                 t={[Function]}
@@ -18114,6 +18304,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                 ]
                                               }
                                               nsMode="default"
+                                              omitBoundRerender={true}
                                               onClick={[Function]}
                                               tooltipPlacement="bottom"
                                               translateFuncName="t"
@@ -18131,6 +18322,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                 inProgress={false}
                                                 label="Remove value"
                                                 link={true}
+                                                lng="en"
                                                 loading={false}
                                                 onClick={[Function]}
                                                 t={[Function]}
@@ -18322,6 +18514,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                     ]
                                   }
                                   nsMode="default"
+                                  omitBoundRerender={true}
                                   style={
                                     Object {
                                       "height": 33,
@@ -18391,6 +18584,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                         "onSelectItem": [Function],
                                       }
                                     }
+                                    lng="en"
                                     style={
                                       Object {
                                         "height": 33,
@@ -18477,6 +18671,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                 ]
                                               }
                                               nsMode="default"
+                                              omitBoundRerender={true}
                                               onClick={[Function]}
                                               tooltipPlacement="bottom"
                                               translateFuncName="t"
@@ -18494,6 +18689,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                 inProgress={false}
                                                 label="Edit"
                                                 link={true}
+                                                lng="en"
                                                 loading={false}
                                                 onClick={[Function]}
                                                 t={[Function]}
@@ -18583,6 +18779,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                 ]
                                               }
                                               nsMode="default"
+                                              omitBoundRerender={true}
                                               onClick={[Function]}
                                               tooltipPlacement="bottom"
                                               translateFuncName="t"
@@ -18600,6 +18797,7 @@ exports[`EnumerationWidget upload file should trigger a event when the user clic
                                                 inProgress={false}
                                                 label="Remove value"
                                                 link={true}
+                                                lng="en"
                                                 loading={false}
                                                 onClick={[Function]}
                                                 t={[Function]}

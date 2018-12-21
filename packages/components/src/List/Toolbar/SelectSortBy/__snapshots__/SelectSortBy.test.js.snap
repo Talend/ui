@@ -7,7 +7,6 @@ exports[`SelectSortBy should render 1`] = `
 >
   <li
     className="theme-sort-by-items dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
@@ -34,12 +33,10 @@ exports[`SelectSortBy should render 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           aria-label="Select Id as current sort criteria."
           href="#"
-          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -51,12 +48,10 @@ exports[`SelectSortBy should render 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           aria-label="Select Name as current sort criteria."
           href="#"
-          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -70,12 +65,10 @@ exports[`SelectSortBy should render 1`] = `
   <li
     className=""
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Change sort order. Current order: Ascending."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -93,7 +86,6 @@ exports[`SelectSortBy should render id if provided 1`] = `
 >
   <li
     className="theme-sort-by-items dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
@@ -120,7 +112,6 @@ exports[`SelectSortBy should render id if provided 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           aria-label="Select Id as current sort criteria."
@@ -137,7 +128,6 @@ exports[`SelectSortBy should render id if provided 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           aria-label="Select Name as current sort criteria."
@@ -156,7 +146,6 @@ exports[`SelectSortBy should render id if provided 1`] = `
   <li
     className=""
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Change sort order. Current order: Ascending."
@@ -178,9 +167,6 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
   role={null}
 >
   <li
-    active={undefined}
-    activeHref={undefined}
-    activeKey={undefined}
     className="navbar-text"
     onSelect={null}
   >
@@ -189,12 +175,10 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
   <li
     className=""
     role="presentation"
-    style={undefined}
   >
     <a
       aria-label="Change sort order. Current order: Ascending."
       href="#"
-      id={undefined}
       onClick={[Function]}
       onKeyDown={[Function]}
       role="button"
@@ -212,7 +196,6 @@ exports[`SelectSortBy should render without field selected 1`] = `
 >
   <li
     className="theme-sort-by-items dropdown"
-    style={undefined}
   >
     <a
       aria-expanded={false}
@@ -239,12 +222,10 @@ exports[`SelectSortBy should render without field selected 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           aria-label="Select Id as current sort criteria."
           href="#"
-          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
@@ -256,12 +237,10 @@ exports[`SelectSortBy should render without field selected 1`] = `
       <li
         className=""
         role="presentation"
-        style={undefined}
       >
         <a
           aria-label="Select Name as current sort criteria."
           href="#"
-          id={undefined}
           onClick={[Function]}
           onKeyDown={[Function]}
           role="menuitem"

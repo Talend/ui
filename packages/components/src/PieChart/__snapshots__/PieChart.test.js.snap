@@ -3,7 +3,7 @@
 exports[`PieChart should render a PieChartButton 1`] = `
 <PieChartButton
   available={true}
-  onClick={[Function]}
+  onClick={[MockFunction]}
   overlayId="pie-chart-popover"
   overlayPlacement="bottom"
 />

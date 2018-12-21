@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Translate(Skeleton) default 1`] = `
+exports[`Storyshots Skeleton default 1`] = `
 <div
   className="col-lg-offset-2 col-lg-8"
 >

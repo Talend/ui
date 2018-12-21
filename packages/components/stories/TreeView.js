@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from '@storybook/addon-a11y';
 import { action } from '@storybook/addon-actions';
 
 import { TreeView, IconsProvider } from '../src/index';
@@ -282,8 +281,8 @@ cornerCaseLongName.structure = [
 const style = { width: '300px', border: '1px solid #eee', marginLeft: '10px' };
 
 storiesOf('TreeView', module)
-	.addDecorator(checkA11y)
-	.addWithInfo('default', () => (
+
+	.add('default', () => (
 		<div>
 			<h1>TreeView</h1>
 			<h3>Definition</h3>
@@ -295,7 +294,7 @@ storiesOf('TreeView', module)
 			</div>
 		</div>
 	))
-	.addWithInfo('with custom icons', () => (
+	.add('with custom icons', () => (
 		<div>
 			<h1>TreeView</h1>
 			<h3>Definition</h3>
@@ -306,7 +305,7 @@ storiesOf('TreeView', module)
 			</div>
 		</div>
 	))
-	.addWithInfo('with custom header text', () => (
+	.add('with custom header text', () => (
 		<div>
 			<h1>TreeView</h1>
 			<h3>Definition</h3>
@@ -318,7 +317,7 @@ storiesOf('TreeView', module)
 			</div>
 		</div>
 	))
-	.addWithInfo('without action', () => (
+	.add('without action', () => (
 		<div>
 			<h1>TreeView</h1>
 			<h3>Definition</h3>
@@ -330,7 +329,7 @@ storiesOf('TreeView', module)
 			</div>
 		</div>
 	))
-	.addWithInfo('without header', () => (
+	.add('without header', () => (
 		<div>
 			<h1>TreeView</h1>
 			<h3>Definition</h3>
@@ -342,7 +341,7 @@ storiesOf('TreeView', module)
 			</div>
 		</div>
 	))
-	.addWithInfo('with remove action and counter', () => (
+	.add('with remove action and counter', () => (
 		<div>
 			<h1>TreeView</h1>
 			<h3>Definition</h3>
@@ -354,7 +353,7 @@ storiesOf('TreeView', module)
 			</div>
 		</div>
 	))
-	.addWithInfo('with many actions', () => (
+	.add('with many actions', () => (
 		<div>
 			<h1>TreeView</h1>
 			<h3>Definition</h3>
@@ -366,7 +365,7 @@ storiesOf('TreeView', module)
 			</div>
 		</div>
 	))
-	.addWithInfo('with deep structure', () => (
+	.add('with deep structure', () => (
 		<div>
 			<h1>TreeView</h1>
 			<h3>Definition</h3>
@@ -378,7 +377,7 @@ storiesOf('TreeView', module)
 			</div>
 		</div>
 	))
-	.addWithInfo('with long name', () => (
+	.add('with long name', () => (
 		<div>
 			<h1>TreeView</h1>
 			<h3>Definition</h3>

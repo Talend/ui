@@ -26,6 +26,7 @@ class TimePicker extends React.PureComponent {
 			seconds: PropTypes.string,
 		}),
 		useSeconds: PropTypes.bool,
+		useUTC: PropTypes.bool,
 		t: PropTypes.func.isRequired,
 	};
 
@@ -65,6 +66,7 @@ class TimePicker extends React.PureComponent {
 					value={this.props.value.seconds}
 					tabIndex={tabIndex}
 					onChange={event => this.onChange(event, SECONDS)}
+					placeholder="SS"
 				/>,
 			];
 		}
@@ -77,7 +79,14 @@ class TimePicker extends React.PureComponent {
 
 		return (
 			<div className={classNames('tc-date-picker-time', theme['time-picker'])}>
-				<legend>Time</legend>
+				<legend>
+					{t('DATEPICKER_TIME', { defaultValue: 'Time' })}
+					{this.props.useUTC ? (
+						<div key="utc" className={theme.utc}>
+							{t('DATEPICKER_UTC', { defaultValue: 'UTC' })}
+						</div>
+					) : null}
+				</legend>
 				<label htmlFor={this.hourId} className="sr-only">
 					{t('DATEPICKER_TIME_HOURS', { defaultValue: 'Hours' })}
 				</label>
@@ -87,6 +96,7 @@ class TimePicker extends React.PureComponent {
 					value={this.props.value.hours}
 					tabIndex={tabIndex}
 					onChange={event => this.onChange(event, HOURS)}
+					placeholder="HH"
 				/>
 				<hr />
 				<label htmlFor={this.minuteId} className="sr-only">
@@ -98,6 +108,7 @@ class TimePicker extends React.PureComponent {
 					value={this.props.value.minutes}
 					tabIndex={tabIndex}
 					onChange={event => this.onChange(event, MINUTES)}
+					placeholder="MM"
 				/>
 				{this.renderSeconds(tabIndex)}
 			</div>

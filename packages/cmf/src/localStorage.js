@@ -12,11 +12,13 @@ function getState(key) {
 		return {};
 	}
 	source = JSON.parse(source);
-	if (source.cmf.components) {
-		source.cmf.components = Immutable.fromJS(source.cmf.components);
-	}
-	if (source.cmf.collections) {
-		source.cmf.collections = Immutable.fromJS(source.cmf.collections);
+	if (source.cmf) {
+		if (source.cmf.components) {
+			source.cmf.components = Immutable.fromJS(source.cmf.components);
+		}
+		if (source.cmf.collections) {
+			source.cmf.collections = Immutable.fromJS(source.cmf.collections);
+		}
 	}
 	return source;
 }

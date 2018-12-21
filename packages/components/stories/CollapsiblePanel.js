@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
 import { CollapsiblePanel, IconsProvider } from '../src/index';
@@ -296,8 +295,7 @@ const propsCollapsibleSelectablePanelWithoutTag = {
 };
 
 storiesOf('CollapsiblePanel', module)
-	.addDecorator(checkA11y)
-	.addWithInfo('Key/Value content', () => (
+	.add('Key/Value content', () => (
 		<div className="col-lg-offset-1 col-lg-10">
 			<IconsProvider defaultIcons={icons} />
 			<p>By default :</p>
@@ -330,7 +328,7 @@ storiesOf('CollapsiblePanel', module)
 			</div>
 		</div>
 	))
-	.addWithInfo('Textual content', () => (
+	.add('Textual content', () => (
 		<div className="col-lg-offset-1 col-lg-10">
 			<IconsProvider defaultIcons={icons} />
 			<p>With Content:</p>
@@ -347,7 +345,7 @@ storiesOf('CollapsiblePanel', module)
 			</div>
 		</div>
 	))
-	.addWithInfo('Selected Collapsible', () => (
+	.add('Selected Collapsible', () => (
 		<div className="col-lg-offset-1 col-lg-10">
 			<IconsProvider defaultIcons={icons} />
 			<p>Selected Panel With Content:</p>
@@ -370,7 +368,7 @@ storiesOf('CollapsiblePanel', module)
 			<CollapsiblePanel {...propsPanelWithoutActions} status={'selected'} />
 		</div>
 	))
-	.addWithInfo('Status Collapsible', () => (
+	.add('Status Collapsible', () => (
 		<div className="col-lg-offset-1 col-lg-10">
 			<IconsProvider defaultIcons={icons} />
 			<p>CollapsiblePanel with status info:</p>
@@ -399,7 +397,7 @@ storiesOf('CollapsiblePanel', module)
 			</div>
 		</div>
 	))
-	.addWithInfo('Adjustment textual collapsibles', () => (
+	.add('Adjustment textual collapsibles', () => (
 		<div className="col-lg-offset-1 col-lg-10">
 			<IconsProvider defaultIcons={icons} />
 			<p>Adjustement Story:</p>
