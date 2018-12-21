@@ -224,7 +224,7 @@ FilterBarComponent.defaultProps = {
 	autoFocus: true,
 	dockable: true,
 	docked: true,
-	iconAlwaysVisible: false,
+	iconAlwaysVisible: true,
 	navbar: true,
 	focus: false,
 	placeholder: 'Filter',
