@@ -189,7 +189,7 @@ export default function cmfConnect({
 	mapStateToProps,
 	mapDispatchToProps,
 	mergeProps,
-	omitCMFProps,
+	omitCMFProps = true,
 	withComponentRegistry = false,
 	withDispatch = false,
 	withDispatchActionCreator = false,
@@ -197,7 +197,7 @@ export default function cmfConnect({
 	...rest
 } = {}) {
 	const propsToOmit = [];
-	if (omitCMFProps === undefined || omitCMFProps === true) {
+	if (omitCMFProp) {
 		if (!defaultState) {
 			propsToOmit.push(...CONST.INJECTED_STATE_PROPS);
 		}
