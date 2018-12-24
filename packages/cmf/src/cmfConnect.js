@@ -197,7 +197,7 @@ export default function cmfConnect({
 	...rest
 } = {}) {
 	const propsToOmit = [];
-	if (omitCMFProp) {
+	if (omitCMFProps) {
 		if (!defaultState) {
 			propsToOmit.push(...CONST.INJECTED_STATE_PROPS);
 		}
