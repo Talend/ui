@@ -31,6 +31,10 @@ describe('createTriggers', () => {
 		response = { body: { status: 'OK' } };
 		triggers = createTriggers({
 			url: '/foo',
+			customRegistry: {
+				// we declare a local trigger function
+				dotnotfecth: jest.fn(args => ({ ...args })),
+			},
 			fetchConfig: {
 				response: { ok: true, status: 200, json: () => Promise.resolve(response) },
 			},
@@ -47,6 +51,20 @@ describe('createTriggers', () => {
 		triggers({}, { trigger, schema, properties }).then(data => {
 			expect(data.errors).toEqual({});
 			expect(fetch).toHaveBeenCalled();
+			done();
+		});
+	});
+	it('should support remote property', done => {
+		const specialTrigger = {
+			type: 'dotnotfecth',
+			remote: false,
+			action: 'localAction',
+			familly: 'WhatEver',
+			parameters: [{ key: 'url', path: 'obj.url' }],
+		};
+		triggers({}, { trigger: specialTrigger, schema, properties, errors: {} }).then(data => {
+			expect(data.errors).toEqual({});
+			expect(fetch).not.toHaveBeenCalled();
 			done();
 		});
 	});
