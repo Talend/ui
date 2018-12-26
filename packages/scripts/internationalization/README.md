@@ -13,7 +13,7 @@ The i18n process has multiple steps
 4- Download translated files to the bundle
 
 
-The talend-i18n module targets steps 1 - 2 - 3.
+The talend-scripts module targets steps 1 - 2 - 3.
 
 # Installation
 
@@ -37,22 +37,24 @@ There are 3 actions you can perform
 talend-scripts i18n-extract
 talend-scripts i18n-upload
 talend-scripts i18n-download
+talend-scripts i18n-to-github
 ```
 
-Each action is based on a configuration file, located in the project folder `./talend-i18n.json`.
+Each action is based on a configuration file, located in the project folder `./talend-scripts.json`.
 
 # Configuration
 
-The scripts are based on a `talend-i18n.json` configuration file at project root.
+The scripts are based on a `talend-scripts.json` configuration file at project root.
 
 ## Extract
 
 This step will extract the i18n files from the project and create a zip.
 
-There are 3 methods of extraction
+There are 4 methods of extraction
 - npm : run an npm script
 - yarn : same as npm but with yarn
 - files : get the files from a list of path
+- expression : get the files matching an expression, starting with a provided folder
 
 *Npm/Yarn*
 
@@ -91,6 +93,25 @@ There are 3 methods of extraction
 | files | The list of files to extract. |
 | target | The folder where the script will gather the translation files. This is used to create the zip file. Note that the files folder hierarchy is preserved.  |
 
+*Expression*
+
+```json
+{
+  "extract": {
+    "method": "expression",
+    "rootPath": "./src",
+    "expression": "message*.json",
+    "target": "./i18n"
+  }
+}
+```
+
+| Configuration | Description |
+|---|---|
+| method | `expressionn` |
+| rootPath | The folder to start the search. |
+| expression | Expression describing the files name. You can use `*` as wildcard. `message*.json` means every files that start with `message` and end with `.json` (ex: message-errors.json, message.json, ...), whereas `message.json` matches only the `message.json` files. |
+| target | The folder where the script will gather the translation files. This is used to create the zip file. Note that the files folder hierarchy is preserved.  |
 
 ## Upload/Download
 
@@ -102,7 +123,7 @@ You need to pass xtm information as environment variables
   CUSTOMER_ID=ZZZ \
   USER_ID=AAA \
   PASSWORD=BBB \
-  talend-i18n <upload|download>
+  talend-scripts <i18n-upload|i18n-download>
 ```
 
 | Variable | Description |
@@ -149,3 +170,50 @@ This step will download, unzip and transform files from XTM.
 | transform | Optional. Transformation to apply to file hierarchy. For now only `flatten` is accepted, putting all file directly under the target language folder. |
 
 
+### To Github
+This step will push downloaded i18n files to github.
+
+You need to pass github credentials as environment variables.
+
+```shell
+> GITHUB_LOGIN=XXX \
+  GITHUB_TOKEN=YYY \
+  talend-scripts i18n-extract
+```
+
+| Variable | Description |
+|---|---|
+| GITHUB_LOGIN | Github username that will be used to push to the locales repo |
+| GITHUB_TOKEN | Github token |
+
+
+`talend-i18n.json` configuration
+
+```json
+{
+  "github": {
+    "url": "https://github.com/Talend/locales.git"
+  }
+}
+```
+
+| Configuration | Description |
+|---|---|
+| url | The https git url. |
+
+This scripts will extract the version (major.minor) from files at project root.
+* lerna.json
+* package.json
+* pom.xml
+
+The i18n files will be pushed to a branch `{XTM_project}/{version}`.
+
+With this branch structure, the locales for your project can be downloaded from a defined url.
+```
+https://github.com/{github_org}/{repo_name}/archive/{XTM_project}/{version}.zip
+```
+
+In the exmaple :
+```
+https://github.com/Talend/locales/archive/UI/1.10.zip
+```
