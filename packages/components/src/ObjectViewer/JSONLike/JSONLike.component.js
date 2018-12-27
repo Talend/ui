@@ -275,7 +275,7 @@ export function getDataAbstract(data) {
 	return abstract;
 }
 
-function ComplexItemUntranslated(props) {
+function UntranslatedComplexItem(props) {
 	const { data, id, info, jsonpath, level, opened, t } = props;
 	const isOpened = opened.indexOf(jsonpath) !== -1;
 
@@ -357,13 +357,13 @@ function ComplexItemUntranslated(props) {
 		</LineItem>
 	);
 }
-ComplexItemUntranslated.defaultProps = {
+UntranslatedComplexItem.defaultProps = {
 	t: getDefaultT(),
 };
 
-ComplexItemUntranslated.displayName = 'ComplexItem';
+UntranslatedComplexItem.displayName = 'ComplexItem';
 
-ComplexItemUntranslated.propTypes = {
+UntranslatedComplexItem.propTypes = {
 	data: PropTypes.oneOfType([
 		PropTypes.bool,
 		PropTypes.number,
@@ -385,7 +385,15 @@ ComplexItemUntranslated.propTypes = {
 	t: PropTypes.func,
 };
 
-export const ComplexItem = translate(I18N_DOMAIN_COMPONENTS)(ComplexItemUntranslated);
+/**
+ * translated complex item is still exported as is, the UntranslatedComplexItem undecorated const
+ * was kept to avoid import breaking change on client app
+ * I think translation probably should not have crept in UI/components.
+ * First it create a strong cooupling between the translation stack and the component stack.
+ * Second it make UI much more complex.
+ * AxelC
+ */
+export const ComplexItem = translate(I18N_DOMAIN_COMPONENTS)(UntranslatedComplexItem);
 
 export function Item(props) {
 	const { data, tagged, jsonpath, tupleLabel } = props;
