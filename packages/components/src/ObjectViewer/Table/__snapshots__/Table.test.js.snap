@@ -38,7 +38,7 @@ exports[`Table should render Table with props data as an array 1`] = `
       <td
         headers="my-viewer-field0"
       >
-        <Translate(TreeGesture(JSONLike))
+        <TreeGesture(JSONLike)
           data="header1"
           id="my-viewer"
           jsonpath="$[0]['field0']"
@@ -60,7 +60,7 @@ exports[`Table should render Table with props data as an array 1`] = `
       <td
         headers="my-viewer-field0"
       >
-        <Translate(TreeGesture(JSONLike))
+        <TreeGesture(JSONLike)
           id="my-viewer"
           jsonpath="$[1]['field0']"
           nativeValueClassName="theme-nativevalue"
@@ -123,7 +123,7 @@ exports[`Table should render Table with props data as an object 1`] = `
       <td
         headers="my-viewer-field0"
       >
-        <Translate(TreeGesture(JSONLike))
+        <TreeGesture(JSONLike)
           data="header1"
           id="my-viewer"
           jsonpath="$[0]['field0']"
@@ -145,7 +145,7 @@ exports[`Table should render Table with props data as an object 1`] = `
       <td
         headers="my-viewer-field0"
       >
-        <Translate(TreeGesture(JSONLike))
+        <TreeGesture(JSONLike)
           id="my-viewer"
           jsonpath="$[1]['field0']"
           nativeValueClassName="theme-nativevalue"
