@@ -70,10 +70,11 @@ export function sanitizeAvro(avro) {
  * @param {boolean} optional;
  */
 export function getTypeValue(type, optional) {
+	const optionalValue = optional ? '' : '*';
 	if (typeof type === 'string') {
-		return `${type}${optional ? '' : '*'}`;
+		return `${type}${optionalValue}`;
 	}
-	return `${type.dqType || type.type}${optional ? '' : '*'}`;
+	return `${type.dqType || type.type}${optionalValue}`;
 }
 
 /**
