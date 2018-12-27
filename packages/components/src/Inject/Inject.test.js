@@ -165,6 +165,16 @@ describe('Inject.all', () => {
 		};
 		expect(Inject.all(null, components)()).toEqual(null);
 	});
+	it('should return a function which return a react component', () => {
+		const getComponent = jest.fn();
+		const myComponent = <button>whatever</button>;
+		const components = {
+			slotX: myComponent,
+		};
+		const injections = Inject.all(getComponent, components);
+		expect(getComponent).not.toHaveBeenCalled();
+		expect(injections('slotX')).toBe(myComponent);
+	});
 });
 
 describe('Inject.get', () => {
