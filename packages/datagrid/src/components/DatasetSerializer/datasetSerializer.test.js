@@ -252,7 +252,7 @@ describe('#getTypeValue', () => {
 	it('should return the type with a star (type is string)', () => {
 		expect(getTypeValue('string')).toEqual('string*');
 	});
-	it('should return the optionnal type (type is string)', () => {
+	it('should return the optional type (type is string)', () => {
 		expect(getTypeValue('string', true)).toEqual('string');
 	});
 });
@@ -377,7 +377,7 @@ describe('getQuality', () => {
 });
 
 describe('getFieldQuality', () => {
-	it('should enrich the quality with the quality if exists', () => {
+	it('should compute quality metrics if there are quality values', () => {
 		expect(getFieldQuality(sample.schema.fields[0].type)).toEqual({
 			'@talend-quality@': {
 				'-1': { percentage: 62, total: 62 },
@@ -387,7 +387,7 @@ describe('getFieldQuality', () => {
 		});
 	});
 
-	it('should do nothing if the quality do not exists', () => {
+	it('should return if there are no quality metrics', () => {
 		expect(getFieldQuality(omit(sample.schema.fields[0].type, QUALITY_KEY))).toEqual({});
 	});
 });
@@ -448,23 +448,5 @@ describe('convertSample', () => {
 			};
 			expect(sanitizeAvro(avro)).toBe(avro);
 		});
-	});
-});
-
-describe('isNull', () => {
-	it('should return true if the type has a string null', () => {
-		expect(isNull('null')).toBe(true);
-	});
-
-	it('should return true if the type has a subType null', () => {
-		expect(isNull({ type: 'null' })).toBe(true);
-	});
-
-	it('should return false if the type has a string null', () => {
-		expect(isNull('string')).toBe(false);
-	});
-
-	it('should return false if the type has a subType null', () => {
-		expect(isNull({ type: 'string' })).toBe(false);
 	});
 });

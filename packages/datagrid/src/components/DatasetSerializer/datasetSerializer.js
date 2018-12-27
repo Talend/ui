@@ -14,7 +14,21 @@ import {
 } from '../../constants/';
 
 /**
- * sanitizeAvro - remove the optional type
+ * check if the type is null
+ *
+ * @param  {string|object} type  type to check
+ * @return {boolean} return if the type is null
+ */
+function isNull(type) {
+	if (typeof type === 'string') {
+		return type === 'null';
+	}
+
+	return type.type === 'null';
+}
+
+/**
+ * remove the optional type
  *
  * @param  {object} 	avro field
  * @return {object}   return the shallow avro
@@ -45,7 +59,7 @@ export function sanitizeAvro(avro) {
 
 	return {
 		...avro,
-		type: avro.type.find(subType => subType.type !== 'null'),
+		type: avro.type.find(negate(isNull)),
 	};
 }
 
@@ -63,21 +77,27 @@ export function getTypeValue(type, optional) {
 }
 
 /**
- * isNull - check if the type is null
+ * return the first no null type
  *
- * @param  {type} string|object type to check
- * @return {boolean} return if the type is null
+ * @param  {array} type array of type
+ * @return {string|object} return a type
  */
-export function isNull(type) {
-	if (typeof type === 'string') {
-		return type === 'null';
-	}
-
-	return type.type === 'null';
+export function getFirstNonNull(type) {
+	return type.find(negate(isNull));
 }
 
 /**
- * getType - manage the type from an AVRO type
+ * search the null type (type with null inside)
+ *
+ * @param  {array} type array of type
+ * @return {object|undefined} return a null type
+ */
+export function canBeOptional(type) {
+	return type.find(isNull);
+}
+
+/**
+ * manage the type from an AVRO type
  *
  * @param  {array|object} 	avro type
  * @return {string} return the type showed in the datagrid
@@ -85,7 +105,7 @@ export function isNull(type) {
  */
 export function getType(type) {
 	if (Array.isArray(type)) {
-		return getTypeValue(type.find(negate(isNull)), type.find(isNull));
+		return getTypeValue(getFirstNonNull(type), canBeOptional(type));
 	}
 	return getTypeValue(type);
 }
@@ -103,9 +123,9 @@ export function getQuality(qualityTotal, rowsTotal) {
  */
 export function getQualityValue(type) {
 	if (isArray(type)) {
-		return get(type.find(value => value[QUALITY_KEY] !== undefined), QUALITY_KEY, null);
+		return get(type.find(value => value[QUALITY_KEY] !== undefined), QUALITY_KEY);
 	}
-	return get(type, QUALITY_KEY, null);
+	return get(type, QUALITY_KEY);
 }
 
 export function getFieldQuality(type) {
