@@ -82,16 +82,6 @@ describe('FilterBar', () => {
 		expect(defaultProps.onToggle).toBeCalled();
 	});
 
-	it('should not have the icon visible on click', () => {
-		const props = { ...defaultProps, iconAlwaysVisible: false };
-		// given
-		const filterInstance = shallow(<FilterBarComponent {...props} />);
-		// when
-		filterInstance.find('FilterInput').simulate('focus');
-		// then
-		expect(filterInstance.find(Icon).length).toEqual(0);
-	});
-
 	it('should still have the icon visible on click', () => {
 		const props = { ...defaultProps, iconAlwaysVisible: true };
 		// given
