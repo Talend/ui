@@ -391,6 +391,11 @@ UntranslatedComplexItem.propTypes = {
  * I think translation probably should not have crept in UI/components.
  * First it create a strong cooupling between the translation stack and the component stack.
  * Second it make UI much more complex.
+ *
+ * Anyway the next release that may contains breaking changes would be a good opportunity to
+ * rename the undecorated component to ComplexItem
+ * rename the exported variable containing the translated component to TranslatedComplexItem
+ *
  * AxelC
  */
 export const ComplexItem = translate(I18N_DOMAIN_COMPONENTS)(UntranslatedComplexItem);
