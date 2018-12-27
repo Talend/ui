@@ -13,7 +13,6 @@ import {
 	getRowData,
 	getType,
 	getTypeValue,
-	isNull,
 	sanitizeAvro,
 } from './datasetSerializer';
 

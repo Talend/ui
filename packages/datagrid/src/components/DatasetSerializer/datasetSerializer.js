@@ -83,7 +83,7 @@ export function getTypeValue(type, optional) {
  * @param  {array} type array of type
  * @return {string|object} return a type
  */
-export function getFirstNonNull(type) {
+function getFirstNonNull(type) {
 	return type.find(negate(isNull));
 }
 
@@ -93,7 +93,7 @@ export function getFirstNonNull(type) {
  * @param  {array} type array of type
  * @return {object|undefined} return a null type
  */
-export function canBeOptional(type) {
+function canBeOptional(type) {
 	return type.find(isNull);
 }
 
