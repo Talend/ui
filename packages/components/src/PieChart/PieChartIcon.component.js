@@ -197,11 +197,11 @@ export function getPercentageToIndex(values, index) {
  */
 function getPercentageAndPrefix(percentage) {
 	if (percentage > 0 && percentage < 1) {
-		return { prefix: '<', percentage: 1 };
+		return { prefix: '< ', percentage: 1 };
 	} else if (percentage > 99 && percentage < 100) {
-		return { prefix: '>', percentage: 99 };
+		return { prefix: '> ', percentage: 99 };
 	}
-	return { percentage: Math.round(percentage) };
+	return { prefix: '', percentage: Math.round(percentage) };
 }
 
 /**
