@@ -55,10 +55,11 @@ The version (major.minor) is taken from files at project root.
 * package.json
 
 
-There are 3 methods of extraction
+There are 4 methods of extraction
 - npm : run an npm script
 - yarn : same as npm but with yarn
 - files : get the files from a list of path
+- expression : get the files matching an expression, starting with a provided folder
 
 *Npm/Yarn*
 
@@ -98,6 +99,25 @@ There are 3 methods of extraction
 | files | The list of files to extract. |
 | target | The folder where the script will gather the translation files. This is used to create the zip file. Note that the files folder hierarchy is preserved.  |
 
+*Expression*
+
+```json
+{
+  "extract": {
+    "method": "expression",
+    "rootPath": "./src",
+    "expression": "message*.json",
+    "target": "./i18n"
+  }
+}
+```
+
+| Configuration | Description |
+|---|---|
+| method | `expressionn` |
+| rootPath | The folder to start the search. |
+| expression | Expression describing the files name. You can use `*` as wildcard. `message*.json` means every files that start with `message` and end with `.json` (ex: message-errors.json, message.json, ...), whereas `message.json` matches only the `message.json` files. |
+| target | The folder where the script will gather the translation files. This is used to create the zip file. Note that the files folder hierarchy is preserved.  |
 
 ## Upload/Download
 

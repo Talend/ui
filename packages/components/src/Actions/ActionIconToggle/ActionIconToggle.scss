@@ -20,6 +20,7 @@ $tc-icon-toggle-icon-size: $svg-sm-size !default;
 	align-items: center;
 
 	border: 1px solid $gray;
+	background-color: transparent;
 
 	box-shadow: none;
 	line-height: unset;
@@ -40,6 +41,7 @@ $tc-icon-toggle-icon-size: $svg-sm-size !default;
 	&:active {
 		box-shadow: none;
 		border-color: $scooter;
+		background-color: transparent;
 
 		svg {
 			color: $scooter;
