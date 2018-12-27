@@ -89,6 +89,27 @@ stories
 			/>
 		</div>
 	))
+	.add('PieCharts with edge values', () => {
+		const pieChartDataEdge1 = [
+			{
+				color: 'rio-grande',
+				percentage: 99.2,
+			},
+			{
+				color: 'chestnut-rose',
+				percentage: 0.8,
+			},
+		];
+
+		return (
+			<div>
+				<p> Greater than 99% :</p>
+				<PieChart display="medium" model={pieChartDataEdge1} />
+				<p> Less than 1% :</p>
+				<PieChart display="medium" model={pieChartDataEdge1} labelIndex={1} />
+			</div>
+		);
+	})
 	.add('PieChart lot of sizes', () => (
 		<div>
 			{sizes.map(size => (
