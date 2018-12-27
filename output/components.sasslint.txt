@@ -8,7 +8,7 @@ src/Drawer/Drawer.scss
   14:4  warning  Statement must begin on a new line  brace-style
 
 src/FilterBar/FilterBar.scss
-  47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
+  48:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
 src/Typeahead/Typeahead.scss
   34:5  error  Mixins should come before declarations  mixins-before-declarations
