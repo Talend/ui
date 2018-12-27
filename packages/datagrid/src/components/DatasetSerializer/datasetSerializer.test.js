@@ -1,4 +1,5 @@
 import Immutable, { fromJS } from 'immutable';
+import omit from 'lodash/omit';
 
 import { QUALITY_KEY } from '../../constants/';
 import {
@@ -246,6 +247,13 @@ describe('#getTypeValue', () => {
 	it('should return the dqType', () => {
 		expect(getTypeValue({ type: 'hello', dqType: 'world' }, true)).toEqual('world');
 	});
+
+	it('should return the type with a star (type is string)', () => {
+		expect(getTypeValue('string')).toEqual('string*');
+	});
+	it('should return the optional type (type is string)', () => {
+		expect(getTypeValue('string', true)).toEqual('string');
+	});
 });
 
 describe('#getType', () => {
@@ -368,8 +376,18 @@ describe('getQuality', () => {
 });
 
 describe('getFieldQuality', () => {
-	it('should enrich the quality', () => {
-		expect(getFieldQuality(sample.schema.fields[0][QUALITY_KEY])).toMatchSnapshot();
+	it('should compute quality metrics if there are quality values', () => {
+		expect(getFieldQuality(sample.schema.fields[0].type)).toEqual({
+			'@talend-quality@': {
+				'-1': { percentage: 62, total: 62 },
+				0: { percentage: 0, total: 0 },
+				1: { percentage: 38, total: 38 },
+			},
+		});
+	});
+
+	it('should return if there are no quality metrics', () => {
+		expect(getFieldQuality(omit(sample.schema.fields[0].type, QUALITY_KEY))).toEqual({});
 	});
 });
 

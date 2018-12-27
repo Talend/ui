@@ -22,15 +22,15 @@
   "author": "Talend Frontend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@talend/scripts": "0.3.1"
+    "@talend/scripts": "0.5.1"
   },
   "dependencies": {
-    "@talend/bootstrap-theme": "1.10.0",
-    "@talend/icons": "1.10.0",
-    "@talend/react-cmf": "1.10.0",
-    "@talend/react-components": "1.10.0",
-    "@talend/react-containers": "1.10.0",
-    "@talend/react-forms": "1.10.0",
+    "@talend/bootstrap-theme": "1.11.0",
+    "@talend/icons": "1.11.0",
+    "@talend/react-cmf": "1.11.0",
+    "@talend/react-components": "1.11.0",
+    "@talend/react-containers": "1.11.0",
+    "@talend/react-forms": "1.11.0",
     "bootstrap-sass": "3.3.7",
     "bson-objectid": "^1.1.5",
     "classnames": "^2.2.5",

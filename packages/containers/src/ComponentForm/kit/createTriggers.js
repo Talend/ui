@@ -182,6 +182,13 @@ export default function createTriggers({
 				trigger,
 			});
 		}
+		if (trigger.remote === false) {
+			const result = onSuccess({});
+			if (result && result.then) {
+				return result.catch(onError);
+			}
+			return new Promise(resolve => resolve(result));
+		}
 		const fetchUrl = `${url}?${toQueryParam({
 			lang,
 			action: trigger.action,

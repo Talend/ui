@@ -107,6 +107,8 @@ Example:
 
 A trigger is a piece of code on the backend and on the frontend. So your app can produce any wanted effects on a given form.
 
+A trigger can be only client side. For that you only have to add the property `"remote": false`. In that case the onTrigger function will not call fetch.
+
 You can read more on [default triggers](./kit/defaultRegistry.md)
 
 ## customTriggers
