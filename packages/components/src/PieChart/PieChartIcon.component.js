@@ -197,11 +197,11 @@ export function getPercentageToIndex(values, index) {
  */
 function getPercentageAndPrefix(percentage) {
 	if (percentage > 0 && percentage < 1) {
-		return [1, '< '];
+		return { prefix: '<', percentage: 1 };
 	} else if (percentage > 99 && percentage < 100) {
-		return [99, '> '];
+		return { prefix: '>', percentage: 99 };
 	}
-	return [Math.round(percentage), ''];
+	return { percentage: Math.round(percentage) };
 }
 
 /**
@@ -212,14 +212,12 @@ function getPercentageAndPrefix(percentage) {
  */
 export function getLabel(hideLabel, labelValue, t) {
 	if (!hideLabel && labelValue.percentage != null) {
-		const [percentage, prefix] = getPercentageAndPrefix(labelValue.percentage);
-		return (
-			prefix +
-			t('PIE_CHART_PERCENTAGE', {
-				defaultValue: '{{percentage}}%',
-				percentage,
-			})
-		);
+		const { percentage, prefix } = getPercentageAndPrefix(labelValue.percentage);
+		const labelPercentage = t('PIE_CHART_PERCENTAGE', {
+			defaultValue: '{{percentage}}%',
+			percentage,
+		});
+		return `${prefix}${labelPercentage}`;
 	}
 	return '';
 }
