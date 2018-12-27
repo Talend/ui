@@ -13,6 +13,11 @@ exports[`Table should render Table with props data as an array 1`] = `
   <thead>
     <tr>
       <th
+        id="my-viewer-field1"
+      >
+        field1
+      </th>
+      <th
         id="my-viewer-field0"
       >
         field0
@@ -21,6 +26,15 @@ exports[`Table should render Table with props data as an array 1`] = `
   </thead>
   <tbody>
     <tr>
+      <td
+        headers="my-viewer-field1"
+      >
+        <TreeGesture(JSONLike)
+          id="my-viewer"
+          jsonpath="$[0]['field1']"
+          nativeValueClassName="theme-nativevalue"
+        />
+      </td>
       <td
         headers="my-viewer-field0"
       >
@@ -33,6 +47,16 @@ exports[`Table should render Table with props data as an array 1`] = `
       </td>
     </tr>
     <tr>
+      <td
+        headers="my-viewer-field1"
+      >
+        <TreeGesture(JSONLike)
+          data="header2"
+          id="my-viewer"
+          jsonpath="$[1]['field1']"
+          nativeValueClassName="theme-nativevalue"
+        />
+      </td>
       <td
         headers="my-viewer-field0"
       >
@@ -60,6 +84,18 @@ exports[`Table should render Table with props data as an object 1`] = `
   <thead>
     <tr>
       <th
+        id="my-viewer-field1"
+      >
+        <div>
+          field1
+        </div>
+        <div
+          className="text-right"
+        >
+          type2
+        </div>
+      </th>
+      <th
         id="my-viewer-field0"
       >
         <div>
@@ -76,6 +112,15 @@ exports[`Table should render Table with props data as an object 1`] = `
   <tbody>
     <tr>
       <td
+        headers="my-viewer-field1"
+      >
+        <TreeGesture(JSONLike)
+          id="my-viewer"
+          jsonpath="$[0]['field1']"
+          nativeValueClassName="theme-nativevalue"
+        />
+      </td>
+      <td
         headers="my-viewer-field0"
       >
         <TreeGesture(JSONLike)
@@ -87,6 +132,16 @@ exports[`Table should render Table with props data as an object 1`] = `
       </td>
     </tr>
     <tr>
+      <td
+        headers="my-viewer-field1"
+      >
+        <TreeGesture(JSONLike)
+          data="header2"
+          id="my-viewer"
+          jsonpath="$[1]['field1']"
+          nativeValueClassName="theme-nativevalue"
+        />
+      </td>
       <td
         headers="my-viewer-field0"
       >
@@ -112,13 +167,7 @@ exports[`Table should render if data is empty 1`] = `
     my-viewer
   </caption>
   <thead>
-    <tr>
-      <th
-        id="my-viewer-$"
-      >
-        $
-      </th>
-    </tr>
+    <tr />
   </thead>
   <tbody />
 </table>
