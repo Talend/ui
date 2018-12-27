@@ -15,6 +15,7 @@ $tc-filter-bar-width: 250px !default;
 		margin: $padding-small;
 		margin-right: $padding-smaller;
 		margin-top: 7px;
+		fill: $gray;
 	}
 
 	> :global(.form-group) {

@@ -70,6 +70,8 @@ Inject.all = function injectAll(getComponent, components, CustomInject = Inject)
 	return (key, props) => {
 		if (Array.isArray(components[key])) {
 			return Inject.map(getComponent, components[key], CustomInject);
+		} else if (React.isValidElement(components[key])) {
+			return components[key];
 		} else if (typeof components[key] === 'object') {
 			return <CustomInject getComponent={getComponent} {...props} {...components[key]} />;
 		}
