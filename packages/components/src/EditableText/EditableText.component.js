@@ -17,12 +17,12 @@ export function PlainTextTitle({ componentClass, onEdit, disabled, text, inProgr
 	return (
 		<div className={theme['tc-editable-text-title']}>
 			<TooltipTrigger label={text} tooltipPlacement="bottom">
-				<ComponentClass
+				<componentClass
 					className={classNames(theme['tc-editable-text-wording'], 'tc-editable-text-wording')}
 					onDoubleClick={isDisabled ? undefined : onEdit}
 				>
 					{text}
-				</ComponentClass>
+				</componentClass>
 			</TooltipTrigger>
 			<Action
 				name="action-edit"
@@ -82,7 +82,7 @@ export function EditableTextComponent({ editMode, loading, inProgress, ...rest }
 EditableTextComponent.displayName = 'EditableText';
 
 EditableTextComponent.propTypes = {
-	componentClass: PropTypes.string,
+	componentClass: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 	disabled: PropTypes.bool,
 	editMode: PropTypes.bool,
 	inProgress: PropTypes.bool,
