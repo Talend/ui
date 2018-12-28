@@ -68,7 +68,9 @@ function Dialog({
 					className={classNames({ informative: type === Dialog.TYPES.INFORMATIVE })}
 					closeButton={closeButton}
 				>
-					<Modal.Title id={headerId}>{header}</Modal.Title>
+					<Modal.Title id={headerId} componentClass="h1">
+						{header}
+					</Modal.Title>
 					{subtext &&
 						subtext.length && (
 							<h3 className={classNames({ error: error && error.length }, 'modal-subtitle')}>

@@ -6,15 +6,13 @@ import InlineForm from './InlineForm.component';
 
 describe('EditableText', () => {
 	let defaultProps;
-	beforeEach(
-		() =>
-			(defaultProps = {
-				text: 'my text',
-				feature: 'my.custom.feature',
-				onEdit: jest.fn(),
-				onSubmit: jest.fn(),
-			}),
-	);
+	beforeEach(() =>
+		(defaultProps = {
+			text: 'my text',
+			feature: 'my.custom.feature',
+			onEdit: jest.fn(),
+			onSubmit: jest.fn(),
+		}));
 	it('should render', () => {
 		const wrapper = shallow(<EditableTextComponent {...defaultProps} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -39,6 +37,17 @@ describe('PlainTextTitle', () => {
 			text: 'text',
 			feature: 'my.custom.feature',
 			onEdit: jest.fn(),
+		};
+		const wrapper = shallow(<PlainTextTitle {...props} />);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render provided component class', () => {
+		const props = {
+			text: 'text',
+			feature: 'my.custom.feature',
+			onEdit: jest.fn(),
+			componentClass: 'h1',
 		};
 		const wrapper = shallow(<PlainTextTitle {...props} />);
 		expect(wrapper.getElement()).toMatchSnapshot();

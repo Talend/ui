@@ -5,14 +5,12 @@ import TitleSubHeader from './TitleSubHeader.component';
 
 describe('TitleSubHeader', () => {
 	let defaultProps;
-	beforeEach(
-		() =>
-			(defaultProps = {
-				title: 'myTitle',
-				onEdit: jest.fn(),
-				onSubmit: jest.fn(),
-			}),
-	);
+	beforeEach(() =>
+		(defaultProps = {
+			title: 'myTitle',
+			onEdit: jest.fn(),
+			onSubmit: jest.fn(),
+		}));
 	it('should render', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} iconId="myIconId" />);
 		expect(wrapper.getElement()).toMatchSnapshot();

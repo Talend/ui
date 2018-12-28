@@ -79,7 +79,7 @@ exports[`Dialog should render action 1`] = `
   >
     <ModalTitle
       bsClass="modal-title"
-      componentClass="h4"
+      componentClass="h1"
       id="tc-dialog-header"
     >
       Hello world
@@ -143,7 +143,7 @@ exports[`Dialog should render error 1`] = `
   >
     <ModalTitle
       bsClass="modal-title"
-      componentClass="h4"
+      componentClass="h1"
       id="tc-dialog-header"
     >
       Hello world
@@ -203,7 +203,7 @@ exports[`Dialog should render header 1`] = `
   >
     <ModalTitle
       bsClass="modal-title"
-      componentClass="h4"
+      componentClass="h1"
       id="tc-dialog-header"
     >
       Hello world
@@ -260,7 +260,7 @@ exports[`Dialog should render large 1`] = `
   >
     <ModalTitle
       bsClass="modal-title"
-      componentClass="h4"
+      componentClass="h1"
       id="tc-dialog-header"
     >
       Hello world
@@ -326,7 +326,7 @@ exports[`Dialog should render small 1`] = `
   >
     <ModalTitle
       bsClass="modal-title"
-      componentClass="h4"
+      componentClass="h1"
       id="tc-dialog-header"
     >
       Hello world
@@ -390,7 +390,7 @@ exports[`Dialog should render subtitle 1`] = `
   >
     <ModalTitle
       bsClass="modal-title"
-      componentClass="h4"
+      componentClass="h1"
       id="tc-dialog-header"
     >
       Hello world
