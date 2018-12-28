@@ -46,7 +46,7 @@
         ]
       }
     },
-    "RedirectContainer#default": {
+    "Redirect#default": {
       "path": "/HeaderBar"
     },
     "HeaderBar#default": {

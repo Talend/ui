@@ -49,6 +49,7 @@ function TitleSubHeader({
 							text={title}
 							inProgress={inProgress}
 							feature="subheaderbar.rename"
+							componentClass="h1"
 							{...rest}
 						/>
 					) : (

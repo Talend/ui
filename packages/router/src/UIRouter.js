@@ -9,9 +9,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Router as BaseRouter } from 'react-router';
 import { connect } from 'react-redux';
+import { Inject } from '@talend/react-cmf';
 
 import route from './route';
-import Inject from './Inject.component';
 
 /**
  * @typedef {Object} Router
@@ -24,7 +24,7 @@ import Inject from './Inject.component';
  * @param  {object} context The react context with the registry
  * @return {object} ReactElement
  */
-const UIRouter = (props, context) => {
+function Router(props, context) {
 	const routes = route.getRoutesFromSettings(context, props.routes, props.dispatch);
 	if (routes.path === '/' && routes.component) {
 		return <BaseRouter routes={routes} history={props.history} />;
@@ -33,16 +33,18 @@ const UIRouter = (props, context) => {
 		return <Inject component={props.loading} />;
 	}
 	return <div className="is-loading">loading</div>;
-};
+}
 
-UIRouter.propTypes = {
+Router.propTypes = {
 	dispatch: PropTypes.func,
 	history: PropTypes.object,
 	routes: PropTypes.object,
 	loading: PropTypes.node,
 };
-UIRouter.contextTypes = {
+Router.contextTypes = {
 	registry: PropTypes.object,
 };
+Router.displayName = 'Router';
+
 const mapStateToProps = state => ({ routes: state.cmf.settings.routes });
-export default connect(mapStateToProps)(UIRouter);
+export default connect(mapStateToProps)(Router);

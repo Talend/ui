@@ -1,3 +1,4 @@
+import { routerAPI } from '@talend/react-cmf-router';
 import deleteResourceConst from './constants';
 
 /**
@@ -5,9 +6,9 @@ import deleteResourceConst from './constants';
  * @param {object} event
  * @param {object} data
  */
-function deleteResource(event, data, context) {
+function open(event, data, context) {
 	const { model } = data;
-	const { pathname } = context.router ? context.router.getCurrentLocation() : { pathname: '/' };
+	const pathname = context.store ? routerAPI.selectors.getPath(context.store.getState()) : '/';
 	return {
 		type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE,
 		cmf: {
@@ -39,7 +40,7 @@ function cancel(event, data) {
 }
 
 export default {
-	open: deleteResource,
+	open,
 	validate,
 	cancel,
 };
