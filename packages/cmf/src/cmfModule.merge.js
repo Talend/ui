@@ -82,7 +82,7 @@ const MERGE_FNS = {
 	id: () => undefined,
 	modules: () => undefined,
 	appId: getUnique,
-	history: getUnique,
+	RootComponent: getUnique,
 	AppLoader: getUnique,
 	saga: mergeSaga,
 	httpMiddleware: getUnique,
@@ -98,7 +98,6 @@ const MERGE_FNS = {
 	components: mergeObjects,
 	expressions: mergeObjects,
 	actionCreators: mergeObjects,
-	sagaRouterConfig: mergeObjects,
 };
 
 function reduceConfig(acc, config) {

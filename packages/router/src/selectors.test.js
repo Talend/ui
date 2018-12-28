@@ -1,4 +1,4 @@
-import * as router from '../../src/selectors/router';
+import * as router from './selectors';
 
 const state = {
 	routing: {

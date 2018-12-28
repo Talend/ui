@@ -279,7 +279,7 @@ Clock.setStateAction(
 ## How to test
 
 
-When you are in the context of CMF and you want to test your component you will need to mock some stuff (context, router, ...).
+When you are in the context of CMF and you want to test your component you will need to mock some stuff (context, ...).
 
 We want testing experience to be easy so CMF provides some mocks for you.
 
@@ -304,7 +304,6 @@ describe('App', () => {
 
 This way MyComponent may request for the following context:
 
-* router
 * registry
 * store
 
@@ -312,5 +311,4 @@ you may change the following using simple props:
 
 * store
 * state
-* router
 * registry

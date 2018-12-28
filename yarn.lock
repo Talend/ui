@@ -1170,6 +1170,20 @@
     objectpath "^1.2.1"
     tv4 "^1.3.0"
 
+"@talend/react-cmf-router@3.0.0-2":
+  version "3.0.0-2"
+  resolved "https://registry.yarnpkg.com/@talend/react-cmf-router/-/react-cmf-router-3.0.0-2.tgz#e64039a1400ef76eb071f9cffb2e31bbd9adc006"
+  integrity sha512-iTP0E0JZ+AAsXOQzs2dlYKxdruBAuedgM9FfJKxWnN6qCAKhICZzWsG3OBLabZov6Vd2BXQzaK/uqDj8RZ8z8g==
+  dependencies:
+    lodash "^4.17.4"
+    path-to-regexp "^2.0.0"
+    prop-types "^15.5.10"
+    react-redux "^5.0.7"
+    react-router "^3.2.0"
+    react-router-redux "^4.0.8"
+    redux "^3.7.2"
+    redux-saga "^0.15.4"
+
 "@types/node@*":
   version "10.5.1"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.5.1.tgz#d578446f4abff5c0b49ade9b4e5274f6badaadfc"
