@@ -11,17 +11,18 @@ import getDefaultT from '../translate';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
 
-export function PlainTextTitle({ onEdit, disabled, text, inProgress, feature, t }) {
+export function PlainTextTitle({ componentClass, onEdit, disabled, text, inProgress, feature, t }) {
 	const isDisabled = disabled || inProgress;
+	const ComponentClass = componentClass;
 	return (
 		<div className={theme['tc-editable-text-title']}>
 			<TooltipTrigger label={text} tooltipPlacement="bottom">
-				<span
+				<ComponentClass
 					className={classNames(theme['tc-editable-text-wording'], 'tc-editable-text-wording')}
 					onDoubleClick={isDisabled ? undefined : onEdit}
 				>
 					{text}
-				</span>
+				</ComponentClass>
 			</TooltipTrigger>
 			<Action
 				name="action-edit"
@@ -37,17 +38,18 @@ export function PlainTextTitle({ onEdit, disabled, text, inProgress, feature, t 
 		</div>
 	);
 }
-
 PlainTextTitle.propTypes = {
-	text: PropTypes.string.isRequired,
-	onEdit: PropTypes.func.isRequired,
+	componentClass: PropTypes.string,
 	disabled: PropTypes.bool,
-	inProgress: PropTypes.bool,
 	feature: PropTypes.string,
+	inProgress: PropTypes.bool,
+	onEdit: PropTypes.func.isRequired,
+	text: PropTypes.string.isRequired,
 	t: PropTypes.func,
 };
 
 PlainTextTitle.defaultProps = {
+	componentClass: 'span',
 	t: getDefaultT(),
 };
 
@@ -80,19 +82,20 @@ export function EditableTextComponent({ editMode, loading, inProgress, ...rest }
 EditableTextComponent.displayName = 'EditableText';
 
 EditableTextComponent.propTypes = {
-	text: PropTypes.string.isRequired,
-	editMode: PropTypes.bool,
-	loading: PropTypes.bool,
-	inProgress: PropTypes.bool,
-	onEdit: PropTypes.func.isRequired,
+	componentClass: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 	disabled: PropTypes.bool,
+	editMode: PropTypes.bool,
+	inProgress: PropTypes.bool,
+	loading: PropTypes.bool,
+	onEdit: PropTypes.func.isRequired,
+	text: PropTypes.string.isRequired,
 	t: PropTypes.func,
 };
 
 EditableTextComponent.defaultProps = {
 	editMode: false,
-	loading: false,
 	inProgress: false,
+	loading: false,
 	t: getDefaultT(),
 };
 
