@@ -95,6 +95,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			rest.searchingText,
 			rest.isLoading,
 			rest.isLoadingText,
+			rest.children,
 		),
 		renderItemData: { value: rest.value },
 	};
@@ -190,6 +191,7 @@ Typeahead.propTypes = {
 			}),
 		]),
 	),
+	children: PropTypes.func, // render props
 };
 
 export default Typeahead;

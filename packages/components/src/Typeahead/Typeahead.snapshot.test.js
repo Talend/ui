@@ -154,6 +154,37 @@ describe('Typeahead', () => {
 		});
 	});
 
+	describe('injection', () => {
+		it('should use render props to inject extra components', () => {
+			// given
+			const props = {
+				id: 'my-search',
+				items: itemsString,
+				multiSection: false,
+			};
+			// when
+			const wrapper = renderer
+				.create(
+					<Typeahead {...props}>
+						{(content, { searching, loading, noResult, isShown }) => (
+							<div>
+								<div>Searching: {searching}</div>
+								<div>Loading: {loading}</div>
+								<div>No Result: {noResult}</div>
+								<div>Is Shown: {isShown}</div>
+								{content}
+								<button>Click</button>
+							</div>
+						)}
+					</Typeahead>,
+				)
+				.toJSON();
+
+			// then
+			expect(wrapper).toMatchSnapshot();
+		});
+	});
+
 	it('should pass input extra props', () => {
 		// given
 		const props = {
