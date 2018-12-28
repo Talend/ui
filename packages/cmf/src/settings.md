@@ -3,10 +3,9 @@ Settings
 ==
 
 Settings are your app configuration.
-You configure 3 things :
+You configure the following things :
 * the `actions`, which are the actions definitions
 * the `props`, which are basically the props to pass to a `component`
-* the `routes`, which is a combination of a `path`, a `component`, and a `view` (component configuration or props)
 
 ## Load settings in CMF
 
@@ -96,96 +95,3 @@ It should follow some rules:
 * it can have references to common settings parts (ex: `"header": { "_ref": "AppHeaderBar#default" }` where `AppHeaderBar#default` is a definition from `ref` part). CMF will replace the refs by the actual definitions.
 
 Note that you can use expression here if the component is cmfConnected.
-
-## Routes
-
-Route definition is a combination of
-* a path
-* a registered component
-* a view setting (the component props)
-
-CMF uses [React router](https://github.com/ReactTraining/react-router). The definition is basically an "enhanced" react router configuration.
-
-```json
-{
-  "routes": {
-    "path": "/",
-    "component": "App",
-    "indexRoute": {
-      "component": "Redirect",
-      "view": "indexRouteRedirect"
-    },
-    "childRoutes": [
-      {
-        "path": "datasets",
-        "component": "HomeListView",
-        "view": "datasets"
-      },
-      {
-        "path": "datastores",
-        "component": "HomeListView",
-        "view": "datastores"
-      },
-      {
-        "path": "*",
-        "component": "Redirect",
-        "to": "/404"
-      }
-    ]
-  }
-}
-```
-
-You can redirect to a default route if no route match with the typed URL by the user. In the direct child of /, you can add a default route like below to redirect to your 404 page:
-
-```json
-{
-  "path": "*",
-  "component": "Redirect",
-  "to": "/404"
-}
-```
-
-You can use onEnter/onLeave lifecycle hooks. To do that, you need to:
-* register a route function in CMF registry
-* add the route function id in your route settings
-
-```javascript
-// configure.js
-import cmf from '@talend/react-cmf';
-import onEnter from './routeHooks.js';
-
-const registerRouteFunction = cmf.route.registerFunction;
-registerRouteFunction('my:route:onEnter', onEnterFetchThings);
-```
-
-```json
-// settings.json
-{
-  "routes": {
-    "path": "/",
-    "childRoutes": [
-      {
-        "path": "datasets",
-        "component": "HomeListView",
-        "view": "datasets",
-        "onEnter": "my:route:onEnter"
-      },
-    ]
-  }
-}
-```
-
-```javascript
-// routeHooks.js
-export default function onEnterFetchThings({ router, dispatch }) {
-	const {
-		nextState, // react-router next state
-		replace, // react-router replace
-	} = router;
-	dispatch({ // redux dispatch
-		type: 'FETCH_THINGS',
-		folderId: nextState.params.thingId,
-	});
-}
-```

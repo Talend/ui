@@ -1,8 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 import createSagaMiddleware from 'redux-saga';
-import { hashHistory } from 'react-router';
-import { routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 import { batchedSubscribe } from 'redux-batched-subscribe';
 import { spawn } from 'redux-saga/effects';
 import compose from 'redux';
@@ -15,7 +13,6 @@ import component from './component';
 import expression from './expression';
 import storeAPI from './store';
 import registry from './registry';
-import sagaRouter from './sagaRouter';
 import sagas from './sagas';
 import { registerInternals } from './register';
 import cmfModule from './cmfModule';
@@ -52,11 +49,6 @@ export function bootstrapSaga(options) {
 	assertTypeOf(options, 'saga', 'function');
 	function* cmfSaga() {
 		yield spawn(sagas.component.handle);
-		if (options.sagaRouterConfig) {
-			// eslint-disable-next-line no-console
-			console.warn("sagaRouter is deprecated please use cmfConnect 'saga' props");
-			yield spawn(sagaRouter, options.history || hashHistory, options.sagaRouterConfig);
-		}
 		if (typeof options.saga === 'function') {
 			yield spawn(options.saga);
 		}
@@ -111,7 +103,6 @@ export function bootstrapRedux(options, sagaMiddleware) {
  * Bootstrap your cmf app
  * It takes your configuration and provides a very good default one.
  * By default it starts react with the following addons:
- * - react-router
  * - redux
  * - redux-saga
  * @param {object} options the set of supported options
@@ -120,26 +111,20 @@ export function bootstrapRedux(options, sagaMiddleware) {
 export default function bootstrap(appOptions = {}) {
 	const options = cmfModule(appOptions);
 	assertTypeOf(options, 'appId', 'string');
-	assertTypeOf(options, 'history', 'object');
+	assertTypeOf(options, 'RootComponent', 'function');
 
 	bootstrapRegistry(options);
 	const appId = options.appId || 'app';
 	const saga = bootstrapSaga(options);
 
-	const history = options.history || hashHistory;
-	if (options.history) {
-		storeAPI.setRouterMiddleware(routerMiddleware(options.history));
-	}
 	const store = bootstrapRedux(options, saga.middleware);
 
 	saga.run();
-
+	const RootComponent = options.RootComponent;
 	render(
-		<App
-			store={store}
-			history={syncHistoryWithStore(history, store)}
-			loading={options.AppLoader}
-		/>,
+		<App store={store} loading={options.AppLoader}>
+			<RootComponent />
+		</App>,
 		document.getElementById(appId),
 	);
 }
