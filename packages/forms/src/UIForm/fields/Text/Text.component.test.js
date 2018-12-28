@@ -97,6 +97,54 @@ describe('Text field', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render input with min attribute', () => {
+		// given
+		const minSchema = {
+			...schema,
+			minimum: 0,
+		};
+
+		// when
+		const wrapper = shallow(
+			<Text
+				id={'myForm'}
+				isValid
+				errorMessage={'My error message'}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				schema={minSchema}
+				value={'toto'}
+			/>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render input with max attribute', () => {
+		// given
+		const maxSchema = {
+			...schema,
+			maximum: 10,
+		};
+
+		// when
+		const wrapper = shallow(
+			<Text
+				id={'myForm'}
+				isValid
+				errorMessage={'My error message'}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				schema={maxSchema}
+				value={'toto'}
+			/>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should trigger onChange', () => {
 		// given
 		const onChange = jest.fn();

@@ -10,6 +10,11 @@
       "number": {
         "type": "number"
       },
+      "numberMinMax": {
+        "type": "number",
+        "minimum": 1,
+        "maximum": 10
+      },
       "password": {
         "type": "string"
       }
@@ -23,6 +28,10 @@
     {
       "key": "number",
       "title": "Number"
+    },
+    {
+      "key": "numberMinMax",
+      "title": "Number (with min and max)"
     },
     {
       "key": "password",
