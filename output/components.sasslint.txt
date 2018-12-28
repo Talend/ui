@@ -11,10 +11,11 @@ src/FilterBar/FilterBar.scss
   48:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
 src/Typeahead/Typeahead.scss
-  97:5  error  Nesting depth 4 greater than max of 3  nesting-depth
+  34:5  error  Mixins should come before declarations  mixins-before-declarations
+  83:5  error  Nesting depth 4 greater than max of 3   nesting-depth
 
 src/VirtualizedList/RowCollapsiblePanel/RowCollapsiblePanel.scss
   2:24  error  Strings must use single quotes  quotes
 
-✖ 5 problems (3 errors, 2 warnings)
+✖ 6 problems (4 errors, 2 warnings)
 

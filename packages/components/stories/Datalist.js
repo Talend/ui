@@ -10,9 +10,18 @@ const propsMultiSection = {
 	placeholder: 'search for something ...',
 	readOnly: false,
 	titleMap: [
-		{ title: 'cat 1', suggestions: [{ name: 'foo', value: 'foo', description: 'foo description' }, { name: 'faa', value: 'faa' }] },
+		{
+			title: 'cat 1',
+			suggestions: [
+				{ name: 'foo', value: 'foo', description: 'foo description' },
+				{ name: 'faa', value: 'faa' },
+			],
+		},
 		{ title: 'cat 2', suggestions: [{ name: 'bar', value: 'bar' }] },
-		{ title: 'cat 3', suggestions: [{ name: 'foobar', value: 'foobar', description: 'foobar description' }] },
+		{
+			title: 'cat 3',
+			suggestions: [{ name: 'foobar', value: 'foobar', description: 'foobar description' }],
+		},
 		{ title: 'cat 4', suggestions: [{ name: 'lol', value: 'lol' }] },
 	],
 	onFinish: action('onFinish'),
@@ -71,6 +80,32 @@ storiesOf('Datalist', module)
 				<Datalist {...singleSectionProps} titleMap={[]} isLoading />
 				<h3>Auto focused :</h3>
 				<Datalist {...singleSectionProps} autoFocus />
+				<h3>Insert custom elements via render props :</h3>
+				<Datalist {...singleSectionProps}>
+					{(content, { isShown }) => (
+						<div>
+							{isShown && (
+								<button
+									onClick={action('onBeforeClick')}
+									onMouseDown={e => e.preventDefault()}
+									type="button"
+								>
+									before
+								</button>
+							)}
+							{content}
+							{isShown && (
+								<button
+									onClick={action('onAfterClick')}
+									onMouseDown={e => e.preventDefault()}
+									type="button"
+								>
+									after
+								</button>
+							)}
+						</div>
+					)}
+				</Datalist>
 			</form>
 		);
 	});
