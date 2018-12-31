@@ -7,17 +7,16 @@ import { Provider, store as mock } from '@talend/react-cmf/lib/mock';
 import Container from './ShortcutManager.container';
 import Connected from './ShortcutManager.connect';
 
-describe('Container ShortcutManager', () => {
-	it('should render', () => {
-		const wrapper = shallow(<Container />);
-		expect(wrapper.getElement()).toBeNull();
+describe('Shortcut container', () => {
+	let wrapper;
+	const context = { router: { getCurrentLocation: () => ({ pathname: '/test' }) } };
+	afterEach(() => {
+		wrapper.unmount();
 	});
-});
 
-describe('Connected ShortcutManager', () => {
-	it('should connect ShortcutManager', () => {
-		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
-		expect(Connected.WrappedComponent).toBe(Container);
+	it('should render', () => {
+		wrapper = shallow(<Container redirectMap={{}} />, { context });
+		expect(wrapper.getElement()).toBeNull();
 	});
 });
 
@@ -27,6 +26,11 @@ describe('handles routes', () => {
 		redirectMap: {},
 	};
 	state.cmf.components = new Map();
+	state.routing = {
+		locationBeforeTransitions: {
+			pathname: '/test',
+		},
+	};
 
 	it('should get the redirectMap', () => {
 		const wrapper = mount(
@@ -53,9 +57,7 @@ describe('handles routes', () => {
 	it('should call redirect actionCreator', () => {
 		const fn = jest.fn();
 		const redirectMap = { esc: { '/test': '/test/next' } };
-		const context = { router: { getCurrentLocation: () => ({ pathname: '/test' }) } };
-
-		mount(<Container redirectMap={redirectMap} dispatchActionCreator={fn} />, { context });
+		mount(<Container redirectMap={redirectMap} dispatchActionCreator={fn} pathname="/test" />);
 
 		const event = new KeyboardEvent('keydown', { keyCode: keycode('esc') });
 		document.dispatchEvent(event);
@@ -66,13 +68,21 @@ describe('handles routes', () => {
 	it('should call matching actionCreator', () => {
 		const fn = jest.fn();
 		const redirectMap = { esc: { '^[/]test[/].*$': 'test' } };
-		const context = { router: { getCurrentLocation: () => ({ pathname: '/test/12345' }) } };
 
-		mount(<Container redirectMap={redirectMap} dispatchActionCreator={fn} />, { context });
+		mount(
+			<Container redirectMap={redirectMap} dispatchActionCreator={fn} pathname="/test/12345" />,
+		);
 
 		const event = new KeyboardEvent('keydown', { keyCode: keycode('esc') });
 		document.dispatchEvent(event);
 
 		expect(fn).toHaveBeenCalledWith('test', event);
+	});
+});
+
+describe('Connected ShortcutManager', () => {
+	it('should connect ShortcutManager', () => {
+		expect(Connected.displayName).toBe(`Connect(CMF(${Container.displayName}))`);
+		expect(Connected.WrappedComponent).toBe(Container);
 	});
 });

@@ -1,4 +1,4 @@
-import { fork } from 'redux-saga/effects';
+import { spawn } from 'redux-saga/effects';
 import { assertValueTypeOf } from './assert';
 
 function mergeObjects(obj1, obj2) {
@@ -58,8 +58,8 @@ function mergeSaga(saga, newSaga) {
 
 	if (saga && newSaga) {
 		return function* mergedSaga() {
-			yield fork(saga);
-			yield fork(newSaga);
+			yield spawn(saga);
+			yield spawn(newSaga);
 		};
 	}
 	if (newSaga) {
@@ -82,7 +82,7 @@ const MERGE_FNS = {
 	id: () => undefined,
 	modules: () => undefined,
 	appId: getUnique,
-	history: getUnique,
+	RootComponent: getUnique,
 	AppLoader: getUnique,
 	saga: mergeSaga,
 	httpMiddleware: getUnique,
@@ -98,7 +98,6 @@ const MERGE_FNS = {
 	components: mergeObjects,
 	expressions: mergeObjects,
 	actionCreators: mergeObjects,
-	sagaRouterConfig: mergeObjects,
 };
 
 function reduceConfig(acc, config) {

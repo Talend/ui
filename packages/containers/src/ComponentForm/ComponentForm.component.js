@@ -106,10 +106,7 @@ export class TCompForm extends React.Component {
 		}
 	}
 
-	onChange(event, payload) {
-		if (event.persist) {
-			event.persist();
-		}
+	onChange(_, payload) {
 		if (!this.props.state.get('dirty')) {
 			this.props.setState({ dirty: true });
 		}
@@ -122,7 +119,6 @@ export class TCompForm extends React.Component {
 				type: TCompForm.ON_CHANGE,
 				component: TCompForm.displayName,
 				componentId: this.props.componentId,
-				event,
 				...payload,
 			});
 		}
@@ -154,15 +150,11 @@ export class TCompForm extends React.Component {
 		});
 	}
 
-	onSubmit(event, properties) {
-		if (event.persist) {
-			event.persist();
-		}
+	onSubmit(_, properties) {
 		this.props.dispatch({
 			type: TCompForm.ON_SUBMIT,
 			component: TCompForm.displayName,
 			componentId: this.props.componentId,
-			event,
 			properties,
 		});
 	}
@@ -172,9 +164,13 @@ export class TCompForm extends React.Component {
 			prev.state
 				.set('jsonSchema', this.props.state.getIn(['initialState', 'jsonSchema']))
 				.set('uiSchema', this.props.state.getIn(['initialState', 'uiSchema']))
-				.set('properties', this.props.state.getIn(['initialState', 'properties'])),
+				.set('properties', this.props.state.getIn(['initialState', 'properties']))
+				.set('dirty', false),
 		);
-		this.setState({ properties: this.props.state.getIn(['initialState', 'properties']).toJS() });
+		this.setState({
+			properties: this.props.state.getIn(['initialState', 'properties']).toJS(),
+			dirty: false,
+		});
 	}
 
 	setupTrigger(props) {
@@ -228,6 +224,7 @@ export class TCompForm extends React.Component {
 TCompForm.ON_CHANGE = 'TCOMP_FORM_CHANGE';
 TCompForm.ON_SUBMIT = 'TCOMP_FORM_SUBMIT';
 TCompForm.ON_SUBMIT_SUCCEED = 'TCOMP_FORM_SUBMIT_SUCCEED';
+TCompForm.ON_SUBMIT_FAILED = 'TCOMP_FORM_SUBMIT_FAILED';
 TCompForm.ON_TRIGGER_BEGIN = 'TCOMP_FORM_TRIGGER_BEGIN';
 TCompForm.ON_TRIGGER_END = 'TCOMP_FORM_TRIGGER_END';
 TCompForm.ON_DEFINITION_URL_CHANGED = 'TCOMP_FORM_DEFINITION_URL_CHANGE';

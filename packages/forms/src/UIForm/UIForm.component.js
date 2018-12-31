@@ -272,18 +272,24 @@ export class UIFormComponent extends React.Component {
 					displayMode={this.props.displayMode}
 				/>
 			));
-		const buttonsRenderer = () => (
-			<div className={classNames(theme['form-actions'], 'tf-actions-wrapper')} key="form-buttons">
-				<Buttons
-					id={`${this.props.id}-${this.props.id}-actions`}
-					onTrigger={this.onTrigger}
-					className={this.props.buttonBlockClass}
-					schema={{ items: actions }}
-					onClick={this.onActionClick}
-					getComponent={this.props.getComponent}
-				/>
-			</div>
-		);
+		const buttonsRenderer = () => {
+			if (actions.length === 0) {
+				return null;
+			}
+
+			return (
+				<div className={classNames(theme['form-actions'], 'tf-actions-wrapper')} key="form-buttons">
+					<Buttons
+						id={`${this.props.id}-${this.props.id}-actions`}
+						onTrigger={this.onTrigger}
+						className={this.props.buttonBlockClass}
+						schema={{ items: actions }}
+						onClick={this.onActionClick}
+						getComponent={this.props.getComponent}
+					/>
+				</div>
+			);
+		};
 
 		return (
 			<form

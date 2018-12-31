@@ -22,28 +22,16 @@ const store = cmfstore.initialize(appReducer, preloadedState, enhancer, middlewa
 ## Reducers
 
 The CMF store comes with some reducers out of the box
-* router reducer from [react-router-redux](https://github.com/reactjs/react-router-redux)
-* CMF internal reducer (settings, ...)
+* settings
+* component state
+* collections
 
 ## Middlewares
 
 The CMF store comes with some middlewares out of the box
-* router middleware from [react-router-redux](https://github.com/reactjs/react-router-redux) using `hash` history
 * [redux-thunk](https://github.com/gaearon/redux-thunk)
 * CMF [http](middlewares/http/index.md) middleware
 * CMF [internal](middlewares/http/cmf.md) middleware
-
-**How to change router middleware ?**
-```javascript
-import { store as cmfstore } from 'react-cmf';
-import { browserHistory } from 'react-router';
-import { routerMiddleware } from 'react-router-redux';
-
-//...
-
-cmfstore.setRouterMiddleware(routerMiddleware(browserHistory));
-const store = cmfstore.initialize(appReducer, preloadedState, enhancer, middleware);
-```
 
 ## Store hierarchy
 
@@ -52,4 +40,3 @@ The results is a store with the following hierarchy:
 * `state.cmf.settings`
 * `state.cmf.components` (Immutable)
 * `state.cmf.collections` (Immutable)
-

@@ -1,5 +1,4 @@
 import { render } from 'react-dom';
-import { routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
 
 import bootstrap, * as internals from '../src/bootstrap';
@@ -13,10 +12,6 @@ import sagas from '../src/sagas';
 
 jest.mock('react-dom', () => ({
 	render: jest.fn(),
-}));
-jest.mock('react-router-redux', () => ({
-	routerMiddleware: jest.fn(() => ({ routerMiddlewareMocked: true })),
-	syncHistoryWithStore: jest.fn((history, store) => ({ mockedSync: true, history, store })),
 }));
 jest.mock('redux-saga', () => {
 	const run = jest.fn();
@@ -49,7 +44,6 @@ jest.mock('../src/register', () => ({
 jest.mock('../src/store', () => ({
 	addPreReducer: jest.fn(),
 	setHttpMiddleware: jest.fn(),
-	setRouterMiddleware: jest.fn(),
 	initialize: jest.fn(() => ({ dispatch: jest.fn(), applyMiddleware: jest.fn() })),
 }));
 
@@ -167,21 +161,5 @@ describe('bootstrap', () => {
 			};
 			bootstrap(options);
 		});
-	});
-	it('should call storeAPI.setRouterMiddleware if options.history is passed', () => {
-		routerMiddleware.mockClear();
-		storeAPI.setRouterMiddleware.mockClear();
-		const options = {
-			history: { foo: 'bar' },
-		};
-		bootstrap(options);
-		expect(routerMiddleware).toHaveBeenCalled();
-		expect(storeAPI.setRouterMiddleware).toHaveBeenCalledWith({ routerMiddlewareMocked: true });
-	});
-	it('should return an object with render function which renders with good options', () => {
-		const options = {};
-		bootstrap(options);
-		expect(render).toHaveBeenCalled();
-		expect(syncHistoryWithStore).toHaveBeenCalled();
 	});
 });

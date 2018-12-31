@@ -111,7 +111,6 @@ exports[`Toolbar should render display mode selector 1`] = `
       >
         <li
           className="dropdown"
-          style={undefined}
         >
           <a
             aria-expanded={false}
@@ -148,7 +147,6 @@ exports[`Toolbar should render display mode selector 1`] = `
             <li
               className=""
               role="presentation"
-              style={undefined}
             >
               <a
                 aria-label="Set Table as current display mode."
@@ -176,7 +174,6 @@ exports[`Toolbar should render display mode selector 1`] = `
             <li
               className=""
               role="presentation"
-              style={undefined}
             >
               <a
                 aria-label="Set Expanded as current display mode."
@@ -281,7 +278,6 @@ exports[`Toolbar should render pagination 1`] = `
       >
         <li
           className="dropdown"
-          style={undefined}
         >
           <a
             aria-expanded={false}
@@ -307,7 +303,6 @@ exports[`Toolbar should render pagination 1`] = `
             <li
               className=""
               role="presentation"
-              style={undefined}
             >
               <a
                 href="#"
@@ -322,7 +317,6 @@ exports[`Toolbar should render pagination 1`] = `
             <li
               className=""
               role="presentation"
-              style={undefined}
             >
               <a
                 href="#"
@@ -337,7 +331,6 @@ exports[`Toolbar should render pagination 1`] = `
             <li
               className=""
               role="presentation"
-              style={undefined}
             >
               <a
                 href="#"
@@ -352,7 +345,6 @@ exports[`Toolbar should render pagination 1`] = `
             <li
               className=""
               role="presentation"
-              style={undefined}
             >
               <a
                 href="#"
@@ -369,7 +361,6 @@ exports[`Toolbar should render pagination 1`] = `
         <li
           className="btn-link"
           role="presentation"
-          style={undefined}
         >
           <a
             aria-label="Go to first page."
@@ -395,7 +386,6 @@ exports[`Toolbar should render pagination 1`] = `
         <li
           className="btn-link"
           role="presentation"
-          style={undefined}
         >
           <a
             aria-label="Go to previous page. Current page: 2."
@@ -419,9 +409,6 @@ exports[`Toolbar should render pagination 1`] = `
           </a>
         </li>
         <li
-          active={undefined}
-          activeHref={undefined}
-          activeKey={undefined}
           className="theme-page-index"
           onSelect={[Function]}
         >
@@ -432,7 +419,6 @@ exports[`Toolbar should render pagination 1`] = `
         <li
           className="btn-link"
           role="presentation"
-          style={undefined}
         >
           <a
             aria-label="Go to next page. Current page: 2."
@@ -458,7 +444,6 @@ exports[`Toolbar should render pagination 1`] = `
         <li
           className="btn-link"
           role="presentation"
-          style={undefined}
         >
           <a
             aria-label="Go to last page."
@@ -506,12 +491,10 @@ exports[`Toolbar should render select all checkbox 1`] = `
         >
           <label
             className="tc-list-toolbar-select-all"
-            htmlFor={undefined}
           >
             <input
               checked={false}
               disabled={false}
-              id={undefined}
               onChange={[Function]}
               type="checkbox"
             />
@@ -552,7 +535,6 @@ exports[`Toolbar should render sort selector 1`] = `
       >
         <li
           className="theme-sort-by-items dropdown"
-          style={undefined}
         >
           <a
             aria-expanded={false}
@@ -579,7 +561,6 @@ exports[`Toolbar should render sort selector 1`] = `
             <li
               className=""
               role="presentation"
-              style={undefined}
             >
               <a
                 aria-label="Select Id as current sort criteria."
@@ -596,7 +577,6 @@ exports[`Toolbar should render sort selector 1`] = `
             <li
               className=""
               role="presentation"
-              style={undefined}
             >
               <a
                 aria-label="Select Name as current sort criteria."
@@ -615,7 +595,6 @@ exports[`Toolbar should render sort selector 1`] = `
         <li
           className=""
           role="presentation"
-          style={undefined}
         >
           <a
             aria-label="Change sort order. Current order: Descending."

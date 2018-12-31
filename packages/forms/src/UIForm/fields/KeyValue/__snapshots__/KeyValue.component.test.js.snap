@@ -7,15 +7,14 @@ exports[`KeyValue field should render autoFocused KeyValue 1`] = `
   id="my-key-value-field"
   isValid={true}
   label="Variable"
-  required={undefined}
 >
   <dl
     className="theme-key-value"
   >
     <dt>
       <Widget
-        onChange={[Function]}
-        onFinish={[Function]}
+        onChange={[MockFunction]}
+        onFinish={[MockFunction]}
         schema={
           Object {
             "autoFocus": true,
@@ -38,8 +37,8 @@ exports[`KeyValue field should render autoFocused KeyValue 1`] = `
     </dt>
     <dd>
       <Widget
-        onChange={[Function]}
-        onFinish={[Function]}
+        onChange={[MockFunction]}
+        onFinish={[MockFunction]}
         schema={
           Object {
             "autoFocus": true,
@@ -71,15 +70,14 @@ exports[`KeyValue field should render customized KeyValue 1`] = `
   id="my-key-value-field"
   isValid={true}
   label="Variable"
-  required={undefined}
 >
   <dl
     className="theme-key-value"
   >
     <dt>
       <Widget
-        onChange={[Function]}
-        onFinish={[Function]}
+        onChange={[MockFunction]}
+        onFinish={[MockFunction]}
         schema={
           Object {
             "autoFocus": true,
@@ -103,8 +101,8 @@ exports[`KeyValue field should render customized KeyValue 1`] = `
     </dt>
     <dd>
       <Widget
-        onChange={[Function]}
-        onFinish={[Function]}
+        onChange={[MockFunction]}
+        onFinish={[MockFunction]}
         schema={
           Object {
             "autoFocus": undefined,
@@ -136,15 +134,14 @@ exports[`KeyValue field should render default KeyValue 1`] = `
   id="my-key-value-field"
   isValid={true}
   label="Variable"
-  required={undefined}
 >
   <dl
     className="theme-key-value"
   >
     <dt>
       <Widget
-        onChange={[Function]}
-        onFinish={[Function]}
+        onChange={[MockFunction]}
+        onFinish={[MockFunction]}
         schema={
           Object {
             "autoFocus": undefined,
@@ -167,8 +164,8 @@ exports[`KeyValue field should render default KeyValue 1`] = `
     </dt>
     <dd>
       <Widget
-        onChange={[Function]}
-        onFinish={[Function]}
+        onChange={[MockFunction]}
+        onFinish={[MockFunction]}
         schema={
           Object {
             "autoFocus": undefined,
@@ -200,15 +197,14 @@ exports[`KeyValue field should render disabled KeyValue 1`] = `
   id="my-key-value-field"
   isValid={true}
   label="Variable"
-  required={undefined}
 >
   <dl
     className="theme-key-value"
   >
     <dt>
       <Widget
-        onChange={[Function]}
-        onFinish={[Function]}
+        onChange={[MockFunction]}
+        onFinish={[MockFunction]}
         schema={
           Object {
             "autoFocus": undefined,
@@ -231,8 +227,8 @@ exports[`KeyValue field should render disabled KeyValue 1`] = `
     </dt>
     <dd>
       <Widget
-        onChange={[Function]}
-        onFinish={[Function]}
+        onChange={[MockFunction]}
+        onFinish={[MockFunction]}
         schema={
           Object {
             "autoFocus": undefined,
@@ -264,15 +260,14 @@ exports[`KeyValue field should render readOnly KeyValue 1`] = `
   id="my-key-value-field"
   isValid={true}
   label="Variable"
-  required={undefined}
 >
   <dl
     className="theme-key-value"
   >
     <dt>
       <Widget
-        onChange={[Function]}
-        onFinish={[Function]}
+        onChange={[MockFunction]}
+        onFinish={[MockFunction]}
         schema={
           Object {
             "autoFocus": undefined,
@@ -295,8 +290,8 @@ exports[`KeyValue field should render readOnly KeyValue 1`] = `
     </dt>
     <dd>
       <Widget
-        onChange={[Function]}
-        onFinish={[Function]}
+        onChange={[MockFunction]}
+        onFinish={[MockFunction]}
         schema={
           Object {
             "autoFocus": undefined,

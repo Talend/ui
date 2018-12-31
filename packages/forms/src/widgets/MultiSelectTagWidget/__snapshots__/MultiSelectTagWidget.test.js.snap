@@ -26,8 +26,6 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget 1`] = `
       autoFocus={false}
       disabled={false}
       docked={false}
-      focusedItemIndex={undefined}
-      focusedSectionIndex={undefined}
       id="42"
       isLoadingText="Loading..."
       items={null}
@@ -147,15 +145,16 @@ exports[`MultiSelectTagWidget should render section title when items has categor
 
 exports[`MultiSelectTagWidget should take default message when there isnt items 1`] = `
 <div
-  className="theme-items-container items-container theme-item-container theme-no-result"
+  className="theme-items-container items-container theme-item-container"
   id="react-autowhatever-42"
   key="react-autowhatever-42-items-container"
   role="listbox"
 >
-  <span
-    className="no-result"
+  <div
+    className="theme-no-result no-result"
+    key="no-result"
   >
     No result.
-  </span>
+  </div>
 </div>
 `;

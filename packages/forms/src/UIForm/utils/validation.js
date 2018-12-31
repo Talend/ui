@@ -1,7 +1,7 @@
 import omit from 'lodash/omit';
 import { validate } from '@talend/json-schema-form-core';
-import { getValue } from '../utils/properties';
-import shouldValidate from '../utils/condition';
+import { getValue } from './properties';
+import shouldValidate from './condition';
 import { getArrayElementItems } from './array';
 
 /**

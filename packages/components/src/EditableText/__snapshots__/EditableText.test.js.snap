@@ -5,10 +5,11 @@ exports[`EditableText should render 1`] = `
   className="theme-tc-editable-text tc-editable-text"
 >
   <PlainTextTitle
+    componentClass="span"
     feature="my.custom.feature"
     inProgress={false}
-    onEdit={[Function]}
-    onSubmit={[Function]}
+    onEdit={[MockFunction]}
+    onSubmit={[MockFunction]}
     t={[Function]}
     text="my text"
   />
@@ -22,8 +23,8 @@ exports[`EditableText should render InlineForm 1`] = `
   <InlineForm
     feature="my.custom.feature"
     inProgress={false}
-    onEdit={[Function]}
-    onSubmit={[Function]}
+    onEdit={[MockFunction]}
+    onSubmit={[MockFunction]}
     t={[Function]}
     text="my text"
   />
@@ -37,10 +38,11 @@ exports[`EditableText should render inProgress 1`] = `
   className="theme-tc-editable-text tc-editable-text theme-tc-editable-text-blink tc-editable-text-blink"
 >
   <PlainTextTitle
+    componentClass="span"
     feature="my.custom.feature"
     inProgress={true}
-    onEdit={[Function]}
-    onSubmit={[Function]}
+    onEdit={[MockFunction]}
+    onSubmit={[MockFunction]}
     t={[Function]}
     text="my text"
   />
@@ -79,7 +81,6 @@ exports[`InlineForm should render 1`] = `
       data-feature="my.custom.feature.cancel"
       hideLabel={true}
       icon="talend-cross"
-      label={undefined}
       name="action-cancel-title"
       onClick={[Function]}
     />
@@ -90,7 +91,6 @@ exports[`InlineForm should render 1`] = `
       disabled={false}
       hideLabel={true}
       icon="talend-check"
-      label={undefined}
       name="action-submit-title"
       type="submit"
     />
@@ -108,7 +108,7 @@ exports[`PlainTextTitle should render 1`] = `
   >
     <span
       className="theme-tc-editable-text-wording tc-editable-text-wording"
-      onDoubleClick={[Function]}
+      onDoubleClick={[MockFunction]}
     >
       text
     </span>
@@ -117,12 +117,39 @@ exports[`PlainTextTitle should render 1`] = `
     bsStyle="link"
     className="theme-tc-editable-text-pencil tc-editable-text-pencil"
     data-feature="my.custom.feature"
-    disabled={undefined}
     hideLabel={true}
     icon="talend-pencil"
     label="Edit"
     name="action-edit"
-    onClick={[Function]}
+    onClick={[MockFunction]}
+  />
+</div>
+`;
+
+exports[`PlainTextTitle should render provided component class 1`] = `
+<div
+  className="theme-tc-editable-text-title"
+>
+  <TooltipTrigger
+    label="text"
+    tooltipPlacement="bottom"
+  >
+    <h1
+      className="theme-tc-editable-text-wording tc-editable-text-wording"
+      onDoubleClick={[MockFunction]}
+    >
+      text
+    </h1>
+  </TooltipTrigger>
+  <Action
+    bsStyle="link"
+    className="theme-tc-editable-text-pencil tc-editable-text-pencil"
+    data-feature="my.custom.feature"
+    hideLabel={true}
+    icon="talend-pencil"
+    label="Edit"
+    name="action-edit"
+    onClick={[MockFunction]}
   />
 </div>
 `;

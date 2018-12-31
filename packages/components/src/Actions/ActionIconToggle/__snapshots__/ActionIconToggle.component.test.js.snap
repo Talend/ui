@@ -11,12 +11,12 @@ exports[`ActionIconToggle should render a button 1`] = `
     aria-pressed={false}
     block={false}
     bsClass="btn"
-    bsStyle="link"
+    bsStyle=""
     className="my-icon-toggle tc-icon-toggle theme-tc-icon-toggle"
     data-feature="action.feature"
     disabled={false}
     id="my-inactive-action"
-    onClick={[Function]}
+    onClick={[MockFunction]}
   >
     <Icon
       name="talend-panel-opener-right"
@@ -36,12 +36,12 @@ exports[`ActionIconToggle should render an active button 1`] = `
     aria-pressed={true}
     block={false}
     bsClass="btn"
-    bsStyle="link"
+    bsStyle=""
     className="my-icon-toggle tc-icon-toggle theme-tc-icon-toggle theme-active"
     data-feature="action.feature"
     disabled={false}
     id="my-inactive-action"
-    onClick={[Function]}
+    onClick={[MockFunction]}
   >
     <Icon
       name="talend-panel-opener-right"

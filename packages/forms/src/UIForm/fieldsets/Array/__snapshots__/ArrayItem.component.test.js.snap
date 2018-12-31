@@ -68,8 +68,8 @@ exports[`Array Item component should disable moveDown 1`] = `
       hasMoveUp={true}
       id="talend-control-3"
       index={3}
-      onRemove={[Function]}
-      onReorder={[Function]}
+      onRemove={[MockFunction]}
+      onReorder={[MockFunction]}
     >
       <span>
         This is the item content
@@ -81,8 +81,8 @@ exports[`Array Item component should disable moveDown 1`] = `
       id="talend-control-3"
       index={3}
       isMoveDown={true}
-      onRemove={[Function]}
-      onReorder={[Function]}
+      onRemove={[MockFunction]}
+      onReorder={[MockFunction]}
     >
       <span>
         This is the item content
@@ -122,8 +122,8 @@ exports[`Array Item component should disable moveUp 1`] = `
       hasMoveUp={false}
       id="talend-control-3"
       index={3}
-      onRemove={[Function]}
-      onReorder={[Function]}
+      onRemove={[MockFunction]}
+      onReorder={[MockFunction]}
     >
       <span>
         This is the item content
@@ -135,8 +135,8 @@ exports[`Array Item component should disable moveUp 1`] = `
       id="talend-control-3"
       index={3}
       isMoveDown={true}
-      onRemove={[Function]}
-      onReorder={[Function]}
+      onRemove={[MockFunction]}
+      onReorder={[MockFunction]}
     >
       <span>
         This is the item content
@@ -176,8 +176,8 @@ exports[`Array Item component should render control panel with item content 1`] 
       hasMoveUp={true}
       id="talend-control-3"
       index={3}
-      onRemove={[Function]}
-      onReorder={[Function]}
+      onRemove={[MockFunction]}
+      onReorder={[MockFunction]}
     >
       <span>
         This is the item content
@@ -189,8 +189,8 @@ exports[`Array Item component should render control panel with item content 1`] 
       id="talend-control-3"
       index={3}
       isMoveDown={true}
-      onRemove={[Function]}
-      onReorder={[Function]}
+      onRemove={[MockFunction]}
+      onReorder={[MockFunction]}
     >
       <span>
         This is the item content

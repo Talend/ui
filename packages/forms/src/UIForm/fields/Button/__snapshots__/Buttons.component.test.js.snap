@@ -6,10 +6,8 @@ exports[`Buttons field should render buttons 1`] = `
 >
   <SingleButton
     className="theme-undefined"
-    getComponent={undefined}
     id="myForm-0"
-    onClick={undefined}
-    onTrigger={[Function]}
+    onTrigger={[MockFunction]}
     schema={
       Object {
         "title": "Reset",
@@ -20,10 +18,8 @@ exports[`Buttons field should render buttons 1`] = `
   />
   <SingleButton
     className="theme-right"
-    getComponent={undefined}
     id="myForm-1"
-    onClick={undefined}
-    onTrigger={[Function]}
+    onTrigger={[MockFunction]}
     schema={
       Object {
         "position": "right",
@@ -38,10 +34,8 @@ exports[`Buttons field should render buttons 1`] = `
   />
   <SingleButton
     className="theme-undefined"
-    getComponent={undefined}
     id="myForm-2"
-    onClick={undefined}
-    onTrigger={[Function]}
+    onTrigger={[MockFunction]}
     schema={
       Object {
         "bsStyle": "primary",
