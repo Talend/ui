@@ -295,7 +295,6 @@ describe('UIForm component', () => {
 
 			// then
 			expect(props.setErrors).toBeCalledWith(submitEvent, {
-				checked: 'error added via a trigger',
 				firstname: 'Missing required field',
 				lastname: 'String is too short (6 chars), minimum 10',
 			});
