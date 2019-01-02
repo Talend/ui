@@ -216,7 +216,9 @@ export class UIFormComponent extends React.Component {
 		const { properties, customValidation } = this.props;
 		const newErrors = validateAll(mergedSchema, properties, customValidation);
 		Object.keys(this.props.errors).forEach(errorKey => {
-			if (newErrors[errorKey]) {
+			// null is defined to identified field without error
+			// undifined correspond to non existing or hidden fields.
+			if (newErrors[errorKey] !== undefined) {
 				newErrors[errorKey] = this.props.errors[errorKey];
 			}
 		});
