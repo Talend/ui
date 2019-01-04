@@ -217,16 +217,16 @@ export class UIFormComponent extends React.Component {
 		const newErrors = validateAll(mergedSchema, properties, customValidation);
 		Object.entries(this.props.errors)
 			.filter(entry => entry[0] in newErrors)
-			// eslint-disable-next-line no-param-reassign
 			.reduce((accu, [key, value]) => {
+				// eslint-disable-next-line no-param-reassign
 				accu[key] = value;
 				return accu;
 			}, newErrors);
 
 		const errors = Object.entries(newErrors)
 			.filter(entry => entry[1])
-			// eslint-disable-next-line no-param-reassign
 			.reduce((accu, [key, value]) => {
+				// eslint-disable-next-line no-param-reassign
 				accu[key] = value;
 				return accu;
 			}, {});
