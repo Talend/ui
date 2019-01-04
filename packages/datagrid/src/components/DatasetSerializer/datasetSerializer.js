@@ -76,8 +76,6 @@ export function sanitizeAvro(avro) {
 		return avro;
 	}
 
-	const avroType = avro.type.find(negate(isNull));
-
 	return {
 		...avro,
 		type: sanitizeType(avro.type.find(negate(isNull))),
