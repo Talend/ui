@@ -19,6 +19,9 @@ export function getValue(properties, schema) {
  */
 export function convertValue(type, value) {
 	if (type === 'number') {
+		if (value === '') {
+			return undefined;
+		}
 		return parseFloat(value);
 	}
 	return value;
