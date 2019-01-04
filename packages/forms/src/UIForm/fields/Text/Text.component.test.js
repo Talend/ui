@@ -108,7 +108,7 @@ describe('Text field', () => {
 				...schema.schema,
 				type: 'number',
 				minimum: 0,
-			}
+			},
 		};
 
 		// when
@@ -136,7 +136,7 @@ describe('Text field', () => {
 				...schema.schema,
 				type: 'number',
 				maximum: 10,
-			}
+			},
 		};
 
 		// when
