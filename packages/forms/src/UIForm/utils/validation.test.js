@@ -168,8 +168,14 @@ describe('Validation utils', () => {
 			// then
 			expect(errors).toEqual({
 				comments: 'Array is too long (3), maximum 2',
+				'comments,0,comment': null,
+				'comments,0,email': null,
 				'comments,0,name': 'Missing required property: name',
+				'comments,1,comment': null,
+				'comments,1,email': null,
 				'comments,1,name': 'Missing required property: name',
+				'comments,2,comment': null,
+				'comments,2,email': null,
 				'comments,2,name': 'Missing required property: name',
 			});
 		});
@@ -275,8 +281,14 @@ describe('Validation utils', () => {
 			// then
 			expect(errors).toEqual({
 				comments: 'Array is too long (3), maximum 2',
+				'comments,0,comment': null,
+				'comments,0,email': null,
 				'comments,0,name': 'Missing required property: name',
+				'comments,1,comment': null,
+				'comments,1,email': null,
 				'comments,1,name': 'Missing required property: name',
+				'comments,2,comment': null,
+				'comments,2,email': null,
 				'comments,2,name': 'Missing required property: name',
 			});
 		});
@@ -345,6 +357,7 @@ describe('Validation utils', () => {
 
 			// then
 			expect(errors).toEqual({
+				comment: null,
 				'user,firstname': 'This field is invalid', // custom validation
 				'user,lastname': 'Missing required property: lastname',
 			});
@@ -393,6 +406,7 @@ describe('Validation utils', () => {
 			// then
 			expect(errors).toEqual({
 				comment: 'This field is invalid', // custom validation
+				'user,lastname': null,
 			});
 		});
 
@@ -440,6 +454,7 @@ describe('Validation utils', () => {
 			expect(errors).toEqual({
 				comment: 'This field is invalid', // custom validation
 				'user,firstname': 'Missing required property: firstname',
+				'user,lastname': null,
 			});
 		});
 	});
