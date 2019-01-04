@@ -1,9 +1,3 @@
 > eslint --config ../../.eslintrc src
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
-
-/home/travis/build/Talend/ui/packages/datagrid/src/components/DatasetSerializer/datasetSerializer.js
-  79:8  error  'avroType' is assigned a value but never used  no-unused-vars
-
-✖ 1 problem (1 error, 0 warnings)
-
