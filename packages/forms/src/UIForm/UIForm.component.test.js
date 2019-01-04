@@ -283,7 +283,8 @@ describe('UIForm component', () => {
 			const dataProperties = { lastname: 'dupont' };
 			const errors = {
 				lastname: 'String is too short (6 chars), minimum 10',
-				checked: 'error added via a trigger',
+				check: 'error added via a trigger',
+				hiddenField: 'this is a hidden error',
 			};
 			// props.errors.lastname =
 			const wrapper = shallow(
@@ -295,9 +296,9 @@ describe('UIForm component', () => {
 
 			// then
 			expect(props.setErrors).toBeCalledWith(submitEvent, {
-				checked: 'error added via a trigger',
 				firstname: 'Missing required field',
 				lastname: 'String is too short (6 chars), minimum 10',
+				check: 'error added via a trigger',
 			});
 		});
 
