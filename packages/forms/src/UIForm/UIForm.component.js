@@ -215,19 +215,15 @@ export class UIFormComponent extends React.Component {
 		const { mergedSchema } = this.state;
 		const { properties, customValidation } = this.props;
 		const newErrors = validateAll(mergedSchema, properties, customValidation);
-		Object.keys(this.props.errors).forEach(errorKey => {
-			// null is defined to identified field without error
-			// undifined correspond to non existing or hidden fields.
-			if (newErrors[errorKey] !== undefined) {
-				newErrors[errorKey] = this.props.errors[errorKey];
-			}
-		});
-		const errors = {};
-		Object.keys(newErrors).forEach(errorKey => {
-			if (newErrors[errorKey]) {
-				errors[errorKey] = newErrors[errorKey];
-			}
-		});
+		Object.entries(this.props.errors)
+			.filter(entry => entry[0] in newErrors)
+			// eslint-disable-next-line no-param-reassign
+			.reduce((accu, [key, value]) => { accu[key] = value; return accu; }, newErrors);
+
+		const errors = Object.entries(newErrors)
+			.filter(entry => entry[1])
+			// eslint-disable-next-line no-param-reassign
+			.reduce((accu, [key, value]) => { accu[key] = value; return accu; }, {});
 
 		this.props.setErrors(event, errors);
 
