@@ -12,8 +12,8 @@
       },
       "numberMinMax": {
         "type": "number",
-        "minimum": 1,
-        "maximum": 10
+        "minimum": 0,
+        "maximum": 7
       },
       "password": {
         "type": "string"
