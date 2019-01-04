@@ -218,12 +218,18 @@ export class UIFormComponent extends React.Component {
 		Object.entries(this.props.errors)
 			.filter(entry => entry[0] in newErrors)
 			// eslint-disable-next-line no-param-reassign
-			.reduce((accu, [key, value]) => { accu[key] = value; return accu; }, newErrors);
+			.reduce((accu, [key, value]) => {
+				accu[key] = value;
+				return accu;
+			}, newErrors);
 
 		const errors = Object.entries(newErrors)
 			.filter(entry => entry[1])
 			// eslint-disable-next-line no-param-reassign
-			.reduce((accu, [key, value]) => { accu[key] = value; return accu; }, {});
+			.reduce((accu, [key, value]) => {
+				accu[key] = value;
+				return accu;
+			}, {});
 
 		this.props.setErrors(event, errors);
 
