@@ -61,11 +61,11 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 	}
 
 	.container-open,
-	 &.container-open .items-container {
-		 display: block;
-		 padding-top: 1px;
-		 padding-bottom: 1px;
-	 }
+	&.container-open .items-container {
+		display: block;
+		padding-top: 1px;
+		padding-bottom: 1px;
+	}
 }
 
 .typeahead-input {
