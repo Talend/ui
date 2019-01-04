@@ -68,7 +68,9 @@ export function renderItemsContainerFactory(
 		const { id, ref, containerProps, children } = props;
 		const { className, ...restProps } = containerProps;
 
-		const containerClassName = classNames(className, theme['item-container'], {});
+		const containerClassName = classNames(className, theme['items-container'], {
+			[theme['container-open']]: searching || noResult,
+		});
 
 		let content;
 		if (searching) {

@@ -1782,7 +1782,7 @@ exports[`Storyshots HeaderBar while searching 1`] = `
               />
             </div>
             <div
-              className="theme-items-container tc-typeahead-items-container theme-item-container"
+              className="theme-items-container tc-typeahead-items-container theme-items-container theme-container-open"
               id="react-autowhatever-42"
               role="listbox"
             >
@@ -4961,7 +4961,7 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
               />
             </div>
             <div
-              className="theme-items-container tc-typeahead-items-container theme-item-container"
+              className="theme-items-container tc-typeahead-items-container theme-items-container theme-container-open"
               id="react-autowhatever-42"
               role="listbox"
             >
@@ -6532,7 +6532,7 @@ exports[`Storyshots HeaderBar with search input 1`] = `
               />
             </div>
             <div
-              className="theme-items-container tc-typeahead-items-container theme-item-container"
+              className="theme-items-container tc-typeahead-items-container theme-items-container"
               id="react-autowhatever-42"
               role="listbox"
             />
@@ -7309,7 +7309,7 @@ exports[`Storyshots HeaderBar with search results 1`] = `
               />
             </div>
             <div
-              className="theme-items-container tc-typeahead-items-container theme-item-container"
+              className="theme-items-container tc-typeahead-items-container theme-items-container"
               id="react-autowhatever-42"
               role="listbox"
             >
