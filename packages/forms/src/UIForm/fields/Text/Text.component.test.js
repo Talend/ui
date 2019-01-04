@@ -11,6 +11,9 @@ describe('Text field', () => {
 		required: true,
 		title: 'My input title',
 		type: 'text',
+		schema: {
+			type: 'string',
+		},
 	};
 
 	it('should render input', () => {
@@ -101,7 +104,11 @@ describe('Text field', () => {
 		// given
 		const minSchema = {
 			...schema,
-			minimum: 0,
+			schema: {
+				...schema.schema,
+				type: 'number',
+				minimum: 0,
+			}
 		};
 
 		// when
@@ -125,7 +132,11 @@ describe('Text field', () => {
 		// given
 		const maxSchema = {
 			...schema,
-			maximum: 10,
+			schema: {
+				...schema.schema,
+				type: 'number',
+				maximum: 10,
+			}
 		};
 
 		// when
