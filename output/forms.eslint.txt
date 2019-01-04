@@ -5,9 +5,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
   82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.component.js
-  222:5  error  Assignment to property of function parameter 'accu'  no-param-reassign
-  230:5  error  Assignment to property of function parameter 'accu'  no-param-reassign
-
-✖ 3 problems (3 errors, 0 warnings)
+✖ 1 problem (1 error, 0 warnings)
 
