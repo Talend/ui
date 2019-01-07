@@ -18,6 +18,13 @@ function getDateLabel(t, date) {
 	});
 }
 
+function getAuthorLabel(t, author, date) {
+	return t(
+		'RESOURCE_OWNED_BY',
+		{ defaultValue: 'owned by {{ author }}, {{date}}', author, date: getDateLabel(t, date) }
+	);
+}
+
 function Resource({ parent, index, style, t }) {
 	const item = parent.props.collection[index];
 	if (!item) {
@@ -30,12 +37,11 @@ function Resource({ parent, index, style, t }) {
 			{icon && <Icon name={icon} />}
 			<div className={classNames('data-container', theme['data-container'])}>
 				<h2>{name}</h2>
-				<p>ownded by {author}, {getDateLabel(t, modified)}</p>
+				<p>{getAuthorLabel(t, author, modified)}</p>
 			</div>
 		</div>
 	);
 }
-
 
 Resource.defaultProps = {
 	t: getDefaultT(),
