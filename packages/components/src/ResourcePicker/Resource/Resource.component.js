@@ -18,10 +18,11 @@ function getDateLabel(t, date) {
 }
 
 function getAuthorLabel(t, author, date) {
-	return t(
-		'RESOURCE_OWNED_BY',
-		{ defaultValue: 'owned by {{ author }}, {{date}}', author, date: getDateLabel(t, date) }
-	);
+	return t('RESOURCE_OWNED_BY', {
+		defaultValue: 'owned by {{ author }}, {{date}}',
+		author,
+		date: getDateLabel(t, date),
+	});
 }
 
 function Resource({ parent, index, style, t }) {
