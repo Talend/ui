@@ -19,29 +19,31 @@ describe('ResourcePicker component snaps', () => {
 	describe('renderers', () => {
 		it('should render ResourcePicker with some Resources', () => {
 			const props = {
-				collection: [{
-					id: 0,
-					name: 'Title with few actions',
-					modified: '2016-09-22',
-					author: 'Jean-Pierre DUPONT',
-					display: 'text',
-					icon: 'talend-file-xls-o',
-				},
-				{
-					id: 1,
-					name: 'Title with lot of actions',
-					modified: '2016-09-22',
-					display: 'text',
-					icon: 'talend-file-xls-o',
-				},
-				{
-					id: 2,
-					name: 'Title with persistant actions',
-					modified: '2016-09-22',
-					author: 'Jean-Pierre DUPONT',
-					display: 'text',
-					icon: 'talend-file-xls-o',
-				}],
+				collection: [
+					{
+						id: 0,
+						name: 'Title with few actions',
+						modified: '2016-09-22',
+						author: 'Jean-Pierre DUPONT',
+						display: 'text',
+						icon: 'talend-file-xls-o',
+					},
+					{
+						id: 1,
+						name: 'Title with lot of actions',
+						modified: '2016-09-22',
+						display: 'text',
+						icon: 'talend-file-xls-o',
+					},
+					{
+						id: 2,
+						name: 'Title with persistant actions',
+						modified: '2016-09-22',
+						author: 'Jean-Pierre DUPONT',
+						display: 'text',
+						icon: 'talend-file-xls-o',
+					},
+				],
 			};
 
 			const wrapper = shallow(<ResourcePicker {...props} />);

@@ -10,7 +10,6 @@ import Icon from '../../Icon';
 
 import theme from './Resource.scss';
 
-
 function getDateLabel(t, date) {
 	return distanceInWordsToNow(date, {
 		addSuffix: true,
@@ -30,12 +29,13 @@ function Resource({ parent, index, style, t }) {
 			{icon && <Icon name={icon} />}
 			<div className={classNames('data-container', theme['data-container'])}>
 				<h2>{name}</h2>
-				<p>ownded by {author}, {getDateLabel(t, modified)}</p>
+				<p>
+					ownded by {author}, {getDateLabel(t, modified)}
+				</p>
 			</div>
 		</div>
 	);
 }
-
 
 Resource.defaultProps = {
 	t: getDefaultT(),
