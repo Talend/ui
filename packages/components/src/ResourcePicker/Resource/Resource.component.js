@@ -10,7 +10,6 @@ import Icon from '../../Icon';
 
 import theme from './Resource.scss';
 
-
 function getDateLabel(t, date) {
 	return distanceInWordsToNow(date, {
 		addSuffix: true,

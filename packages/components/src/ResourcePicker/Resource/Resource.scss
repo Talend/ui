@@ -9,7 +9,8 @@
 	:global(.tc-svg-icon) {
 		color: $dove-gray;
 	}
-	.data-container > h2, p {
+	.data-container > h2,
+	p {
 		color: $dove-gray;
 		margin: 0;
 	}
@@ -20,18 +21,21 @@
 		:global(.tc-svg-icon) {
 			color: $brand-primary;
 		}
-		.data-container > h2, p {
+		.data-container > h2,
+		p {
 			color: $scooter;
 		}
 	}
 
-	&:active, &:focus {
-		background: rgba(102, 189, 255, .1);
+	&:active,
+	&:focus {
+		background: rgba(102, 189, 255, 0.1);
 
 		:global(.tc-svg-icon) {
 			color: $dove-gray;
 		}
-		.data-container > h2, p {
+		.data-container > h2,
+		p {
 			color: $dove-gray;
 		}
 	}

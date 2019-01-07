@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { VirtualizedList } from '../';
-import Resource from './Resource'
-
+import Resource from './Resource';
 
 export default class ResourcePicker extends React.Component {
 	static propTypes = {
