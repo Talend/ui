@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResourcePicker component snaps renderers should render ResourcePicker with some Resources 1`] = `
+<div>
+  <VirtualizedList
+    collection={
+      Array [
+        Object {
+          "author": "Jean-Pierre DUPONT",
+          "display": "text",
+          "icon": "talend-file-xls-o",
+          "id": 0,
+          "modified": "2016-09-22",
+          "name": "Title with few actions",
+        },
+        Object {
+          "display": "text",
+          "icon": "talend-file-xls-o",
+          "id": 1,
+          "modified": "2016-09-22",
+          "name": "Title with lot of actions",
+        },
+        Object {
+          "author": "Jean-Pierre DUPONT",
+          "display": "text",
+          "icon": "talend-file-xls-o",
+          "id": 2,
+          "modified": "2016-09-22",
+          "name": "Title with persistant actions",
+        },
+      ]
+    }
+    defaultHeight={250}
+    rowHeight={60}
+    rowRenderers={
+      Object {
+        "custom": [Function],
+      }
+    }
+    type="custom"
+  />
+</div>
+`;
+
+exports[`ResourcePicker component snaps renderers should render ResourcePicker without any Resource 1`] = `
+<div>
+  <VirtualizedList
+    collection={Array []}
+    defaultHeight={250}
+    rowHeight={60}
+    rowRenderers={
+      Object {
+        "custom": [Function],
+      }
+    }
+    type="custom"
+  />
+</div>
+`;

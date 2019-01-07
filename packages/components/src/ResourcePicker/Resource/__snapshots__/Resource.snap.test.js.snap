@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Resource component snaps renderers should render a Resource without icon 1`] = `
+<Translate(Resource)
+  index={0}
+  parent={
+    Object {
+      "props": Object {
+        "collection": Array [
+          Object {
+            "author": "Jean-Pierre DUPONT",
+            "id": 0,
+            "modified": "2016-09-22",
+            "name": "Title with few actions",
+          },
+        ],
+      },
+    }
+  }
+/>
+`;
+
+exports[`Resource component snaps renderers should render a regular Resource 1`] = `
+<Translate(Resource)
+  index={0}
+  parent={
+    Object {
+      "props": Object {
+        "collection": Array [
+          Object {
+            "author": "Jean-Pierre DUPONT",
+            "icon": "talend-file-xls-o",
+            "id": 0,
+            "modified": "2016-09-22",
+            "name": "Title with few actions",
+          },
+        ],
+      },
+    }
+  }
+/>
+`;
+
+exports[`Resource component snaps renderers should render an empty Resource 1`] = `
+<Translate(Resource)
+  index={0}
+  parent={
+    Object {
+      "props": Object {
+        "collection": Array [],
+      },
+    }
+  }
+/>
+`;

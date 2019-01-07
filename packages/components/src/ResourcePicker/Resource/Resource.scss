@@ -1,0 +1,38 @@
+.resource-item {
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid $gallery;
+
+	> * {
+		margin-left: $padding-normal;
+	}
+	:global(.tc-svg-icon) {
+		color: $dove-gray;
+	}
+	.data-container > h2, p {
+		color: $dove-gray;
+		margin: 0;
+	}
+
+	&:hover {
+		background-color: $wild-sand;
+
+		:global(.tc-svg-icon) {
+			color: $brand-primary;
+		}
+		.data-container > h2, p {
+			color: $scooter;
+		}
+	}
+
+	&:active, &:focus {
+		background: rgba(102, 189, 255, .1);
+
+		:global(.tc-svg-icon) {
+			color: $dove-gray;
+		}
+		.data-container > h2, p {
+			color: $dove-gray;
+		}
+	}
+}
