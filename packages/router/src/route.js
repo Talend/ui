@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import cmf, { cmfConnect } from '@talend/react-cmf';
 
-const REGISTRY_HOOK_PREFIX = '_.route.hook';
+export const REGISTRY_HOOK_PREFIX = '_.route.hook';
 
 /**
  * register a function for the router configuration
