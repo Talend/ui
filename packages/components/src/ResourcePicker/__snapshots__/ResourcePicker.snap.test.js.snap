@@ -34,10 +34,10 @@ exports[`ResourcePicker component snaps renderers should render ResourcePicker w
     rowHeight={60}
     rowRenderers={
       Object {
-        "custom": [Function],
+        "resource": [Function],
       }
     }
-    type="custom"
+    type="resource"
   />
 </div>
 `;
@@ -50,10 +50,10 @@ exports[`ResourcePicker component snaps renderers should render ResourcePicker w
     rowHeight={60}
     rowRenderers={
       Object {
-        "custom": [Function],
+        "resource": [Function],
       }
     }
-    type="custom"
+    type="resource"
   />
 </div>
 `;

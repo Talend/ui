@@ -9,34 +9,43 @@
 	:global(.tc-svg-icon) {
 		color: $dove-gray;
 	}
-	.data-container > h2,
-	p {
-		color: $dove-gray;
-		margin: 0;
+
+	.data-container {
+		> .title,
+		> .author {
+			font-size: 14px;
+			display: block;
+			color: $dove-gray;
+			margin: 0;
+		}
+		> .title {
+			font-weight:  600;
+		}
 	}
 
-	&:hover {
+	&:hover,
+	&:focus {
 		background-color: $wild-sand;
 
 		:global(.tc-svg-icon) {
 			color: $brand-primary;
 		}
-		.data-container > h2,
-		p {
-			color: $scooter;
+		.data-container  {
+			> .title,
+			> .author {
+				color: $scooter;
+			}
 		}
+
 	}
 
-	&:active,
-	&:focus {
-		background: rgba(102, 189, 255, 0.1);
-
-		:global(.tc-svg-icon) {
-			color: $dove-gray;
-		}
-		.data-container > h2,
-		p {
-			color: $dove-gray;
+	&:active{
+		background: tint($scooter, 90);
+		.data-container {
+			> .title,
+			> .author {
+				color: $dove-gray;
+			}
 		}
 	}
 }

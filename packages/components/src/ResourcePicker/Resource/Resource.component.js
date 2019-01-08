@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { distanceInWordsToNow } from 'date-fns';
 import { translate } from 'react-i18next';
+import { getRowData } from '../../VirtualizedList/utils/gridrow';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import getLocale from '../../DateFnsLocale/locale';
@@ -26,18 +27,18 @@ function getAuthorLabel(t, author, date) {
 }
 
 function Resource({ parent, index, style, t }) {
-	const item = parent.props.collection[index];
+	const item = getRowData(parent, index);
 	if (!item) {
 		return null;
 	}
 
-	const { icon, name, author, modified } = parent.props.collection[index];
+	const { icon, name, author, modified } = item;
 	return (
 		<div className={classNames('resource-item', theme['resource-item'])} style={style}>
 			{icon && <Icon name={icon} />}
 			<div className={classNames('data-container', theme['data-container'])}>
-				<h2>{name}</h2>
-				<p>{getAuthorLabel(t, author, modified)}</p>
+				<span className={classNames('title', theme.title)}>{name}</span>
+				<small className={classNames('author', theme.author)}>{getAuthorLabel(t, author, modified)}</small>
 			</div>
 		</div>
 	);

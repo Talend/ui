@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import Resource from './Resource.component';
 
@@ -15,7 +15,7 @@ describe('Resource component snaps', () => {
 				index: 0,
 			};
 
-			const wrapper = mount(<Resource {...props} />);
+			const wrapper = shallow(<Resource.WrappedComponent {...props} />);
 
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
@@ -38,7 +38,7 @@ describe('Resource component snaps', () => {
 				index: 0,
 			};
 
-			const wrapper = mount(<Resource {...props} />);
+			const wrapper = shallow(<Resource.WrappedComponent {...props} />);
 
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
@@ -60,7 +60,7 @@ describe('Resource component snaps', () => {
 				index: 0,
 			};
 
-			const wrapper = mount(<Resource {...props} />);
+			const wrapper = shallow(<Resource.WrappedComponent {...props} />);
 
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
