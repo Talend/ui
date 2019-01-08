@@ -2,7 +2,6 @@
 const fs = require('fs');
 const fetch = require('node-fetch');
 const FormData = require('form-data');
-const shell = require('shelljs');
 const rimraf = require('rimraf');
 const mkdirp = require('mkdirp');
 
