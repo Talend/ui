@@ -19,7 +19,7 @@
 			margin: 0;
 		}
 		> .title {
-			font-weight:  600;
+			font-weight: 600;
 		}
 	}
 
@@ -30,16 +30,15 @@
 		:global(.tc-svg-icon) {
 			color: $brand-primary;
 		}
-		.data-container  {
+		.data-container {
 			> .title,
 			> .author {
 				color: $scooter;
 			}
 		}
-
 	}
 
-	&:active{
+	&:active {
 		background: tint($scooter, 90);
 		.data-container {
 			> .title,

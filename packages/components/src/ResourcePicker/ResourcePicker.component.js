@@ -20,7 +20,6 @@ export default function ResourcePicker({ collection }) {
 	);
 }
 
-
 ResourcePicker.propTypes = {
 	collection: PropTypes.arrayOf(PropTypes.object),
 };
