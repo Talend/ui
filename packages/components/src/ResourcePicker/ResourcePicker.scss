@@ -1,10 +1,10 @@
-$TOOLBAR_HEIGHT: 80px;
-$RESOURCE_PICKER_HHEIGHT: 250px;
+$toolbar-height: 80px;
+$resource-picker-height: 250px;
 
 .resource-picker {
-	height: $RESOURCE_PICKER_HHEIGHT - $TOOLBAR_HEIGHT;
+	height: $resource-picker-height - $toolbar-height;
 
 	.toolbar {
-		height: $TOOLBAR_HEIGHT;
+		height: $toolbar-height;
 	}
 }
