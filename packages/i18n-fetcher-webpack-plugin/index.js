@@ -5,8 +5,6 @@ const path = require('path');
 const fromGithub = require('../scripts/internationalization/scripts/from-github');
 
 function resolveDependencyVersion(dependency) {
-	// TODO fetch in pom
-	// const pomXmlPath = path.join(process.cwd(), 'pom.xml');
 	const packageJsonPath = path.join(process.cwd(), 'package.json');
 
 	let depRawVersion;
@@ -28,12 +26,18 @@ function resolveDependencyVersion(dependency) {
 	return match[1];
 }
 
+function resolveProjectVersion() {
+	const packageJsonPath = path.join(process.cwd(), 'package.json');
+	const packageJson = require(packageJsonPath);
+	return packageJson.version;
+}
+
 function resolveVersion({ dependency }) {
 	if (dependency) {
 		return resolveDependencyVersion(dependency);
 	}
-	// TODO else get project version
-	return null;
+
+	return resolveProjectVersion();
 }
 
 module.exports = class I18nPlugin {
@@ -48,7 +52,7 @@ module.exports = class I18nPlugin {
 		const resources = files.map(conf => ({
 			url: conf.url,
 			project: conf.project,
-			target: path.join(output, conf.target),
+			target: path.join(output, conf.target || ''),
 			version: resolveVersion(conf),
 		}));
 
