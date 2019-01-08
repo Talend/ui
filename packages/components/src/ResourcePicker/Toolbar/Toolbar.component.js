@@ -9,13 +9,12 @@ import getDefaultT from '../../translate';
 
 import theme from './Toolbar.scss';
 
-
 function NameFilter({ t, filterValue, onChange }) {
 	return (
 		<form>
 			<DebounceInput
 				type="text"
-				placeholder={t('IM_A_TOOLBAR', { defaultValue: 'I\'m a toolbar' })}
+				placeholder={t('IM_A_TOOLBAR', { defaultValue: "I'm a toolbar" })}
 				value={filterValue}
 				debounceTimeout={300}
 				onChange={onChange}
@@ -28,9 +27,7 @@ function NameFilter({ t, filterValue, onChange }) {
 
 function SortOptions({ t, favorite, onFavoriteFilterChange, certified, onCertifiedFilterChange }) {
 	return (
-		<div
-			className={classNames('sort-options', theme['sort-options'])}
-		>
+		<div className={classNames('sort-options', theme['sort-options'])}>
 			<span>{t('SORT', { defaultValue: 'Sort:' })}</span>
 			<ActionIconToggle
 				icon={'talend-sort-az'}
@@ -52,9 +49,7 @@ function SortOptions({ t, favorite, onFavoriteFilterChange, certified, onCertifi
 
 function StateFilter({ t, favorite, onFavoriteFilterChange, certified, onCertifiedFilterChange }) {
 	return (
-		<div
-			className={classNames('state-filters', theme['state-filters'])}
-		>
+		<div className={classNames('state-filters', theme['state-filters'])}>
 			<span>{t('FILTER', { defaultValue: 'Filter:' })}</span>
 			<ActionIconToggle
 				icon={'talend-star'}
@@ -76,9 +71,7 @@ function StateFilter({ t, favorite, onFavoriteFilterChange, certified, onCertifi
 
 function Toolbar(props) {
 	return (
-		<div
-			className={classNames('toolbar-container', theme['toolbar-container'])}
-		>
+		<div className={classNames('toolbar-container', theme['toolbar-container'])}>
 			<NameFilter {...props} />
 			<SortOptions {...props} />
 			<StateFilter {...props} certified />

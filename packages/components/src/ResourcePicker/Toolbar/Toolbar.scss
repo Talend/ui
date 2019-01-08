@@ -20,16 +20,17 @@
 		}
 	}
 
-	.sort-options, .state-filters {
+	.sort-options,
+	.state-filters {
 		> * {
 			display: inline-block;
 		}
 	}
 
-
 	.state-filters {
 		:global(.tc-icon-toggle) {
-			&:global(.active), &:hover {
+			&:global(.active),
+			&:hover {
 				&.favorite-filter > :global(svg) {
 					color: $lightning-yellow;
 				}
