@@ -10,13 +10,12 @@ import getDefaultT from '../../translate';
 
 import theme from './Toolbar.scss';
 
-
 function NameFilter({ t, filterValue, onChange }) {
 	return (
 		<form>
 			<DebounceInput
 				type="text"
-				placeholder={t('IM_A_TOOLBAR', { defaultValue: 'I\'m a toolbar' })}
+				placeholder={t('IM_A_TOOLBAR', { defaultValue: "I'm a toolbar" })}
 				value={filterValue}
 				debounceTimeout={300}
 				onChange={onChange}
@@ -79,9 +78,7 @@ function StateFilter({ t, favorite, onFavoriteFilterChange, certified, onCertifi
 
 function Toolbar(props) {
 	return (
-		<div
-			className={classNames('toolbar-container', theme['toolbar-container'])}
-		>
+		<div className={classNames('toolbar-container', theme['toolbar-container'])}>
 			<NameFilter {...props} />
 			<SortOptions {...props} />
 			<StateFilter {...props} />
