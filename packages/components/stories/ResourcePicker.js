@@ -12,6 +12,7 @@ const icons = {
 	'talend-badge': talendIcons['talend-badge'],
 	'talend-sort-az': talendIcons['talend-sort-az'],
 	'talend-sort-desc': talendIcons['talend-sort-desc'],
+	'talend-caret-down': talendIcons['talend-caret-down'],
 };
 
 const collection = [

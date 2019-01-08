@@ -21,8 +21,15 @@
 	}
 
 	.sort-options, .state-filters {
+		margin-right: $padding-normal;
+
 		> * {
 			display: inline-block;
+			height: 100%;
+		}
+
+		.option-label {
+			margin-right: $padding-small;
 		}
 	}
 

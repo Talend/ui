@@ -1,0 +1,19 @@
+.order-chooser {
+	display: flex;
+
+	:global(.btn) {
+		padding: 0;
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: inherit;
+			box-shadow: none;
+		}
+
+		.order-indicator {
+			width: .6rem;
+			height: .6rem;
+		}
+	}
+}

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
 import DebounceInput from 'react-debounce-input';
-import { ActionIconToggle, Icon } from '../../';
+import { ActionIconToggle } from '../../';
+import OrderChooser from './OrderChooser';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 
@@ -31,20 +32,20 @@ function SortOptions({ t, favorite, onFavoriteFilterChange, certified, onCertifi
 		<div
 			className={classNames('sort-options', theme['sort-options'])}
 		>
-			<span>{t('SORT', { defaultValue: 'Sort:' })}</span>
-			<ActionIconToggle
+			<span
+				className={classNames('option-label', theme['option-label'])}
+			>{t('SORT', { defaultValue: 'Sort:' })}</span>
+			<OrderChooser
 				icon={'talend-sort-az'}
-				label={t('FAVORITES', { defaultValue: 'Favorites' })}
+				label={t('SORT_BY_NAME', { defaultValue: 'Sort by name' })}
 				active={favorite}
 				onClick={onFavoriteFilterChange}
-				className={classNames('favorite-filter', theme['favorite-filter'])}
 			/>
-			<ActionIconToggle
+			<OrderChooser
 				icon={'talend-sort-desc'}
-				label={t('CERTIFIED', { defaultValue: 'Certified' })}
+				label={t('SORT_BY_DATE', { defaultValue: 'Sort by date' })}
 				active={certified}
 				onClick={onCertifiedFilterChange}
-				className={classNames('certified-filter', theme['certified-filter'])}
 			/>
 		</div>
 	);
@@ -55,7 +56,9 @@ function StateFilter({ t, favorite, onFavoriteFilterChange, certified, onCertifi
 		<div
 			className={classNames('state-filters', theme['state-filters'])}
 		>
-			<span>{t('FILTER', { defaultValue: 'Filter:' })}</span>
+			<span
+				className={classNames('option-label', theme['option-label'])}
+			>{t('FILTER', { defaultValue: 'Filter:' })}</span>
 			<ActionIconToggle
 				icon={'talend-star'}
 				label={t('FAVORITES', { defaultValue: 'Favorites' })}
@@ -81,7 +84,7 @@ function Toolbar(props) {
 		>
 			<NameFilter {...props} />
 			<SortOptions {...props} />
-			<StateFilter {...props} certified />
+			<StateFilter {...props} />
 		</div>
 	);
 }
