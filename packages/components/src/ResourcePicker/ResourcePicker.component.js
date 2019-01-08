@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { VirtualizedList } from '../';
 import Resource from './Resource';
+import Toolbar from './Toolbar';
+
+import theme from './ResourcePicker.scss';
+
 
 export default function ResourcePicker({ collection }) {
 	console.warn(
@@ -9,7 +14,10 @@ export default function ResourcePicker({ collection }) {
 	);
 
 	return (
-		<div>
+		<div
+			className={classNames('resource-picker', theme['resource-picker'])}
+		>
+			<Toolbar />
 			<VirtualizedList
 				collection={collection}
 				type="resource"

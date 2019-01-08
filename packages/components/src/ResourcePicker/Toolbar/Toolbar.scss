@@ -1,0 +1,43 @@
+.toolbar-container {
+	display: flex;
+
+	// ActionIconToggle style reset :
+	:global(.tc-icon-toggle) {
+		background: none;
+		border: none;
+		box-shadow: none;
+
+		> :global(svg) {
+			width: $svg-md-size;
+			height: $svg-md-size;
+			color: $dove-gray;
+		}
+
+		&:hover:not([disabled]),
+		&:active {
+			background: none;
+			border: none;
+		}
+	}
+
+	.sort-options, .state-filters {
+		> * {
+			display: inline-block;
+		}
+	}
+
+
+	.state-filters {
+		:global(.tc-icon-toggle) {
+			&:global(.active), &:hover {
+				&.favorite-filter > :global(svg) {
+					color: $lightning-yellow;
+				}
+
+				&.certified-filter > :global(svg) {
+					color: $brand-primary;
+				}
+			}
+		}
+	}
+}
