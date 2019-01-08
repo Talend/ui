@@ -5,18 +5,11 @@ import { Icon, Button, TooltipTrigger } from '../../../';
 
 import theme from './OrderChooser.scss';
 
-
 function OrderChooser({ id, icon, label, tooltipPlacement }) {
 	return (
-		<div
-			className={classNames('order-chooser', theme['order-chooser'])}
-		>
+		<div className={classNames('order-chooser', theme['order-chooser'])}>
 			<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
-				<Button
-					id={id}
-					aria-label={label}
-					bsStyle=""
-				>
+				<Button id={id} aria-label={label} bsStyle="">
 					<Icon name={icon} />
 					<Icon
 						name={'talend-caret-down'}
@@ -31,6 +24,5 @@ function OrderChooser({ id, icon, label, tooltipPlacement }) {
 OrderChooser.propTypes = {
 	icon: PropTypes.string,
 };
-
 
 export default OrderChooser;
