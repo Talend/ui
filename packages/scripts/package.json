@@ -54,6 +54,7 @@
     "jest": "^23.6.0",
     "lodash.get": "^4.4.2",
     "lodash.mergewith": "^4.6.1",
+    "merge-dirs": "^0.2.1",
     "mini-css-extract-plugin": "^0.4.0",
     "mkdirp": "^0.5.1",
     "node-fetch": "^2.2.0",

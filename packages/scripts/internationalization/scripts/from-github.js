@@ -5,6 +5,7 @@ const mkdirp = require('mkdirp');
 const rimraf = require('rimraf');
 const request = require('request');
 const Zip = require('adm-zip');
+const mergeDirs = require('merge-dirs').default;
 
 const { printRunning, printSuccess } = require('../common/log');
 
@@ -44,9 +45,26 @@ function fromGithub({ resources, urlPattern }) {
 				.then(() => printSuccess(`Files downloaded from ${filesUrl} to ${target}`))
 				.then(() => {
 					printRunning(`Extracting ${zipPath} to ${target}`);
+
+					/*
+					* Zip from github contains a root folder, which is unwanted.
+					* So we
+					* - extract it to the target,
+					* - move its content to the target folder itself
+					* - remove the unwanted unzipped root folder
+					*/
+
 					const zip = new Zip(zipPath);
+					const zipRootFolderPath = path.join(target, zip.getEntries()[0].entryName);
+
+					// extract all content
 					zip.extractAllTo(target, true);
 					rimraf.sync(zipPath);
+
+					// remove the unwanted unzipped root folder
+					mergeDirs(zipRootFolderPath, target);
+					rimraf.sync(zipRootFolderPath);
+
 					printSuccess('Extraction done');
 				});
 		})
