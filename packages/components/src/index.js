@@ -40,6 +40,7 @@ import List from './List';
 import Loader from './Loader';
 import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
+import ResourcePicker from './ResourcePicker';
 import Skeleton from './Skeleton';
 import SidePanel from './SidePanel';
 import Table from './Table';
@@ -164,6 +165,7 @@ export {
 	Notification,
 	ObjectViewer,
 	Progress,
+	ResourcePicker,
 	RichError,
 	RichLayout,
 	SidePanel,
