@@ -4,6 +4,7 @@ const fetch = require('node-fetch');
 const FormData = require('form-data');
 const shell = require('shelljs');
 const rimraf = require('rimraf');
+const mkdirp = require('mkdirp');
 
 const { error, printRunning, printSuccess } = require('./log');
 
@@ -180,7 +181,7 @@ function downloadFiles(data) {
 
 	printRunning('Download files from XTM project...');
 	rimraf.sync(data.targetPath);
-	shell.mkdir('-p', targetPath);
+	mkdirp.sync(targetPath);
 
 	let promise;
 	if (project.jobs) {
