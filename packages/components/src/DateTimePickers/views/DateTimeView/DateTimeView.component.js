@@ -66,6 +66,22 @@ class DateTimeView extends React.PureComponent {
 		);
 	}
 
+	renderValidationButton() {
+		return (
+			<div className={theme.footer}>
+				<Action
+					id="toto"
+					bsStyle="primary"
+					role="link"
+					title={"title"}
+					aria-label={"label"}
+					label={"label"}
+					onClick={() => { console.log('label'); }}
+				/>
+			</div>
+		);
+	}
+
 	incrementMonthIndex(monthIncrement, callback) {
 		const monthIndexIncremented = this.props.calendar.monthIndex + monthIncrement;
 		const newMonthIndex = euclideanModulo(monthIndexIncremented, 12);
@@ -136,7 +152,13 @@ class DateTimeView extends React.PureComponent {
 			</div>
 		);
 
-		return <ViewLayout header={header} bodyElement={bodyElement} />;
+		return (
+			<ViewLayout
+				header={header}
+				bodyElement={bodyElement}
+				footerElement={this.props.useTime && this.renderValidationButton()}
+			/>
+		);
 	}
 }
 

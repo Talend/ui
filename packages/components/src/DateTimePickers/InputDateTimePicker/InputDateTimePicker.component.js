@@ -145,6 +145,9 @@ class InputDateTimePicker extends React.Component {
 
 	onPickerChange(event, { date, time }) {
 		const nextState = extractPartsFromDateAndTime(date, time, this.getDateOptions());
+		if (!this.props.useTime) {
+			this.closePicker();
+		}
 		return this.onChange(event, nextState, 'PICKER');
 	}
 
