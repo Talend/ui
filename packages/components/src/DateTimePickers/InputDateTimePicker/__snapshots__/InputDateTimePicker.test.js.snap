@@ -37,7 +37,9 @@ exports[`InputDateTimePicker should render 1`] = `
         placement="right"
       >
         <DateTimePicker
+          isValid={true}
           manageFocus={true}
+          onFinish={[Function]}
           onSubmit={[Function]}
           selection={
             Object {
