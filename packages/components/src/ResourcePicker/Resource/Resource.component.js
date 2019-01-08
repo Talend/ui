@@ -34,7 +34,15 @@ function Resource({ parent, index, style, t }) {
 
 	const { icon, name, author, modified } = item;
 	return (
-		<div className={classNames('resource-item', theme['resource-item'])} style={style}>
+		<div
+			className={classNames('resource-item', theme['resource-item'])}
+			style={style}
+			role="listitem"
+			tabIndex="0"
+			aria-posinset={index + 1}
+			aria-setsize={parent.props.rowCount}
+			aria-label={name}
+		>
 			{icon && <Icon name={icon} />}
 			<div className={classNames('data-container', theme['data-container'])}>
 				<span className={classNames('title', theme.title)}>{name}</span>
