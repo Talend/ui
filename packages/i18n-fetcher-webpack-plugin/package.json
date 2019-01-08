@@ -9,10 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "adm-zip": "^0.4.13",
+    "@talend/scripts": "^0.6.0",
     "mkdirp": "^0.5.1",
-    "request": "^2.88.0",
-    "request-promise-native": "^1.0.5",
     "rimraf": "^2.6.3"
   }
 }

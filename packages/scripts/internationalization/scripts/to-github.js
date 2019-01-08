@@ -6,19 +6,7 @@ const xmlParser = require('xml2json');
 const spawn = require('cross-spawn');
 
 const error = require('../common/error');
-
-function printSection(title) {
-	console.log('\n------------------------------');
-	console.log(`-- ${title}`);
-	console.log('------------------------------');
-}
-
-function printSuccess(text) {
-	console.log(`✅ ${text}`);
-}
-function printRunning(text) {
-	console.log(`🏃 ${text}`);
-}
+const { printRunning, printSuccess, printSection } = require('../common/log');
 
 function getGithubVariables() {
 	const { GITHUB_LOGIN, GITHUB_TOKEN } = process.env;

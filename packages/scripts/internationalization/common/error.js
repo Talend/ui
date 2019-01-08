@@ -1,7 +1,7 @@
-const chalk = require('chalk');
+const { printError } = require('./log');
 
 function error(message) {
-	console.error(chalk.red(`❌ ${message}`));
+	printError(message);
 	process.exit(1);
 }
 
