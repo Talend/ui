@@ -1,40 +1,48 @@
+const fs = require('fs');
 const path = require('path');
 const Zip = require('adm-zip');
-const { getXTMVariables, login, getProject, downloadFile } = require('../common/xtm');
-const error = require('../common/error');
+const mkdirp = require('mkdirp');
+const rimraf = require('rimraf');
+const { getFilesToDownload, login, getProject, downloadFiles } = require('../common/xtm');
+const { error, printRunning, printSection } = require('../common/log');
+const { getPossibleVersion } = require('../common/version');
 
-const languageRegex = /^[a-z]{2}_[A-Z]{2}$/;
+function unzip(data) {
+	const { targetPath } = data;
 
-function unzipFlatten(zip, extractPath) {
-	const zipEntries = zip.getEntries();
-	zipEntries.forEach(({ entryName }) => {
-		console.log('\nNext', entryName);
-		const language = entryName.split(path.sep)[0];
-		if (!language.match(languageRegex)) {
-			console.log('=> Not in a language folder, skip it');
-			return;
-		}
+	fs.readdirSync(targetPath)
+		.filter(fileName => fileName.endsWith('.zip'))
+		.forEach(fileName => {
+			const filePath = path.join(targetPath, fileName);
+			const zip = new Zip(filePath);
+			zip.extractAllTo(targetPath, true);
+			rimraf.sync(filePath);
+		});
 
-		const languagePath = path.join(extractPath, language);
-		console.log('Target', path.resolve(languagePath, path.basename(entryName)));
-
-		zip.extractEntryTo(entryName, languagePath, false, true);
-		console.log('=> Extraction done');
-	});
+	return data;
 }
 
-function unzip({ targetPath, transform }) {
-	const filePath = path.join(targetPath, 'i18n.zip');
-	const extractPath = path.join(targetPath, 'i18n');
-	const zip = new Zip(filePath);
+function reshapeFolders(data) {
+	const { targetPath } = data;
+	fs.readdirSync(targetPath).forEach(language => {
+		const languagePath = path.join(targetPath, language);
+		fs.readdirSync(languagePath).forEach(version => {
+			const languageVersionPath = path.join(targetPath, language, version);
+			const versionLanguagePath = path.join(targetPath, version, language);
+			printRunning(`Move ${languageVersionPath} --> ${versionLanguagePath}`);
 
-	if (transform === 'flatten') {
-		console.log('Transformation : flatten');
-		unzipFlatten(zip, extractPath);
-	} else {
-		console.log('Transformation : none');
-		zip.extractAllTo(extractPath, true);
-	}
+			mkdirp.sync(versionLanguagePath);
+
+			fs.readdirSync(languageVersionPath).forEach(fileName => {
+				fs.renameSync(
+					path.join(languageVersionPath, fileName),
+					path.join(versionLanguagePath, fileName),
+				);
+			});
+		});
+		rimraf.sync(languagePath);
+	});
+	return data;
 }
 
 function download({ load }) {
@@ -42,12 +50,15 @@ function download({ load }) {
 		targetPath: path.join(process.cwd(), load.target),
 		projectName: load.project,
 		transform: load.transform,
-		xtm: getXTMVariables(),
+		version: getPossibleVersion(),
 	};
+	printSection('XTM');
 	return login(data)
 		.then(getProject)
-		.then(downloadFile)
+		.then(getFilesToDownload)
+		.then(downloadFiles)
 		.then(unzip)
+		.then(reshapeFolders)
 		.catch(e => {
 			error(e.message);
 		});
