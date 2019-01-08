@@ -37,13 +37,11 @@ function SortOptions({ t, favorite, onFavoriteFilterChange, certified, onCertifi
 			<OrderChooser
 				icon={'talend-sort-az'}
 				label={t('SORT_BY_NAME', { defaultValue: 'Sort by name' })}
-				active={favorite}
 				onClick={onFavoriteFilterChange}
 			/>
 			<OrderChooser
 				icon={'talend-sort-desc'}
 				label={t('SORT_BY_DATE', { defaultValue: 'Sort by date' })}
-				active={certified}
 				onClick={onCertifiedFilterChange}
 			/>
 		</div>

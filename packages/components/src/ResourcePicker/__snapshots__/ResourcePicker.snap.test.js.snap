@@ -1,7 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ResourcePicker component snaps renderers should render ResourcePicker with some Resources 1`] = `
-<div>
+<div
+  className="resource-picker theme-resource-picker"
+>
+  <_default />
   <VirtualizedList
     collection={
       Array [
@@ -43,7 +46,10 @@ exports[`ResourcePicker component snaps renderers should render ResourcePicker w
 `;
 
 exports[`ResourcePicker component snaps renderers should render ResourcePicker without any Resource 1`] = `
-<div>
+<div
+  className="resource-picker theme-resource-picker"
+>
+  <_default />
   <VirtualizedList
     collection={Array []}
     defaultHeight={250}

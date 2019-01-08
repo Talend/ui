@@ -14,6 +14,10 @@
 		.order-indicator {
 			width: .6rem;
 			height: .6rem;
+
+			&.asc {
+				transform: rotate(180deg);
+			}
 		}
 	}
 }
