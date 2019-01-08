@@ -14,5 +14,5 @@
 └───────────────┴──────────────────────────────────────────────────────────────┘
 
 
-found 1 high severity vulnerability in 66653 scanned packages
+found 1 high severity vulnerability in 66650 scanned packages
   run `npm audit fix` to fix 1 of them.
