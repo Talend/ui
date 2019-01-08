@@ -10,13 +10,6 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   48:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-src/ResourcePicker/ResourcePicker.scss
-  1:1   error  Variable 'TOOLBAR_HEIGHT' should be written in lowercase with hyphens           variable-name-format
-  2:1   error  Variable 'RESOURCE_PICKER_HHEIGHT' should be written in lowercase with hyphens  variable-name-format
-  5:10  error  Variable 'RESOURCE_PICKER_HHEIGHT' should be written in lowercase with hyphens  variable-name-format
-  5:37  error  Variable 'TOOLBAR_HEIGHT' should be written in lowercase with hyphens           variable-name-format
-  8:11  error  Variable 'TOOLBAR_HEIGHT' should be written in lowercase with hyphens           variable-name-format
-
 src/Typeahead/Typeahead.scss
   34:5  error  Mixins should come before declarations  mixins-before-declarations
   90:5  error  Nesting depth 4 greater than max of 3   nesting-depth
@@ -24,5 +17,5 @@ src/Typeahead/Typeahead.scss
 src/VirtualizedList/RowCollapsiblePanel/RowCollapsiblePanel.scss
   2:24  error  Strings must use single quotes  quotes
 
-✖ 11 problems (9 errors, 2 warnings)
+✖ 6 problems (4 errors, 2 warnings)
 

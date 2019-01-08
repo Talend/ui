@@ -28,12 +28,10 @@ function NameFilter({ t, filterValue, onChange }) {
 
 function SortOptions({ t, favorite, onFavoriteFilterChange, certified, onCertifiedFilterChange }) {
 	return (
-		<div
-			className={classNames('sort-options', theme['sort-options'])}
-		>
-			<span
-				className={classNames('option-label', theme['option-label'])}
-			>{t('SORT', { defaultValue: 'Sort:' })}</span>
+		<div className={classNames('sort-options', theme['sort-options'])}>
+			<span className={classNames('option-label', theme['option-label'])}>
+				{t('SORT', { defaultValue: 'Sort:' })}
+			</span>
 			<OrderChooser
 				icon={'talend-sort-az'}
 				label={t('SORT_BY_NAME', { defaultValue: 'Sort by name' })}
@@ -50,12 +48,10 @@ function SortOptions({ t, favorite, onFavoriteFilterChange, certified, onCertifi
 
 function StateFilter({ t, favorite, onFavoriteFilterChange, certified, onCertifiedFilterChange }) {
 	return (
-		<div
-			className={classNames('state-filters', theme['state-filters'])}
-		>
-			<span
-				className={classNames('option-label', theme['option-label'])}
-			>{t('FILTER', { defaultValue: 'Filter:' })}</span>
+		<div className={classNames('state-filters', theme['state-filters'])}>
+			<span className={classNames('option-label', theme['option-label'])}>
+				{t('FILTER', { defaultValue: 'Filter:' })}
+			</span>
 			<ActionIconToggle
 				icon={'talend-star'}
 				label={t('FAVORITES', { defaultValue: 'Favorites' })}

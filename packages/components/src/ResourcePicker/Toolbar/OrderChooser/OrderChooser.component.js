@@ -11,9 +11,7 @@ import theme from './OrderChooser.scss';
 
 function OrderChooser({ icon, asc, label, tooltipPlacement, onClick, ...rest }) {
 	return (
-		<div
-			className={classNames('order-chooser', theme['order-chooser'])}
-		>
+		<div className={classNames('order-chooser', theme['order-chooser'])}>
 			<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
 				<Button
 					{...getPropsFrom(Button, rest)}
