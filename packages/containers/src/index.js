@@ -8,7 +8,11 @@ const components = Object.keys(allComponents).reduce((acc, key) => {
 		let options = {};
 		if (key === 'Layout') {
 			options = {
-				omitCMFProps: true,
+				withComponentRegistry: true,
+			};
+		}
+		if (key === 'ActionList') {
+			options = {
 				withComponentRegistry: true,
 			};
 		}

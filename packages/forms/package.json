@@ -97,7 +97,7 @@
     "react-css-transition": "^0.7.4",
     "react-dom": "^16.0.0",
     "react-i18next": "^7.6.1",
-    "react-redux": "^5.0.7",
+    "react-redux": "^6.0.0",
     "react-test-renderer": "^16.0.0",
     "react-transition-group": "^2.3.1",
     "react-virtualized": "9.21.0",
@@ -115,8 +115,8 @@
     "react-bootstrap": "0.32.4",
     "react-dom": "^15.6.2 || ^16.0.0",
     "react-i18next": "^7.6.1",
-    "react-redux": "^5.0.7",
-    "redux": "^3.7.2"
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.0"
   },
   "jest": {
     "collectCoverageFrom": [
