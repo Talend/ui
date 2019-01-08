@@ -68,6 +68,21 @@ class DateTimeView extends React.PureComponent {
 		);
 	}
 
+	incrementMonthIndex(monthIncrement, callback) {
+		const monthIndexIncremented = this.props.calendar.monthIndex + monthIncrement;
+		const newMonthIndex = euclideanModulo(monthIndexIncremented, 12);
+		const yearIncrement = Math.floor(monthIndexIncremented / 12);
+		const newYear = this.props.calendar.year + yearIncrement;
+
+		this.props.onSelectMonthYear(
+			{
+				monthIndex: newMonthIndex,
+				year: newYear,
+			},
+			callback,
+		);
+	}
+
 	renderValidationButton(t) {
 		const validateLabel = t('DATEPICKER_VALIDATE_BUTTON', { defaultValue: 'Done' });
 		return (
@@ -81,21 +96,6 @@ class DateTimeView extends React.PureComponent {
 					disabled={!this.props.isValid}
 				/>
 			</div>
-		);
-	}
-
-	incrementMonthIndex(monthIncrement, callback) {
-		const monthIndexIncremented = this.props.calendar.monthIndex + monthIncrement;
-		const newMonthIndex = euclideanModulo(monthIndexIncremented, 12);
-		const yearIncrement = Math.floor(monthIndexIncremented / 12);
-		const newYear = this.props.calendar.year + yearIncrement;
-
-		this.props.onSelectMonthYear(
-			{
-				monthIndex: newMonthIndex,
-				year: newYear,
-			},
-			callback,
 		);
 	}
 
