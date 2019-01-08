@@ -39,6 +39,7 @@ class InputDateTimePicker extends React.Component {
 			PropTypes.number,
 			PropTypes.string,
 		]),
+		onFinish: PropTypes.func,
 		onChange: PropTypes.func,
 		onBlur: PropTypes.func,
 		readOnly: PropTypes.bool,
@@ -75,6 +76,7 @@ class InputDateTimePicker extends React.Component {
 
 		this.onBlur = this.onBlur.bind(this);
 		this.onFocus = this.onFocus.bind(this);
+		this.onFinish = this.onFinish.bind(this);
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onPickerChange = this.onPickerChange.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
@@ -145,10 +147,10 @@ class InputDateTimePicker extends React.Component {
 
 	onPickerChange(event, { date, time }) {
 		const nextState = extractPartsFromDateAndTime(date, time, this.getDateOptions());
+		this.onChange(event, nextState, 'PICKER');
 		if (!this.props.useTime) {
-			this.closePicker();
+			this.onFinish();
 		}
-		return this.onChange(event, nextState, 'PICKER');
 	}
 
 	onBlur(event) {
@@ -169,6 +171,13 @@ class InputDateTimePicker extends React.Component {
 	onFocus() {
 		clearTimeout(this.blurTimeout);
 		this.openPicker();
+	}
+
+	onFinish() {
+		this.closePicker();
+		if (this.props.onFinish) {
+			this.props.onFinish();
+		}
 	}
 
 	setPickerVisibility(isShown) {
@@ -237,6 +246,8 @@ class InputDateTimePicker extends React.Component {
 								useTime={this.props.useTime}
 								useSeconds={this.props.useSeconds}
 								useUTC={this.props.useUTC}
+								onFinish={this.onFinish}
+								isValid={!this.state.errorMessage}
 							/>
 						</Popover>
 					</Overlay>

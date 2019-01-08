@@ -26,6 +26,8 @@ class DateTimeView extends React.PureComponent {
 			monthIndex: PropTypes.number.isRequired,
 			year: PropTypes.number.isRequired,
 		}).isRequired,
+		isValid: PropTypes.bool,
+		onFinish: PropTypes.func,
 		onTitleClick: PropTypes.func.isRequired,
 		onSelectMonthYear: PropTypes.func.isRequired,
 		onSelectDate: PropTypes.func.isRequired,
@@ -66,17 +68,17 @@ class DateTimeView extends React.PureComponent {
 		);
 	}
 
-	renderValidationButton() {
+	renderValidationButton(t) {
+		const validateLabel = t('DATEPICKER_VALIDATE_BUTTON', { defaultValue: 'Done' });
 		return (
 			<div className={theme.footer}>
 				<Action
-					id="toto"
+					name="action-datepicker-validate"
 					bsStyle="primary"
-					role="link"
-					title={"title"}
-					aria-label={"label"}
-					label={"label"}
-					onClick={() => { console.log('label'); }}
+					role="button"
+					label={validateLabel}
+					onClick={this.props.onFinish}
+					disabled={!this.props.isValid}
 				/>
 			</div>
 		);
@@ -156,7 +158,7 @@ class DateTimeView extends React.PureComponent {
 			<ViewLayout
 				header={header}
 				bodyElement={bodyElement}
-				footerElement={this.props.useTime && this.renderValidationButton()}
+				footerElement={this.props.useTime && this.renderValidationButton(t)}
 			/>
 		);
 	}

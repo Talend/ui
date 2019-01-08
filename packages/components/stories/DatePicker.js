@@ -83,6 +83,7 @@ storiesOf('DatePicker', module)
 				id="my-date-picker"
 				selectedDateTime={new Date(2018, 4, 13, 12, 30)}
 				onChange={action('onChange')}
+				onFinish={action('onFinish')}
 				name="Datetime"
 			/>
 		</div>
@@ -105,6 +106,7 @@ storiesOf('DatePicker', module)
 					name="Datetime"
 					onBlur={action('onBlur')}
 					onChange={action('onChange')}
+					onFinish={action('onFinish')}
 					selectedDateTime={new Date(2018, 4, 13, 12, 30, 44)}
 					useTime
 				/>

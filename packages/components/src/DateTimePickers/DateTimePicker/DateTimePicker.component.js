@@ -140,6 +140,8 @@ class DateTimePicker extends React.Component {
 				<DateTimeView
 					allowFocus={this.state.allowFocus}
 					calendar={this.state.calendar}
+					isValid={this.props.isValid}
+					onFinish={this.props.onFinish}
 					onSelectDate={this.onSelectDate}
 					onSelectMonthYear={this.onSelectCalendarMonthYear}
 					onSelectTime={this.onSelectTime}
@@ -180,6 +182,14 @@ class DateTimePicker extends React.Component {
 }
 
 DateTimePicker.propTypes = {
+	/**
+	 * True if current date is valid
+	 */
+	isValid: PropTypes.bool,
+	/**
+	 * Callback triggered when picker is being closed
+	 */
+	onFinish: PropTypes.func,
 	/**
 	 * By default, element in picker are focusable. So it is usable as is.
 	 * But when we want to disable focus to not interact with a form flow,
