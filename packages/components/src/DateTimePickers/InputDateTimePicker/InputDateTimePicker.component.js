@@ -39,7 +39,6 @@ class InputDateTimePicker extends React.Component {
 			PropTypes.number,
 			PropTypes.string,
 		]),
-		onFinish: PropTypes.func,
 		onChange: PropTypes.func,
 		onBlur: PropTypes.func,
 		readOnly: PropTypes.bool,
@@ -102,25 +101,26 @@ class InputDateTimePicker extends React.Component {
 		}
 	}
 
-	onChange(event, nextState, origin) {
-		const { errorMessage, datetime, textInput } = nextState;
+	dateHasChanged(nextState) {
+		const datetime = nextState.datetime;
+		return datetime !== this.state.datetime && !isSameSecond(datetime, this.state.datetime);
+	}
 
-		const datetimeUpdated =
-			datetime !== this.state.datetime && !isSameSecond(datetime, this.state.datetime);
+	onChange(event, origin) {
+		const { errorMessage, datetime, textInput } = this.state;
 
 		const errorUpdated = errorMessage !== this.state.errorMessage;
 
-		this.setState(nextState, () => {
-			if (this.props.onChange && (datetimeUpdated || errorUpdated)) {
-				this.props.onChange(event, { errorMessage, datetime, textInput, origin });
-			}
-		});
+		if (this.props.onChange && (this.state.datetimeUpdated || errorUpdated)) {
+			this.props.onChange(event, { errorMessage, datetime, textInput, origin });
+		}
 	}
 
 	onInputChange(event) {
 		const textInput = event.target.value;
 		const nextState = extractPartsFromTextInput(textInput, this.getDateOptions());
-		return this.onChange(event, nextState, 'INPUT');
+		const datetimeUpdated = this.dateHasChanged(nextState);
+		this.setState({ ...nextState, datetimeUpdated });
 	}
 
 	onKeyDown(event) {
@@ -140,6 +140,9 @@ class InputDateTimePicker extends React.Component {
 					this.setPickerVisibility(true);
 				}
 				break;
+			case keycode.codes.enter:
+				// commiting existing change on enter
+				this.onFinish(event, 'INPUT');
 			default:
 				break;
 		}
@@ -147,10 +150,12 @@ class InputDateTimePicker extends React.Component {
 
 	onPickerChange(event, { date, time }) {
 		const nextState = extractPartsFromDateAndTime(date, time, this.getDateOptions());
-		this.onChange(event, nextState, 'PICKER');
-		if (!this.props.useTime) {
-			this.onFinish();
-		}
+		const datetimeUpdated = this.dateHasChanged(nextState);
+		this.setState({ ...nextState, datetimeUpdated }, () => {
+			if (!this.props.useTime) {
+				this.onFinish(event, 'PICKER');
+			}
+		});
 	}
 
 	onBlur(event) {
@@ -173,11 +178,10 @@ class InputDateTimePicker extends React.Component {
 		this.openPicker();
 	}
 
-	onFinish() {
-		this.closePicker();
-		if (this.props.onFinish) {
-			this.props.onFinish();
-		}
+	onFinish(event, origin) {
+		this.setState({ datetimeUpdated: false });
+		this.onChange(event, origin);
+		this.onBlur(event);
 	}
 
 	setPickerVisibility(isShown) {
