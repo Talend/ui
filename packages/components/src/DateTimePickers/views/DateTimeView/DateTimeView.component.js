@@ -26,7 +26,7 @@ function DateTimeValidation({ isValid, onFinish, t }) {
 				name="action-datepicker-validate"
 				bsStyle="primary"
 				role="button"
-				label= {t('DATEPICKER_VALIDATE_BUTTON', { defaultValue: 'Done' }) }
+				label={t('DATEPICKER_VALIDATE_BUTTON', { defaultValue: 'Done' })}
 				onClick={onFinish}
 				disabled={!isValid}
 			/>
@@ -163,7 +163,7 @@ class DateTimeView extends React.PureComponent {
 			<ViewLayout
 				header={header}
 				bodyElement={bodyElement}
-				footerElement={this.props.useTime && <DateTimeValidation { ...this.props } />}
+				footerElement={this.props.useTime && <DateTimeValidation {...this.props} />}
 			/>
 		);
 	}
