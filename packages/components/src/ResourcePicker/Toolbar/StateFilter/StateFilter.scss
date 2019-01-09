@@ -30,6 +30,10 @@
 	:global(.tc-icon-toggle) {
 		&:global(.active),
 		&:hover {
+			&.selected-filter > svg {
+				color: $scooter;
+			}
+
 			&.favorite-filter > svg {
 				color: $lightning-yellow;
 			}

@@ -8,6 +8,7 @@ import { ResourcePicker, IconsProvider } from '../src/index';
 
 const icons = {
 	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
+	'talend-check-circle': talendIcons['talend-check-circle'],
 	'talend-star': talendIcons['talend-star'],
 	'talend-badge': talendIcons['talend-badge'],
 	'talend-sort-az': talendIcons['talend-sort-az'],

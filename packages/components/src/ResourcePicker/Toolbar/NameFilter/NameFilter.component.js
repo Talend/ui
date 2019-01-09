@@ -1,26 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
 import DebounceInput from 'react-debounce-input';
-import I18N_DOMAIN_COMPONENTS from '../../../constants';
-import getDefaultT from '../../../translate';
 
 import theme from './NameFilter.scss';
 
-function NameFilter({ t, value, onChange }) {
+
+function NameFilter({ label, placeholder, value, onChange }) {
 	return (
-		<form
-			className={classNames('name-filter', theme['name-filter'])}
-		>
+		<form className={classNames('name-filter', theme['name-filter'])}>
 			<label key="name-filter" htmlFor="name-filter-input" className="sr-only">
-				{'Test label'}
+				{label}
 			</label>
 			<DebounceInput
 				key="name-filter"
 				id="name-filter-input"
 				type="text"
-				placeholder={t('IM_A_TOOLBAR', { defaultValue: "I'm a toolbar" })}
+				placeholder={placeholder}
 				value={value}
 				debounceTimeout={300}
 				onChange={onChange}
@@ -32,13 +28,15 @@ function NameFilter({ t, value, onChange }) {
 }
 
 NameFilter.propTypes = {
-	t: PropTypes.func,
+	label: PropTypes.string,
+	placeholder: PropTypes.string,
 	value: PropTypes.string,
 	onChange: PropTypes.func,
 };
 
 NameFilter.defaultProps = {
-	t: getDefaultT(),
+	label: '',
+	placeholder: '',
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(NameFilter);
+export default NameFilter;

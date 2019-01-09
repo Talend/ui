@@ -6,6 +6,10 @@ import StateFilter from './StateFilter';
 
 import theme from './Toolbar.scss';
 
+export const CONSTS = {
+	SORT_OPTIONS: SortOptions.TYPES,
+	STATE_FILERS: StateFilter.TYPES,
+};
 
 function Toolbar(props) {
 	return (
