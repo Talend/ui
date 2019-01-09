@@ -101,11 +101,6 @@ class InputDateTimePicker extends React.Component {
 		}
 	}
 
-	dateHasChanged(nextState) {
-		const datetime = nextState.datetime;
-		return datetime !== this.state.datetime && !isSameSecond(datetime, this.state.datetime);
-	}
-
 	onChange(event, origin) {
 		const { errorMessage, datetime, textInput } = this.state;
 
@@ -143,6 +138,7 @@ class InputDateTimePicker extends React.Component {
 			case keycode.codes.enter:
 				// commiting existing change on enter
 				this.onFinish(event, 'INPUT');
+				break;
 			default:
 				break;
 		}
@@ -204,6 +200,11 @@ class InputDateTimePicker extends React.Component {
 			useSeconds: this.props.useSeconds,
 			useUTC: this.props.useUTC,
 		};
+	}
+
+	dateHasChanged(nextState) {
+		const datetime = nextState.datetime;
+		return datetime !== this.state.datetime && !isSameSecond(datetime, this.state.datetime);
 	}
 
 	render() {
