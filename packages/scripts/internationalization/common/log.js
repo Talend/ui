@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const chalk = require('chalk');
 
 function printError(message) {
@@ -12,6 +13,10 @@ function printRunning(text) {
 	console.log(`🏃 ${text}`);
 }
 
+function printInfo(text) {
+	console.log(`ℹ️ ${text}`);
+}
+
 function printSection(title) {
 	console.log('\n------------------------------');
 	console.log(`-- ${title}`);
@@ -20,7 +25,8 @@ function printSection(title) {
 
 module.exports = {
 	printError,
-	printRunning,
+	printInfo,
 	printSuccess,
+	printRunning,
 	printSection,
 };
