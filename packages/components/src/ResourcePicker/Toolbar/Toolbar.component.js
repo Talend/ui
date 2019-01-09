@@ -6,7 +6,6 @@ import StateFilter, { TYPES as STATE_FILTERS } from './StateFilter';
 
 import theme from './Toolbar.scss';
 
-
 function Toolbar({ name, sort, state }) {
 	return (
 		<div className={classNames('toolbar-container', theme['toolbar-container'])}>

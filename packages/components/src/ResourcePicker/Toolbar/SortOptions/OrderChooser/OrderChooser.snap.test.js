@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 
 import OrderChooser from './OrderChooser.component';
 
-
 describe('OrderChooser component snaps', () => {
 	describe('renderers', () => {
 		it('should render OrderChooser in default mode', () => {

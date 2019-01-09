@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 
 import SortOptions, { TYPES } from './SortOptions.component';
 
-
 describe('SortOptions component snaps', () => {
 	describe('renderers', () => {
 		it('should render SortOptions in default mode', () => {
