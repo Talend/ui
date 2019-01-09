@@ -32,8 +32,7 @@
 
 	.body {
 		flex: 1 1 auto;
-		padding: 0 $padding-normal;
-		padding-bottom: $padding-normal;
+		padding: $padding-normal;
 	}
 
 	.element-container > * {

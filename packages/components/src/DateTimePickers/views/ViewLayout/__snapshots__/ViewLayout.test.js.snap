@@ -34,5 +34,8 @@ exports[`ViewLayout should render a ViewLayout 1`] = `
   >
     <whateverBodyElement />
   </div>
+  <div
+    className="theme-footer"
+  />
 </div>
 `;
