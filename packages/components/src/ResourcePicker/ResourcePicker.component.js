@@ -29,6 +29,5 @@ ResourcePicker.TOOLBAR_OPTIONS = TOOLBAR_OPTIONS;
 
 ResourcePicker.propTypes = {
 	collection: PropTypes.arrayOf(PropTypes.object),
-	// FIXME [NC]: test fails if not comented
-	// toolbar: Toolbar.propTypes,
+	toolbar: Toolbar.propTypes,
 };

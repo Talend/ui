@@ -3,7 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 
-import { ResourcePicker, IconsProvider } from '../src/index';
+import ResourcePicker, { TOOLBAR_OPTIONS } from '../src/ResourcePicker';
+import IconsProvider from '../src/IconsProvider';
 
 
 const icons = {
@@ -118,7 +119,7 @@ storiesOf('ResourcePicker', module)
 					state,
 					sort: {
 						...sort,
-						types: [ResourcePicker.TOOLBAR_OPTIONS.SORT_OPTIONS.DATE],
+						types: [TOOLBAR_OPTIONS.SORT_OPTIONS.DATE],
 					},
 				}}
 			/>
@@ -141,7 +142,7 @@ storiesOf('ResourcePicker', module)
 					sort,
 					state: {
 						...state,
-						types: [ResourcePicker.TOOLBAR_OPTIONS.STATE_FILTERS.CERTIFIED],
+						types: [TOOLBAR_OPTIONS.STATE_FILTERS.CERTIFIED],
 					},
 				}}
 			/>

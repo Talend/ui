@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
-import { ActionIconToggle } from '../../../';
+import ActionIconToggle from '../../../Actions/ActionIconToggle';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import getDefaultT from '../../../translate';
 
@@ -29,7 +29,7 @@ function StateFilter({ t, types, onChange, selected, favorite, certified }) {
 						icon={'talend-check-circle'}
 						label={t('SELECTED', { defaultValue: 'Selected' })}
 						active={selected}
-						onClick={() => onChange('SELECTED', !selected)}
+						onClick={() => onChange(TYPES.SELECTED, !selected)}
 						className={classNames('selected-filter', theme['selected-filter'])}
 					/>
 				)}
@@ -38,7 +38,7 @@ function StateFilter({ t, types, onChange, selected, favorite, certified }) {
 						icon={'talend-star'}
 						label={t('FAVORITES', { defaultValue: 'Favorites' })}
 						active={favorite}
-						onClick={() => onChange('FAVORITE', !favorite)}
+						onClick={() => onChange(TYPES.FAVORITES, !favorite)}
 						className={classNames('favorite-filter', theme['favorite-filter'])}
 					/>
 				)}
@@ -47,7 +47,7 @@ function StateFilter({ t, types, onChange, selected, favorite, certified }) {
 						icon={'talend-badge'}
 						label={t('CERTIFIED', { defaultValue: 'Certified' })}
 						active={certified}
-						onClick={() => onChange('CERTIFIED', !certified)}
+						onClick={() => onChange(TYPES.CERTIFIED, !certified)}
 						className={classNames('certified-filter', theme['certified-filter'])}
 					/>
 				)}
