@@ -16,7 +16,6 @@ function Toolbar({ name, sort, state }) {
 	);
 }
 
-
 Toolbar.propTypes = {
 	name: NameFilter.propTypes,
 	state: StateFilter.propTypes,
