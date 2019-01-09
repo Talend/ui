@@ -1,3 +1,5 @@
+import cmf from '@talend/react-cmf';
+
 import createTriggers, {
 	extractParameters,
 	createCacheKey,
@@ -81,6 +83,21 @@ describe('createTriggers', () => {
 				CSRFTokenCookieKey: 'otherToken',
 				CSRFTokenHeaderKey: 'X-CSRF-OTHER',
 			},
+		});
+		triggers({}, { trigger, schema, properties }).then(() => {
+			expect(fetch.mock.calls[0][1].headers['X-CSRF-OTHER']).toBe('other-token');
+			done();
+		});
+	});
+	it('should handle security specified by default', done => {
+		cmf.sagas.http.setDefaultConfig({
+			security: {
+				CSRFTokenCookieKey: 'otherToken',
+				CSRFTokenHeaderKey: 'X-CSRF-OTHER',
+			},
+		});
+		triggers = createTriggers({
+			url: '/foo',
 		});
 		triggers({}, { trigger, schema, properties }).then(() => {
 			expect(fetch.mock.calls[0][1].headers['X-CSRF-OTHER']).toBe('other-token');

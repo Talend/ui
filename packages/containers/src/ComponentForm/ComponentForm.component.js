@@ -175,15 +175,14 @@ export class TCompForm extends React.Component {
 
 	setupTrigger(props) {
 		const config = cmf.sagas.http.getDefaultConfig() || {};
-		const defaultSecurity = config.security || {};
 		this.trigger = kit.createTriggers({
 			url: props.triggerURL,
 			customRegistry: props.customTriggers,
 			headers: config.headers,
 			lang: props.lang,
 			security: {
-				CSRFTokenCookieKey: props.CSRFTokenCookieKey || defaultSecurity.CSRFTokenCookieKey,
-				CSRFTokenHeaderKey: props.CSRFTokenHeaderKey || defaultSecurity.CSRFTokenHeaderKey,
+				CSRFTokenCookieKey: props.CSRFTokenCookieKey,
+				CSRFTokenHeaderKey: props.CSRFTokenHeaderKey,
 			},
 		});
 	}

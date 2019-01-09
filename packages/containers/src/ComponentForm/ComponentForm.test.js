@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { fromJS, Map } from 'immutable';
-import cmf from '@talend/react-cmf';
 import addSchemaMock from './ComponentForm.test.schema';
 
 import { toJS, resolveNameForTitleMap, TCompForm } from './ComponentForm.component';
@@ -207,21 +206,6 @@ describe('ComponentForm', () => {
 					CSRFTokenHeaderKey="fooHeader"
 				/>,
 			);
-			const trigger = wrapper.instance().trigger;
-			expect(trigger).toBeDefined();
-			expect(trigger.mockInfo.security.CSRFTokenCookieKey).toBe('fooCookie');
-			expect(trigger.mockInfo.security.CSRFTokenHeaderKey).toBe('fooHeader');
-		});
-
-		it('should use default security configuration to createTrigger', () => {
-			cmf.sagas.http.setDefaultConfig({
-				security: {
-					CSRFTokenCookieKey: 'fooCookie',
-					CSRFTokenHeaderKey: 'fooHeader',
-				},
-			});
-			const state = fromJS(addSchemaMock.ui);
-			const wrapper = shallow(<TCompForm state={state} triggerURL="http://trigger" />);
 			const trigger = wrapper.instance().trigger;
 			expect(trigger).toBeDefined();
 			expect(trigger.mockInfo.security.CSRFTokenCookieKey).toBe('fooCookie');
