@@ -23,10 +23,10 @@ Toolbar.CONSTS = {
 	STATE_FILTERS,
 };
 
-Toolbar.propTypes = {
-	name: NameFilter.propTypes,
-	state: StateFilter.propTypes,
-	sort: SortOptions.propTypes,
-};
+// Toolbar.propTypes = {
+// 	name: NameFilter.propTypes,
+// 	state: StateFilter.propTypes,
+// 	sort: SortOptions.propTypes,
+// };
 
 export default Toolbar;
