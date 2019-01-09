@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const rimraf = require('rimraf');
 
 // const fromGithub = require('@talend/scripts/internationalization/scripts/from-github');
 const fromGithub = require('../scripts/internationalization/scripts/from-github');
@@ -46,27 +47,38 @@ module.exports = class I18nPlugin {
 	}
 
 	apply(compiler) {
-		const { files, debug } = this.options;
-		const output = compiler.options.output.path;
+		const { files, debug, cache = 86400000, target } = this.options;
+		const outputPath = compiler.options.output.path;
+		const targetPath = path.join(outputPath, target || '');
+
+		function logDebug(...messages) {
+			if (debug) {
+				console.log(...messages);
+			}
+		}
+
+		if (
+			cache &&
+			fs.existsSync(targetPath) &&
+			Date.now() - fs.statSync(targetPath).birthtimeMs < cache
+		) {
+			logDebug(
+				'\nI18n fetcher : locales exist and is younger as the cache configuration. No i18n files are fetched.',
+				'To force it, disable cache in I18n fetcher webpack configuration, or remove your i18n target folder.\n',
+			);
+			return;
+		}
+		rimraf.sync(targetPath);
 
 		const resources = files.map(conf => ({
 			url: conf.url,
 			project: conf.project,
-			target: path.join(output, conf.target || ''),
 			version: resolveVersion(conf),
 		}));
 
-		function logDebug(message) {
-			if (debug) {
-				console.log(message);
-			}
-		}
-
 		function emit(compilation, callback) {
-			logDebug('Copy', JSON.stringify(files, null, 2), output);
-
 			logDebug('I18n fetcher : Starting emit');
-			return fromGithub({ resources })
+			return fromGithub({ resources, target: targetPath })
 				.catch(err => {
 					console.error('I18n fetcher : process fail', err);
 					compilation.errors.push(err);

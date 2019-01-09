@@ -22,13 +22,12 @@ function resolveUrl(conf, urlPattern = LOCALES_REPO_PATTERN) {
 		.replace('{project}', conf.project);
 }
 
-function fromGithub({ resources, urlPattern }) {
+function fromGithub({ resources, urlPattern, target = process.cwd() }) {
 	const promises = resources
 		.map((conf, index) => {
 			const filesUrl = resolveUrl(conf, urlPattern);
 			printRunning(`Let's download ${filesUrl}`);
 
-			const target = conf.target || process.cwd();
 			const zipPath = path.join(target, `${index}.zip`);
 			mkdirp.sync(target);
 

@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@talend/scripts": "^0.6.0"
+    "@talend/scripts": "file:../scripts",
+    "rimraf": "^2.6.3"
   }
 }
