@@ -21,6 +21,7 @@ Toolbar.CONSTS = {
 	STATE_FILTERS,
 };
 
+// FIXME: tests fails if not commented :
 // Toolbar.propTypes = {
 // 	name: NameFilter.propTypes,
 // 	state: StateFilter.propTypes,
