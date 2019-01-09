@@ -6,25 +6,31 @@ import StateFilter from './StateFilter';
 
 import theme from './Toolbar.scss';
 
+
 export const CONSTS = {
 	SORT_OPTIONS: SortOptions.TYPES,
 	STATE_FILERS: StateFilter.TYPES,
 };
 
-function Toolbar(props) {
+function Toolbar({ name, sort, state }) {
 	return (
 		<div className={classNames('toolbar-container', theme['toolbar-container'])}>
-			<NameFilter {...props.nameFilter} />
-			<SortOptions {...props.sortOptions} />
-			<StateFilter {...props.stateFilter} />
+			{ name && <NameFilter {...name} /> }
+			{ sort && <SortOptions {...sort} /> }
+			{ state && <StateFilter {...state} /> }
 		</div>
 	);
 }
 
+Toolbar.CONSTS = {
+	SORT_OPTIONS: SortOptions.TYPES,
+	STATE_FILTERS: StateFilter.TYPES,
+};
+
 Toolbar.propTypes = {
-	nameFilter: NameFilter.propTypes,
-	stateFilter: StateFilter.propTypes,
-	sortOptions: SortOptions.propTypes,
+	name: NameFilter.propTypes,
+	state: StateFilter.propTypes,
+	sort: SortOptions.propTypes,
 };
 
 

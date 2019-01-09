@@ -61,13 +61,26 @@ const collection = [
 	},
 ];
 
-const props = {
-	label: 'Click me',
-	'data-feature': 'actionfile',
-	icon: 'talend-upload',
-	onChange: action('You changed me'),
-	displayMode: 'file',
+
+const name = {
+	onChange: action('Name filter changed'),
+	label: 'Toolbar name label',
+	placeholder: 'Toolbar name placeholder',
 };
+const sort = {
+	onChange: action('Sort option changed'),
+	dateAsc: true,
+};
+const state = {
+	certified: true,
+	onChange: action('State filter changed'),
+};
+
+const props = {
+	collection,
+	toolbar: { name, sort, state },
+};
+
 
 storiesOf('ResourcePicker', module)
 	.addDecorator(story => (
@@ -79,6 +92,64 @@ storiesOf('ResourcePicker', module)
 	.add('default', () => (
 		<div>
 			<p>By default :</p>
-			<ResourcePicker id="default" collection={collection} {...props} />
+			<ResourcePicker id="default" {...props} />
+		</div>
+	))
+	.add('without toolbar', () => (
+		<div>
+			<p>By default :</p>
+			<ResourcePicker id="default" collection={collection} />
+		</div>
+	))
+	.add('without sort options', () => (
+		<div>
+			<p>By default :</p>
+			<ResourcePicker id="default" collection={collection} toolbar={{ name, state }} />
+		</div>
+	))
+	.add('with partial sort options', () => (
+		<div>
+			<p>By default :</p>
+			<ResourcePicker
+				id="default"
+				collection={collection}
+				toolbar={{
+					name,
+					state,
+					sort: {
+						...sort,
+						types: [ResourcePicker.TOOLBAR_OPTIONS.SORT_OPTIONS.DATE],
+					},
+				}}
+			/>
+		</div>
+	))
+	.add('without state filter', () => (
+		<div>
+			<p>By default :</p>
+			<ResourcePicker id="default" collection={collection} toolbar={{ name, sort }} />
+		</div>
+	))
+	.add('with partial state options', () => (
+		<div>
+			<p>By default :</p>
+			<ResourcePicker
+				id="default"
+				collection={collection}
+				toolbar={{
+					name,
+					sort,
+					state: {
+						...state,
+						types: [ResourcePicker.TOOLBAR_OPTIONS.STATE_FILTERS.CERTIFIED],
+					},
+				}}
+			/>
+		</div>
+	))
+	.add('without name filter', () => (
+		<div>
+			<p>By default :</p>
+			<ResourcePicker id="default" collection={collection} toolbar={{ sort, state }} />
 		</div>
 	));

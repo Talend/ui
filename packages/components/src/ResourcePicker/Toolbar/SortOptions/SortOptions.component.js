@@ -28,6 +28,7 @@ function SortOptions({ t, types, onChange, nameAsc, dateAsc }) {
 				has(types, TYPES.NAME) && <OrderChooser
 					icon={'talend-sort-az'}
 					label={t('SORT_BY_NAME', { defaultValue: 'Sort by name' })}
+					asc={nameAsc}
 					onClick={() => onChange('NAME', !nameAsc)}
 				/>
 			}
@@ -35,6 +36,7 @@ function SortOptions({ t, types, onChange, nameAsc, dateAsc }) {
 				has(types, TYPES.DATE) && <OrderChooser
 					icon={'talend-sort-desc'}
 					label={t('SORT_BY_DATE', { defaultValue: 'Sort by date' })}
+					asc={dateAsc}
 					onClick={() => onChange('DATE', !dateAsc)}
 				/>
 			}

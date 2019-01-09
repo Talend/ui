@@ -7,6 +7,7 @@ describe('ResourcePicker component snaps', () => {
 	describe('renderers', () => {
 		it('should render ResourcePicker without any Resource', () => {
 			const props = {
+				toolbar: {},
 				collection: [],
 			};
 
@@ -19,6 +20,7 @@ describe('ResourcePicker component snaps', () => {
 	describe('renderers', () => {
 		it('should render ResourcePicker with some Resources', () => {
 			const props = {
+				toolbar: {},
 				collection: [
 					{
 						id: 0,
