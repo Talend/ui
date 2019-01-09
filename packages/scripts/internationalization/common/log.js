@@ -17,6 +17,10 @@ function printInfo(text) {
 	console.log(`ℹ️ ${text}`);
 }
 
+function printWarning(text) {
+	console.log(chalk.yellow(`⚠️️ ${text}`));
+}
+
 function printSection(title) {
 	console.log('\n------------------------------');
 	console.log(`-- ${title}`);
@@ -28,5 +32,6 @@ module.exports = {
 	printInfo,
 	printSuccess,
 	printRunning,
+	printWarning,
 	printSection,
 };

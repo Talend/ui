@@ -7,7 +7,7 @@ const request = require('request');
 const Zip = require('adm-zip');
 const mergeDirs = require('merge-dirs').default;
 
-const { printRunning, printSuccess } = require('../common/log');
+const { printRunning, printSuccess, printWarning } = require('../common/log');
 
 const LOCALES_REPO_PATTERN =
 	'https://github.com/jsomsanith/locales/archive/{project}/{version}.zip';
@@ -32,8 +32,19 @@ function fromGithub({ resources, urlPattern }) {
 			const zipPath = path.join(target, `${index}.zip`);
 			mkdirp.sync(target);
 
+			let contentType;
+
 			return new Promise((resolve, reject) => {
 				request(filesUrl)
+					.on('response', response => {
+						if (response.statusCode === 404) {
+							printWarning(`Translations files for ${conf.project}#${conf.version} don't exist.`);
+						}
+						if (response.statusCode !== 200) {
+							reject('Error while trying to fetch i18n files.');
+						}
+						contentType = response.headers['content-type'];
+					})
 					.on('error', err => {
 						reject(err);
 					})
@@ -44,6 +55,10 @@ function fromGithub({ resources, urlPattern }) {
 			})
 				.then(() => printSuccess(`Files downloaded from ${filesUrl} to ${target}`))
 				.then(() => {
+					if (contentType !== 'application/zip') {
+						return;
+					}
+
 					printRunning(`Extracting ${zipPath} to ${target}`);
 
 					/*
@@ -62,7 +77,7 @@ function fromGithub({ resources, urlPattern }) {
 					rimraf.sync(zipPath);
 
 					// remove the unwanted unzipped root folder
-					mergeDirs(zipRootFolderPath, target);
+					mergeDirs(zipRootFolderPath, target, 'overwrite');
 					rimraf.sync(zipRootFolderPath);
 
 					printSuccess('Extraction done');
