@@ -5,15 +5,14 @@ import DebounceInput from 'react-debounce-input';
 
 import theme from './NameFilter.scss';
 
-
 function NameFilter({ label, placeholder, value, debounceTimeout, onChange }) {
 	return (
 		<form className={classNames('name-filter', theme['name-filter'])}>
-			{ label &&
+			{label && (
 				<label key="name-filter" htmlFor="name-filter-input" className="sr-only">
 					{label}
 				</label>
-			}
+			)}
 			<DebounceInput
 				key="name-filter"
 				id="name-filter-input"
