@@ -1,0 +1,10 @@
+.sort-options {
+	> * {
+		display: inline-block;
+		height: 100%;
+	}
+
+	.option-label {
+		margin-right: $padding-small;
+	}
+}

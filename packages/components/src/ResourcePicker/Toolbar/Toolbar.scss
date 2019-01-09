@@ -1,51 +1,9 @@
 .toolbar-container {
 	display: flex;
 
-	// ActionIconToggle style reset :
-	:global(.tc-icon-toggle) {
-		background: none;
-		border: none;
-		box-shadow: none;
-
-		> svg {
-			width: $svg-md-size;
-			height: $svg-md-size;
-			color: $dove-gray;
-		}
-
-		&:hover:not([disabled]),
-		&:active {
-			background: none;
-			border: none;
-		}
-	}
-
-	.sort-options,
-	.state-filters {
+	:global(.name-filter),
+	:global(.sort-options),
+	:global(.state-filters) {
 		margin-right: $padding-normal;
-
-		> * {
-			display: inline-block;
-			height: 100%;
-		}
-
-		.option-label {
-			margin-right: $padding-small;
-		}
-	}
-
-	.state-filters {
-		:global(.tc-icon-toggle) {
-			&:global(.active),
-			&:hover {
-				&.favorite-filter > svg {
-					color: $lightning-yellow;
-				}
-
-				&.certified-filter > svg {
-					color: $brand-primary;
-				}
-			}
-		}
 	}
 }

@@ -4,7 +4,7 @@ exports[`ResourcePicker component snaps renderers should render ResourcePicker w
 <div
   className="resource-picker theme-resource-picker"
 >
-  <_default />
+  <Toolbar />
   <VirtualizedList
     collection={
       Array [
@@ -49,7 +49,7 @@ exports[`ResourcePicker component snaps renderers should render ResourcePicker w
 <div
   className="resource-picker theme-resource-picker"
 >
-  <_default />
+  <Toolbar />
   <VirtualizedList
     collection={Array []}
     defaultHeight={250}

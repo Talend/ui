@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Icon, Button, TooltipTrigger } from '../../../';
-import OverlayTrigger from '../../../OverlayTrigger';
-
-import getPropsFrom from '../../../utils/getPropsFrom';
+import { Icon, Button, TooltipTrigger } from '../../../../';
+import OverlayTrigger from '../../../../OverlayTrigger';
+import getPropsFrom from '../../../../utils/getPropsFrom';
 
 import theme from './OrderChooser.scss';
 
