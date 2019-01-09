@@ -47,7 +47,7 @@ module.exports = class I18nPlugin {
 	}
 
 	apply(compiler) {
-		const { files, debug, cache = 86400000, target } = this.options;
+		const { resources, debug, cache = 86400000, target } = this.options;
 		const outputPath = compiler.options.output.path;
 		const targetPath = path.join(outputPath, target || '');
 
@@ -70,7 +70,7 @@ module.exports = class I18nPlugin {
 		}
 		rimraf.sync(targetPath);
 
-		const resources = files.map(conf => ({
+		const resourcesWithVersion = resources.map(conf => ({
 			url: conf.url,
 			project: conf.project,
 			version: resolveVersion(conf),
@@ -78,7 +78,7 @@ module.exports = class I18nPlugin {
 
 		function emit(compilation, callback) {
 			logDebug('I18n fetcher : Starting emit');
-			return fromGithub({ resources, target: targetPath })
+			return fromGithub({ resources: resourcesWithVersion, target: targetPath })
 				.catch(err => {
 					console.error('I18n fetcher : process fail', err);
 					compilation.errors.push(err);
