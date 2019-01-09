@@ -4,6 +4,7 @@ import { fromJS, Map } from 'immutable';
 import addSchemaMock from './ComponentForm.test.schema';
 
 import { toJS, resolveNameForTitleMap, TCompForm } from './ComponentForm.component';
+import cmf from "@talend/react-cmf";
 
 jest.mock('./kit', () => ({
 	createTriggers({ url, customRegistry, security }) {
@@ -204,6 +205,26 @@ describe('ComponentForm', () => {
 					triggerURL="http://trigger"
 					CSRFTokenCookieKey="fooCookie"
 					CSRFTokenHeaderKey="fooHeader"
+				/>,
+			);
+			const trigger = wrapper.instance().trigger;
+			expect(trigger).toBeDefined();
+			expect(trigger.mockInfo.security.CSRFTokenCookieKey).toBe('fooCookie');
+			expect(trigger.mockInfo.security.CSRFTokenHeaderKey).toBe('fooHeader');
+		});
+
+		it('should use default security configuration to createTrigger', () => {
+			cmf.sagas.http.setDefaultConfig({
+				security: {
+					CSRFTokenCookieKey: 'fooCookie',
+					CSRFTokenHeaderKey: 'fooHeader',
+				},
+			});
+			const state = fromJS(addSchemaMock.ui);
+			const wrapper = shallow(
+				<TCompForm
+					state={state}
+					triggerURL="http://trigger"
 				/>,
 			);
 			const trigger = wrapper.instance().trigger;
