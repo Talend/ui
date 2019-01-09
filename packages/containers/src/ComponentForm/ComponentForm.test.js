@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { fromJS, Map } from 'immutable';
+import cmf from '@talend/react-cmf';
 import addSchemaMock from './ComponentForm.test.schema';
 
 import { toJS, resolveNameForTitleMap, TCompForm } from './ComponentForm.component';
-import cmf from '@talend/react-cmf';
 
 jest.mock('./kit', () => ({
 	createTriggers({ url, customRegistry, security }) {
