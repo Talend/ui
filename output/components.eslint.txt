@@ -6,7 +6,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   105:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
 
 /home/travis/build/Talend/ui/packages/components/src/ResourcePicker/ResourcePicker.component.js
-  11:2  warning  Unexpected console statement  no-console
+  10:54  error    'toolbar' is missing in props validation  react/prop-types
+  11:2   warning  Unexpected console statement              no-console
 
 /home/travis/build/Talend/ui/packages/components/src/ResourcePicker/Toolbar/Toolbar.component.js
   9:20  error  'name' is missing in props validation   react/prop-types
@@ -22,5 +23,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 8 problems (6 errors, 2 warnings)
+✖ 9 problems (7 errors, 2 warnings)
 
