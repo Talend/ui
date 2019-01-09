@@ -90,8 +90,8 @@ describe('createTriggers', () => {
 		});
 	});
 	it('should handle security specified by default', done => {
-		const originalDefaultConfig = cmf.sagas.http.getDefaultConfig();
-		cmf.sagas.http.setDefaultConfig({
+		cmf.sagas.http.getDefaultConfig = jest.fn();
+		cmf.sagas.http.getDefaultConfig.mockReturnValue({
 			security: {
 				CSRFTokenCookieKey: 'otherToken',
 				CSRFTokenHeaderKey: 'X-CSRF-OTHER',
@@ -103,7 +103,7 @@ describe('createTriggers', () => {
 		triggers({}, { trigger, schema, properties }).then(() => {
 			expect(fetch.mock.calls[0][1].headers['X-CSRF-OTHER']).toBe('other-token');
 			done();
-		}).finally(cmf.sagas.http.setDefaultConfig(originalDefaultConfig));
+		});
 	});
 });
 
