@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 
 import Toolbar from './Toolbar.component';
 
-
 describe('Toolbar component snaps', () => {
 	it('should render Toolbar with every widgets', () => {
 		const wrapper = shallow(<Toolbar name={{}} sort={{}} state={{}} />);
