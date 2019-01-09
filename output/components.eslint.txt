@@ -2,6 +2,10 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/InputDateTimePicker.component.js
+  104:2  error  dateHasChanged should be placed after getDateOptions  react/sort-comp
+  146:4  error  Expected a 'break' statement before 'default'         no-fallthrough
+
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/views/DateTimeView/DateTimeView.component.js
   50:12  error  'isValid' PropType is defined but prop is never used   react/no-unused-prop-types
   51:13  error  'onFinish' PropType is defined but prop is never used  react/no-unused-prop-types
@@ -21,5 +25,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 7 problems (5 errors, 2 warnings)
+✖ 9 problems (7 errors, 2 warnings)
 
