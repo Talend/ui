@@ -8,7 +8,6 @@ import getDefaultT from '../../../translate';
 
 import theme from './StateFilter.scss';
 
-
 const TYPES = {
 	FAVORITES: 'favorites',
 	CERTIFIED: 'certified',
@@ -19,42 +18,43 @@ function has(types, type) {
 }
 
 function StateFilter({ t, types, onChange, selected, favorite, certified }) {
-	return !!types.length && (
-		<div className={classNames('state-filters', theme['state-filters'])}>
-			<span className={classNames('option-label', theme['option-label'])}>
-				{t('FILTER', { defaultValue: 'Filter:' })}
-			</span>
-			{
-				has(types, TYPES.SELECTED) && <ActionIconToggle
-					icon={'talend-check-circle'}
-					label={t('SELECTED', { defaultValue: 'Selected' })}
-					active={selected}
-					onClick={() => onChange('SELECTED', !selected)}
-					className={classNames('selected-filter', theme['selected-filter'])}
-				/>
-			}
-			{
-				has(types, TYPES.FAVORITES) && <ActionIconToggle
-					icon={'talend-star'}
-					label={t('FAVORITES', { defaultValue: 'Favorites' })}
-					active={favorite}
-					onClick={() => onChange('FAVORITE', !favorite)}
-					className={classNames('favorite-filter', theme['favorite-filter'])}
-				/>
-			}
-			{
-				has(types, TYPES.CERTIFIED) && <ActionIconToggle
-					icon={'talend-badge'}
-					label={t('CERTIFIED', { defaultValue: 'Certified' })}
-					active={certified}
-					onClick={() => onChange('CERTIFIED', !certified)}
-					className={classNames('certified-filter', theme['certified-filter'])}
-				/>
-			}
-		</div>
+	return (
+		!!types.length && (
+			<div className={classNames('state-filters', theme['state-filters'])}>
+				<span className={classNames('option-label', theme['option-label'])}>
+					{t('FILTER', { defaultValue: 'Filter:' })}
+				</span>
+				{has(types, TYPES.SELECTED) && (
+					<ActionIconToggle
+						icon={'talend-check-circle'}
+						label={t('SELECTED', { defaultValue: 'Selected' })}
+						active={selected}
+						onClick={() => onChange('SELECTED', !selected)}
+						className={classNames('selected-filter', theme['selected-filter'])}
+					/>
+				)}
+				{has(types, TYPES.FAVORITES) && (
+					<ActionIconToggle
+						icon={'talend-star'}
+						label={t('FAVORITES', { defaultValue: 'Favorites' })}
+						active={favorite}
+						onClick={() => onChange('FAVORITE', !favorite)}
+						className={classNames('favorite-filter', theme['favorite-filter'])}
+					/>
+				)}
+				{has(types, TYPES.CERTIFIED) && (
+					<ActionIconToggle
+						icon={'talend-badge'}
+						label={t('CERTIFIED', { defaultValue: 'Certified' })}
+						active={certified}
+						onClick={() => onChange('CERTIFIED', !certified)}
+						className={classNames('certified-filter', theme['certified-filter'])}
+					/>
+				)}
+			</div>
+		)
 	);
 }
-
 
 StateFilter.propTypes = {
 	t: PropTypes.func,

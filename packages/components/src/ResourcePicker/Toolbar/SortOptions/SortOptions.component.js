@@ -8,7 +8,6 @@ import getDefaultT from '../../../translate';
 
 import theme from './SortOptions.scss';
 
-
 const TYPES = {
 	NAME: 'name',
 	DATE: 'date',
@@ -19,28 +18,30 @@ function has(types, type) {
 }
 
 function SortOptions({ t, types, onChange, nameAsc, dateAsc }) {
-	return !!types.length && (
-		<div className={classNames('sort-options', theme['sort-options'])}>
-			<span className={classNames('option-label', theme['option-label'])}>
-				{t('SORT', { defaultValue: 'Sort:' })}
-			</span>
-			{
-				has(types, TYPES.NAME) && <OrderChooser
-					icon={'talend-sort-az'}
-					label={t('SORT_BY_NAME', { defaultValue: 'Sort by name' })}
-					asc={nameAsc}
-					onClick={() => onChange('NAME', !nameAsc)}
-				/>
-			}
-			{
-				has(types, TYPES.DATE) && <OrderChooser
-					icon={'talend-sort-desc'}
-					label={t('SORT_BY_DATE', { defaultValue: 'Sort by date' })}
-					asc={dateAsc}
-					onClick={() => onChange('DATE', !dateAsc)}
-				/>
-			}
-		</div>
+	return (
+		!!types.length && (
+			<div className={classNames('sort-options', theme['sort-options'])}>
+				<span className={classNames('option-label', theme['option-label'])}>
+					{t('SORT', { defaultValue: 'Sort:' })}
+				</span>
+				{has(types, TYPES.NAME) && (
+					<OrderChooser
+						icon={'talend-sort-az'}
+						label={t('SORT_BY_NAME', { defaultValue: 'Sort by name' })}
+						asc={nameAsc}
+						onClick={() => onChange('NAME', !nameAsc)}
+					/>
+				)}
+				{has(types, TYPES.DATE) && (
+					<OrderChooser
+						icon={'talend-sort-desc'}
+						label={t('SORT_BY_DATE', { defaultValue: 'Sort by date' })}
+						asc={dateAsc}
+						onClick={() => onChange('DATE', !dateAsc)}
+					/>
+				)}
+			</div>
+		)
 	);
 }
 

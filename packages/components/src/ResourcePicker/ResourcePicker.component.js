@@ -14,7 +14,7 @@ export default function ResourcePicker({ collection, toolbar }) {
 
 	return (
 		<div className={classNames('resource-picker', theme['resource-picker'])}>
-			{ toolbar && <Toolbar {...toolbar} /> }
+			{toolbar && <Toolbar {...toolbar} />}
 			<VirtualizedList
 				collection={collection}
 				type="resource"

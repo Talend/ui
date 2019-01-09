@@ -6,7 +6,6 @@ import StateFilter from './StateFilter';
 
 import theme from './Toolbar.scss';
 
-
 export const CONSTS = {
 	SORT_OPTIONS: SortOptions.TYPES,
 	STATE_FILERS: StateFilter.TYPES,
@@ -15,9 +14,9 @@ export const CONSTS = {
 function Toolbar({ name, sort, state }) {
 	return (
 		<div className={classNames('toolbar-container', theme['toolbar-container'])}>
-			{ name && <NameFilter {...name} /> }
-			{ sort && <SortOptions {...sort} /> }
-			{ state && <StateFilter {...state} /> }
+			{name && <NameFilter {...name} />}
+			{sort && <SortOptions {...sort} />}
+			{state && <StateFilter {...state} />}
 		</div>
 	);
 }
@@ -32,6 +31,5 @@ Toolbar.propTypes = {
 	state: StateFilter.propTypes,
 	sort: SortOptions.propTypes,
 };
-
 
 export default Toolbar;

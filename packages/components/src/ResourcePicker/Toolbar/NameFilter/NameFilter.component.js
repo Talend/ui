@@ -5,7 +5,6 @@ import DebounceInput from 'react-debounce-input';
 
 import theme from './NameFilter.scss';
 
-
 function NameFilter({ label, placeholder, value, onChange }) {
 	return (
 		<form className={classNames('name-filter', theme['name-filter'])}>
