@@ -4,7 +4,7 @@
 	flex-direction: column;
 
 	.header {
-		padding: 0 15px;
+		padding: 0 $padding-normal;
 		display: flex;
 		height: 5rem;
 		margin-bottom: $padding-normal;
@@ -32,7 +32,7 @@
 
 	.body {
 		flex: 1 1 auto;
-		padding: 0 15px;
+		padding: 0 $padding-normal;
 		padding-bottom: $padding-larger;
 	}
 
@@ -43,7 +43,7 @@
 
 	.footer {
 		align-items: center;
-		padding: 0 15px;
+		padding: 0 $padding-normal;
 		background: $wild-sand;
 	}
 }
