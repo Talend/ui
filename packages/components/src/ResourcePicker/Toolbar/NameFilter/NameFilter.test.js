@@ -19,7 +19,6 @@ describe('NameFilter', () => {
 			.at(0)
 			.simulate('change', payload);
 
-
 		expect(onChange).toBeCalledWith(payload);
 	});
 });

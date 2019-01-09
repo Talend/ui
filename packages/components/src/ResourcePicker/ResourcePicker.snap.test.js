@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 
 import ResourcePicker from './ResourcePicker.component';
 
-
 const collection = [
 	{
 		id: 0,
