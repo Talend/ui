@@ -29,7 +29,7 @@ function SortOptions({ t, types, onChange, nameAsc, dateAsc }) {
 						icon={'talend-sort-az'}
 						label={t('SORT_BY_NAME', { defaultValue: 'Sort by name' })}
 						asc={nameAsc}
-						onClick={() => onChange('NAME', !nameAsc)}
+						onClick={() => onChange(TYPES.NAME, !nameAsc)}
 					/>
 				)}
 				{has(types, TYPES.DATE) && (
@@ -37,7 +37,7 @@ function SortOptions({ t, types, onChange, nameAsc, dateAsc }) {
 						icon={'talend-sort-desc'}
 						label={t('SORT_BY_DATE', { defaultValue: 'Sort by date' })}
 						asc={dateAsc}
-						onClick={() => onChange('DATE', !dateAsc)}
+						onClick={() => onChange(TYPES.DATE, !dateAsc)}
 					/>
 				)}
 			</div>
