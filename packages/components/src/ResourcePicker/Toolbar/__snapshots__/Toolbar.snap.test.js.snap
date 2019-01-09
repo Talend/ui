@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toolbar component snaps should render Toolbar with every widgets 1`] = `
+<div
+  className="toolbar-container theme-toolbar-container"
+>
+  <NameFilter
+    debounceTimeout={300}
+    label={null}
+    placeholder=""
+  />
+  <Translate(SortOptions) />
+  <Translate(StateFilter) />
+</div>
+`;
+
+exports[`Toolbar component snaps should render Toolbar without name widget 1`] = `
+<div
+  className="toolbar-container theme-toolbar-container"
+>
+  <Translate(SortOptions) />
+  <Translate(StateFilter) />
+</div>
+`;
+
+exports[`Toolbar component snaps should render Toolbar without sort widgets 1`] = `
+<div
+  className="toolbar-container theme-toolbar-container"
+>
+  <NameFilter
+    debounceTimeout={300}
+    label={null}
+    placeholder=""
+  />
+  <Translate(StateFilter) />
+</div>
+`;
+
+exports[`Toolbar component snaps should render Toolbar without state widgets 1`] = `
+<div
+  className="toolbar-container theme-toolbar-container"
+>
+  <NameFilter
+    debounceTimeout={300}
+    label={null}
+    placeholder=""
+  />
+  <Translate(SortOptions) />
+</div>
+`;

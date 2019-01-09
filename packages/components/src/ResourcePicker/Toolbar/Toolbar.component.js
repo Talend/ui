@@ -1,10 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
 import NameFilter from './NameFilter';
-import SortOptions, { TYPES as SORT_OPTIONS } from './SortOptions';
-import StateFilter, { TYPES as STATE_FILTERS } from './StateFilter';
+import SortOptions from './SortOptions';
+import StateFilter from './StateFilter';
 
 import theme from './Toolbar.scss';
+
 
 function Toolbar({ name, sort, state }) {
 	return (
@@ -16,10 +17,6 @@ function Toolbar({ name, sort, state }) {
 	);
 }
 
-Toolbar.CONSTS = {
-	SORT_OPTIONS,
-	STATE_FILTERS,
-};
 
 // FIXME: tests fails if not commented :
 // Toolbar.propTypes = {
