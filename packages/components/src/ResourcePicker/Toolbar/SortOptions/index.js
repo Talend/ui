@@ -1,3 +1,4 @@
-import SortOptions from './SortOptions.component';
+import SortOptions, { TYPES } from './SortOptions.component';
 
 export default SortOptions;
+export { TYPES };

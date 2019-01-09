@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import OrderChooser from './OrderChooser.component';
 
 describe('OrderChooser', () => {
-	it.only('should trigger onClick callback on click', () => {
+	it('should trigger onClick callback on click', () => {
 		const onClick = jest.fn();
 		const wrapper = mount(<OrderChooser onClick={onClick} asc={false} icon={'talend-sort-desc'} />);
 		expect(onClick).not.toBeCalled();

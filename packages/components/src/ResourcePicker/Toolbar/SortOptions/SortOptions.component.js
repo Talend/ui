@@ -8,7 +8,8 @@ import getDefaultT from '../../../translate';
 
 import theme from './SortOptions.scss';
 
-const TYPES = {
+
+export const TYPES = {
 	NAME: 'name',
 	DATE: 'date',
 };
@@ -58,6 +59,5 @@ SortOptions.defaultProps = {
 	types: [TYPES.NAME, TYPES.DATE],
 };
 
-SortOptions.TYPES = TYPES;
 
 export default translate(I18N_DOMAIN_COMPONENTS)(SortOptions);

@@ -8,7 +8,8 @@ import getDefaultT from '../../../translate';
 
 import theme from './StateFilter.scss';
 
-const TYPES = {
+
+export const TYPES = {
 	FAVORITES: 'favorites',
 	CERTIFIED: 'certified',
 };
@@ -68,7 +69,5 @@ StateFilter.defaultProps = {
 	t: getDefaultT(),
 	types: [TYPES.FAVORITES, TYPES.CERTIFIED],
 };
-
-StateFilter.TYPES = TYPES;
 
 export default translate(I18N_DOMAIN_COMPONENTS)(StateFilter);
