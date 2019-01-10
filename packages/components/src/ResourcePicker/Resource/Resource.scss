@@ -11,6 +11,8 @@
 	}
 
 	.data-container {
+		flex: 1;
+
 		> .title,
 		> .author {
 			font-size: 14px;
@@ -20,6 +22,22 @@
 		}
 		> .title {
 			font-weight: 600;
+		}
+	}
+
+	.flags-container {
+		margin-right: $padding-normal;
+		opacity: 0;
+
+		> svg {
+			margin-left: $padding-small;
+
+			&[name='talend-star'] {
+				color: $lightning-yellow
+			}
+			&[name='talend-badge'] {
+				color: $brand-primary;
+			}
 		}
 	}
 
@@ -35,6 +53,9 @@
 			> .author {
 				color: $scooter;
 			}
+		}
+		.flags-container {
+			opacity: 1;
 		}
 	}
 

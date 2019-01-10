@@ -8,6 +8,8 @@ import { ResourcePicker, IconsProvider } from '../src/index';
 
 const icons = {
 	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
+	'talend-star': talendIcons['talend-star'],
+	'talend-badge': talendIcons['talend-badge'],
 };
 
 const collection = [
@@ -17,6 +19,7 @@ const collection = [
 		modified: '2016-09-22',
 		icon: 'talend-file-xls-o',
 		author: 'First Author',
+		flags: ['CERTIFIED', 'FAVORITE'],
 	},
 	{
 		id: 1,
@@ -31,6 +34,7 @@ const collection = [
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT',
 		icon: 'talend-file-xls-o',
+		flags: ['FAVORITE'],
 	},
 	{
 		id: 3,
@@ -38,6 +42,7 @@ const collection = [
 		modified: '2016-09-22',
 		author: 'Third Author',
 		icon: 'talend-file-xls-o',
+		flags: ['CERTIFIED'],
 	},
 	{
 		id: 4,
@@ -52,6 +57,7 @@ const collection = [
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT with super super super long text',
 		icon: 'talend-file-xls-o',
+		flags: ['CERTIFIED', 'FAVORITE'],
 	},
 ];
 
