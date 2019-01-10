@@ -7,6 +7,10 @@ import StateFilter from './StateFilter';
 import theme from './Toolbar.scss';
 
 function Toolbar({ name, sort, state }) {
+	if (!name && !sort && !state) {
+		return null;
+	}
+
 	return (
 		<div className={classNames('toolbar-container', theme['toolbar-container'])}>
 			{name && <NameFilter {...name} />}
