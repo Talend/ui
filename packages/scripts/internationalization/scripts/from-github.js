@@ -6,6 +6,8 @@ const rimraf = require('rimraf');
 const request = require('request');
 const Zip = require('adm-zip');
 const mergeDirs = require('merge-dirs').default;
+const templateSettings = require('lodash.templatesettings');
+const template = require('lodash.template');
 
 const { printRunning, printSuccess, printWarning } = require('../common/log');
 
@@ -17,9 +19,8 @@ function resolveUrl(conf, urlPattern = LOCALES_REPO_PATTERN) {
 		return conf.url;
 	}
 
-	return urlPattern //
-		.replace('{version}', conf.version) //
-		.replace('{project}', conf.project);
+	templateSettings.interpolate = /{([\s\S]+?)}/g;
+	return template(urlPattern)(conf);
 }
 
 function fromGithub({ resources, urlPattern, target = process.cwd() }) {
