@@ -1,4 +1,6 @@
 .state-filters {
+	margin-right: $padding-normal;
+
 	> * {
 		display: inline-block;
 		height: 100%;
@@ -13,8 +15,10 @@
 		background: none;
 		border: none;
 		box-shadow: none;
+		width: $svg-md-size;
 
 		> svg {
+			margin: 0;
 			width: $svg-md-size;
 			height: $svg-md-size;
 			color: $dove-gray;
@@ -28,6 +32,9 @@
 	}
 
 	:global(.tc-icon-toggle) {
+		margin-left: $padding-small;
+		display: inline-flex;
+
 		&:global(.active),
 		&:hover {
 			&.selected-filter > svg {

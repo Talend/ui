@@ -4,7 +4,10 @@ $resource-picker-height: 250px;
 .resource-picker {
 	height: $resource-picker-height - $toolbar-height;
 
-	.toolbar {
+	> .toolbar {
 		height: $toolbar-height;
+	}
+	:global(.tc-list-list) {
+		padding: 0;
 	}
 }
