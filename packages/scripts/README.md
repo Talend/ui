@@ -13,4 +13,4 @@
 * i18n-upload   - upload extracted files to XTM
 * i18n-download - download files from XTM
 
-[Go to documentation](./i18n/README.md)
+[Go to documentation](./internationalization/README.md)
