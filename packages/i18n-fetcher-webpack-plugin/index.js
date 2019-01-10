@@ -47,7 +47,13 @@ module.exports = class I18nPlugin {
 	}
 
 	apply(compiler) {
-		const { resources, debug, cache = 86400000, target } = this.options;
+		const {
+			resources,
+			debug,
+			cache = 86400000,
+			target,
+			headers = { Authorization: 'GITHUB_TOKEN' },
+		} = this.options;
 		const outputPath = compiler.options.output.path;
 		const targetPath = path.join(outputPath, target || '');
 
@@ -78,7 +84,12 @@ module.exports = class I18nPlugin {
 
 		function emit(compilation, callback) {
 			logDebug('I18n fetcher : Starting emit');
-			return fromGithub({ resources: resourcesWithVersion, target: targetPath })
+			const envHeaders = {};
+			Object.entries(headers).forEach(([key, value]) => {
+				envHeaders[key] = process.env[value];
+			});
+			console.log(JSON.stringify(envHeaders, null, 2));
+			return fromGithub({ resources: resourcesWithVersion, target: targetPath }, envHeaders)
 				.catch(err => {
 					console.error('I18n fetcher : process fail', err);
 					compilation.errors.push(err);

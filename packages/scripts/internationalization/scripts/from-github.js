@@ -23,7 +23,7 @@ function resolveUrl(conf, urlPattern = LOCALES_REPO_PATTERN) {
 	return template(urlPattern)(conf);
 }
 
-function fromGithub({ resources, urlPattern, target = process.cwd() }) {
+function fromGithub({ resources, urlPattern, target = process.cwd() }, headers) {
 	const promises = resources
 		.map((conf, index) => {
 			const filesUrl = resolveUrl(conf, urlPattern);
@@ -33,12 +33,15 @@ function fromGithub({ resources, urlPattern, target = process.cwd() }) {
 			mkdirp.sync(target);
 
 			let contentType;
-
 			return new Promise((resolve, reject) => {
-				request(filesUrl)
+				request({ url: filesUrl, headers })
 					.on('response', response => {
 						if (response.statusCode === 404) {
-							printWarning(`Translations files for ${conf.project}#${conf.version} don't exist.`);
+							printWarning(
+								`Translations files for ${conf.project}#${
+									conf.version
+								} don't exist. Please make sure you have the rights or you have set the right authorisation tokens.`,
+							);
 						}
 						if (response.statusCode !== 200) {
 							reject('Error while trying to fetch i18n files.');

@@ -20,6 +20,7 @@ modules.exports = {
         new I18nFetcherPlugin({
             cache: 3600000,
             debug: true,
+            headers: { Authorization: 'GITHUB_TOKEN' },
             target: './locales',
             urlPattern: 'https://github.com/jsomsanith/locales/archive/{project}/{version}.zip',
             resources: [
@@ -35,6 +36,7 @@ modules.exports = {
 |---|---|---|---|
 | cache | `number` | 1 day | If you already have fetched locales . |
 | debug | `boolean` | `false` | Turn on/off debug logs. |
+| headers | `object` | `{ Authorization: 'GITHUB_TOKEN' }` | An object containing the headers to pass to the request. Each value is resolved with environment variables. With the default value (`{ Authorization: 'GITHUB_TOKEN' }`), the headers will be { Authorization: '<process.env.GITHUB_TOKEN>' } |
 | target | `string` | `./` | Relative path in the output folder where to put the i18n files. |
 | urlPattern | `string` | `https://github.com/talend/locales/archive/{project}/{version}.zip` | The url to fetch. You can use `project` and `version` as variables. The version is automatically resolved, see [version](#versions) section for more details. |
 | resources | `array` | - | The resources to fetch. It contains the variables to resolve from `urlPattern`. |
