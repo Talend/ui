@@ -48,7 +48,7 @@ describe('custom formats', () => {
 		// then
 		expect(resultIpPortOK).toBe(null);
 
-		const resultSpaceOK = customValidation['url-http-https']('https://test.domain.com/path%20with%20space/and+plus+character');
+		const resultSpaceOK = customValidation['url-http-https']('https://test.domain.com/path%20with%20space');
 		// then
 		expect(resultSpaceOK).toBe(null);
 
@@ -104,7 +104,7 @@ describe('custom formats', () => {
 		const gitResultHttpOK11 = customValidation['url-git']('http://user@host.com:999/sd.git');
 		expect(gitResultHttpOK11).toBe(null);
 
-		const gitResultHttpOK12 = customValidation['url-git']('https://host.xz:999/path%20space/to%20space/repo+with+plus');
+		const gitResultHttpOK12 = customValidation['url-git']('https://host.xz:999/path%20space/to%20space');
 		expect(gitResultHttpOK12).toBe(null);
 
 		// TEST KO
@@ -216,7 +216,7 @@ describe('custom formats', () => {
 		const gitResultSshOK7 = customValidation['url-git']('user@host.xz:path/to/repo/');
 		expect(gitResultSshOK7).toBe(null);
 
-		const gitResultSshOK8 = customValidation['url-git']('user@host.xz:port/path%20with%20space/and+plus+character/repo/');
+		const gitResultSshOK8 = customValidation['url-git']('user@host.xz:port/path%20with%20space/more%20space/repo/');
 		expect(gitResultSshOK8).toBe(null);
 
 		// TEST KO
@@ -253,7 +253,7 @@ describe('custom formats', () => {
 		const gitResultGitOK6 = customValidation['url-git']('git://1.1.1.1:9999/path/to/repo/');
 		expect(gitResultGitOK6).toBe(null);
 
-		const gitResultGitOK7 = customValidation['url-git']('git://1.1.1.1:9999/path%20with%20space/and+plus+character/repo/');
+		const gitResultGitOK7 = customValidation['url-git']('git://1.1.1.1:9999/path%20with%20space/repo/');
 		expect(gitResultGitOK7).toBe(null);
 
 		// TEST KO
