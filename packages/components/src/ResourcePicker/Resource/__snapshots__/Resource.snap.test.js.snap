@@ -1,5 +1,113 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Resource component snaps renderers should render a Resource with CERTIFIED flag 1`] = `
+<div
+  aria-label="Title with few actions"
+  aria-posinset={1}
+  className="resource-item theme-resource-item"
+  role="listitem"
+  tabIndex="0"
+>
+  <Icon
+    name="talend-file-xls-o"
+  />
+  <div
+    className="data-container theme-data-container"
+  >
+    <span
+      className="title theme-title"
+    >
+      Title with few actions
+    </span>
+    <small
+      className="author theme-author"
+    >
+      owned by Jean-Pierre DUPONT, over 2 years ago
+    </small>
+  </div>
+  <div
+    className="flags-container theme-flags-container"
+  >
+    <Icon
+      name="talend-badge"
+    />
+  </div>
+</div>
+`;
+
+exports[`Resource component snaps renderers should render a Resource with FAVORITE flag 1`] = `
+<div
+  aria-label="Title with few actions"
+  aria-posinset={1}
+  className="resource-item theme-resource-item"
+  role="listitem"
+  tabIndex="0"
+>
+  <Icon
+    name="talend-file-xls-o"
+  />
+  <div
+    className="data-container theme-data-container"
+  >
+    <span
+      className="title theme-title"
+    >
+      Title with few actions
+    </span>
+    <small
+      className="author theme-author"
+    >
+      owned by Jean-Pierre DUPONT, over 2 years ago
+    </small>
+  </div>
+  <div
+    className="flags-container theme-flags-container"
+  >
+    <Icon
+      name="talend-star"
+    />
+  </div>
+</div>
+`;
+
+exports[`Resource component snaps renderers should render a Resource with both CERTIFIED and FAVORITE flags 1`] = `
+<div
+  aria-label="Title with few actions"
+  aria-posinset={1}
+  className="resource-item theme-resource-item"
+  role="listitem"
+  tabIndex="0"
+>
+  <Icon
+    name="talend-file-xls-o"
+  />
+  <div
+    className="data-container theme-data-container"
+  >
+    <span
+      className="title theme-title"
+    >
+      Title with few actions
+    </span>
+    <small
+      className="author theme-author"
+    >
+      owned by Jean-Pierre DUPONT, over 2 years ago
+    </small>
+  </div>
+  <div
+    className="flags-container theme-flags-container"
+  >
+    <Icon
+      name="talend-badge"
+    />
+    <Icon
+      name="talend-star"
+    />
+  </div>
+</div>
+`;
+
 exports[`Resource component snaps renderers should render a Resource without icon 1`] = `
 <div
   aria-label="Title with few actions"
@@ -22,6 +130,9 @@ exports[`Resource component snaps renderers should render a Resource without ico
       owned by Jean-Pierre DUPONT, over 2 years ago
     </small>
   </div>
+  <div
+    className="flags-container theme-flags-container"
+  />
 </div>
 `;
 
@@ -50,6 +161,9 @@ exports[`Resource component snaps renderers should render a regular Resource 1`]
       owned by Jean-Pierre DUPONT, over 2 years ago
     </small>
   </div>
+  <div
+    className="flags-container theme-flags-container"
+  />
 </div>
 `;
 
