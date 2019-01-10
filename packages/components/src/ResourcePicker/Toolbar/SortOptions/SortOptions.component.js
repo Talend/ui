@@ -8,14 +8,11 @@ import getDefaultT from '../../../translate';
 
 import theme from './SortOptions.scss';
 
+
 export const TYPES = {
 	NAME: 'name',
 	DATE: 'date',
 };
-
-function has(types, type) {
-	return types.includes(type);
-}
 
 function SortOptions({ t, types, onChange, nameAsc, dateAsc }) {
 	return (
@@ -24,7 +21,7 @@ function SortOptions({ t, types, onChange, nameAsc, dateAsc }) {
 				<span className={classNames('option-label', theme['option-label'])}>
 					{t('SORT', { defaultValue: 'Sort:' })}
 				</span>
-				{has(types, TYPES.NAME) && (
+				{types.includes(TYPES.NAME) && (
 					<OrderChooser
 						icon={'talend-sort-az'}
 						label={t('SORT_BY_NAME', { defaultValue: 'Sort by name' })}
@@ -32,7 +29,7 @@ function SortOptions({ t, types, onChange, nameAsc, dateAsc }) {
 						onClick={() => onChange(TYPES.NAME, !nameAsc)}
 					/>
 				)}
-				{has(types, TYPES.DATE) && (
+				{types.includes(TYPES.DATE) && (
 					<OrderChooser
 						icon={'talend-sort-desc'}
 						label={t('SORT_BY_DATE', { defaultValue: 'Sort by date' })}

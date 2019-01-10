@@ -8,14 +8,11 @@ import getDefaultT from '../../../translate';
 
 import theme from './StateFilter.scss';
 
+
 export const TYPES = {
 	FAVORITES: 'favorites',
 	CERTIFIED: 'certified',
 };
-
-function has(types, type) {
-	return types.includes(type);
-}
 
 function StateFilter({ t, types, onChange, selected, favorite, certified }) {
 	return (
@@ -24,7 +21,7 @@ function StateFilter({ t, types, onChange, selected, favorite, certified }) {
 				<span className={classNames('option-label', theme['option-label'])}>
 					{t('FILTER', { defaultValue: 'Filter:' })}
 				</span>
-				{has(types, TYPES.SELECTED) && (
+				{types.includes(TYPES.SELECTED) && (
 					<ActionIconToggle
 						icon={'talend-check-circle'}
 						label={t('SELECTED', { defaultValue: 'Selected' })}
@@ -33,7 +30,7 @@ function StateFilter({ t, types, onChange, selected, favorite, certified }) {
 						className={classNames('selected-filter', theme['selected-filter'])}
 					/>
 				)}
-				{has(types, TYPES.CERTIFIED) && (
+				{types.includes(TYPES.CERTIFIED) && (
 					<ActionIconToggle
 						icon={'talend-badge'}
 						label={t('CERTIFIED', { defaultValue: 'Certified' })}
@@ -42,7 +39,7 @@ function StateFilter({ t, types, onChange, selected, favorite, certified }) {
 						className={classNames('certified-filter', theme['certified-filter'])}
 					/>
 				)}
-				{has(types, TYPES.FAVORITES) && (
+				{types.includes(TYPES.FAVORITES) && (
 					<ActionIconToggle
 						icon={'talend-star'}
 						label={t('FAVORITES', { defaultValue: 'Favorites' })}
