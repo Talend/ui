@@ -43,17 +43,17 @@ function* handleForm() {
 
 ## Props
 
-| name               | type    | desc                                                                                     |
-| ------------------ | ------- | ---------------------------------------------------------------------------------------- |
-| definitionURL\*    | string  | url to GET the `uiSpec`                                                                  |
-| triggerURL\*       | string  | url to POST on event trigger                                                             |
-| submitURL          | string  | url to POST the content if action is of type "submit"                                    |
-| uiSpecPath         | string  | to get the `uiSpec` from the result of GET definitionURL                                 |
-| lang               | string  | language code used by the backend to produce translated uiSpec                           |
-| customTriggers     | object  | registry used to let uiSchema point to it                                                |
-| dispatchOnChange   | boolean | if this props is true an action is dispatch on every form change                         |
-| CSRFTokenCookieKey | string  | control cookie key to read to get CSRF token value                                       |
-| CSRFTokenHeaderKey | string  | control http headers key to send to let server control CSRF token on each trigger called |
+| name               | type    | desc                                                                                                                                             |
+| ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| definitionURL\*    | string  | url to GET the `uiSpec`                                                                                                                          |
+| triggerURL\*       | string  | url to POST on event trigger                                                                                                                     |
+| submitURL          | string  | url to POST the content if action is of type "submit"                                                                                            |
+| uiSpecPath         | string  | to get the `uiSpec` from the result of GET definitionURL                                                                                         |
+| lang               | string  | language code used by the backend to produce translated uiSpec                                                                                   |
+| customTriggers     | object  | registry used to let uiSchema point to it                                                                                                        |
+| dispatchOnChange   | boolean | if this props is true an action is dispatch on every form change                                                                                 |
+| CSRFTokenCookieKey | string  | control cookie key to read to get CSRF token value (otherwise http saga default configuration will be used)                                      |
+| CSRFTokenHeaderKey | string  | control http header key to send to let server control CSRF token on each trigger called (otherwise http saga default configuration will be used) |
 
 All other props will be spread to the UIForm
 
