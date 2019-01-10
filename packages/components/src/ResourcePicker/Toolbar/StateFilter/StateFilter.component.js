@@ -8,7 +8,6 @@ import getDefaultT from '../../../translate';
 
 import theme from './StateFilter.scss';
 
-
 export const TYPES = {
 	FAVORITES: 'favorites',
 	CERTIFIED: 'certified',

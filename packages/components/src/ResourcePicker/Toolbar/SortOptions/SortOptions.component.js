@@ -8,7 +8,6 @@ import getDefaultT from '../../../translate';
 
 import theme from './SortOptions.scss';
 
-
 export const TYPES = {
 	NAME: 'name',
 	DATE: 'date',
