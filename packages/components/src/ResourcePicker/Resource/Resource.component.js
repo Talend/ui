@@ -11,6 +11,11 @@ import Icon from '../../Icon';
 
 import theme from './Resource.scss';
 
+const FLAGS = {
+	CERTIFIED: 'talend-badge',
+	FAVORITE: 'talend-star',
+};
+
 function getDateLabel(t, date) {
 	return distanceInWordsToNow(date, {
 		addSuffix: true,
@@ -32,7 +37,7 @@ function Resource({ parent, index, style, t }) {
 		return null;
 	}
 
-	const { icon, name, author, modified } = item;
+	const { icon, name, author, modified, flags = [] } = item;
 	return (
 		<div
 			className={classNames('resource-item', theme['resource-item'])}
@@ -49,6 +54,11 @@ function Resource({ parent, index, style, t }) {
 				<small className={classNames('author', theme.author)}>
 					{getAuthorLabel(t, author, modified)}
 				</small>
+			</div>
+			<div className={classNames('flags-container', theme['flags-container'])}>
+				{flags.map(flag => (
+					<Icon className={classNames(theme.flag)} name={FLAGS[flag]} />
+				))}
 			</div>
 		</div>
 	);
@@ -70,6 +80,7 @@ Resource.propTypes = {
 					name: PropTypes.string,
 					author: PropTypes.string,
 					modified: PropTypes.string,
+					flags: PropTypes.arrayOf(PropTypes.string),
 				}),
 			),
 		}),
