@@ -29,6 +29,7 @@ exports[`Resource component snaps renderers should render a Resource with CERTIF
     className="flags-container theme-flags-container"
   >
     <Icon
+      className="theme-flag"
       name="talend-badge"
     />
   </div>
@@ -64,6 +65,7 @@ exports[`Resource component snaps renderers should render a Resource with FAVORI
     className="flags-container theme-flags-container"
   >
     <Icon
+      className="theme-flag"
       name="talend-star"
     />
   </div>
@@ -99,9 +101,11 @@ exports[`Resource component snaps renderers should render a Resource with both C
     className="flags-container theme-flags-container"
   >
     <Icon
+      className="theme-flag"
       name="talend-badge"
     />
     <Icon
+      className="theme-flag"
       name="talend-star"
     />
   </div>
