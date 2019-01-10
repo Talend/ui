@@ -151,10 +151,4 @@ storiesOf('ResourcePicker', module)
 				}}
 			/>
 		</div>
-	))
-	.add('without name filter', () => (
-		<div>
-			<p>By default :</p>
-			<ResourcePicker id="default" collection={collection} toolbar={{ sort, state }} />
-		</div>
 	));

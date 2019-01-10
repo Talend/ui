@@ -1,5 +1,8 @@
+$toolbar-height: 35px;
+
 .toolbar-container {
 	display: flex;
+	height: $toolbar-height;
 
 	:global(.name-filter),
 	:global(.sort-options),
