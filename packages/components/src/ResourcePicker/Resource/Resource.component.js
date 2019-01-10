@@ -11,7 +11,6 @@ import Icon from '../../Icon';
 
 import theme from './Resource.scss';
 
-
 const FLAGS = {
 	CERTIFIED: 'talend-badge',
 	FAVORITE: 'talend-star',
@@ -57,14 +56,9 @@ function Resource({ parent, index, style, t }) {
 				</small>
 			</div>
 			<div className={classNames('flags-container', theme['flags-container'])}>
-				{
-					flags.map(flag => (
-						<Icon
-							className={classNames(theme.flag)}
-							name={FLAGS[flag]}
-						/>
-					))
-				}
+				{flags.map(flag => (
+					<Icon className={classNames(theme.flag)} name={FLAGS[flag]} />
+				))}
 			</div>
 		</div>
 	);
