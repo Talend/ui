@@ -123,7 +123,7 @@ class InputDateTimePicker extends React.Component {
 
 	onKeyDown(event) {
 		switch (event.keyCode) {
-		case keycode.codes.esc:
+			case keycode.codes.esc:
 				this.inputRef.focus();
 				this.setState({ ...this.initialState });
 				this.setPickerVisibility(false);
