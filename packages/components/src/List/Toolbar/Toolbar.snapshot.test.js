@@ -95,6 +95,7 @@ describe('Toolbar', () => {
 		const tProps = {
 			id,
 			actionBar,
+			getComponent: 'whatever',
 		};
 
 		// when

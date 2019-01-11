@@ -323,6 +323,7 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
     }
   }
   className="tc-drawer-actionbar theme-tc-drawer-actionbar"
+  components={Object {}}
   i18n={Object {}}
   lng="en"
   t={[Function]}

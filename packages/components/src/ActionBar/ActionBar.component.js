@@ -101,12 +101,12 @@ function getActionsFromRenderers(actions, getComponent) {
 	});
 }
 
-function SwitchActions({ actions, left, right, center, selected, getComponent, t, components }) {
+function SwitchActions({ actions, left, right, center, getComponent, components }) {
 	const injected = Inject.all(getComponent, components);
+
 	return (
 		<Content left={left} right={right} center={center}>
 			{injected('before-actions')}
-			{selected > 0 && left ? <Count selected={selected} t={t} /> : null}
 			{getActionsFromRenderers(actions, getComponent)}
 			{injected('after-actions')}
 		</Content>
@@ -117,9 +117,7 @@ SwitchActions.propTypes = {
 	left: PropTypes.bool,
 	right: PropTypes.bool,
 	center: PropTypes.bool,
-	selected: PropTypes.number,
 	getComponent: PropTypes.func,
-	t: PropTypes.func,
 	components: PropTypes.object,
 };
 SwitchActions.defaultProps = {
@@ -142,6 +140,20 @@ Count.propTypes = {
 	t: PropTypes.func,
 };
 
+function defineComponentLeft(parentComponentLeft, selected, t) {
+	if (parentComponentLeft) {
+		return parentComponentLeft;
+	}
+
+	if (selected > 0) {
+		return {
+			'before-actions': <Count selected={selected} t={t} />,
+		};
+	}
+
+	return undefined;
+}
+
 export function ActionBarComponent(props) {
 	const { left, right, center } = getActionsToRender(props);
 	const cssClass = classNames(
@@ -151,40 +163,42 @@ export function ActionBarComponent(props) {
 		props.className,
 	);
 
+	const componentsLeft = defineComponentLeft(
+		props.components.left,
+		props.selected,
+		props.t,
+	);
+	const componentsCenter = props.components.center;
+	const componentsRight = props.components.right;
+
 	return (
 		<div className={cssClass}>
-			{(left || !!props.selected) && (
+			{(left || componentsLeft) && (
 				<SwitchActions
 					getComponent={props.getComponent}
 					key={0}
 					actions={left}
-					selected={props.selected}
 					left
-					t={props.t}
-					components={props.components.left}
+					components={componentsLeft}
 				/>
 			)}
 			{props.children}
-			{center && (
+			{(center || componentsCenter) && (
 				<SwitchActions
 					getComponent={props.getComponent}
 					key={1}
 					actions={center}
-					selected={props.selected}
 					center
-					t={props.t}
-					components={props.components.center}
+					components={componentsCenter}
 				/>
 			)}
-			{right && (
+			{(right || componentsRight) && (
 				<SwitchActions
 					getComponent={props.getComponent}
 					key={2}
 					actions={right}
-					selected={props.selected}
 					right
-					t={props.t}
-					components={props.components.right}
+					components={componentsRight}
 				/>
 			)}
 		</div>
