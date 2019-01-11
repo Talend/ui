@@ -1,0 +1,33 @@
+{
+  "doc": "ResourcePicker/README.md",
+  "jsonSchema": {
+    "type": "object",
+    "title": "ResourcePicker",
+    "properties": {
+      "asyncResourcePicker": {
+        "type": "string"
+      }
+    }
+  },
+  "uiSchema": [
+    {
+      "key": "asyncResourcePicker",
+      "title": "ResourcePicker with async options",
+      "widget": "resourcePicker",
+      "triggers": [
+        {
+          "action": "ResourcesForDemo",
+          "family": "remote",
+          "type": "resources",
+          "onEvent": "change",
+          "parameters": [
+            {
+              "key": "asyncResourcePicker"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "properties": {}
+}
