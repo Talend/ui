@@ -10,7 +10,11 @@ First add it to your bootstrap app
 import cmf from '@talend/react-cmf';
 import getRouter from '@talend/react-cmf-router';
 
-const router = getRouter({ history, sagaRouterConfig });
+const routerFunctions = {
+    // key for OnEnter/onLeave in router config: value is the function
+};
+
+const router = getRouter({ history, sagaRouterConfig, routerFunctions });
 
 cmf.bootstrap({
     modules: [router.cmfModule],
