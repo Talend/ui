@@ -7,7 +7,6 @@ import Toolbar from './Toolbar';
 
 import theme from './ResourcePicker.scss';
 
-
 export default function ResourcePicker({ collection, toolbar }) {
 	console.warn(
 		"UNSTABLE WARNING: The 'ResourcePicker' and all the sub components aren't ready to be used in Apps. Code can (will) change outside the release process until it's ready.",
@@ -27,7 +26,6 @@ export default function ResourcePicker({ collection, toolbar }) {
 		</div>
 	);
 }
-
 
 ResourcePicker.propTypes = {
 	collection: PropTypes.arrayOf(PropTypes.object),

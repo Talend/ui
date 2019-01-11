@@ -9,7 +9,6 @@ import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
-
 class ResourcePicker extends Component {
 	constructor(props) {
 		super(props);
@@ -20,7 +19,6 @@ class ResourcePicker extends Component {
 		const { id, errorMessage, isValid, schema } = this.props;
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
-
 
 		const toolbar = {
 			name: {
@@ -50,9 +48,7 @@ class ResourcePicker extends Component {
 				required={schema.required}
 				labelAfter
 			>
-				<ResourcePickerComponent
-					toolbar={toolbar}
-				/>
+				<ResourcePickerComponent toolbar={toolbar} />
 			</FieldTemplate>
 		);
 	}
