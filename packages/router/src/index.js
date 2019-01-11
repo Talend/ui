@@ -2,7 +2,7 @@ import React from 'react';
 import { hashHistory } from 'react-router';
 import { routerReducer, routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 import cmf from '@talend/react-cmf';
-import { reduceConfig, mergeObjects, getUnique } from '@talend/react-cmf/lib/cmfModule.merge';
+import { getReduceConfig, mergeObjects, getUnique } from '@talend/react-cmf/lib/cmfModule.merge';
 import { fork } from 'redux-saga/effects';
 import UIRouter from './UIRouter';
 import expressions from './expressions';
@@ -19,7 +19,7 @@ const mergeConfig = {
 };
 
 function mergeRouterConfig(...configs) {
-	return configs.reduce((acc, config) => reduceConfig(acc, config, mergeConfig), {});
+	return configs.reduce(getReduceConfig(mergeConfig), {});
 }
 
 function getModule(...args) {

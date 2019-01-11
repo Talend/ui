@@ -100,16 +100,18 @@ const MERGE_FNS = {
 	actionCreators: mergeObjects,
 };
 
-export function reduceConfig(acc, config, mergeConfig = MERGE_FNS) {
-	return Object.keys(config).reduce((subacc, key) => {
-		if (!mergeConfig[key]) {
-			throw new Error(`${key} is not supported`);
-		}
-		return {
-			...subacc,
-			[key]: mergeConfig[key](acc[key], config[key], key),
-		};
-	}, acc);
+export function getReduceConfig(mergeConfig = MERGE_FNS) {
+	return function reduceConfig(acc, config) {
+		return Object.keys(config).reduce((subacc, key) => {
+			if (!mergeConfig[key]) {
+				throw new Error(`${key} is not supported`);
+			}
+			return {
+				...subacc,
+				[key]: mergeConfig[key](acc[key], config[key], key),
+			};
+		}, acc);
+	};
 }
 
 /**
@@ -117,7 +119,7 @@ export function reduceConfig(acc, config, mergeConfig = MERGE_FNS) {
  * before passing them to cmf.bootstrap
  */
 function merge(...configs) {
-	return configs.reduce(reduceConfig, {});
+	return configs.reduce(getReduceConfig(), {});
 }
 
 export default merge;
