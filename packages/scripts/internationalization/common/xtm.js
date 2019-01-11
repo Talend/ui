@@ -5,7 +5,8 @@ const FormData = require('form-data');
 const rimraf = require('rimraf');
 const mkdirp = require('mkdirp');
 
-const { error, printRunning, printSuccess } = require('./log');
+const error = require('./error');
+const { printRunning, printSuccess } = require('./log');
 
 function throwError(missingVar) {
 	error(`
@@ -78,13 +79,16 @@ function getProject(data) {
 
 	function filterProjectList(projects) {
 		const uiProject = projects.find(({ name }) => name === projectName);
+		projects.forEach(({ name }) => {
+			console.log(name);
+		});
 		if (!uiProject) {
 			error(`${projectName} project not found`);
 		}
 		return uiProject;
 	}
 
-	return fetch(`${xtm.apiUrl}/projects?customerIds=${xtm.customerId}`, {
+	return fetch(`${xtm.apiUrl}/projects?customerIds=${xtm.customerId}&status=STARTED`, {
 		headers: { Authorization: `XTM-Basic ${xtm.token}` },
 	})
 		.then(handleError)
