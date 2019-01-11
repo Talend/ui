@@ -8,6 +8,7 @@ import expressions from './expressions';
 import sagaRouter from './sagaRouter';
 import * as selectors from './selectors';
 import documentTitle from './sagas/documentTitle';
+import cmfRouterMiddleware from './middleware';
 import { REGISTRY_HOOK_PREFIX } from './route';
 
 function getModule(options = {}) {
@@ -26,7 +27,7 @@ function getModule(options = {}) {
 			yield fork(sagaRouter, history, options.sagaRouterConfig);
 		}
 	}
-	const middlewares = [routerMiddleware(history)];
+	const middlewares = [routerMiddleware(history), cmfRouterMiddleware];
 	let routerHistory;
 	function storeCallback(store) {
 		routerHistory = syncHistoryWithStore(history, store);
