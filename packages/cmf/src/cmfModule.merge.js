@@ -1,7 +1,7 @@
 import { spawn } from 'redux-saga/effects';
 import { assertValueTypeOf } from './assert';
 
-function mergeObjects(obj1, obj2) {
+export function mergeObjects(obj1, obj2) {
 	if (!obj2) {
 		return obj1;
 	}
@@ -23,7 +23,7 @@ function mergeObjects(obj1, obj2) {
 	}, Object.assign({}, obj1));
 }
 
-function mergeFns(fn1, fn2) {
+export function mergeFns(fn1, fn2) {
 	if (!fn2) {
 		return fn1;
 	}
@@ -44,7 +44,7 @@ function throwIfBothExists(obj1, obj2, name) {
 	}
 }
 
-function getUnique(obj1, obj2, name) {
+export function getUnique(obj1, obj2, name) {
 	throwIfBothExists(obj1, obj2, name);
 	if (obj1) {
 		return obj1;
@@ -52,7 +52,7 @@ function getUnique(obj1, obj2, name) {
 	return obj2;
 }
 
-function mergeSaga(saga, newSaga) {
+export function mergeSaga(saga, newSaga) {
 	assertValueTypeOf(saga, 'function');
 	assertValueTypeOf(newSaga, 'function');
 
@@ -68,7 +68,7 @@ function mergeSaga(saga, newSaga) {
 	return saga;
 }
 
-function mergeArrays(preReducer, newPreReducer) {
+export function mergeArrays(preReducer, newPreReducer) {
 	if (preReducer && newPreReducer) {
 		return [].concat(preReducer).concat(newPreReducer);
 	}
@@ -100,14 +100,14 @@ const MERGE_FNS = {
 	actionCreators: mergeObjects,
 };
 
-function reduceConfig(acc, config) {
+export function reduceConfig(acc, config, mergeConfig = MERGE_FNS) {
 	return Object.keys(config).reduce((subacc, key) => {
-		if (!MERGE_FNS[key]) {
+		if (!mergeConfig[key]) {
 			throw new Error(`${key} is not supported`);
 		}
 		return {
 			...subacc,
-			[key]: MERGE_FNS[key](acc[key], config[key], key),
+			[key]: mergeConfig[key](acc[key], config[key], key),
 		};
 	}, acc);
 }
