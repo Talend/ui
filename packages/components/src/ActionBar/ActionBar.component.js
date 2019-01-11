@@ -102,6 +102,10 @@ function getActionsFromRenderers(actions, getComponent) {
 }
 
 function SwitchActions({ actions, left, right, center, getComponent, components }) {
+	if (!actions.length && !components) {
+		return null;
+	}
+
 	const injected = Inject.all(getComponent, components);
 
 	return (
@@ -173,34 +177,28 @@ export function ActionBarComponent(props) {
 
 	return (
 		<div className={cssClass}>
-			{(left || componentsLeft) && (
-				<SwitchActions
-					getComponent={props.getComponent}
-					key={0}
-					actions={left}
-					left
-					components={componentsLeft}
-				/>
-			)}
+			<SwitchActions
+				getComponent={props.getComponent}
+				key={0}
+				actions={left}
+				left
+				components={componentsLeft}
+			/>
 			{props.children}
-			{(center || componentsCenter) && (
-				<SwitchActions
-					getComponent={props.getComponent}
-					key={1}
-					actions={center}
-					center
-					components={componentsCenter}
-				/>
-			)}
-			{(right || componentsRight) && (
-				<SwitchActions
-					getComponent={props.getComponent}
-					key={2}
-					actions={right}
-					right
-					components={componentsRight}
-				/>
-			)}
+			<SwitchActions
+				getComponent={props.getComponent}
+				key={1}
+				actions={center}
+				center
+				components={componentsCenter}
+			/>
+			<SwitchActions
+				getComponent={props.getComponent}
+				key={2}
+				actions={right}
+				right
+				components={componentsRight}
+			/>
 		</div>
 	);
 }

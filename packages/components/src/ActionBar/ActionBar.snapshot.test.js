@@ -67,7 +67,7 @@ describe('ActionBar', () => {
 		const wrapperMounted = mount(<ActionBarComponent {...props} />);
 		// then
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
-		const switchActions = wrapperMounted.find(ActionBarComponent.SwitchActions);
+		const switchActions = wrapperMounted.find(ActionBarComponent.SwitchActions).first();
 		expect(switchActions.props().left).toBe(true);
 		expect(switchActions.props().components).toBeUndefined();
 	});

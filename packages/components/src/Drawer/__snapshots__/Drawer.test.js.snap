@@ -51,17 +51,7 @@ exports[`Drawer should render 1`] = `
       >
         <div
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-        >
-          <div
-            className="theme-navbar-left navbar-left"
-          />
-          <div
-            className="theme-navbar-center"
-          />
-          <div
-            className="theme-navbar-right navbar-right"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -97,17 +87,7 @@ exports[`Drawer should render stacked 1`] = `
       >
         <div
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-        >
-          <div
-            className="theme-navbar-left navbar-left"
-          />
-          <div
-            className="theme-navbar-center"
-          />
-          <div
-            className="theme-navbar-right navbar-right"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -143,17 +123,7 @@ exports[`Drawer should render using custom className 1`] = `
       >
         <div
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-        >
-          <div
-            className="theme-navbar-left navbar-left"
-          />
-          <div
-            className="theme-navbar-center"
-          />
-          <div
-            className="theme-navbar-right navbar-right"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -194,17 +164,7 @@ exports[`Drawer should render using custom styles 1`] = `
       >
         <div
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-        >
-          <div
-            className="theme-navbar-left navbar-left"
-          />
-          <div
-            className="theme-navbar-center"
-          />
-          <div
-            className="theme-navbar-right navbar-right"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -290,17 +250,7 @@ exports[`Drawer should render with tabs 1`] = `
       >
         <div
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-        >
-          <div
-            className="theme-navbar-left navbar-left"
-          />
-          <div
-            className="theme-navbar-center"
-          />
-          <div
-            className="theme-navbar-right navbar-right"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -337,15 +287,7 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
       key="0"
       left={true}
       t={[Function]}
-    >
-      <Content
-        left={true}
-      >
-        <div
-          className="theme-navbar-left navbar-left"
-        />
-      </Content>
-    </SwitchActions>
+    />
     <SwitchActions
       actions={
         Array [
@@ -449,15 +391,7 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
       key="2"
       right={true}
       t={[Function]}
-    >
-      <Content
-        right={true}
-      >
-        <div
-          className="theme-navbar-right navbar-right"
-        />
-      </Content>
-    </SwitchActions>
+    />
   </div>
 </ActionBar>
 `;
@@ -491,17 +425,7 @@ exports[`Drawer should render without tc-drawer-transition class 1`] = `
       >
         <div
           className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
-        >
-          <div
-            className="theme-navbar-left navbar-left"
-          />
-          <div
-            className="theme-navbar-center"
-          />
-          <div
-            className="theme-navbar-right navbar-right"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
