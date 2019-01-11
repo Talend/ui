@@ -4,7 +4,7 @@ const rimraf = require('rimraf');
 const spawn = require('cross-spawn');
 
 const error = require('../common/error');
-const { printRunning, printSuccess, printSection } = require('../common/log');
+const { printInfo, printRunning, printSuccess, printSection } = require('../common/log');
 
 function getGithubVariables() {
 	const { GITHUB_LOGIN, GITHUB_TOKEN } = process.env;
@@ -93,7 +93,31 @@ function pushI18nFiles(options, repoCmdContext) {
 	printSuccess(`Version ${version} pushed to repository on branch ${branchName}`);
 }
 
-function toGithub({ load, github }) {
+function generateNpmModule(options, repoCmdContext) {
+	const packageJsonPath = path.join(repoCmdContext.cwd, 'package.json');
+
+	if (fs.existsSync(packageJsonPath)) {
+		const packageJson = require(packageJsonPath);
+		const version = packageJson.version;
+	}
+}
+
+function generateModule(options, repoCmdContext, module) {
+	switch (module) {
+		case 'npm':
+			generateNpmModule(options, repoCmdContext);
+			break;
+		case 'mvn':
+			break;
+		default:
+			printInfo(
+				'No module requested. If it\'s a mistake, please provide the "module" option to talend-i18n.json.',
+			);
+			break;
+	}
+}
+
+function toGithub({ load, github, module }) {
 	const { login, token } = getGithubVariables();
 	const { url } = github;
 	const { project, target } = load;
@@ -124,7 +148,9 @@ function toGithub({ load, github }) {
 			version,
 		};
 		switchToBranch(versionOptions, repoCmdContext);
+		generateModule(versionOptions, repoCmdContext, module);
 		pushI18nFiles(versionOptions, repoCmdContext);
+		// deployModule(versionOptions);
 	});
 }
 
