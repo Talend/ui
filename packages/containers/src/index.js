@@ -5,8 +5,8 @@ import * as containers from './containers';
 
 const components = Object.keys(allComponents).reduce((acc, key) => {
 	if (!acc[key] && typeof allComponents[key] === 'function') {
-		let options = {};
-		if (['ActionList', 'Layout'].includes(key) {
+		const options = {};
+		if (['ActionList', 'Layout'].includes(key)) {
 			options.withComponentRegistry = true;
 		}
 		if (!allComponents[key].displayName) {
