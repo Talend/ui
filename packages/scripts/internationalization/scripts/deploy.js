@@ -77,12 +77,18 @@ function generateNpmModule(options, repoCmdContext, module) {
 	if (fs.existsSync(packageJsonPath)) {
 		// increment version in package.json
 		const packageJson = require(packageJsonPath);
+		printInfo(`Package.json found for existing module ${packageJson.name}`);
+
+		const previousVersion = packageJson.version;
 		const versionParts = packageJson.version.match(/([0-9]+\.[0-9]+\.)([0-9]+)/);
 		const incrementedLast = Number(versionParts[2]) + 1;
 		packageJson.version = `${versionParts[1]}${incrementedLast}`;
 		fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
+
+		printSuccess(`${packageJson.name} version: ${previousVersion} --> ${packageJson.version}`);
 	} else {
 		// generate package.json
+		printRunning('Generating package.json');
 		const packageJson = {
 			name: `@talend/locales-${options.project.toLowerCase()}`,
 			version: `${options.version}.0`,
@@ -98,55 +104,58 @@ function generateNpmModule(options, repoCmdContext, module) {
 			packageJson.private = true;
 		}
 		fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
-
-		// Get languages definitions
-		// name: folder name
-		// absPath: folder absolute path
-		// namespaces: the name of the files it contains
-		// 		--> "toto.json tata.json" --> namespaces = ['toto', 'tata']
-		const languageDirectories = fs
-			.readdirSync(repoCmdContext.cwd)
-			.map(name => ({
-				name,
-				absPath: path.join(repoCmdContext.cwd, name),
-			}))
-			.filter(({ name }) => name !== '.git')
-			.filter(({ absPath }) => fs.lstatSync(absPath).isDirectory())
-			.map(directory => ({
-				...directory,
-				language: directory.name.substr(0, directory.name.indexOf('_')),
-				namespaces: fs
-					.readdirSync(directory.absPath)
-					.map(fileName => fileName.match(/(.*)\.json/)[1]),
-			}));
-
-		// generate index.js
-		const languageTemplate = template('const <%= language %> = {\n<%= filesRequires %>\n};');
-		const requireTemplate = template(
-			"	'<%= namespace %>': require('./<%= folderName %>/<%= namespace %>.json'),",
-		);
-		const exportsTemplate = template('module.exports = { <%= languages %> };\n');
-
-		const languagesDefinitions = languageDirectories
-			.map(directory => {
-				const filesRequires = directory.namespaces
-					.map(namespace => requireTemplate({ namespace, folderName: directory.name }))
-					.join('\n');
-				return languageTemplate({ language: directory.language, filesRequires });
-			})
-			.join('\n');
-		const exportsDefinitions = exportsTemplate({
-			languages: languageDirectories.map(({ language }) => language).join(','),
-		});
-
-		fs.writeFileSync(
-			path.join(repoCmdContext.cwd, 'index.js'),
-			`${languagesDefinitions}\n${exportsDefinitions}`,
-		);
+		printSuccess(`Package.json saved to ${packageJsonPath}`);
 	}
+
+	// Get languages definitions
+	// name: folder name
+	// absPath: folder absolute path
+	// namespaces: the name of the files it contains
+	// 		--> "toto.json tata.json" --> namespaces = ['toto', 'tata']
+	const languageDirectories = fs
+		.readdirSync(repoCmdContext.cwd)
+		.map(name => ({
+			name,
+			absPath: path.join(repoCmdContext.cwd, name),
+		}))
+		.filter(({ name }) => name !== '.git')
+		.filter(({ absPath }) => fs.lstatSync(absPath).isDirectory())
+		.map(directory => ({
+			...directory,
+			language: directory.name.substr(0, directory.name.indexOf('_')),
+			namespaces: fs
+				.readdirSync(directory.absPath)
+				.map(fileName => fileName.match(/(.*)\.json/)[1]),
+		}));
+
+	// generate index.js
+	const languageTemplate = template('const <%= language %> = {\n<%= filesRequires %>\n};');
+	const requireTemplate = template(
+		"	'<%= namespace %>': require('./<%= folderName %>/<%= namespace %>.json'),",
+	);
+	const exportsTemplate = template('module.exports = { <%= languages %> };\n');
+
+	printRunning('Generating index.js');
+	const languagesDefinitions = languageDirectories
+		.map(directory => {
+			const filesRequires = directory.namespaces
+				.map(namespace => requireTemplate({ namespace, folderName: directory.name }))
+				.join('\n');
+			return languageTemplate({ language: directory.language, filesRequires });
+		})
+		.join('\n');
+	const exportsDefinitions = exportsTemplate({
+		languages: languageDirectories.map(({ language }) => language).join(','),
+	});
+
+	const indexJsPath = path.join(repoCmdContext.cwd, 'index.js');
+	fs.writeFileSync(indexJsPath, `${languagesDefinitions}\n${exportsDefinitions}`);
+	printSuccess(`index.js saved to ${indexJsPath}`);
 }
 
 function generateModule(options, repoCmdContext, module) {
+	printSection('Module generation');
+
 	if (!module) {
 		printInfo(
 			'No module requested. If it\'s a mistake, please provide the "module" option to talend-i18n.json.',
@@ -170,6 +179,7 @@ function generateModule(options, repoCmdContext, module) {
 }
 
 function pushI18nFiles(options, repoCmdContext) {
+	printSection('Github');
 	const { branchName, i18nFolder, localesRepoPath, project, version } = options;
 
 	printRunning(`Copy ${i18nFolder}/ files into locales repository ${localesRepoPath}`);
@@ -191,6 +201,26 @@ function pushI18nFiles(options, repoCmdContext) {
 		error('Error while pushing');
 	}
 	printSuccess(`Version ${version} pushed to repository on branch ${branchName}`);
+}
+
+function deployModule(options, repoCmdContext, module) {
+	if (!module) {
+		return;
+	}
+
+	printSection('Module deployment');
+	switch (module.type) {
+		case 'npm':
+			printRunning('> npm publish');
+			// spawn.sync('npm', ['publish'], repoCmdContext);
+			break;
+		case 'mvn':
+			printRunning('> mvn deploy');
+			// spawn.sync('mvn', ['deploy'], repoCmdContext);
+			break;
+		default:
+			break;
+	}
 }
 
 function toGithub({ load, github, module }) {
@@ -227,7 +257,7 @@ function toGithub({ load, github, module }) {
 		switchToBranch(versionOptions, repoCmdContext);
 		generateModule(versionOptions, repoCmdContext, module);
 		pushI18nFiles(versionOptions, repoCmdContext);
-		// deployModule(versionOptions);
+		deployModule(versionOptions, repoCmdContext, module);
 	});
 }
 
