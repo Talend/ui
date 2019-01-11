@@ -22,7 +22,7 @@ cmf.bootstrap({
 });
 ```
 
-If your project has multiple module with routerConfig you can pass all of them to getRouter the following way:
+If your project has multiple modules with `routerConfig` you can pass all of them to `getRouter()` the following way:
 
 
 ```javascript
@@ -30,6 +30,8 @@ const router = getRouter(config1, config2, config3);
 ```
 
 The `getRouter` function will merge all of them to build the router configuration.
+
+So be careful with the order since the next has a higher priority comparing to the previous config.
 
 ## routerAPI
 
