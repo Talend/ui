@@ -9,13 +9,12 @@ function NameFilter({ label, placeholder, value, debounceTimeout, onChange }) {
 	return (
 		<form className={classNames('name-filter', theme['name-filter'])}>
 			{label && (
-				<label key="name-filter" htmlFor="name-filter-input" className="sr-only">
+				<label htmlFor="resource-picker-toolbar-name-filter-input" className="sr-only">
 					{label}
 				</label>
 			)}
 			<DebounceInput
-				key="name-filter"
-				id="name-filter-input"
+				id="resource-picker-toolbar-name-filter-input"
 				type="text"
 				placeholder={placeholder}
 				value={value}

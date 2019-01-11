@@ -1,0 +1,16 @@
+{
+  "doc": "ResourcePicker/README.md",
+  "jsonSchema": {
+    "type": "object",
+    "title": "Comment",
+    "properties": {}
+  },
+  "uiSchema": [
+    {
+      "key": "standard",
+      "title": "Check if you are happy (standard)",
+      "widget": "resourcePicker"
+    },
+  ],
+  "properties": {}
+}

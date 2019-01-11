@@ -5,43 +5,47 @@ exports[`ResourcePicker component snaps should render ResourcePicker with some R
   className="resource-picker theme-resource-picker"
 >
   <Toolbar />
-  <VirtualizedList
-    collection={
-      Array [
-        Object {
-          "author": "Jean-Pierre DUPONT",
-          "display": "text",
-          "icon": "talend-file-xls-o",
-          "id": 0,
-          "modified": "2016-09-22",
-          "name": "Title with few actions",
-        },
-        Object {
-          "display": "text",
-          "icon": "talend-file-xls-o",
-          "id": 1,
-          "modified": "2016-09-22",
-          "name": "Title with lot of actions",
-        },
-        Object {
-          "author": "Jean-Pierre DUPONT",
-          "display": "text",
-          "icon": "talend-file-xls-o",
-          "id": 2,
-          "modified": "2016-09-22",
-          "name": "Title with persistant actions",
-        },
-      ]
-    }
-    defaultHeight={250}
-    rowHeight={60}
-    rowRenderers={
-      Object {
-        "resource": [Function],
+  <div
+    className="theme-list-container"
+  >
+    <VirtualizedList
+      collection={
+        Array [
+          Object {
+            "author": "Jean-Pierre DUPONT",
+            "display": "text",
+            "icon": "talend-file-xls-o",
+            "id": 0,
+            "modified": "2016-09-22",
+            "name": "Title with few actions",
+          },
+          Object {
+            "display": "text",
+            "icon": "talend-file-xls-o",
+            "id": 1,
+            "modified": "2016-09-22",
+            "name": "Title with lot of actions",
+          },
+          Object {
+            "author": "Jean-Pierre DUPONT",
+            "display": "text",
+            "icon": "talend-file-xls-o",
+            "id": 2,
+            "modified": "2016-09-22",
+            "name": "Title with persistant actions",
+          },
+        ]
       }
-    }
-    type="resource"
-  />
+      defaultHeight={250}
+      rowHeight={60}
+      rowRenderers={
+        Object {
+          "resource": [Function],
+        }
+      }
+      type="resource"
+    />
+  </div>
 </div>
 `;
 
@@ -50,17 +54,21 @@ exports[`ResourcePicker component snaps should render ResourcePicker without any
   className="resource-picker theme-resource-picker"
 >
   <Toolbar />
-  <VirtualizedList
-    collection={Array []}
-    defaultHeight={250}
-    rowHeight={60}
-    rowRenderers={
-      Object {
-        "resource": [Function],
+  <div
+    className="theme-list-container"
+  >
+    <VirtualizedList
+      collection={Array []}
+      defaultHeight={250}
+      rowHeight={60}
+      rowRenderers={
+        Object {
+          "resource": [Function],
+        }
       }
-    }
-    type="resource"
-  />
+      type="resource"
+    />
+  </div>
 </div>
 `;
 
@@ -68,42 +76,46 @@ exports[`ResourcePicker component snaps should render ResourcePicker without too
 <div
   className="resource-picker theme-resource-picker"
 >
-  <VirtualizedList
-    collection={
-      Array [
-        Object {
-          "author": "Jean-Pierre DUPONT",
-          "display": "text",
-          "icon": "talend-file-xls-o",
-          "id": 0,
-          "modified": "2016-09-22",
-          "name": "Title with few actions",
-        },
-        Object {
-          "display": "text",
-          "icon": "talend-file-xls-o",
-          "id": 1,
-          "modified": "2016-09-22",
-          "name": "Title with lot of actions",
-        },
-        Object {
-          "author": "Jean-Pierre DUPONT",
-          "display": "text",
-          "icon": "talend-file-xls-o",
-          "id": 2,
-          "modified": "2016-09-22",
-          "name": "Title with persistant actions",
-        },
-      ]
-    }
-    defaultHeight={250}
-    rowHeight={60}
-    rowRenderers={
-      Object {
-        "resource": [Function],
+  <div
+    className="theme-list-container"
+  >
+    <VirtualizedList
+      collection={
+        Array [
+          Object {
+            "author": "Jean-Pierre DUPONT",
+            "display": "text",
+            "icon": "talend-file-xls-o",
+            "id": 0,
+            "modified": "2016-09-22",
+            "name": "Title with few actions",
+          },
+          Object {
+            "display": "text",
+            "icon": "talend-file-xls-o",
+            "id": 1,
+            "modified": "2016-09-22",
+            "name": "Title with lot of actions",
+          },
+          Object {
+            "author": "Jean-Pierre DUPONT",
+            "display": "text",
+            "icon": "talend-file-xls-o",
+            "id": 2,
+            "modified": "2016-09-22",
+            "name": "Title with persistant actions",
+          },
+        ]
       }
-    }
-    type="resource"
-  />
+      defaultHeight={250}
+      rowHeight={60}
+      rowRenderers={
+        Object {
+          "resource": [Function],
+        }
+      }
+      type="resource"
+    />
+  </div>
 </div>
 `;

@@ -1,3 +1,5 @@
+$order-chooser-icon-size: 0.6rem;
+
 .order-chooser {
 	display: flex;
 
@@ -12,8 +14,8 @@
 		}
 
 		.order-indicator {
-			width: 0.6rem;
-			height: 0.6rem;
+			width: $order-chooser-icon-size;
+			height: $order-chooser-icon-size;
 
 			&.asc {
 				transform: rotate(180deg);
