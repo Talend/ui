@@ -68,8 +68,9 @@ class InputDateTimePicker extends React.Component {
 
 		checkSupportedDateFormat(props.dateFormat);
 		this.popoverId = `date-time-picker-${props.id || uuid.v4()}`;
+		this.initialState = extractParts(props.selectedDateTime, this.getDateOptions());
 		this.state = {
-			...extractParts(props.selectedDateTime, this.getDateOptions()),
+			...this.initialState,
 			showPicker: false,
 		};
 
@@ -106,6 +107,8 @@ class InputDateTimePicker extends React.Component {
 
 		const errorUpdated = errorMessage !== this.state.errorMessage;
 
+		// updating initial state
+		this.initialState = { ...this.state };
 		if (this.props.onChange && (this.state.datetimeUpdated || errorUpdated)) {
 			this.props.onChange(event, { errorMessage, datetime, textInput, origin });
 		}
@@ -120,8 +123,9 @@ class InputDateTimePicker extends React.Component {
 
 	onKeyDown(event) {
 		switch (event.keyCode) {
-			case keycode.codes.esc:
+		case keycode.codes.esc:
 				this.inputRef.focus();
+				this.setState({ ...this.initialState });
 				this.setPickerVisibility(false);
 				break;
 			case keycode.codes.down:
