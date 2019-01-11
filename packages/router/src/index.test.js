@@ -30,5 +30,12 @@ describe('getModule', () => {
 			'_.route.hook:foo': config.routerFunctions.foo,
 			'_.route.hook:bar': configBis.routerFunctions.bar,
 		});
+		const generator = mod.cmfModule.saga();
+		generator.next();
+		const result = generator.next();
+		expect(result.value.FORK.args[1]).toEqual({
+			'/foo': config.sagaRouterConfig['/foo'],
+			'/foo/bar': configBis.sagaRouterConfig['/foo/bar'],
+		});
 	});
 });
