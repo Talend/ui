@@ -2,15 +2,32 @@
   "doc": "ResourcePicker/README.md",
   "jsonSchema": {
     "type": "object",
-    "title": "Comment",
-    "properties": {}
+    "title": "ResourcePicker",
+    "properties": {
+      "asyncResourcePicker": {
+        "type": "string"
+      }
+    }
   },
   "uiSchema": [
     {
-      "key": "standard",
-      "title": "Check if you are happy (standard)",
-      "widget": "resourcePicker"
-    },
+      "key": "asyncResourcePicker",
+      "title": "ResourcePicker with async options",
+      "widget": "resourcePicker",
+      "triggers": [
+        {
+          "action": "ResourcesForDemo",
+          "family": "remote",
+          "type": "resources",
+          "onEvent": "change",
+          "parameters": [
+            {
+              "key": "asyncResourcePicker"
+            }
+          ]
+        }
+      ]
+    }
   ],
   "properties": {}
 }

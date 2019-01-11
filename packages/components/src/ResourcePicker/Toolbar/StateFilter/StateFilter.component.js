@@ -13,7 +13,7 @@ export const TYPES = {
 	CERTIFIED: 'certified',
 };
 
-function StateFilter({ t, types, onChange, selected, favorite, certified }) {
+function StateFilter({ t, types, onChange, selected, favorites, certified }) {
 	return (
 		!!types.length && (
 			<div className={classNames('state-filters', theme['state-filters'])}>
@@ -42,8 +42,8 @@ function StateFilter({ t, types, onChange, selected, favorite, certified }) {
 					<ActionIconToggle
 						icon={'talend-star'}
 						label={t('FAVORITES', { defaultValue: 'Favorites' })}
-						active={favorite}
-						onClick={() => onChange(TYPES.FAVORITES, !favorite)}
+						active={favorites}
+						onClick={() => onChange(TYPES.FAVORITES, !favorites)}
 						className={classNames('favorite-filter', theme['favorite-filter'])}
 					/>
 				)}
@@ -54,7 +54,7 @@ function StateFilter({ t, types, onChange, selected, favorite, certified }) {
 
 StateFilter.propTypes = {
 	t: PropTypes.func,
-	favorite: PropTypes.boolean,
+	favorites: PropTypes.boolean,
 	certified: PropTypes.boolean,
 	onChange: PropTypes.func,
 	types: PropTypes.array,

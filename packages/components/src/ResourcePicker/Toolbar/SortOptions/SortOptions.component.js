@@ -13,7 +13,19 @@ export const TYPES = {
 	DATE: 'date',
 };
 
-function SortOptions({ t, types, onChange, nameAsc, dateAsc }) {
+export const ORDERS = {
+	ASC: 'asc',
+	DESC: 'desc',
+};
+
+function inverse(order) {
+	if (order === ORDERS.ASC) {
+		return ORDERS.DESC;
+	}
+	return ORDERS.ASC;
+}
+
+function SortOptions({ t, types, onChange, orders }) {
 	return (
 		!!types.length && (
 			<div className={classNames('sort-options', theme['sort-options'])}>
@@ -24,16 +36,16 @@ function SortOptions({ t, types, onChange, nameAsc, dateAsc }) {
 					<OrderChooser
 						icon={'talend-sort-az'}
 						label={t('SORT_BY_NAME', { defaultValue: 'Sort by name' })}
-						asc={nameAsc}
-						onClick={() => onChange(TYPES.NAME, !nameAsc)}
+						asc={orders[TYPES.NAME] === ORDERS.ASC}
+						onClick={() => onChange(TYPES.NAME, inverse(orders[TYPES.NAME]))}
 					/>
 				)}
 				{types.includes(TYPES.DATE) && (
 					<OrderChooser
 						icon={'talend-sort-desc'}
 						label={t('SORT_BY_DATE', { defaultValue: 'Sort by date' })}
-						asc={dateAsc}
-						onClick={() => onChange(TYPES.DATE, !dateAsc)}
+						asc={orders[TYPES.DATE] === ORDERS.ASC}
+						onClick={() => onChange(TYPES.DATE, inverse(orders[TYPES.DATE]))}
 					/>
 				)}
 			</div>
@@ -44,14 +56,17 @@ function SortOptions({ t, types, onChange, nameAsc, dateAsc }) {
 SortOptions.propTypes = {
 	t: PropTypes.func,
 	onChange: PropTypes.func,
-	nameAsc: PropTypes.boolean,
-	dateAsc: PropTypes.boolean,
+	orders: PropTypes.object,
 	types: PropTypes.array,
 };
 
 SortOptions.defaultProps = {
 	t: getDefaultT(),
 	types: [TYPES.NAME, TYPES.DATE],
+	orders: {
+		[TYPES.NAME]: ORDERS.DESC,
+		[TYPES.DATE]: ORDERS.DESC,
+	},
 };
 
 export default translate(I18N_DOMAIN_COMPONENTS)(SortOptions);

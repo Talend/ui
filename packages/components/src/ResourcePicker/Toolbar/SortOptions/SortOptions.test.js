@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { mount } from 'enzyme';
-import SortOptions, { TYPES } from './SortOptions.component';
+import SortOptions, { TYPES, ORDERS } from './SortOptions.component';
 
 describe('SortOptions', () => {
 	it('should trigger onChange callback with the new state on click', () => {
@@ -13,6 +13,10 @@ describe('SortOptions', () => {
 				dateAsc
 				icon={'talend-sort-desc'}
 				types={[TYPES.NAME, TYPES.DATE]}
+				orders={{
+					[TYPES.NAME]: ORDERS.ASC,
+					[TYPES.DATE]: ORDERS.DESC,
+				}}
 			/>,
 		);
 
@@ -22,12 +26,12 @@ describe('SortOptions', () => {
 			.find(Button)
 			.at(0)
 			.simulate('click');
-		expect(onChange).toBeCalledWith(TYPES.NAME, true);
+		expect(onChange).toBeCalledWith(TYPES.NAME, ORDERS.DESC);
 
 		wrapper
 			.find(Button)
 			.at(1)
 			.simulate('click');
-		expect(onChange).toBeCalledWith(TYPES.DATE, false);
+		expect(onChange).toBeCalledWith(TYPES.DATE, ORDERS.ASC);
 	});
 });

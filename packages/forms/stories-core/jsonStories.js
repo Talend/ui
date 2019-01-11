@@ -12,8 +12,65 @@ const oldFilenames = require.context('../stories/json', true, /.(js|json)$/);
 const sampleFilenameRegex = /^.\/(.*).js/;
 const stories = [];
 
+
 function capitalizeFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function getFilteredCollection(value) {
+	const collection = [
+		{
+			id: 0,
+			name: 'Title with few actions',
+			modified: '2016-09-22',
+			icon: 'talend-file-xls-o',
+			author: 'First Author',
+			flags: ['CERTIFIED', 'FAVORITE'],
+		},
+		{
+			id: 1,
+			name: 'Title with lot of actions',
+			modified: '2016-09-22',
+			icon: 'talend-file-xls-o',
+			author: 'Second Author',
+		},
+		{
+			id: 2,
+			name: 'Title with persistant actions',
+			modified: '2016-09-22',
+			author: 'Jean-Pierre DUPONT',
+			icon: 'talend-file-xls-o',
+			flags: ['FAVORITE'],
+		},
+		{
+			id: 3,
+			name: 'Title with icon',
+			modified: '2016-09-22',
+			author: 'Third Author',
+			icon: 'talend-file-xls-o',
+			flags: ['CERTIFIED'],
+		},
+		{
+			id: 4,
+			name: 'Title in input mode',
+			modified: '2016-09-22',
+			author: 'Jean-Pierre DUPONT',
+			icon: 'talend-file-xls-o',
+		},
+		{
+			id: 5,
+			name: 'Title with long long long long long long long long long long long text',
+			modified: '2016-09-22',
+			author: 'Jean-Pierre DUPONT with super super super long text',
+			icon: 'talend-file-xls-o',
+			flags: ['CERTIFIED', 'FAVORITE'],
+		},
+	];
+
+	if (!value) {
+		return collection;
+	}
+	return collection.filter(item => item.name.includes(value));
 }
 
 function createCommonProps(tab) {
@@ -33,6 +90,7 @@ function createCommonProps(tab) {
 			if (key && key.includes('fail')) {
 				return Promise.reject({ errors: { [schema.key]: 'This trigger has failed' } });
 			}
+
 			if (key && (key.includes('asyncTitleMap') || key.includes('AsyncTitleMap'))) {
 				return new Promise(resolve => {
 					setTimeout(
@@ -51,6 +109,15 @@ function createCommonProps(tab) {
 					);
 				});
 			}
+
+			if (key === 'asyncResourcePicker') {
+				return new Promise(resolve => {
+					resolve({
+						collection: getFilteredCollection(event.target && event.target.value),
+					});
+				});
+			}
+
 			return Promise.resolve({});
 		},
 		onReset: action('onReset'),

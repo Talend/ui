@@ -12,12 +12,14 @@ exports[`SortOptions component snaps renderers should render SortOptions in defa
     Sort:
   </span>
   <OrderChooser
+    asc={false}
     icon="talend-sort-az"
     label="Sort by name"
     onClick={[Function]}
     tooltipPlacement="top"
   />
   <OrderChooser
+    asc={false}
     icon="talend-sort-desc"
     label="Sort by date"
     onClick={[Function]}
@@ -36,6 +38,7 @@ exports[`SortOptions component snaps renderers should render SortOptions with da
     Sort:
   </span>
   <OrderChooser
+    asc={false}
     icon="talend-sort-az"
     label="Sort by name"
     onClick={[Function]}
@@ -68,6 +71,7 @@ exports[`SortOptions component snaps renderers should render SortOptions with na
     tooltipPlacement="top"
   />
   <OrderChooser
+    asc={false}
     icon="talend-sort-desc"
     label="Sort by date"
     onClick={[Function]}
@@ -105,6 +109,7 @@ exports[`SortOptions component snaps renderers should render SortOptions with on
     Sort:
   </span>
   <OrderChooser
+    asc={false}
     icon="talend-sort-az"
     label="Sort by name"
     onClick={[Function]}

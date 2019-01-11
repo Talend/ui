@@ -72,9 +72,12 @@ const name = {
 	label: 'Toolbar name label',
 	placeholder: 'Toolbar name placeholder',
 };
+
 const sort = {
 	onChange: action('Sort option changed'),
-	dateAsc: true,
+	orders: {
+		[TOOLBAR_OPTIONS.SORT_OPTIONS.DATE]: TOOLBAR_OPTIONS.ORDERS.ASC,
+	},
 };
 const state = {
 	certified: true,
