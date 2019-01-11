@@ -101,11 +101,14 @@ function getActionsFromRenderers(actions, getComponent) {
 	});
 }
 
-function SwitchActions({ actions, left, right, center, selected, getComponent, t }) {
+function SwitchActions({ actions, left, right, center, selected, getComponent, t, components }) {
+	const injected = Inject.all(getComponent, components);
 	return (
 		<Content left={left} right={right} center={center}>
+			{injected('before-actions')}
 			{selected > 0 && left ? <Count selected={selected} t={t} /> : null}
 			{getActionsFromRenderers(actions, getComponent)}
+			{injected('after-actions')}
 		</Content>
 	);
 }
@@ -117,6 +120,7 @@ SwitchActions.propTypes = {
 	selected: PropTypes.number,
 	getComponent: PropTypes.func,
 	t: PropTypes.func,
+	components: PropTypes.object,
 };
 SwitchActions.defaultProps = {
 	actions: [],
@@ -146,6 +150,7 @@ export function ActionBarComponent(props) {
 		'nav',
 		props.className,
 	);
+
 	return (
 		<div className={cssClass}>
 			{(left || !!props.selected) && (
@@ -156,6 +161,7 @@ export function ActionBarComponent(props) {
 					selected={props.selected}
 					left
 					t={props.t}
+					components={props.components.left}
 				/>
 			)}
 			{props.children}
@@ -167,6 +173,7 @@ export function ActionBarComponent(props) {
 					selected={props.selected}
 					center
 					t={props.t}
+					components={props.components.center}
 				/>
 			)}
 			{right && (
@@ -177,6 +184,7 @@ export function ActionBarComponent(props) {
 					selected={props.selected}
 					right
 					t={props.t}
+					components={props.components.right}
 				/>
 			)}
 		</div>
@@ -189,6 +197,10 @@ ActionBarComponent.propTypes = {
 	className: PropTypes.string,
 	getComponent: PropTypes.func,
 	t: PropTypes.func,
+	components: PropTypes.object,
+};
+ActionBarComponent.defaultProps = {
+	components: {},
 };
 
 ActionBarComponent.displayName = 'ActionBar';
