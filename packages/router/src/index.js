@@ -8,9 +8,18 @@ import expressions from './expressions';
 import sagaRouter from './sagaRouter';
 import * as selectors from './selectors';
 import documentTitle from './sagas/documentTitle';
+import { REGISTRY_HOOK_PREFIX } from './route';
 
 function getModule(options = {}) {
 	const history = options.history || hashHistory;
+	const registry = {};
+	if (options.routerFunctions) {
+		Object.keys(options.routerFunctions).reduce((acc, key) => {
+			// eslint-disable-next-line no-param-reassign
+			acc[`${REGISTRY_HOOK_PREFIX}:${key}`] = options.routerFunctions[key];
+			return acc;
+		}, registry);
+	}
 	function* saga() {
 		yield fork(documentTitle);
 		if (options.sagaRouterConfig) {
@@ -36,6 +45,7 @@ function getModule(options = {}) {
 			middlewares,
 			saga,
 			storeCallback,
+			registry,
 		},
 		RootComponent: Router,
 	};
