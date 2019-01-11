@@ -70,8 +70,7 @@ describe('HeaderBar sagas', () => {
 	});
 
 	describe('handleOpenProduct', () => {
-		const result = { opened: {} };
-		global.open = jest.fn(() => result.opened);
+		const result = {};
 
 		beforeEach(() => {
 			result.opened = {};
