@@ -18,12 +18,12 @@ const mergeConfig = {
 	routerFunctions: mergeObjects,
 };
 
-function mergeModule(...configs) {
+function mergeRouterConfig(...configs) {
 	return configs.reduce((acc, config) => reduceConfig(acc, config, mergeConfig), {});
 }
 
 function getModule(...args) {
-	const options = mergeModule(args);
+	const options = mergeRouterConfig(...args);
 	const history = options.history || hashHistory;
 	const registry = {};
 	if (options.routerFunctions) {

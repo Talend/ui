@@ -8,4 +8,27 @@ describe('getModule', () => {
 		const mod = getModule({ routerFunctions });
 		expect(mod.cmfModule.registry).toEqual({ '_.route.hook:foo': routerFunctions.foo });
 	});
+	it('should support multiple args', () => {
+		const config = {
+			routerFunctions: {
+				foo: jest.fn(),
+			},
+			sagaRouterConfig: {
+				'/foo': jest.fn(),
+			},
+		};
+		const configBis = {
+			routerFunctions: {
+				bar: jest.fn(),
+			},
+			sagaRouterConfig: {
+				'/foo/bar': jest.fn(),
+			},
+		};
+		const mod = getModule(config, configBis);
+		expect(mod.cmfModule.registry).toEqual({
+			'_.route.hook:foo': config.routerFunctions.foo,
+			'_.route.hook:bar': configBis.routerFunctions.bar,
+		});
+	});
 });
