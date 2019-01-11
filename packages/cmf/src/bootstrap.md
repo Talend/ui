@@ -29,7 +29,7 @@ cmf.bootstrap({
 | saga | function | the main saga to start  |
 | sagas | Object | undefined | Same as `components`  |
 | httpMiddleware | function | undefined | Override the default http middleware |
-| preReducer | function | undefined | Redux preReducer, called on every actions before reducer |
+| preReducer | Array or function | undefined | Redux preReducer, called on every actions before reducer |
 | enhancer | function | undefined |Redux enhancer |
 | reducer | Object or function | undefined | Redux reducer. This is added with the internal reducers. |
 | preloadedState | Object | undefined | Redux state to preload. This is the initial state on Redux bootstrap. |
