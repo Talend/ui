@@ -27,7 +27,6 @@ export default function ResourcePicker({ collection, toolbar }) {
 	);
 }
 
-
 ResourcePicker.defaultProps = {
 	collection: [],
 };
