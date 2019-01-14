@@ -3,23 +3,24 @@ const fs = require('fs');
 const path = require('path');
 const rimraf = require('rimraf');
 const spawn = require('cross-spawn');
-const template = require('lodash.template');
 
 const error = require('../common/error');
 const { printInfo, printRunning, printSuccess, printSection } = require('../common/log');
+const generatePackageJson = require('../generators/package.generator');
+const generateIndexJS = require('../generators/index.generator');
 
 function getGithubVariables() {
 	const { GITHUB_LOGIN, GITHUB_TOKEN } = process.env;
 	if (!GITHUB_LOGIN) {
 		error(`
 			In order to connect to Github, you need to pass the GITHUB_LOGIN env variable.
-			> GITHUB_LOGIN=XXX talend-scripts i18n-to-github
+			> GITHUB_LOGIN=XXX talend-scripts i18n-deploy
 		`);
 	}
 	if (!GITHUB_TOKEN) {
 		error(`
 			In order to connect to Github, you need to pass the GITHUB_TOKEN env variable.
-			> GITHUB_TOKEN=XXX talend-scripts i18n-to-github
+			> GITHUB_TOKEN=XXX talend-scripts i18n-deploy
 		`);
 	}
 
@@ -71,7 +72,7 @@ function switchToBranch({ githubUrl, branchName }, repoCmdContext) {
 	}
 }
 
-function generateNpmModule(options, repoCmdContext, module) {
+function generateNpmModule(options, repoCmdContext) {
 	const packageJsonPath = path.join(repoCmdContext.cwd, 'package.json');
 
 	if (fs.existsSync(packageJsonPath)) {
@@ -87,92 +88,25 @@ function generateNpmModule(options, repoCmdContext, module) {
 
 		printSuccess(`${packageJson.name} version: ${previousVersion} --> ${packageJson.version}`);
 	} else {
-		// generate package.json
-		printRunning('Generating package.json');
-		const packageJson = {
-			name: `@talend/locales-${options.project.toLowerCase()}`,
-			version: `${options.version}.0`,
-			main: 'index.js',
-			license: 'Apache-2.0',
-			author: 'Talend Frontend <frontend@talend.com>',
-			repository: {
-				type: 'git',
-				url: options.originalGithubUrl,
-			},
-		};
-		if (module.private) {
-			packageJson.private = true;
-		}
-		fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
-		printSuccess(`Package.json saved to ${packageJsonPath}`);
+		generatePackageJson(packageJsonPath, options);
 	}
 
-	// Get languages definitions
-	// name: folder name
-	// absPath: folder absolute path
-	// namespaces: the name of the files it contains
-	// 		--> "toto.json tata.json" --> namespaces = ['toto', 'tata']
-	const languageDirectories = fs
-		.readdirSync(repoCmdContext.cwd)
-		.map(name => ({
-			name,
-			absPath: path.join(repoCmdContext.cwd, name),
-		}))
-		.filter(({ name }) => name !== '.git')
-		.filter(({ absPath }) => fs.lstatSync(absPath).isDirectory())
-		.map(directory => ({
-			...directory,
-			language: directory.name.substr(0, directory.name.indexOf('_')),
-			namespaces: fs
-				.readdirSync(directory.absPath)
-				.map(fileName => fileName.match(/(.*)\.json/)[1]),
-		}));
-
-	// generate index.js
-	const languageTemplate = template('const <%= language %> = {\n<%= filesRequires %>\n};');
-	const requireTemplate = template(
-		"	'<%= namespace %>': require('./<%= folderName %>/<%= namespace %>.json'),",
-	);
-	const exportsTemplate = template('module.exports = { <%= languages %> };\n');
-
-	printRunning('Generating index.js');
-	const languagesDefinitions = languageDirectories
-		.map(directory => {
-			const filesRequires = directory.namespaces
-				.map(namespace => requireTemplate({ namespace, folderName: directory.name }))
-				.join('\n');
-			return languageTemplate({ language: directory.language, filesRequires });
-		})
-		.join('\n');
-	const exportsDefinitions = exportsTemplate({
-		languages: languageDirectories.map(({ language }) => language).join(','),
-	});
-
-	const indexJsPath = path.join(repoCmdContext.cwd, 'index.js');
-	fs.writeFileSync(indexJsPath, `${languagesDefinitions}\n${exportsDefinitions}`);
-	printSuccess(`index.js saved to ${indexJsPath}`);
+	generateIndexJS(repoCmdContext.cwd);
 }
 
-function generateModule(options, repoCmdContext, module) {
+function generateModule(options, repoCmdContext) {
 	printSection('Module generation');
 
-	if (!module) {
-		printInfo(
-			'No module requested. If it\'s a mistake, please provide the "module" option to talend-i18n.json.',
-		);
-	}
-	switch (module.type) {
+	switch (options.type) {
 		case 'npm':
-			generateNpmModule(options, repoCmdContext, module);
+			generateNpmModule(options, repoCmdContext);
 			break;
 		case 'mvn':
 			printInfo('Module mvn is not available yet');
 			break;
 		default:
-			error(
-				`You requested a module with the type "${
-					module.type
-				}" which is not supported. Please fix your talend-i18n.json.`,
+			printInfo(
+				'No module requested. If it\'s a mistake, please provide the "module" option to talend-i18n.json.',
 			);
 			break;
 	}
@@ -246,18 +180,25 @@ function toGithub({ load, github, module }) {
 	i18nContent.forEach(version => {
 		printSection(`Version ${version}`);
 		const versionOptions = {
+			// github
 			branchName: `${project}/${version}`,
 			originalGithubUrl: url,
 			githubUrl,
-			i18nFolder: path.join(i18nFolder, version),
 			localesRepoPath,
+
+			// project
+			i18nFolder: path.join(i18nFolder, version),
 			project,
 			version,
+
+			// module generation
+			private: module.private,
+			type: module.type,
 		};
 		switchToBranch(versionOptions, repoCmdContext);
-		generateModule(versionOptions, repoCmdContext, module);
+		generateModule(versionOptions, repoCmdContext);
 		pushI18nFiles(versionOptions, repoCmdContext);
-		deployModule(versionOptions, repoCmdContext, module);
+		deployModule(versionOptions, repoCmdContext);
 	});
 }
 
