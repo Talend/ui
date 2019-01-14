@@ -83,8 +83,7 @@ function getProject(data) {
 		}
 		return uiProject;
 	}
-
-	return fetch(`${xtm.apiUrl}/projects?customerIds=${xtm.customerId}`, {
+	return fetch(`${xtm.apiUrl}/projects?customerIds=${xtm.customerId}&status=STARTED`, {
 		headers: { Authorization: `XTM-Basic ${xtm.token}` },
 	})
 		.then(handleError)
