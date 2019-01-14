@@ -19,27 +19,6 @@ function euclideanModulo(dividend, divisor) {
 	return modulo < 0 ? modulo + Math.abs(divisor) : modulo;
 }
 
-function DateTimeValidation({ isValid, onFinish, t }) {
-	return (
-		<div className={theme.footer}>
-			<Action
-				name="action-datepicker-validate"
-				bsStyle="primary"
-				role="button"
-				label={t('DATEPICKER_VALIDATE_BUTTON', { defaultValue: 'Done' })}
-				onClick={onFinish}
-				disabled={!isValid}
-			/>
-		</div>
-	);
-}
-
-DateTimeValidation.propTypes = {
-	isValid: PropTypes.bool,
-	onFinish: PropTypes.func,
-	t: PropTypes.func,
-};
-
 class DateTimeView extends React.PureComponent {
 	static propTypes = {
 		allowFocus: PropTypes.bool,
@@ -47,8 +26,6 @@ class DateTimeView extends React.PureComponent {
 			monthIndex: PropTypes.number.isRequired,
 			year: PropTypes.number.isRequired,
 		}).isRequired,
-		isValid: PropTypes.bool,
-		onFinish: PropTypes.func,
 		onTitleClick: PropTypes.func.isRequired,
 		onSelectMonthYear: PropTypes.func.isRequired,
 		onSelectDate: PropTypes.func.isRequired,
@@ -164,7 +141,6 @@ class DateTimeView extends React.PureComponent {
 			<ViewLayout
 				header={header}
 				bodyElement={bodyElement}
-				footerElement={!this.props.formMode && <DateTimeValidation {...this.props} />}
 			/>
 		);
 	}

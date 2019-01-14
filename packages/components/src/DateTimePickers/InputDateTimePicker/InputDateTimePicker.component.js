@@ -6,7 +6,9 @@ import { Overlay, Popover } from 'react-bootstrap';
 import isSameSecond from 'date-fns/is_same_second';
 import keycode from 'keycode';
 import uuid from 'uuid';
+import { translate } from 'react-i18next';
 
+import { Action } from '../../Actions';
 import DateTimePicker from '../DateTimePicker';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 import {
@@ -18,6 +20,8 @@ import {
 } from './date-extraction';
 
 import theme from './InputDateTimePicker.scss';
+import I18N_DOMAIN_COMPONENTS from '../../constants';
+import getDefaultT from '../../translate';
 
 const warnOnce = {};
 
@@ -30,6 +34,33 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'useTime',
 	'useUTC',
 ];
+
+
+function DateTimeValidation({ onSubmit, t }) {
+	return (
+		<div className={theme.footer}>
+			<Action
+				name="action-datepicker-validate"
+				bsStyle="primary"
+				role="button"
+				label={t('DATEPICKER_VALIDATE_BUTTON', { defaultValue: 'Done' })}
+				onClick={onSubmit}
+			/>
+		</div>
+	);
+}
+
+DateTimeValidation.propTypes = {
+	isValid: PropTypes.bool,
+	onSubmit: PropTypes.func,
+	t: PropTypes.func,
+};
+
+DateTimeValidation.defaultProps = {
+	t: getDefaultT(),
+};
+
+export const DateValidationButton = translate(I18N_DOMAIN_COMPONENTS)(DateTimeValidation);
 
 class InputDateTimePicker extends React.Component {
 	static propTypes = {
@@ -78,7 +109,7 @@ class InputDateTimePicker extends React.Component {
 
 		this.onBlur = this.onBlur.bind(this);
 		this.onFocus = this.onFocus.bind(this);
-		this.onFinish = this.onFinish.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onPickerChange = this.onPickerChange.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
@@ -109,9 +140,11 @@ class InputDateTimePicker extends React.Component {
 
 		const errorUpdated = errorMessage !== this.state.errorMessage;
 
-		// updating initial state
-		this.initialState = { ...this.state };
-		if (this.props.onChange && (this.state.datetimeUpdated || errorUpdated)) {
+		const datetimeUpdated = this.dateHasChanged(this.state);
+
+		if (this.props.onChange && (datetimeUpdated || errorUpdated)) {
+			// we need to update the initial state once it has been changed
+			this.initialState = { ...this.state };
 			this.props.onChange(event, { errorMessage, datetime, textInput, origin });
 		}
 	}
@@ -119,8 +152,7 @@ class InputDateTimePicker extends React.Component {
 	onInputChange(event) {
 		const textInput = event.target.value;
 		const nextState = extractPartsFromTextInput(textInput, this.getDateOptions());
-		const datetimeUpdated = this.dateHasChanged(nextState);
-		this.setState({ ...nextState, datetimeUpdated });
+		this.setState({ ...nextState });
 	}
 
 	onKeyDown(event) {
@@ -141,10 +173,6 @@ class InputDateTimePicker extends React.Component {
 					this.setPickerVisibility(true);
 				}
 				break;
-			case keycode.codes.enter:
-				// commiting existing change on enter
-				this.onFinish(event, 'INPUT');
-				break;
 			default:
 				break;
 		}
@@ -152,10 +180,9 @@ class InputDateTimePicker extends React.Component {
 
 	onPickerChange(event, { date, time }) {
 		const nextState = extractPartsFromDateAndTime(date, time, this.getDateOptions());
-		const datetimeUpdated = this.dateHasChanged(nextState);
-		this.setState({ ...nextState, datetimeUpdated }, () => {
-			if (this.props.formMode) {
-				this.onFinish(event, 'PICKER');
+		this.setState({ ...nextState }, () => {
+			if (!this.props.formMode) {
+				this.onSubmit(event, 'PICKER');
 			}
 		});
 	}
@@ -181,10 +208,9 @@ class InputDateTimePicker extends React.Component {
 		this.openPicker();
 	}
 
-	onFinish(event, origin) {
-		this.setState({ datetimeUpdated: false });
+	onSubmit(event, origin) {
 		this.onChange(event, origin);
-		if (!this.props.formMode) {
+		if (this.props.formMode) {
 			this.onBlur(event);
 		}
 	}
@@ -217,7 +243,7 @@ class InputDateTimePicker extends React.Component {
 
 	dateHasChanged(nextState) {
 		const datetime = nextState.datetime;
-		return datetime !== this.state.datetime && !isSameSecond(datetime, this.state.datetime);
+		return datetime !== this.initialState.datetime && !isSameSecond(datetime, this.initialState.datetime);
 	}
 
 	render() {
@@ -254,20 +280,20 @@ class InputDateTimePicker extends React.Component {
 				>
 					<Overlay container={this.dropdownWrapperRef} show={this.state.showPicker}>
 						<Popover className={theme.popover} id={this.popoverId}>
-							<DateTimePicker
-								manageFocus
-								selection={{
-									date: this.state.date,
-									time: this.state.time,
-								}}
-								onSubmit={this.onPickerChange}
-								useTime={this.props.useTime}
-								useSeconds={this.props.useSeconds}
-								useUTC={this.props.useUTC}
-								onFinish={this.onFinish}
-								isValid={!this.state.errorMessage}
-								formMode={this.props.formMode}
-							/>
+							<form>
+								<DateTimePicker
+									manageFocus
+									selection={{
+										date: this.state.date,
+										time: this.state.time,
+									}}
+									onSubmit={this.onPickerChange}
+									useTime={this.props.useTime}
+									useSeconds={this.props.useSeconds}
+									useUTC={this.props.useUTC}
+									formMode={this.props.formMode}
+								/>
+								{ this.props.formMode && <DateValidationButton onSubmit={this.onSubmit} /> }							</form>
 						</Popover>
 					</Overlay>
 				</div>
