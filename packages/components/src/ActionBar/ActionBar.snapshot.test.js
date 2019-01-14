@@ -185,10 +185,7 @@ describe('ActionBar.SwitchActions', () => {
 	});
 	it('should render one Action on navbar-left with an injection', () => {
 		const countComponent = (
-			<ActionBarComponent.Count
-				selected={3}
-				t={(key, value) => `${value.selected} ${key}`}
-			/>
+			<ActionBarComponent.Count selected={3} t={(key, value) => `${value.selected} ${key}`} />
 		);
 		const components = {
 			'before-actions': countComponent,
