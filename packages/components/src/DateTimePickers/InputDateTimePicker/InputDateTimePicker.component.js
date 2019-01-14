@@ -35,7 +35,6 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'useUTC',
 ];
 
-
 function DateTimeValidation({ onSubmit, t }) {
 	return (
 		<div className={theme.footer}>
@@ -243,7 +242,9 @@ class InputDateTimePicker extends React.Component {
 
 	dateHasChanged(nextState) {
 		const datetime = nextState.datetime;
-		return datetime !== this.initialState.datetime && !isSameSecond(datetime, this.initialState.datetime);
+		return (
+			datetime !== this.initialState.datetime && !isSameSecond(datetime, this.initialState.datetime)
+		);
 	}
 
 	render() {
@@ -293,7 +294,8 @@ class InputDateTimePicker extends React.Component {
 									useUTC={this.props.useUTC}
 									formMode={this.props.formMode}
 								/>
-								{ this.props.formMode && <DateValidationButton onSubmit={this.onSubmit} /> }							</form>
+								{this.props.formMode && <DateValidationButton onSubmit={this.onSubmit} />}{' '}
+							</form>
 						</Popover>
 					</Overlay>
 				</div>

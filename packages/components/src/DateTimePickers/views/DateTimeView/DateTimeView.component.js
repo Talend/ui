@@ -137,12 +137,7 @@ class DateTimeView extends React.PureComponent {
 			</div>
 		);
 
-		return (
-			<ViewLayout
-				header={header}
-				bodyElement={bodyElement}
-			/>
-		);
+		return <ViewLayout header={header} bodyElement={bodyElement} />;
 	}
 }
 
