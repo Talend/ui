@@ -70,5 +70,83 @@ describe('Resource component snaps', () => {
 
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
+
+		it('should render a Resource with CERTIFIED flag', () => {
+			const collection = [
+				{
+					id: 0,
+					name: 'Title with few actions',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT',
+					icon: 'talend-file-xls-o',
+					flags: ['CERTIFIED'],
+				},
+			];
+			const props = {
+				parent: {
+					props: {
+						collection,
+						rowGetter: index => collection[index],
+					},
+				},
+				index: 0,
+			};
+
+			const wrapper = shallow(<Resource.WrappedComponent {...props} />);
+
+			expect(wrapper.getElement()).toMatchSnapshot();
+		});
+
+		it('should render a Resource with FAVORITE flag', () => {
+			const collection = [
+				{
+					id: 0,
+					name: 'Title with few actions',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT',
+					icon: 'talend-file-xls-o',
+					flags: ['FAVORITE'],
+				},
+			];
+			const props = {
+				parent: {
+					props: {
+						collection,
+						rowGetter: index => collection[index],
+					},
+				},
+				index: 0,
+			};
+
+			const wrapper = shallow(<Resource.WrappedComponent {...props} />);
+
+			expect(wrapper.getElement()).toMatchSnapshot();
+		});
+
+		it('should render a Resource with both CERTIFIED and FAVORITE flags', () => {
+			const collection = [
+				{
+					id: 0,
+					name: 'Title with few actions',
+					modified: '2016-09-22',
+					author: 'Jean-Pierre DUPONT',
+					icon: 'talend-file-xls-o',
+					flags: ['CERTIFIED', 'FAVORITE'],
+				},
+			];
+			const props = {
+				parent: {
+					props: {
+						collection,
+						rowGetter: index => collection[index],
+					},
+				},
+				index: 0,
+			};
+
+			const wrapper = shallow(<Resource.WrappedComponent {...props} />);
+
+			expect(wrapper.getElement()).toMatchSnapshot();
+		});
 	});
 });

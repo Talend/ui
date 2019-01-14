@@ -2,22 +2,44 @@ import React from 'react';
 import { hashHistory } from 'react-router';
 import { routerReducer, routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 import cmf from '@talend/react-cmf';
+import { getReduceConfig, mergeObjects, getUnique } from '@talend/react-cmf/lib/cmfModule.merge';
 import { fork } from 'redux-saga/effects';
 import UIRouter from './UIRouter';
 import expressions from './expressions';
 import sagaRouter from './sagaRouter';
 import * as selectors from './selectors';
 import documentTitle from './sagas/documentTitle';
+import cmfRouterMiddleware from './middleware';
+import { REGISTRY_HOOK_PREFIX } from './route';
 
-function getModule(options = {}) {
+const mergeConfig = {
+	history: getUnique,
+	sagaRouterConfig: mergeObjects,
+	routerFunctions: mergeObjects,
+};
+
+function mergeRouterConfig(...configs) {
+	return configs.reduce(getReduceConfig(mergeConfig), {});
+}
+
+function getModule(...args) {
+	const options = mergeRouterConfig(...args);
 	const history = options.history || hashHistory;
+	const registry = {};
+	if (options.routerFunctions) {
+		Object.keys(options.routerFunctions).reduce((acc, key) => {
+			// eslint-disable-next-line no-param-reassign
+			acc[`${REGISTRY_HOOK_PREFIX}:${key}`] = options.routerFunctions[key];
+			return acc;
+		}, registry);
+	}
 	function* saga() {
 		yield fork(documentTitle);
 		if (options.sagaRouterConfig) {
 			yield fork(sagaRouter, history, options.sagaRouterConfig);
 		}
 	}
-	const middlewares = [routerMiddleware(history)];
+	const middlewares = [routerMiddleware(history), cmfRouterMiddleware];
 	let routerHistory;
 	function storeCallback(store) {
 		routerHistory = syncHistoryWithStore(history, store);
@@ -36,6 +58,7 @@ function getModule(options = {}) {
 			middlewares,
 			saga,
 			storeCallback,
+			registry,
 		},
 		RootComponent: Router,
 	};

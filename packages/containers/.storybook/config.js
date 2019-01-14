@@ -190,7 +190,7 @@ api.expression.register('modelHasLabel', context => {
 
 function loadStories() {
 	Object.keys(examples).forEach(example => {
- 		const state = mock.state();
+		const state = mock.state();
 		state.routing = {
 			locationBeforeTransitions: {
 				pathname: '/storybook',
