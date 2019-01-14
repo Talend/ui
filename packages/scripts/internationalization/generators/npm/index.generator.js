@@ -2,13 +2,18 @@ const fs = require('fs');
 const path = require('path');
 const template = require('lodash.template');
 
-const { printRunning, printSuccess } = require('../common/log');
+const { printRunning, printSuccess } = require('../../common/log');
 
 const languageTemplate = template('const <%= language %> = {\n<%= filesRequires %>\n};');
 const requireTemplate = template(
 	"	'<%= namespace %>': require('./<%= folderName %>/<%= namespace %>.json'),",
 );
-const exportsTemplate = template('module.exports = { <%= languages %> };\n');
+const exportsTemplate = template(`
+module.exports = {
+	namespaces: [<%= namespaces %>],
+ 	locales: { <%= languages %> },
+};
+`);
 
 /**
  * Generate i18n project index.js
@@ -57,7 +62,10 @@ module.exports = function generateIndexJS(projectPath) {
 		})
 		.join('\n');
 	const exportsDefinitions = exportsTemplate({
-		languages: languageDirectories.map(({ language }) => language).join(','),
+		namespaces: [...new Set(languageDirectories.flatMap(directory => directory.namespaces))]
+			.map(n => `'${n}'`)
+			.join(', '),
+		languages: languageDirectories.map(({ language }) => language).join(', '),
 	});
 
 	const indexJsPath = path.join(projectPath, 'index.js');

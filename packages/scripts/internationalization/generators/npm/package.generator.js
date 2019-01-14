@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 const fs = require('fs');
 const path = require('path');
-const { printRunning, printSuccess, printInfo } = require('../common/log');
+const { printRunning, printSuccess, printInfo } = require('../../common/log');
 
 /**
  * Increment last version in package.json
