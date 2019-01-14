@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SortOptions component snaps renderers should not render SortOptions when no type is specified 1`] = `null`;
+exports[`SortOptions component snaps should not render SortOptions when no type is specified 1`] = `null`;
 
-exports[`SortOptions component snaps renderers should render SortOptions in default mode 1`] = `
+exports[`SortOptions component snaps should render SortOptions in default mode 1`] = `
 <div
   className="sort-options theme-sort-options"
 >
@@ -28,7 +28,7 @@ exports[`SortOptions component snaps renderers should render SortOptions in defa
 </div>
 `;
 
-exports[`SortOptions component snaps renderers should render SortOptions with date in ASC mode 1`] = `
+exports[`SortOptions component snaps should render SortOptions with date in ASC mode 1`] = `
 <div
   className="sort-options theme-sort-options"
 >
@@ -54,7 +54,7 @@ exports[`SortOptions component snaps renderers should render SortOptions with da
 </div>
 `;
 
-exports[`SortOptions component snaps renderers should render SortOptions with name in ASC mode 1`] = `
+exports[`SortOptions component snaps should render SortOptions with name in ASC mode 1`] = `
 <div
   className="sort-options theme-sort-options"
 >
@@ -80,7 +80,7 @@ exports[`SortOptions component snaps renderers should render SortOptions with na
 </div>
 `;
 
-exports[`SortOptions component snaps renderers should render SortOptions with only the date type 1`] = `
+exports[`SortOptions component snaps should render SortOptions with only the date type 1`] = `
 <div
   className="sort-options theme-sort-options"
 >
@@ -99,7 +99,7 @@ exports[`SortOptions component snaps renderers should render SortOptions with on
 </div>
 `;
 
-exports[`SortOptions component snaps renderers should render SortOptions with only the name type 1`] = `
+exports[`SortOptions component snaps should render SortOptions with only the name type 1`] = `
 <div
   className="sort-options theme-sort-options"
 >
