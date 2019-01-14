@@ -46,6 +46,7 @@ class InputDateTimePicker extends React.Component {
 		useSeconds: PropTypes.bool,
 		useTime: PropTypes.bool,
 		useUTC: PropTypes.bool,
+		formMode: PropTypes.bool,
 	};
 
 	static defaultProps = {
@@ -53,6 +54,7 @@ class InputDateTimePicker extends React.Component {
 		useSeconds: false,
 		useTime: false,
 		useUTC: false,
+		formMode: false,
 	};
 
 	constructor(props) {
@@ -125,7 +127,7 @@ class InputDateTimePicker extends React.Component {
 		switch (event.keyCode) {
 			case keycode.codes.esc:
 				this.inputRef.focus();
-				this.setState({ ...this.initialState });
+				this.resetDate();
 				this.setPickerVisibility(false);
 				break;
 			case keycode.codes.down:
@@ -152,7 +154,7 @@ class InputDateTimePicker extends React.Component {
 		const nextState = extractPartsFromDateAndTime(date, time, this.getDateOptions());
 		const datetimeUpdated = this.dateHasChanged(nextState);
 		this.setState({ ...nextState, datetimeUpdated }, () => {
-			if (!this.props.useTime) {
+			if (this.props.formMode) {
 				this.onFinish(event, 'PICKER');
 			}
 		});
@@ -166,6 +168,7 @@ class InputDateTimePicker extends React.Component {
 		 So here we schedule it, and on focus we cancel it.
 		 */
 		this.blurTimeout = setTimeout(() => {
+			this.resetDate();
 			this.closePicker();
 			if (this.props.onBlur) {
 				this.props.onBlur(event);
@@ -181,7 +184,13 @@ class InputDateTimePicker extends React.Component {
 	onFinish(event, origin) {
 		this.setState({ datetimeUpdated: false });
 		this.onChange(event, origin);
-		this.onBlur(event);
+		if (!this.props.formMode) {
+			this.onBlur(event);
+		}
+	}
+
+	resetDate() {
+		this.setState({ ...this.initialState });
 	}
 
 	setPickerVisibility(isShown) {
@@ -257,6 +266,7 @@ class InputDateTimePicker extends React.Component {
 								useUTC={this.props.useUTC}
 								onFinish={this.onFinish}
 								isValid={!this.state.errorMessage}
+								formMode={this.props.formMode}
 							/>
 						</Popover>
 					</Overlay>

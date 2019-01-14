@@ -61,6 +61,7 @@ class DateTimeView extends React.PureComponent {
 		useSeconds: PropTypes.bool,
 		useTime: PropTypes.bool,
 		useUTC: PropTypes.bool,
+		formMode: PropTypes.bool,
 		t: PropTypes.func.isRequired,
 	};
 
@@ -163,7 +164,7 @@ class DateTimeView extends React.PureComponent {
 			<ViewLayout
 				header={header}
 				bodyElement={bodyElement}
-				footerElement={this.props.useTime && <DateTimeValidation {...this.props} />}
+				footerElement={!this.props.formMode && <DateTimeValidation {...this.props} />}
 			/>
 		);
 	}

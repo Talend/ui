@@ -88,6 +88,24 @@ storiesOf('DatePicker', module)
 			/>
 		</div>
 	))
+	.add('Date picker form mode', () => (
+		<div>
+			<IconsProvider />
+			<h1>DatePicker</h1>
+			<p>
+				Default date picker doesn't include time<br />
+				It comes with classical keyboard gesture.
+			</p>
+			<TestPickerWrapper
+				id="my-date-picker"
+				selectedDateTime={new Date(2018, 4, 13, 12, 30)}
+				onChange={action('onChange')}
+				onFinish={action('onFinish')}
+				name="Datetime"
+				formMode={true}
+			/>
+		</div>
+	))
 	.add('Date picker - time', () => (
 		<div>
 			<IconsProvider />
