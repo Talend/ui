@@ -6,15 +6,12 @@ import { translate } from 'react-i18next';
 import FieldTemplate from '../FieldTemplate';
 import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
-import callTrigger from '../../trigger';
-import { CHANGE } from './constants';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-const CHANGE_EVENT = { type: CHANGE };
 const PROPS_TO_OMIT = [
 	'schema',
 	'errorMessage',
@@ -24,7 +21,6 @@ const PROPS_TO_OMIT = [
 	'onFinish',
 	'onTrigger',
 	'properties',
-	'resolveName',
 ];
 
 class ResourcePicker extends Component {
@@ -32,8 +28,7 @@ class ResourcePicker extends Component {
 		super(props);
 
 		this.onChange = this.onChange.bind(this);
-		this.callTrigger = this.callTrigger.bind(this);
-		this.onTrigger = this.onTrigger.bind(this);
+		this.onFilter = this.onFilter.bind(this);
 		this.nameFilterChanged = this.nameFilterChanged.bind(this);
 		this.stateFilterChanged = this.stateFilterChanged.bind(this);
 		this.sortOptionChanged = this.sortOptionChanged.bind(this);
@@ -45,11 +40,10 @@ class ResourcePicker extends Component {
 				favorites: false,
 			},
 		};
+
+		this.onFilter();
 	}
 
-	componentDidMount() {
-		this.callTrigger({ type: CHANGE });
-	}
 	/**
 	 * On change callback
 	 * We call onFinish to trigger validation on resource picker item selection
@@ -59,28 +53,22 @@ class ResourcePicker extends Component {
 	onChange(event, payload) {
 		const mergedSchema = this.props.schema;
 		const payloadWithSchema = { ...payload, schema: mergedSchema };
+
 		this.callTrigger(event, payload);
 		this.props.onChange(event, payloadWithSchema);
 		this.props.onFinish(event, payloadWithSchema);
 	}
 
-	onTrigger(event, trigger) {
-		return this.props.onTrigger(event, {
-			trigger,
+	onFilter(event) {
+		this.setState({ isLoading: true });
+		this.props.onTrigger(event, {
+			trigger: {
+				parameters: this.state.options,
+			},
 			schema: this.props.schema,
-			errors: this.props.errors,
-			properties: this.props.properties,
-		});
-	}
-
-	callTrigger(event) {
-		callTrigger(event, {
-			eventNames: [event.type],
-			triggersDefinitions: this.props.schema.triggers,
-			onTrigger: this.onTrigger,
-			onLoading: isLoading => this.setState({ isLoading }),
-			onResponse: data => this.setState(data),
-		});
+		})
+			.then(data => this.setState(data))
+			.finally(() => this.setState({ isLoading: false }));
 	}
 
 	nameFilterChanged(event) {
@@ -95,7 +83,7 @@ class ResourcePicker extends Component {
 						name: target.value || '',
 					},
 				}),
-				() => this.onChange(event, this.state.options),
+				() => this.onFilter(null, this.state.options),
 			);
 		}
 	}
@@ -109,7 +97,7 @@ class ResourcePicker extends Component {
 					[option]: value,
 				},
 			}),
-			() => this.onChange(CHANGE_EVENT, this.state.options),
+			() => this.onFilter(null, this.state.options),
 		);
 	}
 
@@ -125,7 +113,7 @@ class ResourcePicker extends Component {
 					},
 				},
 			}),
-			() => this.onChange(CHANGE_EVENT, this.state.options),
+			() => this.onFilter(null, this.state.options),
 		);
 	}
 
@@ -170,6 +158,7 @@ class ResourcePicker extends Component {
 					placeholder={this.props.schema.placeholder}
 					readOnly={this.props.schema.readOnly || false}
 					toolbar={toolbar}
+					onChange={this.onChange}
 				/>
 			</FieldTemplate>
 		);
@@ -178,7 +167,6 @@ class ResourcePicker extends Component {
 
 ResourcePicker.displayName = 'ResourcePicker field';
 ResourcePicker.defaultProps = {
-	resolveName: value => value,
 	value: '',
 	t: getDefaultT(),
 };
@@ -191,9 +179,6 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		onTrigger: PropTypes.func,
-		errors: PropTypes.object,
-		properties: PropTypes.object,
-		resolveName: PropTypes.func,
 		schema: PropTypes.shape({
 			schema: PropTypes.shape({
 				type: PropTypes.string,
@@ -232,7 +217,6 @@ if (process.env.NODE_ENV !== 'production') {
 				),
 			}),
 		}),
-		value: PropTypes.string,
 		t: PropTypes.func,
 	};
 }

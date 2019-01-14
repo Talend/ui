@@ -17,12 +17,16 @@ function capitalizeFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function getFilteredCollection(value) {
+function getFilteredCollection({ name, certified, favorites, orders }) {
+	const methods = {
+		asc: (a, b) => a > b ? - 1 : 1,
+		desc: (a, b) => a < b ? - 1 : 1,
+	};
 	const collection = [
 		{
 			id: 0,
 			name: 'Title with few actions',
-			modified: '2016-09-22',
+			modified: 1442880000000,
 			icon: 'talend-file-xls-o',
 			author: 'First Author',
 			flags: ['CERTIFIED', 'FAVORITE'],
@@ -30,14 +34,14 @@ function getFilteredCollection(value) {
 		{
 			id: 1,
 			name: 'Title with lot of actions',
-			modified: '2016-09-22',
+			modified: 1537574400000,
 			icon: 'talend-file-xls-o',
 			author: 'Second Author',
 		},
 		{
 			id: 2,
 			name: 'Title with persistant actions',
-			modified: '2016-09-22',
+			modified: 1474502400000,
 			author: 'Jean-Pierre DUPONT',
 			icon: 'talend-file-xls-o',
 			flags: ['FAVORITE'],
@@ -45,7 +49,7 @@ function getFilteredCollection(value) {
 		{
 			id: 3,
 			name: 'Title with icon',
-			modified: '2016-09-22',
+			modified: 1506038400000,
 			author: 'Third Author',
 			icon: 'talend-file-xls-o',
 			flags: ['CERTIFIED'],
@@ -53,24 +57,43 @@ function getFilteredCollection(value) {
 		{
 			id: 4,
 			name: 'Title in input mode',
-			modified: '2016-09-22',
+			modified: 1506038400000,
 			author: 'Jean-Pierre DUPONT',
 			icon: 'talend-file-xls-o',
 		},
 		{
 			id: 5,
 			name: 'Title with long long long long long long long long long long long text',
-			modified: '2016-09-22',
+			modified: 1547478328552,
 			author: 'Jean-Pierre DUPONT with super super super long text',
 			icon: 'talend-file-xls-o',
 			flags: ['CERTIFIED', 'FAVORITE'],
 		},
 	];
 
-	if (!value) {
-		return collection;
+
+	let c = collection;
+
+	if (name) {
+		c = c.filter(item => item.name.includes(name));
 	}
-	return collection.filter(item => item.name.includes(value));
+	if (certified) {
+		c = c.filter(item => item.flags && item.flags.includes('CERTIFIED'));
+	}
+	if (favorites) {
+		c = c.filter(item => item.flags && item.flags.includes('FAVORITE'));
+	}
+
+	if (orders) {
+		if (orders.name) {
+			c = c.sort((a, b) => methods[orders.name](a.name, b.name));
+		}
+		if (orders.date) {
+			c = c.sort((a, b) => methods[orders.date](a.modified, b.modified));
+		}
+	}
+
+	return c;
 }
 
 function createCommonProps(tab) {
@@ -113,7 +136,7 @@ function createCommonProps(tab) {
 			if (key === 'asyncResourcePicker') {
 				return new Promise(resolve => {
 					resolve({
-						collection: getFilteredCollection(event.target && event.target.value),
+						collection: getFilteredCollection(payload.trigger.parameters),
 					});
 				});
 			}
