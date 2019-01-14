@@ -5,20 +5,17 @@ import DebounceInput from 'react-debounce-input';
 
 import theme from './NameFilter.scss';
 
-function NameFilter({ label, placeholder, value, debounceTimeout, onChange }) {
+function NameFilter({ label, value, onChange }) {
 	return (
 		<form className={classNames('name-filter', theme['name-filter'])}>
-			{label && (
-				<label htmlFor="resource-picker-toolbar-name-filter-input" className="sr-only">
-					{label}
-				</label>
-			)}
+			<label htmlFor="resource-picker-toolbar-name-filter-input" className="sr-only">
+				{label}
+			</label>
 			<DebounceInput
 				id="resource-picker-toolbar-name-filter-input"
 				type="text"
-				placeholder={placeholder}
+				placeholder={label}
 				value={value}
-				debounceTimeout={debounceTimeout}
 				onChange={onChange}
 				className="form-control"
 				autoComplete="off"
@@ -28,17 +25,9 @@ function NameFilter({ label, placeholder, value, debounceTimeout, onChange }) {
 }
 
 NameFilter.propTypes = {
-	label: PropTypes.string,
-	placeholder: PropTypes.string,
+	label: PropTypes.string.isRequired,
 	value: PropTypes.string,
 	onChange: PropTypes.func,
-	debounceTimeout: PropTypes.number,
-};
-
-NameFilter.defaultProps = {
-	label: null,
-	placeholder: '',
-	debounceTimeout: 300,
 };
 
 export default NameFilter;

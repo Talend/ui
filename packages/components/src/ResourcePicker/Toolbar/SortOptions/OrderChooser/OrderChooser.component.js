@@ -29,7 +29,7 @@ function OrderChooser({ icon, asc, label, tooltipPlacement, onClick, ...rest }) 
 
 OrderChooser.propTypes = {
 	icon: PropTypes.string,
-	asc: PropTypes.boolean,
+	asc: PropTypes.bool,
 	label: PropTypes.string,
 	onClick: PropTypes.func.isRequired,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,

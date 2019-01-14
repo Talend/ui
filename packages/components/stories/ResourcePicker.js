@@ -70,7 +70,6 @@ const collection = [
 const name = {
 	onChange: action('Name filter changed'),
 	label: 'Toolbar name label',
-	placeholder: 'Toolbar name placeholder',
 };
 
 const sort = {
