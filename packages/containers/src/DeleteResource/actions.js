@@ -8,7 +8,7 @@ import deleteResourceConst from './constants';
  */
 function open(event, data, context) {
 	const { model } = data;
-	const pathname = context.store ? routerAPI.selectors.getPath(context.store.getState()) : '/';
+	const pathname = context ? routerAPI.selectors.getPath(context.getState()) : '/';
 	return {
 		type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE,
 		cmf: {
