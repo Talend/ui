@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SortOptions component snaps renderers should not render SortOptions when no type is specified 1`] = `null`;
+exports[`SortOptions component snaps should not render SortOptions when no type is specified 1`] = `null`;
 
-exports[`SortOptions component snaps renderers should render SortOptions in default mode 1`] = `
+exports[`SortOptions component snaps should render SortOptions in default mode 1`] = `
 <div
   className="sort-options theme-sort-options"
 >
@@ -14,21 +14,21 @@ exports[`SortOptions component snaps renderers should render SortOptions in defa
   <OrderChooser
     asc={false}
     icon="talend-sort-az"
-    label="Sort by name"
+    label="Sort by name (asc)"
     onClick={[Function]}
     tooltipPlacement="top"
   />
   <OrderChooser
     asc={false}
     icon="talend-sort-desc"
-    label="Sort by date"
+    label="Sort by date (asc)"
     onClick={[Function]}
     tooltipPlacement="top"
   />
 </div>
 `;
 
-exports[`SortOptions component snaps renderers should render SortOptions with date in ASC mode 1`] = `
+exports[`SortOptions component snaps should render SortOptions with date in ASC mode 1`] = `
 <div
   className="sort-options theme-sort-options"
 >
@@ -40,47 +40,21 @@ exports[`SortOptions component snaps renderers should render SortOptions with da
   <OrderChooser
     asc={false}
     icon="talend-sort-az"
-    label="Sort by name"
+    label="Sort by name (asc)"
     onClick={[Function]}
     tooltipPlacement="top"
   />
   <OrderChooser
     asc={true}
     icon="talend-sort-desc"
-    label="Sort by date"
+    label="Sort by date (desc)"
     onClick={[Function]}
     tooltipPlacement="top"
   />
 </div>
 `;
 
-exports[`SortOptions component snaps renderers should render SortOptions with name in ASC mode 1`] = `
-<div
-  className="sort-options theme-sort-options"
->
-  <span
-    className="option-label theme-option-label"
-  >
-    Sort:
-  </span>
-  <OrderChooser
-    asc={true}
-    icon="talend-sort-az"
-    label="Sort by name"
-    onClick={[Function]}
-    tooltipPlacement="top"
-  />
-  <OrderChooser
-    asc={false}
-    icon="talend-sort-desc"
-    label="Sort by date"
-    onClick={[Function]}
-    tooltipPlacement="top"
-  />
-</div>
-`;
-
-exports[`SortOptions component snaps renderers should render SortOptions with only the date type 1`] = `
+exports[`SortOptions component snaps should render SortOptions with name in ASC mode 1`] = `
 <div
   className="sort-options theme-sort-options"
 >
@@ -91,15 +65,41 @@ exports[`SortOptions component snaps renderers should render SortOptions with on
   </span>
   <OrderChooser
     asc={true}
+    icon="talend-sort-az"
+    label="Sort by name (desc)"
+    onClick={[Function]}
+    tooltipPlacement="top"
+  />
+  <OrderChooser
+    asc={false}
     icon="talend-sort-desc"
-    label="Sort by date"
+    label="Sort by date (asc)"
     onClick={[Function]}
     tooltipPlacement="top"
   />
 </div>
 `;
 
-exports[`SortOptions component snaps renderers should render SortOptions with only the name type 1`] = `
+exports[`SortOptions component snaps should render SortOptions with only the date type 1`] = `
+<div
+  className="sort-options theme-sort-options"
+>
+  <span
+    className="option-label theme-option-label"
+  >
+    Sort:
+  </span>
+  <OrderChooser
+    asc={true}
+    icon="talend-sort-desc"
+    label="Sort by date (desc)"
+    onClick={[Function]}
+    tooltipPlacement="top"
+  />
+</div>
+`;
+
+exports[`SortOptions component snaps should render SortOptions with only the name type 1`] = `
 <div
   className="sort-options theme-sort-options"
 >
@@ -111,7 +111,7 @@ exports[`SortOptions component snaps renderers should render SortOptions with on
   <OrderChooser
     asc={false}
     icon="talend-sort-az"
-    label="Sort by name"
+    label="Sort by name (asc)"
     onClick={[Function]}
     tooltipPlacement="top"
   />

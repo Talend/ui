@@ -54,8 +54,8 @@ function StateFilter({ t, types, onChange, selected, favorites, certified }) {
 
 StateFilter.propTypes = {
 	t: PropTypes.func,
-	favorites: PropTypes.boolean,
-	certified: PropTypes.boolean,
+	favorites: PropTypes.bool,
+	certified: PropTypes.bool,
 	onChange: PropTypes.func,
 	types: PropTypes.array,
 };

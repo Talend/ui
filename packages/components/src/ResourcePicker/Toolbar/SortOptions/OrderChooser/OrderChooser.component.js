@@ -13,7 +13,13 @@ function OrderChooser({ icon, asc, label, tooltipPlacement, onClick, ...rest }) 
 	return (
 		<div className={classNames('order-chooser', theme['order-chooser'])}>
 			<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
-				<Button {...getPropsFrom(Button, rest)} onClick={onClick} aria-label={label} bsStyle="">
+				<Button
+					{...getPropsFrom(Button, rest)}
+					onClick={onClick}
+					aria-label={label}
+					className={classNames(theme['chooser-button'])}
+					bsStyle=""
+				>
 					<Icon name={icon} />
 					<Icon
 						name={'talend-caret-down'}
@@ -29,7 +35,7 @@ function OrderChooser({ icon, asc, label, tooltipPlacement, onClick, ...rest }) 
 
 OrderChooser.propTypes = {
 	icon: PropTypes.string,
-	asc: PropTypes.boolean,
+	asc: PropTypes.bool,
 	label: PropTypes.string,
 	onClick: PropTypes.func.isRequired,
 	tooltipPlacement: OverlayTrigger.propTypes.placement,

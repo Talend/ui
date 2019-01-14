@@ -4,9 +4,7 @@ $toolbar-height: 35px;
 	display: flex;
 	height: $toolbar-height;
 
-	:global(.name-filter),
-	:global(.sort-options),
-	:global(.state-filters) {
+	> * {
 		margin-right: $padding-normal;
 	}
 }

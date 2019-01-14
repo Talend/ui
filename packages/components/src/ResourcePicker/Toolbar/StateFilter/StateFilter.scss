@@ -3,11 +3,8 @@ $resource-picker-toolbar-certified-color: $brand-primary !default;
 
 .state-filters {
 	margin-right: $padding-normal;
-
-	> * {
-		display: inline-block;
-		height: 100%;
-	}
+	display: flex;
+	align-items: center;
 
 	.option-label {
 		margin-right: $padding-small;
