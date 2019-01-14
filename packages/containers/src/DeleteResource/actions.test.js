@@ -6,9 +6,11 @@ describe('deleteResource actions', () => {
 		it('should return an action DIALOG_BOX_DELETE_RESOURCE object', () => {
 			// Given
 			const context = {
-				getState: jest.fn(() => ({
-					routing: { locationBeforeTransitions: { pathname: 'currentUrl' } },
-				})),
+				store: {
+					getState: jest.fn(() => ({
+						routing: { locationBeforeTransitions: { pathname: 'currentUrl' } },
+					})),
+				},
 			};
 			const model = { id: 'modelId' };
 			const data = { model };
