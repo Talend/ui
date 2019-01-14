@@ -3,11 +3,11 @@
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/InputDateTimePicker.component.js
-  192:2  error  resetDate should be placed after getDateOptions  react/sort-comp
+   53:11  error  'isValid' PropType is defined but prop is never used  react/no-unused-prop-types
+  217:2   error  resetDate should be placed after getDateOptions       react/sort-comp
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/views/DateTimeView/DateTimeView.component.js
-  50:12  error  'isValid' PropType is defined but prop is never used   react/no-unused-prop-types
-  51:13  error  'onFinish' PropType is defined but prop is never used  react/no-unused-prop-types
+  41:13  error  'formMode' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
   105:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
