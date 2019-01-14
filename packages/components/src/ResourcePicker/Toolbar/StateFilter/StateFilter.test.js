@@ -7,11 +7,7 @@ describe('StateFilter', () => {
 	it('should trigger onChange callback with the new state on click', () => {
 		const onChange = jest.fn();
 		const wrapper = mount(
-			<StateFilter
-				onChange={onChange}
-				types={[TYPES.FAVORITES, TYPES.CERTIFIED]}
-				certified
-			/>,
+			<StateFilter onChange={onChange} types={[TYPES.FAVORITES, TYPES.CERTIFIED]} certified />,
 		);
 
 		expect(onChange).not.toBeCalled();
