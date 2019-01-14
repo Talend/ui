@@ -79,15 +79,11 @@ function getProject(data) {
 
 	function filterProjectList(projects) {
 		const uiProject = projects.find(({ name }) => name === projectName);
-		projects.forEach(({ name }) => {
-			console.log(name);
-		});
 		if (!uiProject) {
 			error(`${projectName} project not found`);
 		}
 		return uiProject;
 	}
-
 	return fetch(`${xtm.apiUrl}/projects?customerIds=${xtm.customerId}&status=STARTED`, {
 		headers: { Authorization: `XTM-Basic ${xtm.token}` },
 	})

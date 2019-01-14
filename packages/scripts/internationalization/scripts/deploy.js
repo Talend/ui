@@ -72,37 +72,17 @@ function switchToBranch({ githubUrl, branchName }, repoCmdContext) {
 	}
 }
 
-function generateNpmModule(options, repoCmdContext) {
-	const packageJsonPath = path.join(repoCmdContext.cwd, 'package.json');
-
-	if (fs.existsSync(packageJsonPath)) {
-		// increment version in package.json
-		const packageJson = require(packageJsonPath);
-		printInfo(`Package.json found for existing module ${packageJson.name}`);
-
-		const previousVersion = packageJson.version;
-		const versionParts = packageJson.version.match(/([0-9]+\.[0-9]+\.)([0-9]+)/);
-		const incrementedLast = Number(versionParts[2]) + 1;
-		packageJson.version = `${versionParts[1]}${incrementedLast}`;
-		fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
-
-		printSuccess(`${packageJson.name} version: ${previousVersion} --> ${packageJson.version}`);
-	} else {
-		generatePackageJson(packageJsonPath, options);
-	}
-
-	generateIndexJS(repoCmdContext.cwd);
-}
-
 function generateModule(options, repoCmdContext) {
 	printSection('Module generation');
 
 	switch (options.type) {
 		case 'npm':
-			generateNpmModule(options, repoCmdContext);
+			generatePackageJson(repoCmdContext.cwd, options);
+			generateIndexJS(repoCmdContext.cwd);
 			break;
 		case 'mvn':
 			printInfo('Module mvn is not available yet');
+			// TODO mvn files : pom.xml, src/main/resources with _fr.properties
 			break;
 		default:
 			printInfo(
