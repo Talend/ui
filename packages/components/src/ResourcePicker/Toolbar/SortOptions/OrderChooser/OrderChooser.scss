@@ -3,7 +3,7 @@ $order-chooser-icon-size: 0.6rem;
 .order-chooser {
 	display: flex;
 
-	:global(.btn) {
+	.chooser-button {
 		padding: 0;
 
 		&:hover,
