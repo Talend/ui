@@ -2,6 +2,7 @@ import React from 'react';
 import { hashHistory } from 'react-router';
 import { routerReducer, routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 import cmf from '@talend/react-cmf';
+import { getReduceConfig, mergeObjects, getUnique } from '@talend/react-cmf/lib/cmfModule.merge';
 import { fork } from 'redux-saga/effects';
 import UIRouter from './UIRouter';
 import expressions from './expressions';
@@ -11,7 +12,18 @@ import documentTitle from './sagas/documentTitle';
 import cmfRouterMiddleware from './middleware';
 import { REGISTRY_HOOK_PREFIX } from './route';
 
-function getModule(options = {}) {
+const mergeConfig = {
+	history: getUnique,
+	sagaRouterConfig: mergeObjects,
+	routerFunctions: mergeObjects,
+};
+
+function mergeRouterConfig(...configs) {
+	return configs.reduce(getReduceConfig(mergeConfig), {});
+}
+
+function getModule(...args) {
+	const options = mergeRouterConfig(...args);
 	const history = options.history || hashHistory;
 	const registry = {};
 	if (options.routerFunctions) {
