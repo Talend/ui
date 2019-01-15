@@ -110,6 +110,23 @@ export class DeleteResource extends React.Component {
 			className: 'btn-inverse',
 			onClickActionCreator: 'DeleteResource#cancel',
 		};
+
+		// Sorry for this duplication, but we need it because of the i18n scanner to create 2 keys
+		// DELETE_RESOURCE_MESSAGE and DELETE_RESOURCE_MESSAGE_female
+		let question;
+		if (this.props.female) {
+			question = this.props.t('DELETE_RESOURCE_MESSAGE', {
+				defaultValue: 'Are you sure you want to remove the {{resourceLabel}}',
+				context: 'female',
+				resourceLabel: resourceInfo.resourceTypeLabel,
+			});
+		} else {
+			question = this.props.t('DELETE_RESOURCE_MESSAGE', {
+				defaultValue: 'Are you sure you want to remove the {{resourceLabel}}',
+				resourceLabel: resourceInfo.resourceTypeLabel,
+			});
+		}
+
 		return (
 			<ConfirmDialog
 				show
@@ -120,11 +137,7 @@ export class DeleteResource extends React.Component {
 				onHide={this.onHide}
 			>
 				<div>
-					{this.props.t('DELETE_RESOURCE_MESSAGE', {
-						defaultValue: 'Are you sure you want to remove the {{resourceLabel}}',
-						context: this.props.female ? 'female' : '',
-						resourceLabel: resourceInfo.resourceTypeLabel,
-					})}
+					{question}
 					&nbsp;
 					<strong>{resourceInfo.label}</strong>
 					{this.props.t('DELETE_RESOURCE_QUESTION_MARK', { defaultValue: '?' })}
