@@ -15,29 +15,27 @@ import theme from './OrderChooser.scss';
 
 function OrderChooser({ t, icon, asc, label, tooltipPlacement, onClick, ...rest }) {
 	return (
-		<div className={classNames('order-chooser', theme['order-chooser'])}>
-			<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
-				<Button
-					{...getPropsFrom(Button, rest)}
-					onClick={onClick}
-					aria-label={label}
-					className={classNames(theme['chooser-button'])}
-					bsStyle=""
-				>
-					<Icon name={icon} />
-					<Icon
-						name={'talend-caret-down'}
-						alt={t('CURRENT_ORDER', {
-							defaultValue: 'current order: {{ order }}',
-							order: asc ? 'asc' : 'desc',
-						})}
-						className={classNames('order-indicator', theme['order-indicator'], {
-							[theme.asc]: asc,
-						})}
-					/>
-				</Button>
-			</TooltipTrigger>
-		</div>
+		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
+			<Button
+				{...getPropsFrom(Button, rest)}
+				onClick={onClick}
+				aria-label={label}
+				className={classNames('order-chooser', theme['order-chooser'])}
+				bsStyle=""
+			>
+				<Icon name={icon} />
+				<Icon
+					name={'talend-caret-down'}
+					alt={t('CURRENT_ORDER', {
+						defaultValue: 'current order: {{ order }}',
+						order: asc ? 'asc' : 'desc',
+					})}
+					className={classNames('order-indicator', theme['order-indicator'], {
+						[theme.asc]: asc,
+					})}
+				/>
+			</Button>
+		</TooltipTrigger>
 	);
 }
 

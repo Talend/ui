@@ -1,61 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OrderChooser component snaps renderers should render OrderChooser in asc mode 1`] = `
-<div
-  className="order-chooser theme-order-chooser"
+<TooltipTrigger
+  label="Sort by date"
+  tooltipPlacement="top"
 >
-  <TooltipTrigger
-    label="Sort by date"
-    tooltipPlacement="top"
+  <Button
+    active={false}
+    aria-label="Sort by date"
+    block={false}
+    bsClass="btn"
+    bsStyle=""
+    className="order-chooser theme-order-chooser"
+    disabled={false}
   >
-    <Button
-      active={false}
-      aria-label="Sort by date"
-      block={false}
-      bsClass="btn"
-      bsStyle=""
-      className="theme-chooser-button"
-      disabled={false}
-    >
-      <Icon
-        name="talend-sort-desc"
-      />
-      <Icon
-        alt="current order: asc"
-        className="order-indicator theme-order-indicator theme-asc"
-        name="talend-caret-down"
-      />
-    </Button>
-  </TooltipTrigger>
-</div>
+    <Icon
+      name="talend-sort-desc"
+    />
+    <Icon
+      alt="current order: asc"
+      className="order-indicator theme-order-indicator theme-asc"
+      name="talend-caret-down"
+    />
+  </Button>
+</TooltipTrigger>
 `;
 
 exports[`OrderChooser component snaps renderers should render OrderChooser in default mode 1`] = `
-<div
-  className="order-chooser theme-order-chooser"
+<TooltipTrigger
+  label="Sort by date"
+  tooltipPlacement="top"
 >
-  <TooltipTrigger
-    label="Sort by date"
-    tooltipPlacement="top"
+  <Button
+    active={false}
+    aria-label="Sort by date"
+    block={false}
+    bsClass="btn"
+    bsStyle=""
+    className="order-chooser theme-order-chooser"
+    disabled={false}
   >
-    <Button
-      active={false}
-      aria-label="Sort by date"
-      block={false}
-      bsClass="btn"
-      bsStyle=""
-      className="theme-chooser-button"
-      disabled={false}
-    >
-      <Icon
-        name="talend-sort-desc"
-      />
-      <Icon
-        alt="current order: desc"
-        className="order-indicator theme-order-indicator"
-        name="talend-caret-down"
-      />
-    </Button>
-  </TooltipTrigger>
-</div>
+    <Icon
+      name="talend-sort-desc"
+    />
+    <Icon
+      alt="current order: desc"
+      className="order-indicator theme-order-indicator"
+      name="talend-caret-down"
+    />
+  </Button>
+</TooltipTrigger>
 `;

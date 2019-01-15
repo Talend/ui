@@ -3,23 +3,21 @@ $order-chooser-icon-size: 0.6rem;
 .order-chooser {
 	display: flex;
 
-	.chooser-button {
-		padding: 0;
+	padding: 0;
 
-		&:hover,
-		&:focus,
-		&:active {
-			color: inherit;
-			box-shadow: none;
-		}
+	&:hover,
+	&:focus,
+	&:active {
+		color: inherit;
+		box-shadow: none;
+	}
 
-		.order-indicator {
-			width: $order-chooser-icon-size;
-			height: $order-chooser-icon-size;
+	.order-indicator {
+		width: $order-chooser-icon-size;
+		height: $order-chooser-icon-size;
 
-			&.asc {
-				transform: rotate(180deg);
-			}
+		&.asc {
+			transform: rotate(180deg);
 		}
 	}
 }
