@@ -63,6 +63,7 @@ function getActionObject(context, action, event, data) {
 	if (actionInfo.actionCreator) {
 		const actionCreator = actionCreatorAPI.get(context, actionInfo.actionCreator);
 		return actionCreator(event, data, {
+			store: context.store,
 			getState: context.store.getState,
 			registry: context.registry,
 			actionInfo,
