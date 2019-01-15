@@ -32,7 +32,7 @@ function generatorPackageJson(projectPath, options) {
 
 	printRunning('Generating package.json');
 	const packageJson = {
-		name: `@talend/locales-${options.project.toLowerCase()}`,
+		name: `@talend/locales-${options.normalizedName}`,
 		version: `${options.version}.0`,
 		main: 'index.js',
 		license: 'Apache-2.0',

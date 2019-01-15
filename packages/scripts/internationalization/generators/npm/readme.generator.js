@@ -11,7 +11,7 @@ This module contains i18n files for <%= project %> project.
 
 ## How to install
 \`\`\`
-yarn install @talend/locales-<%= projectLowerCase %>
+yarn install @talend/locales-<%= normalizedName %>
 \`\`\`
 
 ## How to use with i18next
@@ -22,17 +22,17 @@ import i18n from 'i18next';
 import merge from 'lodash.merge';
 
 import {
-	namespaces as <%= projectNormalized %>Namespaces,
-	locales as <%= projectNormalized %>Locales,
-} from '@talend/locales-<%= projectLowerCase %>';
+	namespaces as <%= minimalName %>Namespaces,
+	locales as <%= minimalName %>Locales,
+} from '@talend/locales-<%= normalizedName %>';
 
 i18n
 	.init({
 		ns: [
-			...<%= projectNormalized %>Namespaces,
+			...<%= minimalName %>Namespaces,
 			...myProjectNamespaces
 		],
-		resources: merge(<%= projectNormalized %>Locales, myProjectLocales),
+		resources: merge(<%= minimalName %>Locales, myProjectLocales),
 	});
 
 export default i18n;
@@ -53,8 +53,7 @@ module.exports = function generateReadme(projectPath, options) {
 		readmePath,
 		readmeTemplate({
 			...options,
-			projectLowerCase: options.project.toLowerCase(),
-			projectNormalized: options.project.replace(/\W/g, ''),
+			minimalName: options.normalizedName.replace(/\W/g, ''),
 		}),
 	);
 	printSuccess(`README.md saved to ${readmePath}`);

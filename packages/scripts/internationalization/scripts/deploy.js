@@ -174,6 +174,10 @@ function toGithub({ load, github, module }) {
 
 			// project
 			i18nFolder: path.join(i18nFolder, version),
+			normalizedName: project
+				.toLowerCase()
+				.replace('-frontend', '')
+				.replace('-backend', ''),
 			project,
 			version,
 
