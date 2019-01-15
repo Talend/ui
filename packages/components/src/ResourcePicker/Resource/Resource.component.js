@@ -31,22 +31,30 @@ function getAuthorLabel(t, author, date) {
 	});
 }
 
-function Resource({ parent, index, style, t }) {
+function Resource({ parent, index, style, className, t }) {
 	const item = getRowData(parent, index);
 	if (!item) {
 		return null;
 	}
 
+	let onRowClick;
 	const { icon, name, author, modified, flags = [] } = item;
+
+	if (parent.props.onRowClick) {
+		onRowClick = event => parent.props.onRowClick({ event, item });
+	}
+
 	return (
+		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 		<div
-			className={classNames('resource-item', theme['resource-item'])}
+			className={classNames('resource-item', theme['resource-item'], className)}
 			style={style}
 			role="listitem"
 			tabIndex="0"
 			aria-posinset={index + 1}
 			aria-setsize={parent.props.rowCount}
 			aria-label={name}
+			onClick={onRowClick}
 		>
 			{icon && <Icon name={icon} />}
 			<div className={classNames('data-container', theme['data-container'])}>
@@ -77,8 +85,10 @@ Resource.propTypes = {
 	index: PropTypes.number,
 	style: PropTypes.object,
 	t: PropTypes.func,
+	className: PropTypes.string,
 	parent: PropTypes.shape({
 		props: PropTypes.shape({
+			onRowClick: PropTypes.func,
 			collection: PropTypes.arrayOf(
 				PropTypes.shape({
 					icon: PropTypes.string,
