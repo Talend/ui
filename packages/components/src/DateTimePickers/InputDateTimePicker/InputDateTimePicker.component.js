@@ -251,6 +251,47 @@ class InputDateTimePicker extends React.Component {
 	render() {
 		const inputProps = omit(this.props, PROPS_TO_OMIT_FOR_INPUT);
 
+		const dateTimePicker = (
+			<div>
+				<DebounceInput
+					{...inputProps}
+					inputRef={ref => {
+						this.inputRef = ref;
+					}}
+					type="text"
+					placeholder={getFullDateFormat(this.getDateOptions())}
+					value={this.state.textInput}
+					debounceTimeout={300}
+					onChange={this.onInputChange}
+					className="form-control"
+					autoComplete="off"
+				/>
+				<div
+					className={theme['dropdown-wrapper']}
+					ref={ref => {
+						this.dropdownWrapperRef = ref;
+					}}
+				>
+					<Overlay container={this.dropdownWrapperRef} show={this.state.showPicker}>
+						<Popover className={theme.popover} id={this.popoverId}>
+							<DateTimePicker
+								manageFocus
+								selection={{
+									date: this.state.date,
+									time: this.state.time,
+								}}
+								onSubmit={this.onPickerChange}
+								useTime={this.props.useTime}
+								useSeconds={this.props.useSeconds}
+								useUTC={this.props.useUTC}
+							/>
+							{this.props.formMode && <DateValidationButton onSubmit={this.onSubmit} />}{' '}
+						</Popover>
+					</Overlay>
+				</div>
+			</div>
+		);
+
 		return (
 			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 			<div
@@ -261,44 +302,10 @@ class InputDateTimePicker extends React.Component {
 				onFocus={this.onFocus}
 				onBlur={this.onBlur}
 			>
-				<form onSubmit={this.onSubmit}>
-					<DebounceInput
-						{...inputProps}
-						inputRef={ref => {
-							this.inputRef = ref;
-						}}
-						type="text"
-						placeholder={getFullDateFormat(this.getDateOptions())}
-						value={this.state.textInput}
-						debounceTimeout={300}
-						onChange={this.onInputChange}
-						className="form-control"
-						autoComplete="off"
-					/>
-					<div
-						className={theme['dropdown-wrapper']}
-						ref={ref => {
-							this.dropdownWrapperRef = ref;
-						}}
-					>
-						<Overlay container={this.dropdownWrapperRef} show={this.state.showPicker}>
-							<Popover className={theme.popover} id={this.popoverId}>
-								<DateTimePicker
-									manageFocus
-									selection={{
-										date: this.state.date,
-										time: this.state.time,
-									}}
-									onSubmit={this.onPickerChange}
-									useTime={this.props.useTime}
-									useSeconds={this.props.useSeconds}
-									useUTC={this.props.useUTC}
-								/>
-								{this.props.formMode && <DateValidationButton onSubmit={this.onSubmit} />}{' '}
-							</Popover>
-						</Overlay>
-					</div>
-				</form>
+				{
+					this.props.formMode ? (<form onSubmit={this.onSubmit}>{dateTimePicker}</form>)
+						: dateTimePicker
+				}
 			</div>
 		);
 	}
