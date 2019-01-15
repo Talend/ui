@@ -76,6 +76,7 @@ const sort = {
 	onChange: action('Sort option changed'),
 	orders: {
 		[TOOLBAR_OPTIONS.SORT_OPTIONS.DATE]: TOOLBAR_OPTIONS.ORDERS.ASC,
+		[TOOLBAR_OPTIONS.SORT_OPTIONS.NAME]: TOOLBAR_OPTIONS.ORDERS.DESC,
 	},
 };
 const state = {

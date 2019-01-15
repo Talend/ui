@@ -18,7 +18,6 @@ exports[`OrderChooser component snaps renderers should render OrderChooser in as
       name="talend-sort-desc"
     />
     <Icon
-      alt="current order: asc"
       className="tc-resource-picker-order-indicator theme-tc-resource-picker-order-indicator theme-asc"
       name="talend-caret-down"
     />
@@ -44,7 +43,6 @@ exports[`OrderChooser component snaps renderers should render OrderChooser in de
       name="talend-sort-desc"
     />
     <Icon
-      alt="current order: desc"
       className="tc-resource-picker-order-indicator theme-tc-resource-picker-order-indicator"
       name="talend-caret-down"
     />
