@@ -15,8 +15,7 @@
     "lint": "npm run lint:es",
     "storybook": "start-storybook -p 6008",
     "start": "start-storybook -p 6008",
-    "build-storybook": "build-storybook",
-    "parse-i18n": "i18next ./src -r -o ../../i18n/forms --fileFilter \"*.js\" --default-values"
+    "build-storybook": "build-storybook"
   },
   "keywords": [
     "react",
@@ -82,7 +81,6 @@
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
     "i18next": "^9.0.0",
-    "i18next-parser": "^0.13.0",
     "invariant": "^2.2.2",
     "jest": "^23.6.0",
     "jest-in-case": "^1.0.2",
