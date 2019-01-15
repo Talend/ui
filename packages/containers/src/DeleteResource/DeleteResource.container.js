@@ -113,13 +113,18 @@ export class DeleteResource extends React.Component {
 
 		// Sorry for this duplication, but we need it because of the i18n scanner to create 2 keys
 		// DELETE_RESOURCE_MESSAGE and DELETE_RESOURCE_MESSAGE_female
-		const question = this.props.t('DELETE_RESOURCE_MESSAGE', {
-			defaultValue: 'Are you sure you want to remove the {{resourceLabel}}',
-			context: 'female', // this needs to be here by default for i18next-scanner to produce the key
-			resourceLabel: resourceInfo.resourceTypeLabel,
-		});
-		if (!this.props.female) {
-			question.context = '';
+		let question;
+		if (this.props.female) {
+			question = this.props.t('DELETE_RESOURCE_MESSAGE', {
+				defaultValue: 'Are you sure you want to remove the {{resourceLabel}}',
+				context: 'female',
+				resourceLabel: resourceInfo.resourceTypeLabel,
+			});
+		} else {
+			question = this.props.t('DELETE_RESOURCE_MESSAGE', {
+				defaultValue: 'Are you sure you want to remove the {{resourceLabel}}',
+				resourceLabel: resourceInfo.resourceTypeLabel,
+			});
 		}
 
 		return (
