@@ -1,5 +1,5 @@
-$resource-picker-toolbar-favorite-color: $lightning-yellow !default;
-$resource-picker-toolbar-certified-color: $brand-primary !default;
+$tc-resource-picker-toolbar-favorite-color: $lightning-yellow !default;
+$tc-resource-picker-toolbar-certified-color: $brand-primary !default;
 
 .tc-resource-picker-state-filters {
 	margin-right: $padding-normal;
@@ -43,11 +43,11 @@ $resource-picker-toolbar-certified-color: $brand-primary !default;
 			}
 
 			&.tc-resource-picker-favorite-filter > svg {
-				color: $resource-picker-toolbar-favorite-color;
+				color: $tc-resource-picker-toolbar-favorite-color;
 			}
 
 			&.tc-resource-picker-certified-filter > svg {
-				color: $resource-picker-toolbar-certified-color;
+				color: $tc-resource-picker-toolbar-certified-color;
 			}
 		}
 	}
