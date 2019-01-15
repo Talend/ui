@@ -14,8 +14,7 @@
     "lint:es": "eslint --config ../../.eslintrc src",
     "lint": "npm run lint:es",
     "storybook": "start-storybook -p 6007",
-    "build-storybook": "build-storybook",
-    "parse-i18n": "i18next ./src -r -o ../../i18n/containers --fileFilter \"*.js\" --default-values"
+    "build-storybook": "build-storybook"
   },
   "keywords": [
     "react",
@@ -46,7 +45,7 @@
     "@talend/bootstrap-theme": "^2.1.0",
     "@talend/icons": "^2.1.0",
     "@talend/react-cmf": "^2.1.0",
-    "@talend/react-cmf-router": "3.0.0",
+    "@talend/react-cmf-router": "^3.2.0",
     "@talend/react-components": "^2.1.0",
     "@talend/react-forms": "^2.1.0",
     "@talend/react-storybook-cmf": "^2.1.0",
@@ -70,7 +69,6 @@
     "eslint-plugin-react": "^6.3.0",
     "focus-outline-manager": "^1.0.2",
     "i18next": "^9.0.0",
-    "i18next-parser": "^0.13.0",
     "immutable": "^3.8.1",
     "invariant": "^2.2.2",
     "jest": "^23.6.0",
@@ -108,7 +106,7 @@
   "peerDependencies": {
     "@talend/icons": "^2.1.0",
     "@talend/react-cmf": "^2.1.0",
-    "@talend/react-cmf-router": "3.0.0",
+    "@talend/react-cmf-router": "3.2.0",
     "@talend/react-components": "^2.1.0",
     "@talend/react-forms": "^2.1.0",
     "bson-objectid": "^1.1.5",
@@ -146,7 +144,6 @@
   },
   "version": "2.1.0",
   "dependencies": {
-    "@talend/react-cmf-router": "3.0.0",
     "memoize-one": "^4.0.0",
     "react-immutable-proptypes": "^2.1.0",
     "react-router": "^3.2.0"
