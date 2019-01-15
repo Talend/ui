@@ -1,0 +1,19 @@
+{
+  "extract": {
+    "method": "yarn",
+    "script": "extract-i18n",
+    "target": "./i18n",
+    "transform": "flatten"
+  },
+  "load": {
+    "project": "UI-test",
+    "target": "./i18n-from-xtm"
+  },
+  "github": {
+    "url": "https://github.com/jsomsanith/locales.git"
+  },
+  "module": {
+    "type": "npm",
+    "private": true
+  }
+}
