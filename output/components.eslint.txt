@@ -4,7 +4,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/InputDateTimePicker.component.js
    53:11  error  'isValid' PropType is defined but prop is never used  react/no-unused-prop-types
-  217:2   error  resetDate should be placed after getDateOptions       react/sort-comp
+  220:2   error  resetDate should be placed after getDateOptions       react/sort-comp
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/views/DateTimeView/DateTimeView.component.js
   41:13  error  'formMode' PropType is defined but prop is never used  react/no-unused-prop-types
