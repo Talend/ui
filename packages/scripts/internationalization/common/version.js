@@ -36,7 +36,7 @@ function getPossibleVersion() {
 	}
 	if (!info && fs.existsSync(pomXmlPath)) {
 		const data = fs.readFileSync(pomXmlPath);
-		const { version } = xmlParser.toJson(data);
+		const { version } = JSON.parse(xmlParser.toJson(data)).project;
 		const match = version.match(VERSION_REGEX);
 		if (match) {
 			info = {
@@ -69,7 +69,14 @@ function getVersion() {
 	return version;
 }
 
+function incrementVersion(version) {
+	const versionParts = version.match(/([0-9]+\.[0-9]+\.)([0-9]+)/);
+	const incrementedLast = Number(versionParts[2]) + 1;
+	return `${versionParts[1]}${incrementedLast}`;
+}
+
 module.exports = {
 	getPossibleVersion,
 	getVersion,
+	incrementVersion,
 };

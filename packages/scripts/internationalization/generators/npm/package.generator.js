@@ -1,6 +1,7 @@
 /* eslint-disable global-require */
 const fs = require('fs');
 const path = require('path');
+const { incrementVersion } = require('../../common/version');
 const { printRunning, printSuccess, printInfo } = require('../../common/log');
 
 /**
@@ -11,9 +12,7 @@ function incrementPackageJsonVersion(packageJsonPath) {
 	printInfo(`Package.json found for existing module ${packageJson.name}`);
 
 	const previousVersion = packageJson.version;
-	const versionParts = packageJson.version.match(/([0-9]+\.[0-9]+\.)([0-9]+)/);
-	const incrementedLast = Number(versionParts[2]) + 1;
-	packageJson.version = `${versionParts[1]}${incrementedLast}`;
+	packageJson.version = incrementVersion(previousVersion);
 	fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 
 	printSuccess(`${packageJson.name} version: ${previousVersion} --> ${packageJson.version}`);

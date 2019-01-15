@@ -10,6 +10,8 @@ const generatePackageJson = require('../generators/npm/package.generator');
 const generateIndexJS = require('../generators/npm/index.generator');
 const generateReadme = require('../generators/npm/readme.generator');
 const manageFolder = require('../generators/npm/folder.manager');
+const generatePomXml = require('../generators/mvn/pom.generator');
+const manageMvnFolders = require('../generators/mvn/folders.manager');
 
 function getGithubVariables() {
 	const { GITHUB_LOGIN, GITHUB_TOKEN } = process.env;
@@ -85,7 +87,8 @@ function generateModule(options, repoCmdContext) {
 			generateReadme(repoCmdContext.cwd, options);
 			break;
 		case 'mvn':
-			printInfo('Module mvn is not available yet');
+			generatePomXml(repoCmdContext.cwd, options);
+			manageMvnFolders(repoCmdContext.cwd);
 			// TODO mvn files : pom.xml, src/main/resources with _fr.properties
 			break;
 		default:
@@ -179,11 +182,12 @@ function deploy({ load, github, module }) {
 			// module generation
 			private: module.private,
 			type: module.type,
+			repository: module.repository,
 		};
 		switchToBranch(versionOptions, repoCmdContext);
 		generateModule(versionOptions, repoCmdContext);
-		pushI18nFiles(versionOptions, repoCmdContext);
-		deployModule(versionOptions, repoCmdContext);
+		//pushI18nFiles(versionOptions, repoCmdContext);
+		//deployModule(versionOptions, repoCmdContext);
 	});
 }
 
