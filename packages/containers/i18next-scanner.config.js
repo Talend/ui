@@ -11,8 +11,5 @@ module.exports = {
 		resource: {
 			savePath: 'i18n/{{ns}}.json',
 		},
-		context: (lng, ns, key, options) => {
-			return true;
-		},
 	},
 };
