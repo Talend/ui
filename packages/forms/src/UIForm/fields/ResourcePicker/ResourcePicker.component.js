@@ -64,12 +64,13 @@ class ResourcePicker extends Component {
 
 	onFilter(event) {
 		this.setState({ isLoading: true });
-		this.props.onTrigger(event, {
-			trigger: {
-				parameters: this.state.options,
-			},
-			schema: this.props.schema,
-		})
+		this.props
+			.onTrigger(event, {
+				trigger: {
+					parameters: this.state.options,
+				},
+				schema: this.props.schema,
+			})
 			.then(data => this.setState(data))
 			.finally(() => this.setState({ isLoading: false }));
 	}
