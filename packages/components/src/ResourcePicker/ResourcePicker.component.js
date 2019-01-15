@@ -7,7 +7,6 @@ import Toolbar from './Toolbar';
 
 import theme from './ResourcePicker.scss';
 
-
 function isFiltered({ state } = {}) {
 	return state && (state.certified || state.favorites);
 }
