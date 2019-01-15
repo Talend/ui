@@ -3,13 +3,18 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 
-import { ResourcePicker, IconsProvider } from '../src/index';
+import ResourcePicker, { TOOLBAR_OPTIONS } from '../src/ResourcePicker';
+import IconsProvider from '../src/IconsProvider';
 
 
 const icons = {
 	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
+	'talend-check-circle': talendIcons['talend-check-circle'],
 	'talend-star': talendIcons['talend-star'],
 	'talend-badge': talendIcons['talend-badge'],
+	'talend-sort-az': talendIcons['talend-sort-az'],
+	'talend-sort-desc': talendIcons['talend-sort-desc'],
+	'talend-caret-down': talendIcons['talend-caret-down'],
 };
 
 const collection = [
@@ -61,13 +66,29 @@ const collection = [
 	},
 ];
 
-const props = {
-	label: 'Click me',
-	'data-feature': 'actionfile',
-	icon: 'talend-upload',
-	onChange: action('You changed me'),
-	displayMode: 'file',
+
+const name = {
+	onChange: action('Name filter changed'),
+	label: 'Toolbar name label',
 };
+
+const sort = {
+	onChange: action('Sort option changed'),
+	orders: {
+		[TOOLBAR_OPTIONS.SORT_OPTIONS.DATE]: TOOLBAR_OPTIONS.ORDERS.ASC,
+		[TOOLBAR_OPTIONS.SORT_OPTIONS.NAME]: TOOLBAR_OPTIONS.ORDERS.DESC,
+	},
+};
+const state = {
+	certified: true,
+	onChange: action('State filter changed'),
+};
+
+const props = {
+	collection,
+	toolbar: { name, sort, state },
+};
+
 
 storiesOf('ResourcePicker', module)
 	.addDecorator(story => (
@@ -79,6 +100,58 @@ storiesOf('ResourcePicker', module)
 	.add('default', () => (
 		<div>
 			<p>By default :</p>
-			<ResourcePicker id="default" collection={collection} {...props} />
+			<ResourcePicker id="default" {...props} />
+		</div>
+	))
+	.add('without toolbar', () => (
+		<div>
+			<p>By default :</p>
+			<ResourcePicker id="default" collection={collection} />
+		</div>
+	))
+	.add('without sort options', () => (
+		<div>
+			<p>By default :</p>
+			<ResourcePicker id="default" collection={collection} toolbar={{ name, state }} />
+		</div>
+	))
+	.add('with partial sort options', () => (
+		<div>
+			<p>By default :</p>
+			<ResourcePicker
+				id="default"
+				collection={collection}
+				toolbar={{
+					name,
+					state,
+					sort: {
+						...sort,
+						types: [TOOLBAR_OPTIONS.SORT_OPTIONS.DATE],
+					},
+				}}
+			/>
+		</div>
+	))
+	.add('without state filter', () => (
+		<div>
+			<p>By default :</p>
+			<ResourcePicker id="default" collection={collection} toolbar={{ name, sort }} />
+		</div>
+	))
+	.add('with partial state options', () => (
+		<div>
+			<p>By default :</p>
+			<ResourcePicker
+				id="default"
+				collection={collection}
+				toolbar={{
+					name,
+					sort,
+					state: {
+						...state,
+						types: [TOOLBAR_OPTIONS.STATE_FILTERS.CERTIFIED],
+					},
+				}}
+			/>
 		</div>
 	));

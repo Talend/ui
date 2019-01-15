@@ -14,6 +14,7 @@ function ActionIconToggle(props) {
 
 	const cn = classNames(className, 'tc-icon-toggle', theme['tc-icon-toggle'], {
 		[theme.active]: active,
+		active,
 	});
 
 	return (
