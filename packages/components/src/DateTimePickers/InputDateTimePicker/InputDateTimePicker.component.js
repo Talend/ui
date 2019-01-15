@@ -261,28 +261,28 @@ class InputDateTimePicker extends React.Component {
 				onFocus={this.onFocus}
 				onBlur={this.onBlur}
 			>
-				<DebounceInput
-					{...inputProps}
-					inputRef={ref => {
-						this.inputRef = ref;
-					}}
-					type="text"
-					placeholder={getFullDateFormat(this.getDateOptions())}
-					value={this.state.textInput}
-					debounceTimeout={300}
-					onChange={this.onInputChange}
-					className="form-control"
-					autoComplete="off"
-				/>
-				<div
-					className={theme['dropdown-wrapper']}
-					ref={ref => {
-						this.dropdownWrapperRef = ref;
-					}}
-				>
-					<Overlay container={this.dropdownWrapperRef} show={this.state.showPicker}>
-						<Popover className={theme.popover} id={this.popoverId}>
-							<form onSubmit={this.onSubmit}>
+				<form onSubmit={this.onSubmit}>
+					<DebounceInput
+						{...inputProps}
+						inputRef={ref => {
+							this.inputRef = ref;
+						}}
+						type="text"
+						placeholder={getFullDateFormat(this.getDateOptions())}
+						value={this.state.textInput}
+						debounceTimeout={300}
+						onChange={this.onInputChange}
+						className="form-control"
+						autoComplete="off"
+					/>
+					<div
+						className={theme['dropdown-wrapper']}
+						ref={ref => {
+							this.dropdownWrapperRef = ref;
+						}}
+					>
+						<Overlay container={this.dropdownWrapperRef} show={this.state.showPicker}>
+							<Popover className={theme.popover} id={this.popoverId}>
 								<DateTimePicker
 									manageFocus
 									selection={{
@@ -296,10 +296,10 @@ class InputDateTimePicker extends React.Component {
 									formMode={this.props.formMode}
 								/>
 								{this.props.formMode && <DateValidationButton onSubmit={this.onSubmit} />}{' '}
-							</form>
-						</Popover>
-					</Overlay>
-				</div>
+							</Popover>
+						</Overlay>
+					</div>
+				</form>
 			</div>
 		);
 	}
