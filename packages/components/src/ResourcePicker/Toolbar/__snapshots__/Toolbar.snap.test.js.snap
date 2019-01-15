@@ -2,7 +2,7 @@
 
 exports[`Toolbar component snaps should render Toolbar with every widgets 1`] = `
 <div
-  className="toolbar-container theme-toolbar-container"
+  className="tc-resource-picker-toolbar-container theme-tc-resource-picker-toolbar-container"
 >
   <NameFilter />
   <Translate(SortOptions) />
@@ -12,7 +12,7 @@ exports[`Toolbar component snaps should render Toolbar with every widgets 1`] = 
 
 exports[`Toolbar component snaps should render Toolbar without name widget 1`] = `
 <div
-  className="toolbar-container theme-toolbar-container"
+  className="tc-resource-picker-toolbar-container theme-tc-resource-picker-toolbar-container"
 >
   <Translate(SortOptions) />
   <Translate(StateFilter) />
@@ -21,7 +21,7 @@ exports[`Toolbar component snaps should render Toolbar without name widget 1`] =
 
 exports[`Toolbar component snaps should render Toolbar without sort widgets 1`] = `
 <div
-  className="toolbar-container theme-toolbar-container"
+  className="tc-resource-picker-toolbar-container theme-tc-resource-picker-toolbar-container"
 >
   <NameFilter />
   <Translate(StateFilter) />
@@ -30,7 +30,7 @@ exports[`Toolbar component snaps should render Toolbar without sort widgets 1`] 
 
 exports[`Toolbar component snaps should render Toolbar without state widgets 1`] = `
 <div
-  className="toolbar-container theme-toolbar-container"
+  className="tc-resource-picker-toolbar-container theme-tc-resource-picker-toolbar-container"
 >
   <NameFilter />
   <Translate(SortOptions) />

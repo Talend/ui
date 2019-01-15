@@ -16,8 +16,13 @@ export const TYPES = {
 function StateFilter({ t, types, onChange, selected, favorites, certified }) {
 	return (
 		!!types.length && (
-			<div className={classNames('state-filters', theme['state-filters'])}>
-				<span className={classNames('option-label', theme['option-label'])}>
+			<div
+				className={classNames(
+					'tc-resource-picker-state-filters',
+					theme['tc-resource-picker-state-filters'],
+				)}
+			>
+				<span className={classNames(theme['option-label'])}>
 					{t('FILTER', { defaultValue: 'Filter:' })}
 				</span>
 				{types.includes(TYPES.SELECTED) && (
@@ -26,7 +31,7 @@ function StateFilter({ t, types, onChange, selected, favorites, certified }) {
 						label={t('SELECTED', { defaultValue: 'Selected' })}
 						active={selected}
 						onClick={() => onChange(TYPES.SELECTED, !selected)}
-						className={classNames('selected-filter', theme['selected-filter'])}
+						className={classNames(theme['tc-resource-picker-selected-filter'])}
 					/>
 				)}
 				{types.includes(TYPES.CERTIFIED) && (
@@ -35,7 +40,7 @@ function StateFilter({ t, types, onChange, selected, favorites, certified }) {
 						label={t('CERTIFIED', { defaultValue: 'Certified' })}
 						active={certified}
 						onClick={() => onChange(TYPES.CERTIFIED, !certified)}
-						className={classNames('certified-filter', theme['certified-filter'])}
+						className={classNames(theme['tc-resource-picker-certified-filter'])}
 					/>
 				)}
 				{types.includes(TYPES.FAVORITES) && (
@@ -44,7 +49,7 @@ function StateFilter({ t, types, onChange, selected, favorites, certified }) {
 						label={t('FAVORITES', { defaultValue: 'Favorites' })}
 						active={favorites}
 						onClick={() => onChange(TYPES.FAVORITES, !favorites)}
-						className={classNames('favorite-filter', theme['favorite-filter'])}
+						className={classNames(theme['tc-resource-picker-favorite-filter'])}
 					/>
 				)}
 			</div>

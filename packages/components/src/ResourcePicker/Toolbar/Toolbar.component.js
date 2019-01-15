@@ -12,7 +12,12 @@ function Toolbar({ name, sort, state }) {
 	}
 
 	return (
-		<div className={classNames('toolbar-container', theme['toolbar-container'])}>
+		<div
+			className={classNames(
+				'tc-resource-picker-toolbar-container',
+				theme['tc-resource-picker-toolbar-container'],
+			)}
+		>
 			{name && <NameFilter {...name} />}
 			{sort && <SortOptions {...sort} />}
 			{state && <StateFilter {...state} />}
