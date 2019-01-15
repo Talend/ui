@@ -7,7 +7,12 @@ import theme from './NameFilter.scss';
 
 function NameFilter({ label, value, onChange }) {
 	return (
-		<form className={classNames('tc-resource-picker-name-filter', theme['tc-resource-picker-name-filter'])}>
+		<form
+			className={classNames(
+				'tc-resource-picker-name-filter',
+				theme['tc-resource-picker-name-filter'],
+			)}
+		>
 			<label htmlFor="resource-picker-toolbar-name-filter-input" className="sr-only">
 				{label}
 			</label>

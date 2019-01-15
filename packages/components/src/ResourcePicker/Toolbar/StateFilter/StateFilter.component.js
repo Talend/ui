@@ -16,7 +16,12 @@ export const TYPES = {
 function StateFilter({ t, types, onChange, selected, favorites, certified }) {
 	return (
 		!!types.length && (
-			<div className={classNames('tc-resource-picker-state-filters', theme['tc-resource-picker-state-filters'])}>
+			<div
+				className={classNames(
+					'tc-resource-picker-state-filters',
+					theme['tc-resource-picker-state-filters'],
+				)}
+			>
 				<span className={classNames(theme['option-label'])}>
 					{t('FILTER', { defaultValue: 'Filter:' })}
 				</span>

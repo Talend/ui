@@ -19,7 +19,10 @@ function OrderChooser({ t, icon, asc, label, tooltipPlacement, onClick, ...rest 
 				{...getPropsFrom(Button, rest)}
 				onClick={onClick}
 				aria-label={label}
-				className={classNames('tc-resource-picker-order-chooser', theme['tc-resource-picker-order-chooser'])}
+				className={classNames(
+					'tc-resource-picker-order-chooser',
+					theme['tc-resource-picker-order-chooser'],
+				)}
 				bsStyle=""
 			>
 				<Icon name={icon} />
@@ -29,9 +32,13 @@ function OrderChooser({ t, icon, asc, label, tooltipPlacement, onClick, ...rest 
 						defaultValue: 'current order: {{ order }}',
 						order: asc ? 'asc' : 'desc',
 					})}
-					className={classNames('tc-resource-picker-order-indicator', theme['tc-resource-picker-order-indicator'], {
-						[theme.asc]: asc,
-					})}
+					className={classNames(
+						'tc-resource-picker-order-indicator',
+						theme['tc-resource-picker-order-indicator'],
+						{
+							[theme.asc]: asc,
+						},
+					)}
 				/>
 			</Button>
 		</TooltipTrigger>

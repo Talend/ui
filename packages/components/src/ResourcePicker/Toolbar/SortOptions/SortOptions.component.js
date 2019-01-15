@@ -28,7 +28,12 @@ function inverse(order) {
 function SortOptions({ t, types, onChange, orders }) {
 	return (
 		!!types.length && (
-			<div className={classNames('tc-resource-picker-sort-options', theme['tc-resource-picker-sort-options'])}>
+			<div
+				className={classNames(
+					'tc-resource-picker-sort-options',
+					theme['tc-resource-picker-sort-options'],
+				)}
+			>
 				<span className={classNames(theme['option-label'])}>
 					{t('SORT', { defaultValue: 'Sort:' })}
 				</span>
