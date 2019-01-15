@@ -405,7 +405,9 @@ describe('InputDateTimePicker', () => {
 			// given
 			const onChange = jest.fn();
 			const event = { target: { value: '2015-01-15 15:45' } };
-			const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} onChange={onChange} useTime formMode />);
+			const wrapper = shallow(
+				<InputDateTimePicker id={DEFAULT_ID} onChange={onChange} useTime formMode />,
+			);
 			expect(onChange).not.toBeCalled();
 
 			// when
@@ -505,7 +507,9 @@ describe('InputDateTimePicker', () => {
 			// given
 			const onChange = jest.fn();
 			const event = { target: {} };
-			const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} onChange={onChange} useTime formMode/>);
+			const wrapper = shallow(
+				<InputDateTimePicker id={DEFAULT_ID} onChange={onChange} useTime formMode />,
+			);
 			expect(onChange).not.toBeCalled();
 
 			// when
