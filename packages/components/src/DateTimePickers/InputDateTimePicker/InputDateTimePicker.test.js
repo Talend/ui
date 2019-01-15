@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import cases from 'jest-in-case';
 import keycode from 'keycode/index';
 
-import InputDateTimePicker, { DateValidationButton } from './InputDateTimePicker.component';
+import InputDateTimePicker from './InputDateTimePicker.component';
 
 const DEFAULT_ID = 'DEFAULT_ID';
 

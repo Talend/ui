@@ -211,7 +211,7 @@ class InputDateTimePicker extends React.Component {
 	onSubmit(event, origin) {
 		this.onChange(event, origin);
 		if (this.props.formMode) {
-			this.onBlur(event);
+			this.closePicker();
 		}
 	}
 
@@ -293,7 +293,6 @@ class InputDateTimePicker extends React.Component {
 									useTime={this.props.useTime}
 									useSeconds={this.props.useSeconds}
 									useUTC={this.props.useUTC}
-									formMode={this.props.formMode}
 								/>
 								{this.props.formMode && <DateValidationButton onSubmit={this.onSubmit} />}{' '}
 							</Popover>
