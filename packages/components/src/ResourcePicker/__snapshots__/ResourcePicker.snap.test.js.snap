@@ -1,5 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ResourcePicker component snaps should render ResourcePicker in filtered mode 1`] = `
+<div
+  className="resource-picker theme-resource-picker"
+>
+  <Toolbar
+    state={
+      Object {
+        "certified": true,
+        "favorites": true,
+      }
+    }
+  />
+  <div
+    className="theme-list-container theme-filtered"
+  >
+    <VirtualizedList
+      collection={
+        Array [
+          Object {
+            "author": "Jean-Pierre DUPONT",
+            "display": "text",
+            "flags": Array [
+              "CERTIFIED",
+              "FAVORITE",
+            ],
+            "icon": "talend-file-xls-o",
+            "id": 0,
+            "modified": "2016-09-22",
+            "name": "Title with few actions",
+          },
+          Object {
+            "display": "text",
+            "icon": "talend-file-xls-o",
+            "id": 1,
+            "modified": "2016-09-22",
+            "name": "Title with lot of actions",
+          },
+          Object {
+            "author": "Jean-Pierre DUPONT",
+            "display": "text",
+            "icon": "talend-file-xls-o",
+            "id": 2,
+            "modified": "2016-09-22",
+            "name": "Title with persistant actions",
+          },
+        ]
+      }
+      defaultHeight={250}
+      rowHeight={60}
+      rowRenderers={
+        Object {
+          "resource": [Function],
+        }
+      }
+      type="resource"
+    />
+  </div>
+</div>
+`;
+
 exports[`ResourcePicker component snaps should render ResourcePicker with some Resources 1`] = `
 <div
   className="resource-picker theme-resource-picker"
@@ -14,6 +74,10 @@ exports[`ResourcePicker component snaps should render ResourcePicker with some R
           Object {
             "author": "Jean-Pierre DUPONT",
             "display": "text",
+            "flags": Array [
+              "CERTIFIED",
+              "FAVORITE",
+            ],
             "icon": "talend-file-xls-o",
             "id": 0,
             "modified": "2016-09-22",
@@ -85,6 +149,10 @@ exports[`ResourcePicker component snaps should render ResourcePicker without too
           Object {
             "author": "Jean-Pierre DUPONT",
             "display": "text",
+            "flags": Array [
+              "CERTIFIED",
+              "FAVORITE",
+            ],
             "icon": "talend-file-xls-o",
             "id": 0,
             "modified": "2016-09-22",

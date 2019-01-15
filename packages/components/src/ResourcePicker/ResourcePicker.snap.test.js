@@ -11,6 +11,7 @@ const collection = [
 		author: 'Jean-Pierre DUPONT',
 		display: 'text',
 		icon: 'talend-file-xls-o',
+		flags: ['CERTIFIED', 'FAVORITE'],
 	},
 	{
 		id: 1,
@@ -44,6 +45,22 @@ describe('ResourcePicker component snaps', () => {
 	it('should render ResourcePicker with some Resources', () => {
 		const props = {
 			toolbar: {},
+			collection,
+		};
+
+		const wrapper = shallow(<ResourcePicker {...props} />);
+
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render ResourcePicker in filtered mode', () => {
+		const props = {
+			toolbar: {
+				state: {
+					certified: true,
+					favorites: true,
+				},
+			},
 			collection,
 		};
 
