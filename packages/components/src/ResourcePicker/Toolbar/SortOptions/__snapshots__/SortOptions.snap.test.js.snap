@@ -11,19 +11,17 @@ exports[`SortOptions component snaps should render SortOptions in default mode 1
   >
     Sort:
   </span>
-  <OrderChooser
+  <Translate(OrderChooser)
     asc={false}
     icon="talend-sort-az"
     label="Sort by name (asc)"
     onClick={[Function]}
-    tooltipPlacement="top"
   />
-  <OrderChooser
+  <Translate(OrderChooser)
     asc={false}
     icon="talend-sort-desc"
     label="Sort by date (asc)"
     onClick={[Function]}
-    tooltipPlacement="top"
   />
 </div>
 `;
@@ -37,19 +35,17 @@ exports[`SortOptions component snaps should render SortOptions with date in ASC 
   >
     Sort:
   </span>
-  <OrderChooser
+  <Translate(OrderChooser)
     asc={false}
     icon="talend-sort-az"
     label="Sort by name (asc)"
     onClick={[Function]}
-    tooltipPlacement="top"
   />
-  <OrderChooser
+  <Translate(OrderChooser)
     asc={true}
     icon="talend-sort-desc"
     label="Sort by date (desc)"
     onClick={[Function]}
-    tooltipPlacement="top"
   />
 </div>
 `;
@@ -63,19 +59,17 @@ exports[`SortOptions component snaps should render SortOptions with name in ASC 
   >
     Sort:
   </span>
-  <OrderChooser
+  <Translate(OrderChooser)
     asc={true}
     icon="talend-sort-az"
     label="Sort by name (desc)"
     onClick={[Function]}
-    tooltipPlacement="top"
   />
-  <OrderChooser
+  <Translate(OrderChooser)
     asc={false}
     icon="talend-sort-desc"
     label="Sort by date (asc)"
     onClick={[Function]}
-    tooltipPlacement="top"
   />
 </div>
 `;
@@ -89,12 +83,11 @@ exports[`SortOptions component snaps should render SortOptions with only the dat
   >
     Sort:
   </span>
-  <OrderChooser
+  <Translate(OrderChooser)
     asc={true}
     icon="talend-sort-desc"
     label="Sort by date (desc)"
     onClick={[Function]}
-    tooltipPlacement="top"
   />
 </div>
 `;
@@ -108,12 +101,11 @@ exports[`SortOptions component snaps should render SortOptions with only the nam
   >
     Sort:
   </span>
-  <OrderChooser
+  <Translate(OrderChooser)
     asc={false}
     icon="talend-sort-az"
     label="Sort by name (asc)"
     onClick={[Function]}
-    tooltipPlacement="top"
   />
 </div>
 `;

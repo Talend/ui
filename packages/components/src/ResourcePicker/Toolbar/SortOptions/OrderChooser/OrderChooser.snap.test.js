@@ -11,7 +11,7 @@ describe('OrderChooser component snaps', () => {
 				label: 'Sort by date',
 			};
 
-			const wrapper = shallow(<OrderChooser {...props} />);
+			const wrapper = shallow(<OrderChooser.WrappedComponent {...props} />);
 
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
@@ -25,7 +25,7 @@ describe('OrderChooser component snaps', () => {
 				asc: true,
 			};
 
-			const wrapper = shallow(<OrderChooser {...props} />);
+			const wrapper = shallow(<OrderChooser.WrappedComponent {...props} />);
 
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
