@@ -12,7 +12,6 @@ import getDefaultT from '../../../../translate';
 
 import theme from './OrderChooser.scss';
 
-
 function OrderChooser({ t, icon, asc, label, tooltipPlacement, onClick, ...rest }) {
 	return (
 		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
