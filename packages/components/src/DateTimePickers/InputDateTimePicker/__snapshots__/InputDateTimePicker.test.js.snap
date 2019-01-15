@@ -37,7 +37,9 @@ exports[`InputDateTimePicker should render 1`] = `
         id="date-time-picker-DEFAULT_ID"
         placement="right"
       >
-        <form>
+        <form
+          onSubmit={[Function]}
+        >
           <DateTimePicker
             formMode={false}
             manageFocus={true}
@@ -56,7 +58,7 @@ exports[`InputDateTimePicker should render 1`] = `
             useTime={true}
             useUTC={false}
           />
-                 
+           
         </form>
       </Popover>
     </Overlay>
@@ -101,7 +103,9 @@ exports[`InputDateTimePicker should render validation button 1`] = `
         id="date-time-picker-DEFAULT_ID"
         placement="right"
       >
-        <form>
+        <form
+          onSubmit={[Function]}
+        >
           <DateTimePicker
             formMode={true}
             manageFocus={true}
@@ -123,7 +127,7 @@ exports[`InputDateTimePicker should render validation button 1`] = `
           <Translate(DateTimeValidation)
             onSubmit={[Function]}
           />
-                 
+           
         </form>
       </Popover>
     </Overlay>

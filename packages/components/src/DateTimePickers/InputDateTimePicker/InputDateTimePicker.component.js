@@ -8,7 +8,6 @@ import keycode from 'keycode';
 import uuid from 'uuid';
 import { translate } from 'react-i18next';
 
-import { Action } from '../../Actions';
 import DateTimePicker from '../DateTimePicker';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 import {
@@ -35,23 +34,22 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'useUTC',
 ];
 
-function DateTimeValidation({ onSubmit, t }) {
+function DateTimeValidation({ t }) {
 	return (
 		<div className={theme.footer}>
-			<Action
+			<button
 				name="action-datepicker-validate"
-				bsStyle="primary"
+				className="btn btn-primary"
 				role="button"
-				label={t('DATEPICKER_VALIDATE_BUTTON', { defaultValue: 'Done' })}
-				onClick={onSubmit}
-			/>
+				type="submit"
+			>
+				{t('DATEPICKER_VALIDATE_BUTTON', { defaultValue: 'Done' })}
+			</button>
 		</div>
 	);
 }
 
 DateTimeValidation.propTypes = {
-	isValid: PropTypes.bool,
-	onSubmit: PropTypes.func,
 	t: PropTypes.func,
 };
 
@@ -284,7 +282,7 @@ class InputDateTimePicker extends React.Component {
 				>
 					<Overlay container={this.dropdownWrapperRef} show={this.state.showPicker}>
 						<Popover className={theme.popover} id={this.popoverId}>
-							<form>
+							<form onSubmit={this.onSubmit}>
 								<DateTimePicker
 									manageFocus
 									selection={{

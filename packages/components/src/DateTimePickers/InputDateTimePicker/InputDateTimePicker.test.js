@@ -7,15 +7,6 @@ import InputDateTimePicker, { DateValidationButton } from './InputDateTimePicker
 
 const DEFAULT_ID = 'DEFAULT_ID';
 
-describe('DateValidationButton', () => {
-	it('should call onSubmit props when the user click', () => {
-		const onSubmitFn = jest.fn();
-		const wrapper = mount(<DateValidationButton onSubmit={onSubmitFn} />);
-		wrapper.find('button').simulate('click');
-		expect(onSubmitFn).toHaveBeenCalled();
-	});
-});
-
 describe('InputDateTimePicker', () => {
 	it('should render', () => {
 		// when
