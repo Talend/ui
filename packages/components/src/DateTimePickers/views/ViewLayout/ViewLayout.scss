@@ -4,7 +4,6 @@
 	flex-direction: column;
 
 	.header {
-		padding: 0 $padding-normal;
 		display: flex;
 		height: 5rem;
 		margin-bottom: $padding-normal;
@@ -32,17 +31,10 @@
 
 	.body {
 		flex: 1 1 auto;
-		padding: $padding-normal;
 	}
 
 	.element-container > * {
 		width: 100%;
 		height: 100%;
-	}
-
-	.footer {
-		align-items: center;
-		padding: 0 $padding-normal;
-		background: $wild-sand;
 	}
 }

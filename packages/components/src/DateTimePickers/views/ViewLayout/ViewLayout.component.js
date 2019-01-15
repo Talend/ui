@@ -14,7 +14,6 @@ function ViewLayout(props) {
 				<div className={classNames(theme['element-container'], theme.right)}>{rightElement}</div>
 			</div>
 			<div className={classNames(theme['element-container'], theme.body)}>{props.bodyElement}</div>
-			<div className={theme.footer}>{props.footerElement}</div>
 		</div>
 	);
 }
@@ -26,7 +25,6 @@ ViewLayout.propTypes = {
 		rightElement: PropTypes.element,
 	}).isRequired,
 	bodyElement: PropTypes.element.isRequired,
-	footerElement: PropTypes.element,
 };
 
 export default ViewLayout;
