@@ -2,7 +2,7 @@ module.exports = {
 	options: {
 		debug: true,
 		func: {
-			list: ['i18n.t', 't'],
+			list: ['t'],
 			extensions: ['.js'],
 		},
 		lngs: ['en'],
