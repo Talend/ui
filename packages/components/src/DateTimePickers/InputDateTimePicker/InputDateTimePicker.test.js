@@ -3,9 +3,18 @@ import { shallow, mount } from 'enzyme';
 import cases from 'jest-in-case';
 import keycode from 'keycode/index';
 
-import InputDateTimePicker from './InputDateTimePicker.component';
+import InputDateTimePicker, { DateValidationButton } from './InputDateTimePicker.component';
 
 const DEFAULT_ID = 'DEFAULT_ID';
+
+describe('DateValidationButton', () => {
+	it('should call onSubmit props when the user click', () => {
+		const onSubmitFn = jest.fn();
+		const wrapper = mount(<DateValidationButton onSubmit={onSubmitFn} />);
+		wrapper.find('button').simulate('click');
+		expect(onSubmitFn).toHaveBeenCalled();
+	});
+});
 
 describe('InputDateTimePicker', () => {
 	it('should render', () => {
@@ -15,6 +24,21 @@ describe('InputDateTimePicker', () => {
 				id={DEFAULT_ID}
 				selectedDateTime={new Date(2017, 3, 4, 15, 27)}
 				useTime
+			/>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render validation button', () => {
+		// when
+		const wrapper = shallow(
+			<InputDateTimePicker
+				id={DEFAULT_ID}
+				selectedDateTime={new Date(2017, 3, 4, 15, 27)}
+				useTime
+				formMode
 			/>,
 		);
 
@@ -377,6 +401,20 @@ describe('InputDateTimePicker', () => {
 			});
 		});
 
+		it('should not trigger props.onChange when in formMode', () => {
+			// given
+			const onChange = jest.fn();
+			const event = { target: { value: '2015-01-15 15:45' } };
+			const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} onChange={onChange} useTime formMode />);
+			expect(onChange).not.toBeCalled();
+
+			// when
+			wrapper.find('DebounceInput').simulate('change', event);
+
+			// then
+			expect(onChange).not.toBeCalled();
+		});
+
 		it('should trigger props.onChange with invalid date', () => {
 			// given
 			const onChange = jest.fn();
@@ -461,6 +499,23 @@ describe('InputDateTimePicker', () => {
 				origin: 'PICKER',
 				textInput: '2015-01-15 15:45',
 			});
+		});
+
+		it('should trigger not props.onChange in formMode', () => {
+			// given
+			const onChange = jest.fn();
+			const event = { target: {} };
+			const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} onChange={onChange} useTime formMode/>);
+			expect(onChange).not.toBeCalled();
+
+			// when
+			wrapper.find('DateTimePicker').prop('onSubmit')(event, {
+				date: new Date(2015, 0, 15),
+				time: { hours: '15', minutes: '45', seconds: '00' },
+			});
+
+			// then
+			expect(onChange).not.toBeCalled();
 		});
 
 		it('should trigger props.onChange with invalid time', () => {

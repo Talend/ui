@@ -38,29 +38,6 @@ exports[`DateTimeView should render 1`] = `
       </div>
     </div>
   }
-  footerElement={
-    <DateTimeValidation
-      allowFocus={true}
-      calendar={
-        Object {
-          "monthIndex": 5,
-          "year": 2006,
-        }
-      }
-      onSelectDate={[MockFunction]}
-      onSelectMonthYear={[MockFunction]}
-      onSelectTime={[MockFunction]}
-      onTitleClick={[MockFunction]}
-      selectedTime={
-        Object {
-          "hours": "15",
-          "minutes": "45",
-        }
-      }
-      t={[Function]}
-      useTime={true}
-    />
-  }
   header={
     Object {
       "leftElement": <Action

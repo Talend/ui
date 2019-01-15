@@ -13,6 +13,7 @@ exports[`InputDateTimePicker should render 1`] = `
     element="input"
     forceNotifyByEnter={true}
     forceNotifyOnBlur={true}
+    formMode={false}
     id="DEFAULT_ID"
     inputRef={[Function]}
     minLength={0}
@@ -36,25 +37,94 @@ exports[`InputDateTimePicker should render 1`] = `
         id="date-time-picker-DEFAULT_ID"
         placement="right"
       >
-        <DateTimePicker
-          isValid={true}
-          manageFocus={true}
-          onFinish={[Function]}
-          onSubmit={[Function]}
-          selection={
-            Object {
-              "date": 2017-04-03T22:00:00.000Z,
-              "time": Object {
-                "hours": "15",
-                "minutes": "27",
-                "seconds": "00",
-              },
+        <form>
+          <DateTimePicker
+            formMode={false}
+            manageFocus={true}
+            onSubmit={[Function]}
+            selection={
+              Object {
+                "date": 2017-04-03T22:00:00.000Z,
+                "time": Object {
+                  "hours": "15",
+                  "minutes": "27",
+                  "seconds": "00",
+                },
+              }
             }
-          }
-          useSeconds={false}
-          useTime={true}
-          useUTC={false}
-        />
+            useSeconds={false}
+            useTime={true}
+            useUTC={false}
+          />
+                 
+        </form>
+      </Popover>
+    </Overlay>
+  </div>
+</div>
+`;
+
+exports[`InputDateTimePicker should render validation button 1`] = `
+<div
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+>
+  <DebounceInput
+    autoComplete="off"
+    className="form-control"
+    debounceTimeout={300}
+    element="input"
+    forceNotifyByEnter={true}
+    forceNotifyOnBlur={true}
+    formMode={true}
+    id="DEFAULT_ID"
+    inputRef={[Function]}
+    minLength={0}
+    onChange={[Function]}
+    placeholder="YYYY-MM-DD HH:mm"
+    type="text"
+    value="2017-04-04 15:27"
+  />
+  <div
+    className="theme-dropdown-wrapper"
+  >
+    <Overlay
+      animation={[Function]}
+      placement="right"
+      rootClose={false}
+      show={false}
+    >
+      <Popover
+        bsClass="popover"
+        className="theme-popover"
+        id="date-time-picker-DEFAULT_ID"
+        placement="right"
+      >
+        <form>
+          <DateTimePicker
+            formMode={true}
+            manageFocus={true}
+            onSubmit={[Function]}
+            selection={
+              Object {
+                "date": 2017-04-03T22:00:00.000Z,
+                "time": Object {
+                  "hours": "15",
+                  "minutes": "27",
+                  "seconds": "00",
+                },
+              }
+            }
+            useSeconds={false}
+            useTime={true}
+            useUTC={false}
+          />
+          <Translate(DateTimeValidation)
+            onSubmit={[Function]}
+          />
+                 
+        </form>
       </Popover>
     </Overlay>
   </div>

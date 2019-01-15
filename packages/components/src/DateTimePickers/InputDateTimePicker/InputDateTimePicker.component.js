@@ -152,6 +152,9 @@ class InputDateTimePicker extends React.Component {
 		const textInput = event.target.value;
 		const nextState = extractPartsFromTextInput(textInput, this.getDateOptions());
 		this.setState({ ...nextState });
+		if (!this.props.formMode) {
+			this.onChange(event, 'INPUT')
+		}
 	}
 
 	onKeyDown(event) {
