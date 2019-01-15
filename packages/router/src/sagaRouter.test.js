@@ -26,10 +26,8 @@ describe('sagaRouter RouteChange', () => {
 			},
 		};
 		const gen = sagaRouter(mockHistory, routes);
+		expect(gen.next().value).toEqual(spawn(routes['/matchingroute'], {}, true));
 		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
-		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
-			spawn(routes['/matchingroute'], {}, true),
-		);
 	});
 
 	it(`start the configured  saga if route is a fragment of current location additionnaly add a second param
@@ -50,10 +48,7 @@ describe('sagaRouter RouteChange', () => {
 			},
 		};
 		const gen = sagaRouter(mockHistory, routes);
-		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
-		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
-			spawn(routes['/matchingroute'], {}, false),
-		);
+		expect(gen.next().value).toEqual(spawn(routes['/matchingroute'], {}, false));
 	});
 
 	it('keep running a saga if its route is a fragment of the new route', () => {
@@ -80,10 +75,7 @@ describe('sagaRouter RouteChange', () => {
 			},
 		};
 		const gen = sagaRouter(getMockedHistory(), routes);
-		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
-		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
-			spawn(routes['/matchingroute'], {}, true),
-		);
+		expect(gen.next().value).toEqual(spawn(routes['/matchingroute'], {}, true));
 		expect(gen.next(mockTask).value).toEqual(take('@@router/LOCATION_CHANGE'));
 		// since the saga should be kept running the router to be able to handle a new route change
 		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
@@ -115,10 +107,7 @@ describe('sagaRouter RouteChange', () => {
 			},
 		};
 		const gen = sagaRouter(getMockedHistory(), routes);
-		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
-		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
-			spawn(routes['/matchingroute'], {}, true),
-		);
+		expect(gen.next().value).toEqual(spawn(routes['/matchingroute'], {}, true));
 		expect(gen.next(mockTask).value).toEqual(take('@@router/LOCATION_CHANGE'));
 		const expectedCancelYield = cancel(mockTask);
 		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(expectedCancelYield);
@@ -151,10 +140,7 @@ describe('sagaRouter RouteChange', () => {
 			},
 		};
 		const gen = sagaRouter(getMockedHistory(), routes);
-		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
-		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
-			spawn(routes['/toCancelFirst'], {}, true),
-		);
+		expect(gen.next().value).toEqual(spawn(routes['/toCancelFirst'], {}, true));
 		expect(gen.next(mockTask).value).toEqual(take('@@router/LOCATION_CHANGE'));
 		const expectedCancelYield = cancel(mockTask);
 		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(expectedCancelYield);
@@ -169,10 +155,7 @@ describe('sagaRouter RouteChange', () => {
 		};
 
 		const anotherGen = sagaRouter(getMockedHistory(), alternateRoutes);
-		expect(anotherGen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
-		expect(anotherGen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
-			spawn(alternateRoutes['/toCancelFirst'], {}, true),
-		);
+		expect(anotherGen.next().value).toEqual(spawn(alternateRoutes['/toCancelFirst'], {}, true));
 		expect(anotherGen.next(mockTask).value).toEqual(take('@@router/LOCATION_CHANGE'));
 		const anotherExpectedCancelYield = cancel(mockTask);
 		expect(anotherGen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
@@ -215,10 +198,7 @@ describe('sagaRouter RouteChange', () => {
 		// WHEN
 		const gen = sagaRouter(getMockedHistory(), routes);
 		// EXPECT
-		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
-		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
-			spawn(routes['/resources'].saga, {}, true),
-		);
+		expect(gen.next().value).toEqual(spawn(routes['/resources'].saga, {}, true));
 		expect(gen.next(mockTask).value).toEqual(take('@@router/LOCATION_CHANGE'));
 		const expectedCancelYield = cancel(mockTask);
 		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(expectedCancelYield);
@@ -286,10 +266,7 @@ describe('sagaRouter RouteChange', () => {
 		// WHEN
 		const gen = sagaRouter(getMockedHistory(), routes);
 		// EXPECT
-		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
-		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
-			spawn(routes['/resources'].saga, {}, true),
-		);
+		expect(gen.next().value).toEqual(spawn(routes['/resources'].saga, {}, true));
 		expect(gen.next(mockTask).value).toEqual(take('@@router/LOCATION_CHANGE'));
 		// if saga restarted, it will cancel it first and then start it.
 		const expectedCancelYield = cancel(mockTask);
@@ -322,10 +299,9 @@ describe('sagaRouter route and route params', () => {
 			},
 		};
 		const gen = sagaRouter(getMockedHistory(), routes);
+
+		expect(gen.next().value).toEqual(spawn(routes['/matchingroute/:id'], { id: 'anId' }, true));
 		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
-		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
-			spawn(routes['/matchingroute/:id'], { id: 'anId' }, true),
-		);
 	});
 
 	it('if route params change, then matchings sagas should be cancel and restarted', () => {
@@ -352,7 +328,6 @@ describe('sagaRouter route and route params', () => {
 			},
 		};
 		const gen = sagaRouter(getMockedHistory(), routes);
-		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
 		expect(gen.next({ type: '@@router/LOCATION_CHANGE' }).value).toEqual(
 			spawn(routes['/matchingroute/:id'], { id: 'anId' }, true),
 		);
