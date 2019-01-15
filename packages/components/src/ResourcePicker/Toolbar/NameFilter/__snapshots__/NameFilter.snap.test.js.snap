@@ -2,7 +2,7 @@
 
 exports[`NameFilter component snaps should render NameFilter in default mode 1`] = `
 <form
-  className="name-filter theme-name-filter"
+  className="tc-resource-picker-name-filter theme-tc-resource-picker-name-filter"
 >
   <label
     className="sr-only"

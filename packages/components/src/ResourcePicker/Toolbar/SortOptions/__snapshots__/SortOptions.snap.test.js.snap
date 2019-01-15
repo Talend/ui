@@ -4,10 +4,10 @@ exports[`SortOptions component snaps should not render SortOptions when no type 
 
 exports[`SortOptions component snaps should render SortOptions in default mode 1`] = `
 <div
-  className="sort-options theme-sort-options"
+  className="tc-resource-picker-sort-options theme-tc-resource-picker-sort-options"
 >
   <span
-    className="option-label theme-option-label"
+    className="theme-option-label"
   >
     Sort:
   </span>
@@ -28,10 +28,10 @@ exports[`SortOptions component snaps should render SortOptions in default mode 1
 
 exports[`SortOptions component snaps should render SortOptions with date in ASC mode 1`] = `
 <div
-  className="sort-options theme-sort-options"
+  className="tc-resource-picker-sort-options theme-tc-resource-picker-sort-options"
 >
   <span
-    className="option-label theme-option-label"
+    className="theme-option-label"
   >
     Sort:
   </span>
@@ -52,10 +52,10 @@ exports[`SortOptions component snaps should render SortOptions with date in ASC 
 
 exports[`SortOptions component snaps should render SortOptions with name in ASC mode 1`] = `
 <div
-  className="sort-options theme-sort-options"
+  className="tc-resource-picker-sort-options theme-tc-resource-picker-sort-options"
 >
   <span
-    className="option-label theme-option-label"
+    className="theme-option-label"
   >
     Sort:
   </span>
@@ -76,10 +76,10 @@ exports[`SortOptions component snaps should render SortOptions with name in ASC 
 
 exports[`SortOptions component snaps should render SortOptions with only the date type 1`] = `
 <div
-  className="sort-options theme-sort-options"
+  className="tc-resource-picker-sort-options theme-tc-resource-picker-sort-options"
 >
   <span
-    className="option-label theme-option-label"
+    className="theme-option-label"
   >
     Sort:
   </span>
@@ -94,10 +94,10 @@ exports[`SortOptions component snaps should render SortOptions with only the dat
 
 exports[`SortOptions component snaps should render SortOptions with only the name type 1`] = `
 <div
-  className="sort-options theme-sort-options"
+  className="tc-resource-picker-sort-options theme-tc-resource-picker-sort-options"
 >
   <span
-    className="option-label theme-option-label"
+    className="theme-option-label"
   >
     Sort:
   </span>

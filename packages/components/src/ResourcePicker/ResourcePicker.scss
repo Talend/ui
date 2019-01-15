@@ -1,7 +1,7 @@
 $tc-resource-picker-height: 25rem !default;
 
-.resource-picker {
-	.list-container {
+.tc-resource-picker {
+	.tc-resource-picker-list-container {
 		height: $tc-resource-picker-height;
 
 		&.filtered {

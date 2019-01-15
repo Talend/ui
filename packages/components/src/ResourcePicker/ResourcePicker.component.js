@@ -17,10 +17,10 @@ export default function ResourcePicker({ collection, toolbar }) {
 	);
 
 	return (
-		<div className={classNames('resource-picker', theme['resource-picker'])}>
+		<div className={classNames('tc-resource-picker', theme['tc-resource-picker'])}>
 			{toolbar && <Toolbar {...toolbar} />}
 			<div
-				className={classNames(theme['list-container'], {
+				className={classNames(theme['tc-resource-picker-list-container'], {
 					[theme.filtered]: isFiltered(toolbar),
 				})}
 			>

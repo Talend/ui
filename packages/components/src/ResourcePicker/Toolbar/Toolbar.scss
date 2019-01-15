@@ -1,8 +1,8 @@
-$toolbar-height: 35px;
+$tc-resource-picker-toolbar-height: 3.5rem;
 
-.toolbar-container {
+.tc-resource-picker-toolbar-container {
 	display: flex;
-	height: $toolbar-height;
+	height: $tc-resource-picker-toolbar-height;
 
 	> * {
 		margin-right: $padding-normal;

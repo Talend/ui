@@ -2,16 +2,16 @@
 
 exports[`StateFilter component snaps should render in default mode 1`] = `
 <div
-  className="state-filters theme-state-filters"
+  className="tc-resource-picker-state-filters theme-tc-resource-picker-state-filters"
 >
   <span
-    className="option-label theme-option-label"
+    className="theme-option-label"
   >
     Filter:
   </span>
   <ActionIconToggle
     active={false}
-    className="certified-filter theme-certified-filter"
+    className="theme-tc-resource-picker-certified-filter"
     icon="talend-badge"
     label="Certified"
     onClick={[Function]}
@@ -19,7 +19,7 @@ exports[`StateFilter component snaps should render in default mode 1`] = `
   />
   <ActionIconToggle
     active={false}
-    className="favorite-filter theme-favorite-filter"
+    className="theme-tc-resource-picker-favorite-filter"
     icon="talend-star"
     label="Favorites"
     onClick={[Function]}
@@ -30,16 +30,16 @@ exports[`StateFilter component snaps should render in default mode 1`] = `
 
 exports[`StateFilter component snaps should render with only certified 1`] = `
 <div
-  className="state-filters theme-state-filters"
+  className="tc-resource-picker-state-filters theme-tc-resource-picker-state-filters"
 >
   <span
-    className="option-label theme-option-label"
+    className="theme-option-label"
   >
     Filter:
   </span>
   <ActionIconToggle
     active={false}
-    className="certified-filter theme-certified-filter"
+    className="theme-tc-resource-picker-certified-filter"
     icon="talend-badge"
     label="Certified"
     onClick={[Function]}
@@ -50,16 +50,16 @@ exports[`StateFilter component snaps should render with only certified 1`] = `
 
 exports[`StateFilter component snaps should render with only favorites 1`] = `
 <div
-  className="state-filters theme-state-filters"
+  className="tc-resource-picker-state-filters theme-tc-resource-picker-state-filters"
 >
   <span
-    className="option-label theme-option-label"
+    className="theme-option-label"
   >
     Filter:
   </span>
   <ActionIconToggle
     active={false}
-    className="favorite-filter theme-favorite-filter"
+    className="theme-tc-resource-picker-favorite-filter"
     icon="talend-star"
     label="Favorites"
     onClick={[Function]}
@@ -70,16 +70,16 @@ exports[`StateFilter component snaps should render with only favorites 1`] = `
 
 exports[`StateFilter component snaps should render with states to set to true 1`] = `
 <div
-  className="state-filters theme-state-filters"
+  className="tc-resource-picker-state-filters theme-tc-resource-picker-state-filters"
 >
   <span
-    className="option-label theme-option-label"
+    className="theme-option-label"
   >
     Filter:
   </span>
   <ActionIconToggle
     active={true}
-    className="certified-filter theme-certified-filter"
+    className="theme-tc-resource-picker-certified-filter"
     icon="talend-badge"
     label="Certified"
     onClick={[Function]}
@@ -87,7 +87,7 @@ exports[`StateFilter component snaps should render with states to set to true 1`
   />
   <ActionIconToggle
     active={true}
-    className="favorite-filter theme-favorite-filter"
+    className="theme-tc-resource-picker-favorite-filter"
     icon="talend-star"
     label="Favorites"
     onClick={[Function]}

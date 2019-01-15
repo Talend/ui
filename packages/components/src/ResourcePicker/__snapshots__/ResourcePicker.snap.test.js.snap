@@ -2,7 +2,7 @@
 
 exports[`ResourcePicker component snaps should render ResourcePicker in filtered mode 1`] = `
 <div
-  className="resource-picker theme-resource-picker"
+  className="tc-resource-picker theme-tc-resource-picker"
 >
   <Toolbar
     state={
@@ -13,7 +13,7 @@ exports[`ResourcePicker component snaps should render ResourcePicker in filtered
     }
   />
   <div
-    className="theme-list-container theme-filtered"
+    className="theme-tc-resource-picker-list-container theme-filtered"
   >
     <VirtualizedList
       collection={
@@ -62,11 +62,11 @@ exports[`ResourcePicker component snaps should render ResourcePicker in filtered
 
 exports[`ResourcePicker component snaps should render ResourcePicker with some Resources 1`] = `
 <div
-  className="resource-picker theme-resource-picker"
+  className="tc-resource-picker theme-tc-resource-picker"
 >
   <Toolbar />
   <div
-    className="theme-list-container"
+    className="theme-tc-resource-picker-list-container"
   >
     <VirtualizedList
       collection={
@@ -115,11 +115,11 @@ exports[`ResourcePicker component snaps should render ResourcePicker with some R
 
 exports[`ResourcePicker component snaps should render ResourcePicker without any Resource 1`] = `
 <div
-  className="resource-picker theme-resource-picker"
+  className="tc-resource-picker theme-tc-resource-picker"
 >
   <Toolbar />
   <div
-    className="theme-list-container"
+    className="theme-tc-resource-picker-list-container"
   >
     <VirtualizedList
       collection={Array []}
@@ -138,10 +138,10 @@ exports[`ResourcePicker component snaps should render ResourcePicker without any
 
 exports[`ResourcePicker component snaps should render ResourcePicker without toolbar 1`] = `
 <div
-  className="resource-picker theme-resource-picker"
+  className="tc-resource-picker theme-tc-resource-picker"
 >
   <div
-    className="theme-list-container"
+    className="theme-tc-resource-picker-list-container"
   >
     <VirtualizedList
       collection={

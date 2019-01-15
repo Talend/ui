@@ -1,6 +1,6 @@
-$order-chooser-icon-size: 0.6rem;
+$tc-resource-picker-order-chooser-icon-size: 0.6rem;
 
-.order-chooser {
+.tc-resource-picker-order-chooser {
 	display: flex;
 
 	padding: 0;
@@ -12,9 +12,9 @@ $order-chooser-icon-size: 0.6rem;
 		box-shadow: none;
 	}
 
-	.order-indicator {
-		width: $order-chooser-icon-size;
-		height: $order-chooser-icon-size;
+	.tc-resource-picker-order-indicator {
+		width: $tc-resource-picker-order-chooser-icon-size;
+		height: $tc-resource-picker-order-chooser-icon-size;
 
 		&.asc {
 			transform: rotate(180deg);

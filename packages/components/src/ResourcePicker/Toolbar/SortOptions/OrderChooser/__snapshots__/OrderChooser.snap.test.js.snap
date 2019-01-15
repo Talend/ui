@@ -11,7 +11,7 @@ exports[`OrderChooser component snaps renderers should render OrderChooser in as
     block={false}
     bsClass="btn"
     bsStyle=""
-    className="order-chooser theme-order-chooser"
+    className="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser"
     disabled={false}
   >
     <Icon
@@ -19,7 +19,7 @@ exports[`OrderChooser component snaps renderers should render OrderChooser in as
     />
     <Icon
       alt="current order: asc"
-      className="order-indicator theme-order-indicator theme-asc"
+      className="tc-resource-picker-order-indicator theme-tc-resource-picker-order-indicator theme-asc"
       name="talend-caret-down"
     />
   </Button>
@@ -37,7 +37,7 @@ exports[`OrderChooser component snaps renderers should render OrderChooser in de
     block={false}
     bsClass="btn"
     bsStyle=""
-    className="order-chooser theme-order-chooser"
+    className="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser"
     disabled={false}
   >
     <Icon
@@ -45,7 +45,7 @@ exports[`OrderChooser component snaps renderers should render OrderChooser in de
     />
     <Icon
       alt="current order: desc"
-      className="order-indicator theme-order-indicator"
+      className="tc-resource-picker-order-indicator theme-tc-resource-picker-order-indicator"
       name="talend-caret-down"
     />
   </Button>
