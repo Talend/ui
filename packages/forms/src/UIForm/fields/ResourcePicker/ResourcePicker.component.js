@@ -33,6 +33,9 @@ class ResourcePicker extends Component {
 		this.stateFilterChanged = this.stateFilterChanged.bind(this);
 		this.sortOptionChanged = this.sortOptionChanged.bind(this);
 
+		this.isItemSelected = this.isItemSelected.bind(this);
+		this.onRowClick = this.onRowClick.bind(this);
+
 		this.state = {
 			options: {
 				name: '',
@@ -117,6 +120,15 @@ class ResourcePicker extends Component {
 		);
 	}
 
+	isItemSelected(a) {
+		console.log('[NC] isSelected: ', a);
+		return true;
+	}
+
+	onRowClick(a) {
+		console.log('[NC]  onRowClick: ', a);
+	}
+
 	render() {
 		const { certified, favorites, orders } = this.state.options;
 		const props = omit(this.props, PROPS_TO_OMIT);
@@ -159,6 +171,8 @@ class ResourcePicker extends Component {
 					readOnly={this.props.schema.readOnly || false}
 					toolbar={toolbar}
 					onChange={this.onChange}
+					isSelected={this.isItemSelected}
+					onRowClick={this.onRowClick}
 				/>
 			</FieldTemplate>
 		);
