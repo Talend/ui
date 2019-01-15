@@ -209,6 +209,7 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	onSubmit(event, origin) {
+		event.preventDefault();
 		this.onChange(event, origin);
 		if (this.props.formMode) {
 			this.closePicker();
