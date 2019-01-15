@@ -30,8 +30,12 @@
 		opacity: 0;
 
 		.flag {
+			opacity: 0;
 			margin-left: $padding-small;
 
+			&.visible {
+				opacity: 1;
+			}
 			&[name='talend-star'] {
 				color: $lightning-yellow;
 			}
