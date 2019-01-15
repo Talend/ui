@@ -215,10 +215,6 @@ class InputDateTimePicker extends React.Component {
 		}
 	}
 
-	resetDate() {
-		this.setState({ ...this.initialState });
-	}
-
 	setPickerVisibility(isShown) {
 		if (this.props.readOnly) {
 			return;
@@ -239,6 +235,10 @@ class InputDateTimePicker extends React.Component {
 			useSeconds: this.props.useSeconds,
 			useUTC: this.props.useUTC,
 		};
+	}
+
+	resetDate() {
+		this.setState({ ...this.initialState });
 	}
 
 	dateHasChanged(nextState) {
