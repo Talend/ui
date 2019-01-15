@@ -41,8 +41,8 @@ function SortOptions({ t, types, onChange, orders }) {
 					<OrderChooser
 						icon={'talend-sort-az'}
 						label={t('SORT_BY_NAME', {
-							defaultValue: 'Sort by name ({{order}})',
-							order: inverse(orders[TYPES.NAME]),
+							defaultValue: 'Sort by name (current order: {{order}})',
+							order: orders[TYPES.NAME],
 						})}
 						asc={orders[TYPES.NAME] === ORDERS.ASC}
 						onClick={() => onChange(TYPES.NAME, inverse(orders[TYPES.NAME]))}
@@ -52,8 +52,8 @@ function SortOptions({ t, types, onChange, orders }) {
 					<OrderChooser
 						icon={'talend-sort-desc'}
 						label={t('SORT_BY_DATE', {
-							defaultValue: 'Sort by date ({{order}})',
-							order: inverse(orders[TYPES.DATE]),
+							defaultValue: 'Sort by date (current order: {{order}})',
+							order: orders[TYPES.DATE],
 						})}
 						asc={orders[TYPES.DATE] === ORDERS.ASC}
 						onClick={() => onChange(TYPES.DATE, inverse(orders[TYPES.DATE]))}
