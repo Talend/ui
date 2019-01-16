@@ -42,6 +42,7 @@ class ResourcePicker extends Component {
 				certified: false,
 				favorites: false,
 			},
+			selected: [],
 		};
 
 		this.onFilter();
@@ -57,22 +58,57 @@ class ResourcePicker extends Component {
 		const mergedSchema = this.props.schema;
 		const payloadWithSchema = { ...payload, schema: mergedSchema };
 
-		this.callTrigger(event, payload);
+		// this.callTrigger(event, payload);
 		this.props.onChange(event, payloadWithSchema);
 		this.props.onFinish(event, payloadWithSchema);
 	}
 
 	onFilter(event) {
 		this.setState({ isLoading: true });
-		this.props
-			.onTrigger(event, {
-				trigger: {
-					parameters: this.state.options,
-				},
-				schema: this.props.schema,
-			})
+		this.props.onTrigger(event, {
+			trigger: {
+				parameters: this.state.options,
+			},
+			schema: this.props.schema,
+		})
 			.then(data => this.setState(data))
 			.finally(() => this.setState({ isLoading: false }));
+	}
+
+	onRowClick(event, { id }) {
+		let selected = [...this.state.selected];
+		const index = selected.findIndex(i => i === id);
+		const { options } = this.props.schema;
+
+		if (!options.multi) {
+			selected = [];
+		}
+
+		if (index > -1) {
+			selected.splice(index, 1);
+		} else {
+			selected.push(id);
+		}
+
+		this.setState({ selected });
+		this.onChange(event, selected);
+	}
+
+	isItemSelected({ id }) {
+		return this.state.selected.includes(id);
+	}
+
+	stateFilterChanged(option, value) {
+		this.setState(
+			state => ({
+				...state,
+				options: {
+					...state.options,
+					[option]: value,
+				},
+			}),
+			() => this.onFilter(null, this.state.options),
+		);
 	}
 
 	nameFilterChanged(event) {
@@ -92,19 +128,6 @@ class ResourcePicker extends Component {
 		}
 	}
 
-	stateFilterChanged(option, value) {
-		this.setState(
-			state => ({
-				...state,
-				options: {
-					...state.options,
-					[option]: value,
-				},
-			}),
-			() => this.onFilter(null, this.state.options),
-		);
-	}
-
 	sortOptionChanged(option, value) {
 		this.setState(
 			state => ({
@@ -119,15 +142,6 @@ class ResourcePicker extends Component {
 			}),
 			() => this.onFilter(null, this.state.options),
 		);
-	}
-
-	isItemSelected(a) {
-		console.log('[NC] isSelected: ', a);
-		return true;
-	}
-
-	onRowClick(a) {
-		console.log('[NC]  onRowClick: ', a);
 	}
 
 	render() {
@@ -218,18 +232,7 @@ if (process.env.NODE_ENV !== 'production') {
 				}),
 			),
 			options: PropTypes.shape({
-				isMultiSection: PropTypes.bool,
-				titleMap: PropTypes.arrayOf(
-					PropTypes.shape({
-						title: PropTypes.string.isRequired,
-						suggestions: PropTypes.arrayOf(
-							PropTypes.shape({
-								name: PropTypes.string.isRequired,
-								value: PropTypes.string.isRequired,
-							}),
-						),
-					}),
-				),
+				multi: PropTypes.bool,
 			}),
 		}),
 		t: PropTypes.func,

@@ -12,8 +12,19 @@
   "uiSchema": [
     {
       "key": "asyncResourcePicker",
-      "title": "ResourcePicker with async options",
-      "widget": "resourcePicker"
+      "title": "ResourcePicker multi selection",
+      "widget": "resourcePicker",
+      "options": {
+        "multi": true
+      }
+    },
+    {
+      "key": "asyncResourcePicker",
+      "title": "ResourcePicker without multi selection",
+      "widget": "resourcePicker",
+      "options": {
+        "multi": false
+      }
     }
   ],
   "properties": {}
