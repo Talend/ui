@@ -202,7 +202,11 @@ You need to pass github credentials as environment variables.
   },
   "module": {
     "type": "npm",
-    "private": true
+    "private": true,
+    "repository": {
+        "id": "private-releases",
+        "url": "https://mydomain.com/nexus/content/repositories/MyPrivateSourceRelease"
+    }
   }
 }
 ```
@@ -212,6 +216,9 @@ You need to pass github credentials as environment variables.
 | github.url | `string` | The https git url. |
 | module.type | `string` | The module type to deploy (`npm` | `mvn`). |
 | module.private | `boolean` | If the module should be private. |
+| module.repository | `object` | This will be set in pom.xml for `mvn` modules. It should reflect the repository this module should be released. |
+| module.repository.id | `string` | The repository id. |
+| module.repository.url | `string` | The repository url. |
 
 The i18n files will be pushed to a branch `{XTM_project}/{version}`.
 
