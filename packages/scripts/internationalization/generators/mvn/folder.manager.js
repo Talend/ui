@@ -60,10 +60,11 @@ function renameFiles(languageFolder) {
  */
 module.exports = function manageMvnFolder(options) {
 	const { i18nFolder, localesRepoPath } = options;
-	copyFiles(i18nFolder, localesRepoPath);
-	getLanguageFoldersDefinitions(localesRepoPath).forEach(languageFolder => {
+	const targetLocalesPath = path.join(options.localesRepoPath, 'locales');
+	copyFiles(i18nFolder, targetLocalesPath);
+	getLanguageFoldersDefinitions(targetLocalesPath).forEach(languageFolder => {
 		renameFiles(languageFolder);
-		mergeDirs(languageFolder.absPath, localesRepoPath);
-		rimraf.sync(languageFolder.absPath);
+		mergeDirs(languageFolder.absPath, localesRepoPath, 'overwrite');
 	});
+	rimraf.sync(targetLocalesPath);
 };

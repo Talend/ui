@@ -185,8 +185,8 @@ function deploy({ load, github, module }) {
 		};
 		switchToBranch(versionOptions, repoCmdContext);
 		generateModule(versionOptions);
-		//pushI18nFiles(versionOptions, repoCmdContext);
-		//deployModule(versionOptions, repoCmdContext);
+		pushI18nFiles(versionOptions, repoCmdContext);
+		deployModule(versionOptions, repoCmdContext);
 	});
 }
 
