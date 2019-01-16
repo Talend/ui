@@ -37,7 +37,7 @@ There are 4 actions you can perform
 talend-scripts i18n-extract
 talend-scripts i18n-upload
 talend-scripts i18n-download
-talend-scripts i18n-to-github
+talend-scripts i18n-deploy
 ```
 
 # Configuration
