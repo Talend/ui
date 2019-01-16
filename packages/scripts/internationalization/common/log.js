@@ -1,15 +1,8 @@
 /* eslint-disable no-console */
 const chalk = require('chalk');
 
-function error(message) {
+function printError(message) {
 	console.error(chalk.red(`❌ ${message}`));
-	process.exit(1);
-}
-
-function printSection(title) {
-	console.log('\n------------------------------');
-	console.log(`-- ${title}`);
-	console.log('------------------------------');
 }
 
 function printSuccess(text) {
@@ -24,10 +17,21 @@ function printInfo(text) {
 	console.log(`ℹ️ ${text}`);
 }
 
+function printWarning(text) {
+	console.log(chalk.yellow(`⚠️️ ${text}`));
+}
+
+function printSection(title) {
+	console.log('\n------------------------------');
+	console.log(`-- ${title}`);
+	console.log('------------------------------');
+}
+
 module.exports = {
-	error,
+	printError,
 	printInfo,
-	printSection,
 	printSuccess,
 	printRunning,
+	printWarning,
+	printSection,
 };

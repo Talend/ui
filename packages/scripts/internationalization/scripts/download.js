@@ -4,7 +4,8 @@ const Zip = require('adm-zip');
 const mkdirp = require('mkdirp');
 const rimraf = require('rimraf');
 const { getFilesToDownload, login, getProject, downloadFiles } = require('../common/xtm');
-const { error, printRunning, printSection } = require('../common/log');
+const error = require('../common/error');
+const { printRunning, printSection } = require('../common/log');
 const { getPossibleVersion } = require('../common/version');
 
 function unzip(data) {
