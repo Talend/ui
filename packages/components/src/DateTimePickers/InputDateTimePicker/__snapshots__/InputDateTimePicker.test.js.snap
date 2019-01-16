@@ -55,7 +55,6 @@ exports[`InputDateTimePicker should render 1`] = `
             useTime={true}
             useUTC={false}
           />
-           
         </Popover>
       </Overlay>
     </div>
@@ -121,10 +120,7 @@ exports[`InputDateTimePicker should render validation button 1`] = `
               useTime={true}
               useUTC={false}
             />
-            <Translate(DateTimeValidation)
-              onSubmit={[Function]}
-            />
-             
+            <Translate(DateTimeValidation) />
           </Popover>
         </Overlay>
       </div>
