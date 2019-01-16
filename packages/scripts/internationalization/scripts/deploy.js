@@ -9,6 +9,7 @@ const { printInfo, printRunning, printSuccess, printSection } = require('../comm
 const generatePackageJson = require('../generators/npm/package.generator');
 const generateIndexJS = require('../generators/npm/index.generator');
 const generateReadme = require('../generators/npm/readme.generator');
+const manageFolder = require('../generators/npm/folder.manager');
 
 function getGithubVariables() {
 	const { GITHUB_LOGIN, GITHUB_TOKEN } = process.env;
@@ -78,6 +79,7 @@ function generateModule(options, repoCmdContext) {
 
 	switch (options.type) {
 		case 'npm':
+			manageFolder(options);
 			generatePackageJson(repoCmdContext.cwd, options);
 			generateIndexJS(repoCmdContext.cwd);
 			generateReadme(repoCmdContext.cwd, options);
@@ -92,13 +94,6 @@ function generateModule(options, repoCmdContext) {
 			);
 			break;
 	}
-}
-
-function copyI18nFiles(options) {
-	const { i18nFolder, localesRepoPath } = options;
-
-	printRunning(`Copy ${i18nFolder}/ files into locales repository ${localesRepoPath}`);
-	spawn.sync('cp', ['-r', `${i18nFolder}/.`, localesRepoPath], { stdio: 'inherit' });
 }
 
 function pushI18nFiles(options, repoCmdContext) {
@@ -186,7 +181,6 @@ function toGithub({ load, github, module }) {
 			type: module.type,
 		};
 		switchToBranch(versionOptions, repoCmdContext);
-		copyI18nFiles(versionOptions);
 		generateModule(versionOptions, repoCmdContext);
 		pushI18nFiles(versionOptions, repoCmdContext);
 		deployModule(versionOptions, repoCmdContext);

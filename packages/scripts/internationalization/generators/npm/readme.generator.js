@@ -15,8 +15,11 @@ yarn install @talend/locales-<%= normalizedName %>
 \`\`\`
 
 ## How to use with i18next
+
+### Synchronous use
+
+i18n.js
 \`\`\`javascript
-// i18n.js
 import i18n from 'i18next';
 
 import merge from 'lodash.merge';
@@ -38,6 +41,46 @@ i18n
 export default i18n;
 \`\`\`
 
+### Asynchronous use
+For async load, you need to copy the i18n files to the location you want to serve them
+
+webpack.config.js
+\`\`\`javascript
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+module.exports = {
+	plugins: [
+		new CopyWebpackPlugin([
+			{ from: 'node_modules/@talend/locales-<%= normalizedName %>/locales', to: 'assets/locales' },
+		]),
+	]
+}
+\`\`\`
+
+i18n.js
+\`\`\`javascript
+import i18n from 'i18next';
+import XHR from 'i18next-xhr-backend';
+
+import {
+	namespaces as <%= minimalName %>Namespaces,
+	locales as <%= minimalName %>Locales,
+} from '@talend/locales-<%= normalizedName %>';
+
+i18n
+	.use(XHR)
+	.init({
+		ns: [
+			...<%= minimalName %>Namespaces,
+			...myProjectNamespaces
+		],
+		backend: {
+			loadPath: '/assets/locales/{{lng}}/{{ns}}.json',
+		},
+	});
+
+export default i18n;
+\`\`\`
 `);
 
 module.exports = function generateReadme(projectPath, options) {

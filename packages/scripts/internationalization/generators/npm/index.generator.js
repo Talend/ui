@@ -6,7 +6,7 @@ const { printRunning, printSuccess } = require('../../common/log');
 
 const languageTemplate = template('const <%= language %> = {\n<%= filesRequires %>\n};');
 const requireTemplate = template(
-	"	'<%= namespace %>': require('./<%= folderName %>/<%= namespace %>.json'),",
+	"	'<%= namespace %>': require('./locales/<%= language %>/<%= namespace %>.json'),",
 );
 const exportsTemplate = template(`
 module.exports = {
@@ -19,6 +19,7 @@ module.exports = {
  * Generate i18n project index.js
  * The target project must respect this folder hierarchy
  * root
+ * 	|_ locales
  * 		|_ <language_1>
  * 		 	|_ <namespace_1>.json
  * 		 	|_ <namespace_2>.json
@@ -35,17 +36,17 @@ module.exports = function generateIndexJS(projectPath) {
 	// - absPath: folder absolute path
 	// - namespaces: the name of the files it contains
 	// 		--> "toto.json tata.json" --> namespaces = ['toto', 'tata']
+	const localesPath = path.join(projectPath, 'locales');
 	const languageDirectories = fs
-		.readdirSync(projectPath)
+		.readdirSync(localesPath)
+		.filter(name => name !== '.git')
 		.map(name => ({
 			name,
-			absPath: path.join(projectPath, name),
+			absPath: path.join(localesPath, name),
 		}))
-		.filter(({ name }) => name !== '.git')
 		.filter(({ absPath }) => fs.lstatSync(absPath).isDirectory())
 		.map(directory => ({
 			...directory,
-			language: directory.name.substr(0, directory.name.indexOf('_')),
 			namespaces: fs
 				.readdirSync(directory.absPath)
 				.map(fileName => fileName.match(/(.*)\.json/)[1]),
@@ -56,16 +57,16 @@ module.exports = function generateIndexJS(projectPath) {
 	const languagesDefinitions = languageDirectories
 		.map(directory => {
 			const filesRequires = directory.namespaces
-				.map(namespace => requireTemplate({ namespace, folderName: directory.name }))
+				.map(namespace => requireTemplate({ namespace, language: directory.name }))
 				.join('\n');
-			return languageTemplate({ language: directory.language, filesRequires });
+			return languageTemplate({ language: directory.name, filesRequires });
 		})
 		.join('\n');
 	const exportsDefinitions = exportsTemplate({
 		namespaces: [...new Set(languageDirectories.flatMap(directory => directory.namespaces))]
 			.map(n => `'${n}'`)
 			.join(', '),
-		languages: languageDirectories.map(({ language }) => language).join(', '),
+		languages: languageDirectories.map(({ name }) => name).join(', '),
 	});
 
 	const indexJsPath = path.join(projectPath, 'index.js');
