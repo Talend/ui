@@ -87,6 +87,7 @@ const state = {
 const props = {
 	collection,
 	toolbar: { name, sort, state },
+	onRowClick: action('Row clicked'),
 };
 
 
@@ -101,6 +102,12 @@ storiesOf('ResourcePicker', module)
 		<div>
 			<p>By default :</p>
 			<ResourcePicker id="default" {...props} />
+		</div>
+	))
+	.add('with selected resources', () => (
+		<div>
+			<p>By default :</p>
+			<ResourcePicker id="default" {...props} isSelected={() => true} />
 		</div>
 	))
 	.add('without toolbar', () => (

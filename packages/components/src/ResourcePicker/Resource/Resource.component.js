@@ -32,16 +32,16 @@ function getAuthorLabel(t, author, date) {
 }
 
 function Resource({ parent, index, style, className, t }) {
-	const item = getRowData(parent, index);
-	if (!item) {
+	const rowData = getRowData(parent, index);
+	if (!rowData) {
 		return null;
 	}
 
 	let onRowClick;
-	const { icon, name, author, modified, flags = [] } = item;
+	const { icon, name, author, modified, flags = [] } = rowData;
 
 	if (parent.props.onRowClick) {
-		onRowClick = event => parent.props.onRowClick({ event, item });
+		onRowClick = event => parent.props.onRowClick({ event, rowData });
 	}
 
 	return (

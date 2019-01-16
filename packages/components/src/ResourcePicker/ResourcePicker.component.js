@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { VirtualizedList } from '../';
+import { decorateRowClick } from '../VirtualizedList/event/rowclick';
 import getRowSelectionRenderer from '../VirtualizedList/RowSelection';
 
 import Resource from './Resource';
