@@ -6,7 +6,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   105:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
 
 /home/travis/build/Talend/ui/packages/components/src/ResourcePicker/ResourcePicker.component.js
-  15:2  warning  Unexpected console statement  no-console
+  17:2  warning  Unexpected console statement  no-console
 
 /home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/SubHeaderBar.test.js
   4:8  error  'Container' is defined but never used  no-unused-vars
