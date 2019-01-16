@@ -11,7 +11,7 @@ const generateIndexJS = require('../generators/npm/index.generator');
 const generateReadme = require('../generators/npm/readme.generator');
 const manageFolder = require('../generators/npm/folder.manager');
 const generatePomXml = require('../generators/mvn/pom.generator');
-const manageMvnFolders = require('../generators/mvn/folders.manager');
+const manageMvnFolder = require('../generators/mvn/folder.manager');
 
 function getGithubVariables() {
 	const { GITHUB_LOGIN, GITHUB_TOKEN } = process.env;
@@ -76,19 +76,19 @@ function switchToBranch({ githubUrl, branchName }, repoCmdContext) {
 	}
 }
 
-function generateModule(options, repoCmdContext) {
+function generateModule(options) {
 	printSection('Module generation');
 
 	switch (options.type) {
 		case 'npm':
 			manageFolder(options);
-			generatePackageJson(repoCmdContext.cwd, options);
-			generateIndexJS(repoCmdContext.cwd);
-			generateReadme(repoCmdContext.cwd, options);
+			generatePackageJson(options);
+			generateIndexJS(options);
+			generateReadme(options);
 			break;
 		case 'mvn':
-			generatePomXml(repoCmdContext.cwd, options);
-			manageMvnFolders(repoCmdContext.cwd);
+			manageMvnFolder(options);
+			generatePomXml(options);
 			// TODO mvn files : pom.xml, src/main/resources with _fr.properties
 			break;
 		default:
@@ -185,7 +185,7 @@ function deploy({ load, github, module }) {
 			repository: module.repository,
 		};
 		switchToBranch(versionOptions, repoCmdContext);
-		generateModule(versionOptions, repoCmdContext);
+		generateModule(versionOptions);
 		//pushI18nFiles(versionOptions, repoCmdContext);
 		//deployModule(versionOptions, repoCmdContext);
 	});

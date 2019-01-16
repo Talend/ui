@@ -3,6 +3,12 @@ const path = require('path');
 const spawn = require('cross-spawn');
 
 const error = require('./error');
+const { printRunning } = require('./log');
+
+function copyFiles(srcFolder, targetFolder) {
+	printRunning(`Copy ${srcFolder}/ files into ${targetFolder}`);
+	spawn.sync('cp', ['-r', `${srcFolder}/.`, targetFolder], { stdio: 'inherit' });
+}
 
 function fsFind(rootFolder, type, name) {
 	const findArgs = [rootFolder];
@@ -37,6 +43,7 @@ function getLanguageFoldersDefinitions(folderPath) {
 }
 
 module.exports = {
+	copyFiles,
 	fsFind,
 	getLanguageFoldersDefinitions,
 };

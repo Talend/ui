@@ -4,7 +4,7 @@ const mergeDirs = require('merge-dirs').default;
 const rimraf = require('rimraf');
 
 const { printInfo } = require('../../common/log');
-const { fsFind, getLanguageFoldersDefinitions } = require('../../common/files');
+const { copyFiles, fsFind, getLanguageFoldersDefinitions } = require('../../common/files');
 
 /**
  * Insert language suffix in every file name
@@ -65,9 +65,11 @@ function mergeSources(languageFolder, srcPath) {
  * 			|_ file2_en.properties
  * 			|_ file2_fr.properties
  */
-module.exports = function manageMvnFolders(projectPath) {
-	const srcPath = path.join(projectPath, 'src');
-	getLanguageFoldersDefinitions(projectPath).forEach(languageFolder => {
+module.exports = function manageMvnFolder(options) {
+	const { i18nFolder, localesRepoPath } = options;
+	copyFiles(i18nFolder, localesRepoPath);
+	const srcPath = path.join(localesRepoPath, 'src');
+	getLanguageFoldersDefinitions(localesRepoPath).forEach(languageFolder => {
 		renameFiles(languageFolder);
 		mergeSources(languageFolder, srcPath);
 		rimraf.sync(languageFolder.absPath);

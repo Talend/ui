@@ -29,14 +29,16 @@ module.exports = {
  * 		 	|_ <namespace_2>.json
  * 		 	|_ <namespace_3>.json
  */
-module.exports = function generateIndexJS(projectPath) {
+module.exports = function generateIndexJS(options) {
+	const { localesRepoPath } = options;
+
 	// Get languages definitions
 	// - name: folder name
 	// - language: language on 2 chars (en_US --> en)
 	// - absPath: folder absolute path
 	// - namespaces: the name of the files it contains
 	// 		--> "toto.json tata.json" --> namespaces = ['toto', 'tata']
-	const localesPath = path.join(projectPath, 'locales');
+	const localesPath = path.join(localesRepoPath, 'locales');
 	const languageDirectories = fs
 		.readdirSync(localesPath)
 		.filter(name => name !== '.git')
@@ -69,7 +71,7 @@ module.exports = function generateIndexJS(projectPath) {
 		languages: languageDirectories.map(({ name }) => name).join(', '),
 	});
 
-	const indexJsPath = path.join(projectPath, 'index.js');
+	const indexJsPath = path.join(localesRepoPath, 'index.js');
 	fs.writeFileSync(indexJsPath, `${languagesDefinitions}\n${exportsDefinitions}`);
 	printSuccess(`index.js saved to ${indexJsPath}`);
 };

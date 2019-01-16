@@ -40,8 +40,8 @@ function getPomXmlVersion(pomXmlPath) {
  * Generate pom.xml.
  * If it exists, the version is incremented
  */
-function generatePomXml(projectPath, options) {
-	const pomXmlPath = path.join(projectPath, 'pom.xml');
+function generatePomXml(options) {
+	const pomXmlPath = path.join(options.localesRepoPath, 'pom.xml');
 
 	const nextVersion = fs.existsSync(pomXmlPath)
 		? getPomXmlVersion(pomXmlPath)

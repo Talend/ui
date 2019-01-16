@@ -21,8 +21,8 @@ function incrementPackageJsonVersion(packageJsonPath) {
 /**
  * Generate package.json
  */
-function generatorPackageJson(projectPath, options) {
-	const packageJsonPath = path.join(projectPath, 'package.json');
+function generatorPackageJson(options) {
+	const packageJsonPath = path.join(options.localesRepoPath, 'package.json');
 
 	if (fs.existsSync(packageJsonPath)) {
 		incrementPackageJsonVersion(packageJsonPath);
