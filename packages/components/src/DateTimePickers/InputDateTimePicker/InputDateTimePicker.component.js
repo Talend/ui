@@ -42,8 +42,11 @@ function DateTimeValidation({ t }) {
 				className="btn btn-primary"
 				role="button"
 				type="submit"
+				aria-label={t('DATEPICKER_VALIDATE_DESC', {
+					defaultValue: 'Validate the date picker value',
+				})}
 			>
-				{t('DATEPICKER_VALIDATE_BUTTON', { defaultValue: 'Done' })}
+				{t('DATEPICKER_VALIDATE', { defaultValue: 'Done' })}
 			</button>
 		</div>
 	);
