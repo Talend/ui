@@ -1,6 +1,6 @@
 const path = require('path');
 const { login, getProject, uploadFile } = require('../common/xtm');
-const { error } = require('../common/log');
+const error = require('../common/error');
 
 function upload({ extract, load }) {
 	const data = {

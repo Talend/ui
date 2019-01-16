@@ -19,7 +19,7 @@ switch (command) {
 	case 'i18n-extract':
 	case 'i18n-upload':
 	case 'i18n-download':
-	case 'i18n-to-github':
+	case 'i18n-deploy':
 		require('./internationalization')(command);
 		break;
 	default:
