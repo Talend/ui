@@ -303,10 +303,11 @@ class InputDateTimePicker extends React.Component {
 				onFocus={this.onFocus}
 				onBlur={this.onBlur}
 			>
-				{
-					this.props.formMode ? (<form onSubmit={this.onSubmit}>{dateTimePicker}</form>)
-						: dateTimePicker
-				}
+				{this.props.formMode ? (
+					<form onSubmit={this.onSubmit}>{dateTimePicker}</form>
+				) : (
+					dateTimePicker
+				)}
 			</div>
 		);
 	}
