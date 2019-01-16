@@ -138,7 +138,7 @@ function deployModule(options, repoCmdContext, module) {
 	}
 }
 
-function toGithub({ load, github, module }) {
+function deploy({ load, github, module }) {
 	const { login, token } = getGithubVariables();
 	const { url } = github;
 	const { project, target } = load;
@@ -156,7 +156,7 @@ function toGithub({ load, github, module }) {
 	cloneLocalesRepo(githubUrl, localesRepoPath);
 	printSuccess(`Locales repository cloned to ${localesRepoPath}`);
 
-	// for each version folder, push the files to github
+	// for each version folder, generate module and push the files to github
 	const i18nContent = fs.readdirSync(i18nFolder);
 	i18nContent.forEach(version => {
 		printSection(`Version ${version}`);
@@ -187,4 +187,4 @@ function toGithub({ load, github, module }) {
 	});
 }
 
-module.exports = toGithub;
+module.exports = deploy;
