@@ -46,25 +46,33 @@
 	}
 
 	&:hover,
-	&:focus {
-		background-color: $wild-sand;
-
+	&:focus,
+	&:global(.selected),
+	&:active {
 		:global(.tc-svg-icon) {
 			color: $brand-primary;
-		}
-		.data-container {
-			> .title,
-			> .author {
-				color: $scooter;
-			}
 		}
 		.flags-container {
 			opacity: 1;
 		}
 	}
 
+	&:hover,
+	&:focus {
+		background-color: $wild-sand;
+
+		.data-container {
+			> .title,
+			> .author {
+				color: $scooter;
+			}
+		}
+	}
+
+	&:global(.selected),
 	&:active {
 		background: tint($scooter, 90);
+
 		.data-container {
 			> .title,
 			> .author {

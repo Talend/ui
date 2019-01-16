@@ -5,7 +5,8 @@ const FormData = require('form-data');
 const rimraf = require('rimraf');
 const mkdirp = require('mkdirp');
 
-const { error, printRunning, printSuccess } = require('./log');
+const error = require('./error');
+const { printRunning, printSuccess } = require('./log');
 
 function throwError(missingVar) {
 	error(`

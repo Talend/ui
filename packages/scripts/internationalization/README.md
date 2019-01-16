@@ -37,7 +37,7 @@ There are 4 actions you can perform
 talend-scripts i18n-extract
 talend-scripts i18n-upload
 talend-scripts i18n-download
-talend-scripts i18n-to-github
+talend-scripts i18n-deploy
 ```
 
 # Configuration
@@ -176,15 +176,15 @@ This step will download, unzip and transform files from XTM.
 It will download only the files corresponding to the current version of your project (version extracted). If no version is detected, all versions will be downloaded.
 
 
-### To Github
-This step will push downloaded i18n files to github.
+### Deploy
+This step will push downloaded i18n files to github and deploy it to npm or maven repository.
 
 You need to pass github credentials as environment variables.
 
 ```shell
 > GITHUB_LOGIN=XXX \
   GITHUB_TOKEN=YYY \
-  talend-scripts i18n-extract
+  talend-scripts i18n-deploy
 ```
 
 | Variable | Description |
@@ -199,13 +199,19 @@ You need to pass github credentials as environment variables.
 {
   "github": {
     "url": "https://github.com/Talend/locales.git"
+  },
+  "module": {
+    "type": "npm",
+    "private": true
   }
 }
 ```
 
-| Configuration | Description |
-|---|---|
-| url | The https git url. |
+| Configuration | Type | Description |
+|---|---|---|
+| github.url | `string` | The https git url. |
+| module.type | `string` | The module type to deploy (`npm` | `mvn`). |
+| module.private | `boolean` | If the module should be private. |
 
 The i18n files will be pushed to a branch `{XTM_project}/{version}`.
 
