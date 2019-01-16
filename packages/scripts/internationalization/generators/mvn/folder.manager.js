@@ -13,20 +13,10 @@ function renameFiles(languageFolder) {
 	fsFind(languageFolder.absPath, 'f').forEach(filePath => {
 		const folder = path.dirname(filePath);
 		const fileName = path.basename(filePath);
-		const fileNameWithLanguage = fileName.replace(
-			/(\.[\w\d_-]+)$/i,
-			`_${languageFolder.language}$1`,
-		);
+		const fileNameWithLanguage = fileName.replace(/(\.[\w\d_-]+)$/i, `_${languageFolder.name}$1`);
 		fs.renameSync(filePath, path.join(folder, fileNameWithLanguage));
 		printInfo(`Rename ${filePath} --> ${fileNameWithLanguage}`);
 	});
-}
-
-/**
- * Merge all src folders into a single src.
- */
-function mergeSources(languageFolder, srcPath) {
-	fsFind(languageFolder.absPath, 'd', 'src').forEach(subSrcPath => mergeDirs(subSrcPath, srcPath));
 }
 
 /**
@@ -55,23 +45,25 @@ function mergeSources(languageFolder, srcPath) {
  *
  * Target
  * root
- * 	|_ src/main/resources						// maven structure
- * 		|_ org.talend.myproject					// subProject1 package
- * 			|_ file1_en.properties
- * 			|_ file1_fr.properties
- * 		|_ org.talend.myproject2				// subProject2 package
- * 			|_ file1_en.properties
- * 			|_ file1_fr.properties
- * 			|_ file2_en.properties
- * 			|_ file2_fr.properties
+ * 	|_ subProject1
+ * 		|_ src/main/resources						// maven structure
+ * 			|_ org.talend.myproject					// subProject1 package
+ * 				|_ file1_en.properties
+ * 				|_ file1_fr.properties
+ * 	|_ subProject2
+ * 		|_ src/main/resources						// maven structure
+ * 			|_ org.talend.myproject2				// subProject2 package
+ * 				|_ file1_en.properties
+ * 				|_ file1_fr.properties
+ * 				|_ file2_en.properties
+ * 				|_ file2_fr.properties
  */
 module.exports = function manageMvnFolder(options) {
 	const { i18nFolder, localesRepoPath } = options;
 	copyFiles(i18nFolder, localesRepoPath);
-	const srcPath = path.join(localesRepoPath, 'src');
 	getLanguageFoldersDefinitions(localesRepoPath).forEach(languageFolder => {
 		renameFiles(languageFolder);
-		mergeSources(languageFolder, srcPath);
+		mergeDirs(languageFolder.absPath, localesRepoPath);
 		rimraf.sync(languageFolder.absPath);
 	});
 };

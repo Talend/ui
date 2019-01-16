@@ -89,7 +89,6 @@ function generateModule(options) {
 		case 'mvn':
 			manageMvnFolder(options);
 			generatePomXml(options);
-			// TODO mvn files : pom.xml, src/main/resources with _fr.properties
 			break;
 		default:
 			printInfo(

@@ -5,6 +5,7 @@ const template = require('lodash.template');
 
 const { incrementVersion } = require('../../common/version');
 const { printRunning, printSuccess } = require('../../common/log');
+const { fsFind } = require('../../common/files');
 
 const pomTemplate = template(
 	`<?xml version="1.0" encoding="UTF-8"?>
@@ -14,7 +15,7 @@ const pomTemplate = template(
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.talend.locales</groupId>
-    <artifactId>locales-<%= normalizedName %></artifactId>
+    <artifactId><%= projectName %></artifactId>
     <version><%= nextVersion %></version>
 
     <distributionManagement>
@@ -41,16 +42,23 @@ function getPomXmlVersion(pomXmlPath) {
  * If it exists, the version is incremented
  */
 function generatePomXml(options) {
-	const pomXmlPath = path.join(options.localesRepoPath, 'pom.xml');
+	const srcFolders = fsFind(options.localesRepoPath, 'd', 'src');
 
-	const nextVersion = fs.existsSync(pomXmlPath)
-		? getPomXmlVersion(pomXmlPath)
-		: `${options.version}.0`;
+	srcFolders.forEach(srcPath => {
+		const parentPath = path.dirname(srcPath);
+		const projectName =
+			parentPath === options.localesRepoPath ? options.normalizedName : path.basename(parentPath);
+		const pomXmlPath = path.join(parentPath, 'pom.xml');
 
-	printRunning('Generating pom.xml');
-	const pomXml = pomTemplate({ ...options, nextVersion });
-	fs.writeFileSync(pomXmlPath, pomXml);
-	printSuccess(`Pom.xml saved to ${pomXmlPath}`);
+		const nextVersion = fs.existsSync(pomXmlPath)
+			? getPomXmlVersion(pomXmlPath)
+			: `${options.version}.0`;
+
+		printRunning(`Generating pom.xml for project ${projectName}`);
+		const pomXml = pomTemplate({ ...options, nextVersion, projectName });
+		fs.writeFileSync(pomXmlPath, pomXml);
+		printSuccess(`Pom.xml saved to ${pomXmlPath}`);
+	});
 }
 
 module.exports = generatePomXml;
