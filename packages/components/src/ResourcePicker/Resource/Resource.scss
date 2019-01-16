@@ -1,7 +1,7 @@
 .resource-item {
 	display: flex;
 	align-items: center;
-	border-bottom: 1px solid $gallery;
+	border-bottom: 0.1rem solid $gallery;
 
 	> * {
 		margin-left: $padding-normal;
@@ -30,8 +30,12 @@
 		opacity: 0;
 
 		.flag {
+			opacity: 0;
 			margin-left: $padding-small;
 
+			&.visible {
+				opacity: 1;
+			}
 			&[name='talend-star'] {
 				color: $lightning-yellow;
 			}
