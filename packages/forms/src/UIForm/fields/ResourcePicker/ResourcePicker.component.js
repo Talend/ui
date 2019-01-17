@@ -1,27 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ResourcePickerComponent from '@talend/react-components/lib/ResourcePicker';
-import omit from 'lodash/omit';
-import { translate } from 'react-i18next';
 import FieldTemplate from '../FieldTemplate';
-import getDefaultT from '../../../translate';
-import { I18N_DOMAIN_FORMS } from '../../../constants';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
-
-const PROPS_TO_OMIT = [
-	'schema',
-	'errorMessage',
-	'errors',
-	'isValid',
-	'onChange',
-	'onFinish',
-	'onTrigger',
-	'properties',
-];
 
 class ResourcePicker extends Component {
 	constructor(props) {
@@ -37,11 +22,10 @@ class ResourcePicker extends Component {
 		this.onRowClick = this.onRowClick.bind(this);
 
 		this.state = {
-			options: {
-				name: '',
-				certified: false,
-				favorites: false,
-			},
+			name: '',
+			certified: false,
+			favorites: false,
+			selection: false,
 			selected: [],
 		};
 
@@ -58,7 +42,6 @@ class ResourcePicker extends Component {
 		const mergedSchema = this.props.schema;
 		const payloadWithSchema = { ...payload, schema: mergedSchema };
 
-		// this.callTrigger(event, payload);
 		this.props.onChange(event, payloadWithSchema);
 		this.props.onFinish(event, payloadWithSchema);
 	}
@@ -67,7 +50,7 @@ class ResourcePicker extends Component {
 		this.setState({ isLoading: true });
 		this.props.onTrigger(event, {
 			trigger: {
-				parameters: this.state.options,
+				parameters: this.state,
 			},
 			schema: this.props.schema,
 		})
@@ -78,9 +61,8 @@ class ResourcePicker extends Component {
 	onRowClick(event, { id }) {
 		let selected = [...this.state.selected];
 		const index = selected.findIndex(i => i === id);
-		const { options } = this.props.schema;
 
-		if (!options.multi) {
+		if (!this.props.schema.multi) {
 			selected = [];
 		}
 
@@ -102,12 +84,9 @@ class ResourcePicker extends Component {
 		this.setState(
 			state => ({
 				...state,
-				options: {
-					...state.options,
-					[option]: value,
-				},
+				[option]: value,
 			}),
-			() => this.onFilter(null, this.state.options),
+			() => this.onFilter(null, this.state),
 		);
 	}
 
@@ -118,12 +97,9 @@ class ResourcePicker extends Component {
 			this.setState(
 				state => ({
 					...state,
-					options: {
-						...state.options,
-						name: target.value || '',
-					},
+					name: target.value || '',
 				}),
-				() => this.onFilter(null, this.state.options),
+				() => this.onFilter(null, this.state),
 			);
 		}
 	}
@@ -132,31 +108,30 @@ class ResourcePicker extends Component {
 		this.setState(
 			state => ({
 				...state,
-				options: {
-					...state.options,
-					orders: {
-						...state.options.orders,
-						[option]: value,
-					},
+				orders: {
+					...state.orders,
+					[option]: value,
 				},
 			}),
-			() => this.onFilter(null, this.state.options),
+			() => this.onFilter(null, this.state),
 		);
 	}
 
 	render() {
-		const { certified, favorites, orders } = this.state.options;
-		const props = omit(this.props, PROPS_TO_OMIT);
-		const descriptionId = generateDescriptionId(this.props.id);
-		const errorId = generateErrorId(this.props.id);
+		const { certified, favorites, selection, orders } = this.state;
+		const { id, schema } = this.props;
+		const descriptionId = generateDescriptionId(id);
+		const errorId = generateErrorId(id);
 		const toolbar = {
 			name: {
+				label: schema.placeholder,
 				onChange: this.nameFilterChanged,
 			},
 			state: {
 				onChange: this.stateFilterChanged,
 				certified,
 				favorites,
+				selection,
 			},
 			sort: {
 				onChange: this.sortOptionChanged,
@@ -174,18 +149,11 @@ class ResourcePicker extends Component {
 				isValid={this.props.isValid}
 				label={this.props.schema.title}
 				required={this.props.schema.required}
-				labelAfter
 			>
 				<ResourcePickerComponent
-					{...props}
+					{...this.props}
 					{...this.state}
-					autoFocus={this.props.schema.autoFocus}
-					disabled={this.props.schema.disabled || false}
-					onFocus={this.callTrigger}
-					placeholder={this.props.schema.placeholder}
-					readOnly={this.props.schema.readOnly || false}
 					toolbar={toolbar}
-					onChange={this.onChange}
 					isSelected={this.isItemSelected}
 					onRowClick={this.onRowClick}
 				/>
@@ -195,10 +163,6 @@ class ResourcePicker extends Component {
 }
 
 ResourcePicker.displayName = 'ResourcePicker field';
-ResourcePicker.defaultProps = {
-	value: '',
-	t: getDefaultT(),
-};
 
 if (process.env.NODE_ENV !== 'production') {
 	ResourcePicker.propTypes = {
@@ -212,31 +176,13 @@ if (process.env.NODE_ENV !== 'production') {
 			schema: PropTypes.shape({
 				type: PropTypes.string,
 			}),
-			triggers: PropTypes.arrayOf(
-				PropTypes.shape({
-					onEvent: PropTypes.string,
-				}),
-			),
-			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
-			disabled: PropTypes.bool,
 			placeholder: PropTypes.string,
-			readOnly: PropTypes.bool,
 			required: PropTypes.bool,
-			restricted: PropTypes.bool,
 			title: PropTypes.string,
-			titleMap: PropTypes.arrayOf(
-				PropTypes.shape({
-					name: PropTypes.string.isRequired,
-					value: PropTypes.string.isRequired,
-				}),
-			),
-			options: PropTypes.shape({
-				multi: PropTypes.bool,
-			}),
+			multi: PropTypes.bool,
 		}),
-		t: PropTypes.func,
 	};
 }
 
-export default translate(I18N_DOMAIN_FORMS)(ResourcePicker);
+export default ResourcePicker;

@@ -17,7 +17,7 @@ function capitalizeFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function getFilteredCollection({ name, certified, favorites, orders }) {
+function getFilteredCollection({ name, selection, certified, favorites, selected, orders }) {
 	const methods = {
 		asc: (a, b) => a > b ? - 1 : 1,
 		desc: (a, b) => a < b ? - 1 : 1,
@@ -82,6 +82,9 @@ function getFilteredCollection({ name, certified, favorites, orders }) {
 	}
 	if (favorites) {
 		c = c.filter(item => item.flags && item.flags.includes('FAVORITE'));
+	}
+	if (selection) {
+		c = c.filter(item => selected.includes(item.id));
 	}
 
 	if (orders) {

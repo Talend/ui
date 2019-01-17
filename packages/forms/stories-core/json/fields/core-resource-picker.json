@@ -12,19 +12,18 @@
   "uiSchema": [
     {
       "key": "asyncResourcePicker",
-      "title": "ResourcePicker multi selection",
+      "title": "ResourcePicker with multi selection",
       "widget": "resourcePicker",
-      "options": {
-        "multi": true
-      }
+      "placeholder": "Select an existing resource",
+      "required": true,
+      "multi": true
     },
     {
       "key": "asyncResourcePicker",
       "title": "ResourcePicker without multi selection",
+      "placeholder": "Select an existing resource",
       "widget": "resourcePicker",
-      "options": {
-        "multi": false
-      }
+      "multi": false
     }
   ],
   "properties": {}
