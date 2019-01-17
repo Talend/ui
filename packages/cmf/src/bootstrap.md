@@ -29,7 +29,7 @@ cmf.bootstrap({
 | saga | function | the main saga to start  |
 | sagas | Object | undefined | Same as `components`  |
 | httpMiddleware | function | undefined | Override the default http middleware |
-| preReducer | function | undefined | Redux preReducer, called on every actions before reducer |
+| preReducer | Array or function | undefined | Redux preReducer, called on every actions before reducer |
 | enhancer | function | undefined |Redux enhancer |
 | reducer | Object or function | undefined | Redux reducer. This is added with the internal reducers. |
 | preloadedState | Object | undefined | Redux state to preload. This is the initial state on Redux bootstrap. |
@@ -37,6 +37,7 @@ cmf.bootstrap({
 | storeCallback | function | undefined | Let you call a function once the store is created |
 | AppLoader | React Component | undefined | Let you define the React component to use to show the app is currently loading (waiting for the settings) |
 | RootComponent | React Component | undefined | Let you define the React component to use to wrapp the App. It can be a react-router for example. |
+| registry | Object | undefined | Let you register anything you want as key/value in the CMF registry |
 
 ## Modules
 

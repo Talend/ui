@@ -31,16 +31,14 @@ Now the cli `talend-scripts` is available.
 
 # Actions
 
-There are 3 actions you can perform
+There are 4 actions you can perform
 
 ```shell
 talend-scripts i18n-extract
 talend-scripts i18n-upload
 talend-scripts i18n-download
-talend-scripts i18n-to-github
+talend-scripts i18n-deploy
 ```
-
-Each action is based on a configuration file, located in the project folder `./talend-scripts.json`.
 
 # Configuration
 
@@ -49,6 +47,13 @@ The scripts are based on a `talend-scripts.json` configuration file at project r
 ## Extract
 
 This step will extract the i18n files from the project and create a zip.
+
+All the files will be wrapped in a folder with your app extracted version.
+The version (major.minor) is taken from files at project root.
+* lerna.json
+* pom.xml
+* package.json
+
 
 There are 4 methods of extraction
 - npm : run an npm script
@@ -63,7 +68,8 @@ There are 4 methods of extraction
   "extract": {
     "method": "npm",
     "script": "extract-i18n",
-    "target": "./i18n"
+    "target": "./i18n",
+    "transform": "flatten"
   }
 }
 ```
@@ -73,7 +79,7 @@ There are 4 methods of extraction
 | method | `npm` or `yarn` |
 | script | The npm script name |
 | target | The folder where the npm script will gather the translation files. This is used to create the zip file. |
-
+| transform | Optional. Transformation to apply to file hierarchy. For now only `flatten` is accepted, putting all file directly under the target language folder. |
 
 *Files*
 
@@ -157,8 +163,7 @@ This step will download, unzip and transform files from XTM.
 {
   "load": {
     "project": "UI",
-    "target": "./i18n-from-xtm",
-    "transform": "flatten"
+    "target": "./i18n-from-xtm"
   }
 }
 ```
@@ -167,18 +172,19 @@ This step will download, unzip and transform files from XTM.
 |---|---|
 | project | The XTM project name. |
 | target | The folder where the files will be download, unzipped, and transformed. |
-| transform | Optional. Transformation to apply to file hierarchy. For now only `flatten` is accepted, putting all file directly under the target language folder. |
+
+It will download only the files corresponding to the current version of your project (version extracted). If no version is detected, all versions will be downloaded.
 
 
-### To Github
-This step will push downloaded i18n files to github.
+### Deploy
+This step will push downloaded i18n files to github and deploy it to npm or maven repository.
 
 You need to pass github credentials as environment variables.
 
 ```shell
 > GITHUB_LOGIN=XXX \
   GITHUB_TOKEN=YYY \
-  talend-scripts i18n-extract
+  talend-scripts i18n-deploy
 ```
 
 | Variable | Description |
@@ -193,18 +199,19 @@ You need to pass github credentials as environment variables.
 {
   "github": {
     "url": "https://github.com/Talend/locales.git"
+  },
+  "module": {
+    "type": "npm",
+    "private": true
   }
 }
 ```
 
-| Configuration | Description |
-|---|---|
-| url | The https git url. |
-
-This scripts will extract the version (major.minor) from files at project root.
-* lerna.json
-* package.json
-* pom.xml
+| Configuration | Type | Description |
+|---|---|---|
+| github.url | `string` | The https git url. |
+| module.type | `string` | The module type to deploy (`npm` | `mvn`). |
+| module.private | `boolean` | If the module should be private. |
 
 The i18n files will be pushed to a branch `{XTM_project}/{version}`.
 
@@ -213,7 +220,7 @@ With this branch structure, the locales for your project can be downloaded from 
 https://github.com/{github_org}/{repo_name}/archive/{XTM_project}/{version}.zip
 ```
 
-In the exmaple :
+In the example :
 ```
 https://github.com/Talend/locales/archive/UI/1.10.zip
 ```

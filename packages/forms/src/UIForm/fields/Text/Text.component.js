@@ -48,6 +48,8 @@ export default function Text(props) {
 				readOnly={readOnly}
 				type={type}
 				value={value}
+				min={schema.schema.minimum}
+				max={schema.schema.maximum}
 				// eslint-disable-next-line jsx-a11y/aria-proptypes
 				aria-invalid={!isValid}
 				aria-required={schema.required}
@@ -72,6 +74,7 @@ if (process.env.NODE_ENV !== 'production') {
 			readOnly: PropTypes.bool,
 			title: PropTypes.string,
 			type: PropTypes.string,
+			schema: PropTypes.object,
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	};

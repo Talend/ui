@@ -1,7 +1,7 @@
 @import '~@talend/bootstrap-theme/src/theme/animation';
 
 $tc-typeahead-input-color: #000 !default;
-$tc-typeahead-input-width: 262px !default;
+$tc-typeahead-input-width: 26rem !default;
 
 $tc-typeahead-opened-items-container-color: #aaa !default;
 $tc-typeahead-opened-items-container-background-color: #fff !default;
@@ -28,7 +28,7 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 
 	&.loading {
 		.typeahead-input-icon,
-		.item-container {
+		.items-container {
 			> * {
 				color: inherit;
 				@include heartbeat(object-blink);
@@ -50,6 +50,7 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		border-radius: $tc-typeahead-items-border-radius;
 		box-shadow: $tc-typeahead-items-box-shadow;
 		overflow-y: auto;
+		z-index: $zindex-dropdown;
 	}
 
 	&.right {
@@ -58,6 +59,13 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		.items-container {
 			left: auto;
 		}
+	}
+
+	.container-open,
+	&.container-open .items-container {
+		display: block;
+		padding-top: 1px;
+		padding-bottom: 1px;
 	}
 }
 

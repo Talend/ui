@@ -17,6 +17,7 @@ exports[`Date widget should render date picker 1`] = `
     aria-required={true}
     autoFocus={true}
     dateFormat="YYYY-MM-DD"
+    formMode={false}
     id="myForm"
     onBlur={[Function]}
     onChange={[Function]}

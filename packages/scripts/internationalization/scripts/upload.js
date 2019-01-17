@@ -1,12 +1,11 @@
 const path = require('path');
-const { getXTMVariables, login, getProject, uploadFile } = require('../common/xtm');
+const { login, getProject, uploadFile } = require('../common/xtm');
 const error = require('../common/error');
 
-function upload({ load }) {
+function upload({ extract, load }) {
 	const data = {
-		filePath: path.join(process.cwd(), 'i18n.zip'),
+		filePath: path.join(process.cwd(), extract.target, 'i18n.zip'),
 		projectName: load.project,
-		xtm: getXTMVariables(),
 	};
 	return login(data)
 		.then(getProject)

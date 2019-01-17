@@ -70,10 +70,11 @@ describe('HeaderBar sagas', () => {
 	});
 
 	describe('handleOpenProduct', () => {
-		global.open = jest.fn();
+		const result = {};
 
 		beforeEach(() => {
-			global.open.mockReset();
+			result.opened = {};
+			global.open = jest.fn(() => result.opened);
 		});
 
 		it("should open a product's page when an URL is provided", () => {
@@ -81,6 +82,10 @@ describe('HeaderBar sagas', () => {
 
 			handleOpenProduct(action);
 			expect(global.open).toHaveBeenCalled();
+			expect(result.opened).toEqual({
+				location: 'productUrl',
+				opener: null,
+			});
 		});
 
 		it('should do nothing if no product URI is provided', () => {
