@@ -3,7 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const xmlParser = require('xml2json');
 
-const { error, printInfo, printSection, printSuccess } = require('./log');
+const error = require('./error');
+const { printInfo, printSection, printSuccess } = require('./log');
 
 function getPossibleVersion() {
 	printSection('Extract version');
