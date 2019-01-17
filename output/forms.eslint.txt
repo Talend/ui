@@ -9,12 +9,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   3:10  error  Prefer default export  import/prefer-default-export
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/ResourcePicker/ResourcePicker.component.js
-   78:2   error    nameFilterChanged should be placed after onRowClick          react/sort-comp
-  124:16  error    Expected 'this' to be used by class method 'isItemSelected'  class-methods-use-this
-  125:3   warning  Unexpected console statement                                 no-console
-  129:12  error    Expected 'this' to be used by class method 'onRowClick'      class-methods-use-this
-  130:3   warning  Unexpected console statement                                 no-console
-  235:6   error    't' PropType is defined but prop is never used               react/no-unused-prop-types
+  239:6  error  't' PropType is defined but prop is never used  react/no-unused-prop-types
 
-✖ 8 problems (6 errors, 2 warnings)
+✖ 3 problems (3 errors, 0 warnings)
 
