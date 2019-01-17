@@ -54,8 +54,7 @@ function download({ load }) {
 		version: getPossibleVersion(),
 	};
 	printSection('XTM');
-	return login(data)
-		.then(getProject)
+	return getProject(data)
 		.then(getFilesToDownload)
 		.then(downloadFiles)
 		.then(unzip)

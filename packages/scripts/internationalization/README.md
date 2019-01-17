@@ -124,21 +124,17 @@ There are 4 methods of extraction
 You need to pass xtm information as environment variables
 
 ```shell
-> API_URL=https://XXX \
-  CLIENT=YYY \
-  CUSTOMER_ID=ZZZ \
-  USER_ID=AAA \
-  PASSWORD=BBB \
+> XTM_API_URL=https://XXX \
+  XTM_CUSTOMER_ID=YYY \
+  XTM_TOKEN=ZZZ \
   talend-scripts <i18n-upload|i18n-download>
 ```
 
 | Variable | Description |
 |---|---|
-| API_URL | The XTM api url |
-| CLIENT | The XTM client name |
-| CUSTOMER_ID | The XTM customer ID |
-| USER_ID | The XTM user id used to log in |
-| PASSWORD | The XTM user password to log in |
+| XTM_API_URL | The XTM api url |
+| XTM_CUSTOMER_ID | The XTM customer ID |
+| XTM_TOKEN | The XTM authentication token |
 
 ### Upload
 This step will upload previously created i18n zip to XTM.
