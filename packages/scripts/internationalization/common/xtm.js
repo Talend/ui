@@ -11,36 +11,26 @@ const { printRunning, printSuccess } = require('./log');
 function throwError(missingVar) {
 	error(`
 		In order to connect to XTM, you need to pass the ${missingVar} env variable.
-		> API_URL=http://XXX CLIENT=YYY USER_ID=ZZZ PASSWORD=AAA talend-scripts i18n-upload
+		> XTM_API_URL=http://XXX XTM_CUSTOMER_ID=YYY XTM_TOKEN=ZZZ talend-scripts i18n-upload
 	`);
 }
 
-let authToken;
 function getXTMVariables() {
-	const { API_URL, CLIENT, CUSTOMER_ID, USER_ID, PASSWORD } = process.env;
-	if (!API_URL) {
-		throwError('API_URL');
+	const { XTM_API_URL, XTM_CUSTOMER_ID, XTM_TOKEN } = process.env;
+	if (!XTM_API_URL) {
+		throwError('XTM_API_URL');
 	}
-	if (!CLIENT) {
-		throwError('CLIENT');
+	if (!XTM_CUSTOMER_ID) {
+		throwError('XTM_CUSTOMER_ID');
 	}
-	if (!CUSTOMER_ID) {
-		throwError('CUSTOMER_ID');
-	}
-	if (!USER_ID) {
-		throwError('API_URL');
-	}
-	if (!PASSWORD) {
-		throwError('PASSWORD');
+	if (!XTM_TOKEN) {
+		throwError('XTM_TOKEN');
 	}
 
 	return {
-		apiUrl: API_URL,
-		client: CLIENT,
-		customerId: CUSTOMER_ID,
-		userId: USER_ID,
-		password: PASSWORD,
-		token: authToken,
+		apiUrl: XTM_API_URL,
+		customerId: XTM_CUSTOMER_ID,
+		token: XTM_TOKEN,
 	};
 }
 
@@ -51,24 +41,6 @@ function handleError(res) {
 		});
 	}
 	return res;
-}
-
-function login(data) {
-	const xtm = getXTMVariables();
-
-	printRunning(`Login with user ${xtm.userId}...`);
-
-	const body = { client: xtm.client, userId: xtm.userId, password: xtm.password };
-	return fetch(`${xtm.apiUrl}/auth/token`, {
-		method: 'POST',
-		body: JSON.stringify(body),
-		headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' },
-	})
-		.then(handleError)
-		.then(res => res.json())
-		.then(res => (authToken = res.token))
-		.then(() => printSuccess('Logged in successfully.'))
-		.then(() => data);
 }
 
 function getProject(data) {
@@ -197,7 +169,6 @@ function downloadFiles(data) {
 
 module.exports = {
 	getFilesToDownload,
-	login,
 	getProject,
 	uploadFile,
 	downloadFiles,
