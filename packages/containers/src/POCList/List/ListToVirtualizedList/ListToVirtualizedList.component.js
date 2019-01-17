@@ -97,7 +97,7 @@ export function ListToVirtualizedList(props) {
 			}
 			return <VirtualizedList.Content key={index} {...cProps} />;
 		});
-		console.log({ composedCells })
+	console.log({ composedCells });
 	return (
 		<VirtualizedList
 			id={props.id}
