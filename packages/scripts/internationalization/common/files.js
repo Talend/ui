@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const spawn = require('cross-spawn');
+const xmlParser = require('xml2json');
 
 const error = require('./error');
 const { printRunning } = require('./log');
@@ -42,8 +43,14 @@ function getLanguageFoldersDefinitions(folderPath) {
 		.filter(({ absPath }) => fs.lstatSync(absPath).isDirectory());
 }
 
+function getXmlAsJson(xmlPath) {
+	const data = fs.readFileSync(xmlPath);
+	return JSON.parse(xmlParser.toJson(data));
+}
+
 module.exports = {
 	copyFiles,
 	fsFind,
 	getLanguageFoldersDefinitions,
+	getXmlAsJson,
 };

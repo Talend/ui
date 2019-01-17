@@ -1,8 +1,8 @@
 /* eslint-disable global-require */
 const fs = require('fs');
 const path = require('path');
-const xmlParser = require('xml2json');
 
+const { getXmlAsJson } = require('./files');
 const error = require('./error');
 const { printInfo, printSection, printSuccess } = require('./log');
 
@@ -24,23 +24,22 @@ function getPossibleVersion() {
 			};
 		}
 	}
+	if (!info && fs.existsSync(pomXmlPath)) {
+		const { version } = getXmlAsJson(pomXmlPath).project;
+		const match = version.match(VERSION_REGEX);
+		if (match) {
+			info = {
+				source: 'pom.xml',
+				version: match[1],
+			};
+		}
+	}
 	if (!info && fs.existsSync(packageJsonPath)) {
 		const { version } = require(packageJsonPath);
 		const match = version.match(VERSION_REGEX);
 		if (match) {
 			info = {
 				source: 'package.json',
-				version: match[1],
-			};
-		}
-	}
-	if (!info && fs.existsSync(pomXmlPath)) {
-		const data = fs.readFileSync(pomXmlPath);
-		const { version } = JSON.parse(xmlParser.toJson(data)).project;
-		const match = version.match(VERSION_REGEX);
-		if (match) {
-			info = {
-				source: 'pom.xml',
 				version: match[1],
 			};
 		}

@@ -1,11 +1,10 @@
 const fs = require('fs');
 const path = require('path');
-const xmlParser = require('xml2json');
 const template = require('lodash.template');
 
 const { incrementVersion } = require('../../common/version');
 const { printRunning, printSuccess } = require('../../common/log');
-const { fsFind } = require('../../common/files');
+const { fsFind, getXmlAsJson } = require('../../common/files');
 
 const pomTemplate = template(
 	`<?xml version="1.0" encoding="UTF-8"?>
@@ -31,9 +30,8 @@ const pomTemplate = template(
 /**
  * Increment last version in pom.xml
  */
-function getPomXmlVersion(pomXmlPath) {
-	const data = fs.readFileSync(pomXmlPath);
-	const { version } = JSON.parse(xmlParser.toJson(data)).project;
+function getNextVersion(pomXmlPath) {
+	const { version } = getXmlAsJson(pomXmlPath).project;
 	return incrementVersion(version);
 }
 
@@ -51,7 +49,7 @@ function generatePomXml(options) {
 		const pomXmlPath = path.join(parentPath, 'pom.xml');
 
 		const nextVersion = fs.existsSync(pomXmlPath)
-			? getPomXmlVersion(pomXmlPath)
+			? getNextVersion(pomXmlPath)
 			: `${options.version}.0`;
 
 		printRunning(`Generating pom.xml for project ${projectName}`);
