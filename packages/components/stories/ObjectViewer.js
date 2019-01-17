@@ -3,7 +3,6 @@ import repeat from 'lodash/repeat';
 import cloneDeep from 'lodash/cloneDeep';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
 import { ObjectViewer, Icon, IconsProvider, TooltipTrigger } from '../src/index';
@@ -216,6 +215,176 @@ const primitiveArray = [1, 2, 3];
 const selectedJsonpath = "$[0]['attributes']";
 const showType = true;
 
+const moreComplexDataShape = [
+	{
+		date: '2017-05-05T11:57:09 -02:00',
+		order_id: '5c24d9283f1b4b2eef6d7006',
+		index: 0,
+		address: {
+			number: 696,
+			street: 'Livonia Avenue',
+			city: 'Ryderwood',
+			state: 'Palau',
+		},
+		products: [
+			{
+				id: 0,
+				name: 'adipisicing',
+			},
+		],
+	},
+	{
+		date: '2018-07-27T04:51:50 -02:00',
+		order_id: '5c24d928d1b4a945677ba565',
+		index: 1,
+		address: {
+			number: 361,
+			street: 'Classon Avenue',
+			city: 'Macdona',
+			state: 'New Jersey',
+		},
+		products: [
+			{
+				id: 0,
+				name: 'minim',
+			},
+		],
+	},
+	{
+		date: '2017-10-08T11:59:08 -02:00',
+		order_id: '5c24d9289b8a2e6fde1696c5',
+		index: 2,
+		// IMPORTANT here is the key that is not present in other objects
+		phoneNumber: 'phoneNumber',
+		address: {
+			number: 226,
+			street: 'Fane Court',
+			city: 'Trail',
+			state: 'California',
+		},
+		products: [
+			{
+				id: 0,
+				name: 'eiusmod',
+			},
+			{
+				id: 1,
+				name: 'eu',
+			},
+			{
+				id: 2,
+				name: 'voluptate',
+			},
+			{
+				id: 3,
+				name: 'exercitation',
+			},
+		],
+	},
+	{
+		date: '2014-11-09T01:30:23 -01:00',
+		order_id: '5c24d928b6b9f3095fd9bc86',
+		index: 3,
+		address: {
+			number: 248,
+			street: 'Division Avenue',
+			city: 'Southview',
+			state: 'Colorado',
+		},
+		products: [
+			{
+				id: 0,
+				name: 'incididunt',
+			},
+			{
+				id: 1,
+				name: 'dolore',
+			},
+		],
+	},
+	{
+		date: '2015-11-02T04:14:05 -01:00',
+		order_id: '5c24d92800a153ae339e8e95',
+		index: 4,
+		address: {
+			number: 732,
+			street: 'Foster Avenue',
+			city: 'Bancroft',
+			state: 'Nebraska',
+		},
+		products: [
+			{
+				id: 0,
+				name: 'esse',
+			},
+			{
+				id: 1,
+				name: 'Lorem',
+			},
+			{
+				id: 2,
+				name: 'voluptate',
+			},
+		],
+	},
+	{
+		date: '2015-01-29T04:17:48 -01:00',
+		order_id: '5c24d92876c4d51ed004f4d1',
+		index: 5,
+		address: {
+			number: 241,
+			street: 'Newel Street',
+			city: 'Bend',
+			state: 'New York',
+		},
+		products: [
+			{
+				id: 0,
+				name: 'aliqua',
+			},
+			{
+				id: 1,
+				name: 'minim',
+			},
+		],
+	},
+	{
+		date: '2018-10-04T05:12:41 -02:00',
+		order_id: '5c24d928bff980ca3f12eabe',
+		index: 6,
+		address: {
+			number: 893,
+			street: 'Revere Place',
+			city: 'Elliston',
+			state: 'South Dakota',
+		},
+		products: [
+			{
+				id: 0,
+				name: 'proident',
+				// IMPORTANT here is the object in nested array that contain one more key
+				price: 20,
+			},
+			{
+				id: 1,
+				name: 'ullamco',
+			},
+			{
+				id: 2,
+				name: 'do',
+			},
+			{
+				id: 3,
+				name: 'veniam',
+			},
+			{
+				id: 4,
+				name: 'tempor',
+			},
+		],
+	},
+];
+
 const callbacks = {
 	onSelect: action('onSelect'),
 	onSubmit: action('onSubmit'),
@@ -289,19 +458,15 @@ const handlerTags = {
 };
 
 const stories = storiesOf('ObjectViewer', module);
-if (!stories.addWithInfo) {
-	stories.addWithInfo = stories.add;
-}
 
 stories
-	.addDecorator(checkA11y)
-	.addWithInfo('tree default', () => (
+	.add('tree default', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={data} {...handlerHighlight} />
 		</div>
 	))
-	.addWithInfo('array tree with datetime', () => (
+	.add('array tree with datetime', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
@@ -312,13 +477,13 @@ stories
 			/>
 		</div>
 	))
-	.addWithInfo('primitive array tree', () => (
+	.add('primitive array tree', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={primitiveArray} {...rootOpenedTypeHandler} />
 		</div>
 	))
-	.addWithInfo('tree with hightlighting', () => (
+	.add('tree with hightlighting', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
@@ -329,7 +494,7 @@ stories
 			/>
 		</div>
 	))
-	.addWithInfo('tree with hightlighting and type', () => (
+	.add('tree with hightlighting and type', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
@@ -341,7 +506,7 @@ stories
 			/>
 		</div>
 	))
-	.addWithInfo('tree with labels', () => (
+	.add('tree with labels', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
@@ -354,13 +519,13 @@ stories
 			/>
 		</div>
 	))
-	.addWithInfo('tree without rootLabel', () => (
+	.add('tree without rootLabel', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={data} tupleLabel="Record" />
 		</div>
 	))
-	.addWithInfo('tree with very large root label', () => (
+	.add('tree with very large root label', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
@@ -372,7 +537,7 @@ stories
 			/>
 		</div>
 	))
-	.addWithInfo('tree with injected elements', () => {
+	.add('tree with injected elements', () => {
 		return (
 			<div>
 				<IconsProvider defaultIcons={icons} />
@@ -380,37 +545,37 @@ stories
 			</div>
 		);
 	})
-	.addWithInfo('tree with handler', () => (
+	.add('tree with handler', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={data} {...handler} />
 		</div>
 	))
-	.addWithInfo('list default', () => (
+	.add('list default', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={data} displayMode="list" />
 		</div>
 	))
-	.addWithInfo('list with handler', () => (
+	.add('list with handler', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={data} displayMode="list" {...handler} />
 		</div>
 	))
-	.addWithInfo('table default', () => (
+	.add('table default', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={data} displayMode="table" />
 		</div>
 	))
-	.addWithInfo('table with handler', () => (
+	.add('table with handler', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={data} {...handler} displayMode="table" />
 		</div>
 	))
-	.addWithInfo('table with long text', () => {
+	.add('table with long text', () => {
 		const enhancedData = cloneDeep(data);
 		enhancedData[0].name = repeat(clubName, 10);
 		enhancedData[1].name = repeat(clubName, 5);
@@ -422,21 +587,27 @@ stories
 			</div>
 		);
 	})
-	.addWithInfo('flat default', () => (
+	.add('flat default', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={data} displayMode="flat" />
 		</div>
 	))
-	.addWithInfo('flat default with schema', () => (
+	.add('flat default with schema', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={{ dataset: data, schema }} displayMode="flat" />
 		</div>
 	))
-	.addWithInfo('flat with handler', () => (
+	.add('flat with handler', () => (
 		<div>
 			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={data} {...handler} displayMode="flat" />
+		</div>
+	))
+	.add('flat with complex nested data', () => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			<ObjectViewer id={'my-viewer'} data={moreComplexDataShape} {...handler} displayMode="flat" />
 		</div>
 	));

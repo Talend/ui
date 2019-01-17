@@ -36,7 +36,10 @@ export default [
 			</div>
 		),
 	},
-	{ name: 'drawer', story: () => <LayoutDrawer title="UIForm in a drawer" data={simple} /> },
+	{
+		name: 'drawer',
+		story: () => <LayoutDrawer title="UIForm in a drawer" data={simple} />,
+	},
 	{
 		name: 'drawer-stacked',
 		story: () => <LayoutDrawer title="UIForm in a drawer" data={simple} stacked />,

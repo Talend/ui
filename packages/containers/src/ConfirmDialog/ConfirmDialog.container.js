@@ -19,7 +19,6 @@ class ConfirmDialog extends React.Component {
 	static contextTypes = {
 		store: PropTypes.object,
 		registry: PropTypes.object,
-		router: PropTypes.object,
 	};
 
 	render() {

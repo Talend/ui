@@ -16,7 +16,6 @@ describe('FilterBar', () => {
 			onBlur: jest.fn(),
 			onFilter: jest.fn(),
 			onToggle: jest.fn(),
-			ref: 'inputFilter',
 		};
 	});
 	it('should call onToggle on search icon click', () => {
@@ -81,16 +80,6 @@ describe('FilterBar', () => {
 		filterInstance.find('button').simulate('click');
 		// then
 		expect(defaultProps.onToggle).toBeCalled();
-	});
-
-	it('should not have the icon visible on click', () => {
-		const props = { ...defaultProps, iconAlwaysVisible: false };
-		// given
-		const filterInstance = shallow(<FilterBarComponent {...props} />);
-		// when
-		filterInstance.find('FilterInput').simulate('focus');
-		// then
-		expect(filterInstance.find(Icon).length).toEqual(0);
 	});
 
 	it('should still have the icon visible on click', () => {

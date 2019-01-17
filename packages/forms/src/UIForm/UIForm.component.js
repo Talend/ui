@@ -215,7 +215,22 @@ export class UIFormComponent extends React.Component {
 		const { mergedSchema } = this.state;
 		const { properties, customValidation } = this.props;
 		const newErrors = validateAll(mergedSchema, properties, customValidation);
-		const errors = { ...this.props.errors, ...newErrors };
+		Object.entries(this.props.errors)
+			.filter(entry => entry[0] in newErrors)
+			.reduce((accu, [key, value]) => {
+				// eslint-disable-next-line no-param-reassign
+				accu[key] = value;
+				return accu;
+			}, newErrors);
+
+		const errors = Object.entries(newErrors)
+			.filter(entry => entry[1])
+			.reduce((accu, [key, value]) => {
+				// eslint-disable-next-line no-param-reassign
+				accu[key] = value;
+				return accu;
+			}, {});
+
 		this.props.setErrors(event, errors);
 
 		const isValid = !Object.keys(errors).length;
@@ -261,18 +276,24 @@ export class UIFormComponent extends React.Component {
 					displayMode={this.props.displayMode}
 				/>
 			));
-		const buttonsRenderer = () => (
-			<div className={classNames(theme['form-actions'], 'tf-actions-wrapper')} key="form-buttons">
-				<Buttons
-					id={`${this.props.id}-${this.props.id}-actions`}
-					onTrigger={this.onTrigger}
-					className={this.props.buttonBlockClass}
-					schema={{ items: actions }}
-					onClick={this.onActionClick}
-					getComponent={this.props.getComponent}
-				/>
-			</div>
-		);
+		const buttonsRenderer = () => {
+			if (actions.length === 0) {
+				return null;
+			}
+
+			return (
+				<div className={classNames(theme['form-actions'], 'tf-actions-wrapper')} key="form-buttons">
+					<Buttons
+						id={`${this.props.id}-${this.props.id}-actions`}
+						onTrigger={this.onTrigger}
+						className={this.props.buttonBlockClass}
+						schema={{ items: actions }}
+						onClick={this.onActionClick}
+						getComponent={this.props.getComponent}
+					/>
+				</div>
+			);
+		};
 
 		return (
 			<form

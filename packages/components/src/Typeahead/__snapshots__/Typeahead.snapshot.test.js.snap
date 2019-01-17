@@ -1,290 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Typeahead items should render typeahead items with match 1`] = `
-<div
-  aria-expanded={true}
-  aria-haspopup="listbox"
-  aria-owns="react-autowhatever-my-search"
-  className="theme-tc-typeahead-container tc-typeahead-container theme-container-open tc-typeahead-container-open"
-  role="combobox"
->
-  <div
-    className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
-  >
-    <label
-      className="control-label sr-only"
-      htmlFor="react-autowhatever-my-search-input"
-    >
-      Search
-    </label>
-    <input
-      aria-activedescendant={null}
-      aria-autocomplete="list"
-      aria-controls="react-autowhatever-my-search"
-      autoComplete="off"
-      autoFocus={false}
-      className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
-      disabled={false}
-      id="my-search"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      readOnly={false}
-      type="text"
-      value="le"
-    />
-  </div>
-  <div>
-    <div
-      className="theme-items-container tc-typeahead-items-container theme-item-container"
-      id="react-autowhatever-my-search"
-      role="listbox"
-    >
-      <div
-        className="theme-section-container tc-typeahead-section-container"
-      >
-        <div
-          style={Object {}}
-        >
-          <div
-            className="theme-section-header tc-typeahead-section-header"
-          >
-            <i
-              aria-hidden="true"
-              className="fa fa-filter"
-              focusable="false"
-              title="icon"
-            />
-            <span
-              className="theme-section-header-title tc-typeahead-section-header-title"
-            >
-              category 1
-            </span>
-          </div>
-        </div>
-        <ul
-          className="theme-items"
-          role="listbox"
-        >
-          <li
-            aria-selected={false}
-            id="react-autowhatever-my-search-section-0-item-0"
-            role="option"
-            style={Object {}}
-          >
-            <div
-              className="theme-item"
-              title="le title 1"
-            >
-              <span
-                className="theme-item-title tc-typeahead-item-title"
-              >
-                <span>
-                  <em
-                    className="theme-highlight"
-                  >
-                    le
-                  </em>
-                   tit
-                  <em
-                    className="theme-highlight"
-                  >
-                    le
-                  </em>
-                   1
-                </span>
-              </span>
-              <p
-                className="theme-item-description tc-typeahead-item-description"
-              >
-                <span>
-                  description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibi
-                  <em
-                    className="theme-highlight"
-                  >
-                    le
-                  </em>
-                   tempus ardore.
-                </span>
-              </p>
-            </div>
-          </li>
-          <li
-            aria-selected={false}
-            id="react-autowhatever-my-search-section-0-item-1"
-            role="option"
-            style={Object {}}
-          >
-            <div
-              className="theme-item"
-              title="title 2 les elephants elementaires ont des aile"
-            >
-              <span
-                className="theme-item-title tc-typeahead-item-title"
-              >
-                <span>
-                  tit
-                  <em
-                    className="theme-highlight"
-                  >
-                    le
-                  </em>
-                   2 
-                  <em
-                    className="theme-highlight"
-                  >
-                    le
-                  </em>
-                  s e
-                  <em
-                    className="theme-highlight"
-                  >
-                    le
-                  </em>
-                  phants e
-                  <em
-                    className="theme-highlight"
-                  >
-                    le
-                  </em>
-                  mentaires ont des ai
-                  <em
-                    className="theme-highlight"
-                  >
-                    le
-                  </em>
-                </span>
-              </span>
-              <p
-                className="theme-item-description tc-typeahead-item-description"
-              >
-                <span>
-                  description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
-                </span>
-              </p>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div
-        className="theme-section-container tc-typeahead-section-container"
-      >
-        <div
-          style={Object {}}
-        >
-          <div
-            className="theme-section-header tc-typeahead-section-header"
-          >
-            <i
-              aria-hidden="true"
-              className="fa fa-asterisk"
-              focusable="false"
-              title="icon"
-            />
-            <span
-              className="theme-section-header-title tc-typeahead-section-header-title"
-            >
-              category 2
-            </span>
-          </div>
-        </div>
-        <ul
-          className="theme-items"
-          role="listbox"
-        >
-          <li
-            aria-selected={false}
-            id="react-autowhatever-my-search-section-1-item-0"
-            role="option"
-            style={Object {}}
-          >
-            <div
-              className="theme-item"
-              title="title 3"
-            >
-              <span
-                className="theme-item-title tc-typeahead-item-title"
-              >
-                <span>
-                  tit
-                  <em
-                    className="theme-highlight"
-                  >
-                    le
-                  </em>
-                   3
-                </span>
-              </span>
-              <p
-                className="theme-item-description tc-typeahead-item-description"
-              >
-                <span>
-                  description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium va
-                  <em
-                    className="theme-highlight"
-                  >
-                    le
-                  </em>
-                  at.
-                </span>
-              </p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Typeahead items should render typeahead with loading entry 1`] = `
-<div
-  aria-expanded={false}
-  aria-haspopup="listbox"
-  aria-owns="react-autowhatever-my-search"
-  className="theme-tc-typeahead-container tc-typeahead-container theme-loading"
-  role="combobox"
->
-  <div
-    className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
-  >
-    <label
-      className="control-label sr-only"
-      htmlFor="react-autowhatever-my-search-input"
-    >
-      Search
-    </label>
-    <input
-      aria-activedescendant={null}
-      aria-autocomplete="list"
-      aria-controls="react-autowhatever-my-search"
-      autoComplete="off"
-      autoFocus={false}
-      className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
-      disabled={false}
-      id="my-search"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      readOnly={false}
-      type="text"
-    />
-  </div>
-  <div>
-    <div
-      className="theme-items-container tc-typeahead-items-container theme-item-container theme-is-loading"
-      id="react-autowhatever-my-search"
-      role="listbox"
-    >
-      <span
-        className="is-loading"
-      >
-        Loading...
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Typeahead items should render typeahead with object items 1`] = `
+exports[`Typeahead injection should use render props to inject extra components 1`] = `
 <div
   aria-expanded={true}
   aria-haspopup="listbox"
@@ -316,189 +32,26 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
       type="text"
     />
   </div>
-  <div>
-    <div
-      className="theme-items-container tc-typeahead-items-container theme-item-container"
-      id="react-autowhatever-my-search"
-      role="listbox"
-    >
-      <div
-        className="theme-section-container tc-typeahead-section-container"
-      >
-        <div
-          style={Object {}}
-        >
-          <div
-            className="theme-section-header tc-typeahead-section-header"
-          >
-            <i
-              aria-hidden="true"
-              className="fa fa-filter"
-              focusable="false"
-              title="icon"
-            />
-            <span
-              className="theme-section-header-title tc-typeahead-section-header-title"
-            >
-              category 1
-            </span>
-          </div>
-        </div>
-        <ul
-          className="theme-items"
-          role="listbox"
-        >
-          <li
-            aria-selected={false}
-            id="react-autowhatever-my-search-section-0-item-0"
-            role="option"
-            style={Object {}}
-          >
-            <div
-              className="theme-item"
-              title="le title 1"
-            >
-              <span
-                className="theme-item-title tc-typeahead-item-title"
-              >
-                <span>
-                  le title 1
-                </span>
-              </span>
-              <p
-                className="theme-item-description tc-typeahead-item-description"
-              >
-                <span>
-                  description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
-                </span>
-              </p>
-            </div>
-          </li>
-          <li
-            aria-selected={false}
-            id="react-autowhatever-my-search-section-0-item-1"
-            role="option"
-            style={Object {}}
-          >
-            <div
-              className="theme-item"
-              title="title 2 les elephants elementaires ont des aile"
-            >
-              <span
-                className="theme-item-title tc-typeahead-item-title"
-              >
-                <span>
-                  title 2 les elephants elementaires ont des aile
-                </span>
-              </span>
-              <p
-                className="theme-item-description tc-typeahead-item-description"
-              >
-                <span>
-                  description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
-                </span>
-              </p>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div
-        className="theme-section-container tc-typeahead-section-container"
-      >
-        <div
-          style={Object {}}
-        >
-          <div
-            className="theme-section-header tc-typeahead-section-header"
-          >
-            <i
-              aria-hidden="true"
-              className="fa fa-asterisk"
-              focusable="false"
-              title="icon"
-            />
-            <span
-              className="theme-section-header-title tc-typeahead-section-header-title"
-            >
-              category 2
-            </span>
-          </div>
-        </div>
-        <ul
-          className="theme-items"
-          role="listbox"
-        >
-          <li
-            aria-selected={false}
-            id="react-autowhatever-my-search-section-1-item-0"
-            role="option"
-            style={Object {}}
-          >
-            <div
-              className="theme-item"
-              title="title 3"
-            >
-              <span
-                className="theme-item-title tc-typeahead-item-title"
-              >
-                <span>
-                  title 3
-                </span>
-              </span>
-              <p
-                className="theme-item-description tc-typeahead-item-description"
-              >
-                <span>
-                  description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
-                </span>
-              </p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Typeahead items should render typeahead with string items 1`] = `
-<div
-  aria-expanded={true}
-  aria-haspopup="listbox"
-  aria-owns="react-autowhatever-my-search"
-  className="theme-tc-typeahead-container tc-typeahead-container theme-container-open tc-typeahead-container-open"
-  role="combobox"
->
   <div
-    className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
+    className="theme-items-container tc-typeahead-items-container theme-items-container"
+    id="react-autowhatever-my-search"
+    role="listbox"
   >
-    <label
-      className="control-label sr-only"
-      htmlFor="react-autowhatever-my-search-input"
-    >
-      Search
-    </label>
-    <input
-      aria-activedescendant={null}
-      aria-autocomplete="list"
-      aria-controls="react-autowhatever-my-search"
-      autoComplete="off"
-      autoFocus={false}
-      className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
-      disabled={false}
-      id="my-search"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      readOnly={false}
-      type="text"
-    />
-  </div>
-  <div>
-    <div
-      className="theme-items-container tc-typeahead-items-container theme-item-container"
-      id="react-autowhatever-my-search"
-      role="listbox"
-    >
+    <div>
+      <div>
+        Searching: 
+      </div>
+      <div>
+        Loading: 
+      </div>
+      <div>
+        No Result: 
+      </div>
+      <div>
+        Is Shown: 
+        category 1
+        category 2
+      </div>
       <ul
         className="theme-items"
         role="listbox"
@@ -542,7 +95,549 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
           </div>
         </li>
       </ul>
+      <button>
+        Click
+      </button>
     </div>
+  </div>
+</div>
+`;
+
+exports[`Typeahead items should render typeahead items with match 1`] = `
+<div
+  aria-expanded={true}
+  aria-haspopup="listbox"
+  aria-owns="react-autowhatever-my-search"
+  className="theme-tc-typeahead-container tc-typeahead-container theme-container-open tc-typeahead-container-open"
+  role="combobox"
+>
+  <div
+    className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
+  >
+    <label
+      className="control-label sr-only"
+      htmlFor="react-autowhatever-my-search-input"
+    >
+      Search
+    </label>
+    <input
+      aria-activedescendant={null}
+      aria-autocomplete="list"
+      aria-controls="react-autowhatever-my-search"
+      autoComplete="off"
+      autoFocus={false}
+      className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+      disabled={false}
+      id="my-search"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      readOnly={false}
+      type="text"
+      value="le"
+    />
+  </div>
+  <div
+    className="theme-items-container tc-typeahead-items-container theme-items-container"
+    id="react-autowhatever-my-search"
+    role="listbox"
+  >
+    <div
+      className="theme-section-container tc-typeahead-section-container"
+    >
+      <div
+        style={Object {}}
+      >
+        <div
+          className="theme-section-header tc-typeahead-section-header"
+        >
+          <i
+            aria-hidden="true"
+            className="fa fa-filter"
+            focusable="false"
+            title="icon"
+          />
+          <span
+            className="theme-section-header-title tc-typeahead-section-header-title"
+          >
+            category 1
+          </span>
+        </div>
+      </div>
+      <ul
+        className="theme-items"
+        role="listbox"
+      >
+        <li
+          aria-selected={false}
+          id="react-autowhatever-my-search-section-0-item-0"
+          role="option"
+          style={Object {}}
+        >
+          <div
+            className="theme-item"
+            title="le title 1"
+          >
+            <span
+              className="theme-item-title tc-typeahead-item-title"
+            >
+              <span>
+                <em
+                  className="theme-highlight"
+                >
+                  le
+                </em>
+                 tit
+                <em
+                  className="theme-highlight"
+                >
+                  le
+                </em>
+                 1
+              </span>
+            </span>
+            <p
+              className="theme-item-description tc-typeahead-item-description"
+            >
+              <span>
+                description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibi
+                <em
+                  className="theme-highlight"
+                >
+                  le
+                </em>
+                 tempus ardore.
+              </span>
+            </p>
+          </div>
+        </li>
+        <li
+          aria-selected={false}
+          id="react-autowhatever-my-search-section-0-item-1"
+          role="option"
+          style={Object {}}
+        >
+          <div
+            className="theme-item"
+            title="title 2 les elephants elementaires ont des aile"
+          >
+            <span
+              className="theme-item-title tc-typeahead-item-title"
+            >
+              <span>
+                tit
+                <em
+                  className="theme-highlight"
+                >
+                  le
+                </em>
+                 2 
+                <em
+                  className="theme-highlight"
+                >
+                  le
+                </em>
+                s e
+                <em
+                  className="theme-highlight"
+                >
+                  le
+                </em>
+                phants e
+                <em
+                  className="theme-highlight"
+                >
+                  le
+                </em>
+                mentaires ont des ai
+                <em
+                  className="theme-highlight"
+                >
+                  le
+                </em>
+              </span>
+            </span>
+            <p
+              className="theme-item-description tc-typeahead-item-description"
+            >
+              <span>
+                description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
+              </span>
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="theme-section-container tc-typeahead-section-container"
+    >
+      <div
+        style={Object {}}
+      >
+        <div
+          className="theme-section-header tc-typeahead-section-header"
+        >
+          <i
+            aria-hidden="true"
+            className="fa fa-asterisk"
+            focusable="false"
+            title="icon"
+          />
+          <span
+            className="theme-section-header-title tc-typeahead-section-header-title"
+          >
+            category 2
+          </span>
+        </div>
+      </div>
+      <ul
+        className="theme-items"
+        role="listbox"
+      >
+        <li
+          aria-selected={false}
+          id="react-autowhatever-my-search-section-1-item-0"
+          role="option"
+          style={Object {}}
+        >
+          <div
+            className="theme-item"
+            title="title 3"
+          >
+            <span
+              className="theme-item-title tc-typeahead-item-title"
+            >
+              <span>
+                tit
+                <em
+                  className="theme-highlight"
+                >
+                  le
+                </em>
+                 3
+              </span>
+            </span>
+            <p
+              className="theme-item-description tc-typeahead-item-description"
+            >
+              <span>
+                description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium va
+                <em
+                  className="theme-highlight"
+                >
+                  le
+                </em>
+                at.
+              </span>
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Typeahead items should render typeahead with loading entry 1`] = `
+<div
+  aria-expanded={false}
+  aria-haspopup="listbox"
+  aria-owns="react-autowhatever-my-search"
+  className="theme-tc-typeahead-container tc-typeahead-container theme-loading"
+  role="combobox"
+>
+  <div
+    className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
+  >
+    <label
+      className="control-label sr-only"
+      htmlFor="react-autowhatever-my-search-input"
+    >
+      Search
+    </label>
+    <input
+      aria-activedescendant={null}
+      aria-autocomplete="list"
+      aria-controls="react-autowhatever-my-search"
+      autoComplete="off"
+      autoFocus={false}
+      className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+      disabled={false}
+      id="my-search"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      readOnly={false}
+      type="text"
+    />
+  </div>
+  <div
+    className="theme-items-container tc-typeahead-items-container theme-items-container theme-container-open"
+    id="react-autowhatever-my-search"
+    role="listbox"
+  >
+    <div
+      className="theme-is-loading is-loading"
+    >
+      Loading...
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Typeahead items should render typeahead with object items 1`] = `
+<div
+  aria-expanded={true}
+  aria-haspopup="listbox"
+  aria-owns="react-autowhatever-my-search"
+  className="theme-tc-typeahead-container tc-typeahead-container theme-container-open tc-typeahead-container-open"
+  role="combobox"
+>
+  <div
+    className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
+  >
+    <label
+      className="control-label sr-only"
+      htmlFor="react-autowhatever-my-search-input"
+    >
+      Search
+    </label>
+    <input
+      aria-activedescendant={null}
+      aria-autocomplete="list"
+      aria-controls="react-autowhatever-my-search"
+      autoComplete="off"
+      autoFocus={false}
+      className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+      disabled={false}
+      id="my-search"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      readOnly={false}
+      type="text"
+    />
+  </div>
+  <div
+    className="theme-items-container tc-typeahead-items-container theme-items-container"
+    id="react-autowhatever-my-search"
+    role="listbox"
+  >
+    <div
+      className="theme-section-container tc-typeahead-section-container"
+    >
+      <div
+        style={Object {}}
+      >
+        <div
+          className="theme-section-header tc-typeahead-section-header"
+        >
+          <i
+            aria-hidden="true"
+            className="fa fa-filter"
+            focusable="false"
+            title="icon"
+          />
+          <span
+            className="theme-section-header-title tc-typeahead-section-header-title"
+          >
+            category 1
+          </span>
+        </div>
+      </div>
+      <ul
+        className="theme-items"
+        role="listbox"
+      >
+        <li
+          aria-selected={false}
+          id="react-autowhatever-my-search-section-0-item-0"
+          role="option"
+          style={Object {}}
+        >
+          <div
+            className="theme-item"
+            title="le title 1"
+          >
+            <span
+              className="theme-item-title tc-typeahead-item-title"
+            >
+              <span>
+                le title 1
+              </span>
+            </span>
+            <p
+              className="theme-item-description tc-typeahead-item-description"
+            >
+              <span>
+                description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
+              </span>
+            </p>
+          </div>
+        </li>
+        <li
+          aria-selected={false}
+          id="react-autowhatever-my-search-section-0-item-1"
+          role="option"
+          style={Object {}}
+        >
+          <div
+            className="theme-item"
+            title="title 2 les elephants elementaires ont des aile"
+          >
+            <span
+              className="theme-item-title tc-typeahead-item-title"
+            >
+              <span>
+                title 2 les elephants elementaires ont des aile
+              </span>
+            </span>
+            <p
+              className="theme-item-description tc-typeahead-item-description"
+            >
+              <span>
+                description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
+              </span>
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="theme-section-container tc-typeahead-section-container"
+    >
+      <div
+        style={Object {}}
+      >
+        <div
+          className="theme-section-header tc-typeahead-section-header"
+        >
+          <i
+            aria-hidden="true"
+            className="fa fa-asterisk"
+            focusable="false"
+            title="icon"
+          />
+          <span
+            className="theme-section-header-title tc-typeahead-section-header-title"
+          >
+            category 2
+          </span>
+        </div>
+      </div>
+      <ul
+        className="theme-items"
+        role="listbox"
+      >
+        <li
+          aria-selected={false}
+          id="react-autowhatever-my-search-section-1-item-0"
+          role="option"
+          style={Object {}}
+        >
+          <div
+            className="theme-item"
+            title="title 3"
+          >
+            <span
+              className="theme-item-title tc-typeahead-item-title"
+            >
+              <span>
+                title 3
+              </span>
+            </span>
+            <p
+              className="theme-item-description tc-typeahead-item-description"
+            >
+              <span>
+                description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
+              </span>
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Typeahead items should render typeahead with string items 1`] = `
+<div
+  aria-expanded={true}
+  aria-haspopup="listbox"
+  aria-owns="react-autowhatever-my-search"
+  className="theme-tc-typeahead-container tc-typeahead-container theme-container-open tc-typeahead-container-open"
+  role="combobox"
+>
+  <div
+    className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
+  >
+    <label
+      className="control-label sr-only"
+      htmlFor="react-autowhatever-my-search-input"
+    >
+      Search
+    </label>
+    <input
+      aria-activedescendant={null}
+      aria-autocomplete="list"
+      aria-controls="react-autowhatever-my-search"
+      autoComplete="off"
+      autoFocus={false}
+      className="theme-typeahead-input tc-typeahead-typeahead-input form-control"
+      disabled={false}
+      id="my-search"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      readOnly={false}
+      type="text"
+    />
+  </div>
+  <div
+    className="theme-items-container tc-typeahead-items-container theme-items-container"
+    id="react-autowhatever-my-search"
+    role="listbox"
+  >
+    <ul
+      className="theme-items"
+      role="listbox"
+    >
+      <li
+        aria-selected={false}
+        id="react-autowhatever-my-search--item-0"
+        role="option"
+        style={Object {}}
+      >
+        <div
+          className="theme-item"
+          title="category 1"
+        >
+          <span
+            className="theme-item-title tc-typeahead-item-title"
+          >
+            <span>
+              category 1
+            </span>
+          </span>
+        </div>
+      </li>
+      <li
+        aria-selected={false}
+        id="react-autowhatever-my-search--item-1"
+        role="option"
+        style={Object {}}
+      >
+        <div
+          className="theme-item"
+          title="category 2"
+        >
+          <span
+            className="theme-item-title tc-typeahead-item-title"
+          >
+            <span>
+              category 2
+            </span>
+          </span>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
 `;
@@ -579,17 +674,15 @@ exports[`Typeahead items should render typeahead without items 1`] = `
       type="text"
     />
   </div>
-  <div>
+  <div
+    className="theme-items-container tc-typeahead-items-container theme-items-container theme-container-open"
+    id="react-autowhatever-my-search"
+    role="listbox"
+  >
     <div
-      className="theme-items-container tc-typeahead-items-container theme-item-container theme-no-result"
-      id="react-autowhatever-my-search"
-      role="listbox"
+      className="theme-no-result no-result"
     >
-      <span
-        className="no-result"
-      >
-        No result.
-      </span>
+      No result.
     </div>
   </div>
 </div>
@@ -628,13 +721,11 @@ exports[`Typeahead position should render search bar on the right 1`] = `
       type="text"
     />
   </div>
-  <div>
-    <div
-      className="theme-items-container tc-typeahead-items-container theme-item-container"
-      id="react-autowhatever-my-search"
-      role="listbox"
-    />
-  </div>
+  <div
+    className="theme-items-container tc-typeahead-items-container theme-items-container"
+    id="react-autowhatever-my-search"
+    role="listbox"
+  />
 </div>
 `;
 
@@ -673,13 +764,11 @@ exports[`Typeahead should pass input extra props 1`] = `
       type="text"
     />
   </div>
-  <div>
-    <div
-      className="theme-items-container tc-typeahead-items-container theme-item-container"
-      id="react-autowhatever-my-search"
-      role="listbox"
-    />
-  </div>
+  <div
+    className="theme-items-container tc-typeahead-items-container theme-items-container"
+    id="react-autowhatever-my-search"
+    role="listbox"
+  />
 </div>
 `;
 
