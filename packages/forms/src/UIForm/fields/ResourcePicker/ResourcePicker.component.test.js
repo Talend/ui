@@ -74,10 +74,11 @@ describe('ResourcePicker field', () => {
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				onTrigger={jest.fn(
-					() => new Promise(resolve => {
-						resolve({ collection });
-						done();
-					})
+					() =>
+						new Promise(resolve => {
+							resolve({ collection });
+							done();
+						}),
 				)}
 				schema={schema}
 			/>,
@@ -91,9 +92,10 @@ describe('ResourcePicker field', () => {
 			onChange: jest.fn(),
 			onFinish: jest.fn(),
 			onTrigger: jest.fn(
-				() => new Promise(resolve => {
-					resolve({ collection });
-				})
+				() =>
+					new Promise(resolve => {
+						resolve({ collection });
+					}),
 			),
 			schema: {
 				title: 'My ResourcePicker title',
