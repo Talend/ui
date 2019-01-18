@@ -34,14 +34,27 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'useUTC',
 ];
 
-function DateTimeValidation({ t }) {
+const DateTimePickerErrorContext = React.createContext();
+
+function DateTimeValidation({ t, disabled, errors }) {
+	function displayError() {
+		if (errors && errors.length > 0) {
+			return errors.length === 1 ? errors[0].message : 'focusElement';
+		}
+		return '';
+	}
+	console.log(errors);
 	return (
 		<div className={theme.footer}>
+			<span className={theme.footerError}>
+				{ displayError() }
+			</span>
 			<button
 				name="action-datepicker-validate"
 				className="btn btn-primary"
 				role="button"
 				type="submit"
+				disabled={errors && errors.length > 0}
 				aria-label={t('DATEPICKER_VALIDATE_DESC', {
 					defaultValue: 'Validate the date picker value',
 				})}
@@ -136,21 +149,21 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	onChange(event, origin) {
-		const { errorMessage, datetime, textInput } = this.state;
+		const { errorMessage, datetime, textInput, errors, previousErrors } = this.state;
 
-		const errorUpdated = errorMessage !== this.state.errorMessage;
+		const errorUpdated = JSON.stringify(previousErrors) !== JSON.stringify(errors);
 
 		if (this.props.onChange && (this.dateHasChanged() || errorUpdated)) {
 			// we need to update the initial state once it has been changed
 			this.initialState = { ...this.state };
-			this.props.onChange(event, { errorMessage, datetime, textInput, origin });
+			this.props.onChange(event, { errors, errorMessage, datetime, textInput, origin });
 		}
 	}
 
 	onInputChange(event) {
 		const textInput = event.target.value;
 		const nextState = extractPartsFromTextInput(textInput, this.getDateOptions());
-		this.setState({ ...nextState }, () => {
+		this.setState({ previousErrors: this.state.errors, ...nextState }, () => {
 			if (!this.props.formMode) {
 				this.onChange(event, 'INPUT');
 			}
@@ -182,7 +195,7 @@ class InputDateTimePicker extends React.Component {
 
 	onPickerChange(event, { date, time }) {
 		const nextState = extractPartsFromDateAndTime(date, time, this.getDateOptions());
-		this.setState(nextState, () => {
+		this.setState({ previousErrors: this.state.errors, ...nextState }, () => {
 			if (!this.props.formMode) {
 				this.onChange(event, 'PICKER');
 			}
@@ -239,7 +252,9 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	resetDate() {
-		this.setState({ ...this.initialState });
+		if (this.props.formMode) {
+			this.setState({ ...this.initialState });
+		}
 	}
 
 	dateHasChanged() {
@@ -275,18 +290,25 @@ class InputDateTimePicker extends React.Component {
 				>
 					<Overlay container={this.dropdownWrapperRef} show={this.state.showPicker}>
 						<Popover className={theme.popover} id={this.popoverId}>
-							<DateTimePicker
-								manageFocus
-								selection={{
-									date: this.state.date,
-									time: this.state.time,
+							<DateTimePickerErrorContext.Provider
+								value={{
+									errors: this.state.errors,
 								}}
-								onSubmit={this.onPickerChange}
-								useTime={this.props.useTime}
-								useSeconds={this.props.useSeconds}
-								useUTC={this.props.useUTC}
-							/>
-							{this.props.formMode && <DateValidationButton />}
+							>
+								<DateTimePicker
+									manageFocus
+									selection={{
+										date: this.state.date,
+										time: this.state.time,
+									}}
+									onSubmit={this.onPickerChange}
+									useTime={this.props.useTime}
+									useSeconds={this.props.useSeconds}
+									useUTC={this.props.useUTC}
+									errors={this.state.errors}
+								/>
+							</DateTimePickerErrorContext.Provider>
+							{this.props.formMode && <DateValidationButton errors={this.state.errors} />}
 						</Popover>
 					</Overlay>
 				</div>
@@ -312,5 +334,5 @@ class InputDateTimePicker extends React.Component {
 		);
 	}
 }
-
+export const DateTimePickerErrorConsumer = DateTimePickerErrorContext.Consumer;
 export default InputDateTimePicker;

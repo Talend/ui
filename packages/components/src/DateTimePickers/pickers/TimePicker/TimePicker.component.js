@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import uuid from 'uuid';
 import DebounceInput from 'react-debounce-input';
 import getDefaultT from '../../../translate';
+import { DateTimePickerErrorConsumer } from '../../InputDateTimePicker';
 
 import theme from './TimePicker.scss';
 
@@ -52,7 +53,7 @@ class TimePicker extends React.PureComponent {
 		this.props.onChange(event, newValue);
 	}
 
-	renderSeconds(tabIndex) {
+	renderSeconds(tabIndex, errors) {
 		if (this.props.useSeconds) {
 			return [
 				<hr key="hr-seconds" />,
@@ -62,7 +63,9 @@ class TimePicker extends React.PureComponent {
 				<DebounceInput
 					key="input-seconds"
 					id={this.secondId}
-					className={theme['time-input']}
+					className={classNames(theme['time-input'], {
+						[theme['time-error']]: this.hasError(errors, 'INVALID_SECONDS'),
+					})}
 					value={this.props.value.seconds}
 					tabIndex={tabIndex}
 					onChange={event => this.onChange(event, SECONDS)}
@@ -73,46 +76,60 @@ class TimePicker extends React.PureComponent {
 		return null;
 	}
 
+	hasError(errors, errorCode) {
+		return errors.find(error => error.code === errorCode);
+	}
+
 	render() {
 		const { t } = this.props;
 		const tabIndex = this.props.allowFocus ? 0 : -1;
 
 		return (
-			<div className={classNames('tc-date-picker-time', theme['time-picker'])}>
-				<legend>
-					{t('DATEPICKER_TIME', { defaultValue: 'Time' })}
-					{this.props.useUTC ? (
-						<div key="utc" className={theme.utc}>
-							{t('DATEPICKER_UTC', { defaultValue: 'UTC' })}
+			<DateTimePickerErrorConsumer>
+				{
+					({ errors }) => (
+						<div className={classNames('tc-date-picker-time', theme['time-picker'])}>
+							<legend>
+								{t('DATEPICKER_TIME', { defaultValue: 'Time' })}
+								{this.props.useUTC ? (
+									<div key="utc" className={theme.utc}>
+										{t('DATEPICKER_UTC', { defaultValue: 'UTC' })}
+									</div>
+								) : null}
+							</legend>
+							<label htmlFor={this.hourId} className="sr-only">
+								{t('DATEPICKER_TIME_HOURS', { defaultValue: 'Hours' })}
+							</label>
+							<DebounceInput
+								id={this.hourId}
+								className={classNames(theme['time-input'], {
+									[theme['time-error']]: this.hasError(errors, 'INVALID_HOUR'),
+								})}
+								value={this.props.value.hours}
+								tabIndex={tabIndex}
+								onChange={event => this.onChange(event, HOURS)}
+								placeholder="HH"
+							/>
+							<hr />
+							<label htmlFor={this.minuteId} className="sr-only">
+								{t('DATEPICKER_TIME_MINUTES', { defaultValue: 'Minutes' })}
+							</label>
+							<DebounceInput
+								id={this.minuteId}
+								className={classNames(theme['time-input'], {
+									[theme['time-error']]: this.hasError(errors, 'INVALID_MINUTES'),
+								})}
+								value={this.props.value.minutes}
+								tabIndex={tabIndex}
+								onChange={event => this.onChange(event, MINUTES)}
+								placeholder="MM"
+							/>
+							{this.renderSeconds(tabIndex, errors)}
 						</div>
-					) : null}
-				</legend>
-				<label htmlFor={this.hourId} className="sr-only">
-					{t('DATEPICKER_TIME_HOURS', { defaultValue: 'Hours' })}
-				</label>
-				<DebounceInput
-					id={this.hourId}
-					className={theme['time-input']}
-					value={this.props.value.hours}
-					tabIndex={tabIndex}
-					onChange={event => this.onChange(event, HOURS)}
-					placeholder="HH"
-				/>
-				<hr />
-				<label htmlFor={this.minuteId} className="sr-only">
-					{t('DATEPICKER_TIME_MINUTES', { defaultValue: 'Minutes' })}
-				</label>
-				<DebounceInput
-					id={this.minuteId}
-					className={theme['time-input']}
-					value={this.props.value.minutes}
-					tabIndex={tabIndex}
-					onChange={event => this.onChange(event, MINUTES)}
-					placeholder="MM"
-				/>
-				{this.renderSeconds(tabIndex)}
-			</div>
-		);
+					)
+				}
+			</DateTimePickerErrorConsumer>
+		)
 	}
 }
 
