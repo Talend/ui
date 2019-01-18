@@ -14,9 +14,14 @@ This widget allows you to render a resource picker to select one or multiple res
     "type": "object",
     "title": "ResourcePicker",
     "properties": {
-        "asyncResourcePicker": {
-            "type": "string"
-        }
+      "multiResourcePicker": {
+        "type": "enum",
+        "enum": []
+      },
+      "singleResourcePicker": {
+        "type": "enum",
+        "enum": []
+      }
     }
 }
 ```
@@ -32,12 +37,12 @@ This widget allows you to render a resource picker to select one or multiple res
 ```json
 [
     {
-      "key": "asyncResourcePicker",
-      "title": "ResourcePicker multi selection",
+      "key": "multiResourcePicker",
+      "title": "ResourcePicker with multi selection",
       "widget": "resourcePicker",
-      "options": {
-        "multi": true
-      }
+      "placeholder": "Select an existing resource",
+      "required": true,
+      "multi": true
     },
   ]
 ```
