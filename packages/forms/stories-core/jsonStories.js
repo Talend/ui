@@ -136,7 +136,7 @@ function createCommonProps(tab) {
 				});
 			}
 
-			if (key === 'asyncResourcePicker') {
+			if (key.includes('ResourcePicker')) {
 				return new Promise(resolve => {
 					resolve({
 						collection: getFilteredCollection(payload.trigger.parameters),

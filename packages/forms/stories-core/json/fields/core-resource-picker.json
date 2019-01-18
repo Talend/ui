@@ -4,14 +4,19 @@
     "type": "object",
     "title": "ResourcePicker",
     "properties": {
-      "asyncResourcePicker": {
-        "type": "string"
+      "multiResourcePicker": {
+        "type": "enum",
+        "enum": []
+      },
+      "singleResourcePicker": {
+        "type": "enum",
+        "enum": []
       }
     }
   },
   "uiSchema": [
     {
-      "key": "asyncResourcePicker",
+      "key": "multiResourcePicker",
       "title": "ResourcePicker with multi selection",
       "widget": "resourcePicker",
       "placeholder": "Select an existing resource",
@@ -19,7 +24,7 @@
       "multi": true
     },
     {
-      "key": "asyncResourcePicker",
+      "key": "singleResourcePicker",
       "title": "ResourcePicker without multi selection",
       "placeholder": "Select an existing resource",
       "widget": "resourcePicker",

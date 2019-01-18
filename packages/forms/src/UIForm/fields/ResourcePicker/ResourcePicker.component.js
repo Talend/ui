@@ -32,18 +32,9 @@ class ResourcePicker extends Component {
 		this.onFilter();
 	}
 
-	/**
-	 * On change callback
-	 * We call onFinish to trigger validation on resource picker item selection
-	 * @param event
-	 * @param payload
-	 */
-	onChange(event, payload) {
-		const mergedSchema = this.props.schema;
-		const payloadWithSchema = { ...payload, schema: mergedSchema };
-
-		this.props.onChange(event, payloadWithSchema);
-		this.props.onFinish(event, payloadWithSchema);
+	onChange(event, value) {
+		this.props.onChange(event, { schema: this.props.schema, value });
+		this.props.onFinish(event, { schema: this.props.schema, value });
 	}
 
 	onFilter(event) {
