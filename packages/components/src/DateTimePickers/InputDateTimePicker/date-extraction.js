@@ -369,7 +369,7 @@ function extractPartsFromDateAndTime(date, time, options) {
 			checkTime(time);
 		} catch (error) {
 			errorMessage = error[0].message;
-			errors= error;
+			errors = error;
 		}
 	} else {
 		timeToUse = initTime(options);
@@ -428,8 +428,7 @@ function extractPartsFromTextInput(textInput, options) {
 					const timeTextToParse = splitMatches[2];
 					time = strToTime(timeTextToParse, options.useSeconds);
 					checkTime(time);
-				}
-				catch (error) {
+				} catch (error) {
 					errors = errors.concat(error);
 				}
 			}
@@ -437,12 +436,11 @@ function extractPartsFromTextInput(textInput, options) {
 
 		// parse date
 		// if (!errors.length) {
-			try {
-				date = strToDate(dateTextToParse, options.dateFormat);
-			}
-			catch (error) {
-				errors = errors.concat(error);
-			}
+		try {
+			date = strToDate(dateTextToParse, options.dateFormat);
+		} catch (error) {
+			errors = errors.concat(error);
+		}
 		//}
 	} catch (error) {
 		errors = [error];

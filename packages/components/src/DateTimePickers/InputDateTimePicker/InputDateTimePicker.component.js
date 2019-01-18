@@ -46,9 +46,7 @@ function DateTimeValidation({ t, disabled, errors }) {
 	console.log(errors);
 	return (
 		<div className={theme.footer}>
-			<span className={theme.footerError}>
-				{ displayError() }
-			</span>
+			<span className={theme.footerError}>{displayError()}</span>
 			<button
 				name="action-datepicker-validate"
 				className="btn btn-primary"
