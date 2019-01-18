@@ -159,6 +159,37 @@ const sample = {
 	},
 };
 
+const sampleArrayStringType = {
+	schema: {
+		type: 'record',
+		name: 'StringArrayRecord',
+		fields: [
+			{
+				name: 'field1',
+				doc: 'Nom de la gare',
+				type: ['null', 'int'],
+			},
+		],
+	},
+	data: [
+		{
+			value: {
+				field1: {
+					value: '9560',
+					quality: 1,
+				},
+			},
+			quality: 1,
+		},
+	],
+	encoding: 'JSON',
+	'@talend-quality@': {
+		0: 30,
+		1: 62,
+		'-1': 7,
+	},
+};
+
 describe('#getColumnDefs', () => {
 	it('should returns the columns definitions', () => {
 		const columnDefs = getColumnDefs(sample);
@@ -182,6 +213,19 @@ describe('#getColumnDefs', () => {
 		const columnDefs = getColumnDefs(sample);
 
 		expect(columnDefs).toMatchSnapshot();
+	});
+
+	it('should returns the columns definitions with array string', () => {
+		const columnDefs = getColumnDefs(sampleArrayStringType);
+
+		expect(columnDefs).toEqual([
+			{
+				avro: { doc: 'Nom de la gare', name: 'field1', type: { type: 'int' } },
+				field: 'data.field1',
+				headerName: 'Nom de la gare',
+				type: 'int',
+			},
+		]);
 	});
 });
 
