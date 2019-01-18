@@ -8,8 +8,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/ResourcePicker/constants.js
   3:10  error  Prefer default export  import/prefer-default-export
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/ResourcePicker/ResourcePicker.component.js
-  239:6  error  't' PropType is defined but prop is never used  react/no-unused-prop-types
-
-✖ 3 problems (3 errors, 0 warnings)
+✖ 2 problems (2 errors, 0 warnings)
 
