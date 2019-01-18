@@ -124,21 +124,17 @@ There are 4 methods of extraction
 You need to pass xtm information as environment variables
 
 ```shell
-> API_URL=https://XXX \
-  CLIENT=YYY \
-  CUSTOMER_ID=ZZZ \
-  USER_ID=AAA \
-  PASSWORD=BBB \
+> XTM_API_URL=https://XXX \
+  XTM_CUSTOMER_ID=YYY \
+  XTM_TOKEN=ZZZ \
   talend-scripts <i18n-upload|i18n-download>
 ```
 
 | Variable | Description |
 |---|---|
-| API_URL | The XTM api url |
-| CLIENT | The XTM client name |
-| CUSTOMER_ID | The XTM customer ID |
-| USER_ID | The XTM user id used to log in |
-| PASSWORD | The XTM user password to log in |
+| XTM_API_URL | The XTM api url |
+| XTM_CUSTOMER_ID | The XTM customer ID |
+| XTM_TOKEN | The XTM authentication token |
 
 ### Upload
 This step will upload previously created i18n zip to XTM.
@@ -202,7 +198,11 @@ You need to pass github credentials as environment variables.
   },
   "module": {
     "type": "npm",
-    "private": true
+    "private": true,
+    "repository": {
+        "id": "private-releases",
+        "url": "https://mydomain.com/nexus/content/repositories/MyPrivateSourceRelease"
+    }
   }
 }
 ```
@@ -212,6 +212,9 @@ You need to pass github credentials as environment variables.
 | github.url | `string` | The https git url. |
 | module.type | `string` | The module type to deploy (`npm` | `mvn`). |
 | module.private | `boolean` | If the module should be private. |
+| module.repository | `object` | This will be set in pom.xml for `mvn` modules. It should reflect the repository this module should be released. |
+| module.repository.id | `string` | The repository id. |
+| module.repository.url | `string` | The repository url. |
 
 The i18n files will be pushed to a branch `{XTM_project}/{version}`.
 

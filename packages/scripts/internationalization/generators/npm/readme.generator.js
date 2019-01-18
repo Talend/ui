@@ -83,8 +83,8 @@ export default i18n;
 \`\`\`
 `);
 
-module.exports = function generateReadme(projectPath, options) {
-	const readmePath = path.join(projectPath, 'README.md');
+module.exports = function generateReadme(options) {
+	const readmePath = path.join(options.localesRepoPath, 'README.md');
 
 	if (fs.existsSync(readmePath)) {
 		printInfo('README already exists --> skip README generation');

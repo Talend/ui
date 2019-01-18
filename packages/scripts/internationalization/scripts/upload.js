@@ -7,8 +7,7 @@ function upload({ extract, load }) {
 		filePath: path.join(process.cwd(), extract.target, 'i18n.zip'),
 		projectName: load.project,
 	};
-	return login(data)
-		.then(getProject)
+	return getProject(data)
 		.then(uploadFile)
 		.catch(e => {
 			error(e.message);
