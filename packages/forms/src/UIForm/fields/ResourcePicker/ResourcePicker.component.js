@@ -4,7 +4,6 @@ import ResourcePickerComponent from '@talend/react-components/lib/ResourcePicker
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
-
 class ResourcePicker extends Component {
 	constructor(props) {
 		super(props);
