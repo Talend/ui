@@ -4,9 +4,6 @@ import ResourcePickerComponent from '@talend/react-components/lib/ResourcePicker
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
-export function escapeRegexCharacters(str) {
-	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
 
 class ResourcePicker extends Component {
 	constructor(props) {
@@ -37,8 +34,9 @@ class ResourcePicker extends Component {
 	}
 
 	onChange(event, value) {
-		this.props.onChange(event, { schema: this.props.schema, value });
-		this.props.onFinish(event, { schema: this.props.schema, value });
+		const { schema } = this.props;
+		this.props.onChange(event, { schema, value });
+		this.props.onFinish(event, { schema, value });
 	}
 
 	onFilter(event) {
