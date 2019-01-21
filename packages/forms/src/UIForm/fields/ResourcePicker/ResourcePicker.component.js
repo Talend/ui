@@ -22,13 +22,17 @@ class ResourcePicker extends Component {
 		this.onRowClick = this.onRowClick.bind(this);
 
 		this.state = {
-			name: '',
-			certified: false,
-			favorites: false,
-			selection: false,
-			selected: [],
+			filters: {
+				name: '',
+				certified: false,
+				favorites: false,
+				selection: false,
+				selected: [],
+			},
 		};
+	}
 
+	componentDidMount() {
 		this.onFilter();
 	}
 
@@ -42,7 +46,7 @@ class ResourcePicker extends Component {
 		this.props
 			.onTrigger(event, {
 				trigger: {
-					parameters: this.state,
+					parameters: this.state.filters,
 				},
 				schema: this.props.schema,
 			})
@@ -51,7 +55,7 @@ class ResourcePicker extends Component {
 	}
 
 	onRowClick(event, { id }) {
-		let selected = [...this.state.selected];
+		let selected = [...this.state.filters.selected];
 		const index = selected.findIndex(i => i === id);
 
 		if (!this.props.schema.multi) {
@@ -64,19 +68,22 @@ class ResourcePicker extends Component {
 			selected.push(id);
 		}
 
-		this.setState({ selected });
+		this.setState({ filters: { ...this.state.filters, selected } });
 		this.onChange(event, selected);
 	}
 
 	isItemSelected({ id }) {
-		return this.state.selected.includes(id);
+		return this.state.filters.selected.includes(id);
 	}
 
 	stateFilterChanged(option, value) {
 		this.setState(
 			state => ({
 				...state,
-				[option]: value,
+				filters: {
+					...state.filters,
+					[option]: value,
+				},
 			}),
 			() => this.onFilter(null, this.state),
 		);
@@ -89,7 +96,10 @@ class ResourcePicker extends Component {
 			this.setState(
 				state => ({
 					...state,
-					name: target.value || '',
+					filters: {
+						...state.filters,
+						name: target.value || '',
+					},
 				}),
 				() => this.onFilter(null, this.state),
 			);
@@ -100,9 +110,12 @@ class ResourcePicker extends Component {
 		this.setState(
 			state => ({
 				...state,
-				orders: {
-					...state.orders,
-					[option]: value,
+				filters: {
+					...state.filters,
+					orders: {
+						...state.orders,
+						[option]: value,
+					},
 				},
 			}),
 			() => this.onFilter(null, this.state),
@@ -110,7 +123,7 @@ class ResourcePicker extends Component {
 	}
 
 	render() {
-		const { certified, favorites, selection, orders } = this.state;
+		const { certified, favorites, selection, orders } = this.state.filters;
 		const { id, schema } = this.props;
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);

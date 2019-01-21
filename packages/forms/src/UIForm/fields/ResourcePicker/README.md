@@ -30,7 +30,7 @@ This widget allows you to render a resource picker to select one or multiple res
 
 | Property | Description | Default |
 |---|---|---|
-| options.multi | Allow multiselection | `false` |
+| multi | Allow multiselection | `false` |
 | title | The title to display next to the field |  |
 | widget | The widget to use | `resourcePicker` |
 

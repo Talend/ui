@@ -12,14 +12,21 @@ exports[`ResourcePicker field should render simple select 1`] = `
   required={true}
 >
   <ResourcePicker
-    certified={false}
     collection={Array []}
     errorMessage="My Error Message"
-    favorites={false}
+    filters={
+      Object {
+        "certified": false,
+        "favorites": false,
+        "name": "",
+        "selected": Array [],
+        "selection": false,
+      }
+    }
     id="mySelect"
+    isLoading={true}
     isSelected={[Function]}
     isValid={true}
-    name=""
     onChange={[MockFunction]}
     onFinish={[MockFunction]}
     onRowClick={[Function]}
@@ -69,8 +76,6 @@ exports[`ResourcePicker field should render simple select 1`] = `
         "title": "My ResourcePicker title",
       }
     }
-    selected={Array []}
-    selection={false}
     toolbar={
       Object {
         "name": Object {

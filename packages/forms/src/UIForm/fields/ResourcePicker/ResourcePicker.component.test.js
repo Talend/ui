@@ -1,7 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import ResourcePickerComponent from '@talend/react-components/lib/ResourcePicker';
+import { shallow, mount } from 'enzyme';
+import { Button } from 'react-bootstrap';
 import ResourceComponent from '@talend/react-components/lib/ResourcePicker/Resource';
+import NameFilter from '@talend/react-components/lib/ResourcePicker/Toolbar/NameFilter';
+import StateFilter from '@talend/react-components/lib/ResourcePicker/Toolbar/StateFilter';
+import SortOptions from '@talend/react-components/lib/ResourcePicker/Toolbar/SortOptions';
 
 import ResourcePicker from './ResourcePicker.component';
 
@@ -64,6 +67,12 @@ describe('ResourcePicker field', () => {
 			type: 'object',
 		},
 	};
+	const props = {
+		onChange: jest.fn(),
+		onFinish: jest.fn(),
+		onTrigger: jest.fn(() => Promise.resolve({ collection })),
+		schema,
+	};
 
 	it('should render simple select', done => {
 		const wrapper = shallow(
@@ -88,32 +97,10 @@ describe('ResourcePicker field', () => {
 	});
 
 	it('should call onTrigger when mounting component', () => {
-		const props = {
-			onChange: jest.fn(),
-			onFinish: jest.fn(),
-			onTrigger: jest.fn(
-				() =>
-					new Promise(resolve => {
-						resolve({ collection });
-					}),
-			),
-			schema: {
-				title: 'My ResourcePicker title',
-				description: 'ResourcePicker me',
-				placeholder: 'Please select a value',
-				required: true,
-				schema: {
-					type: 'object',
-				},
-			},
-		};
-
 		shallow(<ResourcePicker {...props} />);
 
 		expect(props.onTrigger).toBeCalledWith(undefined, {
 			schema: props.schema,
-			errors: props.errors,
-			properties: props.properties,
 			trigger: {
 				parameters: {
 					certified: false,
@@ -126,50 +113,198 @@ describe('ResourcePicker field', () => {
 		});
 	});
 
-	it('should call onChange when selecting an item', done => {
-		const props = {
-			onChange: jest.fn(),
-			onFinish: jest.fn(),
-			onTrigger: jest.fn(
-				() =>
-					new Promise(resolve => {
-						// hack: to be sure we catch the setState after the promise
-						setTimeout(() => {
-							done();
-						}, 0);
-						return resolve({ collection });
-					}),
-			),
-			schema: {
-				title: 'My ResourcePicker title',
-				description: 'ResourcePicker me',
-				placeholder: 'Please select a value',
-				required: true,
+	it('should call onChange when selecting an item', async () => {
+		const wrapper = mount(<ResourcePicker {...props} />);
+		await wrapper.instance().busy;
+		wrapper.update();
+
+		wrapper.find(ResourceComponent).at(0).simulate('click');
+		expect(props.onChange).toBeCalledWith(
+			expect.anything(),
+			{
 				schema: {
-					type: 'object',
+					description: 'ResourcePicker me',
+					placeholder: 'Please select a value',
+					required: true,
+					schema: {
+						type: 'object',
+					},
+					title: 'My ResourcePicker title',
 				},
+				value: [0],
+			},
+		);
+	});
+
+	it('should allow multi selection', async () => {
+		const multi = {
+			...props,
+			schema: {
+				...props.schema,
+				multi: true,
 			},
 		};
 
-		const wrapper = shallow(<ResourcePicker {...props} />);
+		const wrapper = mount(<ResourcePicker {...multi} />);
+		await wrapper.instance().busy;
+		wrapper.update();
 
-		// console.log('[NC] ResourceComponent: ', ResourceComponent);
-		//
-		// console.log('[NC] wrapper: ', wrapper.find(ResourcePickerComponent).html());
-		// expect(props.onTrigger).toBeCalledWith(undefined, {
-		// 	schema: props.schema,
-		// 	errors: props.errors,
-		// 	properties: props.properties,
-		// 	trigger: {
-		// 		parameters: {
-		// 			certified: false,
-		// 			favorites: false,
-		// 			name: '',
-		// 			selected: [],
-		// 			selection: false,
-		// 		},
-		// 	},
-		// });
-		// done()
+
+		wrapper.find(ResourceComponent).at(0).simulate('click');
+		wrapper.find(ResourceComponent).at(1).simulate('click');
+		expect(props.onChange).toBeCalledWith(
+			expect.anything(),
+			{
+				schema: expect.anything(),
+				value: [0, 1],
+			},
+		);
+	});
+
+	it('should unselect', async () => {
+		const wrapper = mount(<ResourcePicker {...props} />);
+		await wrapper.instance().busy;
+		wrapper.update();
+
+		wrapper.find(ResourceComponent).at(0).simulate('click');
+		wrapper.find(ResourceComponent).at(0).simulate('click');
+		expect(props.onChange).toBeCalledWith(
+			expect.anything(),
+			{
+				schema: expect.anything(),
+				value: [],
+			},
+		);
+	});
+
+	it('should not allow multi selection', async () => {
+		const wrapper = mount(<ResourcePicker {...props} />);
+		await wrapper.instance().busy;
+		wrapper.update();
+
+		wrapper.find(ResourceComponent).at(0).simulate('click');
+		wrapper.find(ResourceComponent).at(1).simulate('click');
+		expect(props.onChange).toBeCalledWith(
+			expect.anything(),
+			{
+				schema: expect.anything(),
+				value: [1],
+			},
+		);
+	});
+
+	describe('filters', () => {
+		it('should filter on selection', async () => {
+			const wrapper = mount(<ResourcePicker {...props} />);
+			await wrapper.instance().busy;
+			wrapper.update();
+
+			wrapper.find(StateFilter).find(Button).at(0).simulate('click');
+
+			expect(props.onTrigger).toBeCalledWith(null, {
+				schema: expect.anything(),
+				trigger: {
+					parameters: {
+						certified: false,
+						favorites: false,
+						name: '',
+						selected: [],
+						selection: true,
+					},
+				},
+			});
+		});
+
+		it('should filter on certified', async () => {
+			const wrapper = mount(<ResourcePicker {...props} />);
+			await wrapper.instance().busy;
+			wrapper.update();
+
+			wrapper.find(StateFilter).find(Button).at(1).simulate('click');
+
+			expect(props.onTrigger).toBeCalledWith(null, {
+				schema: expect.anything(),
+				trigger: {
+					parameters: {
+						certified: true,
+						favorites: false,
+						name: '',
+						selected: [],
+						selection: false,
+					},
+				},
+			});
+		});
+
+		it('should filter on favorites', async () => {
+			const wrapper = mount(<ResourcePicker {...props} />);
+			await wrapper.instance().busy;
+			wrapper.update();
+
+			wrapper.find(StateFilter).find(Button).at(2).simulate('click');
+
+			expect(props.onTrigger).toBeCalledWith(null, {
+				schema: expect.anything(),
+				trigger: {
+					parameters: {
+						certified: false,
+						favorites: true,
+						name: '',
+						selected: [],
+						selection: false,
+					},
+				},
+			});
+		});
+	});
+
+	describe('sort', () => {
+		it('should sort by name', async () => {
+			const wrapper = mount(<ResourcePicker {...props} />);
+			await wrapper.instance().busy;
+			wrapper.update();
+
+			wrapper.find(SortOptions).find(Button).at(0).simulate('click');
+
+			expect(props.onTrigger).toBeCalledWith(null, {
+				schema: expect.anything(),
+				trigger: {
+					parameters: {
+						certified: false,
+						favorites: false,
+						name: '',
+						selected: [],
+						selection: false,
+						orders: {
+							name: 'asc',
+						},
+					},
+				},
+			});
+		});
+
+		it('should sort by date', async () => {
+			const wrapper = mount(<ResourcePicker {...props} />);
+			await wrapper.instance().busy;
+			wrapper.update();
+
+			wrapper.find(SortOptions).find(Button).at(1).simulate('click');
+
+			expect(props.onTrigger).toBeCalledWith(null, {
+				schema: expect.anything(),
+				trigger: {
+					parameters: {
+						certified: false,
+						favorites: false,
+						name: '',
+						selected: [],
+						selection: false,
+						orders: {
+							date: 'asc',
+						},
+					},
+				},
+			});
+		});
 	});
 });
