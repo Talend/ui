@@ -118,22 +118,22 @@ describe('ResourcePicker field', () => {
 		await wrapper.instance().busy;
 		wrapper.update();
 
-		wrapper.find(ResourceComponent).at(0).simulate('click');
-		expect(props.onChange).toBeCalledWith(
-			expect.anything(),
-			{
+		wrapper
+			.find(ResourceComponent)
+			.at(0)
+			.simulate('click');
+		expect(props.onChange).toBeCalledWith(expect.anything(), {
+			schema: {
+				description: 'ResourcePicker me',
+				placeholder: 'Please select a value',
+				required: true,
 				schema: {
-					description: 'ResourcePicker me',
-					placeholder: 'Please select a value',
-					required: true,
-					schema: {
-						type: 'object',
-					},
-					title: 'My ResourcePicker title',
+					type: 'object',
 				},
-				value: [0],
+				title: 'My ResourcePicker title',
 			},
-		);
+			value: [0],
+		});
 	});
 
 	it('should allow multi selection', async () => {
@@ -149,16 +149,18 @@ describe('ResourcePicker field', () => {
 		await wrapper.instance().busy;
 		wrapper.update();
 
-
-		wrapper.find(ResourceComponent).at(0).simulate('click');
-		wrapper.find(ResourceComponent).at(1).simulate('click');
-		expect(props.onChange).toBeCalledWith(
-			expect.anything(),
-			{
-				schema: expect.anything(),
-				value: [0, 1],
-			},
-		);
+		wrapper
+			.find(ResourceComponent)
+			.at(0)
+			.simulate('click');
+		wrapper
+			.find(ResourceComponent)
+			.at(1)
+			.simulate('click');
+		expect(props.onChange).toBeCalledWith(expect.anything(), {
+			schema: expect.anything(),
+			value: [0, 1],
+		});
 	});
 
 	it('should unselect', async () => {
@@ -166,15 +168,18 @@ describe('ResourcePicker field', () => {
 		await wrapper.instance().busy;
 		wrapper.update();
 
-		wrapper.find(ResourceComponent).at(0).simulate('click');
-		wrapper.find(ResourceComponent).at(0).simulate('click');
-		expect(props.onChange).toBeCalledWith(
-			expect.anything(),
-			{
-				schema: expect.anything(),
-				value: [],
-			},
-		);
+		wrapper
+			.find(ResourceComponent)
+			.at(0)
+			.simulate('click');
+		wrapper
+			.find(ResourceComponent)
+			.at(0)
+			.simulate('click');
+		expect(props.onChange).toBeCalledWith(expect.anything(), {
+			schema: expect.anything(),
+			value: [],
+		});
 	});
 
 	it('should not allow multi selection', async () => {
@@ -182,15 +187,18 @@ describe('ResourcePicker field', () => {
 		await wrapper.instance().busy;
 		wrapper.update();
 
-		wrapper.find(ResourceComponent).at(0).simulate('click');
-		wrapper.find(ResourceComponent).at(1).simulate('click');
-		expect(props.onChange).toBeCalledWith(
-			expect.anything(),
-			{
-				schema: expect.anything(),
-				value: [1],
-			},
-		);
+		wrapper
+			.find(ResourceComponent)
+			.at(0)
+			.simulate('click');
+		wrapper
+			.find(ResourceComponent)
+			.at(1)
+			.simulate('click');
+		expect(props.onChange).toBeCalledWith(expect.anything(), {
+			schema: expect.anything(),
+			value: [1],
+		});
 	});
 
 	describe('filters', () => {
@@ -199,7 +207,11 @@ describe('ResourcePicker field', () => {
 			await wrapper.instance().busy;
 			wrapper.update();
 
-			wrapper.find(StateFilter).find(Button).at(0).simulate('click');
+			wrapper
+				.find(StateFilter)
+				.find(Button)
+				.at(0)
+				.simulate('click');
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
@@ -220,7 +232,11 @@ describe('ResourcePicker field', () => {
 			await wrapper.instance().busy;
 			wrapper.update();
 
-			wrapper.find(StateFilter).find(Button).at(1).simulate('click');
+			wrapper
+				.find(StateFilter)
+				.find(Button)
+				.at(1)
+				.simulate('click');
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
@@ -241,7 +257,11 @@ describe('ResourcePicker field', () => {
 			await wrapper.instance().busy;
 			wrapper.update();
 
-			wrapper.find(StateFilter).find(Button).at(2).simulate('click');
+			wrapper
+				.find(StateFilter)
+				.find(Button)
+				.at(2)
+				.simulate('click');
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
@@ -264,7 +284,11 @@ describe('ResourcePicker field', () => {
 			await wrapper.instance().busy;
 			wrapper.update();
 
-			wrapper.find(SortOptions).find(Button).at(0).simulate('click');
+			wrapper
+				.find(SortOptions)
+				.find(Button)
+				.at(0)
+				.simulate('click');
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
@@ -288,7 +312,11 @@ describe('ResourcePicker field', () => {
 			await wrapper.instance().busy;
 			wrapper.update();
 
-			wrapper.find(SortOptions).find(Button).at(1).simulate('click');
+			wrapper
+				.find(SortOptions)
+				.find(Button)
+				.at(1)
+				.simulate('click');
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
