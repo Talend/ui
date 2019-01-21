@@ -133,7 +133,7 @@ export default function createTriggers({
 	lang = 'en',
 	headers,
 	fetchConfig,
-	security,
+	security = {},
 }) {
 	if (!url) {
 		throw new Error('url params is required to createTriggers');
@@ -191,11 +191,10 @@ export default function createTriggers({
 			return new Promise(resolve => resolve(result));
 		}
 		const config = cmf.sagas.http.getDefaultConfig() || {};
-		const defaultHttpSecurity = config.security || {};
-		const httpSecurity = {
-			...defaultHttpSecurity,
-			...security,
-		};
+		let httpSecurity = config.security || {};
+		if (security.CSRFTokenCookieKey || security.CSRFTokenHeaderKey) {
+			httpSecurity = security;
+		}
 		const fetchUrl = `${url}?${toQueryParam({
 			lang,
 			action: trigger.action,
