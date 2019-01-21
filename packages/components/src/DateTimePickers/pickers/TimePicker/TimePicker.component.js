@@ -31,6 +31,14 @@ class TimePicker extends React.PureComponent {
 		t: PropTypes.func.isRequired,
 	};
 
+	static hasError(errors, errorCode, formMode) {
+		// no error management in component when not in formMode
+		if (!formMode) {
+			return false;
+		}
+		return errors.find(error => error.code === errorCode);
+	}
+
 	constructor(props) {
 		super(props);
 		const id = uuid.v4();
@@ -53,7 +61,7 @@ class TimePicker extends React.PureComponent {
 		this.props.onChange(event, newValue);
 	}
 
-	renderSeconds(tabIndex, errors) {
+	renderSeconds(tabIndex, errors, formMode) {
 		if (this.props.useSeconds) {
 			return [
 				<hr key="hr-seconds" />,
@@ -64,7 +72,7 @@ class TimePicker extends React.PureComponent {
 					key="input-seconds"
 					id={this.secondId}
 					className={classNames(theme['time-input'], {
-						[theme['time-error']]: this.hasError(errors, 'INVALID_SECONDS'),
+						[theme['time-error']]: TimePicker.hasError(errors, 'INVALID_SECONDS', formMode),
 					})}
 					value={this.props.value.seconds}
 					tabIndex={tabIndex}
@@ -76,17 +84,13 @@ class TimePicker extends React.PureComponent {
 		return null;
 	}
 
-	hasError(errors, errorCode) {
-		return errors.find(error => error.code === errorCode);
-	}
-
 	render() {
 		const { t } = this.props;
 		const tabIndex = this.props.allowFocus ? 0 : -1;
 
 		return (
 			<DateTimePickerErrorConsumer>
-				{({ errors }) => (
+				{({ errors, formMode }) => (
 					<div className={classNames('tc-date-picker-time', theme['time-picker'])}>
 						<legend>
 							{t('DATEPICKER_TIME', { defaultValue: 'Time' })}
@@ -102,7 +106,7 @@ class TimePicker extends React.PureComponent {
 						<DebounceInput
 							id={this.hourId}
 							className={classNames(theme['time-input'], {
-								[theme['time-error']]: this.hasError(errors, 'INVALID_HOUR'),
+								[theme['time-error']]: TimePicker.hasError(errors, 'INVALID_HOUR', formMode),
 							})}
 							value={this.props.value.hours}
 							tabIndex={tabIndex}
@@ -116,14 +120,14 @@ class TimePicker extends React.PureComponent {
 						<DebounceInput
 							id={this.minuteId}
 							className={classNames(theme['time-input'], {
-								[theme['time-error']]: this.hasError(errors, 'INVALID_MINUTES'),
+								[theme['time-error']]: TimePicker.hasError(errors, 'INVALID_MINUTES', formMode),
 							})}
 							value={this.props.value.minutes}
 							tabIndex={tabIndex}
 							onChange={event => this.onChange(event, MINUTES)}
 							placeholder="MM"
 						/>
-						{this.renderSeconds(tabIndex, errors)}
+						{this.renderSeconds(tabIndex, errors, formMode)}
 					</div>
 				)}
 			</DateTimePickerErrorConsumer>

@@ -225,7 +225,8 @@ function strToDate(strToParse, dateFormat) {
 	const { partsOrder, regexp } = getDateRegexp(dateFormat);
 	const dateMatches = strToParse.match(regexp);
 	if (!dateMatches) {
-		throw [new DatePickerException('INVALID_DATE_FORMAT', 'INVALID_DATE_FORMAT')];
+		dateErrors.push(new DatePickerException('INVALID_DATE_FORMAT', 'INVALID_DATE_FORMAT'));
+		throw dateErrors;
 	}
 
 	const yearIndex = partsOrder.indexOf('YYYY');
@@ -435,13 +436,11 @@ function extractPartsFromTextInput(textInput, options) {
 		}
 
 		// parse date
-		// if (!errors.length) {
 		try {
 			date = strToDate(dateTextToParse, options.dateFormat);
 		} catch (error) {
 			errors = errors.concat(error);
 		}
-		//}
 	} catch (error) {
 		errors = [error];
 	}

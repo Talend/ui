@@ -36,14 +36,13 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 
 const DateTimePickerErrorContext = React.createContext();
 
-function DateTimeValidation({ t, disabled, errors }) {
+function DateTimeValidation({ t, errors }) {
 	function displayError() {
 		if (errors && errors.length > 0) {
 			return errors.length === 1 ? errors[0].message : 'focusElement';
 		}
 		return '';
 	}
-	console.log(errors);
 	return (
 		<div className={theme.footer}>
 			<span className={theme.footerError}>{displayError()}</span>
@@ -65,6 +64,12 @@ function DateTimeValidation({ t, disabled, errors }) {
 
 DateTimeValidation.propTypes = {
 	t: PropTypes.func,
+	errors: PropTypes.arrayOf(
+		PropTypes.shape({
+			component: PropTypes.string,
+			componentId: PropTypes.string,
+		}),
+	),
 };
 
 DateTimeValidation.defaultProps = {
@@ -291,6 +296,7 @@ class InputDateTimePicker extends React.Component {
 							<DateTimePickerErrorContext.Provider
 								value={{
 									errors: this.state.errors,
+									formMode: this.props.formMode,
 								}}
 							>
 								<DateTimePicker
