@@ -1,0 +1,42 @@
+// MultiSelect styles
+.container {
+    color: black;
+}
+
+:global(#multi-select-suggestion) {
+    margin-top: 1px;
+    width: 300px;
+    :global(.arrow) {
+        display: none;
+    }
+    :global(.tc-list-list) {
+        padding: 0;
+    }
+}
+.row {
+    padding: $padding-smaller $padding-normal;
+    display: block;
+    width: 100%;
+    color: $dove-gray;
+    font-weight: 400;
+    &:global(#multi-select-create-new) {
+        font-style: italic;
+    }
+    &:global(#multi-select-select-all) {
+        font-style: italic;
+    }
+
+    &:hover {
+        text-decoration: none;
+        color: $dove-gray;
+        background-color: $concrete;
+    }
+    &:global(.active) {
+        font-weight: bold;
+    }
+
+}
+.itemView {
+    display: block;
+    width: 100%;
+}
