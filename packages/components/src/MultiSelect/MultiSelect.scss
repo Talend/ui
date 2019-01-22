@@ -1,11 +1,14 @@
 // MultiSelect styles
 .container {
     color: black;
+    // this is the overlaytrigger span
+    :global(.tc-action-button-positionned) {
+        width: 100%;
+    }
 }
 
 :global(.tc-multiselect-overlay) {
-    margin-top: 1px;
-    width: 300px;
+    margin-top: 1px!important;
     background-color: $white;
     :global(.arrow) {
         display: none;

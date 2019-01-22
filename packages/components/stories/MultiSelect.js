@@ -18,6 +18,6 @@ const titleMap = [
 storiesOf('MultiSelect', module)
 	.add('default', () => (
 		<section>
-			<MultiSelect titleMap={titleMap} values={[]} onSelect={onSelect} />
+			<MultiSelect id="storybook" titleMap={titleMap} values={[]} onSelect={onSelect} />
 		</section>
 	));

@@ -80,11 +80,14 @@ function initSelected(props) {
  * @param {integer} height integer in px
  * @returns string css style
  */
-function getStyle(id, height, ROW_HEIGHT) {
+function getStyle(id, height, ROW_HEIGHT, width = 300) {
 	return `#${id} .${theme.itemView}, #${id}-overlay .${theme.row} { height: ${ROW_HEIGHT}px; }
 	#${id} .${theme.item} { line-height: ${ROW_HEIGHT - 10}px; }
+	#${id}-overlay { width: ${width}px; max-width: ${width}px; }
 	#${id}-overlay .popover-content { height: ${height}px; }`;
 }
+
+function noop() {}
 
 class MultiSelect extends React.Component {
 	static displayName = 'MultiSelect';
@@ -95,6 +98,7 @@ class MultiSelect extends React.Component {
 		itemHeight: 40,
 		selected: [],
 		titleMap: [],
+		onChange: noop,
 	};
 	static propTypes = {
 		id: PropTypes.string.isRequired,
@@ -128,8 +132,7 @@ class MultiSelect extends React.Component {
 		this.noRowsRenderer = this.noRowsRenderer.bind(this);
 	}
 
-	componentWillReceiveProps(nextProps, nextState) {
-		// this.titleMap = getTitleMap(nextProps, nextState);
+	componentWillReceiveProps(nextProps) {
 		if (nextProps.selected !== this.props.selected) {
 			this.setState({
 				selected: initSelected(nextProps),
@@ -149,7 +152,6 @@ class MultiSelect extends React.Component {
 		this.setState(prevState => {
 			// eslint-disable-next-line no-param-reassign
 			prevState.selected = selected;
-			// this.titleMap = getTitleMap(this.props, prevState);
 			this.props.onChange(event, Object.keys(selected));
 			return prevState;
 		});
@@ -164,7 +166,6 @@ class MultiSelect extends React.Component {
 				// eslint-disable-next-line no-param-reassign
 				prevState.selected[id] = true;
 			}
-			// this.titleMap = getTitleMap(this.props, prevState);
 			this.props.onChange(event, Object.keys(prevState.selected));
 			return Object.assign({}, prevState);
 		});
@@ -180,7 +181,6 @@ class MultiSelect extends React.Component {
 			prevState.selected[prevState.searchTerm] = true;
 			// eslint-disable-next-line no-param-reassign
 			prevState.searchTerm = '';
-			// this.titleMap = getTitleMap(this.props, prevState);
 			this.props.onChange(event, Object.keys(prevState.selected));
 			return Object.assign({}, prevState);
 		});
@@ -191,7 +191,6 @@ class MultiSelect extends React.Component {
 		this.setState(prevState => {
 			// eslint-disable-next-line no-param-reassign
 			prevState.searchTerm = value;
-			// this.titleMap = getTitleMap(this.props, prevState);
 			return prevState;
 		});
 	}
@@ -271,9 +270,15 @@ class MultiSelect extends React.Component {
 						disabled={this.props.disabled}
 						autoFocus={this.props.autoFocus}
 						readOnly={this.props.readOnly}
+						ref={ref => {
+							this.inputRef = ref;
+							if (ref && this.state.width !== ref.offsetWidth) {
+								this.setState({ width: ref.offsetWidth });
+							}
+						}}
 					/>
 				</OverlayTrigger>
-				<style type="text/css">{getStyle(this.props.id, height, this.props.itemHeight)}</style>
+				<style type="text/css">{getStyle(this.props.id, height, this.props.itemHeight, this.state.width)}</style>
 				{this.state.selected && (
 					<div style={{ height: viewHeight }}>
 						<VirtualizedList
