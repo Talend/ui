@@ -61,12 +61,14 @@ Inject.all = function injectAll(getComponent, components, CustomInject = Inject)
 			return null;
 		}
 
-		if (Array.isArray(components[key])) {
-			return Inject.map(getComponent, components[key], CustomInject);
-		} else if (React.isValidElement(components[key])) {
-			return components[key];
-		} else if (typeof components[key] === 'object') {
-			return <CustomInject getComponent={getComponent} {...props} {...components[key]} />;
+		const component = components[key];
+
+		if (Array.isArray(component)) {
+			return Inject.map(getComponent, component, CustomInject);
+		} else if (React.isValidElement(component)) {
+			return component;
+		} else if (typeof component === 'object') {
+			return <CustomInject getComponent={getComponent} {...props} {...component} />;
 		}
 		return null;
 	};
