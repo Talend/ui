@@ -12,6 +12,7 @@ import { DateWidget, DateTimeWidget } from '../fields/Date';
 import File from '../fields/File';
 import KeyValue from '../fields/KeyValue';
 import ListView from '../fields/ListView';
+import MultiSelect, { MultiSelectTextMode } from '../fields/MultiSelect';
 import MultiSelectTag, { MultiSelectTagTextMode } from '../fields/MultiSelectTag';
 import NestedListView from '../fields/NestedListView';
 import Radios from '../fields/Radios';
@@ -51,6 +52,7 @@ const widgets = {
 	code_text: CodeTextMode,
 	datalist_text: DatalistTextMode,
 	multiSelectTag_text: MultiSelectTagTextMode,
+	multiSelect_text: MultiSelectTextMode,
 	number_text: TextTextMode,
 	password_text: TextTextMode,
 	text_text: TextTextMode,
@@ -66,6 +68,7 @@ const widgets = {
 	keyValue: KeyValue,
 	listView: ListView,
 	multiSelectTag: MultiSelectTag,
+	multiSelect: MultiSelect,
 	nestedListView: NestedListView,
 	radioOrSelect: RadioOrSelect,
 	toggle: Toggle,
