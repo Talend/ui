@@ -19,6 +19,7 @@ export default class MultiSelectField extends React.Component {
 		super(props);
 		this.state = { selected: props.value };
 		this.onTrigger = this.onTrigger.bind(this);
+		this.onTriggerResult = this.onTriggerResult.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.getTitleMap = this.getTitleMap.bind(this);
 	}
@@ -38,9 +39,17 @@ export default class MultiSelectField extends React.Component {
 		callTrigger(event, {
 			eventNames: [event.type],
 			triggersDefinitions: this.props.schema.triggers,
-			onTrigger: this.onTrigger,
+			onTrigger: this.onTriggerResult,
 			onLoading: isLoading => this.setState({ isLoading }),
 			onResponse: data => this.setState(data),
+		});
+	}
+	onTriggerResult(event, trigger) {
+		return this.props.onTrigger(event, {
+			trigger,
+			schema: this.props.schema,
+			errors: this.props.errors,
+			properties: this.props.properties,
 		});
 	}
 
@@ -76,6 +85,7 @@ export default class MultiSelectField extends React.Component {
 					required={schema.required}
 					placeholder={schema.placeholder}
 					readOnly={schema.readOnly}
+					withCreateNew={schema.withCreateNew}
 					onBlur={this.onTrigger}
 					onChange={this.onChange}
 					onFocus={this.onTrigger}

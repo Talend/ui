@@ -3,9 +3,10 @@
     color: black;
 }
 
-:global(#multi-select-suggestion) {
+:global(.tc-multiselect-overlay) {
     margin-top: 1px;
     width: 300px;
+    background-color: $white;
     :global(.arrow) {
         display: none;
     }

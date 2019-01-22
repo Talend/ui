@@ -10,6 +10,7 @@ import theme from './OverlayTrigger.scss';
 
 export const overlayPropTypes = {
 	overlayComponent: Inject.getReactElement.propTypes,
+	overlayClassName: Inject.getReactElement.propTypes,
 	overlayId: PropTypes.string,
 	overlayPlacement: BaseOverlayTrigger.propTypes.placement,
 	overlayRef: PropTypes.func,
@@ -37,6 +38,7 @@ export default class OverlayTrigger extends React.Component {
 
 	static defaultProps = {
 		preventScrolling: false,
+		overlayTrigger: 'click',
 	};
 
 	constructor(props) {
@@ -85,13 +87,13 @@ export default class OverlayTrigger extends React.Component {
 			onEntering: this.onEntering,
 			onExited: this.onExited,
 			overlay: (
-				<Popover id={this.props.overlayId}>
+				<Popover id={this.props.overlayId} className={this.props.overlayClassName}>
 					{Inject.getReactElement(this.props.getComponent, this.props.overlayComponent)}
 				</Popover>
 			),
 			ref: this.props.overlayRef,
 			rootClose: true,
-			trigger: 'click',
+			trigger: this.props.overlayTrigger,
 		};
 
 		if (this.props.preventScrolling) {
