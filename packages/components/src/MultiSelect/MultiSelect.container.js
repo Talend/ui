@@ -214,7 +214,7 @@ class MultiSelect extends React.Component {
 		return () => (
 			<VirtualizedList
 				type="custom"
-				rowHeight={this.props.itemHeight}
+				rowHeight={this.props.itemHeight + 1}
 				rowRenderers={{ custom: this.props.itemOptionRender }}
 				collection={this.titleMap}
 				onRowClick={this.onRowClick}
@@ -280,7 +280,7 @@ class MultiSelect extends React.Component {
 				</OverlayTrigger>
 				<style type="text/css">{getStyle(this.props.id, height, this.props.itemHeight, this.state.width)}</style>
 				{this.state.selected && (
-					<div style={{ height: viewHeight }}>
+					<div className={theme.viewContainer} style={{ height: viewHeight }}>
 						<VirtualizedList
 							type="custom"
 							rowHeight={this.props.itemHeight}
@@ -288,6 +288,7 @@ class MultiSelect extends React.Component {
 							collection={getSelectedItems(this.props, this.state)}
 							onRowClick={this.onRowClick}
 							noRowsRenderer={this.noRowsRenderer}
+							tabIndex="-1"
 						/>
 					</div>
 				)}

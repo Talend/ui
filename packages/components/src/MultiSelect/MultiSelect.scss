@@ -43,8 +43,16 @@
 .itemView {
     display: block;
     width: 100%;
+    border-bottom: 1px solid $gallery;
+    color: $dove-gray;
 }
 
 .item {
     display: inline;
+}
+
+.viewContainer {
+    :global(.tc-list-list) {
+        padding: 0;
+    }
 }
