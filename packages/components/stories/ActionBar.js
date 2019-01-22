@@ -236,11 +236,11 @@ storiesOf('ActionBar', module)
 			<IconsProvider defaultIcons={icons} />
 			<p>No Selected, Layout: Left Space Right</p>
 			<div id="default">
-				<ActionBar {...Object.assign({}, basicProps, { selected: 0, getComponent: 'whatever' })} />
+				<ActionBar {...Object.assign({}, basicProps, { selected: 0 })} />
 			</div>
 			<p>1 Selected, Layout: Left Center Right</p>
 			<div id="selected">
-				<ActionBar {...Object.assign({}, basicProps, { selected: 1, getComponent: 'whatever' })} />
+				<ActionBar {...Object.assign({}, basicProps, { selected: 1 })} />
 			</div>
 
 			<p>1 Selected, Layout: Right</p>
@@ -249,12 +249,11 @@ storiesOf('ActionBar', module)
 					selected={1}
 					actions={{ left: [primary] }}
 					multiSelectActions={{ right: [multi3] }}
-					getComponent="whatever"
 				/>
 			</div>
 			<p>Toolbar with btn-group and only icons/ Layout: left, center, right</p>
 			<div id="btn-group">
-				<ActionBar actions={btnGroupActions} getComponent="whatever" />
+				<ActionBar actions={btnGroupActions} />
 			</div>
 		</nav>
 	))
