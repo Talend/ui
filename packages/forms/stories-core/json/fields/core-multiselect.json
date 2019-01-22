@@ -33,7 +33,7 @@
     {
       "key": "tags",
       "description": "This field accepts new items",
-      "withCreateNew": true,
+      "restricted": false,
       "title": "Tags",
       "widget": "multiSelect",
       "titleMap": [
