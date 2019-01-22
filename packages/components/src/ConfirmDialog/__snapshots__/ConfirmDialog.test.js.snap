@@ -58,9 +58,6 @@ exports[`ConfirmDialog should render with a large container 1`] = `
         </button>
       </div>
       <div
-        className="theme-navbar-center"
-      />
-      <div
         className="theme-navbar-right navbar-right"
       >
         <button
@@ -159,9 +156,6 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
         </button>
       </div>
       <div
-        className="theme-navbar-center"
-      />
-      <div
         className="theme-navbar-right navbar-right"
       >
         <button
@@ -241,9 +235,6 @@ exports[`ConfirmDialog should render with a small container 1`] = `
         </button>
       </div>
       <div
-        className="theme-navbar-center"
-      />
-      <div
         className="theme-navbar-right navbar-right"
       >
         <button
@@ -321,9 +312,6 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
           </span>
         </button>
       </div>
-      <div
-        className="theme-navbar-center"
-      />
       <div
         className="theme-navbar-right navbar-right"
       >
@@ -416,9 +404,6 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
         </button>
       </div>
       <div
-        className="theme-navbar-center"
-      />
-      <div
         className="theme-navbar-right navbar-right"
       >
         <button
@@ -484,9 +469,6 @@ exports[`ConfirmDialog should render without header 1`] = `
           </span>
         </button>
       </div>
-      <div
-        className="theme-navbar-center"
-      />
       <div
         className="theme-navbar-right navbar-right"
       >
