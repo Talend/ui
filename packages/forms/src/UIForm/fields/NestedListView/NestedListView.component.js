@@ -7,6 +7,7 @@ import { translate } from 'react-i18next';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
 import { getDisplayedItems, prepareItemsFromSchema } from './NestedListView.utils';
+import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import FieldTemplate from '../FieldTemplate';
 
 import theme from './NestedListView.scss';
@@ -191,12 +192,14 @@ class NestedListViewWidget extends React.Component {
 	}
 
 	render() {
-		const { schema } = this.props;
+		const { id, schema } = this.props;
 
 		return (
 			<div className={theme['nested-list-view']}>
 				<FieldTemplate
 					description={schema.description}
+					descriptionId={generateDescriptionId(id)}
+					errorId={generateErrorId(id)}
 					errorMessage={this.props.errorMessage}
 					id={this.props.id}
 					isValid={this.props.isValid}

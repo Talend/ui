@@ -5,6 +5,8 @@ exports[`NestedListView component should render component 1`] = `
   className="theme-nested-list-view"
 >
   <FieldTemplate
+    descriptionId="NestedListView-description"
+    errorId="NestedListView-error"
     id="NestedListView"
     isValid={true}
   >

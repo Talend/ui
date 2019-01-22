@@ -10,6 +10,8 @@ const generatePackageJson = require('../generators/npm/package.generator');
 const generateIndexJS = require('../generators/npm/index.generator');
 const generateReadme = require('../generators/npm/readme.generator');
 const manageFolder = require('../generators/npm/folder.manager');
+const generatePomXml = require('../generators/mvn/pom.generator');
+const manageMvnFolder = require('../generators/mvn/folder.manager');
 
 function getGithubVariables() {
 	const { GITHUB_LOGIN, GITHUB_TOKEN } = process.env;
@@ -74,19 +76,19 @@ function switchToBranch({ githubUrl, branchName }, repoCmdContext) {
 	}
 }
 
-function generateModule(options, repoCmdContext) {
+function generateModule(options) {
 	printSection('Module generation');
 
 	switch (options.type) {
 		case 'npm':
 			manageFolder(options);
-			generatePackageJson(repoCmdContext.cwd, options);
-			generateIndexJS(repoCmdContext.cwd);
-			generateReadme(repoCmdContext.cwd, options);
+			generatePackageJson(options);
+			generateIndexJS(options);
+			generateReadme(options);
 			break;
 		case 'mvn':
-			printInfo('Module mvn is not available yet');
-			// TODO mvn files : pom.xml, src/main/resources with _fr.properties
+			manageMvnFolder(options);
+			generatePomXml(options);
 			break;
 		default:
 			printInfo(
@@ -179,9 +181,10 @@ function deploy({ load, github, module }) {
 			// module generation
 			private: module.private,
 			type: module.type,
+			repository: module.repository,
 		};
 		switchToBranch(versionOptions, repoCmdContext);
-		generateModule(versionOptions, repoCmdContext);
+		generateModule(versionOptions);
 		pushI18nFiles(versionOptions, repoCmdContext);
 		deployModule(versionOptions, repoCmdContext);
 	});

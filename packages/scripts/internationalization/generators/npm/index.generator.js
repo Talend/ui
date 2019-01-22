@@ -3,6 +3,7 @@ const path = require('path');
 const template = require('lodash.template');
 
 const { printRunning, printSuccess } = require('../../common/log');
+const { getLanguageFoldersDefinitions } = require('../../common/files');
 
 const languageTemplate = template('const <%= language %> = {\n<%= filesRequires %>\n};');
 const requireTemplate = template(
@@ -29,28 +30,20 @@ module.exports = {
  * 		 	|_ <namespace_2>.json
  * 		 	|_ <namespace_3>.json
  */
-module.exports = function generateIndexJS(projectPath) {
+module.exports = function generateIndexJS(options) {
+	const { localesRepoPath } = options;
+
 	// Get languages definitions
 	// - name: folder name
 	// - language: language on 2 chars (en_US --> en)
 	// - absPath: folder absolute path
 	// - namespaces: the name of the files it contains
 	// 		--> "toto.json tata.json" --> namespaces = ['toto', 'tata']
-	const localesPath = path.join(projectPath, 'locales');
-	const languageDirectories = fs
-		.readdirSync(localesPath)
-		.filter(name => name !== '.git')
-		.map(name => ({
-			name,
-			absPath: path.join(localesPath, name),
-		}))
-		.filter(({ absPath }) => fs.lstatSync(absPath).isDirectory())
-		.map(directory => ({
-			...directory,
-			namespaces: fs
-				.readdirSync(directory.absPath)
-				.map(fileName => fileName.match(/(.*)\.json/)[1]),
-		}));
+	const localesPath = path.join(localesRepoPath, 'locales');
+	const languageDirectories = getLanguageFoldersDefinitions(localesPath).map(directory => ({
+		...directory,
+		namespaces: fs.readdirSync(directory.absPath).map(fileName => fileName.match(/(.*)\.json/)[1]),
+	}));
 
 	// generate index.js
 	printRunning('Generating index.js');
@@ -69,7 +62,7 @@ module.exports = function generateIndexJS(projectPath) {
 		languages: languageDirectories.map(({ name }) => name).join(', '),
 	});
 
-	const indexJsPath = path.join(projectPath, 'index.js');
+	const indexJsPath = path.join(localesRepoPath, 'index.js');
 	fs.writeFileSync(indexJsPath, `${languagesDefinitions}\n${exportsDefinitions}`);
 	printSuccess(`index.js saved to ${indexJsPath}`);
 };
