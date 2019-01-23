@@ -44,10 +44,11 @@ function getTitleMap(props, state) {
 	// apply selected
 	const selected = Object.keys(state.selected || {});
 	if (selected.length > 0) {
-		titleMap.forEach(item => {
-			// eslint-disable-next-line no-param-reassign
-			item.selected = state.selected[item.value];
-		});
+		titleMap = titleMap.map(item => ({
+			name: item.name,
+			value: item.value,
+			selected: state.selected[item.value],
+		}));
 	}
 	if (props.withCreateNew && state.searchTerm && !hasExactMatch) {
 		titleMap.push({
@@ -148,35 +149,53 @@ class MultiSelect extends React.Component {
 				return acc;
 			}, {});
 		}
-		this.props.onChange(event, Object.keys(selected));
-		this.setState({ selected });
+		if (this.props.onChange) {
+			// controlled
+			this.props.onChange(event, Object.keys(selected));
+		} else {
+			// uncontrolled
+			this.setState({ selected });
+		}
 	}
 
 	onSelectOne(event, id) {
-		this.setState(prevState => {
-			if (prevState.selected[id]) {
-				// eslint-disable-next-line no-param-reassign
-				delete prevState.selected[id];
-			} else {
-				// eslint-disable-next-line no-param-reassign
-				prevState.selected[id] = true;
-			}
-			this.props.onChange(event, Object.keys(prevState.selected));
-			return Object.assign({}, prevState);
-		});
+		const selected = Object.assign({}, this.state.selected);
+		if (selected[id]) {
+			// eslint-disable-next-line no-param-reassign
+			delete selected[id];
+		} else {
+			// eslint-disable-next-line no-param-reassign
+			selected[id] = true;
+		}
+		if (this.props.onChange) {
+			// controlled
+			this.props.onChange(event, Object.keys(selected));
+		} else {
+			// uncontrolled
+			this.setState({ selected });
+		}
 	}
 
 	onSelectCreateNew(event) {
+		const newItem = {
+			name: this.state.searchTerm,
+			value: this.state.searchTerm,
+		};
 		this.setState(prevState => {
-			prevState.added.push({
-				name: prevState.searchTerm,
-				value: prevState.searchTerm,
+			const selected = Object.assign({}, this.state.selected, {
+				[newItem.value]: true,
 			});
-			// eslint-disable-next-line no-param-reassign
-			prevState.selected[prevState.searchTerm] = true;
+			prevState.added.push(newItem);
 			// eslint-disable-next-line no-param-reassign
 			prevState.searchTerm = '';
-			this.props.onChange(event, Object.keys(prevState.selected));
+			if (this.props.onChange) {
+				// controlled
+				this.props.onChange(event, Object.keys(selected));
+			} else {
+				// uncontrolled
+				// eslint-disable-next-line no-param-reassign
+				prevState.selected = selected;
+			}
 			return Object.assign({}, prevState);
 		});
 	}

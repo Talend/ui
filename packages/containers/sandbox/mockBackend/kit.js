@@ -72,7 +72,12 @@ function suggestionForDemo() {
 	};
 }
 
+const cache = {};
+
 function suggestionBig() {
+	if (cache.photos) {
+		return cache.photos;
+	}
 	return res => {
 		let body = '';
 		function onData(chunk) {
@@ -81,9 +86,10 @@ function suggestionBig() {
 		}
 		function onEnd() {
 			console.log('onEnd', body);
-			res.json({
+			cache.photos = {
 				items: JSON.parse(body).map(item => ({ id: item.id, label: item.title })),
-			});
+			};
+			res.json(cache.photos);
 		}
 		function onResponse(resp) {
 			console.log(`Got response: ${resp.statusCode}`);

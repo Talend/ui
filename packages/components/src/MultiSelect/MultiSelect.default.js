@@ -9,7 +9,7 @@ export function Item(props) {
 	return (
 		<a
 			className={classnames(theme.row, 'tc-multi-select-item', {
-				active: item.selected,
+				active: !!item.selected,
 			})}
 			id={`multi-select-${item.value}`}
 			onClick={event => props.parent.props.onRowClick({ event, rowData: item.value })}
