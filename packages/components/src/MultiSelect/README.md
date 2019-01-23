@@ -15,6 +15,7 @@ Incoming features / TODO:
 * default render support icon and description
 * tests
 * categories
+* refactor to move out from popover which is not the best for that.
 
 Props table
 
@@ -23,7 +24,6 @@ Props table
 | titleMap | object | undefined | **requried** This object all the list of values |
 | name | string | | The name of the field input search |
 | placeholder | string | | Displayed in the input search |
-| itemHeight | number | 40 | fix the height of each item. |
 | selected | [string] | [] | This old the list of selected values so you can control it |
 | itemOptionRender | func | MultiSelect.Item | render each item in the dropdown |
 | itemViewRender | func | MultiSelect.ItemView | render each selected item under the search input |

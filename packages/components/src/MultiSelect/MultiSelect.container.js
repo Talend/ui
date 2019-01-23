@@ -110,7 +110,7 @@ class MultiSelect extends React.Component {
 		readOnly: PropTypes.bool,
 		disabled: PropTypes.bool,
 		autoFocus: PropTypes.bool,
-		loading: PropTypes.bool,
+		isLoading: PropTypes.bool,
 		onChange: PropTypes.func,
 		onBlur: PropTypes.func,
 		onFocus: PropTypes.func,
@@ -222,8 +222,12 @@ class MultiSelect extends React.Component {
 	}
 
 	getPopover() {
-		if (this.props.loading) {
-			return () => <CircularProgress />;
+		if (this.props.isLoading) {
+			return () => (
+				<div className={theme.loading}>
+					<CircularProgress />
+				</div>
+			);
 		}
 		return () => (
 			<VirtualizedList
@@ -250,6 +254,9 @@ class MultiSelect extends React.Component {
 		if (this.titleMap.length < 6) {
 			height = this.props.itemOptionRender.rowHeight * this.titleMap.length;
 		}
+		if (this.props.isLoading) {
+			height = 120;
+		}
 		let viewHeight = this.props.itemViewRender.rowHeight * 6;
 		const nbSelected = Object.keys(this.state.selected).length;
 		if (nbSelected < 6 && nbSelected > 0) {
@@ -261,7 +268,7 @@ class MultiSelect extends React.Component {
 		return (
 			<div id={this.props.id} className={classnames('tc-multiselect', theme.container)}>
 				<OverlayTrigger
-					trigger="focus"
+					overlayTrigger="focus"
 					overlayPlacement="bottom"
 					overlayId={`${this.props.id}-overlay`}
 					overlayClassName="tc-multiselect-overlay"
