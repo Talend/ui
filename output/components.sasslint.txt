@@ -1,6 +1,13 @@
 > sass-lint -v -q
 
 
+src/DateTimePickers/InputDateTimePicker/InputDateTimePicker.scss
+  34:3   error  Class '.footerError' should be written in lowercase with hyphens  class-name-format
+  35:5   error  Class '.errorHidden' should be written in lowercase with hyphens  class-name-format
+  36:23  error  !important not allowed                                            no-important
+  37:17  error  !important not allowed                                            no-important
+  38:18  error  !important not allowed                                            no-important
+
 src/DateTimePickers/pickers/TimePicker/TimePicker.scss
   26:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
@@ -17,5 +24,5 @@ src/Typeahead/Typeahead.scss
 src/VirtualizedList/RowCollapsiblePanel/RowCollapsiblePanel.scss
   2:24  error  Strings must use single quotes  quotes
 
-✖ 6 problems (4 errors, 2 warnings)
+✖ 11 problems (9 errors, 2 warnings)
 
