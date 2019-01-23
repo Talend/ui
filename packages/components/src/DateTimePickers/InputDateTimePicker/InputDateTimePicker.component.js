@@ -100,6 +100,10 @@ DateTimeValidation.propTypes = {
 			componentId: PropTypes.string,
 		}),
 	),
+	focusedInput: PropTypes.string,
+	hoursErrorId: PropTypes.string,
+	minutesErrorId: PropTypes.string,
+	secondsErrorId: PropTypes.string,
 };
 
 DateTimeValidation.defaultProps = {

@@ -68,8 +68,8 @@ class TimePicker extends React.PureComponent {
 					})}
 					value={this.props.value.seconds}
 					tabIndex={tabIndex}
-					onBlur={event => focusInput()}
-					onFocus={event => focusInput(secondsErrorId)}
+					onBlur={() => focusInput()}
+					onFocus={() => focusInput(secondsErrorId)}
 					onChange={event => this.onChange(event, SECONDS)}
 					placeholder="SS"
 					aria-required={formMode}
@@ -108,8 +108,8 @@ class TimePicker extends React.PureComponent {
 							value={this.props.value.hours}
 							tabIndex={tabIndex}
 							onChange={event => this.onChange(event, HOURS)}
-							onBlur={event => focusInput()}
-							onFocus={event => focusInput(hoursErrorId)}
+							onBlur={() => focusInput()}
+							onFocus={() => focusInput(hoursErrorId)}
 							placeholder="HH"
 							aria-required={formMode}
 							aria-invalid={hasError('INVALID_HOUR')}
@@ -127,8 +127,8 @@ class TimePicker extends React.PureComponent {
 							value={this.props.value.minutes}
 							tabIndex={tabIndex}
 							onChange={event => this.onChange(event, MINUTES)}
-							onBlur={event => focusInput()}
-							onFocus={event => focusInput(minutesErrorId)}
+							onBlur={() => focusInput()}
+							onFocus={() => focusInput(minutesErrorId)}
 							placeholder="MM"
 							aria-required={formMode}
 							aria-invalid={hasError('INVALID_MINUTES')}
