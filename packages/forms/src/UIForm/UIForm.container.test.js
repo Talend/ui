@@ -142,6 +142,19 @@ describe('UIForm container', () => {
 		});
 	});
 
+	describe('#onReset', () => {
+		it('should spread the event object to "onReset" prop callback', () => {
+			const onReset = jest.fn();
+			const resetEvent = { whateverProp: 'whatever value' };
+			const wrapper = shallow(<UIForm data={data} {...props} onReset={onReset} />);
+
+			wrapper.prop('onReset')(resetEvent);
+
+			expect(onReset).toHaveBeenCalledTimes(1);
+			expect(onReset).toHaveBeenCalledWith(resetEvent);
+		});
+	});
+
 	describe('#setErrors', () => {
 		it('should update state errors', () => {
 			// given

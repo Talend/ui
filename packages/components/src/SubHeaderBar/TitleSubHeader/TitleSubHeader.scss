@@ -6,15 +6,8 @@
 	overflow: hidden;
 }
 
-@mixin input-text($weight) {
-	color: $black;
-	font-size: $tc-input-subheader-size-medium;
-	font-weight: $weight;
-}
-
 $tc-input-subheader-size-large: 2.4rem !default;
 $tc-input-subheader-size-medium: 1.4rem !default;
-$tc-input-subheader-title-weight: 900 !default;
 
 :global(.tc-subheader-details-blink) {
 	@include heartbeat(object-blink);
@@ -48,19 +41,26 @@ $tc-input-subheader-title-weight: 900 !default;
 
 			&-wording,
 			&-wording-button {
-				@include input-text($tc-input-subheader-title-weight);
 				@include ellipsis;
+				line-height: unset;
 				margin: 0;
 			}
 
-			:global(.tc-editable-text-form-input) {
-				width: 30rem;
+			:global {
+				.tc-editable-text-wording {
+					line-height: unset;
+					margin: 0;
+				}
+
+				.tc-editable-text-form-input {
+					width: 30rem;
+				}
 			}
 		}
 
 		&-subtitle {
 			@include ellipsis;
-			color: $dark-silver;
+			color: $black;
 			font-size: $tc-input-subheader-size-medium;
 		}
 	}

@@ -44,6 +44,17 @@ describe('PlainTextTitle', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render provided component class', () => {
+		const props = {
+			text: 'text',
+			feature: 'my.custom.feature',
+			onEdit: jest.fn(),
+			componentClass: 'h1',
+		};
+		const wrapper = shallow(<PlainTextTitle {...props} />);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should render in disabled state', () => {
 		const props = {
 			text: 'text',

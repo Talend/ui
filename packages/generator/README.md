@@ -49,6 +49,8 @@ It will do the following:
 
 Run the `yo talend:dotfiles` command again when you want to make sure configuration files and license are up to date.
 
+You can use yarn by adding --yarn option or the classic --skip-install if you just want to escape install step.
+
 ## License
 
 Copyright (c) 2006-2016 Talend

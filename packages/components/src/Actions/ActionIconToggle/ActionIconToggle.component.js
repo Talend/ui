@@ -9,24 +9,12 @@ import getPropsFrom from '../../utils/getPropsFrom';
 
 import theme from './ActionIconToggle.scss';
 
-/**
- * @param {object} props react props
- * @example
- const props = {
-	label: 'edit',
-	icon: 'fa fa-edit',
-	onClick: action('onEdit'),
-	tooltipPlacement: 'right',
-	hideLabel: true,
-	link: true,
-};
- <ActionIconToggle {...props} />
- */
 function ActionIconToggle(props) {
 	const { active, className, icon, id, label, tooltipPlacement, ...rest } = props;
 
 	const cn = classNames(className, 'tc-icon-toggle', theme['tc-icon-toggle'], {
 		[theme.active]: active,
+		active,
 	});
 
 	return (
@@ -35,9 +23,9 @@ function ActionIconToggle(props) {
 				{...getPropsFrom(Button, rest)}
 				id={id}
 				className={cn}
-				bsStyle="link"
 				aria-label={label}
 				aria-pressed={active}
+				bsStyle=""
 			>
 				<Icon name={icon} />
 			</Button>

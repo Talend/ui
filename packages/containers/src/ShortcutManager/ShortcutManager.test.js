@@ -18,18 +18,25 @@ describe('Shortcut container', () => {
 		wrapper = shallow(<Container redirectMap={{}} />, { context });
 		expect(wrapper.getElement()).toBeNull();
 	});
+});
+
+describe('handles routes', () => {
+	const state = mock.state();
+	state.cmf.settings.props.shortcuts = {
+		redirectMap: {},
+	};
+	state.cmf.components = new Map();
+	state.routing = {
+		locationBeforeTransitions: {
+			pathname: '/test',
+		},
+	};
 
 	it('should get the redirectMap', () => {
-		const state = mock.state();
-		state.cmf.settings.props.shortcuts = {
-			redirectMap: {},
-		};
-		state.cmf.components = new Map();
-		wrapper = mount(
+		const wrapper = mount(
 			<Provider state={state}>
 				<Connected view="shortcuts" />
 			</Provider>,
-			{ context },
 		);
 		expect(wrapper.find(Container.displayName).props().redirectMap).toBeDefined();
 	});
@@ -37,7 +44,7 @@ describe('Shortcut container', () => {
 	it('should handle global keypresses', () => {
 		const spy = jest.spyOn(Container.prototype, 'handleKeyPress');
 
-		wrapper = mount(<Container redirectMap={{}} />, { context });
+		mount(<Container redirectMap={{}} />);
 
 		const event = new KeyboardEvent('keydown', { keyCode: keycode('esc') });
 		document.dispatchEvent(event);
@@ -50,9 +57,7 @@ describe('Shortcut container', () => {
 	it('should call redirect actionCreator', () => {
 		const fn = jest.fn();
 		const redirectMap = { esc: { '/test': '/test/next' } };
-		wrapper = mount(<Container redirectMap={redirectMap} dispatchActionCreator={fn} />, {
-			context,
-		});
+		mount(<Container redirectMap={redirectMap} dispatchActionCreator={fn} pathname="/test" />);
 
 		const event = new KeyboardEvent('keydown', { keyCode: keycode('esc') });
 		document.dispatchEvent(event);
@@ -63,11 +68,10 @@ describe('Shortcut container', () => {
 	it('should call matching actionCreator', () => {
 		const fn = jest.fn();
 		const redirectMap = { esc: { '^[/]test[/].*$': 'test' } };
-		const customContext = { router: { getCurrentLocation: () => ({ pathname: '/test/12345' }) } };
 
-		wrapper = mount(<Container redirectMap={redirectMap} dispatchActionCreator={fn} />, {
-			context: customContext,
-		});
+		mount(
+			<Container redirectMap={redirectMap} dispatchActionCreator={fn} pathname="/test/12345" />,
+		);
 
 		const event = new KeyboardEvent('keydown', { keyCode: keycode('esc') });
 		document.dispatchEvent(event);

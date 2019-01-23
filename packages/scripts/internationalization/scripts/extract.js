@@ -2,9 +2,12 @@ const fs = require('fs');
 const path = require('path');
 const spawn = require('cross-spawn');
 const mkdirp = require('mkdirp');
+const rimraf = require('rimraf');
 const Zip = require('adm-zip');
 
 const error = require('../common/error');
+const { printRunning, printSection, printSuccess } = require('../common/log');
+const { getVersion } = require('../common/version');
 
 function extractNpmYarn({ script, method, target }) {
 	if (!script || !target) {
@@ -61,8 +64,69 @@ function extractFiles({ files, target }) {
 	});
 }
 
+function extractByExpression({ expression, rootPath, target }) {
+	const child = spawn.sync('find', [rootPath, '-iname', `${expression}`]);
+	if (child.status !== 0) {
+		error(child.stderr.toString());
+	}
+
+	const files = child.stdout
+		.toString()
+		.split('\n')
+		.filter(filePath => filePath);
+	if (!files.length) {
+		error(`No file matches the expression "${expression}" from ${rootPath}`);
+	}
+	return extractFiles({ files, target });
+}
+
+function runTransform({ transform, target }) {
+	if (transform === 'flatten') {
+		const filesChild = spawn.sync('find', [target, '-type', 'f']);
+		if (filesChild.status !== 0) {
+			error(filesChild.stderr.toString());
+		}
+		filesChild.stdout
+			.toString()
+			.split('\n')
+			.filter(filePath => filePath)
+			.forEach(filePath => {
+				const fileName = path.basename(filePath);
+				fs.renameSync(filePath, path.join(target, fileName));
+			});
+
+		const directoriesChild = spawn.sync('find', [target, '-type', 'd']);
+		if (directoriesChild.status !== 0) {
+			error(directoriesChild.stderr.toString());
+		}
+		directoriesChild.stdout
+			.toString()
+			.split('\n')
+			.filter(folderPath => folderPath && folderPath !== target)
+			.forEach(folderPath => rimraf.sync(folderPath));
+	}
+}
+
+function wrapWithVersion({ target }) {
+	const version = getVersion();
+	const versionFolderPath = path.join(target, version);
+
+	printSection('Wrap i18n files into version folder');
+	const i18nContent = fs.readdirSync(target);
+	mkdirp.sync(versionFolderPath);
+	i18nContent.forEach(fileName => {
+		const originalPath = path.join(target, fileName);
+		const newPath = path.join(versionFolderPath, fileName);
+		printRunning(`Move ${originalPath} --> ${newPath}`);
+		fs.renameSync(originalPath, newPath);
+	});
+	printSuccess(`Moved i18n files into version folder ${versionFolderPath}`);
+}
+
 function runExtract({ extract }) {
 	const { method, target } = extract;
+	rimraf.sync(target);
+
 	switch (method) {
 		case 'npm':
 		case 'yarn':
@@ -70,6 +134,9 @@ function runExtract({ extract }) {
 			break;
 		case 'files':
 			extractFiles(extract);
+			break;
+		case 'expression':
+			extractByExpression(extract);
 			break;
 		default:
 			error(
@@ -79,9 +146,12 @@ function runExtract({ extract }) {
 			);
 	}
 
+	runTransform(extract);
+	wrapWithVersion(extract);
+
 	const zip = new Zip();
 	zip.addLocalFolder(path.join(process.cwd(), target));
-	zip.writeZip(path.join(process.cwd(), 'i18n.zip'));
+	zip.writeZip(path.join(process.cwd(), target, 'i18n.zip'));
 }
 
 module.exports = runExtract;
