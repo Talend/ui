@@ -23,7 +23,7 @@ function getTitleMap(props, state) {
 		{
 			value: SELECT_ALL_VALUE,
 			name: props.t('MULTI_SELECT_LABEL_SELECT_ALL', { defaultValue: 'Select all' }),
-			selected: {},
+			selected: false,
 		},
 	];
 	// apply search term on props.titleMap + state.added
@@ -46,7 +46,7 @@ function getTitleMap(props, state) {
 	if (selected.length > 0) {
 		titleMap.forEach(item => {
 			// eslint-disable-next-line no-param-reassign
-			item.selected = state.selected;
+			item.selected = state.selected[item.value];
 		});
 	}
 	if (props.withCreateNew && state.searchTerm && !hasExactMatch) {
@@ -56,7 +56,7 @@ function getTitleMap(props, state) {
 				defaultValue: '{{name}} (Create new)',
 				name: state.searchTerm,
 			}),
-			selected: {},
+			selected: false,
 		});
 	}
 	return titleMap;
@@ -80,10 +80,8 @@ function initSelected(props) {
  * @param {integer} height integer in px
  * @returns string css style
  */
-function getStyle(id, height, ROW_HEIGHT, width = 300) {
-	return `#${id} .${theme.itemView}, #${id}-overlay .${theme.row} { height: ${ROW_HEIGHT}px; }
-	#${id} .${theme.item} { line-height: ${ROW_HEIGHT - 10}px; }
-	#${id}-overlay { width: ${width}px; max-width: ${width}px; }
+function getStyle(id, height, width = 300) {
+	return `#${id}-overlay { width: ${width}px; max-width: ${width}px; }
 	#${id}-overlay .popover-content { height: ${height}px; }`;
 }
 
@@ -95,7 +93,6 @@ class MultiSelect extends React.Component {
 	static defaultProps = {
 		itemOptionRender: Item,
 		itemViewRender: ItemView,
-		itemHeight: 40,
 		selected: [],
 		titleMap: [],
 		onChange: noop,
@@ -105,7 +102,6 @@ class MultiSelect extends React.Component {
 		name: PropTypes.string,
 		placeholder: PropTypes.string,
 		t: PropTypes.func,
-		itemHeight: PropTypes.number,
 		selected: PropTypes.arrayOf(PropTypes.string),
 		itemOptionRender: PropTypes.func,
 		itemViewRender: PropTypes.func,
@@ -144,17 +140,16 @@ class MultiSelect extends React.Component {
 		// toggle the select only if all visible items are already selected
 		const titleMap = getTitleMapWithoutSpecialValues(this.titleMap);
 		const alreadySelected = titleMap.every(item => this.state.selected[item.value]);
-		const selected = titleMap.reduce((acc, current) => {
-			// eslint-disable-next-line no-param-reassign
-			acc[current.value] = !alreadySelected;
-			return acc;
-		}, {});
-		this.setState(prevState => {
-			// eslint-disable-next-line no-param-reassign
-			prevState.selected = selected;
-			this.props.onChange(event, Object.keys(selected));
-			return prevState;
-		});
+		let selected = {};
+		if (!alreadySelected) {
+			selected = titleMap.reduce((acc, current) => {
+				// eslint-disable-next-line no-param-reassign
+				acc[current.value] = true;
+				return acc;
+			}, {});
+		}
+		this.props.onChange(event, Object.keys(selected));
+		this.setState({ selected });
 	}
 
 	onSelectOne(event, id) {
@@ -214,7 +209,7 @@ class MultiSelect extends React.Component {
 		return () => (
 			<VirtualizedList
 				type="custom"
-				rowHeight={this.props.itemHeight + 1}
+				rowHeight={this.props.itemOptionRender.rowHeight}
 				rowRenderers={{ custom: this.props.itemOptionRender }}
 				collection={this.titleMap}
 				onRowClick={this.onRowClick}
@@ -232,17 +227,17 @@ class MultiSelect extends React.Component {
 
 	render() {
 		this.titleMap = getTitleMap(this.props, this.state);
-		let height = this.props.itemHeight * 6;
+		let height = this.props.itemOptionRender.rowHeight * 6;
 		if (this.titleMap.length < 6) {
-			height = this.props.itemHeight * this.titleMap.length;
+			height = this.props.itemOptionRender.rowHeight * this.titleMap.length;
 		}
-		let viewHeight = this.props.itemHeight * 6;
+		let viewHeight = this.props.itemViewRender.rowHeight * 6;
 		const nbSelected = Object.keys(this.state.selected).length;
 		if (nbSelected < 6 && nbSelected > 0) {
-			viewHeight = this.props.itemHeight * nbSelected;
+			viewHeight = this.props.itemViewRender.rowHeight * nbSelected;
 		}
 		if (nbSelected === 0) {
-			viewHeight = this.props.itemHeight;
+			viewHeight = this.props.itemViewRender.rowHeight;
 		}
 		return (
 			<div id={this.props.id} className={classnames('tc-multiselect', theme.container)}>
@@ -278,12 +273,12 @@ class MultiSelect extends React.Component {
 						}}
 					/>
 				</OverlayTrigger>
-				<style type="text/css">{getStyle(this.props.id, height, this.props.itemHeight, this.state.width)}</style>
+				<style type="text/css">{getStyle(this.props.id, height, this.state.width)}</style>
 				{this.state.selected && (
 					<div className={theme.viewContainer} style={{ height: viewHeight }}>
 						<VirtualizedList
 							type="custom"
-							rowHeight={this.props.itemHeight}
+							rowHeight={this.props.itemViewRender.rowHeight}
 							rowRenderers={{ custom: this.props.itemViewRender }}
 							collection={getSelectedItems(this.props, this.state)}
 							onRowClick={this.onRowClick}

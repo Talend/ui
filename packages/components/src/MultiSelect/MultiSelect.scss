@@ -21,6 +21,7 @@
     padding: $padding-smaller $padding-normal;
     display: block;
     width: 100%;
+    height: 40px;
     color: $dove-gray;
     font-weight: 400;
     &:global(#multi-select-create-new) {
@@ -43,12 +44,14 @@
 .itemView {
     display: block;
     width: 100%;
+    height: 39x; // because of the border
     border-bottom: 1px solid $gallery;
     color: $dove-gray;
 }
 
 .item {
     display: inline;
+    line-height: 30px;
 }
 
 .viewContainer {

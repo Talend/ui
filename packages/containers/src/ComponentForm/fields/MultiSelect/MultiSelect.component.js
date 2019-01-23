@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import MultiSelect from '@talend/react-components/lib/MultiSelect';
-import FieldTemplate from '../FieldTemplate';
-import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
-
-import callTrigger from '../../trigger';
+import FieldTemplate from '@talend/react-forms/lib/UIForm/fields/FieldTemplate';
+import { generateDescriptionId, generateErrorId } from '@talend/react-forms/lib/UIForm/Message/generateId';
+import callTrigger from '@talend/react-forms/lib/UIForm/trigger';
 
 function getLabel(titleMap, value, defaultName) {
 	const itemConf = titleMap.find(item => item.value === value);
@@ -58,7 +57,9 @@ export default class MultiSelectField extends React.Component {
 	}
 
 	getTitleMap() {
-		return this.props.schema.titleMap;
+		// the titleMap can be set by the trigger
+		// in that case it is set into the state
+		return this.state.titleMap || this.props.schema.titleMap;
 	}
 
 	render() {

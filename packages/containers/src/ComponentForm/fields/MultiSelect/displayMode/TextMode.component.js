@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Badge from '@talend/react-components/lib/Badge';
-import { TextMode as FieldTemplate } from '../../FieldTemplate';
+import { TextMode as FieldTemplate } from '@talend/react-forms/lib/UIForm/fields/FieldTemplate';
 
 import theme from './TextMode.scss';
 

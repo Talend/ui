@@ -1,4 +1,5 @@
 const url = require('url');
+const http = require('https');
 const forms = require('./mock/kit');
 
 function getTriggerInfo(req) {
@@ -71,6 +72,31 @@ function suggestionForDemo() {
 	};
 }
 
+function suggestionBig() {
+	return res => {
+		let body = '';
+		function onData(chunk) {
+			console.log('onData', chunk);
+			body += chunk;
+		}
+		function onEnd() {
+			console.log('onEnd', body);
+			res.json({
+				items: JSON.parse(body).map(item => ({ id: item.id, label: item.title })),
+			});
+		}
+		function onResponse(resp) {
+			console.log(`Got response: ${resp.statusCode}`);
+			resp.on('data', onData);
+			resp.on('end', onEnd);
+		}
+		function onError(e) {
+			console.error(e.message);
+		}
+		http.get('https://jsonplaceholder.typicode.com/photos', onResponse).on('error', onError);
+	};
+}
+
 function updateProperties({ type }) {
 	switch (type) {
 		case 'clafoutis':
@@ -100,6 +126,7 @@ const TRIGGERS = {
 	},
 	suggestions: {
 		suggestionForDemo,
+		suggestionBig,
 	},
 	update: {
 		updateProperties,
@@ -117,6 +144,11 @@ module.exports = function addRoutes(app) {
 		res.json(forms[req.params.formId]);
 	});
 	app.post('/api/v1/application/action', (req, res) => {
-		res.json(trigger(req));
+		const result = trigger(req);
+		if (typeof result === 'function') {
+			result(res);
+		} else {
+			res.json(result);
+		}
 	});
 };

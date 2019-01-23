@@ -26,6 +26,12 @@
             "restrictedType": {
               "type": "string"
             },
+            "photos": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
             "typeTags": {
               "type": "array",
               "items": {
@@ -146,6 +152,26 @@
               }
             ],
             "widget": "multiSelectTag"
+          },
+          {
+            "key": "desert.photos",
+            "title": "Photos",
+            "titleMap": [],
+            "triggers": [
+              {
+                "action": "suggestionBig",
+                "family": "remote",
+                "type": "suggestions",
+                "onEvent": "focus",
+                "parameters": [
+                  {
+                    "path": "desert.photos",
+                    "key": "id"
+                  }
+                ]
+              }
+            ],
+            "widget": "multiSelect"
           },
           {
             "conditions": [],
