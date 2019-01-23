@@ -3,22 +3,7 @@
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/InputDateTimePicker.component.js
-   42:2  error  'focusedInput' is missing in props validation    react/prop-types
-   43:2  error  'hoursErrorId' is missing in props validation    react/prop-types
-   44:2  error  'minutesErrorId' is missing in props validation  react/prop-types
-   45:2  error  'secondsErrorId' is missing in props validation  react/prop-types
-  270:2  error  hasError should be placed after getDateOptions   react/sort-comp
-
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/InputDateTimePicker.test.js
-  393:5  error  Duplicate key 'errorMessage'  no-dupe-keys
-
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/pickers/TimePicker/TimePicker.component.js
-   71:14  error  'event' is defined but never used  no-unused-vars
-   72:15  error  'event' is defined but never used  no-unused-vars
-  111:16  error  'event' is defined but never used  no-unused-vars
-  112:17  error  'event' is defined but never used  no-unused-vars
-  130:16  error  'event' is defined but never used  no-unused-vars
-  131:17  error  'event' is defined but never used  no-unused-vars
+  274:2  error  focusInput should be placed after getDateOptions  react/sort-comp
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
   105:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
@@ -35,5 +20,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 17 problems (15 errors, 2 warnings)
+✖ 6 problems (4 errors, 2 warnings)
 
