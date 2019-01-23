@@ -50,6 +50,7 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		border-radius: $tc-typeahead-items-border-radius;
 		box-shadow: $tc-typeahead-items-box-shadow;
 		overflow-y: auto;
+		z-index: $zindex-dropdown;
 	}
 
 	&.right {

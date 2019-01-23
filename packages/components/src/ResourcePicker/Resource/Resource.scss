@@ -1,7 +1,7 @@
 .resource-item {
 	display: flex;
 	align-items: center;
-	border-bottom: 1px solid $gallery;
+	border-bottom: 0.1rem solid $gallery;
 
 	> * {
 		margin-left: $padding-normal;
@@ -30,8 +30,12 @@
 		opacity: 0;
 
 		.flag {
+			opacity: 0;
 			margin-left: $padding-small;
 
+			&.visible {
+				opacity: 1;
+			}
 			&[name='talend-star'] {
 				color: $lightning-yellow;
 			}
@@ -42,25 +46,33 @@
 	}
 
 	&:hover,
-	&:focus {
-		background-color: $wild-sand;
-
+	&:focus,
+	&:global(.selected),
+	&:active {
 		:global(.tc-svg-icon) {
 			color: $brand-primary;
-		}
-		.data-container {
-			> .title,
-			> .author {
-				color: $scooter;
-			}
 		}
 		.flags-container {
 			opacity: 1;
 		}
 	}
 
+	&:hover,
+	&:focus {
+		background-color: $wild-sand;
+
+		.data-container {
+			> .title,
+			> .author {
+				color: $scooter;
+			}
+		}
+	}
+
+	&:global(.selected),
 	&:active {
 		background: tint($scooter, 90);
+
 		.data-container {
 			> .title,
 			> .author {

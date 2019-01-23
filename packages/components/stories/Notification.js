@@ -19,7 +19,7 @@ class NotificationWrapper extends React.Component {
 			this.notifications = this.notifications.concat([
 				{
 					id: 'story-1',
-					type: 'error',
+					type: 'info',
 					title: 'Story 1 example title',
 					message: 'This is a feedback of your operation1, This is a feedback of your operation1, This is a feedback of your operation1',
 					action: {
@@ -69,6 +69,7 @@ class NotificationWrapper extends React.Component {
 				{
 					id: 'story-4',
 					type: 'warning',
+					title: 'Story 4 example title ',
 					message: 'This is a feedback of your operation4',
 				},
 			]);

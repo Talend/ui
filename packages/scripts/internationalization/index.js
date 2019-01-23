@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { error } = require('./common/log');
+const error = require('./common/error');
 
 module.exports = function runInI18n(command) {
 	function processConfigFile() {

@@ -16,6 +16,7 @@ import MultiSelectTag, { MultiSelectTagTextMode } from '../fields/MultiSelectTag
 import NestedListView from '../fields/NestedListView';
 import Radios from '../fields/Radios';
 import RadioOrSelect from '../fields/RadioOrSelect';
+import ResourcePicker from '../fields/ResourcePicker';
 import Select from '../fields/Select';
 import Text, { TextTextMode } from '../fields/Text';
 import TextArea, { TextAreaTextMode } from '../fields/TextArea';
@@ -68,6 +69,7 @@ const widgets = {
 	multiSelectTag: MultiSelectTag,
 	nestedListView: NestedListView,
 	radioOrSelect: RadioOrSelect,
+	resourcePicker: ResourcePicker,
 	toggle: Toggle,
 };
 
