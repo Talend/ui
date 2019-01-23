@@ -361,7 +361,6 @@ function extractPartsFromDateTime(datetime, options) {
  * 	}}
  */
 function extractPartsFromDateAndTime(date, time, options) {
-	let errorMessage;
 	let errors = [];
 	let timeToUse = time;
 
@@ -369,7 +368,6 @@ function extractPartsFromDateAndTime(date, time, options) {
 		try {
 			checkTime(time);
 		} catch (error) {
-			errorMessage = error[0].message;
 			errors = error;
 		}
 	} else {
@@ -381,7 +379,7 @@ function extractPartsFromDateAndTime(date, time, options) {
 		time: timeToUse,
 		textInput: dateTimeToStr(date, timeToUse, options),
 		datetime: dateAndTimeToDateTime(date, timeToUse, options),
-		errorMessage,
+		errorMessage: errors[0] ? errors[0].message : null,
 		errors,
 	};
 }
