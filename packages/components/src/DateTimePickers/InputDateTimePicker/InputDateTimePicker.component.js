@@ -36,16 +36,44 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 
 const DateTimePickerErrorContext = React.createContext();
 
-function DateTimeValidation({ t, errors }) {
+function DateTimeValidation({ t, errors, focusedInput, hoursErrorId, minutesErrorId, secondsErrorId }) {
+	const codeIdMapping = {
+		'INVALID_HOUR': hoursErrorId,
+		'INVALID_MINUTES': minutesErrorId,
+		'INVALID_SECONDS': secondsErrorId,
+		'INVALID_DATE_FORMAT': '',
+		'INVALID_MONTH': '',
+		'INVALID_DAY': '',
+		'DATETIME_INVALID_FORMAT': '',
+		'TIME_FORMAT_INVALID': '',
+	};
+
+	function isErrorHidden(error) {
+		return (errors.length > 1 && codeIdMapping[error.code] !== focusedInput);
+	}
+
 	function displayError() {
-		if (errors && errors.length > 0) {
+
+		/* if (errors && errors.length > 0) {
 			return errors.length === 1 ? errors[0].message : 'focusElement';
 		}
-		return '';
+		return ''; */
+		return  errors.map(error =>
+
+			(<span
+				className={isErrorHidden(error) ? theme.errorHidden : ''}
+				id={codeIdMapping[error.code]}>
+				{t(error.message)}
+			</span>)
+		);
 	}
 	return (
 		<div className={theme.footer}>
-			<span className={theme.footerError}>{displayError()}</span>
+			<span
+				className={theme.footerError}
+			>
+				{displayError()}
+			</span>
 			<button
 				name="action-datepicker-validate"
 				className="btn btn-primary"
@@ -117,12 +145,17 @@ class InputDateTimePicker extends React.Component {
 
 		checkSupportedDateFormat(props.dateFormat);
 		this.popoverId = `date-time-picker-${props.id || uuid.v4()}`;
+		this.hoursErrorId = `${props.id}-hours-error`;
+		this.minutesErrorId = `${props.id}-minutes-error`;
+		this.secondsErrorId = `${props.id}-seconds-error`;
 		this.initialState = extractParts(props.selectedDateTime, this.getDateOptions());
 		this.state = {
 			...this.initialState,
 			showPicker: false,
 		};
 
+		this.focusInput = this.focusInput.bind(this);
+		this.hasError = this.hasError.bind(this);
 		this.onBlur = this.onBlur.bind(this);
 		this.onFocus = this.onFocus.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
@@ -232,6 +265,18 @@ class InputDateTimePicker extends React.Component {
 		this.closePicker();
 	}
 
+	hasError(errorCode) {
+		// no error management in component when not in formMode
+		if (!this.props.formMode) {
+			return false;
+		}
+		return !!this.state.errors.find(error => error.code === errorCode);
+	}
+
+	focusInput(focusedId) {
+		this.setState({ focusedInput: focusedId});
+	}
+
 	setPickerVisibility(isShown) {
 		if (this.props.readOnly) {
 			return;
@@ -295,8 +340,12 @@ class InputDateTimePicker extends React.Component {
 						<Popover className={theme.popover} id={this.popoverId}>
 							<DateTimePickerErrorContext.Provider
 								value={{
-									errors: this.state.errors,
+									focusInput: this.focusInput,
+									hasError: this.hasError,
 									formMode: this.props.formMode,
+									hoursErrorId: this.hoursErrorId,
+									minutesErrorId: this.minutesErrorId,
+									secondsErrorId: this.secondsErrorId,
 								}}
 							>
 								<DateTimePicker
@@ -312,7 +361,15 @@ class InputDateTimePicker extends React.Component {
 									errors={this.state.errors}
 								/>
 							</DateTimePickerErrorContext.Provider>
-							{this.props.formMode && <DateValidationButton errors={this.state.errors} />}
+							{
+								this.props.formMode &&
+								<DateValidationButton
+									focusedInput={this.state.focusedInput}
+									errors={this.state.errors}
+									hoursErrorId={this.hoursErrorId}
+									minutesErrorId={this.minutesErrorId}
+									secondsErrorId={this.secondsErrorId}
+								/>}
 						</Popover>
 					</Overlay>
 				</div>

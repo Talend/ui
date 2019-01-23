@@ -31,4 +31,11 @@
 	justify-content: space-between;
 	align-items: center;
 	color: $chestnut-rose;
+    .footerError span {
+        &.errorHidden {
+          position: absolute !important;
+          top: -9999px !important;
+          left: -9999px !important;
+        }
+    }
 }

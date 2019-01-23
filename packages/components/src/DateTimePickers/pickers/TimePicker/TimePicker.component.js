@@ -31,14 +31,6 @@ class TimePicker extends React.PureComponent {
 		t: PropTypes.func.isRequired,
 	};
 
-	static hasError(errors, errorCode, formMode) {
-		// no error management in component when not in formMode
-		if (!formMode) {
-			return false;
-		}
-		return errors.find(error => error.code === errorCode);
-	}
-
 	constructor(props) {
 		super(props);
 		const id = uuid.v4();
@@ -61,7 +53,7 @@ class TimePicker extends React.PureComponent {
 		this.props.onChange(event, newValue);
 	}
 
-	renderSeconds(tabIndex, errors, formMode) {
+	renderSeconds(tabIndex, hasError, formMode, secondsErrorId, focusInput) {
 		if (this.props.useSeconds) {
 			return [
 				<hr key="hr-seconds" />,
@@ -72,12 +64,17 @@ class TimePicker extends React.PureComponent {
 					key="input-seconds"
 					id={this.secondId}
 					className={classNames(theme['time-input'], {
-						[theme['time-error']]: TimePicker.hasError(errors, 'INVALID_SECONDS', formMode),
+						[theme['time-error']]: hasError('INVALID_SECONDS'),
 					})}
 					value={this.props.value.seconds}
 					tabIndex={tabIndex}
+					onBlur={event => focusInput()}
+					onFocus={event => focusInput(secondsErrorId)}
 					onChange={event => this.onChange(event, SECONDS)}
 					placeholder="SS"
+					aria-required={formMode}
+					aria-invalid={hasError('INVALID_SECONDS')}
+					aria-described-by={hasError('INVALID_SECONDS') ? secondsErrorId: ''}
 				/>,
 			];
 		}
@@ -90,7 +87,7 @@ class TimePicker extends React.PureComponent {
 
 		return (
 			<DateTimePickerErrorConsumer>
-				{({ errors, formMode }) => (
+				{({ focusInput, hasError, formMode, hoursErrorId, minutesErrorId, secondsErrorId }) => (
 					<div className={classNames('tc-date-picker-time', theme['time-picker'])}>
 						<legend>
 							{t('DATEPICKER_TIME', { defaultValue: 'Time' })}
@@ -106,12 +103,17 @@ class TimePicker extends React.PureComponent {
 						<DebounceInput
 							id={this.hourId}
 							className={classNames(theme['time-input'], {
-								[theme['time-error']]: TimePicker.hasError(errors, 'INVALID_HOUR', formMode),
+								[theme['time-error']]: hasError('INVALID_HOUR'),
 							})}
 							value={this.props.value.hours}
 							tabIndex={tabIndex}
 							onChange={event => this.onChange(event, HOURS)}
+							onBlur={event => focusInput()}
+							onFocus={event => focusInput(hoursErrorId)}
 							placeholder="HH"
+							aria-required={formMode}
+							aria-invalid={hasError('INVALID_HOUR')}
+							aria-described-by={hasError('INVALID_HOUR') ? hoursErrorId: ''}
 						/>
 						<hr />
 						<label htmlFor={this.minuteId} className="sr-only">
@@ -120,14 +122,19 @@ class TimePicker extends React.PureComponent {
 						<DebounceInput
 							id={this.minuteId}
 							className={classNames(theme['time-input'], {
-								[theme['time-error']]: TimePicker.hasError(errors, 'INVALID_MINUTES', formMode),
+								[theme['time-error']]: hasError('INVALID_MINUTES'),
 							})}
 							value={this.props.value.minutes}
 							tabIndex={tabIndex}
 							onChange={event => this.onChange(event, MINUTES)}
+							onBlur={event => focusInput()}
+							onFocus={event => focusInput(minutesErrorId)}
 							placeholder="MM"
+							aria-required={formMode}
+							aria-invalid={hasError('INVALID_MINUTES')}
+							aria-described-by={hasError('INVALID_MINUTES') ? minutesErrorId: ''}
 						/>
-						{this.renderSeconds(tabIndex, errors, formMode)}
+						{this.renderSeconds(tabIndex, hasError, formMode, secondsErrorId, focusInput)}
 					</div>
 				)}
 			</DateTimePickerErrorConsumer>

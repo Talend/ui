@@ -242,7 +242,7 @@ function strToDate(strToParse, dateFormat) {
 	const dayString = dateMatches[dayIndex + 1];
 	const day = parseInt(dayString, 10);
 	if (day === 0) {
-		dateErrors.push(new DatePickerException('INVALID_DAY', 'INVALID_DAY_NUMBER'));
+		dateErrors.push(new DatePickerException('INVALID_DAY_NUMBER', 'INVALID_DAY_NUMBER'));
 	}
 
 	const yearString = dateMatches[yearIndex + 1];
@@ -250,7 +250,7 @@ function strToDate(strToParse, dateFormat) {
 	const monthDate = new Date(year, month - 1);
 	const lastDateOfMonth = lastDayOfMonth(monthDate);
 	if (day > getDate(lastDateOfMonth)) {
-		dateErrors.push(new DatePickerException('INVALID_DAY', 'INVALID_DAY_OF_MONTH'));
+		dateErrors.push(new DatePickerException('INVALID_DAY_OF_MONTH', 'INVALID_DAY_OF_MONTH'));
 	}
 	if (dateErrors.length > 0) {
 		throw dateErrors;
