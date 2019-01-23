@@ -71,6 +71,22 @@ class TestPickerWrapper extends React.Component {
 }
 
 storiesOf('DatePicker', module)
+	.add('Date picker without initial value', () => (
+		<div>
+			<IconsProvider />
+			<h1>DatePicker</h1>
+			<p>
+				Default date picker doesn't include time<br />
+				It comes with classical keyboard gesture.
+			</p>
+			<TestPickerWrapper
+				id="my-date-picker"
+				onChange={action('onChange')}
+				name="Datetime"
+				useTime
+			/>
+		</div>
+	))
 	.add('Date picker', () => (
 		<div>
 			<IconsProvider />

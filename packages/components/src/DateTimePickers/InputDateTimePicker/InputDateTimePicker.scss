@@ -31,8 +31,8 @@
 	justify-content: space-between;
 	align-items: center;
 	color: $chestnut-rose;
-	.footerError span {
-		&.errorHidden {
+	.footer-error span {
+		&.error-hidden {
 			position: absolute !important;
 			top: -9999px !important;
 			left: -9999px !important;

@@ -66,7 +66,7 @@ function DateTimeValidation({
 		return ''; */
 		return errors.map(error => (
 			<span
-				className={isErrorHidden(error) ? theme.errorHidden : ''}
+				className={isErrorHidden(error) ? theme['error-Hidden'] : ''}
 				id={codeIdMapping[error.code]}
 			>
 				{t(error.message)}
@@ -75,7 +75,7 @@ function DateTimeValidation({
 	}
 	return (
 		<div className={theme.footer}>
-			<span className={theme.footerError}>{displayError()}</span>
+			<span className={theme['footer-error']}>{displayError()}</span>
 			<button
 				name="action-datepicker-validate"
 				className="btn btn-primary"

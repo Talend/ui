@@ -38,23 +38,37 @@ exports[`InputDateTimePicker should render 1`] = `
           id="date-time-picker-DEFAULT_ID"
           placement="right"
         >
-          <DateTimePicker
-            manageFocus={true}
-            onSubmit={[Function]}
-            selection={
+          <Context.Provider
+            value={
               Object {
-                "date": 2017-04-03T22:00:00.000Z,
-                "time": Object {
-                  "hours": "15",
-                  "minutes": "27",
-                  "seconds": "00",
-                },
+                "focusInput": [Function],
+                "formMode": false,
+                "hasError": [Function],
+                "hoursErrorId": "DEFAULT_ID-hours-error",
+                "minutesErrorId": "DEFAULT_ID-minutes-error",
+                "secondsErrorId": "DEFAULT_ID-seconds-error",
               }
             }
-            useSeconds={false}
-            useTime={true}
-            useUTC={false}
-          />
+          >
+            <DateTimePicker
+              errors={Array []}
+              manageFocus={true}
+              onSubmit={[Function]}
+              selection={
+                Object {
+                  "date": 2017-04-03T22:00:00.000Z,
+                  "time": Object {
+                    "hours": "15",
+                    "minutes": "27",
+                    "seconds": "00",
+                  },
+                }
+              }
+              useSeconds={false}
+              useTime={true}
+              useUTC={false}
+            />
+          </Context.Provider>
         </Popover>
       </Overlay>
     </div>
@@ -103,24 +117,43 @@ exports[`InputDateTimePicker should render validation button 1`] = `
             id="date-time-picker-DEFAULT_ID"
             placement="right"
           >
-            <DateTimePicker
-              manageFocus={true}
-              onSubmit={[Function]}
-              selection={
+            <Context.Provider
+              value={
                 Object {
-                  "date": 2017-04-03T22:00:00.000Z,
-                  "time": Object {
-                    "hours": "15",
-                    "minutes": "27",
-                    "seconds": "00",
-                  },
+                  "focusInput": [Function],
+                  "formMode": true,
+                  "hasError": [Function],
+                  "hoursErrorId": "DEFAULT_ID-hours-error",
+                  "minutesErrorId": "DEFAULT_ID-minutes-error",
+                  "secondsErrorId": "DEFAULT_ID-seconds-error",
                 }
               }
-              useSeconds={false}
-              useTime={true}
-              useUTC={false}
+            >
+              <DateTimePicker
+                errors={Array []}
+                manageFocus={true}
+                onSubmit={[Function]}
+                selection={
+                  Object {
+                    "date": 2017-04-03T22:00:00.000Z,
+                    "time": Object {
+                      "hours": "15",
+                      "minutes": "27",
+                      "seconds": "00",
+                    },
+                  }
+                }
+                useSeconds={false}
+                useTime={true}
+                useUTC={false}
+              />
+            </Context.Provider>
+            <Translate(DateTimeValidation)
+              errors={Array []}
+              hoursErrorId="DEFAULT_ID-hours-error"
+              minutesErrorId="DEFAULT_ID-minutes-error"
+              secondsErrorId="DEFAULT_ID-seconds-error"
             />
-            <Translate(DateTimeValidation) />
           </Popover>
         </Overlay>
       </div>

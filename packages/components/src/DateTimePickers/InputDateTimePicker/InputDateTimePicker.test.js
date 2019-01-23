@@ -389,6 +389,8 @@ describe('InputDateTimePicker', () => {
 				datetime: new Date(2015, 0, 15, 15, 45),
 				origin: 'INPUT',
 				textInput: '2015-01-15 15:45',
+				errors: [],
+				errorMessage: null,
 			});
 		});
 
@@ -422,7 +424,10 @@ describe('InputDateTimePicker', () => {
 			expect(onChange).toBeCalled();
 			const args = onChange.mock.calls[0];
 			expect(args[0]).toBe(event);
-			expect(args[1].errorMessage).toBe('DATE - INCORRECT FORMAT');
+			expect(args[1].errorMessage).toBe('INVALID_DATE_FORMAT');
+			expect(args[1].errors).toEqual([
+				{ code: 'INVALID_DATE_FORMAT', message: 'INVALID_DATE_FORMAT'}
+			]);
 			expect(isNaN(args[1].datetime.getTime())).toBe(true);
 			expect(args[1].origin).toBe('INPUT');
 		});
@@ -454,7 +459,7 @@ describe('InputDateTimePicker', () => {
 				{
 					name: 'with valid datetime',
 					date: new Date(2015, 0, 15),
-					time: { hours: '15', minutes: '45' },
+					time: { hours: '15', minutes: '45', seconds: '00' },
 					expectedTextInput: '2015-01-15 15:45',
 				},
 				{
@@ -466,7 +471,7 @@ describe('InputDateTimePicker', () => {
 				{
 					name: 'with custom date format',
 					date: new Date(2015, 0, 15),
-					time: { hours: '15', minutes: '45' },
+					time: { hours: '15', minutes: '45', seconds: '00' },
 					expectedTextInput: '15/01/2015 15:45',
 					dateFormat: 'DD/MM/YYYY',
 				},
@@ -488,10 +493,11 @@ describe('InputDateTimePicker', () => {
 
 			// then
 			expect(onChange).toBeCalledWith(event, {
-				errorMessage: undefined,
 				datetime: new Date(2015, 0, 15, 15, 45),
 				origin: 'PICKER',
 				textInput: '2015-01-15 15:45',
+				errors: [],
+				errorMessage: null,
 			});
 		});
 
@@ -520,18 +526,19 @@ describe('InputDateTimePicker', () => {
 			const event = { target: {}, preventDefault: () => {} };
 			const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} onChange={onChange} useTime />);
 			expect(onChange).not.toBeCalled();
-
 			// when
 			wrapper.find('DateTimePicker').prop('onSubmit')(event, {
 				date: new Date(2015, 0, 15),
 				time: { hours: '15aze', minutes: '45' },
 			});
-
 			// then
 			expect(onChange).toBeCalled();
 			const args = onChange.mock.calls[0];
 			expect(args[0]).toBe(event);
-			expect(args[1].errorMessage).toBe('TIME - INCORRECT HOUR NUMBER');
+			expect(args[1].errors).toEqual([
+				{ code: 'INVALID_HOUR', message: 'INVALID_HOUR_NUMBER'}
+			]);
+			expect(args[1].errorMessage).toBe('INVALID_HOUR_NUMBER');
 			expect(isNaN(args[1].datetime.getTime())).toBe(true);
 			expect(args[1].origin).toBe('PICKER');
 		});
