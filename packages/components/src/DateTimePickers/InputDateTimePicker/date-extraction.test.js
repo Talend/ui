@@ -342,7 +342,7 @@ describe('Date extraction', () => {
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
 			expect(parts.textInput).toBe('2015-09-15 66:58:12');
 			expect(parts.time).toBe(time);
-			expect(parts.errors).toEqual([{ code: 'INVALID_HOUR', message: 'INVALID_HOUR_NUMBER'}]);
+			expect(parts.errors).toEqual([{ code: 'INVALID_HOUR', message: 'INVALID_HOUR_NUMBER' }]);
 			expect(parts.errorMessage).toBe('INVALID_HOUR_NUMBER');
 		});
 
@@ -364,7 +364,9 @@ describe('Date extraction', () => {
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
 			expect(parts.textInput).toBe('2015-09-15 12:66:12');
 			expect(parts.time).toBe(time);
-			expect(parts.errors).toEqual([{ code: 'INVALID_MINUTES', message: 'INVALID_MINUTES_NUMBER'}]);
+			expect(parts.errors).toEqual([
+				{ code: 'INVALID_MINUTES', message: 'INVALID_MINUTES_NUMBER' },
+			]);
 			expect(parts.errorMessage).toBe('INVALID_MINUTES_NUMBER');
 		});
 
@@ -387,8 +389,8 @@ describe('Date extraction', () => {
 			expect(parts.textInput).toBe('2015-09-15 12:90:66');
 			expect(parts.time).toBe(time);
 			expect(parts.errors).toEqual([
-				{ code: 'INVALID_MINUTES', message: 'INVALID_MINUTES_NUMBER'},
-				{ code: 'INVALID_SECONDS', message: 'INVALID_SECONDS_NUMBER'},
+				{ code: 'INVALID_MINUTES', message: 'INVALID_MINUTES_NUMBER' },
+				{ code: 'INVALID_SECONDS', message: 'INVALID_SECONDS_NUMBER' },
 			]);
 			expect(parts.errorMessage).toBe('INVALID_MINUTES_NUMBER');
 		});
@@ -544,7 +546,7 @@ describe('Date extraction', () => {
 			expect(parts.time).toEqual({ hours: '22', minutes: '58', seconds: '12' });
 			expect(parts.errorMessage).toBe('INVALID_DAY_OF_MONTH');
 			expect(parts.errors).toEqual([
-				{ code: "INVALID_DAY_OF_MONTH", message: "INVALID_DAY_OF_MONTH" }
+				{ code: 'INVALID_DAY_OF_MONTH', message: 'INVALID_DAY_OF_MONTH' },
 			]);
 		});
 
@@ -566,9 +568,7 @@ describe('Date extraction', () => {
 			expect(parts.textInput).toBe(textInput);
 			expect(parts.time).toEqual({ hours: '22', minutes: '58', seconds: '12' });
 			expect(parts.errorMessage).toBe('INVALID_MONTH_NUMBER');
-			expect(parts.errors).toEqual([
-				{ code: "INVALID_MONTH", message: "INVALID_MONTH_NUMBER" }
-			]);
+			expect(parts.errors).toEqual([{ code: 'INVALID_MONTH', message: 'INVALID_MONTH_NUMBER' }]);
 		});
 
 		it('should extract parts with hour', () => {
@@ -589,9 +589,7 @@ describe('Date extraction', () => {
 			expect(parts.textInput).toBe(textInput);
 			expect(parts.time).toEqual({ hours: '66', minutes: '58', seconds: '12' });
 			expect(parts.errorMessage).toBe('INVALID_HOUR_NUMBER');
-			expect(parts.errors).toEqual([
-				{ code: "INVALID_HOUR", message: "INVALID_HOUR_NUMBER" }
-			]);
+			expect(parts.errors).toEqual([{ code: 'INVALID_HOUR', message: 'INVALID_HOUR_NUMBER' }]);
 		});
 
 		it('should extract parts with invalid hours and minutes', () => {
@@ -613,8 +611,8 @@ describe('Date extraction', () => {
 			expect(parts.time).toEqual({ hours: '55', minutes: '66', seconds: '12' });
 			expect(parts.errorMessage).toBe('INVALID_HOUR_NUMBER');
 			expect(parts.errors).toEqual([
-				{ code: "INVALID_HOUR", message: "INVALID_HOUR_NUMBER" },
-				{ code: "INVALID_MINUTES", message: "INVALID_MINUTES_NUMBER" }
+				{ code: 'INVALID_HOUR', message: 'INVALID_HOUR_NUMBER' },
+				{ code: 'INVALID_MINUTES', message: 'INVALID_MINUTES_NUMBER' },
 			]);
 		});
 
@@ -637,9 +635,9 @@ describe('Date extraction', () => {
 			expect(parts.time).toEqual({ hours: '44', minutes: '90', seconds: '66' });
 			expect(parts.errorMessage).toBe('INVALID_HOUR_NUMBER');
 			expect(parts.errors).toEqual([
-				{ code: "INVALID_HOUR", message: "INVALID_HOUR_NUMBER" },
-				{ code: "INVALID_MINUTES", message: "INVALID_MINUTES_NUMBER" },
-				{ code: "INVALID_SECONDS", message: "INVALID_SECONDS_NUMBER" },
+				{ code: 'INVALID_HOUR', message: 'INVALID_HOUR_NUMBER' },
+				{ code: 'INVALID_MINUTES', message: 'INVALID_MINUTES_NUMBER' },
+				{ code: 'INVALID_SECONDS', message: 'INVALID_SECONDS_NUMBER' },
 			]);
 		});
 
