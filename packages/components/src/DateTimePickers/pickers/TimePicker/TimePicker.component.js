@@ -74,7 +74,7 @@ class TimePicker extends React.PureComponent {
 					placeholder="SS"
 					aria-required={formMode}
 					aria-invalid={hasError('INVALID_SECONDS')}
-					aria-described-by={hasError('INVALID_SECONDS') ? secondsErrorId: ''}
+					aria-described-by={hasError('INVALID_SECONDS') ? secondsErrorId : ''}
 				/>,
 			];
 		}
@@ -113,7 +113,7 @@ class TimePicker extends React.PureComponent {
 							placeholder="HH"
 							aria-required={formMode}
 							aria-invalid={hasError('INVALID_HOUR')}
-							aria-described-by={hasError('INVALID_HOUR') ? hoursErrorId: ''}
+							aria-described-by={hasError('INVALID_HOUR') ? hoursErrorId : ''}
 						/>
 						<hr />
 						<label htmlFor={this.minuteId} className="sr-only">
@@ -132,7 +132,7 @@ class TimePicker extends React.PureComponent {
 							placeholder="MM"
 							aria-required={formMode}
 							aria-invalid={hasError('INVALID_MINUTES')}
-							aria-described-by={hasError('INVALID_MINUTES') ? minutesErrorId: ''}
+							aria-described-by={hasError('INVALID_MINUTES') ? minutesErrorId : ''}
 						/>
 						{this.renderSeconds(tabIndex, hasError, formMode, secondsErrorId, focusInput)}
 					</div>
