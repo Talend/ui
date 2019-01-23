@@ -141,7 +141,8 @@ function checkTime({ hours, minutes, seconds }, useSeconds) {
 		timeErrors.push(new DatePickerException('INVALID_MINUTES', 'INVALID_MINUTES_NUMBER'));
 	}
 	const secondsNum = Number(seconds);
-	if (useSeconds &&
+	if (
+		useSeconds &&
 		(seconds.length !== 2 || isNaN(secondsNum) || secondsNum < 0 || secondsNum > 59)
 	) {
 		timeErrors.push(new DatePickerException('INVALID_SECONDS', 'INVALID_SECONDS_NUMBER'));

@@ -426,7 +426,7 @@ describe('InputDateTimePicker', () => {
 			expect(args[0]).toBe(event);
 			expect(args[1].errorMessage).toBe('INVALID_DATE_FORMAT');
 			expect(args[1].errors).toEqual([
-				{ code: 'INVALID_DATE_FORMAT', message: 'INVALID_DATE_FORMAT'}
+				{ code: 'INVALID_DATE_FORMAT', message: 'INVALID_DATE_FORMAT' },
 			]);
 			expect(isNaN(args[1].datetime.getTime())).toBe(true);
 			expect(args[1].origin).toBe('INPUT');
@@ -535,9 +535,7 @@ describe('InputDateTimePicker', () => {
 			expect(onChange).toBeCalled();
 			const args = onChange.mock.calls[0];
 			expect(args[0]).toBe(event);
-			expect(args[1].errors).toEqual([
-				{ code: 'INVALID_HOUR', message: 'INVALID_HOUR_NUMBER'}
-			]);
+			expect(args[1].errors).toEqual([{ code: 'INVALID_HOUR', message: 'INVALID_HOUR_NUMBER' }]);
 			expect(args[1].errorMessage).toBe('INVALID_HOUR_NUMBER');
 			expect(isNaN(args[1].datetime.getTime())).toBe(true);
 			expect(args[1].origin).toBe('PICKER');
