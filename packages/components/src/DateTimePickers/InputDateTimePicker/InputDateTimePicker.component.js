@@ -66,7 +66,7 @@ function DateTimeValidation({
 		return ''; */
 		return errors.map(error => (
 			<span
-				className={isErrorHidden(error) ? theme['error-Hidden'] : ''}
+				className={isErrorHidden(error) ? theme['error-hidden'] : ''}
 				id={codeIdMapping[error.code]}
 			>
 				{t(error.message)}
@@ -271,14 +271,6 @@ class InputDateTimePicker extends React.Component {
 		this.closePicker();
 	}
 
-	hasError(errorCode) {
-		// no error management in component when not in formMode
-		if (!this.props.formMode) {
-			return false;
-		}
-		return !!this.state.errors.find(error => error.code === errorCode);
-	}
-
 	focusInput(focusedId) {
 		this.setState({ focusedInput: focusedId });
 	}
@@ -303,6 +295,14 @@ class InputDateTimePicker extends React.Component {
 			useSeconds: this.props.useSeconds,
 			useUTC: this.props.useUTC,
 		};
+	}
+
+	hasError(errorCode) {
+		// no error management in component when not in formMode
+		if (!this.props.formMode) {
+			return false;
+		}
+		return !!this.state.errors.find(error => error.code === errorCode);
 	}
 
 	resetDate() {
