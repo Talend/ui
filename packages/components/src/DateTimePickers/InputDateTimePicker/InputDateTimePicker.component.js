@@ -271,10 +271,6 @@ class InputDateTimePicker extends React.Component {
 		this.closePicker();
 	}
 
-	focusInput(focusedId) {
-		this.setState({ focusedInput: focusedId });
-	}
-
 	setPickerVisibility(isShown) {
 		if (this.props.readOnly) {
 			return;
@@ -295,6 +291,10 @@ class InputDateTimePicker extends React.Component {
 			useSeconds: this.props.useSeconds,
 			useUTC: this.props.useUTC,
 		};
+	}
+
+	focusInput(focusedId) {
+		this.setState({ focusedInput: focusedId });
 	}
 
 	hasError(errorCode) {

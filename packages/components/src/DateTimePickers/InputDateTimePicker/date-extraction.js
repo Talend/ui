@@ -129,7 +129,7 @@ function convertToUTC(date) {
 /**
  * Check if time is correct
  */
-function checkTime({ hours, minutes, seconds }, useSeconds) {
+function checkTime({ hours, minutes, seconds }) {
 	const hoursNum = Number(hours);
 	const timeErrors = [];
 	if (hours.length !== 2 || isNaN(hoursNum) || hoursNum < 0 || hoursNum > 23) {
@@ -141,10 +141,7 @@ function checkTime({ hours, minutes, seconds }, useSeconds) {
 		timeErrors.push(new DatePickerException('INVALID_MINUTES', 'INVALID_MINUTES_NUMBER'));
 	}
 	const secondsNum = Number(seconds);
-	if (
-		useSeconds &&
-		(seconds.length !== 2 || isNaN(secondsNum) || secondsNum < 0 || secondsNum > 59)
-	) {
+	if (seconds.length !== 2 || isNaN(secondsNum) || secondsNum < 0 || secondsNum > 59) {
 		timeErrors.push(new DatePickerException('INVALID_SECONDS', 'INVALID_SECONDS_NUMBER'));
 	}
 	if (timeErrors.length > 0) {
@@ -159,8 +156,8 @@ function checkTime({ hours, minutes, seconds }, useSeconds) {
  * @param seconds {string}
  * @returns {number}
  */
-function timeToSeconds(hours, minutes, seconds, useSeconds) {
-	checkTime({ hours, minutes, seconds }, useSeconds);
+function timeToSeconds(hours, minutes, seconds) {
+	checkTime({ hours, minutes, seconds });
 	return Number(hours) * 3600 + Number(minutes) * 60 + Number(seconds);
 }
 
@@ -183,7 +180,7 @@ function dateTimeToStr(date, time, options) {
 
 	const { hours, minutes, seconds } = time;
 	try {
-		const timeInSeconds = timeToSeconds(hours, minutes, seconds, options.useSeconds);
+		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
 		const fullDate = setSeconds(date, timeInSeconds);
 		return format(fullDate, getFullDateFormat(options));
 	} catch (e) {
@@ -205,14 +202,14 @@ function dateTimeToStr(date, time, options) {
  * @param useUTC {boolean} Indicates that we ask for a date in UTC TZ
  * @returns {Date}
  */
-function dateAndTimeToDateTime(date, time, { useUTC, useSeconds }) {
+function dateAndTimeToDateTime(date, time, { useUTC }) {
 	if (date === undefined || time === undefined) {
 		return INTERNAL_INVALID_DATE;
 	}
 
 	try {
 		const { hours, minutes, seconds } = time;
-		const timeInSeconds = timeToSeconds(hours, minutes, seconds, useSeconds);
+		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
 		const localTimezoneDate = setSeconds(date, timeInSeconds);
 		return useUTC ? convertToUTC(localTimezoneDate) : localTimezoneDate;
 	} catch (e) {
@@ -369,7 +366,7 @@ function extractPartsFromDateAndTime(date, time, options) {
 
 	if (options.useTime) {
 		try {
-			checkTime(time, options.useSeconds);
+			checkTime(time);
 		} catch (error) {
 			errors = error;
 		}
@@ -429,7 +426,7 @@ function extractPartsFromTextInput(textInput, options) {
 				try {
 					const timeTextToParse = splitMatches[2];
 					time = strToTime(timeTextToParse, options.useSeconds);
-					checkTime(time, options.useSeconds);
+					checkTime(time);
 				} catch (error) {
 					errors = errors.concat(error);
 				}
