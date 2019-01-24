@@ -2,7 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import MultiSelect from '@talend/react-components/lib/MultiSelect';
 import FieldTemplate from '@talend/react-forms/lib/UIForm/fields/FieldTemplate';
-import { generateDescriptionId, generateErrorId } from '@talend/react-forms/lib/UIForm/Message/generateId';
+import {
+	generateDescriptionId,
+	generateErrorId,
+} from '@talend/react-forms/lib/UIForm/Message/generateId';
 import callTrigger from '@talend/react-forms/lib/UIForm/trigger';
 
 function getLabel(titleMap, value, defaultName) {

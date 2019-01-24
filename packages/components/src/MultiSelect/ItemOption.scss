@@ -1,29 +1,28 @@
 // ItemOption styles
 .row {
-    padding: $padding-smaller $padding-normal;
-    display: block;
-    width: 100%;
-    height: 40px;
-    color: $dove-gray;
-    font-weight: 400;
-    &:global(#multi-select-create-new) {
-        font-style: italic;
-    }
-    &:global(#multi-select-select-all) {
-        font-style: italic;
-    }
+	padding: $padding-smaller $padding-normal;
+	display: block;
+	width: 100%;
+	height: 40px;
+	color: $dove-gray;
+	font-weight: 400;
+	&:global(#multi-select-create-new) {
+		font-style: italic;
+	}
+	&:global(#multi-select-select-all) {
+		font-style: italic;
+	}
 
-    &:hover {
-        text-decoration: none;
-        color: $dove-gray;  // override theme
-        background-color: $concrete;
-    }
-    &:global(.active) {
-        font-weight: bold;
-    }
-
+	&:hover {
+		text-decoration: none;
+		color: $dove-gray; // override theme
+		background-color: $concrete;
+	}
+	&:global(.active) {
+		font-weight: bold;
+	}
 }
 .item {
-    display: inline;
-    line-height: 30px;
+	display: inline;
+	line-height: 30px;
 }
