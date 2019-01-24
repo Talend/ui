@@ -125,11 +125,11 @@ RowLarge.propTypes = {
 	/** Custom style that react-virtualized provides */
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	t: PropTypes.func.isRequired,
-	tabIndex: PropTypes.string,
+	tabIndex: PropTypes.number,
 };
 RowLarge.defaultProps = {
 	t: getDefaultT(),
-	tabIndex: '0',
+	tabIndex: 0,
 };
 
 export default withListGesture(translate(I18N_DOMAIN_COMPONENTS)(RowLarge));

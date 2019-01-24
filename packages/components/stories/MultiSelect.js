@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import MultiSelect from '../src/MultiSelect';
-
+import IconsProvider from '../src/IconsProvider';
 
 function onSelect(value, title) {
 	return {
@@ -11,13 +11,41 @@ function onSelect(value, title) {
 	};
 }
 
-const titleMap = [
-	{ value: '123', name: 'Super stuff' },
-];
+class Photos extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			loading: true,
+			photos: [],
+		};
+	}
+	componentDidMount() {
+		fetch('https://jsonplaceholder.typicode.com/photos')
+			.then(resp => resp.json())
+			.then(data => {
+				this.setState({
+					loading: false,
+					photos: data.map(item => ({ id: item.id, value: item.id, name: item.title })),
+				});
+			});
+	}
+	render() {
+		return (
+			<section style={{ margin: 20 }}>
+				<IconsProvider />
+				<form>
+					<div className="form-group">
+						<label className="control-label" htmlFor="storybook">photos</label>
+						<MultiSelect id="storybook" titleMap={this.state.photos} isLoading={this.state.loading} />
+					</div>
+					<div className="form-group">
+						<input className="form-control" type="text" id="useless" />
+						<label className="control-label" htmlFor="useless">another</label>
+					</div>
+				</form>
+			</section>
+		);
+	}
+}
 
-storiesOf('MultiSelect', module)
-	.add('default', () => (
-		<section>
-			<MultiSelect id="storybook" titleMap={titleMap} values={[]} onSelect={onSelect} />
-		</section>
-	));
+storiesOf('MultiSelect', module).add('default', () => <Photos />);

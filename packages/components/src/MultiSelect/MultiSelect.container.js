@@ -1,21 +1,32 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { translate } from 'react-i18next';
+import Overlay from 'react-bootstrap/lib/Overlay';
+import keycode from 'keycode';
 
 import theme from './MultiSelect.scss';
-import OverlayTrigger from '../OverlayTrigger';
+// import OverlayTrigger from '../OverlayTrigger';
 import VirtualizedList from '../VirtualizedList';
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import { Item, ItemView } from './MultiSelect.default';
-import CircularProgress from '../CircularProgress';
-
-const SELECT_ALL_VALUE = 'select-all';
-const CREATE_NEW_VALUE = 'create-new';
-const SPECIAL_VALUES = [SELECT_ALL_VALUE, CREATE_NEW_VALUE];
+import { ItemOption } from './ItemOption.component';
+import { ItemView } from './ItemView.component';
+import Dropdown from './Dropdown.container';
+import { CLEAR_ALL_VALUE, SELECT_ALL_VALUE, CREATE_NEW_VALUE, SPECIAL_VALUES } from './constants';
 
 function getSelectedItems(props, state) {
-	return props.titleMap.concat(state.added || []).filter(item => state.selected[item.value]);
+	const selected = props.titleMap
+		.concat(state.added || [])
+		.filter(item => state.selected.get(item.value));
+	if (selected && selected.length > 0) {
+		selected.unshift({
+			value: CLEAR_ALL_VALUE,
+			name: props.t('MULTI_SELECT_LABEL_CLEAR_ALL', { defaultValue: 'Clear all' }),
+			selected: false,
+		});
+	}
+	return selected;
 }
 
 function getTitleMap(props, state) {
@@ -42,12 +53,12 @@ function getTitleMap(props, state) {
 		titleMap = titleMap.concat(found);
 	}
 	// apply selected
-	const selected = Object.keys(state.selected || {});
+	const selected = Array.from(state.selected.keys());
 	if (selected.length > 0) {
 		titleMap = titleMap.map(item => ({
 			name: item.name,
 			value: item.value,
-			selected: state.selected[item.value],
+			selected: state.selected.get(item.value),
 		}));
 	}
 	if (props.withCreateNew && state.searchTerm && !hasExactMatch) {
@@ -69,34 +80,19 @@ function getTitleMapWithoutSpecialValues(titleMap) {
 
 function initSelected(props) {
 	return props.selected.reduce((acc, current) => {
-		// eslint-disable-next-line no-param-reassign
-		acc[current] = true;
+		acc.set(current, true);
 		return acc;
-	}, {});
+	}, new Map());
 }
-
-/**
- * getStyle function returns CSS to adapt height of the dropdown
- * and align vertically the item in it
- * @param {integer} height integer in px
- * @returns string css style
- */
-function getStyle(id, height, width = 300) {
-	return `#${id}-overlay { width: ${width}px; max-width: ${width}px; }
-	#${id}-overlay .popover-content { height: ${height}px; }`;
-}
-
-function noop() {}
 
 class MultiSelect extends React.Component {
 	static displayName = 'MultiSelect';
 	static theme = theme;
 	static defaultProps = {
-		itemOptionRender: Item,
+		itemOptionRender: ItemOption,
 		itemViewRender: ItemView,
 		selected: [],
 		titleMap: [],
-		onChange: noop,
 	};
 	static propTypes = {
 		id: PropTypes.string.isRequired,
@@ -113,7 +109,6 @@ class MultiSelect extends React.Component {
 		isLoading: PropTypes.bool,
 		onChange: PropTypes.func,
 		onBlur: PropTypes.func,
-		onFocus: PropTypes.func,
 	};
 
 	constructor(props) {
@@ -122,11 +117,14 @@ class MultiSelect extends React.Component {
 			selected: initSelected(props),
 			added: [],
 		};
-		// this.titleMap = getTitleMap(props, this.state);
 		this.onSearchChange = this.onSearchChange.bind(this);
-		this.getPopover = this.getPopover.bind(this);
 		this.onRowClick = this.onRowClick.bind(this);
 		this.noRowsRenderer = this.noRowsRenderer.bind(this);
+		this.getTarget = this.getTarget.bind(this);
+		this.onFocus = this.onFocus.bind(this);
+		this.onKeyDown = this.onKeyDown.bind(this);
+		this.onDropdownHide = this.onDropdownHide.bind(this);
+		this.onClearAll = this.onClearAll.bind(this);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -136,44 +134,65 @@ class MultiSelect extends React.Component {
 			});
 		}
 	}
-
-	onSelectAll(event) {
-		// toggle the select only if all visible items are already selected
-		const titleMap = getTitleMapWithoutSpecialValues(this.titleMap);
-		const alreadySelected = titleMap.every(item => this.state.selected[item.value]);
-		let selected = {};
-		if (!alreadySelected) {
-			selected = titleMap.reduce((acc, current) => {
-				// eslint-disable-next-line no-param-reassign
-				acc[current.value] = true;
-				return acc;
-			}, {});
-		}
+	onNewSelected(event, selected) {
 		if (this.props.onChange) {
 			// controlled
-			this.props.onChange(event, Object.keys(selected));
+			this.props.onChange(event, Array.from(selected.keys()));
 		} else {
 			// uncontrolled
 			this.setState({ selected });
 		}
 	}
+	onDropdownHide(event) {
+		if (event.target !== this.inputRef) {
+			this.setState({ showDropdown: false });
+		}
+	}
+
+	onKeyDown(event) {
+		switch (event.which) {
+			case keycode.codes.esc:
+				event.preventDefault();
+				this.setState({ showDropdown: false });
+				break;
+			default:
+				break;
+		}
+	}
+
+	onFocus() {
+		this.setState({ showDropdown: true });
+	}
+
+	onClearAll(event) {
+		const selected = new Map();
+		this.onNewSelected(event, selected);
+	}
+
+	onSelectAll(event) {
+		// toggle the select only if all visible items are already selected
+		const titleMap = getTitleMapWithoutSpecialValues(getTitleMap(this.props, this.state));
+		const alreadySelected = titleMap.every(item => this.state.selected.get(item.value));
+		let selected = new Map();
+		if (!alreadySelected) {
+			selected = titleMap.reduce((acc, current) => {
+				acc.set(current.value, true);
+				return acc;
+			}, new Map());
+		}
+		this.onNewSelected(event, selected);
+	}
 
 	onSelectOne(event, id) {
-		const selected = Object.assign({}, this.state.selected);
-		if (selected[id]) {
+		const selected = new Map(this.state.selected);
+		if (selected.has(id)) {
 			// eslint-disable-next-line no-param-reassign
-			delete selected[id];
+			selected.delete(id);
 		} else {
 			// eslint-disable-next-line no-param-reassign
-			selected[id] = true;
+			selected.set(id, true);
 		}
-		if (this.props.onChange) {
-			// controlled
-			this.props.onChange(event, Object.keys(selected));
-		} else {
-			// uncontrolled
-			this.setState({ selected });
-		}
+		this.onNewSelected(event, selected);
 	}
 
 	onSelectCreateNew(event) {
@@ -181,21 +200,12 @@ class MultiSelect extends React.Component {
 			name: this.state.searchTerm,
 			value: this.state.searchTerm,
 		};
+		const selected = new Map(this.state.selected);
+		selected.set(newItem.value, true);
+		this.onNewSelected(event, selected);
+
 		this.setState(prevState => {
-			const selected = Object.assign({}, this.state.selected, {
-				[newItem.value]: true,
-			});
 			prevState.added.push(newItem);
-			// eslint-disable-next-line no-param-reassign
-			prevState.searchTerm = '';
-			if (this.props.onChange) {
-				// controlled
-				this.props.onChange(event, Object.keys(selected));
-			} else {
-				// uncontrolled
-				// eslint-disable-next-line no-param-reassign
-				prevState.selected = selected;
-			}
 			return Object.assign({}, prevState);
 		});
 	}
@@ -214,6 +224,8 @@ class MultiSelect extends React.Component {
 		if (id === SELECT_ALL_VALUE) {
 			// select all
 			this.onSelectAll(event);
+		} else if (id === CLEAR_ALL_VALUE) {
+			this.onClearAll(event);
 		} else if (this.props.withCreateNew && id === CREATE_NEW_VALUE) {
 			this.onSelectCreateNew(event);
 		} else {
@@ -221,23 +233,9 @@ class MultiSelect extends React.Component {
 		}
 	}
 
-	getPopover() {
-		if (this.props.isLoading) {
-			return () => (
-				<div className={theme.loading}>
-					<CircularProgress />
-				</div>
-			);
-		}
-		return () => (
-			<VirtualizedList
-				type="custom"
-				rowHeight={this.props.itemOptionRender.rowHeight}
-				rowRenderers={{ custom: this.props.itemOptionRender }}
-				collection={this.titleMap}
-				onRowClick={this.onRowClick}
-			/>
-		);
+	getTarget() {
+		// eslint-disable-next-line react/no-find-dom-node
+		return ReactDOM.findDOMNode(this.inputRef);
 	}
 
 	noRowsRenderer() {
@@ -249,58 +247,76 @@ class MultiSelect extends React.Component {
 	}
 
 	render() {
-		this.titleMap = getTitleMap(this.props, this.state);
+		const titleMap = getTitleMap(this.props, this.state);
 		let height = this.props.itemOptionRender.rowHeight * 6;
-		if (this.titleMap.length < 6) {
-			height = this.props.itemOptionRender.rowHeight * this.titleMap.length;
+		if (titleMap.length < 6) {
+			height = this.props.itemOptionRender.rowHeight * titleMap.length;
 		}
 		if (this.props.isLoading) {
 			height = 120;
 		}
 		let viewHeight = this.props.itemViewRender.rowHeight * 6;
-		const nbSelected = Object.keys(this.state.selected).length;
+		const nbSelected = Array.from(this.state.selected.keys()).length;
 		if (nbSelected < 6 && nbSelected > 0) {
-			viewHeight = this.props.itemViewRender.rowHeight * nbSelected;
+			viewHeight = this.props.itemViewRender.rowHeight * (nbSelected + 1);
 		}
 		if (nbSelected === 0) {
 			viewHeight = this.props.itemViewRender.rowHeight;
 		}
 		return (
 			<div id={this.props.id} className={classnames('tc-multiselect', theme.container)}>
-				<OverlayTrigger
-					overlayTrigger="focus"
-					overlayPlacement="bottom"
-					overlayId={`${this.props.id}-overlay`}
-					overlayClassName="tc-multiselect-overlay"
-					overlayComponent="MultiSelect"
-					overlayRef={ref => {
-						this.overlayRef = ref;
+				<input
+					type="text"
+					role="search"
+					className="form-control"
+					placeholder={this.props.placeholder}
+					name={this.props.name}
+					value={this.state.value}
+					onChange={this.onSearchChange}
+					onBlur={this.props.onBlur}
+					onFocus={this.onFocus}
+					onKeyDown={this.onKeyDown}
+					onKeyPress={this.onKeyDown}
+					onKeyUp={this.onKeyDown}
+					disabled={this.props.disabled}
+					autoFocus={this.props.autoFocus}
+					readOnly={this.props.readOnly}
+					ref={ref => {
+						this.inputRef = ref;
+						if (ref && this.state.width !== ref.offsetWidth) {
+							this.setState({ width: ref.offsetWidth });
+						}
 					}}
-					getComponent={this.getPopover}
+				/>
+				<div
+					className={theme.overlay}
+					ref={ref => {
+						this.overlayContainerRef = ref;
+					}}
 				>
-					<input
-						type="text"
-						role="search"
-						className="form-control"
-						placeholder={this.props.placeholder}
-						name={this.props.name}
-						value={this.state.value}
-						onChange={this.onSearchChange}
-						onBlur={this.props.onBlur}
-						onFocus={this.props.onFocus}
-						disabled={this.props.disabled}
-						autoFocus={this.props.autoFocus}
-						readOnly={this.props.readOnly}
+					<Overlay
+						show={this.state.showDropdown}
+						placement="bottom"
+						id={`${this.props.id}-overlay`}
+						container={this.overlayContainerRef}
+						target={this.getTarget}
 						ref={ref => {
-							this.inputRef = ref;
-							if (ref && this.state.width !== ref.offsetWidth) {
-								this.setState({ width: ref.offsetWidth });
-							}
+							this.overlayRef = ref;
 						}}
-					/>
-				</OverlayTrigger>
-				<style type="text/css">{getStyle(this.props.id, height, this.state.width)}</style>
-				{this.state.selected && (
+					>
+						<Dropdown
+							show={this.state.showDropdown}
+							height={height}
+							isLoading={this.props.isLoading}
+							titleMap={titleMap}
+							onRowClick={this.onRowClick}
+							renderItem={this.props.itemOptionRender}
+							onHide={this.onDropdownHide}
+						/>
+					</Overlay>
+				</div>
+				{/* <style type="text/css">{getStyle(this.props.id, height, this.state.width)}</style> */}
+				{!this.state.showDropdown && (
 					<div className={theme.viewContainer} style={{ height: viewHeight }}>
 						<VirtualizedList
 							type="custom"
@@ -309,7 +325,7 @@ class MultiSelect extends React.Component {
 							collection={getSelectedItems(this.props, this.state)}
 							onRowClick={this.onRowClick}
 							noRowsRenderer={this.noRowsRenderer}
-							tabIndex="-1"
+							tabIndex={-1}
 						/>
 					</div>
 				)}
