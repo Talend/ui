@@ -1,0 +1,35 @@
+{
+  "doc": "ResourcePicker/README.md",
+  "jsonSchema": {
+    "type": "object",
+    "title": "ResourcePicker",
+    "properties": {
+      "multiResourcePicker": {
+        "type": "enum",
+        "enum": []
+      },
+      "singleResourcePicker": {
+        "type": "enum",
+        "enum": []
+      }
+    }
+  },
+  "uiSchema": [
+    {
+      "key": "multiResourcePicker",
+      "title": "ResourcePicker with multi selection",
+      "widget": "resourcePicker",
+      "placeholder": "Select an existing resource",
+      "required": true,
+      "multi": true
+    },
+    {
+      "key": "singleResourcePicker",
+      "title": "ResourcePicker without multi selection",
+      "placeholder": "Select an existing resource",
+      "widget": "resourcePicker",
+      "multi": false
+    }
+  ],
+  "properties": {}
+}
