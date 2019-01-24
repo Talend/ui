@@ -35,12 +35,21 @@ class Photos extends React.Component {
 				<IconsProvider />
 				<form>
 					<div className="form-group">
-						<label className="control-label" htmlFor="storybook">photos</label>
-						<MultiSelect id="storybook" options={this.state.photos} isLoading={this.state.loading} />
+						<label className="control-label" htmlFor="storybook">
+							photos
+						</label>
+						<MultiSelect
+							id="storybook"
+							options={this.state.photos}
+							isLoading={this.state.loading}
+							withCreateNew
+						/>
 					</div>
 					<div className="form-group">
 						<input className="form-control" type="text" id="useless" />
-						<label className="control-label" htmlFor="useless">another</label>
+						<label className="control-label" htmlFor="useless">
+							another
+						</label>
 					</div>
 				</form>
 			</section>
