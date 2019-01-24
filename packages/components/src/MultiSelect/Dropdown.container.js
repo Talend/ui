@@ -19,7 +19,7 @@ export default class Dropdown extends React.Component {
 		isLoading: PropTypes.bool,
 		height: PropTypes.number,
 		renderItem: PropTypes.func,
-		titleMap: PropTypes.array,
+		items: PropTypes.array,
 		onRowClick: PropTypes.func,
 		show: PropTypes.bool,
 	};
@@ -58,7 +58,7 @@ export default class Dropdown extends React.Component {
 								type="custom"
 								rowHeight={this.props.renderItem.rowHeight}
 								rowRenderers={{ custom: this.props.renderItem }}
-								collection={this.props.titleMap}
+								collection={this.props.items}
 								onRowClick={this.props.onRowClick}
 							/>
 						)}

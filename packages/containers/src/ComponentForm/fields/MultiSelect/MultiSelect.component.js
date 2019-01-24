@@ -90,7 +90,7 @@ export default class MultiSelectField extends React.Component {
 					onBlur={this.onTrigger}
 					onChange={this.onChange}
 					onFocus={this.onTrigger}
-					titleMap={this.getTitleMap()}
+					options={this.getTitleMap()}
 					selected={this.state.selected}
 					isLoading={this.state.isLoading}
 				/>

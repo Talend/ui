@@ -13,7 +13,7 @@ function getLabel(titleMap, value) {
 	return value;
 }
 
-export default function MultiSelectTagTextMode({ id, schema, value }) {
+export default function MultiSelectTextMode({ id, schema, value }) {
 	const { title } = schema;
 
 	return (
@@ -30,7 +30,7 @@ export default function MultiSelectTagTextMode({ id, schema, value }) {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-	MultiSelectTagTextMode.propTypes = {
+	MultiSelectTextMode.propTypes = {
 		id: PropTypes.string,
 		schema: PropTypes.shape({
 			title: PropTypes.string,
@@ -45,6 +45,6 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-MultiSelectTagTextMode.defaultProps = {
+MultiSelectTextMode.defaultProps = {
 	value: [],
 };

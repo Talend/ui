@@ -16,7 +16,7 @@ import Dropdown from './Dropdown.container';
 import { CLEAR_ALL_VALUE, SELECT_ALL_VALUE, CREATE_NEW_VALUE, SPECIAL_VALUES } from './constants';
 
 function getSelectedItems(props, state) {
-	const selected = props.titleMap
+	const selected = props.options
 		.concat(state.added || [])
 		.filter(item => state.selected.get(item.value));
 	if (selected && selected.length > 0) {
@@ -29,16 +29,16 @@ function getSelectedItems(props, state) {
 	return selected;
 }
 
-function getTitleMap(props, state) {
-	let titleMap = [
+function getOptions(props, state) {
+	let options = [
 		{
 			value: SELECT_ALL_VALUE,
 			name: props.t('MULTI_SELECT_LABEL_SELECT_ALL', { defaultValue: 'Select all' }),
 			selected: false,
 		},
 	];
-	// apply search term on props.titleMap + state.added
-	let found = props.titleMap.concat(state.added || []);
+	// apply search term on props.options + state.added
+	let found = props.options.concat(state.added || []);
 	let hasExactMatch = false;
 	const searchTerm = (state.searchTerm || '').toLowerCase();
 	if (searchTerm) {
@@ -50,19 +50,19 @@ function getTitleMap(props, state) {
 		});
 	}
 	if (Array.isArray(found)) {
-		titleMap = titleMap.concat(found);
+		options = options.concat(found);
 	}
 	// apply selected
 	const selected = Array.from(state.selected.keys());
 	if (selected.length > 0) {
-		titleMap = titleMap.map(item => ({
+		options = options.map(item => ({
 			name: item.name,
 			value: item.value,
 			selected: state.selected.get(item.value),
 		}));
 	}
 	if (props.withCreateNew && state.searchTerm && !hasExactMatch) {
-		titleMap.push({
+		options.push({
 			value: CREATE_NEW_VALUE,
 			name: props.t('MULTI_SELECT_LABEL_CREATE_NEW', {
 				defaultValue: '{{name}} (Create new)',
@@ -71,11 +71,11 @@ function getTitleMap(props, state) {
 			selected: false,
 		});
 	}
-	return titleMap;
+	return options;
 }
 
-function getTitleMapWithoutSpecialValues(titleMap) {
-	return titleMap.filter(item => SPECIAL_VALUES.indexOf(item.value) === -1);
+function getOptionsWithoutSpecialValues(options) {
+	return options.filter(item => SPECIAL_VALUES.indexOf(item.value) === -1);
 }
 
 function initSelected(props) {
@@ -92,7 +92,7 @@ class MultiSelect extends React.Component {
 		itemOptionRender: ItemOption,
 		itemViewRender: ItemView,
 		selected: [],
-		titleMap: [],
+		options: [],
 	};
 	static propTypes = {
 		id: PropTypes.string.isRequired,
@@ -109,6 +109,7 @@ class MultiSelect extends React.Component {
 		isLoading: PropTypes.bool,
 		onChange: PropTypes.func,
 		onBlur: PropTypes.func,
+		onFocus: PropTypes.func,
 	};
 
 	constructor(props) {
@@ -160,8 +161,11 @@ class MultiSelect extends React.Component {
 		}
 	}
 
-	onFocus() {
+	onFocus(event) {
 		this.setState({ showDropdown: true });
+		if (this.props.onFocus) {
+			this.props.onFocus(event);
+		}
 	}
 
 	onClearAll(event) {
@@ -171,11 +175,11 @@ class MultiSelect extends React.Component {
 
 	onSelectAll(event) {
 		// toggle the select only if all visible items are already selected
-		const titleMap = getTitleMapWithoutSpecialValues(getTitleMap(this.props, this.state));
-		const alreadySelected = titleMap.every(item => this.state.selected.get(item.value));
+		const options = getOptionsWithoutSpecialValues(getOptions(this.props, this.state));
+		const alreadySelected = options.every(item => this.state.selected.get(item.value));
 		let selected = new Map();
 		if (!alreadySelected) {
-			selected = titleMap.reduce((acc, current) => {
+			selected = options.reduce((acc, current) => {
 				acc.set(current.value, true);
 				return acc;
 			}, new Map());
@@ -247,10 +251,10 @@ class MultiSelect extends React.Component {
 	}
 
 	render() {
-		const titleMap = getTitleMap(this.props, this.state);
+		const items = getOptions(this.props, this.state);
 		let height = this.props.itemOptionRender.rowHeight * 6;
-		if (titleMap.length < 6) {
-			height = this.props.itemOptionRender.rowHeight * titleMap.length;
+		if (items.length < 6) {
+			height = this.props.itemOptionRender.rowHeight * items.length;
 		}
 		if (this.props.isLoading) {
 			height = 120;
@@ -308,7 +312,7 @@ class MultiSelect extends React.Component {
 							show={this.state.showDropdown}
 							height={height}
 							isLoading={this.props.isLoading}
-							titleMap={titleMap}
+							items={items}
 							onRowClick={this.onRowClick}
 							renderItem={this.props.itemOptionRender}
 							onHide={this.onDropdownHide}
