@@ -4,6 +4,7 @@ import classnames from 'classnames';
 
 import getDerivedStateFromProps from './itemGetDerivedStateFromProps';
 import theme from './ItemOption.scss';
+import Emphasis from '../Emphasis/Emphasis.component';
 
 class ItemOptionRow extends React.Component {
 	static getDerivedStateFromProps = getDerivedStateFromProps;
@@ -15,34 +16,33 @@ class ItemOptionRow extends React.Component {
 		};
 	}
 
-	shouldComponentUpdate(nextProps, nextState) {
-		if (!nextProps.isVisible) {
-			return false;
-		}
-		const nextItem = nextState.item;
-		if (nextItem) {
-			const results = ['selected', 'value', 'name'].every(
-				attr => this.state.item[attr] === nextItem[attr],
-			);
-			return !results;
-		}
-		return false;
-	}
-
 	render() {
-		const item = this.props.parent.props.collection[this.props.index];
+		const item = this.state.item;
+		const id = `${item.id || item.value}`;
 		return (
-			<a
-				className={classnames(theme.row, 'tc-multi-select-item', {
-					active: !!item.selected,
-				})}
-				id={`multi-select-${item.value}`}
-				onClick={event => this.props.parent.props.onRowClick({ event, rowData: item.value })}
-				href={`#/${item.value}`}
+			<div
+				className={classnames(theme.row, 'tc-multi-select-item')}
 				style={this.props.style}
 			>
-				<span className={theme.item}>{item.name}</span>
-			</a>
+				<div className="form-group">
+					<div className="checkbox">
+						{/* eslint-disable-next-line  jsx-a11y/label-has-for */}
+						<label>
+							<input
+								id={`checkbox-${id}`}
+								type="checkbox"
+								checked={!!item.selected}
+								onChange={event =>
+									this.props.parent.props.onRowClick({ event, rowData: item.value })
+								}
+							/>
+							<span className={`${theme.item} control-label`} htmlFor={`checkbox-${id}`}>
+								<Emphasis text={item.name} value={item.searchTerm} />
+							</span>
+						</label>
+					</div>
+				</div>
+			</div>
 		);
 	}
 }

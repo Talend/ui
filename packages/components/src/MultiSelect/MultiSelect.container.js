@@ -17,13 +17,6 @@ function getSelectedItems(props, state) {
 	const selected = props.options
 		.concat(state.added || [])
 		.filter(item => state.selected.get(item.value));
-	if (selected && selected.length > 0) {
-		selected.unshift({
-			value: CLEAR_ALL_VALUE,
-			name: props.t('MULTI_SELECT_LABEL_CLEAR_ALL', { defaultValue: 'Clear all' }),
-			selected: false,
-		});
-	}
 	return selected;
 }
 
@@ -51,14 +44,12 @@ function getOptions(props, state) {
 		options = options.concat(found);
 	}
 	// apply selected
-	const selected = Array.from(state.selected.keys());
-	if (selected.length > 0) {
-		options = options.map(item => ({
-			name: item.name,
-			value: item.value,
-			selected: state.selected.get(item.value),
-		}));
-	}
+	options = options.map(item => ({
+		name: item.name,
+		value: item.value,
+		selected: state.selected.get(item.value),
+		searchTerm: state.searchTerm,
+	}));
 	if (props.withCreateNew && state.searchTerm && !hasExactMatch) {
 		options.push({
 			value: CREATE_NEW_VALUE,
@@ -128,7 +119,6 @@ class MultiSelect extends React.Component {
 		};
 		this.onSearchChange = this.onSearchChange.bind(this);
 		this.onRowClick = this.onRowClick.bind(this);
-		this.noRowsRenderer = this.noRowsRenderer.bind(this);
 		this.getTarget = this.getTarget.bind(this);
 		this.onFocus = this.onFocus.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
@@ -244,9 +234,7 @@ class MultiSelect extends React.Component {
 	}
 
 	onRowClick(event, id) {
-		event.preventDefault();
 		if (id === SELECT_ALL_VALUE) {
-			// select all
 			this.onSelectAll(event);
 		} else if (id === CLEAR_ALL_VALUE) {
 			this.onClearAll(event);
@@ -260,14 +248,6 @@ class MultiSelect extends React.Component {
 	getTarget() {
 		// eslint-disable-next-line react/no-find-dom-node
 		return ReactDOM.findDOMNode(this.inputRef);
-	}
-
-	noRowsRenderer() {
-		return (
-			<div>
-				{this.props.t('MULTI_SELECT_NOTHING_SELECTED', { defaultValue: 'No item selected' })}
-			</div>
-		);
 	}
 
 	render() {
@@ -315,7 +295,7 @@ class MultiSelect extends React.Component {
 						onHide={this.onDropdownHide}
 					/>
 				)}
-				{!this.state.showDropdown && (
+				{!this.state.showDropdown && nbSelected > 0 && (
 					<div style={{ height: viewHeight }}>
 						<VirtualizedList
 							type="tc-multiselect"
@@ -323,7 +303,6 @@ class MultiSelect extends React.Component {
 							rowRenderers={{ 'tc-multiselect': this.props.itemViewRender }}
 							collection={getSelectedItems(this.props, this.state)}
 							onRowClick={this.onRowClick}
-							noRowsRenderer={this.noRowsRenderer}
 							tabIndex={-1}
 						/>
 					</div>

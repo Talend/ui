@@ -3,26 +3,26 @@
 	padding: $padding-smaller $padding-normal;
 	display: block;
 	width: 100%;
-	height: 40px;
-	color: $dove-gray;
-	font-weight: 400;
-	&:global(#multi-select-create-new) {
-		font-style: italic;
-	}
-	&:global(#multi-select-select-all) {
-		font-style: italic;
-	}
-
 	&:hover {
-		text-decoration: none;
 		color: $dove-gray; // override theme
 		background-color: $concrete;
 	}
-	&:global(.active) {
-		font-weight: bold;
+	// reset form padding so all the line can be clicked without changing height
+	:global(.form-group),
+	:global(.checkbox) {
+		padding: 0;
+		margin: 0;
+	}
+	label {
+		height: 40px;
+		width: 100%;
 	}
 }
 .item {
-	display: inline;
-	line-height: 30px;
+	font-weight: 400;
+	color: $dove-gray;
+	&[for="checkbox-create-new"],
+	&[for="checkbox-select-all"] {
+		font-style: italic;
+	}
 }

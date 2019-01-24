@@ -33,7 +33,7 @@ class Photos extends React.Component {
 		return (
 			<section style={{ margin: 20 }}>
 				<IconsProvider />
-				<form>
+				<form className="form">
 					<div className="form-group">
 						<label className="control-label" htmlFor="storybook">
 							photos
