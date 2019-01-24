@@ -196,7 +196,7 @@ you may change the following using simple props:
 * [Dispatcher](src/Dispatcher.md)
 * [how to](howto/index.md)
 * [sagas](src/sagas/index.md)
-* [sagaRouter](src/sagaRouter/index.md)
+* [sagaRouter](../router/src/sagaRouter.md)
 * [scripts](scripts/index.md)
 
 ## Internals
