@@ -14,6 +14,7 @@ describe('Buttons field', () => {
 					title: 'Reset',
 					type: 'reset',
 					widget: 'button',
+					className: 'custom-class-name',
 				},
 				{
 					position: 'right',

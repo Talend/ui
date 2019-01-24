@@ -17,6 +17,7 @@
 
 import isEqual from 'lodash/isEqual';
 import merge from 'lodash/merge';
+import cmf from '@talend/react-cmf';
 import { mergeCSRFToken } from '@talend/react-cmf/lib/middlewares/http/csrfHandling';
 
 import flatten from './flatten';
@@ -132,7 +133,7 @@ export default function createTriggers({
 	lang = 'en',
 	headers,
 	fetchConfig,
-	security,
+	security = {},
 }) {
 	if (!url) {
 		throw new Error('url params is required to createTriggers');
@@ -182,6 +183,18 @@ export default function createTriggers({
 				trigger,
 			});
 		}
+		if (trigger.remote === false) {
+			const result = onSuccess({});
+			if (result && result.then) {
+				return result.catch(onError);
+			}
+			return new Promise(resolve => resolve(result));
+		}
+		const config = cmf.sagas.http.getDefaultConfig() || {};
+		let httpSecurity = config.security || {};
+		if (security.CSRFTokenCookieKey || security.CSRFTokenHeaderKey) {
+			httpSecurity = security;
+		}
 		const fetchUrl = `${url}?${toQueryParam({
 			lang,
 			action: trigger.action,
@@ -190,7 +203,7 @@ export default function createTriggers({
 		})}`;
 		return fetch(
 			fetchUrl,
-			mergeCSRFToken({ security })({
+			mergeCSRFToken({ security: httpSecurity })({
 				method: 'POST',
 				headers: actualHeaders,
 				body: JSON.stringify(parameters),

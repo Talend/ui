@@ -1,13 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import {
-	PieChartIconComponent,
 	distributePercentages,
 	getAngle,
 	getCircle,
 	getDisplaySize,
-	getPercentageToIndex,
 	getEmptyPartCircle,
+	getLabel,
+	getPercentageToIndex,
+	PieChartIconComponent,
 	setMinimumPercentage,
 } from './PieChartIcon.component';
 
@@ -274,6 +275,50 @@ describe('PieChart', () => {
 				padAngle: 0.1736,
 				svgSize: 28,
 			});
+		});
+	});
+
+	describe('getLabel', () => {
+		const t = jest.fn((_, obj) => obj.percentage);
+
+		it('should show a rounded label', () => {
+			// given
+			const hideLabel = false;
+			const labelValue = { percentage: 12.2 };
+			// when
+			const value = getLabel(hideLabel, labelValue, t);
+			// then
+			expect(value).toBe('12');
+		});
+
+		it('should show no label when hideLabel is passed to true', () => {
+			// given
+			const hideLabel = true;
+			const labelValue = { percentage: 12.2 };
+			// when
+			const value = getLabel(hideLabel, labelValue, t);
+			// then
+			expect(value).toBe('');
+		});
+
+		it('should show < 1% when the value is < 1 & > 0', () => {
+			// given
+			const hideLabel = false;
+			const labelValue = { percentage: 0.1 };
+			// when
+			const value = getLabel(hideLabel, labelValue, t);
+			// then
+			expect(value).toBe('< 1');
+		});
+
+		it('should show > 99% when the value is < 100 & > 99', () => {
+			// given
+			const hideLabel = false;
+			const labelValue = { percentage: 99.9 };
+			// when
+			const value = getLabel(hideLabel, labelValue, t);
+			// then
+			expect(value).toBe('> 99');
 		});
 	});
 });

@@ -160,6 +160,10 @@ export function ActionButton(props) {
 	if (hasPopup) {
 		buttonProps['aria-haspopup'] = true;
 	}
+	// enforce security on target="_blank"
+	if (buttonProps.target === '_blank') {
+		buttonProps.rel = 'noopener noreferrer';
+	}
 	let btn = (
 		<Button
 			onMouseDown={!overlayComponent ? rMouseDown : null}

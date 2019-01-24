@@ -623,5 +623,3 @@ Array [
   },
 ]
 `;
-
-exports[`getFieldQuality should enrich the quality 1`] = `Object {}`;

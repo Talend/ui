@@ -36,13 +36,25 @@ function flagToggleReducer(state = {}, { type, flagId }) {
 	}
 	return state;
 }
-
-function reducer(state = {}, action) {
+function appReducer(state = {}, action) {
 	actionLogger(action);
 	return {
 		flags: flagToggleReducer(state.flags, action),
 	};
 }
+
+function routerReducer(state = {}, action) {
+	actionLogger(action);
+	return {
+		locationBeforeTransitions: {
+			pathname: '/storybook',
+		},
+	};
+}
+const reducer = {
+	app: appReducer,
+	routing: routerReducer,
+};
 
 function objectView(event, data) {
 	return {

@@ -25,21 +25,7 @@
             ]
         }, {
             "name": "field1",
-            "type": [{
-              "type": "null",
-              "dqType": "",
-              "dqTypeKey": ""
-            }, {
-              "type": "int",
-              "dqType": "",
-              "dqTypeKey": "",
-              "@talend-quality@": {
-                  "0": 1,
-                  "1": 99,
-                  "-1": 0,
-                  "total": 100
-              }
-          }]
+            "type": ["null", "int"]
         }, {
             "name": "field2",
             "doc": "Code postal",

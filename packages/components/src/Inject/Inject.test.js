@@ -165,6 +165,14 @@ describe('Inject.all', () => {
 		};
 		expect(Inject.all(null, components)()).toEqual(null);
 	});
+	it('should return a function which return a react component', () => {
+		const myComponent = <button>whatever</button>;
+		const components = {
+			slotX: myComponent,
+		};
+		const injections = Inject.all(undefined, components);
+		expect(injections('slotX')).toBe(myComponent);
+	});
 });
 
 describe('Inject.get', () => {
