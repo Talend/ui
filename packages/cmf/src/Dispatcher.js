@@ -109,7 +109,10 @@ Dispatcher.defaultProps = {
 	stopPropagation: false,
 	preventDefault: false,
 };
-const ConnectedDispatcher = cmfConnect({})(Dispatcher);
+const ConnectedDispatcher = cmfConnect({
+	withDispatchActionCreator: true,
+})(Dispatcher);
+
 
 /**
  * This component purpose is to decorate any component and map an user event
