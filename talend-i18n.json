@@ -5,8 +5,7 @@
     "target": "./i18n"
   },
   "load": {
-    "project": "UI - TUI",
-    "target": "./i18n-from-xtm"
+    "project": "UI - TUI"
   },
   "github": {
     "url": "https://github.com/Talend/i18n-product.git"
