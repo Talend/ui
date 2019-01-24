@@ -46,24 +46,6 @@ export function getRowDataInfos(rowData) {
 	);
 }
 
-/**
- * redrawRows - call redrawRows only if necessary. (improve ag-grid performance)
- *
- * @param  {object} props     component props
- * @param  {object} prevProps previous component prop
- * @return {boolean}         return true if we need to reload the grid
- */
-function forceRedrawRows(props, prevProps) {
-	const prevInfos = getRowDataInfos(prevProps.rowData);
-	const currentInfos = getRowDataInfos(props.rowData);
-
-	return (
-		prevInfos.loaded !== currentInfos.loaded ||
-		prevInfos.loading !== currentInfos.loading ||
-		prevInfos.notLoaded !== currentInfos.notLoaded
-	);
-}
-
 export function getComponent(component) {
 	switch (component) {
 		case 'DefaultIntCellRenderer':
@@ -133,7 +115,7 @@ function getItemWithRandomValue() {
 export default class DynamicDataGrid extends React.Component {
 	constructor() {
 		super();
-    
+
 		this.addLoadingsItems = this.addLoadingsItems.bind(this);
 		this.terminateItems = this.terminateItems.bind(this);
 
@@ -191,7 +173,6 @@ export default class DynamicDataGrid extends React.Component {
 					data={this.state.sample}
 					getComponent={getComponent}
 					rowSelection="multiple"
-					forceRedrawRows={forceRedrawRows}
 				/>
 			</div>
 		);
