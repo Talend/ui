@@ -3,11 +3,9 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { translate } from 'react-i18next';
-import Overlay from 'react-bootstrap/lib/Overlay';
 import keycode from 'keycode';
 
 import theme from './MultiSelect.scss';
-// import OverlayTrigger from '../OverlayTrigger';
 import VirtualizedList from '../VirtualizedList';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import { ItemOption } from './ItemOption.component';
@@ -85,6 +83,16 @@ function initSelected(props) {
 	}, new Map());
 }
 
+function isIn(element, container) {
+	if (element.parentElement === null) {
+		return false;
+	}
+	if (element.parentElement !== container) {
+		return isIn(element.parentElement, container);
+	}
+	return true;
+}
+
 class MultiSelect extends React.Component {
 	static displayName = 'MultiSelect';
 	static theme = theme;
@@ -128,6 +136,16 @@ class MultiSelect extends React.Component {
 		this.onClearAll = this.onClearAll.bind(this);
 	}
 
+	componentDidMount() {
+		const self = this;
+		document.addEventListener('click', event => {
+			// if event outside of me call onHide
+			if (self.containerRef !== null && !isIn(event.target, self.containerRef)) {
+				self.setState({ showDropdown: false });
+			}
+		});
+	}
+
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.selected !== this.props.selected) {
 			this.setState({
@@ -135,6 +153,7 @@ class MultiSelect extends React.Component {
 			});
 		}
 	}
+
 	onNewSelected(event, selected) {
 		if (this.props.onChange) {
 			// controlled
@@ -144,6 +163,7 @@ class MultiSelect extends React.Component {
 			this.setState({ selected });
 		}
 	}
+
 	onDropdownHide(event) {
 		if (event.target !== this.inputRef) {
 			this.setState({ showDropdown: false });
@@ -252,80 +272,55 @@ class MultiSelect extends React.Component {
 
 	render() {
 		const items = getOptions(this.props, this.state);
-		let height = this.props.itemOptionRender.rowHeight * 6;
-		if (items.length < 6) {
-			height = this.props.itemOptionRender.rowHeight * items.length;
-		}
-		if (this.props.isLoading) {
-			height = 120;
-		}
-		let viewHeight = this.props.itemViewRender.rowHeight * 6;
-		const nbSelected = Array.from(this.state.selected.keys()).length;
-		if (nbSelected < 6 && nbSelected > 0) {
-			viewHeight = this.props.itemViewRender.rowHeight * (nbSelected + 1);
-		}
-		if (nbSelected === 0) {
-			viewHeight = this.props.itemViewRender.rowHeight;
-		}
+		const height = this.props.isLoading
+			? 120
+			: this.props.itemOptionRender.rowHeight * Math.min(items.length, 6);
+
+		const nbSelected = this.state.selected.size;
+		const viewHeight = this.props.itemViewRender.rowHeight * Math.min(6, nbSelected + 1);
+
 		return (
-			<div id={this.props.id} className={classnames('tc-multiselect', theme.container)}>
+			<div
+				id={this.props.id}
+				className={classnames('tc-multiselect', theme.container)}
+				ref={ref => {
+					this.containerRef = ref;
+				}}
+			>
 				<input
 					type="text"
 					role="search"
 					className="form-control"
-					placeholder={this.props.placeholder}
 					name={this.props.name}
-					value={this.state.value}
-					onChange={this.onSearchChange}
 					onBlur={this.props.onBlur}
+					onChange={this.onSearchChange}
 					onFocus={this.onFocus}
 					onKeyDown={this.onKeyDown}
-					onKeyPress={this.onKeyDown}
-					onKeyUp={this.onKeyDown}
 					disabled={this.props.disabled}
 					autoFocus={this.props.autoFocus}
+					placeholder={this.props.placeholder}
 					readOnly={this.props.readOnly}
+					value={this.state.value}
 					ref={ref => {
 						this.inputRef = ref;
-						if (ref && this.state.width !== ref.offsetWidth) {
-							this.setState({ width: ref.offsetWidth });
-						}
 					}}
 				/>
-				<div
-					className={theme.overlay}
-					ref={ref => {
-						this.overlayContainerRef = ref;
-					}}
-				>
-					<Overlay
-						show={this.state.showDropdown}
-						placement="bottom"
-						id={`${this.props.id}-overlay`}
-						container={this.overlayContainerRef}
-						target={this.getTarget}
-						ref={ref => {
-							this.overlayRef = ref;
-						}}
-					>
-						<Dropdown
-							show={this.state.showDropdown}
-							height={height}
-							isLoading={this.props.isLoading}
-							items={items}
-							onRowClick={this.onRowClick}
-							renderItem={this.props.itemOptionRender}
-							onHide={this.onDropdownHide}
-						/>
-					</Overlay>
-				</div>
-				{/* <style type="text/css">{getStyle(this.props.id, height, this.state.width)}</style> */}
+				{this.state.showDropdown && (
+					<Dropdown
+						height={height}
+						isLoading={this.props.isLoading}
+						items={items}
+						onRowClick={this.onRowClick}
+						renderItem={this.props.itemOptionRender}
+						onHide={this.onDropdownHide}
+					/>
+				)}
 				{!this.state.showDropdown && (
-					<div className={theme.viewContainer} style={{ height: viewHeight }}>
+					<div style={{ height: viewHeight }}>
 						<VirtualizedList
-							type="custom"
+							type="tc-multiselect"
 							rowHeight={this.props.itemViewRender.rowHeight}
-							rowRenderers={{ custom: this.props.itemViewRender }}
+							rowRenderers={{ 'tc-multiselect': this.props.itemViewRender }}
 							collection={getSelectedItems(this.props, this.state)}
 							onRowClick={this.onRowClick}
 							noRowsRenderer={this.noRowsRenderer}
