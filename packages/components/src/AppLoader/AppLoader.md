@@ -17,6 +17,7 @@ plugins: [
     ...
     new HtmlWebpackPlugin({
         ...
+        reset_style: Loader.RESET_STYLE,
         loader_style: Loader.getLoaderStyle(ICON),
         loader: Loader.APP_LOADER,
     }),
@@ -36,6 +37,10 @@ plugins: [
     <body>
         ...
         <div id="app">
+            <style>
+                <%= htmlWebpackPlugin.options.reset_style %>
+                <%= htmlWebpackPlugin.options.loader_style %>
+            </style>
             <%= htmlWebpackPlugin.options.loader %>
         </div>
         ...

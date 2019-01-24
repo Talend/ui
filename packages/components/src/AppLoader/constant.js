@@ -1,4 +1,4 @@
-const LOADER_STYLE = `* {
+const RESET_STYLE = `* {
 	box-sizing: border-box;
 }
 
@@ -9,7 +9,14 @@ html {
 	-webkit-text-size-adjust: 100%;
 }
 
-.tc-app-loader-container {
+body {
+	margin: 0;
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+}`;
+
+const LOADER_STYLE = `.tc-app-loader-container {
   display: flex;
   height: 100vh;
   width: 100vw;
@@ -184,6 +191,7 @@ function getLoaderStyle(icon = '') {
 }
 
 export default {
+	RESET_STYLE,
 	APP_LOADER,
 	getLoaderStyle,
 };
