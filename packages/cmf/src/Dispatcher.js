@@ -113,7 +113,6 @@ const ConnectedDispatcher = cmfConnect({
 	withDispatchActionCreator: true,
 })(Dispatcher);
 
-
 /**
  * This component purpose is to decorate any component and map an user event
  * to an action to be dispatched
