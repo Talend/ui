@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import uuid from 'uuid';
 import DebounceInput from 'react-debounce-input';
 import getDefaultT from '../../../translate';
-import { DateTimePickerErrorConsumer } from '../../InputDateTimePicker';
+import DateTimePickerErrorContext from '../../InputDateTimePicker/InputDateTimePickerContext';
 
 import theme from './TimePicker.scss';
 
@@ -86,7 +86,7 @@ class TimePicker extends React.PureComponent {
 		const tabIndex = this.props.allowFocus ? 0 : -1;
 
 		return (
-			<DateTimePickerErrorConsumer>
+			<DateTimePickerErrorContext.Consumer>
 				{({ focusInput, hasError, formMode, hoursErrorId, minutesErrorId, secondsErrorId }) => (
 					<div className={classNames('tc-date-picker-time', theme['time-picker'])}>
 						<legend>
@@ -137,7 +137,7 @@ class TimePicker extends React.PureComponent {
 						{this.renderSeconds(tabIndex, hasError, formMode, secondsErrorId, focusInput)}
 					</div>
 				)}
-			</DateTimePickerErrorConsumer>
+			</DateTimePickerErrorContext.Consumer>
 		);
 	}
 }

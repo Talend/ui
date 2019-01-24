@@ -1,4 +1,3 @@
-import InputDateTimePicker, { DateTimePickerErrorConsumer } from './InputDateTimePicker.component';
+import InputDateTimePicker  from './InputDateTimePicker.component';
 
 export default InputDateTimePicker;
-export { DateTimePickerErrorConsumer };

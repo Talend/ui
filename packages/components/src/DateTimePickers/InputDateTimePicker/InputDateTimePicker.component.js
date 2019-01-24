@@ -9,6 +9,7 @@ import uuid from 'uuid';
 import { translate } from 'react-i18next';
 
 import DateTimePicker from '../DateTimePicker';
+import DateTimePickerErrorContext from './InputDateTimePickerContext';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 import {
 	checkSupportedDateFormat,
@@ -33,8 +34,6 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'useTime',
 	'useUTC',
 ];
-
-const DateTimePickerErrorContext = React.createContext();
 
 function DateTimeValidation({
 	t,
@@ -401,5 +400,4 @@ class InputDateTimePicker extends React.Component {
 		);
 	}
 }
-export const DateTimePickerErrorConsumer = DateTimePickerErrorContext.Consumer;
 export default InputDateTimePicker;
