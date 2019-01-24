@@ -10,6 +10,12 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   48:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
+src/MultiSelect/ItemView.scss
+  2:2  error  Class '.itemView' should be written in lowercase with hyphens  class-name-format
+
+src/MultiSelect/MultiSelect.scss
+  17:2  error  Class '.viewContainer' should be written in lowercase with hyphens  class-name-format
+
 src/Typeahead/Typeahead.scss
   34:5  error  Mixins should come before declarations  mixins-before-declarations
   91:5  error  Nesting depth 4 greater than max of 3   nesting-depth
@@ -17,5 +23,5 @@ src/Typeahead/Typeahead.scss
 src/VirtualizedList/RowCollapsiblePanel/RowCollapsiblePanel.scss
   2:24  error  Strings must use single quotes  quotes
 
-✖ 6 problems (4 errors, 2 warnings)
+✖ 8 problems (6 errors, 2 warnings)
 

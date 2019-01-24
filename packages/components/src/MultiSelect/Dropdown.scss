@@ -1,22 +1,21 @@
 // Dropdown styles
 .dropdown {
-    position: relative;
+	position: relative;
 }
-
 
 .loading {
-    padding: 50px;
-    text-align: center;
-    height: 80px;
-    background-color: $white;
+	padding: 50px;
+	text-align: center;
+	height: 80px;
+	background-color: $white;
 }
 .absolute {
-    z-index: 100;
-    position: absolute;
-    width: 100%;
-    background-color: $white;
-    border: 1px solid $gallery;
-    border-top: none;
-    border-radius: 0 5px;
-    color: $dove-gray;
+	z-index: 100;
+	position: absolute;
+	width: 100%;
+	background-color: $white;
+	border: 1px solid $gallery;
+	border-top: none;
+	border-radius: 0 5px;
+	color: $dove-gray;
 }

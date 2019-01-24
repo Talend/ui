@@ -1,21 +1,21 @@
 // MultiSelect styles
 .container {
-    color: black;
-    // this is the overlaytrigger span
-    :global(.tc-action-button-positionned) {
-        width: 100%;
-    }
-    position: relative;
+	color: black;
+	// this is the overlaytrigger span
+	:global(.tc-action-button-positionned) {
+		width: 100%;
+	}
+	position: relative;
 }
 
 .overlay {
-    background-color: $white;
-    :global(.tc-list-list) {
-        padding: 0;
-    }
+	background-color: $white;
+	:global(.tc-list-list) {
+		padding: 0;
+	}
 }
 .viewContainer {
-    :global(.tc-list-list) {
-        padding: 0;
-    }
+	:global(.tc-list-list) {
+		padding: 0;
+	}
 }

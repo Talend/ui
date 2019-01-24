@@ -62,4 +62,3 @@ export function ItemOption(props) {
 	return <ItemOptionRow {...props} />;
 }
 ItemOption.rowHeight = 40;
-
