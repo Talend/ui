@@ -12,6 +12,7 @@ import { ItemOption } from './ItemOption.component';
 import { ItemView } from './ItemView.component';
 import Dropdown from './Dropdown.container';
 import { CLEAR_ALL_VALUE, SELECT_ALL_VALUE, CREATE_NEW_VALUE, SPECIAL_VALUES } from './constants';
+import { ActionButton } from '../Actions/ActionButton/ActionButton.component';
 
 function getSelectedItems(props, state) {
 	const selected = props.options
@@ -267,6 +268,14 @@ class MultiSelect extends React.Component {
 					this.containerRef = ref;
 				}}
 			>
+				<ActionButton
+					icon="talend-cross"
+					bsStyle="link"
+					className={classnames('btn-icon-only', 'btn-sm', theme.clearAll)}
+					label={this.props.t('MULTI_SELECT_LABEL_CLEAR_ALL', { defaultValue: 'Clear all' })}
+					onClick={this.onClearAll}
+					hideLabel
+				/>
 				<input
 					type="text"
 					role="search"

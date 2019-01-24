@@ -5,12 +5,6 @@
 	height: 39x; // because of the border
 	border-bottom: 1px solid $gallery;
 	color: $dove-gray;
-	:global(.btn) {
-		padding: 0;
-		text-transform: none;
-		letter-spacing: normal;
-		color: $chestnut-rose;
-	}
 }
 
 .item {
