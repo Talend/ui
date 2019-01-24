@@ -36,7 +36,7 @@ class Photos extends React.Component {
 				<form>
 					<div className="form-group">
 						<label className="control-label" htmlFor="storybook">photos</label>
-						<MultiSelect id="storybook" titleMap={this.state.photos} isLoading={this.state.loading} />
+						<MultiSelect id="storybook" options={this.state.photos} isLoading={this.state.loading} />
 					</div>
 					<div className="form-group">
 						<input className="form-control" type="text" id="useless" />

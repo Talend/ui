@@ -319,7 +319,6 @@ class MultiSelect extends React.Component {
 						/>
 					</Overlay>
 				</div>
-				{/* <style type="text/css">{getStyle(this.props.id, height, this.state.width)}</style> */}
 				{!this.state.showDropdown && (
 					<div className={theme.viewContainer} style={{ height: viewHeight }}>
 						<VirtualizedList

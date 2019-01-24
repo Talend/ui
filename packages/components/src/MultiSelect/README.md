@@ -8,14 +8,14 @@ Features:
 * select all
 * create new item
 * default focus as any form widget
+* i18n
 
 Incoming features / TODO:
 
+* tests
 * a11y with keyboard gestures
 * default render support icon and description
-* tests
 * categories
-* refactor to move out from popover which is not the best for that.
 
 Props table
 
