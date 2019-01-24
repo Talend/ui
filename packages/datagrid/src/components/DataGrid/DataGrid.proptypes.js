@@ -2,8 +2,6 @@ import PropTypes from 'prop-types';
 
 const DATAGRID_PROPTYPES = {
 	avroRenderer: PropTypes.shape({
-		booleanCellRenderer: PropTypes.string,
-		dateCellRenderer: PropTypes.string,
 		intCellRenderer: PropTypes.string,
 		stringCellRenderer: PropTypes.string,
 	}),

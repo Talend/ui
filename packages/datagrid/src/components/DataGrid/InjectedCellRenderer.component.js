@@ -1,51 +1,39 @@
 import React from 'react';
-import isEqual from 'lodash/isEqual';
-import pick from 'lodash/pick';
-import partialRight from 'lodash/partialRight';
+import PropTypes from 'prop-types';
 import cmf from '@talend/react-cmf';
 import Inject from '@talend/react-components/lib/Inject';
 
 import DefaultCellRenderer from '../DefaultCellRenderer';
+import DATAGRID_PROPTYPES from './DataGrid.proptypes';
 
-const keptProperties = ['colDef', 'value', 'data'];
-const getCellKeys = partialRight(pick, keptProperties);
-
+// eslint-disable-next-line react/prefer-stateless-function
 export default class InjectedCellRenderer extends React.Component {
-	constructor(props) {
-		super(props);
-
-		this.state = getCellKeys(props);
-	}
-
-	/**
-	 * refresh - method call by ag-grid to refresh the data
-	 *
-	 * @param  {object} params new data
-	 * @return {boolean}       return to ag-grid if a the cell was refreshed
-	 */
-	refresh(params) {
-		if (!isEqual(params.data[params.colDef.field], this.state.data[params.colDef.field])) {
-			// we receive new data, we have the responsability to set a new state if the data has changed
-			this.setState(getCellKeys(params));
-			return true;
-		}
-
-		return false;
-	}
-
+	/*
+		why it is not a pure function ?
+			if we return a pure function, we pass on this case https://github.com/ag-grid/ag-grid/blob/master/packages/ag-grid-react/src/agGridReact.ts#L314
+			and we have as many calls as cells, this triggers memory leaks.
+			Also, we can't refresh a cell if the data changes without redraws all the grid
+	*/
 	render() {
 		const Component = Inject.get(
 			cmf.component.get,
-			this.state.colDef.injectedCellRenderer,
+			this.props.colDef.injectedCellRenderer,
 			DefaultCellRenderer,
 		);
 
 		return (
 			<Component
-				{...this.state}
-				avroRenderer={this.state.colDef.avroRenderer}
+				{...this.props}
+				avroRenderer={this.props.colDef.avroRenderer}
 				getComponent={cmf.component.get}
 			/>
 		);
 	}
 }
+
+InjectedCellRenderer.propTypes = {
+	colDef: PropTypes.shape({
+		avroRenderer: DATAGRID_PROPTYPES.avroRenderer,
+		injectedCellRenderer: 'string',
+	}),
+};
