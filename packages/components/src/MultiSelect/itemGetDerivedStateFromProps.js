@@ -3,9 +3,7 @@ export default function getDerivedStateFromProps(props, state) {
 	if (state.item === item) {
 		return null;
 	}
-	const areEqual = ['selected', 'value', 'name'].every(
-		attr => state.item[attr] === item[attr]
-	);
+	const areEqual = ['selected', 'value', 'name'].every(attr => state.item[attr] === item[attr]);
 	if (!areEqual) {
 		return { item };
 	}
