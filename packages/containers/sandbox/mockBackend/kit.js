@@ -87,7 +87,7 @@ function suggestionBig() {
 		function onEnd() {
 			console.log('onEnd', body);
 			cache.photos = {
-				items: JSON.parse(body).map(item => ({ id: item.id, label: item.title })),
+				items: JSON.parse(body).map(item => ({ id: item.id.toString(), label: item.title })),
 			};
 			res.json(cache.photos);
 		}

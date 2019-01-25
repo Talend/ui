@@ -7,14 +7,8 @@ import {
 	generateErrorId,
 } from '@talend/react-forms/lib/UIForm/Message/generateId';
 import callTrigger from '@talend/react-forms/lib/UIForm/trigger';
-
-function getLabel(titleMap, value, defaultName) {
-	const itemConf = titleMap.find(item => item.value === value);
-	if (itemConf) {
-		return itemConf.name;
-	}
-	return defaultName || value;
-}
+import getTitleMap from './getTitleMap';
+import getErrorMessage from './getErrorMessage';
 
 export default class MultiSelectField extends React.Component {
 	constructor(props) {
@@ -23,7 +17,6 @@ export default class MultiSelectField extends React.Component {
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onTriggerResult = this.onTriggerResult.bind(this);
 		this.onChange = this.onChange.bind(this);
-		this.getTitleMap = this.getTitleMap.bind(this);
 	}
 
 	componentDidMount() {
@@ -56,13 +49,8 @@ export default class MultiSelectField extends React.Component {
 	}
 
 	onChange(event, selected) {
-		this.setState({ selected });
-	}
-
-	getTitleMap() {
-		// the titleMap can be set by the trigger
-		// in that case it is set into the state
-		return this.state.titleMap || this.props.schema.titleMap;
+		// this.setState({ selected });
+		this.props.onChange(event, { schema: this.props.schema, value: selected });
 	}
 
 	render() {
@@ -70,15 +58,17 @@ export default class MultiSelectField extends React.Component {
 		// const names = this.props.resolveName(this.props.value);
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
+		const errorMsg = errorMessage || getErrorMessage(this.props);
+		const isDeepValid = isValid && !errorMsg;
 
 		return (
 			<FieldTemplate
 				description={schema.description}
 				descriptionId={descriptionId}
 				errorId={errorId}
-				errorMessage={errorMessage}
+				errorMessage={errorMsg}
 				id={id}
-				isValid={isValid}
+				isValid={isDeepValid}
 				label={schema.title}
 				required={schema.required}
 			>
@@ -93,8 +83,8 @@ export default class MultiSelectField extends React.Component {
 					onBlur={this.onTrigger}
 					onChange={this.onChange}
 					onFocus={this.onTrigger}
-					options={this.getTitleMap()}
-					selected={this.state.selected}
+					options={getTitleMap(this.props, this.state)}
+					selected={this.props.value}
 					isLoading={this.state.isLoading}
 				/>
 			</FieldTemplate>
