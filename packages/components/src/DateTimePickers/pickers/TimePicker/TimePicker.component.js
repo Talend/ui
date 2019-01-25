@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import uuid from 'uuid';
 import DebounceInput from 'react-debounce-input';
 import getDefaultT from '../../../translate';
-import DateTimePickerErrorContext from '../../InputDateTimePicker/InputDateTimePickerContext';
+import { DateTimePickerErrorContext } from '../../InputDateTimePicker/InputDateTimePickerContext';
 
 import theme from './TimePicker.scss';
 

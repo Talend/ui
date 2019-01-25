@@ -14,6 +14,8 @@ exports[`TimePicker should render 1`] = `
     Hours
   </label>
   <DebounceInput
+    aria-describedby=""
+    aria-invalid={false}
     className="theme-time-input"
     debounceTimeout={100}
     element="input"
@@ -21,7 +23,9 @@ exports[`TimePicker should render 1`] = `
     forceNotifyOnBlur={true}
     id="42-hour"
     minLength={0}
+    onBlur={[Function]}
     onChange={[Function]}
+    onFocus={[Function]}
     placeholder="HH"
     tabIndex={-1}
     type="text"
@@ -35,6 +39,8 @@ exports[`TimePicker should render 1`] = `
     Minutes
   </label>
   <DebounceInput
+    aria-describedby=""
+    aria-invalid={false}
     className="theme-time-input"
     debounceTimeout={100}
     element="input"
@@ -42,7 +48,9 @@ exports[`TimePicker should render 1`] = `
     forceNotifyOnBlur={true}
     id="42-minute"
     minLength={0}
+    onBlur={[Function]}
     onChange={[Function]}
+    onFocus={[Function]}
     placeholder="MM"
     tabIndex={-1}
     type="text"
@@ -60,4 +68,87 @@ exports[`TimePicker should render UTC legend 1`] = `
     UTC
   </div>
 </legend>
+`;
+
+exports[`TimePicker should render with error 1`] = `
+<div
+  className="tc-date-picker-time theme-time-picker"
+>
+  <legend>
+    Time
+  </legend>
+  <label
+    className="sr-only"
+    htmlFor="42-hour"
+  >
+    Hours
+  </label>
+  <DebounceInput
+    aria-describedby="hoursErrorId"
+    aria-invalid={true}
+    className="theme-time-input theme-time-error"
+    debounceTimeout={100}
+    element="input"
+    forceNotifyByEnter={true}
+    forceNotifyOnBlur={true}
+    id="42-hour"
+    minLength={0}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="HH"
+    tabIndex={-1}
+    type="text"
+    value="15"
+  />
+  <hr />
+  <label
+    className="sr-only"
+    htmlFor="42-minute"
+  >
+    Minutes
+  </label>
+  <DebounceInput
+    aria-describedby="minutesErrorId"
+    aria-invalid={true}
+    className="theme-time-input theme-time-error"
+    debounceTimeout={100}
+    element="input"
+    forceNotifyByEnter={true}
+    forceNotifyOnBlur={true}
+    id="42-minute"
+    minLength={0}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="MM"
+    tabIndex={-1}
+    type="text"
+    value="38"
+  />
+  <hr />
+  <label
+    className="sr-only"
+    htmlFor="42-second"
+  >
+    Seconds
+  </label>
+  <DebounceInput
+    aria-describedby="secondsErrorId"
+    aria-invalid={true}
+    className="theme-time-input theme-time-error"
+    debounceTimeout={100}
+    element="input"
+    forceNotifyByEnter={true}
+    forceNotifyOnBlur={true}
+    id="42-second"
+    minLength={0}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="SS"
+    tabIndex={-1}
+    type="text"
+  />
+</div>
 `;

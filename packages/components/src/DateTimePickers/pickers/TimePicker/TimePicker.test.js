@@ -1,22 +1,60 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount, render } from 'enzyme';
 
-import TimePicker from './TimePicker.component';
+// ensure you're resetting modules before each test
+beforeEach(() => {
+	jest.resetModules();
+});
+
+// Takes the context data we want to test, or uses defaults
+const getTimePickerWithContext = (context = { hasError: () => false }) => {
+
+	// Will then mock the LocalizeContext module being used in our LanguageSelector component
+	jest.doMock('../../InputDateTimePicker/InputDateTimePickerContext', () => {
+		return {
+			DateTimePickerErrorContext: {
+				Consumer: (props) => props.children(context)
+			}
+		}
+	});
+
+	// you need to re-require after calling jest.doMock.
+	// return the updated LanguageSelector module that now includes the mocked context
+	return require('./TimePicker.component').default;
+};
 
 describe('TimePicker', () => {
 	it('should render', () => {
+		const TimePicker = getTimePickerWithContext();
 		// when
-		const wrapper = shallow(
+		const wrapper = mount(
 			<TimePicker value={{ hours: '15', minutes: '38' }} onChange={jest.fn()} />,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find('.tc-date-picker-time').getElement()).toMatchSnapshot();
+	});
+
+	it('should render with error', () => {
+		const TimePicker = getTimePickerWithContext({
+			hasError: () => true,
+			hoursErrorId: 'hoursErrorId',
+			minutesErrorId: 'minutesErrorId',
+			secondsErrorId: 'secondsErrorId',
+		});
+		// when
+		const wrapper = mount(
+			<TimePicker value={{ hours: '15', minutes: '38' }} onChange={jest.fn()} useSeconds />,
+		);
+
+		// then
+		expect(wrapper.find('.tc-date-picker-time').getElement()).toMatchSnapshot();
 	});
 
 	it('should render UTC legend', () => {
 		// when
-		const wrapper = shallow(
+		const TimePicker = getTimePickerWithContext();
+		const wrapper = mount(
 			<TimePicker value={{ hours: '15', minutes: '38' }} onChange={jest.fn()} useUTC />,
 		);
 
@@ -26,18 +64,22 @@ describe('TimePicker', () => {
 
 	it('should trigger onChange on hours change', () => {
 		// given
-		const onChange = jest.fn();
-		const wrapper = shallow(
+		const TimePicker = getTimePickerWithContext({
+			hasError: () => true,
+			hoursErrorId: 'hoursErrorId',
+			minutesErrorId: 'minutesErrorId',
+			secondsErrorId: 'secondsErrorId',
+		});		const onChange = jest.fn();
+		const wrapper = mount(
 			<TimePicker value={{ hours: '15', minutes: '38' }} onChange={onChange} />,
 		);
+
 		const event = { target: { value: '17' } };
 		expect(onChange).not.toBeCalled();
 
 		// when
 		wrapper
-			.find('DebounceInput')
-			.at(0)
-			.simulate('change', event);
+			.find('.tc-date-picker-time').getElement().props.children[2].props.onChange(event);
 
 		// then
 		expect(onChange).toBeCalledWith(event, { hours: '17', minutes: '38' });
@@ -45,8 +87,9 @@ describe('TimePicker', () => {
 
 	it('should trigger onChange on minutes change', () => {
 		// given
+		const TimePicker = getTimePickerWithContext();
 		const onChange = jest.fn();
-		const wrapper = shallow(
+		const wrapper = mount(
 			<TimePicker value={{ hours: '15', minutes: '38' }} onChange={onChange} />,
 		);
 		const event = { target: { value: '17' } };
@@ -54,9 +97,7 @@ describe('TimePicker', () => {
 
 		// when
 		wrapper
-			.find('DebounceInput')
-			.at(1)
-			.simulate('change', event);
+			.find('.tc-date-picker-time').getElement().props.children[5].props.onChange(event);
 
 		// then
 		expect(onChange).toBeCalledWith(event, { hours: '15', minutes: '17' });
@@ -64,7 +105,8 @@ describe('TimePicker', () => {
 
 	it('should manage tabIndex', () => {
 		// given
-		const wrapper = shallow(<TimePicker onChange={jest.fn()} />);
+		const TimePicker = getTimePickerWithContext();
+		const wrapper = mount(<TimePicker onChange={jest.fn()} />);
 		expect(
 			wrapper
 				.find('DebounceInput')

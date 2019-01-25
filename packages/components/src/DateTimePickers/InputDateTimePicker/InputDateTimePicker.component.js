@@ -9,7 +9,7 @@ import uuid from 'uuid';
 import { translate } from 'react-i18next';
 
 import DateTimePicker from '../DateTimePicker';
-import DateTimePickerErrorContext from './InputDateTimePickerContext';
+import { DateTimePickerErrorContext } from './InputDateTimePickerContext';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 import {
 	checkSupportedDateFormat,
