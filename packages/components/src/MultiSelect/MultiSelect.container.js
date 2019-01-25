@@ -1,9 +1,10 @@
+/* eslint-disable react/sort-comp */
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { translate } from 'react-i18next';
 import keycode from 'keycode';
+import memoizeOne from 'memoize-one';
 
 import theme from './MultiSelect.scss';
 import VirtualizedList from '../VirtualizedList';
@@ -11,75 +12,12 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 import { ItemOption } from './ItemOption.component';
 import { ItemView } from './ItemView.component';
 import Dropdown from './Dropdown.container';
-import { SELECT_ALL_VALUE, CREATE_NEW_VALUE, SPECIAL_VALUES } from './constants';
+import { SELECT_ALL_VALUE, CREATE_NEW_VALUE } from './constants';
 import { ActionButton } from '../Actions/ActionButton/ActionButton.component';
 import Icon from '../Icon';
 
-function getSelectedItems(props, state) {
-	const selected = props.options
-		.concat(state.added || [])
-		.filter(item => state.selected.get(item.value));
-	return selected;
-}
-
-function getOptions(props, state) {
-	let options = [
-		{
-			value: SELECT_ALL_VALUE,
-			name: props.t('MULTI_SELECT_LABEL_SELECT_ALL', { defaultValue: 'Select all' }),
-			selected: false,
-		},
-	];
-	// apply search term on props.options + state.added
-	let found = props.options.concat(state.added || []);
-	let hasExactMatch = false;
-	const searchTerm = (state.searchTerm || '').toLowerCase();
-	if (searchTerm) {
-		found = found.filter(item => {
-			if (!hasExactMatch) {
-				hasExactMatch = item.name.toLowerCase() === searchTerm;
-			}
-			return item.name.toLowerCase().indexOf(searchTerm) !== -1;
-		});
-	}
-	if (Array.isArray(found)) {
-		options = options.concat(found);
-	}
-	// apply selected
-	options = options.map(item => ({
-		name: item.name,
-		value: item.value,
-		selected: state.selected.get(item.value),
-		searchTerm: state.searchTerm,
-	}));
-	if (Array.isArray(found)) {
-		options[0].selected = found.every(item => state.selected.get(item.value));
-		if (options[0].selected) {
-			options[0].name = props.t('MULTI_SELECT_LABEL_DESELECT_ALL', {
-				defaultValue: 'Deselect all',
-			});
-		}
-	}
-
-	if (props.withCreateNew && state.searchTerm && !hasExactMatch) {
-		options.push({
-			value: CREATE_NEW_VALUE,
-			name: props.t('MULTI_SELECT_LABEL_CREATE_NEW', {
-				defaultValue: '{{name}} (Create new)',
-				name: state.searchTerm,
-			}),
-			selected: false,
-		});
-	}
-	return options;
-}
-
-function getOptionsWithoutSpecialValues(options) {
-	return options.filter(item => SPECIAL_VALUES.indexOf(item.value) === -1);
-}
-
-function initSelected(props) {
-	return props.selected.reduce((acc, current) => {
+function initSelectedMap(selected) {
+	return selected.reduce((acc, current) => {
 		acc.set(current, true);
 		return acc;
 	}, new Map());
@@ -112,7 +50,7 @@ class MultiSelect extends React.Component {
 		selected: PropTypes.arrayOf(PropTypes.string),
 		itemOptionRender: PropTypes.func,
 		itemViewRender: PropTypes.func,
-		withCreateNew: PropTypes.bool,
+		restricted: PropTypes.bool,
 		readOnly: PropTypes.bool,
 		disabled: PropTypes.bool,
 		autoFocus: PropTypes.bool,
@@ -120,85 +58,158 @@ class MultiSelect extends React.Component {
 		onChange: PropTypes.func,
 		onBlur: PropTypes.func,
 		onFocus: PropTypes.func,
+		options: PropTypes.array,
 	};
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			selected: initSelected(props),
+			selected: new Map(),
 			added: [],
 		};
 		this.onSearchChange = this.onSearchChange.bind(this);
 		this.onRowClick = this.onRowClick.bind(this);
-		this.getTarget = this.getTarget.bind(this);
-		this.onFocus = this.onFocus.bind(this);
-		this.onKeyDown = this.onKeyDown.bind(this);
-		this.onDropdownHide = this.onDropdownHide.bind(this);
+		this.onInputFocus = this.onInputFocus.bind(this);
+		this.onInputKeyDown = this.onInputKeyDown.bind(this);
 		this.onClearAll = this.onClearAll.bind(this);
+		this.closeOnOutsideClick = this.closeOnOutsideClick.bind(this);
+		this.initSelectedMap = memoizeOne(initSelectedMap);
 	}
 
 	componentDidMount() {
-		const self = this;
-		document.addEventListener('click', event => {
-			// if event outside of me call onHide
-			if (self.containerRef !== null && !isIn(event.target, self.containerRef)) {
-				self.setState({ showDropdown: false });
-			}
-		});
+		document.addEventListener('click', this.closeOnOutsideClick);
 	}
 
-	componentWillReceiveProps(nextProps) {
-		if (nextProps.selected !== this.props.selected) {
-			this.setState({
-				selected: initSelected(nextProps),
-			});
-		}
+	getDerivedStateFromProps({ selected }) {
+		return { selected: this.initSelectedMap(selected) };
 	}
 
-	onNewSelected(event, selected) {
-		if (this.props.onChange) {
-			// controlled
-			this.props.onChange(event, Array.from(selected.keys()), getOptions(this.props, this.state));
-		} else {
-			// uncontrolled
-			this.setState({ selected });
-		}
+	componentWillUnmount() {
+		document.removeEventListener('click', this.closeOnOutsideClick);
 	}
 
-	onDropdownHide(event) {
-		if (event.target !== this.inputRef) {
+	closeOnOutsideClick(event) {
+		if (this.containerRef !== null && !isIn(event.target, this.containerRef)) {
 			this.setState({ showDropdown: false });
 		}
 	}
 
-	onKeyDown(event) {
-		switch (event.which) {
-			case keycode.codes.esc:
-				event.preventDefault();
-				this.setState({ showDropdown: false });
-				break;
-			default:
-				break;
-		}
-	}
-
-	onFocus(event) {
+	onInputFocus(event) {
 		this.setState({ showDropdown: true });
 		if (this.props.onFocus) {
 			this.props.onFocus(event);
 		}
 	}
 
-	onClearAll(event) {
-		const selected = new Map();
-		this.onNewSelected(event, selected);
+	onInputKeyDown(event) {
+		if (event.which === keycode.codes.esc) {
+			event.preventDefault();
+			this.setState({ showDropdown: false });
+		}
 	}
 
-	onSelectAll(event) {
-		// toggle the select only if all visible items are already selected
-		const options = getOptionsWithoutSpecialValues(getOptions(this.props, this.state));
-		const alreadySelected = options.every(item => this.state.selected.get(item.value));
+	onClearAll(event) {
+		this.updateSelection(event, new Map());
+	}
+
+	onSearchChange(event) {
+		this.setState({ searchTerm: event.target.value });
+	}
+
+	onRowClick(event, action) {
+		switch (action) {
+			case SELECT_ALL_VALUE:
+				this.selectAll(event);
+				break;
+			case CREATE_NEW_VALUE:
+				this.createNew(event);
+				break;
+			default:
+				this.selectOne(event, action);
+		}
+	}
+
+	getSelectedItems() {
+		return this.props.options
+			.concat(this.state.added || [])
+			.filter(item => this.state.selected.get(item.value));
+	}
+
+	getFilteredOptions() {
+		const { added = [], searchTerm = '' } = this.state;
+		const { options, restricted, t } = this.props;
+		const baseOptions = options.concat(added);
+
+		if (!searchTerm) {
+			return baseOptions;
+		}
+
+		// filter base options
+		let hasExactMatch = false;
+		const lowerSearchTerm = searchTerm.toLowerCase();
+		const filteredOptions = baseOptions.filter(({ name }) => {
+			const lowerOption = name.toLowerCase();
+			hasExactMatch = hasExactMatch || lowerOption === lowerSearchTerm;
+			return name.toLowerCase().indexOf(lowerSearchTerm) !== -1;
+		});
+
+		// insert new value creation option
+		if (!restricted && !hasExactMatch) {
+			filteredOptions.push({
+				value: CREATE_NEW_VALUE,
+				name: t('MULTI_SELECT_LABEL_CREATE_NEW', {
+					defaultValue: '{{name}} (Create new)',
+					name: searchTerm,
+				}),
+			});
+		}
+
+		return filteredOptions;
+	}
+
+	getListItems() {
+		const { searchTerm, selected } = this.state;
+		const { t } = this.props;
+
+		// apply search term on passed + added options
+		const options = this.getFilteredOptions().map(item => ({
+			name: item.name,
+			value: item.value,
+			selected: selected.get(item.value),
+			searchTerm,
+		}));
+
+		// insert select all option
+		if (options.length) {
+			const allSelected = options.every(item => item.selected);
+			options.unshift({
+				value: SELECT_ALL_VALUE,
+				name: allSelected
+					? t('MULTI_SELECT_LABEL_DESELECT_ALL', { defaultValue: 'Deselect all' })
+					: t('MULTI_SELECT_LABEL_SELECT_ALL', { defaultValue: 'Select all' }),
+				selected: allSelected,
+			});
+		}
+
+		return options;
+	}
+
+	createNew(event) {
+		const newItem = {
+			name: this.state.searchTerm,
+			value: this.state.searchTerm,
+		};
 		const selected = new Map(this.state.selected);
+		selected.set(newItem.value, true);
+		this.updateSelection(event, selected);
+		this.setState(({ added }) => ({ added: added.concat([newItem]) }));
+	}
+
+	selectAll(event) {
+		// toggle the select only if all visible items are already selected
+		const options = this.getFilteredOptions();
+		const alreadySelected = options.every(({ value }) => this.state.selected.get(value));
+		const newSelected = new Map(this.state.selected);
 		options.reduce((acc, current) => {
 			if (!alreadySelected) {
 				acc.set(current.value, true);
@@ -206,63 +217,32 @@ class MultiSelect extends React.Component {
 				acc.delete(current.value);
 			}
 			return acc;
-		}, selected);
-		this.onNewSelected(event, selected);
+		}, newSelected);
+		this.updateSelection(event, newSelected);
 	}
 
-	onSelectOne(event, id) {
+	selectOne(event, id) {
 		const selected = new Map(this.state.selected);
-		if (selected.has(id)) {
-			// eslint-disable-next-line no-param-reassign
+		if (selected.get(id)) {
 			selected.delete(id);
 		} else {
-			// eslint-disable-next-line no-param-reassign
 			selected.set(id, true);
 		}
-		this.onNewSelected(event, selected);
+		this.updateSelection(event, selected);
 	}
 
-	onSelectCreateNew(event) {
-		const newItem = {
-			name: this.state.searchTerm,
-			value: this.state.searchTerm,
-		};
-		const selected = new Map(this.state.selected);
-		selected.set(newItem.value, true);
-		this.onNewSelected(event, selected);
-
-		this.setState(prevState => {
-			prevState.added.push(newItem);
-			return Object.assign({}, prevState);
-		});
-	}
-
-	onSearchChange(event) {
-		const value = event.target.value;
-		this.setState(prevState => {
-			// eslint-disable-next-line no-param-reassign
-			prevState.searchTerm = value;
-			return prevState;
-		});
-	}
-
-	onRowClick(event, id) {
-		if (id === SELECT_ALL_VALUE) {
-			this.onSelectAll(event);
-		} else if (this.props.withCreateNew && id === CREATE_NEW_VALUE) {
-			this.onSelectCreateNew(event);
+	updateSelection(event, selected) {
+		if (this.props.onChange) {
+			// controlled
+			this.props.onChange(event, Array.from(selected.keys()), this.props.options);
 		} else {
-			this.onSelectOne(event, id);
+			// uncontrolled
+			this.setState({ selected });
 		}
-	}
-
-	getTarget() {
-		// eslint-disable-next-line react/no-find-dom-node
-		return ReactDOM.findDOMNode(this.inputRef);
 	}
 
 	render() {
-		const items = getOptions(this.props, this.state);
+		const items = this.getListItems();
 		const height = this.props.isLoading
 			? 120
 			: this.props.itemOptionRender.rowHeight * Math.min(items.length, 6);
@@ -283,14 +263,16 @@ class MultiSelect extends React.Component {
 					className={theme.caret}
 					transform={this.state.showDropdown ? 'flip-vertical' : null}
 				/>
-				<ActionButton
-					icon="talend-cross"
-					bsStyle="link"
-					className={classnames('btn-icon-only', 'btn-sm', theme.clearAll)}
-					label={this.props.t('MULTI_SELECT_LABEL_CLEAR_ALL', { defaultValue: 'Clear all' })}
-					onClick={this.onClearAll}
-					hideLabel
-				/>
+				{!!nbSelected && (
+					<ActionButton
+						icon="talend-cross"
+						bsStyle="link"
+						className={classnames('btn-icon-only', 'btn-sm', theme.clearAll)}
+						label={this.props.t('MULTI_SELECT_LABEL_CLEAR_ALL', { defaultValue: 'Clear all' })}
+						onClick={this.onClearAll}
+						hideLabel
+					/>
+				)}
 				<input
 					type="text"
 					role="search"
@@ -298,8 +280,8 @@ class MultiSelect extends React.Component {
 					name={this.props.name}
 					onBlur={this.props.onBlur}
 					onChange={this.onSearchChange}
-					onFocus={this.onFocus}
-					onKeyDown={this.onKeyDown}
+					onFocus={this.onInputFocus}
+					onKeyDown={this.onInputKeyDown}
 					disabled={this.props.disabled}
 					autoFocus={this.props.autoFocus}
 					placeholder={this.props.placeholder}
@@ -316,20 +298,20 @@ class MultiSelect extends React.Component {
 						items={items}
 						onRowClick={this.onRowClick}
 						renderItem={this.props.itemOptionRender}
-						onHide={this.onDropdownHide}
 					/>
 				)}
-				{!this.state.showDropdown && nbSelected > 0 && (
-					<div style={{ height: viewHeight }}>
-						<VirtualizedList
-							type="tc-multiselect"
-							rowHeight={this.props.itemViewRender.rowHeight}
-							rowRenderers={{ 'tc-multiselect': this.props.itemViewRender }}
-							collection={getSelectedItems(this.props, this.state)}
-							onRowClick={this.onRowClick}
-						/>
-					</div>
-				)}
+				{!this.state.showDropdown &&
+					nbSelected > 0 && (
+						<div style={{ height: viewHeight }}>
+							<VirtualizedList
+								type="tc-multiselect"
+								rowHeight={this.props.itemViewRender.rowHeight}
+								rowRenderers={{ 'tc-multiselect': this.props.itemViewRender }}
+								collection={this.getSelectedItems()}
+								onRowClick={this.onRowClick}
+							/>
+						</div>
+					)}
 			</div>
 		);
 	}

@@ -31,7 +31,6 @@ class ItemViewRow extends React.Component {
 		const item = this.props.parent.props.collection[this.props.index];
 		return (
 			<div className={theme.itemView} style={this.props.style}>
-				{/* <span className={theme.item}>{item.name}</span> */}
 				<Badge
 					label={item.name}
 					selected

@@ -78,7 +78,7 @@ export default class MultiSelectField extends React.Component {
 					required={schema.required}
 					placeholder={schema.placeholder}
 					readOnly={schema.readOnly}
-					withCreateNew={!schema.restricted}
+					restricted={schema.restricted}
 					onBlur={this.onTrigger}
 					onChange={this.onChange}
 					onFocus={this.onTrigger}
