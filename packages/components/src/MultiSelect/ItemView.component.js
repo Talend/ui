@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getDerivedStateFromProps from './itemGetDerivedStateFromProps';
 import theme from './ItemView.scss';
-import { CLEAR_ALL_VALUE } from './constants';
-import { ActionButton } from '../Actions/ActionButton/ActionButton.component';
+import Badge from '../Badge';
 
 class ItemViewRow extends React.Component {
 	static getDerivedStateFromProps = getDerivedStateFromProps;
@@ -32,17 +31,12 @@ class ItemViewRow extends React.Component {
 		const item = this.props.parent.props.collection[this.props.index];
 		return (
 			<div className={theme.itemView} style={this.props.style}>
-				{item.value === CLEAR_ALL_VALUE ? (
-					<ActionButton
-						bsStyle="link"
-						icon="talend-cross"
-						className={theme.item}
-						onClick={event => this.props.parent.props.onRowClick({ event, rowData: item.value })}
-						label={item.name}
-					/>
-				) : (
-					<span className={theme.item}>{item.name}</span>
-				)}
+				{/* <span className={theme.item}>{item.name}</span> */}
+				<Badge
+					label={item.name}
+					selected
+					onDelete={event => this.props.parent.props.onRowClick({ event, rowData: item.value })}
+				/>
 			</div>
 		);
 	}
@@ -62,4 +56,4 @@ ItemViewRow.propTypes = {
 export function ItemView(props) {
 	return <ItemViewRow {...props} />;
 }
-ItemView.rowHeight = 40;
+ItemView.rowHeight = 35;

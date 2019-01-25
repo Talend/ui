@@ -11,7 +11,7 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 import { ItemOption } from './ItemOption.component';
 import { ItemView } from './ItemView.component';
 import Dropdown from './Dropdown.container';
-import { CLEAR_ALL_VALUE, SELECT_ALL_VALUE, CREATE_NEW_VALUE, SPECIAL_VALUES } from './constants';
+import { SELECT_ALL_VALUE, CREATE_NEW_VALUE, SPECIAL_VALUES } from './constants';
 import { ActionButton } from '../Actions/ActionButton/ActionButton.component';
 import Icon from '../Icon';
 
@@ -238,8 +238,6 @@ class MultiSelect extends React.Component {
 	onRowClick(event, id) {
 		if (id === SELECT_ALL_VALUE) {
 			this.onSelectAll(event);
-		} else if (id === CLEAR_ALL_VALUE) {
-			this.onClearAll(event);
 		} else if (this.props.withCreateNew && id === CREATE_NEW_VALUE) {
 			this.onSelectCreateNew(event);
 		} else {
