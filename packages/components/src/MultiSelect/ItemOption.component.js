@@ -22,7 +22,7 @@ class ItemOptionRow extends React.Component {
 
 		return (
 			oldData !== newData &&
-			['selected', 'value', 'name'].some(attr => oldData[attr] !== newData[attr])
+			['selected', 'value', 'name', 'searchTerm'].some(attr => oldData[attr] !== newData[attr])
 		);
 	}
 
