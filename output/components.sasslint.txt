@@ -10,9 +10,6 @@ src/Drawer/Drawer.scss
 src/FilterBar/FilterBar.scss
   48:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
-src/MultiSelect/ItemView.scss
-  2:2  error  Class '.itemView' should be written in lowercase with hyphens  class-name-format
-
 src/MultiSelect/MultiSelect.scss
   15:2   error  Class '.clearAll' should be written in lowercase with hyphens  class-name-format
   19:24  error  !important not allowed                                         no-important
@@ -24,5 +21,5 @@ src/Typeahead/Typeahead.scss
 src/VirtualizedList/RowCollapsiblePanel/RowCollapsiblePanel.scss
   2:24  error  Strings must use single quotes  quotes
 
-✖ 9 problems (7 errors, 2 warnings)
+✖ 8 problems (6 errors, 2 warnings)
 
