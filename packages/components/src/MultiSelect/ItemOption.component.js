@@ -20,10 +20,7 @@ class ItemOptionRow extends React.Component {
 		const item = this.state.item;
 		const id = `${item.id || item.value}`;
 		return (
-			<div
-				className={classnames(theme.row, 'tc-multi-select-item')}
-				style={this.props.style}
-			>
+			<div className={classnames(theme.row, 'tc-multi-select-item')} style={this.props.style}>
 				<div className="form-group">
 					<div className="checkbox">
 						{/* eslint-disable-next-line  jsx-a11y/label-has-for */}

@@ -23,8 +23,8 @@
 .item {
 	font-weight: 400;
 	color: $dove-gray;
-	&[for="checkbox-create-new"],
-	&[for="checkbox-select-all"] {
+	&[for='checkbox-create-new'],
+	&[for='checkbox-select-all'] {
 		font-style: italic;
 	}
 }
