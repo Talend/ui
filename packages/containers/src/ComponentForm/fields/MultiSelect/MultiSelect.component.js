@@ -8,7 +8,6 @@ import {
 } from '@talend/react-forms/lib/UIForm/Message/generateId';
 import callTrigger from '@talend/react-forms/lib/UIForm/trigger';
 import getTitleMap from './getTitleMap';
-import getErrorMessage from './getErrorMessage';
 
 export default class MultiSelectField extends React.Component {
 	constructor(props) {
@@ -48,16 +47,33 @@ export default class MultiSelectField extends React.Component {
 		});
 	}
 
-	onChange(event, selected, titleMap) {
-		this.props.onChange(event, { schema: { ...this.props.schema, titleMap }, value: selected });
+	onChange(event, selected) {
+		const payload = {
+			schema: { ...this.props.schema, titleMap: getTitleMap(this.props, this.state) },
+			value: selected,
+		};
+		this.props.onChange(event, payload);
+		this.props.onFinish(event, payload);
+	}
+
+	getChildrenErrorMessage() {
+		const { errors } = this.props.errors;
+		if (!errors || errors.length === 0) {
+			return undefined;
+		}
+
+		const key = this.props.schema.key.toString();
+		return Object.entries(errors)
+			.filter(entry => entry[0].startsWith(key))
+			.map(entry => entry[1])
+			.join(', ');
 	}
 
 	render() {
 		const { id, isValid, errorMessage, schema } = this.props;
-		// const names = this.props.resolveName(this.props.value);
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
-		const errorMsg = errorMessage || getErrorMessage(this.props);
+		const errorMsg = errorMessage || this.getChildrenErrorMessage();
 		const isDeepValid = isValid && !errorMsg;
 
 		return (
@@ -97,7 +113,6 @@ if (process.env.NODE_ENV !== 'production') {
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
 		errors: PropTypes.object,
-		resolveName: PropTypes.func,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		onTrigger: PropTypes.func.isRequired,
@@ -106,6 +121,7 @@ if (process.env.NODE_ENV !== 'production') {
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
 			disabled: PropTypes.bool,
+			key: PropTypes.array,
 			placeholder: PropTypes.string,
 			readOnly: PropTypes.bool,
 			restricted: PropTypes.bool,
@@ -128,7 +144,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 MultiSelectField.defaultProps = {
 	isValid: true,
-	resolveName: value => value,
 	schema: {},
 	value: [],
 };
