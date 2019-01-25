@@ -191,7 +191,11 @@ class MultiSelect extends React.Component {
 		const alreadySelected = options.every(item => this.state.selected.get(item.value));
 		const selected = new Map(this.state.selected);
 		options.reduce((acc, current) => {
-			acc.set(current.value, !alreadySelected);
+			if (!alreadySelected) {
+				acc.set(current.value, true);
+			} else {
+				acc.delete(current.value);
+			}
 			return acc;
 		}, selected);
 		this.onNewSelected(event, selected);
