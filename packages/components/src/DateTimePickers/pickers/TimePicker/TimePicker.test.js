@@ -31,7 +31,12 @@ describe('TimePicker', () => {
 		);
 
 		// then
-		expect(wrapper.dive().find('.tc-date-picker-time').getElement()).toMatchSnapshot();
+		expect(
+			wrapper
+				.dive()
+				.find('.tc-date-picker-time')
+				.getElement(),
+		).toMatchSnapshot();
 	});
 
 	it('should render with error', () => {
@@ -47,7 +52,12 @@ describe('TimePicker', () => {
 		);
 
 		// then
-		expect(wrapper.dive().find('.tc-date-picker-time').getElement()).toMatchSnapshot();
+		expect(
+			wrapper
+				.dive()
+				.find('.tc-date-picker-time')
+				.getElement(),
+		).toMatchSnapshot();
 	});
 
 	it('should render UTC legend', () => {
@@ -58,7 +68,12 @@ describe('TimePicker', () => {
 		);
 
 		// then
-		expect(wrapper.dive().find('legend').getElement()).toMatchSnapshot();
+		expect(
+			wrapper
+				.dive()
+				.find('legend')
+				.getElement(),
+		).toMatchSnapshot();
 	});
 
 	it('should trigger onChange on hours change', () => {
@@ -80,7 +95,8 @@ describe('TimePicker', () => {
 		// when
 		wrapper
 			.dive()
-			.find('DebounceInput').at(0)
+			.find('DebounceInput')
+			.at(0)
 			.simulate('change', event);
 
 		// then
@@ -100,7 +116,8 @@ describe('TimePicker', () => {
 		// when
 		wrapper
 			.dive()
-			.find('DebounceInput').at(1)
+			.find('DebounceInput')
+			.at(1)
 			.simulate('change', event);
 
 		// then
