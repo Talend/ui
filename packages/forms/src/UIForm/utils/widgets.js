@@ -22,6 +22,8 @@ import Text, { TextTextMode } from '../fields/Text';
 import TextArea, { TextAreaTextMode } from '../fields/TextArea';
 import Toggle from '../fields/Toggle';
 
+import TriggerSkeleton from '../../TriggerSkeleton';
+
 const widgets = {
 	// fieldsets
 	array: ArrayWidget,
@@ -71,6 +73,7 @@ const widgets = {
 	radioOrSelect: RadioOrSelect,
 	resourcePicker: ResourcePicker,
 	toggle: Toggle,
+	loadingPlaceholder: TriggerSkeleton,
 };
 
 export default widgets;

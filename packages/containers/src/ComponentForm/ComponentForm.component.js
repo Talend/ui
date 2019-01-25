@@ -77,6 +77,7 @@ export class TCompForm extends React.Component {
 		this.onSubmit = this.onSubmit.bind(this);
 		this.onReset = this.onReset.bind(this);
 		this.getUISpec = this.getUISpec.bind(this);
+		this.addTriggerSkeleton = this.addTriggerSkeleton.bind(this);
 		this.setupTrigger = this.setupTrigger.bind(this);
 		this.setupTrigger(props);
 
@@ -87,7 +88,7 @@ export class TCompForm extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		if (this.props.state.get('properties') !== nextProps.state.get('properties')) {
-			this.setState({ properties: nextProps.state.get('properties').toJS() });
+			this.setState({ properties: nextProps.state.get('properties', {}).toJS() });
 		}
 	}
 
@@ -129,6 +130,8 @@ export class TCompForm extends React.Component {
 			type: TCompForm.ON_TRIGGER_BEGIN,
 			...payload,
 		});
+		this.addTriggerSkeleton();
+
 		return this.trigger(event, payload).then(data => {
 			this.props.dispatch({
 				type: TCompForm.ON_TRIGGER_END,
@@ -193,6 +196,30 @@ export class TCompForm extends React.Component {
 			jsonSchema: this.getMemoizedJsonSchema(this.props.state.get('jsonSchema')),
 			uiSchema: this.getMemoizedUiSchema(this.props.state.get('uiSchema')),
 		};
+	}
+
+	/**
+	 * will be erased by the backend trigger response
+	 */
+	addTriggerSkeleton() {
+		const loadingJsonSchema = this.props.state.getIn(['initialState', 'jsonSchema']).setIn(
+			['properties', '$$loadingPlaceholder'],
+			new Map({
+				title: 'Loading placeholder',
+				type: 'string',
+			}),
+		);
+		const loadingUiSchema = this.props.state.getIn(['initialState', 'uiSchema']).push(
+			new Map({
+				key: '$$loadingPlaceholder',
+				title: 'Loading placeholder',
+				widget: 'loadingPlaceholder',
+			}),
+		);
+		this.props.setState({
+			jsonSchema: loadingJsonSchema,
+			uiSchema: loadingUiSchema,
+		});
 	}
 
 	render() {

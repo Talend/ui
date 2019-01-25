@@ -7,15 +7,15 @@ export default function FormSkeleton() {
 		<div className={`${theme.container} tc-skeleton-heartbeat`} aria-busy>
 			<div className={theme['form-content']}>
 				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
-				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} size={400} />
+				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} />
 				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
-				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} size={400} />
+				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} />
 				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
-				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} size={400} />
+				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} />
 				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
-				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} size={400} />
+				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} />
 				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />
-				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} size={400} />
+				<Skeleton heartbeat={false} type={Skeleton.TYPES.text} />
 			</div>
 			<div className={theme.submit}>
 				<div className={theme['submit-wrapper']}>
