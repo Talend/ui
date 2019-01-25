@@ -149,7 +149,7 @@ class MultiSelect extends React.Component {
 	onNewSelected(event, selected) {
 		if (this.props.onChange) {
 			// controlled
-			this.props.onChange(event, Array.from(selected.keys()));
+			this.props.onChange(event, Array.from(selected.keys()), getOptions(this.props, this.state));
 		} else {
 			// uncontrolled
 			this.setState({ selected });

@@ -48,9 +48,8 @@ export default class MultiSelectField extends React.Component {
 		});
 	}
 
-	onChange(event, selected) {
-		// this.setState({ selected });
-		this.props.onChange(event, { schema: this.props.schema, value: selected });
+	onChange(event, selected, titleMap) {
+		this.props.onChange(event, { schema: { ...this.props.schema, titleMap }, value: selected });
 	}
 
 	render() {
