@@ -8,14 +8,13 @@ beforeEach(() => {
 
 // Takes the context data we want to test, or uses defaults
 const getTimePickerWithContext = (context = { hasError: () => false }) => {
-
 	// Will then mock the LocalizeContext module being used in our LanguageSelector component
 	jest.doMock('../../InputDateTimePicker/InputDateTimePickerContext', () => {
 		return {
 			DateTimePickerErrorContext: {
-				Consumer: (props) => props.children(context)
-			}
-		}
+				Consumer: props => props.children(context),
+			},
+		};
 	});
 
 	// you need to re-require after calling jest.doMock.
@@ -69,7 +68,8 @@ describe('TimePicker', () => {
 			hoursErrorId: 'hoursErrorId',
 			minutesErrorId: 'minutesErrorId',
 			secondsErrorId: 'secondsErrorId',
-		});		const onChange = jest.fn();
+		});
+		const onChange = jest.fn();
 		const wrapper = mount(
 			<TimePicker value={{ hours: '15', minutes: '38' }} onChange={onChange} />,
 		);
@@ -79,7 +79,9 @@ describe('TimePicker', () => {
 
 		// when
 		wrapper
-			.find('.tc-date-picker-time').getElement().props.children[2].props.onChange(event);
+			.find('.tc-date-picker-time')
+			.getElement()
+			.props.children[2].props.onChange(event);
 
 		// then
 		expect(onChange).toBeCalledWith(event, { hours: '17', minutes: '38' });
@@ -97,7 +99,9 @@ describe('TimePicker', () => {
 
 		// when
 		wrapper
-			.find('.tc-date-picker-time').getElement().props.children[5].props.onChange(event);
+			.find('.tc-date-picker-time')
+			.getElement()
+			.props.children[5].props.onChange(event);
 
 		// then
 		expect(onChange).toBeCalledWith(event, { hours: '15', minutes: '17' });
