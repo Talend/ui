@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container MultiSelect should render MultiSelect with props 1`] = `
+Object {
+  "bindI18n": "languageChanged loaded",
+  "bindStore": "added removed",
+  "children": [Function],
+  "i18n": Object {
+    "changeLanguage": [Function],
+    "getFixedT": [Function],
+    "hasResourceBundle": [Function],
+    "init": [Function],
+    "isInitialized": true,
+    "isMock": true,
+    "language": "en",
+    "languages": Array [
+      "en",
+    ],
+    "loadNamespaces": [Function],
+    "off": [Function],
+    "on": [Function],
+    "options": Object {},
+    "services": Object {
+      "resourceStore": Object {
+        "data": Object {},
+      },
+    },
+    "store": Object {
+      "data": Object {},
+      "off": [Function],
+      "on": [Function],
+    },
+    "t": [Function],
+  },
+  "ns": Array [
+    "tui-components",
+  ],
+  "nsMode": "default",
+  "omitBoundRerender": true,
+  "translateFuncName": "t",
+  "usePureComponent": false,
+  "wait": false,
+  "withRef": false,
+}
+`;

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MultiSelect field should render MultiSelect 1`] = `
+<FieldTemplate
+  description="This is the MultiSelect field"
+  descriptionId="my-select-tag-description"
+  errorId="my-select-tag-error"
+  errorMessage="This is wrong"
+  id="my-select-tag"
+  isValid={false}
+  label="Tags"
+  required={true}
+>
+  <Translate(MultiSelect)
+    autoFocus={true}
+    disabled={false}
+    id="my-select-tag"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    options={
+      Array [
+        Object {
+          "name": "toto",
+          "value": "titi",
+        },
+        Object {
+          "name": "tata",
+          "value": "tutu",
+        },
+      ]
+    }
+    placeholder="Type here"
+    readOnly={false}
+    required={true}
+    selected={
+      Array [
+        "aze",
+        "tutu",
+      ]
+    }
+    withCreateNew={true}
+  />
+</FieldTemplate>
+`;

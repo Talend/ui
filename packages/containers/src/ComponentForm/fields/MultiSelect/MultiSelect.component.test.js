@@ -4,9 +4,9 @@ import { mount, shallow } from 'enzyme';
 import Badge from '@talend/react-components/lib/Badge';
 import Typeahead from '@talend/react-components/lib/Typeahead';
 import keycode from 'keycode';
-import MultiSelectTag from './MultiSelectTag.component';
+import MultiSelect from './MultiSelect.component';
 
-describe('MultiSelectTag field', () => {
+describe('MultiSelect field', () => {
 	const props = {
 		id: 'my-select-tag',
 		isValid: true,
@@ -15,7 +15,7 @@ describe('MultiSelectTag field', () => {
 		onFinish: jest.fn(),
 		schema: {
 			autoFocus: true,
-			description: 'This is the MultiSelectTag field',
+			description: 'This is the MultiSelect field',
 			disabled: false,
 			placeholder: 'Type here',
 			readOnly: false,
@@ -27,9 +27,9 @@ describe('MultiSelectTag field', () => {
 		value: ['aze', 'tutu'],
 	};
 
-	it('should render MultiSelectTag', () => {
+	it('should render MultiSelect', () => {
 		// when
-		const wrapper = shallow(<MultiSelectTag {...props} />);
+		const wrapper = shallow(<MultiSelect {...props} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -37,7 +37,7 @@ describe('MultiSelectTag field', () => {
 
 	it('should update suggestion on input change', () => {
 		// given
-		const wrapper = mount(<MultiSelectTag {...props} />);
+		const wrapper = mount(<MultiSelect {...props} />);
 
 		// when
 		wrapper
@@ -53,12 +53,12 @@ describe('MultiSelectTag field', () => {
 		// given
 		const node = document.createElement('div');
 		// eslint-disable-next-line react/no-render-return-value
-		const instance = ReactDOM.render(<MultiSelectTag {...props} />, node);
+		const instance = ReactDOM.render(<MultiSelect {...props} />, node);
 		instance.updateSuggestions();
 		expect(instance.state.suggestions).toEqual([{ title: 'toto', value: 'titi' }]);
 
 		// when : trigger a props update
-		ReactDOM.render(<MultiSelectTag {...props} value={['aze']} />, node);
+		ReactDOM.render(<MultiSelect {...props} value={['aze']} />, node);
 
 		// then
 		expect(instance.state.suggestions).toEqual([
@@ -69,7 +69,7 @@ describe('MultiSelectTag field', () => {
 
 	it('should suggest new item creation when widget is not restricted', () => {
 		// given
-		const wrapper = mount(<MultiSelectTag {...props} />);
+		const wrapper = mount(<MultiSelect {...props} />);
 
 		// when
 		wrapper
@@ -84,7 +84,7 @@ describe('MultiSelectTag field', () => {
 	it('should NOT suggest new item creation when widget is restricted', () => {
 		// given
 		const restrictedSchema = { ...props.schema, restricted: true };
-		const wrapper = mount(<MultiSelectTag {...props} schema={restrictedSchema} />);
+		const wrapper = mount(<MultiSelect {...props} schema={restrictedSchema} />);
 
 		// when
 		wrapper
@@ -100,7 +100,7 @@ describe('MultiSelectTag field', () => {
 		// given
 		const onChange = jest.fn();
 		const onFinish = jest.fn();
-		const wrapper = mount(<MultiSelectTag {...props} onChange={onChange} onFinish={onFinish} />);
+		const wrapper = mount(<MultiSelect {...props} onChange={onChange} onFinish={onFinish} />);
 		const input = wrapper.find('input').at(0);
 
 		// when
@@ -117,7 +117,7 @@ describe('MultiSelectTag field', () => {
 		// given
 		const onChange = jest.fn();
 		const onFinish = jest.fn();
-		const wrapper = mount(<MultiSelectTag {...props} onChange={onChange} onFinish={onFinish} />);
+		const wrapper = mount(<MultiSelect {...props} onChange={onChange} onFinish={onFinish} />);
 
 		// when
 		wrapper
@@ -156,7 +156,7 @@ describe('MultiSelectTag field', () => {
 				],
 			},
 		};
-		const wrapper = shallow(<MultiSelectTag {...triggerProps} />);
+		const wrapper = shallow(<MultiSelect {...triggerProps} />);
 		const event = { type: 'focus', target: wrapper.instance() };
 
 		// when
@@ -181,7 +181,7 @@ describe('MultiSelectTag field', () => {
 			...props,
 			resolveName: value => value.map(next => `${next}_name`),
 		};
-		const wrapper = shallow(<MultiSelectTag {...nameResolverProps} />);
+		const wrapper = shallow(<MultiSelect {...nameResolverProps} />);
 
 		// when
 		const firstLabel = wrapper
