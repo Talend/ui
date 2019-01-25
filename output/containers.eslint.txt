@@ -6,8 +6,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   90:1  error  Expected indentation of 3 tabs but found 2  indent
 
 /home/travis/build/Talend/ui/packages/containers/src/ComponentForm/fields/MultiSelect/MultiSelect.component.js
-  101:16  error  'resolveName' PropType is defined but prop is never used  react/no-unused-prop-types
-  103:13  error  'onFinish' PropType is defined but prop is never used     react/no-unused-prop-types
+  100:16  error  'resolveName' PropType is defined but prop is never used  react/no-unused-prop-types
+  102:13  error  'onFinish' PropType is defined but prop is never used     react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/containers/src/ComponentForm/fields/MultiSelect/MultiSelect.component.test.js
   7:28  error  Unable to resolve path to module './MultiSelectTag.component'  import/no-unresolved
