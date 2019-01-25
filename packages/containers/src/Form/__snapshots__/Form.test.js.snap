@@ -10,6 +10,7 @@ Object {
   "customFormats": undefined,
   "customValidation": undefined,
   "data": Object {
+    "errors": Object {},
     "jsonSchema": Object {
       "schema": true,
     },
@@ -39,6 +40,7 @@ exports[`Container(Form) should render a Form 1`] = `
   className="tc-form rjsf pristine"
   data={
     Object {
+      "errors": Object {},
       "jsonSchema": Object {
         "schema": true,
       },
