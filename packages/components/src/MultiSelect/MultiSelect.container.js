@@ -271,7 +271,7 @@ class MultiSelect extends React.Component {
 					<ActionButton
 						icon="talend-cross"
 						bsStyle="link"
-						className={classnames('btn-icon-only', 'btn-sm', theme.clearAll)}
+						className={classnames('btn-icon-only', 'btn-sm', theme.clearall)}
 						label={this.props.t('MULTI_SELECT_LABEL_CLEAR_ALL', { defaultValue: 'Clear all' })}
 						onClick={this.onClearAll}
 						hideLabel
@@ -304,17 +304,18 @@ class MultiSelect extends React.Component {
 						renderItem={this.props.itemOptionRender}
 					/>
 				)}
-				{!this.state.showDropdown && nbSelected > 0 && (
-					<div style={{ height: viewHeight }}>
-						<VirtualizedList
-							type="tc-multiselect"
-							rowHeight={this.props.itemViewRender.rowHeight}
-							rowRenderers={{ 'tc-multiselect': this.props.itemViewRender }}
-							collection={this.getSelectedItems()}
-							onRowClick={this.onRowClick}
-						/>
-					</div>
-				)}
+				{!this.state.showDropdown &&
+					nbSelected > 0 && (
+						<div style={{ height: viewHeight }}>
+							<VirtualizedList
+								type="tc-multiselect"
+								rowHeight={this.props.itemViewRender.rowHeight}
+								rowRenderers={{ 'tc-multiselect': this.props.itemViewRender }}
+								collection={this.getSelectedItems()}
+								onRowClick={this.onRowClick}
+							/>
+						</div>
+					)}
 			</div>
 		);
 	}
