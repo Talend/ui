@@ -345,8 +345,10 @@ class InputDateTimePicker extends React.Component {
 							'INVALID_MONTH',
 							'INVALID_DAY',
 							'DATETIME_INVALID_FORMAT',
-							'TIME_FORMAT_INVALID'
-						]) ? this.inputErrorId : ''
+							'TIME_FORMAT_INVALID',
+						])
+							? this.inputErrorId
+							: ''
 					}
 				/>
 				<div
