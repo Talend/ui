@@ -93,7 +93,7 @@ class RowLarge extends React.Component {
 					this.ref = ref;
 				}}
 				role="listitem"
-				tabIndex={this.props.tabIndex}
+				tabIndex="0"
 				aria-posinset={index + 1}
 				aria-setsize={parent.props.rowCount}
 				aria-label={titleField && getCellData(titleField, parent, index)}
@@ -125,11 +125,9 @@ RowLarge.propTypes = {
 	/** Custom style that react-virtualized provides */
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	t: PropTypes.func.isRequired,
-	tabIndex: PropTypes.number,
 };
 RowLarge.defaultProps = {
 	t: getDefaultT(),
-	tabIndex: 0,
 };
 
 export default withListGesture(translate(I18N_DOMAIN_COMPONENTS)(RowLarge));

@@ -63,7 +63,6 @@ class RendererSelector extends React.Component {
 			width,
 			disableHeader,
 			inProgress,
-			tabIndex,
 		} = this.props;
 
 		const collection = inProgress ? [] : this.props.collection;
@@ -81,7 +80,6 @@ class RendererSelector extends React.Component {
 			onScroll,
 			rowHeight,
 			width,
-			tabIndex,
 		};
 
 		let ListRenderer;

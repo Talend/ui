@@ -75,7 +75,6 @@ function VirtualizedList(props) {
 					disableHeader={disableHeader}
 					inProgress={inProgress}
 					rowRenderers={rowRenderers}
-					tabIndex={props.tabIndex}
 				>
 					{columnDefinitions}
 				</RendererSelector>
