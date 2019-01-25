@@ -2,8 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Badge from '@talend/react-components/lib/Badge';
 import { TextMode as FieldTemplate } from '@talend/react-forms/lib/UIForm/fields/FieldTemplate';
+import VirtualizedList from '@talend/react-components/lib/VirtualizedList';
 
 import theme from './TextMode.scss';
+import getTitleMap from '../getTitleMap';
 
 function getLabel(titleMap, value) {
 	const itemConf = titleMap.find(item => item.value === value);
@@ -13,24 +15,39 @@ function getLabel(titleMap, value) {
 	return value;
 }
 
-export default function MultiSelectTextMode({ id, schema, value }) {
-	const { title } = schema;
-
+function renderItem(props) {
+	const item = props.parent.props.collection[props.index];
 	return (
-		<FieldTemplate id={id} label={title}>
-			<ul aria-labelledby={id} className={theme['tc-badge-list']}>
-				{value.map((val, index) => (
-					<li>
-						<Badge key={index} label={getLabel(schema.titleMap, val)} />
-					</li>
-				))}
-			</ul>
+		<Badge
+			className={theme.badge}
+			style={props.style}
+			key={props.index}
+			label={item.name}
+			selected
+		/>
+	);
+}
+renderItem.height = 35;
+
+export default function MultiSelectTextMode(props) {
+	const titleMap = getTitleMap(props);
+	return (
+		<FieldTemplate id={props.id} label={props.schema.title}>
+			<div style={{ height: 300 }}>
+				<VirtualizedList
+					type="tc-multiselect"
+					rowHeight={props.itemViewRender.rowHeight}
+					rowRenderers={{ 'tc-multiselect': props.itemViewRender }}
+					collection={titleMap}
+				/>
+			</div>
 		</FieldTemplate>
 	);
 }
 
 if (process.env.NODE_ENV !== 'production') {
 	MultiSelectTextMode.propTypes = {
+		itemViewRender: PropTypes.func,
 		id: PropTypes.string,
 		schema: PropTypes.shape({
 			title: PropTypes.string,
@@ -47,4 +64,5 @@ if (process.env.NODE_ENV !== 'production') {
 
 MultiSelectTextMode.defaultProps = {
 	value: [],
+	itemViewRender: renderItem,
 };
