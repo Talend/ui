@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { shallow } from 'enzyme';
 
 // ensure you're resetting modules before each test
 beforeEach(() => {
@@ -26,12 +26,12 @@ describe('TimePicker', () => {
 	it('should render', () => {
 		const TimePicker = getTimePickerWithContext();
 		// when
-		const wrapper = mount(
+		const wrapper = shallow(
 			<TimePicker value={{ hours: '15', minutes: '38' }} onChange={jest.fn()} />,
 		);
 
 		// then
-		expect(wrapper.find('.tc-date-picker-time').getElement()).toMatchSnapshot();
+		expect(wrapper.dive().find('.tc-date-picker-time').getElement()).toMatchSnapshot();
 	});
 
 	it('should render with error', () => {
@@ -42,23 +42,23 @@ describe('TimePicker', () => {
 			secondsErrorId: 'secondsErrorId',
 		});
 		// when
-		const wrapper = mount(
+		const wrapper = shallow(
 			<TimePicker value={{ hours: '15', minutes: '38' }} onChange={jest.fn()} useSeconds />,
 		);
 
 		// then
-		expect(wrapper.find('.tc-date-picker-time').getElement()).toMatchSnapshot();
+		expect(wrapper.dive().find('.tc-date-picker-time').getElement()).toMatchSnapshot();
 	});
 
 	it('should render UTC legend', () => {
 		// when
 		const TimePicker = getTimePickerWithContext();
-		const wrapper = mount(
+		const wrapper = shallow(
 			<TimePicker value={{ hours: '15', minutes: '38' }} onChange={jest.fn()} useUTC />,
 		);
 
 		// then
-		expect(wrapper.find('legend').getElement()).toMatchSnapshot();
+		expect(wrapper.dive().find('legend').getElement()).toMatchSnapshot();
 	});
 
 	it('should trigger onChange on hours change', () => {
@@ -70,7 +70,7 @@ describe('TimePicker', () => {
 			secondsErrorId: 'secondsErrorId',
 		});
 		const onChange = jest.fn();
-		const wrapper = mount(
+		const wrapper = shallow(
 			<TimePicker value={{ hours: '15', minutes: '38' }} onChange={onChange} />,
 		);
 
@@ -79,9 +79,9 @@ describe('TimePicker', () => {
 
 		// when
 		wrapper
-			.find('.tc-date-picker-time')
-			.getElement()
-			.props.children[2].props.onChange(event);
+			.dive()
+			.find('DebounceInput').at(0)
+			.simulate('change', event);
 
 		// then
 		expect(onChange).toBeCalledWith(event, { hours: '17', minutes: '38' });
@@ -91,7 +91,7 @@ describe('TimePicker', () => {
 		// given
 		const TimePicker = getTimePickerWithContext();
 		const onChange = jest.fn();
-		const wrapper = mount(
+		const wrapper = shallow(
 			<TimePicker value={{ hours: '15', minutes: '38' }} onChange={onChange} />,
 		);
 		const event = { target: { value: '17' } };
@@ -99,9 +99,9 @@ describe('TimePicker', () => {
 
 		// when
 		wrapper
-			.find('.tc-date-picker-time')
-			.getElement()
-			.props.children[5].props.onChange(event);
+			.dive()
+			.find('DebounceInput').at(1)
+			.simulate('change', event);
 
 		// then
 		expect(onChange).toBeCalledWith(event, { hours: '15', minutes: '17' });
@@ -110,15 +110,17 @@ describe('TimePicker', () => {
 	it('should manage tabIndex', () => {
 		// given
 		const TimePicker = getTimePickerWithContext();
-		const wrapper = mount(<TimePicker onChange={jest.fn()} />);
+		const wrapper = shallow(<TimePicker onChange={jest.fn()} />);
 		expect(
 			wrapper
+				.dive()
 				.find('DebounceInput')
 				.at(0)
 				.prop('tabIndex'),
 		).toBe(-1);
 		expect(
 			wrapper
+				.dive()
 				.find('DebounceInput')
 				.at(1)
 				.prop('tabIndex'),
@@ -130,12 +132,14 @@ describe('TimePicker', () => {
 		// then
 		expect(
 			wrapper
+				.dive()
 				.find('DebounceInput')
 				.at(0)
 				.prop('tabIndex'),
 		).toBe(0);
 		expect(
 			wrapper
+				.dive()
 				.find('DebounceInput')
 				.at(1)
 				.prop('tabIndex'),
