@@ -19,10 +19,13 @@
 	color: $chestnut-rose !important;
 }
 .caret {
-	position: absolute;
-	color: $silver;
-	top: 6px;
-	right: 0;
-	width: 10px;
-	height: 10px;
+	// add this selector to force override of width defined in Icon
+	&:global(.tc-svg-icon) {
+		position: absolute;
+		color: $silver;
+		top: 10px;
+		right: 0;
+		width: 10px;
+		height: 10px;
+	}
 }

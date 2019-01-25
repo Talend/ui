@@ -314,7 +314,6 @@ class MultiSelect extends React.Component {
 							rowRenderers={{ 'tc-multiselect': this.props.itemViewRender }}
 							collection={getSelectedItems(this.props, this.state)}
 							onRowClick={this.onRowClick}
-							tabIndex={-1}
 						/>
 					</div>
 				)}
