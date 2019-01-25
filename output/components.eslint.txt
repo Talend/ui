@@ -2,6 +2,9 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/InputDateTimePicker.component.js
+  45:2  error  'inputErrorId' is missing in props validation  react/prop-types
+
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/InputDateTimePickerContext.js
   3:1  error  Prefer default export  import/prefer-default-export
 
@@ -26,6 +29,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 10 problems (8 errors, 2 warnings)
+✖ 11 problems (9 errors, 2 warnings)
   1 error, 0 warnings potentially fixable with the `--fix` option.
 
