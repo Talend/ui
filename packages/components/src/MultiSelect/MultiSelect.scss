@@ -14,7 +14,15 @@
 }
 .clearAll {
 	position: absolute;
-	right: 0;
+	right: 20px;
 	padding: 0;
 	color: $chestnut-rose!important;
+}
+.caret {
+	position: absolute;
+	color: $silver;
+	top: 6px;
+	right: 0;
+	width: 10px;
+	height: 10px;
 }

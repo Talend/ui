@@ -1,6 +1,8 @@
 // ItemOption styles
 .row {
-	padding: $padding-smaller $padding-normal;
+	// padding: $padding-smaller $padding-normal;
+	padding-left: $padding-normal;
+	padding-top: $padding-normal;
 	display: block;
 	width: 100%;
 	&:hover {
@@ -14,7 +16,7 @@
 		margin: 0;
 	}
 	label {
-		height: 40px;
+		height: 30px;
 		width: 100%;
 	}
 }

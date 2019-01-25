@@ -13,6 +13,7 @@ import { ItemView } from './ItemView.component';
 import Dropdown from './Dropdown.container';
 import { CLEAR_ALL_VALUE, SELECT_ALL_VALUE, CREATE_NEW_VALUE, SPECIAL_VALUES } from './constants';
 import { ActionButton } from '../Actions/ActionButton/ActionButton.component';
+import Icon from '../Icon';
 
 function getSelectedItems(props, state) {
 	const selected = props.options
@@ -268,6 +269,11 @@ class MultiSelect extends React.Component {
 					this.containerRef = ref;
 				}}
 			>
+				<Icon
+					name="talend-caret-down"
+					className={theme.caret}
+					transform={this.state.showDropdown ? 'flip-vertical' : null}
+				/>
 				<ActionButton
 					icon="talend-cross"
 					bsStyle="link"
