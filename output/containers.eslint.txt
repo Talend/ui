@@ -5,6 +5,16 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/ActionBar/ActionBar.test.js
   90:1  error  Expected indentation of 3 tabs but found 2  indent
 
+/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/fields/MultiSelect/displayMode/TextMode.component.js
+  10:10  error  'getLabel' is defined but never used                      no-unused-vars
+  19:21  error  'parent' is missing in props validation                   react/prop-types
+  19:28  error  'parent.props' is missing in props validation             react/prop-types
+  19:34  error  'parent.props.collection' is missing in props validation  react/prop-types
+  19:51  error  'index' is missing in props validation                    react/prop-types
+  23:17  error  'style' is missing in props validation                    react/prop-types
+  24:15  error  'index' is missing in props validation                    react/prop-types
+  61:10  error  'value' PropType is defined but prop is never used        react/no-unused-prop-types
+
 /home/travis/build/Talend/ui/packages/containers/src/ComponentForm/fields/MultiSelect/MultiSelect.component.js
   100:16  error  'resolveName' PropType is defined but prop is never used  react/no-unused-prop-types
   102:13  error  'onFinish' PropType is defined but prop is never used     react/no-unused-prop-types
@@ -22,6 +32,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
 
-✖ 8 problems (8 errors, 0 warnings)
+✖ 16 problems (16 errors, 0 warnings)
   3 errors, 0 warnings potentially fixable with the `--fix` option.
 
