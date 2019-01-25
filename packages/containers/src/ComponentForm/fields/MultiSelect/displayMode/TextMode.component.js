@@ -7,14 +7,6 @@ import VirtualizedList from '@talend/react-components/lib/VirtualizedList';
 import theme from './TextMode.scss';
 import getTitleMap from '../getTitleMap';
 
-function getLabel(titleMap, value) {
-	const itemConf = titleMap.find(item => item.value === value);
-	if (itemConf) {
-		return itemConf.name;
-	}
-	return value;
-}
-
 function renderItem(props) {
 	const item = props.parent.props.collection[props.index];
 	return (
@@ -28,6 +20,11 @@ function renderItem(props) {
 	);
 }
 renderItem.height = 35;
+renderItem.propTypes = {
+	parent: PropTypes.object,
+	style: PropTypes.object,
+	index: PropTypes.number,
+};
 
 export default function MultiSelectTextMode(props) {
 	const titleMap = getTitleMap(props);
@@ -58,7 +55,6 @@ if (process.env.NODE_ENV !== 'production') {
 				}),
 			),
 		}).isRequired,
-		value: PropTypes.arrayOf(PropTypes.string),
 	};
 }
 

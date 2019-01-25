@@ -52,6 +52,15 @@ function getOptions(props, state) {
 		selected: state.selected.get(item.value),
 		searchTerm: state.searchTerm,
 	}));
+	if (Array.isArray(found)) {
+		options[0].selected = found.every(item => state.selected.get(item.value));
+		if (options[0].selected) {
+			options[0].name = props.t('MULTI_SELECT_LABEL_DESELECT_ALL', {
+				defaultValue: 'Deselect all',
+			});
+		}
+	}
+
 	if (props.withCreateNew && state.searchTerm && !hasExactMatch) {
 		options.push({
 			value: CREATE_NEW_VALUE,
