@@ -6,10 +6,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   90:1  error  Expected indentation of 3 tabs but found 2  indent
 
 /home/travis/build/Talend/ui/packages/containers/src/ComponentForm/fields/MultiSelect/MultiSelect.component.js
-   11:10  error  'getLabel' is defined but never used                      no-unused-vars
-  111:16  error  'resolveName' PropType is defined but prop is never used  react/no-unused-prop-types
-  112:13  error  'onChange' PropType is defined but prop is never used     react/no-unused-prop-types
-  113:13  error  'onFinish' PropType is defined but prop is never used     react/no-unused-prop-types
+  101:16  error  'resolveName' PropType is defined but prop is never used  react/no-unused-prop-types
+  103:13  error  'onFinish' PropType is defined but prop is never used     react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/containers/src/ComponentForm/fields/MultiSelect/MultiSelect.component.test.js
   7:28  error  Unable to resolve path to module './MultiSelectTag.component'  import/no-unresolved
@@ -24,6 +22,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
 
-✖ 10 problems (10 errors, 0 warnings)
+✖ 8 problems (8 errors, 0 warnings)
   3 errors, 0 warnings potentially fixable with the `--fix` option.
 
