@@ -9,9 +9,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   100:16  error  'resolveName' PropType is defined but prop is never used  react/no-unused-prop-types
   102:13  error  'onFinish' PropType is defined but prop is never used     react/no-unused-prop-types
 
-/home/travis/build/Talend/ui/packages/containers/src/ComponentForm/fields/MultiSelect/MultiSelect.component.test.js
-  7:28  error  Unable to resolve path to module './MultiSelectTag.component'  import/no-unresolved
-
 /home/travis/build/Talend/ui/packages/containers/src/DeleteResource/sagas.test.js
   177:15  error  Missing trailing comma  comma-dangle
   192:5   error  Missing semicolon       semi
@@ -22,6 +19,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
 
-✖ 8 problems (8 errors, 0 warnings)
+✖ 7 problems (7 errors, 0 warnings)
   3 errors, 0 warnings potentially fixable with the `--fix` option.
 
