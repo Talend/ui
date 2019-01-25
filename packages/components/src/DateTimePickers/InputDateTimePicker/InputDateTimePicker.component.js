@@ -104,6 +104,7 @@ DateTimeValidation.propTypes = {
 	hoursErrorId: PropTypes.string,
 	minutesErrorId: PropTypes.string,
 	secondsErrorId: PropTypes.string,
+	inputErrorId: PropTypes.string,
 };
 
 DateTimeValidation.defaultProps = {
@@ -346,9 +347,7 @@ class InputDateTimePicker extends React.Component {
 							'INVALID_DAY',
 							'DATETIME_INVALID_FORMAT',
 							'TIME_FORMAT_INVALID',
-						])
-							? this.inputErrorId
-							: ''
+						]) ? this.inputErrorId : ''
 					}
 				/>
 				<div

@@ -9,17 +9,17 @@ beforeEach(() => {
 // Takes the context data we want to test, or uses defaults
 const getTimePickerWithContext = (context = { hasError: () => false }) => {
 	// Will then mock the LocalizeContext module being used in our LanguageSelector component
-	jest.doMock('../../InputDateTimePicker/InputDateTimePickerContext', () => {
-		return {
-			DateTimePickerErrorContext: {
-				Consumer: props => props.children(context),
-			},
-		};
-	});
+	/* eslint-disable */
+	jest.doMock('../../InputDateTimePicker/InputDateTimePickerContext', () => ({
+		DateTimePickerErrorContext: {
+			Consumer: props => props.children(context),
+		},
+	}));
 
 	// you need to re-require after calling jest.doMock.
-	// return the updated LanguageSelector module that now includes the mocked context
+	// return the updated TimePicker module that now includes the mocked context
 	return require('./TimePicker.component').default;
+	/* eslint-enable */
 };
 
 describe('TimePicker', () => {
