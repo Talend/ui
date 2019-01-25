@@ -63,10 +63,7 @@ class MultiSelect extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {
-			selected: new Map(),
-			added: [],
-		};
+		this.state = { added: [] };
 		this.onSearchChange = this.onSearchChange.bind(this);
 		this.onRowClick = this.onRowClick.bind(this);
 		this.onInputFocus = this.onInputFocus.bind(this);
@@ -78,10 +75,6 @@ class MultiSelect extends React.Component {
 
 	componentDidMount() {
 		document.addEventListener('click', this.closeOnOutsideClick);
-	}
-
-	getDerivedStateFromProps({ selected }) {
-		return { selected: this.initSelectedMap(selected) };
 	}
 
 	componentWillUnmount() {
@@ -129,10 +122,21 @@ class MultiSelect extends React.Component {
 		}
 	}
 
+	getSelectedMap() {
+		// uncontrolled
+		if (this.state.selected) {
+			return this.state.selected;
+		}
+		// controlled
+		return this.initSelectedMap(this.props.selected);
+	}
+
 	getSelectedItems() {
+		debugger;
+		const selected = this.getSelectedMap();
 		return this.props.options
 			.concat(this.state.added || [])
-			.filter(item => this.state.selected.get(item.value));
+			.filter(item => selected.get(item.value));
 	}
 
 	getFilteredOptions() {
@@ -168,14 +172,14 @@ class MultiSelect extends React.Component {
 	}
 
 	getListItems() {
-		const { searchTerm, selected } = this.state;
+		const { searchTerm } = this.state;
 		const { t } = this.props;
 
 		// apply search term on passed + added options
 		const options = this.getFilteredOptions().map(item => ({
 			name: item.name,
 			value: item.value,
-			selected: selected.get(item.value),
+			selected: this.getSelectedMap().get(item.value),
 			searchTerm,
 		}));
 
@@ -199,7 +203,7 @@ class MultiSelect extends React.Component {
 			name: this.state.searchTerm,
 			value: this.state.searchTerm,
 		};
-		const selected = new Map(this.state.selected);
+		const selected = new Map(this.getSelectedMap());
 		selected.set(newItem.value, true);
 		this.updateSelection(event, selected);
 		this.setState(({ added }) => ({ added: added.concat([newItem]) }));
@@ -207,9 +211,10 @@ class MultiSelect extends React.Component {
 
 	selectAll(event) {
 		// toggle the select only if all visible items are already selected
+		const selected = this.getSelectedMap();
 		const options = this.getFilteredOptions();
-		const alreadySelected = options.every(({ value }) => this.state.selected.get(value));
-		const newSelected = new Map(this.state.selected);
+		const alreadySelected = options.every(({ value }) => selected.get(value));
+		const newSelected = new Map(selected);
 		options.reduce((acc, current) => {
 			if (!alreadySelected) {
 				acc.set(current.value, true);
@@ -222,7 +227,7 @@ class MultiSelect extends React.Component {
 	}
 
 	selectOne(event, id) {
-		const selected = new Map(this.state.selected);
+		const selected = new Map(this.getSelectedMap());
 		if (selected.get(id)) {
 			selected.delete(id);
 		} else {
@@ -247,7 +252,7 @@ class MultiSelect extends React.Component {
 			? 120
 			: this.props.itemOptionRender.rowHeight * Math.min(items.length, 6);
 
-		const nbSelected = this.state.selected.size;
+		const nbSelected = this.getSelectedMap().size;
 		const viewHeight = this.props.itemViewRender.rowHeight * Math.min(6, nbSelected + 1);
 
 		return (

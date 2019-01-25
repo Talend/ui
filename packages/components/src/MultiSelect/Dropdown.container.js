@@ -13,9 +13,9 @@ export default function Dropdown(props) {
 				</div>
 			) : (
 				<VirtualizedList
-					type="custom"
+					type="tc-multiselect-dropdown"
 					rowHeight={props.renderItem.rowHeight}
-					rowRenderers={{ custom: props.renderItem }}
+					rowRenderers={{ 'tc-multiselect-dropdown': props.renderItem }}
 					collection={props.items}
 					onRowClick={props.onRowClick}
 				/>
