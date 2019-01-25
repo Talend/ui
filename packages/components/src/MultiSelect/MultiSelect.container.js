@@ -189,13 +189,11 @@ class MultiSelect extends React.Component {
 		// toggle the select only if all visible items are already selected
 		const options = getOptionsWithoutSpecialValues(getOptions(this.props, this.state));
 		const alreadySelected = options.every(item => this.state.selected.get(item.value));
-		let selected = new Map();
-		if (!alreadySelected) {
-			selected = options.reduce((acc, current) => {
-				acc.set(current.value, true);
-				return acc;
-			}, new Map());
-		}
+		const selected = new Map(this.state.selected);
+		options.reduce((acc, current) => {
+			acc.set(current.value, !alreadySelected);
+			return acc;
+		}, selected);
 		this.onNewSelected(event, selected);
 	}
 
