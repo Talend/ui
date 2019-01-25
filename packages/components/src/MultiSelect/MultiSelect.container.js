@@ -300,18 +300,17 @@ class MultiSelect extends React.Component {
 						renderItem={this.props.itemOptionRender}
 					/>
 				)}
-				{!this.state.showDropdown &&
-					nbSelected > 0 && (
-						<div style={{ height: viewHeight }}>
-							<VirtualizedList
-								type="tc-multiselect"
-								rowHeight={this.props.itemViewRender.rowHeight}
-								rowRenderers={{ 'tc-multiselect': this.props.itemViewRender }}
-								collection={this.getSelectedItems()}
-								onRowClick={this.onRowClick}
-							/>
-						</div>
-					)}
+				{!this.state.showDropdown && nbSelected > 0 && (
+					<div style={{ height: viewHeight }}>
+						<VirtualizedList
+							type="tc-multiselect"
+							rowHeight={this.props.itemViewRender.rowHeight}
+							rowRenderers={{ 'tc-multiselect': this.props.itemViewRender }}
+							collection={this.getSelectedItems()}
+							onRowClick={this.onRowClick}
+						/>
+					</div>
+				)}
 			</div>
 		);
 	}
