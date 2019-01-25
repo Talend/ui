@@ -1,4 +1,3 @@
-
 /**
  * getErrors return a summary of unique errors inside array of string
  * @param {Object} props MultiSelect component props
