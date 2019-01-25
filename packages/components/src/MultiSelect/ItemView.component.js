@@ -1,36 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getDerivedStateFromProps from './itemGetDerivedStateFromProps';
-import theme from './ItemView.scss';
+import { getRowData } from '../VirtualizedList/utils/gridrow';
 import Badge from '../Badge';
 
 class ItemViewRow extends React.Component {
-	static getDerivedStateFromProps = getDerivedStateFromProps;
+	static getDerivedStateFromProps(props) {
+		return { item: getRowData(props.parent, props.index) };
+	}
 
 	constructor(props) {
 		super(props);
-		this.state = {
-			item: props.parent.props.collection[props.index],
-		};
+		this.state = {};
 	}
 
 	shouldComponentUpdate(nextProps, nextState) {
-		if (!nextProps.isVisible) {
-			return false;
-		}
-		const nextItem = nextState.item;
-		if (nextItem) {
-			const results = ['selected', 'value', 'name'].every(
-				attr => this.state.item[attr] === nextItem[attr],
-			);
-			return !results;
-		}
-		return false;
-	}
-	render() {
-		const item = this.props.parent.props.collection[this.props.index];
+		const oldData = this.state.item;
+		const newData = nextState.item;
+
 		return (
-			<div className={theme.itemView} style={this.props.style}>
+			oldData !== newData &&
+			['selected', 'value', 'name'].some(attr => oldData[attr] !== newData[attr])
+		);
+	}
+
+	render() {
+		const item = this.state.item;
+		return (
+			<div style={this.props.style}>
 				<Badge
 					label={item.name}
 					selected

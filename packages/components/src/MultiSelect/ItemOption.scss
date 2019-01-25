@@ -1,27 +1,18 @@
-// ItemOption styles
 .row {
-	// padding: $padding-smaller $padding-normal;
 	padding-left: $padding-normal;
-	padding-top: $padding-normal;
-	display: block;
-	width: 100%;
 	&:hover {
-		color: $dove-gray; // override theme
 		background-color: $concrete;
 	}
-	// reset form padding so all the line can be clicked without changing height
-	:global(.form-group),
+
 	:global(.checkbox) {
-		padding: 0;
 		margin: 0;
 	}
 	label {
-		height: 30px;
+		height: 3rem;
 		width: 100%;
 	}
 }
 .item {
-	font-weight: 400;
 	color: $dove-gray;
 	&[for='checkbox-create-new'],
 	&[for='checkbox-select-all'] {
