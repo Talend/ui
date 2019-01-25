@@ -67,9 +67,9 @@ describe('ActionBar', () => {
 		const wrapperMounted = mount(<ActionBarComponent {...props} />);
 		// then
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
-		const switchActions = wrapperMounted.find(ActionBarComponent.SwitchActions);
+		const switchActions = wrapperMounted.find(ActionBarComponent.SwitchActions).first();
 		expect(switchActions.props().left).toBe(true);
-		expect(switchActions.props().selected).toBe(0);
+		expect(switchActions.props().components).toBeUndefined();
 	});
 
 	it('should render no-selected actions, some on left, the other on right', () => {
@@ -183,14 +183,22 @@ describe('ActionBar.SwitchActions', () => {
 		const wrapper = shallow(<ActionBarComponent.SwitchActions actions={actions} right />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
-	it('should render one Action on navbar-left with selected', () => {
+	it('should render one Action on navbar-left with an injection', () => {
+		const countComponent = (
+			<ActionBarComponent.Count selected={3} t={(key, value) => `${value.selected} ${key}`} />
+		);
+		const components = {
+			'before-actions': countComponent,
+		};
+
 		const wrapper = shallow(
-			<ActionBarComponent.SwitchActions selected={3} actions={actions} left />,
+			<ActionBarComponent.SwitchActions
+				actions={actions}
+				getComponent={'whatever'}
+				components={components}
+				left
+			/>,
 		);
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
-	});
-	it('should not render selected on right', () => {
-		const wrapper = shallow(<ActionBarComponent.SwitchActions selected={3} right />);
-		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });

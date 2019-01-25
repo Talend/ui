@@ -215,12 +215,10 @@ describe('<Form/>', () => {
 					.first()
 					.instance().value,
 			).toEqual('Test');
-			setTimeout(() => {
-				wrapper.setState({}, () => {
-					expect(onChange.mock.calls.length).toEqual(1);
-					done();
-				});
-			}, 100);
+			wrapper.setState({}, () => {
+				expect(onChange.mock.calls.length).toEqual(1);
+				done();
+			});
 		});
 
 		it('should handles triggers and change if field as ui:trigger property', done => {
@@ -231,13 +229,11 @@ describe('<Form/>', () => {
 			input.simulate('change', { target: { value: true } });
 
 			// then
-			setTimeout(() => {
-				wrapper.setState({}, () => {
-					expect(onChange.mock.calls.length).toEqual(1);
-					expect(onTrigger.mock.calls.length).toEqual(1);
-					done();
-				});
-			}, 100);
+			wrapper.setState({}, () => {
+				expect(onChange.mock.calls.length).toEqual(1);
+				expect(onTrigger.mock.calls.length).toEqual(1);
+				done();
+			});
 		});
 
 		it('should not trigger onTrigger if updated field has no ui:trigger property', done => {
@@ -248,13 +244,11 @@ describe('<Form/>', () => {
 			input.simulate('change', { target: { value: 'Test' } });
 
 			// then
-			setTimeout(() => {
-				wrapper.setState({}, () => {
-					expect(onTrigger.mock.calls.length).toEqual(0);
-					expect(onChange.mock.calls.length).toEqual(1);
-					done();
-				});
-			}, 100);
+			wrapper.setState({}, () => {
+				expect(onTrigger.mock.calls.length).toEqual(0);
+				expect(onChange.mock.calls.length).toEqual(1);
+				done();
+			});
 		});
 
 		it('should handle submit', () => {
