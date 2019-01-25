@@ -42,16 +42,17 @@ function DateTimeValidation({
 	hoursErrorId,
 	minutesErrorId,
 	secondsErrorId,
+	inputErrorId,
 }) {
 	const codeIdMapping = {
 		INVALID_HOUR: hoursErrorId,
 		INVALID_MINUTES: minutesErrorId,
 		INVALID_SECONDS: secondsErrorId,
-		INVALID_DATE_FORMAT: '',
-		INVALID_MONTH: '',
-		INVALID_DAY: '',
-		DATETIME_INVALID_FORMAT: '',
-		TIME_FORMAT_INVALID: '',
+		INVALID_DATE_FORMAT: inputErrorId,
+		INVALID_MONTH: inputErrorId,
+		INVALID_DAY: inputErrorId,
+		DATETIME_INVALID_FORMAT: inputErrorId,
+		TIME_FORMAT_INVALID: inputErrorId,
 	};
 
 	function isErrorHidden(error) {
@@ -150,6 +151,7 @@ class InputDateTimePicker extends React.Component {
 
 		checkSupportedDateFormat(props.dateFormat);
 		this.popoverId = `date-time-picker-${props.id || uuid.v4()}`;
+		this.inputErrorId = `${props.id}-input-error`;
 		this.hoursErrorId = `${props.id}-hours-error`;
 		this.minutesErrorId = `${props.id}-minutes-error`;
 		this.secondsErrorId = `${props.id}-seconds-error`;
@@ -296,12 +298,15 @@ class InputDateTimePicker extends React.Component {
 		this.setState({ focusedInput: focusedId });
 	}
 
-	hasError(errorCode) {
+	hasError(error) {
 		// no error management in component when not in formMode
 		if (!this.props.formMode) {
 			return false;
 		}
-		return !!this.state.errors.find(error => error.code === errorCode);
+		if (Array.isArray(error)) {
+			return !!this.state.errors.find(stateError => error.indexOf(stateError.code) > -1);
+		}
+		return !!this.state.errors.find(stateError => stateError.code === error);
 	}
 
 	resetDate() {
@@ -334,6 +339,15 @@ class InputDateTimePicker extends React.Component {
 					onChange={this.onInputChange}
 					className="form-control"
 					autoComplete="off"
+					aria-describedby={
+						this.hasError([
+							'INVALID_DATE_FORMAT',
+							'INVALID_MONTH',
+							'INVALID_DAY',
+							'DATETIME_INVALID_FORMAT',
+							'TIME_FORMAT_INVALID'
+						]) ? this.inputErrorId : ''
+					}
 				/>
 				<div
 					className={theme['dropdown-wrapper']}
@@ -373,6 +387,7 @@ class InputDateTimePicker extends React.Component {
 									hoursErrorId={this.hoursErrorId}
 									minutesErrorId={this.minutesErrorId}
 									secondsErrorId={this.secondsErrorId}
+									inputErrorId={this.inputErrorId}
 								/>
 							)}
 						</Popover>

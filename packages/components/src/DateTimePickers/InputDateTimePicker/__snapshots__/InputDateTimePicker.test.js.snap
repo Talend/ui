@@ -8,6 +8,7 @@ exports[`InputDateTimePicker should render 1`] = `
 >
   <div>
     <DebounceInput
+      aria-describedby=""
       autoComplete="off"
       className="form-control"
       debounceTimeout={300}
@@ -87,6 +88,7 @@ exports[`InputDateTimePicker should render validation button 1`] = `
   >
     <div>
       <DebounceInput
+        aria-describedby=""
         autoComplete="off"
         className="form-control"
         debounceTimeout={300}
@@ -151,6 +153,109 @@ exports[`InputDateTimePicker should render validation button 1`] = `
             <Translate(DateTimeValidation)
               errors={Array []}
               hoursErrorId="DEFAULT_ID-hours-error"
+              inputErrorId="DEFAULT_ID-input-error"
+              minutesErrorId="DEFAULT_ID-minutes-error"
+              secondsErrorId="DEFAULT_ID-seconds-error"
+            />
+          </Popover>
+        </Overlay>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`InputDateTimePicker should render with format error 1`] = `
+<div
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div>
+      <DebounceInput
+        aria-describedby="DEFAULT_ID-input-error"
+        autoComplete="off"
+        className="form-control"
+        debounceTimeout={300}
+        element="input"
+        forceNotifyByEnter={true}
+        forceNotifyOnBlur={true}
+        formMode={true}
+        id="DEFAULT_ID"
+        inputRef={[Function]}
+        minLength={0}
+        onChange={[Function]}
+        placeholder="YYYY-MM-DD HH:mm"
+        type="text"
+        value="2012-10-12 12"
+      />
+      <div
+        className="theme-dropdown-wrapper"
+      >
+        <Overlay
+          animation={[Function]}
+          placement="right"
+          rootClose={false}
+          show={false}
+        >
+          <Popover
+            bsClass="popover"
+            className="theme-popover"
+            id="date-time-picker-DEFAULT_ID"
+            placement="right"
+          >
+            <Context.Provider
+              value={
+                Object {
+                  "focusInput": [Function],
+                  "formMode": true,
+                  "hasError": [Function],
+                  "hoursErrorId": "DEFAULT_ID-hours-error",
+                  "minutesErrorId": "DEFAULT_ID-minutes-error",
+                  "secondsErrorId": "DEFAULT_ID-seconds-error",
+                }
+              }
+            >
+              <DateTimePicker
+                errors={
+                  Array [
+                    DatePickerException {
+                      "code": "DATETIME_INVALID_FORMAT",
+                      "message": "DATETIME - INCORRECT FORMAT",
+                    },
+                  ]
+                }
+                manageFocus={true}
+                onSubmit={[Function]}
+                selection={
+                  Object {
+                    "date": undefined,
+                    "time": Object {
+                      "hours": "",
+                      "minutes": "",
+                      "seconds": "00",
+                    },
+                  }
+                }
+                useSeconds={false}
+                useTime={true}
+                useUTC={false}
+              />
+            </Context.Provider>
+            <Translate(DateTimeValidation)
+              errors={
+                Array [
+                  DatePickerException {
+                    "code": "DATETIME_INVALID_FORMAT",
+                    "message": "DATETIME - INCORRECT FORMAT",
+                  },
+                ]
+              }
+              hoursErrorId="DEFAULT_ID-hours-error"
+              inputErrorId="DEFAULT_ID-input-error"
               minutesErrorId="DEFAULT_ID-minutes-error"
               secondsErrorId="DEFAULT_ID-seconds-error"
             />

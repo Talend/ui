@@ -22,6 +22,21 @@ describe('InputDateTimePicker', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render with format error', () => {
+		// when
+		const wrapper = shallow(
+			<InputDateTimePicker
+				id={DEFAULT_ID}
+				selectedDateTime={'2012-10-12 12'}
+				useTime
+				formMode
+			/>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should render validation button', () => {
 		// when
 		const wrapper = shallow(

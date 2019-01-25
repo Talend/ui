@@ -268,7 +268,7 @@ function strToTime(strToParse, useSeconds) {
 	const timeRegex = useSeconds ? timeWithSecondsPartRegex : timePartRegex;
 	const timeMatches = strToParse.match(timeRegex);
 	if (!timeMatches) {
-		throw new DatePickerException('TIME_FORMAT_INVALID', 'TIME - INCORRECT FORMAT');
+		throw new DatePickerException('TIME_FORMAT_INVALID', 'TIME_FORMAT_INVALID');
 	}
 
 	const hours = timeMatches[1];
