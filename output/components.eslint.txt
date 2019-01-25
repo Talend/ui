@@ -5,6 +5,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
   105:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
 
+/home/travis/build/Talend/ui/packages/components/src/MultiSelect/MultiSelect.container.js
+  50:13  error  'selected' PropType is defined but prop is never used  react/no-unused-prop-types
+
 /home/travis/build/Talend/ui/packages/components/src/ResourcePicker/ResourcePicker.component.js
   17:2  warning  Unexpected console statement  no-console
 
@@ -17,5 +20,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 5 problems (3 errors, 2 warnings)
+✖ 6 problems (4 errors, 2 warnings)
 
