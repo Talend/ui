@@ -13,7 +13,7 @@ function isFiltered({ state } = {}) {
 	return state && (state.certified || state.favorites);
 }
 
-export default function ResourcePicker({ collection, isSelected, onRowClick, toolbar }) {
+export default function ResourcePicker({ collection, isSelected, onRowClick, toolbar, isLoading }) {
 	console.warn(
 		"UNSTABLE WARNING: The 'ResourcePicker' and all the sub components aren't ready to be used in Apps. Code can (will) change outside the release process until it's ready.",
 	);
@@ -32,6 +32,7 @@ export default function ResourcePicker({ collection, isSelected, onRowClick, too
 				})}
 			>
 				<VirtualizedList
+					inProgress={isLoading}
 					collection={collection}
 					type="resource"
 					rowRenderers={{ resource: Renderer }}
@@ -51,5 +52,6 @@ ResourcePicker.propTypes = {
 	isSelected: PropTypes.func,
 	onRowClick: PropTypes.func,
 	collection: PropTypes.arrayOf(PropTypes.object),
+	isLoading: PropTypes.bool,
 	toolbar: Toolbar.propTypes,
 };
