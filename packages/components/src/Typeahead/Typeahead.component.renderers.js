@@ -141,15 +141,15 @@ export function renderItem(additionalOptions = {}) {
 		}
 		return (
 			<div className={theme.item} title={title} data-feature={additionalOptions['data-feature']}>
-			<span className={classNames(theme['item-title'], 'tc-typeahead-item-title')}>
-				<Emphasis value={value} text={title}/>
-			</span>
+				<span className={classNames(theme['item-title'], 'tc-typeahead-item-title')}>
+					<Emphasis value={value} text={title} />
+				</span>
 				{description && (
 					<p className={classNames(theme['item-description'], 'tc-typeahead-item-description')}>
-						<Emphasis value={value} text={description}/>
+						<Emphasis value={value} text={description} />
 					</p>
 				)}
 			</div>
 		);
-	}
+	};
 }
