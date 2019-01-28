@@ -159,7 +159,11 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 	}
 
 	&.disabled {
-		opacity: .5;
+		color: $silver-chalice;
+
+		&:hover {
+			background: none;
+		}
 	}
 }
 
