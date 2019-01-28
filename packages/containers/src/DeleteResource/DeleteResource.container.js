@@ -117,14 +117,14 @@ export class DeleteResource extends React.Component {
 			question = (
 				<Trans i18nKey="DELETE_RESOURCE_MESSAGE" context="female">
 					Are you sure you want to remove the {{ resourceType: resourceInfo.resourceTypeLabel }}{' '}
-					<strong>{{ label: resourceInfo.label }}</strong> ?
+					<strong>{{ label: resourceInfo.label }}</strong>?
 				</Trans>
 			);
 		} else {
 			question = (
 				<Trans i18nKey="DELETE_RESOURCE_MESSAGE">
 					Are you sure you want to remove the {{ resourceType: resourceInfo.resourceTypeLabel }}{' '}
-					<strong>{{ label: resourceInfo.label }}</strong> ?
+					<strong>{{ label: resourceInfo.label }}</strong>?
 				</Trans>
 			);
 		}
