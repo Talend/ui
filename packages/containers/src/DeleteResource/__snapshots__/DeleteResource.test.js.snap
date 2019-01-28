@@ -50,7 +50,7 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
   >
     Are you sure you want to remove the 
     Object {
-      "resourceType": "resourceLabel",
+      "resourceTypeLabel": "resourceLabel",
     }
      
     <strong>
@@ -112,7 +112,7 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
   >
     Are you sure you want to remove the 
     Object {
-      "resourceType": "unknownResourceType",
+      "resourceTypeLabel": "unknownResourceType",
     }
      
     <strong>
