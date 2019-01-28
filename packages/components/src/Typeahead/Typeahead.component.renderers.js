@@ -129,25 +129,27 @@ export function renderSectionTitle(section) {
 	return null;
 }
 
-export function renderItem(item, { value }) {
-	let title;
-	let description;
-	if (typeof item === 'string') {
-		title = item;
-	} else {
-		title = (item.title || item.name || '').trim();
-		description = item.description;
-	}
-	return (
-		<div className={theme.item} title={title}>
+export function renderItem(additionalOptions = {}) {
+	return (item, { value }) => {
+		let title;
+		let description;
+		if (typeof item === 'string') {
+			title = item;
+		} else {
+			title = (item.title || item.name || '').trim();
+			description = item.description;
+		}
+		return (
+			<div className={theme.item} title={title} data-feature={additionalOptions['data-feature']}>
 			<span className={classNames(theme['item-title'], 'tc-typeahead-item-title')}>
-				<Emphasis value={value} text={title} />
+				<Emphasis value={value} text={title}/>
 			</span>
-			{description && (
-				<p className={classNames(theme['item-description'], 'tc-typeahead-item-description')}>
-					<Emphasis value={value} text={description} />
-				</p>
-			)}
-		</div>
-	);
+				{description && (
+					<p className={classNames(theme['item-description'], 'tc-typeahead-item-description')}>
+						<Emphasis value={value} text={description}/>
+					</p>
+				)}
+			</div>
+		);
+	}
 }

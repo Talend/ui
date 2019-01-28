@@ -607,6 +607,7 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
       >
         <div
           className="theme-item"
+          data-feature="my-feature"
           title="category 1"
         >
           <span
@@ -626,6 +627,7 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
       >
         <div
           className="theme-item"
+          data-feature="my-feature"
           title="category 2"
         >
           <span

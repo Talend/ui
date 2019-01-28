@@ -118,6 +118,7 @@ storiesOf('Typeahead', module)
 		const props = {
 			value: 'le',
 			items,
+			additionalOptions: { 'data-feature': 'data-feature-typeahead' },
 			onBlur: action('onBlur'),
 			onChange: action('onChange'),
 			onSelect: action('onSelect'),

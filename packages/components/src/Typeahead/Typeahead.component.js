@@ -87,7 +87,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 	};
 
 	const defaultRenderersProps = {
-		renderItem,
+		renderItem: renderItem(rest.additionalOptions),
 		renderItemsContainer: renderItemsContainerFactory(
 			rest.items,
 			rest.noResultText,
