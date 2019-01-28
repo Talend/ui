@@ -115,6 +115,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		items: rest.items || [],
 		itemProps: {
 			onMouseDown: rest.onSelect,
+			'data-feature': rest['data-feature'],
 		},
 	};
 
