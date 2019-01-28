@@ -138,9 +138,13 @@ function createCommonProps(tab) {
 
 			if (key.includes('ResourcePicker')) {
 				return new Promise(resolve => {
-					resolve({
-						collection: getFilteredCollection(payload.trigger.parameters),
-					});
+					setTimeout(
+						() =>
+							resolve({
+								collection: getFilteredCollection(payload.trigger.parameters),
+							}),
+						3000,
+					);
 				});
 			}
 
@@ -168,6 +172,7 @@ class DisplayModeForm extends React.Component {
 	}
 
 	render() {
+		console.log('[NC] this.props: ', this.props);
 		return (
 			<section>
 				<IconsProvider />
