@@ -8,9 +8,10 @@ i18n.init({
 	resources: {
 		en: {
 			[I18N_DOMAIN_CONTAINERS]: {
-				DELETE_RESOURCE_MESSAGE: 'Are you sure you want to remove the {{resourceLabel}}',
-				DELETE_RESOURCE_MESSAGE_female: 'Are you sure you want to remove the {{resourceLabel}}',
-				DELETE_RESOURCE_QUESTION_MARK: '?',
+				DELETE_RESOURCE_MESSAGE:
+					'Are you sure you want to remove the <1>{{resourceType}}</1> <3><0>{{label}}</0></3> ?',
+				DELETE_RESOURCE_MESSAGE_female:
+					'Are you sure you want to remove the <1>{{resourceType}}</1> <3><0>{{label}}</0></3> ?',
 			},
 		},
 		fr: {
