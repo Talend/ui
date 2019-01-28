@@ -16,12 +16,6 @@ switch (command) {
 	case 'test':
 		require('./webapp')(command, options);
 		break;
-	case 'i18n-extract':
-	case 'i18n-upload':
-	case 'i18n-download':
-	case 'i18n-deploy':
-		require('./internationalization')(command);
-		break;
 	default:
 		console.log(`Command ${command} not found.`);
 		process.exit(-1);

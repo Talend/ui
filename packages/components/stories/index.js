@@ -1,3 +1,4 @@
+import './MultiSelect';
 import './AboutDialog';
 import './Action';
 import './ActionBar';

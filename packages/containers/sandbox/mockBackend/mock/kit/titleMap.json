@@ -26,6 +26,12 @@
             "restrictedType": {
               "type": "string"
             },
+            "photos": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
             "typeTags": {
               "type": "array",
               "items": {
@@ -45,7 +51,9 @@
         "type": "clafoutis",
         "$type_name": "Clafoutis aux poires et aux fruits",
         "typeTags": ["clafoutis"],
-        "$typeTags_name": ["Clafoutis aux poires et aux fruits"]
+        "$typeTags_name": ["Clafoutis aux poires et aux fruits"],
+        "photos": ["1"],
+        "$photos_name": ["accusamus beatae ad facilis cum similique qui sunt"]
       }
     },
     "uiSchema": [
@@ -146,6 +154,26 @@
               }
             ],
             "widget": "multiSelectTag"
+          },
+          {
+            "key": "desert.photos",
+            "title": "Photos",
+            "titleMap": [],
+            "triggers": [
+              {
+                "action": "suggestionBig",
+                "family": "remote",
+                "type": "suggestions",
+                "onEvent": "focus",
+                "parameters": [
+                  {
+                    "path": "desert.photos",
+                    "key": "id"
+                  }
+                ]
+              }
+            ],
+            "widget": "multiSelect"
           },
           {
             "conditions": [],
