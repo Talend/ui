@@ -172,7 +172,6 @@ class DisplayModeForm extends React.Component {
 	}
 
 	render() {
-		console.log('[NC] this.props: ', this.props);
 		return (
 			<section>
 				<IconsProvider />
