@@ -35,7 +35,7 @@ const singleSectionProps = {
 	placeholder: 'search for something ...',
 	readOnly: false,
 	titleMap: [
-		{ name: 'My foo', value: 'foo', description: 'foo description' },
+		{ name: 'My foo', value: 'foo', description: 'foo description', disabled: true },
 		{ name: 'My bar', value: 'bar' },
 		{ name: 'My foobar', value: 'foobar', description: 'foobar description' },
 		{ name: 'My lol', value: 'lol' },

@@ -157,6 +157,10 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 	&-highlighted {
 		background-color: $tc-typeahead-focused-item-background-color;
 	}
+
+	&.disabled {
+		opacity: .5;
+	}
 }
 
 .highlight-match {

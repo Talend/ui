@@ -170,6 +170,10 @@ class Datalist extends Component {
 		if (this.props.multiSection) {
 			newValue = this.state.suggestions[sectionIndex].suggestions[itemIndex];
 		}
+		if (newValue.disabled) {
+			event.preventDefault();
+			return;
+		}
 		this.updateValue(event, newValue, true);
 	}
 
