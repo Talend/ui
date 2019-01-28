@@ -44,14 +44,22 @@ exports[`Container DeleteResource should render with proper resourceInfo params 
     }
   }
 >
-  <div>
-    Are you sure you want to remove the resourceLabel
-     
+  <Trans
+    context="female"
+    i18nKey="DELETE_RESOURCE_MESSAGE"
+  >
+    Are you sure you want to remove the 
+    Object {
+      "resourceType": "resourceLabel",
+    }
+     
     <strong>
-      myLabel
+      Object {
+        "label": "myLabel",
+      }
     </strong>
-    ?
-  </div>
+     ?
+  </Trans>
 </ConfirmDialog>
 `;
 
@@ -99,13 +107,20 @@ exports[`Container DeleteResource should render with wrong resourceInfo params 1
     }
   }
 >
-  <div>
-    Are you sure you want to remove the unknownResourceType
-     
+  <Trans
+    i18nKey="DELETE_RESOURCE_MESSAGE"
+  >
+    Are you sure you want to remove the 
+    Object {
+      "resourceType": "unknownResourceType",
+    }
+     
     <strong>
-      
+      Object {
+        "label": "",
+      }
     </strong>
-    ?
-  </div>
+     ?
+  </Trans>
 </ConfirmDialog>
 `;

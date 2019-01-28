@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
 import { ConfirmDialog } from '@talend/react-components';
-import { translate } from 'react-i18next';
+import { Trans, translate } from 'react-i18next';
 import getDefaultT from '../translate';
 import I18N_DOMAIN_CONTAINERS from '../constant';
 import CONSTANTS from './constants';
@@ -67,7 +67,6 @@ export class DeleteResource extends React.Component {
 	/**
 	 * Get the label from the collections.
 	 * Return the label and a boolean to confirm that the item has been found.
-	 * @param {object} resourceInfo
 	 */
 	getLabelInfo() {
 		return {
@@ -115,16 +114,19 @@ export class DeleteResource extends React.Component {
 		// DELETE_RESOURCE_MESSAGE and DELETE_RESOURCE_MESSAGE_female
 		let question;
 		if (this.props.female) {
-			question = this.props.t('DELETE_RESOURCE_MESSAGE', {
-				defaultValue: 'Are you sure you want to remove the {{resourceLabel}}',
-				context: 'female',
-				resourceLabel: resourceInfo.resourceTypeLabel,
-			});
+			question = (
+				<Trans i18nKey="DELETE_RESOURCE_MESSAGE" context="female">
+					Are you sure you want to remove the {{ resourceType: resourceInfo.resourceTypeLabel }}{' '}
+					<strong>{{ label: resourceInfo.label }}</strong> ?
+				</Trans>
+			);
 		} else {
-			question = this.props.t('DELETE_RESOURCE_MESSAGE', {
-				defaultValue: 'Are you sure you want to remove the {{resourceLabel}}',
-				resourceLabel: resourceInfo.resourceTypeLabel,
-			});
+			question = (
+				<Trans i18nKey="DELETE_RESOURCE_MESSAGE">
+					Are you sure you want to remove the {{ resourceType: resourceInfo.resourceTypeLabel }}{' '}
+					<strong>{{ label: resourceInfo.label }}</strong> ?
+				</Trans>
+			);
 		}
 
 		return (
@@ -136,12 +138,7 @@ export class DeleteResource extends React.Component {
 				getComponent={this.props.getComponent}
 				onHide={this.onHide}
 			>
-				<div>
-					{question}
-					&nbsp;
-					<strong>{resourceInfo.label}</strong>
-					{this.props.t('DELETE_RESOURCE_QUESTION_MARK', { defaultValue: '?' })}
-				</div>
+				{question}
 			</ConfirmDialog>
 		);
 	}
