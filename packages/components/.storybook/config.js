@@ -1,4 +1,5 @@
 import '@babel/polyfill';
+import '@talend/bootstrap-theme/src/theme/theme.scss';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -8,7 +9,6 @@ import { configure, addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { checkA11y } from '@storybook/addon-a11y';
 
-import '@talend/bootstrap-theme/src/theme/theme.scss';
 import 'focus-outline-manager';
 
 a11y(ReactDOM);
