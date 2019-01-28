@@ -7,6 +7,6 @@ import withNameResolver from './NameResolver';
 export default {
 	datalist: withNameResolver(DatalistWidget),
 	multiSelectTag: withNameResolver(MultiSelectTagWidget),
-	multiSelect: MultiSelect,
-	multiSelect_text: MultiSelectTextMode,
+	multiSelect: withNameResolver(MultiSelect),
+	multiSelect_text: withNameResolver(MultiSelectTextMode),
 };

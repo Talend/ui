@@ -7,7 +7,6 @@ import {
 	generateErrorId,
 } from '@talend/react-forms/lib/UIForm/Message/generateId';
 import callTrigger from '@talend/react-forms/lib/UIForm/trigger';
-import getTitleMap from './getTitleMap';
 
 export default class MultiSelectField extends React.Component {
 	constructor(props) {
@@ -16,6 +15,7 @@ export default class MultiSelectField extends React.Component {
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onTriggerResult = this.onTriggerResult.bind(this);
 		this.onChange = this.onChange.bind(this);
+		this.getTitleMap = this.getTitleMap.bind(this);
 	}
 
 	componentDidMount() {
@@ -49,11 +49,29 @@ export default class MultiSelectField extends React.Component {
 
 	onChange(event, selected) {
 		const payload = {
-			schema: { ...this.props.schema, titleMap: getTitleMap(this.props, this.state) },
+			schema: { ...this.props.schema, titleMap: this.getTitleMap() },
 			value: selected,
 		};
 		this.props.onChange(event, payload);
 		this.props.onFinish(event, payload);
+	}
+
+	getTitleMap() {
+		if (this.state.titleMap) {
+			return this.state.titleMap;
+		}
+
+		const { titleMap } = this.props.schema;
+		if (titleMap && Object.keys(titleMap).length > 0) {
+			return titleMap;
+		}
+
+		const { value = [] } = this.props;
+		const names = this.props.resolveName(value);
+		return value.map((nextVal, index) => ({
+			name: names[index],
+			value: nextVal,
+		}));
 	}
 
 	getChildrenErrorMessage() {
@@ -98,7 +116,7 @@ export default class MultiSelectField extends React.Component {
 					onBlur={this.onTrigger}
 					onChange={this.onChange}
 					onFocus={this.onTrigger}
-					options={getTitleMap(this.props, this.state)}
+					options={this.getTitleMap()}
 					selected={this.props.value}
 					isLoading={this.state.isLoading}
 				/>
@@ -117,6 +135,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onFinish: PropTypes.func.isRequired,
 		onTrigger: PropTypes.func.isRequired,
 		properties: PropTypes.object,
+		resolveName: PropTypes.func,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
@@ -146,4 +165,5 @@ MultiSelectField.defaultProps = {
 	isValid: true,
 	schema: {},
 	value: [],
+	resolveName: value => value,
 };

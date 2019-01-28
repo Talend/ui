@@ -52,7 +52,7 @@
         "$type_name": "Clafoutis aux poires et aux fruits",
         "typeTags": ["clafoutis"],
         "$typeTags_name": ["Clafoutis aux poires et aux fruits"],
-        "photos": [1],
+        "photos": ["1"],
         "$photos_name": ["accusamus beatae ad facilis cum similique qui sunt"]
       }
     },
