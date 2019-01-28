@@ -57,7 +57,6 @@ storiesOf('Datalist', module)
 	.add('default multiSection', () => {
 		const restrictedValues = { ...propsMultiSection, restricted: true };
 		const defaultValue = { ...propsMultiSection, value: 'lol' };
-		const disabledItems = { ...propsMultiSection, titleMap: titleMapWithDisabledItems };
 		return (
 			<form className="form">
 				<IconsProvider />
