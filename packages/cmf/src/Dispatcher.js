@@ -11,21 +11,6 @@ import action from './action';
 import actionCreator from './actionCreator';
 
 /**
- * check if on[event] string relate to a declared action handler
- * @param {object} props component props
- * @param {object} context app context, containing redux store ref
- *
- * @throws invariant
- */
-export function checkIfActionInfoExist(props, context) {
-	action.getOnProps(props).forEach(name => {
-		if (typeof props[name] === 'string') {
-			actionCreator.get(context, props[name]);
-		}
-	});
-}
-
-/**
  * This component purpose is to decorate any component and map an user event
  * to an action to be dispatched
  * @example
@@ -57,20 +42,6 @@ export class Dispatcher extends React.Component {
 	}
 
 	/**
-	 * Check if the actions are described in settings when mount
-	 */
-	componentDidMount() {
-		checkIfActionInfoExist(this.props, this.context);
-	}
-
-	/**
-	 * Check if the actions are described in settings when receiving new props
-	 */
-	componentWillReceiveProps(nextProps) {
-		checkIfActionInfoExist(nextProps, this.context);
-	}
-
-	/**
 	 * on any even just try to find a onTHEEVENT props.
 	 * If found execute it with the common stuff
 	 * (event, props, context)
@@ -89,10 +60,19 @@ export class Dispatcher extends React.Component {
 		}
 	}
 
+	checkIfActionInfoExist() {
+		action.getOnProps(this.props).forEach(name => {
+			if (typeof this.props[name] === 'string') {
+				actionCreator.get(this.context, this.props[name]);
+			}
+		});
+	}
+
 	/**
 	 * @return {object} ReactElement
 	 */
 	render() {
+		this.checkIfActionInfoExist();
 		const onProps = action.getOnProps(this.props);
 		const childrenWithProps = React.Children.map(this.props.children, child => {
 			const props = {};

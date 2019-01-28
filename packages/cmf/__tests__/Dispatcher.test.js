@@ -1,10 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { shallow, mount } from 'enzyme';
-import { Dispatcher, checkIfActionInfoExist } from '../src/Dispatcher';
+import { Dispatcher } from '../src/Dispatcher';
+import CONST from '../src/constant';
 
 const mockContext = {
-	registry: {},
+	registry: {
+		[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:actionCreator:id`]: jest.fn(),
+		[`${CONST.REGISTRY_ACTION_CREATOR_PREFIX}:another:actionCreator:id`]: jest.fn(),
+	},
 };
 
 jest.mock('../src/action', () => ({
@@ -56,18 +60,21 @@ describe('Testing <Dispatcher />', () => {
 		);
 	});
 
-	it('should checkIfActionInfoExist do not throw with action object', () => {
-		const props = {
-			onClick: {
-				id: 'test',
-				name: 'Test',
-				type: 'TEST_ACTION',
-			},
-		};
-		const check = () => {
-			checkIfActionInfoExist(props, {});
-		};
-		expect(check).not.toThrow();
+	it('should throw with unknown action', () => {
+		expect(() => {
+			shallow(
+				<Dispatcher
+					onClick="actionCreator:id"
+					onDoubleClick="unknnown:actionCreator:id"
+					dispatchActionCreator={jest.fn()}
+				>
+					<button />
+				</Dispatcher>,
+				{
+					context: mockContext,
+				},
+			);
+		}).toThrow('action not found id: unknnown:actionCreator:id');
 	});
 
 	it('should have its method onEvent called when children handle an event', () => {
