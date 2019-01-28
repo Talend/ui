@@ -11,6 +11,14 @@ exports[`StateFilter component snaps should render in default mode 1`] = `
   </span>
   <ActionIconToggle
     active={false}
+    className="theme-tc-resource-picker-selection-filter"
+    icon="talend-check-circle"
+    label="Selected"
+    onClick={[Function]}
+    tooltipPlacement="top"
+  />
+  <ActionIconToggle
+    active={false}
     className="theme-tc-resource-picker-certified-filter"
     icon="talend-badge"
     label="Certified"
@@ -77,6 +85,14 @@ exports[`StateFilter component snaps should render with states to set to true 1`
   >
     Filter:
   </span>
+  <ActionIconToggle
+    active={false}
+    className="theme-tc-resource-picker-selection-filter"
+    icon="talend-check-circle"
+    label="Selected"
+    onClick={[Function]}
+    tooltipPlacement="top"
+  />
   <ActionIconToggle
     active={true}
     className="theme-tc-resource-picker-certified-filter"

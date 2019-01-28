@@ -2,14 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * This function is just here to handle the
- * case of null parameter in components
- */
-function nothing() {
-	return null;
-}
-
-/**
  * This is to render an not found component to alert developers
  * @param {object} props container of the error
  */
@@ -64,16 +56,19 @@ Inject.map = function injectMap(getComponent, array, CustomInject = Inject) {
 	}
  */
 Inject.all = function injectAll(getComponent, components, CustomInject = Inject) {
-	if (!getComponent || !components) {
-		return nothing;
-	}
 	return (key, props) => {
-		if (Array.isArray(components[key])) {
-			return Inject.map(getComponent, components[key], CustomInject);
-		} else if (React.isValidElement(components[key])) {
-			return components[key];
-		} else if (typeof components[key] === 'object') {
-			return <CustomInject getComponent={getComponent} {...props} {...components[key]} />;
+		if (!components) {
+			return null;
+		}
+
+		const component = components[key];
+
+		if (Array.isArray(component)) {
+			return Inject.map(getComponent, component, CustomInject);
+		} else if (React.isValidElement(component)) {
+			return component;
+		} else if (typeof component === 'object') {
+			return <CustomInject getComponent={getComponent} {...props} {...component} />;
 		}
 		return null;
 	};
