@@ -126,27 +126,80 @@ function convertToUTC(date) {
 	);
 }
 
+function checkHours(hours, emptyIsValid = false) {
+	const hoursNum = Number(hours);
+	if (hours === '') {
+		if (!emptyIsValid) {
+			return new DatePickerException('INVALID_HOUR', 'INVALID_HOUR_EMPTY');
+		}
+	} else if (hours.length !== 2 || isNaN(hoursNum) || hoursNum < 0 || hoursNum > 23) {
+		return new DatePickerException('INVALID_HOUR', 'INVALID_HOUR_NUMBER');
+	}
+}
+
+function checkMinutes(minutes, emptyIsValid = false) {
+	const minsNum = Number(minutes);
+	if (minsNum === '') {
+		if (!emptyIsValid) {
+			return new DatePickerException('INVALID_MINUTES', 'INVALID_MINUTES_EMPTY');
+		}
+	} else if (minutes.length !== 2 || isNaN(minsNum) || minsNum < 0 || minsNum > 59) {
+		return new DatePickerException('INVALID_MINUTES', 'INVALID_MINUTES_NUMBER');
+	}
+}
+
+function checkSeconds(seconds, emptyIsValid = false) {
+	const secondsNum = Number(seconds);
+	if (seconds === '') {
+		if (!emptyIsValid) {
+			return new DatePickerException('INVALID_SECONDS', 'INVALID_SECONDS_EMPTY');
+		}
+	} else if (seconds.length !== 2 || isNaN(secondsNum) || secondsNum < 0 || secondsNum > 59) {
+		return new DatePickerException('INVALID_SECONDS', 'INVALID_SECONDS_NUMBER');
+	}
+}
+
 /**
  * Check if time is correct
  */
 function checkTime({ hours, minutes, seconds }) {
-	const hoursNum = Number(hours);
 	const timeErrors = [];
-	if (hours.length !== 2 || isNaN(hoursNum) || hoursNum < 0 || hoursNum > 23) {
-		timeErrors.push(new DatePickerException('INVALID_HOUR', 'INVALID_HOUR_NUMBER'));
+
+	const hoursError = checkHours(hours);
+	if (hoursError) {
+		timeErrors.push(hoursError);
 	}
 
-	const minsNum = Number(minutes);
-	if (minutes.length !== 2 || isNaN(minsNum) || minsNum < 0 || minsNum > 59) {
-		timeErrors.push(new DatePickerException('INVALID_MINUTES', 'INVALID_MINUTES_NUMBER'));
+	const minutesError = checkMinutes(minutes);
+	if (minutesError) {
+		timeErrors.push(minutesError);
 	}
-	const secondsNum = Number(seconds);
-	if (seconds.length !== 2 || isNaN(secondsNum) || secondsNum < 0 || secondsNum > 59) {
-		timeErrors.push(new DatePickerException('INVALID_SECONDS', 'INVALID_SECONDS_NUMBER'));
+
+	const secondsError = checkSeconds(seconds);
+	if (secondsError) {
+		timeErrors.push(secondsError);
 	}
+
 	if (timeErrors.length > 0) {
 		throw timeErrors;
 	}
+}
+
+function check(date, time) {
+	let errors = [];
+
+	try {
+		checkTime(time);
+	} catch (timeErrors) {
+		errors = timeErrors;
+	}
+
+	if (date === undefined) {
+		errors.push(new DatePickerException('INVALID_DATE_FORMAT', 'INVALID_DATE_EMPTY'));
+	} else if (!isDateValid(date)) {
+		errors.push(new DatePickerException('INVALID_DATE_FORMAT', 'INVALID_DATE_FORMAT'));
+	}
+	return errors;
 }
 
 /**
@@ -366,7 +419,7 @@ function extractPartsFromDateAndTime(date, time, options) {
 
 	if (options.useTime) {
 		try {
-			checkTime(time);
+			checkTime(time, true /*emptyIsValid */);
 		} catch (error) {
 			errors = error;
 		}
@@ -486,6 +539,7 @@ function extractParts(value, options) {
 }
 
 export {
+	check,
 	checkSupportedDateFormat,
 	extractParts,
 	extractPartsFromDateTime,

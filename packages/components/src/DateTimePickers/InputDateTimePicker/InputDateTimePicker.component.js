@@ -12,6 +12,7 @@ import DateTimePicker from '../DateTimePicker';
 import { ErrorContext } from './InputDateTimePickerContext';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 import {
+	check,
 	checkSupportedDateFormat,
 	extractParts,
 	extractPartsFromDateAndTime,
@@ -81,6 +82,7 @@ class InputDateTimePicker extends React.Component {
 		this.state = {
 			...this.initialState,
 			showPicker: false,
+			focusedInput: this.inputErrorId,
 		};
 
 		this.onInputFocus = this.onInputFocus.bind(this);
@@ -190,8 +192,13 @@ class InputDateTimePicker extends React.Component {
 
 	onSubmit(event, origin) {
 		event.preventDefault();
-		this.onChange(event, origin);
-		this.closePicker();
+		const errors = check(this.state.date, this.state.time);
+		if (errors.length) {
+			this.setState({ errors });
+		} else {
+			this.onChange(event, origin);
+			this.closePicker();
+		}
 	}
 
 	setPickerVisibility(isShown) {
