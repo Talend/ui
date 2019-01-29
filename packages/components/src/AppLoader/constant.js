@@ -184,7 +184,6 @@ function getLoaderStyle(icon = '') {
 }
 
 export default {
-	RESET_STYLE,
 	APP_LOADER,
 	getLoaderStyle,
 };
