@@ -2,7 +2,8 @@ module.exports = {
   "baseSelector": ".icon",
   "classPrefix": "icon-",
   "cssTemplate": "./talendicons.template.css",
-  "fileName": "[fontname][ext]",
+  'types': ['eot', 'woff', 'woff2', 'ttf', 'svg'],
+  "fileName": "[fontname].[ext]",
   "files": [
     "svg/*.svg"
   ],
