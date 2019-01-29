@@ -1,8 +1,8 @@
-# Build Service to let dev organize code in app
+# Build *Service* to organize code by feature
 
 Original Jira: https://jira.talendforge.org/browse/TUI-252
 
-Objective: let dev organize their code by feature.
+Objective: Provide tools to organize code by feature.
 Constraints: must work in react-redux, thunk and redux-saga environment.
 
 ## Why do we need service
@@ -28,15 +28,13 @@ A feature mean the following technical *items* to be defined:
 * **selectors** to be able to read the data and access it without having to know where it is
 * **saga** are started with the app to handle effects
 
-Theses *items* need boiler plate depending from where they are called and need the developer to perfectly know the redux echo system.
+Theses *items* need boiler plate the developer has to perfectly know the redux echo system.
 
 Action *TYPE*, *Action creators*, *selectors* are considered as external API. They must be exposed to be used.
 The reducer and the saga, must be passed to cmf.bootstrap for the setup.
 
 So the main idea here is so to provide higher level API which generate the boiler plate for you.
-The user must be able to write at anytime any custom items.
-
-We can see that as a code *generator*. To create good generators we need to cover some usefull case on well known patterns.
+The user must be able to write at anytime any custom *items*.
 
 ## How to write a service
 
@@ -64,12 +62,22 @@ const service = {
 };
 // call a generator to init boilerplate
 cmf.service.generators.simpleItem(service, cmfModule);
+/**
+ * this will generate the following
+ * - service.actionCreators.patch = (jsonPatch) => ...
+ * - service.actionCreators.set = (newValue) => ...
+ * - service.selectors.get = (state) => ...
+ * - cmfModule.reducer = (state, action) => ... // Composing with the existing reducer
+ */
 
 // if you want to register exposed api into CMF registry
-cmf.service.registerService(service, cmfModule)
-// this will be equivalen to write
+cmf.service.registerService(service, cmfModule);
+// ==
 cmfModule.actionCreators = {
+    'userService.doFetch': service.actionCreators.doFetch,
     'userService.get': service.actionCreators.get,
+    'userService.patch': service.actionCreators.get,
+    'userService.set': service.actionCreators.get,
 };
 
 export default service;
