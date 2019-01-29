@@ -47,6 +47,7 @@ export const cmfModule = {
     reducer: {
         // TODO: should we force only one path in redux store ?
         // If not, generator must take the attr name as param.
+        // so here the path in the store will be state.user
         user: function (state, action) {
             // reduce the action
             // it will be composed with generated reducer
@@ -120,10 +121,8 @@ export default connect(
 
 ## Usefull Features / needed generators
 
+By default we should have the following available generators:
+
 * one simple structure which will be the base use case
 * a list of items with a current item in it
 * rest service (generate GET, POST, PUT, PATCH)
-
-## Constraints
-
-The path in the redux store will be `state[serviceId]`;
