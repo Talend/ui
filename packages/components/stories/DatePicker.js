@@ -71,22 +71,6 @@ class TestPickerWrapper extends React.Component {
 }
 
 storiesOf('DatePicker', module)
-	.add('Date picker without initial value', () => (
-		<div>
-			<IconsProvider />
-			<h1>DatePicker</h1>
-			<p>
-				Default date picker doesn't include time<br />
-				It comes with classical keyboard gesture.
-			</p>
-			<TestPickerWrapper
-				id="my-date-picker"
-				onChange={action('onChange')}
-				name="Datetime"
-				useTime
-			/>
-		</div>
-	))
 	.add('Date picker', () => (
 		<div>
 			<IconsProvider />
@@ -95,12 +79,7 @@ storiesOf('DatePicker', module)
 				Default date picker doesn't include time<br />
 				It comes with classical keyboard gesture.
 			</p>
-			<TestPickerWrapper
-				id="my-date-picker"
-				selectedDateTime={new Date(2018, 4, 13, 12, 30)}
-				onChange={action('onChange')}
-				name="Datetime"
-			/>
+			<TestPickerWrapper id="my-date-picker" onChange={action('onChange')} name="Datetime" />
 		</div>
 	))
 	.add('Date picker form mode', () => (
@@ -125,7 +104,6 @@ storiesOf('DatePicker', module)
 			<div style={{ width: 320 }}>
 				<InputDateTimePicker
 					id="my-date-picker"
-					selectedDateTime={new Date(2018, 4, 13, 12, 30)}
 					onChange={action('onChange')}
 					name="Datetime"
 					formMode
@@ -162,7 +140,6 @@ storiesOf('DatePicker', module)
 					name="Datetime"
 					onBlur={action('onBlur')}
 					onChange={action('onChange')}
-					selectedDateTime={new Date(2018, 4, 13, 12, 30, 44)}
 					useTime
 				/>
 			</form>
@@ -190,7 +167,6 @@ storiesOf('DatePicker', module)
 					name="Datetime"
 					onBlur={action('onBlur')}
 					onChange={action('onChange')}
-					selectedDateTime={new Date(2018, 4, 13, 12, 30, 44)}
 					useSeconds
 					useTime
 				/>

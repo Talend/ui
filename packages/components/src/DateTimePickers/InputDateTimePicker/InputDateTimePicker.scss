@@ -23,19 +23,15 @@
 }
 
 .footer {
-	flex-grow: 1;
-	text-align: right;
+	display: flex;
 	padding: $padding-small $padding-normal;
 	background-color: $wild-sand;
-	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	color: $chestnut-rose;
-	.footer-error span {
-		&.error-hidden {
-			position: absolute;
-			top: -9999px;
-			left: -9999px;
-		}
+
+	.errors {
+		display: flex;
+		flex-direction: column;
 	}
 }

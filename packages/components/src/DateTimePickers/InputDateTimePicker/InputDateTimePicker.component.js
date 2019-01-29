@@ -6,10 +6,10 @@ import { Overlay, Popover } from 'react-bootstrap';
 import isSameSecond from 'date-fns/is_same_second';
 import keycode from 'keycode';
 import uuid from 'uuid';
-import { translate } from 'react-i18next';
 
+import DateTimeValidation from './DateTimeValidation.component';
 import DateTimePicker from '../DateTimePicker';
-import { DateTimePickerErrorContext } from './InputDateTimePickerContext';
+import { ErrorContext } from './InputDateTimePickerContext';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 import {
 	checkSupportedDateFormat,
@@ -20,99 +20,19 @@ import {
 } from './date-extraction';
 
 import theme from './InputDateTimePicker.scss';
-import I18N_DOMAIN_COMPONENTS from '../../constants';
-import getDefaultT from '../../translate';
 
 const warnOnce = {};
 
 const PROPS_TO_OMIT_FOR_INPUT = [
-	'selectedDateTime',
+	'dateFormat',
+	'formMode',
 	'onChange',
 	'onBlur',
-	'dateFormat',
+	'selectedDateTime',
 	'useSeconds',
 	'useTime',
 	'useUTC',
 ];
-
-function DateTimeValidation({
-	t,
-	errors,
-	focusedInput,
-	hoursErrorId,
-	minutesErrorId,
-	secondsErrorId,
-	inputErrorId,
-}) {
-	const codeIdMapping = {
-		INVALID_HOUR: hoursErrorId,
-		INVALID_MINUTES: minutesErrorId,
-		INVALID_SECONDS: secondsErrorId,
-		INVALID_DATE_FORMAT: inputErrorId,
-		INVALID_MONTH: inputErrorId,
-		INVALID_DAY: inputErrorId,
-		DATETIME_INVALID_FORMAT: inputErrorId,
-		TIME_FORMAT_INVALID: inputErrorId,
-	};
-
-	function isErrorHidden(error) {
-		return errors.length > 1 && codeIdMapping[error.code] !== focusedInput;
-	}
-
-	function displayError() {
-		/* if (errors && errors.length > 0) {
-			return errors.length === 1 ? errors[0].message : 'focusElement';
-		}
-		return ''; */
-		return errors.map((error, index) => (
-			<span
-				className={isErrorHidden(error) ? theme['error-hidden'] : ''}
-				id={codeIdMapping[error.code]}
-				key={`error-${index}`}
-			>
-				{t(error.message)}
-			</span>
-		));
-	}
-	return (
-		<div className={theme.footer}>
-			<span className={theme['footer-error']}>{displayError()}</span>
-			<button
-				name="action-datepicker-validate"
-				className="btn btn-primary"
-				role="button"
-				type="submit"
-				disabled={errors && errors.length > 0}
-				aria-label={t('DATEPICKER_VALIDATE_DESC', {
-					defaultValue: 'Validate the date picker value',
-				})}
-			>
-				{t('DATEPICKER_VALIDATE', { defaultValue: 'Done' })}
-			</button>
-		</div>
-	);
-}
-
-DateTimeValidation.propTypes = {
-	t: PropTypes.func,
-	errors: PropTypes.arrayOf(
-		PropTypes.shape({
-			component: PropTypes.string,
-			componentId: PropTypes.string,
-		}),
-	),
-	focusedInput: PropTypes.string,
-	hoursErrorId: PropTypes.string,
-	minutesErrorId: PropTypes.string,
-	secondsErrorId: PropTypes.string,
-	inputErrorId: PropTypes.string,
-};
-
-DateTimeValidation.defaultProps = {
-	t: getDefaultT(),
-};
-
-export const DateValidationButton = translate(I18N_DOMAIN_COMPONENTS)(DateTimeValidation);
 
 class InputDateTimePicker extends React.Component {
 	static propTypes = {
@@ -163,7 +83,7 @@ class InputDateTimePicker extends React.Component {
 			showPicker: false,
 		};
 
-		this.focusInput = this.focusInput.bind(this);
+		this.onInputFocus = this.onInputFocus.bind(this);
 		this.hasError = this.hasError.bind(this);
 		this.onBlur = this.onBlur.bind(this);
 		this.onFocus = this.onFocus.bind(this);
@@ -296,7 +216,7 @@ class InputDateTimePicker extends React.Component {
 		};
 	}
 
-	focusInput(focusedId) {
+	onInputFocus(event, focusedId = this.inputErrorId) {
 		this.setState({ focusedInput: focusedId });
 	}
 
@@ -339,19 +259,10 @@ class InputDateTimePicker extends React.Component {
 					value={this.state.textInput}
 					debounceTimeout={300}
 					onChange={this.onInputChange}
+					onnFocus={this.onInputFocus}
 					className="form-control"
 					autoComplete="off"
-					aria-describedby={
-						this.hasError([
-							'INVALID_DATE_FORMAT',
-							'INVALID_MONTH',
-							'INVALID_DAY',
-							'DATETIME_INVALID_FORMAT',
-							'TIME_FORMAT_INVALID',
-						])
-							? this.inputErrorId
-							: ''
-					}
+					aria-describedby={this.inputErrorId}
 				/>
 				<div
 					className={theme['dropdown-wrapper']}
@@ -361,9 +272,9 @@ class InputDateTimePicker extends React.Component {
 				>
 					<Overlay container={this.dropdownWrapperRef} show={this.state.showPicker}>
 						<Popover className={theme.popover} id={this.popoverId}>
-							<DateTimePickerErrorContext.Provider
+							<ErrorContext.Provider
 								value={{
-									focusInput: this.focusInput,
+									onInputFocus: this.onInputFocus,
 									hasError: this.hasError,
 									formMode: this.props.formMode,
 									hoursErrorId: this.hoursErrorId,
@@ -383,9 +294,9 @@ class InputDateTimePicker extends React.Component {
 									useUTC={this.props.useUTC}
 									errors={this.state.errors}
 								/>
-							</DateTimePickerErrorContext.Provider>
+							</ErrorContext.Provider>
 							{this.props.formMode && (
-								<DateValidationButton
+								<DateTimeValidation
 									focusedInput={this.state.focusedInput}
 									errors={this.state.errors}
 									hoursErrorId={this.hoursErrorId}

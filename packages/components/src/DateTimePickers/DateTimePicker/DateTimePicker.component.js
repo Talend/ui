@@ -82,14 +82,14 @@ class DateTimePicker extends React.Component {
 	onSelectDate(event, selectedDate) {
 		event.persist();
 		this.setState({ selectedDate }, () => {
-			this.trySubmit(event);
+			this.submit(event);
 		});
 	}
 
 	onSelectTime(event, selectedTime) {
 		event.persist();
 		this.setState({ selectedTime }, () => {
-			this.trySubmit(event);
+			this.submit(event);
 		});
 	}
 
@@ -123,7 +123,7 @@ class DateTimePicker extends React.Component {
 		});
 	}
 
-	trySubmit(event) {
+	submit(event) {
 		this.props.onSubmit(event, {
 			date: this.state.selectedDate,
 			time: this.state.selectedTime,
