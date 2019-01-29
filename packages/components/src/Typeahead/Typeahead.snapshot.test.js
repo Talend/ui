@@ -88,6 +88,7 @@ describe('Typeahead', () => {
 				id: 'my-search',
 				items: itemsString,
 				multiSection: false,
+				'data-feature': 'data-feature-typeahead',
 			};
 			// when
 			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();

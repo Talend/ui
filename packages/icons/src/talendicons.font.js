@@ -1,5 +1,5 @@
 module.exports = {
-  "baseClass": "icon",
+  "baseSelector": ".icon",
   "classPrefix": "icon-",
   "cssTemplate": "./talendicons.template.css",
   "fileName": "[fontname][ext]",

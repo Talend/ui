@@ -38,7 +38,7 @@ $tc-resource-picker-toolbar-certified-color: $brand-primary !default;
 
 		&:global(.active),
 		&:hover {
-			&.tc-resource-picker-selected-filter > svg {
+			&.tc-resource-picker-selection-filter > svg {
 				color: $scooter;
 			}
 
