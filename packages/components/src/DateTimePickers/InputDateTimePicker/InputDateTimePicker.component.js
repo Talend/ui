@@ -64,14 +64,17 @@ function DateTimeValidation({
 			return errors.length === 1 ? errors[0].message : 'focusElement';
 		}
 		return ''; */
-		return errors.map(error => (
-			<span
-				className={isErrorHidden(error) ? theme['error-hidden'] : ''}
-				id={codeIdMapping[error.code]}
-			>
-				{t(error.message)}
-			</span>
-		));
+		return errors.map((error, index) => {
+			return (
+				<span
+					className={isErrorHidden(error) ? theme['error-hidden'] : ''}
+					id={codeIdMapping[error.code]}
+					key={`error-${index}`}
+				>
+					{t(error.message)}
+				</span>
+			);
+		});
 	}
 	return (
 		<div className={theme.footer}>
@@ -311,6 +314,7 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	resetDate() {
+		console.log('in reset data');
 		if (this.props.formMode) {
 			this.setState({ ...this.initialState });
 		}
