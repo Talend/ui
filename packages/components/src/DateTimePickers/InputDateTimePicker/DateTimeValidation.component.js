@@ -22,7 +22,9 @@ function Error(props) {
 	const classNames = classnames({ 'sr-only': props.hidden });
 	return (
 		<div id={props.id} className={classNames}>
-			{props.errors.map((error, index) => <span key={index}>{error.message}</span>)}
+			{props.errors.map((error, index) => (
+				<span key={index}>{error.message}</span>
+			))}
 		</div>
 	);
 }
