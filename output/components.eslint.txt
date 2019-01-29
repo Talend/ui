@@ -2,6 +2,10 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/InputDateTimePicker.component.js
+   67:39  error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  317:3   warning  Unexpected console statement                                                                           no-console
+
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/InputDateTimePickerContext.js
   3:1  error  Prefer default export  import/prefer-default-export
 
@@ -26,5 +30,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 8 problems (6 errors, 2 warnings)
+✖ 10 problems (7 errors, 3 warnings)
+  1 error, 0 warnings potentially fixable with the `--fix` option.
 
