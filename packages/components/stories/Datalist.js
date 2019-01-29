@@ -13,16 +13,16 @@ const propsMultiSection = {
 		{
 			title: 'cat 1',
 			suggestions: [
-				{ name: 'foo', value: 'foo', description: 'foo description' },
-				{ name: 'faa', value: 'faa' },
+				{ name: 'My foo', value: 'foo', description: 'foo description' },
+				{ name: 'My faa', value: 'faa' },
 			],
 		},
-		{ title: 'cat 2', suggestions: [{ name: 'bar', value: 'bar' }] },
+		{ title: 'cat 2', suggestions: [{ name: 'My bar', value: 'bar' }] },
 		{
 			title: 'cat 3',
-			suggestions: [{ name: 'foobar', value: 'foobar', description: 'foobar description' }],
+			suggestions: [{ name: 'My foobar', value: 'foobar', description: 'foobar description' }],
 		},
-		{ title: 'cat 4', suggestions: [{ name: 'lol', value: 'lol' }] },
+		{ title: 'cat 4', suggestions: [{ name: 'My lol', value: 'lol' }] },
 	],
 	onFinish: action('onFinish'),
 	onChange: action('onChange'),

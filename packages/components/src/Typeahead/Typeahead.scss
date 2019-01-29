@@ -160,6 +160,7 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 
 	&.disabled {
 		color: $silver-chalice;
+		cursor: not-allowed;
 
 		&:hover {
 			background: none;
