@@ -1,12 +1,12 @@
 const LOADER_STYLE = `* {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  width: 100vw;
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	width: 100vw;
 }
 
 .tc-app-loader-container {
