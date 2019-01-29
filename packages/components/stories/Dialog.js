@@ -8,7 +8,7 @@ const defaultProps = {
 	show: true,
 };
 const headerProps = {
-	header: 'Hello world',
+	header: 'Hellogougoug  world',
 	show: true,
 };
 const actionProps = {
@@ -21,7 +21,7 @@ const actionProps = {
 };
 const subtitle = {
 	show: true,
-	header: 'Hello world',
+	header: 'Gougougoug Hello world',
 	subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
 	onHide: action('onHide'),
 	action: {
