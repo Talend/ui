@@ -113,7 +113,7 @@ describe('ResourcePicker field', () => {
 	});
 
 	it('should call onChange when selecting an item', async () => {
-		const wrapper = mount(<ResourcePicker {...props} />);
+		const wrapper = await mount(<ResourcePicker {...props} />);
 		await wrapper.instance().busy;
 		wrapper.update();
 
@@ -144,7 +144,7 @@ describe('ResourcePicker field', () => {
 			},
 		};
 
-		const wrapper = mount(<ResourcePicker {...multi} />);
+		const wrapper = await mount(<ResourcePicker {...multi} />);
 		await wrapper.instance().busy;
 		wrapper.update();
 
@@ -163,7 +163,7 @@ describe('ResourcePicker field', () => {
 	});
 
 	it('should unselect', async () => {
-		const wrapper = mount(<ResourcePicker {...props} />);
+		const wrapper = await mount(<ResourcePicker {...props} />);
 		await wrapper.instance().busy;
 		wrapper.update();
 
@@ -182,7 +182,7 @@ describe('ResourcePicker field', () => {
 	});
 
 	it('should not allow multi selection', async () => {
-		const wrapper = mount(<ResourcePicker {...props} />);
+		const wrapper = await mount(<ResourcePicker {...props} />);
 		await wrapper.instance().busy;
 		wrapper.update();
 
