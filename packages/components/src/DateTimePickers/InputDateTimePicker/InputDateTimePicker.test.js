@@ -475,7 +475,7 @@ describe('InputDateTimePicker', () => {
 				{
 					name: 'with invalid time',
 					date: new Date(2015, 0, 15),
-					time: { hours: '15aze', minutes: '45' },
+					time: { hours: '15aze', minutes: '45', seconds: '00' },
 					field: FIELD_HOURS,
 					expectedTextInput: '2015-01-15 15aze:45',
 				},
