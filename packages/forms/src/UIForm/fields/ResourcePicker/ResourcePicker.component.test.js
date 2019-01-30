@@ -10,7 +10,7 @@ import ResourcePicker from './ResourcePicker.component';
 describe('ResourcePicker field', () => {
 	const collection = [
 		{
-			id: 0,
+			id: '0',
 			name: 'Title with few actions',
 			modified: 1442880000000,
 			icon: 'talend-file-xls-o',
@@ -18,14 +18,14 @@ describe('ResourcePicker field', () => {
 			flags: ['CERTIFIED', 'FAVORITE'],
 		},
 		{
-			id: 1,
+			id: '1',
 			name: 'Title with lot of actions',
 			modified: 1537574400000,
 			icon: 'talend-file-xls-o',
 			author: 'Second Author',
 		},
 		{
-			id: 2,
+			id: '2',
 			name: 'Title with persistant actions',
 			modified: 1474502400000,
 			author: 'Jean-Pierre DUPONT',
@@ -33,7 +33,7 @@ describe('ResourcePicker field', () => {
 			flags: ['FAVORITE'],
 		},
 		{
-			id: 3,
+			id: '3',
 			name: 'Title with icon',
 			modified: 1506038400000,
 			author: 'Third Author',
@@ -41,14 +41,14 @@ describe('ResourcePicker field', () => {
 			flags: ['CERTIFIED'],
 		},
 		{
-			id: 4,
+			id: '4',
 			name: 'Title in input mode',
 			modified: 1506038400000,
 			author: 'Jean-Pierre DUPONT',
 			icon: 'talend-file-xls-o',
 		},
 		{
-			id: 5,
+			id: '5',
 			name: 'Title with long long long long long long long long long long long text',
 			modified: 1547478328552,
 			author: 'Jean-Pierre DUPONT with super super super long text',
@@ -131,7 +131,7 @@ describe('ResourcePicker field', () => {
 				},
 				title: 'My ResourcePicker title',
 			},
-			value: [0],
+			value: '0',
 		});
 	});
 
@@ -158,7 +158,7 @@ describe('ResourcePicker field', () => {
 			.simulate('click');
 		expect(props.onChange).toBeCalledWith(expect.anything(), {
 			schema: expect.anything(),
-			value: [0, 1],
+			value: ['0', '1'],
 		});
 	});
 
@@ -177,7 +177,7 @@ describe('ResourcePicker field', () => {
 			.simulate('click');
 		expect(props.onChange).toBeCalledWith(expect.anything(), {
 			schema: expect.anything(),
-			value: [],
+			value: undefined,
 		});
 	});
 
@@ -196,7 +196,7 @@ describe('ResourcePicker field', () => {
 			.simulate('click');
 		expect(props.onChange).toBeCalledWith(expect.anything(), {
 			schema: expect.anything(),
-			value: [1],
+			value: '1',
 		});
 	});
 
