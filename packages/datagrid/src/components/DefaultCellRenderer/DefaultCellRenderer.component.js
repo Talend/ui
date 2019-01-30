@@ -9,7 +9,6 @@ import DATAGRID_PROPTYPES from '../DataGrid/DataGrid.proptypes';
 import QualityIndicator from './QualityIndicator.component';
 import AvroRenderer from './AvroRenderer.component';
 import theme from './DefaultCell.scss';
-import { getAvroRenderer } from '../DataGrid/DataGrid.component';
 
 export const CELL_RENDERER_COMPONENT = 'cellRenderer';
 
@@ -39,7 +38,6 @@ function DefaultCellRenderer({ avroRenderer, colDef, value, getComponent, data }
 }
 
 DefaultCellRenderer.defaultProps = {
-	avroRenderer: DATAGRID_PROPTYPES.avroRenderer,
 	value: {},
 	data: {},
 };
