@@ -22,7 +22,14 @@ import {
 	extractPartsFromTextInput,
 	getFullDateFormat,
 } from './date-extraction';
-import { HOUR_ERRORS, MINUTES_ERRORS, SECONDS_ERRORS, FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS } from './constants';
+import {
+	HOUR_ERRORS,
+	MINUTES_ERRORS,
+	SECONDS_ERRORS,
+	FIELD_HOURS,
+	FIELD_MINUTES,
+	FIELD_SECONDS,
+} from './constants';
 
 import theme from './InputDateTimePicker.scss';
 
