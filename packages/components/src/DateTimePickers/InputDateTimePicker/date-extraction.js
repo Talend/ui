@@ -133,6 +133,7 @@ function checkHours(hours) {
 	} else if (hours.length !== 2 || isNaN(hoursNum) || hoursNum < 0 || hoursNum > 23) {
 		return new DatePickerException('INVALID_HOUR', 'INVALID_HOUR_NUMBER');
 	}
+	return null;
 }
 
 function checkMinutes(minutes) {
@@ -142,6 +143,7 @@ function checkMinutes(minutes) {
 	} else if (minutes.length !== 2 || isNaN(minsNum) || minsNum < 0 || minsNum > 59) {
 		return new DatePickerException('INVALID_MINUTES', 'INVALID_MINUTES_NUMBER');
 	}
+	return null;
 }
 
 function checkSeconds(seconds) {
@@ -151,6 +153,7 @@ function checkSeconds(seconds) {
 	} else if (seconds.length !== 2 || isNaN(secondsNum) || secondsNum < 0 || secondsNum > 59) {
 		return new DatePickerException('INVALID_SECONDS', 'INVALID_SECONDS_NUMBER');
 	}
+	return null;
 }
 
 /**

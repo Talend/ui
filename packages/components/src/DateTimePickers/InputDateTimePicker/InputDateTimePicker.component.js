@@ -186,6 +186,8 @@ class InputDateTimePicker extends React.Component {
 			case FIELD_SECONDS:
 				newError = checkSeconds(time.seconds);
 				break;
+			default:
+				break;
 		}
 
 		const nextErrors = this.state.errors.filter(
@@ -237,17 +239,8 @@ class InputDateTimePicker extends React.Component {
 		}
 	}
 
-	setPickerVisibility(isShown) {
-		if (this.props.readOnly) {
-			return;
-		}
-
-		this.setState(({ showPicker }) => {
-			if (showPicker === isShown) {
-				return null;
-			}
-			return { showPicker: isShown };
-		});
+	onInputFocus(event, focusedId = this.inputErrorId) {
+		this.setState({ focusedInput: focusedId });
 	}
 
 	getDateOptions() {
@@ -259,8 +252,17 @@ class InputDateTimePicker extends React.Component {
 		};
 	}
 
-	onInputFocus(event, focusedId = this.inputErrorId) {
-		this.setState({ focusedInput: focusedId });
+	setPickerVisibility(isShown) {
+		if (this.props.readOnly) {
+			return;
+		}
+
+		this.setState(({ showPicker }) => {
+			if (showPicker === isShown) {
+				return null;
+			}
+			return { showPicker: isShown };
+		});
 	}
 
 	hasError(error) {
