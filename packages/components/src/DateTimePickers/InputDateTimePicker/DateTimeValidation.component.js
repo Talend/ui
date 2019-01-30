@@ -6,25 +6,13 @@ import { translate } from 'react-i18next';
 import theme from './InputDateTimePicker.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
-
-const INPUT_ERRORS = [
-	'INVALID_DATE_FORMAT',
-	'INVALID_MONTH',
-	'INVALID_DAY',
-	'DATETIME_INVALID_FORMAT',
-	'TIME_FORMAT_INVALID',
-];
-const HOUR_ERRORS = ['INVALID_HOUR'];
-const MINUTES_ERRORS = ['INVALID_MINUTES'];
-const SECONDS_ERRORS = ['INVALID_SECONDS'];
+import { INPUT_ERRORS, HOUR_ERRORS, MINUTES_ERRORS, SECONDS_ERRORS } from './constants';
 
 function Error(props) {
 	const classNames = classnames({ 'sr-only': props.hidden });
 	return (
 		<div id={props.id} className={classNames}>
-			{props.errors.map((error, index) => (
-				<span key={index}>{error.message}</span>
-			))}
+			{props.errors.map((error, index) => <span key={index}>{error.message}</span>)}
 		</div>
 	);
 }

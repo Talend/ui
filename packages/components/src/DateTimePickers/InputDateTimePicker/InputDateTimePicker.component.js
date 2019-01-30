@@ -13,12 +13,16 @@ import { ErrorContext } from './InputDateTimePickerContext';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 import {
 	check,
+	checkHours,
+	checkMinutes,
+	checkSeconds,
 	checkSupportedDateFormat,
 	extractParts,
 	extractPartsFromDateAndTime,
 	extractPartsFromTextInput,
 	getFullDateFormat,
 } from './date-extraction';
+import { HOUR_ERRORS, MINUTES_ERRORS, SECONDS_ERRORS } from './constants';
 
 import theme from './InputDateTimePicker.scss';
 
@@ -160,9 +164,33 @@ class InputDateTimePicker extends React.Component {
 		}
 	}
 
-	onPickerChange(event, { date, time }) {
+	onPickerChange(event, { date, time, field }) {
 		const nextState = extractPartsFromDateAndTime(date, time, this.getDateOptions());
-		this.setState({ previousErrors: this.state.errors, ...nextState }, () => {
+
+		let newError;
+		switch (field) {
+			case 'hours':
+				newError = checkHours(time.hours);
+				break;
+			case 'minutes':
+				newError = checkHours(time.hours);
+				break;
+			case 'seconds':
+				newError = checkHours(time.hours);
+				break;
+		}
+
+		const nextErrors = this.state.errors.filter(
+			error =>
+				(field === 'hours' && !HOUR_ERRORS.includes(error.code)) ||
+				(field === 'minutes' && !MINUTES_ERRORS.includes(error.code)) ||
+				(field === 'seconds' && !SECONDS_ERRORS.includes(error.code)),
+		);
+		if (newError) {
+			nextErrors.push(newError);
+		}
+
+		this.setState({ previousErrors: this.state.errors, ...nextState, errors: nextErrors }, () => {
 			if (!this.props.formMode) {
 				this.onChange(event, 'PICKER');
 			}

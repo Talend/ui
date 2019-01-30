@@ -126,34 +126,28 @@ function convertToUTC(date) {
 	);
 }
 
-function checkHours(hours, emptyIsValid = false) {
+function checkHours(hours) {
 	const hoursNum = Number(hours);
 	if (hours === '') {
-		if (!emptyIsValid) {
-			return new DatePickerException('INVALID_HOUR', 'INVALID_HOUR_EMPTY');
-		}
+		return new DatePickerException('INVALID_HOUR', 'INVALID_HOUR_EMPTY');
 	} else if (hours.length !== 2 || isNaN(hoursNum) || hoursNum < 0 || hoursNum > 23) {
 		return new DatePickerException('INVALID_HOUR', 'INVALID_HOUR_NUMBER');
 	}
 }
 
-function checkMinutes(minutes, emptyIsValid = false) {
+function checkMinutes(minutes) {
 	const minsNum = Number(minutes);
 	if (minsNum === '') {
-		if (!emptyIsValid) {
-			return new DatePickerException('INVALID_MINUTES', 'INVALID_MINUTES_EMPTY');
-		}
+		return new DatePickerException('INVALID_MINUTES', 'INVALID_MINUTES_EMPTY');
 	} else if (minutes.length !== 2 || isNaN(minsNum) || minsNum < 0 || minsNum > 59) {
 		return new DatePickerException('INVALID_MINUTES', 'INVALID_MINUTES_NUMBER');
 	}
 }
 
-function checkSeconds(seconds, emptyIsValid = false) {
+function checkSeconds(seconds) {
 	const secondsNum = Number(seconds);
 	if (seconds === '') {
-		if (!emptyIsValid) {
-			return new DatePickerException('INVALID_SECONDS', 'INVALID_SECONDS_EMPTY');
-		}
+		return new DatePickerException('INVALID_SECONDS', 'INVALID_SECONDS_EMPTY');
 	} else if (seconds.length !== 2 || isNaN(secondsNum) || secondsNum < 0 || secondsNum > 59) {
 		return new DatePickerException('INVALID_SECONDS', 'INVALID_SECONDS_NUMBER');
 	}
@@ -540,6 +534,9 @@ function extractParts(value, options) {
 
 export {
 	check,
+	checkHours,
+	checkMinutes,
+	checkSeconds,
 	checkSupportedDateFormat,
 	extractParts,
 	extractPartsFromDateTime,
