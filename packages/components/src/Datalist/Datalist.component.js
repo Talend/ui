@@ -224,7 +224,7 @@ class Datalist extends Component {
 			const groups = this.props.titleMap;
 			for (let sectionIndex = 0; sectionIndex < groups.length; sectionIndex += 1) {
 				const focusedIndex = groups[sectionIndex].suggestions.findIndex(
-					item => item.value === value,
+					item => item.name === value,
 				);
 				if (focusedIndex > -1) {
 					this.setState({
@@ -235,7 +235,7 @@ class Datalist extends Component {
 				}
 			}
 		} else {
-			const index = this.props.titleMap.findIndex(item => item.value === value);
+			const index = this.props.titleMap.findIndex(item => item.name === value);
 			this.setState({
 				focusedItemIndex: index === -1 ? null : index,
 			});
