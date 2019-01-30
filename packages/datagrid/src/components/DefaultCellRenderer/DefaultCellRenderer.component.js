@@ -39,7 +39,7 @@ function DefaultCellRenderer({ avroRenderer, colDef, value, getComponent, data }
 }
 
 DefaultCellRenderer.defaultProps = {
-	avroRenderer: getAvroRenderer(),
+	avroRenderer: DATAGRID_PROPTYPES.avroRenderer,
 	value: {},
 	data: {},
 };
