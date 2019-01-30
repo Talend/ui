@@ -8,18 +8,18 @@ exports[`InputDateTimePicker should render 1`] = `
 >
   <div>
     <DebounceInput
-      aria-describedby=""
+      aria-describedby="DEFAULT_ID-input-error"
       autoComplete="off"
       className="form-control"
       debounceTimeout={300}
       element="input"
       forceNotifyByEnter={true}
       forceNotifyOnBlur={true}
-      formMode={false}
       id="DEFAULT_ID"
       inputRef={[Function]}
       minLength={0}
       onChange={[Function]}
+      onnFocus={[Function]}
       placeholder="YYYY-MM-DD HH:mm"
       type="text"
       value="2017-04-04 15:27"
@@ -42,11 +42,11 @@ exports[`InputDateTimePicker should render 1`] = `
           <Context.Provider
             value={
               Object {
-                "focusInput": [Function],
                 "formMode": false,
                 "hasError": [Function],
                 "hoursErrorId": "DEFAULT_ID-hours-error",
                 "minutesErrorId": "DEFAULT_ID-minutes-error",
+                "onInputFocus": [Function],
                 "secondsErrorId": "DEFAULT_ID-seconds-error",
               }
             }
@@ -88,18 +88,18 @@ exports[`InputDateTimePicker should render validation button 1`] = `
   >
     <div>
       <DebounceInput
-        aria-describedby=""
+        aria-describedby="DEFAULT_ID-input-error"
         autoComplete="off"
         className="form-control"
         debounceTimeout={300}
         element="input"
         forceNotifyByEnter={true}
         forceNotifyOnBlur={true}
-        formMode={true}
         id="DEFAULT_ID"
         inputRef={[Function]}
         minLength={0}
         onChange={[Function]}
+        onnFocus={[Function]}
         placeholder="YYYY-MM-DD HH:mm"
         type="text"
         value="2017-04-04 15:27"
@@ -122,11 +122,11 @@ exports[`InputDateTimePicker should render validation button 1`] = `
             <Context.Provider
               value={
                 Object {
-                  "focusInput": [Function],
                   "formMode": true,
                   "hasError": [Function],
                   "hoursErrorId": "DEFAULT_ID-hours-error",
                   "minutesErrorId": "DEFAULT_ID-minutes-error",
+                  "onInputFocus": [Function],
                   "secondsErrorId": "DEFAULT_ID-seconds-error",
                 }
               }
@@ -152,6 +152,7 @@ exports[`InputDateTimePicker should render validation button 1`] = `
             </Context.Provider>
             <Translate(DateTimeValidation)
               errors={Array []}
+              focusedInput="DEFAULT_ID-input-error"
               hoursErrorId="DEFAULT_ID-hours-error"
               inputErrorId="DEFAULT_ID-input-error"
               minutesErrorId="DEFAULT_ID-minutes-error"
@@ -183,11 +184,11 @@ exports[`InputDateTimePicker should render with format error 1`] = `
         element="input"
         forceNotifyByEnter={true}
         forceNotifyOnBlur={true}
-        formMode={true}
         id="DEFAULT_ID"
         inputRef={[Function]}
         minLength={0}
         onChange={[Function]}
+        onnFocus={[Function]}
         placeholder="YYYY-MM-DD HH:mm"
         type="text"
         value="2012-10-12 12"
@@ -210,11 +211,11 @@ exports[`InputDateTimePicker should render with format error 1`] = `
             <Context.Provider
               value={
                 Object {
-                  "focusInput": [Function],
                   "formMode": true,
                   "hasError": [Function],
                   "hoursErrorId": "DEFAULT_ID-hours-error",
                   "minutesErrorId": "DEFAULT_ID-minutes-error",
+                  "onInputFocus": [Function],
                   "secondsErrorId": "DEFAULT_ID-seconds-error",
                 }
               }
@@ -224,7 +225,7 @@ exports[`InputDateTimePicker should render with format error 1`] = `
                   Array [
                     DatePickerException {
                       "code": "DATETIME_INVALID_FORMAT",
-                      "message": "DATETIME - INCORRECT FORMAT",
+                      "message": "DATETIME_INVALID_FORMAT",
                     },
                   ]
                 }
@@ -250,10 +251,11 @@ exports[`InputDateTimePicker should render with format error 1`] = `
                 Array [
                   DatePickerException {
                     "code": "DATETIME_INVALID_FORMAT",
-                    "message": "DATETIME - INCORRECT FORMAT",
+                    "message": "DATETIME_INVALID_FORMAT",
                   },
                 ]
               }
+              focusedInput="DEFAULT_ID-input-error"
               hoursErrorId="DEFAULT_ID-hours-error"
               inputErrorId="DEFAULT_ID-input-error"
               minutesErrorId="DEFAULT_ID-minutes-error"

@@ -4,6 +4,7 @@ import cases from 'jest-in-case';
 import keycode from 'keycode/index';
 
 import InputDateTimePicker from './InputDateTimePicker.component';
+import { FIELD_HOURS } from './constants';
 
 const DEFAULT_ID = 'DEFAULT_ID';
 
@@ -445,7 +446,7 @@ describe('InputDateTimePicker', () => {
 	describe('picker change', () => {
 		cases(
 			'should update input',
-			({ date, time, expectedTextInput, dateFormat }) => {
+			({ date, time, expectedTextInput, dateFormat, field = '' }) => {
 				// given
 				const event = { preventDefault: () => {} };
 				const wrapper = shallow(
@@ -453,7 +454,7 @@ describe('InputDateTimePicker', () => {
 				);
 
 				// when
-				wrapper.find('DateTimePicker').prop('onSubmit')(event, { date, time });
+				wrapper.find('DateTimePicker').prop('onSubmit')(event, { date, time, field });
 				wrapper.update();
 
 				// then
@@ -475,6 +476,7 @@ describe('InputDateTimePicker', () => {
 					name: 'with invalid time',
 					date: new Date(2015, 0, 15),
 					time: { hours: '15aze', minutes: '45' },
+					field: FIELD_HOURS,
 					expectedTextInput: '2015-01-15 15aze:45',
 				},
 				{
@@ -539,7 +541,9 @@ describe('InputDateTimePicker', () => {
 			wrapper.find('DateTimePicker').prop('onSubmit')(event, {
 				date: new Date(2015, 0, 15),
 				time: { hours: '15aze', minutes: '45', seconds: '00' },
+				field: FIELD_HOURS
 			});
+
 			// then
 			expect(onChange).toBeCalled();
 			const args = onChange.mock.calls[0];

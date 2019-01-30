@@ -14,7 +14,7 @@ exports[`TimePicker should render 1`] = `
     Hours
   </label>
   <DebounceInput
-    aria-describedby=""
+    aria-describedby="error-hours"
     aria-invalid={false}
     className="theme-time-input"
     debounceTimeout={100}
@@ -23,7 +23,7 @@ exports[`TimePicker should render 1`] = `
     forceNotifyOnBlur={true}
     id="42-hour"
     minLength={0}
-    onBlur={[Function]}
+    onBlur={[MockFunction]}
     onChange={[Function]}
     onFocus={[Function]}
     placeholder="HH"
@@ -39,7 +39,7 @@ exports[`TimePicker should render 1`] = `
     Minutes
   </label>
   <DebounceInput
-    aria-describedby=""
+    aria-describedby="error-minutes"
     aria-invalid={false}
     className="theme-time-input"
     debounceTimeout={100}
@@ -48,7 +48,7 @@ exports[`TimePicker should render 1`] = `
     forceNotifyOnBlur={true}
     id="42-minute"
     minLength={0}
-    onBlur={[Function]}
+    onBlur={[MockFunction]}
     onChange={[Function]}
     onFocus={[Function]}
     placeholder="MM"
@@ -93,7 +93,6 @@ exports[`TimePicker should render with error 1`] = `
     forceNotifyOnBlur={true}
     id="42-hour"
     minLength={0}
-    onBlur={[Function]}
     onChange={[Function]}
     onFocus={[Function]}
     placeholder="HH"
@@ -118,7 +117,6 @@ exports[`TimePicker should render with error 1`] = `
     forceNotifyOnBlur={true}
     id="42-minute"
     minLength={0}
-    onBlur={[Function]}
     onChange={[Function]}
     onFocus={[Function]}
     placeholder="MM"
@@ -143,7 +141,6 @@ exports[`TimePicker should render with error 1`] = `
     forceNotifyOnBlur={true}
     id="42-second"
     minLength={0}
-    onBlur={[Function]}
     onChange={[Function]}
     onFocus={[Function]}
     placeholder="SS"

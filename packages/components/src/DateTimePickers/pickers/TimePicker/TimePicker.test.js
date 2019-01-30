@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { FIELD_MINUTES, FIELD_HOURS } from '../../InputDateTimePicker/constants';
 
 // ensure you're resetting modules before each test
 beforeEach(() => {
@@ -7,11 +8,17 @@ beforeEach(() => {
 });
 
 // Takes the context data we want to test, or uses defaults
-const getTimePickerWithContext = (context = { hasError: () => false }) => {
+const getTimePickerWithContext = (context = {
+	hasError: () => false,
+	onInputFocus: jest.fn(),
+	hoursErrorId: 'error-hours',
+	minutesErrorId: 'error-minutes',
+	secondsErrorId: 'error-seconds',
+}) => {
 	// Will then mock the LocalizeContext module being used in our LanguageSelector component
 	/* eslint-disable */
 	jest.doMock('../../InputDateTimePicker/InputDateTimePickerContext', () => ({
-		DateTimePickerErrorContext: {
+		ErrorContext: {
 			Consumer: props => props.children(context),
 		},
 	}));
@@ -100,7 +107,7 @@ describe('TimePicker', () => {
 			.simulate('change', event);
 
 		// then
-		expect(onChange).toBeCalledWith(event, { hours: '17', minutes: '38' });
+		expect(onChange).toBeCalledWith(event, { hours: '17', minutes: '38' }, FIELD_HOURS);
 	});
 
 	it('should trigger onChange on minutes change', () => {
@@ -121,7 +128,7 @@ describe('TimePicker', () => {
 			.simulate('change', event);
 
 		// then
-		expect(onChange).toBeCalledWith(event, { hours: '15', minutes: '17' });
+		expect(onChange).toBeCalledWith(event, { hours: '15', minutes: '17' }, FIELD_MINUTES);
 	});
 
 	it('should manage tabIndex', () => {
