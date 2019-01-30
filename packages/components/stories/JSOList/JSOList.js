@@ -45,10 +45,25 @@ storiesOf('JSOList', module).add('Table', () => (
 	<div className="virtualized-list">
 		<IconsProvider defaultIcons={icons} />
 		<section style={{ height: '50vh' }}>
-			<List.Container id="my-list">
+			<List.Container
+				id="my-list"
+				onDisplayModeChange={action('onDisplayModeChange')}
+				onSortChange={action('onSortChange')}
+			>
 				<List.Toolbar>
-					<List.DisplayMode id="my-list-display-mode" />
+					<List.DisplayMode id="my-list-displayMode" />
+					<List.SortBy
+						id="my-list-sortBy"
+						options={[
+							{ id: 'id', name: 'Id' },
+							{ id: 'name', name: 'Name' },
+							{ id: 'author', name: 'Author' },
+							{ id: 'created', name: 'Created' },
+							{ id: 'modified', name: 'Modified' },
+						]}
+					/>
 				</List.Toolbar>
+
 				<List.VList id="my-list" collection={collection}>
 					<List.VList.Content label="Id" dataKey="id" width={-1} />
 					<List.VList.Content
@@ -63,9 +78,10 @@ storiesOf('JSOList', module).add('Table', () => (
 						dataKey="tag"
 						columnData={{ selected: true }}
 						width={-1}
+						disableSort
 						{...CellBadge}
 					/>
-					<List.VList.Content label="Description (non sortable)" dataKey="description" width={-1} />
+					<List.VList.Content label="Description" dataKey="description" width={-1} disableSort />
 					<List.VList.Content label="Author" dataKey="author" width={-1} />
 					<List.VList.Content label="Created" dataKey="created" width={-1} />
 					<List.VList.Content label="Modified" dataKey="modified" width={-1} />

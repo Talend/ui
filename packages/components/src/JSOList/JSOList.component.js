@@ -12,6 +12,8 @@ class Container extends React.Component {
 	static propTypes = {
 		children: PropTypes.node,
 		displayMode: PropTypes.string,
+		onDisplayModeChange: PropTypes.func,
+		onSortChange: PropTypes.func,
 		sortBy: PropTypes.string,
 		sortDescending: PropTypes.bool,
 	};
@@ -32,11 +34,19 @@ class Container extends React.Component {
 	}
 
 	onDisplayModeChange(event, displayMode) {
-		this.setState({ displayMode });
+		this.setState({ displayMode }, () => {
+			if (this.props.onDisplayModeChange) {
+				this.props.onDisplayModeChange(event, displayMode);
+			}
+		});
 	}
 
-	onSortChange(event, { sortBy, isDescending }) {
-		this.setState({ sortBy, sortDescending: isDescending });
+	onSortChange(event, sort) {
+		this.setState({ sortBy: sort.sortBy, sortDescending: sort.isDescending }, () => {
+			if (this.props.onSortChange) {
+				this.props.onSortChange(event, sort);
+			}
+		});
 	}
 
 	render() {

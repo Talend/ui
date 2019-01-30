@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavItem, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
+import { NavItem, Nav, NavDropdown, Navbar, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
 import { translate } from 'react-i18next';
 
@@ -60,11 +60,17 @@ class SortBy extends React.Component {
 
 		return (
 			<Nav className={theme['tc-list-toolbar-sort-by']}>
+				<Navbar.Text>
+					<label htmlFor={id}>{t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}</label>
+				</Navbar.Text>
 				{options.length === 1 ? (
-					<li className="navbar-text">{options[0].name}</li>
+					<li className="navbar-text" key="single">
+						{options[0].name}
+					</li>
 				) : (
 					<NavDropdown
 						id={id}
+						key="multi"
 						className={theme['sort-by-items']}
 						onSelect={this.onFieldChange}
 						title={currentSortByLabel}
