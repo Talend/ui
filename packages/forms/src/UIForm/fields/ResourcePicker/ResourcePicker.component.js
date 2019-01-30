@@ -122,7 +122,7 @@ class ResourcePicker extends Component {
 
 	render() {
 		const { certified, favorites, selection, orders } = this.state.filters;
-		const { id, schema } = this.props;
+		const { id, schema, isValid, errorMessage } = this.props;
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
 		const toolbar = {
@@ -144,14 +144,14 @@ class ResourcePicker extends Component {
 
 		return (
 			<FieldTemplate
-				description={this.props.schema.description}
+				description={schema.description}
 				descriptionId={descriptionId}
 				errorId={errorId}
-				errorMessage={this.props.errorMessage}
-				id={this.props.id}
-				isValid={this.props.isValid}
-				label={this.props.schema.title}
-				required={this.props.schema.required}
+				errorMessage={errorMessage}
+				id={id}
+				isValid={isValid}
+				label={schema.title}
+				required={schema.required}
 			>
 				<ResourcePickerComponent
 					{...this.props}
@@ -159,6 +159,10 @@ class ResourcePicker extends Component {
 					toolbar={toolbar}
 					isSelected={this.isItemSelected}
 					onRowClick={this.onRowClick}
+					// eslint-disable-next-line jsx-a11y/aria-proptypes
+					aria-invalid={!isValid}
+					aria-required={schema.required}
+					aria-describedby={`${descriptionId} ${errorId}`}
 				/>
 			</FieldTemplate>
 		);
