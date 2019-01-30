@@ -138,9 +138,13 @@ function createCommonProps(tab) {
 
 			if (key.includes('ResourcePicker')) {
 				return new Promise(resolve => {
-					resolve({
-						collection: getFilteredCollection(payload.trigger.parameters),
-					});
+					setTimeout(
+						() =>
+							resolve({
+								collection: getFilteredCollection(payload.trigger.parameters),
+							}),
+						3000,
+					);
 				});
 			}
 
