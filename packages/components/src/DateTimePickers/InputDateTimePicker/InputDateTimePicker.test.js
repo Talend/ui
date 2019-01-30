@@ -541,7 +541,7 @@ describe('InputDateTimePicker', () => {
 			wrapper.find('DateTimePicker').prop('onSubmit')(event, {
 				date: new Date(2015, 0, 15),
 				time: { hours: '15aze', minutes: '45', seconds: '00' },
-				field: FIELD_HOURS
+				field: FIELD_HOURS,
 			});
 
 			// then

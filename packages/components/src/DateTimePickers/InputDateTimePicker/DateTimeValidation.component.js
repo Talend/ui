@@ -17,11 +17,15 @@ function getDateErrorLabel(t, errorMessage) {
 		case 'INVALID_MINUTES_EMPTY':
 			return t('INVALID_MINUTES_EMPTY', { defaultValue: 'Minutes are required' });
 		case 'INVALID_MINUTES_NUMBER':
-			return t('INVALID_MINUTES_NUMBER', { defaultValue: 'Minutes value must be between 0 and 59' });
+			return t('INVALID_MINUTES_NUMBER', {
+				defaultValue: 'Minutes value must be between 0 and 59',
+			});
 		case 'INVALID_SECONDS_EMPTY':
 			return t('INVALID_SECONDS_EMPTY', { defaultValue: 'Seconds are required' });
 		case 'INVALID_SECONDS_NUMBER':
-			return t('INVALID_SECONDS_NUMBER', { defaultValue: 'Seconds value must be between 0 and 59' });
+			return t('INVALID_SECONDS_NUMBER', {
+				defaultValue: 'Seconds value must be between 0 and 59',
+			});
 		case 'INVALID_DATE_FORMAT':
 			return t('INVALID_DATE_FORMAT', { defaultValue: 'Date format is invalid' });
 		case 'INVALID_MONTH_NUMBER':
@@ -29,7 +33,7 @@ function getDateErrorLabel(t, errorMessage) {
 		case 'INVALID_DAY_NUMBER':
 			return t('INVALID_DAY_NUMBER', { defaultValue: 'Day is invalid' });
 		case 'INVALID_DAY_OF_MONTH':
-			return t('INVALID_DAY_OF_MONTH', { defaultValue: 'Day value doesn\'t match an existing day' });
+			return t('INVALID_DAY_OF_MONTH', { defaultValue: "Day value doesn't match an existing day" });
 		case 'TIME_FORMAT_INVALID':
 			return t('TIME_FORMAT_INVALID', { defaultValue: 'Time is invalid' });
 		case 'DATETIME_INVALID_FORMAT':
@@ -61,7 +65,6 @@ Error.defaultProps = {
 };
 
 const TranslatedError = translate(I18N_DOMAIN_COMPONENTS)(Error);
-
 
 function DateTimeValidation({
 	t,

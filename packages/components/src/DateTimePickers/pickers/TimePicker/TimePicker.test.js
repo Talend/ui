@@ -8,13 +8,15 @@ beforeEach(() => {
 });
 
 // Takes the context data we want to test, or uses defaults
-const getTimePickerWithContext = (context = {
-	hasError: () => false,
-	onInputFocus: jest.fn(),
-	hoursErrorId: 'error-hours',
-	minutesErrorId: 'error-minutes',
-	secondsErrorId: 'error-seconds',
-}) => {
+const getTimePickerWithContext = (
+	context = {
+		hasError: () => false,
+		onInputFocus: jest.fn(),
+		hoursErrorId: 'error-hours',
+		minutesErrorId: 'error-minutes',
+		secondsErrorId: 'error-seconds',
+	},
+) => {
 	// Will then mock the LocalizeContext module being used in our LanguageSelector component
 	/* eslint-disable */
 	jest.doMock('../../InputDateTimePicker/InputDateTimePickerContext', () => ({
