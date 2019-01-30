@@ -8,12 +8,43 @@ import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import { INPUT_ERRORS, HOUR_ERRORS, MINUTES_ERRORS, SECONDS_ERRORS } from './constants';
 
-function Error(props) {
-	const classNames = classnames({ 'sr-only': props.hidden });
+function getDateErrorLabel(t, errorMessage) {
+	switch (errorMessage) {
+		case 'INVALID_HOUR_EMPTY':
+			return t('INVALID_HOUR_EMPTY', { defaultValue: 'Hours value is empty' });
+		case 'INVALID_HOUR_NUMBER':
+			return t('INVALID_HOUR_NUMBER', { defaultValue: 'Hours value must be between 0 and 23' });
+		case 'INVALID_MINUTES_EMPTY':
+			return t('INVALID_MINUTES_EMPTY', { defaultValue: 'Minutes value is empty' });
+		case 'INVALID_MINUTES_NUMBER':
+			return t('INVALID_MINUTES_NUMBER', { defaultValue: 'Minutes value must be between 0 and 59' });
+		case 'INVALID_SECONDS_EMPTY':
+			return t('INVALID_SECONDS_EMPTY', { defaultValue: 'Seconds value is empty' });
+		case 'INVALID_SECONDS_NUMBER':
+			return t('INVALID_SECONDS_NUMBER', { defaultValue: 'Seconds value must be between 0 and 59' });
+		case 'INVALID_DATE_FORMAT':
+			return t('INVALID_DATE_FORMAT', { defaultValue: 'Date format is invalid' });
+		case 'INVALID_MONTH_NUMBER':
+			return t('INVALID_MONTH_NUMBER', { defaultValue: 'Month value must be betwen 1 and 12' });
+		case 'INVALID_DAY_NUMBER':
+			return t('INVALID_DAY_NUMBER', { defaultValue: 'Day value is invalid' });
+		case 'INVALID_DAY_OF_MONTH':
+			return t('INVALID_DAY_OF_MONTH', { defaultValue: 'Day value doesn\'t match an existing day' });
+		case 'TIME_FORMAT_INVALID':
+			return t('TIME_FORMAT_INVALID', { defaultValue: 'Time value is invalid' });
+		case 'DATETIME_INVALID_FORMAT':
+			return t('DATETIME_INVALID_FORMAT', { defaultValue: 'Datetime value is invalid' });
+		default:
+			return '';
+	}
+}
+
+function Error({ hidden, errors, id, t }) {
+	const classNames = classnames({ 'sr-only': hidden });
 	return (
-		<div id={props.id} className={classNames}>
-			{props.errors.map((error, index) => (
-				<span key={index}>{error.message}</span>
+		<div id={id} className={classNames}>
+			{errors.map((error, index) => (
+				<span key={index}>{getDateErrorLabel(t, error.message)}</span>
 			))}
 		</div>
 	);
@@ -22,7 +53,15 @@ Error.propTypes = {
 	id: PropTypes.string,
 	errors: PropTypes.array,
 	hidden: PropTypes.bool,
+	t: PropTypes.func,
 };
+
+Error.defaultProps = {
+	t: getDefaultT(),
+};
+
+const TranslatedError = translate(I18N_DOMAIN_COMPONENTS)(Error);
+
 
 function DateTimeValidation({
 	t,
@@ -36,25 +75,25 @@ function DateTimeValidation({
 	return (
 		<div className={theme.footer}>
 			<div className={theme.errors}>
-				<Error
+				<TranslatedError
 					id={inputErrorId}
 					key="input-errors"
 					errors={errors.filter(error => INPUT_ERRORS.includes(error.code))}
 					hidden={focusedInput !== inputErrorId}
 				/>
-				<Error
+				<TranslatedError
 					id={hoursErrorId}
 					key="hours-errors"
 					errors={errors.filter(error => HOUR_ERRORS.includes(error.code))}
 					hidden={focusedInput !== hoursErrorId}
 				/>
-				<Error
+				<TranslatedError
 					id={minutesErrorId}
 					key="minutes-errors"
 					errors={errors.filter(error => MINUTES_ERRORS.includes(error.code))}
 					hidden={focusedInput !== minutesErrorId}
 				/>
-				<Error
+				<TranslatedError
 					id={secondsErrorId}
 					key="seconds-errors"
 					errors={errors.filter(error => SECONDS_ERRORS.includes(error.code))}

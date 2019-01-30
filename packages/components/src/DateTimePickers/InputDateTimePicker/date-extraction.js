@@ -191,7 +191,7 @@ function check(date, time) {
 		errors = timeErrors;
 	}
 
-	 if (!isDateValid(date)) {
+	if (!isDateValid(date)) {
 		errors.push(new DatePickerException('INVALID_DATE_FORMAT', 'INVALID_DATE_FORMAT'));
 	}
 	return errors;
@@ -464,8 +464,7 @@ function extractPartsFromTextInput(textInput, options) {
 		if (options.useTime) {
 			const splitMatches = textInput.match(splitDateAndTimePartsRegex) || [];
 			if (!splitMatches.length) {
-				// THAT ONE SEEMS USELESS TO ME ?
-				throw new DatePickerException('DATETIME_INVALID_FORMAT', 'DATETIME - INCORRECT FORMAT');
+				throw new DatePickerException('DATETIME_INVALID_FORMAT', 'DATETIME_INVALID_FORMAT');
 			} else {
 				// extract date part from datetime
 				dateTextToParse = splitMatches[1];

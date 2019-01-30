@@ -186,17 +186,17 @@ class InputDateTimePicker extends React.Component {
 		if (isTimeUpdate) {
 			let newError;
 			switch (field) {
-			case FIELD_HOURS:
-				newError = checkHours(time.hours);
-				break;
-			case FIELD_MINUTES:
-				newError = checkMinutes(time.minutes);
-				break;
-			case FIELD_SECONDS:
-				newError = checkSeconds(time.seconds);
-				break;
-			default:
-				break;
+				case FIELD_HOURS:
+					newError = checkHours(time.hours);
+					break;
+				case FIELD_MINUTES:
+					newError = checkMinutes(time.minutes);
+					break;
+				case FIELD_SECONDS:
+					newError = checkSeconds(time.seconds);
+					break;
+				default:
+					break;
 			}
 
 			nextErrors = nextErrors.filter(
@@ -215,7 +215,6 @@ class InputDateTimePicker extends React.Component {
 				this.onChange(event, 'PICKER');
 			}
 		});
-
 	}
 
 	onBlur(event) {
