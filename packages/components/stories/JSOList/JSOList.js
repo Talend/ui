@@ -5,7 +5,7 @@ import talendIcons from '@talend/icons/dist/react';
 
 import collection from './collection';
 import { IconsProvider } from '../../src/index';
-import JSOList from '../../src/JSOList';
+import List from '../../src/JSOList';
 import CellTitle from '../../src/VirtualizedList/CellTitle';
 import CellBadge from '../../src/VirtualizedList/CellBadge';
 
@@ -41,44 +41,36 @@ const titleProps = {
 	onEditCancel: action('cancel-edit'),
 	onEditSubmit: action('submit-edit'),
 };
-
 storiesOf('JSOList', module).add('Table', () => (
 	<div className="virtualized-list">
 		<IconsProvider defaultIcons={icons} />
 		<section style={{ height: '50vh' }}>
-			<JSOList.Container>
-				<JSOList.Toolbar
-					handleInputFilter={action('input filter')}
-					handleToggleFilter={action('toggle filter')}
-				>
-					<JSOList.Toolbar.DisplayMode />
-				</JSOList.Toolbar>
-				<JSOList.VirtualizedList collection={collection} id={'my-list'}>
-					<JSOList.VirtualizedList.Content label="Id" dataKey="id" width={-1} />
-					<JSOList.VirtualizedList.Content
+			<List.Container id="my-list">
+				<List.Toolbar>
+					<List.DisplayMode id="my-list-display-mode" />
+				</List.Toolbar>
+				<List.VList id="my-list" collection={collection}>
+					<List.VList.Content label="Id" dataKey="id" width={-1} />
+					<List.VList.Content
 						label="Name"
 						dataKey="name"
 						columnData={titleProps}
 						width={-1}
 						{...CellTitle}
 					/>
-					<JSOList.VirtualizedList.Content
+					<List.VList.Content
 						label="Tag"
 						dataKey="tag"
 						columnData={{ selected: true }}
 						width={-1}
 						{...CellBadge}
 					/>
-					<JSOList.VirtualizedList.Content
-						label="Description (non sortable)"
-						dataKey="description"
-						width={-1}
-					/>
-					<JSOList.VirtualizedList.Content label="Author" dataKey="author" width={-1} />
-					<JSOList.VirtualizedList.Content label="Created" dataKey="created" width={-1} />
-					<JSOList.VirtualizedList.Content label="Modified" dataKey="modified" width={-1} />
-				</JSOList.VirtualizedList>
-			</JSOList.Container>
+					<List.VList.Content label="Description (non sortable)" dataKey="description" width={-1} />
+					<List.VList.Content label="Author" dataKey="author" width={-1} />
+					<List.VList.Content label="Created" dataKey="created" width={-1} />
+					<List.VList.Content label="Modified" dataKey="modified" width={-1} />
+				</List.VList>
+			</List.Container>
 		</section>
 	</div>
 ));

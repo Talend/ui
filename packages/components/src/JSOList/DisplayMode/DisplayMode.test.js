@@ -1,9 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import SelectDisplayMode from './SelectDisplayMode.component';
-
-jest.mock('react-dom');
+import SelectDisplayMode from './DisplayMode.component';
 
 const requiredProps = {
 	onChange: jest.fn(),
