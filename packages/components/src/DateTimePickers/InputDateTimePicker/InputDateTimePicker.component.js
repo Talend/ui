@@ -22,7 +22,7 @@ import {
 	extractPartsFromTextInput,
 	getFullDateFormat,
 } from './date-extraction';
-import { HOUR_ERRORS, MINUTES_ERRORS, SECONDS_ERRORS } from './constants';
+import { HOUR_ERRORS, MINUTES_ERRORS, SECONDS_ERRORS, FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS } from './constants';
 
 import theme from './InputDateTimePicker.scss';
 
@@ -165,26 +165,27 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	onPickerChange(event, { date, time, field }) {
-		const nextState = extractPartsFromDateAndTime(date, time, this.getDateOptions());
+		const ignoreDate = [FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS].includes(field);
+		const nextState = extractPartsFromDateAndTime(date, time, this.getDateOptions(), ignoreDate);
 
 		let newError;
 		switch (field) {
-			case 'hours':
+			case FIELD_HOURS:
 				newError = checkHours(time.hours);
 				break;
-			case 'minutes':
-				newError = checkHours(time.hours);
+			case FIELD_MINUTES:
+				newError = checkMinutes(time.minutes);
 				break;
-			case 'seconds':
-				newError = checkHours(time.hours);
+			case FIELD_SECONDS:
+				newError = checkSeconds(time.seconds);
 				break;
 		}
 
 		const nextErrors = this.state.errors.filter(
 			error =>
-				(field === 'hours' && !HOUR_ERRORS.includes(error.code)) ||
-				(field === 'minutes' && !MINUTES_ERRORS.includes(error.code)) ||
-				(field === 'seconds' && !SECONDS_ERRORS.includes(error.code)),
+				(field === FIELD_HOURS && !HOUR_ERRORS.includes(error.code)) ||
+				(field === FIELD_MINUTES && !MINUTES_ERRORS.includes(error.code)) ||
+				(field === FIELD_SECONDS && !SECONDS_ERRORS.includes(error.code)),
 		);
 		if (newError) {
 			nextErrors.push(newError);

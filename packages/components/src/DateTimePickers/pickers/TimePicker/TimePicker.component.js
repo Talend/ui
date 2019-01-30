@@ -5,12 +5,9 @@ import uuid from 'uuid';
 import DebounceInput from 'react-debounce-input';
 import getDefaultT from '../../../translate';
 import { ErrorContext } from '../../InputDateTimePicker/InputDateTimePickerContext';
+import { FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS } from '../../InputDateTimePicker/constants';
 
 import theme from './TimePicker.scss';
-
-const HOURS = 'HOURS';
-const MINUTES = 'MINUTES';
-const SECONDS = 'SECONDS';
 
 class TimePicker extends React.PureComponent {
 	static defaultProps = {
@@ -43,14 +40,14 @@ class TimePicker extends React.PureComponent {
 	onChange(event, field) {
 		const inputValue = event.target.value;
 		const newValue = { ...this.props.value };
-		if (field === HOURS) {
+		if (field === FIELD_HOURS) {
 			newValue.hours = inputValue;
-		} else if (field === MINUTES) {
+		} else if (field === FIELD_MINUTES) {
 			newValue.minutes = inputValue;
-		} else if (field === SECONDS) {
+		} else if (field === FIELD_SECONDS) {
 			newValue.seconds = inputValue;
 		}
-		this.props.onChange(event, newValue);
+		this.props.onChange(event, newValue, field);
 	}
 
 	render() {
@@ -81,7 +78,7 @@ class TimePicker extends React.PureComponent {
 							})}
 							value={this.props.value.hours}
 							tabIndex={tabIndex}
-							onChange={event => this.onChange(event, HOURS)}
+							onChange={event => this.onChange(event, FIELD_HOURS)}
 							onBlur={onInputFocus}
 							onFocus={event => onInputFocus(event, hoursErrorId)}
 							placeholder="HH"
@@ -101,7 +98,7 @@ class TimePicker extends React.PureComponent {
 							})}
 							value={this.props.value.minutes}
 							tabIndex={tabIndex}
-							onChange={event => this.onChange(event, MINUTES)}
+							onChange={event => this.onChange(event, FIELD_MINUTES)}
 							onBlur={onInputFocus}
 							onFocus={event => onInputFocus(event, minutesErrorId)}
 							placeholder="MM"
@@ -124,7 +121,7 @@ class TimePicker extends React.PureComponent {
 								tabIndex={tabIndex}
 								onBlur={onInputFocus}
 								onFocus={event => onInputFocus(event, secondsErrorId)}
-								onChange={event => this.onChange(event, SECONDS)}
+								onChange={event => this.onChange(event, FIELD_SECONDS)}
 								placeholder="SS"
 								aria-required={formMode}
 								aria-invalid={hasError('INVALID_SECONDS')}

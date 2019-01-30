@@ -8,3 +8,7 @@ export const INPUT_ERRORS = [
 export const HOUR_ERRORS = ['INVALID_HOUR'];
 export const MINUTES_ERRORS = ['INVALID_MINUTES'];
 export const SECONDS_ERRORS = ['INVALID_SECONDS'];
+
+export const FIELD_HOURS = 'HOURS';
+export const FIELD_MINUTES = 'MINUTES';
+export const FIELD_SECONDS = 'SECONDS';

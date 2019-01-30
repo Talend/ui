@@ -407,18 +407,26 @@ function extractPartsFromDateTime(datetime, options) {
  *		textInput: string
  * 	}}
  */
-function extractPartsFromDateAndTime(date, time, options) {
+function extractPartsFromDateAndTime(date, time, options, skipDate = false) {
 	let errors = [];
 	let timeToUse = time;
 
 	if (options.useTime) {
 		try {
-			checkTime(time, true /*emptyIsValid */);
+			checkTime(time);
 		} catch (error) {
 			errors = error;
 		}
 	} else {
 		timeToUse = initTime(options);
+	}
+
+	if (skipDate) {
+		return {
+			time: timeToUse,
+			errorMessage: errors[0] ? errors[0].message : null,
+			errors,
+		};
 	}
 
 	return {
