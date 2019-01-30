@@ -55,8 +55,9 @@ class ResourcePicker extends Component {
 	onRowClick(event, { id }) {
 		let selected = [...this.state.filters.selected];
 		const index = selected.findIndex(i => i === id);
+		const { multi } = this.props.schema;
 
-		if (!this.props.schema.multi) {
+		if (!multi) {
 			selected = [];
 		}
 
@@ -67,7 +68,7 @@ class ResourcePicker extends Component {
 		}
 
 		this.setState({ filters: { ...this.state.filters, selected } });
-		this.onChange(event, selected);
+		this.onChange(event, multi ? selected : selected[0]);
 	}
 
 	isItemSelected({ id }) {
