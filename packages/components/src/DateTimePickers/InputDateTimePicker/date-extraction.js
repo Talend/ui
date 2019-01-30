@@ -191,9 +191,7 @@ function check(date, time) {
 		errors = timeErrors;
 	}
 
-	if (date === undefined) {
-		errors.push(new DatePickerException('INVALID_DATE_FORMAT', 'INVALID_DATE_EMPTY'));
-	} else if (!isDateValid(date)) {
+	 if (!isDateValid(date)) {
 		errors.push(new DatePickerException('INVALID_DATE_FORMAT', 'INVALID_DATE_FORMAT'));
 	}
 	return errors;
@@ -410,7 +408,7 @@ function extractPartsFromDateTime(datetime, options) {
  *		textInput: string
  * 	}}
  */
-function extractPartsFromDateAndTime(date, time, options, skipDate = false) {
+function extractPartsFromDateAndTime(date, time, options) {
 	let errors = [];
 	let timeToUse = time;
 
@@ -422,14 +420,6 @@ function extractPartsFromDateAndTime(date, time, options, skipDate = false) {
 		}
 	} else {
 		timeToUse = initTime(options);
-	}
-
-	if (skipDate) {
-		return {
-			time: timeToUse,
-			errorMessage: errors[0] ? errors[0].message : null,
-			errors,
-		};
 	}
 
 	return {

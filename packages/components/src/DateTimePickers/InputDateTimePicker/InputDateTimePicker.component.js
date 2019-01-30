@@ -29,6 +29,7 @@ import {
 	FIELD_HOURS,
 	FIELD_MINUTES,
 	FIELD_SECONDS,
+	INPUT_ERRORS,
 } from './constants';
 
 import theme from './InputDateTimePicker.scss';
@@ -172,11 +173,19 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	onPickerChange(event, { date, time, field }) {
-		const ignoreDate = [FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS].includes(field);
-		const nextState = extractPartsFromDateAndTime(date, time, this.getDateOptions(), ignoreDate);
+		const isTimeUpdate = [FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS].includes(field);
+		// ignoring date when update is on time
+		const nextState = extractPartsFromDateAndTime(date, time, this.getDateOptions());
 
-		let newError;
-		switch (field) {
+		// we need to retrieve the input error from nextState to add them to the current one
+		// because by changing the picker we update the textInput so we need to update its errors
+		let nextErrors = this.state.errors
+			.filter(error => !INPUT_ERRORS.includes(error.code))
+			.concat(nextState.errors.filter(error => INPUT_ERRORS.includes(error.code)));
+
+		if (isTimeUpdate) {
+			let newError;
+			switch (field) {
 			case FIELD_HOURS:
 				newError = checkHours(time.hours);
 				break;
@@ -188,16 +197,17 @@ class InputDateTimePicker extends React.Component {
 				break;
 			default:
 				break;
-		}
+			}
 
-		const nextErrors = this.state.errors.filter(
-			error =>
-				(field === FIELD_HOURS && !HOUR_ERRORS.includes(error.code)) ||
-				(field === FIELD_MINUTES && !MINUTES_ERRORS.includes(error.code)) ||
-				(field === FIELD_SECONDS && !SECONDS_ERRORS.includes(error.code)),
-		);
-		if (newError) {
-			nextErrors.push(newError);
+			nextErrors = nextErrors.filter(
+				error =>
+					(field === FIELD_HOURS && !HOUR_ERRORS.includes(error.code)) ||
+					(field === FIELD_MINUTES && !MINUTES_ERRORS.includes(error.code)) ||
+					(field === FIELD_SECONDS && !SECONDS_ERRORS.includes(error.code)),
+			);
+			if (newError) {
+				nextErrors.push(newError);
+			}
 		}
 
 		this.setState({ previousErrors: this.state.errors, ...nextState, errors: nextErrors }, () => {
@@ -205,6 +215,7 @@ class InputDateTimePicker extends React.Component {
 				this.onChange(event, 'PICKER');
 			}
 		});
+
 	}
 
 	onBlur(event) {
@@ -231,6 +242,12 @@ class InputDateTimePicker extends React.Component {
 	onSubmit(event, origin) {
 		event.preventDefault();
 		const errors = check(this.state.date, this.state.time);
+		// need to add state errors to general error check
+		this.state.errors.forEach(stateError => {
+			if (!errors.find(error => error.code === stateError.code)) {
+				errors.push(stateError);
+			}
+		});
 		if (errors.length) {
 			this.setState({ errors });
 		} else {
