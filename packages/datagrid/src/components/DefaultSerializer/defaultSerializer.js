@@ -183,7 +183,7 @@ export function getColumnDefs(sample) {
 
 	const plainObjectSample = convertSample(sample);
 
-	return get(plainObjectSample, 'schema.fields', []).map(avroField => ({
+	return get(plainObjectSample, 'fields', []).map(avroField => ({
 		avro: sanitizeAvro(avroField),
 		field: `${NAMESPACE_DATA}${avroField.name}`,
 		headerName: avroField.doc || avroField.name,
@@ -200,12 +200,12 @@ export function getRowData(sample, startIndex = 0) {
 	const plainObjectSample = convertSample(sample);
 
 	return get(plainObjectSample, 'data', []).map((row, index) =>
-		Object.keys(row.value).reduce(
+		Object.keys(row).reduce(
 			(rowData, key) => ({
 				...rowData,
 				[`${NAMESPACE_DATA}${key}`]: {
-					value: row.value[key].value,
-					quality: row.value[key].quality,
+					value: row[key].value,
+					quality: row[key].quality,
 					comments: [],
 					avro: {},
 				},

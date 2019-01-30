@@ -14,7 +14,7 @@ import DefaultPinHeaderRenderer, {
 
 import DATAGRID_PROPTYPES from './DataGrid.proptypes';
 import { NAMESPACE_INDEX } from '../../constants';
-import serializer from '../DatasetSerializer';
+import serializer from '../DefaultSerializer';
 import theme from './DataGrid.scss';
 
 export const AG_GRID = {
