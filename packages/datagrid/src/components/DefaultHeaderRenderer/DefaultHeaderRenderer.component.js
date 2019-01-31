@@ -31,7 +31,6 @@ export default function DefaultHeaderRenderer({ column, displayName, onFocusedCo
 					>
 						{displayName}
 					</span>
-					<span>...</span>
 				</div>
 				<div
 					className={classNames(theme['td-header-type'], 'td-header-type')}
