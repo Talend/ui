@@ -145,8 +145,10 @@ class InputDateTimePicker extends React.Component {
 	onChange(event, origin) {
 		const { errorMessage, datetime, textInput, errors, previousErrors } = this.state;
 
-		if (this.props.onChange && (this.dateHasChanged() ||
-			InputDateTimePicker.haveErrorsChanged(previousErrors, errors))) {
+		if (
+			this.props.onChange &&
+			(this.dateHasChanged() || InputDateTimePicker.haveErrorsChanged(previousErrors, errors))
+		) {
 			// we need to update the initial state once it has been changed
 			this.initialState = { ...this.state };
 			this.props.onChange(event, { errors, errorMessage, datetime, textInput, origin });
