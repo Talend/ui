@@ -83,6 +83,7 @@ form {
 		font-size: $form-input-font-size;
 		font-weight: $form-base-font-weight;
 		box-shadow: $form-shadow;
+		text-overflow: ellipsis;
 
 		&:focus {
 			box-shadow: $form-focus-shadow;

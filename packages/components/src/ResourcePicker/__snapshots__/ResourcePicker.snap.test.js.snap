@@ -101,6 +101,7 @@ exports[`ResourcePicker component snaps should render ResourcePicker with some R
         ]
       }
       defaultHeight={250}
+      inProgress={true}
       rowHeight={60}
       rowRenderers={
         Object {
