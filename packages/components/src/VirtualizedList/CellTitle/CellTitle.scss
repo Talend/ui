@@ -22,19 +22,19 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 	height: 100%;
 
 	.icon {
-		@include icon-style();
+		@include icon-style;
 
 		+ .edit-form {
-			@include edit-form-style();
+			@include edit-form-style;
 		}
 	}	
 
 	.icon-wrapper {
 		.icon {
-			@include icon-style();
+			@include icon-style;
 		}
 		+ .edit-form {
-			@include edit-form-style();
+			@include edit-form-style;
 		}
 	}
 
