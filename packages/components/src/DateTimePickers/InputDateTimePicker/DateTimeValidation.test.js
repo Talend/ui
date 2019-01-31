@@ -1,10 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import {
-	isErrorHidden,
-	Error,
-	DateTimeValidation,
-} from './DateTimeValidation.component';
+import { isErrorHidden, Error, DateTimeValidation } from './DateTimeValidation.component';
 
 describe('Date time  validation', () => {
 	describe('isErrorHidden', () => {
@@ -37,9 +33,7 @@ describe('Date time  validation', () => {
 			// given
 			const errors = [{ code: '', message: 'INVALID_SECONDS_EMPTY' }];
 			// when
-			const wrapper = shallow(
-				<Error errors={errors} id="seconds-id" />,
-			);
+			const wrapper = shallow(<Error errors={errors} id="seconds-id" />);
 
 			// then
 			expect(wrapper.find('#seconds-id').hasClass('sr-only')).toBeFalsy();
@@ -48,9 +42,7 @@ describe('Date time  validation', () => {
 			// given
 			const errors = [{ code: '', message: 'INVALID_SECONDS_EMPTY' }];
 			// when
-			const wrapper = shallow(
-				<Error errors={errors} id="seconds-id" hidden />,
-			);
+			const wrapper = shallow(<Error errors={errors} id="seconds-id" hidden />);
 
 			// then
 			expect(wrapper.find('#seconds-id').hasClass('sr-only')).toBeTruthy();
