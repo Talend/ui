@@ -45,7 +45,14 @@ function getDateErrorLabel(t, errorMessage) {
 	}
 }
 
-function Error({ hidden, errors, id, t }) {
+export function isErrorHidden(errors, focusedInput, inputId) {
+	if (errors.length === 1) {
+		return false;
+	}
+	return focusedInput !== inputId;
+}
+
+export function Error({ hidden, errors, id, t }) {
 	const classNames = classnames({ 'sr-only': hidden });
 	return (
 		<div id={id} className={classNames}>
@@ -68,7 +75,7 @@ Error.defaultProps = {
 
 const TranslatedError = translate(I18N_DOMAIN_COMPONENTS)(Error);
 
-function DateTimeValidation({
+export function DateTimeValidation({
 	t,
 	errors,
 	focusedInput,
@@ -84,25 +91,25 @@ function DateTimeValidation({
 					id={inputErrorId}
 					key="input-errors"
 					errors={errors.filter(error => INPUT_ERRORS.includes(error.code))}
-					hidden={focusedInput !== inputErrorId}
+					hidden={isErrorHidden(errors, focusedInput, inputErrorId)}
 				/>
 				<TranslatedError
 					id={hoursErrorId}
 					key="hours-errors"
 					errors={errors.filter(error => HOUR_ERRORS.includes(error.code))}
-					hidden={focusedInput !== hoursErrorId}
+					hidden={isErrorHidden(errors, focusedInput, hoursErrorId)}
 				/>
 				<TranslatedError
 					id={minutesErrorId}
 					key="minutes-errors"
 					errors={errors.filter(error => MINUTES_ERRORS.includes(error.code))}
-					hidden={focusedInput !== minutesErrorId}
+					hidden={isErrorHidden(errors, focusedInput, minutesErrorId)}
 				/>
 				<TranslatedError
 					id={secondsErrorId}
 					key="seconds-errors"
 					errors={errors.filter(error => SECONDS_ERRORS.includes(error.code))}
-					hidden={focusedInput !== secondsErrorId}
+					hidden={isErrorHidden(errors, focusedInput, secondsErrorId)}
 				/>
 			</div>
 

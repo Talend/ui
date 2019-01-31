@@ -7,7 +7,7 @@ import isSameSecond from 'date-fns/is_same_second';
 import keycode from 'keycode';
 import uuid from 'uuid';
 
-import DateTimeValidation from './DateTimeValidation.component';
+import TranslatedDateTimeValidation from './DateTimeValidation.component';
 import DateTimePicker from '../DateTimePicker';
 import { ErrorContext } from './InputDateTimePickerContext';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
@@ -379,7 +379,7 @@ class InputDateTimePicker extends React.Component {
 								/>
 							</ErrorContext.Provider>
 							{this.props.formMode && (
-								<DateTimeValidation
+								<TranslatedDateTimeValidation
 									focusedInput={this.state.focusedInput}
 									errors={this.state.errors}
 									hoursErrorId={this.hoursErrorId}

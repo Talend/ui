@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Date time  validation DateTimeValidation should render the component and hide all errors except focused one 1`] = `
+<div
+  className="theme-footer"
+>
+  <div
+    className="theme-errors"
+  >
+    <Translate(Error)
+      errors={
+        Array [
+          Object {
+            "code": "INVALID_MONTH",
+            "message": "INVALID_MONTH_NUMBER",
+          },
+        ]
+      }
+      hidden={true}
+      id="input-id"
+    />
+    <Translate(Error)
+      errors={Array []}
+      hidden={true}
+      id="hour-id"
+    />
+    <Translate(Error)
+      errors={Array []}
+      hidden={true}
+      id="minutes-id"
+    />
+    <Translate(Error)
+      errors={
+        Array [
+          Object {
+            "code": "INVALID_SECONDS",
+            "message": "INVALID_SECONDS_EMPTY",
+          },
+        ]
+      }
+      hidden={false}
+      id="seconds-id"
+    />
+  </div>
+  <button
+    aria-label="Validate the date picker value"
+    className="btn btn-primary"
+    name="action-datepicker-validate"
+    role="button"
+    type="submit"
+  >
+    Done
+  </button>
+</div>
+`;
+
+exports[`Date time  validation DateTimeValidation should render the component with error in seconds 1`] = `
+<div
+  className="theme-footer"
+>
+  <div
+    className="theme-errors"
+  >
+    <Translate(Error)
+      errors={Array []}
+      hidden={false}
+      id="input-id"
+    />
+    <Translate(Error)
+      errors={Array []}
+      hidden={false}
+      id="hour-id"
+    />
+    <Translate(Error)
+      errors={Array []}
+      hidden={false}
+      id="minutes-id"
+    />
+    <Translate(Error)
+      errors={
+        Array [
+          Object {
+            "code": "INVALID_SECONDS",
+            "message": "INVALID_SECONDS_EMPTY",
+          },
+        ]
+      }
+      hidden={false}
+      id="seconds-id"
+    />
+  </div>
+  <button
+    aria-label="Validate the date picker value"
+    className="btn btn-primary"
+    name="action-datepicker-validate"
+    role="button"
+    type="submit"
+  >
+    Done
+  </button>
+</div>
+`;
