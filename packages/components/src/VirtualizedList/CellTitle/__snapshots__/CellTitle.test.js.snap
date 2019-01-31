@@ -225,9 +225,7 @@ exports[`CellTitle icon should render icon with tooltip when iconLabelKey is pro
     label="My tooltip label"
     tooltipPlacement="top"
   >
-    <span
-      className="theme-icon-wrapper"
-    >
+    <span>
       <Icon
         className="theme-icon"
         name="talend-file-o"
