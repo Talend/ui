@@ -225,10 +225,14 @@ exports[`CellTitle icon should render icon with tooltip when iconLabelKey is pro
     label="My tooltip label"
     tooltipPlacement="top"
   >
-    <Icon
-      className="theme-icon"
-      name="talend-file-o"
-    />
+    <span
+      className="theme-icon-wrapper"
+    >
+      <Icon
+        className="theme-icon"
+        name="talend-file-o"
+      />
+    </span>
   </TooltipTrigger>
   <CellTitleSelector
     cellData="my awesome title"
