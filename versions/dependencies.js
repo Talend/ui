@@ -130,5 +130,5 @@ module.exports = {
 	'webpack-cli': '^3.1.0',
 	'webpack-bundle-analyzer': '^2.9.0',
 	'webpack-dashboard': '^2.0.0',
-	'webpack-dev-server': '^3.1.10',
+	'webpack-dev-server': '^3.1.11',
 };
