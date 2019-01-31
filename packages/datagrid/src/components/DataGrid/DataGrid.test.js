@@ -239,10 +239,11 @@ describe('#DataGrid', () => {
 			getPinnedColumnDefsFn,
 			getRowDataFn,
 			data: sample,
+			columnsConf: {},
 		};
 
 		shallow(<DataGrid {...props} />);
-		expect(getColumnDefsFn).toHaveBeenCalledWith(sample);
+		expect(getColumnDefsFn).toHaveBeenCalledWith(sample, props.columnsConf);
 		expect(getPinnedColumnDefsFn).toHaveBeenCalledWith(sample);
 		expect(getRowDataFn).toHaveBeenCalledWith(sample, 0);
 	});

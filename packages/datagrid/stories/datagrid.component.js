@@ -60,6 +60,21 @@ storiesOf('Component Datagrid', module)
 			/>
 		</div>
 	))
+	.add('without subtype', () => (
+		<div style={{ height: '100vh' }}>
+			<IconsProvider />
+			<DataGrid
+				columnsConf={{ hideSubType: true }}
+				data={sample}
+				getComponent={getComponent}
+				onFocusedCell={event => console.log(event)}
+				onFocusedColumn={event => console.log(event)}
+				onVerticalScroll={event => console.log(event)}
+				rowSelection="multiple"
+				enableColResize={false}
+			/>
+		</div>
+	))
 	.add('datagrid without quality', () => (
 		<div style={{ height: '100vh' }}>
 			<IconsProvider />
