@@ -108,7 +108,7 @@
       "__tests__"
     ],
     "testEnvironment": "jest-environment-jsdom",
-    "setupTestFrameworkScriptFile": "<rootDir>/../../test-setup.js"
+    "setupFilesAfterEnv": ["<rootDir>/../../test-setup.js"]
   },
   "publishConfig": {
     "access": "public"

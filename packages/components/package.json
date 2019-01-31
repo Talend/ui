@@ -146,7 +146,7 @@
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "<rootDir>/test/styleMock.js"
     },
-    "setupTestFrameworkScriptFile": "<rootDir>/../../test-setup.js"
+    "setupFilesAfterEnv": ["<rootDir>/../../test-setup.js"]
   },
   "publishConfig": {
     "access": "public"
