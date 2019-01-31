@@ -3,7 +3,7 @@
 
 const REACT_VERSION = process.env.REACT_VERSION || '^16.0.0';
 console.log('REACT_VERSION: ', REACT_VERSION);
-const JEST_VERSION = '^23.6.0';
+const JEST_VERSION = '^24.0.0';
 
 module.exports = {
 	// addons
@@ -14,6 +14,10 @@ module.exports = {
 	'react-addons-perf': '^15.4.2',
 	'react-tap-event-plugin': '^2.0.0',
 	'whatwg-fetch': '^2.0.3',
+
+	// UI deps outside of the release life cycle
+	'@talend/scripts': '^0.8.0',
+	'@talend/react-cmf-router': '^3.2.1',
 
 	// deps: non component libs
 	ajv: '^6.2.1',
@@ -75,7 +79,6 @@ module.exports = {
 	'@storybook/addon-knobs': '^4.0.12',
 	'@storybook/addons': '^4.0.12',
 	autoprefixer: '^7.1.4',
-	'babel-core': '^7.0.0-bridge.0', // to fix jest
 	'babel-eslint': '^10.0.1',
 	'babel-jest': JEST_VERSION,
 	// babel 7
