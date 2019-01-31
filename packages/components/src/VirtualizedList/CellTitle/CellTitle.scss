@@ -3,39 +3,24 @@
 $tc-list-title-color: $black !default;
 $tc-list-title-icon-size: $svg-rg-size !default;
 
-@mixin icon-style {
-	filter: url('#talend-grayscale');
-	flex-shrink: 0;
-	height: $tc-list-title-icon-size;
-	width: $tc-list-title-icon-size;
-	vertical-align: middle;
-}
-
-@mixin edit-form-style {
-	padding-left: $padding-normal;
-}
-
 .tc-list-title {
 	display: flex;
 	align-items: center;
 	position: relative;
 	height: 100%;
 
-	.icon {
-		@include icon-style;
-
-		+ .edit-form {
-			@include edit-form-style;
-		}
+	.icon,
+	.span > .icon {
+		filter: url('#talend-grayscale');
+		flex-shrink: 0;
+		height: $tc-list-title-icon-size;
+		width: $tc-list-title-icon-size;
+		vertical-align: middle;
 	}
 
-	.icon-wrapper {
-		.icon {
-			@include icon-style;
-		}
-		+ .edit-form {
-			@include edit-form-style;
-		}
+	.icon + .edit-form,
+	span + .edit-form {
+		padding-left: $padding-normal;
 	}
 
 	.edit-form {

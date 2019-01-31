@@ -56,7 +56,7 @@ class CellTitle extends React.Component {
 		if (icon && iconLabelKey && rowData[iconLabelKey]) {
 			icon = (
 				<TooltipTrigger label={rowData[iconLabelKey]} tooltipPlacement="top">
-					<span className={theme['icon-wrapper']}>
+					<span>
 						<Icon name={rowData[iconKey]} className={theme.icon} />
 					</span>
 				</TooltipTrigger>
