@@ -11,9 +11,9 @@ import { INPUT_ERRORS, HOUR_ERRORS, MINUTES_ERRORS, SECONDS_ERRORS } from './con
 function getDateErrorLabel(t, errorMessage) {
 	switch (errorMessage) {
 		case 'INVALID_HOUR_EMPTY':
-			return t('INVALID_HOUR_EMPTY', { defaultValue: 'Hours are required' });
+			return t('INVALID_HOUR_EMPTY', { defaultValue: 'Hour is required' });
 		case 'INVALID_HOUR_NUMBER':
-			return t('INVALID_HOUR_NUMBER', { defaultValue: 'Hours must be between 00 and 23' });
+			return t('INVALID_HOUR_NUMBER', { defaultValue: 'Hour must be between 00 and 23' });
 		case 'INVALID_MINUTES_EMPTY':
 			return t('INVALID_MINUTES_EMPTY', { defaultValue: 'Minutes are required' });
 		case 'INVALID_MINUTES_NUMBER':

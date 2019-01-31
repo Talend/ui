@@ -73,6 +73,21 @@ class InputDateTimePicker extends React.Component {
 		formMode: false,
 	};
 
+	static haveErrorsChanged(oldErrors, newErrors) {
+		const oldErrorMessages = oldErrors.map(error => error.message);
+		const newErrorMessages = newErrors.map(error => error.message);
+		if (oldErrorMessages.length !== newErrorMessages.length) {
+			return true;
+		}
+		let errorsChanged = false;
+		oldErrorMessages.forEach(oldMessage => {
+			if (!newErrorMessages.find(newMessage => oldMessage === newMessage)) {
+				errorsChanged = true;
+			}
+		});
+		return errorsChanged;
+	}
+
 	constructor(props) {
 		super(props);
 
@@ -130,9 +145,8 @@ class InputDateTimePicker extends React.Component {
 	onChange(event, origin) {
 		const { errorMessage, datetime, textInput, errors, previousErrors } = this.state;
 
-		const errorUpdated = JSON.stringify(previousErrors) !== JSON.stringify(errors);
-
-		if (this.props.onChange && (this.dateHasChanged() || errorUpdated)) {
+		if (this.props.onChange && (this.dateHasChanged() ||
+			InputDateTimePicker.haveErrorsChanged(previousErrors, errors))) {
 			// we need to update the initial state once it has been changed
 			this.initialState = { ...this.state };
 			this.props.onChange(event, { errors, errorMessage, datetime, textInput, origin });
