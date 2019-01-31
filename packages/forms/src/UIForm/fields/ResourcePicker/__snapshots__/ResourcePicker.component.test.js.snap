@@ -12,6 +12,9 @@ exports[`ResourcePicker field should render simple select 1`] = `
   required={true}
 >
   <ResourcePicker
+    aria-describedby="mySelect-description mySelect-error"
+    aria-invalid={false}
+    aria-required={true}
     collection={Array []}
     errorMessage="My Error Message"
     filters={

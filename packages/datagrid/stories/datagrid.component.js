@@ -36,13 +36,13 @@ function forceRedrawRows(props, oldProps) {
 	return props.rowData[0].loading !== oldProps.rowData[0].loading;
 }
 
-sample.data[0].value.field0.value = `﻿﻿﻿﻿﻿﻿﻿  loreum lo
+sample.data[0].field0.value = `﻿﻿﻿﻿﻿﻿﻿  loreum lo
 psum	 	 `;
 
-sample.data[1].value.field0.value = `loreum lo
+sample.data[1].field0.value = `loreum lo
 very looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong value`;
 
-sample.data[2].value.field0.value =
+sample.data[2].field0.value =
 	'very looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong value';
 
 storiesOf('Component Datagrid', module)
@@ -50,6 +50,21 @@ storiesOf('Component Datagrid', module)
 		<div style={{ height: '100vh' }}>
 			<IconsProvider />
 			<DataGrid
+				data={sample}
+				getComponent={getComponent}
+				onFocusedCell={event => console.log(event)}
+				onFocusedColumn={event => console.log(event)}
+				onVerticalScroll={event => console.log(event)}
+				rowSelection="multiple"
+				enableColResize={false}
+			/>
+		</div>
+	))
+	.add('without subtype', () => (
+		<div style={{ height: '100vh' }}>
+			<IconsProvider />
+			<DataGrid
+				columnsConf={{ hideSubType: true }}
 				data={sample}
 				getComponent={getComponent}
 				onFocusedCell={event => console.log(event)}
@@ -146,7 +161,7 @@ storiesOf('Component Datagrid', module)
 				return (
 					<div>
 						<input type="button" value="changestatus" onClick={this.changeState} />
-						Number of fields : {currentSample.schema.fields.length}
+						Number of fields : {currentSample.fields.length}
 						<IconsProvider />
 						<div style={{ height: '200px' }}>
 							<DataGrid
