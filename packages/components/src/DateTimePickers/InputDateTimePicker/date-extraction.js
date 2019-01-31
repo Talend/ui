@@ -126,6 +126,9 @@ function convertToUTC(date) {
 	);
 }
 
+/**
+ * Check if hours are correct
+ */
 function checkHours(hours) {
 	const hoursNum = Number(hours);
 	if (hours === '') {
@@ -136,6 +139,9 @@ function checkHours(hours) {
 	return null;
 }
 
+/**
+ * Check if checkMinutes are correct
+ */
 function checkMinutes(minutes) {
 	const minsNum = Number(minutes);
 	if (minsNum === '') {
@@ -146,6 +152,10 @@ function checkMinutes(minutes) {
 	return null;
 }
 
+/**
+ * Check if seconds are correct.
+ * This function throws the errors
+ */
 function checkSeconds(seconds) {
 	const secondsNum = Number(seconds);
 	if (seconds === '') {
@@ -182,6 +192,9 @@ function checkTime({ hours, minutes, seconds }) {
 	}
 }
 
+/**
+ * Check if the date and time are correct
+ */
 function check(date, time) {
 	let errors = [];
 

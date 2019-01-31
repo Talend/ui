@@ -52,7 +52,6 @@ exports[`InputDateTimePicker should render 1`] = `
             }
           >
             <DateTimePicker
-              errors={Array []}
               manageFocus={true}
               onSubmit={[Function]}
               selection={
@@ -132,7 +131,6 @@ exports[`InputDateTimePicker should render validation button 1`] = `
               }
             >
               <DateTimePicker
-                errors={Array []}
                 manageFocus={true}
                 onSubmit={[Function]}
                 selection={
@@ -221,14 +219,6 @@ exports[`InputDateTimePicker should render with format error 1`] = `
               }
             >
               <DateTimePicker
-                errors={
-                  Array [
-                    DatePickerException {
-                      "code": "DATETIME_INVALID_FORMAT",
-                      "message": "DATETIME_INVALID_FORMAT",
-                    },
-                  ]
-                }
                 manageFocus={true}
                 onSubmit={[Function]}
                 selection={

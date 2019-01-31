@@ -174,16 +174,18 @@ class InputDateTimePicker extends React.Component {
 
 	onPickerChange(event, { date, time, field }) {
 		const isTimeUpdate = [FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS].includes(field);
-		// ignoring date when update is on time
 		const nextState = extractPartsFromDateAndTime(date, time, this.getDateOptions());
 
 		// we need to retrieve the input error from nextState to add them to the current one
-		// because by changing the picker we update the textInput so we need to update its errors
+		// because, by changing the picker, we update the textInput so we need to update its errors
 		let nextErrors = this.state.errors
+			// remove old main input errors
 			.filter(error => !INPUT_ERRORS.includes(error.code))
+			// add new main input errors
 			.concat(nextState.errors.filter(error => INPUT_ERRORS.includes(error.code)));
 
 		if (isTimeUpdate) {
+			// to avoid having errors on untouched time elements, we check only the updated part
 			let newError;
 			switch (field) {
 				case FIELD_HOURS:
@@ -199,12 +201,14 @@ class InputDateTimePicker extends React.Component {
 					break;
 			}
 
+			// remove old error on updated time part
 			nextErrors = nextErrors.filter(
 				error =>
 					(field === FIELD_HOURS && !HOUR_ERRORS.includes(error.code)) ||
 					(field === FIELD_MINUTES && !MINUTES_ERRORS.includes(error.code)) ||
 					(field === FIELD_SECONDS && !SECONDS_ERRORS.includes(error.code)),
 			);
+			// add the new error on updated time part
 			if (newError) {
 				nextErrors.push(newError);
 			}
@@ -240,13 +244,15 @@ class InputDateTimePicker extends React.Component {
 
 	onSubmit(event, origin) {
 		event.preventDefault();
-		const errors = check(this.state.date, this.state.time);
-		// need to add state errors to general error check
-		this.state.errors.forEach(stateError => {
-			if (!errors.find(error => error.code === stateError.code)) {
-				errors.push(stateError);
-			}
-		});
+
+		// validation
+		// to avoid having error message change on invalid elements,
+		// we don't replace the error on those elements
+		let errors = check(this.state.date, this.state.time);
+		errors = this.state.errors
+			.filter(({ code }) => !errors.find(error => error.code === code))
+			.concat(errors);
+
 		if (errors.length) {
 			this.setState({ errors });
 		} else {
@@ -281,18 +287,19 @@ class InputDateTimePicker extends React.Component {
 		});
 	}
 
-	hasError(error) {
+	hasError(errorCodes) {
 		// no error management in component when not in formMode
 		if (!this.props.formMode) {
 			return false;
 		}
-		if (Array.isArray(error)) {
-			return !!this.state.errors.find(stateError => error.indexOf(stateError.code) > -1);
-		}
-		return !!this.state.errors.find(stateError => stateError.code === error);
+
+		const errorCodesArray = Array.isArray(errorCodes) ? errorCodes : [errorCodes];
+		return !!this.state.errors.find(stateError => errorCodesArray.indexOf(stateError.code) > -1);
 	}
 
 	resetDate() {
+		// in form mode user has to explicitly validate the persist the selected date
+		// Otherwise, on picker close, the date is reset to the previous value
 		if (this.props.formMode) {
 			this.setState({ ...this.initialState });
 		}
@@ -353,7 +360,6 @@ class InputDateTimePicker extends React.Component {
 									useTime={this.props.useTime}
 									useSeconds={this.props.useSeconds}
 									useUTC={this.props.useUTC}
-									errors={this.state.errors}
 								/>
 							</ErrorContext.Provider>
 							{this.props.formMode && (
