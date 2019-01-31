@@ -1,5 +1,77 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`#getColumnDefs should remove the sub type 1`] = `
+Array [
+  Object {
+    "@talend-quality@": Object {
+      "-1": Object {
+        "percentage": 62,
+        "total": 62,
+      },
+      "0": Object {
+        "percentage": 0,
+        "total": 0,
+      },
+      "1": Object {
+        "percentage": 38,
+        "total": 38,
+      },
+    },
+    "avro": Object {
+      "doc": "Nom de la gare",
+      "name": "field0",
+      "type": Object {
+        "@talend-quality@": Object {
+          "-1": 62,
+          "0": 0,
+          "1": 38,
+          "total": 100,
+        },
+        "dqType": "FR Commune",
+        "dqTypeKey": "FR_COMMUNE",
+        "type": "string",
+      },
+    },
+    "field": "data.field0",
+    "headerName": "Nom de la gare",
+    "type": "",
+  },
+  Object {
+    "@talend-quality@": Object {
+      "-1": Object {
+        "percentage": 0,
+        "total": 0,
+      },
+      "0": Object {
+        "percentage": 0,
+        "total": 0,
+      },
+      "1": Object {
+        "percentage": 100,
+        "total": 100,
+      },
+    },
+    "avro": Object {
+      "name": "field1",
+      "type": Object {
+        "@talend-quality@": Object {
+          "-1": 0,
+          "0": 0,
+          "1": 100,
+          "total": 100,
+        },
+        "dqType": "",
+        "dqTypeKey": "",
+        "type": "int",
+      },
+    },
+    "field": "data.field1",
+    "headerName": "field1",
+    "type": "",
+  },
+]
+`;
+
 exports[`#getColumnDefs should returns the columns definitions 1`] = `
 Array [
   Object {
@@ -288,6 +360,12 @@ Array [
       "quality": 1,
       "value": "10880464",
     },
+    "data.quality": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": undefined,
+      "value": undefined,
+    },
     "index.index": 0,
     "loading": false,
   },
@@ -351,6 +429,12 @@ Array [
       "comments": Array [],
       "quality": -1,
       "value": "",
+    },
+    "data.quality": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": undefined,
+      "value": undefined,
     },
     "index.index": 1,
     "loading": false,
@@ -421,6 +505,12 @@ Array [
       "quality": 1,
       "value": "10880464",
     },
+    "data.quality": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": undefined,
+      "value": undefined,
+    },
     "index.index": 0,
     "loading": false,
   },
@@ -484,6 +574,12 @@ Array [
       "comments": Array [],
       "quality": -1,
       "value": "",
+    },
+    "data.quality": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": undefined,
+      "value": undefined,
     },
     "index.index": 1,
     "loading": false,
@@ -554,6 +650,12 @@ Array [
       "quality": 1,
       "value": "10880464",
     },
+    "data.quality": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": undefined,
+      "value": undefined,
+    },
     "index.index": 10,
     "loading": false,
   },
@@ -617,6 +719,12 @@ Array [
       "comments": Array [],
       "quality": -1,
       "value": "",
+    },
+    "data.quality": Object {
+      "avro": Object {},
+      "comments": Array [],
+      "quality": undefined,
+      "value": undefined,
     },
     "index.index": 11,
     "loading": false,
