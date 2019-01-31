@@ -49,6 +49,7 @@ storiesOf('JSOList', module).add('Table', () => (
 				id="my-list"
 				onDisplayModeChange={action('onDisplayModeChange')}
 				onSortChange={action('onSortChange')}
+				collection={collection}
 			>
 				<List.Toolbar>
 					<List.DisplayMode id="my-list-displayMode" />
@@ -64,7 +65,7 @@ storiesOf('JSOList', module).add('Table', () => (
 					/>
 				</List.Toolbar>
 
-				<List.VList id="my-list" collection={collection}>
+				<List.VList id="my-list">
 					<List.VList.Content label="Id" dataKey="id" width={-1} />
 					<List.VList.Content
 						label="Name"

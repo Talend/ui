@@ -6,8 +6,9 @@ import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
 function VList(props) {
 	return (
 		<ListContext.Consumer>
-			{({ displayMode, sortBy, sortDescending, onSortChange }) => (
+			{({ displayMode, collection, sortBy, sortDescending, onSortChange }) => (
 				<VirtualizedList
+					collection={collection}
 					type={displayMode && displayMode.toUpperCase()}
 					sortBy={sortBy}
 					sortDirection={sortDescending ? SORT_BY.DESC : SORT_BY.ASC}
