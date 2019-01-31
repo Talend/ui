@@ -40,7 +40,7 @@ if (process.env.NODE_ENV !== 'production') {
 			name: PropTypes.string,
 			label: PropTypes.string,
 			triggers: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object, PropTypes.string])),
-			type: PropTypes.oneOf(['button', 'submit']),
+			type: PropTypes.oneOf(['button', 'submit', 'reset']),
 		}),
 	};
 }

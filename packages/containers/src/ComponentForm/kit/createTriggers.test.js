@@ -105,6 +105,26 @@ describe('createTriggers', () => {
 			done();
 		});
 	});
+	it('should handle trigger status code 500', done => {
+		const errors = {};
+		triggers = createTriggers({
+			url: '/foo',
+			fetchConfig: {
+				response: {
+					ok: false,
+					status: 500,
+					text: () => Promise.resolve('{ "error": "Internal Server Error" }'),
+				},
+			},
+		});
+		triggers({}, { trigger, schema, properties, errors }).then(data => {
+			expect(errors).toEqual({});
+			expect(data.errors).toEqual({
+				'obj.url': 'Internal Server Error',
+			});
+			done();
+		});
+	});
 });
 
 describe('getPathWithArrayIndex', () => {

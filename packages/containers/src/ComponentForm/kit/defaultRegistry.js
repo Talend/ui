@@ -100,6 +100,9 @@ function extractErrorMessage(error) {
 		return error.errors;
 	}
 	if (error.error) {
+		if (typeof error.error === 'string') {
+			return error.error;
+		}
 		return JSON.stringify(error.error);
 	}
 	if (error.code && error.description && error.description.length > 0) {
