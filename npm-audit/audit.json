@@ -14,5 +14,19 @@
 └───────────────┴──────────────────────────────────────────────────────────────┘
 
 
-found 1 high severity vulnerability in 66653 scanned packages
-  run `npm audit fix` to fix 1 of them.
+# Run  npm update webpack-dev-server --depth 2  to resolve 1 vulnerability
+┌───────────────┬──────────────────────────────────────────────────────────────┐
+│ High          │ Missing Origin Validation                                    │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ Package       │ webpack-dev-server                                           │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ Dependency of │ @talend/scripts                                              │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ Path          │ @talend/scripts > webpack-dev-server                         │
+├───────────────┼──────────────────────────────────────────────────────────────┤
+│ More info     │ https://nodesecurity.io/advisories/725                       │
+└───────────────┴──────────────────────────────────────────────────────────────┘
+
+
+found 2 high severity vulnerabilities in 214778 scanned packages
+  run `npm audit fix` to fix 2 of them.
