@@ -134,10 +134,6 @@ export class TCompForm extends React.Component {
 				type: TCompForm.ON_TRIGGER_END,
 				...payload,
 			});
-			if (!data) {
-				// error happens and has been added
-				return undefined;
-			}
 			// Today there is a need to give control to the trigger to modify the properties
 			// But this will override what user change in the meantime
 			// need to rethink that, there are lots of potential issues :
