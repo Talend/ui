@@ -5,14 +5,16 @@
     "title": "ResourcePicker",
     "properties": {
       "multiResourcePicker": {
-        "type": "enum",
-        "enum": []
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
       },
       "singleResourcePicker": {
-        "type": "enum",
-        "enum": []
+        "type": "string"
       }
-    }
+    },
+    "required": ["multiResourcePicker", "singleResourcePicker"]
   },
   "uiSchema": [
     {
@@ -20,7 +22,6 @@
       "title": "ResourcePicker with multi selection",
       "widget": "resourcePicker",
       "placeholder": "Select an existing resource",
-      "required": true,
       "multi": true
     },
     {
