@@ -17,6 +17,12 @@ const subtitleProps = {
 	subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
 	show: true,
 };
+const iconAndSubtitleProps = {
+	icon: 'talend-folder-closed',
+	header: 'Hello world',
+	subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	show: true,
+};
 const errorProps = {
 	header: 'Hello world',
 	subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -76,6 +82,10 @@ describe('Dialog', () => {
 	});
 	it('should render subtitle', () => {
 		const wrapper = shallow(<Dialog {...subtitleProps}>{children}</Dialog>);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+	it('should render icon and subtitle', () => {
+		const wrapper = shallow(<Dialog {...iconAndSubtitleProps}>{children}</Dialog>);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render error', () => {

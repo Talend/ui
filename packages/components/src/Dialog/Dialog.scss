@@ -1,3 +1,5 @@
+$tc-dialog-header-icon: 3rem !default;
+
 :global {
 	.modal-flex .modal-body {
 		display: flex;
@@ -16,15 +18,21 @@
 		}
 	}
 
-	.modal-content,
-	.modal-title,
-	.modal-subtitle {
-		width: 100%;
-	}
-
 	.modal-header {
 		position: relative;
 		max-height: 7rem;
+		overflow: hidden;
+
+		.modal-icon {
+			float: left;
+			padding-top: $padding-smaller;
+			margin-right: $padding-normal;
+
+			svg {
+				width: $tc-dialog-header-icon;
+				height: $tc-dialog-header-icon;
+			}
+		}
 
 		.modal-title,
 		.modal-subtitle {
@@ -55,5 +63,9 @@
 				color: $black;
 			}
 		}
+	}
+
+	.modal-content {
+		width: 100%;
 	}
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { Dialog } from '../src/index';
+import { Dialog, IconsProvider } from '../src/index';
 
 const defaultProps = {
 	show: true,
@@ -31,8 +31,10 @@ const subtitle = {
 };
 const bigTitle = {
 	show: true,
-	header: 'Hello world (Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.)',
-	subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	header:
+		'Hello world (Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.)',
+	subtitle:
+		'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
 	onHide: action('onHide'),
 	action: {
 		label: 'OK',
@@ -80,6 +82,19 @@ const largeProps = {
 		onClick: action('ok'),
 	},
 };
+const iconAndBigTitle = {
+	show: true,
+	icon: 'talend-folder-closed',
+	header:
+		'Hello world (Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.)',
+	subtitle:
+		'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+	onHide: action('onHide'),
+	action: {
+		label: 'OK',
+		onClick: action('ok'),
+	},
+};
 const bsProps = {
 	header: 'OnHide + no backdrop + esc',
 	show: true,
@@ -94,10 +109,15 @@ const bsProps = {
 	},
 };
 
-const children = (<div>BODY content. You can put what ever you want here</div>);
-
+const children = <div>BODY content. You can put what ever you want here</div>;
 
 storiesOf('Dialog', module)
+	.addDecorator(story => (
+		<div>
+			<IconsProvider />
+			{story()}
+		</div>
+	))
 	.add('default', () => (
 		<div>
 			<h1>Dialog</h1>
@@ -126,6 +146,12 @@ storiesOf('Dialog', module)
 		<div>
 			<h1>Dialog</h1>
 			<Dialog {...bigTitle}>{children}</Dialog>
+		</div>
+	))
+	.add('with icon, long title and subtitle', () => (
+		<div>
+			<h1>Dialog</h1>
+			<Dialog {...iconAndBigTitle}>{children}</Dialog>
 		</div>
 	))
 	.add('with error', () => (

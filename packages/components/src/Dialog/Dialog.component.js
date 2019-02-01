@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import './Dialog.scss';
 
 import Action from '../Actions/Action';
+import Icon from '../Icon';
 import ActionBar from '../ActionBar';
 import Inject from '../Inject';
 import Progress from '../Progress';
@@ -31,6 +32,7 @@ function Dialog({
 	footer,
 	getComponent,
 	header,
+	icon,
 	subtitle,
 	error,
 	progress,
@@ -68,6 +70,7 @@ function Dialog({
 					className={classNames({ informative: type === Dialog.TYPES.INFORMATIVE })}
 					closeButton={closeButton}
 				>
+					{icon && <span className={'modal-icon'}><Icon name={icon} /></span>}
 					<Modal.Title id={headerId} componentClass="h1">
 						{header}
 					</Modal.Title>
@@ -122,6 +125,7 @@ Dialog.defaultProps = {
 Dialog.propTypes = {
 	header: PropTypes.string,
 	backdrop: PropTypes.bool,
+	icon: PropTypes.string,
 	subtitle: PropTypes.string,
 	error: PropTypes.string,
 	size: PropTypes.oneOf(['sm', 'small', 'lg', 'large']),
