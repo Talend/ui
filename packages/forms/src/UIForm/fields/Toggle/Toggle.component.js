@@ -5,7 +5,7 @@ import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 function ToggleWidget(props) {
-	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
+	const { id, isValid, errorMessage, onChange, onFinish, schema, value, className } = props;
 	const { autoFocus, description, disabled = false, title } = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
@@ -20,6 +20,7 @@ function ToggleWidget(props) {
 			required={schema.required}
 		>
 			<Toggle
+				// className={className}
 				autoFocus={autoFocus}
 				checked={value}
 				disabled={disabled}

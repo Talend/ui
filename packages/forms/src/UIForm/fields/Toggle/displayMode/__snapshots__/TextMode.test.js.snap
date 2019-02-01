@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggle field in text mode should render the Toggle 1`] = `
+<ToggleWidget
+  id="myForm"
+  schema={
+    Object {
+      "disabled": true,
+      "title": "My Toggle",
+    }
+  }
+  value={true}
+/>
+`;

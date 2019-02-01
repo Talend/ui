@@ -20,7 +20,7 @@ import ResourcePicker from '../fields/ResourcePicker';
 import Select from '../fields/Select';
 import Text, { TextTextMode } from '../fields/Text';
 import TextArea, { TextAreaTextMode } from '../fields/TextArea';
-import Toggle from '../fields/Toggle';
+import Toggle, { ToggleTextMode } from '../fields/Toggle';
 
 const widgets = {
 	// fieldsets
@@ -56,6 +56,7 @@ const widgets = {
 	password_text: TextTextMode,
 	text_text: TextTextMode,
 	textarea_text: TextAreaTextMode,
+	toggle_text: ToggleTextMode,
 
 	// widgets
 	buttons: Buttons,
