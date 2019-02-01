@@ -30,12 +30,13 @@ plugins: [
 ```html
 <html>
     ...
-    <style>${ htmlWebpackPlugin.options.loader_style }</style>
-    ...
     </head>
     <body>
         ...
         <div id="app">
+            <style>
+                <%= htmlWebpackPlugin.options.loader_style %>
+            </style>
             <%= htmlWebpackPlugin.options.loader %>
         </div>
         ...

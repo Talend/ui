@@ -38,47 +38,45 @@ sample.data = [
 	...Array(960)
 		.fill()
 		.map(() => ({
-			value: {
-				field2: {
-					value: '95716',
-					quality: 1,
-				},
-				field8: {
-					value: '10771660',
-					quality: 0,
-				},
-				field5: {
-					value: '33929307',
-					quality: -1,
-				},
-				field4: {
-					value: '10748798',
-					quality: 1,
-				},
-				field7: {
-					value: '11030795',
-					quality: 1,
-				},
-				field3: {
-					value: '',
-					quality: 1,
-				},
-				field1: {
-					value: '271494',
-					quality: 1,
-				},
-				field0: {
-					value: 'Aéroport Charles de Gaulle 2 TGV',
-					quality: 1,
-				},
-				field9: {
-					value: '10880464',
-					quality: 1,
-				},
-				field6: {
-					value: '10920487',
-					quality: 1,
-				},
+			field2: {
+				value: '95716',
+				quality: 1,
+			},
+			field8: {
+				value: '10771660',
+				quality: 0,
+			},
+			field5: {
+				value: '33929307',
+				quality: -1,
+			},
+			field4: {
+				value: '10748798',
+				quality: 1,
+			},
+			field7: {
+				value: '11030795',
+				quality: 1,
+			},
+			field3: {
+				value: '',
+				quality: 1,
+			},
+			field1: {
+				value: '271494',
+				quality: 1,
+			},
+			field0: {
+				value: 'Aéroport Charles de Gaulle 2 TGV',
+				quality: 1,
+			},
+			field9: {
+				value: '10880464',
+				quality: 1,
+			},
+			field6: {
+				value: '10920487',
+				quality: 1,
 			},
 			quality: 1,
 		})),
@@ -164,16 +162,28 @@ function registerCustomizedComponents() {
 	api.component.register('CustomHeaderRenderer', props => <span>{props.displayName}</span>);
 	api.component.register('CustomPinHeaderRenderer', () => <span />);
 	api.component.register('CustomStringCellRenderer', props => (
-		<span>I'm a string({props.data.value})</span>
+		<span>
+			I'm a string(
+			{props.data.value})
+		</span>
 	));
 	api.component.register('CustomIntCellRenderer', props => (
-		<span>I'm an int({props.data.value})</span>
+		<span>
+			I'm an int(
+			{props.data.value})
+		</span>
 	));
 	api.component.register('CustomBooleanCellRenderer', props => (
-		<span>I'm a boolean({props.data.value})</span>
+		<span>
+			I'm a boolean(
+			{props.data.value})
+		</span>
 	));
 	api.component.register('CustomDateCellRenderer', props => (
-		<span>I'm a date({props.data.value})</span>
+		<span>
+			I'm a date(
+			{props.data.value})
+		</span>
 	));
 }
 
@@ -188,7 +198,6 @@ const options = {
 };
 
 storiesOf('Container Datagrid', module)
-
 	.addDecorator(story => (
 		<div>
 			<LanguageSwitcher />
@@ -204,7 +213,7 @@ storiesOf('Container Datagrid', module)
 				<DataGrid />
 			</div>
 		),
-		{ ...options }
+		{ ...options },
 	)
 	.add(
 		'loading',
@@ -214,7 +223,7 @@ storiesOf('Container Datagrid', module)
 				<DataGrid componentId="ProgressDatagrid" />
 			</div>
 		),
-		{ ...options }
+		{ ...options },
 	)
 	.add(
 		'with custom renderers',
@@ -224,7 +233,7 @@ storiesOf('Container Datagrid', module)
 				<DataGrid componentId="CustomizedDatagrid" />
 			</div>
 		),
-		{ ...options }
+		{ ...options },
 	)
 	.add(
 		'with custom avro renderers',
@@ -234,7 +243,7 @@ storiesOf('Container Datagrid', module)
 				<DataGrid componentId="CustomizedAvroDatagrid" />
 			</div>
 		),
-		{ ...options }
+		{ ...options },
 	)
 	.add(
 		'with selected rows',
@@ -244,7 +253,7 @@ storiesOf('Container Datagrid', module)
 				<DataGrid componentId="HightLightRows" className={theme['td-grid-focus-row']} />
 			</div>
 		),
-		{ ...options }
+		{ ...options },
 	)
 	.add(
 		'multiple grid',
@@ -259,5 +268,5 @@ storiesOf('Container Datagrid', module)
 				</div>
 			</div>
 		),
-		{ ...options }
+		{ ...options },
 	);
