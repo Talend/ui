@@ -17,7 +17,7 @@ import {
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
-const DEFAULT_ITEM_HEIGHT = 33;
+const DEFAULT_ITEM_HEIGHT = 26;
 
 function areOptionsDifferent(options, nextOptions) {
 	if (options.enumOptions.length !== nextOptions.enumOptions.length) {
