@@ -150,7 +150,6 @@ exports[`InputDateTimePicker should render validation button 1`] = `
             </Context.Provider>
             <Translate(DateTimeValidation)
               errors={Array []}
-              focusedInput="DEFAULT_ID-input-error"
               hoursErrorId="DEFAULT_ID-hours-error"
               inputErrorId="DEFAULT_ID-input-error"
               minutesErrorId="DEFAULT_ID-minutes-error"
@@ -245,7 +244,6 @@ exports[`InputDateTimePicker should render with format error 1`] = `
                   },
                 ]
               }
-              focusedInput="DEFAULT_ID-input-error"
               hoursErrorId="DEFAULT_ID-hours-error"
               inputErrorId="DEFAULT_ID-input-error"
               minutesErrorId="DEFAULT_ID-minutes-error"

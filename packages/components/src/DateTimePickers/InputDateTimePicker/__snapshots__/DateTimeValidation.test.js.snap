@@ -63,17 +63,17 @@ exports[`Date time  validation DateTimeValidation should render the component wi
   >
     <Translate(Error)
       errors={Array []}
-      hidden={false}
+      hidden={true}
       id="input-id"
     />
     <Translate(Error)
       errors={Array []}
-      hidden={false}
+      hidden={true}
       id="hour-id"
     />
     <Translate(Error)
       errors={Array []}
-      hidden={false}
+      hidden={true}
       id="minutes-id"
     />
     <Translate(Error)

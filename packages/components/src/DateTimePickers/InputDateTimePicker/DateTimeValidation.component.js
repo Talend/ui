@@ -45,20 +45,11 @@ function getDateErrorLabel(t, errorMessage) {
 	}
 }
 
-export function isErrorHidden(errors, focusedInput, inputId) {
-	if (errors.length === 1) {
-		return false;
-	}
-	return focusedInput !== inputId;
-}
-
 export function Error({ hidden, errors, id, t }) {
 	const classNames = classnames({ 'sr-only': hidden });
 	return (
 		<div id={id} className={classNames}>
-			{errors.map((error, index) => (
-				<span key={index}>{getDateErrorLabel(t, error.message)}</span>
-			))}
+			{errors.map((error, index) => <span key={index}>{getDateErrorLabel(t, error.message)}</span>)}
 		</div>
 	);
 }
@@ -84,32 +75,48 @@ export function DateTimeValidation({
 	secondsErrorId,
 	inputErrorId,
 }) {
+	const errorsOrder = [inputErrorId, hoursErrorId, minutesErrorId, secondsErrorId];
+	const errorsMapping = {
+		[inputErrorId]: errors.filter(error => INPUT_ERRORS.includes(error.code)),
+		[hoursErrorId]: errors.filter(error => HOUR_ERRORS.includes(error.code)),
+		[minutesErrorId]: errors.filter(error => MINUTES_ERRORS.includes(error.code)),
+		[secondsErrorId]: errors.filter(error => SECONDS_ERRORS.includes(error.code)),
+	};
+
+	let visibleErrors = focusedInput;
+	if (!visibleErrors) {
+		visibleErrors = errorsOrder.find(part => errorsMapping[part].length);
+	}
+	console.log({
+		visibleErrors,
+		focusedInput,
+	});
 	return (
 		<div className={theme.footer}>
 			<div className={theme.errors}>
 				<TranslatedError
 					id={inputErrorId}
 					key="input-errors"
-					errors={errors.filter(error => INPUT_ERRORS.includes(error.code))}
-					hidden={isErrorHidden(errors, focusedInput, inputErrorId)}
+					errors={errorsMapping[inputErrorId]}
+					hidden={visibleErrors !== inputErrorId}
 				/>
 				<TranslatedError
 					id={hoursErrorId}
 					key="hours-errors"
-					errors={errors.filter(error => HOUR_ERRORS.includes(error.code))}
-					hidden={isErrorHidden(errors, focusedInput, hoursErrorId)}
+					errors={errorsMapping[hoursErrorId]}
+					hidden={visibleErrors !== hoursErrorId}
 				/>
 				<TranslatedError
 					id={minutesErrorId}
 					key="minutes-errors"
-					errors={errors.filter(error => MINUTES_ERRORS.includes(error.code))}
-					hidden={isErrorHidden(errors, focusedInput, minutesErrorId)}
+					errors={errorsMapping[minutesErrorId]}
+					hidden={visibleErrors !== minutesErrorId}
 				/>
 				<TranslatedError
 					id={secondsErrorId}
 					key="seconds-errors"
-					errors={errors.filter(error => SECONDS_ERRORS.includes(error.code))}
-					hidden={isErrorHidden(errors, focusedInput, secondsErrorId)}
+					errors={errorsMapping[secondsErrorId]}
+					hidden={visibleErrors !== secondsErrorId}
 				/>
 			</div>
 

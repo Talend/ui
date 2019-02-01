@@ -1,33 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { isErrorHidden, Error, DateTimeValidation } from './DateTimeValidation.component';
+import { Error, DateTimeValidation } from './DateTimeValidation.component';
 
 describe('Date time  validation', () => {
-	describe('isErrorHidden', () => {
-		it('should not hide when there is only one error', () => {
-			// given
-
-			// when
-			const hide = isErrorHidden([{}], '', '');
-
-			// then
-			expect(hide).toBeFalsy();
-		});
-		it('should not hide when inputId match focused one', () => {
-			// when
-			const hide = isErrorHidden([{}, {}], 'input-id1', 'input-id1');
-
-			// then
-			expect(hide).toBeFalsy();
-		});
-		it('should hide when inputId doesnt match focused one', () => {
-			// when
-			const hide = isErrorHidden([{}, {}], 'focus-id1', 'input-id1');
-
-			// then
-			expect(hide).toBeTruthy();
-		});
-	});
 	describe('Error', () => {
 		it('should display without sr-only', () => {
 			// given

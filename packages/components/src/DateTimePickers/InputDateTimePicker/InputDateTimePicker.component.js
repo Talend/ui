@@ -47,6 +47,15 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'useUTC',
 ];
 
+function haveErrorsChanged(oldErrors, newErrors) {
+	if (oldErrors.length !== newErrors.length) {
+		return true;
+	}
+
+	const oldErrorMessages = oldErrors.map(error => error.message);
+	return newErrors.some(error => !oldErrorMessages.includes(error.message));
+}
+
 class InputDateTimePicker extends React.Component {
 	static propTypes = {
 		id: PropTypes.string.isRequired,
@@ -73,21 +82,6 @@ class InputDateTimePicker extends React.Component {
 		formMode: false,
 	};
 
-	static haveErrorsChanged(oldErrors, newErrors) {
-		const oldErrorMessages = oldErrors.map(error => error.message);
-		const newErrorMessages = newErrors.map(error => error.message);
-		if (oldErrorMessages.length !== newErrorMessages.length) {
-			return true;
-		}
-		let errorsChanged = false;
-		oldErrorMessages.forEach(oldMessage => {
-			if (!newErrorMessages.find(newMessage => oldMessage === newMessage)) {
-				errorsChanged = true;
-			}
-		});
-		return errorsChanged;
-	}
-
 	constructor(props) {
 		super(props);
 
@@ -109,7 +103,6 @@ class InputDateTimePicker extends React.Component {
 		this.state = {
 			...this.initialState,
 			showPicker: false,
-			focusedInput: this.inputErrorId,
 		};
 
 		this.onInputFocus = this.onInputFocus.bind(this);
@@ -147,7 +140,7 @@ class InputDateTimePicker extends React.Component {
 
 		if (
 			this.props.onChange &&
-			(this.dateHasChanged() || InputDateTimePicker.haveErrorsChanged(previousErrors, errors))
+			(this.dateHasChanged() || haveErrorsChanged(previousErrors, errors))
 		) {
 			// we need to update the initial state once it has been changed
 			this.initialState = { ...this.state };
@@ -277,7 +270,7 @@ class InputDateTimePicker extends React.Component {
 		}
 	}
 
-	onInputFocus(event, focusedId = this.inputErrorId) {
+	onInputFocus(event, focusedId) {
 		this.setState({ focusedInput: focusedId });
 	}
 
