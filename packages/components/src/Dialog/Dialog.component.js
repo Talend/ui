@@ -70,7 +70,11 @@ function Dialog({
 					className={classNames({ informative: type === Dialog.TYPES.INFORMATIVE })}
 					closeButton={closeButton}
 				>
-					{icon && <span className={'modal-icon'}><Icon name={icon} /></span>}
+					{icon && (
+						<span className={'modal-icon'}>
+							<Icon name={icon} />
+						</span>
+					)}
 					<Modal.Title id={headerId} componentClass="h1">
 						{header}
 					</Modal.Title>
