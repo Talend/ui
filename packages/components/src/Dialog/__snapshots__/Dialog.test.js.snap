@@ -256,13 +256,10 @@ exports[`Dialog should render icon and subtitle 1`] = `
     closeButton={true}
     closeLabel="Close"
   >
-    <span
+    <Icon
       className="modal-icon"
-    >
-      <Icon
-        name="talend-folder-closed"
-      />
-    </span>
+      name="talend-folder-closed"
+    />
     <ModalTitle
       bsClass="modal-title"
       componentClass="h1"
