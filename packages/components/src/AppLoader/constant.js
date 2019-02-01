@@ -2,11 +2,9 @@ const LOADER_STYLE = `* {
 	box-sizing: border-box;
 }
 
-html {
-	font-size: 10px;
-	text-size-adjust: 100%;
-	-ms-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
+body {
+	margin: 0;
+	padding: 0;
 }
 
 .tc-app-loader-container {
