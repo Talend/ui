@@ -89,10 +89,7 @@ export function DateTimeValidation({
 	if (!visibleErrors) {
 		visibleErrors = errorsOrder.find(part => errorsMapping[part].length);
 	}
-	console.log({
-		visibleErrors,
-		focusedInput,
-	});
+
 	return (
 		<div className={theme.footer}>
 			<div className={theme.errors}>
