@@ -86,6 +86,7 @@ describe('Dialog', () => {
 	});
 	it('should render icon and subtitle', () => {
 		const wrapper = shallow(<Dialog {...iconAndSubtitleProps}>{children}</Dialog>);
+		expect(wrapper.find('Icon').length).toBe(1);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render error', () => {
