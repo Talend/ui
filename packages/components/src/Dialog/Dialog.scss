@@ -26,11 +26,8 @@ $tc-dialog-header-icon: 3rem !default;
 			float: left;
 			padding-top: $padding-smaller;
 			margin-right: $padding-normal;
-
-			svg {
-				width: $tc-dialog-header-icon;
-				height: $tc-dialog-header-icon;
-			}
+			width: $tc-dialog-header-icon;
+			height: $tc-dialog-header-icon;
 		}
 
 		.modal-title,
