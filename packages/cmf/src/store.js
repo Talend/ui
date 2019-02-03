@@ -15,13 +15,14 @@ import cmfMiddleware from './middlewares/cmf';
  * @typedef {Object} Store
  */
 
+const REDUX_DEV_TOOL_KEY = '__REDUX_DEVTOOLS_EXTENSION__';
 const preReducers = [];
 const enhancers = [];
 const middlewares = [thunk, cmfMiddleware];
 
 if (window) {
-	if (window.devToolsExtension) {
-		enhancers.push(window.devToolsExtension());
+	if (window[REDUX_DEV_TOOL_KEY]) {
+		enhancers.push(window[REDUX_DEV_TOOL_KEY]());
 	}
 }
 
