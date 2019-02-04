@@ -29,12 +29,14 @@ class Container extends React.Component {
 	static displayName = 'List.Container';
 	static propTypes = {
 		children: PropTypes.node,
-		displayMode: PropTypes.string,
+
+		displayMode: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
 		onDisplayModeChange: PropTypes.func,
+
+		sort: PropTypes.func, // eslint-disable-line react/no-unused-prop-types
+		sortBy: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
+		sortDescending: PropTypes.bool, // eslint-disable-line react/no-unused-prop-types
 		onSortChange: PropTypes.func,
-		sort: PropTypes.func,
-		sortBy: PropTypes.string,
-		sortDescending: PropTypes.bool,
 	};
 	static defaultProps = {
 		displayMode: 'table',
@@ -43,6 +45,13 @@ class Container extends React.Component {
 	};
 
 	static getDerivedStateFromProps(props, state) {
+		const nextState = { collection: props.collection };
+
+		// uncontrolled sort
+		if (!props.onSortChange) {
+			nextState.collection = props.sort(props.collection, state.sortBy, state.sortDescending);
+		}
+
 		return {
 			collection: props.sort(props.collection, state.sortBy, state.sortDescending),
 		};
@@ -52,32 +61,41 @@ class Container extends React.Component {
 		super(props);
 		this.onDisplayModeChange = this.onDisplayModeChange.bind(this);
 		this.onSortChange = this.onSortChange.bind(this);
-		this.state = {
-			displayMode: props.displayMode,
-			sortBy: props.sortBy,
-			sortDescending: props.sortDescending,
-		};
+		this.state = {};
 	}
 
 	onDisplayModeChange(event, displayMode) {
-		this.setState({ displayMode }, () => {
-			if (this.props.onDisplayModeChange) {
-				this.props.onDisplayModeChange(event, displayMode);
-			}
-		});
+		if (this.props.onDisplayModeChange) {
+			// controlled display mode
+			this.props.onDisplayModeChange(event, displayMode);
+		} else {
+			// uncontrolled
+			this.setState({ displayMode });
+		}
 	}
 
 	onSortChange(event, sort) {
-		this.setState({ sortBy: sort.sortBy, sortDescending: sort.isDescending }, () => {
-			if (this.props.onSortChange) {
-				this.props.onSortChange(event, sort);
-			}
-		});
+		if (this.props.onSortChange) {
+			// controlled sort
+			this.props.onSortChange(event, sort);
+		} else {
+			// uncontrolled
+			this.setState({ sortBy: sort.sortBy, sortDescending: sort.isDescending });
+		}
+	}
+
+	getCurrentValue(keys) {
+		return keys.reduce((accu, key) => {
+			// eslint-disable-next-line no-param-reassign
+			accu[key] = key in this.state ? this.state[key] : this.props[key];
+			return accu;
+		}, {});
 	}
 
 	render() {
 		const contextValues = {
 			...this.state,
+			...this.getCurrentValue(['displayMode', 'sortBy', 'sortDescending']),
 			onDisplayModeChange: this.onDisplayModeChange,
 			onSortChange: this.onSortChange,
 		};
