@@ -7,29 +7,26 @@ import getDefaultT from '../../../../translate';
 import Icon from '../../../../Icon';
 import theme from './ColumnChooserModal.scss';
 
-const columns = [
-	{
-		name: 'column1',
-		locked: true,
-		order: 1,
-	},
-	{
-		name: 'column2',
-		locked: false,
-		order: 2,
-	},
-	{
-		name: 'column3',
-		locked: false,
-		order: 3,
-	},
-];
-
-const columnDisplay = length => {
-	return ({ name, locked, order }) => (
-		<div id="columnDisplay" style={{ display: 'flex', justifyContent: 'space-between' }}>
-			<Icon name={locked ? 'talend-locked' : 'talend-unlocked'} />
-			<span>{name}</span>
+const columnDisplay = (length, onChangeVisibility, onChangeOrder) => {
+	return ({ label, hidden, locked, order }, index) => (
+		<div
+			id="columnDisplay"
+			style={{ position: 'relative', display: 'flex', justifyContent: 'space-between' }}
+		>
+			{locked ? (
+				<Icon name="talend-locked" />
+			) : (
+				<span>
+					<input
+						id="label"
+						name="scales"
+						onChange={() => onChangeVisibility(index, !hidden)}
+						type="checkbox"
+						checked={hidden}
+					/>
+				</span>
+			)}
+			<span>{label}</span>
 			<span>
 				<input style={{ width: '25px' }} placeholder={order} type="text" />
 				{`/${length}`}
@@ -40,6 +37,7 @@ const columnDisplay = length => {
 
 class ColumnChooserModal extends React.Component {
 	static defaultProps = {
+		handlerColumnChooser: () => {},
 		t: getDefaultT(),
 	};
 
@@ -50,8 +48,31 @@ class ColumnChooserModal extends React.Component {
 		t: PropTypes.func,
 	};
 
-	onClick = () => {
-		console.log('MODIFY');
+	state = {
+		columns: this.props.columns,
+	};
+
+	onClickModify = event => {
+		this.props.handlerColumnChooser(event, this.state.columns);
+		// console.log('MODIFY');
+	};
+
+	onChangeVisibilityColumn = (index, hidden) => {
+		// console.log('onChangeVisibilityColumn', index, hidden);
+		this.setState(prevState => {
+			const columns = prevState.columns;
+			columns[index].hidden = hidden;
+			return { columns };
+		});
+	};
+
+	onChangeOrderColumn = (index, order) => {
+		// console.log('onChangeOrderColumn', index, order);
+		this.setState(prevState => {
+			const columns = prevState.columns;
+			columns[index].order = order;
+			return { columns };
+		});
 	};
 
 	getLayoutComponent = () => {
@@ -73,9 +94,10 @@ class ColumnChooserModal extends React.Component {
 	};
 
 	getDefaultContent = () => {
+		const { columns } = this.props;
 		return (
 			<div id="defaultContent" style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
-				{columns.map(columnDisplay(columns.length))}
+				{columns.map(columnDisplay(columns.length, this.onChangeVisibilityColumn))}
 			</div>
 		);
 	};
@@ -84,7 +106,7 @@ class ColumnChooserModal extends React.Component {
 		return (
 			<React.Fragment>
 				<ActionButton
-					onClick={this.onClick}
+					onClick={event => this.onClickModify(event)}
 					label={this.props.t('COLUMN_CHOOSER_FOOTER_BUTTON', { defaultValue: 'Modify' })}
 				/>
 			</React.Fragment>
@@ -93,6 +115,7 @@ class ColumnChooserModal extends React.Component {
 
 	render() {
 		const layoutComponent = this.getLayoutComponent();
+		console.log('columns', this.props.columns);
 		return (
 			<div className={classNames(theme['tc-column-chooser-modal'], 'tc-column-chooser-modal')}>
 				<RichLayout

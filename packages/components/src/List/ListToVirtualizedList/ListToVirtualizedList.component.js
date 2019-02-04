@@ -55,7 +55,6 @@ export function ListToVirtualizedList(props) {
 	// Allow to override or add new cell renderer from outside
 	const listCellDictionary = { ...cellDictionary, ...props.cellDictionary };
 	const listHeaderDictionary = { ...headerDictionary, ...props.headerDictionary };
-
 	return (
 		<VirtualizedList
 			id={props.id}

@@ -11,7 +11,7 @@ import Pagination from './Pagination';
 import FilterBar from '../../FilterBar';
 import Label from './Label';
 import ActionBar from '../../ActionBar';
-import { ColumnChooserButton, ColumnChooserModal } from './ColumnChooser';
+import { ColumnChooserButton } from './ColumnChooser';
 
 import theme from './Toolbar.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
@@ -55,16 +55,18 @@ function adaptLeftAndRightActions(actions, parentId) {
  <Toolbar id="my-toolbar"></Toolbar>
  */
 function Toolbar({
-	id,
 	actionBar,
-	selectAllCheckbox,
-	display,
-	sort,
-	pagination,
-	filter,
-	t,
-	getComponent,
+	columnChooser,
+	columns,
 	components,
+	display,
+	filter,
+	getComponent,
+	id,
+	pagination,
+	selectAllCheckbox,
+	sort,
+	t,
 }) {
 	const Renderer = Inject.getAll(getComponent, {
 		ActionBar,
@@ -92,7 +94,10 @@ function Toolbar({
 			{injected('before-navbar')}
 			{hasToolbarItem && (
 				<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
-					<ColumnChooserButton />
+					<ColumnChooserButton
+						columns={columns}
+						handlerColumnChooser={columnChooser.handlerColumnChooser}
+					/>
 					{injected('before-selectall')}
 					{selectAllCheckbox && <SelectAll {...selectAllCheckbox} t={t} />}
 					{injected('after-selectall')}

@@ -8,7 +8,15 @@ import ListToVirtualizedList from './ListToVirtualizedList';
 import theme from './List.scss';
 import Inject from '../Inject';
 
-function ListToolbar({ id, toolbar, displayMode, list, getComponent, components = {} }) {
+function ListToolbar({
+	id,
+	columnChooser,
+	toolbar,
+	displayMode,
+	list,
+	getComponent,
+	components = {},
+}) {
 	if (!toolbar) {
 		return null;
 	}
@@ -16,6 +24,7 @@ function ListToolbar({ id, toolbar, displayMode, list, getComponent, components 
 	const toolbarProps = {
 		...toolbar,
 		id,
+		columnChooser,
 		getComponent,
 		components,
 	};
@@ -32,8 +41,13 @@ function ListToolbar({ id, toolbar, displayMode, list, getComponent, components 
 			onToggleAll: list.itemProps.onToggleAll,
 		};
 	}
-
-	return <Toolbar {...toolbarProps} sort={!shouldHideSortOptions && toolbarProps.sort} />;
+	return (
+		<Toolbar
+			{...toolbarProps}
+			columns={list.columns}
+			sort={!shouldHideSortOptions && toolbarProps.sort}
+		/>
+	);
 }
 
 ListToolbar.propTypes = {
@@ -95,61 +109,93 @@ ListToolbar.propTypes = {
 }
  <List {...props}></List>
  */
-function List({
-	displayMode,
-	id,
-	list,
-	toolbar,
-	defaultHeight,
-	rowHeight,
-	getComponent,
-	components = {},
-	rowRenderers,
-}) {
-	const classnames = classNames('tc-list', theme.list);
-	const injected = Inject.all(getComponent, omit(components, ['toolbar', 'list']));
+class List extends React.Component {
+	static displayName = 'List';
 
-	return (
-		<div className={classnames}>
-			{injected('before-component')}
-			{injected('before-toolbar')}
-			<ListToolbar
-				id={id}
-				toolbar={toolbar}
-				displayMode={displayMode}
-				list={list}
-				getComponent={getComponent}
-				components={components}
-			/>
-			{injected('after-toolbar')}
-			{injected('before-list-wrapper')}
-			<div className={'tc-list-display-virtualized'}>
-				{injected('before-list')}
-				<ListToVirtualizedList
+	static propTypes = {
+		...ListToolbar.propTypes,
+	};
+
+	static defaultProps = {
+		displayMode: 'table',
+		handlerColumnChooser: () => {},
+	};
+
+	state = {
+		columns:
+			this.props.columns &&
+			this.props.columns.map(column => {
+				if (column.hidden === undefined) {
+					return {
+						...column,
+						hidden: false,
+					};
+				}
+			}),
+	};
+
+	getColumns() {
+		return this.props.list.columns || this.state.columns;
+	}
+
+	handlerColumnChooser = (event, columns) => {
+		this.setState({ columns }, this.props.handlerColumnChooser(event, columns));
+	};
+
+	render() {
+		const {
+			displayMode,
+			id,
+			list,
+			toolbar,
+			defaultHeight,
+			rowHeight,
+			getComponent,
+			components = {},
+			rowRenderers,
+		} = this.props;
+
+		const classnames = classNames('tc-list', theme.list);
+		const injected = Inject.all(getComponent, omit(components, ['toolbar', 'list']));
+
+		const enrichedList = {
+			...list,
+			columns: this.getColumns(),
+		};
+
+		return (
+			<div className={classnames}>
+				{injected('before-component')}
+				{injected('before-toolbar')}
+				<ListToolbar
 					id={id}
+					toolbar={toolbar}
 					displayMode={displayMode}
-					defaultHeight={defaultHeight}
-					rowHeight={rowHeight}
+					list={enrichedList}
+					columnChooser={{ handlerColumnChooser: this.handlerColumnChooser }}
 					getComponent={getComponent}
-					rowRenderers={rowRenderers}
-					{...list}
+					components={components}
 				/>
-				{injected('after-list')}
+				{injected('after-toolbar')}
+				{injected('before-list-wrapper')}
+				<div className={'tc-list-display-virtualized'}>
+					{injected('before-list')}
+					<ListToVirtualizedList
+						id={id}
+						displayMode={displayMode}
+						defaultHeight={defaultHeight}
+						rowHeight={rowHeight}
+						getComponent={getComponent}
+						rowRenderers={rowRenderers}
+						{...enrichedList}
+					/>
+					{injected('after-list')}
+				</div>
+				{injected('after-list-wrapper')}
+				{injected('after-component')}
 			</div>
-			{injected('after-list-wrapper')}
-			{injected('after-component')}
-		</div>
-	);
+		);
+	}
 }
-
-List.displayName = 'List';
-
-List.propTypes = {
-	...ListToolbar.propTypes,
-};
-
-List.defaultProps = {
-	displayMode: 'table',
-};
 
 export default List;
