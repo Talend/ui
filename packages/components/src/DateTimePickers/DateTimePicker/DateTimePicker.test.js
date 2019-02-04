@@ -226,33 +226,5 @@ describe('DateTimePicker', () => {
 			expect(wrapper.state('selectedTime')).toBe(time);
 			expect(onSubmit).toBeCalledWith(event, { date: initialDate, time });
 		});
-
-		it('should NOT submit when day or time is missing', () => {
-			// given
-			const initialTime = { hours: 1, minutes: 15 };
-			const time = { hours: 23, minutes: 59 };
-
-			const initialDate = new Date(2015, 10, 18);
-			const date = new Date(2018, 2, 5);
-
-			const event = { target: {}, persist() {} };
-			const onSubmit = jest.fn();
-
-			const timeOnlyWrapper = shallow(
-				<DateTimePicker selection={{ time: initialTime }} onSubmit={onSubmit} />,
-			);
-
-			const dateOnlyWrapper = shallow(
-				<DateTimePicker selection={{ date: initialDate }} onSubmit={onSubmit} />,
-			);
-
-			// when/then
-			timeOnlyWrapper.find(DateTimeView).prop('onSelectTime')(event, time);
-			expect(onSubmit).not.toBeCalled();
-
-			// when/then
-			dateOnlyWrapper.find(DateTimeView).prop('onSelectDate')(event, date);
-			expect(onSubmit).not.toBeCalled();
-		});
 	});
 });

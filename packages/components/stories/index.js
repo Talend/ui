@@ -1,4 +1,3 @@
-import './MultiSelect';
 import './AboutDialog';
 import './Action';
 import './ActionBar';
@@ -27,10 +26,11 @@ import './HeaderBar';
 import './HttpError';
 import './Icon';
 import './JSONSchemaRenderer';
-import './ListView';
 import './Layout';
 import './List';
+import './ListView';
 import './Loader';
+import './MultiSelect';
 import './Notification';
 import './ObjectViewer';
 import './PieChart';
