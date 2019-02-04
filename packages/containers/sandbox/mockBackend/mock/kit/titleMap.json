@@ -180,6 +180,26 @@
             "key": "desert.description",
             "title": "Description",
             "widget": "textarea"
+          },
+          {
+            "widget": "button",
+            "key": "desert.neededToDisplayTheError",
+            "type": "button",
+            "title": "Give me five ! (aka error)",
+            "triggers": [
+              {
+                "action":"giveMeFive",
+                "family":"test",
+                "options":[],
+                "parameters":[
+                  {
+                    "key":"type",
+                    "path":"desert.type"
+                  }
+                ],
+                "type":"error"
+              }
+            ]
           }
         ],
         "widget": "fieldset"
