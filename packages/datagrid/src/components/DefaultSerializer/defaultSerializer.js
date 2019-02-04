@@ -176,18 +176,18 @@ export function convertSample(sample) {
 	return sample;
 }
 
-export function getColumnDefs(sample) {
+export function getColumnDefs(sample, columnsConf) {
 	if (!sample) {
 		return [];
 	}
 
 	const plainObjectSample = convertSample(sample);
 
-	return get(plainObjectSample, 'schema.fields', []).map(avroField => ({
+	return get(plainObjectSample, 'fields', []).map(avroField => ({
 		avro: sanitizeAvro(avroField),
 		field: `${NAMESPACE_DATA}${avroField.name}`,
 		headerName: avroField.doc || avroField.name,
-		type: getType(avroField.type),
+		type: get(columnsConf, 'hideSubType', false) ? '' : getType(avroField.type),
 		...getFieldQuality(avroField.type),
 	}));
 }
@@ -200,12 +200,12 @@ export function getRowData(sample, startIndex = 0) {
 	const plainObjectSample = convertSample(sample);
 
 	return get(plainObjectSample, 'data', []).map((row, index) =>
-		Object.keys(row.value).reduce(
+		Object.keys(row).reduce(
 			(rowData, key) => ({
 				...rowData,
 				[`${NAMESPACE_DATA}${key}`]: {
-					value: row.value[key].value,
-					quality: row.value[key].quality,
+					value: row[key].value,
+					quality: row[key].quality,
 					comments: [],
 					avro: {},
 				},
