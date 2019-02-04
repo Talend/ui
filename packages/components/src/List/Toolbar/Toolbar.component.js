@@ -11,6 +11,7 @@ import Pagination from './Pagination';
 import FilterBar from '../../FilterBar';
 import Label from './Label';
 import ActionBar from '../../ActionBar';
+import { ColumnChooserButton, ColumnChooserModal } from './ColumnChooser';
 
 import theme from './Toolbar.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
@@ -91,6 +92,7 @@ function Toolbar({
 			{injected('before-navbar')}
 			{hasToolbarItem && (
 				<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
+					<ColumnChooserButton />
 					{injected('before-selectall')}
 					{selectAllCheckbox && <SelectAll {...selectAllCheckbox} t={t} />}
 					{injected('after-selectall')}

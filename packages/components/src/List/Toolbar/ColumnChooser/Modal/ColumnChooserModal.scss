@@ -1,0 +1,6 @@
+.tc-column-chooser-modal {
+	&:global(.tc-tooltip-header) {
+		display: flex;
+		align-items: center;
+	}
+}

@@ -48,6 +48,8 @@ const icons = {
 	'talend-trash': talendIcons['talend-trash'],
 	'talend-warning': talendIcons['talend-warning'],
 	'talend-file-s3-o': talendIcons['talend-file-s3-o'],
+	'talend-locked': talendIcons['talend-locked'],
+	'talend-unlocked': talendIcons['talend-unlocked'],
 };
 
 const selected = [
