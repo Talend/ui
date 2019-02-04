@@ -9,16 +9,18 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 	position: relative;
 	height: 100%;
 
-	.icon {
+	.icon,
+	.span > .icon {
 		filter: url('#talend-grayscale');
 		flex-shrink: 0;
 		height: $tc-list-title-icon-size;
 		width: $tc-list-title-icon-size;
 		vertical-align: middle;
+	}
 
-		+ .edit-form {
-			padding-left: $padding-normal;
-		}
+	.icon + .edit-form,
+	span + .edit-form {
+		padding-left: $padding-normal;
 	}
 
 	.edit-form {
