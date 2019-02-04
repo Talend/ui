@@ -90,6 +90,7 @@ class DateWidget extends React.Component {
 					useTime={useTime}
 					useSeconds={useSeconds}
 					useUTC={options.useUTC}
+					formMode={options.formMode}
 					// eslint-disable-next-line jsx-a11y/aria-proptypes
 					aria-invalid={!isValid}
 					aria-required={schema.required}
@@ -114,6 +115,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onFinish: PropTypes.func.isRequired,
 		options: PropTypes.shape({
 			dateFormat: PropTypes.string,
+			formMode: PropTypes.bool,
 		}),
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
