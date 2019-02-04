@@ -117,6 +117,21 @@ function updateProperties({ type }) {
 	}
 }
 
+function giveMeFive() {
+	return res => {
+		res
+			.status(500)
+			.json({
+				timestamp: 1548781374412,
+				status: 500,
+				error: 'Internal Server Error',
+				exception: 'javax.ws.rs.ClientErrorException',
+				message: 'An internal server error occurs',
+				path: '/proxy/v1/action/execute/dataset',
+			});
+	};
+}
+
 const TRIGGERS = {
 	validation: {
 		urlValidation,
@@ -136,6 +151,9 @@ const TRIGGERS = {
 	},
 	update: {
 		updateProperties,
+	},
+	error: {
+		giveMeFive,
 	},
 };
 
