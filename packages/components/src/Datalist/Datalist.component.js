@@ -170,6 +170,10 @@ class Datalist extends Component {
 		if (this.props.multiSection) {
 			newValue = this.state.suggestions[sectionIndex].suggestions[itemIndex];
 		}
+		if (newValue.disabled) {
+			event.preventDefault();
+			return;
+		}
 		this.updateValue(event, newValue, true);
 	}
 
@@ -233,7 +237,7 @@ class Datalist extends Component {
 		} else {
 			const index = this.props.titleMap.findIndex(item => item.name === value);
 			this.setState({
-				focusedItemIndex: index,
+				focusedItemIndex: index === -1 ? null : index,
 			});
 		}
 	}
