@@ -101,8 +101,8 @@ function getFullDateFormat({ dateFormat, useTime, useSeconds }) {
 /**
  * Check if a date is a valid date.
  */
-function isDateValid(date) {
-	if (date === undefined) {
+function isDateValid(date, isEmptyValid = true) {
+	if (isEmptyValid && date === undefined) {
 		return true;
 	}
 
@@ -204,7 +204,7 @@ function check(date, time) {
 		errors = timeErrors;
 	}
 
-	if (!isDateValid(date)) {
+	if (!isDateValid(date, false)) {
 		errors.push(new DatePickerException('INVALID_DATE_FORMAT', 'INVALID_DATE_FORMAT'));
 	}
 	return errors;

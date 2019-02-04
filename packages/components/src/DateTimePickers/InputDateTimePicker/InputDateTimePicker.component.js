@@ -56,6 +56,13 @@ function haveErrorsChanged(oldErrors, newErrors) {
 	return newErrors.some(error => !oldErrorMessages.includes(error.message));
 }
 
+function isTimeEmpty(time) {
+	if (time.hours || time.minutes || time.seconds) {
+		return false;
+	}
+	return true;
+}
+
 class InputDateTimePicker extends React.Component {
 	static propTypes = {
 		id: PropTypes.string.isRequired,
@@ -103,6 +110,7 @@ class InputDateTimePicker extends React.Component {
 		this.state = {
 			...this.initialState,
 			showPicker: false,
+			previousErrors: [],
 		};
 
 		this.onInputFocus = this.onInputFocus.bind(this);
@@ -254,6 +262,7 @@ class InputDateTimePicker extends React.Component {
 	onSubmit(event, origin) {
 		event.preventDefault();
 
+		const isPickerEmpty = !this.state.date && isTimeEmpty(this.state.time);
 		// validation
 		// to avoid having error message change on invalid elements,
 		// we don't replace the error on those elements
@@ -262,7 +271,7 @@ class InputDateTimePicker extends React.Component {
 			.filter(({ code }) => !errors.find(error => error.code === code))
 			.concat(errors);
 
-		if (errors.length) {
+		if (!isPickerEmpty && errors.length) {
 			this.setState({ errors });
 		} else {
 			this.onChange(event, origin);
