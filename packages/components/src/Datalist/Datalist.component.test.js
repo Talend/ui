@@ -163,7 +163,6 @@ describe('Datalist component', () => {
 		// then
 		const payload = { value: 'foobar' };
 		expect(onChange).toBeCalledWith(expect.anything(), payload);
-		expect(wrapper.find(Typeahead).props().items).toBe(null);
 	});
 
 	it('should reset suggestions and change value on blur when not in restricted mode and value not in suggestions', () => {
@@ -190,7 +189,6 @@ describe('Datalist component', () => {
 		// then
 		const payload = { value: 'foooo' };
 		expect(onChange).toBeCalledWith(expect.anything(), payload);
-		expect(wrapper.find(Typeahead).props().items).toBe(null);
 	});
 
 	it('should reset suggestions and not change value on blur in restricted mode and value does not exist', () => {
