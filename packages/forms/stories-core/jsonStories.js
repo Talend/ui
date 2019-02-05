@@ -12,15 +12,14 @@ const oldFilenames = require.context('../stories/json', true, /.(js|json)$/);
 const sampleFilenameRegex = /^.\/(.*).js/;
 const stories = [];
 
-
 function capitalizeFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function getFilteredCollection({ name, selection, certified, favorites, selected, orders }) {
 	const methods = {
-		asc: (a, b) => a > b ? - 1 : 1,
-		desc: (a, b) => a < b ? - 1 : 1,
+		asc: (a, b) => (a > b ? -1 : 1),
+		desc: (a, b) => (a < b ? -1 : 1),
 	};
 	const collection = [
 		{
@@ -71,7 +70,6 @@ function getFilteredCollection({ name, selection, certified, favorites, selected
 		},
 	];
 
-
 	let c = collection;
 
 	if (name) {
@@ -110,6 +108,7 @@ function createCommonProps(tab) {
 		formName: `my-form-${tab}`,
 		onChange: action('Change'),
 		onTrigger(event, payload) {
+			debugger;
 			action('Trigger')(event, payload);
 			const schema = payload.schema;
 			const key = schema.key && schema.key[schema.key.length - 1];
@@ -136,26 +135,26 @@ function createCommonProps(tab) {
 				});
 			}
 
-
-			if (key.includes('COINCOIN')) {
-				console.log('[NC] COIN');
-				return new Promise(resolve => {
-					resolve({
-						collection: getFilteredCollection(payload.trigger.parameters),
-						name: 'casimir',
-					});
-				});
-			}
-
-			if (key.includes('ResourcePicker')) {
+			if (payload.trigger.action === 'resourcePickerFiltered') {
 				return new Promise(resolve => {
 					setTimeout(
 						() =>
 							resolve({
-								collection: getFilteredCollection(payload.trigger.parameters),
+								collection: getFilteredCollection(payload.filters),
 							}),
 						3000,
 					);
+				});
+			}
+			if (payload.trigger.action === 'resourcePickerSelected') {
+				const errors = { ...payload.errors };
+				delete errors['titleForNextPicker'];
+				return Promise.resolve({
+					properties: {
+						...payload.properties,
+						titleForNextPicker: 'Coucou Nico',
+					},
+					errors,
 				});
 			}
 

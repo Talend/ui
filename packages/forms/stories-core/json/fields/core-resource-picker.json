@@ -4,32 +4,30 @@
     "type": "object",
     "title": "ResourcePicker",
     "properties": {
-      "multiResourcePicker": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
+      "titleForNextPicker": {
+        "type": "string"
       },
-      "singleResourcePicker": {
+      "singleResourcePickerWithTrigger": {
         "type": "string"
       }
     },
-    "required": ["multiResourcePicker", "singleResourcePicker"]
+    "required": ["titleForNextPicker", "singleResourcePickerWithTrigger"]
   },
   "uiSchema": [
+
     {
-      "key": "multiResourcePicker",
-      "title": "ResourcePicker with multi selection",
-      "widget": "resourcePicker",
-      "placeholder": "Select an existing resource",
-      "multi": true
+      "key": "titleForNextPicker",
+      "title": "Title change on picker change"
     },
     {
-      "key": "singleResourcePicker",
-      "title": "ResourcePicker without multi selection",
+      "key": "singleResourcePickerWithTrigger",
+      "title": "ResourcePicker that change the input above",
       "placeholder": "Select an existing resource",
       "widget": "resourcePicker",
-      "multi": false
+      "triggers": [
+        { "action": "resourcePickerSelected" },
+        { "action": "resourcePickerFiltered" }
+      ]
     }
   ],
   "properties": {}

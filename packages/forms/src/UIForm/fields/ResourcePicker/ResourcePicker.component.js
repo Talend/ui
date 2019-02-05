@@ -40,16 +40,26 @@ class ResourcePicker extends Component {
 
 	onFilter(event) {
 		this.setState({ isLoading: true }, () => {
-			this.props
-				.onTrigger(event, {
-					trigger: {
-						parameters: this.state.filters,
-					},
-					schema: this.props.schema,
-				})
+			this.onTrigger(event, 'resourcePickerFiltered', { filters: this.state.filters })
 				.then(data => this.setState(data))
 				.finally(() => this.setState({ isLoading: false }));
 		});
+	}
+
+	onTrigger(event, action, payload) {
+		const trigger =
+			this.props.schema.triggers && this.props.schema.triggers.find(trig => trig.action === action);
+		if (trigger) {
+			return this.props.onTrigger(event, {
+				trigger,
+				schema: this.props.schema,
+				properties: this.props.properties,
+				errors: this.props.errors,
+				...payload,
+			});
+		} else {
+			return Promise.resolve();
+		}
 	}
 
 	onRowClick(event, { id }) {
@@ -70,15 +80,8 @@ class ResourcePicker extends Component {
 		const value = multi ? selected : selected[0];
 		this.setState({ filters: { ...this.state.filters, selected } });
 		this.onChange(event, value);
-		console.log('[NC] state ?: ', this.state);
-		this.props.onTrigger(event, {
-			trigger: {
-				parameters: this.state.filters,
-			},
-			properties: {
-				value,
-			},
-		});
+
+		this.onTrigger(event, 'resourcePickerSelected', { value });
 	}
 
 	isItemSelected({ id }) {
