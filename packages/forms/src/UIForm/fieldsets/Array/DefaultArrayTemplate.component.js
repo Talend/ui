@@ -36,6 +36,7 @@ function DefaultArrayTemplate(props) {
 		>
 			{schema.title && <legend className="sr-only">{schema.title}</legend>}
 			<Action
+				id={`${id || 'tf-array'}-btn`}
 				className={classNames(theme['tf-array-add'], 'tf-array-add')}
 				bsStyle={'info'}
 				onClick={onAdd}
