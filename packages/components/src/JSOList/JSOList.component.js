@@ -37,6 +37,10 @@ class Container extends React.Component {
 		sortBy: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
 		sortDescending: PropTypes.bool, // eslint-disable-line react/no-unused-prop-types
 		onSortChange: PropTypes.func,
+
+		isSelected: PropTypes.func, // controlled/uncontrolled check on this prop
+		onSelectAllChange: PropTypes.func,
+		onSelectChange: PropTypes.func,
 	};
 	static defaultProps = {
 		displayMode: 'table',
