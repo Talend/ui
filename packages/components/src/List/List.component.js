@@ -41,13 +41,7 @@ function ListToolbar({
 			onToggleAll: list.itemProps.onToggleAll,
 		};
 	}
-	return (
-		<Toolbar
-			{...toolbarProps}
-			columns={list.columns}
-			sort={!shouldHideSortOptions && toolbarProps.sort}
-		/>
-	);
+	return <Toolbar {...toolbarProps} sort={!shouldHideSortOptions && toolbarProps.sort} />;
 }
 
 ListToolbar.propTypes = {
@@ -144,23 +138,31 @@ class List extends React.Component {
 
 	render() {
 		const {
+			columnChooser,
+			components = {},
+			defaultHeight,
 			displayMode,
+			getComponent,
 			id,
 			list,
-			toolbar,
-			defaultHeight,
 			rowHeight,
-			getComponent,
-			components = {},
 			rowRenderers,
+			toolbar,
 		} = this.props;
 
 		const classnames = classNames('tc-list', theme.list);
 		const injected = Inject.all(getComponent, omit(components, ['toolbar', 'list']));
 
+		const columns = this.getColumns();
 		const enrichedList = {
 			...list,
-			columns: this.getColumns(),
+			columns,
+		};
+
+		const enrichedColumnChooser = {
+			...columnChooser,
+			columns,
+			handlerColumnChooser: this.handlerColumnChooser,
 		};
 
 		return (
@@ -172,7 +174,7 @@ class List extends React.Component {
 					toolbar={toolbar}
 					displayMode={displayMode}
 					list={enrichedList}
-					columnChooser={{ handlerColumnChooser: this.handlerColumnChooser }}
+					columnChooser={enrichedColumnChooser}
 					getComponent={getComponent}
 					components={components}
 				/>

@@ -2,7 +2,7 @@ import React from 'react';
 import ColumnChooserModal from '../Modal/ColumnChooserModal.component';
 import ActionButton from '../../../../Actions/ActionButton';
 
-export default function ColumnChooser({ columns, handlerColumnChooser }) {
+export default function ColumnChooser({ columns, handlerColumnChooser, ...rest }) {
 	return (
 		<ActionButton
 			id="button-column-chooser"
@@ -10,7 +10,11 @@ export default function ColumnChooser({ columns, handlerColumnChooser }) {
 			icon="talend-folder"
 			data-feature="action"
 			overlayComponent={
-				<ColumnChooserModal columns={columns} handlerColumnChooser={handlerColumnChooser} />
+				<ColumnChooserModal
+					columns={columns}
+					handlerColumnChooser={handlerColumnChooser}
+					{...rest}
+				/>
 			}
 		/>
 	);

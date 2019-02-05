@@ -57,7 +57,6 @@ function adaptLeftAndRightActions(actions, parentId) {
 function Toolbar({
 	actionBar,
 	columnChooser,
-	columns,
 	components,
 	display,
 	filter,
@@ -94,10 +93,7 @@ function Toolbar({
 			{injected('before-navbar')}
 			{hasToolbarItem && (
 				<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
-					<ColumnChooserButton
-						columns={columns}
-						handlerColumnChooser={columnChooser.handlerColumnChooser}
-					/>
+					<ColumnChooserButton {...columnChooser} />
 					{injected('before-selectall')}
 					{selectAllCheckbox && <SelectAll {...selectAllCheckbox} t={t} />}
 					{injected('after-selectall')}

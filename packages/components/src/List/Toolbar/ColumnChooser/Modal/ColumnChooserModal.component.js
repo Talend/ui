@@ -54,11 +54,9 @@ class ColumnChooserModal extends React.Component {
 
 	onClickModify = event => {
 		this.props.handlerColumnChooser(event, this.state.columns);
-		// console.log('MODIFY');
 	};
 
 	onChangeVisibilityColumn = (index, hidden) => {
-		// console.log('onChangeVisibilityColumn', index, hidden);
 		this.setState(prevState => {
 			const columns = prevState.columns;
 			columns[index].hidden = hidden;
@@ -67,7 +65,6 @@ class ColumnChooserModal extends React.Component {
 	};
 
 	onChangeOrderColumn = (index, order) => {
-		// console.log('onChangeOrderColumn', index, order);
 		this.setState(prevState => {
 			const columns = prevState.columns;
 			columns[index].order = order;
@@ -115,7 +112,6 @@ class ColumnChooserModal extends React.Component {
 
 	render() {
 		const layoutComponent = this.getLayoutComponent();
-		console.log('columns', this.props.columns);
 		return (
 			<div className={classNames(theme['tc-column-chooser-modal'], 'tc-column-chooser-modal')}>
 				<RichLayout
