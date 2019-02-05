@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import cmf, { cmfConnect } from '@talend/react-cmf';
 import Form from '@talend/react-forms';
 import { getValue } from '@talend/react-forms/lib/UIForm/utils/properties';
@@ -130,11 +129,10 @@ export class TCompForm extends React.Component {
 			type: TCompForm.ON_TRIGGER_BEGIN,
 			...payload,
 		});
-		let updating = true;
 		if (Array.isArray(payload.trigger.options)) {
-			updating = payload.trigger.options.map(op => op.path);
+			const updating = payload.trigger.options.map(op => op.path);
+			this.setState({ updating });
 		}
-		this.setState({ updating });
 		return this.trigger(event, payload).then(
 			data => {
 				this.setState({ updating: [] });
