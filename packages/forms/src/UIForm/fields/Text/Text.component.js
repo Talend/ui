@@ -64,7 +64,7 @@ export default function Text(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	Text.propTypes = {
-		updating: PropTypes.array,
+		updating: PropTypes.arrayOf(PropTypes.string),
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,

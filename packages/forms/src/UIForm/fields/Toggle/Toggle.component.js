@@ -3,12 +3,14 @@ import React from 'react';
 import Toggle from '@talend/react-components/lib/Toggle';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import { isUpdating } from '../../utils/updating';
 
 function ToggleWidget(props) {
 	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
 	const { autoFocus, description, disabled = false, title } = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
+	const updating = isUpdating(props.updating, schema);
 
 	return (
 		<FieldTemplate
@@ -18,11 +20,12 @@ function ToggleWidget(props) {
 			errorMessage={errorMessage}
 			isValid={isValid}
 			required={schema.required}
+			updating={updating}
 		>
 			<Toggle
 				autoFocus={autoFocus}
 				checked={value}
-				disabled={disabled}
+				disabled={disabled || updating}
 				id={id}
 				label={title}
 				onBlur={event => onFinish(event, { schema })}
@@ -38,6 +41,7 @@ function ToggleWidget(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	ToggleWidget.propTypes = {
+		updating: PropTypes.arrayOf(PropTypes.string),
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,

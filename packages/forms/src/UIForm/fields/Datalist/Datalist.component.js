@@ -10,6 +10,7 @@ import { I18N_DOMAIN_FORMS } from '../../../constants';
 import callTrigger from '../../trigger';
 import { DID_MOUNT } from './constants';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import { isUpdating } from '../../utils/updating';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -136,6 +137,8 @@ class Datalist extends Component {
 		const props = omit(this.props, PROPS_TO_OMIT);
 		const descriptionId = generateDescriptionId(this.props.id);
 		const errorId = generateErrorId(this.props.id);
+		const updating = isUpdating(this.props.updating, props.schema);
+
 		return (
 			<FieldTemplate
 				description={this.props.schema.description}
@@ -146,6 +149,7 @@ class Datalist extends Component {
 				isValid={this.props.isValid}
 				label={this.props.schema.title}
 				required={this.props.schema.required}
+				updating={updating}
 				labelAfter
 			>
 				<DataListComponent
@@ -153,7 +157,7 @@ class Datalist extends Component {
 					{...this.state}
 					className="form-control-container"
 					autoFocus={this.props.schema.autoFocus}
-					disabled={this.props.schema.disabled || false}
+					disabled={this.props.schema.disabled || updating || false}
 					multiSection={get(this.props, 'schema.options.isMultiSection', false)}
 					onChange={this.onChange}
 					onFocus={this.callTrigger}
@@ -180,6 +184,7 @@ Datalist.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
 	Datalist.propTypes = {
+		updating: PropTypes.arrayOf(PropTypes.string),
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,

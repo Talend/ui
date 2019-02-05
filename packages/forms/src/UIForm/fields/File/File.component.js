@@ -7,6 +7,7 @@ import { generateDescriptionId, generateErrorId } from '../../Message/generateId
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import theme from './File.scss';
+import { isUpdating } from '../../utils/updating';
 
 const BASE64_NAME = ';name=';
 const BASE64_PREFIX = ';base64,';
@@ -96,6 +97,8 @@ class FileWidget extends React.Component {
 		} = schema;
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
+		const updating = isUpdating(this.props.updating, schema);
+
 		return (
 			<FieldTemplate
 				description={description}
@@ -107,13 +110,14 @@ class FileWidget extends React.Component {
 				label={title}
 				labelAfter={false}
 				required={required}
+				updating={updating}
 			>
 				<div className={theme.file}>
 					<input
 						id={`input-${id}`}
 						autoFocus={autoFocus}
 						className={`form-control ${theme['file-input']}`}
-						disabled={disabled}
+						disabled={disabled || updating}
 						onBlur={event => onFinish(event, { schema })}
 						onChange={this.onChange}
 						placeholder={placeholder}
@@ -142,6 +146,7 @@ class FileWidget extends React.Component {
 
 if (process.env.NODE_ENV !== 'production') {
 	FileWidget.propTypes = {
+		updating: PropTypes.arrayOf(PropTypes.string),
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,

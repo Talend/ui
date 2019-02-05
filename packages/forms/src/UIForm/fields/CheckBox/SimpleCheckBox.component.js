@@ -20,7 +20,7 @@ export default function SimpleCheckBox({
 				<input
 					id={id}
 					autoFocus={autoFocus}
-					disabled={disabled}
+					disabled={disabled || props.updating}
 					onChange={event => {
 						onChange(event, { schema, value: event.target.checked });
 						onFinish(event, { schema, value: event.target.checked });
@@ -41,6 +41,7 @@ export default function SimpleCheckBox({
 
 if (process.env.NODE_ENV !== 'production') {
 	SimpleCheckBox.propTypes = {
+		updating: PropTypes.bool,
 		describedby: PropTypes.string.isRequired,
 		id: PropTypes.string,
 		isValid: PropTypes.bool,

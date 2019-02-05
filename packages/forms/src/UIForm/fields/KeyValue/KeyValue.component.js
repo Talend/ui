@@ -6,6 +6,7 @@ import Widget from '../../Widget';
 import FieldTemplate from '../FieldTemplate';
 
 import theme from './KeyValue.scss';
+import { isUpdating } from '../../utils/updating';
 
 /**
  * Default part (key or value) schema
@@ -51,6 +52,7 @@ function KeyValue({ id, isValid, errorMessage, onChange, onFinish, schema, value
 			isValid={isValid}
 			label={title}
 			required={schema.required}
+			updating={isUpdating(restProps.updating, schema)}
 		>
 			<dl className={theme['key-value']}>
 				<dt>
@@ -82,6 +84,7 @@ KeyValue.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
 	KeyValue.propTypes = {
+		updating: PropTypes.arrayOf(PropTypes.string),
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,

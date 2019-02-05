@@ -7,6 +7,7 @@ import TextArea from '../TextArea';
 import { generateId, generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
+import { isUpdating } from '../../utils/updating';
 
 let CodeWidget = TextArea;
 let AceEditor;
@@ -100,6 +101,8 @@ class Code extends React.Component {
 			errorId,
 			instructionsId,
 		};
+		const updating = isUpdating(this.props.updating, schema);
+
 		return (
 			<FieldTemplate
 				description={description}
@@ -110,6 +113,7 @@ class Code extends React.Component {
 				isValid={isValid}
 				label={title}
 				required={schema.required}
+				updating={updating}
 			>
 				<div // eslint-disable-line jsx-a11y/no-static-element-interactions
 					id={id && `${id}-editor-container`}
@@ -128,7 +132,7 @@ class Code extends React.Component {
 					<AceEditor
 						key="ace"
 						className="tf-widget-code form-control"
-						disabled={disabled}
+						disabled={disabled || updating}
 						editorProps={{ $blockScrolling: Infinity }} // https://github.com/securingsincity/react-ace/issues/29
 						focus={autoFocus}
 						name={`${id}_wrapper`}
@@ -158,6 +162,7 @@ if (process.env.NODE_ENV !== 'production') {
 		errorMessage: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
+		updating: PropTypes.arrayOf(PropTypes.string),
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
