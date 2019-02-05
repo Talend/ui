@@ -4,6 +4,8 @@ module.exports = {
 	moduleNameMapper: {
 		'^.+\\.(css|scss)$': '<rootDir>/node_modules/@talend/scripts/webapp/preset/config/test/style-mock.js',
 	},
-	setupTestFrameworkScriptFile: '<rootDir>/node_modules/@talend/scripts/webapp/preset/config/test/test-setup.js',
+	setupFilesAfterEnv: [
+		'<rootDir>/node_modules/@talend/scripts/webapp/preset/config/test/test-setup.js',
+	],
 	transform: { '^.+\\.js$': '<rootDir>/node_modules/@talend/scripts/webapp/preset/config/test/jest-preprocess.js' },
 };
