@@ -18,14 +18,14 @@ describe('FocusManager', () => {
 			wrapper
 				.find('.inside')
 				.first()
-				.simulate('click');
-
-			// then
+				.simulate('focus');
 			wrapper
 				.find('.inside')
 				.first()
 				.simulate('blur');
 			jest.runAllTimers();
+
+			// then
 			expect(handler).toHaveBeenCalled();
 		});
 
@@ -41,18 +41,14 @@ describe('FocusManager', () => {
 			wrapper
 				.find('.inside')
 				.first()
-				.simulate('click');
-
-			// then
-			wrapper
-				.find('.inside')
-				.first()
 				.simulate('blur');
 			wrapper
 				.find('.inside')
 				.first()
 				.simulate('focus');
 			jest.runAllTimers();
+
+			// then
 			expect(handler).not.toHaveBeenCalled();
 		});
 	});
