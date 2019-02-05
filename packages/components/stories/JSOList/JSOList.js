@@ -52,6 +52,7 @@ storiesOf('JSOList', module).add('Table', () => (
 				collection={collection}
 			>
 				<List.Toolbar>
+					<List.SelectAll id="my-list-select-all" />
 					<List.DisplayMode id="my-list-displayMode" />
 					<List.SortBy
 						id="my-list-sortBy"

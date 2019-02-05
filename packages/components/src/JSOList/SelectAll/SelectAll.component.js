@@ -10,7 +10,7 @@ import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 import theme from './SelectAll.scss';
 
-function SelectAll({ disabled, id, isSelected, onToggle, t }) {
+function SelectAll({ disabled, id, checked, onToggle, t }) {
 	return (
 		<form className={classNames(theme.container, 'navbar-form navbar-left')}>
 			<div
@@ -21,7 +21,7 @@ function SelectAll({ disabled, id, isSelected, onToggle, t }) {
 						id={id}
 						type="checkbox"
 						onChange={onToggle}
-						checked={isSelected}
+						checked={checked}
 						disabled={disabled}
 					/>
 					<span>{t('LIST_SELECT_ALL', { defaultValue: 'Select All' })}</span>
@@ -34,7 +34,7 @@ function SelectAll({ disabled, id, isSelected, onToggle, t }) {
 SelectAll.propTypes = {
 	disabled: PropTypes.bool,
 	id: PropTypes.string.isRequired,
-	isSelected: PropTypes.bool,
+	checked: PropTypes.bool,
 	onToggle: PropTypes.func.isRequired,
 	t: PropTypes.func.isRequired,
 };
@@ -49,7 +49,7 @@ function ContextualSelectAll(props) {
 	return (
 		<ListContext.Consumer>
 			{({ selectAllChecked, onSelectAllChange }) => (
-				<SelectAll isSelected={selectAllChecked} onToggle={onSelectAllChange} {...props} />
+				<SelectAll checked={selectAllChecked} onToggle={onSelectAllChange} {...props} />
 			)}
 		</ListContext.Consumer>
 	);
