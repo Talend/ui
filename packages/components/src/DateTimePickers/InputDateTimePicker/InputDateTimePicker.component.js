@@ -45,6 +45,7 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'useSeconds',
 	'useTime',
 	'useUTC',
+	'required',
 ];
 
 function haveErrorsChanged(oldErrors, newErrors) {
@@ -54,13 +55,6 @@ function haveErrorsChanged(oldErrors, newErrors) {
 
 	const oldErrorMessages = oldErrors.map(error => error.message);
 	return newErrors.some(error => !oldErrorMessages.includes(error.message));
-}
-
-function isTimeEmpty(time) {
-	if (time.hours || time.minutes || time.seconds) {
-		return false;
-	}
-	return true;
 }
 
 class InputDateTimePicker extends React.Component {
@@ -79,6 +73,7 @@ class InputDateTimePicker extends React.Component {
 		useTime: PropTypes.bool,
 		useUTC: PropTypes.bool,
 		formMode: PropTypes.bool,
+		required: PropTypes.bool,
 	};
 
 	static defaultProps = {
@@ -87,6 +82,8 @@ class InputDateTimePicker extends React.Component {
 		useTime: false,
 		useUTC: false,
 		formMode: false,
+		// default behaviour is to forbid empty values
+		required: true,
 	};
 
 	constructor(props) {
@@ -262,17 +259,16 @@ class InputDateTimePicker extends React.Component {
 	onSubmit(event, origin) {
 		event.preventDefault();
 
-		const isPickerEmpty = !this.state.date && isTimeEmpty(this.state.time);
 		// validation
 		// to avoid having error message change on invalid elements,
 		// we don't replace the error on those elements
-		let errors = check(this.state.date, this.state.time);
+		let errors = check(this.state.date, this.state.time, this.getDateOptions());
 		errors = this.state.errors
 			.filter(({ code }) => !errors.find(error => error.code === code))
 			.concat(errors);
 
-		if (!isPickerEmpty && errors.length) {
-			this.setState({ errors });
+		if (errors.length) {
+			this.setState({ errors, errorMessage: errors[0].message });
 		} else {
 			this.onChange(event, origin);
 			this.closePicker();
@@ -289,6 +285,7 @@ class InputDateTimePicker extends React.Component {
 			useTime: this.props.useTime,
 			useSeconds: this.props.useSeconds,
 			useUTC: this.props.useUTC,
+			required: this.props.required,
 		};
 	}
 

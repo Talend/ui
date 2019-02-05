@@ -695,7 +695,7 @@ describe('Date extraction', () => {
 
 		it('should return date format with time and seconds', () => {
 			// given
-			const options = {
+				const options = {
 				dateFormat: 'YYYY-MM-DD',
 				useTime: true,
 				useSeconds: true,
@@ -715,7 +715,7 @@ describe('Date extraction', () => {
 				hours: '22',
 				minutes: '11',
 				seconds: '00',
-			});
+			}, { required: true });
 
 			// then
 			expect(errors.length).toBe(1);
@@ -727,11 +727,22 @@ describe('Date extraction', () => {
 				hours: '',
 				minutes: '11',
 				seconds: '00',
-			});
+			}, { required: true });
 
 			// then
 			expect(errors.length).toBe(1);
 			expect(errors[0].message).toBe('INVALID_HOUR_EMPTY');
+		});
+		it('should return no error when option required is false', () => {
+			// when
+			const errors = check(undefined, {
+				hours: '',
+				minutes: '',
+				seconds: '',
+			}, { required: false });
+
+			// then
+			expect(errors.length).toBe(0);
 		});
 	});
 });

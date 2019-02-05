@@ -101,8 +101,8 @@ function getFullDateFormat({ dateFormat, useTime, useSeconds }) {
 /**
  * Check if a date is a valid date.
  */
-function isDateValid(date, isEmptyValid = true) {
-	if (isEmptyValid && date === undefined) {
+function isDateValid(date, options) {
+	if (!options.required && date === undefined) {
 		return true;
 	}
 
@@ -193,18 +193,32 @@ function checkTime({ hours, minutes, seconds }) {
 }
 
 /**
+ * Check if the time is empty
+ */
+function isTimeEmpty(time) {
+	if (time.hours || time.minutes || time.seconds) {
+		return false;
+	}
+	return true;
+}
+
+/**
  * Check if the date and time are correct
  */
-function check(date, time) {
+function check(date, time, options) {
 	let errors = [];
+	const isPickerEmpty = !date && isTimeEmpty(time);
 
+	if (isPickerEmpty && !options.required) {
+		return errors;
+	}
 	try {
 		checkTime(time);
 	} catch (timeErrors) {
 		errors = timeErrors;
 	}
 
-	if (!isDateValid(date, false)) {
+	if (!isDateValid(date, options)) {
 		errors.push(new DatePickerException('INVALID_DATE_FORMAT', 'INVALID_DATE_FORMAT'));
 	}
 	return errors;
@@ -384,7 +398,7 @@ function checkSupportedDateFormat(dateFormat) {
  */
 function extractPartsFromDateTime(datetime, options) {
 	let time = initTime(options);
-	if (!isDateValid(datetime)) {
+	if (!isDateValid(datetime, options)) {
 		return {
 			date: undefined,
 			time,
