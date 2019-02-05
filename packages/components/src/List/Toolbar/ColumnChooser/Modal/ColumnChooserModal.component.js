@@ -28,7 +28,12 @@ const columnDisplay = (length, onChangeVisibility, onChangeOrder) => {
 			)}
 			<span>{label}</span>
 			<span>
-				<input style={{ width: '25px' }} placeholder={order} type="text" />
+				<input
+					style={{ width: '25px' }}
+					onChange={event => onChangeOrder(event, index)}
+					placeholder={order}
+					type="text"
+				/>
 				{`/${length}`}
 			</span>
 		</div>
@@ -50,9 +55,19 @@ class ColumnChooserModal extends React.Component {
 
 	state = {
 		columns: this.props.columns,
+		/*
+		columnsOrder: new Set(this.props.columns.map(column => column.order))
+		if (columnsOder.length < this.props.columns.length)
+		throw error / console.warn
+		*/
 	};
 
 	onClickModify = event => {
+		/*
+			if (columnsOder.length < this.props.columns.length) {
+			 submit block
+			}
+		*/
 		this.props.handlerColumnChooser(event, this.state.columns);
 	};
 
@@ -64,10 +79,16 @@ class ColumnChooserModal extends React.Component {
 		});
 	};
 
-	onChangeOrderColumn = (index, order) => {
+	/*
+		add order param
+		set.delete(order)
+		set.add(newOrder)
+	*/
+	onChangeOrderColumn = (event, index) => {
+		const value = event.target.value;
 		this.setState(prevState => {
 			const columns = prevState.columns;
-			columns[index].order = order;
+			columns[index].order = value;
 			return { columns };
 		});
 	};
@@ -94,7 +115,9 @@ class ColumnChooserModal extends React.Component {
 		const { columns } = this.props;
 		return (
 			<div id="defaultContent" style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
-				{columns.map(columnDisplay(columns.length, this.onChangeVisibilityColumn))}
+				{columns.map(
+					columnDisplay(columns.length, this.onChangeVisibilityColumn, this.onChangeOrderColumn),
+				)}
 			</div>
 		);
 	};
