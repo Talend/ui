@@ -23,6 +23,7 @@ export default function Text(props) {
 	}
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
+	const updating = isUpdating(props.updating, schema);
 
 	return (
 		<FieldTemplate
@@ -35,13 +36,13 @@ export default function Text(props) {
 			label={title}
 			labelAfter
 			required={schema.required}
-			updating={isUpdating(props.updating, schema)}
+			updating={updating}
 		>
 			<input
 				id={id}
 				autoFocus={autoFocus}
 				className="form-control"
-				disabled={disabled}
+				disabled={disabled || updating}
 				onBlur={event => onFinish(event, { schema })}
 				onChange={event =>
 					onChange(event, { schema, value: convertValue(type, event.target.value) })

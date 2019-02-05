@@ -28,7 +28,7 @@ function FieldTemplate(props) {
 	});
 
 	return (
-		<div className={groupsClassNames}>
+		<div className={groupsClassNames} aria-busy={props.updating}>
 			{props.label && !props.labelAfter && <Label id={props.id} label={props.label} />}
 			{props.children}
 			{props.label && props.labelAfter && <Label id={props.id} label={props.label} />}
@@ -55,6 +55,7 @@ if (process.env.NODE_ENV !== 'production') {
 		label: PropTypes.string,
 		labelAfter: PropTypes.bool,
 		required: PropTypes.bool,
+		updating: PropTypes.bool,
 	};
 }
 
