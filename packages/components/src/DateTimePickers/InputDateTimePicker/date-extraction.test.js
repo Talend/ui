@@ -695,7 +695,7 @@ describe('Date extraction', () => {
 
 		it('should return date format with time and seconds', () => {
 			// given
-				const options = {
+			const options = {
 				dateFormat: 'YYYY-MM-DD',
 				useTime: true,
 				useSeconds: true,
