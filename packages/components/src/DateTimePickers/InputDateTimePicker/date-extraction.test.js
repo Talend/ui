@@ -711,11 +711,15 @@ describe('Date extraction', () => {
 	describe('check', () => {
 		it('should return date format error when date is empty', () => {
 			// when
-			const errors = check(undefined, {
-				hours: '22',
-				minutes: '11',
-				seconds: '00',
-			}, { required: true });
+			const errors = check(
+				undefined,
+				{
+					hours: '22',
+					minutes: '11',
+					seconds: '00',
+				},
+				{ required: true },
+			);
 
 			// then
 			expect(errors.length).toBe(1);
@@ -723,11 +727,15 @@ describe('Date extraction', () => {
 		});
 		it('should return error on hours', () => {
 			// when
-			const errors = check(new Date(), {
-				hours: '',
-				minutes: '11',
-				seconds: '00',
-			}, { required: true });
+			const errors = check(
+				new Date(),
+				{
+					hours: '',
+					minutes: '11',
+					seconds: '00',
+				},
+				{ required: true },
+			);
 
 			// then
 			expect(errors.length).toBe(1);
@@ -735,11 +743,15 @@ describe('Date extraction', () => {
 		});
 		it('should return no error when option required is false', () => {
 			// when
-			const errors = check(undefined, {
-				hours: '',
-				minutes: '',
-				seconds: '',
-			}, { required: false });
+			const errors = check(
+				undefined,
+				{
+					hours: '',
+					minutes: '',
+					seconds: '',
+				},
+				{ required: false },
+			);
 
 			// then
 			expect(errors.length).toBe(0);
