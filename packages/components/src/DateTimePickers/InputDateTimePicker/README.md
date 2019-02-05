@@ -12,7 +12,14 @@ This component display an input with a datetime picker.
 | dateFormat       | Default `YYYY-MM-DD`. A combination of `YYYY` (year), `MM` (month), `DD` (day). Other format are consider invalid. |
 | useSeconds       | Display and convert the seconds |
 | useUTC           | Default `false` convert the date to UTC for the output and convert the input selectedDate (UTC) to retrieve the utc values. |
+
+All the remaining props are spread to the input
+
+## formMode props
+| name | description |
+|------|-------------|
 | formMode         | Date picker is a form. Only the click on a submit button will validate the change. |
 | required         | Accept empty value or not |
 
-All the remaining props are spread to the input
+The required props is here to allow empty values and so call the onChange callback when emptying + submitting the value
+

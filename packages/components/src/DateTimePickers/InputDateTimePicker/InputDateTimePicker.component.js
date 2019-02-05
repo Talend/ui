@@ -267,12 +267,12 @@ class InputDateTimePicker extends React.Component {
 			.filter(({ code }) => !errors.find(error => error.code === code))
 			.concat(errors);
 
-		if (errors.length) {
-			this.setState({ errors, errorMessage: errors[0].message });
-		} else {
-			this.onChange(event, origin);
-			this.closePicker();
-		}
+		this.setState({ errors, errorMessage: errors[0] ? errors[0].message : '' }, () => {
+			if (!errors.length) {
+				this.onChange(event, origin);
+				this.closePicker();
+			}
+		});
 	}
 
 	onInputFocus(event, focusedId) {
