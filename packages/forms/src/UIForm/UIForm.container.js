@@ -146,6 +146,9 @@ export default class UIForm extends React.Component {
 			if (data.errors) {
 				this.setErrors(event, data.errors);
 			}
+
+			this.setState(setLiveStateProperties(data));
+
 			return data;
 		});
 	}

@@ -136,6 +136,17 @@ function createCommonProps(tab) {
 				});
 			}
 
+
+			if (key.includes('COINCOIN')) {
+				console.log('[NC] COIN');
+				return new Promise(resolve => {
+					resolve({
+						collection: getFilteredCollection(payload.trigger.parameters),
+						name: 'casimir',
+					});
+				});
+			}
+
 			if (key.includes('ResourcePicker')) {
 				return new Promise(resolve => {
 					setTimeout(

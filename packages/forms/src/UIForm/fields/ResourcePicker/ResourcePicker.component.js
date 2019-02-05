@@ -67,8 +67,18 @@ class ResourcePicker extends Component {
 			selected.push(id);
 		}
 
+		const value = multi ? selected : selected[0];
 		this.setState({ filters: { ...this.state.filters, selected } });
-		this.onChange(event, multi ? selected : selected[0]);
+		this.onChange(event, value);
+		console.log('[NC] state ?: ', this.state);
+		this.props.onTrigger(event, {
+			trigger: {
+				parameters: this.state.filters,
+			},
+			properties: {
+				value,
+			},
+		});
 	}
 
 	isItemSelected({ id }) {
