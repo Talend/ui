@@ -30,8 +30,10 @@ $tc-list-toolbar-background-color: $concrete !default;
 	:global(.navbar-nav) {
 		li a {
 			color: $black;
-			&:global(.dropdown-toggle) {
-				text-transform: capitalize;
+			text-transform: lowercase;
+			display: inline-block;
+			&::first-letter {
+				text-transform: uppercase;
 			}
 		}
 	}

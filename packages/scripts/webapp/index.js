@@ -22,6 +22,7 @@ module.exports = function runWebappScript(command, options) {
 
 	printSeparator('RUN');
 
-	const result = require(`./scripts/${command}`)(env, presetApi, options);
+	const commandFileName = command.replace(':', '-');
+	const result = require(`./scripts/${commandFileName}`)(env, presetApi, options);
 	process.exit(result.status);
 };
