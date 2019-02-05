@@ -176,7 +176,7 @@ export function convertSample(sample) {
 	return sample;
 }
 
-export function getColumnDefs(sample) {
+export function getColumnDefs(sample, columnsConf) {
 	if (!sample) {
 		return [];
 	}
@@ -187,7 +187,7 @@ export function getColumnDefs(sample) {
 		avro: sanitizeAvro(avroField),
 		field: `${NAMESPACE_DATA}${avroField.name}`,
 		headerName: avroField.doc || avroField.name,
-		type: getType(avroField.type),
+		type: get(columnsConf, 'hideSubType', false) ? '' : getType(avroField.type),
 		...getFieldQuality(avroField.type),
 	}));
 }

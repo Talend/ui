@@ -192,7 +192,7 @@ export default class DataGrid extends React.Component {
 		}
 
 		const pinnedColumnDefs = this.props.getPinnedColumnDefsFn(this.props.data);
-		const columnDefs = this.props.getColumnDefsFn(this.props.data);
+		const columnDefs = this.props.getColumnDefsFn(this.props.data, this.props.columnsConf);
 		let adaptedColumnDefs = [];
 
 		if (pinnedColumnDefs) {
