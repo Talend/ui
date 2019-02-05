@@ -1239,7 +1239,7 @@
     objectpath "^1.2.1"
     tv4 "^1.3.0"
 
-"@talend/react-cmf-router@^3.2.1":
+"@talend/react-cmf-router@^3.2.0":
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/@talend/react-cmf-router/-/react-cmf-router-3.2.1.tgz#3d67811a08f66f9989f0fb12bd3d20d09edd00e8"
   integrity sha512-P+kEbB0qHqNdyBUMOghJSEd2ZiDk+nFIoBOfrhQMUh9ygEBe09tpq8apj7lBCYefSwCsBLhGUMApw6L1kyU0/g==

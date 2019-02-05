@@ -45,7 +45,6 @@
     "@talend/icons": "^2.4.0",
     "@talend/react-components": "^2.4.0",
     "@talend/react-storybook-cmf": "^2.4.0",
-    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.0.0",
     "babel-loader": "^8.0.0",

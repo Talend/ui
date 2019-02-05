@@ -16,7 +16,7 @@ module.exports = {
 	'whatwg-fetch': '^2.0.3',
 
 	// UI deps outside of the release life cycle
-	'@talend/scripts': '^0.8.0',
+	'@talend/scripts': '^0.9.0',
 	'@talend/react-cmf-router': '^3.2.1',
 
 	// deps: non component libs
