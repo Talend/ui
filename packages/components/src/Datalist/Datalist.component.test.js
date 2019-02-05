@@ -165,7 +165,7 @@ describe('Datalist component', () => {
 		expect(onChange).toBeCalledWith(expect.anything(), payload);
 	});
 
-	it('should reset suggestions and change value on blur when not in restricted mode and value not in suggestions', () => {
+	it('should change the value on blur when not in restricted mode and value not in suggestions', () => {
 		// given
 		const onChange = jest.fn();
 		const wrapper = mount(
@@ -191,7 +191,7 @@ describe('Datalist component', () => {
 		expect(onChange).toBeCalledWith(expect.anything(), payload);
 	});
 
-	it('should reset suggestions and not change value on blur in restricted mode and value does not exist', () => {
+	it('should not change the value on blur in restricted mode and value does not exist', () => {
 		// given
 		const onChange = jest.fn();
 		const wrapper = mount(

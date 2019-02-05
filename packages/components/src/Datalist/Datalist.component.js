@@ -22,6 +22,7 @@ class Datalist extends Component {
 		this.onFocus = this.onFocus.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
 		this.onSelect = this.onSelect.bind(this);
+		this.resetSuggestions = this.resetSuggestions.bind(this);
 
 		this.theme = {
 			container: classNames(theme.container, 'tc-datalist-container'),
@@ -353,11 +354,7 @@ class Datalist extends Component {
 	render() {
 		const label = this.getSelectedLabel();
 		return (
-			<FocusManager
-				onFocusOut={() => {
-					this.resetSuggestions();
-				}}
-			>
+			<FocusManager onFocusOut={this.resetSuggestions}>
 				<Typeahead
 					{...omit(this.props, PROPS_TO_OMIT)}
 					className={classNames('tc-datalist', this.props.className)}

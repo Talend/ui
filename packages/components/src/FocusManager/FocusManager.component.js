@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * This component handle some specifics case like when we click in the datalist
+ * This component handles some specific cases like when we click in the datalist
  * We loose the focus on the datalist field but we don't want to close the suggestions
  * until we click outside of the component
+ * @example Here, the resetSuggestions function contains the code we can use in a classic "blur"
+<FocusManager onFocusOut={this.resetSuggestions}>
+	<Typeahead />
+</FocusManager>
  */
 export default class FocusManager extends Component {
 	static propTypes = {
@@ -12,17 +16,17 @@ export default class FocusManager extends Component {
 		onFocusOut: PropTypes.func.isRequired,
 	};
 
-	onJSOFocus() {
+	onFocus = () => {
 		clearTimeout(this.timeout);
-	}
+	};
 
-	onJSOBlur() {
+	onBlur = () => {
 		this.timeout = setTimeout(() => this.props.onFocusOut());
-	}
+	};
 
 	render() {
 		return (
-			<div tabIndex={0} onBlur={() => this.onJSOBlur()} onFocus={() => this.onJSOFocus()}>
+			<div tabIndex={0} onBlur={this.onBlur} onFocus={this.onFocus}>
 				{this.props.children}
 			</div>
 		);
