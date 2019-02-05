@@ -133,7 +133,7 @@ class List extends React.Component {
 	}
 
 	handlerColumnChooser = (event, columns) => {
-		this.setState({ columns }, this.props.handlerColumnChooser(event, columns));
+		this.setState({ columns }, () => this.props.handlerColumnChooser(event, columns));
 	};
 
 	render() {

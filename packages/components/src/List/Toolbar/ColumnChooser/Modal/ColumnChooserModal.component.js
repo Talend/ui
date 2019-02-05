@@ -11,6 +11,7 @@ const columnDisplay = (length, onChangeVisibility, onChangeOrder) => {
 	return ({ label, hidden, locked, order }, index) => (
 		<div
 			id="columnDisplay"
+			key={`${label}-${index}`}
 			style={{ position: 'relative', display: 'flex', justifyContent: 'space-between' }}
 		>
 			{locked ? (
@@ -42,7 +43,6 @@ const columnDisplay = (length, onChangeVisibility, onChangeOrder) => {
 
 class ColumnChooserModal extends React.Component {
 	static defaultProps = {
-		handlerColumnChooser: () => {},
 		t: getDefaultT(),
 	};
 
@@ -50,47 +50,10 @@ class ColumnChooserModal extends React.Component {
 		header: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 		content: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 		footer: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+		onChangeVisibilityColumn: PropTypes.func.isRequired,
+		onChangeOrderColumn: PropTypes.func.isRequired,
+		onClickModify: PropTypes.func.isRequired,
 		t: PropTypes.func,
-	};
-
-	state = {
-		columns: this.props.columns,
-		/*
-		columnsOrder: new Set(this.props.columns.map(column => column.order))
-		if (columnsOder.length < this.props.columns.length)
-		throw error / console.warn
-		*/
-	};
-
-	onClickModify = event => {
-		/*
-			if (columnsOder.length < this.props.columns.length) {
-			 submit block
-			}
-		*/
-		this.props.handlerColumnChooser(event, this.state.columns);
-	};
-
-	onChangeVisibilityColumn = (index, hidden) => {
-		this.setState(prevState => {
-			const columns = prevState.columns;
-			columns[index].hidden = hidden;
-			return { columns };
-		});
-	};
-
-	/*
-		add order param
-		set.delete(order)
-		set.add(newOrder)
-	*/
-	onChangeOrderColumn = (event, index) => {
-		const value = event.target.value;
-		this.setState(prevState => {
-			const columns = prevState.columns;
-			columns[index].order = value;
-			return { columns };
-		});
 	};
 
 	getLayoutComponent = () => {
@@ -116,7 +79,11 @@ class ColumnChooserModal extends React.Component {
 		return (
 			<div id="defaultContent" style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
 				{columns.map(
-					columnDisplay(columns.length, this.onChangeVisibilityColumn, this.onChangeOrderColumn),
+					columnDisplay(
+						columns.length,
+						this.props.onChangeVisibilityColumn,
+						this.props.onChangeOrderColumn,
+					),
 				)}
 			</div>
 		);
@@ -126,17 +93,24 @@ class ColumnChooserModal extends React.Component {
 		return (
 			<React.Fragment>
 				<ActionButton
-					onClick={event => this.onClickModify(event)}
+					onClick={event => this.props.onClickModify(event)}
 					label={this.props.t('COLUMN_CHOOSER_FOOTER_BUTTON', { defaultValue: 'Modify' })}
 				/>
 			</React.Fragment>
 		);
 	};
 
+	componentWillUnmount() {
+		this.props.onExit();
+	}
+
 	render() {
 		const layoutComponent = this.getLayoutComponent();
 		return (
-			<div className={classNames(theme['tc-column-chooser-modal'], 'tc-column-chooser-modal')}>
+			<div
+				id={`${this.props.id}-modal`}
+				className={classNames(theme['tc-column-chooser-modal'], 'tc-column-chooser-modal')}
+			>
 				<RichLayout
 					Header={layoutComponent.header}
 					Content={layoutComponent.content}

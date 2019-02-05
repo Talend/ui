@@ -1,4 +1,3 @@
-import ColumnChooserButton from './Button/ColumnChooserButton.component';
-import ColumnChooserModal from './Modal/ColumnChooserModal.component';
+import ColumnChooser from './ColumnChooser.component';
 
-export { ColumnChooserButton, ColumnChooserModal };
+export default ColumnChooser;

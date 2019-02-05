@@ -11,7 +11,7 @@ import Pagination from './Pagination';
 import FilterBar from '../../FilterBar';
 import Label from './Label';
 import ActionBar from '../../ActionBar';
-import { ColumnChooserButton } from './ColumnChooser';
+import ColumnChooser from './ColumnChooser';
 
 import theme from './Toolbar.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
@@ -93,7 +93,33 @@ function Toolbar({
 			{injected('before-navbar')}
 			{hasToolbarItem && (
 				<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
-					<ColumnChooserButton {...columnChooser} />
+					<ColumnChooser id={`${id}-column-chooser`} {...columnChooser}>
+						{({
+							columnChooserId,
+							columns,
+							handlerColumnChooser,
+							onChangeOrderColumn,
+							onChangeVisibilityColumn,
+							onClickModify,
+							reset,
+						}) => (
+							<ColumnChooser.Button
+								id={columnChooserId}
+								label="column-chooser-button"
+								overlay={
+									<ColumnChooser.Content
+										columns={columns}
+										handlerColumnChooser={handlerColumnChooser}
+										id={columnChooserId}
+										onChangeOrderColumn={onChangeOrderColumn}
+										onChangeVisibilityColumn={onChangeVisibilityColumn}
+										onClickModify={onClickModify}
+										onExit={reset}
+									/>
+								}
+							/>
+						)}
+					</ColumnChooser>
 					{injected('before-selectall')}
 					{selectAllCheckbox && <SelectAll {...selectAllCheckbox} t={t} />}
 					{injected('after-selectall')}

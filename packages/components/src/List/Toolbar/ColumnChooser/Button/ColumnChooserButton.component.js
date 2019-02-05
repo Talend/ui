@@ -1,21 +1,17 @@
 import React from 'react';
-import ColumnChooserModal from '../Modal/ColumnChooserModal.component';
+// import ColumnChooserModal from '../Modal/ColumnChooserModal.component';
 import ActionButton from '../../../../Actions/ActionButton';
 
-export default function ColumnChooser({ columns, handlerColumnChooser, ...rest }) {
+export default function ColumnChooserButton({ id, label, overlay, onExitOverlay }) {
 	return (
 		<ActionButton
-			id="button-column-chooser"
-			label=""
+			id={`${id}-button`}
+			label={label}
 			icon="talend-folder"
 			data-feature="action"
-			overlayComponent={
-				<ColumnChooserModal
-					columns={columns}
-					handlerColumnChooser={handlerColumnChooser}
-					{...rest}
-				/>
-			}
+			onExitOverlay={onExitOverlay}
+			overlayComponent={overlay}
+			overlayPlacement="bottom"
 		/>
 	);
 }
