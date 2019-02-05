@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cloneDeep from 'lodash/cloneDeep';
-import Button from './Button';
-import Modal from './Modal';
 
-export default class ColumnChooser extends React.Component {
+export default class ColumnChooserManager extends React.Component {
 	static propTypes = {
 		id: PropTypes.string,
 		columns: PropTypes.array.isRequired,
@@ -17,7 +15,6 @@ export default class ColumnChooser extends React.Component {
 	};
 
 	onClickModify = event => {
-		console.log('onClickModify');
 		this.setState(
 			prevState => {
 				return {
@@ -26,7 +23,6 @@ export default class ColumnChooser extends React.Component {
 			},
 			() => this.props.handlerColumnChooser(event, this.state.columns),
 		);
-		console.log('change', this.state);
 	};
 
 	onChangeVisibilityColumn = (index, hidden) => {
@@ -58,6 +54,8 @@ export default class ColumnChooser extends React.Component {
 		if (typeof this.props.children !== 'function') {
 			throw new Error('Bad juju');
 		}
+		console.log('props', this.props);
+
 		return this.props.children({
 			columnChooserId: this.props.id,
 			columns: this.getColumns(),
@@ -68,6 +66,3 @@ export default class ColumnChooser extends React.Component {
 		});
 	}
 }
-
-ColumnChooser.Button = props => <Button {...props} />;
-ColumnChooser.Content = props => <Modal {...props} />;

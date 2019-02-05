@@ -19,11 +19,10 @@ const columnDisplay = (length, onChangeVisibility, onChangeOrder) => {
 			) : (
 				<span>
 					<input
-						id="label"
-						name="scales"
 						onChange={() => onChangeVisibility(index, !hidden)}
 						type="checkbox"
 						checked={hidden}
+						value={hidden}
 					/>
 				</span>
 			)}
@@ -41,7 +40,7 @@ const columnDisplay = (length, onChangeVisibility, onChangeOrder) => {
 	);
 };
 
-class ColumnChooserModal extends React.Component {
+export default class ColumnChooserContent extends React.Component {
 	static defaultProps = {
 		t: getDefaultT(),
 	};
@@ -55,6 +54,10 @@ class ColumnChooserModal extends React.Component {
 		onClickModify: PropTypes.func.isRequired,
 		t: PropTypes.func,
 	};
+
+	componentWillUnmount() {
+		this.props.onExitOverlay();
+	}
 
 	getLayoutComponent = () => {
 		return {
@@ -100,10 +103,6 @@ class ColumnChooserModal extends React.Component {
 		);
 	};
 
-	componentWillUnmount() {
-		this.props.onExit();
-	}
-
 	render() {
 		const layoutComponent = this.getLayoutComponent();
 		return (
@@ -120,5 +119,3 @@ class ColumnChooserModal extends React.Component {
 		);
 	}
 }
-
-export default ColumnChooserModal;

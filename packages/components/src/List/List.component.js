@@ -116,20 +116,11 @@ class List extends React.Component {
 	};
 
 	state = {
-		columns:
-			this.props.columns &&
-			this.props.columns.map(column => {
-				if (column.hidden === undefined) {
-					return {
-						...column,
-						hidden: false,
-					};
-				}
-			}),
+		columns: this.props.list.columns,
 	};
 
 	getColumns() {
-		return this.props.list.columns || this.state.columns;
+		return this.state.columns;
 	}
 
 	handlerColumnChooser = (event, columns) => {
@@ -164,7 +155,6 @@ class List extends React.Component {
 			columns,
 			handlerColumnChooser: this.handlerColumnChooser,
 		};
-
 		return (
 			<div className={classnames}>
 				{injected('before-component')}
