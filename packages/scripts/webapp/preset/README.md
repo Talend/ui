@@ -155,7 +155,7 @@ You can use your own babelrc if you want but please extends our babelrc in that 
 
 ```json
 {
-  "extends": "node_modules/@talend/scripts/preset/config/babelrc.json",
+  "extends": "node_modules/@talend/scripts/webapp/preset/config/babelrc.json",
   ...
 }
 ```

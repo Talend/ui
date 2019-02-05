@@ -52,7 +52,7 @@ Unlike react-scripts, we enable customisation. To start to customize it, just ad
 | Option | Description |
 |---|---|
 | preset | Default: `talend` We support presets. Please refer to the next section for more information. |
-| webpack.config.developement | User custom webpack configuration in dev mode. It will be merged with preset default webpack configuration. With that, user can add/override the configuration. |
+| webpack.config.developement | User custom webpack configuration in dev mode. It will be merged with the webpack dev config preset. With that, user can add/override the configuration. It requires the default webpack config format |
 | webpack.config.production | Same as previous one, but for production mode. |
 | other | This json object is available for the preset you use. This is the entry point to set the presets specific variables. It allows the preset to set some customisation points, instead of redefining a whole preset for some specificities. Refers to your preset documentation. |
 
