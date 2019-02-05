@@ -29,7 +29,7 @@ describe('FocusManager', () => {
 			expect(handler).toHaveBeenCalled();
 		});
 
-		it('should call the callback when we click outside', () => {
+		it('should not call the callback when we click inside', () => {
 			// given
 			const handler = jest.fn();
 			const wrapper = mount(
