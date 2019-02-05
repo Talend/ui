@@ -4,6 +4,7 @@ import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 import { convertValue } from '../../utils/properties';
+import { isUpdating } from '../../utils/updating';
 
 export default function Text(props) {
 	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
@@ -34,6 +35,7 @@ export default function Text(props) {
 			label={title}
 			labelAfter
 			required={schema.required}
+			updating={isUpdating(props.updating, schema)}
 		>
 			<input
 				id={id}
@@ -61,6 +63,7 @@ export default function Text(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	Text.propTypes = {
+		updating: PropTypes.array,
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,

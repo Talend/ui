@@ -37,6 +37,7 @@ export default function Widget(props) {
 	const id = sfPath.name(key, '_', props.id);
 	const error = getError(props.errors, props.schema);
 	const errorMessage = validationMessage || error;
+
 	return (
 		<WidgetImpl
 			{...props}
@@ -46,6 +47,7 @@ export default function Widget(props) {
 			isValid={!error}
 			value={getValue(props.properties, props.schema)}
 			options={options}
+			updating={props.updating}
 		/>
 	);
 }
@@ -54,6 +56,7 @@ if (process.env.NODE_ENV !== 'production') {
 	Widget.propTypes = {
 		errors: PropTypes.object,
 		id: PropTypes.string,
+		updating: PropTypes.array,
 		schema: PropTypes.shape({
 			conditions: PropTypes.arrayOf(
 				PropTypes.shape({

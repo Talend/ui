@@ -53,6 +53,14 @@ export default [
 		),
 	},
 	{
+		name: 'updating',
+		story: () => (
+			<div>
+				<Form data={simple} updating />
+			</div>
+		),
+	},
+	{
 		name: 'skeleton',
 		story: () => <Form loading />,
 	},
