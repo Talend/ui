@@ -22,6 +22,7 @@ exports[`Date widget should render date picker 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
     placeholder="Type your date here"
+    required={true}
     selectedDateTime="15/02/2018 23:55:32"
     useSeconds={true}
     useTime={true}
