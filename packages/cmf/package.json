@@ -108,10 +108,12 @@
       "__tests__"
     ],
     "testEnvironment": "jest-environment-jsdom",
-    "setupFilesAfterEnv": ["<rootDir>/../../test-setup.js"]
+    "setupFilesAfterEnv": [
+      "<rootDir>/../../test-setup.js"
+    ]
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "2.4.0"
+  "version": "2.5.0-0"
 }
