@@ -4,30 +4,31 @@
     "type": "object",
     "title": "ResourcePicker",
     "properties": {
-      "titleForNextPicker": {
+      "name": {
         "type": "string"
       },
-      "singleResourcePickerWithTrigger": {
+      "datasetId": {
         "type": "string"
       }
     },
-    "required": ["titleForNextPicker", "singleResourcePickerWithTrigger"]
+    "required": ["name", "datasetId"]
   },
   "uiSchema": [
 
     {
-      "key": "titleForNextPicker",
+      "key": "name",
       "title": "Title change on picker change"
     },
     {
-      "key": "singleResourcePickerWithTrigger",
+      "key": "datasetId",
       "title": "ResourcePicker that change the input above",
       "placeholder": "Select an existing resource",
       "widget": "resourcePicker",
       "triggers": [
-        { "action": "resourcePickerSelected" },
-        { "action": "resourcePickerFiltered" }
-      ]
+        { "action": "selected" },
+        { "action": "filtered" }
+      ],
+      "multi": false
     }
   ],
   "properties": {}

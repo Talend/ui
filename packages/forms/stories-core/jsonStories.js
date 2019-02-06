@@ -108,7 +108,6 @@ function createCommonProps(tab) {
 		formName: `my-form-${tab}`,
 		onChange: action('Change'),
 		onTrigger(event, payload) {
-			debugger;
 			action('Trigger')(event, payload);
 			const schema = payload.schema;
 			const key = schema.key && schema.key[schema.key.length - 1];
@@ -134,8 +133,9 @@ function createCommonProps(tab) {
 					);
 				});
 			}
-
-			if (payload.trigger.action === 'resourcePickerFiltered') {
+			console.log('[NC] key: ', key);
+			console.log('[NC] payload.trigger: ', payload.trigger);
+			if (key === 'datasetId' && payload.trigger.action === 'filtered') {
 				return new Promise(resolve => {
 					setTimeout(
 						() =>
@@ -146,13 +146,14 @@ function createCommonProps(tab) {
 					);
 				});
 			}
-			if (payload.trigger.action === 'resourcePickerSelected') {
+			if (key === 'datasetId' && payload.trigger.action === 'selected') {
 				const errors = { ...payload.errors };
-				delete errors['titleForNextPicker'];
+				console.log('[NC] errors: ', errors);
+				delete errors.name;
 				return Promise.resolve({
 					properties: {
 						...payload.properties,
-						titleForNextPicker: 'Coucou Nico',
+						name: 'Coucou Nico',
 					},
 					errors,
 				});

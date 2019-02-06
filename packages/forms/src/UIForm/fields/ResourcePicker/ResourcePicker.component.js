@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ResourcePickerComponent from '@talend/react-components/lib/ResourcePicker';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import { SELECTED, FILTERED } from './constants';
 
 class ResourcePicker extends Component {
 	constructor(props) {
@@ -40,26 +41,27 @@ class ResourcePicker extends Component {
 
 	onFilter(event) {
 		this.setState({ isLoading: true }, () => {
-			this.onTrigger(event, 'resourcePickerFiltered', { filters: this.state.filters })
+			this.onTrigger(event, FILTERED, { filters: this.state.filters })
 				.then(data => this.setState(data))
 				.finally(() => this.setState({ isLoading: false }));
 		});
 	}
 
 	onTrigger(event, action, payload) {
-		const trigger =
-			this.props.schema.triggers && this.props.schema.triggers.find(trig => trig.action === action);
+		const { schema, properties, errors } = this.props;
+		const trigger = schema.triggers && schema.triggers.find(trig => trig.action === action);
+
 		if (trigger) {
 			return this.props.onTrigger(event, {
 				trigger,
-				schema: this.props.schema,
-				properties: this.props.properties,
-				errors: this.props.errors,
+				schema,
+				properties,
+				errors,
 				...payload,
 			});
-		} else {
-			return Promise.resolve();
 		}
+
+		return Promise.resolve();
 	}
 
 	onRowClick(event, { id }) {
@@ -81,7 +83,7 @@ class ResourcePicker extends Component {
 		this.setState({ filters: { ...this.state.filters, selected } });
 		this.onChange(event, value);
 
-		this.onTrigger(event, 'resourcePickerSelected', { value });
+		this.onTrigger(event, SELECTED, { value });
 	}
 
 	isItemSelected({ id }) {
@@ -193,6 +195,8 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		onTrigger: PropTypes.func,
+		properties: PropTypes.object,
+		errors: PropTypes.object,
 		schema: PropTypes.shape({
 			schema: PropTypes.shape({
 				type: PropTypes.string,
