@@ -6,6 +6,7 @@ import RichLayout from '../../../../RichTooltip/RichLayout';
 import getDefaultT from '../../../../translate';
 import Icon from '../../../../Icon';
 import theme from './ColumnChooserModal.scss';
+import { useColumnChooserManager } from '../Manager/columnChooserManager';
 
 const columnDisplay = (length, onChangeVisibility, onChangeOrder) => {
 	return ({ label, hidden, locked, order }, index) => (
@@ -60,10 +61,15 @@ export default class ColumnChooserContent extends React.Component {
 	}
 
 	getLayoutComponent = () => {
+		const { submitColumns, changeColumnOrder, changeColumnVisibility } = useColumnChooserManager(
+			this.props.columns,
+			this.props.handler,
+		);
 		return {
 			header: this.props.header || this.getDefaultHeader(),
-			content: this.props.content || this.getDefaultContent(),
-			footer: this.props.footer || this.getDefaultFooter(),
+			content:
+				this.props.content || this.getDefaultContent(changeColumnOrder, changeColumnVisibility),
+			footer: this.props.footer || this.getDefaultFooter(submitColumns),
 		};
 	};
 
@@ -77,15 +83,17 @@ export default class ColumnChooserContent extends React.Component {
 		);
 	};
 
-	getDefaultContent = () => {
+	getDefaultContent = (changeColumnOrder, changeColumnVisibility) => {
 		const { columns } = this.props;
 		return (
 			<div id="defaultContent" style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
 				{columns.map(
 					columnDisplay(
 						columns.length,
-						this.props.onChangeVisibilityColumn,
-						this.props.onChangeOrderColumn,
+						changeColumnVisibility,
+						changeColumnOrder,
+						// this.props.onChangeVisibilityColumn,
+						// this.props.onChangeOrderColumn,
 					),
 				)}
 			</div>

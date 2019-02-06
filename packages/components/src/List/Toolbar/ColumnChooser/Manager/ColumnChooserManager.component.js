@@ -20,20 +20,19 @@ export default class ColumnChooserManager extends React.Component {
 	};
 
 	state = {
-		// columns: this.props.columns,
-		// editedColumns: cloneDeep(this.props.columns),
 		editedColumns: this.props.columns && this.props.columns.map(createColumnChooserData),
 	};
 
 	onClickModify = event => {
-		this.setState(
-			prevState => {
-				return {
-					editedColumns: prevState.editedColumns,
-				};
-			},
-			() => this.props.handlerColumnChooser(event, this.state.editedColumns),
-		);
+		this.props.handlerColumnChooser(event, this.state.editedColumns);
+		// this.setState(
+		// 	prevState => {
+		// 		return {
+		// 			editedColumns: prevState.editedColumns,
+		// 		};
+		// 	},
+		// 	() => this.props.handlerColumnChooser(event, this.state.editedColumns),
+		// );
 	};
 
 	onChangeVisibilityColumn = (index, hidden) => {

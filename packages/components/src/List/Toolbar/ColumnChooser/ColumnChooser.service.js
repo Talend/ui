@@ -1,13 +1,24 @@
-export function mergedColumns(columns, columnsToMerged) {
-	return columns.map(column => {
-		const columnToMerged = columnsToMerged.find(col => col.label === column.label);
+export function findMatchingColumnLabel(label) {
+	return function find(column) {
+		return column.label === label;
+	};
+}
+
+export function transformColumns(columnsToMerged) {
+	return function transform(column) {
+		const columnToMerged = columnsToMerged.find(findMatchingColumnLabel(column.label));
 		if (columnToMerged) {
 			return {
 				...column,
 				...columnToMerged,
 			};
 		}
-	});
+		return column;
+	};
+}
+
+export function mergedColumns(columns, columnsToMerged) {
+	return columns.map(transformColumns(columnsToMerged));
 }
 
 export function mergedColumnChooser(originalColumns, columnChooserColumns) {
