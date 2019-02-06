@@ -97,7 +97,7 @@
     "react-storybook-addon-props-combinations": "^1.1.0",
     "react-stub-context": "^0.7.0",
     "regenerator-runtime": "^0.13.1",
-    "rimraf": "^2.6.1",
+    "rimraf": "^2.6.2",
     "sass-lint": "1.12.1",
     "babel-loader": "^8.0.0",
     "copy-webpack-plugin": "^4.6.0",
