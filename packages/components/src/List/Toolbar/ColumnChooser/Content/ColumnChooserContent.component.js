@@ -50,9 +50,9 @@ export default class ColumnChooserContent extends React.Component {
 		header: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 		content: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 		footer: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-		onChangeVisibilityColumn: PropTypes.func.isRequired,
-		onChangeOrderColumn: PropTypes.func.isRequired,
-		onClickModify: PropTypes.func.isRequired,
+		// onChangeVisibilityColumn: PropTypes.func.isRequired,
+		// onChangeOrderColumn: PropTypes.func.isRequired,
+		// onClickModify: PropTypes.func.isRequired,
 		t: PropTypes.func,
 	};
 
@@ -100,11 +100,11 @@ export default class ColumnChooserContent extends React.Component {
 		);
 	};
 
-	getDefaultFooter = () => {
+	getDefaultFooter = submitColumns => {
 		return (
 			<React.Fragment>
 				<ActionButton
-					onClick={event => this.props.onClickModify(event)}
+					onClick={event => submitColumns(event)}
 					label={this.props.t('COLUMN_CHOOSER_FOOTER_BUTTON', { defaultValue: 'Modify' })}
 				/>
 			</React.Fragment>
