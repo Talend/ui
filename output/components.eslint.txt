@@ -5,12 +5,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
   105:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
 
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/Button/ColumnChooserButton.component.js
-  5:47  error  'id' is missing in props validation             react/prop-types
-  5:51  error  'label' is missing in props validation          react/prop-types
-  5:58  error  'overlay' is missing in props validation        react/prop-types
-  5:67  error  'onExitOverlay' is missing in props validation  react/prop-types
-
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/ColumnChooserButton.component.js
   6:47  error  'id' is missing in props validation  react/prop-types
 
@@ -54,6 +48,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 28 problems (25 errors, 3 warnings)
+✖ 24 problems (21 errors, 3 warnings)
   5 errors, 0 warnings potentially fixable with the `--fix` option.
 
