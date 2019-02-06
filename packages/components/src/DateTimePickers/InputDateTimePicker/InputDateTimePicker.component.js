@@ -45,6 +45,7 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'useSeconds',
 	'useTime',
 	'useUTC',
+	'required',
 ];
 
 function haveErrorsChanged(oldErrors, newErrors) {
@@ -72,6 +73,7 @@ class InputDateTimePicker extends React.Component {
 		useTime: PropTypes.bool,
 		useUTC: PropTypes.bool,
 		formMode: PropTypes.bool,
+		required: PropTypes.bool,
 	};
 
 	static defaultProps = {
@@ -80,6 +82,8 @@ class InputDateTimePicker extends React.Component {
 		useTime: false,
 		useUTC: false,
 		formMode: false,
+		// default behaviour is to forbid empty values
+		required: true,
 	};
 
 	constructor(props) {
@@ -103,6 +107,7 @@ class InputDateTimePicker extends React.Component {
 		this.state = {
 			...this.initialState,
 			showPicker: false,
+			previousErrors: [],
 		};
 
 		this.onInputFocus = this.onInputFocus.bind(this);
@@ -257,17 +262,17 @@ class InputDateTimePicker extends React.Component {
 		// validation
 		// to avoid having error message change on invalid elements,
 		// we don't replace the error on those elements
-		let errors = check(this.state.date, this.state.time);
+		let errors = check(this.state.date, this.state.time, this.getDateOptions());
 		errors = this.state.errors
 			.filter(({ code }) => !errors.find(error => error.code === code))
 			.concat(errors);
 
-		if (errors.length) {
-			this.setState({ errors });
-		} else {
-			this.onChange(event, origin);
-			this.closePicker();
-		}
+		this.setState({ errors, errorMessage: errors[0] ? errors[0].message : '' }, () => {
+			if (!errors.length) {
+				this.onChange(event, origin);
+				this.closePicker();
+			}
+		});
 	}
 
 	onInputFocus(event, focusedId) {
@@ -280,6 +285,7 @@ class InputDateTimePicker extends React.Component {
 			useTime: this.props.useTime,
 			useSeconds: this.props.useSeconds,
 			useUTC: this.props.useUTC,
+			required: this.props.required,
 		};
 	}
 

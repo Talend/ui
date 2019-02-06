@@ -122,52 +122,47 @@ $tc-notification-icon-size: $svg-md-size !default;
 	}
 }
 
-:global {
-	@keyframes timer-bar {
-		from {
-			transform: translateX(0);
-		}
-
-		to {
-			transform: translateX(100%);
-		}
+@keyframes timer-bar {
+	from {
+		transform: translateX(0);
 	}
 
-	@keyframes tc-notification-slide-in {
-		from {
-			transform: translateY(-100%);
-			opacity: 0;
-			z-index: 1;
-		}
+	to {
+		transform: translateX(100%);
+	}
+}
 
-		to {
-			transform: translateY(0);
-			opacity: 1;
-			z-index: 1;
-		}
+@keyframes tc-notification-slide-in {
+	from {
+		transform: translateY(-100%);
+		opacity: 0;
+		z-index: 1;
 	}
 
-	@keyframes tc-notification-slide-out {
-		from {
-			transform: translateY(0);
-			opacity: 1;
-			z-index: 1;
-		}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+		z-index: 1;
+	}
+}
 
-		to {
-			transform: translateY(-100%);
-			opacity: 0;
-			z-index: 1;
-		}
+@keyframes tc-notification-slide-out {
+	from {
+		transform: translateY(0);
+		opacity: 1;
+		z-index: 1;
 	}
 
-	.tc-notification {
-		&-enter {
-			animation: tc-notification-slide-in $tc-notification-animation-duration linear;
-		}
-
-		&-exit {
-			animation: tc-notification-slide-out $tc-notification-animation-duration linear;
-		}
+	to {
+		transform: translateY(-100%);
+		opacity: 0;
+		z-index: 1;
 	}
+}
+:global(.tc-notification-enter) {
+	animation: tc-notification-slide-in $tc-notification-animation-duration linear;
+}
+
+:global(.tc-notification-exit) {
+	animation: tc-notification-slide-out $tc-notification-animation-duration linear;
 }
