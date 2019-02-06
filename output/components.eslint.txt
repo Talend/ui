@@ -5,6 +5,31 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
   105:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
 
+/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/ColumnChooserButton.component.js
+  6:47  error  'id' is missing in props validation  react/prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/Content/ColumnChooserContent.component.js
+   10:70  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`                      arrow-body-style
+   11:12  error  'label' is missing in props validation                                                                                     react/prop-types
+   11:19  error  'hidden' is missing in props validation                                                                                    react/prop-types
+   11:27  error  'locked' is missing in props validation                                                                                    react/prop-types
+   11:35  error  'order' is missing in props validation                                                                                     react/prop-types
+   59:14  error  'onExitOverlay' is missing in props validation                                                                             react/prop-types
+   62:29  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
+   70:27  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`                      arrow-body-style
+   81:11  error  'columns' is missing in props validation                                                                                   react/prop-types
+   95:27  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`                      arrow-body-style
+  110:23  error  'id' is missing in props validation                                                                                        react/prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/Manager/ColumnChooserManager.component.js
+  19:17  error    Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
+  54:25  error    'children' is missing in props validation                                                                                  react/prop-types
+  57:3   warning  Unexpected console statement                                                                                               no-console
+  59:21  error    'children' is missing in props validation                                                                                  react/prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Toolbar.component.js
+  59:2  error  'columnChooser' is missing in props validation  react/prop-types
+
 /home/travis/build/Talend/ui/packages/components/src/MultiSelect/ItemOption.component.js
   57:9  error  'index' PropType is defined but prop is never used  react/no-unused-prop-types
 
@@ -23,5 +48,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 7 problems (5 errors, 2 warnings)
+✖ 24 problems (21 errors, 3 warnings)
+  5 errors, 0 warnings potentially fixable with the `--fix` option.
 
