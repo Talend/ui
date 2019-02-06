@@ -16,7 +16,7 @@ export default function ColumnChooserButton({ id, ...rest }) {
 				reset,
 			}) => (
 				<ActionButton
-					id={`${columnChooserId}-button`}	
+					id={`${columnChooserId}-button`}
 					label="column-chooser-button"
 					icon="talend-folder"
 					data-feature="action"
