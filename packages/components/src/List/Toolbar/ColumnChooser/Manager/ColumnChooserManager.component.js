@@ -25,14 +25,6 @@ export default class ColumnChooserManager extends React.Component {
 
 	onClickModify = event => {
 		this.props.handlerColumnChooser(event, this.state.editedColumns);
-		// this.setState(
-		// 	prevState => {
-		// 		return {
-		// 			editedColumns: prevState.editedColumns,
-		// 		};
-		// 	},
-		// 	() => this.props.handlerColumnChooser(event, this.state.editedColumns),
-		// );
 	};
 
 	onChangeVisibilityColumn = (index, hidden) => {
@@ -71,6 +63,7 @@ export default class ColumnChooserManager extends React.Component {
 			onClickModify: this.onClickModify,
 			onChangeVisibilityColumn: this.onChangeVisibilityColumn,
 			onChangeOrderColumn: this.onChangeOrderColumn,
+			handlerColumnChooser: this.props.handlerColumnChooser,
 			reset: this.reset,
 		});
 	}

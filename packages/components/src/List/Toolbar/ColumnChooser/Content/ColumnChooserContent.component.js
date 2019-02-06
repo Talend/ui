@@ -41,6 +41,7 @@ const columnDisplay = (length, onChangeVisibility, onChangeOrder) => {
 	);
 };
 
+/*
 export default class ColumnChooserContent extends React.Component {
 	static defaultProps = {
 		t: getDefaultT(),
@@ -127,3 +128,86 @@ export default class ColumnChooserContent extends React.Component {
 		);
 	}
 }
+*/
+
+// const getLayoutComponent = (columns, handlerColumnChooser) => {
+// 	return {
+// 		header: getDefaultHeader(),
+// 		content: getDefaultContent(columns, changeColumnOrder, changeColumnVisibility),
+// 		footer: getDefaultFooter(submitColumns),
+// 	};
+// };
+
+const DefaultHeader = ({ t }) => {
+	return (
+		<React.Fragment>
+			{t('COLUMN_CHOOSER_HEADER_TITLE', {
+				defaultValue: 'Modifying columns position',
+			})}
+		</React.Fragment>
+	);
+};
+
+const DefaultContent = ({ columns, changeColumnOrder, changeColumnVisibility }) => {
+	return (
+		<div id="defaultContent" style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+			{columns.map(columnDisplay(columns.length, changeColumnVisibility, changeColumnOrder))}
+		</div>
+	);
+};
+
+const DefaultFooter = ({ submitColumns, t }) => {
+	return (
+		<React.Fragment>
+			<ActionButton
+				onClick={event => submitColumns(event)}
+				label={t('COLUMN_CHOOSER_FOOTER_BUTTON', { defaultValue: 'Modify' })}
+			/>
+		</React.Fragment>
+	);
+};
+
+export default function ColumnChooserContent({
+	id,
+	columns,
+	handlerColumnChooser,
+	header,
+	content,
+	footer,
+	t,
+}) {
+	const { submitColumns, changeColumnOrder, changeColumnVisibility } = useColumnChooserManager(
+		// columns.map(column => ({
+		// 	label: column.label,
+		// 	hidde: column.hidden,
+		// 	order: column.oder,
+		// 	locked: column.locked,
+		// })),
+		columns,
+		handlerColumnChooser,
+	);
+	return (
+		<div
+			id={`${id}-modal`}
+			className={classNames(theme['tc-column-chooser-modal'], 'tc-column-chooser-modal')}
+		>
+			<RichLayout
+				Header={header || <DefaultHeader t={t} />}
+				Content={
+					content || (
+						<DefaultContent
+							columns={columns}
+							changeColumnOrder={changeColumnOrder}
+							changeColumnVisibility={changeColumnVisibility}
+						/>
+					)
+				}
+				Footer={footer || <DefaultFooter submitColumns={submitColumns} t={t} />}
+			/>
+		</div>
+	);
+}
+
+ColumnChooserContent.defaultProps = {
+	t: getDefaultT(),
+};

@@ -1,27 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function useColumnChooserManager(columns, submitChanges) {
-	const [getEditedColumns, setEditedColumns] = useState({ editedColumns: columns });
+	const [editedColumns, setEditedColumns] = useState({ editedColumns: columns });
 
 	function submitColumns(event) {
-		submitChanges(event, getEditedColumns);
+		submitChanges(event, editedColumns);
 	}
 
 	function changeColumnVisibility(index, value) {
 		setEditedColumns(prevState => {
-			const editedColumns = prevState.editedColumns;
-			editedColumns[index].hidden = value;
-			return { editedColumns };
+			const inEditColumns = prevState.editedColumns;
+			inEditColumns[index].hidden = value;
+			return { editedColumns: inEditColumns };
 		});
 	}
 
 	function changeColumnOrder(index, value) {
 		setEditedColumns(prevState => {
-			const editedColumns = prevState.editedColumns;
-			editedColumns[index].order = value;
-			return { editedColumns };
+			const inEditColumns = prevState.editedColumns;
+			inEditColumns[index].order = value;
+			return { editedColumns: inEditColumns };
 		});
 	}
+
 	return {
 		submitColumns,
 		changeColumnOrder,
@@ -29,4 +30,4 @@ function useColumnChooserManager(columns, submitChanges) {
 	};
 }
 
-export useColumnChooserManager;
+export { useColumnChooserManager };

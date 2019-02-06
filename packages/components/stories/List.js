@@ -920,7 +920,8 @@ class MyList extends React.Component {
 	};
 
 	handlerColumnChooser = (event, columnsChooserData) => {
-		this.setState({ editedColumns: columnsChooserData });
+		console.log({ columnsChooserData });
+		this.setState({ editedColumns: columnsChooserData.editedColumns });
 	};
 
 	render() {
