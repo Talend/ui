@@ -72,7 +72,7 @@ In entry, the datagrid component waits a sample of dataset. By default, the data
 
 | property              | description                                                                                                         | type     | default                  |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------ |
-| avroRenderer          | ist of components to inject to the avro renderer                                                                    | object   |                          |
+| avroRenderer          | list of components to inject to the avro renderer                                                                   | object   |                          |
 | columnsConf           | options pass to getColumnDefsFn. _hideSubType_(boolean) : hide the subtitle in the header hide                      | object   | { hideSubType : false }  |
 | cellRenderer          | cell component to inject                                                                                            | string   | DefaultCellRenderer      |
 | forceRedrawRows       | function called when the component updated to know if ag-grid have to redraw the grid . should return true or false | function | null                     |
