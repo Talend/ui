@@ -6,10 +6,21 @@ import VirtualizedList, { SORT_BY } from '../../VirtualizedList';
 function VList(props) {
 	return (
 		<ListContext.Consumer>
-			{({ displayMode, collection, isSelected, sortBy, sortDescending, onSortChange }) => (
+			{({
+				displayMode,
+				collection,
+
+				isSelected,
+				onSelectChange,
+
+				sortBy,
+				sortDescending,
+				onSortChange,
+			}) => (
 				<VirtualizedList
 					collection={collection}
 					isSelected={isSelected}
+					selectionToggle={onSelectChange}
 					sortBy={sortBy}
 					sortDirection={sortDescending ? SORT_BY.DESC : SORT_BY.ASC}
 					sort={sort =>
@@ -28,6 +39,6 @@ function VList(props) {
 Object.entries({ ...VirtualizedList }).forEach(([key, value]) => {
 	VList[key] = value;
 });
-VList.displayName = 'List.VList';
+VList.displayName = 'ListContext(List.VList)';
 
 export default VList;

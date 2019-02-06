@@ -26,8 +26,8 @@ function defaultFilter(items, sortBy, isDescending) {
 	});
 }
 
-function allIsSelected(collection, selectedIds) {
-	return collection.every(({ id }) => selectedIds.includes(id));
+function allIsSelected(collection, selectedItems) {
+	return collection.every(item => selectedItems.includes(item));
 }
 const memoizedAllIsSelected = memoizeOne(allIsSelected);
 
@@ -39,11 +39,13 @@ class Container extends React.Component {
 		displayMode: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
 		onDisplayModeChange: PropTypes.func,
 
+		withSort: PropTypes.bool,
 		sort: PropTypes.func, // eslint-disable-line react/no-unused-prop-types
 		sortBy: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
 		sortDescending: PropTypes.bool, // eslint-disable-line react/no-unused-prop-types
 		onSortChange: PropTypes.func,
 
+		withSelection: PropTypes.bool,
 		isSelected: PropTypes.func, // controlled/uncontrolled check on this prop
 		onSelectAllChange: PropTypes.func,
 		onSelectChange: PropTypes.func,
@@ -58,13 +60,16 @@ class Container extends React.Component {
 		const nextState = { collection: props.collection };
 
 		// uncontrolled sort
-		if (!props.onSortChange) {
+		if (props.withSort && !props.onSortChange) {
 			nextState.collection = props.sort(props.collection, state.sortBy, state.sortDescending);
 		}
 
-		nextState.selectAllChecked = props.isSelected
-			? nextState.collection.every(props.isSelected) // controlled selection
-			: memoizedAllIsSelected(nextState.collection, state.selected); // uncontrolled selection
+		// update select all status
+		if (props.withSelection) {
+			nextState.selectAllChecked = props.isSelected
+				? nextState.collection.every(props.isSelected) // controlled selection
+				: memoizedAllIsSelected(nextState.collection, state.selected); // uncontrolled selection
+		}
 
 		return nextState;
 	}
@@ -74,6 +79,7 @@ class Container extends React.Component {
 		this.isSelected = this.isSelected.bind(this);
 		this.onDisplayModeChange = this.onDisplayModeChange.bind(this);
 		this.onSelectAllChanged = this.onSelectAllChanged.bind(this);
+		this.onSelectChange = this.onSelectChange.bind(this);
 		this.onSortChange = this.onSortChange.bind(this);
 		this.state = { selected: [] };
 	}
@@ -90,10 +96,29 @@ class Container extends React.Component {
 
 	onSelectAllChanged(event) {
 		if (this.props.onSelectAllChange) {
+			// controlled selection
 			this.props.onSelectAllChange(event);
 		} else {
+			// uncontrolled
 			this.setState(({ selectAllChecked }) => ({
-				selected: selectAllChecked ? [] : this.getCurrentValue('collection').map(({ id }) => id),
+				selected: selectAllChecked ? [] : this.getCurrentValue('collection'),
+			}));
+		}
+	}
+
+	onSelectChange(event, item) {
+		if (this.props.onSelectChange) {
+			// controlled selection
+			this.props.onSelectChange(event, item);
+		} else if (this.isSelected(item)) {
+			// uncontrolled: uncheck
+			this.setState(({ selected }) => ({
+				selected: selected.filter(nextItem => nextItem !== item),
+			}));
+		} else {
+			// uncontrolled: check
+			this.setState(({ selected }) => ({
+				selected: selected.concat(item),
 			}));
 		}
 	}
@@ -123,18 +148,25 @@ class Container extends React.Component {
 		if (this.props.isSelected) {
 			return this.props.isSelected(item);
 		}
-		return this.state.selected.some(({ id }) => id === item.id);
+		return !!this.state.selected.find(next => next === item);
 	}
 
 	render() {
 		const contextValues = {
 			...this.state,
 			...this.getCurrentValue(['displayMode', 'sortBy', 'sortDescending']),
-			isSelected: this.isSelected,
 			onDisplayModeChange: this.onDisplayModeChange,
-			onSelectAllChange: this.onSelectAllChanged,
-			onSortChange: this.onSortChange,
 		};
+
+		if (this.props.withSelection) {
+			contextValues.isSelected = this.isSelected;
+			contextValues.onSelectChange = this.onSelectChange;
+			contextValues.onSelectAllChange = this.onSelectAllChanged;
+		}
+		if (this.props.withSort) {
+			contextValues.onSortChange = this.onSortChange;
+		}
+
 		return <ListContext.Provider value={contextValues}>{this.props.children}</ListContext.Provider>;
 	}
 }
