@@ -1,4 +1,4 @@
-const FILTERED = 'filtered';
-const SELECTED = 'selected';
+const FILTER = 'filter';
+const CHANGE = 'change';
 
-export { FILTERED, SELECTED };
+export { CHANGE, FILTER };

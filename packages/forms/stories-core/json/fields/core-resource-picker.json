@@ -25,8 +25,8 @@
       "placeholder": "Select an existing resource",
       "widget": "resourcePicker",
       "triggers": [
-        { "action": "selected" },
-        { "action": "filtered" }
+        { "action": "resourcePickerSelected" },
+        { "action": "resourcePickerFiltered" }
       ],
       "multi": false
     }

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import ResourcePickerComponent from '@talend/react-components/lib/ResourcePicker';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
-import { SELECTED, FILTERED } from './constants';
+import { mutateValue } from '../../utils/properties';
+import { CHANGE, FILTER } from './constants';
 
 class ResourcePicker extends Component {
 	constructor(props) {
@@ -41,21 +42,22 @@ class ResourcePicker extends Component {
 
 	onFilter(event) {
 		this.setState({ isLoading: true }, () => {
-			this.onTrigger(event, FILTERED, { filters: this.state.filters })
+			this.onTrigger(event, FILTER, { filters: this.state.filters })
 				.then(data => this.setState(data))
 				.finally(() => this.setState({ isLoading: false }));
 		});
 	}
 
-	onTrigger(event, action, payload) {
+	onTrigger(event, eventName, payload) {
 		const { schema, properties, errors } = this.props;
-		const trigger = schema.triggers && schema.triggers.find(trig => trig.action === action);
+		const trigger = schema.triggers && schema.triggers.find(trig => trig.onEvent === eventName);
+		const formData = mutateValue(properties, schema, payload.value);
 
 		if (trigger) {
 			return this.props.onTrigger(event, {
 				trigger,
 				schema,
-				properties,
+				properties: formData,
 				errors,
 				...payload,
 			});
@@ -83,7 +85,7 @@ class ResourcePicker extends Component {
 		this.setState({ filters: { ...this.state.filters, selected } });
 		this.onChange(event, value);
 
-		this.onTrigger(event, SELECTED, { value });
+		this.onTrigger(event, CHANGE, { value });
 	}
 
 	isItemSelected({ id }) {

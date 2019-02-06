@@ -133,9 +133,7 @@ function createCommonProps(tab) {
 					);
 				});
 			}
-			console.log('[NC] key: ', key);
-			console.log('[NC] payload.trigger: ', payload.trigger);
-			if (key === 'datasetId' && payload.trigger.action === 'filtered') {
+			if (key === 'datasetId' && payload.trigger.action === 'resourcePickerFiltered') {
 				return new Promise(resolve => {
 					setTimeout(
 						() =>
@@ -146,9 +144,8 @@ function createCommonProps(tab) {
 					);
 				});
 			}
-			if (key === 'datasetId' && payload.trigger.action === 'selected') {
+			if (key === 'datasetId' && payload.trigger.action === 'resourcePickerSelected') {
 				const errors = { ...payload.errors };
-				console.log('[NC] errors: ', errors);
 				delete errors.name;
 				return Promise.resolve({
 					properties: {

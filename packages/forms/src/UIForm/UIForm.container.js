@@ -144,11 +144,19 @@ export default class UIForm extends React.Component {
 	onTrigger(event, payload) {
 		return this.props.onTrigger(event, payload).then(data => {
 			if (data.errors) {
-				this.setErrors(event, data.errors);
+				if (typeof data.errors === 'function') {
+					this.setErrors(event, data.errors(this.state.liveState.errors));
+				} else {
+					this.setErrors(event, data.errors);
+				}
 			}
 
 			if (data.properties) {
-				this.setState(setLiveStateProperties(data.properties));
+				if (typeof data.properties === 'function') {
+					this.setState(setLiveStateProperties(data.properties(this.state.liveState.properties)));
+				} else {
+					this.setState(setLiveStateProperties(data.properties));
+				}
 			}
 
 			return data;
