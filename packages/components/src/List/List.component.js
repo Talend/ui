@@ -114,7 +114,6 @@ class List extends React.Component {
 		displayMode: 'table',
 	};
 
-
 	render() {
 		const {
 			columnChooser,
