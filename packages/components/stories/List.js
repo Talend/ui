@@ -10,6 +10,8 @@ import cloneDeep from 'lodash/cloneDeep';
 import { List, IconsProvider } from '../src/index';
 import i18n, { LanguageSwitcher } from './config/i18n';
 import { MyCustomRow } from './VirtualizedList';
+
+import { mergedColumnChooser } from '../src/List/Toolbar/ColumnChooser/ColumnChooser.service';
 /**
  * Cell renderer that displays hello + text
  */
@@ -163,10 +165,10 @@ const props = {
 	displayMode: 'table',
 	list: {
 		columns: [
-			{ key: 'id', label: 'Id', order: 0 },
-			{ key: 'name', label: 'Name', order: 1 },
+			{ key: 'id', label: 'Id', order: 1, locked: true },
+			{ key: 'name', label: 'Name', order: 2, locked: true },
 			{ key: 'author', label: 'Author', order: 3 },
-			{ key: 'created', label: 'Created', order: 2 },
+			{ key: 'created', label: 'Created', order: 6 },
 			{
 				key: 'modified',
 				label: 'Modified',
@@ -899,4 +901,40 @@ storiesOf('List', module)
 				<List {...listProps} />
 			</div>
 		);
-	});
+	})
+	.add('Table with column chooser', () => (
+		<div style={{ height: '70vh' }} className="virtualized-list">
+			<h1>List</h1>
+			<p>
+				Display the list with the column chooser.
+				<br />
+				This is the default mode.
+			</p>
+			<MyList {...props} />
+		</div>
+	));
+
+class MyList extends React.Component {
+	state = {
+		editedColumns: [],
+	};
+
+	handlerColumnChooser = (event, columnsChooserData) => {
+		this.setState({ editedColumns: columnsChooserData });
+	};
+
+	render() {
+		const columns = mergedColumnChooser(this.props.list.columns, this.state.editedColumns);
+		const list = {
+			...this.props.list,
+			columns,
+		};
+
+		const columnChooser = {
+			columns,
+			handlerColumnChooser: this.handlerColumnChooser,
+		};
+
+		return <List {...props} list={list} columnChooser={columnChooser} />;
+	}
+}

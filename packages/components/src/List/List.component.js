@@ -112,20 +112,8 @@ class List extends React.Component {
 
 	static defaultProps = {
 		displayMode: 'table',
-		handlerColumnChooser: () => {},
 	};
 
-	state = {
-		columns: this.props.list.columns,
-	};
-
-	getColumns() {
-		return this.state.columns;
-	}
-
-	handlerColumnChooser = (event, columns) => {
-		this.setState({ columns }, () => this.props.handlerColumnChooser(event, columns));
-	};
 
 	render() {
 		const {
@@ -144,16 +132,9 @@ class List extends React.Component {
 		const classnames = classNames('tc-list', theme.list);
 		const injected = Inject.all(getComponent, omit(components, ['toolbar', 'list']));
 
-		const columns = this.getColumns();
-		const enrichedList = {
-			...list,
-			columns,
-		};
-
 		const enrichedColumnChooser = {
-			...columnChooser,
-			columns,
-			handlerColumnChooser: this.handlerColumnChooser,
+			...this.props.columnChooser,
+			columns: this.props.list.columns,
 		};
 		return (
 			<div className={classnames}>
@@ -163,7 +144,7 @@ class List extends React.Component {
 					id={id}
 					toolbar={toolbar}
 					displayMode={displayMode}
-					list={enrichedList}
+					list={list}
 					columnChooser={enrichedColumnChooser}
 					getComponent={getComponent}
 					components={components}
@@ -179,7 +160,7 @@ class List extends React.Component {
 						rowHeight={rowHeight}
 						getComponent={getComponent}
 						rowRenderers={rowRenderers}
-						{...enrichedList}
+						{...list}
 					/>
 					{injected('after-list')}
 				</div>

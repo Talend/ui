@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ColumnChooserManager from './Manager';
 import ColumnChooserContent from './Content';
 import ActionButton from '../../../Actions/ActionButton';
@@ -16,7 +17,7 @@ export default function ColumnChooserButton({ id, ...rest }) {
 				reset,
 			}) => (
 				<ActionButton
-					id={`${columnChooserId}-button`}	
+					id={`${columnChooserId}-button`}
 					label="column-chooser-button"
 					icon="talend-folder"
 					data-feature="action"
@@ -37,3 +38,7 @@ export default function ColumnChooserButton({ id, ...rest }) {
 		</ColumnChooserManager>
 	);
 }
+
+ColumnChooserButton.propTypes = {
+	id: PropTypes.string.isRequired,
+};

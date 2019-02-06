@@ -84,7 +84,6 @@ function Toolbar({
 	}
 	const displayModeId = id && `${id}-display-mode`;
 	const hasToolbarItem = selectAllCheckbox || display || sort || pagination || filter;
-
 	return (
 		<div className="tc-list-toolbar">
 			{injected('before-actionbar')}
@@ -93,7 +92,9 @@ function Toolbar({
 			{injected('before-navbar')}
 			{hasToolbarItem && (
 				<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
-					<ColumnChooserButton id={`${id}-column-chooser`} {...columnChooser} />
+					{columnChooser.handlerColumnChooser && (
+						<ColumnChooserButton id={`${id}-column-chooser`} {...columnChooser} />
+					)}
 					{injected('before-selectall')}
 					{selectAllCheckbox && <SelectAll {...selectAllCheckbox} t={t} />}
 					{injected('after-selectall')}
