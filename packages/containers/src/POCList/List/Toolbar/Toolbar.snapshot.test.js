@@ -47,10 +47,7 @@ const sort = {
 	field: 'id',
 	isDescending: true,
 	onChange: jest.fn(),
-	options: [
-		{ id: 'id', name: 'Id' },
-		{ id: 'name', name: 'Name' },
-	],
+	options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
 };
 
 const pagination = {
