@@ -29,13 +29,13 @@ export default function TextArea({ id, isValid, errorMessage, onChange, onFinish
 			label={title}
 			labelAfter
 			required={schema.required}
-			updating={updating}
+			updating={updatingValue}
 		>
 			<textarea
 				id={id}
 				autoFocus={autoFocus}
 				className="form-control"
-				disabled={disabled || updating}
+				disabled={disabled || updatingValue}
 				placeholder={placeholder}
 				onBlur={event => onFinish(event, { schema })}
 				onChange={event => onChange(event, { schema, value: event.target.value })}

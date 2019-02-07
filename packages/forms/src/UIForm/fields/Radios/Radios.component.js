@@ -43,7 +43,7 @@ export default function Radios({
 								id={`${id}-${index}`}
 								autoFocus={autoFocus}
 								checked={option.value === value}
-								disabled={disabled || updating}
+								disabled={disabled || updatingValue}
 								name={id}
 								onBlur={event => onFinish(event, { schema })}
 								onChange={event => onChange(event, { schema, value: option.value })}
