@@ -9,7 +9,6 @@ exports[`Datalist component should render 1`] = `
   id="my-datalist"
   isValid={true}
   label="My List"
-  labelAfter={true}
   required={true}
 >
   <Datalist component
@@ -61,7 +60,6 @@ exports[`Datalist component should render with multisection 1`] = `
   id="my-datalist"
   isValid={true}
   label="My List"
-  labelAfter={true}
   required={true}
 >
   <Datalist component

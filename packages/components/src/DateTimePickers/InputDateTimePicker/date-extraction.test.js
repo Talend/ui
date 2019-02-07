@@ -5,6 +5,7 @@ import {
 	extractPartsFromDateTime,
 	extractPartsFromTextInput,
 	getFullDateFormat,
+	check,
 } from './date-extraction';
 
 describe('Date extraction', () => {
@@ -62,6 +63,7 @@ describe('Date extraction', () => {
 				time: { hours: '', minutes: '', seconds: '' },
 				datetime: undefined,
 				textInput: '',
+				errors: [],
 			});
 		});
 
@@ -79,6 +81,7 @@ describe('Date extraction', () => {
 				date: new Date(2015, 8, 15),
 				datetime: date,
 				textInput: '2015-09-15',
+				errors: [],
 				time: { hours: '00', minutes: '00', seconds: '00' },
 			});
 		});
@@ -96,6 +99,7 @@ describe('Date extraction', () => {
 				date: new Date(2015, 8, 15),
 				datetime: validDate,
 				textInput: '2015-09-15',
+				errors: [],
 				time: { hours: '00', minutes: '00', seconds: '00' },
 			});
 		});
@@ -113,6 +117,8 @@ describe('Date extraction', () => {
 				date: new Date(2015, 8, 15),
 				datetime: new Date(2015, 8, 15),
 				textInput: value,
+				errors: [],
+				errorMessage: null,
 				time: { hours: '00', minutes: '00', seconds: '00' },
 			});
 		});
@@ -137,6 +143,7 @@ describe('Date extraction', () => {
 				time: { hours: '', minutes: '', seconds: '' },
 				datetime: 'lol',
 				textInput: '',
+				errors: [],
 			});
 		});
 
@@ -154,6 +161,7 @@ describe('Date extraction', () => {
 				datetime: validDate,
 				textInput: '2015-09-15',
 				time: { hours: '00', minutes: '00', seconds: '00' },
+				errors: [],
 			});
 		});
 
@@ -174,6 +182,7 @@ describe('Date extraction', () => {
 				datetime: validDate,
 				textInput: '2015-09-15 12:58',
 				time: { hours: '12', minutes: '58', seconds: '00' },
+				errors: [],
 			});
 		});
 
@@ -194,6 +203,7 @@ describe('Date extraction', () => {
 				date: new Date(2015, 8, 15),
 				datetime: validDate,
 				textInput: '2015-09-15 12:58:22',
+				errors: [],
 				time: { hours: '12', minutes: '58', seconds: '22' },
 			});
 		});
@@ -217,6 +227,7 @@ describe('Date extraction', () => {
 				date: new Date(2015, 8, 15),
 				datetime: validDate,
 				textInput: '2015-09-15 10:58:22',
+				errors: [],
 				time: { hours: '10', minutes: '58', seconds: '22' },
 			});
 		});
@@ -240,6 +251,7 @@ describe('Date extraction', () => {
 				date: new Date(2015, 8, 14),
 				datetime: validDate,
 				textInput: '2015-09-14 23:00:22',
+				errors: [],
 				time: { hours: '23', minutes: '00', seconds: '22' },
 			});
 		});
@@ -260,6 +272,8 @@ describe('Date extraction', () => {
 				date,
 				datetime: date,
 				textInput: '2015-09-15',
+				errors: [],
+				errorMessage: null,
 				time: { hours: '00', minutes: '00', seconds: '00' },
 			});
 		});
@@ -281,8 +295,9 @@ describe('Date extraction', () => {
 				date,
 				datetime: new Date(2015, 8, 15, 12, 58),
 				textInput: '2015-09-15 12:58',
+				errors: [],
+				errorMessage: null,
 				time: { hours: '12', minutes: '58', seconds: '00' },
-				errorMessage: undefined,
 			});
 		});
 
@@ -305,7 +320,8 @@ describe('Date extraction', () => {
 				datetime: new Date(2015, 8, 15, 12, 58, 22),
 				textInput: '2015-09-15 12:58:22',
 				time,
-				errorMessage: undefined,
+				errors: [],
+				errorMessage: null,
 			});
 		});
 
@@ -327,7 +343,8 @@ describe('Date extraction', () => {
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
 			expect(parts.textInput).toBe('2015-09-15 66:58:12');
 			expect(parts.time).toBe(time);
-			expect(parts.errorMessage).toBe('TIME - INCORRECT HOUR NUMBER');
+			expect(parts.errors).toEqual([{ code: 'INVALID_HOUR', message: 'INVALID_HOUR_NUMBER' }]);
+			expect(parts.errorMessage).toBe('INVALID_HOUR_NUMBER');
 		});
 
 		it('should extract parts with invalid minutes', () => {
@@ -348,13 +365,16 @@ describe('Date extraction', () => {
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
 			expect(parts.textInput).toBe('2015-09-15 12:66:12');
 			expect(parts.time).toBe(time);
-			expect(parts.errorMessage).toBe('TIME - INCORRECT MINUTES NUMBER');
+			expect(parts.errors).toEqual([
+				{ code: 'INVALID_MINUTES', message: 'INVALID_MINUTES_NUMBER' },
+			]);
+			expect(parts.errorMessage).toBe('INVALID_MINUTES_NUMBER');
 		});
 
-		it('should extract parts with invalid seconds', () => {
+		it('should extract parts with invalid minutes and seconds', () => {
 			// given
 			const date = new Date(2015, 8, 15);
-			const time = { hours: '12', minutes: '58', seconds: '66' };
+			const time = { hours: '12', minutes: '90', seconds: '66' };
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
 				useTime: true,
@@ -367,9 +387,13 @@ describe('Date extraction', () => {
 			// then
 			expect(parts.date).toBe(date);
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
-			expect(parts.textInput).toBe('2015-09-15 12:58:66');
+			expect(parts.textInput).toBe('2015-09-15 12:90:66');
 			expect(parts.time).toBe(time);
-			expect(parts.errorMessage).toBe('TIME - INCORRECT SECONDS NUMBER');
+			expect(parts.errors).toEqual([
+				{ code: 'INVALID_MINUTES', message: 'INVALID_MINUTES_NUMBER' },
+				{ code: 'INVALID_SECONDS', message: 'INVALID_SECONDS_NUMBER' },
+			]);
+			expect(parts.errorMessage).toBe('INVALID_MINUTES_NUMBER');
 		});
 
 		it('should extract parts with invalid date', () => {
@@ -412,7 +436,8 @@ describe('Date extraction', () => {
 				datetime: new Date(2015, 8, 15, 14, 58, 22),
 				textInput: '2015-09-15 12:58:22',
 				time,
-				errorMessage: undefined,
+				errorMessage: null,
+				errors: [],
 			});
 		});
 	});
@@ -435,6 +460,7 @@ describe('Date extraction', () => {
 				time: { hours: '', minutes: '', seconds: '00' },
 				datetime: undefined,
 				textInput: '',
+				errors: [],
 			});
 		});
 
@@ -452,7 +478,8 @@ describe('Date extraction', () => {
 				time: { hours: '00', minutes: '00', seconds: '00' },
 				datetime: new Date(2018, 11, 25),
 				textInput,
-				errorMessage: undefined,
+				errorMessage: null,
+				errors: [],
 			});
 		});
 
@@ -473,7 +500,8 @@ describe('Date extraction', () => {
 				time: { hours: '22', minutes: '58', seconds: '00' },
 				datetime: new Date(2018, 11, 25, 22, 58),
 				textInput,
-				errorMessage: undefined,
+				errorMessage: null,
+				errors: [],
 			});
 		});
 
@@ -495,7 +523,8 @@ describe('Date extraction', () => {
 				time: { hours: '22', minutes: '58', seconds: '12' },
 				datetime: new Date(2018, 11, 25, 22, 58, 12),
 				textInput,
-				errorMessage: undefined,
+				errorMessage: null,
+				errors: [],
 			});
 		});
 
@@ -516,7 +545,10 @@ describe('Date extraction', () => {
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
 			expect(parts.textInput).toBe(textInput);
 			expect(parts.time).toEqual({ hours: '22', minutes: '58', seconds: '12' });
-			expect(parts.errorMessage).toBe('DATE - INCORRECT DAY NUMBER RELATIVE TO MONTH');
+			expect(parts.errorMessage).toBe('INVALID_DAY_OF_MONTH');
+			expect(parts.errors).toEqual([
+				{ code: 'INVALID_DAY_OF_MONTH', message: 'INVALID_DAY_OF_MONTH' },
+			]);
 		});
 
 		it('should extract parts with invalid month', () => {
@@ -536,7 +568,8 @@ describe('Date extraction', () => {
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
 			expect(parts.textInput).toBe(textInput);
 			expect(parts.time).toEqual({ hours: '22', minutes: '58', seconds: '12' });
-			expect(parts.errorMessage).toBe('DATE - INCORRECT MONTH NUMBER');
+			expect(parts.errorMessage).toBe('INVALID_MONTH_NUMBER');
+			expect(parts.errors).toEqual([{ code: 'INVALID_MONTH', message: 'INVALID_MONTH_NUMBER' }]);
 		});
 
 		it('should extract parts with hour', () => {
@@ -556,12 +589,13 @@ describe('Date extraction', () => {
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
 			expect(parts.textInput).toBe(textInput);
 			expect(parts.time).toEqual({ hours: '66', minutes: '58', seconds: '12' });
-			expect(parts.errorMessage).toBe('TIME - INCORRECT HOUR NUMBER');
+			expect(parts.errorMessage).toBe('INVALID_HOUR_NUMBER');
+			expect(parts.errors).toEqual([{ code: 'INVALID_HOUR', message: 'INVALID_HOUR_NUMBER' }]);
 		});
 
-		it('should extract parts with minutes', () => {
+		it('should extract parts with invalid hours and minutes', () => {
 			// given
-			const textInput = '2018-12-25 22:66:12';
+			const textInput = '2018-12-25 55:66:12';
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
 				useTime: true,
@@ -575,13 +609,17 @@ describe('Date extraction', () => {
 			expect(parts.date).toEqual(new Date(2018, 11, 25));
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
 			expect(parts.textInput).toBe(textInput);
-			expect(parts.time).toEqual({ hours: '22', minutes: '66', seconds: '12' });
-			expect(parts.errorMessage).toBe('TIME - INCORRECT MINUTES NUMBER');
+			expect(parts.time).toEqual({ hours: '55', minutes: '66', seconds: '12' });
+			expect(parts.errorMessage).toBe('INVALID_HOUR_NUMBER');
+			expect(parts.errors).toEqual([
+				{ code: 'INVALID_HOUR', message: 'INVALID_HOUR_NUMBER' },
+				{ code: 'INVALID_MINUTES', message: 'INVALID_MINUTES_NUMBER' },
+			]);
 		});
 
-		it('should extract parts with seconds', () => {
+		it('should extract parts with invalid hh:mm:ss', () => {
 			// given
-			const textInput = '2018-12-25 22:58:66';
+			const textInput = '2018-12-25 44:90:66';
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
 				useTime: true,
@@ -595,8 +633,13 @@ describe('Date extraction', () => {
 			expect(parts.date).toEqual(new Date(2018, 11, 25));
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
 			expect(parts.textInput).toBe(textInput);
-			expect(parts.time).toEqual({ hours: '22', minutes: '58', seconds: '66' });
-			expect(parts.errorMessage).toBe('TIME - INCORRECT SECONDS NUMBER');
+			expect(parts.time).toEqual({ hours: '44', minutes: '90', seconds: '66' });
+			expect(parts.errorMessage).toBe('INVALID_HOUR_NUMBER');
+			expect(parts.errors).toEqual([
+				{ code: 'INVALID_HOUR', message: 'INVALID_HOUR_NUMBER' },
+				{ code: 'INVALID_MINUTES', message: 'INVALID_MINUTES_NUMBER' },
+				{ code: 'INVALID_SECONDS', message: 'INVALID_SECONDS_NUMBER' },
+			]);
 		});
 
 		it('should convert date to UTC', () => {
@@ -618,7 +661,8 @@ describe('Date extraction', () => {
 				time: { hours: '22', minutes: '58', seconds: '12' },
 				datetime: new Date(2018, 11, 25, 23, 58, 12),
 				textInput,
-				errorMessage: undefined,
+				errorMessage: null,
+				errors: [],
 			});
 		});
 	});
@@ -662,6 +706,55 @@ describe('Date extraction', () => {
 
 			// then
 			expect(format).toBe('YYYY-MM-DD HH:mm:ss');
+		});
+	});
+	describe('check', () => {
+		it('should return date format error when date is empty', () => {
+			// when
+			const errors = check(
+				undefined,
+				{
+					hours: '22',
+					minutes: '11',
+					seconds: '00',
+				},
+				{ required: true },
+			);
+
+			// then
+			expect(errors.length).toBe(1);
+			expect(errors[0].code).toBe('INVALID_DATE_FORMAT');
+		});
+		it('should return error on hours', () => {
+			// when
+			const errors = check(
+				new Date(),
+				{
+					hours: '',
+					minutes: '11',
+					seconds: '00',
+				},
+				{ required: true },
+			);
+
+			// then
+			expect(errors.length).toBe(1);
+			expect(errors[0].message).toBe('INVALID_HOUR_EMPTY');
+		});
+		it('should return no error when option required is false', () => {
+			// when
+			const errors = check(
+				undefined,
+				{
+					hours: '',
+					minutes: '',
+					seconds: '',
+				},
+				{ required: false },
+			);
+
+			// then
+			expect(errors.length).toBe(0);
 		});
 	});
 });
