@@ -146,10 +146,13 @@ function createCommonProps(tab) {
 			}
 			if (key === 'datasetId' && payload.trigger.action === 'resourcePickerSelected') {
 				return Promise.resolve({
-					properties: properties => ({
-						...properties,
-						name: properties.datasetId && `Resource ${properties.datasetId} preparation`,
-					}),
+					properties: properties => {
+						const { datasetId, name } = properties;
+						return (name && name.length) ? properties : {
+							...properties,
+							name: datasetId && `Resource ${datasetId} preparation`,
+						};
+					},
 					errors: errors => {
 						const e = { ...errors };
 						delete e.name;
