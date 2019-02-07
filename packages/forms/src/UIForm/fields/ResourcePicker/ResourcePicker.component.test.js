@@ -151,6 +151,17 @@ describe('ResourcePicker field', () => {
 			},
 			value: '0',
 		});
+		expect(props.onTrigger).toBeCalled();
+		expect(props.onTrigger).toBeCalledWith(expect.anything(), {
+			errors: undefined,
+			properties: undefined,
+			schema: expect.anything(),
+			trigger: {
+				action: 'resourcePickerSelected',
+				onEvent: 'change',
+			},
+			value: '0',
+		});
 	});
 
 	it('should allow multi selection', async () => {
@@ -176,6 +187,17 @@ describe('ResourcePicker field', () => {
 			.simulate('click');
 		expect(props.onChange).toBeCalledWith(expect.anything(), {
 			schema: expect.anything(),
+			value: ['0', '1'],
+		});
+		expect(props.onTrigger).toBeCalled();
+		expect(props.onTrigger).toBeCalledWith(expect.anything(), {
+			errors: undefined,
+			properties: undefined,
+			schema: expect.anything(),
+			trigger: {
+				action: 'resourcePickerSelected',
+				onEvent: 'change',
+			},
 			value: ['0', '1'],
 		});
 	});

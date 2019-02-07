@@ -51,13 +51,12 @@ class ResourcePicker extends Component {
 	onTrigger(event, eventName, payload) {
 		const { schema, properties, errors } = this.props;
 		const trigger = schema.triggers && schema.triggers.find(trig => trig.onEvent === eventName);
-		const formData = mutateValue(properties, schema, payload.value);
 
 		if (trigger) {
 			return this.props.onTrigger(event, {
 				trigger,
 				schema,
-				properties: formData,
+				properties,
 				errors,
 				...payload,
 			});
@@ -84,7 +83,6 @@ class ResourcePicker extends Component {
 		const value = multi ? selected : selected[0];
 		this.setState({ filters: { ...this.state.filters, selected } });
 		this.onChange(event, value);
-
 		this.onTrigger(event, CHANGE, { value });
 	}
 
