@@ -157,7 +157,7 @@ const persistentActions = [
 	},
 ];
 
-const collection = [
+const complexCollection = [
 	{
 		id: 0,
 		name: 'Title with few actions',
@@ -230,9 +230,8 @@ const collection = [
 		className: 'item-5-class',
 	},
 ];
-
-for (let i = collection.length; i < 100; i += 1) {
-	collection.push({
+for (let i = complexCollection.length; i < 100; i += 1) {
+	complexCollection.push({
 		id: i,
 		name: `Title with icon and actions ${i}`,
 		tag: 'test',
@@ -248,4 +247,22 @@ for (let i = collection.length; i < 100; i += 1) {
 	});
 }
 
-export default collection;
+const simpleCollection = [];
+for (let i = 0; i < 100; i += 1) {
+	simpleCollection.push({
+		id: i,
+		name: `Title with icon and actions ${i}`,
+		tag: 'test',
+		created: 1474495200,
+		modified: 1474495200,
+		description: 'Simple row with icon and actions',
+		author: 'Jean-Pierre DUPONT',
+		icon: 'talend-file-xls-o',
+		display: 'text',
+		className: 'item-0-class',
+		persistentActions,
+		titleActions,
+	});
+}
+
+export { simpleCollection, complexCollection };

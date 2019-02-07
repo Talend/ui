@@ -3,12 +3,11 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 
-import collection from './collection';
+import { simpleCollection } from './collection';
 import { IconsProvider } from '../../src/index';
 import List from '../../src/JSOList';
 import CellTitle from '../../src/VirtualizedList/CellTitle';
 import CellBadge from '../../src/VirtualizedList/CellBadge';
-import PropTypes from 'prop-types';
 
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
@@ -77,7 +76,7 @@ storiesOf('JSOList', module)
 			<h1>Default list</h1>
 			<p>By default List doesn't come with any feature</p>
 			<pre>{`
-<List.Container id="my-list" collection={collection}>
+<List.Container id="my-list" collection={simpleCollection}>
 	<List.VList id="my-vlist">
 		<List.VList.Content label="Id" dataKey="id" />
 		<List.VList.Content
@@ -92,7 +91,7 @@ storiesOf('JSOList', module)
 </List.Container>
 `}</pre>
 			<section style={{ height: '50vh' }}>
-				<List.Container id="my-list" collection={collection}>
+				<List.Container id="my-list" collection={simpleCollection}>
 					<CustomList />
 				</List.Container>
 			</section>
@@ -114,7 +113,7 @@ storiesOf('JSOList', module)
 </List.Container>
 `}</pre>
 			<section style={{ height: '50vh' }}>
-				<List.Container id="my-list" collection={collection}>
+				<List.Container id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
 						<List.DisplayMode id="my-list-displayMode" />
 					</List.Toolbar>
@@ -157,7 +156,7 @@ storiesOf('JSOList', module)
 </List.Container>
 `}</pre>
 			<section style={{ height: '50vh' }}>
-				<List.Container id="my-list" collection={collection} withSort>
+				<List.Container id="my-list" collection={simpleCollection} withSort>
 					<List.Toolbar>
 						<List.DisplayMode id="my-list-displayMode" />
 						<List.SortBy
@@ -216,7 +215,7 @@ storiesOf('JSOList', module)
 			<section style={{ height: '50vh' }}>
 				<List.Container
 					id="my-list"
-					collection={collection}
+					collection={simpleCollection}
 					withSort
 					sortBy="name"
 					sortDescending={false}
@@ -265,7 +264,7 @@ storiesOf('JSOList', module)
 </List.Container>
 `}</pre>
 			<section style={{ height: '50vh' }}>
-				<List.Container id="my-list" collection={collection} withSelection>
+				<List.Container id="my-list" collection={simpleCollection} withSelection>
 					<List.Toolbar>
 						<List.SelectAll id="my-list-select-all" />
 						<List.DisplayMode id="my-list-displayMode" />
@@ -308,7 +307,7 @@ storiesOf('JSOList', module)
 			<section style={{ height: '50vh' }}>
 				<List.Container
 					id="my-list"
-					collection={collection}
+					collection={simpleCollection}
 					withSelection
 					isSelected={() => false}
 					onSelectAllChange={action('onSelectAllChange')}
@@ -317,38 +316,6 @@ storiesOf('JSOList', module)
 					<List.Toolbar>
 						<List.SelectAll id="my-list-select-all" />
 						<List.DisplayMode id="my-list-displayMode" />
-					</List.Toolbar>
-					<CustomList />
-				</List.Container>
-			</section>
-		</div>
-	))
-	.add('Other', () => (
-		<div className="virtualized-list">
-			<IconsProvider defaultIcons={icons} />
-			<p>By default List doesn't come with any feature</p>
-			<section style={{ height: '50vh' }}>
-				<List.Container
-					id="my-list"
-					onDisplayModeChange={action('onDisplayModeChange')}
-					onSortChange={action('onSortChange')}
-					collection={collection}
-					withSelection
-					withSort
-				>
-					<List.Toolbar>
-						<List.SelectAll id="my-list-select-all" />
-						<List.DisplayMode id="my-list-displayMode" />
-						<List.SortBy
-							id="my-list-sortBy"
-							options={[
-								{ id: 'id', name: 'Id' },
-								{ id: 'name', name: 'Name' },
-								{ id: 'author', name: 'Author' },
-								{ id: 'created', name: 'Created' },
-								{ id: 'modified', name: 'Modified' },
-							]}
-						/>
 					</List.Toolbar>
 					<CustomList />
 				</List.Container>
