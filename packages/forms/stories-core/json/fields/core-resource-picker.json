@@ -16,7 +16,7 @@
   "uiSchema": [
     {
       "key": "name",
-      "title": "Title change on picker change"
+      "title": "Title changes on picker change"
     },
     {
       "key": "datasetId",
