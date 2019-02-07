@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import ResourcePickerComponent from '@talend/react-components/lib/ResourcePicker';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
-import { mutateValue } from '../../utils/properties';
 import { CHANGE, FILTER } from './constants';
 
 class ResourcePicker extends Component {
