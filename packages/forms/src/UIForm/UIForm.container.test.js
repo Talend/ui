@@ -240,7 +240,7 @@ describe('UIForm container', () => {
 			});
 		});
 
-		it('should call propertiers updater if given', done => {
+		it('should call properties updater if given', done => {
 			const updater = jest.fn(() => ({ test: 42 }));
 			const onTrigger = jest.fn(() => Promise.resolve({ properties: updater }));
 			const wrapper = shallow(<UIForm data={data} {...props} onTrigger={onTrigger} />);
