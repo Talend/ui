@@ -65,6 +65,10 @@ describe('ResourcePicker field', () => {
 		schema: {
 			type: 'object',
 		},
+		triggers: [
+			{ action: 'resourcePickerSelected', onEvent: 'change' },
+			{ action: 'resourcePickerFiltered', onEvent: 'filter' },
+		],
 	};
 	const props = {
 		onChange: jest.fn(),
@@ -99,15 +103,19 @@ describe('ResourcePicker field', () => {
 		shallow(<ResourcePicker {...props} />);
 
 		expect(props.onTrigger).toBeCalledWith(undefined, {
-			schema: props.schema,
+			schema: expect.anything(),
+			errors: undefined,
+			properties: undefined,
 			trigger: {
-				parameters: {
-					certified: false,
-					favorites: false,
-					name: '',
-					selected: [],
-					selection: false,
-				},
+				action: 'resourcePickerFiltered',
+				onEvent: 'filter',
+			},
+			filters: {
+				certified: false,
+				favorites: false,
+				name: '',
+				selected: [],
+				selection: false,
 			},
 		});
 	});
@@ -130,6 +138,16 @@ describe('ResourcePicker field', () => {
 					type: 'object',
 				},
 				title: 'My ResourcePicker title',
+				triggers: [
+					{
+						action: 'resourcePickerSelected',
+						onEvent: 'change',
+					},
+					{
+						action: 'resourcePickerFiltered',
+						onEvent: 'filter',
+					},
+				],
 			},
 			value: '0',
 		});
@@ -214,14 +232,18 @@ describe('ResourcePicker field', () => {
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
+				errors: undefined,
+				properties: undefined,
 				trigger: {
-					parameters: {
-						certified: false,
-						favorites: false,
-						name: '',
-						selected: [],
-						selection: true,
-					},
+					action: 'resourcePickerFiltered',
+					onEvent: 'filter',
+				},
+				filters: {
+					certified: false,
+					favorites: false,
+					name: '',
+					selected: [],
+					selection: true,
 				},
 			});
 		});
@@ -239,14 +261,18 @@ describe('ResourcePicker field', () => {
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
+				errors: undefined,
+				properties: undefined,
 				trigger: {
-					parameters: {
-						certified: true,
-						favorites: false,
-						name: '',
-						selected: [],
-						selection: false,
-					},
+					action: 'resourcePickerFiltered',
+					onEvent: 'filter',
+				},
+				filters: {
+					certified: true,
+					favorites: false,
+					name: '',
+					selected: [],
+					selection: false,
 				},
 			});
 		});
@@ -264,14 +290,18 @@ describe('ResourcePicker field', () => {
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
+				errors: undefined,
+				properties: undefined,
 				trigger: {
-					parameters: {
-						certified: false,
-						favorites: true,
-						name: '',
-						selected: [],
-						selection: false,
-					},
+					action: 'resourcePickerFiltered',
+					onEvent: 'filter',
+				},
+				filters: {
+					certified: false,
+					favorites: true,
+					name: '',
+					selected: [],
+					selection: false,
 				},
 			});
 		});
@@ -291,16 +321,20 @@ describe('ResourcePicker field', () => {
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
+				errors: undefined,
+				properties: undefined,
 				trigger: {
-					parameters: {
-						certified: false,
-						favorites: false,
-						name: '',
-						selected: [],
-						selection: false,
-						orders: {
-							name: 'asc',
-						},
+					action: 'resourcePickerFiltered',
+					onEvent: 'filter',
+				},
+				filters: {
+					certified: false,
+					favorites: false,
+					name: '',
+					selected: [],
+					selection: false,
+					orders: {
+						name: 'asc',
 					},
 				},
 			});
@@ -319,16 +353,20 @@ describe('ResourcePicker field', () => {
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
+				errors: undefined,
+				properties: undefined,
 				trigger: {
-					parameters: {
-						certified: false,
-						favorites: false,
-						name: '',
-						selected: [],
-						selection: false,
-						orders: {
-							date: 'asc',
-						},
+					action: 'resourcePickerFiltered',
+					onEvent: 'filter',
+				},
+				filters: {
+					certified: false,
+					favorites: false,
+					name: '',
+					selected: [],
+					selection: false,
+					orders: {
+						date: 'asc',
 					},
 				},
 			});

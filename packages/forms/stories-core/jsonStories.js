@@ -145,14 +145,16 @@ function createCommonProps(tab) {
 				});
 			}
 			if (key === 'datasetId' && payload.trigger.action === 'resourcePickerSelected') {
-				const errors = { ...payload.errors };
-				delete errors.name;
 				return Promise.resolve({
-					properties: {
-						...payload.properties,
-						name: 'Coucou Nico',
+					properties: properties => ({
+						...properties,
+						name: properties.datasetId && `Resource ${properties.datasetId} preparation`,
+					}),
+					errors: errors => {
+						const e = { ...errors };
+						delete e.name;
+						return e;
 					},
-					errors,
 				});
 			}
 

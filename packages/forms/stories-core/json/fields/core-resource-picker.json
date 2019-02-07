@@ -14,7 +14,6 @@
     "required": ["name", "datasetId"]
   },
   "uiSchema": [
-
     {
       "key": "name",
       "title": "Title change on picker change"
@@ -25,8 +24,8 @@
       "placeholder": "Select an existing resource",
       "widget": "resourcePicker",
       "triggers": [
-        { "action": "resourcePickerSelected" },
-        { "action": "resourcePickerFiltered" }
+        { "action": "resourcePickerSelected", "onEvent": "change" },
+        { "action": "resourcePickerFiltered", "onEvent": "filter" }
       ],
       "multi": false
     }
