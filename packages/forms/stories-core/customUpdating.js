@@ -34,49 +34,99 @@ const schema = {
 				type: 'string',
 				enum: ['Apple', 'Pine[apple]', 'Banana', 'Cher[ry', 'Lemo}n', 'Grapefruit'],
 			},
+			date: {
+				type: 'string',
+			},
+			file: {
+				type: 'string',
+			},
+			multiSelectTag: {
+				type: 'array',
+				items: {
+					type: 'string',
+					enum: ['Apple'],
+				},
+			},
+			radios: {
+				type: 'string',
+				enum: ['foo', 'bar', 'fuzz', 'qux'],
+			},
+			toggle: {
+				type: 'boolean',
+			},
 		},
-		required: ['name', 'firstname', 'email', 'comment'],
 	},
 	uiSchema: [
 		{
 			key: 'string',
-			title: 'String',
+			title: 'string',
 		},
 		{
 			key: 'number',
-			title: 'Number',
+			title: 'number',
 		},
 		{
 			key: 'textarea',
 			widget: 'textarea',
-			title: 'Textarea',
+			title: 'textarea',
 			rows: 5,
-			validationMessage: "Don't be greedy!",
 		},
 		{
 			key: 'checkbox',
-			title: 'Check if you are happy',
+			title: 'checkbox',
 		},
 		{
 			key: 'multicheckbox',
-			title: 'Select multiple values',
-			errorMessage: 'Please select at least an option',
+			title: 'multicheckbox',
 		},
 		{
 			key: 'code',
 			widget: 'code',
-			description: "This widget with custom prop 'height: 100px'",
-			title: 'Code small',
+			title: 'code',
 			options: {
-				language: 'python',
+				language: 'javascript',
 				height: '100px',
 			},
 		},
 		{
 			key: 'datalist',
 			restricted: true,
-			title: 'Datalist',
+			title: 'datalist',
 			widget: 'datalist',
+		},
+		{
+			key: 'date',
+			title: 'date',
+			widget: 'date',
+			options: {
+				dateFormat: 'DD/MM/YYYY',
+			},
+		},
+		{
+			key: 'file',
+			title: 'file',
+			widget: 'file',
+		},
+		{
+			key: 'multiSelectTag',
+			title: 'multiSelectTag',
+			widget: 'multiSelectTag',
+			titleMap: [
+				{
+					name: 'Apple12',
+					value: 'Apple',
+				},
+			],
+		},
+		{
+			key: 'toggle',
+			title: 'toggle',
+			widget: 'toggle',
+		},
+		{
+			key: 'radios',
+			title: 'radios',
+			widget: 'radios',
 		},
 	],
 	properties: {},
@@ -88,6 +138,10 @@ function story() {
 	return (
 		<div>
 			<IconsProvider />
+			<p>
+				You can pass a property to UIForm "updating" as an array of keys to make them flick and
+				being disabled
+			</p>
 			<UIForm
 				data={schema}
 				onChange={action('Change')}

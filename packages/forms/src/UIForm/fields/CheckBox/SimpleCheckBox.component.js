@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-for */
 import PropTypes from 'prop-types';
 import React from 'react';
+import classnames from 'classnames';
 import { isUpdating } from '../../utils/updating';
 
 export default function SimpleCheckBox({
@@ -17,14 +18,14 @@ export default function SimpleCheckBox({
 }) {
 	const { autoFocus } = schema;
 	const updatingValue = isUpdating(updating, schema);
-
+	const disabledValue = schema.disabled || disabled || updatingValue;
 	return (
-		<div className="checkbox">
+		<div className={classnames('checkbox', { disabled: disabledValue })}>
 			<label>
 				<input
 					id={id}
 					autoFocus={autoFocus}
-					disabled={schema.disabled || disabled || updatingValue}
+					disabled={disabledValue}
 					onChange={event => {
 						onChange(event, { schema, value: event.target.checked });
 						onFinish(event, { schema, value: event.target.checked });
@@ -45,7 +46,7 @@ export default function SimpleCheckBox({
 
 if (process.env.NODE_ENV !== 'production') {
 	SimpleCheckBox.propTypes = {
-		updating: PropTypes.arrayOf(PropTypes.string),
+		updating: PropTypes.bool,
 		disabled: PropTypes.bool,
 		describedby: PropTypes.string.isRequired,
 		id: PropTypes.string,

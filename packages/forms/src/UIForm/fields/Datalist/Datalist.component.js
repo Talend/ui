@@ -137,7 +137,7 @@ class Datalist extends Component {
 		const props = omit(this.props, PROPS_TO_OMIT);
 		const descriptionId = generateDescriptionId(this.props.id);
 		const errorId = generateErrorId(this.props.id);
-		const updating = isUpdating(this.props.updating, props.schema);
+		const updating = isUpdating(this.props.updating, this.props.schema);
 
 		return (
 			<FieldTemplate

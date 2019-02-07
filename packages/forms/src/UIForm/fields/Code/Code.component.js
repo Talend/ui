@@ -92,7 +92,7 @@ class Code extends React.Component {
 
 	render() {
 		const { id, isValid, errorMessage, schema, value, t } = this.props;
-		const { autoFocus, description, disabled = false, options, readOnly = false, title } = schema;
+		const { autoFocus, description, options, readOnly = false, title } = schema;
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
 		const instructionsId = generateId(id, 'instructions');
@@ -132,7 +132,6 @@ class Code extends React.Component {
 					<AceEditor
 						key="ace"
 						className="tf-widget-code form-control"
-						disabled={disabled || updating}
 						editorProps={{ $blockScrolling: Infinity }} // https://github.com/securingsincity/react-ace/issues/29
 						focus={autoFocus}
 						name={`${id}_wrapper`}
@@ -140,7 +139,9 @@ class Code extends React.Component {
 						onBlur={this.onFinish}
 						onLoad={this.onLoad}
 						onChange={this.onChange}
-						readOnly={readOnly}
+						// disabled is not supported by ace use readonly
+						// https://github.com/ajaxorg/ace/issues/406
+						readOnly={readOnly || schema.disabled || updating}
 						setOptions={DEFAULT_SET_OPTIONS}
 						showGutter={false}
 						showPrintMargin={false}
