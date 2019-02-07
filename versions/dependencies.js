@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* eslint no-console: 0 */
 
-const REACT_VERSION = process.env.REACT_VERSION || '^16.0.0';
+const REACT_VERSION = process.env.REACT_VERSION || '^16.8.0';
 console.log('REACT_VERSION: ', REACT_VERSION);
 const JEST_VERSION = '^24.0.0';
 
@@ -111,7 +111,7 @@ module.exports = {
 	'react-storybook-addon-props-combinations': '^1.1.0',
 	'react-stub-context': '^0.7.0',
 	'regenerator-runtime': '^0.13.1',
-	rimraf: '^2.6.1',
+	rimraf: '^2.6.2',
 	'sass-lint': '1.12.1',
 
 	// webpack
