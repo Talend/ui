@@ -47,7 +47,7 @@
     "extract-text-webpack-plugin": "next",
     "mini-css-extract-plugin": "^0.4.5",
     "mkdirp": "^0.5.1",
-    "react": "^16.0.0",
+    "react": "^16.8.0",
     "style-loader": "^0.23.0",
     "svgo": "0.7.1",
     "webfonts-loader": "^4.2.1",
@@ -57,5 +57,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "2.4.0"
+  "version": "2.5.0-0"
 }

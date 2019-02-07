@@ -14,7 +14,7 @@ import DefaultPinHeaderRenderer, {
 
 import DATAGRID_PROPTYPES from './DataGrid.proptypes';
 import { NAMESPACE_INDEX } from '../../constants';
-import serializer from '../DefaultSerializer';
+import serializer from '../DatasetSerializer';
 import theme from './DataGrid.scss';
 
 export const AG_GRID = {
@@ -192,7 +192,7 @@ export default class DataGrid extends React.Component {
 		}
 
 		const pinnedColumnDefs = this.props.getPinnedColumnDefsFn(this.props.data);
-		const columnDefs = this.props.getColumnDefsFn(this.props.data, this.props.columnsConf);
+		const columnDefs = this.props.getColumnDefsFn(this.props.data);
 		let adaptedColumnDefs = [];
 
 		if (pinnedColumnDefs) {

@@ -150,7 +150,6 @@ class Datalist extends Component {
 				label={this.props.schema.title}
 				required={this.props.schema.required}
 				updating={updating}
-				labelAfter
 			>
 				<DataListComponent
 					{...props}
