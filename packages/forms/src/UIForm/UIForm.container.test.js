@@ -226,10 +226,6 @@ describe('UIForm container', () => {
 			});
 		});
 
-
-
-
-
 		it('should update state properties', done => {
 			const properties = { firstname: 'my firstname is invalid' };
 			const onTrigger = jest.fn(() => Promise.resolve({ properties }));
