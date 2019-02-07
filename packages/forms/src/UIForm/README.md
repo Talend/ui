@@ -6,9 +6,9 @@ Getting started
 
 Customisation
 * [Validation](./doc/validation.md): how validation works and how to add custom validation
+* [Create new widgets](./doc/widgets.md): how create a new widget
 
 Advanced
-* [Create new widgets](./doc/widgets.md): how create a new widget
 * [Triggers](./doc/triggers.md): hooks for advanced control over errors and properties
 
 

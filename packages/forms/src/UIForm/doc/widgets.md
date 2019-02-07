@@ -75,7 +75,7 @@ import MyCustomIText from './MyCustomIText';
 function MyComponent(props) {
     const customWidgets = {
 		text: MyCustomIText, // this overrides the default text input widget
-		fancyInput: MyFancyInput, // this adds a new widget
+		customWidgetId: MyCustomWidget, // this adds a new widget
 	};
 
 	render() {
