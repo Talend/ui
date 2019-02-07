@@ -3,6 +3,7 @@ import React from 'react';
 import SimpleCheckBox from './SimpleCheckBox.component';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import { isUpdating } from '../../utils/updating';
 
 function getValues(value = [], itemValue, checked) {
 	if (checked) {
@@ -17,6 +18,7 @@ export default function CheckBoxes(props) {
 	const { description, title, titleMap } = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
+	const updating = isUpdating(props.updating, schema);
 
 	return (
 		<FieldTemplate
@@ -27,10 +29,12 @@ export default function CheckBoxes(props) {
 			isValid={isValid}
 			label={title}
 			required={schema.required}
+			updating={updating}
 		>
 			{titleMap.map((item, index) => (
 				<SimpleCheckBox
 					describedby={`${descriptionId} ${errorId}`}
+					disabled={schema.disabled || updating}
 					id={id}
 					key={index}
 					isValid={isValid}
@@ -52,6 +56,7 @@ export default function CheckBoxes(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	CheckBoxes.propTypes = {
+		updating: PropTypes.arrayOf(PropTypes.string),
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,

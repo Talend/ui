@@ -53,15 +53,6 @@ export default [
 		),
 	},
 	{
-		name: 'updating',
-		story: () => (
-			<div>
-				<h1>The following form is updating name and lastname fields</h1>
-				<Form data={simple} updating={['name', 'lastname']} />
-			</div>
-		),
-	},
-	{
 		name: 'skeleton',
 		story: () => <Form loading />,
 	},

@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-for */
 import PropTypes from 'prop-types';
 import React from 'react';
+import { isUpdating } from '../../utils/updating';
 
 export default function SimpleCheckBox({
 	describedby,
@@ -11,8 +12,11 @@ export default function SimpleCheckBox({
 	onFinish,
 	schema,
 	value,
+	updating,
+	disabled,
 }) {
-	const { autoFocus, disabled = false } = schema;
+	const { autoFocus } = schema;
+	const updatingValue = isUpdating(updating, schema);
 
 	return (
 		<div className="checkbox">
@@ -20,7 +24,7 @@ export default function SimpleCheckBox({
 				<input
 					id={id}
 					autoFocus={autoFocus}
-					disabled={disabled || props.updating}
+					disabled={schema.disabled || disabled || updatingValue}
 					onChange={event => {
 						onChange(event, { schema, value: event.target.checked });
 						onFinish(event, { schema, value: event.target.checked });
@@ -41,7 +45,8 @@ export default function SimpleCheckBox({
 
 if (process.env.NODE_ENV !== 'production') {
 	SimpleCheckBox.propTypes = {
-		updating: PropTypes.bool,
+		updating: PropTypes.arrayOf(PropTypes.string),
+		disabled: PropTypes.bool,
 		describedby: PropTypes.string.isRequired,
 		id: PropTypes.string,
 		isValid: PropTypes.bool,

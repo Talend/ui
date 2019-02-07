@@ -216,7 +216,8 @@ export default class MultiSelectTag extends React.Component {
 		const names = this.props.resolveName(this.props.value);
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
-		const updating = isUpdating(this.props.updating, schema)
+		const updating = isUpdating(this.props.updating, schema);
+
 		return (
 			<FieldTemplate
 				description={schema.description}
