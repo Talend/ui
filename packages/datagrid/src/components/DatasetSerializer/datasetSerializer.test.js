@@ -212,7 +212,8 @@ describe('#getColumnDefs', () => {
 	it('should remove the sub type', () => {
 		const columnDefs = getColumnDefs(sample, { hideSubType: true });
 
-		expect(columnDefs).toMatchSnapshot();
+		expect(columnDefs[0].type).toBe('');
+		expect(columnDefs[1].type).toBe('');
 	});
 
 	it('should returns the columns definitions with optional', () => {
