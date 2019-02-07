@@ -20,7 +20,7 @@
     },
     {
       "key": "datasetId",
-      "title": "ResourcePicker that change the input above",
+      "title": "ResourcePicker that changes the input above",
       "placeholder": "Select an existing resource",
       "widget": "resourcePicker",
       "triggers": [
