@@ -9,11 +9,12 @@ import getDefaultT from '../../../translate';
 import theme from './StateFilter.scss';
 
 export const TYPES = {
+	SELECTION: 'selection',
 	FAVORITES: 'favorites',
 	CERTIFIED: 'certified',
 };
 
-function StateFilter({ t, types, onChange, selected, favorites, certified }) {
+function StateFilter({ t, types, onChange, selection, favorites, certified }) {
 	return (
 		!!types.length && (
 			<div
@@ -25,13 +26,13 @@ function StateFilter({ t, types, onChange, selected, favorites, certified }) {
 				<span className={classNames(theme['option-label'])}>
 					{t('FILTER', { defaultValue: 'Filter:' })}
 				</span>
-				{types.includes(TYPES.SELECTED) && (
+				{types.includes(TYPES.SELECTION) && (
 					<ActionIconToggle
 						icon={'talend-check-circle'}
-						label={t('SELECTED', { defaultValue: 'Selected' })}
-						active={selected}
-						onClick={() => onChange(TYPES.SELECTED, !selected)}
-						className={classNames(theme['tc-resource-picker-selected-filter'])}
+						label={t('SELECTION', { defaultValue: 'Selected' })}
+						active={selection}
+						onClick={() => onChange(TYPES.SELECTION, !selection)}
+						className={classNames(theme['tc-resource-picker-selection-filter'])}
 					/>
 				)}
 				{types.includes(TYPES.CERTIFIED) && (
@@ -59,6 +60,7 @@ function StateFilter({ t, types, onChange, selected, favorites, certified }) {
 
 StateFilter.propTypes = {
 	t: PropTypes.func,
+	selection: PropTypes.bool,
 	favorites: PropTypes.bool,
 	certified: PropTypes.bool,
 	onChange: PropTypes.func,
@@ -67,7 +69,7 @@ StateFilter.propTypes = {
 
 StateFilter.defaultProps = {
 	t: getDefaultT(),
-	types: [TYPES.FAVORITES, TYPES.CERTIFIED],
+	types: [TYPES.SELECTION, TYPES.FAVORITES, TYPES.CERTIFIED],
 };
 
 export default translate(I18N_DOMAIN_COMPONENTS)(StateFilter);

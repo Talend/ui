@@ -1,7 +1,7 @@
 {
   "name": "@talend/react-storybook-cmf",
   "description": "react-storybook-cmf library.",
-  "version": "2.2.0-0",
+  "version": "2.5.0-0",
   "license": "Apache-2.0",
   "author": "Talend Frontend <frontend@talend.com>",
   "repository": {
@@ -30,10 +30,9 @@
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
     "@storybook/react": "^4.0.12",
-    "@talend/react-cmf": "^2.2.0-0",
-    "babel-core": "^7.0.0-bridge.0",
+    "@talend/react-cmf": "^2.5.0-0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^23.6.0",
+    "babel-jest": "^24.0.0",
     "babel-loader": "^8.0.0",
     "classnames": "^2.2.5",
     "enzyme": "^3.7.0",
@@ -45,7 +44,7 @@
     "eslint-plugin-react": "^6.3.0",
     "immutable": "^3.8.1",
     "invariant": "^2.2.2",
-    "jest": "^23.6.0",
+    "jest": "^24.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.7",
@@ -68,7 +67,7 @@
   },
   "peerDependencies": {
     "@kadira/storybook": "^2",
-    "@talend/react-cmf": "^2.2.0-0",
+    "@talend/react-cmf": "^2.5.0-0",
     "react": "^16.0.0"
   },
   "jest": {
@@ -76,6 +75,8 @@
       "src"
     ],
     "testRegex": "&*\\.test\\.js$",
-    "setupTestFrameworkScriptFile": "<rootDir>/../../test-setup.js"
+    "setupFilesAfterEnv": [
+      "<rootDir>/../../test-setup.js"
+    ]
   }
 }

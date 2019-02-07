@@ -46,6 +46,7 @@ describe('loadComponent behavior', () => {
 			componentId: 'test',
 		};
 		const Component = () => <div>test</div>;
+		Component.displayName = 'TestContainer';
 		const mockContext = mock.context();
 		mockContext.registry = {
 			'_.route.component:TestContainer': Component,

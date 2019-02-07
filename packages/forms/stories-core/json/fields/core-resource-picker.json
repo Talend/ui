@@ -1,0 +1,36 @@
+{
+  "doc": "ResourcePicker/README.md",
+  "jsonSchema": {
+    "type": "object",
+    "title": "ResourcePicker",
+    "properties": {
+      "multiResourcePicker": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "singleResourcePicker": {
+        "type": "string"
+      }
+    },
+    "required": ["multiResourcePicker", "singleResourcePicker"]
+  },
+  "uiSchema": [
+    {
+      "key": "multiResourcePicker",
+      "title": "ResourcePicker with multi selection",
+      "widget": "resourcePicker",
+      "placeholder": "Select an existing resource",
+      "multi": true
+    },
+    {
+      "key": "singleResourcePicker",
+      "title": "ResourcePicker without multi selection",
+      "placeholder": "Select an existing resource",
+      "widget": "resourcePicker",
+      "multi": false
+    }
+  ],
+  "properties": {}
+}

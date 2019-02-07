@@ -1,4 +1,5 @@
 const url = require('url');
+const http = require('https');
 const forms = require('./mock/kit');
 
 function getTriggerInfo(req) {
@@ -71,6 +72,37 @@ function suggestionForDemo() {
 	};
 }
 
+const cache = {};
+
+function suggestionBig() {
+	if (cache.photos) {
+		return cache.photos;
+	}
+	return res => {
+		let body = '';
+		function onData(chunk) {
+			console.log('onData', chunk);
+			body += chunk;
+		}
+		function onEnd() {
+			console.log('onEnd', body);
+			cache.photos = {
+				items: JSON.parse(body).map(item => ({ id: item.id.toString(), label: item.title })),
+			};
+			res.json(cache.photos);
+		}
+		function onResponse(resp) {
+			console.log(`Got response: ${resp.statusCode}`);
+			resp.on('data', onData);
+			resp.on('end', onEnd);
+		}
+		function onError(e) {
+			console.error(e.message);
+		}
+		http.get('https://jsonplaceholder.typicode.com/photos', onResponse).on('error', onError);
+	};
+}
+
 function updateProperties({ type }) {
 	switch (type) {
 		case 'clafoutis':
@@ -83,6 +115,21 @@ function updateProperties({ type }) {
 		default:
 			return { data: 'don t know that' };
 	}
+}
+
+function giveMeFive() {
+	return res => {
+		res
+			.status(500)
+			.json({
+				timestamp: 1548781374412,
+				status: 500,
+				error: 'Internal Server Error',
+				exception: 'javax.ws.rs.ClientErrorException',
+				message: 'An internal server error occurs',
+				path: '/proxy/v1/action/execute/dataset',
+			});
+	};
 }
 
 const TRIGGERS = {
@@ -100,9 +147,13 @@ const TRIGGERS = {
 	},
 	suggestions: {
 		suggestionForDemo,
+		suggestionBig,
 	},
 	update: {
 		updateProperties,
+	},
+	error: {
+		giveMeFive,
 	},
 };
 
@@ -117,6 +168,11 @@ module.exports = function addRoutes(app) {
 		res.json(forms[req.params.formId]);
 	});
 	app.post('/api/v1/application/action', (req, res) => {
-		res.json(trigger(req));
+		const result = trigger(req);
+		if (typeof result === 'function') {
+			result(res);
+		} else {
+			res.json(result);
+		}
 	});
 };

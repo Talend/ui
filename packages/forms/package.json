@@ -61,13 +61,12 @@
     "@storybook/addon-info": "^4.0.12",
     "@storybook/addons": "^4.0.12",
     "@storybook/react": "^4.0.12",
-    "@talend/bootstrap-theme": "^2.2.0-0",
-    "@talend/icons": "^2.2.0-0",
-    "@talend/react-components": "^2.2.0-0",
+    "@talend/bootstrap-theme": "^2.5.0-0",
+    "@talend/icons": "^2.5.0-0",
+    "@talend/react-components": "^2.5.0-0",
     "autoprefixer": "^7.1.4",
-    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^23.6.0",
+    "babel-jest": "^24.0.0",
     "bootstrap-sass": "3.3.7",
     "chokidar": "^1.6.1",
     "cpx": "^1.5.0",
@@ -82,7 +81,7 @@
     "eslint-plugin-react": "^6.3.0",
     "i18next": "^9.0.0",
     "invariant": "^2.2.2",
-    "jest": "^23.6.0",
+    "jest": "^24.0.0",
     "jest-in-case": "^1.0.2",
     "json-loader": "^0.5.7",
     "keycode": "^2.2.0",
@@ -106,7 +105,7 @@
     "sass-loader": "^7.1.0"
   },
   "peerDependencies": {
-    "@talend/react-components": "^2.2.0-0",
+    "@talend/react-components": "^2.5.0-0",
     "i18next": "^9.0.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.2 || ^16.0.0",
@@ -130,10 +129,12 @@
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
     },
-    "setupTestFrameworkScriptFile": "<rootDir>/../../test-setup.js"
+    "setupFilesAfterEnv": [
+      "<rootDir>/../../test-setup.js"
+    ]
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "2.2.0-0"
+  "version": "2.5.0-0"
 }
