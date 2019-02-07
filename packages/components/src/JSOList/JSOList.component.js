@@ -14,7 +14,7 @@ function defaultFilter(items, sortBy, isDescending) {
 		return items;
 	}
 
-	return items.sort((itemA, itemB) => {
+	return items.slice(0).sort((itemA, itemB) => {
 		const itemAValue = itemA[sortBy];
 		const itemBValue = itemB[sortBy];
 		if (itemAValue === itemBValue) {
