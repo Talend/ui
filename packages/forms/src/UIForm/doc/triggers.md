@@ -21,11 +21,9 @@ The only info that the form use are
 
 ## How to configure triggers
 
-// TODO explain uiSchema trigger definition with convention action/onEvent
-// TODO add example that will be the same example for each part
-### uiSchema
-
 Triggers are defined in the uiSchema. Depending on the form, you can have different trigger definitions for a widget.
+
+### Example
 
 ```json
 {
@@ -35,11 +33,24 @@ Triggers are defined in the uiSchema. Depending on the form, you can have differ
             "triggers": [
                 { "onEvent": "change", "action": "fillNameField" }
                 { "onEvent": "filter", "action": "filterDatasets", "customParam": "lol" }
-            ]
+            ],
+            "widget": "resourcePicker"
         }
     ]
 }
 ```
+
+In the example above
+- we render a `resourcePicker` widget
+- on widget value change, we execute `fillNameField` action
+- on filter, we execute the `filterDatasets` action, passing a `customParam` extra value
+
+Actions are code you write and execute (see [How to write a trigger implementation](#how-to-write-a-trigger-implementation--).
+Events are identifiers that the widget supports.
+
+### Definition
+
+A trigger definition have 2 mandatory properties: onEvent and action.
 
 | Trigger definition property | Type | Description |
 |---|---|---|
@@ -47,11 +58,11 @@ Triggers are defined in the uiSchema. Depending on the form, you can have differ
 | action | `string` | Unique action identifier. It will be consumed by the trigger implementation to determine which action to do. |
 | other | `any` | You can pass any additional parameters, that the trigger implementation will receive. |
 
-### Example
-
 ## How to write a trigger implementation ?
 
 Triggers implementation are based on the trigger definition `action` value. Depending on the action, it will perform a corresponding task.
+
+### Example
 
 ```javascript
 import React from 'react';
@@ -62,9 +73,14 @@ class MyComponent extends React.Component {
 	onTrigger({ trigger, schema, value, properties, errors, ...otherOptions }) {
 	    const triggerResult = {};
         switch (trigger.action) {
-            case filterAction:
+            case 'fillNameField':
                 // perform some filter
-                // fill triggerResult
+                triggerResult.properties = (oldProperties) => ({ ...oldProperties, name: value.name });
+                triggerResult.errors = (oldErrors) => {
+                    const newErrors = { ...oldErrors };
+                    delete newErrors.name;
+                    return newErrors;
+                };
                 break;
             ...
         }
@@ -81,7 +97,11 @@ class MyComponent extends React.Component {
 }
 ```
 
-### onTrigger input
+In the example above, for trigger definitions that points to 'fillNameField' action
+- we set the name in the form properties
+- we remove name field errors
+
+### onTrigger input definition
 
 | Argument | Type | Description |
 |---|---|---|
@@ -92,33 +112,32 @@ class MyComponent extends React.Component {
 | errors | `object` | The whole form errors |
 | otherOptions | `any` | The trigger implementation will receive any additional information the widget want to pass |
 
-### onTrigger output
+### onTrigger output definition
 
-Any `onTrigger` implementation must return a promise. This promise must result an object containing any value the widget will get.
+Any `onTrigger` implementation must return a promise. This promise must results an object containing any information the widget will get.
 
-Anyway, there are values that are consumed by the form itself.
+Anyway, there are information that are consumed by the form itself.
 
 | Promise result key | Type | Description |
 |---|---|---|
 | errors | `function` | An errors modifier. `(currentErrors) => { /* change the errors*/ return newErrors; }` |
 | properties | `function` | A form data modifier. `(currentProperties) => { /* change the data*/ return newProperties; }` |
 
-### Example
-
 ## How to call a trigger on a widget event ?
 
 The triggers are called depending on the widget. The widget defines the events it supports.
 
+### Example
+
 ```javascript
-class MyWidget extends React.Component {
+class ResourcePickerWidget extends React.Component {
     constructor(props) {
         super(props);
         this.onChange = this.onChange.bind(this);
     }
 
-    onChange(event) {
-        const newValue = event.target.value;
-        this.props.onChange(event, newValue);
+    onChange(event, value) {
+        this.props.onChange(event, value);
 
         const triggerDef = this.props
             .schema
@@ -128,22 +147,27 @@ class MyWidget extends React.Component {
             this.props.onTrigger(event, {
                 trigger: triggerDef,
                 schema: this.props.schema,
-                value: newValue,
+                value,
             })
         }
     }
 
     render() {
         return (
-            <input onChange={this.onChange} />
+            <ResourcePicker {...props} onChange={this.onChange} />
         );
     }
 }
 ```
 
+In the example above,
+- the widget performs call a trigger on value change
+- the call is done only if it is defined in uiSchema
+- it passes the trigger definition, the widget schema, the new value. The whole form properties and errors are injected afterward. The trigger implementation then has all the information.
+
+### Widget trigger definition
+
 | Props | Type | Description |
 |---|---|---|
 | onTrigger | `function` | The trigger callback |
 | schema.triggers | `array` | The trigger definitions from uiSchema |
-
-### Example
