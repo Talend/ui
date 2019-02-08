@@ -4,7 +4,16 @@ import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import { isUpdating } from '../../utils/updating';
 
-export default function TextArea({ id, isValid, errorMessage, onChange, onFinish, schema, value, updating }) {
+export default function TextArea({
+	id,
+	isValid,
+	errorMessage,
+	onChange,
+	onFinish,
+	schema,
+	value,
+	updating,
+}) {
 	const {
 		autoFocus,
 		description,
