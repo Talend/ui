@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { DragSource, DropTarget, DragDropContextProvider } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 import ActionButton from '../../../../Actions/ActionButton';
 import RichLayout from '../../../../RichTooltip/RichLayout';
 import getDefaultT from '../../../../translate';
@@ -8,135 +10,24 @@ import Icon from '../../../../Icon';
 import theme from './ColumnChooserModal.scss';
 import { useColumnChooserManager } from '../Manager/columnChooserManager';
 
-const columnDisplay = (length, onChangeVisibility, onChangeOrder) => {
-	return ({ label, hidden, locked, order }, index) => (
-		<div
-			id="columnDisplay"
-			key={`${label}-${index}`}
-			style={{ position: 'relative', display: 'flex', justifyContent: 'space-between' }}
-		>
-			{locked ? (
-				<Icon name="talend-locked" />
-			) : (
-				<span>
-					<input
-						onChange={() => onChangeVisibility(index, !hidden)}
-						type="checkbox"
-						checked={hidden}
-						value={hidden}
-					/>
-				</span>
-			)}
-			<span>{label}</span>
-			<span>
-				<input
-					style={{ width: '25px' }}
-					onChange={event => onChangeOrder(event, index)}
-					placeholder={order}
-					type="text"
-				/>
-				{`/${length}`}
-			</span>
-		</div>
-	);
-};
+const ColumnVisibility = ({ onChange, value }) => (
+	<span>
+		<input onChange={() => onChange(!value)} type="checkbox" checked={value} value={value} />
+	</span>
+);
 
-/*
-export default class ColumnChooserContent extends React.Component {
-	static defaultProps = {
-		t: getDefaultT(),
-	};
-
-	static propTypes = {
-		header: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-		content: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-		footer: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-		// onChangeVisibilityColumn: PropTypes.func.isRequired,
-		// onChangeOrderColumn: PropTypes.func.isRequired,
-		// onClickModify: PropTypes.func.isRequired,
-		t: PropTypes.func,
-	};
-
-	componentWillUnmount() {
-		this.props.onExitOverlay();
-	}
-
-	getLayoutComponent = () => {
-		const { submitColumns, changeColumnOrder, changeColumnVisibility } = useColumnChooserManager(
-			this.props.columns,
-			this.props.handler,
-		);
-		return {
-			header: this.props.header || this.getDefaultHeader(),
-			content:
-				this.props.content || this.getDefaultContent(changeColumnOrder, changeColumnVisibility),
-			footer: this.props.footer || this.getDefaultFooter(submitColumns),
-		};
-	};
-
-	getDefaultHeader = () => {
-		return (
-			<React.Fragment>
-				{this.props.t('COLUMN_CHOOSER_HEADER_TITLE', {
-					defaultValue: 'Modifying columns position',
-				})}
-			</React.Fragment>
-		);
-	};
-
-	getDefaultContent = (changeColumnOrder, changeColumnVisibility) => {
-		const { columns } = this.props;
-		return (
-			<div id="defaultContent" style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
-				{columns.map(
-					columnDisplay(
-						columns.length,
-						changeColumnVisibility,
-						changeColumnOrder,
-						// this.props.onChangeVisibilityColumn,
-						// this.props.onChangeOrderColumn,
-					),
-				)}
-			</div>
-		);
-	};
-
-	getDefaultFooter = submitColumns => {
-		return (
-			<React.Fragment>
-				<ActionButton
-					onClick={event => submitColumns(event)}
-					label={this.props.t('COLUMN_CHOOSER_FOOTER_BUTTON', { defaultValue: 'Modify' })}
-				/>
-			</React.Fragment>
-		);
-	};
-
-	render() {
-		const layoutComponent = this.getLayoutComponent();
-		return (
-			<div
-				id={`${this.props.id}-modal`}
-				className={classNames(theme['tc-column-chooser-modal'], 'tc-column-chooser-modal')}
-			>
-				<RichLayout
-					Header={layoutComponent.header}
-					Content={layoutComponent.content}
-					Footer={layoutComponent.footer}
-				/>
-			</div>
-		);
-	}
-}
-*/
-
-// const getLayoutComponent = (columns, handlerColumnChooser) => {
-// 	return {
-// 		header: getDefaultHeader(),
-// 		content: getDefaultContent(columns, changeColumnOrder, changeColumnVisibility),
-// 		footer: getDefaultFooter(submitColumns),
-// 	};
-// };
+const ColumnOrder = ({ onChange, value, length }) => (
+	<span>
+		<input
+			style={{ width: '25px' }}
+			onChange={event => onChange(event.target.value)}
+			placeholder={value}
+			type="text"
+			value={value}
+		/>
+		{`/${length}`}
+	</span>
+);
 
 const DefaultHeader = ({ t }) => {
 	return (
@@ -148,11 +39,142 @@ const DefaultHeader = ({ t }) => {
 	);
 };
 
-const DefaultContent = ({ columns, changeColumnOrder, changeColumnVisibility }) => {
+export const ItemTypes = {
+	COLUMN_CHOOSER_ROW: 'COLUMN_CHOOSER_ROW',
+};
+
+const columnDisplaySource = {
+	beginDrag(props) {
+		return props;
+	},
+	endDrag(props, monitor, component) {
+		const item = monitor.getItem();
+		const dropResult = monitor.getDropResult();
+		return {};
+	},
+};
+
+const columnDisplayTarget = {
+	canDrop(props, monitor) {
+		const item = monitor.getItem();
+		return !item.locked;
+	},
+	drop(props, monitor, component) {
+		props.onChangeOrder(props.order + 1);
+		const item = monitor.getItem();
+		item.onChangeOrder(props.order);
+		props.onDragAndDrop();
+	},
+};
+
+function collect(connect, monitor) {
+	return {
+		connectDragSource: connect.dragSource(),
+		isDragging: monitor.isDragging(),
+	};
+}
+
+function collectDrop(connect, monitor) {
+	return {
+		connectDropTarget: connect.dropTarget(),
+		isOver: monitor.isOver(),
+		isOverCurrent: monitor.isOver({ shallow: true }),
+		canDrop: monitor.canDrop(),
+		itemType: monitor.getItemType(),
+	};
+}
+
+const getColumnDisplay = (length, onChangeVisibility, onChangeOrder, onDragAndDrop) => {
+	return (column, index) => {
+		const myProps = {
+			...column,
+			index,
+			length,
+			onChangeVisibility: onChangeVisibility(index),
+			onChangeOrder: onChangeOrder(index),
+			onDragAndDrop,
+		};
+		if (column.locked) {
+			return (
+				<ColumnDisplay
+					{...column}
+					length={length}
+					onChangeVisibility={onChangeVisibility(index)}
+					onChangeOrder={onChangeOrder(index)}
+				/>
+			);
+		}
+		const Drag = DragSource(ItemTypes.COLUMN_CHOOSER_ROW, columnDisplaySource, collect)(
+			DraggableColumnDisplay,
+		);
+		const Drop = DropTarget(ItemTypes.COLUMN_CHOOSER_ROW, columnDisplayTarget, collectDrop)(Drag);
+		return <Drop {...myProps} />;
+		{
+			/*
+		return (
+			<ColumnDisplay
+				{...column}
+				length={length}
+				onChangeVisibility={onChangeVisibility(index)}
+				onChangeOrder={onChangeOrder(index)}
+			/>
+			);
+		*/
+		}
+	};
+};
+
+const DraggableColumnDisplay = ({ connectDropTarget, connectDragSource, ...rest }) => {
+	return connectDropTarget(
+		connectDragSource(
+			<div>
+				<ColumnDisplay {...rest} />
+			</div>,
+		),
+	);
+};
+
+const ColumnDisplay = ({
+	label,
+	hidden,
+	locked,
+	order,
+	length,
+	onChangeVisibility,
+	onChangeOrder,
+	isDragging,
+}) => {
 	return (
-		<div id="defaultContent" style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
-			{columns.map(columnDisplay(columns.length, changeColumnVisibility, changeColumnOrder))}
+		<div
+			id="columnDisplay"
+			key={`${label}`}
+			style={{ position: 'relative', display: 'flex', justifyContent: 'space-between' }}
+		>
+			{locked ? (
+				<Icon name="talend-locked" />
+			) : (
+				<ColumnVisibility onChange={onChangeVisibility} value={hidden} />
+			)}
+			<span>{label}</span>
+			<ColumnOrder onChange={onChangeOrder} value={order} length={length} />
 		</div>
+	);
+};
+
+const DefaultContent = ({ columns, changeColumnOrder, changeColumnVisibility, onDragAndDrop }) => {
+	return (
+		<DragDropContextProvider backend={HTML5Backend}>
+			<div id="defaultContent" style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+				{columns.map(
+					getColumnDisplay(
+						columns.length,
+						changeColumnVisibility,
+						changeColumnOrder,
+						onDragAndDrop,
+					),
+				)}
+			</div>
+		</DragDropContextProvider>
 	);
 };
 
@@ -176,19 +198,16 @@ export default function ColumnChooserContent({
 	footer,
 	t,
 }) {
-	const { submitColumns, changeColumnOrder, changeColumnVisibility } = useColumnChooserManager(
-		// columns.map(column => ({
-		// 	label: column.label,
-		// 	hidde: column.hidden,
-		// 	order: column.oder,
-		// 	locked: column.locked,
-		// })),
-		columns,
-		handlerColumnChooser,
-	);
+	const {
+		editedColumns,
+		submitColumns,
+		changeColumnOrder,
+		changeColumnVisibility,
+		onDragAndDrop,
+	} = useColumnChooserManager(columns, handlerColumnChooser);
 	return (
 		<div
-			id={`${id}-modal`}
+			id={`${id}-column-chooser-content`}
 			className={classNames(theme['tc-column-chooser-modal'], 'tc-column-chooser-modal')}
 		>
 			<RichLayout
@@ -196,9 +215,10 @@ export default function ColumnChooserContent({
 				Content={
 					content || (
 						<DefaultContent
-							columns={columns}
+							columns={editedColumns}
 							changeColumnOrder={changeColumnOrder}
 							changeColumnVisibility={changeColumnVisibility}
+							onDragAndDrop={onDragAndDrop}
 						/>
 					)
 				}
