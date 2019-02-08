@@ -48,6 +48,10 @@ const ColumnDisplayerDraggable = ({ connectDropTarget, connectDragSource, ...res
 	);
 };
 
+/*
+The column displayer is draggable but also a drop target.
+So we need to wrap with react dnd hoc, one time for the source, the other for the target.
+*/
 export default new DropTarget(COLUMN_CHOOSER_ROW, columnDisplayTarget, collectTarget)(
 	new DragSource(COLUMN_CHOOSER_ROW, columnDisplaySource, collectSource)(ColumnDisplayerDraggable),
 );
