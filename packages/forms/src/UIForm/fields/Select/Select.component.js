@@ -15,7 +15,16 @@ function getSelectedOptions(select, multiple) {
 	return select.value;
 }
 
-export default function Select({ id, isValid, errorMessage, onChange, onFinish, schema, value, updating }) {
+export default function Select({
+	id,
+	isValid,
+	errorMessage,
+	onChange,
+	onFinish,
+	schema,
+	value,
+	updating,
+}) {
 	const { autoFocus, description, disabled = false, placeholder, readOnly = false, title } = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
