@@ -15,9 +15,18 @@ You can do whatever you want outside of the forms, such as
 - change value in another widget
 - ...
 
-## How to configure triggers
+## TD;LR
 
-Triggers are defined in the uiSchema. Depending on the form, you can have different trigger definitions for a widget.
+To create a trigger you need
+- (widget) to define events that will run the trigger
+- (trigger implementation) to define trigger actions
+- (uiSchema) to map actions with events
+
+## How to configure triggers ?
+
+Trigger definitions are defined in the uiSchema. They are mappings that link widget event to trigger implementations.
+
+Depending on the form, you can have different trigger definitions for a widget.
 
 ### Example
 
