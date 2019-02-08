@@ -107,7 +107,10 @@ Changing UIForm's `props.data` will replace the existing pieces in the form.
 
 So you need to synchronize the UIForm's state with your own state system.
 
+## Lifecycle
+
+![lifecycle schema](http://www.plantuml.com/plantuml/png/ZP11IyGm48NlyolcBEp1rLCFibV1Wx17yH2RqGuaQKYcBYB-TsEJ3gq8zLHU-jx7bvooc2IJTp2m9IGVvGCjvJvn51u3F5qzu-5mX_U1XOqxYn7ga6l2rp5vFFS3UGFh1cgbnao2ClvdvlYTTZTG6vlffwhE-RghYtumuOsWdgtnKxJbO_72ClnHdKc529eNycqZ9og6i1mzhBrdw4QlzN21RboFZPYd5yyDULm_uGQhLrYAQleBUuDTMJY7YNeg8unfZ1dglqxrb1xeylZJQ3BrgMjRxxTVLPqlE56matVV)
 
 ## Next
 
-[Go to next step: Validation](./validation.md)
+[Go to next step: Conditional rendering](./conditional-rendering.md)

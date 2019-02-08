@@ -107,4 +107,4 @@ function MyComponent(props) {
 
 ## Next
 
-[Go to next step: Triggers](./triggers.md)
+[Go to next step: Display mode](./display-mode.md)
