@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import RichLayout from '../../../../RichTooltip/RichLayout';
 import getDefaultT from '../../../../translate';
 import theme from './ColumnChooserModal.scss';
-import { useColumnChooserManager } from '../Manager/columnChooserManager';
+import { useColumnChooserManager } from '../columnChooserHooks/columnChooserManager';
 import { DefaultHeader, DefaultBody, DefaultFooter } from './DefaultColumnChooser.components';
 
 export default function ColumnChooserContent({
@@ -23,6 +23,7 @@ export default function ColumnChooserContent({
 		changeColumnVisibility,
 		onDragAndDrop,
 	} = useColumnChooserManager(columns, handlerColumnChooser);
+	console.log({ columns })
 	return (
 		<div
 			id={`${id}-column-chooser-content`}

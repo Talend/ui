@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import cloneDeep from 'lodash/cloneDeep';
 
 export function compareOrder(a, b) {
 	if (!Number.isInteger(a.order) && !Number.isInteger(b.order)) {
@@ -14,9 +15,10 @@ export function compareOrder(a, b) {
 }
 
 function useColumnChooserManager(columns, submitChanges) {
-	const [editedColumns, setEditedColumns] = useState({ editedColumns: columns });
+	const [editedColumns, setEditedColumns] = useState({ editedColumns: cloneDeep(columns) });
 
 	function sortEditedColumns() {
+		// TODO rwk this func
 		setEditedColumns(prevState => {
 			return {
 				editedColumns: prevState.editedColumns.sort(compareOrder).map((col, index) => {
@@ -51,14 +53,8 @@ function useColumnChooserManager(columns, submitChanges) {
 	}
 
 	function onDragAndDrop() {
-		console.log('onDragAndDrop');
+		// TODO rwk this func
 		sortEditedColumns();
-		/*
-		 = order / + 1 order
-		*/
-		// const dropInIndex = editedColumns.findIndex(column => column.label === dropIn.label);
-		// const dropOnIndex = editedColumns.findIndex(column => column.label === dropOn.label);
-		// const arrayTmp = editedColumns.editedColumns;
 	}
 
 	return {

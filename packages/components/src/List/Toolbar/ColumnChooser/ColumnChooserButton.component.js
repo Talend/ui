@@ -24,4 +24,6 @@ export default function ColumnChooserButton({ id, columns, handlerColumnChooser 
 
 ColumnChooserButton.propTypes = {
 	id: PropTypes.string.isRequired,
+	columns: PropTypes.array.isRequired,
+	handlerColumnChooser: PropTypes.func.isRequired,
 };
