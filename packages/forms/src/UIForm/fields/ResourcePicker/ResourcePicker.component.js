@@ -188,7 +188,6 @@ ResourcePicker.displayName = 'ResourcePicker field';
 
 if (process.env.NODE_ENV !== 'production') {
 	ResourcePicker.propTypes = {
-		updating: PropTypes.arrayOf(PropTypes.string),
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
