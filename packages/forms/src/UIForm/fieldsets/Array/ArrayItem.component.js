@@ -8,6 +8,7 @@ import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
 
 import theme from './ArrayItem.scss';
+import fieldTemplateTheme from '../../fields/FieldTemplate/FieldTemplate.scss';
 
 export function ReorderButton(props) {
 	const { index, hasMoveDown, hasMoveUp, id, isMoveDown, onReorder, t } = props;
@@ -67,15 +68,30 @@ if (process.env.NODE_ENV !== 'production') {
 const TranslatedReorderButton = translate(I18N_DOMAIN_FORMS)(ReorderButton);
 
 function ArrayItem(props) {
-	const { children, id, index, onRemove, onReorder, isClosed } = props;
+	const { children, id, index, onRemove, onReorder, isClosed, disabled, updating } = props;
 
 	return (
-		<div className={classNames(theme['tf-array-item'], 'tf-array-item')}>
+		<div
+			className={classNames(theme['tf-array-item'], 'tf-array-item', {
+				[fieldTemplateTheme.updating]: updating,
+			})}
+		>
 			<div className={theme.control}>
 				{!isClosed &&
 					onReorder && [
-						<TranslatedReorderButton {...props} key="up" index={index} />,
-						<TranslatedReorderButton {...props} key="down" index={index} isMoveDown />,
+						<TranslatedReorderButton
+							{...props}
+							key="up"
+							index={index}
+							disabled={disabled || updating}
+						/>,
+						<TranslatedReorderButton
+							{...props}
+							key="down"
+							index={index}
+							isMoveDown
+							disabled={disabled || updating}
+						/>,
 					]}
 			</div>
 			{children}
@@ -86,6 +102,7 @@ function ArrayItem(props) {
 					onClick={event => onRemove(event, index)}
 					title="Delete"
 					type="button"
+					disabled={disabled || updating}
 				>
 					<Icon name="talend-cross" />
 				</button>
@@ -96,6 +113,8 @@ function ArrayItem(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	ArrayItem.propTypes = {
+		disabled: PropTypes.bool,
+		updating: PropTypes.bool,
 		children: PropTypes.node,
 		id: PropTypes.string,
 		index: PropTypes.number.isRequired,

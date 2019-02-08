@@ -6,5 +6,6 @@ export function isUpdating(data = [], schema) {
 	if (!schema) {
 		return false;
 	}
-	return !!data.find(path => path === schema.key.join('.'));
+	// we need to support current and parent path
+	return !!data.find(path => schema.key.join('.').startsWith(path));
 }

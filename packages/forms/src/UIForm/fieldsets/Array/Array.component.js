@@ -112,6 +112,7 @@ export default class ArrayWidget extends React.Component {
 				id={this.props.id && `${this.props.id}-${index}`}
 				schema={getArrayElementSchema(this.props.schema, index)}
 				value={this.props.value[index]}
+				updating={this.props.updating}
 			/>
 		);
 	}
@@ -151,5 +152,6 @@ if (process.env.NODE_ENV !== 'production') {
 		templates: PropTypes.object.isRequired,
 		value: PropTypes.array.isRequired,
 		widgets: PropTypes.object.isRequired,
+		updating: PropTypes.arrayOf(PropTypes.string),
 	};
 }

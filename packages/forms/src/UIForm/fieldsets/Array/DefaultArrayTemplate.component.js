@@ -10,6 +10,7 @@ import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
 
 import theme from './DefaultArrayTemplate.scss';
+import { isUpdating } from '../../utils/updating';
 
 function DefaultArrayTemplate(props) {
 	const {
@@ -28,6 +29,7 @@ function DefaultArrayTemplate(props) {
 	} = props;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
+	const updating = isUpdating(props.updating, schema);
 
 	return (
 		<fieldset
@@ -40,6 +42,7 @@ function DefaultArrayTemplate(props) {
 				className={classNames(theme['tf-array-add'], 'tf-array-add')}
 				bsStyle={'info'}
 				onClick={onAdd}
+				disabled={updating}
 				label={options.btnLabel || t('ARRAY_ADD_ELEMENT', { defaultValue: 'New Element' })}
 			/>
 			<Message
@@ -66,6 +69,7 @@ function DefaultArrayTemplate(props) {
 							onRemove={onRemove}
 							onReorder={canReorder && onReorder}
 							isClosed={itemValue.isClosed}
+							updating={updating}
 						>
 							{renderItem(index)}
 						</ArrayItem>

@@ -8,6 +8,21 @@ const schema = {
 		type: 'object',
 		title: 'Comment',
 		properties: {
+			arrayOfObjects: {
+				type: 'array',
+				items: {
+					type: 'object',
+					properties: {
+						string: {
+							type: 'string',
+						},
+						number: {
+							type: 'number',
+						},
+					},
+					required: ['string', 'number'],
+				},
+			},
 			string: {
 				type: 'string',
 			},
@@ -57,6 +72,20 @@ const schema = {
 		},
 	},
 	uiSchema: [
+		{
+			key: 'arrayOfObjects',
+			itemTitle: 'arrayOfObjects',
+			items: [
+				{
+					key: 'arrayOfObjects[].string',
+					title: 'string',
+				},
+				{
+					key: 'arrayOfObjects[].number',
+					title: 'number',
+				},
+			],
+		},
 		{
 			key: 'string',
 			title: 'string',
@@ -129,7 +158,9 @@ const schema = {
 			widget: 'radios',
 		},
 	],
-	properties: {},
+	properties: {
+		arrayOfObjects: [{ string: 'string', number: 3 }],
+	},
 };
 
 const updating = schema.uiSchema.map(w => w.key);
