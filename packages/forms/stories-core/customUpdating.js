@@ -69,6 +69,18 @@ const schema = {
 			toggle: {
 				type: 'boolean',
 			},
+			select: {
+				type: 'string',
+				enum: ['foo', 'bar', 'fuzz', 'qux'],
+			},
+			selectmulti: {
+				type: 'array',
+				items: {
+					type: 'string',
+					enum: ['foo', 'bar', 'fuzz', 'qux'],
+				},
+				uniqueItems: true,
+			},
 		},
 	},
 	uiSchema: [
@@ -156,6 +168,15 @@ const schema = {
 			key: 'radios',
 			title: 'radios',
 			widget: 'radios',
+		},
+		{
+			key: 'select',
+			title: 'select',
+		},
+		{
+			key: 'selectmulti',
+			title: 'Multiple choices list',
+			widget: 'select',
 		},
 	],
 	properties: {

@@ -10,7 +10,6 @@ exports[`ResourcePicker field should render simple select 1`] = `
   isValid={true}
   label="My ResourcePicker title"
   required={true}
-  updating={false}
 >
   <ResourcePicker
     aria-describedby="mySelect-description mySelect-error"

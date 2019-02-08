@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import ResourcePickerComponent from '@talend/react-components/lib/ResourcePicker';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
-import { isUpdating } from '../../utils/updating';
 import { CHANGE, FILTER } from './constants';
 
 class ResourcePicker extends Component {
@@ -168,7 +167,6 @@ class ResourcePicker extends Component {
 				isValid={isValid}
 				label={schema.title}
 				required={schema.required}
-				updating={isUpdating(this.props.updating, schema)}
 			>
 				<ResourcePickerComponent
 					{...this.props}
