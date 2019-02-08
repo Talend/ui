@@ -4,6 +4,7 @@ import cmf, { cmfConnect } from '@talend/react-cmf';
 import Form from '@talend/react-forms';
 import { getValue } from '@talend/react-forms/lib/UIForm/utils/properties';
 import omit from 'lodash/omit';
+import get from 'lodash/get';
 import { Map } from 'immutable';
 import memoizeOne from 'memoize-one';
 import kit from './kit';
@@ -129,7 +130,7 @@ export class TCompForm extends React.Component {
 			type: TCompForm.ON_TRIGGER_BEGIN,
 			...payload,
 		});
-		if (Array.isArray(payload.trigger.options)) {
+		if (Array.isArray(get(payload, 'trigger.options'))) {
 			const updating = payload.trigger.options.map(op => op.path);
 			this.setState({ updating });
 		}
