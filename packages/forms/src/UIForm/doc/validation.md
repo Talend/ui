@@ -25,10 +25,10 @@ How to use custom validation
 
 ```json
 {
-    uiSchema: [
+    "uiSchema": [
         {
-            key: 'name',
-            customValidation: true // enable custom validation on name value
+            "key": "name",
+            "customValidation": true // enable custom validation on name value
         },
     ]
 }
