@@ -10,6 +10,7 @@ exports[`Datalist component should render 1`] = `
   isValid={true}
   label="My List"
   required={true}
+  updating={false}
 >
   <Datalist component
     autoFocus={true}
@@ -61,6 +62,7 @@ exports[`Datalist component should render with multisection 1`] = `
   isValid={true}
   label="My List"
   required={true}
+  updating={false}
 >
   <Datalist component
     autoFocus={true}

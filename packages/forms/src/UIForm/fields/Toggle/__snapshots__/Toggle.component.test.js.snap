@@ -8,6 +8,7 @@ exports[`Toggle field should render autoFocused input 1`] = `
   errorMessage="My error message"
   isValid={true}
   required={true}
+  updating={false}
 >
   <Toggle
     aria-describedby="myForm-description myForm-error"
@@ -33,6 +34,7 @@ exports[`Toggle field should render disabled input 1`] = `
   errorMessage="My error message"
   isValid={true}
   required={true}
+  updating={false}
 >
   <Toggle
     aria-describedby="myForm-description myForm-error"
@@ -57,6 +59,7 @@ exports[`Toggle field should render input 1`] = `
   errorMessage="My error message"
   isValid={true}
   required={true}
+  updating={false}
 >
   <Toggle
     aria-describedby="myForm-description myForm-error"

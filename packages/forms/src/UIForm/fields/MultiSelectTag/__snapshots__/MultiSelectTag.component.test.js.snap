@@ -10,6 +10,7 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
   isValid={true}
   label="Tags"
   required={true}
+  updating={false}
 >
   <div
     className="theme-wrapper form-control"

@@ -9,6 +9,7 @@ exports[`Radios field should render disabled input 1`] = `
   isValid={true}
   label="My radios title"
   required={true}
+  updating={false}
 >
   <div
     className="radio"
@@ -88,6 +89,7 @@ exports[`Radios field should render inline radios 1`] = `
   isValid={true}
   label="My radios title"
   required={true}
+  updating={false}
 >
   <div
     className="radio-inline"
@@ -167,6 +169,7 @@ exports[`Radios field should render radios 1`] = `
   isValid={true}
   label="My radios title"
   required={true}
+  updating={false}
 >
   <div
     className="radio"

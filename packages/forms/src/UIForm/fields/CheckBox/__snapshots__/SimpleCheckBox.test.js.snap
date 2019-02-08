@@ -2,7 +2,7 @@
 
 exports[`SimpleCheckBox field should render disabled input 1`] = `
 <div
-  className="checkbox"
+  className="checkbox disabled"
 >
   <label>
     <input

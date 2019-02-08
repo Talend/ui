@@ -11,6 +11,7 @@ exports[`TextArea field should render disabled textarea 1`] = `
   label="My input title"
   labelAfter={true}
   required={true}
+  updating={false}
 >
   <textarea
     aria-describedby="myForm-description myForm-error"
@@ -41,6 +42,7 @@ exports[`TextArea field should render provided rows 1`] = `
   label="My input title"
   labelAfter={true}
   required={true}
+  updating={false}
 >
   <textarea
     aria-describedby="myForm-description myForm-error"
@@ -71,6 +73,7 @@ exports[`TextArea field should render readonly textarea 1`] = `
   label="My input title"
   labelAfter={true}
   required={true}
+  updating={false}
 >
   <textarea
     aria-describedby="myForm-description myForm-error"
@@ -101,6 +104,7 @@ exports[`TextArea field should render textarea 1`] = `
   label="My input title"
   labelAfter={true}
   required={true}
+  updating={false}
 >
   <textarea
     aria-describedby="myForm-description myForm-error"
