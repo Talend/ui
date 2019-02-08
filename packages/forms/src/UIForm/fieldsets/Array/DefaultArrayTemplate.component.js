@@ -86,6 +86,7 @@ DefaultArrayTemplate.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
 	DefaultArrayTemplate.propTypes = {
+		updating: PropTypes.arrayOf(PropTypes.string),
 		canReorder: PropTypes.bool,
 		errorMessage: PropTypes.string,
 		id: PropTypes.string,
