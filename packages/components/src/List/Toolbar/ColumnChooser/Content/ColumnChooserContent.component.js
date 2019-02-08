@@ -23,7 +23,6 @@ export default function ColumnChooserContent({
 		changeColumnVisibility,
 		onDragAndDrop,
 	} = useColumnChooserManager(columns, handlerColumnChooser);
-	console.log({ columns })
 	return (
 		<div
 			id={`${id}-column-chooser-content`}
