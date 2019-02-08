@@ -4,6 +4,7 @@ import ResourcePickerComponent from '@talend/react-components/lib/ResourcePicker
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import { isUpdating } from '../../utils/updating';
+import { CHANGE, FILTER } from './constants';
 
 class ResourcePicker extends Component {
 	constructor(props) {
@@ -41,16 +42,27 @@ class ResourcePicker extends Component {
 
 	onFilter(event) {
 		this.setState({ isLoading: true }, () => {
-			this.props
-				.onTrigger(event, {
-					trigger: {
-						parameters: this.state.filters,
-					},
-					schema: this.props.schema,
-				})
+			this.onTrigger(event, FILTER, { filters: this.state.filters })
 				.then(data => this.setState(data))
 				.finally(() => this.setState({ isLoading: false }));
 		});
+	}
+
+	onTrigger(event, eventName, payload) {
+		const { schema, properties, errors } = this.props;
+		const trigger = schema.triggers && schema.triggers.find(trig => trig.onEvent === eventName);
+
+		if (trigger) {
+			return this.props.onTrigger(event, {
+				trigger,
+				schema,
+				properties,
+				errors,
+				...payload,
+			});
+		}
+
+		return Promise.resolve();
 	}
 
 	onRowClick(event, { id }) {
@@ -68,8 +80,10 @@ class ResourcePicker extends Component {
 			selected.push(id);
 		}
 
+		const value = multi ? selected : selected[0];
 		this.setState({ filters: { ...this.state.filters, selected } });
-		this.onChange(event, multi ? selected : selected[0]);
+		this.onChange(event, value);
+		this.onTrigger(event, CHANGE, { value });
 	}
 
 	isItemSelected({ id }) {
@@ -183,6 +197,8 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		onTrigger: PropTypes.func,
+		properties: PropTypes.object,
+		errors: PropTypes.object,
 		schema: PropTypes.shape({
 			schema: PropTypes.shape({
 				type: PropTypes.string,
