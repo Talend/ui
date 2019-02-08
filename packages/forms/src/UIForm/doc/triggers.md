@@ -15,10 +15,6 @@ You can do whatever you want outside of the forms, such as
 - change value in another widget
 - ...
 
-The only info that the form use are
-- properties: update the current properties
-- errors: update the current errors
-
 ## How to configure triggers
 
 Triggers are defined in the uiSchema. Depending on the form, you can have different trigger definitions for a widget.
@@ -45,8 +41,9 @@ In the example above
 - on widget value change, we execute `fillNameField` action
 - on filter, we execute the `filterDatasets` action, passing a `customParam` extra value
 
-Actions are code you write and execute (see [How to write a trigger implementation](#how-to-write-a-trigger-implementation--).
-Events are identifiers that the widget supports.
+`Actions` are code you write and execute (see [How to write a trigger implementation](#how-to-write-a-trigger-implementation-).
+
+`Events` are identifiers that the widget supports.
 
 ### Definition
 
@@ -55,12 +52,12 @@ A trigger definition have 2 mandatory properties: onEvent and action.
 | Trigger definition property | Type | Description |
 |---|---|---|
 | onEvent | `string` | This is consumed by the widget. The widget will get the definition corresponding to the user event, and call the trigger implementation with it. |
-| action | `string` | Unique action identifier. It will be consumed by the trigger implementation to determine which action to do. |
+| action | `string` | This is consumed by the trigger implementation. Unique action identifier to determine which action to perform. |
 | other | `any` | You can pass any additional parameters, that the trigger implementation will receive. |
 
 ## How to write a trigger implementation ?
 
-Triggers implementation are based on the trigger definition `action` value. Depending on the action, it will perform a corresponding task.
+Trigger implementations are based on the trigger definition `action` value. Depending on the action, it will perform a corresponding task.
 
 ### Example
 
@@ -71,33 +68,35 @@ import { UIForm } from '@talend/react-forms/lib/UIForm';
 class MyComponent extends React.Component {
 
 	onTrigger({ trigger, schema, value, properties, errors, ...otherOptions }) {
-	    const triggerResult = {};
-        switch (trigger.action) {
-            case 'fillNameField':
-                // perform some filter
-                triggerResult.properties = (oldProperties) => ({ ...oldProperties, name: value.name });
-                triggerResult.errors = (oldErrors) => {
-                    const newErrors = { ...oldErrors };
-                    delete newErrors.name;
-                    return newErrors;
-                };
-                break;
-            ...
+		const triggerResult = {};
+		switch (trigger.action) {
+			case 'fillNameField':
+				// perform some filter
+				triggerResult.properties = (oldProperties) => ({ ...oldProperties, name: value.name });
+				triggerResult.errors = (oldErrors) => {
+					const newErrors = { ...oldErrors };
+					delete newErrors.name;
+					return newErrors;
+				};
+				break;
+			...
         }
 
         return Promise.resolve(triggerResult);
 	}
 
 	render() {
-		return (<UIForm
-		    {...props}
-            onTrigger={this.onTrigger}
-		/>);
+		return (
+			<UIForm
+				{...props}
+				onTrigger={this.onTrigger}
+			/>
+		);
 	}
 }
 ```
 
-In the example above, for trigger definitions that points to 'fillNameField' action
+In the example above, for trigger definitions that points to `fillNameField` action
 - we set the name in the form properties
 - we remove name field errors
 
@@ -161,7 +160,7 @@ class ResourcePickerWidget extends React.Component {
 ```
 
 In the example above,
-- the widget performs call a trigger on value change
+- the widget calls a trigger on value change
 - the call is done only if it is defined in uiSchema
 - it passes the trigger definition, the widget schema, the new value. The whole form properties and errors are injected afterward. The trigger implementation then has all the information.
 

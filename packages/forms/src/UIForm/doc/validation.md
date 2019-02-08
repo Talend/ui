@@ -41,21 +41,24 @@ import { UIForm } from '@talend/react-forms/lib/UIForm';
 class MyComponent extends React.Component {
 
 	customValidation(schema, value, properties) {
-        switch (schema.key.toString()) {
-            case nameKey:
-                if(value.length < 2) {
-                    return 'Name should have at least 2 characters.'; // returns the error message
-                }
-                break;
-            ...
-        }
+		switch (schema.key.toString()) {
+			case nameKey:
+				if(value.length < 2) {
+					return 'Name should have at least 2 characters.'; // returns the error message
+				}
+				break;
+			default:
+				return null;
+		}
 	}
 
 	render() {
-		return (<UIForm
-		    {...props}
-            customValidation={customValidation}
-		/>);
+		return (
+			<UIForm
+			    {...props}
+        	    customValidation={customValidation}
+			/>
+		);
 	}
 }
 ```
@@ -69,4 +72,4 @@ class MyComponent extends React.Component {
 
 ## Next
 
-[Got to next step: Create new widgets](./widgets.md);
+[Got to next step: Create new widgets](./widgets.md)
