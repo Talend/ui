@@ -2,33 +2,20 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import Toggle from '@talend/react-components/lib/Toggle';
-import FieldTemplate from '../../FieldTemplate';
-import theme from './TextMode.scss';
 
 export default function TextModeToggle(props) {
 	return (
-		<div
-			className={classNames(theme['tc-toggle-text-mode'], 'tc-toggle-text-mode', props.className)}
-		>
+		<div className={classNames('form-group', props.className)}>
 			<dt>
 				<label htmlFor={props.id} className="control-label">
-					<FieldTemplate
-						description={props.description}
-						descriptionId={props.descriptionId}
-						errorId={props.errorId}
-						errorMessage={props.errorMessage}
-						isValid={props.isValid}
-						required={props.schema.required}
-					>
-						<Toggle
-							checked={props.value}
-							disabled
-							id={props.id}
-							label={props.schema.title}
-							// eslint-disable-next-line jsx-a11y/aria-proptypes
-							aria-hidden
-						/>
-					</FieldTemplate>
+					<Toggle
+						checked={props.value}
+						disabled
+						id={props.id}
+						label={props.schema.title}
+						// eslint-disable-next-line jsx-a11y/aria-proptypes
+						aria-hidden
+					/>
 				</label>
 			</dt>
 			<dd id={props.id} className="sr-only">

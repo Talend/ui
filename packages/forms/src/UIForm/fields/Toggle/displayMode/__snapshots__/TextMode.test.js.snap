@@ -2,25 +2,21 @@
 
 exports[`Toggle field in text mode should render the Toggle 1`] = `
 <div
-  className="theme-tc-toggle-text-mode tc-toggle-text-mode"
+  className="form-group"
 >
   <dt>
     <label
       className="control-label"
       htmlFor="myForm"
     >
-      <FieldTemplate
-        isValid={true}
-      >
-        <Toggle
-          aria-hidden={true}
-          checked={true}
-          className="switch checkbox"
-          disabled={true}
-          id="myForm"
-          label="My Toggle"
-        />
-      </FieldTemplate>
+      <Toggle
+        aria-hidden={true}
+        checked={true}
+        className="switch checkbox"
+        disabled={true}
+        id="myForm"
+        label="My Toggle"
+      />
     </label>
   </dt>
   <dd
