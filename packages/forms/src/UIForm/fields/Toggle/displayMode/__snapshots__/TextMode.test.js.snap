@@ -6,18 +6,21 @@ exports[`Toggle field in text mode should render the Toggle 1`] = `
 >
   <dt>
     <label
-      className="control-label"
+      className="control-label sr-only"
       htmlFor="myForm"
     >
+      My Toggle
+    </label>
+    <div
+      aria-hidden={true}
+    >
       <Toggle
-        aria-hidden={true}
         checked={true}
         className="switch checkbox"
         disabled={true}
-        id="myForm"
         label="My Toggle"
       />
-    </label>
+    </div>
   </dt>
   <dd
     className="sr-only"

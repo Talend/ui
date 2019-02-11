@@ -7,16 +7,12 @@ export default function TextModeToggle(props) {
 	return (
 		<div className={classNames('form-group', props.className)}>
 			<dt>
-				<label htmlFor={props.id} className="control-label">
-					<Toggle
-						checked={props.value}
-						disabled
-						id={props.id}
-						label={props.schema.title}
-						// eslint-disable-next-line jsx-a11y/aria-proptypes
-						aria-hidden
-					/>
+				<label htmlFor={props.id} className="control-label sr-only">
+					{props.schema.title}
 				</label>
+				<div aria-hidden>
+					<Toggle checked={props.value} disabled label={props.schema.title} />
+				</div>
 			</dt>
 			<dd id={props.id} className="sr-only">
 				{String(props.value)}
@@ -32,12 +28,7 @@ TextModeToggle.defaultProps = {
 if (process.env.NODE_ENV !== 'production') {
 	TextModeToggle.propTypes = {
 		className: PropTypes.string,
-		description: PropTypes.string,
-		descriptionId: PropTypes.string,
-		errorId: PropTypes.string,
-		errorMessage: PropTypes.string,
 		value: PropTypes.bool,
-		isValid: PropTypes.bool,
 		id: PropTypes.string,
 		schema: PropTypes.shape({
 			required: PropTypes.bool,
