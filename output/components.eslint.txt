@@ -8,35 +8,21 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/List/List.component.js
   119:4  error  'columnChooser' is assigned a value but never used  no-unused-vars
 
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/Content/ColumnChooserContent.component.js
-    2:8   error  'PropTypes' is defined but never used                                                                  no-unused-vars
-   11:70  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
-   12:12  error  'label' is missing in props validation                                                                 react/prop-types
-   12:19  error  'hidden' is missing in props validation                                                                react/prop-types
-   12:27  error  'locked' is missing in props validation                                                                react/prop-types
-   12:35  error  'order' is missing in props validation                                                                 react/prop-types
-  141:26  error  't' is missing in props validation                                                                     react/prop-types
-  141:34  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
-  151:27  error  'columns' is missing in props validation                                                               react/prop-types
-  151:36  error  'changeColumnOrder' is missing in props validation                                                     react/prop-types
-  151:55  error  'changeColumnVisibility' is missing in props validation                                                react/prop-types
-  151:84  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
-  159:26  error  'submitColumns' is missing in props validation                                                         react/prop-types
-  159:41  error  't' is missing in props validation                                                                     react/prop-types
-  159:49  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
-  171:2   error  'id' is missing in props validation                                                                    react/prop-types
-  172:2   error  'columns' is missing in props validation                                                               react/prop-types
-  173:2   error  'handlerColumnChooser' is missing in props validation                                                  react/prop-types
-  174:2   error  'header' is missing in props validation                                                                react/prop-types
-  175:2   error  'content' is missing in props validation                                                               react/prop-types
-  176:2   error  'footer' is missing in props validation                                                                react/prop-types
-  177:2   error  't' is missing in props validation                                                                     react/prop-types
+/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/columnChooserHooks/columnChooserManager.js
+  22:33  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
+  24:83  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
 
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/Manager/ColumnChooserManager.component.js
-  5:43  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
+/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/ColumnDisplayer/ColumnDisplayer.component.js
+  43:7  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
 
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/Manager/columnChooserManager.js
-  33:10  error  Prefer default export  import/prefer-default-export
+/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/ColumnDisplayerDraggable/ColumnDisplayerDraggable.component.js
+  41:89  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+
+/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/Content/DefaultColumnChooser.components.js
+   9:34  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  23:88  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  39:96  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  64:49  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/Toolbar.component.js
   59:2  error  'columnChooser' is missing in props validation  react/prop-types
@@ -59,6 +45,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 33 problems (31 errors, 2 warnings)
-  5 errors, 0 warnings potentially fixable with the `--fix` option.
+✖ 17 problems (15 errors, 2 warnings)
+  8 errors, 0 warnings potentially fixable with the `--fix` option.
 
