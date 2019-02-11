@@ -22,7 +22,7 @@ export function mergedColumns(columns, columnsToMerged) {
 }
 
 export function mergedColumnsChooser(originalColumns, columnChooserColumns) {
-	console.log('mergedColumnsChooser')
+	console.log('mergedColumnsChooser');
 	if (columnChooserColumns.length > 0) {
 		return mergedColumns(originalColumns, columnChooserColumns);
 	}
