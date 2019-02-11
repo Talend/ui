@@ -6,8 +6,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   6:10  error  'focusOnCalendar' is defined but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/Manager/Manager.component.test.js
-  6:33  error  Unable to resolve path to module './InputDateTimePicker.component'  import/no-unresolved
-  7:29  error  Unable to resolve path to module './constants'                      import/no-unresolved
+  7:10  error  'FIELD_HOURS' is defined but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/InputDateTimePicker/InputDateTimePicker.test.js
   7:29  error  Unable to resolve path to module './constants'  import/no-unresolved
@@ -40,5 +39,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 14 problems (12 errors, 2 warnings)
+✖ 13 problems (11 errors, 2 warnings)
 
