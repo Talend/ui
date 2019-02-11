@@ -11,7 +11,6 @@ describe('Toggle field in text mode', () => {
 		const wrapper = shallow(<Toggle id={'myForm'} schema={schema} value />);
 
 		// then
-		expect(wrapper.props().schema.disabled).toBeTruthy();
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
