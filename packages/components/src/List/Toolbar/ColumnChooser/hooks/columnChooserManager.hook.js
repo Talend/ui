@@ -59,9 +59,13 @@ export function useColumnChooserManager(columns, submitChanges) {
 		return function onBlur(value) {
 			const parseValue = parseInt(value, 10);
 			if (Number.isInteger(parseValue) && state.editedColumns[index].order !== parseValue) {
-				const replaceColumn = state.editedColumns.find(col => col.order === parseValue);
-				if (replaceColumn) {
-					setState(updateAttributeOrder(parseValue + 1, replaceColumn.order - 1));
+				const indexColToReplace = state.editedColumns.findIndex(col => col.order === parseValue);
+				if (indexColToReplace > -1) {
+					if (indexColToReplace === state.editedColumns.length - 1) {
+						setState(updateAttributeOrder(parseValue - 1, indexColToReplace));
+					} else {
+						setState(updateAttributeOrder(parseValue + 1, indexColToReplace));
+					}
 				}
 				setState(updateAttributeOrder(parseValue, index));
 				setState(prevState => {
