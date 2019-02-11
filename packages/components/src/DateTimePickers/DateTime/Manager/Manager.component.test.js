@@ -1,47 +1,32 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import cases from 'jest-in-case';
-import keycode from 'keycode/index';
 
-import InputDateTimePicker from './InputDateTimePicker.component';
-import { FIELD_HOURS } from './constants';
+import Manager from './Manager.component';
+import { DateTimeContext } from '../Context';
+import { FIELD_HOURS } from '../constants';
 
 const DEFAULT_ID = 'DEFAULT_ID';
+
+function DateTimeConsumerDiv() {
+	return <div />;
+}
+// eslint-disable-next-line react/prop-types
+function DateTimeConsumer() {
+	return (
+		<DateTimeContext.Consumer>
+			{contextValue => <DateTimeConsumerDiv {...contextValue} />}
+		</DateTimeContext.Consumer>
+	);
+}
 
 describe('DatePicker.Manager', () => {
 	it('should render', () => {
 		// when
 		const wrapper = shallow(
-			<InputDateTimePicker
-				id={DEFAULT_ID}
-				selectedDateTime={new Date(2017, 3, 4, 15, 27)}
-				useTime
-			/>,
-		);
-
-		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should render with format error', () => {
-		// when
-		const wrapper = shallow(
-			<InputDateTimePicker id={DEFAULT_ID} selectedDateTime={'2012-10-12 12'} useTime formMode />,
-		);
-
-		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should render validation button', () => {
-		// when
-		const wrapper = shallow(
-			<InputDateTimePicker
-				id={DEFAULT_ID}
-				selectedDateTime={new Date(2017, 3, 4, 15, 27)}
-				useTime
-				formMode
-			/>,
+			<Manager id={DEFAULT_ID} selectedDateTime={new Date(2017, 3, 4, 15, 27)} useTime>
+				<DateTimeConsumer />
+			</Manager>,
 		);
 
 		// then
@@ -52,17 +37,17 @@ describe('DatePicker.Manager', () => {
 		'initial state',
 		({ initialDate, expectedTextInput, expectedDate, expectedTime }) => {
 			// when
-			const wrapper = shallow(
-				<InputDateTimePicker id={DEFAULT_ID} selectedDateTime={initialDate} useTime useSeconds />,
+			const wrapper = mount(
+				<Manager id={DEFAULT_ID} selectedDateTime={initialDate} useTime useSeconds>
+					<DateTimeConsumer />
+				</Manager>,
 			);
 
 			// then
-			const textInput = wrapper.find('DebounceInput').prop('value');
-			expect(textInput).toBe(expectedTextInput);
-
-			const { date, time } = wrapper.find('DateTimePicker').prop('selection');
-			expect(date).toEqual(expectedDate);
-			expect(time).toEqual(expectedTime);
+			const contextValue = wrapper.find('DateTimeConsumerDiv').props();
+			expect(contextValue.datetime.textInput).toBe(expectedTextInput);
+			expect(contextValue.datetime.date).toEqual(expectedDate);
+			expect(contextValue.datetime.time).toEqual(expectedTime);
 		},
 		[
 			{
@@ -93,13 +78,10 @@ describe('DatePicker.Manager', () => {
 		'props update should update state',
 		({ initialDate, newDate, expectedTextInput, expectedDate, expectedTime, useSeconds }) => {
 			// given
-			const wrapper = shallow(
-				<InputDateTimePicker
-					id={DEFAULT_ID}
-					selectedDateTime={initialDate}
-					useSeconds={useSeconds}
-					useTime
-				/>,
+			const wrapper = mount(
+				<Manager id={DEFAULT_ID} selectedDateTime={initialDate} useSeconds={useSeconds} useTime>
+					<DateTimeConsumer />
+				</Manager>,
 			);
 
 			// when
@@ -108,12 +90,10 @@ describe('DatePicker.Manager', () => {
 			});
 
 			// then
-			const textInput = wrapper.find('DebounceInput').prop('value');
-			expect(textInput).toBe(expectedTextInput);
-
-			const { date, time } = wrapper.find('DateTimePicker').prop('selection');
-			expect(date).toEqual(expectedDate);
-			expect(time).toEqual(expectedTime);
+			const contextValue = wrapper.find('DateTimeConsumerDiv').props();
+			expect(contextValue.datetime.textInput).toBe(expectedTextInput);
+			expect(contextValue.datetime.date).toEqual(expectedDate);
+			expect(contextValue.datetime.time).toEqual(expectedTime);
 		},
 		[
 			{
@@ -156,10 +136,12 @@ describe('DatePicker.Manager', () => {
 		'props update should NOT update state',
 		({ initialDate, newDate }) => {
 			// given
-			const wrapper = shallow(
-				<InputDateTimePicker id={DEFAULT_ID} selectedDateTime={initialDate} useTime />,
+			const wrapper = mount(
+				<Manager id={DEFAULT_ID} selectedDateTime={initialDate} useTime>
+					<DateTimeConsumer />
+				</Manager>,
 			);
-			const previousState = wrapper.state();
+			const previousState = wrapper.find('DateTimeConsumerDiv').props('datetime');
 
 			// when
 			wrapper.setProps({
@@ -167,7 +149,10 @@ describe('DatePicker.Manager', () => {
 			});
 
 			// then
-			expect(wrapper.state()).toBe(previousState);
+			const nextState = wrapper.find('DateTimeConsumerDiv').props('datetime');
+			expect(previousState.textInput).toBe(nextState.textInput);
+			expect(previousState.date).toBe(nextState.date);
+			expect(previousState.time).toBe(nextState.time);
 		},
 		[
 			{
@@ -182,140 +167,7 @@ describe('DatePicker.Manager', () => {
 			},
 		],
 	);
-
-	describe('focus/blur', () => {
-		it('should open picker on focus', () => {
-			// given
-			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} useTime />, {
-				attachTo: document.body,
-			});
-			expect(
-				wrapper
-					.find('Overlay')
-					.first()
-					.prop('show'),
-			).toBeFalsy();
-
-			// when
-			wrapper.simulate('focus');
-
-			// then
-			expect(
-				wrapper
-					.find('Overlay')
-					.first()
-					.prop('show'),
-			).toBe(true);
-		});
-
-		it('should close picker on blur', () => {
-			// given
-			jest.useFakeTimers();
-			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} useTime />);
-			wrapper.simulate('focus');
-			expect(
-				wrapper
-					.find('Overlay')
-					.first()
-					.prop('show'),
-			).toBe(true);
-
-			// when
-			wrapper.simulate('blur');
-			jest.runAllTimers();
-			wrapper.update();
-
-			// then
-			expect(
-				wrapper
-					.find('Overlay')
-					.first()
-					.prop('show'),
-			).toBe(false);
-		});
-
-		it('should trigger props.onBlur', () => {
-			// given
-			jest.useFakeTimers();
-			const onBlur = jest.fn();
-			const event = { target: {} };
-			const wrapper = shallow(<InputDateTimePicker id={DEFAULT_ID} onBlur={onBlur} useTime />);
-			expect(onBlur).not.toBeCalled();
-
-			// when
-			wrapper.simulate('blur', event);
-			jest.runAllTimers();
-
-			// then
-			expect(onBlur).toBeCalledWith(event);
-		});
-	});
-
-	describe('keydown', () => {
-		it('should close the picker and focus on input with ESC', () => {
-			// given
-			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} useTime />);
-			wrapper.simulate('focus');
-			expect(
-				wrapper
-					.find('Overlay')
-					.first()
-					.prop('show'),
-			).toBe(true);
-			const event = { keyCode: keycode.codes.esc };
-
-			// when
-			wrapper.simulate('keydown', event);
-
-			// then
-			expect(
-				wrapper
-					.find('Overlay')
-					.first()
-					.prop('show'),
-			).toBe(false);
-		});
-
-		it('should focus open picker if it is closed with input DOWN', () => {
-			// given
-			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} useTime />);
-			expect(
-				wrapper
-					.find('Overlay')
-					.first()
-					.prop('show'),
-			).toBeFalsy();
-			const event = { keyCode: keycode.codes.down };
-
-			// when
-			wrapper.find('input').simulate('keydown', event);
-
-			// then
-			expect(
-				wrapper
-					.find('Overlay')
-					.first()
-					.prop('show'),
-			).toBe(true);
-		});
-
-		it('should focus on calendar day if it is open with input DOWN', () => {
-			// given
-			const wrapper = mount(<InputDateTimePicker id={DEFAULT_ID} useTime />);
-			wrapper.simulate('focus');
-			const event = { keyCode: keycode.codes.down };
-
-			// when
-			wrapper
-				.find('input')
-				.first()
-				.simulate('keydown', event);
-
-			// then
-			expect(document.activeElement.classList.contains('tc-date-picker-day')).toBe(true);
-		});
-	});
-
+	/*
 	describe('input change', () => {
 		cases(
 			'should update picker',
@@ -553,5 +405,5 @@ describe('DatePicker.Manager', () => {
 			expect(isNaN(args[1].datetime.getTime())).toBe(true);
 			expect(args[1].origin).toBe('PICKER');
 		});
-	});
+	});*/
 });
