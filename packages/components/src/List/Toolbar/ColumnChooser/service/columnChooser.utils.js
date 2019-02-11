@@ -21,7 +21,8 @@ export function mergedColumns(columns, columnsToMerged) {
 	return columns.map(transformColumns(columnsToMerged));
 }
 
-export function mergedColumnChooser(originalColumns, columnChooserColumns) {
+export function mergedColumnsChooser(originalColumns, columnChooserColumns) {
+	console.log('mergedColumnsChooser')
 	if (columnChooserColumns.length > 0) {
 		return mergedColumns(originalColumns, columnChooserColumns);
 	}

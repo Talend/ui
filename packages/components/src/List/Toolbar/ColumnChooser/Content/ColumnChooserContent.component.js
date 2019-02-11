@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import RichLayout from '../../../../RichTooltip/RichLayout';
 import getDefaultT from '../../../../translate';
 import theme from './ColumnChooserModal.scss';
-import { useColumnChooserManager } from '../columnChooserHooks/columnChooserManager';
+import { useColumnChooserManager } from '../hooks';
 import { DefaultHeader, DefaultBody, DefaultFooter } from './DefaultColumnChooser.components';
 
 export default function ColumnChooserContent({
@@ -17,7 +17,7 @@ export default function ColumnChooserContent({
 	t,
 }) {
 	const {
-		editedColumns,
+		stateColumnChooser,
 		submitColumns,
 		changeColumnOrder,
 		changeColumnVisibility,
@@ -33,7 +33,7 @@ export default function ColumnChooserContent({
 				Content={
 					body || (
 						<DefaultBody
-							columns={editedColumns}
+							columns={stateColumnChooser.editedColumns}
 							changeColumnOrder={changeColumnOrder}
 							changeColumnVisibility={changeColumnVisibility}
 							onDragAndDrop={onDragAndDrop}

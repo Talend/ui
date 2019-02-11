@@ -11,7 +11,7 @@ import { List, IconsProvider } from '../src/index';
 import i18n, { LanguageSwitcher } from './config/i18n';
 import { MyCustomRow } from './VirtualizedList';
 
-import { mergedColumnChooser } from '../src/List/Toolbar/ColumnChooser/ColumnChooser.service';
+import { columnChooserService, columnChooserHooks } from '../src/List/Toolbar/ColumnChooser';
 /**
  * Cell renderer that displays hello + text
  */
@@ -914,27 +914,17 @@ storiesOf('List', module)
 		</div>
 	));
 
-class ListColumnChooser extends React.Component {
-	state = {
-		editedColumns: [],
-	};
-
-	handlerColumnChooser = (event, columnsChooserData) => {
-		this.setState({ editedColumns: columnsChooserData.editedColumns });
-	};
-
-	render() {
-		const columns = mergedColumnChooser(this.props.list.columns, this.state.editedColumns);
-		const list = {
-			...this.props.list,
-			columns,
-		};
-
-		const columnChooser = {
-			columns,
-			handlerColumnChooser: this.handlerColumnChooser,
-		};
-
-		return <List {...props} list={list} columnChooser={columnChooser} />;
+function ListColumnChooser({ list }) {
+	function myListColumnChooserHanlder(event, editedColumns) {
+		console.log('Hello beautiful hooks', editedColumns);
 	}
+	const columnChooser = columnChooserHooks.useColumnChooserClient(
+		myListColumnChooserHanlder,
+		list.columns,
+	);
+	const enrichedList = {
+		list,
+		columns: columnChooser.state.columns,
+	};
+	return <List {...props} list={enrichedList} columnChooser={columnChooser} />;
 }

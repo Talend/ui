@@ -135,6 +135,7 @@ class List extends React.Component {
 			...this.props.columnChooser,
 			columns: this.props.list.columns,
 		};
+
 		return (
 			<div className={classnames}>
 				{injected('before-component')}
