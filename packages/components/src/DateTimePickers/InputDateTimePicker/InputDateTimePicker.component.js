@@ -108,7 +108,10 @@ class InputDateTimePicker extends React.Component {
 
 	onChange(event, payload) {
 		this.props.onChange(event, payload);
-		if (this.props.formMode || (!this.props.formMode && !this.props.useTime)) {
+		if (
+			this.props.formMode ||
+			(!this.props.formMode && !this.props.useTime && payload.origin !== 'INPUT')
+		) {
 			this.inputRef.focus();
 			this.closePicker();
 		}
