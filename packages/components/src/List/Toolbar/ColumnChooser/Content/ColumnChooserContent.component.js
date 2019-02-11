@@ -51,11 +51,11 @@ ColumnChooserContent.defaultProps = {
 };
 
 ColumnChooserContent.propTypes = {
-	body: PropTypes.element,
+	body: PropTypes.object,
 	columns: PropTypes.array.isRequired,
-	footer: PropTypes.element,
+	footer: PropTypes.object,
 	handlerColumnChooser: PropTypes.func.isRequired,
-	header: PropTypes.element,
+	header: PropTypes.object,
 	id: PropTypes.string.isRequired,
 	t: PropTypes.func,
 };

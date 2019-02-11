@@ -910,11 +910,11 @@ storiesOf('List', module)
 				<br />
 				This is the default mode.
 			</p>
-			<MyList {...props} />
+			<ListColumnChooser {...props} />
 		</div>
 	));
 
-class MyList extends React.Component {
+class ListColumnChooser extends React.Component {
 	state = {
 		editedColumns: [],
 	};
