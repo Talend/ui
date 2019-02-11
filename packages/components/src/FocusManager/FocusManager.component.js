@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import omit from 'lodash/omit';
 
 /**
  * This component handles some specific cases like when we click in the datalist
@@ -12,23 +13,31 @@ import PropTypes from 'prop-types';
  */
 export default class FocusManager extends Component {
 	static propTypes = {
-		children: PropTypes.element.isRequired,
 		onFocusOut: PropTypes.func.isRequired,
+		onFocusIn: PropTypes.func.isRequired,
+		divRef: PropTypes.func,
 	};
 
-	onFocus = () => {
+	onFocus = event => {
 		clearTimeout(this.timeout);
+		if (this.props.onFocusIn) {
+			this.props.onFocusIn(event);
+		}
 	};
 
-	onBlur = () => {
-		this.timeout = setTimeout(() => this.props.onFocusOut());
+	onBlur = event => {
+		this.timeout = setTimeout(() => this.props.onFocusOut(event));
 	};
 
 	render() {
 		return (
-			<div tabIndex={0} onBlur={this.onBlur} onFocus={this.onFocus}>
-				{this.props.children}
-			</div>
+			<div
+				{...omit(this.props, ['onFocusOut', 'onFocusIn', 'divRef'])}
+				ref={this.props.divRef}
+				tabIndex={-1}
+				onBlur={this.onBlur}
+				onFocus={this.onFocus}
+			/>
 		);
 	}
 }
