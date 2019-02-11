@@ -1,25 +1,20 @@
 import { useState, useEffect } from 'react';
 import { mergedColumnsChooser } from '../service';
 
-function useColumnChooserClient(handlerCustomColumnChooser, columns) {
+function useColumnChooserClient(columns, handlerCustomColumnChooser = () => {}) {
 	const [state, setState] = useState({ columns: columns || [] });
-
 	function handlerColumnChooser(event, { editedColumns }) {
 		setState({ columns: editedColumns });
 	}
 
-	function getColumns() {
-		if (columns) {
-			return mergedColumnsChooser(columns, state.columns);
-		}
-		return state.columns;
-	}
-
 	useEffect(() => {
-		handlerCustomColumnChooser();
+		handlerCustomColumnChooser({}, state.columns);
 	}, [state.columns]);
 
-	return { state: { ...state, columns: getColumns() }, handlerColumnChooser };
+	return {
+		state: { ...state, columns: mergedColumnsChooser(columns, state.columns) },
+		handlerColumnChooser,
+	};
 }
 
 export { useColumnChooserClient };

@@ -20,42 +20,63 @@ export function organiseColumns(columns) {
 	});
 }
 
+function changeColumnAttribute(key) {
+	return function setAttribut(value, index) {
+		return function setColumn(state) {
+			const newColumns = state.editedColumns;
+			newColumns[index][key] = value;
+			return { ...state, editedColumns: newColumns };
+		};
+	};
+}
+
+const updateAttributeVisiblity = changeColumnAttribute('hidden');
+const updateAttributeOrder = changeColumnAttribute('order');
+
 export function useColumnChooserManager(columns, submitChanges) {
-	const [stateColumnChooser, setStateColumnChooser] = useState({
+	const [state, setState] = useState({
 		editedColumns: organiseColumns(columns),
 	});
 
 	function submitColumns(event) {
-		const editedColumns = cloneDeep(stateColumnChooser.editedColumns);
-		submitChanges(event, { ...stateColumnChooser, editedColumns });
+		const editedColumns = cloneDeep(state.editedColumns);
+		submitChanges(event, { ...state, editedColumns });
 	}
 
 	function changeColumnVisibility(index) {
 		return function changeVisiblity(value) {
-			setStateColumnChooser(prevState => {
-				const editingColumns = prevState.editedColumns;
-				editingColumns[index].hidden = value;
-				return { editedColumns: editingColumns };
-			});
+			setState(updateAttributeVisiblity(value, index));
 		};
 	}
 
 	function changeColumnOrder(index) {
 		return function changeOrder(value) {
-			setStateColumnChooser(prevState => {
-				const editingColumns = prevState.editedColumns;
-				editingColumns[index].order = value;
-				return { editedColumns: editingColumns };
-			});
+			setState(updateAttributeOrder(value, index));
+		};
+	}
+
+	function onBlurColumnOrder(index) {
+		return function onBlur(value) {
+			const parseValue = parseInt(value, 10);
+			if (Number.isInteger(parseValue) && state.editedColumns[index].order !== parseValue) {
+				const replaceColumn = state.editedColumns.find(col => col.order === parseValue);
+				if (replaceColumn) {
+					setState(updateAttributeOrder(parseValue + 1, replaceColumn.order - 1));
+				}
+				setState(updateAttributeOrder(parseValue, index));
+				setState(prevState => {
+					return { ...prevState, editedColumns: organiseColumns(prevState.editedColumns) };
+				});
+			}
 		};
 	}
 
 	function onDragAndDrop(sourceColumn, targetColumn) {
 		const order = targetColumn.order;
-		sourceColumn.onChangeOrder(order);
-		targetColumn.onChangeOrder(order + 1);
-		setStateColumnChooser(prevState => {
-			return { editedColumns: organiseColumns(prevState.editedColumns) };
+		setState(updateAttributeOrder(order, sourceColumn.index));
+		setState(updateAttributeOrder(order + 1, targetColumn.index));
+		setState(prevState => {
+			return { ...prevState, editedColumns: organiseColumns(prevState.editedColumns) };
 		});
 	}
 
@@ -63,7 +84,8 @@ export function useColumnChooserManager(columns, submitChanges) {
 		changeColumnOrder,
 		changeColumnVisibility,
 		onDragAndDrop,
-		stateColumnChooser,
+		onBlurColumnOrder,
+		stateColumnChooser: Object.freeze(state),
 		submitColumns,
 	};
 }

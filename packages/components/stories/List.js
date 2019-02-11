@@ -914,17 +914,31 @@ storiesOf('List', module)
 		</div>
 	));
 
-function ListColumnChooser({ list }) {
+function ListColumnChooser({ list, ...rest }) {
 	function myListColumnChooserHanlder(event, editedColumns) {
-		console.log('Hello beautiful hooks', editedColumns);
+		console.log('Hello beautifull hooks', editedColumns);
 	}
+	/*
+		If you need to resolve the column chooser columns elsewhere,
+		you can just write the column chooser resut elsewhere.
+		And here make for example make the resolution with something like this :
+		const mergedColumns = 
+			columnChooserService.utils.mergedColumnsChooser(
+				props.list.columns, 
+				props.somewhere.columnChooserResult
+			);
+		return <List 
+					{...rest} 
+					list={{...list, columns: mergedColumns }} 
+					columnChooser={{ handlerCustomChooser: myHandler, columns: mergedColumns}} />
+	*/
 	const columnChooser = columnChooserHooks.useColumnChooserClient(
-		myListColumnChooserHanlder,
 		list.columns,
+		myListColumnChooserHanlder,
 	);
 	const enrichedList = {
-		list,
+		...list,
 		columns: columnChooser.state.columns,
 	};
-	return <List {...props} list={enrichedList} columnChooser={columnChooser} />;
+	return <List {...rest} list={enrichedList} columnChooser={columnChooser} />;
 }

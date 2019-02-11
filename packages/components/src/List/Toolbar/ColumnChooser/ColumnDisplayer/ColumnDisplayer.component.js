@@ -13,7 +13,7 @@ ColumnVisibility.propTypes = {
 	value: PropTypes.bool,
 };
 
-const ColumnOrder = ({ onChange, value, length }) => (
+const ColumnOrder = ({ onBlur, onChange, value, length }) => (
 	<span>
 		<input
 			style={{ width: '25px' }}
@@ -21,6 +21,7 @@ const ColumnOrder = ({ onChange, value, length }) => (
 			placeholder={value}
 			type="text"
 			value={value}
+			onBlur={event => onBlur(event.target.value)}
 		/>
 		{`/${length}`}
 	</span>
@@ -40,6 +41,7 @@ const ColumnDisplayer = ({
 	length,
 	onChangeVisibility,
 	onChangeOrder,
+	onBlurColumnOrder,
 }) => {
 	return (
 		<div
@@ -53,7 +55,12 @@ const ColumnDisplayer = ({
 				<ColumnVisibility onChange={onChangeVisibility} value={hidden} />
 			)}
 			<span>{label}</span>
-			<ColumnOrder onChange={onChangeOrder} value={order} length={length} />
+			<ColumnOrder
+				onBlur={onBlurColumnOrder}
+				onChange={onChangeOrder}
+				value={order}
+				length={length}
+			/>
 		</div>
 	);
 };

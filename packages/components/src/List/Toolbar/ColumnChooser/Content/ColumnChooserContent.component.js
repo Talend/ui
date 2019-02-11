@@ -22,6 +22,7 @@ export default function ColumnChooserContent({
 		changeColumnOrder,
 		changeColumnVisibility,
 		onDragAndDrop,
+		onBlurColumnOrder,
 	} = useColumnChooserManager(columns, handlerColumnChooser);
 	return (
 		<div
@@ -37,6 +38,7 @@ export default function ColumnChooserContent({
 							changeColumnOrder={changeColumnOrder}
 							changeColumnVisibility={changeColumnVisibility}
 							onDragAndDrop={onDragAndDrop}
+							onBlurColumnOrder={onBlurColumnOrder}
 						/>
 					)
 				}

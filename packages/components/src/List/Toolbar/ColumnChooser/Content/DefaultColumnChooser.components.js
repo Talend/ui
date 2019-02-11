@@ -20,14 +20,22 @@ DefaultHeader.propTypes = {
 	t: PropTypes.func.isRequired,
 };
 
-const getColumnDisplay = (length, onChangeVisibility, onChangeOrder, onDragAndDrop) => {
+const getColumnDisplay = (
+	length,
+	onChangeVisibility,
+	onChangeOrder,
+	onDragAndDrop,
+	onBlurColumnOrder,
+) => {
 	return (column, index) => {
 		const displayerProps = {
 			...column,
+			index,
 			length,
 			onChangeVisibility: onChangeVisibility(index),
 			onChangeOrder: onChangeOrder(index),
 			onDragAndDrop,
+			onBlurColumnOrder: onBlurColumnOrder(index),
 		};
 		if (column.locked) {
 			return <ColumnDisplayer {...displayerProps} />;
@@ -36,7 +44,13 @@ const getColumnDisplay = (length, onChangeVisibility, onChangeOrder, onDragAndDr
 	};
 };
 
-const DefaultBody = ({ columns, changeColumnOrder, changeColumnVisibility, onDragAndDrop }) => {
+const DefaultBody = ({
+	columns,
+	changeColumnOrder,
+	changeColumnVisibility,
+	onDragAndDrop,
+	onBlurColumnOrder,
+}) => {
 	return (
 		<DragDropContextProvider backend={HTML5Backend}>
 			<div id="defaultContent" style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
@@ -46,6 +60,7 @@ const DefaultBody = ({ columns, changeColumnOrder, changeColumnVisibility, onDra
 						changeColumnVisibility,
 						changeColumnOrder,
 						onDragAndDrop,
+						onBlurColumnOrder,
 					),
 				)}
 			</div>
