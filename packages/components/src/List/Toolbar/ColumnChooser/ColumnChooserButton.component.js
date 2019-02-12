@@ -7,10 +7,11 @@ export default function ColumnChooserButton({ id, columns, handlerColumnChooser 
 	return (
 		<ActionButton
 			id={`${id}-button`}
-			label="column-chooser-button"
+			label=""
 			icon="talend-folder"
 			data-feature="action"
 			overlayPlacement="bottom"
+			link
 			overlayComponent={
 				<ColumnChooserContent
 					columns={columns}

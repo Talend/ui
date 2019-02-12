@@ -2,17 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { DragDropContextProvider } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
+import classNames from 'classnames';
+import theme from './ColumnChooser.scss';
 import ActionButton from '../../../../Actions/ActionButton';
 import ColumnDisplayer from '../ColumnDisplayer';
 import ColumnDisplayerDraggable from '../ColumnDisplayerDraggable';
 
 const DefaultHeader = ({ t }) => {
 	return (
-		<React.Fragment>
+		<div className={classNames(theme['tc-column-chooser-header'], 'tc-column-chooser-header')}>
 			{t('COLUMN_CHOOSER_HEADER_TITLE', {
-				defaultValue: 'Modifying columns position',
+				defaultValue: 'Modify columns position',
 			})}
-		</React.Fragment>
+		</div>
 	);
 };
 
@@ -26,16 +28,18 @@ const getColumnDisplay = (
 	onChangeOrder,
 	onDragAndDrop,
 	onBlurColumnOrder,
+	onKeyPressOrder,
 ) => {
 	return (column, index) => {
 		const displayerProps = {
 			...column,
 			index,
 			length,
-			onChangeVisibility: onChangeVisibility(index),
-			onChangeOrder: onChangeOrder(index),
-			onDragAndDrop,
 			onBlurColumnOrder: onBlurColumnOrder(index),
+			onChangeOrder: onChangeOrder(index),
+			onChangeVisibility: onChangeVisibility(index),
+			onDragAndDrop,
+			onKeyPressOrder: onKeyPressOrder(index),
 		};
 		if (column.locked) {
 			return <ColumnDisplayer {...displayerProps} />;
@@ -50,10 +54,14 @@ const DefaultBody = ({
 	changeColumnVisibility,
 	onDragAndDrop,
 	onBlurColumnOrder,
+	onKeyPressOrder,
 }) => {
 	return (
 		<DragDropContextProvider backend={HTML5Backend}>
-			<div id="defaultContent" style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+			<div
+				id="column-chooser-content"
+				className={classNames(theme['tc-column-chooser-body'], 'tc-column-chooser-body')}
+			>
 				{columns.map(
 					getColumnDisplay(
 						columns.length,
@@ -61,6 +69,7 @@ const DefaultBody = ({
 						changeColumnOrder,
 						onDragAndDrop,
 						onBlurColumnOrder,
+						onKeyPressOrder,
 					),
 				)}
 			</div>
@@ -78,24 +87,28 @@ DefaultBody.propTypes = {
 
 const DefaultFooter = ({ selectAllValue, onSelectAll, submitColumns, t }) => {
 	return (
-		<div
-			style={{
-				display: 'flex',
-				justifyContent: 'space-between',
-				position: 'relative',
-				width: '100%',
-			}}
-		>
-			<span>
-				<input
-					label="Select All"
-					onChange={() => onSelectAll(!selectAllValue)}
-					type="checkbox"
-					checked={selectAllValue}
-					value={selectAllValue}
-				/>
+		<div className={classNames(theme['tc-column-chooser-footer'], 'tc-column-chooser-footer')}>
+			<span
+				className={classNames(
+					theme['tc-column-chooser-footer-select-all'],
+					'tc-column-chooser-footer-select-all',
+				)}
+			>
+				<span>
+					<input
+						id="select-all-checkbox"
+						name="selectAll"
+						aria-label="select all"
+						onChange={() => onSelectAll(!selectAllValue)}
+						type="checkbox"
+						checked={selectAllValue}
+						value={selectAllValue}
+					/>
+				</span>
+				<label htmlFor="selectAll">Select All</label>
 			</span>
 			<ActionButton
+				id="select-all-label"
 				onClick={event => submitColumns(event)}
 				label={t('COLUMN_CHOOSER_FOOTER_BUTTON', { defaultValue: 'Modify' })}
 			/>

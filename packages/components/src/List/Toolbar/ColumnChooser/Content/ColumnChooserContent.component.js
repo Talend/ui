@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import RichLayout from '../../../../RichTooltip/RichLayout';
 import getDefaultT from '../../../../translate';
-import theme from './ColumnChooserModal.scss';
+import theme from './ColumnChooser.scss';
 import { useColumnChooserManager } from '../hooks';
 import { DefaultHeader, DefaultBody, DefaultFooter } from './DefaultColumnChooser.components';
 
@@ -21,6 +21,7 @@ export default function ColumnChooserContent({
 		submitColumns,
 		changeColumnOrder,
 		changeColumnVisibility,
+		handlerInputOrder,
 		onDragAndDrop,
 		onBlurColumnOrder,
 		selectAll,
@@ -28,7 +29,7 @@ export default function ColumnChooserContent({
 	return (
 		<div
 			id={`${id}-column-chooser-content`}
-			className={classNames(theme['tc-column-chooser-modal'], 'tc-column-chooser-modal')}
+			className={classNames(theme['tc-column-chooser'], 'tc-column-chooser')}
 		>
 			<RichLayout
 				Header={header || <DefaultHeader t={t} />}
@@ -40,6 +41,7 @@ export default function ColumnChooserContent({
 							changeColumnVisibility={changeColumnVisibility}
 							onDragAndDrop={onDragAndDrop}
 							onBlurColumnOrder={onBlurColumnOrder}
+							onKeyPressOrder={handlerInputOrder}
 						/>
 					)
 				}

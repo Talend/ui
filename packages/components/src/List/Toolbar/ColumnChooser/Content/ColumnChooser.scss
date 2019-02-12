@@ -1,0 +1,33 @@
+.tc-column-chooser {
+	&-header {
+		display: flex;
+		align-items: center;
+		font-weight: bold;
+		font-size: 14px;
+	}
+
+	&-body {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	&-footer {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		&-select-all {
+			align-items: center;
+			display: flex;
+			input {
+				position: relative;
+			}
+			label {
+				color: $silver-chalice;
+				padding-left: 20px;
+				font-weight: 400;
+			}
+		}
+	}
+}

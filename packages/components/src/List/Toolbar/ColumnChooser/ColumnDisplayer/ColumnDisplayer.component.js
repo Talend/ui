@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../../../../Icon';
+import classNames from 'classnames';
+import theme from './ColumnDisplayer.scss';
 
 const ColumnVisibility = ({ onChange, value }) => (
-	<span>
-		<input onChange={() => onChange(!value)} type="checkbox" checked={value} value={value} />
-	</span>
+	<input onChange={() => onChange(!value)} type="checkbox" checked={value} value={value} />
 );
 
 ColumnVisibility.propTypes = {
@@ -13,18 +13,16 @@ ColumnVisibility.propTypes = {
 	value: PropTypes.bool,
 };
 
-const ColumnOrder = ({ onBlur, onChange, value, length }) => (
-	<span>
-		<input
-			style={{ width: '25px' }}
-			onChange={event => onChange(event.target.value)}
-			placeholder={value}
-			type="text"
-			value={value}
-			onBlur={event => onBlur(event.target.value)}
-		/>
-		{`/${length}`}
-	</span>
+const ColumnOrder = ({ onBlur, onChange, onKeyPress, value }) => (
+	<input
+		style={{ width: '25px' }}
+		onChange={event => onChange(event.target.value)}
+		placeholder={value}
+		type="text"
+		value={value}
+		onBlur={event => onBlur(event.target.value)}
+		onKeyPress={event => onKeyPress(event, event.target.value)}
+	/>
 );
 
 ColumnOrder.propTypes = {
@@ -42,25 +40,50 @@ const ColumnDisplayer = ({
 	onChangeVisibility,
 	onChangeOrder,
 	onBlurColumnOrder,
+	onKeyPressOrder,
 }) => {
 	return (
 		<div
-			id="columnDisplay"
+			id="column-chooser-displayer"
 			key={`${label}`}
-			style={{ position: 'relative', display: 'flex', justifyContent: 'space-between' }}
+			className={classNames(theme['tc-column-displayer'], 'tc-column-displayer')}
 		>
-			{locked ? (
-				<Icon name="talend-locked" />
-			) : (
-				<ColumnVisibility onChange={onChangeVisibility} value={hidden} />
-			)}
-			<span>{label}</span>
-			<ColumnOrder
-				onBlur={onBlurColumnOrder}
-				onChange={onChangeOrder}
-				value={order}
-				length={length}
-			/>
+			<div
+				className={classNames(
+					theme['tc-column-displayer-visibility'],
+					'tc-column-displayer-visibility',
+				)}
+			>
+				{locked ? (
+					<Icon name="talend-locked" />
+				) : (
+					<ColumnVisibility onChange={onChangeVisibility} value={hidden} />
+				)}
+			</div>
+			<div style={{ display: 'flex', paddingLeft: '20px', width: '100%' }}>{label}</div>
+			<div
+				style={{
+					display: 'flex',
+					justifyContent: 'flex-end',
+					width: '100%',
+					alignItems: 'center',
+				}}
+			>
+				{locked ? (
+					<div>{`${order} / ${length}`}</div>
+				) : (
+					<React.Fragment>
+						<ColumnOrder
+							onBlur={onBlurColumnOrder}
+							onChange={onChangeOrder}
+							value={order}
+							length={length}
+							onKeyPress={onKeyPressOrder}
+						/>
+						{`/${length}`}
+					</React.Fragment>
+				)}
+			</div>
 		</div>
 	);
 };
