@@ -9,29 +9,34 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   119:4  error  'columnChooser' is assigned a value but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/ColumnDisplayer/ColumnDisplayer.component.js
+   4:24  error  Absolute imports should come before relative imports                                                   import/imports-first
   16:24  error  'onBlur' is missing in props validation                                                                react/prop-types
-  44:2   error  'onBlurColumnOrder' is missing in props validation                                                     react/prop-types
-  45:7   error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  16:42  error  'onKeyPress' is missing in props validation                                                            react/prop-types
+  29:10  error  'length' PropType is defined but prop is never used                                                    react/no-unused-prop-types
+  42:2   error  'onBlurColumnOrder' is missing in props validation                                                     react/prop-types
+  43:2   error  'onKeyPressOrder' is missing in props validation                                                       react/prop-types
+  44:7   error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/ColumnDisplayerDraggable/ColumnDisplayerDraggable.component.js
   41:89  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/Content/DefaultColumnChooser.components.js
-   9:34  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
-  29:6   error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
-  52:2   error  'onBlurColumnOrder' is missing in props validation                                                     react/prop-types
-  53:7   error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
-  79:26  error  'selectAllValue' is missing in props validation                                                        react/prop-types
-  79:42  error  'onSelectAll' is missing in props validation                                                           react/prop-types
-  79:78  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  11:34  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  32:6   error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  56:2   error  'onBlurColumnOrder' is missing in props validation                                                     react/prop-types
+  57:2   error  'onKeyPressOrder' is missing in props validation                                                       react/prop-types
+  58:7   error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  88:26  error  'selectAllValue' is missing in props validation                                                        react/prop-types
+  88:42  error  'onSelectAll' is missing in props validation                                                           react/prop-types
+  88:78  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/hooks/columnChooserClient.hook.js
   20:10  error  Prefer default export  import/prefer-default-export
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/hooks/columnChooserManager.hook.js
    18:59  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
-   98:25  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
-  101:51  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
+  138:25  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
+  141:58  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/service/columnChooser.utils.js
   25:2  warning  Unexpected console statement  no-console
@@ -60,6 +65,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 26 problems (23 errors, 3 warnings)
+✖ 31 problems (28 errors, 3 warnings)
   9 errors, 0 warnings potentially fixable with the `--fix` option.
 
