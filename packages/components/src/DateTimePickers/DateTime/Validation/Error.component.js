@@ -48,7 +48,9 @@ function Error({ hidden, errors, id, t }) {
 	const classNames = classnames({ 'sr-only': hidden });
 	return (
 		<div id={id} className={classNames}>
-			{errors.map((error, index) => <span key={index}>{getDateErrorLabel(t, error.message)}</span>)}
+			{errors.map((error, index) => (
+				<span key={index}>{getDateErrorLabel(t, error.message)}</span>
+			))}
 		</div>
 	);
 }
