@@ -175,7 +175,7 @@ export default function createTriggers({
 			return result;
 		}
 		function onError(error) {
-			services.error({
+			return services.error({
 				error,
 				errors,
 				properties,

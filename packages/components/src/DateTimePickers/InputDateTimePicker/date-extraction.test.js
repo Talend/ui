@@ -5,6 +5,7 @@ import {
 	extractPartsFromDateTime,
 	extractPartsFromTextInput,
 	getFullDateFormat,
+	check,
 } from './date-extraction';
 
 describe('Date extraction', () => {
@@ -705,6 +706,55 @@ describe('Date extraction', () => {
 
 			// then
 			expect(format).toBe('YYYY-MM-DD HH:mm:ss');
+		});
+	});
+	describe('check', () => {
+		it('should return date format error when date is empty', () => {
+			// when
+			const errors = check(
+				undefined,
+				{
+					hours: '22',
+					minutes: '11',
+					seconds: '00',
+				},
+				{ required: true },
+			);
+
+			// then
+			expect(errors.length).toBe(1);
+			expect(errors[0].code).toBe('INVALID_DATE_FORMAT');
+		});
+		it('should return error on hours', () => {
+			// when
+			const errors = check(
+				new Date(),
+				{
+					hours: '',
+					minutes: '11',
+					seconds: '00',
+				},
+				{ required: true },
+			);
+
+			// then
+			expect(errors.length).toBe(1);
+			expect(errors[0].message).toBe('INVALID_HOUR_EMPTY');
+		});
+		it('should return no error when option required is false', () => {
+			// when
+			const errors = check(
+				undefined,
+				{
+					hours: '',
+					minutes: '',
+					seconds: '',
+				},
+				{ required: false },
+			);
+
+			// then
+			expect(errors.length).toBe(0);
 		});
 	});
 });

@@ -1,4 +1,7 @@
 {
+    "schema": {
+        "type": "record",
+        "name": "StringArrayRecord",
         "fields": [{
             "name": "field0",
             "doc": "Nom de la gare",
@@ -136,8 +139,10 @@
                   "total": 100
                 }
             }
-        }],
+        }]
+    },
     "data": [{
+        "value": {
             "field2": {
                 "value": null,
                 "quality": 1
@@ -177,9 +182,11 @@
             "field6": {
                 "value": "10920487",
                 "quality": 1
-            },
+            }
+        },
         "quality": 1
     }, {
+        "value": {
             "field4": {
                 "value": "9560",
                 "quality": 1
@@ -219,9 +226,11 @@
             "field8": {
                 "value": "8919",
                 "quality": 1
-            },
+            }
+        },
         "quality": 1
     }, {
+        "value": {
             "field7": {
                 "value": "",
                 "quality": 1
@@ -261,9 +270,11 @@
             "field5": {
                 "value": "",
                 "quality": 0
-            },
+            }
+        },
         "quality": 1
     }, {
+        "value": {
             "field6": {
                 "value": "115633",
                 "quality": 1
@@ -303,9 +314,11 @@
             "field2": {
                 "value": "80250",
                 "quality": 1
-            },
+            }
+        },
         "quality": 1
     }, {
+        "value": {
             "field0": {
                 "value": "Albertville",
                 "quality": 1
@@ -345,9 +358,11 @@
             "field1": {
                 "value": "741645",
                 "quality": 1
-            },
+            }
+        },
         "quality": 1
     }, {
+        "value": {
             "field7": {
                 "value": "",
                 "quality": 1
@@ -387,10 +402,11 @@
             "field3": {
                 "value": 3223232,
                 "quality": -1
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field7": {
                 "value": "",
                 "quality": 1
@@ -430,10 +446,11 @@
             "field3": {
                 "value": "csqd qsd qsd qsd sdsq dqs dqsdqs dqs long text",
                 "quality": -1
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field6": {
                 "value": "18504",
                 "quality": 0
@@ -473,10 +490,11 @@
             "field8": {
                 "value": "18133",
                 "quality": 1
-            },
-
+            }
+        },
         "quality": 1
     }, {
+        "value": {
             "field0": {
                 "value": "Aix la Marsalouse",
                 "quality": 0
@@ -516,9 +534,11 @@
             "field3": {
                 "value": "c",
                 "quality": 1
-            },
+            }
+        },
         "quality": 1
     }, {
+        "value": {
             "field1": {
                 "value": "581009",
                 "quality": -1
@@ -558,10 +578,11 @@
             "field3": {
                 "value": "a",
                 "quality": 1
-            },
-
+            }
+        },
         "quality": 1
     }, {
+        "value": {
             "field7": {
                 "value": "",
                 "quality": 1
@@ -601,10 +622,11 @@
             "field3": {
                 "value": "c",
                 "quality": 1
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field8": {
                 "value": "178200",
                 "quality": 0
@@ -644,9 +666,11 @@
             "field5": {
                 "value": "",
                 "quality": 0
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field7": {
                 "value": "",
                 "quality": 1
@@ -686,10 +710,11 @@
             "field6": {
                 "value": "3136",
                 "quality": 0
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field2": {
                 "value": "76210",
                 "quality": 1
@@ -729,9 +754,11 @@
             "field4": {
                 "value": "7832",
                 "quality": 1
-            },
+            }
+        },
         "quality": 1
     }, {
+        "value": {
             "field7": {
                 "value": "",
                 "quality": 1
@@ -771,10 +798,11 @@
             "field1": {
                 "value": "684407",
                 "quality": 1
-            },
-
+            }
+        },
         "quality": 1
     }, {
+        "value": {
             "field7": {
                 "value": "",
                 "quality": 1
@@ -814,9 +842,11 @@
             "field2": {
                 "value": "28800",
                 "quality": 1
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field3": {
                 "value": "b",
                 "quality": -1
@@ -856,9 +886,11 @@
             "field6": {
                 "value": "160831",
                 "quality": 1
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field6": {
                 "value": "115",
                 "quality": 1
@@ -898,9 +930,11 @@
             "field3": {
                 "value": "c",
                 "quality": 1
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field2": {
                 "value": "51340",
                 "quality": 1
@@ -940,10 +974,11 @@
             "field0": {
                 "value": "Blesme-Haussignemont",
                 "quality": 0
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field1": {
                 "value": "318964",
                 "quality": 1
@@ -983,10 +1018,11 @@
             "field9": {
                 "value": "5140464",
                 "quality": 1
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field7": {
                 "value": "",
                 "quality": 1
@@ -1026,10 +1062,11 @@
             "field3": {
                 "value": "c",
                 "quality": 1
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field7": {
                 "value": "",
                 "quality": 1
@@ -1069,10 +1106,11 @@
             "field2": {
                 "value": "43120",
                 "quality": 1
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field4": {
                 "value": "78607",
                 "quality": 1
@@ -1112,11 +1150,11 @@
             "field0": {
                 "value": "Bar sur Aube",
                 "quality": 1
-
+            }
         },
         "quality": 1
     }, {
-
+        "value": {
             "field7": {
                 "value": "",
                 "quality": 1
@@ -1156,10 +1194,11 @@
             "field8": {
                 "value": "6562",
                 "quality": 1
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field1": {
                 "value": "192658",
                 "quality": 0
@@ -1199,10 +1238,11 @@
             "field4": {
                 "value": "7048",
                 "quality": -1
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field0": {
                 "value": "Balbigny",
                 "quality": 1
@@ -1242,10 +1282,11 @@
             "field5": {
                 "value": "",
                 "quality": 0
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field2": {
                 "value": "31290",
                 "quality": 1
@@ -1285,10 +1326,11 @@
             "field3": {
                 "value": "c",
                 "quality": 1
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field6": {
                 "value": "77091",
                 "quality": 0
@@ -1328,10 +1370,11 @@
             "field1": {
                 "value": "342584",
                 "quality": 0
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field7": {
                 "value": "",
                 "quality": 1
@@ -1371,9 +1414,11 @@
             "field3": {
                 "value": "c",
                 "quality": 1
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field7": {
                 "value": "",
                 "quality": 1
@@ -1413,9 +1458,11 @@
             "field5": {
                 "value": "",
                 "quality": 0
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field7": {
                 "value": "",
                 "quality": 1
@@ -1455,10 +1502,11 @@
             "field3": {
                 "value": "c",
                 "quality": 1
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field4": {
                 "value": "167400",
                 "quality": 0
@@ -1498,10 +1546,11 @@
             "field6": {
                 "value": "167400",
                 "quality": 1
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field2": {
                 "value": "62420",
                 "quality": 1
@@ -1541,10 +1590,11 @@
             "field6": {
                 "value": "211486",
                 "quality": 1
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field8": {
                 "value": "1168295",
                 "quality": 1
@@ -1584,9 +1634,11 @@
             "field3": {
                 "value": "a",
                 "quality": 1
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field0": {
                 "value": "Bischheim",
                 "quality": 1
@@ -1626,10 +1678,11 @@
             "field3": {
                 "value": "c",
                 "quality": 1
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field4": {
                 "value": "1052682",
                 "quality": 1
@@ -1669,9 +1722,11 @@
             "field3": {
                 "value": "a",
                 "quality": 1
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field7": {
                 "value": "",
                 "quality": 1
@@ -1711,9 +1766,11 @@
             "field3": {
                 "value": "c",
                 "quality": 1
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field0": {
                 "value": "Bengy",
                 "quality": -1
@@ -1753,9 +1810,11 @@
             "field8": {
                 "value": "7551",
                 "quality": 1
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field7": {
                 "value": "",
                 "quality": 1
@@ -1795,10 +1854,11 @@
             "field1": {
                 "value": "393363",
                 "quality": 1
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field4": {
                 "value": "11742",
                 "quality": 1
@@ -1838,10 +1898,11 @@
             "field3": {
                 "value": "c",
                 "quality": 1
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field1": {
                 "value": "481770",
                 "quality": 1
@@ -1881,10 +1942,11 @@
             "field3": {
                 "value": "c",
                 "quality": 1
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field5": {
                 "value": "",
                 "quality": 1
@@ -1924,10 +1986,11 @@
             "field3": {
                 "value": "c",
                 "quality": 1
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field7": {
                 "value": "",
                 "quality": 1
@@ -1967,10 +2030,11 @@
             "field8": {
                 "value": "15855",
                 "quality": 1
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field7": {
                 "value": "",
                 "quality": 1
@@ -2010,10 +2074,11 @@
             "field2": {
                 "value": "30300",
                 "quality": 0
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field2": {
                 "value": "57110",
                 "quality": 1
@@ -2053,10 +2118,11 @@
             "field8": {
                 "value": "1393",
                 "quality": 0
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field2": {
                 "value": "2220",
                 "quality": 1
@@ -2096,10 +2162,11 @@
             "field0": {
                 "value": "Bazoches",
                 "quality": 0
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field7": {
                 "value": "",
                 "quality": 1
@@ -2139,10 +2206,11 @@
             "field5": {
                 "value": "",
                 "quality": 0
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field7": {
                 "value": "",
                 "quality": 1
@@ -2182,10 +2250,11 @@
             "field6": {
                 "value": "11977",
                 "quality": 1
-
+            }
         },
         "quality": 1
     }, {
+        "value": {
             "field0": {
                 "value": "Base aérienne",
                 "quality": 0
@@ -2225,7 +2294,8 @@
             "field2": {
                 "value": "",
                 "quality": 0
-            },
+            }
+        },
         "quality": 1
     }],
     "encoding": "JSON",

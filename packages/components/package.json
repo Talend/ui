@@ -64,12 +64,11 @@
     "@storybook/addon-info": "^4.0.12",
     "@storybook/addon-storyshots": "^4.0.12",
     "@storybook/react": "^4.0.12",
-    "@talend/bootstrap-theme": "^2.4.0-0",
-    "@talend/icons": "^2.4.0-0",
+    "@talend/bootstrap-theme": "^2.5.0",
+    "@talend/icons": "^2.5.0",
     "autoprefixer": "^7.1.4",
-    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^23.6.0",
+    "babel-jest": "^24.0.0",
     "bootstrap-sass": "3.3.7",
     "classnames": "^2.2.5",
     "codacy-coverage": "^2.0.0",
@@ -89,7 +88,7 @@
     "focus-outline-manager": "^1.0.2",
     "i18next": "^9.0.0",
     "invariant": "^2.2.2",
-    "jest": "^23.6.0",
+    "jest": "^24.0.0",
     "jest-environment-jsdom": "^23.4.0",
     "jest-in-case": "^1.0.2",
     "jsdom": "^11.11.0",
@@ -97,15 +96,15 @@
     "node-sass": "^4.7.2",
     "postcss-loader": "^3.0.0",
     "prop-types": "^15.5.10",
-    "react": "^16.0.0",
+    "react": "^16.8.0",
     "react-a11y": "^0.3.3",
     "react-bootstrap": "0.32.4",
     "react-css-transition": "^0.7.4",
     "react-dnd-test-backend": "^2.5.4",
-    "react-dom": "^16.0.0",
+    "react-dom": "^16.8.0",
     "react-i18next": "^7.6.1",
     "react-storybook-addon-props-combinations": "^1.1.0",
-    "react-test-renderer": "^16.0.0",
+    "react-test-renderer": "^16.8.0",
     "react-transition-group": "^2.3.1",
     "regenerator-runtime": "^0.13.1",
     "rimraf": "^2.6.1",
@@ -116,8 +115,8 @@
     "uuid": "^3.0.1"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "^2.4.0-0",
-    "@talend/icons": "^2.4.0-0",
+    "@talend/bootstrap-theme": "^2.5.0",
+    "@talend/icons": "^2.5.0",
     "bootstrap-sass": "3.3.7",
     "classnames": "^2.2.5",
     "d3-shape": "1.2.0",
@@ -147,10 +146,12 @@
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "<rootDir>/test/styleMock.js"
     },
-    "setupTestFrameworkScriptFile": "<rootDir>/../../test-setup.js"
+    "setupFilesAfterEnv": [
+      "<rootDir>/../../test-setup.js"
+    ]
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "2.4.0-0"
+  "version": "2.5.0"
 }

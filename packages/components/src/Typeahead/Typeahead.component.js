@@ -113,10 +113,11 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		...themeProps,
 		...inputProps,
 		items: rest.items || [],
-		itemProps: {
+		itemProps: ({ itemIndex }) => ({
 			onMouseDown: rest.onSelect,
 			'data-feature': rest['data-feature'],
-		},
+			'aria-disabled': rest.items[itemIndex] && rest.items[itemIndex].disabled,
+		}),
 	};
 
 	return <Autowhatever {...autowhateverProps} />;

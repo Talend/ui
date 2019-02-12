@@ -146,7 +146,6 @@ class Datalist extends Component {
 				isValid={this.props.isValid}
 				label={this.props.schema.title}
 				required={this.props.schema.required}
-				labelAfter
 			>
 				<DataListComponent
 					{...props}
