@@ -1,18 +1,18 @@
 .tc-column-displayer {
-    display: flex;
-    position: relative;
-    align-items: center;
-    height: 4rem;
+	display: flex;
+	position: relative;
+	align-items: center;
+	height: 4rem;
 
-    &-visibility {
-        border-right: 0.1rem solid $silver-chalice;
-        padding-right: 10px;
-        input {
-            position: relative;
-        }
-        :global(.tc-svg-icon) {
-            width: 1.3rem;
-            height: 1.3rem;
-        }
-    }
+	&-visibility {
+		border-right: 0.1rem solid $silver-chalice;
+		padding-right: 10px;
+		input {
+			position: relative;
+		}
+		:global(.tc-svg-icon) {
+			width: 1.3rem;
+			height: 1.3rem;
+		}
+	}
 }
