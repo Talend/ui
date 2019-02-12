@@ -10,4 +10,7 @@
 
 .button {
 	@include nav-action;
+	&:hover {
+		color: $scooter;
+	}
 }
