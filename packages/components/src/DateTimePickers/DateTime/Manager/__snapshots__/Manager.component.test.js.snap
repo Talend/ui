@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DatePicker.Manager should render 1`] = `
+exports[`DatePicker.Manager should render its children 1`] = `
 <Context.Provider
   value={
     Object {
