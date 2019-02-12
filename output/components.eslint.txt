@@ -21,15 +21,17 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   29:6   error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
   52:2   error  'onBlurColumnOrder' is missing in props validation                                                     react/prop-types
   53:7   error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
-  79:49  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  79:26  error  'selectAllValue' is missing in props validation                                                        react/prop-types
+  79:42  error  'onSelectAll' is missing in props validation                                                           react/prop-types
+  79:78  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/hooks/columnChooserClient.hook.js
   20:10  error  Prefer default export  import/prefer-default-export
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/hooks/columnChooserManager.hook.js
-  18:59  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
-  71:27  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
-  82:25  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
+   18:59  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
+   98:25  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
+  101:51  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/service/columnChooser.utils.js
   25:2  warning  Unexpected console statement  no-console
@@ -58,6 +60,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 24 problems (21 errors, 3 warnings)
+✖ 26 problems (23 errors, 3 warnings)
   9 errors, 0 warnings potentially fixable with the `--fix` option.
 
