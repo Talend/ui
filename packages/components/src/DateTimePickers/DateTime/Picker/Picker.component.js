@@ -1,22 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { DateTimeContext } from '../Context';
 import DateTimePicker from '../../pickers/DateTimePicker';
 
-export default function ContextualPicker(props) {
+export default function Picker(props) {
+	const { datetime, pickerManagement } = useContext(DateTimeContext);
 	return (
-		<DateTimeContext.Consumer>
-			{({ datetime, pickerManagement }) => (
-				<DateTimePicker
-					manageFocus
-					selection={{
-						date: datetime.date,
-						time: datetime.time,
-					}}
-					{...pickerManagement}
-					{...props}
-				/>
-			)}
-		</DateTimeContext.Consumer>
+		<DateTimePicker
+			manageFocus
+			selection={{
+				date: datetime.date,
+				time: datetime.time,
+			}}
+			{...pickerManagement}
+			{...props}
+		/>
 	);
 }

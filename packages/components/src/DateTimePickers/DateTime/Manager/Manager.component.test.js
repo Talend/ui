@@ -20,7 +20,7 @@ function DateTimeConsumer() {
 	);
 }
 
-describe('DatePicker.Manager', () => {
+describe('DateTime.Manager', () => {
 	it('should render its children', () => {
 		// when
 		const wrapper = shallow(

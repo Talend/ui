@@ -1,3 +1,3 @@
-import ContextualInput from './ContextualInput.component';
+import Input from './Input.component';
 
-export default ContextualInput;
+export default Input;
