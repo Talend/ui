@@ -23,6 +23,7 @@ export default function ColumnChooserContent({
 		changeColumnVisibility,
 		onDragAndDrop,
 		onBlurColumnOrder,
+		selectAll,
 	} = useColumnChooserManager(columns, handlerColumnChooser);
 	return (
 		<div
@@ -42,7 +43,16 @@ export default function ColumnChooserContent({
 						/>
 					)
 				}
-				Footer={footer || <DefaultFooter submitColumns={submitColumns} t={t} />}
+				Footer={
+					footer || (
+						<DefaultFooter
+							onSelectAll={selectAll}
+							selectAllValue={stateColumnChooser.selectAll}
+							submitColumns={submitColumns}
+							t={t}
+						/>
+					)
+				}
 			/>
 		</div>
 	);

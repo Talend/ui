@@ -76,14 +76,30 @@ DefaultBody.propTypes = {
 	onDragAndDrop: PropTypes.func.isRequired,
 };
 
-const DefaultFooter = ({ submitColumns, t }) => {
+const DefaultFooter = ({ selectAllValue, onSelectAll, submitColumns, t }) => {
 	return (
-		<React.Fragment>
+		<div
+			style={{
+				display: 'flex',
+				justifyContent: 'space-between',
+				position: 'relative',
+				width: '100%',
+			}}
+		>
+			<span>
+				<input
+					label="Select All"
+					onChange={() => onSelectAll(!selectAllValue)}
+					type="checkbox"
+					checked={selectAllValue}
+					value={selectAllValue}
+				/>
+			</span>
 			<ActionButton
 				onClick={event => submitColumns(event)}
 				label={t('COLUMN_CHOOSER_FOOTER_BUTTON', { defaultValue: 'Modify' })}
 			/>
-		</React.Fragment>
+		</div>
 	);
 };
 
