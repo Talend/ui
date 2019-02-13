@@ -92,12 +92,10 @@ function Toolbar({
 			{injected('before-navbar')}
 			{hasToolbarItem && (
 				<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
-					{columnChooser.handlerColumnChooser && (
-						<ColumnChooserButton id={`${id}-column-chooser`} {...columnChooser} />
-					)}
 					{injected('before-selectall')}
 					{selectAllCheckbox && <SelectAll {...selectAllCheckbox} t={t} />}
 					{injected('after-selectall')}
+					{columnChooser && <ColumnChooserButton id={`${id}-column-chooser`} {...columnChooser} />}
 					{injected('before-displaymode')}
 					{display && (
 						<Label
@@ -161,6 +159,7 @@ Toolbar.propTypes = {
 	t: PropTypes.func.isRequired,
 	getComponent: PropTypes.func,
 	components: PropTypes.object,
+	columnChooser: PropTypes.object,
 };
 
 Toolbar.defaultProps = {};

@@ -932,13 +932,21 @@ function ListColumnChooser({ list, ...rest }) {
 					list={{...list, columns: mergedColumns }} 
 					columnChooser={{ handlerCustomChooser: myHandler, columns: mergedColumns}} />
 	*/
-	const columnChooser = columnChooserHooks.useColumnChooserClient(
+	const hookColumnChooser = columnChooserHooks.useColumnChooserClient(
 		list.columns,
 		myListColumnChooserHanlder,
 	);
 	const enrichedList = {
 		...list,
-		columns: columnChooser.state.columns,
+		columns: hookColumnChooser.state.columns,
+	};
+	const columnChooser = {
+		columns: hookColumnChooser.state.columns,
+		handlerColumnChooser: myListColumnChooserHanlder,
 	};
 	return <List {...rest} list={enrichedList} columnChooser={columnChooser} />;
 }
+
+ListColumnChooser.propTypes = {
+	list: PropTypes.object.isRequired,
+};

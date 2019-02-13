@@ -130,12 +130,6 @@ class List extends React.Component {
 
 		const classnames = classNames('tc-list', theme.list);
 		const injected = Inject.all(getComponent, omit(components, ['toolbar', 'list']));
-
-		const enrichedColumnChooser = {
-			...this.props.columnChooser,
-			columns: this.props.list.columns,
-		};
-
 		return (
 			<div className={classnames}>
 				{injected('before-component')}
@@ -145,7 +139,7 @@ class List extends React.Component {
 					toolbar={toolbar}
 					displayMode={displayMode}
 					list={list}
-					columnChooser={enrichedColumnChooser}
+					columnChooser={columnChooser}
 					getComponent={getComponent}
 					components={components}
 				/>
