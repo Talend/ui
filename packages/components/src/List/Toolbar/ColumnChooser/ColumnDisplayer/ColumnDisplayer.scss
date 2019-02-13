@@ -52,7 +52,11 @@ $tc-icon-size: 1.3rem !default;
 		}
 		&-input-text {
 			text-align: right;
-			width: 2.5rem;
+			max-width: 5rem;
+		}
+		:global(.btn) {
+			color: $dove-gray;
+			padding: 0;
 		}
 	}
 }

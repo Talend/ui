@@ -13,7 +13,7 @@ export function updateEditedColumns(state) {
 }
 
 export function isValueCorrect(value, collectionLength) {
-	return Number.isInteger(value) && value <= collectionLength;
+	return Number.isInteger(value) && (value <= collectionLength || value < 0);
 }
 
 export function getOrderItem(order, index, length) {
@@ -92,25 +92,29 @@ export function useColumnChooserManager(columns, customSubmit) {
 			try {
 				parseValue = getValueFormated(value);
 			} catch (exception) {
-				return;
+				return false;
 			}
 			if (event.key === 'Enter') {
 				modifyOrderTwoItems(parseValue, index);
+				return true;
 			}
+			return false;
 		};
 	}
 
 	function handlerBlurInputTextOrder(index) {
-		return function onBlur(value) {
+		return function onBlur(event, value) {
 			let parseValue;
 			try {
 				parseValue = getValueFormated(value);
 			} catch (exception) {
-				return;
+				return false;
 			}
 			if (state.editedColumns[index].order !== parseValue) {
 				modifyOrderTwoItems(parseValue, index);
+				return true;
 			}
+			return false;
 		};
 	}
 
