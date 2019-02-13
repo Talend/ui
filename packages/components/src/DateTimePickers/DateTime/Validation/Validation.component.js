@@ -10,7 +10,7 @@ import Error from './Error.component';
 
 import theme from './Validation.scss';
 
-export function DateTimeValidation({ t }) {
+function Validation({ t }) {
 	const { errorManagement } = useContext(DateTimeContext);
 	const {
 		errors,
@@ -78,12 +78,12 @@ export function DateTimeValidation({ t }) {
 	);
 }
 
-DateTimeValidation.propTypes = {
+Validation.propTypes = {
 	t: PropTypes.func,
 };
 
-DateTimeValidation.defaultProps = {
+Validation.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(DateTimeValidation);
+export default translate(I18N_DOMAIN_COMPONENTS)(Validation);
