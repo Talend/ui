@@ -12,7 +12,7 @@ function useColumnChooserClient(columns, handlerCustomColumnChooser = () => {}) 
 	}, [state.columns]);
 
 	return {
-		state: { ...state, columns: mergedColumnsChooser(columns, state.columns) },
+		state: Object.freeze({ ...state, columns: mergedColumnsChooser(columns, state.columns) }),
 		handlerColumnChooser,
 	};
 }

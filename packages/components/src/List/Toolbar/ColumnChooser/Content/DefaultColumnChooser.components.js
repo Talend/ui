@@ -38,7 +38,7 @@ const getColumnDisplay = (
 			onBlurOrder: onBlurOrder(index),
 			onChangeOrder: onChangeOrder(index),
 			onChangeVisibility: onChangeVisibility(index),
-			onDragAndDrop,
+			onDragAndDrop: onDragAndDrop(index),
 			onKeyPressOrder: onKeyPressOrder(index),
 		};
 		if (column.locked) {

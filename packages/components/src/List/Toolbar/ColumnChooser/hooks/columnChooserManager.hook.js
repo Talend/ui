@@ -8,34 +8,37 @@ export function organiseColumns(columns) {
 	});
 }
 
-function changeColumnAttribute(key) {
+export function updateEditedColumns(state) {
+	return { ...state, editedColumns: organiseColumns(state.editedColumns) };
+}
+
+export function isValueCorrect(value, collectionLength) {
+	return Number.isInteger(value) && value <= collectionLength;
+}
+
+export function getOrderItem(order, index, length) {
+	if (index === length - 1) {
+		return order - 1;
+	}
+	if (order - index === 1) {
+		return order - 1;
+	}
+	return order + 1;
+}
+
+export function matchOrder(value) {
+	return function match({ order }) {
+		return order === value;
+	};
+}
+
+export function changeColumnAttribute(key) {
 	return function setAttribut(value, index) {
 		return function setColumn(state) {
 			const newColumns = state.editedColumns;
 			newColumns[index][key] = value;
 			return { ...state, editedColumns: newColumns };
 		};
-	};
-}
-
-function updateEditedColumns(state) {
-	return { ...state, editedColumns: organiseColumns(state.editedColumns) };
-}
-
-function isValueCorrect(value, collectionLength) {
-	return Number.isInteger(value) && value <= collectionLength;
-}
-
-function getOrderLastItem(order, index, length) {
-	if (index === length - 1) {
-		return order - 1;
-	}
-	return order + 1;
-}
-
-function matchOrder(value) {
-	return function match({ order }) {
-		return order === value;
 	};
 }
 
@@ -65,7 +68,7 @@ export function useColumnChooserManager(columns, customSubmit) {
 		if (indexColToReplace > -1 && !state.editedColumns[indexColToReplace].locked) {
 			setState(
 				updateAttributeOrder(
-					getOrderLastItem(value, indexColToReplace, getEditedColumnsLength()),
+					getOrderItem(value, indexColToReplace, getEditedColumnsLength()),
 					indexColToReplace,
 				),
 			);
@@ -114,6 +117,12 @@ export function useColumnChooserManager(columns, customSubmit) {
 		};
 	}
 
+	function handlerDragAndDrop(index) {
+		return function dragAndDrop(targetColumn) {
+			modifyOrderTwoItems(targetColumn.order, index);
+		};
+	}
+
 	function handlerSelectAll(value) {
 		setState(prevState => {
 			return {
@@ -124,18 +133,6 @@ export function useColumnChooserManager(columns, customSubmit) {
 				selectAll: value,
 			};
 		});
-	}
-
-	function handlerDragAndDrop(sourceColumn, targetColumn) {
-		const order = targetColumn.order;
-		setState(updateAttributeOrder(order, sourceColumn.index));
-		setState(
-			updateAttributeOrder(
-				getOrderLastItem(order, targetColumn.index, getEditedColumnsLength()),
-				targetColumn.index,
-			),
-		);
-		setState(updateEditedColumns);
 	}
 
 	function submitColumnChooser(event) {

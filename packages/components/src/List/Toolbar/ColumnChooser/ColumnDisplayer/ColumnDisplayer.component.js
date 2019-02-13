@@ -83,12 +83,15 @@ const ColumnDisplayer = ({
 	onChangeOrder,
 	onBlurOrder,
 	onKeyPressOrder,
+	isDragging,
 }) => {
 	return (
 		<div
 			id="column-chooser-displayer"
 			key={`${label}`}
-			className={classNames(theme['tc-column-displayer'], 'tc-column-displayer')}
+			className={classNames(theme['tc-column-displayer'], 'tc-column-displayer', {
+				[theme['tc-column-displayer-dragging']]: isDragging,
+			})}
 		>
 			<div
 				className={classNames(
@@ -118,6 +121,7 @@ const ColumnDisplayer = ({
 
 ColumnDisplayer.propTypes = {
 	hidden: PropTypes.bool,
+	isDragging: PropTypes.bool,
 	label: PropTypes.string.isRequired,
 	length: PropTypes.number.isRequired,
 	locked: PropTypes.bool,

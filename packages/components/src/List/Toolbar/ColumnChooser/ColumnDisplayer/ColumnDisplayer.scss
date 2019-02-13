@@ -6,6 +6,9 @@ $tc-icon-size: 1.3rem !default;
 	position: relative;
 	align-items: center;
 	height: 4rem;
+	&-dragging {
+		background-color: $wild-sand;
+	}
 
 	&-visibility {
 		align-items: center;

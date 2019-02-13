@@ -16,11 +16,8 @@ const columnDisplayTarget = {
 		return !item.locked;
 	},
 	drop(props, monitor) {
-		// TODO find something nicer
-		// props.onChangeOrder(props.order + 1);
-		// const item = monitor.getItem();
-		// item.onChangeOrder(props.order);
-		props.onDragAndDrop(monitor.getItem(), props);
+		const item = monitor.getItem();
+		item.onDragAndDrop(props);
 	},
 };
 
