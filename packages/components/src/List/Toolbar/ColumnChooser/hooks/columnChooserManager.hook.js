@@ -20,9 +20,6 @@ export function getOrderItem(order, index, length) {
 	if (index === length - 1) {
 		return order - 1;
 	}
-	if (order - index === 1) {
-		return order - 1;
-	}
 	return order + 1;
 }
 
