@@ -6,10 +6,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   105:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/ColumnDisplayer/ColumnDisplayer.component.js
-  86:7  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  87:7  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/ColumnDisplayerDraggable/ColumnDisplayerDraggable.component.js
-  41:89  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  38:89  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/Content/DefaultColumnChooser.components.js
   11:34  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
@@ -22,8 +22,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/hooks/columnChooserManager.hook.js
     6:59  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
-  118:25  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
-  121:58  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
+  127:25  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
+  130:58  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/MultiSelect/ItemOption.component.js
   57:9  error  'index' PropType is defined but prop is never used  react/no-unused-prop-types
