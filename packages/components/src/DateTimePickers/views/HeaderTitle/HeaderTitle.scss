@@ -13,4 +13,7 @@
 	&:hover {
 		color: $scooter;
 	}
+	&:active {
+		color: darken($scooter, 12%);
+	}
 }
