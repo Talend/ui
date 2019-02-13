@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { mergedColumnsChooser } from '../service';
 
-function useColumnChooserClient(columns, handlerCustomColumnChooser = () => {}) {
-	const [state, setState] = useState({ columns: columns || [] });
+function useColumnChooserClient(columns = [], handlerCustomColumnChooser = () => {}) {
+	const [state, setState] = useState({ columns });
 	function handlerColumnChooser(event, { editedColumns }) {
 		setState({ columns: editedColumns });
 	}
@@ -12,7 +12,7 @@ function useColumnChooserClient(columns, handlerCustomColumnChooser = () => {}) 
 	}, [state.columns]);
 
 	return {
-		state: Object.freeze({ ...state, columns: mergedColumnsChooser(columns, state.columns) }),
+		state: Object.freeze({ columns: mergedColumnsChooser(columns, state.columns) }),
 		handlerColumnChooser,
 	};
 }

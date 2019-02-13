@@ -11,13 +11,8 @@ const columnDisplaySource = {
 };
 
 const columnDisplayTarget = {
-	canDrop(props, monitor) {
-		const item = monitor.getItem();
-		return !item.locked;
-	},
 	drop(props, monitor) {
-		const item = monitor.getItem();
-		item.onDragAndDrop(props);
+		monitor.getItem().onDragAndDrop(props);
 	},
 };
 
@@ -28,10 +23,9 @@ function collectSource(connect, monitor) {
 	};
 }
 
-function collectTarget(connect, monitor) {
+function collectTarget(connect) {
 	return {
 		connectDropTarget: connect.dropTarget(),
-		canDrop: monitor.canDrop(),
 	};
 }
 

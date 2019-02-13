@@ -8,6 +8,7 @@ export default function ColumnChooserButton({ id, columns, handlerColumnChooser 
 	return (
 		<Nav>
 			<ActionButton
+				aria-label="column chooser button"
 				id={`${id}-button`}
 				label=""
 				icon="talend-folder"
