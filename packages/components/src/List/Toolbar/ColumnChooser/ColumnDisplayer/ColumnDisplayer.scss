@@ -1,18 +1,39 @@
 .tc-column-displayer {
-    display: flex;
-    position: relative;
-    align-items: center;
-    height: 4rem;
+	display: flex;
+	position: relative;
+	align-items: center;
+	height: 4rem;
 
-    &-visibility {
-        border-right: 0.1rem solid $silver-chalice;
-        padding-right: 10px;
+	&-visibility {
+		border-right: 0.1rem solid $silver-chalice;
+		padding-right: 10px;
+		input {
+			position: relative;
+		}
+		:global(.tc-svg-icon) {
+			width: 1.3rem;
+			height: 1.3rem;
+		}
+	}
+	&-label {
+		display: flex;
+		padding-left: 20px;
+		width: 100%;
+	}
+	&-order {
+		align-items: center;
+		display: flex;
+		justify-content: flex-end;
+        width: 100%;
+        &-value,
         input {
-            position: relative;
+            font-weight: bold;
+            font-size: 15px;
+            padding-right: 5px;
         }
-        :global(.tc-svg-icon) {
-            width: 1.3rem;
-            height: 1.3rem;
+        input {
+            text-align: right;
+            width: 25px;
         }
-    }
+	}
 }

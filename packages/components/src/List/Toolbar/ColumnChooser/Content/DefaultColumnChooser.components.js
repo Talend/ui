@@ -80,9 +80,11 @@ const DefaultBody = ({
 DefaultBody.propTypes = {
 	// TODO more explicit proptypes for columns
 	columns: PropTypes.array.isRequired,
-	changeColumnOrder: PropTypes.func.isRequired,
-	changeColumnVisibility: PropTypes.func.isRequired,
+	onBlurOrder: PropTypes.func.isRequired,
+	onChangeOrder: PropTypes.func.isRequired,
+	onChangeVisibility: PropTypes.func.isRequired,
 	onDragAndDrop: PropTypes.func.isRequired,
+	onKeyPressOrder: PropTypes.func.isRequired,
 };
 
 const DefaultFooter = ({ selectAllValue, onSelectAll, submit, t }) => {
@@ -117,7 +119,9 @@ const DefaultFooter = ({ selectAllValue, onSelectAll, submit, t }) => {
 };
 
 DefaultFooter.propTypes = {
-	submitColumns: PropTypes.func.isRequired,
+	onSelectAll: PropTypes.func.isRequired,
+	selectAllValue: PropTypes.bool.isRequired,
+	submit: PropTypes.func.isRequired,
 	t: PropTypes.func.isRequired,
 };
 

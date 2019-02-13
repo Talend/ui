@@ -1,18 +1,6 @@
 import { useState } from 'react';
+import { compareOrder } from '../service';
 import cloneDeep from 'lodash/cloneDeep';
-
-export function compareOrder(a, b) {
-	if (!Number.isInteger(a.order) && !Number.isInteger(b.order)) {
-		return 0;
-	}
-	if (Number.isInteger(a.order) && !Number.isInteger(b.order)) {
-		return -1;
-	}
-	if (!Number.isInteger(a.order) && Number.isInteger(b.order)) {
-		return 1;
-	}
-	return a.order - b.order;
-}
 
 export function organiseColumns(columns) {
 	return columns.sort(compareOrder).map((column, index) => {
@@ -75,23 +63,6 @@ export function useColumnChooserManager(columns, customSubmit) {
 		throw Error(`ColumnChooserManager: Bad order number ${value}`);
 	}
 
-	function submitColumnChooser(event) {
-		const editedColumns = cloneDeep(state.editedColumns);
-		customSubmit(event, { ...state, editedColumns });
-	}
-
-	function handlerChangeVisibility(index) {
-		return function changeVisiblity(value) {
-			setState(updateAttributeVisiblity(value, index));
-		};
-	}
-
-	function handlerChangeOrder(index) {
-		return function changeOrder(value) {
-			setState(updateAttributeOrder(value, index));
-		};
-	}
-
 	function modifyOrderTwoItems(value, index) {
 		const indexColToReplace = state.editedColumns.findIndex(matchOrder(value));
 		if (indexColToReplace > -1 && !state.editedColumns[indexColToReplace].locked) {
@@ -104,6 +75,18 @@ export function useColumnChooserManager(columns, customSubmit) {
 			setState(updateAttributeOrder(value, index));
 			setState(updateEditedColumns);
 		}
+	}
+
+	function handlerChangeVisibility(index) {
+		return function changeVisiblity(value) {
+			setState(updateAttributeVisiblity(value, index));
+		};
+	}
+
+	function handlerChangeOrder(index) {
+		return function changeOrder(value) {
+			setState(updateAttributeOrder(value, index));
+		};
 	}
 
 	function handlerInputTextOrder(index) {
@@ -156,6 +139,11 @@ export function useColumnChooserManager(columns, customSubmit) {
 			),
 		);
 		setState(updateEditedColumns);
+	}
+
+	function submitColumnChooser(event) {
+		const editedColumns = cloneDeep(state.editedColumns);
+		customSubmit(event, { ...state, editedColumns });
 	}
 
 	return {
