@@ -919,9 +919,8 @@ function ListColumnChooser({ list, ...rest }) {
 		console.log('Hello beautifull hooks', editedColumns);
 	}
 	/*
-		If you need to resolve the column chooser columns elsewhere,
-		you can just write the column chooser resut elsewhere.
-		And here make for example make the resolution with something like this :
+		If you need to have complete control, do not use useColumnChooserClient.
+		Just fo whereever you want :
 		const mergedColumns = 
 			columnChooserService.utils.mergedColumnsChooser(
 				props.list.columns, 
