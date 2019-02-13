@@ -71,7 +71,7 @@ class DateWidget extends React.Component {
 				description={schema.description}
 				descriptionId={descriptionId}
 				errorId={errorId}
-				errorMessage={errorMessage || this.state.errorMessage}
+				errorMessage={this.state.errorMessage || errorMessage}
 				id={id}
 				isValid={isValid}
 				label={schema.title}

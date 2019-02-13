@@ -4,6 +4,7 @@ import lastDayOfMonth from 'date-fns/last_day_of_month';
 import setSeconds from 'date-fns/set_seconds';
 import setDate from 'date-fns/set_date';
 import startOfSecond from 'date-fns/start_of_second';
+import getDefaultT from '../../translate';
 
 const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
 const timePartRegex = new RegExp(/^(.*):(.*)$/);
@@ -11,8 +12,20 @@ const timeWithSecondsPartRegex = new RegExp(/^(.*):(.*):(.*)$/);
 
 const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
 
-export function DatePickerException(code, message) {
-	this.message = message;
+export function getTranslatedErrorMessageByKey(key) {
+	const messages = {
+		INVALID_HOUR_EMPTY: getDefaultT()('INVALID_HOUR_EMPTY', 'The hour can\'t be empty'),
+		INVALID_HOUR_NUMBER: getDefaultT()('INVALID_HOUR_NUMBER', 'Invalid hour format'),
+		INVALID_MINUTES_EMPTY: getDefaultT()('INVALID_MINUTES_EMPTY', 'The minutes can\'t be empty'),
+		INVALID_MINUTES_NUMBER: getDefaultT()('INVALID_MINUTES_NUMBER', 'Invalid minutes format'),
+		INVALID_SECONDS_EMPTY: getDefaultT()('INVALID_SECONDS_EMPTY', 'The seconds can\'t be empty'),
+		INVALID_SECONDS_NUMBER: getDefaultT()('INVALID_SECONDS_NUMBER', 'Invalid seconds format'),
+	};
+	return messages[key] || '';
+}
+
+export function DatePickerException(code) {
+	this.message = getTranslatedErrorMessageByKey(code);
 	this.code = code;
 }
 
@@ -132,9 +145,9 @@ function convertToUTC(date) {
 function checkHours(hours) {
 	const hoursNum = Number(hours);
 	if (hours === '') {
-		return new DatePickerException('INVALID_HOUR', 'INVALID_HOUR_EMPTY');
+		return new DatePickerException('INVALID_HOUR_EMPTY');
 	} else if (hours.length !== 2 || isNaN(hoursNum) || hoursNum < 0 || hoursNum > 23) {
-		return new DatePickerException('INVALID_HOUR', 'INVALID_HOUR_NUMBER');
+		return new DatePickerException('INVALID_HOUR_NUMBER');
 	}
 	return null;
 }
@@ -144,10 +157,10 @@ function checkHours(hours) {
  */
 function checkMinutes(minutes) {
 	const minsNum = Number(minutes);
-	if (minsNum === '') {
-		return new DatePickerException('INVALID_MINUTES', 'INVALID_MINUTES_EMPTY');
+	if (minutes === '') {
+		return new DatePickerException('INVALID_MINUTES_EMPTY');
 	} else if (minutes.length !== 2 || isNaN(minsNum) || minsNum < 0 || minsNum > 59) {
-		return new DatePickerException('INVALID_MINUTES', 'INVALID_MINUTES_NUMBER');
+		return new DatePickerException('INVALID_MINUTES_NUMBER');
 	}
 	return null;
 }
@@ -159,9 +172,9 @@ function checkMinutes(minutes) {
 function checkSeconds(seconds) {
 	const secondsNum = Number(seconds);
 	if (seconds === '') {
-		return new DatePickerException('INVALID_SECONDS', 'INVALID_SECONDS_EMPTY');
+		return new DatePickerException('INVALID_SECONDS_EMPTY');
 	} else if (seconds.length !== 2 || isNaN(secondsNum) || secondsNum < 0 || secondsNum > 59) {
-		return new DatePickerException('INVALID_SECONDS', 'INVALID_SECONDS_NUMBER');
+		return new DatePickerException('INVALID_SECONDS_NUMBER');
 	}
 	return null;
 }
