@@ -1,33 +1,31 @@
-.tc-column-chooser {
-	&-header {
-		display: flex;
-		align-items: center;
-		font-weight: bold;
-		font-size: 14px;
-	}
+.tc-column-chooser-header {
+	display: flex;
+	align-items: center;
+	font-weight: bold;
+}
 
-	&-body {
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-	}
+.tc-column-chooser-body {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
 
-	&-footer {
+.tc-column-chooser-footer {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	&-select-all {
 		align-items: center;
 		display: flex;
-		justify-content: space-between;
-		width: 100%;
-		&-select-all {
-			align-items: center;
-			display: flex;
-			input {
-				position: relative;
-			}
-			label {
-				color: $silver-chalice;
-				padding-left: 20px;
-				font-weight: 400;
-			}
+		:global(#select-all-checkbox) {
+			margin: 0;
+			position: relative;
+		}
+		:global(#select-all-label) {
+			color: $silver-chalice;
+			padding-left: $padding-larger;
+			font-weight: 400;
 		}
 	}
 }

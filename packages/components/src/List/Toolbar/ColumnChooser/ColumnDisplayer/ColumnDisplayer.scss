@@ -13,7 +13,7 @@ $tc-icon-size: 1.3rem !default;
 		display: flex;
 		height: 70%;
 		padding-right: $padding-small;
-		input {
+		&-checkbox {
 			margin: 0;
 			position: relative;
 		}
@@ -33,12 +33,12 @@ $tc-icon-size: 1.3rem !default;
 		justify-content: flex-end;
 		width: 100%;
 		&-value,
-		input {
+		&-input-text {
 			font-weight: bold;
 			font-size: 1.5rem;
 			padding-right: $padding-smaller;
 		}
-		input {
+		&-input-text {
 			text-align: right;
 			width: 2.5rem;
 		}

@@ -107,10 +107,9 @@ const DefaultFooter = ({ selectAllValue, onSelectAll, submit, t }) => {
 						value={selectAllValue}
 					/>
 				</span>
-				<label htmlFor="selectAll">Select All</label>
+				<label id="select-all-label" htmlFor="selectAll">Select All</label>
 			</span>
 			<ActionButton
-				id="select-all-label"
 				onClick={event => submit(event)}
 				label={t('COLUMN_CHOOSER_FOOTER_BUTTON', { defaultValue: 'Modify' })}
 			/>

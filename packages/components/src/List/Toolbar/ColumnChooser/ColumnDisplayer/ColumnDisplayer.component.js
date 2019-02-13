@@ -8,7 +8,18 @@ const ColumnVisibility = ({ onChange, locked, value }) => {
 	if (locked) {
 		return <Icon name="talend-locked" />;
 	}
-	return <input onChange={() => onChange(!value)} type="checkbox" checked={value} value={value} />;
+	return (
+		<input
+			className={classNames(
+				theme['tc-column-displayer-visibility-checkbox'],
+				'tc-column-displayer-visibility-checkbox',
+			)}
+			onChange={() => onChange(!value)}
+			type="checkbox"
+			checked={value}
+			value={value}
+		/>
+	);
 };
 
 ColumnVisibility.propTypes = {
@@ -36,14 +47,18 @@ const ColumnOrder = ({ length, order, locked, onBlur, onChange, onKeyPress, valu
 	return (
 		<React.Fragment>
 			<input
+				className={classNames(
+					theme['tc-column-displayer-order-input-text'],
+					'tc-column-displayer-order-input-text',
+				)}
+				onBlur={event => onBlur(event.target.value)}
 				onChange={event => onChange(event.target.value)}
+				onKeyPress={event => onKeyPress(event, event.target.value)}
 				placeholder={value}
 				type="text"
 				value={value}
-				onBlur={event => onBlur(event.target.value)}
-				onKeyPress={event => onKeyPress(event, event.target.value)}
 			/>
-			{`/${length}`}
+			{`/ ${length}`}
 		</React.Fragment>
 	);
 };

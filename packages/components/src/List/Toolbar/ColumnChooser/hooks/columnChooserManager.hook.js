@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { compareOrder } from '../service';
 import cloneDeep from 'lodash/cloneDeep';
+import { compareOrder } from '../service';
 
 export function organiseColumns(columns) {
 	return columns.sort(compareOrder).map((column, index) => {
@@ -57,9 +57,6 @@ export function useColumnChooserManager(columns, customSubmit) {
 		if (isValueCorrect(parseValue, getEditedColumnsLength())) {
 			return parseValue;
 		}
-		/*
-			Add some error or warning ?
-		*/
 		throw Error(`ColumnChooserManager: Bad order number ${value}`);
 	}
 
