@@ -95,7 +95,6 @@ function Toolbar({
 					{injected('before-selectall')}
 					{selectAllCheckbox && <SelectAll {...selectAllCheckbox} t={t} />}
 					{injected('after-selectall')}
-					{columnChooser && <ColumnChooserButton id={`${id}-column-chooser`} {...columnChooser} />}
 					{injected('before-displaymode')}
 					{display && (
 						<Label
@@ -103,6 +102,7 @@ function Toolbar({
 							htmlFor={displayModeId}
 						/>
 					)}
+					{columnChooser && <ColumnChooserButton id={`${id}-column-chooser`} {...columnChooser} />}
 					{display && <SelectDisplayMode id={displayModeId} {...display} t={t} />}
 					{injected('after-displaymode')}
 					{injected('before-sort')}
