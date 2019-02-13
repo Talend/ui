@@ -10,25 +10,32 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/ColumnDisplayer/ColumnDisplayer.component.js
    4:24  error  Absolute imports should come before relative imports                                                   import/imports-first
-  16:24  error  'onBlur' is missing in props validation                                                                react/prop-types
-  16:42  error  'onKeyPress' is missing in props validation                                                            react/prop-types
-  29:10  error  'length' PropType is defined but prop is never used                                                    react/no-unused-prop-types
-  42:2   error  'onBlurColumnOrder' is missing in props validation                                                     react/prop-types
-  43:2   error  'onKeyPressOrder' is missing in props validation                                                       react/prop-types
-  44:7   error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  16:32  error  'order' is missing in props validation                                                                 react/prop-types
+  16:39  error  'locked' is missing in props validation                                                                react/prop-types
+  16:47  error  'onBlur' is missing in props validation                                                                react/prop-types
+  16:65  error  'onKeyPress' is missing in props validation                                                            react/prop-types
+  50:2   error  'onBlurOrder' is missing in props validation                                                           react/prop-types
+  51:2   error  'onKeyPressOrder' is missing in props validation                                                       react/prop-types
+  52:7   error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/ColumnDisplayerDraggable/ColumnDisplayerDraggable.component.js
   41:89  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/Content/DefaultColumnChooser.components.js
-  11:34  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
-  32:6   error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
-  56:2   error  'onBlurColumnOrder' is missing in props validation                                                     react/prop-types
-  57:2   error  'onKeyPressOrder' is missing in props validation                                                       react/prop-types
-  58:7   error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
-  88:26  error  'selectAllValue' is missing in props validation                                                        react/prop-types
-  88:42  error  'onSelectAll' is missing in props validation                                                           react/prop-types
-  88:78  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+   11:34  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+   32:6   error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+   53:2   error  'onChangeOrder' is missing in props validation                                                         react/prop-types
+   54:2   error  'onChangeVisibility' is missing in props validation                                                    react/prop-types
+   56:2   error  'onBlurOrder' is missing in props validation                                                           react/prop-types
+   57:2   error  'onKeyPressOrder' is missing in props validation                                                       react/prop-types
+   58:7   error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+   83:21  error  'changeColumnOrder' PropType is defined but prop is never used                                         react/no-unused-prop-types
+   84:26  error  'changeColumnVisibility' PropType is defined but prop is never used                                    react/no-unused-prop-types
+   88:26  error  'selectAllValue' is missing in props validation                                                        react/prop-types
+   88:42  error  'onSelectAll' is missing in props validation                                                           react/prop-types
+   88:55  error  'submit' is missing in props validation                                                                react/prop-types
+   88:71  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  120:17  error  'submitColumns' PropType is defined but prop is never used                                             react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/hooks/columnChooserClient.hook.js
   20:10  error  Prefer default export  import/prefer-default-export
@@ -65,6 +72,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 31 problems (28 errors, 3 warnings)
+✖ 38 problems (35 errors, 3 warnings)
   9 errors, 0 warnings potentially fixable with the `--fix` option.
 
