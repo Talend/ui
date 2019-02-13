@@ -24,16 +24,16 @@
 		align-items: center;
 		display: flex;
 		justify-content: flex-end;
-        width: 100%;
-        &-value,
-        input {
-            font-weight: bold;
-            font-size: 15px;
-            padding-right: 5px;
-        }
-        input {
-            text-align: right;
-            width: 25px;
-        }
+		width: 100%;
+		&-value,
+		input {
+			font-weight: bold;
+			font-size: 15px;
+			padding-right: 5px;
+		}
+		input {
+			text-align: right;
+			width: 25px;
+		}
 	}
 }
