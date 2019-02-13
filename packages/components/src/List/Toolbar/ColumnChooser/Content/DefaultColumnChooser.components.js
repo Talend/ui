@@ -107,7 +107,9 @@ const DefaultFooter = ({ selectAllValue, onSelectAll, submit, t }) => {
 						value={selectAllValue}
 					/>
 				</span>
-				<label id="select-all-label" htmlFor="selectAll">Select All</label>
+				<label id="select-all-label" htmlFor="selectAll">
+					Select All
+				</label>
 			</span>
 			<ActionButton
 				onClick={event => submit(event)}
