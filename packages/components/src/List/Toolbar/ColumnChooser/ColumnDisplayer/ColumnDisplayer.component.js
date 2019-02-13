@@ -69,6 +69,7 @@ const ColumnOrder = ({ length, order, locked, onBlur, onChange, onKeyPress, valu
 	return (
 		<React.Fragment>
 			<input
+				autoFocus
 				className={classNames(
 					theme['tc-column-displayer-order-input-text'],
 					'tc-column-displayer-order-input-text',

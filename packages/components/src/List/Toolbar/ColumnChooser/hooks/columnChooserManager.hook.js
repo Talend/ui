@@ -112,9 +112,8 @@ export function useColumnChooserManager(columns, customSubmit) {
 			}
 			if (state.editedColumns[index].order !== parseValue) {
 				modifyOrderTwoItems(parseValue, index);
-				return true;
 			}
-			return false;
+			return true;
 		};
 	}
 
