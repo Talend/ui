@@ -54,7 +54,7 @@ function matchOrder(value) {
 const updateAttributeVisiblity = changeColumnAttribute('hidden');
 const updateAttributeOrder = changeColumnAttribute('order');
 
-export function useColumnChooserManager(columns, submitChanges) {
+export function useColumnChooserManager(columns, customSubmit) {
 	const [state, setState] = useState({
 		editedColumns: organiseColumns(columns),
 		selectAll: false,
@@ -75,18 +75,18 @@ export function useColumnChooserManager(columns, submitChanges) {
 		throw Error(`ColumnChooserManager: Bad order number ${value}`);
 	}
 
-	function submitColumns(event) {
+	function submitColumnChooser(event) {
 		const editedColumns = cloneDeep(state.editedColumns);
-		submitChanges(event, { ...state, editedColumns });
+		customSubmit(event, { ...state, editedColumns });
 	}
 
-	function changeColumnVisibility(index) {
+	function handlerChangeVisibility(index) {
 		return function changeVisiblity(value) {
 			setState(updateAttributeVisiblity(value, index));
 		};
 	}
 
-	function changeColumnOrder(index) {
+	function handlerChangeOrder(index) {
 		return function changeOrder(value) {
 			setState(updateAttributeOrder(value, index));
 		};
@@ -106,7 +106,7 @@ export function useColumnChooserManager(columns, submitChanges) {
 		}
 	}
 
-	function handlerInputOrder(index) {
+	function handlerInputTextOrder(index) {
 		return function inputOrder(event, value) {
 			let parseValue;
 			try {
@@ -120,7 +120,7 @@ export function useColumnChooserManager(columns, submitChanges) {
 		};
 	}
 
-	function onBlurColumnOrder(index) {
+	function handlerBlurInputTextOrder(index) {
 		return function onBlur(value) {
 			let parseValue;
 			try {
@@ -134,7 +134,7 @@ export function useColumnChooserManager(columns, submitChanges) {
 		};
 	}
 
-	function selectAll(value) {
+	function handlerSelectAll(value) {
 		setState(prevState => {
 			return {
 				...prevState,
@@ -146,7 +146,7 @@ export function useColumnChooserManager(columns, submitChanges) {
 		});
 	}
 
-	function onDragAndDrop(sourceColumn, targetColumn) {
+	function handlerDragAndDrop(sourceColumn, targetColumn) {
 		const order = targetColumn.order;
 		setState(updateAttributeOrder(order, sourceColumn.index));
 		setState(
@@ -159,13 +159,13 @@ export function useColumnChooserManager(columns, submitChanges) {
 	}
 
 	return {
-		changeColumnOrder,
-		changeColumnVisibility,
-		handlerInputOrder,
-		onBlurColumnOrder,
-		onDragAndDrop,
-		selectAll,
+		handlerBlurInputTextOrder,
+		handlerChangeOrder,
+		handlerDragAndDrop,
+		handlerInputTextOrder,
+		handlerSelectAll,
+		handlerChangeVisibility,
 		stateColumnChooser: Object.freeze(state),
-		submitColumns,
+		submitColumnChooser,
 	};
 }

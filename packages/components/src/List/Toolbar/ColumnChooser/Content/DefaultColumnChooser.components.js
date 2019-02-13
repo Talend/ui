@@ -24,10 +24,10 @@ DefaultHeader.propTypes = {
 
 const getColumnDisplay = (
 	length,
-	onChangeVisibility,
 	onChangeOrder,
+	onChangeVisibility,
 	onDragAndDrop,
-	onBlurColumnOrder,
+	onBlurOrder,
 	onKeyPressOrder,
 ) => {
 	return (column, index) => {
@@ -35,7 +35,7 @@ const getColumnDisplay = (
 			...column,
 			index,
 			length,
-			onBlurColumnOrder: onBlurColumnOrder(index),
+			onBlurOrder: onBlurOrder(index),
 			onChangeOrder: onChangeOrder(index),
 			onChangeVisibility: onChangeVisibility(index),
 			onDragAndDrop,
@@ -50,10 +50,10 @@ const getColumnDisplay = (
 
 const DefaultBody = ({
 	columns,
-	changeColumnOrder,
-	changeColumnVisibility,
+	onChangeOrder,
+	onChangeVisibility,
 	onDragAndDrop,
-	onBlurColumnOrder,
+	onBlurOrder,
 	onKeyPressOrder,
 }) => {
 	return (
@@ -65,10 +65,10 @@ const DefaultBody = ({
 				{columns.map(
 					getColumnDisplay(
 						columns.length,
-						changeColumnVisibility,
-						changeColumnOrder,
+						onChangeOrder,
+						onChangeVisibility,
 						onDragAndDrop,
-						onBlurColumnOrder,
+						onBlurOrder,
 						onKeyPressOrder,
 					),
 				)}
@@ -85,7 +85,7 @@ DefaultBody.propTypes = {
 	onDragAndDrop: PropTypes.func.isRequired,
 };
 
-const DefaultFooter = ({ selectAllValue, onSelectAll, submitColumns, t }) => {
+const DefaultFooter = ({ selectAllValue, onSelectAll, submit, t }) => {
 	return (
 		<div className={classNames(theme['tc-column-chooser-footer'], 'tc-column-chooser-footer')}>
 			<span
@@ -109,7 +109,7 @@ const DefaultFooter = ({ selectAllValue, onSelectAll, submitColumns, t }) => {
 			</span>
 			<ActionButton
 				id="select-all-label"
-				onClick={event => submitColumns(event)}
+				onClick={event => submit(event)}
 				label={t('COLUMN_CHOOSER_FOOTER_BUTTON', { defaultValue: 'Modify' })}
 			/>
 		</div>

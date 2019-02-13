@@ -13,17 +13,25 @@ ColumnVisibility.propTypes = {
 	value: PropTypes.bool,
 };
 
-const ColumnOrder = ({ onBlur, onChange, onKeyPress, value }) => (
-	<input
-		style={{ width: '25px' }}
-		onChange={event => onChange(event.target.value)}
-		placeholder={value}
-		type="text"
-		value={value}
-		onBlur={event => onBlur(event.target.value)}
-		onKeyPress={event => onKeyPress(event, event.target.value)}
-	/>
-);
+const ColumnOrder = ({ length, order, locked, onBlur, onChange, onKeyPress, value }) => {
+	if (locked) {
+		return <div>{`${order} / ${length}`}</div>;
+	}
+	return (
+		<React.Fragment>
+			<input
+				style={{ width: '25px' }}
+				onChange={event => onChange(event.target.value)}
+				placeholder={value}
+				type="text"
+				value={value}
+				onBlur={event => onBlur(event.target.value)}
+				onKeyPress={event => onKeyPress(event, event.target.value)}
+			/>
+			{`/${length}`}
+		</React.Fragment>
+	);
+};
 
 ColumnOrder.propTypes = {
 	length: PropTypes.number.isRequired,
@@ -39,7 +47,7 @@ const ColumnDisplayer = ({
 	length,
 	onChangeVisibility,
 	onChangeOrder,
-	onBlurColumnOrder,
+	onBlurOrder,
 	onKeyPressOrder,
 }) => {
 	return (
@@ -69,20 +77,15 @@ const ColumnDisplayer = ({
 					alignItems: 'center',
 				}}
 			>
-				{locked ? (
-					<div>{`${order} / ${length}`}</div>
-				) : (
-					<React.Fragment>
-						<ColumnOrder
-							onBlur={onBlurColumnOrder}
-							onChange={onChangeOrder}
-							value={order}
-							length={length}
-							onKeyPress={onKeyPressOrder}
-						/>
-						{`/${length}`}
-					</React.Fragment>
-				)}
+				<ColumnOrder
+					length={length}
+					locked={locked}
+					onBlur={onBlurOrder}
+					onChange={onChangeOrder}
+					onKeyPress={onKeyPressOrder}
+					order={order}
+					value={order}
+				/>
 			</div>
 		</div>
 	);
