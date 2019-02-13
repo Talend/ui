@@ -14,11 +14,11 @@ const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
 
 export function getTranslatedErrorMessageByKey(key) {
 	const messages = {
-		INVALID_HOUR_EMPTY: getDefaultT()('INVALID_HOUR_EMPTY', 'The hour can\'t be empty'),
+		INVALID_HOUR_EMPTY: getDefaultT()('INVALID_HOUR_EMPTY', "The hour can't be empty"),
 		INVALID_HOUR_NUMBER: getDefaultT()('INVALID_HOUR_NUMBER', 'Invalid hour format'),
-		INVALID_MINUTES_EMPTY: getDefaultT()('INVALID_MINUTES_EMPTY', 'The minutes can\'t be empty'),
+		INVALID_MINUTES_EMPTY: getDefaultT()('INVALID_MINUTES_EMPTY', "The minutes can't be empty"),
 		INVALID_MINUTES_NUMBER: getDefaultT()('INVALID_MINUTES_NUMBER', 'Invalid minutes format'),
-		INVALID_SECONDS_EMPTY: getDefaultT()('INVALID_SECONDS_EMPTY', 'The seconds can\'t be empty'),
+		INVALID_SECONDS_EMPTY: getDefaultT()('INVALID_SECONDS_EMPTY', "The seconds can't be empty"),
 		INVALID_SECONDS_NUMBER: getDefaultT()('INVALID_SECONDS_NUMBER', 'Invalid seconds format'),
 	};
 	return messages[key] || '';
