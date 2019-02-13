@@ -170,14 +170,15 @@ export function httpFetch(url, config, method, payload) {
  */
 export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload, options) {
 	const answer = yield call(httpFetch, url, config, method, payload);
-
-	if (!get(options, 'silent') && answer instanceof Error) {
+	const silent = get(options, 'silent');
+	if ((silent === undefined || typeof silent === 'object') && answer instanceof Error) {
 		yield put({
 			error: { message: answer.data.message, stack: { status: answer.response.status } },
 			url,
 			config,
 			method,
 			payload,
+			options,
 			type: ACTION_TYPE_HTTP_ERRORS,
 		});
 	}
