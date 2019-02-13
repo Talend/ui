@@ -8,6 +8,15 @@ $tc-icon-size: 1.3rem !default;
 	height: 4rem;
 	&-dragging {
 		background-color: $wild-sand;
+		position: absolute;
+		content: "";
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		z-index: -1;
+		margin-right: -$padding-large;
+		margin-left: -$padding-large;
 	}
 
 	&-visibility {

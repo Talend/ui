@@ -89,10 +89,16 @@ const ColumnDisplayer = ({
 		<div
 			id="column-chooser-displayer"
 			key={`${label}`}
-			className={classNames(theme['tc-column-displayer'], 'tc-column-displayer', {
-				[theme['tc-column-displayer-dragging']]: isDragging,
-			})}
+			className={classNames(theme['tc-column-displayer'], 'tc-column-displayer')}
 		>
+			{isDragging && (
+				<div
+					className={classNames(
+						theme['tc-column-displayer-dragging'],
+						'tc-column-displayer-dragging',
+					)}
+				/>
+			)}
 			<div
 				className={classNames(
 					theme['tc-column-displayer-visibility'],
