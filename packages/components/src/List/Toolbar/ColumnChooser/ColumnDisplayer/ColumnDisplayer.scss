@@ -1,3 +1,6 @@
+$tc-border-color: #ededed !default;
+$tc-icon-size: 1.3rem !default;
+
 .tc-column-displayer {
 	display: flex;
 	position: relative;
@@ -5,35 +8,39 @@
 	height: 4rem;
 
 	&-visibility {
-		border-right: 0.1rem solid $silver-chalice;
-		padding-right: 10px;
+		align-items: center;
+		border-right: 0.1rem solid $tc-border-color;
+		display: flex;
+		height: 70%;
+		padding-right: $padding-small;
 		input {
+			margin: 0;
 			position: relative;
 		}
 		:global(.tc-svg-icon) {
-			width: 1.3rem;
-			height: 1.3rem;
+			width: $tc-icon-size;
+			height: $tc-icon-size;
 		}
 	}
 	&-label {
 		display: flex;
-		padding-left: 20px;
+		padding-left: $padding-large;
 		width: 100%;
 	}
 	&-order {
 		align-items: center;
 		display: flex;
 		justify-content: flex-end;
-        width: 100%;
-        &-value,
-        input {
-            font-weight: bold;
-            font-size: 15px;
-            padding-right: 5px;
-        }
-        input {
-            text-align: right;
-            width: 25px;
-        }
+		width: 100%;
+		&-value,
+		input {
+			font-weight: bold;
+			font-size: 1.5rem;
+			padding-right: $padding-smaller;
+		}
+		input {
+			text-align: right;
+			width: 2.5rem;
+		}
 	}
 }
