@@ -22,8 +22,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/hooks/columnChooserManager.hook.js
     6:59  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
-  127:25  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
-  130:58  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
+  124:25  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
+  127:58  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/MultiSelect/ItemOption.component.js
   57:9  error  'index' PropType is defined but prop is never used  react/no-unused-prop-types
