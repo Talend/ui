@@ -13,8 +13,8 @@ import omit from 'lodash/omit';
  */
 export default class FocusManager extends Component {
 	static propTypes = {
-		onFocusOut: PropTypes.func.isRequired,
-		onFocusIn: PropTypes.func.isRequired,
+		onFocusOut: PropTypes.func,
+		onFocusIn: PropTypes.func,
 		divRef: PropTypes.func,
 	};
 
@@ -26,7 +26,9 @@ export default class FocusManager extends Component {
 	};
 
 	onBlur = event => {
-		this.timeout = setTimeout(() => this.props.onFocusOut(event));
+		if (this.props.onFocusOut) {
+			this.timeout = setTimeout(() => this.props.onFocusOut(event));
+		}
 	};
 
 	render() {
