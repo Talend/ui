@@ -916,6 +916,7 @@ storiesOf('List', module)
 
 function ListColumnChooser({ list, ...rest }) {
 	function myListColumnChooserHanlder(event, editedColumns) {
+		// I do what i want here
 		console.log('Hello beautifull hooks', editedColumns);
 	}
 	/*
@@ -941,7 +942,7 @@ function ListColumnChooser({ list, ...rest }) {
 	};
 	const columnChooser = {
 		columns: hookColumnChooser.state.columns,
-		handlerColumnChooser: myListColumnChooserHanlder,
+		handlerColumnChooser: hookColumnChooser.handlerColumnChooser,
 	};
 	return <List {...rest} list={enrichedList} columnChooser={columnChooser} />;
 }

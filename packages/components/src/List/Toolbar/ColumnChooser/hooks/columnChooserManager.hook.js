@@ -75,14 +75,8 @@ export function useColumnChooserManager(columns, customSubmit) {
 	}
 
 	function handlerChangeVisibility(index) {
-		return function changeVisiblity(value) {
+		return function changeVisiblity(event, value) {
 			setState(updateAttributeVisiblity(value, index));
-		};
-	}
-
-	function handlerChangeOrder(index) {
-		return function changeOrder(value) {
-			setState(updateAttributeOrder(value, index));
 		};
 	}
 
@@ -142,7 +136,6 @@ export function useColumnChooserManager(columns, customSubmit) {
 
 	return {
 		handlerBlurInputTextOrder,
-		handlerChangeOrder,
 		handlerDragAndDrop,
 		handlerInputTextOrder,
 		handlerSelectAll,

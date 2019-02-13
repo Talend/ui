@@ -17,7 +17,6 @@ export default function ColumnChooserContent({
 	t,
 }) {
 	const {
-		handlerChangeOrder,
 		handlerChangeVisibility,
 		handlerBlurInputTextOrder,
 		handlerDragAndDrop,
@@ -37,7 +36,6 @@ export default function ColumnChooserContent({
 					body || (
 						<DefaultBody
 							columns={stateColumnChooser.editedColumns}
-							onChangeOrder={handlerChangeOrder}
 							onChangeVisibility={handlerChangeVisibility}
 							onDragAndDrop={handlerDragAndDrop}
 							onBlurOrder={handlerBlurInputTextOrder}

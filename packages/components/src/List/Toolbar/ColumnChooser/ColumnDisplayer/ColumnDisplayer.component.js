@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon from '../../../../Icon';
@@ -16,7 +16,7 @@ const ColumnVisibility = ({ onChange, locked, value }) => {
 				theme['tc-column-displayer-visibility-checkbox'],
 				'tc-column-displayer-visibility-checkbox',
 			)}
-			onChange={() => onChange(!value)}
+			onChange={() => onChange(event, !value)}
 			type="checkbox"
 			checked={value}
 			value={value}
@@ -49,11 +49,15 @@ OrderDisplay.propTypes = {
 	length: PropTypes.number.isRequired,
 };
 
-const ColumnOrder = ({ length, order, locked, onBlur, onChange, onKeyPress, value }) => {
+const ColumnOrder = ({ length, order, locked, onBlur, onKeyPress, value }) => {
 	const [editMode, setEditMode] = useState(false);
+	const [ctrlValue, setCtrlValue] = useState(value);
+	useEffect(() => {
+		setCtrlValue(value);
+	}, [value]);
 	function changeEditMode(fn, event) {
-		if (fn(event, event.target.value)) {
-			setEditMode(!editMode);
+		if (fn(event, ctrlValue)) {
+			setEditMode(prevState => !prevState);
 		}
 	}
 	if (locked || !editMode) {
@@ -77,11 +81,11 @@ const ColumnOrder = ({ length, order, locked, onBlur, onChange, onKeyPress, valu
 				onBlur={event => {
 					changeEditMode(onBlur, event);
 				}}
-				onChange={event => onChange(event.target.value)}
+				onChange={event => setCtrlValue(event.target.value)}
 				onKeyPress={event => changeEditMode(onKeyPress, event)}
-				placeholder={value}
+				placeholder={ctrlValue}
 				type="text"
-				value={value}
+				value={ctrlValue}
 			/>
 			{`/ ${length}`}
 		</React.Fragment>
@@ -92,7 +96,6 @@ ColumnOrder.propTypes = {
 	length: PropTypes.number.isRequired,
 	locked: PropTypes.bool,
 	onBlur: PropTypes.func.isRequired,
-	onChange: PropTypes.func.isRequired,
 	onKeyPress: PropTypes.func.isRequired,
 	order: PropTypes.number.isRequired,
 	value: PropTypes.number.isRequired,
@@ -105,7 +108,6 @@ const ColumnDisplayer = ({
 	order,
 	length,
 	onChangeVisibility,
-	onChangeOrder,
 	onBlurOrder,
 	onKeyPressOrder,
 	isDragging,
@@ -140,7 +142,6 @@ const ColumnDisplayer = ({
 					length={length}
 					locked={locked}
 					onBlur={onBlurOrder}
-					onChange={onChangeOrder}
 					onKeyPress={onKeyPressOrder}
 					order={order}
 					value={order}
@@ -157,7 +158,6 @@ ColumnDisplayer.propTypes = {
 	length: PropTypes.number.isRequired,
 	locked: PropTypes.bool,
 	onBlurOrder: PropTypes.func.isRequired,
-	onChangeOrder: PropTypes.func.isRequired,
 	onChangeVisibility: PropTypes.func.isRequired,
 	onKeyPressOrder: PropTypes.func.isRequired,
 	order: PropTypes.number.isRequired,

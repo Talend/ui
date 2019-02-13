@@ -24,7 +24,6 @@ DefaultHeader.propTypes = {
 
 const getColumnDisplay = (
 	length,
-	onChangeOrder,
 	onChangeVisibility,
 	onDragAndDrop,
 	onBlurOrder,
@@ -36,7 +35,6 @@ const getColumnDisplay = (
 			index,
 			length,
 			onBlurOrder: onBlurOrder(index),
-			onChangeOrder: onChangeOrder(index),
 			onChangeVisibility: onChangeVisibility(index),
 			onDragAndDrop: onDragAndDrop(index),
 			onKeyPressOrder: onKeyPressOrder(index),
@@ -50,7 +48,6 @@ const getColumnDisplay = (
 
 const DefaultBody = ({
 	columns,
-	onChangeOrder,
 	onChangeVisibility,
 	onDragAndDrop,
 	onBlurOrder,
@@ -65,7 +62,6 @@ const DefaultBody = ({
 				{columns.map(
 					getColumnDisplay(
 						columns.length,
-						onChangeOrder,
 						onChangeVisibility,
 						onDragAndDrop,
 						onBlurOrder,
@@ -81,7 +77,6 @@ DefaultBody.propTypes = {
 	// TODO more explicit proptypes for columns
 	columns: PropTypes.array.isRequired,
 	onBlurOrder: PropTypes.func.isRequired,
-	onChangeOrder: PropTypes.func.isRequired,
 	onChangeVisibility: PropTypes.func.isRequired,
 	onDragAndDrop: PropTypes.func.isRequired,
 	onKeyPressOrder: PropTypes.func.isRequired,
