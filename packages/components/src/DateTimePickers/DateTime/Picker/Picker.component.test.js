@@ -1,6 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { mount } from 'enzyme';
 
 import { DateTimeContext } from '../Context';
 import Picker from './Picker.component';
