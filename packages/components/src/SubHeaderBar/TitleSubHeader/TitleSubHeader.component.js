@@ -9,15 +9,7 @@ import Inject from '../../Inject';
 import getDefaultT from '../../translate';
 import TooltipTrigger from '../../TooltipTrigger';
 
-function TitleSubHeader({
-	title,
-	iconId,
-	inProgress,
-	editable,
-	subTitle,
-	getComponent,
-	...rest
-}) {
+function TitleSubHeader({ title, iconId, inProgress, editable, subTitle, getComponent, ...rest }) {
 	const InjectedEditableText = Inject.get(getComponent, 'EditableText', EditableText);
 	return (
 		<div
