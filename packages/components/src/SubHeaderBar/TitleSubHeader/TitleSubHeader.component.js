@@ -15,7 +15,6 @@ function TitleSubHeader({
 	loading,
 	inProgress,
 	editable,
-	subTitle,
 	getComponent,
 	...rest
 }) {
@@ -65,20 +64,38 @@ function TitleSubHeader({
 						</TooltipTrigger>
 					)}
 				</div>
-				{subTitle && (
-					<small
-						className={classNames(
-							theme['tc-subheader-details-text-subtitle'],
-							'tc-subheader-details-text-subtitle',
-						)}
-					>
-						{subTitle}
-					</small>
-				)}
+				<SubTitle {...rest} />
 			</div>
 		</div>
 	);
 }
+
+function SubTitle({ subTitleLoading, subTitle }) {
+	if (subTitleLoading) {
+		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
+	}
+
+	if (subTitle) {
+		return (
+			<small
+				className={classNames(
+					theme['tc-subheader-details-text-subtitle'],
+					'tc-subheader-details-text-subtitle',
+				)}
+			>
+				{subTitle}
+			</small>
+		);
+	}
+
+	return null;
+}
+
+
+SubTitle.propTypes = {
+	subTitle: PropTypes.string,
+	subTitleLoading: PropTypes.bool,
+};
 
 TitleSubHeader.propTypes = {
 	title: PropTypes.string.isRequired,
@@ -97,4 +114,4 @@ TitleSubHeader.defaultProps = {
 	editable: false,
 };
 
-export { TitleSubHeader as default };
+export { TitleSubHeader as default, SubTitle };

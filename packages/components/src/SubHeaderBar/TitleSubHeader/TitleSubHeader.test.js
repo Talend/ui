@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Skeleton, Icon, Action, EditableText } from '../../';
-import TitleSubHeader from './TitleSubHeader.component';
+import TitleSubHeader, { SubTitle } from './TitleSubHeader.component';
 
 describe('TitleSubHeader', () => {
 	let defaultProps;
@@ -68,13 +68,23 @@ describe('TitleSubHeader', () => {
 		const wrapper = shallow(<TitleSubHeader {...defaultProps} />);
 		expect(wrapper.find('h1').getElement().props.children).toEqual('myTitle');
 	});
-	it('should render with subTitle', () => {
-		const wrapper = shallow(<TitleSubHeader {...defaultProps} subTitle="mySubTitle" />).find(
-			'small',
-		);
-		expect(wrapper.getElement().props.className).toEqual(
-			'theme-tc-subheader-details-text-subtitle tc-subheader-details-text-subtitle',
-		);
-		expect(wrapper.getElement().props.children).toEqual('mySubTitle');
+});
+
+describe('SubTitle', () => {
+	let defaultProps;
+	beforeEach(() => {
+		defaultProps = {
+			subTitle: 'mySubTitle',
+		};
+	});
+
+	it('should render', () => {
+		const wrapper = shallow(<SubTitle {...defaultProps} />);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render in loading mode', () => {
+		const wrapper = shallow(<SubTitle subTitleLoading />);
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
