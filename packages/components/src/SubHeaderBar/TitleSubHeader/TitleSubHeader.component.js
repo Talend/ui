@@ -9,15 +9,7 @@ import Inject from '../../Inject';
 import getDefaultT from '../../translate';
 import TooltipTrigger from '../../TooltipTrigger';
 
-function TitleSubHeader({
-	title,
-	iconId,
-	loading,
-	inProgress,
-	editable,
-	getComponent,
-	...rest
-}) {
+function TitleSubHeader({ title, iconId, loading, inProgress, editable, getComponent, ...rest }) {
 	if (loading) {
 		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
 	}
@@ -90,7 +82,6 @@ function SubTitle({ subTitleLoading, subTitle }) {
 
 	return null;
 }
-
 
 SubTitle.propTypes = {
 	subTitle: PropTypes.string,
