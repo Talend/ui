@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Skeleton from '../../Skeleton';
+import loadable from '../../Loadable';
 import { EditableText } from '../..';
 import theme from './TitleSubHeader.scss';
 import Icon from '../../Icon';
@@ -12,17 +12,12 @@ import TooltipTrigger from '../../TooltipTrigger';
 function TitleSubHeader({
 	title,
 	iconId,
-	loading,
 	inProgress,
 	editable,
 	subTitle,
 	getComponent,
 	...rest
 }) {
-	if (loading) {
-		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
-	}
-
 	const InjectedEditableText = Inject.get(getComponent, 'EditableText', EditableText);
 	return (
 		<div
@@ -83,7 +78,6 @@ function TitleSubHeader({
 TitleSubHeader.propTypes = {
 	title: PropTypes.string.isRequired,
 	iconId: PropTypes.string,
-	loading: PropTypes.bool,
 	inProgress: PropTypes.bool,
 	editable: PropTypes.bool,
 	subTitle: PropTypes.string,
@@ -97,4 +91,7 @@ TitleSubHeader.defaultProps = {
 	editable: false,
 };
 
-export { TitleSubHeader as default };
+export default loadable(TitleSubHeader, {
+	type: 'text',
+	size: 'large',
+});
