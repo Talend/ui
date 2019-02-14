@@ -2,8 +2,8 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 
 import DateTimePicker from './DateTimePicker.component';
-import DateTimeView from '../views/DateTimeView';
-import MonthYearView from '../views/MonthYearView';
+import DateTimeView from '../../views/DateTimeView';
+import MonthYearView from '../../views/MonthYearView';
 
 describe('DateTimePicker', () => {
 	afterEach(() => {

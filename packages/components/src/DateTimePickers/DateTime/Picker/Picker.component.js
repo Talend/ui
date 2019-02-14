@@ -17,3 +17,4 @@ export default function Picker(props) {
 		/>
 	);
 }
+Picker.displayName = 'DateTime.Picker';

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DateTime.Validation should render 1`] = `
-<Translate(Validation)>
+<Translate(DateTime.Validation)>
   <I18n
     bindI18n="languageChanged loaded"
     bindStore="added removed"
@@ -18,7 +18,7 @@ exports[`DateTime.Validation should render 1`] = `
     wait={false}
     withRef={false}
   >
-    <Validation
+    <DateTime.Validation
       i18n={Object {}}
       lng="en"
       t={[Function]}
@@ -93,7 +93,7 @@ exports[`DateTime.Validation should render 1`] = `
           Done
         </button>
       </div>
-    </Validation>
+    </DateTime.Validation>
   </I18n>
-</Translate(Validation)>
+</Translate(DateTime.Validation)>
 `;

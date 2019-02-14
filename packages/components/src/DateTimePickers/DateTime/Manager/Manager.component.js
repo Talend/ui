@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import isSameSecond from 'date-fns/is_same_second';
 
 import { DateTimeContext } from '../Context';
-import { focusOnCalendar } from '../../../Gesture/withCalendarGesture';
 import {
 	check,
 	checkHours,
@@ -35,6 +34,7 @@ function haveErrorsChanged(oldErrors, newErrors) {
 }
 
 class ContextualManager extends React.Component {
+	static displayName = 'DateTime.Manager';
 	static propTypes = {
 		children: PropTypes.node,
 		dateFormat: PropTypes.string,
