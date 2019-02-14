@@ -9,7 +9,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   114:7  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/ColumnDisplayerDraggable/ColumnDisplayerDraggable.component.js
-  38:89  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  32:89  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/Content/DefaultColumnChooser.components.js
   11:34  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
