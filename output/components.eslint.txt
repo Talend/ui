@@ -5,10 +5,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/Input/Input.component.js
   5:8  error  'Picker' is defined but never used  no-unused-vars
 
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/Picker/Picker.component.test.js
-  2:10  error  'shallow' is defined but never used  no-unused-vars
-  3:8   error  'toJson' is defined but never used   no-unused-vars
-
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/Validation/Validation.component.js
   12:8  error  'Picker' is defined but never used  no-unused-vars
 
@@ -33,5 +29,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 11 problems (9 errors, 2 warnings)
+✖ 9 problems (7 errors, 2 warnings)
 
