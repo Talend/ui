@@ -76,6 +76,7 @@ const { data, response } = yield call(http.get, `${API['dataset-sample']}/${data
 
   + The ```silent``` property to ```true``` avoid that cmf dispatch an action of type ```@@HTTP/ERRORS```.<br/>
   It could be usefull if you want to treat the request error on a specific way only and deal with it within your own saga.
+
 ```javascript
 const options = {
 	silent: {
