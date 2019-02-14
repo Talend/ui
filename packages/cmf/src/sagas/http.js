@@ -171,7 +171,7 @@ export function httpFetch(url, config, method, payload) {
 export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload, options) {
 	const answer = yield call(httpFetch, url, config, method, payload);
 	const silent = get(options, 'silent');
-	if ((silent === undefined || typeof silent === 'object') && answer instanceof Error) {
+	if (silent !== true && answer instanceof Error) {
 		yield put({
 			error: { message: answer.data.message, stack: { status: answer.response.status } },
 			url,
