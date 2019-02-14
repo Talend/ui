@@ -8,7 +8,7 @@ import ActionButton from '../../../../Actions/ActionButton';
 import ColumnDisplayer from '../ColumnDisplayer';
 import ColumnDisplayerDraggable from '../ColumnDisplayerDraggable';
 
-const DefaultHeader = ({ t }) => {
+export const DefaultHeader = ({ t }) => {
 	return (
 		<div className={classNames(theme['tc-column-chooser-header'], 'tc-column-chooser-header')}>
 			{t('COLUMN_CHOOSER_HEADER_TITLE', {
@@ -22,7 +22,7 @@ DefaultHeader.propTypes = {
 	t: PropTypes.func.isRequired,
 };
 
-const getColumnDisplay = (
+export const getColumnDisplay = (
 	length,
 	onChangeVisibility,
 	onDragAndDrop,
@@ -32,21 +32,25 @@ const getColumnDisplay = (
 	return (column, index) => {
 		const displayerProps = {
 			...column,
-			index,
 			length,
 			onBlurOrder: onBlurOrder(index),
 			onChangeVisibility: onChangeVisibility(index),
 			onDragAndDrop: onDragAndDrop(index),
 			onKeyPressOrder: onKeyPressOrder(index),
 		};
-		if (column.locked) {
-			return <ColumnDisplayer {...displayerProps} />;
-		}
-		return <ColumnDisplayerDraggable {...displayerProps} />;
+		return (
+			<React.Fragment key={column.label}>
+				{column.locked ? (
+					<ColumnDisplayer {...displayerProps} />
+				) : (
+					<ColumnDisplayerDraggable {...displayerProps} />
+				)}
+			</React.Fragment>
+		);
 	};
 };
 
-const DefaultBody = ({
+export const DefaultBody = ({
 	columns,
 	onChangeVisibility,
 	onDragAndDrop,
@@ -82,7 +86,7 @@ DefaultBody.propTypes = {
 	onKeyPressOrder: PropTypes.func.isRequired,
 };
 
-const DefaultFooter = ({ selectAllValue, onSelectAll, submit, t }) => {
+export const DefaultFooter = ({ selectAllValue, onSelectAll, submit, t }) => {
 	return (
 		<div className={classNames(theme['tc-column-chooser-footer'], 'tc-column-chooser-footer')}>
 			<span
@@ -120,5 +124,3 @@ DefaultFooter.propTypes = {
 	submit: PropTypes.func.isRequired,
 	t: PropTypes.func.isRequired,
 };
-
-export { DefaultBody, DefaultFooter, DefaultHeader };

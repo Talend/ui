@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColumnVisibility should render the checkbox 1`] = `
+<input
+  checked={false}
+  className="theme-tc-column-displayer-visibility-checkbox tc-column-displayer-visibility-checkbox"
+  onChange={[Function]}
+  type="checkbox"
+  value={false}
+/>
+`;
+
+exports[`ColumnVisibility should render when locked 1`] = `
+<Icon
+  name="talend-locked"
+/>
+`;
+
+exports[`OrderDisplay should return 1`] = `
+<React.Fragment>
+  <span
+    className="theme-tc-column-displayer-order-value tc-column-displayer-order-value"
+  >
+    1
+  </span>
+  / 10
+</React.Fragment>
+`;

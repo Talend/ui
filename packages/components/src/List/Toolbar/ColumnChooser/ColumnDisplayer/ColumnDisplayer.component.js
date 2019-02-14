@@ -6,7 +6,7 @@ import Icon from '../../../../Icon';
 import ActionButton from '../../../../Actions/ActionButton';
 import theme from './ColumnDisplayer.scss';
 
-const ColumnVisibility = ({ onChange, locked, value }) => {
+export const ColumnVisibility = ({ onChange, locked, value }) => {
 	if (locked) {
 		return <Icon name="talend-locked" />;
 	}
@@ -18,8 +18,8 @@ const ColumnVisibility = ({ onChange, locked, value }) => {
 			)}
 			onChange={() => onChange(event, !value)}
 			type="checkbox"
-			checked={value}
-			value={value}
+			checked={!value}
+			value={!value}
 		/>
 	);
 };
@@ -30,7 +30,7 @@ ColumnVisibility.propTypes = {
 	value: PropTypes.bool,
 };
 
-const OrderDisplay = ({ order, length }) => (
+export const OrderDisplay = ({ order, length }) => (
 	<React.Fragment>
 		<span
 			className={classNames(
@@ -49,7 +49,7 @@ OrderDisplay.propTypes = {
 	length: PropTypes.number.isRequired,
 };
 
-const ColumnOrder = ({ length, order, locked, onBlur, onKeyPress, value }) => {
+export const ColumnOrder = ({ length, order, locked, onBlur, onKeyPress, value }) => {
 	const [editMode, setEditMode] = useState(false);
 	const [ctrlValue, setCtrlValue] = useState(value);
 	useEffect(() => {
@@ -115,7 +115,6 @@ const ColumnDisplayer = ({
 	return (
 		<div
 			id="column-chooser-displayer"
-			key={`${label}`}
 			className={classNames(theme['tc-column-displayer'], 'tc-column-displayer')}
 		>
 			{isDragging && (

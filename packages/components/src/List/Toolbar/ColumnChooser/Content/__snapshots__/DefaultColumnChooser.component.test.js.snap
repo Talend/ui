@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DefaultBody should render 1`] = `
+<DragDropContextProvider
+  backend={[Function]}
+>
+  <div
+    className="theme-tc-column-chooser-body tc-column-chooser-body"
+    id="column-chooser-content"
+  >
+    <React.Fragment>
+      <DropTarget(DragSource(ColumnDisplayerDraggable))
+        hidden={false}
+        label="col1"
+        length={2}
+        locked={false}
+        onBlurOrder={[MockFunction]}
+        onChangeVisibility={[MockFunction]}
+        onDragAndDrop={[MockFunction]}
+        onKeyPressOrder={[MockFunction]}
+        order={1}
+      />
+    </React.Fragment>
+    <React.Fragment>
+      <ColumnDisplayer
+        hidden={false}
+        label="col2"
+        length={2}
+        locked={true}
+        onBlurOrder={[MockFunction]}
+        onChangeVisibility={[MockFunction]}
+        onDragAndDrop={[MockFunction]}
+        onKeyPressOrder={[MockFunction]}
+        order={1}
+      />
+    </React.Fragment>
+  </div>
+</DragDropContextProvider>
+`;
+
+exports[`DefaultFooter should render 1`] = `
+<div
+  className="theme-tc-column-chooser-footer tc-column-chooser-footer"
+>
+  <span
+    className="theme-tc-column-chooser-footer-select-all tc-column-chooser-footer-select-all"
+  >
+    <span>
+      <input
+        aria-label="select all"
+        checked={false}
+        id="select-all-checkbox"
+        name="selectAll"
+        onChange={[Function]}
+        type="checkbox"
+        value={false}
+      />
+    </span>
+    <label
+      htmlFor="selectAll"
+      id="select-all-label"
+    >
+      Select All
+    </label>
+  </span>
+  <Translate(ActionButton)
+    onClick={[Function]}
+  />
+</div>
+`;
+
+exports[`DefaultHeader should render 1`] = `
+<div
+  className="theme-tc-column-chooser-header tc-column-chooser-header"
+/>
+`;
+
+exports[`getColumnDisplay should return a draggrable column displayer 1`] = `
+<React.Fragment>
+  <DropTarget(DragSource(ColumnDisplayerDraggable))
+    hidden={false}
+    label="col1"
+    length={10}
+    locked={false}
+    onBlurOrder={[MockFunction]}
+    onChangeVisibility={[MockFunction]}
+    onDragAndDrop={[MockFunction]}
+    onKeyPressOrder={[MockFunction]}
+    order={1}
+  />
+</React.Fragment>
+`;
+
+exports[`getColumnDisplay should return a simple column displayer 1`] = `
+<React.Fragment>
+  <ColumnDisplayer
+    hidden={false}
+    label="col2"
+    length={10}
+    locked={true}
+    onBlurOrder={[MockFunction]}
+    onChangeVisibility={[MockFunction]}
+    onDragAndDrop={[MockFunction]}
+    onKeyPressOrder={[MockFunction]}
+    order={1}
+  />
+</React.Fragment>
+`;

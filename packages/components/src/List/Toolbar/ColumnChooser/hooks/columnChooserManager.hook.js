@@ -122,7 +122,7 @@ export function useColumnChooserManager(columns, customSubmit) {
 			return {
 				...prevState,
 				editedColumns: prevState.editedColumns.map(column => {
-					return { ...column, hidden: value };
+					return { ...column, hidden: column.locked ? false : !value };
 				}),
 				selectAll: value,
 			};

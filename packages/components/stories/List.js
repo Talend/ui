@@ -175,6 +175,7 @@ const props = {
 				order: 4,
 				header: 'icon',
 				data: { iconName: 'talend-scheduler' },
+				locked: true,
 			},
 			{ key: 'icon', label: 'Icon', hidden: true, order: 5 },
 		],

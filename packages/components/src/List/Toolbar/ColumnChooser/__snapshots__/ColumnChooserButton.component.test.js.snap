@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColumnChooserButton should return the component (shallow mode) 1`] = `
+<Nav
+  bsClass="nav"
+  justified={false}
+  pullLeft={false}
+  pullRight={false}
+  stacked={false}
+>
+  <Translate(ActionButton)
+    aria-label="column chooser button"
+    data-feature="action"
+    icon="talend-folder"
+    id="myIdColumnChooserId-column-chooser-button"
+    label=""
+    link={true}
+    overlayComponent={
+      <ColumnChooserContent
+        columns={
+          Array [
+            Object {
+              "hidden": false,
+              "label": "col1",
+              "locked": false,
+              "order": 1,
+            },
+            Object {
+              "hidden": false,
+              "label": "col2",
+              "locked": false,
+              "order": 1,
+            },
+          ]
+        }
+        handlerColumnChooser={[MockFunction]}
+        id="myIdColumnChooserId-column-chooser-content"
+        t={[Function]}
+      />
+    }
+    overlayId="myIdColumnChooserId-column-chooser-overlay"
+    overlayPlacement="bottom"
+  />
+</Nav>
+`;

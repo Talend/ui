@@ -4,12 +4,13 @@ import { Nav } from 'react-bootstrap';
 import ColumnChooserContent from './Content';
 import ActionButton from '../../../Actions/ActionButton';
 
-export default function ColumnChooserButton({ id, columns, handlerColumnChooser }) {
+export default function ColumnChooserButton({ id, ariaLabel, columns, handlerColumnChooser }) {
 	return (
 		<Nav>
 			<ActionButton
-				aria-label="column chooser button"
-				id={`${id}-button`}
+				aria-label={ariaLabel || 'column chooser button'}
+				id={`${id}-column-chooser-button`}
+				overlayId={`${id}-column-chooser-overlay`}
 				label=""
 				icon="talend-folder"
 				data-feature="action"
@@ -19,7 +20,7 @@ export default function ColumnChooserButton({ id, columns, handlerColumnChooser 
 					<ColumnChooserContent
 						columns={columns}
 						handlerColumnChooser={handlerColumnChooser}
-						id={`${id}-content`}
+						id={`${id}-column-chooser-content`}
 					/>
 				}
 			/>
@@ -28,6 +29,7 @@ export default function ColumnChooserButton({ id, columns, handlerColumnChooser 
 }
 
 ColumnChooserButton.propTypes = {
+	ariaLabel: PropTypes.string,
 	id: PropTypes.string.isRequired,
 	columns: PropTypes.array.isRequired,
 	handlerColumnChooser: PropTypes.func.isRequired,
