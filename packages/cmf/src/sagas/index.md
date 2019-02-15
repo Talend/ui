@@ -82,6 +82,7 @@ const options = {
 	silent: {
 		notify: false,
 		redirect: false,
+	},
 };
 
 const { data, response } = yield call(http.get, `${API['dataset-sample']}/${datasetId}`, config, options);
