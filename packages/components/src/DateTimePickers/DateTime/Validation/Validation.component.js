@@ -9,7 +9,6 @@ import { DateTimeContext } from '../Context';
 import Error from './Error.component';
 
 import theme from './Validation.scss';
-import Picker from '../Picker/Picker.component';
 
 function Validation({ t }) {
 	const { errorManagement } = useContext(DateTimeContext);

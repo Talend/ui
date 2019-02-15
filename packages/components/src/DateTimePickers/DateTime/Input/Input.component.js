@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import DebounceInput from 'react-debounce-input';
 
 import { DateTimeContext } from '../Context';
-import Picker from '../Picker/Picker.component';
 
 export default function Input(props) {
 	const { datetime, inputManagement, errorManagement } = useContext(DateTimeContext);
