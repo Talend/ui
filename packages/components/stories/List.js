@@ -11,7 +11,7 @@ import { List, IconsProvider } from '../src/index';
 import i18n, { LanguageSwitcher } from './config/i18n';
 import { MyCustomRow } from './VirtualizedList';
 
-import { columnChooserService, columnChooserHooks } from '../src/List/Toolbar/ColumnChooser';
+import { columnChooserHooks } from '../src/List/Toolbar/ColumnChooser';
 /**
  * Cell renderer that displays hello + text
  */

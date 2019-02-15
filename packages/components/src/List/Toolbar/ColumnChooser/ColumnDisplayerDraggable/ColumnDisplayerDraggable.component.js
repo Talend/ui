@@ -14,6 +14,11 @@ const columnDisplayTarget = {
 	drop(props, monitor) {
 		monitor.getItem().onDragAndDrop(props);
 	},
+	hover(props, monitor, component) {
+		const isJustOverThisOne = monitor.isOver({ shallow: true });
+		// console.log({ isJustOverThisOne });
+		// return props;
+	},
 };
 
 function collectSource(connect, monitor) {
@@ -23,9 +28,11 @@ function collectSource(connect, monitor) {
 	};
 }
 
-function collectTarget(connect) {
+function collectTarget(connect, monitor) {
 	return {
 		connectDropTarget: connect.dropTarget(),
+		isOver: monitor.isOver(),
+		isOverCurrent: monitor.isOver({ shallow: true }),
 	};
 }
 

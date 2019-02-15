@@ -111,13 +111,14 @@ const ColumnDisplayer = ({
 	onBlurOrder,
 	onKeyPressOrder,
 	isDragging,
+	isOver,
 }) => {
 	return (
 		<div
 			id="column-chooser-displayer"
 			className={classNames(theme['tc-column-displayer'], 'tc-column-displayer')}
 		>
-			{isDragging && (
+			{isOver && (
 				<div
 					className={classNames(
 						theme['tc-column-displayer-dragging'],

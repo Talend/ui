@@ -1,16 +1,8 @@
 import { useState } from 'react';
 import cloneDeep from 'lodash/cloneDeep';
+import invariant from 'invariant';
+import flow from 'lodash/flow';
 import { compareOrder } from '../service';
-
-export function organiseColumns(columns) {
-	return columns.sort(compareOrder).map((column, index) => {
-		return { ...column, order: index + 1 };
-	});
-}
-
-export function updateEditedColumns(state) {
-	return { ...state, editedColumns: organiseColumns(state.editedColumns) };
-}
 
 export function isValueCorrect(value, collectionLength) {
 	return Number.isInteger(value) && (value <= collectionLength || value < 0);
@@ -29,12 +21,29 @@ export function matchOrder(value) {
 	};
 }
 
+export function incrementColumnOrder(column, index) {
+	return { ...column, order: index + 1 };
+}
+
+export function organiseEditedColumns(collection) {
+	return collection.sort(compareOrder).map(incrementColumnOrder);
+}
+
 export function changeColumnAttribute(key) {
 	return function setAttribut(value, index) {
-		return function setColumn(state) {
-			const newColumns = state.editedColumns;
+		return function setColumn(collection) {
+			const newColumns = collection;
 			newColumns[index][key] = value;
-			return { ...state, editedColumns: newColumns };
+			return collection;
+		};
+	};
+}
+
+export function updateEditedColumns(editedColumns) {
+	return function updateState(state) {
+		return {
+			...state,
+			editedColumns,
 		};
 	};
 }
@@ -44,7 +53,7 @@ const updateAttributeOrder = changeColumnAttribute('order');
 
 export function useColumnChooserManager(columns, customSubmit) {
 	const [state, setState] = useState({
-		editedColumns: organiseColumns(columns),
+		editedColumns: organiseEditedColumns(columns),
 		selectAll: false,
 	});
 
@@ -53,30 +62,30 @@ export function useColumnChooserManager(columns, customSubmit) {
 	}
 
 	function getValueFormated(value) {
-		const parseValue = parseInt(value, 10);
-		if (isValueCorrect(parseValue, getEditedColumnsLength())) {
-			return parseValue;
-		}
-		throw Error(`ColumnChooserManager: Bad order number ${value}`);
+		const checkedValue = isValueCorrect(parseInt(value, 10), getEditedColumnsLength());
+		invariant(checkedValue, `ColumnChooserManager, getValueFormated : Bad order number ${value}`);
+		return checkedValue;
 	}
 
 	function modifyOrderTwoItems(value, index) {
 		const indexColToReplace = state.editedColumns.findIndex(matchOrder(value));
+		const orderToReplace = getOrderItem(value, indexColToReplace, getEditedColumnsLength());
 		if (indexColToReplace > -1 && !state.editedColumns[indexColToReplace].locked) {
-			setState(
-				updateAttributeOrder(
-					getOrderItem(value, indexColToReplace, getEditedColumnsLength()),
-					indexColToReplace,
-				),
-			);
-			setState(updateAttributeOrder(value, index));
-			setState(updateEditedColumns);
+			flow([
+				updateAttributeOrder(orderToReplace, indexColToReplace),
+				updateAttributeOrder(value, index),
+				organiseEditedColumns,
+				updateEditedColumns,
+				setState,
+			])(state.editedColumns);
 		}
 	}
 
 	function handlerChangeVisibility(index) {
 		return function changeVisiblity(event, value) {
-			setState(updateAttributeVisiblity(value, index));
+			flow([updateAttributeVisiblity(value, index), updateEditedColumns, setState])(
+				state.editedColumns,
+			);
 		};
 	}
 
@@ -130,8 +139,7 @@ export function useColumnChooserManager(columns, customSubmit) {
 	}
 
 	function submitColumnChooser(event) {
-		const editedColumns = cloneDeep(state.editedColumns);
-		customSubmit(event, { ...state, editedColumns });
+		customSubmit(event, { ...state, editedColumns: cloneDeep(state.editedColumns) });
 	}
 
 	return {
