@@ -32,7 +32,12 @@ class Tabs extends React.Component {
 				'aria-label': tabIsValid
 					? undefined
 					: `${item.title} (${t('TF_TABS_HAS_ERRORS', { defaultValue: 'has errors' })})`,
-				children: <Widget {...restProps} schema={{ widget: 'fieldset', ...item }} />,
+				children: (
+					<Widget
+						{...restProps}
+						schema={{ widget: 'fieldset', ...item, options: { ...item.options, hideTitle: true } }}
+					/>
+				),
 			};
 		});
 		const { selectedKey } = this.state;
