@@ -3,7 +3,7 @@ import random from 'lodash/random';
 import { IconsProvider } from '@talend/react-components';
 
 import DataGrid from '../src/components/';
-import serializer from '../src/components/DefaultSerializer';
+import serializer from '../src/components/DatasetSerializer';
 import DefaultRenderer from '../src/components/DefaultCellRenderer/DefaultRenderer.component';
 import DefaultIntCellRenderer from '../src/components/DefaultIntCellRenderer';
 import DefaultPinHeaderRenderer from '../src/components/DefaultPinHeaderRenderer';
@@ -14,6 +14,7 @@ import sample from './sample.json';
 const ADD_ITEMS_NUMBER = 4;
 const LOADING_ITEM = {
 	loading: true,
+	value: {},
 };
 
 /**
@@ -83,45 +84,47 @@ export function getComponent(component) {
 function getItemWithRandomValue() {
 	return {
 		loading: false,
-		field2: {
-			value: random(0, 10000000),
-			quality: 1,
-		},
-		field8: {
-			value: random(0, 10000000),
-			quality: 0,
-		},
-		field5: {
-			value: random(0, 10000000),
-			quality: -1,
-		},
-		field4: {
-			value: random(0, 10000000),
-			quality: 1,
-		},
-		field7: {
-			value: random(0, 10000000),
-			quality: 1,
-		},
-		field3: {
-			value: random(0, 10000000),
-			quality: 1,
-		},
-		field1: {
-			value: random(0, 10000000),
-			quality: 1,
-		},
-		field0: {
-			value: `Aéroport ${random(0, 10000000)}`,
-			quality: 1,
-		},
-		field9: {
-			value: random(0, 10000000),
-			quality: 1,
-		},
-		field6: {
-			value: random(0, 10000000),
-			quality: 1,
+		value: {
+			field2: {
+				value: random(0, 10000000),
+				quality: 1,
+			},
+			field8: {
+				value: random(0, 10000000),
+				quality: 0,
+			},
+			field5: {
+				value: random(0, 10000000),
+				quality: -1,
+			},
+			field4: {
+				value: random(0, 10000000),
+				quality: 1,
+			},
+			field7: {
+				value: random(0, 10000000),
+				quality: 1,
+			},
+			field3: {
+				value: random(0, 10000000),
+				quality: 1,
+			},
+			field1: {
+				value: random(0, 10000000),
+				quality: 1,
+			},
+			field0: {
+				value: `Aéroport ${random(0, 10000000)}`,
+				quality: 1,
+			},
+			field9: {
+				value: random(0, 10000000),
+				quality: 1,
+			},
+			field6: {
+				value: random(0, 10000000),
+				quality: 1,
+			},
 		},
 		quality: 1,
 	};

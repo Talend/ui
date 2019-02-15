@@ -117,6 +117,7 @@ storiesOf('DatePicker', module)
 					onChange={action('onChange')}
 					useTime
 					formMode
+					required={false}
 					useSeconds
 				/>
 			</div>

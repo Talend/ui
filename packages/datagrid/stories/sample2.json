@@ -1,4 +1,7 @@
 {
+  "schema": {
+    "type": "record",
+    "name": "StringArrayRecord",
     "fields": [
       {
         "name": "field0",
@@ -15,31 +18,34 @@
           }
         }
       }
-    ],
-
+    ]
+  },
   "data": [
     {
+      "value": {
         "field0": {
           "value": "Aéroport Charles de Gaulle 2 TGV",
           "quality": 1
-
+        }
       },
       "quality": 1
     },
     {
+      "value": {
         "field0": {
           "value": "Aguilcourt-Variscourt",
           "quality": 1
-        },
-
+        }
+      },
       "quality": 1
     },
     {
+      "value": {
         "field0": {
           "value": "Aix en Provence",
           "quality": 0
         }
-
+      }
     }
   ],
   "encoding": "JSON",
