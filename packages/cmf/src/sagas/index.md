@@ -88,8 +88,8 @@ Example
 
 ```javascript
 const options = {
-    notify: false,
-    redirect: false,
+    toto: false,
+    tata: false,
 };
 
 const { data, response } = yield call(http.get, `${API['dataset-sample']}/${datasetId}`, config, options);
