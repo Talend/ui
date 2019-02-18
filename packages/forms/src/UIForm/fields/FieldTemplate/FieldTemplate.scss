@@ -1,3 +1,5 @@
+@import '~@talend/bootstrap-theme/src/theme/animation';
+
 .template:global(.required) {
 	:global {
 		.control-label:after {
@@ -8,4 +10,8 @@
 			outline: none;
 		}
 	}
+}
+
+.updating {
+	@include heartbeat(object-blink);
 }

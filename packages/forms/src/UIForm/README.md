@@ -247,6 +247,10 @@ It represents the validation errors. The format is the error message for the com
 }
 ```
 
+#### updating
+
+This options let the integration of UIForm in your project handle a user feedback over the widgets. It is an array of string. Each string is the path to the corresponding key in the jsonschema. Each widget over a given key in updating props will make that widget disabled and displayed with the heartbeat animation.
+
 ### JSFC (json-schema-form-core)
 
 We use [json-schema-form-core](https://github.com/json-schema-form/json-schema-form-core). It takes the jsonSchema and uiSchema, process them, and merge them to have only 1 array of widgets to render.
@@ -465,7 +469,7 @@ import React from 'react';
 import FieldTemplate from '@talend/react-forms/lib/UIForm/fields/FieldTemplate';
 
 export default function MyWidget(props) {
-	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
+	const { id, isValid, errorMessage, onChange, onFinish, schema, value, valueIsUpdating } = props;
 	const {
 		autoFocus,
 		description,
@@ -485,6 +489,7 @@ export default function MyWidget(props) {
 			label={title}
 			labelAfter
 			required={schema.required}
+			valueIsUpdating={valueIsUpdating}
 		>
 			{// do whatever you want here}
 		</FieldTemplate>
@@ -508,6 +513,7 @@ if (process.env.NODE_ENV !== 'production') {
 			type: PropTypes.string,
 		}),
 		value: PropTypes.any,
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 
@@ -527,6 +533,7 @@ Text.defaultProps = {
 | onFinish | `function` | Call this when your value edition is finished. It triggers validation. |
 | schema | `object` | The merged json/ui schema. |
 | value | `any` | The value your widget handle. |
+| valueIsUpdating | `bool` | The "updating" status of this value. Passed to FieldTemplate, the widget will have a heartbeat animation. The widget should be disabled depending on this boolean too. |
 
 
 ### Display mode

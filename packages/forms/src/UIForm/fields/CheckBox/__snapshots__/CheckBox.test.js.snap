@@ -10,6 +10,7 @@ exports[`CheckBox field should render disabled input 1`] = `
 >
   <SimpleCheckBox
     describedby="myForm-description myForm-error"
+    disabled={true}
     id="myForm"
     isValid={true}
     label="My checkbox title"
