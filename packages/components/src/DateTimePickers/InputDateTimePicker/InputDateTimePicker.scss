@@ -21,17 +21,3 @@
 		padding: 0;
 	}
 }
-
-.footer {
-	display: flex;
-	padding: $padding-small $padding-normal;
-	background-color: $wild-sand;
-	justify-content: space-between;
-	align-items: center;
-	color: $chestnut-rose;
-
-	.errors {
-		display: flex;
-		flex-direction: column;
-	}
-}

@@ -4,6 +4,7 @@ import cmf, { cmfConnect } from '@talend/react-cmf';
 import Form from '@talend/react-forms';
 import { getValue } from '@talend/react-forms/lib/UIForm/utils/properties';
 import omit from 'lodash/omit';
+import get from 'lodash/get';
 import { Map } from 'immutable';
 import memoizeOne from 'memoize-one';
 import kit from './kit';
@@ -129,16 +130,27 @@ export class TCompForm extends React.Component {
 			type: TCompForm.ON_TRIGGER_BEGIN,
 			...payload,
 		});
-		return this.trigger(event, payload).then(data => {
-			this.props.dispatch({
-				type: TCompForm.ON_TRIGGER_END,
-				...payload,
+		// Trigger definitions from tacokit can precise the fields that are impacted by the trigger.
+		// Those fields are the jsonSchema path.
+		// trigger = { options: [{ path: 'user.firstname' }, { path: 'user.lastname' }] }
+		if (Array.isArray(get(payload, 'trigger.options'))) {
+			const updating = payload.trigger.options.map(op => op.path);
+			this.setState({ updating });
+		}
+		return this.trigger(event, payload)
+			.then(data => {
+				this.props.dispatch({
+					type: TCompForm.ON_TRIGGER_END,
+					...payload,
+				});
+				if (data.jsonSchema || data.uiSchema) {
+					this.props.setState(data);
+				}
+				return data;
+			})
+			.finally(() => {
+				this.setState({ updating: [] });
 			});
-			if (data.jsonSchema || data.uiSchema) {
-				this.props.setState(data);
-			}
-			return data;
-		});
 	}
 
 	onSubmit(_, properties) {
@@ -206,6 +218,7 @@ export class TCompForm extends React.Component {
 			onSubmit: this.onSubmit,
 			onReset: this.onReset,
 			widgets: { ...this.props.widgets, ...tcompFieldsWidgets },
+			updating: this.state.updating,
 		};
 
 		return <Form {...props} />;

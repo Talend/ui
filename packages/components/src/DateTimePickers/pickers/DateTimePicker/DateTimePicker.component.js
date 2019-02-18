@@ -4,9 +4,9 @@ import getMonth from 'date-fns/get_month';
 import getYear from 'date-fns/get_year';
 
 import theme from './DateTimePicker.scss';
-import DateTimeView from '../views/DateTimeView';
-import MonthYearView from '../views/MonthYearView';
-import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
+import DateTimeView from '../../views/DateTimeView';
+import MonthYearView from '../../views/MonthYearView';
+import { focusOnCalendar } from '../../../Gesture/withCalendarGesture';
 
 class DateTimePicker extends React.Component {
 	constructor(props) {
