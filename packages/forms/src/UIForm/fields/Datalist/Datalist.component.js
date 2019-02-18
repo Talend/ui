@@ -163,6 +163,7 @@ class Datalist extends Component {
 					placeholder={this.props.schema.placeholder}
 					readOnly={this.props.schema.readOnly || false}
 					titleMap={this.getTitleMap()}
+					restricted={this.props.schema.restricted}
 					inputProps={{
 						'aria-invalid': !this.props.isValid,
 						'aria-required': this.props.schema.required,
