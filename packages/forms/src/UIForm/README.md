@@ -247,6 +247,10 @@ It represents the validation errors. The format is the error message for the com
 }
 ```
 
+#### updating
+
+This options let the integration of UIForm in your project handle a user feedback over the widgets. It is an array of string. Each string is the path to the corresponding key in the jsonschema. Each widget over a given key in updating props will make that widget disabled and displayed with the heartbeat animation.
+
 ### JSFC (json-schema-form-core)
 
 We use [json-schema-form-core](https://github.com/json-schema-form/json-schema-form-core). It takes the jsonSchema and uiSchema, process them, and merge them to have only 1 array of widgets to render.
