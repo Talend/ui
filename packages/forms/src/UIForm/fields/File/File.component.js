@@ -84,7 +84,7 @@ class FileWidget extends React.Component {
 	}
 
 	render() {
-		const { id, isValid, errorMessage, onFinish, schema } = this.props;
+		const { id, isValid, errorMessage, onFinish, schema, valueIsUpdating } = this.props;
 		const {
 			autoFocus,
 			description,
@@ -96,6 +96,7 @@ class FileWidget extends React.Component {
 		} = schema;
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
+
 		return (
 			<FieldTemplate
 				description={description}
@@ -107,13 +108,14 @@ class FileWidget extends React.Component {
 				label={title}
 				labelAfter={false}
 				required={required}
+				valueIsUpdating={valueIsUpdating}
 			>
 				<div className={theme.file}>
 					<input
 						id={`input-${id}`}
 						autoFocus={autoFocus}
 						className={`form-control ${theme['file-input']}`}
-						disabled={disabled}
+						disabled={disabled || valueIsUpdating}
 						onBlur={event => onFinish(event, { schema })}
 						onChange={this.onChange}
 						placeholder={placeholder}
@@ -157,6 +159,7 @@ if (process.env.NODE_ENV !== 'production') {
 			type: PropTypes.string,
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 

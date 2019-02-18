@@ -274,6 +274,7 @@ export class UIFormComponent extends React.Component {
 					templates={this.props.templates}
 					widgets={this.state.widgets}
 					displayMode={this.props.displayMode}
+					updating={this.props.updating}
 				/>
 			));
 		const buttonsRenderer = () => {
