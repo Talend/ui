@@ -34,6 +34,9 @@ exports[`Tabs widget should render fieldset 1`] = `
                   "type": "text",
                 },
               ],
+              "options": Object {
+                "hideTitle": true,
+              },
               "title": "User",
               "widget": "fieldset",
             }
@@ -61,6 +64,9 @@ exports[`Tabs widget should render fieldset 1`] = `
                   "type": "text",
                 },
               ],
+              "options": Object {
+                "hideTitle": true,
+              },
               "title": "Other",
               "widget": "fieldset",
             }
