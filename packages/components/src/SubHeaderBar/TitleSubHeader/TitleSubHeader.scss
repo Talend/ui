@@ -64,4 +64,8 @@ $tc-input-subheader-size-medium: 1.4rem !default;
 			font-size: $tc-input-subheader-size-medium;
 		}
 	}
+
+	& &-loading-subtitle {
+		margin-top: 5px;
+	}
 }

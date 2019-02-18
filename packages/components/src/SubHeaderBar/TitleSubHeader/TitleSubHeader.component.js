@@ -64,7 +64,16 @@ function TitleSubHeader({ title, iconId, loading, inProgress, editable, getCompo
 
 function SubTitle({ subTitleLoading, subTitle }) {
 	if (subTitleLoading) {
-		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
+		return (
+			<Skeleton
+				className={classNames(
+					theme['tc-subheader-details-loading-subtitle'],
+					'tc-subheader-details-loading-subtitle',
+				)}
+				type={Skeleton.TYPES.text}
+				size={Skeleton.SIZES.large}
+			/>
+		);
 	}
 
 	if (subTitle) {
