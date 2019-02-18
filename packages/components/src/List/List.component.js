@@ -107,66 +107,62 @@ ListToolbar.propTypes = {
 }
  <List {...props}></List>
  */
-class List extends React.Component {
-	static displayName = 'List';
-
-	static propTypes = {
-		...ListToolbar.propTypes,
-	};
-
-	static defaultProps = {
-		displayMode: 'table',
-	};
-
-	render() {
-		const {
-			columnChooser,
-			components = {},
-			defaultHeight,
-			displayMode,
-			getComponent,
-			id,
-			list,
-			rowHeight,
-			rowRenderers,
-			toolbar,
-		} = this.props;
-
-		const classnames = classNames('tc-list', theme.list);
-		const injected = Inject.all(getComponent, omit(components, ['toolbar', 'list']));
-		return (
-			<div className={classnames}>
-				{injected('before-component')}
-				{injected('before-toolbar')}
-				<ListToolbar
+function List({
+	columnChooser,
+	components = {},
+	defaultHeight,
+	displayMode,
+	getComponent,
+	id,
+	list,
+	rowHeight,
+	rowRenderers,
+	toolbar,
+}) {
+	const classnames = classNames('tc-list', theme.list);
+	const injected = Inject.all(getComponent, omit(components, ['toolbar', 'list']));
+	return (
+		<div className={classnames}>
+			{injected('before-component')}
+			{injected('before-toolbar')}
+			<ListToolbar
+				id={id}
+				toolbar={toolbar}
+				displayMode={displayMode}
+				list={list}
+				columnChooser={columnChooser}
+				getComponent={getComponent}
+				components={components}
+			/>
+			{injected('after-toolbar')}
+			{injected('before-list-wrapper')}
+			<div className={'tc-list-display-virtualized'}>
+				{injected('before-list')}
+				<ListToVirtualizedList
 					id={id}
-					toolbar={toolbar}
 					displayMode={displayMode}
-					list={list}
-					columnChooser={columnChooser}
+					defaultHeight={defaultHeight}
+					rowHeight={rowHeight}
 					getComponent={getComponent}
-					components={components}
+					rowRenderers={rowRenderers}
+					{...list}
 				/>
-				{injected('after-toolbar')}
-				{injected('before-list-wrapper')}
-				<div className={'tc-list-display-virtualized'}>
-					{injected('before-list')}
-					<ListToVirtualizedList
-						id={id}
-						displayMode={displayMode}
-						defaultHeight={defaultHeight}
-						rowHeight={rowHeight}
-						getComponent={getComponent}
-						rowRenderers={rowRenderers}
-						{...list}
-					/>
-					{injected('after-list')}
-				</div>
-				{injected('after-list-wrapper')}
-				{injected('after-component')}
+				{injected('after-list')}
 			</div>
-		);
-	}
+			{injected('after-list-wrapper')}
+			{injected('after-component')}
+		</div>
+	);
 }
+
+List.displayName = 'List';
+
+List.propTypes = {
+	...ListToolbar.propTypes,
+};
+
+List.defaultProps = {
+	displayMode: 'table',
+};
 
 export default List;
