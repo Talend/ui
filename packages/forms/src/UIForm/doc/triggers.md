@@ -1,6 +1,6 @@
 # Triggers
 
-Triggers are advanced ways to controle properties and errors.
+Triggers are advanced ways to control properties and errors.
 
 *Warning*
 Use triggers only if you can't perform what you want with another feature listed in the [documentation](../README.md).
