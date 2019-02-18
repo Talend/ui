@@ -21,7 +21,7 @@ function getWidget(displayMode, widgetId, customWidgets) {
 }
 
 function isUpdating(updatingKeys = [], key) {
-	if (!updatingKeys.length || !key) {
+	if (updatingKeys.length === 0 || !key) {
 		return false;
 	}
 	// we need to support current and parent path
