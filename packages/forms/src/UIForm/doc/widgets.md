@@ -16,7 +16,8 @@ export default function MyCustomWidget(props) {
 		onTrigger,
 		properties,
 		schema,
-		value
+		value,
+		valueIsUpdating,
 	} = props;
 
 	const {
@@ -44,6 +45,7 @@ export default function MyCustomWidget(props) {
 			label={title}
 			labelAfter
 			required={schema.required}
+			valueIsUpdating={valueIsUpdating}
 		>
 			// do whatever you want
 		</FieldTemplate>
@@ -61,8 +63,9 @@ export default function MyCustomWidget(props) {
 | onFinish | `function` | Function to indicates that the user has finish to edit the value. This will trigger the validation |
 | onTrigger | `function` | Function to call a trigger. See [Trigger documentation](./triggers.md) |
 | properties | `object` | The whole form data |
-| value | `any` | The current widget value |
 | schema | `object` | The widget schema that is a merge of jsonSchema/uiSchema |
+| value | `any` | The current widget value |
+| valueIsUpdating | `boolean` | Flag that set the updating animation on the widget. The inputs should be disabled. |
 
 ## How to register it
 
