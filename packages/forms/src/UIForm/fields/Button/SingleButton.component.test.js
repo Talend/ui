@@ -80,7 +80,7 @@ describe('SingleButton field', () => {
 			...schema,
 			triggers: ['after'],
 		};
-		const onTrigger = jest.fn();
+		const onTrigger = jest.fn(() => Promise.resolve());
 		const wrapper = mount(
 			<SingleButton id={'myForm'} onTrigger={onTrigger} schema={triggerSchema} />,
 		);

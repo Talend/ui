@@ -4,10 +4,9 @@ import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 import { convertValue } from '../../utils/properties';
-import { isUpdating } from '../../utils/updating';
 
 export default function Text(props) {
-	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
+	const { id, isValid, errorMessage, onChange, onFinish, schema, value, valueIsUpdating } = props;
 	const {
 		autoFocus,
 		description,
@@ -23,7 +22,6 @@ export default function Text(props) {
 	}
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
-	const updating = isUpdating(props.updating, schema);
 
 	return (
 		<FieldTemplate
@@ -36,13 +34,13 @@ export default function Text(props) {
 			label={title}
 			labelAfter
 			required={schema.required}
-			updating={updating}
+			valueIsUpdating={valueIsUpdating}
 		>
 			<input
 				id={id}
 				autoFocus={autoFocus}
 				className="form-control"
-				disabled={disabled || updating}
+				disabled={disabled || valueIsUpdating}
 				onBlur={event => onFinish(event, { schema })}
 				onChange={event =>
 					onChange(event, { schema, value: convertValue(type, event.target.value) })
@@ -64,7 +62,6 @@ export default function Text(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	Text.propTypes = {
-		updating: PropTypes.arrayOf(PropTypes.string),
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
@@ -81,6 +78,7 @@ if (process.env.NODE_ENV !== 'production') {
 			schema: PropTypes.object,
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 

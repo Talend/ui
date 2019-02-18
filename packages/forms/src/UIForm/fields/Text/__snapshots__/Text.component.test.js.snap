@@ -11,7 +11,6 @@ exports[`Text field should render disabled input 1`] = `
   label="My input title"
   labelAfter={true}
   required={true}
-  updating={false}
 >
   <input
     aria-describedby="myForm-description myForm-error"
@@ -50,7 +49,6 @@ exports[`Text field should render input 1`] = `
   label="My input title"
   labelAfter={true}
   required={true}
-  updating={false}
 >
   <input
     aria-describedby="myForm-description myForm-error"
@@ -58,7 +56,6 @@ exports[`Text field should render input 1`] = `
     aria-required={true}
     autoFocus={true}
     className="form-control"
-    disabled={false}
     id="myForm"
     onBlur={[Function]}
     onChange={[Function]}
@@ -81,7 +78,6 @@ exports[`Text field should render input with max attribute 1`] = `
   label="My input title"
   labelAfter={true}
   required={true}
-  updating={false}
 >
   <input
     aria-describedby="myForm-description myForm-error"
@@ -89,7 +85,6 @@ exports[`Text field should render input with max attribute 1`] = `
     aria-required={true}
     autoFocus={true}
     className="form-control"
-    disabled={false}
     id="myForm"
     max={10}
     onBlur={[Function]}
@@ -113,7 +108,6 @@ exports[`Text field should render input with min attribute 1`] = `
   label="My input title"
   labelAfter={true}
   required={true}
-  updating={false}
 >
   <input
     aria-describedby="myForm-description myForm-error"
@@ -121,7 +115,6 @@ exports[`Text field should render input with min attribute 1`] = `
     aria-required={true}
     autoFocus={true}
     className="form-control"
-    disabled={false}
     id="myForm"
     min={0}
     onBlur={[Function]}
@@ -145,7 +138,6 @@ exports[`Text field should render password input 1`] = `
   label="My input title"
   labelAfter={true}
   required={true}
-  updating={false}
 >
   <input
     aria-describedby="myForm-description myForm-error"
@@ -153,7 +145,6 @@ exports[`Text field should render password input 1`] = `
     aria-required={true}
     autoFocus={true}
     className="form-control"
-    disabled={false}
     id="myForm"
     onBlur={[Function]}
     onChange={[Function]}
@@ -176,7 +167,6 @@ exports[`Text field should render readonly input 1`] = `
   label="My input title"
   labelAfter={true}
   required={true}
-  updating={false}
 >
   <input
     aria-describedby="myForm-description myForm-error"
@@ -184,7 +174,6 @@ exports[`Text field should render readonly input 1`] = `
     aria-required={true}
     autoFocus={true}
     className="form-control"
-    disabled={false}
     id="myForm"
     onBlur={[Function]}
     onChange={[Function]}

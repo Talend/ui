@@ -9,7 +9,6 @@ import getDefaultT from '../../../translate';
 import { getItemsProps, initItems, updateItems } from './ListView.utils';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
-import { isUpdating } from '../../utils/updating';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
@@ -184,7 +183,7 @@ class ListViewWidget extends React.Component {
 				id={this.props.id}
 				isValid={this.props.isValid}
 				required={this.props.schema.required}
-				updating={isUpdating(this.props.updating, this.props.schema)}
+				valueIsUpdating={this.props.valueIsUpdating}
 			>
 				<ListView
 					{...this.state}
@@ -204,7 +203,6 @@ ListViewWidget.defaultProps = {
 };
 if (process.env.NODE_ENV !== 'production') {
 	ListViewWidget.propTypes = {
-		updating: PropTypes.arrayOf(PropTypes.string),
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
@@ -224,6 +222,7 @@ if (process.env.NODE_ENV !== 'production') {
 			),
 		}),
 		value: PropTypes.arrayOf(PropTypes.string),
+		valueIsUpdating: PropTypes.bool,
 		t: PropTypes.func,
 	};
 }

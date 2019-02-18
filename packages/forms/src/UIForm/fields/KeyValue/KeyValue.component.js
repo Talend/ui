@@ -6,7 +6,6 @@ import Widget from '../../Widget';
 import FieldTemplate from '../FieldTemplate';
 
 import theme from './KeyValue.scss';
-import { isUpdating } from '../../utils/updating';
 
 /**
  * Default part (key or value) schema
@@ -38,7 +37,17 @@ function getPartSchema(parentSchema, part) {
 	};
 }
 
-function KeyValue({ id, isValid, errorMessage, onChange, onFinish, schema, value, ...restProps }) {
+function KeyValue({
+	id,
+	isValid,
+	errorMessage,
+	onChange,
+	onFinish,
+	schema,
+	value,
+	valueIsUpdating,
+	...restProps
+}) {
 	const { description, title } = schema;
 
 	const keySchema = getPartSchema(schema, 'key');
@@ -52,7 +61,7 @@ function KeyValue({ id, isValid, errorMessage, onChange, onFinish, schema, value
 			isValid={isValid}
 			label={title}
 			required={schema.required}
-			updating={isUpdating(restProps.updating, schema)}
+			valueIsUpdating={valueIsUpdating}
 		>
 			<dl className={theme['key-value']}>
 				<dt>
@@ -84,7 +93,6 @@ KeyValue.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
 	KeyValue.propTypes = {
-		updating: PropTypes.arrayOf(PropTypes.string),
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
@@ -103,6 +111,7 @@ if (process.env.NODE_ENV !== 'production') {
 			key: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 			value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		}),
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 

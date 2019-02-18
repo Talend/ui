@@ -14,13 +14,11 @@ export default class SingleButton extends React.Component {
 	onClick(event) {
 		const schema = this.props.schema;
 		const type = schema.type || 'button';
-		if (type === 'button' && schema.triggers && this.props.onTrigger) {
-			const promise = this.props.onTrigger(event, { trigger: schema.triggers[0], schema });
-			if (promise && promise.then) {
-				this.setState({ inProgress: true });
-				const stop = () => this.setState({ inProgress: false });
-				promise.then(stop, stop);
-			}
+		if (type === 'button' && schema.triggers) {
+			this.setState({ inProgress: true });
+			this.props
+				.onTrigger(event, { trigger: schema.triggers[0], schema })
+				.finally(() => this.setState({ inProgress: false }));
 		} else if (this.props.onClick) {
 			this.props.onClick(event, schema);
 		} else {
@@ -40,7 +38,7 @@ export default class SingleButton extends React.Component {
 				label={label || title}
 				onClick={this.onClick}
 				type={type}
-				inProgress={schema.inProgress || this.state.inProgress}
+				inProgress={this.state.inProgress}
 			/>
 		);
 	}

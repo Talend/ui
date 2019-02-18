@@ -2,7 +2,7 @@
 
 exports[`SimpleCheckBox field should render disabled input 1`] = `
 <div
-  className="checkbox disabled"
+  className="checkbox"
 >
   <label>
     <input
@@ -10,7 +10,6 @@ exports[`SimpleCheckBox field should render disabled input 1`] = `
       aria-invalid={true}
       autoFocus={true}
       checked={true}
-      disabled={true}
       id="myForm"
       onChange={[Function]}
       type="checkbox"
@@ -35,7 +34,6 @@ exports[`SimpleCheckBox field should render input 1`] = `
       aria-invalid={true}
       autoFocus={true}
       checked={true}
-      disabled={false}
       id="myForm"
       onChange={[Function]}
       type="checkbox"

@@ -11,7 +11,6 @@ import { generateDescriptionId, generateErrorId } from '../../Message/generateId
 import FieldTemplate from '../FieldTemplate';
 
 import theme from './NestedListView.scss';
-import { isUpdating } from '../../utils/updating';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
@@ -202,10 +201,10 @@ class NestedListViewWidget extends React.Component {
 					descriptionId={generateDescriptionId(id)}
 					errorId={generateErrorId(id)}
 					errorMessage={this.props.errorMessage}
-					id={this.props.id}
+					id={id}
 					isValid={this.props.isValid}
 					required={schema.required}
-					updating={isUpdating(this.props.updating, schema)}
+					valueIsUpdating={this.props.valueIsUpdating}
 				>
 					<ListView
 						{...this.state}
@@ -233,7 +232,6 @@ NestedListViewWidget.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
 	NestedListViewWidget.propTypes = {
-		updating: PropTypes.arrayOf(PropTypes.string),
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
@@ -248,6 +246,7 @@ if (process.env.NODE_ENV !== 'production') {
 			title: PropTypes.string,
 		}),
 		value: PropTypes.object,
+		valueIsUpdating: PropTypes.bool,
 		t: PropTypes.func,
 	};
 }

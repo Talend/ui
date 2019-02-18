@@ -3,35 +3,32 @@ import React from 'react';
 import SimpleCheckBox from './SimpleCheckBox.component';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
-import { isUpdating } from '../../utils/updating';
 
 export default function CheckBox(props) {
-	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
-	const { description, title } = schema;
+	const { id, isValid, errorMessage, onChange, onFinish, schema, value, valueIsUpdating } = props;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
-	const updating = isUpdating(props.updating, schema);
 
 	return (
 		<FieldTemplate
-			description={description}
+			description={schema.description}
 			descriptionId={descriptionId}
 			errorId={errorId}
 			errorMessage={errorMessage}
 			isValid={isValid}
 			required={schema.required}
-			updating={updating}
+			valueIsUpdating={valueIsUpdating}
 		>
 			<SimpleCheckBox
 				describedby={`${descriptionId} ${errorId}`}
+				disabled={schema.disabled || valueIsUpdating}
 				id={id}
 				isValid={isValid}
-				label={title || value}
+				label={schema.title || value}
 				onChange={onChange}
 				onFinish={onFinish}
 				schema={schema}
 				value={value}
-				updating={updating}
 			/>
 		</FieldTemplate>
 	);
@@ -39,7 +36,6 @@ export default function CheckBox(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	CheckBox.propTypes = {
-		updating: PropTypes.arrayOf(PropTypes.string),
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
@@ -50,6 +46,7 @@ if (process.env.NODE_ENV !== 'production') {
 			title: PropTypes.string,
 		}),
 		value: PropTypes.bool,
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 

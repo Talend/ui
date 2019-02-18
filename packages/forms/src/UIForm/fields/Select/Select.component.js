@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
-import { isUpdating } from '../../utils/updating';
 
 function getSelectedOptions(select, multiple) {
 	if (multiple) {
@@ -23,14 +22,13 @@ export default function Select({
 	onFinish,
 	schema,
 	value,
-	updating,
+	valueIsUpdating,
 }) {
 	const { autoFocus, description, disabled = false, placeholder, readOnly = false, title } = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 
 	const multiple = schema.schema.type === 'array' && schema.schema.uniqueItems;
-	const updatingValue = isUpdating(updating, schema);
 
 	return (
 		<FieldTemplate
@@ -41,14 +39,14 @@ export default function Select({
 			label={title}
 			labelAfter
 			required={schema.required}
-			updating={updatingValue}
+			valueIsUpdating={valueIsUpdating}
 		>
 			<select
 				id={id}
 				multiple={multiple}
 				autoFocus={autoFocus}
 				className="form-control"
-				disabled={disabled || updatingValue}
+				disabled={disabled || valueIsUpdating}
 				onChange={event => {
 					const payload = { schema, value: getSelectedOptions(event.target, multiple) };
 					onChange(event, payload);
@@ -77,7 +75,6 @@ export default function Select({
 
 if (process.env.NODE_ENV !== 'production') {
 	Select.propTypes = {
-		updating: PropTypes.arrayOf(PropTypes.string),
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
@@ -99,6 +96,7 @@ if (process.env.NODE_ENV !== 'production') {
 			type: PropTypes.string,
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 

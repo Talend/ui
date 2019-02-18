@@ -13,7 +13,6 @@ exports[`Default Array Template component should render default array template 1
   <Action
     bsStyle="info"
     className="theme-tf-array-add tf-array-add"
-    disabled={false}
     id="my-template-btn"
     label="New Element"
     onClick={[MockFunction]}
@@ -41,7 +40,6 @@ exports[`Default Array Template component should render default array template 1
         index={0}
         onRemove={[MockFunction]}
         onReorder={[MockFunction]}
-        updating={false}
       >
         <div>
           Render item 
@@ -59,7 +57,6 @@ exports[`Default Array Template component should render default array template 1
         index={1}
         onRemove={[MockFunction]}
         onReorder={[MockFunction]}
-        updating={false}
       >
         <div>
           Render item 
@@ -77,7 +74,6 @@ exports[`Default Array Template component should render default array template 1
         index={2}
         onRemove={[MockFunction]}
         onReorder={[MockFunction]}
-        updating={false}
       >
         <div>
           Render item 

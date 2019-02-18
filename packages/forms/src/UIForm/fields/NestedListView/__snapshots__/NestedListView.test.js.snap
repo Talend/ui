@@ -9,7 +9,6 @@ exports[`NestedListView component should render component 1`] = `
     errorId="NestedListView-error"
     id="NestedListView"
     isValid={true}
-    updating={false}
   >
     <Translate(ListView)
       displayedItems={

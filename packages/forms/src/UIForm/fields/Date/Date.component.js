@@ -5,7 +5,6 @@ import InputDateTimePicker from '@talend/react-components/lib/DateTimePickers';
 import FieldTemplate from '../FieldTemplate';
 import { isoDateTimeRegExp } from '../../customFormats';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
-import { isUpdating } from '../../utils/updating';
 
 const INVALID_DATE = new Date('');
 
@@ -62,11 +61,20 @@ class DateWidget extends React.Component {
 	}
 
 	render() {
-		const { errorMessage, id, isValid, options, schema, useSeconds, useTime, value } = this.props;
+		const {
+			errorMessage,
+			id,
+			isValid,
+			options,
+			schema,
+			useSeconds,
+			useTime,
+			value,
+			valueIsUpdating,
+		} = this.props;
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
 		const convertedValue = schema.format === 'iso-datetime' ? this.isoStrToDate(value) : value;
-		const updating = isUpdating(this.props.updating, this.props.schema);
 
 		return (
 			<FieldTemplate
@@ -78,12 +86,12 @@ class DateWidget extends React.Component {
 				isValid={isValid}
 				label={schema.title}
 				required={schema.required}
-				updating={updating}
+				valueIsUpdating={valueIsUpdating}
 			>
 				<InputDateTimePicker
 					autoFocus={schema.autoFocus}
 					dateFormat={options.dateFormat}
-					disabled={schema.disabled || updating}
+					disabled={schema.disabled || valueIsUpdating}
 					id={id}
 					onChange={this.onChange}
 					onBlur={this.onBlur}
@@ -110,7 +118,6 @@ DateWidget.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
 	DateWidget.propTypes = {
-		updating: PropTypes.arrayOf(PropTypes.string),
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
@@ -135,6 +142,7 @@ if (process.env.NODE_ENV !== 'production') {
 		useTime: PropTypes.bool,
 		useSeconds: PropTypes.bool,
 		value: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.instanceOf(Date)]),
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 

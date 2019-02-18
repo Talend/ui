@@ -10,7 +10,6 @@ exports[`Date widget should render date picker 1`] = `
   isValid={false}
   label="My date title"
   required={true}
-  updating={false}
 >
   <InputDateTimePicker
     aria-describedby="myForm-description myForm-error"
@@ -18,7 +17,6 @@ exports[`Date widget should render date picker 1`] = `
     aria-required={true}
     autoFocus={true}
     dateFormat="YYYY-MM-DD"
-    disabled={false}
     formMode={false}
     id="myForm"
     onBlur={[Function]}

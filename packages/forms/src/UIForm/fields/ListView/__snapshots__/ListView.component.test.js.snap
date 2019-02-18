@@ -353,7 +353,6 @@ exports[`ListView field render should render ListView 1`] = `
   id="my-list-view"
   isValid={true}
   required={true}
-  updating={false}
 >
   <Translate(ListView)
     containerProps={

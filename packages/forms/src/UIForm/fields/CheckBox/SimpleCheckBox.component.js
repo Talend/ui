@@ -2,10 +2,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
-import { isUpdating } from '../../utils/updating';
 
 export default function SimpleCheckBox({
 	describedby,
+	disabled,
 	id,
 	isValid,
 	label,
@@ -13,19 +13,15 @@ export default function SimpleCheckBox({
 	onFinish,
 	schema,
 	value,
-	updating,
-	disabled,
 }) {
 	const { autoFocus } = schema;
-	const updatingValue = isUpdating(updating, schema);
-	const disabledValue = schema.disabled || disabled || updatingValue;
 	return (
-		<div className={classnames('checkbox', { disabled: disabledValue })}>
+		<div className={classnames('checkbox', { disabled })}>
 			<label>
 				<input
 					id={id}
 					autoFocus={autoFocus}
-					disabled={disabledValue}
+					disabled={disabled}
 					onChange={event => {
 						onChange(event, { schema, value: event.target.checked });
 						onFinish(event, { schema, value: event.target.checked });
@@ -46,9 +42,8 @@ export default function SimpleCheckBox({
 
 if (process.env.NODE_ENV !== 'production') {
 	SimpleCheckBox.propTypes = {
-		updating: PropTypes.bool,
-		disabled: PropTypes.bool,
 		describedby: PropTypes.string.isRequired,
+		disabled: PropTypes.bool,
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		label: PropTypes.string,

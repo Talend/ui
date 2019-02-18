@@ -8,7 +8,6 @@ exports[`Code field should render ace-editor in FieldTemplate 1`] = `
   id="myCodeWidget"
   isValid={true}
   label="My input title"
-  updating={false}
 >
   <div
     id="myCodeWidget-editor-container"

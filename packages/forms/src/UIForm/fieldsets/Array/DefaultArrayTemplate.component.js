@@ -10,7 +10,6 @@ import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
 
 import theme from './DefaultArrayTemplate.scss';
-import { isUpdating } from '../../utils/updating';
 
 function DefaultArrayTemplate(props) {
 	const {
@@ -25,11 +24,11 @@ function DefaultArrayTemplate(props) {
 		schema,
 		t,
 		value,
+		valueIsUpdating,
 		options = {},
 	} = props;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
-	const updating = isUpdating(props.updating, schema);
 
 	return (
 		<fieldset
@@ -42,7 +41,7 @@ function DefaultArrayTemplate(props) {
 				className={classNames(theme['tf-array-add'], 'tf-array-add')}
 				bsStyle={'info'}
 				onClick={onAdd}
-				disabled={updating}
+				disabled={valueIsUpdating}
 				label={options.btnLabel || t('ARRAY_ADD_ELEMENT', { defaultValue: 'New Element' })}
 			/>
 			<Message
@@ -69,7 +68,7 @@ function DefaultArrayTemplate(props) {
 							onRemove={onRemove}
 							onReorder={canReorder && onReorder}
 							isClosed={itemValue.isClosed}
-							updating={updating}
+							valueIsUpdating={valueIsUpdating}
 						>
 							{renderItem(index)}
 						</ArrayItem>
@@ -86,7 +85,6 @@ DefaultArrayTemplate.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
 	DefaultArrayTemplate.propTypes = {
-		updating: PropTypes.arrayOf(PropTypes.string),
 		canReorder: PropTypes.bool,
 		errorMessage: PropTypes.string,
 		id: PropTypes.string,
@@ -97,6 +95,7 @@ if (process.env.NODE_ENV !== 'production') {
 		renderItem: PropTypes.func.isRequired,
 		schema: PropTypes.object.isRequired,
 		value: PropTypes.array.isRequired,
+		valueIsUpdating: PropTypes.bool,
 		options: PropTypes.shape({
 			btnLabel: PropTypes.string,
 		}),

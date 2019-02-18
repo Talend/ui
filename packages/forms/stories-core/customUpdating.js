@@ -190,9 +190,10 @@ function story() {
 	return (
 		<div>
 			<IconsProvider />
+			<h2>Updating status</h2>
 			<p>
-				You can pass a property to UIForm "updating" as an array of keys to make them flick and
-				being disabled
+				Form can disable and add an animation feedback on the widgets. To do so, you need to pass a
+				UIForm "updating" prop which is an array of the schema keys where to apply
 			</p>
 			<UIForm
 				data={schema}

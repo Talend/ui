@@ -9,7 +9,6 @@ import { generateDescriptionId, generateErrorId } from '../../Message/generateId
 
 import theme from './MultiSelectTag.scss';
 import callTrigger from '../../trigger';
-import { isUpdating } from '../../utils/updating';
 
 function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -212,11 +211,10 @@ export default class MultiSelectTag extends React.Component {
 	}
 
 	render() {
-		const { id, isValid, errorMessage, schema } = this.props;
+		const { id, isValid, errorMessage, schema, valueIsUpdating } = this.props;
 		const names = this.props.resolveName(this.props.value);
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
-		const updating = isUpdating(this.props.updating, schema);
 
 		return (
 			<FieldTemplate
@@ -228,7 +226,7 @@ export default class MultiSelectTag extends React.Component {
 				isValid={isValid}
 				label={schema.title}
 				required={schema.required}
-				updating={updating}
+				valueIsUpdating={valueIsUpdating}
 			>
 				<div className={`${theme.wrapper} form-control`}>
 					{this.props.value.map((val, index) => {
@@ -243,7 +241,7 @@ export default class MultiSelectTag extends React.Component {
 					<Typeahead
 						id={id}
 						autoFocus={schema.autoFocus || false}
-						disabled={schema.disabled || updating || false}
+						disabled={schema.disabled || valueIsUpdating}
 						focusedItemIndex={this.state.focusedItemIndex}
 						isLoading={this.state.isLoading}
 						items={this.state.suggestions}
@@ -272,7 +270,6 @@ export default class MultiSelectTag extends React.Component {
 
 if (process.env.NODE_ENV !== 'production') {
 	MultiSelectTag.propTypes = {
-		updating: PropTypes.arrayOf(PropTypes.string),
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
@@ -303,6 +300,7 @@ if (process.env.NODE_ENV !== 'production') {
 			),
 		}),
 		value: PropTypes.arrayOf(PropTypes.string),
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 

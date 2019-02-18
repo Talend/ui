@@ -15,9 +15,7 @@ export const data = {
 			},
 			check: {},
 		},
-		required: [
-			'firstname',
-		],
+		required: ['firstname'],
 	},
 	uiSchema: [
 		{
@@ -114,9 +112,9 @@ export function initProps() {
 		onChange: jest.fn(),
 		onSubmit: jest.fn(),
 		onReset: jest.fn(),
-		onTrigger: jest.fn(),
+		onTrigger: jest.fn(() => Promise.resolve()),
 		widgets: {
-			custom: () => (<div>Custom</div>),
+			custom: () => <div>Custom</div>,
 		},
 	};
 }
