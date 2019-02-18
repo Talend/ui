@@ -211,4 +211,24 @@ describe('Widget component', () => {
 		// then
 		expect(wrapper.getElement()).toBe(null);
 	});
+
+	it('should pass value updating status', () => {
+		// when
+		const wrapper = shallow(
+			<Widget
+				id={'myForm'}
+				onChange={jest.fn('onChange')}
+				onFinish={jest.fn('onFinish')}
+				onTrigger={jest.fn('onTrigger')}
+				properties={properties}
+				schema={schema}
+				errors={errors}
+				displayMode={'text'}
+				updating={[schema.key.join('.')]}
+			/>,
+		);
+
+		// then
+		expect(wrapper.prop('valueIsUpdating')).toBe(true);
+	});
 });

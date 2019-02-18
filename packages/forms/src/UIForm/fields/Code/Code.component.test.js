@@ -36,7 +36,7 @@ describe('Code field', () => {
 		const wrapper = shallow(<Code.WrappedComponent {...props} schema={disabledSchema} />);
 
 		// then
-		expect(wrapper.find('ReactAce').prop('disabled')).toBe(true);
+		expect(wrapper.find('ReactAce').prop('readOnly')).toBe(true);
 	});
 
 	it('should render readonly input', () => {
