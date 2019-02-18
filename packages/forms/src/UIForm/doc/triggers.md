@@ -3,11 +3,11 @@
 Triggers are advanced ways to controle properties and errors.
 
 *Warning*
-Use only triggers if you can't perform what you want with another feature listed in the [documentation](../README.md).
+Use triggers only if you can't perform what you want with another feature listed in the [documentation](../README.md).
 
 ## What are triggers ?
 
-Triggers are asynchronous calls that you can perform in your custom widgets.
+Triggers are asynchronous calls, performed during event handling. The events are defined by the widgets implementation.
 
 You can do whatever you want outside of the forms, such as
 - getting info from outside, REST calls, etc
