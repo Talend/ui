@@ -24,7 +24,6 @@ exports[`Code field should render ace-editor in FieldTemplate 1`] = `
     <ReactAce
       className="tf-widget-code form-control"
       cursorStart={1}
-      disabled={false}
       editorProps={
         Object {
           "$blockScrolling": Infinity,
