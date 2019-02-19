@@ -191,8 +191,8 @@ class InputDateTimePicker extends React.Component {
 export default InputDateTimePicker;
 
 /*
-* Scenarios to check
-* - focus on input + ESC (close picker), we don't have the validation button anymore. Then on blur, value is reset
-* - type in input, do I really have to press validation button ?
-* - if we want that, we have to consider dropdown and input as separated entities
-* */
+ * Scenarios to check
+ * - focus on input + ESC (close picker), we don't have the validation button anymore. Then on blur, value is reset
+ * - type in input, do I really have to press validation button ?
+ * - if we want that, we have to consider dropdown and input as separated entities
+ * */
