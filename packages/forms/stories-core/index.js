@@ -5,6 +5,7 @@ import layouts from './layouts';
 import customTemplateStory from './customTemplateStory';
 import customWidgetStory from './customWidgetStory';
 import customActionsStory from './customActionsStory';
+import customUpdating from './customUpdating';
 
 const coreConceptsStories = storiesOf('Core concepts', module);
 
@@ -39,3 +40,4 @@ jsonStories.forEach(({ category, name, story }) => {
 coreConceptsStories.add(customTemplateStory.name, customTemplateStory.story);
 coreConceptsStories.add(customWidgetStory.name, customWidgetStory.story);
 coreConceptsStories.add(customActionsStory.name, customActionsStory.story);
+coreConceptsStories.add(customUpdating.name, customUpdating.story);

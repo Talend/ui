@@ -10,6 +10,13 @@ $td-grip-resize-width: 6px !default;
 	}
 }
 
+.td-header-type {
+	&::first-letter {
+		text-transform: uppercase;
+	}
+	text-transform: lowercase;
+}
+
 .td-header-component {
 	height: 100%;
 
@@ -24,6 +31,8 @@ $td-grip-resize-width: 6px !default;
 		text-align: left;
 		background-color: transparent;
 		border: none;
+		display: flex;
+		flex-direction: column;
 
 		&-title {
 			display: flex;

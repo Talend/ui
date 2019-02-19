@@ -52,6 +52,11 @@ $modal-header-color: $black !default;
 $navbar-brand-logo-height: 20px !default;
 $navbar-brand-logo-width: 75px !default;
 
+/// Drawer z-index
+/// should always stay lower than dialog z-index which is set to 1040
+/// @type Number (Unitless)
+$drawer-z-index: 100 !default;
+
 /// Navbar form top and bottom width
 /// @type Number (Unit)
 $navbar-form-margin: 0 !default;

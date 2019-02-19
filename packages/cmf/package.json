@@ -58,9 +58,9 @@
     "jest-in-case": "^1.0.2",
     "jsdoc": "^3.4.1",
     "node-fetch": "^1.7.3",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-test-renderer": "^16.0.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-test-renderer": "^16.8.0",
     "redux-mock-store": "^1.2.3",
     "redux-saga-tester": "^1.0.345",
     "regenerator-runtime": "^0.13.1",
@@ -115,5 +115,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "2.5.0-0"
+  "version": "2.6.0"
 }

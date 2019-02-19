@@ -17,8 +17,8 @@
   },
   "peerDependencies": {
     "@talend/react-cmf": "^2.1.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
@@ -43,9 +43,9 @@
     "jest": "^24.0.0",
     "jest-environment-jsdom": "^23.4.0",
     "node-fetch": "^1.7.3",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-test-renderer": "^16.0.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-test-renderer": "^16.8.0",
     "redux-mock-store": "^1.2.3",
     "redux-saga-tester": "^1.0.345",
     "rimraf": "^2.6.1"

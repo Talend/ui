@@ -5,11 +5,19 @@ import classNames from 'classnames';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
-export default function Radios({ id, isValid, errorMessage, onChange, onFinish, schema, value }) {
+export default function Radios({
+	id,
+	isValid,
+	errorMessage,
+	onChange,
+	onFinish,
+	schema,
+	value,
+	valueIsUpdating,
+}) {
 	const { autoFocus, description, disabled = false, inline, title } = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
-
 	const radioClassNames = classNames({
 		radio: !inline,
 		'radio-inline': inline,
@@ -23,6 +31,7 @@ export default function Radios({ id, isValid, errorMessage, onChange, onFinish, 
 			isValid={isValid}
 			label={title}
 			required={schema.required}
+			valueIsUpdating={valueIsUpdating}
 		>
 			{schema.titleMap &&
 				schema.titleMap.map((option, index) => (
@@ -32,7 +41,7 @@ export default function Radios({ id, isValid, errorMessage, onChange, onFinish, 
 								id={`${id}-${index}`}
 								autoFocus={autoFocus}
 								checked={option.value === value}
-								disabled={disabled}
+								disabled={disabled || valueIsUpdating}
 								name={id}
 								onBlur={event => onFinish(event, { schema })}
 								onChange={event => onChange(event, { schema, value: option.value })}
@@ -71,6 +80,7 @@ if (process.env.NODE_ENV !== 'production') {
 			),
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 
