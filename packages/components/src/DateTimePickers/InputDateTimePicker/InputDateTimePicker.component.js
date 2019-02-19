@@ -133,30 +133,6 @@ class InputDateTimePicker extends React.Component {
 	render() {
 		const inputProps = omit(this.props, PROPS_TO_OMIT_FOR_INPUT);
 
-		const dateTimePicker = [
-			<DateTime.Input
-				{...inputProps}
-				key="input"
-				inputRef={ref => {
-					this.inputRef = ref;
-				}}
-			/>,
-			<div
-				className={theme['dropdown-wrapper']}
-				key="dropdown"
-				ref={ref => {
-					this.dropdownWrapperRef = ref;
-				}}
-			>
-				<Overlay container={this.dropdownWrapperRef} show={this.state.showPicker}>
-					<Popover className={theme.popover} id={this.popoverId}>
-						<DateTime.Picker />
-						{this.props.formMode && <DateTime.Validation />}
-					</Popover>
-				</Overlay>
-			</div>,
-		];
-
 		return (
 			<DateTime.Manager
 				dateFormat={this.props.dateFormat}
@@ -172,9 +148,6 @@ class InputDateTimePicker extends React.Component {
 				<DateTimeContext.Consumer>
 					{({ formManagement }) => (
 						<FocusManager
-							divRef={ref => {
-								this.containerRef = ref;
-							}}
 							onFocusIn={this.onFocus}
 							onFocusOut={event => {
 								this.onBlur(event, formManagement);
@@ -183,13 +156,31 @@ class InputDateTimePicker extends React.Component {
 								this.onKeyDown(event, formManagement);
 							}}
 						>
-							{this.props.formMode ? (
-								<form key="form" onSubmit={formManagement.onSubmit}>
-									{dateTimePicker}
-								</form>
-							) : (
-								dateTimePicker
-							)}
+							<DateTime.Input
+								{...inputProps}
+								key="input"
+								inputRef={ref => {
+									this.inputRef = ref;
+								}}
+							/>
+							<Overlay target={this.inputRef} show={this.state.showPicker} placement="bottom">
+								<Popover className={theme.popover} id={this.popoverId}>
+									<div
+										ref={ref => {
+											this.containerRef = ref;
+										}}
+									>
+										{this.props.formMode ? (
+											<form key="form" onSubmit={formManagement.onSubmit}>
+												<DateTime.Picker />
+												<DateTime.Validation />
+											</form>
+										) : (
+											<DateTime.Picker />
+										)}
+									</div>
+								</Popover>
+							</Overlay>
 						</FocusManager>
 					)}
 				</DateTimeContext.Consumer>
@@ -198,3 +189,10 @@ class InputDateTimePicker extends React.Component {
 	}
 }
 export default InputDateTimePicker;
+
+/*
+* Scenarios to check
+* - focus on input + ESC (close picker), we don't have the validation button anymore. Then on blur, value is reset
+* - type in input, do I really have to press validation button ?
+* - if we want that, we have to consider dropdown and input as separated entities
+* */

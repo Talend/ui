@@ -92,6 +92,7 @@ class DateWidget extends React.Component {
 					autoFocus={schema.autoFocus}
 					dateFormat={options.dateFormat}
 					disabled={schema.disabled || valueIsUpdating}
+					formMode={useTime}
 					id={id}
 					onChange={this.onChange}
 					onBlur={this.onBlur}
