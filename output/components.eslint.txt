@@ -8,10 +8,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/JSOList/context.js
   3:1  error  Prefer default export  import/prefer-default-export
 
-/home/travis/build/Talend/ui/packages/components/src/JSOList/Toolbar/Pagination/Pagination.component.js
-  6:1  error  '@talend/react-components' should be listed in the project's dependencies. Run 'npm i -S @talend/react-components' to add it  import/no-extraneous-dependencies
-  7:1  error  '@talend/react-components' should be listed in the project's dependencies. Run 'npm i -S @talend/react-components' to add it  import/no-extraneous-dependencies
-
 /home/travis/build/Talend/ui/packages/components/src/MultiSelect/ItemOption.component.js
   57:9  error  'index' PropType is defined but prop is never used  react/no-unused-prop-types
 
@@ -30,5 +26,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 10 problems (8 errors, 2 warnings)
+✖ 8 problems (6 errors, 2 warnings)
 
