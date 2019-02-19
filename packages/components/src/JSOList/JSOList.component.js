@@ -5,6 +5,7 @@ import memoizeOne from 'memoize-one';
 import { ListContext } from './context';
 import Toolbar from './Toolbar';
 import DisplayMode from './DisplayMode';
+import Pagination from './Pagination';
 import SelectAll from './SelectAll';
 import SortBy from './SortBy';
 import VList from './VList';
@@ -49,6 +50,9 @@ class Container extends React.Component {
 		isSelected: PropTypes.func, // controlled/uncontrolled check on this prop
 		onSelectAllChange: PropTypes.func,
 		onSelectChange: PropTypes.func,
+
+		withPagination: PropTypes.bool,
+		onPageChange: PropTypes.func,
 	};
 	static defaultProps = {
 		displayMode: 'table',
@@ -57,11 +61,18 @@ class Container extends React.Component {
 	};
 
 	static getDerivedStateFromProps(props, state) {
-		const nextState = { collection: props.collection };
+		const nextState = { collection: props.collection, nbItems: props.collection.length };
 
 		// uncontrolled sort
 		if (props.withSort && !props.onSortChange) {
-			nextState.collection = props.sort(props.collection, state.sortBy, state.sortDescending);
+			nextState.collection = props.sort(nextState.collection, state.sortBy, state.sortDescending);
+		}
+
+		// uncontrolled pagination
+		if (props.withPagination && !props.onPageChange) {
+			const startIndex = (state.page.currentPage - 1) * state.page.itemsPerPage;
+			const stopIndex = startIndex + state.page.itemsPerPage;
+			nextState.collection = nextState.collection.slice(startIndex, stopIndex);
 		}
 
 		// update select all status
@@ -78,10 +89,17 @@ class Container extends React.Component {
 		super(props);
 		this.isSelected = this.isSelected.bind(this);
 		this.onDisplayModeChange = this.onDisplayModeChange.bind(this);
+		this.onPageChange = this.onPageChange.bind(this);
 		this.onSelectAllChanged = this.onSelectAllChanged.bind(this);
 		this.onSelectChange = this.onSelectChange.bind(this);
 		this.onSortChange = this.onSortChange.bind(this);
-		this.state = { selected: [] };
+		this.state = {
+			selected: [],
+			page: {
+				currentPage: 1,
+				itemsPerPage: 5,
+			},
+		};
 	}
 
 	onDisplayModeChange(event, displayMode) {
@@ -91,6 +109,16 @@ class Container extends React.Component {
 		} else {
 			// uncontrolled
 			this.setState({ displayMode });
+		}
+	}
+
+	onPageChange(event, page) {
+		if (this.props.onPageChange) {
+			// controlled pagination
+			this.props.onPageChange(event, page);
+		} else {
+			// uncontrolled
+			this.setState({ page });
 		}
 	}
 
@@ -167,6 +195,10 @@ class Container extends React.Component {
 			contextValues.onSortChange = this.onSortChange;
 		}
 
+		if (this.props.withPagination) {
+			contextValues.onPageChange = this.onPageChange;
+		}
+
 		return <ListContext.Provider value={contextValues}>{this.props.children}</ListContext.Provider>;
 	}
 }
@@ -175,6 +207,7 @@ export default {
 	Container,
 	Toolbar,
 	DisplayMode,
+	Pagination,
 	SelectAll,
 	SortBy,
 	VList,

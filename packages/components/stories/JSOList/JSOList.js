@@ -12,6 +12,8 @@ import CellBadge from '../../src/VirtualizedList/CellBadge';
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
 	'talend-caret-down': talendIcons['talend-caret-down'],
+	'talend-chevron-end': talendIcons['talend-chevron-end'],
+	'talend-chevron-left': talendIcons['talend-chevron-left'],
 	'talend-cog': talendIcons['talend-cog'],
 	'talend-cross': talendIcons['talend-cross'],
 	'talend-expanded': talendIcons['talend-expanded'],
@@ -258,8 +260,6 @@ storiesOf('JSOList', module)
 	</List.Toolbar>
 	<List.VList id="my-vlist">
 		...
-		<List.VList.Content label="Description" dataKey="description" disableSort />
-		<List.VList.Content label="Author" dataKey="author" />
 	</List.VList>
 </List.Container>
 `}</pre>
@@ -299,8 +299,6 @@ storiesOf('JSOList', module)
 	</List.Toolbar>
 	<List.VList id="my-vlist">
 		...
-		<List.VList.Content label="Description" dataKey="description" disableSort />
-		<List.VList.Content label="Author" dataKey="author" />
 	</List.VList>
 </List.Container>
 `}</pre>
@@ -316,6 +314,78 @@ storiesOf('JSOList', module)
 					<List.Toolbar>
 						<List.SelectAll id="my-list-select-all" />
 						<List.DisplayMode id="my-list-displayMode" />
+					</List.Toolbar>
+					<CustomList />
+				</List.Container>
+			</section>
+		</div>
+	))
+	.add('Pagination: uncontrolled', () => (
+		<div className="virtualized-list">
+			<IconsProvider defaultIcons={icons} />
+			<h1>List with uncontrolled pagination</h1>
+			<p>
+				You can enable selection with a "props.withPagination".<br />
+				By default, the pagination is managed internally, on the collection passed via props.<br />
+			</p>
+			<pre>{`
+<List.Container
+	id="my-list"
+	collection={entireCollection}
+	withPagination
+>
+	<List.Toolbar>
+		<List.Pagination id="my-list-pagination" />
+	</List.Toolbar>
+	<List.VList id="my-vlist">
+		...
+	</List.VList>
+</List.Container>
+`}</pre>
+			<section style={{ height: '50vh' }}>
+				<List.Container id="my-list" collection={simpleCollection} withPagination>
+					<List.Toolbar>
+						<List.Pagination id="my-list-pagination" />
+					</List.Toolbar>
+					<CustomList />
+				</List.Container>
+			</section>
+		</div>
+	))
+	.add('Pagination: controlled', () => (
+		<div className="virtualized-list">
+			<IconsProvider defaultIcons={icons} />
+			<h1>List with controlled pagination</h1>
+			<p>
+				You can enable selection with a "props.withPagination".<br />
+				To control the pagination you need to pass some props<br />
+				- onPageChange: page configuration change callback (current page, size of page, ...)<br />
+				- collection: the passed colelction is considered as the current page elements<br />
+			</p>
+			<pre>{`
+<List.Container
+	id="my-list"
+	collection={currentPageCollection}
+	withPagination
+	onPageChange={changePage}
+>
+	<List.Toolbar>
+		<List.Pagination id="my-list-pagination" currentPage={3} itemsPerPage={10} />
+	</List.Toolbar>
+	<List.VList id="my-vlist">
+		...
+	</List.VList>
+</List.Container>
+`}</pre>
+			<section style={{ height: '50vh' }}>
+				<List.Container
+					id="my-list"
+					collection={simpleCollection}
+					withPagination
+					onPageChange={action('page change')}
+				>
+					<List.Toolbar>
+						<List.Pagination id="my-list-pagination" currentPage={3} itemsPerPage={10} />
 					</List.Toolbar>
 					<CustomList />
 				</List.Container>
