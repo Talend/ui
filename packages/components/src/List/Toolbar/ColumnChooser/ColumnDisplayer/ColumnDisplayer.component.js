@@ -6,12 +6,15 @@ import Icon from '../../../../Icon';
 import ActionButton from '../../../../Actions/ActionButton';
 import theme from './ColumnDisplayer.scss';
 
-export const ColumnVisibility = ({ onChange, locked, value }) => {
+export const ColumnVisibility = ({ onChange, locked, value, t }) => {
 	if (locked) {
 		return <Icon name="talend-locked" />;
 	}
 	return (
 		<input
+			aria-label={t('CHECKBOX_VISIBILITY_COLUMN_CHOOSER', {
+				defaultValue: 'change visibility',
+			})}
 			className={classNames(
 				theme['tc-column-displayer-visibility-checkbox'],
 				'tc-column-displayer-visibility-checkbox',
@@ -25,8 +28,9 @@ export const ColumnVisibility = ({ onChange, locked, value }) => {
 };
 
 ColumnVisibility.propTypes = {
-	onChange: PropTypes.func.isRequired,
 	locked: PropTypes.bool,
+	onChange: PropTypes.func.isRequired,
+	t: PropTypes.func.isRequired,
 	value: PropTypes.bool,
 };
 
@@ -53,7 +57,7 @@ function isOrderCorrect(value, length) {
 	return Number.isInteger(value) && (value <= length && value > 0);
 }
 
-export const ColumnOrder = ({ length, order, locked, value, ...rest }) => {
+export const ColumnOrder = ({ length, order, locked, value, t, ...rest }) => {
 	const [editMode, setEditMode] = useState(false);
 	const [ctrlValue, setCtrlValue] = useState(value);
 	useEffect(() => {
@@ -85,6 +89,7 @@ export const ColumnOrder = ({ length, order, locked, value, ...rest }) => {
 	if (locked || !editMode) {
 		return (
 			<ActionButton
+				aria-label={t('INPUT_TEXT_EDIT_COLUMN_CHOOSER', { defaultValue: 'Edit order' })}
 				disabled={locked}
 				link
 				onClick={() => setEditMode(!editMode)}
@@ -96,6 +101,9 @@ export const ColumnOrder = ({ length, order, locked, value, ...rest }) => {
 		<React.Fragment>
 			<input
 				autoFocus
+				aria-label={t('INPUT_TEXT_ORDER_COLUMN_CHOOSER', {
+					defaultValue: 'Input order',
+				})}
 				className={classNames(
 					theme['tc-column-displayer-order-input-text'],
 					'tc-column-displayer-order-input-text',
@@ -121,6 +129,7 @@ ColumnOrder.propTypes = {
 	onKeyPress: PropTypes.func.isRequired,
 	order: PropTypes.number.isRequired,
 	value: PropTypes.number.isRequired,
+	t: PropTypes.func.isRequired,
 };
 
 const ColumnDisplayer = ({
@@ -132,33 +141,24 @@ const ColumnDisplayer = ({
 	onChangeVisibility,
 	onBlurOrder,
 	onKeyPressOrder,
-	// isDragging,
-	// isOver,
+	t,
 }) => {
 	return (
 		<div
 			id="column-chooser-displayer"
 			className={classNames(theme['tc-column-displayer'], 'tc-column-displayer')}
 		>
-			{/*isOver && (
-				<div
-					className={classNames(
-						theme['tc-column-displayer-dragging'],
-						'tc-column-displayer-dragging',
-					)}
-				/>
-					)*/}
 			<div
 				className={classNames(
 					theme['tc-column-displayer-visibility'],
 					'tc-column-displayer-visibility',
 				)}
 			>
-				<ColumnVisibility onChange={onChangeVisibility} value={hidden} locked={locked} />
+				<ColumnVisibility onChange={onChangeVisibility} value={hidden} locked={locked} t={t} />
 			</div>
-			<div className={classNames(theme['tc-column-displayer-label'], 'tc-column-displayer-label')}>
+			<span className={classNames(theme['tc-column-displayer-label'], 'tc-column-displayer-label')}>
 				{label}
-			</div>
+			</span>
 			<div className={classNames(theme['tc-column-displayer-order'], 'tc-column-displayer-order')}>
 				<ColumnOrder
 					length={length}
@@ -166,6 +166,7 @@ const ColumnDisplayer = ({
 					onBlur={onBlurOrder}
 					onKeyPress={onKeyPressOrder}
 					order={order}
+					t={t}
 					value={order}
 				/>
 			</div>
@@ -175,7 +176,6 @@ const ColumnDisplayer = ({
 
 ColumnDisplayer.propTypes = {
 	hidden: PropTypes.bool,
-	// isDragging: PropTypes.bool,
 	label: PropTypes.string.isRequired,
 	length: PropTypes.number.isRequired,
 	locked: PropTypes.bool,
@@ -183,6 +183,7 @@ ColumnDisplayer.propTypes = {
 	onChangeVisibility: PropTypes.func.isRequired,
 	onKeyPressOrder: PropTypes.func.isRequired,
 	order: PropTypes.number.isRequired,
+	t: PropTypes.func.isRequired,
 };
 
 export default ColumnDisplayer;

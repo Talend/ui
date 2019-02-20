@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import RichLayout from '../../../../RichTooltip/RichLayout';
-import getDefaultT from '../../../../translate';
 import theme from './ColumnChooser.scss';
 import { useColumnChooserManager } from '../hooks';
 import { DefaultHeader, DefaultBody, DefaultFooter } from './DefaultColumnChooser.components';
@@ -23,7 +22,7 @@ export default function ColumnChooserContent({
 		onKeyPressInputTextOrder,
 		onSelectAll,
 		stateColumnChooser,
-		submitColumnChooser,
+		onSubmitColumnChooser,
 	} = useColumnChooserManager(columns, handlerColumnChooser);
 	return (
 		<div
@@ -40,6 +39,7 @@ export default function ColumnChooserContent({
 							onChangeVisibility={onChangeVisibility}
 							onDragAndDrop={onDragAndDrop}
 							onKeyPressOrder={onKeyPressInputTextOrder}
+							t={t}
 						/>
 					)
 				}
@@ -48,7 +48,7 @@ export default function ColumnChooserContent({
 						<DefaultFooter
 							onSelectAll={onSelectAll}
 							selectAllValue={stateColumnChooser.selectAll}
-							submit={submitColumnChooser}
+							submit={onSubmitColumnChooser}
 							t={t}
 						/>
 					)
@@ -57,10 +57,6 @@ export default function ColumnChooserContent({
 		</div>
 	);
 }
-
-ColumnChooserContent.defaultProps = {
-	t: getDefaultT(),
-};
 
 ColumnChooserContent.propTypes = {
 	body: PropTypes.object,

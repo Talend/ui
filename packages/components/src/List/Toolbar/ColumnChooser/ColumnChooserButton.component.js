@@ -2,18 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Nav } from 'react-bootstrap';
 import ColumnChooserContent from './Content';
+import getDefaultT from '../../../translate';
 import ActionButton from '../../../Actions/ActionButton';
 
-export default function ColumnChooserButton({ id, ariaLabel, columns, handlerColumnChooser }) {
+export default function ColumnChooserButton({ id, ariaLabel, columns, handlerColumnChooser, t }) {
 	return (
 		<Nav>
 			<ActionButton
-				aria-label={ariaLabel || 'column chooser button'}
+				aria-label={
+					ariaLabel || t('COLUMN_CHOOSER_OVERLAY_BUTTON', { defaultValue: 'Column chooser button' })
+				}
 				id={`${id}-column-chooser-button`}
 				overlayId={`${id}-column-chooser-overlay`}
 				label=""
 				icon="talend-folder"
-				data-feature="action"
+				data-feature="open-column-chooser-overlay-action"
 				overlayPlacement="bottom"
 				link
 				overlayComponent={
@@ -21,6 +24,7 @@ export default function ColumnChooserButton({ id, ariaLabel, columns, handlerCol
 						columns={columns}
 						handlerColumnChooser={handlerColumnChooser}
 						id={`${id}-column-chooser-content`}
+						t={t}
 					/>
 				}
 			/>
@@ -30,7 +34,12 @@ export default function ColumnChooserButton({ id, ariaLabel, columns, handlerCol
 
 ColumnChooserButton.propTypes = {
 	ariaLabel: PropTypes.string,
-	id: PropTypes.string.isRequired,
 	columns: PropTypes.array.isRequired,
 	handlerColumnChooser: PropTypes.func.isRequired,
+	id: PropTypes.string.isRequired,
+	t: PropTypes.func,
+};
+
+ColumnChooserButton.defaultProps = {
+	t: getDefaultT(),
 };

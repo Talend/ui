@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DragDropContextProvider } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
 import classNames from 'classnames';
 import theme from './ColumnChooser.scss';
 import ActionButton from '../../../../Actions/ActionButton';
 import ColumnDisplayer from '../ColumnDisplayer';
-import ColumnDisplayerDraggable from '../ColumnDisplayerDraggable';
 
 export const DefaultHeader = ({ t }) => {
 	return (
@@ -28,6 +25,7 @@ export const getColumnDisplay = (
 	onDragAndDrop,
 	onBlurOrder,
 	onKeyPressOrder,
+	t,
 ) => {
 	return (column, index) => {
 		const displayerProps = {
@@ -37,11 +35,9 @@ export const getColumnDisplay = (
 			onChangeVisibility: onChangeVisibility(index),
 			onDragAndDrop: onDragAndDrop(index),
 			onKeyPressOrder: onKeyPressOrder(index),
+			t,
 		};
-		if (column.locked) {
-			return <ColumnDisplayer key={column.label} {...displayerProps} />;
-		}
-		return <ColumnDisplayerDraggable key={column.label} {...displayerProps} />;
+		return <ColumnDisplayer key={column.label} {...displayerProps} />;
 	};
 };
 
@@ -51,34 +47,34 @@ export const DefaultBody = ({
 	onDragAndDrop,
 	onBlurOrder,
 	onKeyPressOrder,
+	t,
 }) => {
 	return (
-		<DragDropContextProvider backend={HTML5Backend}>
-			<div
-				id="column-chooser-content"
-				className={classNames(theme['tc-column-chooser-body'], 'tc-column-chooser-body')}
-			>
-				{columns.map(
-					getColumnDisplay(
-						columns.length,
-						onChangeVisibility,
-						onDragAndDrop,
-						onBlurOrder,
-						onKeyPressOrder,
-					),
-				)}
-			</div>
-		</DragDropContextProvider>
+		<div
+			id="column-chooser-content"
+			className={classNames(theme['tc-column-chooser-body'], 'tc-column-chooser-body')}
+		>
+			{columns.map(
+				getColumnDisplay(
+					columns.length,
+					onChangeVisibility,
+					onDragAndDrop,
+					onBlurOrder,
+					onKeyPressOrder,
+					t,
+				),
+			)}
+		</div>
 	);
 };
 
 DefaultBody.propTypes = {
-	// TODO more explicit proptypes for columns
 	columns: PropTypes.array.isRequired,
 	onBlurOrder: PropTypes.func.isRequired,
 	onChangeVisibility: PropTypes.func.isRequired,
 	onDragAndDrop: PropTypes.func.isRequired,
 	onKeyPressOrder: PropTypes.func.isRequired,
+	t: PropTypes.func.isRequired,
 };
 
 export const DefaultFooter = ({ selectAllValue, onSelectAll, submit, t }) => {
