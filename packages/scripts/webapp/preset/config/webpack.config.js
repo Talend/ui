@@ -140,6 +140,7 @@ module.exports = ({ getUserConfig, mode }) => {
 			],
 		},
 		plugins: [
+			new webpack.DefinePlugin({ BUILD_TIMESTAMP: Date.now() }),
 			new MiniCssExtractPlugin({
 				filename: '[name]-[hash].css',
 			}),
