@@ -6,7 +6,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   105:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/ColumnDisplayer/ColumnDisplayer.component.js
-  145:7  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  146:7  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/ColumnDisplayer/ColumnDisplayer.component.test.js
   3:8  error  'ColumnDisplayer' is defined but never used  no-unused-vars
@@ -23,12 +23,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/hooks/columnChooserClient.hook.js
   20:10  error  Prefer default export  import/prefer-default-export
-
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/hooks/columnChooserManager.hook.js
-   25:2   error    Assignment to property of function parameter 'column'                                                                      no-param-reassign
-   44:3   warning  Unexpected console statement                                                                                               no-console
-  106:25  error    Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
-  109:58  error    Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/MultiSelect/ItemOption.component.js
   57:9  error  'index' PropType is defined but prop is never used  react/no-unused-prop-types
@@ -48,6 +42,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 20 problems (17 errors, 3 warnings)
-  8 errors, 0 warnings potentially fixable with the `--fix` option.
+✖ 16 problems (14 errors, 2 warnings)
+  6 errors, 0 warnings potentially fixable with the `--fix` option.
 
