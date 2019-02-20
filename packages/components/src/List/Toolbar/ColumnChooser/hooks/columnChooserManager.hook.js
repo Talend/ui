@@ -3,10 +3,6 @@ import cloneDeep from 'lodash/cloneDeep';
 import flow from 'lodash/flow';
 import { compareOrder } from '../service';
 
-// export function isValueCorrect(value, collectionLength) {
-// 	return Number.isInteger(value) && (value <= collectionLength && value > 0);
-// }
-
 export function getOrderItem(order, index, length) {
 	if (index === length - 1) {
 		return order - 1;
@@ -21,8 +17,7 @@ export function matchOrder(value) {
 }
 
 export function incrementColumnOrder(column, index) {
-	// return { ...column, order: index + 1 };
-	column.order = index + 1;
+	column.order = index + 1; // eslint-disable-line
 }
 
 export function organiseEditedColumns(collection) {
@@ -32,16 +27,20 @@ export function organiseEditedColumns(collection) {
 
 export function changeColumnAttribute(key) {
 	return function setAttribut(value, index) {
-		return function setColumn(collection) {
-			collection[index][key] = value; // eslint-disable-line
-			return collection;
+		if (index) {
+			return function setColumnInCollection(collection) {
+				collection[index][key] = value; // eslint-disable-line
+				return collection;
+			};
+		}
+		return function setColumn(column) {
+			column[key] = value; // eslint-disable-line
 		};
 	};
 }
 
 export function updateEditedColumns(editedColumns) {
 	return function updateState(state) {
-		console.log({ editedColumns });
 		return {
 			...state,
 			editedColumns,
@@ -63,11 +62,11 @@ export function useColumnChooserManager(columns, customSubmit) {
 	}
 
 	function modifyOrderTwoItems(value, index) {
-		const indexColToReplace = state.editedColumns.findIndex(matchOrder(value));
-		const orderToReplace = getOrderItem(value, indexColToReplace, getEditedColumnsLength());
-		if (indexColToReplace > -1 && !state.editedColumns[indexColToReplace].locked) {
+		const indexCToReplace = state.editedColumns.findIndex(matchOrder(value));
+		const orderToReplace = getOrderItem(value, indexCToReplace, getEditedColumnsLength());
+		if (indexCToReplace > -1 && !state.editedColumns[indexCToReplace].locked) {
 			flow([
-				updateAttributeOrder(orderToReplace, indexColToReplace),
+				updateAttributeOrder(orderToReplace, indexCToReplace),
 				updateAttributeOrder(value, index),
 				organiseEditedColumns,
 				updateEditedColumns,
@@ -103,15 +102,9 @@ export function useColumnChooserManager(columns, customSubmit) {
 	}
 
 	function onSelectAll(value) {
-		setState(prevState => {
-			return {
-				...prevState,
-				editedColumns: prevState.editedColumns.map(column => {
-					return { ...column, hidden: column.locked ? false : !value };
-				}),
-				selectAll: value,
-			};
-		});
+		const editedColumns = state.editedColumns;
+		editedColumns.forEach(updateAttributeVisiblity(value));
+		setState({ ...state, editedColumns, selectAll: value });
 	}
 
 	function onSubmitColumnChooser(event) {

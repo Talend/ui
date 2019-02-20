@@ -54,7 +54,10 @@ OrderDisplay.propTypes = {
 };
 
 function isOrderCorrect(value, length) {
-	return Number.isInteger(value) && (value <= length && value > 0);
+	if (Number.isInteger(value) && (value <= length && value > 0)) {
+		return true;
+	}
+	throw new Error(`ColumnDisplayer, onBlur : Bad order number = ${value}`);
 }
 
 export const ColumnOrder = ({ length, order, locked, value, t, ...rest }) => {
@@ -66,8 +69,8 @@ export const ColumnOrder = ({ length, order, locked, value, t, ...rest }) => {
 
 	function onBlur(event) {
 		const formatValue = parseInt(ctrlValue, 10);
-		if (isOrderCorrect(formatValue, length)) {
-			if (formatValue !== value) {
+		if (formatValue !== value) {
+			if (isOrderCorrect(formatValue, length)) {
 				rest.onBlur(event, formatValue);
 			}
 		}
@@ -80,8 +83,6 @@ export const ColumnOrder = ({ length, order, locked, value, t, ...rest }) => {
 			if (isOrderCorrect(formatValue, length)) {
 				rest.onKeyPress(event, formatValue);
 				setEditMode(prevState => !prevState);
-			} else {
-				throw new Error(`ColumnDisplayer, onKeyPress : Bad order number: ${value}`);
 			}
 		}
 	}
