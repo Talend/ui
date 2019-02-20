@@ -6,6 +6,7 @@ import customTemplateStory from './customTemplateStory';
 import customWidgetStory from './customWidgetStory';
 import customActionsStory from './customActionsStory';
 import customUpdating from './customUpdating';
+import customErrors from './customErrors';
 
 const coreConceptsStories = storiesOf('Core concepts', module);
 
@@ -41,3 +42,4 @@ coreConceptsStories.add(customTemplateStory.name, customTemplateStory.story);
 coreConceptsStories.add(customWidgetStory.name, customWidgetStory.story);
 coreConceptsStories.add(customActionsStory.name, customActionsStory.story);
 coreConceptsStories.add(customUpdating.name, customUpdating.story);
+coreConceptsStories.add(customErrors.name, customErrors.story);
