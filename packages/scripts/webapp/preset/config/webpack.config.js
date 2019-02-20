@@ -123,7 +123,7 @@ module.exports = ({ getUserConfig, mode }) => {
 					test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
 					loader: 'url-loader',
 					options: {
-						name: 'assets/fonts/[name].[ext]',
+						name: 'assets/svg/[name].[ext]',
 						limit: 10000,
 						mimetype: 'image/svg+xml',
 					},
