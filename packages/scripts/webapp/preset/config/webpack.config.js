@@ -131,7 +131,11 @@ module.exports = ({ getUserConfig, mode }) => {
 				{
 					test: /\.(png|jpg|jpeg|gif)$/,
 					loader: 'url-loader',
-					options: { mimetype: 'image/png' },
+					options: {
+						name: 'assets/img/[name].[ext]',
+						limit: 10000,
+						mimetype: 'image/png',
+					},
 				},
 			],
 		},
