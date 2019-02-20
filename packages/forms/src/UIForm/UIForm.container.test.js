@@ -226,7 +226,7 @@ describe('UIForm container', () => {
 			});
 		});
 
-		it('should not update state properties', done => {
+		it('should update state properties', done => {
 			const properties = { firstname: 'my firstname is invalid' };
 			const onTrigger = jest.fn(() => Promise.resolve({ properties }));
 			const wrapper = shallow(<UIForm data={data} {...props} onTrigger={onTrigger} />);
@@ -235,7 +235,7 @@ describe('UIForm container', () => {
 			const triggerPromise = instance.onTrigger();
 
 			triggerPromise.then(() => {
-				expect(instance.state.liveState.properties).not.toBe(properties);
+				expect(instance.state.liveState.properties).toBe(properties);
 				done();
 			});
 		});
