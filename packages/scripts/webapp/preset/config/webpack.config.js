@@ -119,6 +119,20 @@ module.exports = ({ getUserConfig, mode }) => {
 						mimetype: 'application/font-woff',
 					},
 				},
+				{
+					test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+					loader: 'url-loader',
+					options: {
+						name: 'assets/fonts/[name].[ext]',
+						limit: 10000,
+						mimetype: 'image/svg+xml',
+					},
+				},
+				{
+					test: /\.(png|jpg|jpeg|gif)$/,
+					loader: 'url-loader',
+					options: { mimetype: 'image/png' },
+				},
 			],
 		},
 		plugins: [
@@ -135,9 +149,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				loadCSSAsync: true,
 				appLoaderIcon: getUserConfig(['html', 'appLoaderIcon'], DEFAULT_APP_LOADER_ICON),
 			}),
-			new CopyWebpackPlugin([
-				{ from: 'src/assets' },
-			]),
+			new CopyWebpackPlugin([{ from: 'src/assets' }]),
 			new webpack.BannerPlugin({
 				banner: LICENSE_BANNER,
 			}),
