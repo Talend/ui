@@ -6,9 +6,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   105:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/ColumnDisplayer/ColumnDisplayer.component.js
-  113:2  error  'isDragging' is defined but never used                                                                 no-unused-vars
-  114:2  error  'isOver' is missing in props validation                                                                react/prop-types
-  115:7  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  137:7  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  143:5  error  Expected exception block, space or tab after '/*' in comment                                           spaced-comment
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/ColumnDisplayer/ColumnDisplayer.component.test.js
   3:8  error  'ColumnDisplayer' is defined but never used  no-unused-vars
@@ -25,15 +24,17 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/Content/DefaultColumnChooser.components.js
   11:41  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
   31:6   error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
-  59:7   error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
-  89:78  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  54:7   error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  84:78  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/hooks/columnChooserClient.hook.js
   20:10  error  Prefer default export  import/prefer-default-export
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/hooks/columnChooserManager.hook.js
-  130:25  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
-  133:58  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
+   25:2   error    Assignment to property of function parameter 'column'                                                                      no-param-reassign
+   44:3   warning  Unexpected console statement                                                                                               no-console
+  106:25  error    Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
+  109:58  error    Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/MultiSelect/ItemOption.component.js
   57:9  error  'index' PropType is defined but prop is never used  react/no-unused-prop-types
@@ -53,6 +54,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 23 problems (21 errors, 2 warnings)
-  9 errors, 0 warnings potentially fixable with the `--fix` option.
+✖ 24 problems (21 errors, 3 warnings)
+  10 errors, 0 warnings potentially fixable with the `--fix` option.
 
