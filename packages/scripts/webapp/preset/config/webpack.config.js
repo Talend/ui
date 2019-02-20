@@ -108,7 +108,13 @@ module.exports = ({ getUserConfig, mode }) => {
 				{
 					test: /\.scss$/,
 					use: getSassLoaders(true, sassData, mode),
+					include: /@talend/,
 					exclude: /bootstrap-theme/,
+				},
+				{
+					test: /\.scss$/,
+					use: getSassLoaders(getUserConfig(['sass', 'modules'], true), sassData, mode),
+					exclude: /@talend/,
 				},
 				{
 					test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
@@ -135,9 +141,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				loadCSSAsync: true,
 				appLoaderIcon: getUserConfig(['html', 'appLoaderIcon'], DEFAULT_APP_LOADER_ICON),
 			}),
-			new CopyWebpackPlugin([
-				{ from: 'src/assets' },
-			]),
+			new CopyWebpackPlugin([{ from: 'src/assets' }]),
 			new webpack.BannerPlugin({
 				banner: LICENSE_BANNER,
 			}),

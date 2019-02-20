@@ -20,7 +20,8 @@ This preset allows some customisation through specific entry points. The configu
       "$brand-primary-t7": "#00A1B3",
       "$brand-secondary-t7": "#168AA6"
     },
-    "theme": "tdp"
+    "theme": "tdp",
+    "modules": false
   },
   "webpack": {
     "debug": true,
@@ -113,6 +114,17 @@ In case you want to load one of T7+ @talend/bootstrap-theme variation, you can p
   "preset": "talend",
   "sass": {
     "theme": "tdp"
+  }
+}
+```
+
+By default, css modules are activated. To deactivate them,
+
+```json
+{
+  "preset": "talend",
+  "sass": {
+    "modules": false
   }
 }
 ```
