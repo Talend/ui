@@ -151,11 +151,9 @@ export default class UIForm extends React.Component {
 				}
 				this.setErrors(event, errors);
 			}
-			if (data.properties) {
+			if (typeof data.properties === 'function') {
 				let properties = data.properties;
-				if (typeof data.properties === 'function') {
-					properties = data.properties(liveState.properties);
-				}
+				properties = data.properties(liveState.properties);
 				this.onChange(event, { properties });
 			}
 			return data;
