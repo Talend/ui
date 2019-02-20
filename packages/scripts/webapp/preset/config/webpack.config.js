@@ -120,7 +120,7 @@ module.exports = ({ getUserConfig, mode }) => {
 					},
 				},
 				{
-					test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+					test: /\.svg$/,
 					loader: 'url-loader',
 					options: {
 						name: 'assets/svg/[name].[ext]',
