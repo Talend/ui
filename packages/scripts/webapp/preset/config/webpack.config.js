@@ -122,6 +122,7 @@ module.exports = ({ getUserConfig, mode }) => {
 			],
 		},
 		plugins: [
+			new webpack.DefinePlugin({ BUILD_TIMESTAMP: Date.now() }),
 			new MiniCssExtractPlugin({
 				filename: '[name]-[hash].css',
 			}),
@@ -135,9 +136,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				loadCSSAsync: true,
 				appLoaderIcon: getUserConfig(['html', 'appLoaderIcon'], DEFAULT_APP_LOADER_ICON),
 			}),
-			new CopyWebpackPlugin([
-				{ from: 'src/assets' },
-			]),
+			new CopyWebpackPlugin([{ from: 'src/assets' }]),
 			new webpack.BannerPlugin({
 				banner: LICENSE_BANNER,
 			}),
