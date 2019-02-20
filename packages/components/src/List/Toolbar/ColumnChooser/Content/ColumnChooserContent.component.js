@@ -17,11 +17,11 @@ export default function ColumnChooserContent({
 	t,
 }) {
 	const {
-		handlerChangeVisibility,
-		handlerBlurInputTextOrder,
-		handlerDragAndDrop,
-		handlerInputTextOrder,
-		handlerSelectAll,
+		onChangeVisibility,
+		onBlurInputTextOrder,
+		onDragAndDrop,
+		onKeyPressInputTextOrder,
+		onSelectAll,
 		stateColumnChooser,
 		submitColumnChooser,
 	} = useColumnChooserManager(columns, handlerColumnChooser);
@@ -36,17 +36,17 @@ export default function ColumnChooserContent({
 					body || (
 						<DefaultBody
 							columns={stateColumnChooser.editedColumns}
-							onChangeVisibility={handlerChangeVisibility}
-							onDragAndDrop={handlerDragAndDrop}
-							onBlurOrder={handlerBlurInputTextOrder}
-							onKeyPressOrder={handlerInputTextOrder}
+							onBlurOrder={onBlurInputTextOrder}
+							onChangeVisibility={onChangeVisibility}
+							onDragAndDrop={onDragAndDrop}
+							onKeyPressOrder={onKeyPressInputTextOrder}
 						/>
 					)
 				}
 				Footer={
 					footer || (
 						<DefaultFooter
-							onSelectAll={handlerSelectAll}
+							onSelectAll={onSelectAll}
 							selectAllValue={stateColumnChooser.selectAll}
 							submit={submitColumnChooser}
 							t={t}

@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import cloneDeep from 'lodash/cloneDeep';
-import invariant from 'invariant';
 import flow from 'lodash/flow';
 import { compareOrder } from '../service';
 
-export function isValueCorrect(value, collectionLength) {
-	return Number.isInteger(value) && (value <= collectionLength || value < 0);
-}
+// export function isValueCorrect(value, collectionLength) {
+// 	return Number.isInteger(value) && (value <= collectionLength && value > 0);
+// }
 
 export function getOrderItem(order, index, length) {
 	if (index === length - 1) {
@@ -22,18 +21,19 @@ export function matchOrder(value) {
 }
 
 export function incrementColumnOrder(column, index) {
-	return { ...column, order: index + 1 };
+	// return { ...column, order: index + 1 };
+	column.order = index + 1;
 }
 
 export function organiseEditedColumns(collection) {
-	return collection.sort(compareOrder).map(incrementColumnOrder);
+	collection.sort(compareOrder).forEach(incrementColumnOrder);
+	return collection;
 }
 
 export function changeColumnAttribute(key) {
 	return function setAttribut(value, index) {
 		return function setColumn(collection) {
-			const newColumns = collection;
-			newColumns[index][key] = value;
+			collection[index][key] = value; // eslint-disable-line
 			return collection;
 		};
 	};
@@ -41,6 +41,7 @@ export function changeColumnAttribute(key) {
 
 export function updateEditedColumns(editedColumns) {
 	return function updateState(state) {
+		console.log({ editedColumns });
 		return {
 			...state,
 			editedColumns,
@@ -53,18 +54,12 @@ const updateAttributeOrder = changeColumnAttribute('order');
 
 export function useColumnChooserManager(columns, customSubmit) {
 	const [state, setState] = useState({
-		editedColumns: organiseEditedColumns(columns),
+		editedColumns: organiseEditedColumns(cloneDeep(columns)),
 		selectAll: false,
 	});
 
 	function getEditedColumnsLength() {
 		return state.editedColumns.length;
-	}
-
-	function getValueFormated(value) {
-		const checkedValue = isValueCorrect(parseInt(value, 10), getEditedColumnsLength());
-		invariant(checkedValue, `ColumnChooserManager, getValueFormated : Bad order number ${value}`);
-		return checkedValue;
 	}
 
 	function modifyOrderTwoItems(value, index) {
@@ -81,7 +76,7 @@ export function useColumnChooserManager(columns, customSubmit) {
 		}
 	}
 
-	function handlerChangeVisibility(index) {
+	function onChangeVisibility(index) {
 		return function changeVisiblity(event, value) {
 			flow([updateAttributeVisiblity(value, index), updateEditedColumns, setState])(
 				state.editedColumns,
@@ -89,44 +84,25 @@ export function useColumnChooserManager(columns, customSubmit) {
 		};
 	}
 
-	function handlerInputTextOrder(index) {
-		return function inputOrder(event, value) {
-			let parseValue;
-			try {
-				parseValue = getValueFormated(value);
-			} catch (exception) {
-				return false;
-			}
-			if (event.key === 'Enter') {
-				modifyOrderTwoItems(parseValue, index);
-				return true;
-			}
-			return false;
-		};
-	}
-
-	function handlerBlurInputTextOrder(index) {
+	function onBlurInputTextOrder(index) {
 		return function onBlur(event, value) {
-			let parseValue;
-			try {
-				parseValue = getValueFormated(value);
-			} catch (exception) {
-				return false;
-			}
-			if (state.editedColumns[index].order !== parseValue) {
-				modifyOrderTwoItems(parseValue, index);
-			}
-			return true;
+			modifyOrderTwoItems(value, index);
 		};
 	}
 
-	function handlerDragAndDrop(index) {
+	function onKeyPressInputTextOrder(index) {
+		return function onKeyPress(event, value) {
+			modifyOrderTwoItems(value, index);
+		};
+	}
+
+	function onDragAndDrop(index) {
 		return function dragAndDrop(targetColumn) {
 			modifyOrderTwoItems(targetColumn.order, index);
 		};
 	}
 
-	function handlerSelectAll(value) {
+	function onSelectAll(value) {
 		setState(prevState => {
 			return {
 				...prevState,
@@ -138,17 +114,17 @@ export function useColumnChooserManager(columns, customSubmit) {
 		});
 	}
 
-	function submitColumnChooser(event) {
+	function onSubmitColumnChooser(event) {
 		customSubmit(event, { ...state, editedColumns: cloneDeep(state.editedColumns) });
 	}
 
 	return {
-		handlerBlurInputTextOrder,
-		handlerDragAndDrop,
-		handlerInputTextOrder,
-		handlerSelectAll,
-		handlerChangeVisibility,
+		onBlurInputTextOrder,
+		onChangeVisibility,
+		onDragAndDrop,
+		onKeyPressInputTextOrder,
+		onSelectAll,
+		onSubmitColumnChooser,
 		stateColumnChooser: Object.freeze(state),
-		submitColumnChooser,
 	};
 }

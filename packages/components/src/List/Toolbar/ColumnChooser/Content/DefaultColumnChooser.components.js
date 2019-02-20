@@ -38,15 +38,10 @@ export const getColumnDisplay = (
 			onDragAndDrop: onDragAndDrop(index),
 			onKeyPressOrder: onKeyPressOrder(index),
 		};
-		return (
-			<React.Fragment key={column.label}>
-				{column.locked ? (
-					<ColumnDisplayer {...displayerProps} />
-				) : (
-					<ColumnDisplayerDraggable {...displayerProps} />
-				)}
-			</React.Fragment>
-		);
+		if (column.locked) {
+			return <ColumnDisplayer key={column.label} {...displayerProps} />;
+		}
+		return <ColumnDisplayerDraggable key={column.label} {...displayerProps} />;
 	};
 };
 

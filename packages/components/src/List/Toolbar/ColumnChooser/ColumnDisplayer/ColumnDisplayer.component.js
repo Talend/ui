@@ -49,17 +49,39 @@ OrderDisplay.propTypes = {
 	length: PropTypes.number.isRequired,
 };
 
-export const ColumnOrder = ({ length, order, locked, onBlur, onKeyPress, value }) => {
+function isOrderCorrect(value, length) {
+	return Number.isInteger(value) && (value <= length && value > 0);
+}
+
+export const ColumnOrder = ({ length, order, locked, value, ...rest }) => {
 	const [editMode, setEditMode] = useState(false);
 	const [ctrlValue, setCtrlValue] = useState(value);
 	useEffect(() => {
 		setCtrlValue(value);
 	}, [value]);
-	function changeEditMode(fn, event) {
-		if (fn(event, ctrlValue)) {
-			setEditMode(prevState => !prevState);
+
+	function onBlur(event) {
+		const formatValue = parseInt(ctrlValue, 10);
+		if (isOrderCorrect(formatValue, length)) {
+			if (formatValue !== value) {
+				rest.onBlur(event, formatValue);
+			}
+		}
+		setEditMode(prevState => !prevState);
+	}
+
+	function onKeyPress(event) {
+		const formatValue = parseInt(ctrlValue, 10);
+		if (event.key === 'Enter') {
+			if (isOrderCorrect(formatValue, length)) {
+				rest.onKeyPress(event, formatValue);
+				setEditMode(prevState => !prevState);
+			} else {
+				throw new Error(`ColumnDisplayer, onKeyPress : Bad order number: ${value}`);
+			}
 		}
 	}
+
 	if (locked || !editMode) {
 		return (
 			<ActionButton
@@ -79,10 +101,10 @@ export const ColumnOrder = ({ length, order, locked, onBlur, onKeyPress, value }
 					'tc-column-displayer-order-input-text',
 				)}
 				onBlur={event => {
-					changeEditMode(onBlur, event);
+					onBlur(event);
 				}}
 				onChange={event => setCtrlValue(event.target.value)}
-				onKeyPress={event => changeEditMode(onKeyPress, event)}
+				onKeyPress={event => onKeyPress(event)}
 				placeholder={ctrlValue}
 				type="text"
 				value={ctrlValue}
@@ -110,22 +132,22 @@ const ColumnDisplayer = ({
 	onChangeVisibility,
 	onBlurOrder,
 	onKeyPressOrder,
-	isDragging,
-	isOver,
+	// isDragging,
+	// isOver,
 }) => {
 	return (
 		<div
 			id="column-chooser-displayer"
 			className={classNames(theme['tc-column-displayer'], 'tc-column-displayer')}
 		>
-			{isOver && (
+			{/*isOver && (
 				<div
 					className={classNames(
 						theme['tc-column-displayer-dragging'],
 						'tc-column-displayer-dragging',
 					)}
 				/>
-			)}
+					)*/}
 			<div
 				className={classNames(
 					theme['tc-column-displayer-visibility'],
@@ -153,7 +175,7 @@ const ColumnDisplayer = ({
 
 ColumnDisplayer.propTypes = {
 	hidden: PropTypes.bool,
-	isDragging: PropTypes.bool,
+	// isDragging: PropTypes.bool,
 	label: PropTypes.string.isRequired,
 	length: PropTypes.number.isRequired,
 	locked: PropTypes.bool,
