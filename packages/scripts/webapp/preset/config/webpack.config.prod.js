@@ -3,7 +3,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = ({ getUserConfig }) => {
 	const plugins = [];
-	if (getUserConfig('cmf') !== false) {
+	if (getUserConfig('cmf') === true) {
 		// eslint-disable-next-line global-require,import/newline-after-import
 		const ReactCMFWebpackPlugin = require('@talend/react-cmf-webpack-plugin');
 		plugins.push(new ReactCMFWebpackPlugin({ quiet: true }));
