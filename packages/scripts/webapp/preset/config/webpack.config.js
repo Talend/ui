@@ -119,6 +119,24 @@ module.exports = ({ getUserConfig, mode }) => {
 						mimetype: 'application/font-woff',
 					},
 				},
+				{
+					test: /\.svg$/,
+					loader: 'url-loader',
+					options: {
+						name: 'assets/svg/[name].[ext]',
+						limit: 10000,
+						mimetype: 'image/svg+xml',
+					},
+				},
+				{
+					test: /\.(png|jpg|jpeg|gif)$/,
+					loader: 'url-loader',
+					options: {
+						name: 'assets/img/[name].[ext]',
+						limit: 10000,
+						mimetype: 'image/png',
+					},
+				},
 			],
 		},
 		plugins: [
