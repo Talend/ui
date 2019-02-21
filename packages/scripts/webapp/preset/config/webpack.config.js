@@ -113,7 +113,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				},
 				{
 					test: /\.scss$/,
-					use: getSassLoaders(getUserConfig(['sass', 'modules'], true), sassData, mode),
+					use: getSassLoaders(getUserConfig(['css', 'modules'], true), sassData, mode),
 					exclude: /@talend/,
 				},
 				{
