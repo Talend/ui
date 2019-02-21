@@ -108,7 +108,13 @@ module.exports = ({ getUserConfig, mode }) => {
 				{
 					test: /\.scss$/,
 					use: getSassLoaders(true, sassData, mode),
+					include: /@talend/,
 					exclude: /bootstrap-theme/,
+				},
+				{
+					test: /\.scss$/,
+					use: getSassLoaders(getUserConfig(['css', 'modules'], true), sassData, mode),
+					exclude: /@talend/,
 				},
 				{
 					test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,

@@ -22,6 +22,9 @@ This preset allows some customisation through specific entry points. The configu
     },
     "theme": "tdp"
   },
+  "css": {
+    "modules": false
+  },
   "webpack": {
     "debug": true,
     "config": {
@@ -113,6 +116,17 @@ In case you want to load one of T7+ @talend/bootstrap-theme variation, you can p
   "preset": "talend",
   "sass": {
     "theme": "tdp"
+  }
+}
+```
+
+By default, css modules are activated. To deactivate them,
+
+```json
+{
+  "preset": "talend",
+  "css": {
+    "modules": false
   }
 }
 ```
