@@ -3,7 +3,7 @@ const { hereRelative, resolveBin } = require('../utils/path-resolver');
 
 const webpackDevServer = resolveBin('webpack-dev-server');
 
-module.exports = function start(env) {
+module.exports = function start(env, _, options) {
 	return spawn.sync(
 		webpackDevServer,
 		[
@@ -13,6 +13,7 @@ module.exports = function start(env) {
 			'--open',
 			'--progress',
 			'--display-error-details',
+			...options,
 		],
 		{ stdio: 'inherit', env },
 	);

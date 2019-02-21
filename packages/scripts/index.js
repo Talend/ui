@@ -12,7 +12,6 @@ console.log(`Running command: ${command}`, `With options: ${options}`);
 switch (command) {
 	case 'start':
 	case 'build':
-	case 'analyze':
 	case 'lint:es':
 	case 'test':
 		require('./webapp')(command, options);

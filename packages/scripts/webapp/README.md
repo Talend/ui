@@ -24,6 +24,7 @@ yarn add --dev @talend/scripts
 {
   "start": "talend-scripts start",
   "prepublish": "talend-scripts build",
+  "analyze": "talend-scripts build --env.analyze",
   "lint:es": "talend-scripts lint:es",
   "test": "talend-scripts test",
   "test:watch": "talend-scripts test --watch"
