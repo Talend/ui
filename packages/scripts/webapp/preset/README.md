@@ -148,12 +148,12 @@ You can add the debug option to true so the webpack configuration will be printe
 
 ## CMF
 
-Talend preset integrates `cmf-webpack-plugin`. By default it is active, it is possible to disable the plugin with a flag
+Talend preset integrates `cmf-webpack-plugin`. By default it is deactived, to enable it:
 
 ```json
 {
   "preset": "talend",
-  "cmf": false
+  "cmf": true
 }
 ```
 
