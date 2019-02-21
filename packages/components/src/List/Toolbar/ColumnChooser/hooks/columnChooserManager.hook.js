@@ -3,21 +3,31 @@ import cloneDeep from 'lodash/cloneDeep';
 import flow from 'lodash/flow';
 import { compareOrder } from '../service';
 
-export function getOrderItem(order, index, length) {
+function matchOrder(value) {
+	return function match({ order }) {
+		return order === value;
+	};
+}
+
+function incrementColumnOrder(column, index) {
+	// eslint-disable-next-line no-param-reassign
+	column.order = index + 1;
+}
+
+function getOrderItem(order, index, length) {
 	if (index === length - 1) {
 		return order - 1;
 	}
 	return order + 1;
 }
 
-export function matchOrder(value) {
-	return function match({ order }) {
-		return order === value;
+function updateEditedColumns(editedColumns) {
+	return function updateState(state) {
+		return {
+			...state,
+			editedColumns,
+		};
 	};
-}
-
-export function incrementColumnOrder(column, index) {
-	column.order = index + 1; // eslint-disable-line
 }
 
 export function organiseEditedColumns(collection) {
@@ -26,24 +36,17 @@ export function organiseEditedColumns(collection) {
 }
 
 export function changeColumnAttribute(key) {
-	return function setAttribut(value, index) {
-		if (index) {
+	return function setAttribut(value, index = -1) {
+		if (index > -1) {
 			return function setColumnInCollection(collection) {
-				collection[index][key] = value; // eslint-disable-line
+				// eslint-disable-next-line no-param-reassign
+				collection[index][key] = value;
 				return collection;
 			};
 		}
 		return function setColumn(column) {
-			column[key] = value; // eslint-disable-line
-		};
-	};
-}
-
-export function updateEditedColumns(editedColumns) {
-	return function updateState(state) {
-		return {
-			...state,
-			editedColumns,
+			// eslint-disable-next-line no-param-reassign
+			column[key] = value;
 		};
 	};
 }
@@ -62,11 +65,11 @@ export function useColumnChooserManager(columns, customSubmit) {
 	}
 
 	function modifyOrderTwoItems(value, index) {
-		const indexCToReplace = state.editedColumns.findIndex(matchOrder(value));
-		const orderToReplace = getOrderItem(value, indexCToReplace, getEditedColumnsLength());
-		if (indexCToReplace > -1 && !state.editedColumns[indexCToReplace].locked) {
+		const indexToReplace = state.editedColumns.findIndex(matchOrder(value));
+		const orderToReplace = getOrderItem(value, indexToReplace, getEditedColumnsLength());
+		if (indexToReplace > -1 && !state.editedColumns[indexToReplace].locked) {
 			flow([
-				updateAttributeOrder(orderToReplace, indexCToReplace),
+				updateAttributeOrder(orderToReplace, indexToReplace),
 				updateAttributeOrder(value, index),
 				organiseEditedColumns,
 				updateEditedColumns,
