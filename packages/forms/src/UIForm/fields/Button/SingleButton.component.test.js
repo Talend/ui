@@ -32,6 +32,21 @@ describe('SingleButton field', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render submit button with inProgress', () => {
+		// given
+		const submitSchema = {
+			...schema,
+			inProgress: true,
+			type: 'submit',
+		};
+
+		// when
+		const wrapper = shallow(<SingleButton id={'myForm'} schema={submitSchema} />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should render reset button', () => {
 		// given
 		const resetSchema = {
