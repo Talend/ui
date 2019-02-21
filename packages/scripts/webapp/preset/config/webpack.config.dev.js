@@ -10,17 +10,6 @@ module.exports = ({ getUserConfig }) => {
 
 	return {
 		mode: 'development',
-		module: {
-			rules: [
-				{
-					test: /.*\.js$/,
-					enforce: 'pre',
-					loader: 'eslint-loader',
-					exclude: /node_modules/,
-					options: { configFile: path.resolve(__dirname, '.eslintrc') },
-				},
-			],
-		},
 		watchOptions: {
 			aggregateTimeout: 300,
 			poll: 1000,
