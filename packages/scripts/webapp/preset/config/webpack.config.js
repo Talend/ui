@@ -147,7 +147,7 @@ module.exports = ({ getUserConfig, mode }) => {
 			],
 		},
 		plugins: [
-			new CleanWebpackPlugin(['dist'], { verbose: true }),
+			new CleanWebpackPlugin(['dist'], { verbose: true, root: process.cwd() }),
 			new webpack.DefinePlugin({ BUILD_TIMESTAMP: Date.now() }),
 			new MiniCssExtractPlugin({
 				filename: '[name]-[hash].css',
