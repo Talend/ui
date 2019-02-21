@@ -157,7 +157,6 @@ module.exports = ({ getUserConfig, mode }) => {
 				...getUserConfig('html'),
 			}),
 			new TalendHTML({
-				loadCSSAsync: true,
 				appLoaderIcon: getUserConfig(['html', 'appLoaderIcon'], DEFAULT_APP_LOADER_ICON),
 			}),
 			new CopyWebpackPlugin([{ from: 'src/assets' }]),
