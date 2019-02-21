@@ -1,18 +1,17 @@
 const spawn = require('cross-spawn');
 const { hereRelative, resolveBin } = require('../utils/path-resolver');
-
-const webpackDevServer = resolveBin('webpack-dev-server');
+const webpack = resolveBin('webpack');
 
 module.exports = function start(env) {
 	return spawn.sync(
-		webpackDevServer,
+		webpack,
 		[
-			'--inline',
 			'--config',
 			hereRelative(__dirname, '../config/webpack.config.js'),
-			'--open',
 			'--progress',
+			'--env.analyze',
 			'--display-error-details',
+			'--display-cached',
 		],
 		{ stdio: 'inherit', env },
 	);
