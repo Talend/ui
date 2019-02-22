@@ -354,7 +354,7 @@ const collapsibleListCollection = [
 			},
 		],
 		expanded: true,
-		children: <div>HELLO WORLDa</div>,
+		children: <div>HELLO WORLD</div>,
 	},
 	{
 		header: [
@@ -402,7 +402,7 @@ const collapsibleListCollection = [
 	},
 ];
 
-const sourceItems = [...new Array(20000)].map(
+const sourceItems = [...new Array(50)].map(
 	(item, index) => collapsibleListCollection[index % collapsibleListCollection.length],
 );
 
@@ -674,10 +674,16 @@ storiesOf('VirtualizedList', module)
 		<div>
 			<h1>Virtualized List with Collapsible Panels</h1>
 			<IconsProvider defaultIcons={icons} />
-			<section style={{ height: '50vh' }}>
+			<section style={{ height: '90vh' }}>
 				<VirtualizedList
 					collection={sourceItems}
-					onRowClick={action('onRowClick')}
+					onRowClick={(event, rowItem) => {
+						action('onRowClick');
+						sourceItems[rowItem.index] = {
+							...rowItem,
+							expanded: !rowItem.expanded,
+						};
+					}}
 					onScroll={action('onScroll')}
 					id={'my-list'}
 					type={listTypes.COLLAPSIBLE_PANEL}
