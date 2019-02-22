@@ -5,6 +5,7 @@ const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 const TalendHTML = require('@talend/html-webpack-plugin');
@@ -146,6 +147,7 @@ module.exports = ({ getUserConfig, mode }) => {
 			],
 		},
 		plugins: [
+			new CleanWebpackPlugin(['dist'], { verbose: true, root: process.cwd() }),
 			new webpack.DefinePlugin({ BUILD_TIMESTAMP: Date.now() }),
 			new MiniCssExtractPlugin({
 				filename: '[name]-[hash].css',
