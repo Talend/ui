@@ -1,15 +1,19 @@
-# Preset Talend
+# Talend Preset
 
 This is a preset for @talend/scripts. It holds most of Talend projects tools configuration.
 
-This preset allows some customisation through specific entry points. The configuration is done via `Talend/scripts` configuration file `talend-scripts.json`.
+This preset allows some customisation through specific entry points. The configuration is done via `talend-scripts.json` configuration file.
+
+## Convention
+
+
 
 ## Configuration overview
 
 ```json
 {
   "preset": "talend",
-  "cmf": false,
+  "cmf": true,
   "html": {
     "title": "Talend Data Preparation",
     "other-options": "Option value passed to html-webpack-plugin"
@@ -41,6 +45,7 @@ This preset allows some customisation through specific entry points. The configu
 | cmf | `cmf-webpack-plugin` flag. |
 | html | `html-webpack-plugin` template and options customisation. |
 | sass | `sass-loader` custom data. |
+| css | `css-loader` custom data. |
 | webpack | `webpack` and `devServer` customisation. |
 
 ## HTML
@@ -94,7 +99,7 @@ To change the logo, you can customise the `appLoaderIcon` variable in configurat
 }
 ```
 
-## Sass
+## Sass/Css
 
 You can pass all sass variables you need. Those will be loaded before any sass file.
 
@@ -131,7 +136,7 @@ By default, css modules are activated. To deactivate them,
 }
 ```
 
-## Webpack
+## Webpack dev server
 
 By default, a devServer proxy is in place, mapping all `/api` urls to `http://localhost`. You can change it to adapt to your backend api url.
 
@@ -176,3 +181,9 @@ You can use your own babelrc if you want but please extends our babelrc in that 
 
 If you don't do so the app will fail in Error describe the above need.
 Also please be sure to have read that file.
+
+## Next
+
+Let's see the configuration details.
+
+Go to next step: [Talend preset details](./details.md).
