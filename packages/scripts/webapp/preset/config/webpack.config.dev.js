@@ -29,5 +29,6 @@ module.exports = ({ getUserConfig }) => {
 		},
 		plugins,
 		devtool: 'source-map',
+		publicPath: '/',
 	};
 };
