@@ -1,6 +1,6 @@
 # Customisation
 
-Unlike react-scripts, we enable customisation. To start to customize it, just add a `talend-scripts.json` in your project root folder.
+Unlike `react-scripts`, we enable customisation. To start to customize it, just add a `talend-scripts.json` in your project root folder.
 
 ## talend-scripts.json
 
@@ -18,8 +18,8 @@ Unlike react-scripts, we enable customisation. To start to customize it, just ad
 
 | Option | Description |
 |---|---|
-| preset | Default: `talend` We support presets. Please refer to the next section for more information. |
-| webpack.config.developement | User custom webpack configuration in dev mode. It will be merged with the webpack dev config preset. With that, user can add/override the configuration. It requires the default webpack config format. |
+| preset | Default: `talend`. The preset name. |
+| webpack.config.developement | User custom webpack configuration in dev mode. It will be merged with the webpack dev config preset. With that, you can add/override some configuration. It requires the default webpack config format. |
 | webpack.config.production | Same as previous one, but for production mode. |
 
 ## Next

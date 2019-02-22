@@ -2,7 +2,7 @@
 
 ## Description
 
-This project, inspired by react-scripts and kcd-scripts, aims to abstract all tools and configuration from your project.
+This project, inspired by `react-scripts` and `kcd-scripts`, aims to abstract all tools and configuration from your project.
 For now there are 3 goals :
 * build, dev-serve, analyze: based on webpack
 * lint: based on eslint

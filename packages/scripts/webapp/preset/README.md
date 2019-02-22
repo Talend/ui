@@ -6,7 +6,7 @@ This preset allows some customisation through specific entry points. The configu
 
 ## Convention
 
-You folder hierarchy should follow
+Your folder hierarchy should follow
 
 ```
 <root>
@@ -66,8 +66,8 @@ You folder hierarchy should follow
 |---|---|
 | cmf | `cmf-webpack-plugin` flag. |
 | html | `html-webpack-plugin` template and options customisation. |
-| sass | `sass-loader` custom data. |
-| css | `css-loader` custom data. |
+| sass | `sass-loader` customisation. |
+| css | `css-loader` customisation. |
 | webpack | `webpack` and `devServer` customisation. |
 
 ## HTML
@@ -82,7 +82,7 @@ You folder hierarchy should follow
 }
 ```
 
-All those options are passed as `html-webpack-plugin` options. It goes in pair with your index.html template.
+All those options are passed as `html-webpack-plugin` options. It goes in pair with your `index.html` template.
 By default, your html template is located in `src/app/index.html`, which can be overridden with the preset html configuration.
 
 ```json
@@ -158,7 +158,7 @@ By default, css modules are activated. To deactivate them,
 }
 ```
 
-## Webpack dev server
+## Webpack
 
 By default, a devServer proxy is in place, mapping all `/api` urls to `http://localhost`. You can change it to adapt to your backend api url.
 
@@ -195,18 +195,17 @@ Talend preset integrates `cmf-webpack-plugin`. By default it is deactived, to en
 
 It has an incompatibility with `copy-webpack-plugin`. To use it correctly
 
-1. Create your `settings.json`, be careful not to create it in one of the folders copied by `copy-webpack-plugin`. Otherwise the merge will be overridden.
+1. Create your `settings.json`, be careful not to create it in one of the folders copied by `copy-webpack-plugin`. Otherwise you'll end up in an infinite loop.
 2. Create a `cmf.json` at your app root folder and configure it. *Important* : remove the destination property. `cmf-webpack-plugin` will output the result in a `settings.json` in the webpack output folder.
 3. In your cmf app index file, you can fetch the settings from `/settings.json`.
 
 ## Babelrc
 
-You can use your own babelrc if you want but please extends our babelrc in that case.
+You can use your own babelrc but it is not recommanded. To do so, you will need to extend the preset babelrc.
 
 ```json
 {
   "extends": "node_modules/@talend/scripts/webapp/preset/config/babelrc.json",
-  ...
 }
 ```
 

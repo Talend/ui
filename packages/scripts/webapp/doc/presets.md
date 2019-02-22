@@ -57,7 +57,7 @@ yarn add --dev talend-scripts-preset-${presetName}
 
 ## Next
 
-We know that your project will have some custom need, and it would be painful to write a whole preset for that (duplication, a new module, etc).
+We know that your project will have some custom needs, and it would be painful to write a whole preset for that (duplication, a new module, etc).
 It's possible to extend a preset with additional configuration without writing a preset.
 
 Got to next step: [Preset customisation](./customisation.md).
