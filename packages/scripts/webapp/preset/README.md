@@ -6,6 +6,28 @@ This preset allows some customisation through specific entry points. The configu
 
 ## Convention
 
+You folder hierarchy should follow
+
+```
+<root>
+    |_ src
+        |_ app
+            |_ index.js
+            |_ index.html
+        |_ assets
+        |_ settings
+    |_ cmf.json
+    |_ package.json
+    |_ talend-scripts.json
+```
+
+| Folder/File | Description |
+|---|---|
+| src/app | Your application code |
+| src/app/index.js | Your entry point |
+| src/app/index.html | Your html template |
+| assets | The assets such as images. This folder content is copied via `copy-webpack-plugin`. |
+| settings | Your settings. This can be changed, depending or your `cmf.json` configuration, but [DO NOT put the settings in assets](#cmf). |
 
 
 ## Configuration overview
@@ -151,6 +173,15 @@ By default, a devServer proxy is in place, mapping all `/api` urls to `http://lo
 
 You can add the debug option to true so the webpack configuration will be printed to the output.
 
+```json
+{
+  "preset": "talend",
+  "webpack": {
+    "debug": true
+  }
+}
+```
+
 ## CMF
 
 Talend preset integrates `cmf-webpack-plugin`. By default it is deactived, to enable it:
@@ -181,6 +212,21 @@ You can use your own babelrc if you want but please extends our babelrc in that 
 
 If you don't do so the app will fail in Error describe the above need.
 Also please be sure to have read that file.
+
+## Eslint
+
+To use the eslint configuration in your IDE
+
+1. Create an `.eslintrc` at your project root folder
+2. Make it extend the one from talend preset
+
+```json
+{
+  "extends": "@talend/scritps/preset/config/.eslintrc"
+}
+```
+
+3. Configure your IDE plugin to enable eslint with your root eslintrc configuration.
 
 ## Next
 

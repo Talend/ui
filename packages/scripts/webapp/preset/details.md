@@ -2,11 +2,9 @@
 
 ## Webpack
 
-### Common
-
-### Development
-
-### Production
+* [Common configuration](./config/webpack.config.js)
+* [Development configuration](./config/webpack.config.dev.js)
+* [Production configuration](./config/webpack.config.prod.js)
 
 ## Jest
 
