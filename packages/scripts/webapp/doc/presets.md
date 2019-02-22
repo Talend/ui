@@ -2,7 +2,7 @@
 
 @Talend/scripts allows to define the webpack/linter/test configuration. Those are called presets.
 
-By default it used [Talend preset](./talend-preset.md).
+By default it used [Talend preset](../preset/README.md).
 
 ### How to create a preset ?
 
