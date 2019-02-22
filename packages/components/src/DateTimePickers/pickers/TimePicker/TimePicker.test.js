@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { FIELD_MINUTES, FIELD_HOURS } from '../../InputDateTimePicker/constants';
+import { FIELD_MINUTES, FIELD_HOURS } from '../../DateTime/constants';
 
 // ensure you're resetting modules before each test
 beforeEach(() => {
@@ -9,7 +9,7 @@ beforeEach(() => {
 
 // Takes the context data we want to test, or uses defaults
 const getTimePickerWithContext = (
-	context = {
+	errorContext = {
 		hasError: () => false,
 		onInputFocus: jest.fn(),
 		hoursErrorId: 'error-hours',
@@ -19,9 +19,12 @@ const getTimePickerWithContext = (
 ) => {
 	// Will then mock the LocalizeContext module being used in our LanguageSelector component
 	/* eslint-disable */
-	jest.doMock('../../InputDateTimePicker/InputDateTimePickerContext', () => ({
-		ErrorContext: {
-			Consumer: props => props.children(context),
+	jest.doMock('../../DateTime/Context', () => ({
+		DateTimeContext: {
+			Consumer: props =>
+				props.children({
+					errorManagement: errorContext,
+				}),
 		},
 	}));
 

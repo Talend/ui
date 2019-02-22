@@ -22,6 +22,9 @@ This preset allows some customisation through specific entry points. The configu
     },
     "theme": "tdp"
   },
+  "css": {
+    "modules": false
+  },
   "webpack": {
     "debug": true,
     "config": {
@@ -117,6 +120,17 @@ In case you want to load one of T7+ @talend/bootstrap-theme variation, you can p
 }
 ```
 
+By default, css modules are activated. To deactivate them,
+
+```json
+{
+  "preset": "talend",
+  "css": {
+    "modules": false
+  }
+}
+```
+
 ## Webpack
 
 By default, a devServer proxy is in place, mapping all `/api` urls to `http://localhost`. You can change it to adapt to your backend api url.
@@ -134,12 +148,12 @@ You can add the debug option to true so the webpack configuration will be printe
 
 ## CMF
 
-Talend preset integrates `cmf-webpack-plugin`. By default it is active, it is possible to disable the plugin with a flag
+Talend preset integrates `cmf-webpack-plugin`. By default it is deactived, to enable it:
 
 ```json
 {
   "preset": "talend",
-  "cmf": false
+  "cmf": true
 }
 ```
 

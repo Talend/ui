@@ -211,7 +211,7 @@ export default class MultiSelectTag extends React.Component {
 	}
 
 	render() {
-		const { id, isValid, errorMessage, schema } = this.props;
+		const { id, isValid, errorMessage, schema, valueIsUpdating } = this.props;
 		const names = this.props.resolveName(this.props.value);
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
@@ -226,6 +226,7 @@ export default class MultiSelectTag extends React.Component {
 				isValid={isValid}
 				label={schema.title}
 				required={schema.required}
+				valueIsUpdating={valueIsUpdating}
 			>
 				<div className={`${theme.wrapper} form-control`}>
 					{this.props.value.map((val, index) => {
@@ -240,7 +241,7 @@ export default class MultiSelectTag extends React.Component {
 					<Typeahead
 						id={id}
 						autoFocus={schema.autoFocus || false}
-						disabled={schema.disabled || false}
+						disabled={schema.disabled || valueIsUpdating}
 						focusedItemIndex={this.state.focusedItemIndex}
 						isLoading={this.state.isLoading}
 						items={this.state.suggestions}
@@ -299,6 +300,7 @@ if (process.env.NODE_ENV !== 'production') {
 			),
 		}),
 		value: PropTypes.arrayOf(PropTypes.string),
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 

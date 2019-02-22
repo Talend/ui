@@ -248,13 +248,13 @@ describe('#encodePayload', () => {
 		const test = { abc: 'def' };
 
 		// eslint-disable-next-line quotes
-		expect(encodePayload(headers, test)).toEqual("{\"abc\":\"def\"}");
+		expect(encodePayload(headers, test)).toEqual('{"abc":"def"}');
 	});
 	it('should return the payload as it is if it is a string', () => {
 		const test = 'FooBar';
 
 		// eslint-disable-next-line quotes
-		expect(encodePayload({}, test)).toEqual("FooBar");
+		expect(encodePayload({}, test)).toEqual('FooBar');
 	});
 
 	it('should not json stringify the payload if content-type is not application/json', () => {
@@ -313,6 +313,199 @@ describe('#httpFetch', () => {
 				data: { ok: true },
 			}).value,
 		).toEqual(call(httpFetch, url, config, HTTP_METHODS.GET, undefined));
+		expect(gen.next().done).toBe(true);
+	});
+	it('should wrap the request as a POST when options are given and, if error send it, if option is provided and silent is false', () => {
+		const url = '/foo';
+		const headers = { 'Content-Type': 'application/json' };
+		const message = 'Error occured';
+		const status = HTTP_STATUS.FORBIDDEN;
+		const payload = {
+			bar: 42,
+		};
+		const config = {
+			headers,
+		};
+		const options = {
+			silent: false,
+		};
+		const error = new HTTPError({
+			data: {
+				message,
+			},
+			response: {
+				status,
+			},
+		});
+		const gen = wrapFetch(url, config, HTTP_METHODS.POST, payload, options);
+		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.POST, payload));
+		expect(gen.next(error).value).toEqual(put({
+			config,
+			options,
+			error: {
+				message,
+				stack: {
+					status,
+				},
+			},
+			method: HTTP_METHODS.POST,
+			payload,
+			url,
+			type: ACTION_TYPE_HTTP_ERRORS,
+		}));
+		expect(gen.next().done).toBe(true);
+	});
+	it('should wrap the request as a POST when options are given and if error senit if no option are provided', () => {
+		const url = '/foo';
+		const headers = { 'Content-Type': 'application/json' };
+		const message = 'Error occured';
+		const status = HTTP_STATUS.FORBIDDEN;
+		const payload = {
+			bar: 42,
+		};
+		const config = {
+			headers,
+		};
+		const error = new HTTPError({
+			data: {
+				message,
+			},
+			response: {
+				status,
+			},
+		});
+		const gen = wrapFetch(url, config, HTTP_METHODS.POST, payload);
+
+		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.POST, payload));
+		expect(gen.next(error).value).toEqual(
+			put({
+				config: {
+					headers,
+				},
+				options: undefined,
+				error: {
+					message,
+					stack: {
+						status,
+					},
+				},
+				method: HTTP_METHODS.POST,
+				payload,
+				url,
+				type: ACTION_TYPE_HTTP_ERRORS,
+			}),
+		);
+		expect(gen.next().done).toBe(true);
+	});
+	it('should wrap the request as a POST when options are given and, if error send it, if option is provided and silent is undefined', () => {
+		const url = '/foo';
+		const headers = { 'Content-Type': 'application/json' };
+		const message = 'Error occured';
+		const status = HTTP_STATUS.FORBIDDEN;
+		const payload = {
+			bar: 42,
+		};
+		const config = {
+			headers,
+		};
+		const options = {};
+		const error = new HTTPError({
+			data: {
+				message,
+			},
+			response: {
+				status,
+			},
+		});
+		const gen = wrapFetch(url, config, HTTP_METHODS.POST, payload, options);
+
+		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.POST, payload));
+		expect(gen.next(error).value).toEqual(
+			put({
+				config: {
+					headers,
+				},
+				options,
+				error: {
+					message,
+					stack: {
+						status,
+					},
+				},
+				method: HTTP_METHODS.POST,
+				payload,
+				url,
+				type: ACTION_TYPE_HTTP_ERRORS,
+			}),
+		);
+		expect(gen.next().done).toBe(true);
+	});
+	it('should wrap the request as a GET when options are given and do not send error if silent is true', () => {
+		const url = '/foo';
+		const config = {
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		};
+		const options = {
+			silent: true,
+		};
+
+		const gen = wrapFetch(url, config, HTTP_METHODS.GET, undefined, options);
+
+		expect(
+			gen.next({
+				data: { ok: true },
+			}).value,
+		).toEqual(call(httpFetch, url, config, HTTP_METHODS.GET, undefined));
+		expect(gen.next().done).toBe(true);
+	});
+	it('should wrap the request as a POST when options are given and, if error send it, if option is provided and silent is an object', () => {
+		const url = '/foo';
+		const headers = { 'Content-Type': 'application/json' };
+		const message = 'Error occured';
+		const status = HTTP_STATUS.FORBIDDEN;
+		const payload = {
+			bar: 42,
+		};
+		const config = {
+			headers,
+		};
+		const options = {
+			silent: {
+				notify: false,
+				redirect: true,
+			},
+		};
+		const error = new HTTPError({
+			data: {
+				message,
+			},
+			response: {
+				status,
+			},
+		});
+		const gen = wrapFetch(url, config, HTTP_METHODS.POST, payload, options);
+
+		expect(gen.next().value).toEqual(call(httpFetch, url, config, HTTP_METHODS.POST, payload));
+		expect(gen.next(error).value).toEqual(
+			put({
+				config: {
+					headers,
+				},
+				options,
+				error: {
+					message,
+					stack: {
+						status,
+					},
+				},
+				method: HTTP_METHODS.POST,
+				payload,
+				url,
+				type: ACTION_TYPE_HTTP_ERRORS,
+			}),
+		);
 		expect(gen.next().done).toBe(true);
 	});
 	it('should wrap the request with action', () => {

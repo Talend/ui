@@ -209,16 +209,18 @@ describe('UIForm container', () => {
 		});
 
 		it('should call errors updater if given', done => {
+			// given
 			const updater = jest.fn(() => ({ test: 42 }));
 			const onTrigger = jest.fn(() => Promise.resolve({ errors: updater }));
 			const wrapper = shallow(<UIForm data={data} {...props} onTrigger={onTrigger} />);
 			const instance = wrapper.instance();
 
-			const triggerPromise = instance.onTrigger();
-			instance.state.liveState.errors = {
-				test: 666,
-			};
+			instance.state.liveState.errors = { test: 666 };
 
+			// when
+			const triggerPromise = instance.onTrigger();
+
+			// then
 			triggerPromise.then(() => {
 				expect(updater).toHaveBeenCalledWith({ test: 666 });
 				expect(instance.state.liveState.errors).toEqual({ test: 42 });
@@ -226,33 +228,52 @@ describe('UIForm container', () => {
 			});
 		});
 
-		it('should update state properties', done => {
+		it('should not update state properties', done => {
+			// given
 			const properties = { firstname: 'my firstname is invalid' };
 			const onTrigger = jest.fn(() => Promise.resolve({ properties }));
 			const wrapper = shallow(<UIForm data={data} {...props} onTrigger={onTrigger} />);
 			const instance = wrapper.instance();
 
+			// when
 			const triggerPromise = instance.onTrigger();
 
+			// then
 			triggerPromise.then(() => {
-				expect(instance.state.liveState.properties).toBe(properties);
+				expect(instance.state.liveState.properties).not.toBe(properties);
 				done();
 			});
 		});
 
 		it('should call properties updater if given', done => {
+			// given
+			const onChange = jest.fn();
 			const updater = jest.fn(() => ({ test: 42 }));
 			const onTrigger = jest.fn(() => Promise.resolve({ properties: updater }));
-			const wrapper = shallow(<UIForm data={data} {...props} onTrigger={onTrigger} />);
+			const wrapper = shallow(
+				<UIForm data={data} {...props} onTrigger={onTrigger} onChange={onChange} />,
+			);
 			const instance = wrapper.instance();
 
-			const triggerPromise = instance.onTrigger();
-			instance.state.liveState.properties = {
-				test: 666,
-			};
+			instance.state.liveState.properties = { test: 666 };
+
+			const event = { target: {} };
+			const schema = { key: ['test'] };
+			const value = 666;
+			const oldProperties = { test: 777 };
+
+			// when
+			const triggerPromise = instance.onTrigger(event, { schema, value, oldProperties });
 
 			triggerPromise.then(() => {
 				expect(updater).toHaveBeenCalledWith({ test: 666 });
+				expect(onChange).toBeCalledWith(event, {
+					schema,
+					value,
+					oldProperties,
+					properties: { test: 42 },
+					formData: { test: 42 },
+				});
 				expect(instance.state.liveState.properties).toEqual({ test: 42 });
 				done();
 			});

@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = ({ getUserConfig }) => {
 	const plugins = [];
-	if (getUserConfig('cmf') !== false) {
+	if (getUserConfig('cmf')) {
 		// eslint-disable-next-line global-require,import/newline-after-import
 		const ReactCMFWebpackPlugin = require('@talend/react-cmf-webpack-plugin');
 		plugins.push(new ReactCMFWebpackPlugin({ watch: true }));
@@ -10,15 +10,6 @@ module.exports = ({ getUserConfig }) => {
 
 	return {
 		mode: 'development',
-		module: {
-			rules: [{
-				test:	/.*\.js$/,
-				enforce: 'pre',
-				loader: 'eslint-loader',
-				exclude: /node_modules/,
-				options: { configFile: path.resolve(__dirname, '.eslintrc') },
-			}],
-		},
 		watchOptions: {
 			aggregateTimeout: 300,
 			poll: 1000,
