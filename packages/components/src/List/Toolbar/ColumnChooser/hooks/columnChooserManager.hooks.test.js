@@ -1,4 +1,10 @@
-import { changeColumnAttribute, organiseEditedColumns } from './columnChooserManager.hook';
+import React from 'react';
+import { shallow, mount } from 'enzyme';
+import {
+	useColumnChooserManager,
+	changeColumnAttribute,
+	organiseEditedColumns,
+} from './columnChooserManager.hook';
 
 describe('changeColumnAttribute', () => {
 	const key = 'myAttr';
@@ -40,5 +46,45 @@ describe('organiseEditedColumns', () => {
 			{ label: 'second', order: 2 },
 			{ label: 'third', order: 3 },
 		]);
+	});
+});
+
+describe('useColumnChooserManager', () => {
+	const columns = [
+		{
+			hidden: false,
+			label: 'label1',
+			locked: false,
+			order: 1,
+		},
+		{
+			hidden: false,
+			label: 'label2',
+			locked: false,
+			order: 2,
+		},
+		{
+			hidden: false,
+			label: 'label3',
+			locked: false,
+			order: 3,
+		},
+	];
+	const customSubmit = jest.fn();
+	it('should call the customSubmit', () => {
+		// given
+		const event = {};
+		const MyTestComponent = () => {
+			const { onSubmitColumnChooser } = useColumnChooserManager(columns, customSubmit);
+			function onSubmit() {
+				onSubmitColumnChooser(event);
+			}
+			return <button onClick={onSubmit}>TestComponent</button>;
+		};
+		// when
+		const wrapper = mount(<MyTestComponent />);
+		wrapper.find('button').simulate('click');
+		// then
+		expect(customSubmit).toHaveBeenCalledWith(event, { selectAll: false, editedColumns: columns });
 	});
 });
