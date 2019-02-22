@@ -1,6 +1,6 @@
 # Presets
 
-@Talend/scripts allows to define the webpack/linter/test configuration. Those are called presets.
+`@talend/scripts` allows to define the webpack/linter/test configuration. Those are called presets.
 
 By default it used [Talend preset](../preset/README.md).
 
@@ -17,7 +17,7 @@ module.exports = {
 ```
 | Preset function | Description |
 |---|---|
-| getEslintConfigurationPath | Returns the path to .eslintrc file. It will be passed to eslint --config option. This path should be absolute or relative from cwd. |
+| getEslintConfigurationPath | Returns the path to `.eslintrc` file. It will be passed to eslint --config option. This path should be absolute or relative from cwd. |
 | getJestConfigurationPath | Returns the path to jest config file (js/json). It will be passed to jest --config option. This path should be absolute or relative from cwd. |
 | getWebpackConfiguration | Returns the webpack configuration object. |
 
@@ -37,7 +37,7 @@ const {
 
 ### How to change the preset ?
 
-By default it used [Talend preset](./talend-preset.md). But you can change that with your own preset.
+By default it used [Talend preset](../preset/README.md). But you can change that with your own preset.
 
 1. Install the preset
 
@@ -45,7 +45,7 @@ By default it used [Talend preset](./talend-preset.md). But you can change that 
 yarn add --dev talend-scripts-preset-${presetName}
 ```
 
-2. Create a `talend-scripts.json` [configuration file](./customisation) at your project root.
+2. Create a `talend-scripts.json` [configuration file](./customisation.md) at your project root.
 
 ```
 {
@@ -53,7 +53,7 @@ yarn add --dev talend-scripts-preset-${presetName}
 }
 ```
 
-3. Complete talend-scripts.json`, following your preset documentation.
+3. Complete `talend-scripts.json`, following your preset documentation.
 
 ## Next
 
