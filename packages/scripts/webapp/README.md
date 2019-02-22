@@ -12,7 +12,7 @@ For now there are 3 goals :
 
 *Basic usage*
 
-1. [Getting started](./doc/gettting-started.md)
+1. [Getting started](./doc/getting-started.md)
 2. [Presets](./doc/presets.md)
 
 *Advanced*
