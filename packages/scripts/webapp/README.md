@@ -10,11 +10,13 @@ For now there are 3 goals :
 
 ## Table of content
 
-Basic usage
+*Basic usage*
+
 1. [Getting started](./doc/gettting-started.md)
 2. [Presets](./doc/presets.md)
 
-Advanced
+*Advanced*
+
 3. [Preset customisation](./doc/customisation.md)
 4. [Talend preset](./preset/README.md)
 
