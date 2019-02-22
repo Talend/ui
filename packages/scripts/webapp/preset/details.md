@@ -10,7 +10,7 @@
 
 | Configuration | Description |
 |---|---|
-| moduleNameMapper | * `jpg|jpeg|png|gif|eot|otf|webp|svg|woff|woff2` are mocked with an empty object<br/>* `css|scss` are mocked with an object that adds a `theme` prefix to the requested classname. Example: `drawer` will result to `theme-drawer`. This is used to spot the classnames that come from css modules. |
+| moduleNameMapper | * `jpg/jpeg/png/gif/eot/otf/webp/svg/woff/woff2` are mocked with an empty object<br/>* `css/scss` are mocked with an object that adds a `theme` prefix to the requested classname. Example: `drawer` will result to `theme-drawer`. This is used to spot the classnames that come from css modules. |
 | rootDir | You app root folder |
 | setupFilesAfterEnv | * It configures enzyme with react 16 adapter<br/>* It mocks fetch with `(url, { response }) => promise that resolved response` |
 | testEnvironment | It uses [`jest-environment-jsdom-global`](https://github.com/simon360/jest-environment-jsdom-global/blob/master/README.md) |
