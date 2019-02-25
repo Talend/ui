@@ -149,8 +149,12 @@ class ContextualManager extends React.Component {
 	onInputChange(event) {
 		const textInput = event.target.value;
 		const nextState = extractPartsFromTextInput(textInput, this.getDateOptions());
-		const errorMessage = getFirstTranslatedErrorMessage(nextState.errors, this.props.t);
-		this.setState({ previousErrors: this.state.errors, ...nextState, errorMessage }, () => {
+		this.setState({
+			previousErrors: this.state.errors,
+			...nextState,
+			errorMessage: getFirstTranslatedErrorMessage(nextState.errors, this.props.t),
+		},
+		() => {
 			if (!this.props.formMode) {
 				this.onChange(event, 'INPUT');
 			}
