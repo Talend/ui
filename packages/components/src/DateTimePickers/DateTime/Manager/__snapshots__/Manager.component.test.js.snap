@@ -1,47 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DateTime.Manager should render its children 1`] = `
-<Context.Provider
-  value={
+<I18n
+  bindI18n="languageChanged loaded"
+  bindStore="added removed"
+  i18n={
     Object {
-      "datetime": Object {
-        "date": 2017-04-03T22:00:00.000Z,
-        "textInput": "2017-04-04 15:27",
-        "time": Object {
-          "hours": "15",
-          "minutes": "27",
-          "seconds": "00",
+      "changeLanguage": [Function],
+      "getFixedT": [Function],
+      "hasResourceBundle": [Function],
+      "init": [Function],
+      "isInitialized": true,
+      "isMock": true,
+      "language": "en",
+      "languages": Array [
+        "en",
+      ],
+      "loadNamespaces": [Function],
+      "off": [Function],
+      "on": [Function],
+      "options": Object {},
+      "services": Object {
+        "resourceStore": Object {
+          "data": Object {},
         },
       },
-      "errorManagement": Object {
-        "errors": Array [],
-        "focusedInput": undefined,
-        "formMode": false,
-        "hasError": [Function],
-        "hoursErrorId": "DEFAULT_ID-hours-error",
-        "inputErrorId": "DEFAULT_ID-input-error",
-        "minutesErrorId": "DEFAULT_ID-minutes-error",
-        "onInputFocus": [Function],
-        "secondsErrorId": "DEFAULT_ID-seconds-error",
+      "store": Object {
+        "data": Object {},
+        "off": [Function],
+        "on": [Function],
       },
-      "formManagement": Object {
-        "onReset": [Function],
-        "onSubmit": [Function],
-      },
-      "inputManagement": Object {
-        "inputRef": [Function],
-        "onChange": [Function],
-        "placeholder": "YYYY-MM-DD HH:mm",
-      },
-      "pickerManagement": Object {
-        "onSubmit": [Function],
-        "useSeconds": false,
-        "useTime": true,
-        "useUTC": false,
-      },
+      "t": [Function],
     }
   }
+  id="DEFAULT_ID"
+  nsMode="default"
+  omitBoundRerender={true}
+  selectedDateTime={2017-04-04T13:27:00.000Z}
+  translateFuncName="t"
+  usePureComponent={false}
+  useTime={true}
+  wait={false}
+  withRef={false}
 >
-  <DateTimeConsumer />
-</Context.Provider>
+  [Function]
+</I18n>
 `;
