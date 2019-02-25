@@ -90,7 +90,6 @@ describe('useColumnChooserManager', () => {
 	it('should have changed columns visibility to true', () => {
 		// given
 		let state;
-		const event = {};
 		const MyTestComponent = () => {
 			const { onSelectAll, stateColumnChooser } = useColumnChooserManager(columns, customSubmit);
 			state = stateColumnChooser;
