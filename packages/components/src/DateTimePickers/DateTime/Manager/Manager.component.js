@@ -37,9 +37,11 @@ function haveErrorsChanged(oldErrors, newErrors) {
 }
 
 export function getFirstTranslatedErrorMessage(errors, t) {
-	let key = errors;
+	let key = '';
 	if (Array.isArray(errors)) {
-		key = errors[0] ? errors[0] : key;
+		key = errors[0] ? errors[0].message : key;
+	} else {
+		key = errors.message;
 	}
 
 	const messages = {
@@ -147,7 +149,7 @@ class ContextualManager extends React.Component {
 	onInputChange(event) {
 		const textInput = event.target.value;
 		const nextState = extractPartsFromTextInput(textInput, this.getDateOptions());
-		const errorMessage = getFirstTranslatedErrorMessage(nextState.errors);
+		const errorMessage = getFirstTranslatedErrorMessage(nextState.errors, this.props.t);
 		this.setState({ previousErrors: this.state.errors, ...nextState, errorMessage }, () => {
 			if (!this.props.formMode) {
 				this.onChange(event, 'INPUT');
@@ -193,14 +195,17 @@ class ContextualManager extends React.Component {
 			);
 			// add the new error on updated time part
 			if (newError) {
-				nextErrors.push({
-					...newError,
-					message: getFirstTranslatedErrorMessage(newError, this.props.t),
-				});
+				nextErrors.push(newError);
 			}
 		}
 
-		this.setState({ previousErrors: this.state.errors, ...nextState, errors: nextErrors }, () => {
+		this.setState({
+			previousErrors: this.state.errors,
+			...nextState,
+			errors: nextErrors,
+			errorMessage: getFirstTranslatedErrorMessage(nextErrors, this.props.t),
+		},
+		() => {
 			if (!this.props.formMode) {
 				this.onChange(event, 'PICKER');
 			}
@@ -216,10 +221,6 @@ class ContextualManager extends React.Component {
 		let errors = check(this.state.date, this.state.time, this.getDateOptions());
 		errors = this.state.errors
 			.filter(({ code }) => !errors.find(error => error.code === code))
-			.map(error => ({
-				code: error.code,
-				message: getFirstTranslatedErrorMessage(error.message, this.props.t),
-			}))
 			.concat(errors);
 
 		this.setState({
