@@ -212,7 +212,7 @@ function getTextualContent(content) {
 }
 
 function CollapsiblePanel(props) {
-	const { content, id, onToggle, status, expanded, theme, onEntered, onExited, onAppear } = props;
+	const { content, id, onToggle, status, expanded, theme, onEntered, onExited } = props;
 	const className = classNames('panel panel-default', css['tc-collapsible-panel'], {
 		[css['default-panel']]: !theme,
 		[css[theme]]: !!theme,
@@ -232,7 +232,7 @@ function CollapsiblePanel(props) {
 					<CollapsiblePanelHeader {...props} />
 				</Panel.Title>
 			</Panel.Heading>
-			<Panel.Collapse onEntered={onEntered} onExited={onExited} appear={onAppear}>
+			<Panel.Collapse onEntered={onEntered} onExited={onExited} appear>
 				<Panel.Body>
 					{children}
 					{props.children}

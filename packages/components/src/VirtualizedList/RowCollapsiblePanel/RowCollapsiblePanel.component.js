@@ -44,8 +44,8 @@ class RowCollapsiblePanel extends React.Component {
 			<CellMeasurer
 				cache={cache}
 				columnIndex={0}
-				key={this.props.index}
-				parent={this.props.parent}
+				key={index}
+				parent={parent}
 				rowIndex={index}
 			>
 				{({ measure }) => (
@@ -67,7 +67,6 @@ class RowCollapsiblePanel extends React.Component {
 						<CollapsiblePanel
 							onEntered={() => onMeasure(measure)}
 							onExited={() => onMeasure(measure)}
-							onAppear={() => onMeasure(measure)}
 							onToggle={this.onToggle}
 							{...rowData}
 						/>
