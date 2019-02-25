@@ -3,16 +3,33 @@
   "parser": "babel-eslint",
   "rules": {
     "arrow-parens": [2, "as-needed"],
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js"]}],
+    "comma-dangle": ["error", "only-multiline"],
+    "function-paren-newline": 0,
+    "implicit-arrow-linebreak": 0,
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js"], "packageDir": ["./", "./node_modules/@talend/scripts/"]}],
     "indent": ["error", "tab", { "SwitchCase": 1 }],
+    "jsx-a11y/label-has-associated-control": 2,
+    "jsx-a11y/label-has-for": 0, // deprecated and buggy, replaced by jsx-a11y/label-has-associated-control
+    "no-else-return": [2, { "allowElseIf": true }],
     "no-mixed-operators": "off",
+    "no-restricted-globals": 0,
+    "no-restricted-properties": 0,
     "no-tabs": "off",
-    "react/prefer-es6-class": 0,
+    "object-curly-newline": 0,
+    "operator-linebreak": 0,
+    "prefer-destructuring": 0,
+    "react/button-has-type": 0,
+    "react/destructuring-assignment": 0,
+    "react/forbid-prop-types": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
     "react/jsx-indent": ["error", "tab"],
     "react/jsx-indent-props": ["error", "tab"],
-    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+    "react/jsx-one-expression-per-line": 0,
+    "react/no-array-index-key": 0,
+    "react/no-this-in-sfc": 0, // because of ref affectation
     "react/no-unused-prop-types": [2, { "skipShapeProps": true }],
-    "react/forbid-prop-types": [0]
+    "react/prefer-es6-class": 0,
+    "react/require-default-props": 0
   },
   "env": {
     "es6": true,
