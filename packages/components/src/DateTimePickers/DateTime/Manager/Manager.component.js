@@ -45,11 +45,15 @@ export function getFirstTranslatedErrorMessage(errors, t) {
 	}
 
 	const messages = {
-		INVALID_HOUR_EMPTY: t('INVALID_HOUR_EMPTY', { defaultValue: 'The hour can\'t be empty' }),
+		INVALID_HOUR_EMPTY: t('INVALID_HOUR_EMPTY', { defaultValue: "The hour can't be empty" }),
 		INVALID_HOUR_NUMBER: t('INVALID_HOUR_NUMBER', { defaultValue: 'Invalid hour format' }),
-		INVALID_MINUTES_EMPTY: t('INVALID_MINUTES_EMPTY', { defaultValue: 'The minutes can\'t be empty' }),
+		INVALID_MINUTES_EMPTY: t('INVALID_MINUTES_EMPTY', {
+			defaultValue: "The minutes can't be empty",
+		}),
 		INVALID_MINUTES_NUMBER: t('INVALID_MINUTES_NUMBER', { defaultValue: 'Invalid minutes format' }),
-		INVALID_SECONDS_EMPTY: t('INVALID_SECONDS_EMPTY', { defaultValue: 'The seconds can\'t be empty' }),
+		INVALID_SECONDS_EMPTY: t('INVALID_SECONDS_EMPTY', {
+			defaultValue: "The seconds can't be empty",
+		}),
 		INVALID_SECONDS_NUMBER: t('INVALID_SECONDS_NUMBER', { defaultValue: 'Invalid seconds format' }),
 		DATETIME_INVALID_FORMAT: t('DATETIME_INVALID_FORMAT', { defaultValue: 'Invalid date format' }),
 	};
@@ -149,16 +153,18 @@ class ContextualManager extends React.Component {
 	onInputChange(event) {
 		const textInput = event.target.value;
 		const nextState = extractPartsFromTextInput(textInput, this.getDateOptions());
-		this.setState({
-			previousErrors: this.state.errors,
-			...nextState,
-			errorMessage: getFirstTranslatedErrorMessage(nextState.errors, this.props.t),
-		},
-		() => {
-			if (!this.props.formMode) {
-				this.onChange(event, 'INPUT');
-			}
-		});
+		this.setState(
+			{
+				previousErrors: this.state.errors,
+				...nextState,
+				errorMessage: getFirstTranslatedErrorMessage(nextState.errors, this.props.t),
+			},
+			() => {
+				if (!this.props.formMode) {
+					this.onChange(event, 'INPUT');
+				}
+			},
+		);
 	}
 
 	onPickerChange(event, { date, time, field }) {
@@ -203,17 +209,19 @@ class ContextualManager extends React.Component {
 			}
 		}
 
-		this.setState({
-			previousErrors: this.state.errors,
-			...nextState,
-			errors: nextErrors,
-			errorMessage: getFirstTranslatedErrorMessage(nextErrors, this.props.t),
-		},
-		() => {
-			if (!this.props.formMode) {
-				this.onChange(event, 'PICKER');
-			}
-		});
+		this.setState(
+			{
+				previousErrors: this.state.errors,
+				...nextState,
+				errors: nextErrors,
+				errorMessage: getFirstTranslatedErrorMessage(nextErrors, this.props.t),
+			},
+			() => {
+				if (!this.props.formMode) {
+					this.onChange(event, 'PICKER');
+				}
+			},
+		);
 	}
 
 	onSubmit(event, origin) {
@@ -227,15 +235,17 @@ class ContextualManager extends React.Component {
 			.filter(({ code }) => !errors.find(error => error.code === code))
 			.concat(errors);
 
-		this.setState({
-			errors,
-			errorMessage: getFirstTranslatedErrorMessage(errors, this.props.t),
-		},
-		() => {
-			if (!errors.length) {
-				this.onChange(event, origin);
-			}
-		});
+		this.setState(
+			{
+				errors,
+				errorMessage: getFirstTranslatedErrorMessage(errors, this.props.t),
+			},
+			() => {
+				if (!errors.length) {
+					this.onChange(event, origin);
+				}
+			},
+		);
 	}
 
 	onInputFocus(event, focusedId) {
