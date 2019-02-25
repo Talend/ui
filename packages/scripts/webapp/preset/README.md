@@ -199,6 +199,18 @@ It has an incompatibility with `copy-webpack-plugin`. To use it correctly
 2. Create a `cmf.json` at your app root folder and configure it. *Important* : remove the destination property. `cmf-webpack-plugin` will output the result in a `settings.json` in the webpack output folder.
 3. In your cmf app index file, you can fetch the settings from `/settings.json`.
 
+## Versions
+
+Some variables are injected as global.
+
+| Variable | Description |
+|---|---|
+| BUILD_TIMESTAMP | The built timestamp. |
+| TALEND_APP_INFO | Versioning of current app and @talend libs. To get the libs git SHA1, you need to provide `sha1.json` containing the sha of the packages. |
+| TALEND_APP_INFO.version | Current app version (from `package.json`). |
+| TALEND_APP_INFO.revision | Current app version last commit SHA1 (determined with `git rev-parse HEAD`). |
+| TALEND_APP_INFO.talendLibraries | @talend libs infos (name, SHA1 if provided in `sha1.json`, version from `package.json`). |
+
 ## Babelrc
 
 You can use your own babelrc but it is not recommanded. To do so, you will need to extend the preset babelrc.
