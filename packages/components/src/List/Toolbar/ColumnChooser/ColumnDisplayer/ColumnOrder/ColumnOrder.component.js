@@ -38,13 +38,13 @@ const ColumnOrder = ({ length, order, locked, value, t, ...rest }) => {
 	}, [value]);
 
 	function onBlur(event) {
-		const formatValue = parseInt(ctrlValue, 10);
-		if (formatValue !== value) {
-			if (isOrderCorrect(formatValue, length)) {
-				rest.onBlur(event, formatValue);
-			}
-		}
-		setEditMode(prevState => !prevState);
+		// const formatValue = parseInt(ctrlValue, 10);
+		// if (formatValue !== value) {
+		// 	if (isOrderCorrect(formatValue, length)) {
+		// 		rest.onBlur(event, formatValue);
+		// 	}
+		// }
+		// setEditMode(prevState => !prevState);
 	}
 
 	function onKeyPress(event) {

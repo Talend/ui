@@ -2,6 +2,7 @@
 
 exports[`ColumnOrder should render in edit mode 1`] = `
 <ColumnOrder
+  forceEditMode={true}
   length={3}
   locked={false}
   onBlur={[MockFunction]}
