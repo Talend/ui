@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import {
 	useColumnChooserManager,
 	changeColumnAttribute,
@@ -54,11 +54,11 @@ describe('useColumnChooserManager', () => {
 		{
 			hidden: false,
 			label: 'label1',
-			locked: false,
+			locked: true,
 			order: 1,
 		},
 		{
-			hidden: false,
+			hidden: true,
 			label: 'label2',
 			locked: false,
 			order: 2,
@@ -86,5 +86,23 @@ describe('useColumnChooserManager', () => {
 		wrapper.find('button').simulate('click');
 		// then
 		expect(customSubmit).toHaveBeenCalledWith(event, { selectAll: false, editedColumns: columns });
+	});
+	it('should have changed columns visibility to true', () => {
+		// given
+		let state;
+		const event = {};
+		const MyTestComponent = () => {
+			const { onSelectAll, stateColumnChooser } = useColumnChooserManager(columns, customSubmit);
+			state = stateColumnChooser;
+			function onClick() {
+				onSelectAll(!stateColumnChooser.selectAll);
+			}
+			return <button onClick={onClick}>TestComponent</button>;
+		};
+		// when
+		const wrapper = mount(<MyTestComponent />);
+		wrapper.find('button').simulate('click');
+		// then
+		expect(state.editedColumns).toEqual();
 	});
 });

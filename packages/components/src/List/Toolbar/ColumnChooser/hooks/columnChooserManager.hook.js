@@ -98,12 +98,6 @@ export function useColumnChooserManager(columns, customSubmit) {
 		};
 	}
 
-	function onDragAndDrop(index) {
-		return function dragAndDrop(targetColumn) {
-			modifyOrderTwoItems(targetColumn.order, index);
-		};
-	}
-
 	function onSelectAll(value) {
 		const editedColumns = state.editedColumns;
 		editedColumns.forEach(updateAttributeVisiblity(value));
@@ -117,7 +111,6 @@ export function useColumnChooserManager(columns, customSubmit) {
 	return {
 		onBlurInputTextOrder,
 		onChangeVisibility,
-		onDragAndDrop,
 		onKeyPressInputTextOrder,
 		onSelectAll,
 		onSubmitColumnChooser,
