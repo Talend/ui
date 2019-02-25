@@ -418,7 +418,6 @@ function CollapsiblePanels(props) {
 					collection={collection}
 					onRowClick={(event, rowItem) => {
 						action('onRowClick');
-
 						collection[rowItem.index] = {
 							...rowItem,
 							expanded: !rowItem.expanded,

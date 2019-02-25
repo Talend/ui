@@ -4,7 +4,7 @@ import get from 'lodash/get';
 import classNames from 'classnames';
 import { CellMeasurer, CellMeasurerCache } from 'react-virtualized';
 
-import PureCollapsiblePanel from './PureCollapsiblePanel';
+import CollapsiblePanel from '../../CollapsiblePanel/CollapsiblePanel.component';
 import { getId, getRowData } from '../utils/gridrow';
 
 import withListGesture from '../../Gesture/withListGesture';
@@ -42,7 +42,7 @@ class RowCollapsiblePanel extends React.Component {
 
 		return (
 			<CellMeasurer
-				cache={options.deferredMeasurementCache}
+				cache={cache}
 				columnIndex={0}
 				key={this.props.index}
 				parent={this.props.parent}
@@ -64,13 +64,12 @@ class RowCollapsiblePanel extends React.Component {
 						aria-label={get(rowData, 'header[0].label')}
 						style={style}
 					>
-						<PureCollapsiblePanel
-							{...{
-								rowData,
-								onEntered: () => onMeasure(measure),
-								onExited: () => onMeasure(measure),
-								onToggle: this.onToggle,
-							}}
+						<CollapsiblePanel
+							onEntered={() => onMeasure(measure)}
+							onExited={() => onMeasure(measure)}
+							onAppear={() => onMeasure(measure)}
+							onToggle={this.onToggle}
+							{...rowData}
 						/>
 					</div>
 				)}
