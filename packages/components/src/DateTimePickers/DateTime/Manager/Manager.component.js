@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isSameSecond from 'date-fns/is_same_second';
 
+import { translate } from 'react-i18next';
 import { DateTimeContext } from '../Context';
 import {
 	check,
@@ -22,7 +23,9 @@ import {
 	FIELD_MINUTES,
 	FIELD_SECONDS,
 	INPUT_ERRORS,
+	I18N_DOMAIN_COMPONENTS,
 } from '../constants';
+import getDefaultT from '../../../translate';
 
 function haveErrorsChanged(oldErrors, newErrors) {
 	if (oldErrors.length !== newErrors.length) {
@@ -31,6 +34,24 @@ function haveErrorsChanged(oldErrors, newErrors) {
 
 	const oldErrorMessages = oldErrors.map(error => error.message);
 	return newErrors.some(error => !oldErrorMessages.includes(error.message));
+}
+
+export function getFirstTranslatedErrorMessage(errors, t) {
+	let key = errors;
+	if (Array.isArray(errors)) {
+		key = errors[0] ? errors[0] : key;
+	}
+
+	const messages = {
+		INVALID_HOUR_EMPTY: t('INVALID_HOUR_EMPTY', { defaultValue: 'The hour can\'t be empty' }),
+		INVALID_HOUR_NUMBER: t('INVALID_HOUR_NUMBER', { defaultValue: 'Invalid hour format' }),
+		INVALID_MINUTES_EMPTY: t('INVALID_MINUTES_EMPTY', { defaultValue: 'The minutes can\'t be empty' }),
+		INVALID_MINUTES_NUMBER: t('INVALID_MINUTES_NUMBER', { defaultValue: 'Invalid minutes format' }),
+		INVALID_SECONDS_EMPTY: t('INVALID_SECONDS_EMPTY', { defaultValue: 'The seconds can\'t be empty' }),
+		INVALID_SECONDS_NUMBER: t('INVALID_SECONDS_NUMBER', { defaultValue: 'Invalid seconds format' }),
+		DATETIME_INVALID_FORMAT: t('DATETIME_INVALID_FORMAT', { defaultValue: 'Invalid date format' }),
+	};
+	return messages[key] || key;
 }
 
 class ContextualManager extends React.Component {
@@ -50,11 +71,13 @@ class ContextualManager extends React.Component {
 		useSeconds: PropTypes.bool,
 		useTime: PropTypes.bool,
 		useUTC: PropTypes.bool,
+		t: PropTypes.func.isRequired,
 	};
 
 	static defaultProps = {
 		dateFormat: 'YYYY-MM-DD',
 		formMode: false,
+		t: getDefaultT(),
 		// default behaviour is to forbid empty values
 		required: true,
 		useSeconds: false,
@@ -103,7 +126,7 @@ class ContextualManager extends React.Component {
 	}
 
 	onChange(event, origin) {
-		const { errorMessage, datetime, textInput, errors, previousErrors } = this.state;
+		const { datetime, textInput, errors, previousErrors } = this.state;
 
 		if (
 			this.props.onChange &&
@@ -111,14 +134,21 @@ class ContextualManager extends React.Component {
 		) {
 			// we need to update the initial state once it has been changed
 			this.initialState = { ...this.state };
-			this.props.onChange(event, { errors, errorMessage, datetime, textInput, origin });
+			this.props.onChange(event, {
+				errors,
+				errorMessage: getFirstTranslatedErrorMessage(errors, this.props.t),
+				datetime,
+				textInput,
+				origin,
+			});
 		}
 	}
 
 	onInputChange(event) {
 		const textInput = event.target.value;
 		const nextState = extractPartsFromTextInput(textInput, this.getDateOptions());
-		this.setState({ previousErrors: this.state.errors, ...nextState }, () => {
+		const errorMessage = getFirstTranslatedErrorMessage(nextState.errors);
+		this.setState({ previousErrors: this.state.errors, ...nextState, errorMessage }, () => {
 			if (!this.props.formMode) {
 				this.onChange(event, 'INPUT');
 			}
@@ -163,7 +193,10 @@ class ContextualManager extends React.Component {
 			);
 			// add the new error on updated time part
 			if (newError) {
-				nextErrors.push(newError);
+				nextErrors.push({
+					...newError,
+					message: getFirstTranslatedErrorMessage(newError, this.props.t),
+				});
 			}
 		}
 
@@ -183,9 +216,17 @@ class ContextualManager extends React.Component {
 		let errors = check(this.state.date, this.state.time, this.getDateOptions());
 		errors = this.state.errors
 			.filter(({ code }) => !errors.find(error => error.code === code))
+			.map(error => ({
+				code: error.code,
+				message: getFirstTranslatedErrorMessage(error.message, this.props.t),
+			}))
 			.concat(errors);
 
-		this.setState({ errors, errorMessage: errors[0] ? errors[0].message : '' }, () => {
+		this.setState({
+			errors,
+			errorMessage: getFirstTranslatedErrorMessage(errors, this.props.t),
+		},
+		() => {
 			if (!errors.length) {
 				this.onChange(event, origin);
 			}
@@ -279,4 +320,5 @@ class ContextualManager extends React.Component {
 		);
 	}
 }
-export default ContextualManager;
+
+export default translate(I18N_DOMAIN_COMPONENTS)(ContextualManager);
