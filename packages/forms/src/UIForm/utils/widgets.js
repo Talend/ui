@@ -47,6 +47,8 @@ const widgets = {
 	fieldset_text: FieldsetTextMode,
 
 	// fields: text mode
+	button_text: () => null,
+	buttons_text: () => null,
 	checkbox_text: TextModeCheckBox,
 	checkboxes_text: ArrayWidget,
 	code_text: CodeTextMode,
