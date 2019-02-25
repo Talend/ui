@@ -35,24 +35,24 @@ export function organiseEditedColumns(collection) {
 	return collection;
 }
 
-export function changeColumnAttribute(key) {
-	return function setAttribut(value, index = -1) {
+export function changeAttribute(key) {
+	return function updateAttribute(value, index = -1) {
 		if (index > -1) {
-			return function setColumnInCollection(collection) {
+			return function setAttributeInCollection(collection) {
 				// eslint-disable-next-line no-param-reassign
 				collection[index][key] = value;
 				return collection;
 			};
 		}
-		return function setColumn(column) {
+		return function setAttributeInColumn(column) {
 			// eslint-disable-next-line no-param-reassign
 			column[key] = value;
 		};
 	};
 }
 
-const updateAttributeVisiblity = changeColumnAttribute('hidden');
-const updateAttributeOrder = changeColumnAttribute('order');
+const updateAttributeVisiblity = changeAttribute('hidden');
+const updateAttributeOrder = changeAttribute('order');
 
 export function useColumnChooserManager(columns, customSubmit) {
 	const [state, setState] = useState({

@@ -6,15 +6,16 @@ import { useColumnChooserManager } from '../hooks';
 jest.mock('../hooks');
 useColumnChooserManager.mockImplementation(() => {
 	return {
-		handlerChangeVisibility: jest.fn(),
-		handlerBlurInputTextOrder: jest.fn(),
-		handlerDragAndDrop: jest.fn(),
-		handlerInputTextOrder: jest.fn(),
-		handlerSelectAll: jest.fn(),
-		submitColumnChooser: jest.fn(),
+		onChangeVisibility: jest.fn(),
+		onBlurInputTextOrder: jest.fn(),
+		onKeyPressInputTextOrder: jest.fn(),
+		onSelectAll: jest.fn(),
+		onSubmitColumnChooser: jest.fn(),
 		stateColumnChooser: { editedColumns: [], selectAll: false },
 	};
 });
+
+const t = jest.fn((_, translationValue) => translationValue.defaultValue);
 
 describe('ColumnChooserContent', () => {
 	it('should render with default column chooser component', () => {
@@ -35,8 +36,8 @@ describe('ColumnChooserContent', () => {
 					hidden: false,
 				},
 			],
-			handlerColumnChooser: jest.fn(),
-			t: jest.fn(),
+			submitColumnChooser: jest.fn(),
+			t,
 		};
 		// when
 		const wrapper = shallow(<ColumnChooserContent {...props} />);
@@ -61,8 +62,8 @@ describe('ColumnChooserContent', () => {
 					hidden: false,
 				},
 			],
-			handlerColumnChooser: jest.fn(),
-			t: jest.fn(),
+			submitColumnChooser: jest.fn(),
+			t,
 			header: <div>my header</div>,
 			body: <div>my body</div>,
 			footer: <div>my footer</div>,

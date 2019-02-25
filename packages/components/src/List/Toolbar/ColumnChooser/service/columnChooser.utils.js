@@ -1,10 +1,10 @@
-export function findMatchingColumnLabel(label) {
+function findMatchingColumnLabel(label) {
 	return function find(column) {
 		return column.label === label;
 	};
 }
 
-export function transformColumns(columnsToMerged) {
+function transformColumns(columnsToMerged) {
 	return function transform(column) {
 		const columnToMerged = columnsToMerged.find(findMatchingColumnLabel(column.label));
 		if (columnToMerged) {
@@ -17,13 +17,9 @@ export function transformColumns(columnsToMerged) {
 	};
 }
 
-export function mergedColumns(columns, columnsToMerged) {
-	return columns.map(transformColumns(columnsToMerged));
-}
-
 export function mergedColumnsChooser(originalColumns, columnChooserColumns) {
 	if (columnChooserColumns.length > 0) {
-		return mergedColumns(originalColumns, columnChooserColumns);
+		return originalColumns.map(transformColumns(columnChooserColumns))
 	}
 	return originalColumns;
 }

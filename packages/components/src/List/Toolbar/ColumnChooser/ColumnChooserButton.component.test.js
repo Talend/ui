@@ -20,10 +20,10 @@ describe('ColumnChooserButton', () => {
 				hidden: false,
 			},
 		];
-		const handlerColumnChooser = jest.fn();
+		const submitColumnChooser = jest.fn();
 		// when
 		const wrapper = shallow(
-			<ColumnChooserButton id={id} columns={columns} handlerColumnChooser={handlerColumnChooser} />,
+			<ColumnChooserButton id={id} columns={columns} submitColumnChooser={submitColumnChooser} />,
 		);
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();

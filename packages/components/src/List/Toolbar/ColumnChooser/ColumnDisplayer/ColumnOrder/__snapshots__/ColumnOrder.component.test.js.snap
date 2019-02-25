@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColumnOrder should render in edit mode 1`] = `
+<ColumnOrder
+  length={3}
+  locked={false}
+  onBlur={[MockFunction]}
+  onKeyPress={[MockFunction]}
+  order={1}
+  t={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "INPUT_TEXT_EDIT_COLUMN_CHOOSER",
+          Object {
+            "defaultValue": "Edit order",
+          },
+        ],
+        Array [
+          "INPUT_TEXT_EDIT_COLUMN_CHOOSER",
+          Object {
+            "defaultValue": "Edit order",
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": "Edit order",
+        },
+        Object {
+          "isThrow": false,
+          "value": "Edit order",
+        },
+      ],
+    }
+  }
+  value={1}
+/>
+`;
+
+exports[`ColumnOrder should render in non edit mode 1`] = `
+<ColumnOrder
+  length={3}
+  locked={true}
+  onBlur={[MockFunction]}
+  onKeyPress={[MockFunction]}
+  order={1}
+  t={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "INPUT_TEXT_EDIT_COLUMN_CHOOSER",
+          Object {
+            "defaultValue": "Edit order",
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": "Edit order",
+        },
+      ],
+    }
+  }
+  value={1}
+/>
+`;
+
+exports[`OrderDisplay should return 1`] = `
+<React.Fragment>
+  <span
+    className="theme-tc-column-displayer-order-value tc-column-displayer-order-value"
+  >
+    1
+  </span>
+  / 10
+</React.Fragment>
+`;

@@ -7,11 +7,13 @@ import {
 	getColumnDisplay,
 } from './DefaultColumnChooser.components';
 
+const t = jest.fn((_, translationValue) => translationValue.defaultValue);
+
 describe('DefaultHeader', () => {
 	it('should render', () => {
 		// given
 		const props = {
-			t: jest.fn(),
+			t,
 		};
 		// when
 		const wrapper = shallow(<DefaultHeader {...props} />);
@@ -42,6 +44,7 @@ describe('DefaultBody', () => {
 			onChangeVisibility: () => jest.fn(),
 			onDragAndDrop: () => jest.fn(),
 			onKeyPressOrder: () => jest.fn(),
+			t,
 		};
 		// when
 		const wrapper = shallow(<DefaultBody {...props} />);
@@ -57,7 +60,7 @@ describe('DefaultFooter', () => {
 			selectAllValue: false,
 			onSelectAll: jest.fn(),
 			submit: jest.fn(),
-			t: jest.fn(),
+			t,
 		};
 		// when
 		const wrapper = shallow(<DefaultFooter {...props} />);
@@ -88,6 +91,7 @@ describe('getColumnDisplay', () => {
 			onDragAndDrop,
 			onBlurOrder,
 			onKeyPressOrder,
+			t,
 		)(column, index);
 		// then
 		expect(ret).toMatchSnapshot();
@@ -108,6 +112,7 @@ describe('getColumnDisplay', () => {
 			onDragAndDrop,
 			onBlurOrder,
 			onKeyPressOrder,
+			t,
 		)(column, index);
 		// then
 		expect(ret).toMatchSnapshot();

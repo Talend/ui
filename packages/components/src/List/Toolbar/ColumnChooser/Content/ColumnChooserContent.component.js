@@ -9,7 +9,7 @@ import { DefaultHeader, DefaultBody, DefaultFooter } from './DefaultColumnChoose
 export default function ColumnChooserContent({
 	id,
 	columns,
-	handlerColumnChooser,
+	submitColumnChooser,
 	header,
 	body,
 	footer,
@@ -18,12 +18,11 @@ export default function ColumnChooserContent({
 	const {
 		onChangeVisibility,
 		onBlurInputTextOrder,
-		onDragAndDrop,
 		onKeyPressInputTextOrder,
 		onSelectAll,
 		stateColumnChooser,
 		onSubmitColumnChooser,
-	} = useColumnChooserManager(columns, handlerColumnChooser);
+	} = useColumnChooserManager(columns, submitColumnChooser);
 	return (
 		<div
 			id={`${id}-column-chooser-content`}
@@ -37,7 +36,6 @@ export default function ColumnChooserContent({
 							columns={stateColumnChooser.editedColumns}
 							onBlurOrder={onBlurInputTextOrder}
 							onChangeVisibility={onChangeVisibility}
-							onDragAndDrop={onDragAndDrop}
 							onKeyPressOrder={onKeyPressInputTextOrder}
 							t={t}
 						/>
@@ -62,7 +60,7 @@ ColumnChooserContent.propTypes = {
 	body: PropTypes.object,
 	columns: PropTypes.array.isRequired,
 	footer: PropTypes.object,
-	handlerColumnChooser: PropTypes.func.isRequired,
+	submitColumnChooser: PropTypes.func.isRequired,
 	header: PropTypes.object,
 	id: PropTypes.string.isRequired,
 	t: PropTypes.func,

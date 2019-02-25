@@ -1,7 +1,78 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ColumnDisplayer should render 1`] = `
+<div
+  className="theme-tc-column-displayer tc-column-displayer"
+  id="column-chooser-displayer"
+>
+  <div
+    className="theme-tc-column-displayer-visibility tc-column-displayer-visibility"
+  >
+    <ColumnVisibility
+      locked={false}
+      onChange={[MockFunction]}
+      t={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              "CHECKBOX_VISIBILITY_COLUMN_CHOOSER",
+              Object {
+                "defaultValue": "change visibility",
+              },
+            ],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": "change visibility",
+            },
+          ],
+        }
+      }
+      value={false}
+    />
+  </div>
+  <span
+    className="theme-tc-column-displayer-label tc-column-displayer-label"
+  >
+    myLabel
+  </span>
+  <div
+    className="theme-tc-column-displayer-order tc-column-displayer-order"
+  >
+    <ColumnOrder
+      length={3}
+      locked={false}
+      onBlur={[MockFunction]}
+      onKeyPress={[MockFunction]}
+      order={1}
+      t={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              "CHECKBOX_VISIBILITY_COLUMN_CHOOSER",
+              Object {
+                "defaultValue": "change visibility",
+              },
+            ],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": "change visibility",
+            },
+          ],
+        }
+      }
+      value={1}
+    />
+  </div>
+</div>
+`;
+
 exports[`ColumnVisibility should render the checkbox 1`] = `
 <input
+  aria-label="change visibility"
   checked={false}
   className="theme-tc-column-displayer-visibility-checkbox tc-column-displayer-visibility-checkbox"
   onChange={[Function]}
@@ -14,15 +85,4 @@ exports[`ColumnVisibility should render when locked 1`] = `
 <Icon
   name="talend-locked"
 />
-`;
-
-exports[`OrderDisplay should return 1`] = `
-<React.Fragment>
-  <span
-    className="theme-tc-column-displayer-order-value tc-column-displayer-order-value"
-  >
-    1
-  </span>
-  / 10
-</React.Fragment>
 `;

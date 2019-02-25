@@ -5,7 +5,7 @@ import ColumnChooserContent from './Content';
 import getDefaultT from '../../../translate';
 import ActionButton from '../../../Actions/ActionButton';
 
-export default function ColumnChooserButton({ id, ariaLabel, columns, handlerColumnChooser, t }) {
+export default function ColumnChooserButton({ id, ariaLabel, columns, submitColumnChooser, t }) {
 	return (
 		<Nav>
 			<ActionButton
@@ -22,7 +22,7 @@ export default function ColumnChooserButton({ id, ariaLabel, columns, handlerCol
 				overlayComponent={
 					<ColumnChooserContent
 						columns={columns}
-						handlerColumnChooser={handlerColumnChooser}
+						submitColumnChooser={submitColumnChooser}
 						id={`${id}-column-chooser-content`}
 						t={t}
 					/>
@@ -35,7 +35,7 @@ export default function ColumnChooserButton({ id, ariaLabel, columns, handlerCol
 ColumnChooserButton.propTypes = {
 	ariaLabel: PropTypes.string,
 	columns: PropTypes.array.isRequired,
-	handlerColumnChooser: PropTypes.func.isRequired,
+	submitColumnChooser: PropTypes.func.isRequired,
 	id: PropTypes.string.isRequired,
 	t: PropTypes.func,
 };

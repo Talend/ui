@@ -22,7 +22,6 @@ DefaultHeader.propTypes = {
 export const getColumnDisplay = (
 	length,
 	onChangeVisibility,
-	onDragAndDrop,
 	onBlurOrder,
 	onKeyPressOrder,
 	t,
@@ -33,7 +32,6 @@ export const getColumnDisplay = (
 			length,
 			onBlurOrder: onBlurOrder(index),
 			onChangeVisibility: onChangeVisibility(index),
-			onDragAndDrop: onDragAndDrop(index),
 			onKeyPressOrder: onKeyPressOrder(index),
 			t,
 		};
@@ -44,7 +42,6 @@ export const getColumnDisplay = (
 export const DefaultBody = ({
 	columns,
 	onChangeVisibility,
-	onDragAndDrop,
 	onBlurOrder,
 	onKeyPressOrder,
 	t,
@@ -58,7 +55,6 @@ export const DefaultBody = ({
 				getColumnDisplay(
 					columns.length,
 					onChangeVisibility,
-					onDragAndDrop,
 					onBlurOrder,
 					onKeyPressOrder,
 					t,
@@ -72,7 +68,6 @@ DefaultBody.propTypes = {
 	columns: PropTypes.array.isRequired,
 	onBlurOrder: PropTypes.func.isRequired,
 	onChangeVisibility: PropTypes.func.isRequired,
-	onDragAndDrop: PropTypes.func.isRequired,
 	onKeyPressOrder: PropTypes.func.isRequired,
 	t: PropTypes.func.isRequired,
 };
@@ -93,8 +88,8 @@ export const DefaultFooter = ({ selectAllValue, onSelectAll, submit, t }) => {
 						aria-label="select all"
 						onChange={() => onSelectAll(!selectAllValue)}
 						type="checkbox"
-						checked={selectAllValue}
-						value={selectAllValue}
+						checked={!selectAllValue}
+						value={!selectAllValue}
 					/>
 				</span>
 				<label id="select-all-label" htmlFor="selectAll">

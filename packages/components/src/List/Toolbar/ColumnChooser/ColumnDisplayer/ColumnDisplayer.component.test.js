@@ -1,10 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ColumnDisplayer, {
-	ColumnOrder,
-	OrderDisplay,
-	ColumnVisibility,
-} from './ColumnDisplayer.component';
+import ColumnDisplayer, { ColumnVisibility } from './ColumnDisplayer.component';
+
+const t = jest.fn((_, translationValue) => translationValue.defaultValue);
 
 describe('ColumnVisibility', () => {
 	const onChange = jest.fn();
@@ -15,6 +13,7 @@ describe('ColumnVisibility', () => {
 			locked: true,
 			onChange,
 			value,
+			t,
 		};
 		// when
 		const wrapper = shallow(<ColumnVisibility {...props} />);
@@ -27,6 +26,7 @@ describe('ColumnVisibility', () => {
 			locked: false,
 			onChange,
 			value,
+			t,
 		};
 		// when
 		const wrapper = shallow(<ColumnVisibility {...props} />);
@@ -35,15 +35,22 @@ describe('ColumnVisibility', () => {
 	});
 });
 
-describe('OrderDisplay', () => {
-	it('should return', () => {
+describe('ColumnDisplayer', () => {
+	it('should render', () => {
 		// given
 		const props = {
+			label: 'myLabel',
+			hidden: false,
+			locked: false,
 			order: 1,
-			length: 10,
+			length: 3,
+			onChangeVisibility: jest.fn(),
+			onBlurOrder: jest.fn(),
+			onKeyPressOrder: jest.fn(),
+			t,
 		};
 		// when
-		const wrapper = shallow(<OrderDisplay {...props} />);
+		const wrapper = shallow(<ColumnDisplayer {...props} />);
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});

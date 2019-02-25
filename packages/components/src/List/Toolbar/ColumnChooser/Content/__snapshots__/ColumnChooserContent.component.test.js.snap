@@ -36,8 +36,8 @@ exports[`ColumnChooserContent should render with default column chooser componen
         columns={Array []}
         onBlurOrder={[MockFunction]}
         onChangeVisibility={[MockFunction]}
-        onDragAndDrop={[MockFunction]}
         onKeyPressOrder={[MockFunction]}
+        t={[MockFunction]}
       />
     }
     Footer={

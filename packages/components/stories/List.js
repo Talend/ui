@@ -915,26 +915,26 @@ storiesOf('List', module)
 	));
 
 function ListColumnChooser({ list, ...rest }) {
-	function myListColumnChooserHanlder(event, editedColumns) {
-		// I do what i want here
+	function mySubmitCustomListColumnChooser(event, editedColumns) {
+		// Do the logic you want
 		console.log('Hello beautifull hooks', editedColumns);
 	}
 	/*
 		If you need to have complete control, do not use useColumnChooserClient.
-		Just fo whereever you want :
-		const mergedColumns = 
+		Do whereever you want :
+		const mergedColumns =
 			columnChooserService.utils.mergedColumnsChooser(
-				props.list.columns, 
+				props.list.columns,
 				props.somewhere.columnChooserResult
 			);
-		return <List 
-					{...rest} 
-					list={{...list, columns: mergedColumns }} 
-					columnChooser={{ handlerCustomChooser: myHandler, columns: mergedColumns}} />
+		return <List
+					{...rest}
+					list={{...list, columns: mergedColumns }}
+					columnChooser={{ submitCustomChooser: myCustomSubmit, columns: mergedColumns}} />
 	*/
 	const hookColumnChooser = columnChooserHooks.useColumnChooserClient(
 		list.columns,
-		myListColumnChooserHanlder,
+		mySubmitCustomListColumnChooser,
 	);
 	const enrichedList = {
 		...list,
@@ -942,7 +942,7 @@ function ListColumnChooser({ list, ...rest }) {
 	};
 	const columnChooser = {
 		columns: hookColumnChooser.state.columns,
-		handlerColumnChooser: hookColumnChooser.handlerColumnChooser,
+		submitColumnChooser: hookColumnChooser.submitColumnChooser,
 	};
 	return <List {...rest} list={enrichedList} columnChooser={columnChooser} />;
 }

@@ -2,13 +2,13 @@ import React from 'react';
 import { mount } from 'enzyme';
 import {
 	useColumnChooserManager,
-	changeColumnAttribute,
+	changeAttribute,
 	organiseEditedColumns,
 } from './columnChooserManager.hook';
 
 describe('changeColumnAttribute', () => {
 	const key = 'myAttr';
-	const changeMyAttr = changeColumnAttribute(key);
+	const changeMyAttr = changeAttribute(key);
 	it('should change the collection index', () => {
 		// given
 		const value = 'myNewValue';
@@ -76,10 +76,10 @@ describe('useColumnChooserManager', () => {
 		const event = {};
 		const MyTestComponent = () => {
 			const { onSubmitColumnChooser } = useColumnChooserManager(columns, customSubmit);
-			function onSubmit() {
+			function onClick() {
 				onSubmitColumnChooser(event);
 			}
-			return <button onClick={onSubmit}>TestComponent</button>;
+			return <button onClick={onClick}>TestComponent</button>;
 		};
 		// when
 		const wrapper = mount(<MyTestComponent />);
@@ -87,7 +87,7 @@ describe('useColumnChooserManager', () => {
 		// then
 		expect(customSubmit).toHaveBeenCalledWith(event, { selectAll: false, editedColumns: columns });
 	});
-	it('should have changed columns visibility to true', () => {
+	it('should have changed all columns visibility to true', () => {
 		// given
 		let state;
 		const MyTestComponent = () => {
@@ -102,6 +102,85 @@ describe('useColumnChooserManager', () => {
 		const wrapper = mount(<MyTestComponent />);
 		wrapper.find('button').simulate('click');
 		// then
-		expect(state.editedColumns).toEqual();
+		expect(state.editedColumns).toEqual([
+			{ hidden: true, label: 'label1', locked: true, order: 1 },
+			{ hidden: true, label: 'label2', locked: false, order: 2 },
+			{ hidden: true, label: 'label3', locked: false, order: 3 },
+		]);
+	});
+	it('should have changed order of two items (onBlur)', () => {
+		// given
+		let state;
+		const event = {};
+		const MyTestComponent = () => {
+			const { onBlurInputTextOrder, stateColumnChooser } = useColumnChooserManager(
+				columns,
+				customSubmit,
+			);
+			state = stateColumnChooser;
+			function onClick() {
+				onBlurInputTextOrder(2)(event, 2);
+			}
+			return <button onClick={onClick}>TestComponent</button>;
+		};
+		// when
+		const wrapper = mount(<MyTestComponent />);
+		wrapper.find('button').simulate('click');
+		// then
+		expect(state.editedColumns).toEqual([
+			{ hidden: false, label: 'label1', locked: true, order: 1 },
+			{ hidden: false, label: 'label3', locked: false, order: 2 },
+			{ hidden: true, label: 'label2', locked: false, order: 3 },
+		]);
+	});
+	it('should have changed order of two items (onKeyPress)', () => {
+		// given
+		let state;
+		const event = {};
+		const MyTestComponent = () => {
+			const { onKeyPressInputTextOrder, stateColumnChooser } = useColumnChooserManager(
+				columns,
+				customSubmit,
+			);
+			state = stateColumnChooser;
+			function onClick() {
+				onKeyPressInputTextOrder(2)(event, 2);
+			}
+			return <button onClick={onClick}>TestComponent</button>;
+		};
+		// when
+		const wrapper = mount(<MyTestComponent />);
+		wrapper.find('button').simulate('click');
+		// then
+		expect(state.editedColumns).toEqual([
+			{ hidden: false, label: 'label1', locked: true, order: 1 },
+			{ hidden: false, label: 'label3', locked: false, order: 2 },
+			{ hidden: true, label: 'label2', locked: false, order: 3 },
+		]);
+	});
+	it('should have changed visibility of one item', () => {
+		// given
+		let state;
+		const event = {};
+		const MyTestComponent = () => {
+			const { onChangeVisibility, stateColumnChooser } = useColumnChooserManager(
+				columns,
+				customSubmit,
+			);
+			state = stateColumnChooser;
+			function onClick() {
+				onChangeVisibility(2)(event, true);
+			}
+			return <button onClick={onClick}>TestComponent</button>;
+		};
+		// when
+		const wrapper = mount(<MyTestComponent />);
+		wrapper.find('button').simulate('click');
+		// then
+		expect(state.editedColumns).toEqual([
+			{ hidden: false, label: 'label1', locked: true, order: 1 },
+			{ hidden: true, label: 'label2', locked: false, order: 2 },
+			{ hidden: true, label: 'label3', locked: false, order: 3 },
+		]);
 	});
 });
