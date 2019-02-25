@@ -19,7 +19,7 @@ function transformColumns(columnsToMerged) {
 
 export function mergedColumnsChooser(originalColumns, columnChooserColumns) {
 	if (columnChooserColumns.length > 0) {
-		return originalColumns.map(transformColumns(columnChooserColumns))
+		return originalColumns.map(transformColumns(columnChooserColumns));
 	}
 	return originalColumns;
 }

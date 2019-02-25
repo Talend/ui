@@ -19,13 +19,7 @@ DefaultHeader.propTypes = {
 	t: PropTypes.func.isRequired,
 };
 
-export const getColumnDisplay = (
-	length,
-	onChangeVisibility,
-	onBlurOrder,
-	onKeyPressOrder,
-	t,
-) => {
+export const getColumnDisplay = (length, onChangeVisibility, onBlurOrder, onKeyPressOrder, t) => {
 	return (column, index) => {
 		const displayerProps = {
 			...column,
@@ -39,26 +33,14 @@ export const getColumnDisplay = (
 	};
 };
 
-export const DefaultBody = ({
-	columns,
-	onChangeVisibility,
-	onBlurOrder,
-	onKeyPressOrder,
-	t,
-}) => {
+export const DefaultBody = ({ columns, onChangeVisibility, onBlurOrder, onKeyPressOrder, t }) => {
 	return (
 		<div
 			id="column-chooser-content"
 			className={classNames(theme['tc-column-chooser-body'], 'tc-column-chooser-body')}
 		>
 			{columns.map(
-				getColumnDisplay(
-					columns.length,
-					onChangeVisibility,
-					onBlurOrder,
-					onKeyPressOrder,
-					t,
-				),
+				getColumnDisplay(columns.length, onChangeVisibility, onBlurOrder, onKeyPressOrder, t),
 			)}
 		</div>
 	);
