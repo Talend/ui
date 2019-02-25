@@ -68,7 +68,7 @@
   "peerDependencies": {
     "@kadira/storybook": "^2",
     "@talend/react-cmf": "^2.6.0",
-    "react": "^15.6.2 || ^16.0.0"
+    "react": "^16.8.0"
   },
   "jest": {
     "roots": [

@@ -67,8 +67,8 @@
     "rimraf": "^2.6.2"
   },
   "peerDependencies": {
-    "react": "^15.6.2 || ^16.0.0",
-    "react-dom": "^15.6.2 || ^16.0.0"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",

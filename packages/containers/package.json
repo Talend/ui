@@ -116,7 +116,7 @@
     "keycode": "^2.2.0",
     "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
-    "react": "^15.6.2 || ^16.0.0",
+    "react": "^16.8.0",
     "react-bootstrap": "0.32.4",
     "react-i18next": "^7.6.1",
     "react-redux": "^5.0.7",

@@ -17,8 +17,8 @@
   },
   "peerDependencies": {
     "@talend/react-cmf": "^2.1.0",
-    "react": "^15.6.2 || ^16.0.0",
-    "react-dom": "^15.6.2 || ^16.0.0"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
