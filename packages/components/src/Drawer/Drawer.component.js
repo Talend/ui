@@ -107,6 +107,9 @@ export function subtitleComponent(subtitle) {
 }
 
 function DrawerTitle({ title, subtitle, children, onCancelAction, getComponent }) {
+	if (!title && !children) {
+		return null;
+	}
 	return (
 		<div className={classnames('tc-drawer-header', theme['tc-drawer-header'])}>
 			<div className={classnames('tc-drawer-header-title', theme['tc-drawer-header-title'])}>
