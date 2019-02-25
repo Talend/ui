@@ -50,7 +50,7 @@
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
-    "rimraf": "^2.6.1"
+    "rimraf": "^2.6.2"
   },
   "publishConfig": {
     "access": "public"

@@ -80,7 +80,7 @@
     "redux-storage-decorator-immutablejs": "^1.0.4",
     "redux-storage-engine-localstorage": "^1.1.4",
     "redux-thunk": "^2.2.0",
-    "rimraf": "^2.6.1"
+    "rimraf": "^2.6.2"
   },
   "peerDependencies": {
     "@talend/react-cmf": "^2.6.0",
