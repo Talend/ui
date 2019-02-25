@@ -17,7 +17,7 @@ import NestedListView from '../fields/NestedListView';
 import Radios from '../fields/Radios';
 import RadioOrSelect from '../fields/RadioOrSelect';
 import ResourcePicker from '../fields/ResourcePicker';
-import Select from '../fields/Select';
+import Select, { TextModeSelect } from '../fields/Select';
 import Text, { TextTextMode } from '../fields/Text';
 import TextArea, { TextAreaTextMode } from '../fields/TextArea';
 import Toggle, { ToggleTextMode } from '../fields/Toggle';
@@ -53,9 +53,12 @@ const widgets = {
 	checkboxes_text: ArrayWidget,
 	code_text: CodeTextMode,
 	datalist_text: DatalistTextMode,
+	file_text: () => null,
 	multiSelectTag_text: MultiSelectTagTextMode,
 	number_text: TextTextMode,
 	password_text: TextTextMode,
+	radios_text: TextTextMode,
+	select_text: TextModeSelect,
 	text_text: TextTextMode,
 	textarea_text: TextAreaTextMode,
 	toggle_text: ToggleTextMode,
