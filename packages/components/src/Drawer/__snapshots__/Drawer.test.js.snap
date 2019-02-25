@@ -30,6 +30,18 @@ exports[`Drawer should render 1`] = `
     className="tc-drawer-container theme-tc-drawer-container"
   >
     <div
+      className="tc-drawer-header theme-tc-drawer-header"
+    >
+      <div
+        className="tc-drawer-header-title theme-tc-drawer-header-title"
+      >
+        <h1 />
+      </div>
+      <div
+        className="tc-drawer-header-with-tabs theme-tc-drawer-header-with-tabs"
+      />
+    </div>
+    <div
       style={
         Object {
           "display": "flex",
@@ -66,6 +78,18 @@ exports[`Drawer should render stacked 1`] = `
     className="tc-drawer-container theme-tc-drawer-container"
   >
     <div
+      className="tc-drawer-header theme-tc-drawer-header"
+    >
+      <div
+        className="tc-drawer-header-title theme-tc-drawer-header-title"
+      >
+        <h1 />
+      </div>
+      <div
+        className="tc-drawer-header-with-tabs theme-tc-drawer-header-with-tabs"
+      />
+    </div>
+    <div
       style={
         Object {
           "display": "flex",
@@ -101,6 +125,18 @@ exports[`Drawer should render using custom className 1`] = `
   <div
     className="tc-drawer-container theme-tc-drawer-container"
   >
+    <div
+      className="tc-drawer-header theme-tc-drawer-header"
+    >
+      <div
+        className="tc-drawer-header-title theme-tc-drawer-header-title"
+      >
+        <h1 />
+      </div>
+      <div
+        className="tc-drawer-header-with-tabs theme-tc-drawer-header-with-tabs"
+      />
+    </div>
     <div
       style={
         Object {
@@ -143,6 +179,18 @@ exports[`Drawer should render using custom styles 1`] = `
     className="tc-drawer-container theme-tc-drawer-container"
   >
     <div
+      className="tc-drawer-header theme-tc-drawer-header"
+    >
+      <div
+        className="tc-drawer-header-title theme-tc-drawer-header-title"
+      >
+        <h1 />
+      </div>
+      <div
+        className="tc-drawer-header-with-tabs theme-tc-drawer-header-with-tabs"
+      />
+    </div>
+    <div
       style={
         Object {
           "display": "flex",
@@ -178,6 +226,18 @@ exports[`Drawer should render with tabs 1`] = `
   <div
     className="tc-drawer-container theme-tc-drawer-container"
   >
+    <div
+      className="tc-drawer-header theme-tc-drawer-header"
+    >
+      <div
+        className="tc-drawer-header-title theme-tc-drawer-header-title"
+      >
+        <h1 />
+      </div>
+      <div
+        className="tc-drawer-header-with-tabs theme-tc-drawer-header-with-tabs"
+      />
+    </div>
     <div
       className="tc-drawer-tabs-container theme-tc-drawer-tabs-container"
     >
@@ -403,6 +463,18 @@ exports[`Drawer should render without tc-drawer-transition class 1`] = `
   <div
     className="tc-drawer-container theme-tc-drawer-container"
   >
+    <div
+      className="tc-drawer-header theme-tc-drawer-header"
+    >
+      <div
+        className="tc-drawer-header-title theme-tc-drawer-header-title"
+      >
+        <h1 />
+      </div>
+      <div
+        className="tc-drawer-header-with-tabs theme-tc-drawer-header-with-tabs"
+      />
+    </div>
     <div
       style={
         Object {
