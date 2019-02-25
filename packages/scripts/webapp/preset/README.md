@@ -160,17 +160,6 @@ By default, css modules are activated. To deactivate them,
 
 ## Webpack
 
-By default, a devServer proxy is in place, mapping all `/api` urls to `http://localhost`. You can change it to adapt to your backend api url.
-
-```json
-{
-  "preset": "talend",
-  "webpack": {
-    "api-url": "http://localhost:3000"
-  }
-}
-```
-
 You can add the debug option to true so the webpack configuration will be printed to the output.
 
 ```json
