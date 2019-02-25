@@ -16,6 +16,9 @@ const options = {
 	rowHeight: cache.rowHeight,
 };
 
+function onMeasure(measure) {
+	measure();
+}
 /**
  * Row renderer that displays a Collapsible Panel
  */
@@ -24,11 +27,10 @@ class RowCollapsiblePanel extends React.Component {
 		super(props);
 		this.onToggle = this.onToggle.bind(this);
 	}
-	onToggle(event, measure) {
+	onToggle(event) {
 		const { parent, index } = this.props;
 		if (parent.props.onRowClick) {
 			parent.props.onRowClick({ event, rowData: { ...getRowData(parent, index), index } });
-			setTimeout(measure, 0);
 		}
 	}
 	render() {
@@ -62,7 +64,14 @@ class RowCollapsiblePanel extends React.Component {
 						aria-label={get(rowData, 'header[0].label')}
 						style={style}
 					>
-						<PureCollapsiblePanel {...{ rowData, measure, onToggle: this.onToggle }} />
+						<PureCollapsiblePanel
+							{...{
+								rowData,
+								onEntered: () => onMeasure(measure),
+								onExited: () => onMeasure(measure),
+								onToggle: this.onToggle,
+							}}
+						/>
 					</div>
 				)}
 			</CellMeasurer>
