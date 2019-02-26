@@ -67,7 +67,6 @@ const ColumnDisplayer = ({
 					locked={locked}
 					onBlur={onBlurOrder}
 					onKeyPress={onKeyPressOrder}
-					order={order}
 					t={t}
 					value={order}
 				/>

@@ -54,13 +54,12 @@ describe('ColoumnOrder event and hook', () => {
 		};
 		// when
 		const wrapper = mount(<ColumnOrder {...props} />);
-		// expect(wrapper.find('button').text()).toEqual('1/ 3');
 		wrapper.find('button').simulate('click');
 		wrapper.find('input').simulate('change', { target: { value: 15 } });
 		// then
 		expect(wrapper.find('input').prop('value')).toBe(15);
 	});
-	it('should trigger keypress event', () => {
+	it('should trigger onKeyPress event', () => {
 		// given
 		const props = {
 			length: 3,
@@ -76,13 +75,56 @@ describe('ColoumnOrder event and hook', () => {
 		const wrapper = mount(<ColumnOrder {...props} />);
 		expect(wrapper.find('button').text()).toEqual('1/ 3');
 		wrapper.find('button').simulate('click');
-		wrapper.find('input').simulate('change', { target: { value: 2 } });
-		expect(wrapper.find('input').prop('value')).toBe(2);
+		wrapper.find('input').simulate('change', { target: { value: '2' } });
+		expect(wrapper.find('input').prop('value')).toBe('2');
 		wrapper.find('input').simulate('keyPress', event);
 		// then
 		expect(props.onKeyPress.mock.calls[0].length).toBe(2);
 		expect(props.onKeyPress.mock.calls[0][1]).toBe(2);
-		wrapper.update();
+		expect(wrapper.find('button').text()).toEqual('2/ 3');
+	});
+	it('should throw an error onKeyPress', () => {
+		// given
+		const props = {
+			length: 3,
+			// order: 1,
+			locked: false,
+			value: 1,
+			onBlur: jest.fn(),
+			onKeyPress: jest.fn(),
+			t,
+		};
+		const event = { key: 'Enter' };
+		// when
+		const wrapper = mount(<ColumnOrder {...props} />);
+		wrapper.find('button').simulate('click');
+		wrapper.find('input').simulate('change', { target: { value: 'abc' } });
+		expect(wrapper.find('input').prop('value')).toBe('abc');
+		// then
+		expect(() => wrapper.find('input').simulate('keyPress', event)).toThrow();
+	});
+	it('should trigger onBlur event', () => {
+		// given
+		const props = {
+			length: 3,
+			// order: 1,
+			locked: false,
+			value: 1,
+			onBlur: jest.fn(),
+			onKeyPress: jest.fn(),
+			t,
+		};
+		const event = {};
+		// when
+		const wrapper = mount(<ColumnOrder {...props} />);
+		expect(wrapper.find('button').text()).toEqual('1/ 3');
+		wrapper.find('button').simulate('click');
+		wrapper.find('input').simulate('change', { target: { value: '2' } });
+		expect(wrapper.find('input').prop('value')).toBe('2');
+		wrapper.find('input').simulate('blur', event);
+		// then
+		expect(props.onBlur.mock.calls[0].length).toBe(2);
+		expect(props.onBlur.mock.calls[0][1]).toBe(2);
 		expect(wrapper.find('button').text()).toEqual('2/ 3');
 	});
 });

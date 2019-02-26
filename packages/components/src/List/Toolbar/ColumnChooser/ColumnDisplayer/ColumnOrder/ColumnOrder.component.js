@@ -19,7 +19,7 @@ export const OrderDisplay = ({ order, length }) => (
 );
 
 OrderDisplay.propTypes = {
-	order: PropTypes.number.isRequired,
+	order: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
 	length: PropTypes.number.isRequired,
 };
 
@@ -27,10 +27,10 @@ function isOrderCorrect(value, length) {
 	if (Number.isInteger(value) && (value <= length && value > 0)) {
 		return true;
 	}
-	throw new Error(`ColumnDisplayer, onBlur : Bad order number = ${value}`);
+	throw new Error(`ColumnDisplayer, isOrderCorrect : Bad order number = ${value}`);
 }
 
-const ColumnOrder = ({ length, order, locked, value, t, ...rest }) => {
+const ColumnOrder = ({ length, locked, value, t, ...rest }) => {
 	const [editMode, setEditMode] = useState(false);
 	const [ctrlValue, setCtrlValue] = useState(value);
 	useEffect(() => {
@@ -96,8 +96,7 @@ ColumnOrder.propTypes = {
 	locked: PropTypes.bool,
 	onBlur: PropTypes.func.isRequired,
 	onKeyPress: PropTypes.func.isRequired,
-	order: PropTypes.number.isRequired,
-	value: PropTypes.number.isRequired,
+	value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
 	t: PropTypes.func.isRequired,
 };
 
