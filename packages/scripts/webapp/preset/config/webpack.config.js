@@ -5,6 +5,7 @@ const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 const TalendHTML = require('@talend/html-webpack-plugin');
@@ -108,7 +109,13 @@ module.exports = ({ getUserConfig, mode }) => {
 				{
 					test: /\.scss$/,
 					use: getSassLoaders(true, sassData, mode),
+					include: /@talend/,
 					exclude: /bootstrap-theme/,
+				},
+				{
+					test: /\.scss$/,
+					use: getSassLoaders(getUserConfig(['css', 'modules'], true), sassData, mode),
+					exclude: /@talend/,
 				},
 				{
 					test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
@@ -119,9 +126,29 @@ module.exports = ({ getUserConfig, mode }) => {
 						mimetype: 'application/font-woff',
 					},
 				},
+				{
+					test: /\.svg$/,
+					loader: 'url-loader',
+					options: {
+						name: 'assets/svg/[name].[ext]',
+						limit: 10000,
+						mimetype: 'image/svg+xml',
+					},
+				},
+				{
+					test: /\.(png|jpg|jpeg|gif)$/,
+					loader: 'url-loader',
+					options: {
+						name: 'assets/img/[name].[ext]',
+						limit: 10000,
+						mimetype: 'image/png',
+					},
+				},
 			],
 		},
 		plugins: [
+			new CleanWebpackPlugin(['dist'], { verbose: true, root: process.cwd() }),
+			new webpack.DefinePlugin({ BUILD_TIMESTAMP: Date.now() }),
 			new MiniCssExtractPlugin({
 				filename: '[name]-[hash].css',
 			}),
@@ -132,12 +159,9 @@ module.exports = ({ getUserConfig, mode }) => {
 				...getUserConfig('html'),
 			}),
 			new TalendHTML({
-				loadCSSAsync: true,
 				appLoaderIcon: getUserConfig(['html', 'appLoaderIcon'], DEFAULT_APP_LOADER_ICON),
 			}),
-			new CopyWebpackPlugin([
-				{ from: 'src/assets' },
-			]),
+			new CopyWebpackPlugin([{ from: 'src/assets' }]),
 			new webpack.BannerPlugin({
 				banner: LICENSE_BANNER,
 			}),
