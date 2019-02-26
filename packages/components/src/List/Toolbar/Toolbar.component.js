@@ -102,7 +102,7 @@ function Toolbar({
 							htmlFor={displayModeId}
 						/>
 					)}
-					{columnChooser && <ColumnChooserButton id={`${id}-column-chooser`} {...columnChooser} />}
+					{columnChooser && <ColumnChooserButton id={`${id}-column-chooser`} {...columnChooser} t={t} />}
 					{display && <SelectDisplayMode id={displayModeId} {...display} t={t} />}
 					{injected('after-displaymode')}
 					{injected('before-sort')}

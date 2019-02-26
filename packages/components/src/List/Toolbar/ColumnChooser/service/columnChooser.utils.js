@@ -1,27 +1,27 @@
-function findMatchingColumnLabel(label) {
-	return function find(column) {
-		return column.label === label;
+function findMatchingIemLabel(label) {
+	return function find(item) {
+		return item.label === label;
 	};
 }
 
-function transformColumns(columnsToMerged) {
-	return function transform(column) {
-		const columnToMerged = columnsToMerged.find(findMatchingColumnLabel(column.label));
-		if (columnToMerged) {
+function transformCollection(columnChooserCollection) {
+	return function transform(item) {
+		const itemToMerged = columnChooserCollection.find(findMatchingIemLabel(item.label));
+		if (itemToMerged) {
 			return {
-				...column,
-				...columnToMerged,
+				...item,
+				...itemToMerged,
 			};
 		}
-		return column;
+		return item;
 	};
 }
 
-export function mergedColumnsChooser(originalColumns, columnChooserColumns) {
-	if (columnChooserColumns.length > 0) {
-		return originalColumns.map(transformColumns(columnChooserColumns));
+export function mergedColumnsChooser(originalCollection, columnChooserCollection = []) {
+	if (columnChooserCollection.length > 0) {
+		return originalCollection.map(transformCollection(columnChooserCollection));
 	}
-	return originalColumns;
+	return originalCollection;
 }
 
 export function compareOrder(a, b) {

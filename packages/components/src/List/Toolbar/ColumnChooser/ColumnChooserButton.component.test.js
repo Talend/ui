@@ -15,7 +15,7 @@ describe('ColumnChooserButton', () => {
 			},
 			{
 				label: 'col2',
-				order: 1,
+				order: 2,
 				locked: false,
 				hidden: false,
 			},
