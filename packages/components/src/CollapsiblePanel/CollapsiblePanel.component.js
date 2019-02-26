@@ -232,7 +232,7 @@ function CollapsiblePanel(props) {
 					<CollapsiblePanelHeader {...props} />
 				</Panel.Title>
 			</Panel.Heading>
-			<Panel.Collapse onEntered={onEntered} onExited={onExited} appear>
+			<Panel.Collapse onEntered={onEntered} onExited={onExited}>
 				<Panel.Body>
 					{children}
 					{props.children}
