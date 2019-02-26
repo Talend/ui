@@ -9,13 +9,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   47:7  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/ColumnDisplayer/ColumnOrder/ColumnOrder.component.js
-  40:18  error  'event' is defined but never used  no-unused-vars
-
-/home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/ColumnDisplayer/ColumnOrder/ColumnOrder.component.test.js
-  2:8   error  'ReactDOM' is defined but never used                  no-unused-vars
-  4:10  error  'act' is defined but never used                       no-unused-vars
-  6:10  error  'WSAVERNOTSUPPORTED' is defined but never used        no-unused-vars
-  6:36  error  Absolute imports should come before relative imports  import/imports-first
+  33:32  error  'order' is defined but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/components/src/List/Toolbar/ColumnChooser/Content/ColumnChooserContent.component.test.js
   7:50  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
@@ -44,6 +38,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   33:3  warning  Unexpected console statement  no-console
 
-✖ 18 problems (16 errors, 2 warnings)
+✖ 14 problems (12 errors, 2 warnings)
   6 errors, 0 warnings potentially fixable with the `--fix` option.
 
