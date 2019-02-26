@@ -15,7 +15,7 @@ export default function ColumnChooserButton({ id, ariaLabel, columns, submitColu
 				id={`${id}-column-chooser-button`}
 				overlayId={`${id}-column-chooser-overlay`}
 				label=""
-				icon="talend-folder"
+				icon="talend-column-chooser"
 				data-feature="open-column-chooser-overlay-action"
 				overlayPlacement="bottom"
 				link

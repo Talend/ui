@@ -63,10 +63,10 @@ export const DefaultFooter = ({ selectAllValue, onSelectAll, submit, t }) => (
 					id="select-all-checkbox"
 					name="selectAll"
 					aria-label="select all"
-					onChange={() => onSelectAll(!selectAllValue)}
+					onChange={event => onSelectAll(event, !selectAllValue)}
 					type="checkbox"
-					checked={!selectAllValue}
-					value={!selectAllValue}
+					checked={selectAllValue}
+					value={selectAllValue}
 				/>
 			</span>
 			<label id="select-all-label" htmlFor="selectAll">

@@ -37,14 +37,19 @@ export function changeAttribute(key) {
 	return function updateAttribute(value, index = -1) {
 		if (index > -1) {
 			return function setAttributeInCollection(collection) {
-				// eslint-disable-next-line no-param-reassign
-				collection[index][key] = value;
+				if (!collection[index].locked) {
+					// eslint-disable-next-line no-param-reassign
+					collection[index][key] = value;
+				}
 				return collection;
 			};
 		}
 		return function setAttributeInColumn(column) {
-			// eslint-disable-next-line no-param-reassign
-			column[key] = value;
+			if (!column.locked) {
+				// eslint-disable-next-line no-param-reassign
+				column[key] = value;
+			}
+			return column;
 		};
 	};
 }
@@ -96,10 +101,12 @@ export function useColumnChooserManager(columns, customSubmit) {
 		};
 	}
 
-	function onSelectAll(value) {
-		const editedColumns = state.editedColumns;
-		editedColumns.forEach(updateAttributeVisiblity(value));
-		setState({ ...state, editedColumns, selectAll: value });
+	function onSelectAll(event, value) {
+		setState({
+			...state,
+			editedColumns: state.editedColumns.forEach(updateAttributeVisiblity(!value)),
+			selectAll: value,
+		});
 	}
 
 	function onSubmitColumnChooser(event) {
