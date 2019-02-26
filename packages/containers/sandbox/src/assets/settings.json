@@ -46,7 +46,7 @@
         ]
       }
     },
-    "RedirectContainer#default": {
+    "Redirect#default": {
       "path": "/HeaderBar"
     },
     "HeaderBar#default": {
@@ -100,13 +100,13 @@
       "definitionURL": "/api/v1/forms/titleMap",
       "uiSpecPath": "ui",
       "triggerURL": "/api/v1/application/action",
-      "className": "well"
+      "className": "full-form"
     },
     "ComponentForm#validation": {
       "definitionURL": "/api/v1/forms/validation",
       "uiSpecPath": "ui",
       "triggerURL": "/api/v1/application/action",
-      "className": "well"
+      "className": "full-form"
     }
   },
   "routes": {

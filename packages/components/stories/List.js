@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
 import { I18nextProvider } from 'react-i18next';
@@ -279,7 +278,7 @@ const props = {
 		sort: {
 			field: 'name',
 			onChange: action('sort.onChange'),
-			options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
+			options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name With Multiple Words' }],
 		},
 		pagination: {
 			itemsPerPage: 5,
@@ -473,7 +472,6 @@ const itemsForListWithIcons = [
 ];
 
 storiesOf('List', module)
-	.addDecorator(checkA11y)
 	.addDecorator(story => (
 		<div>
 			<LanguageSwitcher />
@@ -485,7 +483,8 @@ storiesOf('List', module)
 		<div style={{ height: '70vh' }} className="virtualized-list">
 			<h1>List</h1>
 			<p>
-				Display the list in table mode.<br />
+				Display the list in table mode.
+				<br />
 				This is the default mode.
 			</p>
 			<List {...props} />
@@ -507,7 +506,8 @@ storiesOf('List', module)
 			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
-					Display the list in table mode.<br />
+					Display the list in table mode.
+					<br />
 					This is the default mode.
 				</p>
 				<List {...customProps} />
@@ -518,7 +518,8 @@ storiesOf('List', module)
 		<div style={{ height: '70vh' }} className="virtualized-list">
 			<h1>List</h1>
 			<p>
-				Display the list in large mode.<br />
+				Display the list in large mode.
+				<br />
 				You just need to pass the props displayMode.
 			</p>
 			<pre>&lt;List displayMode="large" ... &gt;</pre>
@@ -529,7 +530,8 @@ storiesOf('List', module)
 		<div style={{ height: '70vh' }} className="virtualized-list">
 			<h1>List</h1>
 			<p>
-				Display the list in large mode.<br />
+				Display the list in large mode.
+				<br />
 				You just need to pass the props displayMode.
 			</p>
 			<pre>&lt;List displayMode="large" rowRenderers= ... &gt;</pre>
@@ -618,14 +620,18 @@ storiesOf('List', module)
 			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
-					You can manage selection by passing 2 props : onSelect and isSelected.<br />
+					You can manage selection by passing 2 props : onSelect and isSelected.
+					<br />
 					<b>onSelect(event, item)</b> : item selection callback
 					<b>isSelected(item)</b> : returns true if the item is selected
 				</p>
 				<pre>
-					listProps.itemProps.onSelect = (event, item) => mySelectionCallback(event, item);<br />
-					listProps.itemProps.isSelected = (item) => item.id === 2;<br />
-					&lt;List ... list=&#123;listProps&#125; &gt;<br />
+					listProps.itemProps.onSelect = (event, item) => mySelectionCallback(event, item);
+					<br />
+					listProps.itemProps.isSelected = (item) => item.id === 2;
+					<br />
+					&lt;List ... list=&#123;listProps&#125; &gt;
+					<br />
 				</pre>
 				<List {...selectedItemsProps} />
 			</div>
@@ -639,14 +645,19 @@ storiesOf('List', module)
 			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
-					You can manage selection by passing 2 props : onRowClick and isActive.<br />
-					<b>onRowClick(event, item)</b> : item selection callback<br />
+					You can manage selection by passing 2 props : onRowClick and isActive.
+					<br />
+					<b>onRowClick(event, item)</b> : item selection callback
+					<br />
 					<b>isActive(item)</b> : returns true if the item is selected
 				</p>
 				<pre>
-					listProps.itemProps.onRowClick = (event, rowData) => myRowClickCallback(rowData);<br />
-					listProps.itemProps.isActive = (item) => item.id === 0;<br />
-					&lt;List ... list=&#123;listProps&#125; &gt;<br />
+					listProps.itemProps.onRowClick = (event, rowData) => myRowClickCallback(rowData);
+					<br />
+					listProps.itemProps.isActive = (item) => item.id === 0;
+					<br />
+					&lt;List ... list=&#123;listProps&#125; &gt;
+					<br />
 				</pre>
 				<h2>Table</h2>
 				<List {...selectedItemsProps} />
@@ -677,11 +688,15 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>You add sort management with column header click.</p>
 				<pre>
-					listProps.sort.field = 'modified';<br />
-					listProps.sort.isDescending = false;<br />
+					listProps.sort.field = 'modified';
+					<br />
+					listProps.sort.isDescending = false;
+					<br />
 					listProps.sort.onChange = (event, &#123;field, isDescending&#125;) => sort(field,
-					isDescending);<br />
-					&lt;List ... list=&#123;listProps&#125; &gt;<br />
+					isDescending);
+					<br />
+					&lt;List ... list=&#123;listProps&#125; &gt;
+					<br />
 				</pre>
 				<p>
 					To disable sort on a column, add the <strong>disableSort</strong> props (see Author
@@ -731,7 +746,8 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<h2>Definition</h2>
 				<p>
-					Filter in toolbar can have multiple states.<br />
+					Filter in toolbar can have multiple states.
+					<br />
 					Its state, input, and callbacks are customizable.
 				</p>
 				<h2>Docked</h2>
@@ -768,8 +784,10 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>You can get limited options for displayMode.</p>
 				<pre>
-					toolbarProps.display.displayModes = ['large', 'table'];<br />
-					&lt;List ... toolbar=&#123;toolbarProps&#125; &gt;<br />
+					toolbarProps.display.displayModes = ['large', 'table'];
+					<br />
+					&lt;List ... toolbar=&#123;toolbarProps&#125; &gt;
+					<br />
 				</pre>
 				<List {...tprops} />
 			</div>
@@ -792,8 +810,10 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>To have not clickable titles, just don't pass any onClick callback</p>
 				<pre>
-					const props = &#123;...&#125;;<br />
-					props.list.titleProps.onClick = null;<br />
+					const props = &#123;...&#125;;
+					<br />
+					props.list.titleProps.onClick = null;
+					<br />
 					&lt;List &#123;...props&#125; /&gt;
 				</pre>
 				<List {...tprops} />
@@ -810,8 +830,10 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Display the list with hidden header labels.</p>
 				<pre>
-					const props = &#123;...&#125;;<br />
-					props.list.columns[0].hideHeader = true;<br />
+					const props = &#123;...&#125;;
+					<br />
+					props.list.columns[0].hideHeader = true;
+					<br />
 					&lt;List &#123;...props&#125; /&gt;
 				</pre>
 				<List {...tprops} />
@@ -868,7 +890,8 @@ storiesOf('List', module)
 			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
-					Display the list in table mode.<br />
+					Display the list in table mode.
+					<br />
 					This is the default mode.
 				</p>
 				<List {...listProps} />

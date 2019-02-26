@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /* eslint no-console: 0 */
 
-const REACT_VERSION = process.env.REACT_VERSION || '^16.0.0';
+const REACT_VERSION = process.env.REACT_VERSION || '^16.8.0';
 console.log('REACT_VERSION: ', REACT_VERSION);
-const JEST_VERSION = '^23.6.0';
+const JEST_VERSION = '^24.0.0';
 
 module.exports = {
 	// addons
@@ -15,6 +15,10 @@ module.exports = {
 	'react-tap-event-plugin': '^2.0.0',
 	'whatwg-fetch': '^2.0.3',
 
+	// UI deps outside of the release life cycle
+	'@talend/scripts': '^0.9.0',
+	'@talend/react-cmf-router': '^3.2.1',
+
 	// deps: non component libs
 	ajv: '^6.2.1',
 	'bootstrap-sass': '3.3.7',
@@ -22,6 +26,7 @@ module.exports = {
 	classnames: '^2.2.5',
 	'date-fns': '^1.27.2',
 	keycode: '^2.2.0',
+	'hoist-non-react-statics': '2.5.5',
 	immutable: '^3.8.1',
 	immutablediff: '^0.4.4',
 	invariant: '^2.2.2',
@@ -53,8 +58,8 @@ module.exports = {
 
 	// deps: libs that interact with the DOM
 	'd3-shape': '1.2.0',
-	'react-ace': '5.2.0',
-	'react-bootstrap': '0.31.5',
+	'react-ace': '6.2.0',
+	'react-bootstrap': '0.32.4',
 	'rc-slider': '8.6.3',
 	'rc-tooltip': '3.7.3',
 	'react-autowhatever': '10.2.0',
@@ -66,56 +71,64 @@ module.exports = {
 	deepmerge: '^1.5.1',
 
 	// dev deps
-	'@storybook/react': '^3.4.7',
-	'@storybook/addon-storyshots': '^3.4.7',
-	'@storybook/addon-actions': '^3.4.7',
-	'@storybook/addon-info': '^3.4.7',
-	'@storybook/addon-knobs': '^3.4.7',
-	'@storybook/addons': '^3.4.7',
+	'@storybook/react': '^4.0.12',
+	'@storybook/addon-a11y': '^4.0.12',
+	'@storybook/addon-storyshots': '^4.0.12',
+	'@storybook/addon-actions': '^4.0.12',
+	'@storybook/addon-info': '^4.0.12',
+	'@storybook/addon-knobs': '^4.0.12',
+	'@storybook/addons': '^4.0.12',
 	autoprefixer: '^7.1.4',
-	'babel-cli': '^6.26.0',
-	'babel-core': '^6.26.0',
-	'babel-eslint': '8.0.1',
+	'babel-eslint': '^10.0.1',
 	'babel-jest': JEST_VERSION,
-	'babel-plugin-transform-class-properties': '^6.24.1',
-	'babel-plugin-transform-export-extensions': '^6.22.0',
-	'babel-plugin-transform-object-assign': '^6.22.0',
-	'babel-plugin-transform-object-rest-spread': '^6.26.0',
-	'babel-preset-env': '^1.6.0',
-	'babel-preset-react': '^6.24.1',
+	// babel 7
+	'@babel/cli': '^7.2.0',
+	'@babel/core': '^7.2.0',
+	'@babel/plugin-proposal-class-properties': '^7.2.0',
+	'@babel/plugin-proposal-object-rest-spread': '^7.2.0',
+	'@babel/plugin-transform-object-assign': '^7.2.0',
+	'@babel/plugin-proposal-export-namespace-from': '^7.2.0',
+	'@babel/plugin-proposal-export-default-from': '^7.2.0',
+	'@babel/preset-env': '^7.2.0',
+	'@babel/preset-react': '^7.0.0',
 	cpx: '^1.5.0',
-	enzyme: '^3.1.0',
-	'enzyme-adapter-react-15': '^1.0.1',
-	'enzyme-adapter-react-16': '^1.1.1',
+	enzyme: '^3.7.0',
+	'enzyme-adapter-react-15': '^1.2.0',
+	'enzyme-adapter-react-16': '^1.7.0',
 	'enzyme-to-json': '^3.0.0',
-	eslint: '^3.6.1',
+	eslint: '^4.0.0',
 	'eslint-config-airbnb': '^11.1.0',
 	'eslint-plugin-import': '^1.16.0',
 	'eslint-plugin-jsx-a11y': '^2.2.2',
 	'eslint-plugin-react': '^6.3.0',
 	jest: JEST_VERSION,
 	'jest-cli': JEST_VERSION,
-	'jest-in-case': '^1.0.2',
+	'jest-in-case': '^1.0.2', // this is integrated in jest 23
+	'jest-environment-jsdom': '^23.4.0',
 	jsdom: '^11.11.0',
 	prettier: '^1.6.1',
 	'react-storybook-cmf': '^0.4.0',
+	'react-storybook-addon-props-combinations': '^1.1.0',
 	'react-stub-context': '^0.7.0',
-	rimraf: '^2.6.1',
+	'regenerator-runtime': '^0.13.1',
+	rimraf: '^2.6.2',
+	'sass-lint': '1.12.1',
 
 	// webpack
-	'babel-loader': '^7.1.2',
-	'copy-webpack-plugin': '^4.1.1',
-	'css-loader': '^0.28.7',
-	'extract-text-webpack-plugin': '^3.0.2',
-	'file-loader': '^1.1.5',
+	'babel-loader': '^8.0.0',
+	'copy-webpack-plugin': '^4.6.0',
+	'css-loader': '^1.0.1',
+	'extract-text-webpack-plugin': 'next',
+	'file-loader': '^2.0.0',
 	'webfonts-loader': '^4.2.1',
 	'node-sass': '^4.7.2',
-	'postcss-loader': '^2.0.8',
-	'sass-loader': '^6.0.6',
-	'style-loader': '^0.19.0',
-	'url-loader': '^0.6.2',
-	webpack: '^3.8.1',
+	'postcss-loader': '^3.0.0',
+	'sass-loader': '^7.1.0',
+	'style-loader': '^0.23.0',
+	'url-loader': '^1.1.2',
+	webpack: '^4.19.0',
+	'webpack-cli': '^3.1.0',
 	'webpack-bundle-analyzer': '^2.9.0',
 	'webpack-dashboard': '^2.0.0',
-	'webpack-dev-server': '^2.9.3',
+	'webpack-dev-server': '^3.1.11',
 };

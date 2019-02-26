@@ -5,7 +5,7 @@ import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 function ToggleWidget(props) {
-	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
+	const { id, isValid, errorMessage, onChange, onFinish, schema, value, valueIsUpdating } = props;
 	const { autoFocus, description, disabled = false, title } = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
@@ -18,11 +18,12 @@ function ToggleWidget(props) {
 			errorMessage={errorMessage}
 			isValid={isValid}
 			required={schema.required}
+			valueIsUpdating={valueIsUpdating}
 		>
 			<Toggle
 				autoFocus={autoFocus}
 				checked={value}
-				disabled={disabled}
+				disabled={disabled || valueIsUpdating}
 				id={id}
 				label={title}
 				onBlur={event => onFinish(event, { schema })}
@@ -50,6 +51,7 @@ if (process.env.NODE_ENV !== 'production') {
 			title: PropTypes.string,
 		}),
 		value: PropTypes.bool,
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 

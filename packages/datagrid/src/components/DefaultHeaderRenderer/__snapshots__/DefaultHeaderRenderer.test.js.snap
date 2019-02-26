@@ -8,6 +8,7 @@ exports[`#DefaultHeaderGrid should render DefaultHeaderGrid 1`] = `
     className="theme-td-header td-header"
     onClick={[Function]}
     onKeyDown={[Function]}
+    type="button"
   >
     <div
       className="theme-td-header-title td-header-title"
@@ -17,9 +18,6 @@ exports[`#DefaultHeaderGrid should render DefaultHeaderGrid 1`] = `
         title="Title"
       >
         Title
-      </span>
-      <span>
-        ...
       </span>
     </div>
     <div

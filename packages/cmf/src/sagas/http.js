@@ -96,14 +96,14 @@ export function handleHttpResponse(response) {
 /**
  * encodePayload - encore the payload if necessary
  *
- * @param  {object} headers                   request headers
- * @param  {object} payload                   payload to send with the request
- * @return {object}                           The encoded payload.
+ * @param  {object} headers request headers
+ * @param  {object} payload payload to send with the request
+ * @return {string|FormData} The encoded payload.
  */
 export function encodePayload(headers, payload) {
 	const type = headers['Content-Type'];
 
-	if (payload instanceof FormData) {
+	if (payload instanceof FormData || typeof payload === 'string') {
 		return payload;
 	} else if (type && type.includes('json')) {
 		return JSON.stringify(payload);
@@ -170,14 +170,15 @@ export function httpFetch(url, config, method, payload) {
  */
 export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload, options) {
 	const answer = yield call(httpFetch, url, config, method, payload);
-
-	if (!get(options, 'silent') && answer instanceof Error) {
+	const silent = get(options, 'silent');
+	if (silent !== true && answer instanceof Error) {
 		yield put({
 			error: { message: answer.data.message, stack: { status: answer.response.status } },
 			url,
 			config,
 			method,
 			payload,
+			options,
 			type: ACTION_TYPE_HTTP_ERRORS,
 		});
 	}

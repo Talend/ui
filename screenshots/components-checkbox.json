@@ -1,0 +1,8 @@
+{
+  "components/iframe.html?selectedKind=Checkbox&selectedStory=default": [
+    {
+      "name": "Checkbox-default",
+      "selector": ".tc-toggle"
+    }
+  ]
+}

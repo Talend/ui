@@ -8,7 +8,7 @@ import ConfirmDialog from './ConfirmDialog.component';
 
 function mockFakeComponent(name) {
 	const fakeComponent = ({ children, className, ...rest }) => {
-		const mergedClassName = classNames(className, name);
+		const mergedClassName = classNames(className, name, 'mocked-component');
 		return (
 			<div {...rest} className={mergedClassName}>
 				{children}
@@ -22,7 +22,6 @@ function mockFakeComponent(name) {
 	return fakeComponent;
 }
 
-jest.mock('react-dom');
 jest.mock('react-bootstrap/lib/Modal', () => {
 	const Modal = mockFakeComponent('Modal');
 	Modal.Header = mockFakeComponent('Header');

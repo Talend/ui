@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
 import { Notification, IconsProvider } from '../src/index';
@@ -20,7 +19,7 @@ class NotificationWrapper extends React.Component {
 			this.notifications = this.notifications.concat([
 				{
 					id: 'story-1',
-					type: 'error',
+					type: 'info',
 					title: 'Story 1 example title',
 					message: 'This is a feedback of your operation1, This is a feedback of your operation1, This is a feedback of your operation1',
 					action: {
@@ -70,6 +69,7 @@ class NotificationWrapper extends React.Component {
 				{
 					id: 'story-4',
 					type: 'warning',
+					title: 'Story 4 example title ',
 					message: 'This is a feedback of your operation4',
 				},
 			]);
@@ -89,8 +89,7 @@ class NotificationWrapper extends React.Component {
 }
 
 storiesOf('Notification', module)
-	.addDecorator(checkA11y)
-	.addWithInfo('default', () => (
+	.add('default', () => (
 		<nav>
 			<h1>Notification</h1>
 			<IconsProvider defaultIcons={icons} />

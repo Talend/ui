@@ -125,7 +125,7 @@ class EnumerationForm extends React.Component {
 		this.itemEditActions = [
 			{
 				disabled: true,
-				label: t('ENUMERATION_WIDGET_LOADING', { defaultValue: 'Validate' }),
+				label: t('ENUMERATION_WIDGET_VALIDATE', { defaultValue: 'Validate' }),
 				icon: 'talend-check',
 				id: 'validate',
 				onClick: this.onSubmitItem.bind(this),

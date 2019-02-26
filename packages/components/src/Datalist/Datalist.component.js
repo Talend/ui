@@ -6,6 +6,7 @@ import keycode from 'keycode';
 import get from 'lodash/get';
 import Typeahead from '../Typeahead';
 import theme from './Datalist.scss';
+import FocusManager from '../FocusManager';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -21,6 +22,7 @@ class Datalist extends Component {
 		this.onFocus = this.onFocus.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
 		this.onSelect = this.onSelect.bind(this);
+		this.resetSuggestions = this.resetSuggestions.bind(this);
 
 		this.theme = {
 			container: classNames(theme.container, 'tc-datalist-container'),
@@ -59,7 +61,6 @@ class Datalist extends Component {
 	 * @param event The blur event
 	 */
 	onBlur(event) {
-		this.resetSuggestions();
 		const { value, previousValue } = this.state;
 
 		if (value !== previousValue) {
@@ -170,6 +171,12 @@ class Datalist extends Component {
 		if (this.props.multiSection) {
 			newValue = this.state.suggestions[sectionIndex].suggestions[itemIndex];
 		}
+		if (newValue.disabled) {
+			event.preventDefault();
+			return;
+		}
+
+		this.resetSuggestions();
 		this.updateValue(event, newValue, true);
 	}
 
@@ -233,7 +240,7 @@ class Datalist extends Component {
 		} else {
 			const index = this.props.titleMap.findIndex(item => item.name === value);
 			this.setState({
-				focusedItemIndex: index,
+				focusedItemIndex: index === -1 ? null : index,
 			});
 		}
 	}
@@ -347,21 +354,23 @@ class Datalist extends Component {
 	render() {
 		const label = this.getSelectedLabel();
 		return (
-			<Typeahead
-				{...omit(this.props, PROPS_TO_OMIT)}
-				className={classNames('tc-datalist', this.props.className)}
-				focusedItemIndex={this.state.focusedItemIndex}
-				focusedSectionIndex={this.state.focusedSectionIndex}
-				items={this.state.suggestions}
-				onBlur={this.onBlur}
-				onChange={this.onChange}
-				onFocus={this.onFocus}
-				onKeyDown={this.onKeyDown}
-				onSelect={this.onSelect}
-				theme={this.theme}
-				value={label}
-				caret
-			/>
+			<FocusManager onFocusOut={this.resetSuggestions}>
+				<Typeahead
+					{...omit(this.props, PROPS_TO_OMIT)}
+					className={classNames('tc-datalist', this.props.className)}
+					focusedItemIndex={this.state.focusedItemIndex}
+					focusedSectionIndex={this.state.focusedSectionIndex}
+					items={this.state.suggestions}
+					onBlur={this.onBlur}
+					onChange={this.onChange}
+					onFocus={this.onFocus}
+					onKeyDown={this.onKeyDown}
+					onSelect={this.onSelect}
+					theme={this.theme}
+					value={label}
+					caret
+				/>
+			</FocusManager>
 		);
 	}
 }

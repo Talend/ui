@@ -87,29 +87,29 @@ class Datalist extends Component {
 		const type = this.props.schema.schema.type;
 		const propsValue = this.props.value;
 
-		let titleMapFind = titleMap;
-
-		if (!restricted) {
-			const isMultiple = type === 'array';
-			const values = isMultiple ? propsValue : [propsValue];
-
-			if (isMultiSection) {
-				titleMapFind = titleMap.reduce((prev, current) => {
-					prev.push(...current.suggestions);
-					return prev;
-				}, []);
-			}
-
-			const additionalOptions = values
-				.filter(value => !titleMapFind.find(option => option.value === value))
-				.map(value => this.addCustomValue(value, isMultiSection))
-				.reduce((acc, titleMapEntry) => {
-					acc.push(titleMapEntry);
-					return acc;
-				}, []);
-			return titleMap.concat(additionalOptions);
+		if (restricted || !propsValue) {
+			return titleMap;
 		}
-		return titleMap;
+
+		let titleMapFind = titleMap;
+		const isMultiple = type === 'array';
+		const values = isMultiple ? propsValue : [propsValue];
+
+		if (isMultiSection) {
+			titleMapFind = titleMap.reduce((prev, current) => {
+				prev.push(...current.suggestions);
+				return prev;
+			}, []);
+		}
+
+		const additionalOptions = values
+			.filter(value => !titleMapFind.find(option => option.value === value))
+			.map(value => this.addCustomValue(value, isMultiSection))
+			.reduce((acc, titleMapEntry) => {
+				acc.push(titleMapEntry);
+				return acc;
+			}, []);
+		return titleMap.concat(additionalOptions);
 	}
 
 	addCustomValue(value, isMultiSection) {
@@ -146,20 +146,21 @@ class Datalist extends Component {
 				isValid={this.props.isValid}
 				label={this.props.schema.title}
 				required={this.props.schema.required}
-				labelAfter
+				valueIsUpdating={this.props.valueIsUpdating}
 			>
 				<DataListComponent
 					{...props}
 					{...this.state}
 					className="form-control-container"
 					autoFocus={this.props.schema.autoFocus}
-					disabled={this.props.schema.disabled || false}
+					disabled={this.props.schema.disabled || this.props.valueIsUpdating}
 					multiSection={get(this.props, 'schema.options.isMultiSection', false)}
 					onChange={this.onChange}
 					onFocus={this.callTrigger}
 					placeholder={this.props.schema.placeholder}
 					readOnly={this.props.schema.readOnly || false}
 					titleMap={this.getTitleMap()}
+					restricted={this.props.schema.restricted}
 					inputProps={{
 						'aria-invalid': !this.props.isValid,
 						'aria-required': this.props.schema.required,
@@ -228,6 +229,7 @@ if (process.env.NODE_ENV !== 'production') {
 			}),
 		}),
 		value: PropTypes.string,
+		valueIsUpdating: PropTypes.bool,
 		t: PropTypes.func,
 	};
 }

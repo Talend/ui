@@ -95,12 +95,16 @@ describe('Container(Form)', () => {
 
 	it('should use props.onError', () => {
 		const onErrors = jest.fn();
+		const setState = jest.fn();
+		const event = { target: 'test' };
 		const form = new Container({
 			state: fromJS({ data: { schema: true } }),
 			onErrors,
+			setState,
 		});
-		form.onErrors(null, { foo: 'bar' });
-		expect(onErrors.mock.calls[0][1]).toEqual({ foo: 'bar' });
+		form.onErrors(event, { foo: 'bar' });
+		expect(onErrors).toBeCalledWith(event, { foo: 'bar' });
+		expect(setState).toBeCalledWith({ errors: { foo: 'bar' } });
 	});
 
 	it('should use props.onSubmit', () => {
@@ -126,12 +130,13 @@ describe('Container(Form)', () => {
 	it('should use props.onChange', () => {
 		const onChange = jest.fn();
 		const setState = jest.fn();
+		const event = { target: 'test' };
 		const form = new Container({
 			state: fromJS({ data: { schema: true } }),
 			onChange,
 			setState,
 		});
-		form.onChange(null, { foo: 'bar' }, 'my-form', 'key', 'value');
+		form.onChange(event, { foo: 'bar' }, 'my-form', 'key', 'value');
 		expect(onChange.mock.calls[0]).toMatchSnapshot();
 		expect(setState.mock.calls[0]).toMatchSnapshot();
 	});
