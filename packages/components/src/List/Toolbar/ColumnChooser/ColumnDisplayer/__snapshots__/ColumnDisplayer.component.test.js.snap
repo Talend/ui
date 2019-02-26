@@ -45,7 +45,6 @@ exports[`ColumnDisplayer should render 1`] = `
       locked={false}
       onBlur={[MockFunction]}
       onKeyPress={[MockFunction]}
-      order={1}
       t={
         [MockFunction] {
           "calls": Array [

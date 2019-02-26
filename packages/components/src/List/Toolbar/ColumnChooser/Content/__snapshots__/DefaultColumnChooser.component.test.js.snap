@@ -74,12 +74,12 @@ exports[`DefaultFooter should render 1`] = `
     <span>
       <input
         aria-label="select all"
-        checked={true}
+        checked={false}
         id="select-all-checkbox"
         name="selectAll"
         onChange={[Function]}
         type="checkbox"
-        value={true}
+        value={false}
       />
     </span>
     <label

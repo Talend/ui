@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ColumnChooserButton should return the component (shallow mode) 1`] = `
+exports[`ColumnChooserButton should return the component 1`] = `
 <Nav
   bsClass="nav"
   justified={false}
@@ -11,7 +11,7 @@ exports[`ColumnChooserButton should return the component (shallow mode) 1`] = `
   <Translate(ActionButton)
     aria-label="Column chooser button"
     data-feature="open-column-chooser-overlay-action"
-    icon="talend-folder"
+    icon="talend-column-chooser"
     id="myIdColumnChooserId-column-chooser-button"
     label=""
     link={true}
@@ -29,7 +29,7 @@ exports[`ColumnChooserButton should return the component (shallow mode) 1`] = `
               "hidden": false,
               "label": "col2",
               "locked": false,
-              "order": 1,
+              "order": 2,
             },
           ]
         }
