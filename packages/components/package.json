@@ -64,12 +64,12 @@
     "@storybook/addon-info": "^4.0.12",
     "@storybook/addon-storyshots": "^4.0.12",
     "@storybook/react": "^4.0.12",
-    "@talend/bootstrap-theme": "^2.5.1-0",
-    "@talend/icons": "^2.5.1-0",
+    "@talend/bootstrap-theme": "^2.7.0",
+    "@talend/icons": "^2.7.0",
     "autoprefixer": "^7.1.4",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.0.0",
-    "bootstrap-sass": "3.3.7",
+    "bootstrap-sass": "3.4.1",
     "classnames": "^2.2.5",
     "codacy-coverage": "^2.0.0",
     "cpx": "^1.5.0",
@@ -107,7 +107,7 @@
     "react-test-renderer": "^16.8.0",
     "react-transition-group": "^2.3.1",
     "regenerator-runtime": "^0.13.1",
-    "rimraf": "^2.6.1",
+    "rimraf": "^2.6.2",
     "sass-lint": "1.12.1",
     "sass-loader": "^7.1.0",
     "slimerjs": "^0.10.2",
@@ -115,19 +115,19 @@
     "uuid": "^3.0.1"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "^2.5.1-0",
-    "@talend/icons": "^2.5.1-0",
-    "bootstrap-sass": "3.3.7",
+    "@talend/bootstrap-theme": "^2.7.0",
+    "@talend/icons": "^2.7.0",
+    "bootstrap-sass": "3.4.1",
     "classnames": "^2.2.5",
     "d3-shape": "1.2.0",
     "i18next": "^9.0.0",
     "invariant": "^2.2.2",
     "keycode": "^2.2.0",
     "prop-types": "^15.5.10",
-    "react": "^15.6.2 || ^16.0.0",
+    "react": "^16.8.0",
     "react-bootstrap": "0.32.4",
     "react-css-transition": "^0.7.4",
-    "react-dom": "^15.6.2 || ^16.0.0",
+    "react-dom": "^16.8.0",
     "react-i18next": "^7.6.1",
     "react-transition-group": "^2.3.1",
     "uuid": "^3.0.1"
@@ -153,5 +153,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "2.5.1-0"
+  "version": "2.7.0"
 }
