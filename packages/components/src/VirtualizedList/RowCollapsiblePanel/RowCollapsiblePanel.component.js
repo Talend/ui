@@ -41,13 +41,7 @@ class RowCollapsiblePanel extends React.Component {
 		const rowData = getRowData(parent, index);
 
 		return (
-			<CellMeasurer
-				cache={cache}
-				columnIndex={0}
-				key={index}
-				parent={parent}
-				rowIndex={index}
-			>
+			<CellMeasurer cache={cache} columnIndex={0} key={index} parent={parent} rowIndex={index}>
 				{({ measure }) => (
 					// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 					<div
