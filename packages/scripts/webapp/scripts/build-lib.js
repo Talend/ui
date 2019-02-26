@@ -15,12 +15,17 @@ module.exports = function build(env, presetApi, options) {
 	const srcFolder = path.join(process.cwd(), 'src');
 	const targetFolder = path.join(process.cwd(), 'lib');
 
+	console.log(`Removing target folder (${targetFolder}) ...`);
 	rimraf.sync(targetFolder);
+	console.log('Compiling with babel ...');
 	spawn.sync(babel, ['--config-file', babelConfigPath, '-d', targetFolder, srcFolder, ...options], {
 		stdio: 'inherit',
 		env,
 	});
+	console.log('Removing tests files ...');
 	rimraf.sync(`${targetFolder}/**/*.test.js`);
+	console.log('Copying assets ...');
 	cpx.copySync(`${srcFolder}/**/*.{scss,json}`, targetFolder);
+	console.log('🎉 Build complete');
 	return { status: 0 };
 };
