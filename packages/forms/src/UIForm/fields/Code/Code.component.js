@@ -9,7 +9,7 @@ import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
 // import ReactAce from 'react-ace';
-const ReactAce = React.lazy(() => import(/* webpackChunkName: "react-ace" */ 'react-ace'));
+const ReactAce = React.lazy(() => import(/* webpackChunkName: "react-ace" */ './ace'));
 
 const DEFAULT_SET_OPTIONS = {
 	enableBasicAutocompletion: true,

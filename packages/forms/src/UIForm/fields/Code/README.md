@@ -57,6 +57,9 @@ This widget allows you to render an ace-editor within a form.
 To integrate it properly you should do the following into your webpack configuration.
 
 ```javascript
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
+
 /**
  * react ace try to fetch resources but name are differents in sources
  * lets create a simple function to transform the name in assets
@@ -70,14 +73,14 @@ function transformPath(targetPath) {
 
 module.exports = {
 	output: {
-    ...
-    // to activate code splitting ensure you have this one
 		chunkFilename: '[name].chunk.js',
 	},
-  plugins: [
-    new CopyWebpackPlugin([{ from: 'node_modules/brace/mode/*.js', transformPath }]),
+	plugins: [
+		new CopyWebpackPlugin([{ from: 'node_modules/brace/mode/*.js', transformPath }]),
 		new CopyWebpackPlugin([{ from: 'node_modules/brace/theme/*.js', transformPath }]),
-		new CopyWebpackPlugin([{ from: 'node_modules/brace/snippets/*.js' }]),
-  ]
+		new CopyWebpackPlugin([{ from: 'node_modules/brace/snippets', to: 'snippets/' }]),
+	],
 };
 ```
+
+To better understand what happens just read the source: https://github.com/thlorenz/brace/blob/master/index.js#L4115
