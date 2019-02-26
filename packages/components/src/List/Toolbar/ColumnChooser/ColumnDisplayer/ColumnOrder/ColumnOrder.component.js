@@ -23,7 +23,7 @@ OrderDisplay.propTypes = {
 	length: PropTypes.number.isRequired,
 };
 
-export function isOrderCorrect(value, length) {
+function isOrderCorrect(value, length) {
 	if (Number.isInteger(value) && (value <= length && value > 0)) {
 		return true;
 	}
@@ -38,13 +38,13 @@ const ColumnOrder = ({ length, order, locked, value, t, ...rest }) => {
 	}, [value]);
 
 	function onBlur(event) {
-		// const formatValue = parseInt(ctrlValue, 10);
-		// if (formatValue !== value) {
-		// 	if (isOrderCorrect(formatValue, length)) {
-		// 		rest.onBlur(event, formatValue);
-		// 	}
-		// }
-		// setEditMode(prevState => !prevState);
+		const formatValue = parseInt(ctrlValue, 10);
+		if (formatValue !== value) {
+			if (isOrderCorrect(formatValue, length)) {
+				rest.onBlur(event, formatValue);
+			}
+		}
+		setEditMode(prevState => !prevState);
 	}
 
 	function onKeyPress(event) {
@@ -64,7 +64,7 @@ const ColumnOrder = ({ length, order, locked, value, t, ...rest }) => {
 				disabled={locked}
 				link
 				onClick={() => setEditMode(!editMode)}
-				label={<OrderDisplay order={order} length={length} />}
+				label={<OrderDisplay order={ctrlValue} length={length} />}
 			/>
 		);
 	}
@@ -79,9 +79,7 @@ const ColumnOrder = ({ length, order, locked, value, t, ...rest }) => {
 					theme['tc-column-displayer-order-input-text'],
 					'tc-column-displayer-order-input-text',
 				)}
-				onBlur={event => {
-					onBlur(event);
-				}}
+				onBlur={event => onBlur(event)}
 				onChange={event => setCtrlValue(event.target.value)}
 				onKeyPress={event => onKeyPress(event)}
 				placeholder={ctrlValue}
