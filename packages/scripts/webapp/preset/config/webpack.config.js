@@ -85,6 +85,7 @@ module.exports = ({ getUserConfig, mode }) => {
 		entry: ['@babel/polyfill', 'whatwg-fetch', `${process.cwd()}/src/app/index.js`],
 		output: {
 			filename: '[name]-[hash].js',
+			publicPath: '/',
 		},
 		module: {
 			rules: [
