@@ -16,13 +16,6 @@ module.exports = ({ getUserConfig }) => {
 		},
 		devServer: {
 			port: 3000,
-			proxy: {
-				'/api': {
-					target: getUserConfig(['webpack', 'api-url'], 'http://localhost'),
-					changeOrigin: true,
-					secure: false,
-				},
-			},
 			stats: 'errors-only',
 			historyApiFallback: true,
 			contentBase: path.join(process.cwd(), '/dist'),
