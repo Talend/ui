@@ -2,31 +2,24 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { translate } from 'react-i18next';
 import keyCode from 'keycode';
+import CircularProgress from '@talend/react-components/lib/CircularProgress';
 import FieldTemplate from '../FieldTemplate';
-import TextArea from '../TextArea';
-import { generateId, generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import {
+	generateId,
+	generateDescriptionId,
+	generateErrorId,
+} from '../../Message/generateId';
 import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
-let CodeWidget = TextArea;
-let AceEditor;
+// import ReactAce from 'react-ace';
+const ReactAce = React.lazy(() => import(/* webpackChunkName: "react-ace" */ 'react-ace'));
+
 const DEFAULT_SET_OPTIONS = {
 	enableBasicAutocompletion: true,
 	enableLiveAutocompletion: true,
 	enableSnippets: true,
 };
-
-class WrappedTextArea extends React.PureComponent {
-	constructor() {
-		super();
-		// eslint-disable-next-line no-console
-		console.warn('CodeWidget react-ace not found, fallback to Textarea');
-	}
-
-	render() {
-		return <TextArea {...this.props} />;
-	}
-}
 
 // eslint-disable-next-line react/no-multi-comp
 class Code extends React.Component {
@@ -127,34 +120,47 @@ class Code extends React.Component {
 							defaultValue: 'To focus out of the editor, press ESC key twice.',
 						})}
 					</div>
-					<AceEditor
-						key="ace"
-						className="tf-widget-code form-control"
-						editorProps={{ $blockScrolling: Infinity }} // https://github.com/securingsincity/react-ace/issues/29
-						focus={autoFocus}
-						name={`${id}_wrapper`}
-						mode={options && options.language}
-						onBlur={this.onFinish}
-						onLoad={this.onLoad}
-						onChange={this.onChange}
-						// disabled is not supported by ace use readonly
-						// https://github.com/ajaxorg/ace/issues/406
-						readOnly={readOnly || schema.disabled || valueIsUpdating}
-						setOptions={DEFAULT_SET_OPTIONS}
-						showGutter={false}
-						showPrintMargin={false}
-						theme="chrome"
-						value={value}
-						width="auto"
-						{...options}
-					/>
+					<React.Suspense
+						fallback={
+							<div aria-busy>
+								<CircularProgress />
+							</div>
+						}
+					>
+						<ReactAce
+							key="ace"
+							className="tf-widget-code form-control"
+							editorProps={{ $blockScrolling: Infinity }} // https://github.com/securingsincity/react-ace/issues/29
+							focus={autoFocus}
+							name={`${id}_wrapper`}
+							mode={options && options.language}
+							onBlur={this.onFinish}
+							onLoad={this.onLoad}
+							onChange={this.onChange}
+							// disabled is not supported by ace use readonly
+							// https://github.com/ajaxorg/ace/issues/406
+							readOnly={readOnly || schema.disabled || valueIsUpdating}
+							setOptions={DEFAULT_SET_OPTIONS}
+							showGutter={false}
+							showPrintMargin={false}
+							theme="chrome"
+							value={value}
+							width="auto"
+							{...options}
+						/>
+					</React.Suspense>
 				</div>
 			</FieldTemplate>
 		);
 	}
 }
+
+Code.defaultProps = {
+	isValid: true,
+	schema: {},
+	t: getDefaultT(),
+};
 if (process.env.NODE_ENV !== 'production') {
-	WrappedTextArea.propTypes = TextArea.propTypes;
 	Code.propTypes = {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
@@ -175,21 +181,4 @@ if (process.env.NODE_ENV !== 'production') {
 		valueIsUpdating: PropTypes.bool,
 	};
 }
-
-Code.defaultProps = {
-	isValid: true,
-	schema: {},
-	t: getDefaultT(),
-};
-
-try {
-	/* eslint-disable global-require, import/no-extraneous-dependencies */
-	AceEditor = require('react-ace').default;
-	require('brace/ext/language_tools'); // https://github.com/securingsincity/react-ace/issues/95
-	/* eslint-enable global-require, import/no-extraneous-dependencies */
-	CodeWidget = Code;
-} catch (error) {
-	CodeWidget = WrappedTextArea;
-}
-
-export default translate(I18N_DOMAIN_FORMS)(CodeWidget);
+export default translate(I18N_DOMAIN_FORMS)(Code);

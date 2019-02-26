@@ -179,7 +179,7 @@
             "conditions": [],
             "key": "desert.description",
             "title": "Description",
-            "widget": "textarea"
+            "widget": "code"
           },
           {
             "widget": "button",

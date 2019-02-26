@@ -5,7 +5,8 @@
   "private": true,
   "main": "app/index.js",
   "scripts": {
-    "start": "talend-scripts start"
+    "start": "talend-scripts start",
+    "prepublish": "cd .. && yarn prepublish"
   },
   "repository": {
     "type": "git",
