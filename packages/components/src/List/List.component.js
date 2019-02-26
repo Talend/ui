@@ -67,7 +67,7 @@ ListToolbar.propTypes = {
 	}),
 	toolbar: PropTypes.shape(omit(Toolbar.propTypes, 't')),
 	columnChooser: PropTypes.shape({
-		handlerColumnChooser: PropTypes.func.isRequired,
+		submitColumnChooser: PropTypes.func.isRequired,
 		columns: PropTypes.array.isRequired,
 	}),
 };

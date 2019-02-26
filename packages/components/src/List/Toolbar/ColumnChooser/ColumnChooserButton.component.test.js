@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import ColumnChooserButton from './ColumnChooserButton.component';
 
 describe('ColumnChooserButton', () => {
-	it('should return the component (shallow mode)', () => {
+	it('should return the component', () => {
 		// given
 		const id = 'myIdColumnChooserId';
 		const columns = [

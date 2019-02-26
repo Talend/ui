@@ -9,12 +9,7 @@ function matchOrder(value) {
 	};
 }
 
-function incrementColumnOrder(column, index) {
-	// eslint-disable-next-line no-param-reassign
-	column.order = index + 1;
-}
-
-function getOrderItem(order, index, length) {
+function getItemOrder(order, index, length) {
 	if (index === length - 1) {
 		return order - 1;
 	}
@@ -31,7 +26,10 @@ function updateEditedColumns(editedColumns) {
 }
 
 export function organiseEditedColumns(collection) {
-	collection.sort(compareOrder).forEach(incrementColumnOrder);
+	collection.sort(compareOrder).forEach((item, index) => {
+		// eslint-disable-next-line no-param-reassign
+		item.order = index + 1;
+	});
 	return collection;
 }
 
@@ -66,7 +64,7 @@ export function useColumnChooserManager(columns, customSubmit) {
 
 	function modifyOrderTwoItems(value, index) {
 		const indexToReplace = state.editedColumns.findIndex(matchOrder(value));
-		const orderToReplace = getOrderItem(value, indexToReplace, getEditedColumnsLength());
+		const orderToReplace = getItemOrder(value, indexToReplace, getEditedColumnsLength());
 		if (indexToReplace > -1 && !state.editedColumns[indexToReplace].locked) {
 			flow([
 				updateAttributeOrder(orderToReplace, indexToReplace),

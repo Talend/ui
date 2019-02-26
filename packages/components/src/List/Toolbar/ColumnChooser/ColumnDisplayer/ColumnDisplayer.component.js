@@ -44,36 +44,34 @@ const ColumnDisplayer = ({
 	onBlurOrder,
 	onKeyPressOrder,
 	t,
-}) => {
-	return (
+}) => (
+	<div
+		id="column-chooser-displayer"
+		className={classNames(theme['tc-column-displayer'], 'tc-column-displayer')}
+	>
 		<div
-			id="column-chooser-displayer"
-			className={classNames(theme['tc-column-displayer'], 'tc-column-displayer')}
+			className={classNames(
+				theme['tc-column-displayer-visibility'],
+				'tc-column-displayer-visibility',
+			)}
 		>
-			<div
-				className={classNames(
-					theme['tc-column-displayer-visibility'],
-					'tc-column-displayer-visibility',
-				)}
-			>
-				<ColumnVisibility onChange={onChangeVisibility} value={hidden} locked={locked} t={t} />
-			</div>
-			<span className={classNames(theme['tc-column-displayer-label'], 'tc-column-displayer-label')}>
-				{label}
-			</span>
-			<div className={classNames(theme['tc-column-displayer-order'], 'tc-column-displayer-order')}>
-				<ColumnOrder
-					length={length}
-					locked={locked}
-					onBlur={onBlurOrder}
-					onKeyPress={onKeyPressOrder}
-					t={t}
-					value={order}
-				/>
-			</div>
+			<ColumnVisibility onChange={onChangeVisibility} value={hidden} locked={locked} t={t} />
 		</div>
-	);
-};
+		<span className={classNames(theme['tc-column-displayer-label'], 'tc-column-displayer-label')}>
+			{label}
+		</span>
+		<div className={classNames(theme['tc-column-displayer-order'], 'tc-column-displayer-order')}>
+			<ColumnOrder
+				length={length}
+				locked={locked}
+				onBlur={onBlurOrder}
+				onKeyPress={onKeyPressOrder}
+				t={t}
+				value={order}
+			/>
+		</div>
+	</div>
+);
 
 ColumnDisplayer.propTypes = {
 	hidden: PropTypes.bool,
