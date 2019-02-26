@@ -4,11 +4,7 @@ import { translate } from 'react-i18next';
 import keyCode from 'keycode';
 import CircularProgress from '@talend/react-components/lib/CircularProgress';
 import FieldTemplate from '../FieldTemplate';
-import {
-	generateId,
-	generateDescriptionId,
-	generateErrorId,
-} from '../../Message/generateId';
+import { generateId, generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
