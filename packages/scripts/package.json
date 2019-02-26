@@ -37,6 +37,7 @@
     "clean-webpack-plugin": "^1.0.1",
     "copy-webpack-plugin": "^4.6.0",
     "core-js": "^2.6.5",
+    "cpx": "^1.5.0",
     "cross-spawn": "^6.0.4",
     "css-loader": "^1.0.1",
     "enzyme": "^3.7.0",
