@@ -16,9 +16,6 @@ const options = {
 	rowHeight: cache.rowHeight,
 };
 
-function onMeasure(measure) {
-	measure();
-}
 /**
  * Row renderer that displays a Collapsible Panel
  */
@@ -59,8 +56,8 @@ class RowCollapsiblePanel extends React.Component {
 						style={style}
 					>
 						<CollapsiblePanel
-							onEntered={() => onMeasure(measure)}
-							onExited={() => onMeasure(measure)}
+							onEntered={measure}
+							onExited={measure}
 							onToggle={this.onToggle}
 							{...rowData}
 						/>

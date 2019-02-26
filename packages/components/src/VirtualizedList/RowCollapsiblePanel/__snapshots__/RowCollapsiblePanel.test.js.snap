@@ -40,8 +40,8 @@ exports[`RowCollapsiblePanel should render collapsible panel row 1`] = `
         },
       ]
     }
-    onEntered={[Function]}
-    onExited={[Function]}
+    onEntered={[MockFunction]}
+    onExited={[MockFunction]}
     onToggle={[Function]}
   />
 </div>
