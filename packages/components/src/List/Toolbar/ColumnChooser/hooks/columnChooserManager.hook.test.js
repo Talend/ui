@@ -85,7 +85,7 @@ describe('useColumnChooserManager', () => {
 		const wrapper = mount(<MyTestComponent />);
 		wrapper.find('button').simulate('click');
 		// then
-		expect(customSubmit).toHaveBeenCalledWith(event, { selectAll: false, editedColumns: columns });
+		expect(customSubmit).toHaveBeenCalledWith(event, columns);
 	});
 	it('should have changed all columns visibility to true', () => {
 		// given
@@ -103,7 +103,7 @@ describe('useColumnChooserManager', () => {
 		wrapper.find('button').simulate('click');
 		// then
 		expect(state.editedColumns).toEqual([
-			{ hidden: true, label: 'label1', locked: true, order: 1 },
+			{ hidden: false, label: 'label1', locked: true, order: 1 },
 			{ hidden: true, label: 'label2', locked: false, order: 2 },
 			{ hidden: true, label: 'label3', locked: false, order: 3 },
 		]);
