@@ -1,11 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DateTime.Validation.Error should render 1`] = `
-<div
-  className=""
->
-  <span>
-    Date format is invalid
-  </span>
-</div>
+<Error
+  errors={
+    Array [
+      Object {
+        "code": "INVALID_DATE_FORMAT",
+        "message": "INVALID_DATE_FORMAT",
+      },
+    ]
+  }
+/>
 `;
