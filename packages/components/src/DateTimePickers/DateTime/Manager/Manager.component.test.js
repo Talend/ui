@@ -446,7 +446,9 @@ describe('DateTime.Manager', () => {
 				expect(onChange).toBeCalled();
 				const args = onChange.mock.calls[0];
 				expect(args[0]).toBe(event);
-				expect(args[1].errors).toEqual([{ code: 'INVALID_HOUR', message: 'Hour must be between 00 and 23' }]);
+				expect(args[1].errors).toEqual([
+					{ code: 'INVALID_HOUR', message: 'Hour must be between 00 and 23' },
+				]);
 				expect(args[1].errorMessage).toBe('Hour must be between 00 and 23');
 				expect(isNaN(args[1].datetime.getTime())).toBe(true);
 				expect(args[1].origin).toBe('PICKER');
