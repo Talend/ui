@@ -354,7 +354,7 @@ const collapsibleListCollection = [
 			},
 		],
 		expanded: true,
-		children: <div>HELLO WORLDa</div>,
+		children: <div>HELLO WORLD</div>,
 	},
 	{
 		header: [
@@ -402,10 +402,36 @@ const collapsibleListCollection = [
 	},
 ];
 
-const sourceItems = [...new Array(20000)].map(
+const sourceItems = [...new Array(50)].map(
 	(item, index) => collapsibleListCollection[index % collapsibleListCollection.length],
 );
 
+
+function CollapsiblePanels(props) {
+	const [collection, setCollection] = React.useState(props.sourceItems);
+	return (
+		<div>
+			<h1>Virtualized List with Collapsible Panels</h1>
+			<IconsProvider defaultIcons={icons} />
+			<section style={{ height: '90vh' }}>
+				<VirtualizedList
+					collection={collection}
+					onRowClick={(event, rowItem) => {
+						action('onRowClick');
+						collection[rowItem.index] = {
+							...rowItem,
+							expanded: !rowItem.expanded,
+						};
+						setCollection([...collection]);
+					}}
+					onScroll={action('onScroll')}
+					id={'my-list'}
+					type={listTypes.COLLAPSIBLE_PANEL}
+				/>
+			</section>
+		</div>
+	);
+}
 storiesOf('VirtualizedList', module)
 
 	.add('List > Table', () => (
@@ -670,21 +696,7 @@ storiesOf('VirtualizedList', module)
 			</section>
 		</div>
 	))
-	.add('List > CollapsiblePanels', () => (
-		<div>
-			<h1>Virtualized List with Collapsible Panels</h1>
-			<IconsProvider defaultIcons={icons} />
-			<section style={{ height: '50vh' }}>
-				<VirtualizedList
-					collection={sourceItems}
-					onRowClick={action('onRowClick')}
-					onScroll={action('onScroll')}
-					id={'my-list'}
-					type={listTypes.COLLAPSIBLE_PANEL}
-				/>
-			</section>
-		</div>
-	))
+	.add('List > CollapsiblePanels', () => (<CollapsiblePanels sourceItems={sourceItems} />))
 	.add('List > Table without header', () => (
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>
