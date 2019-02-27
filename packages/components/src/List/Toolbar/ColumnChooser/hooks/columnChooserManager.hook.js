@@ -102,15 +102,16 @@ export function useColumnChooserManager(columns, customSubmit) {
 	}
 
 	function onSelectAll(event, value) {
+		state.editedColumns.forEach(updateAttributeVisiblity(!value));
 		setState({
 			...state,
-			editedColumns: state.editedColumns.forEach(updateAttributeVisiblity(!value)),
+			editedColumns: state.editedColumns,
 			selectAll: value,
 		});
 	}
 
 	function onSubmitColumnChooser(event) {
-		customSubmit(event, { ...state, editedColumns: cloneDeep(state.editedColumns) });
+		customSubmit(event, cloneDeep(state.editedColumns));
 	}
 
 	return {

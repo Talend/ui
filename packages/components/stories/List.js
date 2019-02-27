@@ -922,7 +922,7 @@ function ListColumnChooser({ list, ...rest }) {
 	}
 	/*
 		If you need to have complete control, do not use useColumnChooserClient.
-		Do whereever you want :
+		Do what ever you want :
 		const mergedColumns =
 			columnChooserService.utils.mergedColumnsChooser(
 				props.list.columns,
@@ -933,17 +933,17 @@ function ListColumnChooser({ list, ...rest }) {
 					list={{...list, columns: mergedColumns }}
 					columnChooser={{ submitCustomChooser: myCustomSubmit, columns: mergedColumns}} />
 	*/
-	const hookColumnChooser = columnChooserHooks.useColumnChooserClient(
-		list.columns,
-		mySubmitCustomListColumnChooser,
-	);
+	const {
+		stateColumnChooserClient,
+		submitColumnChooser,
+	} = columnChooserHooks.useColumnChooserClient(list.columns, mySubmitCustomListColumnChooser);
 	const enrichedList = {
 		...list,
-		columns: hookColumnChooser.state.columns,
+		columns: stateColumnChooserClient.columns,
 	};
 	const columnChooser = {
-		columns: hookColumnChooser.state.columns,
-		submitColumnChooser: hookColumnChooser.submitColumnChooser,
+		columns: stateColumnChooserClient.columns,
+		submitColumnChooser,
 	};
 	return <List {...rest} list={enrichedList} columnChooser={columnChooser} />;
 }
