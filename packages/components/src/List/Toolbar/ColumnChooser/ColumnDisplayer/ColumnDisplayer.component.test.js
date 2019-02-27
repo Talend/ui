@@ -33,6 +33,21 @@ describe('ColumnVisibility', () => {
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+	it('should trigger onChange event', () => {
+		// given
+		const props = {
+			locked: false,
+			onChange,
+			value,
+			t,
+		};
+		const event = {};
+		// when
+		const wrapper = shallow(<ColumnVisibility {...props} />);
+		wrapper.find('input').simulate('change', event);
+		// then
+		expect(props.onChange).toHaveBeenCalledWith(event, !props.value);
+	});
 });
 
 describe('ColumnDisplayer', () => {

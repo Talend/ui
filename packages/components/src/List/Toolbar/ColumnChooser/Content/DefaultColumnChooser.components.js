@@ -17,18 +17,19 @@ DefaultHeader.propTypes = {
 	t: PropTypes.func.isRequired,
 };
 
-export const getColumnDisplay = (length, onChangeVisibility, onBlurOrder, onKeyPressOrder, t) => {
-	return (column, index) => {
-		const displayerProps = {
-			...column,
-			length,
-			onBlurOrder: onBlurOrder(index),
-			onChangeVisibility: onChangeVisibility(index),
-			onKeyPressOrder: onKeyPressOrder(index),
-			t,
-		};
-		return <ColumnDisplayer key={column.label} {...displayerProps} />;
+export const getColumnDisplay = (length, onChangeVisibility, onBlurOrder, onKeyPressOrder, t) => (
+	column,
+	index,
+) => {
+	const displayerProps = {
+		...column,
+		length,
+		onBlurOrder: onBlurOrder(index),
+		onChangeVisibility: onChangeVisibility(index),
+		onKeyPressOrder: onKeyPressOrder(index),
+		t,
 	};
+	return <ColumnDisplayer key={column.label} {...displayerProps} />;
 };
 
 export const DefaultBody = ({ columns, onChangeVisibility, onBlurOrder, onKeyPressOrder, t }) => (

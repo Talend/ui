@@ -68,7 +68,14 @@ ListToolbar.propTypes = {
 	toolbar: PropTypes.shape(omit(Toolbar.propTypes, 't')),
 	columnChooser: PropTypes.shape({
 		submitColumnChooser: PropTypes.func.isRequired,
-		columns: PropTypes.array.isRequired,
+		columns: PropTypes.arrayOf(
+			PropTypes.shape({
+				hidden: PropTypes.bool,
+				label: PropTypes.string.isRequired,
+				locked: PropTypes.bool,
+				order: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+			}),
+		).isRequired,
 	}),
 };
 

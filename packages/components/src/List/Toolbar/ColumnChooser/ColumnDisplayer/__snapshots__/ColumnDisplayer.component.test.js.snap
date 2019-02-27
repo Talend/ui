@@ -20,8 +20,18 @@ exports[`ColumnDisplayer should render 1`] = `
                 "defaultValue": "change visibility",
               },
             ],
+            Array [
+              "CHECKBOX_VISIBILITY_COLUMN_CHOOSER",
+              Object {
+                "defaultValue": "change visibility",
+              },
+            ],
           ],
           "results": Array [
+            Object {
+              "isThrow": false,
+              "value": "change visibility",
+            },
             Object {
               "isThrow": false,
               "value": "change visibility",
@@ -54,8 +64,18 @@ exports[`ColumnDisplayer should render 1`] = `
                 "defaultValue": "change visibility",
               },
             ],
+            Array [
+              "CHECKBOX_VISIBILITY_COLUMN_CHOOSER",
+              Object {
+                "defaultValue": "change visibility",
+              },
+            ],
           ],
           "results": Array [
+            Object {
+              "isThrow": false,
+              "value": "change visibility",
+            },
             Object {
               "isThrow": false,
               "value": "change visibility",

@@ -7,7 +7,7 @@
 .tc-column-chooser-body {
 	display: flex;
 	flex-direction: column;
-	width: 100%;
+	width: 100vw;
 	overflow-y: auto;
 	overflow-x: hidden;
 }
@@ -16,7 +16,7 @@
 	align-items: center;
 	display: flex;
 	justify-content: space-between;
-	width: 100%;
+	width: 100vw;
 	&-select-all {
 		align-items: center;
 		display: flex;

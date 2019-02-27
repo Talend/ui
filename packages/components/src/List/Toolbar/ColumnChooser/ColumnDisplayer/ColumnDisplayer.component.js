@@ -19,7 +19,7 @@ export const ColumnVisibility = ({ onChange, locked, value, t }) => {
 				theme['tc-column-displayer-visibility-checkbox'],
 				'tc-column-displayer-visibility-checkbox',
 			)}
-			onChange={() => onChange(event, !value)}
+			onChange={event => onChange(event, !value)}
 			type="checkbox"
 			checked={!value}
 			value={!value}

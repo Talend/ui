@@ -4,16 +4,14 @@ import ColumnChooserContent from './ColumnChooserContent.component';
 import { useColumnChooserManager } from '../hooks';
 
 jest.mock('../hooks');
-useColumnChooserManager.mockImplementation(() => {
-	return {
-		onChangeVisibility: jest.fn(),
-		onBlurInputTextOrder: jest.fn(),
-		onKeyPressInputTextOrder: jest.fn(),
-		onSelectAll: jest.fn(),
-		onSubmitColumnChooser: jest.fn(),
-		stateColumnChooser: { editedColumns: [], selectAll: false },
-	};
-});
+useColumnChooserManager.mockImplementation(() => ({
+	onChangeVisibility: jest.fn(),
+	onBlurInputTextOrder: jest.fn(),
+	onKeyPressInputTextOrder: jest.fn(),
+	onSelectAll: jest.fn(),
+	onSubmitColumnChooser: jest.fn(),
+	stateColumnChooser: { editedColumns: [], selectAll: false },
+}));
 
 const t = jest.fn((_, translationValue) => translationValue.defaultValue);
 
