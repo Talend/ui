@@ -207,8 +207,8 @@ describe('Datalist component', () => {
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
-		input.simulate('change', { target: { value: 'fo' } });
-		expect(wrapper.find(Typeahead).props().items.length).toBe(2);
+		input.simulate('change', { target: { value: 'fow' } });
+		expect(wrapper.find(Typeahead).props().items.length).toBe(0);
 
 		// when
 		input.simulate('blur');
@@ -216,6 +216,36 @@ describe('Datalist component', () => {
 		// then
 		expect(onChange).not.toBeCalled();
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
+	});
+
+	it('should change the value on blur in restricted mode and value matches with one suggestion', () => {
+		// given
+		const onChange = jest.fn();
+		const wrapper = mount(
+			<Datalist
+				id="my-datalist"
+				isValid
+				multiSection={false}
+				errorMessage={'This should be correct'}
+				onChange={onChange}
+				{...props}
+				value={'foo'}
+				restricted
+			/>,
+		);
+		const input = wrapper.find('input').at(0);
+		input.simulate('change', { target: { value: 'fo' } });
+		expect(wrapper.find(Typeahead).props().items.length).toBe(2);
+
+		// when
+		input.simulate('blur');
+
+		// then
+		expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'foo' });
+		expect(wrapper.find(Typeahead).props().items).toEqual([
+			{ description: 'foo description', name: 'foo', value: 'foo' },
+			{ description: 'foobar description', name: 'foobar', value: 'foobar' },
+		]);
 	});
 
 	it('should update show all suggestions on focus even if a value is selected', () => {
