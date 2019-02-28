@@ -248,6 +248,54 @@ describe('Datalist component', () => {
 		]);
 	});
 
+	it('should select the first no disabled suggestion on blur', () => {
+		const propsWithDisabledItems = {
+			...props,
+			titleMap: [
+				{
+					disabled: true,
+					name: 'foo-disabled',
+					value: 'foo-disabled',
+					description: 'disabled foo',
+				},
+				...props.titleMap,
+			],
+		};
+		// given
+		const onChange = jest.fn();
+		const wrapper = mount(
+			<Datalist
+				id="my-datalist"
+				isValid
+				multiSection={false}
+				errorMessage={'This should be correct'}
+				onChange={onChange}
+				{...propsWithDisabledItems}
+				value={'foo'}
+				restricted
+			/>,
+		);
+		const input = wrapper.find('input').at(0);
+		input.simulate('change', { target: { value: 'fo' } });
+		expect(wrapper.find(Typeahead).props().items.length).toBe(3);
+
+		// when
+		input.simulate('blur');
+
+		// then
+		expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'foo' });
+		expect(wrapper.find(Typeahead).props().items).toEqual([
+			{
+				disabled: true,
+				name: 'foo-disabled',
+				value: 'foo-disabled',
+				description: 'disabled foo',
+			},
+			{ description: 'foo description', name: 'foo', value: 'foo' },
+			{ description: 'foobar description', name: 'foobar', value: 'foobar' },
+		]);
+	});
+
 	it('should update show all suggestions on focus even if a value is selected', () => {
 		// given
 		const wrapper = mount(
