@@ -41,9 +41,6 @@ function getSassData(userSassData) {
 			.map(key => `${key}: ${userSassData.data[key]};`)
 			.concat(sassData);
 	}
-	if (userSassData && userSassData.theme) {
-		sassData.push(`@import '~@talend/bootstrap-theme/src/theme/variations/${userSassData.theme}';`);
-	}
 
 	return sassData.join('\n');
 }
@@ -59,6 +56,7 @@ function getCommonStyleLoaders(enableModules, mode) {
 		};
 	}
 	return [
+		{ loader: 'cache-loader' },
 		{ loader: MiniCssExtractPlugin.loader },
 		{ loader: 'css-loader', options: cssOptions },
 		{
@@ -138,6 +136,7 @@ function getVersions() {
 
 function getJSLoaders(angularLegacy) {
 	const loaders = [
+		{ loader: 'cache-loader' },
 		{
 			loader: 'babel-loader',
 			options: babelrc,
@@ -160,6 +159,7 @@ function getJSLoaders(angularLegacy) {
 
 function getHTMLLoaders(angularLegacy) {
 	const loaders = [
+		{ loader: 'cache-loader' },
 		{
 			loader: 'html-loader',
 			options: {
@@ -183,6 +183,7 @@ module.exports = ({ getUserConfig, mode }) => {
 	const userHtmlConfig = getUserConfig('html');
 	const appLoaderIcon = getUserConfig(['html', 'appLoaderIcon'], DEFAULT_APP_LOADER_ICON);
 	const userSassData = getUserConfig('sass');
+	const { theme } = userSassData;
 
 	const sassData = getSassData(userSassData);
 	const indexTemplatePath = `${process.cwd()}/src/app/index.html`;
@@ -190,6 +191,10 @@ module.exports = ({ getUserConfig, mode }) => {
 	return {
 		entry: {
 			polyfills: ['@babel/polyfill', 'whatwg-fetch'],
+			style: [
+				'@talend/bootstrap-theme/src/theme/theme.scss',
+				theme && `@talend/bootstrap-theme/src/theme/variations/_${theme}.scss`,
+			].filter(Boolean),
 			app: `${process.cwd()}/src/app/index.js`,
 		},
 		output: {
