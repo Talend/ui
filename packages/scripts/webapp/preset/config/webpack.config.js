@@ -56,7 +56,6 @@ function getCommonStyleLoaders(enableModules, mode) {
 		};
 	}
 	return [
-		{ loader: 'cache-loader' },
 		{ loader: MiniCssExtractPlugin.loader },
 		{ loader: 'css-loader', options: cssOptions },
 		{
@@ -177,12 +176,22 @@ function getHTMLLoaders(angularLegacy) {
 	return loaders;
 }
 
+function getCopyConfig(userCopyConfig) {
+	const config = [...userCopyConfig];
+	const assetsOverridden = config.some(({ from }) => from === 'src/assets');
+	if (!assetsOverridden) {
+		config.push({ from: 'src/assets' });
+	}
+	return config;
+}
+
 module.exports = ({ getUserConfig, mode }) => {
 	const angularLegacy = getUserConfig('angular-legacy');
 	const cssModulesEnabled = getUserConfig(['css', 'modules'], true);
 	const userHtmlConfig = getUserConfig('html');
 	const appLoaderIcon = getUserConfig(['html', 'appLoaderIcon'], DEFAULT_APP_LOADER_ICON);
 	const userSassData = getUserConfig('sass');
+	const userCopyConfig = getUserConfig('copy');
 	const { theme } = userSassData;
 
 	const sassData = getSassData(userSassData);
@@ -269,9 +278,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				BUILD_TIMESTAMP: Date.now(),
 				TALEND_APP_INFO: JSON.stringify(getVersions()),
 			}),
-			new MiniCssExtractPlugin({
-				filename: '[name]-[hash].css',
-			}),
+			new MiniCssExtractPlugin({ filename: '[name]-[hash].css' }),
 			new HtmlWebpackPlugin({
 				filename: './index.html',
 				template: indexTemplatePath,
@@ -279,10 +286,8 @@ module.exports = ({ getUserConfig, mode }) => {
 				...userHtmlConfig,
 			}),
 			new TalendHTML({ appLoaderIcon }),
-			new CopyWebpackPlugin([{ from: 'src/assets' }]),
-			new webpack.BannerPlugin({
-				banner: LICENSE_BANNER,
-			}),
+			new CopyWebpackPlugin(getCopyConfig(userCopyConfig)),
+			new webpack.BannerPlugin({ banner: LICENSE_BANNER }),
 		],
 	};
 };
