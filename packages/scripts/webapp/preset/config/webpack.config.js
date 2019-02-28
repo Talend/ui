@@ -33,10 +33,9 @@ if (fs.existsSync(userBabelrc)) {
 	babelrc = require('./.babelrc.json');
 }
 
-function getSassData(getUserConfig) {
+function getSassData(userSassData) {
 	let sassData = ["@import '~@talend/bootstrap-theme/src/theme/guidelines';"];
 
-	const userSassData = getUserConfig('sass');
 	if (userSassData && userSassData.data) {
 		sassData = Object.keys(userSassData.data)
 			.map(key => `${key}: ${userSassData.data[key]};`)
@@ -137,11 +136,62 @@ function getVersions() {
 	};
 }
 
+function getJSLoaders(angularLegacy) {
+	const loaders = [
+		{
+			loader: 'babel-loader',
+			options: babelrc,
+		},
+	];
+
+	if (angularLegacy) {
+		loaders.unshift({
+			loader: 'ng-annotate-loader',
+			options: {
+				ngAnnotate: 'ng-annotate-patched',
+				es6: true,
+				explicitOnly: false,
+			},
+		});
+	}
+
+	return loaders;
+}
+
+function getHTMLLoaders(angularLegacy) {
+	const loaders = [
+		{
+			loader: 'html-loader',
+			options: {
+				minimize: true,
+				removeComments: true,
+				collapseWhitespace: true,
+			},
+		},
+	];
+
+	if (angularLegacy) {
+		loaders.unshift({ loader: 'ngtemplate-loader' });
+	}
+
+	return loaders;
+}
+
 module.exports = ({ getUserConfig, mode }) => {
-	const sassData = getSassData(getUserConfig);
+	const angularLegacy = getUserConfig('angular-legacy');
+	const cssModulesEnabled = getUserConfig(['css', 'modules'], true);
+	const userHtmlConfig = getUserConfig('html');
+	const appLoaderIcon = getUserConfig(['html', 'appLoaderIcon'], DEFAULT_APP_LOADER_ICON);
+	const userSassData = getUserConfig('sass');
+
+	const sassData = getSassData(userSassData);
+	const indexTemplatePath = `${process.cwd()}/src/app/index.html`;
 
 	return {
-		entry: ['@babel/polyfill', 'whatwg-fetch', `${process.cwd()}/src/app/index.js`],
+		entry: {
+			polyfills: ['@babel/polyfill', 'whatwg-fetch'],
+			app: `${process.cwd()}/src/app/index.js`,
+		},
 		output: {
 			filename: '[name]-[hash].js',
 			publicPath: '/',
@@ -151,10 +201,12 @@ module.exports = ({ getUserConfig, mode }) => {
 				{
 					test: /\.js$/,
 					exclude: /node_modules/,
-					use: {
-						loader: 'babel-loader',
-						options: babelrc,
-					},
+					use: getJSLoaders(angularLegacy),
+				},
+				{
+					test: /\.html$/,
+					use: getHTMLLoaders(angularLegacy),
+					exclude: indexTemplatePath,
 				},
 				{
 					test: /\.css$/,
@@ -174,7 +226,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				},
 				{
 					test: /\.scss$/,
-					use: getSassLoaders(getUserConfig(['css', 'modules'], true), sassData, mode),
+					use: getSassLoaders(cssModulesEnabled, sassData, mode),
 					exclude: /@talend/,
 				},
 				{
@@ -217,13 +269,11 @@ module.exports = ({ getUserConfig, mode }) => {
 			}),
 			new HtmlWebpackPlugin({
 				filename: './index.html',
-				template: `${process.cwd()}/src/app/index.html`,
+				template: indexTemplatePath,
 				appLoader: AppLoader.APP_LOADER,
-				...getUserConfig('html'),
+				...userHtmlConfig,
 			}),
-			new TalendHTML({
-				appLoaderIcon: getUserConfig(['html', 'appLoaderIcon'], DEFAULT_APP_LOADER_ICON),
-			}),
+			new TalendHTML({ appLoaderIcon }),
 			new CopyWebpackPlugin([{ from: 'src/assets' }]),
 			new webpack.BannerPlugin({
 				banner: LICENSE_BANNER,
