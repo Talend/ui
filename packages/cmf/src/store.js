@@ -20,11 +20,7 @@ const enhancers = [];
 const middlewares = [thunk, cmfMiddleware];
 
 if (window) {
-	// eslint-disable-next-line no-underscore-dangle
-	if (window.__REDUX_DEVTOOLS_EXTENSION__) {
-		// eslint-disable-next-line no-underscore-dangle
-		enhancers.push(window.__REDUX_DEVTOOLS_EXTENSION__());
-	} else if (window.devToolsExtension) {
+	if (window.devToolsExtension) {
 		enhancers.push(window.devToolsExtension());
 	}
 }
