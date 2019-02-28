@@ -21,7 +21,7 @@ module.exports = {
 
 	// deps: non component libs
 	ajv: '^6.2.1',
-	'bootstrap-sass': '3.3.7',
+	'bootstrap-sass': '3.4.1',
 	'bson-objectid': '^1.1.5',
 	classnames: '^2.2.5',
 	'date-fns': '^1.27.2',
@@ -128,7 +128,7 @@ module.exports = {
 	'url-loader': '^1.1.2',
 	webpack: '^4.19.0',
 	'webpack-cli': '^3.1.0',
-	'webpack-bundle-analyzer': '^2.9.0',
+	'webpack-bundle-analyzer': '^3.0.4',
 	'webpack-dashboard': '^2.0.0',
 	'webpack-dev-server': '^3.1.11',
 };

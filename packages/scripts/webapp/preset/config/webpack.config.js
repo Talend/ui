@@ -1,4 +1,7 @@
 /* eslint-disable no-console */
+const path = require('path');
+const childProcess = require('child_process');
+
 const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -61,6 +64,63 @@ function getSassLoaders(enableModules, sassData, mode) {
 	});
 }
 
+function getVersions() {
+	const talendUi = [
+		'@talend/bootstrap-theme',
+		'@talend/icons',
+		'@talend/react-cmf',
+		'@talend/react-cmf-cqrs',
+		'@talend/react-components',
+		'@talend/react-containers',
+		'@talend/react-forms',
+		'@talend/react-sagas',
+	];
+	let sha1;
+	try {
+		// eslint-disable-next-line global-require
+		sha1 = require(path.join(process.cwd(), 'sha1.json'));
+	} catch (e) {
+		sha1 = {};
+	}
+	// eslint-disable-next-line global-require
+	const packageJson = require(path.join(process.cwd(), 'package.json'));
+
+	let talendUiVersion;
+	const talendLibraries = Object.entries(packageJson.dependencies)
+		.filter(([name]) => name.startsWith('@talend'))
+		.reduce((acc, [name, version]) => {
+			if (talendUi.includes(name)) {
+				talendUiVersion = version;
+			} else {
+				acc.push({
+					name,
+					version,
+					sha1: sha1[name],
+				});
+			}
+			return acc;
+		}, []);
+
+	if (talendUiVersion) {
+		talendLibraries.push({
+			name: '@talend/ui',
+			version: talendUiVersion,
+			sha1: sha1['@talend/ui'],
+		});
+	}
+
+	return {
+		version: packageJson.version,
+		talendLibraries,
+		revision:
+			process.env.GIT_COMMIT ||
+			childProcess
+				.execSync('git rev-parse HEAD')
+				.toString()
+				.trim(),
+	};
+}
+
 module.exports = ({ getUserConfig, mode }) => {
 	const sassData = getSassData(getUserConfig);
 
@@ -68,6 +128,7 @@ module.exports = ({ getUserConfig, mode }) => {
 		entry: ['@babel/polyfill', 'whatwg-fetch', `${process.cwd()}/src/app/index.js`],
 		output: {
 			filename: '[name]-[hash].js',
+			publicPath: '/',
 		},
 		module: {
 			rules: [
@@ -131,7 +192,10 @@ module.exports = ({ getUserConfig, mode }) => {
 		},
 		plugins: [
 			new CleanWebpackPlugin(['dist'], { verbose: true, root: process.cwd() }),
-			new webpack.DefinePlugin({ BUILD_TIMESTAMP: Date.now() }),
+			new webpack.DefinePlugin({
+				BUILD_TIMESTAMP: Date.now(),
+				TALEND_APP_INFO: JSON.stringify(getVersions()),
+			}),
 			new MiniCssExtractPlugin({
 				filename: '[name]-[hash].css',
 			}),
