@@ -5,7 +5,7 @@ exports[`DateTime.Validation.Error should render 1`] = `
   className=""
 >
   <span>
-    Date format is invalid
+    INVALID_DATE_FORMAT
   </span>
 </div>
 `;

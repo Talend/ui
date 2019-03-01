@@ -343,8 +343,10 @@ describe('Date extraction', () => {
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
 			expect(parts.textInput).toBe('2015-09-15 66:58:12');
 			expect(parts.time).toBe(time);
-			expect(parts.errors).toEqual([{ code: 'INVALID_HOUR', message: 'INVALID_HOUR_NUMBER' }]);
-			expect(parts.errorMessage).toBe('INVALID_HOUR_NUMBER');
+			expect(parts.errors).toEqual([
+				{ code: 'INVALID_HOUR', message: 'Hour must be between 00 and 23' },
+			]);
+			expect(parts.errorMessage).toBe('Hour must be between 00 and 23');
 		});
 
 		it('should extract parts with invalid minutes', () => {
@@ -366,9 +368,9 @@ describe('Date extraction', () => {
 			expect(parts.textInput).toBe('2015-09-15 12:66:12');
 			expect(parts.time).toBe(time);
 			expect(parts.errors).toEqual([
-				{ code: 'INVALID_MINUTES', message: 'INVALID_MINUTES_NUMBER' },
+				{ code: 'INVALID_MINUTES', message: 'Minutes value must be between 00 and 59' },
 			]);
-			expect(parts.errorMessage).toBe('INVALID_MINUTES_NUMBER');
+			expect(parts.errorMessage).toBe('Minutes value must be between 00 and 59');
 		});
 
 		it('should extract parts with invalid minutes and seconds', () => {
@@ -390,10 +392,10 @@ describe('Date extraction', () => {
 			expect(parts.textInput).toBe('2015-09-15 12:90:66');
 			expect(parts.time).toBe(time);
 			expect(parts.errors).toEqual([
-				{ code: 'INVALID_MINUTES', message: 'INVALID_MINUTES_NUMBER' },
-				{ code: 'INVALID_SECONDS', message: 'INVALID_SECONDS_NUMBER' },
+				{ code: 'INVALID_MINUTES', message: 'Minutes value must be between 00 and 59' },
+				{ code: 'INVALID_SECONDS', message: 'Seconds value must be between 00 and 59' },
 			]);
-			expect(parts.errorMessage).toBe('INVALID_MINUTES_NUMBER');
+			expect(parts.errorMessage).toBe('Minutes value must be between 00 and 59');
 		});
 
 		it('should extract parts with invalid date', () => {
@@ -545,9 +547,12 @@ describe('Date extraction', () => {
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
 			expect(parts.textInput).toBe(textInput);
 			expect(parts.time).toEqual({ hours: '22', minutes: '58', seconds: '12' });
-			expect(parts.errorMessage).toBe('INVALID_DAY_OF_MONTH');
+			expect(parts.errorMessage).toBe("Day value doesn't match an existing day in the month");
 			expect(parts.errors).toEqual([
-				{ code: 'INVALID_DAY_OF_MONTH', message: 'INVALID_DAY_OF_MONTH' },
+				{
+					code: 'INVALID_DAY_OF_MONTH',
+					message: "Day value doesn't match an existing day in the month",
+				},
 			]);
 		});
 
@@ -568,8 +573,10 @@ describe('Date extraction', () => {
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
 			expect(parts.textInput).toBe(textInput);
 			expect(parts.time).toEqual({ hours: '22', minutes: '58', seconds: '12' });
-			expect(parts.errorMessage).toBe('INVALID_MONTH_NUMBER');
-			expect(parts.errors).toEqual([{ code: 'INVALID_MONTH', message: 'INVALID_MONTH_NUMBER' }]);
+			expect(parts.errorMessage).toBe('Month must be between 01 and 12');
+			expect(parts.errors).toEqual([
+				{ code: 'INVALID_MONTH', message: 'Month must be between 01 and 12' },
+			]);
 		});
 
 		it('should extract parts with hour', () => {
@@ -589,8 +596,10 @@ describe('Date extraction', () => {
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
 			expect(parts.textInput).toBe(textInput);
 			expect(parts.time).toEqual({ hours: '66', minutes: '58', seconds: '12' });
-			expect(parts.errorMessage).toBe('INVALID_HOUR_NUMBER');
-			expect(parts.errors).toEqual([{ code: 'INVALID_HOUR', message: 'INVALID_HOUR_NUMBER' }]);
+			expect(parts.errorMessage).toBe('Hour must be between 00 and 23');
+			expect(parts.errors).toEqual([
+				{ code: 'INVALID_HOUR', message: 'Hour must be between 00 and 23' },
+			]);
 		});
 
 		it('should extract parts with invalid hours and minutes', () => {
@@ -610,10 +619,10 @@ describe('Date extraction', () => {
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
 			expect(parts.textInput).toBe(textInput);
 			expect(parts.time).toEqual({ hours: '55', minutes: '66', seconds: '12' });
-			expect(parts.errorMessage).toBe('INVALID_HOUR_NUMBER');
+			expect(parts.errorMessage).toBe('Hour must be between 00 and 23');
 			expect(parts.errors).toEqual([
-				{ code: 'INVALID_HOUR', message: 'INVALID_HOUR_NUMBER' },
-				{ code: 'INVALID_MINUTES', message: 'INVALID_MINUTES_NUMBER' },
+				{ code: 'INVALID_HOUR', message: 'Hour must be between 00 and 23' },
+				{ code: 'INVALID_MINUTES', message: 'Minutes value must be between 00 and 59' },
 			]);
 		});
 
@@ -634,11 +643,11 @@ describe('Date extraction', () => {
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
 			expect(parts.textInput).toBe(textInput);
 			expect(parts.time).toEqual({ hours: '44', minutes: '90', seconds: '66' });
-			expect(parts.errorMessage).toBe('INVALID_HOUR_NUMBER');
+			expect(parts.errorMessage).toBe('Hour must be between 00 and 23');
 			expect(parts.errors).toEqual([
-				{ code: 'INVALID_HOUR', message: 'INVALID_HOUR_NUMBER' },
-				{ code: 'INVALID_MINUTES', message: 'INVALID_MINUTES_NUMBER' },
-				{ code: 'INVALID_SECONDS', message: 'INVALID_SECONDS_NUMBER' },
+				{ code: 'INVALID_HOUR', message: 'Hour must be between 00 and 23' },
+				{ code: 'INVALID_MINUTES', message: 'Minutes value must be between 00 and 59' },
+				{ code: 'INVALID_SECONDS', message: 'Seconds value must be between 00 and 59' },
 			]);
 		});
 
@@ -739,7 +748,7 @@ describe('Date extraction', () => {
 
 			// then
 			expect(errors.length).toBe(1);
-			expect(errors[0].message).toBe('INVALID_HOUR_EMPTY');
+			expect(errors[0].message).toBe('Hour is required');
 		});
 		it('should return no error when option required is false', () => {
 			// when
