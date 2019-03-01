@@ -12,5 +12,5 @@ module.exports = () => ({
 		historyApiFallback: true,
 		contentBase: path.join(process.cwd(), '/dist'),
 	},
-	devtool: 'source-map',
+	devtool: 'eval',
 });
