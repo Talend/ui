@@ -4,6 +4,7 @@ import lastDayOfMonth from 'date-fns/last_day_of_month';
 import setSeconds from 'date-fns/set_seconds';
 import setDate from 'date-fns/set_date';
 import startOfSecond from 'date-fns/start_of_second';
+import getErrorMessage from './error-messages';
 
 const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
 const timePartRegex = new RegExp(/^(.*):(.*)$/);
@@ -12,7 +13,7 @@ const timeWithSecondsPartRegex = new RegExp(/^(.*):(.*):(.*)$/);
 const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
 
 export function DatePickerException(code, message) {
-	this.message = message;
+	this.message = getErrorMessage(message);
 	this.code = code;
 }
 
@@ -144,7 +145,7 @@ function checkHours(hours) {
  */
 function checkMinutes(minutes) {
 	const minsNum = Number(minutes);
-	if (minsNum === '') {
+	if (minutes === '') {
 		return new DatePickerException('INVALID_MINUTES', 'INVALID_MINUTES_EMPTY');
 	} else if (minutes.length !== 2 || isNaN(minsNum) || minsNum < 0 || minsNum > 59) {
 		return new DatePickerException('INVALID_MINUTES', 'INVALID_MINUTES_NUMBER');
