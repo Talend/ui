@@ -9,13 +9,6 @@ function matchOrder(value) {
 	};
 }
 
-function getItemOrder(order, index, length) {
-	if (index === length - 1) {
-		return order - 1;
-	}
-	return order + 1;
-}
-
 function updateEditedColumns(editedColumns) {
 	return function updateState(state) {
 		return {
@@ -57,23 +50,58 @@ export function changeAttribute(key) {
 const updateAttributeVisiblity = changeAttribute('hidden');
 const updateAttributeOrder = changeAttribute('order');
 
-export function useColumnChooserManager(columns, customSubmit) {
+function extractItemValues(item) {
+	return {
+		label: item.label,
+		order: item.order,
+		hidden: item.hidden,
+	};
+}
+
+function checkLockedItem(items, lockedLeftItems) {
+	return items.map((item, it) => {
+		// eslint-disable-next-line no-console
+		console.warn(`This item is locked ${item}: use the lockedItems props to lock item`);
+		if (it < lockedLeftItems) {
+			return { ...extractItemValues(item), locked: true };
+		}
+		return extractItemValues(item);
+	});
+}
+
+function modifyOrderItem(currentOrder, it, indexCurrent, replaceIndex, newOrder) {
+	if (it === indexCurrent) {
+		return updateAttributeOrder(newOrder);
+	}
+	if (indexCurrent < it && it <= replaceIndex) {
+		return updateAttributeOrder(currentOrder - 1);
+	}
+	if (indexCurrent > it && it >= replaceIndex) {
+		return updateAttributeOrder(currentOrder + 1);
+	}
+	return updateAttributeOrder(currentOrder);
+}
+
+function modifyOrderItems(currentIndex, replaceIndex, order) {
+	return function modifyOrderCollection(collection) {
+		collection.forEach((item, it) => {
+			modifyOrderItem(item.order, it, currentIndex, replaceIndex, order)(item);
+		});
+		return collection;
+	};
+}
+
+export function useColumnChooserManager(columns, customSubmit, lockedLeftItems) {
 	const [state, setState] = useState({
-		editedColumns: organiseEditedColumns(cloneDeep(columns)),
+		editedColumns: organiseEditedColumns(checkLockedItem(columns, lockedLeftItems)),
 		selectAll: false,
 	});
 
-	function getEditedColumnsLength() {
-		return state.editedColumns.length;
-	}
-
-	function modifyOrderTwoItems(value, index) {
-		const indexToReplace = state.editedColumns.findIndex(matchOrder(value));
-		const orderToReplace = getItemOrder(value, indexToReplace, getEditedColumnsLength());
-		if (indexToReplace > -1 && !state.editedColumns[indexToReplace].locked) {
+	function modifyOrders(order, currentIndex) {
+		const replaceIndex = state.editedColumns.findIndex(matchOrder(order));
+		if (replaceIndex > -1 && !state.editedColumns[replaceIndex].locked) {
 			flow([
-				updateAttributeOrder(orderToReplace, indexToReplace),
-				updateAttributeOrder(value, index),
+				modifyOrderItems(currentIndex, replaceIndex, order),
 				organiseEditedColumns,
 				updateEditedColumns,
 				setState,
@@ -91,13 +119,13 @@ export function useColumnChooserManager(columns, customSubmit) {
 
 	function onBlurInputTextOrder(index) {
 		return function onBlur(event, value) {
-			modifyOrderTwoItems(value, index);
+			modifyOrders(value, index);
 		};
 	}
 
 	function onKeyPressInputTextOrder(index) {
 		return function onKeyPress(event, value) {
-			modifyOrderTwoItems(value, index);
+			modifyOrders(value, index);
 		};
 	}
 

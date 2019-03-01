@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import RichLayout from '../../../../RichTooltip/RichLayout';
@@ -7,12 +8,14 @@ import { useColumnChooserManager } from '../hooks';
 import { DefaultHeader, DefaultBody, DefaultFooter } from './DefaultColumnChooser.components';
 
 export default function ColumnChooserContent({
-	id,
-	columns,
-	submitColumnChooser,
-	header,
 	body,
+	columns,
 	footer,
+	header,
+	id,
+	lockedLeftItems,
+	onClose,
+	submitColumnChooser,
 	t,
 }) {
 	const {
@@ -22,7 +25,15 @@ export default function ColumnChooserContent({
 		onSelectAll,
 		stateColumnChooser,
 		onSubmitColumnChooser,
-	} = useColumnChooserManager(columns, submitColumnChooser);
+	} = useColumnChooserManager(columns, submitColumnChooser, lockedLeftItems);
+
+	useEffect(() => {
+		// eslint-disable-next-line no-console
+		console.warn(
+			'Guideline and developpement of the ColumnChooser component still in progress. It may have breaking change in the future',
+		);
+	}, [id]);
+
 	return (
 		<div
 			id={`${id}-column-chooser-content`}
@@ -47,6 +58,7 @@ export default function ColumnChooserContent({
 							onSelectAll={onSelectAll}
 							selectAllValue={stateColumnChooser.selectAll}
 							submit={onSubmitColumnChooser}
+							onClose={onClose}
 							t={t}
 						/>
 					)
@@ -60,8 +72,10 @@ ColumnChooserContent.propTypes = {
 	body: PropTypes.object,
 	columns: PropTypes.array.isRequired,
 	footer: PropTypes.object,
-	submitColumnChooser: PropTypes.func.isRequired,
 	header: PropTypes.object,
 	id: PropTypes.string.isRequired,
+	lockedLeftItems: PropTypes.number,
+	onClose: PropTypes.func,
+	submitColumnChooser: PropTypes.func.isRequired,
 	t: PropTypes.func,
 };

@@ -51,37 +51,45 @@ DefaultBody.propTypes = {
 	t: PropTypes.func.isRequired,
 };
 
-export const DefaultFooter = ({ selectAllValue, onSelectAll, submit, t }) => (
-	<div className={classNames(theme['tc-column-chooser-footer'], 'tc-column-chooser-footer')}>
-		<span
-			className={classNames(
-				theme['tc-column-chooser-footer-select-all'],
-				'tc-column-chooser-footer-select-all',
-			)}
-		>
-			<span>
-				<input
-					id="select-all-checkbox"
-					name="selectAll"
-					aria-label="select all"
-					onChange={event => onSelectAll(event, !selectAllValue)}
-					type="checkbox"
-					checked={selectAllValue}
-					value={selectAllValue}
-				/>
+export const DefaultFooter = ({ onClose, onSelectAll, selectAllValue, submit, t }) => {
+	const onSubmit = event => {
+		submit(event);
+		onClose();
+	};
+	return (
+		<div className={classNames(theme['tc-column-chooser-footer'], 'tc-column-chooser-footer')}>
+			<span
+				className={classNames(
+					theme['tc-column-chooser-footer-select-all'],
+					'tc-column-chooser-footer-select-all',
+				)}
+			>
+				<span>
+					<input
+						id="select-all-checkbox"
+						name="selectAll"
+						aria-label="select all"
+						onChange={event => onSelectAll(event, !selectAllValue)}
+						type="checkbox"
+						checked={selectAllValue}
+						value={selectAllValue}
+					/>
+				</span>
+				<label id="select-all-label" htmlFor="selectAll">
+					Select All
+				</label>
 			</span>
-			<label id="select-all-label" htmlFor="selectAll">
-				Select All
-			</label>
-		</span>
-		<ActionButton
-			onClick={event => submit(event)}
-			label={t('COLUMN_CHOOSER_FOOTER_BUTTON', { defaultValue: 'Modify' })}
-		/>
-	</div>
-);
+			<ActionButton
+				type="button"
+				onClick={event => onSubmit(event)}
+				label={t('COLUMN_CHOOSER_FOOTER_BUTTON', { defaultValue: 'Modify' })}
+			/>
+		</div>
+	);
+};
 
 DefaultFooter.propTypes = {
+	onClose: PropTypes.func,
 	onSelectAll: PropTypes.func.isRequired,
 	selectAllValue: PropTypes.bool.isRequired,
 	submit: PropTypes.func.isRequired,

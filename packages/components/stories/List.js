@@ -166,8 +166,8 @@ const props = {
 	displayMode: 'table',
 	list: {
 		columns: [
-			{ key: 'id', label: 'Id', order: 1, locked: true },
-			{ key: 'name', label: 'Name', order: 2, locked: true },
+			{ key: 'id', label: 'Id', order: 1 },
+			{ key: 'name', label: 'Name', order: 2 },
 			{ key: 'author', label: 'Author', order: 3 },
 			{ key: 'created', label: 'Created', order: 6 },
 			{
@@ -916,13 +916,9 @@ storiesOf('List', module)
 	));
 
 function ListColumnChooser({ list, ...rest }) {
-	function mySubmitCustomListColumnChooser(event, editedColumns) {
-		// Do the logic you want
-		console.log('Hello beautifull hooks', editedColumns);
-	}
 	/*
+		ColumnChooserClient do the merge of your props columns and the column chooser columns for you.
 		If you need to have complete control, do not use useColumnChooserClient.
-		Do what ever you want :
 		const mergedColumns =
 			columnChooserService.utils.mergedColumnsChooser(
 				props.list.columns,
@@ -936,7 +932,7 @@ function ListColumnChooser({ list, ...rest }) {
 	const {
 		stateColumnChooserClient,
 		submitColumnChooser,
-	} = columnChooserHooks.useColumnChooserClient(list.columns, mySubmitCustomListColumnChooser);
+	} = columnChooserHooks.useColumnChooserClient(list.columns, action('My custom submit column chooser event'));
 	const enrichedList = {
 		...list,
 		columns: stateColumnChooserClient.columns,
@@ -944,6 +940,7 @@ function ListColumnChooser({ list, ...rest }) {
 	const columnChooser = {
 		columns: stateColumnChooserClient.columns,
 		submitColumnChooser,
+		lockedLeftItems: 2,
 	};
 	return <List {...rest} list={enrichedList} columnChooser={columnChooser} />;
 }
