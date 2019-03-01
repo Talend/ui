@@ -1,7 +1,11 @@
 {
   "extends": "airbnb",
   "parser": "babel-eslint",
+  "plugins": ["angular"],
   "rules": {
+    "angular/controller-name": [2, "/[A-Z].*Ctrl/"],
+    "angular/di": 0,
+    "angular/json-functions": 0,
     "arrow-parens": [2, "as-needed"],
     "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js"]}],
     "indent": ["error", "tab", { "SwitchCase": 1 }],
