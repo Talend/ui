@@ -20,12 +20,6 @@ $td-grip-resize-width: 6px !default;
 .td-header-component {
 	height: 100%;
 
-	> span {
-		// https://stackoverflow.com/questions/35464067/flexbox-not-working-on-button-or-fieldset-elements
-		display: flex;
-		flex-direction: column;
-	}
-
 	&:hover :global(.td-quality-bar) {
 		height: $td-quality-bar-hover-height;
 	}
