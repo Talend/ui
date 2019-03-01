@@ -909,7 +909,7 @@ storiesOf('List', module)
 			<p>
 				Display the list with the column chooser.
 				<br />
-				This is the default mode.
+				Using columnChooserClientHook.
 			</p>
 			<ListColumnChooser {...props} />
 		</div>

@@ -69,6 +69,14 @@ function checkLockedItem(items, lockedLeftItems) {
 	});
 }
 
+function checkVisibility(items) {
+	const hiddenItems = items.filter(item => !item.hidden || item.locked);
+	if (hiddenItems) {
+		return hiddenItems.length === items.length;
+	}
+	return false;
+}
+
 function modifyOrderItem(currentOrder, it, indexCurrent, replaceIndex, newOrder) {
 	if (it === indexCurrent) {
 		return updateAttributeOrder(newOrder);
@@ -92,9 +100,10 @@ function modifyOrderItems(currentIndex, replaceIndex, order) {
 }
 
 export function useColumnChooserManager(columns, customSubmit, lockedLeftItems) {
+	const sanitizeItems = checkLockedItem(columns, lockedLeftItems);
 	const [state, setState] = useState({
-		editedColumns: organiseEditedColumns(checkLockedItem(columns, lockedLeftItems)),
-		selectAll: false,
+		editedColumns: organiseEditedColumns(sanitizeItems),
+		selectAll: checkVisibility(sanitizeItems),
 	});
 
 	function modifyOrders(order, currentIndex) {
