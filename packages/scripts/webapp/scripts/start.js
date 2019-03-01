@@ -10,7 +10,6 @@ module.exports = function start(env, _, options) {
 			'--inline',
 			'--config',
 			hereRelative(__dirname, '../config/webpack.config.js'),
-			'--open',
 			'--progress',
 			'--display-error-details',
 			...options,
