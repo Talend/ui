@@ -25,7 +25,6 @@ import SubHeaderBarExample from './ExampleSubHeaderBar';
 import EditableTextExample from './ExampleEditableText';
 import TabBarExample from './ExampleTabBar';
 import TypeaheadExample from './ExampleTypeahead';
-import POCList from './ExamplePOCList';
 
 export default {
 	AboutDialogExample,
