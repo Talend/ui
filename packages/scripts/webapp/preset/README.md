@@ -35,7 +35,7 @@ Your folder hierarchy should follow
 ```json
 {
   "preset": "talend",
-  "angular-legacy": true,
+  "angular": true,
   "cmf": true,
   "html": {
     "title": "Talend Data Preparation",
@@ -66,7 +66,7 @@ Your folder hierarchy should follow
 | Preset variable | Description |
 |---|---|
 | cmf | `cmf-webpack-plugin` flag. |
-| angular-legacy | Set this flag to tru to indicate that the project contains angular code. |
+| angular | Set this flag to tru to indicate that the project contains angular code. |
 | html | `html-webpack-plugin` template and options customisation. |
 | sass | `sass-loader` customisation. |
 | css | `css-loader` customisation. |

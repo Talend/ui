@@ -118,7 +118,7 @@ function getVersions() {
 	};
 }
 
-function getJSLoaders(angularLegacy) {
+function getJSLoaders(angular) {
 	const loaders = [
 		{ loader: 'cache-loader' },
 		{
@@ -127,7 +127,7 @@ function getJSLoaders(angularLegacy) {
 		},
 	];
 
-	if (angularLegacy) {
+	if (angular) {
 		loaders.unshift({
 			loader: 'ng-annotate-loader',
 			options: {
@@ -141,7 +141,7 @@ function getJSLoaders(angularLegacy) {
 	return loaders;
 }
 
-function getHTMLLoaders(angularLegacy) {
+function getHTMLLoaders(angular) {
 	const loaders = [
 		{ loader: 'cache-loader' },
 		{
@@ -154,7 +154,7 @@ function getHTMLLoaders(angularLegacy) {
 		},
 	];
 
-	if (angularLegacy) {
+	if (angular) {
 		loaders.unshift({ loader: 'ngtemplate-loader' });
 	}
 
@@ -171,7 +171,7 @@ function getCopyConfig(userCopyConfig = []) {
 }
 
 module.exports = ({ getUserConfig, mode }) => {
-	const angularLegacy = getUserConfig('angular-legacy');
+	const angular = getUserConfig('angular');
 	const cssModulesEnabled = getUserConfig(['css', 'modules'], true);
 	const userHtmlConfig = getUserConfig('html');
 	const appLoaderIcon = getUserConfig(['html', 'appLoaderIcon'], DEFAULT_APP_LOADER_ICON);
@@ -201,11 +201,11 @@ module.exports = ({ getUserConfig, mode }) => {
 				{
 					test: /\.js$/,
 					exclude: /node_modules/,
-					use: getJSLoaders(angularLegacy),
+					use: getJSLoaders(angular),
 				},
 				{
 					test: /\.html$/,
-					use: getHTMLLoaders(angularLegacy),
+					use: getHTMLLoaders(angular),
 					exclude: indexTemplatePath,
 				},
 				{
