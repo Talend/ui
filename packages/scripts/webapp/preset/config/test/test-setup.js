@@ -22,17 +22,18 @@ global.fetch = fetch;
 const location = JSON.stringify(window.location);
 delete window.location;
 Object.defineProperty(window, 'location', {
-	value: JSON.parse(location),
-});
-Object.defineProperty(global.location, 'origin', {
-	value: 'http://app.talend.com',
-	configurable: true,
+	value: {
+		...JSON.parse(location),
+		origin: 'http://app.talend.com',
+		hostname: 'app.talend.com',
+		host: 'app.talend.com',
+	},
 });
 
 // Mock session storage
 delete window.sessionStorage;
 Object.defineProperty(window, 'sessionStorage', {
-	value: (function () {
+	value: (function() {
 		let store = {};
 		return {
 			getItem(key) {
@@ -48,6 +49,6 @@ Object.defineProperty(window, 'sessionStorage', {
 				store = {};
 			},
 		};
-	}()),
+	})(),
 	writable: true,
 });
