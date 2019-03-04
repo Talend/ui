@@ -219,7 +219,9 @@ export class MultiSelectTagWidgetComponent extends React.Component {
 
 			if (filterText) {
 				const escapedValue = escapeRegexCharacters(filterText.trim());
-				const isExactMatch = suggestions.some(item => RegExp(`${escapedValue}$`, 'i').test(item.label));
+				const isExactMatch = suggestions.some(item =>
+					RegExp(`${escapedValue}$`, 'i').test(item.label),
+				);
 				suggestions = suggestions.filter(item => RegExp(escapedValue, 'i').test(item.label));
 				if ((suggestions.length === 0 || !isExactMatch) && currentProps.schema.createIfNoneMatch) {
 					suggestions.push({ label: `${filterText} (new)`, value: filterText });
@@ -287,12 +289,11 @@ export class MultiSelectTagWidgetComponent extends React.Component {
 		const valueToLabel = mapValueToLabel(transformOptions(options));
 		let badgeValue;
 		let badgeProps;
-		const defaultLabel = readonly &&
-			(!options.enumOptions || !options.enumOptions.length) && (
-				<label className="control-label" htmlFor={id}>
-					{t('MULTISELECTTAG_WIDGET_NONE', { defaultValue: 'none' })}
-				</label>
-			);
+		const defaultLabel = readonly && (!options.enumOptions || !options.enumOptions.length) && (
+			<label className="control-label" htmlFor={id}>
+				{t('MULTISELECTTAG_WIDGET_NONE', { defaultValue: 'none' })}
+			</label>
+		);
 
 		const caret = !readonly && (
 			<button
