@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts",
   "description": "Set of scripts",
-  "version": "0.13.0-ng.7",
+  "version": "0.13.0-ng.8",
   "license": "Apache-2.0",
   "main": "index.js",
   "mainSrc": "index.js",
@@ -83,6 +83,7 @@
     "resolve-url-loader": "2.3.0",
     "rimraf": "^2.6.2",
     "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
     "terser-webpack-plugin": "^1.2.3",
     "uglifyjs-webpack-plugin": "1.2.7",
     "url-loader": "^1.1.2",

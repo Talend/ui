@@ -34,24 +34,24 @@ function getCommonStyleLoaders(enableModules, mode) {
 	let cssOptions = {};
 	if (enableModules) {
 		cssOptions = {
-			sourceMap: mode !== 'production',
+			sourceMap: mode === 'development',
 			modules: true,
 			importLoaders: 1,
 			localIdentName: '[name]__[local]___[hash:base64:5]',
 		};
 	}
 	return [
-		{ loader: MiniCssExtractPlugin.loader },
+		{ loader: mode === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader },
 		{ loader: 'css-loader', options: cssOptions },
 		{
 			loader: 'postcss-loader',
 			options: {
-				sourceMap: mode !== 'production',
+				sourceMap: mode === 'development',
 				plugins: () => [autoprefixer({ browsers: ['>0.25%', 'IE 11', 'not op_mini all'] })],
 			},
 		},
 		{ loader: 'resolve-url-loader' },
-	];
+	].filter(Boolean);
 }
 
 function getSassLoaders(enableModules, sassData, mode) {
@@ -264,7 +264,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				BUILD_TIMESTAMP: Date.now(),
 				TALEND_APP_INFO: JSON.stringify(getVersions()),
 			}),
-			new MiniCssExtractPlugin({ filename: '[name]-[hash].css' }),
+			mode === 'production' && new MiniCssExtractPlugin({ filename: '[name]-[hash].css' }),
 			new HtmlWebpackPlugin({
 				filename: './index.html',
 				template: indexTemplatePath,
@@ -275,7 +275,7 @@ module.exports = ({ getUserConfig, mode }) => {
 			new CopyWebpackPlugin(getCopyConfig(userCopyConfig)),
 			new webpack.BannerPlugin({ banner: LICENSE_BANNER }),
 			cmf && new ReactCMFWebpackPlugin({ watch: mode === 'development' }),
-		],
+		].filter(Boolean),
 		optimization: {
 			// Automatically split vendor and commons
 			// https://twitter.com/wSokra/status/969633336732905474
