@@ -11,6 +11,8 @@ module.exports = () => ({
 		stats: 'errors-only',
 		historyApiFallback: true,
 		contentBase: path.join(process.cwd(), '/dist'),
+		compress: true,
+		hot: true,
 	},
 	devtool: 'cheap-module-source-map',
 });
