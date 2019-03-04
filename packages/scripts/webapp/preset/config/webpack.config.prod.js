@@ -48,7 +48,7 @@ module.exports = () => ({
 				parallel: true,
 				// Enable file caching
 				cache: true,
-				// sourceMap: true,
+				sourceMap: true,
 			}),
 			// This is only used in production mode
 			new OptimizeCSSAssetsPlugin({
