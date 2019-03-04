@@ -6,12 +6,13 @@ By default it used [Talend preset](../preset/README.md).
 
 ### How to create a preset ?
 
-A preset is a node module `talend-scripts-preset-${presetName}`. It exports 3 functions
+A preset is a node module `talend-scripts-preset-${presetName}`. It exports 4 functions
 
 ```javascript
 module.exports = {
 	getEslintConfigurationPath(presetApi) { },
 	getJestConfigurationPath(presetApi) { },
+	getBabelConfigurationPath(presetApi) { },
 	getWebpackConfiguration(presetApi) { },
 }
 ```
@@ -19,6 +20,7 @@ module.exports = {
 |---|---|
 | getEslintConfigurationPath | Returns the path to `.eslintrc` file. It will be passed to eslint --config option. This path should be absolute or relative from cwd. |
 | getJestConfigurationPath | Returns the path to jest config file (js/json). It will be passed to jest --config option. This path should be absolute or relative from cwd. |
+| getBabelConfigurationPath | Returns the path to babel config file. It will be passed to babel --config-file option. This path should be absolute or relative from cwd. |
 | getWebpackConfiguration | Returns the webpack configuration object. |
 
 The preset api contains the run mode and utility functions
