@@ -163,7 +163,10 @@ function getHTMLLoaders(angular) {
 
 function getCopyConfig(userCopyConfig = []) {
 	const config = [...userCopyConfig];
-	const assetsOverridden = config.some(({ from }) => from === 'src/assets');
+	const assetsOverridden = config.some(
+		nextAsset =>
+			typeof nextAsset === 'object' ? nextAsset.from === 'src/assets' : nextAsset === 'src/assets',
+	);
 	if (!assetsOverridden) {
 		config.push({ from: 'src/assets' });
 	}
