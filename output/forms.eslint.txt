@@ -5,5 +5,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
   82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-✖ 1 problem (1 error, 0 warnings)
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/utils/validation.test.js
+  223:10  error  'customValidationFn' is already declared in the upper scope    no-shadow
+  236:29  error  Unnecessarily computed property ['fieldsets,someField'] found  no-useless-computed-key
+
+✖ 3 problems (3 errors, 0 warnings)
+  1 error, 0 warnings potentially fixable with the `--fix` option.
 
