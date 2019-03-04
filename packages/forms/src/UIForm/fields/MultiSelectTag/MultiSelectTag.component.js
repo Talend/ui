@@ -199,7 +199,8 @@ export default class MultiSelectTag extends React.Component {
 				);
 				suggestions = suggestions.filter(item => RegExp(escapedValue, 'i').test(item.title));
 
-				if ((!suggestions.length || !isExactMatch) &&
+				if (
+					(!suggestions.length || !isExactMatch) &&
 					!currentProps.schema.restricted &&
 					!currentProps.value.includes(currentValue)
 				) {
