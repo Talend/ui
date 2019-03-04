@@ -219,9 +219,9 @@ export class MultiSelectTagWidgetComponent extends React.Component {
 
 			if (filterText) {
 				const escapedValue = escapeRegexCharacters(filterText.trim());
-				const regex = new RegExp(escapedValue, 'i');
-				suggestions = suggestions.filter(item => regex.test(item.label));
-				if (suggestions.length === 0 && currentProps.schema.createIfNoneMatch) {
+				const isExactMatch = suggestions.some(item => RegExp(`${escapedValue}$`, 'i').test(item.label));
+				suggestions = suggestions.filter(item => RegExp(escapedValue, 'i').test(item.label));
+				if ((suggestions.length === 0 || !isExactMatch) && currentProps.schema.createIfNoneMatch) {
 					suggestions.push({ label: `${filterText} (new)`, value: filterText });
 				}
 			}
