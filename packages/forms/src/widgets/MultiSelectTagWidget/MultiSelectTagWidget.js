@@ -203,7 +203,9 @@ export class MultiSelectTagWidgetComponent extends React.Component {
 			});
 			return items;
 		} else if (suggestions && suggestions.length > 0) {
-			return suggestions.map(item => ({ ...item, title: item.label }));
+			return suggestions
+				.filter(i => this.props.value && !this.props.value.includes(i.value))
+				.map(item => ({ ...item, title: item.label }));
 		}
 		return suggestions;
 	}
