@@ -286,7 +286,7 @@ To use the eslint configuration in your IDE
 ## Angular tests via Karma
 
 To run angular tests via karma, you need to create a `spec.bundle.js` in your project root.
-It must include everything Karma needs to load to run your tests.
+It must include everything that Karma needs to load to run your tests.
 
 Example
 ```javascript
