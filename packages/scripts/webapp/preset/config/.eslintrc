@@ -24,7 +24,9 @@
     "jasmine": true,
     "jest": true
   },
-  "globals": {},
+  "globals": {
+    "jsdom": true
+  },
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module"
