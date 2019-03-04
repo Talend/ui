@@ -202,6 +202,39 @@ describe('Validation utils', () => {
 			// then
 			expect(errors).toEqual({ [schema.key]: 'Missing required property: firstname' });
 		});
+		it('should validate fieldsets/object', () => {
+			// given
+			const schema = {
+				key: ['fieldsets'],
+				items: [
+					{
+						key: ['fieldsets', 'someField'],
+						required: true,
+						schema: {
+							type: 'string'
+						}
+					}
+				],
+				schema: {
+					type: 'object',
+					required: ['someField']
+				}
+			};
+			const customValidationFn = undefined;
+			const deepValidation = true;
+			const value = '';
+			const properties = {
+				fieldsets: {
+					someField: value,
+				}
+			};
+
+			// when
+			const errors = validateSimple(schema, value, properties, customValidationFn, deepValidation);
+
+			// then
+			expect(errors).toEqual({ ['fieldsets,someField']: 'Missing required property: someField' });
+		})
 	});
 
 	describe('#validateSingle', () => {
