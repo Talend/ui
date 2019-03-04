@@ -35,6 +35,7 @@ Your folder hierarchy should follow
 ```json
 {
   "preset": "talend",
+  "angular": true,
   "cmf": true,
   "html": {
     "title": "Talend Data Preparation",
@@ -65,6 +66,7 @@ Your folder hierarchy should follow
 | Preset variable | Description |
 |---|---|
 | cmf | `cmf-webpack-plugin` flag. |
+| angular | Set this flag to tru to indicate that the project contains angular code. |
 | html | `html-webpack-plugin` template and options customisation. |
 | sass | `sass-loader` customisation. |
 | css | `css-loader` customisation. |
@@ -280,6 +282,26 @@ To use the eslint configuration in your IDE
 ```
 
 3. Configure your IDE plugin to enable eslint with your root eslintrc configuration.
+
+## Angular tests via Karma
+
+To run angular tests via karma, you need to create a `spec.bundle.js` in your project root.
+It must include everything that Karma needs to load to run your tests.
+
+Example
+```javascript
+import '@babel/polyfill';
+
+// load the app files
+import './src/app';
+
+import 'angular-mocks';
+
+// load tests files
+const context = require.context('./src', true, /\.spec\.js/);
+context.keys().forEach(context);
+```
+
 
 ## Next
 
