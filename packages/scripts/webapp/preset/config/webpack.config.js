@@ -161,7 +161,7 @@ function getHTMLLoaders(angularLegacy) {
 	return loaders;
 }
 
-function getCopyConfig(userCopyConfig) {
+function getCopyConfig(userCopyConfig = []) {
 	const config = [...userCopyConfig];
 	const assetsOverridden = config.some(({ from }) => from === 'src/assets');
 	if (!assetsOverridden) {
