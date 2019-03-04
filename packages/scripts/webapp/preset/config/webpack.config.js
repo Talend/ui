@@ -189,7 +189,7 @@ module.exports = ({ getUserConfig, mode }) => {
 	return {
 		entry: {
 			polyfills: ['@babel/polyfill', 'whatwg-fetch'],
-			style: [
+			theme: [
 				'@talend/bootstrap-theme/src/theme/theme.scss',
 				theme && `@talend/bootstrap-theme/src/theme/variations/_${theme}.scss`,
 			].filter(Boolean),
@@ -267,7 +267,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				BUILD_TIMESTAMP: Date.now(),
 				TALEND_APP_INFO: JSON.stringify(getVersions()),
 			}),
-			mode === 'development' && new webpack.HotModuleReplacementPlugin({}),
+			mode === 'development' && new webpack.HotModuleReplacementPlugin(),
 			mode === 'production' && new MiniCssExtractPlugin({ filename: '[name]-[hash].css' }),
 			new HtmlWebpackPlugin({
 				filename: './index.html',
