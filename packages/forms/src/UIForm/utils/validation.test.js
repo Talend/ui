@@ -211,14 +211,14 @@ describe('Validation utils', () => {
 						key: ['fieldsets', 'someField'],
 						required: true,
 						schema: {
-							type: 'string'
-						}
-					}
+							type: 'string',
+						},
+					},
 				],
 				schema: {
 					type: 'object',
-					required: ['someField']
-				}
+					required: ['someField'],
+				},
 			};
 			const customValidationFn = undefined;
 			const deepValidation = true;
@@ -226,7 +226,7 @@ describe('Validation utils', () => {
 			const properties = {
 				fieldsets: {
 					someField: value,
-				}
+				},
 			};
 
 			// when
@@ -234,7 +234,7 @@ describe('Validation utils', () => {
 
 			// then
 			expect(errors).toEqual({ ['fieldsets,someField']: 'Missing required property: someField' });
-		})
+		});
 	});
 
 	describe('#validateSingle', () => {
