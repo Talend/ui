@@ -22,3 +22,8 @@
 
 The linter is based on airbnb configuration, with some customisation.
 [Eslint configuration](./config/.eslintrc)
+
+## Karma
+
+[Karma configuration](./config/karma.conf.js)
+[Karma webpack configuration](./config/webpack.conf.js)

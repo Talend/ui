@@ -12,6 +12,7 @@ A preset is a node module `talend-scripts-preset-${presetName}`. It exports 4 fu
 module.exports = {
 	getEslintConfigurationPath(presetApi) { },
 	getJestConfigurationPath(presetApi) { },
+	getKarmaConfigurationPath(presetApi) { },
 	getBabelConfigurationPath(presetApi) { },
 	getWebpackConfiguration(presetApi) { },
 }
@@ -20,6 +21,7 @@ module.exports = {
 |---|---|
 | getEslintConfigurationPath | Returns the path to `.eslintrc` file. It will be passed to eslint --config option. This path should be absolute or relative from cwd. |
 | getJestConfigurationPath | Returns the path to jest config file (js/json). It will be passed to jest --config option. This path should be absolute or relative from cwd. |
+| getKarmaConfigurationPath | Returns the path to karma config file. It will be passed to karma cli. This path should be absolute or relative from cwd. |
 | getBabelConfigurationPath | Returns the path to babel config file. It will be passed to babel --config-file option. This path should be absolute or relative from cwd. |
 | getWebpackConfiguration | Returns the webpack configuration object. |
 

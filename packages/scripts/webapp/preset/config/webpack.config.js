@@ -51,7 +51,7 @@ function getCommonStyleLoaders(enableModules, mode) {
 			},
 		},
 		{ loader: 'resolve-url-loader' },
-	].filter(Boolean);
+	];
 }
 
 function getSassLoaders(enableModules, sassData, mode) {
