@@ -19,7 +19,7 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
       onDelete={[Function]}
     />
     <Translate(Badge)
-      label="tata"
+      label="TUTU"
       onDelete={[Function]}
     />
     <Typeahead

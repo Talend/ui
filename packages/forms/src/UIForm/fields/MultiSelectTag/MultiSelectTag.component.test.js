@@ -13,6 +13,7 @@ describe('MultiSelectTag field', () => {
 		errorMessage: 'This is wrong',
 		onChange: jest.fn(),
 		onFinish: jest.fn(),
+		onTrigger: jest.fn(),
 		schema: {
 			autoFocus: true,
 			description: 'This is the MultiSelectTag field',
@@ -22,7 +23,7 @@ describe('MultiSelectTag field', () => {
 			required: true,
 			restricted: false,
 			title: 'Tags',
-			titleMap: [{ name: 'toto', value: 'titi' }, { name: 'tata', value: 'tutu' }],
+			titleMap: [{ name: 'TITI', value: 'titi' }, { name: 'TUTU', value: 'tutu' }],
 		},
 		value: ['aze', 'tutu'],
 	};
@@ -43,10 +44,13 @@ describe('MultiSelectTag field', () => {
 		wrapper
 			.find('input')
 			.at(0)
-			.simulate('change', { target: { value: 'titi' } });
+			.simulate('change', { target: { value: 'ti' } });
 
 		// then
-		expect(wrapper.find(Typeahead).props().items).toEqual([{ title: 'titi (new)', value: 'titi' }]);
+		expect(wrapper.find(Typeahead).props().items).toEqual([
+			{ title: 'TITI', value: 'titi' },
+			{ title: 'ti (new)', value: 'ti' },
+		]);
 	});
 
 	it('should update suggestion on props.value change', () => {
@@ -55,16 +59,21 @@ describe('MultiSelectTag field', () => {
 		// eslint-disable-next-line react/no-render-return-value
 		const instance = ReactDOM.render(<MultiSelectTag {...props} />, node);
 		instance.updateSuggestions();
-		expect(instance.state.suggestions).toEqual([{ title: 'toto', value: 'titi' }]);
+		expect(instance.state.suggestions).toEqual([{ title: 'TITI', value: 'titi' }]);
 
 		// when : trigger a props update
 		ReactDOM.render(<MultiSelectTag {...props} value={['aze']} />, node);
 
 		// then
 		expect(instance.state.suggestions).toEqual([
-			{ title: 'toto', value: 'titi' },
-			{ title: 'tata', value: 'tutu' },
+			{ title: 'TITI', value: 'titi' },
+			{ title: 'TUTU', value: 'tutu' },
 		]);
+
+		// when : trigger a props update
+		ReactDOM.render(<MultiSelectTag {...props} value={['titi', 'tutu']} />, node);
+		// then
+		expect(instance.state.suggestions).toEqual([]);
 	});
 
 	it('should suggest new item creation when widget is not restricted', () => {
