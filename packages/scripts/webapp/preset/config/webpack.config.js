@@ -178,7 +178,7 @@ module.exports = ({ getUserConfig, mode }) => {
 	const cssModulesEnabled = getUserConfig(['css', 'modules'], true);
 	const userHtmlConfig = getUserConfig('html');
 	const appLoaderIcon = getUserConfig(['html', 'appLoaderIcon'], DEFAULT_APP_LOADER_ICON);
-	const userSassData = getUserConfig('sass');
+	const userSassData = getUserConfig('sass', {});
 	const userCopyConfig = getUserConfig('copy');
 	const cmf = getUserConfig('cmf');
 	const { theme } = userSassData;
