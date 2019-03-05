@@ -194,12 +194,11 @@ export default class MultiSelectTag extends React.Component {
 
 			if (currentValue) {
 				const escapedValue = escapeRegexCharacters(currentValue.trim());
-				const isExactMatch = suggestions.some(item =>
-					RegExp(`^${escapedValue}$`, 'i').test(item.value),
-				);
-				suggestions = suggestions.filter(item => RegExp(escapedValue, 'i').test(item.value));
+				const exactMatchRx = new RegExp(`^${escapedValue}$`, 'i');
+				const similarValueRx = new RegExp(escapedValue, 'i');
+				suggestions = suggestions.filter(item => similarValueRx.test(item.value));
 				if (
-					!isExactMatch &&
+					!suggestions.some(item => exactMatchRx.test(item.value)) &&
 					!currentProps.schema.restricted &&
 					!currentProps.value.includes(currentValue)
 				) {
