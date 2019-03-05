@@ -307,9 +307,9 @@ describe('DateTime.Manager', () => {
 				expect(onChange).toBeCalled();
 				const args = onChange.mock.calls[0];
 				expect(args[0]).toBe(event);
-				expect(args[1].errorMessage).toBe('INVALID_DATE_FORMAT');
+				expect(args[1].errorMessage).toBe('Date format is invalid');
 				expect(args[1].errors).toEqual([
-					{ code: 'INVALID_DATE_FORMAT', message: 'INVALID_DATE_FORMAT' },
+					{ code: 'INVALID_DATE_FORMAT', message: 'Date format is invalid' },
 				]);
 				expect(isNaN(args[1].datetime.getTime())).toBe(true);
 				expect(args[1].origin).toBe('INPUT');
@@ -446,8 +446,10 @@ describe('DateTime.Manager', () => {
 				expect(onChange).toBeCalled();
 				const args = onChange.mock.calls[0];
 				expect(args[0]).toBe(event);
-				expect(args[1].errors).toEqual([{ code: 'INVALID_HOUR', message: 'INVALID_HOUR_NUMBER' }]);
-				expect(args[1].errorMessage).toBe('INVALID_HOUR_NUMBER');
+				expect(args[1].errors).toEqual([
+					{ code: 'INVALID_HOUR', message: 'Hour must be between 00 and 23' },
+				]);
+				expect(args[1].errorMessage).toBe('Hour must be between 00 and 23');
 				expect(isNaN(args[1].datetime.getTime())).toBe(true);
 				expect(args[1].origin).toBe('PICKER');
 			});
@@ -642,7 +644,7 @@ describe('DateTime.Manager', () => {
 
 			// then
 			const { errors, hasError } = wrapper.find('DateTimeConsumerDiv').prop('errorManagement');
-			expect(errors).toEqual([{ code: 'INVALID_DATE_FORMAT', message: 'INVALID_DATE_FORMAT' }]);
+			expect(errors).toEqual([{ code: 'INVALID_DATE_FORMAT', message: 'Date format is invalid' }]);
 			expect(hasError('INVALID_DATE_FORMAT')).toBe(true);
 			expect(hasError('INVALID_HOUR_EMPTY')).toBe(false);
 		});

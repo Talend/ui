@@ -16,6 +16,12 @@ yarn
 yarn start
 ```
 
+you can also build it to then start the dist with the mock:
+
+```
+yarn start-dist [--gzip]
+```
+
 ### Add your container
 Here's how to add your own container to the app :
 - Ensure your container is registred by _src/app/index.js_.

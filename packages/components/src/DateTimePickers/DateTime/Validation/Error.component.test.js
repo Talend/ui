@@ -9,7 +9,7 @@ describe('DateTime.Validation.Error', () => {
 		const errors = [{ code: 'INVALID_DATE_FORMAT', message: 'INVALID_DATE_FORMAT' }];
 
 		// when
-		const wrapper = shallow(<Error.WrappedComponent errors={errors} />);
+		const wrapper = shallow(<Error errors={errors} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -20,7 +20,7 @@ describe('DateTime.Validation.Error', () => {
 		const errors = [{ code: 'INVALID_DATE_FORMAT', message: 'INVALID_DATE_FORMAT' }];
 
 		// when
-		const wrapper = shallow(<Error.WrappedComponent errors={errors} hidden />);
+		const wrapper = shallow(<Error errors={errors} hidden />);
 
 		// then
 		expect(wrapper.prop('className')).toBe('sr-only');

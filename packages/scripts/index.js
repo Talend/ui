@@ -15,6 +15,7 @@ switch (command) {
 	case 'build:lib':
 	case 'lint:es':
 	case 'test':
+	case 'test:ng':
 		require('./webapp')(command, options);
 		break;
 	default:
