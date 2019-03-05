@@ -9,6 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
+const ReactCMFWebpackPlugin = require('@talend/react-cmf-webpack-plugin');
 const TalendHTML = require('@talend/html-webpack-plugin');
 const AppLoader = require('@talend/react-components/lib/AppLoader/constant').default;
 const DEFAULT_APP_LOADER_ICON =
@@ -17,17 +18,13 @@ const DEFAULT_APP_LOADER_ICON =
 const { getBabelConfig } = require('./babel.config');
 const LICENSE_BANNER = require('./licence');
 
-function getSassData(getUserConfig) {
+function getSassData(userSassData) {
 	let sassData = ["@import '~@talend/bootstrap-theme/src/theme/guidelines';"];
 
-	const userSassData = getUserConfig('sass');
 	if (userSassData && userSassData.data) {
 		sassData = Object.keys(userSassData.data)
 			.map(key => `${key}: ${userSassData.data[key]};`)
 			.concat(sassData);
-	}
-	if (userSassData && userSassData.theme) {
-		sassData.push(`@import '~@talend/bootstrap-theme/src/theme/variations/${userSassData.theme}';`);
 	}
 
 	return sassData.join('\n');
@@ -37,19 +34,19 @@ function getCommonStyleLoaders(enableModules, mode) {
 	let cssOptions = {};
 	if (enableModules) {
 		cssOptions = {
-			sourceMap: mode !== 'production',
+			sourceMap: mode === 'development',
 			modules: true,
 			importLoaders: 1,
 			localIdentName: '[name]__[local]___[hash:base64:5]',
 		};
 	}
 	return [
-		{ loader: MiniCssExtractPlugin.loader },
+		{ loader: mode === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader },
 		{ loader: 'css-loader', options: cssOptions },
 		{
 			loader: 'postcss-loader',
 			options: {
-				sourceMap: mode !== 'production',
+				sourceMap: mode === 'development',
 				plugins: () => [autoprefixer({ browsers: ['>0.25%', 'IE 11', 'not op_mini all'] })],
 			},
 		},
@@ -121,11 +118,83 @@ function getVersions() {
 	};
 }
 
+function getJSLoaders(angular) {
+	const loaders = [
+		{ loader: 'cache-loader' },
+		{
+			loader: 'babel-loader',
+			options: getBabelConfig(),
+		},
+	];
+
+	if (angular) {
+		loaders.unshift({
+			loader: 'ng-annotate-loader',
+			options: {
+				ngAnnotate: 'ng-annotate-patched',
+				es6: true,
+				explicitOnly: false,
+			},
+		});
+	}
+
+	return loaders;
+}
+
+function getHTMLLoaders(angular) {
+	const loaders = [
+		{ loader: 'cache-loader' },
+		{
+			loader: 'html-loader',
+			options: {
+				minimize: true,
+				removeComments: true,
+				collapseWhitespace: true,
+			},
+		},
+	];
+
+	if (angular) {
+		loaders.unshift({ loader: 'ngtemplate-loader' });
+	}
+
+	return loaders;
+}
+
+function getCopyConfig(userCopyConfig = []) {
+	const config = [...userCopyConfig];
+	const assetsOverridden = config.some(
+		nextAsset =>
+			typeof nextAsset === 'object' ? nextAsset.from === 'src/assets' : nextAsset === 'src/assets',
+	);
+	if (!assetsOverridden) {
+		config.push({ from: 'src/assets' });
+	}
+	return config;
+}
+
 module.exports = ({ getUserConfig, mode }) => {
-	const sassData = getSassData(getUserConfig);
+	const angular = getUserConfig('angular');
+	const cssModulesEnabled = getUserConfig(['css', 'modules'], true);
+	const userHtmlConfig = getUserConfig('html');
+	const appLoaderIcon = getUserConfig(['html', 'appLoaderIcon'], DEFAULT_APP_LOADER_ICON);
+	const userSassData = getUserConfig('sass');
+	const userCopyConfig = getUserConfig('copy');
+	const cmf = getUserConfig('cmf');
+	const { theme } = userSassData;
+
+	const sassData = getSassData(userSassData);
+	const indexTemplatePath = `${process.cwd()}/src/app/index.html`;
 
 	return {
-		entry: ['@babel/polyfill', 'whatwg-fetch', `${process.cwd()}/src/app/index.js`],
+		entry: {
+			polyfills: ['@babel/polyfill', 'whatwg-fetch'],
+			theme: [
+				'@talend/bootstrap-theme/src/theme/theme.scss',
+				theme && `@talend/bootstrap-theme/src/theme/variations/_${theme}.scss`,
+			].filter(Boolean),
+			app: `${process.cwd()}/src/app/index.js`,
+		},
 		output: {
 			filename: '[name]-[hash].js',
 			publicPath: '/',
@@ -135,10 +204,12 @@ module.exports = ({ getUserConfig, mode }) => {
 				{
 					test: /\.js$/,
 					exclude: /node_modules/,
-					use: {
-						loader: 'babel-loader',
-						options: getBabelConfig(),
-					},
+					use: getJSLoaders(angular),
+				},
+				{
+					test: /\.html$/,
+					use: getHTMLLoaders(angular),
+					exclude: indexTemplatePath,
 				},
 				{
 					test: /\.css$/,
@@ -158,7 +229,7 @@ module.exports = ({ getUserConfig, mode }) => {
 				},
 				{
 					test: /\.scss$/,
-					use: getSassLoaders(getUserConfig(['css', 'modules'], true), sassData, mode),
+					use: getSassLoaders(cssModulesEnabled, sassData, mode),
 					exclude: /@talend/,
 				},
 				{
@@ -196,22 +267,27 @@ module.exports = ({ getUserConfig, mode }) => {
 				BUILD_TIMESTAMP: Date.now(),
 				TALEND_APP_INFO: JSON.stringify(getVersions()),
 			}),
-			new MiniCssExtractPlugin({
-				filename: '[name]-[hash].css',
-			}),
+			mode === 'development' && new webpack.HotModuleReplacementPlugin(),
+			mode === 'production' && new MiniCssExtractPlugin({ filename: '[name]-[hash].css' }),
 			new HtmlWebpackPlugin({
 				filename: './index.html',
-				template: `${process.cwd()}/src/app/index.html`,
+				template: indexTemplatePath,
 				appLoader: AppLoader.APP_LOADER,
-				...getUserConfig('html'),
+				...userHtmlConfig,
 			}),
-			new TalendHTML({
-				appLoaderIcon: getUserConfig(['html', 'appLoaderIcon'], DEFAULT_APP_LOADER_ICON),
-			}),
-			new CopyWebpackPlugin([{ from: 'src/assets' }]),
-			new webpack.BannerPlugin({
-				banner: LICENSE_BANNER,
-			}),
-		],
+			new TalendHTML({ appLoaderIcon }),
+			new CopyWebpackPlugin(getCopyConfig(userCopyConfig)),
+			new webpack.BannerPlugin({ banner: LICENSE_BANNER }),
+			cmf && new ReactCMFWebpackPlugin({ watch: mode === 'development' }),
+		].filter(Boolean),
+		optimization: {
+			// Automatically split vendor and commons
+			// https://twitter.com/wSokra/status/969633336732905474
+			// https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
+			splitChunks: { chunks: 'all' },
+			// Keep the runtime chunk separated to enable long term caching
+			// https://twitter.com/wSokra/status/969679223278505985
+			runtimeChunk: true,
+		},
 	};
 };
