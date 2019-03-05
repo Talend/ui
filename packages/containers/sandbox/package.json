@@ -7,7 +7,7 @@
   "scripts": {
     "build": "talend-scripts build",
     "start": "talend-scripts start",
-    "start-dist": "node dist"
+    "start-dist": "talend-scripts build && node serve-dist"
   },
   "repository": {
     "type": "git",

@@ -19,7 +19,6 @@ yarn start
 you can also build it to then start the dist with the mock:
 
 ```
-yarn build
 yarn start-dist [--gzip]
 ```
 
