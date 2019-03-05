@@ -16,7 +16,8 @@
     "react/jsx-indent-props": ["error", "tab"],
     "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
     "react/no-unused-prop-types": [2, { "skipShapeProps": true }],
-    "react/forbid-prop-types": [0]
+    "react/forbid-prop-types": [0],
+    "new-cap": [2, { "capIsNewExceptions": ["List", "Map"] }]
   },
   "env": {
     "es6": true,
