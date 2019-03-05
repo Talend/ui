@@ -13,6 +13,7 @@ describe('MultiSelectTag field', () => {
 		errorMessage: 'This is wrong',
 		onChange: jest.fn(),
 		onFinish: jest.fn(),
+		onTrigger: jest.fn(),
 		schema: {
 			autoFocus: true,
 			description: 'This is the MultiSelectTag field',
@@ -94,6 +95,34 @@ describe('MultiSelectTag field', () => {
 
 		// then
 		expect(wrapper.find(Typeahead).props().items).toEqual([]);
+	});
+
+	it('should NOT suggest new item creation when a value already matches', () => {
+		// given
+		const wrapper = mount(<MultiSelectTag {...props} value={['az']} />);
+
+		// when
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('change', { target: { value: 'az' } });
+
+		// then
+		expect(wrapper.find(Typeahead).props().items).toEqual([]);
+	});
+
+	it('should NOT suggest new item creation when a suggestion matches', () => {
+		// given
+		const wrapper = mount(<MultiSelectTag {...props} />);
+
+		// when
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('change', { target: { value: 'toto' } });
+
+		// then
+		expect(wrapper.find(Typeahead).props().items).toEqual([{ title: 'toto', value: 'titi' }]);
 	});
 
 	it('should add tag', () => {
