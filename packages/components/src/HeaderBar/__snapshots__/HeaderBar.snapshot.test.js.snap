@@ -1781,18 +1781,15 @@ exports[`Storyshots HeaderBar while searching 1`] = `
                 value="le"
               />
             </div>
-            <div>
+            <div
+              className="theme-items-container tc-typeahead-items-container theme-items-container theme-container-open"
+              id="react-autowhatever-42"
+              role="listbox"
+            >
               <div
-                className="theme-items-container tc-typeahead-items-container theme-item-container theme-is-searching"
-                id="react-autowhatever-42"
-                role="listbox"
+                className="theme-is-searching is-searching"
               >
-                <span
-                  className="is-searching"
-                >
-                  Searching for matches...
-                </span>
-                 
+                Searching for matches...
                 <svg
                   aria-busy="true"
                   aria-label="Loading "
@@ -4963,17 +4960,15 @@ exports[`Storyshots HeaderBar with no search result 1`] = `
                 value="le"
               />
             </div>
-            <div>
+            <div
+              className="theme-items-container tc-typeahead-items-container theme-items-container theme-container-open"
+              id="react-autowhatever-42"
+              role="listbox"
+            >
               <div
-                className="theme-items-container tc-typeahead-items-container theme-item-container theme-no-result"
-                id="react-autowhatever-42"
-                role="listbox"
+                className="theme-no-result no-result"
               >
-                <span
-                  className="no-result"
-                >
-                  No result.
-                </span>
+                No result.
               </div>
             </div>
           </div>
@@ -6536,13 +6531,11 @@ exports[`Storyshots HeaderBar with search input 1`] = `
                 type="text"
               />
             </div>
-            <div>
-              <div
-                className="theme-items-container tc-typeahead-items-container theme-item-container"
-                id="react-autowhatever-42"
-                role="listbox"
-              />
-            </div>
+            <div
+              className="theme-items-container tc-typeahead-items-container theme-items-container"
+              id="react-autowhatever-42"
+              role="listbox"
+            />
           </div>
         </form>
       </li>
@@ -7315,350 +7308,348 @@ exports[`Storyshots HeaderBar with search results 1`] = `
                 value="le"
               />
             </div>
-            <div>
+            <div
+              className="theme-items-container tc-typeahead-items-container theme-items-container"
+              id="react-autowhatever-42"
+              role="listbox"
+            >
               <div
-                className="theme-items-container tc-typeahead-items-container theme-item-container"
-                id="react-autowhatever-42"
-                role="listbox"
+                className="theme-section-container tc-typeahead-section-container"
               >
                 <div
-                  className="theme-section-container tc-typeahead-section-container"
+                  style={Object {}}
                 >
                   <div
+                    className="theme-section-header tc-typeahead-section-header"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="theme-tc-svg-icon tc-svg-icon"
+                      focusable="false"
+                      name="talend-filter"
+                      title="icon"
+                    >
+                      <use
+                        xlinkHref="#talend-filter"
+                      />
+                    </svg>
+                    <span
+                      className="theme-section-header-title tc-typeahead-section-header-title"
+                    >
+                      category 1
+                    </span>
+                  </div>
+                </div>
+                <ul
+                  className="theme-items"
+                  role="listbox"
+                >
+                  <li
+                    aria-selected={false}
+                    id="react-autowhatever-42-section-0-item-0"
+                    onMouseDown={[Function]}
+                    role="option"
                     style={Object {}}
                   >
                     <div
-                      className="theme-section-header tc-typeahead-section-header"
+                      className="theme-item"
+                      title="le title 1"
                     >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        name="talend-filter"
-                        title="icon"
-                      >
-                        <use
-                          xlinkHref="#talend-filter"
-                        />
-                      </svg>
                       <span
-                        className="theme-section-header-title tc-typeahead-section-header-title"
+                        className="theme-item-title tc-typeahead-item-title"
                       >
-                        category 1
+                        <span>
+                          <em
+                            className="theme-highlight"
+                          >
+                            le
+                          </em>
+                           tit
+                          <em
+                            className="theme-highlight"
+                          >
+                            le
+                          </em>
+                           1
+                        </span>
                       </span>
+                      <p
+                        className="theme-item-description tc-typeahead-item-description"
+                      >
+                        <span>
+                          description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibi
+                          <em
+                            className="theme-highlight"
+                          >
+                            le
+                          </em>
+                           tempus ardore.
+                        </span>
+                      </p>
                     </div>
-                  </div>
-                  <ul
-                    className="theme-items"
-                    role="listbox"
+                  </li>
+                  <li
+                    aria-selected={false}
+                    id="react-autowhatever-42-section-0-item-1"
+                    onMouseDown={[Function]}
+                    role="option"
+                    style={Object {}}
                   >
-                    <li
-                      aria-selected={false}
-                      id="react-autowhatever-42-section-0-item-0"
-                      onMouseDown={[Function]}
-                      role="option"
-                      style={Object {}}
+                    <div
+                      className="theme-item"
+                      title="title 2 les elephants elementaires ont des aile cum erat inquam controversia autem mihi utrumqo"
                     >
-                      <div
-                        className="theme-item"
-                        title="le title 1"
+                      <span
+                        className="theme-item-title tc-typeahead-item-title"
                       >
-                        <span
-                          className="theme-item-title tc-typeahead-item-title"
-                        >
-                          <span>
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                             tit
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                             1
-                          </span>
+                        <span>
+                          tit
+                          <em
+                            className="theme-highlight"
+                          >
+                            le
+                          </em>
+                           2 
+                          <em
+                            className="theme-highlight"
+                          >
+                            le
+                          </em>
+                          s e
+                          <em
+                            className="theme-highlight"
+                          >
+                            le
+                          </em>
+                          phants e
+                          <em
+                            className="theme-highlight"
+                          >
+                            le
+                          </em>
+                          mentaires ont des ai
+                          <em
+                            className="theme-highlight"
+                          >
+                            le
+                          </em>
+                           cum erat inquam controversia autem mihi utrumqo
                         </span>
-                        <p
-                          className="theme-item-description tc-typeahead-item-description"
-                        >
-                          <span>
-                            description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibi
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                             tempus ardore.
-                          </span>
-                        </p>
-                      </div>
-                    </li>
-                    <li
-                      aria-selected={false}
-                      id="react-autowhatever-42-section-0-item-1"
-                      onMouseDown={[Function]}
-                      role="option"
-                      style={Object {}}
-                    >
-                      <div
-                        className="theme-item"
-                        title="title 2 les elephants elementaires ont des aile cum erat inquam controversia autem mihi utrumqo"
+                      </span>
+                      <p
+                        className="theme-item-description tc-typeahead-item-description"
                       >
-                        <span
-                          className="theme-item-title tc-typeahead-item-title"
-                        >
-                          <span>
-                            tit
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                             2 
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                            s e
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                            phants e
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                            mentaires ont des ai
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                             cum erat inquam controversia autem mihi utrumqo
-                          </span>
+                        <span>
+                          description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
                         </span>
-                        <p
-                          className="theme-item-description tc-typeahead-item-description"
-                        >
-                          <span>
-                            description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
-                          </span>
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div
+                className="theme-section-container tc-typeahead-section-container"
+              >
                 <div
-                  className="theme-section-container tc-typeahead-section-container"
+                  style={Object {}}
                 >
                   <div
+                    className="theme-section-header tc-typeahead-section-header"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="theme-tc-svg-icon tc-svg-icon"
+                      focusable="false"
+                      name="talend-star"
+                      title="icon"
+                    >
+                      <use
+                        xlinkHref="#talend-star"
+                      />
+                    </svg>
+                    <span
+                      className="theme-section-header-title tc-typeahead-section-header-title"
+                    >
+                      category 2
+                    </span>
+                  </div>
+                </div>
+                <ul
+                  className="theme-items"
+                  role="listbox"
+                >
+                  <li
+                    aria-selected={false}
+                    id="react-autowhatever-42-section-1-item-0"
+                    onMouseDown={[Function]}
+                    role="option"
                     style={Object {}}
                   >
                     <div
-                      className="theme-section-header tc-typeahead-section-header"
+                      className="theme-item"
+                      title="title 3"
                     >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        name="talend-star"
-                        title="icon"
-                      >
-                        <use
-                          xlinkHref="#talend-star"
-                        />
-                      </svg>
                       <span
-                        className="theme-section-header-title tc-typeahead-section-header-title"
+                        className="theme-item-title tc-typeahead-item-title"
                       >
-                        category 2
-                      </span>
-                    </div>
-                  </div>
-                  <ul
-                    className="theme-items"
-                    role="listbox"
-                  >
-                    <li
-                      aria-selected={false}
-                      id="react-autowhatever-42-section-1-item-0"
-                      onMouseDown={[Function]}
-                      role="option"
-                      style={Object {}}
-                    >
-                      <div
-                        className="theme-item"
-                        title="title 3"
-                      >
-                        <span
-                          className="theme-item-title tc-typeahead-item-title"
-                        >
-                          <span>
-                            tit
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                             3
-                          </span>
+                        <span>
+                          tit
+                          <em
+                            className="theme-highlight"
+                          >
+                            le
+                          </em>
+                           3
                         </span>
-                        <p
-                          className="theme-item-description tc-typeahead-item-description"
-                        >
-                          <span>
-                            description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium va
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                            at.
-                          </span>
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
+                      </span>
+                      <p
+                        className="theme-item-description tc-typeahead-item-description"
+                      >
+                        <span>
+                          description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium va
+                          <em
+                            className="theme-highlight"
+                          >
+                            le
+                          </em>
+                          at.
+                        </span>
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div
+                className="theme-section-container tc-typeahead-section-container"
+              >
                 <div
-                  className="theme-section-container tc-typeahead-section-container"
+                  style={Object {}}
                 >
                   <div
+                    className="theme-section-header tc-typeahead-section-header"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="theme-tc-svg-icon tc-svg-icon"
+                      focusable="false"
+                      name="talend-share-alt"
+                      title="icon"
+                    >
+                      <use
+                        xlinkHref="#talend-share-alt"
+                      />
+                    </svg>
+                    <span
+                      className="theme-section-header-title tc-typeahead-section-header-title"
+                    >
+                      category 3
+                    </span>
+                  </div>
+                </div>
+                <ul
+                  className="theme-items"
+                  role="listbox"
+                >
+                  <li
+                    aria-selected={false}
+                    id="react-autowhatever-42-section-2-item-0"
+                    onMouseDown={[Function]}
+                    role="option"
                     style={Object {}}
                   >
                     <div
-                      className="theme-section-header tc-typeahead-section-header"
+                      className="theme-item"
+                      title="title 4"
                     >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        name="talend-share-alt"
-                        title="icon"
-                      >
-                        <use
-                          xlinkHref="#talend-share-alt"
-                        />
-                      </svg>
                       <span
-                        className="theme-section-header-title tc-typeahead-section-header-title"
+                        className="theme-item-title tc-typeahead-item-title"
                       >
-                        category 3
+                        <span>
+                          tit
+                          <em
+                            className="theme-highlight"
+                          >
+                            le
+                          </em>
+                           4
+                        </span>
                       </span>
+                      <p
+                        className="theme-item-description tc-typeahead-item-description"
+                      >
+                        <span>
+                          description: Praesentibus genero ne in Africani mandavi saepius ipsam C in libro et hoc Laeli cum.
+                        </span>
+                      </p>
                     </div>
-                  </div>
-                  <ul
-                    className="theme-items"
-                    role="listbox"
+                  </li>
+                  <li
+                    aria-selected={false}
+                    id="react-autowhatever-42-section-2-item-1"
+                    onMouseDown={[Function]}
+                    role="option"
+                    style={Object {}}
                   >
-                    <li
-                      aria-selected={false}
-                      id="react-autowhatever-42-section-2-item-0"
-                      onMouseDown={[Function]}
-                      role="option"
-                      style={Object {}}
+                    <div
+                      className="theme-item"
+                      title="title 5"
                     >
-                      <div
-                        className="theme-item"
-                        title="title 4"
+                      <span
+                        className="theme-item-title tc-typeahead-item-title"
                       >
-                        <span
-                          className="theme-item-title tc-typeahead-item-title"
-                        >
-                          <span>
-                            tit
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                             4
-                          </span>
+                        <span>
+                          tit
+                          <em
+                            className="theme-highlight"
+                          >
+                            le
+                          </em>
+                           5
                         </span>
-                        <p
-                          className="theme-item-description tc-typeahead-item-description"
-                        >
-                          <span>
-                            description: Praesentibus genero ne in Africani mandavi saepius ipsam C in libro et hoc Laeli cum.
-                          </span>
-                        </p>
-                      </div>
-                    </li>
-                    <li
-                      aria-selected={false}
-                      id="react-autowhatever-42-section-2-item-1"
-                      onMouseDown={[Function]}
-                      role="option"
-                      style={Object {}}
+                      </span>
+                      <p
+                        className="theme-item-description tc-typeahead-item-description"
+                      >
+                        <span>
+                          description: Feceris unde tot illo tot clientes dederis numerando et indiscretus cum paria et unde ubi.
+                        </span>
+                      </p>
+                    </div>
+                  </li>
+                  <li
+                    aria-selected={false}
+                    id="react-autowhatever-42-section-2-item-2"
+                    onMouseDown={[Function]}
+                    role="option"
+                    style={Object {}}
+                  >
+                    <div
+                      className="theme-item"
+                      title="title 6"
                     >
-                      <div
-                        className="theme-item"
-                        title="title 5"
+                      <span
+                        className="theme-item-title tc-typeahead-item-title"
                       >
-                        <span
-                          className="theme-item-title tc-typeahead-item-title"
-                        >
-                          <span>
-                            tit
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                             5
-                          </span>
+                        <span>
+                          tit
+                          <em
+                            className="theme-highlight"
+                          >
+                            le
+                          </em>
+                           6
                         </span>
-                        <p
-                          className="theme-item-description tc-typeahead-item-description"
-                        >
-                          <span>
-                            description: Feceris unde tot illo tot clientes dederis numerando et indiscretus cum paria et unde ubi.
-                          </span>
-                        </p>
-                      </div>
-                    </li>
-                    <li
-                      aria-selected={false}
-                      id="react-autowhatever-42-section-2-item-2"
-                      onMouseDown={[Function]}
-                      role="option"
-                      style={Object {}}
-                    >
-                      <div
-                        className="theme-item"
-                        title="title 6"
+                      </span>
+                      <p
+                        className="theme-item-description tc-typeahead-item-description"
                       >
-                        <span
-                          className="theme-item-title tc-typeahead-item-title"
-                        >
-                          <span>
-                            tit
-                            <em
-                              className="theme-highlight"
-                            >
-                              le
-                            </em>
-                             6
-                          </span>
+                        <span>
+                          description: Gradu quos cedentium sunt appeterent ita ancoralia instar luna sunt etiam ubi incendente nihil observabant.
                         </span>
-                        <p
-                          className="theme-item-description tc-typeahead-item-description"
-                        >
-                          <span>
-                            description: Gradu quos cedentium sunt appeterent ita ancoralia instar luna sunt etiam ubi incendente nihil observabant.
-                          </span>
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
+                      </p>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>

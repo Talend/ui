@@ -5,11 +5,12 @@ exports[`Buttons field should render buttons 1`] = `
   className="theme-tf-buttons tf-buttons extra"
 >
   <SingleButton
-    className="theme-undefined"
+    className="theme-undefined custom-class-name"
     id="myForm-0"
     onTrigger={[MockFunction]}
     schema={
       Object {
+        "className": "custom-class-name",
         "title": "Reset",
         "type": "reset",
         "widget": "button",

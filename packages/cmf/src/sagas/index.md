@@ -68,14 +68,34 @@ const options = {
 
 const { data, response } = yield call(http.get, `${API['dataset-sample']}/${datasetId}`, config, options);
 ```
-* The config object allow you to customize your http request
+
+#### Config
+
+The config object allow you to customize your http request
  + ```headers```, ```credentials```, ```method```, ```body``` will be merged recursively against other provided arguments and override those values.
  + ```security``` will be resolved and then merged
 
-* The options object allow you to configure cmf behavior.
+#### Options
+
+The options object allow you to configure cmf behavior.
 
   + The ```silent``` property to ```true``` avoid that cmf dispatch an action of type ```@@HTTP/ERRORS```.<br/>
   It could be usefull if you want to treat the request error on a specific way only and deal with it within your own saga.
+
+  + The other properties are passed in the dispatched error action. You can pass whatever option you want, to pass them to you app error handler.
+
+Example
+
+```javascript
+const options = {
+    toto: false,
+    tata: false,
+};
+
+const { data, response } = yield call(http.get, `${API['dataset-sample']}/${datasetId}`, config, options);
+```
+On error, cmf will dispatch an action of type `@@HTTP/ERRORS`. Your onHttpErrorNotification saga will get the options object, and perform any action accordingly.
+
 
 ### http.create
 

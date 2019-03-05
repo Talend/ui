@@ -398,7 +398,7 @@ describe('ComponentForm', () => {
 					.instance()
 					.onTrigger(event, changePayload)
 					.then(() => {
-						expect(wrapper.state()).toEqual({ properties });
+						expect(wrapper.state().properties).toBe(properties);
 					});
 			});
 

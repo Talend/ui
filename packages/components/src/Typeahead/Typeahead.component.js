@@ -95,6 +95,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			rest.searchingText,
 			rest.isLoading,
 			rest.isLoadingText,
+			rest.children,
 		),
 		renderItemData: { value: rest.value },
 	};
@@ -112,9 +113,11 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		...themeProps,
 		...inputProps,
 		items: rest.items || [],
-		itemProps: {
+		itemProps: ({ itemIndex }) => ({
 			onMouseDown: rest.onSelect,
-		},
+			'data-feature': rest['data-feature'],
+			'aria-disabled': rest.items[itemIndex] && rest.items[itemIndex].disabled,
+		}),
 	};
 
 	return <Autowhatever {...autowhateverProps} />;
@@ -190,6 +193,7 @@ Typeahead.propTypes = {
 			}),
 		]),
 	),
+	children: PropTypes.func, // render props
 };
 
 export default Typeahead;

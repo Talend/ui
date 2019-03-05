@@ -13,6 +13,7 @@ import DefaultHeaderRenderer from '../src/components/DefaultHeaderRenderer';
 import sample from './sample.json';
 import sample2 from './sample2.json';
 import sample3 from './sample3.json';
+import sampleWithoutQuality from './sampleWithoutQuality.json';
 
 function getComponent(component) {
 	switch (component) {
@@ -45,12 +46,40 @@ sample.data[2].value.field0.value =
 	'very looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong value';
 
 storiesOf('Component Datagrid', module)
-
 	.add('default', () => (
 		<div style={{ height: '100vh' }}>
 			<IconsProvider />
 			<DataGrid
 				data={sample}
+				getComponent={getComponent}
+				onFocusedCell={event => console.log(event)}
+				onFocusedColumn={event => console.log(event)}
+				onVerticalScroll={event => console.log(event)}
+				rowSelection="multiple"
+				enableColResize={false}
+			/>
+		</div>
+	))
+	.add('without subtype', () => (
+		<div style={{ height: '100vh' }}>
+			<IconsProvider />
+			<DataGrid
+				columnsConf={{ hideSubType: true }}
+				data={sample}
+				getComponent={getComponent}
+				onFocusedCell={event => console.log(event)}
+				onFocusedColumn={event => console.log(event)}
+				onVerticalScroll={event => console.log(event)}
+				rowSelection="multiple"
+				enableColResize={false}
+			/>
+		</div>
+	))
+	.add('datagrid without quality', () => (
+		<div style={{ height: '100vh' }}>
+			<IconsProvider />
+			<DataGrid
+				data={sampleWithoutQuality}
 				getComponent={getComponent}
 				onFocusedCell={event => console.log(event)}
 				onFocusedColumn={event => console.log(event)}

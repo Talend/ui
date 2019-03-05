@@ -109,6 +109,7 @@ export default class ArrayWidget extends React.Component {
 		return (
 			<Widget
 				{...this.props}
+				disabled={this.props.schema.disabled}
 				id={this.props.id && `${this.props.id}-${index}`}
 				schema={getArrayElementSchema(this.props.schema, index)}
 				value={this.props.value[index]}
