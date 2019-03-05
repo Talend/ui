@@ -6,7 +6,7 @@
   "main": "app/index.js",
   "scripts": {
     "build": "talend-scripts build",
-    "start": "talend-scripts start",
+    "start": "talend-scripts start --open",
     "start-dist": "talend-scripts build && node serve-dist"
   },
   "repository": {
