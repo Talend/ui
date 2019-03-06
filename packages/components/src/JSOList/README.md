@@ -149,10 +149,18 @@ The example above is a List
 
 Even easier if you don't want to control all the subfeatures (display mode, sort, ...), just remove the values and callbacks.
 
-```javascript
+```diff
 <List.Container
     id="my-list"
     collection={ [{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }]}
+
+-   displayMode="table"
+-   onDisplayModeChange={this.onDisplayChange}
+
+    withSort
+-   sortBy="name"
+-   sortDescending={false}
+-   onSortChange={action('sort.onChange')}
 >
     {toolbar}
     {list}
@@ -214,7 +222,7 @@ Even easier in uncontrolled mode
 
 #### Example 2: put the toolbar at the bottom
 
-```javasript
+```diff
 // before
 
 <List.Container>
@@ -225,8 +233,9 @@ Even easier in uncontrolled mode
 // after: simple enough
 
 <List.Container>
+-   <List.Toolbar />
     <List.VList />
-    <List.Toolbar />
++   <List.Toolbar />
 </List.Container>
 ```
 
@@ -244,11 +253,11 @@ Even easier in uncontrolled mode
 
 ```javascript
 <List.Container
-    filters={[]}
-    onFilterChange={}
++   filters={[]}
++   onFilterChange={}
 >
     <List.VList />
-    <List.FilterBar id=""/>
++   <List.FilterBar id=""/>
     <List.Toolbar />
 </List.Container>
 ```
