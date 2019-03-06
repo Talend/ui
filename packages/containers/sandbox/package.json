@@ -7,6 +7,9 @@
   "scripts": {
     "start": "talend-scripts start",
     "prepublish": "cd .. && yarn prepublish"
+    "build": "talend-scripts build",
+    "start": "talend-scripts start --open",
+    "start-dist": "talend-scripts build && node serve-dist"
   },
   "repository": {
     "type": "git",
@@ -19,7 +22,9 @@
   "author": "Talend Frontend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@talend/scripts": "file:../../scripts"
+    "@talend/scripts": "file:../../scripts",
+    "compression": "^1.7.3",
+    "express": "^4.16.4"
   },
   "dependencies": {
     "@talend/bootstrap-theme": "link:../../theme",

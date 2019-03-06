@@ -131,7 +131,9 @@ export default class DataGrid extends React.Component {
 		this.setCurrentFocusedColumn(colId);
 		this.updateStyleFocusColumn();
 
-		this.props.onFocusedColumn({ colId });
+		if (this.props.onFocusedColumn) {
+			this.props.onFocusedColumn({ colId });
+		}
 	}
 
 	onKeyDownHeaderColumn(event, colId) {
