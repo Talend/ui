@@ -16,13 +16,30 @@ I guess you would create a div, insert it if we have a flag prop, or configurati
 
 Let's try to make it flexible. What do we need ?
 * a component where we can compose subcomponents
-* possibility to adapt the layout for different need
-* all subcomponents must work with the List, and have synchronized data with other related subcomponents. For example, the sort order is synchronized between the VirtualizedList and Sort toolbar element.
+* possibility to adapt the layout for different needs
+* all subcomponents must work with the List, and have synchronized data with other related subcomponents. For example, the sort order is synchronized between the VirtualizedList and Sort toolbar element
 * simplify the components api
 
 Nicolas Maligne started a PoC to turn the List into Compound components.
 
-### Example
+### Simple example: Tabs
+
+```javascript
+<Tabs
+    items={[{ id: 0, label: 'First link' }, { id: 1, label: 'Second link' }]}
+    selectedId={0}
+    onChange={callback}
+/>
+```
+
+```javascript
+<Tabs onChange={callback}>
+    <Tab id={0} selected>First link</Tab>
+    <Tab id={1}>Second link</Tab>
+</Tabs>
+```
+
+### Complex example: The List
 
 Before
 ```javascript
@@ -146,7 +163,7 @@ Even easier if you don't want to control all the subfeatures (display mode, sort
 
 What are the pros ?
 
-* With compound components you will write more code but easier to reason about code
+* With compound components you will write more code but easier to reason about code (it's jsx). For nested components, you see nested jsx instead of a complex props object
 * The set of props each part need is waaaaay lighter than the big List one's
 * It is flexible, you can apply the layout you want and insert anything you want
 
