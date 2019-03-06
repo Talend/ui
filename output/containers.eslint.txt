@@ -12,9 +12,12 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/EditableText/EditableText.selectors.js
   8:1  error  Prefer default export  import/prefer-default-export
 
+/home/travis/build/Talend/ui/packages/containers/src/Form/Form.container.js
+  6:39  error  Unable to resolve path to module '@talend/react-forms/lib/templates/ArrayFieldTemplate'  import/no-unresolved
+
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
 
-✖ 5 problems (5 errors, 0 warnings)
+✖ 6 problems (6 errors, 0 warnings)
   3 errors, 0 warnings potentially fixable with the `--fix` option.
 
