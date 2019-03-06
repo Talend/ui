@@ -1,11 +1,5 @@
 # Composable List
 
-@nmaligne started a poc on List to change its pattern and get rid of the apropcalypse.
-Moreover dataset module will need to add more things in it for faceted search and column chooser.
-
-I continued his PoC. Can you look at http://2026.talend.surge.sh/components/?selectedKind=JSOList&selectedStory=Default
-Any feedback is welcome.
-
 ## The Problem
 
 With current List, we have a static layout. It is practical to control what is inside, but it comes with a bunch of drawbacks
@@ -15,7 +9,7 @@ With current List, we have a static layout. It is practical to control what is i
 
 The result is a component that is really complicated to use and maintain, and not flexible at all.
 
-*Example*: how would you add a filter bar that display current filters between the toolbar and the VirtualizedList ?
+*Example*: how would you develop a filter bar that display current filters between the toolbar and the VirtualizedList ?
 I guess you would create a div, insert it if we have a flag prop, or configuration props, and the filters to display will be added to the current apropcalypse, making the api even more heavier.
 
 ## Principle
@@ -32,65 +26,57 @@ Nicolas Maligne started a PoC to turn the List into Compound components.
 
 Before
 ```javascript
+const toolbarProps = {
+    actionBar: {
+        actions: {
+            left: [
+                { id: 'add', label: 'Add Folder' },
+                { id: 'remove', label: 'Remove Folder' },
+            ],
+        },
+    },
+    display: {
+        onChange: this.onDisplayChange,
+    },
+    sort: {
+        field: 'name',
+        onChange: action('sort.onChange'),
+        options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
+    }
+};
+const listProps = {
+    columns: [
+        { key: 'id', label: 'Id' },
+        { key: 'name', label: 'Name' },
+        { key: 'author', label: 'Author' },
+        { key: 'created', label: 'Created' },
+        { key: 'modified', label: 'Modified' },
+    ],
+    items: [{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }],
+    titleProps: {
+        key: 'name',
+        iconKey: 'icon',
+        displayModeKey: 'display',
+        onClick: action('onTitleClick'),
+        onEditCancel: action('onEditCancel'),
+        onEditSubmit: action('onEditSubmit'),
+    },
+    itemProps: {
+        classNameKey: 'className',
+    },
+};
+
 <List
     id="talend"
 	displayMode="table"
-	list={{
-		columns: [
-			{ key: 'id', label: 'Id' },
-			{ key: 'name', label: 'Name' },
-			{ key: 'author', label: 'Author' },
-			{ key: 'created', label: 'Created' },
-			{ key: 'modified', label: 'Modified' },
-		],
-		items: [{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }],
-		titleProps: {
-			key: 'name',
-			iconKey: 'icon',
-			displayModeKey: 'display',
-			onClick: action('onTitleClick'),
-			onEditCancel: action('onEditCancel'),
-			onEditSubmit: action('onEditSubmit'),
-		},
-		itemProps: {
-			classNameKey: 'className',
-		},
-	}}
-	toolbar={{
-		actionBar: {
-			actions: {
-				left: [
-					{ id: 'add', label: 'Add Folder' },
-					{ id: 'remove', label: 'Remove Folder' },
-				],
-			},
-		},
-		display: {
-			onChange: this.onDisplayChange,
-		},
-		sort: {
-			field: 'name',
-			onChange: action('sort.onChange'),
-			options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
-		}
-	}}
+	list={listProps}
+	toolbar={toolbarProps}
 />
 ```
 
 After
 ```javascript
-<List.Container
-    id="my-list"
-    collection={ [{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }]}
-
-    displayMode="table"
-    onDisplayModeChange={this.onDisplayChange}
-
-    withSort
-    sortBy="name"
-    sortDescending={false}
-    onSortChange={({ sortBy, sortDescending }) => performSort(sortBy, sortDescending)}
->
+const toolBar = (
     <List.Toolbar>
         <ActionBar left={[
             { id: 'add', label: 'Add Folder' },
@@ -99,6 +85,8 @@ After
         <List.DisplayMode id="my-list-displayMode" />
         <List.SortBy id="my-list-sortBy" options={[{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }]} />
     </List.Toolbar>
+);
+const list = (
     <List.VList>
         <List.VList.Content label="Id" dataKey="id" />
         <List.VList.Content
@@ -117,6 +105,22 @@ After
         <List.VList.Content label="Created" dataKey="created" />
         <List.VList.Content label="Modified" dataKey="modified" />
     </List.VList>
+);
+
+<List.Container
+    id="my-list"
+    collection={ [{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }]}
+
+    displayMode="table"
+    onDisplayModeChange={this.onDisplayChange}
+
+    withSort
+    sortBy="name"
+    sortDescending={false}
+    onSortChange={action('sort.onChange')}
+>
+    {toolbar}
+    {list}
 </List.Container>
 ```
 
@@ -133,38 +137,14 @@ Even easier if you don't want to control all the subfeatures (display mode, sort
     id="my-list"
     collection={ [{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }]}
 >
-    <List.Toolbar>
-        <ActionBar left={[
-            { id: 'add', label: 'Add Folder' },
-            { id: 'remove', label: 'Remove Folder' },
-        ]} />
-        <List.DisplayMode id="my-list-displayMode" />
-        <List.SortBy id="my-list-sortBy" options={[{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }]} />
-    </List.Toolbar>
-    <List.VList>
-        <List.VList.Content label="Id" dataKey="id" />
-         <List.VList.Content
-            label="Name"
-            dataKey="name"
-            {...CellTitle}
-            columnData={{
-                iconKey: 'icon',
-                displayModeKey: 'display',
-                onClick: action('onTitleClick'),
-                onEditCancel: action('onEditCancel'),
-                onEditSubmit: action('onEditSubmit'),
-            }}
-        />
-        <List.VList.Content label="Author" dataKey="author" />
-        <List.VList.Content label="Created" dataKey="created" />
-        <List.VList.Content label="Modified" dataKey="modified" />
-    </List.VList>
+    {toolbar}
+    {list}
 </List.Container>
 ```
 
 ### Pros
 
-What are the advantages ?
+What are the pros ?
 
 * With compound components you will write more code but easier to reason about code
 * The set of props each part need is waaaaay lighter than the big List one's
@@ -174,10 +154,9 @@ What are the advantages ?
 We want to add pagination, what do you do to write it ?
 
 **Non-compound**
-* read doc/code of List to spot where to insert the props
-* you see that the toolbar instantiate it passing the props the List pass to the toolbar, having a pagination property
+* read doc/code of List to spot where to insert the props. You see that the toolbar instantiates it, passing the props the List pass to the toolbar, having a pagination property
 * now what to pass in pagination prop ? You look at the pagination doc/code to see its api
-* finally to add the props to the List props, flooded in the apropcalypse
+* finally to add the props to the List nested toolbar props
 
 ```javascript
 const props = {
@@ -198,7 +177,7 @@ const props = {
 ```javascript
 <List.Container onPaginationChange={action('pagination.onChange')}>
     <List.Toolbar>
-        <List.Paginaltion
+        <List.Pagination
             id="my-list-pagination"
             itemsPerPage={5}
             totalResults={10}
@@ -234,7 +213,7 @@ Even easier in uncontrolled mode
 </List.Container>
 ```
 
-#### Example 3: add a filter div between toolbar and VList
+#### Example 3: develop a filter div between toolbar and VList
 
 **Non-compound**
 * Develop the FilterBar
@@ -260,6 +239,8 @@ Even easier in uncontrolled mode
 ## How to use
 
 ### Default
+
+[Demo](http://2026.talend.surge.sh/components/?selectedKind=JSOList&selectedStory=Default&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 
 By default, List is only a ... list :)
 It is not really useful to use it as is, instead use `VirtualizedList`.
@@ -287,3 +268,69 @@ function MySimpleList() {
     );
 }
 ```
+
+### Display mode
+
+[Demo](http://2026.talend.surge.sh/components/?selectedKind=JSOList&selectedStory=Display%20mode%3A%20uncontrolled&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
+
+Add a toolbar and the display mode component
+
+```diff
+import CellTitle from '../../src/VirtualizedList/CellTitle';
+
+function MySimpleList() {
+    const simpleCollection = [
+        { id: 1, name: 'My first item', description: 'First element', author: 'me', created: 15464354400 }
+    ];
+
+    return (
+        <List.Container id="my-list" collection={simpleCollection}>
++            <List.Toolbar>
++                <List.DisplayMode id="my-list-displayMode" />
++            </List.Toolbar>
+            <List.VList id="my-vlist">
+                <List.VList.Content label="Id" dataKey="id" width={-1} />
+                <List.VList.Content label="Name" dataKey="name" columnData={titleProps} width={-1} {...CellTitle} />
+                <List.VList.Content label="Description" dataKey="description" width={-1} />
+                <List.VList.Content label="Author" dataKey="author" width={-1} />
+                <List.VList.Content label="Created" dataKey="created" width={-1} />
+        	</List.VList>
+        </List.Container>
+    );
+}
+```
+
+You want to control it ?
+
+[Demo](http://2026.talend.surge.sh/components/?selectedKind=JSOList&selectedStory=Display%20mode%3A%20controlled&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
+
+```diff
+import CellTitle from '../../src/VirtualizedList/CellTitle';
+
+function MySimpleList() {
+    const simpleCollection = [
+        { id: 1, name: 'My first item', description: 'First element', author: 'me', created: 15464354400 }
+    ];
+
+    return (
+        <List.Container
+            id="my-list"
+            collection={simpleCollection}
++           displayMode="table"
++           onDisplayModeChange={() => {}}
+        >
+            <List.Toolbar>
+                <List.DisplayMode id="my-list-displayMode" />
+            </List.Toolbar>
+            <List.VList id="my-vlist">
+                <List.VList.Content label="Id" dataKey="id" width={-1} />
+                <List.VList.Content label="Name" dataKey="name" columnData={titleProps} width={-1} {...CellTitle} />
+                <List.VList.Content label="Description" dataKey="description" width={-1} />
+                <List.VList.Content label="Author" dataKey="author" width={-1} />
+                <List.VList.Content label="Created" dataKey="created" width={-1} />
+        	</List.VList>
+        </List.Container>
+    );
+}
+```
+
