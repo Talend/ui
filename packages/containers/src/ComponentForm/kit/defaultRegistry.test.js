@@ -113,7 +113,7 @@ describe('defaultRegistry', () => {
 		});
 		it('should return errors map from error.code and description', () => {
 			const error = {
-				code: 123,
+				code: 'PLUGIN_MISSING',
 				description: errorMsg,
 			};
 			expect(
@@ -123,7 +123,21 @@ describe('defaultRegistry', () => {
 					error,
 				}),
 			).toEqual({
-				errors: { foo: '[123] Sth went wrong' },
+				errors: { foo: '[PLUGIN_MISSING] Sth went wrong' },
+			});
+		});
+		it('should return description if error.description', () => {
+			const error = {
+				description: errorMsg,
+			};
+			expect(
+				service.error({
+					errors: {},
+					schema,
+					error,
+				}),
+			).toEqual({
+				errors: { foo: 'Sth went wrong' },
 			});
 		});
 		it('should return errors map from error', () => {
