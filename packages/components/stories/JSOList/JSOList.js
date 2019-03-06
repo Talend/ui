@@ -99,7 +99,7 @@ storiesOf('JSOList', module)
 			</section>
 		</div>
 	))
-	.add('Display mode', () => (
+	.add('Display mode: uncontrolled', () => (
 		<div className="virtualized-list">
 			<IconsProvider defaultIcons={icons} />
 			<h1>List with display mode change</h1>
@@ -116,6 +116,45 @@ storiesOf('JSOList', module)
 `}</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Container id="my-list" collection={simpleCollection}>
+					<List.Toolbar>
+						<List.DisplayMode id="my-list-displayMode" />
+					</List.Toolbar>
+					<CustomList />
+				</List.Container>
+			</section>
+		</div>
+	))
+	.add('Display mode: controlled', () => (
+		<div className="virtualized-list">
+			<IconsProvider defaultIcons={icons} />
+			<h1>List with display mode change</h1>
+			<p>
+				You can control the display mode by<br />
+				- passing the display mode to List<br />
+				- handling the display mode change via onDisplayModeChange prop
+			</p>
+			<pre>{`
+<List.Container
+ 	id="my-list"
+ 	collection={collection}
+ 	displayMode="table"
+ 	onDisplayModeChange={changedisplayMode}
+>
+	<List.Toolbar>
+		<List.DisplayMode id="my-list-displayMode" />
+	</List.Toolbar>
+	<List.VList id="my-vlist">
+		...
+	</List.VList>
+</List.Container>
+`}</pre>
+			<section style={{ height: '50vh' }}>
+				<List.Container
+					id="my-list"
+					collection={simpleCollection}
+					displayMode="table"
+					onDisplayModeChange={action('onDisplayModeChange')}
+				>
 					<List.Toolbar>
 						<List.DisplayMode id="my-list-displayMode" />
 					</List.Toolbar>
@@ -360,7 +399,7 @@ storiesOf('JSOList', module)
 				You can enable selection with a "props.withPagination".<br />
 				To control the pagination you need to pass some props<br />
 				- onPageChange: page configuration change callback (current page, size of page, ...)<br />
-				- collection: the passed colelction is considered as the current page elements<br />
+				- collection: the passed collection is considered as the current page elements<br />
 			</p>
 			<pre>{`
 <List.Container
