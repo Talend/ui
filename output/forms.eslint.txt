@@ -2,48 +2,16 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/forms/src/deprecated/fields/ArrayField.js
-   4:1   error  'react-jsonschema-form' should be listed in the project's dependencies. Run 'npm i -S react-jsonschema-form' to add it  import/no-extraneous-dependencies
-   4:30  error  Unable to resolve path to module 'react-jsonschema-form/lib/components/fields/UnsupportedField'                         import/no-unresolved
-   5:1   error  'react-jsonschema-form' should be listed in the project's dependencies. Run 'npm i -S react-jsonschema-form' to add it  import/no-extraneous-dependencies
-  17:8   error  Unable to resolve path to module 'react-jsonschema-form/lib/utils'                                                      import/no-unresolved
-
-/home/travis/build/Talend/ui/packages/forms/src/deprecated/fields/BooleanField.js
-  4:1  error  'react-jsonschema-form' should be listed in the project's dependencies. Run 'npm i -S react-jsonschema-form' to add it  import/no-extraneous-dependencies
-  9:8  error  Unable to resolve path to module 'react-jsonschema-form/lib/utils'                                                      import/no-unresolved
-
 /home/travis/build/Talend/ui/packages/forms/src/deprecated/fields/CollapsibleFieldset.js
-   4:1   error  'react-jsonschema-form' should be listed in the project's dependencies. Run 'npm i -S react-jsonschema-form' to add it  import/no-extraneous-dependencies
-   4:49  error  Unable to resolve path to module 'react-jsonschema-form/lib/utils'                                                      import/no-unresolved
-  82:8   error  Visible, non-interactive elements should not have mouse or keyboard event listeners                                     jsx-a11y/no-static-element-interactions
-
-/home/travis/build/Talend/ui/packages/forms/src/deprecated/fields/ObjectField.js
-   4:1  error  'react-jsonschema-form' should be listed in the project's dependencies. Run 'npm i -S react-jsonschema-form' to add it  import/no-extraneous-dependencies
-  10:8  error  Unable to resolve path to module 'react-jsonschema-form/lib/utils'                                                      import/no-unresolved
-
-/home/travis/build/Talend/ui/packages/forms/src/deprecated/fields/StringField.js
-   4:1  error  'react-jsonschema-form' should be listed in the project's dependencies. Run 'npm i -S react-jsonschema-form' to add it  import/no-extraneous-dependencies
-  11:8  error  Unable to resolve path to module 'react-jsonschema-form/lib/utils'                                                      import/no-unresolved
+  82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/forms/src/deprecated/Form.js
-  4:1   error  'react-jsonschema-form' should be listed in the project's dependencies. Run 'npm i -S react-jsonschema-form' to add it  import/no-extraneous-dependencies
-  4:21  error  Unable to resolve path to module 'react-jsonschema-form/lib/index'                                                      import/no-unresolved
-  8:24  error  Unable to resolve path to module './UIForm'                                                                             import/no-unresolved
-  9:34  error  Unable to resolve path to module './UIForm/merge'                                                                       import/no-unresolved
+  8:24  error  Unable to resolve path to module './UIForm'        import/no-unresolved
+  9:34  error  Unable to resolve path to module './UIForm/merge'  import/no-unresolved
 
 /home/travis/build/Talend/ui/packages/forms/src/deprecated/templates/ArrayFieldTemplate.js
    9:35  error  Unable to resolve path to module '../constants'  import/no-unresolved
   10:8   error  Unable to resolve path to module '../translate'  import/no-unresolved
-
-/home/travis/build/Talend/ui/packages/forms/src/deprecated/widgets/CodeWidget/CodeWidget.component.js
-  3:1   error  'react-jsonschema-form' should be listed in the project's dependencies. Run 'npm i -S react-jsonschema-form' to add it  import/no-extraneous-dependencies
-  3:28  error  Unable to resolve path to module 'react-jsonschema-form/lib/components/widgets/TextareaWidget'                          import/no-unresolved
-
-/home/travis/build/Talend/ui/packages/forms/src/deprecated/widgets/ColumnsWidget/ColumnsWidget.js
-  3:1   error  'react-jsonschema-form' should be listed in the project's dependencies. Run 'npm i -S react-jsonschema-form' to add it  import/no-extraneous-dependencies
-  3:25  error  Unable to resolve path to module 'react-jsonschema-form/lib/components/fields/SchemaField'                              import/no-unresolved
-  4:1   error  'react-jsonschema-form' should be listed in the project's dependencies. Run 'npm i -S react-jsonschema-form' to add it  import/no-extraneous-dependencies
-  4:24  error  Unable to resolve path to module 'react-jsonschema-form/lib/components/fields/TitleField'                               import/no-unresolved
 
 /home/travis/build/Talend/ui/packages/forms/src/deprecated/widgets/ColumnsWidget/ColumnsWidget.test.js
   6:24  error  Unable to resolve path to module '../../../stories/json/columns.json'  import/no-unresolved
@@ -55,14 +23,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/deprecated/widgets/EnumerationWidget/EnumerationWidget.test.js
   4:31  error  Unable to resolve path to module '../../../__mocks__/props-without-i18n'  import/no-unresolved
 
-/home/travis/build/Talend/ui/packages/forms/src/deprecated/widgets/KeyValueWidget/KeyValueWidget.js
-  4:1   error  'react-jsonschema-form' should be listed in the project's dependencies. Run 'npm i -S react-jsonschema-form' to add it  import/no-extraneous-dependencies
-  4:18  error  Unable to resolve path to module 'react-jsonschema-form/lib/components/widgets/TextWidget'                              import/no-unresolved
-  5:1   error  'react-jsonschema-form' should be listed in the project's dependencies. Run 'npm i -S react-jsonschema-form' to add it  import/no-extraneous-dependencies
-  5:20  error  Unable to resolve path to module 'react-jsonschema-form/lib/components/widgets/SelectWidget'                            import/no-unresolved
-  6:1   error  'react-jsonschema-form' should be listed in the project's dependencies. Run 'npm i -S react-jsonschema-form' to add it  import/no-extraneous-dependencies
-  6:29  error  Unable to resolve path to module 'react-jsonschema-form/lib/utils'                                                      import/no-unresolved
-
 /home/travis/build/Talend/ui/packages/forms/src/deprecated/widgets/ListViewWidget/ListViewWidget.js
   6:35  error  Unable to resolve path to module '../../constants'  import/no-unresolved
   7:25  error  Unable to resolve path to module '../../translate'  import/no-unresolved
@@ -71,15 +31,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
    9:35  error  Unable to resolve path to module '../../constants'  import/no-unresolved
   10:8   error  Unable to resolve path to module '../../translate'  import/no-unresolved
 
-/home/travis/build/Talend/ui/packages/forms/src/deprecated/widgets/RadioOrSelectWidget.js
-  4:1   error  'react-jsonschema-form' should be listed in the project's dependencies. Run 'npm i -S react-jsonschema-form' to add it  import/no-extraneous-dependencies
-  4:19  error  Unable to resolve path to module 'react-jsonschema-form/lib/components/widgets/RadioWidget'                             import/no-unresolved
-  5:1   error  'react-jsonschema-form' should be listed in the project's dependencies. Run 'npm i -S react-jsonschema-form' to add it  import/no-extraneous-dependencies
-  5:20  error  Unable to resolve path to module 'react-jsonschema-form/lib/components/widgets/SelectWidget'                            import/no-unresolved
-
-/home/travis/build/Talend/ui/packages/forms/src/deprecated/widgets/TabsWidget.js
-  4:1   error  'react-jsonschema-form' should be listed in the project's dependencies. Run 'npm i -S react-jsonschema-form' to add it  import/no-extraneous-dependencies
-  4:28  error  Unable to resolve path to module 'react-jsonschema-form/lib/utils'                                                      import/no-unresolved
-
-✖ 45 problems (45 errors, 0 warnings)
+✖ 13 problems (13 errors, 0 warnings)
 
