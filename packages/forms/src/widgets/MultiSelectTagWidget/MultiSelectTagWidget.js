@@ -203,7 +203,9 @@ export class MultiSelectTagWidgetComponent extends React.Component {
 			});
 			return items;
 		} else if (suggestions && suggestions.length > 0) {
-			return suggestions.map(item => ({ ...item, title: item.label }));
+			return suggestions
+				.filter(i => this.props.value && !this.props.value.includes(i.value))
+				.map(item => ({ ...item, title: item.label }));
 		}
 		return suggestions;
 	}
@@ -217,9 +219,13 @@ export class MultiSelectTagWidgetComponent extends React.Component {
 
 			if (filterText) {
 				const escapedValue = escapeRegexCharacters(filterText.trim());
-				const regex = new RegExp(escapedValue, 'i');
-				suggestions = suggestions.filter(item => regex.test(item.label));
-				if (suggestions.length === 0 && currentProps.schema.createIfNoneMatch) {
+				const exactMatchRx = new RegExp(`^${escapedValue}$`, 'i');
+				const similarValueRx = new RegExp(escapedValue, 'i');
+				suggestions = suggestions.filter(item => similarValueRx.test(item.label));
+				if (
+					!suggestions.some(item => exactMatchRx.test(item.value)) &&
+					currentProps.schema.createIfNoneMatch
+				) {
 					suggestions.push({ label: `${filterText} (new)`, value: filterText });
 				}
 			}
@@ -285,12 +291,11 @@ export class MultiSelectTagWidgetComponent extends React.Component {
 		const valueToLabel = mapValueToLabel(transformOptions(options));
 		let badgeValue;
 		let badgeProps;
-		const defaultLabel = readonly &&
-			(!options.enumOptions || !options.enumOptions.length) && (
-				<label className="control-label" htmlFor={id}>
-					{t('MULTISELECTTAG_WIDGET_NONE', { defaultValue: 'none' })}
-				</label>
-			);
+		const defaultLabel = readonly && (!options.enumOptions || !options.enumOptions.length) && (
+			<label className="control-label" htmlFor={id}>
+				{t('MULTISELECTTAG_WIDGET_NONE', { defaultValue: 'none' })}
+			</label>
+		);
 
 		const caret = !readonly && (
 			<button
