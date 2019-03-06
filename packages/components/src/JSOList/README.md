@@ -166,7 +166,7 @@ Even easier if you don't want to control all the subfeatures (display mode, sort
 
 What are the advantages ?
 
-* With compound components you will write more code but easier to read and reason about code.
+* With compound components you will write more code but easier to reason about code
 * The set of props each part need is waaaaay lighter than the big List one's
 * It is flexible, you can apply the layout you want and insert anything you want
 
@@ -276,8 +276,8 @@ function MySimpleList() {
 
     return (
         <List.Container id="my-list" collection={simpleCollection}>
-        	<List.VList id="my-vlist">
-        		<List.VList.Content label="Id" dataKey="id" width={-1} />
+            <List.VList id="my-vlist">
+                <List.VList.Content label="Id" dataKey="id" width={-1} />
                 <List.VList.Content label="Name" dataKey="name" columnData={titleProps} width={-1} {...CellTitle} />
                 <List.VList.Content label="Description" dataKey="description" width={-1} />
                 <List.VList.Content label="Author" dataKey="author" width={-1} />
