@@ -15,8 +15,6 @@ const coreFieldsetsStories = storiesOf('Core fieldsets', module);
 
 const coreFieldsStories = storiesOf('Core fields', module);
 
-const oldStories = storiesOf('Migration', module);
-
 const layout = storiesOf('Layout', module);
 layouts.forEach(info => layout.add(info.name, info.story, info.options));
 
@@ -30,9 +28,6 @@ jsonStories.forEach(({ category, name, story }) => {
 			break;
 		case 'fields':
 			coreFieldsStories.add(name, story);
-			break;
-		case 'old':
-			oldStories.add(name, story);
 			break;
 		default:
 			console.error(`No category ${category} found for story ${name}`);
