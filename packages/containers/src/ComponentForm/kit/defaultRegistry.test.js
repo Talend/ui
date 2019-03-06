@@ -83,10 +83,8 @@ describe('defaultRegistry', () => {
 		});
 	});
 	describe('error', () => {
-		it('should return errors map from error.errors', () => {
-			const error = {
-				errors: [{ message: errorMsg, name: 'TypeError' }],
-			};
+		it('should return errors map from error.message', () => {
+			const error = { message: errorMsg, name: 'TypeError' };
 			expect(
 				service.error({
 					errors: {},
@@ -94,21 +92,7 @@ describe('defaultRegistry', () => {
 					error,
 				}),
 			).toEqual({
-				errors: { foo: error.errors },
-			});
-		});
-		it('should return errors map from error.error', () => {
-			const error = {
-				error: { message: errorMsg, name: 'TypeError' },
-			};
-			expect(
-				service.error({
-					errors: {},
-					schema,
-					error,
-				}),
-			).toEqual({
-				errors: { foo: JSON.stringify(error.error) },
+				errors: { foo: errorMsg },
 			});
 		});
 		it('should return errors map from error.code and description', () => {
@@ -126,7 +110,7 @@ describe('defaultRegistry', () => {
 				errors: { foo: '[PLUGIN_MISSING] Sth went wrong' },
 			});
 		});
-		it('should return description if error.description', () => {
+		it('should return description if error.description and no error.code', () => {
 			const error = {
 				description: errorMsg,
 			};
