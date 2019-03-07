@@ -153,7 +153,7 @@ export function ActionButton(props) {
 		});
 	}
 	if (loading) {
-		ariaLabel = t('SKELETON_LOADING', { defaultValue: ' {{type}} (loading)', type: ariaLabel });
+		ariaLabel = t('SKELETON_LOADING', { defaultValue: '{{type}} (loading)', type: ariaLabel });
 	}
 
 	const hasPopup = !inProgress && overlayComponent;

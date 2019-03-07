@@ -131,7 +131,9 @@ export default class DataGrid extends React.Component {
 		this.setCurrentFocusedColumn(colId);
 		this.updateStyleFocusColumn();
 
-		this.props.onFocusedColumn({ colId });
+		if (this.props.onFocusedColumn) {
+			this.props.onFocusedColumn({ colId });
+		}
 	}
 
 	onKeyDownHeaderColumn(event, colId) {
@@ -192,7 +194,7 @@ export default class DataGrid extends React.Component {
 		}
 
 		const pinnedColumnDefs = this.props.getPinnedColumnDefsFn(this.props.data);
-		const columnDefs = this.props.getColumnDefsFn(this.props.data);
+		const columnDefs = this.props.getColumnDefsFn(this.props.data, this.props.columnsConf);
 		let adaptedColumnDefs = [];
 
 		if (pinnedColumnDefs) {

@@ -61,3 +61,16 @@ exports[`SingleButton field should render submit button 1`] = `
   type="submit"
 />
 `;
+
+exports[`SingleButton field should render submit button with inProgress 1`] = `
+<Action
+  bsStyle="primary"
+  className="btn"
+  id="myForm"
+  inProgress={true}
+  label="Boom !"
+  name="my-button"
+  onClick={[Function]}
+  type="submit"
+/>
+`;

@@ -28,4 +28,25 @@ describe('Fieldset widget', () => {
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+
+	it('should hide title', () => {
+		// given
+		const schema = {
+			title: 'My fieldset',
+			items: [
+				{
+					key: ['user', 'firstname'],
+					type: 'text',
+					schema: { type: 'string' },
+				},
+			],
+			options: { hideTitle: true },
+		};
+
+		// when
+		const wrapper = shallow(<Fieldset schema={schema} />);
+
+		// then
+		expect(wrapper.find('legend').prop('className')).toBe('sr-only');
+	});
 });

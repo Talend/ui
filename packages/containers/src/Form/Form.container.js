@@ -67,6 +67,7 @@ class Form extends React.Component {
 	}
 
 	onErrors(event, errors) {
+		this.props.setState({ errors });
 		if (this.props.onErrors) {
 			this.props.onErrors(event, errors);
 		}
@@ -108,6 +109,14 @@ class Form extends React.Component {
 		return Object.assign({}, this.props.data, state.data);
 	}
 
+	errors() {
+		const state = (this.props.state || DEFAULT_STATE).toJS();
+		if (typeof this.props.errors === 'function') {
+			return this.props.errors(state.errors);
+		}
+		return Object.assign({}, this.props.errors, state.errors);
+	}
+
 	formActions() {
 		if (typeof this.props.actions === 'function') {
 			const state = (this.props.state || DEFAULT_STATE).toJS();
@@ -123,6 +132,7 @@ class Form extends React.Component {
 				jsonSchema: this.jsonSchema(),
 				uiSchema: this.uiSchema(),
 				properties: this.data(),
+				errors: this.errors(),
 			},
 			className: classnames('tc-form', 'rjsf', this.props.className, {
 				dirty: state.dirty,

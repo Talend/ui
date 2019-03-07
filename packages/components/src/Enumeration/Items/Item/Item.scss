@@ -54,7 +54,7 @@ $item-checkbox-size: 20px;
 		text-align: left;
 
 		// In order to show ellipsis, need to override <span> to be inline
-		span {
+		span:first-child {
 			display: inline;
 		}
 	}

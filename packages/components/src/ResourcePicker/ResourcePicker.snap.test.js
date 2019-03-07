@@ -45,6 +45,7 @@ describe('ResourcePicker component snaps', () => {
 	it('should render ResourcePicker with some Resources', () => {
 		const props = {
 			toolbar: {},
+			isLoading: true,
 			collection,
 		};
 

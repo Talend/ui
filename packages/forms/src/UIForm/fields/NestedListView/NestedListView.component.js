@@ -201,9 +201,10 @@ class NestedListViewWidget extends React.Component {
 					descriptionId={generateDescriptionId(id)}
 					errorId={generateErrorId(id)}
 					errorMessage={this.props.errorMessage}
-					id={this.props.id}
+					id={id}
 					isValid={this.props.isValid}
 					required={schema.required}
+					valueIsUpdating={this.props.valueIsUpdating}
 				>
 					<ListView
 						{...this.state}
@@ -245,6 +246,7 @@ if (process.env.NODE_ENV !== 'production') {
 			title: PropTypes.string,
 		}),
 		value: PropTypes.object,
+		valueIsUpdating: PropTypes.bool,
 		t: PropTypes.func,
 	};
 }

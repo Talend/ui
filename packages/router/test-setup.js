@@ -5,6 +5,8 @@
  * so it complains about not having any enzyme-adapter for react.
  */
 /* eslint-disable global-require,no-plusplus */
+import '@babel/polyfill';
+
 import { configure } from 'enzyme';
 
 function getMajorVersion() {
