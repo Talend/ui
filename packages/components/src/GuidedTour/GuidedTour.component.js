@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import theme from './GuidedTour.scss';
 
-function GuidedTour({ className, onRequestClose, isOpen = true, steps }) {
+function GuidedTour({ className, onRequestClose, isOpen, steps }) {
 	return (
 		<Tour
 			className={classNames(theme['guided-tour'], 'guided-tour', className)}
@@ -14,10 +14,10 @@ function GuidedTour({ className, onRequestClose, isOpen = true, steps }) {
 			steps={steps}
 			isOpen={isOpen}
 			onRequestClose={onRequestClose}
-			showNavigationNumber={false}
+			showNavigationNumber
 			maskSpace={2}
 			rounded={2}
-			lastStepNextButton={<button className={'btn btn-info'}>Done</button>}
+			lastStepNextButton={<button className={'btn btn-info'}>Let me try</button>}
 		/>
 	);
 }
@@ -37,8 +37,9 @@ if (process.env.NODE_ENV !== 'production') {
 				style: PropTypes.object,
 				stepInteraction: PropTypes.bool,
 			}),
-		),
+		).isRequired,
 		isOpen: PropTypes.func,
+		onRequestClose: PropTypes.func,
 	};
 }
 

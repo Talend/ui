@@ -3,6 +3,39 @@ import { storiesOf } from '@storybook/react';
 
 import { GuidedTour } from '../src/index';
 
+class ImportDemo extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			loading: false,
+			finish: false,
+		};
+		this.onClick = this.onClick.bind(this);
+	}
+
+	onClick() {
+		this.setState(
+			{ loading: true },
+			() => setTimeout(() => {
+				this.setState({ loading: false, finish: true });
+			}, 3000),
+		);
+	}
+
+	render() {
+		if (this.state.loading) {
+			return <span>Loading ⏳</span>;
+		} else if (this.state.finish) {
+			return <span>Finish ✅</span>;
+		}
+		return (
+			<button className={'btn btn-info'} onClick={this.onClick}>
+				Import content
+			</button>
+		);
+	}
+}
+
 // @see https://github.com/elrumordelaluz/reactour#steps
 const steps = [
 	{
@@ -11,16 +44,7 @@ const steps = [
 	},
 	{
 		selector: '[data-tour="my-first-step"]',
-		content: ({ goTo, inDOM, ...rest }) => {
-			console.log(rest);
-			return (
-				<div>
-					Lorem ipsum <button onClick={() => alert('Action')}>Action</button>
-					<br />
-					{inDOM && '🎉 Look at your step!'}
-				</div>
-			);
-		},
+		content: () => (<ImportDemo />),
 	},
 	{
 		selector: '[data-tour="my-second-step"]',
@@ -150,4 +174,4 @@ storiesOf('GuidedTour', module)
 			{getDemoLayout()}
 		</React.Fragment>
 	))
-	.add('default', () => <GuidedTour steps={steps} isOpen={true} />);
+	.add('default', () => <GuidedTour steps={steps} isOpen />);
