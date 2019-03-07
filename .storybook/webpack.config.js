@@ -3,7 +3,7 @@ const autoprefixer = require.main.require('autoprefixer');
 const autoPrefixerPlugin = autoprefixer({ browsers: ['last 2 versions'] });
 
 module.exports = storybookBaseConfig => {
-	storybookBaseConfig.entry['talend-theme'] = '@talend/bootstrap-theme/src/theme/theme.scss';
+	// Override css part to apply custom postcss config
 	const cssRuleIndex = storybookBaseConfig.module.rules.findIndex(
 		({ test }) => test.toString() === /\.css$/.toString(),
 	);
