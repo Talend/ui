@@ -1,13 +1,13 @@
 .guided-tour {
-  :global {
-    --reactour-accent: #{$scooter};
-  }
+	:global {
+		--reactour-accent: #{$scooter};
+	}
 
-  .mask {
-    fill: hotpink;
-  }
+	.mask {
+		fill: hotpink;
+	}
 
-  .highlighted-mask {
-    fill: darkcyan;
-  }
+	.highlighted-mask {
+		fill: darkcyan;
+	}
 }
