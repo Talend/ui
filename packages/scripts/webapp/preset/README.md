@@ -261,7 +261,7 @@ You can use your own babelrc but it is not recommanded. To do so, you will need 
 
 ```json
 {
-  "extends": "node_modules/@talend/scripts/webapp/preset/config/babelrc.json",
+  "extends": "@talend/scripts/webapp/preset/config/.babelrc.json",
 }
 ```
 

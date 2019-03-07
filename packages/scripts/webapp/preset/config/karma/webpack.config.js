@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const { getBabelConfig } = require('../babel.config');
+const { getBabelConfig } = require('../babel-resolver');
 
 const ROOT = path.resolve(__dirname, '../src');
 const INDEX_TEMPLATE_PATH = path.resolve(__dirname, '../src/app/index.html');

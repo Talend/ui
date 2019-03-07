@@ -190,14 +190,18 @@ export default class MultiSelectTag extends React.Component {
 			const currentProps = props === undefined ? this.props : props;
 			let suggestions = this.getTitleMap(currentProps)
 				.map(item => ({ value: item.value, title: item.name }))
-				.filter(item => currentProps.value.indexOf(item.value) < 0);
+				.filter(item => !currentProps.value.includes(item.value));
 
 			if (currentValue) {
 				const escapedValue = escapeRegexCharacters(currentValue.trim());
-				const regex = new RegExp(escapedValue, 'i');
-				suggestions = suggestions.filter(item => regex.test(item.title));
-
-				if (!suggestions.length && currentProps.schema.restricted === false) {
+				const exactMatchRx = new RegExp(`^${escapedValue}$`, 'i');
+				const similarValueRx = new RegExp(escapedValue, 'i');
+				suggestions = suggestions.filter(item => similarValueRx.test(item.title));
+				if (
+					!suggestions.some(item => exactMatchRx.test(item.title)) &&
+					currentProps.schema.restricted === false &&
+					!currentProps.value.includes(currentValue)
+				) {
 					suggestions.push({ value: currentValue, title: getNewItemText(currentValue) });
 				}
 			}
