@@ -77,7 +77,6 @@ let body;
 function toggleControlsVisibility(toggle) {
 	const controls = body.querySelectorAll('[data-tour-elem="controls"] button');
 	controls.forEach(control => {
-		console.log(control);
 		control.setAttribute('style', toggle ? 'display: block' : 'display: none');
 	});
 }
