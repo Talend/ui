@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import { GuidedTour } from '../src/index';
 
@@ -14,26 +15,79 @@ class ImportDemo extends React.Component {
 	}
 
 	onClick() {
-		this.setState(
-			{ loading: true },
-			() => setTimeout(() => {
-				this.setState({ loading: false, finish: true });
-			}, 3000),
-		);
+		this.props.beforeLoading();
+		this.setState({ loading: true }, () => {
+			setTimeout(() => {
+				this.setState({ loading: false, finish: true }, () => {
+					this.props.afterLoading();
+					setTimeout(() => {
+						this.props.afterFinish();
+					}, 2000);
+				});
+			}, 3000);
+		});
 	}
 
 	render() {
 		if (this.state.loading) {
-			return <span>Loading ⏳</span>;
+			return (
+				<div>
+					<strong>Loading ⏳</strong>
+					<br />
+					<small>Note that controls are disabled</small>
+				</div>
+			);
 		} else if (this.state.finish) {
 			return <span>Finish ✅</span>;
 		}
 		return (
 			<button className={'btn btn-info'} onClick={this.onClick}>
-				Import content
+				Simulate import
 			</button>
 		);
 	}
+}
+
+class GuidedTourContainer extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			isOpen: true,
+		};
+		this.onRequestClose = this.onRequestClose.bind(this);
+	}
+
+	onRequestClose() {
+		this.setState({ isOpen: false });
+	}
+
+	render() {
+		return (
+			<GuidedTour
+				steps={this.props.steps}
+				onRequestClose={this.onRequestClose}
+				isOpen={this.state.isOpen}
+			/>
+		);
+	}
+}
+
+let body;
+
+function toggleControlsVisibility(toggle) {
+	const controls = body.querySelectorAll('[data-tour-elem="controls"] button');
+	controls.forEach(control => {
+		console.log(control);
+		control.setAttribute('style', toggle ? 'display: block' : 'display: none');
+	});
+}
+
+function beforeLoading() {
+	toggleControlsVisibility(false);
+}
+
+function afterLoading() {
+	toggleControlsVisibility(true);
 }
 
 // @see https://github.com/elrumordelaluz/reactour#steps
@@ -44,14 +98,23 @@ const steps = [
 	},
 	{
 		selector: '[data-tour="my-first-step"]',
-		content: () => (<ImportDemo />),
+		content: ({ goTo, step }) => (
+			<ImportDemo
+				beforeLoading={beforeLoading}
+				afterLoading={afterLoading}
+				afterFinish={() => goTo(step)}
+			/>
+		),
+		action: elem => {
+			body = elem.ownerDocument.body;
+		},
 	},
 	{
 		selector: '[data-tour="my-second-step"]',
 		content: 'Place focus on an interactive element',
-		action: node => {
-			node.focus();
-			console.log('yup, the target element is also focused!');
+		position: 'bottom',
+		action: elem => {
+			elem.focus();
 		},
 	},
 	{
@@ -63,12 +126,19 @@ const steps = [
 	},
 	{
 		selector: '[data-tour="my-fourth-step"]',
-		content: 'It is just a bear',
+		content: 'And here it is just a bear',
 	},
 ];
 
-const getDemoLayout = () => (
-	<div style={{ height: '100vh', width: '100vw', display: 'flex', flexWrap: 'wrap' }}>
+const getLayoutWithLoremIpsum = () => (
+	<div
+		style={{
+			height: '100vh',
+			width: '100vw',
+			display: 'flex',
+			flexWrap: 'wrap',
+		}}
+	>
 		<header
 			style={{
 				height: '5rem',
@@ -81,10 +151,17 @@ const getDemoLayout = () => (
 			}}
 		>
 			<span>Lorem ipsum</span>
-			<button data-tour="my-second-step">👤 User NAME</button>
+			<button data-tour="my-second-step" onClick={action('Button clicked')}>
+				👤 User NAME
+			</button>
 		</header>
-		<aside style={{ flexBasis: '20vw' }}>
-			<ul style={{ textTransform: 'uppercase' }}>
+		<aside
+			style={{
+				flexBasis: '20vw',
+				textTransform: 'uppercase',
+			}}
+		>
+			<ul style={{}}>
 				<li data-tour="my-first-step">Lorem</li>
 				<li>Ipsum</li>
 				<li>Dolor</li>
@@ -92,8 +169,13 @@ const getDemoLayout = () => (
 				<li>Amet</li>
 			</ul>
 		</aside>
-		<main style={{ padding: '1rem', flexBasis: '80vw' }}>
-			<article style={{}}>
+		<main
+			style={{
+				padding: '1rem',
+				flexBasis: '80vw',
+			}}
+		>
+			<article>
 				<h1>Lorem ipsum</h1>
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget blandit arcu. Aliquam
@@ -162,7 +244,7 @@ const getDemoLayout = () => (
 				background: '#eee',
 			}}
 		>
-			<span data-tour="my-fourth-step">🧸</span> Lorem ispum {new Date().getFullYear()}
+			<span data-tour="my-fourth-step">🧸 Lorem ispum</span>
 		</footer>
 	</div>
 );
@@ -171,7 +253,7 @@ storiesOf('GuidedTour', module)
 	.addDecorator(story => (
 		<React.Fragment>
 			{story()}
-			{getDemoLayout()}
+			{getLayoutWithLoremIpsum()}
 		</React.Fragment>
 	))
-	.add('default', () => <GuidedTour steps={steps} isOpen />);
+	.add('default', () => <GuidedTourContainer steps={steps} />);
