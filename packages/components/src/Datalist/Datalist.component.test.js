@@ -191,7 +191,7 @@ describe('Datalist component', () => {
 		expect(onChange).toBeCalledWith(expect.anything(), payload);
 	});
 
-	it('should not change the value on blur in restricted mode and value does not exist', () => {
+	it('should change the value on blur in restricted mode and value does not match', () => {
 		// given
 		const onChange = jest.fn();
 		const wrapper = mount(
@@ -207,15 +207,17 @@ describe('Datalist component', () => {
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
-		input.simulate('change', { target: { value: 'fow' } });
-		expect(wrapper.find(Typeahead).props().items.length).toBe(0);
+		input.simulate('change', { target: { value: 'foob' } });
+		expect(wrapper.find(Typeahead).props().items.length).toBe(1);
 
 		// when
 		input.simulate('blur');
 
 		// then
-		expect(onChange).not.toBeCalled();
-		expect(wrapper.find(Typeahead).props().items).toBe(null);
+		expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'foob' });
+		expect(wrapper.find(Typeahead).props().items).toEqual([
+			{ description: 'foobar description', name: 'foobar', value: 'foobar' },
+		]);
 	});
 
 	it('should change the value on blur in restricted mode and value matches with one suggestion', () => {
@@ -234,64 +236,15 @@ describe('Datalist component', () => {
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
-		input.simulate('change', { target: { value: 'fo' } });
-		expect(wrapper.find(Typeahead).props().items.length).toBe(2);
+		input.simulate('change', { target: { value: 'foobar' } });
+		expect(wrapper.find(Typeahead).props().items.length).toBe(1);
 
 		// when
 		input.simulate('blur');
 
 		// then
-		expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'foo' });
+		expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'foobar' });
 		expect(wrapper.find(Typeahead).props().items).toEqual([
-			{ description: 'foo description', name: 'foo', value: 'foo' },
-			{ description: 'foobar description', name: 'foobar', value: 'foobar' },
-		]);
-	});
-
-	it('should select the first no disabled suggestion on blur', () => {
-		const propsWithDisabledItems = {
-			...props,
-			titleMap: [
-				{
-					disabled: true,
-					name: 'foo-disabled',
-					value: 'foo-disabled',
-					description: 'disabled foo',
-				},
-				...props.titleMap,
-			],
-		};
-		// given
-		const onChange = jest.fn();
-		const wrapper = mount(
-			<Datalist
-				id="my-datalist"
-				isValid
-				multiSection={false}
-				errorMessage={'This should be correct'}
-				onChange={onChange}
-				{...propsWithDisabledItems}
-				value={'foo'}
-				restricted
-			/>,
-		);
-		const input = wrapper.find('input').at(0);
-		input.simulate('change', { target: { value: 'fo' } });
-		expect(wrapper.find(Typeahead).props().items.length).toBe(3);
-
-		// when
-		input.simulate('blur');
-
-		// then
-		expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'foo' });
-		expect(wrapper.find(Typeahead).props().items).toEqual([
-			{
-				disabled: true,
-				name: 'foo-disabled',
-				value: 'foo-disabled',
-				description: 'disabled foo',
-			},
-			{ description: 'foo description', name: 'foo', value: 'foo' },
 			{ description: 'foobar description', name: 'foobar', value: 'foobar' },
 		]);
 	});

@@ -67,7 +67,7 @@ class Datalist extends Component {
 			let newValue = value;
 			if (this.props.restricted && !this.props.multiSection && this.state.suggestions && value) {
 				const firstMatchingSuggestion = this.state.suggestions.find(
-					item => !item.disabled && item.name.toLowerCase().includes(value.toLowerCase()),
+					item => !item.disabled && item.name.toLowerCase() === value.toLowerCase(),
 				);
 
 				if (firstMatchingSuggestion) {
@@ -283,14 +283,11 @@ class Datalist extends Component {
 				}
 			}
 			const selectedEnumValue = get(enumValue, 'value');
-			if (selectedEnumValue || !this.props.restricted) {
-				this.props.onChange(event, { value: selectedEnumValue || value });
-				this.setState({
-					previousValue: previousValue.name,
-				});
-			} else {
-				this.resetValue();
-			}
+
+			this.props.onChange(event, { value: selectedEnumValue || value });
+			this.setState({
+				previousValue: previousValue.name,
+			});
 		} else if (this.props.onLiveChange) {
 			this.props.onLiveChange(event, value);
 		}
