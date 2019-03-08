@@ -66,12 +66,12 @@ class Datalist extends Component {
 		if (value !== previousValue) {
 			let newValue = value;
 			if (this.props.restricted && !this.props.multiSection && this.state.suggestions && value) {
-				const firstMatchingSuggestion = this.state.suggestions.find(
+				const hasMatchingSuggestion = this.state.suggestions.find(
 					item => !item.disabled && item.name.toLowerCase() === value.toLowerCase(),
 				);
 
-				if (firstMatchingSuggestion) {
-					newValue = firstMatchingSuggestion;
+				if (hasMatchingSuggestion) {
+					newValue = hasMatchingSuggestion;
 				}
 			}
 
