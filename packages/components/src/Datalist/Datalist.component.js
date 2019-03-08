@@ -284,10 +284,14 @@ class Datalist extends Component {
 			}
 			const selectedEnumValue = get(enumValue, 'value');
 
-			this.props.onChange(event, { value: selectedEnumValue || value });
-			this.setState({
-				previousValue: previousValue.name,
-			});
+			if (selectedEnumValue || !this.props.restricted) {
+				this.props.onChange(event, { value: selectedEnumValue || value });
+				this.setState({
+					previousValue: previousValue.name,
+				});
+			} else {
+				this.resetValue();
+			}
 		} else if (this.props.onLiveChange) {
 			this.props.onLiveChange(event, value);
 		}

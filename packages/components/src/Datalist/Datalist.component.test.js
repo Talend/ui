@@ -214,10 +214,7 @@ describe('Datalist component', () => {
 		input.simulate('blur');
 
 		// then
-		expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'foob' });
-		expect(wrapper.find(Typeahead).props().items).toEqual([
-			{ description: 'foobar description', name: 'foobar', value: 'foobar' },
-		]);
+		expect(onChange).not.toHaveBeenCalled();
 	});
 
 	it('should change the value on blur in restricted mode and value matches with one suggestion', () => {
@@ -410,7 +407,7 @@ describe('Datalist component', () => {
 		input.simulate('keydown', { which: keycode.codes.enter });
 
 		// then
-		expect(onChange).not.toBeCalled();
+		expect(onChange).not.toHaveBeenCalled();
 	});
 
 	it('should reset suggestions on ENTER keydown', () => {
