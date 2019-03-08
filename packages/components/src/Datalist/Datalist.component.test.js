@@ -15,7 +15,7 @@ const props = {
 		{ name: 'foo', value: 'foo', description: 'foo description' },
 		{ name: 'bar', value: 'bar' },
 		{ name: 'foobar', value: 'foobar', description: 'foobar description' },
-		{ name: 'lol', value: 'lol' },
+		{ name: 'mdr', value: 'lol' },
 	],
 };
 
@@ -234,17 +234,15 @@ describe('Datalist component', () => {
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
-		input.simulate('change', { target: { value: 'foobar' } });
+		input.simulate('change', { target: { value: 'mdr' } });
 		expect(wrapper.find(Typeahead).props().items.length).toBe(1);
 
 		// when
 		input.simulate('blur');
 
 		// then
-		expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'foobar' });
-		expect(wrapper.find(Typeahead).props().items).toEqual([
-			{ description: 'foobar description', name: 'foobar', value: 'foobar' },
-		]);
+		expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'lol' });
+		expect(wrapper.find(Typeahead).props().items).toEqual([{ name: 'mdr', value: 'lol' }]);
 	});
 
 	it('should update show all suggestions on focus even if a value is selected', () => {
@@ -273,7 +271,7 @@ describe('Datalist component', () => {
 			{ name: 'foo', value: 'foo', description: 'foo description' },
 			{ name: 'bar', value: 'bar' },
 			{ name: 'foobar', value: 'foobar', description: 'foobar description' },
-			{ name: 'lol', value: 'lol' },
+			{ name: 'mdr', value: 'lol' },
 		]);
 		expect(wrapper.find(Typeahead).props().value).toBe('foo');
 	});
@@ -483,9 +481,9 @@ describe('Datalist component', () => {
 			bar: 'bar',
 			foo: 'foo',
 			foobar: 'foobar',
-			lol: 'lol',
+			lol: 'mdr',
 		});
-		wrapper.setState({ suggestions: ['foo', 'bar', 'foobar', 'lol'] });
+		wrapper.setState({ suggestions: ['foo', 'bar', 'foobar', 'lol', 'mdr'] });
 		expect(instance.updateSuggestions).toHaveBeenCalledTimes(1);
 
 		const titleMap = [
