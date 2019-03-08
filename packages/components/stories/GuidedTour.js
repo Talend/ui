@@ -75,7 +75,6 @@ class GuidedTourContainer extends React.Component {
 
 	render() {
 		const { controls, isOpen } = this.state;
-		console.log({ controls });
 		return (
 			<GuidedTour
 				steps={this.props.getSteps({

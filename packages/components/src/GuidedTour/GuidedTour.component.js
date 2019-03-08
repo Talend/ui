@@ -2,19 +2,31 @@ import React from 'react';
 import Tour from 'reactour';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { translate } from 'react-i18next';
+
+import Action from '../Actions/Action';
+import I18N_DOMAIN_COMPONENTS from '../constants';
+import '../translate';
 
 import theme from './GuidedTour.scss';
 
-function GuidedTour({ className, ...rest }) {
+function lastStepNextButton(t) {
+	return <Action bsStyle={'info'} label={t('GUIDEDTOUR_LAST_STEP', { defaultValue: 'Let me try' })} />;
+}
+
+function GuidedTour({ className, t, ...rest }) {
 	return (
 		<Tour
 			className={classNames(theme['guided-tour'], 'guided-tour', className)}
 			maskClassName={classNames(theme.mask, 'guided-tour-mask')}
-			highlightedMaskClassName={classNames(theme['highlighted-mask'], 'guided-tour-highlight-mask')}
+			highlightedMaskClassName={classNames(
+				theme['highlighted-mask'],
+				'guided-tour-highlighted-mask',
+			)}
 			showNavigationNumber={false}
 			maskSpace={2}
 			rounded={2}
-			lastStepNextButton={<button className={'btn btn-info'}>Let me try</button>}
+			lastStepNextButton={lastStepNextButton(t)}
 			{...rest}
 		/>
 	);
@@ -38,7 +50,8 @@ if (process.env.NODE_ENV !== 'production') {
 		).isRequired,
 		isOpen: PropTypes.func,
 		onRequestClose: PropTypes.func,
+		t: PropTypes.func,
 	};
 }
 
-export default GuidedTour;
+export default translate(I18N_DOMAIN_COMPONENTS)(GuidedTour);
