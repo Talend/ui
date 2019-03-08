@@ -5,19 +5,17 @@ import classNames from 'classnames';
 
 import theme from './GuidedTour.scss';
 
-function GuidedTour({ className, onRequestClose, isOpen, steps }) {
+function GuidedTour({ className, ...rest }) {
 	return (
 		<Tour
 			className={classNames(theme['guided-tour'], 'guided-tour', className)}
 			maskClassName={classNames(theme.mask, 'guided-tour-mask')}
 			highlightedMaskClassName={classNames(theme['highlighted-mask'], 'guided-tour-highlight-mask')}
-			steps={steps}
-			isOpen={isOpen}
-			onRequestClose={onRequestClose}
-			showNavigationNumber
+			showNavigationNumber={false}
 			maskSpace={2}
 			rounded={2}
 			lastStepNextButton={<button className={'btn btn-info'}>Let me try</button>}
+			{...rest}
 		/>
 	);
 }

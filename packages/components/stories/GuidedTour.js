@@ -22,7 +22,7 @@ class ImportDemo extends React.Component {
 					this.props.afterLoading();
 					setTimeout(() => {
 						this.props.afterFinish();
-					}, 2000);
+					}, 500);
 				});
 			}, 3000);
 		});
@@ -53,81 +53,88 @@ class GuidedTourContainer extends React.Component {
 		super();
 		this.state = {
 			isOpen: true,
+			controls: true,
 		};
-		this.onRequestClose = this.onRequestClose.bind(this);
+		this.closeTour = this.closeTour.bind(this);
+		this.showControls = this.showControls.bind(this);
+		this.hideControls = this.hideControls.bind(this);
 	}
 
-	onRequestClose() {
+	closeTour() {
+		this.showControls();
 		this.setState({ isOpen: false });
 	}
 
+	showControls() {
+		this.setState({ controls: true });
+	}
+
+	hideControls() {
+		this.setState({ controls: false });
+	}
+
 	render() {
+		const { controls, isOpen } = this.state;
+		console.log({ controls });
 		return (
 			<GuidedTour
-				steps={this.props.steps}
-				onRequestClose={this.onRequestClose}
-				isOpen={this.state.isOpen}
+				steps={this.props.getSteps({
+					showControls: this.showControls,
+					hideControls: this.hideControls,
+				})}
+				onRequestClose={this.closeTour}
+				isOpen={isOpen}
+				showCloseButton={controls}
+				showButtons={controls}
+				showNavigation={controls}
+				showNumber={controls}
+				closeWithMask={controls}
+				disableDotsNavigation={!controls}
+				disableInteraction={!controls}
+				disableKeyboardNavigation={!controls}
 			/>
 		);
 	}
 }
 
-let body;
-
-function toggleControlsVisibility(toggle) {
-	const controls = body.querySelectorAll('[data-tour-elem="controls"] button');
-	controls.forEach(control => {
-		control.setAttribute('style', toggle ? 'display: block' : 'display: none');
-	});
-}
-
-function beforeLoading() {
-	toggleControlsVisibility(false);
-}
-
-function afterLoading() {
-	toggleControlsVisibility(true);
-}
-
 // @see https://github.com/elrumordelaluz/reactour#steps
-const steps = [
-	{
-		content: 'Hello world',
-		stepInteraction: false,
-	},
-	{
-		selector: '[data-tour="my-first-step"]',
-		content: ({ goTo, step }) => (
-			<ImportDemo
-				beforeLoading={beforeLoading}
-				afterLoading={afterLoading}
-				afterFinish={() => goTo(step)}
-			/>
-		),
-		action: elem => {
-			body = elem.ownerDocument.body;
+function getSteps({ hideControls, showControls }) {
+	return [
+		{
+			content: 'Hello world',
+			stepInteraction: false,
 		},
-	},
-	{
-		selector: '[data-tour="my-second-step"]',
-		content: 'Place focus on an interactive element',
-		position: 'bottom',
-		action: elem => {
-			elem.focus();
+		{
+			selector: '[data-tour="my-first-step"]',
+			content: ({ goTo, step }) => (
+				<ImportDemo
+					beforeLoading={hideControls}
+					afterLoading={showControls}
+					afterFinish={() => goTo(step)}
+				/>
+			),
 		},
-	},
-	{
-		selector: '[data-tour="my-third-step"]',
-		content: 'Highlighted text here',
-		style: {
-			backgroundColor: '#fdf3da',
+		{
+			selector: '[data-tour="my-second-step"]',
+			content: 'Place focus on an interactive element',
+			position: 'bottom',
+			action: elem => {
+				elem.focus();
+			},
 		},
-	},
-	{
-		selector: '[data-tour="my-fourth-step"]',
-		content: 'And here it is just a bear',
-	},
-];
+		{
+			selector: '[data-tour="my-third-step"]',
+			content: 'Highlighted text here',
+			style: {
+				backgroundColor: '#fdf3da',
+			},
+		},
+		{
+			selector: '[data-tour="my-fourth-step"]',
+			content: 'And here it is just a bear',
+		},
+	];
+}
 
 const getLayoutWithLoremIpsum = () => (
 	<div
@@ -160,7 +167,7 @@ const getLayoutWithLoremIpsum = () => (
 				textTransform: 'uppercase',
 			}}
 		>
-			<ul style={{}}>
+			<ul>
 				<li data-tour="my-first-step">Lorem</li>
 				<li>Ipsum</li>
 				<li>Dolor</li>
@@ -255,4 +262,4 @@ storiesOf('GuidedTour', module)
 			{getLayoutWithLoremIpsum()}
 		</React.Fragment>
 	))
-	.add('default', () => <GuidedTourContainer steps={steps} />);
+	.add('default', () => <GuidedTourContainer getSteps={getSteps} />);
