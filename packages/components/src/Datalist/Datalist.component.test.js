@@ -191,7 +191,7 @@ describe('Datalist component', () => {
 		expect(onChange).toBeCalledWith(expect.anything(), payload);
 	});
 
-	it('should change the value on blur in restricted mode and value does not match', () => {
+	it('should change the value on blur in restricted mode and value does not exist', () => {
 		// given
 		const onChange = jest.fn();
 		const wrapper = mount(
@@ -207,14 +207,15 @@ describe('Datalist component', () => {
 			/>,
 		);
 		const input = wrapper.find('input').at(0);
-		input.simulate('change', { target: { value: 'foob' } });
-		expect(wrapper.find(Typeahead).props().items.length).toBe(1);
+		input.simulate('change', { target: { value: 'fo' } });
+		expect(wrapper.find(Typeahead).props().items.length).toBe(2);
 
 		// when
 		input.simulate('blur');
 
 		// then
 		expect(onChange).not.toHaveBeenCalled();
+		expect(wrapper.find(Typeahead).props().items).toBe(null);
 	});
 
 	it('should change the value on blur in restricted mode and value matches with one suggestion', () => {
