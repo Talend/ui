@@ -35,6 +35,9 @@ export function mergeProps(stateProps, dispatchProps, ownProps) {
 export default cmfConnect({
 	componentId,
 	defaultState: DEFAULT_STATE,
+	defaultProps: {
+		saga: 'Notification#root',
+	},
 	mergeProps,
 	omitCMFProps: true,
 	withComponentRegistry: true,
