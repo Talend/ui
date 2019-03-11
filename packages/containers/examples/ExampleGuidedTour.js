@@ -1,13 +1,13 @@
 import React from 'react';
-import { Map } from 'immutable';
+import { Map, List } from 'immutable';
 import GuidedTour from '../src/GuidedTour';
 
 const initialState = Map({
-	steps: [
+	steps: List([
 		{ content: 'Text A' },
 		{ content: 'Text B' },
 		{ content: 'Text C' },
-	],
+	]),
 });
 
 export default function ExampleGuidedTour() {
