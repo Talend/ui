@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
+import { List } from 'immutable';
 import GuidedTour from '@talend/react-components/lib/GuidedTour';
+
 
 class GuidedTourContainer extends React.Component {
 	static displayName = 'Container(GuidedTour)';
@@ -17,20 +19,9 @@ class GuidedTourContainer extends React.Component {
 			isOpen: true,
 			controls: true,
 		};
-		this.getSteps = this.getSteps.bind(this);
 		this.closeTour = this.closeTour.bind(this);
 		this.showControls = this.showControls.bind(this);
 		this.hideControls = this.hideControls.bind(this);
-	}
-
-	getSteps() {
-		// if (this.props.steps === 'function') {
-		// 	return this.props.steps({
-		// 		showControls: this.showControls,
-		// 		hideControls: this.hideControls,
-		// 	});
-		// }
-		return this.props.steps;
 	}
 
 	closeTour() {
@@ -48,14 +39,16 @@ class GuidedTourContainer extends React.Component {
 
 	render() {
 		const { controls, isOpen } = this.state;
+		const state = this.props.state;
+		const steps = state.get('steps', List());
 
-		if (!this.props.steps) {
+		if (!steps) {
 			return <React.Fragment />;
 		}
 
 		return (
 			<GuidedTour
-				steps={this.getSteps}
+				steps={steps.toJS()}
 				onRequestClose={this.closeTour}
 				isOpen={isOpen}
 				showCloseButton={controls}

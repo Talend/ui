@@ -1,14 +1,11 @@
 import { cmfConnect } from '@talend/react-cmf';
+import { Map, List } from 'immutable';
 
 import GuidedTourContainer from './GuidedTour.container';
 
-export function mapStateToProps(state, props, cmfProps) {
-	console.log('mapStateToProps', { state, props, cmfProps });
-}
-
 export default cmfConnect({
 	componentId: ownProps => ownProps.componentId || ownProps.id,
-	mapStateToProps,
+	defaultState: new Map({ steps: List() }),
 	omitCMFProps: true,
 	withComponentRegistry: true,
 	withDispatch: true,
