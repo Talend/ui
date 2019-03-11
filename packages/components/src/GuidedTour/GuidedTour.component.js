@@ -6,12 +6,14 @@ import { translate } from 'react-i18next';
 
 import Action from '../Actions/Action';
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import '../translate';
+import getDefaultT from '../translate';
 
 import theme from './GuidedTour.scss';
 
 function lastStepNextButton(t) {
-	return <Action bsStyle={'info'} label={t('GUIDEDTOUR_LAST_STEP', { defaultValue: 'Let me try' })} />;
+	return (
+		<Action bsStyle={'info'} label={t('GUIDEDTOUR_LAST_STEP', { defaultValue: 'Let me try' })} />
+	);
 }
 
 function GuidedTour({ className, t, ...rest }) {
@@ -34,6 +36,10 @@ function GuidedTour({ className, t, ...rest }) {
 
 GuidedTour.displayName = 'GuidedTour';
 
+GuidedTour.defaultProps = {
+	t: getDefaultT(),
+};
+
 if (process.env.NODE_ENV !== 'production') {
 	GuidedTour.propTypes = {
 		className: PropTypes.string,
@@ -48,7 +54,7 @@ if (process.env.NODE_ENV !== 'production') {
 				stepInteraction: PropTypes.bool,
 			}),
 		).isRequired,
-		isOpen: PropTypes.func,
+		isOpen: PropTypes.bool,
 		onRequestClose: PropTypes.func,
 		t: PropTypes.func,
 	};
