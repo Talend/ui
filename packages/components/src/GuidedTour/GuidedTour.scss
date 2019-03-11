@@ -2,7 +2,7 @@
 	:global {
 		--reactour-accent: #{$scooter};
 
-		[data-tour-elem="controls"] {
+		[data-tour-elem='controls'] {
 			margin-right: -1rem;
 		}
 	}

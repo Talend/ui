@@ -11,7 +11,9 @@ import '../translate';
 import theme from './GuidedTour.scss';
 
 function lastStepNextButton(t) {
-	return <Action bsStyle={'info'} label={t('GUIDEDTOUR_LAST_STEP', { defaultValue: 'Let me try' })} />;
+	return (
+		<Action bsStyle={'info'} label={t('GUIDEDTOUR_LAST_STEP', { defaultValue: 'Let me try' })} />
+	);
 }
 
 function GuidedTour({ className, t, ...rest }) {

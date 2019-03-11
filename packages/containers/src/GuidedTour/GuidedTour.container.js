@@ -4,7 +4,6 @@ import { cmfConnect } from '@talend/react-cmf';
 import { List } from 'immutable';
 import GuidedTour from '@talend/react-components/lib/GuidedTour';
 
-
 class GuidedTourContainer extends React.Component {
 	static displayName = 'Container(GuidedTour)';
 
