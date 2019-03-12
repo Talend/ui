@@ -220,7 +220,7 @@ class Datalist extends Component {
 	 */
 	buildTitleMapping(titleMap) {
 		return titleMap.reduce((obj, item) => {
-			if (this.props.multiSection && item.title && item.suggestions) {
+			if (this.props.multiSection && item.title !== undefined && item.suggestions) {
 				const children = this.buildTitleMapping(item.suggestions);
 				return { ...obj, ...children };
 			}
