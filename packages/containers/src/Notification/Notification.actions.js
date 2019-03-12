@@ -18,13 +18,10 @@ export function addGeneric(notification) {
  * @returns {Object}
  */
 export function addInfo(notification) {
-	return {
-		type: Constants.ADD_NOTIFICATION,
-		notification: {
-			...notification,
-			type: 'info',
-		},
-	};
+	return addGeneric({
+		...notification,
+		type: 'info',
+	});
 }
 
 /**
@@ -33,13 +30,10 @@ export function addInfo(notification) {
  * @returns {Object}
  */
 export function addWarning(notification) {
-	return {
-		type: Constants.ADD_NOTIFICATION,
-		notification: {
-			...notification,
-			type: 'warning',
-		},
-	};
+	return addGeneric({
+		...notification,
+		type: 'warning',
+	});
 }
 
 /**
@@ -48,11 +42,8 @@ export function addWarning(notification) {
  * @returns {Object}
  */
 export function addError(notification) {
-	return {
-		type: Constants.ADD_NOTIFICATION,
-		notification: {
-			...notification,
-			type: 'error',
-		},
-	};
+	return addGeneric({
+		...notification,
+		type: 'error',
+	});
 }
