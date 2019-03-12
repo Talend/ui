@@ -59,10 +59,18 @@ describe('Properties utils', () => {
 			expect(convertedValue).toBe(3.5);
 		});
 
-		it('should convert empty string to undefined value', () => {
+		it('should convert empty number to undefined value', () => {
 			const value = '';
 
 			const convertedValue = convertValue('number', value);
+
+			expect(convertedValue).toBeUndefined();
+		});
+
+		it('should convert empty string to undefined value', () => {
+			const value = '';
+
+			const convertedValue = convertValue('string', value);
 
 			expect(convertedValue).toBeUndefined();
 		});
@@ -102,6 +110,27 @@ describe('Properties utils', () => {
 			expect(value).toEqual({
 				user: {
 					firstname: 'titi',
+				},
+			});
+		});
+
+		it('should delete the value, creating nested objects', () => {
+			// given
+			const properties = {
+				user: {
+					firstname: 'toto',
+					lastname: 'tata',
+				},
+			};
+			const key = ['user', 'firstname'];
+
+			// when
+			const value = mutateValue(properties, { key }, undefined);
+
+			// then
+			expect(value).toEqual({
+				user: {
+					lastname: 'tata',
 				},
 			});
 		});
