@@ -19,7 +19,6 @@ cmfConnect({
 	defaultState, // active the state management on top of redux (`props.state`, `props.setState`)
 	keepComponent, // boolean, when the component is unmount, to keep its state in redux store
 	mapStateToProps, // function(state, ownProps) that should return the props (same as redux)
-	omitCMFProps: true, // default:false; will be true in 2.0
 	withDispatch, // to receive `props.dispatch`
 	withDispatchActionCreator, // to receive `props.dispatchActionCreator`
 	withComponentRegistry, // to receive `props.getComponent`
@@ -27,12 +26,6 @@ cmfConnect({
 	...rest, // the rest is applied to connect function
 })(Component);
 ```
-
-### omitCMFProps
-
-Note on  `omitCMFProps`: Because current version add all props to it was causing a lots of props warning/error in react 16. We dont want breaking change so to activeate the feature flag please add `omitCMFProps` option to true in all your component and activate only the feature your component needs. You have a codemode available for that at https://github.com/Talend/ui/tree/master/codemodes/cmf/
-
-This is a new feature that let you pick the part of cmfConnect you want. We can see this as a feature flag that let you choose the props you will receive.
 
 ## How to use component state
 
@@ -83,7 +76,6 @@ class Clock extends React.Component {
 
 export default cmfConnect({
 	defaultState: DEFAULT_STATE,
-	omitCMFProps: true,
 })(Clock);
 
 // This will create the state in redux at state.cmf.components.getIn(['Clock', 'default'])
@@ -162,7 +154,6 @@ function mapStateToProps(state) {
 
 export default cmfConnect({
 	mapStateToProps,
-	omitCMFProps: true,
 	withDispatchActionCreator: true,
 })(SimpleButton);
 ```
@@ -288,7 +279,7 @@ Clock.setStateAction(
 ## How to test
 
 
-When you are in the context of CMF and you want to test your component you will need to mock some stuff (context, router, ...).
+When you are in the context of CMF and you want to test your component you will need to mock some stuff (context, ...).
 
 We want testing experience to be easy so CMF provides some mocks for you.
 
@@ -313,7 +304,6 @@ describe('App', () => {
 
 This way MyComponent may request for the following context:
 
-* router
 * registry
 * store
 
@@ -321,5 +311,4 @@ you may change the following using simple props:
 
 * store
 * state
-* router
 * registry

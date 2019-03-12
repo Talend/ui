@@ -153,12 +153,16 @@ export function ActionButton(props) {
 		});
 	}
 	if (loading) {
-		ariaLabel = t('SKELETON_LOADING', { defaultValue: ' {{type}} (loading)', type: ariaLabel });
+		ariaLabel = t('SKELETON_LOADING', { defaultValue: '{{type}} (loading)', type: ariaLabel });
 	}
 
 	const hasPopup = !inProgress && overlayComponent;
 	if (hasPopup) {
 		buttonProps['aria-haspopup'] = true;
+	}
+	// enforce security on target="_blank"
+	if (buttonProps.target === '_blank') {
+		buttonProps.rel = 'noopener noreferrer';
 	}
 	let btn = (
 		<Button

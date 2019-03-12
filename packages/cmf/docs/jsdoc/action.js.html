@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: action.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: action.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import get from 'lodash/get';
+import deprecated from './deprecated';
+import actionCreatorAPI from './actionCreator';
+
+/**
+ * This module is DEPRECATED and will be removed in future version.
+ * it provide low level api to register and handle action in a CMF App.
+ * @module react-cmf/lib/action
+ * @see module:react-cmf/lib/Dispatcher
+ */
+
+/**
+ * get the global actions registered in the settings
+ * @param  {object} context
+ * @return {object} actions with key === action id
+ */
+function getActionsById(context) {
+	const state = context.store.getState();
+	return get(state, 'cmf.settings.actions', {});
+}
+
+/**
+ * return actions registered for a given content type
+ * @param  {object} context
+ * @param  {String} contentType
+ * @param  {String} category
+ * @return {Array} actions
+ */
+function getContentTypeActions(context, contentType, category) {
+	const state = context.store.getState();
+	return get(state, `cmf.settings.contentTypes[${contentType}.actions[${category}]`, []);
+}
+
+/**
+ * Return information available about this action
+ * @param  {object} context
+ * @param  {String} id
+ * @return {object}
+ */
+function getActionInfo(context, id) {
+	const action = getActionsById(context)[id];
+	if (!action) {
+		throw new Error(`action not found id: ${id}`);
+	}
+	return Object.assign({}, action);
+}
+
+/**
+ * Return the action object ready to be dispatched
+ * This is supposed to be used outside of content type
+ * @param  {object} context
+ * @param  {String|Object} action or the action
+ * @param  {object} event event which have trigger this action
+ * @param  {object} data data attached to the action
+ */
+function getActionObject(context, action, event, data) {
+	let actionInfo;
+	if (typeof action === 'string') {
+		actionInfo = getActionInfo(context, action);
+	} else {
+		actionInfo = action;
+	}
+	if (actionInfo.actionCreator) {
+		const actionCreator = actionCreatorAPI.get(context, actionInfo.actionCreator);
+		return actionCreator(event, data, {
+			store: context.store,
+			getState: context.store.getState,
+			registry: context.registry,
+			actionInfo,
+		});
+	}
+	return Object.assign({}, actionInfo.payload, { event, data, context });
+}
+
+/**
+ * return every props name that start with 'on'
+ * @param  {object} props react props
+ * @return {Array}       of string
+ */
+function getOnProps(props) {
+	return Object.keys(props).filter(
+		name => ({}.hasOwnProperty.call(props, name) &amp;&amp; /^on.+/.test(name)),
+	);
+}
+
+/**
+ * create a map dispatchable action function expecting event object, props, and context information
+ * merge this map with non event properties
+ * @param  {Function} dispatch the dispatch function
+ * @param  {object} props    props object containing maybe on(event) with string
+ *                           or action creator function]
+ * @return {object}          the connected object
+ * @throws if an action is unknown in configuration, throw
+ */
+function mapDispatchToProps(dispatch, props) {
+	const resolvedActions = {};
+	getOnProps(props).forEach(name => {
+		resolvedActions[name] = (event, data, context) => {
+			let action = props[name];
+			if (typeof action === 'string') {
+				action = getActionObject(context, action, event, data);
+			}
+			dispatch(action);
+		};
+	});
+	return Object.assign({}, props, resolvedActions);
+}
+
+const registerActionCreator = deprecated(
+	(id, actionCreator, context) => actionCreatorAPI.register(id, actionCreator, context),
+	'stop use cmf.action.registerActionCreator. please use cmf.actionCreator.register',
+);
+
+const getActionCreatorFunction = deprecated(
+	(context, id) => actionCreatorAPI.get(context, id),
+	'stop use cmf.action.getActionCreatorFunction. please use cmf.actionCreator.get',
+);
+
+export default {
+	getActionsById,
+	getActionCreatorFunction,
+	getActionInfo,
+	getActionObject,
+	getContentTypeActions,
+	getOnProps,
+	mapDispatchToProps,
+	registerActionCreator,
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-react-cmf.html">react-cmf</a></li><li><a href="module-react-cmf_lib_action.html">react-cmf/lib/action</a></li><li><a href="module-react-cmf_lib_actions.html">react-cmf/lib/actions</a></li><li><a href="module-react-cmf_lib_actions_collectionsActions.html">react-cmf/lib/actions/collectionsActions</a></li><li><a href="module-react-cmf_lib_actions_componentsActions.html">react-cmf/lib/actions/componentsActions</a></li><li><a href="module-react-cmf_lib_actions_settingsActions.html">react-cmf/lib/actions/settingsActions</a></li><li><a href="module-react-cmf_lib_App.html">react-cmf/lib/App</a></li><li><a href="module-react-cmf_lib_cmfConnect.html">react-cmf/lib/cmfConnect</a></li><li><a href="module-react-cmf_lib_componentState.html">react-cmf/lib/componentState</a></li><li><a href="module-react-cmf_lib_deprecated.html">react-cmf/lib/deprecated</a></li><li><a href="module-react-cmf_lib_Dispatcher.html">react-cmf/lib/Dispatcher</a></li><li><a href="module-react-cmf_lib_expression.html">react-cmf/lib/expression</a></li><li><a href="module-react-cmf_lib_Inject.html">react-cmf/lib/Inject</a></li><li><a href="module-react-cmf_lib_reducers.html">react-cmf/lib/reducers</a></li><li><a href="module-react-cmf_lib_reducers_collectionsReducers.html">react-cmf/lib/reducers/collectionsReducers</a></li><li><a href="module-react-cmf_lib_reducers_componentsReducers.html">react-cmf/lib/reducers/componentsReducers</a></li><li><a href="module-react-cmf_lib_reducers_settingsReducers.html">react-cmf/lib/reducers/settingsReducers</a></li><li><a href="module-react-cmf_lib_registry.html">react-cmf/lib/registry</a></li><li><a href="module-react-cmf_lib_RegistryProvider.html">react-cmf/lib/RegistryProvider</a></li><li><a href="module-react-cmf_lib_store.html">react-cmf/lib/store</a></li></ul><h3>Classes</h3><ul><li><a href="module-react-cmf_lib_Dispatcher.Dispatcher.html">Dispatcher</a></li><li><a href="module-react-cmf_lib_RegistryProvider.html">react-cmf/lib/RegistryProvider</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Mar 11 2019 11:45:33 GMT+0100 (Central European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

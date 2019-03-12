@@ -75,6 +75,7 @@ function Toolbar({
 		const { actions, multiSelectActions } = actionBar;
 		actionBarProps = {
 			...actionBar,
+			getComponent,
 			actions: adaptLeftAndRightActions(actions, id),
 			multiSelectActions: adaptLeftAndRightActions(multiSelectActions, id),
 		};

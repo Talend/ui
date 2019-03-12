@@ -9,12 +9,5 @@ module.exports = function test(env, presetApi, options) {
 	const preset = getPreset(presetName);
 	const jestConfigPath = preset.getJestConfigurationPath(presetApi);
 
-	return spawn.sync(
-		jest,
-		[
-			'--config', jestConfigPath,
-			'--no-cache',
-		].concat(options),
-		{ stdio: 'inherit', env }
-	);
+	return spawn.sync(jest, ['--config', jestConfigPath].concat(options), { stdio: 'inherit', env });
 };

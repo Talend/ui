@@ -28,16 +28,13 @@
 
 		.modal-title,
 		.modal-subtitle {
-			display: inline-block;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			overflow: hidden;
 		}
 
 		.modal-title {
-			text-transform: inherit;
-			font-weight: bold;
-			line-height: 1;
+			line-height: normal;
 		}
 
 		.modal-subtitle {

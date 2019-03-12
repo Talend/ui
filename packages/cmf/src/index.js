@@ -12,7 +12,7 @@ import ConnectedDispatcher from './Dispatcher';
 import expression from './expression';
 import expressions from './expressions';
 import Inject from './Inject.component.js';
-import matchPath from './sagaRouter/matchPath';
+import matchPath from './matchPath';
 import sagas from './sagas';
 import selectors from './selectors';
 import localStorage from './localStorage';
@@ -22,11 +22,7 @@ import action from './action';
 import App from './App';
 import reducers from './reducers';
 import registry from './registry';
-import route from './route';
-import sagaRouter from './sagaRouter';
 import RegistryProvider from './RegistryProvider';
-import UIRouter from './UIRouter';
-import history from './history';
 import store from './store';
 import getErrorMiddleware from './middlewares/error';
 import httpMiddleware from './middlewares/http';
@@ -51,15 +47,11 @@ export {
 	// DEPRECATED
 	componentState,
 	getErrorMiddleware,
-	history,
 	httpMiddleware,
 	reducers,
 	registry,
-	route,
 	RegistryProvider,
-	sagaRouter,
 	store,
-	UIRouter,
 };
 
 /**
@@ -86,7 +78,6 @@ export default {
 	expressions,
 	registerInternals,
 	registry,
-	route,
 	router: {
 		matchPath,
 	},

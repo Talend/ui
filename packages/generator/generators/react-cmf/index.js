@@ -52,6 +52,10 @@ module.exports = class CMFAppGenerator extends Generator {
 		});
 	}
 	install() {
-		this.npmInstall();
+		if (this.options.yarn) {
+			this.yarnInstall();
+		} else {
+			this.npmInstall();
+		}
 	}
 };

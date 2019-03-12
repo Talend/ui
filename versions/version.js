@@ -52,7 +52,7 @@ const STACK_VERSION = {
 
 const VERSIONS = require('./dependencies');
 
-const REACT_VERSION_PEER = '^15.6.2 || ^16.0.0';
+const REACT_VERSION_PEER = '^16.8.0';
 
 const files = [
 	path.join(__dirname, '../npm-audit/package.json'),
@@ -67,6 +67,7 @@ const files = [
 	path.join(__dirname, '../packages/generator/generators/app/templates/package.json'),
 	path.join(__dirname, '../packages/html-webpack-plugin/package.json'),
 	path.join(__dirname, '../packages/icons/package.json'),
+	path.join(__dirname, '../packages/router/package.json'),
 	path.join(__dirname, '../packages/sagas/package.json'),
 	path.join(__dirname, '../packages/scripts/package.json'),
 	path.join(__dirname, '../packages/storybook-cmf/package.json'),

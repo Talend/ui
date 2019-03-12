@@ -299,7 +299,9 @@ describe('cmfConnect', () => {
 				return <div className="test-component" {...rest} />;
 			};
 			TestComponent.displayName = 'TestComponent';
-			const CMFConnected = cmfConnect({})(TestComponent);
+			const CMFConnected = cmfConnect({
+				withDispatchActionCreator: true,
+			})(TestComponent);
 			const props = {
 				dispatchActionCreator: jest.fn(),
 			};

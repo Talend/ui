@@ -2,8 +2,6 @@
  * This module is here to help app to create the redux store
  * @module react-cmf/lib/store
  */
-import { hashHistory } from 'react-router';
-import { routerReducer, routerMiddleware } from 'react-router-redux';
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import { enableBatching } from 'redux-batched-actions';
 import thunk from 'redux-thunk';
@@ -22,30 +20,22 @@ const enhancers = [];
 const middlewares = [thunk, cmfMiddleware];
 
 if (window) {
-	if (window.devToolsExtension) {
+	// eslint-disable-next-line no-underscore-dangle
+	if (window.__REDUX_DEVTOOLS_EXTENSION__) {
+		// eslint-disable-next-line no-underscore-dangle
+		enhancers.push(window.__REDUX_DEVTOOLS_EXTENSION__());
+	} else if (window.devToolsExtension) {
 		enhancers.push(window.devToolsExtension());
 	}
 }
 
-// Indicated wether or not the default router was overwritten
-let defaultRouterOverwrite = false;
 let defaultHttpMiddlewareOverwrite = false;
 
 /**
- * setRouterMiddleware overwrites the default router middleware
- *
- * @param middleware a router middleware
- */
-function setRouterMiddleware(middleware) {
-	middlewares.push(middleware);
-	defaultRouterOverwrite = true;
-}
-
-/**
- * setHttpMiddleware overwrites the default router middleware
+ * setHttpMiddleware overwrites the default http middleware
  * httpMiddleware NEED to be executed before cmfMiddleware
  *
- * @param middleware a router middleware
+ * @param middleware a http middleware
  */
 function setHttpMiddleware(middleware) {
 	const cmfMiddlewareIndex = middlewares.indexOf(cmfMiddleware);
@@ -94,9 +84,6 @@ function getReducer(appReducer) {
 	if (!reducerObject.cmf) {
 		reducerObject.cmf = cmfReducers;
 	}
-	if (!reducerObject.routing) {
-		reducerObject.routing = routerReducer;
-	}
 	return enableBatching(preApplyReducer(combineReducers(reducerObject)));
 }
 
@@ -115,9 +102,6 @@ function getMiddlewares(middleware) {
 	} else if (middleware) {
 		middlewares.push(middleware);
 	}
-	if (!defaultRouterOverwrite) {
-		setRouterMiddleware(routerMiddleware(hashHistory));
-	}
 	if (!defaultHttpMiddlewareOverwrite) {
 		setHttpMiddleware(httpMiddleware());
 	}
@@ -129,7 +113,6 @@ function getMiddlewares(middleware) {
  * the store look like this:
  * - root
  * |- app (with appReducer)
- * |- routing (for react-router)
  * |- cmf (for the internals)
  *
  * @param  {function} appReducer   the reducer for your app.
@@ -145,17 +128,16 @@ function initialize(appReducer, preloadedState, enhancer, middleware) {
 		enhancers.push(enhancer);
 	}
 	const middles = getMiddlewares(middleware);
-	const store = compose(applyMiddleware(...middles), ...enhancers)(createStore)(
-		reducer,
-		preloadedState,
-	);
+	const store = compose(
+		applyMiddleware(...middles),
+		...enhancers,
+	)(createStore)(reducer, preloadedState);
 
 	return store;
 }
 
 export default {
 	addPreReducer,
-	setRouterMiddleware,
 	setHttpMiddleware,
 	initialize,
 	// for testing purepose only
