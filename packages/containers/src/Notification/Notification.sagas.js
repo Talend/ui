@@ -5,7 +5,7 @@ import Constants from './Notification.constant';
 
 const DEFAULT_COMPONENT_ID = 'Notification';
 
-export function* onAddNotification(action) {
+export function* onPushNotification(action) {
 	const componentState = yield select(state => Notification.getState(state, DEFAULT_COMPONENT_ID));
 	const newComponentState = componentState.updateIn(['notifications'], notifications =>
 		notifications.push({
@@ -13,16 +13,16 @@ export function* onAddNotification(action) {
 			...action.notification,
 		})
 	);
-	const updatedStateAction = Notification.setStateAction(
+	const updateStateAction = Notification.setStateAction(
 		newComponentState,
 		DEFAULT_COMPONENT_ID,
 	);
 
-	yield put(updatedStateAction);
+	yield put(updateStateAction);
 }
 
 function* defaultHandler() {
-	yield takeEvery(Constants.ADD_NOTIFICATION, onAddNotification);
+	yield takeEvery(Constants.PUSH_NOTIFICATION, onPushNotification);
 }
 
 export default {

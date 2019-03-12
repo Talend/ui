@@ -6,6 +6,8 @@ The default componentId (`Notification`) is internally used with all the utils, 
 
 ## Usage
 
+### Application initialization
+
 Initialize the application with the container at the top of the tree.
 
 For example:
@@ -32,7 +34,9 @@ function App(props) {
 }
 ```
 
-Then, you can directly dispatch actions to push notifications via the action creators utils :
+### Push notifications
+
+After the initialization, you can directly dispatch actions to push notifications via the action creators utils :
 
 For example in a saga :
 
@@ -44,17 +48,18 @@ export function* mySaga() {
 	const notification = {
 		message: 'The notification message',
 	};
-	const pushNotificationAction = Notification.actionCreators.addInfo(notification);
+	const pushNotificationAction = Notification.actionCreators.pushInfo(notification);
 	yield put(pushNotificationAction);
 }
 ```
 
-Available action creators that all take a `notification` argument :
+Available action creators which all take a `notification` argument :
 
-- `addInfo`
-- `addWarning`
-- `addError`
-- `addGeneric` (allow giving a dynamic notification type)
+- `pushInfo` (forced 'info' notification type)
+- `pushWarning` (forced 'warning' notification type)
+- `pushError` (forced 'error' notification type)
+- `pushGeneric` (allow giving a dynamic notification type)
 
+------------
 
-See the `Notification` component documentation for the `notification` parameter format.
+See the `Notification` component documentation for the `notification` argument format.

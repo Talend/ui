@@ -1,48 +1,48 @@
 import Constants from './Notification.constant';
 
 /**
- * Action to add a generic notification
- * @param {Object} notification Notification to add
+ * Action to push a generic notification
+ * @param {Object} notification Notification to push
  * @returns {Object}
  */
-export function addGeneric(notification) {
+export function pushGeneric(notification) {
 	return {
-		type: Constants.ADD_NOTIFICATION,
+		type: Constants.PUSH_NOTIFICATION,
 		notification,
 	};
 }
 
 /**
- * Action to specifically add an info notification
- * @param {Object} notification Notification to add
+ * Action to specifically push an info notification
+ * @param {Object} notification Notification to push
  * @returns {Object}
  */
-export function addInfo(notification) {
-	return addGeneric({
+export function pushInfo(notification) {
+	return pushGeneric({
 		...notification,
 		type: 'info',
 	});
 }
 
 /**
- * Action to specifically add a warning notification
- * @param {Object} notification Notification to add
+ * Action to specifically push a warning notification
+ * @param {Object} notification Notification to push
  * @returns {Object}
  */
-export function addWarning(notification) {
-	return addGeneric({
+export function pushWarning(notification) {
+	return pushGeneric({
 		...notification,
 		type: 'warning',
 	});
 }
 
 /**
- * Action to specifically add a error notification
- * @param {Object} notification Notification to add
+ * Action to specifically push an error notification
+ * @param {Object} notification Notification to push
  * @returns {Object}
  */
-export function addError(notification) {
-	return addGeneric({
+export function pushError(notification) {
+	return pushGeneric({
 		...notification,
 		type: 'error',
 	});
