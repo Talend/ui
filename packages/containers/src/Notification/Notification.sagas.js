@@ -11,12 +11,9 @@ export function* onPushNotification(action) {
 		notifications.push({
 			id: objectId(),
 			...action.notification,
-		})
+		}),
 	);
-	const updateStateAction = Notification.setStateAction(
-		newComponentState,
-		DEFAULT_COMPONENT_ID,
-	);
+	const updateStateAction = Notification.setStateAction(newComponentState, DEFAULT_COMPONENT_ID);
 
 	yield put(updateStateAction);
 }
