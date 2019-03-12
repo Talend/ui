@@ -1,14 +1,58 @@
 import Constants from './Notification.constant';
 
 /**
- * Action to add a new notification
+ * Action to add a generic notification
  * @param {Object} notification Notification to add
  * @returns {Object}
  */
-// eslint-disable-next-line import/prefer-default-export
 export function addGeneric(notification) {
 	return {
 		type: Constants.ADD_NOTIFICATION,
 		notification,
+	};
+}
+
+/**
+ * Action to specifically add an info notification
+ * @param {Object} notification Notification to add
+ * @returns {Object}
+ */
+export function addInfo(notification) {
+	return {
+		type: Constants.ADD_NOTIFICATION,
+		notification: {
+			...notification,
+			type: 'info',
+		},
+	};
+}
+
+/**
+ * Action to specifically add a warning notification
+ * @param {Object} notification Notification to add
+ * @returns {Object}
+ */
+export function addWarning(notification) {
+	return {
+		type: Constants.ADD_NOTIFICATION,
+		notification: {
+			...notification,
+			type: 'warning',
+		},
+	};
+}
+
+/**
+ * Action to specifically add a error notification
+ * @param {Object} notification Notification to add
+ * @returns {Object}
+ */
+export function addError(notification) {
+	return {
+		type: Constants.ADD_NOTIFICATION,
+		notification: {
+			...notification,
+			type: 'error',
+		},
 	};
 }
