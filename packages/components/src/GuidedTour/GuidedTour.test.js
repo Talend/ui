@@ -15,7 +15,7 @@ describe('Guided Tour', () => {
 		expect(wrapper.find(Tour).children()).toHaveLength(1);
 	});
 
-	it('should not appear', () => {
+	it('should not appear if it is not open', () => {
 		// when
 		const wrapper = mount(<GuidedTour steps={steps} isOpen={false} />);
 
