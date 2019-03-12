@@ -23,8 +23,8 @@ class GuidedTourContainer extends React.Component {
 	}
 
 	getSteps() {
-		const state = this.props.state;
-		const steps = state.get('steps');
+		const state = this.props && this.props.state;
+		const steps = state && state.get('steps');
 
 		if (steps) {
 			return steps.toJS();
@@ -53,8 +53,6 @@ class GuidedTourContainer extends React.Component {
 		if (!steps || !steps.length) {
 			return <React.Fragment />;
 		}
-
-		console.log(steps);
 
 		return (
 			<GuidedTour

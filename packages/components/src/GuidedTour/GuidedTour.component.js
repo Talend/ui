@@ -16,7 +16,10 @@ function lastStepNextButton(t) {
 	);
 }
 
-function GuidedTour({ className, t, ...rest }) {
+function GuidedTour({ className, t, tReady, ...rest }) {
+	if (!tReady) {
+		return null;
+	}
 	return (
 		<Tour
 			className={classNames(theme['guided-tour'], 'guided-tour', className)}
@@ -57,6 +60,7 @@ if (process.env.NODE_ENV !== 'production') {
 		isOpen: PropTypes.bool,
 		onRequestClose: PropTypes.func,
 		t: PropTypes.func,
+		tReady: PropTypes.bool,
 	};
 }
 
