@@ -114,7 +114,7 @@ describe('Properties utils', () => {
 			});
 		});
 
-		it('should delete the value, creating nested objects', () => {
+		it('should delete the value', () => {
 			// given
 			const properties = {
 				user: {
