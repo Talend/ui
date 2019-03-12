@@ -1,0 +1,60 @@
+# Notification container
+
+The notification container is expected to be used with only one instance which will handle all the notifications.
+
+The default componentId (`Notification`) is internally used with all the utils, so it's preferable not to define another one.
+
+## Usage
+
+Initialize the application with the container at the top of the tree.
+
+For example:
+
+```javascript
+import { Notification } from '@talend/react-containers';
+
+function App(props) {
+	const {
+		children,
+	} = props;
+
+	return (
+		<I18nextProvider
+			i18n={i18n}
+		>
+			<React.Fragment>
+				<IconsProvider />
+				<Notification />
+				{children}
+			</React.Fragment>
+		</I18nextProvider>
+	);
+}
+```
+
+Then, you can directly dispatch actions to push notifications via the action creators utils :
+
+For example in a saga :
+
+```javascript
+import { Notification } from '@talend/react-containers';
+import { put } from 'redux-saga/effects';
+
+export function* mySaga() {
+	const notification = {
+		message: 'The notification message',
+	};
+	const pushNotificationAction = Notification.actionCreators.addInfo(notification);
+	yield put(pushNotificationAction);
+}
+```
+
+Available action creators that all take a `notification` argument :
+
+- `addInfo`
+- `addWarning`
+- `addError`
+- `addGeneric` (allow giving a dynamic notification type)
+
+
+See the `Notification` component documentation for the `notification` parameter format.
