@@ -7,7 +7,7 @@
     "pixelmatch": "^4.0.2",
     "pngjs": "^3.3.2",
     "puppeteer": "^1.2.0",
-    "surge": "^0.18.0",
+    "surge": "^0.20.3",
     "tmp-promise": "^1.0.4"
   },
   "scripts": {
