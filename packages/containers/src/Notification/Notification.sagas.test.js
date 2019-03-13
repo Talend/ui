@@ -1,10 +1,10 @@
 import Immutable from 'immutable';
 import { runSaga } from 'redux-saga';
-import { onAddNotification } from './Notification.sagas';
+import { onPushNotification } from './Notification.sagas';
 
 describe('Notification sagas', () => {
-	describe('onAddNotification', () => {
-		const onAddNotificationAction = {
+	describe('onPushNotification', () => {
+		const onPushNotificationAction = {
 			notification: {
 				message: 'WHATEVER_MESSAGE',
 			},
@@ -28,8 +28,8 @@ describe('Notification sagas', () => {
 						},
 					}),
 				},
-				onAddNotification,
-				onAddNotificationAction,
+				onPushNotification,
+				onPushNotificationAction,
 			).done;
 
 			// Convert first, the half immutable payload to a full one then back to a full js one
