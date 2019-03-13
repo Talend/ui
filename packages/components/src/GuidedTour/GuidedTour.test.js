@@ -9,10 +9,18 @@ describe('Guided Tour', () => {
 
 	it('should appear', () => {
 		// when
-		const wrapper = mount(<GuidedTour steps={steps} isOpen />);
+		const wrapper = mount(<GuidedTour steps={steps} isOpen tReady />);
 
 		// then
 		expect(wrapper.find(Tour).children()).toHaveLength(1);
+	});
+
+	it('should not appear if translate service is not ready yet', () => {
+		// when
+		const wrapper = mount(<GuidedTour steps={steps} isOpen />);
+
+		// then
+		expect(wrapper.find(Tour).children()).toHaveLength(0);
 	});
 
 	it('should not appear if it is not open', () => {

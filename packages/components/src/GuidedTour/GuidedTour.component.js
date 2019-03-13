@@ -25,7 +25,7 @@ function GuidedTour({ className, steps, t, tReady, ...rest }) {
 		const translatedStep = { ...step };
 		const { content } = translatedStep;
 		if (typeof content === 'string') {
-			translatedStep.content = <div dangerouslySetInnerHTML={{ __html: t(content) }} />;
+			translatedStep.content = <div dangerouslySetInnerHTML={{ __html: t(content, {}) }} />;
 		}
 		return translatedStep;
 	});
