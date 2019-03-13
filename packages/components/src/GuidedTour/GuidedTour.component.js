@@ -16,10 +16,20 @@ function lastStepNextButton(t) {
 	);
 }
 
-function GuidedTour({ className, t, tReady, ...rest }) {
+function GuidedTour({ className, steps, t, tReady, ...rest }) {
 	if (!tReady) {
 		return null;
 	}
+
+	const translatedSteps = steps.map(step => {
+		const translatedStep = { ...step };
+		const { content } = translatedStep;
+		if (typeof content === 'string') {
+			translatedStep.content = <div dangerouslySetInnerHTML={{ __html: t(content) }} />;
+		}
+		return translatedStep;
+	});
+
 	return (
 		<Tour
 			className={classNames(theme['guided-tour'], 'guided-tour', className)}
@@ -29,10 +39,12 @@ function GuidedTour({ className, t, tReady, ...rest }) {
 				'guided-tour-highlighted-mask',
 			)}
 			showNavigationNumber={false}
-			maskSpace={2}
-			rounded={2}
+			maskSpace={0}
+			rounded={4}
 			lastStepNextButton={lastStepNextButton(t)}
+			disableInteraction
 			{...rest}
+			steps={translatedSteps}
 		/>
 	);
 }

@@ -1,5 +1,5 @@
-.guided-tour {
-	:global {
+:global(#___reactour) {
+	.guided-tour {
 		--reactour-accent: #{$scooter};
 
 		[data-tour-elem='controls'] {
