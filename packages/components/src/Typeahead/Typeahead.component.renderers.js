@@ -97,6 +97,7 @@ export function renderItemsContainerFactory(
 				className={containerClassName}
 				id={containerProps.id}
 				key={containerProps.key}
+				ref={containerProps.ref}
 				role={containerProps.role}
 			>
 				{render(content, {
