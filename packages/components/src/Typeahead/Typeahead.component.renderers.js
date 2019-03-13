@@ -67,7 +67,6 @@ export function renderItemsContainerFactory(
 	function ItemsContainerComponent(props) {
 		const { id, ref, containerProps, children } = props;
 		const { className, ...restProps } = containerProps;
-
 		const containerClassName = classNames(className, theme['items-container'], {
 			[theme['container-open']]: searching || noResult,
 		});
@@ -95,10 +94,15 @@ export function renderItemsContainerFactory(
 		} else {
 			content = children;
 		}
-
 		return (
 			<div id={id} ref={ref} className={containerClassName} {...restProps}>
-				{render(content, { searching, loading, noResult, isShown })}
+				{render(content, {
+					searching,
+					loading,
+					noResult,
+					isShown,
+					refContainer: restProps.ref,
+				})}
 			</div>
 		);
 	}
