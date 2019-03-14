@@ -5,19 +5,12 @@ import classNames from 'classnames';
 import RichLayout from '../../../../RichTooltip/RichLayout';
 import theme from './ColumnChooser.scss';
 import { useColumnChooserManager } from '../hooks';
-import { DefaultHeader, DefaultBody, DefaultFooter } from './DefaultColumnChooser.components';
+import Footer from './Footer';
+import Header from './Header';
+import Body from './Body';
+import { columnChooserContext } from './columnChooser.context';
 
-export default function ColumnChooserContent({
-	body,
-	columns,
-	footer,
-	header,
-	id,
-	lockedLeftItems,
-	onClose,
-	submitColumnChooser,
-	t,
-}) {
+export default function ColumnChooserContent({ columns, id, lockedLeftItems, onClose, submit, t }) {
 	const {
 		onChangeVisibility,
 		onBlurInputTextOrder,
@@ -25,7 +18,7 @@ export default function ColumnChooserContent({
 		onSelectAll,
 		stateColumnChooser,
 		onSubmitColumnChooser,
-	} = useColumnChooserManager(columns, submitColumnChooser, lockedLeftItems);
+	} = useColumnChooserManager(columns, submit, lockedLeftItems);
 
 	useEffect(() => {
 		// eslint-disable-next-line no-console
@@ -34,48 +27,64 @@ export default function ColumnChooserContent({
 		);
 	}, [id]);
 
+	const { Provider } = columnChooserContext;
+	const onSubmit = event => {
+		onSubmitColumnChooser(event);
+		onClose();
+		event.preventDefault();
+		// if (customClose) {
+		// allow specific behavior on close
+		// customClose(event);
+		// }
+	};
 	return (
-		<div
-			id={`${id}-column-chooser-content`}
-			className={classNames(theme['tc-column-chooser'], 'tc-column-chooser')}
+		<Provider
+			value={{
+				id,
+				onBlurOrder: onBlurInputTextOrder,
+				onChangeVisibility,
+				onClose,
+				onKeyPressOrder: onKeyPressInputTextOrder,
+				onSelectAll,
+				onSubmitColumnChooser,
+				stateColumnChooser,
+				t,
+			}}
 		>
-			<RichLayout
-				Header={header || <DefaultHeader t={t} />}
-				Content={
-					body || (
-						<DefaultBody
-							columns={stateColumnChooser.editedColumns}
-							onBlurOrder={onBlurInputTextOrder}
-							onChangeVisibility={onChangeVisibility}
-							onKeyPressOrder={onKeyPressInputTextOrder}
-							t={t}
-						/>
-					)
-				}
-				Footer={
-					footer || (
-						<DefaultFooter
-							onSelectAll={onSelectAll}
-							selectAllValue={stateColumnChooser.selectAll}
-							submit={onSubmitColumnChooser}
-							onClose={onClose}
-							t={t}
-						/>
-					)
-				}
-			/>
-		</div>
+			<form
+				id={`${id}-column-chooser-content`}
+				className={classNames(theme['tc-column-chooser'], 'tc-column-chooser')}
+				onSubmit={event => onSubmit(event)}
+			>
+				{/*
+				<RichLayout
+					Header={<Header default />}
+					Content={<Body default />}
+					Footer={<Footer default />}
+				/>
+				 */}
+				<RichLayout
+					Header={
+						<Header>
+							<Header.Title value="Hello world" />
+							<button>My Button</button>
+						</Header>
+					}
+					Content={<Body>{hookColumns => <Body.ColumnChooserTable columns={hookColumns} />}</Body>}
+					Footer={<Footer default />}
+				/>
+			</form>
+		</Provider>
 	);
 }
 
+ColumnChooserContent.Footer = Footer;
+
 ColumnChooserContent.propTypes = {
-	body: PropTypes.object,
 	columns: PropTypes.array.isRequired,
-	footer: PropTypes.object,
-	header: PropTypes.object,
 	id: PropTypes.string.isRequired,
 	lockedLeftItems: PropTypes.number,
 	onClose: PropTypes.func,
-	submitColumnChooser: PropTypes.func.isRequired,
+	submit: PropTypes.func.isRequired,
 	t: PropTypes.func,
 };

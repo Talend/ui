@@ -44,7 +44,7 @@ export default function ColumnChooserButton({
 						id={`${id}-column-chooser-content`}
 						lockedLeftItems={lockedLeftItems}
 						onClose={() => setOpen(!open)}
-						submitColumnChooser={submitColumnChooser}
+						submit={submitColumnChooser}
 						t={t}
 					/>
 				</Popover>

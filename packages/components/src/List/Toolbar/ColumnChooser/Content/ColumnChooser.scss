@@ -20,11 +20,11 @@
 	&-select-all {
 		align-items: center;
 		display: flex;
-		:global(#select-all-checkbox) {
+		&-checkbox {
 			margin: 0;
 			position: relative;
 		}
-		:global(#select-all-label) {
+		&-label {
 			color: $silver-chalice;
 			padding-left: $padding-larger;
 			font-weight: 400;

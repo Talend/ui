@@ -1,77 +1,82 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon from '../../../../Icon';
 import ColumnOrder from './ColumnOrder';
+import { columnChooserContext } from '../Content/columnChooser.context';
 
 import theme from './ColumnDisplayer.scss';
 
-export const ColumnVisibility = ({ onChange, locked, value, t }) => {
-	if (locked) {
-		return <Icon name="talend-locked" />;
-	}
+export const ColumnLabel = props => {
 	return (
-		<input
-			aria-label={t('CHECKBOX_VISIBILITY_COLUMN_CHOOSER', {
-				defaultValue: 'change visibility',
-			})}
-			className={classNames(
-				theme['tc-column-displayer-visibility-checkbox'],
-				'tc-column-displayer-visibility-checkbox',
-			)}
-			onChange={event => onChange(event, !value)}
-			type="checkbox"
-			checked={!value}
-			value={!value}
-		/>
+		<span className={classNames(theme['tc-column-displayer-label'], 'tc-column-displayer-label')}>
+			{props.label}
+		</span>
 	);
 };
 
-ColumnVisibility.propTypes = {
-	locked: PropTypes.bool,
-	onChange: PropTypes.func.isRequired,
-	t: PropTypes.func.isRequired,
-	value: PropTypes.bool,
-};
-
-const ColumnDisplayer = ({
-	label,
-	hidden,
-	locked,
-	order,
-	length,
-	onChangeVisibility,
-	onBlurOrder,
-	onKeyPressOrder,
-	t,
-}) => (
-	<div
-		id="column-chooser-displayer"
-		className={classNames(theme['tc-column-displayer'], 'tc-column-displayer')}
-	>
+export const ColumnVisibility = ({ index, locked, value }) => {
+	const { onChangeVisibility, t } = useContext(columnChooserContext);
+	return (
 		<div
 			className={classNames(
 				theme['tc-column-displayer-visibility'],
 				'tc-column-displayer-visibility',
 			)}
 		>
-			<ColumnVisibility onChange={onChangeVisibility} value={hidden} locked={locked} t={t} />
+			{locked ? (
+				<Icon name="talend-locked" />
+			) : (
+				<input
+					aria-label={t('CHECKBOX_VISIBILITY_COLUMN_CHOOSER', {
+						defaultValue: 'change visibility',
+					})}
+					className={classNames(
+						theme['tc-column-displayer-visibility-checkbox'],
+						'tc-column-displayer-visibility-checkbox',
+					)}
+					onChange={event => onChangeVisibility(index)(event, !value)}
+					type="checkbox"
+					checked={!value}
+					value={!value}
+				/>
+			)}
 		</div>
-		<span className={classNames(theme['tc-column-displayer-label'], 'tc-column-displayer-label')}>
-			{label}
-		</span>
-		<div className={classNames(theme['tc-column-displayer-order'], 'tc-column-displayer-order')}>
-			<ColumnOrder
-				length={length}
-				locked={locked}
-				onBlur={onBlurOrder}
-				onKeyPress={onKeyPressOrder}
-				t={t}
-				value={order}
-			/>
+	);
+};
+
+ColumnVisibility.propTypes = {
+	locked: PropTypes.bool,
+	value: PropTypes.bool,
+};
+
+const ColumnDisplayer = ({ label, hidden, locked, order, length, children, index, ...rest }) => {
+	const { id } = useContext(columnChooserContext);
+	if (rest.default) {
+		return (
+			<div
+				id={`${id}-displayer`}
+				className={classNames(theme['tc-column-displayer'], 'tc-column-displayer')}
+			>
+				<ColumnDisplayer.ColumnVisibility index={index} value={hidden} locked={locked} />
+				<ColumnDisplayer.ColumnLabel label={label} />
+				<ColumnDisplayer.ColumnOrder index={index} length={length} locked={locked} value={order} />
+			</div>
+		);
+	}
+	return (
+		<div
+			id={`${id}-displayer`}
+			className={classNames(theme['tc-column-displayer'], 'tc-column-displayer')}
+		>
+			{children}
 		</div>
-	</div>
-);
+	);
+};
+
+ColumnDisplayer.ColumnVisibility = ColumnVisibility;
+ColumnDisplayer.ColumnLabel = ColumnLabel;
+ColumnDisplayer.ColumnOrder = ColumnOrder;
 
 ColumnDisplayer.propTypes = {
 	hidden: PropTypes.bool,

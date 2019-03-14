@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ActionButton from '../../../../../Actions/ActionButton';
 import theme from '../ColumnDisplayer.scss';
+import { columnChooserContext } from '../../Content/columnChooser.context';
 
 export const OrderDisplay = ({ order, length }) => (
 	<React.Fragment>
@@ -30,9 +31,10 @@ function isOrderCorrect(value, length) {
 	throw new Error(`ColumnDisplayer, isOrderCorrect : Bad order number = ${value}`);
 }
 
-const ColumnOrder = ({ length, locked, value, t, ...rest }) => {
+const ColumnOrder = ({ index, length, locked, value }) => {
 	const [editMode, setEditMode] = useState(false);
 	const [ctrlValue, setCtrlValue] = useState(value);
+	const { onBlurOrder, onKeyPressOrder, t } = useContext(columnChooserContext);
 	useEffect(() => {
 		setCtrlValue(value);
 	}, [value]);
@@ -41,7 +43,7 @@ const ColumnOrder = ({ length, locked, value, t, ...rest }) => {
 		const formatValue = parseInt(ctrlValue, 10);
 		if (formatValue !== value) {
 			if (isOrderCorrect(formatValue, length)) {
-				rest.onBlur(event, formatValue);
+				onBlurOrder(index)(event, formatValue);
 			}
 		}
 		setEditMode(prevState => !prevState);
@@ -51,7 +53,7 @@ const ColumnOrder = ({ length, locked, value, t, ...rest }) => {
 		const formatValue = parseInt(ctrlValue, 10);
 		if (event.key === 'Enter') {
 			if (isOrderCorrect(formatValue, length)) {
-				rest.onKeyPress(event, formatValue);
+				onKeyPressOrder(index)(event, formatValue);
 				setEditMode(prevState => !prevState);
 			}
 		}
@@ -59,17 +61,19 @@ const ColumnOrder = ({ length, locked, value, t, ...rest }) => {
 
 	if (locked || !editMode) {
 		return (
-			<ActionButton
-				aria-label={t('INPUT_TEXT_EDIT_COLUMN_CHOOSER', { defaultValue: 'Edit order' })}
-				disabled={locked}
-				link
-				onClick={() => setEditMode(!editMode)}
-				label={<OrderDisplay order={ctrlValue} length={length} />}
-			/>
+			<div className={classNames(theme['tc-column-displayer-order'], 'tc-column-displayer-order')}>
+				<ActionButton
+					aria-label={t('INPUT_TEXT_EDIT_COLUMN_CHOOSER', { defaultValue: 'Edit order' })}
+					disabled={locked}
+					link
+					onClick={() => setEditMode(!editMode)}
+					label={<OrderDisplay order={ctrlValue} length={length} />}
+				/>
+			</div>
 		);
 	}
 	return (
-		<React.Fragment>
+		<div className={classNames(theme['tc-column-displayer-order'], 'tc-column-displayer-order')}>
 			<input
 				autoFocus
 				aria-label={t('INPUT_TEXT_ORDER_COLUMN_CHOOSER', {
@@ -87,17 +91,14 @@ const ColumnOrder = ({ length, locked, value, t, ...rest }) => {
 				value={ctrlValue}
 			/>
 			{`/ ${length}`}
-		</React.Fragment>
+		</div>
 	);
 };
 
 ColumnOrder.propTypes = {
 	length: PropTypes.number.isRequired,
 	locked: PropTypes.bool,
-	onBlur: PropTypes.func.isRequired,
-	onKeyPress: PropTypes.func.isRequired,
 	value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-	t: PropTypes.func.isRequired,
 };
 
 export default ColumnOrder;
