@@ -25,6 +25,8 @@ function GuidedTour({ className, steps, t, tReady, ...rest }) {
 		const translatedStep = { ...step };
 		const { content } = translatedStep;
 		if (typeof content === 'string') {
+			// We use dangerouslySetInnerHTML because translations are not coming from user
+			// eslint-disable-next-line react/no-danger
 			translatedStep.content = <div dangerouslySetInnerHTML={{ __html: t(content, {}) }} />;
 		}
 		return translatedStep;
