@@ -50,20 +50,8 @@ ColumnVisibility.propTypes = {
 	value: PropTypes.bool,
 };
 
-const ColumnDisplayer = ({ label, hidden, locked, order, length, children, index, ...rest }) => {
+const ColumnDisplayer = ({ children }) => {
 	const { id } = useContext(columnChooserContext);
-	if (rest.default) {
-		return (
-			<div
-				id={`${id}-displayer`}
-				className={classNames(theme['tc-column-displayer'], 'tc-column-displayer')}
-			>
-				<ColumnDisplayer.ColumnVisibility index={index} value={hidden} locked={locked} />
-				<ColumnDisplayer.ColumnLabel label={label} />
-				<ColumnDisplayer.ColumnOrder index={index} length={length} locked={locked} value={order} />
-			</div>
-		);
-	}
 	return (
 		<div
 			id={`${id}-displayer`}
@@ -79,15 +67,6 @@ ColumnDisplayer.ColumnLabel = ColumnLabel;
 ColumnDisplayer.ColumnOrder = ColumnOrder;
 
 ColumnDisplayer.propTypes = {
-	hidden: PropTypes.bool,
-	label: PropTypes.string.isRequired,
-	length: PropTypes.number.isRequired,
-	locked: PropTypes.bool,
-	onBlurOrder: PropTypes.func.isRequired,
-	onChangeVisibility: PropTypes.func.isRequired,
-	onKeyPressOrder: PropTypes.func.isRequired,
-	order: PropTypes.number.isRequired,
-	t: PropTypes.func.isRequired,
 };
 
 export default ColumnDisplayer;

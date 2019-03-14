@@ -2,15 +2,24 @@ import React, { useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import RichLayout from '../../../../RichTooltip/RichLayout';
 import theme from './ColumnChooser.scss';
 import { useColumnChooserManager } from '../hooks';
-import Footer from './Footer';
-import Header from './Header';
-import Body from './Body';
+import ColumnChooserFooter from './Footer';
+import ColumnChooserHeader from './Header';
+import ColumnChooserBody from './Body';
+// import ColumnDisplayer from '../ColumnDisplayer';
 import { columnChooserContext } from './columnChooser.context';
+import Tooltip from '../TooltipCompound/Tooltip.component';
 
-export default function ColumnChooserContent({ columns, id, lockedLeftItems, onClose, submit, t }) {
+export default function ColumnChooser({
+	children,
+	columns,
+	id,
+	lockedLeftItems,
+	onClose,
+	submit,
+	t,
+}) {
 	const {
 		onChangeVisibility,
 		onBlurInputTextOrder,
@@ -31,11 +40,6 @@ export default function ColumnChooserContent({ columns, id, lockedLeftItems, onC
 	const onSubmit = event => {
 		onSubmitColumnChooser(event);
 		onClose();
-		event.preventDefault();
-		// if (customClose) {
-		// allow specific behavior on close
-		// customClose(event);
-		// }
 	};
 	return (
 		<Provider
@@ -51,36 +55,24 @@ export default function ColumnChooserContent({ columns, id, lockedLeftItems, onC
 				t,
 			}}
 		>
-			<form
-				id={`${id}-column-chooser-content`}
-				className={classNames(theme['tc-column-chooser'], 'tc-column-chooser')}
-				onSubmit={event => onSubmit(event)}
-			>
-				{/*
-				<RichLayout
-					Header={<Header default />}
-					Content={<Body default />}
-					Footer={<Footer default />}
-				/>
-				 */}
-				<RichLayout
-					Header={
-						<Header>
-							<Header.Title value="Hello world" />
-							<button>My Button</button>
-						</Header>
-					}
-					Content={<Body>{hookColumns => <Body.ColumnChooserTable columns={hookColumns} />}</Body>}
-					Footer={<Footer default />}
-				/>
-			</form>
+			<Tooltip>
+				<form
+					id={`${id}-column-chooser-content`}
+					className={classNames(theme['tc-column-chooser'], 'tc-column-chooser')}
+					onSubmit={event => onSubmit(event)}
+				>
+					{children}
+				</form>
+			</Tooltip>
 		</Provider>
 	);
 }
 
-ColumnChooserContent.Footer = Footer;
+ColumnChooser.Header = ColumnChooserHeader;
+ColumnChooser.Body = ColumnChooserBody;
+ColumnChooser.Footer = ColumnChooserFooter;
 
-ColumnChooserContent.propTypes = {
+ColumnChooser.propTypes = {
 	columns: PropTypes.array.isRequired,
 	id: PropTypes.string.isRequired,
 	lockedLeftItems: PropTypes.number,
@@ -88,3 +80,41 @@ ColumnChooserContent.propTypes = {
 	submit: PropTypes.func.isRequired,
 	t: PropTypes.func,
 };
+
+// <Header>
+// 	<Header.Title value="Hello world" />
+// 	<button style={{ marginLeft: '200px' }}>My Button</button>
+// </Header>
+// <ColumnChooserBody>
+// 	{hookColumns => (
+// 		<React.Fragment>
+// 			<div>Some special stuff</div>
+// 			{hookColumns.map((column, index) => (
+// 				<ColumnDisplayer>
+// 					<ColumnDisplayer.ColumnVisibility
+// 						index={index}
+// 						value={column.hidden}
+// 						locked={column.locked}
+// 					/>
+// 					<span style={{ paddingLeft: '20px' }}>More data</span>
+// 					<ColumnDisplayer.ColumnLabel label={column.label} />
+// 					<span style={{ paddingRight: '20px ' }}>Icon</span>
+// 					<ColumnDisplayer.ColumnOrder
+// 						index={index}
+// 						length={length}
+// 						locked={column.locked}
+// 						value={column.order}
+// 					/>
+// 					<button style={{ marginLeft: '20px', display: 'flex', height: '50%' }}>
+// 						Action
+// 					</button>
+// 				</ColumnDisplayer>
+// 			))}
+// 			<p>
+// 				<button style={{ width: '100%' }}>A new action for all columns</button>
+// 			</p>
+// 		</React.Fragment>
+// 	)}
+// </ColumnChooserBody>
+// <Footer default />
+// />

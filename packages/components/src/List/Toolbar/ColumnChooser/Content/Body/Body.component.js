@@ -4,58 +4,54 @@ import PropTypes from 'prop-types';
 import ColumnDisplayer from '../../ColumnDisplayer';
 import theme from '../ColumnChooser.scss';
 import { columnChooserContext } from '../columnChooser.context';
+import Tooltip from '../../TooltipCompound';
 
-const ColumnChooserTable = ({ columns }) => {
-	console.log({ columns });
-	return columns.map((column, index) => {
-		return (
-			<ColumnDisplayer
-				label={column.label}
-				hidden={column.hidden}
-				locked={column.locked}
-				order={column.order}
-				length={columns.length}
+const ColumnChooserTable = ({ columns }) =>
+	columns.map((column, index) => (
+		<ColumnDisplayer>
+			<ColumnDisplayer.ColumnVisibility
 				index={index}
-				default
+				value={column.hidden}
+				locked={column.locked}
 			/>
-		);
-	});
-};
+			<ColumnDisplayer.ColumnLabel label={column.label} />
+			<ColumnDisplayer.ColumnOrder
+				index={index}
+				length={length}
+				locked={column.locked}
+				value={column.order}
+			/>
+		</ColumnDisplayer>
+	));
 
-const TooltipBody = props => {
-	return (
-		<div style={{ display: 'flex', flexDirection: 'row', margin: '20px' }}>{props.children}</div>
-	);
-};
-
-const Body = ({ columns, ...rest }) => {
-	const { id, stateColumnChooser } = useContext(columnChooserContext);
-	const usedColumns = columns || stateColumnChooser.editedColumns;
-	if (rest.default) {
-		return (
-			<div
-				id={`${id}-content`}
-				className={classNames(theme['tc-column-chooser-body'], 'tc-column-chooser-body')}
-			>
-				<ColumnChooserTable columns={usedColumns} />
-			</div>
-		);
-	}
-	return (
-		<div
-			id={`${id}-content`}
-			className={classNames(theme['tc-column-chooser-body'], 'tc-column-chooser-body')}
-		>
-			{rest.children(usedColumns)}
-		</div>
-	);
-};
-
-Body.ColumnDisplayer = ColumnDisplayer;
-Body.ColumnChooserTable = ColumnChooserTable;
-
-Body.propTypes = {
+ColumnChooserTable.propTypes = {
 	columns: PropTypes.array.isRequired,
 };
 
-export default Body;
+const getColumnChooserBodyContent = (columns, children) => {
+	if (children && typeof children === 'function') {
+		return children(columns);
+	}
+	return <ColumnChooserTable columns={columns} />;
+};
+
+const ColumnChooserBody = ({ children }) => {
+	const { id, stateColumnChooser } = useContext(columnChooserContext);
+	return (
+		<Tooltip.TooltipBody
+			id={`${id}-content`}
+			className={classNames(theme['tc-column-chooser-body'], 'tc-column-chooser-body')}
+		>
+			{getColumnChooserBodyContent(stateColumnChooser.editedColumns, children)}
+		</Tooltip.TooltipBody>
+	);
+};
+
+ColumnChooserBody.ColumnDisplayer = ColumnDisplayer;
+ColumnChooserBody.ColumnChooserTable = ColumnChooserTable;
+
+ColumnChooserBody.propTypes = {
+	children: PropTypes.func,
+};
+
+export default ColumnChooserBody;

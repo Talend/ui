@@ -1,15 +1,9 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import theme from '../ColumnChooser.scss';
 import { columnChooserContext } from '../columnChooser.context';
-
-const TooltipHeader = props => {
-	return (
-		<header style={{ display: 'flex', padding: '0 20px', height: '30rem', minWidth: '40rem' }}>
-			{props.children}
-		</header>
-	);
-};
+import Tooltip from '../../TooltipCompound';
 
 const Title = props => {
 	const { t } = useContext(columnChooserContext);
@@ -21,14 +15,25 @@ const Title = props => {
 	});
 };
 
-const Header = props => {
+const ColumnChooserHeader = ({ className, children }) => {
 	return (
-		<header className={classNames(theme['tc-column-chooser-header'], 'tc-column-chooser-header')}>
-			{props.default ? <Title /> : props.children}
-		</header>
+		<Tooltip.TooltipHeader
+			className={classNames(
+				className,
+				theme['tc-column-chooser-header'],
+				'tc-column-chooser-header',
+			)}
+		>
+			{!children ? <Title /> : children}
+		</Tooltip.TooltipHeader>
 	);
 };
 
-Header.Title = Title;
+ColumnChooserHeader.propTypes = {
+	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+	className: PropTypes.string,
+};
 
-export default Header;
+ColumnChooserHeader.Title = Title;
+
+export default ColumnChooserHeader;

@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
-// import Prop,Types from 'prop-types';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ActionButton from '../../../../../Actions/ActionButton';
 import { columnChooserContext } from '../columnChooser.context';
 import theme from '../ColumnChooser.scss';
+import Tooltip from '../../TooltipCompound';
 
 const SubmitButton = () => {
 	const { id, t } = useContext(columnChooserContext);
@@ -64,25 +65,26 @@ const DefaultFooterContent = (
 	</React.Fragment>
 );
 
-const TooltipFooter = props => {
+const ColumnChooserFooter = ({ children, className }) => {
+	const { id } = useContext(columnChooserContext);
 	return (
-		<footer style={{ display: 'flex', padding: '0 20px', height: '30rem', minWidth: '40rem' }}>
-			{props.children}
-		</footer>
+		<Tooltip.TooltipFooter
+			id={id}
+			className={
+				(className, classNames(theme['tc-column-chooser-footer'], 'tc-column-chooser-footer'))
+			}
+		>
+			{!children ? DefaultFooterContent : children}
+		</Tooltip.TooltipFooter>
 	);
 };
 
-const Footer = props => {
-	return (
-		<footer className={classNames(theme['tc-column-chooser-footer'], 'tc-column-chooser-footer')}>
-			{props.default ? DefaultFooterContent : props.children}
-		</footer>
-	);
+ColumnChooserFooter.SubmitButton = SubmitButton;
+ColumnChooserFooter.SelectAllCheckbox = SelectAllCheckbox;
+
+ColumnChooserFooter.propTypes = {
+	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+	className: PropTypes.string,
 };
 
-Footer.SubmitButton = SubmitButton;
-Footer.SelectAllCheckbox = SelectAllCheckbox;
-
-Footer.propTypes = {};
-
-export default Footer;
+export default ColumnChooserFooter;

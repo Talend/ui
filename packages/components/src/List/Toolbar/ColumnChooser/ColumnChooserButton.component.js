@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Nav, Overlay, Popover } from 'react-bootstrap';
-import ColumnChooserContent from './Content';
+import ColumnChooser from './Content';
 import getDefaultT from '../../../translate';
 import ActionButton from '../../../Actions/ActionButton';
 
+const DefaultColumnChooser = (
+	<React.Fragment>
+		<ColumnChooser.Header />
+		<ColumnChooser.Body />
+		<ColumnChooser.Footer />
+	</React.Fragment>
+);
+
 export default function ColumnChooserButton({
 	ariaLabel,
+	children,
 	columns,
 	id,
 	lockedLeftItems,
@@ -39,14 +48,16 @@ export default function ColumnChooserButton({
 				onHide={() => setOpen(!open)}
 			>
 				<Popover id={`${id}-column-chooser-popover`}>
-					<ColumnChooserContent
+					<ColumnChooser
 						columns={columns}
-						id={`${id}-column-chooser-content`}
+						id={`${id}-column-chooser`}
 						lockedLeftItems={lockedLeftItems}
 						onClose={() => setOpen(!open)}
 						submit={submitColumnChooser}
 						t={t}
-					/>
+					>
+						{!children ? DefaultColumnChooser : children}
+					</ColumnChooser>
 				</Popover>
 			</Overlay>
 		</Nav>
