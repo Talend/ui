@@ -27,6 +27,19 @@ function getLabel(titleMap, value, defaultName) {
 	return defaultName || value;
 }
 
+/**
+ * Force the focus on an input child of an event's target
+ * @param {object} e
+ */
+function forceInputChildFocus(e) {
+	if (e.target.tagName !== 'INPUT') {
+		const input = e.target.querySelector('input');
+		if (input) {
+			input.focus();
+		}
+	}
+}
+
 export default class MultiSelectTag extends React.Component {
 	constructor(props) {
 		super(props);
@@ -140,9 +153,6 @@ export default class MultiSelectTag extends React.Component {
 		this.props.onChange(event, payload);
 		this.props.onFinish(event, payload);
 		this.updateSuggestions('');
-		setTimeout(() => {
-			this.resetSuggestions();
-		});
 	}
 
 	/**
@@ -245,7 +255,7 @@ export default class MultiSelectTag extends React.Component {
 						}
 						return <Badge {...badgeProps} />;
 					})}
-					<FocusManager onFocusOut={this.resetSuggestions} className={theme['focus-manager']}>
+					<FocusManager onFocusIn={forceInputChildFocus} onFocusOut={this.resetSuggestions} className={theme['focus-manager']}>
 						<Typeahead
 							id={id}
 							autoFocus={schema.autoFocus || false}
