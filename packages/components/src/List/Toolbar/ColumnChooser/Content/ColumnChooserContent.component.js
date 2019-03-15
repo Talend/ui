@@ -7,7 +7,6 @@ import { useColumnChooserManager } from '../hooks';
 import ColumnChooserFooter from './Footer';
 import ColumnChooserHeader from './Header';
 import ColumnChooserBody from './Body';
-// import ColumnDisplayer from '../ColumnDisplayer';
 import { columnChooserContext } from './columnChooser.context';
 import Tooltip from '../TooltipCompound/Tooltip.component';
 
