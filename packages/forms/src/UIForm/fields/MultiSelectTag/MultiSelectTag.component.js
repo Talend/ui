@@ -255,7 +255,11 @@ export default class MultiSelectTag extends React.Component {
 						}
 						return <Badge {...badgeProps} />;
 					})}
-					<FocusManager onFocusIn={forceInputChildFocus} onFocusOut={this.resetSuggestions} className={theme['focus-manager']}>
+					<FocusManager
+						onFocusIn={forceInputChildFocus}
+						onFocusOut={this.resetSuggestions}
+						className={theme['focus-manager']}
+					>
 						<Typeahead
 							id={id}
 							autoFocus={schema.autoFocus || false}
