@@ -5,7 +5,7 @@ import talendIcons from '@talend/icons/dist/react';
 
 import { simpleCollection } from './collection';
 import { IconsProvider } from '../../src/index';
-import List from '../../src/List/ComposableList';
+import List from '../../src/List/ListComposition';
 import CellTitle from '../../src/VirtualizedList/CellTitle';
 import CellBadge from '../../src/VirtualizedList/CellBadge';
 
