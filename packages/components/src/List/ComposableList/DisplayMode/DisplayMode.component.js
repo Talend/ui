@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { translate } from 'react-i18next';
-import { Nav, NavDropdown, Navbar, MenuItem } from 'react-bootstrap';
+import { Navbar, NavDropdown, Nav, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
 
 import { ListContext } from '../context';
@@ -73,28 +73,29 @@ class DisplayMode extends React.Component {
 		const { id, mode, onChange, t } = this.props;
 		const items = this.getMenuItems();
 		return (
-			<Nav>
+			<React.Fragment>
 				<Navbar.Text>
 					<label htmlFor={id}>{t('LIST_TOOLBAR_DISPLAY', { defaultValue: 'Display:' })}</label>
 				</Navbar.Text>
-				<NavDropdown
-					id={id}
-					title={<Icon name={getIcon(mode)} />}
-					onSelect={(value, event) => onChange(event, value)}
-					aria-label={t('LIST_CHANGE_DISPLAY_MODE', {
-						defaultValue: 'Change display mode. Current display mode: {{displayMode}}.',
-						displayMode: mode,
-					})}
-				>
-					{items}
-				</NavDropdown>
-			</Nav>
+				<Nav>
+					<NavDropdown
+						id={id}
+						title={<Icon name={getIcon(mode)} />}
+						onSelect={(value, event) => onChange(event, value)}
+						aria-label={t('LIST_CHANGE_DISPLAY_MODE', {
+							defaultValue: 'Change display mode. Current display mode: {{displayMode}}.',
+							displayMode: mode,
+						})}
+					>
+						{items}
+					</NavDropdown>
+				</Nav>
+			</React.Fragment>
 		);
 	}
 }
 
 function ContextualDisplayMode(props) {
-	debugger;
 	return (
 		<ListContext.Consumer>
 			{({ displayMode, onDisplayModeChange }) => (

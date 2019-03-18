@@ -8,7 +8,6 @@ $tc-list-toolbar-background-color: $concrete !default;
 	margin-bottom: 0;
 
 	> :global(.container-fluid) {
-		display: inline-flex;
 		padding-left: 0;
 	}
 
@@ -28,11 +27,10 @@ $tc-list-toolbar-background-color: $concrete !default;
 	}
 
 	:global(.navbar-nav) {
-		li a {
+		a[role="menuitem"],
+		a:global(.dropdown-toggle) {
 			color: $black;
-			&:global(.dropdown-toggle) {
-				text-transform: capitalize;
-			}
+			text-transform: capitalize;
 		}
 	}
 }
