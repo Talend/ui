@@ -15,51 +15,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
 
-/home/travis/build/Talend/ui/packages/containers/src/POCList/List/List.container.js
-   93:15  error  'dispatchActionCreator' is missing in props validation                                                 react/prop-types
-  149:61  error  'children' is missing in props validation                                                              react/prop-types
-  167:33  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
-
-/home/travis/build/Talend/ui/packages/containers/src/POCList/List/ListToVirtualizedList/ListToVirtualizedList.component.js
-  100:2  warning  Unexpected console statement  no-console
-
-/home/travis/build/Talend/ui/packages/containers/src/POCList/List/ListToVirtualizedList/ListToVirtualizedList.test.js
-   5:42  error  Unable to resolve path to module '../../VirtualizedList'              import/no-unresolved
-  11:25  error  Unable to resolve path to module '../../VirtualizedList/CellActions'  import/no-unresolved
-  12:23  error  Unable to resolve path to module '../../VirtualizedList/CellBadge'    import/no-unresolved
-
-/home/travis/build/Talend/ui/packages/containers/src/POCList/List/Toolbar/Pagination/Pagination.component.js
-  3:1  error  'uuid' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/POCList/List/Toolbar/SelectDisplayMode/SelectDisplayMode.component.js
-  4:1  error  'uuid' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/POCList/List/Toolbar/SelectSortBy/SelectSortBy.component.js
-  4:1  error  'uuid' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
-
-/home/travis/build/Talend/ui/packages/containers/src/POCList/List/Toolbar/Toolbar.component.js
-    7:8   error    Absolute imports should come before relative imports                                                   import/imports-first
-   49:2   error    handleInputFilter should be placed after state                                                         react/sort-comp
-   51:3   warning  Unexpected console statement                                                                           no-console
-   84:19  error    'onChange' is missing in props validation                                                              react/prop-types
-   85:24  error    'sortAsc' is missing in props validation                                                               react/prop-types
-   86:16  error    'sortOn' is missing in props validation                                                                react/prop-types
-   90:42  error    'id' is missing in props validation                                                                    react/prop-types
-   90:57  error    'id' is missing in props validation                                                                    react/prop-types
-   91:28  error    'id' is missing in props validation                                                                    react/prop-types
-   91:43  error    'id' is missing in props validation                                                                    react/prop-types
-  120:24  error    'actions' is missing in props validation                                                               react/prop-types
-  120:33  error    'multiSelectActions' is defined but never used                                                         no-unused-vars
-  120:33  error    'multiSelectActions' is missing in props validation                                                    react/prop-types
-  120:53  error    'id' is missing in props validation                                                                    react/prop-types
-  120:62  error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
-  124:32  error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
-  127:44  error    'displayModeId' is missing in props validation                                                         react/prop-types
-  128:33  error    'displayModeId' is missing in props validation                                                         react/prop-types
-  128:60  error    'displayMode' is missing in props validation                                                           react/prop-types
-  133:46  error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
-  155:27  error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
-
-✖ 36 problems (34 errors, 2 warnings)
-  8 errors, 0 warnings potentially fixable with the `--fix` option.
+✖ 5 problems (5 errors, 0 warnings)
+  3 errors, 0 warnings potentially fixable with the `--fix` option.
 
