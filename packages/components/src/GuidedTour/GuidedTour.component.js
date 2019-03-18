@@ -43,6 +43,7 @@ function GuidedTour({ className, steps, t, tReady, ...rest }) {
 			showNavigationNumber={false}
 			maskSpace={0}
 			rounded={4}
+			startAt={0}
 			lastStepNextButton={lastStepNextButton(t)}
 			disableInteraction
 			{...rest}

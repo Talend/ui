@@ -6,6 +6,7 @@ import Container from './GuidedTour.container';
 
 const defaultProps = {
 	state: fromJS({
+		isOpen: true,
 		steps: [{ content: 'Text A' }, { content: 'Text B' }, { content: 'Text C' }],
 	}),
 };

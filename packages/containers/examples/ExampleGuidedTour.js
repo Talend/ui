@@ -1,13 +1,19 @@
 import React from 'react';
 import { fromJS } from 'immutable';
-import GuidedTour from '../src/GuidedTour';
+import { GuidedTour, Action } from '../src';
 
 const initialState = fromJS({
+	show: true,
 	steps: [{ content: 'Text A' }, { content: 'Text B' }, { content: 'Text C' }],
 });
 
 const ExampleGuidedTour = {
-	default: () => <GuidedTour initialState={initialState} />,
+	default: () => (
+		<div>
+			<Action actionId="show:guidedTour" />
+			<GuidedTour initialState={initialState} />
+		</div>
+	),
 };
 
 export default ExampleGuidedTour;

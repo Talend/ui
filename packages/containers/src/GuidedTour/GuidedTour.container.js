@@ -1,20 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import omit from 'lodash/omit';
 import { cmfConnect } from '@talend/react-cmf';
 import GuidedTour from '@talend/react-components/lib/GuidedTour';
+import Constants from './GuidedTour.constants';
 
 class GuidedTourContainer extends React.Component {
 	static displayName = 'Container(GuidedTour)';
 
 	static propTypes = {
 		...cmfConnect.propTypes,
+		show: PropTypes.bool,
 		steps: PropTypes.oneOf([PropTypes.array, PropTypes.func]),
+		onClose: PropTypes.func,
 	};
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			isOpen: true,
 			controls: true,
 		};
 		this.closeTour = this.closeTour.bind(this);
@@ -33,9 +36,19 @@ class GuidedTourContainer extends React.Component {
 		return undefined;
 	}
 
+	isOpen() {
+		const state = this.props && this.props.state;
+		return state && state.get('show');
+	}
+
 	closeTour() {
 		this.showControls();
-		this.setState({ isOpen: false });
+		this.props.dispatch({ type: Constants.GUIDED_TOUR_HIDE });
+		const state = this.props && this.props.state;
+		const onRequestClose = state.get('onClose');
+		if (state && typeof onRequestClose === 'function') {
+			onRequestClose();
+		}
 	}
 
 	showControls() {
@@ -47,18 +60,20 @@ class GuidedTourContainer extends React.Component {
 	}
 
 	render() {
-		const { controls, isOpen } = this.state;
+		const { controls } = this.state;
 
 		const steps = this.getSteps();
 		if (!steps || !steps.length) {
 			return <React.Fragment />;
 		}
 
+		const isOpen = this.isOpen();
+
 		return (
 			<GuidedTour
+				isOpen={isOpen}
 				steps={steps}
 				onRequestClose={this.closeTour}
-				isOpen={isOpen}
 				showCloseButton={controls}
 				showButtons={controls}
 				showNavigation={controls}
@@ -67,6 +82,7 @@ class GuidedTourContainer extends React.Component {
 				disableDotsNavigation={!controls}
 				disableInteraction={!controls}
 				disableKeyboardNavigation={!controls}
+				{...omit(this.props, cmfConnect.INJECTED_PROPS)}
 			/>
 		);
 	}
