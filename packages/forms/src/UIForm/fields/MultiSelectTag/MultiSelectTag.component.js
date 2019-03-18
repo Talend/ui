@@ -27,19 +27,6 @@ function getLabel(titleMap, value, defaultName) {
 	return defaultName || value;
 }
 
-/**
- * Force the focus on an input child of an event's target
- * @param {object} e
- */
-function forceInputChildFocus(e) {
-	if (e.target.tagName !== 'INPUT') {
-		const input = e.target.querySelector('input');
-		if (input) {
-			input.focus();
-		}
-	}
-}
-
 export default class MultiSelectTag extends React.Component {
 	constructor(props) {
 		super(props);
@@ -124,12 +111,6 @@ export default class MultiSelectTag extends React.Component {
 	 * Update suggestions on input focus
 	 */
 	onFocus(event) {
-		if (this.state.suggestions) {
-			// If suggestions is already defined, we can assume that suggestions are up to dateFormat
-			// and that this call to onFocus has been done while the component was already focused
-			return;
-		}
-
 		this.updateSuggestions();
 
 		callTrigger(event, {
@@ -262,7 +243,6 @@ export default class MultiSelectTag extends React.Component {
 						return <Badge {...badgeProps} />;
 					})}
 					<FocusManager
-						onFocusIn={forceInputChildFocus}
 						onFocusOut={this.resetSuggestions}
 						className={theme['focus-manager']}
 					>
