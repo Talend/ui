@@ -49,4 +49,4 @@
 // import './Toggle';
 // import './Typeahead';
 // import './VirtualizedList';
-import './JSOList/JSOList';
+import './ListComposition/ListComposition';
