@@ -20,6 +20,15 @@ function getWidget(displayMode, widgetId, customWidgets) {
 	return widget;
 }
 
+function isUpdating(updatingKeys = [], key) {
+	if (updatingKeys.length === 0 || !key) {
+		return false;
+	}
+	// we need to support current and parent path
+	const serializedKey = key.join('.');
+	return updatingKeys.some(path => serializedKey.startsWith(path));
+}
+
 export default function Widget(props) {
 	const { condition, key, options, type, validationMessage, widget, displayMode } = props.schema;
 	const widgetId = widget || type;
@@ -37,6 +46,7 @@ export default function Widget(props) {
 	const id = sfPath.name(key, '_', props.id);
 	const error = getError(props.errors, props.schema);
 	const errorMessage = validationMessage || error;
+
 	return (
 		<WidgetImpl
 			{...props}
@@ -45,6 +55,7 @@ export default function Widget(props) {
 			errorMessage={errorMessage}
 			isValid={!error}
 			value={getValue(props.properties, props.schema)}
+			valueIsUpdating={isUpdating(props.updating, props.schema.key)}
 			options={options}
 		/>
 	);
@@ -52,8 +63,10 @@ export default function Widget(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	Widget.propTypes = {
+		displayMode: PropTypes.string,
 		errors: PropTypes.object,
 		id: PropTypes.string,
+		properties: PropTypes.object,
 		schema: PropTypes.shape({
 			conditions: PropTypes.arrayOf(
 				PropTypes.shape({
@@ -69,8 +82,7 @@ if (process.env.NODE_ENV !== 'production') {
 			validationMessage: PropTypes.string,
 			widget: PropTypes.string,
 		}).isRequired,
-		properties: PropTypes.object,
-		displayMode: PropTypes.string,
+		updating: PropTypes.arrayOf(PropTypes.shape({ path: PropTypes.string })),
 		widgets: PropTypes.object,
 	};
 }

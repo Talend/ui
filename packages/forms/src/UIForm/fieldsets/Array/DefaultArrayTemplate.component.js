@@ -24,6 +24,7 @@ function DefaultArrayTemplate(props) {
 		schema,
 		t,
 		value,
+		valueIsUpdating,
 		options = {},
 	} = props;
 	const descriptionId = generateDescriptionId(id);
@@ -40,6 +41,7 @@ function DefaultArrayTemplate(props) {
 				className={classNames(theme['tf-array-add'], 'tf-array-add')}
 				bsStyle={'info'}
 				onClick={onAdd}
+				disabled={valueIsUpdating}
 				label={options.btnLabel || t('ARRAY_ADD_ELEMENT', { defaultValue: 'New Element' })}
 			/>
 			<Message
@@ -66,6 +68,7 @@ function DefaultArrayTemplate(props) {
 							onRemove={onRemove}
 							onReorder={canReorder && onReorder}
 							isClosed={itemValue.isClosed}
+							valueIsUpdating={valueIsUpdating}
 						>
 							{renderItem(index)}
 						</ArrayItem>
@@ -92,6 +95,7 @@ if (process.env.NODE_ENV !== 'production') {
 		renderItem: PropTypes.func.isRequired,
 		schema: PropTypes.object.isRequired,
 		value: PropTypes.array.isRequired,
+		valueIsUpdating: PropTypes.bool,
 		options: PropTypes.shape({
 			btnLabel: PropTypes.string,
 		}),

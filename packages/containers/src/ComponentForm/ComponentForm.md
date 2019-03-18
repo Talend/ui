@@ -96,7 +96,8 @@ Example:
               "key": "query",
               "path": "asyncTitleMap"
             }
-          ]
+          ],
+          "options": ["asyncTitleMap"]
         }
       ]
     },
@@ -104,6 +105,7 @@ Example:
 
 `action`, `family` and `type` define the trigger identifier.
 `parameters` define the payload to send to the backend. the `key` attribute define key in the payload for this parameter and the `path` is used to get the value of it inside the current form payload.
+`options` define the list of path that will be modified by the trigger. Thoses path will be used to manage the *updating* props of UIForm which make fields disabled and displayed using the heartbeat effect.
 
 A trigger is a piece of code on the backend and on the frontend. So your app can produce any wanted effects on a given form.
 

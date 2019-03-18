@@ -1,9 +1,11 @@
 /* eslint-disable jsx-a11y/label-has-for */
 import PropTypes from 'prop-types';
 import React from 'react';
+import classnames from 'classnames';
 
 export default function SimpleCheckBox({
 	describedby,
+	disabled,
 	id,
 	isValid,
 	label,
@@ -12,10 +14,9 @@ export default function SimpleCheckBox({
 	schema,
 	value,
 }) {
-	const { autoFocus, disabled = false } = schema;
-
+	const { autoFocus } = schema;
 	return (
-		<div className="checkbox">
+		<div className={classnames('checkbox', { disabled })}>
 			<label>
 				<input
 					id={id}
@@ -42,6 +43,7 @@ export default function SimpleCheckBox({
 if (process.env.NODE_ENV !== 'production') {
 	SimpleCheckBox.propTypes = {
 		describedby: PropTypes.string.isRequired,
+		disabled: PropTypes.bool,
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		label: PropTypes.string,

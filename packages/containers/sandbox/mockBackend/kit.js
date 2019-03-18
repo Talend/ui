@@ -61,6 +61,7 @@ function reloadForm({ id }) {
 
 function suggestionForDemo() {
 	return {
+		cacheable: true,
 		items: [
 			{ id: 'clafoutis', label: 'Clafoutis aux poires et aux fruits' },
 			{ id: 'conchiglioni-au-thon', label: 'Conchiglioni au thon' },
@@ -87,6 +88,7 @@ function suggestionBig() {
 		function onEnd() {
 			console.log('onEnd', body);
 			cache.photos = {
+				cacheable: true,
 				items: JSON.parse(body).map(item => ({ id: item.id.toString(), label: item.title })),
 			};
 			res.json(cache.photos);

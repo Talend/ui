@@ -10,7 +10,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
-    "test:demo": "jsdoc -c docs.json",
+    "test:demo": "jsdoc -c docs.json && cd website && yarn",
     "lint:es": "eslint --config ../../.eslintrc --ext .js src",
     "lint": "npm run lint:es"
   },
@@ -64,11 +64,11 @@
     "redux-mock-store": "^1.2.3",
     "redux-saga-tester": "^1.0.345",
     "regenerator-runtime": "^0.13.1",
-    "rimraf": "^2.6.1"
+    "rimraf": "^2.6.2"
   },
   "peerDependencies": {
-    "react": "^15.6.2 || ^16.0.0",
-    "react-dom": "^15.6.2 || ^16.0.0"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
@@ -115,5 +115,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "2.5.0"
+  "version": "2.9.0"
 }
