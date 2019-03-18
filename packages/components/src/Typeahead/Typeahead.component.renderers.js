@@ -100,13 +100,16 @@ export function renderItemsContainerFactory(
 				ref={containerProps.ref}
 				role={containerProps.role}
 			>
-				{render(content, {
-					searching,
-					loading,
-					noResult,
-					isShown,
-					refContainer: containerProps.ref,
-				})}
+				{render(
+					content,
+					{
+						searching,
+						loading,
+						noResult,
+						isShown,
+					},
+					containerProps.ref,
+				)}
 			</div>
 		);
 	}
