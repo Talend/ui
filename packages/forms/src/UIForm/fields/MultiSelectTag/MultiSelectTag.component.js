@@ -124,6 +124,12 @@ export default class MultiSelectTag extends React.Component {
 	 * Update suggestions on input focus
 	 */
 	onFocus(event) {
+		if (this.state.suggestions) {
+			// If suggestions is already defined, we can assume that suggestions are up to dateFormat
+			// and that this call to onFocus has been done while the component was already focused
+			return;
+		}
+
 		this.updateSuggestions();
 
 		callTrigger(event, {
