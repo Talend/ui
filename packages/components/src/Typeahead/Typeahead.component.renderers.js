@@ -103,10 +103,10 @@ export function renderItemsContainerFactory(
 				{render(
 					content,
 					{
-						searching,
+						isShown,
 						loading,
 						noResult,
-						isShown,
+						searching,
 					},
 					containerProps.ref,
 				)}
