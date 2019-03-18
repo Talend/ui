@@ -24,7 +24,6 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
     />
     <FocusManager
       className="theme-focus-manager"
-      onFocusIn={[Function]}
       onFocusOut={[Function]}
     >
       <Typeahead
