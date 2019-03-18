@@ -15,7 +15,7 @@ const props = {
 		{ name: 'foo', value: 'foo', description: 'foo description' },
 		{ name: 'bar', value: 'bar' },
 		{ name: 'foobar', value: 'foobar', description: 'foobar description' },
-		{ name: 'lol', value: 'lol' },
+		{ name: 'mdr', value: 'lol' },
 	],
 };
 
@@ -214,8 +214,35 @@ describe('Datalist component', () => {
 		input.simulate('blur');
 
 		// then
-		expect(onChange).not.toBeCalled();
+		expect(onChange).not.toHaveBeenCalled();
 		expect(wrapper.find(Typeahead).props().items).toBe(null);
+	});
+
+	it('should change the value on blur in restricted mode and value matches with one suggestion', () => {
+		// given
+		const onChange = jest.fn();
+		const wrapper = mount(
+			<Datalist
+				id="my-datalist"
+				isValid
+				multiSection={false}
+				errorMessage={'This should be correct'}
+				onChange={onChange}
+				{...props}
+				value={'foo'}
+				restricted
+			/>,
+		);
+		const input = wrapper.find('input').at(0);
+		input.simulate('change', { target: { value: 'mdr' } });
+		expect(wrapper.find(Typeahead).props().items.length).toBe(1);
+
+		// when
+		input.simulate('blur');
+
+		// then
+		expect(onChange).toHaveBeenCalledWith(expect.anything(), { value: 'lol' });
+		expect(wrapper.find(Typeahead).props().items).toEqual([{ name: 'mdr', value: 'lol' }]);
 	});
 
 	it('should update show all suggestions on focus even if a value is selected', () => {
@@ -244,7 +271,7 @@ describe('Datalist component', () => {
 			{ name: 'foo', value: 'foo', description: 'foo description' },
 			{ name: 'bar', value: 'bar' },
 			{ name: 'foobar', value: 'foobar', description: 'foobar description' },
-			{ name: 'lol', value: 'lol' },
+			{ name: 'mdr', value: 'lol' },
 		]);
 		expect(wrapper.find(Typeahead).props().value).toBe('foo');
 	});
@@ -379,7 +406,7 @@ describe('Datalist component', () => {
 		input.simulate('keydown', { which: keycode.codes.enter });
 
 		// then
-		expect(onChange).not.toBeCalled();
+		expect(onChange).not.toHaveBeenCalled();
 	});
 
 	it('should reset suggestions on ENTER keydown', () => {
@@ -454,9 +481,9 @@ describe('Datalist component', () => {
 			bar: 'bar',
 			foo: 'foo',
 			foobar: 'foobar',
-			lol: 'lol',
+			lol: 'mdr',
 		});
-		wrapper.setState({ suggestions: ['foo', 'bar', 'foobar', 'lol'] });
+		wrapper.setState({ suggestions: ['foo', 'bar', 'foobar', 'lol', 'mdr'] });
 		expect(instance.updateSuggestions).toHaveBeenCalledTimes(1);
 
 		const titleMap = [

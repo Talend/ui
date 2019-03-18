@@ -28,7 +28,7 @@ export default class SingleButton extends React.Component {
 
 	render() {
 		const { className, id, schema, getComponent } = this.props;
-		const { type = 'button', title, label, ...props } = schema;
+		const { type = 'button', title, label, inProgress, ...props } = schema;
 		const Renderer = Inject.getAll(getComponent, { Action });
 		return (
 			<Renderer.Action
@@ -38,7 +38,7 @@ export default class SingleButton extends React.Component {
 				label={label || title}
 				onClick={this.onClick}
 				type={type}
-				inProgress={this.state.inProgress}
+				inProgress={this.state.inProgress || inProgress}
 			/>
 		);
 	}
