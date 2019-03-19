@@ -1,24 +1,21 @@
 import React from 'react';
 
-import { ListContext } from '../context';
+import { useListContext } from '../context';
 import VirtualizedList from '../../../VirtualizedList';
 
 function VList(props) {
+	const { displayMode, collection } = useListContext();
 	return (
-		<ListContext.Consumer>
-			{({ displayMode, collection }) => (
-				<VirtualizedList
-					collection={collection}
-					type={displayMode && displayMode.toUpperCase()}
-					{...props}
-				/>
-			)}
-		</ListContext.Consumer>
+		<VirtualizedList
+			collection={collection}
+			type={displayMode && displayMode.toUpperCase()}
+			{...props}
+		/>
 	);
 }
 Object.entries({ ...VirtualizedList }).forEach(([key, value]) => {
 	VList[key] = value;
 });
-VList.displayName = 'ListContext(List.VList)';
+VList.displayName = 'List.VList';
 
 export default VList;
