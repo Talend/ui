@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { mount } from 'enzyme';
 
 import Manager from './Manager.component';
-import { ListContext } from './context';
+import { ListContext } from '../context';
 
 function TestConsumer() {
 	return <div />;
