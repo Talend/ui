@@ -15,7 +15,7 @@ const storeCallback = cmf.localStorage.getStoreCallback(localStorageKey, [
 
 ### Container
 
-`GuidedTour should be set in your main`App` component.
+`GuidedTour` should be set in your main `App` component.
 
 ```javascript
 export default function App(props) {
