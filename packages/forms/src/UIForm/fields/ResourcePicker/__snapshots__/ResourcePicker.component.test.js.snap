@@ -76,7 +76,7 @@ exports[`ResourcePicker field should render simple select 1`] = `
         ],
         "results": Array [
           Object {
-            "isThrow": false,
+            "type": "return",
             "value": Promise {},
           },
         ],
