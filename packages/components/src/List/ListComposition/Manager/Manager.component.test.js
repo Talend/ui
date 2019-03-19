@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 
 import Manager from './Manager.component';
@@ -55,8 +56,10 @@ describe('List Manager', () => {
 			const newDisplayMode = 'large';
 
 			// when
-			const onDisplayModeChange = wrapper.find(TestConsumer).prop('onDisplayModeChange');
-			onDisplayModeChange(event, newDisplayMode);
+			act(() => {
+				const onDisplayModeChange = wrapper.find(TestConsumer).prop('onDisplayModeChange');
+				onDisplayModeChange(event, newDisplayMode);
+			});
 			wrapper.update();
 
 			// then
