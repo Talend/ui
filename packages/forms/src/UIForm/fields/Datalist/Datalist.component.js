@@ -35,6 +35,7 @@ class Datalist extends Component {
 		this.getTitleMap = this.getTitleMap.bind(this);
 		this.callTrigger = this.callTrigger.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
+		this.onLiveChange = this.onLiveChange.bind(this);
 	}
 
 	componentDidMount() {
@@ -74,6 +75,11 @@ class Datalist extends Component {
 			errors: this.props.errors,
 			properties: this.props.properties,
 		});
+	}
+
+	onLiveChange(event, value) {
+		// TODO: need to pass that value down
+		callTrigger(event);
 	}
 
 	getTitleMap() {
@@ -157,6 +163,7 @@ class Datalist extends Component {
 					multiSection={get(this.props, 'schema.options.isMultiSection', false)}
 					onChange={this.onChange}
 					onFocus={this.callTrigger}
+					onLiveChange={this.onLiveChange}
 					placeholder={this.props.schema.placeholder}
 					readOnly={this.props.schema.readOnly || false}
 					titleMap={this.getTitleMap()}
