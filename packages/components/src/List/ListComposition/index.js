@@ -1,4 +1,4 @@
-import Manager from './Manager.component';
+import Manager from './Manager';
 import Toolbar from './Toolbar';
 import DisplayMode from './DisplayMode';
 import VList from './VList';

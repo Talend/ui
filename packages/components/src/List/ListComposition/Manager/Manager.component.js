@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ListContext } from './context';
-import useDisplayMode from './DisplayMode/useDisplayMode';
+import { ListContext } from '../context';
+import useDisplayMode from './useDisplayMode';
 
 export default function Manager(props) {
 	const { initialDisplayMode, onDisplayModeChange } = props;
