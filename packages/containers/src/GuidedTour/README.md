@@ -4,7 +4,7 @@
 
 ### Local Storage
 
-Save component state in Local Storage by adding its path in your CMF module initialization in order to save user preferences.
+Save component state in Local Storage by adding its path in your CMF module initialization (in order to save user preferences).
 
 ```javascript
 const storeCallback = cmf.localStorage.getStoreCallback(localStorageKey, [
