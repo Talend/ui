@@ -105,7 +105,7 @@ storiesOf('List Composition', module)
 			<h1>List with display mode change</h1>
 			<p>You can change display mode by adding the selector in toolbar</p>
 			<pre>{`
-<List.Manager id="my-list" collection={collection}>
+<List.Manager id="my-list" collection={collection} initialDisplayMode="table">
 	<List.Toolbar>
 		<List.DisplayMode id="my-list-displayMode" />
 	</List.Toolbar>
