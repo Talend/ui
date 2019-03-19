@@ -1,21 +1,22 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Icon from '../../../../Icon';
-import ColumnOrder from './ColumnOrder';
-import { columnChooserContext } from '../Content/columnChooser.context';
+import Icon from '../../../../../Icon';
+import { columnChooserContext } from '../columnChooser.context';
 
-import theme from './ColumnDisplayer.scss';
+import theme from './ColumnChooserRowRenderer.scss';
 
-export const ColumnLabel = props => {
-	return (
-		<span className={classNames(theme['tc-column-displayer-label'], 'tc-column-displayer-label')}>
-			{props.label}
-		</span>
-	);
+const Label = props => (
+	<span className={classNames(theme['tc-column-displayer-label'], 'tc-column-displayer-label')}>
+		{props.label}
+	</span>
+);
+
+Label.propTypes = {
+	label: PropTypes.string.isRequired,
 };
 
-export const ColumnVisibility = ({ index, locked, value }) => {
+const Visibility = ({ index, locked, value }) => {
 	const { onChangeVisibility, t } = useContext(columnChooserContext);
 	return (
 		<div
@@ -45,12 +46,13 @@ export const ColumnVisibility = ({ index, locked, value }) => {
 	);
 };
 
-ColumnVisibility.propTypes = {
+Visibility.propTypes = {
+	index: PropTypes.number.isRequired,
 	locked: PropTypes.bool,
-	value: PropTypes.bool,
+	value: PropTypes.bool.isRequired,
 };
 
-const ColumnDisplayer = ({ children }) => {
+const ColumnChooserRowRenderer = ({ children }) => {
 	const { id } = useContext(columnChooserContext);
 	return (
 		<div
@@ -62,11 +64,12 @@ const ColumnDisplayer = ({ children }) => {
 	);
 };
 
-ColumnDisplayer.ColumnVisibility = ColumnVisibility;
-ColumnDisplayer.ColumnLabel = ColumnLabel;
-ColumnDisplayer.ColumnOrder = ColumnOrder;
-
-ColumnDisplayer.propTypes = {
+ColumnChooserRowRenderer.propTypes = {
+	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 };
 
-export default ColumnDisplayer;
+ColumnChooserRowRenderer.Visibility = Visibility;
+ColumnChooserRowRenderer.Label = Label;
+
+
+export default ColumnChooserRowRenderer;

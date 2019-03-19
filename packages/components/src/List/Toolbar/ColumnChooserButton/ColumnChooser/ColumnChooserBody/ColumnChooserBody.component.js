@@ -1,27 +1,21 @@
 import React, { useContext } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import ColumnDisplayer from '../../ColumnDisplayer';
+import ColumnChooserRowRenderer from '../ColumnChooserRowRenderer';
 import theme from '../ColumnChooser.scss';
 import { columnChooserContext } from '../columnChooser.context';
-import Tooltip from '../../TooltipCompound';
+import Tooltip from '../../Tooltip';
 
 const ColumnChooserTable = ({ columns }) =>
 	columns.map((column, index) => (
-		<ColumnDisplayer>
-			<ColumnDisplayer.ColumnVisibility
+		<ColumnChooserRowRenderer>
+			<ColumnChooserRowRenderer.Visibility
 				index={index}
 				value={column.hidden}
 				locked={column.locked}
 			/>
-			<ColumnDisplayer.ColumnLabel label={column.label} />
-			<ColumnDisplayer.ColumnOrder
-				index={index}
-				length={length}
-				locked={column.locked}
-				value={column.order}
-			/>
-		</ColumnDisplayer>
+			<ColumnChooserRowRenderer.Label label={column.label} />
+		</ColumnChooserRowRenderer>
 	));
 
 ColumnChooserTable.propTypes = {
@@ -29,7 +23,7 @@ ColumnChooserTable.propTypes = {
 };
 
 const getColumnChooserBodyContent = (columns, children) => {
-	if (children && typeof children === 'function') {
+	if (typeof children === 'function') {
 		return children(columns);
 	}
 	return <ColumnChooserTable columns={columns} />;
@@ -38,17 +32,17 @@ const getColumnChooserBodyContent = (columns, children) => {
 const ColumnChooserBody = ({ children }) => {
 	const { id, stateColumnChooser } = useContext(columnChooserContext);
 	return (
-		<Tooltip.TooltipBody
+		<Tooltip.Body
 			id={`${id}-content`}
 			className={classNames(theme['tc-column-chooser-body'], 'tc-column-chooser-body')}
 		>
 			{getColumnChooserBodyContent(stateColumnChooser.editedColumns, children)}
-		</Tooltip.TooltipBody>
+		</Tooltip.Body>
 	);
 };
 
-ColumnChooserBody.ColumnDisplayer = ColumnDisplayer;
-ColumnChooserBody.ColumnChooserTable = ColumnChooserTable;
+ColumnChooserBody.RowRenderer = ColumnChooserRowRenderer;
+ColumnChooserBody.Table = ColumnChooserTable;
 
 ColumnChooserBody.propTypes = {
 	children: PropTypes.func,

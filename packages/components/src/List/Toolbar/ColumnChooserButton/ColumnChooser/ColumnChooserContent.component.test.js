@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ColumnChooserContent from './ColumnChooserContent.component';
+import Component from './ColumnChooser.component';
 import { useColumnChooserManager } from '../hooks';
 
 jest.mock('../hooks');
@@ -15,7 +15,7 @@ useColumnChooserManager.mockImplementation(() => ({
 
 const t = jest.fn((_, translationValue) => translationValue.defaultValue);
 
-describe('ColumnChooserContent', () => {
+describe('ColumnChooser', () => {
 	it('should render with default column chooser component', () => {
 		// given
 		const props = {
@@ -38,7 +38,7 @@ describe('ColumnChooserContent', () => {
 			t,
 		};
 		// when
-		const wrapper = shallow(<ColumnChooserContent {...props} />);
+		const wrapper = shallow(<Component {...props} />);
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
@@ -67,7 +67,7 @@ describe('ColumnChooserContent', () => {
 			footer: <div>my footer</div>,
 		};
 		// when
-		const wrapper = shallow(<ColumnChooserContent {...props} />);
+		const wrapper = shallow(<Component {...props} />);
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});

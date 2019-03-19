@@ -9,17 +9,17 @@ const TooltipPropTypes = {
 	className: PropTypes.string,
 };
 
-const TooltipHeader = ({ id, children, className }) => (
+const Header = ({ id, children, className }) => (
 	<header id={`${id}-header`} className={classNames(className, theme.header, 'tc-tooltip-header')}>
 		{children}
 	</header>
 );
 
-TooltipHeader.propTypes = {
+Header.propTypes = {
 	...TooltipPropTypes,
 };
 
-const TooltipBody = ({ id, children, className }) => (
+const Body = ({ id, children, className }) => (
 	<div id={`${id}-body`} className={classNames(theme.body, 'tc-tooltip-body')}>
 		<div
 			id={`${id}-body-content`}
@@ -29,26 +29,28 @@ const TooltipBody = ({ id, children, className }) => (
 		</div>
 	</div>
 );
-TooltipBody.propTypes = {
+
+Body.propTypes = {
 	...TooltipPropTypes,
 };
 
-const TooltipFooter = ({ id, children, className }) => (
+const Footer = ({ id, children, className }) => (
 	<footer id={`${id}-footer`} className={classNames(className, theme.footer, 'tc-tooltip-footer')}>
 		{children}
 	</footer>
 );
 
-TooltipFooter.propTypes = {
+Footer.propTypes = {
 	...TooltipPropTypes,
 };
+
 const Tooltip = ({ children }) => <React.Fragment>{children}</React.Fragment>;
 Tooltip.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 };
 
-Tooltip.TooltipHeader = TooltipHeader;
-Tooltip.TooltipBody = TooltipBody;
-Tooltip.TooltipFooter = TooltipFooter;
+Tooltip.Header = Header;
+Tooltip.Body = Body;
+Tooltip.Footer = Footer;
 
 export default Tooltip;

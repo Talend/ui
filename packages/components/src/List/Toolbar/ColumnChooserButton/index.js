@@ -1,4 +1,5 @@
 import ColumnChooserButton from './ColumnChooserButton.component';
+import ColumnChooser from './ColumnChooser';
 import { mergedColumnsChooser } from './service';
 import { useColumnChooserClient, useColumnChooserManager } from './hooks';
 
@@ -13,4 +14,4 @@ const columnChooserHooks = {
 	useColumnChooserManager,
 };
 
-export { columnChooserService, columnChooserHooks };
+export { columnChooserService, columnChooserHooks, ColumnChooser };

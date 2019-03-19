@@ -11,7 +11,7 @@ import Pagination from './Pagination';
 import FilterBar from '../../FilterBar';
 import Label from './Label';
 import ActionBar from '../../ActionBar';
-import ColumnChooserButton from './ColumnChooser';
+import ColumnChooserButton from './ColumnChooserButton';
 
 import theme from './Toolbar.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
@@ -103,7 +103,7 @@ function Toolbar({
 						/>
 					)}
 					{columnChooser && (
-						<ColumnChooserButton id={`${id}-column-chooser`} {...columnChooser} t={t} />
+						<ColumnChooserButton id={id} {...columnChooser} t={t} />
 					)}
 					{display && <SelectDisplayMode id={displayModeId} {...display} t={t} />}
 					{injected('after-displaymode')}

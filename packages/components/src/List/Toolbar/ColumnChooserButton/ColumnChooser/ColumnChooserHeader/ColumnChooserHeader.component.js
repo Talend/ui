@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import theme from '../ColumnChooser.scss';
 import { columnChooserContext } from '../columnChooser.context';
-import Tooltip from '../../TooltipCompound';
+import Tooltip from '../../Tooltip';
 
 const Title = props => {
 	const { t } = useContext(columnChooserContext);
@@ -15,19 +15,13 @@ const Title = props => {
 	});
 };
 
-const ColumnChooserHeader = ({ className, children }) => {
-	return (
-		<Tooltip.TooltipHeader
-			className={classNames(
-				className,
-				theme['tc-column-chooser-header'],
-				'tc-column-chooser-header',
-			)}
-		>
-			{!children ? <Title /> : children}
-		</Tooltip.TooltipHeader>
-	);
-};
+const ColumnChooserHeader = ({ className, children }) => (
+	<Tooltip.Header
+		className={classNames(className, theme['tc-column-chooser-header'], 'tc-column-chooser-header')}
+	>
+		{!children ? <Title /> : children}
+	</Tooltip.Header>
+);
 
 ColumnChooserHeader.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),

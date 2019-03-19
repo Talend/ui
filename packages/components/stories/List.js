@@ -11,7 +11,7 @@ import { List, IconsProvider } from '../src/index';
 import i18n, { LanguageSwitcher } from './config/i18n';
 import { MyCustomRow } from './VirtualizedList';
 
-import { columnChooserHooks } from '../src/List/Toolbar/ColumnChooser';
+import { columnChooserHooks } from '../src/List/Toolbar/ColumnChooserButton';
 /**
  * Cell renderer that displays hello + text
  */
@@ -932,7 +932,10 @@ function ListColumnChooser({ list, ...rest }) {
 	const {
 		stateColumnChooserClient,
 		submitColumnChooser,
-	} = columnChooserHooks.useColumnChooserClient(list.columns, action('My custom submit column chooser event'));
+	} = columnChooserHooks.useColumnChooserClient(
+		list.columns,
+		action('My custom submit column chooser event'),
+	);
 	const enrichedList = {
 		...list,
 		columns: stateColumnChooserClient.columns,
@@ -940,7 +943,7 @@ function ListColumnChooser({ list, ...rest }) {
 	const columnChooser = {
 		columns: stateColumnChooserClient.columns,
 		submitColumnChooser,
-		lockedLeftItems: 2,
+		nbLockedLeftItems: 2,
 	};
 	return <List {...rest} list={enrichedList} columnChooser={columnChooser} />;
 }

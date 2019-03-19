@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import ActionButton from '../../../../../Actions/ActionButton';
 import { columnChooserContext } from '../columnChooser.context';
 import theme from '../ColumnChooser.scss';
-import Tooltip from '../../TooltipCompound';
+import Tooltip from '../../Tooltip';
 
 const SubmitButton = () => {
 	const { id, t } = useContext(columnChooserContext);
@@ -17,9 +17,9 @@ const SubmitButton = () => {
 	);
 };
 
-const SelectAllCheckbox = ({ customSelectAll }) => {
+const SelectAllCheckbox = () => {
 	const { id, onSelectAll, stateColumnChooser, t } = useContext(columnChooserContext);
-	const value = customSelectAll || stateColumnChooser.selectAll;
+	const value = stateColumnChooser.selectAll;
 	return (
 		<span
 			className={classNames(
@@ -68,19 +68,19 @@ const DefaultFooterContent = (
 const ColumnChooserFooter = ({ children, className }) => {
 	const { id } = useContext(columnChooserContext);
 	return (
-		<Tooltip.TooltipFooter
+		<Tooltip.Footer
 			id={id}
 			className={
 				(className, classNames(theme['tc-column-chooser-footer'], 'tc-column-chooser-footer'))
 			}
 		>
 			{!children ? DefaultFooterContent : children}
-		</Tooltip.TooltipFooter>
+		</Tooltip.Footer>
 	);
 };
 
-ColumnChooserFooter.SubmitButton = SubmitButton;
-ColumnChooserFooter.SelectAllCheckbox = SelectAllCheckbox;
+ColumnChooserFooter.Submit = SubmitButton;
+ColumnChooserFooter.SelectAll = SelectAllCheckbox;
 
 ColumnChooserFooter.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),

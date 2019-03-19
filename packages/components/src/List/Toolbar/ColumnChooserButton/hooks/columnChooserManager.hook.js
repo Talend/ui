@@ -3,12 +3,6 @@ import cloneDeep from 'lodash/cloneDeep';
 import flow from 'lodash/flow';
 import { compareOrder } from '../service';
 
-function matchOrder(value) {
-	return function match({ order }) {
-		return order === value;
-	};
-}
-
 function updateEditedColumns(editedColumns) {
 	return function updateState(state) {
 		return {
@@ -48,7 +42,6 @@ export function changeAttribute(key) {
 }
 
 const updateAttributeVisiblity = changeAttribute('hidden');
-const updateAttributeOrder = changeAttribute('order');
 
 function extractItemValues(item) {
 	return {
@@ -77,28 +70,6 @@ function checkVisibility(items) {
 	return false;
 }
 
-function modifyOrderItem(currentOrder, it, indexCurrent, replaceIndex, newOrder) {
-	if (it === indexCurrent) {
-		return updateAttributeOrder(newOrder);
-	}
-	if (indexCurrent < it && it <= replaceIndex) {
-		return updateAttributeOrder(currentOrder - 1);
-	}
-	if (indexCurrent > it && it >= replaceIndex) {
-		return updateAttributeOrder(currentOrder + 1);
-	}
-	return updateAttributeOrder(currentOrder);
-}
-
-function modifyOrderItems(currentIndex, replaceIndex, order) {
-	return function modifyOrderCollection(collection) {
-		collection.forEach((item, it) => {
-			modifyOrderItem(item.order, it, currentIndex, replaceIndex, order)(item);
-		});
-		return collection;
-	};
-}
-
 export function useColumnChooserManager(columns, customSubmit, lockedLeftItems) {
 	const sanitizeItems = checkLockedItem(columns, lockedLeftItems);
 	const [state, setState] = useState({
@@ -106,35 +77,11 @@ export function useColumnChooserManager(columns, customSubmit, lockedLeftItems) 
 		selectAll: checkVisibility(sanitizeItems),
 	});
 
-	function modifyOrders(order, currentIndex) {
-		const replaceIndex = state.editedColumns.findIndex(matchOrder(order));
-		if (replaceIndex > -1 && !state.editedColumns[replaceIndex].locked) {
-			flow([
-				modifyOrderItems(currentIndex, replaceIndex, order),
-				organiseEditedColumns,
-				updateEditedColumns,
-				setState,
-			])(state.editedColumns);
-		}
-	}
-
 	function onChangeVisibility(index) {
 		return function changeVisiblity(event, value) {
 			flow([updateAttributeVisiblity(value, index), updateEditedColumns, setState])(
 				state.editedColumns,
 			);
-		};
-	}
-
-	function onBlurInputTextOrder(index) {
-		return function onBlur(event, value) {
-			modifyOrders(value, index);
-		};
-	}
-
-	function onKeyPressInputTextOrder(index) {
-		return function onKeyPress(event, value) {
-			modifyOrders(value, index);
 		};
 	}
 
@@ -152,9 +99,7 @@ export function useColumnChooserManager(columns, customSubmit, lockedLeftItems) 
 	}
 
 	return {
-		onBlurInputTextOrder,
 		onChangeVisibility,
-		onKeyPressInputTextOrder,
 		onSelectAll,
 		onSubmitColumnChooser,
 		stateColumnChooser: Object.freeze(state),
