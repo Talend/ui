@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import tv4 from 'tv4';
 import { actions, data, mergedSchema, initProps } from '../../__mocks__/data';
-import UIForm, { UIFormComponent } from './UIForm.component';
+import UIForm, { UIFormComponent, INVALID_FIELD_SELECTOR } from './UIForm.component';
 
 describe('UIForm component', () => {
 	let props;
@@ -252,7 +252,20 @@ describe('UIForm component', () => {
 	});
 
 	describe('#onSubmit', () => {
+		const validProperties = {
+			...data.properties,
+			lastname: 'This has at least 10 characters',
+			firstname: 'This is required',
+		};
 		const submitEvent = { preventDefault: jest.fn() };
+		let oldFocusFirstError;
+
+		beforeEach(() => {
+			oldFocusFirstError = UIFormComponent.prototype.focusFirstError;
+		});
+		afterEach(() => {
+			UIFormComponent.prototype.focusFirstError = oldFocusFirstError;
+		});
 
 		it('should prevent event default', () => {
 			// given
@@ -332,11 +345,6 @@ describe('UIForm component', () => {
 
 		it('should call submit callback when form is valid', () => {
 			// given
-			const validProperties = {
-				...data.properties,
-				lastname: 'This has at least 10 characters',
-				firstname: 'This is required',
-			};
 			const wrapper = mount(<UIFormComponent {...data} {...props} properties={validProperties} />);
 
 			// when
@@ -344,6 +352,59 @@ describe('UIForm component', () => {
 
 			// then
 			expect(props.onSubmit).toBeCalled();
+		});
+
+		it('should focus the first input when form has a error', () => {
+			jest.useFakeTimers();
+
+			const focusFirstError = jest.fn();
+			// given
+			UIFormComponent.prototype.focusFirstError = focusFirstError;
+			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
+
+			// when
+			wrapper.instance().onSubmit(submitEvent);
+			jest.runAllTimers();
+
+			// then
+			expect(props.setErrors).toHaveBeenCalledWith(submitEvent, {
+				firstname: 'is required',
+			});
+
+			expect(focusFirstError).toHaveBeenCalled();
+		});
+
+		it('should not focus the first input when form has no error', () => {
+			jest.useFakeTimers();
+
+			const focusFirstError = jest.fn();
+			// given
+			UIFormComponent.prototype.focusFirstError = focusFirstError;
+			const wrapper = shallow(
+				<UIFormComponent {...data} {...props} properties={validProperties} />,
+			);
+
+			// when
+			wrapper.instance().onSubmit(submitEvent);
+			jest.runAllTimers();
+
+			// then
+			expect(focusFirstError).not.toHaveBeenCalled();
+		});
+	});
+
+	describe('#focusFirstError', () => {
+		it('should focus the first element', () => {
+			const focus = jest.fn();
+			const querySelector = jest.fn(() => ({
+				focus,
+			}));
+			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
+			wrapper.instance().formRef = { querySelector };
+			wrapper.instance().focusFirstError();
+
+			expect(querySelector).toHaveBeenCalledWith(INVALID_FIELD_SELECTOR);
+			expect(focus).toHaveBeenCalled();
 		});
 	});
 });

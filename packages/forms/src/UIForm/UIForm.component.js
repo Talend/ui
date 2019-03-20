@@ -18,6 +18,8 @@ import { I18N_DOMAIN_FORMS } from '../constants';
 import '../translate';
 import theme from './UIForm.scss';
 
+export const INVALID_FIELD_SELECTOR = '[aria-invalid="true"]';
+
 export class UIFormComponent extends React.Component {
 	static displayName = 'TalendUIForm';
 	constructor(props) {
@@ -31,11 +33,14 @@ export class UIFormComponent extends React.Component {
 		state.widgets = { ...state.widgets, ...props.widgets };
 		this.state = state;
 
+		this.setFormRef = element => (this.formRef = element);
+
 		this.onChange = this.onChange.bind(this);
 		this.onFinish = this.onFinish.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onActionClick = this.onActionClick.bind(this);
+		this.focusFirstError = this.focusFirstError.bind(this);
 		// control the tv4 language here.
 		const language = getLanguage(props.t);
 		if (props.language != null) {
@@ -75,6 +80,10 @@ export class UIFormComponent extends React.Component {
 				},
 			});
 		}
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.timerFocusError);
 	}
 
 	/**
@@ -241,7 +250,20 @@ export class UIFormComponent extends React.Component {
 				this.props.onSubmit(event, properties);
 			}
 		}
+
+		if (!isValid) {
+			this.timerFocusError = setTimeout(this.focusFirstError, 0);
+		}
+
 		return isValid;
+	}
+
+	focusFirstError() {
+		if (!this.formRef) {
+			return;
+		}
+
+		this.formRef.querySelector(INVALID_FIELD_SELECTOR).focus();
 	}
 
 	render() {
@@ -310,6 +332,7 @@ export class UIFormComponent extends React.Component {
 				onReset={this.props.onReset}
 				onSubmit={this.onSubmit}
 				target={this.props.target}
+				ref={this.setFormRef}
 			>
 				{formTemplate({ children: this.props.children, widgetsRenderer, buttonsRenderer })}
 			</form>
