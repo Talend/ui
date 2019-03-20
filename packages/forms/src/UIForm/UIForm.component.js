@@ -3,6 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import tv4 from 'tv4';
 import { translate } from 'react-i18next';
+import noop from 'lodash/noop';
 
 import { DefaultFormTemplate, TextModeFormTemplate } from './FormTemplate';
 import merge from './merge';
@@ -79,10 +80,6 @@ export class UIFormComponent extends React.Component {
 				},
 			});
 		}
-	}
-
-	componentWillUnmount() {
-		clearInterval(this.timerFocusError);
 	}
 
 	/**
@@ -239,19 +236,15 @@ export class UIFormComponent extends React.Component {
 				return accu;
 			}, {});
 
-		this.props.setErrors(event, errors);
-
 		const isValid = !Object.keys(errors).length;
+		this.props.setErrors(event, errors, isValid ? noop : this.focusFirstError);
+
 		if (this.props.onSubmit && isValid) {
 			if (this.props.moz) {
 				this.props.onSubmit(null, { formData: properties });
 			} else {
 				this.props.onSubmit(event, properties);
 			}
-		}
-
-		if (!isValid) {
-			this.timerFocusError = setTimeout(this.focusFirstError, 0);
 		}
 
 		return isValid;

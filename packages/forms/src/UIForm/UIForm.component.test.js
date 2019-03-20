@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme';
 import tv4 from 'tv4';
 import { actions, data, mergedSchema, initProps } from '../../__mocks__/data';
 import UIForm, { UIFormComponent, INVALID_FIELD_SELECTOR } from './UIForm.component';
+import noop from 'lodash/noop';
 
 describe('UIForm component', () => {
 	let props;
@@ -258,14 +259,14 @@ describe('UIForm component', () => {
 			firstname: 'This is required',
 		};
 		const submitEvent = { preventDefault: jest.fn() };
-		let oldFocusFirstError;
+		// let oldFocusFirstError;
 
-		beforeEach(() => {
-			oldFocusFirstError = UIFormComponent.prototype.focusFirstError;
-		});
-		afterEach(() => {
-			UIFormComponent.prototype.focusFirstError = oldFocusFirstError;
-		});
+		// beforeEach(() => {
+		// 	oldFocusFirstError = UIFormComponent.prototype.focusFirstError;
+		// });
+		// afterEach(() => {
+		// 	UIFormComponent.prototype.focusFirstError = oldFocusFirstError;
+		// });
 
 		it('should prevent event default', () => {
 			// given
@@ -286,9 +287,13 @@ describe('UIForm component', () => {
 			wrapper.instance().onSubmit(submitEvent);
 
 			// then
-			expect(props.setErrors).toBeCalledWith(submitEvent, {
-				firstname: 'Missing required field',
-			});
+			expect(props.setErrors).toBeCalledWith(
+				submitEvent,
+				{
+					firstname: 'Missing required field',
+				},
+				wrapper.instance().focusFirstError,
+			);
 		});
 
 		it('should validate all fields with existing errors', () => {
@@ -308,11 +313,15 @@ describe('UIForm component', () => {
 			wrapper.instance().onSubmit(submitEvent);
 
 			// then
-			expect(props.setErrors).toBeCalledWith(submitEvent, {
-				firstname: 'Missing required field',
-				lastname: 'String is too short (6 chars), minimum 10',
-				check: 'error added via a trigger',
-			});
+			expect(props.setErrors).toBeCalledWith(
+				submitEvent,
+				{
+					firstname: 'Missing required field',
+					lastname: 'String is too short (6 chars), minimum 10',
+					check: 'error added via a trigger',
+				},
+				wrapper.instance().focusFirstError,
+			);
 		});
 
 		it('should validate all fields with custom error messages', () => {
@@ -327,9 +336,13 @@ describe('UIForm component', () => {
 			wrapper.instance().onSubmit(submitEvent);
 
 			// then
-			expect(props.setErrors).toBeCalledWith(submitEvent, {
-				firstname: 'is required',
-			});
+			expect(props.setErrors).toBeCalledWith(
+				submitEvent,
+				{
+					firstname: 'is required',
+				},
+				wrapper.instance().focusFirstError,
+			);
 		});
 
 		it('should not call submit callback when form is invalid', () => {
@@ -354,42 +367,17 @@ describe('UIForm component', () => {
 			expect(props.onSubmit).toBeCalled();
 		});
 
-		it('should focus the first input when form has a error', () => {
-			jest.useFakeTimers();
-
-			const focusFirstError = jest.fn();
-			// given
-			UIFormComponent.prototype.focusFirstError = focusFirstError;
-			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
-
-			// when
-			wrapper.instance().onSubmit(submitEvent);
-			jest.runAllTimers();
-
-			// then
-			expect(props.setErrors).toHaveBeenCalledWith(submitEvent, {
-				firstname: 'is required',
-			});
-
-			expect(focusFirstError).toHaveBeenCalled();
-		});
-
 		it('should not focus the first input when form has no error', () => {
-			jest.useFakeTimers();
-
-			const focusFirstError = jest.fn();
 			// given
-			UIFormComponent.prototype.focusFirstError = focusFirstError;
 			const wrapper = shallow(
 				<UIFormComponent {...data} {...props} properties={validProperties} />,
 			);
 
 			// when
 			wrapper.instance().onSubmit(submitEvent);
-			jest.runAllTimers();
 
 			// then
-			expect(focusFirstError).not.toHaveBeenCalled();
+			expect(props.setErrors).toHaveBeenCalledWith(submitEvent, {}, noop);
 		});
 	});
 
