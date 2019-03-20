@@ -259,14 +259,6 @@ describe('UIForm component', () => {
 			firstname: 'This is required',
 		};
 		const submitEvent = { preventDefault: jest.fn() };
-		// let oldFocusFirstError;
-
-		// beforeEach(() => {
-		// 	oldFocusFirstError = UIFormComponent.prototype.focusFirstError;
-		// });
-		// afterEach(() => {
-		// 	UIFormComponent.prototype.focusFirstError = oldFocusFirstError;
-		// });
 
 		it('should prevent event default', () => {
 			// given
