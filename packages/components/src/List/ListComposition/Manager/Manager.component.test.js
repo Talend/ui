@@ -51,13 +51,12 @@ describe('List Manager', () => {
 		);
 		expect(wrapper.find(TestConsumer).prop('displayMode')).toBeUndefined();
 
-		const event = { target: {} };
 		const newDisplayMode = 'large';
 
 		// when
 		act(() => {
-			const onDisplayModeChange = wrapper.find(TestConsumer).prop('propagateDisplayMode');
-			onDisplayModeChange(event, newDisplayMode);
+			const setDisplayMode = wrapper.find(TestConsumer).prop('setDisplayMode');
+			setDisplayMode(newDisplayMode);
 		});
 		wrapper.update();
 

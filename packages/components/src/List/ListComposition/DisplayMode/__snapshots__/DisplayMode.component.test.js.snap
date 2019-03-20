@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`List DisplayMode should render default 1`] = `
+exports[`List DisplayMode should render 1`] = `
 <List.DisplayMode
   displayModes={
     Array [

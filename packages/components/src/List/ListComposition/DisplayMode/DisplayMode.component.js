@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Navbar, NavDropdown, Nav, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
 
-import useDisplayMode from './useDisplayMode';
 import { useListContext } from '../context';
 import Icon from '../../../Icon';
 
@@ -30,10 +29,31 @@ function getLabel(option, t) {
 }
 
 function DisplayMode(props) {
-	const { propagateDisplayMode, t } = useListContext();
-	const { initialDisplayMode, onChange = propagateDisplayMode } = props;
-	const [displayMode, setDisplayMode] = useDisplayMode(initialDisplayMode, onChange);
-	const { id, displayModes, selectedDisplayMode = displayMode } = props;
+	const { displayMode, setDisplayMode, t } = useListContext();
+	const {
+		id,
+		displayModes,
+		initialDisplayMode,
+		onChange,
+		selectedDisplayMode = displayMode,
+	} = props;
+
+	useEffect(
+		() => {
+			if (!onChange) {
+				setDisplayMode(initialDisplayMode);
+			}
+		},
+		[onChange],
+	);
+
+	function onSelect(value, event) {
+		if (onChange) {
+			onChange(event, value);
+		} else {
+			setDisplayMode(value);
+		}
+	}
 
 	return (
 		<React.Fragment>
@@ -44,7 +64,7 @@ function DisplayMode(props) {
 				<NavDropdown
 					id={id}
 					title={<Icon name={getIcon(selectedDisplayMode)} />}
-					onSelect={(value, event) => setDisplayMode(event, value)}
+					onSelect={onSelect}
 					aria-label={t('LIST_CHANGE_DISPLAY_MODE', {
 						defaultValue: 'Change display mode. Current display mode: {{displayMode}}.',
 						displayMode: selectedDisplayMode,

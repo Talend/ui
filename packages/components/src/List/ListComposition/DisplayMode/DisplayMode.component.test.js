@@ -9,9 +9,9 @@ import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
 
 describe('List DisplayMode', () => {
-	it('should render default', () => {
+	it('should render', () => {
 		// given
-		const contextValue = { propagateDisplayMode: jest.fn(), t: getDefaultT() };
+		const contextValue = { displayMode: 'table', setDisplayMode: jest.fn(), t: getDefaultT() };
 
 		// when
 		const wrapper = mount(
@@ -28,7 +28,7 @@ describe('List DisplayMode', () => {
 		// given
 		const contextValue = {
 			displayMode: 'table',
-			displayModes: jest.fn(),
+			setDisplayMode: jest.fn(),
 			t: getDefaultT(),
 		};
 
@@ -44,35 +44,38 @@ describe('List DisplayMode', () => {
 	});
 
 	describe('uncontrolled mode', () => {
-		it('should render initial value', () => {
+		it('should propagate initial value', () => {
 			// given
-			const contextValue = { propagateDisplayMode: jest.fn(), t: getDefaultT() };
+			const contextValue = { setDisplayMode: jest.fn(), t: getDefaultT() };
 
 			// when
-			const wrapper = mount(
-				<ListContext.Provider value={contextValue}>
-					<DisplayMode id="myDisplayMode" initialDisplayMode="large" />
-				</ListContext.Provider>,
-			);
+			act(() => {
+				mount(
+					<ListContext.Provider value={contextValue}>
+						<DisplayMode id="myDisplayMode" initialDisplayMode="large" />
+					</ListContext.Provider>,
+				);
+			});
 
 			// then
-			expect(wrapper.find('a.dropdown-toggle').prop('aria-label')).toBe(
-				'Change display mode. Current display mode: large.',
-			);
+			expect(contextValue.setDisplayMode).toBeCalledWith('large');
 		});
 
-		it('should change and propagate display mode', () => {
+		it('should propagate display mode', () => {
 			// given
-			const contextValue = { propagateDisplayMode: jest.fn(), t: getDefaultT() };
+			const contextValue = { setDisplayMode: jest.fn(), t: getDefaultT() };
 
-			const wrapper = mount(
-				<ListContext.Provider value={contextValue}>
-					<DisplayMode id="myDisplayMode" />
-				</ListContext.Provider>,
-			);
+			let wrapper;
+			act(() => {
+				wrapper = mount(
+					<ListContext.Provider value={contextValue}>
+						<DisplayMode id="myDisplayMode" />
+					</ListContext.Provider>,
+				);
+			});
 
 			const event = { target: {} };
-			expect(contextValue.propagateDisplayMode).not.toBeCalled();
+			expect(contextValue.setDisplayMode.mock.calls.length).toBe(1);
 
 			// when: react-bootstrap use value-event instead of event-value
 			act(() => {
@@ -80,14 +83,15 @@ describe('List DisplayMode', () => {
 			});
 
 			// then
-			expect(contextValue.propagateDisplayMode).toBeCalledWith(event, 'large');
+			expect(contextValue.setDisplayMode.mock.calls.length).toBe(2);
+			expect(contextValue.setDisplayMode.mock.calls[1]).toEqual(['large']);
 		});
 	});
 
 	describe('controlled mode', () => {
 		it('should render selected display mode', () => {
 			// given
-			const contextValue = { propagateDisplayMode: jest.fn(), t: getDefaultT() };
+			const contextValue = { displayMode: 'table', setDisplayMode: jest.fn(), t: getDefaultT() };
 
 			// when
 			const wrapper = mount(
@@ -104,17 +108,17 @@ describe('List DisplayMode', () => {
 
 		it('should call props.onChange with new display mode', () => {
 			// given
-			const contextValue = { propagateDisplayMode: jest.fn(), t: getDefaultT() };
+			const contextValue = { displayMode: 'table', setDisplayMode: jest.fn(), t: getDefaultT() };
 			const onChange = jest.fn();
 
 			const wrapper = mount(
 				<ListContext.Provider value={contextValue}>
-					<DisplayMode id="myDisplayMode" onChange={onChange} />
+					<DisplayMode id="myDisplayMode" selectedDisplayMode="large" onChange={onChange} />
 				</ListContext.Provider>,
 			);
 
 			const event = { target: {} };
-			expect(contextValue.propagateDisplayMode).not.toBeCalled();
+			expect(contextValue.setDisplayMode).not.toBeCalled();
 
 			// when: react-bootstrap use value-event instead of event-value
 			act(() => {
@@ -122,7 +126,7 @@ describe('List DisplayMode', () => {
 			});
 
 			// then
-			expect(contextValue.propagateDisplayMode).not.toBeCalled();
+			expect(contextValue.setDisplayMode).not.toBeCalled();
 			expect(onChange).toBeCalledWith(event, 'large');
 		});
 	});
