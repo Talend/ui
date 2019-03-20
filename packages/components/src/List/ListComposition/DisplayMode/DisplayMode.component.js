@@ -1,9 +1,10 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 import { translate } from 'react-i18next';
 import { Navbar, NavDropdown, Nav, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
 
+import useDisplayMode from './useDisplayMode';
 import { useListContext } from '../context';
 import Icon from '../../../Icon';
 import getDefaultT from '../../../translate';
@@ -27,13 +28,16 @@ function getLabel(option, t) {
 		case 'large':
 			return t('LIST_SELECT_DISPLAY_MODE_LARGE', { defaultValue: 'Expanded' });
 		default:
-			return t('LIST_SELECT_DISPLAY_MODE_TABLE', { defaultValue: 'Table' });
+			return option;
 	}
 }
 
 function DisplayMode(props) {
-	const { displayMode, onDisplayModeChange } = useListContext();
-	const { id, displayModes, mode = displayMode, onChange = onDisplayModeChange, t } = props;
+	const { propagateDisplayMode } = useListContext();
+	const { initialDisplayMode, onChange = propagateDisplayMode } = props;
+	const [displayMode, setDisplayMode] = useDisplayMode(initialDisplayMode, onChange);
+	const { id, displayModes, selectedDisplayMode = displayMode, t } = props;
+
 	return (
 		<React.Fragment>
 			<Navbar.Text>
@@ -42,11 +46,11 @@ function DisplayMode(props) {
 			<Nav>
 				<NavDropdown
 					id={id}
-					title={<Icon name={getIcon(mode)} />}
-					onSelect={(value, event) => onChange(event, value)}
+					title={<Icon name={getIcon(selectedDisplayMode)} />}
+					onSelect={(value, event) => setDisplayMode(event, value)}
 					aria-label={t('LIST_CHANGE_DISPLAY_MODE', {
 						defaultValue: 'Change display mode. Current display mode: {{displayMode}}.',
-						displayMode: mode,
+						displayMode: selectedDisplayMode,
 					})}
 				>
 					{displayModes.map(option => (
@@ -72,14 +76,15 @@ DisplayMode.displayName = 'List.DisplayMode';
 DisplayMode.defaultProps = {
 	id: uuid.v4(),
 	displayModes: ['table', 'large'],
-	mode: 'table',
+	initialDisplayMode: 'table',
 	t: getDefaultT(),
 };
 DisplayMode.propTypes = {
 	displayModes: PropTypes.arrayOf(PropTypes.string),
 	id: PropTypes.string,
-	mode: PropTypes.string,
-	onChange: PropTypes.func.isRequired,
+	initialDisplayMode: PropTypes.string,
+	onChange: PropTypes.func,
+	selectedDisplayMode: PropTypes.string,
 	t: PropTypes.func,
 };
 

@@ -130,35 +130,32 @@ storiesOf('List Composition', module)
 			<h1>List with display mode change</h1>
 			<p>
 				You can control the display mode by<br />
-				- passing the display mode to List<br />
-				- handling the display mode change via onDisplayModeChange prop
+				- passing the display mode to List.DisplayMode and List.VList<br />
+				- handling the display mode change via List.DisplayMode onChange prop
 			</p>
 			<pre>{`
 <List.Manager
  	id="my-list"
  	collection={collection}
- 	displayMode="table"
- 	onDisplayModeChange={changedisplayMode}
 >
 	<List.Toolbar>
-		<List.DisplayMode id="my-list-displayMode" />
+		<List.DisplayMode id="my-list-displayMode" displayMode="table" onDisplayModeChange={changeDisplayMode}/>
 	</List.Toolbar>
-	<List.VList id="my-vlist">
+	<List.VList id="my-vlist" type="TABLE">
 		...
 	</List.VList>
 </List.Manager>
 `}</pre>
 			<section style={{ height: '50vh' }}>
-				<List.Manager
-					id="my-list"
-					collection={simpleCollection}
-					displayMode="table"
-					onDisplayModeChange={action('onDisplayModeChange')}
-				>
+				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
-						<List.DisplayMode id="my-list-displayMode" />
+						<List.DisplayMode
+							id="my-list-displayMode"
+							onChange={action('onDisplayModeChange')}
+							selectedDisplayMode="table"
+						/>
 					</List.Toolbar>
-					<CustomList />
+					<CustomList type="TABLE" />
 				</List.Manager>
 			</section>
 		</div>

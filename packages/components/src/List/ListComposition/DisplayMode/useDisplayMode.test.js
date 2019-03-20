@@ -13,8 +13,8 @@ TestComponent.propTypes = {
 	nextValue: PropTypes.string,
 };
 
-describe('List > useDisplayMode', () => {
-	it('should trigger change callback in controlled mode', () => {
+describe('List.DisplayMode > useDisplayMode', () => {
+	it('should trigger change callback', () => {
 		// given
 		const onDisplayModeChange = jest.fn();
 		const nextValue = 'table';
@@ -34,9 +34,15 @@ describe('List > useDisplayMode', () => {
 		expect(onDisplayModeChange).toBeCalledWith(expect.anything(), nextValue);
 	});
 
-	it('should set value in uncontrolled mode', () => {
+	it('should set value', () => {
 		// given
-		const wrapper = mount(<TestComponent initialDisplayMode="large" nextValue="table" />);
+		const wrapper = mount(
+			<TestComponent
+				initialDisplayMode="large"
+				onDisplayModeChange={jest.fn()}
+				nextValue="table"
+			/>,
+		);
 		expect(wrapper.find('button').text()).toBe('large');
 
 		// when
