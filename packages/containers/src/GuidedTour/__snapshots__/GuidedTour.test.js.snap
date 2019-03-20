@@ -10,13 +10,19 @@ exports[`Guided Tour Container should render 1`] = `
   steps={
     Array [
       Object {
-        "content": "Text A",
+        "content": Object {
+          "body": "Text A",
+        },
       },
       Object {
-        "content": "Text B",
+        "content": Object {
+          "body": "Text B",
+        },
       },
       Object {
-        "content": "Text C",
+        "content": Object {
+          "body": "Text C",
+        },
       },
     ]
   }
