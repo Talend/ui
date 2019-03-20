@@ -1,4 +1,4 @@
-# Composable List
+# Compound components
 
 ## The Problem
 
@@ -93,16 +93,6 @@ const listProps = {
 
 After
 ```javascript
-const toolBar = (
-    <List.Toolbar>
-        <ActionBar left={[
-            { id: 'add', label: 'Add Folder' },
-            { id: 'remove', label: 'Remove Folder' },
-        ]} />
-        <List.DisplayMode id="my-list-displayMode" />
-        <List.SortBy id="my-list-sortBy" options={[{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }]} />
-    </List.Toolbar>
-);
 const list = (
     <List.VList>
         <List.VList.Content label="Id" dataKey="id" />
@@ -127,16 +117,25 @@ const list = (
 <List.Container
     id="my-list"
     collection={ [{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }]}
-
-    displayMode="table"
-    onDisplayModeChange={this.onDisplayChange}
-
-    withSort
-    sortBy="name"
-    sortDescending={false}
-    onSortChange={action('sort.onChange')}
 >
-    {toolbar}
+    <List.Toolbar>
+        <ActionBar left={[
+            { id: 'add', label: 'Add Folder' },
+            { id: 'remove', label: 'Remove Folder' },
+        ]} />
+        <List.DisplayMode
+            id="my-list-displayMode"
+            selectedDisplayMode="table"
+            onChange={this.onDisplayChange}
+        />
+        <List.SortBy
+            id="my-list-sortBy"
+            options={[{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }]}
+            sortBy="name"
+            descending={false}
+            onChange={action('sort.onChange')}
+        />
+    </List.Toolbar>
     {list}
 </List.Container>
 ```
@@ -153,16 +152,25 @@ Even easier if you don't want to control all the subfeatures (display mode, sort
 <List.Container
     id="my-list"
     collection={ [{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }]}
-
--   displayMode="table"
--   onDisplayModeChange={this.onDisplayChange}
-
-    withSort
--   sortBy="name"
--   sortDescending={false}
--   onSortChange={action('sort.onChange')}
 >
-    {toolbar}
+    <List.Toolbar>
+        <ActionBar left={[
+            { id: 'add', label: 'Add Folder' },
+            { id: 'remove', label: 'Remove Folder' },
+        ]} />
+        <List.DisplayMode
+            id="my-list-displayMode"
+-            selectedDisplayMode="table"
+-            onChange={this.onDisplayChange}
+        />
+        <List.SortBy
+            id="my-list-sortBy"
+            options={[{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }]}
+-            sortBy="name"
+-            descending={false}
+-            onChange={action('sort.onChange')}
+        />
+    </List.Toolbar>
     {list}
 </List.Container>
 ```
@@ -200,12 +208,13 @@ const props = {
 * To control it, you look at the list manager api
 
 ```javascript
-<List.Container onPaginationChange={action('pagination.onChange')}>
+<List.Container>
     <List.Toolbar>
         <List.Pagination
             id="my-list-pagination"
             itemsPerPage={5}
             totalResults={10}
+            onChange={action('pagination.onChange')}
         />
     </List.Toolbar>
 </List.Container>
@@ -215,7 +224,12 @@ Even easier in uncontrolled mode
 ```javascript
 <List.Container>
     <List.Toolbar>
-        <List.Paginaltion id="my-list-pagination" />
+        <List.Paginaltion
+            id="my-list-pagination"
+-            itemsPerPage={5}
+-            totalResults={10}
+-            onChange={action('pagination.onChange')}
+        />
     </List.Toolbar>
 </List.Container>
 ```
@@ -248,16 +262,17 @@ Even easier in uncontrolled mode
 
 **Compound**
 * Develop the FilterBar
-* List: callback management
 * App: instantiate the the FilterBar wherever you want
 
 ```javascript
 <List.Container
-+   filters={[]}
-+   onFilterChange={}
 >
     <List.VList />
-+   <List.FilterBar id=""/>
++   <List.FilterBar
++       id=""
++       filters={[]}
++       onFilterChange={}
++   />
     <List.Toolbar />
 </List.Container>
 ```
@@ -342,13 +357,16 @@ function MySimpleList() {
         <List.Container
             id="my-list"
             collection={simpleCollection}
-+           displayMode="table"
-+           onDisplayModeChange={() => {}}
         >
             <List.Toolbar>
-                <List.DisplayMode id="my-list-displayMode" />
+                <List.DisplayMode
+                    id="my-list-displayMode"
++                   selectedDisplayMode="table"
++                   onChange={() => {}}
+                />
             </List.Toolbar>
-            <List.VList id="my-vlist">
+-            <List.VList id="my-vlist">
++            <List.VList id="my-vlist" type="TABLE>
                 <List.VList.Content label="Id" dataKey="id" width={-1} />
                 <List.VList.Content label="Name" dataKey="name" columnData={titleProps} width={-1} {...CellTitle} />
                 <List.VList.Content label="Description" dataKey="description" width={-1} />
