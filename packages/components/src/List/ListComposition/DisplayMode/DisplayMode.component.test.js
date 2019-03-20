@@ -6,16 +6,17 @@ import toJson from 'enzyme-to-json';
 
 import DisplayMode from './DisplayMode.component';
 import { ListContext } from '../context';
+import getDefaultT from '../../../translate';
 
 describe('List DisplayMode', () => {
 	it('should render default', () => {
 		// given
-		const contextValue = { propagateDisplayMode: jest.fn() };
+		const contextValue = { propagateDisplayMode: jest.fn(), t: getDefaultT() };
 
 		// when
 		const wrapper = mount(
 			<ListContext.Provider value={contextValue}>
-				<DisplayMode.WrappedComponent id="myDisplayMode" />
+				<DisplayMode id="myDisplayMode" />
 			</ListContext.Provider>,
 		);
 
@@ -28,12 +29,13 @@ describe('List DisplayMode', () => {
 		const contextValue = {
 			displayMode: 'table',
 			displayModes: jest.fn(),
+			t: getDefaultT(),
 		};
 
 		// when
 		const wrapper = mount(
 			<ListContext.Provider value={contextValue}>
-				<DisplayMode.WrappedComponent id="myDisplayMode" displayModes={['lol', 'mdr']} />
+				<DisplayMode id="myDisplayMode" displayModes={['lol', 'mdr']} />
 			</ListContext.Provider>,
 		);
 
@@ -44,12 +46,12 @@ describe('List DisplayMode', () => {
 	describe('uncontrolled mode', () => {
 		it('should render initial value', () => {
 			// given
-			const contextValue = { propagateDisplayMode: jest.fn() };
+			const contextValue = { propagateDisplayMode: jest.fn(), t: getDefaultT() };
 
 			// when
 			const wrapper = mount(
 				<ListContext.Provider value={contextValue}>
-					<DisplayMode.WrappedComponent id="myDisplayMode" initialDisplayMode="large" />
+					<DisplayMode id="myDisplayMode" initialDisplayMode="large" />
 				</ListContext.Provider>,
 			);
 
@@ -61,11 +63,11 @@ describe('List DisplayMode', () => {
 
 		it('should change and propagate display mode', () => {
 			// given
-			const contextValue = { propagateDisplayMode: jest.fn() };
+			const contextValue = { propagateDisplayMode: jest.fn(), t: getDefaultT() };
 
 			const wrapper = mount(
 				<ListContext.Provider value={contextValue}>
-					<DisplayMode.WrappedComponent id="myDisplayMode" />
+					<DisplayMode id="myDisplayMode" />
 				</ListContext.Provider>,
 			);
 
@@ -85,12 +87,12 @@ describe('List DisplayMode', () => {
 	describe('controlled mode', () => {
 		it('should render selected display mode', () => {
 			// given
-			const contextValue = { propagateDisplayMode: jest.fn() };
+			const contextValue = { propagateDisplayMode: jest.fn(), t: getDefaultT() };
 
 			// when
 			const wrapper = mount(
 				<ListContext.Provider value={contextValue}>
-					<DisplayMode.WrappedComponent id="myDisplayMode" selectedDisplayMode="large" />
+					<DisplayMode id="myDisplayMode" selectedDisplayMode="large" />
 				</ListContext.Provider>,
 			);
 
@@ -102,12 +104,12 @@ describe('List DisplayMode', () => {
 
 		it('should call props.onChange with new display mode', () => {
 			// given
-			const contextValue = { propagateDisplayMode: jest.fn() };
+			const contextValue = { propagateDisplayMode: jest.fn(), t: getDefaultT() };
 			const onChange = jest.fn();
 
 			const wrapper = mount(
 				<ListContext.Provider value={contextValue}>
-					<DisplayMode.WrappedComponent id="myDisplayMode" onChange={onChange} />
+					<DisplayMode id="myDisplayMode" onChange={onChange} />
 				</ListContext.Provider>,
 			);
 

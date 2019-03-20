@@ -139,7 +139,11 @@ storiesOf('List Composition', module)
  	collection={collection}
 >
 	<List.Toolbar>
-		<List.DisplayMode id="my-list-displayMode" displayMode="table" onDisplayModeChange={changeDisplayMode}/>
+		<List.DisplayMode
+		 	id="my-list-displayMode"
+		 	selectedDisplayMode="table"
+		 	onChange={(event, displayMode) => changeDisplayMode(displayMode)}
+		/>
 	</List.Toolbar>
 	<List.VList id="my-vlist" type="TABLE">
 		...

@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
 import { Navbar, NavDropdown, Nav, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
 
 import useDisplayMode from './useDisplayMode';
 import { useListContext } from '../context';
 import Icon from '../../../Icon';
-import getDefaultT from '../../../translate';
-import I18N_DOMAIN_COMPONENTS from '../../../constants';
 
 function getIcon(selected) {
 	switch (selected) {
@@ -33,10 +30,10 @@ function getLabel(option, t) {
 }
 
 function DisplayMode(props) {
-	const { propagateDisplayMode } = useListContext();
+	const { propagateDisplayMode, t } = useListContext();
 	const { initialDisplayMode, onChange = propagateDisplayMode } = props;
 	const [displayMode, setDisplayMode] = useDisplayMode(initialDisplayMode, onChange);
-	const { id, displayModes, selectedDisplayMode = displayMode, t } = props;
+	const { id, displayModes, selectedDisplayMode = displayMode } = props;
 
 	return (
 		<React.Fragment>
@@ -77,7 +74,6 @@ DisplayMode.defaultProps = {
 	id: uuid.v4(),
 	displayModes: ['table', 'large'],
 	initialDisplayMode: 'table',
-	t: getDefaultT(),
 };
 DisplayMode.propTypes = {
 	displayModes: PropTypes.arrayOf(PropTypes.string),
@@ -85,7 +81,6 @@ DisplayMode.propTypes = {
 	initialDisplayMode: PropTypes.string,
 	onChange: PropTypes.func,
 	selectedDisplayMode: PropTypes.string,
-	t: PropTypes.func,
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(DisplayMode);
+export default DisplayMode;

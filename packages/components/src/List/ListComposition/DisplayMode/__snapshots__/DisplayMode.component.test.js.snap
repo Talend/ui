@@ -10,7 +10,6 @@ exports[`List DisplayMode should render default 1`] = `
   }
   id="myDisplayMode"
   initialDisplayMode="table"
-  t={[Function]}
 >
   <NavbarText
     componentClass="p"
