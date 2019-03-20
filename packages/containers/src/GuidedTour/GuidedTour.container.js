@@ -28,15 +28,14 @@ class GuidedTourContainer extends React.Component {
 
 	getSteps() {
 		const { steps, t } = this.props;
-		if (typeof steps === 'function') {
-			return steps({
-				showControls: this.showControls,
-				hideControls: this.hideControls,
-				t,
-			});
-		}
-
 		if (steps) {
+			if (typeof steps === 'function') {
+				return steps({
+					showControls: this.showControls,
+					hideControls: this.hideControls,
+					t,
+				});
+			}
 			return steps;
 		}
 
