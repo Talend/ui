@@ -8,19 +8,21 @@ The guided tour is based on [reactour](https://github.com/elrumordelaluz/reactou
 
 | Props | Type | Description |
 | ----- | ---- | ----------- |
-| className | string | CSS classes for guided tour component |
-| steps | array of object or function |
-| isOpen | boolean | If true, guided tour will start |
-| onRequestClose | function | Callback, to toggle isOpen |
-| disableAllInteractions | boolean | If true, all controls will disappear |
+| `className` | string | CSS classes for guided tour component |
+| `steps` | array of object or function | Array of steps to construct the guided tour |
+| `isOpen` | boolean | If true, guided tour will start |
+| `onRequestClose` | function | Callback when user close i.e. to toggle `isOpen` |
+| `disableAllInteractions` | boolean | If true, all controls will disappear |
 
 ## Style
 
+Those classes are accessible from outside.
+
 | CSS class | Type | Description |
 | --------- | ---- | ----------- |
-| `.react-tour` | Block | The guided tour |
-| `.react-tour__mask` | Element | The dark overlay |
-| `.react-tour__highlighted-mask` | Element | The light overlay to highlight element |
-| `.react-tour__header` | Element | The header of the tooltip |
-| `.react-tour__body` | Element | The body of the tooltip |
-| `.react-tour--no-interaction` | Modifier | The guided tour without any controls |
+| `.react-tour` | block | The guided tour |
+| `.react-tour__mask` | element | The dark overlay |
+| `.react-tour__highlighted-mask` | element | The light overlay to highlight element |
+| `.react-tour__header` | element | The header of the tooltip |
+| `.react-tour__body` | element | The body of the tooltip |
+| `.react-tour--no-interaction` | modifier | The guided tour without any controls |

@@ -8,7 +8,7 @@ Save component state in Local Storage by adding its path in your CMF module init
 
 ```javascript
 const storeCallback = cmf.localStorage.getStoreCallback(localStorageKey, [
-	// ...paths to save like SidePanel or List,
+	// ...all paths to save like SidePanel or List,
 	['cmf', 'components', 'Container(GuidedTour)'],
 ]);
 ```
@@ -114,8 +114,6 @@ export function getSteps() {
 	];
 }
 ```
-
-_note_ you can pass i18n keys as `content` instead.
 
 ### Sagas
 
