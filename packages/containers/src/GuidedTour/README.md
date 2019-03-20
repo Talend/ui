@@ -18,11 +18,11 @@ const storeCallback = cmf.localStorage.getStoreCallback(localStorageKey, [
 `GuidedTour` should be set in your main `App` component.
 
 ```javascript
-export default function App(props) {
+export default function App() {
 	return (
 		<I18nextProvider i18n={i18n}>
 			<AppLoader>
-				<GuidedTour />
+				<GuidedTour steps={getSteps()}/>
 			</AppLoader>
 		</I18nextProvider>
 	);
@@ -32,41 +32,90 @@ export default function App(props) {
 ### Steps
 
 ```javascript
-export function* setSteps() {
-	yield put(
-		actions.components.mergeState('Container(GuidedTour)', 'default', {
-			steps: [
-				{
-					selector: '#menu\\:datastores',
-					content:
+export function getSteps() {
+	return [
+		{
+			selector: '#menu\\:datastores',
+			content: {
+				header: t('GUIDEDTOUR_CONNECTIONS_TITLE', {
+					defaultValue: 'Connections',
+				}),
+				body: t('GUIDEDTOUR_CONNECTIONS', {
+					defaultValue:
 						'Here you can create and manage your Connections to systems that contain your Datasets, including SaaS applications, cloud storage, data lakes, databases, etc.',
-				},
-				{
-					selector: '#menu\\:datasets',
-					content:
-						'Here you can browse through and manage the datasets you added.<br>A dataset holds the raw data that can be used as raw material without affecting your original data.',
-				},
-				{
-					selector: '#menu\\:preparations',
-					content:
-						'Here you can browse through and manage the preparations you created.<br>A preparation is the outcome of the different steps applied to cleanse your data.',
-				},
-				{
-					selector: '#preparation\\:add\\:open',
-					content: 'Click here to add a preparation and start cleansing your data.',
-				},
-				{
-					selector: '#menu\\:semantic',
-					content:
-						'Here you can browse through and manage the semantic types.<br>A semantic type defines the kind of information the data represents, and performs discovery and validation of your data.',
-				},
-			],
-		}),
-	);
+				}),
+			},
+		},
+		{
+			selector: '#menu\\:datasets',
+			content: {
+				header: t('GUIDEDTOUR_DATASETS_TITLE', {
+					defaultValue: 'Datasets',
+				}),
+				body: () => (
+					<div
+						dangerouslySetInnerHTML={{
+							__html: t('GUIDEDTOUR_DATASETS', {
+								defaultValue:
+									'Here you can browse through and manage the datasets you added.<br>A dataset holds the raw data that can be used as raw material without affecting your original data.',
+							}),
+						}}
+					/>
+				),
+			},
+		},
+		{
+			selector: '#menu\\:preparations',
+			content: {
+				header: t('GUIDEDTOUR_CONNECTIONS_TITLE', {
+					defaultValue: 'Preparations',
+				}),
+				body: () => (
+					<div
+						dangerouslySetInnerHTML={{
+							__html: t('GUIDEDTOUR_CONNECTIONS', {
+								defaultValue:
+									'Here you can browse through and manage the preparations you created.<br>A preparation is the outcome of the different steps applied to cleanse your data.',
+							}),
+						}}
+					/>
+				),
+			},
+		},
+		{
+			selector: '#menu\\:semantic',
+			content: {
+				header: t('GUIDEDTOUR_SEMANTIC_TYPES_TITLE', {
+					defaultValue: 'Semantic types',
+				}),
+				body: () => (
+					<div
+						dangerouslySetInnerHTML={{
+							__html: t('GUIDEDTOUR_SEMANTIC_TYPES', {
+								defaultValue:
+									'Here you can browse through and manage the semantic types.<br>A semantic type defines the kind of information the data represents, and performs discovery and validation of your data.',
+							}),
+						}}
+					/>
+				),
+			},
+		},
+		{
+			selector: '#preparation\\:add\\:open',
+			content: {
+				header: t('GUIDEDTOUR_PREPARATION_ADD_TITLE', {
+					defaultValue: 'Add preparation',
+				}),
+				body: t('GUIDEDTOUR_PREPARATION_ADD', {
+					defaultValue: 'Click here to add a preparation and start cleansing your data.',
+				}),
+			},
+		},
+	];
 }
 ```
 
-*note* you can pass i18n keys as `content` instead.
+_note_ you can pass i18n keys as `content` instead.
 
 ### Sagas
 

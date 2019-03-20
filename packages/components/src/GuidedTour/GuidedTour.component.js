@@ -10,44 +10,70 @@ import getDefaultT from '../translate';
 
 import theme from './GuidedTour.scss';
 
-function lastStepNextButton(t) {
+function TooltipContent({ header, body }) {
+	return (
+		<div>
+			{header && <h2 className={classNames(theme.header, 'guided-tour__header')}>{header}</h2>}
+			<p className={classNames(theme.body, 'guided-tour__body')}>{body}</p>
+		</div>
+	);
+}
+
+function getTooltipContent({ header, body }) {
+	return ({ goTo, step }) => (
+		<TooltipContent
+			header={header}
+			body={typeof body === 'function' ? body({ goTo, step }) : body}
+		/>
+	);
+}
+
+function formatSteps(steps) {
+	return steps.map(step => {
+		const { header, body } = step.content;
+		const formattedStep = { ...step };
+		formattedStep.content = getTooltipContent({ header, body });
+		return formattedStep;
+	});
+}
+
+function getLastStepNextButton(t) {
 	return (
 		<Action bsStyle={'info'} label={t('GUIDEDTOUR_LAST_STEP', { defaultValue: 'Let me try' })} />
 	);
 }
 
-function GuidedTour({ className, steps, t, tReady, ...rest }) {
+function GuidedTour({ className, disableAllInteractions, steps, t, tReady, ...rest }) {
 	if (!tReady) {
 		return null;
 	}
 
-	const translatedSteps = steps.map(step => {
-		const translatedStep = { ...step };
-		const { content } = translatedStep;
-		if (typeof content === 'string') {
-			// We use dangerouslySetInnerHTML because translations are not coming from user
-			// eslint-disable-next-line react/no-danger
-			translatedStep.content = <div dangerouslySetInnerHTML={{ __html: t(content, {}) }} />;
-		}
-		return translatedStep;
-	});
+	if (!steps || !steps.length) {
+		return null;
+	}
 
 	return (
 		<Tour
-			className={classNames(theme['guided-tour'], 'guided-tour', className)}
-			maskClassName={classNames(theme.mask, 'guided-tour-mask')}
-			highlightedMaskClassName={classNames(
-				theme['highlighted-mask'],
-				'guided-tour-highlighted-mask',
+			className={classNames(
+				theme['guided-tour'],
+				'guided-tour',
+				{ [theme['no-interaction']]: !!disableAllInteractions },
+				{ 'guided-tour--no-interaction': !!disableAllInteractions },
+				className,
 			)}
+			maskClassName={classNames(theme.mask, 'guided-tour__mask')}
+			highlightedMaskClassName={classNames(theme.highlighted, 'guided-tour__highlighted-mask')}
+			showNumber={false}
 			showNavigationNumber={false}
-			maskSpace={0}
+			closeWithMask={false}
+			disableDotsNavigation
+			disableInteraction
+			maskSpace={10}
 			rounded={4}
 			startAt={0}
-			lastStepNextButton={lastStepNextButton(t)}
-			disableInteraction
+			lastStepNextButton={getLastStepNextButton(t)}
 			{...rest}
-			steps={translatedSteps}
+			steps={formatSteps(steps)}
 		/>
 	);
 }
@@ -64,8 +90,10 @@ if (process.env.NODE_ENV !== 'production') {
 		steps: PropTypes.arrayOf(
 			PropTypes.shape({
 				selector: PropTypes.string,
-				content: PropTypes.oneOfType([PropTypes.node, PropTypes.element, PropTypes.func])
-					.isRequired,
+				content: PropTypes.shape({
+					header: PropTypes.oneOfType([PropTypes.node, PropTypes.element, PropTypes.func]),
+					body: PropTypes.oneOfType([PropTypes.node, PropTypes.element, PropTypes.func]).isRequired,
+				}).isRequired,
 				position: PropTypes.oneOf(['top', 'right', 'bottom', 'left', 'center']),
 				action: PropTypes.func,
 				style: PropTypes.object,
@@ -74,6 +102,7 @@ if (process.env.NODE_ENV !== 'production') {
 		).isRequired,
 		isOpen: PropTypes.bool,
 		onRequestClose: PropTypes.func,
+		disableAllInteractions: PropTypes.bool,
 		t: PropTypes.func,
 		tReady: PropTypes.bool,
 	};

@@ -2,7 +2,11 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
+import { I18nextProvider, translate } from 'react-i18next';
+import i18n, { LanguageSwitcher } from './config/i18n';
+
 import { GuidedTour } from '../src/index';
+import I18N_DOMAIN_COMPONENTS from '../src/constants';
 
 class ImportDemo extends React.Component {
 	constructor() {
@@ -49,8 +53,8 @@ class ImportDemo extends React.Component {
 }
 
 class GuidedTourContainer extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			isOpen: true,
 			controls: true,
@@ -80,42 +84,60 @@ class GuidedTourContainer extends React.Component {
 				steps={this.props.getSteps({
 					showControls: this.showControls,
 					hideControls: this.hideControls,
+					t: this.props.t,
 				})}
 				onRequestClose={this.closeTour}
 				isOpen={isOpen}
 				showCloseButton={controls}
 				showButtons={controls}
-				showNavigation={controls}
-				showNumber={controls}
-				closeWithMask={controls}
-				disableDotsNavigation={!controls}
-				disableInteraction={!controls}
 				disableKeyboardNavigation={!controls}
+				disableAllInteractions={!controls}
 			/>
 		);
 	}
 }
 
+const TranslatedGuidedTourContainer = translate(I18N_DOMAIN_COMPONENTS)(GuidedTourContainer);
+
 // @see https://github.com/elrumordelaluz/reactour#steps
-function getSteps({ hideControls, showControls }) {
+function getSteps({ hideControls, showControls, t }) {
 	return [
 		{
-			content: 'Hello world',
-			stepInteraction: false,
+			selector: '[data-tour="language-switcher"]',
+			content: {
+				header: 'Hello world',
+				body: () => (
+					<div
+						dangerouslySetInnerHTML={{
+							__html: t('GUIDEDTOUR_HELLO_WORD_HTML', {
+								defaultValue: 'Hello world<br>You can switch language',
+							}),
+						}}
+					/>
+				),
+			},
+			stepInteraction: true,
+			position: 'top',
 		},
 		{
 			selector: '[data-tour="my-first-step"]',
-			content: ({ goTo, step }) => (
-				<ImportDemo
-					beforeLoading={hideControls}
-					afterLoading={showControls}
-					afterFinish={() => goTo(step)}
-				/>
-			),
+			content: {
+				header: 'My first element',
+				body: ({ goTo, step }) => (
+					<ImportDemo
+						beforeLoading={hideControls}
+						afterLoading={showControls}
+						afterFinish={() => goTo(step)}
+					/>
+				),
+			},
 		},
 		{
 			selector: '[data-tour="my-second-step"]',
-			content: 'Place focus on an interactive element',
+			content: {
+				header: 'My second element',
+				body: 'Place focus on an interactive element',
+			},
 			position: 'bottom',
 			action: elem => {
 				elem.focus();
@@ -123,14 +145,19 @@ function getSteps({ hideControls, showControls }) {
 		},
 		{
 			selector: '[data-tour="my-third-step"]',
-			content: 'Highlighted text here',
+			content: {
+				header: 'My third element',
+				body: 'Highlighted text here',
+			},
 			style: {
 				backgroundColor: '#fdf3da',
 			},
 		},
 		{
 			selector: '[data-tour="my-fourth-step"]',
-			content: 'And here it is just a bear',
+			content: {
+				body: 'And here it is just a bear',
+			},
 		},
 	];
 }
@@ -142,6 +169,7 @@ const getLayoutWithLoremIpsum = () => (
 			width: '100vw',
 			display: 'flex',
 			flexWrap: 'wrap',
+			overflowX: 'hidden',
 		}}
 	>
 		<header
@@ -150,7 +178,7 @@ const getLayoutWithLoremIpsum = () => (
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'space-between',
-				padding: '1rem',
+				padding: '1rem 2rem',
 				flexBasis: '100vw',
 				background: '#eee',
 			}}
@@ -162,7 +190,8 @@ const getLayoutWithLoremIpsum = () => (
 		</header>
 		<aside
 			style={{
-				flexBasis: '20vw',
+				flexBasis: '19vw',
+				paddingTop: '3rem',
 				textTransform: 'uppercase',
 			}}
 		>
@@ -177,7 +206,7 @@ const getLayoutWithLoremIpsum = () => (
 		<main
 			style={{
 				padding: '1rem',
-				flexBasis: '80vw',
+				flexBasis: '79vw',
 			}}
 		>
 			<article>
@@ -212,40 +241,16 @@ const getLayoutWithLoremIpsum = () => (
 					senectus et netus et malesuada fames ac turpis egestas. Suspendisse faucibus bibendum
 					ultrices. Donec sed molestie enim.
 				</p>
-
-				<p>
-					Curabitur erat eros, ornare quis libero nec, eleifend ultricies purus. Donec non nisi
-					vehicula, elementum justo non, facilisis neque. Phasellus risus lectus, egestas eget purus
-					sit amet, commodo porttitor velit. Ut justo enim, pharetra nec aliquet eget, tincidunt
-					vulputate neque. Praesent libero est, ultrices nec felis quis, bibendum pellentesque
-					turpis. Mauris scelerisque tristique nisi quis pharetra. Integer et posuere sem. Praesent
-					aliquet ex ac dolor aliquet, viverra aliquet urna sagittis. Nulla eu vehicula ipsum.
-					Praesent interdum sapien vel mi blandit aliquam. Pellentesque habitant morbi tristique
-					senectus et netus et malesuada fames ac turpis egestas. Aenean sit amet augue dolor. Nunc
-					a fermentum eros. Integer ac auctor nisl. Quisque volutpat arcu in purus ornare mollis.
-				</p>
-
-				<p>
-					Pellentesque sed mattis libero. Proin elementum dictum finibus. Duis magna velit,
-					vestibulum non neque at, feugiat ultrices sapien. Pellentesque maximus dolor a tellus
-					euismod ultricies. Fusce non elit arcu. Cras vitae porttitor ex. Vivamus posuere nisl ac
-					purus bibendum, id ultrices sapien rhoncus. Quisque pellentesque, nisl ac tincidunt
-					scelerisque, eros ante commodo massa, eget mollis tellus leo eget augue. Integer sit amet
-					lectus mi. Donec ut facilisis enim. In vehicula dapibus sem mattis pharetra. Sed eget enim
-					rhoncus, eleifend ligula et, lacinia nunc. Pellentesque habitant morbi tristique senectus
-					et netus et malesuada fames ac turpis egestas. Donec in convallis lorem, in laoreet mi.
-					Sed tristique in nibh quis viverra.
-				</p>
 			</article>
 		</main>
 		<footer
 			style={{
 				height: '5rem',
 				marginTop: 'auto',
-				padding: '1rem',
+				padding: '1rem 2rem',
 				flexBasis: '100vw',
 				alignItems: 'center',
-				textAlign: 'center',
+				textAlign: 'right',
 				background: '#eee',
 			}}
 		>
@@ -257,8 +262,13 @@ const getLayoutWithLoremIpsum = () => (
 storiesOf('GuidedTour', module)
 	.addDecorator(story => (
 		<React.Fragment>
-			{story()}
-			{getLayoutWithLoremIpsum()}
+			<LanguageSwitcher />
+			<I18nextProvider i18n={i18n}>
+				<React.Fragment>
+					{story()}
+					{getLayoutWithLoremIpsum()}
+				</React.Fragment>
+			</I18nextProvider>
 		</React.Fragment>
 	))
-	.add('default', () => <GuidedTourContainer getSteps={getSteps} />);
+	.add('default', () => <TranslatedGuidedTourContainer getSteps={getSteps} />);

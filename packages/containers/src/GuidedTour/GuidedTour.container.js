@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import { cmfConnect } from '@talend/react-cmf';
 import GuidedTour from '@talend/react-components/lib/GuidedTour';
-import Constants from './GuidedTour.constants';
 
 class GuidedTourContainer extends React.Component {
 	static displayName = 'Container(GuidedTour)';
@@ -17,38 +16,42 @@ class GuidedTourContainer extends React.Component {
 
 	constructor(props) {
 		super(props);
+
 		this.state = {
 			controls: true,
 		};
+
 		this.closeTour = this.closeTour.bind(this);
 		this.showControls = this.showControls.bind(this);
 		this.hideControls = this.hideControls.bind(this);
 	}
 
 	getSteps() {
-		const state = this.props && this.props.state;
-		const steps = state && state.get('steps');
+		const { steps, t } = this.props;
+		if (typeof steps === 'function') {
+			return steps({
+				showControls: this.showControls,
+				hideControls: this.hideControls,
+				t,
+			});
+		}
 
 		if (steps) {
-			return steps.toJS();
+			return steps;
+		}
+
+		const stepsFromState = this.props.state.get('steps');
+		if (stepsFromState) {
+			return stepsFromState.toJS();
 		}
 
 		return undefined;
 	}
 
-	isOpen() {
-		const state = this.props && this.props.state;
-		return state && state.get('show');
-	}
-
 	closeTour() {
 		this.showControls();
-		this.props.dispatch({ type: Constants.GUIDED_TOUR_HIDE });
-		const state = this.props && this.props.state;
-		const onRequestClose = state.get('onClose');
-		if (state && typeof onRequestClose === 'function') {
-			onRequestClose();
-		}
+
+		this.props.setState({ show: false });
 	}
 
 	showControls() {
@@ -60,28 +63,21 @@ class GuidedTourContainer extends React.Component {
 	}
 
 	render() {
-		const { controls } = this.state;
-
 		const steps = this.getSteps();
 		if (!steps || !steps.length) {
 			return <React.Fragment />;
 		}
 
-		const isOpen = this.isOpen();
-
+		const { controls } = this.state;
 		return (
 			<GuidedTour
-				isOpen={isOpen}
+				isOpen={this.props.state.get('show')}
 				steps={steps}
 				onRequestClose={this.closeTour}
 				showCloseButton={controls}
 				showButtons={controls}
-				showNavigation={controls}
-				showNumber={controls}
-				closeWithMask={controls}
-				disableDotsNavigation={!controls}
-				disableInteraction={!controls}
 				disableKeyboardNavigation={!controls}
+				disableAllInteractions={!controls}
 				{...omit(this.props, cmfConnect.INJECTED_PROPS)}
 			/>
 		);

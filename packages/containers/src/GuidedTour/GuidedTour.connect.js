@@ -11,9 +11,7 @@ export default cmfConnect({
 		saga: 'GuidedTour#default',
 	},
 	defaultState: DEFAULT_STATE,
-	omitCMFProps: true,
-	withComponentRegistry: true,
-	withDispatch: true,
-	withDispatchActionCreator: true,
 	withComponentId: true,
+	withComponentRegistry: true,
+	keepComponentState: true,
 })(GuidedTourContainer);

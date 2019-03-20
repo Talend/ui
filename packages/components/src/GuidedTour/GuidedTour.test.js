@@ -5,7 +5,7 @@ import Tour from 'reactour';
 import GuidedTour from './GuidedTour.component';
 
 describe('Guided Tour', () => {
-	const steps = [{ content: 'foo' }, { content: 'bar' }];
+	const steps = [{ content: { body: 'foo' } }, { content: { body: 'bar' } }];
 
 	it('should appear', () => {
 		// when
@@ -18,6 +18,14 @@ describe('Guided Tour', () => {
 	it('should not appear if translate service is not ready yet', () => {
 		// when
 		const wrapper = mount(<GuidedTour steps={steps} isOpen />);
+
+		// then
+		expect(wrapper.find(Tour).children()).toHaveLength(0);
+	});
+
+	it('should not appear if steps are empty', () => {
+		// when
+		const wrapper = mount(<GuidedTour steps={[]} isOpen />);
 
 		// then
 		expect(wrapper.find(Tour).children()).toHaveLength(0);

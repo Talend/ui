@@ -2,16 +2,11 @@
 
 exports[`Guided Tour Container should render 1`] = `
 <Translate(GuidedTour)
-  closeWithMask={true}
-  disableDotsNavigation={false}
-  disableInteraction={false}
+  disableAllInteractions={false}
   disableKeyboardNavigation={false}
-  isOpen={true}
   onRequestClose={[Function]}
   showButtons={true}
   showCloseButton={true}
-  showNavigation={true}
-  showNumber={true}
   steps={
     Array [
       Object {

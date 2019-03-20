@@ -1,9 +1,35 @@
+$tc-guidedtour-accent-color: $scooter !default;
+$tc-guidedtour-padding: $padding-large !default;
+$tc-guidedtour-mask-opactiy: 0.25 !default;
+$tc-guidedtour-close-button-size: $svg-sm-size !default;
+
 :global(#___reactour) {
 	.guided-tour {
-		--reactour-accent: #{$scooter};
+		--reactour-accent: #{$tc-guidedtour-accent-color};
+		padding: $tc-guidedtour-padding (3 * $tc-guidedtour-padding) $tc-guidedtour-padding $tc-guidedtour-padding;
 
 		[data-tour-elem='controls'] {
-			margin-right: -1rem;
+			margin-right: (-2 * $tc-guidedtour-padding);
+			justify-content: space-between;
+
+			+ button {
+				height: $tc-guidedtour-close-button-size;
+				width: $tc-guidedtour-close-button-size;
+			}
+		}
+
+		&.no-interaction {
+			[data-tour-elem='controls'] {
+				justify-content: center;
+			}
+		}
+
+		.header {
+			margin-top: 0;
 		}
 	}
+}
+
+:global(.reactour__mask) {
+	opacity: $tc-guidedtour-mask-opactiy;
 }

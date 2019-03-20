@@ -4,14 +4,36 @@ import { GuidedTour, Action } from '../src';
 
 const initialState = fromJS({
 	show: true,
-	steps: [{ content: 'Text A' }, { content: 'Text B' }, { content: 'Text C' }],
 });
+
+const steps = [
+	{
+		content: {
+			body: 'Eenie',
+		},
+	},
+	{
+		content: {
+			body: 'Meenie',
+		},
+	},
+	{
+		content: {
+			body: 'Miney',
+		},
+	},
+	{
+		content: {
+			body: 'Moe',
+		},
+	},
+];
 
 const ExampleGuidedTour = {
 	default: () => (
 		<div>
 			<Action actionId="show:guidedTour" />
-			<GuidedTour initialState={initialState} />
+			<GuidedTour initialState={initialState} steps={steps} />
 		</div>
 	),
 };
