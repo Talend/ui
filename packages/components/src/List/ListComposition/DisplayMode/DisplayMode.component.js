@@ -38,14 +38,11 @@ function DisplayMode(props) {
 		selectedDisplayMode = displayMode,
 	} = props;
 
-	useEffect(
-		() => {
-			if (!onChange) {
-				setDisplayMode(initialDisplayMode);
-			}
-		},
-		[onChange],
-	);
+	useEffect(() => {
+		if (!onChange) {
+			setDisplayMode(initialDisplayMode);
+		}
+	}, [onChange]);
 
 	function onSelect(value, event) {
 		if (onChange) {
