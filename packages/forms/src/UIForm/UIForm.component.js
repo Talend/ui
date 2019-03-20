@@ -33,14 +33,13 @@ export class UIFormComponent extends React.Component {
 		state.widgets = { ...state.widgets, ...props.widgets };
 		this.state = state;
 
-		this.setFormRef = element => (this.formRef = element);
-
 		this.onChange = this.onChange.bind(this);
 		this.onFinish = this.onFinish.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onActionClick = this.onActionClick.bind(this);
 		this.focusFirstError = this.focusFirstError.bind(this);
+		this.setFormRef = this.setFormRef.bind(this);
 		// control the tv4 language here.
 		const language = getLanguage(props.t);
 		if (props.language != null) {
@@ -256,6 +255,10 @@ export class UIFormComponent extends React.Component {
 		}
 
 		return isValid;
+	}
+
+	setFormRef(element) {
+		this.formRef = element;
 	}
 
 	focusFirstError() {

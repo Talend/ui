@@ -407,4 +407,14 @@ describe('UIForm component', () => {
 			expect(focus).toHaveBeenCalled();
 		});
 	});
+
+	describe('#setFormRef', () => {
+		it('should set the form ref', () => {
+			const element = {};
+			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
+			wrapper.instance().setFormRef(element);
+
+			expect(wrapper.instance().formRef).toBe(element);
+		});
+	});
 });
