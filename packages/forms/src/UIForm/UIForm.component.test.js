@@ -357,18 +357,6 @@ describe('UIForm component', () => {
 
 			// then
 			expect(props.onSubmit).toBeCalled();
-		});
-
-		it('should not focus the first input when form has no error', () => {
-			// given
-			const wrapper = shallow(
-				<UIFormComponent {...data} {...props} properties={validProperties} />,
-			);
-
-			// when
-			wrapper.instance().onSubmit(submitEvent);
-
-			// then
 			expect(props.setErrors).toHaveBeenCalledWith(submitEvent, {}, noop);
 		});
 	});
