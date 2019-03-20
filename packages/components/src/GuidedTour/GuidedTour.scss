@@ -1,15 +1,15 @@
 $tc-guidedtour-accent-color: $scooter !default;
-$tc-guidedtour-padding: $padding-large !default;
+$tc-guidedtour-tooltip-padding: $padding-large !default;
 $tc-guidedtour-mask-opactiy: 0.25 !default;
 $tc-guidedtour-close-button-size: $svg-sm-size !default;
 
 :global(#___reactour) {
 	.guided-tour {
 		--reactour-accent: #{$tc-guidedtour-accent-color};
-		padding: $tc-guidedtour-padding (3 * $tc-guidedtour-padding) $tc-guidedtour-padding $tc-guidedtour-padding;
+		padding: $tc-guidedtour-tooltip-padding (3 * $tc-guidedtour-tooltip-padding) $tc-guidedtour-tooltip-padding $tc-guidedtour-tooltip-padding;
 
 		[data-tour-elem='controls'] {
-			margin-right: (-2 * $tc-guidedtour-padding);
+			margin-right: (-2 * $tc-guidedtour-tooltip-padding);
 			justify-content: space-between;
 
 			+ button {

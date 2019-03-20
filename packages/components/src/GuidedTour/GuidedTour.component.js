@@ -10,21 +10,14 @@ import getDefaultT from '../translate';
 
 import theme from './GuidedTour.scss';
 
-function TooltipContent({ header, body }) {
-	return (
-		<div>
-			{header && <h2 className={classNames(theme.header, 'guided-tour__header')}>{header}</h2>}
-			<p className={classNames(theme.body, 'guided-tour__body')}>{body}</p>
-		</div>
-	);
-}
-
 function getTooltipContent({ header, body }) {
-	return ({ goTo, step }) => (
-		<TooltipContent
-			header={header}
-			body={typeof body === 'function' ? body({ goTo, step }) : body}
-		/>
+	return reactourCallbacks => (
+		<React.Fragment>
+			{header && <h2 className={classNames(theme.header, 'guided-tour__header')}>{header}</h2>}
+			<p className={classNames(theme.body, 'guided-tour__body')}>
+				{typeof body === 'function' ? body(reactourCallbacks) : body}
+			</p>
+		</React.Fragment>
 	);
 }
 
@@ -44,12 +37,8 @@ function getLastStepNextButton(t) {
 }
 
 function GuidedTour({ className, disableAllInteractions, steps, t, tReady, ...rest }) {
-	if (!tReady) {
-		return null;
-	}
-
-	if (!steps || !steps.length) {
-		return null;
+	if (!tReady || !steps || !steps.length) {
+		return <React.Fragment />;
 	}
 
 	return (
@@ -61,19 +50,19 @@ function GuidedTour({ className, disableAllInteractions, steps, t, tReady, ...re
 				{ 'guided-tour--no-interaction': !!disableAllInteractions },
 				className,
 			)}
-			maskClassName={classNames(theme.mask, 'guided-tour__mask')}
-			highlightedMaskClassName={classNames(theme.highlighted, 'guided-tour__highlighted-mask')}
-			showNumber={false}
-			showNavigationNumber={false}
 			closeWithMask={false}
 			disableDotsNavigation
 			disableInteraction
+			highlightedMaskClassName={classNames(theme.highlighted, 'guided-tour__highlighted-mask')}
+			lastStepNextButton={getLastStepNextButton(t)}
+			maskClassName={classNames(theme.mask, 'guided-tour__mask')}
 			maskSpace={10}
 			rounded={4}
+			showNavigationNumber={false}
+			showNumber={false}
 			startAt={0}
-			lastStepNextButton={getLastStepNextButton(t)}
-			{...rest}
 			steps={formatSteps(steps)}
+			{...rest}
 		/>
 	);
 }
@@ -91,7 +80,7 @@ if (process.env.NODE_ENV !== 'production') {
 			PropTypes.shape({
 				selector: PropTypes.string,
 				content: PropTypes.shape({
-					header: PropTypes.oneOfType([PropTypes.node, PropTypes.element, PropTypes.func]),
+					header: PropTypes.oneOfType([PropTypes.node, PropTypes.element]),
 					body: PropTypes.oneOfType([PropTypes.node, PropTypes.element, PropTypes.func]).isRequired,
 				}).isRequired,
 				position: PropTypes.oneOf(['top', 'right', 'bottom', 'left', 'center']),
