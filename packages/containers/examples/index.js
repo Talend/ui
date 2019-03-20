@@ -54,5 +54,4 @@ export default {
 	TabBarExample,
 	TreeViewExample,
 	TypeaheadExample,
-	POCList,
 };
