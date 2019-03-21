@@ -1,4 +1,4 @@
-import { put, take, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery } from 'redux-saga/effects';
 
 import Connected from './GuidedTour.connect';
 import Constants from './GuidedTour.constants';
@@ -14,7 +14,6 @@ export function* hide() {
 function* defaultHandler() {
 	yield takeEvery(Constants.GUIDED_TOUR_SHOW, show);
 	yield takeEvery(Constants.GUIDED_TOUR_HIDE, hide);
-	yield take('DO_NOT_QUIT');
 }
 
 export default {

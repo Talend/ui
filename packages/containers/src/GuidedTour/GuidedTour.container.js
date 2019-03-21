@@ -14,19 +14,11 @@ class GuidedTourContainer extends React.Component {
 		onClose: PropTypes.func,
 	};
 
-	constructor(props) {
-		super(props);
+	state = {
+		controls: true,
+	};
 
-		this.state = {
-			controls: true,
-		};
-
-		this.closeTour = this.closeTour.bind(this);
-		this.showControls = this.showControls.bind(this);
-		this.hideControls = this.hideControls.bind(this);
-	}
-
-	getSteps() {
+	getSteps = () => {
 		const { steps, t } = this.props;
 		if (steps) {
 			if (typeof steps === 'function') {
@@ -45,21 +37,21 @@ class GuidedTourContainer extends React.Component {
 		}
 
 		return undefined;
-	}
+	};
 
-	closeTour() {
+	closeTour = () => {
 		this.showControls();
 
 		this.props.setState({ show: false });
-	}
+	};
 
-	showControls() {
+	showControls = () => {
 		this.setState({ controls: true });
-	}
+	};
 
-	hideControls() {
+	hideControls = () => {
 		this.setState({ controls: false });
-	}
+	};
 
 	render() {
 		const steps = this.getSteps();

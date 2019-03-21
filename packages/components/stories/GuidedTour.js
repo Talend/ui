@@ -9,16 +9,12 @@ import { GuidedTour } from '../src/index';
 import I18N_DOMAIN_COMPONENTS from '../src/constants';
 
 class ImportDemo extends React.Component {
-	constructor() {
-		super();
-		this.state = {
-			loading: false,
-			finish: false,
-		};
-		this.onClick = this.onClick.bind(this);
-	}
+	state = {
+		loading: false,
+		finish: false,
+	};
 
-	onClick() {
+	onClick = () => {
 		this.props.beforeLoading();
 		this.setState({ loading: true }, () => {
 			setTimeout(() => {
@@ -30,7 +26,7 @@ class ImportDemo extends React.Component {
 				});
 			}, 3000);
 		});
-	}
+	};
 
 	render() {
 		if (this.state.loading) {
@@ -53,29 +49,23 @@ class ImportDemo extends React.Component {
 }
 
 class GuidedTourContainer extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			isOpen: true,
-			controls: true,
-		};
-		this.closeTour = this.closeTour.bind(this);
-		this.showControls = this.showControls.bind(this);
-		this.hideControls = this.hideControls.bind(this);
-	}
+	state = {
+		isOpen: true,
+		controls: true,
+	};
 
-	closeTour() {
+	closeTour = () => {
 		this.showControls();
 		this.setState({ isOpen: false });
-	}
+	};
 
-	showControls() {
+	showControls = () => {
 		this.setState({ controls: true });
-	}
+	};
 
-	hideControls() {
+	hideControls = () => {
 		this.setState({ controls: false });
-	}
+	};
 
 	render() {
 		const { controls, isOpen } = this.state;

@@ -4,7 +4,7 @@ $tc-guidedtour-mask-opactiy: 0.25 !default;
 $tc-guidedtour-close-button-size: $svg-sm-size !default;
 
 :global(#___reactour) {
-	.guided-tour {
+	.tc-guided-tour {
 		--reactour-accent: #{$tc-guidedtour-accent-color};
 		padding: $tc-guidedtour-tooltip-padding (3 * $tc-guidedtour-tooltip-padding) $tc-guidedtour-tooltip-padding $tc-guidedtour-tooltip-padding;
 

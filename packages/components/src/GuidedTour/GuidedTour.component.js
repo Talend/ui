@@ -13,8 +13,8 @@ import theme from './GuidedTour.scss';
 function getTooltipContent({ header, body }) {
 	return reactourCallbacks => (
 		<React.Fragment>
-			{header && <h2 className={classNames(theme.header, 'guided-tour__header')}>{header}</h2>}
-			<p className={classNames(theme.body, 'guided-tour__body')}>
+			{header && <h2 className={classNames(theme.header, 'tc-guided-tour__header')}>{header}</h2>}
+			<p className={classNames(theme.body, 'tc-guided-tour__body')}>
 				{typeof body === 'function' ? body(reactourCallbacks) : body}
 			</p>
 		</React.Fragment>
@@ -38,24 +38,24 @@ function getLastStepNextButton(t) {
 
 function GuidedTour({ className, disableAllInteractions, steps, t, tReady, ...rest }) {
 	if (!tReady || !steps || !steps.length) {
-		return <React.Fragment />;
+		return null;
 	}
 
 	return (
 		<Tour
 			className={classNames(
-				theme['guided-tour'],
-				'guided-tour',
+				theme['tc-guided-tour'],
+				'tc-guided-tour',
 				{ [theme['no-interaction']]: !!disableAllInteractions },
-				{ 'guided-tour--no-interaction': !!disableAllInteractions },
+				{ 'tc-guided-tour--no-interaction': !!disableAllInteractions },
 				className,
 			)}
 			closeWithMask={false}
 			disableDotsNavigation
 			disableInteraction
-			highlightedMaskClassName={classNames(theme.highlighted, 'guided-tour__highlighted-mask')}
+			highlightedMaskClassName={classNames(theme.highlighted, 'tc-guided-tour__highlighted-mask')}
 			lastStepNextButton={getLastStepNextButton(t)}
-			maskClassName={classNames(theme.mask, 'guided-tour__mask')}
+			maskClassName={classNames(theme.mask, 'tc-guided-tour__mask')}
 			maskSpace={10}
 			rounded={4}
 			showNavigationNumber={false}

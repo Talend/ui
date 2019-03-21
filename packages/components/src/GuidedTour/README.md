@@ -20,9 +20,9 @@ Those classes are accessible from outside.
 
 | CSS class | Type | Description |
 | --------- | ---- | ----------- |
-| `.react-tour` | block | The guided tour |
-| `.react-tour__mask` | element | The dark overlay |
-| `.react-tour__highlighted-mask` | element | The light overlay to highlight element |
-| `.react-tour__header` | element | The header of the tooltip |
-| `.react-tour__body` | element | The body of the tooltip |
-| `.react-tour--no-interaction` | modifier | The guided tour without any controls |
+| `.tc-react-tour` | block | The guided tour |
+| `.tc-react-tour__mask` | element | The dark overlay |
+| `.tc-react-tour__highlighted-mask` | element | The light overlay to highlight element |
+| `.tc-react-tour__header` | element | The header of the tooltip |
+| `.tc-react-tour__body` | element | The body of the tooltip |
+| `.tc-react-tour--no-interaction` | modifier | The guided tour without any controls |
