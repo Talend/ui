@@ -42,7 +42,7 @@ function DisplayMode(props) {
 		if (!onChange) {
 			setDisplayMode(initialDisplayMode);
 		}
-	}, [onChange]);
+	}, []);
 
 	function onSelect(value, event) {
 		if (onChange) {

@@ -9,30 +9,6 @@ import List from '../../src/List/ListComposition';
 import CellTitle from '../../src/VirtualizedList/CellTitle';
 import CellBadge from '../../src/VirtualizedList/CellBadge';
 
-const icons = {
-	'talend-badge': talendIcons['talend-badge'],
-	'talend-caret-down': talendIcons['talend-caret-down'],
-	'talend-chevron-end': talendIcons['talend-chevron-end'],
-	'talend-chevron-left': talendIcons['talend-chevron-left'],
-	'talend-cog': talendIcons['talend-cog'],
-	'talend-cross': talendIcons['talend-cross'],
-	'talend-expanded': talendIcons['talend-expanded'],
-	'talend-file': talendIcons['talend-file'],
-	'talend-file-json-o': talendIcons['talend-file-json-o'],
-	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
-	'talend-files-o': talendIcons['talend-files-o'],
-	'talend-folder': talendIcons['talend-folder'],
-	'talend-icons': talendIcons['talend-icons'],
-	'talend-pencil': talendIcons['talend-pencil'],
-	'talend-plus': talendIcons['talend-plus'],
-	'talend-plus-circle': talendIcons['talend-plus-circle'],
-	'talend-search': talendIcons['talend-search'],
-	'talend-star': talendIcons['talend-star'],
-	'talend-table': talendIcons['talend-table'],
-	'talend-tiles': talendIcons['talend-tiles'],
-	'talend-trash': talendIcons['talend-trash'],
-};
-
 const titleProps = {
 	onClick: action('onTitleClick'),
 	'data-feature': 'list.item.title',
@@ -74,7 +50,7 @@ function CustomList(props) {
 storiesOf('List Composition', module)
 	.add('Default', () => (
 		<div className="virtualized-list">
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 			<h1>Default list</h1>
 			<p>By default List doesn't come with any feature</p>
 			<pre>{`
@@ -101,7 +77,7 @@ storiesOf('List Composition', module)
 	))
 	.add('Display mode: uncontrolled', () => (
 		<div className="virtualized-list">
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 			<h1>List with display mode change</h1>
 			<p>You can change display mode by adding the selector in toolbar</p>
 			<pre>{`
@@ -126,7 +102,7 @@ storiesOf('List Composition', module)
 	))
 	.add('Display mode: controlled', () => (
 		<div className="virtualized-list">
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 			<h1>List with display mode change</h1>
 			<p>
 				You can control the display mode by<br />

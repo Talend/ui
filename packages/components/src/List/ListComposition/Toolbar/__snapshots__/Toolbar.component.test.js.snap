@@ -3,7 +3,7 @@
 exports[`List Toolbar should display nav with children 1`] = `
 <Uncontrolled(Navbar)
   bsStyle="default"
-  className="theme-tc-list-toolbar"
+  className="theme-tc-list-toolbar tc-list-toolbar"
   componentClass="div"
   fluid={true}
   role="toolbar"
