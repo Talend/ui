@@ -13,20 +13,21 @@ function checkBabelJsonExtension(babelConfigJsonPath) {
 }
 
 function getBabelConfigPath() {
-	const userBabelrcPath = `${process.cwd()}/.babelrc`;
-	const userBabelrcJsonPath = `${process.cwd()}/.babelrc.json`;
-	const userBabelrcConfigJsPath = `${process.cwd()}/babelrc.config.js`;
+	const userBabelrc = path.join(process.cwd(), '.babelrc');
+	const userBabelrcJson = path.join(process.cwd(), '.babelrc.json');
+	const userBabelJs = path.join(process.cwd(), 'babel.config.js');
+	const defaultBabelrc = path.join(__dirname, '.babelrc.json');
 
-	if (fs.existsSync(userBabelrcPath)) {
-		checkBabelJsonExtension(userBabelrcPath);
-		return userBabelrcPath;
-	} else if (fs.existsSync(userBabelrcJsonPath)) {
-		checkBabelJsonExtension(userBabelrcJsonPath);
-		return userBabelrcJsonPath;
-	} else if (fs.existsSync(userBabelrcConfigJsPath)) {
-		return userBabelrcConfigJsPath;
+	if (fs.existsSync(userBabelrc)) {
+		checkBabelJsonExtension(userBabelrc);
+		return userBabelrc;
+	} else if (fs.existsSync(userBabelrcJson)) {
+		checkBabelJsonExtension(userBabelrcJson);
+		return userBabelrcJson;
+	} else if (fs.existsSync(userBabelJs)) {
+		return userBabelJs;
 	} else {
-		return path.join(__dirname, '.babelrc.json');
+		return defaultBabelrc;
 	}
 }
 
