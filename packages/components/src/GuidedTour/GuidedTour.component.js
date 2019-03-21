@@ -30,14 +30,8 @@ function formatSteps(steps) {
 	});
 }
 
-function getLastStepNextButton(t) {
-	return (
-		<Action bsStyle={'info'} label={t('GUIDEDTOUR_LAST_STEP', { defaultValue: 'Let me try' })} />
-	);
-}
-
 function GuidedTour({ className, disableAllInteractions, steps, t, tReady, ...rest }) {
-	if (!tReady || !steps || !steps.length) {
+	if (!tReady || !steps.length) {
 		return null;
 	}
 
@@ -53,9 +47,9 @@ function GuidedTour({ className, disableAllInteractions, steps, t, tReady, ...re
 			closeWithMask={false}
 			disableDotsNavigation
 			disableInteraction
-			highlightedMaskClassName={classNames(theme.highlighted, 'tc-guided-tour__highlighted-mask')}
-			lastStepNextButton={getLastStepNextButton(t)}
-			maskClassName={classNames(theme.mask, 'tc-guided-tour__mask')}
+			highlightedMaskClassName={classNames('tc-guided-tour__highlighted-mask')}
+			lastStepNextButton={<Action bsStyle={'info'} label={t('GUIDEDTOUR_LAST_STEP', { defaultValue: 'Let me try' })} />}
+			maskClassName={classNames('tc-guided-tour__mask')}
 			maskSpace={10}
 			rounded={4}
 			showNavigationNumber={false}
@@ -70,6 +64,7 @@ function GuidedTour({ className, disableAllInteractions, steps, t, tReady, ...re
 GuidedTour.displayName = 'GuidedTour';
 
 GuidedTour.defaultProps = {
+	steps: [],
 	t: getDefaultT(),
 };
 

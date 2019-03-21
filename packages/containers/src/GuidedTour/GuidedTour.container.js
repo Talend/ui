@@ -30,12 +30,6 @@ class GuidedTourContainer extends React.Component {
 			}
 			return steps;
 		}
-
-		const stepsFromState = this.props.state.get('steps');
-		if (stepsFromState) {
-			return stepsFromState.toJS();
-		}
-
 		return undefined;
 	};
 

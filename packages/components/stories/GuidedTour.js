@@ -168,7 +168,7 @@ const getLayoutWithLoremIpsum = () => (
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'space-between',
-				padding: '1rem 2rem',
+				padding: '1rem 10rem 1rem 2rem',
 				flexBasis: '100vw',
 				background: '#eee',
 			}}
@@ -230,6 +230,30 @@ const getLayoutWithLoremIpsum = () => (
 					tincidunt neque, eu ultricies elit volutpat in. Pellentesque habitant morbi tristique
 					senectus et netus et malesuada fames ac turpis egestas. Suspendisse faucibus bibendum
 					ultrices. Donec sed molestie enim.
+				</p>
+
+				<p>
+					Curabitur erat eros, ornare quis libero nec, eleifend ultricies purus. Donec non nisi
+					vehicula, elementum justo non, facilisis neque. Phasellus risus lectus, egestas eget purus
+					sit amet, commodo porttitor velit. Ut justo enim, pharetra nec aliquet eget, tincidunt
+					vulputate neque. Praesent libero est, ultrices nec felis quis, bibendum pellentesque
+					turpis. Mauris scelerisque tristique nisi quis pharetra. Integer et posuere sem. Praesent
+					aliquet ex ac dolor aliquet, viverra aliquet urna sagittis. Nulla eu vehicula ipsum.
+					Praesent interdum sapien vel mi blandit aliquam. Pellentesque habitant morbi tristique
+					senectus et netus et malesuada fames ac turpis egestas. Aenean sit amet augue dolor. Nunc
+					a fermentum eros. Integer ac auctor nisl. Quisque volutpat arcu in purus ornare mollis.
+				</p>
+
+				<p>
+					Pellentesque sed mattis libero. Proin elementum dictum finibus. Duis magna velit,
+					vestibulum non neque at, feugiat ultrices sapien. Pellentesque maximus dolor a tellus
+					euismod ultricies. Fusce non elit arcu. Cras vitae porttitor ex. Vivamus posuere nisl ac
+					purus bibendum, id ultrices sapien rhoncus. Quisque pellentesque, nisl ac tincidunt
+					scelerisque, eros ante commodo massa, eget mollis tellus leo eget augue. Integer sit amet
+					lectus mi. Donec ut facilisis enim. In vehicula dapibus sem mattis pharetra. Sed eget enim
+					rhoncus, eleifend ligula et, lacinia nunc. Pellentesque habitant morbi tristique senectus
+					et netus et malesuada fames ac turpis egestas. Donec in convallis lorem, in laoreet mi.
+					Sed tristique in nibh quis viverra.
 				</p>
 			</article>
 		</main>
