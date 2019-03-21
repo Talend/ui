@@ -30,23 +30,24 @@ For display mode
 
 For sort
 * In Table mode
-  * VList displays the sort caret in the header
-  * VList must propagate sort new values on header click
+  * VList displays the sort caret in the headers
+  * VList must propagate sort new values on headers click
 * In Large mode
   * VList must display the Sort widget value
   * Sort widget must propagate changes
 * The switch between each mode must keep the sort values. So there is synchronisation.
 
-TL;DR: This synchronisation will be through React context.
+**TL;DR**
+This synchronisation will be through React context.
 
 ![DisplayMode, SortBy and VList are subcomponents that receive the synchronized information from Manager via React context](./img/jsx-to-schema.gif "JSX to schema principle")
 
 Let's see how we can add a feature, with shared info between List widgets that fits this system.
 
 
-## Manager
+## ListManager
 
-ListManager hold the state as the single source of truth in uncontrolled mode.
+ListManager holds the state as the single source of truth in uncontrolled mode.
 
 Any synchronized value and its setter are exposed via React context.
 
@@ -113,7 +114,7 @@ For example, any prop to manage the DisplayMode must be set in ListDisplayMode.
 **Why ?**
 
 Simply to avoid the apropcalypse we have today with the List component.
-Scoping the api of the feature make it simpler to manage, and keep each widget api minimalist.
+Scoping the api of the feature makes it simpler to manage, and keep each widget api minimalist.
 
 **Example**
 
@@ -152,10 +153,23 @@ Writing minimal code makes it work internally.
 </List.Container>
 ```
 
-In this example, any change in ListDisplayMode propagates via the ListManager, and the 2 widgets (ListDisplayMode and VList) use the same value from context.
+In this example, any change in ListDisplayMode propagates via the ListManager, and the 2 widgets (ListDisplayMode and VList) use the same value from ListContext.
 
 
-Now let's add the possibility to set an initial value. As seen before, we must keep the api in ListDisplayMode to avoid a ListManager apropcalypse.
+Now let's add the possibility to set an initial value in uncontrolled mode. As seen before, we must keep the api in ListDisplayMode to avoid a ListManager apropcalypse.
+```diff
+<List.Manager id="my-list" collection={collection}>
+    <List.Toolbar>
+        <List.DisplayMode
+            id="my-list-displayMode"
++           initialDisplayMode="large"
+/>
+    </List.Toolbar>
+
+    <List.VList></List.VList>
+</List.Container>
+```
+
 What we need to do is propagate this initial value to synchronize it to other components.
 
 ```javascript
@@ -174,4 +188,44 @@ function ListDisplayMode(props) {
 
 ### Controlled mode
 
+Controlled mode basically replaces the internal ListContext mode by user own system.
 
+What we want to write ? Again, it must be managed by ListDisplayMode to avoid the List apropcalypse.
+
+```diff
+<List.Manager id="my-list" collection={collection}>
+    <List.Toolbar>
+        <List.DisplayMode
+            id="my-list-displayMode"
++           selectedDisplayMode={valueFromMyAppStateSystem}
++           onChange={(event, value) => changeInMyAppStateSystem(event, value)}
+/>
+    </List.Toolbar>
+
+-   <List.VList>
++   <List.VList type={valueFromMyAppStateSystem}>
+    </List.VList>
+</List.Container>
+```
+
+In the implementation, we just need the props (value, setter) to be a priority over context (value, setter).
+
+```javascript
+import React, { useContext } from 'react';
+import ListContext from '../context';
+
+function ListDisplayMode(props) {
+    const { displayMode, setDisplayMode } = useContext(ListContext);
+    const { selectedDisplayMode, onChange } = props;
+
+    // if we have selectedDisplayMode/onChange : controlled mode, we use props (selectedDisplayMode, onChange)
+    // otherwise : uncontrolled mode, we use context (displayMode, setDisplayMode)
+}
+```
+
+
+## Summary
+
+1. Use the ListManager + ListContext to set and propagate the info to all the List widgets
+2. The list widgets must manage their own props for controlled mode
+3. The list widgets takes props as priority (controlled mode), then context if props are undefined (uncontrolled mode)
