@@ -163,9 +163,11 @@ export default class UIForm extends React.Component {
 	/**
 	 * Set all fields validation in state
 	 * @param errors the validation errors
+	 * @param callback callback to call after setState
 	 */
-	setErrors(event, errors) {
-		this.setState(setLiveStateErrors(errors));
+	setErrors(event, errors, callback) {
+		this.setState(setLiveStateErrors(errors), callback);
+
 		if (this.props.onErrors) {
 			this.props.onErrors(event, errors);
 		}
