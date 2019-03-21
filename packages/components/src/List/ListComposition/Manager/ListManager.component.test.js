@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 
-import Manager from './Manager.component';
+import ListManager from './ListManager.component';
 import { ListContext } from '../context';
 
 function TestConsumer() {
@@ -18,9 +18,9 @@ describe('List Manager', () => {
 	it('should display children', () => {
 		// when
 		const wrapper = mount(
-			<Manager>
+			<ListManager>
 				<ContextTestConsumer />
-			</Manager>,
+			</ListManager>,
 		);
 
 		// then
@@ -33,9 +33,9 @@ describe('List Manager', () => {
 
 		// when
 		const wrapper = mount(
-			<Manager collection={collection}>
+			<ListManager collection={collection}>
 				<ContextTestConsumer />
-			</Manager>,
+			</ListManager>,
 		);
 
 		// then
@@ -45,9 +45,9 @@ describe('List Manager', () => {
 	it('should propagate display mode', () => {
 		// given
 		const wrapper = mount(
-			<Manager collection={[{ id: 0 }, { id: 1 }]}>
+			<ListManager collection={[{ id: 0 }, { id: 1 }]}>
 				<ContextTestConsumer />
-			</Manager>,
+			</ListManager>,
 		);
 		expect(wrapper.find(TestConsumer).prop('displayMode')).toBeUndefined();
 
