@@ -8,7 +8,7 @@ $tc-guidedtour-close-button-size: $svg-sm-size !default;
 		--reactour-accent: #{$tc-guidedtour-accent-color};
 		padding: $tc-guidedtour-tooltip-padding (3 * $tc-guidedtour-tooltip-padding) $tc-guidedtour-tooltip-padding $tc-guidedtour-tooltip-padding;
 		border-color: rgb(226, 226, 226);
-		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.20);
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
 
 		[data-tour-elem='controls'] {
 			margin: 0 (-2 * $tc-guidedtour-tooltip-padding) 0 0;
@@ -27,7 +27,7 @@ $tc-guidedtour-close-button-size: $svg-sm-size !default;
 		}
 
 		.header,
-		.body{
+		.body {
 			margin: 0 0 $padding-larger 0;
 		}
 	}
