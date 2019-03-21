@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Navbar from 'react-bootstrap/lib/Navbar';
 
-import theme from './Toolbar.scss';
+import theme from './ListToolbar.scss';
 
-function Toolbar(props) {
+function ListToolbar(props) {
 	return (
 		<Navbar
 			componentClass="div"
@@ -17,10 +17,8 @@ function Toolbar(props) {
 		</Navbar>
 	);
 }
-
-Toolbar.displayName = 'List.Toolbar';
-Toolbar.propTypes = {
+ListToolbar.propTypes = {
 	children: PropTypes.node,
 };
 
-export default Toolbar;
+export default ListToolbar;
