@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`List DisplayMode should render 1`] = `
-<List.DisplayMode
+<ListDisplayMode
   displayModes={
     Array [
       "table",
@@ -256,5 +256,5 @@ exports[`List DisplayMode should render 1`] = `
       </NavDropdown>
     </ul>
   </Nav>
-</List.DisplayMode>
+</ListDisplayMode>
 `;

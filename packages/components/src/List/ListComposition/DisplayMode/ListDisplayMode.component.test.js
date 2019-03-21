@@ -4,7 +4,7 @@ import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import DisplayMode from './DisplayMode.component';
+import ListDisplayMode from './ListDisplayMode.component';
 import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
 
@@ -16,7 +16,7 @@ describe('List DisplayMode', () => {
 		// when
 		const wrapper = mount(
 			<ListContext.Provider value={contextValue}>
-				<DisplayMode id="myDisplayMode" />
+				<ListDisplayMode id="myDisplayMode" />
 			</ListContext.Provider>,
 		);
 
@@ -35,7 +35,7 @@ describe('List DisplayMode', () => {
 		// when
 		const wrapper = mount(
 			<ListContext.Provider value={contextValue}>
-				<DisplayMode id="myDisplayMode" displayModes={['lol', 'mdr']} />
+				<ListDisplayMode id="myDisplayMode" displayModes={['lol', 'mdr']} />
 			</ListContext.Provider>,
 		);
 
@@ -52,7 +52,7 @@ describe('List DisplayMode', () => {
 			act(() => {
 				mount(
 					<ListContext.Provider value={contextValue}>
-						<DisplayMode id="myDisplayMode" initialDisplayMode="large" />
+						<ListDisplayMode id="myDisplayMode" initialDisplayMode="large" />
 					</ListContext.Provider>,
 				);
 			});
@@ -69,7 +69,7 @@ describe('List DisplayMode', () => {
 			act(() => {
 				wrapper = mount(
 					<ListContext.Provider value={contextValue}>
-						<DisplayMode id="myDisplayMode" />
+						<ListDisplayMode id="myDisplayMode" />
 					</ListContext.Provider>,
 				);
 			});
@@ -96,7 +96,7 @@ describe('List DisplayMode', () => {
 			// when
 			const wrapper = mount(
 				<ListContext.Provider value={contextValue}>
-					<DisplayMode id="myDisplayMode" selectedDisplayMode="large" />
+					<ListDisplayMode id="myDisplayMode" selectedDisplayMode="large" />
 				</ListContext.Provider>,
 			);
 
@@ -113,7 +113,7 @@ describe('List DisplayMode', () => {
 
 			const wrapper = mount(
 				<ListContext.Provider value={contextValue}>
-					<DisplayMode id="myDisplayMode" selectedDisplayMode="large" onChange={onChange} />
+					<ListDisplayMode id="myDisplayMode" selectedDisplayMode="large" onChange={onChange} />
 				</ListContext.Provider>,
 			);
 

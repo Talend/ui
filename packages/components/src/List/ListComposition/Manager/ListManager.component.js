@@ -18,7 +18,6 @@ function Manager(props) {
 
 	return <ListContext.Provider value={contextValues}>{props.children}</ListContext.Provider>;
 }
-Manager.displayName = 'List.Manager';
 Manager.defaultProps = {
 	t: getDefaultT(),
 };
