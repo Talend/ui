@@ -29,6 +29,7 @@ import './Icon';
 import './JSONSchemaRenderer';
 import './Layout';
 import './List';
+import './ListComposition/ListComposition';
 import './ListView';
 import './Loader';
 import './MultiSelect';
