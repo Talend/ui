@@ -1,9 +1,8 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import tv4 from 'tv4';
-import noop from 'lodash/noop';
 import { actions, data, mergedSchema, initProps } from '../../__mocks__/data';
-import UIForm, { UIFormComponent, INVALID_FIELD_SELECTOR } from './UIForm.component';
+import UIForm, { UIFormComponent, INVALID_ATTRIBUTE } from './UIForm.component';
 
 describe('UIForm component', () => {
 	let props;
@@ -253,11 +252,6 @@ describe('UIForm component', () => {
 	});
 
 	describe('#onSubmit', () => {
-		const validProperties = {
-			...data.properties,
-			lastname: 'This has at least 10 characters',
-			firstname: 'This is required',
-		};
 		const submitEvent = { preventDefault: jest.fn() };
 
 		it('should prevent event default', () => {
@@ -284,7 +278,7 @@ describe('UIForm component', () => {
 				{
 					firstname: 'Missing required field',
 				},
-				wrapper.instance().focusFirstError,
+				expect.anything(),
 			);
 		});
 
@@ -312,7 +306,7 @@ describe('UIForm component', () => {
 					lastname: 'String is too short (6 chars), minimum 10',
 					check: 'error added via a trigger',
 				},
-				wrapper.instance().focusFirstError,
+				expect.anything(),
 			);
 		});
 
@@ -333,7 +327,7 @@ describe('UIForm component', () => {
 				{
 					firstname: 'is required',
 				},
-				wrapper.instance().focusFirstError,
+				expect.anything(),
 			);
 		});
 
@@ -349,6 +343,11 @@ describe('UIForm component', () => {
 		});
 
 		it('should call submit callback when form is valid', () => {
+			const validProperties = {
+				...data.properties,
+				lastname: 'This has at least 10 characters',
+				firstname: 'This is required',
+			};
 			// given
 			const wrapper = mount(<UIFormComponent {...data} {...props} properties={validProperties} />);
 
@@ -357,32 +356,24 @@ describe('UIForm component', () => {
 
 			// then
 			expect(props.onSubmit).toBeCalled();
-			expect(props.setErrors).toHaveBeenCalledWith(submitEvent, {}, noop);
+			expect(props.setErrors).toHaveBeenCalledWith(submitEvent, {}, undefined);
 		});
-	});
 
-	describe('#focusFirstError', () => {
-		it('should focus the first element', () => {
-			const focus = jest.fn();
-			const querySelector = jest.fn(() => ({
-				focus,
-			}));
-			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
-			wrapper.instance().formRef = { querySelector };
-			wrapper.instance().focusFirstError();
+		it('should focus the first element in error after submit', () => {
+			// given
+			const wrapper = mount(
+				<UIFormComponent {...data} {...props} errors={{ firstname: 'firstname is required' }} />,
+			);
 
-			expect(querySelector).toHaveBeenCalledWith(INVALID_FIELD_SELECTOR);
-			expect(focus).toHaveBeenCalled();
-		});
-	});
+			// when
+			wrapper.instance().onSubmit(submitEvent);
 
-	describe('#setFormRef', () => {
-		it('should set the form ref', () => {
-			const element = {};
-			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
-			wrapper.instance().setFormRef(element);
-
-			expect(wrapper.instance().formRef).toBe(element);
+			// then
+			expect(document.activeElement.getAttribute('id')).toBe('myFormId_lastname');
+			expect(props.setErrors).toBeCalled();
+			props.setErrors.mock.calls[0][2]();
+			expect(document.activeElement.getAttribute('id')).toBe('myFormId_firstname');
+			expect(document.activeElement.getAttribute(INVALID_ATTRIBUTE)).toBe('true');
 		});
 	});
 });

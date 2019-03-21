@@ -3,7 +3,6 @@ import React from 'react';
 import classNames from 'classnames';
 import tv4 from 'tv4';
 import { translate } from 'react-i18next';
-import noop from 'lodash/noop';
 
 import { DefaultFormTemplate, TextModeFormTemplate } from './FormTemplate';
 import merge from './merge';
@@ -19,7 +18,8 @@ import { I18N_DOMAIN_FORMS } from '../constants';
 import '../translate';
 import theme from './UIForm.scss';
 
-export const INVALID_FIELD_SELECTOR = '[aria-invalid="true"]';
+export const INVALID_ATTRIBUTE = 'aria-invalid';
+export const INVALID_FIELD_SELECTOR = `[${INVALID_ATTRIBUTE}="true"]`;
 
 export class UIFormComponent extends React.Component {
 	static displayName = 'TalendUIForm';
@@ -237,7 +237,7 @@ export class UIFormComponent extends React.Component {
 			}, {});
 
 		const isValid = !Object.keys(errors).length;
-		this.props.setErrors(event, errors, isValid ? noop : this.focusFirstError);
+		this.props.setErrors(event, errors, !isValid ? this.focusFirstError : undefined);
 
 		if (this.props.onSubmit && isValid) {
 			if (this.props.moz) {
