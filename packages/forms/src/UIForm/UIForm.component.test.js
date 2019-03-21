@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import tv4 from 'tv4';
 import { actions, data, mergedSchema, initProps } from '../../__mocks__/data';
-import UIForm, { UIFormComponent, INVALID_ATTRIBUTE } from './UIForm.component';
+import UIForm, { UIFormComponent } from './UIForm.component';
 
 describe('UIForm component', () => {
 	let props;
@@ -343,12 +343,12 @@ describe('UIForm component', () => {
 		});
 
 		it('should call submit callback when form is valid', () => {
+			// given
 			const validProperties = {
 				...data.properties,
 				lastname: 'This has at least 10 characters',
 				firstname: 'This is required',
 			};
-			// given
 			const wrapper = mount(<UIFormComponent {...data} {...props} properties={validProperties} />);
 
 			// when
@@ -373,7 +373,7 @@ describe('UIForm component', () => {
 			expect(props.setErrors).toBeCalled();
 			props.setErrors.mock.calls[0][2]();
 			expect(document.activeElement.getAttribute('id')).toBe('myFormId_firstname');
-			expect(document.activeElement.getAttribute(INVALID_ATTRIBUTE)).toBe('true');
+			expect(document.activeElement.getAttribute('aria-invalid')).toBe('true');
 		});
 	});
 });

@@ -18,10 +18,6 @@ import { I18N_DOMAIN_FORMS } from '../constants';
 import '../translate';
 import theme from './UIForm.scss';
 
-export const INVALID_ATTRIBUTE = 'aria-invalid';
-
-const INVALID_SELECTOR = `[${INVALID_ATTRIBUTE}="true"]`;
-
 export class UIFormComponent extends React.Component {
 	static displayName = 'TalendUIForm';
 	constructor(props) {
@@ -260,7 +256,7 @@ export class UIFormComponent extends React.Component {
 			return;
 		}
 
-		this.formRef.querySelector(INVALID_SELECTOR).focus();
+		this.formRef.querySelector('[aria-invalid="true"]').focus();
 	}
 
 	render() {
