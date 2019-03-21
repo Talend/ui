@@ -19,7 +19,8 @@ import '../translate';
 import theme from './UIForm.scss';
 
 export const INVALID_ATTRIBUTE = 'aria-invalid';
-export const INVALID_FIELD_SELECTOR = `[${INVALID_ATTRIBUTE}="true"]`;
+
+const INVALID_SELECTOR = `[${INVALID_ATTRIBUTE}="true"]`;
 
 export class UIFormComponent extends React.Component {
 	static displayName = 'TalendUIForm';
@@ -259,7 +260,7 @@ export class UIFormComponent extends React.Component {
 			return;
 		}
 
-		this.formRef.querySelector(INVALID_FIELD_SELECTOR).focus();
+		this.formRef.querySelector(INVALID_SELECTOR).focus();
 	}
 
 	render() {
