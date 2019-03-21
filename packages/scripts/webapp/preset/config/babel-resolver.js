@@ -19,7 +19,8 @@ function getBabelConfigPath() {
 }
 
 function getBabelConfig() {
-	return JSON.parse(fs.readFileSync(getBabelConfigPath(), 'utf8'));
+	// eslint-disable-next-line global-require
+	return require(getBabelConfigPath());
 }
 
 module.exports = {
