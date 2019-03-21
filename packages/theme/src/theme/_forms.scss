@@ -413,6 +413,7 @@ form {
 	&-control:disabled,
 	&-control[value]:not([value='']):disabled {
 		color: $silver-chalice;
+		-webkit-text-fill-color: $silver-chalice;
 
 		+ label {
 			color: $form-label-base-color;
