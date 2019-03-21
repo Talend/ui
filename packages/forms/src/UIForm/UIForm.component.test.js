@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import tv4 from 'tv4';
+import noop from 'lodash/noop';
 import { actions, data, mergedSchema, initProps } from '../../__mocks__/data';
 import UIForm, { UIFormComponent, INVALID_FIELD_SELECTOR } from './UIForm.component';
-import noop from 'lodash/noop';
 
 describe('UIForm component', () => {
 	let props;
