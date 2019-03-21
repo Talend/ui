@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts",
   "description": "Set of scripts",
-  "version": "0.15.0",
+  "version": "0.16.0",
   "license": "Apache-2.0",
   "main": "index.js",
   "mainSrc": "index.js",
@@ -24,6 +24,7 @@
     "@babel/plugin-proposal-export-default-from": "^7.1.0",
     "@babel/plugin-proposal-export-namespace-from": "^7.1.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.1.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-object-assign": "^7.1.0",
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
