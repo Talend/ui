@@ -106,9 +106,11 @@ function VList(props) {
 
 ![ListDisplayMode set value in ListManager, that propagates it to ListDisplayMode and VList](./img/compound-set.gif "Context propagation")
 
+### Let's avoid the mistakes we made
+
 **Rule**
 
-It's important to keep the api that concern the feature in the feature's widget. Avoid passing all the things to ListManager props.
+It's important to keep the api that concerns the feature in the feature's widget. Avoid passing all the things to ListManager props.
 For example, any prop to manage the DisplayMode must be set in ListDisplayMode.
 
 **Why ?**
@@ -135,7 +137,32 @@ Scoping the api of the feature makes it simpler to manage, and keep each widget 
 </List.Container>
 ```
 
-Let's see how.
+Let's see how. But first we need to know what is a controlled/uncontrolled component.
+
+### Controlled vs uncontrolled
+
+A controlled component is equivalent to a presentational component. It takes values an from props, and doesn't hold a state. The source of truth is from props.
+It means user has to manage the state himself.
+
+```javascript
+function ControlledInput({ value, onChange }) {
+    // It doesn't hold a state, it only renders the value from props.
+    // On change, the new value is not rendered, unless it is reinjected as props
+    return <input value={value} onChange={onChange} />;
+}
+```
+
+
+An uncontrolled component has its own state. The value is then propagated at some event.
+
+```javascript
+function UncontrolledInput({ onChange }) {
+    // The state is in the DOM.
+    // Any change appears in the input automatically.
+    // The value is propagated via onChange, that can take the value from event.target.value
+    return <input onChange={onChange} />
+}
+```
 
 
 ### Uncontrolled mode
@@ -170,7 +197,8 @@ Now let's add the possibility to set an initial value in uncontrolled mode. As s
 </List.Container>
 ```
 
-What we need to do is propagate this initial value to synchronize it to other components.
+What we need to do is propagate this initial value to synchronize it to other components only once, on component mount.
+Then the context system will make this value evolve internally.
 
 ```javascript
 import React, { useContext } from 'react';
@@ -209,6 +237,7 @@ What we want to write ? Again, it must be managed by ListDisplayMode to avoid th
 ```
 
 In the implementation, we just need the props (value, setter) to be a priority over context (value, setter).
+So the value never evolve internally, it's the user state system that will reinject the value to each widgets.
 
 ```javascript
 import React, { useContext } from 'react';
