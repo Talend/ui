@@ -1,15 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Toolbar from './Toolbar.component';
+import ListToolbar from './ListToolbar.component';
 
 describe('List Toolbar', () => {
 	it('should display nav with children', () => {
 		// when
 		const wrapper = shallow(
-			<Toolbar>
+			<ListToolbar>
 				<div>Hello</div>
-			</Toolbar>,
+			</ListToolbar>,
 		);
 
 		// then

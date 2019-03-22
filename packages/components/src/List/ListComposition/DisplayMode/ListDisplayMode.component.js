@@ -28,7 +28,7 @@ function getLabel(option, t) {
 	}
 }
 
-function DisplayMode(props) {
+function ListDisplayMode(props) {
 	const { displayMode, setDisplayMode, t } = useListContext();
 	const {
 		id,
@@ -86,13 +86,12 @@ function DisplayMode(props) {
 		</React.Fragment>
 	);
 }
-DisplayMode.displayName = 'List.DisplayMode';
-DisplayMode.defaultProps = {
+ListDisplayMode.defaultProps = {
 	id: uuid.v4(),
 	displayModes: ['table', 'large'],
 	initialDisplayMode: 'table',
 };
-DisplayMode.propTypes = {
+ListDisplayMode.propTypes = {
 	displayModes: PropTypes.arrayOf(PropTypes.string),
 	id: PropTypes.string,
 	initialDisplayMode: PropTypes.string,
@@ -100,4 +99,4 @@ DisplayMode.propTypes = {
 	selectedDisplayMode: PropTypes.string,
 };
 
-export default DisplayMode;
+export default ListDisplayMode;
