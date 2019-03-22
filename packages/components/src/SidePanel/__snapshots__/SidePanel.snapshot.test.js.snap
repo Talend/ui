@@ -15,6 +15,7 @@ exports[`Storyshots SidePanel default 1`] = `
   >
     <div
       className="btn-group"
+      data-tour="language-switcher"
     >
       <button
         className="btn"
@@ -336,6 +337,7 @@ exports[`Storyshots SidePanel docked 1`] = `
   >
     <div
       className="btn-group"
+      data-tour="language-switcher"
     >
       <button
         className="btn"
@@ -651,6 +653,7 @@ exports[`Storyshots SidePanel large docked 1`] = `
   >
     <div
       className="btn-group"
+      data-tour="language-switcher"
     >
       <button
         className="btn"
@@ -966,6 +969,7 @@ exports[`Storyshots SidePanel large reverse 1`] = `
   >
     <div
       className="btn-group"
+      data-tour="language-switcher"
     >
       <button
         className="btn"
@@ -1281,6 +1285,7 @@ exports[`Storyshots SidePanel links 1`] = `
   >
     <div
       className="btn-group"
+      data-tour="language-switcher"
     >
       <button
         className="btn"
@@ -1602,6 +1607,7 @@ exports[`Storyshots SidePanel not dockable 1`] = `
   >
     <div
       className="btn-group"
+      data-tour="language-switcher"
     >
       <button
         className="btn"
@@ -1890,6 +1896,7 @@ exports[`Storyshots SidePanel reverse 1`] = `
   >
     <div
       className="btn-group"
+      data-tour="language-switcher"
     >
       <button
         className="btn"
@@ -2205,6 +2212,7 @@ exports[`Storyshots SidePanel reverse with layout (toggle interactive) 1`] = `
   >
     <div
       className="btn-group"
+      data-tour="language-switcher"
     >
       <button
         className="btn"
@@ -2953,6 +2961,7 @@ exports[`Storyshots SidePanel with layout (toggle interactive) 1`] = `
   >
     <div
       className="btn-group"
+      data-tour="language-switcher"
     >
       <button
         className="btn"
@@ -3701,6 +3710,7 @@ exports[`Storyshots SidePanel 🎨 [MDM] SidePanel 1`] = `
   >
     <div
       className="btn-group"
+      data-tour="language-switcher"
     >
       <button
         className="btn"
@@ -4035,6 +4045,7 @@ exports[`Storyshots SidePanel 🎨 [PORTAL] SidePanel 1`] = `
   >
     <div
       className="btn-group"
+      data-tour="language-switcher"
     >
       <button
         className="btn"
@@ -4369,6 +4380,7 @@ exports[`Storyshots SidePanel 🎨 [TDC] SidePanel 1`] = `
   >
     <div
       className="btn-group"
+      data-tour="language-switcher"
     >
       <button
         className="btn"
@@ -4703,6 +4715,7 @@ exports[`Storyshots SidePanel 🎨 [TDP] SidePanel 1`] = `
   >
     <div
       className="btn-group"
+      data-tour="language-switcher"
     >
       <button
         className="btn"
@@ -5037,6 +5050,7 @@ exports[`Storyshots SidePanel 🎨 [TDS] SidePanel 1`] = `
   >
     <div
       className="btn-group"
+      data-tour="language-switcher"
     >
       <button
         className="btn"
@@ -5371,6 +5385,7 @@ exports[`Storyshots SidePanel 🎨 [TFD] SidePanel 1`] = `
   >
     <div
       className="btn-group"
+      data-tour="language-switcher"
     >
       <button
         className="btn"
@@ -5705,6 +5720,7 @@ exports[`Storyshots SidePanel 🎨 [TIC] SidePanel 1`] = `
   >
     <div
       className="btn-group"
+      data-tour="language-switcher"
     >
       <button
         className="btn"
@@ -6039,6 +6055,7 @@ exports[`Storyshots SidePanel 🎨 [TMC] SidePanel 1`] = `
   >
     <div
       className="btn-group"
+      data-tour="language-switcher"
     >
       <button
         className="btn"
