@@ -21,9 +21,11 @@ import classNames from 'classnames';
  * }
  */
 export function getTheme(...cssThemes) {
-	return (...params) => {
+	return function applyTheme(...params) {
 		const classnamesParams = params.reduce((acc, param) => {
-			if (typeof param === 'object') {
+			if (Array.isArray(param)) {
+				acc.push(...param.map(element => applyTheme(element)));
+			} else if (typeof param === 'object') {
 				const newObj = Object.entries(param).reduce((objAcc, [key, value]) => {
 					// eslint-disable-next-line no-param-reassign
 					objAcc[key] = value;

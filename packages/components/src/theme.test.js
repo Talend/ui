@@ -40,4 +40,16 @@ describe('Theme tool', () => {
 			'prop prop_mod1 prop_mod2 test-multiple-classes test-multiple-classes-mod1 test-multiple-classes-mod2',
 		);
 	});
+
+	it('should add with arrays classes', () => {
+		// given
+		const className = 'prop';
+		const className2 = 'test-multiple-classes';
+		// when
+		const result = cssTheme([className, className2]);
+		// then
+		expect(result).toEqual(
+			'prop prop_mod1 prop_mod2 test-multiple-classes test-multiple-classes-mod1 test-multiple-classes-mod2',
+		);
+	});
 });
