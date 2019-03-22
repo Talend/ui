@@ -273,9 +273,13 @@ describe('UIForm component', () => {
 			wrapper.instance().onSubmit(submitEvent);
 
 			// then
-			expect(props.setErrors).toBeCalledWith(submitEvent, {
-				firstname: 'Missing required field',
-			});
+			expect(props.setErrors).toBeCalledWith(
+				submitEvent,
+				{
+					firstname: 'Missing required field',
+				},
+				expect.anything(),
+			);
 		});
 
 		it('should validate all fields with existing errors', () => {
@@ -295,11 +299,15 @@ describe('UIForm component', () => {
 			wrapper.instance().onSubmit(submitEvent);
 
 			// then
-			expect(props.setErrors).toBeCalledWith(submitEvent, {
-				firstname: 'Missing required field',
-				lastname: 'String is too short (6 chars), minimum 10',
-				check: 'error added via a trigger',
-			});
+			expect(props.setErrors).toBeCalledWith(
+				submitEvent,
+				{
+					firstname: 'Missing required field',
+					lastname: 'String is too short (6 chars), minimum 10',
+					check: 'error added via a trigger',
+				},
+				expect.anything(),
+			);
 		});
 
 		it('should validate all fields with custom error messages', () => {
@@ -314,9 +322,13 @@ describe('UIForm component', () => {
 			wrapper.instance().onSubmit(submitEvent);
 
 			// then
-			expect(props.setErrors).toBeCalledWith(submitEvent, {
-				firstname: 'is required',
-			});
+			expect(props.setErrors).toBeCalledWith(
+				submitEvent,
+				{
+					firstname: 'is required',
+				},
+				expect.anything(),
+			);
 		});
 
 		it('should not call submit callback when form is invalid', () => {
@@ -344,6 +356,24 @@ describe('UIForm component', () => {
 
 			// then
 			expect(props.onSubmit).toBeCalled();
+			expect(props.setErrors).toHaveBeenCalledWith(submitEvent, {}, undefined);
+		});
+
+		it('should focus the first element in error after submit', () => {
+			// given
+			const wrapper = mount(
+				<UIFormComponent {...data} {...props} errors={{ firstname: 'firstname is required' }} />,
+			);
+
+			// when
+			wrapper.instance().onSubmit(submitEvent);
+
+			// then
+			expect(document.activeElement.getAttribute('id')).toBe('myFormId_lastname');
+			expect(props.setErrors).toBeCalled();
+			props.setErrors.mock.calls[0][2]();
+			expect(document.activeElement.getAttribute('id')).toBe('myFormId_firstname');
+			expect(document.activeElement.getAttribute('aria-invalid')).toBe('true');
 		});
 	});
 });

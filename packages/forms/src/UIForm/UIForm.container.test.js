@@ -161,12 +161,14 @@ describe('UIForm container', () => {
 			const wrapper = shallow(<UIForm data={data} {...props} />);
 			const instance = wrapper.instance();
 			const errors = { firstname: 'my firstname is invalid' };
+			const callback = jest.fn();
 
 			// when
-			instance.setErrors(null, errors);
+			instance.setErrors(null, errors, callback);
 
 			// then
 			expect(instance.state.liveState.errors).toEqual(errors);
+			expect(callback).toHaveBeenCalled();
 		});
 	});
 
