@@ -1,0 +1,55 @@
+import classNames from 'classnames';
+
+/**
+ * This function take cssModules files & generate a function that you can use to
+ * duplicate the classes: the generated from the css module & the generic allowing any host app
+ * to override / extend the style
+ * @param  {...object} cssThemes the css module you want to handle
+ * @example {
+ * // myScssFile.scss
+ * .error {
+ * 		color: red;
+ * }
+ *
+ * // MyJsFile
+ * import myCSS from './myScssFile.scss'
+ * import { getTheme } from '../theme';
+ *
+ * const theme = getTheme(myCSS);
+ * const rendererThing = <div className={theme('error', 'test')}></div>
+ * // This will output -> <div class="error test error_X341DZ"/>
+ * }
+ */
+export function getTheme(...cssThemes) {
+	return (...params) => {
+		const classnamesParams = params.reduce((acc, param) => {
+			if (typeof param === 'object') {
+				const newObj = Object.keys(param).reduce((objAcc, key) => {
+					// eslint-disable-next-line no-param-reassign
+					objAcc[key] = param[key];
+					cssThemes.forEach(cssTheme => {
+						if (cssTheme[key]) {
+							// eslint-disable-next-line no-param-reassign
+							objAcc[cssTheme[key]] = param[key];
+						}
+					});
+					return objAcc;
+				}, {});
+				acc.push(newObj);
+			}
+			if (typeof param === 'string') {
+				acc.push(param);
+				cssThemes.forEach(cssTheme => {
+					if (cssTheme[param]) {
+						acc.push(cssTheme[param]);
+					}
+				});
+			}
+			return acc;
+		}, []);
+
+		return classNames(...classnamesParams);
+	};
+}
+
+export default getTheme;
