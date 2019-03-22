@@ -10,6 +10,5 @@ function VList(props) {
 Object.entries({ ...VirtualizedList }).forEach(([key, value]) => {
 	VList[key] = value;
 });
-VList.displayName = 'List.VList';
 
 export default VList;
