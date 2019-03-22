@@ -218,6 +218,8 @@ function ListDisplayMode(props) {
 
 Controlled mode basically replaces the internal ListContext mode by user own system.
 
+![ListDisplayMode set value in User state system, that reinject it to ListDisplayMode and VList props](./img/controlled-set.gif "Controlled propagation")
+
 What we want to write ? Again, it must be managed by ListDisplayMode to avoid the List apropcalypse.
 
 ```diff
