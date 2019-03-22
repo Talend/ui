@@ -18,7 +18,7 @@ Let's take this jsx that represents what we want to write
        <List.VList.Content label="Id" dataKey="id" />
        <List.VList.Content label="Name" dataKey="name" />
    </List.VList>
-</List.Container>
+</List.Manager>
 ```
 
 In this example we have 2 features: display mode and sort selection. In those 2 features we need to share info.
