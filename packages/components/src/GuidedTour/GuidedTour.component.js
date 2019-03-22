@@ -47,9 +47,9 @@ function GuidedTour({ className, disableAllInteractions, steps, t, tReady, ...re
 			closeWithMask={false}
 			disableDotsNavigation
 			disableInteraction
-			highlightedMaskClassName={classNames('tc-guided-tour__highlighted-mask')}
+			highlightedMaskClassName="tc-guided-tour__highlighted-mask"
 			lastStepNextButton={<Action bsStyle={'info'} label={t('GUIDEDTOUR_LAST_STEP', { defaultValue: 'Let me try' })} />}
-			maskClassName={classNames('tc-guided-tour__mask')}
+			maskClassName="tc-guided-tour__mask"
 			maskSpace={10}
 			rounded={4}
 			showNavigationNumber={false}
