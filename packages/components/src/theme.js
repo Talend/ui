@@ -24,20 +24,19 @@ export function getTheme(...cssThemes) {
 	return (...params) => {
 		const classnamesParams = params.reduce((acc, param) => {
 			if (typeof param === 'object') {
-				const newObj = Object.keys(param).reduce((objAcc, key) => {
+				const newObj = Object.entries(param).reduce((objAcc, [key, value]) => {
 					// eslint-disable-next-line no-param-reassign
-					objAcc[key] = param[key];
+					objAcc[key] = value;
 					cssThemes.forEach(cssTheme => {
 						if (cssTheme[key]) {
 							// eslint-disable-next-line no-param-reassign
-							objAcc[cssTheme[key]] = param[key];
+							objAcc[cssTheme[key]] = value;
 						}
 					});
 					return objAcc;
 				}, {});
 				acc.push(newObj);
-			}
-			if (typeof param === 'string') {
+			} else if (typeof param === 'string') {
 				acc.push(param);
 				cssThemes.forEach(cssTheme => {
 					if (cssTheme[param]) {
