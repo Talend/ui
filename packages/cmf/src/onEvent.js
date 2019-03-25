@@ -4,7 +4,7 @@ import CONSTANT from './constant';
 
 function serializeEvent(event) {
 	if (event.persist) {
-		return {};
+		event.persist();
 	}
 	return event;
 }
