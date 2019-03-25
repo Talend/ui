@@ -45,11 +45,12 @@ describe('Theme tool', () => {
 		// given
 		const className = 'prop';
 		const className2 = 'test-multiple-classes';
+		const className3 = 'test';
 		// when
-		const result = cssTheme([className, className2]);
+		const result = cssTheme(className, [className2, className3]);
 		// then
 		expect(result).toEqual(
-			'prop prop_mod1 prop_mod2 test-multiple-classes test-multiple-classes-mod1 test-multiple-classes-mod2',
+			'prop prop_mod1 prop_mod2 test-multiple-classes test-multiple-classes-mod1 test-multiple-classes-mod2 test',
 		);
 	});
 });
