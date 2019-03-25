@@ -29,6 +29,7 @@ import EditableText from './EditableText';
 import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
 import FilterBar from './FilterBar';
+import GuidedTour from './GuidedTour';
 import HeaderTitle from './HeaderTitle';
 import ListView from './ListView';
 import TreeView from './TreeView';
@@ -151,6 +152,7 @@ export {
 	Emphasis,
 	Enumeration,
 	FilterBar,
+	GuidedTour,
 	HeaderBar,
 	HeaderTitle,
 	HttpError,
