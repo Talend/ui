@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Icon from '@talend/react-components/lib/Icon';
 import classNames from 'classnames';
+import { Actions } from '@talend/react-components/lib/Actions';
+import ActionIconToggle from '@talend/react-components/lib/Actions/ActionIconToggle';
 import Widget from '../../Widget';
 
 import theme from './CollapsibleFieldset.scss';
@@ -53,15 +54,16 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 						>
 							<legend id={id && `${id}__title`}>{title(value, schema)}</legend>
 						</div>
-						<button
+						{this.props.actions.length > 0 && <Actions actions={this.props.actions} />}
+						<ActionIconToggle
 							onClick={this.toggle}
 							id={id && `${id}__collapse`}
-							title="Collapse"
+							label="Collapse"
 							type="button"
-							className={theme.toggle}
-						>
-							<Icon name="talend-caret-down" transform={iconTransform} />
-						</button>
+							active={!value.isClosed}
+							icon="talend-caret-down"
+							iconTransform={iconTransform}
+						/>
 					</div>
 					{!value.isClosed && (
 						<div className={theme.body}>
@@ -77,6 +79,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 
 	CollapsibleFieldset.defaultProps = {
 		value: {},
+		actions: [],
 	};
 	CollapsibleFieldset.isCloseable = true;
 
@@ -88,6 +91,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 				items: PropTypes.array.isRequired,
 			}).isRequired,
 			value: PropTypes.object,
+			actions: PropTypes.array,
 		};
 	}
 

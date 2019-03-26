@@ -8,7 +8,16 @@
 
 		.control {
 			.delete {
-				color: $brand-danger;
+				color: $gray;
+
+				&:hover,
+				&:active {
+					color: $scooter;
+				}
+
+				&:active {
+					color: $brand-primary;
+				}
 			}
 			.tf-array-item-reorder {
 				color: $dark-silver;
