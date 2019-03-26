@@ -1,62 +1,61 @@
-const path = require('path');
-const yosay = require('yosay');
 const Generator = require('yeoman-generator');
+const yosay = require('yosay');
 const slug = require('slugg');
 
-module.exports = class AppGenerator extends Generator {
+module.exports = class CMFAppGenerator extends Generator {
 	initializing() {
 		this.composeWith('talend:dotfiles', {
 			name: () => this.props.name,
+			babelrc: false,
+			eslint: false,
+			sasslint: false,
+			travis: false,
 		});
 	}
 
 	prompting() {
-		this.log(yosay('Time to generate some libraries!'));
-		const prompts = [{
-			type: 'input',
-			name: 'name',
-			message: 'Library name',
-			default: slug(this.appname),
-		}, {
-			type: 'input',
-			name: 'author_name',
-			message: "Author's name",
-			default: process.env.USER,
-		}, {
-			type: 'input',
-			name: 'author_email',
-			message: "Authors's email",
-			default: `${process.env.USER}@talend.com`,
-		}];
+		// Have Yeoman greet the user.
+		this.log(yosay('Welcome to the react app generator!'));
+
+		const prompts = [
+			{
+				type: 'input',
+				name: 'name',
+				message: 'name',
+				default: this.appname,
+			},
+			{
+				type: 'input',
+				name: 'description',
+				message: 'description',
+			},
+		];
 
 		return this.prompt(prompts).then(props => {
 			if (props.name !== slug(this.appname)) {
 				this.destinationRoot(props.name);
 			}
+
+			// To access props later use this.props.someAnswer;
 			this.props = props;
 		});
 	}
 
 	writing() {
-		const d = new Date;
-		this.year = d.getFullYear();
-
-		const templates = ['package.json', 'README.md'];
-		templates.forEach((name) => {
-			this.fs.copyTpl(
-					this.templatePath(name),
-					this.destinationPath(name),
-					this
-			);
+		const fileToCopy = ['src', '.eslintrc', '.prettierrc'];
+		const tplToCopy = ['package.json'];
+		fileToCopy.forEach(name => {
+			this.fs.copy(this.templatePath(name), this.destinationPath(name));
 		});
-
-		this.fs.copy(
-			path.join(__dirname, '../../LICENSE'),
-			this.destinationPath('LICENSE')
-		);
+		tplToCopy.forEach(name => {
+			this.fs.copyTpl(this.templatePath(name), this.destinationPath(name), this);
+		});
 	}
-
 	install() {
-		this.npmInstall();
+		if (this.options.yarn) {
+			this.yarnInstall();
+		} else {
+			this.npmInstall();
+		}
 	}
 };

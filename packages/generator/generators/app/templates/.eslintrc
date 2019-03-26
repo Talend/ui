@@ -1,0 +1,3 @@
+{
+  "extends": "@talend/scripts/webapp/preset/config/.eslintrc"
+}

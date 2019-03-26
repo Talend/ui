@@ -1,24 +1,62 @@
 {
   "name": "<%= props.name %>",
-  "version": "0.0.0",
-  "description": "<%= props.name %> library.",
-  "license": "Apache-2.0",
-  "author": "<%= props.author_name %> <%= props.author_email %>",
+  "version": "0.1.0",
+  "description": "<%= props.description %>",
+  "main": "app/index.js",
+  "scripts": {
+    "start": "talend-scripts start --open",
+    "prepublish": "talend-scripts build",
+    "lint:es": "talend-scripts lint:es",
+    "test": "talend-scripts test",
+    "test:watch": "talend-scripts test --watch",
+    "test:cov": "talend-scripts test --coverage"
+  },
   "repository": {
     "type": "git",
-    "url": "github:Talend/<%= props.name %>"
+    "url": "<%= props.github %>"
   },
+  "keywords": [
+    "react",
+    "talend"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "license": "Apache-2.0",
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.0",
-    "babel-preset-env": "^1.6.0",
-    "eslint": "^4.0.0",
-    "eslint-config-airbnb": "^11.1.0",
-    "eslint-plugin-import": "^1.16.0",
-    "eslint-plugin-jsx-a11y": "^2.2.2",
-    "eslint-plugin-react": "^6.3.0",
-    "webpack": "^4.19.0",
-    "webpack-cli": "^3.1.0"
+    "@talend/scripts": "^0.16.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@talend/bootstrap-theme": "2.11.0",
+    "@talend/icons": "2.11.0",
+    "@talend/react-cmf": "2.11.0",
+    "@talend/react-components": "2.11.0",
+    "@talend/react-containers": "2.11.0",
+    "@talend/react-forms": "2.11.0",
+    "@talend/react-cmf-router": "3.2.1",
+    "bootstrap-sass": "3.4.1",
+    "bson-objectid": "^1.1.5",
+    "classnames": "^2.2.5",
+    "enzyme": "^3.7.0",
+    "i18next": "^9.0.0",
+    "immutable": "^3.8.1",
+    "invariant": "^2.2.2",
+    "lodash": "^4.17.4",
+    "prop-types": "^15.5.10",
+    "react": "^16.8.0",
+    "react-bootstrap": "0.32.4",
+    "react-css-transition": "^0.7.4",
+    "react-dom": "^16.8.0",
+    "react-i18next": "^7.6.1",
+    "react-immutable-proptypes": "^2.1.0",
+    "react-redux": "^5.0.7",
+    "react-router": "^3.2.0",
+    "react-router-redux": "^4.0.8",
+    "react-transition-group": "^2.3.1",
+    "redux": "^3.7.2",
+    "redux-batched-actions": "^0.2.0",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^0.15.4",
+    "redux-thunk": "^2.2.0",
+    "reselect": "^2.5.4",
+    "uuid": "^3.0.1"
+  }
 }
