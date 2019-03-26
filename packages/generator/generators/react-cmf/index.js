@@ -42,7 +42,7 @@ module.exports = class CMFAppGenerator extends Generator {
 	}
 
 	writing() {
-		const fileToCopy = ['src', 'cmf.json', '.eslintrc'];
+		const fileToCopy = ['src', 'cmf.json', 'talend-scripts.json', '.eslintrc'];
 		const tplToCopy = ['package.json'];
 		fileToCopy.forEach(name => {
 			this.fs.copy(this.templatePath(name), this.destinationPath(name));
