@@ -54,7 +54,14 @@ export function resolveNameForTitleMap({ schema, properties, value }) {
 	const uniformValue = valueIsArray ? value : [value];
 
 	const names = uniformValue
-		.map(nextValue => schema.titleMap.find(titleMap => titleMap.value === nextValue))
+		.map(nextValue => {
+			const found = schema.titleMap.find(titleMap => titleMap.value === nextValue);
+			if (!found) {
+				// in case the value has been created by the widget
+				return { name: nextValue, value: nextValue };
+			}
+			return found;
+		})
 		.map(entry => entry && entry.name);
 
 	const parentKey = schema.key.slice();

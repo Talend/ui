@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import { translate } from 'react-i18next';
 import keycode from 'keycode';
 import memoizeOne from 'memoize-one';
+import uniqBy from 'lodash/uniqBy';
 
 import theme from './MultiSelect.scss';
 import VirtualizedList from '../VirtualizedList';
@@ -71,6 +72,7 @@ class MultiSelect extends React.Component {
 		this.onClearAll = this.onClearAll.bind(this);
 		this.closeOnOutsideClick = this.closeOnOutsideClick.bind(this);
 		this.initSelectedMap = memoizeOne(initSelectedMap);
+		this.getOptions = this.getOptions.bind(this);
 	}
 
 	componentDidMount() {
@@ -131,17 +133,29 @@ class MultiSelect extends React.Component {
 		return this.initSelectedMap(this.props.selected);
 	}
 
+	/**
+	 * getOptions compute options from props + add local added items to it.
+	 * it take cares to remove duplicate in case of parent control options and add to it
+	 * @return {Array<Object>} options { name, value }
+	 */
+	getOptions() {
+		const added = this.state.added || [];
+		if (added.length === 0) {
+			return this.props.options;
+		}
+		return uniqBy(this.props.options.concat(added), i => i.value);
+	}
+
 	getSelectedItems() {
 		const selected = this.getSelectedMap();
-		return this.props.options
-			.concat(this.state.added || [])
+		return this.getOptions()
 			.filter(item => selected.get(item.value));
 	}
 
 	getFilteredOptions() {
-		const { added = [], searchTerm = '' } = this.state;
-		const { options, restricted, t } = this.props;
-		const baseOptions = options.concat(added);
+		const { searchTerm = '' } = this.state;
+		const { restricted, t } = this.props;
+		const baseOptions = this.getOptions();
 
 		if (!searchTerm) {
 			return baseOptions;
@@ -153,7 +167,7 @@ class MultiSelect extends React.Component {
 		const filteredOptions = baseOptions.filter(({ name }) => {
 			const lowerOption = name.toLowerCase();
 			hasExactMatch = hasExactMatch || lowerOption === lowerSearchTerm;
-			return name.toLowerCase().indexOf(lowerSearchTerm) !== -1;
+			return lowerOption.indexOf(lowerSearchTerm) !== -1;
 		});
 
 		// insert new value creation option
@@ -183,7 +197,7 @@ class MultiSelect extends React.Component {
 		}));
 
 		// insert select all option
-		if (options.length) {
+		if (options.length > 1) {
 			const allSelected = options.every(item => item.selected);
 			options.unshift({
 				value: SELECT_ALL_VALUE,
@@ -204,14 +218,15 @@ class MultiSelect extends React.Component {
 		};
 		const selected = new Map(this.getSelectedMap());
 		selected.set(newItem.value, true);
-		this.updateSelection(event, selected);
-		this.setState(({ added }) => ({ added: added.concat([newItem]) }));
+		this.setState(({ added }) => ({ added: added.concat([newItem]) }), () => {
+			this.updateSelection(event, selected);
+		});
 	}
 
 	selectAll(event) {
 		// toggle the select only if all visible items are already selected
 		const selected = this.getSelectedMap();
-		const options = this.getFilteredOptions();
+		const options = this.getFilteredOptions().filter(o => o.value !== CREATE_NEW_VALUE);
 		const alreadySelected = options.every(({ value }) => selected.get(value));
 		const newSelected = new Map(selected);
 		options.reduce((acc, current) => {

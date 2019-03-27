@@ -5,10 +5,20 @@ import { action } from '@storybook/addon-actions';
 import MultiSelect from '../src/MultiSelect';
 import IconsProvider from '../src/IconsProvider';
 
-function onSelect(value, title) {
-	return {
-		onSelect: action(`selec ${value} ${title}`),
+
+function ControlledMultiSelect(props) {
+	const [selected, setSelected] = React.useState([]);
+	const onChange = (event, values) => {
+		console.log('onChange', values);
+		setSelected(values);
 	};
+	return (
+		<MultiSelect
+			{...props}
+			onChange={onChange}
+			selected={selected}
+		/>
+	);
 }
 
 class Photos extends React.Component {
@@ -46,10 +56,15 @@ class Photos extends React.Component {
 						/>
 					</div>
 					<div className="form-group">
-						<input className="form-control" type="text" id="useless" />
-						<label className="control-label" htmlFor="useless">
+						<label className="control-label" htmlFor="controlled">
 							another
 						</label>
+						<ControlledMultiSelect
+							id="controlled"
+							options={this.state.photos}
+							isLoading={this.state.loading}
+							withCreateNew
+						/>
 					</div>
 				</form>
 			</section>
