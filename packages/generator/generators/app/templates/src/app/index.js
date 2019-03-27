@@ -10,7 +10,6 @@ import App from './components/App';
  * API: https://github.com/Talend/ui/blob/master/packages/cmf/src/bootstrap.md
  */
 cmf.bootstrap({
-	AppLoader: 'AppLoader',
 	modules,
 	RootComponent: App,
 });
