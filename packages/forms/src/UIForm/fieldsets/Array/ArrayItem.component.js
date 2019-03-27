@@ -68,7 +68,7 @@ if (process.env.NODE_ENV !== 'production') {
 		t: PropTypes.func.isRequired,
 	};
 }
-export const TranslatedReorderButton = translate(I18N_DOMAIN_FORMS)(ReorderButton);
+const TranslatedReorderButton = translate(I18N_DOMAIN_FORMS)(ReorderButton);
 
 function ArrayItem(props) {
 	const {
