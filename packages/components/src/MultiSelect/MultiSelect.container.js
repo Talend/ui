@@ -148,8 +148,7 @@ class MultiSelect extends React.Component {
 
 	getSelectedItems() {
 		const selected = this.getSelectedMap();
-		return this.getOptions()
-			.filter(item => selected.get(item.value));
+		return this.getOptions().filter(item => selected.get(item.value));
 	}
 
 	getFilteredOptions() {
@@ -218,9 +217,12 @@ class MultiSelect extends React.Component {
 		};
 		const selected = new Map(this.getSelectedMap());
 		selected.set(newItem.value, true);
-		this.setState(({ added }) => ({ added: added.concat([newItem]) }), () => {
-			this.updateSelection(event, selected);
-		});
+		this.setState(
+			({ added }) => ({ added: added.concat([newItem]) }),
+			() => {
+				this.updateSelection(event, selected);
+			},
+		);
 	}
 
 	selectAll(event) {
