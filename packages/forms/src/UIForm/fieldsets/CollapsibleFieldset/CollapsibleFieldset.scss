@@ -47,6 +47,23 @@
 				}
 			}
 		}
+
+		.actions {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: $padding-normal;
+		}
+
+		.collapse {
+			width: 1.6rem;
+			height: 1.6rem;
+
+			:global(svg) {
+				width: 0.9rem;
+				height: 0.9rem;
+			}
+		}
 	}
 
 	.body {

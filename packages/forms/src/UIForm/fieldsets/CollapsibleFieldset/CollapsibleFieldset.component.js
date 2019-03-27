@@ -54,16 +54,19 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 						>
 							<legend id={id && `${id}__title`}>{title(value, schema)}</legend>
 						</div>
-						{this.props.actions.length > 0 && <Actions actions={this.props.actions} />}
-						<ActionIconToggle
-							onClick={this.toggle}
-							id={id && `${id}__collapse`}
-							label="Collapse"
-							type="button"
-							active={!value.isClosed}
-							icon="talend-caret-down"
-							iconTransform={iconTransform}
-						/>
+						<div className={theme.actions}>
+							{this.props.actions.length > 0 && <Actions actions={this.props.actions} />}
+							<ActionIconToggle
+								className={theme.collapse}
+								onClick={this.toggle}
+								id={id && `${id}__collapse`}
+								label="Collapse"
+								type="button"
+								active={!value.isClosed}
+								icon="talend-caret-down"
+								iconTransform={iconTransform}
+							/>
+						</div>
 					</div>
 					{!value.isClosed && (
 						<div className={theme.body}>
