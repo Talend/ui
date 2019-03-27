@@ -8,7 +8,7 @@ module.exports = class CMFAppGenerator extends Generator {
 			name: () => this.props.name,
 			babelrc: false,
 			eslint: false,
-			sasslint: false,
+			sasslint: true,
 			travis: false,
 		});
 	}

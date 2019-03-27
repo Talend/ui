@@ -1,3 +1,4 @@
+import { homeModule } from './home';
 import { datasetModule } from './dataset';
 
-export default [datasetModule];
+export default [homeModule, datasetModule];

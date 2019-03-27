@@ -1,0 +1,26 @@
+.dataset-list {
+	flex: 1 1 10rem;
+	padding: $padding-normal;
+
+	:global{
+		.tc-list-cell-id {
+			flex: 0 0 4rem;
+		}
+		.tc-list-cell-label {
+			flex: 1 0 40rem;
+		}
+		.tc-list-cell-created {
+			flex: 0 0 25rem;
+		}
+		.tc-list-cell-tags {
+			flex: 1 0 25rem;
+		}
+	}
+}
+
+.loader {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

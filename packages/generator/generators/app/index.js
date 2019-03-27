@@ -2,13 +2,13 @@ const Generator = require('yeoman-generator');
 const yosay = require('yosay');
 const slug = require('slugg');
 
-module.exports = class CMFAppGenerator extends Generator {
+module.exports = class AppGenerator extends Generator {
 	initializing() {
 		this.composeWith('talend:dotfiles', {
 			name: () => this.props.name,
 			babelrc: false,
 			eslint: false,
-			sasslint: false,
+			sasslint: true,
 			travis: false,
 		});
 	}
@@ -42,7 +42,7 @@ module.exports = class CMFAppGenerator extends Generator {
 	}
 
 	writing() {
-		const fileToCopy = ['src', '.eslintrc', '.prettierrc'];
+		const fileToCopy = ['src', '.eslintrc'];
 		const tplToCopy = ['package.json'];
 		fileToCopy.forEach(name => {
 			this.fs.copy(this.templatePath(name), this.destinationPath(name));

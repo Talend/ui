@@ -13,7 +13,7 @@ function datasetReducer(state = {}, action) {
 		case DATASET_REMOVE:
 			return {
 				...state,
-				data: state.datasets.filter(ds => ds !== action.dataset),
+				data: state.data.filter(ds => ds !== action.dataset),
 			};
 		case DATASET_SET_FETCHING:
 			return {
@@ -48,7 +48,7 @@ export function fetchDatasets() {
 	};
 }
 
-export function removeDatasets(dataset) {
+export function removeDataset(dataset) {
 	return {
 		type: DATASET_REMOVE,
 		dataset,

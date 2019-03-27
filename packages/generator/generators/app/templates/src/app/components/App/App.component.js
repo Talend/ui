@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
-import Notification from '@talend/react-containers/lib/Notification';
 
-import DatasetList from '../DatasetList';
+import Home from '../Home';
 
 export default function App() {
 	/**
@@ -12,11 +11,10 @@ export default function App() {
 	 * so that all icons are available in each view
 	 */
 	return (
-		<div>
+		<React.Fragment>
 			<IconsProvider />
-			<Notification />
-			<DatasetList />
-		</div>
+			<Home />
+		</React.Fragment>
 	);
 }
 

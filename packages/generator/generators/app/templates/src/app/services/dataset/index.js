@@ -3,7 +3,7 @@ import {
 	fetchDatasets,
 	getDatasets,
 	getIsFetching,
-	removeDatasets,
+	removeDataset,
 } from './dataset.service';
 
 export const datasetModule = { id: 'myapp-datasets', reducer };
@@ -11,7 +11,7 @@ export const datasetModule = { id: 'myapp-datasets', reducer };
 export default {
 	actionCreators: {
 		fetchDatasets,
-		removeDatasets,
+		removeDataset,
 	},
 	selectors: {
 		getDatasets,
