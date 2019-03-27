@@ -16,8 +16,7 @@ import App from './components/App';
  * API: https://github.com/Talend/ui/blob/master/packages/cmf/src/bootstrap.md
  */
 cmf.bootstrap({
-	reducer,
 	AppLoader: 'AppLoader',
-	modules: [modules],
+	modules,
 	RootComponent: App,
 });

@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import Notification from '@talend/react-containers/lib/Notification';
 
-export default function App(props) {
+import DatasetList from '../DatasetList';
+
+export default function App() {
 	/**
 	 * Instanciate all global components here
 	 * Ex : we register @talend/react-components <IconsProvider />
@@ -13,7 +15,7 @@ export default function App(props) {
 		<div>
 			<IconsProvider />
 			<Notification />
-			{props.children}
+			<DatasetList />
 		</div>
 	);
 }
