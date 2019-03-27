@@ -1,8 +1,3 @@
-/**
- * Import theme.
- * Being the first import is important, so that it is the default style
- * and other style can override it
- */
 import cmf from '@talend/react-cmf';
 import modules from './services/modules';
 import App from './components/App';
