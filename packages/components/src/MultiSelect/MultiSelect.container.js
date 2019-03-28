@@ -197,7 +197,9 @@ class MultiSelect extends React.Component {
 
 		// insert select all option
 		if (options.length > 1) {
-			const allSelected = options.filter(o => o.value !== CREATE_NEW_VALUE).every(item => item.selected);
+			const allSelected = options
+				.filter(o => o.value !== CREATE_NEW_VALUE)
+				.every(item => item.selected);
 			options.unshift({
 				value: SELECT_ALL_VALUE,
 				name: allSelected
