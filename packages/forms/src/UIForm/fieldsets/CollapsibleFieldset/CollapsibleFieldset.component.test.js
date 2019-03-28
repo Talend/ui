@@ -94,7 +94,7 @@ describe('CollapsibleFieldset', () => {
 		},
 	);
 
-	it('should not render Actions component if no actions are provided', () => {
+	it('should render Actions component if actions are provided', () => {
 		const CollapsibleFieldset = createCollapsibleFieldset();
 		const onChange = jest.fn();
 		const actions = [{ id: 'action1' }, { id: 'action2' }];
@@ -113,7 +113,7 @@ describe('CollapsibleFieldset', () => {
 		expect(wrapper.find('Actions').prop('actions')).toEqual(actions);
 	});
 
-	it('should render Actions component if actions are provided', () => {
+	it('should not render Actions component if actions are not provided', () => {
 		const CollapsibleFieldset = createCollapsibleFieldset();
 		const onChange = jest.fn();
 
