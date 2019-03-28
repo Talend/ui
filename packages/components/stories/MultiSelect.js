@@ -1,25 +1,37 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import PropTypes from 'prop-types';
 
 import MultiSelect from '../src/MultiSelect';
 import IconsProvider from '../src/IconsProvider';
 
-
+/**
+ * ControlledMultiSelect reproduce the ComponentForm behaviors
+ */
 function ControlledMultiSelect(props) {
 	const [selected, setSelected] = React.useState([]);
 	const onChange = (event, values) => {
-		console.log('onChange', values);
+		action('changed', event, values);
 		setSelected(values);
 	};
+	const missing = selected.filter(i => !props.options.find(o => o.value === i));
+	let options = props.options;
+	if (missing.length > 0) {
+		options = props.options.concat(missing.map(v => ({value: v, name: v})));
+	}
 	return (
 		<MultiSelect
 			{...props}
 			onChange={onChange}
 			selected={selected}
+			options={options}
 		/>
 	);
 }
+ControlledMultiSelect.propTypes = {
+	options: PropTypes.array,
+};
 
 class Photos extends React.Component {
 	constructor(props) {
@@ -46,7 +58,7 @@ class Photos extends React.Component {
 				<form className="form">
 					<div className="form-group">
 						<label className="control-label" htmlFor="storybook">
-							photos
+							uncontrolled
 						</label>
 						<MultiSelect
 							id="storybook"
@@ -57,7 +69,7 @@ class Photos extends React.Component {
 					</div>
 					<div className="form-group">
 						<label className="control-label" htmlFor="controlled">
-							another
+							controlled
 						</label>
 						<ControlledMultiSelect
 							id="controlled"
