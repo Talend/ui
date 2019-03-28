@@ -14,10 +14,8 @@ import fieldTemplateTheme from '../../fields/FieldTemplate/FieldTemplate.scss';
 export function ReorderButton(props) {
 	const { disabled, index, hasMoveDown, hasMoveUp, id, isMoveDown, onReorder, t } = props;
 	let buttonProps;
-	let iconTransform;
 
 	if (isMoveDown) {
-		iconTransform = 'rotate-270';
 		buttonProps = {
 			id: id && `${id}-moveDown`,
 			disabled: disabled || !hasMoveDown,
@@ -26,10 +24,10 @@ export function ReorderButton(props) {
 					previousIndex: index,
 					nextIndex: index + 1,
 				}),
-			title: t('ARRAY_ITEM_MOVE_DOWN', { defaultValue: 'Move down' }),
+			label: t('ARRAY_ITEM_MOVE_DOWN', { defaultValue: 'Move down' }),
+			iconTransform: 'rotate-270',
 		};
 	} else {
-		iconTransform = 'rotate-90';
 		buttonProps = {
 			id: id && `${id}-moveUp`,
 			disabled: disabled || !hasMoveUp,
@@ -38,18 +36,19 @@ export function ReorderButton(props) {
 					previousIndex: index,
 					nextIndex: index - 1,
 				}),
-			title: t('ARRAY_ITEM_MOVE_UP', { defaultValue: 'Move up' }),
+			label: t('ARRAY_ITEM_MOVE_UP', { defaultValue: 'Move up' }),
+			iconTransform: 'rotate-90',
 		};
 	}
 
 	return (
-		<button
+		<Action
 			{...buttonProps}
 			className={`${theme['tf-array-item-reorder']} tf-array-item-reorder`}
-			type="button"
-		>
-			<Icon name="talend-arrow-left" transform={iconTransform} />
-		</button>
+			icon="talend-arrow-left"
+			link
+			hideLabel
+		/>
 	);
 }
 
