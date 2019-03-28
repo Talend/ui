@@ -82,6 +82,7 @@ function DefaultArrayTemplate(props) {
 
 DefaultArrayTemplate.defaultProps = {
 	t: getDefaultT(),
+	isCloseable: false,
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -104,9 +105,5 @@ if (process.env.NODE_ENV !== 'production') {
 		isCloseable: PropTypes.bool,
 	};
 }
-
-DefaultArrayTemplate.defaultProps = {
-	isCloseable: false,
-};
 
 export default translate(I18N_DOMAIN_FORMS)(DefaultArrayTemplate);

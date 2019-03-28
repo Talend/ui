@@ -106,7 +106,10 @@ export default class ArrayWidget extends React.Component {
 	isCloseable() {
 		const widgetId = this.props.schema.itemWidget;
 		const itemWidget = this.props.widgets[widgetId] || defaultWidgets[widgetId];
-		return itemWidget && itemWidget.isCloseable;
+		if (!itemWidget) {
+			return false;
+		}
+		return itemWidget.isCloseable === true;
 	}
 
 	renderItem(index, extraProps) {

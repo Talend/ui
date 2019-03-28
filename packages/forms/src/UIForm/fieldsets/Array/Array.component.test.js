@@ -382,4 +382,36 @@ describe('Array component', () => {
 			]);
 		});
 	});
+
+	describe('#isCloseable', () => {
+		it('should return true if widget has isCloseable property', () => {
+			const wrapper = shallow(
+				<ArrayWidget
+					description={'My array description'}
+					errorMessage={'This array is not correct'}
+					id={'talend-array'}
+					isValid
+					schema={{ ...schema, itemWidget: 'collapsibleFieldset' }}
+					value={value}
+				/>,
+			);
+			const isCloseable = wrapper.instance().isCloseable();
+			expect(isCloseable).toEqual(true);
+		});
+
+		it('should return false if widget doesnt have isCloseable property', () => {
+			const wrapper = shallow(
+				<ArrayWidget
+					description={'My array description'}
+					errorMessage={'This array is not correct'}
+					id={'talend-array'}
+					isValid
+					schema={schema}
+					value={value}
+				/>,
+			);
+			const isCloseable = wrapper.instance().isCloseable();
+			expect(isCloseable).toEqual(false);
+		});
+	});
 });

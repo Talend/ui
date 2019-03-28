@@ -93,4 +93,34 @@ describe('CollapsibleFieldset', () => {
 			'on icon click': { selector: '#my-fieldset__collapse', actionType: 'click' },
 		},
 	);
+
+	it('should not render Actions component if no actions are provided', () => {
+		const CollapsibleFieldset = createCollapsibleFieldset();
+		const onChange = jest.fn();
+		const actions = [{ id: 'action1' }, { id: 'action2' }];
+
+		const wrapper = shallow(
+			<CollapsibleFieldset
+				id={'my-fieldset'}
+				onChange={onChange}
+				schema={schema}
+				value={value}
+				actions={actions}
+			/>,
+		);
+
+		expect(wrapper.exists('Actions')).toEqual(true);
+		expect(wrapper.find('Actions').prop('actions')).toEqual(actions);
+	});
+
+	it('should render Actions component if actions are provided', () => {
+		const CollapsibleFieldset = createCollapsibleFieldset();
+		const onChange = jest.fn();
+
+		const wrapper = shallow(
+			<CollapsibleFieldset id={'my-fieldset'} onChange={onChange} schema={schema} value={value} />,
+		);
+
+		expect(wrapper.exists('Actions')).toEqual(false);
+	});
 });

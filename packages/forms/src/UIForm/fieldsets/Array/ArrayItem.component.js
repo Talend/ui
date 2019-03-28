@@ -141,6 +141,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 ArrayItem.defaultProps = {
 	isCloseable: false,
+	renderItem: () => null,
 };
 
 export default ArrayItem;
