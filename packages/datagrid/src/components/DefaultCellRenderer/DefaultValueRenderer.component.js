@@ -6,10 +6,19 @@ import FormatValue, { hasWhiteSpaceCharacters } from './FormatValue.component';
 
 import theme from './DefaultValueRenderer.scss';
 
+export const DEFAULT_VALUE_PROP_TYPES = PropTypes.oneOfType([
+	PropTypes.string,
+	PropTypes.bool,
+	PropTypes.number,
+	PropTypes.shape({
+		bytes: PropTypes.string,
+	}),
+]);
+
 export default class DefaultValueRenderer extends React.Component {
 	static propTypes = {
 		className: PropTypes.string,
-		value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number]),
+		value: DEFAULT_VALUE_PROP_TYPES,
 	};
 
 	constructor(props) {
@@ -43,6 +52,8 @@ export default class DefaultValueRenderer extends React.Component {
 
 		if (this.props.value === null) {
 			stringValue = '';
+		} else if (typeof this.props.value === 'object' && this.props.value.bytes) {
+			stringValue = this.props.value.bytes;
 		} else {
 			stringValue = String(this.props.value);
 		}
