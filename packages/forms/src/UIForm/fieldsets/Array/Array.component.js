@@ -35,9 +35,7 @@ export default class ArrayWidget extends React.Component {
 		const defaultValue = arrayMergedSchema.schema.items.type === 'object' ? {} : '';
 
 		let currentValue = this.props.value;
-		const widgetId = this.props.schema.itemWidget;
-		const itemWidget = this.props.widgets[widgetId] || defaultWidgets[widgetId];
-		if (itemWidget && itemWidget.isCloseable) {
+		if (this.isCloseable()) {
 			currentValue = currentValue.map(item => ({ ...item, isClosed: true }));
 		}
 		const value = currentValue.concat(defaultValue);
@@ -105,10 +103,20 @@ export default class ArrayWidget extends React.Component {
 		return ArrayTemplate;
 	}
 
-	renderItem(index) {
+	isCloseable() {
+		const widgetId = this.props.schema.itemWidget;
+		const itemWidget = this.props.widgets[widgetId] || defaultWidgets[widgetId];
+		if (!itemWidget) {
+			return false;
+		}
+		return itemWidget.isCloseable === true;
+	}
+
+	renderItem(index, extraProps) {
 		return (
 			<Widget
 				{...this.props}
+				{...extraProps}
 				disabled={this.props.schema.disabled}
 				id={this.props.id && `${this.props.id}-${index}`}
 				schema={getArrayElementSchema(this.props.schema, index)}
@@ -130,6 +138,7 @@ export default class ArrayWidget extends React.Component {
 				onReorder={this.onReorder}
 				onRemove={this.onRemove}
 				renderItem={this.renderItem}
+				isCloseable={this.isCloseable()}
 			/>
 		);
 	}
