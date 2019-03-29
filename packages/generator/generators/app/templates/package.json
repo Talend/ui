@@ -25,11 +25,11 @@
     "@talend/scripts": "^0.16.1"
   },
   "dependencies": {
-    "@talend/bootstrap-theme": "2.11.0",
-    "@talend/icons": "2.11.0",
-    "@talend/react-cmf": "2.11.0",
-    "@talend/react-components": "2.11.0",
-    "@talend/react-containers": "2.11.0",
+    "@talend/bootstrap-theme": "3.0.0",
+    "@talend/icons": "3.0.0",
+    "@talend/react-cmf": "3.0.0",
+    "@talend/react-components": "3.0.0",
+    "@talend/react-containers": "3.0.0",
     "bootstrap-sass": "3.4.1",
     "bson-objectid": "^1.1.5",
     "classnames": "^2.2.5",
