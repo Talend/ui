@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import has from 'lodash/has';
 import { TooltipTrigger } from '@talend/react-components';
 import FormatValue, { hasWhiteSpaceCharacters } from './FormatValue.component';
 
@@ -52,7 +53,7 @@ export default class DefaultValueRenderer extends React.Component {
 
 		if (this.props.value === null) {
 			stringValue = '';
-		} else if (typeof this.props.value === 'object' && this.props.value.bytes) {
+		} else if (has(this.props.value, 'bytes')) {
 			stringValue = this.props.value.bytes;
 		} else {
 			stringValue = String(this.props.value);
