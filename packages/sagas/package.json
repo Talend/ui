@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-sagas",
-  "version": "2.6.17",
+  "version": "2.6.18",
   "description": "App wide redux sagas",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
@@ -54,7 +54,7 @@
     "redux-thunk": "^2.2.0"
   },
   "dependencies": {
-    "@talend/react-cmf": "^2.6.17",
+    "@talend/react-cmf": "^2.6.18",
     "redux-saga": "^0.15.4"
   },
   "devDependencies": {
