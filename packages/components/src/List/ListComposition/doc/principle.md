@@ -224,7 +224,7 @@ Even easier in uncontrolled mode
 ```javascript
 <List.Manager>
     <List.Toolbar>
-        <List.Paginaltion
+        <List.Pagination
             id="my-list-pagination"
 -            itemsPerPage={5}
 -            totalResults={10}
