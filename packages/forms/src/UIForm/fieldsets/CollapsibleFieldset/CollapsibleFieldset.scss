@@ -8,10 +8,18 @@
 	transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 	margin-bottom: $padding-normal;
 
+	.actions button {
+		opacity: 0;
+	}
+
 	&:hover {
 		background: $white;
 		box-shadow: 0 7px 14px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
 		border: 1px solid $gallery;
+
+		.actions button {
+			opacity: 1;
+		}
 	}
 
 	.title-bar {
@@ -48,7 +56,7 @@
 			}
 		}
 
-		.actions {
+		.action-wrapper {
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -67,6 +75,6 @@
 	}
 
 	.body {
-		padding: 0 50px 0 $padding-normal;
+		padding: 0 5rem 0 $padding-normal;
 	}
 }

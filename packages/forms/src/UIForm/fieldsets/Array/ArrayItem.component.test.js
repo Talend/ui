@@ -135,7 +135,10 @@ describe('Array Item component', () => {
 		);
 
 		// when
-		wrapper.find('#talend-control-3-moveUp').simulate('click');
+		wrapper
+			.findWhere(n => n.prop('id') === 'talend-control-3-moveUp')
+			.first()
+			.simulate('click');
 
 		// then
 		expect(onReorder).toBeCalledWith(expect.anything(), { previousIndex: 3, nextIndex: 2 });
@@ -156,7 +159,10 @@ describe('Array Item component', () => {
 		);
 
 		// when
-		wrapper.find('#talend-control-3-moveDown').simulate('click');
+		wrapper
+			.findWhere(n => n.prop('id') === 'talend-control-3-moveDown')
+			.first()
+			.simulate('click');
 
 		// then
 		expect(onReorder).toBeCalledWith(expect.anything(), { previousIndex: 3, nextIndex: 4 });

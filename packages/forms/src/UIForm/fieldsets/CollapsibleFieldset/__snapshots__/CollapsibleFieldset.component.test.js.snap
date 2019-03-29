@@ -23,7 +23,7 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
       </legend>
     </div>
     <div
-      className="theme-actions"
+      className="theme-action-wrapper"
     >
       <ActionIconToggle
         active={false}
@@ -64,7 +64,7 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
       </legend>
     </div>
     <div
-      className="theme-actions"
+      className="theme-action-wrapper"
     >
       <ActionIconToggle
         active={true}
@@ -157,7 +157,7 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
       </legend>
     </div>
     <div
-      className="theme-actions"
+      className="theme-action-wrapper"
     >
       <ActionIconToggle
         active={true}
