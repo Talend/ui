@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Icon from '@talend/react-components/lib/Icon';
+import { Action } from '@talend/react-components/lib/Actions';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
 
@@ -13,7 +14,6 @@ import fieldTemplateTheme from '../../fields/FieldTemplate/FieldTemplate.scss';
 export function ReorderButton(props) {
 	const { disabled, index, hasMoveDown, hasMoveUp, id, isMoveDown, onReorder, t } = props;
 	let buttonProps;
-	let iconTransform;
 
 	if (isMoveDown) {
 		buttonProps = {
@@ -24,10 +24,10 @@ export function ReorderButton(props) {
 					previousIndex: index,
 					nextIndex: index + 1,
 				}),
-			title: t('ARRAY_ITEM_MOVE_DOWN', { defaultValue: 'Move down' }),
+			label: t('ARRAY_ITEM_MOVE_DOWN', { defaultValue: 'Move down' }),
+			iconTransform: 'rotate-270',
 		};
 	} else {
-		iconTransform = 'flip-vertical';
 		buttonProps = {
 			id: id && `${id}-moveUp`,
 			disabled: disabled || !hasMoveUp,
@@ -36,18 +36,19 @@ export function ReorderButton(props) {
 					previousIndex: index,
 					nextIndex: index - 1,
 				}),
-			title: t('ARRAY_ITEM_MOVE_UP', { defaultValue: 'Move up' }),
+			label: t('ARRAY_ITEM_MOVE_UP', { defaultValue: 'Move up' }),
+			iconTransform: 'rotate-90',
 		};
 	}
 
 	return (
-		<button
+		<Action
 			{...buttonProps}
 			className={`${theme['tf-array-item-reorder']} tf-array-item-reorder`}
-			type="button"
-		>
-			<Icon name="talend-caret-down" transform={iconTransform} />
-		</button>
+			icon="talend-arrow-left"
+			link
+			hideLabel
+		/>
 	);
 }
 
@@ -69,8 +70,31 @@ if (process.env.NODE_ENV !== 'production') {
 const TranslatedReorderButton = translate(I18N_DOMAIN_FORMS)(ReorderButton);
 
 function ArrayItem(props) {
-	const { children, disabled, id, index, onRemove, onReorder, isClosed, valueIsUpdating } = props;
+	const {
+		renderItem,
+		disabled,
+		id,
+		index,
+		onRemove,
+		onReorder,
+		isClosed,
+		valueIsUpdating,
+		isCloseable,
+	} = props;
+
 	const widgetIsDisabled = disabled || valueIsUpdating;
+	const deleteAction = {
+		id: id && `${id}-delete`,
+		onClick: event => onRemove(event, index),
+		label: 'Delete',
+		type: 'button',
+		disabled: widgetIsDisabled,
+		className: theme.delete,
+		icon: 'talend-trash',
+		hideLabel: true,
+		link: true,
+	};
+	const actions = [deleteAction];
 	return (
 		<div
 			className={classNames(theme['tf-array-item'], 'tf-array-item', {
@@ -78,44 +102,31 @@ function ArrayItem(props) {
 			})}
 		>
 			<div className={theme.control}>
-				{!isClosed &&
-					onReorder && [
+				{!isClosed && onReorder && (
+					<React.Fragment>
+						<TranslatedReorderButton {...props} index={index} disabled={widgetIsDisabled} />
 						<TranslatedReorderButton
 							{...props}
-							key="up"
-							index={index}
-							disabled={widgetIsDisabled}
-						/>,
-						<TranslatedReorderButton
-							{...props}
-							key="down"
 							index={index}
 							isMoveDown
 							disabled={widgetIsDisabled}
-						/>,
-					]}
+						/>
+					</React.Fragment>
+				)}
 			</div>
-			{children}
-			{widgetIsDisabled}
-			<div className={theme.control}>
-				<button
-					className={theme.delete}
-					id={id && `${id}-delete`}
-					onClick={event => onRemove(event, index)}
-					title="Delete"
-					type="button"
-					disabled={widgetIsDisabled}
-				>
-					<Icon name="talend-cross" />
-				</button>
-			</div>
+			{renderItem(index, { actions })}
+			{!isCloseable && (
+				<div className={theme.control}>
+					<Action {...deleteAction} />
+				</div>
+			)}
 		</div>
 	);
 }
 
 if (process.env.NODE_ENV !== 'production') {
 	ArrayItem.propTypes = {
-		children: PropTypes.node,
+		renderItem: PropTypes.func.isRequired,
 		disabled: PropTypes.bool,
 		id: PropTypes.string,
 		index: PropTypes.number.isRequired,
@@ -123,7 +134,13 @@ if (process.env.NODE_ENV !== 'production') {
 		onRemove: PropTypes.func.isRequired,
 		onReorder: PropTypes.func.isRequired,
 		valueIsUpdating: PropTypes.bool,
+		isCloseable: PropTypes.bool,
 	};
 }
+
+ArrayItem.defaultProps = {
+	isCloseable: false,
+	renderItem: () => null,
+};
 
 export default ArrayItem;
