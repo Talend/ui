@@ -382,4 +382,54 @@ describe('Array component', () => {
 			]);
 		});
 	});
+
+	describe('#isCloseable', () => {
+		it('should pass isCloseable true if widget has isCloseable property set to true', () => {
+			const widgets = { myCloseableWidget: { isCloseable: true } };
+			const wrapper = shallow(
+				<ArrayWidget
+					description={'My array description'}
+					errorMessage={'This array is not correct'}
+					id={'talend-array'}
+					isValid
+					schema={{ ...schema, itemWidget: 'myCloseableWidget' }}
+					widgets={widgets}
+					value={value}
+				/>,
+			);
+			expect(wrapper.find('Translate(DefaultArrayTemplate)').prop('isCloseable')).toEqual(true);
+		});
+
+		it('should pass isCloseable false if widget has isCloseable property set to false', () => {
+			const widgets = { someWidget: { isCloseable: false } };
+			const wrapper = shallow(
+				<ArrayWidget
+					description={'My array description'}
+					errorMessage={'This array is not correct'}
+					id={'talend-array'}
+					isValid
+					schema={{ ...schema, itemWidget: 'someWidget' }}
+					widgets={widgets}
+					value={value}
+				/>,
+			);
+			expect(wrapper.find('Translate(DefaultArrayTemplate)').prop('isCloseable')).toEqual(false);
+		});
+
+		it('should pass isCloseable false if widget does not have isCloseable property', () => {
+			const widgets = { someWidget: {} };
+			const wrapper = shallow(
+				<ArrayWidget
+					description={'My array description'}
+					errorMessage={'This array is not correct'}
+					id={'talend-array'}
+					isValid
+					schema={{ ...schema, itemWidget: 'someWidget' }}
+					widgets={widgets}
+					value={value}
+				/>,
+			);
+			expect(wrapper.find('Translate(DefaultArrayTemplate)').prop('isCloseable')).toEqual(false);
+		});
+	});
 });
