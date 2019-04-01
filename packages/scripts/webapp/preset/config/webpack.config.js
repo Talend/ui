@@ -106,15 +106,22 @@ function getVersions() {
 		});
 	}
 
+	let revision = process.env.GIT_COMMIT;
+	if (!revision) {
+		try {
+			revision = childProcess
+				.execSync('git rev-parse HEAD')
+				.toString()
+				.trim();
+		} catch (e) {
+			console.info('Failed to get git revision');
+		}
+	}
+
 	return {
 		version: packageJson.version,
 		talendLibraries,
-		revision:
-			process.env.GIT_COMMIT ||
-			childProcess
-				.execSync('git rev-parse HEAD')
-				.toString()
-				.trim(),
+		revision,
 	};
 }
 

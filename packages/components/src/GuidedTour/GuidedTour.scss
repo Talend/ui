@@ -1,0 +1,38 @@
+$tc-guidedtour-accent-color: $scooter !default;
+$tc-guidedtour-tooltip-padding: $padding-large !default;
+$tc-guidedtour-mask-opactiy: 0.25 !default;
+$tc-guidedtour-close-button-size: $svg-sm-size !default;
+
+:global(#___reactour) {
+	.tc-guided-tour {
+		--reactour-accent: #{$tc-guidedtour-accent-color};
+		padding: $tc-guidedtour-tooltip-padding (3 * $tc-guidedtour-tooltip-padding) $tc-guidedtour-tooltip-padding $tc-guidedtour-tooltip-padding;
+		border-color: rgb(226, 226, 226);
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+
+		[data-tour-elem='controls'] {
+			margin: 0 (-2 * $tc-guidedtour-tooltip-padding) 0 0;
+			justify-content: space-between;
+
+			+ button {
+				height: $tc-guidedtour-close-button-size;
+				width: $tc-guidedtour-close-button-size;
+			}
+		}
+
+		&.no-interaction {
+			[data-tour-elem='controls'] {
+				justify-content: center;
+			}
+		}
+
+		.header,
+		.body {
+			margin: 0 0 $padding-larger 0;
+		}
+	}
+}
+
+:global(.reactour__mask) {
+	opacity: $tc-guidedtour-mask-opactiy;
+}
