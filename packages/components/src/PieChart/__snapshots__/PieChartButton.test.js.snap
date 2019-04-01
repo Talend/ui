@@ -6,7 +6,7 @@ exports[`PieChartButton snapshots render should render a PieChartButton 1`] = `
   block={false}
   bsClass="btn"
   bsStyle="link"
-  className="theme-tc-pie-chart-button tc-pie-chart-button"
+  className="tc-pie-chart-button theme-tc-pie-chart-button"
   disabled={false}
   onClick={null}
   onMouseDown={null}
@@ -66,7 +66,7 @@ exports[`PieChartButton snapshots render should render a PieChartButton with an 
       block={false}
       bsClass="btn"
       bsStyle="link"
-      className="theme-tc-pie-chart-button tc-pie-chart-button"
+      className="tc-pie-chart-button theme-tc-pie-chart-button"
       disabled={false}
       onClick={null}
       onMouseDown={null}
