@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
@@ -8,6 +7,7 @@ import { IconsProvider } from '../src/index';
 import VirtualizedList, { listTypes } from '../src/VirtualizedList';
 import CellTitle from '../src/VirtualizedList/CellTitle';
 import CellBadge from '../src/VirtualizedList/CellBadge';
+import MyCustomRow from './List/MyCustomRow.component';
 
 function NoRowsRenderer() {
 	return (
@@ -16,28 +16,6 @@ function NoRowsRenderer() {
 		</span>
 	);
 }
-
-// eslint-disable-next-line import/prefer-default-export
-export function MyCustomRow(props) {
-	return (
-		<div style={props.style}>
-			<h1 style={{ fontSize: 16 }}>{props.parent.props.collection[props.index].name}</h1>
-			<ul>
-				<li>style: {JSON.stringify(props.style)}</li>
-				<li>index: {props.index}</li>
-				<li>isScrolling: {props.isScrolling.toString()}</li>
-			</ul>
-		</div>
-	);
-}
-MyCustomRow.propTypes = {
-	index: PropTypes.number,
-	isScrolling: PropTypes.bool,
-	style: PropTypes.object,
-	parent: PropTypes.shape({
-		props: PropTypes.shape({ collection: PropTypes.array }),
-	}),
-};
 
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
@@ -354,7 +332,7 @@ const collapsibleListCollection = [
 			},
 		],
 		expanded: true,
-		children: <div>HELLO WORLDa</div>,
+		children: <div>HELLO WORLD</div>,
 	},
 	{
 		header: [
@@ -402,12 +380,37 @@ const collapsibleListCollection = [
 	},
 ];
 
-const sourceItems = [...new Array(20000)].map(
+const sourceItems = [...new Array(50)].map(
 	(item, index) => collapsibleListCollection[index % collapsibleListCollection.length],
 );
 
-storiesOf('VirtualizedList', module)
 
+function CollapsiblePanels(props) {
+	const [collection, setCollection] = React.useState(props.sourceItems);
+	return (
+		<div>
+			<h1>Virtualized List with Collapsible Panels</h1>
+			<IconsProvider defaultIcons={icons} />
+			<section style={{ height: '90vh' }}>
+				<VirtualizedList
+					collection={collection}
+					onRowClick={(event, rowItem) => {
+						action('onRowClick');
+						collection[rowItem.index] = {
+							...rowItem,
+							expanded: !rowItem.expanded,
+						};
+						setCollection([...collection]);
+					}}
+					onScroll={action('onScroll')}
+					id={'my-list'}
+					type={listTypes.COLLAPSIBLE_PANEL}
+				/>
+			</section>
+		</div>
+	);
+}
+storiesOf('VirtualizedList', module)
 	.add('List > Table', () => (
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>
@@ -670,21 +673,7 @@ storiesOf('VirtualizedList', module)
 			</section>
 		</div>
 	))
-	.add('List > CollapsiblePanels', () => (
-		<div>
-			<h1>Virtualized List with Collapsible Panels</h1>
-			<IconsProvider defaultIcons={icons} />
-			<section style={{ height: '50vh' }}>
-				<VirtualizedList
-					collection={sourceItems}
-					onRowClick={action('onRowClick')}
-					onScroll={action('onScroll')}
-					id={'my-list'}
-					type={listTypes.COLLAPSIBLE_PANEL}
-				/>
-			</section>
-		</div>
-	))
+	.add('List > CollapsiblePanels', () => (<CollapsiblePanels sourceItems={sourceItems} />))
 	.add('List > Table without header', () => (
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>
