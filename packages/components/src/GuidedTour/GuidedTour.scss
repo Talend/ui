@@ -65,6 +65,7 @@ $tc-guidedtour-controls-color: $dove-gray !default;
 	}
 
 	:global {
+		// eslint-disable-next-line class-name-format
 		.reactour__mask {
 			opacity: 1;
 
@@ -73,6 +74,7 @@ $tc-guidedtour-controls-color: $dove-gray !default;
 			}
 		}
 
+		// eslint-disable-next-line class-name-format
 		.reactour__dot--is-active {
 			color: $tc-guidedtour-accent-color;
 			background-color: $tc-guidedtour-accent-color;
