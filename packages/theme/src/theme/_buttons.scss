@@ -80,11 +80,17 @@
 
 			&:focus,
 			&:hover {
-				color: $scooter;
+				svg {
+					stroke: $scooter;
+					fill: $scooter;
+				}
 			}
 
 			&:active {
-				color: darken($scooter, 12%);
+				svg {
+					stroke: darken($scooter, 12%);
+					fill: darken($scooter, 12%);
+				}
 			}
 		}
 	}

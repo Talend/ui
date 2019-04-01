@@ -1,5 +1,5 @@
 $tc-enumeration-height: 50vh !default;
-$tc-enumeration-svg-color: #666 !default;
+$tc-enumeration-svg-color: $silver-chalice !default;
 $tc-enumeration-font-size: 1.4rem !default;
 
 .tc-enumeration {
@@ -23,11 +23,16 @@ $tc-enumeration-font-size: 1.4rem !default;
 				padding: 0 $padding-normal;
 
 				svg {
-					fill: $tc-enumeration-svg-color;
 					height: $tc-enumeration-font-size;
 					width: $tc-enumeration-font-size;
 				}
 			}
+		}
+	}
+
+	btn-link {
+		svg {
+			fill: $tc-enumeration-svg-color;
 		}
 	}
 
