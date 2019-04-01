@@ -15,7 +15,7 @@ function getTooltipContent({ header, body }) {
 		<React.Fragment>
 			{header && <h2 className={classNames(theme.header, 'tc-guided-tour__header')}>{header}</h2>}
 			<div className={classNames(theme.body, 'tc-guided-tour__body')}>
-				{typeof body === 'function' ? body(reactourCallbacks) : (<p>body</p>)}
+				{typeof body === 'function' ? body(reactourCallbacks) : <p>body</p>}
 			</div>
 		</React.Fragment>
 	);
