@@ -97,7 +97,7 @@ function getSteps({ hideControls, showControls, t }) {
 			content: {
 				header: 'Hello world',
 				body: () => (
-					<div
+					<p
 						dangerouslySetInnerHTML={{
 							__html: t('GUIDEDTOUR_HELLO_WORD_HTML', {
 								defaultValue: 'Hello world<br>You can switch language',
