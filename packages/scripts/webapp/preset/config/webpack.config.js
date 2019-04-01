@@ -205,6 +205,7 @@ module.exports = ({ getUserConfig, mode }) => {
 		output: {
 			filename: '[name]-[hash].js',
 			publicPath: '/',
+			globalObject: 'this'
 		},
 		module: {
 			rules: [
