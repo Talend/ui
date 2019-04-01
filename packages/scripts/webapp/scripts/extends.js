@@ -15,6 +15,10 @@ const eslintExtendsTemplate = template(`{
   "extends": "./<%= eslintConfigRelativePath %>"
 }`);
 
+const babelExtendsTemplate = template(`{
+  "extends": "./<%= babelConfigRelativePath %>"
+}`);
+
 module.exports = function test(env, presetApi) {
 	const presetName = presetApi.getUserConfig(['preset'], 'talend');
 	const preset = getPreset(presetName);
@@ -36,14 +40,10 @@ module.exports = function test(env, presetApi) {
 	// TODO: make jest get the one from root if present
 
 	const userEslintPath = path.join(rootPath, '.eslintrc');
-	console.log({ userEslintPath });
 	if (!fs.existsSync(userEslintPath)) {
 		const eslintConfigPath = preset.getEslintConfigurationPath(presetApi);
-		console.log(eslintConfigPath);
 		const eslintConfigRelativePath = path.relative(rootPath, eslintConfigPath);
-		console.log(eslintConfigRelativePath);
 		const eslintExtendsCode = eslintExtendsTemplate({ eslintConfigRelativePath });
-		console.log(eslintExtendsCode);
 		fs.writeFileSync(userEslintPath, eslintExtendsCode);
 		console.log('✅ .eslintrc created.');
 	} else {
@@ -52,6 +52,26 @@ module.exports = function test(env, presetApi) {
 		);
 	}
 	// TODO: make eslint get the one from root if present
+
+	const userBabelrcPath = path.join(process.cwd(), '.babelrc');
+	const userBabelrcJsonPath = path.join(process.cwd(), '.babelrc.json');
+	const userBabelJsPath = path.join(process.cwd(), 'babel.config.js');
+	if (
+		!fs.existsSync(userBabelrcPath) &&
+		!fs.existsSync(userBabelrcJsonPath) &&
+		!fs.existsSync(userBabelJsPath)
+	) {
+		const babelConfigPath = preset.getBabelConfigurationPath(presetApi);
+		const babelConfigRelativePath = path.relative(rootPath, babelConfigPath);
+		const babelExtendsCode = babelExtendsTemplate({ babelConfigRelativePath });
+		fs.writeFileSync(userBabelrcJsonPath, babelExtendsCode);
+		console.log('✅ .babelrc.json created.');
+	} else {
+		console.log(
+			'❌ (.babelrc | .babelrc.json | babel.config.js) already exists in your project folder. Skip babel extension creation.',
+		);
+	}
+	// TODO: move (in fact copy) babelrc resolver to build-lib.js
 
 	return { status: 0 };
 };
