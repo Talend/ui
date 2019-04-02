@@ -3,6 +3,20 @@
 /// @group Buttons
 ////
 
+@mixin svg-button-behavior {
+	&:hover {
+		>svg {
+			fill: $scooter;
+		}
+	}
+
+	&:active {
+		>svg {
+			fill: darken($scooter, 12%);
+		}
+	}
+}
+
 .btn {
 	border: none;
 	font-size: $btn-font-size;
@@ -30,14 +44,6 @@
 		height: $svg-md-size;
 		width: $svg-md-size;
 		margin: 0 0.4rem;
-		
-		&:hover {
-			fill: $scooter;
-		}
-
-		&:active {
-			fill: darken($scooter, 12%);
-		}
 	}
 
 	&-primary,
@@ -82,14 +88,12 @@
 	&-link {
 		font-size: $font-size-base;
 		font-weight: inherit;
+		@include svg-button-behavior();
 	}
 
 	&-icon-only {
 		display: inline-block;
-
-		svg {
-			vertical-align: middle;
-		}
+		@include svg-button-behavior();
 	}
 
 	&-xs {
