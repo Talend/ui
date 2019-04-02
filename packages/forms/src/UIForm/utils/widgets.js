@@ -11,6 +11,7 @@ import Datalist, { DatalistTextMode } from '../fields/Datalist';
 import { DateWidget, DateTimeWidget } from '../fields/Date';
 import File from '../fields/File';
 import KeyValue from '../fields/KeyValue';
+import Comparator from '../fields/Comparator';
 import ListView from '../fields/ListView';
 import MultiSelectTag, { MultiSelectTagTextMode } from '../fields/MultiSelectTag';
 import NestedListView from '../fields/NestedListView';
@@ -76,6 +77,7 @@ const widgets = {
 	nestedListView: NestedListView,
 	radioOrSelect: RadioOrSelect,
 	resourcePicker: ResourcePicker,
+	comparator: Comparator,
 	toggle: Toggle,
 };
 
