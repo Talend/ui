@@ -1,46 +1,51 @@
-# KeyValue
+# Comparator
 
-This widget allows you to render a key/value pair of inputs.
+This widget allows you to render a comparator pair of inputs.
 
 **Json Schema**
 
 | Property | Description |
 |---|---|
 | type | `object` |
-| properties.key | Optional. It allows to configure the `key` jsonSchema. If not provided, a default text input will be rendered. |
-| properties.value | Optional. It allows to configure the `value` jsonSchema. If not provided, a default text input will be rendered. |
-| required | You can pass `key` and/or `value` string, to make them mandatory. Note that this is only valid if the mandatory fields have a proper json schema configuration (default configurations stay not mandatory) |
+| properties.operator | It allows to configure the `operators` list jsonSchema. |
+| properties.value | It allows to configure the `value` jsonSchema. |
+| required | You can pass `value` string, to make it mandatory. Note that this is only valid if the mandatory fields have a proper json schema configuration (default configurations stay not mandatory) |
 
 Simple configuration
 ```json
 {
-  "type": "object",
-  "title": "Key/Value",
-  "properties": {
-    "simpleKeyValue": { "type": "object" }
-  }
+    "type": "object",
+    "required": ["value"],
+    "properties": {
+        "operator": {
+            "type": "string",
+            "enum": [">", "<", "="]
+        },
+        "value": {
+            "type": "string"
+        }
+    }
 }
 ```
 
 Advanced configuration
 ```json
 {
-  "advancedKeyValue": {
-    "type": "object",
-    "properties": {
-      "key": {
-        "type": "string",
-        "enum": [
-          "foo",
-          "bar",
-          "fuzz",
-          "qux"
-        ]
-      },
-      "value": { "type": "number" }
-    },
-    "required": ["key"]
-  }
+    "advancedKeyValue": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+            "operator": {
+                "type": "string",
+                "enum": ["<=", ">="]
+            },
+            "value": {
+                "type": "number",
+                "minimum": -100,
+                "maximum": 100
+            }
+        }
+    }
 }
 ```
 
@@ -48,53 +53,20 @@ Advanced configuration
 
 | Property | Description | Default |
 |---|---|---|
-| autoFocus | If the key/value should has autoFocus | `false` |
 | description | A description to display below the widget |  |
 | disabled | Disable the inputs | `false` |
-| items | Configure the key/value uiSchema |  |
-| readOnly | If the inputs should be readonly | `false` |
+| items | Configure the comparator uiSchema |  |
 | title | The title to display on top of the widget |  |
-| widget | The widget to use | `keyValue` |
+| widget | The widget to use | `comparator` |
 
 Simple configuration
 ```json
 [
     {
-      "key": "simpleKeyValue",
-      "description": "This is a default key/value widget. Inputs are text.",
-      "title": "Simple Key/Value",
-      "widget": "keyValue"
-    }
-  ]
-```
-
-Advanced configuration
-```json
-[
-    {
-      "key": "advancedKeyValue",
-      "description": "This is a customized key/value widget. Select as key, number as value.",
-      "items": [
-        {
-          "key": "advancedKeyValue.key",
-          "placeholder": "Enter a key",
-          "title": "Type of things *",
-          "titleMap": {
-            "foo": "The foo option",
-            "bar": "The bar option",
-            "fuzz": "The fuzz option",
-            "qux": "The qux option"
-          },
-          "widget": "select"
-        },
-        {
-          "key": "advancedKeyValue.value",
-          "placeholder": "Enter a number",
-          "title": "Number of things *"
-        }
-      ],
-      "title": "Select Key/Value",
-      "widget": "keyValue"
+      "key": "simpleComparator",
+      "description": "This is a default comparator widget. Input is text.",
+      "title": "Simple Comparator",
+      "widget": "comparator"
     }
   ]
 ```
