@@ -29,7 +29,6 @@ function getPartSchema(schema, part) {
 	};
 }
 
-
 class Comparator extends React.Component {
 	constructor(props) {
 		super(props);
@@ -46,12 +45,12 @@ class Comparator extends React.Component {
 		this.setState({ selected });
 	}
 
-	getOperatorSchema = getPartSchema.bind(this, this.props.schema, 'operator')
-	getValueSchema = getPartSchema.bind(this, this.props.schema, 'value')
+	getOperatorSchema = getPartSchema.bind(this, this.props.schema, 'operator');
+	getValueSchema = getPartSchema.bind(this, this.props.schema, 'value');
 
 	render() {
 		const operators = this.getOperatorSchema();
-		console.log('[NC] this.props: ', JSON.stringify(this.props));
+
 		return (
 			<div>
 				<ActionDropdown
@@ -70,7 +69,6 @@ class Comparator extends React.Component {
 		);
 	}
 }
-
 
 if (process.env.NODE_ENV !== 'production') {
 	Comparator.propTypes = {
