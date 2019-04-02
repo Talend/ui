@@ -1,0 +1,50 @@
+.comparator {
+	position: relative;
+	padding-top: 15px;
+	margin-bottom: 15px;
+
+	:global {
+		.dropdown {
+			position: absolute;
+			top: 3.5rem;
+
+			.btn {
+				width: 25px;
+				height: 25px;
+				min-height: 25px;
+				padding: 0;
+				color: $dove-gray;
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
+
+				border-top-left-radius: 2px;
+				border-top-right-radius: 2px;
+
+				&-default {
+					box-shadow: none;
+					background-color: $gallery;
+
+					&:hover {
+						opacity: 1;
+					}
+				}
+
+				.tc-dropdown-button-title-label {
+					height: 25px;
+				}
+			}
+		}
+
+		.form-group {
+			padding-top: 15px;
+			margin-bottom: 15px;
+
+			label {
+				top: 0;
+			}
+			input {
+				padding-left: 3rem;
+			}
+		}
+	}
+}

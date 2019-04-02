@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import last from 'lodash/last';
+import classNames from 'classnames';
 
 import ActionDropdown from '@talend/react-components/lib/Actions/ActionDropdown';
 import Text from '../Text';
@@ -52,7 +53,8 @@ class Comparator extends React.Component {
 		const operators = this.getOperatorSchema();
 
 		return (
-			<div>
+			<div className={classNames(theme.comparator)}>
+				<Widget {...this.props} schema={this.getValueSchema()} />
 				<ActionDropdown
 					id="context-dropdown-related-items"
 					label={this.state.selected.label}
@@ -63,8 +65,8 @@ class Comparator extends React.Component {
 						label: option.value,
 						value: option.value,
 					}))}
+					noCaret
 				/>
-				<Widget {...this.props} schema={this.getValueSchema()} />
 			</div>
 		);
 	}
