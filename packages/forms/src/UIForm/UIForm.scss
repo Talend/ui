@@ -16,7 +16,7 @@
 		flex-direction: column;
 		flex-grow: 1;
 		min-height: 0;
-		overflow: hidden;
+		overflow: hidden; /* IE11 fix to show scrollbars properly */
 	}
 
 	.form-content {
