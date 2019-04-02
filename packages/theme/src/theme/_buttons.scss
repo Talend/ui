@@ -3,9 +3,6 @@
 /// @group Buttons
 ////
 
-$button-svg-hover-color: $scooter;
-$button-svg-active-color: darken($scooter, 12%);
-
 .btn {
 	border: none;
 	font-size: $btn-font-size;
@@ -35,11 +32,11 @@ $button-svg-active-color: darken($scooter, 12%);
 		margin: 0 0.4rem;
 		
 		&:hover {
-			fill: $button-svg-hover-color;
+			fill: $scooter;
 		}
 
 		&:active {
-			fill: $button-svg-active-color;
+			fill: darken($scooter, 12%);
 		}
 	}
 
@@ -85,21 +82,6 @@ $button-svg-active-color: darken($scooter, 12%);
 	&-link {
 		font-size: $font-size-base;
 		font-weight: inherit;
-
-		&.btn-icon-only {
-
-			&:hover {
-				svg {
-					fill: $button-svg-hover-color;
-				}
-			}
-
-			&:active {
-				svg {
-					fill: $button-svg-active-color;
-				}
-			}
-		}
 	}
 
 	&-icon-only {
