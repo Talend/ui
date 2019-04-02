@@ -5,13 +5,13 @@
 
 @mixin svg-button-behavior {
 	&:hover {
-		>svg {
+		> svg {
 			fill: $scooter;
 		}
 	}
 
 	&:active {
-		>svg {
+		> svg {
 			fill: darken($scooter, 12%);
 		}
 	}
