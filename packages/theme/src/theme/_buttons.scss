@@ -78,17 +78,14 @@
 		&.btn-icon-only {
 			color: $gray;
 
-			&:focus,
 			&:hover {
 				svg {
-					stroke: $scooter;
 					fill: $scooter;
 				}
 			}
 
 			&:active {
 				svg {
-					stroke: darken($scooter, 12%);
 					fill: darken($scooter, 12%);
 				}
 			}
