@@ -33,7 +33,7 @@ $button-svg-active-color: darken($scooter, 12%);
 		height: $svg-md-size;
 		width: $svg-md-size;
 		margin: 0 0.4rem;
-		
+
 		&:hover {
 			fill: $button-svg-hover-color;
 		}
@@ -87,7 +87,6 @@ $button-svg-active-color: darken($scooter, 12%);
 		font-weight: inherit;
 
 		&.btn-icon-only {
-
 			&:hover {
 				svg {
 					fill: $button-svg-hover-color;
