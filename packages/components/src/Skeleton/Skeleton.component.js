@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import { translate } from 'react-i18next';
 import Icon from '../Icon';
-import theme from './Skeleton.scss';
+import skeletonCssModule from './Skeleton.scss';
+import { getTheme } from '../theme';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import '../translate';
 
+const theme = getTheme(skeletonCssModule);
 const TYPES = {
 	icon: 'icon',
 	text: 'text',
@@ -46,10 +47,7 @@ function getTranslatedType(t, type) {
  * @param {string} props.className classes to apply on skeleton
  */
 function Skeleton({ heartbeat, type, size, width, height, name, className, t }) {
-	const classes = classnames(
-		theme['tc-skeleton'],
-		theme[`tc-skeleton-${type}`],
-		theme[`tc-skeleton-${type}-${size}`],
+	const classes = theme(
 		'tc-skeleton',
 		`tc-skeleton-${type}`,
 		`tc-skeleton-${type}-${size}`,
