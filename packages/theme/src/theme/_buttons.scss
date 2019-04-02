@@ -86,14 +86,14 @@
 	}
 
 	&-link {
+		@include svg-button-behavior;
 		font-size: $font-size-base;
-		font-weight: inherit;
-		@include svg-button-behavior();
+		font-weight: inherit;		
 	}
 
 	&-icon-only {
+		@include svg-button-behavior;
 		display: inline-block;
-		@include svg-button-behavior();
 	}
 
 	&-xs {
