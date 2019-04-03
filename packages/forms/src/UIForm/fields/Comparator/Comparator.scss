@@ -3,10 +3,12 @@
 	padding-top: 15px;
 	margin-bottom: 15px;
 
+
+
 	:global {
 		.dropdown {
 			position: absolute;
-			top: 3.5rem;
+			top: 3.6rem;
 
 			.btn {
 				width: 25px;
@@ -46,5 +48,15 @@
 				padding-left: 3rem;
 			}
 		}
+	}
+}
+
+.operator {
+	&.selected {
+		font-weight: bold;
+	}
+
+	.name {
+		margin-left: 1rem;
 	}
 }

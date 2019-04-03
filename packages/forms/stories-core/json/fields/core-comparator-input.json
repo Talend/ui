@@ -60,7 +60,12 @@
     {
       "key": "numeric",
       "widget": "comparator",
-      "title": "Numeric comparator"
+      "title": "Numeric comparator",
+
+      "titleMap": {
+        ">=": "Orange",
+        "<=": "Pear"
+      }
     },
 
     {

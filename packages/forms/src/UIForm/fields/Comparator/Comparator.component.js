@@ -31,31 +31,50 @@ function getPartSchema(schema, part) {
 	};
 }
 
+function OperatorListElement({ value, name, selected }) {
+	return (
+		<span
+			className={
+				classNames(theme.operator, { [theme.selected]: selected })
+			}
+		>
+			<span className={classNames(theme.sign)}>{value}</span>
+			<span className={classNames(theme.name)}>{name}</span>
+		</span>
+	);
+}
+
+
 class Comparator extends React.Component {
 	constructor(props) {
 		super(props);
-
-		// const { name: label, value } = this.getOperatorSchema().titleMap[0];
-		// this.state = {
-		// 	selected: { label, value },
-		// };
-
 		this.onSelect = this.onSelect.bind(this);
 	}
 
 	onSelect(event, { value }) {
-		// this.setState({ selected });
 		this.props.onChange(event, { schema: this.getOperatorSchema(), value });
-
 	}
 
 	getOperatorSchema = getPartSchema.bind(this, this.props.schema, 'operator');
 	getValueSchema = getPartSchema.bind(this, this.props.schema, 'value');
 
+	getOperatorsMap() {
+		const schema = this.getOperatorSchema();
+		const map = this.props.schema.titleMap || [];
+
+		return schema.titleMap.map(({ value }) => ({
+			value,
+			name: (<OperatorListElement
+				value={value}
+				selected={this.props.value.operator === value}
+				name={(map.find(m => m.value === value) || {}).name}
+			/>),
+		}));
+	}
+
 	render() {
 		const operators = this.getOperatorSchema();
-		console.log('[NC] this.props.value: ', this.props.value);
-		console.log('[NC] operators.titleMap: ', operators.titleMap);
+
 		return (
 			<div className={classNames(theme.comparator)}>
 				<Widget {...this.props} schema={this.getValueSchema()} />
@@ -64,9 +83,9 @@ class Comparator extends React.Component {
 					label={this.props.value.operator}
 					onSelect={this.onSelect}
 					disabled={operators.disabled}
-					items={operators.titleMap.map((option, index) => ({
+					items={this.getOperatorsMap().map((option, index) => ({
 						id: `comparison-operator-${index}`,
-						label: option.value,
+						label: option.name,
 						value: option.value,
 					}))}
 					noCaret
@@ -88,6 +107,12 @@ if (process.env.NODE_ENV !== 'production') {
 			readOnly: PropTypes.bool,
 			title: PropTypes.string,
 		}),
+	};
+
+	OperatorListElement.propTypes = {
+		value: PropTypes.string,
+		name: PropTypes.string,
+		selected: PropTypes.bool,
 	};
 }
 
