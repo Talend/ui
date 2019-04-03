@@ -143,7 +143,7 @@
   },
   "version": "3.0.0",
   "dependencies": {
-    "ag-grid-community": "^19.0.0",
-    "ag-grid-react": "^19.0.0"
+    "ag-grid-community": "^20.2.0",
+    "ag-grid-react": "^20.2.0"
   }
 }
