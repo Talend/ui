@@ -12,9 +12,13 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/containers/src/EditableText/EditableText.selectors.js
   8:1  error  Prefer default export  import/prefer-default-export
 
+/home/travis/build/Talend/ui/packages/containers/src/InfiniteScrollList/InfiniteScrollList.container.js
+  51:6  error  Expected indentation of 4 tab characters but found 5  react/jsx-indent
+  54:2  error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
+
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
   11:80  error  'notifications' is missing in props validation  react/prop-types
 
-✖ 5 problems (5 errors, 0 warnings)
-  3 errors, 0 warnings potentially fixable with the `--fix` option.
+✖ 7 problems (7 errors, 0 warnings)
+  4 errors, 0 warnings potentially fixable with the `--fix` option.
 
