@@ -127,9 +127,9 @@ export class UIFormComponent extends React.Component {
 		const hasErrors = Object.values(widgetErrors).find(Boolean);
 
 		// update errors map
-		let errors = Object.entries(widgetErrors).reduce((accu, [key, value]) => {
-			const errorSchema = { key };
-			return value ? addError(accu, errorSchema, value) : removeError(accu, errorSchema);
+		let errors = Object.entries(widgetErrors).reduce((accu, [errorKey, errorValue]) => {
+			const errorSchema = { key: errorKey };
+			return errorValue ? addError(accu, errorSchema, errorValue) : removeError(accu, errorSchema);
 		}, this.props.errors);
 
 		// widget error modifier
