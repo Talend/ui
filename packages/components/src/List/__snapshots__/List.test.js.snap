@@ -286,6 +286,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                               <label>
                                 <input
                                   checked={false}
+                                  disabled={false}
                                   onChange={[Function]}
                                   type="checkbox"
                                 />
@@ -2111,6 +2112,7 @@ exports[`List should render 1`] = `
                               <label>
                                 <input
                                   checked={false}
+                                  disabled={false}
                                   onChange={[Function]}
                                   type="checkbox"
                                 />
@@ -3996,6 +3998,7 @@ exports[`List should render id if provided 1`] = `
                               >
                                 <input
                                   checked={false}
+                                  disabled={false}
                                   id="context-header-check"
                                   onChange={[Function]}
                                   type="checkbox"

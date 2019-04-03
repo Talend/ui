@@ -11,7 +11,7 @@ function HeaderCheckbox(props) {
 	const { id, onToggleAll, collection, isSelected } = columnData;
 	const isAllSelected =
 		() => collection.length > 0 && collection.findIndex(item => !isSelected(item)) < 0;
-	return (
+	return onToggleAll ? (
 		<form className={classnames('tc-list-checkbox', theme['tc-list-checkbox'])}>
 			<div className="checkbox">
 				<label htmlFor={id && `${id}-header-check`}>
@@ -30,7 +30,7 @@ function HeaderCheckbox(props) {
 				</label>
 			</div>
 		</form>
-	);
+	) : null;
 }
 
 HeaderCheckbox.displayName = 'VirtualizedList(HeaderCheckbox)';
