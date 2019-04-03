@@ -6,7 +6,6 @@ import classNames from 'classnames';
 import ActionDropdown from '@talend/react-components/lib/Actions/ActionDropdown';
 import Text from '../Text';
 import Widget from '../../Widget';
-import FieldTemplate from '../FieldTemplate';
 
 import theme from './Comparator.scss';
 
@@ -49,10 +48,39 @@ class Comparator extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onSelect = this.onSelect.bind(this);
+		this.onChange = this.onChange.bind(this);
+		this.onFinish = this.onFinish.bind(this);
 	}
 
 	onSelect(event, { value }) {
-		this.props.onChange(event, { schema: this.getOperatorSchema(), value });
+		this.props.onChange(event, {
+			schema: this.props.schema,
+			value: {
+				...this.props.value,
+				operator: value,
+			},
+		});
+	}
+
+	onChange(event, { value }) {
+		this.props.onChange(event, {
+			schema: this.props.schema,
+			value: {
+				...this.props.value,
+				value,
+			},
+		});
+	}
+
+	onFinish(event) {
+		this.props.onFinish(
+			event,
+			{
+				schema: this.props.schema,
+				value: this.props.value,
+			},
+			{ deepValidation: true },
+		);
 	}
 
 	getOperatorSchema = getPartSchema.bind(this, this.props.schema, 'operator');
@@ -77,7 +105,12 @@ class Comparator extends React.Component {
 
 		return (
 			<div className={classNames(theme.comparator)}>
-				<Widget {...this.props} schema={this.getValueSchema()} />
+				<Widget
+					{...this.props}
+					onChange={this.onChange}
+					onFinish={this.onFinish}
+					schema={this.getValueSchema()}
+				/>
 				<ActionDropdown
 					id="context-dropdown-related-items"
 					label={this.props.value.operator}

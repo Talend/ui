@@ -8,8 +8,8 @@ exports[`Comparator field should render default Comparator 1`] = `
     errors={Object {}}
     id="default"
     isValid={true}
-    onChange={[MockFunction]}
-    onFinish={[MockFunction]}
+    onChange={[Function]}
+    onFinish={[Function]}
     schema={
       Object {
         "autoFocus": undefined,
@@ -74,8 +74,8 @@ exports[`Comparator field should render disabled Comparator 1`] = `
     errors={Object {}}
     id="default"
     isValid={true}
-    onChange={[MockFunction]}
-    onFinish={[MockFunction]}
+    onChange={[Function]}
+    onFinish={[Function]}
     schema={
       Object {
         "autoFocus": undefined,
