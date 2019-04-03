@@ -9,8 +9,8 @@ import theme from './HeaderCheckbox.scss';
 function HeaderCheckbox(props) {
 	const { columnData } = props;
 	const { id, onToggleAll, collection, isSelected } = columnData;
-	const isAllSelected =
-		() => collection.length > 0 && collection.findIndex(item => !isSelected(item)) < 0;
+	const isAllSelected = () =>
+		collection.length > 0 && collection.findIndex(item => !isSelected(item)) < 0;
 	return onToggleAll ? (
 		<form className={classnames('tc-list-checkbox', theme['tc-list-checkbox'])}>
 			<div className="checkbox">
