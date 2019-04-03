@@ -3,22 +3,6 @@ import { shallow } from 'enzyme';
 import Comparator from './Comparator.component';
 
 describe('Comparator field', () => {
-	// const props = {
-	// 	id: 'my-comparator-field',
-	// 	isValid: true,
-	// 	errorMessage: 'This is wrong',
-	// 	onChange: jest.fn(),
-	// 	onFinish: jest.fn(),
-	// 	schema: {
-	// 		autoFocus: false,
-	// 		description: 'This is the comparator field',
-	// 		disabled: false,
-	// 		key: ['infos', 'variable'],
-	// 		title: 'Variable',
-	// 	},
-	// 	value: { key: 'lol', value: 'mdr' },
-	// };
-
 	const props = {
 		onChange: jest.fn(),
 		onFinish: jest.fn(),
