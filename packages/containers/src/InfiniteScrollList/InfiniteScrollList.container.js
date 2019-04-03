@@ -47,11 +47,7 @@ class InfiniteScrollList extends React.Component {
 
 		const rowColumns = this.isRowLoaded({ index })
 			? rowProps.columns
-			: columns.map(column => (
-					<div key={column.key} {...column.props}>
-						<Skeleton type="text" size="xlarge" />
-					</div>
-			  ));
+			: columns.map(column => <div key={column.key} {...column.props}><Skeleton type="text" size="xlarge" /></div>);
 
 		return <DefaultTableRowRenderer {...rowProps} columns={rowColumns} />;
 	}
