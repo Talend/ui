@@ -71,7 +71,14 @@
     }
   ],
   "properties": {
+    "default": {
+      "operator": ">"
+    },
+    "numeric": {
+      "operator": "<="
+    },
     "disabled": {
+      "operator": ">",
       "value": "hihihi"
     }
   }

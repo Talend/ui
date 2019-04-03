@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import ActionDropdown from '@talend/react-components/lib/Actions/ActionDropdown';
 import Text from '../Text';
 import Widget from '../../Widget';
+import FieldTemplate from '../FieldTemplate';
 
 import theme from './Comparator.scss';
 
@@ -34,16 +35,18 @@ class Comparator extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const { name: label, value } = this.getOperatorSchema().titleMap[0];
-		this.state = {
-			selected: { label, value },
-		};
+		// const { name: label, value } = this.getOperatorSchema().titleMap[0];
+		// this.state = {
+		// 	selected: { label, value },
+		// };
 
 		this.onSelect = this.onSelect.bind(this);
 	}
 
-	onSelect(_, selected) {
-		this.setState({ selected });
+	onSelect(event, { value }) {
+		// this.setState({ selected });
+		this.props.onChange(event, { schema: this.getOperatorSchema(), value });
+
 	}
 
 	getOperatorSchema = getPartSchema.bind(this, this.props.schema, 'operator');
@@ -51,13 +54,14 @@ class Comparator extends React.Component {
 
 	render() {
 		const operators = this.getOperatorSchema();
-
+		console.log('[NC] this.props.value: ', this.props.value);
+		console.log('[NC] operators.titleMap: ', operators.titleMap);
 		return (
 			<div className={classNames(theme.comparator)}>
 				<Widget {...this.props} schema={this.getValueSchema()} />
 				<ActionDropdown
 					id="context-dropdown-related-items"
-					label={this.state.selected.label}
+					label={this.props.value.operator}
 					onSelect={this.onSelect}
 					disabled={operators.disabled}
 					items={operators.titleMap.map((option, index) => ({
@@ -86,5 +90,9 @@ if (process.env.NODE_ENV !== 'production') {
 		}),
 	};
 }
+
+Comparator.defaultProps = {
+	value: {},
+};
 
 export default Comparator;
