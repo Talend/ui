@@ -75,6 +75,9 @@ function VirtualizedList(props) {
 					disableHeader={disableHeader}
 					inProgress={inProgress}
 					rowRenderers={rowRenderers}
+					totalRowCount={props.totalRowCount}
+					onRowsRendered={props.onRowsRendered}
+					registerChild={props.registerChild}
 				>
 					{columnDefinitions}
 				</RendererSelector>

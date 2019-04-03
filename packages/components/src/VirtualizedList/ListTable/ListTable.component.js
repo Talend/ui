@@ -24,10 +24,12 @@ function ListTable(props) {
 		isSelected,
 		onRowClick,
 		onRowDoubleClick,
+		totalRowCount,
+		rowRenderer,
 		...restProps
 	} = props;
 
-	let RowTableRenderer = DefaultTableRowRenderer;
+	let RowTableRenderer = rowRenderer || DefaultTableRowRenderer;
 	if (isActive || isSelected) {
 		RowTableRenderer = getRowSelectionRenderer(RowTableRenderer, {
 			isSelected,
@@ -50,8 +52,8 @@ function ListTable(props) {
 			rowClassName={({ index }) =>
 				classNames(...['tc-list-item', rowThemes, collection[index] && collection[index].className])
 			}
-			rowCount={collection.length}
-			rowGetter={({ index }) => collection[index]}
+			rowCount={totalRowCount || collection.length}
+			rowGetter={({ index }) => collection[index] || {}}
 			rowRenderer={RowTableRenderer}
 			{...restProps}
 		/>
@@ -74,6 +76,8 @@ ListTable.propTypes = {
 	sortBy: PropTypes.string,
 	sortDirection: PropTypes.string,
 	width: PropTypes.number,
+	totalRowCount: PropTypes.number,
+	rowRenderer: PropTypes.func,
 };
 
 ListTable.defaultProps = {
