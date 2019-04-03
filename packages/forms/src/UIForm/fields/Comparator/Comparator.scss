@@ -16,11 +16,13 @@
 				min-height: 25px;
 				padding: 0;
 				color: $dove-gray;
-				border-bottom-left-radius: 0;
-				border-bottom-right-radius: 0;
-
-				border-top-left-radius: 2px;
-				border-top-right-radius: 2px;
+				z-index: 1;
+				border: {
+					bottom-left-radius: 0;
+					bottom-right-radius: 0;
+					top-left-radius: 2px;
+					top-right-radius: 2px;
+				}
 
 				&-default {
 					box-shadow: none;

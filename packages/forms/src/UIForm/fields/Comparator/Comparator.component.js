@@ -105,12 +105,6 @@ class Comparator extends React.Component {
 
 		return (
 			<div className={classNames(theme.comparator)}>
-				<Widget
-					{...this.props}
-					onChange={this.onChange}
-					onFinish={this.onFinish}
-					schema={this.getValueSchema()}
-				/>
 				<ActionDropdown
 					id="context-dropdown-related-items"
 					label={this.props.value.operator}
@@ -122,6 +116,12 @@ class Comparator extends React.Component {
 						value: option.value,
 					}))}
 					noCaret
+				/>
+				<Widget
+					{...this.props}
+					onChange={this.onChange}
+					onFinish={this.onFinish}
+					schema={this.getValueSchema()}
 				/>
 			</div>
 		);
