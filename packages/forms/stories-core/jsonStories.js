@@ -12,19 +12,18 @@ const oldFilenames = require.context('../stories/json', true, /.(js|json)$/);
 const sampleFilenameRegex = /^.\/(.*).js/;
 const stories = [];
 
-
 function capitalizeFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function getFilteredCollection({ name, selection, certified, favorites, selected, orders }) {
 	const methods = {
-		asc: (a, b) => a > b ? - 1 : 1,
-		desc: (a, b) => a < b ? - 1 : 1,
+		asc: (a, b) => (a > b ? -1 : 1),
+		desc: (a, b) => (a < b ? -1 : 1),
 	};
 	const collection = [
 		{
-			id: 0,
+			id: '0',
 			name: 'Title with few actions',
 			modified: 1442880000000,
 			icon: 'talend-file-xls-o',
@@ -32,14 +31,14 @@ function getFilteredCollection({ name, selection, certified, favorites, selected
 			flags: ['CERTIFIED', 'FAVORITE'],
 		},
 		{
-			id: 1,
+			id: '1',
 			name: 'Title with lot of actions',
 			modified: 1537574400000,
 			icon: 'talend-file-xls-o',
 			author: 'Second Author',
 		},
 		{
-			id: 2,
+			id: '2',
 			name: 'Title with persistant actions',
 			modified: 1474502400000,
 			author: 'Jean-Pierre DUPONT',
@@ -47,7 +46,7 @@ function getFilteredCollection({ name, selection, certified, favorites, selected
 			flags: ['FAVORITE'],
 		},
 		{
-			id: 3,
+			id: '3',
 			name: 'Title with icon',
 			modified: 1506038400000,
 			author: 'Third Author',
@@ -55,14 +54,14 @@ function getFilteredCollection({ name, selection, certified, favorites, selected
 			flags: ['CERTIFIED'],
 		},
 		{
-			id: 4,
+			id: '4',
 			name: 'Title in input mode',
 			modified: 1506038400000,
 			author: 'Jean-Pierre DUPONT',
 			icon: 'talend-file-xls-o',
 		},
 		{
-			id: 5,
+			id: '5',
 			name: 'Title with long long long long long long long long long long long text',
 			modified: 1547478328552,
 			author: 'Jean-Pierre DUPONT with super super super long text',
@@ -70,7 +69,6 @@ function getFilteredCollection({ name, selection, certified, favorites, selected
 			flags: ['CERTIFIED', 'FAVORITE'],
 		},
 	];
-
 
 	let c = collection;
 
@@ -136,11 +134,31 @@ function createCommonProps(tab) {
 				});
 			}
 
-			if (key.includes('ResourcePicker')) {
+			if (key === 'datasetId' && payload.trigger.onEvent === 'filter') {
 				return new Promise(resolve => {
-					resolve({
-						collection: getFilteredCollection(payload.trigger.parameters),
-					});
+					setTimeout(
+						() =>
+							resolve({
+								collection: getFilteredCollection(payload.filters),
+							}),
+						3000,
+					);
+				});
+			}
+			if (key === 'datasetId' && payload.trigger.onEvent === 'change') {
+				return Promise.resolve({
+					properties: properties => {
+						const { datasetId, name } = properties;
+						return (name && name.length) ? properties : {
+							...properties,
+							name: datasetId && `Resource ${datasetId} preparation`,
+						};
+					},
+					errors: errors => {
+						const e = { ...errors };
+						delete e.name;
+						return e;
+					},
 				});
 			}
 

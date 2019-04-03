@@ -182,16 +182,17 @@ describe('#DataGrid', () => {
 		const getCellValueFn = jest.fn();
 
 		const props = {
+			columnsConf: {},
+			data: sample,
 			getComponent,
 			getCellValueFn,
 			getColumnDefsFn,
 			getPinnedColumnDefsFn,
 			getRowDataFn,
-			data: sample,
 		};
 
 		shallow(<DataGrid {...props} />);
-		expect(getColumnDefsFn).toHaveBeenCalledWith(sample);
+		expect(getColumnDefsFn).toHaveBeenCalledWith(sample, props.columnsConf);
 		expect(getPinnedColumnDefsFn).toHaveBeenCalledWith(sample);
 		expect(getRowDataFn).toHaveBeenCalledWith(sample, 0);
 	});

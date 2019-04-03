@@ -37,7 +37,17 @@ function getPartSchema(parentSchema, part) {
 	};
 }
 
-function KeyValue({ id, isValid, errorMessage, onChange, onFinish, schema, value, ...restProps }) {
+function KeyValue({
+	id,
+	isValid,
+	errorMessage,
+	onChange,
+	onFinish,
+	schema,
+	value,
+	valueIsUpdating,
+	...restProps
+}) {
 	const { description, title } = schema;
 
 	const keySchema = getPartSchema(schema, 'key');
@@ -51,6 +61,7 @@ function KeyValue({ id, isValid, errorMessage, onChange, onFinish, schema, value
 			isValid={isValid}
 			label={title}
 			required={schema.required}
+			valueIsUpdating={valueIsUpdating}
 		>
 			<dl className={theme['key-value']}>
 				<dt>
@@ -100,6 +111,7 @@ if (process.env.NODE_ENV !== 'production') {
 			key: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 			value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 		}),
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 

@@ -31,7 +31,7 @@ describe('UIForm container', () => {
 
 			const newData = {
 				jsonSchema: {},
-				uiSchema: {},
+				uiSchema: [],
 				properties: {},
 			};
 
@@ -69,7 +69,7 @@ describe('UIForm container', () => {
 			const previousState = wrapper.state();
 			const newInitialData = {
 				jsonSchema: {},
-				uiSchema: {},
+				uiSchema: [],
 				properties: {},
 			};
 			// when
@@ -161,12 +161,14 @@ describe('UIForm container', () => {
 			const wrapper = shallow(<UIForm data={data} {...props} />);
 			const instance = wrapper.instance();
 			const errors = { firstname: 'my firstname is invalid' };
+			const callback = jest.fn();
 
 			// when
-			instance.setErrors(null, errors);
+			instance.setErrors(null, errors, callback);
 
 			// then
 			expect(instance.state.liveState.errors).toEqual(errors);
+			expect(callback).toHaveBeenCalled();
 		});
 	});
 
@@ -204,6 +206,77 @@ describe('UIForm container', () => {
 			// then
 			triggerPromise.then(() => {
 				expect(instance.state.liveState.errors).toBe(errors);
+				done();
+			});
+		});
+
+		it('should call errors updater if given', done => {
+			// given
+			const updater = jest.fn(() => ({ test: 42 }));
+			const onTrigger = jest.fn(() => Promise.resolve({ errors: updater }));
+			const wrapper = shallow(<UIForm data={data} {...props} onTrigger={onTrigger} />);
+			const instance = wrapper.instance();
+
+			instance.state.liveState.errors = { test: 666 };
+
+			// when
+			const triggerPromise = instance.onTrigger();
+
+			// then
+			triggerPromise.then(() => {
+				expect(updater).toHaveBeenCalledWith({ test: 666 });
+				expect(instance.state.liveState.errors).toEqual({ test: 42 });
+				done();
+			});
+		});
+
+		it('should update state properties', done => {
+			// given
+			const properties = { firstname: 'my firstname is invalid' };
+			const onTrigger = jest.fn(() => Promise.resolve({ properties }));
+			const wrapper = shallow(<UIForm data={data} {...props} onTrigger={onTrigger} />);
+			const instance = wrapper.instance();
+
+			// when
+			const triggerPromise = instance.onTrigger(null, {});
+
+			// then
+			triggerPromise.then(() => {
+				expect(instance.state.liveState.properties).toBe(properties);
+				done();
+			});
+		});
+
+		it('should call properties updater if given', done => {
+			// given
+			const onChange = jest.fn();
+			const updater = jest.fn(() => ({ test: 42 }));
+			const onTrigger = jest.fn(() => Promise.resolve({ properties: updater }));
+			const wrapper = shallow(
+				<UIForm data={data} {...props} onTrigger={onTrigger} onChange={onChange} />,
+			);
+			const instance = wrapper.instance();
+
+			instance.state.liveState.properties = { test: 666 };
+
+			const event = { target: {} };
+			const schema = { key: ['test'] };
+			const value = 666;
+			const oldProperties = { test: 777 };
+
+			// when
+			const triggerPromise = instance.onTrigger(event, { schema, value, oldProperties });
+
+			triggerPromise.then(() => {
+				expect(updater).toHaveBeenCalledWith({ test: 666 });
+				expect(onChange).toBeCalledWith(event, {
+					schema,
+					value,
+					oldProperties,
+					properties: { test: 42 },
+					formData: { test: 42 },
+				});
+				expect(instance.state.liveState.properties).toEqual({ test: 42 });
 				done();
 			});
 		});

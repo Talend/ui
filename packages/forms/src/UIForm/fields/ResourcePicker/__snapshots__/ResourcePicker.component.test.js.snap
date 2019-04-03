@@ -12,6 +12,9 @@ exports[`ResourcePicker field should render simple select 1`] = `
   required={true}
 >
   <ResourcePicker
+    aria-describedby="mySelect-description mySelect-error"
+    aria-invalid={false}
+    aria-required={true}
     collection={Array []}
     errorMessage="My Error Message"
     filters={
@@ -36,6 +39,15 @@ exports[`ResourcePicker field should render simple select 1`] = `
           Array [
             undefined,
             Object {
+              "errors": undefined,
+              "filters": Object {
+                "certified": false,
+                "favorites": false,
+                "name": "",
+                "selected": Array [],
+                "selection": false,
+              },
+              "properties": undefined,
               "schema": Object {
                 "description": "ResourcePicker me",
                 "placeholder": "Please select a value",
@@ -44,22 +56,27 @@ exports[`ResourcePicker field should render simple select 1`] = `
                   "type": "object",
                 },
                 "title": "My ResourcePicker title",
+                "triggers": Array [
+                  Object {
+                    "action": "resourcePickerSelected",
+                    "onEvent": "change",
+                  },
+                  Object {
+                    "action": "resourcePickerFiltered",
+                    "onEvent": "filter",
+                  },
+                ],
               },
               "trigger": Object {
-                "parameters": Object {
-                  "certified": false,
-                  "favorites": false,
-                  "name": "",
-                  "selected": Array [],
-                  "selection": false,
-                },
+                "action": "resourcePickerFiltered",
+                "onEvent": "filter",
               },
             },
           ],
         ],
         "results": Array [
           Object {
-            "isThrow": false,
+            "type": "return",
             "value": Promise {},
           },
         ],
@@ -74,6 +91,16 @@ exports[`ResourcePicker field should render simple select 1`] = `
           "type": "object",
         },
         "title": "My ResourcePicker title",
+        "triggers": Array [
+          Object {
+            "action": "resourcePickerSelected",
+            "onEvent": "change",
+          },
+          Object {
+            "action": "resourcePickerFiltered",
+            "onEvent": "filter",
+          },
+        ],
       }
     }
     toolbar={

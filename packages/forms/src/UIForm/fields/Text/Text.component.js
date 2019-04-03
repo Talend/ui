@@ -6,7 +6,7 @@ import { generateDescriptionId, generateErrorId } from '../../Message/generateId
 import { convertValue } from '../../utils/properties';
 
 export default function Text(props) {
-	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
+	const { id, isValid, errorMessage, onChange, onFinish, schema, value, valueIsUpdating } = props;
 	const {
 		autoFocus,
 		description,
@@ -34,12 +34,13 @@ export default function Text(props) {
 			label={title}
 			labelAfter
 			required={schema.required}
+			valueIsUpdating={valueIsUpdating}
 		>
 			<input
 				id={id}
 				autoFocus={autoFocus}
 				className="form-control"
-				disabled={disabled}
+				disabled={disabled || valueIsUpdating}
 				onBlur={event => onFinish(event, { schema })}
 				onChange={event =>
 					onChange(event, { schema, value: convertValue(type, event.target.value) })
@@ -77,6 +78,7 @@ if (process.env.NODE_ENV !== 'production') {
 			schema: PropTypes.object,
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 

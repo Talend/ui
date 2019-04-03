@@ -50,7 +50,7 @@ ReactCMFWebpackPlugin.prototype.apply = function reactCMFWebpackPluginApply(comp
 	if (!destination) {
 		cmfconfig.settings.destination = path.join(outputPath, 'settings.json');
 	}
-	this.options.cmfconfig = cmfconfig;
+	this.options.cmfConfig = cmfconfig;
 
 	/**
 	 * Runs at each webpack run.

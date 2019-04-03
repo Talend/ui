@@ -36,6 +36,8 @@ export class UIFormComponent extends React.Component {
 		this.onSubmit = this.onSubmit.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onActionClick = this.onActionClick.bind(this);
+		this.focusFirstError = this.focusFirstError.bind(this);
+		this.setFormRef = this.setFormRef.bind(this);
 		// control the tv4 language here.
 		const language = getLanguage(props.t);
 		if (props.language != null) {
@@ -231,9 +233,9 @@ export class UIFormComponent extends React.Component {
 				return accu;
 			}, {});
 
-		this.props.setErrors(event, errors);
-
 		const isValid = !Object.keys(errors).length;
+		this.props.setErrors(event, errors, !isValid ? this.focusFirstError : undefined);
+
 		if (this.props.onSubmit && isValid) {
 			if (this.props.moz) {
 				this.props.onSubmit(null, { formData: properties });
@@ -241,7 +243,20 @@ export class UIFormComponent extends React.Component {
 				this.props.onSubmit(event, properties);
 			}
 		}
+
 		return isValid;
+	}
+
+	setFormRef(element) {
+		this.formRef = element;
+	}
+
+	focusFirstError() {
+		if (!this.formRef) {
+			return;
+		}
+
+		this.formRef.querySelector('[aria-invalid="true"]').focus();
 	}
 
 	render() {
@@ -274,6 +289,7 @@ export class UIFormComponent extends React.Component {
 					templates={this.props.templates}
 					widgets={this.state.widgets}
 					displayMode={this.props.displayMode}
+					updating={this.props.updating}
 				/>
 			));
 		const buttonsRenderer = () => {
@@ -309,6 +325,7 @@ export class UIFormComponent extends React.Component {
 				onReset={this.props.onReset}
 				onSubmit={this.onSubmit}
 				target={this.props.target}
+				ref={this.setFormRef}
 			>
 				{formTemplate({ children: this.props.children, widgetsRenderer, buttonsRenderer })}
 			</form>

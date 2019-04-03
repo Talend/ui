@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-sagas",
-  "version": "2.3.0",
+  "version": "3.0.0",
   "description": "App wide redux sagas",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
@@ -40,8 +40,8 @@
     "lodash": "^4.17.4",
     "path-to-regexp": "^2.0.0",
     "prop-types": "^15.5.10",
-    "react": "^15.6.2 || ^16.0.0",
-    "react-dom": "^15.6.2 || ^16.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-redux": "^5.0.7",
     "react-router": "^3.2.0",
     "react-router-redux": "^4.0.8",
@@ -54,7 +54,7 @@
     "redux-thunk": "^2.2.0"
   },
   "dependencies": {
-    "@talend/react-cmf": "^2.3.0",
+    "@talend/react-cmf": "^3.0.0",
     "redux-saga": "^0.15.4"
   },
   "devDependencies": {
@@ -65,9 +65,8 @@
     "@babel/plugin-transform-object-assign": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
-    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^23.6.0",
+    "babel-jest": "^24.0.0",
     "babel-loader": "^8.0.0",
     "classnames": "^2.2.5",
     "eslint": "^4.0.0",
@@ -77,12 +76,12 @@
     "eslint-plugin-react": "^6.3.0",
     "immutable": "^3.8.1",
     "invariant": "^2.2.2",
-    "jest": "^23.6.0",
+    "jest": "^24.0.0",
     "lodash": "^4.17.4",
     "path-to-regexp": "^2.0.0",
     "prop-types": "^15.5.10",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-redux": "^5.0.7",
     "react-router": "^3.2.0",
     "react-router-redux": "^4.0.8",
@@ -94,7 +93,7 @@
     "redux-storage-engine-localstorage": "^1.1.4",
     "redux-thunk": "^2.2.0",
     "regenerator-runtime": "^0.13.1",
-    "rimraf": "^2.6.1"
+    "rimraf": "^2.6.2"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -106,7 +105,9 @@
       "src"
     ],
     "testRegex": "&*\\.test\\.js$",
-    "setupTestFrameworkScriptFile": "<rootDir>/../../test-setup.js"
+    "setupFilesAfterEnv": [
+      "<rootDir>/../../test-setup.js"
+    ]
   },
   "publishConfig": {
     "access": "public"

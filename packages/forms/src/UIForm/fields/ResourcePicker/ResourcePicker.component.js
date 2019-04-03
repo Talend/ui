@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ResourcePickerComponent from '@talend/react-components/lib/ResourcePicker';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+import { CHANGE, FILTER } from './constants';
 
 class ResourcePicker extends Component {
 	constructor(props) {
@@ -40,23 +41,35 @@ class ResourcePicker extends Component {
 
 	onFilter(event) {
 		this.setState({ isLoading: true }, () => {
-			this.props
-				.onTrigger(event, {
-					trigger: {
-						parameters: this.state.filters,
-					},
-					schema: this.props.schema,
-				})
+			this.onTrigger(event, FILTER, { filters: this.state.filters })
 				.then(data => this.setState(data))
 				.finally(() => this.setState({ isLoading: false }));
 		});
 	}
 
+	onTrigger(event, eventName, payload) {
+		const { schema, properties, errors } = this.props;
+		const trigger = schema.triggers && schema.triggers.find(trig => trig.onEvent === eventName);
+
+		if (trigger) {
+			return this.props.onTrigger(event, {
+				trigger,
+				schema,
+				properties,
+				errors,
+				...payload,
+			});
+		}
+
+		return Promise.resolve();
+	}
+
 	onRowClick(event, { id }) {
 		let selected = [...this.state.filters.selected];
 		const index = selected.findIndex(i => i === id);
+		const { multi } = this.props.schema;
 
-		if (!this.props.schema.multi) {
+		if (!multi) {
 			selected = [];
 		}
 
@@ -66,8 +79,10 @@ class ResourcePicker extends Component {
 			selected.push(id);
 		}
 
+		const value = multi ? selected : selected[0];
 		this.setState({ filters: { ...this.state.filters, selected } });
-		this.onChange(event, selected);
+		this.onChange(event, value);
+		this.onTrigger(event, CHANGE, { value });
 	}
 
 	isItemSelected({ id }) {
@@ -122,7 +137,7 @@ class ResourcePicker extends Component {
 
 	render() {
 		const { certified, favorites, selection, orders } = this.state.filters;
-		const { id, schema } = this.props;
+		const { id, schema, isValid, errorMessage } = this.props;
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
 		const toolbar = {
@@ -144,14 +159,14 @@ class ResourcePicker extends Component {
 
 		return (
 			<FieldTemplate
-				description={this.props.schema.description}
+				description={schema.description}
 				descriptionId={descriptionId}
 				errorId={errorId}
-				errorMessage={this.props.errorMessage}
-				id={this.props.id}
-				isValid={this.props.isValid}
-				label={this.props.schema.title}
-				required={this.props.schema.required}
+				errorMessage={errorMessage}
+				id={id}
+				isValid={isValid}
+				label={schema.title}
+				required={schema.required}
 			>
 				<ResourcePickerComponent
 					{...this.props}
@@ -159,6 +174,10 @@ class ResourcePicker extends Component {
 					toolbar={toolbar}
 					isSelected={this.isItemSelected}
 					onRowClick={this.onRowClick}
+					// eslint-disable-next-line jsx-a11y/aria-proptypes
+					aria-invalid={!isValid}
+					aria-required={schema.required}
+					aria-describedby={`${descriptionId} ${errorId}`}
 				/>
 			</FieldTemplate>
 		);
@@ -175,6 +194,8 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		onTrigger: PropTypes.func,
+		properties: PropTypes.object,
+		errors: PropTypes.object,
 		schema: PropTypes.shape({
 			schema: PropTypes.shape({
 				type: PropTypes.string,
