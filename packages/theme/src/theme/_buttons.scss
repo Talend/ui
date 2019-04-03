@@ -4,15 +4,18 @@
 ////
 
 @mixin svg-button-behavior {
+	color: $silver-chalice;
 	&:hover {
+		color: $scooter;
 		> svg {
-			fill: $scooter;
+			fill: currentColor;
 		}
 	}
 
 	&:active {
+		color: darken($scooter, 12%);
 		> svg {
-			fill: darken($scooter, 12%);
+			fill: currentColor;
 		}
 	}
 }
@@ -40,7 +43,7 @@
 	}
 
 	svg {
-		fill: $silver-chalice;
+		fill: currentColor;
 		height: $svg-md-size;
 		width: $svg-md-size;
 		margin: 0 0.4rem;
@@ -92,8 +95,15 @@
 	}
 
 	&-icon-only {
-		@include svg-button-behavior;
 		display: inline-block;
+
+		&.btn-link {
+			@include svg-button-behavior;
+		}
+
+		svg {	
+			vertical-align: middle;	
+		}
 	}
 
 	&-xs {
