@@ -2,11 +2,7 @@
 
 
 src/theme/_buttons.scss
-  29:2   error  The keyword `all` should not be used with the property `transition`  no-transition-all
-  91:3   error  Mixins should come before declarations                               mixins-before-declarations
-  91:31  error  Parenthesis should be removed                                        empty-args
-  96:3   error  Mixins should come before declarations                               mixins-before-declarations
-  96:31  error  Parenthesis should be removed                                        empty-args
+  29:2  error  The keyword `all` should not be used with the property `transition`  no-transition-all
 
 src/theme/_dropdowns.scss
   41:28  warning  Space expected around operator  space-around-operator
@@ -41,5 +37,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 26 problems (16 errors, 10 warnings)
+✖ 22 problems (12 errors, 10 warnings)
 
