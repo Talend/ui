@@ -1,7 +1,7 @@
 # InfiniteScrollList container
 
 This is a first version of this container.
-For the moment, it only supports only loading data as the user scrolls down the list.
+For the moment, it only supports loading data as the user scrolls down the list.
 
 ## Props
 
