@@ -8,8 +8,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/ArrayItem.component.js
   3:8  error  'Icon' is defined but never used  no-unused-vars
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.component.js
-  130:65  error  'value' is already declared in the upper scope  no-shadow
-
-✖ 3 problems (3 errors, 0 warnings)
+✖ 2 problems (2 errors, 0 warnings)
 
