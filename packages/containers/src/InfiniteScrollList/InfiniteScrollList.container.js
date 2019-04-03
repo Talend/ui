@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { InfiniteLoader, defaultTableRowRenderer as DefaultTableRowRenderer } from 'react-virtualized';
+import {
+	InfiniteLoader,
+	defaultTableRowRenderer as DefaultTableRowRenderer,
+} from 'react-virtualized';
 import { Skeleton } from '@talend/react-components';
 import List from '@talend/react-components/lib/List/ListComposition';
 
@@ -44,7 +47,11 @@ class InfiniteScrollList extends React.Component {
 
 		const rowColumns = this.isRowLoaded({ index })
 			? rowProps.columns
-			: columns.map(column => <div key={column.key} {...column.props}><Skeleton type="text" size="xlarge" /></div>);
+			: columns.map(column => (
+					<div key={column.key} {...column.props}>
+						<Skeleton type="text" size="xlarge" />
+					</div>
+			  ));
 
 		return <DefaultTableRowRenderer {...rowProps} columns={rowColumns} />;
 	}
@@ -68,13 +75,13 @@ class InfiniteScrollList extends React.Component {
 							registerChild={registerChild}
 							rowRenderers={{ table: this.rowRenderer }}
 						>
-							{columns.map(column =>
+							{columns.map(column => (
 								<List.VList.Content label={column.label} dataKey={column.key} key={column.key} />
-							)}
+							))}
 						</List.VList>
 					)}
 				</InfiniteLoader>
-			</List.Manager >
+			</List.Manager>
 		);
 	}
 }
