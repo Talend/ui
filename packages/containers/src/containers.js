@@ -15,6 +15,7 @@ export { default as FilterBar } from './FilterBar';
 export { default as GuidedTour } from './GuidedTour';
 export { default as HeaderBar } from './HeaderBar';
 export { default as HomeListView } from './HomeListView';
+export { default as InfiniteScrollList } from './InfiniteScrollList';
 export { default as List } from './List';
 export { default as Notification } from './Notification';
 export { default as ObjectViewer } from './ObjectViewer';
