@@ -99,8 +99,11 @@ class RendererSelector extends React.Component {
 				sort,
 				sortBy,
 				sortDirection,
-				rowRenderer: rowRenderers.table,
 			};
+
+			if (rowRenderers && rowRenderers.table) {
+				customProps.rowRenderer = rowRenderers.table;
+			}
 		} else {
 			ListRenderer = ListGrid;
 			const rowRenderer = getRowRenderer(type, rowRenderers);
