@@ -22,7 +22,7 @@ function getRowRenderer(type, renderers = {}) {
 		const rowRendererTypes = [TABLE].concat(Object.keys(safeRenderer));
 		throw new Error(
 			`Unknown row renderer in Virtualized List : ${type}. ` +
-				`Possible values are [${rowRendererTypes}].`,
+			`Possible values are [${rowRendererTypes}].`,
 		);
 	}
 	return rowRenderer;
@@ -103,9 +103,9 @@ class RendererSelector extends React.Component {
 			};
 		} else {
 			ListRenderer = ListGrid;
-			const gridRowRenderer = getRowRenderer(type, rowRenderers);
-			const options = gridRowRenderer.options || {};
-			customProps = { rowRenderer: gridRowRenderer, ...options };
+			const rowRenderer = getRowRenderer(type, rowRenderers);
+			const options = rowRenderer.options || {};
+			customProps = { rowRenderer, ...options };
 		}
 
 		return <ListRenderer {...commonProps} {...customProps} />;
