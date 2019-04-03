@@ -114,6 +114,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
         defaultHeight={250}
         isSelected={[Function]}
         onRowDoubleClick={[MockFunction]}
+        onToggleAll={[MockFunction]}
         selectionToggle={[MockFunction]}
         sort={null}
         sortDirection="ASC"
@@ -247,11 +248,60 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                           }
                         }
                       >
-                        <span
-                          className="ReactVirtualized__Table__headerTruncatedText"
-                          key="label"
-                          title=""
-                        />
+                        <VirtualizedList(HeaderCheckbox)
+                          columnData={
+                            Object {
+                              "collection": Array [
+                                Object {
+                                  "id": 1,
+                                  "name": "Hello world",
+                                },
+                                Object {
+                                  "id": 2,
+                                  "name": "Foo",
+                                },
+                                Object {
+                                  "id": 3,
+                                  "name": "Bar",
+                                },
+                              ],
+                              "id": undefined,
+                              "isSelected": [Function],
+                              "label": "Select this element",
+                              "onChange": [MockFunction],
+                              "onToggleAll": [MockFunction],
+                            }
+                          }
+                          dataKey=""
+                          disableSort={true}
+                          label=""
+                          sortDirection="ASC"
+                        >
+                          <form
+                            className="tc-list-checkbox theme-tc-list-checkbox"
+                          >
+                            <div
+                              className="checkbox"
+                            >
+                              <label>
+                                <input
+                                  checked={false}
+                                  onChange={[Function]}
+                                  type="checkbox"
+                                />
+                                <span
+                                  className="tc-header-checkbox"
+                                >
+                                  <span
+                                    className="sr-only"
+                                  >
+                                    Select All
+                                  </span>
+                                </span>
+                              </label>
+                            </div>
+                          </form>
+                        </VirtualizedList(HeaderCheckbox)>
                       </div>
                       <div
                         className="ReactVirtualized__Table__headerColumn theme-header tc-list-cell-id"
@@ -696,49 +746,6 @@ exports[`List should render 1`] = `
                     <div
                       className="container-fluid"
                     >
-                      <SelectAll
-                        isSelected={[Function]}
-                        items={
-                          Array [
-                            Object {
-                              "id": 1,
-                              "name": "Hello world",
-                            },
-                            Object {
-                              "id": 2,
-                              "name": "Foo",
-                            },
-                            Object {
-                              "id": 3,
-                              "name": "Bar",
-                            },
-                          ]
-                        }
-                        onToggleAll={[MockFunction]}
-                        t={[Function]}
-                      >
-                        <form
-                          className="theme-container navbar-form navbar-left"
-                        >
-                          <div
-                            className="checkbox-inline navbar-text theme-tc-list-toolbar-select-all"
-                          >
-                            <label
-                              className="tc-list-toolbar-select-all"
-                            >
-                              <input
-                                checked={false}
-                                disabled={false}
-                                onChange={[Function]}
-                                type="checkbox"
-                              />
-                              <span>
-                                Select All
-                              </span>
-                            </label>
-                          </div>
-                        </form>
-                      </SelectAll>
                       <Label
                         text="Display:"
                       >
@@ -1932,6 +1939,7 @@ exports[`List should render 1`] = `
         defaultHeight={250}
         isSelected={[Function]}
         onRowDoubleClick={[MockFunction]}
+        onToggleAll={[MockFunction]}
         selectionToggle={[MockFunction]}
         sort={null}
         sortDirection="ASC"
@@ -2065,11 +2073,60 @@ exports[`List should render 1`] = `
                           }
                         }
                       >
-                        <span
-                          className="ReactVirtualized__Table__headerTruncatedText"
-                          key="label"
-                          title=""
-                        />
+                        <VirtualizedList(HeaderCheckbox)
+                          columnData={
+                            Object {
+                              "collection": Array [
+                                Object {
+                                  "id": 1,
+                                  "name": "Hello world",
+                                },
+                                Object {
+                                  "id": 2,
+                                  "name": "Foo",
+                                },
+                                Object {
+                                  "id": 3,
+                                  "name": "Bar",
+                                },
+                              ],
+                              "id": undefined,
+                              "isSelected": [Function],
+                              "label": "Select this element",
+                              "onChange": [MockFunction],
+                              "onToggleAll": [MockFunction],
+                            }
+                          }
+                          dataKey=""
+                          disableSort={true}
+                          label=""
+                          sortDirection="ASC"
+                        >
+                          <form
+                            className="tc-list-checkbox theme-tc-list-checkbox"
+                          >
+                            <div
+                              className="checkbox"
+                            >
+                              <label>
+                                <input
+                                  checked={false}
+                                  onChange={[Function]}
+                                  type="checkbox"
+                                />
+                                <span
+                                  className="tc-header-checkbox"
+                                >
+                                  <span
+                                    className="sr-only"
+                                  >
+                                    Select All
+                                  </span>
+                                </span>
+                              </label>
+                            </div>
+                          </form>
+                        </VirtualizedList(HeaderCheckbox)>
                       </div>
                       <div
                         className="ReactVirtualized__Table__headerColumn theme-header tc-list-cell-id"
@@ -2518,52 +2575,6 @@ exports[`List should render id if provided 1`] = `
                     <div
                       className="container-fluid"
                     >
-                      <SelectAll
-                        id="context"
-                        isSelected={[Function]}
-                        items={
-                          Array [
-                            Object {
-                              "id": 1,
-                              "name": "Hello world",
-                            },
-                            Object {
-                              "id": 2,
-                              "name": "Foo",
-                            },
-                            Object {
-                              "id": 3,
-                              "name": "Bar",
-                            },
-                          ]
-                        }
-                        onToggleAll={[MockFunction]}
-                        t={[Function]}
-                      >
-                        <form
-                          className="theme-container navbar-form navbar-left"
-                        >
-                          <div
-                            className="checkbox-inline navbar-text theme-tc-list-toolbar-select-all"
-                          >
-                            <label
-                              className="tc-list-toolbar-select-all"
-                              htmlFor="context-check-all"
-                            >
-                              <input
-                                checked={false}
-                                disabled={false}
-                                id="context-check-all"
-                                onChange={[Function]}
-                                type="checkbox"
-                              />
-                              <span>
-                                Select All
-                              </span>
-                            </label>
-                          </div>
-                        </form>
-                      </SelectAll>
                       <Label
                         htmlFor="context-display-mode"
                         text="Display:"
@@ -3807,6 +3818,7 @@ exports[`List should render id if provided 1`] = `
         id="context"
         isSelected={[Function]}
         onRowDoubleClick={[MockFunction]}
+        onToggleAll={[MockFunction]}
         selectionToggle={[MockFunction]}
         sort={null}
         sortDirection="ASC"
@@ -3944,11 +3956,63 @@ exports[`List should render id if provided 1`] = `
                           }
                         }
                       >
-                        <span
-                          className="ReactVirtualized__Table__headerTruncatedText"
-                          key="label"
-                          title=""
-                        />
+                        <VirtualizedList(HeaderCheckbox)
+                          columnData={
+                            Object {
+                              "collection": Array [
+                                Object {
+                                  "id": 1,
+                                  "name": "Hello world",
+                                },
+                                Object {
+                                  "id": 2,
+                                  "name": "Foo",
+                                },
+                                Object {
+                                  "id": 3,
+                                  "name": "Bar",
+                                },
+                              ],
+                              "id": "context",
+                              "isSelected": [Function],
+                              "label": "Select this element",
+                              "onChange": [MockFunction],
+                              "onToggleAll": [MockFunction],
+                            }
+                          }
+                          dataKey=""
+                          disableSort={true}
+                          label=""
+                          sortDirection="ASC"
+                        >
+                          <form
+                            className="tc-list-checkbox theme-tc-list-checkbox"
+                          >
+                            <div
+                              className="checkbox"
+                            >
+                              <label
+                                htmlFor="context-header-check"
+                              >
+                                <input
+                                  checked={false}
+                                  id="context-header-check"
+                                  onChange={[Function]}
+                                  type="checkbox"
+                                />
+                                <span
+                                  className="tc-header-checkbox"
+                                >
+                                  <span
+                                    className="sr-only"
+                                  >
+                                    Select All
+                                  </span>
+                                </span>
+                              </label>
+                            </div>
+                          </form>
+                        </VirtualizedList(HeaderCheckbox)>
                       </div>
                       <div
                         className="ReactVirtualized__Table__headerColumn theme-header tc-list-cell-id"

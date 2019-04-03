@@ -28,7 +28,9 @@ export default {
 	onRowDoubleClick: PropTypes.func,
 	// The list scroll
 	onScroll: PropTypes.func,
-	// The row height in ListGrid rendering
+	// handler for selecting all items
+	onToggleAll: PropTypes.func,
+	// The row height in ListGrid renderingf
 	rowHeight: PropTypes.number,
 	/** Function to call on element selection
 	 *  This determines the display of the selection checkboxes. */

@@ -4,7 +4,6 @@ import Navbar from 'react-bootstrap/lib/Navbar';
 import omit from 'lodash/omit';
 import { translate } from 'react-i18next';
 
-import SelectAll from './SelectAll';
 import SelectDisplayMode from './SelectDisplayMode';
 import SelectSortBy from './SelectSortBy';
 import Pagination from './Pagination';
@@ -44,7 +43,6 @@ function adaptLeftAndRightActions(actions, parentId) {
 /**
  * @param {string} id the id of Toolbar
  * @param {object} actionBar the ActionBar properties
- * @param {object} selectAllCheckbox the select all checkbox props
  * @param {object} display the SelectDisplayMode properties
  * @param {object} sort the SelectSortBy properties
  * @param {object} pagination the Pagination properties
@@ -56,7 +54,6 @@ function adaptLeftAndRightActions(actions, parentId) {
 function Toolbar({
 	id,
 	actionBar,
-	selectAllCheckbox,
 	display,
 	sort,
 	pagination,
@@ -81,7 +78,7 @@ function Toolbar({
 		};
 	}
 	const displayModeId = id && `${id}-display-mode`;
-	const hasToolbarItem = selectAllCheckbox || display || sort || pagination || filter;
+	const hasToolbarItem = display || sort || pagination || filter;
 
 	return (
 		<div className="tc-list-toolbar">
@@ -91,9 +88,6 @@ function Toolbar({
 			{injected('before-navbar')}
 			{hasToolbarItem && (
 				<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
-					{injected('before-selectall')}
-					{selectAllCheckbox && <SelectAll {...selectAllCheckbox} t={t} />}
-					{injected('after-selectall')}
 					{injected('before-displaymode')}
 					{display && (
 						<Label
@@ -142,7 +136,6 @@ function Toolbar({
 Toolbar.propTypes = {
 	id: PropTypes.string,
 	actionBar: PropTypes.shape(ActionBar.propTypes),
-	selectAllCheckbox: PropTypes.shape(omit(SelectAll.propTypes, 't')),
 	display: PropTypes.shape(omit(SelectDisplayMode.propTypes, 't')),
 	sort: PropTypes.oneOfType([
 		PropTypes.bool,
