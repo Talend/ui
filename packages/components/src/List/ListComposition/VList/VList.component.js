@@ -14,4 +14,3 @@ VList.propTypes = {
 };
 
 export default VList;
-
