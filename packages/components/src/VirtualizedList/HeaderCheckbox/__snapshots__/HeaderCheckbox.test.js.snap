@@ -6,6 +6,7 @@ exports[`Header "Select All" checkbox should render a "Select All" checkbox on h
 >
   <div
     className="checkbox"
+    title="Select All"
   >
     <label
       htmlFor="myList-header-check"
@@ -37,6 +38,7 @@ exports[`Header "Select All" checkbox should render unchecked & disabled checkbo
 >
   <div
     className="checkbox"
+    title="Select All"
   >
     <label
       htmlFor="myList-header-check"

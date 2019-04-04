@@ -2,18 +2,19 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
 import theme from './HeaderCheckbox.scss';
+import getDefaultT from '../../translate';
 
 /**
  * Header renderer that displays a "Select All" checkbox on header
  */
 function HeaderCheckbox(props) {
-	const { columnData } = props;
+	const { columnData, t } = props;
 	const { id, onToggleAll, collection, isSelected } = columnData;
 	const isAllSelected =
 		() => collection.length > 0 && collection.findIndex(item => !isSelected(item)) < 0;
 	return onToggleAll ? (
 		<form className={classnames('tc-list-checkbox', theme['tc-list-checkbox'])}>
-			<div className="checkbox">
+			<div className="checkbox" title={t('LIST_SELECT_ALL', { defaultValue: 'Select All' })}>
 				<label htmlFor={id && `${id}-header-check`}>
 					<input
 						id={id && `${id}-header-check`}
@@ -46,6 +47,10 @@ HeaderCheckbox.propTypes = {
 		// The onToggleAll callback triggered on header checkbox toggle.
 		onToggleAll: PropTypes.func.isRequired,
 	}),
+	t: PropTypes.func,
+};
+HeaderCheckbox.defaultProps = {
+	t: getDefaultT(),
 };
 
 export default HeaderCheckbox;
