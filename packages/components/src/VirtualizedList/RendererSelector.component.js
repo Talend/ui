@@ -67,6 +67,7 @@ class RendererSelector extends React.Component {
 			totalRowCount,
 			onRowsRendered,
 			registerChild,
+			scrollToIndex,
 		} = this.props;
 
 		const collection = inProgress ? [] : this.props.collection;
@@ -87,6 +88,7 @@ class RendererSelector extends React.Component {
 			totalRowCount,
 			onRowsRendered,
 			registerChild,
+			scrollToIndex,
 		};
 
 		let ListRenderer;
