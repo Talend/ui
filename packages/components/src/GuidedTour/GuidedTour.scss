@@ -16,8 +16,8 @@ $tc-guidedtour-controls-color: $dove-gray !default;
 			margin: 0 (-1 * $tc-guidedtour-tooltip-padding) 0 0;
 			justify-content: space-between;
 
-			> button,
-			+ button {
+			> button:not([disabled]),
+			+ button:not([disabled]) {
 				color: $tc-guidedtour-controls-color;
 			}
 
