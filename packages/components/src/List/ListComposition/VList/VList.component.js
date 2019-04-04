@@ -7,8 +7,11 @@ function VList(props) {
 	const { displayMode = 'table', collection } = useListContext();
 	return <VirtualizedList collection={collection} type={displayMode.toUpperCase()} {...props} />;
 }
-Object.entries({ ...VirtualizedList }).forEach(([key, value]) => {
-	VList[key] = value;
-});
+
+VList.Content = VirtualizedList.Content;
+VList.propTypes = {
+	...VirtualizedList.propTypes,
+};
 
 export default VList;
+
