@@ -9,9 +9,6 @@ function VList(props) {
 }
 
 VList.Content = VirtualizedList.Content;
-VList.propTypes = {
-	...VirtualizedList.propTypes,
-};
+VList.propTypes = VirtualizedList.propTypes;
 
 export default VList;
-
