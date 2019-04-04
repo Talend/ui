@@ -53,6 +53,7 @@ const widgets = {
 	checkbox_text: TextModeCheckBox,
 	checkboxes_text: ArrayWidget,
 	code_text: CodeTextMode,
+	comparator_text: () => null,
 	datalist_text: DatalistTextMode,
 	file_text: () => null,
 	multiSelectTag_text: MultiSelectTagTextMode,
