@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-sagas",
-  "version": "2.10.0",
+  "version": "3.0.0",
   "description": "App wide redux sagas",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
@@ -40,8 +40,8 @@
     "lodash": "^4.17.4",
     "path-to-regexp": "^2.0.0",
     "prop-types": "^15.5.10",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-redux": "^5.0.7",
     "react-router": "^3.2.0",
     "react-router-redux": "^4.0.8",
@@ -54,7 +54,7 @@
     "redux-thunk": "^2.2.0"
   },
   "dependencies": {
-    "@talend/react-cmf": "^2.10.0",
+    "@talend/react-cmf": "^3.0.0",
     "redux-saga": "^0.15.4"
   },
   "devDependencies": {
@@ -80,8 +80,8 @@
     "lodash": "^4.17.4",
     "path-to-regexp": "^2.0.0",
     "prop-types": "^15.5.10",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-redux": "^5.0.7",
     "react-router": "^3.2.0",
     "react-router-redux": "^4.0.8",
