@@ -10,8 +10,8 @@ import getDefaultT from '../../translate';
 function HeaderCheckbox(props) {
 	const { columnData, t } = props;
 	const { id, onToggleAll, collection, isSelected } = columnData;
-	const isAllSelected =
-		() => collection.length > 0 && collection.findIndex(item => !isSelected(item)) < 0;
+	const isAllSelected = () =>
+		collection.length > 0 && collection.findIndex(item => !isSelected(item)) < 0;
 	return onToggleAll ? (
 		<form className={classnames('tc-list-checkbox', theme['tc-list-checkbox'])}>
 			<div className="checkbox" title={t('LIST_SELECT_ALL', { defaultValue: 'Select All' })}>

@@ -26,9 +26,7 @@ describe('Header "Select All" checkbox', () => {
 		const event = { target: 'lol' };
 
 		// when
-		const wrapper = shallow(
-			<HeaderCheckbox columnData={columnData} />,
-		);
+		const wrapper = shallow(<HeaderCheckbox columnData={columnData} />);
 		wrapper.find('#myList-header-check').simulate('change', event);
 
 		// then
@@ -37,9 +35,7 @@ describe('Header "Select All" checkbox', () => {
 
 	it('should render unchecked & disabled checkbox on header when there is no items', () => {
 		// when
-		const wrapper = shallow(
-			<HeaderCheckbox columnData={{ ...columnData, collection: [] }} />,
-		);
+		const wrapper = shallow(<HeaderCheckbox columnData={{ ...columnData, collection: [] }} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
