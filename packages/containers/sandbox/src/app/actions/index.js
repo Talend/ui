@@ -1,13 +1,21 @@
 import redirect from './redirect';
 
-function loadUsers(parameters) {
+export function loadUsers(parameters) {
 	return {
 		type: 'LOAD_USERS',
 		payload: parameters,
 	};
 }
 
+export function sortUsers(sortOptions) {
+	return {
+		type: 'SORT_USERS',
+		payload: sortOptions,
+	};
+}
+
 export default {
 	redirect,
 	loadUsers,
+	sortUsers,
 };

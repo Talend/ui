@@ -1,5 +1,7 @@
 import { call, put, all, select, takeLatest } from 'redux-saga/effects';
 import { actions, sagas, selectors } from '@talend/react-cmf';
+import { loadUsers as loadUsersActionCreator } from '../actions';
+
 
 const USERS_API_URL = '/api/infinite-scroll/users';
 
@@ -22,8 +24,15 @@ function querifyObject(params) {
 	return `?${queryString}`;
 }
 
-export function* loadUsers({ payload: { startIndex, stopIndex } }) {
-	const params = { startIndex, stopIndex };
+function* loadUsers({ payload }) {
+	const {
+		startIndex,
+		stopIndex,
+		sortBy = 'number',
+		sortDirection = 'ASC',
+	} = payload;
+
+	const params = { startIndex, stopIndex, sortBy, sortDirection };
 
 	const resp = yield call(sagas.http.get, `${USERS_API_URL}${querifyObject(params)}`);
 
@@ -44,8 +53,26 @@ export function* loadUsers({ payload: { startIndex, stopIndex } }) {
 	}
 }
 
+function* sortUsers({ payload }) {
+	// Reset collection
+	yield put(actions.collections.addOrReplace('users', []));
+
+	// Trigger data (re)loading
+	const { sortBy, sortDirection } = payload;
+
+	const loadUsersPayload = {
+		sortBy,
+		sortDirection,
+		startIndex: 0,
+		stopIndex: 20,
+	};
+
+	yield put(loadUsersActionCreator(loadUsersPayload));
+}
+
 export default function* () {
 	yield all([
 		takeLatest('LOAD_USERS', loadUsers),
+		takeLatest('SORT_USERS', sortUsers),
 	]);
 }

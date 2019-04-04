@@ -90,11 +90,14 @@
     },
     "InfiniteScrollList#usersList": {
       "onLoadMoreRowsActionCreator": "loadUsers",
+      "onSortActionCreator": "sortUsers",
       "columns": [
         { "label": "#", "key": "number" },
         { "label": "First name", "key": "firstName" },
         { "label": "Last name", "key": "lastName" }
       ],
+      "sortBy": "firstName",
+      "sortDirection": "ASC",
       "itemsExpression": {
         "id": "getUsersCollectionAsArray",
         "args": ["users", []]
