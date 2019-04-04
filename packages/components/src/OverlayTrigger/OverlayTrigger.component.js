@@ -93,6 +93,11 @@ export default class OverlayTrigger extends React.Component {
 			rootClose: true,
 			trigger: 'click',
 		};
+		const tooltipProps = {
+			onMouseOver: this.props.onMouseOver,
+			onMouseOut: this.props.onMouseOut,
+			onFocus: this.props.onFocus,
+		};
 
 		if (this.props.preventScrolling) {
 			props.container = this;
@@ -105,6 +110,7 @@ export default class OverlayTrigger extends React.Component {
 					theme['tc-action-button-positionned'],
 					'tc-action-button-positionned',
 				)}
+				{...tooltipProps}
 			>
 				<BaseOverlayTrigger {...props}>{this.props.children}</BaseOverlayTrigger>
 			</span>
