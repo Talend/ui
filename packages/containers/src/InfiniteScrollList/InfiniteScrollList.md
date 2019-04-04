@@ -16,6 +16,6 @@ For the moment, it only supports loading data as the user scrolls down the list.
 
 ## TODO
 - Start with a scroll offset
-- Handle column sorting
 - Unit tests
 - Pretty README.md
+- Filter by text
