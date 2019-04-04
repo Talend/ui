@@ -32,17 +32,12 @@ function getPartSchema(schema, part) {
 
 function OperatorListElement({ value, name, selected }) {
 	return (
-		<span
-			className={
-				classNames(theme.operator, { [theme.selected]: selected })
-			}
-		>
+		<span className={classNames(theme.operator, { [theme.selected]: selected })}>
 			<span className={classNames(theme.sign)}>{value}</span>
 			<span className={classNames(theme.name)}>{name}</span>
 		</span>
 	);
 }
-
 
 class Comparator extends React.Component {
 	constructor(props) {
@@ -97,11 +92,13 @@ class Comparator extends React.Component {
 			return {
 				value,
 				title,
-				name: (<OperatorListElement
-					selected={this.props.value.operator === value}
-					value={value}
-					name={text}
-				/>),
+				name: (
+					<OperatorListElement
+						selected={this.props.value.operator === value}
+						value={value}
+						name={text}
+					/>
+				),
 			};
 		});
 	}

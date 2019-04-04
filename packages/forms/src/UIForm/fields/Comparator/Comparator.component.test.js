@@ -14,38 +14,31 @@ describe('Comparator field', () => {
 			schema: {
 				type: 'object',
 				required: ['value'],
+				properties: {
+					operator: { type: 'string', enum: ['>', '<', '='] },
+					value: { type: 'string' },
+				},
 			},
+			ngModelOptions: {},
+			type: 'fieldset',
 			items: [
 				{
 					title: 'operator',
-					schema: {
-						type: 'string',
-						enum: ['>', '<', '='],
-					},
+					schema: { type: 'string', enum: ['>', '<', '='] },
 					ngModelOptions: {},
 					key: ['default', 'operator'],
 					type: 'select',
 					titleMap: [
-						{
-							name: '>',
-							value: '>',
-						},
-						{
-							name: '<',
-							value: '<',
-						},
-						{
-							name: '=',
-							value: '=',
-						},
+						{ name: '>', value: '>' },
+						{ name: '<', value: '<' },
+						{ name: '=', value: '=' },
 					],
 				},
 				{
 					title: 'value',
 					required: true,
-					schema: {
-						type: 'string',
-					},
+					schema: { type: 'string' },
+					ngModelOptions: {},
 					key: ['default', 'value'],
 					type: 'text',
 				},
