@@ -4,6 +4,42 @@ exports[`Comparator field should render default Comparator 1`] = `
 <div
   className="theme-comparator"
 >
+  <Translate(ActionDropdown)
+    id="context-dropdown-related-items"
+    items={
+      Array [
+        Object {
+          "id": "comparison-operator-0",
+          "label": <OperatorListElement
+            selected={false}
+            value=">"
+          />,
+          "title": ">",
+          "value": ">",
+        },
+        Object {
+          "id": "comparison-operator-1",
+          "label": <OperatorListElement
+            selected={false}
+            value="<"
+          />,
+          "title": "<",
+          "value": "<",
+        },
+        Object {
+          "id": "comparison-operator-2",
+          "label": <OperatorListElement
+            selected={false}
+            value="="
+          />,
+          "title": "=",
+          "value": "=",
+        },
+      ]
+    }
+    noCaret={true}
+    onSelect={[Function]}
+  />
   <Widget
     errors={Object {}}
     id="default"
@@ -30,7 +66,15 @@ exports[`Comparator field should render default Comparator 1`] = `
     value={Object {}}
     widgets={Object {}}
   />
+</div>
+`;
+
+exports[`Comparator field should render disabled Comparator 1`] = `
+<div
+  className="theme-comparator"
+>
   <Translate(ActionDropdown)
+    disabled={true}
     id="context-dropdown-related-items"
     items={
       Array [
@@ -40,6 +84,7 @@ exports[`Comparator field should render default Comparator 1`] = `
             selected={false}
             value=">"
           />,
+          "title": ">",
           "value": ">",
         },
         Object {
@@ -48,6 +93,7 @@ exports[`Comparator field should render default Comparator 1`] = `
             selected={false}
             value="<"
           />,
+          "title": "<",
           "value": "<",
         },
         Object {
@@ -56,6 +102,7 @@ exports[`Comparator field should render default Comparator 1`] = `
             selected={false}
             value="="
           />,
+          "title": "=",
           "value": "=",
         },
       ]
@@ -63,13 +110,6 @@ exports[`Comparator field should render default Comparator 1`] = `
     noCaret={true}
     onSelect={[Function]}
   />
-</div>
-`;
-
-exports[`Comparator field should render disabled Comparator 1`] = `
-<div
-  className="theme-comparator"
->
   <Widget
     errors={Object {}}
     id="default"
@@ -95,40 +135,6 @@ exports[`Comparator field should render disabled Comparator 1`] = `
     }
     value={Object {}}
     widgets={Object {}}
-  />
-  <Translate(ActionDropdown)
-    disabled={true}
-    id="context-dropdown-related-items"
-    items={
-      Array [
-        Object {
-          "id": "comparison-operator-0",
-          "label": <OperatorListElement
-            selected={false}
-            value=">"
-          />,
-          "value": ">",
-        },
-        Object {
-          "id": "comparison-operator-1",
-          "label": <OperatorListElement
-            selected={false}
-            value="<"
-          />,
-          "value": "<",
-        },
-        Object {
-          "id": "comparison-operator-2",
-          "label": <OperatorListElement
-            selected={false}
-            value="="
-          />,
-          "value": "=",
-        },
-      ]
-    }
-    noCaret={true}
-    onSelect={[Function]}
   />
 </div>
 `;

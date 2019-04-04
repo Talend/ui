@@ -90,14 +90,20 @@ class Comparator extends React.Component {
 		const schema = this.getOperatorSchema();
 		const map = this.props.schema.titleMap || [];
 
-		return schema.titleMap.map(({ value }) => ({
-			value,
-			name: (<OperatorListElement
-				value={value}
-				selected={this.props.value.operator === value}
-				name={(map.find(m => m.value === value) || {}).name}
-			/>),
-		}));
+		return schema.titleMap.map(({ value }) => {
+			const text = (map.find(m => m.value === value) || {}).name;
+			const title = text ? `${value} (${text})` : value;
+
+			return {
+				value,
+				title,
+				name: (<OperatorListElement
+					selected={this.props.value.operator === value}
+					value={value}
+					name={text}
+				/>),
+			};
+		});
 	}
 
 	render() {
@@ -110,10 +116,11 @@ class Comparator extends React.Component {
 					label={this.props.value.operator}
 					onSelect={this.onSelect}
 					disabled={operators.disabled}
-					items={this.getOperatorsMap().map((option, index) => ({
+					items={this.getOperatorsMap().map(({ name: label, value, title }, index) => ({
 						id: `comparison-operator-${index}`,
-						label: option.name,
-						value: option.value,
+						label,
+						value,
+						title,
 					}))}
 					noCaret
 				/>
