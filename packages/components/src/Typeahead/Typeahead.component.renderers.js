@@ -149,7 +149,11 @@ export function renderItem(item, { value, ...rest }) {
 	}
 
 	return (
-		<div className={classNames(theme.item, { [theme.disabled]: item.disabled })} title={title} data-feature={rest['data-feature']}>
+		<div
+			className={classNames(theme.item, { [theme.disabled]: item.disabled })}
+			title={title}
+			data-feature={rest['data-feature']}
+		>
 			<span className={classNames(theme['item-title'], 'tc-typeahead-item-title')}>
 				<Emphasis value={value} text={title} />
 			</span>
