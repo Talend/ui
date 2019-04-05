@@ -20,7 +20,11 @@ module.exports = env => {
 		console.log(
 			`Merge ${presetApi.mode} webpack config with custom one (${userConfigAbsolutePath})`,
 		);
-		webpackConfigurations.push(require(userConfigAbsolutePath));
+		let userConfig = require(userConfigAbsolutePath);
+		if (typeof userConfig === 'function') {
+			userConfig = userConfig(env);
+		}
+		webpackConfigurations.push(userConfig);
 	}
 	if (env && env.analyze) {
 		webpackConfigurations.push(require('./webpack.analyzer'));
