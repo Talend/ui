@@ -1,7 +1,6 @@
 import { cmfConnect } from '@talend/react-cmf';
+import { InfiniteScrollList } from '@talend/react-components';
 
-import Container from './InfiniteScrollList.container';
-
-const connected = cmfConnect({})(Container);
+const connected = cmfConnect({})(InfiniteScrollList);
 
 export default connected;

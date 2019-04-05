@@ -4,8 +4,9 @@ import {
 	InfiniteLoader,
 	defaultTableRowRenderer as DefaultTableRowRenderer,
 } from 'react-virtualized';
-import { Skeleton } from '@talend/react-components';
-import List from '@talend/react-components/lib/List/ListComposition';
+
+import Skeleton from '../Skeleton';
+import List from '../List/ListComposition';
 
 const DEFAULT_THRESHOLD = 5;
 const DEFAULT_MIN_BATCH_SIZE = 20;
@@ -22,29 +23,12 @@ function SkeletonRow({ columns }) {
 	);
 }
 
-SkeletonRow.propTypes = {
-	columns: PropTypes.arrayOf(
-		PropTypes.shape({
-			key: PropTypes.string,
-			props: PropTypes.object,
-		}),
-	),
-};
-
 class InfiniteScrollList extends React.Component {
-	static displayName = 'Container(InfiniteScrollList)';
-
 	constructor(props) {
 		super(props);
 
 		// This internal flag can be used to forcefully scroll to the top of the list
 		this.scrollToTop = false;
-
-		this.state = {
-			// Define sorting parameters (defaults to first column, ascending order)
-			sortBy: props.sortBy || props.columns[0].key,
-			sortDirection: props.sortDirection || 'ASC',
-		};
 
 		this.onSort = this.onSort.bind(this);
 		this.isRowLoaded = this.isRowLoaded.bind(this);
@@ -63,7 +47,6 @@ class InfiniteScrollList extends React.Component {
 	onSort({ sortBy, sortDirection }) {
 		this.scrollToTop = true;
 
-		this.setState({ sortBy, sortDirection });
 		this.props.onSort({ sortBy, sortDirection });
 	}
 
@@ -76,9 +59,7 @@ class InfiniteScrollList extends React.Component {
 			return;
 		}
 
-		const { sortBy, sortDirection } = this.state;
-
-		const args = { startIndex, stopIndex, sortBy, sortDirection };
+		const args = { startIndex, stopIndex };
 
 		this.props.onLoadMoreRows(args);
 	}
@@ -104,8 +85,8 @@ class InfiniteScrollList extends React.Component {
 		if (onSort) {
 			// Attach sorting behavior to the list
 			listProps.sort = this.onSort;
-			listProps.sortBy = this.state.sortBy;
-			listProps.sortDirection = this.state.sortDirection;
+			listProps.sortBy = this.props.sortBy;
+			listProps.sortDirection = this.props.sortDirection;
 		}
 
 		if (this.scrollToTop) {
@@ -140,21 +121,32 @@ class InfiniteScrollList extends React.Component {
 	}
 }
 
-InfiniteScrollList.propTypes = {
-	items: PropTypes.array,
-	rowCount: PropTypes.number,
-	columns: PropTypes.array.isRequired,
-	threshold: PropTypes.number,
-	minimumBatchSize: PropTypes.number,
-	onLoadMoreRows: PropTypes.func,
-	onSort: PropTypes.func,
-	sortBy: PropTypes.string,
-	sortDirection: PropTypes.string,
-};
-
 InfiniteScrollList.defaultProps = {
 	threshold: DEFAULT_THRESHOLD,
 	minimumBatchSize: DEFAULT_MIN_BATCH_SIZE,
 };
+
+if (process.env.NODE_ENV !== 'production') {
+	InfiniteScrollList.propTypes = {
+		items: PropTypes.array,
+		rowCount: PropTypes.number,
+		columns: PropTypes.array.isRequired,
+		threshold: PropTypes.number,
+		minimumBatchSize: PropTypes.number,
+		onLoadMoreRows: PropTypes.func,
+		onSort: PropTypes.func,
+		sortBy: PropTypes.string,
+		sortDirection: PropTypes.string,
+	};
+
+	SkeletonRow.propTypes = {
+		columns: PropTypes.arrayOf(
+			PropTypes.shape({
+				key: PropTypes.string,
+				props: PropTypes.object,
+			}),
+		),
+	};
+}
 
 export default InfiniteScrollList;
