@@ -36,7 +36,7 @@ export default cmfConnect({
 	componentId,
 	defaultState: DEFAULT_STATE,
 	defaultProps: {
-		saga: 'Notification#root',
+		saga: 'Notification#default',
 	},
 	mergeProps,
 	omitCMFProps: true,

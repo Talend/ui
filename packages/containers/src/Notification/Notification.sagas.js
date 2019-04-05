@@ -23,5 +23,5 @@ function* defaultHandler() {
 }
 
 export default {
-	'Notification#root': defaultHandler,
+	'Notification#default': defaultHandler,
 };
