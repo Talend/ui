@@ -22,7 +22,7 @@ function getRowRenderer(type, renderers = {}) {
 		const rowRendererTypes = [TABLE].concat(Object.keys(safeRenderer));
 		throw new Error(
 			`Unknown row renderer in Virtualized List : ${type}. ` +
-				`Possible values are [${rowRendererTypes}].`,
+			`Possible values are [${rowRendererTypes}].`,
 		);
 	}
 	return rowRenderer;
@@ -85,7 +85,6 @@ class RendererSelector extends React.Component {
 			onScroll,
 			rowHeight,
 			width,
-			rowCount,
 			onRowsRendered,
 			registerChild,
 			scrollToIndex,
@@ -98,6 +97,7 @@ class RendererSelector extends React.Component {
 			ListRenderer = ListTable;
 			customProps = {
 				disableHeader,
+				rowCount,
 				sort,
 				sortBy,
 				sortDirection,
