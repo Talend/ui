@@ -1,7 +1,7 @@
 .comparator {
 	position: relative;
-	padding-top: 15px;
-	margin-bottom: 15px;
+	padding-top: $padding-normal;
+	margin-bottom: $padding-normal;
 
 	:global {
 		.dropdown {
@@ -9,17 +9,17 @@
 			top: 3.6rem;
 
 			.btn {
-				width: 25px;
-				height: 25px;
-				min-height: 25px;
+				width: 2.5rem;
+				height: 2.5rem;
+				min-height: 2.5rem;
 				padding: 0;
 				color: $dove-gray;
 				z-index: 1;
 				border: {
 					bottom-left-radius: 0;
 					bottom-right-radius: 0;
-					top-left-radius: 2px;
-					top-right-radius: 2px;
+					top-left-radius: .2rem;
+					top-right-radius: .2rem;
 				}
 
 				&-default {
@@ -32,19 +32,19 @@
 				}
 
 				.tc-dropdown-button-title-label {
-					height: 25px;
+					height: 2.5rem;
 				}
 			}
 		}
 
 		.form-group {
-			padding-top: 15px;
-			margin-bottom: 15px;
+			padding-top: $padding-normal;
+			margin-bottom: $padding-normal;
 
-			label {
+			.control-label {
 				top: 0;
 			}
-			input {
+			.form-control {
 				padding-left: 3rem;
 			}
 		}

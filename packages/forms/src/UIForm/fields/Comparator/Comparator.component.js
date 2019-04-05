@@ -33,8 +33,8 @@ function getPartSchema(schema, part) {
 function OperatorListElement({ value, name, selected }) {
 	return (
 		<span className={classNames(theme.operator, { [theme.selected]: selected })}>
-			<span className={classNames(theme.sign)}>{value}</span>
-			<span className={classNames(theme.name)}>{name}</span>
+			<span>{value}</span>
+			{ name && <span className={classNames(theme.name)}>{name}</span> }
 		</span>
 	);
 }
@@ -45,6 +45,10 @@ class Comparator extends React.Component {
 		this.onSelect = this.onSelect.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onFinish = this.onFinish.bind(this);
+
+		console.warn(
+			"UNSTABLE WARNING: The 'Comparator' is not ready to be used in Apps. Code can (will) change outside the release process until it's ready.",
+		);
 	}
 
 	onSelect(event, { value }) {
@@ -109,7 +113,6 @@ class Comparator extends React.Component {
 		return (
 			<div className={classNames(theme.comparator)}>
 				<ActionDropdown
-					id="context-dropdown-related-items"
 					label={this.props.value.operator}
 					onSelect={this.onSelect}
 					disabled={operators.disabled}
