@@ -25,7 +25,7 @@ export default {
 	// The row click
 	onRowClick: PropTypes.func,
 	onRowsRendered: PropTypes.func,
-	// The list scroll
+	// The row double click
 	onRowDoubleClick: PropTypes.func,
 	// The list scroll
 	onScroll: PropTypes.func,
