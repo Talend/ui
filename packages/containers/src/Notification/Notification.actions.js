@@ -1,4 +1,4 @@
-import Constants from './Notification.constant';
+import Constants from './Notification.constants';
 
 /**
  * Action to push a generic notification
@@ -20,7 +20,7 @@ export function pushGeneric(notification) {
 export function pushInfo(notification) {
 	return pushGeneric({
 		...notification,
-		type: 'info',
+		type: Constants.TYPE_INFO,
 	});
 }
 
@@ -32,7 +32,7 @@ export function pushInfo(notification) {
 export function pushWarning(notification) {
 	return pushGeneric({
 		...notification,
-		type: 'warning',
+		type: Constants.TYPE_WARNING,
 	});
 }
 
@@ -44,6 +44,6 @@ export function pushWarning(notification) {
 export function pushError(notification) {
 	return pushGeneric({
 		...notification,
-		type: 'error',
+		type: Constants.TYPE_ERROR,
 	});
 }

@@ -1,7 +1,7 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
 import objectId from 'bson-objectid';
 import Notification from './Notification.connect';
-import Constants from './Notification.constant';
+import Constants from './Notification.constants';
 
 const DEFAULT_COMPONENT_ID = 'Notification';
 
