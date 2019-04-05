@@ -958,6 +958,11 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.0.tgz#50c1e2260ac0ed9439a181de3725a0168d59c48a"
 
+"@rooks/use-mutation-observer@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@rooks/use-mutation-observer/-/use-mutation-observer-1.1.0.tgz#db5f2e9b209956f3e25a9c257c41448f8a5ad24f"
+  integrity sha512-C5n6CAxn7TnMFimqAHi3vUtcoebu1GcYrgCgFjydGRNB/+VvQ768qS7Pc3H5VvNQu194NqviyEhVv4MQyqszsg==
+
 "@sinonjs/formatio@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@sinonjs/formatio/-/formatio-2.0.0.tgz#84db7e9eb5531df18a8c5e0bfb6e449e55e654b2"
@@ -5478,6 +5483,11 @@ flush-write-stream@^1.0.0, flush-write-stream@^1.0.2:
   dependencies:
     inherits "^2.0.1"
     readable-stream "^2.0.4"
+
+focus-lock@^0.6.0:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/focus-lock/-/focus-lock-0.6.2.tgz#d8ac9dbc46250779789c3e6f43d978c7dfa59dcd"
+  integrity sha512-Wuq6TSOgsGQmzbpvinl1TcEw4BAUhD9T06myl5HvaBlO0geAz9ABtqBIqPkkNyO3AgPzEDazetL5hSRgj+2iqQ==
 
 focus-outline-manager@^1.0.2:
   version "1.0.2"
@@ -10309,14 +10319,7 @@ prop-types@15.6.0:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
-prop-types@15.6.2, prop-types@15.x, prop-types@^15, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.8, prop-types@^15.5.9, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2:
-  version "15.6.2"
-  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
-  dependencies:
-    loose-envify "^1.3.1"
-    object-assign "^4.1.1"
-
-prop-types@^15.7.2:
+prop-types@15.7.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -10324,6 +10327,13 @@ prop-types@^15.7.2:
     loose-envify "^1.4.0"
     object-assign "^4.1.1"
     react-is "^16.8.1"
+
+prop-types@15.x, prop-types@^15, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.8, prop-types@^15.5.9, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2:
+  version "15.6.2"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
+  dependencies:
+    loose-envify "^1.3.1"
+    object-assign "^4.1.1"
 
 proxy-addr@~2.0.3:
   version "2.0.3"
@@ -10643,6 +10653,14 @@ react-bootstrap@0.32.4:
     uncontrollable "^5.0.0"
     warning "^3.0.0"
 
+react-clientside-effect@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-clientside-effect/-/react-clientside-effect-1.2.0.tgz#db823695f75e9616a5e4dd6d908e5ea627fb2516"
+  integrity sha512-cVIsGG7SNHsQsCP4+fw7KFUB0HiYiU8hbvL640XaLCbZ31aK8/lj0qOKJ2K+xRjuQz/IM4Q4qclI0aEqTtcXtA==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    shallowequal "^1.1.0"
+
 react-components@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/react-components/-/react-components-0.5.1.tgz#3ae23f0cd0296ef586b4a2875b031e52fa390c2c"
@@ -10747,6 +10765,16 @@ react-error-overlay@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.0.tgz#c516995a5652e7bfbed8b497910d5280df74a7e8"
   integrity sha512-akMy/BQT5m1J3iJIHkSb4qycq2wzllWsmmolaaFVnb+LPV9cIJ/nTud40ZsiiT0H3P+/wXIdbjx2fzF61OaeOQ==
+
+react-focus-lock@^1.18.3:
+  version "1.18.3"
+  resolved "https://registry.yarnpkg.com/react-focus-lock/-/react-focus-lock-1.18.3.tgz#19d84afeab935c0b5de196922f71db7c481baba4"
+  integrity sha512-4fPAHnsr8oCYPgVmcMZ8NbAE9jm/OshPjXEM5PHseu2lDernzm/b1sHhYzZUO4OoW9D/u1AQsV6n4trRllow7w==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    focus-lock "^0.6.0"
+    prop-types "^15.6.2"
+    react-clientside-effect "^1.2.0"
 
 react-fuzzy@^0.5.2:
   version "0.5.2"
@@ -10994,15 +11022,18 @@ react@^16.8.6:
     prop-types "^15.6.2"
     scheduler "^0.13.6"
 
-reactour@^1.13.1:
-  version "1.13.1"
-  resolved "https://registry.yarnpkg.com/reactour/-/reactour-1.13.1.tgz#47149eb5d3ff8dcd51e6c09e58b493727f245980"
-  integrity sha512-j1gM+47iEHuBGi4E8huKpWzedNkzVgcBpJwcaoE6M8BqZgGIQDFGlOzVDVl/0JOLDDNf7JDzRSWBLFVywmGZyA==
+reactour@^1.13.4:
+  version "1.13.4"
+  resolved "https://registry.yarnpkg.com/reactour/-/reactour-1.13.4.tgz#574c014ef6fbea234a4129e6d89fbd2c1082fc3a"
+  integrity sha512-aOIGGwZ1Gu5UG2n7h/RMJcfOl5oT7+DjSnjdfxJNufb4Qkm7omz1hsiLlzEn5yzBny536S1dCKYLf0vpFoNKrA==
   dependencies:
+    "@rooks/use-mutation-observer" "1.1.0"
     classnames "2.2.6"
+    focus-outline-manager "^1.0.2"
     lodash.debounce "4.0.8"
     lodash.pick "4.4.0"
-    prop-types "15.6.2"
+    prop-types "15.7.2"
+    react-focus-lock "^1.18.3"
     scroll-smooth "1.0.1"
     scrollparent "2.0.1"
 

@@ -48,7 +48,7 @@
     "react-dnd-html5-backend": "^2.5.4",
     "react-immutable-proptypes": "^2.1.0",
     "react-virtualized": "9.21.0",
-    "reactour": "^1.13.1",
+    "reactour": "^1.13.4",
     "simulant": "^0.2.2",
     "styled-components": "^4.1.3"
   },
