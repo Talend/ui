@@ -10,6 +10,27 @@ import List from '@talend/react-components/lib/List/ListComposition';
 const DEFAULT_THRESHOLD = 5;
 const DEFAULT_MIN_BATCH_SIZE = 20;
 
+function SkeletonRow({ columns }) {
+	return (
+		<React.Fragment>
+			{columns.map(column => (
+				<div key={column.key} {...column.props}>
+					<Skeleton type="text" size="xlarge" />
+				</div>
+			))}
+		</React.Fragment>
+	);
+}
+
+SkeletonRow.propTypes = {
+	columns: PropTypes.arrayOf(
+		PropTypes.shape({
+			key: PropTypes.string,
+			props: PropTypes.object,
+		}),
+	),
+};
+
 class InfiniteScrollList extends React.Component {
 	static displayName = 'Container(InfiniteScrollList)';
 
@@ -67,11 +88,7 @@ class InfiniteScrollList extends React.Component {
 
 		const rowColumns = this.isRowLoaded({ index })
 			? rowProps.columns
-			: columns.map(column => (
-					<div key={column.key} {...column.props}>
-						<Skeleton type="text" size="xlarge" />
-					</div>
-			  ));
+			: <SkeletonRow columns={columns} />;
 
 		return <DefaultTableRowRenderer {...rowProps} columns={rowColumns} />;
 	}
