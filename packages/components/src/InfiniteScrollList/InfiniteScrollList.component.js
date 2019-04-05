@@ -32,7 +32,6 @@ class InfiniteScrollList extends React.Component {
 
 		this.onSort = this.onSort.bind(this);
 		this.isRowLoaded = this.isRowLoaded.bind(this);
-		this.loadMoreRows = this.loadMoreRows.bind(this);
 		this.rowRenderer = this.rowRenderer.bind(this);
 	}
 
@@ -54,41 +53,36 @@ class InfiniteScrollList extends React.Component {
 		return this.props.items && this.props.items[index];
 	}
 
-	loadMoreRows({ startIndex, stopIndex }) {
-		if (!this.props.onLoadMoreRows) {
-			return;
-		}
-
-		const args = { startIndex, stopIndex };
-
-		this.props.onLoadMoreRows(args);
-	}
-
 	rowRenderer(rowProps) {
 		const { columns, index } = rowProps;
 
-		const rowColumns = this.isRowLoaded({ index }) ? (
-			rowProps.columns
-		) : (
-			<SkeletonRow columns={columns} />
-		);
+		const rowColumns = this.isRowLoaded({ index })
+			? rowProps.columns
+			: <SkeletonRow columns={columns} />;
 
 		return <DefaultTableRowRenderer {...rowProps} columns={rowColumns} />;
 	}
 
 	render() {
-		const { items, rowCount, columns, threshold, minimumBatchSize, onSort } = this.props;
+		const {
+			items,
+			rowCount,
+			columns,
+			threshold,
+			minimumBatchSize,
+			onSort,
+			onLoadMoreRows,
+			...restProps
+		} = this.props;
 
 		const listProps = {
 			rowCount,
 			rowRenderers: { table: this.rowRenderer },
+			...restProps,
 		};
 
 		if (onSort) {
-			// Attach sorting behavior to the list
 			listProps.sort = this.onSort;
-			listProps.sortBy = this.props.sortBy;
-			listProps.sortDirection = this.props.sortDirection;
 		}
 
 		if (this.scrollToTop) {
@@ -101,7 +95,7 @@ class InfiniteScrollList extends React.Component {
 			<List.Manager collection={items}>
 				<InfiniteLoader
 					isRowLoaded={this.isRowLoaded}
-					loadMoreRows={this.loadMoreRows}
+					loadMoreRows={onLoadMoreRows}
 					minimumBatchSize={minimumBatchSize}
 					rowCount={rowCount}
 					threshold={threshold}
@@ -137,8 +131,6 @@ if (process.env.NODE_ENV !== 'production') {
 		minimumBatchSize: PropTypes.number,
 		onLoadMoreRows: PropTypes.func,
 		onSort: PropTypes.func,
-		sortBy: PropTypes.string,
-		sortDirection: PropTypes.string,
 	};
 
 	SkeletonRow.propTypes = {
