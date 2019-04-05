@@ -191,7 +191,7 @@ module.exports = ({ getUserConfig, mode }) => {
 	const { theme } = userSassData;
 
 	const sassData = getSassData(userSassData);
-	const indexTemplatePath = `${process.cwd()}/src/app/index.html`;
+	const indexTemplatePath = path.join(process.cwd(), 'src', 'app', 'index.html');
 
 	return {
 		entry: {
@@ -205,7 +205,7 @@ module.exports = ({ getUserConfig, mode }) => {
 		output: {
 			filename: '[name]-[hash].js',
 			publicPath: '/',
-			globalObject: 'this'
+			globalObject: 'this',
 		},
 		module: {
 			rules: [
