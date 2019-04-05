@@ -151,9 +151,11 @@ export default class UIForm extends React.Component {
 				}
 				this.setErrors(event, errors);
 			}
-			if (typeof data.properties === 'function') {
+			if (data.properties) {
 				let properties = data.properties;
-				properties = data.properties(liveState.properties);
+				if (typeof properties === 'function') {
+					properties = properties(liveState.properties);
+				}
 
 				const { schema, value, oldProperties } = payload;
 				this.onChange(event, {
@@ -171,9 +173,11 @@ export default class UIForm extends React.Component {
 	/**
 	 * Set all fields validation in state
 	 * @param errors the validation errors
+	 * @param callback callback to call after setState
 	 */
-	setErrors(event, errors) {
-		this.setState(setLiveStateErrors(errors));
+	setErrors(event, errors, callback) {
+		this.setState(setLiveStateErrors(errors), callback);
+
 		if (this.props.onErrors) {
 			this.props.onErrors(event, errors);
 		}

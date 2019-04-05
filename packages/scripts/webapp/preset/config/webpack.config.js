@@ -106,15 +106,22 @@ function getVersions() {
 		});
 	}
 
+	let revision = process.env.GIT_COMMIT;
+	if (!revision) {
+		try {
+			revision = childProcess
+				.execSync('git rev-parse HEAD')
+				.toString()
+				.trim();
+		} catch (e) {
+			console.info('Failed to get git revision');
+		}
+	}
+
 	return {
 		version: packageJson.version,
 		talendLibraries,
-		revision:
-			process.env.GIT_COMMIT ||
-			childProcess
-				.execSync('git rev-parse HEAD')
-				.toString()
-				.trim(),
+		revision,
 	};
 }
 
@@ -184,7 +191,7 @@ module.exports = ({ getUserConfig, mode }) => {
 	const { theme } = userSassData;
 
 	const sassData = getSassData(userSassData);
-	const indexTemplatePath = `${process.cwd()}/src/app/index.html`;
+	const indexTemplatePath = path.join(process.cwd(), 'src', 'app', 'index.html');
 
 	return {
 		entry: {
@@ -198,6 +205,7 @@ module.exports = ({ getUserConfig, mode }) => {
 		output: {
 			filename: '[name]-[hash].js',
 			publicPath: '/',
+			globalObject: 'this',
 		},
 		module: {
 			rules: [

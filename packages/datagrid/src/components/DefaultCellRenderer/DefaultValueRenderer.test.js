@@ -16,6 +16,12 @@ describe('#DefaultValueRenderer', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render a bytes', () => {
+		const wrapper = shallow(<DefaultValueRenderer value={{ bytes: 'ejfiejifje' }} />);
+
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should render empty when the value is null', () => {
 		const wrapper = shallow(<DefaultValueRenderer value={null} />);
 
