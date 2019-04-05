@@ -34,7 +34,7 @@ function OperatorListElement({ value, name, selected }) {
 	return (
 		<span className={classNames(theme.operator, { [theme.selected]: selected })}>
 			<span>{value}</span>
-			{ name && <span className={classNames(theme.name)}>{name}</span> }
+			{name && <span className={classNames(theme.name)}>{name}</span>}
 		</span>
 	);
 }
