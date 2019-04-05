@@ -28,7 +28,7 @@ $tc-list-toolbar-background-color: $concrete !default;
 	}
 
 	:global(.navbar-nav) {
-		a[role="menuitem"],
+		a[role='menuitem'],
 		a:global(.dropdown-toggle) {
 			color: $black;
 			text-transform: capitalize;
