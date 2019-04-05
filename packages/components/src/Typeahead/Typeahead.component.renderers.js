@@ -138,7 +138,7 @@ export function renderSectionTitle(section) {
 	return null;
 }
 
-export function renderItem(item, { value }) {
+export function renderItem(item, { value, ...rest }) {
 	let title;
 	let description;
 	if (typeof item === 'string') {
@@ -149,7 +149,7 @@ export function renderItem(item, { value }) {
 	}
 
 	return (
-		<div className={classNames(theme.item, { [theme.disabled]: item.disabled })} title={title}>
+		<div className={classNames(theme.item, { [theme.disabled]: item.disabled })} title={title} data-feature={rest['data-feature']}>
 			<span className={classNames(theme['item-title'], 'tc-typeahead-item-title')}>
 				<Emphasis value={value} text={title} />
 			</span>
