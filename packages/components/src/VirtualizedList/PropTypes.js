@@ -30,6 +30,8 @@ export default {
 	// The list scroll
 	onScroll: PropTypes.func,
 	registerChild: PropTypes.func,
+	// Total number of rows
+	rowCount: PropTypes.number,
 	// The row height in ListGrid rendering
 	rowHeight: PropTypes.number,
 	// List of row renderers
@@ -45,8 +47,6 @@ export default {
 	sortBy: PropTypes.string,
 	// Current sort direction ('ASC' | 'DESC')
 	sortDirection: PropTypes.oneOf([SORT_BY.ASC, SORT_BY.DESC]),
-	// Total number of rows
-	totalRowCount: PropTypes.number,
 	// List type ('TABLE' | 'LARGE' | ...)
 	type: PropTypes.string,
 };

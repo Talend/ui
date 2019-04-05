@@ -38,7 +38,7 @@ function VirtualizedList(props) {
 		sort,
 		sortBy,
 		sortDirection,
-		totalRowCount,
+		rowCount,
 		type,
 	} = props;
 
@@ -79,7 +79,7 @@ function VirtualizedList(props) {
 					disableHeader={disableHeader}
 					inProgress={inProgress}
 					rowRenderers={rowRenderers}
-					totalRowCount={totalRowCount}
+					rowCount={rowCount}
 					onRowsRendered={onRowsRendered}
 					registerChild={registerChild}
 					scrollToIndex={scrollToIndex}

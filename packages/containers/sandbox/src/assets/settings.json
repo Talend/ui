@@ -102,7 +102,7 @@
         "id": "getUsersCollectionAsArray",
         "args": ["users", []]
       },
-      "totalRowCountExpression": {
+      "rowCountExpression": {
         "id": "cmf.collections.get",
         "args": ["totalUsersCount", 0]
       }

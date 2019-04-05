@@ -94,10 +94,10 @@ class InfiniteScrollList extends React.Component {
 	}
 
 	render() {
-		const { items, totalRowCount, columns, threshold, minimumBatchSize, onSort } = this.props;
+		const { items, rowCount, columns, threshold, minimumBatchSize, onSort } = this.props;
 
 		const listProps = {
-			totalRowCount,
+			rowCount,
 			rowRenderers: { table: this.rowRenderer },
 		};
 
@@ -120,7 +120,7 @@ class InfiniteScrollList extends React.Component {
 					isRowLoaded={this.isRowLoaded}
 					loadMoreRows={this.loadMoreRows}
 					minimumBatchSize={minimumBatchSize}
-					rowCount={totalRowCount}
+					rowCount={rowCount}
 					threshold={threshold}
 				>
 					{({ onRowsRendered, registerChild }) => (
@@ -142,7 +142,7 @@ class InfiniteScrollList extends React.Component {
 
 InfiniteScrollList.propTypes = {
 	items: PropTypes.array,
-	totalRowCount: PropTypes.number,
+	rowCount: PropTypes.number,
 	columns: PropTypes.array.isRequired,
 	threshold: PropTypes.number,
 	minimumBatchSize: PropTypes.number,
