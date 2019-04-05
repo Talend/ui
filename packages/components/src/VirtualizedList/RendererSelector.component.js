@@ -22,7 +22,7 @@ function getRowRenderer(type, renderers = {}) {
 		const rowRendererTypes = [TABLE].concat(Object.keys(safeRenderer));
 		throw new Error(
 			`Unknown row renderer in Virtualized List : ${type}. ` +
-			`Possible values are [${rowRendererTypes}].`,
+				`Possible values are [${rowRendererTypes}].`,
 		);
 	}
 	return rowRenderer;
