@@ -11,11 +11,8 @@ import getDefaultT from '../../translate';
 function HeaderCheckbox(props) {
 	const { columnData, t } = props;
 	const { id, onToggleAll, collection, isSelected } = columnData;
-	function isAllSelected(items) {
-		return items.length > 0 && !items.some(item => !isSelected(item));
-	}
-	const memoizedIsAllSelected = memoize(isAllSelected);
-	const checked = memoizedIsAllSelected(collection);
+	const checked = memoize(items =>
+		items.length > 0 && !items.some(item => !isSelected(item)))(collection);
 
 	if (!onToggleAll) {
 		return null;
