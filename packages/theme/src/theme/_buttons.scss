@@ -88,6 +88,13 @@
 				fill: currentColor;
 			}
 		}
+
+		&:focus {
+			color: $silver-chalice;
+			> svg {
+				fill: currentColor;
+			}
+		}
 	}
 
 	&-icon-only {
