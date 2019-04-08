@@ -7,6 +7,10 @@ src/DateTimePickers/pickers/TimePicker/TimePicker.scss
 src/Drawer/Drawer.scss
   15:4  warning  Statement must begin on a new line  brace-style
 
+src/Enumeration/Enumeration.scss
+  25:6  error  Nesting depth 4 greater than max of 3  nesting-depth
+  32:6  error  Nesting depth 4 greater than max of 3  nesting-depth
+
 src/FilterBar/FilterBar.scss
   48:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
@@ -27,5 +31,5 @@ src/Typeahead/Typeahead.scss
 src/VirtualizedList/RowCollapsiblePanel/RowCollapsiblePanel.scss
   2:24  error  Strings must use single quotes  quotes
 
-✖ 10 problems (8 errors, 2 warnings)
+✖ 12 problems (10 errors, 2 warnings)
 
