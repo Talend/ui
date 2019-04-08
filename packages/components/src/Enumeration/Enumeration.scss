@@ -19,6 +19,20 @@ $tc-enumeration-font-size: 1.4rem !default;
 
 			&.btn-link {
 				padding: 0 $padding-normal;
+				color: $dove-gray;
+				&:hover {
+					color: $scooter;
+					> svg {
+						fill: currentColor;
+					}
+				}
+
+				&:active {
+					color: darken($scooter, 12%);
+					> svg {
+						fill: currentColor;
+					}
+				}
 
 				svg {
 					height: $tc-enumeration-font-size;

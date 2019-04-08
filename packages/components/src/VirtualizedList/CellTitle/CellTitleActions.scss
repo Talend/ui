@@ -39,6 +39,20 @@ $tc-list-title-dropup-menu-triangle: '\25bc';
 	:global {
 		.btn-link {
 			padding: 0 $padding-small;
+			color: $dove-gray;
+			&:hover {
+				color: $scooter;
+				> svg {
+					fill: currentColor;
+				}
+			}
+
+			&:active {
+				color: darken($scooter, 12%);
+				> svg {
+					fill: currentColor;
+				}
+			}
 		}
 
 		.btn-group > .dropdown-menu,
