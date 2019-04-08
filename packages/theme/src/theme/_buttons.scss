@@ -4,7 +4,6 @@
 ////
 
 @mixin svg-button-behavior {
-	color: $silver-chalice;
 	&:hover {
 		color: $scooter;
 		> svg {
