@@ -30,7 +30,7 @@ describe('Header "Select All" checkbox', () => {
 		wrapper.find('#myList-header-check').simulate('change', event);
 
 		// then
-		expect(columnData.onToggleAll).toBeCalledWith(event, items);
+		expect(columnData.onToggleAll).toBeCalledWith(event);
 	});
 
 	it('should render unchecked & disabled checkbox on header when there is no items', () => {
@@ -38,6 +38,8 @@ describe('Header "Select All" checkbox', () => {
 		const wrapper = shallow(<HeaderCheckbox columnData={{ ...columnData, collection: [] }} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		const checkbox = wrapper.find('#myList-header-check');
+		expect(checkbox.prop('checked')).toBe(false);
+		expect(checkbox.prop('disabled')).toBe(true);
 	});
 });

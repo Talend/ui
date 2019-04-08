@@ -514,6 +514,7 @@ storiesOf('VirtualizedList', module)
 					isSelected={item => item.id === 6}
 					selectionToggle={action('selectionToggle')}
 					onRowDoubleClick={action('doubleClick')}
+					onToggleAll={action('toggleAll')}
 				>
 					<VirtualizedList.Content label="Id" dataKey="id" width={-1} />
 					<VirtualizedList.Content

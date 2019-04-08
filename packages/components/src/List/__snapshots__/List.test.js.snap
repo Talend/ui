@@ -289,17 +289,13 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                                 <input
                                   checked={false}
                                   disabled={false}
-                                  onChange={[Function]}
+                                  onChange={[MockFunction]}
                                   type="checkbox"
                                 />
                                 <span
-                                  className="tc-header-checkbox"
+                                  className="sr-only"
                                 >
-                                  <span
-                                    className="sr-only"
-                                  >
-                                    Select All
-                                  </span>
+                                  Select All
                                 </span>
                               </label>
                             </div>
@@ -2117,17 +2113,13 @@ exports[`List should render 1`] = `
                                 <input
                                   checked={false}
                                   disabled={false}
-                                  onChange={[Function]}
+                                  onChange={[MockFunction]}
                                   type="checkbox"
                                 />
                                 <span
-                                  className="tc-header-checkbox"
+                                  className="sr-only"
                                 >
-                                  <span
-                                    className="sr-only"
-                                  >
-                                    Select All
-                                  </span>
+                                  Select All
                                 </span>
                               </label>
                             </div>
@@ -4006,17 +3998,13 @@ exports[`List should render id if provided 1`] = `
                                   checked={false}
                                   disabled={false}
                                   id="context-header-check"
-                                  onChange={[Function]}
+                                  onChange={[MockFunction]}
                                   type="checkbox"
                                 />
                                 <span
-                                  className="tc-header-checkbox"
+                                  className="sr-only"
                                 >
-                                  <span
-                                    className="sr-only"
-                                  >
-                                    Select All
-                                  </span>
+                                  Select All
                                 </span>
                               </label>
                             </div>

@@ -15,49 +15,13 @@ exports[`Header "Select All" checkbox should render a "Select All" checkbox on h
         checked={false}
         disabled={false}
         id="myList-header-check"
-        onChange={[Function]}
+        onChange={[MockFunction]}
         type="checkbox"
       />
       <span
-        className="tc-header-checkbox"
+        className="sr-only"
       >
-        <span
-          className="sr-only"
-        >
-          Select All
-        </span>
-      </span>
-    </label>
-  </div>
-</form>
-`;
-
-exports[`Header "Select All" checkbox should render unchecked & disabled checkbox on header when there is no items 1`] = `
-<form
-  className="tc-list-checkbox theme-tc-list-checkbox"
->
-  <div
-    className="checkbox"
-    title="Select All"
-  >
-    <label
-      htmlFor="myList-header-check"
-    >
-      <input
-        checked={false}
-        disabled={true}
-        id="myList-header-check"
-        onChange={[Function]}
-        type="checkbox"
-      />
-      <span
-        className="tc-header-checkbox"
-      >
-        <span
-          className="sr-only"
-        >
-          Select All
-        </span>
+        Select All
       </span>
     </label>
   </div>

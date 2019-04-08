@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
+import memoize from 'lodash/memoize';
 import theme from './HeaderCheckbox.scss';
 import getDefaultT from '../../translate';
 
@@ -10,28 +11,33 @@ import getDefaultT from '../../translate';
 function HeaderCheckbox(props) {
 	const { columnData, t } = props;
 	const { id, onToggleAll, collection, isSelected } = columnData;
-	const isAllSelected = () =>
-		collection.length > 0 && collection.findIndex(item => !isSelected(item)) < 0;
-	return onToggleAll ? (
+	function isAllSelected(items) {
+		return items.length > 0 && !items.some(item => !isSelected(item));
+	}
+	const memoizedIsAllSelected = memoize(isAllSelected);
+	const checked = memoizedIsAllSelected(collection);
+
+	if (!onToggleAll) {
+		return null;
+	}
+	return (
 		<form className={classnames('tc-list-checkbox', theme['tc-list-checkbox'])}>
 			<div className="checkbox" title={t('LIST_SELECT_ALL', { defaultValue: 'Select All' })}>
 				<label htmlFor={id && `${id}-header-check`}>
 					<input
 						id={id && `${id}-header-check`}
 						type="checkbox"
-						onChange={e => {
-							onToggleAll(e, collection);
-						}}
-						checked={isAllSelected()}
+						onChange={onToggleAll}
+						checked={checked}
 						disabled={!collection.length}
 					/>
-					<span className={'tc-header-checkbox'}>
-						<span className="sr-only">{'Select All'}</span>
+					<span className="sr-only">
+						{t('LIST_SELECT_ALL', { defaultValue: 'Select All' })}
 					</span>
 				</label>
 			</div>
 		</form>
-	) : null;
+	);
 }
 
 HeaderCheckbox.displayName = 'VirtualizedList(HeaderCheckbox)';
