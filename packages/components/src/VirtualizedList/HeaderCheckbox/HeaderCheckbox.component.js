@@ -11,8 +11,9 @@ import getDefaultT from '../../translate';
 function HeaderCheckbox(props) {
 	const { columnData, t } = props;
 	const { id, onToggleAll, collection, isSelected } = columnData;
-	const checked = memoize(items =>
-		items.length > 0 && !items.some(item => !isSelected(item)))(collection);
+	const checked = memoize(items => items.length > 0 && !items.some(item => !isSelected(item)))(
+		collection,
+	);
 
 	if (!onToggleAll) {
 		return null;
@@ -28,9 +29,7 @@ function HeaderCheckbox(props) {
 						checked={checked}
 						disabled={!collection.length}
 					/>
-					<span className="sr-only">
-						{t('LIST_SELECT_ALL', { defaultValue: 'Select All' })}
-					</span>
+					<span className="sr-only">{t('LIST_SELECT_ALL', { defaultValue: 'Select All' })}</span>
 				</label>
 			</div>
 		</form>
