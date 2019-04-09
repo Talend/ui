@@ -1,26 +1,27 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useMemo } from 'react';
 import classnames from 'classnames';
-import memoize from 'lodash/memoize';
 import theme from './HeaderCheckbox.scss';
 import getDefaultT from '../../translate';
 
 /**
  * Header renderer that displays a "Select All" checkbox on header
  */
-function HeaderCheckbox(props) {
-	const { columnData, t } = props;
-	const { id, onToggleAll, collection, isSelected } = columnData;
-	const checked = memoize(items => items.length > 0 && !items.some(item => !isSelected(item)))(
-		collection,
-	);
-
-	if (!onToggleAll) {
+function HeaderCheckbox({ columnData, t }) {
+	if (!columnData.onToggleAll) {
 		return null;
 	}
+
+	const { id, onToggleAll, collection, isSelected } = columnData;
+	const checked = useMemo(
+		() => collection.length > 0 && collection.every(isSelected),
+		[collection, isSelected]
+	);
+	const title = t('LIST_SELECT_ALL', { defaultValue: 'Select All' });
+
 	return (
 		<form className={classnames('tc-list-checkbox', theme['tc-list-checkbox'])}>
-			<div className="checkbox" title={t('LIST_SELECT_ALL', { defaultValue: 'Select All' })}>
+			<div className="checkbox" title={title}>
 				<label htmlFor={id && `${id}-header-check`}>
 					<input
 						id={id && `${id}-header-check`}
@@ -29,7 +30,7 @@ function HeaderCheckbox(props) {
 						checked={checked}
 						disabled={!collection.length}
 					/>
-					<span className="sr-only">{t('LIST_SELECT_ALL', { defaultValue: 'Select All' })}</span>
+					<span className="sr-only">{title}</span>
 				</label>
 			</div>
 		</form>
