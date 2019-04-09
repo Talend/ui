@@ -106,7 +106,6 @@ describe('UIForm component', () => {
 			expect(props.onTrigger).not.toBeCalled();
 		});
 	});
-
 	describe('#onFinish', () => {
 		it('should perform trigger', () => {
 			// given
@@ -118,10 +117,7 @@ describe('UIForm component', () => {
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
-			wrapper
-				.find('input')
-				.at(1)
-				.simulate('blur');
+			wrapper.find('input[id="myFormId_firstname"]').simulate('blur');
 
 			// then
 			expect(props.onTrigger).toBeCalledWith(expect.anything(), {
@@ -140,7 +136,6 @@ describe('UIForm component', () => {
 				errors: validData.errors,
 			});
 		});
-
 		it('should NOT perform trigger when field has errors', () => {
 			// given: required firstname is empty
 			const wrapper = mount(<UIForm {...data} {...props} />);
@@ -178,8 +173,58 @@ describe('UIForm component', () => {
 			// then
 			expect(props.setErrors).toBeCalledWith(event, newErrors);
 		});
-	});
 
+		it('should set errors, with deep validation', () => {
+			// given
+			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
+			const event = { target: {} };
+			const schema = {
+				key: ['what'],
+				schema: {
+					type: 'object',
+					required: ['value'],
+					properties: {
+						operator: {
+							type: 'string',
+							enum: ['>', '<', '='],
+							value: { type: 'string' },
+						},
+					},
+				},
+				items: [
+					{
+						key: ['what', 'operator'],
+						schema: { type: 'string', enum: ['>', '<', '='] },
+						title: 'operator',
+						type: 'select',
+					},
+					{
+						key: ['what', 'value'],
+						required: true,
+						schema: { type: 'string' },
+						title: 'value',
+						type: 'text',
+					},
+				],
+				widget: 'comparator',
+			};
+
+			// when
+			wrapper
+				.instance()
+				.onFinish(
+					event,
+					{ schema, value: { operator: '<', value: undefined } },
+					{ deepValidation: true },
+				);
+
+			// then
+			expect(props.setErrors).toBeCalledWith(event, {
+				what: 'Missing required field',
+				'what,value': 'Missing required field',
+			});
+		});
+	});
 	describe('#onTrigger', () => {
 		it('should call trigger callback', () => {
 			// given
@@ -199,6 +244,7 @@ describe('UIForm component', () => {
 				schema: mergedSchema[2],
 			});
 		});
+
 		it('should throw error if call without trigger', () => {
 			// given
 			const wrapper = shallow(<UIForm {...data} {...props} />);
@@ -209,6 +255,7 @@ describe('UIForm component', () => {
 			// then
 			expect(toThrow).toThrow();
 		});
+
 		it('should ensure properties, error and schema are passed from props', () => {
 			// given
 			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
@@ -225,6 +272,7 @@ describe('UIForm component', () => {
 			expect(props.onTrigger.mock.calls[0][1].errors).toBe(data.errors);
 			expect(props.onTrigger.mock.calls[0][1].schema).toBe(props.schema);
 		});
+
 		it('should let args override default props', () => {
 			// given
 			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
