@@ -241,6 +241,7 @@ export function getCircle(value, index, values, size) {
 		endAngle: getAngle(percentagesDone + value.percentageShown),
 	});
 
+	console.log(`tc-pie-chart-color-${value.color}`);
 	return (
 		<path
 			key={index}
@@ -314,8 +315,9 @@ export function PieChartIconComponent({
 	// Here we are omitting the props from i18n,
 	// to keep only the event listener from the TooltipTrigger.
 	const omitI18N = omit(rest, ['i18n', 'tReady']);
+
 	return (
-		<span className={theme('tc-pie-icon-chart')}>
+		<span className={theme('tc-pie-chart-icon')}>
 			<svg
 				width={sizeObject.svgSize}
 				height={sizeObject.svgSize}
