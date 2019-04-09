@@ -47,6 +47,7 @@ function getAvroRenderer(avroRenderer) {
 	return {
 		intCellRenderer: 'DefaultIntCellRenderer',
 		stringCellRenderer: 'DefaultStringCellRenderer',
+		dateCellRenderer: 'DefaultDateCellRenderer',
 		...avroRenderer,
 	};
 }
