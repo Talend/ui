@@ -241,7 +241,6 @@ export function getCircle(value, index, values, size) {
 		endAngle: getAngle(percentagesDone + value.percentageShown),
 	});
 
-	console.log(`tc-pie-chart-color-${value.color}`);
 	return (
 		<path
 			key={index}
