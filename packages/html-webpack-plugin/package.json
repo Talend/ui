@@ -21,7 +21,7 @@
     "jest": "^24.0.0"
   },
   "peerDependencies": {
-    "@talend/react-components": "2.3.0"
+    "@talend/react-components": "> 2.3.0"
   },
   "publishConfig": {
     "access": "public"

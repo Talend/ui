@@ -40,7 +40,6 @@
     "extract-text-webpack-plugin": "next",
     "file-loader": "^2.0.0",
     "node-sass": "^4.7.2",
-    "path": "^0.12.7",
     "postcss-loader": "^3.0.0",
     "sass-lint": "1.12.1",
     "sass-loader": "^7.1.0",

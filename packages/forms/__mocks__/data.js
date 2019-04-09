@@ -1,5 +1,4 @@
 import React from 'react';
-import configureMockStore from 'redux-mock-store';
 
 export const data = {
 	jsonSchema: {
@@ -117,15 +116,4 @@ export function initProps() {
 			custom: () => <div>Custom</div>,
 		},
 	};
-}
-
-export function initStore(formName, form) {
-	const mockStore = configureMockStore();
-	const state = { forms: {} };
-
-	if (formName && form) {
-		state.forms[formName] = { ...form };
-	}
-
-	return mockStore(state);
 }
