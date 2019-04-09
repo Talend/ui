@@ -12,17 +12,6 @@
         }
       }
     },
-    "menu:InfiniteScroll": {
-      "id": "menu:InfiniteScroll",
-      "label": "InfiniteScroll",
-      "icon": "talend-refresh",
-      "payload": {
-        "type": "MENU_LINK",
-        "cmf": {
-          "routerReplace": "/InfiniteScroll"
-        }
-      }
-    },
     "menu:tacokitTitleMap": {
       "icon": "talend-burger",
       "label": "TCK async",
@@ -88,31 +77,11 @@
       },
       "productsUrl": "/api/mock/header-bar/products-list"
     },
-    "InfiniteScrollList#usersList": {
-      "onLoadMoreRowsActionCreator": "loadUsers",
-      "onSortActionCreator": "sortUsers",
-      "columns": [
-        { "label": "#", "key": "number" },
-        { "label": "First name", "key": "firstName" },
-        { "label": "Last name", "key": "lastName" }
-      ],
-      "sortBy": "firstName",
-      "sortDirection": "ASC",
-      "itemsExpression": {
-        "id": "getUsersCollectionAsArray",
-        "args": ["users", []]
-      },
-      "rowCountExpression": {
-        "id": "cmf.collections.get",
-        "args": ["totalUsersCount", 0]
-      }
-    },
     "SidePanel#default": {
       "actionIds": [
         "menu:HeaderBar",
         "menu:tacokitTitleMap",
-        "menu:tacokitValidation",
-        "menu:InfiniteScroll"
+        "menu:tacokitValidation"
       ]
     },
     "Layout#default": {
@@ -126,19 +95,6 @@
       "header": { "component": "HeaderBar" },
       "one": { "component": "SidePanel" },
       "content": {}
-    },
-    "Layout#InfiniteScroll": {
-      "mode": "TwoColumns",
-      "header": {
-        "component": "HeaderBar"
-      },
-      "one": {
-        "component": "SidePanel"
-      },
-      "content": {
-        "component": "InfiniteScrollList",
-        "componentId": "usersList"
-      }
     },
     "ComponentForm#titleMap": {
       "definitionURL": "/api/v1/forms/titleMap",
@@ -164,11 +120,6 @@
         "path": "HeaderBar",
         "component": "Layout",
         "componentId": "HeaderBar"
-      },
-      {
-        "path": "InfiniteScroll",
-        "component": "Layout",
-        "componentId": "InfiniteScroll"
       },
       {
         "path": "tacokit",

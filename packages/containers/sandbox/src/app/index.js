@@ -10,8 +10,6 @@ import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 import cmf from '@talend/react-cmf';
 import { createLogger } from 'redux-logger';
 import actions from './actions';
-import expressions from './expressions';
-import saga from './sagas';
 
 const router = getRouter();
 
@@ -22,8 +20,6 @@ const app = {
 	middlewares: [createLogger({})],
 	modules: [router.cmfModule, containersModule],
 	RootComponent: router.RootComponent,
-	saga,
-	expressions,
 };
 
 /**
