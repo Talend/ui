@@ -78,11 +78,11 @@
 		&:hover {
 			color: $scooter;
 		}
-	
+
 		&:focus {
 			color: $dove-gray;
 		}
-	
+
 		&:active {
 			color: darken($scooter, 12%);
 		}
