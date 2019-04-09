@@ -83,6 +83,7 @@ class RendererSelector extends React.Component {
 			onRowClick,
 			onRowDoubleClick,
 			onScroll,
+			rowCount,
 			rowHeight,
 			width,
 			onRowsRendered,
@@ -97,7 +98,6 @@ class RendererSelector extends React.Component {
 			ListRenderer = ListTable;
 			customProps = {
 				disableHeader,
-				rowCount,
 				sort,
 				sortBy,
 				sortDirection,

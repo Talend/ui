@@ -47,6 +47,33 @@ function CustomList(props) {
 	);
 }
 
+function CustomListInfiniteScroll(props) {
+	return (
+		<List.InfiniteScrollList id="my-infinite-scroll-list" {...props}>
+			<List.VList.Content label="Id" dataKey="id" width={-1} />
+			<List.VList.Content
+				label="Name"
+				dataKey="name"
+				columnData={titleProps}
+				width={-1}
+				{...CellTitle}
+			/>
+			<List.VList.Content
+				label="Tag"
+				dataKey="tag"
+				columnData={{ selected: true }}
+				width={-1}
+				disableSort
+				{...CellBadge}
+			/>
+			<List.VList.Content label="Description" dataKey="description" width={-1} disableSort />
+			<List.VList.Content label="Author" dataKey="author" width={-1} />
+			<List.VList.Content label="Created" dataKey="created" width={-1} />
+			<List.VList.Content label="Modified" dataKey="modified" width={-1} />
+		</List.InfiniteScrollList>
+	);
+}
+
 storiesOf('List Composition', module)
 	.add('Default', () => (
 		<div className="virtualized-list">
@@ -139,4 +166,39 @@ storiesOf('List Composition', module)
 				</List.Manager>
 			</section>
 		</div>
-	));
+	))
+	.add('Infinite scroll', () => {
+		const halfCollection = simpleCollection.slice(0, Math.round(simpleCollection.length / 2));
+		const infiniteListProps = {
+			rowCount: simpleCollection.length,
+			loadMoreRows: action('loadMoreRows'),
+		};
+
+		return (
+			<section style={{ height: '50vh' }}>
+				<IconsProvider />
+				<List.Manager id="my-list" collection={halfCollection}>
+					<CustomListInfiniteScroll {...infiniteListProps} />
+				</List.Manager>
+			</section>
+		);
+	})
+	.add('Infinite scroll: Display mode', () => {
+		const halfCollection = simpleCollection.slice(0, Math.round(simpleCollection.length / 2));
+		const infiniteListProps = {
+			rowCount: simpleCollection.length,
+			loadMoreRows: action('loadMoreRows'),
+		};
+
+		return (
+			<section style={{ height: '50vh' }}>
+				<IconsProvider />
+				<List.Manager id="my-list" collection={halfCollection}>
+					<List.Toolbar>
+						<List.DisplayMode id="my-list-displayMode" />
+					</List.Toolbar>
+					<CustomListInfiniteScroll {...infiniteListProps} />
+				</List.Manager>
+			</section>
+		);
+	});

@@ -35,7 +35,6 @@ import ListView from './ListView';
 import TreeView from './TreeView';
 import Icon from './Icon';
 import IconsProvider from './IconsProvider';
-import InfiniteScrollList from './InfiniteScrollList';
 import JSONSchemaRenderer from './JSONSchemaRenderer';
 import Layout from './Layout';
 import List from './List';
@@ -210,7 +209,6 @@ export {
 	Glyphicon,
 	Grid,
 	HelpBlock,
-	InfiniteScrollList,
 	InputGroup,
 	Jumbotron,
 	Label,
