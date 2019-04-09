@@ -3,29 +3,6 @@
 /// @group Buttons
 ////
 
-@mixin svg-button-behavior {
-	&:hover {
-		color: $scooter;
-		> svg {
-			fill: currentColor;
-		}
-	}
-
-	&:active {
-		color: darken($scooter, 12%);
-		> svg {
-			fill: currentColor;
-		}
-	}
-
-	&:focus {
-		color: $silver-chalice;
-		> svg {
-			fill: currentColor;
-		}
-	}
-}
-
 .btn {
 	border: none;
 	font-size: $btn-font-size;
@@ -95,10 +72,20 @@
 	}
 
 	&-link {
-		@include svg-button-behavior;
 		font-size: $font-size-base;
 		font-weight: inherit;
-		color: $silver-chalice;
+		color: $dove-gray;
+		&:hover {
+			color: $scooter;
+		}
+	
+		&:focus {
+			color: $dove-gray;
+		}
+	
+		&:active {
+			color: darken($scooter, 12%);
+		}
 	}
 
 	&-icon-only {
