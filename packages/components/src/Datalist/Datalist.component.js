@@ -6,6 +6,7 @@ import keycode from 'keycode';
 import get from 'lodash/get';
 import Typeahead from '../Typeahead';
 import theme from './Datalist.scss';
+import FocusManager from '../FocusManager';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -21,6 +22,7 @@ class Datalist extends Component {
 		this.onFocus = this.onFocus.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
 		this.onSelect = this.onSelect.bind(this);
+		this.resetSuggestions = this.resetSuggestions.bind(this);
 
 		this.theme = {
 			container: classNames(theme.container, 'tc-datalist-container'),
@@ -59,11 +61,21 @@ class Datalist extends Component {
 	 * @param event The blur event
 	 */
 	onBlur(event) {
-		this.resetSuggestions();
 		const { value, previousValue } = this.state;
 
 		if (value !== previousValue) {
-			this.updateValue(event, value, true);
+			let newValue = value;
+			if (this.props.restricted && !this.props.multiSection && this.state.suggestions && value) {
+				const hasMatchingSuggestion = this.state.suggestions.find(
+					item => !item.disabled && item.name.toLowerCase() === value.toLowerCase(),
+				);
+
+				if (hasMatchingSuggestion) {
+					newValue = hasMatchingSuggestion;
+				}
+			}
+
+			this.updateValue(event, newValue, true);
 		}
 	}
 
@@ -174,6 +186,8 @@ class Datalist extends Component {
 			event.preventDefault();
 			return;
 		}
+
+		this.resetSuggestions();
 		this.updateValue(event, newValue, true);
 	}
 
@@ -206,7 +220,7 @@ class Datalist extends Component {
 	 */
 	buildTitleMapping(titleMap) {
 		return titleMap.reduce((obj, item) => {
-			if (this.props.multiSection && item.title && item.suggestions) {
+			if (this.props.multiSection && item.title !== undefined && item.suggestions) {
 				const children = this.buildTitleMapping(item.suggestions);
 				return { ...obj, ...children };
 			}
@@ -269,6 +283,7 @@ class Datalist extends Component {
 				}
 			}
 			const selectedEnumValue = get(enumValue, 'value');
+
 			if (selectedEnumValue || !this.props.restricted) {
 				this.props.onChange(event, { value: selectedEnumValue || value });
 				this.setState({
@@ -351,21 +366,23 @@ class Datalist extends Component {
 	render() {
 		const label = this.getSelectedLabel();
 		return (
-			<Typeahead
-				{...omit(this.props, PROPS_TO_OMIT)}
-				className={classNames('tc-datalist', this.props.className)}
-				focusedItemIndex={this.state.focusedItemIndex}
-				focusedSectionIndex={this.state.focusedSectionIndex}
-				items={this.state.suggestions}
-				onBlur={this.onBlur}
-				onChange={this.onChange}
-				onFocus={this.onFocus}
-				onKeyDown={this.onKeyDown}
-				onSelect={this.onSelect}
-				theme={this.theme}
-				value={label}
-				caret
-			/>
+			<FocusManager onFocusOut={this.resetSuggestions}>
+				<Typeahead
+					{...omit(this.props, PROPS_TO_OMIT)}
+					className={classNames('tc-datalist', this.props.className)}
+					focusedItemIndex={this.state.focusedItemIndex}
+					focusedSectionIndex={this.state.focusedSectionIndex}
+					items={this.state.suggestions}
+					onBlur={this.onBlur}
+					onChange={this.onChange}
+					onFocus={this.onFocus}
+					onKeyDown={this.onKeyDown}
+					onSelect={this.onSelect}
+					theme={this.theme}
+					value={label}
+					caret
+				/>
+			</FocusManager>
 		);
 	}
 }

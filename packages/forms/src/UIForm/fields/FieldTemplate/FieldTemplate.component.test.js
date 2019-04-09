@@ -64,4 +64,25 @@ describe('FieldTemplate', () => {
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+
+	it('should add animation on value with updating status', () => {
+		// when
+		const wrapper = shallow(
+			<FieldTemplate
+				isValid={false}
+				description={'My awesome description'}
+				descriptionId={'myAwesomeField-description'}
+				errorId={'myAwesomeField-error'}
+				errorMessage={'This is wrong o_o'}
+				id={'myAwesomeField'}
+				label={'My awesome label'}
+				valueIsUpdating
+			>
+				<input id={'myAwesomeField'} />
+			</FieldTemplate>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
 });

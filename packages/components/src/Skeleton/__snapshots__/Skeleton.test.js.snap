@@ -111,7 +111,7 @@ exports[`Storyshots Skeleton default 1`] = `
     </div>
     <span
       aria-label="circle (loading)"
-      className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-small tc-skeleton tc-skeleton-circle tc-skeleton-circle-small tc-skeleton-heartbeat"
+      className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
       style={
         Object {
           "height": undefined,
@@ -124,7 +124,7 @@ exports[`Storyshots Skeleton default 1`] = `
     </div>
     <span
       aria-label="circle (loading)"
-      className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-medium tc-skeleton tc-skeleton-circle tc-skeleton-circle-medium tc-skeleton-heartbeat"
+      className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-medium theme-tc-skeleton-circle-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
       style={
         Object {
           "height": undefined,
@@ -137,7 +137,7 @@ exports[`Storyshots Skeleton default 1`] = `
     </div>
     <span
       aria-label="circle (loading)"
-      className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-large tc-skeleton tc-skeleton-circle tc-skeleton-circle-large tc-skeleton-heartbeat"
+      className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-large theme-tc-skeleton-circle-large tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
       style={
         Object {
           "height": undefined,
@@ -150,7 +150,7 @@ exports[`Storyshots Skeleton default 1`] = `
     </div>
     <span
       aria-label="circle (loading)"
-      className="theme-tc-skeleton theme-tc-skeleton-circle theme-tc-skeleton-circle-small tc-skeleton tc-skeleton-circle tc-skeleton-circle-small tc-skeleton-heartbeat"
+      className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
       style={
         Object {
           "height": 50,
@@ -166,7 +166,7 @@ exports[`Storyshots Skeleton default 1`] = `
     </div>
     <span
       aria-label="text (loading)"
-      className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-text-small tc-skeleton-heartbeat"
+      className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-small theme-tc-skeleton-text-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
       style={
         Object {
           "height": undefined,
@@ -179,7 +179,7 @@ exports[`Storyshots Skeleton default 1`] = `
     </div>
     <span
       aria-label="text (loading)"
-      className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-medium tc-skeleton tc-skeleton-text tc-skeleton-text-medium tc-skeleton-heartbeat"
+      className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-medium theme-tc-skeleton-text-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
       style={
         Object {
           "height": undefined,
@@ -192,7 +192,7 @@ exports[`Storyshots Skeleton default 1`] = `
     </div>
     <span
       aria-label="text (loading)"
-      className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-large tc-skeleton tc-skeleton-text tc-skeleton-text-large tc-skeleton-heartbeat"
+      className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-large theme-tc-skeleton-text-large tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
       style={
         Object {
           "height": undefined,
@@ -205,7 +205,7 @@ exports[`Storyshots Skeleton default 1`] = `
     </div>
     <span
       aria-label="text (loading)"
-      className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-xlarge tc-skeleton tc-skeleton-text tc-skeleton-text-xlarge tc-skeleton-heartbeat"
+      className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-xlarge theme-tc-skeleton-text-xlarge tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
       style={
         Object {
           "height": undefined,
@@ -218,7 +218,7 @@ exports[`Storyshots Skeleton default 1`] = `
     </div>
     <span
       aria-label="text (loading)"
-      className="theme-tc-skeleton theme-tc-skeleton-text theme-tc-skeleton-text-small tc-skeleton tc-skeleton-text tc-skeleton-text-small tc-skeleton-heartbeat"
+      className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-small theme-tc-skeleton-text-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
       style={
         Object {
           "height": undefined,
@@ -231,7 +231,7 @@ exports[`Storyshots Skeleton default 1`] = `
     </h4>
     <span
       aria-label="button (loading)"
-      className="theme-tc-skeleton theme-tc-skeleton-button theme-tc-skeleton-button-medium tc-skeleton tc-skeleton-button tc-skeleton-button-medium tc-skeleton-heartbeat"
+      className="tc-skeleton theme-tc-skeleton tc-skeleton-button theme-tc-skeleton-button tc-skeleton-button-medium theme-tc-skeleton-button-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
       style={
         Object {
           "height": undefined,
@@ -245,7 +245,7 @@ exports[`Storyshots Skeleton default 1`] = `
     <svg
       aria-hidden="true"
       aria-label="icon (loading)"
-      className="theme-tc-svg-icon tc-svg-icon theme-tc-skeleton theme-tc-skeleton-icon theme-tc-skeleton-icon-medium tc-skeleton tc-skeleton-icon tc-skeleton-icon-medium tc-skeleton-heartbeat"
+      className="theme-tc-svg-icon tc-svg-icon tc-skeleton theme-tc-skeleton tc-skeleton-icon theme-tc-skeleton-icon tc-skeleton-icon-medium theme-tc-skeleton-icon-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
       focusable="false"
       name="talend-locked"
       title={null}
@@ -260,7 +260,7 @@ exports[`Storyshots Skeleton default 1`] = `
     <svg
       aria-hidden="true"
       aria-label="icon (loading)"
-      className="theme-tc-svg-icon tc-svg-icon theme-tc-skeleton theme-tc-skeleton-icon theme-tc-skeleton-icon-medium tc-skeleton tc-skeleton-icon tc-skeleton-icon-medium theme-skeleton-96x96 tc-skeleton-heartbeat"
+      className="theme-tc-svg-icon tc-svg-icon tc-skeleton theme-tc-skeleton tc-skeleton-icon theme-tc-skeleton-icon tc-skeleton-icon-medium theme-tc-skeleton-icon-medium theme-skeleton-96x96 theme-theme-skeleton-96x96 tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
       focusable="false"
       name="talend-table"
       title={null}

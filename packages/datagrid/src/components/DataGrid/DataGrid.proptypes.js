@@ -1,9 +1,5 @@
 import PropTypes from 'prop-types';
 
-const DATAGRID_COLUMNS_CONF = {
-	hiddenSubType: PropTypes.boolean,
-};
-
 const DATAGRID_PROPTYPES = {
 	avroRenderer: PropTypes.shape({
 		booleanCellRenderer: PropTypes.string,
@@ -36,7 +32,6 @@ const DATAGRID_PROPTYPES = {
 	deltaRowDataMode: PropTypes.bool,
 	rowBuffer: PropTypes.number,
 	rowNodeIdentifier: PropTypes.string,
-	columnsConf: PropTypes.shape(DATAGRID_COLUMNS_CONF),
 };
 
 export default DATAGRID_PROPTYPES;

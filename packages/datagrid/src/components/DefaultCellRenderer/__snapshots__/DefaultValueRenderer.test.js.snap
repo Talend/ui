@@ -67,6 +67,15 @@ exports[`#DefaultValueRenderer should render a boolean 1`] = `
 </div>
 `;
 
+exports[`#DefaultValueRenderer should render a bytes 1`] = `
+<div
+  className="theme-td-default-cell td-default-cell"
+  onMouseOver={[Function]}
+>
+  ejfiejifje
+</div>
+`;
+
 exports[`#DefaultValueRenderer should render empty when the value is null 1`] = `
 <div
   className="theme-td-default-cell td-default-cell"

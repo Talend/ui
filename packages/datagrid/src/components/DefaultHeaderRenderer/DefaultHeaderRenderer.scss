@@ -15,11 +15,6 @@ $td-grip-resize-width: 6px !default;
 		text-transform: uppercase;
 	}
 	text-transform: lowercase;
-
-	// keep height if empty with a Zero-width space character
-	&:empty:before {
-		content: '\200b';
-	}
 }
 
 .td-header-component {

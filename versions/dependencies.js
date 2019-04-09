@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /* eslint no-console: 0 */
 
-const REACT_VERSION = process.env.REACT_VERSION || '^16.0.0';
+const REACT_VERSION = process.env.REACT_VERSION || '^16.8.6';
 console.log('REACT_VERSION: ', REACT_VERSION);
-const JEST_VERSION = '^23.6.0';
+const JEST_VERSION = '^24.0.0';
 
 module.exports = {
 	// addons
@@ -15,9 +15,13 @@ module.exports = {
 	'react-tap-event-plugin': '^2.0.0',
 	'whatwg-fetch': '^2.0.3',
 
+	// UI deps outside of the release life cycle
+	'@talend/scripts': '^0.16.1',
+	'@talend/react-cmf-router': '^3.2.1',
+
 	// deps: non component libs
 	ajv: '^6.2.1',
-	'bootstrap-sass': '3.3.7',
+	'bootstrap-sass': '3.4.1',
 	'bson-objectid': '^1.1.5',
 	classnames: '^2.2.5',
 	'date-fns': '^1.27.2',
@@ -75,7 +79,6 @@ module.exports = {
 	'@storybook/addon-knobs': '^4.0.12',
 	'@storybook/addons': '^4.0.12',
 	autoprefixer: '^7.1.4',
-	'babel-core': '^7.0.0-bridge.0', // to fix jest
 	'babel-eslint': '^10.0.1',
 	'babel-jest': JEST_VERSION,
 	// babel 7
@@ -89,10 +92,10 @@ module.exports = {
 	'@babel/preset-env': '^7.2.0',
 	'@babel/preset-react': '^7.0.0',
 	cpx: '^1.5.0',
-	enzyme: '^3.7.0',
-	'enzyme-adapter-react-15': '^1.2.0',
-	'enzyme-adapter-react-16': '^1.7.0',
-	'enzyme-to-json': '^3.0.0',
+	enzyme: '^3.9.0',
+	'enzyme-adapter-react-15': '^1.3.1',
+	'enzyme-adapter-react-16': '^1.11.2',
+	'enzyme-to-json': '^3.3.5',
 	eslint: '^4.0.0',
 	'eslint-config-airbnb': '^11.1.0',
 	'eslint-plugin-import': '^1.16.0',
@@ -108,7 +111,7 @@ module.exports = {
 	'react-storybook-addon-props-combinations': '^1.1.0',
 	'react-stub-context': '^0.7.0',
 	'regenerator-runtime': '^0.13.1',
-	rimraf: '^2.6.1',
+	rimraf: '^2.6.2',
 	'sass-lint': '1.12.1',
 
 	// webpack
@@ -125,7 +128,7 @@ module.exports = {
 	'url-loader': '^1.1.2',
 	webpack: '^4.19.0',
 	'webpack-cli': '^3.1.0',
-	'webpack-bundle-analyzer': '^2.9.0',
+	'webpack-bundle-analyzer': '^3.0.4',
 	'webpack-dashboard': '^2.0.0',
-	'webpack-dev-server': '^3.1.10',
+	'webpack-dev-server': '^3.1.11',
 };
