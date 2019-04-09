@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import HeaderCheckbox from './HeaderCheckbox.component';
 
@@ -16,26 +16,24 @@ const columnData = {
 describe('Header "Select All" checkbox', () => {
 	it('should render a "Select All" checkbox on header when onToggleAll callback provided', () => {
 		// when
-		const wrapper = shallow(<HeaderCheckbox columnData={columnData} />);
+		const wrapper = mount(<HeaderCheckbox columnData={columnData} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should trigger onToggleAll callback on checkbox toggle', () => {
-		// given
-		const event = { target: 'lol' };
-
 		// when
-		const wrapper = shallow(<HeaderCheckbox columnData={columnData} />);
-		wrapper.find('#myList-header-check').simulate('change', event);
+		const wrapper = mount(<HeaderCheckbox columnData={columnData} />);
+
+		wrapper.find('#myList-header-check').simulate('change');
 
 		// then
-		expect(columnData.onToggleAll).toBeCalledWith(event);
+		expect(columnData.onToggleAll).toHaveBeenCalled();
 	});
 
 	it('should render unchecked & disabled checkbox on header when there is no items', () => {
 		// when
-		const wrapper = shallow(<HeaderCheckbox columnData={{ ...columnData, collection: [] }} />);
+		const wrapper = mount(<HeaderCheckbox columnData={{ ...columnData, collection: [] }} />);
 
 		// then
 		const checkbox = wrapper.find('#myList-header-check');
