@@ -13,10 +13,10 @@ function HeaderCheckbox({ columnData, t }) {
 	}
 
 	const { id, onToggleAll, collection, isSelected } = columnData;
-	const checked = useMemo(
-		() => collection.length > 0 && collection.every(isSelected),
-		[collection, isSelected]
-	);
+	const checked = useMemo(() => collection.length > 0 && collection.every(isSelected), [
+		collection,
+		isSelected,
+	]);
 	const title = t('LIST_SELECT_ALL', { defaultValue: 'Select All' });
 
 	return (
