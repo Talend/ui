@@ -7,12 +7,21 @@ const { printSeparator } = require('../common/log');
 module.exports = function runWebappScript(command, options) {
 	printSeparator('CONFIGURATION');
 
-	const mode = command === 'start' ? 'development' : 'production';
-	console.log(`Talend scripts mode : ${mode}`);
+	const defaultMode = command === 'start' ? 'development' : 'production';
+	console.log(`Talend scripts mode : ${defaultMode}`);
+
+	let userMode;
+	if (options.includes('--dev')) {
+		userMode = 'development';
+	} else if (options.includes('--prod')) {
+		userMode = 'production';
+	}
+
+	const restOptions = options.filter(opt => opt !== '--dev' && opt !== '--prod');
 
 	// current env vars and talend scripts configuration in <project-folder>/talend-scripts.json
 	const env = getEnv();
-	env.TALEND_MODE = mode;
+	env.TALEND_MODE = userMode || defaultMode;
 	if (env.TALEND_SCRIPTS_CONFIG) {
 		console.log('Talend scripts configuration file found and loaded');
 	}
@@ -23,6 +32,6 @@ module.exports = function runWebappScript(command, options) {
 	printSeparator('RUN');
 
 	const commandFileName = command.replace(':', '-');
-	const result = require(`./scripts/${commandFileName}`)(env, presetApi, options);
+	const result = require(`./scripts/${commandFileName}`)(env, presetApi, restOptions);
 	process.exit(result.status);
 };

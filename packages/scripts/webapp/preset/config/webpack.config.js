@@ -297,5 +297,17 @@ module.exports = ({ getUserConfig, mode }) => {
 			// https://twitter.com/wSokra/status/969679223278505985
 			runtimeChunk: true,
 		},
+		watchOptions: {
+			aggregateTimeout: 300,
+			poll: 1000,
+		},
+		devServer: {
+			port: 3000,
+			stats: 'errors-only',
+			historyApiFallback: true,
+			contentBase: path.join(process.cwd(), '/dist'),
+			compress: true,
+			hot: true,
+		},
 	};
 };
