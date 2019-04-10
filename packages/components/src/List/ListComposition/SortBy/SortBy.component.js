@@ -36,12 +36,7 @@ function SortBy(props) {
 					})}
 				>
 					{options.map(({ key, label }) => (
-						<MenuItem
-							id={`${id}-${key}`}
-							key={key}
-							eventKey={key}
-							aria-label={label}
-						>
+						<MenuItem id={`${id}-${key}`} key={key} eventKey={key} aria-label={label}>
 							{label}
 						</MenuItem>
 					))}
@@ -61,7 +56,8 @@ SortBy.propTypes = {
 		PropTypes.shape({
 			key: PropTypes.string,
 			label: PropTypes.string,
-		})).required,
+		}),
+	).required,
 	selected: PropTypes.string,
 	onChange: PropTypes.func,
 };
