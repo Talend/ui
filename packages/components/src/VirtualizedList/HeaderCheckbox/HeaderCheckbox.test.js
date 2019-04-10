@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-
+import toJson from 'enzyme-to-json';
 import HeaderCheckbox from './HeaderCheckbox.component';
 
 const items = [{ id: 1, label: 'item 1' }, { id: 2, label: 'item 2' }];
@@ -19,7 +19,7 @@ describe('Header "Select All" checkbox', () => {
 		const wrapper = mount(<HeaderCheckbox columnData={columnData} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 	it('should trigger onToggleAll callback on checkbox toggle', () => {
 		// when
