@@ -198,6 +198,7 @@ storiesOf('List Composition', module)
 					<List.Toolbar>
 						<List.DisplayMode id="my-list-displayMode" onChange={action('displayMode')} />
 						<List.SortBy id="my-list-sortBy" options={sortOptions} onChange={action('sortBy')} />
+						<List.TextFilter id="my-list-textFilter" onChange={action('textFilter')} />
 					</List.Toolbar>
 					<CustomListInfiniteScroll
 						rowCount={simpleCollection.length}

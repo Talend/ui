@@ -8,12 +8,15 @@ import I18N_DOMAIN_COMPONENTS from '../../../constants';
 
 function Manager(props) {
 	const [displayMode, setDisplayMode] = useState();
+	const [filterBarDocked, setFilterBarDocked] = useState();
 
 	const contextValues = {
 		collection: props.collection,
 		t: props.t,
 		displayMode,
 		setDisplayMode,
+		filterBarDocked,
+		setFilterBarDocked,
 	};
 
 	return <ListContext.Provider value={contextValues}>{props.children}</ListContext.Provider>;
