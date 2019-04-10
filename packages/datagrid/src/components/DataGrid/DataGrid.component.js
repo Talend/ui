@@ -43,7 +43,7 @@ export function injectedCellRenderer(getComponent, cellRenderer, avroRenderer) {
 	return props => <Component {...props} avroRenderer={avroRenderer} getComponent={getComponent} />;
 }
 
-function getAvroRenderer(avroRenderer) {
+export function getAvroRenderer(avroRenderer) {
 	return {
 		intCellRenderer: 'DefaultIntCellRenderer',
 		stringCellRenderer: 'DefaultStringCellRenderer',

@@ -2,24 +2,31 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import DefaultDateCellRenderer from './DefaultDateCellRenderer.component';
+import DefaultValueRenderer from '../DefaultCellRenderer/DefaultValueRenderer.component';
 
 describe('#DefaultDateCellRenderer', () => {
-	it('should render DefaultDateCellRenderer', () => {
+	it('should render DefaultDateCellRenderer with DefaultValueRenderer', () => {
 		const wrapper = shallow(<DefaultDateCellRenderer data={{ value: 1511873062123 }} />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
-		expect(wrapper.find('span').text()).toBe('2017-11-28T12:44:22.123Z');
+		expect(wrapper.find(DefaultValueRenderer).prop('value')).toBe('2017-11-28T12:44:22.123Z');
 	});
 
-	it('should return null when value is null', () => {
+	it('should do nothing when value is null', () => {
 		const wrapper = shallow(<DefaultDateCellRenderer data={{ value: null }} />);
 
-		expect(wrapper.getElement()).toBe(null);
+		expect(wrapper.find(DefaultValueRenderer).prop('value')).toBe(null);
 	});
 
-	it('should return null when value is empty', () => {
-		const wrapper = shallow(<DefaultDateCellRenderer data={{ value: '' }} />);
+	it('should do nothing when value is undefined', () => {
+		const wrapper = shallow(<DefaultDateCellRenderer data={{ value: undefined }} />);
 
-		expect(wrapper.getElement()).toBe(null);
+		expect(wrapper.find(DefaultValueRenderer).prop('value')).toBe(undefined);
+	});
+
+	it('should show initial value when the parsed value fails', () => {
+		const wrapper = shallow(<DefaultDateCellRenderer data={{ value: 'sdqs' }} />);
+
+		expect(wrapper.find(DefaultValueRenderer).prop('value')).toBe('sdqs');
 	});
 });

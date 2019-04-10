@@ -1,17 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#DefaultDateCellRenderer should render DefaultDateCellRenderer 1`] = `
-<span
+exports[`#DefaultDateCellRenderer should render DefaultDateCellRenderer with DefaultValueRenderer 1`] = `
+<DefaultValueRenderer
   className="td-cell-date"
->
-  2017-11-28T12:44:22.123Z
-</span>
-`;
-
-exports[`#DefaultDateCellRenderer should return UTC Value from a timezone 1`] = `
-<span
-  className="td-cell-date"
->
-  2017-11-28T12:44:22.123Z
-</span>
+  value="2017-11-28T12:44:22.123Z"
+/>
 `;
