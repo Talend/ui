@@ -83,6 +83,7 @@
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
     "react-a11y": "^0.3.3",
+    "react-ace": "^6.2.0",
     "react-dom": "^16.8.6",
     "react-i18next": "^7.6.1",
     "react-test-renderer": "^16.8.6",
@@ -95,7 +96,7 @@
     "i18next": "^9.0.0",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
-    "react-ace": "6.2.0",
+    "react-ace": "^6.2.0",
     "react-dom": "^16.8.6",
     "react-i18next": "^7.6.1"
   },
