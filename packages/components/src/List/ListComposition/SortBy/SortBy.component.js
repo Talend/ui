@@ -13,9 +13,7 @@ function SortBy(props) {
 
 	const selectedOption = props.selected || options[0].key;
 
-	const onSelect = onChange
-		? (value, event) => onChange(event, value)
-		: null;
+	const onSelect = onChange ? (value, event) => onChange(event, value) : null;
 
 	const selectedLabel = options.find(option => option.key === selectedOption).label;
 
