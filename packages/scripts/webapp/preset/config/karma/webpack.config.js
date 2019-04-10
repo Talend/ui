@@ -2,8 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const { getBabelConfig } = require('../babel-resolver');
 
-const ROOT = path.resolve(__dirname, '../src');
-const INDEX_TEMPLATE_PATH = path.resolve(__dirname, '../src/app/index.html');
+const ROOT = path.resolve(process.cwd(), 'src');
+const INDEX_TEMPLATE_PATH = path.resolve(process.cwd(), 'src', 'app', 'index.html');
 
 module.exports = {
 	mode: 'none',

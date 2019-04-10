@@ -28,7 +28,7 @@ module.exports = function(config) {
 		},
 
 		// available reporters: https://npmjs.org/browse/keyword/karma-reporter
-		reporters: ['jasmine-diff', 'progress'],
+		reporters: ['progress'],
 
 		// web server port
 		port: 9876,
@@ -45,7 +45,8 @@ module.exports = function(config) {
 
 		// start these browsers
 		// available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-		browsers: ['PhantomJS'],
+		browsers: ['ChromeHeadless'],
+		plugins: [require('karma-chrome-launcher'), require('karma-jasmine'), require('karma-webpack')],
 
 		// if true, Karma runs tests once and exits
 		singleRun: !argv.auto,
