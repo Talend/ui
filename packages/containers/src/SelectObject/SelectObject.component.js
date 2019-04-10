@@ -35,25 +35,18 @@ function SelectObject({
 				navbar={false}
 			/>
 			<div className={theme.container}>
-				{!tree &&
-					!filteredData && (
-						<List
-							{...props.list}
-							id={`${props.id}-list`}
-							data={sourceData}
-							className={theme.list}
-						/>
-					)}
-				{tree &&
-					!filteredData && (
-						<TreeView
-							{...tree}
-							componentId={props.id}
-							noHeader
-							data={sourceData}
-							className={theme.tree}
-						/>
-					)}
+				{!tree && !filteredData && (
+					<List {...props.list} id={`${props.id}-list`} data={sourceData} className={theme.list} />
+				)}
+				{tree && !filteredData && (
+					<TreeView
+						{...tree}
+						componentId={props.id}
+						noHeader
+						data={sourceData}
+						className={theme.tree}
+					/>
+				)}
 				{filteredData && (
 					<ListGroup className={theme.results}>
 						{filteredData.map(data => (
