@@ -6,7 +6,10 @@ const lib = require('../src');
 
 const buff = Object.keys(lib.svgs)
 	.map(key => {
-		const svg = `${lib.svgs[key]}`.replace(/class/g, 'className').replace(/fill-rule/g, 'fillRule');
+		const svg = `${lib.svgs[key]}`
+			.replace(/class/g, 'className')
+			.replace(/fill-rule/g, 'fillRule')
+			.replace(/stop-color/g, 'stopColor');
 		return `icons['talend-${key}'] = (${svg});`;
 	})
 	.concat(
