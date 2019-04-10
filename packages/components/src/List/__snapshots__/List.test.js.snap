@@ -533,27 +533,6 @@ exports[`List should render 1`] = `
           "totalResults": 13,
         }
       }
-      selectAllCheckbox={
-        Object {
-          "id": undefined,
-          "isSelected": [Function],
-          "items": Array [
-            Object {
-              "id": 1,
-              "name": "Hello world",
-            },
-            Object {
-              "id": 2,
-              "name": "Foo",
-            },
-            Object {
-              "id": 3,
-              "name": "Bar",
-            },
-          ],
-          "onToggleAll": [MockFunction],
-        }
-      }
       sort={
         Object {
           "field": "name",
@@ -603,27 +582,6 @@ exports[`List should render 1`] = `
             "totalResults": 13,
           }
         }
-        selectAllCheckbox={
-          Object {
-            "id": undefined,
-            "isSelected": [Function],
-            "items": Array [
-              Object {
-                "id": 1,
-                "name": "Hello world",
-              },
-              Object {
-                "id": 2,
-                "name": "Foo",
-              },
-              Object {
-                "id": 3,
-                "name": "Bar",
-              },
-            ],
-            "onToggleAll": [MockFunction],
-          }
-        }
         sort={
           Object {
             "field": "name",
@@ -667,27 +625,6 @@ exports[`List should render 1`] = `
               "onChange": [MockFunction],
               "startIndex": 6,
               "totalResults": 13,
-            }
-          }
-          selectAllCheckbox={
-            Object {
-              "id": undefined,
-              "isSelected": [Function],
-              "items": Array [
-                Object {
-                  "id": 1,
-                  "name": "Hello world",
-                },
-                Object {
-                  "id": 2,
-                  "name": "Foo",
-                },
-                Object {
-                  "id": 3,
-                  "name": "Bar",
-                },
-              ],
-              "onToggleAll": [MockFunction],
             }
           }
           sort={
@@ -2359,27 +2296,6 @@ exports[`List should render id if provided 1`] = `
           "totalResults": 13,
         }
       }
-      selectAllCheckbox={
-        Object {
-          "id": "context",
-          "isSelected": [Function],
-          "items": Array [
-            Object {
-              "id": 1,
-              "name": "Hello world",
-            },
-            Object {
-              "id": 2,
-              "name": "Foo",
-            },
-            Object {
-              "id": 3,
-              "name": "Bar",
-            },
-          ],
-          "onToggleAll": [MockFunction],
-        }
-      }
       sort={
         Object {
           "field": "name",
@@ -2430,27 +2346,6 @@ exports[`List should render id if provided 1`] = `
             "totalResults": 13,
           }
         }
-        selectAllCheckbox={
-          Object {
-            "id": "context",
-            "isSelected": [Function],
-            "items": Array [
-              Object {
-                "id": 1,
-                "name": "Hello world",
-              },
-              Object {
-                "id": 2,
-                "name": "Foo",
-              },
-              Object {
-                "id": 3,
-                "name": "Bar",
-              },
-            ],
-            "onToggleAll": [MockFunction],
-          }
-        }
         sort={
           Object {
             "field": "name",
@@ -2495,27 +2390,6 @@ exports[`List should render id if provided 1`] = `
               "onChange": [MockFunction],
               "startIndex": 6,
               "totalResults": 13,
-            }
-          }
-          selectAllCheckbox={
-            Object {
-              "id": "context",
-              "isSelected": [Function],
-              "items": Array [
-                Object {
-                  "id": 1,
-                  "name": "Hello world",
-                },
-                Object {
-                  "id": 2,
-                  "name": "Foo",
-                },
-                Object {
-                  "id": 3,
-                  "name": "Bar",
-                },
-              ],
-              "onToggleAll": [MockFunction],
             }
           }
           sort={
