@@ -30,7 +30,7 @@ export default {
 	onScroll: PropTypes.func,
 	// handler for selecting all items
 	onToggleAll: PropTypes.func,
-	// The row height in ListGrid renderingf
+	// The row height in ListGrid rendering
 	rowHeight: PropTypes.number,
 	/** Function to call on element selection
 	 *  This determines the display of the selection checkboxes. */
