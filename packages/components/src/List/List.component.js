@@ -25,8 +25,12 @@ function ListToolbar({ id, toolbar, displayMode, list, getComponent, components 
 		toolbarProps.display.mode = displayMode;
 	}
 
-	if (!shouldHideSelectAll &&
-			list.itemProps && list.itemProps.isSelected && list.itemProps.onToggleAll) {
+	if (
+		!shouldHideSelectAll &&
+		list.itemProps &&
+		list.itemProps.isSelected &&
+		list.itemProps.onToggleAll
+	) {
 		toolbarProps.selectAllCheckbox = {
 			id,
 			items: list.items,
