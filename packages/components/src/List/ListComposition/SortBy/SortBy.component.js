@@ -1,21 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Navbar, NavDropdown, Nav, MenuItem } from 'react-bootstrap';
+import { Navbar, NavDropdown, Nav, NavItem, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
 
 import { useListContext } from '../context';
 
-// @todo Sorting direction
-
 function SortBy(props) {
-	const { id, options, onChange } = props;
+	const { id, options, isDescending, onChange, onOrderChange } = props;
 	const { t } = useListContext();
 
+	// Sort by
 	const selectedOption = props.selected || options[0].key;
-
 	const onSelect = onChange ? (value, event) => onChange(event, value) : null;
-
 	const selectedLabel = options.find(option => option.key === selectedOption).label;
+
+	// Sort order
+	const onOrderClick = event => onOrderChange(event, { isDescending: !isDescending });
+	const orderLabel = isDescending
+		? t('LIST_SELECT_SORT_BY_ORDER_DESC', { defaultValue: 'Descending' })
+		: t('LIST_SELECT_SORT_BY_ORDER_ASC', { defaultValue: 'Ascending' });
 
 	return (
 		<React.Fragment>
@@ -39,6 +42,16 @@ function SortBy(props) {
 						</MenuItem>
 					))}
 				</NavDropdown>
+				<NavItem
+					id={`${id}-order`}
+					onClick={onOrderClick}
+					aria-label={t('LIST_CHANGE_SORT_BY_ORDER', {
+						defaultValue: 'Change sort order. Current order: {{sortOrder}}.',
+						sortOrder: orderLabel,
+					})}
+				>
+					{orderLabel}
+				</NavItem>
 			</Nav>
 		</React.Fragment>
 	);
@@ -46,10 +59,13 @@ function SortBy(props) {
 
 SortBy.defaultProps = {
 	id: uuid.v4(),
+	isDescending: false,
 };
 
 SortBy.propTypes = {
 	id: PropTypes.string,
+	isDescending: PropTypes.bool,
+	onOrderChange: PropTypes.func,
 	options: PropTypes.arrayOf(
 		PropTypes.shape({
 			key: PropTypes.string,
