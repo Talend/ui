@@ -14,8 +14,8 @@ yarn add --dev @talend/scripts
 {
   "prepublish": "talend-scripts build:prod",
 
-  "build": "talend-scripts build --dev",
-  "build:prod": "talend-scripts build",
+  "build": "talend-scripts build",
+  "build:dev": "talend-scripts build --dev",
   "analyze": "talend-scripts build --env.analyze",
 
   "start": "talend-scripts start",

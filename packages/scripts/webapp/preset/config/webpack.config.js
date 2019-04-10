@@ -305,7 +305,7 @@ module.exports = ({ getUserConfig, mode }) => {
 			port: 3000,
 			stats: 'errors-only',
 			historyApiFallback: true,
-			contentBase: path.join(process.cwd(), '/dist'),
+			contentBase: path.join(process.cwd(), 'dist'),
 			compress: true,
 			hot: true,
 		},
