@@ -114,6 +114,11 @@ const props = {
 			icon: 'talend-cross',
 			id: 'abort',
 			onClick: action('itemEdit.onCancel'),
+		}, {
+			label: 'Delete',
+			icon: 'talend-trash',
+			id: 'abort',
+			onClick: action('itemEdit.onDelete'),
 		}],
 	},
 	onAddChange: action('onAddChange'),
