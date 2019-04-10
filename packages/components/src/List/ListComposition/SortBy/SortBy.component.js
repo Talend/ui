@@ -5,17 +5,17 @@ import uuid from 'uuid';
 
 import { useListContext } from '../context';
 
+// @todo Sorting direction
+
 function SortBy(props) {
 	const { id, options, onChange } = props;
 	const { t } = useListContext();
 
 	const selectedOption = props.selected || options[0].key;
 
-	const onSelect = (value, event) => {
-		if (onChange) {
-			onChange(event, value);
-		}
-	};
+	const onSelect = onChange
+		? (value, event) => onChange(event, value)
+		: null;
 
 	const selectedLabel = options.find(option => option.key === selectedOption).label;
 
