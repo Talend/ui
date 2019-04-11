@@ -2,6 +2,8 @@ const path = require('path');
 const argv = require('yargs').argv;
 const webpackConfig = require('./webpack.config');
 
+process.env.CHROME_BIN = require('puppeteer').executablePath();
+
 module.exports = function(config) {
 	const specBundle = path.join(process.cwd(), 'spec.bundle.js');
 	config.set({
@@ -46,7 +48,13 @@ module.exports = function(config) {
 		// start these browsers
 		// available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
 		browsers: ['ChromeHeadless'],
-		plugins: [require('karma-chrome-launcher'), require('karma-jasmine'), require('karma-webpack')],
+
+		plugins: [
+			'karma-chrome-launcher',
+			'karma-jasmine',
+			'karma-webpack',
+			'karma-jasmine-diff-reporter',
+		],
 
 		// if true, Karma runs tests once and exits
 		singleRun: !argv.auto,
