@@ -1,4 +1,4 @@
-import { getTypeRenderer } from './avroRenderer';
+import { getTypeRenderer } from './mappingTypeRenderer';
 
 describe('#avrorender', () => {
 	it('should return the mapping corresponding to the type', () => {

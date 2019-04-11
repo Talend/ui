@@ -6,7 +6,7 @@ import { AVRO_TYPES, LOGICAL_TYPES } from '../../constants';
 import DATAGRID_PROPTYPES from '../DataGrid/DataGrid.proptypes';
 
 import DefaultRenderer from './DefaultRenderer.component';
-import { getTypeRenderer } from './avroRenderer';
+import { getTypeRenderer } from './mappingTypeRenderer';
 
 export default function AvroRenderer({ avroRenderer, colDef, data, getComponent }) {
 	const typeRenderer = getTypeRenderer(colDef.avro.type);
