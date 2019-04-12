@@ -1,21 +1,46 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Navbar, NavDropdown, Nav, NavItem, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
+import isUndefined from 'lodash/isUndefined';
 
 import { useListContext } from '../context';
 
 function SortBy(props) {
-	const { id, options, isDescending, onChange, onOrderChange } = props;
-	const { t } = useListContext();
+	const { id, options, selected, isDescending: isDescendingProp, onChange, onOrderChange } = props;
+	const { sortParams, setSortParams, t } = useListContext();
 
 	// Sort by
-	const selectedOption = props.selected || options[0].key;
-	const onSelect = onChange ? (value, event) => onChange(event, value) : null;
+	let selectedOption;
+	if (selected) {
+		selectedOption = selected;
+	} else if (sortParams.sortBy) {
+		selectedOption = sortParams.sortBy;
+	} else {
+		selectedOption = options[0].key;
+
+		useEffect(() => {
+			setSortParams({ ...sortParams, sortBy: selectedOption });
+		});
+	}
+
+	const onSelect = onChange
+		? (value, event) => onChange(event, value)
+		: value => setSortParams({ ...sortParams, sortBy: value });
+
 	const selectedLabel = options.find(option => option.key === selectedOption).label;
 
 	// Sort order
-	const onOrderClick = event => onOrderChange(event, { isDescending: !isDescending });
+	const isDescending = !isUndefined(isDescendingProp) ? isDescendingProp : sortParams.isDescending;
+
+	const onOrderClick = event => {
+		if (onOrderChange) {
+			onOrderChange(event, { isDescending: !isDescending });
+		} else {
+			setSortParams({ ...sortParams, isDescending: !isDescending });
+		}
+	};
+
 	const orderLabel = isDescending
 		? t('LIST_SELECT_SORT_BY_ORDER_DESC', { defaultValue: 'Descending' })
 		: t('LIST_SELECT_SORT_BY_ORDER_ASC', { defaultValue: 'Ascending' });
@@ -25,7 +50,6 @@ function SortBy(props) {
 			<Navbar.Text>
 				<label htmlFor={id}>{t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}</label>
 			</Navbar.Text>
-
 			<Nav>
 				<NavDropdown
 					id={id}
@@ -59,7 +83,6 @@ function SortBy(props) {
 
 SortBy.defaultProps = {
 	id: uuid.v4(),
-	isDescending: false,
 };
 
 SortBy.propTypes = {
