@@ -36,8 +36,11 @@ Array [
     cellRenderer={[Function]}
     columnData={
       Object {
+        "collection": undefined,
+        "isSelected": [MockFunction],
         "label": "Select this element",
         "onChange": [MockFunction],
+        "onToggleAll": undefined,
       }
     }
     dataKey=""

@@ -29,6 +29,8 @@ export default {
 	onRowDoubleClick: PropTypes.func,
 	// The list scroll
 	onScroll: PropTypes.func,
+	// handler for selecting all items
+	onToggleAll: PropTypes.func,
 	registerChild: PropTypes.func,
 	// Total number of rows
 	rowCount: PropTypes.number,
