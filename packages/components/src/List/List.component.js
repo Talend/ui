@@ -13,6 +13,7 @@ function ListToolbar({ id, toolbar, displayMode, list, getComponent, components 
 		return null;
 	}
 	const shouldHideSortOptions = !!(displayMode === 'table' && list.sort);
+	const shouldHideSelectAll = displayMode === 'table';
 	const toolbarProps = {
 		...toolbar,
 		id,
@@ -24,7 +25,12 @@ function ListToolbar({ id, toolbar, displayMode, list, getComponent, components 
 		toolbarProps.display.mode = displayMode;
 	}
 
-	if (list.itemProps && list.itemProps.isSelected && list.itemProps.onToggleAll) {
+	if (
+		!shouldHideSelectAll &&
+		list.itemProps &&
+		list.itemProps.isSelected &&
+		list.itemProps.onToggleAll
+	) {
 		toolbarProps.selectAllCheckbox = {
 			id,
 			items: list.items,
