@@ -183,6 +183,31 @@ storiesOf('List Composition', module)
 			</section>
 		);
 	})
+	.add('Infinite scroll: with uncontrolled toolbar', () => {
+		const halfCollection = simpleCollection.slice(0, Math.round(simpleCollection.length / 2));
+
+		const sortOptions = [
+			{ key: 'name', label: 'Name' },
+			{ key: 'tag', label: 'Tag' },
+		];
+
+		return (
+			<section style={{ height: '50vh' }}>
+				<IconsProvider />
+				<List.Manager id="my-list" collection={halfCollection}>
+					<List.Toolbar>
+						<List.DisplayMode id="my-list-displayMode" />
+						<List.SortBy id="my-list-sortBy" options={sortOptions} />
+						<List.TextFilter id="my-list-textFilter" />
+					</List.Toolbar>
+					<CustomListInfiniteScroll
+						rowCount={simpleCollection.length}
+						loadMoreRows={action('loadMoreRows')}
+					/>
+				</List.Manager>
+			</section>
+		);
+	})
 	.add('Infinite scroll: with controlled toolbar', () => {
 		const halfCollection = simpleCollection.slice(0, Math.round(simpleCollection.length / 2));
 
