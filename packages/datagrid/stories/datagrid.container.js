@@ -1,4 +1,5 @@
 import React from 'react';
+import get from 'lodash/get';
 import { storiesOf } from '@storybook/react';
 import withCMF from '@talend/react-storybook-cmf';
 import { I18nextProvider } from 'react-i18next';
@@ -173,7 +174,9 @@ const reducer = (state = {}, a) => {
 };
 
 function registerCustomizedComponents() {
-	api.component.register('CustomCellRenderer', props => <span>{props.value.value}</span>);
+	api.component.register('CustomCellRenderer', props => (
+		<span>{get(props, 'value.value.bytes', '') || get(props, 'value.value', '')}</span>
+	));
 	api.component.register('CustomHeaderRenderer', props => <span>{props.displayName}</span>);
 	api.component.register('CustomPinHeaderRenderer', () => <span />);
 	api.component.register('CustomStringCellRenderer', props => (
