@@ -19,10 +19,14 @@ function filterCollectionByText(collection, text) {
 
 	const searchedText = text.toLowerCase();
 
-	return collection
-		.filter(item => Object.values(item).find(
-			value => value.toString().toLowerCase().includes(searchedText)
-		));
+	return collection.filter(item =>
+		Object.values(item).find(value =>
+			value
+				.toString()
+				.toLowerCase()
+				.includes(searchedText),
+		),
+	);
 }
 
 function Manager(props) {
@@ -30,10 +34,10 @@ function Manager(props) {
 	const [textFilter, setTextFilter] = useState();
 
 	// Filter by text
-	const collection = useMemo(
-		() => filterCollectionByText(props.collection, textFilter),
-		[props.collection, textFilter]
-	);
+	const collection = useMemo(() => filterCollectionByText(props.collection, textFilter), [
+		props.collection,
+		textFilter,
+	]);
 
 	const contextValues = {
 		collection,
