@@ -27,9 +27,10 @@ function sortCollection(collection, sortParams = {}) {
 		const valueA = a[sortBy];
 		const valueB = b[sortBy];
 
-		const result = isNaN(valueA) || isNaN(valueB)
-			? valueA.toString().localeCompare(valueB.toString())
-			: valueA - valueB;
+		const result =
+			isNaN(valueA) || isNaN(valueB)
+				? valueA.toString().localeCompare(valueB.toString())
+				: valueA - valueB;
 
 		return result * direction;
 	});
@@ -67,16 +68,13 @@ function Manager(props) {
 	let collection = props.collection;
 
 	// Sort items
-	collection = useMemo(
-		() => sortCollection(collection, sortParams),
-		[collection, sortParams]
-	);
+	collection = useMemo(() => sortCollection(collection, sortParams), [collection, sortParams]);
 
 	// Filter by text
-	collection = useMemo(
-		() => filterCollectionByText(collection, textFilter),
-		[collection, textFilter]
-	);
+	collection = useMemo(() => filterCollectionByText(collection, textFilter), [
+		collection,
+		textFilter,
+	]);
 
 	const contextValues = {
 		collection,
