@@ -1,0 +1,21 @@
+.tile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $padding-normal;
+  border-bottom: 1px solid lightgray;
+
+  .tile-right {
+    display: flex;
+    button {
+      margin-left: $padding-smaller;
+    }
+  }
+}
+
+.tile-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: $padding-normal;
+}

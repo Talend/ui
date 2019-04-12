@@ -1,0 +1,8 @@
+:global(.react-grid-item) {
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: lightgray;
+  /* padding: 0 15px */
+}

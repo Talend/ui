@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid tiles should compute tile with actions in header 1`] = `
+<React.Fragment>
+  <div
+    className="theme-tile-header"
+  >
+    <span
+      className="theme-tile-label"
+    >
+      Short sentence tile
+    </span>
+    <span
+      className="theme-tile-right"
+    >
+      <ActionIconToggle
+        active={false}
+        icon="talend-plus"
+        id="add"
+        label="Add item"
+        onClick={
+          Object {
+            "addMatchers": [Function],
+            "advanceTimersByTime": [Function],
+            "autoMockOff": [Function],
+            "autoMockOn": [Function],
+            "clearAllMocks": [Function],
+            "clearAllTimers": [Function],
+            "deepUnmock": [Function],
+            "disableAutomock": [Function],
+            "doMock": [Function],
+            "dontMock": [Function],
+            "enableAutomock": [Function],
+            "fn": [Function],
+            "genMockFromModule": [Function],
+            "getTimerCount": [Function],
+            "isMockFunction": [Function],
+            "isolateModules": [Function],
+            "mock": [Function],
+            "requireActual": [Function],
+            "requireMock": [Function],
+            "resetAllMocks": [Function],
+            "resetModuleRegistry": [Function],
+            "resetModules": [Function],
+            "restoreAllMocks": [Function],
+            "retryTimes": [Function],
+            "runAllImmediates": [Function],
+            "runAllTicks": [Function],
+            "runAllTimers": [Function],
+            "runOnlyPendingTimers": [Function],
+            "runTimersToTime": [Function],
+            "setMock": [Function],
+            "setTimeout": [Function],
+            "spyOn": [Function],
+            "unmock": [Function],
+            "useFakeTimers": [Function],
+            "useRealTimers": [Function],
+          }
+        }
+        tooltipPlacement="top"
+      />
+    </span>
+  </div>
+  <div
+    className="theme-tile-content"
+  >
+    <SimpleContent
+      label="short sentence"
+    />
+  </div>
+</React.Fragment>
+`;
+
+exports[`Grid tiles should compute tile without header 1`] = `
+<React.Fragment>
+  <div
+    className="theme-tile-content"
+  >
+    <SimpleContent
+      label="short sentence"
+    />
+  </div>
+</React.Fragment>
+`;

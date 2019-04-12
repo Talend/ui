@@ -22,6 +22,7 @@ import './Emphasis';
 import './EditableText';
 import './Enumeration';
 import './FilterBar';
+import './GridLayout';
 import './GuidedTour';
 import './HeaderBar';
 import './HttpError';

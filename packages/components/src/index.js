@@ -29,6 +29,7 @@ import EditableText from './EditableText';
 import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
 import FilterBar from './FilterBar';
+import GridLayout from './GridLayout';
 import GuidedTour from './GuidedTour';
 import HeaderTitle from './HeaderTitle';
 import ListView from './ListView';
@@ -152,6 +153,7 @@ export {
 	Emphasis,
 	Enumeration,
 	FilterBar,
+	GridLayout,
 	GuidedTour,
 	HeaderBar,
 	HeaderTitle,
