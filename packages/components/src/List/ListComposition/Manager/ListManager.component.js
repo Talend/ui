@@ -49,10 +49,14 @@ function filterCollectionByText(collection, text) {
 
 	const searchedText = text.toLowerCase();
 
-	return collection
-		.filter(item => Object.values(item).find(
-			value => value.toString().toLowerCase().includes(searchedText)
-		));
+	return collection.filter(item =>
+		Object.values(item).find(value =>
+			value
+				.toString()
+				.toLowerCase()
+				.includes(searchedText),
+		),
+	);
 }
 
 function Manager(props) {
