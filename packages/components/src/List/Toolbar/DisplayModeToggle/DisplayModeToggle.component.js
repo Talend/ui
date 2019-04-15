@@ -1,40 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ActionIconToggle } from '../../../Actions';
 
 import theme from './DisplayModeToggle.scss';
 
 /**
  * TODO:
- *  hook
  *  label translations
  */
-class DisplayModeToggle extends React.Component {
-    constructor(props){
-        super(props);
-        // can I use hook here?
-        this.state = {
-            active: props.mode || 'table',
-        }
-    }
+function DisplayModeToggle(props) {
 
-    render() {
+    const [active, setActive] = useState(props.mode);
+
         return (<span className={theme['tc-display-mode-toggle']}>
             <ActionIconToggle
                 icon="talend-table"
                 label="table"
-                active={this.state.active === 'table'}
-                disabled={this.state.active === 'table'}
-                onClick={() => this.state.active = 'table'}
+                active={active === 'table'}
+                disabled={active === 'table'}
+                onClick={() => setActive('table')}
             />
             <ActionIconToggle
                 icon="talend-expanded"
                 label="large"
-                active={this.state.active === 'large'}
-                disabled={this.state.active === 'large'}
-                onClick={() => this.state.active = 'large'}
+                active={active === 'large'}
+                disabled={active === 'large'}
+                onClick={() => setActive('large')}
             />
         </span>);
-    }
 }
 
 export default DisplayModeToggle;
