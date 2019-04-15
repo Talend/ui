@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ActionIconToggle from '../Actions/ActionIconToggle';
 import theme from './Tile.scss';
 import Action from '../Actions/Action';
+import ResourcePicker from '../ResourcePicker';
 
 function renderHeader(header) {
 	if (header) {
@@ -22,12 +23,15 @@ function renderHeader(header) {
 	return null;
 }
 
-function TileComponent({ content, contentProps, header }) {
+function TileComponent({ content, contentProps, header, filterMode = false, filterProps }) {
 	return (
 		<React.Fragment>
 			{ renderHeader(header) }
 			<div className={theme['tile-content']}>
-				<content.component {...contentProps} />
+				{ filterMode ?
+					<ResourcePicker { ...filterProps } />
+					: <content.component {...contentProps} /> }
+
 			</div>
 		</React.Fragment>
 	);

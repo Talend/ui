@@ -5,10 +5,46 @@ import uuid from 'uuid';
 import talendIcons from '@talend/icons/dist/react';
 
 import { GridLayout, IconsProvider } from '../src/';
+import { TOOLBAR_OPTIONS } from '../src/ResourcePicker';
+
+const collection = [
+	{
+		id: 0,
+		name: 'Title with few actions',
+		icon: 'talend-file-xls-o',
+	},
+	{
+		id: 1,
+		name: 'Title with lot of actions',
+		icon: 'talend-file-xls-o',
+	},
+	{
+		id: 2,
+		name: 'Title with persistant actions',
+		modified: '2016-09-22',
+		author: 'Jean-Pierre DUPONT',
+		icon: 'talend-file-xls-o',
+		flags: ['FAVORITE'],
+	},
+	{
+		id: 3,
+		name: 'Title with icon',
+		modified: '2016-09-22',
+		author: 'Third Author',
+		icon: 'talend-file-xls-o',
+		flags: ['CERTIFIED'],
+	},
+];
+
+const resourcePickerProps = {
+	collection,
+	onRowClick: action('Row clicked'),
+};
 
 const icons = {
 	'talend-panel-opener-right': talendIcons['talend-panel-opener-right'],
 	'talend-plus': talendIcons['talend-plus'],
+	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
 };
 
 const addItemAction = {
@@ -41,6 +77,8 @@ function GridContainer() {
 			},
 			key: 'firstTile',
 			'data-grid': {w: 2, h: 2, x: 0, y: Infinity, i: 'firstTile'},
+			filterMode: true,
+			filterProps: resourcePickerProps
 		},
 		{
 			content: { component: TileContentComponent },
