@@ -265,23 +265,20 @@ storiesOf('ActionBar', module)
 			<p>Display Mode Toggle</p>
 			<div>
 				<ActionBar>
-					<div className="tc-list-toolbar-divider"></div>
 					<ActionBar.Content left>
 						<Action label="hello Action" icon="talend-trash" onClick={action('onClick')} />
 					</ActionBar.Content>
 					<ActionBar.Content right>
-						<div className={`${theme['tc-header-bar-action']} ${theme['separated']}`}>
-							<Label
-								text='Sort by:'
-								htmlFor='sort-by'
-							/>
-							<SelectSortBy
-								options={[{id:'id',name:'Id'},{id:'name',name:'Name'}]}
-								field='name'
-								onChange={()=>{}}
-							/>
-						</div>
-						<DisplayModeToggle mode='table'/>
+						<Label
+							text="Sort by:"
+							htmlFor="sort-by"
+						/>
+						<SelectSortBy
+							options={[{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }]}
+							field="name"
+							onChange={() => {}}
+						/>
+						<DisplayModeToggle mode="table" />
 					</ActionBar.Content>
 				</ActionBar>
 			</div>

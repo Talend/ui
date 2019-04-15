@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { MenuItem } from 'react-bootstrap';
 import { ActionIconToggle } from '../../../Actions';
 import getDefaultT from '../../../translate';
 
@@ -18,45 +17,44 @@ function getLabel(selected, t) {
 	}
 }
 
-function DisplayModeToggle({id, displayModes, onChange, mode, t}) {
+function DisplayModeToggle({ id, displayModes, onChange, mode, t }) {
+	const [active, setActive] = useState(mode);
 
-    const [active, setActive] = useState(mode);
+	const modes = displayModes || options;
 
-    const modes = displayModes || options;
+	function getActionIcon(option) {
+		return (<ActionIconToggle
+			id={`${id}-${option}`}
+			icon={option === 'table' ? 'talend-table' : 'talend-expaned'}
+			label={getLabel(option, t)}
+			aria-label={t('LIST_SELECT_DISPLAY_MODE', {
+				defaultValue: 'Set {{displayMode}} as current display mode.',
+				displayMode: option,
+			})}
+			active={active === option}
+			disabled={active === option}
+			onClick={e => {
+				setActive(option);
+				onChange(e, option);
+			}}
+		/>);
+	}
 
-    function getActionIcon(mode) {
-        return (<ActionIconToggle
-            id={`${id}-${mode}`}
-            icon={mode === 'table'? 'talend-table':'talend-expaned'}
-            label={getLabel(mode, t)}
-            aria-label={t('LIST_SELECT_DISPLAY_MODE', {
-                defaultValue: 'Set {{displayMode}} as current display mode.',
-                displayMode: mode,
-            })}
-            active={active === mode}
-            disabled={active === mode}
-            onClick={(e) => {
-                setActive(mode);
-                onChange(e, mode);
-            }}
-        />);
-    }
-
-    return (<MenuItem className={theme['tc-display-mode-toggle']}>
-        {modes.map(getActionIcon)}
-    </MenuItem>);
+	return (<div className={theme['tc-display-mode-toggle']}>
+		{modes.map(getActionIcon)}
+	</div>);
 }
 
 DisplayModeToggle.propTypes = {
-    id: PropTypes.string,
-    mode: PropTypes.string,
-    displayModes: PropTypes.arrayOf(PropTypes.string),
+	id: PropTypes.string,
+	mode: PropTypes.string,
+	displayModes: PropTypes.arrayOf(PropTypes.string),
 	onChange: PropTypes.func.isRequired,
 	t: PropTypes.func.isRequired,
-}
+};
 
 DisplayModeToggle.defaultProps = {
-    t: getDefaultT(),
+	t: getDefaultT(),
 };
 
 export default DisplayModeToggle;
