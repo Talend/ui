@@ -4,6 +4,12 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { Action, ActionBar, IconsProvider } from '../src/index';
 import DisplayModeToggle from '../src/List/Toolbar/DisplayModeToggle';
+import SelectSortBy from '../src/List/Toolbar/SelectSortBy';
+import Label from '../src/List/Toolbar/Label';
+
+import theme from './ActionBar.scss';
+
+console.log(theme);
 
 const primary = {
 	label: 'Primary',
@@ -259,11 +265,23 @@ storiesOf('ActionBar', module)
 			<p>Display Mode Toggle</p>
 			<div>
 				<ActionBar>
+					<div className="tc-list-toolbar-divider"></div>
 					<ActionBar.Content left>
 						<Action label="hello Action" icon="talend-trash" onClick={action('onClick')} />
 					</ActionBar.Content>
 					<ActionBar.Content right>
-						<DisplayModeToggle />
+						<div className={`${theme['tc-header-bar-action']} ${theme['separated']}`}>
+							<Label
+								text='Sort by:'
+								htmlFor='sort-by'
+							/>
+							<SelectSortBy
+								options={[{id:'id',name:'Id'},{id:'name',name:'Name'}]}
+								field='name'
+								onChange={()=>{}}
+							/>
+						</div>
+						<DisplayModeToggle mode='table'/>
 					</ActionBar.Content>
 				</ActionBar>
 			</div>

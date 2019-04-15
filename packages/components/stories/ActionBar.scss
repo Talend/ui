@@ -1,0 +1,7 @@
+.tc-header-bar-action {
+    &:not(:last-child).separated:after {
+        content: '|';
+        color: $white;
+    }
+
+}

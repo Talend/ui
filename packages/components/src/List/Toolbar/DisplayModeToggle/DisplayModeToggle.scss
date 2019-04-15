@@ -1,7 +1,10 @@
 .tc-display-mode-toggle {
+  :global(a) {
     display: flex;
     flex-direction: row;
+    
     :global(.tc-icon-toggle) {
-		margin: $padding-small;
-	}
+      margin: $padding-small;
+    }
+  }
 }
