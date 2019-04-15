@@ -14,15 +14,11 @@ const DEFAULT_THRESHOLD = 5;
 const DEFAULT_MIN_BATCH_SIZE = 20;
 
 function SkeletonRow({ columns }) {
-	return (
-		<React.Fragment>
-			{columns.map(column => (
-				<div key={column.key} {...column.props}>
-					<Skeleton type="text" size="xlarge" />
-				</div>
-			))}
-		</React.Fragment>
-	);
+	return columns.map(column => (
+		<div key={column.key} {...column.props}>
+			<Skeleton type="text" size="xlarge" />
+		</div>
+	));
 }
 
 const rowRenderers = {
