@@ -5,7 +5,9 @@ import uuid from 'uuid';
 import talendIcons from '@talend/icons/dist/react';
 
 import { GridLayout, IconsProvider } from '../src/';
-import { TOOLBAR_OPTIONS } from '../src/ResourcePicker';
+import Tile from '../src/GridLayout/Tile/index';
+import ResourcePicker from '../src/ResourcePicker';
+import Action from '../src/Actions/Action';
 
 const collection = [
 	{
@@ -34,46 +36,140 @@ const collection = [
 		icon: 'talend-file-xls-o',
 		flags: ['CERTIFIED'],
 	},
+	{
+		id: 4,
+		name: 'Title with icon',
+		modified: '2016-09-22',
+		author: 'Third Author',
+		icon: 'talend-file-xls-o',
+		flags: ['CERTIFIED'],
+	},
+	{
+		id: 5,
+		name: 'Title with icon',
+		modified: '2016-09-22',
+		author: 'Third Author',
+		icon: 'talend-file-xls-o',
+		flags: ['CERTIFIED'],
+	},
 ];
 
 const resourcePickerProps = {
 	collection,
-	onRowClick: action('Row clicked'),
 };
 
 const icons = {
-	'talend-panel-opener-right': talendIcons['talend-panel-opener-right'],
-	'talend-plus': talendIcons['talend-plus'],
+	'talend-filter': talendIcons['talend-filter'],
+	'talend-user-circle': talendIcons['talend-user-circle'],
 	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
-};
-
-const addItemAction = {
-	label: 'Add item',
-	icon: 'talend-plus',
-	id: 'add',
-	onClick: action('add.item'),
-};
-
-const openingRightAction = {
-	label: 'Add item',
-	icon: 'talend-panel-opener-right',
-	id: 'add',
-	onClick: action('open.right'),
 };
 
 function TileContentComponent({ label }) {
 	return (<span>{label}</span>);
 }
 
+function renderBody(tab, filterProps) {
+	switch (tab) {
+		case 'chart':
+			return <div>'my chart'</div>;
+		case 'filter':
+			return <div>'my filter'</div>;
+		case 'filterUser': {
+			return (
+				<ResourcePicker { ...filterProps } />
+			);
+		}
+		default:
+			return null;
+	}
+}
+
+function renderFooter(tab) {
+	const myAction = {
+		label: 'Click me',
+		icon: 'talend-dataprep',
+		'data-feature': 'action',
+		onClick: action('You clicked me'),
+	};
+	switch (tab) {
+	case 'filter': {
+		return  <Action { ...myAction} />;
+	}
+	case 'chart':
+	default:
+		return null;
+	}
+}
+
+function ChartTile({ tile }) {
+	const [tab, setTab] = useState('chart');
+	const [userFilter, setUserFilter] = useState([]);
+	// tile.header.actions construct the action depending of the tile header props
+	const addItemAction = {
+		label: 'Add item',
+		icon: 'talend-user-circle',
+		id: 'filter-user',
+		onClick: () => {
+			setTab('filterUser');
+		},
+	};
+
+	const filterAction = {
+		label: 'filter item',
+		icon: 'talend-filter',
+		id: 'filter',
+		onClick: () => {
+			setTab('filter');
+		},
+	};
+
+	const rightActions = [addItemAction, filterAction];
+	const filterProps = {
+		...tile.filterProps,
+		onRowClick: (event, rowData) => {
+			if (userFilter.find(user => user.id === rowData.id)) {
+				// removing it from selection
+				setUserFilter(userFilter.filter(user => user.id !== rowData.id));
+			} else {
+				// adding it to selection
+				setUserFilter(userFilter.concat([rowData]))
+			}
+		},
+		isSelected: (row) => {
+			return userFilter.find(user => user.id === row.id);
+		},
+	};
+	return (
+		<Tile.Container>
+			{
+				tile.header ? (
+					<Tile.Header>
+						<Tile.HeaderActions left></Tile.HeaderActions>
+							{ tile.header.label }
+						<Tile.HeaderActions right actions={rightActions}></Tile.HeaderActions>
+					</Tile.Header> )
+					: null
+			}
+			<Tile.Body>
+				{ renderBody(tab, filterProps) }
+			</Tile.Body>
+			<Tile.Footer>
+				{ renderFooter(tab) }
+			</Tile.Footer>
+		</Tile.Container>
+	);
+}
+
 function GridContainer() {
 	const id = uuid.v4();
+	const [tab, setTab] = useState('chart');
 	const [tiles, setTiles] = useState([
 		{
 			content: { component: TileContentComponent },
 			contentProps: { label: 'A tile content' },
 			header: {
 				label: 'My tile\'s title',
-				rightActions: [addItemAction, openingRightAction],
+				// rightActions: [addItemAction, filterAction],
 			},
 			key: 'firstTile',
 			'data-grid': {w: 2, h: 2, x: 0, y: Infinity, i: 'firstTile'},
@@ -85,7 +181,7 @@ function GridContainer() {
 			contentProps: { label: 'Second tile content' },
 			header: {
 				label: 'My second tile\'s title',
-				rightActions: [addItemAction, openingRightAction],
+				// rightActions: [addItemAction, filterAction],
 			},
 			key: 'secondTile',
 			'data-grid': {w: 2, h: 2, x: 0, y: Infinity, i: 'secondTile'},
@@ -101,7 +197,7 @@ function GridContainer() {
 			contentProps: { label: 'Fourth tile content' },
 			header: {
 				label: 'My fourth tile\'s title',
-				rightActions: [addItemAction, openingRightAction],
+				// rightActions: [addItemAction, filterAction],
 			},
 			key: 'fourthTile',
 			'data-grid': {w: 2, h: 2, x: 0, y: Infinity, i: 'fourthTile'},
@@ -116,9 +212,14 @@ function GridContainer() {
 
 	return (
 		<div className="App">
-			<GridLayout tiles={tiles}
-	            layoutChangeCallback={layoutChangeCallback}
+			<GridLayout
+				layoutChangeCallback={layoutChangeCallback}
 	            onBreakpointChangeCallback={onBreakpointChangeCallback}>
+				{ tiles.map(tile => (
+					<div key={tile.key} data-grid={tile['data-grid']}>
+						<ChartTile tile={tile} tab={tab}/>
+					</div>)
+				)}
 			</GridLayout>
 		</div>
 	);

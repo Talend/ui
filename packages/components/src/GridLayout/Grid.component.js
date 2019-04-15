@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Responsive, WidthProvider } from 'react-grid-layout';
 import theme from './Grid.scss';
-import Tile from './Tile.component';
+import Tile from './Tile/Tile.component';
 const ResponsiveGridLayout = WidthProvider(Responsive);
 const MARGIN = 20;
 const COLUMN_MIN_WIDTH = 190;
@@ -30,7 +30,7 @@ function onBreakpointChange(onBreakpointChangeCallback) {
 	}
 }
 
-function Grid({ tiles, layoutChangeCallback, onBreakpointChangeCallback }) {
+function Grid({ children, layoutChangeCallback, onBreakpointChangeCallback }) {
 	return (
 		<ResponsiveGridLayout
 			className="layout"
@@ -51,13 +51,7 @@ function Grid({ tiles, layoutChangeCallback, onBreakpointChangeCallback }) {
 			compactType="vertical"
 			verticalCompact={false}
 			preventCollision={true}>
-			{
-				tiles.map(tile => (
-					<div key={tile.key} data-grid={tile['data-grid']}>
-						<Tile {...tile} />
-					</div>
-				))
-			}
+			{ children }
 		</ResponsiveGridLayout>
 	);
 }
