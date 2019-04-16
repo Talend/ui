@@ -48,8 +48,6 @@ This component displays a list with two optional toolbars
   * before-actionbar
   * after-actionbar
   * before-navbar
-  * before-selectall
-  * after-selectall
   * before-display
   * after-display
   * before-sort

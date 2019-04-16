@@ -60,13 +60,13 @@ $background-color-on-hover: shade($brand-primary, 30);
 		}
 
 		.tc-header-bar-logo:global(.btn):global(.btn-link) {
-			line-height: $svg-lg-size;
-			padding: 12px $padding-normal 12px $padding-small;
+			line-height: $svg-xlg-size;
+			padding: 8px $padding-normal 8px $padding-small;
 
 			:global(.tc-svg-icon) {
-				height: $svg-lg-size;
+				height: $svg-xlg-size;
 				vertical-align: top;
-				width: $svg-lg-size;
+				width: $svg-xlg-size;
 			}
 
 			&.full :global(.tc-svg-icon) {
