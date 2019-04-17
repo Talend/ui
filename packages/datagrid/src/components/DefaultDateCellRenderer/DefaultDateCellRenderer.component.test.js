@@ -29,4 +29,10 @@ describe('#DefaultDateCellRenderer', () => {
 
 		expect(wrapper.find(DefaultValueRenderer).prop('value')).toBe('sdqs');
 	});
+
+	it('should show date value when value is 0', () => {
+		const wrapper = shallow(<DefaultDateCellRenderer data={{ value: 0 }} />);
+
+		expect(wrapper.find(DefaultValueRenderer).prop('value')).toBe('1970-01-01T00:00:00.000Z');
+	});
 });

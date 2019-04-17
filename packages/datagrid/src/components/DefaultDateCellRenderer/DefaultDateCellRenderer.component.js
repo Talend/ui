@@ -3,19 +3,12 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import DefaultValueRenderer from '../DefaultCellRenderer/DefaultValueRenderer.component';
+import { dateToString } from './date';
 
 export default function DefaultDateCellRenderer({ data }) {
-	let dateValue = data.value;
-
-	if (data.value !== null) {
-		try {
-			dateValue = new Date(data.value).toISOString();
-		} catch (e) {
-			dateValue = data.value;
-		}
-	}
-
-	return <DefaultValueRenderer value={dateValue} className={classNames('td-cell-date')} />;
+	return (
+		<DefaultValueRenderer value={dateToString(data.value)} className={classNames('td-cell-date')} />
+	);
 }
 
 DefaultDateCellRenderer.propTypes = {
