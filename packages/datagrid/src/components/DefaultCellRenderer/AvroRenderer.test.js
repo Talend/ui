@@ -143,4 +143,22 @@ describe('mapping cellRenderer', () => {
 
 		expect(getComponent).toHaveBeenCalledWith('dateCellRenderer');
 	});
+
+	it('should use intCellRenderer when type is int and logicalType is timestamp-millis', () => {
+		const getComponent = jest.fn();
+		shallow(
+			<AvroRenderer
+				avroRenderer={{
+					stringCellRenderer: 'stringCellRenderer',
+					intCellRenderer: 'intCellRenderer',
+					dateCellRenderer: 'dateCellRenderer',
+				}}
+				colDef={{ avro: { type: { type: 'int', logicalType: 'timestamp-millis' } } }}
+				data={{ value: 'value' }}
+				getComponent={getComponent}
+			/>,
+		);
+
+		expect(getComponent).toHaveBeenCalledWith('intCellRenderer');
+	});
 });
