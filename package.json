@@ -65,5 +65,8 @@
     "packages/sagas",
     "packages/storybook-cmf",
     "packages/theme"
-  ]
+  ],
+  "resolutions": {
+    "@storybook/addons": "4.0.12"
+  }
 }

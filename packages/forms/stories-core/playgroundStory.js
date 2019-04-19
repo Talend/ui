@@ -26,10 +26,10 @@ const actions = [
 function story() {
 	const data = object('data', DEFAULT_DATA);
 
-	if (!data || isEqual(data, DEFAULT_DATA)) {
+	if (!data || !data.jsonSchema || isEqual(data, DEFAULT_DATA)) {
 		return (
 			<div className="panel panel-info">
-				<div className="panel panel-heading">Empty UIForm data</div>
+				<div className="panel panel-heading">Test UIForm</div>
 				<div className="panel panel-body">
 					<figure style={{ display: 'table', width: '50vw' }}>
 						<img
@@ -61,9 +61,7 @@ function story() {
 	);
 }
 
-export default [
-	{
-		name: 'UIForm tester',
-		story,
-	},
-];
+export default {
+	name: 'UIForm tester',
+	story,
+};

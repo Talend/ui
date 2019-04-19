@@ -1057,23 +1057,13 @@
     jest-specific-snapshot "^1.0.0"
     read-pkg-up "^4.0.0"
 
-"@storybook/addons@4.0.12", "@storybook/addons@^4.0.12":
+"@storybook/addons@4.0.12", "@storybook/addons@4.1.18", "@storybook/addons@^4.0.12":
   version "4.0.12"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-4.0.12.tgz#3e1658875dd042095f4e4e987d385ee8558d8db6"
   integrity sha512-ID+gaFFg2deybuklXrl7ZjNQ+SRaP5DJP/eri9K0cAIyTitzYg/OR5wxSeqdp5MseP1b3rdAoIW+Hkwf2F0ApA==
   dependencies:
     "@storybook/channels" "4.0.12"
     "@storybook/components" "4.0.12"
-    global "^4.3.2"
-    util-deprecate "^1.0.2"
-
-"@storybook/addons@4.1.18":
-  version "4.1.18"
-  resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-4.1.18.tgz#05f72f19c9e744f1cf24fc9174d5e32f5e94c27d"
-  integrity sha512-WBWso2NyZci8/X6t63jNaLyV6ziHtu0cpa3xZ5A2m9KlUf+doyycFis36fBZ+v6xb1FTZuFjEkm3H3IuXE1GUQ==
-  dependencies:
-    "@storybook/channels" "4.1.18"
-    "@storybook/components" "4.1.18"
     global "^4.3.2"
     util-deprecate "^1.0.2"
 
@@ -1090,11 +1080,6 @@
   version "4.0.12"
   resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-4.0.12.tgz#7698b5365a85b8a57ff018da637c8bc8bb6cc737"
   integrity sha512-HmdjiTeY9GO3ZTeveaAisbpXE7fMb/T7nRpR8vIJxS/9g87z/RInH88aUnCerfwrz56y+GkqrX5bpO/cAhYNvg==
-
-"@storybook/channels@4.1.18":
-  version "4.1.18"
-  resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-4.1.18.tgz#343db57866cc09ec61ee609e5149005010d3d4fa"
-  integrity sha512-SwAAqfrIu0+j2KmmR9QKwKoU9VS7DWrv7fEhy+fEO/YfHnc0G3jcnR/VooiWfZpSrgKB7Mz6Qjp/mj+wRe6wTg==
 
 "@storybook/client-logger@4.0.12":
   version "4.0.12"
