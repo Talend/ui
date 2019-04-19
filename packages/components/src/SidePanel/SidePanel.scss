@@ -11,13 +11,12 @@ $toggle-button-opacity: 0.75;
 $tc-side-panel-large-padding: 25px !default;
 $tc-side-panel-minwidth: 200px !default;
 $tc-side-panel-large-minwidth: 250px !default;
-$tc-side-panel-docked-width: 50px !default;
+$tc-side-panel-docked-width: 60px !default;
 $tc-side-panel-labels-width: 135px !default;
-$tc-side-panel-large-docked-width: 70px !default;
-$tc-side-panel-icons-size: 20px !default;
+$tc-side-panel-large-docked-width: 60px !default;
+$tc-side-panel-icons-size: $svg-lg-size;
 $tc-side-panel-border-size: 2px !default;
-$tc-side-panel-large-toggle-padding: 4px !default;
-$toggle-button-padding: $padding-small - 1;
+$toggle-button-padding: $padding-large + 6;
 
 .tc-side-panel {
 	display: flex;
@@ -25,61 +24,58 @@ $toggle-button-padding: $padding-small - 1;
 	overflow-x: hidden;
 	background: $list-item-reverse-color;
 
-	&,
 	> ul {
 		min-width: $tc-side-panel-minwidth;
 		transition: 0.2s min-width ease-out;
+		> li {
+			height: 55px;
+		}
+
 	}
 
-	:global(.tc-svg-icon) {
-		width: $tc-side-panel-icons-size;
-		height: $tc-side-panel-icons-size;
-		margin: 0;
-	}
-
-	.toggle-btn {
-		padding-top: $padding-small;
-		padding-bottom: $padding-smaller + $padding-large;
-		padding-left: $toggle-button-padding;
-		text-align: left;
-
+	.tc-side-panel-list{
 		:global {
+			.tc-svg-icon {
+				width: $tc-side-panel-icons-size;
+				height: $tc-side-panel-icons-size;
+				margin: 0;
+			}
 			.btn.btn-link {
-				color: $white;
-				line-height: 1;
-				padding: $padding-small;
-				display: inline-block;
-				width: auto;
-				opacity: $toggle-button-opacity;
-				margin: 0 auto;
-
+				padding-left: $padding-large;
 				> span {
-					// .sr-only
-					position: absolute;
-					width: 1px;
-					height: 1px;
-					padding: 0;
-					margin: -1px;
-					overflow: hidden;
-					clip: rect(0, 0, 0, 0);
-					border: none;
-				}
-
-				&:hover {
-					opacity: 1;
-					background-color: $list-item-hover-color;
-				}
-
-				.tc-svg-icon {
-					width: $svg-sm-size;
-					height: $svg-sm-size;
-					transition: 0.2s transform ease-out;
+					margin-left: 10px;
 				}
 			}
 		}
+
+	}
+
+	.toggle-btn {
+		color: white;
+		opacity: $toggle-button-opacity;
+		text-align: left;
+		padding: 4px 0 0 0;
+		margin-left: 14px;
+		height: 41.5px;
+		width: 24px;
+		:global{
+			.tc-svg-icon {
+				width: $svg-sm-size;
+				height: $svg-sm-size;
+				margin: 6px 6px 6px 6px ;
+			}
+		}
+		&:hover {
+			opacity: 1;
+			background-color: $list-item-hover-color;
+		}
+		transition: 0.2s transform ease-out;
 	}
 
 	&.docked {
+		min-width: $tc-side-panel-docked-width;
+		width: $tc-side-panel-docked-width;
+
 		&,
 		> ul {
 			min-width: $tc-side-panel-docked-width;
@@ -87,56 +83,53 @@ $toggle-button-padding: $padding-small - 1;
 		}
 
 		:global(.btn.btn-link) {
-			padding: $padding-normal;
-
 			> span {
 				opacity: 0;
 			}
 		}
 
-		.toggle-btn {
-			:global {
-				.btn.btn-link {
-					padding: $padding-small;
+		:global(.tc-svg-icon) {
+			margin: 0 3px 0 3px;
+		}
 
-					.tc-svg-icon {
-						transform: rotate(-180deg);
-					}
-				}
+		.toggle-btn {
+			justify-content: center;
+			margin-top: $padding-small;
+			margin-left: 18px;
+			margin-bottom: $padding-large;
+			color: white;
+			opacity: $toggle-button-opacity;
+			width: $svg-sm-size;
+			height: $svg-sm-size;
+			transition: 0.2s transform ease-out;
+			transform: rotate(-180deg);
+			&:hover {
+				opacity: 1;
+				background-color: $list-item-hover-color;
 			}
 		}
 	}
 
 	&.large {
+		min-width: $tc-side-panel-large-minwidth;
+
 		&,
 		> ul {
-			min-width: $tc-side-panel-large-minwidth;
-		}
-
-		.toggle-btn {
-			padding-left: $tc-side-panel-large-toggle-padding;
-
-			:global(.btn.btn-link) {
-				padding: $padding-small $tc-side-panel-large-padding;
-			}
-		}
-
-		:global {
-			.btn.btn-link {
-				padding: $padding-normal $tc-side-panel-large-padding;
-
-				.tc-svg-icon + span {
-					margin-left: $tc-side-panel-large-padding;
-				}
-			}
+			min-width: 100%;
 		}
 
 		&.docked {
-			&,
-			> ul,
-			:global(.tc-action-list-item) {
-				min-width: $tc-side-panel-large-docked-width;
-				width: $tc-side-panel-large-docked-width;
+			min-width: $tc-side-panel-large-docked-width;
+			width: $tc-side-panel-large-docked-width;
+
+			:global {
+				.btn.btn-link {
+					width: $tc-side-panel-large-docked-width;
+					margin: 0 auto;
+				}
+			}
+			.toggle-btn {
+				margin: 0 auto;
 			}
 		}
 	}
@@ -168,6 +161,7 @@ $toggle-button-padding: $padding-small - 1;
 
 					.btn.btn-link {
 						color: $dove-gray;
+
 					}
 
 					.tc-svg-icon {
