@@ -54,15 +54,15 @@ $toggle-button-padding: $padding-large + 6;
 		color: white;
 		opacity: $toggle-button-opacity;
 		text-align: left;
-		padding: 4px 0 0 0;
-		margin-left: 14px;
+		padding: 4px 0 0 4px;
+		margin-left: 12px;
 		height: 41.5px;
-		width: 24px;
+		width: 44px;
 		:global{
 			.tc-svg-icon {
-				width: $svg-sm-size;
-				height: $svg-sm-size;
-				margin: 6px 6px 6px 6px ;
+				width: $svg-lg-size;
+				height: $svg-lg-size;
+				padding: 6px 6px 6px 6px ;
 			}
 		}
 		&:hover {
