@@ -67,6 +67,8 @@
     "packages/theme"
   ],
   "resolutions": {
-    "@storybook/addons": "4.0.12"
+    "@storybook/addons": "4.0.12",
+    "@storybook/components": "4.0.12",
+    "@storybook/core-events ": "4.0.12"
   }
 }
