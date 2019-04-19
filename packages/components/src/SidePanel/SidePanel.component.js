@@ -45,7 +45,9 @@ function SidePanel({
 	t,
 }) {
 	const injected = Inject.all(getComponent, components);
+	const normal = !docked && !large && !reverse;
 	const navCSS = classNames(theme['tc-side-panel'], 'tc-side-panel', {
+		[theme.normal]: normal,
 		docked,
 		[theme.docked]: docked,
 		large,
@@ -54,9 +56,22 @@ function SidePanel({
 		[theme.reverse]: reverse,
 	});
 	const listCSS = classNames(theme['tc-side-panel-list'], 'tc-side-panel-list', {
-		'nav-inverse': !reverse,
+		normal,
+		[theme.normalList]:normal,
+		docked,
+		[theme.dockedList]:docked,
+		large,
+		[theme.largeList]:large,
+		reverse,
+		[theme.reverseList]:reverse,
 	});
-
+	console.log('....'+ listCSS);
+	const toggleCss = classNames(theme['toggle-btn'], 'toggle-btn',{
+		[theme.normalToggle]: normal,
+		[theme.dockedToggle]: docked,
+		[theme.largeToggle]: large,
+		[theme.reverseToggle]: reverse,
+	});
 	const expandLabel = t('SIDEPANEL_EXPAND', { defaultValue: 'Expand menu' });
 	const collapseTitle = t('SIDEPANEL_COLLAPSE', { defaultValue: 'Collapse menu' });
 	const toggleButtonTitle = docked ? expandLabel : collapseTitle;
@@ -67,7 +82,7 @@ function SidePanel({
                 <Components.Action
                     id={id && `${id}-toggle-dock`}
                     bsStyle="link"
-                    className={classNames(theme['toggle-btn'], 'tc-side-panel-toggle-btn')}
+                    className={toggleCss}
                     onClick={onToggleDock}
                     icon="talend-opener"
                     aria-controls={id}

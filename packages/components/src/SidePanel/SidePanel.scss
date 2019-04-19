@@ -21,19 +21,17 @@ $toggle-button-padding: $padding-large + 6;
 .tc-side-panel {
 	display: flex;
 	flex-direction: column;
+
 	overflow-x: hidden;
 	background: $list-item-reverse-color;
 
-	> ul {
-		min-width: $tc-side-panel-minwidth;
-		transition: 0.2s min-width ease-out;
+	.tc-side-panel-list {
+		color: white;
+		opacity: $toggle-button-opacity;
+
 		> li {
 			height: 55px;
 		}
-
-	}
-
-	.tc-side-panel-list{
 		:global {
 			.tc-svg-icon {
 				width: $tc-side-panel-icons-size;
@@ -47,136 +45,28 @@ $toggle-button-padding: $padding-large + 6;
 				}
 			}
 		}
-
 	}
+}
 
-	.toggle-btn {
-		color: white;
-		opacity: $toggle-button-opacity;
-		text-align: left;
-		padding: 4px 0 0 4px;
-		margin-left: 12px;
-		height: 41.5px;
-		width: 44px;
-		:global{
-			.tc-svg-icon {
-				width: $svg-lg-size;
-				height: $svg-lg-size;
-				padding: 6px 6px 6px 6px ;
-			}
-		}
-		&:hover {
-			opacity: 1;
-			background-color: $list-item-hover-color;
-		}
-		transition: 0.2s transform ease-out;
-	}
+.toggle-btn {
+	width: 24px;
+	height: 70px;
+	min-height: 70px;
+	margin-left: 20px;
+	padding: 0 0 0 0;
+	text-align: center;
+	line-height: 70px;
 
-	&.docked {
-		min-width: $tc-side-panel-docked-width;
-		width: $tc-side-panel-docked-width;
-
-		&,
-		> ul {
-			min-width: $tc-side-panel-docked-width;
-			width: $tc-side-panel-docked-width;
-		}
-
-		:global(.btn.btn-link) {
-			> span {
-				opacity: 0;
-			}
-		}
-
-		:global(.tc-svg-icon) {
-			margin: 0 3px 0 3px;
-		}
-
-		.toggle-btn {
-			justify-content: center;
-			margin-top: $padding-small;
-			margin-left: 18px;
-			margin-bottom: $padding-large;
+	:global {
+		.tc-svg-icon {
+			width: 1.2rem;
+			height: 1.2rem;
 			color: white;
-			opacity: $toggle-button-opacity;
-			width: $svg-sm-size;
-			height: $svg-sm-size;
-			transition: 0.2s transform ease-out;
-			transform: rotate(-180deg);
+			opacity: 0.75;
+			margin: 6px 6px 6px 6px;
 			&:hover {
 				opacity: 1;
 				background-color: $list-item-hover-color;
-			}
-		}
-	}
-
-	&.large {
-		min-width: $tc-side-panel-large-minwidth;
-
-		&,
-		> ul {
-			min-width: 100%;
-		}
-
-		&.docked {
-			min-width: $tc-side-panel-large-docked-width;
-			width: $tc-side-panel-large-docked-width;
-
-			:global {
-				.btn.btn-link {
-					width: $tc-side-panel-large-docked-width;
-					margin: 0 auto;
-				}
-			}
-			.toggle-btn {
-				margin: 0 auto;
-			}
-		}
-	}
-
-	&.reverse {
-		background: $wild-sand;
-		border-right: $tc-side-panel-border-size solid $alto;
-
-		&:before {
-			background-image: none;
-		}
-		.toggle-btn {
-			background-color: $wild-sand;
-
-			:global {
-				.btn.btn-link,
-				.tc-svg-icon {
-					color: $dove-gray;
-				}
-			}
-		}
-
-		:global {
-			.tc-action-list-item {
-				color: $dove-gray;
-
-				&:hover {
-					background-color: $list-item-reverse-hover-color;
-
-					.btn.btn-link {
-						color: $dove-gray;
-
-					}
-
-					.tc-svg-icon {
-						color: $silver;
-					}
-				}
-
-				&.active {
-					background-color: $list-item-color;
-
-					.btn.btn-link,
-					.tc-svg-icon {
-						color: $brand-primary;
-					}
-				}
 			}
 		}
 	}
