@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { ActionIconToggle } from '../../../Actions';
 import getDefaultT from '../../../translate';
 
@@ -24,8 +25,9 @@ function DisplayModeToggle({ id, displayModes, onChange, mode, t }) {
 
 	function getActionIcon(option) {
 		return (<ActionIconToggle
+			key={option}
 			id={`${id}-${option}`}
-			icon={option === 'table' ? 'talend-table' : 'talend-expaned'}
+			icon={option === 'table' ? 'talend-table' : 'talend-expanded'}
 			label={getLabel(option, t)}
 			aria-label={t('LIST_SELECT_DISPLAY_MODE', {
 				defaultValue: 'Set {{displayMode}} as current display mode.',
@@ -40,8 +42,8 @@ function DisplayModeToggle({ id, displayModes, onChange, mode, t }) {
 		/>);
 	}
 
-	return (<div className={theme['tc-display-mode-toggle']}>
-		{modes.map(getActionIcon)}
+	return (<div className={classNames(theme['tc-display-mode-toggle'], 'tc-display-mode-toggle')}>
+		{ modes.map(getActionIcon) }
 	</div>);
 }
 
