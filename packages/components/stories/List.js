@@ -731,7 +731,6 @@ storiesOf('List', module)
 	.add('Filter', () => {
 		const dockedProps = cloneDeep(props);
 		dockedProps.list.items = [dockedProps.list.items[0]];
-		dockedProps.toolbar.actionBar = null;
 
 		const inputProps = Immutable.fromJS(dockedProps).toJS();
 		inputProps.toolbar.filter.docked = false;
@@ -774,6 +773,7 @@ storiesOf('List', module)
 		const tprops = {
 			...props,
 			toolbar: {
+				actionBar: {},
 				display: {
 					onChange: action('display.onChange'),
 					displayModes: ['large', 'table'],
