@@ -1,6 +1,8 @@
 import { storiesOf } from '@storybook/react';
+import { withKnobs } from '@storybook/addon-knobs';
 
 import jsonStories from './jsonStories';
+import playgroundStories from './playgroundStories';
 import layouts from './layouts';
 import customTemplateStory from './customTemplateStory';
 import customWidgetStory from './customWidgetStory';
@@ -16,6 +18,10 @@ const coreFieldsetsStories = storiesOf('Core fieldsets', module);
 const coreFieldsStories = storiesOf('Core fields', module);
 
 const oldStories = storiesOf('Migration', module);
+
+const playground = storiesOf('Playground', module);
+playground.addDecorator(withKnobs);
+playgroundStories.forEach(({ name, story }) => playground.add(name, story));
 
 const layout = storiesOf('Layout', module);
 layouts.forEach(info => layout.add(info.name, info.story, info.options));
