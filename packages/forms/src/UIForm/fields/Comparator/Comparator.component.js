@@ -46,6 +46,7 @@ class Comparator extends React.Component {
 		this.onChange = this.onChange.bind(this);
 		this.onFinish = this.onFinish.bind(this);
 
+		// eslint-disable-next-line
 		console.warn(
 			"UNSTABLE WARNING: The 'Comparator' is not ready to be used in Apps. Code can (will) change outside the release process until it's ready.",
 		);
