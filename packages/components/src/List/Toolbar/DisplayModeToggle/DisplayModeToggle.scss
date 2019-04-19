@@ -1,8 +1,11 @@
 .tc-display-mode-toggle {
     display: flex;
-    flex-direction: row;
     
     :global(.tc-icon-toggle) {
-      margin: $padding-small;
+      margin: $padding-normal;
+
+      &:last-of-type {
+        margin: $padding-normal 0;
+      }
     }
 }
