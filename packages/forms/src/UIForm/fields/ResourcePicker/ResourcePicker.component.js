@@ -147,15 +147,25 @@ class ResourcePicker extends Component {
 			},
 			state: {
 				onChange: this.stateFilterChanged,
-				certified,
-				favorites,
-				selection,
 			},
 			sort: {
 				onChange: this.sortOptionChanged,
 				orders,
 			},
 		};
+
+		const { filters, sort } = this.props.schema;
+		if (filters) {
+			filters.forEach((filter) => {
+				toolbar.state[filter] = this.state.filters[filter];
+			});
+			// only display the filter which are defined in the schema
+			toolbar.state.types = [...filters];
+		}
+		if (sort) {
+			// only display the filter which are defined in the schema
+			toolbar.sort.types = [...sort];
+		}
 
 		return (
 			<FieldTemplate

@@ -114,10 +114,148 @@ exports[`ResourcePicker field should render simple select 1`] = `
           "orders": undefined,
         },
         "state": Object {
-          "certified": false,
-          "favorites": false,
           "onChange": [Function],
-          "selection": false,
+        },
+      }
+    }
+  />
+</FieldTemplate>
+`;
+
+exports[`ResourcePicker field should render simple select with wanted sort and filter 1`] = `
+<FieldTemplate
+  description="ResourcePicker me"
+  descriptionId="mySelect-description"
+  errorId="mySelect-error"
+  errorMessage="My Error Message"
+  id="mySelect"
+  isValid={true}
+  label="My ResourcePicker title"
+  required={true}
+>
+  <ResourcePicker
+    aria-describedby="mySelect-description mySelect-error"
+    aria-invalid={false}
+    aria-required={true}
+    collection={Array []}
+    errorMessage="My Error Message"
+    filters={
+      Object {
+        "certified": false,
+        "favorites": false,
+        "name": "",
+        "selected": Array [],
+        "selection": false,
+      }
+    }
+    id="mySelect"
+    isLoading={true}
+    isSelected={[Function]}
+    isValid={true}
+    onChange={[MockFunction]}
+    onFinish={[MockFunction]}
+    onRowClick={[Function]}
+    onTrigger={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            undefined,
+            Object {
+              "errors": undefined,
+              "filters": Object {
+                "certified": false,
+                "favorites": false,
+                "name": "",
+                "selected": Array [],
+                "selection": false,
+              },
+              "properties": undefined,
+              "schema": Object {
+                "description": "ResourcePicker me",
+                "filters": Array [
+                  "certified",
+                ],
+                "placeholder": "Please select a value",
+                "required": true,
+                "schema": Object {
+                  "type": "object",
+                },
+                "sort": Array [
+                  "name",
+                ],
+                "title": "My ResourcePicker title",
+                "triggers": Array [
+                  Object {
+                    "action": "resourcePickerSelected",
+                    "onEvent": "change",
+                  },
+                  Object {
+                    "action": "resourcePickerFiltered",
+                    "onEvent": "filter",
+                  },
+                ],
+              },
+              "trigger": Object {
+                "action": "resourcePickerFiltered",
+                "onEvent": "filter",
+              },
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": Promise {},
+          },
+        ],
+      }
+    }
+    schema={
+      Object {
+        "description": "ResourcePicker me",
+        "filters": Array [
+          "certified",
+        ],
+        "placeholder": "Please select a value",
+        "required": true,
+        "schema": Object {
+          "type": "object",
+        },
+        "sort": Array [
+          "name",
+        ],
+        "title": "My ResourcePicker title",
+        "triggers": Array [
+          Object {
+            "action": "resourcePickerSelected",
+            "onEvent": "change",
+          },
+          Object {
+            "action": "resourcePickerFiltered",
+            "onEvent": "filter",
+          },
+        ],
+      }
+    }
+    toolbar={
+      Object {
+        "name": Object {
+          "label": "Please select a value",
+          "onChange": [Function],
+        },
+        "sort": Object {
+          "onChange": [Function],
+          "orders": undefined,
+          "types": Array [
+            "name",
+          ],
+        },
+        "state": Object {
+          "certified": false,
+          "onChange": [Function],
+          "types": Array [
+            "certified",
+          ],
         },
       }
     }

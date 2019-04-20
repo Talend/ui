@@ -99,6 +99,28 @@ describe('ResourcePicker field', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render simple select with wanted sort and filter', done => {
+		const wrapper = shallow(
+			<ResourcePicker
+				id={'mySelect'}
+				isValid
+				errorMessage={'My Error Message'}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				onTrigger={jest.fn(
+					() =>
+						new Promise(resolve => {
+							resolve({ collection });
+							done();
+						}),
+				)}
+				schema={{...schema, filters: ['certified'], sort: ["name"]}}
+			/>,
+		);
+
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should call onTrigger when mounting component', () => {
 		shallow(<ResourcePicker {...props} />);
 
