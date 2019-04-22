@@ -3,10 +3,12 @@
 /// @group Custom widgets
 ////
 
+$list-item-height: 55px !default;
 $list-item-hover-color: rgba($white, 0.12) !default;
 $list-item-reverse-hover-color: rgba($white, 0.5) !default;
 $list-item-color: $white !default;
 $list-item-reverse-color: $brand-primary !default;
+$toggle-height: 70px;
 $toggle-button-opacity: 0.75;
 $tc-side-panel-large-padding: 25px !default;
 $tc-side-panel-minwidth: 200px !default;
@@ -32,14 +34,14 @@ $toggle-button-padding: $padding-small;
 
 	.tc-side-panel-list {
 		> li {
-			height: 55px;
+			height: $list-item-height;
 		}
 		:global {
 			.tc-action-list-item {
 				.btn.btn-link {
 					padding-left: $padding-large;
 					> span {
-						margin-left: 10px;
+						margin-left: $padding-small;
 					}
 				}
 				.tc-svg-icon {
@@ -52,10 +54,10 @@ $toggle-button-padding: $padding-small;
 	}
 
 	.toggle-btn {
-		height: 70px;
+		height: $toggle-height;
 		vertical-align: center;
-		padding-top: 0;//$padding-small;
-		padding-bottom: 0;//$padding-smaller + $padding-large;
+		padding-top: 0;
+		padding-bottom: 0;
 		padding-left: $toggle-button-padding;
 		text-align: left;
 
@@ -63,7 +65,7 @@ $toggle-button-padding: $padding-small;
 			.btn.btn-link {
 				color: $white;
 				line-height: 1;
-				height: 70px;
+				height: $toggle-height;
 				padding: 0 $padding-small;
 				display: inline-block;
 				width: auto;
@@ -152,11 +154,11 @@ $toggle-button-padding: $padding-small;
 
 		&.docked {
 			.toggle-btn {
-				height: 70px;
+				height: $toggle-height;
 				vertical-align: center;
 				padding:0;
 				.btn.btn-link {
-					height: 70px;
+					height: $toggle-height;
 					padding: 0;
 				}
 			}
