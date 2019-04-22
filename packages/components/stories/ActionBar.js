@@ -213,6 +213,21 @@ const basicProps = {
 	actions,
 	multiSelectActions,
 };
+const multiDelete = {
+	label: 'Delete',
+	icon: 'talend-trash',
+	onClick: action('multiple delete'),
+	className: 'btn-icon-text separated',
+};
+const multiCertify = {
+	label: 'Certify',
+	icon: 'talend-badge',
+	onClick: action('multiple certify'),
+	className: 'btn-icon-text',
+};
+const massActions = {
+	left: [multiDelete, multiCertify],
+};
 
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
@@ -254,6 +269,10 @@ storiesOf('ActionBar', module)
 			<p>Toolbar with btn-group and only icons/ Layout: left, center, right</p>
 			<div id="btn-group">
 				<ActionBar actions={btnGroupActions} />
+			</div>
+			<p>Mass/Bulk Actions</p>
+			<div id="mass-actions">
+				<ActionBar selected={3} multiSelectActions={massActions} />
 			</div>
 		</nav>
 	))
