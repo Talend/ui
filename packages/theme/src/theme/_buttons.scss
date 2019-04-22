@@ -96,6 +96,31 @@
 		}
 	}
 
+	&-icon-text {
+		padding: 0;
+		color: $dove-gray;
+		border: none;
+		background-color: transparent;
+		box-shadow: none;
+		
+		&:hover,
+		&:focus,
+		&:active,
+		&:focus:active {
+			background-color: transparent;
+		}
+
+		&:hover,
+		&:active,
+		&:focus:active {
+			color: $scooter;
+		}
+
+		&:focus {
+			box-shadow: none;
+		}
+	}
+
 	&-xs {
 		align-items: baseline;
 		padding: 0 $padding-xs-horizontal;
