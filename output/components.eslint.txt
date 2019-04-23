@@ -3,7 +3,7 @@
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
-  122:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
+  129:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
 
 /home/travis/build/Talend/ui/packages/components/src/MultiSelect/ItemOption.component.js
   57:9  error  'index' PropType is defined but prop is never used  react/no-unused-prop-types
