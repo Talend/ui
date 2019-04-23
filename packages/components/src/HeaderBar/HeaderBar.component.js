@@ -87,10 +87,17 @@ function Environment({ getComponent, ...props }) {
 	);
 }
 
-function CallToAction({ getComponent, ...props }) {
+function CallToAction({ getComponent, t, ...props }) {
+	const actionProps = {
+		bsStyle: 'info',
+		className: 'btn-inverse',
+		label: t('HEADERBAR_ACTION', { defaultValue: 'Subscribe now' }),
+		tooltipPlacement: 'bottom',
+		...props,
+	};
 	const className = classNames(
-		theme['tc-header-bar-actions'],
-		'tc-header-bar-actions',
+		theme['tc-header-bar-action'],
+		'tc-header-bar-action',
 		theme['tc-header-bar-call-to-action'],
 		'tc-header-bar-call-to-action',
 		theme.separated,
@@ -99,7 +106,7 @@ function CallToAction({ getComponent, ...props }) {
 	const Renderers = Inject.getAll(getComponent, { Action });
 	return (
 		<li role="presentation" className={className}>
-			<Renderers.Action {...props} />
+			<Renderers.Action {...actionProps} />
 		</li>
 	);
 }

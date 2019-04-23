@@ -80,10 +80,14 @@ $background-color-on-hover: shade($brand-primary, 30);
 		}
 
 		.tc-header-bar-call-to-action {
-			button {
+			:global(.btn):global(.btn-info):global(.btn-inverse) {
 				background-color: $white;
 				border: none;
 				margin-right: 15px;
+
+				&:hover {
+					background-color: $white;
+				}
 			}
 		}
 	}
@@ -140,20 +144,6 @@ $background-color-on-hover: shade($brand-primary, 30);
 			}
 		}
 	}
-
-	// .tc-header-bar-call-to-action {
-	// 	button {
-	// 		background-color: $white;
-	// 		border: none;
-	// 		margin-right: 15px;
-	// 	}
-	// }
-
-	// .tc-header-bar-call-to-action button {
-	// 	background-color: $white;
-	// 		border: none;
-	// 		margin-right: 15px;
-	// }
 
 	.tc-header-bar-search {
 		form {
