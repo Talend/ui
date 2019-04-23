@@ -104,20 +104,19 @@
 		box-shadow: none;
 		
 		&:hover,
-		&:focus,
-		&:active,
-		&:focus:active {
-			background-color: transparent;
-		}
-
-		&:hover,
-		&:active,
-		&:focus:active {
+		&:hover:focus {
 			color: $scooter;
+			opacity: 0.8;
 		}
-
-		&:focus {
+		&:active,
+		&:active:focus {
+			background-color: transparent;
+			color: $scooter;
+			opacity: 1;
 			box-shadow: none;
+		}
+		&:focus {
+			color: $dove-gray;
 		}
 	}
 
