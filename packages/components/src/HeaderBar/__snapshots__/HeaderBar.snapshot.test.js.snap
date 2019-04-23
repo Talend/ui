@@ -11366,6 +11366,25 @@ exports[`Storyshots HeaderBar 🎨 [MDM] HeaderBar 1`] = `
             className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
           >
             <li
+              className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-call-to-action tc-header-bar-call-to-action theme-separated theme-flex"
+              role="presentation"
+            >
+              <button
+                aria-label="Subscribe now"
+                className="btn-inverse btn btn-info"
+                disabled={false}
+                id="header-call-to-action"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <span>
+                  Subscribe now
+                </span>
+              </button>
+            </li>
+            <li
               className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
               role="presentation"
             >
@@ -12137,6 +12156,25 @@ exports[`Storyshots HeaderBar 🎨 [PORTAL] HeaderBar 1`] = `
           <ul
             className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
           >
+            <li
+              className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-call-to-action tc-header-bar-call-to-action theme-separated theme-flex"
+              role="presentation"
+            >
+              <button
+                aria-label="Subscribe now"
+                className="btn-inverse btn btn-info"
+                disabled={false}
+                id="header-call-to-action"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <span>
+                  Subscribe now
+                </span>
+              </button>
+            </li>
             <li
               className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
               role="presentation"
@@ -12910,6 +12948,25 @@ exports[`Storyshots HeaderBar 🎨 [TDC] HeaderBar 1`] = `
             className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
           >
             <li
+              className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-call-to-action tc-header-bar-call-to-action theme-separated theme-flex"
+              role="presentation"
+            >
+              <button
+                aria-label="Subscribe now"
+                className="btn-inverse btn btn-info"
+                disabled={false}
+                id="header-call-to-action"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <span>
+                  Subscribe now
+                </span>
+              </button>
+            </li>
+            <li
               className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
               role="presentation"
             >
@@ -13681,6 +13738,25 @@ exports[`Storyshots HeaderBar 🎨 [TDP] HeaderBar 1`] = `
           <ul
             className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
           >
+            <li
+              className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-call-to-action tc-header-bar-call-to-action theme-separated theme-flex"
+              role="presentation"
+            >
+              <button
+                aria-label="Subscribe now"
+                className="btn-inverse btn btn-info"
+                disabled={false}
+                id="header-call-to-action"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <span>
+                  Subscribe now
+                </span>
+              </button>
+            </li>
             <li
               className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
               role="presentation"
@@ -14454,6 +14530,25 @@ exports[`Storyshots HeaderBar 🎨 [TDS] HeaderBar 1`] = `
             className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
           >
             <li
+              className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-call-to-action tc-header-bar-call-to-action theme-separated theme-flex"
+              role="presentation"
+            >
+              <button
+                aria-label="Subscribe now"
+                className="btn-inverse btn btn-info"
+                disabled={false}
+                id="header-call-to-action"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <span>
+                  Subscribe now
+                </span>
+              </button>
+            </li>
+            <li
               className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
               role="presentation"
             >
@@ -15225,6 +15320,25 @@ exports[`Storyshots HeaderBar 🎨 [TFD] HeaderBar 1`] = `
           <ul
             className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
           >
+            <li
+              className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-call-to-action tc-header-bar-call-to-action theme-separated theme-flex"
+              role="presentation"
+            >
+              <button
+                aria-label="Subscribe now"
+                className="btn-inverse btn btn-info"
+                disabled={false}
+                id="header-call-to-action"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <span>
+                  Subscribe now
+                </span>
+              </button>
+            </li>
             <li
               className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
               role="presentation"
@@ -15998,6 +16112,25 @@ exports[`Storyshots HeaderBar 🎨 [TIC] HeaderBar 1`] = `
             className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
           >
             <li
+              className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-call-to-action tc-header-bar-call-to-action theme-separated theme-flex"
+              role="presentation"
+            >
+              <button
+                aria-label="Subscribe now"
+                className="btn-inverse btn btn-info"
+                disabled={false}
+                id="header-call-to-action"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <span>
+                  Subscribe now
+                </span>
+              </button>
+            </li>
+            <li
               className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
               role="presentation"
             >
@@ -16769,6 +16902,25 @@ exports[`Storyshots HeaderBar 🎨 [TMC] HeaderBar 1`] = `
           <ul
             className="theme-tc-header-bar-actions tc-header-bar-actions navbar-nav theme-right"
           >
+            <li
+              className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-call-to-action tc-header-bar-call-to-action theme-separated theme-flex"
+              role="presentation"
+            >
+              <button
+                aria-label="Subscribe now"
+                className="btn-inverse btn btn-info"
+                disabled={false}
+                id="header-call-to-action"
+                onClick={[Function]}
+                onMouseDown={[Function]}
+                role={null}
+                type="button"
+              >
+                <span>
+                  Subscribe now
+                </span>
+              </button>
+            </li>
             <li
               className="theme-tc-header-bar-action tc-header-bar-action theme-tc-header-bar-search tc-header-bar-search theme-separated theme-flex"
               role="presentation"

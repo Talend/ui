@@ -87,11 +87,10 @@ function Environment({ getComponent, ...props }) {
 	);
 }
 
-function CallToAction({ getComponent, t, ...props }) {
+function CallToAction({ getComponent, ...props }) {
 	const actionProps = {
 		bsStyle: 'info',
 		className: 'btn-inverse',
-		label: t('HEADERBAR_ACTION', { defaultValue: 'Subscribe now' }),
 		tooltipPlacement: 'bottom',
 		...props,
 	};
@@ -297,7 +296,6 @@ function HeaderBar(props) {
 				{props.callToAction && (
 					<Components.CallToAction
 						getComponent={props.getComponent}
-						t={props.t}
 						{...props.callToAction}
 					/>
 				)}
