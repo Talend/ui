@@ -78,6 +78,14 @@ $background-color-on-hover: shade($brand-primary, 30);
 			font-size: $font-size-base;
 			text-transform: uppercase;
 		}
+
+		.tc-header-bar-call-to-action {
+			button {
+				background-color: $white;
+				border: none;
+				margin-right: 15px;
+			}
+		}
 	}
 
 	.tc-header-bar-products + :global(.dropdown-menu) :global(.tc-svg-icon) {
@@ -133,15 +141,29 @@ $background-color-on-hover: shade($brand-primary, 30);
 		}
 	}
 
+	// .tc-header-bar-call-to-action {
+	// 	button {
+	// 		background-color: $white;
+	// 		border: none;
+	// 		margin-right: 15px;
+	// 	}
+	// }
+
+	// .tc-header-bar-call-to-action button {
+	// 	background-color: $white;
+	// 		border: none;
+	// 		margin-right: 15px;
+	// }
+
 	.tc-header-bar-search {
 		form {
 			height: $navbar-height;
+			padding-left: 0;
 
 			:global(.tc-typeahead-container) > div:first-child {
 				margin-top: 0;
 				margin-bottom: 0;
 
-				padding-left: $padding-small;
 				padding-right: $padding-large;
 				height: $navbar-height;
 				background: $white;

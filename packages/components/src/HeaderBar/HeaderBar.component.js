@@ -87,6 +87,23 @@ function Environment({ getComponent, ...props }) {
 	);
 }
 
+function CallToAction({ getComponent, ...props }) {
+	const className = classNames(
+		theme['tc-header-bar-actions'],
+		'tc-header-bar-actions',
+		theme['tc-header-bar-call-to-action'],
+		'tc-header-bar-call-to-action',
+		theme.separated,
+		theme.flex,
+	);
+	const Renderers = Inject.getAll(getComponent, { Action });
+	return (
+		<li role="presentation" className={className}>
+			<Renderers.Action {...props} />
+		</li>
+	);
+}
+
 function Search({ getComponent, icon, ...props }) {
 	const className = classNames(
 		theme['tc-header-bar-action'],
@@ -231,6 +248,7 @@ function HeaderBar(props) {
 		Logo,
 		Brand,
 		Environment,
+		CallToAction,
 		Search,
 		User,
 		Information,
@@ -269,6 +287,13 @@ function HeaderBar(props) {
 					theme.right,
 				)}
 			>
+				{props.callToAction && (
+					<Components.CallToAction
+						getComponent={props.getComponent}
+						t={props.t}
+						{...props.callToAction}
+					/>
+				)}
 				{props.search && <Components.Search getComponent={props.getComponent} {...props.search} />}
 				{props.notification && (
 					<Components.AppNotification
@@ -299,6 +324,7 @@ function HeaderBar(props) {
 HeaderBar.Logo = Logo;
 HeaderBar.Brand = Brand;
 HeaderBar.Environment = Environment;
+HeaderBar.CallToAction = CallToAction;
 HeaderBar.Search = Search;
 HeaderBar.Help = Help;
 HeaderBar.Information = Information;
@@ -324,6 +350,12 @@ if (process.env.NODE_ENV !== 'production') {
 	Environment.propTypes = {
 		renderers: PropTypes.shape({
 			ActionDropdown: PropTypes.func,
+		}),
+	};
+
+	CallToAction.propTypes = {
+		renders: PropTypes.shape({
+			Action: PropTypes.func,
 		}),
 	};
 
@@ -368,6 +400,7 @@ if (process.env.NODE_ENV !== 'production') {
 		logo: PropTypes.shape(omit(Logo.propTypes, 't')),
 		brand: PropTypes.shape(Brand.propTypes),
 		env: PropTypes.shape(Environment.propTypes),
+		callToAction: PropTypes.shape(CallToAction.propTypes),
 		search: PropTypes.shape(Search.propTypes),
 		help: PropTypes.shape(omit(Help.propTypes, 't')),
 		information: PropTypes.shape(omit(Information.propTypes, 't')),
