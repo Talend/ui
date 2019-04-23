@@ -4,7 +4,7 @@ import isEqual from 'lodash/isEqual';
 import { action } from '@storybook/addon-actions';
 import { object } from '@storybook/addon-knobs';
 
-import Form from '../src/Form';
+import { UIForm } from '../src/UIForm';
 
 const DEFAULT_DATA = { jsonSchema: {}, uiSchema: [], properties: {} };
 
@@ -51,7 +51,7 @@ function story() {
 	}
 
 	return (
-		<Form
+		<UIForm
 			actions={actions}
 			data={data}
 			onReset={action('onReset')}
