@@ -294,10 +294,7 @@ function HeaderBar(props) {
 				)}
 			>
 				{props.callToAction && (
-					<Components.CallToAction
-						getComponent={props.getComponent}
-						{...props.callToAction}
-					/>
+					<Components.CallToAction getComponent={props.getComponent} {...props.callToAction} />
 				)}
 				{props.search && <Components.Search getComponent={props.getComponent} {...props.search} />}
 				{props.notification && (
