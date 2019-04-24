@@ -23,11 +23,11 @@ function SkeletonRow({ columns }) {
 
 const rowRenderers = {
 	table: rowProps => {
-		const { columns } = rowProps;
+		const { rowData, columns } = rowProps;
 		return (
 			<DefaultTableRowRenderer
 				{...rowProps}
-				columns={isEmpty(rowProps.rowData) ? [<SkeletonRow columns={columns} />] : rowProps.columns}
+				columns={isEmpty(rowData) ? [<SkeletonRow columns={columns} />] : columns}
 			/>
 		);
 	},
