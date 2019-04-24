@@ -7,14 +7,13 @@ const ResponsiveGridLayout = WidthProvider(Responsive);
 const MARGIN = 20;
 const COLUMN_MIN_WIDTH = 190;
 
-const thresholds= {
-	xxs: 1,
-	xs: 2,
-	sm: 3,
-	m: 4,
-	l: 5,
-	xl: 6,
-	xxl: 8,
+const cols= {
+	md: 6,
+	lg: 12,
+};
+
+const breakpoints = {
+	lg: 1365, md: 758,
 };
 
 function onLayoutChange(layoutChangeCallback) {
@@ -26,6 +25,7 @@ function onLayoutChange(layoutChangeCallback) {
 // We're using the cols coming back from this to calculate where to add new items.
 function onBreakpointChange(onBreakpointChangeCallback) {
 	return (breakpoint, cols) => {
+		console.log('on breakpoint change');
 		onBreakpointChangeCallback(breakpoint, cols);
 	}
 }
@@ -36,16 +36,8 @@ function Grid({ children, layoutChangeCallback, onBreakpointChangeCallback }) {
 			className="layout"
 			onLayoutChange={onLayoutChange(layoutChangeCallback)}
 			onBreakpointChange={onBreakpointChange(onBreakpointChangeCallback)}
-			breakpoints={Object.keys(thresholds).reduce(
-				(breakpoints, breakpoint) => ({
-					...breakpoints,
-					[breakpoint]:
-						thresholds[breakpoint] * COLUMN_MIN_WIDTH +
-						thresholds[breakpoint] * MARGIN + MARGIN,
-				}),
-				{}
-			)}
-			cols={{...thresholds}}
+			breakpoints={breakpoints}
+			cols={cols}
 			measureBeforeMount={false}
 			margin={[MARGIN, MARGIN]}
 			compactType="vertical"

@@ -165,50 +165,45 @@ function GridContainer() {
 	const [tab, setTab] = useState('chart');
 	const [tiles, setTiles] = useState([
 		{
-			content: { component: TileContentComponent },
-			contentProps: { label: 'A tile content' },
 			header: {
 				label: 'My tile\'s title',
 				// rightActions: [addItemAction, filterAction],
 			},
 			key: 'firstTile',
-			'data-grid': {w: 2, h: 2, x: 0, y: Infinity, i: 'firstTile'},
+			'data-grid': {w: 2, h: 2, x: 0, y: 0, i: 'firstTile'},
 			filterMode: true,
 			filterProps: resourcePickerProps
 		},
 		{
-			content: { component: TileContentComponent },
-			contentProps: { label: 'Second tile content' },
 			header: {
 				label: 'My second tile\'s title',
 				// rightActions: [addItemAction, filterAction],
 			},
 			key: 'secondTile',
-			'data-grid': {w: 2, h: 2, x: 0, y: Infinity, i: 'secondTile'},
+			'data-grid': {w: 2, h: 2, x: 2, y: 0, i: 'secondTile'},
 		},
 		{
-			content: { component: TileContentComponent },
-			contentProps: { label: 'Third tile content headerless' },
 			key: 'thirdTile',
-			'data-grid': {w: 3, h: 2, x: 0, y: Infinity, i: 'thirdTile'},
+			'data-grid': {w: 4, h: 2, x: 0, y: 2, i: 'thirdTile'},
 		},
 		{
-			content: { component: TileContentComponent },
-			contentProps: { label: 'Fourth tile content' },
 			header: {
 				label: 'My fourth tile\'s title',
 				// rightActions: [addItemAction, filterAction],
 			},
 			key: 'fourthTile',
-			'data-grid': {w: 2, h: 2, x: 0, y: Infinity, i: 'fourthTile'},
+			'data-grid': {w: 2, h: 2, x: 4, y: 2, i: 'fourthTile'},
 		},
 	]);
-	const [cols, setCols] = useState(12);
+	// const [cols, setCols] = useState(12);
 
 	function layoutChangeCallback(newlayouts) {
 	}
 
-	function onBreakpointChangeCallback(breakpoint, cols) {}
+	function onBreakpointChangeCallback(breakpoint, cols) {
+		console.log('cols', cols);
+		console.log('breakpoint', breakpoint);
+	}
 
 	return (
 		<div className="App">
