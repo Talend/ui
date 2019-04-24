@@ -33,7 +33,7 @@ function TextFilter(props) {
 }
 
 TextFilter.propTypes = {
-	onChange: PropTypes.func.isRequired,
+	onChange: PropTypes.func,
 	docked: PropTypes.bool,
 	onToggle: PropTypes.func,
 };
