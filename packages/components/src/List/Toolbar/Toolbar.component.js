@@ -53,6 +53,7 @@ function Toolbar({
 	actionBar,
 	selectAllCheckbox,
 	display,
+	sort,
 	filter,
 	t,
 	getComponent,
@@ -75,6 +76,7 @@ function Toolbar({
 	}
 	const displayModeId = id && `${id}-display-mode`;
 	const showSelectAll = selectAllCheckbox && display && display.mode === 'large';
+	const showSort = sort && display && display.mode === 'large';
 
 	return (
 		<div className="tc-list-toolbar">
@@ -110,6 +112,14 @@ Toolbar.propTypes = {
 	actionBar: PropTypes.shape(ActionBar.propTypes),
 	selectAllCheckbox: PropTypes.shape(omit(SelectAll.propTypes, 't')),
 	display: PropTypes.shape(omit(SelectDisplayMode.propTypes, 't')),
+	sort: PropTypes.oneOfType([
+		PropTypes.bool,
+		PropTypes.shape({
+			field: PropTypes.string,
+			isDescending: PropTypes.bool,
+			onChange: PropTypes.func.isRequired,
+		}),
+	]),
 	filter: PropTypes.shape(omit(FilterBar.propTypes, 't')),
 	t: PropTypes.func.isRequired,
 	getComponent: PropTypes.func,
