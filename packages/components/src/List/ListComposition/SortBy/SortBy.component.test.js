@@ -9,10 +9,7 @@ import getDefaultT from '../../../translate';
 
 describe('SortBy', () => {
 	const defaultProps = {
-		options: [
-			{ key: 'firstName', label: 'First Name' },
-			{ key: 'lastName', label: 'Last Name' },
-		],
+		options: [{ key: 'firstName', label: 'First Name' }, { key: 'lastName', label: 'Last Name' }],
 	};
 
 	const defaultContext = {
