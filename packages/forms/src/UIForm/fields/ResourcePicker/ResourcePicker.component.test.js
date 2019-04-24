@@ -78,7 +78,7 @@ describe('ResourcePicker field', () => {
 	};
 
 	it('should render simple select', done => {
-		const wrapper = shallow(
+		const wrapper = mount(
 			<ResourcePicker
 				id={'mySelect'}
 				isValid
@@ -96,11 +96,14 @@ describe('ResourcePicker field', () => {
 			/>,
 		);
 
+
+		expect(wrapper.find('.tc-resource-picker-sort-options button').length).toBe(2);
+		expect(wrapper.find('.tc-resource-picker-state-filters button').length).toBe(3);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render simple select with wanted sort and filter', done => {
-		const wrapper = shallow(
+		const wrapper = mount(
 			<ResourcePicker
 				id={'mySelect'}
 				isValid
@@ -114,11 +117,12 @@ describe('ResourcePicker field', () => {
 							done();
 						}),
 				)}
-				schema={{...schema, filters: ['certified'], sort: ["name"]}}
+				schema={{...schema, options: { filters: ['certified'], sort: ['name']} }}
 			/>,
 		);
 
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find('.tc-resource-picker-sort-options button').length).toBe(1);
+		expect(wrapper.find('.tc-resource-picker-state-filters button').length).toBe(1);
 	});
 
 	it('should call onTrigger when mounting component', () => {

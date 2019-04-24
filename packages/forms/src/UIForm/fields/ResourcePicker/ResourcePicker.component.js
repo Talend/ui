@@ -136,7 +136,7 @@ class ResourcePicker extends Component {
 	}
 
 	render() {
-		const { certified, favorites, selection, orders } = this.state.filters;
+		const { orders } = this.state.filters;
 		const { id, schema, isValid, errorMessage } = this.props;
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
@@ -154,17 +154,19 @@ class ResourcePicker extends Component {
 			},
 		};
 
-		const { filters, sort } = this.props.schema.options;
-		if (filters) {
-			filters.forEach((filter) => {
-				toolbar.state[filter] = this.state.filters[filter];
-			});
-			// only display the filter which are defined in the schema
-			toolbar.state.types = [...filters];
-		}
-		if (sort) {
-			// only display the filter which are defined in the schema
-			toolbar.sort.types = [...sort];
+		if (schema.options) {
+			const { filters, sort } = schema.options;
+			if (filters) {
+				filters.forEach((filter) => {
+					toolbar.state[filter] = this.state.filters[filter];
+				});
+				// only display the filter which are defined in the schema
+				toolbar.state.types = [...filters];
+			}
+			if (sort) {
+				// only display the filter which are defined in the schema
+				toolbar.sort.types = [...sort];
+			}
 		}
 
 		return (
