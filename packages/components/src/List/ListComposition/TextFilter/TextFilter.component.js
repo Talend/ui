@@ -5,9 +5,9 @@ import { useListContext } from '../context';
 import FilterBar from '../../../FilterBar';
 
 function TextFilter(props) {
-	const { docked: dockedProp, onChange, onToggle, ...restProps } = props;
+	const { docked: dockedProp, onChange, onToggle, initialDocked, ...restProps } = props;
 	const { textFilter, setTextFilter } = useListContext();
-	const [docked, setDocked] = useState(true);
+	const [docked, setDocked] = useState(initialDocked);
 
 	const filterBarProps = {
 		value: textFilter,
@@ -32,10 +32,15 @@ function TextFilter(props) {
 	return <FilterBar {...filterBarProps} {...restProps} />;
 }
 
+TextFilter.defaultProps = {
+	initialDocked: true,
+};
+
 if (process.env.NODE_ENV !== 'production') {
 	TextFilter.propTypes = {
-		onChange: PropTypes.func,
 		docked: PropTypes.bool,
+		initialDocked: PropTypes.initialDocked,
+		onChange: PropTypes.func,
 		onToggle: PropTypes.func,
 	};
 }

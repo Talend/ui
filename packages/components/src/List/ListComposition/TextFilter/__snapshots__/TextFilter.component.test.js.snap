@@ -3,6 +3,7 @@
 exports[`TextFilter should render text filter component 1`] = `
 <TextFilter
   id="myTextFilter"
+  initialDocked={true}
 >
   <Translate(FilterBar)
     docked={true}
@@ -288,6 +289,7 @@ exports[`TextFilter should render text filter component with defined docked stat
 <TextFilter
   docked={true}
   id="myTextFilter"
+  initialDocked={true}
 >
   <Translate(FilterBar)
     docked={true}
