@@ -3,18 +3,15 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import DefaultValueRenderer from '../DefaultCellRenderer/DefaultValueRenderer.component';
-import theme from './DefaultIntCell.scss';
+import { dateToString } from './date';
 
-export default function DefaultIntCellRenderer({ data }) {
+export default function DefaultDateCellRenderer({ data }) {
 	return (
-		<DefaultValueRenderer
-			value={data.value}
-			className={classNames(theme['td-cell-int'], 'td-cell-int')}
-		/>
+		<DefaultValueRenderer value={dateToString(data.value)} className={classNames('td-cell-date')} />
 	);
 }
 
-DefaultIntCellRenderer.propTypes = {
+DefaultDateCellRenderer.propTypes = {
 	data: PropTypes.shape({
 		value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	}),
