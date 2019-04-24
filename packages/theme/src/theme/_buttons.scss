@@ -105,6 +105,7 @@
 
 		&:hover,
 		&:hover:focus {
+			background-color: transparent;
 			color: $scooter;
 			opacity: 0.8;
 		}
@@ -116,6 +117,7 @@
 			box-shadow: none;
 		}
 		&:focus {
+			background-color: transparent;
 			color: $dove-gray;
 		}
 	}
