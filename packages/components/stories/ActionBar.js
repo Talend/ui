@@ -217,32 +217,31 @@ const multiDelete = {
 	label: 'Delete',
 	icon: 'talend-trash',
 	onClick: action('multiple delete'),
-	bsStyle: 'icon-text',
+	className: 'btn-icon-text',
 };
 const multiDuplicate = {
 	label: 'Duplicate',
 	icon: 'talend-files-o',
 	onClick: action('multiple duplicate'),
-	bsStyle: 'icon-text',
+	className: 'btn-icon-text',
 };
 const multiUpdate = {
 	label: 'Update',
 	icon: 'talend-file-move',
 	onClick: action('multiple update'),
-	bsStyle: 'icon-text',
-	className: 'separated',
+	className: 'btn-icon-text separated',
 };
 const multiFavorite = {
 	label: 'Favorite',
 	icon: 'talend-star',
 	onClick: action('multiple favorite'),
-	bsStyle: 'icon-text',
+	className: 'btn-icon-text',
 };
 const multiCertify = {
 	label: 'Certify',
 	icon: 'talend-badge',
 	onClick: action('multiple certify'),
-	bsStyle: 'icon-text',
+	className: 'btn-icon-text',
 };
 const massActions = {
 	left: [multiDelete, multiDuplicate, multiUpdate, multiFavorite, multiCertify],
