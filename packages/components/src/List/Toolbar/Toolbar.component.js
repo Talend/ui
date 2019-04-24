@@ -3,6 +3,7 @@ import React from 'react';
 import omit from 'lodash/omit';
 import { translate } from 'react-i18next';
 
+import SelectAll from './SelectAll';
 import SelectDisplayMode from './SelectDisplayMode';
 import FilterBar from '../../FilterBar';
 import ActionBar from '../../ActionBar';
@@ -50,6 +51,7 @@ function adaptLeftAndRightActions(actions, parentId) {
 function Toolbar({
 	id,
 	actionBar,
+	selectAllCheckbox,
 	display,
 	filter,
 	t,
@@ -72,6 +74,7 @@ function Toolbar({
 		};
 	}
 	const displayModeId = id && `${id}-display-mode`;
+	const showSelectAll = selectAllCheckbox && display && display.mode === 'large';
 
 	return (
 		<div className="tc-list-toolbar">
@@ -97,6 +100,7 @@ function Toolbar({
 				</Renderer.ActionBar>
 			)}
 			{injected('after-actionbar')}
+			{showSelectAll && <SelectAll {...selectAllCheckbox} t={t} />}
 		</div>
 	);
 }
@@ -104,6 +108,7 @@ function Toolbar({
 Toolbar.propTypes = {
 	id: PropTypes.string,
 	actionBar: PropTypes.shape(ActionBar.propTypes),
+	selectAllCheckbox: PropTypes.shape(omit(SelectAll.propTypes, 't')),
 	display: PropTypes.shape(omit(SelectDisplayMode.propTypes, 't')),
 	filter: PropTypes.shape(omit(FilterBar.propTypes, 't')),
 	t: PropTypes.func.isRequired,

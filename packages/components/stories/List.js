@@ -48,7 +48,6 @@ const icons = {
 	'talend-trash': talendIcons['talend-trash'],
 	'talend-warning': talendIcons['talend-warning'],
 	'talend-file-s3-o': talendIcons['talend-file-s3-o'],
-	'talend-expanded': talendIcons['talend-expanded'],
 };
 
 const selected = [
@@ -635,6 +634,32 @@ storiesOf('List', module)
 					<br />
 				</pre>
 				<List {...selectedItemsProps} />
+			</div>
+		);
+	})
+	.add('Selection - large', () => {
+		const selectedItemsProps = cloneDeep(props);
+		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
+			left: [
+				{
+					id: 'remove',
+					label: 'Delete selection',
+					icon: 'talend-trash',
+					onClick: action('remove'),
+				},
+			],
+		};
+		selectedItemsProps.list.itemProps = itemPropsForItems;
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>
+				For table view, user toggle column header to select/disselect all items.
+				<br />
+				When List displayed in large view, there's a one-line checkbox of "Select All" above the list.
+				<br />
+				</p>
+				<List {...selectedItemsProps} rowHeight={140} displayMode="large" />
 			</div>
 		);
 	})
