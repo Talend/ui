@@ -12,7 +12,6 @@ import theme from './HeaderBar.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import '../translate';
 
-
 function Logo({ isFull, getComponent, t, ...props }) {
 	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
 	const itemClassName = classNames(theme['tc-header-bar-action'], {
