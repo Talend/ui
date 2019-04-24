@@ -28,8 +28,10 @@
         { "action": "resourcePickerFiltered", "onEvent": "filter" }
       ],
       "multi": false,
-      "filters": ["certified", "selection"],
-      "sort": ["name"]
+      "options": {
+        "filters": ["certified", "selection"],
+        "sort": ["name"]
+      }
     }
   ],
   "properties": {}

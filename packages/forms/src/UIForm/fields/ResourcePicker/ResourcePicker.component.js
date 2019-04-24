@@ -154,7 +154,7 @@ class ResourcePicker extends Component {
 			},
 		};
 
-		const { filters, sort } = this.props.schema;
+		const { filters, sort } = this.props.schema.options;
 		if (filters) {
 			filters.forEach((filter) => {
 				toolbar.state[filter] = this.state.filters[filter];
