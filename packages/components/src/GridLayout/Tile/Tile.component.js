@@ -11,6 +11,8 @@ function Tile(props) {
 	);
 }
 
-Tile.propTypes = {};
+Tile.propTypes = {
+	children: PropTypes.node,
+};
 
 export default Tile;

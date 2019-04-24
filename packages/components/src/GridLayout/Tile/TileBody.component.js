@@ -11,6 +11,8 @@ function Body(props) {
 	);
 }
 
-Body.propTypes = {};
+Body.propTypes = {
+	children: PropTypes.node,
+};
 
 export default Body;

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tile Header should render header with action on the right 1`] = `
+<div
+  className="theme-tc-tile-header tc-tile-header"
+>
+  <span>
+    Test
+  </span>
+  <HeaderActions
+    actions={
+      Array [
+        Object {
+          "icon": "talend-user-circle",
+          "id": "test",
+          "label": "Add item",
+          "onClick": [MockFunction],
+        },
+      ]
+    }
+  />
+</div>
+`;

@@ -12,6 +12,8 @@ function Header(props) {
 	);
 }
 
-Header.propTypes = {};
+Header.propTypes = {
+	children: PropTypes.node,
+};
 
 export default Header;

@@ -11,6 +11,8 @@ function Footer(props) {
 	);
 }
 
-Footer.propTypes = {};
+Footer.propTypes = {
+	children: PropTypes.node,
+};
 
 export default Footer;

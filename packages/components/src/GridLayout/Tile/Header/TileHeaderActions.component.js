@@ -31,6 +31,11 @@ function HeaderActions({ left, right, actions, className }) {
 	);
 }
 
-HeaderActions.propTypes = {};
+HeaderActions.propTypes = {
+	left: PropTypes.bool,
+	right: PropTypes.bool,
+	className: PropTypes.string,
+	actions: PropTypes.arrayOf(PropTypes.shape(ActionIconToggle.propTypes)),
+};
 
 export default HeaderActions;

@@ -64,10 +64,6 @@ const icons = {
 	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
 };
 
-function TileContentComponent({ label }) {
-	return (<span>{label}</span>);
-}
-
 function renderBody(tab, filterProps) {
 	switch (tab) {
 		case 'chart':
@@ -161,13 +157,11 @@ function ChartTile({ tile }) {
 }
 
 function GridContainer() {
-	const id = uuid.v4();
 	const [tab, setTab] = useState('chart');
 	const [tiles, setTiles] = useState([
 		{
 			header: {
 				label: 'My tile\'s title',
-				// rightActions: [addItemAction, filterAction],
 			},
 			key: 'firstTile',
 			'data-grid': {w: 2, h: 2, x: 0, y: 0, i: 'firstTile'},
@@ -177,7 +171,6 @@ function GridContainer() {
 		{
 			header: {
 				label: 'My second tile\'s title',
-				// rightActions: [addItemAction, filterAction],
 			},
 			key: 'secondTile',
 			'data-grid': {w: 2, h: 2, x: 2, y: 0, i: 'secondTile'},
@@ -189,21 +182,15 @@ function GridContainer() {
 		{
 			header: {
 				label: 'My fourth tile\'s title',
-				// rightActions: [addItemAction, filterAction],
 			},
 			key: 'fourthTile',
 			'data-grid': {w: 2, h: 2, x: 4, y: 2, i: 'fourthTile'},
 		},
 	]);
-	// const [cols, setCols] = useState(12);
 
-	function layoutChangeCallback(newlayouts) {
-	}
+	function layoutChangeCallback(newlayouts) {}
 
-	function onBreakpointChangeCallback(breakpoint, cols) {
-		console.log('cols', cols);
-		console.log('breakpoint', breakpoint);
-	}
+	function onBreakpointChangeCallback(breakpoint, cols) {}
 
 	return (
 		<div className="App">
