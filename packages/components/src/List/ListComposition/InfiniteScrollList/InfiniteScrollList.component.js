@@ -70,7 +70,7 @@ InfiniteScrollList.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
 	InfiniteScrollList.propTypes = {
-		loadMoreRows: PropTypes.func.required,
+		loadMoreRows: PropTypes.func.isRequired,
 		rowCount: PropTypes.number,
 		threshold: PropTypes.number,
 		minimumBatchSize: PropTypes.number,

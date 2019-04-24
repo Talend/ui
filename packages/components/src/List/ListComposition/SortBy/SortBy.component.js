@@ -95,7 +95,7 @@ if (process.env.NODE_ENV !== 'production') {
 				key: PropTypes.string,
 				label: PropTypes.string,
 			}),
-		).required,
+		).isRequired,
 		selected: PropTypes.string,
 		onChange: PropTypes.func,
 	};
