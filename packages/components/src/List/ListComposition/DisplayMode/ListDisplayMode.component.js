@@ -86,17 +86,21 @@ function ListDisplayMode(props) {
 		</React.Fragment>
 	);
 }
+
 ListDisplayMode.defaultProps = {
 	id: uuid.v4(),
 	displayModes: ['table', 'large'],
 	initialDisplayMode: 'table',
 };
-ListDisplayMode.propTypes = {
-	displayModes: PropTypes.arrayOf(PropTypes.string),
-	id: PropTypes.string,
-	initialDisplayMode: PropTypes.string,
-	onChange: PropTypes.func,
-	selectedDisplayMode: PropTypes.string,
-};
+
+if (process.env.NODE_ENV !== 'production') {
+	ListDisplayMode.propTypes = {
+		displayModes: PropTypes.arrayOf(PropTypes.string),
+		id: PropTypes.string,
+		initialDisplayMode: PropTypes.string,
+		onChange: PropTypes.func,
+		selectedDisplayMode: PropTypes.string,
+	};
+}
 
 export default ListDisplayMode;

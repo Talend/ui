@@ -17,8 +17,11 @@ function ListToolbar(props) {
 		</Navbar>
 	);
 }
-ListToolbar.propTypes = {
-	children: PropTypes.node,
-};
+
+if (process.env.NODE_ENV !== 'production') {
+	ListToolbar.propTypes = {
+		children: PropTypes.node,
+	};
+}
 
 export default ListToolbar;

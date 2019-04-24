@@ -85,18 +85,20 @@ SortBy.defaultProps = {
 	id: uuid.v4(),
 };
 
-SortBy.propTypes = {
-	id: PropTypes.string,
-	isDescending: PropTypes.bool,
-	onOrderChange: PropTypes.func,
-	options: PropTypes.arrayOf(
-		PropTypes.shape({
-			key: PropTypes.string,
-			label: PropTypes.string,
-		}),
-	).required,
-	selected: PropTypes.string,
-	onChange: PropTypes.func,
-};
+if (process.env.NODE_ENV !== 'production') {
+	SortBy.propTypes = {
+		id: PropTypes.string,
+		isDescending: PropTypes.bool,
+		onOrderChange: PropTypes.func,
+		options: PropTypes.arrayOf(
+			PropTypes.shape({
+				key: PropTypes.string,
+				label: PropTypes.string,
+			}),
+		).required,
+		selected: PropTypes.string,
+		onChange: PropTypes.func,
+	};
+}
 
 export default SortBy;

@@ -89,12 +89,17 @@ function Manager(props) {
 
 	return <ListContext.Provider value={contextValues}>{props.children}</ListContext.Provider>;
 }
+
 Manager.defaultProps = {
 	t: getDefaultT(),
 };
-Manager.propTypes = {
-	children: PropTypes.node,
-	collection: PropTypes.array,
-	t: PropTypes.func,
-};
+
+if (process.env.NODE_ENV !== 'production') {
+	Manager.propTypes = {
+		children: PropTypes.node,
+		collection: PropTypes.array,
+		t: PropTypes.func,
+	};
+}
+
 export default translate(I18N_DOMAIN_COMPONENTS)(Manager);

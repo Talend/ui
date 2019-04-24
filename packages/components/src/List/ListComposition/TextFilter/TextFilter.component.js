@@ -32,10 +32,12 @@ function TextFilter(props) {
 	return <FilterBar {...filterBarProps} {...restProps} />;
 }
 
-TextFilter.propTypes = {
-	onChange: PropTypes.func,
-	docked: PropTypes.bool,
-	onToggle: PropTypes.func,
-};
+if (process.env.NODE_ENV !== 'production') {
+	TextFilter.propTypes = {
+		onChange: PropTypes.func,
+		docked: PropTypes.bool,
+		onToggle: PropTypes.func,
+	};
+}
 
 export default TextFilter;
