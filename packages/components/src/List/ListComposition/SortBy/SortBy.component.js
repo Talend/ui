@@ -6,23 +6,33 @@ import isUndefined from 'lodash/isUndefined';
 
 import { useListContext } from '../context';
 
+/**
+ * Get the component's selected sort by option
+ * @param {object} props Props passed to the component
+ * @param {object} sortParams Current value of the context's `sortParams`
+ * @returns {string}
+ */
+function getSelectedOption(props, sortParams) {
+	if (props.selected) {
+		return props.selected; // From props (controlled mode)
+	} else if (sortParams.sortBy) {
+		return sortParams.sortBy; // From context (uncontrolled)
+	}
+	return props.options[0].key; // Default to first available option
+}
+
 function SortBy(props) {
 	const { id, options, selected, isDescending: isDescendingProp, onChange, onOrderChange } = props;
 	const { sortParams, setSortParams, t } = useListContext();
 
-	// Sort by
-	let selectedOption;
-	if (selected) {
-		selectedOption = selected;
-	} else if (sortParams.sortBy) {
-		selectedOption = sortParams.sortBy;
-	} else {
-		selectedOption = options[0].key;
+	const selectedOption = getSelectedOption(props, sortParams);
 
-		useEffect(() => {
+	useEffect(() => {
+		if (!selected && sortParams.sortBy) {
+			// Set context's sortBy parameter if there's no value provided (prop or context)
 			setSortParams({ ...sortParams, sortBy: selectedOption });
-		});
-	}
+		}
+	});
 
 	const onSelect = onChange
 		? (value, event) => onChange(event, value)
