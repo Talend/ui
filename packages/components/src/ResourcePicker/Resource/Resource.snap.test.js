@@ -43,7 +43,7 @@ describe('Resource component snaps', () => {
 			};
 
 			const wrapper = shallow(<Resource.WrappedComponent {...props} />);
-
+			expect(wrapper.find('.author').length).toBe(1);
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
@@ -67,7 +67,7 @@ describe('Resource component snaps', () => {
 
 			const wrapper = shallow(<Resource.WrappedComponent {...props} />);
 
-			expect(wrapper.getElement()).toMatchSnapshot();
+			expect(wrapper.find('.author').length).toBe(0);
 		});
 
 		it('should render a Resource without icon', () => {
