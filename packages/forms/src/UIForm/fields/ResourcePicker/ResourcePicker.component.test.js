@@ -96,7 +96,6 @@ describe('ResourcePicker field', () => {
 			/>,
 		);
 
-
 		expect(wrapper.find('.tc-resource-picker-sort-options button').length).toBe(2);
 		expect(wrapper.find('.tc-resource-picker-state-filters button').length).toBe(3);
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -117,7 +116,7 @@ describe('ResourcePicker field', () => {
 							done();
 						}),
 				)}
-				schema={{...schema, options: { filters: ['certified'], sort: ['name']} }}
+				schema={{ ...schema, options: { filters: ['certified'], sort: ['name'] } }}
 			/>,
 		);
 

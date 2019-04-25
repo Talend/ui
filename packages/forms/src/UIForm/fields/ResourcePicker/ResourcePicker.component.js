@@ -157,7 +157,7 @@ class ResourcePicker extends Component {
 		if (schema.options) {
 			const { filters, sort } = schema.options;
 			if (filters) {
-				filters.forEach((filter) => {
+				filters.forEach(filter => {
 					toolbar.state[filter] = this.state.filters[filter];
 				});
 				// only display the filter which are defined in the schema
