@@ -4,7 +4,7 @@ $tc-action-bar-height: 70px;
 
 .tc-actionbar-container {
 	height: $tc-action-bar-height;
-	padding: 0 $padding-larger;
+	padding: 0 $padding-normal 0 $padding-larger;
 	background: $tc-action-bar-background-color;
 	border-bottom: solid 1px $gallery;
 	width: 100%;
@@ -34,7 +34,7 @@ $tc-action-bar-height: 70px;
 	  	}
 
 		> :global(.separated):after {
-			content: "|";
+			content: '|';
 			color: $silver;
 		}
 
