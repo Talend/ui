@@ -5,7 +5,6 @@ import theme from './Grid.scss';
 import Tile from './Tile/Tile.component';
 const ResponsiveGridLayout = WidthProvider(Responsive);
 const MARGIN = 20;
-const COLUMN_MIN_WIDTH = 190;
 
 const cols= {
 	md: 6,
