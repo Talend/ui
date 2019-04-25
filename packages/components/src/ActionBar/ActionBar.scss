@@ -44,6 +44,10 @@ $tc-action-bar-height: 70px;
 				margin-right: $padding-normal;
 			}
 		}
+
+		label {
+			margin-left: $padding-normal;
+		}
 	}
 
 	.navbar-center {
@@ -71,6 +75,9 @@ $tc-action-bar-height: 70px;
 		button {
 			margin: 0;
 		}
+	}
+	:global(.btn-icon-only) {
+		padding: 0;
 	}
 }
 
