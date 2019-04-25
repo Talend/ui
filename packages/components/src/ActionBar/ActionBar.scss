@@ -19,29 +19,6 @@ $tc-action-bar-height: 70px;
 			margin: $tc-action-bar-margin;
 		}
 
-		&:global(.action-groups) {
-			> :global(.separated) {
-				margin: 0;
-				padding: 0;
-				
-				&:after {
-					content: "|";
-					color: $silver;
-				}
-			}
-
-			:global(.navbar-text),
-			:global(.navbar-link) {
-				margin: $padding-smaller 0 0 0;
-			}
-
-			:global([role=search]) {
-				:global(.tc-svg-icon){
-					margin-right: $padding-normal;
-				}
-			}
-		}
-
 		> :last-child {
 			margin-right: 0;
 		}
@@ -50,6 +27,23 @@ $tc-action-bar-height: 70px;
 	.navbar-right {
 		margin-right: 0;
 		margin-left: auto;
+
+		> :global(.navbar-text),
+		:global(.nav) {
+		  margin-right: 0;
+	  	}
+
+		> :global(.separated):after {
+			content: "|";
+			color: $silver;
+		}
+
+		:global([role=search]) {
+			margin: 0;
+			:global(.tc-svg-icon){
+				margin-right: $padding-normal;
+			}
+		}
 	}
 
 	.navbar-center {

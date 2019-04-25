@@ -48,6 +48,8 @@ const icons = {
 	'talend-trash': talendIcons['talend-trash'],
 	'talend-warning': talendIcons['talend-warning'],
 	'talend-file-s3-o': talendIcons['talend-file-s3-o'],
+	'talend-sort-desc': talendIcons['talend-sort-desc'],
+	'talend-sort-asc': talendIcons['talend-sort-asc'],
 };
 
 const selected = [
@@ -729,6 +731,18 @@ storiesOf('List', module)
 					column).
 				</p>
 				<List {...tprops} />
+			</div>
+		);
+	})
+	.add('Sort - large', () => {
+		const tprops = cloneDeep(props);
+		tprops.list.sort = sort;
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<p>
+					Show Sort widgets on List toolbar when display in large view
+				</p>
+				<List {...tprops} rowHeight={140} displayMode="large" />
 			</div>
 		);
 	})

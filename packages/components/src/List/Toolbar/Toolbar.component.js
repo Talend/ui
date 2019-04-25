@@ -6,12 +6,14 @@ import { translate } from 'react-i18next';
 import SelectAll from './SelectAll';
 import SelectDisplayMode from './SelectDisplayMode';
 import FilterBar from '../../FilterBar';
+import Label from './Label';
 import ActionBar from '../../ActionBar';
 import DisplayModeToggle from './DisplayModeToggle';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import '../../translate';
 import Inject from '../../Inject';
+import SelectSortBy from './SelectSortBy/SelectSortBy.component';
 
 function adaptActionsIds(actions, parentId) {
 	return (
@@ -95,6 +97,15 @@ function Toolbar({
 							/>
 						)}
 						{injected('after-filter')}
+						{injected('before-sort')}
+						{showSort && (
+							<Label
+								text={t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}
+								htmlFor={id && `${id}-sort-by`}
+							/>
+						)}
+						{showSort && <SelectSortBy id={id && `${id}-sort`} {...sort} t={t} className="separated" />}
+						{injected('after-sort')}
 						{injected('before-displaymode')}
 						{display && <DisplayModeToggle id={displayModeId} {...display} t={t} />}
 						{injected('after-displaymode')}
