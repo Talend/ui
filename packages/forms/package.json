@@ -102,7 +102,7 @@
     "redux-mock-store": "^1.2.3",
     "regenerator-runtime": "^0.13.1",
     "rimraf": "^2.6.2",
-    "sass-lint": "1.12.1",
+    "sass-lint": "1.13.0",
     "sass-loader": "^7.1.0"
   },
   "peerDependencies": {
