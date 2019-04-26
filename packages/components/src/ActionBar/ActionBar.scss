@@ -101,6 +101,17 @@ $tc-action-bar-display-color: $silver !default;
 			font-weight: normal;
 		}
 	}
+
+	:global(.btn-icon-text) {
+		margin: $padding-small $padding-normal $padding-small 0;
+		text-transform: capitalize;
+
+		&:global(.separated):after {
+			content: '|';
+			color: $silver;
+			margin-left: $padding-large;
+		}
+	}
 }
 
 :global(.modal-footer) .tc-actionbar-container {
