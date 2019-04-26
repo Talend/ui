@@ -1,62 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`IconsToggle should render a display mode toggle 1`] = `
-<IconsToggle
+exports[`DisplayModeToggle should render 1`] = `
+<DisplayModeToggle
   onChange={[MockFunction]}
-  options={
-    Array [
-      Object {
-        "araiLabel": "table view",
-        "icon": "talend-table",
-        "label": "table",
-        "name": "table",
-      },
-      Object {
-        "araiLabel": "large view",
-        "icon": "talend-expanded",
-        "label": "large",
-        "name": "large",
-      },
-    ]
-  }
-  selected="table"
+  t={[Function]}
 >
   <div
     className="theme-tc-display-mode-toggle tc-display-mode-toggle"
   >
     <ActionIconToggle
-      active={true}
-      disabled={true}
+      active={false}
+      aria-label="Set table as current display mode."
+      disabled={false}
       icon="talend-table"
       id="undefined-table"
       key="table"
-      label="table"
+      label="Table"
       onClick={[Function]}
       tooltipPlacement="top"
     >
       <TooltipTrigger
-        label="table"
+        label="Table"
         tooltipPlacement="top"
       >
         <Button
           active={false}
-          aria-label="table"
-          aria-pressed={true}
+          aria-label="Table"
+          aria-pressed={false}
           block={false}
           bsClass="btn"
           bsStyle=""
-          className="tc-icon-toggle theme-tc-icon-toggle theme-active active"
-          disabled={true}
+          className="tc-icon-toggle theme-tc-icon-toggle"
+          disabled={false}
           id="undefined-table"
           onClick={[Function]}
           onFocus={[Function]}
           onMouseOver={[Function]}
         >
           <button
-            aria-label="table"
-            aria-pressed={true}
-            className="tc-icon-toggle theme-tc-icon-toggle theme-active active btn"
-            disabled={true}
+            aria-label="Table"
+            aria-pressed={false}
+            className="tc-icon-toggle theme-tc-icon-toggle btn"
+            disabled={false}
             id="undefined-table"
             onClick={[Function]}
             onFocus={[Function]}
@@ -84,21 +69,22 @@ exports[`IconsToggle should render a display mode toggle 1`] = `
     </ActionIconToggle>
     <ActionIconToggle
       active={false}
+      aria-label="Set large as current display mode."
       disabled={false}
       icon="talend-expanded"
       id="undefined-large"
       key="large"
-      label="large"
+      label="Expanded"
       onClick={[Function]}
       tooltipPlacement="top"
     >
       <TooltipTrigger
-        label="large"
+        label="Expanded"
         tooltipPlacement="top"
       >
         <Button
           active={false}
-          aria-label="large"
+          aria-label="Expanded"
           aria-pressed={false}
           block={false}
           bsClass="btn"
@@ -111,7 +97,7 @@ exports[`IconsToggle should render a display mode toggle 1`] = `
           onMouseOver={[Function]}
         >
           <button
-            aria-label="large"
+            aria-label="Expanded"
             aria-pressed={false}
             className="tc-icon-toggle theme-tc-icon-toggle btn"
             disabled={false}
@@ -141,5 +127,5 @@ exports[`IconsToggle should render a display mode toggle 1`] = `
       </TooltipTrigger>
     </ActionIconToggle>
   </div>
-</IconsToggle>
+</DisplayModeToggle>
 `;
