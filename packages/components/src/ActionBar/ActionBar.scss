@@ -1,6 +1,6 @@
 $tc-action-bar-background-color: $wild-sand !default;
 $tc-action-bar-margin: $padding-small $padding-normal $padding-small 0 !default;
-$tc-action-bar-height: 70px;
+$tc-action-bar-height: 70px !default;
 $tc-action-bar-display-color: $silver !default;
 
 .tc-actionbar-container {
@@ -29,11 +29,10 @@ $tc-action-bar-display-color: $silver !default;
 		margin-right: 0;
 		margin-left: auto;
 
-		> :global(.navbar-text),
-		:global(.nav) {
-		  margin-right: 0;
+		> * {
+			margin-right: 0;
 		}
-		  		
+
 		:global(.navbar-text) {
 			color: $tc-action-bar-display-color;
 			margin-right: 0;
@@ -46,16 +45,8 @@ $tc-action-bar-display-color: $silver !default;
 		> :global(.separated):after {
 			content: '|';
 			color: $silver;
+			margin-left: $padding-normal;
 		}
-
-		:global([role=search]) {
-			margin: 0;
-			:global(.tc-svg-icon){
-				margin-right: $padding-normal;
-			}
-		}
-
-
 
 		label {
 			margin-left: $padding-normal;
