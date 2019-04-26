@@ -8,11 +8,12 @@ const MARGIN = 20;
 
 const cols= {
 	md: 6,
+	m: 8,
 	lg: 12,
 };
 
 const breakpoints = {
-	lg: 1365, md: 758,
+	lg: 1365, m: 1000, md: 758,
 };
 
 function onLayoutChange(layoutChangeCallback) {

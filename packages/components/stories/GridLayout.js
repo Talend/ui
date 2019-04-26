@@ -177,7 +177,7 @@ function GridContainer() {
 		},
 		{
 			key: 'thirdTile',
-			'data-grid': {w: 4, h: 2, x: 0, y: 2, i: 'thirdTile'},
+			'data-grid': {w: 12, h: 2, x: 0, y: 2, i: 'thirdTile'},
 		},
 		{
 			header: {

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tile's footer should compute tile footer 1`] = `
+<div
+  className="theme-tc-tile-footer tc-tile-footer"
+>
+  my container
+</div>
+`;
