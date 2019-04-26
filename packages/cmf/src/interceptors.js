@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const interceptors = [];
 
 function isInterceptor(obj) {
@@ -13,7 +14,7 @@ function isInterceptor(obj) {
 	if (obj.request && typeof obj.request !== 'function') {
 		return false;
 	}
-	if (obj.response && typeof obj.request !== 'function') {
+	if (obj.response && typeof obj.response !== 'function') {
 		return false;
 	}
 	return true;
@@ -22,7 +23,8 @@ function isInterceptor(obj) {
 /**
  * interceptors.push let you add an interceptor
  * An interceptor is an object with the following keys: request, response.
- * Both are simple functions which take the config, response and return sync or async the enriched value
+ * Both are simple functions which take the config, response and returns enriched value
+ * @param {Object} interceptor object to configure the interception
  */
 function push(interceptor) {
 	if (isInterceptor(interceptor)) {
@@ -49,6 +51,11 @@ function consume(arr, attr, argument) {
 	return consume(arr, attr, result);
 }
 
+/**
+ * onRequest consume all interceptors to enrich the config argument
+ * @param {Object} config http config object
+ * @return {Promise} config object
+ */
 function onRequest(config) {
 	const copy = interceptors.slice(0);
 	const result = consume(copy, 'request', config);
@@ -60,9 +67,14 @@ function onRequest(config) {
 	});
 }
 
-function onResponse(config) {
+/**
+ * onResponse consume all interceptors to enrich the response object
+ * @param {Object} response http response object
+ * @return {Promise} response object
+ */
+function onResponse(response) {
 	const copy = interceptors.slice(0);
-	const result = consume(copy, 'response', config);
+	const result = consume(copy, 'response', response);
 	if (result.then) {
 		return result;
 	}
