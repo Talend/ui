@@ -95,7 +95,6 @@
     },
     {
       "key": "restrictedDatalist",
-			"restricted": true,
       "title": "Datalist with restricted options",
       "description": "This datalist does not allow other values than the possible choices",
       "widget": "datalist"
@@ -153,7 +152,7 @@
     {
       "key": "restrictedAsyncTitleMap",
       "restricted": true,
-      "title": "Datalist with async options and restricted value",
+      "title": "Datalist with async options ans restricted value",
       "widget": "datalist",
       "triggers": [
         {
@@ -173,7 +172,6 @@
       "key": "datalistWithCategoryRestricted",
       "title": "Datalist With category and restricted value",
       "widget": "datalist",
-			"restricted": true,
       "options": {
         "isMultiSection": true,
         "titleMap": [
