@@ -105,7 +105,9 @@ function Toolbar({
 								htmlFor={id && `${id}-sort-by`}
 							/>
 						)}
-						{showSort && <SelectSortBy id={id && `${id}-sort`} {...sort} t={t} className="separated" />}
+						{showSort && (
+							<SelectSortBy id={id && `${id}-sort`} {...sort} t={t} className="separated" />
+						)}
 						{injected('after-sort')}
 						{injected('before-displaymode')}
 						{display && <DisplayModeToggle id={displayModeId} {...display} t={t} />}

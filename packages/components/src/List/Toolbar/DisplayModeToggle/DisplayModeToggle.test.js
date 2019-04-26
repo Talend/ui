@@ -19,12 +19,20 @@ describe('DisplayModeToggle', () => {
 		const wrapper = mount(<DisplayModeToggle {...props} mode="table" />);
 
 		// then
-		expect(wrapper.find('ActionIconToggle').at(0).prop('active')).toEqual(true);
+		expect(
+			wrapper
+				.find('ActionIconToggle')
+				.at(0)
+				.prop('active'),
+		).toEqual(true);
 	});
 	it('should call onChange when change display mode', () => {
 		// when
 		const wrapper = mount(<DisplayModeToggle {...props} mode="table" />);
-		wrapper.find('ActionIconToggle').at(1).simulate('click');
+		wrapper
+			.find('ActionIconToggle')
+			.at(1)
+			.simulate('click');
 
 		// then
 		expect(props.onChange).toHaveBeenCalledWith(expect.anything(), 'large');

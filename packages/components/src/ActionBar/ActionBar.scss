@@ -36,7 +36,7 @@ $tc-action-bar-display-color: $silver !default;
 		:global(.navbar-text) {
 			color: $tc-action-bar-display-color;
 			margin-right: 0;
-	
+
 			label {
 				font-weight: 400;
 			}
@@ -51,7 +51,6 @@ $tc-action-bar-display-color: $silver !default;
 		label {
 			margin-left: $padding-normal;
 		}
-
 	}
 
 	.navbar-center {
@@ -85,7 +84,7 @@ $tc-action-bar-display-color: $silver !default;
 		padding: 0;
 	}
 	:global(.nav) {
-		a[role="menuitem"],
+		a[role='menuitem'],
 		a:global(.dropdown-toggle) {
 			color: $black;
 			text-transform: capitalize;

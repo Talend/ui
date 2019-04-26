@@ -24,27 +24,31 @@ function DisplayModeToggle({ id, displayModes, onChange, mode, t }) {
 	const modes = displayModes || options;
 
 	function getActionIcon(option) {
-		return (<ActionIconToggle
-			key={option}
-			id={`${id}-${option}`}
-			icon={option === 'table' ? 'talend-table' : 'talend-expanded'}
-			label={getLabel(option, t)}
-			aria-label={t('LIST_SELECT_DISPLAY_MODE', {
-				defaultValue: 'Set {{displayMode}} as current display mode.',
-				displayMode: option,
-			})}
-			active={active === option}
-			disabled={active === option}
-			onClick={e => {
-				setActive(option);
-				onChange(e, option);
-			}}
-		/>);
+		return (
+			<ActionIconToggle
+				key={option}
+				id={`${id}-${option}`}
+				icon={option === 'table' ? 'talend-table' : 'talend-expanded'}
+				label={getLabel(option, t)}
+				aria-label={t('LIST_SELECT_DISPLAY_MODE', {
+					defaultValue: 'Set {{displayMode}} as current display mode.',
+					displayMode: option,
+				})}
+				active={active === option}
+				disabled={active === option}
+				onClick={e => {
+					setActive(option);
+					onChange(e, option);
+				}}
+			/>
+		);
 	}
 
-	return (<div className={classNames(theme['tc-display-mode-toggle'], 'tc-display-mode-toggle')}>
-		{ modes.map(getActionIcon) }
-	</div>);
+	return (
+		<div className={classNames(theme['tc-display-mode-toggle'], 'tc-display-mode-toggle')}>
+			{modes.map(getActionIcon)}
+		</div>
+	);
 }
 
 DisplayModeToggle.propTypes = {
