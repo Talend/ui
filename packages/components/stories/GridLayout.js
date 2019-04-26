@@ -1,62 +1,13 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import uuid from 'uuid';
 import talendIcons from '@talend/icons/dist/react';
 
+import ActionIconToggle from '../src/Actions/ActionIconToggle';
 import { GridLayout, IconsProvider } from '../src/';
 import Tile from '../src/GridLayout/Tile/index';
-import ResourcePicker from '../src/ResourcePicker';
 import Action from '../src/Actions/Action';
-
-const collection = [
-	{
-		id: 0,
-		name: 'Title with few actions',
-		icon: 'talend-file-xls-o',
-	},
-	{
-		id: 1,
-		name: 'Title with lot of actions',
-		icon: 'talend-file-xls-o',
-	},
-	{
-		id: 2,
-		name: 'Title with persistant actions',
-		modified: '2016-09-22',
-		author: 'Jean-Pierre DUPONT',
-		icon: 'talend-file-xls-o',
-		flags: ['FAVORITE'],
-	},
-	{
-		id: 3,
-		name: 'Title with icon',
-		modified: '2016-09-22',
-		author: 'Third Author',
-		icon: 'talend-file-xls-o',
-		flags: ['CERTIFIED'],
-	},
-	{
-		id: 4,
-		name: 'Title with icon',
-		modified: '2016-09-22',
-		author: 'Third Author',
-		icon: 'talend-file-xls-o',
-		flags: ['CERTIFIED'],
-	},
-	{
-		id: 5,
-		name: 'Title with icon',
-		modified: '2016-09-22',
-		author: 'Third Author',
-		icon: 'talend-file-xls-o',
-		flags: ['CERTIFIED'],
-	},
-];
-
-const resourcePickerProps = {
-	collection,
-};
+import { useTileContext } from '../src/GridLayout/Tile/context';
 
 const icons = {
 	'talend-filter': talendIcons['talend-filter'],
@@ -64,15 +15,38 @@ const icons = {
 	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
 };
 
-function renderBody(tab, filterProps) {
-	switch (tab) {
+function TdsTileContent() {
+	const { displayMode= 'chart', setDisplayMode } = useTileContext();
+
+	const submitAction = {
+		label: 'Click me',
+		onClick: () => {
+			setDisplayMode('chart');
+		}
+	};
+
+	switch (displayMode) {
 		case 'chart':
-			return <div>'my chart'</div>;
+			return (
+				<React.Fragment>
+					<div>
+						'my chart'
+					</div>
+				</React.Fragment>
+			);
 		case 'filter':
-			return <div>'my filter'</div>;
+			return (
+				<React.Fragment>
+					<div>my filter</div>
+					<Action {...submitAction} />
+				</React.Fragment>
+			);
 		case 'filterUser': {
 			return (
-				<ResourcePicker { ...filterProps } />
+				<React.Fragment>
+					<div>'user list'</div>
+					<Action {...submitAction} />
+				</React.Fragment>
 			);
 		}
 		default:
@@ -97,17 +71,26 @@ function renderFooter(tab) {
 	}
 }
 
-function ChartTile({ tile }) {
-	const [tab, setTab] = useState('chart');
-	const [userFilter, setUserFilter] = useState([]);
-	// tile.header.actions construct the action depending of the tile header props
+function renderActions(actions) {
+	if (actions && actions.length) {
+		return actions.map(action => (
+			<ActionIconToggle {...action} />
+		));
+	}
+	return null;
+}
+
+function ViewSelector(props) {
+	const { displayMode, setDisplayMode } = useTileContext();
+
 	const addItemAction = {
 		label: 'Add item',
 		icon: 'talend-user-circle',
 		id: 'filter-user',
 		onClick: () => {
-			setTab('filterUser');
+			setDisplayMode('filterUser');
 		},
+		active: displayMode === 'filterUser',
 	};
 
 	const filterAction = {
@@ -115,39 +98,38 @@ function ChartTile({ tile }) {
 		icon: 'talend-filter',
 		id: 'filter',
 		onClick: () => {
-			setTab('filter');
+			setDisplayMode('filter');
 		},
+		active: displayMode === 'filter',
 	};
 
-	const rightActions = [addItemAction, filterAction];
-	const filterProps = {
-		...tile.filterProps,
-		onRowClick: (event, rowData) => {
-			if (userFilter.find(user => user.id === rowData.id)) {
-				// removing it from selection
-				setUserFilter(userFilter.filter(user => user.id !== rowData.id));
-			} else {
-				// adding it to selection
-				setUserFilter(userFilter.concat([rowData]))
+	return (
+		<div style={{ display: 'flex' }}>
+			{
+				[addItemAction, filterAction].map(action => (
+					<ActionIconToggle {...action} />
+				))
 			}
-		},
-		isSelected: (row) => {
-			return userFilter.find(user => user.id === row.id);
-		},
-	};
+		</div>
+	);
+}
+
+function ChartTile({ tile }) {
+	const [tab, setTab] = useState('chart');
+	// tile.header.actions construct the action depending of the tile header props
+
 	return (
 		<Tile.Container>
 			{
 				tile.header ? (
 					<Tile.Header>
-						<Tile.HeaderActions left></Tile.HeaderActions>
-							{ tile.header.label }
-						<Tile.HeaderActions right actions={rightActions}></Tile.HeaderActions>
+						{ tile.header.label }
+						<ViewSelector></ViewSelector>
 					</Tile.Header> )
 					: null
 			}
 			<Tile.Body>
-				{ renderBody(tab, filterProps) }
+				<TdsTileContent />
 			</Tile.Body>
 			<Tile.Footer>
 				{ renderFooter(tab) }
@@ -157,7 +139,6 @@ function ChartTile({ tile }) {
 }
 
 function GridContainer() {
-	const [tab, setTab] = useState('chart');
 	const [tiles, setTiles] = useState([
 		{
 			header: {
@@ -165,8 +146,6 @@ function GridContainer() {
 			},
 			key: 'firstTile',
 			'data-grid': {w: 2, h: 2, x: 0, y: 0, i: 'firstTile'},
-			filterMode: true,
-			filterProps: resourcePickerProps
 		},
 		{
 			header: {
@@ -199,7 +178,7 @@ function GridContainer() {
 	            onBreakpointChangeCallback={onBreakpointChangeCallback}>
 				{ tiles.map(tile => (
 					<div key={tile.key} data-grid={tile['data-grid']}>
-						<ChartTile tile={tile} tab={tab}/>
+						<ChartTile tile={tile} />
 					</div>)
 				)}
 			</GridLayout>

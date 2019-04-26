@@ -4,11 +4,4 @@
   justify-content: space-between;
   padding: $padding-normal;
   border-bottom: 1px solid lightgray;
-
-  .tc-tile-header-right {
-    display: flex;
-    button {
-      margin-left: $padding-smaller;
-    }
-  }
 }
