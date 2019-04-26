@@ -96,6 +96,32 @@
 		}
 	}
 
+	&-icon-text {
+		padding: 0;
+		color: $dove-gray;
+		border: none;
+		background-color: transparent;
+		box-shadow: none;
+
+		&:hover,
+		&:hover:focus {
+			background-color: transparent;
+			color: $scooter;
+			opacity: 0.8;
+		}
+		&:active,
+		&:active:focus {
+			background-color: transparent;
+			color: $scooter;
+			opacity: 1;
+			box-shadow: none;
+		}
+		&:focus {
+			background-color: transparent;
+			color: $dove-gray;
+		}
+	}
+
 	&-xs {
 		align-items: baseline;
 		padding: 0 $padding-xs-horizontal;
