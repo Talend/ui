@@ -4,6 +4,7 @@ import get from 'lodash/get';
 import { HTTP_METHODS, HTTP_STATUS, testHTTPCode } from './constants';
 import { mergeCSRFToken } from './csrfHandling';
 import http from '../../actions/http';
+import interceptors from '../../interceptors';
 
 /**
  * @typedef {Object} Action
@@ -176,6 +177,7 @@ export function handleResponse(response) {
  */
 function getOnError(dispatch, httpAction) {
 	return function onHTTPError(error) {
+		interceptors.onError(error);
 		const errorObject = {
 			name: error.name,
 			message: error.description || error.message,
@@ -232,22 +234,26 @@ export const httpMiddleware = (middlewareDefaultConfig = {}) => ({
 			httpAction,
 		});
 	}
-	const onHTTPError = getOnError(dispatch, httpAction);
-	return fetch(httpAction.url, config)
-		.then(status)
-		.then(handleResponse)
-		.then(response => {
-			const newAction = Object.assign({}, action);
-			dispatch(http.onResponse(response.data));
-			if (newAction.transform) {
-				newAction.response = newAction.transform(response.data);
-			} else {
-				newAction.response = response.data;
-			}
-			if (newAction.onResponse) {
-				dispatch(http.onActionResponse(newAction, newAction.response, response.headers));
-			}
-			return next(newAction);
-		})
-		.catch(onHTTPError);
+
+	return interceptors.onRequest({ ...httpAction, ...config }).then(newConfig => {
+		const onHTTPError = getOnError(dispatch, httpAction);
+		return fetch(httpAction.url, newConfig)
+			.then(status)
+			.then(handleResponse)
+			.then(interceptors.onResponse)
+			.then(response => {
+				const newAction = Object.assign({}, action);
+				dispatch(http.onResponse(response.data));
+				if (newAction.transform) {
+					newAction.response = newAction.transform(response.data);
+				} else {
+					newAction.response = response.data;
+				}
+				if (newAction.onResponse) {
+					dispatch(http.onActionResponse(newAction, newAction.response, response.headers));
+				}
+				return next(newAction);
+			})
+			.catch(onHTTPError);
+	});
 };
