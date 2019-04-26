@@ -339,6 +339,21 @@ decoratedStories
 		{ info: { styles: infoStyle } },
 	)
 	.add(
+		'with callToAction',
+		() => {
+			const headerProps = Immutable.fromJS(props).toJS();
+			headerProps.callToAction = {
+				id: 'header-call-to-action',
+				bsStyle: 'info',
+				className: 'btn-inverse',
+				label: 'Subscribe now',
+				onClick: action('onActionClick'),
+			};
+			return <HeaderBar {...headerProps} />;
+		},
+		{ info: { styles: infoStyle } },
+	)
+	.add(
 		'without user and with information',
 		() => {
 			const headerProps = Immutable.fromJS(props).toJS();

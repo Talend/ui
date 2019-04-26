@@ -28,12 +28,8 @@ function getComponent(component) {
 		case 'DefaultStringCellRenderer':
 			return DefaultRenderer;
 		default:
-			console.error(component);
+			return DefaultRenderer;
 	}
-}
-
-function forceRedrawRows(props, oldProps) {
-	return props.rowData[0].loading !== oldProps.rowData[0].loading;
 }
 
 sample.data[0].value.field0.value = `﻿﻿﻿﻿﻿﻿﻿  loreum lo
