@@ -4,8 +4,9 @@ import { Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
 
 import getDefaultT from '../../../translate';
-import SortOrderToggle from '../SortOrderToggle';
+import SortOrderToggle from '../SortOrderToggle/SortOrderToggle.component';
 import theme from './SelectSortBy.scss';
+import OrderChooser from '../../../ResourcePicker/Toolbar/SortOptions/OrderChooser';
 
 function SortByItem({ option, index, id, t }) {
 	const optionLabel = option.name || option.id;
@@ -33,6 +34,16 @@ SortByItem.propTypes = {
 	t: PropTypes.func,
 };
 
+const ORDERS = {
+	ASC: 'asc',
+	DESC: 'desc',
+};
+
+const ICONS = {
+	[ORDERS.DESC]: 'talend-sort-desc',
+	[ORDERS.ASC]: 'talend-sort-asc',
+};
+
 function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 	const order = isDescending || false;
 	const selected = field && options.find(item => item.id === field);
@@ -47,6 +58,9 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 
 	const getMenuItem = SortByItem;
 	const currentSortByLabel = selected ? selected.name || selected.id : 'N.C';
+	const currentSortOrderLabel = order
+		? t('LIST_SELECT_SORT_BY_ORDER_DESC', { defaultValue: 'Descending' })
+		: t('LIST_SELECT_SORT_BY_ORDER_ASC', { defaultValue: 'Ascending' });
 	return (
 		<Nav className={`${theme['tc-list-toolbar-sort-by']} separated`}>
 			{options.length === 1 ? (
@@ -72,7 +86,15 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 					)}
 				</NavDropdown>
 			)}
-			{selected && (<SortOrderToggle id={id && `${id}-order`} onChange={onChangeOrder} isDescending={isDescending} />)}
+			{selected && (<OrderChooser
+				icon={ICONS[isDescending ? ORDERS.DESC : ORDERS.ASC]}
+				asc={!isDescending}
+				label={t('LIST_CHANGE_SORT_BY_ORDER', {
+					defaultValue: 'Change sort order. Current order: {{sortOrder}}.',
+					sortOrder: currentSortOrderLabel,
+				})}
+				onClick={onChangeOrder}
+			/>)}
 		</Nav>
 	);
 }

@@ -23,6 +23,11 @@ $tc-list-toolbar-display-color: $dove-gray !default;
 			}
 		}
 	}
+
+	:global(.tc-resource-picker-order-chooser) {
+		background-color: $wild-sand;
+		margin-right: $padding-normal;
+	}
 }
 
 .sort-by-items {

@@ -10,6 +10,7 @@ import Label from './Label';
 import ActionBar from '../../ActionBar';
 import DisplayModeToggle from './DisplayModeToggle';
 
+import theme from './Toolbar.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import '../../translate';
 import Inject from '../../Inject';
@@ -81,7 +82,7 @@ function Toolbar({
 	const showSort = sort && display && display.mode === 'large';
 
 	return (
-		<div className="tc-list-toolbar">
+		<div className={`tc-list-toolbar`}>
 			{injected('before-actionbar')}
 			{actionBar && (
 				<Renderer.ActionBar {...actionBarProps}>

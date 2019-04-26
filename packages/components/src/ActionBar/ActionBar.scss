@@ -1,6 +1,7 @@
 $tc-action-bar-background-color: $wild-sand !default;
 $tc-action-bar-margin: $padding-small $padding-normal $padding-small 0 !default;
 $tc-action-bar-height: 70px;
+$tc-action-bar-display-color: $silver !default;
 
 .tc-actionbar-container {
 	height: $tc-action-bar-height;
@@ -31,7 +32,16 @@ $tc-action-bar-height: 70px;
 		> :global(.navbar-text),
 		:global(.nav) {
 		  margin-right: 0;
-	  	}
+		}
+		  		
+		:global(.navbar-text) {
+			color: $tc-action-bar-display-color;
+			margin-right: 0;
+	
+			label {
+				font-weight: 400;
+			}
+		}
 
 		> :global(.separated):after {
 			content: '|';
@@ -45,9 +55,12 @@ $tc-action-bar-height: 70px;
 			}
 		}
 
+
+
 		label {
 			margin-left: $padding-normal;
 		}
+
 	}
 
 	.navbar-center {
@@ -64,6 +77,7 @@ $tc-action-bar-height: 70px;
 
 	:global(.navbar-text),
 	:global(.navbar-link) {
+		color: $tc-action-bar-display-color;
 		margin: $padding-normal $padding-larger $padding-small 0;
 	}
 
@@ -78,6 +92,14 @@ $tc-action-bar-height: 70px;
 	}
 	:global(.btn-icon-only) {
 		padding: 0;
+	}
+	:global(.nav) {
+		a[role="menuitem"],
+		a:global(.dropdown-toggle) {
+			color: $black;
+			text-transform: capitalize;
+			font-weight: normal;
+		}
 	}
 }
 
