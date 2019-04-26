@@ -4,9 +4,8 @@ import { Nav, NavDropdown, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
 
 import getDefaultT from '../../../translate';
-import SortOrderToggle from '../SortOrderToggle/SortOrderToggle.component';
-import theme from './SelectSortBy.scss';
 import OrderChooser from '../../../ResourcePicker/Toolbar/SortOptions/OrderChooser';
+import theme from './SelectSortBy.scss';
 
 function SortByItem({ option, index, id, t }) {
 	const optionLabel = option.name || option.id;

@@ -89,7 +89,7 @@ describe('SelectSortBy', () => {
 		// when
 		const wrapper = shallow(<SelectSortBy {...props} />);
 
-		wrapper.find('button').at(0)
+		wrapper.find('OrderChooser').at(0)
 			.simulate('click', event);
 
 		// then

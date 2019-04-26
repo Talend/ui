@@ -62,56 +62,38 @@ exports[`SelectSortBy should render 1`] = `
       </li>
     </ul>
   </li>
-  <div
-    className="theme-tc-display-mode-toggle tc-display-mode-toggle"
+  <button
+    aria-label="Change sort order. Current order: Ascending."
+    className="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser btn"
+    disabled={false}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseOver={[Function]}
+    type="button"
   >
-    <button
-      aria-label="Descending"
-      aria-pressed={false}
-      className="tc-icon-toggle theme-tc-icon-toggle btn"
-      disabled={false}
-      id="undefined-icon-descending"
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseOver={[Function]}
-      type="button"
+    <svg
+      aria-hidden="true"
+      className="theme-tc-svg-icon tc-svg-icon"
+      focusable="false"
+      name="talend-sort-asc"
+      title={null}
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
-        name="talend-sort-desc"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-sort-desc"
-        />
-      </svg>
-    </button>
-    <button
-      aria-label="Ascending"
-      aria-pressed={true}
-      className="tc-icon-toggle theme-tc-icon-toggle theme-active active btn"
-      disabled={true}
-      id="undefined-icon-ascending"
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseOver={[Function]}
-      type="button"
+      <use
+        xlinkHref="#talend-sort-asc"
+      />
+    </svg>
+    <svg
+      aria-hidden="true"
+      className="theme-tc-svg-icon tc-svg-icon tc-resource-picker-order-indicator theme-tc-resource-picker-order-indicator theme-asc"
+      focusable="false"
+      name="talend-caret-down"
+      title={null}
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
-        name="talend-sort-asc"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-sort-asc"
-        />
-      </svg>
-    </button>
-  </div>
+      <use
+        xlinkHref="#talend-caret-down"
+      />
+    </svg>
+  </button>
 </ul>
 `;
 
@@ -179,56 +161,38 @@ exports[`SelectSortBy should render id if provided 1`] = `
       </li>
     </ul>
   </li>
-  <div
-    className="theme-tc-display-mode-toggle tc-display-mode-toggle"
+  <button
+    aria-label="Change sort order. Current order: Ascending."
+    className="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser btn"
+    disabled={false}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseOver={[Function]}
+    type="button"
   >
-    <button
-      aria-label="Descending"
-      aria-pressed={false}
-      className="tc-icon-toggle theme-tc-icon-toggle btn"
-      disabled={false}
-      id="toolbar-sort-order-icon-descending"
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseOver={[Function]}
-      type="button"
+    <svg
+      aria-hidden="true"
+      className="theme-tc-svg-icon tc-svg-icon"
+      focusable="false"
+      name="talend-sort-asc"
+      title={null}
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
-        name="talend-sort-desc"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-sort-desc"
-        />
-      </svg>
-    </button>
-    <button
-      aria-label="Ascending"
-      aria-pressed={true}
-      className="tc-icon-toggle theme-tc-icon-toggle theme-active active btn"
-      disabled={true}
-      id="toolbar-sort-order-icon-ascending"
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseOver={[Function]}
-      type="button"
+      <use
+        xlinkHref="#talend-sort-asc"
+      />
+    </svg>
+    <svg
+      aria-hidden="true"
+      className="theme-tc-svg-icon tc-svg-icon tc-resource-picker-order-indicator theme-tc-resource-picker-order-indicator theme-asc"
+      focusable="false"
+      name="talend-caret-down"
+      title={null}
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
-        name="talend-sort-asc"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-sort-asc"
-        />
-      </svg>
-    </button>
-  </div>
+      <use
+        xlinkHref="#talend-caret-down"
+      />
+    </svg>
+  </button>
 </ul>
 `;
 
@@ -243,56 +207,38 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
   >
     Id
   </li>
-  <div
-    className="theme-tc-display-mode-toggle tc-display-mode-toggle"
+  <button
+    aria-label="Change sort order. Current order: Ascending."
+    className="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser btn"
+    disabled={false}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseOver={[Function]}
+    type="button"
   >
-    <button
-      aria-label="Descending"
-      aria-pressed={false}
-      className="tc-icon-toggle theme-tc-icon-toggle btn"
-      disabled={false}
-      id="undefined-icon-descending"
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseOver={[Function]}
-      type="button"
+    <svg
+      aria-hidden="true"
+      className="theme-tc-svg-icon tc-svg-icon"
+      focusable="false"
+      name="talend-sort-asc"
+      title={null}
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
-        name="talend-sort-desc"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-sort-desc"
-        />
-      </svg>
-    </button>
-    <button
-      aria-label="Ascending"
-      aria-pressed={true}
-      className="tc-icon-toggle theme-tc-icon-toggle theme-active active btn"
-      disabled={true}
-      id="undefined-icon-ascending"
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseOver={[Function]}
-      type="button"
+      <use
+        xlinkHref="#talend-sort-asc"
+      />
+    </svg>
+    <svg
+      aria-hidden="true"
+      className="theme-tc-svg-icon tc-svg-icon tc-resource-picker-order-indicator theme-tc-resource-picker-order-indicator theme-asc"
+      focusable="false"
+      name="talend-caret-down"
+      title={null}
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
-        name="talend-sort-asc"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-sort-asc"
-        />
-      </svg>
-    </button>
-  </div>
+      <use
+        xlinkHref="#talend-caret-down"
+      />
+    </svg>
+  </button>
 </ul>
 `;
 
