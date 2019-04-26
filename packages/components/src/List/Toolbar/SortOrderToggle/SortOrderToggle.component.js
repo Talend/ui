@@ -36,7 +36,7 @@ function SortOrderToggle({ id, onChange, isDescending, t }) {
 		},
 	];
 	return (<IconsToggle
-		id={`${id}-display-mode-toggle`}
+		id={`${id}-icon`}
 		selected={isDescending ? 'descending' : 'ascending'}
 		options={options}
 		onChange={onChange}

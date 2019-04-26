@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import SelectSortBy from './SelectSortBy.component';
 
@@ -88,7 +88,9 @@ describe('SelectSortBy', () => {
 
 		// when
 		const wrapper = shallow(<SelectSortBy {...props} />);
-		wrapper.find('#toolbar-sort-order').simulate('click', event);
+
+		wrapper.find('button').at(0)
+			.simulate('click', event);
 
 		// then
 		expect(props.onChange).toBeCalledWith(event, {

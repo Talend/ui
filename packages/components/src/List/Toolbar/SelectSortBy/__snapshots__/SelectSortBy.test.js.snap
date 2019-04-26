@@ -2,7 +2,7 @@
 
 exports[`SelectSortBy should render 1`] = `
 <ul
-  className="theme-tc-list-toolbar-sort-by nav"
+  className="theme-tc-list-toolbar-sort-by separated nav"
   role={null}
 >
   <li
@@ -62,26 +62,62 @@ exports[`SelectSortBy should render 1`] = `
       </li>
     </ul>
   </li>
-  <li
-    className=""
-    role="presentation"
+  <div
+    className="theme-tc-display-mode-toggle tc-display-mode-toggle"
   >
-    <a
-      aria-label="Change sort order. Current order: Ascending."
-      href="#"
+    <button
+      aria-label="Descending"
+      aria-pressed={false}
+      className="tc-icon-toggle theme-tc-icon-toggle btn"
+      disabled={false}
+      id="undefined-icon-descending"
       onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
+      onFocus={[Function]}
+      onMouseOver={[Function]}
+      type="button"
     >
-      Ascending
-    </a>
-  </li>
+      <svg
+        aria-hidden="true"
+        className="theme-tc-svg-icon tc-svg-icon"
+        focusable="false"
+        name="talend-sort-desc"
+        title={null}
+      >
+        <use
+          xlinkHref="#talend-sort-desc"
+        />
+      </svg>
+    </button>
+    <button
+      aria-label="Ascending"
+      aria-pressed={true}
+      className="tc-icon-toggle theme-tc-icon-toggle theme-active active btn"
+      disabled={true}
+      id="undefined-icon-ascending"
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseOver={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="theme-tc-svg-icon tc-svg-icon"
+        focusable="false"
+        name="talend-sort-asc"
+        title={null}
+      >
+        <use
+          xlinkHref="#talend-sort-asc"
+        />
+      </svg>
+    </button>
+  </div>
 </ul>
 `;
 
 exports[`SelectSortBy should render id if provided 1`] = `
 <ul
-  className="theme-tc-list-toolbar-sort-by nav"
+  className="theme-tc-list-toolbar-sort-by separated nav"
   role={null}
 >
   <li
@@ -143,27 +179,62 @@ exports[`SelectSortBy should render id if provided 1`] = `
       </li>
     </ul>
   </li>
-  <li
-    className=""
-    role="presentation"
+  <div
+    className="theme-tc-display-mode-toggle tc-display-mode-toggle"
   >
-    <a
-      aria-label="Change sort order. Current order: Ascending."
-      href="#"
-      id="toolbar-sort-order"
+    <button
+      aria-label="Descending"
+      aria-pressed={false}
+      className="tc-icon-toggle theme-tc-icon-toggle btn"
+      disabled={false}
+      id="toolbar-sort-order-icon-descending"
       onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
+      onFocus={[Function]}
+      onMouseOver={[Function]}
+      type="button"
     >
-      Ascending
-    </a>
-  </li>
+      <svg
+        aria-hidden="true"
+        className="theme-tc-svg-icon tc-svg-icon"
+        focusable="false"
+        name="talend-sort-desc"
+        title={null}
+      >
+        <use
+          xlinkHref="#talend-sort-desc"
+        />
+      </svg>
+    </button>
+    <button
+      aria-label="Ascending"
+      aria-pressed={true}
+      className="tc-icon-toggle theme-tc-icon-toggle theme-active active btn"
+      disabled={true}
+      id="toolbar-sort-order-icon-ascending"
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseOver={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="theme-tc-svg-icon tc-svg-icon"
+        focusable="false"
+        name="talend-sort-asc"
+        title={null}
+      >
+        <use
+          xlinkHref="#talend-sort-asc"
+        />
+      </svg>
+    </button>
+  </div>
 </ul>
 `;
 
 exports[`SelectSortBy should render with no dropdown 1`] = `
 <ul
-  className="theme-tc-list-toolbar-sort-by nav"
+  className="theme-tc-list-toolbar-sort-by separated nav"
   role={null}
 >
   <li
@@ -172,26 +243,62 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
   >
     Id
   </li>
-  <li
-    className=""
-    role="presentation"
+  <div
+    className="theme-tc-display-mode-toggle tc-display-mode-toggle"
   >
-    <a
-      aria-label="Change sort order. Current order: Ascending."
-      href="#"
+    <button
+      aria-label="Descending"
+      aria-pressed={false}
+      className="tc-icon-toggle theme-tc-icon-toggle btn"
+      disabled={false}
+      id="undefined-icon-descending"
       onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
+      onFocus={[Function]}
+      onMouseOver={[Function]}
+      type="button"
     >
-      Ascending
-    </a>
-  </li>
+      <svg
+        aria-hidden="true"
+        className="theme-tc-svg-icon tc-svg-icon"
+        focusable="false"
+        name="talend-sort-desc"
+        title={null}
+      >
+        <use
+          xlinkHref="#talend-sort-desc"
+        />
+      </svg>
+    </button>
+    <button
+      aria-label="Ascending"
+      aria-pressed={true}
+      className="tc-icon-toggle theme-tc-icon-toggle theme-active active btn"
+      disabled={true}
+      id="undefined-icon-ascending"
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseOver={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="theme-tc-svg-icon tc-svg-icon"
+        focusable="false"
+        name="talend-sort-asc"
+        title={null}
+      >
+        <use
+          xlinkHref="#talend-sort-asc"
+        />
+      </svg>
+    </button>
+  </div>
 </ul>
 `;
 
 exports[`SelectSortBy should render without field selected 1`] = `
 <ul
-  className="theme-tc-list-toolbar-sort-by nav"
+  className="theme-tc-list-toolbar-sort-by separated nav"
   role={null}
 >
   <li
