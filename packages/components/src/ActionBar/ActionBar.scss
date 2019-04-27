@@ -47,7 +47,7 @@ $tc-action-bar-display-color: $silver !default;
 				&:global(.select-sort-by) {
 
 					&:before {
-						content: "";
+						content: '';
 						margin-left: $padding-normal;
 					}
 
@@ -55,10 +55,6 @@ $tc-action-bar-display-color: $silver !default;
 						margin-bottom: $padding-normal;
 						font-weight: 400;
 						color: $tc-action-bar-display-color;
-					}
-
-					ul > li:last-child {
-						margin-right: $padding-normal;
 					}
 				}
 			}
@@ -79,7 +75,6 @@ $tc-action-bar-display-color: $silver !default;
 
 	:global(.navbar-text),
 	:global(.navbar-link) {
-		color: $tc-action-bar-display-color;
 		margin: $padding-normal $padding-larger $padding-small 0;
 	}
 
@@ -90,15 +85,6 @@ $tc-action-bar-display-color: $silver !default;
 
 		button {
 			margin: 0;
-		}
-	}
-
-	:global(.nav) {
-		a[role='menuitem'],
-		a:global(.dropdown-toggle) {
-			color: $black;
-			text-transform: capitalize;
-			font-weight: normal;
 		}
 	}
 

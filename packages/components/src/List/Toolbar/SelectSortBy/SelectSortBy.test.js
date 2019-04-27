@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import SelectSortBy from './SelectSortBy.component';
 

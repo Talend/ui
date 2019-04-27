@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Nav, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
 
 import getDefaultT from '../../../translate';
@@ -85,7 +85,7 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 					)}
 				</NavDropdown>
 			)}
-			{selected && (<li>
+			{selected && (<NavItem>
 				<OrderChooser
 					icon={ICONS[isDescending ? ORDERS.DESC : ORDERS.ASC]}
 					asc={!isDescending}
@@ -95,7 +95,7 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 					})}
 					onClick={onChangeOrder}
 				/>
-			</li>)}
+			</NavItem>)}
 		</Nav>
 	);
 }

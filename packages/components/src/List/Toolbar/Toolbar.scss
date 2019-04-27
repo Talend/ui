@@ -27,11 +27,12 @@ $tc-list-toolbar-background-color: $concrete !default;
 		}
 	}
 
-	:global(.navbar-nav) {
+	:global(.nav) {
 		a[role="menuitem"],
 		a:global(.dropdown-toggle) {
 			color: $black;
 			text-transform: capitalize;
+			font-weight: normal;
 		}
 	}
 }
