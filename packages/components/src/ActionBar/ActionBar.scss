@@ -53,8 +53,12 @@ $tc-action-bar-display-color: $silver !default;
 
 					:global(.navbar-text) {
 						margin-bottom: $padding-normal;
-						font-weight: 400;
-						color: $tc-action-bar-display-color;
+						font-weight: normal;
+						color: $gray;
+					}
+
+					a:hover {
+						background-color: $tc-action-bar-background-color;
 					}
 				}
 			}
