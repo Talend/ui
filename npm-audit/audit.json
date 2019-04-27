@@ -1389,7 +1389,7 @@ SEMVER WARNING: Recommended action is a potentially breaking change
 [90m├───────────────[39m[90m┼──────────────────────────────────────────────────────────────┤[39m
 [90m│[39m More info     [90m│[39m https://npmjs.com/advisories/786                             [90m│[39m
 [90m└───────────────[39m[90m┴──────────────────────────────────────────────────────────────┘[39m
-found 100 vulnerabilities (27 low, 19 moderate, 54 high) in 276641 scanned packages
-  run `npm audit fix` to fix 91 of them.
+found 94 vulnerabilities (27 low, 16 moderate, 51 high) in 276241 scanned packages
+  run `npm audit fix` to fix 85 of them.
   8 vulnerabilities require semver-major dependency updates.
   1 vulnerability requires manual review. See the full report for details.
