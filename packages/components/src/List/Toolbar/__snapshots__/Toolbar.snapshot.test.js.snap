@@ -2,7 +2,7 @@
 
 exports[`Toolbar should render actions toolbar 1`] = `
 <div
-  className="tc-list-toolbar"
+  className="theme-tc-list-toolbar tc-list-toolbar"
 >
   <div
     className="theme-tc-actionbar-container tc-actionbar-container nav"
@@ -37,15 +37,17 @@ exports[`Toolbar should render actions toolbar 1`] = `
       </button>
     </div>
     <div
-      className="action-groups theme-navbar-right navbar-right"
-    />
+      className="theme-navbar-right navbar-right"
+    >
+      <ul />
+    </div>
   </div>
 </div>
 `;
 
 exports[`Toolbar should render actions toolbar with selected items 1`] = `
 <div
-  className="tc-list-toolbar"
+  className="theme-tc-list-toolbar tc-list-toolbar"
 >
   <div
     className="theme-tc-actionbar-container tc-actionbar-container nav"
@@ -85,44 +87,46 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
       </button>
     </div>
     <div
-      className="action-groups theme-navbar-right navbar-right"
-    />
+      className="theme-navbar-right navbar-right"
+    >
+      <ul />
+    </div>
   </div>
 </div>
 `;
 
 exports[`Toolbar should render display mode selector 1`] = `
 <div
-  className="tc-list-toolbar"
+  className="theme-tc-list-toolbar tc-list-toolbar"
 />
 `;
 
 exports[`Toolbar should render empty toolbar 1`] = `
 <div
-  className="tc-list-toolbar"
+  className="theme-tc-list-toolbar tc-list-toolbar"
 />
 `;
 
 exports[`Toolbar should render filter form 1`] = `
 <div
-  className="tc-list-toolbar"
+  className="theme-tc-list-toolbar tc-list-toolbar"
 />
 `;
 
 exports[`Toolbar should render pagination 1`] = `
 <div
-  className="tc-list-toolbar"
+  className="theme-tc-list-toolbar tc-list-toolbar"
 />
 `;
 
 exports[`Toolbar should render select all checkbox 1`] = `
 <div
-  className="tc-list-toolbar"
+  className="theme-tc-list-toolbar tc-list-toolbar"
 />
 `;
 
 exports[`Toolbar should render sort selector 1`] = `
 <div
-  className="tc-list-toolbar"
+  className="theme-tc-list-toolbar tc-list-toolbar"
 />
 `;

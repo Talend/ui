@@ -647,7 +647,7 @@ exports[`List should render 1`] = `
           tReady={false}
         >
           <div
-            className="tc-list-toolbar"
+            className="theme-tc-list-toolbar tc-list-toolbar"
           />
         </Toolbar>
       </I18n>
@@ -1258,7 +1258,7 @@ exports[`List should render id if provided 1`] = `
           tReady={false}
         >
           <div
-            className="tc-list-toolbar"
+            className="theme-tc-list-toolbar tc-list-toolbar"
           />
         </Toolbar>
       </I18n>
