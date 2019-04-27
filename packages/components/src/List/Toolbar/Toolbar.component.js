@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import omit from 'lodash/omit';
 import { translate } from 'react-i18next';
+import classNames from 'classnames';
 
 import SelectAll from './SelectAll';
 import SelectDisplayMode from './SelectDisplayMode';
@@ -82,36 +83,43 @@ function Toolbar({
 	const showSort = sort && display && display.mode === 'large';
 
 	return (
-		<div className="tc-list-toolbar">
+		<div className={classNames(theme['tc-list-toolbar'], 'tc-list-toolbar')}>
 			{injected('before-actionbar')}
 			{actionBar && (
 				<Renderer.ActionBar {...actionBarProps}>
-					<ActionBar.Content right className="action-groups">
-						{injected('before-filter')}
-						{filter && (
-							<Renderer.FilterBar
-								id={id && `${id}-filter`}
-								{...filter}
-								t={t}
-								navbar
-								className="separated"
-							/>
-						)}
-						{injected('after-filter')}
-						{injected('before-sort')}
-						{showSort && (
-							<Label
-								text={t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}
-								htmlFor={id && `${id}-sort-by`}
-							/>
-						)}
-						{showSort && (
-							<SelectSortBy id={id && `${id}-sort`} {...sort} t={t} className="separated" />
-						)}
-						{injected('after-sort')}
-						{injected('before-displaymode')}
-						{display && <DisplayModeToggle id={displayModeId} {...display} t={t} />}
-						{injected('after-displaymode')}
+					<ActionBar.Content right>
+						<ul>
+							{injected('before-filter')}
+							{filter && (
+								<li className="separated">
+									<Renderer.FilterBar
+										id={id && `${id}-filter`}
+										{...filter}
+										t={t}
+										navbar
+									/>
+								</li>
+							)}
+							{injected('after-filter')}
+							{injected('before-sort')}
+							{showSort && (
+								<li className="select-sort-by separated">
+									<Label
+										text={t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}
+										htmlFor={id && `${id}-sort-by`}
+									/>
+									<SelectSortBy id={id && `${id}-sort`} {...sort} t={t} />
+								</li>
+							)}
+							{injected('after-sort')}
+							{injected('before-displaymode')}
+							{display && (
+								<li className="separated">
+									<DisplayModeToggle id={displayModeId} {...display} t={t} />
+								</li>)
+							}
+							{injected('after-displaymode')}
+						</ul>
 					</ActionBar.Content>
 				</Renderer.ActionBar>
 			)}

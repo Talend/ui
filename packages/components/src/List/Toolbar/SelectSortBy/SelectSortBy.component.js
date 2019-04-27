@@ -61,7 +61,7 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 		? t('LIST_SELECT_SORT_BY_ORDER_DESC', { defaultValue: 'Descending' })
 		: t('LIST_SELECT_SORT_BY_ORDER_ASC', { defaultValue: 'Ascending' });
 	return (
-		<Nav className={`${theme['tc-list-toolbar-sort-by']} separated`}>
+		<Nav className={theme['tc-list-toolbar-sort-by']}>
 			{options.length === 1 ? (
 				<li className="navbar-text">{options[0].name}</li>
 			) : (
@@ -85,7 +85,7 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 					)}
 				</NavDropdown>
 			)}
-			{selected && (
+			{selected && (<li>
 				<OrderChooser
 					icon={ICONS[isDescending ? ORDERS.DESC : ORDERS.ASC]}
 					asc={!isDescending}
@@ -95,7 +95,7 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 					})}
 					onClick={onChangeOrder}
 				/>
-			)}
+			</li>)}
 		</Nav>
 	);
 }
