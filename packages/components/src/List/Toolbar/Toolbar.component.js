@@ -92,12 +92,7 @@ function Toolbar({
 							{injected('before-filter')}
 							{filter && (
 								<li className="separated">
-									<Renderer.FilterBar
-										id={id && `${id}-filter`}
-										{...filter}
-										t={t}
-										navbar
-									/>
+									<Renderer.FilterBar id={id && `${id}-filter`} {...filter} t={t} navbar />
 								</li>
 							)}
 							{injected('after-filter')}
@@ -116,8 +111,8 @@ function Toolbar({
 							{display && (
 								<li className="separated">
 									<DisplayModeToggle id={displayModeId} {...display} t={t} />
-								</li>)
-							}
+								</li>
+							)}
 							{injected('after-displaymode')}
 						</ul>
 					</ActionBar.Content>

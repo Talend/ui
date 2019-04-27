@@ -33,7 +33,7 @@ $tc-list-toolbar-height: 70px !default;
 	}
 
 	:global(.nav) {
-		a[role="menuitem"],
+		a[role='menuitem'],
 		a:global(.dropdown-toggle) {
 			color: $black;
 			text-transform: capitalize;

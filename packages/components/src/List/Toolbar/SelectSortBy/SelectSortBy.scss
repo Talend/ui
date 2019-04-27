@@ -14,7 +14,7 @@ $tc-list-toolbar-display-color: $dove-gray !default;
 	}
 
 	&:global(.navbar-nav) li {
-		a[role="menuitem"],
+		a[role='menuitem'],
 		a:global(.dropdown-toggle) {
 			text-transform: lowercase;
 			display: inline-block;

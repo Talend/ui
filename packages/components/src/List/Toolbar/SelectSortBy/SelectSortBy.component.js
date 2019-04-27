@@ -85,17 +85,19 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 					)}
 				</NavDropdown>
 			)}
-			{selected && (<NavItem>
-				<OrderChooser
-					icon={ICONS[isDescending ? ORDERS.DESC : ORDERS.ASC]}
-					asc={!isDescending}
-					label={t('LIST_CHANGE_SORT_BY_ORDER', {
-						defaultValue: 'Change sort order. Current order: {{sortOrder}}.',
-						sortOrder: currentSortOrderLabel,
-					})}
-					onClick={onChangeOrder}
-				/>
-			</NavItem>)}
+			{selected && (
+				<NavItem>
+					<OrderChooser
+						icon={ICONS[isDescending ? ORDERS.DESC : ORDERS.ASC]}
+						asc={!isDescending}
+						label={t('LIST_CHANGE_SORT_BY_ORDER', {
+							defaultValue: 'Change sort order. Current order: {{sortOrder}}.',
+							sortOrder: currentSortOrderLabel,
+						})}
+						onClick={onChangeOrder}
+					/>
+				</NavItem>
+			)}
 		</Nav>
 	);
 }
