@@ -282,11 +282,6 @@ const props = {
 			onChange: action('sort.onChange'),
 			options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name With Multiple Words' }],
 		},
-		pagination: {
-			itemsPerPage: 5,
-			totalResults: 10,
-			onChange: action('pagination.onChange'),
-		},
 		filter: {
 			docked: true,
 			onBlur: action('filter.onBlur'),
@@ -657,9 +652,10 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>
 				For table view, user toggle column header to select/disselect all items.
-				<br />
-				When List displayed in large view, there's a one-line checkbox of "Select All" above the list.
-				<br />
+					<br />
+				When List displayed in large view,
+				there's a one-line checkbox of "Select All" above the list.
+					<br />
 				</p>
 				<List {...selectedItemsProps} rowHeight={140} displayMode="large" />
 			</div>
@@ -688,9 +684,9 @@ storiesOf('List', module)
 					<br />
 				</pre>
 				<h2>Table</h2>
-				<List {...selectedItemsProps} />
+				<List {...selectedItemsProps} displayMode="table" />
 				<h2>Large</h2>
-				<List {...selectedItemsProps} rowHeight={140} displayMode="large" />
+				<List {...cloneDeep(selectedItemsProps)} rowHeight={140} displayMode="large" />
 			</div>
 		);
 	})

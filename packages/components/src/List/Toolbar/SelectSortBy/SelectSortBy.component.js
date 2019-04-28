@@ -88,6 +88,7 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 			{selected && (
 				<NavItem>
 					<OrderChooser
+						id={id ? `${id}-order` : 'tc-list-toolbar-sort-order'}
 						icon={ICONS[isDescending ? ORDERS.DESC : ORDERS.ASC]}
 						asc={!isDescending}
 						label={t('LIST_CHANGE_SORT_BY_ORDER', {
