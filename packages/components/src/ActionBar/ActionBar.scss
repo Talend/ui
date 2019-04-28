@@ -1,11 +1,9 @@
 $tc-action-bar-background-color: $concrete !default;
 $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
-$tc-action-bar-display-color: $silver !default;
 
 .tc-actionbar-container {
 	padding: 0 $padding-small;
 	background: $tc-action-bar-background-color;
-	border-bottom: solid 1px $gallery;
 	width: 100%;
 	display: flex;
 

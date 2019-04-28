@@ -4,9 +4,6 @@ $tc-list-toolbar-background-color: $wild-sand !default;
 $tc-list-toolbar-height: 70px !default;
 
 .tc-list-toolbar {
-	display: flex;
-	align-items: center;
-	height: $tc-list-toolbar-height;
 	background: $tc-list-toolbar-background-color;
 	border-top: 1px solid $alto;
 	border-bottom: 1px solid $alto;
@@ -44,7 +41,7 @@ $tc-list-toolbar-height: 70px !default;
 	:global(.tc-actionbar-container) {
 		background-color: $tc-list-toolbar-background-color;
 		padding-right: 0;
-		border: none;
+		height: $tc-list-toolbar-height;
 
 		:global(.navbar-left),
 		:global(.navbar-right) {
