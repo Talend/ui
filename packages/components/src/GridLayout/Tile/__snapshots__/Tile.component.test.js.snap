@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Grid tiles should compute tile 1`] = `
-<div
-  className="theme-tc-tile-container tc-tile-container"
->
-  my container
-</div>
+<Tile>
+  <div
+    className="theme-tc-tile-container tc-tile-container"
+  >
+    my container
+  </div>
+</Tile>
 `;
