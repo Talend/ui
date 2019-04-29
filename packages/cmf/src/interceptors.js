@@ -1,5 +1,14 @@
 /* eslint-disable no-console */
+/* eslint-disable no-underscore-dangle */
 const interceptors = [];
+
+/**
+ * @private
+ * this function remove all interceptors. Should be used only in tests.
+ */
+function _clear() {
+	interceptors.length = 0;
+}
 
 /**
  * @private
@@ -124,4 +133,5 @@ export default {
 	push,
 	onRequest,
 	onResponse,
+	_clear,
 };

@@ -177,7 +177,6 @@ export function handleResponse(response) {
  */
 function getOnError(dispatch, httpAction) {
 	return function onHTTPError(error) {
-		interceptors.onError(error);
 		const errorObject = {
 			name: error.name,
 			message: error.description || error.message,
