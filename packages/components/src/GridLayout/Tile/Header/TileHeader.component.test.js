@@ -10,7 +10,7 @@ describe('Tile Header', () => {
 		const wrapper = shallow(
 			<Tile.Header>
 				<span>Test</span>
-			</Tile.Header>
+			</Tile.Header>,
 		);
 
 		// then

@@ -6,7 +6,7 @@ import Tile from './Tile/Tile.component';
 const ResponsiveGridLayout = WidthProvider(Responsive);
 const MARGIN = 20;
 
-const cols= {
+const cols = {
 	xs: 2,
 	s: 4,
 	m: 6,
@@ -15,15 +15,19 @@ const cols= {
 };
 
 const breakpoints = {
-	xs: 479, s: 768, m: 1024, l: 1366, xl: 1680,
+	xs: 479,
+	s: 768,
+	m: 1024,
+	l: 1366,
+	xl: 1680,
 };
 
 function onLayoutChange(layoutChangeCallback) {
-	return (layout) => {
+	return layout => {
 		if (layoutChangeCallback) {
 			layoutChangeCallback(layout);
 		}
-	}
+	};
 }
 
 function onBreakpointChange(onBreakpointChangeCallback) {
@@ -32,7 +36,7 @@ function onBreakpointChange(onBreakpointChangeCallback) {
 		if (onBreakpointChangeCallback) {
 			onBreakpointChangeCallback(breakpoint, cols);
 		}
-	}
+	};
 }
 
 function Grid({ children, layoutChangeCallback, onBreakpointChangeCallback }) {
@@ -47,8 +51,9 @@ function Grid({ children, layoutChangeCallback, onBreakpointChangeCallback }) {
 			margin={[MARGIN, MARGIN]}
 			compactType="vertical"
 			verticalCompact={false}
-			preventCollision={true}>
-			{ children }
+			preventCollision={true}
+		>
+			{children}
 		</ResponsiveGridLayout>
 	);
 }

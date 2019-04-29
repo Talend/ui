@@ -5,11 +5,7 @@ import theme from '../Tile.scss';
 import { useTileContext } from '../context';
 
 function Body(props) {
-	return (
-		<div className={classnames(theme['tc-tile-body'], 'tc-tile-body')}>
-			{ props.children }
-		</div>
-	);
+	return <div className={classnames(theme['tc-tile-body'], 'tc-tile-body')}>{props.children}</div>;
 }
 
 Body.propTypes = {

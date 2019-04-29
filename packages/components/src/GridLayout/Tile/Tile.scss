@@ -1,18 +1,18 @@
 .tc-tile-container {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
 
-  .tc-tile-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: $padding-normal;
-  }
+	.tc-tile-body {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		padding: $padding-normal;
+	}
 
-  .tc-tile-footer {
-    padding-right: 15px;
-    text-align: right;
-    padding-bottom: 10px;
-  }
+	.tc-tile-footer {
+		padding-right: 15px;
+		text-align: right;
+		padding-bottom: 10px;
+	}
 }

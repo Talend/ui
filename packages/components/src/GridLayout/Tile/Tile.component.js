@@ -14,7 +14,7 @@ function Tile(props) {
 	return (
 		<TileContext.Provider value={contextValues}>
 			<div className={classnames(theme['tc-tile-container'], 'tc-tile-container')}>
-				{ props.children }
+				{props.children}
 			</div>
 		</TileContext.Provider>
 	);

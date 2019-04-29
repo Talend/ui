@@ -6,11 +6,7 @@ describe('Grid tiles', () => {
 	it('should compute tile', () => {
 		// given
 		// when
-		const wrapper = mount(
-			<Tile.Container>
-				my container
-			</Tile.Container>
-		);
+		const wrapper = mount(<Tile.Container>my container</Tile.Container>);
 
 		// then
 		expect(wrapper.find('Tile').getElement()).toMatchSnapshot();

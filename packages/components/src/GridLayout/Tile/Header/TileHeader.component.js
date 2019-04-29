@@ -6,9 +6,7 @@ import { useTileContext } from '../context';
 
 function Header(props) {
 	return (
-		<div className={classnames(theme['tc-tile-header'], 'tc-tile-header')}>
-			{ props.children }
-		</div>
+		<div className={classnames(theme['tc-tile-header'], 'tc-tile-header')}>{props.children}</div>
 	);
 }
 
