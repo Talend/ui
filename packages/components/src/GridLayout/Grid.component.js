@@ -7,26 +7,29 @@ const ResponsiveGridLayout = WidthProvider(Responsive);
 const MARGIN = 20;
 
 const cols= {
-	md: 6,
-	m: 8,
-	lg: 12,
+	s: 2,
+	m: 4,
+	l: 6,
+	xl: 10,
 };
 
 const breakpoints = {
-	lg: 1365, m: 1000, md: 758,
+	s: 768, m: 1024, l: 1366, xl: 1680,
 };
 
 function onLayoutChange(layoutChangeCallback) {
 	return (layout) => {
-		layoutChangeCallback(layout)
+		if (layoutChangeCallback) {
+			layoutChangeCallback(layout);
+		}
 	}
 }
 
-// We're using the cols coming back from this to calculate where to add new items.
 function onBreakpointChange(onBreakpointChangeCallback) {
 	return (breakpoint, cols) => {
-		console.log('on breakpoint change');
-		onBreakpointChangeCallback(breakpoint, cols);
+		if (onBreakpointChangeCallback) {
+			onBreakpointChangeCallback(breakpoint, cols);
+		}
 	}
 }
 

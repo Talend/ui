@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 
 import ActionIconToggle from '../src/Actions/ActionIconToggle';
@@ -54,33 +53,7 @@ function TdsTileContent() {
 	}
 }
 
-function renderFooter(tab) {
-	const myAction = {
-		label: 'Click me',
-		icon: 'talend-dataprep',
-		'data-feature': 'action',
-		onClick: action('You clicked me'),
-	};
-	switch (tab) {
-	case 'filter': {
-		return  <Action { ...myAction} />;
-	}
-	case 'chart':
-	default:
-		return null;
-	}
-}
-
-function renderActions(actions) {
-	if (actions && actions.length) {
-		return actions.map(action => (
-			<ActionIconToggle {...action} />
-		));
-	}
-	return null;
-}
-
-function ViewSelector(props) {
+function ViewSelector() {
 	const { displayMode, setDisplayMode } = useTileContext();
 
 	const addItemAction = {
@@ -115,7 +88,6 @@ function ViewSelector(props) {
 }
 
 function ChartTile({ tile }) {
-	const [tab, setTab] = useState('chart');
 	// tile.header.actions construct the action depending of the tile header props
 
 	return (
@@ -131,9 +103,6 @@ function ChartTile({ tile }) {
 			<Tile.Body>
 				<TdsTileContent />
 			</Tile.Body>
-			<Tile.Footer>
-				{ renderFooter(tab) }
-			</Tile.Footer>
 		</Tile.Container>
 	);
 }
