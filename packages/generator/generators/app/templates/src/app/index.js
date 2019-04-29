@@ -1,3 +1,4 @@
+import 'focus-visible';
 import cmf from '@talend/react-cmf';
 import modules from './services/modules';
 import App from './components/App';

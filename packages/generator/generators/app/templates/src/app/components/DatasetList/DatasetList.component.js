@@ -1,14 +1,13 @@
 import React, { useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { translate } from 'react-i18next';
 import Loader from '@talend/react-components/lib/Loader';
 import VirtualizedList from '@talend/react-components/lib/VirtualizedList';
 import CellTitle from '@talend/react-components/lib/VirtualizedList/CellTitle';
 
-import DatasetService from '../../services/dataset';
 import theme from './DatasetList.scss';
 
-function DatasetList({ datasets, fetchDatasets, isFetching, removeDataset }) {
+function DatasetList({ datasets, fetchDatasets, isFetching, removeDataset, t }) {
 	useEffect(fetchDatasets, []);
 	const collection = useMemo(
 		() => {
@@ -35,7 +34,7 @@ function DatasetList({ datasets, fetchDatasets, isFetching, removeDataset }) {
 
 	return (
 		<React.Fragment>
-			<h1>Dataset list</h1>
+			<h1>{t('DATASETS_LIST', { defaultValue: 'Datasets list' })}</h1>
 			<div className={theme['dataset-list']}>
 				<VirtualizedList collection={collection} id="dataset-list">
 					<VirtualizedList.Content label="Id" dataKey="id" width={-1} />
@@ -60,19 +59,4 @@ DatasetList.propTypes = {
 	removeDataset: PropTypes.func.isRequired,
 };
 
-function mapStateToProps(state) {
-	return {
-		datasets: DatasetService.selectors.getDatasets(state),
-		isFetching: DatasetService.selectors.getIsFetching(state),
-	};
-}
-
-const mapDispatchToProps = {
-	fetchDatasets: DatasetService.actionCreators.fetchDatasets,
-	removeDataset: DatasetService.actionCreators.removeDataset,
-};
-
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps,
-)(DatasetList);
+export default translate()(DatasetList);
