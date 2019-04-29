@@ -10,8 +10,7 @@ const cols = {
 	xs: 2,
 	s: 4,
 	m: 6,
-	l: 8,
-	xl: 10,
+	l: 10
 };
 
 const breakpoints = {
@@ -19,7 +18,6 @@ const breakpoints = {
 	s: 768,
 	m: 1024,
 	l: 1366,
-	xl: 1680,
 };
 
 function onLayoutChange(layoutChangeCallback) {
