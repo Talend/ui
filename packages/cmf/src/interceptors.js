@@ -1,20 +1,38 @@
 /* eslint-disable no-console */
 const interceptors = [];
 
-function isInterceptor(obj) {
-	if (!obj) {
+/**
+ * @private
+ * isInterceptor do some check on the interceptor: -
+ * - must be an Object
+ * - must have either 'request' or 'response' attribute
+ * - interceptor.request must be a function
+ * - interceptor.response must be a function
+ * - interceptor.requestError must be a function
+ * - interceptor.responseError must be a function
+ * @param {object} interceptor to check
+ * @return {boolean} true if interceptor is compliant with requirements
+ */
+function isInterceptor(interceptor) {
+	if (!interceptor) {
 		return false;
 	}
-	if (typeof obj !== 'object') {
+	if (typeof interceptor !== 'object') {
 		return false;
 	}
-	if (!obj.request && !obj.response) {
+	if (!interceptor.request && !interceptor.response) {
 		return false;
 	}
-	if (obj.request && typeof obj.request !== 'function') {
+	if (interceptor.request && typeof interceptor.request !== 'function') {
 		return false;
 	}
-	if (obj.response && typeof obj.response !== 'function') {
+	if (interceptor.response && typeof interceptor.response !== 'function') {
+		return false;
+	}
+	if (interceptor.requestError && typeof interceptor.requestError !== 'function') {
+		return false;
+	}
+	if (interceptor.responseError && typeof interceptor.responseError !== 'function') {
 		return false;
 	}
 	return true;
@@ -28,12 +46,28 @@ function isInterceptor(obj) {
  */
 function push(interceptor) {
 	if (isInterceptor(interceptor)) {
-		interceptors.push(interceptor);
+		interceptors.push(
+			Object.assign(
+				{
+					// add default error handler
+					requestError: error => console.error(error),
+					responseError: error => console.error(error),
+				},
+				interceptor,
+			),
+		);
 	} else {
 		console.error('CMF.interceptors.push not a valid interceptor', interceptor);
 	}
 }
 
+/**
+ * @private
+ * consume interceptors attribute passing argument to it
+ * @param {Array} interceptors copy of it
+ * @param {string} attr the attribute of interceptor to use. one of ['request', 'response']
+ * @param {Object} argument the data to pass to each interceptor
+ */
 function consume(arr, attr, argument) {
 	if (arr.length === 0) {
 		return argument;
@@ -46,9 +80,26 @@ function consume(arr, attr, argument) {
 	if (result.then) {
 		return result
 			.then(newConfig => consume(arr, attr, newConfig))
-			.catch(error => console.error(error));
+			.catch(error => pop[`${attr}Error`](error));
 	}
 	return consume(arr, attr, result);
+}
+
+/**
+ * @private
+ * onData is the common caller to interceptors
+ * @param {string} event one of ['request', 'response']
+ * @param {Object}
+ */
+function onData(event, data) {
+	const copy = interceptors.slice(0);
+	const result = consume(copy, event, data);
+	if (result.then) {
+		return result;
+	}
+	return new Promise(resolve => {
+		resolve(result);
+	});
 }
 
 /**
@@ -57,14 +108,7 @@ function consume(arr, attr, argument) {
  * @return {Promise} config object
  */
 function onRequest(config) {
-	const copy = interceptors.slice(0);
-	const result = consume(copy, 'request', config);
-	if (result.then) {
-		return result;
-	}
-	return new Promise(resolve => {
-		resolve(result);
-	});
+	return onData('request', config);
 }
 
 /**
@@ -73,14 +117,7 @@ function onRequest(config) {
  * @return {Promise} response object
  */
 function onResponse(response) {
-	const copy = interceptors.slice(0);
-	const result = consume(copy, 'response', response);
-	if (result.then) {
-		return result;
-	}
-	return new Promise(resolve => {
-		resolve(result);
-	});
+	return onData('response', response);
 }
 
 export default {
