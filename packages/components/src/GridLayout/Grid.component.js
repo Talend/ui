@@ -7,14 +7,15 @@ const ResponsiveGridLayout = WidthProvider(Responsive);
 const MARGIN = 20;
 
 const cols= {
-	s: 2,
-	m: 4,
-	l: 6,
+	xs: 2,
+	s: 4,
+	m: 6,
+	l: 8,
 	xl: 10,
 };
 
 const breakpoints = {
-	s: 768, m: 1024, l: 1366, xl: 1680,
+	xs: 479, s: 768, m: 1024, l: 1366, xl: 1680,
 };
 
 function onLayoutChange(layoutChangeCallback) {
@@ -27,6 +28,7 @@ function onLayoutChange(layoutChangeCallback) {
 
 function onBreakpointChange(onBreakpointChangeCallback) {
 	return (breakpoint, cols) => {
+		console.log(cols);
 		if (onBreakpointChangeCallback) {
 			onBreakpointChangeCallback(breakpoint, cols);
 		}
