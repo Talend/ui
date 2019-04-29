@@ -10,7 +10,7 @@ const cols = {
 	xs: 2,
 	s: 4,
 	m: 6,
-	l: 10
+	l: 10,
 };
 
 const breakpoints = {
