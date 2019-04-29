@@ -265,9 +265,8 @@ describe('CMF http middleware', () => {
 			url: 'foo',
 		};
 
-		expect(global.fetch.mock.calls[0]).toEqual(['foo', config]);
-
 		newState.then(() => {
+			expect(global.fetch.mock.calls[0]).toEqual(['foo', config]);
 			expect(next.mock.calls.length).toBe(1);
 			const newAction = next.mock.calls[0][0];
 			expect(newAction.response.foo).toBe('bar');

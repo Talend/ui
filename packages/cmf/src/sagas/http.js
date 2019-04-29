@@ -178,7 +178,7 @@ export function* wrapFetch(url, config, method = HTTP_METHODS.GET, payload, opti
 		newConfig.method,
 		newConfig.payload,
 	);
-	yield call(interceptors.onResponse(answer));
+	yield call(interceptors.onResponse, answer);
 	const silent = get(options, 'silent');
 	if (silent !== true && answer instanceof Error) {
 		yield put({

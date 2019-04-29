@@ -226,17 +226,16 @@ export const httpMiddleware = (middlewareDefaultConfig = {}) => ({
 		mergeCSRFToken(middlewareDefaultConfig),
 	])(action);
 
-	dispatch(http.onRequest(httpAction.url, config));
-	if (httpAction.onSend) {
-		dispatch({
-			type: httpAction.onSend,
-			httpAction,
-		});
-	}
-
-	return interceptors.onRequest({ ...httpAction, ...config }).then(newConfig => {
+	return interceptors.onRequest({ url: httpAction.url, ...config }).then(newConfig => {
+		dispatch(http.onRequest(newConfig.url, newConfig));
+		if (httpAction.onSend) {
+			dispatch({
+				type: httpAction.onSend,
+				httpAction,
+			});
+		}
 		const onHTTPError = getOnError(dispatch, httpAction);
-		return fetch(httpAction.url, newConfig)
+		return fetch(newConfig.url, newConfig)
 			.then(status)
 			.then(handleResponse)
 			.then(interceptors.onResponse)
