@@ -29,7 +29,6 @@ export default function ResourcePicker({ collection, isSelected, onRowClick, too
 			<div
 				className={classNames(theme['tc-resource-picker-list-container'], {
 					[theme.filtered]: isFiltered(toolbar),
-					'tc-resource-picker-list-container': true,
 				})}
 			>
 				<VirtualizedList
