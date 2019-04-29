@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import theme from './TileHeader.scss';
-import { useTileContext } from '../context';
 
 function Header(props) {
 	return (

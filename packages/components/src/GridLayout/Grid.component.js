@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Responsive, WidthProvider } from 'react-grid-layout';
+// eslint-disable-next-line no-unused-vars
 import theme from './Grid.scss';
-import Tile from './Tile/Tile.component';
+
+// eslint-disable-next-line new-cap
 const ResponsiveGridLayout = WidthProvider(Responsive);
 const MARGIN = 20;
 
-const cols = {
+const columns = {
 	xs: 2,
 	s: 4,
 	m: 6,
@@ -30,7 +32,6 @@ function onLayoutChange(layoutChangeCallback) {
 
 function onBreakpointChange(onBreakpointChangeCallback) {
 	return (breakpoint, cols) => {
-		console.log(cols);
 		if (onBreakpointChangeCallback) {
 			onBreakpointChangeCallback(breakpoint, cols);
 		}
@@ -44,12 +45,12 @@ function Grid({ children, layoutChangeCallback, onBreakpointChangeCallback }) {
 			onLayoutChange={onLayoutChange(layoutChangeCallback)}
 			onBreakpointChange={onBreakpointChange(onBreakpointChangeCallback)}
 			breakpoints={breakpoints}
-			cols={cols}
+			cols={columns}
 			measureBeforeMount={false}
 			margin={[MARGIN, MARGIN]}
 			compactType="vertical"
 			verticalCompact={false}
-			preventCollision={true}
+			preventCollision
 		>
 			{children}
 		</ResponsiveGridLayout>
@@ -57,7 +58,7 @@ function Grid({ children, layoutChangeCallback, onBreakpointChangeCallback }) {
 }
 
 Grid.propTypes = {
-	tiles: PropTypes.arrayOf(PropTypes.shape(Tile.propTypes)).required,
+	children: PropTypes.node,
 	layoutChangeCallback: PropTypes.func,
 	onBreakpointChangeCallback: PropTypes.func,
 };
