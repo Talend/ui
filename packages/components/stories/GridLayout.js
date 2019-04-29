@@ -134,6 +134,20 @@ function GridContainer() {
 			key: 'fourthTile',
 			'data-grid': {w: 2, h: 2, x: 4, y: 2, i: 'fourthTile'},
 		},
+		{
+			header: {
+				label: 'My Fifth tile\'s title',
+			},
+			key: 'fifthTile',
+			'data-grid': {w: 4, h: 2, x: 4, y: 2, i: 'fifthTile'},
+		},
+		{
+			header: {
+				label: 'My Sixth tile\'s title',
+			},
+			key: 'sixthTile',
+			'data-grid': {w: 4, h: 2, x: 4, y: 2, i: 'sixthTile'},
+		},
 	]);
 
 	function layoutChangeCallback(newlayouts) {}

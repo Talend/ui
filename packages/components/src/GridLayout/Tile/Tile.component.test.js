@@ -6,14 +6,14 @@ describe('Grid tiles', () => {
 	it('should compute tile', () => {
 		// given
 		// when
-		const wrapper = shallow(
+		const wrapper = mount(
 			<Tile.Container>
 				my container
 			</Tile.Container>
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find('Tile').getElement()).toMatchSnapshot();
 		// expect(wrapper.getElement()).toHaveLength(1);
 	});
 });

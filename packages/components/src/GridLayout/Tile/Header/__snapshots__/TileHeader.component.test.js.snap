@@ -7,17 +7,5 @@ exports[`Tile Header should render header with action on the right 1`] = `
   <span>
     Test
   </span>
-  <HeaderActions
-    actions={
-      Array [
-        Object {
-          "icon": "talend-user-circle",
-          "id": "test",
-          "label": "Add item",
-          "onClick": [MockFunction],
-        },
-      ]
-    }
-  />
 </div>
 `;
