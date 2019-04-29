@@ -85,11 +85,26 @@ function consume(arr, attr, argument) {
 	if (!pop[attr]) {
 		return consume(arr, attr, argument);
 	}
-	const result = pop[attr](argument);
-	if (result.then) {
+	let result;
+	const onError = pop[`${attr}Error`];
+	try {
+		result = pop[attr](argument);
+	} catch (error) {
+		if (onError) {
+			result = onError(error, argument);
+		} else {
+			throw error;
+		}
+	}
+	if (result && result.then) {
 		return result
 			.then(newConfig => consume(arr, attr, newConfig))
-			.catch(error => pop[`${attr}Error`](error));
+			.catch(error => {
+				if (onError) {
+					return onError(error, argument);
+				}
+				throw error;
+			});
 	}
 	return consume(arr, attr, result);
 }
