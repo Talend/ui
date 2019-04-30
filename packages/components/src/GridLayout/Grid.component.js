@@ -38,7 +38,7 @@ function onBreakpointChange(onBreakpointChangeCallback) {
 	};
 }
 
-function Grid({ children, layoutChangeCallback, onBreakpointChangeCallback }) {
+function Grid({ children, isResizable, layoutChangeCallback, onBreakpointChangeCallback }) {
 	return (
 		<ResponsiveGridLayout
 			className="layout"
@@ -50,6 +50,7 @@ function Grid({ children, layoutChangeCallback, onBreakpointChangeCallback }) {
 			margin={[MARGIN, MARGIN]}
 			compactType="vertical"
 			verticalCompact={false}
+			isResizable={isResizable}
 			preventCollision
 		>
 			{children}
