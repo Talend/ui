@@ -10,7 +10,8 @@
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "extends": "talend-scripts extends"
+    "extends": "talend-scripts extends",
+    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js'"
   },
   "repository": {
     "type": "git",
@@ -40,6 +41,7 @@
   },
   "devDependencies": {
     "@talend/scripts": "^0.19.0",
-    "enzyme": "^3.7.0"
+    "enzyme": "^3.7.0",
+    "i18next-scanner": "^2.9.1"
   }
 }

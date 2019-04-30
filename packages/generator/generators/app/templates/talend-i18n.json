@@ -1,0 +1,16 @@
+{
+  "extract": {
+    "method": "yarn",
+    "script": "extract-i18n",
+    "target": "./i18n"
+  },
+  "load": {
+    "project": "XTM_PROJECT_TO_FILL"
+  },
+  "github": {
+    "url": "https://github.com/Talend/i18n-product.git"
+  },
+  "module": {
+    "type": "npm"
+  }
+}

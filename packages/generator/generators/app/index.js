@@ -42,7 +42,7 @@ module.exports = class AppGenerator extends Generator {
 	}
 
 	writing() {
-		const fileToCopy = ['src', '.eslintrc'];
+		const fileToCopy = ['src', '.eslintrc', 'i18next-scanner.config.js', 'talend-i18n.json'];
 		const tplToCopy = ['package.json'];
 		fileToCopy.forEach(name => {
 			this.fs.copy(this.templatePath(name), this.destinationPath(name));
@@ -52,10 +52,6 @@ module.exports = class AppGenerator extends Generator {
 		});
 	}
 	install() {
-		if (this.options.yarn) {
-			this.yarnInstall();
-		} else {
-			this.npmInstall();
-		}
+		this.yarnInstall();
 	}
 };
