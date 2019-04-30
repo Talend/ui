@@ -89,7 +89,7 @@ function Toolbar({
 		<div className={theme['tc-list-toolbar']}>
 			{injected('before-actionbar')}
 			{actionBar && (
-				<Renderer.ActionBar {...actionBarProps}>
+				<Renderer.ActionBar {...actionBarProps} className="list-action-bar">
 					<ActionBar.Content right>
 						<ul>
 							{injected('before-filter')}

@@ -48,7 +48,11 @@ $tc-list-toolbar-height: 70px !default;
 			> * {
 				margin-right: $padding-normal;
 			}
+		}
+	}
 
+	:global(.list-action-bar) {
+		:global(.navbar-right) {
 			& > ul {
 				list-style: none;
 				display: flex;
