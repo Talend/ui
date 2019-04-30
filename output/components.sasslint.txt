@@ -1,27 +1,2 @@
 > sass-lint -v -q
 
-
-src/DateTimePickers/pickers/TimePicker/TimePicker.scss
-  26:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
-
-src/Drawer/Drawer.scss
-  15:4  warning  Statement must begin on a new line  brace-style
-
-src/FilterBar/FilterBar.scss
-  48:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
-
-src/List/Toolbar/SelectSortBy/SelectSortBy.scss
-  16:10  error  Strings must use single quotes  quotes
-
-src/List/Toolbar/Toolbar.scss
-  31:10  error  Strings must use single quotes  quotes
-
-src/Typeahead/Typeahead.scss
-  34:5  error  Mixins should come before declarations  mixins-before-declarations
-  91:5  error  Nesting depth 4 greater than max of 3   nesting-depth
-
-src/VirtualizedList/RowCollapsiblePanel/RowCollapsiblePanel.scss
-  2:24  error  Strings must use single quotes  quotes
-
-✖ 8 problems (6 errors, 2 warnings)
-

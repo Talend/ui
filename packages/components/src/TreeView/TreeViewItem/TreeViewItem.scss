@@ -31,8 +31,9 @@ $item-height: 4rem;
 			padding: 1rem;
 			display: inline-flex;
 			min-height: auto;
-			height: auto;
+			height: 100%;
 			margin-left: -3rem;
+			top: 0;
 
 			svg {
 				width: $svg-sm-size;

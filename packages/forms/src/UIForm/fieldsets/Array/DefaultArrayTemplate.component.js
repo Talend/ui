@@ -26,6 +26,7 @@ function DefaultArrayTemplate(props) {
 		value,
 		valueIsUpdating,
 		options = {},
+		isCloseable,
 	} = props;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
@@ -69,9 +70,9 @@ function DefaultArrayTemplate(props) {
 							onReorder={canReorder && onReorder}
 							isClosed={itemValue.isClosed}
 							valueIsUpdating={valueIsUpdating}
-						>
-							{renderItem(index)}
-						</ArrayItem>
+							renderItem={renderItem}
+							isCloseable={isCloseable}
+						/>
 					</li>
 				))}
 			</ol>
@@ -81,6 +82,7 @@ function DefaultArrayTemplate(props) {
 
 DefaultArrayTemplate.defaultProps = {
 	t: getDefaultT(),
+	isCloseable: false,
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -100,6 +102,7 @@ if (process.env.NODE_ENV !== 'production') {
 			btnLabel: PropTypes.string,
 		}),
 		t: PropTypes.func.isRequired,
+		isCloseable: PropTypes.bool,
 	};
 }
 

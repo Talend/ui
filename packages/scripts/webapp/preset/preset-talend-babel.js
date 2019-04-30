@@ -1,3 +1,3 @@
-const { getBabelConfigPath } = require('./config/babel.config');
+const path = require('path');
 
-module.exports = getBabelConfigPath;
+module.exports = () => path.join(__dirname, 'config', '.babelrc.json');

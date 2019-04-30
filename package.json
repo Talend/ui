@@ -7,7 +7,7 @@
     "pixelmatch": "^4.0.2",
     "pngjs": "^3.3.2",
     "puppeteer": "^1.2.0",
-    "surge": "^0.18.0",
+    "surge": "^0.20.3",
     "tmp-promise": "^1.0.4"
   },
   "scripts": {
@@ -39,10 +39,11 @@
     "build-storybook": "npm run test:demo && export ACTION=\"test:demo\" && export TRAVIS_BRANCH=\"master\" && export TRAVIS_BUILD_DIR=`pwd` && .travis/after_success_static.sh && .travis/after_success_demo.sh && .travis/after_success_coverage.sh",
     "publish-storybook": "npm run build-storybook && cd .static && surge",
     "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %<(100,trunc)%s\" --date=short --color",
-    "extract-i18n": "npm run extract-i18n-components && npm run extract-i18n-forms && npm run extract-i18n-containers",
+    "extract-i18n": "npm run extract-i18n-components && npm run extract-i18n-forms && npm run extract-i18n-containers && npm run extract-i18n-datagrid",
     "extract-i18n-components": "i18next-scanner --config packages/components/i18next-scanner.config.js 'packages/components/src/**/*.js'",
     "extract-i18n-forms": "i18next-scanner --config packages/forms/i18next-scanner.config.js 'packages/forms/src/**/*.js'",
     "extract-i18n-containers": "i18next-scanner --config packages/containers/i18next-scanner.config.js 'packages/containers/src/**/*.js'",
+    "extract-i18n-datagrid": "i18next-scanner --config packages/datagrid/i18next-scanner.config.js 'packages/datagrid/src/**/*.js'",
     "audit": "./versions/generate-version-audit.js && cd npm-audit && npm i && npm audit > audit.json"
   },
   "repository": {
@@ -64,5 +65,10 @@
     "packages/sagas",
     "packages/storybook-cmf",
     "packages/theme"
-  ]
+  ],
+  "resolutions": {
+    "@storybook/addons": "4.0.12",
+    "@storybook/components": "4.0.12",
+    "@storybook/core-events ": "4.0.12"
+  }
 }
