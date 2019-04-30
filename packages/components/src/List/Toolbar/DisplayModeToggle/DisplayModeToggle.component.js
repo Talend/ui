@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { ActionIconToggle } from '../../../Actions';
@@ -19,8 +19,6 @@ function getLabel(selected, t) {
 }
 
 function DisplayModeToggle({ id, displayModes, onChange, mode, t }) {
-	const [active, setActive] = useState(mode);
-
 	const modes = displayModes || options;
 
 	function getActionIcon(option) {
@@ -34,10 +32,9 @@ function DisplayModeToggle({ id, displayModes, onChange, mode, t }) {
 					defaultValue: 'Set {{displayMode}} as current display mode.',
 					displayMode: option,
 				})}
-				active={active === option}
-				disabled={active === option}
+				active={mode === option}
+				disabled={mode === option}
 				onClick={e => {
-					setActive(option);
 					onChange(e, option);
 				}}
 			/>

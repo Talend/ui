@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import DisplayModeToggle from './DisplayModeToggle.component';
 
@@ -9,14 +9,14 @@ const props = {
 describe('DisplayModeToggle', () => {
 	it('should render', () => {
 		// when
-		const wrapper = mount(<DisplayModeToggle {...props} />);
+		const wrapper = shallow(<DisplayModeToggle {...props} />);
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 	it('should render table mode selected', () => {
 		// when
-		const wrapper = mount(<DisplayModeToggle {...props} mode="table" />);
+		const wrapper = shallow(<DisplayModeToggle {...props} mode="table" />);
 
 		// then
 		expect(
@@ -28,13 +28,13 @@ describe('DisplayModeToggle', () => {
 	});
 	it('should call onChange when change display mode', () => {
 		// when
-		const wrapper = mount(<DisplayModeToggle {...props} mode="table" />);
+		const wrapper = shallow(<DisplayModeToggle {...props} mode="table" />);
 		wrapper
 			.find('ActionIconToggle')
 			.at(1)
-			.simulate('click');
+			.simulate('click', {});
 
 		// then
-		expect(props.onChange).toHaveBeenCalledWith(expect.anything(), 'large');
+		expect(props.onChange).toHaveBeenCalledWith({}, 'large');
 	});
 });

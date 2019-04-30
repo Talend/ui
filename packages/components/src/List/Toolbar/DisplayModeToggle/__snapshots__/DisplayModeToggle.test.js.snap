@@ -1,131 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DisplayModeToggle should render 1`] = `
-<DisplayModeToggle
-  onChange={[MockFunction]}
-  t={[Function]}
+<div
+  className="theme-tc-display-mode-toggle tc-display-mode-toggle"
 >
-  <div
-    className="theme-tc-display-mode-toggle tc-display-mode-toggle"
-  >
-    <ActionIconToggle
-      active={false}
-      aria-label="Set table as current display mode."
-      disabled={false}
-      icon="talend-table"
-      id="undefined-table"
-      key="table"
-      label="Table"
-      onClick={[Function]}
-      tooltipPlacement="top"
-    >
-      <TooltipTrigger
-        label="Table"
-        tooltipPlacement="top"
-      >
-        <Button
-          active={false}
-          aria-label="Table"
-          aria-pressed={false}
-          block={false}
-          bsClass="btn"
-          bsStyle=""
-          className="tc-icon-toggle theme-tc-icon-toggle"
-          disabled={false}
-          id="undefined-table"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
-        >
-          <button
-            aria-label="Table"
-            aria-pressed={false}
-            className="tc-icon-toggle theme-tc-icon-toggle btn"
-            disabled={false}
-            id="undefined-table"
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-            type="button"
-          >
-            <Icon
-              name="talend-table"
-            >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-table"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-table"
-                />
-              </svg>
-            </Icon>
-          </button>
-        </Button>
-      </TooltipTrigger>
-    </ActionIconToggle>
-    <ActionIconToggle
-      active={false}
-      aria-label="Set large as current display mode."
-      disabled={false}
-      icon="talend-expanded"
-      id="undefined-large"
-      key="large"
-      label="Expanded"
-      onClick={[Function]}
-      tooltipPlacement="top"
-    >
-      <TooltipTrigger
-        label="Expanded"
-        tooltipPlacement="top"
-      >
-        <Button
-          active={false}
-          aria-label="Expanded"
-          aria-pressed={false}
-          block={false}
-          bsClass="btn"
-          bsStyle=""
-          className="tc-icon-toggle theme-tc-icon-toggle"
-          disabled={false}
-          id="undefined-large"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOver={[Function]}
-        >
-          <button
-            aria-label="Expanded"
-            aria-pressed={false}
-            className="tc-icon-toggle theme-tc-icon-toggle btn"
-            disabled={false}
-            id="undefined-large"
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOver={[Function]}
-            type="button"
-          >
-            <Icon
-              name="talend-expanded"
-            >
-              <svg
-                aria-hidden="true"
-                className="theme-tc-svg-icon tc-svg-icon"
-                focusable="false"
-                name="talend-expanded"
-                title={null}
-              >
-                <use
-                  xlinkHref="#talend-expanded"
-                />
-              </svg>
-            </Icon>
-          </button>
-        </Button>
-      </TooltipTrigger>
-    </ActionIconToggle>
-  </div>
-</DisplayModeToggle>
+  <ActionIconToggle
+    active={false}
+    aria-label="Set table as current display mode."
+    disabled={false}
+    icon="talend-table"
+    id="undefined-table"
+    key="table"
+    label="Table"
+    onClick={[Function]}
+    tooltipPlacement="top"
+  />
+  <ActionIconToggle
+    active={false}
+    aria-label="Set large as current display mode."
+    disabled={false}
+    icon="talend-expanded"
+    id="undefined-large"
+    key="large"
+    label="Expanded"
+    onClick={[Function]}
+    tooltipPlacement="top"
+  />
+</div>
 `;
