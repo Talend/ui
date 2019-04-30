@@ -29,6 +29,9 @@ function getMenuItem(option, index) {
 }
 
 function Pagination({ id, startIndex, itemsPerPage, totalResults, onChange, t, ...opts }) {
+	console.warn(
+		'Warning: Pagination is deprecated and will be removed in the next major version.'
+	);
 	const { itemsPerPageOptions, paginationIconProps = {} } = opts;
 	const {
 		first = { name: 'talend-chevron-end' },

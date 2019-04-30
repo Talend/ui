@@ -933,4 +933,23 @@ storiesOf('List', module)
 				<List {...listProps} />
 			</div>
 		);
+	})
+	.add('Pagination - to be deprecated', () => {
+		const customProps = cloneDeep(props);
+		customProps.toolbar.pagination = {
+			itemsPerPage: 5,
+			totalResults: 10,
+			onChange: action('pagination.onChange'),
+		};
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>
+					Warning: Pagination is deprecated and will be removed in the next major version.
+					<br />
+					For now pagination will show on second toolbar if you use it.
+				</p>
+				<List {...customProps} />
+			</div>
+		);
 	});

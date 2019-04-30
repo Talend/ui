@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import Navbar from 'react-bootstrap/lib/Navbar';
 import omit from 'lodash/omit';
 import { translate } from 'react-i18next';
 import classNames from 'classnames';
 
 import SelectAll from './SelectAll';
 import SelectDisplayMode from './SelectDisplayMode';
+import Pagination from './Pagination';
 import FilterBar from '../../FilterBar';
 import Label from './Label';
 import ActionBar from '../../ActionBar';
@@ -58,6 +60,7 @@ function Toolbar({
 	selectAllCheckbox,
 	display,
 	sort,
+	pagination,
 	filter,
 	t,
 	getComponent,
@@ -83,7 +86,7 @@ function Toolbar({
 	const showSort = sort && display && display.mode === 'large';
 
 	return (
-		<div className={classNames(theme['tc-list-toolbar'], 'tc-list-toolbar')}>
+		<div className="tc-list-toolbar" >
 			{injected('before-actionbar')}
 			{actionBar && (
 				<Renderer.ActionBar {...actionBarProps}>
@@ -119,6 +122,19 @@ function Toolbar({
 				</Renderer.ActionBar>
 			)}
 			{injected('after-actionbar')}
+			{pagination && (
+				<Navbar componentClass="div" className={theme['tc-list-toolbar']} role="toolbar" fluid>
+					{injected('before-pagination')}
+					{pagination && (
+						<Label
+							text={t('LIST_TOOLBAR_PAGINATION_SHOW', { defaultValue: 'Show:' })}
+							htmlFor={id && `${id}-pagination-size`}
+						/>
+					)}
+					{pagination && <Pagination id={id && `${id}-pagination`} {...pagination} t={t} />}
+					{injected('after-pagination')}
+				</Navbar>
+			)}
 			{showSelectAll && <SelectAll {...selectAllCheckbox} t={t} />}
 		</div>
 	);
@@ -137,6 +153,7 @@ Toolbar.propTypes = {
 			onChange: PropTypes.func.isRequired,
 		}),
 	]),
+	pagination: PropTypes.shape(Pagination.propTypes),
 	filter: PropTypes.shape(omit(FilterBar.propTypes, 't')),
 	t: PropTypes.func.isRequired,
 	getComponent: PropTypes.func,
