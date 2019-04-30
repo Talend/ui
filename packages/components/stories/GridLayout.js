@@ -6,7 +6,6 @@ import ActionIconToggle from '../src/Actions/ActionIconToggle';
 import { GridLayout, IconsProvider } from '../src/';
 import Tile from '../src/GridLayout/Tile/index';
 import Action from '../src/Actions/Action';
-import { useTileContext } from '../src/GridLayout/Tile/context';
 
 const icons = {
 	'talend-filter': talendIcons['talend-filter'],
@@ -15,7 +14,7 @@ const icons = {
 };
 
 function TdsTileContent() {
-	const { displayMode= 'chart', setDisplayMode } = useTileContext();
+	const { displayMode= 'chart', setDisplayMode } = Tile.useTileContext();
 
 	const submitAction = {
 		label: 'Click me',
@@ -54,7 +53,7 @@ function TdsTileContent() {
 }
 
 function ViewSelector() {
-	const { displayMode, setDisplayMode } = useTileContext();
+	const { displayMode, setDisplayMode } = Tile.useTileContext();
 
 	const addItemAction = {
 		label: 'Add item',

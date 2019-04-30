@@ -30,6 +30,7 @@ import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
 import FilterBar from './FilterBar';
 import GridLayout from './GridLayout';
+import Tile from './GridLayout/Tile';
 import GuidedTour from './GuidedTour';
 import HeaderTitle from './HeaderTitle';
 import ListView from './ListView';
@@ -154,6 +155,7 @@ export {
 	Enumeration,
 	FilterBar,
 	GridLayout,
+	Tile,
 	GuidedTour,
 	HeaderBar,
 	HeaderTitle,
