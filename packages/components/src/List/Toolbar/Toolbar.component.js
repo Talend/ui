@@ -5,8 +5,6 @@ import omit from 'lodash/omit';
 import { translate } from 'react-i18next';
 import classNames from 'classnames';
 
-import SelectAll from './SelectAll';
-import SelectDisplayMode from './SelectDisplayMode';
 import Pagination from './Pagination';
 import FilterBar from '../../FilterBar';
 import Label from './Label';
@@ -57,7 +55,6 @@ function adaptLeftAndRightActions(actions, parentId) {
 function Toolbar({
 	id,
 	actionBar,
-	selectAllCheckbox,
 	display,
 	sort,
 	pagination,
@@ -82,11 +79,10 @@ function Toolbar({
 		};
 	}
 	const displayModeId = id && `${id}-display-mode`;
-	const showSelectAll = selectAllCheckbox && display && display.mode === 'large';
 	const showSort = sort && display && display.mode === 'large';
 
 	return (
-		<div className={theme['tc-list-toolbar']}>
+		<div className={classNames(theme['tc-list-toolbar'], 'tc-list-toolbar')}>
 			{injected('before-actionbar')}
 			{actionBar && (
 				<Renderer.ActionBar {...actionBarProps} className="list-action-bar">
@@ -135,7 +131,6 @@ function Toolbar({
 					{injected('after-pagination')}
 				</Navbar>
 			)}
-			{showSelectAll && <SelectAll {...selectAllCheckbox} t={t} />}
 		</div>
 	);
 }
@@ -143,8 +138,7 @@ function Toolbar({
 Toolbar.propTypes = {
 	id: PropTypes.string,
 	actionBar: PropTypes.shape(ActionBar.propTypes),
-	selectAllCheckbox: PropTypes.shape(omit(SelectAll.propTypes, 't')),
-	display: PropTypes.shape(omit(SelectDisplayMode.propTypes, 't')),
+	display: PropTypes.shape(omit(DisplayModeToggle.propTypes, 't')),
 	sort: PropTypes.oneOfType([
 		PropTypes.bool,
 		PropTypes.shape({
