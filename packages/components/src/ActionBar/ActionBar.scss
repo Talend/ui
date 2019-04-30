@@ -24,40 +24,6 @@ $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
 	.navbar-right {
 		margin-right: 0;
 		margin-left: auto;
-
-		& > ul {
-			list-style: none;
-			display: flex;
-			align-items: center;
-			margin: 0;
-
-			> li {
-				display: flex;
-				align-items: center;
-
-				&:global(.separated):not(:last-child):after {
-					content: '|';
-					color: $silver;
-				}
-
-				&:global(.select-sort-by) {
-					&:before {
-						content: '';
-						margin-left: $padding-normal;
-					}
-
-					:global(.navbar-text) {
-						margin-bottom: $padding-normal;
-						font-weight: normal;
-						color: $gray;
-					}
-
-					a:hover {
-						background-color: $wild-sand;
-					}
-				}
-			}
-		}
 	}
 
 	.navbar-center {

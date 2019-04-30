@@ -48,6 +48,40 @@ $tc-list-toolbar-height: 70px !default;
 			> * {
 				margin-right: $padding-normal;
 			}
+
+			& > ul {
+				list-style: none;
+				display: flex;
+				align-items: center;
+				margin: 0;
+	
+				> li {
+					display: flex;
+					align-items: center;
+	
+					&:global(.separated):not(:last-child):after {
+						content: '|';
+						color: $silver;
+					}
+	
+					&:global(.select-sort-by) {
+						&:before {
+							content: '';
+							margin-left: $padding-normal;
+						}
+	
+						:global(.navbar-text) {
+							margin-bottom: $padding-normal;
+							font-weight: normal;
+							color: $gray;
+						}
+	
+						a:hover {
+							background-color: $wild-sand;
+						}
+					}
+				}
+			}
 		}
 	}
 }

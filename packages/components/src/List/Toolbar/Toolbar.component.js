@@ -86,7 +86,7 @@ function Toolbar({
 	const showSort = sort && display && display.mode === 'large';
 
 	return (
-		<div className="tc-list-toolbar" >
+		<div className={theme['tc-list-toolbar']}>
 			{injected('before-actionbar')}
 			{actionBar && (
 				<Renderer.ActionBar {...actionBarProps}>
