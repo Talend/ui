@@ -59,4 +59,42 @@ describe('interceptors', () => {
 			done();
 		});
 	});
+	it('should interceptor response be called onResponse', done => {
+		const res = { data: 'foo' };
+		interceptors.onResponse(res).then(response => {
+			expect(interceptor.response).toHaveBeenCalledWith(res);
+			expect(response.bar).toBe('bar');
+			expect(response.data).toBe('foo');
+			done();
+		});
+	});
+	it('should interceptor.requestError be called if JS Error has been thrown', done => {
+		const error = new Error('ERROR fail in interceptor');
+		const failInterceptor = {
+			response: () => {
+				throw error;
+			},
+			responseError: jest.fn(),
+		};
+		interceptors.push(failInterceptor);
+		interceptors.onResponse({}).then(() => {
+			expect(failInterceptor.responseError).toHaveBeenCalledWith(error, {});
+			done();
+		});
+	});
+	it('should interceptor responseError be called if response reject', done => {
+		const msg = 'reject in interceptor response';
+		const failInterceptor = {
+			response: () =>
+				new Promise((resolve, reject) => {
+					return reject(msg);
+				}),
+			responseError: jest.fn((e, v) => v),
+		};
+		interceptors.push(failInterceptor);
+		interceptors.onResponse({}).then(() => {
+			expect(failInterceptor.responseError).toHaveBeenCalledWith(msg, {});
+			done();
+		});
+	});
 });
