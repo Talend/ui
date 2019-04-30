@@ -30,7 +30,7 @@ describe('interceptors', () => {
 			done();
 		});
 	});
-	it('should interceptor.requestError be called if JS Error has been thrown', done => {
+	it('should interceptor requestError be called if JS Error has been thrown', done => {
 		const error = new Error('ERROR fail in interceptor');
 		const failInterceptor = {
 			request: () => {
@@ -44,7 +44,7 @@ describe('interceptors', () => {
 			done();
 		});
 	});
-	it('should interceptor.requestError be called if interceptor.request promise rejected', done => {
+	it('should interceptor requestError be called if interceptor.request promise rejected', done => {
 		const msg = 'reject in interceptor';
 		const failInterceptor = {
 			request: () =>
@@ -68,7 +68,7 @@ describe('interceptors', () => {
 			done();
 		});
 	});
-	it('should interceptor.requestError be called if JS Error has been thrown', done => {
+	it('should interceptor responseError be called if JS Error has been thrown', done => {
 		const error = new Error('ERROR fail in interceptor');
 		const failInterceptor = {
 			response: () => {

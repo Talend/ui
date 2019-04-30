@@ -5,6 +5,7 @@ import {
 	HTTP_METHODS,
 	HTTP_STATUS,
 } from '../../src/middlewares/http/constants';
+import interceptors from '../../src/interceptors';
 
 import http, {
 	getDefaultConfig,
@@ -714,6 +715,18 @@ describe('#httpFetch', () => {
 		);
 		expect(gen.next().value).toEqual(httpError);
 		expect(gen.next().done).toBe(true);
+	});
+	it('should call interceptors at every steps', () => {
+		const url = '/foo';
+		const config = {};
+		const response = { data: 'foo' };
+		const gen = wrapFetch(url, config, HTTP_METHODS.GET);
+		const $config = { url, method: HTTP_METHODS.GET, undefined };
+		expect(gen.next().value).toEqual(call(interceptors.onRequest, $config));
+		expect(gen.next($config).value).toEqual(
+			call(httpFetch, url, $config, HTTP_METHODS.GET, undefined),
+		);
+		expect(gen.next(response).value).toEqual(call(interceptors.onResponse, response));
 	});
 });
 

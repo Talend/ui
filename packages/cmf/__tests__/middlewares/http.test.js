@@ -11,6 +11,7 @@ import {
 	status,
 	handleResponse,
 } from '../../src/middlewares/http/middleware';
+import interceptors from '../../src/interceptors';
 
 import {
 	HTTP_METHODS,
@@ -598,6 +599,49 @@ describe('httpMiddleware configuration', () => {
 			expect(next.mock.calls.length).toBe(1);
 			const newAction = next.mock.calls[0][0];
 			expect(newAction.response.foo).toBe('bar');
+			document.cookie = '';
+			done();
+		});
+	});
+	it('should call interceptor at every levels', done => {
+		// given
+		const response = { foo: 'bar' };
+		function json() {
+			return new Promise(resolve => resolve(response));
+		}
+
+		const store = {
+			dispatch: jest.fn(),
+		};
+		const next = jest.fn();
+		const action = {
+			url: 'foo',
+			type: HTTP_METHODS.POST,
+			body: { label: 'great test' },
+			response: {
+				ok: true,
+				status: HTTP_STATUS.OK,
+				json,
+				headers: {},
+			},
+		};
+		const interceptor = {
+			request: jest.fn(config => config),
+			response: jest.fn(r => r),
+		};
+		interceptors.push(interceptor);
+		// when
+		const middleware = httpMiddleware()(store)(next);
+		const result = middleware(action);
+
+		// then
+		expect(interceptor.request).toHaveBeenCalled();
+		const augmentedConfig = interceptor.request.mock.calls[0][0];
+		expect(augmentedConfig.url).toBe(action.url);
+		result.then(() => {
+			expect(interceptor.response).toHaveBeenCalledWith({ data: response, headers: {}});
+			// eslint-disable-next-line no-underscore-dangle
+			interceptors._clear();
 			done();
 		});
 	});
