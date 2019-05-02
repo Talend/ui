@@ -1,4 +1,4 @@
-# Interceptors
+# HTTP Interceptors
 
 Complelty taken from https://docs.angularjs.org/api/ng/service/$http#interceptors
 So please be sure to have read this first.
@@ -10,6 +10,7 @@ Interceptors are called at the different steps of every http requests done using
 You can create a file which exports an array of interceptors.
 
 ```javascript
+
 function getHeaders() {
 	// do sth asyn and return it in promise {Authorization: `Bearer ...`}
 }
@@ -26,7 +27,12 @@ function onRequest(config) {
 			return config;
 		});
 }
+export default {
+	request: onResquest,
+};
 ```
+
+Then you can register it in cmf using cmf.bootstrap api under `httpInterceptors`;
 
 ## How to integrate to fetch
 
@@ -49,7 +55,6 @@ function mySuperUseOfFetch(url) {
 	return cmf.interceptors
 		.onRequest({ url })
 		.then(config => fetch(config.url, config))
-		.then(interceptors.onResponse)
-		.catch(interceptors.onError);
+		.then(cmf.interceptors.onResponse)
 }
 ```

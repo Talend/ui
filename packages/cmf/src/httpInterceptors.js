@@ -29,7 +29,12 @@ function isInterceptor(interceptor) {
 	if (typeof interceptor !== 'object') {
 		return false;
 	}
-	if (!interceptor.request && !interceptor.response) {
+	if (
+		!interceptor.request &&
+		!interceptor.response &&
+		!interceptor.requestError &&
+		!interceptor.responseError
+	) {
 		return false;
 	}
 	if (interceptor.request && typeof interceptor.request !== 'function') {
@@ -55,58 +60,10 @@ function isInterceptor(interceptor) {
  */
 function push(interceptor) {
 	if (isInterceptor(interceptor)) {
-		interceptors.push(
-			Object.assign(
-				{
-					// add default error handler
-					requestError: error => console.error(error),
-					responseError: error => console.error(error),
-				},
-				interceptor,
-			),
-		);
+		interceptors.push(interceptor);
 	} else {
 		console.error('CMF.interceptors.push not a valid interceptor', interceptor);
 	}
-}
-
-/**
- * @private
- * consume interceptors attribute passing argument to it
- * @param {Array} interceptors copy of it
- * @param {string} attr the attribute of interceptor to use. one of ['request', 'response']
- * @param {Object} argument the data to pass to each interceptor
- */
-function consume(arr, attr, argument) {
-	if (arr.length === 0) {
-		return argument;
-	}
-	const pop = arr.pop();
-	if (!pop[attr]) {
-		return consume(arr, attr, argument);
-	}
-	let result;
-	const onError = pop[`${attr}Error`];
-	try {
-		result = pop[attr](argument);
-	} catch (error) {
-		if (onError) {
-			result = onError(error, argument);
-		} else {
-			throw error;
-		}
-	}
-	if (result && result.then) {
-		return result
-			.then(newConfig => consume(arr, attr, newConfig))
-			.catch(error => {
-				if (onError) {
-					return onError(error, argument);
-				}
-				throw error;
-			});
-	}
-	return consume(arr, attr, result);
 }
 
 /**
@@ -115,15 +72,18 @@ function consume(arr, attr, argument) {
  * @param {string} event one of ['request', 'response']
  * @param {Object}
  */
-function onData(event, data) {
-	const copy = interceptors.slice(0);
-	const result = consume(copy, event, data);
-	if (result.then) {
-		return result;
-	}
-	return new Promise(resolve => {
-		resolve(result);
-	});
+function onData(array, data) {
+	// const copy = interceptors.slice(0);
+	return array.reduce((acc, current) => {
+		let result = acc;
+		if (current.on) {
+			result = acc.then(prev => current.on[event](prev));
+		}
+		if (current.requestError) {
+			result = acc.catch(error => current.onError(error));
+		}
+		return Promise.resolve(result);
+	}, Promise.resolve(data));
 }
 
 /**
@@ -132,7 +92,10 @@ function onData(event, data) {
  * @return {Promise} config object
  */
 function onRequest(config) {
-	return onData('request', config);
+	const array = interceptors
+		.filter(i => i.request || i.requestError)
+		.map(i => ({ on: i.request, onError: i.requestError }));
+	return onData(array, config);
 }
 
 /**
@@ -141,7 +104,11 @@ function onRequest(config) {
  * @return {Promise} response object
  */
 function onResponse(response) {
-	return onData('response', response);
+	const array = interceptors
+		.filter(i => i.response || i.responseError)
+		.map(i => ({ on: i.response, onError: i.responseError }))
+		.reverse();
+	return onData(array, response);
 }
 
 export default {

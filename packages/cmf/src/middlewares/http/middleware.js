@@ -4,7 +4,7 @@ import get from 'lodash/get';
 import { HTTP_METHODS, HTTP_STATUS, testHTTPCode } from './constants';
 import { mergeCSRFToken } from './csrfHandling';
 import http from '../../actions/http';
-import interceptors from '../../interceptors';
+import interceptors from '../../httpInterceptors';
 
 /**
  * @typedef {Object} Action

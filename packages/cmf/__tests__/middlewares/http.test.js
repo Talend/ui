@@ -11,11 +11,10 @@ import {
 	status,
 	handleResponse,
 } from '../../src/middlewares/http/middleware';
-import interceptors from '../../src/interceptors';
+import interceptors from '../../src/httpInterceptors';
 
 import {
 	HTTP_METHODS,
-	ACTION_TYPE_HTTP_ERRORS,
 	HTTP_STATUS,
 } from '../../src/middlewares/http/constants';
 

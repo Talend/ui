@@ -10,7 +10,7 @@ import {
 	HTTP_STATUS,
 	testHTTPCode,
 } from '../middlewares/http/constants';
-import interceptors from '../interceptors';
+import interceptors from '../httpInterceptors';
 
 /**
  * Storage point for the doc setup using `setDefaultConfig`

@@ -5,7 +5,7 @@ import {
 	HTTP_METHODS,
 	HTTP_STATUS,
 } from '../../src/middlewares/http/constants';
-import interceptors from '../../src/interceptors';
+import interceptors from '../../src/httpInterceptors';
 
 import http, {
 	getDefaultConfig,

@@ -16,7 +16,7 @@ import registry from './registry';
 import sagas from './sagas';
 import { registerInternals } from './register';
 import cmfModule from './cmfModule';
-import interceptors from './interceptors';
+import interceptors from './httpInterceptors';
 
 export const bactchedSubscribe = batchedSubscribe(notify => {
 	requestAnimationFrame(notify);
@@ -102,8 +102,8 @@ export function bootstrapRedux(options, sagaMiddleware) {
 }
 
 function bootstrapInterceptors(options) {
-	if (options.interceptors) {
-		options.interceptors.forEach(interceptors.push);
+	if (options.httpInterceptors) {
+		options.httpInterceptors.forEach(interceptors.push);
 	}
 }
 
