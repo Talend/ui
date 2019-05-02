@@ -735,6 +735,7 @@ storiesOf('List', module)
 		tprops.list.sort = sort;
 		return (
 			<div style={{ height: '70vh' }} className="virtualized-list">
+				<h1>List</h1>
 				<p>
 					Show Sort widgets on List toolbar when display in large view
 				</p>
@@ -944,7 +945,7 @@ storiesOf('List', module)
 		return (
 			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
-				<p>
+				<p style={{ color: '#ea8330' }}>
 					Warning: Pagination is deprecated and will be removed in the next major version.
 					<br />
 					For now pagination will show on second toolbar if you use it.

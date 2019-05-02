@@ -115,9 +115,8 @@ function List({
 }) {
 	const classnames = classNames('tc-list', theme.list);
 	const injected = Inject.all(getComponent, omit(components, ['toolbar', 'list']));
-	const showSelectAll = displayMode === 'large';
 	let selectAllCheckbox;
-	if (showSelectAll &&
+	if (displayMode === 'large' &&
 		list.itemProps &&
 		list.itemProps.isSelected &&
 		list.itemProps.onToggleAll
@@ -143,7 +142,7 @@ function List({
 				components={components}
 			/>
 			{injected('after-toolbar')}
-			{showSelectAll && <SelectAll {...selectAllCheckbox} />}
+			{selectAllCheckbox && <SelectAll {...selectAllCheckbox} />}
 			{injected('before-list-wrapper')}
 			<div className={'tc-list-display-virtualized'}>
 				{injected('before-list')}
