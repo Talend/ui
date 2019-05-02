@@ -1,6 +1,7 @@
 // SelectSortBy styles
 
 $tc-list-toolbar-display-color: $dove-gray !default;
+$tc-list-toolbar-order-chooser-icon-size: 0.6rem !default;
 
 .tc-list-toolbar-sort-by {
 	display: flex;
@@ -24,10 +25,44 @@ $tc-list-toolbar-display-color: $dove-gray !default;
 		}
 	}
 
-	:global(.tc-resource-picker-order-chooser) {
+	:global(.tc-list-toolbar-order-chooser) {
 		background-color: $wild-sand;
 		color: $black;
+		display: flex;
+
+		padding: 0;
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: $black;
+			box-shadow: none;
+		}
+
+		:global(.tc-order-indicator) {
+			width: 0;
+			height: 0;
+			border-right: 4px solid transparent;
+			border-left: 4px solid transparent;
+			border-top: 5px solid $black;
+
+			&:global(.asc) {
+				transform: rotate(180deg);
+			}
+		}
+
+		.tc-list-toolbar-order-indicator {
+			width: $tc-list-toolbar-order-chooser-icon-size;
+			height: $tc-list-toolbar-order-chooser-icon-size;
+
+			&.asc {
+				transform: rotate(180deg);
+			}
+		}
+
 	}
+
+	
 }
 
 .sort-by-items {

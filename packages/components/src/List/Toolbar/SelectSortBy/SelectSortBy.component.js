@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Nav, NavItem, NavDropdown, MenuItem, Button } from 'react-bootstrap';
 import uuid from 'uuid';
+import classNames from 'classnames';
 
 import getDefaultT from '../../../translate';
-import OrderChooser from '../../../ResourcePicker/Toolbar/SortOptions/OrderChooser';
 import theme from './SelectSortBy.scss';
+import Icon from '../../../Icon';
 
 function SortByItem({ option, index, id, t }) {
 	const optionLabel = option.name || option.id;
@@ -31,16 +32,6 @@ SortByItem.propTypes = {
 	index: PropTypes.number,
 	id: PropTypes.string,
 	t: PropTypes.func,
-};
-
-const ORDERS = {
-	ASC: 'asc',
-	DESC: 'desc',
-};
-
-const ICONS = {
-	[ORDERS.DESC]: 'talend-sort-desc',
-	[ORDERS.ASC]: 'talend-sort-asc',
 };
 
 function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
@@ -87,16 +78,19 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 			)}
 			{selected && (
 				<NavItem>
-					<OrderChooser
-						id={id ? `${id}-order` : 'tc-list-toolbar-sort-order'}
-						icon={ICONS[isDescending ? ORDERS.DESC : ORDERS.ASC]}
-						asc={!isDescending}
-						label={t('LIST_CHANGE_SORT_BY_ORDER', {
+					<Button
+						aria-label={t('LIST_CHANGE_SORT_BY_ORDER', {
 							defaultValue: 'Change sort order. Current order: {{sortOrder}}.',
 							sortOrder: currentSortOrderLabel,
 						})}
 						onClick={onChangeOrder}
-					/>
+						bsStyle=""
+						className={classNames(theme['tc-list-toolbar-order-chooser'],
+							'tc-list-toolbar-order-chooser')}
+					>
+						<Icon name={isDescending ? 'talend-sort-desc' : 'talend-sort-asc'} />
+						<div className={classNames('tc-order-indicator', { asc: !isDescending })} />
+					</Button>
 				</NavItem>
 			)}
 		</Nav>
