@@ -51,6 +51,8 @@ This component displays a list with two optional toolbars
   * after-display
   * before-sort
   * after-sort
+  * before-pagination
+  * after-pagination
   * before-filter
   * after-filter
 * after-toolbar
