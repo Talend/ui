@@ -42,9 +42,9 @@ $tc-list-toolbar-order-chooser-icon-size: 0.6rem !default;
 		:global(.tc-order-indicator) {
 			width: 0;
 			height: 0;
-			border-right: 4px solid transparent;
-			border-left: 4px solid transparent;
-			border-top: 5px solid $black;
+			border-right: 0.33rem solid transparent;
+			border-left: 0.33rem solid transparent;
+			border-top: 0.42rem solid $black;
 
 			&:global(.asc) {
 				transform: rotate(180deg);
