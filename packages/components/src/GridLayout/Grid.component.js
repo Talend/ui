@@ -49,7 +49,7 @@ function Grid({ children, isResizable, layoutChangeCallback, onBreakpointChangeC
 			measureBeforeMount={false}
 			margin={[MARGIN, MARGIN]}
 			compactType="vertical"
-			verticalCompact={false}
+			verticalCompact={true}
 			isResizable={isResizable}
 			preventCollision
 		>
