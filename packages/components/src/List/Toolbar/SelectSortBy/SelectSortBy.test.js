@@ -77,7 +77,7 @@ describe('SelectSortBy', () => {
 		const wrapper = shallow(<SelectSortBy {...props} />);
 
 		wrapper
-			.find('OrderChooser')
+			.find('.tc-list-toolbar-order-chooser')
 			.at(0)
 			.simulate('click', event);
 

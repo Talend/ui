@@ -5,7 +5,7 @@ exports[`Toolbar should render actions toolbar 1`] = `
   className="theme-tc-list-toolbar tc-list-toolbar"
 >
   <div
-    className="theme-tc-actionbar-container tc-actionbar-container nav"
+    className="theme-tc-actionbar-container tc-actionbar-container nav list-action-bar"
   >
     <div
       className="theme-navbar-left navbar-left"
@@ -50,7 +50,7 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
   className="theme-tc-list-toolbar tc-list-toolbar"
 >
   <div
-    className="theme-tc-actionbar-container tc-actionbar-container nav"
+    className="theme-tc-actionbar-container tc-actionbar-container nav list-action-bar"
   >
     <div
       className="theme-navbar-left navbar-left"
@@ -116,7 +116,221 @@ exports[`Toolbar should render filter form 1`] = `
 exports[`Toolbar should render pagination 1`] = `
 <div
   className="theme-tc-list-toolbar tc-list-toolbar"
-/>
+>
+  <div
+    className="theme-tc-list-toolbar navbar navbar-default"
+    role="toolbar"
+  >
+    <div
+      className="container-fluid"
+    >
+      <p
+        className="navbar-text"
+      >
+        <label
+          htmlFor="my-toolbar-pagination-size"
+        >
+          Show:
+        </label>
+      </p>
+      <ul
+        className="theme-tc-pagination nav navbar-nav"
+        role={null}
+      >
+        <li
+          className="dropdown"
+        >
+          <a
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown-toggle"
+            href="#"
+            id="my-toolbar-pagination-size"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+          >
+            5
+             
+            <span
+              className="caret"
+            />
+          </a>
+          <ul
+            aria-labelledby="my-toolbar-pagination-size"
+            className="dropdown-menu"
+            role="menu"
+          >
+            <li
+              className=""
+              role="presentation"
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                5
+              </a>
+            </li>
+            <li
+              className=""
+              role="presentation"
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                10
+              </a>
+            </li>
+            <li
+              className=""
+              role="presentation"
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                20
+              </a>
+            </li>
+            <li
+              className=""
+              role="presentation"
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                50
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          className="btn-link"
+          role="presentation"
+        >
+          <a
+            aria-label="Go to first page."
+            href="#"
+            id="my-toolbar-pagination-nav-to-first"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+          >
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-chevron-end"
+              title={null}
+            >
+              <use
+                xlinkHref="#talend-chevron-end"
+              />
+            </svg>
+          </a>
+        </li>
+        <li
+          className="btn-link"
+          role="presentation"
+        >
+          <a
+            aria-label="Go to previous page. Current page: 2."
+            href="#"
+            id="my-toolbar-pagination-nav-to-prev"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+          >
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-chevron-left"
+              title={null}
+            >
+              <use
+                xlinkHref="#talend-chevron-left"
+              />
+            </svg>
+          </a>
+        </li>
+        <li
+          className="theme-page-index"
+          onSelect={[Function]}
+        >
+          2
+          /
+          3
+        </li>
+        <li
+          className="btn-link"
+          role="presentation"
+        >
+          <a
+            aria-label="Go to next page. Current page: 2."
+            href="#"
+            id="my-toolbar-pagination-nav-to-next"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+          >
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
+              focusable="false"
+              name="talend-chevron-left"
+              title={null}
+            >
+              <use
+                xlinkHref="#talend-chevron-left"
+              />
+            </svg>
+          </a>
+        </li>
+        <li
+          className="btn-link"
+          role="presentation"
+        >
+          <a
+            aria-label="Go to last page."
+            href="#"
+            id="my-toolbar-pagination-nav-to-last"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+          >
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
+              focusable="false"
+              name="talend-chevron-end"
+              title={null}
+            >
+              <use
+                xlinkHref="#talend-chevron-end"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Toolbar should render select all checkbox 1`] = `

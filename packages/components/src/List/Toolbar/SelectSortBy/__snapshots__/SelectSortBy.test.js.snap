@@ -74,12 +74,9 @@ exports[`SelectSortBy should render 1`] = `
     >
       <button
         aria-label="Change sort order. Current order: Ascending."
-        className="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser btn"
+        className="theme-tc-list-toolbar-order-chooser tc-list-toolbar-order-chooser btn"
         disabled={false}
-        id="tc-list-toolbar-sort-order"
         onClick={[Function]}
-        onFocus={[Function]}
-        onMouseOver={[Function]}
         type="button"
       >
         <svg
@@ -93,17 +90,9 @@ exports[`SelectSortBy should render 1`] = `
             xlinkHref="#talend-sort-asc"
           />
         </svg>
-        <svg
-          aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon tc-resource-picker-order-indicator theme-tc-resource-picker-order-indicator theme-asc"
-          focusable="false"
-          name="talend-caret-down"
-          title={null}
-        >
-          <use
-            xlinkHref="#talend-caret-down"
-          />
-        </svg>
+        <div
+          className="tc-order-indicator asc"
+        />
       </button>
     </a>
   </li>
@@ -186,12 +175,9 @@ exports[`SelectSortBy should render id if provided 1`] = `
     >
       <button
         aria-label="Change sort order. Current order: Ascending."
-        className="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser btn"
+        className="theme-tc-list-toolbar-order-chooser tc-list-toolbar-order-chooser btn"
         disabled={false}
-        id="toolbar-sort-order"
         onClick={[Function]}
-        onFocus={[Function]}
-        onMouseOver={[Function]}
         type="button"
       >
         <svg
@@ -205,17 +191,9 @@ exports[`SelectSortBy should render id if provided 1`] = `
             xlinkHref="#talend-sort-asc"
           />
         </svg>
-        <svg
-          aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon tc-resource-picker-order-indicator theme-tc-resource-picker-order-indicator theme-asc"
-          focusable="false"
-          name="talend-caret-down"
-          title={null}
-        >
-          <use
-            xlinkHref="#talend-caret-down"
-          />
-        </svg>
+        <div
+          className="tc-order-indicator asc"
+        />
       </button>
     </a>
   </li>
@@ -245,12 +223,9 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
     >
       <button
         aria-label="Change sort order. Current order: Ascending."
-        className="tc-resource-picker-order-chooser theme-tc-resource-picker-order-chooser btn"
+        className="theme-tc-list-toolbar-order-chooser tc-list-toolbar-order-chooser btn"
         disabled={false}
-        id="tc-list-toolbar-sort-order"
         onClick={[Function]}
-        onFocus={[Function]}
-        onMouseOver={[Function]}
         type="button"
       >
         <svg
@@ -264,17 +239,9 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
             xlinkHref="#talend-sort-asc"
           />
         </svg>
-        <svg
-          aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon tc-resource-picker-order-indicator theme-tc-resource-picker-order-indicator theme-asc"
-          focusable="false"
-          name="talend-caret-down"
-          title={null}
-        >
-          <use
-            xlinkHref="#talend-caret-down"
-          />
-        </svg>
+        <div
+          className="tc-order-indicator asc"
+        />
       </button>
     </a>
   </li>
