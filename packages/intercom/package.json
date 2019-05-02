@@ -1,0 +1,31 @@
+{
+  "name": "@talend/intercom",
+  "description": "Intercom library",
+  "main": "lib/index.js",
+  "license": "Apache-2.0",
+  "scripts": {
+    "lint:style": "sass-lint -v -q",
+    "lint:es": "eslint --config ../../.eslintrc src",
+    "lint": "npm run lint:es && npm run lint:style",
+    "prepublish": "talend-scripts build:lib"
+  },
+  "keywords": [],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/intercom#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@talend/scripts": "^0.19.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.1.0"
+}
