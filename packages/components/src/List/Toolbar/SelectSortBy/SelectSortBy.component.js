@@ -85,8 +85,10 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 						})}
 						onClick={onChangeOrder}
 						bsStyle=""
-						className={classNames(theme['tc-list-toolbar-order-chooser'],
-							'tc-list-toolbar-order-chooser')}
+						className={classNames(
+							theme['tc-list-toolbar-order-chooser'],
+							'tc-list-toolbar-order-chooser',
+						)}
 					>
 						<Icon name={isDescending ? 'talend-sort-desc' : 'talend-sort-asc'} />
 						<div className={classNames('tc-order-indicator', { asc: !isDescending })} />

@@ -116,7 +116,8 @@ function List({
 	const classnames = classNames('tc-list', theme.list);
 	const injected = Inject.all(getComponent, omit(components, ['toolbar', 'list']));
 	let selectAllCheckbox;
-	if (displayMode === 'large' &&
+	if (
+		displayMode === 'large' &&
 		list.itemProps &&
 		list.itemProps.isSelected &&
 		list.itemProps.onToggleAll

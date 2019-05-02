@@ -58,28 +58,28 @@ $tc-list-toolbar-height: 5.83rem !default;
 				display: flex;
 				align-items: center;
 				margin: 0 $padding-small 0 0;
-	
+
 				> li {
 					display: flex;
 					align-items: center;
-	
+
 					&:global(.separated):not(:last-child):after {
 						content: '|';
 						color: $silver;
 					}
-	
+
 					&:global(.select-sort-by) {
 						&:before {
 							content: '';
 							margin-left: $padding-normal;
 						}
-	
+
 						:global(.navbar-text) {
 							margin-bottom: $padding-normal;
 							font-weight: normal;
 							color: $gray;
 						}
-	
+
 						a:hover {
 							background-color: $wild-sand;
 						}
