@@ -4,7 +4,6 @@
 
 import actions from './actions/';
 import actionCreator from './actionCreator';
-import interceptors from './interceptors';
 
 import bootstrap from './bootstrap';
 import cmfConnect from './cmfConnect';
@@ -43,7 +42,6 @@ export {
 	cmfConnect,
 	Dispatcher,
 	Inject,
-	interceptors,
 	sagas,
 	selectors,
 	// DEPRECATED

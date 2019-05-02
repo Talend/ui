@@ -77,10 +77,18 @@ function onData(array, data) {
 	return array.reduce((acc, current) => {
 		let result = acc;
 		if (current.on) {
-			result = acc.then(prev => current.on[event](prev));
+			try {
+				result = acc.then(prev => current.on(prev));
+			} catch (error) {
+				result = Promise.reject(error);
+			}
 		}
-		if (current.requestError) {
-			result = acc.catch(error => current.onError(error));
+		if (current.onError) {
+			try {
+				result = result.catch(error => current.onError(error));
+			} catch (error) {
+				result = Promise.reject(error);
+			}
 		}
 		return Promise.resolve(result);
 	}, Promise.resolve(data));

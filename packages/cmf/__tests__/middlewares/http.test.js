@@ -634,10 +634,10 @@ describe('httpMiddleware configuration', () => {
 		const result = middleware(action);
 
 		// then
-		expect(interceptor.request).toHaveBeenCalled();
-		const augmentedConfig = interceptor.request.mock.calls[0][0];
-		expect(augmentedConfig.url).toBe(action.url);
 		result.then(() => {
+			expect(interceptor.request).toHaveBeenCalled();
+			const augmentedConfig = interceptor.request.mock.calls[0][0];
+			expect(augmentedConfig.url).toBe(action.url);
 			expect(interceptor.response).toHaveBeenCalledWith({ data: response, headers: {}});
 			// eslint-disable-next-line no-underscore-dangle
 			interceptors._clear();

@@ -1,5 +1,4 @@
-import { interceptors as cmfInterceptors } from '../src';
-import interceptors from '../src/interceptors';
+import interceptors from '../src/httpInterceptors';
 /* eslint-disable no-underscore-dangle */
 
 describe('interceptors', () => {
@@ -13,9 +12,6 @@ describe('interceptors', () => {
 	});
 	afterEach(() => {
 		interceptors._clear();
-	});
-	it('should be available at cmf root level', () => {
-		expect(interceptors).toBe(cmfInterceptors);
 	});
 
 	it('should onRequest call interceptors every request', done => {
@@ -36,11 +32,11 @@ describe('interceptors', () => {
 			request: () => {
 				throw error;
 			},
-			requestError: jest.fn(),
+			requestError: jest.fn(e => e),
 		};
 		interceptors.push(failInterceptor);
-		interceptors.onRequest({}).then(() => {
-			expect(failInterceptor.requestError).toHaveBeenCalledWith(error, {});
+		interceptors.onRequest({}).finally(() => {
+			expect(failInterceptor.requestError).toHaveBeenCalledWith(error);
 			done();
 		});
 	});
@@ -55,7 +51,7 @@ describe('interceptors', () => {
 		};
 		interceptors.push(failInterceptor);
 		interceptors.onRequest({}).then(() => {
-			expect(failInterceptor.requestError).toHaveBeenCalledWith(msg, {});
+			expect(failInterceptor.requestError).toHaveBeenCalledWith(msg);
 			done();
 		});
 	});
@@ -74,26 +70,23 @@ describe('interceptors', () => {
 			response: () => {
 				throw error;
 			},
-			responseError: jest.fn(),
+			responseError: jest.fn(e => e),
 		};
 		interceptors.push(failInterceptor);
-		interceptors.onResponse({}).then(() => {
-			expect(failInterceptor.responseError).toHaveBeenCalledWith(error, {});
+		interceptors.onResponse({}).finally(() => {
+			expect(failInterceptor.responseError).toHaveBeenCalledWith(error);
 			done();
 		});
 	});
 	it('should interceptor responseError be called if response reject', done => {
 		const msg = 'reject in interceptor response';
 		const failInterceptor = {
-			response: () =>
-				new Promise((resolve, reject) => {
-					return reject(msg);
-				}),
+			response: () => new Promise((resolve, reject) => reject(msg)),
 			responseError: jest.fn((e, v) => v),
 		};
 		interceptors.push(failInterceptor);
 		interceptors.onResponse({}).then(() => {
-			expect(failInterceptor.responseError).toHaveBeenCalledWith(msg, {});
+			expect(failInterceptor.responseError).toHaveBeenCalledWith(msg);
 			done();
 		});
 	});
