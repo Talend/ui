@@ -1,0 +1,6 @@
+{
+  "settings": {
+    "source": [ "src/settings" ],
+    "destination": "assets"
+  }
+}
