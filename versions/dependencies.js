@@ -104,7 +104,7 @@ module.exports = {
 	jest: JEST_VERSION,
 	'jest-cli': JEST_VERSION,
 	'jest-in-case': '^1.0.2', // this is integrated in jest 23
-	'jest-environment-jsdom': '^23.4.0',
+	'jest-environment-jsdom': JEST_VERSION,
 	jsdom: '^11.11.0',
 	prettier: '^1.6.1',
 	'react-storybook-cmf': '^0.4.0',

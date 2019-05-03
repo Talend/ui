@@ -59,7 +59,7 @@
     "jasmine": "2.5.2",
     "jasmine-core": "2.5.2",
     "jest": "^24.7.1",
-    "jest-environment-jsdom": "^23.4.0",
+    "jest-environment-jsdom": "^24.7.1",
     "jest-environment-jsdom-global": "^1.2.0",
     "karma": "^4.1.0",
     "karma-jasmine": "^2.0.1",
