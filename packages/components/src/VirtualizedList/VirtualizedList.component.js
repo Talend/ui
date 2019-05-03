@@ -28,6 +28,7 @@ function VirtualizedList(props) {
 		onRowClick,
 		onRowDoubleClick,
 		onScroll,
+		onToggleAll,
 		rowHeight,
 		selectionToggle,
 		sort,
@@ -39,8 +40,10 @@ function VirtualizedList(props) {
 	} = props;
 
 	const columnDefinitionsWithSelection = insertSelectionConfiguration({
+		collection,
 		isSelected,
 		selectionToggle,
+		onToggleAll,
 		children,
 	});
 	const columnDefinitions = toColumns({

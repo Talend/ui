@@ -8,7 +8,7 @@ const { createUserConfigGetter } = require('./env');
  */
 function getPresetApi(env = process.env) {
 	const mode = env.TALEND_MODE || 'production';
-	const getUserConfig = createUserConfigGetter();
+	const getUserConfig = createUserConfigGetter(env);
 	return {
 		mode,
 		getUserConfig,

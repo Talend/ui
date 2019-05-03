@@ -49,15 +49,24 @@ function getTalendScriptsConfig({ TALEND_SCRIPTS_CONFIG }) {
 function createUserConfigGetter(env = process.env) {
 	const talendScriptsConfig = getTalendScriptsConfig(env);
 	return function getUserConfig(configObjectPath, defaultValue) {
-		return get(
-			talendScriptsConfig,
-			configObjectPath,
-			defaultValue
-		);
+		return get(talendScriptsConfig, configObjectPath, defaultValue);
 	};
+}
+
+/**
+ * Get the user config file, based on a list of possible file names
+ * @param userPossibleConfigFiles	The possible file names
+ * @returns {string | undefined}	The existing user config file
+ */
+function getUserConfigFile(userPossibleConfigFiles) {
+	return []
+		.concat(userPossibleConfigFiles)
+		.map(fileName => path.join(process.cwd(), fileName))
+		.find(fs.existsSync);
 }
 
 module.exports = {
 	createUserConfigGetter,
 	getEnv,
+	getUserConfigFile,
 };

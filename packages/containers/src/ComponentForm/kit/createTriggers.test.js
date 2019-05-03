@@ -113,7 +113,7 @@ describe('createTriggers', () => {
 				response: {
 					ok: false,
 					status: 500,
-					text: () => Promise.resolve('{ "error": "Internal Server Error" }'),
+					text: () => Promise.resolve('{ "message": "Internal Server Error" }'),
 				},
 			},
 		});

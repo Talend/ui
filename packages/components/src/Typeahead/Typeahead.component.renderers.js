@@ -64,11 +64,8 @@ export function renderItemsContainerFactory(
 	const isShown = items;
 	const noResult = items && !items.length;
 
-	function ItemsContainerComponent(props) {
-		const { id, ref, containerProps, children } = props;
-		const { className, ...restProps } = containerProps;
-
-		const containerClassName = classNames(className, theme['items-container'], {
+	function ItemsContainerComponent({ containerProps, children }) {
+		const containerClassName = classNames(containerProps.className, theme['items-container'], {
 			[theme['container-open']]: searching || noResult,
 		});
 
@@ -95,17 +92,29 @@ export function renderItemsContainerFactory(
 		} else {
 			content = children;
 		}
-
 		return (
-			<div id={id} ref={ref} className={containerClassName} {...restProps}>
-				{render(content, { searching, loading, noResult, isShown })}
+			<div
+				className={containerClassName}
+				id={containerProps.id}
+				key={containerProps.key}
+				ref={containerProps.ref}
+				role={containerProps.role}
+			>
+				{render(
+					content,
+					{
+						isShown,
+						loading,
+						noResult,
+						searching,
+					},
+					containerProps.ref,
+				)}
 			</div>
 		);
 	}
 
 	ItemsContainerComponent.propTypes = {
-		id: PropTypes.string,
-		ref: PropTypes.func,
 		containerProps: PropTypes.object,
 		children: PropTypes.node,
 	};

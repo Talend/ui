@@ -6700,7 +6700,7 @@ exports[`EnumerationWidget should delete an item with callHandler 1`] = `
           ],
           "results": Array [
             Object {
-              "isThrow": false,
+              "type": "return",
               "value": undefined,
             },
           ],

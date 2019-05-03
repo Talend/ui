@@ -80,9 +80,7 @@ stories
 		<div>
 			<LanguageSwitcher />
 			<IconsProvider defaultIcons={icons} />
-			<I18nextProvider i18n={i18n}>
-				{story()}
-			</I18nextProvider>
+			<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
 		</div>
 	))
 	.add('default', () => (
@@ -231,19 +229,17 @@ stories
 const appStyle = require('./config/themes.scss');
 
 apps.forEach(app => {
-	stories
-		.add(`🎨 [${app.toUpperCase()}] SidePanel`, () => (
-			<div className={appStyle[app]}>
-				<div className={TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
-					<SidePanel
-						id="context"
-						actions={actions}
-						onToggleDock={action('Toggle dock clicked')}
-						docked={false}
-						tooltipPlacement="top"
-					/>
-				</div>
+	stories.add(`🎨 [${app.toUpperCase()}] SidePanel`, () => (
+		<div className={appStyle[app]}>
+			<div className={TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
+				<SidePanel
+					id="context"
+					actions={actions}
+					onToggleDock={action('Toggle dock clicked')}
+					docked={false}
+					tooltipPlacement="top"
+				/>
 			</div>
-		)
-	);
+		</div>
+	));
 });

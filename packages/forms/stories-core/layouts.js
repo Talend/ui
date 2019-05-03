@@ -31,7 +31,7 @@ export default [
 		name: 'default',
 		story: () => (
 			<div>
-				<h1>Form by default take 100% with of the container</h1>
+				<h1>Form by default take 100% width of the container</h1>
 				<Form data={simple} />
 			</div>
 		),
