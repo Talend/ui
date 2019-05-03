@@ -31,6 +31,7 @@ exports[`Widget component should render custom widget 1`] = `
     }
   }
   value="my firstname"
+  valueIsUpdating={false}
   widgets={
     Object {
       "customWidget": [Function],
@@ -72,6 +73,7 @@ exports[`Widget component should render custom widget in specific display mode 1
     }
   }
   value="my firstname"
+  valueIsUpdating={false}
   widgets={
     Object {
       "customWidget": [Function],
@@ -122,6 +124,7 @@ exports[`Widget component should render widget 1`] = `
     }
   }
   value="my firstname"
+  valueIsUpdating={false}
   widgets={Object {}}
 />
 `;
@@ -159,6 +162,7 @@ exports[`Widget component should render widget with the specific displayMode 1`]
     }
   }
   value="my firstname"
+  valueIsUpdating={false}
   widgets={Object {}}
 />
 `;

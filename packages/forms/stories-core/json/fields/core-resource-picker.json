@@ -4,31 +4,34 @@
     "type": "object",
     "title": "ResourcePicker",
     "properties": {
-      "multiResourcePicker": {
-        "type": "enum",
-        "enum": []
+      "name": {
+        "type": "string"
       },
-      "singleResourcePicker": {
-        "type": "enum",
-        "enum": []
+      "datasetId": {
+        "type": "string"
       }
-    }
+    },
+    "required": ["name", "datasetId"]
   },
   "uiSchema": [
     {
-      "key": "multiResourcePicker",
-      "title": "ResourcePicker with multi selection",
-      "widget": "resourcePicker",
-      "placeholder": "Select an existing resource",
-      "required": true,
-      "multi": true
+      "key": "name",
+      "title": "Title changes on picker change"
     },
     {
-      "key": "singleResourcePicker",
-      "title": "ResourcePicker without multi selection",
+      "key": "datasetId",
+      "title": "ResourcePicker that changes the input above",
       "placeholder": "Select an existing resource",
       "widget": "resourcePicker",
-      "multi": false
+      "triggers": [
+        { "action": "resourcePickerSelected", "onEvent": "change" },
+        { "action": "resourcePickerFiltered", "onEvent": "filter" }
+      ],
+      "multi": false,
+      "options": {
+        "filters": ["selection"],
+        "sort": ["name"]
+      }
     }
   ],
   "properties": {}

@@ -60,13 +60,13 @@ $background-color-on-hover: shade($brand-primary, 30);
 		}
 
 		.tc-header-bar-logo:global(.btn):global(.btn-link) {
-			line-height: $svg-lg-size;
-			padding: 12px $padding-normal 12px $padding-small;
+			line-height: $svg-xlg-size;
+			padding: 8px $padding-normal 8px $padding-small;
 
 			:global(.tc-svg-icon) {
-				height: $svg-lg-size;
+				height: $svg-xlg-size;
 				vertical-align: top;
-				width: $svg-lg-size;
+				width: $svg-xlg-size;
 			}
 
 			&.full :global(.tc-svg-icon) {
@@ -77,6 +77,20 @@ $background-color-on-hover: shade($brand-primary, 30);
 		.tc-header-bar-brand:global(.btn):global(.btn-link) {
 			font-size: $font-size-base;
 			text-transform: uppercase;
+		}
+
+		.tc-header-bar-call-to-action {
+			:global {
+				.btn.btn-info.btn-inverse {
+					background-color: $white;
+					border: none;
+					margin-right: $padding-normal;
+
+					&:hover {
+						background-color: $white;
+					}
+				}
+			}
 		}
 	}
 
@@ -136,12 +150,12 @@ $background-color-on-hover: shade($brand-primary, 30);
 	.tc-header-bar-search {
 		form {
 			height: $navbar-height;
+			padding-left: 0;
 
 			:global(.tc-typeahead-container) > div:first-child {
 				margin-top: 0;
 				margin-bottom: 0;
 
-				padding-left: $padding-small;
 				padding-right: $padding-large;
 				height: $navbar-height;
 				background: $white;

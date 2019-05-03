@@ -28,12 +28,8 @@ function getComponent(component) {
 		case 'DefaultStringCellRenderer':
 			return DefaultRenderer;
 		default:
-			console.error(component);
+			return DefaultRenderer;
 	}
-}
-
-function forceRedrawRows(props, oldProps) {
-	return props.rowData[0].loading !== oldProps.rowData[0].loading;
 }
 
 sample.data[0].value.field0.value = `﻿﻿﻿﻿﻿﻿﻿  loreum lo
@@ -50,6 +46,21 @@ storiesOf('Component Datagrid', module)
 		<div style={{ height: '100vh' }}>
 			<IconsProvider />
 			<DataGrid
+				data={sample}
+				getComponent={getComponent}
+				onFocusedCell={event => console.log(event)}
+				onFocusedColumn={event => console.log(event)}
+				onVerticalScroll={event => console.log(event)}
+				rowSelection="multiple"
+				enableColResize={false}
+			/>
+		</div>
+	))
+	.add('without subtype', () => (
+		<div style={{ height: '100vh' }}>
+			<IconsProvider />
+			<DataGrid
+				columnsConf={{ hideSubType: true }}
 				data={sample}
 				getComponent={getComponent}
 				onFocusedCell={event => console.log(event)}

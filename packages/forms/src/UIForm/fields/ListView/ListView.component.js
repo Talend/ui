@@ -183,6 +183,7 @@ class ListViewWidget extends React.Component {
 				id={this.props.id}
 				isValid={this.props.isValid}
 				required={this.props.schema.required}
+				valueIsUpdating={this.props.valueIsUpdating}
 			>
 				<ListView
 					{...this.state}
@@ -221,6 +222,7 @@ if (process.env.NODE_ENV !== 'production') {
 			),
 		}),
 		value: PropTypes.arrayOf(PropTypes.string),
+		valueIsUpdating: PropTypes.bool,
 		t: PropTypes.func,
 	};
 }

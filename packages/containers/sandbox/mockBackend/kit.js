@@ -61,6 +61,7 @@ function reloadForm({ id }) {
 
 function suggestionForDemo() {
 	return {
+		cacheable: true,
 		items: [
 			{ id: 'clafoutis', label: 'Clafoutis aux poires et aux fruits' },
 			{ id: 'conchiglioni-au-thon', label: 'Conchiglioni au thon' },
@@ -87,6 +88,7 @@ function suggestionBig() {
 		function onEnd() {
 			console.log('onEnd', body);
 			cache.photos = {
+				cacheable: true,
 				items: JSON.parse(body).map(item => ({ id: item.id.toString(), label: item.title })),
 			};
 			res.json(cache.photos);
@@ -117,6 +119,21 @@ function updateProperties({ type }) {
 	}
 }
 
+function giveMeFive() {
+	return res => {
+		res
+			.status(500)
+			.json({
+				timestamp: 1548781374412,
+				status: 500,
+				error: 'Internal Server Error',
+				exception: 'javax.ws.rs.ClientErrorException',
+				message: 'An internal server error occurs',
+				path: '/proxy/v1/action/execute/dataset',
+			});
+	};
+}
+
 const TRIGGERS = {
 	validation: {
 		urlValidation,
@@ -136,6 +153,9 @@ const TRIGGERS = {
 	},
 	update: {
 		updateProperties,
+	},
+	error: {
+		giveMeFive,
 	},
 };
 

@@ -1,4 +1,4 @@
-module.exports = function(api) {
+module.exports = function babel(api) {
 	if (api) {
 		api.cache(true);
 	}

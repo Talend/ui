@@ -53,7 +53,10 @@ export function bootstrapSaga(options) {
 			yield spawn(options.saga);
 		}
 	}
-	const middleware = createSagaMiddleware();
+	// https://chrome.google.com/webstore/detail/redux-saga-dev-tools/kclmpmjofefcpjlommdpokoccidafnbi
+	// eslint-disable-next-line no-underscore-dangle
+	const sagaMonitor = window.__SAGA_MONITOR_EXTENSION__;
+	const middleware = createSagaMiddleware({ sagaMonitor });
 	return {
 		middleware,
 		run: () => middleware.run(cmfSaga),
@@ -90,8 +93,6 @@ export function bootstrapRedux(options, sagaMiddleware) {
 	]);
 	if (options.settingsURL) {
 		store.dispatch(actions.settings.fetchSettings(options.settingsURL));
-	} else {
-		store.dispatch(actions.settings.fetchSettings('/settings.json'));
 	}
 	if (typeof options.storeCallback === 'function') {
 		options.storeCallback(store);

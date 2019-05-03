@@ -122,6 +122,7 @@ storiesOf('Typeahead', module)
 			onChange: action('onChange'),
 			onSelect: action('onSelect'),
 			role: 'searchbox',
+			'data-feature': 'data-feature-typeahead',
 		};
 		return <Typeahead {...props} />;
 	})
