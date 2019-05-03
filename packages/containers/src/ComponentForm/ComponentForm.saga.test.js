@@ -4,6 +4,7 @@ import cmf from '@talend/react-cmf';
 
 import * as sagas from './ComponentForm.sagas';
 import { TCompForm } from './ComponentForm.component';
+import { getComponentFormState } from './ComponentForm.selectors';
 
 describe('ComponentForm saga', () => {
 	describe('*checkFormComponentId', () => {
@@ -361,6 +362,34 @@ describe('ComponentForm saga', () => {
 			expect(gen.next(prevState).value).toEqual(put(mergeStatePayload));
 			// then
 			expect(gen.next().value).toEqual(undefined);
+		});
+	});
+
+	describe('handleSetDirtyState', () => {
+		it('should dispatch an action to update the component form statu', () => {
+			// given
+			const componentId = 'myId';
+			const dirty = true;
+			// when
+			const gen = sagas.handleSetDirtyState({ componentId, dirty });
+			// then
+			expect(gen.next().value).toEqual(select(getComponentFormState, componentId));
+			expect(gen.next(Map({})).value).toEqual(
+				put({
+					cmf: {
+						componentState: {
+							componentName: 'ComponentForm',
+							componentState: Map({
+								dirty: true,
+							}),
+							key: 'myId',
+							type: 'REACT_CMF.COMPONENT_MERGE_STATE',
+						},
+					},
+					type: 'ComponentForm.setState',
+				}),
+			);
+			expect(gen.next().done).toBe(true);
 		});
 	});
 });
