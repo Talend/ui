@@ -13,9 +13,9 @@ export function* handleHttpError(action) {
 			yield put(redirectToStatusCodePage(status));
 			break;
 		case HTTP_STATUS.UNAUTHORIZED:
-			if (IS_EE) {
-				yield call(logout);
-			}
+			// if (IS_EE) {
+			yield call(logout);
+			// }
 			break;
 		default:
 			if (

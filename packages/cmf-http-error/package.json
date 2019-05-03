@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
     "@talend/react-cmf": "3.4.0",
     "@talend/react-components": "3.4.0",
     "@talend/react-containers": "3.4.0",
@@ -24,7 +25,7 @@
     "@babel/plugin-transform-object-assign": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
-    "@talend/scripts": "^0.19.2",
+    "@talend/scripts": "^0.16.1",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.0.0",
     "enzyme": "^3.9.0",
