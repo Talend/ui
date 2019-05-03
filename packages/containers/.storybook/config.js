@@ -1,15 +1,14 @@
-import 'babel-polyfill';
-import { storiesOf, configure, setAddon } from '@storybook/react';
+import '@babel/polyfill';
+import { storiesOf, configure, addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { checkA11y } from '@storybook/addon-a11y';
 import createSagaMiddleware from 'redux-saga';
-import cmf from '@talend/react-storybook-cmf';
+import withCMF from '@talend/react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
 import api, { actions, sagas } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import { call, put } from 'redux-saga/effects';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
-import 'focus-outline-manager';
 import ComponentOverlay from './ComponentOverlay';
 import examples from '../examples';
 import {
@@ -19,7 +18,8 @@ import {
 import { actionsCreators as actionsCreatorsEditableText } from './editabletext.storybook';
 import { registerAllContainers } from '../src/register';
 
-setAddon({ addWithCMF: cmf.addWithCMF });
+addDecorator(withCMF);
+addDecorator(checkA11y);
 
 registerAllContainers();
 const actionLogger = action('dispatch');
@@ -35,13 +35,25 @@ function flagToggleReducer(state = {}, { type, flagId }) {
 	}
 	return state;
 }
-
-function reducer(state = {}, action) {
+function appReducer(state = {}, action) {
 	actionLogger(action);
 	return {
 		flags: flagToggleReducer(state.flags, action),
 	};
 }
+
+function routerReducer(state = {}, action) {
+	actionLogger(action);
+	return {
+		locationBeforeTransitions: {
+			pathname: '/storybook',
+		},
+	};
+}
+const reducer = {
+	app: appReducer,
+	routing: routerReducer,
+};
 
 function objectView(event, data) {
 	return {
@@ -464,6 +476,12 @@ function loadStories() {
 			activeExpression: { id: 'isFlagExpression', args: ['action:icon:creator:flag'] },
 			payload: { type: 'TOGGLE_FLAG_TYPE', flagId: 'action:icon:creator:flag' },
 		};
+		actions['show:guidedTour'] = {
+			label: 'Start guided tour',
+			payload: {
+				type: 'GUIDED_TOUR_SHOW',
+			},
+		};
 		actions[actionsSubHeader.actionSubHeaderSharing.id] = actionsSubHeader.actionSubHeaderSharing;
 		actions[actionsSubHeader.actionSubHeaderBubbles.id] = actionsSubHeader.actionSubHeaderBubbles;
 		// migrate some actions to props:
@@ -471,20 +489,23 @@ function loadStories() {
 		state.cmf.settings.props['ActionButton#second'] = actions['menu:second'];
 		state.cmf.settings.props['ActionButton#configuration'] = actions['menu:third'];
 		const story = storiesOf(example, examples[example]);
-		story.addDecorator(checkA11y);
 
 		if (typeof examples[example] === 'function') {
-			story.addWithCMF('Default', examples[example], {
-				state,
-				reducer,
-				sagaMiddleware,
-			});
-		} else {
-			Object.keys(examples[example]).forEach(usecase => {
-				story.addWithCMF(usecase, examples[example][usecase], {
+			story.add('Default', examples[example], {
+				cmf: {
 					state,
 					reducer,
 					sagaMiddleware,
+				},
+			});
+		} else {
+			Object.keys(examples[example]).forEach(usecase => {
+				story.add(usecase, examples[example][usecase], {
+					cmf: {
+						state,
+						reducer,
+						sagaMiddleware,
+					},
 				});
 			});
 		}

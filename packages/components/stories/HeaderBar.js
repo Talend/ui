@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
+import { makeDecorator } from '@storybook/addons';
 
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
@@ -159,19 +159,6 @@ const props = {
 	},
 };
 
-const decoratedStories = storiesOf('HeaderBar', module).addDecorator(story => (
-	<I18nextProvider i18n={i18n}>
-		<div>
-			<IconsProvider defaultIcons={icons} />
-			{story()}
-			<div className="container" style={{ paddingTop: 40 }} />
-		</div>
-	</I18nextProvider>
-));
-
-if (!decoratedStories.addWithInfo) {
-	decoratedStories.addWithInfo = decoratedStories.add;
-}
 const infoStyle = stylesheet => ({
 	...stylesheet,
 	button: {
@@ -183,26 +170,44 @@ const infoStyle = stylesheet => ({
 	},
 });
 
+const withIcons = makeDecorator({
+	name: 'withIcons',
+	wrapper: (getStory, context) => {
+		const story = getStory(context);
+		return (
+			<I18nextProvider i18n={i18n}>
+				<div>
+					<IconsProvider defaultIcons={icons} />
+					{story}
+					<div className="container" style={{ paddingTop: 40 }} />
+				</div>
+			</I18nextProvider>
+		);
+	},
+});
+
+const decoratedStories = storiesOf('HeaderBar', module);
+
 decoratedStories
-	.addDecorator(checkA11y)
-	.addWithInfo(
+	.addDecorator(withIcons)
+	.add(
 		'default',
 		() => {
 			const headerProps = Immutable.fromJS(props).toJS();
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
-	.addWithInfo(
+	.add(
 		'with full logo',
 		() => {
 			const headerProps = Immutable.fromJS(props).toJS();
 			headerProps.logo.isFull = true;
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
-	.addWithInfo(
+	.add(
 		'without products',
 		() => {
 			const headerProps = Immutable.fromJS({
@@ -212,9 +217,9 @@ decoratedStories
 			headerProps.logo.isFull = true;
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
-	.addWithInfo(
+	.add(
 		'with environment dropdown',
 		() => {
 			const headerProps = Immutable.fromJS(props).toJS();
@@ -230,9 +235,9 @@ decoratedStories
 			};
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
-	.addWithInfo(
+	.add(
 		'with unread notifications',
 		() => {
 			const headerProps = Immutable.fromJS(props).toJS();
@@ -241,9 +246,9 @@ decoratedStories
 			};
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
-	.addWithInfo(
+	.add(
 		'with read notifications',
 		() => {
 			const headerProps = Immutable.fromJS(props).toJS();
@@ -252,9 +257,9 @@ decoratedStories
 			};
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
-	.addWithInfo(
+	.add(
 		'with help split dropdown',
 		() => {
 			const headerProps = Immutable.fromJS(props).toJS();
@@ -272,9 +277,9 @@ decoratedStories
 			];
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
-	.addWithInfo(
+	.add(
 		'with search input',
 		() => {
 			const headerProps = Immutable.fromJS(props).toJS();
@@ -285,9 +290,9 @@ decoratedStories
 			};
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
-	.addWithInfo(
+	.add(
 		'while searching',
 		() => {
 			const headerProps = Immutable.fromJS(props).toJS();
@@ -300,9 +305,9 @@ decoratedStories
 			};
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
-	.addWithInfo(
+	.add(
 		'with search results',
 		() => {
 			const headerProps = Immutable.fromJS(props).toJS();
@@ -316,9 +321,9 @@ decoratedStories
 			};
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
-	.addWithInfo(
+	.add(
 		'with no search result',
 		() => {
 			const headerProps = Immutable.fromJS(props).toJS();
@@ -331,9 +336,24 @@ decoratedStories
 			};
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
-	.addWithInfo(
+	.add(
+		'with callToAction',
+		() => {
+			const headerProps = Immutable.fromJS(props).toJS();
+			headerProps.callToAction = {
+				id: 'header-call-to-action',
+				bsStyle: 'info',
+				className: 'btn-inverse',
+				label: 'Subscribe now',
+				onClick: action('onActionClick'),
+			};
+			return <HeaderBar {...headerProps} />;
+		},
+		{ info: { styles: infoStyle } },
+	)
+	.add(
 		'without user and with information',
 		() => {
 			const headerProps = Immutable.fromJS(props).toJS();
@@ -370,15 +390,15 @@ decoratedStories
 			};
 			return <HeaderBar {...headerProps} />;
 		},
-		{ styles: infoStyle },
+		{ info: { styles: infoStyle } },
 	)
-	.addWithInfo('barebone', () => <HeaderBar />, { styles: infoStyle });
+	.add('barebone', () => <HeaderBar />, { info: { styles: infoStyle } });
 
 const appStyle = require('./config/themes.scss');
 
 apps.forEach(app => {
 	const headerProps = Immutable.fromJS(props).toJS();
-	decoratedStories.addWithInfo(`🎨 [${app.toUpperCase()}] HeaderBar`, () => (
+	decoratedStories.add(`🎨 [${app.toUpperCase()}] HeaderBar`, () => (
 		<div className={appStyle[app]}>
 			<div className={TALEND_T7_THEME_CLASSNAME}>
 				<div role="banner">

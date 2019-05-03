@@ -42,7 +42,7 @@ module.exports = class CMFAppGenerator extends Generator {
 	}
 
 	writing() {
-		const fileToCopy = ['src', 'cmf.json', 'talend-scripts.json', 'test-setup.js'];
+		const fileToCopy = ['src', 'cmf.json', 'talend-scripts.json', '.eslintrc'];
 		const tplToCopy = ['package.json'];
 		fileToCopy.forEach(name => {
 			this.fs.copy(this.templatePath(name), this.destinationPath(name));
@@ -52,6 +52,10 @@ module.exports = class CMFAppGenerator extends Generator {
 		});
 	}
 	install() {
-		this.npmInstall();
+		if (this.options.yarn) {
+			this.yarnInstall();
+		} else {
+			this.npmInstall();
+		}
 	}
 };

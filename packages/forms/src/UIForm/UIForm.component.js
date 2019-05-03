@@ -36,6 +36,8 @@ export class UIFormComponent extends React.Component {
 		this.onSubmit = this.onSubmit.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onActionClick = this.onActionClick.bind(this);
+		this.focusFirstError = this.focusFirstError.bind(this);
+		this.setFormRef = this.setFormRef.bind(this);
 		// control the tv4 language here.
 		const language = getLanguage(props.t);
 		if (props.language != null) {
@@ -114,29 +116,31 @@ export class UIFormComponent extends React.Component {
 		} else {
 			newValue = getValue(this.props.properties, schema);
 		}
-
-		// validate value
-		const valueError = validateSingle(
+		// validate value. This validation can be deep if schema is an object or an array
+		const widgetErrors = validateSingle(
 			schema,
 			newValue,
 			this.props.properties,
 			this.props.customValidation,
 			deepValidation,
-		)[schema.key];
+		);
+		const hasErrors = Object.values(widgetErrors).find(Boolean);
 
 		// update errors map
-		let errors;
-		if (valueError) {
-			errors = addError(this.props.errors, schema, valueError);
-		} else {
-			errors = removeError(this.props.errors, schema);
-		}
+		let errors = Object.entries(widgetErrors).reduce((accu, [errorKey, errorValue]) => {
+			const errorSchema = { key: errorKey };
+			return errorValue ? addError(accu, errorSchema, errorValue) : removeError(accu, errorSchema);
+		}, this.props.errors);
+
+		// widget error modifier
 		if (widgetChangeErrors) {
 			errors = widgetChangeErrors(errors);
 		}
+
+		// commit errors
 		this.props.setErrors(event, errors);
 
-		if (!valueError && schema.triggers && schema.triggers.length) {
+		if (!hasErrors && schema.triggers && schema.triggers.length) {
 			let formData = this.props.properties;
 			if (value !== undefined) {
 				formData = mutateValue(formData, schema, value);
@@ -215,10 +219,25 @@ export class UIFormComponent extends React.Component {
 		const { mergedSchema } = this.state;
 		const { properties, customValidation } = this.props;
 		const newErrors = validateAll(mergedSchema, properties, customValidation);
-		const errors = { ...this.props.errors, ...newErrors };
-		this.props.setErrors(event, errors);
+		Object.entries(this.props.errors)
+			.filter(entry => entry[0] in newErrors)
+			.reduce((accu, [key, value]) => {
+				// eslint-disable-next-line no-param-reassign
+				accu[key] = value;
+				return accu;
+			}, newErrors);
+
+		const errors = Object.entries(newErrors)
+			.filter(entry => entry[1])
+			.reduce((accu, [key, value]) => {
+				// eslint-disable-next-line no-param-reassign
+				accu[key] = value;
+				return accu;
+			}, {});
 
 		const isValid = !Object.keys(errors).length;
+		this.props.setErrors(event, errors, !isValid ? this.focusFirstError : undefined);
+
 		if (this.props.onSubmit && isValid) {
 			if (this.props.moz) {
 				this.props.onSubmit(null, { formData: properties });
@@ -226,7 +245,20 @@ export class UIFormComponent extends React.Component {
 				this.props.onSubmit(event, properties);
 			}
 		}
+
 		return isValid;
+	}
+
+	setFormRef(element) {
+		this.formRef = element;
+	}
+
+	focusFirstError() {
+		if (!this.formRef) {
+			return;
+		}
+
+		this.formRef.querySelector('[aria-invalid="true"]').focus();
 	}
 
 	render() {
@@ -259,20 +291,27 @@ export class UIFormComponent extends React.Component {
 					templates={this.props.templates}
 					widgets={this.state.widgets}
 					displayMode={this.props.displayMode}
+					updating={this.props.updating}
 				/>
 			));
-		const buttonsRenderer = () => (
-			<div className={classNames(theme['form-actions'], 'tf-actions-wrapper')} key="form-buttons">
-				<Buttons
-					id={`${this.props.id}-${this.props.id}-actions`}
-					onTrigger={this.onTrigger}
-					className={this.props.buttonBlockClass}
-					schema={{ items: actions }}
-					onClick={this.onActionClick}
-					getComponent={this.props.getComponent}
-				/>
-			</div>
-		);
+		const buttonsRenderer = () => {
+			if (actions.length === 0) {
+				return null;
+			}
+
+			return (
+				<div className={classNames(theme['form-actions'], 'tf-actions-wrapper')} key="form-buttons">
+					<Buttons
+						id={`${this.props.id}-${this.props.id}-actions`}
+						onTrigger={this.onTrigger}
+						className={this.props.buttonBlockClass}
+						schema={{ items: actions }}
+						onClick={this.onActionClick}
+						getComponent={this.props.getComponent}
+					/>
+				</div>
+			);
+		};
 
 		return (
 			<form
@@ -288,6 +327,7 @@ export class UIFormComponent extends React.Component {
 				onReset={this.props.onReset}
 				onSubmit={this.onSubmit}
 				target={this.props.target}
+				ref={this.setFormRef}
 			>
 				{formTemplate({ children: this.props.children, widgetsRenderer, buttonsRenderer })}
 			</form>

@@ -13,8 +13,8 @@ import sagas from './sagas';
 
 cmf.bootstrap({
 	components,
-	saga: sagas.appSaga,
-	sagaRouterConfig: sagas.routes,
+	saga: sagas.appSaga, // function* appSaga() {...}
+	...manyMoreOptions
 });
 ```
 
@@ -24,14 +24,12 @@ cmf.bootstrap({
 | -- | -- | -- | -- |
 | settingsURL | string | '/settings.json' | URL to fetch the cmf settings.json file |
 | appId | string | 'app' | DOM element id, where to render the React application |
-| history | Object | `{ hashHistory } from 'react-router'` | The history object to control the router |
 | components | Object | undefined | A components dictionary where each key/value are registered in cmf registry so you can refer them in settings |
 | actionCreators | Object | undefined | Same dictionary as `components` option for actionsCreators |
 | expressions | Object | undefined | Same dictionary as `components` option for expressions |
 | sagas | Object | undefined | Same dictionary as `components` option for sagas |
-| registry | Object | undefined | A low level dictionnary to register anything in the cmf registry. Caution : use a proper prefix for key to not conflict with all the others registered key |
 | httpMiddleware | function | undefined | Override the default http middleware |
-| preReducer | function | undefined | Redux preReducer, called on every actions before reducer |
+| preReducer | Array or function | undefined | Redux preReducer, called on every actions before reducer |
 | enhancer | function | undefined |Redux enhancer |
 | reducer | Object or function | undefined | Redux reducer. This is added with the internal reducers. |
 | preloadedState | Object | undefined | Redux state to preload. This is the initial state on Redux bootstrap. |
@@ -39,8 +37,9 @@ cmf.bootstrap({
 | storeCallback | function | undefined | Let you call a function once the store is created |
 | AppLoader | React Component | undefined | Let you define the React component to use to show the app is currently loading (waiting for the settings) |
 | saga | generator function | undefined | An independant top level saga of the app |
-| sagaRouterConfig | Object | undefined | (DEPRECATED) A route dictionnary of path (as key) associatied with saga (as value) |
 | modules | Array | undefined | Array of module definition to bootstrap with the app |
+| RootComponent | React Component | undefined | Let you define the React component to use to wrapp the App. It can be a react-router for example. |
+| registry | Object | undefined | A low level dictionnary to register anything in the cmf registry. Caution : use a proper prefix for key to not conflict with all the others registered key |
 
 ## Modules
 

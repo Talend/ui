@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import tv4 from 'tv4';
 import { actions, data, mergedSchema, initProps } from '../../__mocks__/data';
-
 import UIForm, { UIFormComponent } from './UIForm.component';
 
 describe('UIForm component', () => {
@@ -38,6 +37,12 @@ describe('UIForm component', () => {
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should not render any div if an empty "actions" array is provided', () => {
+		const wrapper = shallow(<UIFormComponent {...data} {...props} actions={[]} />);
+		const buttonsWrapper = wrapper.find('div.tf-actions-wrapper');
+		expect(buttonsWrapper).toHaveLength(0);
 	});
 
 	it('should take in account customFormat', () => {
@@ -101,7 +106,6 @@ describe('UIForm component', () => {
 			expect(props.onTrigger).not.toBeCalled();
 		});
 	});
-
 	describe('#onFinish', () => {
 		it('should perform trigger', () => {
 			// given
@@ -113,10 +117,7 @@ describe('UIForm component', () => {
 			props.onTrigger.mockReturnValueOnce(Promise.resolve({}));
 
 			// when
-			wrapper
-				.find('input')
-				.at(1)
-				.simulate('blur');
+			wrapper.find('input[id="myFormId_firstname"]').simulate('blur');
 
 			// then
 			expect(props.onTrigger).toBeCalledWith(expect.anything(), {
@@ -135,7 +136,6 @@ describe('UIForm component', () => {
 				errors: validData.errors,
 			});
 		});
-
 		it('should NOT perform trigger when field has errors', () => {
 			// given: required firstname is empty
 			const wrapper = mount(<UIForm {...data} {...props} />);
@@ -173,8 +173,58 @@ describe('UIForm component', () => {
 			// then
 			expect(props.setErrors).toBeCalledWith(event, newErrors);
 		});
-	});
 
+		it('should set errors, with deep validation', () => {
+			// given
+			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
+			const event = { target: {} };
+			const schema = {
+				key: ['what'],
+				schema: {
+					type: 'object',
+					required: ['value'],
+					properties: {
+						operator: {
+							type: 'string',
+							enum: ['>', '<', '='],
+							value: { type: 'string' },
+						},
+					},
+				},
+				items: [
+					{
+						key: ['what', 'operator'],
+						schema: { type: 'string', enum: ['>', '<', '='] },
+						title: 'operator',
+						type: 'select',
+					},
+					{
+						key: ['what', 'value'],
+						required: true,
+						schema: { type: 'string' },
+						title: 'value',
+						type: 'text',
+					},
+				],
+				widget: 'comparator',
+			};
+
+			// when
+			wrapper
+				.instance()
+				.onFinish(
+					event,
+					{ schema, value: { operator: '<', value: undefined } },
+					{ deepValidation: true },
+				);
+
+			// then
+			expect(props.setErrors).toBeCalledWith(event, {
+				what: 'Missing required field',
+				'what,value': 'Missing required field',
+			});
+		});
+	});
 	describe('#onTrigger', () => {
 		it('should call trigger callback', () => {
 			// given
@@ -194,6 +244,7 @@ describe('UIForm component', () => {
 				schema: mergedSchema[2],
 			});
 		});
+
 		it('should throw error if call without trigger', () => {
 			// given
 			const wrapper = shallow(<UIForm {...data} {...props} />);
@@ -204,6 +255,7 @@ describe('UIForm component', () => {
 			// then
 			expect(toThrow).toThrow();
 		});
+
 		it('should ensure properties, error and schema are passed from props', () => {
 			// given
 			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
@@ -220,6 +272,7 @@ describe('UIForm component', () => {
 			expect(props.onTrigger.mock.calls[0][1].errors).toBe(data.errors);
 			expect(props.onTrigger.mock.calls[0][1].schema).toBe(props.schema);
 		});
+
 		it('should let args override default props', () => {
 			// given
 			const wrapper = shallow(<UIFormComponent {...data} {...props} />);
@@ -268,9 +321,13 @@ describe('UIForm component', () => {
 			wrapper.instance().onSubmit(submitEvent);
 
 			// then
-			expect(props.setErrors).toBeCalledWith(submitEvent, {
-				firstname: 'Missing required field',
-			});
+			expect(props.setErrors).toBeCalledWith(
+				submitEvent,
+				{
+					firstname: 'Missing required field',
+				},
+				expect.anything(),
+			);
 		});
 
 		it('should validate all fields with existing errors', () => {
@@ -278,7 +335,8 @@ describe('UIForm component', () => {
 			const dataProperties = { lastname: 'dupont' };
 			const errors = {
 				lastname: 'String is too short (6 chars), minimum 10',
-				checked: 'error added via a trigger',
+				check: 'error added via a trigger',
+				hiddenField: 'this is a hidden error',
 			};
 			// props.errors.lastname =
 			const wrapper = shallow(
@@ -289,11 +347,15 @@ describe('UIForm component', () => {
 			wrapper.instance().onSubmit(submitEvent);
 
 			// then
-			expect(props.setErrors).toBeCalledWith(submitEvent, {
-				checked: 'error added via a trigger',
-				firstname: 'Missing required field',
-				lastname: 'String is too short (6 chars), minimum 10',
-			});
+			expect(props.setErrors).toBeCalledWith(
+				submitEvent,
+				{
+					firstname: 'Missing required field',
+					lastname: 'String is too short (6 chars), minimum 10',
+					check: 'error added via a trigger',
+				},
+				expect.anything(),
+			);
 		});
 
 		it('should validate all fields with custom error messages', () => {
@@ -308,9 +370,13 @@ describe('UIForm component', () => {
 			wrapper.instance().onSubmit(submitEvent);
 
 			// then
-			expect(props.setErrors).toBeCalledWith(submitEvent, {
-				firstname: 'is required',
-			});
+			expect(props.setErrors).toBeCalledWith(
+				submitEvent,
+				{
+					firstname: 'is required',
+				},
+				expect.anything(),
+			);
 		});
 
 		it('should not call submit callback when form is invalid', () => {
@@ -338,6 +404,24 @@ describe('UIForm component', () => {
 
 			// then
 			expect(props.onSubmit).toBeCalled();
+			expect(props.setErrors).toHaveBeenCalledWith(submitEvent, {}, undefined);
+		});
+
+		it('should focus the first element in error after submit', () => {
+			// given
+			const wrapper = mount(
+				<UIFormComponent {...data} {...props} errors={{ firstname: 'firstname is required' }} />,
+			);
+
+			// when
+			wrapper.instance().onSubmit(submitEvent);
+
+			// then
+			expect(document.activeElement.getAttribute('id')).toBe('myFormId_lastname');
+			expect(props.setErrors).toBeCalled();
+			props.setErrors.mock.calls[0][2]();
+			expect(document.activeElement.getAttribute('id')).toBe('myFormId_firstname');
+			expect(document.activeElement.getAttribute('aria-invalid')).toBe('true');
 		});
 	});
 });

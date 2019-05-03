@@ -11,6 +11,9 @@ describe('Text field', () => {
 		required: true,
 		title: 'My input title',
 		type: 'text',
+		schema: {
+			type: 'string',
+		},
 	};
 
 	it('should render input', () => {
@@ -89,6 +92,62 @@ describe('Text field', () => {
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				schema={readOnlySchema}
+				value={'toto'}
+			/>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render input with min attribute', () => {
+		// given
+		const minSchema = {
+			...schema,
+			schema: {
+				...schema.schema,
+				type: 'number',
+				minimum: 0,
+			},
+		};
+
+		// when
+		const wrapper = shallow(
+			<Text
+				id={'myForm'}
+				isValid
+				errorMessage={'My error message'}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				schema={minSchema}
+				value={'toto'}
+			/>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render input with max attribute', () => {
+		// given
+		const maxSchema = {
+			...schema,
+			schema: {
+				...schema.schema,
+				type: 'number',
+				maximum: 10,
+			},
+		};
+
+		// when
+		const wrapper = shallow(
+			<Text
+				id={'myForm'}
+				isValid
+				errorMessage={'My error message'}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				schema={maxSchema}
 				value={'toto'}
 			/>,
 		);

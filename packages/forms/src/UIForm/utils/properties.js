@@ -18,6 +18,9 @@ export function getValue(properties, schema) {
  * @param value The value to convert
  */
 export function convertValue(type, value) {
+	if (value === '') {
+		return undefined;
+	}
 	if (type === 'number') {
 		return parseFloat(value);
 	}
@@ -47,6 +50,10 @@ function mutateValueFromKey(properties = {}, key, value) {
 		nextProperties = { ...properties };
 	}
 
+	if (nextValue === undefined) {
+		delete nextProperties[nextKey];
+		return nextProperties;
+	}
 	nextProperties[nextKey] = nextValue;
 	return nextProperties;
 }

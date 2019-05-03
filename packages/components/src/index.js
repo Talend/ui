@@ -29,6 +29,7 @@ import EditableText from './EditableText';
 import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
 import FilterBar from './FilterBar';
+import GuidedTour from './GuidedTour';
 import HeaderTitle from './HeaderTitle';
 import ListView from './ListView';
 import TreeView from './TreeView';
@@ -40,6 +41,7 @@ import List from './List';
 import Loader from './Loader';
 import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
+import ResourcePicker from './ResourcePicker';
 import Skeleton from './Skeleton';
 import SidePanel from './SidePanel';
 import Table from './Table';
@@ -150,6 +152,7 @@ export {
 	Emphasis,
 	Enumeration,
 	FilterBar,
+	GuidedTour,
 	HeaderBar,
 	HeaderTitle,
 	HttpError,
@@ -164,6 +167,7 @@ export {
 	Notification,
 	ObjectViewer,
 	Progress,
+	ResourcePicker,
 	RichError,
 	RichLayout,
 	SidePanel,

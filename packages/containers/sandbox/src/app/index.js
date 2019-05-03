@@ -4,19 +4,22 @@
  * and other style can override it
  */
 
-import '@talend/bootstrap-theme/src/theme/theme.scss';
+import getRouter from '@talend/react-cmf-router';
 import containersModule from '@talend/react-containers';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 import cmf from '@talend/react-cmf';
 import { createLogger } from 'redux-logger';
 import actions from './actions';
 
+const router = getRouter();
+
 const app = {
 	components: { ComponentForm },
 	settingsURL: '/settings.json',
 	actionCreators: actions,
 	middlewares: [createLogger({})],
-	modules: [containersModule],
+	modules: [router.cmfModule, containersModule],
+	RootComponent: router.RootComponent,
 };
 
 /**

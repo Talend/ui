@@ -31,12 +31,15 @@ export default [
 		name: 'default',
 		story: () => (
 			<div>
-				<h1>Form by default take 100% with of the container</h1>
+				<h1>Form by default take 100% width of the container</h1>
 				<Form data={simple} />
 			</div>
 		),
 	},
-	{ name: 'drawer', story: () => <LayoutDrawer title="UIForm in a drawer" data={simple} /> },
+	{
+		name: 'drawer',
+		story: () => <LayoutDrawer title="UIForm in a drawer" data={simple} />,
+	},
 	{
 		name: 'drawer-stacked',
 		story: () => <LayoutDrawer title="UIForm in a drawer" data={simple} stacked />,

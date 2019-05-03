@@ -5,9 +5,10 @@
 
 /// Layout height of the header
 /// @type Number (Unit)
-$tc-layout-header-height: $navbar-height;
-$tc-layout-skip-links-z-index: 20;
-$tc-layout-header-z-index: 10;
+$tc-drawer-z-index: $drawer-z-index !default;
+$tc-layout-header-height: $navbar-height !default;
+$tc-layout-skip-links-z-index: $tc-drawer-z-index + 20 !default;
+$tc-layout-header-z-index: $tc-drawer-z-index + 10 !default;
 
 .layout {
 	display: flex;

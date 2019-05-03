@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from '@storybook/addon-a11y';
 import { IconsProvider } from '@talend/react-components';
 
 import DataGrid from '../src/components/';
@@ -11,10 +10,10 @@ import DefaultPinHeaderRenderer from '../src/components/DefaultPinHeaderRenderer
 import DefaultCellRenderer from '../src/components/DefaultCellRenderer';
 import DefaultHeaderRenderer from '../src/components/DefaultHeaderRenderer';
 
-import serializer from '../src/components/DatasetSerializer';
 import sample from './sample.json';
 import sample2 from './sample2.json';
 import sample3 from './sample3.json';
+import sampleWithoutQuality from './sampleWithoutQuality.json';
 
 function getComponent(component) {
 	switch (component) {
@@ -29,12 +28,8 @@ function getComponent(component) {
 		case 'DefaultStringCellRenderer':
 			return DefaultRenderer;
 		default:
-			console.error(component);
+			return DefaultRenderer;
 	}
-}
-
-function forceRedrawRows(props, oldProps) {
-	return props.rowData[0].loading !== oldProps.rowData[0].loading;
 }
 
 sample.data[0].value.field0.value = `﻿﻿﻿﻿﻿﻿﻿  loreum lo
@@ -47,12 +42,40 @@ sample.data[2].value.field0.value =
 	'very looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong value';
 
 storiesOf('Component Datagrid', module)
-	.addDecorator(checkA11y)
 	.add('default', () => (
 		<div style={{ height: '100vh' }}>
 			<IconsProvider />
 			<DataGrid
 				data={sample}
+				getComponent={getComponent}
+				onFocusedCell={event => console.log(event)}
+				onFocusedColumn={event => console.log(event)}
+				onVerticalScroll={event => console.log(event)}
+				rowSelection="multiple"
+				enableColResize={false}
+			/>
+		</div>
+	))
+	.add('without subtype', () => (
+		<div style={{ height: '100vh' }}>
+			<IconsProvider />
+			<DataGrid
+				columnsConf={{ hideSubType: true }}
+				data={sample}
+				getComponent={getComponent}
+				onFocusedCell={event => console.log(event)}
+				onFocusedColumn={event => console.log(event)}
+				onVerticalScroll={event => console.log(event)}
+				rowSelection="multiple"
+				enableColResize={false}
+			/>
+		</div>
+	))
+	.add('datagrid without quality', () => (
+		<div style={{ height: '100vh' }}>
+			<IconsProvider />
+			<DataGrid
+				data={sampleWithoutQuality}
 				getComponent={getComponent}
 				onFocusedCell={event => console.log(event)}
 				onFocusedColumn={event => console.log(event)}

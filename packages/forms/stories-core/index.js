@@ -1,85 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import a11y from 'react-a11y';
-import { Provider } from 'react-redux';
 import { storiesOf } from '@storybook/react';
-import { checkA11y } from '@storybook/addon-a11y';
-
-import Well from 'react-bootstrap/lib/Well';
-
-import { createStore, combineReducers } from 'redux';
-
-import { I18nextProvider } from 'react-i18next';
-import i18n from './../stories/config/i18n';
-
-import { formReducer } from '../src/UIForm';
+import { withKnobs } from '@storybook/addon-knobs';
 
 import jsonStories from './jsonStories';
+import playgroundStory from './playgroundStory';
 import layouts from './layouts';
 import customTemplateStory from './customTemplateStory';
 import customWidgetStory from './customWidgetStory';
 import customActionsStory from './customActionsStory';
+import customUpdating from './customUpdating';
+import customErrors from './customErrors';
+import customDisplayMode from './customDisplayMode';
 
-// integrate widget code
-import 'brace/theme/monokai';
-import 'brace/ext/language_tools';
-import 'brace/mode/python';
-import 'brace/snippets/python';
+const coreConceptsStories = storiesOf('Core concepts', module);
 
-const reducers = { forms: formReducer };
-const reducer = combineReducers(reducers);
-const store = createStore(reducer);
+const coreFieldsetsStories = storiesOf('Core fieldsets', module);
 
-a11y(ReactDOM);
+const coreFieldsStories = storiesOf('Core fields', module);
 
-const forStoryDecorator = story => (
-	<I18nextProvider i18n={i18n}>
-		<Provider store={store}>
-			<div className="container-fluid">
-				<nav
-					style={{ position: 'fixed', bottom: 0, width: '100vw', textAlign: 'center', zIndex: 1 }}
-				>
-					<div className="btn-group">
-						<button className="btn" onClick={() => i18n.changeLanguage('en')}>
-							Default (en)
-						</button>
-						<button className="btn" onClick={() => i18n.changeLanguage('fr')}>
-							fr
-						</button>
-						<button className="btn" onClick={() => i18n.changeLanguage('it')}>
-							it
-						</button>
-					</div>
-				</nav>
-				<div
-					className="col-md-offset-1 col-md-10"
-					style={{ marginTop: '20px', marginBottom: '20px' }}
-				>
-					<Well>{story()}</Well>
-				</div>
-			</div>
-		</Provider>
-	</I18nextProvider>
-);
+const oldStories = storiesOf('Migration', module);
 
-const coreConceptsStories = storiesOf('Core concepts', module)
-	.addDecorator(checkA11y)
-	.addDecorator(forStoryDecorator);
-
-const coreFieldsetsStories = storiesOf('Core fieldsets', module)
-	.addDecorator(checkA11y)
-	.addDecorator(forStoryDecorator);
-
-const coreFieldsStories = storiesOf('Core fields', module)
-	.addDecorator(checkA11y)
-	.addDecorator(forStoryDecorator);
-
-const oldStories = storiesOf('Migration', module)
-	.addDecorator(checkA11y)
-	.addDecorator(forStoryDecorator);
+const playground = storiesOf('Playground', module);
+playground.addDecorator(withKnobs);
+playground.add(playgroundStory.name, playgroundStory.story);
 
 const layout = storiesOf('Layout', module);
-layouts.forEach(info => layout.add(info.name, info.story));
+layouts.forEach(info => layout.add(info.name, info.story, info.options));
 
 jsonStories.forEach(({ category, name, story }) => {
 	switch (category) {
@@ -103,3 +48,6 @@ jsonStories.forEach(({ category, name, story }) => {
 coreConceptsStories.add(customTemplateStory.name, customTemplateStory.story);
 coreConceptsStories.add(customWidgetStory.name, customWidgetStory.story);
 coreConceptsStories.add(customActionsStory.name, customActionsStory.story);
+coreConceptsStories.add(customUpdating.name, customUpdating.story);
+coreConceptsStories.add(customErrors.name, customErrors.story);
+coreConceptsStories.add(customDisplayMode.name, customDisplayMode.story);

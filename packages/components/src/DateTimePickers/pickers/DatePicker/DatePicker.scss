@@ -18,11 +18,12 @@
 
 	th {
 		text-align: center;
-		color: $gray;
 	}
 
 	abbr {
-		@include picker-header;
+		border: none;
+		font-weight: normal;
+		text-decoration: none;
 	}
 }
 
@@ -31,24 +32,18 @@
 	text-align: center;
 
 	.calendar-day {
-		border-radius: 50%;
-		height: 3rem;
-		width: 3rem;
-		padding: 0;
-		border: none;
-		background: transparent;
-
-		&:disabled {
-			color: $silver-chalice;
-			background-color: transparent;
-		}
-
 		&.today {
 			background-color: $concrete;
 		}
 
-		&.selected {
-			@include picker-action-selected;
-		}
+		@include picker-action;
+
+		height: 2.4rem;
+		width: 2.4rem;
+		background: transparent;
+		border: none;
+		border-radius: 50%;
+		line-height: 2.4rem;
+		padding: 0;
 	}
 }

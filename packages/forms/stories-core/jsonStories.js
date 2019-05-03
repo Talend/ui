@@ -16,6 +16,87 @@ function capitalizeFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+function getFilteredCollection({ name, selection, certified, favorites, selected, orders }) {
+	const methods = {
+		asc: (a, b) => (a > b ? -1 : 1),
+		desc: (a, b) => (a < b ? -1 : 1),
+	};
+	const collection = [
+		{
+			id: '0',
+			name: 'Title with few actions',
+			modified: 1442880000000,
+			icon: 'talend-file-xls-o',
+			author: 'First Author',
+			flags: ['CERTIFIED', 'FAVORITE'],
+		},
+		{
+			id: '1',
+			name: 'Title with lot of actions',
+			modified: 1537574400000,
+			icon: 'talend-file-xls-o',
+			author: 'Second Author',
+		},
+		{
+			id: '2',
+			name: 'Title with persistant actions',
+			modified: 1474502400000,
+			author: 'Jean-Pierre DUPONT',
+			icon: 'talend-file-xls-o',
+			flags: ['FAVORITE'],
+		},
+		{
+			id: '3',
+			name: 'Title with icon',
+			modified: 1506038400000,
+			author: 'Third Author',
+			icon: 'talend-file-xls-o',
+			flags: ['CERTIFIED'],
+		},
+		{
+			id: '4',
+			name: 'Title in input mode',
+			modified: 1506038400000,
+			author: 'Jean-Pierre DUPONT',
+			icon: 'talend-file-xls-o',
+		},
+		{
+			id: '5',
+			name: 'Title with long long long long long long long long long long long text',
+			modified: 1547478328552,
+			author: 'Jean-Pierre DUPONT with super super super long text',
+			icon: 'talend-file-xls-o',
+			flags: ['CERTIFIED', 'FAVORITE'],
+		},
+	];
+
+	let c = collection;
+
+	if (name) {
+		c = c.filter(item => item.name.includes(name));
+	}
+	if (certified) {
+		c = c.filter(item => item.flags && item.flags.includes('CERTIFIED'));
+	}
+	if (favorites) {
+		c = c.filter(item => item.flags && item.flags.includes('FAVORITE'));
+	}
+	if (selection) {
+		c = c.filter(item => selected.includes(item.id));
+	}
+
+	if (orders) {
+		if (orders.name) {
+			c = c.sort((a, b) => methods[orders.name](a.name, b.name));
+		}
+		if (orders.date) {
+			c = c.sort((a, b) => methods[orders.date](a.modified, b.modified));
+		}
+	}
+
+	return c;
+}
+
 function createCommonProps(tab) {
 	return {
 		autocomplete: 'off',
@@ -33,6 +114,7 @@ function createCommonProps(tab) {
 			if (key && key.includes('fail')) {
 				return Promise.reject({ errors: { [schema.key]: 'This trigger has failed' } });
 			}
+
 			if (key && (key.includes('asyncTitleMap') || key.includes('AsyncTitleMap'))) {
 				return new Promise(resolve => {
 					setTimeout(
@@ -51,6 +133,35 @@ function createCommonProps(tab) {
 					);
 				});
 			}
+
+			if (key === 'datasetId' && payload.trigger.onEvent === 'filter') {
+				return new Promise(resolve => {
+					setTimeout(
+						() =>
+							resolve({
+								collection: getFilteredCollection(payload.filters),
+							}),
+						3000,
+					);
+				});
+			}
+			if (key === 'datasetId' && payload.trigger.onEvent === 'change') {
+				return Promise.resolve({
+					properties: properties => {
+						const { datasetId, name } = properties;
+						return (name && name.length) ? properties : {
+							...properties,
+							name: datasetId && `Resource ${datasetId} preparation`,
+						};
+					},
+					errors: errors => {
+						const e = { ...errors };
+						delete e.name;
+						return e;
+					},
+				});
+			}
+
 			return Promise.resolve({});
 		},
 		onReset: action('onReset'),

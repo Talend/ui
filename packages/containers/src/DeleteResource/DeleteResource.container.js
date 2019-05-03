@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
 import { ConfirmDialog } from '@talend/react-components';
-import { translate } from 'react-i18next';
+import { Trans, translate } from 'react-i18next';
 import getDefaultT from '../translate';
 import I18N_DOMAIN_CONTAINERS from '../constant';
 import CONSTANTS from './constants';
@@ -67,7 +67,6 @@ export class DeleteResource extends React.Component {
 	/**
 	 * Get the label from the collections.
 	 * Return the label and a boolean to confirm that the item has been found.
-	 * @param {object} resourceInfo
 	 */
 	getLabelInfo() {
 		return {
@@ -110,6 +109,25 @@ export class DeleteResource extends React.Component {
 			className: 'btn-inverse',
 			onClickActionCreator: 'DeleteResource#cancel',
 		};
+
+		// Sorry for this duplication, but we need it because of the i18n scanner to create 2 keys
+		// DELETE_RESOURCE_MESSAGE and DELETE_RESOURCE_MESSAGE_female
+		let question;
+		const { resourceTypeLabel, label } = resourceInfo;
+		if (this.props.female) {
+			question = (
+				<Trans i18nKey="DELETE_RESOURCE_MESSAGE" context="female">
+					Are you sure you want to remove the {{ resourceTypeLabel }} <strong>{{ label }}</strong>?
+				</Trans>
+			);
+		} else {
+			question = (
+				<Trans i18nKey="DELETE_RESOURCE_MESSAGE">
+					Are you sure you want to remove the {{ resourceTypeLabel }} <strong>{{ label }}</strong>?
+				</Trans>
+			);
+		}
+
 		return (
 			<ConfirmDialog
 				show
@@ -119,16 +137,7 @@ export class DeleteResource extends React.Component {
 				getComponent={this.props.getComponent}
 				onHide={this.onHide}
 			>
-				<div>
-					{this.props.t('DELETE_RESOURCE_MESSAGE', {
-						defaultValue: 'Are you sure you want to remove the {{resourceLabel}}',
-						context: this.props.female ? 'female' : '',
-						resourceLabel: resourceInfo.resourceTypeLabel,
-					})}
-					&nbsp;
-					<strong>{resourceInfo.label}</strong>
-					{this.props.t('DELETE_RESOURCE_QUESTION_MARK', { defaultValue: '?' })}
-				</div>
+				{question}
 			</ConfirmDialog>
 		);
 	}

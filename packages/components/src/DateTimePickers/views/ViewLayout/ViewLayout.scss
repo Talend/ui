@@ -6,6 +6,7 @@
 	.header {
 		display: flex;
 		height: 5rem;
+		margin-bottom: $padding-normal;
 
 		.left,
 		.right {
@@ -13,17 +14,17 @@
 		}
 
 		.middle {
-			flex: 3;
+			flex: 4;
 		}
 
 		:global(.btn-icon-only) {
-			color: $silver;
+			padding: 0;
+
 			svg {
 				width: $svg-sm-size;
 			}
-
-			&:hover {
-				color: $scooter;
+			span {
+				display: none;
 			}
 		}
 	}

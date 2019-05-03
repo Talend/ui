@@ -2,7 +2,6 @@ import React from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 
 import { Enumeration, IconsProvider } from '../src/index';
 import i18n from './config/i18n';
@@ -115,6 +114,11 @@ const props = {
 			icon: 'talend-cross',
 			id: 'abort',
 			onClick: action('itemEdit.onCancel'),
+		}, {
+			label: 'Delete',
+			icon: 'talend-trash',
+			id: 'abort',
+			onClick: action('itemEdit.onDelete'),
 		}],
 	},
 	onAddChange: action('onAddChange'),
@@ -272,8 +276,7 @@ const withClassProps = {
 };
 
 storiesOf('Enumeration', module)
-	.addDecorator(checkA11y)
-	.addWithInfo('default', () => (
+	.add('default', () => (
 		<div>
 			<p>By default :</p>
 			<IconsProvider />
@@ -282,7 +285,7 @@ storiesOf('Enumeration', module)
 			/>
 		</div>
 	))
-	.addWithInfo('default header action disabled', () => (
+	.add('default header action disabled', () => (
 		<div>
 			<p>By default :</p>
 			<IconsProvider />
@@ -291,7 +294,7 @@ storiesOf('Enumeration', module)
 			/>
 		</div>
 	))
-	.addWithInfo('default - empty list with i18n', () => (
+	.add('default - empty list with i18n', () => (
 		<div>
 			<p>Empty list by default:</p>
 			<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
@@ -304,7 +307,7 @@ storiesOf('Enumeration', module)
 			</I18nextProvider>
 		</div>
 	))
-	.addWithInfo('default - empty list', () => (
+	.add('default - empty list', () => (
 		<div>
 			<p>Empty list by default:</p>
 			<IconsProvider />
@@ -313,7 +316,7 @@ storiesOf('Enumeration', module)
 			/>
 		</div>
 	))
-	.addWithInfo('default with dropdown', () => (
+	.add('default with dropdown', () => (
 		<div>
 			<p>By default :</p>
 			<IconsProvider />
@@ -322,7 +325,7 @@ storiesOf('Enumeration', module)
 			/>
 		</div>
 	))
-	.addWithInfo('add', () => (
+	.add('add', () => (
 		<div>
 			<p>By default :</p>
 			<IconsProvider />
@@ -331,7 +334,7 @@ storiesOf('Enumeration', module)
 			/>
 		</div>
 	))
-	.addWithInfo('edit mode', () => (
+	.add('edit mode', () => (
 		<div>
 			<p>By default :</p>
 			<IconsProvider />
@@ -340,7 +343,7 @@ storiesOf('Enumeration', module)
 			/>
 		</div>
 	))
-	.addWithInfo('search mode', () => (
+	.add('search mode', () => (
 		<div>
 			<p>By default :</p>
 			<IconsProvider />
@@ -349,7 +352,7 @@ storiesOf('Enumeration', module)
 			/>
 		</div>
 	))
-	.addWithInfo('search mode - empty list', () => (
+	.add('search mode - empty list', () => (
 			<div>
 				<p>empty list in search mode :</p>
 				<IconsProvider />
@@ -358,7 +361,7 @@ storiesOf('Enumeration', module)
 				/>
 			</div>
 	))
-	.addWithInfo('selected values', () => (
+	.add('selected values', () => (
 		<div>
 			<p>By default :</p>
 			<IconsProvider />
@@ -367,7 +370,7 @@ storiesOf('Enumeration', module)
 			/>
 		</div>
 	))
-	.addWithInfo('selected values with checkboxes', () => (
+	.add('selected values with checkboxes', () => (
 		<div>
 			<p>By default :</p>
 			<IconsProvider />
@@ -378,7 +381,7 @@ storiesOf('Enumeration', module)
 			</form>
 		</div>
 	))
-	.addWithInfo('with header error', () => (
+	.add('with header error', () => (
 		<div>
 			<p>By default :</p>
 			<IconsProvider />
@@ -387,7 +390,7 @@ storiesOf('Enumeration', module)
 			/>
 		</div>
 	))
-	.addWithInfo('with item in error', () => (
+	.add('with item in error', () => (
 		<div>
 			<p>By default :</p>
 			<IconsProvider />
@@ -396,7 +399,7 @@ storiesOf('Enumeration', module)
 			/>
 		</div>
 	))
-	.addWithInfo('with custom label', () => (
+	.add('with custom label', () => (
 		<div>
 			<p>Should be 'Users' instead of 'Values'</p>
 			<IconsProvider />
@@ -405,7 +408,7 @@ storiesOf('Enumeration', module)
 			/>
 		</div>
 	))
-	.addWithInfo('with icon', () => (
+	.add('with icon', () => (
 		<div>
 			<p>By default: </p>
 			<IconsProvider />
@@ -414,7 +417,7 @@ storiesOf('Enumeration', module)
 			/>
 		</div>
 	))
-	.addWithInfo('with custom class for row', () => (
+	.add('with custom class for row', () => (
 		<div>
 			<p>With custom class on second row: </p>
 			<IconsProvider />

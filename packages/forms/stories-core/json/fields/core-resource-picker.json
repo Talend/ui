@@ -1,0 +1,38 @@
+{
+  "doc": "ResourcePicker/README.md",
+  "jsonSchema": {
+    "type": "object",
+    "title": "ResourcePicker",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "datasetId": {
+        "type": "string"
+      }
+    },
+    "required": ["name", "datasetId"]
+  },
+  "uiSchema": [
+    {
+      "key": "name",
+      "title": "Title changes on picker change"
+    },
+    {
+      "key": "datasetId",
+      "title": "ResourcePicker that changes the input above",
+      "placeholder": "Select an existing resource",
+      "widget": "resourcePicker",
+      "triggers": [
+        { "action": "resourcePickerSelected", "onEvent": "change" },
+        { "action": "resourcePickerFiltered", "onEvent": "filter" }
+      ],
+      "multi": false,
+      "options": {
+        "filters": ["selection"],
+        "sort": ["name"]
+      }
+    }
+  ],
+  "properties": {}
+}
