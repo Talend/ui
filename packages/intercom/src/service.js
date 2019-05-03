@@ -11,7 +11,7 @@ function insertScript(appId) {
 	x.parentNode.insertBefore(s, x);
 }
 
-function initIntercom(config) {
+function init(config) {
 	if (typeof intercom === 'function') {
 		intercom('reattach_activator');
 		intercom('update', config);
@@ -34,12 +34,41 @@ function initIntercom(config) {
 	}
 }
 
+function boot(widgetId, config = {}) {
+	init(config);
+	intercom('boot', {
+		...config,
+		widget: { activator: widgetId },
+		hide_default_launcher: true,
+	});
+}
+
+function update() {
+	intercom('update');
+}
+
+function shutdown() {
+	intercom('shutdown');
+}
+
+function onHide() {
+	intercom('onHide');
+}
+
+function onShow() {
+	intercom('onShow');
+}
+
+function onUnreadCountChange() {
+	intercom('onUnreadCountChange');
+}
+
 export default {
-	boot(config = {}) {
-		initIntercom(config.app_id);
-		intercom('boot', config);
-	},
-	update() {
-		intercom('update');
-	},
+	init,
+	boot,
+	update,
+	shutdown,
+	onHide,
+	onShow,
+	onUnreadCountChange,
 };
