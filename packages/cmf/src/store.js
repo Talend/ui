@@ -15,7 +15,6 @@ import cmfMiddleware from './middlewares/cmf';
  * @typedef {Object} Store
  */
 
-const REDUX_DEV_TOOL_KEY = '__REDUX_DEVTOOLS_EXTENSION__';
 const preReducers = [];
 const enhancers = [];
 const middlewares = [thunk, cmfMiddleware];
