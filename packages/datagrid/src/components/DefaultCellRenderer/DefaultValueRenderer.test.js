@@ -28,6 +28,12 @@ describe('#DefaultValueRenderer', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render empty when the value is undefined', () => {
+		const wrapper = shallow(<DefaultValueRenderer value={undefined} />);
+
+		expect(wrapper.find('div').text()).toBe('');
+	});
+
 	it('should render the leading/trailing special character', () => {
 		const wrapper = shallow(<DefaultValueRenderer value=" loreum " />);
 

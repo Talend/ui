@@ -27,7 +27,7 @@ exports[`Datalist component should render 1`] = `
     onFocus={[Function]}
     placeholder="Type here"
     readOnly={false}
-    restricted={true}
+    restricted={false}
     t={[Function]}
     titleMap={
       Array [
@@ -77,7 +77,7 @@ exports[`Datalist component should render with multisection 1`] = `
     onFocus={[Function]}
     placeholder="Type here"
     readOnly={false}
-    restricted={true}
+    restricted={false}
     t={[Function]}
     titleMap={
       Array [
