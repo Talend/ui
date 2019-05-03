@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import omit from 'lodash/omit';
+import theme from './Toggle.scss';
 
 /**
  * The Toggle component is basically a fancy checkbox like you have in your iphone.
@@ -25,7 +26,12 @@ function Toggle({ id, label, className, ...props }) {
 	}
 
 	return (
-		<div className={classNames('checkbox tc-toggle', className)}>
+		<div
+			className={classNames('checkbox tc-toggle', theme['tc-toggle'], className, {
+				[theme['tc-toggle-disabled']]: props.disabled,
+				'tc-toggle-disabled': props.disabled,
+			})}
+		>
 			<label htmlFor={id} data-feature={dataFeature}>
 				<input type="checkbox" id={id} {...omit(props, 'data-feature')} />
 				<span>{label}</span>

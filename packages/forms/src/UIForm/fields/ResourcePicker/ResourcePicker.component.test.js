@@ -65,6 +65,10 @@ describe('ResourcePicker field', () => {
 		schema: {
 			type: 'object',
 		},
+		triggers: [
+			{ action: 'resourcePickerSelected', onEvent: 'change' },
+			{ action: 'resourcePickerFiltered', onEvent: 'filter' },
+		],
 	};
 	const props = {
 		onChange: jest.fn(),
@@ -74,7 +78,7 @@ describe('ResourcePicker field', () => {
 	};
 
 	it('should render simple select', done => {
-		const wrapper = shallow(
+		const wrapper = mount(
 			<ResourcePicker
 				id={'mySelect'}
 				isValid
@@ -92,22 +96,51 @@ describe('ResourcePicker field', () => {
 			/>,
 		);
 
+		expect(wrapper.find('.tc-resource-picker-sort-options button').length).toBe(2);
+		expect(wrapper.find('.tc-resource-picker-state-filters button').length).toBe(3);
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render simple select with wanted sort and filter', done => {
+		const wrapper = mount(
+			<ResourcePicker
+				id={'mySelect'}
+				isValid
+				errorMessage={'My Error Message'}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				onTrigger={jest.fn(
+					() =>
+						new Promise(resolve => {
+							resolve({ collection });
+							done();
+						}),
+				)}
+				schema={{ ...schema, options: { filters: ['certified'], sort: ['name'] } }}
+			/>,
+		);
+
+		expect(wrapper.find('.tc-resource-picker-sort-options button').length).toBe(1);
+		expect(wrapper.find('.tc-resource-picker-state-filters button').length).toBe(1);
 	});
 
 	it('should call onTrigger when mounting component', () => {
 		shallow(<ResourcePicker {...props} />);
 
 		expect(props.onTrigger).toBeCalledWith(undefined, {
-			schema: props.schema,
+			schema: expect.anything(),
+			errors: undefined,
+			properties: undefined,
 			trigger: {
-				parameters: {
-					certified: false,
-					favorites: false,
-					name: '',
-					selected: [],
-					selection: false,
-				},
+				action: 'resourcePickerFiltered',
+				onEvent: 'filter',
+			},
+			filters: {
+				certified: false,
+				favorites: false,
+				name: '',
+				selected: [],
+				selection: false,
 			},
 		});
 	});
@@ -130,6 +163,27 @@ describe('ResourcePicker field', () => {
 					type: 'object',
 				},
 				title: 'My ResourcePicker title',
+				triggers: [
+					{
+						action: 'resourcePickerSelected',
+						onEvent: 'change',
+					},
+					{
+						action: 'resourcePickerFiltered',
+						onEvent: 'filter',
+					},
+				],
+			},
+			value: '0',
+		});
+		expect(props.onTrigger).toBeCalled();
+		expect(props.onTrigger).toBeCalledWith(expect.anything(), {
+			errors: undefined,
+			properties: undefined,
+			schema: expect.anything(),
+			trigger: {
+				action: 'resourcePickerSelected',
+				onEvent: 'change',
 			},
 			value: '0',
 		});
@@ -158,6 +212,17 @@ describe('ResourcePicker field', () => {
 			.simulate('click');
 		expect(props.onChange).toBeCalledWith(expect.anything(), {
 			schema: expect.anything(),
+			value: ['0', '1'],
+		});
+		expect(props.onTrigger).toBeCalled();
+		expect(props.onTrigger).toBeCalledWith(expect.anything(), {
+			errors: undefined,
+			properties: undefined,
+			schema: expect.anything(),
+			trigger: {
+				action: 'resourcePickerSelected',
+				onEvent: 'change',
+			},
 			value: ['0', '1'],
 		});
 	});
@@ -214,14 +279,18 @@ describe('ResourcePicker field', () => {
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
+				errors: undefined,
+				properties: undefined,
 				trigger: {
-					parameters: {
-						certified: false,
-						favorites: false,
-						name: '',
-						selected: [],
-						selection: true,
-					},
+					action: 'resourcePickerFiltered',
+					onEvent: 'filter',
+				},
+				filters: {
+					certified: false,
+					favorites: false,
+					name: '',
+					selected: [],
+					selection: true,
 				},
 			});
 		});
@@ -239,14 +308,18 @@ describe('ResourcePicker field', () => {
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
+				errors: undefined,
+				properties: undefined,
 				trigger: {
-					parameters: {
-						certified: true,
-						favorites: false,
-						name: '',
-						selected: [],
-						selection: false,
-					},
+					action: 'resourcePickerFiltered',
+					onEvent: 'filter',
+				},
+				filters: {
+					certified: true,
+					favorites: false,
+					name: '',
+					selected: [],
+					selection: false,
 				},
 			});
 		});
@@ -264,14 +337,18 @@ describe('ResourcePicker field', () => {
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
+				errors: undefined,
+				properties: undefined,
 				trigger: {
-					parameters: {
-						certified: false,
-						favorites: true,
-						name: '',
-						selected: [],
-						selection: false,
-					},
+					action: 'resourcePickerFiltered',
+					onEvent: 'filter',
+				},
+				filters: {
+					certified: false,
+					favorites: true,
+					name: '',
+					selected: [],
+					selection: false,
 				},
 			});
 		});
@@ -291,16 +368,20 @@ describe('ResourcePicker field', () => {
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
+				errors: undefined,
+				properties: undefined,
 				trigger: {
-					parameters: {
-						certified: false,
-						favorites: false,
-						name: '',
-						selected: [],
-						selection: false,
-						orders: {
-							name: 'asc',
-						},
+					action: 'resourcePickerFiltered',
+					onEvent: 'filter',
+				},
+				filters: {
+					certified: false,
+					favorites: false,
+					name: '',
+					selected: [],
+					selection: false,
+					orders: {
+						name: 'asc',
 					},
 				},
 			});
@@ -319,16 +400,20 @@ describe('ResourcePicker field', () => {
 
 			expect(props.onTrigger).toBeCalledWith(null, {
 				schema: expect.anything(),
+				errors: undefined,
+				properties: undefined,
 				trigger: {
-					parameters: {
-						certified: false,
-						favorites: false,
-						name: '',
-						selected: [],
-						selection: false,
-						orders: {
-							date: 'asc',
-						},
+					action: 'resourcePickerFiltered',
+					onEvent: 'filter',
+				},
+				filters: {
+					certified: false,
+					favorites: false,
+					name: '',
+					selected: [],
+					selection: false,
+					orders: {
+						date: 'asc',
 					},
 				},
 			});

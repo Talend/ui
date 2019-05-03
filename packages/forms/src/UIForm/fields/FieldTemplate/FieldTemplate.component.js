@@ -24,10 +24,11 @@ function FieldTemplate(props) {
 	const groupsClassNames = classNames('form-group', theme.template, {
 		'has-error': !props.isValid,
 		required: props.required,
+		[theme.updating]: props.valueIsUpdating,
 	});
 
 	return (
-		<div className={groupsClassNames}>
+		<div className={groupsClassNames} aria-busy={props.valueIsUpdating}>
 			{props.label && !props.labelAfter && <Label id={props.id} label={props.label} />}
 			{props.children}
 			{props.label && props.labelAfter && <Label id={props.id} label={props.label} />}
@@ -54,6 +55,7 @@ if (process.env.NODE_ENV !== 'production') {
 		label: PropTypes.string,
 		labelAfter: PropTypes.bool,
 		required: PropTypes.bool,
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 

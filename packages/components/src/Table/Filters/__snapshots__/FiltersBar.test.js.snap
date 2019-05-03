@@ -28,7 +28,7 @@ exports[`two-filters 1`] = `
     </svg>
   </button>
   <div
-    className="checkbox tc-toggle tc-boolean-filter tc-filter theme-tc-filter mandatory-field-filter"
+    className="checkbox tc-toggle theme-tc-toggle tc-boolean-filter tc-filter theme-tc-filter mandatory-field-filter"
   >
     <label
       htmlFor="mandatory-field-filter"

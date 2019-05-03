@@ -29,6 +29,7 @@ i18n.init({
 				SIDEPANEL_COLLAPSE: 'Réduire',
 				VIRTUALIZEDLIST_NO_RESULT: 'Aucun résultat',
 				DATE_FNS_ABOUT_MINUTE: '{{count}} minutes',
+				GUIDEDTOUR_HELLO_WORD_HTML: 'Bonjour le monde<br>Vous pouvez changer de langue',
 			},
 		},
 		it: {
@@ -56,6 +57,7 @@ i18n.init({
 				SIDEPANEL_COLLAPSE: 'Collassare',
 				VIRTUALIZEDLIST_NO_RESULT: 'Nessun risultato',
 				DATE_FNS_ABOUT_MINUTE: '{{count}} minuti',
+				GUIDEDTOUR_HELLO_WORD_HTML: 'Ciao mondo<br>Puoi cambiare lingua',
 			},
 		},
 	},
@@ -82,7 +84,7 @@ export const LanguageSwitcher = () => {
 
 	return (
 		<nav style={style}>
-			<div className="btn-group">
+			<div className="btn-group" data-tour="language-switcher">
 				{renderBtn('en', true)}
 				{renderBtn('fr')}
 				{renderBtn('it')}

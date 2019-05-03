@@ -24,7 +24,9 @@ function DefaultArrayTemplate(props) {
 		schema,
 		t,
 		value,
+		valueIsUpdating,
 		options = {},
+		isCloseable,
 	} = props;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
@@ -36,9 +38,11 @@ function DefaultArrayTemplate(props) {
 		>
 			{schema.title && <legend className="sr-only">{schema.title}</legend>}
 			<Action
+				id={`${id || 'tf-array'}-btn`}
 				className={classNames(theme['tf-array-add'], 'tf-array-add')}
 				bsStyle={'info'}
 				onClick={onAdd}
+				disabled={valueIsUpdating}
 				label={options.btnLabel || t('ARRAY_ADD_ELEMENT', { defaultValue: 'New Element' })}
 			/>
 			<Message
@@ -65,9 +69,10 @@ function DefaultArrayTemplate(props) {
 							onRemove={onRemove}
 							onReorder={canReorder && onReorder}
 							isClosed={itemValue.isClosed}
-						>
-							{renderItem(index)}
-						</ArrayItem>
+							valueIsUpdating={valueIsUpdating}
+							renderItem={renderItem}
+							isCloseable={isCloseable}
+						/>
 					</li>
 				))}
 			</ol>
@@ -77,6 +82,7 @@ function DefaultArrayTemplate(props) {
 
 DefaultArrayTemplate.defaultProps = {
 	t: getDefaultT(),
+	isCloseable: false,
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -91,10 +97,12 @@ if (process.env.NODE_ENV !== 'production') {
 		renderItem: PropTypes.func.isRequired,
 		schema: PropTypes.object.isRequired,
 		value: PropTypes.array.isRequired,
+		valueIsUpdating: PropTypes.bool,
 		options: PropTypes.shape({
 			btnLabel: PropTypes.string,
 		}),
 		t: PropTypes.func.isRequired,
+		isCloseable: PropTypes.bool,
 	};
 }
 

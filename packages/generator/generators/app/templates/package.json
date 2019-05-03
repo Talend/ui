@@ -9,7 +9,6 @@
     "url": "github:Talend/<%= props.name %>"
   },
   "devDependencies": {
-    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.0",
     "babel-preset-env": "^1.6.0",

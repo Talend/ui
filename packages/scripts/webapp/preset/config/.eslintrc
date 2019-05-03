@@ -1,25 +1,35 @@
 {
   "extends": "airbnb",
   "parser": "babel-eslint",
+  "plugins": ["angular", "react-hooks"],
   "rules": {
+    "angular/controller-name": [2, "/[A-Z].*Ctrl/"],
+    "angular/di": 0,
+    "angular/json-functions": 0,
     "arrow-parens": [2, "as-needed"],
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js"]}],
-    "indent": ["error", "tab", { "SwitchCase": 1 }],
-    "no-mixed-operators": "off",
-    "no-tabs": "off",
+    "import/no-extraneous-dependencies": [2, {"devDependencies": ["**/*.test.js", "**/*.spec.js"]}],
+    "indent": [2, "tab", { "SwitchCase": 1 }],
+    "no-mixed-operators": 0,
+    "no-tabs": 0,
     "react/prefer-es6-class": 0,
-    "react/jsx-indent": ["error", "tab"],
-    "react/jsx-indent-props": ["error", "tab"],
+    "react/jsx-indent": [2, "tab"],
+    "react/jsx-indent-props": [2, "tab"],
     "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
     "react/no-unused-prop-types": [2, { "skipShapeProps": true }],
-    "react/forbid-prop-types": [0]
+    "react/forbid-prop-types": [0],
+    "react-hooks/rules-of-hooks": 2,
+    "react-hooks/exhaustive-deps": 1,
+    "new-cap": [2, { "capIsNewExceptions": ["List", "Map"] }]
   },
   "env": {
     "es6": true,
     "browser": true,
-    "jasmine": true
+    "jasmine": true,
+    "jest": true
   },
-  "globals": {},
+  "globals": {
+    "jsdom": true
+  },
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module"

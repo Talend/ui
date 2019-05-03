@@ -12,15 +12,14 @@ const oldFilenames = require.context('../stories/json', true, /.(js|json)$/);
 const sampleFilenameRegex = /^.\/(.*).js/;
 const stories = [];
 
-
 function capitalizeFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function getFilteredCollection({ name, selection, certified, favorites, selected, orders }) {
 	const methods = {
-		asc: (a, b) => a > b ? - 1 : 1,
-		desc: (a, b) => a < b ? - 1 : 1,
+		asc: (a, b) => (a > b ? -1 : 1),
+		desc: (a, b) => (a < b ? -1 : 1),
 	};
 	const collection = [
 		{
@@ -70,7 +69,6 @@ function getFilteredCollection({ name, selection, certified, favorites, selected
 			flags: ['CERTIFIED', 'FAVORITE'],
 		},
 	];
-
 
 	let c = collection;
 
@@ -136,15 +134,31 @@ function createCommonProps(tab) {
 				});
 			}
 
-			if (key.includes('ResourcePicker')) {
+			if (key === 'datasetId' && payload.trigger.onEvent === 'filter') {
 				return new Promise(resolve => {
 					setTimeout(
 						() =>
 							resolve({
-								collection: getFilteredCollection(payload.trigger.parameters),
+								collection: getFilteredCollection(payload.filters),
 							}),
 						3000,
 					);
+				});
+			}
+			if (key === 'datasetId' && payload.trigger.onEvent === 'change') {
+				return Promise.resolve({
+					properties: properties => {
+						const { datasetId, name } = properties;
+						return (name && name.length) ? properties : {
+							...properties,
+							name: datasetId && `Resource ${datasetId} preparation`,
+						};
+					},
+					errors: errors => {
+						const e = { ...errors };
+						delete e.name;
+						return e;
+					},
 				});
 			}
 

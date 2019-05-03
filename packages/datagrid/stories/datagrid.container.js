@@ -1,4 +1,5 @@
 import React from 'react';
+import get from 'lodash/get';
 import { storiesOf } from '@storybook/react';
 import withCMF from '@talend/react-storybook-cmf';
 import { I18nextProvider } from 'react-i18next';
@@ -11,6 +12,7 @@ import register from '../src/register';
 import theme from '../src/components/DataGrid/DataGrid.scss';
 import i18n, { LanguageSwitcher } from './config/i18n';
 import sample from './sample.json';
+import sampleRenderer from './sampleRenderer.json';
 
 Object.keys(api.expressions).forEach(id => api.expression.register(id, api.expressions[id]));
 
@@ -38,45 +40,47 @@ sample.data = [
 	...Array(960)
 		.fill()
 		.map(() => ({
-			field2: {
-				value: '95716',
-				quality: 1,
-			},
-			field8: {
-				value: '10771660',
-				quality: 0,
-			},
-			field5: {
-				value: '33929307',
-				quality: -1,
-			},
-			field4: {
-				value: '10748798',
-				quality: 1,
-			},
-			field7: {
-				value: '11030795',
-				quality: 1,
-			},
-			field3: {
-				value: '',
-				quality: 1,
-			},
-			field1: {
-				value: '271494',
-				quality: 1,
-			},
-			field0: {
-				value: 'Aéroport Charles de Gaulle 2 TGV',
-				quality: 1,
-			},
-			field9: {
-				value: '10880464',
-				quality: 1,
-			},
-			field6: {
-				value: '10920487',
-				quality: 1,
+			value: {
+				field2: {
+					value: '95716',
+					quality: 1,
+				},
+				field8: {
+					value: '10771660',
+					quality: 0,
+				},
+				field5: {
+					value: '33929307',
+					quality: -1,
+				},
+				field4: {
+					value: '10748798',
+					quality: 1,
+				},
+				field7: {
+					value: '11030795',
+					quality: 1,
+				},
+				field3: {
+					value: '',
+					quality: 1,
+				},
+				field1: {
+					value: '271494',
+					quality: 1,
+				},
+				field0: {
+					value: 'Aéroport Charles de Gaulle 2 TGV',
+					quality: 1,
+				},
+				field9: {
+					value: '10880464',
+					quality: 1,
+				},
+				field6: {
+					value: '10920487',
+					quality: 1,
+				},
 			},
 			quality: 1,
 		})),
@@ -84,6 +88,7 @@ sample.data = [
 
 const cmfState = mock.state();
 cmfState.cmf.collections = cmfState.cmf.collections.set('sample', sample);
+cmfState.cmf.collections = cmfState.cmf.collections.set('sampleRenderer', sampleRenderer);
 if (!cmfState.cmf.settings.props) {
 	cmfState.cmf.settings.props = cmfState.cmf.settings.views;
 }
@@ -152,13 +157,26 @@ cmfState.cmf.settings.props['Container(DataGrid)#HightLightRows'] = {
 	rowSelection: 'multiple',
 };
 
+cmfState.cmf.settings.props['Container(DataGrid)#TypeRenderer'] = {
+	dataExpression: {
+		id: 'cmf.collections.get',
+		args: ['sampleRenderer', []],
+	},
+	onFocusedCellActionCreator: 'datagrid:focus-cell',
+	onFocusedColumnActionCreator: 'datagrid:focus-column',
+	onScrollActionCreator: 'datagrid:vertical-scroll',
+	cellRenderer: 'DefaultCellRenderer',
+};
+
 const reducer = (state = {}, a) => {
 	console.log(a);
 	return state;
 };
 
 function registerCustomizedComponents() {
-	api.component.register('CustomCellRenderer', props => <span>{props.value.value}</span>);
+	api.component.register('CustomCellRenderer', props => (
+		<span>{get(props, 'value.value.bytes', '') || get(props, 'value.value', '')}</span>
+	));
 	api.component.register('CustomHeaderRenderer', props => <span>{props.displayName}</span>);
 	api.component.register('CustomPinHeaderRenderer', () => <span />);
 	api.component.register('CustomStringCellRenderer', props => (
@@ -266,6 +284,16 @@ storiesOf('Container Datagrid', module)
 				<div style={{ height: '50vh' }}>
 					<DataGrid componentId="CustomizedAvroDatagrid" />
 				</div>
+			</div>
+		),
+		{ ...options },
+	)
+	.add(
+		'type renderer',
+		() => (
+			<div style={{ height: '100vh' }}>
+				<IconsProvider />
+				<DataGrid componentId="TypeRenderer" data={sampleRenderer} />
 			</div>
 		),
 		{ ...options },

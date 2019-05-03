@@ -57,7 +57,7 @@ form {
 
 		label {
 			&.control-label {
-				color: $silver-chalice;
+				color: $dove-gray;
 				font-weight: $form-base-font-weight;
 				font-size: $font-size-base;
 			}
@@ -413,6 +413,7 @@ form {
 	&-control:disabled,
 	&-control[value]:not([value='']):disabled {
 		color: $silver-chalice;
+		-webkit-text-fill-color: $silver-chalice;
 
 		+ label {
 			color: $form-label-base-color;

@@ -157,6 +157,15 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 	&-highlighted {
 		background-color: $tc-typeahead-focused-item-background-color;
 	}
+
+	&.disabled {
+		color: $silver-chalice;
+		cursor: not-allowed;
+
+		&:hover {
+			background: none;
+		}
+	}
 }
 
 .highlight-match {

@@ -14,7 +14,7 @@ import DefaultPinHeaderRenderer, {
 
 import DATAGRID_PROPTYPES from './DataGrid.proptypes';
 import { NAMESPACE_INDEX } from '../../constants';
-import serializer from '../DefaultSerializer';
+import serializer from '../DatasetSerializer';
 import theme from './DataGrid.scss';
 
 export const AG_GRID = {
@@ -43,10 +43,11 @@ export function injectedCellRenderer(getComponent, cellRenderer, avroRenderer) {
 	return props => <Component {...props} avroRenderer={avroRenderer} getComponent={getComponent} />;
 }
 
-function getAvroRenderer(avroRenderer) {
+export function getAvroRenderer(avroRenderer) {
 	return {
 		intCellRenderer: 'DefaultIntCellRenderer',
 		stringCellRenderer: 'DefaultStringCellRenderer',
+		dateCellRenderer: 'DefaultDateCellRenderer',
 		...avroRenderer,
 	};
 }
@@ -131,7 +132,9 @@ export default class DataGrid extends React.Component {
 		this.setCurrentFocusedColumn(colId);
 		this.updateStyleFocusColumn();
 
-		this.props.onFocusedColumn({ colId });
+		if (this.props.onFocusedColumn) {
+			this.props.onFocusedColumn({ colId });
+		}
 	}
 
 	onKeyDownHeaderColumn(event, colId) {
