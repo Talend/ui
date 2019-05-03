@@ -73,7 +73,6 @@
     "@storybook/addon-a11y": "^4.0.12",
     "@storybook/addon-actions": "^4.0.12",
     "@storybook/addon-info": "^4.0.12",
-    "@storybook/addon-storyshots": "^4.0.12",
     "@storybook/react": "^4.0.12",
     "@talend/bootstrap-theme": "^3.4.0",
     "@talend/icons": "^3.4.0",
