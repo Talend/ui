@@ -112,7 +112,7 @@ module.exports = {
 	'react-stub-context': '^0.7.0',
 	'regenerator-runtime': '^0.13.1',
 	rimraf: '^2.6.2',
-	'sass-lint': '1.12.1',
+	'sass-lint': '1.13.0',
 
 	// webpack
 	'babel-loader': '^8.0.0',
