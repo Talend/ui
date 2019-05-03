@@ -20,11 +20,13 @@ describe('HeaderBar', () => {
 		expect(wrapper.find('.tc-skeleton').props().style).toEqual({ height: 30, width: 80 });
 	});
 	it('should use className to apply size', () => {
-		const wrapper = mount(<Skeleton.WrappedComponent type="text" t={t} size={Skeleton.SIZES.small} />);
+		const wrapper = mount(
+			<Skeleton.WrappedComponent type="text" t={t} size={Skeleton.SIZES.small} />,
+		);
 		expect(wrapper.find('.tc-skeleton-text-small')).not.toBeUndefined();
 	});
 	it('should render icon for type=icon', () => {
 		const wrapper = mount(<Skeleton.WrappedComponent type="icon" name="test-icon" t={t} />);
 		expect(wrapper.find('Icon')).not.toBeUndefined();
-	})
+	});
 });
