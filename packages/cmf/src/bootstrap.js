@@ -92,11 +92,11 @@ export function bootstrapRedux(options, sagaMiddleware) {
 		sagaMiddleware,
 	]);
 
-  if (options.settingsURL) {
+	if (options.settingsURL) {
 		store.dispatch(actions.settings.fetchSettings(options.settingsURL));
 	}
 
-  if (typeof options.storeCallback === 'function') {
+	if (typeof options.storeCallback === 'function') {
 		options.storeCallback(store);
 	}
 	return store;
