@@ -3,8 +3,7 @@ import { fromJS, Map } from 'immutable';
 import cmf from '@talend/react-cmf';
 
 import * as sagas from './ComponentForm.sagas';
-import { TCompForm } from './ComponentForm.component';
-import { getComponentFormState } from './ComponentForm.selectors';
+import ConnectedTCompForm, { TCompForm } from './ComponentForm.component';
 
 describe('ComponentForm saga', () => {
 	describe('*checkFormComponentId', () => {
@@ -373,7 +372,7 @@ describe('ComponentForm saga', () => {
 			// when
 			const gen = sagas.handleSetDirtyState({ componentId, dirty });
 			// then
-			expect(gen.next().value).toEqual(select(getComponentFormState, componentId));
+			expect(gen.next().value).toEqual(select(ConnectedTCompForm.getState, componentId));
 			expect(gen.next(Map({})).value).toEqual(
 				put({
 					cmf: {

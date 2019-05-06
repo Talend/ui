@@ -1,56 +1,59 @@
 import Immutable from 'immutable';
-import { getComponentFormState } from './ComponentForm.selectors';
+import { isComponentFormDirty } from './ComponentForm.selectors';
 import { TCompForm } from './ComponentForm.component';
 
 describe('ComponentForm selectors', () => {
-	describe('getComponentFormState', () => {
-		it('should return an empty map if there is not the componentid in the store', () => {
+	const componentName = 'comp';
+	describe('isComponentFormDirty', () => {
+		it('should return false if there is no dirty state', () => {
 			// given
 			const state = {
 				cmf: {
 					components: Immutable.fromJS({
 						[TCompForm.displayName]: {
-							notTheGoodOne: { lotOfStuff: 'lot' },
+							[componentName]: {},
 						},
 					}),
 				},
 			};
 			// when
-			const result = getComponentFormState(state, 'aGoodOne');
+			const result = isComponentFormDirty(state, componentName);
 			// then
-			expect(result).toEqual(Immutable.Map());
+			expect(result).toBeFalsy();
 		});
 
-		it('should return an empty map if there is no component form in the store', () => {
-			// given
-			const state = {
-				cmf: {
-					components: Immutable.fromJS({
-						notTheGoodOne: { lotOfStuff: 'lot' },
-					}),
-				},
-			};
-			// when
-			const result = getComponentFormState(state, 'aGoodOne');
-			// then
-			expect(result).toEqual(Immutable.Map());
-		});
-
-		it('should return the state if there is the good component form in the store', () => {
+		it('should return false if there is dirty state to false', () => {
 			// given
 			const state = {
 				cmf: {
 					components: Immutable.fromJS({
 						[TCompForm.displayName]: {
-							aGoodOne: { lotOfStuff: 'lot' },
+							[componentName]: { dirty: false },
 						},
 					}),
 				},
 			};
 			// when
-			const result = getComponentFormState(state, 'aGoodOne');
+			const result = isComponentFormDirty(state, componentName);
 			// then
-			expect(result).toEqual(Immutable.Map({ lotOfStuff: 'lot' }));
+			expect(result).toBeFalsy();
+		});
+
+		it('should return true if there is dirty state to true', () => {
+			// given
+			const state = {
+				cmf: {
+					components: Immutable.fromJS({
+						[TCompForm.displayName]: {
+							[componentName]: { dirty: true },
+						},
+					}),
+				},
+			};
+			// when
+			const result = isComponentFormDirty(state, componentName);
+			// then
+			expect(result).toBeTruthy();
 		});
 	});
 });

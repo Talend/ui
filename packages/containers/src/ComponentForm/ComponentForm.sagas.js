@@ -96,7 +96,7 @@ export function checkFormComponentId(componentId, actionType) {
 }
 
 export function* handleSetDirtyState({ componentId, dirty }) {
-	const componentFormState = yield select(getComponentFormState, componentId);
+	const componentFormState = yield select(Component.getState, componentId);
 	yield put(Component.setStateAction(componentFormState.set('dirty', dirty), componentId));
 }
 
