@@ -25,22 +25,26 @@ function init(config) {
 		};
 
 		window.Intercom = intercom;
-
-		if (window.attachEvent) {
-			window.attachEvent('onload', insertScript.bind(config.app_id));
-		} else {
-			window.addEventListener('load', insertScript.bind(config.app_id), false);
-		}
+		insertScript(config.app_id);
 	}
 }
 
-function boot(widgetId, config = {}) {
+function boot(widgetId, config = {}, callback) {
 	init(config);
 	intercom('boot', {
 		...config,
 		widget: { activator: widgetId },
 		hide_default_launcher: true,
 	});
+
+	if (callback) {
+		const interval = setInterval(() => {
+			if (intercom && intercom.booted) {
+				clearInterval(interval);
+				callback();
+			}
+		}, 100);
+	}
 }
 
 function update(config) {
@@ -51,12 +55,12 @@ function shutdown() {
 	intercom('shutdown');
 }
 
-function onHide() {
-	intercom('onHide');
+function onHide(fn) {
+	intercom('onHide', fn);
 }
 
-function onShow() {
-	intercom('onShow');
+function onShow(fn) {
+	intercom('onShow', fn);
 }
 
 function onUnreadCountChange() {

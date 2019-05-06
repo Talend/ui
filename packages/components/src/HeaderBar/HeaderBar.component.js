@@ -6,6 +6,7 @@ import { translate } from 'react-i18next';
 
 import Inject from '../Inject';
 import Action from '../Actions/Action';
+import Intercom from '../ActionIntercom';
 import ActionDropdown from '../Actions/ActionDropdown';
 import Typeahead from '../Typeahead';
 import theme from './HeaderBar.scss';
@@ -304,16 +305,29 @@ function HeaderBar(props) {
 						t={props.t}
 					/>
 				)}
+				{props.intercom && (
+					<li
+						role="presentation"
+						className={classNames(
+							theme['tc-header-bar-intercom'],
+							'tc-header-bar-intercom',
+							theme.separated,
+						)}
+					>
+						<Intercom className="btn btn-link" {...props.intercom} />
+					</li>
+				)}
 				{props.help && (
 					<Components.Help getComponent={props.getComponent} {...props.help} t={props.t} />
 				)}
-				{!props.user && props.information && (
-					<Components.Information
-						getComponent={props.getComponent}
-						{...props.information}
-						t={props.t}
-					/>
-				)}
+				{!props.user &&
+					props.information && (
+						<Components.Information
+							getComponent={props.getComponent}
+							{...props.information}
+							t={props.t}
+						/>
+					)}
 				{props.user && (
 					<Components.User getComponent={props.getComponent} {...props.user} t={props.t} />
 				)}
@@ -405,6 +419,7 @@ if (process.env.NODE_ENV !== 'production') {
 		search: PropTypes.shape(Search.propTypes),
 		help: PropTypes.shape(omit(Help.propTypes, 't')),
 		information: PropTypes.shape(omit(Information.propTypes, 't')),
+		intercom: PropTypes.shape(omit(Intercom.propTypes, 't')),
 		user: PropTypes.shape(User.propTypes),
 		notification: PropTypes.shape(omit(AppNotification.propTypes, 't')),
 		products: PropTypes.shape({
