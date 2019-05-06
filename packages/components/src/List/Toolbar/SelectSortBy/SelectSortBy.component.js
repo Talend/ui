@@ -93,7 +93,6 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 					>
 						<Icon
 							name={isDescending ? 'talend-sort-desc' : 'talend-sort-asc'}
-							transform={isDescending ? 'rotate-180' : ''}
 						/>
 					</Button>
 				</li>
