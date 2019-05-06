@@ -25,7 +25,7 @@ function ActionIconToggle(props) {
 				className={cn}
 				aria-label={label}
 				aria-pressed={active}
-				bsStyle="default"
+				bsStyle="link"
 			>
 				<Icon name={icon} transform={iconTransform} />
 			</Button>
