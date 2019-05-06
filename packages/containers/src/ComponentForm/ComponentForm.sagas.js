@@ -4,7 +4,6 @@ import { fromJS } from 'immutable';
 import get from 'lodash/get';
 import Component from './ComponentForm.component';
 import { COMPONENT_FORM_SET_DIRTY } from './ComponentForm.actions';
-import { getComponentFormState } from './ComponentForm.selectors';
 
 /**
  * @param {Action{definitionURL: String, uiSpecPath: String, componentId: String }} action
