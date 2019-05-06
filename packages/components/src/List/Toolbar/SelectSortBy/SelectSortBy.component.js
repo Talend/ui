@@ -79,6 +79,7 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 			{selected && (
 				<li>
 					<Button
+						id={id ? `${id}-order-chooser` : uuid.v4()}
 						aria-label={t('LIST_CHANGE_SORT_BY_ORDER', {
 							defaultValue: 'Change sort order. Current order: {{sortOrder}}.',
 							sortOrder: currentSortOrderLabel,
