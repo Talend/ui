@@ -41,6 +41,22 @@ describe('Widget component', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render widget with tooltip', () => {
+		const wrapper = shallow(
+			<Widget
+				id={'myForm'}
+				onChange={jest.fn('onChange')}
+				onFinish={jest.fn('onFinish')}
+				onTrigger={jest.fn('onTrigger')}
+				properties={properties}
+				schema={{ ...schema, tooltip: 'example tooltip' }}
+				errors={errors}
+			/>,
+		);
+
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should render widget with the specific displayMode', () => {
 		// when
 		const wrapper = shallow(

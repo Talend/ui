@@ -6,6 +6,7 @@ import defaultWidgets from '../utils/widgets';
 import { getError } from '../utils/errors';
 import { getValue } from '../utils/properties';
 import shouldRender from '../utils/condition';
+import { TooltipTrigger } from '@talend/react-components';
 
 function getWidget(displayMode, widgetId, customWidgets) {
 	// resolve the widget id depending on the display mode
@@ -30,7 +31,16 @@ function isUpdating(updatingKeys = [], key) {
 }
 
 export default function Widget(props) {
-	const { condition, key, options, type, validationMessage, widget, displayMode } = props.schema;
+	const {
+		condition,
+		key,
+		options,
+		type,
+		validationMessage,
+		widget,
+		displayMode,
+		tooltip,
+	} = props.schema;
 	const widgetId = widget || type;
 
 	if (widgetId === 'hidden' || !shouldRender(condition, props.properties, key)) {
@@ -46,6 +56,25 @@ export default function Widget(props) {
 	const id = sfPath.name(key, '_', props.id);
 	const error = getError(props.errors, props.schema);
 	const errorMessage = validationMessage || error;
+
+	if (tooltip) {
+		return (
+			<TooltipTrigger label={tooltip} tooltipPlacement={'left'}>
+				<div>
+					<WidgetImpl
+						{...props}
+						id={id}
+						key={id}
+						errorMessage={errorMessage}
+						isValid={!error}
+						value={getValue(props.properties, props.schema)}
+						valueIsUpdating={isUpdating(props.updating, props.schema.key)}
+						options={options}
+					/>
+				</div>
+			</TooltipTrigger>
+		);
+	}
 
 	return (
 		<WidgetImpl
