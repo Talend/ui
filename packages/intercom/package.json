@@ -7,7 +7,9 @@
     "lint:style": "sass-lint -v -q",
     "lint:es": "eslint --config ../../.eslintrc src",
     "lint": "npm run lint:es && npm run lint:style",
-    "prepublish": "talend-scripts build:lib"
+    "prepublish": "talend-scripts build:lib",
+    "start": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "keywords": [],
   "author": "Talend Frontend <frontend@talend.com>",
@@ -19,18 +21,21 @@
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
   },
-  "dependencies": {
-  },
   "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@storybook/addon-actions": "^5.0.11",
+    "@storybook/addon-links": "^5.0.11",
+    "@storybook/addons": "^5.0.11",
+    "@storybook/react": "^5.0.11",
     "@talend/scripts": "^0.19.1",
+    "babel-loader": "^8.0.5",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "peerDependencies": {
     "prop-types": "^15.5.10",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "^16.8.6"
   },
   "publishConfig": {
     "access": "public"

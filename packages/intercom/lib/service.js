@@ -57,8 +57,8 @@ function boot(widgetId) {
   }));
 }
 
-function update() {
-  intercom('update');
+function update(config) {
+  intercom('update', config);
 }
 
 function shutdown() {
