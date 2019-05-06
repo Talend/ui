@@ -27,7 +27,7 @@ function DisplayModeToggle({ id, displayModes, onChange, mode, t }) {
 				key={option}
 				id={`${id}-${option}`}
 				icon={option === 'table' ? 'talend-table' : 'talend-expanded'}
-				aria-label={t('LIST_SELECT_DISPLAY_MODE', {
+				label={t('LIST_SELECT_DISPLAY_MODE', {
 					defaultValue: 'Set {{displayMode}} as current display mode.',
 					displayMode: getLabel(option, t),
 				})}
