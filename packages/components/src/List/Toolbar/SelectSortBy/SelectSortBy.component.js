@@ -91,8 +91,14 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 							'tc-list-toolbar-order-chooser',
 						)}
 					>
+						<Icon name={isDescending ? 'talend-sort-desc' : 'talend-sort-asc'} />
 						<Icon
-							name={isDescending ? 'talend-sort-desc' : 'talend-sort-asc'}
+							name="talend-caret-down"
+							transform={!isDescending && 'rotate-180'}
+							className={classNames(
+								'tc-list-toolbar-order-indicator',
+								theme['tc-list-toolbar-order-indicator'],
+							)}
 						/>
 					</Button>
 				</li>
