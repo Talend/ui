@@ -117,7 +117,7 @@ function List({
 	const injected = Inject.all(getComponent, omit(components, ['toolbar', 'list']));
 	let selectAllCheckbox;
 	if (
-		displayMode === 'large' &&
+		displayMode !== 'table' &&
 		list.itemProps &&
 		list.itemProps.isSelected &&
 		list.itemProps.onToggleAll
