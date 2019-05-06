@@ -8,7 +8,7 @@ $tc-list-toolbar-height: 7rem !default;
 	border-top: 1px solid $alto;
 	border-bottom: 1px solid $alto;
 	margin-bottom: 0;
-	padding-left: $padding-normal;
+	padding-left: $padding-larger;
 
 	> :global(.container-fluid) {
 		padding-left: 0;
@@ -40,7 +40,7 @@ $tc-list-toolbar-height: 7rem !default;
 
 	:global(.tc-actionbar-container) {
 		background-color: $tc-list-toolbar-background-color;
-		padding-right: 0;
+		padding: 0;
 		height: $tc-list-toolbar-height;
 
 		:global(.navbar-left),
