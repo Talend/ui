@@ -14,7 +14,7 @@ function getLabel(selected, t) {
 		case 'large':
 			return t('LIST_SELECT_DISPLAY_MODE_LARGE', { defaultValue: 'Expanded' });
 		default:
-			return t('LIST_SELECT_DISPLAY_MODE_TABLE', { defaultValue: 'Table' });
+			return selected;
 	}
 }
 
@@ -27,10 +27,9 @@ function DisplayModeToggle({ id, displayModes, onChange, mode, t }) {
 				key={option}
 				id={`${id}-${option}`}
 				icon={option === 'table' ? 'talend-table' : 'talend-expanded'}
-				label={getLabel(option, t)}
 				aria-label={t('LIST_SELECT_DISPLAY_MODE', {
 					defaultValue: 'Set {{displayMode}} as current display mode.',
-					displayMode: option,
+					displayMode: getLabel(option, t),
 				})}
 				active={mode === option}
 				disabled={mode === option}
