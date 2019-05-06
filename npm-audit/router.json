@@ -1,2 +1,5 @@
+<<<<<<< HEAD
 {"type":"auditSummary","data":{"vulnerabilities":{"info":0,"low":0,"moderate":0,"high":0,"critical":0},"dependencies":872888,"devDependencies":0,"optionalDependencies":0,"totalDependencies":872888}}
 Done in 7.10s.
+=======
+>>>>>>> 2fa5d82f203a58a23babee2435fad89552f79dbf
