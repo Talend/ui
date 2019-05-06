@@ -13,7 +13,7 @@ function ListToolbar({ id, toolbar, displayMode, list, getComponent, components 
 	if (!toolbar) {
 		return null;
 	}
-	const shouldHideSortOptions = !!(displayMode === 'table' && list.sort);
+	const shouldHideSortOptions = !!(displayMode === 'table' && toolbar.sort);
 	const shouldHideSelectAll = displayMode === 'table';
 	const toolbarProps = {
 		...toolbar,

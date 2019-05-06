@@ -79,7 +79,6 @@ function Toolbar({
 		};
 	}
 	const displayModeId = id && `${id}-display-mode`;
-	const showSort = sort && display && display.mode === 'large';
 
 	return (
 		<div className={classNames(theme['tc-list-toolbar'], 'tc-list-toolbar')}>
@@ -96,7 +95,7 @@ function Toolbar({
 							)}
 							{injected('after-filter')}
 							{injected('before-sort')}
-							{showSort && (
+							{sort && (
 								<li className="select-sort-by separated">
 									<Label
 										text={t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}
