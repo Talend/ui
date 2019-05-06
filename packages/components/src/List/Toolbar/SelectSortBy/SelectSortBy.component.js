@@ -77,7 +77,7 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 				</NavDropdown>
 			)}
 			{selected && (
-				<NavItem>
+				<li>
 					<Button
 						aria-label={t('LIST_CHANGE_SORT_BY_ORDER', {
 							defaultValue: 'Change sort order. Current order: {{sortOrder}}.',
@@ -93,7 +93,7 @@ function SelectSortBy({ field, id, isDescending, onChange, options, t }) {
 						<Icon name={isDescending ? 'talend-sort-desc' : 'talend-sort-asc'} />
 						<div className={classNames('tc-order-indicator', { asc: !isDescending })} />
 					</Button>
-				</NavItem>
+				</li>
 			)}
 		</Nav>
 	);

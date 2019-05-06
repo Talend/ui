@@ -3,9 +3,5 @@
 
 	:global(.tc-icon-toggle) {
 		margin: $padding-normal 0 $padding-normal $padding-normal;
-
-		&:first-of-type {
-			margin-left: 0;
-		}
 	}
 }
