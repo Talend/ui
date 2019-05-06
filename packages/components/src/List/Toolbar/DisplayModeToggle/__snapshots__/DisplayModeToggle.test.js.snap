@@ -6,23 +6,21 @@ exports[`DisplayModeToggle should render 1`] = `
 >
   <ActionIconToggle
     active={false}
-    aria-label="Set table as current display mode."
+    aria-label="Set Table as current display mode."
     disabled={false}
     icon="talend-table"
     id="undefined-table"
     key="table"
-    label="Table"
     onClick={[Function]}
     tooltipPlacement="top"
   />
   <ActionIconToggle
     active={false}
-    aria-label="Set large as current display mode."
+    aria-label="Set Expanded as current display mode."
     disabled={false}
     icon="talend-expanded"
     id="undefined-large"
     key="large"
-    label="Expanded"
     onClick={[Function]}
     tooltipPlacement="top"
   />

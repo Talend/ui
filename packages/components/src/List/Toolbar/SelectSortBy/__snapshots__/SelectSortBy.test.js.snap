@@ -63,38 +63,28 @@ exports[`SelectSortBy should render 1`] = `
     </ul>
   </li>
   <li
-    className=""
-    role="presentation"
+    onSelect={null}
   >
-    <a
-      href="#"
+    <button
+      aria-label="Change sort order. Current order: Ascending."
+      className="theme-tc-list-toolbar-order-chooser tc-list-toolbar-order-chooser btn"
+      disabled={false}
+      id={42}
       onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
+      type="button"
     >
-      <button
-        aria-label="Change sort order. Current order: Ascending."
-        className="theme-tc-list-toolbar-order-chooser tc-list-toolbar-order-chooser btn"
-        disabled={false}
-        onClick={[Function]}
-        type="button"
+      <svg
+        aria-hidden="true"
+        className="theme-tc-svg-icon tc-svg-icon"
+        focusable="false"
+        name="talend-sort-asc"
+        title={null}
       >
-        <svg
-          aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
-          focusable="false"
-          name="talend-sort-asc"
-          title={null}
-        >
-          <use
-            xlinkHref="#talend-sort-asc"
-          />
-        </svg>
-        <div
-          className="tc-order-indicator asc"
+        <use
+          xlinkHref="#talend-sort-asc"
         />
-      </button>
-    </a>
+      </svg>
+    </button>
   </li>
 </ul>
 `;
@@ -164,38 +154,28 @@ exports[`SelectSortBy should render id if provided 1`] = `
     </ul>
   </li>
   <li
-    className=""
-    role="presentation"
+    onSelect={null}
   >
-    <a
-      href="#"
+    <button
+      aria-label="Change sort order. Current order: Ascending."
+      className="theme-tc-list-toolbar-order-chooser tc-list-toolbar-order-chooser btn"
+      disabled={false}
+      id="toolbar-sort-order-chooser"
       onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
+      type="button"
     >
-      <button
-        aria-label="Change sort order. Current order: Ascending."
-        className="theme-tc-list-toolbar-order-chooser tc-list-toolbar-order-chooser btn"
-        disabled={false}
-        onClick={[Function]}
-        type="button"
+      <svg
+        aria-hidden="true"
+        className="theme-tc-svg-icon tc-svg-icon"
+        focusable="false"
+        name="talend-sort-asc"
+        title={null}
       >
-        <svg
-          aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
-          focusable="false"
-          name="talend-sort-asc"
-          title={null}
-        >
-          <use
-            xlinkHref="#talend-sort-asc"
-          />
-        </svg>
-        <div
-          className="tc-order-indicator asc"
+        <use
+          xlinkHref="#talend-sort-asc"
         />
-      </button>
-    </a>
+      </svg>
+    </button>
   </li>
 </ul>
 `;
@@ -212,38 +192,28 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
     Id
   </li>
   <li
-    className=""
-    role="presentation"
+    onSelect={null}
   >
-    <a
-      href="#"
+    <button
+      aria-label="Change sort order. Current order: Ascending."
+      className="theme-tc-list-toolbar-order-chooser tc-list-toolbar-order-chooser btn"
+      disabled={false}
+      id={42}
       onClick={[Function]}
-      onKeyDown={[Function]}
-      role="button"
+      type="button"
     >
-      <button
-        aria-label="Change sort order. Current order: Ascending."
-        className="theme-tc-list-toolbar-order-chooser tc-list-toolbar-order-chooser btn"
-        disabled={false}
-        onClick={[Function]}
-        type="button"
+      <svg
+        aria-hidden="true"
+        className="theme-tc-svg-icon tc-svg-icon"
+        focusable="false"
+        name="talend-sort-asc"
+        title={null}
       >
-        <svg
-          aria-hidden="true"
-          className="theme-tc-svg-icon tc-svg-icon"
-          focusable="false"
-          name="talend-sort-asc"
-          title={null}
-        >
-          <use
-            xlinkHref="#talend-sort-asc"
-          />
-        </svg>
-        <div
-          className="tc-order-indicator asc"
+        <use
+          xlinkHref="#talend-sort-asc"
         />
-      </button>
-    </a>
+      </svg>
+    </button>
   </li>
 </ul>
 `;
