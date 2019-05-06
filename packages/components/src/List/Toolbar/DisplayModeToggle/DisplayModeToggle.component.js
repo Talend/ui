@@ -7,6 +7,16 @@ import getDefaultT from '../../../translate';
 import theme from './DisplayModeToggle.scss';
 
 const options = ['table', 'large'];
+function getLabel(selected, t) {
+	switch (selected) {
+		case 'table':
+			return t('LIST_SELECT_DISPLAY_MODE_TABLE', { defaultValue: 'Table' });
+		case 'large':
+			return t('LIST_SELECT_DISPLAY_MODE_LARGE', { defaultValue: 'Expanded' });
+		default:
+			return t('LIST_SELECT_DISPLAY_MODE_TABLE', { defaultValue: 'Table' });
+	}
+}
 
 function DisplayModeToggle({ id, displayModes, onChange, mode, t }) {
 	const modes = displayModes || options;
@@ -17,7 +27,8 @@ function DisplayModeToggle({ id, displayModes, onChange, mode, t }) {
 				key={option}
 				id={`${id}-${option}`}
 				icon={option === 'table' ? 'talend-table' : 'talend-expanded'}
-				label={t('LIST_SELECT_DISPLAY_MODE', {
+				label={getLabel(option, t)}
+				aria-label={t('LIST_SELECT_DISPLAY_MODE', {
 					defaultValue: 'Set {{displayMode}} as current display mode.',
 					displayMode: option,
 				})}
