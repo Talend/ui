@@ -14,4 +14,21 @@ describe('ComponentForm.actions', () => {
 			dirty,
 		});
 	});
+
+	it('should throw if dirty is not a boolean', () => {
+		// given
+		const componentId = 'myId';
+		const dirty = "i'm a cat";
+		let result;
+
+		// when
+		try {
+			result = setComponentFormDirtyState(componentId, dirty);
+		} catch (error) {
+			expect(error.message).toEqual(
+				'ComponentForm dirty state should be a boolean, received "i\'m a cat"(string) instead',
+			);
+		}
+		expect(result).toBeUndefined();
+	});
 });

@@ -94,9 +94,13 @@ export function checkFormComponentId(componentId, actionType) {
 	};
 }
 
+/**
+ * This function handle a change of the dirty state for a given component form id
+ * @param {object} reduxAction with a componentId (string) & the dirtyState (boolean) to apply
+ */
 export function* handleSetDirtyState({ componentId, dirty }) {
 	const componentFormState = yield select(Component.getState, componentId);
-	yield put(Component.setStateAction(componentFormState.set('dirty', dirty), componentId));
+	yield put(Component.setStateAction(componentFormState.set('dirty', !!dirty), componentId));
 }
 
 export function* handle(props) {
