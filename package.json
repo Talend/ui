@@ -48,7 +48,6 @@
     "audit-router": "cd packages/router && yarn audit --json > ../../npm-audit/router.json && cd ../../",
     "audit-scripts": "cd packages/scripts && yarn audit --json > ../../npm-audit/scripts.json && cd ../../",
     "audit-html": "cd packages/html-webpack-plugin && yarn audit --json > ../../npm-audit/html-webpack-plugin.json"
-
   },
   "repository": {
     "type": "git",
