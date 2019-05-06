@@ -57,7 +57,7 @@ $tc-list-toolbar-height: 7rem !default;
 
 	:global(.list-action-bar) {
 		:global(.navbar-right) {
-			 > ul {
+			> ul {
 				list-style: none;
 				display: flex;
 				align-items: center;
@@ -68,7 +68,7 @@ $tc-list-toolbar-height: 7rem !default;
 					align-items: center;
 					margin-left: $padding-normal;
 
-					button[role="search"] {
+					button[role='search'] {
 						padding-right: 0;
 					}
 
@@ -78,7 +78,6 @@ $tc-list-toolbar-height: 7rem !default;
 					}
 
 					&:global(.select-sort-by) {
-
 						:global(.navbar-text) {
 							margin-bottom: $padding-normal;
 							margin-left: $padding-normal;
