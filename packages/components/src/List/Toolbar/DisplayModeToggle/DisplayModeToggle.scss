@@ -2,10 +2,10 @@
 	display: flex;
 
 	:global(.tc-icon-toggle) {
-		margin: $padding-normal $padding-normal $padding-normal 0;
+		margin: $padding-normal 0 $padding-normal $padding-normal;
 
 		&:first-of-type {
-			margin-left: $padding-normal;
+			margin-left: 0;
 		}
 	}
 }

@@ -57,15 +57,16 @@ $tc-list-toolbar-height: 70px !default;
 
 	:global(.list-action-bar) {
 		:global(.navbar-right) {
-			& > ul {
+			 > ul {
 				list-style: none;
 				display: flex;
 				align-items: center;
-				margin: 0 $padding-small 0 0;
+				margin: 0;
 
 				> li {
 					display: flex;
 					align-items: center;
+					margin-left: $padding-normal;
 
 					&:global(.separated):not(:last-child):after {
 						content: '|';
@@ -73,10 +74,10 @@ $tc-list-toolbar-height: 70px !default;
 					}
 
 					&:global(.select-sort-by) {
-						&:before {
-							content: '';
-							margin-left: $padding-normal;
-						}
+						// &:before {
+						// 	content: '';
+						// 	margin-left: $padding-normal;
+						// }
 
 						:global(.navbar-text) {
 							margin-bottom: $padding-normal;
