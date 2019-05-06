@@ -1,14 +1,14 @@
 // Toolbar styles
 $tc-list-toolbar-display-color: $silver !default;
 $tc-list-toolbar-background-color: $wild-sand !default;
-$tc-list-toolbar-height: 7rem !default;
+$tc-list-toolbar-height: 70px !default;
 
 .tc-list-toolbar {
 	background: $tc-list-toolbar-background-color;
 	border-top: 1px solid $alto;
 	border-bottom: 1px solid $alto;
 	margin-bottom: 0;
-	padding-left: $padding-larger;
+	padding: 0 $padding-larger;
 
 	> :global(.container-fluid) {
 		padding-left: 0;
@@ -47,6 +47,10 @@ $tc-list-toolbar-height: 7rem !default;
 		:global(.navbar-right) {
 			> * {
 				margin-right: $padding-normal;
+
+				&:last-child {
+					margin-right: 0;
+				}
 			}
 		}
 	}
