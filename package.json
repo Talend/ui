@@ -44,9 +44,11 @@
     "extract-i18n-forms": "i18next-scanner --config packages/forms/i18next-scanner.config.js 'packages/forms/src/**/*.js'",
     "extract-i18n-containers": "i18next-scanner --config packages/containers/i18next-scanner.config.js 'packages/containers/src/**/*.js'",
     "extract-i18n-datagrid": "i18next-scanner --config packages/datagrid/i18next-scanner.config.js 'packages/datagrid/src/**/*.js'",
-    "audit": "yarn audit --json > npm-audit/audit.json & yarn audit-router & yarn audit-scripts",
+    "audit": "yarn audit --json > npm-audit/audit.json & yarn audit-router & yarn audit-scripts && yarn audit-html",
     "audit-router": "cd packages/router && yarn audit --json > ../../npm-audit/router.json && cd ../../",
-    "audit-scripts": "cd packages/scripts && yarn audit --json > ../../npm-audit/scripts.json && cd ../../"
+    "audit-scripts": "cd packages/scripts && yarn audit --json > ../../npm-audit/scripts.json && cd ../../",
+    "audit-html": "cd packages/html-webpack-plugin && yarn audit --json > ../../npm-audit/html-webpack-plugin.json"
+
   },
   "repository": {
     "type": "git",
