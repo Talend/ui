@@ -3,7 +3,7 @@ import get from 'lodash/get';
 import Container, { DEFAULT_STATE } from './HeaderBar.container';
 import Constants from './HeaderBar.constant';
 
-export function mapStateToProps(state, ownProps){
+export function mapStateToProps(state, ownProps) {
 	const props = {
 		productsItems: cmf.selectors.collections.toJS(state, Constants.COLLECTION_ID),
 	};
@@ -12,7 +12,7 @@ export function mapStateToProps(state, ownProps){
 		props.callToAction = Object.assign(
 			{},
 			ownProps.callToAction,
-			cmf.expression.mapStateToProps(state, ownProps.callToAction)
+			cmf.expression.mapStateToProps(state, ownProps.callToAction),
 		);
 		if (props.callToAction.renderIf === false) {
 			props.callToAction = null;
