@@ -69,7 +69,6 @@ exports[`SelectSortBy should render 1`] = `
       aria-label="Change sort order. Current order: Ascending."
       className="theme-tc-list-toolbar-order-chooser tc-list-toolbar-order-chooser btn"
       disabled={false}
-      id={42}
       onClick={[Function]}
       type="button"
     >
@@ -220,7 +219,6 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
       aria-label="Change sort order. Current order: Ascending."
       className="theme-tc-list-toolbar-order-chooser tc-list-toolbar-order-chooser btn"
       disabled={false}
-      id={42}
       onClick={[Function]}
       type="button"
     >

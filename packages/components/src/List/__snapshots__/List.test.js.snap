@@ -533,22 +533,7 @@ exports[`List should render 1`] = `
           "totalResults": 13,
         }
       }
-      sort={
-        Object {
-          "field": "name",
-          "onChange": [MockFunction],
-          "options": Array [
-            Object {
-              "id": "id",
-              "name": "Id",
-            },
-            Object {
-              "id": "name",
-              "name": "Name",
-            },
-          ],
-        }
-      }
+      sort={false}
     >
       <I18n
         bindI18n="languageChanged loaded"
@@ -582,22 +567,7 @@ exports[`List should render 1`] = `
             "totalResults": 13,
           }
         }
-        sort={
-          Object {
-            "field": "name",
-            "onChange": [MockFunction],
-            "options": Array [
-              Object {
-                "id": "id",
-                "name": "Id",
-              },
-              Object {
-                "id": "name",
-                "name": "Name",
-              },
-            ],
-          }
-        }
+        sort={false}
         translateFuncName="t"
         usePureComponent={false}
         wait={false}
@@ -627,22 +597,7 @@ exports[`List should render 1`] = `
               "totalResults": 13,
             }
           }
-          sort={
-            Object {
-              "field": "name",
-              "onChange": [MockFunction],
-              "options": Array [
-                Object {
-                  "id": "id",
-                  "name": "Id",
-                },
-                Object {
-                  "id": "name",
-                  "name": "Name",
-                },
-              ],
-            }
-          }
+          sort={false}
           t={[Function]}
           tReady={false}
         >
@@ -1639,22 +1594,7 @@ exports[`List should render id if provided 1`] = `
           "totalResults": 13,
         }
       }
-      sort={
-        Object {
-          "field": "name",
-          "onChange": [MockFunction],
-          "options": Array [
-            Object {
-              "id": "id",
-              "name": "Id",
-            },
-            Object {
-              "id": "name",
-              "name": "Name",
-            },
-          ],
-        }
-      }
+      sort={false}
     >
       <I18n
         bindI18n="languageChanged loaded"
@@ -1689,22 +1629,7 @@ exports[`List should render id if provided 1`] = `
             "totalResults": 13,
           }
         }
-        sort={
-          Object {
-            "field": "name",
-            "onChange": [MockFunction],
-            "options": Array [
-              Object {
-                "id": "id",
-                "name": "Id",
-              },
-              Object {
-                "id": "name",
-                "name": "Name",
-              },
-            ],
-          }
-        }
+        sort={false}
         translateFuncName="t"
         usePureComponent={false}
         wait={false}
@@ -1735,22 +1660,7 @@ exports[`List should render id if provided 1`] = `
               "totalResults": 13,
             }
           }
-          sort={
-            Object {
-              "field": "name",
-              "onChange": [MockFunction],
-              "options": Array [
-                Object {
-                  "id": "id",
-                  "name": "Id",
-                },
-                Object {
-                  "id": "name",
-                  "name": "Name",
-                },
-              ],
-            }
-          }
+          sort={false}
           t={[Function]}
           tReady={false}
         >
