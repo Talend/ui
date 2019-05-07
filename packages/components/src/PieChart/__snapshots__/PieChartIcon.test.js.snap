@@ -26,7 +26,7 @@ exports[`PieChart getEmptyPartCircle should get return a path for the rest 1`] =
 
 exports[`PieChart snapshots render should render a PieChart 1`] = `
 <span
-  className="tc-pie-icon-chart theme-tc-pie-icon-chart"
+  className="tc-pie-chart-icon theme-tc-pie-chart-icon"
 >
   <svg
     className="tc-pie-chart-icon-graph theme-tc-pie-chart-icon-graph"

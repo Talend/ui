@@ -44,7 +44,9 @@
     "extract-i18n-forms": "i18next-scanner --config packages/forms/i18next-scanner.config.js 'packages/forms/src/**/*.js'",
     "extract-i18n-containers": "i18next-scanner --config packages/containers/i18next-scanner.config.js 'packages/containers/src/**/*.js'",
     "extract-i18n-datagrid": "i18next-scanner --config packages/datagrid/i18next-scanner.config.js 'packages/datagrid/src/**/*.js'",
-    "audit": "./versions/generate-version-audit.js && cd npm-audit && npm i && npm audit > audit.json"
+    "audit-router": "cd packages/router && yarn audit --json && cd ../../",
+    "audit-scripts": "cd packages/scripts && yarn audit -s --json && cd ../../",
+    "audit-html": "cd packages/html-webpack-plugin && yarn audit --json && cd ../../"
   },
   "repository": {
     "type": "git",
@@ -65,5 +67,10 @@
     "packages/sagas",
     "packages/storybook-cmf",
     "packages/theme"
-  ]
+  ],
+  "resolutions": {
+    "@storybook/addons": "4.0.12",
+    "@storybook/components": "4.0.12",
+    "@storybook/core-events ": "4.0.12"
+  }
 }
