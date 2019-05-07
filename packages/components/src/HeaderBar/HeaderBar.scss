@@ -48,7 +48,7 @@ $background-color-on-hover: shade($brand-primary, 30);
 				}
 			}
 
-			&:not(:last-child):not(:empty).separated:after {
+			&:not(:last-child).separated:after {
 				content: '|';
 				color: $white;
 			}
