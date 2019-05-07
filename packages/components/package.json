@@ -37,7 +37,7 @@
   "dependencies": {
     "ally.js": "^1.4.1",
     "classnames": "^2.2.5",
-    "d3-shape": "^1.2.0",
+    "d3-shape": "1.2.0",
     "date-fns": "^1.27.2",
     "focus-outline-manager": "^1.0.2",
     "immutable": "^3.8.1",
@@ -74,11 +74,11 @@
     "@storybook/addon-actions": "^4.0.12",
     "@storybook/addon-info": "^4.0.12",
     "@storybook/react": "^4.0.12",
-    "@talend/bootstrap-theme": "^3.4.0",
-    "@talend/icons": "^3.4.0",
+    "@talend/bootstrap-theme": "^3.5.0",
+    "@talend/icons": "^3.5.0",
     "autoprefixer": "^7.1.4",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.0.0",
+    "babel-jest": "^24.7.1",
     "cpx": "^1.5.0",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.1",
@@ -91,7 +91,7 @@
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
     "i18next": "^9.0.0",
-    "jest": "^24.0.0",
+    "jest": "^24.7.1",
     "jest-in-case": "^1.0.2",
     "jsdom": "^11.11.0",
     "node-sass": "^4.7.2",
@@ -105,14 +105,14 @@
     "react-storybook-addon-props-combinations": "^1.1.0",
     "react-test-renderer": "^16.8.6",
     "rimraf": "^2.6.2",
-    "sass-lint": "1.13.0",
+    "sass-lint": "^1.13.1",
     "sass-loader": "^7.1.0",
     "slimerjs": "^0.10.2",
     "style-loader": "^0.23.0"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "^3.4.0",
-    "@talend/icons": "^3.4.0",
+    "@talend/bootstrap-theme": "^3.5.0",
+    "@talend/icons": "^3.5.0",
     "i18next": "^9.0.0",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
@@ -140,5 +140,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.4.0"
+  "version": "3.5.0"
 }
