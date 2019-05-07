@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Skeleton from './Skeleton.component';
 
-describe('HeaderBar', () => {
+describe('Skeleton', () => {
 	function t(msgid, options = {}) {
 		if (options.type) {
 			return options.defaultValue.replace('{{type}}', options.type);
