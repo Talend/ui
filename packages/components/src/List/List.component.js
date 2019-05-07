@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import omit from 'lodash/omit';
 
 import Toolbar from './Toolbar';
+import SelectAll from './Toolbar/SelectAll';
 import ListToVirtualizedList from './ListToVirtualizedList';
 import theme from './List.scss';
 import Inject from '../Inject';
@@ -12,7 +13,7 @@ function ListToolbar({ id, toolbar, displayMode, list, getComponent, components 
 	if (!toolbar) {
 		return null;
 	}
-	const shouldHideSortOptions = !!(displayMode === 'table' && list.sort);
+	const shouldHideSortOptions = !!(displayMode === 'table' && toolbar.sort);
 	const shouldHideSelectAll = displayMode === 'table';
 	const toolbarProps = {
 		...toolbar,
@@ -114,6 +115,20 @@ function List({
 }) {
 	const classnames = classNames('tc-list', theme.list);
 	const injected = Inject.all(getComponent, omit(components, ['toolbar', 'list']));
+	let selectAllCheckbox;
+	if (
+		displayMode !== 'table' &&
+		list.itemProps &&
+		list.itemProps.isSelected &&
+		list.itemProps.onToggleAll
+	) {
+		selectAllCheckbox = {
+			id,
+			items: list.items,
+			isSelected: list.itemProps.isSelected,
+			onToggleAll: list.itemProps.onToggleAll,
+		};
+	}
 
 	return (
 		<div className={classnames}>
@@ -128,6 +143,7 @@ function List({
 				components={components}
 			/>
 			{injected('after-toolbar')}
+			{selectAllCheckbox && <SelectAll {...selectAllCheckbox} />}
 			{injected('before-list-wrapper')}
 			<div className={'tc-list-display-virtualized'}>
 				{injected('before-list')}
