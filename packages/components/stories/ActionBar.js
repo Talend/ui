@@ -244,8 +244,12 @@ const multiCertify = {
 	className: 'btn-icon-text',
 };
 const massActions = {
-	left: [[multiDelete, multiDuplicate, multiUpdate], [multiFavorite, multiCertify]],
+	left: [multiDelete, multiDuplicate, multiUpdate],
 };
+
+const appMassActions = {
+	left:  [multiFavorite, multiCertify],
+}
 
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
@@ -292,7 +296,11 @@ storiesOf('ActionBar', module)
 			</div>
 			<p>3 items selected, with mass/bulk Actions</p>
 			<div id="mass-actions">
-				<ActionBar selected={3} multiSelectActions={massActions} />
+				<ActionBar
+					selected={3}
+					multiSelectActions={massActions}
+					appMultiSelectActions={appMassActions}
+				/>
 			</div>
 		</nav>
 	))

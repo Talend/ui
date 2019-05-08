@@ -37,8 +37,24 @@ const actionsShape = {
 	children: PropTypes.node,
 };
 
-function getActionsToRender({ selected, actions, multiSelectActions }) {
+function getActionsToRender({ selected, actions, multiSelectActions, appMultiSelectActions }) {
 	if (selected > 0) {
+		if (appMultiSelectActions) {
+			return ['left', 'center', 'right'].reduce((result, type) => {
+				if (multiSelectActions[type] && appMultiSelectActions[type]) {
+					return Object.assign(
+						{},
+						result,
+						{ [type]: [multiSelectActions[type], appMultiSelectActions[type]] }
+					);
+				}
+				return Object.assign(
+					{},
+					result,
+					{ [type]: multiSelectActions[type] || appMultiSelectActions[type] }
+				);
+			}, {});
+		}
 		return multiSelectActions || {};
 	}
 	return actions || {};
@@ -127,12 +143,7 @@ function SwitchActions({ actions, left, right, center, getComponent, components 
 	);
 }
 SwitchActions.propTypes = {
-	actions: PropTypes.arrayOf(
-		PropTypes.oneOfType([
-			PropTypes.shape(actionsShape),
-			PropTypes.arrayOf(PropTypes.shape(actionsShape)),
-		])
-	).isRequired,
+	actions: PropTypes.arrayOf(PropTypes.shape(actionsShape)).isRequired,
 	left: PropTypes.bool,
 	right: PropTypes.bool,
 	center: PropTypes.bool,
