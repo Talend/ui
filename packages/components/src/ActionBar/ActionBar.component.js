@@ -42,17 +42,13 @@ function getActionsToRender({ selected, actions, multiSelectActions, appMultiSel
 		if (appMultiSelectActions) {
 			return ['left', 'center', 'right'].reduce((result, type) => {
 				if (multiSelectActions[type] && appMultiSelectActions[type]) {
-					return Object.assign(
-						{},
-						result,
-						{ [type]: [multiSelectActions[type], appMultiSelectActions[type]] }
-					);
+					return Object.assign({}, result, {
+						[type]: [multiSelectActions[type], appMultiSelectActions[type]],
+					});
 				}
-				return Object.assign(
-					{},
-					result,
-					{ [type]: multiSelectActions[type] || appMultiSelectActions[type] }
-				);
+				return Object.assign({}, result, {
+					[type]: multiSelectActions[type] || appMultiSelectActions[type],
+				});
 			}, {});
 		}
 		return multiSelectActions || {};
@@ -120,7 +116,8 @@ function getActionsFromRenderers(actions, getComponent) {
 			if (index === 0) {
 				return result.concat(action.map(getActionsElements));
 			}
-			return result.concat(<span className="divider">|</span>)
+			return result
+				.concat(<span className="divider">|</span>)
 				.concat(action.map(getActionsElements));
 		}, []);
 	}
