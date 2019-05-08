@@ -83,7 +83,7 @@ function getActionsFromRenderers(actions, getComponent) {
 		ActionDropdown,
 		ActionSplitDropdown,
 	});
-	return actions.map((action, index) => {
+	function getActionsElements(action, index) {
 		const { displayMode, ...rest } = action;
 		switch (displayMode) {
 			case DISPLAY_MODES.DROPDOWN:
@@ -98,7 +98,17 @@ function getActionsFromRenderers(actions, getComponent) {
 				}
 				return <Renderers.Action key={index} {...rest} />;
 		}
-	});
+	}
+	if (actions.length > 0 && Array.isArray(actions[0])) {
+		return actions.reduce((result, action, index) => {
+			if (index === 0) {
+				return result.concat(action.map(getActionsElements));
+			}
+			return result.concat(<span className="divider">|</span>)
+				.concat(action.map(getActionsElements));
+		}, []);
+	}
+	return actions.map(getActionsElements);
 }
 
 function SwitchActions({ actions, left, right, center, getComponent, components }) {
@@ -117,7 +127,12 @@ function SwitchActions({ actions, left, right, center, getComponent, components 
 	);
 }
 SwitchActions.propTypes = {
-	actions: PropTypes.arrayOf(PropTypes.shape(actionsShape)).isRequired,
+	actions: PropTypes.arrayOf(
+		PropTypes.oneOfType([
+			PropTypes.shape(actionsShape),
+			PropTypes.arrayOf(PropTypes.shape(actionsShape)),
+		])
+	).isRequired,
 	left: PropTypes.bool,
 	right: PropTypes.bool,
 	center: PropTypes.bool,

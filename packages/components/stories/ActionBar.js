@@ -229,7 +229,7 @@ const multiUpdate = {
 	label: 'Update',
 	icon: 'talend-file-move',
 	onClick: action('multiple update'),
-	className: 'btn-icon-text separated',
+	className: 'btn-icon-text',
 };
 const multiFavorite = {
 	label: 'Favorite',
@@ -244,7 +244,7 @@ const multiCertify = {
 	className: 'btn-icon-text',
 };
 const massActions = {
-	left: [multiDelete, multiDuplicate, multiUpdate, multiFavorite, multiCertify],
+	left: [[multiDelete, multiDuplicate, multiUpdate], [multiFavorite, multiCertify]],
 };
 
 const icons = {
