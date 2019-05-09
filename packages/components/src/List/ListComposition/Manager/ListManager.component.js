@@ -14,8 +14,10 @@ function Manager(props) {
 	let collection = props.collection;
 
 	// Filter by text
-	collection = useMemo(() => filterCollectionByText(collection, textFilter),
-		[collection, textFilter]);
+	collection = useMemo(() => filterCollectionByText(collection, textFilter), [
+		collection,
+		textFilter,
+	]);
 
 	const contextValues = {
 		collection,
