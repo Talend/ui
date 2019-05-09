@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
 
+import toJsonWithoutI18n from '../../../../test/props-without-i18n';
 import TextFilter from './TextFilter.component';
 import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
@@ -23,7 +23,7 @@ describe('TextFilter', () => {
 		);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
 	it('should render text filter component with defined docked state', () => {
@@ -35,6 +35,6 @@ describe('TextFilter', () => {
 		);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 });

@@ -16,35 +16,7 @@ exports[`TextFilter should render text filter component 1`] = `
       bindI18n="languageChanged loaded"
       bindStore="added removed"
       docked={true}
-      i18n={
-        Object {
-          "changeLanguage": [Function],
-          "getFixedT": [Function],
-          "hasResourceBundle": [Function],
-          "init": [Function],
-          "isInitialized": true,
-          "isMock": true,
-          "language": "en",
-          "languages": Array [
-            "en",
-          ],
-          "loadNamespaces": [Function],
-          "off": [Function],
-          "on": [Function],
-          "options": Object {},
-          "services": Object {
-            "resourceStore": Object {
-              "data": Object {},
-            },
-          },
-          "store": Object {
-            "data": Object {},
-            "off": [Function],
-            "on": [Function],
-          },
-          "t": [Function],
-        }
-      }
+      i18n={Object {}}
       id="myTextFilter"
       ns={
         Array [
@@ -67,35 +39,7 @@ exports[`TextFilter should render text filter component 1`] = `
         dockable={true}
         docked={true}
         focus={false}
-        i18n={
-          Object {
-            "changeLanguage": [Function],
-            "getFixedT": [Function],
-            "hasResourceBundle": [Function],
-            "init": [Function],
-            "isInitialized": true,
-            "isMock": true,
-            "language": "en",
-            "languages": Array [
-              "en",
-            ],
-            "loadNamespaces": [Function],
-            "off": [Function],
-            "on": [Function],
-            "options": Object {},
-            "services": Object {
-              "resourceStore": Object {
-                "data": Object {},
-              },
-            },
-            "store": Object {
-              "data": Object {},
-              "off": [Function],
-              "on": [Function],
-            },
-            "t": [Function],
-          }
-        }
+        i18n={Object {}}
         id="myTextFilter"
         lng="en"
         navbar={true}
@@ -132,35 +76,7 @@ exports[`TextFilter should render text filter component 1`] = `
               bsStyle="link"
               className=""
               hideLabel={true}
-              i18n={
-                Object {
-                  "changeLanguage": [Function],
-                  "getFixedT": [Function],
-                  "hasResourceBundle": [Function],
-                  "init": [Function],
-                  "isInitialized": true,
-                  "isMock": true,
-                  "language": "en",
-                  "languages": Array [
-                    "en",
-                  ],
-                  "loadNamespaces": [Function],
-                  "off": [Function],
-                  "on": [Function],
-                  "options": Object {},
-                  "services": Object {
-                    "resourceStore": Object {
-                      "data": Object {},
-                    },
-                  },
-                  "store": Object {
-                    "data": Object {},
-                    "off": [Function],
-                    "on": [Function],
-                  },
-                  "t": [Function],
-                }
-              }
+              i18n={Object {}}
               icon="talend-search"
               id="myTextFilter"
               label="Toggle filter"
@@ -184,35 +100,7 @@ exports[`TextFilter should render text filter component 1`] = `
                 className=""
                 disabled={false}
                 hideLabel={true}
-                i18n={
-                  Object {
-                    "changeLanguage": [Function],
-                    "getFixedT": [Function],
-                    "hasResourceBundle": [Function],
-                    "init": [Function],
-                    "isInitialized": true,
-                    "isMock": true,
-                    "language": "en",
-                    "languages": Array [
-                      "en",
-                    ],
-                    "loadNamespaces": [Function],
-                    "off": [Function],
-                    "on": [Function],
-                    "options": Object {},
-                    "services": Object {
-                      "resourceStore": Object {
-                        "data": Object {},
-                      },
-                    },
-                    "store": Object {
-                      "data": Object {},
-                      "off": [Function],
-                      "on": [Function],
-                    },
-                    "t": [Function],
-                  }
-                }
+                i18n={Object {}}
                 icon="talend-search"
                 id="myTextFilter"
                 inProgress={false}
@@ -302,35 +190,7 @@ exports[`TextFilter should render text filter component with defined docked stat
       bindI18n="languageChanged loaded"
       bindStore="added removed"
       docked={true}
-      i18n={
-        Object {
-          "changeLanguage": [Function],
-          "getFixedT": [Function],
-          "hasResourceBundle": [Function],
-          "init": [Function],
-          "isInitialized": true,
-          "isMock": true,
-          "language": "en",
-          "languages": Array [
-            "en",
-          ],
-          "loadNamespaces": [Function],
-          "off": [Function],
-          "on": [Function],
-          "options": Object {},
-          "services": Object {
-            "resourceStore": Object {
-              "data": Object {},
-            },
-          },
-          "store": Object {
-            "data": Object {},
-            "off": [Function],
-            "on": [Function],
-          },
-          "t": [Function],
-        }
-      }
+      i18n={Object {}}
       id="myTextFilter"
       ns={
         Array [
@@ -353,35 +213,7 @@ exports[`TextFilter should render text filter component with defined docked stat
         dockable={true}
         docked={true}
         focus={false}
-        i18n={
-          Object {
-            "changeLanguage": [Function],
-            "getFixedT": [Function],
-            "hasResourceBundle": [Function],
-            "init": [Function],
-            "isInitialized": true,
-            "isMock": true,
-            "language": "en",
-            "languages": Array [
-              "en",
-            ],
-            "loadNamespaces": [Function],
-            "off": [Function],
-            "on": [Function],
-            "options": Object {},
-            "services": Object {
-              "resourceStore": Object {
-                "data": Object {},
-              },
-            },
-            "store": Object {
-              "data": Object {},
-              "off": [Function],
-              "on": [Function],
-            },
-            "t": [Function],
-          }
-        }
+        i18n={Object {}}
         id="myTextFilter"
         lng="en"
         navbar={true}
@@ -418,35 +250,7 @@ exports[`TextFilter should render text filter component with defined docked stat
               bsStyle="link"
               className=""
               hideLabel={true}
-              i18n={
-                Object {
-                  "changeLanguage": [Function],
-                  "getFixedT": [Function],
-                  "hasResourceBundle": [Function],
-                  "init": [Function],
-                  "isInitialized": true,
-                  "isMock": true,
-                  "language": "en",
-                  "languages": Array [
-                    "en",
-                  ],
-                  "loadNamespaces": [Function],
-                  "off": [Function],
-                  "on": [Function],
-                  "options": Object {},
-                  "services": Object {
-                    "resourceStore": Object {
-                      "data": Object {},
-                    },
-                  },
-                  "store": Object {
-                    "data": Object {},
-                    "off": [Function],
-                    "on": [Function],
-                  },
-                  "t": [Function],
-                }
-              }
+              i18n={Object {}}
               icon="talend-search"
               id="myTextFilter"
               label="Toggle filter"
@@ -470,35 +274,7 @@ exports[`TextFilter should render text filter component with defined docked stat
                 className=""
                 disabled={false}
                 hideLabel={true}
-                i18n={
-                  Object {
-                    "changeLanguage": [Function],
-                    "getFixedT": [Function],
-                    "hasResourceBundle": [Function],
-                    "init": [Function],
-                    "isInitialized": true,
-                    "isMock": true,
-                    "language": "en",
-                    "languages": Array [
-                      "en",
-                    ],
-                    "loadNamespaces": [Function],
-                    "off": [Function],
-                    "on": [Function],
-                    "options": Object {},
-                    "services": Object {
-                      "resourceStore": Object {
-                        "data": Object {},
-                      },
-                    },
-                    "store": Object {
-                      "data": Object {},
-                      "off": [Function],
-                      "on": [Function],
-                    },
-                    "t": [Function],
-                  }
-                }
+                i18n={Object {}}
                 icon="talend-search"
                 id="myTextFilter"
                 inProgress={false}
