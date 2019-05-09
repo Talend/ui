@@ -64,6 +64,12 @@ const collection = [
 		icon: 'talend-file-xls-o',
 		flags: ['CERTIFIED', 'FAVORITE'],
 	},
+	{
+		id: 5,
+		name: 'Without author',
+		icon: 'talend-file-xls-o',
+		flags: ['CERTIFIED', 'FAVORITE'],
+	},
 ];
 
 
