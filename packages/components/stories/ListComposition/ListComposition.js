@@ -139,4 +139,73 @@ storiesOf('List Composition', module)
 				</List.Manager>
 			</section>
 		</div>
+	))
+	.add('Sort by: uncontrolled', () => (
+		<div className="virtualized-list">
+			<IconsProvider />
+			<h1>List with sorting feature</h1>
+			<p>You can change the sorting criteria by adding the component in the toolbar</p>
+			<pre>{`
+<List.Manager id="my-list" collection={simpleCollection}>
+	<List.Toolbar>
+		<List.SortBy
+		id="my-list-sortBy"
+		options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+		/>
+	</List.Toolbar>
+	<List.VList id="my-vlist">
+		...
+	</List.VList>
+</List.Manager>
+`}</pre>
+			<section style={{ height: '50vh' }}>
+				<List.Manager id="my-list" collection={simpleCollection}>
+					<List.Toolbar>
+						<List.SortBy
+							id="my-list-sortBy"
+							options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+						/>
+					</List.Toolbar>
+					<CustomList />
+				</List.Manager>
+			</section>
+		</div>
+	))
+	.add('Sort by: controlled', () => (
+		<div className="virtualized-list">
+			<IconsProvider />
+			<h1>List with sorting feature</h1>
+			<p>
+				You can control the sorting feature by providing both onChange and onOrderChange
+				props (functions) to the SortBy component.
+			</p>
+			<pre>{`
+<List.Manager id="my-list" collection={simpleCollection}>
+	<List.Toolbar>
+		<List.SortBy
+			id="my-list-sortBy"
+			options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+			onChange={action('onSortChange')}
+			onOrderChange={action('onSortOrderChange')}
+		/>
+	</List.Toolbar>
+	<List.VList id="my-vlist">
+		...
+	</List.VList>
+</List.Manager>
+`}</pre>
+			<section style={{ height: '50vh' }}>
+				<List.Manager id="my-list" collection={simpleCollection}>
+					<List.Toolbar>
+						<List.SortBy
+							id="my-list-sortBy"
+							options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+							onChange={action('onSortChange')}
+							onOrderChange={action('onSortOrderChange')}
+						/>
+					</List.Toolbar>
+					<CustomList />
+				</List.Manager>
+			</section>
+		</div>
 	));
