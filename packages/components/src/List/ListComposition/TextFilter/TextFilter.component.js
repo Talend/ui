@@ -39,7 +39,7 @@ TextFilter.defaultProps = {
 if (process.env.NODE_ENV !== 'production') {
 	TextFilter.propTypes = {
 		docked: PropTypes.bool,
-		initialDocked: PropTypes.initialDocked,
+		initialDocked: PropTypes.bool,
 		onChange: PropTypes.func,
 		onToggle: PropTypes.func,
 	};
