@@ -4,7 +4,7 @@ exports[`Breadcrumbs should do nothing if items property is empty 1`] = `
 <nav
   aria-label="breadcrumb"
 >
-  <ol
+  <ul
     className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
     id="42"
   />
@@ -15,7 +15,7 @@ exports[`Breadcrumbs should render all items without a dropdown menu if default 
 <nav
   aria-label="breadcrumb"
 >
-  <ol
+  <ul
     className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
     id="42"
   >
@@ -60,7 +60,7 @@ exports[`Breadcrumbs should render all items without a dropdown menu if default 
         Text D
       </span>
     </li>
-  </ol>
+  </ul>
 </nav>
 `;
 
@@ -68,7 +68,7 @@ exports[`Breadcrumbs should render items with a dropdown menu if default max ite
 <nav
   aria-label="breadcrumb"
 >
-  <ol
+  <ul
     className="breadcrumb theme-tc-breadcrumb tc-breadcrumb"
     id="42"
   >
@@ -130,6 +130,6 @@ exports[`Breadcrumbs should render items with a dropdown menu if default max ite
         Text E
       </span>
     </li>
-  </ol>
+  </ul>
 </nav>
 `;

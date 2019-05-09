@@ -31,11 +31,17 @@ const DEFAULT_NB_ITEMS_BEFORE_ELLIPSIS = 1;
  items={items}
  />
  */
-export function BreadcrumbsComponent(props) {
-	const { loading, items, maxItems = DEFAULT_MAX_ITEMS } = props;
+export function BreadcrumbsComponent({ loading, id, items, maxItems, t }) {
 	if (loading) {
 		return (
-			<div className={classNames(theme['tc-breadcrumb'], theme.loading, 'tc-breadcrumb', 'tc-breadcrumb--loading')}>
+			<div
+				className={classNames(
+					theme['tc-breadcrumb'],
+					theme.loading,
+					'tc-breadcrumb',
+					'tc-breadcrumb--loading',
+				)}
+			>
 				{[
 					{ size: Skeleton.SIZES.large, type: Skeleton.TYPES.text },
 					{ size: Skeleton.SIZES.small, type: Skeleton.TYPES.circle },
@@ -50,7 +56,7 @@ export function BreadcrumbsComponent(props) {
 	const hiddenItems = items
 		.slice(DEFAULT_NB_ITEMS_BEFORE_ELLIPSIS, ellipsisIndex + 1)
 		.map((hiddenItem, index) => ({
-			id: `${props.id}-item-${index + DEFAULT_NB_ITEMS_BEFORE_ELLIPSIS}`,
+			id: `${id}-item-${index + DEFAULT_NB_ITEMS_BEFORE_ELLIPSIS}`,
 			label: hiddenItem.text,
 			title: hiddenItem.title,
 			onClick: event => hiddenItem.onClick(event, hiddenItem),
@@ -65,7 +71,7 @@ export function BreadcrumbsComponent(props) {
 	function renderBreadcrumbItem(item, index) {
 		const { text, title, onClick } = item;
 		const isActive = index === nbItems - 1;
-		const id = `${props.id}-item-${index}`;
+		const itemId = `${id}-item-${index}`;
 
 		/**
 		 * Wrapper for onClick in order to return item
@@ -80,7 +86,7 @@ export function BreadcrumbsComponent(props) {
 			if (!isActive && onClick) {
 				return (
 					<Action
-						id={id}
+						id={itemId}
 						bsStyle="link"
 						role="link"
 						title={title || text}
@@ -95,7 +101,7 @@ export function BreadcrumbsComponent(props) {
 				// bug in eslint a11y plugin, fixed in version 6.
 				// But to upgrade we need to upgrade the whole package (eslint, airbnb, a11y, react)
 				// eslint-disable-next-line jsx-a11y/aria-props
-				<span id={id} title={title} aria-current={ariaCurrent}>
+				<span id={itemId} title={title} aria-current={ariaCurrent}>
 					{text}
 				</span>
 			);
@@ -107,9 +113,9 @@ export function BreadcrumbsComponent(props) {
 			return (
 				<li className="tc-breadcrumb-menu" key={index + 0.1}>
 					<ActionDropdown
-						id={`${props.id}-ellipsis`}
+						id={`${id}-ellipsis`}
 						items={hiddenItems}
-						aria-label={props.t('BREADCRUMB_OPEN_FIRST_LINKS_MENU', {
+						aria-label={t('BREADCRUMB_OPEN_FIRST_LINKS_MENU', {
 							defaultValue: 'Open first links menu',
 						})}
 						label="…"
@@ -127,32 +133,31 @@ export function BreadcrumbsComponent(props) {
 	}
 
 	return (
-		<nav aria-label={props.t('BREADCRUMB', { defaultValue: 'breadcrumb' })}>
-			<ol
-				id={props.id}
-				className={classNames('breadcrumb', theme['tc-breadcrumb'], 'tc-breadcrumb')}
-			>
-				{props.items.map(renderBreadcrumbItem)}
-			</ol>
+		<nav aria-label={t('BREADCRUMB', { defaultValue: 'breadcrumb' })}>
+			<ul id={id} className={classNames('breadcrumb', theme['tc-breadcrumb'], 'tc-breadcrumb')}>
+				{items.map(renderBreadcrumbItem)}
+			</ul>
 		</nav>
 	);
 }
 
 BreadcrumbsComponent.displayName = 'Breadcrumbs';
 
-BreadcrumbsComponent.propTypes = {
-	id: PropTypes.string,
-	loading: PropTypes.bool,
-	items: PropTypes.arrayOf(
-		PropTypes.shape({
-			text: PropTypes.string.isRequired,
-			title: PropTypes.string,
-			onClick: PropTypes.func,
-		}),
-	),
-	maxItems: PropTypes.number,
-	t: PropTypes.func,
-};
+if (process.env.NODE_ENV !== 'production') {
+	BreadcrumbsComponent.propTypes = {
+		id: PropTypes.string,
+		loading: PropTypes.bool,
+		items: PropTypes.arrayOf(
+			PropTypes.shape({
+				text: PropTypes.string.isRequired,
+				title: PropTypes.string,
+				onClick: PropTypes.func,
+			}),
+		),
+		maxItems: PropTypes.number,
+		t: PropTypes.func,
+	};
+}
 
 BreadcrumbsComponent.defaultProps = {
 	id: `${uuid.v4()}`,

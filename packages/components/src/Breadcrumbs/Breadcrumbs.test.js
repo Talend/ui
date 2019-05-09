@@ -84,7 +84,7 @@ describe('Breadcrumbs', () => {
 			const breadcrumbs = <Breadcrumbs items={actions} />;
 			const wrapper = mount(breadcrumbs);
 			wrapper
-				.find('ol')
+				.find('.tc-breadcrumb')
 				.find(Button)
 				.at(clickedElementIndex)
 				.simulate('click');
