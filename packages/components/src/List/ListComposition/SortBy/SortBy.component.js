@@ -22,8 +22,16 @@ function getSelectedOption(props, sortParams) {
 }
 
 function SortBy(props) {
-	const { id, options, selected, isDescending: isDescendingProp, onChange, onOrderChange } = props;
-	const { sortParams, setSortParams, t } = useListContext();
+	const {
+		id,
+		options,
+		selected,
+		isDescending: isDescendingProp,
+		initialSortParams,
+		onChange,
+		onOrderChange,
+	} = props;
+	const { sortParams, setSortParams, t } = useListContext(initialSortParams);
 
 	const selectedOption = getSelectedOption(props, sortParams);
 
@@ -93,6 +101,7 @@ function SortBy(props) {
 
 SortBy.defaultProps = {
 	id: uuid.v4(),
+	initialSortParams: {},
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -107,6 +116,10 @@ if (process.env.NODE_ENV !== 'production') {
 			}),
 		).isRequired,
 		selected: PropTypes.string,
+		initialSortParams: PropTypes.shape({
+			sortBy: PropTypes.string,
+			isDescending: PropTypes.bool,
+		}),
 		onChange: PropTypes.func,
 	};
 }
