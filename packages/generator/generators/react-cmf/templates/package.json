@@ -25,12 +25,12 @@
     "@talend/scripts": "^0.16.1"
   },
   "dependencies": {
-    "@talend/bootstrap-theme": "2.11.0",
-    "@talend/icons": "2.11.0",
-    "@talend/react-cmf": "2.11.0",
-    "@talend/react-components": "2.11.0",
-    "@talend/react-containers": "2.11.0",
-    "@talend/react-forms": "2.11.0",
+    "@talend/bootstrap-theme": "3.4.0",
+    "@talend/icons": "3.4.0",
+    "@talend/react-cmf": "3.4.0",
+    "@talend/react-components": "3.4.0",
+    "@talend/react-containers": "3.4.0",
+    "@talend/react-forms": "3.4.0",
     "@talend/react-cmf-router": "^3.2.1",
     "bootstrap-sass": "3.4.1",
     "bson-objectid": "^1.1.5",
