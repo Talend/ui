@@ -12,6 +12,7 @@ const DISPLAY_MODES = {
 	DROPDOWN: 'dropdown',
 	SPLIT_DROPDOWN: 'splitDropdown',
 	BTN_GROUP: 'btnGroup',
+	DIVIDER: 'divider',
 };
 const TAG_TYPES = {
 	DIV: 'div',
@@ -37,13 +38,17 @@ const actionsShape = {
 	children: PropTypes.node,
 };
 
-function getActionsToRender({ selected, actions, multiSelectActions, appMultiSelectActions }) {
+function getActionsToRender({ selected, actions, multiSelectActions = {}, appMultiSelectActions }) {
 	if (selected > 0) {
 		if (appMultiSelectActions) {
 			return ['left', 'center', 'right'].reduce((result, type) => {
 				if (multiSelectActions[type] && appMultiSelectActions[type]) {
 					return Object.assign({}, result, {
-						[type]: [multiSelectActions[type], appMultiSelectActions[type]],
+						[type]: [
+							...multiSelectActions[type],
+							{ displayMode: 'divider' },
+							...appMultiSelectActions[type],
+						],
 					});
 				}
 				return Object.assign({}, result, {
@@ -98,6 +103,8 @@ function getActionsFromRenderers(actions, getComponent) {
 	function getActionsElements(action, index) {
 		const { displayMode, ...rest } = action;
 		switch (displayMode) {
+			case DISPLAY_MODES.DIVIDER:
+				return <span className="divider">|</span>;
 			case DISPLAY_MODES.DROPDOWN:
 				return <Renderers.ActionDropdown key={index} {...rest} />;
 			case DISPLAY_MODES.SPLIT_DROPDOWN:
@@ -110,16 +117,6 @@ function getActionsFromRenderers(actions, getComponent) {
 				}
 				return <Renderers.Action key={index} {...rest} />;
 		}
-	}
-	if (actions.length > 0 && Array.isArray(actions[0])) {
-		return actions.reduce((result, action, index) => {
-			if (index === 0) {
-				return result.concat(action.map(getActionsElements));
-			}
-			return result
-				.concat(<span className="divider">|</span>)
-				.concat(action.map(getActionsElements));
-		}, []);
 	}
 	return actions.map(getActionsElements);
 }
