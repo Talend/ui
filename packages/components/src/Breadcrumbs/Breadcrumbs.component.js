@@ -6,35 +6,56 @@ import { translate } from 'react-i18next';
 
 import theme from './Breadcrumbs.scss';
 import { Action, ActionDropdown } from '../Actions';
-import Icon from '../Icon';
+import Skeleton from '../Skeleton/Skeleton.component';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
 
 /**
- * Default max items to display without starting by ellipsis
+ * Default max items to display
+ * @type {number}
  */
-const DEFAULT_MAX_ITEMS = 3;
+const DEFAULT_MAX_ITEMS = 4;
 
 /**
- * Indicate the current page's location within a navigational hierarchy.
+ * Default number of items before adding an ellipsis
+ * @type {number}
+ */
+const DEFAULT_NB_ITEMS_BEFORE_ELLIPSIS = 1;
+
+/**
+ * Indicate the current page location within a navigational hierarchy.
  * @param {object} props   react props
  * @example
  <Breadcrumbs
- maxItems={3}
+ maxItems={4}
  items={items}
  />
  */
 export function BreadcrumbsComponent(props) {
-	const nbItems = props.items.length;
-	const maxItemsToDisplay = props.maxItems;
-	const maxItemsReached = nbItems > maxItemsToDisplay;
-	const ellipsisIndex = nbItems - 1 - maxItemsToDisplay;
-	const hiddenItems = props.items.slice(0, ellipsisIndex + 1).map((hiddenItem, index) => ({
-		id: `${props.id}-item-${index}`,
-		label: hiddenItem.text,
-		title: hiddenItem.title,
-		onClick: event => hiddenItem.onClick(event, hiddenItem),
-	}));
+	const { loading, items, maxItems = DEFAULT_MAX_ITEMS } = props;
+	if (loading) {
+		return (
+			<div className={classNames(theme['tc-breadcrumb'], theme.loading, 'tc-breadcrumb', 'tc-breadcrumb--loading')}>
+				{[
+					{ size: Skeleton.SIZES.large, type: Skeleton.TYPES.text },
+					{ size: Skeleton.SIZES.small, type: Skeleton.TYPES.circle },
+					{ size: Skeleton.SIZES.large, type: Skeleton.TYPES.text },
+				].map(({ size, type }) => <Skeleton size={size} type={type} />)}
+			</div>
+		);
+	}
+	const nbItems = items.length;
+	const maxItemsReached = nbItems > maxItems;
+	const ellipsisIndex = nbItems - 1 - maxItems + 1 + DEFAULT_NB_ITEMS_BEFORE_ELLIPSIS;
+	const hiddenItems = items
+		.slice(DEFAULT_NB_ITEMS_BEFORE_ELLIPSIS, ellipsisIndex + 1)
+		.map((hiddenItem, index) => ({
+			id: `${props.id}-item-${index + DEFAULT_NB_ITEMS_BEFORE_ELLIPSIS}`,
+			label: hiddenItem.text,
+			title: hiddenItem.title,
+			onClick: event => hiddenItem.onClick(event, hiddenItem),
+		}));
+
 	/**
 	 * Render breadcrumb item
 	 * @param item Plain object representative of breadcrumb item
@@ -45,15 +66,6 @@ export function BreadcrumbsComponent(props) {
 		const { text, title, onClick } = item;
 		const isActive = index === nbItems - 1;
 		const id = `${props.id}-item-${index}`;
-		const separator = index < props.items.length - 1 && (
-			<li
-				className={classNames('tc-breadcrumb-separator', 'separator')}
-				key={`${index}-separator`}
-				aria-hidden="true"
-			>
-				<Icon name="talend-chevron-left" transform="rotate-180" />
-			</li>
-		);
 
 		/**
 		 * Wrapper for onClick in order to return item
@@ -88,11 +100,11 @@ export function BreadcrumbsComponent(props) {
 				</span>
 			);
 		}
-		if (maxItemsReached && index < ellipsisIndex) {
+		if (maxItemsReached && index > 0 && index < ellipsisIndex) {
 			return undefined;
 		}
 		if (maxItemsReached && index === ellipsisIndex) {
-			return [
+			return (
 				<li className="tc-breadcrumb-menu" key={index + 0.1}>
 					<ActionDropdown
 						id={`${props.id}-ellipsis`}
@@ -104,16 +116,14 @@ export function BreadcrumbsComponent(props) {
 						link
 						noCaret
 					/>
-				</li>,
-				separator,
-			];
+				</li>
+			);
 		}
-		return [
+		return (
 			<li className={classNames('tc-breadcrumb-item', { active: isActive })} key={index}>
 				{getItemContent()}
-			</li>,
-			separator,
-		];
+			</li>
+		);
 	}
 
 	return (
@@ -132,6 +142,7 @@ BreadcrumbsComponent.displayName = 'Breadcrumbs';
 
 BreadcrumbsComponent.propTypes = {
 	id: PropTypes.string,
+	loading: PropTypes.bool,
 	items: PropTypes.arrayOf(
 		PropTypes.shape({
 			text: PropTypes.string.isRequired,
