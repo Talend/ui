@@ -3,7 +3,6 @@
 /// @group Custom widgets
 ////
 
-$list-item-height: 55px !default;
 $list-item-hover-color: rgba($white, 0.12) !default;
 $list-item-reverse-hover-color: rgba($white, 0.5) !default;
 $list-item-color: $white !default;
@@ -33,9 +32,7 @@ $toggle-button-padding: $padding-small;
 	}
 
 	.tc-side-panel-list {
-		> li {
-			height: $list-item-height;
-		}
+
 		:global {
 			.tc-action-list-item {
 				.btn.btn-link {
