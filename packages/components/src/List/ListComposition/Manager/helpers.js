@@ -1,4 +1,3 @@
-
 /**
  * Generic sorting function for an array of items
  * @param {array} collection

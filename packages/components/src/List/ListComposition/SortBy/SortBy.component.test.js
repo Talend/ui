@@ -88,18 +88,27 @@ describe('SortBy', () => {
 			);
 
 			// wrapper.find(`NavDropdown#${props.id}`).at(0).prop('onSelect')('firstName');
-			wrapper.find(`NavItem#${props.id}-order`).at(0).prop('onClick')();
+			wrapper
+				.find(`NavItem#${props.id}-order`)
+				.at(0)
+				.prop('onClick')();
 		});
 
 		// then
 		act(() => {
-			wrapper.find(`NavDropdown#${props.id}`).at(0).prop('onSelect')('firstName');
+			wrapper
+				.find(`NavDropdown#${props.id}`)
+				.at(0)
+				.prop('onSelect')('firstName');
 		});
 
 		expect(context.setSortParams).toHaveBeenCalledWith({ sortBy: 'firstName' });
 
 		act(() => {
-			wrapper.find(`NavItem#${props.id}-order`).at(0).prop('onClick')();
+			wrapper
+				.find(`NavItem#${props.id}-order`)
+				.at(0)
+				.prop('onClick')();
 		});
 
 		expect(context.setSortParams).toHaveBeenCalledWith({ isDescending: false });
@@ -127,8 +136,14 @@ describe('SortBy', () => {
 				</ListContext.Provider>,
 			);
 
-			wrapper.find(`NavDropdown#${props.id}`).at(0).prop('onSelect')();
-			wrapper.find(`NavItem#${props.id}-order`).at(0).prop('onClick')();
+			wrapper
+				.find(`NavDropdown#${props.id}`)
+				.at(0)
+				.prop('onSelect')();
+			wrapper
+				.find(`NavItem#${props.id}-order`)
+				.at(0)
+				.prop('onClick')();
 		});
 
 		// then
