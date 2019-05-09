@@ -136,6 +136,7 @@ class InputDateTimePicker extends React.Component {
 		const dateTimePicker = [
 			<DateTime.Input
 				{...inputProps}
+				id={`${this.props.id}-input`}
 				key="input"
 				inputRef={ref => {
 					this.inputRef = ref;
