@@ -28,7 +28,7 @@ function SortBy(props) {
 	const selectedOption = getSelectedOption(props, sortParams);
 
 	useEffect(() => {
-		if (!selected && sortParams.sortBy) {
+		if (!selected && !sortParams.sortBy) {
 			// Set context's sortBy parameter if there's no value provided (prop or context)
 			setSortParams({ ...sortParams, sortBy: selectedOption });
 		}
