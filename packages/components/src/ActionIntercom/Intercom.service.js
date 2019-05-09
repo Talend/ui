@@ -54,8 +54,8 @@ function onShow(fn) {
 	intercom('onShow', fn);
 }
 
-function onUnreadCountChange() {
-	intercom('onUnreadCountChange');
+function onUnreadCountChange(fn) {
+	intercom('onUnreadCountChange', fn);
 }
 
 const INTERCOM_MAIN_FRAME_SELECTOR =

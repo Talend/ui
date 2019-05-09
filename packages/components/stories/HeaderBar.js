@@ -395,7 +395,7 @@ decoratedStories
 		{ info: { styles: infoStyle } },
 	)
 	.add(
-		'support',
+		'intercom',
 		() => (
 			<HeaderBar
 				logo={props.logo}

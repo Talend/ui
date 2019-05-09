@@ -2,7 +2,7 @@ import React, { useState, useLayoutEffect, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Icon from '../Icon';
-import IntercomService from './service';
+import IntercomService from './Intercom.service';
 import getDefaultT from '../translate';
 
 import theme from './Intercom.scss';
@@ -15,6 +15,9 @@ export default function Intercom({ id, className, config, t }) {
 			IntercomService.boot(`#${id}`, { vertical_padding: 70, ...config });
 			IntercomService.onShow(setShow.bind(null, true));
 			IntercomService.onHide(setShow.bind(null, false));
+			IntercomService.onUnreadCountChange(function() {
+				console.log(arguments);
+			});
 
 			return IntercomService.shutdown;
 		},
