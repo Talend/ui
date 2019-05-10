@@ -45,7 +45,7 @@ describe('TextFilter', () => {
 			...defaultContext,
 			textFilter: '',
 			setTextFilter: jest.fn(),
-			setDocked: () => { },
+			setDocked: () => {},
 		};
 
 		let wrapper;
@@ -57,14 +57,25 @@ describe('TextFilter', () => {
 				</ListContext.Provider>,
 			);
 
-			wrapper.find('FilterBar').at(0).prop('onToggle')();
-			wrapper.find('FilterBar').at(0).prop('onFilter')({}, 'my-filter-value');
+			wrapper
+				.find('FilterBar')
+				.at(0)
+				.prop('onToggle')();
+			wrapper
+				.find('FilterBar')
+				.at(0)
+				.prop('onFilter')({}, 'my-filter-value');
 		});
 
 		wrapper.update();
 
 		// then
-		expect(wrapper.find('FilterBar').at(0).prop('docked')).toBe(false);
+		expect(
+			wrapper
+				.find('FilterBar')
+				.at(0)
+				.prop('docked'),
+		).toBe(false);
 		expect(context.setTextFilter).toHaveBeenCalledWith('my-filter-value');
 	});
 
@@ -82,8 +93,14 @@ describe('TextFilter', () => {
 				</ListContext.Provider>,
 			);
 
-			wrapper.find('FilterBar').at(0).prop('onToggle')();
-			wrapper.find('FilterBar').at(0).prop('onFilter')({}, 'my-filter-value');
+			wrapper
+				.find('FilterBar')
+				.at(0)
+				.prop('onToggle')();
+			wrapper
+				.find('FilterBar')
+				.at(0)
+				.prop('onFilter')({}, 'my-filter-value');
 		});
 
 		// then
