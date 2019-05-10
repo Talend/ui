@@ -48,7 +48,6 @@ describe('SortBy', () => {
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
-
 	it('should render sort by component with sorting parameter from props', () => {
 		// given
 		const props = { ...defaultProps, selected: 'lastName', isDescending: true };
@@ -83,12 +82,21 @@ describe('SortBy', () => {
 				</ListContext.Provider>,
 			);
 
-			wrapper.find('NavDropdown').at(0).prop('onSelect')('firstName');
-			wrapper.find('NavItem').at(0).prop('onClick')();
+			wrapper
+				.find('NavDropdown')
+				.at(0)
+				.prop('onSelect')('firstName');
+			wrapper
+				.find('NavItem')
+				.at(0)
+				.prop('onClick')();
 		});
 
 		// then
-		expect(context.setSortParams).toHaveBeenCalledWith({ sortBy: 'firstName', isDescending: false });
+		expect(context.setSortParams).toHaveBeenCalledWith({
+			sortBy: 'firstName',
+			isDescending: false,
+		});
 		expect(context.setSortParams).toHaveBeenCalledWith({ sortBy: 'lastName', isDescending: true });
 	});
 
@@ -112,8 +120,14 @@ describe('SortBy', () => {
 				</ListContext.Provider>,
 			);
 
-			wrapper.find('NavDropdown').at(0).prop('onSelect')();
-			wrapper.find('NavItem').at(0).prop('onClick')();
+			wrapper
+				.find('NavDropdown')
+				.at(0)
+				.prop('onSelect')();
+			wrapper
+				.find('NavItem')
+				.at(0)
+				.prop('onClick')();
 		});
 
 		// then
