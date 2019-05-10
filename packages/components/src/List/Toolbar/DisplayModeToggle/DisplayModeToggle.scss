@@ -1,0 +1,7 @@
+.tc-display-mode-toggle {
+	display: flex;
+
+	:global(.tc-icon-toggle) {
+		margin: $padding-normal 0 $padding-normal $padding-normal;
+	}
+}

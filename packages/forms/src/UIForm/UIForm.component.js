@@ -258,7 +258,11 @@ export class UIFormComponent extends React.Component {
 			return;
 		}
 
-		this.formRef.querySelector('[aria-invalid="true"]').focus();
+		const elementWithError = this.formRef.querySelector('[aria-invalid="true"]');
+
+		if (elementWithError) {
+			elementWithError.focus();
+		}
 	}
 
 	render() {
