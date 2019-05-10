@@ -74,18 +74,17 @@
 	&-link {
 		font-size: $font-size-base;
 		font-weight: inherit;
+		color: $dove-gray;
+		&:hover {
+			color: $scooter;
+		}
 
-		&.btn-icon-only {
-			color: $gray;
+		&:focus {
+			color: $dove-gray;
+		}
 
-			&:focus,
-			&:hover {
-				color: $scooter;
-			}
-
-			&:active {
-				color: darken($scooter, 12%);
-			}
+		&:active {
+			color: darken($scooter, 12%);
 		}
 	}
 
@@ -94,6 +93,32 @@
 
 		svg {
 			vertical-align: middle;
+		}
+	}
+
+	&-icon-text {
+		padding: 0;
+		color: $dove-gray;
+		border: none;
+		background-color: transparent;
+		box-shadow: none;
+
+		&:hover,
+		&:hover:focus {
+			background-color: transparent;
+			color: $scooter;
+			opacity: 0.8;
+		}
+		&:active,
+		&:active:focus {
+			background-color: transparent;
+			color: $scooter;
+			opacity: 1;
+			box-shadow: none;
+		}
+		&:focus {
+			background-color: transparent;
+			color: $dove-gray;
 		}
 	}
 

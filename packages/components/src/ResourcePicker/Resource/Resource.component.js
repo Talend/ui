@@ -59,9 +59,11 @@ function Resource({ parent, index, style, className, t }) {
 			{icon && <Icon name={icon} />}
 			<div className={classNames('data-container', theme['data-container'])}>
 				<span className={classNames('title', theme.title)}>{name}</span>
-				<small className={classNames('author', theme.author)}>
-					{getAuthorLabel(t, author, modified)}
-				</small>
+				{author ? (
+					<small className={classNames('author', theme.author)}>
+						{getAuthorLabel(t, author, modified)}
+					</small>
+				) : null}
 			</div>
 			<div className={classNames('flags-container', theme['flags-container'])}>
 				{Object.keys(FLAGS).map(flag => (
