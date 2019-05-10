@@ -85,6 +85,7 @@ function setPosition(domElement) {
 				INTERCOM_MAIN_FRAME_WIDTH / 2 /* center intercom window  */,
 			0,
 		);
+		const intercomLeft = Math.max(window.innerWidth - intercomRight - INTERCOM_MAIN_FRAME_WIDTH, 0);
 		const intercomTop = bottom;
 
 		// insert style in intercom style element
@@ -93,6 +94,7 @@ function setPosition(domElement) {
 			document.createTextNode(`
 			${INTERCOM_MAIN_FRAME_SELECTOR} {
 				top: ${intercomTop}px;
+				left: ${intercomLeft}px;
 				right: ${intercomRight}px;
 				margin-top: 2rem;
 			}

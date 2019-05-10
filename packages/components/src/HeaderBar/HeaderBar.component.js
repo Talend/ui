@@ -12,6 +12,7 @@ import Typeahead from '../Typeahead';
 import theme from './HeaderBar.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import '../translate';
+import getDefaultT from '../translate';
 
 function Logo({ isFull, getComponent, t, ...props }) {
 	const icon = isFull ? 'talend-logo' : 'talend-logo-square';
@@ -357,6 +358,10 @@ HeaderBar.Information = Information;
 HeaderBar.User = User;
 HeaderBar.displayName = 'HeaderBar';
 
+HeaderBar.defaultProps = {
+	t: getDefaultT(),
+};
+
 if (process.env.NODE_ENV !== 'production') {
 	Logo.propTypes = {
 		isFull: PropTypes.bool,
@@ -422,6 +427,11 @@ if (process.env.NODE_ENV !== 'production') {
 		t: PropTypes.func.isRequired,
 	};
 
+	Intercom.propTypes = {
+		id: PropTypes.string.isRequired,
+		config: PropTypes.object.isRequired,
+	};
+
 	HeaderBar.propTypes = {
 		logo: PropTypes.shape(omit(Logo.propTypes, 't')),
 		brand: PropTypes.shape(Brand.propTypes),
@@ -430,7 +440,7 @@ if (process.env.NODE_ENV !== 'production') {
 		search: PropTypes.shape(Search.propTypes),
 		help: PropTypes.shape(omit(Help.propTypes, 't')),
 		information: PropTypes.shape(omit(Information.propTypes, 't')),
-		intercom: PropTypes.shape(omit(Intercom.propTypes, 't')),
+		intercom: PropTypes.shape(Intercom.propTypes),
 		user: PropTypes.shape(User.propTypes),
 		notification: PropTypes.shape(omit(AppNotification.propTypes, 't')),
 		products: PropTypes.shape({
