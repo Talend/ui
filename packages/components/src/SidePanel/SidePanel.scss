@@ -32,19 +32,17 @@ $toggle-button-padding: $padding-small;
 	}
 
 	.tc-side-panel-list {
-		:global {
-			.tc-action-list-item {
-				.btn.btn-link {
-					padding-left: $padding-large;
-					> span {
-						margin-left: $padding-small;
-					}
+		:global .tc-action-list-item {
+			.btn.btn-link {
+				padding-left: $padding-large;
+				> span {
+					margin-left: $padding-small;
 				}
-				.tc-svg-icon {
-					width: $tc-side-panel-icons-size;
-					height: $tc-side-panel-icons-size;
-					margin: 0;
-				}
+			}
+			.tc-svg-icon {
+				width: $tc-side-panel-icons-size;
+				height: $tc-side-panel-icons-size;
+				margin: 0;
 			}
 		}
 	}
