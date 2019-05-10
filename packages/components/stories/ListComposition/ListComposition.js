@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import talendIcons from '@talend/icons/dist/react';
 
 import { simpleCollection } from './collection';
 import { IconsProvider } from '../../src/index';
@@ -44,6 +43,33 @@ function CustomList(props) {
 			<List.VList.Content label="Created" dataKey="created" width={-1} />
 			<List.VList.Content label="Modified" dataKey="modified" width={-1} />
 		</List.VList>
+	);
+}
+
+function CustomListInfiniteScroll(props) {
+	return (
+		<List.InfiniteScrollList id="my-infinite-scroll-list" {...props}>
+			<List.VList.Content label="Id" dataKey="id" width={-1} />
+			<List.VList.Content
+				label="Name"
+				dataKey="name"
+				columnData={titleProps}
+				width={-1}
+				{...CellTitle}
+			/>
+			<List.VList.Content
+				label="Tag"
+				dataKey="tag"
+				columnData={{ selected: true }}
+				width={-1}
+				disableSort
+				{...CellBadge}
+			/>
+			<List.VList.Content label="Description" dataKey="description" width={-1} disableSort />
+			<List.VList.Content label="Author" dataKey="author" width={-1} />
+			<List.VList.Content label="Created" dataKey="created" width={-1} />
+			<List.VList.Content label="Modified" dataKey="modified" width={-1} />
+		</List.InfiniteScrollList>
 	);
 }
 
@@ -136,6 +162,37 @@ storiesOf('List Composition', module)
 						/>
 					</List.Toolbar>
 					<CustomList type="TABLE" />
+				</List.Manager>
+			</section>
+		</div>
+	))
+	.add('Infinite scroll', () => (
+		<div className="virtualized-list">
+			<IconsProvider />
+			<h1>List supporting infinite scroll</h1>
+			<p>
+				The InfiniteScrollList list component allows to create lists that supports infinite
+				scroll feature.<br />
+				It requires :<br />
+				- <code>loadMoreRows</code> prop triggered when data loading is required<br />
+				- <code>rowCount</code> prop representing the collection's total number of items<br />
+				Skeleton rows are rendered when data is missing, while they are being fetched.
+			</p>
+			<pre>{`
+<List.Manager id="my-list" collection={collection}>
+	<List.InfiniteScrollList id="my-infinite-scroll-list" loadMoreRows={loadMoreRows} rowCount={totalRowCount}>
+		<List.VList.Content label="Id" dataKey="id" width={-1} />
+			...
+	</List.InfiniteScrollList>
+</List.Manager>
+`}</pre>
+			<section style={{ height: '50vh' }}>
+				<List.Manager id="my-list" collection={simpleCollection}>
+					<CustomListInfiniteScroll
+						type="TABLE"
+						loadMoreRows={action('onLoadMoreRows')}
+						rowCount={simpleCollection.length * 2}
+					/>
 				</List.Manager>
 			</section>
 		</div>
