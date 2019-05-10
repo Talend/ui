@@ -73,7 +73,7 @@ export function getItems(context, props) {
 			persistentActions: getActionsProps(
 				context,
 				get(props, 'actions.persistentItemsActions', []),
-				item
+				item,
 			),
 		}),
 	);
