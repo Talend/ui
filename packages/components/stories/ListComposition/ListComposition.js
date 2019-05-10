@@ -164,6 +164,7 @@ storiesOf('List Composition', module)
 						<List.SortBy
 							id="my-list-sortBy"
 							options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+							initialSortParams={{ sortBy: 'id', isDescending: true }}
 						/>
 					</List.Toolbar>
 					<CustomList />
@@ -200,6 +201,7 @@ storiesOf('List Composition', module)
 						<List.SortBy
 							id="my-list-sortBy"
 							options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+							selected={'name'}
 							onChange={action('onSortChange')}
 							onOrderChange={action('onSortOrderChange')}
 						/>

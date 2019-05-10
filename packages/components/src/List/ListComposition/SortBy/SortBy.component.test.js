@@ -48,6 +48,7 @@ describe('SortBy', () => {
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
+
 	it('should render sort by component with sorting parameter from props', () => {
 		// given
 		const props = { ...defaultProps, selected: 'lastName', isDescending: true };
@@ -71,57 +72,32 @@ describe('SortBy', () => {
 			setSortParams: jest.fn(),
 		};
 
-		const props = {
-			...defaultProps,
-			id: 'mySortBy',
-			selected: 'lastName',
-			isDescending: true,
-		};
+		const initialSortParams = { sortBy: 'lastName', isDescending: false };
 
 		let wrapper;
 		// when
 		act(() => {
 			wrapper = mount(
 				<ListContext.Provider value={context}>
-					<SortBy {...props} />
+					<SortBy id="mySortBy" initialSortParams={initialSortParams} {...defaultProps} />
 				</ListContext.Provider>,
 			);
 
-			// wrapper.find(`NavDropdown#${props.id}`).at(0).prop('onSelect')('firstName');
-			wrapper
-				.find(`NavItem#${props.id}-order`)
-				.at(0)
-				.prop('onClick')();
+			wrapper.find('NavDropdown').at(0).prop('onSelect')('firstName');
+			wrapper.find('NavItem').at(0).prop('onClick')();
 		});
 
 		// then
-		act(() => {
-			wrapper
-				.find(`NavDropdown#${props.id}`)
-				.at(0)
-				.prop('onSelect')('firstName');
-		});
-
-		expect(context.setSortParams).toHaveBeenCalledWith({ sortBy: 'firstName' });
-
-		act(() => {
-			wrapper
-				.find(`NavItem#${props.id}-order`)
-				.at(0)
-				.prop('onClick')();
-		});
-
-		expect(context.setSortParams).toHaveBeenCalledWith({ isDescending: false });
+		expect(context.setSortParams).toHaveBeenCalledWith({ sortBy: 'firstName', isDescending: false });
+		expect(context.setSortParams).toHaveBeenCalledWith({ sortBy: 'lastName', isDescending: true });
 	});
 
 	it('should call the change callbacks when they are provided (controlled mode)', () => {
 		// given
-		const onChange = jest.fn();
-		const onOrderChange = jest.fn();
 		const props = {
 			...defaultProps,
-			onChange,
-			onOrderChange,
+			onChange: jest.fn(),
+			onOrderChange: jest.fn(),
 			id: 'mySortBy',
 			selected: 'lastName',
 			isDescending: true,
@@ -136,18 +112,12 @@ describe('SortBy', () => {
 				</ListContext.Provider>,
 			);
 
-			wrapper
-				.find(`NavDropdown#${props.id}`)
-				.at(0)
-				.prop('onSelect')();
-			wrapper
-				.find(`NavItem#${props.id}-order`)
-				.at(0)
-				.prop('onClick')();
+			wrapper.find('NavDropdown').at(0).prop('onSelect')();
+			wrapper.find('NavItem').at(0).prop('onClick')();
 		});
 
 		// then
-		expect(onChange).toHaveBeenCalled();
-		expect(onOrderChange).toHaveBeenCalled();
+		expect(props.onChange).toHaveBeenCalled();
+		expect(props.onOrderChange).toHaveBeenCalled();
 	});
 });
