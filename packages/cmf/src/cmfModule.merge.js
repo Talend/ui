@@ -98,6 +98,7 @@ const MERGE_FNS = {
 	components: mergeObjects,
 	expressions: mergeObjects,
 	actionCreators: mergeObjects,
+	interceptors: mergeArrays,
 };
 
 export function getReduceConfig(mergeConfig = MERGE_FNS) {
