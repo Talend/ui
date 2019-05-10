@@ -88,7 +88,7 @@ function merge(options, errorCallback) {
 	// extract all keys from a folder
 	if (
 		cmfconfig.settings.i18n &&
-		cmfconfig.settings.i18n.languages &&
+		(cmfconfig.settings.i18n['extract-languages'] || cmfconfig.settings.i18n.languages) &&
 		cmfconfig.settings.i18n['extract-from'] &&
 		cmfconfig.settings.i18n['namespace-paths'] &&
 		cmfconfig.settings.i18n['extract-namespaces']
@@ -97,9 +97,12 @@ function merge(options, errorCallback) {
 			cmfconfig.settings.i18n['extract-namespaces'].includes(namespace.name),
 		);
 
+		const languages =
+			cmfconfig.settings.i18n['extract-languages'] || cmfconfig.settings.i18n.languages;
+
 		parseI18n(
 			namespaces,
-			cmfconfig.settings.i18n.languages,
+			languages,
 			cmfconfig.settings.i18n['extract-from'],
 			cmfconfig.settings.i18n['extract-sort'] || true,
 		);
@@ -109,16 +112,19 @@ function merge(options, errorCallback) {
 	if (
 		cmfconfig.settings.i18n &&
 		destination &&
-		cmfconfig.settings.i18n.languages &&
+		(cmfconfig.settings.i18n['source-languages'] || cmfconfig.settings.i18n.languages) &&
 		cmfconfig.settings.i18n['namespace-paths']
 	) {
+		const languages =
+			cmfconfig.settings.i18n['source-languages'] || cmfconfig.settings.i18n.languages;
+
 		const i18next = getI18Next(
-			cmfconfig.settings.i18n.languages,
+			languages,
 			cmfconfig.settings.i18n['namespace-paths'],
 		);
 
 		if (i18next) {
-			cmfconfig.settings.i18n.languages.forEach(locale => {
+			languages.forEach(locale => {
 				saveSettings(i18next, settings, locale, destination);
 			});
 		}
