@@ -47,19 +47,16 @@ function Intercom({ id, className, config, t }) {
 	const icon = show ? 'talend-cross' : 'talend-bubbles';
 	return (
 		<TooltipTrigger label={label} tooltipPlacement="bottom">
-			{tooltipProps => (
-				<button
-					{...tooltipProps}
-					ref={ref}
-					key="only"
-					id={id}
-					className={classnames('btn', 'btn-link', 'tc-intercom', theme['tc-intercom'], className, {
-						[theme.open]: show,
-					})}
-				>
-					<Icon name={icon} />
-				</button>
-			)}
+			<button
+				ref={ref}
+				key="only"
+				id={id}
+				className={classnames('btn', 'btn-link', 'tc-intercom', theme['tc-intercom'], className, {
+					[theme.open]: show,
+				})}
+			>
+				<Icon name={icon} />
+			</button>
 		</TooltipTrigger>
 	);
 }
