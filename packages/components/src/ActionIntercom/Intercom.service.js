@@ -1,7 +1,6 @@
-/* eslint-disable prefer-rest-params */
+/* eslint-disable prefer-rest-params,new-cap */
 
-let intercom;
-
+/* INTERCOM SNIPPET START */
 function insertScript(appId) {
 	const s = document.createElement('script');
 	s.type = 'text/javascript';
@@ -12,11 +11,11 @@ function insertScript(appId) {
 }
 
 function init(config) {
-	if (typeof intercom === 'function') {
-		intercom('reattach_activator');
-		intercom('update', config);
+	if (typeof window.Intercom === 'function') {
+		window.Intercom('reattach_activator');
+		window.Intercom('update', config);
 	} else {
-		intercom = function ic() {
+		const intercom = function ic() {
 			intercom.c(arguments);
 		};
 		intercom.q = [];
@@ -28,10 +27,11 @@ function init(config) {
 		insertScript(config.app_id);
 	}
 }
+/* INTERCOM SNIPPET STOP */
 
 function boot(widgetId, config = {}) {
 	init(config);
-	intercom('boot', {
+	window.Intercom('boot', {
 		...config,
 		widget: { activator: widgetId },
 		hide_default_launcher: true,
@@ -39,45 +39,45 @@ function boot(widgetId, config = {}) {
 }
 
 function update(config) {
-	intercom('update', config);
+	window.Intercom('update', config);
 }
 
 function shutdown() {
-	intercom('shutdown');
+	window.Intercom('shutdown');
 }
 
 function onHide(fn) {
-	intercom('onHide', fn);
+	window.Intercom('onHide', fn);
 }
 
 function onShow(fn) {
-	intercom('onShow', fn);
-}
-
-function onUnreadCountChange(fn) {
-	intercom('onUnreadCountChange', fn);
+	window.Intercom('onShow', fn);
 }
 
 const INTERCOM_MAIN_FRAME_SELECTOR =
 	'.intercom-namespace .intercom-app div.intercom-messenger-frame';
 const INTERCOM_MAIN_FRAME_WIDTH = 376;
+const STYLE_DELAY = 500;
 function setPosition(domElement) {
 	let intercomContainer;
 	let customStyle;
 	let time = 0;
 
 	const readyInterval = setInterval(() => {
+		// avoid infinite interval in case of intercom boot error
 		time += 1;
 		if (time === 10) {
 			clearInterval(readyInterval);
 			return;
 		}
 
+		// check if intercom boot is done
 		intercomContainer = document.querySelector('#intercom-container');
 		if (!intercomContainer) {
 			return;
 		}
 
+		// get trigger element position and center intercom messenger
 		const { bottom, left, right } = domElement.getBoundingClientRect();
 		const intercomRight = Math.max(
 			window.innerWidth /* window */ -
@@ -87,6 +87,7 @@ function setPosition(domElement) {
 		);
 		const intercomTop = bottom;
 
+		// insert style in intercom style element
 		customStyle = document.createElement('style');
 		customStyle.appendChild(
 			document.createTextNode(`
@@ -99,12 +100,16 @@ function setPosition(domElement) {
 		);
 		intercomContainer.appendChild(customStyle);
 		clearInterval(readyInterval);
-	}, 500);
+	}, STYLE_DELAY);
 
 	return function clearIntercomPosition() {
 		clearInterval(readyInterval);
 		if (intercomContainer && customStyle) {
-			intercomContainer.removeChild(customStyle);
+			// we delay the clear of old style to avoid multiple repositioning
+			// causing a flash, if we
+			// - remove right away the old one (div back to default intercom position)
+			// - add the new style in the interval after 500ms (div jump to new position)
+			setTimeout(() => intercomContainer.removeChild(customStyle), STYLE_DELAY);
 		}
 	};
 }
@@ -116,6 +121,5 @@ export default {
 	shutdown,
 	onHide,
 	onShow,
-	onUnreadCountChange,
 	setPosition,
 };

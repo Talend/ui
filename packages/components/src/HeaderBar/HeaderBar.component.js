@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 
 import Inject from '../Inject';
 import Action from '../Actions/Action';
-import Intercom from '../ActionIntercom';
+import ActionIntercom from '../ActionIntercom';
 import ActionDropdown from '../Actions/ActionDropdown';
 import Typeahead from '../Typeahead';
 import theme from './HeaderBar.scss';
@@ -250,6 +250,25 @@ function AppNotification({ getComponent, hasUnread, t, ...props }) {
 	);
 }
 
+function Intercom({ id, config }) {
+	return (
+		<li
+			role="presentation"
+			className={classNames(
+				theme['tc-header-bar-intercom'],
+				'tc-header-bar-intercom',
+				theme.separated,
+			)}
+		>
+			<ActionIntercom
+				className="btn btn-link"
+				id={id}
+				config={{ ...config, vertical_padding: 70 }}
+			/>
+		</li>
+	);
+}
+
 function HeaderBar(props) {
 	const Components = Inject.getAll(props.getComponent, {
 		Logo,
@@ -261,6 +280,7 @@ function HeaderBar(props) {
 		Information,
 		Help,
 		AppNotification,
+		Intercom,
 	});
 
 	return (
@@ -306,16 +326,7 @@ function HeaderBar(props) {
 					/>
 				)}
 				{props.intercom && (
-					<li
-						role="presentation"
-						className={classNames(
-							theme['tc-header-bar-intercom'],
-							'tc-header-bar-intercom',
-							theme.separated,
-						)}
-					>
-						<Intercom className="btn btn-link" {...props.intercom} />
-					</li>
+					<Components.Intercom getComponent={props.getComponent} {...props.intercom} />
 				)}
 				{props.help && (
 					<Components.Help getComponent={props.getComponent} {...props.help} t={props.t} />
