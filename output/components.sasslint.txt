@@ -19,6 +19,9 @@ src/List/Toolbar/Toolbar.scss
   75:6  error  Nesting depth 4 greater than max of 3  nesting-depth
   80:6  error  Nesting depth 4 greater than max of 3  nesting-depth
 
+src/SidePanel/SidePanel.scss
+  39:6  error  Nesting depth 4 greater than max of 3  nesting-depth
+
 src/Typeahead/Typeahead.scss
   34:5  error  Mixins should come before declarations  mixins-before-declarations
   91:5  error  Nesting depth 4 greater than max of 3   nesting-depth
@@ -26,5 +29,5 @@ src/Typeahead/Typeahead.scss
 src/VirtualizedList/RowCollapsiblePanel/RowCollapsiblePanel.scss
   2:24  error  Strings must use single quotes  quotes
 
-✖ 11 problems (9 errors, 2 warnings)
+✖ 12 problems (10 errors, 2 warnings)
 
