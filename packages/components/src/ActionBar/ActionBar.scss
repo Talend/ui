@@ -63,6 +63,11 @@ $tc-action-bar-margin: $padding-small $padding-larger $padding-small 0 !default;
 			margin-left: $padding-large;
 		}
 	}
+
+	:global(.divider) {
+		color: $silver;
+		margin-right: $padding-normal;
+	}
 }
 
 :global(.modal-footer) .tc-actionbar-container {
