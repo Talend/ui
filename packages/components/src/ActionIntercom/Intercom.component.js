@@ -16,26 +16,20 @@ function Intercom({ id, className, config, t }) {
 	const ref = useRef(null);
 
 	// init intercom messenger, attaching it to the custom button
-	useEffect(
-		() => {
-			IntercomService.boot(`#${id}`, config);
-			IntercomService.onShow(setShow.bind(null, true));
-			IntercomService.onHide(setShow.bind(null, false));
+	useEffect(() => {
+		IntercomService.boot(`#${id}`, config);
+		IntercomService.onShow(setShow.bind(null, true));
+		IntercomService.onHide(setShow.bind(null, false));
 
-			return IntercomService.shutdown;
-		},
-		[config, setShow],
-	);
+		return IntercomService.shutdown;
+	}, [config, setShow]);
 
 	// a11y: on intercom dropdown close, focus on the trigger button
-	useEffect(
-		() => {
-			if (!show) {
-				ref.current.focus();
-			}
-		},
-		[show],
-	);
+	useEffect(() => {
+		if (!show) {
+			ref.current.focus();
+		}
+	}, [show]);
 
 	// place intercom messenger dropdown depending on the button
 	useLayoutEffect(() => IntercomService.setPosition(ref.current), [ref.current]);
