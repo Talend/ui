@@ -12,7 +12,7 @@ const columns = {
 	xs: 2,
 	s: 4,
 	m: 6,
-	l: 10,
+	l: 12,
 };
 
 const breakpoints = {
@@ -49,7 +49,7 @@ function Grid({ children, isResizable, layoutChangeCallback, onBreakpointChangeC
 			measureBeforeMount={false}
 			margin={[MARGIN, MARGIN]}
 			compactType="vertical"
-			verticalCompact={true}
+			verticalCompact
 			isResizable={isResizable}
 			preventCollision
 			useCSSTransforms={false}
@@ -61,6 +61,7 @@ function Grid({ children, isResizable, layoutChangeCallback, onBreakpointChangeC
 
 Grid.propTypes = {
 	children: PropTypes.node,
+	isResizable: PropTypes.bool,
 	layoutChangeCallback: PropTypes.func,
 	onBreakpointChangeCallback: PropTypes.func,
 };
