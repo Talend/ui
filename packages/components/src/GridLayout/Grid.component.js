@@ -52,6 +52,7 @@ function Grid({ children, isResizable, layoutChangeCallback, onBreakpointChangeC
 			verticalCompact={true}
 			isResizable={isResizable}
 			preventCollision
+			useCSSTransforms={false}
 		>
 			{children}
 		</ResponsiveGridLayout>
