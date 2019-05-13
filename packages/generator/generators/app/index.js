@@ -52,20 +52,21 @@ module.exports = class AppGenerator extends Generator {
 		const tplToCopy = [
 			'package.json',
 			'src/app/components/App/App.component.js',
-			'src/app/components/DatasetList/DatasetList.component.js',
+			'src/app/components/Home/Home.component.js',
+			'src/app/services/modules.js',
 		];
 
 		if (this.props.i18n) {
 			fileToCopy.push(
-				{ source: 'i18n/i18next-scanner.config.js', destination: 'i18next-scanner.config.js' },
 				{ source: 'i18n/src', destination: 'src' },
+				{ source: 'i18n/i18next-scanner.config.js', destination: 'i18next-scanner.config.js' },
 			);
 			tplToCopy.push({ source: 'i18n/talend-i18n.json', destination: 'talend-i18n.json' });
 		}
 
 		if (this.props.cmf) {
 			fileToCopy.push(
-				{ source: 'i18n/src', destination: 'src' },
+				{ source: 'cmf/src', destination: 'src' },
 				{ source: 'cmf/cmf.json', destination: 'cmf.json' },
 				{ source: 'cmf/talend-scripts.json', destination: 'talend-scripts.json' },
 			);

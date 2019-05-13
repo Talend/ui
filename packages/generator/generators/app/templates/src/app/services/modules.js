@@ -1,4 +1,11 @@
 import { homeModule } from './home';
-import { datasetModule } from './dataset';
-
-export default [homeModule, datasetModule];
+import { pokemonModule } from './pokemon';
+<%- props.i18n ? `
+import { datasetModule } from './dataset';` : ''
+%><%- props.cmf ? `
+import { connectionModule } from './connection';` : ''
+%>
+export default [
+	homeModule,
+	pokemonModule,
+];
