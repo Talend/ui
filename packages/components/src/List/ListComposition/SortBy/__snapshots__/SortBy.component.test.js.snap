@@ -3,7 +3,6 @@
 exports[`SortBy should render sort by component 1`] = `
 <SortBy
   id="mySortBy"
-  initialSortParams={Object {}}
   options={
     Array [
       Object {
@@ -16,6 +15,7 @@ exports[`SortBy should render sort by component 1`] = `
       },
     ]
   }
+  value={Object {}}
 >
   <NavbarText
     componentClass="p"
@@ -44,11 +44,11 @@ exports[`SortBy should render sort by component 1`] = `
       role={null}
     >
       <NavDropdown
-        aria-label="Change sorting option. Current sorting: ."
+        aria-label="Change sorting option. Current sorting: N.C."
         id="mySortBy"
         key=".0"
         onSelect={[Function]}
-        title=""
+        title="N.C"
       >
         <Uncontrolled(Dropdown)
           className=""
@@ -68,7 +68,7 @@ exports[`SortBy should render sort by component 1`] = `
               className="dropdown"
             >
               <DropdownToggle
-                aria-label="Change sorting option. Current sorting: ."
+                aria-label="Change sorting option. Current sorting: N.C."
                 bsClass="dropdown-toggle"
                 bsRole="toggle"
                 id="mySortBy"
@@ -81,7 +81,7 @@ exports[`SortBy should render sort by component 1`] = `
                 <SafeAnchor
                   aria-expanded={false}
                   aria-haspopup={true}
-                  aria-label="Change sorting option. Current sorting: ."
+                  aria-label="Change sorting option. Current sorting: N.C."
                   className="dropdown-toggle"
                   componentClass="a"
                   id="mySortBy"
@@ -92,7 +92,7 @@ exports[`SortBy should render sort by component 1`] = `
                   <a
                     aria-expanded={false}
                     aria-haspopup={true}
-                    aria-label="Change sorting option. Current sorting: ."
+                    aria-label="Change sorting option. Current sorting: N.C."
                     className="dropdown-toggle"
                     href="#"
                     id="mySortBy"
@@ -100,6 +100,7 @@ exports[`SortBy should render sort by component 1`] = `
                     onKeyDown={[Function]}
                     role="button"
                   >
+                    N.C
                      
                     <span
                       className="caret"
@@ -252,7 +253,6 @@ exports[`SortBy should render sort by component 1`] = `
 exports[`SortBy should render sort by component with sorting parameter from context 1`] = `
 <SortBy
   id="mySortBy"
-  initialSortParams={Object {}}
   options={
     Array [
       Object {
@@ -265,6 +265,7 @@ exports[`SortBy should render sort by component with sorting parameter from cont
       },
     ]
   }
+  value={Object {}}
 >
   <NavbarText
     componentClass="p"
@@ -502,8 +503,6 @@ exports[`SortBy should render sort by component with sorting parameter from cont
 exports[`SortBy should render sort by component with sorting parameter from props 1`] = `
 <SortBy
   id="mySortBy"
-  initialSortParams={Object {}}
-  isDescending={true}
   options={
     Array [
       Object {
@@ -516,7 +515,12 @@ exports[`SortBy should render sort by component with sorting parameter from prop
       },
     ]
   }
-  selected="lastName"
+  value={
+    Object {
+      "isDescending": true,
+      "sortBy": "lastName",
+    }
+  }
 >
   <NavbarText
     componentClass="p"
@@ -545,11 +549,11 @@ exports[`SortBy should render sort by component with sorting parameter from prop
       role={null}
     >
       <NavDropdown
-        aria-label="Change sorting option. Current sorting: ."
+        aria-label="Change sorting option. Current sorting: N.C."
         id="mySortBy"
         key=".0"
         onSelect={[Function]}
-        title=""
+        title="N.C"
       >
         <Uncontrolled(Dropdown)
           className=""
@@ -569,7 +573,7 @@ exports[`SortBy should render sort by component with sorting parameter from prop
               className="dropdown"
             >
               <DropdownToggle
-                aria-label="Change sorting option. Current sorting: ."
+                aria-label="Change sorting option. Current sorting: N.C."
                 bsClass="dropdown-toggle"
                 bsRole="toggle"
                 id="mySortBy"
@@ -582,7 +586,7 @@ exports[`SortBy should render sort by component with sorting parameter from prop
                 <SafeAnchor
                   aria-expanded={false}
                   aria-haspopup={true}
-                  aria-label="Change sorting option. Current sorting: ."
+                  aria-label="Change sorting option. Current sorting: N.C."
                   className="dropdown-toggle"
                   componentClass="a"
                   id="mySortBy"
@@ -593,7 +597,7 @@ exports[`SortBy should render sort by component with sorting parameter from prop
                   <a
                     aria-expanded={false}
                     aria-haspopup={true}
-                    aria-label="Change sorting option. Current sorting: ."
+                    aria-label="Change sorting option. Current sorting: N.C."
                     className="dropdown-toggle"
                     href="#"
                     id="mySortBy"
@@ -601,6 +605,7 @@ exports[`SortBy should render sort by component with sorting parameter from prop
                     onKeyDown={[Function]}
                     role="button"
                   >
+                    N.C
                      
                     <span
                       className="caret"

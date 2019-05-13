@@ -63,4 +63,34 @@ describe('List Manager', () => {
 		// then
 		expect(wrapper.find(TestConsumer).prop('displayMode')).toBe(newDisplayMode);
 	});
+
+	it('should propagate sort', () => {
+		// given
+		const wrapper = mount(
+			<ListManager collection={[{ id: 0, name: 'toto' }, { id: 1, name: 'tata' }]}>
+				<ContextTestConsumer />
+			</ListManager>,
+		);
+		expect(wrapper.find(TestConsumer).prop('sortParams')).toEqual({});
+		expect(wrapper.find(TestConsumer).prop('collection')).toEqual([
+			{ id: 0, name: 'toto' },
+			{ id: 1, name: 'tata' },
+		]);
+
+		const newSortParams = { sortBy: 'name', isDescending: false };
+
+		// when
+		act(() => {
+			const setSortParams = wrapper.find(TestConsumer).prop('setSortParams');
+			setSortParams(newSortParams);
+		});
+		wrapper.update();
+
+		// then
+		expect(wrapper.find(TestConsumer).prop('sortParams')).toBe(newSortParams);
+		expect(wrapper.find(TestConsumer).prop('collection')).toEqual([
+			{ id: 1, name: 'tata' },
+			{ id: 0, name: 'toto' },
+		]);
+	});
 });

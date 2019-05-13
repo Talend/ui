@@ -151,6 +151,7 @@ storiesOf('List Composition', module)
 		<List.SortBy
 		id="my-list-sortBy"
 		options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+		initialValue={{ sortBy: 'id', isDescending: true }}
 		/>
 	</List.Toolbar>
 	<List.VList id="my-vlist">
@@ -164,7 +165,7 @@ storiesOf('List Composition', module)
 						<List.SortBy
 							id="my-list-sortBy"
 							options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
-							initialSortParams={{ sortBy: 'id', isDescending: true }}
+							initialValue={{ sortBy: 'id', isDescending: true }}
 						/>
 					</List.Toolbar>
 					<CustomList />
@@ -177,8 +178,8 @@ storiesOf('List Composition', module)
 			<IconsProvider />
 			<h1>List with sorting feature</h1>
 			<p>
-				You can control the sorting feature by providing both onChange and onOrderChange
-				props (functions) to the SortBy component.
+				You can control the sorting feature by providing both onChange and onOrderChange props
+				(functions) to the SortBy component.
 			</p>
 			<pre>{`
 <List.Manager id="my-list" collection={simpleCollection}>
@@ -187,7 +188,7 @@ storiesOf('List Composition', module)
 			id="my-list-sortBy"
 			options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
 			onChange={action('onSortChange')}
-			onOrderChange={action('onSortOrderChange')}
+			value={{ sortBy: 'name', isDescending: false }}
 		/>
 	</List.Toolbar>
 	<List.VList id="my-vlist">
@@ -201,9 +202,8 @@ storiesOf('List Composition', module)
 						<List.SortBy
 							id="my-list-sortBy"
 							options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
-							selected={'name'}
+							value={{ sortBy: 'name', isDescending: false }}
 							onChange={action('onSortChange')}
-							onOrderChange={action('onSortOrderChange')}
 						/>
 					</List.Toolbar>
 					<CustomList />

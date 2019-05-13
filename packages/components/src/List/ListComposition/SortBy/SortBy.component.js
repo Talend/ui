@@ -1,50 +1,44 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Navbar, NavDropdown, Nav, NavItem, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
-import isUndefined from 'lodash/isUndefined';
 
 import { useListContext } from '../context';
 
 function SortBy(props) {
-	const {
-		id,
-		options,
-		selected,
-		isDescending: isDescendingProp,
-		initialSortParams,
-		onChange,
-		onOrderChange,
-	} = props;
-	const { sortParams: sortParamsContext, setSortParams, t } = useListContext();
+	const { id, initialValue, options, onChange, value } = props;
+	const { sortParams, setSortParams, t } = useListContext();
+	const isControlled = onChange;
 
-	const isControlled = !isUndefined(onChange);
+	useEffect(() => {
+		if (!isControlled && initialValue) {
+			setSortParams(initialValue);
+		}
+	}, []);
 
-	let sortParams;
-
-	if (isControlled) {
-		sortParams = { sortBy: selected, isDescending: isDescendingProp };
-	} else {
-		sortParams = { ...initialSortParams, ...sortParamsContext };
-	}
+	const currentValue = isControlled ? value : sortParams;
 
 	// Current selected option
-	const selectedOption = options.find(option => option.key === sortParams.sortBy);
-	const selectedLabel = selectedOption ? selectedOption.label : '';
-
-	// Sort field
-	const onSelect = isControlled
-		? (value, event) => onChange(event, value)
-		: value => setSortParams({ ...sortParams, sortBy: value });
-
-	// Sort order
-	const onOrderClick = isControlled
-		? event => onOrderChange(event, { isDescending: !sortParams.isDescending })
-		: () => setSortParams({ ...sortParams, isDescending: !sortParams.isDescending });
-
-	const orderLabel = sortParams.isDescending
+	const selectedOption = options.find(option => option.key === currentValue.sortBy);
+	const selectedLabel = selectedOption ? selectedOption.label : 'N.C';
+	const orderLabel = currentValue.isDescending
 		? t('LIST_SELECT_SORT_BY_ORDER_DESC', { defaultValue: 'Descending' })
 		: t('LIST_SELECT_SORT_BY_ORDER_ASC', { defaultValue: 'Ascending' });
+
+	const performChange = (event, nexValue) => {
+		if (isControlled) {
+			onChange(event, nexValue);
+		} else {
+			setSortParams(nexValue);
+		}
+	};
+
+	// Sort field
+	const onSortByChange = (val, event) => performChange(event, { ...currentValue, sortBy: val });
+
+	// Sort order
+	const onOrderChange = event =>
+		performChange(event, { ...currentValue, isDescending: !currentValue.isDescending });
 
 	return (
 		<React.Fragment>
@@ -55,7 +49,7 @@ function SortBy(props) {
 				<NavDropdown
 					id={id}
 					title={selectedLabel}
-					onSelect={onSelect}
+					onSelect={onSortByChange}
 					aria-label={t('LIST_CHANGE_DISPLAY_MODE', {
 						defaultValue: 'Change sorting option. Current sorting: {{sortBy}}.',
 						sortBy: selectedLabel,
@@ -69,7 +63,7 @@ function SortBy(props) {
 				</NavDropdown>
 				<NavItem
 					id={`${id}-order`}
-					onClick={onOrderClick}
+					onClick={onOrderChange}
 					aria-label={t('LIST_CHANGE_SORT_BY_ORDER', {
 						defaultValue: 'Change sort order. Current order: {{sortOrder}}.',
 						sortOrder: orderLabel,
@@ -84,26 +78,27 @@ function SortBy(props) {
 
 SortBy.defaultProps = {
 	id: uuid.v4(),
-	initialSortParams: {},
+	value: {},
 };
 
 if (process.env.NODE_ENV !== 'production') {
 	SortBy.propTypes = {
 		id: PropTypes.string,
-		isDescending: PropTypes.bool,
-		onOrderChange: PropTypes.func,
 		options: PropTypes.arrayOf(
 			PropTypes.shape({
 				key: PropTypes.string,
 				label: PropTypes.string,
 			}),
 		).isRequired,
-		selected: PropTypes.string,
-		initialSortParams: PropTypes.shape({
+		initialValue: PropTypes.shape({
 			sortBy: PropTypes.string,
 			isDescending: PropTypes.bool,
 		}),
 		onChange: PropTypes.func,
+		value: PropTypes.shape({
+			sortBy: PropTypes.string,
+			isDescending: PropTypes.bool,
+		}),
 	};
 }
 

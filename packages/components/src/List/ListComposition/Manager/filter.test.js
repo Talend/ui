@@ -1,4 +1,4 @@
-import { sortCollection } from './helpers';
+import { sortCollection } from './filter';
 
 describe('sortCollection', () => {
 	const collection = [
