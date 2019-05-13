@@ -25,11 +25,11 @@ function SortBy(props) {
 		? t('LIST_SELECT_SORT_BY_ORDER_DESC', { defaultValue: 'Descending' })
 		: t('LIST_SELECT_SORT_BY_ORDER_ASC', { defaultValue: 'Ascending' });
 
-	const performChange = (event, nexValue) => {
+	const performChange = (event, nextValue) => {
 		if (isControlled) {
-			onChange(event, nexValue);
+			onChange(event, nextValue);
 		} else {
-			setSortParams(nexValue);
+			setSortParams(nextValue);
 		}
 	};
 
