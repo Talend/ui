@@ -1,5 +1,10 @@
 :global(.react-grid-item) {
 	display: flex;
 	flex-direction: column;
-	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.175);
+	border: 1px solid $gallery;
+	border-radius: 4px;
+	&:hover {
+		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.175);
+		cursor: move;
+	}
 }
