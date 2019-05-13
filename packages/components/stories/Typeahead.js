@@ -190,13 +190,13 @@ storiesOf('Typeahead', module)
 	.add('with custom elements', () => {
 		const props = {
 			value: 'le',
-			items,
+			items: items.slice(0, 1),
 			onBlur: action('onBlur'),
 			onChange: action('onChange'),
 			role: 'searchbox',
 			// eslint-disable-next-line react/prop-types
-			renderResults: ({ children }) => (
-				<div>
+			renderResults: ({ children, containerProps }) => (
+				<div className={containerProps.className}>
 					{children}
 					<div style={{ margin: '15px 10px' }}>
 						<p>Other Actions</p>
