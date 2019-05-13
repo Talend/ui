@@ -3,6 +3,7 @@ import Toolbar from './Toolbar';
 import DisplayMode from './DisplayMode';
 import TextFilter from './TextFilter';
 import VList from './VList';
+import SortBy from './SortBy';
 
 export default {
 	Manager,
@@ -10,4 +11,5 @@ export default {
 	DisplayMode,
 	TextFilter,
 	VList,
+	SortBy,
 };
