@@ -63,4 +63,31 @@ describe('List Manager', () => {
 		// then
 		expect(wrapper.find(TestConsumer).prop('displayMode')).toBe(newDisplayMode);
 	});
+
+	it('should propagate filter', () => {
+		// given
+		const wrapper = mount(
+			<ListManager collection={[{ id: 0, name: 'toto' }, { id: 1, name: 'tata' }]}>
+				<ContextTestConsumer />
+			</ListManager>,
+		);
+		expect(wrapper.find(TestConsumer).prop('textFilter')).toBeUndefined();
+		expect(wrapper.find(TestConsumer).prop('collection')).toEqual([
+			{ id: 0, name: 'toto' },
+			{ id: 1, name: 'tata' },
+		]);
+
+		const newFilter = 'toto';
+
+		// when
+		act(() => {
+			const setTextFilter = wrapper.find(TestConsumer).prop('setTextFilter');
+			setTextFilter(newFilter);
+		});
+		wrapper.update();
+
+		// then
+		expect(wrapper.find(TestConsumer).prop('textFilter')).toBe('toto');
+		expect(wrapper.find(TestConsumer).prop('collection')).toEqual([{ id: 0, name: 'toto' }]);
+	});
 });

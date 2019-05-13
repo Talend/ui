@@ -139,4 +139,69 @@ storiesOf('List Composition', module)
 				</List.Manager>
 			</section>
 		</div>
+	))
+	.add('Text Filter: uncontrolled', () => (
+		<div className="virtualized-list">
+			<IconsProvider />
+			<h1>Text Filter</h1>
+			<p>
+				You can filter the dataset with the text by adding the component and let it work itself
+			</p>
+			<pre>{`<List.Manager
+ 	id="my-list"
+ 	collection={collection}
+>
+	<List.Toolbar>
+		<List.TextFilter id="my-list-textFilter" />
+	</List.Toolbar>
+	<List.VList id="my-vlist" type="TABLE">
+		...
+	</List.VList>
+</List.Manager>
+`}</pre>
+			<section style={{ height: '50vh' }}>
+				<List.Manager id="my-list" collection={simpleCollection}>
+					<List.Toolbar>
+						<List.TextFilter id="my-list-textFilter" />
+					</List.Toolbar>
+					<CustomList type="TABLE" />
+				</List.Manager>
+			</section>
+		</div>
+	))
+	.add('Text Filter: controlled', () => (
+		<div className="virtualized-list">
+			<IconsProvider />
+			<h1>Text Filter</h1>
+			<p>
+				You can control the filter feature by providing callbacks to<br />
+				- handle the text filter value change and filter data<br />
+				- handle the text filter's docked status
+			</p>
+			<pre>{`<List.Manager
+ 	id="my-list"
+ 	collection={collection}
+>
+	<List.Toolbar>
+		<List.TextFilter id="my-list-textFilter" docked={false} onChange={action('onChange')} onToggle={action('onToggle')} />
+	</List.Toolbar>
+	<List.VList id="my-vlist" type="TABLE">
+		...
+	</List.VList>
+</List.Manager>
+`}</pre>
+			<section style={{ height: '50vh' }}>
+				<List.Manager id="my-list" collection={simpleCollection}>
+					<List.Toolbar>
+						<List.TextFilter
+							id="my-list-textFilter"
+							docked={false}
+							onChange={action('onChange')}
+							onToggle={action('onToggle')}
+						/>
+					</List.Toolbar>
+					<CustomList type="TABLE" />
+				</List.Manager>
+			</section>
+		</div>
 	));
