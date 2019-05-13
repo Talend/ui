@@ -7,7 +7,7 @@ import {
 import isEmpty from 'lodash/isEmpty';
 
 import Skeleton from '../../../Skeleton';
-import VirtualizedList from '../../../VirtualizedList';
+import VList from '../VList';
 import { useListContext } from '../context';
 
 const DEFAULT_THRESHOLD = 5;
@@ -36,7 +36,7 @@ const rowRenderers = {
 
 function InfiniteScrollList(props) {
 	const { rowCount, threshold, minimumBatchSize, loadMoreRows, ...restProps } = props;
-	const { displayMode = 'table', collection } = useListContext();
+	const { collection } = useListContext();
 
 	const isRowLoaded = ({ index }) => collection && collection[index];
 
@@ -49,9 +49,7 @@ function InfiniteScrollList(props) {
 			threshold={threshold}
 		>
 			{({ onRowsRendered, registerChild }) => (
-				<VirtualizedList
-					type={displayMode.toUpperCase()}
-					collection={collection}
+				<VList
 					rowRenderers={rowRenderers}
 					registerChild={registerChild}
 					onRowsRendered={onRowsRendered}
