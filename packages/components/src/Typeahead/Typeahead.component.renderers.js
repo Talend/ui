@@ -60,6 +60,7 @@ export function renderItemsContainerFactory(
 	loading,
 	loadingText,
 	render = content => content,
+	renders = {},
 ) {
 	const isShown = items;
 	const noResult = items && !items.length;
@@ -118,6 +119,16 @@ export function renderItemsContainerFactory(
 		containerProps: PropTypes.object,
 		children: PropTypes.node,
 	};
+
+	if (searching && renders.renderSearching) {
+		return renders.renderSearching;
+	} else if (noResult && loading && renders.renderLoading) {
+		return renders.renderLoading;
+	} else if (noResult && renders.renderNoResult) {
+		return renders.renderNoResult;
+	} else if (!noResult && !searching && !loading && renders.renderResults) {
+		return renders.renderResults;
+	}
 
 	return ItemsContainerComponent;
 }

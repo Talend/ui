@@ -86,6 +86,12 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		},
 	};
 
+	const customRenders = {
+		renderSearching: rest.renderSearching,
+		renderLoading: rest.renderLoading,
+		renderNoResult: rest.renderNoResult,
+		renderResults: rest.renderResults,
+	};
 	const defaultRenderersProps = {
 		renderItem,
 		renderItemsContainer: renderItemsContainerFactory(
@@ -96,6 +102,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			rest.isLoading,
 			rest.isLoadingText,
 			rest.children,
+			customRenders,
 		),
 		renderItemData: { value: rest.value },
 	};
