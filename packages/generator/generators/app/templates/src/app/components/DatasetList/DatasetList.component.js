@@ -1,13 +1,18 @@
 import React, { useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
 import Loader from '@talend/react-components/lib/Loader';
 import VirtualizedList from '@talend/react-components/lib/VirtualizedList';
-import CellTitle from '@talend/react-components/lib/VirtualizedList/CellTitle';
+import CellTitle from '@talend/react-components/lib/VirtualizedList/CellTitle';<%-
+	props.i18n
+		? `
+import { translate } from 'react-i18next';
+`
+		: ''
+%>
 
 import theme from './DatasetList.scss';
 
-function DatasetList({ datasets, fetchDatasets, isFetching, removeDataset, t }) {
+function DatasetList({ datasets, fetchDatasets, isFetching, removeDataset<%- props.i18n ? ', t' : '' %> }) {
 	useEffect(fetchDatasets, []);
 	const collection = useMemo(
 		() => {
@@ -34,7 +39,7 @@ function DatasetList({ datasets, fetchDatasets, isFetching, removeDataset, t }) 
 
 	return (
 		<React.Fragment>
-			<h1>{t('DATASETS_LIST', { defaultValue: 'Datasets list' })}</h1>
+			<h1><%- props.i18n ? '{ t(\'DATASETS_LIST\', { defaultValue: \'Datasets list\' }) }' : 'Datasets list' %></h1>
 			<div className={theme['dataset-list']}>
 				<VirtualizedList collection={collection} id="dataset-list">
 					<VirtualizedList.Content label="Id" dataKey="id" width={-1} />
@@ -59,4 +64,6 @@ DatasetList.propTypes = {
 	removeDataset: PropTypes.func.isRequired,
 };
 
-export default translate()(DatasetList);
+<%-
+	props.i18n ? 'export default translate()(DatasetList);' : 'export default DatasetList;'
+%>

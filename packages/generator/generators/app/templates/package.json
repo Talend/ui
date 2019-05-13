@@ -10,8 +10,11 @@
     "test": "talend-scripts test",
     "test:watch": "talend-scripts test --watch",
     "test:cov": "talend-scripts test --coverage",
-    "extends": "talend-scripts extends",
-    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js 'src/**/*.js'"
+    "extends": "talend-scripts extends"<%-
+      props.i18n
+        ? ',    \n"extract-i18n": "i18next-scanner --config i18next-scanner.config.js \'src/**/*.js\'"'
+        : '',
+    %>
   },
   "repository": {
     "type": "git",
@@ -24,12 +27,15 @@
   "author": "Talend Frontend <frontend@talend.com>",
   "license": "Apache-2.0",
   "dependencies": {
-    "@talend/bootstrap-theme": "3.4.0",
-    "@talend/icons": "3.4.0",
-    "@talend/locales-tui": "3.1.0",
-    "@talend/react-cmf": "3.4.0",
-    "@talend/react-components": "3.4.0",
-    "@talend/react-containers": "3.4.0",
+    "@talend/bootstrap-theme": "3.6.0",
+    "@talend/icons": "3.6.0",<%-
+      props.i18n
+        ? '\n    "@talend/locales-tui": "^3.5.0",'
+        : '',
+    %>
+    "@talend/react-cmf": "3.6.0",
+    "@talend/react-components": "3.6.0",
+    "@talend/react-containers": "3.6.0",
     "focus-visible": "^4.1.5",
     "i18next": "^9.0.0",
     "prop-types": "^15.5.10",
@@ -40,8 +46,14 @@
     "redux": "^3.7.2"
   },
   "devDependencies": {
-    "@talend/scripts": "^0.19.0",
-    "enzyme": "^3.7.0",
-    "i18next-scanner": "^2.9.1"
+    "@talend/scripts": "^0.20.0",
+    "enzyme": "^3.7.0"<%-
+      props.i18n
+        ? ',\n    "i18next-scanner": "^2.9.1"'
+        : '',
+    %>
+  },
+  "publishConfig": {
+    "access": "<%= props.private ? 'private': 'public' %>"
   }
 }

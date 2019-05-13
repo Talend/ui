@@ -19,6 +19,22 @@ module.exports = class AppGenerator extends Generator {
 				name: 'description',
 				message: 'description',
 			},
+			{
+				type: 'confirm',
+				name: 'private',
+				message: 'Is it a private package ?',
+			},
+			{
+				type: 'confirm',
+				name: 'i18n',
+				message: "Would you like to enable i18n ? (Don't worry you can add this after if needed)",
+			},
+			{
+				type: 'confirm',
+				name: 'cmf',
+				message:
+					"Would you like to enable injection via cmf ? (Don't worry you can add this after if needed)",
+			},
 		];
 
 		return this.prompt(prompts).then(props => {
@@ -32,13 +48,46 @@ module.exports = class AppGenerator extends Generator {
 	}
 
 	writing() {
-		const fileToCopy = ['src', '.eslintrc', 'i18next-scanner.config.js', 'talend-i18n.json'];
-		const tplToCopy = ['package.json'];
-		fileToCopy.forEach(name => {
-			this.fs.copy(this.templatePath(name), this.destinationPath(name));
+		const fileToCopy = ['src', '.eslintrc'];
+		const tplToCopy = [
+			'package.json',
+			'src/app/components/App/App.component.js',
+			'src/app/components/DatasetList/DatasetList.component.js',
+		];
+
+		if (this.props.i18n) {
+			fileToCopy.push(
+				{ source: 'i18n/i18next-scanner.config.js', destination: 'i18next-scanner.config.js' },
+				{ source: 'i18n/src', destination: 'src' },
+			);
+			tplToCopy.push({ source: 'i18n/talend-i18n.json', destination: 'talend-i18n.json' });
+		}
+
+		if (this.props.cmf) {
+			fileToCopy.push(
+				{ source: 'i18n/src', destination: 'src' },
+				{ source: 'cmf/cmf.json', destination: 'cmf.json' },
+				{ source: 'cmf/talend-scripts.json', destination: 'talend-scripts.json' },
+			);
+		}
+
+		fileToCopy.forEach(file => {
+			if (typeof file === 'string') {
+				this.fs.copy(this.templatePath(file), this.destinationPath(file));
+			} else {
+				this.fs.copy(this.templatePath(file.source), this.destinationPath(file.destination));
+			}
 		});
-		tplToCopy.forEach(name => {
-			this.fs.copyTpl(this.templatePath(name), this.destinationPath(name), this);
+		tplToCopy.forEach(file => {
+			if (typeof file === 'string') {
+				this.fs.copyTpl(this.templatePath(file), this.destinationPath(file), this);
+			} else {
+				this.fs.copyTpl(
+					this.templatePath(file.source),
+					this.destinationPath(file.destination),
+					this,
+				);
+			}
 		});
 	}
 	install() {
