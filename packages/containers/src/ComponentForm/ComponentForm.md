@@ -71,6 +71,12 @@ The component dispatch some actions in redux so you can take them to add your si
 | Form.ON_TRIGGER_END            | 'TCOMP_FORM_TRIGGER_END'           | On the trigger response OK                          |
 | Form.ON_DEFINITION_URL_CHANGED | 'TCOMP_FORM_DEFINITION_URL_CHANGE' | On props update if `definitionURL` has changed      |
 
+## Actions available
+
+An action is available to reset the dirty status of the form. The action is available in ComponentForm.actions.js :
+
+- setComponentFormDirtyState( componentId , dirty ) : set for the given component form (determined by the componentId) the dirty state passed
+
 ## Triggers
 
 A trigger is described in the uiSpec and is called by a widget when an event happens.
@@ -105,7 +111,7 @@ Example:
 
 `action`, `family` and `type` define the trigger identifier.
 `parameters` define the payload to send to the backend. the `key` attribute define key in the payload for this parameter and the `path` is used to get the value of it inside the current form payload.
-`options` define the list of path that will be modified by the trigger. Thoses path will be used to manage the *updating* props of UIForm which make fields disabled and displayed using the heartbeat effect.
+`options` define the list of path that will be modified by the trigger. Thoses path will be used to manage the _updating_ props of UIForm which make fields disabled and displayed using the heartbeat effect.
 
 A trigger is a piece of code on the backend and on the frontend. So your app can produce any wanted effects on a given form.
 
