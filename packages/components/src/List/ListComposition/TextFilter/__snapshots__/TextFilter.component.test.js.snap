@@ -6,6 +6,7 @@ exports[`TextFilter should render text filter component 1`] = `
   initialDocked={true}
 >
   <Translate(FilterBar)
+    debounceTimeout={300}
     docked={true}
     id="myTextFilter"
     onFilter={[Function]}
@@ -15,6 +16,7 @@ exports[`TextFilter should render text filter component 1`] = `
     <I18n
       bindI18n="languageChanged loaded"
       bindStore="added removed"
+      debounceTimeout={300}
       docked={true}
       i18n={Object {}}
       id="myTextFilter"
@@ -36,6 +38,7 @@ exports[`TextFilter should render text filter component 1`] = `
       <FilterBar
         autoFocus={true}
         className=""
+        debounceTimeout={300}
         dockable={true}
         docked={true}
         focus={false}
@@ -180,6 +183,7 @@ exports[`TextFilter should render text filter component with defined docked stat
   initialDocked={true}
 >
   <Translate(FilterBar)
+    debounceTimeout={300}
     docked={true}
     id="myTextFilter"
     onFilter={[Function]}
@@ -189,6 +193,7 @@ exports[`TextFilter should render text filter component with defined docked stat
     <I18n
       bindI18n="languageChanged loaded"
       bindStore="added removed"
+      debounceTimeout={300}
       docked={true}
       i18n={Object {}}
       id="myTextFilter"
@@ -210,6 +215,7 @@ exports[`TextFilter should render text filter component with defined docked stat
       <FilterBar
         autoFocus={true}
         className=""
+        debounceTimeout={300}
         dockable={true}
         docked={true}
         focus={false}

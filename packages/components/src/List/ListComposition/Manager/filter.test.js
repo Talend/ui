@@ -1,4 +1,4 @@
-import { filterCollectionByText } from './helpers';
+import { filterCollectionByText } from './filter';
 
 describe('filterCollectionByText', () => {
 	const collection = [

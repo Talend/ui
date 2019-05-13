@@ -45,11 +45,10 @@ describe('TextFilter', () => {
 			...defaultContext,
 			textFilter: '',
 			setTextFilter: jest.fn(),
-			setDocked: () => {},
 		};
 
-		let wrapper;
 		// when
+		let wrapper;
 		act(() => {
 			wrapper = mount(
 				<ListContext.Provider value={context}>
@@ -66,7 +65,6 @@ describe('TextFilter', () => {
 				.at(0)
 				.prop('onFilter')({}, 'my-filter-value');
 		});
-
 		wrapper.update();
 
 		// then
