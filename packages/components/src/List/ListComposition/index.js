@@ -4,6 +4,7 @@ import DisplayMode from './DisplayMode';
 import TextFilter from './TextFilter';
 import VList from './VList';
 import InfiniteScrollList from './InfiniteScrollList';
+import SortBy from './SortBy';
 
 export default {
 	Manager,
@@ -12,4 +13,5 @@ export default {
 	TextFilter,
 	VList,
 	InfiniteScrollList,
+	SortBy,
 };
