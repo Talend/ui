@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { Typeahead } from '../src';
+import { Action, Typeahead } from '../src';
 import IconsProvider from '../src/IconsProvider';
 
 const items = [
@@ -184,6 +184,29 @@ storiesOf('Typeahead', module)
 			onChange: action('onChange'),
 			onSelect: action('onSelect'),
 			role: 'searchbox',
+		};
+		return <Typeahead {...props} />;
+	})
+	.add('with custom elements', () => {
+		const props = {
+			value: 'le',
+			items,
+			onBlur: action('onBlur'),
+			onChange: action('onChange'),
+			role: 'searchbox',
+			// eslint-disable-next-line react/prop-types
+			renderResults: ({ children }) => (
+				<div>
+					{children}
+					<div style={{ margin: '15px 10px' }}>
+						<p>Other Actions</p>
+						<Action
+							label="do some actions"
+							bsStyle="primary"
+						/>
+					</div>
+				</div>
+			),
 		};
 		return <Typeahead {...props} />;
 	});
