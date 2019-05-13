@@ -6,15 +6,23 @@ import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import { sortCollection } from './sort';
+import { filterCollectionByText } from './filter';
 
 function Manager(props) {
 	const [displayMode, setDisplayMode] = useState();
 	const [sortParams, setSortParams] = useState({});
+	const [textFilter, setTextFilter] = useState();
 
 	let collection = props.collection;
 
 	// Sort items
 	collection = useMemo(() => sortCollection(collection, sortParams), [collection, sortParams]);
+
+	// Filter by text
+	collection = useMemo(() => filterCollectionByText(collection, textFilter), [
+		collection,
+		textFilter,
+	]);
 
 	const contextValues = {
 		collection,
@@ -23,6 +31,8 @@ function Manager(props) {
 		setDisplayMode,
 		sortParams,
 		setSortParams,
+		textFilter,
+		setTextFilter,
 	};
 
 	return <ListContext.Provider value={contextValues}>{props.children}</ListContext.Provider>;
