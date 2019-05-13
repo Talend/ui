@@ -3,16 +3,6 @@ const yosay = require('yosay');
 const slug = require('slugg');
 
 module.exports = class AppGenerator extends Generator {
-	initializing() {
-		this.composeWith('talend:dotfiles', {
-			name: () => this.props.name,
-			babelrc: false,
-			eslint: false,
-			sasslint: true,
-			travis: false,
-		});
-	}
-
 	prompting() {
 		// Have Yeoman greet the user.
 		this.log(yosay('Welcome to the react app generator!'));
