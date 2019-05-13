@@ -11,7 +11,6 @@ import ActionDropdown from '../Actions/ActionDropdown';
 import Typeahead from '../Typeahead';
 import theme from './HeaderBar.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import '../translate';
 import getDefaultT from '../translate';
 
 function Logo({ isFull, getComponent, t, ...props }) {
