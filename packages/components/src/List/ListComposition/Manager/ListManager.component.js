@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
-import { sortCollection } from './filter';
+import { sortCollection } from './sort';
 
 function Manager(props) {
 	const [displayMode, setDisplayMode] = useState();

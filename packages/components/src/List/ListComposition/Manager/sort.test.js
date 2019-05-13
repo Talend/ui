@@ -1,4 +1,4 @@
-import { sortCollection } from './filter';
+import { sortCollection } from './sort';
 
 describe('sortCollection', () => {
 	const collection = [
