@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { Action, Typeahead } from '../src';
+import { Action, Typeahead, CircularProgress } from '../src';
 import IconsProvider from '../src/IconsProvider';
 
 const items = [
@@ -188,6 +188,22 @@ storiesOf('Typeahead', module)
 		return <Typeahead {...props} />;
 	})
 	.add('with custom elements', () => {
+		const style = {
+			padding: '15px',
+			fontSize: '1.5rem',
+			fontStyle: 'italic',
+			color: '#c0c0c0',
+		};
+		const element = (
+			<div style={{ margin: '15px 10px' }}>
+				<p>Other Actions</p>
+				<Action
+					onMouseDown={action('onClick')}
+					label="do some actions"
+					bsStyle="primary"
+				/>
+			</div>
+		);
 		const props = {
 			value: 'le',
 			items: items.slice(0, 1),
@@ -198,15 +214,56 @@ storiesOf('Typeahead', module)
 			renderResults: ({ children, containerProps }) => (
 				<div className={containerProps.className}>
 					{children}
-					<div style={{ margin: '15px 10px' }}>
-						<p>Other Actions</p>
-						<Action
-							label="do some actions"
-							bsStyle="primary"
-						/>
+					{element}
+				</div>
+			),
+			// eslint-disable-next-line react/prop-types
+			renderNoResult: ({ containerProps }) => (
+				<div className={containerProps.className} style={{ display: 'block' }}>
+					<p style={style}>No result.</p>
+					{element}
+				</div>
+			),
+			// eslint-disable-next-line react/prop-types
+			renderSearching: ({ containerProps }) => (
+				<div className={containerProps.className} style={{ display: 'block' }}>
+					<div style={{ ...style, display: 'flex', alignItems: 'center' }}>
+						<p style={{ flex: 1 }}>Searching for matches...</p>
+						<CircularProgress />
 					</div>
+					{element}
+				</div>
+			),
+			// eslint-disable-next-line react/prop-types
+			renderLoading: ({ containerProps }) => (
+				<div className={containerProps.className} style={{ display: 'block' }}>
+					<div style={{ ...style, display: 'flex', alignItems: 'center' }}>
+						<p style={{ flex: 1 }}>loading stuff...</p>
+						<CircularProgress />
+					</div>
+					{element}
 				</div>
 			),
 		};
-		return <Typeahead {...props} />;
+
+		return (
+			<div>
+				<div style={{ minHeight: '30rem' }}>
+					<p>with results and custom element</p>
+					<Typeahead {...props} />
+				</div>
+				<div style={{ minHeight: '20rem' }}>
+					<p>no result and custom element</p>
+					<Typeahead {...props} items={[]} />
+				</div>
+				<div style={{ minHeight: '20rem' }}>
+					<p>searching and custom element</p>
+					<Typeahead {...props} items={[]} searching />
+				</div>
+				<div style={{ minHeight: '20rem' }}>
+					<p>loading and custom element</p>
+					<Typeahead {...props} items={[]} isLoading />
+				</div>
+			</div>
+		);
 	});
