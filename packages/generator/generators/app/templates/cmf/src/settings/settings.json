@@ -1,3 +1,8 @@
 {
-
+  "props": {
+    "DatasetList#default": {
+      "title": "Datasets (injected title)",
+      "didMountActionCreator": "fetchDatasets"
+    }
+  }
 }

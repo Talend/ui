@@ -11,7 +11,7 @@ import PokemonList from '../PokemonList';
 import I18nInstructions from '../I18nInstructions';` : ''
 %>
 <%-props.cmf ? `
-import ConnectionList from '../ConnectionList';` : ''
+import DatasetList from '../DatasetList';` : ''
 %>
 import HomeService from '../../services/home';
 
@@ -26,7 +26,7 @@ function Home({ isSidePanelDocked, toggleSidePanel }) {
 		props.i18n ? `
 		{ icon: 'talend-world', label: 'i18n', key: 'i18n' },` : ''%><%-
 		props.cmf ? `
-		{ icon: 'talend-cluster', label: 'Connections (injection)', key: 'connections' },` : ''%>
+		{ icon: 'talend-cluster', label: 'Injection', key: 'injection' },` : ''%>
 	];
 	const sidePanel = (
 		<SidePanel
@@ -43,7 +43,7 @@ function Home({ isSidePanelDocked, toggleSidePanel }) {
 			props.i18n ? `
 			{selectedMenu === 'i18n' ? <I18nInstructions /> : null}` : '' %><%-
 			props.cmf ? `
-			{selectedMenu === 'connections' ? <ConnectionList /> : null}` : '' %>
+			{selectedMenu === 'injection' ? <DatasetList /> : null}` : '' %>
 		</Layout>
 	);
 }

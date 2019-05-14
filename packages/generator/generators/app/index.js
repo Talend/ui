@@ -55,6 +55,7 @@ module.exports = class AppGenerator extends Generator {
 			'src/app/components/App/App.component.js',
 			'src/app/components/Home/Home.component.js',
 			'src/app/services/modules.js',
+			'src/app/index.js',
 		];
 
 		if (this.props.i18n) {

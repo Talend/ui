@@ -13,5 +13,8 @@ import './index.css';
  */
 cmf.bootstrap({
 	modules,
-	RootComponent: App,
+	RootComponent: App,<%-
+props.cmf ? `
+	settingsURL: './settings.json',` : ''
+%>
 });
