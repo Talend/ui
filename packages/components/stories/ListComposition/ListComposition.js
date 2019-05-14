@@ -324,11 +324,8 @@ storiesOf('List Composition', module)
 `}</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection.slice(0, 2)}>
-					<List.Toolbar>
-						<List.DisplayMode id="my-list-displayMode" />
-					</List.Toolbar>
 					<CustomListInfiniteScroll
-						// type="TABLE"
+						type="TABLE"
 						loadMoreRows={action('onLoadMoreRows')}
 						rowCount={simpleCollection.length}
 					/>
