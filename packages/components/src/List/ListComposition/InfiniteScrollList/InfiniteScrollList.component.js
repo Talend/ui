@@ -1,38 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-	InfiniteLoader,
-	defaultTableRowRenderer as DefaultTableRowRenderer,
-} from 'react-virtualized';
-import isEmpty from 'lodash/isEmpty';
+import { InfiniteLoader } from 'react-virtualized';
 
-import Skeleton from '../../../Skeleton';
 import VList from '../VList';
 import { useListContext } from '../context';
 
 const DEFAULT_THRESHOLD = 5;
 const DEFAULT_MIN_BATCH_SIZE = 20;
-
-function SkeletonRow({ columns }) {
-	return columns.map(column => (
-		<div key={column.key} {...column.props}>
-			<Skeleton type="text" size="xlarge" />
-		</div>
-	));
-}
-
-const rowRenderers = {
-	table: rowProps => {
-		const { rowData, columns } = rowProps;
-		return (
-			<DefaultTableRowRenderer
-				{...rowProps}
-				columns={isEmpty(rowData) ? [<SkeletonRow columns={columns} />] : columns}
-			/>
-		);
-	},
-	// @todo Find a way to handle every rendering case possible
-};
 
 function InfiniteScrollList(props) {
 	const { rowCount, threshold, minimumBatchSize, loadMoreRows, ...restProps } = props;
@@ -50,7 +24,6 @@ function InfiniteScrollList(props) {
 		>
 			{({ onRowsRendered, registerChild }) => (
 				<VList
-					rowRenderers={rowRenderers}
 					registerChild={registerChild}
 					onRowsRendered={onRowsRendered}
 					rowCount={rowCount}
@@ -72,15 +45,6 @@ if (process.env.NODE_ENV !== 'production') {
 		rowCount: PropTypes.number,
 		threshold: PropTypes.number,
 		minimumBatchSize: PropTypes.number,
-	};
-
-	SkeletonRow.propTypes = {
-		columns: PropTypes.arrayOf(
-			PropTypes.shape({
-				key: PropTypes.string,
-				props: PropTypes.object,
-			}),
-		),
 	};
 }
 
