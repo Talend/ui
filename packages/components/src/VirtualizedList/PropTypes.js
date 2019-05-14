@@ -22,6 +22,8 @@ export default {
 	isSelected: PropTypes.func,
 	// Show spinner during loading
 	inProgress: PropTypes.bool,
+	// Renderers called when an entry has no data
+	noDataRenderers: PropTypes.object,
 	// The row click
 	onRowClick: PropTypes.func,
 	onRowsRendered: PropTypes.func,

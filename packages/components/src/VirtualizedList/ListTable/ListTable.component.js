@@ -5,6 +5,7 @@ import {
 	Table as VirtualizedTable,
 	defaultTableRowRenderer as DefaultTableRowRenderer,
 } from 'react-virtualized';
+import isEmpty from 'lodash/isEmpty';
 
 import getRowSelectionRenderer from '../RowSelection';
 import { DROPDOWN_CONTAINER_CN } from '../../Actions/ActionDropdown';
@@ -26,6 +27,7 @@ function ListTable(props) {
 		onRowDoubleClick,
 		rowCount,
 		rowRenderer,
+		noDataRenderer,
 		...restProps
 	} = props;
 
@@ -36,6 +38,17 @@ function ListTable(props) {
 			isActive,
 			getRowData: rowProps => rowProps.rowData,
 		});
+	}
+
+	if (noDataRenderer) {
+		const NoDataRenderer = noDataRenderer;
+		const WrappedRender = RowTableRenderer;
+
+		RowTableRenderer = function finalRowRenderer(rowProps) {
+			return isEmpty(rowProps.rowData)
+				? <DefaultTableRowRenderer {...rowProps} columns={[<NoDataRenderer {...rowProps} />]} />
+				: <WrappedRender {...rowProps} />;
+		};
 	}
 
 	const onRowClickCallback = decorateRowClick(onRowClick);
@@ -78,6 +91,7 @@ ListTable.propTypes = {
 	width: PropTypes.number,
 	rowCount: PropTypes.number,
 	rowRenderer: PropTypes.func,
+	noDataRenderer: PropTypes.node,
 };
 
 ListTable.defaultProps = {

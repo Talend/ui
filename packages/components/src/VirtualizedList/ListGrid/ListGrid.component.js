@@ -20,16 +20,30 @@ function ListGrid(props) {
 		onRowDoubleClick,
 		rowRenderer,
 		rowCount,
+		noDataRenderer,
 		...restProps
 	} = props;
+
+	const hasItem = index => collection[index];
 
 	let enhancedRowRenderer = rowRenderer;
 	if (isActive || isSelected) {
 		enhancedRowRenderer = getRowSelectionRenderer(rowRenderer, {
 			isActive,
 			isSelected,
-			getRowData: ({ index }) => collection[index],
+			getRowData: ({ index }) => hasItem(index),
 		});
+	}
+
+	if (noDataRenderer) {
+		const NoDataRenderer = noDataRenderer;
+		const WrapperRenderer = enhancedRowRenderer;
+
+		enhancedRowRenderer = function finalRowRenderer(data) {
+			return !hasItem(data.index)
+				? <NoDataRenderer data={data} />
+				: <WrapperRenderer {...data} />;
+		};
 	}
 
 	return (
@@ -54,6 +68,7 @@ ListGrid.displayName = 'VirtualizedList(ListGrid)';
 ListGrid.propTypes = {
 	children: PropTypes.arrayOf(PropTypes.element),
 	collection: PropTypes.arrayOf(PropTypes.object),
+	noDataRenderer: PropTypes.func,
 	height: PropTypes.number,
 	id: PropTypes.string,
 	isActive: PropTypes.func,

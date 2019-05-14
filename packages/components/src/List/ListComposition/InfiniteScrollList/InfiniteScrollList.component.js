@@ -1,17 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-	InfiniteLoader,
-	defaultTableRowRenderer as DefaultTableRowRenderer,
-} from 'react-virtualized';
-import isEmpty from 'lodash/isEmpty';
+import { InfiniteLoader } from 'react-virtualized';
+
+import { listTypes } from '../../../VirtualizedList/utils/constants';
+import RowLarge from '../../../VirtualizedList/RowLarge/RowLarge.component';
 
 import Skeleton from '../../../Skeleton';
 import VList from '../VList';
 import { useListContext } from '../context';
-
-const DEFAULT_THRESHOLD = 5;
-const DEFAULT_MIN_BATCH_SIZE = 20;
 
 function SkeletonRow({ columns }) {
 	return columns.map(column => (
@@ -21,17 +17,12 @@ function SkeletonRow({ columns }) {
 	));
 }
 
-const rowRenderers = {
-	table: rowProps => {
-		const { rowData, columns } = rowProps;
-		return (
-			<DefaultTableRowRenderer
-				{...rowProps}
-				columns={isEmpty(rowData) ? [<SkeletonRow columns={columns} />] : columns}
-			/>
-		);
-	},
-	// @todo Find a way to handle every rendering case possible
+const DEFAULT_THRESHOLD = 5;
+const DEFAULT_MIN_BATCH_SIZE = 20;
+const DEFAULT_NO_DATA_RENDERERS = {
+	[listTypes.TABLE]: rowProps => <SkeletonRow columns={rowProps.columns} />,
+	[listTypes.LARGE]: data => <RowLarge {...data.data} />,
+	[listTypes.COLLAPSIBLE_PANEL]: () => '',
 };
 
 function InfiniteScrollList(props) {
@@ -50,7 +41,6 @@ function InfiniteScrollList(props) {
 		>
 			{({ onRowsRendered, registerChild }) => (
 				<VList
-					rowRenderers={rowRenderers}
 					registerChild={registerChild}
 					onRowsRendered={onRowsRendered}
 					rowCount={rowCount}
@@ -64,6 +54,7 @@ function InfiniteScrollList(props) {
 InfiniteScrollList.defaultProps = {
 	threshold: DEFAULT_THRESHOLD,
 	minimumBatchSize: DEFAULT_MIN_BATCH_SIZE,
+	noDataRenderers: DEFAULT_NO_DATA_RENDERERS,
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -72,6 +63,7 @@ if (process.env.NODE_ENV !== 'production') {
 		rowCount: PropTypes.number,
 		threshold: PropTypes.number,
 		minimumBatchSize: PropTypes.number,
+		noDataRenderers: PropTypes.objectOf(PropTypes.func),
 	};
 
 	SkeletonRow.propTypes = {
