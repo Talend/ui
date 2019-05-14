@@ -16,7 +16,7 @@ function DatasetList({ datasets, dispatchActionCreator, isFetching, title }) {
 				...item,
 				actions: [
 					{
-						label: `Remove ${item.label}`,
+						label: `Remove ${item.label} (injected action)`,
 						icon: 'talend-trash',
 						onClick: () => dispatchActionCreator('removeDataset', item),
 					},
