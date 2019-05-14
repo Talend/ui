@@ -1,5 +1,5 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
-import objectId from 'bson-objectid';
+import objectId from 'uuid/v4';
 import Notification from './Notification.connect';
 import Constants from './Notification.constants';
 
