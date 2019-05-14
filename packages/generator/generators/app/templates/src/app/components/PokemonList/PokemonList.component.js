@@ -39,6 +39,13 @@ function PokemonList({ pokemons, fetchPokemons, isFetching, removePokemon }) {
 				<VirtualizedList collection={collection} id="pokemon-list">
 					<VirtualizedList.Content label="Id" dataKey="id" width={-1} />
 					<VirtualizedList.Content
+						label="Image"
+						dataKey="image"
+						cellRenderer={({ cellData, rowData }) => <img src={cellData} alt={rowData.name} />}
+						className="tc-list-image-cell"
+						width={-1}
+					/>
+					<VirtualizedList.Content
 						label="Name"
 						dataKey="name"
 						columnData={{ actionsKey: 'actions' }}

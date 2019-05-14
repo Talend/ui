@@ -4,7 +4,7 @@ import PokemonService from '../../services/pokemon';
 
 function mapStateToProps(state) {
 	return {
-		datasets: PokemonService.selectors.getPokemons(state),
+		pokemons: PokemonService.selectors.getPokemons(state),
 		isFetching: PokemonService.selectors.getIsFetching(state),
 	};
 }
