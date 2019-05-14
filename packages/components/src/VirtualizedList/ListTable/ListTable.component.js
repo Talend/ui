@@ -82,7 +82,6 @@ function ListTable(props) {
 
 ListTable.displayName = 'VirtualizedList(ListTable)';
 
-
 ListTable.propTypes = {
 	children: PropTypes.arrayOf(PropTypes.element),
 	collection: PropTypes.arrayOf(PropTypes.object),
