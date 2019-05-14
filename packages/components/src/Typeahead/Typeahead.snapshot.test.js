@@ -155,6 +155,70 @@ describe('Typeahead', () => {
 		});
 	});
 
+	describe('custom renders', () => {
+		it('should render custom element', () => {
+			// given
+			const props = {
+				id: 'my-search',
+				items: itemsString,
+				multiSection: false,
+				renderResults: () => <button>Do some stuff</button>,
+			};
+
+			// when
+			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
+
+			// then
+			expect(wrapper).toMatchSnapshot();
+		});
+		it('should render custom element with no result', () => {
+			// given
+			const props = {
+				id: 'my-search',
+				items: [],
+				renderNoResult: () => <button>Add</button>,
+			};
+
+			// when
+			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
+
+			// then
+			expect(wrapper).toMatchSnapshot();
+		});
+		it('should render custom element when searching', () => {
+			// given
+			const props = {
+				id: 'my-search',
+				value: 'he',
+				items: [],
+				renderSearching: () => <button>Cancel</button>,
+				searching: true,
+			};
+
+			// when
+			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
+
+			// then
+			expect(wrapper).toMatchSnapshot();
+		});
+		it('should render custom element when loading', () => {
+			// given
+			const props = {
+				id: 'my-search',
+				value: 'he',
+				items: [],
+				renderNoLoading: () => <button>Wait</button>,
+				isLoading: true,
+			};
+
+			// when
+			const wrapper = renderer.create(<Typeahead {...props} />).toJSON();
+
+			// then
+			expect(wrapper).toMatchSnapshot();
+		});
+	});
+
 	describe('injection', () => {
 		it('should use render props to inject extra components', () => {
 			// given
