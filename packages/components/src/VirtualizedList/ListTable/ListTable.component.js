@@ -15,22 +15,23 @@ import { decorateRowClick, decorateRowDoubleClick } from '../event/rowclick';
 import theme from './ListTable.scss';
 import rowThemes from './RowThemes';
 
-function SkeletonRow({ columns }) {
-	return columns.map(column => (
-		<div key={column.key} {...column.props}>
-			<Skeleton type="text" size="xlarge" />
-		</div>
-	));
-}
-
 function ListTableRowRenderer(props) {
-	return isEmpty(props.rowData)
-		? <DefaultTableRowRenderer {...props} columns={[<SkeletonRow {...props} />]} />
-		: <DefaultTableRowRenderer {...props} />;
+	const { rowData, columns } = props;
+
+	const columnsProp = isEmpty(rowData)
+		? [columns.map(column => (
+			<div key={column.key} {...column.props}>
+				<Skeleton type="text" size="xlarge" />
+			</div>
+		))]
+		: columns;
+
+	return <DefaultTableRowRenderer {...props} columns={columnsProp} />;
 }
 
 ListTableRowRenderer.propTypes = {
 	rowData: PropTypes.object,
+	columns: PropTypes.array,
 };
 
 /**
