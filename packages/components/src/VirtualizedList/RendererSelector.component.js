@@ -68,7 +68,6 @@ class RendererSelector extends React.Component {
 			onRowsRendered,
 			registerChild,
 			scrollToIndex,
-			noDataRenderers,
 		} = this.props;
 
 		const collection = inProgress ? [] : this.props.collection;
@@ -81,7 +80,6 @@ class RendererSelector extends React.Component {
 			isActive,
 			isSelected,
 			noRowsRenderer: this.noRowsRenderer,
-			noDataRenderer: noDataRenderers ? noDataRenderers[type] : null,
 			onRowClick,
 			onRowDoubleClick,
 			onScroll,
@@ -104,6 +102,10 @@ class RendererSelector extends React.Component {
 				sortBy,
 				sortDirection,
 			};
+
+			if (rowRenderers && rowRenderers.table) {
+				customProps.rowRenderer = rowRenderers.table;
+			}
 		} else {
 			ListRenderer = ListGrid;
 			const rowRenderer = getRowRenderer(type, rowRenderers);

@@ -26,7 +26,6 @@ function VirtualizedList(props) {
 		isActive,
 		isSelected,
 		inProgress,
-		noDataRenderers,
 		onRowClick,
 		onRowDoubleClick,
 		onRowsRendered,
@@ -87,7 +86,6 @@ function VirtualizedList(props) {
 					onRowsRendered={onRowsRendered}
 					registerChild={registerChild}
 					scrollToIndex={scrollToIndex}
-					noDataRenderers={noDataRenderers}
 				>
 					{columnDefinitions}
 				</RendererSelector>
