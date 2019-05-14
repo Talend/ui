@@ -4,6 +4,7 @@ import './ActionBar';
 import './ActionDropdown';
 import './ActionFile';
 import './ActionIconToggle';
+import './ActionIntercom';
 import './ActionList';
 import './ActionSplitDropdown';
 import './Actions';
