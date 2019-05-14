@@ -265,4 +265,61 @@ describe('Typeahead', () => {
 		// then
 		expect(typeaheadInstance.find('.tc-typeahead-section-header').length).toBe(2);
 	});
+
+	describe('custom renders', () => {
+		it('should render custom element', () => {
+			// given
+			const props = {
+				items,
+				multiSection: false,
+				renderResults: () => <button id="do-some-stuff">Do some stuff</button>,
+			};
+
+			// when
+			const wrapper = mount(<Typeahead {...props} />);
+			// then
+			expect(wrapper.find('#do-some-stuff').length).toBe(1);
+		});
+		it('should render custom element with no result', () => {
+			// given
+			const props = {
+				items: [],
+				renderNoResult: () => <button id="add-new-btn">Add</button>,
+			};
+
+			// when
+			const wrapper = mount(<Typeahead {...props} />);
+
+			// then
+			expect(wrapper.find('#add-new-btn').length).toBe(1);
+		});
+		it('should render custom element when searching', () => {
+			// given
+			const props = {
+				items: [],
+				renderSearching: () => <button id="btn-cancel">Cancel</button>,
+				searching: true,
+			};
+
+			// when
+			const wrapper = mount(<Typeahead {...props} />);
+
+			// then
+			expect(wrapper.find('#btn-cancel').length).toBe(1);
+		});
+		it('should render custom element when loading', () => {
+			// given
+			const props = {
+				items: [],
+				renderLoading: () => <button id="wait-a-moment">Wait</button>,
+				isLoading: true,
+			};
+
+			// when
+			const wrapper = mount(<Typeahead {...props} />);
+
+			// then
+			expect(wrapper.find('#wait-a-moment').length).toBe(1);
+		});
+	});
 });
