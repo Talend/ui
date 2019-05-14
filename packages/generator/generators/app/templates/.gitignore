@@ -1,0 +1,6 @@
+.idea/
+.cache-loader/
+node_modules/
+dist/
+<%-props.i18n ? `
+i18n/` : ''%>

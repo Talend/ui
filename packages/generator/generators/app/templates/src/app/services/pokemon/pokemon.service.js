@@ -13,7 +13,7 @@ function datasetReducer(state = {}, action) {
 		case POKEMON_REMOVE:
 			return {
 				...state,
-				data: state.data.filter(ds => ds !== action.dataset),
+				data: state.data.filter(ds => ds !== action.pokemon),
 			};
 		case POKEMON_SET_FETCHING:
 			return {

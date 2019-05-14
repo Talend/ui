@@ -12,7 +12,7 @@
     "test:cov": "talend-scripts test --coverage",
     "extends": "talend-scripts extends"<%-
       props.i18n
-        ? ',    \n"extract-i18n": "i18next-scanner --config i18next-scanner.config.js \'src/**/*.js\'"'
+        ? ',\n    "extract-i18n": "i18next-scanner --config i18next-scanner.config.js \'src/**/*.js\'"'
         : '',
     %>
   },

@@ -8,7 +8,7 @@ import SidePanel from '@talend/react-components/lib/SidePanel';
 
 import PokemonList from '../PokemonList';
 <%-props.i18n ? `
-import DatasetList from '../DatasetList';` : ''
+import I18nInstructions from '../I18nInstructions';` : ''
 %>
 <%-props.cmf ? `
 import ConnectionList from '../ConnectionList';` : ''
@@ -24,7 +24,7 @@ function Home({ isSidePanelDocked, toggleSidePanel }) {
 	const menus = [
 		{ icon: 'talend-user-circle', label: 'Pokemons', key: 'pokemons' },<%-
 		props.i18n ? `
-		{ icon: 'talend-datastore', label: 'Datasets (i18n)', key: 'datasets' },` : ''%><%-
+		{ icon: 'talend-world', label: 'i18n', key: 'i18n' },` : ''%><%-
 		props.cmf ? `
 		{ icon: 'talend-cluster', label: 'Connections (injection)', key: 'connections' },` : ''%>
 	];
@@ -41,7 +41,7 @@ function Home({ isSidePanelDocked, toggleSidePanel }) {
 		<Layout mode="TwoColumns" header={header} one={sidePanel}>
 			{selectedMenu === 'pokemons' ? <PokemonList /> : null}<%-
 			props.i18n ? `
-			{selectedMenu === 'datasets' ? <DatasetList /> : null}` : '' %><%-
+			{selectedMenu === 'i18n' ? <I18nInstructions /> : null}` : '' %><%-
 			props.cmf ? `
 			{selectedMenu === 'connections' ? <ConnectionList /> : null}` : '' %>
 		</Layout>

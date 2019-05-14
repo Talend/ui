@@ -51,6 +51,7 @@ module.exports = class AppGenerator extends Generator {
 		const fileToCopy = ['src', '.eslintrc'];
 		const tplToCopy = [
 			'package.json',
+			'.gitignore',
 			'src/app/components/App/App.component.js',
 			'src/app/components/Home/Home.component.js',
 			'src/app/services/modules.js',
