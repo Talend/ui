@@ -170,7 +170,9 @@ storiesOf('List Composition', module)
 		<div className="virtualized-list">
 			<IconsProvider />
 			<h1>Text Filter</h1>
-			<p>You can filter the dataset with the text by adding the component and let it work itself</p>
+			<p>
+				You can filter the dataset with the text by adding the component and let it work itself
+			</p>
 			<pre>{`<List.Manager
  	id="my-list"
  	collection={collection}

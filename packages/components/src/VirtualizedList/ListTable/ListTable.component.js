@@ -25,11 +25,10 @@ function ListTable(props) {
 		onRowClick,
 		onRowDoubleClick,
 		rowCount,
-		rowRenderer,
 		...restProps
 	} = props;
 
-	let RowTableRenderer = rowRenderer || DefaultTableRowRenderer;
+	let RowTableRenderer = DefaultTableRowRenderer;
 	if (isActive || isSelected) {
 		RowTableRenderer = getRowSelectionRenderer(RowTableRenderer, {
 			isSelected,
@@ -77,7 +76,6 @@ ListTable.propTypes = {
 	sortDirection: PropTypes.string,
 	width: PropTypes.number,
 	rowCount: PropTypes.number,
-	rowRenderer: PropTypes.func,
 };
 
 ListTable.defaultProps = {
