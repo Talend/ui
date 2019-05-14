@@ -40,9 +40,7 @@ function ListGrid(props) {
 		const WrapperRenderer = enhancedRowRenderer;
 
 		enhancedRowRenderer = function finalRowRenderer(data) {
-			return !hasItem(data.index)
-				? <NoDataRenderer data={data} />
-				: <WrapperRenderer {...data} />;
+			return !hasItem(data.index) ? <NoDataRenderer data={data} /> : <WrapperRenderer {...data} />;
 		};
 	}
 

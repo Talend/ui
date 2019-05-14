@@ -45,9 +45,11 @@ function ListTable(props) {
 		const WrappedRender = RowTableRenderer;
 
 		RowTableRenderer = function finalRowRenderer(rowProps) {
-			return isEmpty(rowProps.rowData)
-				? <DefaultTableRowRenderer {...rowProps} columns={[<NoDataRenderer {...rowProps} />]} />
-				: <WrappedRender {...rowProps} />;
+			return isEmpty(rowProps.rowData) ? (
+				<DefaultTableRowRenderer {...rowProps} columns={[<NoDataRenderer {...rowProps} />]} />
+			) : (
+				<WrappedRender {...rowProps} />
+			);
 		};
 	}
 
