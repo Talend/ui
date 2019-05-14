@@ -24,9 +24,11 @@ function SkeletonRow({ columns }) {
 }
 
 function ListTableRowRenderer(props) {
-	return isEmpty(props.rowData)
-		? <DefaultTableRowRenderer {...props} columns={[<SkeletonRow {...props} />]} />
-		: <DefaultTableRowRenderer {...props} />;
+	return isEmpty(props.rowData) ? (
+		<DefaultTableRowRenderer {...props} columns={[<SkeletonRow {...props} />]} />
+	) : (
+		<DefaultTableRowRenderer {...props} />
+	);
 }
 
 ListTableRowRenderer.propTypes = {
@@ -80,7 +82,6 @@ function ListTable(props) {
 }
 
 ListTable.displayName = 'VirtualizedList(ListTable)';
-
 
 ListTable.propTypes = {
 	children: PropTypes.arrayOf(PropTypes.element),
