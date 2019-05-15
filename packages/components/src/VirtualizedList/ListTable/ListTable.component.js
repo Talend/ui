@@ -20,14 +20,12 @@ function ListTableRowRenderer(props) {
 
 	const columnsProp = isEmpty(rowData)
 		? [
-			columns.map(
-				column => (
+				columns.map(column => (
 					<div key={column.key} {...column.props}>
 						<Skeleton type="text" size="xlarge" />
 					</div>
-				)
-			),
-		]
+				)),
+		  ]
 		: columns;
 
 	return <DefaultTableRowRenderer {...props} columns={columnsProp} />;
