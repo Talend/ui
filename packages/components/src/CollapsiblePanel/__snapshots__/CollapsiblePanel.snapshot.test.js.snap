@@ -53,6 +53,8 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                     disabled={false}
                     onClick={[Function]}
                     onMouseDown={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
                     role={null}
                     type="button"
                   >
@@ -72,6 +74,8 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                     disabled={false}
                     onClick={[Function]}
                     onMouseDown={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
                     role={null}
                     type="button"
                   >
@@ -98,6 +102,8 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                 onClick={[Function]}
                 onFocus={[Function]}
                 onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 onMouseOver={[Function]}
                 role="link"
                 type="button"
@@ -247,6 +253,8 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                     disabled={false}
                     onClick={[Function]}
                     onMouseDown={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
                     role={null}
                     type="button"
                   >
@@ -266,6 +274,8 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                     disabled={false}
                     onClick={[Function]}
                     onMouseDown={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
                     role={null}
                     type="button"
                   >
@@ -292,6 +302,8 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                 onClick={[Function]}
                 onFocus={[Function]}
                 onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 onMouseOver={[Function]}
                 role="link"
                 type="button"
@@ -440,6 +452,8 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                     disabled={false}
                     onClick={[Function]}
                     onMouseDown={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
                     role={null}
                     type="button"
                   >
@@ -459,6 +473,8 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                     disabled={false}
                     onClick={[Function]}
                     onMouseDown={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
                     role={null}
                     type="button"
                   >
@@ -485,6 +501,8 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                 onClick={[Function]}
                 onFocus={[Function]}
                 onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 onMouseOver={[Function]}
                 role="link"
                 type="button"

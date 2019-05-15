@@ -24,6 +24,8 @@ exports[`Status should render a label 1`] = `
       disabled={false}
       onClick={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       role={null}
       type="button"
     >
@@ -43,6 +45,8 @@ exports[`Status should render a label 1`] = `
       disabled={false}
       onClick={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       role={null}
       type="button"
     >
@@ -89,6 +93,8 @@ exports[`Status should render a label with Icon 1`] = `
       disabled={false}
       onClick={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       role={null}
       type="button"
     >
@@ -108,6 +114,8 @@ exports[`Status should render a label with Icon 1`] = `
       disabled={false}
       onClick={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       role={null}
       type="button"
     >
@@ -195,6 +203,8 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
       disabled={false}
       onClick={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       role={null}
       type="button"
     >
@@ -214,6 +224,8 @@ exports[`Status should render a label with a continuous circular progress 1`] = 
       disabled={false}
       onClick={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       role={null}
       type="button"
     >
@@ -275,6 +287,8 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
       disabled={false}
       onClick={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       role={null}
       type="button"
     >
@@ -294,6 +308,8 @@ exports[`Status should render a label with a fixed circular progress 1`] = `
       disabled={false}
       onClick={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       role={null}
       type="button"
     >

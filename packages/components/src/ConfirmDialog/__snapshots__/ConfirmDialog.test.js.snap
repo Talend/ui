@@ -49,6 +49,8 @@ exports[`ConfirmDialog should render with a large container 1`] = `
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role={null}
           type="button"
         >
@@ -66,6 +68,8 @@ exports[`ConfirmDialog should render with a large container 1`] = `
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role={null}
           type="button"
         >
@@ -147,6 +151,8 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role={null}
           type="button"
         >
@@ -164,6 +170,8 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role={null}
           type="button"
         >
@@ -226,6 +234,8 @@ exports[`ConfirmDialog should render with a small container 1`] = `
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role={null}
           type="button"
         >
@@ -243,6 +253,8 @@ exports[`ConfirmDialog should render with a small container 1`] = `
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role={null}
           type="button"
         >
@@ -304,6 +316,8 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role={null}
           type="button"
         >
@@ -321,6 +335,8 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role={null}
           type="button"
         >
@@ -334,6 +350,8 @@ exports[`ConfirmDialog should render with additional actions 1`] = `
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role={null}
           type="button"
         >
@@ -395,6 +413,8 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role={null}
           type="button"
         >
@@ -412,6 +432,8 @@ exports[`ConfirmDialog should render with defaults values 1`] = `
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role={null}
           type="button"
         >
@@ -461,6 +483,8 @@ exports[`ConfirmDialog should render without header 1`] = `
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role={null}
           type="button"
         >
@@ -478,6 +502,8 @@ exports[`ConfirmDialog should render without header 1`] = `
           disabled={false}
           onClick={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           role={null}
           type="button"
         >

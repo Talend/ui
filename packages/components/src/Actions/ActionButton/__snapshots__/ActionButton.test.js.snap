@@ -12,6 +12,8 @@ exports[`Action should apply transformation on icon 1`] = `
   disabled={false}
   onClick={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   role={null}
   title="Title to describe click me button"
 >
@@ -37,6 +39,8 @@ exports[`Action should display a Progress indicator if set 1`] = `
   disabled={true}
   onClick={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   role={null}
   title="Title to describe click me button"
 >
@@ -61,6 +65,8 @@ exports[`Action should display a disabled Icon 1`] = `
   disabled={true}
   onClick={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   role={null}
   title="Title to describe click me button"
 >
@@ -85,6 +91,8 @@ exports[`Action should pass all props to the Button 1`] = `
   disabled={false}
   onClick={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   role={null}
   title="Title to describe click me button"
 >
@@ -109,6 +117,8 @@ exports[`Action should render a button 1`] = `
   disabled={false}
   onClick={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   role={null}
   title="Title to describe click me button"
 >
@@ -124,6 +134,8 @@ exports[`Action should render a button 1`] = `
 exports[`Action should render a button with a overlay component 1`] = `
 <OverlayTrigger
   onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   overlayComponent={[Function]}
   overlayId="myOverlayId"
   overlayPlacement="bottom"
@@ -141,6 +153,8 @@ exports[`Action should render a button with a overlay component 1`] = `
     disabled={false}
     onClick={null}
     onMouseDown={null}
+    onMouseEnter={null}
+    onMouseLeave={null}
     role={null}
     title="Title to describe click me button"
   >
@@ -172,6 +186,8 @@ exports[`Action should render a button without an overlay component if inProgres
   disabled={true}
   onClick={null}
   onMouseDown={null}
+  onMouseEnter={null}
+  onMouseLeave={null}
   role={null}
   title="Title to describe click me button"
 >
@@ -195,6 +211,8 @@ exports[`Action should render a link button with loading state 1`] = `
   disabled={false}
   onClick={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   role="link"
 >
   <Translate(Skeleton)
@@ -222,6 +240,8 @@ exports[`Action should render action with html property name = props.name if set
   name="custom_name"
   onClick={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   role={null}
   title="Title to describe click me button"
 >
@@ -246,6 +266,8 @@ exports[`Action should reverse icon/label 1`] = `
   disabled={false}
   onClick={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   role={null}
   title="Title to describe click me button"
 >

@@ -75,6 +75,13 @@ function getContent(props) {
 	return adjustContentPlacement(getIcon(props), getLabel(props), props.iconPosition);
 }
 
+function getHandler(func, model, label, rest) {
+	return func && (event => func(event, {
+		action: { label, ...rest },
+		model,
+	}));
+}
+
 function noOp() {}
 
 /**
@@ -102,6 +109,8 @@ export function ActionButton(props) {
 		link,
 		model,
 		onMouseDown = noOp,
+		onMouseEnter = noOp,
+		onMouseLeave = noOp,
 		onClick = noOp,
 		overlayId,
 		overlayComponent,
@@ -127,18 +136,10 @@ export function ActionButton(props) {
 	const btnIsDisabled = inProgress || disabled;
 	const style = link ? 'link' : bsStyle;
 
-	const rClick =
-		onClick &&
-		(event =>
-			onClick(event, {
-				action: { label, ...rest },
-				model,
-			}));
-	const rMouseDown = event =>
-		onMouseDown(event, {
-			action: { label, ...rest },
-			model,
-		});
+	const rClick = getHandler(onClick, model, label, rest);
+	const rMouseDown = getHandler(onMouseDown, model, label, rest);
+	const rMouseEnter = getHandler(onMouseEnter, model, label, rest);
+	const rMouseLeave = getHandler(onMouseLeave, model, label, rest);
 
 	buttonProps.className = classNames(buttonProps.className, {
 		'btn-icon-only': hideLabel || !label,
@@ -168,6 +169,8 @@ export function ActionButton(props) {
 		<Button
 			onMouseDown={!overlayComponent ? rMouseDown : null}
 			onClick={!overlayComponent ? rClick : null}
+			onMouseEnter={!overlayComponent ? rMouseEnter : null}
+			onMouseLeave={!overlayComponent ? rMouseLeave : null}
 			bsStyle={style}
 			disabled={btnIsDisabled}
 			role={link ? 'link' : null}
@@ -182,6 +185,8 @@ export function ActionButton(props) {
 		btn = (
 			<OverlayTrigger
 				onClick={rClick}
+				onMouseEnter={rMouseEnter}
+				onMouseLeave={rMouseLeave}
 				overlayRef={overlayRef}
 				overlayId={overlayId}
 				overlayPlacement={overlayPlacement}

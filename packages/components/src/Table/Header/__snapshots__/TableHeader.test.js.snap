@@ -58,6 +58,8 @@ exports[`three-columns-with-sorters 1`] = `
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="link"
         type="button"
       >
@@ -87,6 +89,8 @@ exports[`three-columns-with-sorters 1`] = `
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="link"
         type="button"
       >
@@ -116,6 +120,8 @@ exports[`three-columns-with-sorters 1`] = `
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="link"
         type="button"
       >
