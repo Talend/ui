@@ -70,7 +70,6 @@ describe('Action', () => {
 		);
 	});
 
-
 	it('should trigger the onmouseenter and onmouseleave props', () => {
 		const onMouseEnter = jest.fn();
 		const onMouseLeave = jest.fn();

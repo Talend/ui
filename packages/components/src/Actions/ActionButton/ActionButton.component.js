@@ -76,10 +76,14 @@ function getContent(props) {
 }
 
 function getHandler(func, model, label, rest) {
-	return func && (event => func(event, {
-		action: { label, ...rest },
-		model,
-	}));
+	return (
+		func &&
+		(event =>
+			func(event, {
+				action: { label, ...rest },
+				model,
+			}))
+	);
 }
 
 function noOp() {}
