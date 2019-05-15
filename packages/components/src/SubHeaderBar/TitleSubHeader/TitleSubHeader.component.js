@@ -9,6 +9,12 @@ import Inject from '../../Inject';
 import getDefaultT from '../../translate';
 import TooltipTrigger from '../../TooltipTrigger';
 
+let showSubtitle = true;
+
+function hideSubtitle() {
+	showSubtitle = false;
+}
+
 function TitleSubHeader({ title, iconId, loading, inProgress, editable, getComponent, ...rest }) {
 	if (loading) {
 		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
@@ -41,6 +47,7 @@ function TitleSubHeader({ title, iconId, loading, inProgress, editable, getCompo
 							inProgress={inProgress}
 							feature="subheaderbar.rename"
 							componentClass="h1"
+							onEdit={hideSubtitle}
 							{...rest}
 						/>
 					) : (
@@ -56,7 +63,7 @@ function TitleSubHeader({ title, iconId, loading, inProgress, editable, getCompo
 						</TooltipTrigger>
 					)}
 				</div>
-				<SubTitle {...rest} />
+				{showSubtitle ? <SubTitle {...rest} /> : null}
 			</div>
 		</div>
 	);
