@@ -138,7 +138,7 @@ class Comparator extends React.Component {
 
 if (process.env.NODE_ENV !== 'production') {
 	Comparator.propTypes = {
-		...Text.propsTypes,
+		...Text.propTypes,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
