@@ -30,6 +30,7 @@ exports[`Widget component should render custom widget 1`] = `
       "type": "customWidget",
     }
   }
+  tooltipPlacement="left"
   value="my firstname"
   valueIsUpdating={false}
   widgets={
@@ -72,6 +73,7 @@ exports[`Widget component should render custom widget in specific display mode 1
       "type": "customWidget",
     }
   }
+  tooltipPlacement="left"
   value="my firstname"
   valueIsUpdating={false}
   widgets={
@@ -123,6 +125,7 @@ exports[`Widget component should render widget 1`] = `
       "type": "text",
     }
   }
+  tooltipPlacement="left"
   value="my firstname"
   valueIsUpdating={false}
   widgets={Object {}}
@@ -161,53 +164,9 @@ exports[`Widget component should render widget with the specific displayMode 1`]
       "type": "text",
     }
   }
+  tooltipPlacement="left"
   value="my firstname"
   valueIsUpdating={false}
   widgets={Object {}}
 />
-`;
-
-exports[`Widget component should render widget with tooltip 1`] = `
-<TooltipTrigger
-  label="example tooltip"
-  tooltipPlacement="left"
->
-  <div>
-    <Text
-      errorMessage="This is not ok"
-      errors={
-        Object {
-          "user,firstname": "This is not ok",
-        }
-      }
-      id="myForm_user_firstname"
-      isValid={false}
-      onChange={[MockFunction]}
-      onFinish={[MockFunction]}
-      onTrigger={[MockFunction]}
-      properties={
-        Object {
-          "comment": "",
-          "user": Object {
-            "firstname": "my firstname",
-            "lastname": "my lastname",
-          },
-        }
-      }
-      schema={
-        Object {
-          "key": Array [
-            "user",
-            "firstname",
-          ],
-          "tooltip": "example tooltip",
-          "type": "text",
-        }
-      }
-      value="my firstname"
-      valueIsUpdating={false}
-      widgets={Object {}}
-    />
-  </div>
-</TooltipTrigger>
 `;

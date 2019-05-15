@@ -55,6 +55,7 @@ exports[`Columns widget should render columns 1`] = `
           "widget": "fieldset",
         }
       }
+      tooltipPlacement="left"
       widgets={Object {}}
     />
     <Widget
@@ -72,6 +73,7 @@ exports[`Columns widget should render columns 1`] = `
           "type": "text",
         }
       }
+      tooltipPlacement="left"
       widgets={Object {}}
     />
   </div>

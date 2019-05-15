@@ -22,6 +22,7 @@ exports[`Fieldset widget should render fieldset 1`] = `
         "type": "text",
       }
     }
+    tooltipPlacement="left"
     widgets={Object {}}
   />
   <Widget
@@ -37,6 +38,7 @@ exports[`Fieldset widget should render fieldset 1`] = `
         "type": "text",
       }
     }
+    tooltipPlacement="left"
     widgets={Object {}}
   />
 </fieldset>

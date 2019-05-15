@@ -15,6 +15,7 @@ exports[`Fieldset widget in text mode should render a simple definition list wit
         "type": "text",
       }
     }
+    tooltipPlacement="left"
     widgets={Object {}}
   />
   <Widget
@@ -30,6 +31,7 @@ exports[`Fieldset widget in text mode should render a simple definition list wit
         "type": "text",
       }
     }
+    tooltipPlacement="left"
     widgets={Object {}}
   />
 </dl>
@@ -59,6 +61,7 @@ exports[`Fieldset widget in text mode should render a title described by a defin
             "type": "text",
           }
         }
+        tooltipPlacement="left"
         widgets={Object {}}
       />
       <Widget
@@ -74,6 +77,7 @@ exports[`Fieldset widget in text mode should render a title described by a defin
             "type": "text",
           }
         }
+        tooltipPlacement="left"
         widgets={Object {}}
       />
     </dl>

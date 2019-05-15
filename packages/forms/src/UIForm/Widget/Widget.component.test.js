@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { TooltipTrigger } from '@talend/react-components';
 
 import Widget from './Widget.component';
 
@@ -41,7 +42,7 @@ describe('Widget component', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render widget with tooltip', () => {
+	it('should wrapper widget into a tooltip trigger', () => {
 		const wrapper = shallow(
 			<Widget
 				id={'myForm'}
@@ -54,7 +55,7 @@ describe('Widget component', () => {
 			/>,
 		);
 
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.getElement().type).toBe(TooltipTrigger);
 	});
 
 	it('should render widget with the specific displayMode', () => {

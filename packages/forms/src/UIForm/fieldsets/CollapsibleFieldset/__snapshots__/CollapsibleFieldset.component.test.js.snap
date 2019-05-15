@@ -97,6 +97,7 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
           "type": "number",
         }
       }
+      tooltipPlacement="left"
       value={
         Object {
           "firstname": "Jimmy",
@@ -121,6 +122,7 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
           "type": "text",
         }
       }
+      tooltipPlacement="left"
       value={
         Object {
           "firstname": "Jimmy",
@@ -190,6 +192,7 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
           "type": "number",
         }
       }
+      tooltipPlacement="left"
       value={
         Object {
           "firstname": "Jimmy",
@@ -214,6 +217,7 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
           "type": "text",
         }
       }
+      tooltipPlacement="left"
       value={
         Object {
           "firstname": "Jimmy",

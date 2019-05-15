@@ -68,6 +68,7 @@ exports[`Array component #renderItem should render item at given index 1`] = `
     }
   }
   templates={Object {}}
+  tooltipPlacement="left"
   value={
     Object {
       "comment": "Let's do that instead",
