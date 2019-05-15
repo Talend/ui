@@ -139,4 +139,140 @@ storiesOf('List Composition', module)
 				</List.Manager>
 			</section>
 		</div>
+	))
+	.add('Text Filter: uncontrolled', () => (
+		<div className="virtualized-list">
+			<IconsProvider />
+			<h1>Text Filter</h1>
+			<p>
+				You can filter the dataset with the text by adding the component and let it work itself
+			</p>
+			<pre>{`<List.Manager
+ 	id="my-list"
+ 	collection={collection}
+>
+	<List.Toolbar>
+		<List.TextFilter id="my-list-textFilter" />
+	</List.Toolbar>
+	<List.VList id="my-vlist" type="TABLE">
+		...
+	</List.VList>
+</List.Manager>
+`}</pre>
+			<section style={{ height: '50vh' }}>
+				<List.Manager id="my-list" collection={simpleCollection}>
+					<List.Toolbar>
+						<List.TextFilter id="my-list-textFilter" />
+					</List.Toolbar>
+					<CustomList type="TABLE" />
+				</List.Manager>
+			</section>
+		</div>
+	))
+	.add('Text Filter: controlled', () => (
+		<div className="virtualized-list">
+			<IconsProvider />
+			<h1>Text Filter</h1>
+			<p>
+				You can control the filter feature by providing callbacks to<br />
+				- handle the text filter value change and filter data<br />
+				- handle the text filter's docked status
+			</p>
+			<pre>{`<List.Manager
+ 	id="my-list"
+ 	collection={collection}
+>
+	<List.Toolbar>
+		<List.TextFilter id="my-list-textFilter" docked={false} onChange={action('onChange')} onToggle={action('onToggle')} />
+	</List.Toolbar>
+	<List.VList id="my-vlist" type="TABLE">
+		...
+	</List.VList>
+</List.Manager>
+`}</pre>
+			<section style={{ height: '50vh' }}>
+				<List.Manager id="my-list" collection={simpleCollection}>
+					<List.Toolbar>
+						<List.TextFilter
+							id="my-list-textFilter"
+							docked={false}
+							onChange={action('onChange')}
+							onToggle={action('onToggle')}
+						/>
+					</List.Toolbar>
+					<CustomList type="TABLE" />
+				</List.Manager>
+			</section>
+		</div>
+	))
+	.add('Sort by: uncontrolled', () => (
+		<div className="virtualized-list">
+			<IconsProvider />
+			<h1>List with sorting feature</h1>
+			<p>You can change the sorting criteria by adding the component in the toolbar</p>
+			<pre>{`
+<List.Manager id="my-list" collection={simpleCollection}>
+	<List.Toolbar>
+		<List.SortBy
+		id="my-list-sortBy"
+		options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+		initialValue={{ sortBy: 'id', isDescending: true }}
+		/>
+	</List.Toolbar>
+	<List.VList id="my-vlist">
+		...
+	</List.VList>
+</List.Manager>
+`}</pre>
+			<section style={{ height: '50vh' }}>
+				<List.Manager id="my-list" collection={simpleCollection}>
+					<List.Toolbar>
+						<List.SortBy
+							id="my-list-sortBy"
+							options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+							initialValue={{ sortBy: 'id', isDescending: true }}
+						/>
+					</List.Toolbar>
+					<CustomList />
+				</List.Manager>
+			</section>
+		</div>
+	))
+	.add('Sort by: controlled', () => (
+		<div className="virtualized-list">
+			<IconsProvider />
+			<h1>List with sorting feature</h1>
+			<p>
+				You can control the sorting feature by providing both onChange and onOrderChange props
+				(functions) to the SortBy component.
+			</p>
+			<pre>{`
+<List.Manager id="my-list" collection={simpleCollection}>
+	<List.Toolbar>
+		<List.SortBy
+			id="my-list-sortBy"
+			options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+			onChange={action('onSortChange')}
+			value={{ sortBy: 'name', isDescending: false }}
+		/>
+	</List.Toolbar>
+	<List.VList id="my-vlist">
+		...
+	</List.VList>
+</List.Manager>
+`}</pre>
+			<section style={{ height: '50vh' }}>
+				<List.Manager id="my-list" collection={simpleCollection}>
+					<List.Toolbar>
+						<List.SortBy
+							id="my-list-sortBy"
+							options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+							value={{ sortBy: 'name', isDescending: false }}
+							onChange={action('onSortChange')}
+						/>
+					</List.Toolbar>
+					<CustomList />
+				</List.Manager>
+			</section>
+		</div>
 	));

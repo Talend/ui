@@ -17,13 +17,14 @@ $background-color-on-hover: shade($brand-primary, 30);
 	width: 100%;
 	z-index: 1030;
 
-	& {
-		svg {
-			margin: 0;
-		}
-		a svg {
-			margin: 0 $padding-smaller;
-		}
+	svg {
+		margin: 0;
+	}
+	a svg {
+		margin: 0 $padding-smaller;
+	}
+	ul {
+		list-style: none;
 	}
 
 	.tc-header-bar-actions {
@@ -46,11 +47,6 @@ $background-color-on-hover: shade($brand-primary, 30);
 				.tc-typeahead-item-description {
 					white-space: initial;
 				}
-			}
-
-			&:not(:last-child).separated:after {
-				content: '|';
-				color: $white;
 			}
 
 			&.flex {
@@ -92,6 +88,11 @@ $background-color-on-hover: shade($brand-primary, 30);
 				}
 			}
 		}
+	}
+
+	.separated:not(:last-child):after {
+		content: '|';
+		color: $white;
 	}
 
 	.tc-header-bar-products + :global(.dropdown-menu) :global(.tc-svg-icon) {
@@ -168,4 +169,18 @@ $background-color-on-hover: shade($brand-primary, 30);
 			}
 		}
 	}
+
+	.tc-header-bar-intercom button {
+		border-radius: 50%;
+		background: $st-tropaz;
+		min-height: auto;
+		height: 3.2rem;
+		width: 3.2rem;
+		margin: 0 $padding-small;
+		padding: 0;
+	}
+}
+
+:global(.intercom-namespace .intercom-app .intercom-messenger-frame) {
+	top: 7rem;
 }
