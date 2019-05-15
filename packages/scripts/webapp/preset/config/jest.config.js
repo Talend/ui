@@ -12,6 +12,6 @@ module.exports = {
 	rootDir: process.cwd(),
 	setupFilesAfterEnv: [path.join(__dirname, 'test', 'test-setup.js')],
 	testEnvironment: 'jest-environment-jsdom-global',
-	testRegex: path.join('src', '.*\\.test.js$'),
+	testRegex: 'src/.*\\.test.js$',
 	transform: { '^.+\\.js$': path.join(__dirname, 'test', 'jest-preprocess.js') },
 };

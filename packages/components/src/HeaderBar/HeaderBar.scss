@@ -17,13 +17,14 @@ $background-color-on-hover: shade($brand-primary, 30);
 	width: 100%;
 	z-index: 1030;
 
-	& {
-		svg {
-			margin: 0;
-		}
-		a svg {
-			margin: 0 $padding-smaller;
-		}
+	svg {
+		margin: 0;
+	}
+	a svg {
+		margin: 0 $padding-smaller;
+	}
+	ul {
+		list-style: none;
 	}
 
 	.tc-header-bar-actions {
@@ -46,11 +47,6 @@ $background-color-on-hover: shade($brand-primary, 30);
 				.tc-typeahead-item-description {
 					white-space: initial;
 				}
-			}
-
-			&:not(:last-child).separated:after {
-				content: '|';
-				color: $white;
 			}
 
 			&.flex {
@@ -78,6 +74,25 @@ $background-color-on-hover: shade($brand-primary, 30);
 			font-size: $font-size-base;
 			text-transform: uppercase;
 		}
+
+		.tc-header-bar-call-to-action {
+			:global {
+				.btn.btn-info.btn-inverse {
+					background-color: $white;
+					border: none;
+					margin-right: $padding-normal;
+
+					&:hover {
+						background-color: $white;
+					}
+				}
+			}
+		}
+	}
+
+	.separated:not(:last-child):after {
+		content: '|';
+		color: $white;
 	}
 
 	.tc-header-bar-products + :global(.dropdown-menu) :global(.tc-svg-icon) {
@@ -136,12 +151,12 @@ $background-color-on-hover: shade($brand-primary, 30);
 	.tc-header-bar-search {
 		form {
 			height: $navbar-height;
+			padding-left: 0;
 
 			:global(.tc-typeahead-container) > div:first-child {
 				margin-top: 0;
 				margin-bottom: 0;
 
-				padding-left: $padding-small;
 				padding-right: $padding-large;
 				height: $navbar-height;
 				background: $white;
@@ -154,4 +169,18 @@ $background-color-on-hover: shade($brand-primary, 30);
 			}
 		}
 	}
+
+	.tc-header-bar-intercom button {
+		border-radius: 50%;
+		background: $st-tropaz;
+		min-height: auto;
+		height: 3.2rem;
+		width: 3.2rem;
+		margin: 0 $padding-small;
+		padding: 0;
+	}
+}
+
+:global(.intercom-namespace .intercom-app .intercom-messenger-frame) {
+	top: 7rem;
 }
