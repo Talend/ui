@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { sfPath } from '@talend/json-schema-form-core';
+import { TooltipTrigger } from '@talend/react-components';
 
 import defaultWidgets from '../utils/widgets';
 import { getError } from '../utils/errors';
 import { getValue } from '../utils/properties';
 import shouldRender from '../utils/condition';
-import { TooltipTrigger } from '@talend/react-components';
 
 function getWidget(displayMode, widgetId, customWidgets) {
 	// resolve the widget id depending on the display mode
@@ -40,6 +40,7 @@ export default function Widget(props) {
 		widget,
 		displayMode,
 		tooltip,
+		tooltipPlacement,
 	} = props.schema;
 	const widgetId = widget || type;
 
@@ -56,38 +57,28 @@ export default function Widget(props) {
 	const id = sfPath.name(key, '_', props.id);
 	const error = getError(props.errors, props.schema);
 	const errorMessage = validationMessage || error;
+	const all = {
+		...props,
+		id,
+		key: id,
+		options,
+		errorMessage,
+		isValid: !error,
+		value: getValue(props.properties, props.schema),
+		valueIsUpdating: isUpdating(props.updating, props.schema.key),
+	};
 
 	if (tooltip) {
 		return (
-			<TooltipTrigger label={tooltip} tooltipPlacement={'left'}>
+			<TooltipTrigger label={tooltip} tooltipPlacement={tooltipPlacement}>
 				<div>
-					<WidgetImpl
-						{...props}
-						id={id}
-						key={id}
-						errorMessage={errorMessage}
-						isValid={!error}
-						value={getValue(props.properties, props.schema)}
-						valueIsUpdating={isUpdating(props.updating, props.schema.key)}
-						options={options}
-					/>
+					<WidgetImpl {...all} />
 				</div>
 			</TooltipTrigger>
 		);
 	}
 
-	return (
-		<WidgetImpl
-			{...props}
-			id={id}
-			key={id}
-			errorMessage={errorMessage}
-			isValid={!error}
-			value={getValue(props.properties, props.schema)}
-			valueIsUpdating={isUpdating(props.updating, props.schema.key)}
-			options={options}
-		/>
-	);
+	return <WidgetImpl {...all} />;
 }
 
 if (process.env.NODE_ENV !== 'production') {
@@ -118,6 +109,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 Widget.defaultProps = {
 	widgets: {},
+	tooltipPlacement: 'left',
 };
 
 Widget.displayName = 'Widget';
