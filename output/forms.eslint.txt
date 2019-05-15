@@ -8,8 +8,5 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/ArrayItem.component.js
   3:8  error  'Icon' is defined but never used  no-unused-vars
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/Widget/Widget.component.js
-  9:32  error  Absolute imports should come before relative imports  import/imports-first
-
-✖ 3 problems (3 errors, 0 warnings)
+✖ 2 problems (2 errors, 0 warnings)
 
