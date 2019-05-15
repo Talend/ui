@@ -1,0 +1,7 @@
+{
+  "error": {
+    "code": "ENOAUDIT",
+    "summary": "Your configured registry (https://registry.yarnpkg.com/) does not support audit requests, or the audit endpoint is temporarily unavailable.",
+    "detail": ""
+  }
+}
