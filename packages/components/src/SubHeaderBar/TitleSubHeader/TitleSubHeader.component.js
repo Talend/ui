@@ -9,17 +9,40 @@ import Inject from '../../Inject';
 import getDefaultT from '../../translate';
 import TooltipTrigger from '../../TooltipTrigger';
 
-let showSubtitle = true;
-
-function hideSubtitle() {
-	showSubtitle = false;
-}
-
-function TitleSubHeader({ title, iconId, loading, inProgress, editable, getComponent, ...rest }) {
+function TitleSubHeader({
+	title,
+	iconId,
+	loading,
+	inProgress,
+	editable,
+	getComponent,
+	onEdit,
+	onCancel,
+	onSubmit,
+	...rest
+}) {
+	const [edit, setEdit] = React.useState(false);
+	function onEditHook() {
+		setEdit(true);
+		if (onEdit) {
+			onEdit();
+		}
+	}
+	function onCancelHook() {
+		setEdit(false);
+		if (onCancel) {
+			onCancel();
+		}
+	}
+	function onSubmitHook() {
+		setEdit(false);
+		if (onSubmit) {
+			onSubmit();
+		}
+	}
 	if (loading) {
 		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
 	}
-
 	const InjectedEditableText = Inject.get(getComponent, 'EditableText', EditableText);
 	return (
 		<div
@@ -47,7 +70,9 @@ function TitleSubHeader({ title, iconId, loading, inProgress, editable, getCompo
 							inProgress={inProgress}
 							feature="subheaderbar.rename"
 							componentClass="h1"
-							onEdit={hideSubtitle}
+							onEdit={onEditHook}
+							onCancel={onCancelHook}
+							onSubmit={onSubmitHook}
 							{...rest}
 						/>
 					) : (
@@ -63,7 +88,7 @@ function TitleSubHeader({ title, iconId, loading, inProgress, editable, getCompo
 						</TooltipTrigger>
 					)}
 				</div>
-				{showSubtitle ? <SubTitle {...rest} /> : null}
+				{!edit ? <SubTitle {...rest} /> : null}
 			</div>
 		</div>
 	);
@@ -111,6 +136,9 @@ TitleSubHeader.propTypes = {
 	inProgress: PropTypes.bool,
 	editable: PropTypes.bool,
 	subTitle: PropTypes.string,
+	onEdit: PropTypes.func,
+	onSubmit: PropTypes.func,
+	onCancel: PropTypes.func,
 	...Inject.PropTypes,
 };
 
