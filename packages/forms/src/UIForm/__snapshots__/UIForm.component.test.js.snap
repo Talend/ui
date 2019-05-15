@@ -36,7 +36,6 @@ exports[`UIForm component should render form 1`] = `
           "type": "text",
         }
       }
-      tooltipPlacement="left"
       widgets={
         Object {
           "custom": [Function],
@@ -68,7 +67,6 @@ exports[`UIForm component should render form 1`] = `
           "type": "text",
         }
       }
-      tooltipPlacement="left"
       widgets={
         Object {
           "custom": [Function],
@@ -94,7 +92,6 @@ exports[`UIForm component should render form 1`] = `
           "widget": "button",
         }
       }
-      tooltipPlacement="left"
       widgets={
         Object {
           "custom": [Function],
@@ -165,7 +162,6 @@ exports[`UIForm component should render form in text display mode 1`] = `
           "type": "text",
         }
       }
-      tooltipPlacement="left"
       widgets={
         Object {
           "custom": [Function],
@@ -198,7 +194,6 @@ exports[`UIForm component should render form in text display mode 1`] = `
           "type": "text",
         }
       }
-      tooltipPlacement="left"
       widgets={
         Object {
           "custom": [Function],
@@ -225,7 +220,6 @@ exports[`UIForm component should render form in text display mode 1`] = `
           "widget": "button",
         }
       }
-      tooltipPlacement="left"
       widgets={
         Object {
           "custom": [Function],
@@ -272,7 +266,6 @@ exports[`UIForm component should render provided actions 1`] = `
           "type": "text",
         }
       }
-      tooltipPlacement="left"
       widgets={
         Object {
           "custom": [Function],
@@ -304,7 +297,6 @@ exports[`UIForm component should render provided actions 1`] = `
           "type": "text",
         }
       }
-      tooltipPlacement="left"
       widgets={
         Object {
           "custom": [Function],
@@ -330,7 +322,6 @@ exports[`UIForm component should render provided actions 1`] = `
           "widget": "button",
         }
       }
-      tooltipPlacement="left"
       widgets={
         Object {
           "custom": [Function],

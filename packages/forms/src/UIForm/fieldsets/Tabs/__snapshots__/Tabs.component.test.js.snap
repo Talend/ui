@@ -41,7 +41,6 @@ exports[`Tabs widget should render fieldset 1`] = `
               "widget": "fieldset",
             }
           }
-          tooltipPlacement="left"
           widgets={Object {}}
         />,
         "className": "",
@@ -72,7 +71,6 @@ exports[`Tabs widget should render fieldset 1`] = `
               "widget": "fieldset",
             }
           }
-          tooltipPlacement="left"
           widgets={Object {}}
         />,
         "className": "",

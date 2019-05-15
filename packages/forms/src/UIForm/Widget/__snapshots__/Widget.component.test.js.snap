@@ -30,7 +30,6 @@ exports[`Widget component should render custom widget 1`] = `
       "type": "customWidget",
     }
   }
-  tooltipPlacement="left"
   value="my firstname"
   valueIsUpdating={false}
   widgets={
@@ -73,7 +72,6 @@ exports[`Widget component should render custom widget in specific display mode 1
       "type": "customWidget",
     }
   }
-  tooltipPlacement="left"
   value="my firstname"
   valueIsUpdating={false}
   widgets={
@@ -125,7 +123,6 @@ exports[`Widget component should render widget 1`] = `
       "type": "text",
     }
   }
-  tooltipPlacement="left"
   value="my firstname"
   valueIsUpdating={false}
   widgets={Object {}}
@@ -164,7 +161,6 @@ exports[`Widget component should render widget with the specific displayMode 1`]
       "type": "text",
     }
   }
-  tooltipPlacement="left"
   value="my firstname"
   valueIsUpdating={false}
   widgets={Object {}}

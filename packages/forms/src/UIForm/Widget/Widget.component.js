@@ -70,7 +70,7 @@ export default function Widget(props) {
 
 	if (tooltip) {
 		return (
-			<TooltipTrigger label={tooltip} tooltipPlacement={tooltipPlacement}>
+			<TooltipTrigger label={tooltip} tooltipPlacement={tooltipPlacement || 'left'}>
 				<div>
 					<WidgetImpl {...all} />
 				</div>
@@ -109,7 +109,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 Widget.defaultProps = {
 	widgets: {},
-	tooltipPlacement: 'left',
 };
 
 Widget.displayName = 'Widget';
