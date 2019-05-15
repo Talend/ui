@@ -1,13 +1,57 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { IconsProvider } from '@talend/react-components';
+import { fromJS } from 'immutable';
 
 import DataGrid from '../src/components/';
-import DynamicDataGrid, { getComponent } from './DynamicDataGrid.component';
+import DefaultRenderer from '../src/components/DefaultCellRenderer/DefaultRenderer.component';
+import DefaultIntCellRenderer from '../src/components/DefaultIntCellRenderer';
+import DefaultPinHeaderRenderer from '../src/components/DefaultPinHeaderRenderer';
+import DefaultCellRenderer from '../src/components/DefaultCellRenderer';
+import DefaultHeaderRenderer from '../src/components/DefaultHeaderRenderer';
+import DynamicDataGrid from './DynamicDataGrid.component';
+import ImmutableDataGrid from './ImmutableDatagrid.component';
 import sample from './sample.json';
 import sample2 from './sample2.json';
 import sample3 from './sample3.json';
 import sampleWithoutQuality from './sampleWithoutQuality.json';
+
+// eslint-disable-next-line import/prefer-default-export
+export function getComponent(component) {
+	switch (component) {
+		case 'DefaultIntCellRenderer':
+			return DefaultIntCellRenderer;
+		case 'DefaultHeaderRenderer':
+			return DefaultHeaderRenderer;
+		case 'DefaultPinHeaderRenderer':
+			return DefaultPinHeaderRenderer;
+		case 'DefaultCellRenderer':
+			return DefaultCellRenderer;
+		case 'DefaultStringCellRenderer':
+			return DefaultRenderer;
+		default:
+			return DefaultRenderer;
+	}
+}
+
+function CustomHeaderRenderer({ api, displayName }) {
+	console.log(api);
+	return (
+		<div>
+			<span>{displayName}</span>
+			<button onClick={api.ensureIndexVisible(1)}>ensure first row</button>
+		</div>
+	);
+}
+
+export function withCustomHeaderRenderer(component) {
+	switch (component) {
+		case 'CustomRenderer':
+			return CustomHeaderRenderer;
+		default:
+			return getComponent(component);
+	}
+}
 
 sample.data[0].value.field0.value = `﻿﻿﻿﻿﻿﻿﻿  loreum lo
 psum	 	 `;
@@ -152,4 +196,5 @@ storiesOf('Component Datagrid', module)
 		}
 		return <WithLayout />;
 	})
-	.add('dynamic change data', () => <DynamicDataGrid />);
+	.add('dynamic change data', () => <DynamicDataGrid />)
+	.add('immutable data', () => <ImmutableDataGrid />);
