@@ -12,10 +12,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <component-api.version>1.1.10-SNAPSHOT</component-api.version>
-
         <lombok.version>1.18.4</lombok.version>
         <gmavenplus.version>1.6.2</gmavenplus.version>
         <groovy.version>2.5.7</groovy.version>
+        <batik.version>1.9.1</batik.version>
     </properties>
 
     <dependencies>
@@ -40,12 +40,58 @@
 
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>api</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>api</classifier>
+                            <excludes>
+                                <exclude>icons/**</exclude>
+                            </excludes>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>svg</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>svg</classifier>
+                            <excludes>
+                                <exclude>org/**</exclude>
+                                <exclude>icons/png/**</exclude>
+                            </excludes>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>png</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>png</classifier>
+                            <excludes>
+                                <exclude>org/**</exclude>
+                                <exclude>icons/svg/**</exclude>
+                                <exclude>icons/filters/**</exclude>
+                            </excludes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.codehaus.gmavenplus</groupId>
                 <artifactId>gmavenplus-plugin</artifactId>
                 <version>${gmavenplus.version}</version>
                 <executions>
                     <execution>
-                        <id>find-icons</id>
+                        <id>create-icon-type-enum</id>
                         <phase>generate-sources</phase>
                         <goals>
                             <goal>execute</goal>
@@ -56,6 +102,19 @@
                             </scripts>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>generate-png-icons</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <allowSystemExits>true</allowSystemExits>
+                            <scripts>
+                                <script>${project.basedir}/groovy/CreatePNGIcons.groovy</script>
+                            </scripts>
+                        </configuration>
+                    </execution>
                 </executions>
                 <dependencies>
                     <dependency>
@@ -63,6 +122,30 @@
                         <artifactId>groovy-all</artifactId>
                         <version>${groovy.version}</version>
                         <type>pom</type>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.jclarion</groupId>
+                        <artifactId>image4j</artifactId>
+                        <version>0.7</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.apache.xmlgraphics</groupId>
+                        <artifactId>batik-codec</artifactId>
+                        <version>${batik.version}</version>
+                        <exclusions>
+                            <exclusion>
+                                <groupId>xml-apis</groupId>
+                                <artifactId>xml-apis</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>xalan</groupId>
+                                <artifactId>xalan</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>xerces</groupId>
+                                <artifactId>xercesImpl</artifactId>
+                            </exclusion>
+                        </exclusions>
                     </dependency>
                 </dependencies>
             </plugin>
