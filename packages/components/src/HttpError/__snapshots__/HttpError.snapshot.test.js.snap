@@ -38,8 +38,6 @@ exports[`HttpError should render a notFound http error page with action 1`] = `
       disabled={false}
       onClick={[Function]}
       onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       role="link"
       type="button"
     >

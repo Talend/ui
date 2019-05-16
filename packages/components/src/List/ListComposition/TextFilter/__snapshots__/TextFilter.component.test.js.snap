@@ -132,8 +132,6 @@ exports[`TextFilter should render text filter component 1`] = `
                     onClick={[Function]}
                     onFocus={[Function]}
                     onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
                     onMouseOver={[Function]}
                     role="search"
                   >
@@ -145,8 +143,6 @@ exports[`TextFilter should render text filter component 1`] = `
                       onClick={[Function]}
                       onFocus={[Function]}
                       onMouseDown={[Function]}
-                      onMouseEnter={[Function]}
-                      onMouseLeave={[Function]}
                       onMouseOver={[Function]}
                       role="search"
                       type="button"
@@ -313,8 +309,6 @@ exports[`TextFilter should render text filter component with defined docked stat
                     onClick={[Function]}
                     onFocus={[Function]}
                     onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
                     onMouseOver={[Function]}
                     role="search"
                   >
@@ -326,8 +320,6 @@ exports[`TextFilter should render text filter component with defined docked stat
                       onClick={[Function]}
                       onFocus={[Function]}
                       onMouseDown={[Function]}
-                      onMouseEnter={[Function]}
-                      onMouseLeave={[Function]}
                       onMouseOver={[Function]}
                       role="search"
                       type="button"

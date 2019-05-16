@@ -20,8 +20,6 @@ exports[`Notification should render 1`] = `
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
         role={null}
         type="button"
       >
@@ -53,8 +51,6 @@ exports[`Notification should render 1`] = `
             disabled={false}
             onClick={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
             role={null}
             type="button"
           >
@@ -94,8 +90,6 @@ exports[`Notification should render 1`] = `
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
         role={null}
         type="button"
       >
@@ -132,8 +126,6 @@ exports[`Notification should render 1`] = `
             disabled={false}
             onClick={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
             role={null}
             type="button"
           >
@@ -170,8 +162,6 @@ exports[`Notification should render 1`] = `
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
         role={null}
         type="button"
       >
@@ -223,8 +213,6 @@ exports[`Notification should render 1`] = `
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
         role={null}
         type="button"
       >

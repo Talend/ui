@@ -1172,8 +1172,6 @@ exports[`Items should render with nested items 1`] = `
                                           onClick={[Function]}
                                           onFocus={[Function]}
                                           onMouseDown={[Function]}
-                                          onMouseEnter={[Function]}
-                                          onMouseLeave={[Function]}
                                           onMouseOver={[Function]}
                                           role={null}
                                         >
@@ -1184,8 +1182,6 @@ exports[`Items should render with nested items 1`] = `
                                             onClick={[Function]}
                                             onFocus={[Function]}
                                             onMouseDown={[Function]}
-                                            onMouseEnter={[Function]}
-                                            onMouseLeave={[Function]}
                                             onMouseOver={[Function]}
                                             role={null}
                                             type="button"

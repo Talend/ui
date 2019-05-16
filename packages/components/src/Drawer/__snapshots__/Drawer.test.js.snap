@@ -360,8 +360,6 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
                     id="view-center-tab-2"
                     onClick={[Function]}
                     onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
                     role={null}
                   >
                     <button
@@ -371,8 +369,6 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
                       id="view-center-tab-2"
                       onClick={[Function]}
                       onMouseDown={[Function]}
-                      onMouseEnter={[Function]}
-                      onMouseLeave={[Function]}
                       role={null}
                       type="button"
                     >

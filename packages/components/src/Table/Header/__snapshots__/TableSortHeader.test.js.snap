@@ -7,8 +7,6 @@ exports[`render-sort-header 1`] = `
   disabled={false}
   onClick={[Function]}
   onMouseDown={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
   role="link"
   type="button"
 >
