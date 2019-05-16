@@ -24,9 +24,11 @@ function SkeletonRow({ columns }) {
 }
 
 function ListTableRowRenderer(props) {
-	return isEmpty(props.rowData)
-		? <DefaultTableRowRenderer {...props} columns={[<SkeletonRow {...props} />]} />
-		: <DefaultTableRowRenderer {...props} />;
+	return isEmpty(props.rowData) ? (
+		<DefaultTableRowRenderer {...props} columns={[<SkeletonRow {...props} />]} />
+	) : (
+		<DefaultTableRowRenderer {...props} />
+	);
 }
 
 ListTableRowRenderer.propTypes = {
