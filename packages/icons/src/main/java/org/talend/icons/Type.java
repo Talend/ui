@@ -18,7 +18,7 @@ package org.talend.icons;
 /**
  * See http://talend.surge.sh/icons/
  */
-enum Type {
+public enum Type {
         ACTIVEMQ("activemq"),
         ACTIVITY("activity"),
         AGGREGATE("aggregate"),

@@ -43,7 +43,7 @@ package org.talend.icons;
 /**
  * See http://talend.surge.sh/icons/
  */
-enum Type {
+public enum Type {
 ${generateEnumValues(allIcons, iconsDeprecated)}
     
     private final String key;
