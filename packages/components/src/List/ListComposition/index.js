@@ -3,6 +3,7 @@ import Toolbar from './Toolbar';
 import DisplayMode from './DisplayMode';
 import TextFilter from './TextFilter';
 import VList from './VList';
+import InfiniteScrollList from './InfiniteScrollList';
 import SortBy from './SortBy';
 
 export default {
@@ -11,5 +12,6 @@ export default {
 	DisplayMode,
 	TextFilter,
 	VList,
+	InfiniteScrollList,
 	SortBy,
 };
