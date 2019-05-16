@@ -91,6 +91,18 @@
                 <version>${gmavenplus.version}</version>
                 <executions>
                     <execution>
+                        <id>ensure-version-are-aligned</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <scripts>
+                                <script>${project.basedir}/groovy/UpdateVersion.groovy</script>
+                            </scripts>
+                        </configuration>
+                    </execution>
+                    <execution>
                         <id>create-icon-type-enum</id>
                         <phase>generate-sources</phase>
                         <goals>
@@ -109,13 +121,15 @@
                             <goal>execute</goal>
                         </goals>
                         <configuration>
-                            <allowSystemExits>true</allowSystemExits>
                             <scripts>
                                 <script>${project.basedir}/groovy/CreatePNGIcons.groovy</script>
                             </scripts>
                         </configuration>
                     </execution>
                 </executions>
+                <configuration>
+                    <allowSystemExits>true</allowSystemExits>
+                </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>org.codehaus.groovy</groupId>
