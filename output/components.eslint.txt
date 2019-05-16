@@ -20,11 +20,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleActions.component.js
   166:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-/home/travis/build/Talend/ui/packages/components/src/VirtualizedList/ListTable/ListTable.component.js
-  28:2  error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
-
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   42:3  warning  Unexpected console statement  no-console
 
-✖ 8 problems (6 errors, 2 warnings)
+✖ 7 problems (5 errors, 2 warnings)
 
