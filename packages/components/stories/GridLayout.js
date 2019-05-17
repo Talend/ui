@@ -153,11 +153,15 @@ function GridContainer() {
 
 	function onBreakpointChangeCallback(breakpoint, cols) {}
 
+	function onDragStopCallback(layout, oldItem, newItem) {}
+
+	console.log('rerender');
 	return (
 		<div className="App">
 			<GridLayout
 				layoutChangeCallback={layoutChangeCallback}
-	            onBreakpointChangeCallback={onBreakpointChangeCallback}>
+	            onBreakpointChangeCallback={onBreakpointChangeCallback}
+				onDragStopCallback={onDragStopCallback}>
 				{ tiles.map(tile => (
 					<div key={tile.key} data-grid={tile['data-grid']}>
 						<ChartTile tile={tile} />

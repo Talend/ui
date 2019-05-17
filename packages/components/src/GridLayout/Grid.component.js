@@ -38,11 +38,21 @@ function onBreakpointChange(onBreakpointChangeCallback) {
 	};
 }
 
-function Grid({ children, isResizable, layoutChangeCallback, onBreakpointChangeCallback }) {
+function onDragStop(onDragStopCallback) {
+	return (layout, oldItem, newItem, placeHolder, event) => {
+		if (onDragStopCallback) {
+			onDragStopCallback(layout, oldItem, newItem, placeHolder, event);
+		}
+	};
+}
+
+
+function Grid({ children, isResizable, layoutChangeCallback, onBreakpointChangeCallback, onDragStopCallback }) {
 	return (
 		<ResponsiveGridLayout
 			className="layout"
 			onLayoutChange={onLayoutChange(layoutChangeCallback)}
+			onDragStop={onDragStop(onDragStopCallback)}
 			onBreakpointChange={onBreakpointChange(onBreakpointChangeCallback)}
 			breakpoints={breakpoints}
 			cols={columns}
@@ -51,7 +61,6 @@ function Grid({ children, isResizable, layoutChangeCallback, onBreakpointChangeC
 			compactType="vertical"
 			verticalCompact
 			isResizable={isResizable}
-			preventCollision
 			useCSSTransforms={false}
 		>
 			{children}
