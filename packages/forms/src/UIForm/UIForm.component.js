@@ -274,7 +274,7 @@ export class UIFormComponent extends React.Component {
 				type: 'submit',
 				widget: 'button',
 				position: 'right',
-				onMouseEnter: onSubmitEnter ? event => onSubmitEnter(event, properties) : undefined,
+				onMouseEnter: onSubmitEnter && (event => onSubmitEnter(event, properties)),
 				onMouseLeave: onSubmitLeave,
 			},
 		];
