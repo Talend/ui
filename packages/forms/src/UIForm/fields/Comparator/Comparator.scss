@@ -1,0 +1,62 @@
+.comparator {
+	position: relative;
+	padding-top: $padding-normal;
+	margin-bottom: $padding-normal;
+
+	:global {
+		.dropdown {
+			position: absolute;
+			top: 3.6rem;
+
+			.btn {
+				width: 2.5rem;
+				height: 2.5rem;
+				min-height: 2.5rem;
+				padding: 0;
+				color: $dove-gray;
+				z-index: 1;
+				border: {
+					bottom-left-radius: 0;
+					bottom-right-radius: 0;
+					top-left-radius: 0.4rem;
+					top-right-radius: 0.4rem;
+				}
+
+				&-default {
+					box-shadow: none;
+					background-color: $gallery;
+
+					&:hover {
+						opacity: 1;
+					}
+				}
+
+				.tc-dropdown-button-title-label {
+					height: 2.5rem;
+				}
+			}
+		}
+
+		.form-group {
+			padding-top: $padding-normal;
+			margin-bottom: $padding-normal;
+
+			.control-label {
+				top: 0;
+			}
+			.form-control {
+				padding-left: 3.3rem;
+			}
+		}
+	}
+}
+
+.operator {
+	&.selected {
+		font-weight: bold;
+	}
+
+	.name {
+		margin-left: 1rem;
+	}
+}
