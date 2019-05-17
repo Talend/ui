@@ -36,7 +36,6 @@ export class UIFormComponent extends React.Component {
 		this.onSubmit = this.onSubmit.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onActionClick = this.onActionClick.bind(this);
-		this.onSubmitHover = this.onSubmitHover.bind(this);
 		this.focusFirstError = this.focusFirstError.bind(this);
 		this.setFormRef = this.setFormRef.bind(this);
 		// control the tv4 language here.
@@ -250,10 +249,6 @@ export class UIFormComponent extends React.Component {
 		return isValid;
 	}
 
-	onSubmitHover(event) {
-		this.props.onSubmitEnter(event, this.props.properties);
-	}
-
 	setFormRef(element) {
 		this.formRef = element;
 	}
@@ -271,7 +266,7 @@ export class UIFormComponent extends React.Component {
 	}
 
 	render() {
-		const { onSubmitEnter, onSubmitLeave } = this.props;
+		const { onSubmitEnter, onSubmitLeave, properties } = this.props;
 		const actions = this.props.actions || [
 			{
 				bsStyle: 'primary',
@@ -279,7 +274,7 @@ export class UIFormComponent extends React.Component {
 				type: 'submit',
 				widget: 'button',
 				position: 'right',
-				onMouseEnter: onSubmitEnter && this.onSubmitHover,
+				onMouseEnter: onSubmitEnter ? event => onSubmitEnter(event, properties) : undefined,
 				onMouseLeave: onSubmitLeave,
 			},
 		];
