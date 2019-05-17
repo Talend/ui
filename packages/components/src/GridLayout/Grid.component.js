@@ -46,8 +46,13 @@ function onDragStop(onDragStopCallback) {
 	};
 }
 
-
-function Grid({ children, isResizable, layoutChangeCallback, onBreakpointChangeCallback, onDragStopCallback }) {
+function Grid({
+	children,
+	isResizable,
+	layoutChangeCallback,
+	onBreakpointChangeCallback,
+	onDragStopCallback,
+}) {
 	return (
 		<ResponsiveGridLayout
 			className="layout"
