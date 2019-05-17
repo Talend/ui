@@ -66,8 +66,8 @@ describe('UIForm component', () => {
 		expect(tv4.validate('def', { format: 'noABC' })).toBe(true);
 	});
 
-	describe('#onEnterSubmit & #onLeaveSubmit', () => {
-		it('should call onEnterSubmit and onLeaveSubmit when provided', () => {
+	describe('#onSubmitEnter & #onSubmitLeave', () => {
+		it('should call onSubmitEnter and onSubmitLeave when provided', () => {
 			const enter = jest.fn();
 			const leave = jest.fn();
 			const properties = { hihi: 'hoho' };
@@ -76,8 +76,8 @@ describe('UIForm component', () => {
 					{...data}
 					{...props}
 					properties={properties}
-					onEnterSubmit={enter}
-					onLeaveSubmit={leave}
+					onSubmitEnter={enter}
+					onSubmitLeave={leave}
 				/>,
 			);
 			const btn = wrapper.find('button').at(1);
