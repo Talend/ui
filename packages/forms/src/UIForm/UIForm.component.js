@@ -270,7 +270,6 @@ export class UIFormComponent extends React.Component {
 		}
 	}
 
-
 	render() {
 		const { onSubmitEnter, onSubmitLeave } = this.props;
 		const actions = this.props.actions || [
