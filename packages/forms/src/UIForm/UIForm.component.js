@@ -36,6 +36,7 @@ export class UIFormComponent extends React.Component {
 		this.onSubmit = this.onSubmit.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onActionClick = this.onActionClick.bind(this);
+		this.onSubmitHover = this.onSubmitHover.bind(this);
 		this.focusFirstError = this.focusFirstError.bind(this);
 		this.setFormRef = this.setFormRef.bind(this);
 		// control the tv4 language here.
@@ -249,6 +250,15 @@ export class UIFormComponent extends React.Component {
 		return isValid;
 	}
 
+	onSubmitHover(event) {
+		const { properties } = this.props;
+		if (this.props.moz) {
+			this.props.onEnterSubmit(null, { formData: properties });
+		} else {
+			this.props.onEnterSubmit(event, properties);
+		}
+	}
+
 	setFormRef(element) {
 		this.formRef = element;
 	}
@@ -265,7 +275,9 @@ export class UIFormComponent extends React.Component {
 		}
 	}
 
+
 	render() {
+		const { onEnterSubmit, onLeaveSubmit } = this.props;
 		const actions = this.props.actions || [
 			{
 				bsStyle: 'primary',
@@ -273,6 +285,8 @@ export class UIFormComponent extends React.Component {
 				type: 'submit',
 				widget: 'button',
 				position: 'right',
+				onMouseEnter: onEnterSubmit && this.onSubmitHover,
+				onMouseLeave: onLeaveSubmit,
 			},
 		];
 		if (!this.state.mergedSchema) {
@@ -389,6 +403,8 @@ if (process.env.NODE_ENV !== 'production') {
 		/** State management impl: Set All fields validations errors */
 		setErrors: PropTypes.func,
 		getComponent: PropTypes.func,
+		onEnterSubmit: PropTypes.func,
+		onLeaveSubmit: PropTypes.func,
 	};
 	UIFormComponent.propTypes = I18NUIForm.propTypes;
 }
