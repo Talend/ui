@@ -66,6 +66,30 @@ describe('UIForm component', () => {
 		expect(tv4.validate('def', { format: 'noABC' })).toBe(true);
 	});
 
+	describe('#onSubmitEnter & #onSubmitLeave', () => {
+		it('should call onSubmitEnter and onSubmitLeave when provided', () => {
+			const enter = jest.fn();
+			const leave = jest.fn();
+			const properties = { hihi: 'hoho' };
+			const wrapper = mount(
+				<UIFormComponent
+					{...data}
+					{...props}
+					properties={properties}
+					onSubmitEnter={enter}
+					onSubmitLeave={leave}
+				/>,
+			);
+			const btn = wrapper.find('button').at(1);
+
+			btn.simulate('mouseenter');
+			expect(enter).toHaveBeenCalledWith(expect.anything(), properties);
+
+			btn.simulate('mouseleave');
+			expect(leave).toHaveBeenCalled();
+		});
+	});
+
 	describe('#onChange', () => {
 		it('should call onChange callback', () => {
 			// given
