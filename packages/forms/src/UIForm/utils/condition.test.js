@@ -20,12 +20,9 @@ const properties = {
 const schema = [
 	{
 		widget: 'fieldset',
-		title: 'Basic info',
 		items: [
 			{
 				key: ['entity', 'kind'],
-				title: 'Kind',
-				description: 'Select a value here, it changes the form locally',
 				schema: { type: 'string', enum: ['human', 'animal', 'thing'] },
 				type: 'select',
 				titleMap: [{ name: 'human', value: 'human' }, { name: 'animal', value: 'animal' }],
@@ -36,12 +33,9 @@ const schema = [
 				items: [
 					{
 						key: ['entity', 'civility'],
-						title: 'Civility',
-						description: 'This should be visible only for humans',
 						condition: { '===': [{ var: 'entity.kind' }, 'human'] },
 						schema: { type: 'string', enum: ['Mr', 'Mrs'] },
 						type: 'select',
-						titleMap: [{ name: 'Mr', value: 'Mr' }, { name: 'Mrs', value: 'Mrs' }],
 					},
 				],
 			},
