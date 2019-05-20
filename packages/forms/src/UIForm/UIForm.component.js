@@ -220,8 +220,8 @@ export class UIFormComponent extends React.Component {
 		const { mergedSchema } = this.state;
 		const { properties, customValidation } = this.props;
 		const filtered = filterProperties(mergedSchema, properties);
-		console.log('[NC] mergedSchema: ', JSON.stringify(mergedSchema));
 		const newErrors = validateAll(mergedSchema, filtered, customValidation);
+
 		Object.entries(this.props.errors)
 			.filter(entry => entry[0] in newErrors)
 			.reduce((accu, [key, value]) => {
