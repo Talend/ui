@@ -21,9 +21,50 @@ def iconsDeprecated = listSVGFromFolder(new File(project.basedir, "src/svg-depre
 def allIcons = icons + iconsDeprecated
 allIcons.sort()
 
-def iconJava = new File(project.basedir, 'src/main/java/org/talend/icons/Type.java')
-validateIcons(iconJava, allIcons)
-iconJava.text = """/*
+def javaPackage = new File(project.build.directory, 'generated-sources/org/talend/icons/')
+javaPackage.mkdirs()
+
+def uiicon = new File(javaPackage, 'UIIcon.java')
+uiicon.text = """/*
+  Copyright (C) 2006-2019 Talend Inc. - www.talend.com
+  <p>
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  <p>
+  http://www.apache.org/licenses/LICENSE-2.0
+  <p>
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+ */
+package org.talend.icons;
+
+import org.talend.sdk.component.api.component.Icon;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+
+import static java.lang.annotation.ElementType.PACKAGE;
+import static java.lang.annotation.ElementType.TYPE;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
+@Icon
+@Target({ TYPE, PACKAGE })
+@Retention(RUNTIME)
+public @interface UIIcon {
+
+    /**
+     * @return the icon to be used.
+     */
+    Type value();
+}
+"""
+
+def type = new File(javaPackage, 'Type.java')
+type.text = """/*
   Copyright (C) 2006-2019 Talend Inc. - www.talend.com
   <p>
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -87,30 +128,4 @@ static String generateEnumValues(icons, iconsDeprecated) {
     }
 
     return iconJavaBuilder.toString()
-}
-
-static void validateIcons(File iconJava, allIcons) {
-    def oldIcons = []
-    def startEnumValues = false
-    iconJava.eachLine {
-        def trim = it.trim()
-        if (!trim.isEmpty() && startEnumValues && !trim.startsWith("@")) {
-            oldIcons.add(trim.substring(0, trim.length() - 1))
-        }
-
-        if (trim.endsWith(";")) {
-            startEnumValues = false
-        }
-
-        if (trim.contains("enum IconType {")) {
-            startEnumValues = true
-        }
-    }
-
-    // before rewriting the file ensure we didnt loose icons
-    def missingIcons = oldIcons - allIcons - [ /* to force an update with icon diff add them here */]
-    if (!missingIcons.isEmpty()) {
-        throw new IllegalArgumentException(
-                "These icons were here and are no more supported, either add an exception in CreateIconTypesypes.groovy or add them back:\n> ${missingIcons}")
-    }
 }

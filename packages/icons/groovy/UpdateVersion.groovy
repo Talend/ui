@@ -18,18 +18,22 @@ def pom = new File(project.basedir, 'pom.xml')
 def packageJsonVersion = new groovy.json.JsonSlurper().parse(new File(project.basedir, 'package.json')).version
 def pomVersion = new groovy.util.XmlSlurper().parse(pom).version.text()
 if (pomVersion != packageJsonVersion) { // don't rewrite with xml tools, ensure it respects formatting etc
-    def oldPomContent = pom.text
-    def versionMarker = '\n    <version>'
-    def versionStart = oldPomContent.indexOf(versionMarker)
-    if (versionStart < 0) {
-        throw new IllegalStateException("No <version> in pom: " + pom)
-    }
-    def versionEnd = oldPomContent.indexOf('</version>', versionStart)
-    if (versionEnd < 0) {
-        throw new IllegalStateException("No </version> in pom: " + pom)
-    }
-    pom.text = oldPomContent.substring(0, versionStart + versionMarker.length()) + packageJsonVersion + oldPomContent.substring(versionEnd)
-    log.info("Updated version in ${pom}")
+    updatePomEntry(pom, packageJsonVersion, '\n    <version>', '</version>')
+    updatePomEntry(pom, pomVersion, '<project.previous.version>', '</project.previous.version>')
+    log.info("Updated versions in ${pom}")
 } else {
     log.info("Pom version already up to date")
+}
+
+static def updatePomEntry(File pom, String packageJsonVersion, start, end){
+    def oldPomContent = pom.text
+    def startIndex = oldPomContent.indexOf(start)
+    if (startIndex < 0) {
+        throw new IllegalStateException("No "+start+" in pom: " + pom)
+    }
+    def endEndex = oldPomContent.indexOf(end, startIndex)
+    if (endEndex < 0) {
+        throw new IllegalStateException("No "+end+" in pom: " + pom)
+    }
+    pom.text = oldPomContent.substring(0, startIndex + start.length()) + packageJsonVersion + oldPomContent.substring(endEndex)
 }
