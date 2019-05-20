@@ -69,7 +69,6 @@ describe('CellDatetime', () => {
 		// when
 		const columnData = {
 			mode: 'ago',
-			fullDateInTooltip: true,
 		};
 
 		const wrapper = shallow(
@@ -78,17 +77,5 @@ describe('CellDatetime', () => {
 		expect(wrapper.find('TooltipTrigger').length).toBe(1);
 		expect(wrapper.find('TooltipTrigger').getElement().props.label).toBe('2016-09-22 09:00:00');
 		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should test CellDatetime render without tooltip', () => {
-		// when
-		const columnData = {
-			mode: 'ago',
-		};
-
-		const wrapper = shallow(
-			<CellDatetimeComponent cellData={1474495200000} columnData={columnData} />,
-		);
-		expect(wrapper.find('TooltipTrigger').length).toBe(0);
 	});
 });

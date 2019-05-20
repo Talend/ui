@@ -45,7 +45,7 @@ export class CellDatetimeComponent extends React.Component {
 			</div>
 		);
 
-		if (columnData.mode === 'ago' && columnData.fullDateInTooltip) {
+		if (columnData.mode === 'ago') {
 			return (
 				<TooltipTrigger
 					label={format(cellData, columnData.pattern || DATE_TIME_FORMAT)}
