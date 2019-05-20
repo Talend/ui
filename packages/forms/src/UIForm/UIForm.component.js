@@ -269,6 +269,7 @@ export class UIFormComponent extends React.Component {
 	}
 
 	render() {
+		const { onSubmitEnter, onSubmitLeave, properties } = this.props;
 		const actions = this.props.actions || [
 			{
 				bsStyle: 'primary',
@@ -276,6 +277,8 @@ export class UIFormComponent extends React.Component {
 				type: 'submit',
 				widget: 'button',
 				position: 'right',
+				onMouseEnter: onSubmitEnter && (event => onSubmitEnter(event, properties)),
+				onMouseLeave: onSubmitLeave,
 			},
 		];
 		if (!this.state.mergedSchema) {
@@ -392,6 +395,8 @@ if (process.env.NODE_ENV !== 'production') {
 		/** State management impl: Set All fields validations errors */
 		setErrors: PropTypes.func,
 		getComponent: PropTypes.func,
+		onSubmitEnter: PropTypes.func,
+		onSubmitLeave: PropTypes.func,
 	};
 	UIFormComponent.propTypes = I18NUIForm.propTypes;
 }
