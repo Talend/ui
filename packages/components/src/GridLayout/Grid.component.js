@@ -47,18 +47,28 @@ function onDragStop(onDragStopCallback) {
 	};
 }
 
+function onResizeStop(onResizeStopCallback) {
+	return (layout, oldItem, newItem, placeHolder, event) => {
+		if (onResizeStopCallback) {
+			onResizeStopCallback(layout, oldItem, newItem, placeHolder, event);
+		}
+	};
+}
+
 function Grid({
 	children,
 	isResizable,
 	layoutChangeCallback,
 	onBreakpointChangeCallback,
 	onDragStopCallback,
+	onResizeStopCallback,
 }) {
 	return (
 		<ResponsiveGridLayout
 			className="layout"
 			onLayoutChange={onLayoutChange(layoutChangeCallback)}
 			onDragStop={onDragStop(onDragStopCallback)}
+			onResizeStop={onResizeStop(onResizeStopCallback)}
 			onBreakpointChange={onBreakpointChange(onBreakpointChangeCallback)}
 			breakpoints={breakpoints}
 			cols={columns}
@@ -79,6 +89,8 @@ Grid.propTypes = {
 	isResizable: PropTypes.bool,
 	layoutChangeCallback: PropTypes.func,
 	onBreakpointChangeCallback: PropTypes.func,
+	onDragStop: PropTypes.func,
+	onResizeStop: PropTypes.func,
 };
 
 export default Grid;
