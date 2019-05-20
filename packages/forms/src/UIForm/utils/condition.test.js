@@ -1,4 +1,4 @@
-import shouldRender from './condition';
+import shouldRender, { filterProperties } from './condition';
 
 const properties = {
 	string: 'foo',
@@ -16,6 +16,38 @@ const properties = {
 	arrayString: ['foo', 'bar'],
 	arrayObj: [{ foo: 'foo' }, { bar: 'bar' }],
 };
+
+const schema = [
+	{
+		widget: 'fieldset',
+		title: 'Basic info',
+		items: [
+			{
+				key: ['entity', 'kind'],
+				title: 'Kind',
+				description: 'Select a value here, it changes the form locally',
+				schema: { type: 'string', enum: ['human', 'animal', 'thing'] },
+				type: 'select',
+				titleMap: [{ name: 'human', value: 'human' }, { name: 'animal', value: 'animal' }],
+			},
+			{
+				widget: 'fieldset',
+				condition: { in: [{ var: 'entity.kind' }, ['human', 'animal']] },
+				items: [
+					{
+						key: ['entity', 'civility'],
+						title: 'Civility',
+						description: 'This should be visible only for humans',
+						condition: { '===': [{ var: 'entity.kind' }, 'human'] },
+						schema: { type: 'string', enum: ['Mr', 'Mrs'] },
+						type: 'select',
+						titleMap: [{ name: 'Mr', value: 'Mr' }, { name: 'Mrs', value: 'Mrs' }],
+					},
+				],
+			},
+		],
+	},
+];
 
 const TRUTHY_CONDITIONS = [
 	undefined,
@@ -137,6 +169,14 @@ describe('condition', () => {
 	FALSY_CONDITIONS.forEach(condition => {
 		it(`falsy: ${JSON.stringify(condition)}`, () => {
 			expect(shouldRender(condition, properties)).toBeFalsy();
+		});
+	});
+
+	it('should filter properties', () => {
+		expect(
+			filterProperties(schema, { entity: { kind: 'animal', civility: 'Mrs', nop: 42 } }),
+		).toEqual({
+			entity: { kind: 'animal', nop: 42 },
 		});
 	});
 });

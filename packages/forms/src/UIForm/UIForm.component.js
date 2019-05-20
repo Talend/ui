@@ -12,6 +12,7 @@ import Widget from './Widget';
 import Buttons from './fields/Button/Buttons.component';
 import { getValue, mutateValue } from './utils/properties';
 import { removeError, addError } from './utils/errors';
+import { filterProperties } from './utils/condition';
 import getLanguage from './lang';
 import customFormats from './customFormats';
 import { I18N_DOMAIN_FORMS } from '../constants';
@@ -218,7 +219,9 @@ export class UIFormComponent extends React.Component {
 
 		const { mergedSchema } = this.state;
 		const { properties, customValidation } = this.props;
-		const newErrors = validateAll(mergedSchema, properties, customValidation);
+		const filtered = filterProperties(mergedSchema, properties);
+		console.log('[NC] mergedSchema: ', JSON.stringify(mergedSchema));
+		const newErrors = validateAll(mergedSchema, filtered, customValidation);
 		Object.entries(this.props.errors)
 			.filter(entry => entry[0] in newErrors)
 			.reduce((accu, [key, value]) => {
@@ -240,9 +243,9 @@ export class UIFormComponent extends React.Component {
 
 		if (this.props.onSubmit && isValid) {
 			if (this.props.moz) {
-				this.props.onSubmit(null, { formData: properties });
+				this.props.onSubmit(null, { formData: filtered });
 			} else {
-				this.props.onSubmit(event, properties);
+				this.props.onSubmit(event, filtered);
 			}
 		}
 

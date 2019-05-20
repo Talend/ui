@@ -1,5 +1,6 @@
 /* eslint-disable no-use-before-define */
 import jsonLogic from 'json-logic-js';
+import omit from 'lodash/omit';
 
 function lowercase(a) {
 	return a.toLowerCase();
@@ -76,6 +77,19 @@ function resolveArrayNotation(condition, key) {
 		return acc;
 	});
 	return acc;
+}
+
+export function filterProperties(schema, properties) {
+	function getKeys(items) {
+		return items.reduce((acc, curr) => {
+			if (curr.items) {
+				return acc.concat(getKeys(curr.items));
+			}
+			return !shouldRender(curr.condition, properties, curr.key) ? acc.concat([curr.key]) : acc;
+		}, []);
+	}
+
+	return omit(properties, getKeys(schema));
 }
 
 /**
