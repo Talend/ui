@@ -21,21 +21,21 @@ function TitleSubHeader({
 	onSubmit,
 	...rest
 }) {
-	const [edit, setEdit] = React.useState(false);
-	function handleOnEdit() {
-		setEdit(true);
+	const [isEditMode, setEditMode] = React.useState(false);
+	function handleEdit() {
+		setEditMode(true);
 		if (onEdit) {
 			onEdit();
 		}
 	}
-	function handleOnCancel() {
-		setEdit(false);
+	function handleCancel() {
+		setEditMode(false);
 		if (onCancel) {
 			onCancel();
 		}
 	}
-	function handleOnSubmit() {
-		setEdit(false);
+	function handleSubmit() {
+		setEditMode(false);
 		if (onSubmit) {
 			onSubmit();
 		}
@@ -70,9 +70,9 @@ function TitleSubHeader({
 							inProgress={inProgress}
 							feature="subheaderbar.rename"
 							componentClass="h1"
-							onEdit={handleOnEdit}
-							onCancel={handleOnCancel}
-							onSubmit={handleOnSubmit}
+							onEdit={handleEdit}
+							onCancel={handleCancel}
+							onSubmit={handleSubmit}
 							{...rest}
 						/>
 					) : (
@@ -88,7 +88,7 @@ function TitleSubHeader({
 						</TooltipTrigger>
 					)}
 				</div>
-				{!edit ? <SubTitle {...rest} /> : null}
+				{!isEditMode ? <SubTitle {...rest} /> : null}
 			</div>
 		</div>
 	);
