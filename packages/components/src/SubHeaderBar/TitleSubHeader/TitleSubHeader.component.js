@@ -22,19 +22,19 @@ function TitleSubHeader({
 	...rest
 }) {
 	const [edit, setEdit] = React.useState(false);
-	function onEditHook() {
+	function handleOnEdit() {
 		setEdit(true);
 		if (onEdit) {
 			onEdit();
 		}
 	}
-	function onCancelHook() {
+	function handleOnCancel() {
 		setEdit(false);
 		if (onCancel) {
 			onCancel();
 		}
 	}
-	function onSubmitHook() {
+	function handleOnSubmit() {
 		setEdit(false);
 		if (onSubmit) {
 			onSubmit();
@@ -70,9 +70,9 @@ function TitleSubHeader({
 							inProgress={inProgress}
 							feature="subheaderbar.rename"
 							componentClass="h1"
-							onEdit={onEditHook}
-							onCancel={onCancelHook}
-							onSubmit={onSubmitHook}
+							onEdit={handleOnEdit}
+							onCancel={handleOnCancel}
+							onSubmit={handleOnSubmit}
 							{...rest}
 						/>
 					) : (
