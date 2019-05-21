@@ -240,9 +240,9 @@ export class UIFormComponent extends React.Component {
 
 		if (this.props.onSubmit && isValid) {
 			if (this.props.moz) {
-				this.props.onSubmit(null, { formData: properties });
+				this.props.onSubmit(null, { formData: properties }, mergedSchema);
 			} else {
-				this.props.onSubmit(event, properties);
+				this.props.onSubmit(event, properties, mergedSchema);
 			}
 		}
 
