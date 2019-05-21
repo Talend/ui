@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import talendIcons from '@talend/icons/dist/react';
 
 import { simpleCollection } from './collection';
 import { IconsProvider } from '../../src/index';
@@ -44,6 +43,33 @@ function CustomList(props) {
 			<List.VList.Content label="Created" dataKey="created" width={-1} />
 			<List.VList.Content label="Modified" dataKey="modified" width={-1} />
 		</List.VList>
+	);
+}
+
+function CustomListInfiniteScroll(props) {
+	return (
+		<List.InfiniteScrollList id="my-infinite-scroll-list" {...props}>
+			<List.VList.Content label="Id" dataKey="id" width={-1} />
+			<List.VList.Content
+				label="Name"
+				dataKey="name"
+				columnData={titleProps}
+				width={-1}
+				{...CellTitle}
+			/>
+			<List.VList.Content
+				label="Tag"
+				dataKey="tag"
+				columnData={{ selected: true }}
+				width={-1}
+				disableSort
+				{...CellBadge}
+			/>
+			<List.VList.Content label="Description" dataKey="description" width={-1} disableSort />
+			<List.VList.Content label="Author" dataKey="author" width={-1} />
+			<List.VList.Content label="Created" dataKey="created" width={-1} />
+			<List.VList.Content label="Modified" dataKey="modified" width={-1} />
+		</List.InfiniteScrollList>
 	);
 }
 
@@ -139,4 +165,170 @@ storiesOf('List Composition', module)
 				</List.Manager>
 			</section>
 		</div>
-	));
+	))
+	.add('Text Filter: uncontrolled', () => (
+		<div className="virtualized-list">
+			<IconsProvider />
+			<h1>Text Filter</h1>
+			<p>
+				You can filter the dataset with the text by adding the component and let it work itself
+			</p>
+			<pre>{`<List.Manager
+ 	id="my-list"
+ 	collection={collection}
+>
+	<List.Toolbar>
+		<List.TextFilter id="my-list-textFilter" />
+	</List.Toolbar>
+	<List.VList id="my-vlist" type="TABLE">
+		...
+	</List.VList>
+</List.Manager>
+`}</pre>
+			<section style={{ height: '50vh' }}>
+				<List.Manager id="my-list" collection={simpleCollection}>
+					<List.Toolbar>
+						<List.TextFilter id="my-list-textFilter" />
+					</List.Toolbar>
+					<CustomList type="TABLE" />
+				</List.Manager>
+			</section>
+		</div>
+	))
+	.add('Text Filter: controlled', () => (
+		<div className="virtualized-list">
+			<IconsProvider />
+			<h1>Text Filter</h1>
+			<p>
+				You can control the filter feature by providing callbacks to<br />
+				- handle the text filter value change and filter data<br />
+				- handle the text filter's docked status
+			</p>
+			<pre>{`<List.Manager
+ 	id="my-list"
+ 	collection={collection}
+>
+	<List.Toolbar>
+		<List.TextFilter id="my-list-textFilter" docked={false} onChange={action('onChange')} onToggle={action('onToggle')} />
+	</List.Toolbar>
+	<List.VList id="my-vlist" type="TABLE">
+		...
+	</List.VList>
+</List.Manager>
+`}</pre>
+			<section style={{ height: '50vh' }}>
+				<List.Manager id="my-list" collection={simpleCollection}>
+					<List.Toolbar>
+						<List.TextFilter
+							id="my-list-textFilter"
+							docked={false}
+							onChange={action('onChange')}
+							onToggle={action('onToggle')}
+						/>
+					</List.Toolbar>
+					<CustomList type="TABLE" />
+				</List.Manager>
+			</section>
+		</div>
+	))
+	.add('Sort by: uncontrolled', () => (
+		<div className="virtualized-list">
+			<IconsProvider />
+			<h1>List with sorting feature</h1>
+			<p>You can change the sorting criteria by adding the component in the toolbar</p>
+			<pre>{`
+<List.Manager id="my-list" collection={simpleCollection}>
+	<List.Toolbar>
+		<List.SortBy
+		id="my-list-sortBy"
+		options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+		initialValue={{ sortBy: 'id', isDescending: true }}
+		/>
+	</List.Toolbar>
+	<List.VList id="my-vlist">
+		...
+	</List.VList>
+</List.Manager>
+`}</pre>
+			<section style={{ height: '50vh' }}>
+				<List.Manager id="my-list" collection={simpleCollection}>
+					<List.Toolbar>
+						<List.SortBy
+							id="my-list-sortBy"
+							options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+							initialValue={{ sortBy: 'id', isDescending: true }}
+						/>
+					</List.Toolbar>
+					<CustomList />
+				</List.Manager>
+			</section>
+		</div>
+	))
+	.add('Sort by: controlled', () => (
+		<div className="virtualized-list">
+			<IconsProvider />
+			<h1>List with sorting feature</h1>
+			<p>
+				You can control the sorting feature by providing both onChange and onOrderChange props
+				(functions) to the SortBy component.
+			</p>
+			<pre>{`
+<List.Manager id="my-list" collection={simpleCollection}>
+	<List.Toolbar>
+		<List.SortBy
+			id="my-list-sortBy"
+			options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+			onChange={action('onSortChange')}
+			value={{ sortBy: 'name', isDescending: false }}
+		/>
+	</List.Toolbar>
+	<List.VList id="my-vlist">
+		...
+	</List.VList>
+</List.Manager>
+`}</pre>
+			<section style={{ height: '50vh' }}>
+				<List.Manager id="my-list" collection={simpleCollection}>
+					<List.Toolbar>
+						<List.SortBy
+							id="my-list-sortBy"
+							options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+							value={{ sortBy: 'name', isDescending: false }}
+							onChange={action('onSortChange')}
+						/>
+					</List.Toolbar>
+					<CustomList />
+				</List.Manager>
+			</section>
+		</div>
+	))
+	.add('Infinite scroll', () => (
+		<div className="virtualized-list">
+			<IconsProvider />
+			<h1>List supporting infinite scroll</h1>
+			<p>
+				The InfiniteScrollList list component allows to create lists that supports infinite scroll
+				feature.<br />
+				It requires :<br />
+				- <code>loadMoreRows</code> prop triggered when data loading is required<br />
+				- <code>rowCount</code> prop representing the collection's total number of items<br />
+				Skeleton rows are rendered when data is missing, while they are being fetched.
+			</p>
+			<pre>{`
+<List.Manager id="my-list" collection={collection}>
+	<List.InfiniteScrollList id="my-infinite-scroll-list" loadMoreRows={loadMoreRows} rowCount={totalRowCount}>
+		<List.VList.Content label="Id" dataKey="id" width={-1} />
+			...
+	</List.InfiniteScrollList>
+</List.Manager>
+`}</pre>
+			<section style={{ height: '50vh' }}>
+				<List.Manager id="my-list" collection={simpleCollection.slice(0, 2)}>
+					<CustomListInfiniteScroll
+						type="TABLE"
+						loadMoreRows={action('onLoadMoreRows')}
+						rowCount={simpleCollection.length}
+					/>
+				</List.Manager>
+			</section>
+		</div>));
