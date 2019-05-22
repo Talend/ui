@@ -1,21 +1,10 @@
 import React, { useEffect } from 'react';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { Navbar, NavDropdown, Nav, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
-
+import { ActionIconToggle } from '../../../Actions';
+import theme from './DisplayModeToggle.scss';
 import { useListContext } from '../context';
-import Icon from '../../../Icon';
-
-function getIcon(selected) {
-	switch (selected) {
-		case 'table':
-			return 'talend-table';
-		case 'large':
-			return 'talend-expanded';
-		default:
-			return 'talend-table';
-	}
-}
 
 function getLabel(option, t) {
 	switch (option) {
@@ -28,23 +17,40 @@ function getLabel(option, t) {
 	}
 }
 
-function ListDisplayMode(props) {
-	const { displayMode, setDisplayMode, t } = useListContext();
-	const {
-		id,
-		displayModes,
-		initialDisplayMode,
-		onChange,
-		selectedDisplayMode = displayMode,
-	} = props;
+const DisplayModeIcon = React.memo(({
+	displayMode,
+	displayModeOption,
+	id,
+	onSelect,
+}) => {
+	const { t } = useListContext();
+	return (
+		<ActionIconToggle
+			key={displayModeOption}
+			id={`${id}-${displayModeOption}`}
+			icon={displayModeOption === 'table' ? 'talend-table' : 'talend-expanded'}
+			label={t('LIST_SELECT_DISPLAY_MODE', {
+				defaultValue: 'Set {{displayMode}} as current display mode.',
+				displayMode: getLabel(displayModeOption, t),
+			})}
+			active={displayMode === displayModeOption}
+			disabled={displayMode === displayModeOption}
+			onClick={e => {
+				onSelect(e, displayModeOption);
+			}}
+		/>
+	);
+});
 
+function ListDisplayMode({ id, displayModes, initialDisplayMode, onChange, selectedDisplayMode }) {
+	const { displayMode, setDisplayMode } = useListContext();
 	useEffect(() => {
 		if (!onChange) {
 			setDisplayMode(initialDisplayMode);
 		}
 	}, []);
 
-	function onSelect(value, event) {
+	function onSelect(event, value) {
 		if (onChange) {
 			onChange(event, value);
 		} else {
@@ -53,39 +59,19 @@ function ListDisplayMode(props) {
 	}
 
 	return (
-		<React.Fragment>
-			<Navbar.Text>
-				<label htmlFor={id}>{t('LIST_TOOLBAR_DISPLAY', { defaultValue: 'Display:' })}</label>
-			</Navbar.Text>
-			<Nav>
-				<NavDropdown
+		<div className={classNames(theme['tc-display-mode-toggle'], 'tc-display-mode-toggle')}>
+			{displayModes.map(displayModeOption => (
+				<DisplayModeIcon
+					displayMode={selectedDisplayMode || displayMode}
+					displayModeOption={displayModeOption}
 					id={id}
-					title={<Icon name={getIcon(selectedDisplayMode)} />}
 					onSelect={onSelect}
-					aria-label={t('LIST_CHANGE_DISPLAY_MODE', {
-						defaultValue: 'Change display mode. Current display mode: {{displayMode}}.',
-						displayMode: selectedDisplayMode,
-					})}
-				>
-					{displayModes.map(option => (
-						<MenuItem
-							id={`${id}-${option}`}
-							key={option}
-							eventKey={option}
-							aria-label={t('LIST_SELECT_DISPLAY_MODE', {
-								defaultValue: 'Set {{displayMode}} as current display mode.',
-								displayMode: getLabel(option, t),
-							})}
-						>
-							<Icon name={getIcon(option)} />
-							{getLabel(option, t)}
-						</MenuItem>
-					))}
-				</NavDropdown>
-			</Nav>
-		</React.Fragment>
+				/>
+			))}
+		</div>
 	);
 }
+
 ListDisplayMode.defaultProps = {
 	id: uuid.v4(),
 	displayModes: ['table', 'large'],
