@@ -42,8 +42,6 @@ exports[`TitleSubHeader should render 1`] = `
       </TooltipTrigger>
     </div>
     <SubTitle
-      onEdit={[MockFunction]}
-      onSubmit={[MockFunction]}
       t={[Function]}
     />
   </div>
@@ -72,7 +70,6 @@ exports[`TitleSubHeader should render 2`] = `
       </TooltipTrigger>
     </div>
     <SubTitle
-      onEdit={[MockFunction]}
       subTitle="mySubTitle"
       t={[Function]}
     />
