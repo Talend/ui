@@ -24,8 +24,10 @@ function Tile(props) {
 	};
 	return (
 		<TileContext.Provider value={contextValues}>
-			<div className={classnames(theme['tc-tile-container'], 'tc-tile-container')}
-			     onMouseDown={ignoreDragOnInput}>
+			<div
+				className={classnames(theme['tc-tile-container'], 'tc-tile-container')}
+				onMouseDown={ignoreDragOnInput}
+			>
 				{props.children}
 			</div>
 		</TileContext.Provider>
