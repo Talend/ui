@@ -17,32 +17,48 @@ function getLabel(option, t) {
 	}
 }
 
-const DisplayModeIcon = React.memo(({
-	displayMode,
-	displayModeOption,
-	id,
-	onSelect,
-}) => {
-	const { t } = useListContext();
-	return (
-		<ActionIconToggle
-			key={displayModeOption}
-			id={`${id}-${displayModeOption}`}
-			icon={displayModeOption === 'table' ? 'talend-table' : 'talend-expanded'}
-			label={t('LIST_SELECT_DISPLAY_MODE', {
-				defaultValue: 'Set {{displayMode}} as current display mode.',
-				displayMode: getLabel(displayModeOption, t),
-			})}
-			active={displayMode === displayModeOption}
-			disabled={displayMode === displayModeOption}
-			onClick={e => {
-				onSelect(e, displayModeOption);
-			}}
-		/>
-	);
-});
+export const DisplayModeIcon = React.memo(
+	({ displayMode, displayModeOption, icon, id, label, onSelect }) => {
+		const { t } = useListContext();
+		return (
+			<ActionIconToggle
+				key={displayModeOption}
+				id={`${id}-${displayModeOption}`}
+				icon={icon}
+				label={
+					label ||
+					t('LIST_SELECT_DISPLAY_MODE', {
+						defaultValue: 'Set {{displayMode}} as current display mode.',
+						displayMode: getLabel(displayModeOption, t),
+					})
+				}
+				active={displayMode === displayModeOption}
+				disabled={displayMode === displayModeOption}
+				onClick={e => {
+					onSelect(e, displayModeOption);
+				}}
+			/>
+		);
+	},
+);
 
-function ListDisplayMode({ id, displayModes, initialDisplayMode, onChange, selectedDisplayMode }) {
+DisplayModeIcon.propTypes = {
+	displayMode: PropTypes.string.isRequired,
+	displayModeOption: PropTypes.string.isRequired,
+	icon: PropTypes.string.isRequired,
+	id: PropTypes.string.isRequired,
+	label: PropTypes.string,
+	onSelect: PropTypes.func.isRequired,
+};
+
+function ListDisplayMode({
+	children,
+	displayModesOptions,
+	id,
+	initialDisplayMode,
+	onChange,
+	selectedDisplayMode,
+}) {
 	const { displayMode, setDisplayMode } = useListContext();
 	useEffect(() => {
 		if (!onChange) {
@@ -58,13 +74,18 @@ function ListDisplayMode({ id, displayModes, initialDisplayMode, onChange, selec
 		}
 	}
 
+	if (children) {
+		return children;
+	}
 	return (
 		<div className={classNames(theme['tc-display-mode-toggle'], 'tc-display-mode-toggle')}>
-			{displayModes.map(displayModeOption => (
+			{displayModesOptions.map(displayModeOption => (
 				<DisplayModeIcon
 					displayMode={selectedDisplayMode || displayMode}
 					displayModeOption={displayModeOption}
+					icon={displayModeOption === 'table' ? 'talend-table' : 'talend-expanded'}
 					id={id}
+					key={displayModeOption}
 					onSelect={onSelect}
 				/>
 			))}
@@ -74,11 +95,12 @@ function ListDisplayMode({ id, displayModes, initialDisplayMode, onChange, selec
 
 ListDisplayMode.defaultProps = {
 	id: uuid.v4(),
-	displayModes: ['table', 'large'],
+	displayModesOptions: ['table', 'large'],
 	initialDisplayMode: 'table',
 };
 ListDisplayMode.propTypes = {
-	displayModes: PropTypes.arrayOf(PropTypes.string),
+	children: PropTypes.node,
+	displayModesOptions: PropTypes.arrayOf(PropTypes.string),
 	id: PropTypes.string,
 	initialDisplayMode: PropTypes.string,
 	onChange: PropTypes.func,
