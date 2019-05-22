@@ -66,5 +66,8 @@ function mutateValueFromKey(properties = {}, key, value) {
  * @returns {object} The new mutated properties.
  */
 export function mutateValue(properties, schema, value) {
+	if (getValue(properties, schema) === value) {
+		return properties;
+	}
 	return mutateValueFromKey(properties, schema.key, value);
 }

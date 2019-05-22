@@ -87,13 +87,15 @@ export class UIFormComponent extends React.Component {
 	 */
 	onChange(event, { schema, value }) {
 		const newProperties = mutateValue(this.props.properties, schema, value);
-		this.props.onChange(event, {
-			schema,
-			value,
-			oldProperties: this.props.properties,
-			properties: newProperties,
-			formData: newProperties,
-		});
+		if (newProperties !== this.props.properties) {
+			this.props.onChange(event, {
+				schema,
+				value,
+				oldProperties: this.props.properties,
+				properties: newProperties,
+				formData: newProperties,
+			});
+		}
 	}
 
 	/**
@@ -138,7 +140,9 @@ export class UIFormComponent extends React.Component {
 		}
 
 		// commit errors
-		this.props.setErrors(event, errors);
+		if (errors !== this.props.errors) {
+			this.props.setErrors(event, errors);
+		}
 
 		if (!hasErrors && schema.triggers && schema.triggers.length) {
 			let formData = this.props.properties;
