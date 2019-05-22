@@ -57,7 +57,7 @@ function onResizeStop(onResizeStopCallback) {
 
 function Grid({
 	children,
-	isResizable,
+	isResizable = false,
 	layoutChangeCallback,
 	onBreakpointChangeCallback,
 	onDragStopCallback,

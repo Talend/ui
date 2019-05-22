@@ -161,7 +161,8 @@ function GridContainer() {
 			<GridLayout
 				layoutChangeCallback={layoutChangeCallback}
 	            onBreakpointChangeCallback={onBreakpointChangeCallback}
-				onDragStopCallback={onDragStopCallback}>
+				onDragStopCallback={onDragStopCallback}
+				isResizable>
 				{ tiles.map(tile => (
 					<div key={tile.key} data-grid={tile['data-grid']}>
 						<ChartTile tile={tile} />
