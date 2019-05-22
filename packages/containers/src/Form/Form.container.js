@@ -46,7 +46,7 @@ class Form extends React.Component {
 			return null;
 		}
 		if (nextProps.data !== prevState.data) {
-			if (isEqual(nextProps.data, prevState.data)) {
+			if (!isEqual(nextProps.data, prevState.data)) {
 				return { data: nextProps.data };
 			}
 		}
