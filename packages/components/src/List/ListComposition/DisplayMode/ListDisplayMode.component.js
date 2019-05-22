@@ -43,7 +43,7 @@ export const DisplayModeIcon = React.memo(
 );
 
 DisplayModeIcon.propTypes = {
-	displayMode: PropTypes.string.isRequired,
+	displayMode: PropTypes.string,
 	displayModeOption: PropTypes.string.isRequired,
 	icon: PropTypes.string.isRequired,
 	id: PropTypes.string.isRequired,
