@@ -84,7 +84,6 @@ class FileWidget extends React.Component {
 		this.setState({ fileName: getFileName(this.props.value) });
 	}
 
-
 	/**
 	 * call onChange and update value
 	 * @param {Event} event The event
