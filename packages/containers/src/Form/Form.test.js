@@ -6,6 +6,11 @@ import Container from './Form.container';
 import Connected from './Form.connect';
 
 describe('Container(Form)', () => {
+	const noOp = jest.fn();
+	const defaultProps = {
+		initState: noOp,
+		deleteState: noOp,
+	};
 	it('should pass props to Form lib', () => {
 		const wrapper = shallow(
 			<Container
@@ -17,6 +22,7 @@ describe('Container(Form)', () => {
 				onTrigger={jest.fn()}
 				formProps={{ other: true }} // extra props
 				loading
+				{...defaultProps}
 			/>,
 		);
 		const props = wrapper.props();
@@ -31,6 +37,7 @@ describe('Container(Form)', () => {
 				uiSchema={{ uiSchema: true }}
 				actions={[]}
 				formProps={{ other: true }} // extra props
+				{...defaultProps}
 			/>,
 		);
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -59,6 +66,7 @@ describe('Container(Form)', () => {
 				formProps={{ other: true }}
 				uiform
 				language={{ OBJECT_REQUIRED: 'Field translated' }}
+				{...defaultProps}
 			/>,
 		).find('TalendUIForm');
 		expect(wrapper.props().language.OBJECT_REQUIRED).toEqual('Field translated');
@@ -87,6 +95,7 @@ describe('Container(Form)', () => {
 				uiform
 				customFormats={customFormats}
 				customValidation={customValidation}
+				{...defaultProps}
 			/>,
 		).find('TalendUIForm');
 		expect(wrapper.props().customFormats).toEqual(customFormats);
@@ -222,6 +231,7 @@ describe('Container(Form)', () => {
 				actions={[]}
 				className="foo"
 				formProps={{ other: true }} // extra props
+				{...defaultProps}
 			/>,
 		);
 		const props = wrapper.props();
