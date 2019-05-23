@@ -56,6 +56,15 @@ class FileWidget extends React.Component {
 		this.state = { fileName: getFileName(props.value) };
 	}
 
+	/**
+	 * Update the content of the input field if this.props.value is changed.
+	 */
+	componentDidUpdate(prevProps) {
+		if (this.props.value !== prevProps.value) {
+			this.updateInputField();
+		}
+	}
+
 	onChange(event) {
 		const fileList = event.target.files;
 		if (fileList.length > 0) {
@@ -70,6 +79,11 @@ class FileWidget extends React.Component {
 			this.updateFileData(event, '', '');
 		}
 	}
+
+	updateInputField() {
+		this.setState({ fileName: getFileName(this.props.value) });
+	}
+
 
 	/**
 	 * call onChange and update value
