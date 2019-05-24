@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { AutoSizer, CellMeasurer, CellMeasurerCache, List } from 'react-virtualized';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
@@ -205,4 +205,4 @@ ItemsComponent.defaultProps = {
 	showToggleAll: true,
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(ItemsComponent);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(ItemsComponent);

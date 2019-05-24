@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { Label, OverlayTrigger, Panel, Button } from 'react-bootstrap';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import Action from '../Actions/Action';
 import Icon from './../Icon/Icon.component';
@@ -286,4 +286,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS)(CollapsiblePanel);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(CollapsiblePanel);

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { Action } from '@talend/react-components/lib/Actions';
 import ArrayItem from './ArrayItem.component';
 import Message from '../../Message';
@@ -106,4 +106,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_FORMS)(DefaultArrayTemplate);
+export default withTranslation(I18N_DOMAIN_FORMS)(DefaultArrayTemplate);

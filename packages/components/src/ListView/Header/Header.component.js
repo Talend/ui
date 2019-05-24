@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
@@ -85,4 +85,4 @@ Header.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(Header);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(Header);

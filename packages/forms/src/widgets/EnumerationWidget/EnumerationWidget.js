@@ -3,7 +3,7 @@ import React from 'react';
 import keycode from 'keycode';
 import Enumeration from '@talend/react-components/lib/Enumeration';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
 import { I18N_DOMAIN_FORMS } from '../../constants';
@@ -241,7 +241,7 @@ class EnumerationForm extends React.Component {
 				onSubmitItem: this.onSubmitItem.bind(this),
 				onAbortItem: this.onAbortItem.bind(this),
 				onChangeItem: this.onChangeItem.bind(this),
-				onSelectItem: !disabledAction ? this.onSelectItem.bind(this) : () => {},
+				onSelectItem: !disabledAction ? this.onSelectItem.bind(this) : () => { },
 				onLoadData: this.onLoadData.bind(this),
 				actionsDefault: this.defaultActions,
 				actionsEdit: this.itemEditActions,
@@ -932,4 +932,4 @@ EnumerationForm.defaultProps = {
 };
 
 export { EnumerationForm };
-export default translate(I18N_DOMAIN_FORMS)(EnumerationForm);
+export default withTranslation(I18N_DOMAIN_FORMS)(EnumerationForm);

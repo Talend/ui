@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { arc } from 'd3-shape';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import omit from 'lodash/omit';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
@@ -369,4 +369,4 @@ PieChartIconComponent.defaultProps = {
 
 PieChartIconComponent.displayName = 'PieChartIcon';
 
-export default translate(I18N_DOMAIN_COMPONENTS)(PieChartIconComponent);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(PieChartIconComponent);

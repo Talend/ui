@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import Icon from '../Icon';
 import skeletonCssModule from './Skeleton.scss';
 import { getTheme } from '../theme';
@@ -99,4 +99,4 @@ Skeleton.defaultProps = {
 
 Skeleton.displayName = 'Skeleton';
 
-export default translate(I18N_DOMAIN_COMPONENTS)(Skeleton);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(Skeleton);

@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
@@ -45,4 +45,4 @@ Manager.propTypes = {
 	collection: PropTypes.array,
 	t: PropTypes.func,
 };
-export default translate(I18N_DOMAIN_COMPONENTS)(Manager);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(Manager);

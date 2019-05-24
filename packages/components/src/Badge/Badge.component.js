@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import Action from '../Actions/Action';
@@ -53,8 +53,8 @@ function Badge({
 			{onSelect ? (
 				<button {...badgeProps} key="button" type="button" disabled={disabled} onClick={onSelect} />
 			) : (
-				<div {...badgeProps} key="div" />
-			)}
+					<div {...badgeProps} key="div" />
+				)}
 			{onDelete && (
 				<Action
 					key="delete"
@@ -92,4 +92,4 @@ Badge.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(Badge);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(Badge);

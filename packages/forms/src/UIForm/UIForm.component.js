@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import tv4 from 'tv4';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { DefaultFormTemplate, TextModeFormTemplate } from './FormTemplate';
 import merge from './merge';
@@ -204,7 +204,7 @@ export class UIFormComponent extends React.Component {
 					properties: this.props.properties,
 				});
 		}
-		return () => {};
+		return () => { };
 	}
 
 	/**
@@ -341,7 +341,7 @@ export class UIFormComponent extends React.Component {
 		);
 	}
 }
-const I18NUIForm = translate(I18N_DOMAIN_FORMS)(UIFormComponent);
+const I18NUIForm = withTranslation(I18N_DOMAIN_FORMS)(UIFormComponent);
 
 if (process.env.NODE_ENV !== 'production') {
 	I18NUIForm.propTypes = {
