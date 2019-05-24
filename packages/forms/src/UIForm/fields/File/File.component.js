@@ -49,20 +49,22 @@ function getBase64(value, fileName) {
 }
 
 class FileWidget extends React.Component {
+
+	static getDerivedStateFromProps(nextProps, prevState) {
+		if (prevState.fileName !== getFileName(nextProps.value)) {
+			// Update file name if file is changed
+			return {
+				fileName: getFileName(nextProps.value),
+			};
+		}
+		return null;
+	}
+
 	constructor(props) {
 		super(props);
 		this.onChange = this.onChange.bind(this);
 		// Extract file name from form properties
 		this.state = { fileName: getFileName(props.value) };
-	}
-
-	/**
-	 * Update the content of the input field if this.props.value is changed.
-	 */
-	componentDidUpdate(prevProps) {
-		if (this.props.value !== prevProps.value) {
-			this.updateInputField();
-		}
 	}
 
 	onChange(event) {
@@ -79,11 +81,6 @@ class FileWidget extends React.Component {
 			this.updateFileData(event, '', '');
 		}
 	}
-
-	updateInputField() {
-		this.setState({ fileName: getFileName(this.props.value) });
-	}
-
 
 	/**
 	 * call onChange and update value
