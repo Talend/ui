@@ -4,6 +4,7 @@ exports[`Grid tiles should compute tile 1`] = `
 <Tile>
   <div
     className="theme-tc-tile-container tc-tile-container"
+    onMouseDown={[Function]}
   >
     my container
   </div>
