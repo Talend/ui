@@ -59,11 +59,13 @@ function Header({ headerDefault, headerLabel, nbItemsSelected, nbItems, required
 		if (nbItems >= 1 && nbItemsSelected >= 1) {
 			return (
 				<small>
-					({t('LISTVIEW_HEADER_SELECTED', {
+					(
+					{t('LISTVIEW_HEADER_SELECTED', {
 						count: nbItemsSelected,
 						total: nbItems,
 						defaultValue: '{{count}}/{{total}} selected',
-					})})
+					})}
+					)
 				</small>
 			);
 		}

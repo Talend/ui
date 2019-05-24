@@ -204,7 +204,7 @@ export class UIFormComponent extends React.Component {
 					properties: this.props.properties,
 				});
 		}
-		return () => { };
+		return () => {};
 	}
 
 	/**

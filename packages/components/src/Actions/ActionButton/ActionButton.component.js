@@ -86,7 +86,7 @@ function getHandler(func, model, label, rest) {
 	);
 }
 
-function noOp() { }
+function noOp() {}
 
 /**
  * @param {object} props react props
@@ -215,8 +215,8 @@ export function ActionButton(props) {
 						{btn}
 					</span>
 				) : (
-						btn
-					)}
+					btn
+				)}
 			</TooltipTrigger>
 		);
 	}

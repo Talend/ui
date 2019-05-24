@@ -53,8 +53,8 @@ function Badge({
 			{onSelect ? (
 				<button {...badgeProps} key="button" type="button" disabled={disabled} onClick={onSelect} />
 			) : (
-					<div {...badgeProps} key="div" />
-				)}
+				<div {...badgeProps} key="div" />
+			)}
 			{onDelete && (
 				<Action
 					key="delete"

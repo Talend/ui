@@ -241,7 +241,7 @@ class EnumerationForm extends React.Component {
 				onSubmitItem: this.onSubmitItem.bind(this),
 				onAbortItem: this.onAbortItem.bind(this),
 				onChangeItem: this.onChangeItem.bind(this),
-				onSelectItem: !disabledAction ? this.onSelectItem.bind(this) : () => { },
+				onSelectItem: !disabledAction ? this.onSelectItem.bind(this) : () => {},
 				onLoadData: this.onLoadData.bind(this),
 				actionsDefault: this.defaultActions,
 				actionsEdit: this.itemEditActions,

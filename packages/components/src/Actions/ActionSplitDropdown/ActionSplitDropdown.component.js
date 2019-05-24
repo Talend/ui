@@ -60,8 +60,8 @@ export function ActionSplitDropdown(props) {
 					</MenuItem>
 				))
 			) : (
-					<MenuItem disabled>{emptyDropdownLabel}</MenuItem>
-				)}
+				<MenuItem disabled>{emptyDropdownLabel}</MenuItem>
+			)}
 		</SplitButton>
 	);
 }
