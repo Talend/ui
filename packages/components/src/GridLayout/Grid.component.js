@@ -89,8 +89,8 @@ Grid.propTypes = {
 	isResizable: PropTypes.bool,
 	layoutChangeCallback: PropTypes.func,
 	onBreakpointChangeCallback: PropTypes.func,
-	onDragStop: PropTypes.func,
-	onResizeStop: PropTypes.func,
+	onDragStopCallback: PropTypes.func,
+	onResizeStopCallback: PropTypes.func,
 };
 
 export default Grid;
