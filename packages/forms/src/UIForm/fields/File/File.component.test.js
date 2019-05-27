@@ -35,8 +35,7 @@ describe('File field', () => {
 		// given
 		const valuedProps = {
 			...props,
-			value:
-			'data:text/xml;name=test.xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0i',
+			value: 'data:text/xml;name=test.xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0i',
 		};
 
 		// when
@@ -99,8 +98,7 @@ describe('File field', () => {
 	it('should not change filename in state when props are not updated', () => {
 		// given
 		const givenProps = {
-			value:
-			'data:text/xml;name=test.xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0i',
+			value: 'data:text/xml;name=test.xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0i',
 		};
 		const givenState = {
 			fileName: 'test.xml',
@@ -135,8 +133,7 @@ describe('File field', () => {
 		// given
 		const valuedProps = {
 			...props,
-			value:
-				'data:text/xml;name=test.xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0i',
+			value: 'data:text/xml;name=test.xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0i',
 		};
 
 		// when
