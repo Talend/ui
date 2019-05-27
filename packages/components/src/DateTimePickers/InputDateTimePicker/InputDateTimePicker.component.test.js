@@ -145,7 +145,7 @@ describe('InputDateTimePicker', () => {
 					.simulate('click');
 
 				// then
-				setTimeout(() => expect(getOverlay(wrapper).prop('show')).toBe(expectedOverlay));
+				expect(getOverlay(wrapper).prop('show')).toBe(expectedOverlay);
 			},
 			[
 				{
@@ -196,7 +196,7 @@ describe('InputDateTimePicker', () => {
 			wrapper.find('form').simulate('submit');
 
 			// then
-			setTimeout(() => expect(getOverlay(wrapper).prop('show')).toBe(false));
+			expect(getOverlay(wrapper).prop('show')).toBe(false);
 		});
 	});
 });
