@@ -14,8 +14,9 @@ describe('Grid tiles', () => {
 	});
 	it('should compute tile custom skeleton', () => {
 		// given
-		const defaultConfiguration =
-			[{ key: 'skel4', 'data-grid': { w: 2, h: 2, x: 0, y: 0, i: 'skel4' } }];
+		const defaultConfiguration = [
+			{ key: 'skel4', 'data-grid': { w: 2, h: 2, x: 0, y: 0, i: 'skel4' } },
+		];
 		// when
 		const wrapper = shallow(<Grid isLoading skeletonConfiguration={defaultConfiguration} />);
 
