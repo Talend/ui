@@ -20,7 +20,7 @@ export default function MultiSelectTagTextMode({ id, schema, value }) {
 		<FieldTemplate id={id} label={title}>
 			<ul aria-labelledby={id} className={theme['tc-badge-list']}>
 				{value.map((val, index) => (
-					<li>
+					<li key={index}>
 						<Badge key={index} label={getLabel(schema.titleMap, val)} />
 					</li>
 				))}

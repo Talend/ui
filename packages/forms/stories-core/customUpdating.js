@@ -196,6 +196,7 @@ function story() {
 				UIForm "updating" prop which is an array of the schema keys where to apply
 			</p>
 			<UIForm
+				id="my-form"
 				data={schema}
 				onChange={action('Change')}
 				onSubmit={action('onSubmit')}

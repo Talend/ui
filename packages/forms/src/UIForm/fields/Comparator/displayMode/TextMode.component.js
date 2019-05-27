@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { TextMode as FieldTemplate } from '../../FieldTemplate';
 
-export default function TextMode(props) {
+export default function ComparatorTextMode(props) {
 	const { id, schema, value } = props;
 
 	return (
@@ -13,7 +13,7 @@ export default function TextMode(props) {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-	TextMode.propTypes = {
+	ComparatorTextMode.propTypes = {
 		id: PropTypes.string,
 		schema: PropTypes.shape({
 			title: PropTypes.string,
@@ -25,7 +25,7 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-TextMode.defaultProps = {
+ComparatorTextMode.defaultProps = {
 	schema: {},
 	value: {
 		operator: '',

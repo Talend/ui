@@ -33,6 +33,8 @@ export default function Select({
 	return (
 		<FieldTemplate
 			description={description}
+			descriptionId={descriptionId}
+			errorId={errorId}
 			errorMessage={errorMessage}
 			id={id}
 			isValid={isValid}

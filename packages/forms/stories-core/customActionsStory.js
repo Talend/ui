@@ -52,14 +52,21 @@ function story() {
 		properties: { name: 'lol' },
 		uiSchema: ['name', 'requiredField'],
 	};
+	const onTrigger = (...args) => {
+		action('onTrigger')(...args);
+		return Promise.resolve({
+			properties: oldProperties => ({ ...oldProperties, name: 'name from trigger' }),
+		});
+	};
 	return (
 		<section>
 			<UIForm
+				id="my-form"
 				actions={actions}
 				data={schema}
 				onReset={action('onReset')}
 				onSubmit={action('onSubmit')}
-				onTrigger={action('onTrigger')}
+				onTrigger={onTrigger}
 			/>
 		</section>
 	);

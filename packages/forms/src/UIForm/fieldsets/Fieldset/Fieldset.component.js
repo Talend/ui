@@ -4,15 +4,13 @@ import classnames from 'classnames';
 import Widget from '../../Widget';
 
 export default function Fieldset(props) {
-	const { schema, ...restProps } = props;
+	const { schema } = props;
 	const { title, items, options } = schema;
 
 	return (
 		<fieldset className="form-group">
 			<legend className={classnames({ 'sr-only': options && options.hideTitle })}>{title}</legend>
-			{items.map((itemSchema, index) => (
-				<Widget {...restProps} key={index} schema={itemSchema} />
-			))}
+			{items.map((itemSchema, index) => <Widget key={index} schema={itemSchema} />)}
 		</fieldset>
 	);
 }

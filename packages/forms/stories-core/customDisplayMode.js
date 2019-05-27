@@ -219,6 +219,7 @@ function story() {
 			<h2>displayMode="text"</h2>
 			<p>Form can be used to display data in read only</p>
 			<UIForm
+				id="my-form"
 				data={schema}
 				onChange={action('Change')}
 				onSubmit={action('onSubmit')}

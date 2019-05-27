@@ -18,11 +18,8 @@ export function getValue(properties, schema) {
  * @param value The value to convert
  */
 export function convertValue(type, value) {
-	if (value === '') {
-		return undefined;
-	}
 	if (type === 'number') {
-		return parseFloat(value);
+		return value === '' ? undefined : parseFloat(value);
 	}
 	return value;
 }

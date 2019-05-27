@@ -5,16 +5,7 @@ import { IconsProvider, Actions } from '@talend/react-components';
 import { UIForm } from '../src/UIForm';
 
 function CustomArrayTemplate(props) {
-	const {
-		canReorder,
-		id,
-		onAdd,
-		onRemove,
-		onReorder,
-		renderItem,
-		schema,
-		value,
-	} = props;
+	const { canReorder, id, onAdd, onRemove, onReorder, renderItem, value } = props;
 
 	return (
 		<div>
@@ -47,19 +38,21 @@ function CustomArrayTemplate(props) {
 								label: 'Move Up',
 								icon: 'talend-caret-down',
 								className: 'icon-up',
-								onClick: event => onReorder(event, {
-									previousIndex: index,
-									nextIndex: index - 1,
-								}),
+								onClick: event =>
+									onReorder(event, {
+										previousIndex: index,
+										nextIndex: index - 1,
+									}),
 							},
 							{
 								label: 'Move Down',
 								icon: 'talend-caret-down',
-								onClick: event => onReorder(event, {
-									previousIndex: index,
-									nextIndex: index + 1,
-								}),
-							}
+								onClick: event =>
+									onReorder(event, {
+										previousIndex: index,
+										nextIndex: index + 1,
+									}),
+							},
 						);
 					}
 
@@ -87,8 +80,7 @@ CustomArrayTemplate.propTypes = {
 	onRemove: PropTypes.func.isRequired,
 	onReorder: PropTypes.func.isRequired,
 	renderItem: PropTypes.func.isRequired,
-	schema: PropTypes.object.isRequired,
-	value: PropTypes.arrayOf(PropTypes.object).isRequired,
+	value: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 function story() {
@@ -114,12 +106,7 @@ function story() {
 	return (
 		<div>
 			<IconsProvider />
-			<UIForm
-				templates={templates}
-				data={schema}
-				onChange={action('Change')}
-				onSubmit={action('onSubmit')}
-			/>
+			<UIForm id="my-form" templates={templates} data={schema} onSubmit={action('onSubmit')} />
 		</div>
 	);
 }

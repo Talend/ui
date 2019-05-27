@@ -8,7 +8,7 @@ import { I18N_DOMAIN_FORMS } from '../../../../constants';
 import getDefaultT from '../../../../translate';
 import theme from './TextMode.scss';
 
-class TextMode extends React.Component {
+class DatalistTextMode extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {};
@@ -56,7 +56,7 @@ class TextMode extends React.Component {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-	TextMode.propTypes = {
+	DatalistTextMode.propTypes = {
 		errors: PropTypes.object,
 		id: PropTypes.string,
 		onTrigger: PropTypes.func,
@@ -77,10 +77,10 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-TextMode.defaultProps = {
+DatalistTextMode.defaultProps = {
 	schema: {},
 	value: '',
 	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_FORMS)(TextMode);
+export default translate(I18N_DOMAIN_FORMS)(DatalistTextMode);

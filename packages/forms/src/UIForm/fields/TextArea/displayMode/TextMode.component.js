@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { TextMode as FieldTemplate } from '../../FieldTemplate';
 
-export default function TextMode({ id, schema, value }) {
+export default function TextAreaTextMode({ id, schema, value }) {
 	const { rows = 5, title } = schema;
 
 	return (
@@ -13,7 +13,7 @@ export default function TextMode({ id, schema, value }) {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-	TextMode.propTypes = {
+	TextAreaTextMode.propTypes = {
 		id: PropTypes.string,
 		schema: PropTypes.shape({
 			rows: PropTypes.number,
@@ -23,7 +23,7 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-TextMode.defaultProps = {
+TextAreaTextMode.defaultProps = {
 	schema: {},
 	value: '',
 };

@@ -36,6 +36,7 @@ function UIFormWithOnSubmitHover() {
 			}}
 		>
 			<UIForm
+				id="my-form"
 				data={schema}
 				onSubmit={action('onSubmit')}
 				onSubmitEnter={(...args) => {

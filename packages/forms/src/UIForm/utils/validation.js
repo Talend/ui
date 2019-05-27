@@ -232,6 +232,9 @@ export function shiftArrayErrorsKeys(
 ) {
 	// extract the errors included between the range
 	const arrayErrorsToShiftOrRemove = filterArrayErrorsKeys(oldErrors, arrayKey, minIndex, maxIndex);
+	if (!arrayErrorsToShiftOrRemove.length) {
+		return oldErrors;
+	}
 
 	// get all errors except those to remove or shift
 	const errors = omit(oldErrors, arrayErrorsToShiftOrRemove);

@@ -10,7 +10,7 @@ import customActionsStory from './customActionsStory';
 import customUpdating from './customUpdating';
 import customErrors from './customErrors';
 import customDisplayMode from './customDisplayMode';
-import customHoverSubmitStory from "./customHoverSubmitStory";
+import customHoverSubmitStory from './customHoverSubmitStory';
 
 const coreConceptsStories = storiesOf('Core concepts', module);
 

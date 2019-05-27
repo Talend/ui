@@ -49,6 +49,7 @@ function story() {
 	};
 	return (
 		<UIForm
+			id="my-form"
 			widgets={widgets}
 			data={schema}
 			onChange={action('Change')}

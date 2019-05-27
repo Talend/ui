@@ -4,7 +4,6 @@ import last from 'lodash/last';
 import classNames from 'classnames';
 
 import ActionDropdown from '@talend/react-components/lib/Actions/ActionDropdown';
-import Text from '../Text';
 import Widget from '../../Widget';
 
 import theme from './Comparator.scss';
@@ -114,11 +113,12 @@ class Comparator extends React.Component {
 		return (
 			<div className={classNames(theme.comparator)}>
 				<ActionDropdown
+					id={this.props.id && `${this.props.id}-operator`}
 					label={this.props.value.operator}
 					onSelect={this.onSelect}
 					disabled={operators.disabled}
 					items={this.getOperatorsMap().map(({ name: label, value, title }, index) => ({
-						id: `comparison-operator-${index}`,
+						id: `${this.props.id}-operator-${index}`,
 						label,
 						value,
 						title,
@@ -138,7 +138,9 @@ class Comparator extends React.Component {
 
 if (process.env.NODE_ENV !== 'production') {
 	Comparator.propTypes = {
-		...Text.propTypes,
+		id: PropTypes.string,
+		onChange: PropTypes.func.isRequired,
+		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,
@@ -147,7 +149,9 @@ if (process.env.NODE_ENV !== 'production') {
 			items: PropTypes.array,
 			readOnly: PropTypes.bool,
 			title: PropTypes.string,
+			titleMap: PropTypes.array,
 		}),
+		value: PropTypes.object,
 	};
 
 	OperatorListElement.propTypes = {

@@ -44,7 +44,7 @@ OrderChooser.propTypes = {
 	asc: PropTypes.bool,
 	label: PropTypes.string,
 	onClick: PropTypes.func.isRequired,
-	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	tooltipPlacement: PropTypes.string,
 };
 
 OrderChooser.defaultProps = {

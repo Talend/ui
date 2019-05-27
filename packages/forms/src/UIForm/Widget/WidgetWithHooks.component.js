@@ -11,10 +11,7 @@ import { UIFormContext } from '../hooks/useUIForm';
 
 function getWidget(widgets, widgetId, displayMode) {
 	if (displayMode) {
-		const displayModeWidget = widgets[`${widgetId}_${displayMode}`];
-		if (displayModeWidget) {
-			return displayModeWidget;
-		}
+		return widgets[`${widgetId}_${displayMode}`];
 	}
 	return widgets[widgetId];
 }
@@ -27,7 +24,7 @@ function isUpdating(updatingKeys = [], key) {
 	const serializedKey = key.join('.');
 	return updatingKeys.some(path => serializedKey.startsWith(path));
 }
-const noop = () => {};
+
 export default function Widget(props) {
 	const {
 		condition,
@@ -41,32 +38,33 @@ export default function Widget(props) {
 		tooltipPlacement,
 	} = props.schema;
 
-	const { displayMode, id, onChange, onFinish, onTrigger, state, updating, widgets } = useContext(
+	const { displayMode, id, onChange, onFinish, onTrigger, uiForm, updating } = useContext(
 		UIFormContext,
 	);
 
 	const widgetName = widget || type;
-	if (widgetName === 'hidden' || !shouldRender(condition, state.properties, key)) {
+	if (widgetName === 'hidden' || !shouldRender(condition, uiForm.state.properties, key)) {
 		return null;
 	}
-	const WidgetImpl = getWidget(widgets, widgetName, displayMode || displayModeFromSchema);
+	const WidgetImpl = getWidget(uiForm.widgets, widgetName, displayMode || displayModeFromSchema);
 	if (!WidgetImpl) {
 		return <p className="text-danger">Widget not found {widgetName}</p>;
 	}
 
 	const widgetId = sfPath.name(key, '_', id);
-	const error = getError(state.errors, props.schema);
+	const error = getError(uiForm.state.errors, props.schema);
 	const errorMessage = validationMessage || error;
 	const all = {
 		errorMessage,
 		id: widgetId || id,
+		key: id,
 		isValid: !error,
 		onChange,
-		onFinish: noop,
-		onTrigger: noop,
+		onFinish,
+		onTrigger,
 		options,
 		schema: props.schema,
-		value: getValue(state.properties, props.schema),
+		value: getValue(uiForm.state.properties, props.schema),
 		valueIsUpdating: isUpdating(updating, props.schema.key),
 	};
 

@@ -97,22 +97,21 @@ function getFilteredCollection({ name, selection, certified, favorites, selected
 	return c;
 }
 
-function createCommonProps(tab) {
+function createCommonProps() {
 	return {
-		autocomplete: 'off',
+		autoComplete: 'off',
 		// onBlur: action('Blur'),
 		customValidation(schema, value, properties) {
 			action('customValidation')(schema, value, properties);
 			return value.length >= 5 && 'Custom validation : The value should be less than 5 chars';
 		},
-		formName: `my-form-${tab}`,
-		onChange: action('Change'),
+		id: 'my-form',
 		onTrigger(event, payload) {
 			action('Trigger')(event, payload);
 			const schema = payload.schema;
 			const key = schema.key && schema.key[schema.key.length - 1];
 			if (key && key.includes('fail')) {
-				return Promise.reject({ errors: { [schema.key]: 'This trigger has failed' } });
+				return Promise.resolve({ errors: { [schema.key]: 'This trigger has failed' } });
 			}
 
 			if (key && (key.includes('asyncTitleMap') || key.includes('AsyncTitleMap'))) {
@@ -149,10 +148,12 @@ function createCommonProps(tab) {
 				return Promise.resolve({
 					properties: properties => {
 						const { datasetId, name } = properties;
-						return (name && name.length) ? properties : {
-							...properties,
-							name: datasetId && `Resource ${datasetId} preparation`,
-						};
+						return name && name.length
+							? properties
+							: {
+									...properties,
+									name: datasetId && `Resource ${datasetId} preparation`,
+							  };
 					},
 					errors: errors => {
 						const e = { ...errors };
@@ -186,14 +187,13 @@ class DisplayModeForm extends React.Component {
 	}
 
 	render() {
+		const { doc, category, ...uiFormProps } = this.props;
 		return (
 			<section>
 				<IconsProvider />
-				{this.props.doc && (
+				{doc && (
 					<a
-						href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${
-							this.props.category
-						}/${this.props.doc}`}
+						href={`https://github.com/Talend/ui/tree/master/packages/forms/src/UIForm/${category}/${doc}`}
 						target="_blank"
 						rel="noopener noreferrer"
 					>
@@ -217,7 +217,7 @@ class DisplayModeForm extends React.Component {
 
 				<hr style={{ borderColor: 'black' }} />
 
-				<UIForm {...this.props} displayMode={this.state.displayMode} />
+				<UIForm {...uiFormProps} displayMode={this.state.displayMode} />
 			</section>
 		);
 	}
@@ -233,14 +233,7 @@ function createStory(category, sampleFilenames, filename) {
 		name,
 		story() {
 			const { doc, ...data } = sampleFilenames(filename);
-			return (
-				<DisplayModeForm
-					{...createCommonProps('state')}
-					data={data}
-					doc={doc}
-					category={category}
-				/>
-			);
+			return <DisplayModeForm {...createCommonProps()} data={data} doc={doc} category={category} />;
 		},
 	};
 }

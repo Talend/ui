@@ -3,6 +3,8 @@ import React from 'react';
 import classNames from 'classnames';
 import Toggle from '@talend/react-components/lib/Toggle';
 
+const noop = () => {};
+
 export default function TextModeToggle(props) {
 	return (
 		<div className={classNames('form-group', props.className)}>
@@ -11,7 +13,13 @@ export default function TextModeToggle(props) {
 					{props.schema.title}
 				</label>
 				<div aria-hidden>
-					<Toggle checked={props.value} disabled label={props.schema.title} />
+					<Toggle
+						id={`${props.id}-input`}
+						checked={props.value}
+						label={props.schema.title}
+						onChange={noop}
+						disabled
+					/>
 				</div>
 			</dt>
 			<dd id={props.id} className="sr-only">
@@ -28,8 +36,8 @@ TextModeToggle.defaultProps = {
 if (process.env.NODE_ENV !== 'production') {
 	TextModeToggle.propTypes = {
 		className: PropTypes.string,
-		value: PropTypes.bool.required,
-		id: PropTypes.string.required,
+		value: PropTypes.bool.isRequired,
+		id: PropTypes.string.isRequired,
 		schema: PropTypes.shape({
 			required: PropTypes.bool,
 			description: PropTypes.string,

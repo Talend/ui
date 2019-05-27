@@ -5,27 +5,24 @@ import SingleButton from './SingleButton.component';
 
 import theme from './Buttons.scss';
 
-function getButtonsList(id, buttons, onTrigger, onClick, getComponent) {
-	if (!buttons) {
+export default function Buttons({ id, onTrigger, className, schema, onClick, getComponent }) {
+	if (!schema.items) {
 		return null;
 	}
-	return buttons.map((itemSchema, index) => (
-		<SingleButton
-			className={classNames(theme[itemSchema.position], itemSchema.className)}
-			key={index}
-			id={itemSchema.id || `${id}-${index}`}
-			onTrigger={onTrigger}
-			onClick={onClick && onClick(itemSchema.onClick)}
-			schema={itemSchema}
-			getComponent={getComponent}
-		/>
-	));
-}
 
-export default function Buttons({ id, onTrigger, className, schema, onClick, getComponent }) {
 	return (
 		<div className={classNames(theme['tf-buttons'], 'tf-buttons', className)}>
-			{getButtonsList(id, schema.items, onTrigger, onClick, getComponent)}
+			{schema.items.map((itemSchema, index) => (
+				<SingleButton
+					className={classNames(theme[itemSchema.position], itemSchema.className)}
+					key={index}
+					id={itemSchema.id || `${id}-${index}`}
+					onTrigger={onTrigger}
+					onClick={onClick && onClick(itemSchema.onClick)}
+					schema={itemSchema}
+					getComponent={getComponent}
+				/>
+			))}
 		</div>
 	);
 }

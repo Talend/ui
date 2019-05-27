@@ -56,8 +56,8 @@ function Resource({ parent, index, style, className, t }) {
 			aria-label={name}
 			onClick={onRowClick}
 		>
-			{icon && <Icon name={icon} />}
-			<div className={classNames('data-container', theme['data-container'])}>
+			{icon && <Icon key="icon" name={icon} />}
+			<div key="description" className={classNames('data-container', theme['data-container'])}>
 				<span className={classNames('title', theme.title)}>{name}</span>
 				{author ? (
 					<small className={classNames('author', theme.author)}>
@@ -65,9 +65,10 @@ function Resource({ parent, index, style, className, t }) {
 					</small>
 				) : null}
 			</div>
-			<div className={classNames('flags-container', theme['flags-container'])}>
+			<div key="flags" className={classNames('flags-container', theme['flags-container'])}>
 				{Object.keys(FLAGS).map(flag => (
 					<Icon
+						key={flag}
 						className={classNames(theme.flag, {
 							[theme.visible]: flags.includes(flag),
 						})}

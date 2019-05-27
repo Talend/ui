@@ -3,7 +3,7 @@ import React from 'react';
 import { TextMode as FieldTemplate } from '../../FieldTemplate';
 import TextModeArrayTemplate from '../../../fieldsets/Array/displayMode/TextModeArrayTemplate.component';
 
-export default function TextMode(props) {
+export default function SelectTextMode(props) {
 	if (Array.isArray(props.value)) {
 		return <TextModeArrayTemplate {...props} />;
 	}
@@ -17,7 +17,7 @@ export default function TextMode(props) {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-	TextMode.propTypes = {
+	SelectTextMode.propTypes = {
 		id: PropTypes.string,
 		schema: PropTypes.shape({
 			title: PropTypes.string,
@@ -26,7 +26,7 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-TextMode.defaultProps = {
+SelectTextMode.defaultProps = {
 	schema: {},
 	value: '',
 };

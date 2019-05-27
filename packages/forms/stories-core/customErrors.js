@@ -189,10 +189,13 @@ const schema = {
 	},
 };
 
-const errors = schema.uiSchema.reduce((acc, current) => ({
-	...acc,
-	[current.key.split('.').join(',')]: 'There is an error',
-}), {});
+const errors = schema.uiSchema.reduce(
+	(acc, current) => ({
+		...acc,
+		[current.key.split('.').join(',')]: 'There is an error',
+	}),
+	{},
+);
 
 function story() {
 	return (
@@ -204,10 +207,10 @@ function story() {
 				UIForm "updating" prop which is an array of the schema keys where to apply
 			</p>
 			<UIForm
-				data={schema}
+				id="my-form"
+				data={{ ...schema, errors }}
 				onChange={action('Change')}
 				onSubmit={action('onSubmit')}
-				errors={errors}
 			/>
 		</div>
 	);

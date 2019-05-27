@@ -25,8 +25,9 @@ export default function ResourcePicker({ collection, isSelected, onRowClick, too
 
 	return (
 		<div className={classNames('tc-resource-picker', theme['tc-resource-picker'])}>
-			{toolbar && <Toolbar {...toolbar} />}
+			{toolbar && <Toolbar key="toolbar" {...toolbar} />}
 			<div
+				key="list"
 				className={classNames(theme['tc-resource-picker-list-container'], {
 					[theme.filtered]: isFiltered(toolbar),
 				})}
@@ -53,5 +54,5 @@ ResourcePicker.propTypes = {
 	onRowClick: PropTypes.func,
 	collection: PropTypes.arrayOf(PropTypes.object),
 	isLoading: PropTypes.bool,
-	toolbar: Toolbar.propTypes,
+	toolbar: PropTypes.shape(Toolbar.propTypes),
 };

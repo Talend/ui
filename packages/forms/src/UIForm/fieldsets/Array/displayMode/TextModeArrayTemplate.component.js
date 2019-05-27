@@ -32,9 +32,9 @@ export default function TextModeArrayTemplate(props) {
 
 if (process.env.NODE_ENV !== 'production') {
 	TextModeArrayTemplate.propTypes = {
-		id: PropTypes.id,
-		renderItem: PropTypes.func.isRequired,
+		id: PropTypes.string.isRequired,
+		renderItem: PropTypes.func,
 		schema: PropTypes.object.isRequired,
-		value: PropTypes.arrayOf(PropTypes.object).isRequired,
+		value: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object])).isRequired,
 	};
 }
