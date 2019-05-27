@@ -13,6 +13,10 @@ const icons = {
 	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
 };
 
+export const customSkeletonConf = [
+	{ key: 'skel1', 'data-grid': { w: 2, h: 2, x: 0, y: 0, i: 'skel1' } },
+];
+
 function TdsTileContent() {
 	const { displayMode= 'chart', setDisplayMode } = Tile.useTileContext();
 
@@ -106,7 +110,7 @@ function ChartTile({ tile }) {
 	);
 }
 
-function GridContainer() {
+function GridContainer({ isLoading = false, skeletonConfiguration }) {
 	const [tiles, setTiles] = useState([
 		{
 			header: {
@@ -155,14 +159,15 @@ function GridContainer() {
 
 	function onDragStopCallback(layout, oldItem, newItem) {}
 
-	console.log('rerender');
 	return (
 		<div className="App">
 			<GridLayout
 				layoutChangeCallback={layoutChangeCallback}
 	            onBreakpointChangeCallback={onBreakpointChangeCallback}
 				onDragStopCallback={onDragStopCallback}
-				isResizable>
+				isResizable
+				isLoading={isLoading}
+				skeletonConfiguration={skeletonConfiguration}>
 				{ tiles.map(tile => (
 					<div key={tile.key} data-grid={tile['data-grid']}>
 						<ChartTile tile={tile} />
@@ -181,4 +186,7 @@ storiesOf('GridLayout', module)
 			{story()}
 		</div>
 	))
-	.add('default', () => <GridContainer />);
+	.add('default', () => <GridContainer />)
+	.add('isLoading', () => <GridContainer isLoading />)
+	.add('isLoading with custom grid', () => <GridContainer isLoading skeletonConfiguration={customSkeletonConf} />);
+;

@@ -11,3 +11,7 @@
 		background: $scooter;
 	}
 }
+
+:global(.skeleton-tile .tc-tile-container .tc-tile-body) {
+	padding: 0;
+}
