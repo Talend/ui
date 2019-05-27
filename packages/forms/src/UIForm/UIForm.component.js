@@ -242,7 +242,7 @@ export class UIFormComponent extends React.Component {
 			if (this.props.moz) {
 				this.props.onSubmit(null, { formData: properties });
 			} else {
-				this.props.onSubmit(event, properties);
+				this.props.onSubmit(event, properties, mergedSchema);
 			}
 		}
 
