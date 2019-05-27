@@ -27,7 +27,6 @@ function DefaultArrayTemplate(props) {
 		valueIsUpdating,
 		options = {},
 		isCloseable,
-		disabled,
 	} = props;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
@@ -43,7 +42,7 @@ function DefaultArrayTemplate(props) {
 				className={classNames(theme['tf-array-add'], 'tf-array-add')}
 				bsStyle={'info'}
 				onClick={onAdd}
-				disabled={valueIsUpdating || disabled}
+				disabled={valueIsUpdating || schema.disabled}
 				label={options.btnLabel || t('ARRAY_ADD_ELEMENT', { defaultValue: 'New Element' })}
 			/>
 			<Message
@@ -73,7 +72,7 @@ function DefaultArrayTemplate(props) {
 							valueIsUpdating={valueIsUpdating}
 							renderItem={renderItem}
 							isCloseable={isCloseable}
-							disabled={disabled}
+							disabled={schema.disabled}
 						/>
 					</li>
 				))}
@@ -105,7 +104,6 @@ if (process.env.NODE_ENV !== 'production') {
 		}),
 		t: PropTypes.func.isRequired,
 		isCloseable: PropTypes.bool,
-		disabled: PropTypes.bool,
 	};
 }
 

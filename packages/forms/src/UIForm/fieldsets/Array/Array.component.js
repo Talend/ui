@@ -139,7 +139,6 @@ export default class ArrayWidget extends React.Component {
 				onRemove={this.onRemove}
 				renderItem={this.renderItem}
 				isCloseable={this.isCloseable()}
-				disabled={schema.disabled}
 			/>
 		);
 	}
