@@ -65,7 +65,7 @@ class InputDateTimePicker extends React.Component {
 
 		this.onBlur = this.onBlur.bind(this);
 		this.onFocus = this.onFocus.bind(this);
-		this.onClick = this.onFocus.bind(this);
+		this.onClick = this.onClick.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
 		this.openPicker = this.setPickerVisibility.bind(this, true);
@@ -107,6 +107,10 @@ class InputDateTimePicker extends React.Component {
 		if (!this.state.picked) {
 			this.openPicker();
 		}
+	}
+
+	onClick() {
+		this.openPicker();
 	}
 
 	onChange(event, payload) {
