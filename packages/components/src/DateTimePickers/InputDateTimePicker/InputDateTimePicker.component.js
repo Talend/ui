@@ -97,14 +97,16 @@ class InputDateTimePicker extends React.Component {
 
 	onBlur(event, { onReset }) {
 		onReset();
-		this.closePicker();
+		this.closePicker({ picked: false });
 		if (this.props.onBlur) {
 			this.props.onBlur(event);
 		}
 	}
 
 	onFocus() {
-		this.openPicker();
+		if (!this.state.picked) {
+			this.openPicker();
+		}
 	}
 
 	onChange(event, payload) {
@@ -114,26 +116,25 @@ class InputDateTimePicker extends React.Component {
 			(!this.props.formMode && !this.props.useTime && payload.origin !== 'INPUT')
 		) {
 			this.inputRef.focus();
-			setTimeout(() => this.closePicker());
+			this.closePicker({ picked: true });
 		}
 	}
 
-	setPickerVisibility(isShown) {
+	setPickerVisibility(isShown, extra = {}) {
 		if (this.props.readOnly) {
 			return;
 		}
 
 		this.setState(({ showPicker }) => {
 			if (showPicker === isShown) {
-				return null;
+				return extra;
 			}
-			return { showPicker: isShown };
+			return { showPicker: isShown, ...extra };
 		});
 	}
 
 	render() {
 		const inputProps = omit(this.props, PROPS_TO_OMIT_FOR_INPUT);
-
 		const dateTimePicker = [
 			<DateTime.Input
 				{...inputProps}
