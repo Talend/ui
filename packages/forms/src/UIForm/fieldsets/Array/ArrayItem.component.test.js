@@ -94,12 +94,7 @@ describe('Array Item component', () => {
 			deleteAction = actions[0];
 		};
 		// when
-		shallow(
-			<ArrayItem
-				id={'disabled-array-item'}
-				renderItem={renderItem}
-				disabled
-			/>);
+		shallow(<ArrayItem id={'disabled-array-item'} renderItem={renderItem} disabled />);
 		// then
 		expect(deleteAction.disabled).toBe(true);
 	});

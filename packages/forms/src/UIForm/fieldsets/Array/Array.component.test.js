@@ -137,16 +137,18 @@ describe('Array component', () => {
 			disabled: true,
 		};
 		// when
-		const wrapper = mount(<ArrayWidget
-			description={'My array description'}
-			id={'talend-array'}
-			isValid
-			onChange={jest.fn()}
-			onFinish={jest.fn()}
-			schema={disabledSchema}
-			value={value}
-			errors={{}}
-		/>);
+		const wrapper = mount(
+			<ArrayWidget
+				description={'My array description'}
+				id={'talend-array'}
+				isValid
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				schema={disabledSchema}
+				value={value}
+				errors={{}}
+			/>,
+		);
 		// then
 		expect(wrapper.find('Action#talend-array-btn').prop('disabled')).toBe(true);
 	});
