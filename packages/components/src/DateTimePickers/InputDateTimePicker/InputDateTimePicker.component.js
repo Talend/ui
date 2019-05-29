@@ -65,6 +65,7 @@ class InputDateTimePicker extends React.Component {
 
 		this.onBlur = this.onBlur.bind(this);
 		this.onFocus = this.onFocus.bind(this);
+		this.onClick = this.onClick.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
 		this.openPicker = this.setPickerVisibility.bind(this, true);
@@ -96,13 +97,19 @@ class InputDateTimePicker extends React.Component {
 
 	onBlur(event, { onReset }) {
 		onReset();
-		this.closePicker();
+		this.closePicker({ picked: false });
 		if (this.props.onBlur) {
 			this.props.onBlur(event);
 		}
 	}
 
 	onFocus() {
+		if (!this.state.picked) {
+			this.openPicker();
+		}
+	}
+
+	onClick() {
 		this.openPicker();
 	}
 
@@ -113,26 +120,25 @@ class InputDateTimePicker extends React.Component {
 			(!this.props.formMode && !this.props.useTime && payload.origin !== 'INPUT')
 		) {
 			this.inputRef.focus();
-			this.closePicker();
+			this.closePicker({ picked: true });
 		}
 	}
 
-	setPickerVisibility(isShown) {
+	setPickerVisibility(isShown, extra = {}) {
 		if (this.props.readOnly) {
 			return;
 		}
 
 		this.setState(({ showPicker }) => {
 			if (showPicker === isShown) {
-				return null;
+				return extra;
 			}
-			return { showPicker: isShown };
+			return { showPicker: isShown, ...extra };
 		});
 	}
 
 	render() {
 		const inputProps = omit(this.props, PROPS_TO_OMIT_FOR_INPUT);
-
 		const dateTimePicker = [
 			<DateTime.Input
 				{...inputProps}
@@ -176,6 +182,7 @@ class InputDateTimePicker extends React.Component {
 							divRef={ref => {
 								this.containerRef = ref;
 							}}
+							onClick={this.onClick}
 							onFocusIn={this.onFocus}
 							onFocusOut={event => {
 								this.onBlur(event, formManagement);
