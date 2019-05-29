@@ -5,11 +5,16 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
   82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/KeyValue/KeyValue.component.js
+  77:13  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
+  78:13  error  'onFinish' PropType is defined but prop is never used  react/no-unused-prop-types
+  88:10  error  'value' PropType is defined but prop is never used     react/no-unused-prop-types
+
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/ArrayItem.component.js
   3:8  error  'Icon' is defined but never used  no-unused-vars
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/index.js
-  1:1  error  Expected exception block, space or tab after '//' in comment  spaced-comment
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/CollapsibleFieldset/CollapsibleFieldset.component.js
+  35:34  error  'restProps' is assigned a value but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/FormTemplate/DefaultFormTemplate.component.js
   5:2  error  'formRef' is missing in props validation        react/prop-types
@@ -28,44 +33,12 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/hooks/useErrorHandler.js
   31:35  error  Arrow function used ambiguously with a conditional expression  no-confusing-arrow
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/index.js
-  1:1  error  Expected exception block, space or tab after '//' in comment  spaced-comment
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/index.test.js
+  2:28  error  Unable to resolve path to module './UIForm.container'  import/no-unresolved
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.js
-   98:2  error  initLanguage should be placed after onSubmit            react/sort-comp
-  364:4  error  'actions' is assigned a value but never used            no-unused-vars
-  365:4  error  'buttonBlockClass' is assigned a value but never used   no-unused-vars
-  368:4  error  'customFormats' is already declared in the upper scope  no-shadow
-  368:4  error  'customFormats' is assigned a value but never used      no-unused-vars
-  369:4  error  'customValidation' is assigned a value but never used   no-unused-vars
-  370:4  error  'data' is assigned a value but never used               no-unused-vars
-  372:4  error  'getComponent' is assigned a value but never used       no-unused-vars
-  373:4  error  'i18n' is assigned a value but never used               no-unused-vars
-  375:4  error  'initialData' is assigned a value but never used        no-unused-vars
-  376:4  error  'language' is assigned a value but never used           no-unused-vars
-  377:4  error  'moz' is assigned a value but never used                no-unused-vars
-  379:4  error  'onChange' is assigned a value but never used           no-unused-vars
-  380:4  error  'onErrors' is assigned a value but never used           no-unused-vars
-  381:4  error  'onReset' is assigned a value but never used            no-unused-vars
-  382:4  error  'onSubmit' is assigned a value but never used           no-unused-vars
-  383:4  error  'onSubmitEnter' is assigned a value but never used      no-unused-vars
-  384:4  error  'onSubmitLeave' is assigned a value but never used      no-unused-vars
-  385:4  error  'onTrigger' is assigned a value but never used          no-unused-vars
-  386:4  error  't' is assigned a value but never used                  no-unused-vars
-  387:4  error  'tReady' is assigned a value but never used             no-unused-vars
-  388:4  error  'templates' is assigned a value but never used          no-unused-vars
-  390:4  error  'widgets' is assigned a value but never used            no-unused-vars
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.container.test.js
+  5:20  error  Unable to resolve path to module './UIForm.container'  import/no-unresolved
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIFormFn.js
-   44:3   error  'moz' is missing in props validation         react/prop-types
-   54:3   error  'tReady' is assigned a value but never used  no-unused-vars
-   54:3   error  'tReady' is missing in props validation      react/prop-types
-  247:42  error  't' is already declared in the upper scope   no-shadow
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIFormWithHooks.js
-  29:3  error  'i18n' is assigned a value but never used    no-unused-vars
-  43:3  error  'tReady' is assigned a value but never used  no-unused-vars
-
-✖ 42 problems (42 errors, 0 warnings)
-  4 errors, 0 warnings potentially fixable with the `--fix` option.
+✖ 17 problems (17 errors, 0 warnings)
+  2 errors, 0 warnings potentially fixable with the `--fix` option.
 
