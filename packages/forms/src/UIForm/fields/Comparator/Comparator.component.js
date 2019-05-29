@@ -30,10 +30,10 @@ function getPartSchema(schema, part) {
 	};
 }
 
-function OperatorListElement({ value, name, selected }) {
+function OperatorListElement({ symbol, name, selected }) {
 	return (
 		<span className={classNames(theme.operator, { [theme.selected]: selected })}>
-			<span>{value}</span>
+			{symbol && <span>{symbol}</span>}
 			{name && <span className={classNames(theme.name)}>{name}</span>}
 		</span>
 	);
@@ -86,22 +86,31 @@ class Comparator extends React.Component {
 	getOperatorSchema = getPartSchema.bind(this, this.props.schema, 'operator');
 	getValueSchema = getPartSchema.bind(this, this.props.schema, 'value');
 
-	getOperatorsMap() {
-		const schema = this.getOperatorSchema();
+	getFormattedOperators() {
 		const map = this.props.schema.titleMap || [];
-
+		const schema = this.getOperatorSchema();
 		return schema.titleMap.map(({ value }) => {
-			const text = (map.find(m => m.value === value) || {}).name;
-			const title = text ? `${value} (${text})` : value;
-
+			const values = map.find(m => m.value === value);
+			const title = values ? `${values.symbol} (${values.name})` : value;
 			return {
 				value,
 				title,
-				name: (
+				name: values ? values.name : '',
+				symbol: values ? values.symbol : value,
+			};
+		});
+	}
+
+	getOperatorsMap() {
+		return this.getFormattedOperators().map(({ value, title, name, symbol }) => {
+			return {
+				value,
+				title,
+				label: (
 					<OperatorListElement
 						selected={this.props.value.operator === value}
-						value={value}
-						name={text}
+						name={name}
+						symbol={symbol}
 					/>
 				),
 			};
@@ -109,15 +118,15 @@ class Comparator extends React.Component {
 	}
 
 	render() {
-		const operators = this.getOperatorSchema();
-
+		const formatted = this.getFormattedOperators();
+		const current = formatted.find(f => f.value === this.props.value.operator);
 		return (
 			<div className={classNames(theme.comparator)}>
 				<ActionDropdown
-					label={this.props.value.operator}
+					label={current && current.symbol}
 					onSelect={this.onSelect}
-					disabled={operators.disabled}
-					items={this.getOperatorsMap().map(({ name: label, value, title }, index) => ({
+					disabled={this.getOperatorSchema().disabled}
+					items={this.getOperatorsMap().map(({ label, value, title }, index) => ({
 						id: `comparison-operator-${index}`,
 						label,
 						value,
