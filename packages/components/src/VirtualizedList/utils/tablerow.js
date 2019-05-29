@@ -6,12 +6,14 @@ import classNames from 'classnames';
 import { Column } from 'react-virtualized';
 
 import CellCheckboxRenderer from '../CellCheckbox';
+import HeaderCheckboxRenderer from '../HeaderCheckbox';
 import { internalIds } from './constants';
 
 /**
  * Insert a checkbox column configuration to select a row.
  */
-export function insertSelectionConfiguration({ children, isSelected, selectionToggle }) {
+export function insertSelectionConfiguration(props) {
+	const { collection, children, isSelected, onToggleAll, selectionToggle } = props;
 	let contentsConfiguration = React.Children.toArray(children);
 	if (selectionToggle && isSelected) {
 		const toggleColumn = (
@@ -24,8 +26,15 @@ export function insertSelectionConfiguration({ children, isSelected, selectionTo
 				flexShrink={0}
 				flexGrow={0}
 				cellDataGetter={({ rowData }) => isSelected(rowData)}
-				columnData={{ label: 'Select this element', onChange: selectionToggle }}
+				columnData={{
+					label: 'Select this element',
+					onChange: selectionToggle,
+					onToggleAll,
+					collection,
+					isSelected,
+				}}
 				{...CellCheckboxRenderer}
+				{...HeaderCheckboxRenderer}
 			/>
 		);
 		contentsConfiguration = [toggleColumn].concat(contentsConfiguration);

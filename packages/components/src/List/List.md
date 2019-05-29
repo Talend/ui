@@ -47,9 +47,6 @@ This component displays a list with two optional toolbars
 * `.toolbar`
   * before-actionbar
   * after-actionbar
-  * before-navbar
-  * before-selectall
-  * after-selectall
   * before-display
   * after-display
   * before-sort
@@ -58,7 +55,6 @@ This component displays a list with two optional toolbars
   * after-pagination
   * before-filter
   * after-filter
-  * after-navbar
 * after-toolbar
 * before-list-wrapper
 * before-list

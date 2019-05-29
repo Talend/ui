@@ -42,7 +42,7 @@ function DefaultArrayTemplate(props) {
 				className={classNames(theme['tf-array-add'], 'tf-array-add')}
 				bsStyle={'info'}
 				onClick={onAdd}
-				disabled={valueIsUpdating}
+				disabled={valueIsUpdating || schema.disabled}
 				label={options.btnLabel || t('ARRAY_ADD_ELEMENT', { defaultValue: 'New Element' })}
 			/>
 			<Message
@@ -72,6 +72,7 @@ function DefaultArrayTemplate(props) {
 							valueIsUpdating={valueIsUpdating}
 							renderItem={renderItem}
 							isCloseable={isCloseable}
+							disabled={schema.disabled}
 						/>
 					</li>
 				))}

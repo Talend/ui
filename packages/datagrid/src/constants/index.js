@@ -7,7 +7,7 @@ import {
 	QUALITY_EMPTY_KEY,
 	QUALITY_VALID_KEY,
 } from './datagrid.constants';
-import AVRO_TYPES from './avro-type.constant';
+import { AVRO_TYPES, LOGICAL_TYPES } from './avro-type.constant';
 
 export {
 	NAMESPACE_INDEX,
@@ -18,4 +18,5 @@ export {
 	QUALITY_EMPTY_KEY,
 	QUALITY_VALID_KEY,
 	AVRO_TYPES,
+	LOGICAL_TYPES,
 };

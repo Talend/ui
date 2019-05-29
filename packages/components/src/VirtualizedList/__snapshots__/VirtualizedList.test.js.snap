@@ -48,9 +48,23 @@ exports[`VirtualizedList should render RendererSelector 1`] = `
     className="theme-cell tc-list-cell-"
     columnData={
       Object {
+        "collection": Array [
+          Object {
+            "description": "Simple row with icon and actions",
+            "id": 0,
+            "name": "Title with icon and actions",
+          },
+          Object {
+            "description": "Simple row without actions",
+            "id": 1,
+            "name": "Title without actions",
+          },
+        ],
         "id": "my-list-id",
+        "isSelected": [MockFunction],
         "label": "Select this element",
         "onChange": [MockFunction],
+        "onToggleAll": undefined,
       }
     }
     dataKey=""
