@@ -7,7 +7,11 @@ export default function FieldsetTextMode(props) {
 	const { title, items } = schema;
 
 	const definitionList = (
-		<dl>{items.map((itemSchema, index) => <Widget key={index} schema={itemSchema} />)}</dl>
+		<dl>
+			{items.map((itemSchema, index) => (
+				<Widget key={index} schema={itemSchema} />
+			))}
+		</dl>
 	);
 
 	if (title) {

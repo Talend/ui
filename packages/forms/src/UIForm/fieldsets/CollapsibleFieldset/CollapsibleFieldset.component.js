@@ -73,7 +73,9 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 					</div>
 					{!value.isClosed && (
 						<div className={theme.body}>
-							{items.map((itemSchema, index) => <Widget key={index} schema={itemSchema} />)}
+							{items.map((itemSchema, index) => (
+								<Widget key={index} schema={itemSchema} />
+							))}
 						</div>
 					)}
 				</fieldset>
