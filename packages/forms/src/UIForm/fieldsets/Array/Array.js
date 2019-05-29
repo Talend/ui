@@ -28,7 +28,7 @@ export default function ArrayWidget(props) {
 	const ArrayTemplate = templates[templateId];
 
 	const itemWidget = widgets[schema.itemWidget];
-	const isCloseable = itemWidget && itemWidget.isCloseable();
+	const isCloseable = itemWidget && itemWidget.isCloseable;
 
 	function onAdd(event) {
 		const defaultValue = schema.schema.items.type === 'object' ? {} : '';

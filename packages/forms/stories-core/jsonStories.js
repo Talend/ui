@@ -106,6 +106,7 @@ function createCommonProps() {
 			return value.length >= 5 && 'Custom validation : The value should be less than 5 chars';
 		},
 		id: 'my-form',
+		onChange: action('Change'),
 		onTrigger(event, payload) {
 			action('Trigger')(event, payload);
 			const schema = payload.schema;

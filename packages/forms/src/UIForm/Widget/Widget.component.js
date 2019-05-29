@@ -27,64 +27,88 @@ function isUpdating(updatingKeys = [], key) {
 	const serializedKey = key.join('.');
 	return updatingKeys.some(path => serializedKey.startsWith(path));
 }
-const noop = () => {};
-export default function Widget(props) {
-	const {
-		condition,
-		key,
-		options,
-		type,
-		validationMessage,
-		widget,
-		displayMode: displayModeFromSchema,
-		tooltip,
-		tooltipPlacement,
-	} = props.schema;
 
+function Widget(props) {
+	const { displayMode, widgetId, widgets, ...rest } = props;
+	const { schema } = rest;
+
+	const { options, tooltip, tooltipPlacement } = schema;
+
+	const WidgetImpl = getWidget(widgets, widgetId, displayMode);
+	if (!WidgetImpl) {
+		return <p className="text-danger">Widget not found {widgetId}</p>;
+	}
+
+	const widgetElement = <WidgetImpl options={options} {...rest} />;
+	if (!tooltip) {
+		return widgetElement;
+	}
+	return (
+		<TooltipTrigger label={tooltip} tooltipPlacement={tooltipPlacement || 'left'}>
+			<div>{widgetElement}</div>
+		</TooltipTrigger>
+	);
+}
+const MemoWidget = React.memo(Widget);
+
+export default function ContextualWidget({ schema }) {
 	const { displayMode, id, onChange, onFinish, onTrigger, state, updating, widgets } = useContext(
 		UIFormContext,
 	);
+	const {
+		condition,
+		displayMode: displayModeFromSchema,
+		key,
+		type,
+		validationMessage,
+		widget,
+	} = schema;
 
-	const widgetName = widget || type;
-	if (widgetName === 'hidden' || !shouldRender(condition, state.properties, key)) {
+	const widgetId = widget || type;
+	if (widgetId === 'hidden' || !shouldRender(condition, state.properties, key)) {
 		return null;
 	}
-	const WidgetImpl = getWidget(widgets, widgetName, displayMode || displayModeFromSchema);
-	if (!WidgetImpl) {
-		return <p className="text-danger">Widget not found {widgetName}</p>;
-	}
 
-	const widgetId = sfPath.name(key, '_', id);
-	const error = getError(state.errors, props.schema);
-	const errorMessage = validationMessage || error;
-	const all = {
-		errorMessage,
-		id: widgetId || id,
-		isValid: !error,
-		onChange,
-		onFinish: noop,
-		onTrigger: noop,
-		options,
-		schema: props.schema,
-		value: getValue(state.properties, props.schema),
-		valueIsUpdating: isUpdating(updating, props.schema.key),
-	};
+	const inputId = sfPath.name(key, '_', id) || id;
+	const error = getError(state.errors, schema);
 
-	if (tooltip) {
-		return (
-			<TooltipTrigger label={tooltip} tooltipPlacement={tooltipPlacement || 'left'}>
-				<div>
-					<WidgetImpl {...all} />
-				</div>
-			</TooltipTrigger>
-		);
-	}
-
-	return <WidgetImpl {...all} />;
+	return (
+		<MemoWidget
+			displayMode={displayMode || displayModeFromSchema}
+			error={error}
+			errorMessage={validationMessage || error}
+			id={inputId}
+			isValid={!error}
+			onChange={onChange}
+			onFinish={onFinish}
+			onTrigger={onTrigger}
+			schema={schema}
+			value={getValue(state.properties, schema)}
+			valueIsUpdating={isUpdating(updating, schema.key)}
+			widgetId={widgetId}
+			widgets={widgets}
+		/>
+	);
 }
 
 if (process.env.NODE_ENV !== 'production') {
 	Widget.propTypes = {
+		displayMode: PropTypes.string,
+		error: PropTypes.string,
+		errorMessage: PropTypes.string,
+		id: PropTypes.string,
+		onChange: PropTypes.func,
+		onFinish: PropTypes.func,
+		onTrigger: PropTypes.func,
+		schema: PropTypes.shape({
+			options: PropTypes.object,
+		}).isRequired,
+		value: PropTypes.any,
+		valueIsUpdating: PropTypes.bool,
+		widgetId: PropTypes.string,
+		widgets: PropTypes.object,
+	};
+	ContextualWidget.propTypes = {
 		schema: PropTypes.shape({
 			conditions: PropTypes.arrayOf(
 				PropTypes.shape({
@@ -95,7 +119,6 @@ if (process.env.NODE_ENV !== 'production') {
 				}),
 			),
 			key: PropTypes.array,
-			options: PropTypes.object,
 			type: PropTypes.string,
 			validationMessage: PropTypes.string,
 			widget: PropTypes.string,
