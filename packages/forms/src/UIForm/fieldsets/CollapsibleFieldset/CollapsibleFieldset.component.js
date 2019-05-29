@@ -36,6 +36,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 			const { items } = schema;
 			const iconTransform = !this.props.value.isClosed ? 'flip-vertical' : null;
 
+			/* TODO JSO (has error) label */
 			return (
 				<fieldset
 					className={classNames('form-group', theme['collapsible-panel'], 'collapsible-panel')}
@@ -72,9 +73,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 					</div>
 					{!value.isClosed && (
 						<div className={theme.body}>
-							{items.map((itemSchema, index) => (
-								<Widget {...restProps} id={id} key={index} schema={itemSchema} value={value} />
-							))}
+							{items.map((itemSchema, index) => <Widget key={index} schema={itemSchema} />)}
 						</div>
 					)}
 				</fieldset>

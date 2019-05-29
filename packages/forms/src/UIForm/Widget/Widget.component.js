@@ -51,7 +51,7 @@ function Widget(props) {
 }
 const MemoWidget = React.memo(Widget);
 
-export default function ContextualWidget({ schema }) {
+export default function ContextualWidget(props) {
 	const { displayMode, id, onChange, onFinish, onTrigger, state, updating, widgets } = useContext(
 		UIFormContext,
 	);
@@ -62,7 +62,7 @@ export default function ContextualWidget({ schema }) {
 		type,
 		validationMessage,
 		widget,
-	} = schema;
+	} = props.schema;
 
 	const widgetId = widget || type;
 	if (widgetId === 'hidden' || !shouldRender(condition, state.properties, key)) {
@@ -70,7 +70,7 @@ export default function ContextualWidget({ schema }) {
 	}
 
 	const inputId = sfPath.name(key, '_', id) || id;
-	const error = getError(state.errors, schema);
+	const error = getError(state.errors, props.schema);
 
 	return (
 		<MemoWidget
@@ -82,11 +82,11 @@ export default function ContextualWidget({ schema }) {
 			onChange={onChange}
 			onFinish={onFinish}
 			onTrigger={onTrigger}
-			schema={schema}
-			value={getValue(state.properties, schema)}
-			valueIsUpdating={isUpdating(updating, schema.key)}
+			value={getValue(state.properties, props.schema)}
+			valueIsUpdating={isUpdating(updating, props.schema.key)}
 			widgetId={widgetId}
 			widgets={widgets}
+			{...props}
 		/>
 	);
 }

@@ -6,15 +6,13 @@ import Widget from '../../Widget';
 import theme from './Columns.scss';
 
 export default function Columns(props) {
-	const { schema, ...restProps } = props;
+	const { schema } = props;
 
 	return (
 		<div className={classNames('tf-columns', theme['tf-columns'])}>
 			{schema.title && <legend>{schema.title}</legend>}
 			<div className={classNames('tf-columns-items', theme.items)}>
-				{schema.items.map((colSchema, index) => (
-					<Widget {...restProps} key={index} schema={colSchema} />
-				))}
+				{schema.items.map((colSchema, index) => <Widget key={index} schema={colSchema} />)}
 			</div>
 		</div>
 	);

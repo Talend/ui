@@ -37,17 +37,7 @@ function getPartSchema(parentSchema, part) {
 	};
 }
 
-function KeyValue({
-	id,
-	isValid,
-	errorMessage,
-	onChange,
-	onFinish,
-	schema,
-	value,
-	valueIsUpdating,
-	...restProps
-}) {
+function KeyValue({ id, isValid, errorMessage, schema, valueIsUpdating }) {
 	const { description, title } = schema;
 
 	const keySchema = getPartSchema(schema, 'key');
@@ -65,22 +55,10 @@ function KeyValue({
 		>
 			<dl className={theme['key-value']}>
 				<dt>
-					<Widget
-						{...restProps}
-						onChange={onChange}
-						onFinish={onFinish}
-						schema={keySchema}
-						value={value.key}
-					/>
+					<Widget schema={keySchema} />
 				</dt>
 				<dd>
-					<Widget
-						{...restProps}
-						onChange={onChange}
-						onFinish={onFinish}
-						schema={valueSchema}
-						value={value.value}
-					/>
+					<Widget schema={valueSchema} />
 				</dd>
 			</dl>
 		</FieldTemplate>

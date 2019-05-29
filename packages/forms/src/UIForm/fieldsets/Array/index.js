@@ -1,4 +1,3 @@
-//import ArrayWidget from './ArrayWithHooks';
-import ArrayWidget from './Array';
+import ArrayWidget from './Array.component';
 
 export default ArrayWidget;

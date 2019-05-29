@@ -39,7 +39,6 @@ class Tabs extends React.Component {
 								: `${item.title} (${t('TF_TABS_HAS_ERRORS', { defaultValue: 'has errors' })})`,
 							children: (
 								<Widget
-									{...restProps}
 									schema={{
 										widget: 'fieldset',
 										...item,

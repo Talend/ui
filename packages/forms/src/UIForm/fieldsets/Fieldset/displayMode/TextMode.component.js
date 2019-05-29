@@ -3,15 +3,11 @@ import PropTypes from 'prop-types';
 import Widget from '../../../Widget';
 
 export default function FieldsetTextMode(props) {
-	const { schema, ...restProps } = props;
+	const { schema } = props;
 	const { title, items } = schema;
 
 	const definitionList = (
-		<dl>
-			{items.map((itemSchema, index) => (
-				<Widget {...restProps} key={index} schema={itemSchema} />
-			))}
-		</dl>
+		<dl>{items.map((itemSchema, index) => <Widget key={index} schema={itemSchema} />)}</dl>
 	);
 
 	if (title) {

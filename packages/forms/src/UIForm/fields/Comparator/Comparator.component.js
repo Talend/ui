@@ -125,12 +125,7 @@ class Comparator extends React.Component {
 					}))}
 					noCaret
 				/>
-				<Widget
-					{...this.props}
-					onChange={this.onChange}
-					onFinish={this.onFinish}
-					schema={this.getValueSchema()}
-				/>
+				<Widget onChange={this.onChange} onFinish={this.onFinish} schema={this.getValueSchema()} />
 			</div>
 		);
 	}
