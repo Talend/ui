@@ -15,10 +15,8 @@ export default function useChangeHandler({ uiForm, onChange }) {
 					formData: newProperties,
 				});
 			} else {
-				uiForm.modifyState(
-					'properties',
-					oldProperties =>
-						typeof properties === 'function' ? properties(oldProperties) : properties,
+				uiForm.modifyState('properties', oldProperties =>
+					typeof properties === 'function' ? properties(oldProperties) : properties,
 				);
 			}
 		},

@@ -134,31 +134,25 @@ export default function useUIForm({
 		dispatchLive,
 	});
 
-	useEffect(
-		() => {
-			if (!initialData) {
-				return;
-			}
-			const withDefaultError = addErrorObject(initialData);
-			setInitial(withDefaultError);
-			setLive(withDefaultError);
-		},
-		[initialData],
-	);
+	useEffect(() => {
+		if (!initialData) {
+			return;
+		}
+		const withDefaultError = addErrorObject(initialData);
+		setInitial(withDefaultError);
+		setLive(withDefaultError);
+	}, [initialData]);
 
-	useEffect(
-		() => {
-			if (!data) {
-				return;
-			}
-			const withDefaultError = addErrorObject(data);
-			setLive(withDefaultError);
-			if (!initial) {
-				setInitial(withDefaultError);
-			}
-		},
-		[data],
-	);
+	useEffect(() => {
+		if (!data) {
+			return;
+		}
+		const withDefaultError = addErrorObject(data);
+		setLive(withDefaultError);
+		if (!initial) {
+			setInitial(withDefaultError);
+		}
+	}, [data]);
 
 	return {
 		state: live,

@@ -74,63 +74,51 @@ function UIForm(props) {
 		[migratedWidgets, widgets],
 	);
 
-	useEffect(
-		() => {
-			// control the tv4 language here.
-			const mergedLanguage = getLanguage(t);
-			if (language != null) {
-				Object.assign(mergedLanguage, language);
-				// Force update of language @talend even if already set
-				tv4.addLanguage('@talend', mergedLanguage);
-				tv4.language('@talend');
-			}
-			if (!tv4.language('@talend')) {
-				tv4.addLanguage('@talend', mergedLanguage);
-				tv4.language('@talend'); // set it
-			}
-			const allFormats = Object.assign(customFormats(t), userCustomFormat);
-			tv4.addFormat(allFormats);
-		},
-		[t],
-	);
+	useEffect(() => {
+		// control the tv4 language here.
+		const mergedLanguage = getLanguage(t);
+		if (language != null) {
+			Object.assign(mergedLanguage, language);
+			// Force update of language @talend even if already set
+			tv4.addLanguage('@talend', mergedLanguage);
+			tv4.language('@talend');
+		}
+		if (!tv4.language('@talend')) {
+			tv4.addLanguage('@talend', mergedLanguage);
+			tv4.language('@talend'); // set it
+		}
+		const allFormats = Object.assign(customFormats(t), userCustomFormat);
+		tv4.addFormat(allFormats);
+	}, [t]);
 
-	useEffect(
-		() => {
-			if (!initialData) {
-				return;
-			}
-			const withDefaultError = addErrorObject(initialData);
+	useEffect(() => {
+		if (!initialData) {
+			return;
+		}
+		const withDefaultError = addErrorObject(initialData);
+		setInitial(withDefaultError);
+		setLive(withDefaultError);
+	}, [initialData]);
+
+	useEffect(() => {
+		if (!data) {
+			return;
+		}
+		const withDefaultError = addErrorObject(data);
+		setLive(withDefaultError);
+		if (!initialData) {
 			setInitial(withDefaultError);
-			setLive(withDefaultError);
-		},
-		[initialData],
-	);
+		}
+	}, [data]);
 
-	useEffect(
-		() => {
-			if (!data) {
-				return;
+	useEffect(() => {
+		if (live.errors && lastAction === 'submit') {
+			const elementWithError = formRef.current.querySelector('[aria-invalid="true"]');
+			if (elementWithError) {
+				elementWithError.focus();
 			}
-			const withDefaultError = addErrorObject(data);
-			setLive(withDefaultError);
-			if (!initialData) {
-				setInitial(withDefaultError);
-			}
-		},
-		[data],
-	);
-
-	useEffect(
-		() => {
-			if (live.errors && lastAction === 'submit') {
-				const elementWithError = formRef.current.querySelector('[aria-invalid="true"]');
-				if (elementWithError) {
-					elementWithError.focus();
-				}
-			}
-		},
-		[lastAction, live.errors],
-	);
+		}
+	}, [lastAction, live.errors]);
 
 	function handleErrors(event, newErrors, origin) {
 		setLive(oldLive => ({ ...oldLive, errors: newErrors }));
