@@ -160,7 +160,7 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 
 	OperatorListElement.propTypes = {
-		value: PropTypes.string,
+		symbol: PropTypes.string,
 		name: PropTypes.string,
 		selected: PropTypes.bool,
 	};
