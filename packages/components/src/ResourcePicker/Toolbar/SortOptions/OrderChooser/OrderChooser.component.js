@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import Button from 'react-bootstrap/lib/Button';
 import Icon from '../../../../Icon';
 import TooltipTrigger from '../../../../TooltipTrigger';
-import OverlayTrigger from '../../../../OverlayTrigger';
 import getPropsFrom from '../../../../utils/getPropsFrom';
 
 import theme from './OrderChooser.scss';
