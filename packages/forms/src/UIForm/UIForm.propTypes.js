@@ -77,7 +77,8 @@ export default {
 	displayMode: PropTypes.string,
 	/** Translations */
 	language: PropTypes.object,
-	/** Form definition: prevent html 5 validations. This one is for compatibility, prefer 'noValidate' */
+	/** Form definition: prevent html 5 validations. This one is for compatibility
+	 * Prefer 'noValidate' */
 	noHtml5Validate: PropTypes.bool,
 	/** Same as noHtml5Validate but in a standard name */
 	noValidate: PropTypes.bool,

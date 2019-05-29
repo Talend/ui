@@ -24,12 +24,14 @@ exports[`InputDateTimePicker should render 1`] = `
   >
     <FocusManager
       divRef={[Function]}
+      onClick={[Function]}
       onFocusIn={[Function]}
       onFocusOut={[Function]}
       onKeyDown={[Function]}
     >
       <div
         onBlur={[Function]}
+        onClick={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
         tabIndex={-1}
