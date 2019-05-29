@@ -15,6 +15,12 @@ $tc-toolbar-height: 7rem;
 	border-top: 1px solid $alto;
 	border-bottom: 1px solid $alto;
 	margin-bottom: 0;
+	flex-shrink: 0;
+	flex-grow: 0;
+
+	:global(.tc-actionbar-container) {
+		padding: 0;
+	}
 
 	:global(.tc-display-mode-toggle) {
 		margin-left: auto;
