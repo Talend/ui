@@ -6,9 +6,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/KeyValue/KeyValue.component.js
-  77:13  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
-  78:13  error  'onFinish' PropType is defined but prop is never used  react/no-unused-prop-types
-  88:10  error  'value' PropType is defined but prop is never used     react/no-unused-prop-types
+  92:10  error  'value' PropType is defined but prop is never used  react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/ArrayItem.component.js
   3:8  error  'Icon' is defined but never used  no-unused-vars
@@ -16,29 +14,15 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/CollapsibleFieldset/CollapsibleFieldset.component.js
   35:34  error  'restProps' is assigned a value but never used  no-unused-vars
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/FormTemplate/DefaultFormTemplate.component.js
-  5:2  error  'formRef' is missing in props validation        react/prop-types
-  6:2  error  'formProps' is missing in props validation      react/prop-types
-  7:2  error  'renderWidgets' is missing in props validation  react/prop-types
-  8:2  error  'renderButtons' is missing in props validation  react/prop-types
-  9:2  error  'children' is missing in props validation       react/prop-types
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.component.test_old.js
+  2:1  error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/FormTemplate/TextModeFormTemplate.component.js
-  4:48  error  'renderWidgets' is missing in props validation  react/prop-types
-  4:63  error  'children' is missing in props validation       react/prop-types
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.container.test_old.js
+  2:1   error  'enzyme' should be listed in the project's dependencies, not devDependencies  import/no-extraneous-dependencies
+  5:20  error  Unable to resolve path to module './UIForm.container'                         import/no-unresolved
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/hooks/useChangeHandler.js
-  18:38  error  Arrow function used ambiguously with a conditional expression  no-confusing-arrow
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/Widget/Widget.component.test.js
+  2:17  error  'shallow' is defined but never used  no-unused-vars
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/hooks/useErrorHandler.js
-  31:35  error  Arrow function used ambiguously with a conditional expression  no-confusing-arrow
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/index.test.js
-  2:28  error  Unable to resolve path to module './UIForm.container'  import/no-unresolved
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/UIForm.container.test.js
-  5:20  error  Unable to resolve path to module './UIForm.container'  import/no-unresolved
-
-✖ 17 problems (17 errors, 0 warnings)
-  2 errors, 0 warnings potentially fixable with the `--fix` option.
+✖ 8 problems (8 errors, 0 warnings)
 
