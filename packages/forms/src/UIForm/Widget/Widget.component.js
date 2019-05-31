@@ -7,7 +7,7 @@ import { getError } from '../utils/errors';
 import { getValue } from '../utils/properties';
 import shouldRender from '../utils/condition';
 
-import { UIFormContext } from '../hooks/useUIForm';
+import { UIFormContext } from '../context';
 
 function getWidget(widgets, widgetId, displayMode) {
 	if (displayMode) {

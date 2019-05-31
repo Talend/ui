@@ -18,7 +18,9 @@ exports[`Toggle field in text mode should render the Toggle 1`] = `
         checked={true}
         className="switch checkbox"
         disabled={true}
+        id="myForm-input"
         label="My Toggle"
+        onChange={[Function]}
       />
     </div>
   </dt>

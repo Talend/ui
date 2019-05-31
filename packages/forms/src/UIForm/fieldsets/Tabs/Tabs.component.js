@@ -10,7 +10,7 @@ import theme from './Tabs.scss';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
 
-import { UIFormContext } from '../../hooks/useUIForm';
+import { UIFormContext } from '../../context';
 
 class Tabs extends React.Component {
 	constructor(props) {

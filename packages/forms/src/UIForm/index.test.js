@@ -1,5 +1,5 @@
 import { UIForm, triggers } from './index';
-import ExpectedUIForm from './UIForm.container';
+import ExpectedUIForm from './UIForm.component';
 import * as expectedTriggers from './utils/triggers';
 
 describe('index.js exposed modules', () => {

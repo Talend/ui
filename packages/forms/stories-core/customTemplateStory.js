@@ -106,7 +106,13 @@ function story() {
 	return (
 		<div>
 			<IconsProvider />
-			<UIForm id="my-form" templates={templates} data={schema} onSubmit={action('onSubmit')} />
+			<UIForm
+				id="my-form"
+				templates={templates}
+				data={schema}
+				onChange={action('Change')}
+				onSubmit={action('onSubmit')}
+			/>
 		</div>
 	);
 }

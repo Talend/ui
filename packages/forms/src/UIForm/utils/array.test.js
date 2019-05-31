@@ -178,5 +178,13 @@ describe('Array utils', () => {
 			// then
 			expect(result.widget).toEqual('collapsiblePanel');
 		});
+
+		it('should pass disabled', () => {
+			// when
+			const result = getArrayElementSchema({ ...arraySchema, disabled: true }, 2);
+
+			// then
+			expect(result.disabled).toBe(true);
+		});
 	});
 });

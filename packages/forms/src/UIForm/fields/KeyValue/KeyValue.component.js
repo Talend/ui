@@ -6,6 +6,7 @@ import Widget from '../../Widget';
 import FieldTemplate from '../FieldTemplate';
 
 import theme from './KeyValue.scss';
+import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 /**
  * Default part (key or value) schema
@@ -43,9 +44,14 @@ function KeyValue({ id, isValid, errorMessage, schema, valueIsUpdating }) {
 	const keySchema = getPartSchema(schema, 'key');
 	const valueSchema = getPartSchema(schema, 'value');
 
+	const descriptionId = generateDescriptionId(id);
+	const errorId = generateErrorId(id);
+
 	return (
 		<FieldTemplate
 			description={description}
+			descriptionId={descriptionId}
+			errorId={errorId}
 			errorMessage={errorMessage}
 			id={id}
 			isValid={isValid}
@@ -74,8 +80,6 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		isValid: PropTypes.bool,
 		errorMessage: PropTypes.string,
-		onChange: PropTypes.func.isRequired,
-		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
 			description: PropTypes.string,

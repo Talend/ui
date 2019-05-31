@@ -66,14 +66,6 @@ describe('Properties utils', () => {
 
 			expect(convertedValue).toBeUndefined();
 		});
-
-		it('should convert empty string to undefined value', () => {
-			const value = '';
-
-			const convertedValue = convertValue('string', value);
-
-			expect(convertedValue).toBeUndefined();
-		});
 	});
 
 	describe('#mutateValue', () => {

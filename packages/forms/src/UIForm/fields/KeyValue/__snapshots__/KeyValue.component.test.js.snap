@@ -3,6 +3,8 @@
 exports[`KeyValue field should render autoFocused KeyValue 1`] = `
 <FieldTemplate
   description="This is the key/value field"
+  descriptionId="my-key-value-field-description"
+  errorId="my-key-value-field-error"
   errorMessage="This is wrong"
   id="my-key-value-field"
   isValid={true}
@@ -12,9 +14,7 @@ exports[`KeyValue field should render autoFocused KeyValue 1`] = `
     className="theme-key-value"
   >
     <dt>
-      <Widget
-        onChange={[MockFunction]}
-        onFinish={[MockFunction]}
+      <ContextualWidget
         schema={
           Object {
             "autoFocus": true,
@@ -31,14 +31,10 @@ exports[`KeyValue field should render autoFocused KeyValue 1`] = `
             "type": "text",
           }
         }
-        value="lol"
-        widgets={Object {}}
       />
     </dt>
     <dd>
-      <Widget
-        onChange={[MockFunction]}
-        onFinish={[MockFunction]}
+      <ContextualWidget
         schema={
           Object {
             "autoFocus": true,
@@ -55,8 +51,6 @@ exports[`KeyValue field should render autoFocused KeyValue 1`] = `
             "type": "text",
           }
         }
-        value="mdr"
-        widgets={Object {}}
       />
     </dd>
   </dl>
@@ -66,6 +60,8 @@ exports[`KeyValue field should render autoFocused KeyValue 1`] = `
 exports[`KeyValue field should render customized KeyValue 1`] = `
 <FieldTemplate
   description="This is the key/value field"
+  descriptionId="my-key-value-field-description"
+  errorId="my-key-value-field-error"
   errorMessage="This is wrong"
   id="my-key-value-field"
   isValid={true}
@@ -75,9 +71,7 @@ exports[`KeyValue field should render customized KeyValue 1`] = `
     className="theme-key-value"
   >
     <dt>
-      <Widget
-        onChange={[MockFunction]}
-        onFinish={[MockFunction]}
+      <ContextualWidget
         schema={
           Object {
             "autoFocus": true,
@@ -95,14 +89,10 @@ exports[`KeyValue field should render customized KeyValue 1`] = `
             "type": "number",
           }
         }
-        value="lol"
-        widgets={Object {}}
       />
     </dt>
     <dd>
-      <Widget
-        onChange={[MockFunction]}
-        onFinish={[MockFunction]}
+      <ContextualWidget
         schema={
           Object {
             "autoFocus": undefined,
@@ -119,8 +109,6 @@ exports[`KeyValue field should render customized KeyValue 1`] = `
             "type": "text",
           }
         }
-        value="mdr"
-        widgets={Object {}}
       />
     </dd>
   </dl>
@@ -130,6 +118,8 @@ exports[`KeyValue field should render customized KeyValue 1`] = `
 exports[`KeyValue field should render default KeyValue 1`] = `
 <FieldTemplate
   description="This is the key/value field"
+  descriptionId="my-key-value-field-description"
+  errorId="my-key-value-field-error"
   errorMessage="This is wrong"
   id="my-key-value-field"
   isValid={true}
@@ -139,9 +129,7 @@ exports[`KeyValue field should render default KeyValue 1`] = `
     className="theme-key-value"
   >
     <dt>
-      <Widget
-        onChange={[MockFunction]}
-        onFinish={[MockFunction]}
+      <ContextualWidget
         schema={
           Object {
             "autoFocus": undefined,
@@ -158,14 +146,10 @@ exports[`KeyValue field should render default KeyValue 1`] = `
             "type": "text",
           }
         }
-        value="lol"
-        widgets={Object {}}
       />
     </dt>
     <dd>
-      <Widget
-        onChange={[MockFunction]}
-        onFinish={[MockFunction]}
+      <ContextualWidget
         schema={
           Object {
             "autoFocus": undefined,
@@ -182,8 +166,6 @@ exports[`KeyValue field should render default KeyValue 1`] = `
             "type": "text",
           }
         }
-        value="mdr"
-        widgets={Object {}}
       />
     </dd>
   </dl>
@@ -193,6 +175,8 @@ exports[`KeyValue field should render default KeyValue 1`] = `
 exports[`KeyValue field should render disabled KeyValue 1`] = `
 <FieldTemplate
   description="This is the key/value field"
+  descriptionId="my-key-value-field-description"
+  errorId="my-key-value-field-error"
   errorMessage="This is wrong"
   id="my-key-value-field"
   isValid={true}
@@ -202,9 +186,7 @@ exports[`KeyValue field should render disabled KeyValue 1`] = `
     className="theme-key-value"
   >
     <dt>
-      <Widget
-        onChange={[MockFunction]}
-        onFinish={[MockFunction]}
+      <ContextualWidget
         schema={
           Object {
             "autoFocus": undefined,
@@ -221,14 +203,10 @@ exports[`KeyValue field should render disabled KeyValue 1`] = `
             "type": "text",
           }
         }
-        value="lol"
-        widgets={Object {}}
       />
     </dt>
     <dd>
-      <Widget
-        onChange={[MockFunction]}
-        onFinish={[MockFunction]}
+      <ContextualWidget
         schema={
           Object {
             "autoFocus": undefined,
@@ -245,8 +223,6 @@ exports[`KeyValue field should render disabled KeyValue 1`] = `
             "type": "text",
           }
         }
-        value="mdr"
-        widgets={Object {}}
       />
     </dd>
   </dl>
@@ -256,6 +232,8 @@ exports[`KeyValue field should render disabled KeyValue 1`] = `
 exports[`KeyValue field should render readOnly KeyValue 1`] = `
 <FieldTemplate
   description="This is the key/value field"
+  descriptionId="my-key-value-field-description"
+  errorId="my-key-value-field-error"
   errorMessage="This is wrong"
   id="my-key-value-field"
   isValid={true}
@@ -265,9 +243,7 @@ exports[`KeyValue field should render readOnly KeyValue 1`] = `
     className="theme-key-value"
   >
     <dt>
-      <Widget
-        onChange={[MockFunction]}
-        onFinish={[MockFunction]}
+      <ContextualWidget
         schema={
           Object {
             "autoFocus": undefined,
@@ -284,14 +260,10 @@ exports[`KeyValue field should render readOnly KeyValue 1`] = `
             "type": "text",
           }
         }
-        value="lol"
-        widgets={Object {}}
       />
     </dt>
     <dd>
-      <Widget
-        onChange={[MockFunction]}
-        onFinish={[MockFunction]}
+      <ContextualWidget
         schema={
           Object {
             "autoFocus": undefined,
@@ -308,8 +280,6 @@ exports[`KeyValue field should render readOnly KeyValue 1`] = `
             "type": "text",
           }
         }
-        value="mdr"
-        widgets={Object {}}
       />
     </dd>
   </dl>

@@ -1,17 +1,14 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import { TooltipTrigger } from '@talend/react-components';
 
 import Widget from './Widget.component';
+import widgets from '../utils/widgets';
+import { UIFormContext } from '../context';
 
-describe('Widget component', () => {
-	const schema = {
-		key: ['user', 'firstname'],
-		type: 'text',
-	};
-	const errors = {
-		'user,firstname': 'This is not ok',
-	};
+// eslint-disable-next-line react/prop-types
+const ContextProvider = ({ children, valueUpdater = val => val }) => {
 	const properties = {
 		user: {
 			firstname: 'my firstname',
@@ -19,78 +16,76 @@ describe('Widget component', () => {
 		},
 		comment: '',
 	};
+	const value = valueUpdater({
+		id: 'myForm',
+		onChange: jest.fn('onChange'),
+		onFinish: jest.fn('onFinish'),
+		onTrigger: jest.fn('onTrigger'),
+		state: { properties, errors: {} },
+		widgets,
+	});
+	return <UIFormContext.Provider value={value}>{children}</UIFormContext.Provider>;
+};
+
+describe('Widget component', () => {
+	const schema = {
+		key: ['user', 'firstname'],
+		type: 'text',
+	};
+
 	const customWidgets = {
+		...widgets,
 		customWidget: () => <div>my widget</div>,
 		customWidget_text: () => <div>my widget in text display mode</div>,
 	};
 
 	it('should render widget', () => {
 		// when
-		const wrapper = shallow(
-			<Widget
-				id={'myForm'}
-				onChange={jest.fn('onChange')}
-				onFinish={jest.fn('onFinish')}
-				onTrigger={jest.fn('onTrigger')}
-				properties={properties}
-				schema={schema}
-				errors={errors}
-			/>,
+		const wrapper = mount(
+			<ContextProvider>
+				<Widget schema={schema} />
+			</ContextProvider>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(toJson(wrapper.find('Widget > *'))).toMatchSnapshot();
 	});
 
 	it('should wrapper widget into a tooltip trigger', () => {
-		const wrapper = shallow(
-			<Widget
-				id={'myForm'}
-				onChange={jest.fn('onChange')}
-				onFinish={jest.fn('onFinish')}
-				onTrigger={jest.fn('onTrigger')}
-				properties={properties}
-				schema={{ ...schema, tooltip: 'example tooltip' }}
-				errors={errors}
-			/>,
+		const wrapper = mount(
+			<ContextProvider>
+				<Widget schema={{ ...schema, tooltip: 'example tooltip' }} />
+			</ContextProvider>,
 		);
 
-		expect(wrapper.getElement().type).toBe(TooltipTrigger);
+		expect(wrapper.find(TooltipTrigger).length).toBe(1);
 	});
 
 	it('should render widget with the specific displayMode', () => {
 		// when
-		const wrapper = shallow(
-			<Widget
-				id={'myForm'}
-				onChange={jest.fn('onChange')}
-				onFinish={jest.fn('onFinish')}
-				onTrigger={jest.fn('onTrigger')}
-				properties={properties}
-				schema={schema}
-				errors={errors}
-				displayMode={'text'}
-			/>,
+		const wrapper = mount(
+			<ContextProvider valueUpdater={value => ({ ...value, displayMode: 'text' })}>
+				<Widget schema={schema} />
+			</ContextProvider>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(toJson(wrapper.find('Widget > *'))).toMatchSnapshot();
 	});
 
 	it('should render nothing if widget does not exist', () => {
 		// given
-		const unknownWidgetSchema = {
-			...schema,
-			type: 'unknown',
-		};
+		const unknownWidgetSchema = { ...schema, type: 'unknown' };
 
 		// when
-		const wrapper = shallow(
-			<Widget properties={properties} schema={unknownWidgetSchema} errors={errors} />,
+		const wrapper = mount(
+			<ContextProvider>
+				<Widget schema={unknownWidgetSchema} />
+			</ContextProvider>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(toJson(wrapper.find('Widget > *'))).toMatchSnapshot();
 	});
 
 	it('should render custom widget', () => {
@@ -101,98 +96,77 @@ describe('Widget component', () => {
 		};
 
 		// when
-		const wrapper = shallow(
-			<Widget
-				id={'myForm'}
-				onChange={jest.fn('onChange')}
-				onTrigger={jest.fn('onTrigger')}
-				properties={properties}
-				schema={customWidgetSchema}
-				errors={errors}
-				widgets={customWidgets}
-			/>,
+		const wrapper = mount(
+			<ContextProvider valueUpdater={value => ({ ...value, widgets: customWidgets })}>
+				<Widget schema={customWidgetSchema} />
+			</ContextProvider>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should render custom widget in specific display mode', () => {
-		// given
-		const customWidgetSchema = {
-			...schema,
-			type: 'customWidget',
-		};
-
-		// when
-		const wrapper = shallow(
-			<Widget
-				id={'myForm'}
-				onChange={jest.fn('onChange')}
-				onTrigger={jest.fn('onTrigger')}
-				properties={properties}
-				schema={customWidgetSchema}
-				errors={errors}
-				widgets={customWidgets}
-				displayMode={'text'}
-			/>,
-		);
-
-		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find('customWidget').length).toBe(1);
 	});
 
 	it('should pass validation message from schema over message from errors', () => {
 		// given
+		const errors = { 'user,firstname': 'This is not ok' };
 		const customValidationMessageSchema = {
 			...schema,
 			validationMessage: 'My custom validation message',
 		};
 
 		// when
-		const wrapper = shallow(
-			<Widget
-				id={'myForm'}
-				onChange={jest.fn('onChange')}
-				onTrigger={jest.fn('onTrigger')}
-				properties={properties}
-				schema={customValidationMessageSchema}
-				errors={errors}
-			/>,
+		const wrapper = mount(
+			<ContextProvider valueUpdater={value => ({ ...value, state: { ...value.state, errors } })}>
+				<Widget schema={customValidationMessageSchema} />
+			</ContextProvider>,
 		);
 
 		// then
-		expect(wrapper.props().errorMessage).toBe('My custom validation message');
+		expect(
+			wrapper
+				.find('.has-error .help-block')
+				.last()
+				.text(),
+		).toBe('My custom validation message');
 	});
 
 	it('should pass message from errors when there is no validation message in schema', () => {
+		// given
+		const errors = { 'user,firstname': 'This is not ok' };
+
 		// when
-		const wrapper = shallow(
-			<Widget
-				id={'myForm'}
-				onChange={jest.fn('onChange')}
-				onTrigger={jest.fn('onTrigger')}
-				properties={properties}
-				schema={schema}
-				errors={errors}
-			/>,
+		const wrapper = mount(
+			<ContextProvider valueUpdater={value => ({ ...value, state: { ...value.state, errors } })}>
+				<Widget schema={schema} />
+			</ContextProvider>,
 		);
 
 		// then
-		expect(wrapper.props().errorMessage).toBe('This is not ok');
+		expect(
+			wrapper
+				.find('.has-error .help-block')
+				.last()
+				.text(),
+		).toBe('This is not ok');
 	});
 
 	it("should render null when widgetId is 'hidden'", () => {
-		// when
+		// given
 		const hidden = { ...schema, widget: 'hidden' };
-		const wrapper = shallow(<Widget schema={hidden} />);
+
+		// when
+		const wrapper = mount(
+			<ContextProvider>
+				<Widget schema={hidden} />
+			</ContextProvider>,
+		);
 
 		// then
-		expect(wrapper.getElement()).toBe(null);
+		expect(wrapper.find('Widget > Text').length).toBe(0);
 	});
 
 	it('should render widget when conditions are met', () => {
-		// when
+		// given
 		const withConditions = {
 			...schema,
 			condition: {
@@ -202,16 +176,20 @@ describe('Widget component', () => {
 				],
 			},
 		};
-		const wrapper = shallow(
-			<Widget schema={withConditions} properties={properties} errors={errors} />,
+
+		// when
+		const wrapper = mount(
+			<ContextProvider>
+				<Widget schema={withConditions} />
+			</ContextProvider>,
 		);
 
 		// then
-		expect(wrapper.getElement()).not.toBe(null);
+		expect(wrapper.find('Widget > Text').length).toBe(1);
 	});
 
 	it('should render null when conditions are not met', () => {
-		// when
+		// given
 		const withConditions = {
 			...schema,
 			condition: {
@@ -221,31 +199,27 @@ describe('Widget component', () => {
 				],
 			},
 		};
-		const wrapper = shallow(
-			<Widget schema={withConditions} properties={properties} errors={errors} />,
+
+		// when
+		const wrapper = mount(
+			<ContextProvider>
+				<Widget schema={withConditions} />
+			</ContextProvider>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toBe(null);
+		expect(wrapper.find('Widget > Text').length).toBe(0);
 	});
 
 	it('should pass value updating status', () => {
 		// when
-		const wrapper = shallow(
-			<Widget
-				id={'myForm'}
-				onChange={jest.fn('onChange')}
-				onFinish={jest.fn('onFinish')}
-				onTrigger={jest.fn('onTrigger')}
-				properties={properties}
-				schema={schema}
-				errors={errors}
-				displayMode={'text'}
-				updating={[schema.key.join('.')]}
-			/>,
+		const wrapper = mount(
+			<ContextProvider valueUpdater={value => ({ ...value, updating: [schema.key.join('.')] })}>
+				<Widget schema={schema} />
+			</ContextProvider>,
 		);
 
 		// then
-		expect(wrapper.prop('valueIsUpdating')).toBe(true);
+		expect(wrapper.find('Widget > Text').prop('valueIsUpdating')).toBe(true);
 	});
 });

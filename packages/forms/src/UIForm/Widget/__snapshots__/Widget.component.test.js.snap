@@ -1,88 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Widget component should render custom widget 1`] = `
-<customWidget
-  errorMessage="This is not ok"
-  errors={
-    Object {
-      "user,firstname": "This is not ok",
-    }
-  }
-  id="myForm_user_firstname"
-  isValid={false}
-  onChange={[MockFunction]}
-  onTrigger={[MockFunction]}
-  properties={
-    Object {
-      "comment": "",
-      "user": Object {
-        "firstname": "my firstname",
-        "lastname": "my lastname",
-      },
-    }
-  }
-  schema={
-    Object {
-      "key": Array [
-        "user",
-        "firstname",
-      ],
-      "type": "customWidget",
-    }
-  }
-  value="my firstname"
-  valueIsUpdating={false}
-  widgets={
-    Object {
-      "customWidget": [Function],
-      "customWidget_text": [Function],
-    }
-  }
-/>
-`;
-
-exports[`Widget component should render custom widget in specific display mode 1`] = `
-<customWidget_text
-  displayMode="text"
-  errorMessage="This is not ok"
-  errors={
-    Object {
-      "user,firstname": "This is not ok",
-    }
-  }
-  id="myForm_user_firstname"
-  isValid={false}
-  onChange={[MockFunction]}
-  onTrigger={[MockFunction]}
-  properties={
-    Object {
-      "comment": "",
-      "user": Object {
-        "firstname": "my firstname",
-        "lastname": "my lastname",
-      },
-    }
-  }
-  schema={
-    Object {
-      "key": Array [
-        "user",
-        "firstname",
-      ],
-      "type": "customWidget",
-    }
-  }
-  value="my firstname"
-  valueIsUpdating={false}
-  widgets={
-    Object {
-      "customWidget": [Function],
-      "customWidget_text": [Function],
-    }
-  }
-/>
-`;
-
 exports[`Widget component should render nothing if widget does not exist 1`] = `
 <p
   className="text-danger"
@@ -94,26 +11,11 @@ exports[`Widget component should render nothing if widget does not exist 1`] = `
 
 exports[`Widget component should render widget 1`] = `
 <Text
-  errorMessage="This is not ok"
-  errors={
-    Object {
-      "user,firstname": "This is not ok",
-    }
-  }
   id="myForm_user_firstname"
-  isValid={false}
+  isValid={true}
   onChange={[MockFunction]}
   onFinish={[MockFunction]}
   onTrigger={[MockFunction]}
-  properties={
-    Object {
-      "comment": "",
-      "user": Object {
-        "firstname": "my firstname",
-        "lastname": "my lastname",
-      },
-    }
-  }
   schema={
     Object {
       "key": Array [
@@ -125,33 +27,63 @@ exports[`Widget component should render widget 1`] = `
   }
   value="my firstname"
   valueIsUpdating={false}
-  widgets={Object {}}
-/>
+>
+  <FieldTemplate
+    descriptionId="myForm_user_firstname-description"
+    errorId="myForm_user_firstname-error"
+    id="myForm_user_firstname"
+    isValid={true}
+    labelAfter={true}
+    valueIsUpdating={false}
+  >
+    <div
+      aria-busy={false}
+      className="form-group theme-template"
+    >
+      <input
+        aria-describedby="myForm_user_firstname-description myForm_user_firstname-error"
+        aria-invalid={false}
+        className="form-control"
+        disabled={false}
+        id="myForm_user_firstname"
+        onBlur={[Function]}
+        onChange={[Function]}
+        readOnly={false}
+        type="text"
+        value="my firstname"
+      />
+      <Message
+        descriptionId="myForm_user_firstname-description"
+        errorId="myForm_user_firstname-error"
+        isValid={true}
+      >
+        <div>
+          <p
+            className="help-block"
+            id="myForm_user_firstname-description"
+            key="description"
+          />
+          <p
+            aria-live="assertive"
+            className="help-block"
+            id="myForm_user_firstname-error"
+            key="error"
+            role="status"
+          />
+        </div>
+      </Message>
+    </div>
+  </FieldTemplate>
+</Text>
 `;
 
 exports[`Widget component should render widget with the specific displayMode 1`] = `
 <TextMode
-  displayMode="text"
-  errorMessage="This is not ok"
-  errors={
-    Object {
-      "user,firstname": "This is not ok",
-    }
-  }
   id="myForm_user_firstname"
-  isValid={false}
+  isValid={true}
   onChange={[MockFunction]}
   onFinish={[MockFunction]}
   onTrigger={[MockFunction]}
-  properties={
-    Object {
-      "comment": "",
-      "user": Object {
-        "firstname": "my firstname",
-        "lastname": "my lastname",
-      },
-    }
-  }
   schema={
     Object {
       "key": Array [
@@ -163,6 +95,25 @@ exports[`Widget component should render widget with the specific displayMode 1`]
   }
   value="my firstname"
   valueIsUpdating={false}
-  widgets={Object {}}
-/>
+>
+  <FieldTemplate
+    id="myForm_user_firstname"
+  >
+    <div
+      className="form-group"
+    >
+      <dt>
+        <label
+          className="control-label"
+          htmlFor="myForm_user_firstname"
+        />
+      </dt>
+      <dd
+        id="myForm_user_firstname"
+      >
+        my firstname
+      </dd>
+    </div>
+  </FieldTemplate>
+</TextMode>
 `;

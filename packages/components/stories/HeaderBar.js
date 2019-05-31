@@ -401,7 +401,7 @@ decoratedStories
 				logo={props.logo}
 				brand={props.brand}
 				{...props}
-				intercom={{ id: 'intercom', config: { app_id: 'fyq3wodw' } }}
+				intercom={{ id: 'intercom', config: { app_id: 'p2s06a4f' } }}
 			/>
 		),
 		{ info: { styles: infoStyle } },

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import theme from '../UIForm.scss';
 
 export default function TextModeFormTemplate({ renderWidgets, children }) {
@@ -11,3 +12,7 @@ export default function TextModeFormTemplate({ renderWidgets, children }) {
 		</React.Fragment>
 	);
 }
+TextModeFormTemplate.propTypes = {
+	renderWidgets: PropTypes.func.isRequired,
+	children: PropTypes.node,
+};

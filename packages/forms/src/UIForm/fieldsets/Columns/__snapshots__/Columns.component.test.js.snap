@@ -10,7 +10,7 @@ exports[`Columns widget should render columns 1`] = `
   <div
     className="tf-columns-items theme-items"
   >
-    <Widget
+    <ContextualWidget
       schema={
         Object {
           "items": Array [
@@ -55,9 +55,8 @@ exports[`Columns widget should render columns 1`] = `
           "widget": "fieldset",
         }
       }
-      widgets={Object {}}
     />
-    <Widget
+    <ContextualWidget
       schema={
         Object {
           "description": "This one is a column composed by a single input",
@@ -72,7 +71,6 @@ exports[`Columns widget should render columns 1`] = `
           "type": "text",
         }
       }
-      widgets={Object {}}
     />
   </div>
 </div>

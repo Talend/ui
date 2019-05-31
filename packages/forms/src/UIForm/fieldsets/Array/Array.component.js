@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Widget from '../../Widget';
-import { UIFormContext } from '../../hooks/useUIForm';
+import { UIFormContext } from '../../context';
 import { getArrayElementSchema } from '../../utils/array';
 import { shiftArrayErrorsKeys } from '../../utils/validation';
 

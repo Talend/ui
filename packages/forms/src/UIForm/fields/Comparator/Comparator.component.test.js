@@ -4,9 +4,9 @@ import Comparator from './Comparator.component';
 
 describe('Comparator field', () => {
 	const props = {
+		id: 'default',
 		onChange: jest.fn(),
 		onFinish: jest.fn(),
-		id: 'default',
 		schema: {
 			key: ['default'],
 			widget: 'comparator',

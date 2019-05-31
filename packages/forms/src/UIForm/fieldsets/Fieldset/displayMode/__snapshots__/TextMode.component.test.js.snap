@@ -2,7 +2,7 @@
 
 exports[`Fieldset widget in text mode should render a simple definition list without title 1`] = `
 <dl>
-  <Widget
+  <ContextualWidget
     schema={
       Object {
         "key": Array [
@@ -15,9 +15,8 @@ exports[`Fieldset widget in text mode should render a simple definition list wit
         "type": "text",
       }
     }
-    widgets={Object {}}
   />
-  <Widget
+  <ContextualWidget
     schema={
       Object {
         "key": Array [
@@ -30,7 +29,6 @@ exports[`Fieldset widget in text mode should render a simple definition list wit
         "type": "text",
       }
     }
-    widgets={Object {}}
   />
 </dl>
 `;
@@ -46,7 +44,7 @@ exports[`Fieldset widget in text mode should render a title described by a defin
   </dt>
   <dd>
     <dl>
-      <Widget
+      <ContextualWidget
         schema={
           Object {
             "key": Array [
@@ -59,9 +57,8 @@ exports[`Fieldset widget in text mode should render a title described by a defin
             "type": "text",
           }
         }
-        widgets={Object {}}
       />
-      <Widget
+      <ContextualWidget
         schema={
           Object {
             "key": Array [
@@ -74,7 +71,6 @@ exports[`Fieldset widget in text mode should render a title described by a defin
             "type": "text",
           }
         }
-        widgets={Object {}}
       />
     </dl>
   </dd>

@@ -9,7 +9,7 @@ exports[`Fieldset widget should render fieldset 1`] = `
   >
     My fieldset
   </legend>
-  <Widget
+  <ContextualWidget
     schema={
       Object {
         "key": Array [
@@ -22,9 +22,8 @@ exports[`Fieldset widget should render fieldset 1`] = `
         "type": "text",
       }
     }
-    widgets={Object {}}
   />
-  <Widget
+  <ContextualWidget
     schema={
       Object {
         "key": Array [
@@ -37,7 +36,6 @@ exports[`Fieldset widget should render fieldset 1`] = `
         "type": "text",
       }
     }
-    widgets={Object {}}
   />
 </fieldset>
 `;

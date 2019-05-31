@@ -3,6 +3,8 @@
 exports[`Select field should render disabled input 1`] = `
 <FieldTemplate
   description="Select me"
+  descriptionId="mySelect-description"
+  errorId="mySelect-error"
   errorMessage="My Error Message"
   id="mySelect"
   isValid={true}
@@ -50,6 +52,8 @@ exports[`Select field should render disabled input 1`] = `
 exports[`Select field should render readOnly input 1`] = `
 <FieldTemplate
   description="Select me"
+  descriptionId="mySelect-description"
+  errorId="mySelect-error"
   errorMessage="My Error Message"
   id="mySelect"
   isValid={true}
@@ -96,6 +100,8 @@ exports[`Select field should render readOnly input 1`] = `
 exports[`Select field should render select multiple 1`] = `
 <FieldTemplate
   description="Select me"
+  descriptionId="mySelect-description"
+  errorId="mySelect-error"
   errorMessage="My Error Message"
   id="mySelect"
   isValid={true}
@@ -147,6 +153,8 @@ exports[`Select field should render select multiple 1`] = `
 exports[`Select field should render simple select 1`] = `
 <FieldTemplate
   description="Select me"
+  descriptionId="mySelect-description"
+  errorId="mySelect-error"
   errorMessage="My Error Message"
   id="mySelect"
   isValid={true}

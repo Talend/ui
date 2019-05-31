@@ -10,7 +10,7 @@ import getLanguage from './lang';
 import merge from './merge';
 import formTemplates from './utils/formTemplates';
 import UIFormPropTypes from './UIForm.propTypes';
-import { UIFormContext } from './hooks/useUIForm';
+import { UIFormContext } from './context';
 import { I18N_DOMAIN_FORMS } from '../constants';
 
 import theme from './UIForm.scss';
