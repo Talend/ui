@@ -21,7 +21,7 @@ exports[`Code field should render ace-editor in FieldTemplate 1`] = `
     >
       To focus out of the editor, press ESC key twice.
     </div>
-    <UNDEFINED
+    <React.Suspense
       fallback={
         <div
           aria-busy={true}
@@ -55,7 +55,7 @@ exports[`Code field should render ace-editor in FieldTemplate 1`] = `
         value="toto"
         width="auto"
       />
-    </UNDEFINED>
+    </React.Suspense>
   </div>
 </FieldTemplate>
 `;
