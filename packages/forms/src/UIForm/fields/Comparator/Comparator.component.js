@@ -103,16 +103,16 @@ class Comparator extends React.Component {
 
 	getOperatorsMap() {
 		return this.getFormattedOperators().map(({ value, title, name, symbol }) => ({
-				value,
-				title,
-				label: (
-					<OperatorListElement
-						selected={this.props.value.operator === value}
-						name={name}
-						symbol={symbol}
-					/>
-				),
-			}));
+			value,
+			title,
+			label: (
+				<OperatorListElement
+					selected={this.props.value.operator === value}
+					name={name}
+					symbol={symbol}
+				/>
+			),
+		}));
 	}
 
 	render() {
