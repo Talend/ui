@@ -22,6 +22,16 @@
         }
       }
     },
+    "menu:tacokitExternalApi": {
+      "icon": "talend-burger",
+      "label": "TCK External API",
+      "onClickDispatch": {
+        "type": "MENU_COMPONENT_FORM_CLICKED",
+        "cmf": {
+          "routerPush": "/tacokit/external-api"
+        }
+      }
+    },
     "menu:tacokitValidation": {
       "icon": "talend-burger",
       "label": "TCK validation",
@@ -81,7 +91,8 @@
       "actionIds": [
         "menu:HeaderBar",
         "menu:tacokitTitleMap",
-        "menu:tacokitValidation"
+        "menu:tacokitValidation",
+        "menu:tacokitExternalApi"
       ]
     },
     "Layout#default": {
@@ -134,6 +145,10 @@
             "path": "titleMap",
             "component": "ComponentForm",
             "componentId": "titleMap"
+          },
+          {
+            "path": "external-api",
+            "component": "SandboxBody"
           }
         ]
       },

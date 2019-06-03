@@ -141,6 +141,8 @@ exports[`Action should render a button with a overlay component 1`] = `
     disabled={false}
     onClick={null}
     onMouseDown={null}
+    onMouseEnter={null}
+    onMouseLeave={null}
     role={null}
     title="Title to describe click me button"
   >
@@ -172,6 +174,8 @@ exports[`Action should render a button without an overlay component if inProgres
   disabled={true}
   onClick={null}
   onMouseDown={null}
+  onMouseEnter={null}
+  onMouseLeave={null}
   role={null}
   title="Title to describe click me button"
 >
