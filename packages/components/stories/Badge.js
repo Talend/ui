@@ -9,6 +9,12 @@ const defaultStyle = {
 	display: 'flex',
 };
 
+const columnStyleInfo = {
+	flexGrow: '1',
+	maxWidth: '70px',
+	padding: '0 10px',
+};
+
 const columnStyle = {
 	flexGrow: '1',
 	maxWidth: '250px',
@@ -17,6 +23,7 @@ const columnStyle = {
 
 const icons = {
 	'talend-cross': talendIcons['talend-cross'],
+	'talend-clock': talendIcons['talend-clock'],
 };
 
 function onDelete(name) {
@@ -33,53 +40,63 @@ function onSelect(name) {
 
 const longStr = 'Very, very, very, very, very, very, very, very long tag';
 
-storiesOf('Badge', module)
-	.add('default', () => (
+storiesOf('Badge', module).add('default', () => (
+	<React.Fragment>
 		<section>
+			<h1>Display Large (Default) - new</h1>
 			<IconsProvider defaultIcons={icons} />
+			<div style={defaultStyle} id="header">
+				<div style={columnStyleInfo}>
+					<span>/</span>
+				</div>
+				<div style={columnStyle}>
+					<span>Tags as links</span>
+				</div>
+				<div style={columnStyle}>
+					<span>Read-only</span>
+				</div>
+				<div style={columnStyle}>
+					<span>Edit mode</span>
+				</div>
+			</div>
+			<hr />
 			<div style={defaultStyle} id="default">
-				<div style={columnStyle}>
-					<Badge label="Group A" {...onSelect('A')} />
-					<Badge label={longStr} {...onSelect('B')} />
+				<div style={columnStyleInfo}>
+					<span>Default</span>
 				</div>
 				<div style={columnStyle}>
-					<Badge label="Group A" {...onDelete('A')} {...onSelect('A')} />
-					<Badge label={longStr} {...onDelete('B')} {...onSelect('B')} />
+					<Badge label="Label" display="large" aslink {...onSelect('A')} />
+					<br />
+					<Badge label="Label" display="small" aslink {...onSelect('B')} />
+					<br />
+					<Badge label="categ not visible" display="large" category="Cat" aslink {...onSelect('B')} />
+					<br />
+					<Badge label="categ not visible" display="small" category="Cat" aslink {...onSelect('B')} />
 				</div>
 				<div style={columnStyle}>
-					<Badge label="Group A" {...onDelete('As')} {...onSelect('As')} selected />
-					<Badge label={longStr} {...onDelete('Bs')} {...onSelect('Bs')} selected />
+					<Badge label="Label" display="large" {...onSelect('A')} />
+					<br />
+					<Badge label="Label" display="small" {...onSelect('B')} />
+					<br />
+					<Badge label="Label" display="large" category="Cat" {...onSelect('B')} {...onDelete('A')} />
+					<br />
+					<Badge label="Label" display="small" category="Cat" {...onSelect('B')} {...onDelete('A')} />
 				</div>
 				<div style={columnStyle}>
-					<Badge label="Group A" {...onDelete('Ad')} disabled />
-					<Badge label={longStr} {...onDelete('Bd')} disabled />
-				</div>
-			</div>
-			<div style={defaultStyle} id="category">
-				<div style={columnStyle}>
-					<Badge label="Little Gem Magnolia" category="Trees" {...onSelect('L')} />
-					<Badge label="Mexican Plum" category="Trees" {...onSelect('M')} />
-					<Badge label="Rose" category="Flowers" {...onSelect('R')} />
-					<Badge label="Dog" category="Animals" {...onSelect('D')} />
-				</div>
-				<div style={columnStyle}>
-					<Badge label="Little Gem Magnolia" category="Trees" {...onDelete('L')} {...onSelect('L')} />
-					<Badge label="Mexican Plum" category="Trees" {...onDelete('M')} {...onSelect('M')} />
-					<Badge label="Rose" category="Flowers" {...onDelete('R')} {...onSelect('R')} />
-					<Badge label="Dog" category="Animals" {...onDelete('D')} {...onSelect('D')} />
-				</div>
-				<div style={columnStyle}>
-					<Badge label="Little Gem Magnolia" category="Trees" {...onDelete('Ls')} {...onSelect('Ls')} selected />
-					<Badge label="Mexican Plum" category="Trees" {...onDelete('Ms')} {...onSelect('Ms')} selected />
-					<Badge label="Rose" category="Flowers" {...onDelete('Rs')} {...onSelect('Rs')} selected />
-					<Badge label="Dog" category="Animals" {...onDelete('Ds')} {...onSelect('Ds')} selected />
-				</div>
-				<div style={columnStyle}>
-					<Badge label="Little Gem Magnolia" category="Trees" {...onDelete('Ld')} {...onSelect('Ld')} disabled />
-					<Badge label="Mexican Plum" category="Trees" {...onDelete('Md')} {...onSelect('Md')} disabled />
-					<Badge label="Rose" category="Flowers" {...onDelete('Rd')} {...onSelect('Rd')} disabled />
-					<Badge label="Dog" category="Animals" {...onDelete('Dd')} {...onSelect('Dd')} disabled />
+					<Badge label="Label" display="large" edit {...onSelect('A')} {...onDelete('A')} />
+					<br />
+					<Badge label="Label" display="small" edit {...onSelect('B')} {...onDelete('A')} />
+					<br />
+					<Badge label="Label" display="large" category="Cat" edit {...onSelect('B')} {...onDelete('A')} />
+					<br />
+					<Badge label="Label" display="small" category="Cat" edit {...onSelect('B')} {...onDelete('A')} />
+					<br />
+					<Badge label="Label" display="large" category="Cat" icon="talend-clock" edit {...onSelect('B')} {...onDelete('A')} />
+					<br />
+					<Badge label="Label" display="small" category="Cat" icon="talend-clock" edit {...onSelect('B')} {...onDelete('A')} />
 				</div>
 			</div>
+			<hr />
 		</section>
-	));
+	</React.Fragment>
+));

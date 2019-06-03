@@ -1,9 +1,18 @@
-$tc-badge-label-font-size: 13px !default;
-$tc-badge-height: 25px !default;
-$tc-badge-delete-icon-size: $svg-xs-size !default;
-// it should sum up in 25px height:
-$tc-badge-vertical-padding: ($tc-badge-height - $tc-badge-label-font-size * $line-height-base) / 2 !default;
-$tc-badge-margin: $padding-smaller !default;
+$tc-badge-large-label-font-size: 1.4rem !default;
+$tc-badge-large-label-font-weight: normal !default;
+$tc-badge-large-height: 2.4rem !default;
+$tc-badge-large-vertical-padding: ($tc-badge-large-height - $tc-badge-large-label-font-size * $line-height-base) / 2 !default;
+$tc-badge-large-margin: $padding-smaller !default;
+$tc-badge-large-delete-icon-size: $svg-xs-size !default;
+$tc-badge-large-icon-size: $svg-xs-size !default;
+
+$tc-badge-small-label-font-size: 1.2rem !default;
+$tc-badge-small-label-font-weight: normal !default;
+$tc-badge-small-height: 2rem !default;
+$tc-badge-small-vertical-padding: ($tc-badge-small-height - $tc-badge-small-label-font-size * $line-height-base) / 2 !default;
+$tc-badge-small-margin: $padding-smaller !default;
+$tc-badge-small-delete-icon-size: $svg-sm-size / 2 !default;
+$tc-badge-small-icon-size: $svg-xs-size !default;
 
 .tc-badge {
 	display: inline-flex;
@@ -11,54 +20,185 @@ $tc-badge-margin: $padding-smaller !default;
 
 	.tc-badge-button {
 		display: inline-flex;
-		height: $tc-badge-height;
-		margin: $tc-badge-margin;
-		padding: $tc-badge-vertical-padding $padding-small;
-		padding-right: calc(#{$padding-larger} + #{$tc-badge-delete-icon-size});
-		background-color: $gallery;
+		background-color: rgba($wild-sand, 0.5);
 		letter-spacing: 0.4px;
-		border: none;
+		border: solid 1px;
+		border-color: $gallery;
+		border-radius: 25px;
 		max-width: 100%;
 
 		.tc-badge-category {
-			background-color: $concrete;
-			font-size: $tc-badge-label-font-size;
-			text-transform: uppercase;
-
-			margin-top: -$tc-badge-vertical-padding;
-			margin-right: $padding-small;
+			color: black;
+			max-width: 110px;
+			// margin-right: $padding-small;
 			margin-left: -$padding-small;
-			margin-bottom: -$tc-badge-vertical-padding;
-			padding: $tc-badge-vertical-padding $padding-small;
+		}
+
+		.tc-badge-separator {
+			height: 12px;
+			width: 1px;
+			background-color: $gallery;
+			margin: $padding-smaller;
 		}
 
 		.tc-badge-label {
-			font-size: $tc-badge-label-font-size;
-			font-weight: 700;
-
+			color: black;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: pre;
 		}
 
-		&:hover {
-			background-color: $alto;
+		.tc-badge-icon-separator {
+			height: 12px;
+			width: 1px;
+			background-color: $gallery;
+			margin: $padding-smaller;
+		}
 
-			.tc-badge-category {
-				background-color: $gallery;
+		.tc-badge-icon {
+			margin-left: $padding-smaller;
+		}
+	}
+
+	.tc-badge-delete-icon {
+		position: relative;
+		margin: auto;
+		padding: 0;
+		background: transparent;
+		box-shadow: none;
+		left: -$padding-large;
+
+		svg {
+			color: $slate-gray;
+			display: block;
+			margin: 0;
+
+			&:hover {
+				color: $lochmara;
 			}
 		}
 	}
 
-	svg,
-	.tc-badge-label,
-	.tc-badge-category {
-		color: $dark-silver;
+	&.tc-badge-display-large {
+		.tc-badge-separator {
+			margin-top: 0.3rem;
+		}
+
+		.tc-badge-icon-separator {
+			margin-top: 0.3rem;
+		}
+
+		.tc-badge-button {
+			height: $tc-badge-large-height;
+			padding: $tc-badge-large-vertical-padding $padding-small;
+			margin: $tc-badge-large-margin;
+			padding-right: calc(#{$padding-small} + #{$tc-badge-large-delete-icon-size});
+
+			.tc-badge-category {
+				font-size: $tc-badge-large-label-font-size;
+				font-weight: $tc-badge-large-label-font-weight;
+				margin-top: -$tc-badge-large-vertical-padding;
+				margin-bottom: -$tc-badge-large-vertical-padding;
+				padding: $tc-badge-large-vertical-padding 0 $tc-badge-large-vertical-padding $padding-small;
+			}
+
+			.tc-badge-label {
+				font-size: $tc-badge-large-label-font-size;
+				font-weight: $tc-badge-large-label-font-weight;
+			}
+
+			svg.tc-badge-icon {
+				margin-top: $padding-smaller;
+				height: $tc-badge-large-icon-size;
+				width: $tc-badge-large-icon-size;
+			}
+		}
+
+		.tc-badge-delete-icon {
+			height: $tc-badge-large-height - 2 * $tc-badge-large-vertical-padding;
+
+			svg {
+				height: $tc-badge-large-delete-icon-size;
+				width: $tc-badge-large-delete-icon-size;
+			}
+		}
 	}
 
-	&-readonly.tc-badge {
+	&.tc-badge-display-small {
+		.tc-badge-separator {
+			margin-top: 0.2rem;
+		}
+
+		.tc-badge-icon-separator {
+			margin-top: 0.2rem;
+		}
+
 		.tc-badge-button {
-			padding-right: $padding-small;
+			height: $tc-badge-small-height;
+			padding: $tc-badge-small-vertical-padding $padding-small;
+			margin: $tc-badge-small-margin;
+			padding-right: calc(#{$padding-small} + #{$tc-badge-large-delete-icon-size});
+
+			.tc-badge-category {
+				font-size: $tc-badge-small-label-font-size;
+				font-weight: $tc-badge-small-label-font-weight;
+				margin-top: -$tc-badge-small-vertical-padding;
+				margin-bottom: -$tc-badge-small-vertical-padding;
+				padding: $tc-badge-small-vertical-padding 0 $tc-badge-small-vertical-padding $padding-small;
+			}
+
+			.tc-badge-label {
+				font-size: $tc-badge-small-label-font-size;
+				font-weight: $tc-badge-small-label-font-weight;
+			}
+
+			svg.tc-badge-icon {
+				margin-top: $padding-smaller;
+				height: $tc-badge-small-icon-size;
+				width: $tc-badge-small-icon-size;
+			}
+		}
+
+		.tc-badge-delete-icon {
+			height: $tc-badge-small-height - 2 * $tc-badge-small-vertical-padding;
+			padding-bottom: 4px;
+
+			svg {
+				height: $tc-badge-small-delete-icon-size;
+				width: $tc-badge-small-delete-icon-size;
+			}
+		}
+	}
+
+	&-aslink {
+		.tc-badge-button {
+			border-color: rgba($lochmara, 0.25);
+
+			.tc-badge-category {
+				display: none;
+			}
+
+			.tc-badge-separator {
+				display: none;
+			}
+
+			.tc-badge-label {
+				color: $lochmara;
+			}
+		}
+		&:hover {
+			.tc-badge-button {
+				border-color: rgba($lochmara, 1);
+			}
+		}
+	}
+
+	&-edit {
+		.tc-badge-button:hover {
+			.tc-badge-label,
+			.tc-badge-icon {
+				color: $lochmara;
+			}
 		}
 	}
 
@@ -102,20 +242,9 @@ $tc-badge-margin: $padding-smaller !default;
 		}
 	}
 
-	.tc-badge-delete-icon {
-		position: relative;
-		margin: auto;
-		height: $tc-badge-height - 2 * $tc-badge-vertical-padding;
-		padding: 0;
-		background: transparent;
-		box-shadow: none;
-		left: -$padding-large;
-
-		svg {
-			display: block;
-			margin: 0;
-			height: $tc-badge-delete-icon-size;
-			width: $tc-badge-delete-icon-size;
+	&-readonly.tc-badge {
+		.tc-badge-button {
+			padding-right: $padding-small;
 		}
 	}
 }
