@@ -95,6 +95,7 @@ describe('Datalist component', () => {
 		it('should call props.onChange && props.onFinish', () => {
 			// when
 			const props = {
+				id: 'my-datalist',
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
 				onTrigger: jest.fn(),
@@ -124,6 +125,7 @@ describe('Datalist component', () => {
 		it('should rebuild schema to match restriction on validation', () => {
 			// when
 			const props = {
+				id: 'my-datalist',
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
 				onTrigger: jest.fn(),
@@ -162,6 +164,7 @@ describe('Datalist component', () => {
 		it('should support undefined value', () => {
 			// when
 			const props = {
+				id: 'my-datalist',
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
 				onTrigger: jest.fn(),
@@ -186,6 +189,7 @@ describe('Datalist component', () => {
 			// given
 			const data = { titleMap: [{ name: 'Foo', value: 'foo' }] };
 			const props = {
+				id: 'my-datalist',
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
 				onTrigger: jest.fn(
@@ -235,6 +239,7 @@ describe('Datalist component', () => {
 		it('should return array from schema.titleMap', () => {
 			// when
 			const props = {
+				id: 'my-datalist',
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
 				onTrigger: jest.fn(),
@@ -255,6 +260,7 @@ describe('Datalist component', () => {
 		it('should give priority to state.titleMap', () => {
 			// when
 			const props = {
+				id: 'my-datalist',
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
 				onTrigger: jest.fn(),
@@ -276,6 +282,7 @@ describe('Datalist component', () => {
 		it('should add unknown value to the titleMap if not restricted', () => {
 			// when
 			const props = {
+				id: 'my-datalist',
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
 				onTrigger: jest.fn(),
@@ -297,6 +304,7 @@ describe('Datalist component', () => {
 		it('should NOT add empty value to the titleMap', () => {
 			// when
 			const props = {
+				id: 'my-datalist',
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
 				onTrigger: jest.fn(),
@@ -333,6 +341,7 @@ describe('Datalist component', () => {
 				titleMap: undefined,
 			};
 			const props = {
+				id: 'my-datalist',
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
 				onTrigger: jest.fn(),
@@ -361,6 +370,7 @@ describe('Datalist component', () => {
 		it('should NOT add unknown value on restricted datalist', () => {
 			// when
 			const props = {
+				id: 'my-datalist',
 				onChange: jest.fn(),
 				onFinish: jest.fn(),
 				onTrigger: jest.fn(),

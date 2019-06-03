@@ -42,6 +42,7 @@ describe('CollapsibleFieldset', () => {
 				<CollapsibleFieldset
 					id={'my-fieldset'}
 					schema={schema}
+					onChange={jest.fn()}
 					value={{ ...value, isClosed: opts.isClosed }}
 				/>,
 			);

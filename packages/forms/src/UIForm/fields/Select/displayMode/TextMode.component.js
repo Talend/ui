@@ -22,7 +22,7 @@ if (process.env.NODE_ENV !== 'production') {
 		schema: PropTypes.shape({
 			title: PropTypes.string,
 		}),
-		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
 	};
 }
 

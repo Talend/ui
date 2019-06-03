@@ -1,85 +1,212 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tabs widget should render fieldset 1`] = `
-<TabBar
-  className="theme-tf-tabs tf-tabs"
-  id="undefined-tabs"
-  items={
-    Array [
-      Object {
-        "aria-label": undefined,
-        "children": <Widget
-          errors={Object {}}
-          schema={
-            Object {
-              "items": Array [
-                Object {
-                  "key": Array [
-                    "user",
-                    "firstname",
-                  ],
-                  "schema": Object {
-                    "type": "string",
-                  },
-                  "type": "text",
-                },
-                Object {
-                  "key": Array [
-                    "user",
-                    "lastname",
-                  ],
-                  "schema": Object {
-                    "type": "string",
-                  },
-                  "type": "text",
-                },
-              ],
-              "options": Object {
-                "hideTitle": true,
-              },
-              "title": "User",
-              "widget": "fieldset",
-            }
-          }
-          widgets={Object {}}
-        />,
-        "className": "",
-        "key": 0,
-        "label": "User",
-      },
-      Object {
-        "aria-label": undefined,
-        "children": <Widget
-          errors={Object {}}
-          schema={
-            Object {
-              "items": Array [
-                Object {
-                  "key": Array [
-                    "comment",
-                  ],
-                  "schema": Object {
-                    "type": "string",
-                  },
-                  "type": "text",
-                },
-              ],
-              "options": Object {
-                "hideTitle": true,
-              },
-              "title": "Other",
-              "widget": "fieldset",
-            }
-          }
-          widgets={Object {}}
-        />,
-        "className": "",
-        "key": 1,
-        "label": "Other",
-      },
-    ]
-  }
-  onSelect={[Function]}
-  selectedKey={0}
-/>
+Array [
+  <Nav
+    bsClass="nav"
+    bsStyle="tabs"
+    className="tc-tab-bar"
+    justified={false}
+    pullLeft={false}
+    pullRight={false}
+    stacked={false}
+  >
+    <ul
+      className="tc-tab-bar nav nav-tabs"
+      role="tablist"
+    >
+      <NavItem
+        active={true}
+        activeKey={0}
+        aria-controls="undefined-tabs-pane-0"
+        className=""
+        componentClass="button"
+        disabled={false}
+        eventKey={0}
+        id="undefined-tabs-tab-0"
+        key=".$0"
+        label="User"
+        onKeyDown={[Function]}
+        onSelect={[Function]}
+        role="tab"
+      >
+        <li
+          className="active"
+          role="presentation"
+        >
+          <SafeAnchor
+            aria-controls="undefined-tabs-pane-0"
+            aria-selected={true}
+            componentClass="button"
+            disabled={false}
+            id="undefined-tabs-tab-0"
+            label="User"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="tab"
+          >
+            <button
+              aria-controls="undefined-tabs-pane-0"
+              aria-selected={true}
+              href="#"
+              id="undefined-tabs-tab-0"
+              label="User"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="tab"
+            >
+              User
+            </button>
+          </SafeAnchor>
+        </li>
+      </NavItem>
+      <NavItem
+        active={false}
+        activeKey={0}
+        aria-controls="undefined-tabs-pane-1"
+        className=""
+        componentClass="button"
+        disabled={false}
+        eventKey={1}
+        id="undefined-tabs-tab-1"
+        key=".$1"
+        label="Other"
+        onKeyDown={[Function]}
+        onSelect={[Function]}
+        role="tab"
+        tabIndex={-1}
+      >
+        <li
+          className=""
+          role="presentation"
+        >
+          <SafeAnchor
+            aria-controls="undefined-tabs-pane-1"
+            aria-selected={false}
+            componentClass="button"
+            disabled={false}
+            id="undefined-tabs-tab-1"
+            label="Other"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="tab"
+            tabIndex={-1}
+          >
+            <button
+              aria-controls="undefined-tabs-pane-1"
+              aria-selected={false}
+              href="#"
+              id="undefined-tabs-tab-1"
+              label="Other"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="tab"
+              tabIndex={-1}
+            >
+              Other
+            </button>
+          </SafeAnchor>
+        </li>
+      </NavItem>
+    </ul>
+  </Nav>,
+  <ul
+    className="tc-tab-bar nav nav-tabs"
+    role="tablist"
+  >
+    <NavItem
+      active={true}
+      activeKey={0}
+      aria-controls="undefined-tabs-pane-0"
+      className=""
+      componentClass="button"
+      disabled={false}
+      eventKey={0}
+      id="undefined-tabs-tab-0"
+      key=".$0"
+      label="User"
+      onKeyDown={[Function]}
+      onSelect={[Function]}
+      role="tab"
+    >
+      <li
+        className="active"
+        role="presentation"
+      >
+        <SafeAnchor
+          aria-controls="undefined-tabs-pane-0"
+          aria-selected={true}
+          componentClass="button"
+          disabled={false}
+          id="undefined-tabs-tab-0"
+          label="User"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="tab"
+        >
+          <button
+            aria-controls="undefined-tabs-pane-0"
+            aria-selected={true}
+            href="#"
+            id="undefined-tabs-tab-0"
+            label="User"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="tab"
+          >
+            User
+          </button>
+        </SafeAnchor>
+      </li>
+    </NavItem>
+    <NavItem
+      active={false}
+      activeKey={0}
+      aria-controls="undefined-tabs-pane-1"
+      className=""
+      componentClass="button"
+      disabled={false}
+      eventKey={1}
+      id="undefined-tabs-tab-1"
+      key=".$1"
+      label="Other"
+      onKeyDown={[Function]}
+      onSelect={[Function]}
+      role="tab"
+      tabIndex={-1}
+    >
+      <li
+        className=""
+        role="presentation"
+      >
+        <SafeAnchor
+          aria-controls="undefined-tabs-pane-1"
+          aria-selected={false}
+          componentClass="button"
+          disabled={false}
+          id="undefined-tabs-tab-1"
+          label="Other"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="tab"
+          tabIndex={-1}
+        >
+          <button
+            aria-controls="undefined-tabs-pane-1"
+            aria-selected={false}
+            href="#"
+            id="undefined-tabs-tab-1"
+            label="Other"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="tab"
+            tabIndex={-1}
+          >
+            Other
+          </button>
+        </SafeAnchor>
+      </li>
+    </NavItem>
+  </ul>,
+]
 `;

@@ -64,6 +64,7 @@ class Tabs extends React.Component {
 		);
 	}
 }
+Tabs.displayName = 'Tabs';
 Tabs.defaultProps = {
 	t: getDefaultT(),
 };
