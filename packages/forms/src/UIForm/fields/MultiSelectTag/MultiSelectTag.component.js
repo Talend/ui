@@ -4,6 +4,7 @@ import keycode from 'keycode';
 import get from 'lodash/get';
 import Typeahead from '@talend/react-components/lib/Typeahead';
 import Badge from '@talend/react-components/lib/Badge';
+import FocusManager from '@talend/react-components/lib/FocusManager';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
@@ -241,31 +242,31 @@ export default class MultiSelectTag extends React.Component {
 						}
 						return <Badge {...badgeProps} />;
 					})}
-
-					<Typeahead
-						id={id}
-						autoFocus={schema.autoFocus || false}
-						disabled={schema.disabled || valueIsUpdating}
-						focusedItemIndex={this.state.focusedItemIndex}
-						isLoading={this.state.isLoading}
-						items={this.state.suggestions}
-						multiSection={false}
-						onBlur={this.resetSuggestions}
-						onChange={this.onChange}
-						onFocus={this.onFocus}
-						onKeyDown={this.onKeyDown}
-						onSelect={this.onAddTag}
-						placeholder={schema.placeholder}
-						readOnly={schema.readOnly || false}
-						theme={this.theme}
-						value={this.state.value}
-						caret
-						inputProps={{
-							'aria-invalid': !isValid,
-							'aria-required': schema.required,
-							'aria-describedby': `${descriptionId} ${errorId}`,
-						}}
-					/>
+					<FocusManager onFocusOut={this.resetSuggestions} className={theme['focus-manager']}>
+						<Typeahead
+							id={id}
+							autoFocus={schema.autoFocus || false}
+							disabled={schema.disabled || valueIsUpdating}
+							focusedItemIndex={this.state.focusedItemIndex}
+							isLoading={this.state.isLoading}
+							items={this.state.suggestions}
+							multiSection={false}
+							onChange={this.onChange}
+							onFocus={this.onFocus}
+							onKeyDown={this.onKeyDown}
+							onSelect={this.onAddTag}
+							placeholder={schema.placeholder}
+							readOnly={schema.readOnly || false}
+							theme={this.theme}
+							value={this.state.value}
+							caret
+							inputProps={{
+								'aria-invalid': !isValid,
+								'aria-required': schema.required,
+								'aria-describedby': `${descriptionId} ${errorId}`,
+							}}
+						/>
+					</FocusManager>
 				</div>
 			</FieldTemplate>
 		);

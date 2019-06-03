@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /* eslint no-console: 0 */
 
-const REACT_VERSION = process.env.REACT_VERSION || '^16.8.0';
+const REACT_VERSION = process.env.REACT_VERSION || '^16.8.6';
 console.log('REACT_VERSION: ', REACT_VERSION);
-const JEST_VERSION = '^24.0.0';
+const JEST_VERSION = '^24.7.1';
 
 module.exports = {
 	// addons
@@ -16,7 +16,7 @@ module.exports = {
 	'whatwg-fetch': '^2.0.3',
 
 	// UI deps outside of the release life cycle
-	'@talend/scripts': '^0.9.0',
+	'@talend/scripts': '^0.16.1',
 	'@talend/react-cmf-router': '^3.2.1',
 
 	// deps: non component libs
@@ -93,10 +93,10 @@ module.exports = {
 	'@babel/preset-env': '^7.2.0',
 	'@babel/preset-react': '^7.0.0',
 	cpx: '^1.5.0',
-	enzyme: '^3.7.0',
-	'enzyme-adapter-react-15': '^1.2.0',
-	'enzyme-adapter-react-16': '^1.7.0',
-	'enzyme-to-json': '^3.0.0',
+	enzyme: '^3.9.0',
+	'enzyme-adapter-react-15': '^1.3.1',
+	'enzyme-adapter-react-16': '^1.11.2',
+	'enzyme-to-json': '^3.3.5',
 	eslint: '^4.0.0',
 	'eslint-config-airbnb': '^11.1.0',
 	'eslint-plugin-import': '^1.16.0',
@@ -105,7 +105,7 @@ module.exports = {
 	jest: JEST_VERSION,
 	'jest-cli': JEST_VERSION,
 	'jest-in-case': '^1.0.2', // this is integrated in jest 23
-	'jest-environment-jsdom': '^23.4.0',
+	'jest-environment-jsdom': JEST_VERSION,
 	jsdom: '^11.11.0',
 	prettier: '^1.6.1',
 	'react-storybook-cmf': '^0.4.0',
@@ -113,7 +113,7 @@ module.exports = {
 	'react-stub-context': '^0.7.0',
 	'regenerator-runtime': '^0.13.1',
 	rimraf: '^2.6.2',
-	'sass-lint': '1.12.1',
+	'sass-lint': '^1.13.1',
 
 	// webpack
 	'babel-loader': '^8.0.0',

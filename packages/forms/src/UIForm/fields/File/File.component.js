@@ -49,6 +49,17 @@ function getBase64(value, fileName) {
 }
 
 class FileWidget extends React.Component {
+	static getDerivedStateFromProps(nextProps, prevState) {
+		const fileName = getFileName(nextProps.value);
+		if (prevState.fileName !== fileName) {
+			// Update file name if file is changed
+			return {
+				fileName,
+			};
+		}
+		return null;
+	}
+
 	constructor(props) {
 		super(props);
 		this.onChange = this.onChange.bind(this);

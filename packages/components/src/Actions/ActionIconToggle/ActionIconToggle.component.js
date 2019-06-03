@@ -10,7 +10,7 @@ import getPropsFrom from '../../utils/getPropsFrom';
 import theme from './ActionIconToggle.scss';
 
 function ActionIconToggle(props) {
-	const { active, className, icon, id, label, tooltipPlacement, ...rest } = props;
+	const { active, className, icon, iconTransform, id, label, tooltipPlacement, ...rest } = props;
 
 	const cn = classNames(className, 'tc-icon-toggle', theme['tc-icon-toggle'], {
 		[theme.active]: active,
@@ -25,9 +25,9 @@ function ActionIconToggle(props) {
 				className={cn}
 				aria-label={label}
 				aria-pressed={active}
-				bsStyle=""
+				bsStyle="link"
 			>
-				<Icon name={icon} />
+				<Icon name={icon} transform={iconTransform} />
 			</Button>
 		</TooltipTrigger>
 	);
@@ -37,6 +37,7 @@ ActionIconToggle.propTypes = {
 	active: PropTypes.bool,
 	className: PropTypes.string,
 	icon: PropTypes.string.isRequired,
+	iconTransform: PropTypes.string,
 	id: PropTypes.string,
 	label: PropTypes.string.isRequired,
 	onClick: PropTypes.func.isRequired,

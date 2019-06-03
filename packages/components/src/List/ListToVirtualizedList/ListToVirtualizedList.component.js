@@ -65,6 +65,7 @@ export function ListToVirtualizedList(props) {
 			inProgress={props.inProgress}
 			onRowClick={itemProps && itemProps.onRowClick}
 			onRowDoubleClick={titleProps && titleProps.onClick}
+			onToggleAll={itemProps && itemProps.onToggleAll}
 			defaultHeight={props.defaultHeight}
 			noRowsRenderer={props.noRowsRenderer}
 			rowHeight={props.rowHeight}
@@ -87,7 +88,7 @@ export function ListToVirtualizedList(props) {
 					};
 					if (titleProps && column.key === titleProps.key) {
 						Object.assign(cProps, listCellDictionary[titleCellType], {
-							columnData: titleProps,
+							columnData: { ...titleProps, 'data-feature': column['data-feature'] },
 						});
 					} else if (supposedActions[column.key]) {
 						Object.assign(cProps, CellActions);

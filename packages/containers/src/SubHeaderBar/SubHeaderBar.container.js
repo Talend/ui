@@ -50,20 +50,32 @@ class SubHeaderBar extends React.Component {
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
 		const hasGoBack = this.props.onGoBack || this.props.actionCreatorGoBack;
+		const { onEdit, onCancel, onSubmit, onChange } = this.props;
+		const eventHandlerProps = {};
+		if (onEdit) {
+			eventHandlerProps.onEdit = onEdit;
+		}
+		if (onCancel) {
+			eventHandlerProps.onCancel = onCancel;
+		}
+		if (onSubmit) {
+			eventHandlerProps.onSubmit = onSubmit;
+		}
+		if (onChange) {
+			eventHandlerProps.onChange = onChange;
+		}
+		if (hasGoBack) {
+			eventHandlerProps.onGoBack = this.onGoBack;
+		}
 		const props = Object.assign(
 			{},
 			omit(this.props, cmfConnect.INJECTED_PROPS),
-			{
-				onEdit: this.props.onEdit,
-				onCancel: this.props.onCancel,
-				onSubmit: this.props.onSubmit,
-				onChange: this.props.onChange,
-				onGoBack: hasGoBack && this.onGoBack,
-			},
+			eventHandlerProps,
 			{
 				...state.toJS(),
 			},
 		);
+
 		return <Component {...props} />;
 	}
 }
