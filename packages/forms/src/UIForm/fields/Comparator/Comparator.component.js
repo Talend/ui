@@ -102,8 +102,7 @@ class Comparator extends React.Component {
 	}
 
 	getOperatorsMap() {
-		return this.getFormattedOperators().map(({ value, title, name, symbol }) => {
-			return {
+		return this.getFormattedOperators().map(({ value, title, name, symbol }) => ({
 				value,
 				title,
 				label: (
@@ -113,8 +112,7 @@ class Comparator extends React.Component {
 						symbol={symbol}
 					/>
 				),
-			};
-		});
+			}));
 	}
 
 	render() {
