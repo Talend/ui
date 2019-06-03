@@ -87,16 +87,17 @@ class Comparator extends React.Component {
 	getValueSchema = getPartSchema.bind(this, this.props.schema, 'value');
 
 	getFormattedOperators() {
-		const map = this.props.schema.titleMap || [];
-		const schema = this.getOperatorSchema();
-		return schema.titleMap.map(({ value }) => {
-			const values = map.find(m => m.value === value);
-			const title = values ? `${values.symbol} (${values.name})` : value;
+		const { schema } = this.props;
+		const map = schema.titleMap || [];
+		const symbols = (schema.options && schema.options.symbols) || {};
+		return this.getOperatorSchema().titleMap.map(({ value }) => {
+			const titles = map.find(m => m.value === value);
+			const title = titles ? `${titles.symbol} (${titles.name})` : value;
 			return {
 				value,
 				title,
-				name: values ? values.name : '',
-				symbol: values ? values.symbol : value,
+				name: titles ? titles.name : '',
+				symbol: symbols[value] || value,
 			};
 		});
 	}

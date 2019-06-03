@@ -65,18 +65,21 @@
       "titleMap": [
         {
           "name": "Orange",
-          "value": "orng",
-          "symbol": ">="
+          "value": "orng"
         },
 
         {
           "name": "Pear",
-          "value": "pr",
-          "symbol": "<="
+          "value": "pr"
         }
-      ]
+      ],
+      "options": {
+        "symbols": {
+          "orng": ">=",
+          "pr": "<="
+        }
+      }
     },
-
     {
       "key": "disabled",
       "widget": "comparator",
