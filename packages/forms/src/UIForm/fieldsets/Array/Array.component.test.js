@@ -1,8 +1,12 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import ArrayWidget from './Array.component';
+import { UIFormContext } from '../../context';
+import widgets from '../../utils/widgets';
+import templates from '../../utils/templates';
 
 const schema = {
+	description: 'My array description',
 	key: ['comments'],
 	items: [
 		{
@@ -85,24 +89,38 @@ const value = [
 	},
 ];
 
+// eslint-disable-next-line react/prop-types
+const ContextProvider = ({ children, valueUpdater = val => val }) => {
+	const properties = {
+		user: {
+			firstname: 'my firstname',
+			lastname: 'my lastname',
+		},
+		comment: '',
+	};
+	const contextValue = valueUpdater({
+		id: 'myForm',
+		onChange: jest.fn('onChange'),
+		onFinish: jest.fn('onFinish'),
+		onTrigger: jest.fn('onTrigger'),
+		state: { properties, errors: {} },
+		templates,
+		widgets,
+	});
+	return <UIFormContext.Provider value={contextValue}>{children}</UIFormContext.Provider>;
+};
+
 describe('Array component', () => {
 	it('should render array', () => {
 		// when
 		const wrapper = shallow(
-			<ArrayWidget
-				description={'My array description'}
-				errorMessage={'This array is not correct'}
-				id={'talend-array'}
-				isValid
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				schema={schema}
-				value={value}
-			/>,
+			<ContextProvider>
+				<ArrayWidget id={'talend-array'} schema={schema} value={value} />
+			</ContextProvider>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find(ArrayWidget).getElement()).toMatchSnapshot();
 	});
 
 	it("should render array that can't be reordered", () => {
@@ -114,20 +132,13 @@ describe('Array component', () => {
 
 		// when
 		const wrapper = shallow(
-			<ArrayWidget
-				description={'My array description'}
-				errorMessage={'This array is not correct'}
-				id={'talend-array'}
-				isValid
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				schema={nonReorderSchema}
-				value={value}
-			/>,
+			<ContextProvider>
+				<ArrayWidget id={'talend-array'} schema={nonReorderSchema} value={value} />
+			</ContextProvider>,
 		);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find(ArrayWidget).getElement()).toMatchSnapshot();
 	});
 
 	it('should render array with Add/Delete button disabled', () => {
@@ -138,16 +149,9 @@ describe('Array component', () => {
 		};
 		// when
 		const wrapper = mount(
-			<ArrayWidget
-				description={'My array description'}
-				id={'talend-array'}
-				isValid
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				schema={disabledSchema}
-				value={value}
-				errors={{}}
-			/>,
+			<ContextProvider>
+				<ArrayWidget id={'talend-array'} schema={disabledSchema} value={value} />
+			</ContextProvider>,
 		);
 		// then
 		expect(wrapper.find('Action#talend-array-btn').prop('disabled')).toBe(true);
@@ -158,49 +162,37 @@ describe('Array component', () => {
 			// given
 			const onChange = jest.fn();
 			const onFinish = jest.fn();
-			const event = { target: {} };
-			const wrapper = shallow(
-				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
-					isValid
-					onChange={onChange}
-					onFinish={onFinish}
-					schema={schema}
-					value={value}
-				/>,
+			const wrapper = mount(
+				<ContextProvider valueUpdater={val => ({ ...val, onChange, onFinish })}>
+					<ArrayWidget id={'talend-array'} schema={schema} value={value} />
+				</ContextProvider>,
 			);
 
 			// when
-			wrapper.instance().onAdd(event);
+			wrapper.find('button.tf-array-add').simulate('click');
 
 			// then
 			const payload = { schema, value: value.concat({}) };
-			expect(onChange).toBeCalledWith(event, payload);
-			expect(onFinish).toBeCalledWith(event, payload);
+			expect(onChange).toBeCalledWith(expect.anything(), payload);
+			expect(onFinish).toBeCalledWith(expect.anything(), payload);
 		});
 
 		it('should close all items with closeable item widget', () => {
 			// given
 			const onChange = jest.fn();
 			const onFinish = jest.fn();
-			const event = { target: {} };
-			const wrapper = shallow(
-				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
-					isValid
-					onChange={onChange}
-					onFinish={onFinish}
-					schema={{ ...schema, itemWidget: 'collapsibleFieldset' }}
-					value={value}
-				/>,
+			const wrapper = mount(
+				<ContextProvider valueUpdater={val => ({ ...val, onChange, onFinish })}>
+					<ArrayWidget
+						id={'talend-array'}
+						schema={{ ...schema, itemWidget: 'collapsibleFieldset' }}
+						value={value}
+					/>
+				</ContextProvider>,
 			);
 
 			// when
-			wrapper.instance().onAdd(event);
+			wrapper.find('button.tf-array-add').simulate('click');
 
 			// then
 			const newValues = onChange.mock.calls[0][1].value;
@@ -219,47 +211,38 @@ describe('Array component', () => {
 			// given
 			const onChange = jest.fn();
 			const onFinish = jest.fn();
-			const event = { target: {} };
-			const wrapper = shallow(
-				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
-					isValid
-					onChange={onChange}
-					onFinish={onFinish}
-					schema={schema}
-					value={value}
-				/>,
+			const wrapper = mount(
+				<ContextProvider valueUpdater={val => ({ ...val, onChange, onFinish })}>
+					<ArrayWidget id={'talend-array'} schema={schema} value={value} />
+				</ContextProvider>,
 			);
 
 			// when
-			wrapper.instance().onRemove(event, 1);
+			wrapper
+				.find('button.theme-delete')
+				.at(1)
+				.simulate('click');
 
 			// then
 			const payload = { schema, value: [value[0], value[2]] };
-			expect(onChange).toBeCalledWith(event, payload);
-			expect(onFinish).toBeCalledWith(event, payload, expect.anything());
+			expect(onChange).toBeCalledWith(expect.anything(), payload);
+			expect(onFinish).toBeCalledWith(expect.anything(), payload, expect.anything());
 		});
 
 		it('should pass widget hook function to shift errors indexes', () => {
 			// given
+			const onChange = jest.fn();
 			const onFinish = jest.fn();
-			const event = { target: {} };
-			const wrapper = shallow(
-				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
-					isValid
-					onChange={jest.fn()}
-					onFinish={onFinish}
-					schema={schema}
-					value={value}
-				/>,
+			const wrapper = mount(
+				<ContextProvider valueUpdater={val => ({ ...val, onFinish, onChange })}>
+					<ArrayWidget id={'talend-array'} schema={schema} value={value} />
+				</ContextProvider>,
 			);
 
-			wrapper.instance().onRemove(event, 1);
+			wrapper
+				.find('button.theme-delete')
+				.at(1)
+				.simulate('click');
 			const options = onFinish.mock.calls[0][2];
 
 			const oldErrors = {
@@ -286,54 +269,44 @@ describe('Array component', () => {
 			// given
 			const onChange = jest.fn();
 			const onFinish = jest.fn();
-			const event = { target: {} };
-			const wrapper = shallow(
-				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
-					isValid
-					onChange={onChange}
-					onFinish={onFinish}
-					schema={schema}
-					value={value}
-				/>,
+			const wrapper = mount(
+				<ContextProvider valueUpdater={val => ({ ...val, onFinish, onChange })}>
+					<ArrayWidget id={'talend-array'} schema={schema} value={value} />
+				</ContextProvider>,
 			);
 
 			// when
-			wrapper.instance().onReorder(event, { previousIndex: 0, nextIndex: 2 });
+			wrapper
+				.find('button.tf-array-item-reorder')
+				.at(1)
+				.simulate('click');
 
 			// then
-			const payload = { schema, value: [value[1], value[2], value[0]] };
-			expect(onChange).toBeCalledWith(event, payload);
-			expect(onFinish).toBeCalledWith(event, payload, expect.anything());
+			const payload = { schema, value: [value[1], value[0], value[2]] };
+			expect(onChange).toBeCalledWith(expect.anything(), payload);
+			expect(onFinish).toBeCalledWith(expect.anything(), payload, expect.anything());
 		});
 
 		it('should pass widget hook function to shift errors indexes', () => {
 			// given
+			const onChange = jest.fn();
 			const onFinish = jest.fn();
-			const event = { target: {} };
-			const wrapper = shallow(
-				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
-					isValid
-					onChange={jest.fn()}
-					onFinish={onFinish}
-					schema={schema}
-					value={value}
-				/>,
+			const wrapper = mount(
+				<ContextProvider valueUpdater={val => ({ ...val, onFinish, onChange })}>
+					<ArrayWidget id={'talend-array'} schema={schema} value={value} />
+				</ContextProvider>,
 			);
 
-			wrapper.instance().onReorder(event, { previousIndex: 0, nextIndex: 2 });
+			wrapper
+				.find('button.tf-array-item-reorder')
+				.at(1)
+				.simulate('click');
 			const options = onFinish.mock.calls[0][2];
-
 			const oldErrors = {
 				'comments,0,name': 'This is required',
-				'comments,1,email': 'This is too long',
-				'comments,2,name': 'This is too short',
-				'comments,2,comment': 'This is not long enough',
+				'comments,1,name': 'This is too short',
+				'comments,1,comment': 'This is not long enough',
+				'comments,2,email': 'This is too long',
 			};
 
 			// when
@@ -341,118 +314,102 @@ describe('Array component', () => {
 
 			// then
 			expect(newErrors).toEqual({
-				'comments,2,name': 'This is required',
-				'comments,0,email': 'This is too long',
-				'comments,1,name': 'This is too short',
-				'comments,1,comment': 'This is not long enough',
+				'comments,0,name': 'This is too short',
+				'comments,0,comment': 'This is not long enough',
+				'comments,1,name': 'This is required',
+				'comments,2,email': 'This is too long',
 			});
 		});
 	});
 
 	describe('#renderItem', () => {
 		it('should render item at given index', () => {
-			// given
-			const wrapper = shallow(
-				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
-					isValid
-					schema={schema}
-					value={value}
-				/>,
+			// when
+			const wrapper = mount(
+				<ContextProvider>
+					<ArrayWidget id={'talend-array'} schema={schema} value={value} />
+				</ContextProvider>,
 			);
 
-			// when
-			const item = wrapper.instance().renderItem(1);
-
 			// then
-			expect(item).toMatchSnapshot();
-		});
-
-		it('should render adapt schema injecting the index deeply', () => {
-			// given
-			const deepSchema = {
-				...schema,
-				items: [
-					{
-						widget: 'fieldset',
-						title: 'Extra level of fieldset for nesting',
-						items: schema.items,
-					},
-				],
-			};
-			const wrapper = shallow(
-				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
-					isValid
-					schema={deepSchema}
-					value={value}
-				/>,
-			);
-
-			// when
-			const item = wrapper.instance().renderItem(1);
-
-			// then
-			const nestedItemsKey = item.props.schema.items[0].items.map(nextItem => nextItem.key);
-			expect(nestedItemsKey).toEqual([
-				['comments', 1, 'name'],
-				['comments', 1, 'email'],
-				['comments', 1, 'comment'],
-			]);
+			expect(wrapper.find('input#myForm_comments_0_name').length).toBe(1);
+			expect(wrapper.find('input#myForm_comments_0_email').length).toBe(1);
+			expect(wrapper.find('textarea#myForm_comments_0_comment').length).toBe(1);
 		});
 	});
 
 	describe('#isCloseable', () => {
 		it('should pass isCloseable true if widget has isCloseable property set to true', () => {
-			const widgets = { myCloseableWidget: { isCloseable: true } };
-			const wrapper = shallow(
-				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
-					isValid
-					schema={{ ...schema, itemWidget: 'myCloseableWidget' }}
-					widgets={widgets}
-					value={value}
-				/>,
+			// given
+			const myCloseableWidget = () => <div />;
+			myCloseableWidget.isCloseable = true;
+
+			// when
+			const wrapper = mount(
+				<ContextProvider
+					valueUpdater={val => ({
+						...val,
+						widgets: { ...val.widgets, myCloseableWidget },
+					})}
+				>
+					<ArrayWidget
+						id={'talend-array'}
+						schema={{ ...schema, itemWidget: 'myCloseableWidget' }}
+						value={value}
+					/>
+				</ContextProvider>,
 			);
+
+			// then
 			expect(wrapper.find('Translate(DefaultArrayTemplate)').prop('isCloseable')).toEqual(true);
 		});
 
 		it('should pass isCloseable false if widget has isCloseable property set to false', () => {
-			const widgets = { someWidget: { isCloseable: false } };
-			const wrapper = shallow(
-				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
-					isValid
-					schema={{ ...schema, itemWidget: 'someWidget' }}
-					widgets={widgets}
-					value={value}
-				/>,
+			// given
+			const myCloseableWidget = () => <div />;
+			myCloseableWidget.isCloseable = false;
+
+			// when
+			const wrapper = mount(
+				<ContextProvider
+					valueUpdater={val => ({
+						...val,
+						widgets: { ...val.widgets, myCloseableWidget },
+					})}
+				>
+					<ArrayWidget
+						id={'talend-array'}
+						schema={{ ...schema, itemWidget: 'myCloseableWidget' }}
+						value={value}
+					/>
+				</ContextProvider>,
 			);
+
+			// then
 			expect(wrapper.find('Translate(DefaultArrayTemplate)').prop('isCloseable')).toEqual(false);
 		});
 
 		it('should pass isCloseable false if widget does not have isCloseable property', () => {
-			const widgets = { someWidget: {} };
-			const wrapper = shallow(
-				<ArrayWidget
-					description={'My array description'}
-					errorMessage={'This array is not correct'}
-					id={'talend-array'}
-					isValid
-					schema={{ ...schema, itemWidget: 'someWidget' }}
-					widgets={widgets}
-					value={value}
-				/>,
+			// given
+			const myCloseableWidget = () => <div />;
+
+			// when
+			const wrapper = mount(
+				<ContextProvider
+					valueUpdater={val => ({
+						...val,
+						widgets: { ...val.widgets, myCloseableWidget },
+					})}
+				>
+					<ArrayWidget
+						id={'talend-array'}
+						schema={{ ...schema, itemWidget: 'myCloseableWidget' }}
+						value={value}
+					/>
+				</ContextProvider>,
 			);
-			expect(wrapper.find('Translate(DefaultArrayTemplate)').prop('isCloseable')).toEqual(false);
+
+			expect(wrapper.find('Translate(DefaultArrayTemplate)').prop('isCloseable')).toBeFalsy();
 		});
 	});
 });

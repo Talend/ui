@@ -1,101 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Array component #renderItem should render item at given index 1`] = `
-<Widget
-  description="My array description"
-  errorMessage="This array is not correct"
-  id="talend-array-1"
-  isValid={true}
-  items={Array []}
-  schema={
-    Object {
-      "items": Array [
-        Object {
-          "key": Array [
-            "comments",
-            1,
-            "name",
-          ],
-          "required": true,
-          "schema": Object {
-            "title": "Name",
-            "type": "string",
-          },
-          "title": "Name",
-          "type": "text",
-        },
-        Object {
-          "description": "Email will be used for evil.",
-          "key": Array [
-            "comments",
-            1,
-            "email",
-          ],
-          "schema": Object {
-            "description": "Email will be used for evil.",
-            "pattern": "^\\\\S+@\\\\S+$",
-            "title": "Email",
-            "type": "string",
-          },
-          "title": "Email",
-          "type": "text",
-        },
-        Object {
-          "key": Array [
-            "comments",
-            1,
-            "comment",
-          ],
-          "maxlength": 20,
-          "rows": 3,
-          "schema": Object {
-            "maxLength": 20,
-            "title": "Comment",
-            "type": "string",
-            "validationMessage": "Don't be greedy!",
-          },
-          "title": "Comment",
-          "type": "textarea",
-          "validationMessage": "Don't be greedy!",
-        },
-      ],
-      "key": Array [
-        "comments",
-        1,
-      ],
-      "title": undefined,
-      "widget": "fieldset",
-    }
-  }
-  templates={Object {}}
-  value={
-    Object {
-      "comment": "Let's do that instead",
-      "email": "jm@lol.com",
-      "name": "JM",
-    }
-  }
-  widgets={Object {}}
-/>
-`;
-
 exports[`Array component should render array 1`] = `
-<Translate(DefaultArrayTemplate)
-  canReorder={true}
-  description="My array description"
-  errorMessage="This array is not correct"
+<ArrayWidget
   id="talend-array"
-  isCloseable={false}
-  isValid={true}
-  items={Array []}
-  onAdd={[Function]}
-  onChange={[MockFunction]}
-  onFinish={[MockFunction]}
-  onRemove={[Function]}
-  onReorder={[Function]}
-  renderItem={[Function]}
   schema={
     Object {
+      "description": "My array description",
       "items": Array [
         Object {
           "key": Array [
@@ -183,7 +93,6 @@ exports[`Array component should render array 1`] = `
       "type": "array",
     }
   }
-  templates={Object {}}
   value={
     Array [
       Object {
@@ -203,27 +112,15 @@ exports[`Array component should render array 1`] = `
       },
     ]
   }
-  widgets={Object {}}
 />
 `;
 
 exports[`Array component should render array that can't be reordered 1`] = `
-<Translate(DefaultArrayTemplate)
-  canReorder={false}
-  description="My array description"
-  errorMessage="This array is not correct"
+<ArrayWidget
   id="talend-array"
-  isCloseable={false}
-  isValid={true}
-  items={Array []}
-  onAdd={[Function]}
-  onChange={[MockFunction]}
-  onFinish={[MockFunction]}
-  onRemove={[Function]}
-  onReorder={[Function]}
-  renderItem={[Function]}
   schema={
     Object {
+      "description": "My array description",
       "items": Array [
         Object {
           "key": Array [
@@ -312,7 +209,6 @@ exports[`Array component should render array that can't be reordered 1`] = `
       "type": "array",
     }
   }
-  templates={Object {}}
   value={
     Array [
       Object {
@@ -332,6 +228,5 @@ exports[`Array component should render array that can't be reordered 1`] = `
       },
     ]
   }
-  widgets={Object {}}
 />
 `;
