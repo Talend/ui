@@ -13,9 +13,10 @@
 // --------------------------------------------------
 
 .label {
-	display: inline;
-	padding: 0.2em $padding-smaller 0.3em $padding-smaller;
-	font-size: 75%;
+	display: inline-block;
+    height: 15px;
+	padding: 0 $padding-smaller 0 $padding-smaller;
+	font-size: 1.2rem;
 	font-weight: 600;
 	line-height: 1;
 	color: $label-color;
