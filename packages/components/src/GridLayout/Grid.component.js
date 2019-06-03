@@ -83,14 +83,13 @@ function Grid({
 			isResizable={isResizable}
 			useCSSTransforms={false}
 		>
-			{
-				isLoading ?
-					(skeletonConfiguration || SKELETON_TILE_CONF).map(tile => (
+			{isLoading
+				? (skeletonConfiguration || SKELETON_TILE_CONF).map(tile => (
 						<div className={'skeleton-tile'} key={tile.key} data-grid={tile['data-grid']}>
 							<Tile.Skeleton />
 						</div>
-					)) : children
-			}
+				  ))
+				: children}
 		</ResponsiveGridLayout>
 	);
 }
