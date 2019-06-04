@@ -601,13 +601,13 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
     >
       <li
         aria-selected={false}
-        data-feature="data-feature-typeahead"
         id="react-autowhatever-my-search--item-0"
         role="option"
         style={Object {}}
       >
         <div
           className="theme-item"
+          data-feature="data-feature-typeahead"
           title="category 1"
         >
           <span
@@ -621,13 +621,13 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
       </li>
       <li
         aria-selected={false}
-        data-feature="data-feature-typeahead"
         id="react-autowhatever-my-search--item-1"
         role="option"
         style={Object {}}
       >
         <div
           className="theme-item"
+          data-feature="data-feature-typeahead"
           title="category 2"
         >
           <span
