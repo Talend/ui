@@ -26,11 +26,7 @@ import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 const { LARGE } = listTypes;
 
-const SKELETON_SIZES = [
-	Skeleton.SIZES.xlarge,
-	Skeleton.SIZES.large,
-	Skeleton.SIZES.medium,
-];
+const SKELETON_SIZES = [Skeleton.SIZES.xlarge, Skeleton.SIZES.large, Skeleton.SIZES.medium];
 
 function RandomSizeSkeleton() {
 	const size = Skeleton.SIZES[SKELETON_SIZES[Math.floor(Math.random() * SKELETON_SIZES.length)]];
@@ -44,7 +40,7 @@ function LargeInnerRowLoading({ columns, rows }) {
 			{Array(columns).fill(
 				<div className={theme['loading-inner-column']}>
 					{Array(rows).fill(<RandomSizeSkeleton />)}
-				</div>
+				</div>,
 			)}
 		</div>
 	);
@@ -132,21 +128,19 @@ class RowLarge extends React.Component {
 				aria-label={titleField && getCellData(titleField, parent, index)}
 			>
 				<div className={`tc-list-large-inner-box ${theme['inner-box']}`} key="inner-box">
-					{isEmpty(rowData)
-						? <LargeInnerRowLoading columns={3} rows={3} />
-						: (
-							<React.Fragment>
-								<div className={theme.header} key="header">
-									{titleCell}
-									{selectionCell}
-								</div>
-								<dl className={`tc-list-large-content ${theme.content}`} key="content">
-									{otherFields.map(this.renderKeyValue)}
-								</dl>
-							</React.Fragment>
-						)
-					}
-
+					{isEmpty(rowData) ? (
+						<LargeInnerRowLoading columns={3} rows={3} />
+					) : (
+						<React.Fragment>
+							<div className={theme.header} key="header">
+								{titleCell}
+								{selectionCell}
+							</div>
+							<dl className={`tc-list-large-content ${theme.content}`} key="content">
+								{otherFields.map(this.renderKeyValue)}
+							</dl>
+						</React.Fragment>
+					)}
 				</div>
 			</div>
 		);
