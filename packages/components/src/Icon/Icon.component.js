@@ -71,6 +71,9 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 			</button>
 		);
 	}
+	if (!name) {
+		return <div className="alert alert-danger">Icon: no name provided</div>;
+	}
 	if (name) {
 		const classname = classnames(
 			theme['tc-svg-icon'],
@@ -84,14 +87,14 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 			</svg>
 		);
 	}
-	invariant(true, 'no name provided');
+	invariant(true, '');
 }
 
 Icon.displayName = 'Icon';
 
 Icon.propTypes = {
 	className: PropTypes.string,
-	name: PropTypes.string,
+	name: PropTypes.string.isRequired,
 	title: PropTypes.string,
 	transform: PropTypes.oneOf(TRANSFORMS),
 	onClick: PropTypes.func,
