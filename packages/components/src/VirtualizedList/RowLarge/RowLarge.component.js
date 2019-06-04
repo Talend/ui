@@ -2,6 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
+import isEmpty from 'lodash/isEmpty';
+
+import Skeleton from '../../Skeleton';
+
 import {
 	extractSpecialFields,
 	getCellData,
@@ -21,6 +25,35 @@ import theme from './RowLarge.scss';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 const { LARGE } = listTypes;
+
+const SKELETON_SIZES = [
+	Skeleton.SIZES.xlarge,
+	Skeleton.SIZES.large,
+	Skeleton.SIZES.medium,
+];
+
+function RandomSizeSkeleton() {
+	const size = Skeleton.SIZES[SKELETON_SIZES[Math.floor(Math.random() * SKELETON_SIZES.length)]];
+
+	return <Skeleton size={size} />;
+}
+
+function LargeInnerRowLoading({ columns, rows }) {
+	return (
+		<div className={theme['loading-large-column-wrapper']}>
+			{Array(columns).fill(
+				<div className={theme['loading-inner-column']}>
+					{Array(rows).fill(<RandomSizeSkeleton />)}
+				</div>
+			)}
+		</div>
+	);
+}
+
+LargeInnerRowLoading.propTypes = {
+	columns: PropTypes.number,
+	rows: PropTypes.number,
+};
 
 /**
  * Row renderer that displays a Large item
@@ -65,40 +98,45 @@ class RowLarge extends React.Component {
 		const selectionCell = selectionField && renderCell(index, parent, selectionField);
 		const rowData = getRowData(parent, index);
 
-		let onRowClick;
-		let onRowDoubleClick;
-		if (parent.props.onRowClick) {
-			onRowClick = event => parent.props.onRowClick({ event, rowData });
-		}
-		if (parent.props.onRowDoubleClick) {
-			onRowDoubleClick = event => parent.props.onRowDoubleClick({ event, rowData });
+		const rowProps = {
+			id,
+			style,
+			className: classNames('tc-list-item', 'tc-list-large-row', rowThemes, rowData.className, className),
+			role: 'listitem',
+			tabIndex: 0,
+			'aria-posinset': index + 1,
+			'aria-setsize': parent.props.rowCount,
+			ref: ref => {
+				this.ref = ref;
+			},
+			onKeyDown: e => onKeyDown(e, this.ref),
+			onClick: parent.props.onRowClick
+				? event => parent.props.onRowClick({ event, rowData })
+				: null,
+			onDoubleClick: parent.props.onRowDoubleClick
+				? event => parent.props.onRowDoubleClick({ event, rowData })
+				: null,
+		};
+
+		const innerBoxProps = {
+			className: classNames('tc-list-large-inner-box', theme['inner-box']),
+			key: 'inner-box',
+		};
+
+		if (isEmpty(rowData)) {
+			// Build empty row
+			return (
+				<div {...rowProps}>
+					<div {...innerBoxProps}>
+						<LargeInnerRowLoading columns={3} rows={3} />
+					</div>
+				</div>
+			);
 		}
 
 		return (
-			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
-			<div
-				className={classNames(
-					'tc-list-item',
-					'tc-list-large-row',
-					rowThemes,
-					rowData.className,
-					className,
-				)}
-				id={id}
-				onClick={onRowClick}
-				onDoubleClick={onRowDoubleClick}
-				onKeyDown={e => onKeyDown(e, this.ref)}
-				style={style}
-				ref={ref => {
-					this.ref = ref;
-				}}
-				role="listitem"
-				tabIndex="0"
-				aria-posinset={index + 1}
-				aria-setsize={parent.props.rowCount}
-				aria-label={titleField && getCellData(titleField, parent, index)}
-			>
-				<div className={`tc-list-large-inner-box ${theme['inner-box']}`} key="inner-box">
+			<div {...rowProps} aria-label={titleField && getCellData(titleField, parent, index)}>
+				<div {...innerBoxProps}>
 					<div className={theme.header} key="header">
 						{titleCell}
 						{selectionCell}
