@@ -98,52 +98,55 @@ class RowLarge extends React.Component {
 		const selectionCell = selectionField && renderCell(index, parent, selectionField);
 		const rowData = getRowData(parent, index);
 
-		const rowProps = {
-			id,
-			style,
-			className: classNames('tc-list-item', 'tc-list-large-row', rowThemes, rowData.className, className),
-			role: 'listitem',
-			tabIndex: 0,
-			'aria-posinset': index + 1,
-			'aria-setsize': parent.props.rowCount,
-			ref: ref => {
-				this.ref = ref;
-			},
-			onKeyDown: e => onKeyDown(e, this.ref),
-			onClick: parent.props.onRowClick
-				? event => parent.props.onRowClick({ event, rowData })
-				: null,
-			onDoubleClick: parent.props.onRowDoubleClick
-				? event => parent.props.onRowDoubleClick({ event, rowData })
-				: null,
-		};
-
-		const innerBoxProps = {
-			className: classNames('tc-list-large-inner-box', theme['inner-box']),
-			key: 'inner-box',
-		};
-
-		if (isEmpty(rowData)) {
-			// Build empty row
-			return (
-				<div {...rowProps}>
-					<div {...innerBoxProps}>
-						<LargeInnerRowLoading columns={3} rows={3} />
-					</div>
-				</div>
-			);
+		let onRowClick;
+		let onRowDoubleClick;
+		if (parent.props.onRowClick) {
+			onRowClick = event => parent.props.onRowClick({ event, rowData });
+		}
+		if (parent.props.onRowDoubleClick) {
+			onRowDoubleClick = event => parent.props.onRowDoubleClick({ event, rowData });
 		}
 
 		return (
-			<div {...rowProps} aria-label={titleField && getCellData(titleField, parent, index)}>
-				<div {...innerBoxProps}>
-					<div className={theme.header} key="header">
-						{titleCell}
-						{selectionCell}
-					</div>
-					<dl className={`tc-list-large-content ${theme.content}`} key="content">
-						{otherFields.map(this.renderKeyValue)}
-					</dl>
+			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
+			<div
+				className={classNames(
+					'tc-list-item',
+					'tc-list-large-row',
+					rowThemes,
+					rowData.className,
+					className,
+				)}
+				id={id}
+				onClick={onRowClick}
+				onDoubleClick={onRowDoubleClick}
+				onKeyDown={e => onKeyDown(e, this.ref)}
+				style={style}
+				ref={ref => {
+					this.ref = ref;
+				}}
+				role="listitem"
+				tabIndex="0"
+				aria-posinset={index + 1}
+				aria-setsize={parent.props.rowCount}
+				aria-label={titleField && getCellData(titleField, parent, index)}
+			>
+				<div className={`tc-list-large-inner-box ${theme['inner-box']}`} key="inner-box">
+					{isEmpty(rowData)
+						? <LargeInnerRowLoading columns={3} rows={3} />
+						: (
+							<React.Fragment>
+								<div className={theme.header} key="header">
+									{titleCell}
+									{selectionCell}
+								</div>
+								<dl className={`tc-list-large-content ${theme.content}`} key="content">
+									{otherFields.map(this.renderKeyValue)}
+								</dl>
+							</React.Fragment>
+						)
+					}
+
 				</div>
 			</div>
 		);
