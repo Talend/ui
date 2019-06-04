@@ -1,3 +1,10 @@
+/**
+ * Please consider this file as DEPRECATED
+ * You should not anymore rely on it.
+ * components is now too big.
+ * You should pick the component you need
+ */
+
 import bootstrap from './bootstrap';
 import { I18N_DOMAIN_COMPONENTS, CIRCULAR_PROGRESS_SIZE } from './constants';
 import AboutDialog from './AboutDialog';
