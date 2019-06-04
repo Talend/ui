@@ -17,9 +17,10 @@ const { LARGE } = listTypes;
  */
 function VirtualizedList(props) {
 	const {
-		collection,
 		children,
+		collection,
 		defaultHeight,
+		disableHeader,
 		noRowsRenderer,
 		id,
 		isActive,
@@ -27,20 +28,26 @@ function VirtualizedList(props) {
 		inProgress,
 		onRowClick,
 		onRowDoubleClick,
+		onRowsRendered,
 		onScroll,
+		onToggleAll,
+		registerChild,
 		rowHeight,
+		rowRenderers,
+		scrollToIndex,
 		selectionToggle,
 		sort,
 		sortBy,
 		sortDirection,
+		rowCount,
 		type,
-		disableHeader,
-		rowRenderers,
 	} = props;
 
 	const columnDefinitionsWithSelection = insertSelectionConfiguration({
+		collection,
 		isSelected,
 		selectionToggle,
+		onToggleAll,
 		children,
 	});
 	const columnDefinitions = toColumns({
@@ -75,6 +82,10 @@ function VirtualizedList(props) {
 					disableHeader={disableHeader}
 					inProgress={inProgress}
 					rowRenderers={rowRenderers}
+					rowCount={rowCount}
+					onRowsRendered={onRowsRendered}
+					registerChild={registerChild}
+					scrollToIndex={scrollToIndex}
 				>
 					{columnDefinitions}
 				</RendererSelector>

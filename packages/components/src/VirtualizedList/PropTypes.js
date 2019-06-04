@@ -24,12 +24,22 @@ export default {
 	inProgress: PropTypes.bool,
 	// The row click
 	onRowClick: PropTypes.func,
+	onRowsRendered: PropTypes.func,
 	// The row double click
 	onRowDoubleClick: PropTypes.func,
 	// The list scroll
 	onScroll: PropTypes.func,
+	// handler for selecting all items
+	onToggleAll: PropTypes.func,
+	registerChild: PropTypes.func,
+	// Total number of rows
+	rowCount: PropTypes.number,
 	// The row height in ListGrid rendering
 	rowHeight: PropTypes.number,
+	// List of row renderers
+	rowRenderers: PropTypes.object,
+	// Scroll to a given index
+	scrollToIndex: PropTypes.number,
 	/** Function to call on element selection
 	 *  This determines the display of the selection checkboxes. */
 	selectionToggle: PropTypes.func,
@@ -41,5 +51,4 @@ export default {
 	sortDirection: PropTypes.oneOf([SORT_BY.ASC, SORT_BY.DESC]),
 	// List type ('TABLE' | 'LARGE' | ...)
 	type: PropTypes.string,
-	rowRenderers: PropTypes.object,
 };

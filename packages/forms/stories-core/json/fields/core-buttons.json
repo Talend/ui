@@ -12,7 +12,8 @@
       "widget": "button",
       "triggers": ["after"],
       "description": "This should trigger a successful check",
-      "data-feature": "form.check"
+      "data-feature": "form.check",
+      "tooltip": ""
     },
     {
       "key": "checkfail",

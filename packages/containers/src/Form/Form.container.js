@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import isEqual from 'lodash/isEqual';
 import Immutable from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
 import ComponentForm from '@talend/react-forms';
@@ -35,8 +36,26 @@ class Form extends React.Component {
 		return state.cmf.components.getIn(['Container(Form)', formId, 'data'], new Immutable.Map());
 	}
 
+	static getDerivedStateFromProps(nextProps, prevState) {
+		if (!prevState) {
+			nextProps.initState();
+			return null;
+		}
+		if (!nextProps.state && nextProps.formId !== prevState.formId) {
+			nextProps.deleteState();
+			return null;
+		}
+		if (nextProps.data !== prevState.data) {
+			if (!isEqual(nextProps.data, prevState.data)) {
+				return { data: nextProps.data };
+			}
+		}
+		return null;
+	}
+
 	constructor(props) {
 		super(props);
+		this.state = DEFAULT_STATE.toJS();
 		this.formActions = this.formActions.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
@@ -46,16 +65,9 @@ class Form extends React.Component {
 		this.data = this.data.bind(this);
 	}
 
-	componentWillReceiveProps(nextProps) {
-		if (nextProps.formId !== this.props.formId) {
-			if (this.props.state) {
-				this.props.deleteState();
-			}
-			if (!nextProps.state) {
-				nextProps.initState();
-			}
-		} else if (nextProps.properties !== this.props.properties) {
-			this.props.setState({ data: nextProps.data });
+	componentDidUpdate(prevProps, prevState) {
+		if (prevState.data !== this.state.data) {
+			this.props.setState({ data: this.state.data });
 		}
 	}
 
