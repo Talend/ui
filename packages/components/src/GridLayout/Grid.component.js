@@ -66,10 +66,10 @@ function Grid({
 Grid.propTypes = {
 	children: PropTypes.node,
 	isResizable: PropTypes.bool,
-	layoutChangeCallback: PropTypes.func,
-	onBreakpointChangeCallback: PropTypes.func,
-	onDragStopCallback: PropTypes.func,
-	onResizeStopCallback: PropTypes.func,
+	onLayoutChange: PropTypes.func,
+	onBreakpointChange: PropTypes.func,
+	onDragStop: PropTypes.func,
+	onResizeStop: PropTypes.func,
 	isLoading: PropTypes.bool,
 	skeletonConfiguration: PropTypes.arrayOf(
 		PropTypes.shape({

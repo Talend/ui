@@ -153,18 +153,9 @@ function GridContainer({ isLoading = false, skeletonConfiguration }) {
 		},
 	]);
 
-	function layoutChangeCallback(newlayouts) {}
-
-	function onBreakpointChangeCallback(breakpoint, cols) {}
-
-	function onDragStopCallback(layout, oldItem, newItem) {}
-
 	return (
 		<div className="App">
 			<GridLayout
-				layoutChangeCallback={layoutChangeCallback}
-	            onBreakpointChangeCallback={onBreakpointChangeCallback}
-				onDragStopCallback={onDragStopCallback}
 				isResizable
 				isLoading={isLoading}
 				skeletonConfiguration={skeletonConfiguration}>
