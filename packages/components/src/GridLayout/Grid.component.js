@@ -11,17 +11,17 @@ const ResponsiveGridLayout = WidthProvider(Responsive);
 const MARGIN = 20;
 
 const columns = {
-	xs: 2,
-	s: 4,
-	m: 6,
-	l: 12,
+	s: 2,
+	m: 4,
+	l: 6,
+	xl: 12,
 };
 
 const breakpoints = {
-	xs: 479,
-	s: 768,
-	m: 1024,
-	l: 1366,
+	s: 479,
+	m: 768,
+	l: 1024,
+	xl: 1366,
 };
 
 function onLayoutChange(layoutChangeCallback) {
