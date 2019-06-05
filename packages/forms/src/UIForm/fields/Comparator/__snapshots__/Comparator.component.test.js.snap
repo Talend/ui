@@ -10,8 +10,9 @@ exports[`Comparator field should render default Comparator 1`] = `
         Object {
           "id": "comparison-operator-0",
           "label": <OperatorListElement
+            name=""
             selected={false}
-            value=">"
+            symbol=">"
           />,
           "title": ">",
           "value": ">",
@@ -19,8 +20,9 @@ exports[`Comparator field should render default Comparator 1`] = `
         Object {
           "id": "comparison-operator-1",
           "label": <OperatorListElement
+            name=""
             selected={false}
-            value="<"
+            symbol="<"
           />,
           "title": "<",
           "value": "<",
@@ -28,8 +30,9 @@ exports[`Comparator field should render default Comparator 1`] = `
         Object {
           "id": "comparison-operator-2",
           "label": <OperatorListElement
+            name=""
             selected={false}
-            value="="
+            symbol="="
           />,
           "title": "=",
           "value": "=",
@@ -79,8 +82,9 @@ exports[`Comparator field should render disabled Comparator 1`] = `
         Object {
           "id": "comparison-operator-0",
           "label": <OperatorListElement
+            name=""
             selected={false}
-            value=">"
+            symbol=">"
           />,
           "title": ">",
           "value": ">",
@@ -88,8 +92,9 @@ exports[`Comparator field should render disabled Comparator 1`] = `
         Object {
           "id": "comparison-operator-1",
           "label": <OperatorListElement
+            name=""
             selected={false}
-            value="<"
+            symbol="<"
           />,
           "title": "<",
           "value": "<",
@@ -97,8 +102,9 @@ exports[`Comparator field should render disabled Comparator 1`] = `
         Object {
           "id": "comparison-operator-2",
           "label": <OperatorListElement
+            name=""
             selected={false}
-            value="="
+            symbol="="
           />,
           "title": "=",
           "value": "=",
