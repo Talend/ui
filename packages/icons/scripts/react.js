@@ -3,15 +3,18 @@ const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
 const babel = require('@babel/core');
-const src = require('../src');
-const brands = require('../src/brands');
-const components = require('../src/components');
-const core = require('../src/core');
-const files = require('../src/files');
-const flows = require('../src/flows');
-const processors = require('../src/products');
-const products = require('../src/products');
+
 const defaultOptions = require('../../../babel.config')();
+const src = require('../src');
+// const brands = require('../src/brands');
+// const components = require('../src/components');
+// const core = require('../src/core');
+// const files = require('../src/files');
+// const flows = require('../src/flows');
+// const processors = require('../src/processors');
+// const products = require('../src/products');
+const info = require('../src/info').info;
+const extract = require('../src/extract');
 
 const dist = path.join(__dirname, '../dist/');
 mkdirp.sync(path.join(dist, 'svg-bundle'));
@@ -51,22 +54,43 @@ function transform(lib, output) {
 	fs.writeFileSync(path.join(dist, output), code.code);
 }
 
-function toSVG(lib, output) {
-	const buff = Object.keys(lib.svgs).map(key => `<symbol id="${key}">${lib.svgs[key]}<symbol>`);
-	buff.unshift('');
-	buff.unshift('<svg xmlns="http://www.w3.org/2000/svg" focusable="false" className="sr-only">');
-	buff.push('<svg>');
-	fs.writeFileSync(path.join(dist, output), buff.join('\n'));
+function toSVG() {
+	const bundles = Object.values(info).reduce((acc, bundle) => {
+		if (bundle.parent && acc.indexOf(bundle.parent) === -1) {
+			acc.push(bundle.parent);
+		}
+		return acc;
+	}, []);
+	const save = bundle => {
+		const lib = extract.default(`../src/svg/${bundle}`);
+		const buff = Object.keys(lib).map(key => `<symbol id="talend-${key}">${lib[key]}</symbol>`);
+		buff.unshift('');
+		buff.unshift('<svg xmlns="http://www.w3.org/2000/svg" focusable="false" className="sr-only">');
+		buff.push('<svg>');
+		fs.writeFileSync(path.join(dist, `../dist/svg-bundle/${bundle}.svg`), buff.join(''));
+	};
+	bundles.forEach(save);
 }
 
+function transformInfo() {
+	const options = Object.assign({}, defaultOptions, { filename: 'info.js' });
+	const buff = Object.keys(info).map(key => `  "talend-${key}": "${info[key].parent || ''}",`);
+	buff.unshift('export default {');
+	buff.push('};');
+	const code = babel.transformSync(buff.join('\n'), options);
+	fs.writeFileSync(path.join(dist, 'info.js'), code.code);
+}
+
+transformInfo();
+toSVG();
 transform(src, 'react.js');
-toSVG(brands, 'svg-bundle/brands.svg');
-toSVG(components, 'svg-bundle/components.svg');
-toSVG(core, 'svg-bundle/core.svg');
-toSVG(files, 'svg-bundle/files.svg');
-toSVG(flows, 'svg-bundle/flows.svg');
-toSVG(processors, 'svg-bundle/processors.svg');
-toSVG(products, 'svg-bundle/products.svg');
+// toSVG(brands, 'svg-bundle/brands.svg');
+// toSVG(components, 'svg-bundle/components.svg');
+// toSVG(core, 'svg-bundle/core.svg');
+// toSVG(files, 'svg-bundle/files.svg');
+// toSVG(flows, 'svg-bundle/flows.svg');
+// toSVG(processors, 'svg-bundle/processors.svg');
+// toSVG(products, 'svg-bundle/products.svg');
 
 const styleSrc = path.join(__dirname, '../src/talendicons.css');
 const styleDist = path.join(__dirname, '../dist/talendicons.css');

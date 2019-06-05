@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import icons from '@talend/icons/dist/react';
+import info from '@talend/icons/dist/info';
 
 import { Icon, IconsProvider } from '../src/index';
 const testIcon = (<svg viewBox="0 0 20 20">
@@ -21,8 +22,19 @@ storiesOf('Icon', module)
 			<IconsProvider />
 			<p>We have {Object.keys(icons).length.toString()} svg icons registred:</p>
 			<ul>
-				{Object.keys(icons).map((icon, index) => (
-					<li key={index}><Icon name={icon} /> : <strong>{icon}</strong></li>
+				{Object.keys(icons).map(icon => (
+					<li key={icon}><Icon name={icon} /> : <strong>{icon}</strong></li>
+				))}
+			</ul>
+		</div>
+	))
+	.add('bundles', () => (
+		<div>
+			<h1>You can use bundles</h1>
+			<IconsProvider />
+			<ul>
+				{Object.keys(info).filter(k => info[k]).map(k => (
+					<li key={k}><Icon name={k} /> : <strong>{info[k]}.svg#{k}</strong></li>
 				))}
 			</ul>
 		</div>

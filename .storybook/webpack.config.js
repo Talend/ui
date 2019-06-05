@@ -3,6 +3,9 @@ const autoprefixer = require.main.require('autoprefixer');
 const path = require('path');
 const webpack = require.main.require('webpack');
 const autoPrefixerPlugin = autoprefixer({ browsers: ['last 2 versions'] })
+const CopyPlugin = require('copy-webpack-plugin');
+const icons = require.resolve('@talend/icons/dist/info');
+const iconsDist = path.dirname(icons);
 
 module.exports = storybookBaseConfig => {
 	storybookBaseConfig.module.rules.push(
@@ -68,6 +71,10 @@ module.exports = storybookBaseConfig => {
 			],
 		}
 	);
-
+	storybookBaseConfig.plugins = storybookBaseConfig.plugins.concat(
+		new CopyPlugin([
+		  { from: path.join(iconsDist, 'svg-bundle') },
+		])
+	);
 	return storybookBaseConfig;
 };

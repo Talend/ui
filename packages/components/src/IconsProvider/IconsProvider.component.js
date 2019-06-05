@@ -12,13 +12,12 @@ export function getIconBundle(name) {
 	if (context.ids.indexOf(name) !== -1) {
 		return undefined;
 	}
-	const iconId = name.split('talend-')[1];
-	return (context.bundles || {})[iconId] || bundleInfo[iconId];
+	return (context.bundles || {})[name] || bundleInfo[name];
 }
 
 export function getIconHREF(name) {
 	const bundle = getIconBundle(name) || '';
-	return `${bundle}#${name}`;
+	return `${bundle ? `${bundle}.svg` : ''}#${name}`;
 }
 
 /**
