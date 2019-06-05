@@ -68,6 +68,16 @@ const parent = {
 };
 
 describe('RowLarge', () => {
+	const random = Math.random();
+
+	beforeAll(() => {
+		Math.random = () => 0.5;
+	});
+
+	afterAll(() => {
+		Math.random = random;
+	});
+
 	it('should render large row', () => {
 		// when
 		const wrapper = shallow(
