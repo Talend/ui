@@ -24,55 +24,25 @@ const breakpoints = {
 	xl: 1366,
 };
 
-function onLayoutChange(layoutChangeCallback) {
-	return layout => {
-		if (layoutChangeCallback) {
-			layoutChangeCallback(layout);
-		}
-	};
-}
-
-function onBreakpointChange(onBreakpointChangeCallback) {
-	return (breakpoint, cols) => {
-		if (onBreakpointChangeCallback) {
-			onBreakpointChangeCallback(breakpoint, cols);
-		}
-	};
-}
-
-function onDragStop(onDragStopCallback) {
-	return (layout, oldItem, newItem, placeHolder, event) => {
-		if (onDragStopCallback) {
-			onDragStopCallback(layout, oldItem, newItem, placeHolder, event);
-		}
-	};
-}
-
-function onResizeStop(onResizeStopCallback) {
-	return (layout, oldItem, newItem, placeHolder, event) => {
-		if (onResizeStopCallback) {
-			onResizeStopCallback(layout, oldItem, newItem, placeHolder, event);
-		}
-	};
-}
+const noOp = () => {};
 
 function Grid({
 	children,
 	isResizable = false,
-	layoutChangeCallback,
-	onBreakpointChangeCallback,
-	onDragStopCallback,
-	onResizeStopCallback,
+	onLayoutChange = noOp,
+	onBreakpointChange = noOp,
+	onDragStop = noOp,
+	onResizeStop = noOp,
 	isLoading = false,
 	skeletonConfiguration,
 }) {
 	return (
 		<ResponsiveGridLayout
 			className="layout"
-			onLayoutChange={onLayoutChange(layoutChangeCallback)}
-			onDragStop={onDragStop(onDragStopCallback)}
-			onResizeStop={onResizeStop(onResizeStopCallback)}
-			onBreakpointChange={onBreakpointChange(onBreakpointChangeCallback)}
+			onLayoutChange={onLayoutChange}
+			onDragStop={onDragStop}
+			onResizeStop={onResizeStop}
+			onBreakpointChange={onBreakpointChange}
 			breakpoints={breakpoints}
 			cols={columns}
 			measureBeforeMount={false}
