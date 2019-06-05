@@ -26,7 +26,7 @@ src/theme/_forms.scss
   441:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
 src/theme/_labels.scss
-  43:2  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  42:2  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/theme/_navbar.scss
   18:6  warning  Expected indentation of 4 tabs but found 5  indentation
