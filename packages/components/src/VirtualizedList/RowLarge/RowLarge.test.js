@@ -1,6 +1,7 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
+import toJsonWithoutI18n from '../../../test/props-without-i18n';
 import RowLarge from './RowLarge.component';
 import VirtualizedList from '../VirtualizedList.component';
 import CellTitle from '../CellTitle';
@@ -81,5 +82,30 @@ describe('RowLarge', () => {
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render large with empty data', () => {
+		// given
+		const noDataParent = {
+			...parent,
+			props: {
+				...parent.props,
+				rowGetter: () => ({}),
+			},
+		};
+
+		// when
+		const wrapper = mount(
+			<RowLarge
+				className={'my-class-names'}
+				index={1}
+				key={18}
+				parent={noDataParent}
+				style={{ background: 'red' }}
+			/>,
+		);
+
+		// then
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 });
