@@ -1,5 +1,7 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
+
+import toJsonWithoutI18n from '../../../test/props-without-i18n';
 import RowCollapsiblePanel from './RowCollapsiblePanel.component';
 
 const collection = [
@@ -99,5 +101,29 @@ describe('RowCollapsiblePanel', () => {
 				.getElement()
 				.props.children({ measure: jest.fn() }),
 		).toMatchSnapshot();
+	});
+
+	it('should render a row with no data', () => {
+		// given
+		const noDataParent = {
+			...parent,
+			props: {
+				...parent.props,
+				rowGetter: () => ({}),
+			},
+		};
+
+		// when
+		const wrapper = mount(
+			<RowCollapsiblePanel
+				className={'my-class-names'}
+				index={1}
+				key={18}
+				parent={noDataParent}
+				style={{ background: 'red' }}
+			/>,
+		);
+
+		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 });

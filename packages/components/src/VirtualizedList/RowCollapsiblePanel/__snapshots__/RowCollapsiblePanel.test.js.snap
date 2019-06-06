@@ -1,5 +1,583 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`RowCollapsiblePanel should render a row with no data 1`] = `
+<ListGesture(VirtualizedList(RowCollapsiblePanel))
+  className="my-class-names"
+  index={1}
+  parent={
+    Object {
+      "props": Object {
+        "children": Array [],
+        "collection": Array [
+          Object {
+            "content": Array [
+              Object {
+                "description": "Description1",
+                "label": "Content1",
+              },
+              Object {
+                "description": "Description2",
+                "label": "Content2",
+              },
+            ],
+            "expanded": true,
+            "header": Array [
+              Object {
+                "actions": Array [],
+                "displayMode": "status",
+                "icon": "talend-check",
+                "label": "Successful",
+                "status": "successful",
+              },
+            ],
+          },
+          Object {
+            "content": Array [
+              Object {
+                "description": "Description1",
+                "label": "Content1",
+              },
+              Object {
+                "description": "Description2",
+                "label": "Content2",
+              },
+            ],
+            "expanded": true,
+            "header": Array [
+              Object {
+                "actions": Array [],
+                "displayMode": "status",
+                "icon": "talend-cross",
+                "label": "Canceled",
+                "status": "canceled",
+              },
+            ],
+          },
+          Object {
+            "content": Array [
+              Object {
+                "description": "Description1",
+                "label": "Content1",
+              },
+              Object {
+                "description": "Description2",
+                "label": "Content2",
+              },
+            ],
+            "expanded": true,
+            "header": Array [
+              Object {
+                "actions": Array [],
+                "displayMode": "status",
+                "icon": "talend-cross",
+                "label": "Failure",
+                "status": "failed",
+              },
+            ],
+          },
+        ],
+        "id": "my-list",
+        "rowGetter": [Function],
+      },
+    }
+  }
+  style={
+    Object {
+      "background": "red",
+    }
+  }
+>
+  <VirtualizedList(RowCollapsiblePanel)
+    className="my-class-names"
+    index={1}
+    onKeyDown={[Function]}
+    parent={
+      Object {
+        "props": Object {
+          "children": Array [],
+          "collection": Array [
+            Object {
+              "content": Array [
+                Object {
+                  "description": "Description1",
+                  "label": "Content1",
+                },
+                Object {
+                  "description": "Description2",
+                  "label": "Content2",
+                },
+              ],
+              "expanded": true,
+              "header": Array [
+                Object {
+                  "actions": Array [],
+                  "displayMode": "status",
+                  "icon": "talend-check",
+                  "label": "Successful",
+                  "status": "successful",
+                },
+              ],
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "description": "Description1",
+                  "label": "Content1",
+                },
+                Object {
+                  "description": "Description2",
+                  "label": "Content2",
+                },
+              ],
+              "expanded": true,
+              "header": Array [
+                Object {
+                  "actions": Array [],
+                  "displayMode": "status",
+                  "icon": "talend-cross",
+                  "label": "Canceled",
+                  "status": "canceled",
+                },
+              ],
+            },
+            Object {
+              "content": Array [
+                Object {
+                  "description": "Description1",
+                  "label": "Content1",
+                },
+                Object {
+                  "description": "Description2",
+                  "label": "Content2",
+                },
+              ],
+              "expanded": true,
+              "header": Array [
+                Object {
+                  "actions": Array [],
+                  "displayMode": "status",
+                  "icon": "talend-cross",
+                  "label": "Failure",
+                  "status": "failed",
+                },
+              ],
+            },
+          ],
+          "id": "my-list",
+          "rowGetter": [Function],
+        },
+      }
+    }
+    style={
+      Object {
+        "background": "red",
+      }
+    }
+  >
+    <CellMeasurer
+      cache={
+        CellMeasurerCache {
+          "_cellHeightCache": Object {
+            "1-0": 0,
+          },
+          "_cellWidthCache": Object {
+            "1-0": 0,
+          },
+          "_columnCount": 1,
+          "_columnWidthCache": Object {},
+          "_defaultHeight": 30,
+          "_defaultWidth": 100,
+          "_hasFixedHeight": false,
+          "_hasFixedWidth": true,
+          "_keyMapper": [Function],
+          "_minHeight": 0,
+          "_minWidth": 0,
+          "_rowCount": 2,
+          "_rowHeightCache": Object {
+            "1-0": 0,
+          },
+          "columnWidth": [Function],
+          "rowHeight": [Function],
+        }
+      }
+      columnIndex={0}
+      key="1"
+      parent={
+        Object {
+          "props": Object {
+            "children": Array [],
+            "collection": Array [
+              Object {
+                "content": Array [
+                  Object {
+                    "description": "Description1",
+                    "label": "Content1",
+                  },
+                  Object {
+                    "description": "Description2",
+                    "label": "Content2",
+                  },
+                ],
+                "expanded": true,
+                "header": Array [
+                  Object {
+                    "actions": Array [],
+                    "displayMode": "status",
+                    "icon": "talend-check",
+                    "label": "Successful",
+                    "status": "successful",
+                  },
+                ],
+              },
+              Object {
+                "content": Array [
+                  Object {
+                    "description": "Description1",
+                    "label": "Content1",
+                  },
+                  Object {
+                    "description": "Description2",
+                    "label": "Content2",
+                  },
+                ],
+                "expanded": true,
+                "header": Array [
+                  Object {
+                    "actions": Array [],
+                    "displayMode": "status",
+                    "icon": "talend-cross",
+                    "label": "Canceled",
+                    "status": "canceled",
+                  },
+                ],
+              },
+              Object {
+                "content": Array [
+                  Object {
+                    "description": "Description1",
+                    "label": "Content1",
+                  },
+                  Object {
+                    "description": "Description2",
+                    "label": "Content2",
+                  },
+                ],
+                "expanded": true,
+                "header": Array [
+                  Object {
+                    "actions": Array [],
+                    "displayMode": "status",
+                    "icon": "talend-cross",
+                    "label": "Failure",
+                    "status": "failed",
+                  },
+                ],
+              },
+            ],
+            "id": "my-list",
+            "rowGetter": [Function],
+          },
+        }
+      }
+      rowIndex={1}
+    >
+      <div
+        aria-posinset={2}
+        className="tc-collapsible-row my-class-names"
+        id="my-list-1"
+        onKeyDown={[Function]}
+        role="listitem"
+        style={
+          Object {
+            "background": "red",
+          }
+        }
+        tabIndex="0"
+      >
+        <LoadingCollapsiblePanel>
+          <div
+            className="theme-loading-collapsible-panel"
+          >
+            <span>
+              <Translate(Skeleton)
+                size="small"
+                type="circle"
+              >
+                <I18n
+                  bindI18n="languageChanged loaded"
+                  bindStore="added removed"
+                  i18n={Object {}}
+                  ns={
+                    Array [
+                      "tui-components",
+                    ]
+                  }
+                  nsMode="default"
+                  omitBoundRerender={true}
+                  size="small"
+                  translateFuncName="t"
+                  type="circle"
+                  usePureComponent={false}
+                  wait={false}
+                  withRef={false}
+                >
+                  <Skeleton
+                    heartbeat={true}
+                    i18n={Object {}}
+                    lng="en"
+                    size="small"
+                    t={[Function]}
+                    tReady={false}
+                    type="circle"
+                  >
+                    <span
+                      aria-label="circle (loading)"
+                      className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+                      style={
+                        Object {
+                          "height": undefined,
+                          "width": undefined,
+                        }
+                      }
+                    />
+                  </Skeleton>
+                </I18n>
+              </Translate(Skeleton)>
+              <Translate(Skeleton)
+                size="xlarge"
+                type="text"
+              >
+                <I18n
+                  bindI18n="languageChanged loaded"
+                  bindStore="added removed"
+                  i18n={Object {}}
+                  ns={
+                    Array [
+                      "tui-components",
+                    ]
+                  }
+                  nsMode="default"
+                  omitBoundRerender={true}
+                  size="xlarge"
+                  translateFuncName="t"
+                  type="text"
+                  usePureComponent={false}
+                  wait={false}
+                  withRef={false}
+                >
+                  <Skeleton
+                    heartbeat={true}
+                    i18n={Object {}}
+                    lng="en"
+                    size="xlarge"
+                    t={[Function]}
+                    tReady={false}
+                    type="text"
+                  >
+                    <span
+                      aria-label="text (loading)"
+                      className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-xlarge theme-tc-skeleton-text-xlarge tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+                      style={
+                        Object {
+                          "height": undefined,
+                          "width": undefined,
+                        }
+                      }
+                    />
+                  </Skeleton>
+                </I18n>
+              </Translate(Skeleton)>
+            </span>
+            <span>
+              <Translate(Skeleton)
+                size="small"
+                type="circle"
+              >
+                <I18n
+                  bindI18n="languageChanged loaded"
+                  bindStore="added removed"
+                  i18n={Object {}}
+                  ns={
+                    Array [
+                      "tui-components",
+                    ]
+                  }
+                  nsMode="default"
+                  omitBoundRerender={true}
+                  size="small"
+                  translateFuncName="t"
+                  type="circle"
+                  usePureComponent={false}
+                  wait={false}
+                  withRef={false}
+                >
+                  <Skeleton
+                    heartbeat={true}
+                    i18n={Object {}}
+                    lng="en"
+                    size="small"
+                    t={[Function]}
+                    tReady={false}
+                    type="circle"
+                  >
+                    <span
+                      aria-label="circle (loading)"
+                      className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+                      style={
+                        Object {
+                          "height": undefined,
+                          "width": undefined,
+                        }
+                      }
+                    />
+                  </Skeleton>
+                </I18n>
+              </Translate(Skeleton)>
+              <Translate(Skeleton)
+                size="medium"
+                type="text"
+              >
+                <I18n
+                  bindI18n="languageChanged loaded"
+                  bindStore="added removed"
+                  i18n={Object {}}
+                  ns={
+                    Array [
+                      "tui-components",
+                    ]
+                  }
+                  nsMode="default"
+                  omitBoundRerender={true}
+                  size="medium"
+                  translateFuncName="t"
+                  type="text"
+                  usePureComponent={false}
+                  wait={false}
+                  withRef={false}
+                >
+                  <Skeleton
+                    heartbeat={true}
+                    i18n={Object {}}
+                    lng="en"
+                    size="medium"
+                    t={[Function]}
+                    tReady={false}
+                    type="text"
+                  >
+                    <span
+                      aria-label="text (loading)"
+                      className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-medium theme-tc-skeleton-text-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+                      style={
+                        Object {
+                          "height": undefined,
+                          "width": undefined,
+                        }
+                      }
+                    />
+                  </Skeleton>
+                </I18n>
+              </Translate(Skeleton)>
+            </span>
+            <span>
+              <Translate(Skeleton)
+                size="small"
+                type="text"
+              >
+                <I18n
+                  bindI18n="languageChanged loaded"
+                  bindStore="added removed"
+                  i18n={Object {}}
+                  ns={
+                    Array [
+                      "tui-components",
+                    ]
+                  }
+                  nsMode="default"
+                  omitBoundRerender={true}
+                  size="small"
+                  translateFuncName="t"
+                  type="text"
+                  usePureComponent={false}
+                  wait={false}
+                  withRef={false}
+                >
+                  <Skeleton
+                    heartbeat={true}
+                    i18n={Object {}}
+                    lng="en"
+                    size="small"
+                    t={[Function]}
+                    tReady={false}
+                    type="text"
+                  >
+                    <span
+                      aria-label="text (loading)"
+                      className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-small theme-tc-skeleton-text-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+                      style={
+                        Object {
+                          "height": undefined,
+                          "width": undefined,
+                        }
+                      }
+                    />
+                  </Skeleton>
+                </I18n>
+              </Translate(Skeleton)>
+            </span>
+            <span>
+              <Translate(Skeleton)
+                size="medium"
+                type="text"
+              >
+                <I18n
+                  bindI18n="languageChanged loaded"
+                  bindStore="added removed"
+                  i18n={Object {}}
+                  ns={
+                    Array [
+                      "tui-components",
+                    ]
+                  }
+                  nsMode="default"
+                  omitBoundRerender={true}
+                  size="medium"
+                  translateFuncName="t"
+                  type="text"
+                  usePureComponent={false}
+                  wait={false}
+                  withRef={false}
+                >
+                  <Skeleton
+                    heartbeat={true}
+                    i18n={Object {}}
+                    lng="en"
+                    size="medium"
+                    t={[Function]}
+                    tReady={false}
+                    type="text"
+                  >
+                    <span
+                      aria-label="text (loading)"
+                      className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-medium theme-tc-skeleton-text-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+                      style={
+                        Object {
+                          "height": undefined,
+                          "width": undefined,
+                        }
+                      }
+                    />
+                  </Skeleton>
+                </I18n>
+              </Translate(Skeleton)>
+            </span>
+          </div>
+        </LoadingCollapsiblePanel>
+      </div>
+    </CellMeasurer>
+  </VirtualizedList(RowCollapsiblePanel)>
+</ListGesture(VirtualizedList(RowCollapsiblePanel))>
+`;
+
 exports[`RowCollapsiblePanel should render collapsible panel row 1`] = `
 <div
   aria-label="Canceled"
