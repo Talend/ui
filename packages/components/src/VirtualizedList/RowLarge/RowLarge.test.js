@@ -1,11 +1,9 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import toJsonWithoutI18n from '../../../test/props-without-i18n';
 import RowLarge from './RowLarge.component';
 import VirtualizedList from '../VirtualizedList.component';
 import CellTitle from '../CellTitle';
-import Skeleton from '../../Skeleton';
 
 const titleProps = {
 	actionsKey: 'titleActions',
@@ -85,7 +83,6 @@ describe('RowLarge', () => {
 			<RowLarge
 				className={'my-class-names'}
 				index={1}
-				key={18}
 				parent={parent}
 				style={{ background: 'red' }}
 			/>,
@@ -110,12 +107,11 @@ describe('RowLarge', () => {
 			<RowLarge
 				className={'my-class-names'}
 				index={1}
-				key={18}
 				parent={noDataParent}
 			/>,
 		);
 
-		// then
-		expect(wrapper.find('RandomSizeSkeleton').length).toBe(9);
+		// then 3 columns on one line
+		expect(wrapper.find('RandomSizeSkeleton').length).toBe(3);
 	});
 });
