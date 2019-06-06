@@ -5,6 +5,7 @@ import toJsonWithoutI18n from '../../../test/props-without-i18n';
 import RowLarge from './RowLarge.component';
 import VirtualizedList from '../VirtualizedList.component';
 import CellTitle from '../CellTitle';
+import Skeleton from '../../Skeleton';
 
 const titleProps = {
 	actionsKey: 'titleActions',
@@ -94,7 +95,7 @@ describe('RowLarge', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render large with empty data', () => {
+	it('should render RandomSizeSkeleton with empty data', () => {
 		// given
 		const noDataParent = {
 			...parent,
@@ -111,11 +112,10 @@ describe('RowLarge', () => {
 				index={1}
 				key={18}
 				parent={noDataParent}
-				style={{ background: 'red' }}
 			/>,
 		);
 
 		// then
-		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		expect(wrapper.find('RandomSizeSkeleton').length).toBe(9);
 	});
 });
