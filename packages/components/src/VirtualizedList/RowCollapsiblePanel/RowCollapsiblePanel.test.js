@@ -117,6 +117,6 @@ describe('RowCollapsiblePanel', () => {
 		const wrapper = mount(<RowCollapsiblePanel index={1} parent={noDataParent} />);
 
 		// then
-		expect(toJsonWithoutI18n(wrapper.find('.tc-collapsible-row')).toMatchSnapshot();
+		expect(toJsonWithoutI18n(wrapper.find('.tc-collapsible-row'))).toMatchSnapshot();
 	});
 });
