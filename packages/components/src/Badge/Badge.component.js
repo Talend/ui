@@ -39,14 +39,22 @@ function Badge({
 		className,
 	);
 	const badgeClasses = classNames('tc-badge-button', theme['tc-badge-button']);
-	const labelClasses = classNames('tc-badge-label', theme['tc-badge-label']);
 	const categoryClasses = classNames('tc-badge-category', theme['tc-badge-category']);
 	const separatorClasses = classNames('tc-badge-separator', theme['tc-badge-separator']);
-	const iconClasses = classNames('tc-badge-icon', theme['tc-badge-icon']);
-	const iconSeparatorClasses = classNames(
-		'tc-badge-icon-separator',
-		theme['tc-badge-icon-separator'],
+	const separatorIconClasses = classNames(
+		'tc-badge-separator',
+		'tc-badge-separator-icon',
+		theme['tc-badge-separator'],
+		theme['tc-badge-separator-icon'],
 	);
+	const labelClasses = classNames('tc-badge-label', theme['tc-badge-label']);
+	const labelTextClasses = classNames('tc-badge-label-text', theme['tc-badge-label-text']);
+	const labelTextWithCategClasses = classNames(
+		'tc-badge-label-text',
+		'tc-badge-label-text-with-categ',
+		theme['tc-badge-label-text'], theme['tc-badge-label-text-with-categ'],
+	);
+	const labelIconClasses = classNames('tc-badge-label-icon', theme['tc-badge-label-icon']);
 
 	const children = [
 		category ? (
@@ -57,11 +65,27 @@ function Badge({
 				<span className={separatorClasses} />
 			</React.Fragment>
 		) : null,
-		<span key="label" className={labelClasses}>
-			{label}
-		</span>,
-		icon && <Icon name={icon} className={iconClasses} />,
-		icon && <span className={iconSeparatorClasses} />,
+		<div className={labelClasses}>
+			<span key="label" className={category ? labelTextWithCategClasses : labelTextClasses}>
+				{label}
+			</span>
+			{icon && <Icon name={icon} className={labelIconClasses} />}
+		</div>,
+		icon && <span className={[separatorIconClasses]} />,
+		onDelete && (
+			<Action
+				key="delete"
+				id={id && `tc-badge-delete-${id}`}
+				label={t('BADGE_DELETE', { defaultValue: 'delete' })}
+				hideLabel
+				onClick={onDelete}
+				disabled={disabled}
+				icon={'talend-cross'}
+				className={classNames('tc-badge-delete-icon', theme['tc-badge-delete-icon'])}
+				link
+				role="button"
+			/>
+		),
 	];
 	const badgeProps = {
 		id: id && `tc-badge-select-${id}`,
@@ -75,20 +99,6 @@ function Badge({
 				<button {...badgeProps} key="button" type="button" disabled={disabled} onClick={onSelect} />
 			) : (
 				<div {...badgeProps} key="div" />
-			)}
-			{onDelete && (
-				<Action
-					key="delete"
-					id={id && `tc-badge-delete-${id}`}
-					label={t('BADGE_DELETE', { defaultValue: 'delete' })}
-					hideLabel
-					onClick={onDelete}
-					disabled={disabled}
-					icon={'talend-cross'}
-					className={classNames('tc-badge-delete-icon', theme['tc-badge-delete-icon'])}
-					link
-					role="button"
-				/>
 			)}
 		</div>
 	);

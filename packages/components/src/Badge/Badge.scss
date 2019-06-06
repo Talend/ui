@@ -30,7 +30,6 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 		.tc-badge-category {
 			color: black;
 			max-width: 110px;
-			// margin-right: $padding-small;
 			margin-left: -$padding-small;
 		}
 
@@ -39,42 +38,39 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 			width: 1px;
 			background-color: $gallery;
 			margin: $padding-smaller;
+
+			&.tc-badge-separator-icon {
+				margin-right: 0;
+			}
 		}
 
 		.tc-badge-label {
-			color: black;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: pre;
+			&-text {
+				color: black;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: pre;
+			}
+
+			&-icon {
+				margin-left: $padding-smaller;
+			}
 		}
 
-		.tc-badge-icon-separator {
-			height: 12px;
-			width: 1px;
-			background-color: $gallery;
-			margin: $padding-smaller;
-		}
-
-		.tc-badge-icon {
+		.tc-badge-delete-icon {
+			padding: 0;
+			background: transparent;
+			box-shadow: none;
 			margin-left: $padding-smaller;
-		}
-	}
 
-	.tc-badge-delete-icon {
-		position: relative;
-		margin: auto;
-		padding: 0;
-		background: transparent;
-		box-shadow: none;
-		left: -$padding-large;
+			svg {
+				color: $slate-gray;
+				display: block;
+				margin: 0;
 
-		svg {
-			color: $slate-gray;
-			display: block;
-			margin: 0;
-
-			&:hover {
-				color: $lochmara;
+				&:hover {
+					color: $lochmara;
+				}
 			}
 		}
 	}
@@ -84,15 +80,11 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 			margin-top: 0.3rem;
 		}
 
-		.tc-badge-icon-separator {
-			margin-top: 0.3rem;
-		}
-
 		.tc-badge-button {
 			height: $tc-badge-large-height;
 			padding: $tc-badge-large-vertical-padding $padding-small;
 			margin: $tc-badge-large-margin;
-			padding-right: calc(#{$padding-small} + #{$tc-badge-large-delete-icon-size});
+			padding-right: $padding-small;
 
 			.tc-badge-category {
 				font-size: $tc-badge-large-label-font-size;
@@ -103,41 +95,40 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 			}
 
 			.tc-badge-label {
-				font-size: $tc-badge-large-label-font-size;
-				font-weight: $tc-badge-large-label-font-weight;
+				&-text {
+					font-size: $tc-badge-large-label-font-size;
+					font-weight: $tc-badge-large-label-font-weight;
+				}
+
+				&-icon {
+					margin-top: $padding-smaller;
+					height: $tc-badge-large-icon-size;
+					width: $tc-badge-large-icon-size;
+				}
 			}
 
-			svg.tc-badge-icon {
-				margin-top: $padding-smaller;
-				height: $tc-badge-large-icon-size;
-				width: $tc-badge-large-icon-size;
-			}
-		}
+			.tc-badge-delete-icon {
+				height: $tc-badge-large-height - 2 * $tc-badge-large-vertical-padding;
+				min-height: $tc-badge-large-height - 2 * $tc-badge-large-vertical-padding;
 
-		.tc-badge-delete-icon {
-			height: $tc-badge-large-height - 2 * $tc-badge-large-vertical-padding;
-
-			svg {
-				height: $tc-badge-large-delete-icon-size;
-				width: $tc-badge-large-delete-icon-size;
+				svg {
+					height: $tc-badge-large-delete-icon-size;
+					width: $tc-badge-large-delete-icon-size;
+				}
 			}
 		}
 	}
 
 	&.tc-badge-display-small {
 		.tc-badge-separator {
-			margin-top: 0.2rem;
-		}
-
-		.tc-badge-icon-separator {
-			margin-top: 0.2rem;
+			margin-top: 0.3rem;
 		}
 
 		.tc-badge-button {
 			height: $tc-badge-small-height;
-			padding: $tc-badge-small-vertical-padding $padding-small;
+			padding: 0 $padding-small;
 			margin: $tc-badge-small-margin;
-			padding-right: calc(#{$padding-small} + #{$tc-badge-large-delete-icon-size});
+			padding-right: $padding-small;
 
 			.tc-badge-category {
 				font-size: $tc-badge-small-label-font-size;
@@ -148,24 +139,29 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 			}
 
 			.tc-badge-label {
-				font-size: $tc-badge-small-label-font-size;
-				font-weight: $tc-badge-small-label-font-weight;
+				margin-top: -$tc-badge-small-vertical-padding;
+				margin-bottom: -$tc-badge-small-vertical-padding;
+
+				&-text {
+					font-size: $tc-badge-small-label-font-size;
+					font-weight: $tc-badge-small-label-font-weight;
+				}
+
+				&-icon {
+					margin-top: $padding-smaller;
+					height: $tc-badge-small-icon-size;
+					width: $tc-badge-small-icon-size;
+				}
 			}
 
-			svg.tc-badge-icon {
-				margin-top: $padding-smaller;
-				height: $tc-badge-small-icon-size;
-				width: $tc-badge-small-icon-size;
-			}
-		}
+			.tc-badge-delete-icon {
+				height: $tc-badge-small-height - 2 * $tc-badge-small-vertical-padding;
+				min-height: $tc-badge-small-height - 2 * $tc-badge-small-vertical-padding;
 
-		.tc-badge-delete-icon {
-			height: $tc-badge-small-height - 2 * $tc-badge-small-vertical-padding;
-			padding-bottom: 4px;
-
-			svg {
-				height: $tc-badge-small-delete-icon-size;
-				width: $tc-badge-small-delete-icon-size;
+				svg {
+					height: $tc-badge-small-delete-icon-size;
+					width: $tc-badge-small-delete-icon-size;
+				}
 			}
 		}
 	}
@@ -183,7 +179,10 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 			}
 
 			.tc-badge-label {
-				color: $lochmara;
+				.tc-badge-label-text,
+				.tc-badge-label-icon {
+					color: $lochmara;
+				}
 			}
 		}
 		&:hover {
@@ -194,9 +193,9 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 	}
 
 	&-edit {
-		.tc-badge-button:hover {
-			.tc-badge-label,
-			.tc-badge-icon {
+		.tc-badge-label:hover {
+			.tc-badge-label-text,
+			.tc-badge-label-icon {
 				color: $lochmara;
 			}
 		}
