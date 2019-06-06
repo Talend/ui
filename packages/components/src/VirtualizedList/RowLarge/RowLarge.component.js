@@ -137,16 +137,16 @@ class RowLarge extends React.Component {
 							rows={Math.floor(otherFields.length / LOADING_ROW_COLUMNS_COUNT) + 1}
 						/>
 					) : (
-							<React.Fragment>
-								<div className={theme.header} key="header">
-									{titleCell}
-									{selectionCell}
-								</div>
-								<dl className={`tc-list-large-content ${theme.content}`} key="content">
-									{otherFields.map(this.renderKeyValue)}
-								</dl>
-							</React.Fragment>
-						)}
+						<React.Fragment>
+							<div className={theme.header} key="header">
+								{titleCell}
+								{selectionCell}
+							</div>
+							<dl className={`tc-list-large-content ${theme.content}`} key="content">
+								{otherFields.map(this.renderKeyValue)}
+							</dl>
+						</React.Fragment>
+					)}
 				</div>
 			</div>
 		);

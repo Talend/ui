@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import toJsonWithoutI18n from '../../../test/props-without-i18n';
 import RowLarge from './RowLarge.component';
 import VirtualizedList from '../VirtualizedList.component';
 import CellTitle from '../CellTitle';
@@ -84,7 +83,6 @@ describe('RowLarge', () => {
 			<RowLarge
 				className={'my-class-names'}
 				index={1}
-				key={18}
 				parent={parent}
 				style={{ background: 'red' }}
 			/>,
@@ -94,7 +92,7 @@ describe('RowLarge', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render large with empty data', () => {
+	it('should render RandomSizeSkeleton with empty data', () => {
 		// given
 		const noDataParent = {
 			...parent,
@@ -106,16 +104,10 @@ describe('RowLarge', () => {
 
 		// when
 		const wrapper = mount(
-			<RowLarge
-				className={'my-class-names'}
-				index={1}
-				key={18}
-				parent={noDataParent}
-				style={{ background: 'red' }}
-			/>,
+			<RowLarge className={'my-class-names'} index={1} parent={noDataParent} />,
 		);
 
-		// then
-		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		// then 3 columns on one line
+		expect(wrapper.find('RandomSizeSkeleton').length).toBe(3);
 	});
 });
