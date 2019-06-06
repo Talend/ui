@@ -39,6 +39,8 @@ function LoadingCollapsiblePanel() {
 	);
 }
 
+const MemoLoadingCollapsiblePanel = React.memo(LoadingCollapsiblePanel);
+
 /**
  * Row renderer that displays a Collapsible Panel
  */
@@ -79,7 +81,7 @@ class RowCollapsiblePanel extends React.Component {
 						style={style}
 					>
 						{isEmpty(rowData) ? (
-							<LoadingCollapsiblePanel />
+							<MemoLoadingCollapsiblePanel />
 						) : (
 							<CollapsiblePanel
 								onEntered={measure}
