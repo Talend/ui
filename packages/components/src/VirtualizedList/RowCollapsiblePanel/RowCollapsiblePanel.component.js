@@ -78,18 +78,16 @@ class RowCollapsiblePanel extends React.Component {
 						aria-label={get(rowData, 'header[0].label')}
 						style={style}
 					>
-						{isEmpty(rowData)
-							? <LoadingCollapsiblePanel />
-							: (
-								<CollapsiblePanel
-									onEntered={measure}
-									onExited={measure}
-									onToggle={this.onToggle}
-									{...rowData}
-								/>
-							)
-						}
-
+						{isEmpty(rowData) ? (
+							<LoadingCollapsiblePanel />
+						) : (
+							<CollapsiblePanel
+								onEntered={measure}
+								onExited={measure}
+								onToggle={this.onToggle}
+								{...rowData}
+							/>
+						)}
 					</div>
 				)}
 			</CellMeasurer>
