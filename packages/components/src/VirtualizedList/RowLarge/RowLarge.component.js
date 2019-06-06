@@ -27,6 +27,7 @@ import I18N_DOMAIN_COMPONENTS from '../../constants';
 const { LARGE } = listTypes;
 
 const SKELETON_SIZES = [Skeleton.SIZES.xlarge, Skeleton.SIZES.large, Skeleton.SIZES.medium];
+const LOADING_ROW_COLUMNS_COUNT = 3;
 
 function RandomSizeSkeleton() {
 	const size = Skeleton.SIZES[SKELETON_SIZES[Math.floor(Math.random() * SKELETON_SIZES.length)]];
@@ -129,7 +130,10 @@ class RowLarge extends React.Component {
 			>
 				<div className={`tc-list-large-inner-box ${theme['inner-box']}`} key="inner-box">
 					{isEmpty(rowData) ? (
-						<LargeInnerRowLoading columns={3} rows={3} />
+						<LargeInnerRowLoading
+							columns={LOADING_ROW_COLUMNS_COUNT}
+							rows={Math.floor(otherFields.length / LOADING_ROW_COLUMNS_COUNT) + 1}
+						/>
 					) : (
 						<React.Fragment>
 							<div className={theme.header} key="header">
