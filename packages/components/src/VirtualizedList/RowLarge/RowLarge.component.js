@@ -52,6 +52,8 @@ LargeInnerRowLoading.propTypes = {
 	rows: PropTypes.number,
 };
 
+const MemoLargeInnerRowLoading = React.memo(LargeInnerRowLoading);
+
 /**
  * Row renderer that displays a Large item
  */
@@ -130,7 +132,7 @@ class RowLarge extends React.Component {
 			>
 				<div className={`tc-list-large-inner-box ${theme['inner-box']}`} key="inner-box">
 					{isEmpty(rowData) ? (
-						<LargeInnerRowLoading
+						<MemoLargeInnerRowLoading
 							columns={LOADING_ROW_COLUMNS_COUNT}
 							rows={Math.floor(otherFields.length / LOADING_ROW_COLUMNS_COUNT) + 1}
 						/>
