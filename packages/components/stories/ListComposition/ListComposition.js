@@ -338,6 +338,7 @@ storiesOf('List Composition', module)
 				<List.Manager
 					id="my-collapsible-panels-list"
 					collection={[{
+						id: 'status-header',
 						header: [
 							{
 								displayMode: 'status',
