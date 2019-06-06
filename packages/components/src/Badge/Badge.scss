@@ -76,6 +76,7 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 		}
 
 		.tc-badge-delete-icon {
+			display: flex;
 			flex-grow: 0;
 			flex-shrink: 0;
 			padding: 0;
@@ -165,9 +166,6 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 			}
 
 			.tc-badge-label {
-				margin-top: -$tc-badge-small-vertical-padding;
-				margin-bottom: -$tc-badge-small-vertical-padding;
-
 				&-text {
 					font-size: $tc-badge-small-label-font-size;
 					font-weight: $tc-badge-small-label-font-weight;
@@ -217,14 +215,14 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 				}
 			}
 		}
-		&:hover {
+		&:hover:not(.tc-badge-disabled) {
 			.tc-badge-button {
 				border-color: rgba($lochmara, 1);
 			}
 		}
 	}
 
-	&-edit {
+	&-edit:not(&-disabled) {
 		.tc-badge-label:hover {
 			.tc-badge-label-text,
 			.tc-badge-label-text-with-categ,
@@ -235,42 +233,18 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 	}
 
 	&-selected:not(&-disabled) {
-		svg,
-		.tc-badge-label,
-		.tc-badge-category {
-			color: $white;
-		}
-
-		.tc-badge-button {
-			background-color: $scooter;
-
-			.tc-badge-category {
-				background-color: rgba($white, 0.2);
-			}
-
-			&:hover {
-				background-color: darken($scooter, 10);
+		.tc-badge-label {
+			.tc-badge-label-text,
+			.tc-badge-label-text-with-categ,
+			.tc-badge-label-icon {
+				color: $lochmara;
 			}
 		}
 	}
 
 	&-disabled {
 		.tc-badge-button {
-			background-color: $gallery;
-
-			svg,
-			.tc-badge-label,
-			.tc-badge-category {
-				color: $silver;
-			}
-
-			.tc-badge-category {
-				background-color: $concrete;
-			}
-
-			& + span {
-				display: flex;
-			}
+			opacity: 0.62;
 		}
 	}
 
