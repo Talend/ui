@@ -1,5 +1,6 @@
 $tc-badge-large-label-font-size: 1.4rem !default;
 $tc-badge-large-label-font-weight: normal !default;
+$tc-badge-large-label-with-categ-font-weight: $font-weight-bold !default;
 $tc-badge-large-height: 2.4rem !default;
 $tc-badge-large-vertical-padding: ($tc-badge-large-height - $tc-badge-large-label-font-size * $line-height-base) / 2 !default;
 $tc-badge-large-margin: $padding-smaller !default;
@@ -8,6 +9,7 @@ $tc-badge-large-icon-size: $svg-xs-size !default;
 
 $tc-badge-small-label-font-size: 1.2rem !default;
 $tc-badge-small-label-font-weight: normal !default;
+$tc-badge-small-label-with-categ-font-weight: $font-weight-bold !default;
 $tc-badge-small-height: 2rem !default;
 $tc-badge-small-vertical-padding: ($tc-badge-small-height - $tc-badge-small-label-font-size * $line-height-base) / 2 !default;
 $tc-badge-small-margin: $padding-smaller !default;
@@ -15,8 +17,8 @@ $tc-badge-small-delete-icon-size: $svg-sm-size / 2 !default;
 $tc-badge-small-icon-size: $svg-xs-size !default;
 
 .tc-badge {
-	display: inline-flex;
-	max-width: 100%;
+	display: flex;
+	max-width: 23.5rem;
 
 	.tc-badge-button {
 		display: inline-flex;
@@ -28,12 +30,19 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 		max-width: 100%;
 
 		.tc-badge-category {
+			flex-grow: 0;
+			flex-shrink: 0;
 			color: black;
 			max-width: 110px;
 			margin-left: -$padding-small;
+			overflow: hidden;
+			white-space: pre;
+			text-overflow: ellipsis;
 		}
 
 		.tc-badge-separator {
+			flex-grow: 0;
+			flex-shrink: 0;
 			height: 12px;
 			width: 1px;
 			background-color: $gallery;
@@ -45,19 +54,30 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 		}
 
 		.tc-badge-label {
-			&-text {
+			display: flex;
+			flex-grow: 1;
+			flex-shrink: 1;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: pre;
+
+			&-text,
+			&-text-with-categ {
 				color: black;
-				overflow: hidden;
 				text-overflow: ellipsis;
-				white-space: pre;
+				overflow: hidden;
 			}
 
 			&-icon {
+				flex-grow: 0;
+				flex-shrink: 0;
 				margin-left: $padding-smaller;
 			}
 		}
 
 		.tc-badge-delete-icon {
+			flex-grow: 0;
+			flex-shrink: 0;
 			padding: 0;
 			background: transparent;
 			box-shadow: none;
@@ -100,10 +120,16 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 					font-weight: $tc-badge-large-label-font-weight;
 				}
 
+				&-text-with-categ {
+					font-size: $tc-badge-large-label-font-size;
+					font-weight: $tc-badge-large-label-with-categ-font-weight;
+				}
+
 				&-icon {
 					margin-top: $padding-smaller;
 					height: $tc-badge-large-icon-size;
 					width: $tc-badge-large-icon-size;
+					min-width: $tc-badge-large-icon-size;
 				}
 			}
 
@@ -147,10 +173,16 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 					font-weight: $tc-badge-small-label-font-weight;
 				}
 
+				&-text-with-categ {
+					font-size: $tc-badge-small-label-font-size;
+					font-weight: $tc-badge-small-label-with-categ-font-weight;
+				}
+
 				&-icon {
 					margin-top: $padding-smaller;
 					height: $tc-badge-small-icon-size;
 					width: $tc-badge-small-icon-size;
+					min-width: $tc-badge-small-icon-size;
 				}
 			}
 
@@ -195,6 +227,7 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 	&-edit {
 		.tc-badge-label:hover {
 			.tc-badge-label-text,
+			.tc-badge-label-text-with-categ,
 			.tc-badge-label-icon {
 				color: $lochmara;
 			}

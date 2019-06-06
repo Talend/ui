@@ -94,6 +94,19 @@ storiesOf('Badge', module).add('default', () => (
 					<Badge label="Label" display="large" category="Cat" icon="talend-clock" edit {...onSelect('B')} {...onDelete('A')} />
 					<br />
 					<Badge label="Label" display="small" category="Cat" icon="talend-clock" edit {...onSelect('B')} {...onDelete('A')} />
+					<br />
+					<Badge label={longStr} display="large" category="Cat" icon="talend-clock" edit {...onSelect('B')} {...onDelete('A')} />
+					<br />
+					<Badge label={longStr} display="small" category="Cat" icon="talend-clock" edit {...onSelect('B')} {...onDelete('A')} />
+					<br />
+					<Badge label="Label" display="large" category={longStr} icon="talend-clock" edit {...onSelect('B')} {...onDelete('A')} />
+					<br />
+					<Badge label="Label" display="small" category={longStr} icon="talend-clock" edit {...onSelect('B')} {...onDelete('A')} />
+					<br />
+					<Badge label={longStr} display="large" category={longStr} icon="talend-clock" edit {...onSelect('B')} {...onDelete('A')} />
+					<br />
+					<Badge label={longStr} display="small" category={longStr} icon="talend-clock" edit {...onSelect('B')} {...onDelete('A')} />
+
 				</div>
 			</div>
 			<hr />

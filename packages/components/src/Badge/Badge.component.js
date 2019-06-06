@@ -50,23 +50,23 @@ function Badge({
 	const labelClasses = classNames('tc-badge-label', theme['tc-badge-label']);
 	const labelTextClasses = classNames('tc-badge-label-text', theme['tc-badge-label-text']);
 	const labelTextWithCategClasses = classNames(
-		'tc-badge-label-text',
 		'tc-badge-label-text-with-categ',
-		theme['tc-badge-label-text'], theme['tc-badge-label-text-with-categ'],
+		theme['tc-badge-label-text-with-categ'],
 	);
 	const labelIconClasses = classNames('tc-badge-label-icon', theme['tc-badge-label-icon']);
 
 	const children = [
-		category ? (
-			<React.Fragment>
-				<span key="category" className={categoryClasses}>
-					{category}
-				</span>
-				<span className={separatorClasses} />
-			</React.Fragment>
-		) : null,
+		category && (
+			<span key="category" className={categoryClasses}>
+				{category}
+			</span>
+		),
+		category && <span className={separatorClasses} />,
 		<div className={labelClasses}>
-			<span key="label" className={category ? labelTextWithCategClasses : labelTextClasses}>
+			<span
+				key="label"
+				className={!aslink && category ? labelTextWithCategClasses : labelTextClasses}
+			>
 				{label}
 			</span>
 			{icon && <Icon name={icon} className={labelIconClasses} />}
