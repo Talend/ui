@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RowCollapsiblePanel should render a row with no data 1`] = `
+exports[`RowCollapsiblePanel should render a row with no data (loading) 1`] = `
 <ListGesture(VirtualizedList(RowCollapsiblePanel))
-  className="my-class-names"
   index={1}
   parent={
     Object {
@@ -81,14 +80,8 @@ exports[`RowCollapsiblePanel should render a row with no data 1`] = `
       },
     }
   }
-  style={
-    Object {
-      "background": "red",
-    }
-  }
 >
   <VirtualizedList(RowCollapsiblePanel)
-    className="my-class-names"
     index={1}
     onKeyDown={[Function]}
     parent={
@@ -166,11 +159,6 @@ exports[`RowCollapsiblePanel should render a row with no data 1`] = `
           "id": "my-list",
           "rowGetter": [Function],
         },
-      }
-    }
-    style={
-      Object {
-        "background": "red",
       }
     }
   >
@@ -283,15 +271,10 @@ exports[`RowCollapsiblePanel should render a row with no data 1`] = `
     >
       <div
         aria-posinset={2}
-        className="tc-collapsible-row my-class-names"
+        className="tc-collapsible-row"
         id="my-list-1"
         onKeyDown={[Function]}
         role="listitem"
-        style={
-          Object {
-            "background": "red",
-          }
-        }
         tabIndex="0"
       >
         <LoadingCollapsiblePanel>

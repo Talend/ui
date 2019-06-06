@@ -103,7 +103,7 @@ describe('RowCollapsiblePanel', () => {
 		).toMatchSnapshot();
 	});
 
-	it('should render a row with no data', () => {
+	it('should render a row with no data (loading)', () => {
 		// given
 		const noDataParent = {
 			...parent,
@@ -114,16 +114,9 @@ describe('RowCollapsiblePanel', () => {
 		};
 
 		// when
-		const wrapper = mount(
-			<RowCollapsiblePanel
-				className={'my-class-names'}
-				index={1}
-				key={18}
-				parent={noDataParent}
-				style={{ background: 'red' }}
-			/>,
-		);
+		const wrapper = mount(<RowCollapsiblePanel index={1} parent={noDataParent} />);
 
-		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		// then
+		expect(toJsonWithoutI18n(wrapper.find('.tc-collapsible-row')).toMatchSnapshot();
 	});
 });
