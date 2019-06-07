@@ -60,7 +60,7 @@ const stories = storiesOf('ActionList', module);
 stories
 	.addDecorator(story => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 			{story()}
 		</div>
 	))

@@ -92,7 +92,7 @@ storiesOf('Notification', module)
 	.add('default', () => (
 		<nav>
 			<h1>Notification</h1>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 			<h2>Definition</h2>
 			<p>
 				The Notification component display notification

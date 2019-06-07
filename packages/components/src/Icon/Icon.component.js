@@ -27,7 +27,7 @@ export const SVG_TRANSFORMS = {
 	'flip-vertical': theme['flip-vertical'],
 };
 
-export const TRANSFORMS = Object.keys(FA_TRANSFORMS);
+export const TRANSFORMS = Object.keys(SVG_TRANSFORMS);
 
 /**
  * SVG implementation is inspired by

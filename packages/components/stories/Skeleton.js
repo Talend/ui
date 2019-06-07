@@ -14,7 +14,7 @@ const icons = {
 storiesOf('Skeleton', module)
 	.addDecorator(story => (
 		<div className="col-lg-offset-2 col-lg-8">
-			<IconsProvider defaultIcons={icons}/>
+			<IconsProvider/>
 			{story()}
 		</div>
 	))

@@ -302,7 +302,7 @@ storiesOf('ConfirmDialog', module)
 		return (
 			<div>
 				<h1>Dialog</h1>
-				<IconsProvider defaultIcons={icons} />
+				<IconsProvider />
 				<ConfirmDialog bodyOverflow={false} {...largeProps}>
 					<List {...tprops} />
 				</ConfirmDialog>

@@ -10,7 +10,7 @@ const context = {
 
 export function getIconHREF(name) {
 	if (context.ids.indexOf(name) !== -1) {
-		return undefined;
+		return `#${name}`;
 	}
 	let href = context.get(name);
 	if (!href) {

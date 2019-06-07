@@ -100,7 +100,7 @@ const props = {
 storiesOf('ResourcePicker', module)
 	.addDecorator(story => (
 		<section>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 			{story()}
 		</section>
 	))

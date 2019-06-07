@@ -117,7 +117,7 @@ const content = [
 const ExampleLayout = {
 	default: () => (
 		<div>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 			<Inject component="Layout" mode="TwoColumns" header={header} one={sidepanel} content={content} />
 		</div>
 	),

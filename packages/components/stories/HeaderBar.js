@@ -179,7 +179,7 @@ const withIcons = makeDecorator({
 		return (
 			<I18nextProvider i18n={i18n}>
 				<div>
-					<IconsProvider defaultIcons={icons} />
+					<IconsProvider />
 					{story}
 					<div className="container" style={{ paddingTop: 40 }} />
 				</div>

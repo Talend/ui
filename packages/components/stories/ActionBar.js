@@ -272,7 +272,7 @@ const icons = {
 storiesOf('ActionBar', module)
 	.add('default', () => (
 		<nav>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 			<p>No Selected, Layout: Left Space Right</p>
 			<div id="default">
 				<ActionBar {...Object.assign({}, basicProps, { selected: 0 })} />
@@ -306,7 +306,7 @@ storiesOf('ActionBar', module)
 	))
 	.add('custom', () => (
 		<nav>
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 			<div id="default">
 				<ActionBar>
 					<ActionBar.Content tag="a" left href="#/foo/bar">

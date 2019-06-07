@@ -49,7 +49,7 @@ storiesOf('ActionSplitDropdown', module)
 		<div>
 			{story()}
 			<div className="container" style={{ paddingTop: 40 }} />
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 		</div>
 	))
 	.add('default', () => (

@@ -242,7 +242,7 @@ storiesOf('Drawer', module)
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawers}>
 				<span>zone with drawer</span>
 				{rows}
-				<IconsProvider defaultIcons={icons} />
+				<IconsProvider />
 			</Layout>
 		);
 	})
@@ -255,7 +255,7 @@ storiesOf('Drawer', module)
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersNoTransition}>
 				<span>zone with drawer</span>
 				{rows}
-				<IconsProvider defaultIcons={icons} />
+				<IconsProvider />
 			</Layout>
 		);
 	})
@@ -296,7 +296,7 @@ storiesOf('Drawer', module)
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={stackedDrawers}>
 				<span>zone with drawer</span>
 				{rows}
-				<IconsProvider defaultIcons={icons} />
+				<IconsProvider />
 			</Layout>
 		);
 	})
@@ -312,7 +312,7 @@ storiesOf('Drawer', module)
 		return (
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersWithTabs}>
 				<span>zone with drawer</span>
-				<IconsProvider defaultIcons={icons} />
+				<IconsProvider />
 			</Layout>
 		);
 	})
@@ -341,7 +341,7 @@ storiesOf('Drawer', module)
 		return (
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersWithTabs}>
 				<span>zone with drawer</span>
-				<IconsProvider defaultIcons={icons} />
+				<IconsProvider />
 			</Layout>
 		);
 	})
@@ -396,7 +396,7 @@ storiesOf('Drawer', module)
 		return (
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={customDrawers}>
 				<span>zone with drawer</span>
-				<IconsProvider defaultIcons={icons} />
+				<IconsProvider />
 			</Layout>
 		);
 	})
@@ -424,7 +424,7 @@ storiesOf('Drawer', module)
 		return (
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={customDrawers}>
 				<span>zone with drawer</span>
-				<IconsProvider defaultIcons={icons} />
+				<IconsProvider />
 			</Layout>
 		);
 	});

@@ -79,7 +79,7 @@ stories
 	.addDecorator(story => (
 		<div>
 			<LanguageSwitcher />
-			<IconsProvider defaultIcons={icons} />
+			<IconsProvider />
 			<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
 		</div>
 	))
