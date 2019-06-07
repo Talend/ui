@@ -151,6 +151,21 @@ storiesOf('Badge', module).add('default', () => (
 
 		<section>
 			<IconsProvider defaultIcons={icons} />
+			<div style={defaultStyle} id="header">
+				<div style={columnStyle}>
+					<span>Read Only</span>
+				</div>
+				<div style={columnStyle}>
+					<span>With delete</span>
+				</div>
+				<div style={columnStyle}>
+					<span>Selected</span>
+				</div>
+				<div style={columnStyle}>
+					<span>Disabled</span>
+				</div>
+			</div>
+			<hr />
 			<div style={defaultStyle} id="default">
 				<div style={columnStyle}>
 					<Badge label="Group A" {...onSelect('A')} />

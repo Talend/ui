@@ -8,6 +8,7 @@ import Action from '../Actions/Action';
 import getDefaultT from '../translate';
 import theme from './Badge.scss';
 import Icon from '../Icon';
+import TooltipTrigger from '../TooltipTrigger';
 
 function Badge({
 	id,
@@ -57,18 +58,22 @@ function Badge({
 
 	const children = [
 		category && (
-			<span key="category" className={categoryClasses}>
-				{category}
-			</span>
+			<TooltipTrigger label={category} tooltipPlacement="top">
+				<span key="category" aria-label={category} className={categoryClasses}>
+					{category}
+				</span>
+			</TooltipTrigger>
 		),
 		category && <span className={separatorClasses} />,
 		<div className={labelClasses}>
-			<span
-				key="label"
-				className={!aslink && category ? labelTextWithCategClasses : labelTextClasses}
-			>
-				{label}
-			</span>
+			<TooltipTrigger label={label} tooltipPlacement="top">
+				<span
+					key="label"
+					className={!aslink && category ? labelTextWithCategClasses : labelTextClasses}
+				>
+					{label}
+				</span>
+			</TooltipTrigger>
 			{icon && <Icon name={icon} className={labelIconClasses} />}
 		</div>,
 		icon && <span className={[separatorIconClasses]} />,
