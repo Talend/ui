@@ -74,7 +74,10 @@ module.exports = storybookBaseConfig => {
 	storybookBaseConfig.plugins = storybookBaseConfig.plugins.concat(
 		new CopyPlugin([
 		  { from: path.join(iconsDist, 'svg-bundle') },
-		])
+		]),
+		new webpack.DefinePlugin({
+			'process.env.ICON_BUNDLE': JSON.stringify(process.env.ICON_BUNDLE),
+		}),
 	);
 	return storybookBaseConfig;
 };

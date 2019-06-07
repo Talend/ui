@@ -31,7 +31,7 @@ exports[`Notification should render 1`] = `
           title={null}
         >
           <use
-            xlinkHref="core.svg#talend-cross"
+            xlinkHref="#talend-cross"
           />
         </svg>
         <span>
@@ -62,7 +62,7 @@ exports[`Notification should render 1`] = `
               title={null}
             >
               <use
-                xlinkHref="core.svg#talend-undo"
+                xlinkHref="#talend-undo"
               />
             </svg>
             <span>
@@ -101,7 +101,7 @@ exports[`Notification should render 1`] = `
           title={null}
         >
           <use
-            xlinkHref="core.svg#talend-cross"
+            xlinkHref="#talend-cross"
           />
         </svg>
         <span>
@@ -137,7 +137,7 @@ exports[`Notification should render 1`] = `
               title={null}
             >
               <use
-                xlinkHref="core.svg#talend-undo"
+                xlinkHref="#talend-undo"
               />
             </svg>
             <span>
@@ -173,7 +173,7 @@ exports[`Notification should render 1`] = `
           title={null}
         >
           <use
-            xlinkHref="core.svg#talend-cross"
+            xlinkHref="#talend-cross"
           />
         </svg>
         <span>
@@ -224,7 +224,7 @@ exports[`Notification should render 1`] = `
           title={null}
         >
           <use
-            xlinkHref="core.svg#talend-cross"
+            xlinkHref="#talend-cross"
           />
         </svg>
         <span>

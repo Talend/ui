@@ -157,7 +157,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
             title={null}
           >
             <use
-              xlinkHref="core.svg#talend-caret-down"
+              xlinkHref="#talend-caret-down"
             />
           </svg>
         </button>
@@ -350,7 +350,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
             title={null}
           >
             <use
-              xlinkHref="core.svg#talend-caret-down"
+              xlinkHref="#talend-caret-down"
             />
           </svg>
         </button>
@@ -683,7 +683,7 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
             title={null}
           >
             <use
-              xlinkHref="core.svg#talend-caret-down"
+              xlinkHref="#talend-caret-down"
             />
           </svg>
         </button>

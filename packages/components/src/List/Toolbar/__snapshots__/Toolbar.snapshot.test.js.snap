@@ -28,7 +28,7 @@ exports[`Toolbar should render actions toolbar 1`] = `
           title={null}
         >
           <use
-            xlinkHref="core.svg#talend-plus"
+            xlinkHref="#talend-plus"
           />
         </svg>
         <span>
@@ -78,7 +78,7 @@ exports[`Toolbar should render actions toolbar with selected items 1`] = `
           title={null}
         >
           <use
-            xlinkHref="core.svg#talend-trash"
+            xlinkHref="#talend-trash"
           />
         </svg>
         <span>
@@ -239,7 +239,7 @@ exports[`Toolbar should render pagination 1`] = `
               title={null}
             >
               <use
-                xlinkHref="core.svg#talend-chevron-end"
+                xlinkHref="#talend-chevron-end"
               />
             </svg>
           </a>
@@ -264,7 +264,7 @@ exports[`Toolbar should render pagination 1`] = `
               title={null}
             >
               <use
-                xlinkHref="core.svg#talend-chevron-left"
+                xlinkHref="#talend-chevron-left"
               />
             </svg>
           </a>
@@ -297,7 +297,7 @@ exports[`Toolbar should render pagination 1`] = `
               title={null}
             >
               <use
-                xlinkHref="core.svg#talend-chevron-left"
+                xlinkHref="#talend-chevron-left"
               />
             </svg>
           </a>
@@ -322,7 +322,7 @@ exports[`Toolbar should render pagination 1`] = `
               title={null}
             >
               <use
-                xlinkHref="core.svg#talend-chevron-end"
+                xlinkHref="#talend-chevron-end"
               />
             </svg>
           </a>

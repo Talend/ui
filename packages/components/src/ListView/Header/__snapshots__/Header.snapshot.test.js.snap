@@ -29,7 +29,7 @@ exports[`Header should render header with one button 1`] = `
         title={null}
       >
         <use
-          xlinkHref="core.svg#talend-search"
+          xlinkHref="#talend-search"
         />
       </svg>
     </button>

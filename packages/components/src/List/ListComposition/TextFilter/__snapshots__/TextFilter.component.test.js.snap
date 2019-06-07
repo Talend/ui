@@ -159,7 +159,7 @@ exports[`TextFilter should render text filter component 1`] = `
                           title={null}
                         >
                           <use
-                            xlinkHref="core.svg#talend-search"
+                            xlinkHref="#talend-search"
                           />
                         </svg>
                       </Icon>
@@ -336,7 +336,7 @@ exports[`TextFilter should render text filter component with defined docked stat
                           title={null}
                         >
                           <use
-                            xlinkHref="core.svg#talend-search"
+                            xlinkHref="#talend-search"
                           />
                         </svg>
                       </Icon>

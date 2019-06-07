@@ -3,6 +3,13 @@ import React from 'react';
 import { filters } from '@talend/icons/dist/react';
 import { getIconHref as getIcon } from '@talend/icons/dist/info';
 
+let talendIcons = {};
+
+// WARNING will be the default in 4.0
+if (!process.env.ICON_BUNDLE) {
+	talendIcons = require('@talend/icons/dist/react').default;
+}
+
 const context = {
 	ids: [],
 	get: () => {},
@@ -14,7 +21,12 @@ export function getIconHREF(name) {
 	}
 	let href = context.get(name);
 	if (!href) {
-		href = getIcon(name);
+		if (process.env.ICON_BUNDLE) {
+			href = getIcon(name);
+		} else {
+			// backward compatibility for test
+			href = `#${name}`;
+		}
 	}
 	return href;
 }
@@ -62,7 +74,7 @@ IconsProvider.propTypes = {
 };
 
 IconsProvider.defaultProps = {
-	defaultIcons: {},
+	defaultIcons: talendIcons,
 	icons: {},
 	getIconHREF: () => {},
 };

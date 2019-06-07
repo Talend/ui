@@ -1198,7 +1198,7 @@ exports[`Items should render with nested items 1`] = `
                                                 title={null}
                                               >
                                                 <use
-                                                  xlinkHref="core.svg#talend-caret-down"
+                                                  xlinkHref="#talend-caret-down"
                                                 />
                                               </svg>
                                             </Icon>

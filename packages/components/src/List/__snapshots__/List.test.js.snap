@@ -938,7 +938,7 @@ exports[`List should render 1`] = `
                                         title={null}
                                       >
                                         <use
-                                          xlinkHref="core.svg#talend-chevron-end"
+                                          xlinkHref="#talend-chevron-end"
                                         />
                                       </svg>
                                     </Icon>
@@ -983,7 +983,7 @@ exports[`List should render 1`] = `
                                         title={null}
                                       >
                                         <use
-                                          xlinkHref="core.svg#talend-chevron-left"
+                                          xlinkHref="#talend-chevron-left"
                                         />
                                       </svg>
                                     </Icon>
@@ -1038,7 +1038,7 @@ exports[`List should render 1`] = `
                                         title={null}
                                       >
                                         <use
-                                          xlinkHref="core.svg#talend-chevron-left"
+                                          xlinkHref="#talend-chevron-left"
                                         />
                                       </svg>
                                     </Icon>
@@ -1084,7 +1084,7 @@ exports[`List should render 1`] = `
                                         title={null}
                                       >
                                         <use
-                                          xlinkHref="core.svg#talend-chevron-end"
+                                          xlinkHref="#talend-chevron-end"
                                         />
                                       </svg>
                                     </Icon>
@@ -2008,7 +2008,7 @@ exports[`List should render id if provided 1`] = `
                                         title={null}
                                       >
                                         <use
-                                          xlinkHref="core.svg#talend-chevron-end"
+                                          xlinkHref="#talend-chevron-end"
                                         />
                                       </svg>
                                     </Icon>
@@ -2056,7 +2056,7 @@ exports[`List should render id if provided 1`] = `
                                         title={null}
                                       >
                                         <use
-                                          xlinkHref="core.svg#talend-chevron-left"
+                                          xlinkHref="#talend-chevron-left"
                                         />
                                       </svg>
                                     </Icon>
@@ -2114,7 +2114,7 @@ exports[`List should render id if provided 1`] = `
                                         title={null}
                                       >
                                         <use
-                                          xlinkHref="core.svg#talend-chevron-left"
+                                          xlinkHref="#talend-chevron-left"
                                         />
                                       </svg>
                                     </Icon>
@@ -2163,7 +2163,7 @@ exports[`List should render id if provided 1`] = `
                                         title={null}
                                       >
                                         <use
-                                          xlinkHref="core.svg#talend-chevron-end"
+                                          xlinkHref="#talend-chevron-end"
                                         />
                                       </svg>
                                     </Icon>
