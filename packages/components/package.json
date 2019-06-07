@@ -53,6 +53,7 @@
     "react-debounce-input": "3.2.0",
     "react-dnd": "^2.5.4",
     "react-dnd-html5-backend": "^2.5.4",
+    "react-grid-layout": "0.16.6",
     "react-immutable-proptypes": "^2.1.0",
     "react-transition-group": "^2.3.1",
     "react-virtualized": "9.21.0",

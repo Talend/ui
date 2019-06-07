@@ -332,5 +332,42 @@ storiesOf('List Composition', module)
 					/>
 				</List.Manager>
 			</section>
+
+			<h2>Collapsible panel mode</h2>
+			<section style={{ height: '30vh' }}>
+				<List.Manager
+					id="my-collapsible-panels-list"
+					collection={[{
+						id: 'status-header',
+						header: [
+							{
+								displayMode: 'status',
+								actions: [],
+								status: 'successful',
+								label: 'Successful',
+								icon: 'talend-check',
+							},
+						],
+						content: [
+							{
+								label: 'Content1',
+								description: 'Description1',
+							},
+							{
+								label: 'Content2',
+								description: 'Description2',
+							},
+						],
+						expanded: true,
+						children: <div>HELLO WORLD</div>,
+					}]}
+				>
+					<CustomListInfiniteScroll
+						type="COLLAPSIBLE_PANEL"
+						loadMoreRows={action('onLoadMoreRows')}
+						rowCount={50}
+					/>
+				</List.Manager>
+			</section>
 		</div>
 	));
