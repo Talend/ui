@@ -662,7 +662,7 @@ exports[`ListView field render should render no items message 1`] = `
                                 title={null}
                               >
                                 <use
-                                  xlinkHref="#talend-search"
+                                  xlinkHref="core.svg#talend-search"
                                 />
                               </svg>
                             </Icon>

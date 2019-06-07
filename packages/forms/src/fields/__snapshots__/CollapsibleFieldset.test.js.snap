@@ -168,7 +168,7 @@ exports[`<CollapsibleFieldset /> should collapse on click on title 1`] = `
               title={null}
             >
               <use
-                xlinkHref="#talend-caret-down"
+                xlinkHref="core.svg#talend-caret-down"
               />
             </svg>
           </Icon>
@@ -829,7 +829,7 @@ exports[`<CollapsibleFieldset /> should collapse on click on toggle button 1`] =
               title={null}
             >
               <use
-                xlinkHref="#talend-caret-down"
+                xlinkHref="core.svg#talend-caret-down"
               />
             </svg>
           </Icon>
@@ -1490,7 +1490,7 @@ exports[`<CollapsibleFieldset /> should collapse on doubleClick on title bar 1`]
               title={null}
             >
               <use
-                xlinkHref="#talend-caret-down"
+                xlinkHref="core.svg#talend-caret-down"
               />
             </svg>
           </Icon>
@@ -2151,7 +2151,7 @@ exports[`<CollapsibleFieldset /> should render 1`] = `
               title={null}
             >
               <use
-                xlinkHref="#talend-caret-down"
+                xlinkHref="core.svg#talend-caret-down"
               />
             </svg>
           </Icon>
