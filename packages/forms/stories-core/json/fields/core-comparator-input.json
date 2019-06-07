@@ -24,7 +24,7 @@
         "properties": {
           "operator": {
             "type": "string",
-            "enum": ["<=", ">="]
+            "enum": ["orng", "pr"]
           },
           "value": {
             "type": "number",
@@ -62,12 +62,24 @@
       "widget": "comparator",
       "title": "Numeric comparator",
 
-      "titleMap": {
-        ">=": "Orange",
-        "<=": "Pear"
+      "titleMap": [
+        {
+          "name": "Orange",
+          "value": "orng"
+        },
+
+        {
+          "name": "Pear",
+          "value": "pr"
+        }
+      ],
+      "options": {
+        "symbols": {
+          "orng": ">=",
+          "pr": "<="
+        }
       }
     },
-
     {
       "key": "disabled",
       "widget": "comparator",
@@ -80,7 +92,7 @@
       "operator": ">"
     },
     "numeric": {
-      "operator": "<="
+      "operator": "orng"
     },
     "disabled": {
       "operator": ">",

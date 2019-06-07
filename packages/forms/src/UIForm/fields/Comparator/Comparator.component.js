@@ -30,10 +30,10 @@ function getPartSchema(schema, part) {
 	};
 }
 
-function OperatorListElement({ value, name, selected }) {
+function OperatorListElement({ symbol, name, selected }) {
 	return (
 		<span className={classNames(theme.operator, { [theme.selected]: selected })}>
-			<span>{value}</span>
+			{symbol && <span>{symbol}</span>}
 			{name && <span className={classNames(theme.name)}>{name}</span>}
 		</span>
 	);
@@ -86,38 +86,46 @@ class Comparator extends React.Component {
 	getOperatorSchema = getPartSchema.bind(this, this.props.schema, 'operator');
 	getValueSchema = getPartSchema.bind(this, this.props.schema, 'value');
 
-	getOperatorsMap() {
-		const schema = this.getOperatorSchema();
-		const map = this.props.schema.titleMap || [];
-
-		return schema.titleMap.map(({ value }) => {
-			const text = (map.find(m => m.value === value) || {}).name;
-			const title = text ? `${value} (${text})` : value;
-
+	getFormattedOperators() {
+		const { schema } = this.props;
+		const map = schema.titleMap || [];
+		const symbols = (schema.options && schema.options.symbols) || {};
+		return this.getOperatorSchema().titleMap.map(({ value }) => {
+			const titles = map.find(m => m.value === value);
+			const title = titles ? `${titles.symbol} (${titles.name})` : value;
 			return {
 				value,
 				title,
-				name: (
-					<OperatorListElement
-						selected={this.props.value.operator === value}
-						value={value}
-						name={text}
-					/>
-				),
+				name: titles ? titles.name : '',
+				symbol: symbols[value] || value,
 			};
 		});
 	}
 
-	render() {
-		const operators = this.getOperatorSchema();
+	getOperatorsMap() {
+		return this.getFormattedOperators().map(({ value, title, name, symbol }) => ({
+			value,
+			title,
+			label: (
+				<OperatorListElement
+					selected={this.props.value.operator === value}
+					name={name}
+					symbol={symbol}
+				/>
+			),
+		}));
+	}
 
+	render() {
+		const formatted = this.getFormattedOperators();
+		const current = formatted.find(f => f.value === this.props.value.operator);
 		return (
 			<div className={classNames(theme.comparator)}>
 				<ActionDropdown
-					label={this.props.value.operator}
+					label={current && current.symbol}
 					onSelect={this.onSelect}
-					disabled={operators.disabled}
-					items={this.getOperatorsMap().map(({ name: label, value, title }, index) => ({
+					disabled={this.getOperatorSchema().disabled}
+					items={this.getOperatorsMap().map(({ label, value, title }, index) => ({
 						id: `comparison-operator-${index}`,
 						label,
 						value,
@@ -151,7 +159,7 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 
 	OperatorListElement.propTypes = {
-		value: PropTypes.string,
+		symbol: PropTypes.string,
 		name: PropTypes.string,
 		selected: PropTypes.bool,
 	};
