@@ -17,7 +17,7 @@ $tc-badge-small-delete-icon-size: $svg-sm-size / 2 !default;
 $tc-badge-small-icon-size: $svg-xs-size !default;
 
 .tc-badge {
-	display: flex;
+	display: inline-flex;
 	max-width: 23.5rem;
 
 	.tc-badge-button {
