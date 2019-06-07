@@ -169,7 +169,7 @@ const listProps = {
 const ExampleHomeListView = {
 	default: () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<HomeListView sidepanel={sidepanel} list={listProps} />
 		</div>
 	),
@@ -181,7 +181,7 @@ apps.forEach(app => {
 	ExampleHomeListView[`🎨 ${app.toUpperCase()} default`] = () => (
 		<div className={appStyle[app]}>
 			<div className={TALEND_T7_THEME_CLASSNAME}>
-				<IconsProvider />
+				<IconsProvider defaultIcons={icons} />
 				<HomeListView
 					// hasTheme - option must be set if you import one and only one theme
 					sidepanel={sidepanel}
@@ -194,7 +194,7 @@ apps.forEach(app => {
 
 ExampleHomeListView.drawer = () => (
 	<div>
-		<IconsProvider />
+		<IconsProvider defaultIcons={icons} />
 		<HomeListView header={header} sidepanel={sidepanel} list={listProps}>
 			<Drawer
 				stacked
@@ -216,7 +216,7 @@ apps.forEach(app => {
 	ExampleHomeListView[`🎨 ${app.toUpperCase()} drawer`] = () => (
 		<div className={appStyle[app]}>
 			<div className={TALEND_T7_THEME_CLASSNAME}>
-				<IconsProvider />
+				<IconsProvider defaultIcons={icons} />
 				<HomeListView header={header} sidepanel={sidepanel} list={listProps}>
 					<Drawer
 						stacked
