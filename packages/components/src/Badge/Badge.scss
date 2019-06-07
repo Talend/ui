@@ -23,7 +23,6 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 	.tc-badge-button {
 		display: inline-flex;
 		background-color: rgba($wild-sand, 0.5);
-		letter-spacing: 0.4px;
 		border: solid 1px;
 		border-color: $gallery;
 		border-radius: 25px;
@@ -38,7 +37,6 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 			flex-shrink: 0;
 			color: black;
 			max-width: 110px;
-			margin-left: -$padding-small;
 			overflow: hidden;
 			white-space: pre;
 			text-overflow: ellipsis;
@@ -73,6 +71,7 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 			}
 
 			&-icon {
+				color: black;
 				flex-grow: 0;
 				flex-shrink: 0;
 				margin-left: $padding-smaller;
@@ -86,7 +85,7 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 			padding: 0;
 			background: transparent;
 			box-shadow: none;
-			margin-left: $padding-smaller;
+			padding-left: $padding-smaller;
 
 			svg {
 				color: $slate-gray;
@@ -102,21 +101,16 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 
 	&.tc-badge-display-large {
 		.tc-badge-separator {
-			margin-top: 0.3rem;
+			margin-top: 0.4rem;
 		}
 
 		.tc-badge-button {
 			height: $tc-badge-large-height;
-			padding: $tc-badge-large-vertical-padding $padding-small;
 			margin: $tc-badge-large-margin;
-			padding-right: $padding-small;
 
 			.tc-badge-category {
 				font-size: $tc-badge-large-label-font-size;
 				font-weight: $tc-badge-large-label-font-weight;
-				margin-top: -$tc-badge-large-vertical-padding;
-				margin-bottom: -$tc-badge-large-vertical-padding;
-				padding: $tc-badge-large-vertical-padding 0 $tc-badge-large-vertical-padding $padding-small;
 			}
 
 			.tc-badge-label {
@@ -157,16 +151,12 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 
 		.tc-badge-button {
 			height: $tc-badge-small-height;
-			padding: 0 $padding-small;
 			margin: $tc-badge-small-margin;
-			padding-right: $padding-small;
+			padding-top: 0;
 
 			.tc-badge-category {
 				font-size: $tc-badge-small-label-font-size;
 				font-weight: $tc-badge-small-label-font-weight;
-				margin-top: -$tc-badge-small-vertical-padding;
-				margin-bottom: -$tc-badge-small-vertical-padding;
-				padding: $tc-badge-small-vertical-padding 0 $tc-badge-small-vertical-padding $padding-small;
 			}
 
 			.tc-badge-label {
@@ -249,12 +239,6 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 	&-disabled {
 		.tc-badge-button {
 			opacity: 0.62;
-		}
-	}
-
-	&-readonly.tc-badge {
-		.tc-badge-button {
-			padding-right: $padding-small;
 		}
 	}
 }

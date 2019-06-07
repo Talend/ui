@@ -64,17 +64,13 @@ storiesOf('Badge', module).add('default', () => (
 					<br />
 					<Badge label="Label" display="small" aslink {...onSelect('B')} />
 					<br />
-					<Badge label="Label" display="small" white aslink {...onSelect('B')} />
-					<br />
-					<Badge label="categ not visible" display="large" category="Cat" aslink {...onSelect('B')} />
-					<Badge label="categ not visible" display="small" category="Cat" aslink {...onSelect('B')} />
+					<Badge label="Categ not visible" display="large" category="Cat" aslink {...onSelect('B')} />
+					<Badge label="Categ not visible" display="small" category="Cat" aslink {...onSelect('B')} />
 				</div>
 				<div style={columnStyle}>
 					<Badge label="Label" display="large" {...onSelect('A')} />
 					<br />
 					<Badge label="Label" display="small" {...onSelect('B')} />
-					<br />
-					<Badge label="Label" display="small" white {...onSelect('B')} />
 					<br />
 					<Badge label="Label" display="large" category="Cat" {...onSelect('B')} {...onDelete('A')} />
 					<br />
@@ -84,8 +80,6 @@ storiesOf('Badge', module).add('default', () => (
 					<Badge label="Label" display="large" edit {...onSelect('A')} {...onDelete('A')} />
 					<br />
 					<Badge label="Label" display="small" edit {...onSelect('B')} {...onDelete('A')} />
-					<br />
-					<Badge label="Label" display="small" white edit {...onSelect('B')} {...onDelete('A')} />
 					<br />
 					<Badge label="Label" display="large" category="Cat" edit {...onSelect('B')} {...onDelete('A')} />
 					<br />
@@ -97,7 +91,6 @@ storiesOf('Badge', module).add('default', () => (
 				<div style={columnStyle}>
 					<Badge label={longStr} display="large" category="Cat" edit {...onSelect('B')} {...onDelete('A')} />
 					<Badge label={longStr} display="small" category="Cat" edit {...onSelect('B')} {...onDelete('A')} />
-					<Badge label={longStr} display="small" category="Cat" white edit {...onSelect('B')} {...onDelete('A')} />
 					<Badge label={longStr} display="large" category="Cat" icon="talend-clock" edit {...onSelect('B')} {...onDelete('A')} />
 					<Badge label={longStr} display="small" category="Cat" icon="talend-clock" edit {...onSelect('B')} {...onDelete('A')} />
 					<Badge label="Label" display="large" category={longStr} icon="talend-clock" edit {...onSelect('B')} {...onDelete('A')} />
