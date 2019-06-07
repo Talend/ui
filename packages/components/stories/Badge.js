@@ -125,22 +125,32 @@ storiesOf('Badge', module).add('default', () => (
 			<div style={defaultStyle} id="default">
 				<div style={columnStyle}>
 					<Badge label="Label" display="large" aslink {...onSelect('A')} disabled />
+					<br />
 					<Badge label="Label" display="small" aslink {...onSelect('B')} disabled />
+					<br />
 					<Badge label="categ not visible" display="large" category="Cat" aslink {...onSelect('B')} disabled />
+					<br />
 					<Badge label="categ not visible" display="small" category="Cat" aslink {...onSelect('B')} disabled />
 
 				</div>
 				<div style={columnStyle}>
 					<Badge label="Label" display="large" {...onSelect('A')} disabled />
+					<br />
 					<Badge label="Label" display="small" {...onSelect('B')} disabled />
+					<br />
 					<Badge label="Label" display="large" category="Cat" {...onSelect('B')} {...onDelete('A')} disabled />
+					<br />
 					<Badge label="Label" display="small" category="Cat" {...onSelect('B')} {...onDelete('A')} disabled />
 				</div>
 				<div style={columnStyle}>
 					<Badge label="Label" display="large" edit {...onSelect('A')} {...onDelete('A')} disabled />
+					<br />
 					<Badge label="Label" display="small" edit {...onSelect('B')} {...onDelete('A')} disabled />
+					<br />
 					<Badge label="Label" display="large" category="Cat" edit {...onSelect('B')} {...onDelete('A')} disabled />
+					<br />
 					<Badge label="Label" display="small" category="Cat" edit {...onSelect('B')} {...onDelete('A')} disabled />
+					<br />
 					<Badge label="Label" display="large" category="Cat" icon="talend-clock" edit {...onSelect('B')} {...onDelete('A')} disabled />
 					<Badge label="Label" display="small" category="Cat" icon="talend-clock" edit {...onSelect('B')} {...onDelete('A')} disabled />
 				</div>
