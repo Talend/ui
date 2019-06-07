@@ -23,7 +23,7 @@ exports[`two-filters 1`] = `
       title={null}
     >
       <use
-        xlinkHref="#talend-search"
+        xlinkHref="core.svg#talend-search"
       />
     </svg>
   </button>

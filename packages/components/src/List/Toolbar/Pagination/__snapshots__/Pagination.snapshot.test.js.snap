@@ -112,7 +112,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
         title={null}
       >
         <use
-          xlinkHref="#talend-chevron-end"
+          xlinkHref="core.svg#talend-chevron-end"
         />
       </svg>
     </a>
@@ -142,7 +142,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
         title={null}
       >
         <use
-          xlinkHref="#talend-chevron-left"
+          xlinkHref="core.svg#talend-chevron-left"
         />
       </svg>
     </a>
@@ -174,7 +174,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
         title={null}
       >
         <use
-          xlinkHref="#talend-chevron-left"
+          xlinkHref="core.svg#talend-chevron-left"
         />
       </svg>
     </a>
@@ -198,7 +198,7 @@ exports[`Pagination should disable first and previous buttons for first page 1`]
         title={null}
       >
         <use
-          xlinkHref="#talend-chevron-end"
+          xlinkHref="core.svg#talend-chevron-end"
         />
       </svg>
     </a>
@@ -312,7 +312,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
         title={null}
       >
         <use
-          xlinkHref="#talend-chevron-end"
+          xlinkHref="core.svg#talend-chevron-end"
         />
       </svg>
     </a>
@@ -336,7 +336,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
         title={null}
       >
         <use
-          xlinkHref="#talend-chevron-left"
+          xlinkHref="core.svg#talend-chevron-left"
         />
       </svg>
     </a>
@@ -374,7 +374,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
         title={null}
       >
         <use
-          xlinkHref="#talend-chevron-left"
+          xlinkHref="core.svg#talend-chevron-left"
         />
       </svg>
     </a>
@@ -404,7 +404,7 @@ exports[`Pagination should disable next and last buttons for last page 1`] = `
         title={null}
       >
         <use
-          xlinkHref="#talend-chevron-end"
+          xlinkHref="core.svg#talend-chevron-end"
         />
       </svg>
     </a>
@@ -788,7 +788,7 @@ exports[`Pagination should render 1`] = `
         title={null}
       >
         <use
-          xlinkHref="#talend-chevron-end"
+          xlinkHref="core.svg#talend-chevron-end"
         />
       </svg>
     </a>
@@ -812,7 +812,7 @@ exports[`Pagination should render 1`] = `
         title={null}
       >
         <use
-          xlinkHref="#talend-chevron-left"
+          xlinkHref="core.svg#talend-chevron-left"
         />
       </svg>
     </a>
@@ -844,7 +844,7 @@ exports[`Pagination should render 1`] = `
         title={null}
       >
         <use
-          xlinkHref="#talend-chevron-left"
+          xlinkHref="core.svg#talend-chevron-left"
         />
       </svg>
     </a>
@@ -868,7 +868,7 @@ exports[`Pagination should render 1`] = `
         title={null}
       >
         <use
-          xlinkHref="#talend-chevron-end"
+          xlinkHref="core.svg#talend-chevron-end"
         />
       </svg>
     </a>
@@ -983,7 +983,7 @@ exports[`Pagination should render id if provided 1`] = `
         title={null}
       >
         <use
-          xlinkHref="#talend-chevron-end"
+          xlinkHref="core.svg#talend-chevron-end"
         />
       </svg>
     </a>
@@ -1008,7 +1008,7 @@ exports[`Pagination should render id if provided 1`] = `
         title={null}
       >
         <use
-          xlinkHref="#talend-chevron-left"
+          xlinkHref="core.svg#talend-chevron-left"
         />
       </svg>
     </a>
@@ -1041,7 +1041,7 @@ exports[`Pagination should render id if provided 1`] = `
         title={null}
       >
         <use
-          xlinkHref="#talend-chevron-left"
+          xlinkHref="core.svg#talend-chevron-left"
         />
       </svg>
     </a>
@@ -1066,7 +1066,7 @@ exports[`Pagination should render id if provided 1`] = `
         title={null}
       >
         <use
-          xlinkHref="#talend-chevron-end"
+          xlinkHref="core.svg#talend-chevron-end"
         />
       </svg>
     </a>

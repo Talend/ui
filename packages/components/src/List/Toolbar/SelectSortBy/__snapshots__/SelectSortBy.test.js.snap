@@ -80,7 +80,7 @@ exports[`SelectSortBy should render 1`] = `
         title={null}
       >
         <use
-          xlinkHref="#talend-sort-asc"
+          xlinkHref="core.svg#talend-sort-asc"
         />
       </svg>
       <svg
@@ -91,7 +91,7 @@ exports[`SelectSortBy should render 1`] = `
         title={null}
       >
         <use
-          xlinkHref="#talend-caret-down"
+          xlinkHref="core.svg#talend-caret-down"
         />
       </svg>
     </button>
@@ -182,7 +182,7 @@ exports[`SelectSortBy should render id if provided 1`] = `
         title={null}
       >
         <use
-          xlinkHref="#talend-sort-asc"
+          xlinkHref="core.svg#talend-sort-asc"
         />
       </svg>
       <svg
@@ -193,7 +193,7 @@ exports[`SelectSortBy should render id if provided 1`] = `
         title={null}
       >
         <use
-          xlinkHref="#talend-caret-down"
+          xlinkHref="core.svg#talend-caret-down"
         />
       </svg>
     </button>
@@ -230,7 +230,7 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
         title={null}
       >
         <use
-          xlinkHref="#talend-sort-asc"
+          xlinkHref="core.svg#talend-sort-asc"
         />
       </svg>
       <svg
@@ -241,7 +241,7 @@ exports[`SelectSortBy should render with no dropdown 1`] = `
         title={null}
       >
         <use
-          xlinkHref="#talend-caret-down"
+          xlinkHref="core.svg#talend-caret-down"
         />
       </svg>
     </button>

@@ -36,7 +36,7 @@ exports[`Skip links should render navigation link 1`] = `
                   title={null}
                 >
                   <use
-                    xlinkHref="#talend-arrow-left"
+                    xlinkHref="core.svg#talend-arrow-left"
                   />
                 </svg>
               </Icon>
@@ -74,7 +74,7 @@ exports[`Skip links should render navigation link 1`] = `
                   title={null}
                 >
                   <use
-                    xlinkHref="#talend-arrow-left"
+                    xlinkHref="core.svg#talend-arrow-left"
                   />
                 </svg>
               </Icon>
@@ -127,7 +127,7 @@ exports[`Skip links should render only main link 1`] = `
                   title={null}
                 >
                   <use
-                    xlinkHref="#talend-arrow-left"
+                    xlinkHref="core.svg#talend-arrow-left"
                   />
                 </svg>
               </Icon>

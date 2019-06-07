@@ -72,7 +72,7 @@ exports[`List DisplayMode should render 1`] = `
                   title={null}
                 >
                   <use
-                    xlinkHref="#talend-table"
+                    xlinkHref="core.svg#talend-table"
                   />
                 </svg>
               </Icon>
@@ -139,7 +139,7 @@ exports[`List DisplayMode should render 1`] = `
                   title={null}
                 >
                   <use
-                    xlinkHref="#talend-expanded"
+                    xlinkHref="core.svg#talend-expanded"
                   />
                 </svg>
               </Icon>

@@ -49,7 +49,7 @@ exports[`HttpError should render a notFound http error page with action 1`] = `
         title={null}
       >
         <use
-          xlinkHref="#talend-arrow-left"
+          xlinkHref="core.svg#talend-arrow-left"
         />
       </svg>
       <span>

@@ -31,7 +31,7 @@ exports[`Header should render filter header 1`] = `
       title={null}
     >
       <use
-        xlinkHref="#talend-cross"
+        xlinkHref="core.svg#talend-cross"
       />
     </svg>
   </button>
