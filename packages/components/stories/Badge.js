@@ -36,7 +36,7 @@ const longStr = 'Very, very, very, very, very, very, very, very long tag';
 storiesOf('Badge', module)
 	.add('default', () => (
 		<section>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<div style={defaultStyle} id="default">
 				<div style={columnStyle}>
 					<Badge label="Group A" {...onSelect('A')} />

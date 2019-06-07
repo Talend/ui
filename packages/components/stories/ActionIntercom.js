@@ -12,7 +12,7 @@ const config = { app_id: 'fyq3wodw' };
 
 storiesOf('ActionIntercom', module).add('default', () => (
 	<React.Fragment>
-		<IconsProvider />
+		<IconsProvider defaultIcons={icons} />
 		<ActionIntercom id="intercom" config={config} />
 	</React.Fragment>
 ));

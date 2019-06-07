@@ -115,7 +115,7 @@ const descriptiveDetail = {
 storiesOf('CollapsiblePanel', module)
 	.add('Default', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<h1>Collapsible Panel</h1>
 			<CollapsiblePanel
 				id="panel-default-1"
@@ -140,7 +140,7 @@ storiesOf('CollapsiblePanel', module)
 	))
 	.add('Header', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<h1>Collapsible Panel Headers</h1>
 			<CollapsiblePanel id="panel-header-1" header={[{ label: 'Simple header' }]} />
 			<CollapsiblePanel
@@ -175,7 +175,7 @@ storiesOf('CollapsiblePanel', module)
 	))
 	.add('Body', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<h1>Collapsible Panel</h1>
 			<CollapsiblePanel
 				id="panel-content-1"
@@ -196,7 +196,7 @@ storiesOf('CollapsiblePanel', module)
 	))
 	.add('Theme: descriptive-panel', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<h1>Theme : descriptive-panel</h1>
 			<CollapsiblePanel
 				id="panel-textual-1"
@@ -231,7 +231,7 @@ storiesOf('CollapsiblePanel', module)
 	))
 	.add('Selection', () => (
 		<div className="col-lg-offset-1 col-lg-10">
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<h1>Selection</h1>
 			<CollapsiblePanel
 				id="panel-selection-1"

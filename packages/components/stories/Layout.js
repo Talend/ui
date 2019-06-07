@@ -166,7 +166,7 @@ const tabs = {
 
 const stories = storiesOf('Layout', module).addDecorator(story => (
 	<div>
-		<IconsProvider />
+		<IconsProvider defaultIcons={icons} />
 		{story()}
 	</div>
 ));

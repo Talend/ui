@@ -462,13 +462,13 @@ const stories = storiesOf('ObjectViewer', module);
 stories
 	.add('tree default', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={data} {...handlerHighlight} />
 		</div>
 	))
 	.add('array tree with datetime', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
 				id={'my-viewer'}
 				data={dateTimeData}
@@ -479,13 +479,13 @@ stories
 	))
 	.add('primitive array tree', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={primitiveArray} {...rootOpenedTypeHandler} />
 		</div>
 	))
 	.add('tree with hightlighting', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
 				id={'my-viewer'}
 				data={data}
@@ -496,7 +496,7 @@ stories
 	))
 	.add('tree with hightlighting and type', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
 				id={'my-viewer'}
 				data={data}
@@ -508,7 +508,7 @@ stories
 	))
 	.add('tree with labels', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
 				id={'my-viewer'}
 				data={data}
@@ -521,13 +521,13 @@ stories
 	))
 	.add('tree without rootLabel', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={data} tupleLabel="Record" />
 		</div>
 	))
 	.add('tree with very large root label', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer
 				id={'my-viewer'}
 				data={data}
@@ -540,38 +540,38 @@ stories
 	.add('tree with injected elements', () => {
 		return (
 			<div>
-				<IconsProvider />
+				<IconsProvider defaultIcons={icons} />
 				<ObjectViewer id={'my-viewer'} data={data} {...handlerTags} />
 			</div>
 		);
 	})
 	.add('tree with handler', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={data} {...handler} />
 		</div>
 	))
 	.add('list default', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={data} displayMode="list" />
 		</div>
 	))
 	.add('list with handler', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={data} displayMode="list" {...handler} />
 		</div>
 	))
 	.add('table default', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={data} displayMode="table" />
 		</div>
 	))
 	.add('table with handler', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={data} {...handler} displayMode="table" />
 		</div>
 	))
@@ -582,32 +582,32 @@ stories
 		enhancedData[0].category = repeat(clubCategory, 10);
 		return (
 			<div>
-				<IconsProvider />
+				<IconsProvider defaultIcons={icons} />
 				<ObjectViewer id={'my-viewer'} data={enhancedData} {...handler} displayMode="table" />
 			</div>
 		);
 	})
 	.add('flat default', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={data} displayMode="flat" />
 		</div>
 	))
 	.add('flat default with schema', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={{ dataset: data, schema }} displayMode="flat" />
 		</div>
 	))
 	.add('flat with handler', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={data} {...handler} displayMode="flat" />
 		</div>
 	))
 	.add('flat with complex nested data', () => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			<ObjectViewer id={'my-viewer'} data={moreComplexDataShape} {...handler} displayMode="flat" />
 		</div>
 	));

@@ -17,7 +17,7 @@ storiesOf('Breadcrumbs', module)
 		];
 		return (
 			<div>
-				<IconsProvider />
+				<IconsProvider defaultIcons={icons} />
 				<Breadcrumbs items={items} />
 			</div>
 		);
@@ -32,7 +32,7 @@ storiesOf('Breadcrumbs', module)
 		];
 		return (
 			<div>
-				<IconsProvider />
+				<IconsProvider defaultIcons={icons} />
 				<Breadcrumbs items={items} maxItems={2} />
 			</div>
 		);

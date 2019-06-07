@@ -173,7 +173,7 @@ function GridContainer({ isLoading = false, skeletonConfiguration }) {
 storiesOf('GridLayout', module)
 	.addDecorator(story => (
 		<div>
-			<IconsProvider />
+			<IconsProvider defaultIcons={icons} />
 			{story()}
 		</div>
 	))
