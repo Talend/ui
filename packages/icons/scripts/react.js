@@ -87,13 +87,6 @@ function createGetIconHref() {
 createGetIconHref();
 toSVG();
 transform(src, 'react.js');
-// toSVG(brands, 'svg-bundle/brands.svg');
-// toSVG(components, 'svg-bundle/components.svg');
-// toSVG(core, 'svg-bundle/core.svg');
-// toSVG(files, 'svg-bundle/files.svg');
-// toSVG(flows, 'svg-bundle/flows.svg');
-// toSVG(processors, 'svg-bundle/processors.svg');
-// toSVG(products, 'svg-bundle/products.svg');
 
 const styleSrc = path.join(__dirname, '../src/talendicons.css');
 const styleDist = path.join(__dirname, '../dist/talendicons.css');
