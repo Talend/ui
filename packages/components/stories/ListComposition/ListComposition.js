@@ -343,6 +343,7 @@ storiesOf('List Composition', module)
 						rowCount={simpleCollection.length}
 					/>
 				</List.Manager>
+			</section>
 
 			<h2>Collapsible panel mode</h2>
 			<section style={{ height: '30vh' }}>
