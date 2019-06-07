@@ -25,6 +25,7 @@ function Badge({
 	aslink,
 	edit,
 	icon,
+	white,
 }) {
 	const displayClass = display === 'small' ? 'tc-badge-display-small' : 'tc-badge-display-large';
 
@@ -40,6 +41,12 @@ function Badge({
 		className,
 	);
 	const badgeClasses = classNames('tc-badge-button', theme['tc-badge-button']);
+	const badgeWhiteClasses = classNames(
+		'tc-badge-button',
+		'tc-badge-white',
+		theme['tc-badge-button'],
+		theme['tc-badge-white'],
+	);
 	const categoryClasses = classNames('tc-badge-category', theme['tc-badge-category']);
 	const separatorClasses = classNames('tc-badge-separator', theme['tc-badge-separator']);
 	const separatorIconClasses = classNames(
@@ -94,7 +101,7 @@ function Badge({
 	];
 	const badgeProps = {
 		id: id && `tc-badge-select-${id}`,
-		className: badgeClasses,
+		className: white ? badgeWhiteClasses : badgeClasses,
 		children,
 	};
 
@@ -123,6 +130,7 @@ Badge.propTypes = {
 	display: PropTypes.string,
 	aslink: PropTypes.bool,
 	edit: PropTypes.bool,
+	white: PropTypes.bool,
 	icon: PropTypes.string,
 };
 

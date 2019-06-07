@@ -29,6 +29,10 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 		border-radius: 25px;
 		max-width: 100%;
 
+		&.tc-badge-white {
+			background-color: $white;
+		}
+
 		.tc-badge-category {
 			flex-grow: 0;
 			flex-shrink: 0;

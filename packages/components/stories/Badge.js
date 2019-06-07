@@ -9,10 +9,8 @@ const defaultStyle = {
 	display: 'flex',
 };
 
-const columnStyleInfo = {
-	flexGrow: '1',
-	maxWidth: '70px',
-	padding: '0 10px',
+const greyBackgroundStyle = {
+	'background-color': `rgba(246, 246, 246, 0.5)`,
 };
 
 const columnStyle = {
@@ -66,6 +64,8 @@ storiesOf('Badge', module).add('default', () => (
 					<br />
 					<Badge label="Label" display="small" aslink {...onSelect('B')} />
 					<br />
+					<Badge label="Label" display="small" white aslink {...onSelect('B')} />
+					<br />
 					<Badge label="categ not visible" display="large" category="Cat" aslink {...onSelect('B')} />
 					<Badge label="categ not visible" display="small" category="Cat" aslink {...onSelect('B')} />
 				</div>
@@ -73,6 +73,8 @@ storiesOf('Badge', module).add('default', () => (
 					<Badge label="Label" display="large" {...onSelect('A')} />
 					<br />
 					<Badge label="Label" display="small" {...onSelect('B')} />
+					<br />
+					<Badge label="Label" display="small" white {...onSelect('B')} />
 					<br />
 					<Badge label="Label" display="large" category="Cat" {...onSelect('B')} {...onDelete('A')} />
 					<br />
@@ -82,6 +84,8 @@ storiesOf('Badge', module).add('default', () => (
 					<Badge label="Label" display="large" edit {...onSelect('A')} {...onDelete('A')} />
 					<br />
 					<Badge label="Label" display="small" edit {...onSelect('B')} {...onDelete('A')} />
+					<br />
+					<Badge label="Label" display="small" white edit {...onSelect('B')} {...onDelete('A')} />
 					<br />
 					<Badge label="Label" display="large" category="Cat" edit {...onSelect('B')} {...onDelete('A')} />
 					<br />
@@ -93,6 +97,7 @@ storiesOf('Badge', module).add('default', () => (
 				<div style={columnStyle}>
 					<Badge label={longStr} display="large" category="Cat" edit {...onSelect('B')} {...onDelete('A')} />
 					<Badge label={longStr} display="small" category="Cat" edit {...onSelect('B')} {...onDelete('A')} />
+					<Badge label={longStr} display="small" category="Cat" white edit {...onSelect('B')} {...onDelete('A')} />
 					<Badge label={longStr} display="large" category="Cat" icon="talend-clock" edit {...onSelect('B')} {...onDelete('A')} />
 					<Badge label={longStr} display="small" category="Cat" icon="talend-clock" edit {...onSelect('B')} {...onDelete('A')} />
 					<Badge label="Label" display="large" category={longStr} icon="talend-clock" edit {...onSelect('B')} {...onDelete('A')} />
@@ -163,6 +168,65 @@ storiesOf('Badge', module).add('default', () => (
 					<Badge label="Label" display="small" category={longStr} icon="talend-clock" edit {...onSelect('B')} {...onDelete('A')} disabled />
 					<Badge label={longStr} display="large" category={longStr} icon="talend-clock" edit {...onSelect('B')} {...onDelete('A')} disabled />
 					<Badge label={longStr} display="small" category={longStr} icon="talend-clock" edit {...onSelect('B')} {...onDelete('A')} disabled />
+				</div>
+			</div>
+			<hr />
+		</section>
+
+		<section style={greyBackgroundStyle}>
+			<h1>New visual - white background</h1>
+			<IconsProvider defaultIcons={icons} />
+			<div style={defaultStyle} id="header">
+				<div style={columnStyle}>
+					<span>/</span>
+				</div>
+				<div style={columnStyle}>
+					<span>Tags as links</span>
+				</div>
+				<div style={columnStyle}>
+					<span>Read-only</span>
+				</div>
+				<div style={columnStyle}>
+					<span>Edit mode</span>
+				</div>
+				<div style={columnStyle}>
+					<span>Edit mode with ellipsis</span>
+				</div>
+			</div>
+			<hr />
+			<div style={defaultStyle} id="default">
+				<div style={columnStyle}>
+					enabled
+				</div>
+				<div style={columnStyle}>
+					<Badge label="Label" display="small" white aslink {...onSelect('B')} />
+				</div>
+				<div style={columnStyle}>
+					<Badge label="Label" display="small" white {...onSelect('B')} />
+				</div>
+				<div style={columnStyle}>
+					<Badge label="Label" display="small" white edit {...onSelect('B')} {...onDelete('A')} />
+				</div>
+				<div style={columnStyle}>
+					<Badge label={longStr} display="small" category="Cat" white edit {...onSelect('B')} {...onDelete('A')} />
+				</div>
+			</div>
+			<hr />
+			<div style={defaultStyle} id="default">
+				<div style={columnStyle}>
+					disabled
+				</div>
+				<div style={columnStyle}>
+					<Badge label="Label" display="small" white aslink {...onSelect('B')} disabled />
+				</div>
+				<div style={columnStyle}>
+					<Badge label="Label" display="small" white {...onSelect('B')} disabled />
+				</div>
+				<div style={columnStyle}>
+					<Badge label="Label" display="small" white edit {...onSelect('B')} {...onDelete('A')} disabled />
+				</div>
+				<div style={columnStyle}>
+					<Badge label={longStr} display="small" category="Cat" white edit {...onSelect('B')} {...onDelete('A')} disabled />
 				</div>
 			</div>
 			<hr />
