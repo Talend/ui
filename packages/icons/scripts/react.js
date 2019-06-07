@@ -72,16 +72,19 @@ function toSVG() {
 	bundles.forEach(save);
 }
 
-function transformInfo() {
+function createGetIconHref() {
 	const options = Object.assign({}, defaultOptions, { filename: 'info.js' });
 	const buff = Object.keys(info).map(key => `  "talend-${key}": "${info[key].parent || ''}",`);
-	buff.unshift('export default {');
+	buff.unshift('export const info = {');
 	buff.push('};');
+	buff.push('export function getIconHref(name) {');
+	buff.push('  return info[name] ? `${info[name]}.svg#${name}` : `#${name}`;');
+	buff.push('}');
 	const code = babel.transformSync(buff.join('\n'), options);
 	fs.writeFileSync(path.join(dist, 'info.js'), code.code);
 }
 
-transformInfo();
+createGetIconHref();
 toSVG();
 transform(src, 'react.js');
 // toSVG(brands, 'svg-bundle/brands.svg');

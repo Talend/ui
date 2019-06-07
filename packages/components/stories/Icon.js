@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import icons from '@talend/icons/dist/react';
-import info from '@talend/icons/dist/info';
+import { info } from '@talend/icons/dist/info';
 
 import Icon from '../src/Icon';
 import IconsProvider from '../src/IconsProvider';
