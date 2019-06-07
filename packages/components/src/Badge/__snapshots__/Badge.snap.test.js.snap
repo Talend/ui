@@ -2,24 +2,33 @@
 
 exports[`BadgeSpec should render Badge 1`] = `
 <div
-  className="tc-badge theme-tc-badge tc-badge-readonly theme-tc-badge-readonly"
+  className="tc-badge theme-tc-badge tc-badge-readonly theme-tc-badge-readonly tc-badge-display-large theme-tc-badge-display-large"
 >
   <div
     className="tc-badge-button theme-tc-badge-button"
     id="tc-badge-select-my-badge"
   >
-    <span
+    <div
       className="tc-badge-label theme-tc-badge-label"
     >
-      Label
-    </span>
+      <TooltipTrigger
+        label="Label"
+        tooltipPlacement="top"
+      >
+        <span
+          className="tc-badge-label-text theme-tc-badge-label-text"
+        >
+          Label
+        </span>
+      </TooltipTrigger>
+    </div>
   </div>
 </div>
 `;
 
 exports[`BadgeSpec should render Badge as button 1`] = `
 <div
-  className="tc-badge theme-tc-badge tc-badge-readonly theme-tc-badge-readonly"
+  className="tc-badge theme-tc-badge tc-badge-readonly theme-tc-badge-readonly tc-badge-display-large theme-tc-badge-display-large"
 >
   <button
     className="tc-badge-button theme-tc-badge-button"
@@ -28,77 +37,113 @@ exports[`BadgeSpec should render Badge as button 1`] = `
     onClick={[MockFunction]}
     type="button"
   >
-    <span
+    <div
       className="tc-badge-label theme-tc-badge-label"
     >
-      Label
-    </span>
+      <TooltipTrigger
+        label="Label"
+        tooltipPlacement="top"
+      >
+        <span
+          className="tc-badge-label-text theme-tc-badge-label-text"
+        >
+          Label
+        </span>
+      </TooltipTrigger>
+    </div>
   </button>
 </div>
 `;
 
 exports[`BadgeSpec should render Badge with category and delete icon 1`] = `
 <div
-  className="tc-badge theme-tc-badge"
+  className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large"
 >
   <div
     className="tc-badge-button theme-tc-badge-button"
   >
-    <span
-      className="tc-badge-category theme-tc-badge-category"
+    <TooltipTrigger
+      label="Category"
+      tooltipPlacement="top"
     >
-      Category
-    </span>
+      <span
+        aria-label="Category"
+        className="tc-badge-category theme-tc-badge-category"
+      >
+        Category
+      </span>
+    </TooltipTrigger>
     <span
+      className="tc-badge-separator theme-tc-badge-separator"
+    />
+    <div
       className="tc-badge-label theme-tc-badge-label"
     >
-      Label
-    </span>
+      <TooltipTrigger
+        label="Label"
+        tooltipPlacement="top"
+      >
+        <span
+          className="tc-badge-label-text-with-categ theme-tc-badge-label-text-with-categ"
+        >
+          Label
+        </span>
+      </TooltipTrigger>
+    </div>
+    <Action
+      className="tc-badge-delete-icon theme-tc-badge-delete-icon"
+      disabled={false}
+      hideLabel={true}
+      icon="talend-cross"
+      label="delete"
+      link={true}
+      onClick={[Function]}
+      role="button"
+    />
   </div>
-  <Action
-    className="tc-badge-delete-icon theme-tc-badge-delete-icon"
-    disabled={false}
-    hideLabel={true}
-    icon="talend-cross"
-    label="delete"
-    link={true}
-    onClick={[Function]}
-    role="button"
-  />
 </div>
 `;
 
 exports[`BadgeSpec should render Badge with delete icon 1`] = `
 <div
-  className="tc-badge theme-tc-badge"
+  className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large"
 >
   <div
     className="tc-badge-button theme-tc-badge-button"
     id="tc-badge-select-my-badge"
   >
-    <span
+    <div
       className="tc-badge-label theme-tc-badge-label"
     >
-      Label
-    </span>
+      <TooltipTrigger
+        label="Label"
+        tooltipPlacement="top"
+      >
+        <span
+          className="tc-badge-label-text theme-tc-badge-label-text"
+        >
+          Label
+        </span>
+      </TooltipTrigger>
+    </div>
+    <Action
+      className="tc-badge-delete-icon theme-tc-badge-delete-icon"
+      disabled={false}
+      hideLabel={true}
+      icon="talend-cross"
+      id="tc-badge-delete-my-badge"
+      label="delete"
+      link={true}
+      onClick={[Function]}
+      role="button"
+    />
   </div>
-  <Action
-    className="tc-badge-delete-icon theme-tc-badge-delete-icon"
-    disabled={false}
-    hideLabel={true}
-    icon="talend-cross"
-    id="tc-badge-delete-my-badge"
-    label="delete"
-    link={true}
-    onClick={[Function]}
-    role="button"
-  />
 </div>
 `;
 
 exports[`BadgeSpec should render Badge with selection handler and select id 1`] = `
 <div
-  className="tc-badge theme-tc-badge tc-badge-readonly theme-tc-badge-readonly"
+  className="tc-badge theme-tc-badge tc-badge-readonly theme-tc-badge-readonly tc-badge-display-large theme-tc-badge-display-large"
 >
   <button
     className="tc-badge-button theme-tc-badge-button"
@@ -107,65 +152,92 @@ exports[`BadgeSpec should render Badge with selection handler and select id 1`] 
     onClick={[Function]}
     type="button"
   >
-    <span
+    <div
       className="tc-badge-label theme-tc-badge-label"
     >
-      Label
-    </span>
+      <TooltipTrigger
+        label="Label"
+        tooltipPlacement="top"
+      >
+        <span
+          className="tc-badge-label-text theme-tc-badge-label-text"
+        >
+          Label
+        </span>
+      </TooltipTrigger>
+    </div>
   </button>
 </div>
 `;
 
 exports[`BadgeSpec should render disabled Badge with delete icon and delete id 1`] = `
 <div
-  className="tc-badge theme-tc-badge tc-badge-disabled theme-tc-badge-disabled"
+  className="tc-badge theme-tc-badge tc-badge-disabled theme-tc-badge-disabled tc-badge-display-large theme-tc-badge-display-large"
 >
   <div
     className="tc-badge-button theme-tc-badge-button"
     id="tc-badge-select-delete"
   >
-    <span
+    <div
       className="tc-badge-label theme-tc-badge-label"
     >
-      Label
-    </span>
+      <TooltipTrigger
+        label="Label"
+        tooltipPlacement="top"
+      >
+        <span
+          className="tc-badge-label-text theme-tc-badge-label-text"
+        >
+          Label
+        </span>
+      </TooltipTrigger>
+    </div>
+    <Action
+      className="tc-badge-delete-icon theme-tc-badge-delete-icon"
+      disabled={true}
+      hideLabel={true}
+      icon="talend-cross"
+      id="tc-badge-delete-delete"
+      label="delete"
+      link={true}
+      onClick={[Function]}
+      role="button"
+    />
   </div>
-  <Action
-    className="tc-badge-delete-icon theme-tc-badge-delete-icon"
-    disabled={true}
-    hideLabel={true}
-    icon="talend-cross"
-    id="tc-badge-delete-delete"
-    label="delete"
-    link={true}
-    onClick={[Function]}
-    role="button"
-  />
 </div>
 `;
 
 exports[`BadgeSpec should render selected Badge with delete icon 1`] = `
 <div
-  className="tc-badge theme-tc-badge tc-badge-selected theme-tc-badge-selected"
+  className="tc-badge theme-tc-badge tc-badge-selected theme-tc-badge-selected tc-badge-display-large theme-tc-badge-display-large"
 >
   <div
     className="tc-badge-button theme-tc-badge-button"
   >
-    <span
+    <div
       className="tc-badge-label theme-tc-badge-label"
     >
-      Label
-    </span>
+      <TooltipTrigger
+        label="Label"
+        tooltipPlacement="top"
+      >
+        <span
+          className="tc-badge-label-text theme-tc-badge-label-text"
+        >
+          Label
+        </span>
+      </TooltipTrigger>
+    </div>
+    <Action
+      className="tc-badge-delete-icon theme-tc-badge-delete-icon"
+      disabled={false}
+      hideLabel={true}
+      icon="talend-cross"
+      label="delete"
+      link={true}
+      onClick={[Function]}
+      role="button"
+    />
   </div>
-  <Action
-    className="tc-badge-delete-icon theme-tc-badge-delete-icon"
-    disabled={false}
-    hideLabel={true}
-    icon="talend-cross"
-    label="delete"
-    link={true}
-    onClick={[Function]}
-    role="button"
-  />
 </div>
 `;
