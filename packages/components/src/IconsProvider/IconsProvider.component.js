@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import talendIcons, { filters } from '@talend/icons/dist/react';
+import { filters } from '@talend/icons/dist/react';
 import { getIconHref as getIcon } from '@talend/icons/dist/info';
 
 const context = {
@@ -62,7 +62,7 @@ IconsProvider.propTypes = {
 };
 
 IconsProvider.defaultProps = {
-	defaultIcons: talendIcons,
+	defaultIcons: {},
 	icons: {},
 	getIconHREF: () => {},
 };
