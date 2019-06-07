@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tile's body should compute tile body 1`] = `
+<div
+  className="theme-tc-tile-body tc-tile-body"
+>
+  my body
+</div>
+`;

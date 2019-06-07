@@ -97,7 +97,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			rest.isLoadingText,
 			rest.children,
 		),
-		renderItemData: { value: rest.value },
+		renderItemData: { value: rest.value, 'data-feature': rest['data-feature'] },
 	};
 
 	const compatibilityProps = {
@@ -115,7 +115,6 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		items: rest.items || [],
 		itemProps: ({ itemIndex }) => ({
 			onMouseDown: rest.onSelect,
-			'data-feature': rest['data-feature'],
 			'aria-disabled': rest.items[itemIndex] && rest.items[itemIndex].disabled,
 		}),
 	};
