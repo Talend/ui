@@ -24,8 +24,8 @@ function extractFiles(folder) {
 		// compat : treat it has it is
 		if (fs.lstatSync(p).isDirectory()) {
 			// do nothing handles by bundles
-			return acc;
-			// return Object.assign(acc, extractFiles(p));
+			// return acc;
+			return Object.assign(acc, extractFiles(p));
 		}
 		// check if the same file exists in another bundle
 		const iconId = file.split('.svg')[0];

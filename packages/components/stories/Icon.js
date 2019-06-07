@@ -20,19 +20,7 @@ const defaultIcons = {
 storiesOf('Icon', module)
 	.add('default use svg', () => (
 		<div>
-			<h1>Icon</h1>
-			<IconsProvider />
-			<p>We have {Object.keys(icons).length.toString()} svg icons registred:</p>
-			<ul>
-				{Object.keys(icons).map(icon => (
-					<li key={icon}><Icon name={icon} /> : <strong>{icon}</strong></li>
-				))}
-			</ul>
-		</div>
-	))
-	.add('bundles', () => (
-		<div>
-			<h1>You can use bundles</h1>
+			<h1>By default we use bundles</h1>
 			<IconsProvider />
 			<ul>
 				{Object.keys(info).filter(k => info[k]).map(k => (
