@@ -12,9 +12,7 @@ function getDir(folder) {
 function getFiles(folder) {
 	const dir = getDir(folder);
 	// case insensitive sort for windows users
-	return fs
-		.readdirSync(dir)
-		.sort((a, b) => a.localeCompare(b, { sensitivity: 'base' }));
+	return fs.readdirSync(dir).sort((a, b) => a.localeCompare(b, { sensitivity: 'base' }));
 }
 
 function extractFiles(folder) {

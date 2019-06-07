@@ -3,7 +3,6 @@ import { mount } from 'enzyme';
 import IconsProvider from './IconsProvider.component';
 
 describe('IconsProvider', () => {
-
 	it('should render default custom icons defined on icons prop', () => {
 		const customIcons = {
 			custom: <svg />,
