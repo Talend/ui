@@ -6,13 +6,6 @@ const babel = require('@babel/core');
 
 const defaultOptions = require('../../../babel.config')();
 const src = require('../src');
-// const brands = require('../src/brands');
-// const components = require('../src/components');
-// const core = require('../src/core');
-// const files = require('../src/files');
-// const flows = require('../src/flows');
-// const processors = require('../src/processors');
-// const products = require('../src/products');
 const info = require('../src/info').info;
 const extract = require('../src/extract');
 
