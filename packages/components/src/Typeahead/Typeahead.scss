@@ -86,16 +86,22 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 			margin: -2em;
 			color: $tc-typeahead-icon-color;
 			pointer-events: none;
+		}
+	}
 
-			&.icon-caret {
-				position: absolute;
-				margin: 0;
-				right: 0;
+	&-caret {
+		.typeahead-input {
+			padding-right: 1em !important;
+		}
 
-				> svg {
-					height: 0.8rem;
-					width: 0.8rem;
-				}
+		.icon-caret {
+			position: absolute;
+			margin: 0;
+			right: 0;
+
+			> svg {
+				height: 0.8rem;
+				width: 0.8rem;
 			}
 		}
 	}
