@@ -9,7 +9,7 @@ exports[`Typeahead injection should use render props to inject extra components 
   role="combobox"
 >
   <div
-    className=""
+    className="tc-typeahead-typeahead-input-icon"
   >
     <label
       className="control-label sr-only"
@@ -112,7 +112,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
   role="combobox"
 >
   <div
-    className=""
+    className="tc-typeahead-typeahead-input-icon"
   >
     <label
       className="control-label sr-only"
@@ -346,7 +346,7 @@ exports[`Typeahead items should render typeahead with loading entry 1`] = `
   role="combobox"
 >
   <div
-    className=""
+    className="tc-typeahead-typeahead-input-icon"
   >
     <label
       className="control-label sr-only"
@@ -392,7 +392,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
   role="combobox"
 >
   <div
-    className=""
+    className="tc-typeahead-typeahead-input-icon"
   >
     <label
       className="control-label sr-only"
@@ -567,7 +567,7 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
   role="combobox"
 >
   <div
-    className=""
+    className="tc-typeahead-typeahead-input-icon"
   >
     <label
       className="control-label sr-only"
@@ -653,7 +653,7 @@ exports[`Typeahead items should render typeahead without items 1`] = `
   role="combobox"
 >
   <div
-    className=""
+    className="tc-typeahead-typeahead-input-icon"
   >
     <label
       className="control-label sr-only"
@@ -699,7 +699,7 @@ exports[`Typeahead position should render search bar on the right 1`] = `
   role="combobox"
 >
   <div
-    className=""
+    className="tc-typeahead-typeahead-input-icon"
   >
     <label
       className="control-label sr-only"
@@ -740,7 +740,7 @@ exports[`Typeahead should pass input extra props 1`] = `
   role="combobox"
 >
   <div
-    className=""
+    className="tc-typeahead-typeahead-input-icon"
   >
     <label
       className="control-label sr-only"
