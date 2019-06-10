@@ -13,8 +13,9 @@ export function renderInputComponent(props) {
 	const { caret, key, debounceMinLength, debounceTimeout, icon, inputRef, ...rest } = props;
 
 	const hasIcon = icon || caret;
+	const typeaheadContainerIconClasses = classNames(theme['typeahead-input-icon'], 'tc-typeahead-typeahead-input-icon');
 	return (
-		<div className={classNames(theme['typeahead-input-icon'], 'tc-typeahead-typeahead-input-icon')}>
+		<div className={hasIcon ? typeaheadContainerIconClasses : false}>
 			<ControlLabel srOnly htmlFor={key}>
 				Search
 			</ControlLabel>

@@ -78,6 +78,10 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		display: flex;
 		align-items: center;
 
+		.typeahead-input {
+			padding-right: 2.5em;
+		}
+
 		.icon-cls {
 			margin: -2em;
 			color: $tc-typeahead-icon-color;
