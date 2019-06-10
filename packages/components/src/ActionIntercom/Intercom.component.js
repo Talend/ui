@@ -64,7 +64,7 @@ Intercom.propTypes = {
 	config: PropTypes.shape({
 		app_id: PropTypes.string.isRequired,
 		name: PropTypes.string,
-		email: PropTypes.string,
+		email: PropTypes.string.isRequired,
 		company: PropTypes.shape({
 			id: PropTypes.string.isRequired,
 			name: PropTypes.string,
