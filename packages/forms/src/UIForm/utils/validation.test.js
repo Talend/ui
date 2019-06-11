@@ -206,7 +206,7 @@ describe('Validation utils', () => {
 			// given
 			const url = {
 				type: 'string',
-			}
+			};
 			const schema = {
 				key: ['user'],
 				items: [
