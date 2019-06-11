@@ -48,20 +48,18 @@ function IconsProvider({ defaultIcons, icons, getIconHref }) {
 		context.get = getIconHREF;
 	}
 	return (
-		<React.Fragment>
-			<svg xmlns="http://www.w3.org/2000/svg" focusable="false" className="sr-only">
-				{ids.map((id, index) => (
-					<symbol key={index} id={id}>
-						{iconset[id]}
-					</symbol>
-				))}
-				{Object.keys(filters).map((id, index) => (
-					<svg key={`svg-filter-${index}`} id={id}>
-						{filters[id]}
-					</svg>
-				))}
-			</svg>
-		</React.Fragment>
+		<svg xmlns="http://www.w3.org/2000/svg" focusable="false" className="sr-only">
+			{ids.map((id, index) => (
+				<symbol key={index} id={id}>
+					{iconset[id]}
+				</symbol>
+			))}
+			{Object.keys(filters).map((id, index) => (
+				<svg key={`svg-filter-${index}`} id={id}>
+					{filters[id]}
+				</svg>
+			))}
+		</svg>
 	);
 }
 
