@@ -23,8 +23,8 @@ $brand-primary-dark: shade($brand-primary, 12) !default;
 $brand-primary-darker: shade($brand-primary, 25) !default;
 $brand-secondary: $rio-grande !default;
 $brand-success: $rio-grande !default;
-$brand-info: $lochmara !default;
-$brand-warning: $jaffa !default;
+$brand-info: $st-tropaz !default;
+$brand-warning: $lightning-yellow !default;
 $brand-danger: $chestnut-rose !default;
 
 //== Scaffolding
@@ -573,9 +573,9 @@ $label-primary-bg: $brand-primary !default;
 //** Success label background color
 $label-success-bg: $brand-success !default;
 //** Info label background color
-$label-info-bg: $brand-info !default;
+$label-info-bg: $lochmara !default;
 //** Warning label background color
-$label-warning-bg: $brand-warning !default;
+$label-warning-bg: $jaffa !default;
 //** Danger label background color
 $label-danger-bg: $brand-danger !default;
 
