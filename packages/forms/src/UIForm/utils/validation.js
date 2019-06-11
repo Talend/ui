@@ -161,9 +161,13 @@ export function validateAll(mergedSchema, properties, customValidationFn) {
 	const results = {};
 	mergedSchema.forEach(schema => {
 		const value = getValue(properties, schema);
+		let deepValidation = true;
+		if (value === undefined) {
+			deepValidation = false;
+		}
 		const subResults = !shouldValidate(schema.condition, properties)
 			? true
-			: validateSingle(schema, value, properties, customValidationFn, true); // deep validation
+			: validateSingle(schema, value, properties, customValidationFn, deepValidation);
 		Object.assign(results, subResults);
 	});
 	return results;
