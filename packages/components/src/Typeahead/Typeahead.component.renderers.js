@@ -15,6 +15,7 @@ export function renderInputComponent(props) {
 	const hasIcon = icon || caret;
 	const typeaheadContainerIconClasses = classNames(
 		'tc-typeahead-typeahead-input-icon',
+		theme['typeahead-input-container'],
 		hasIcon && theme['typeahead-input-icon'],
 		caret && theme['typeahead-input-caret'],
 	);

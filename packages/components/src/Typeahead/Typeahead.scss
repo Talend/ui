@@ -27,7 +27,7 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 	width: auto;
 
 	&.loading {
-		.typeahead-input-icon,
+		.typeahead-input-container,
 		.items-container {
 			> * {
 				color: inherit;
