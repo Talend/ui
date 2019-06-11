@@ -12,7 +12,6 @@ if (!process.env.ICON_BUNDLE) {
 
 const context = {
 	ids: [],
-	get: () => {},
 };
 
 export function getIconHREF(name) {
@@ -40,13 +39,11 @@ export function getIconHREF(name) {
  * @example
 <IconsProvider />
  */
-function IconsProvider({ defaultIcons, icons, getIconHref }) {
+function IconsProvider({ defaultIcons = talendIcons, icons = {}, getIconHref = () => {} }) {
 	const iconset = Object.assign({}, defaultIcons, icons);
 	const ids = Object.keys(iconset);
 	context.ids = ids;
-	if (getIconHref && context.get !== getIconHREF) {
-		context.get = getIconHREF;
-	}
+	context.get = getIconHref;
 	return (
 		<svg xmlns="http://www.w3.org/2000/svg" focusable="false" className="sr-only">
 			{ids.map((id, index) => (
@@ -71,9 +68,4 @@ IconsProvider.propTypes = {
 	getIconHref: PropTypes.func, // eslint-disable-line react/forbid-prop-types
 };
 
-IconsProvider.defaultProps = {
-	defaultIcons: talendIcons,
-	icons: {},
-	getIconHREF: () => {},
-};
 export default IconsProvider;
