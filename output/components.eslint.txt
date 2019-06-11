@@ -3,8 +3,8 @@
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
 /home/travis/build/Talend/ui/packages/components/src/GridLayout/Grid.component.js
-  57:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
-  60:2  error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
+  56:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
+  59:2  error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
 
 /home/travis/build/Talend/ui/packages/components/src/HeaderBar/HeaderBar.component.js
   129:37  error  Elements with ARIA roles must use a valid, non-abstract ARIA role  jsx-a11y/aria-role
