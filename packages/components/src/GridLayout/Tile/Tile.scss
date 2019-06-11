@@ -2,6 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
+	min-height: 0;
 
 	.tc-tile-body {
 		flex: 1;
@@ -9,7 +10,7 @@
 		height: 100%;
 		flex-direction: column;
 		padding: $padding-normal;
-		overflow: visible;
+		min-height: 0;
 	}
 
 	.tc-tile-footer {
