@@ -323,10 +323,22 @@ storiesOf('List Composition', module)
 	</List.InfiniteScrollList>
 </List.Manager>
 `}</pre>
-			<section style={{ height: '50vh' }}>
-				<List.Manager id="my-list" collection={simpleCollection.slice(0, 2)}>
+			<h2>Table mode</h2>
+			<section style={{ height: '30vh' }}>
+				<List.Manager id="my-table-list" collection={[simpleCollection[0]]}>
 					<CustomListInfiniteScroll
 						type="TABLE"
+						loadMoreRows={action('onLoadMoreRows')}
+						rowCount={simpleCollection.length}
+					/>
+				</List.Manager>
+			</section>
+
+			<h2>Large mode</h2>
+			<section style={{ height: '30vh' }}>
+				<List.Manager id="my-large-list" collection={[simpleCollection[0]]}>
+					<CustomListInfiniteScroll
+						type="LARGE"
 						loadMoreRows={action('onLoadMoreRows')}
 						rowCount={simpleCollection.length}
 					/>
