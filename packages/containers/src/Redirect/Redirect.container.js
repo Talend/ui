@@ -18,9 +18,7 @@ function Redirect({ path, to, dispatch, componentId }) {
 			routerReplace: to || path,
 		},
 	});
-	return (
-		<AppLoader />
-	);
+	return <AppLoader />;
 }
 
 Redirect.propTypes = {
