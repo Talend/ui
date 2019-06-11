@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { cmfConnect } from '@talend/react-cmf';
-import { CircularProgress } from '@talend/react-components';
+import AppLoader from '@talend/react-components/lib/AppLoader';
 
 export const REDIRECT_ACTION_TYPE = 'REDIRECT';
 
@@ -19,10 +19,7 @@ function Redirect({ path, to, dispatch, componentId }) {
 		},
 	});
 	return (
-		<div>
-			<CircularProgress />
-			Redirect ...
-		</div>
+		<AppLoader />
 	);
 }
 
