@@ -62,3 +62,7 @@ $tc-icon-toggle-icon-size: $svg-sm-size !default;
 		}
 	}
 }
+
+:global(.tc-actionbar-container) .tc-icon-toggle svg {
+	margin: 0 0.3rem 0.3rem;
+}
