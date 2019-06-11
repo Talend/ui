@@ -68,6 +68,7 @@ const actions = {
 		{
 			label: 'Secondary5',
 			icon: 'talend-cog',
+			displayMode: 'iconToggle',
 			onClick: action('You clicked me'),
 		},
 	],
