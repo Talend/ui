@@ -8,15 +8,20 @@ import getDefaultT from '../translate';
 class InlineForm extends React.Component {
 	static propTypes = {
 		text: PropTypes.string.isRequired,
+		placeholder: PropTypes.string,
+		errorMessage: PropTypes.string,
 		feature: PropTypes.string,
 		onSubmit: PropTypes.func.isRequired,
 		onCancel: PropTypes.func,
 		onChange: PropTypes.func,
 		t: PropTypes.func,
+		required: PropTypes.bool,
 	};
 
 	static defaultProps = {
 		t: getDefaultT(),
+		required: true,
+		errorMessage: '',
 	};
 
 	constructor(props) {
@@ -60,18 +65,20 @@ class InlineForm extends React.Component {
 	}
 
 	render() {
-		const notFilled = this.state.value.trim().length === 0;
-		const { feature, t } = this.props;
+		const { feature, t, placeholder, required, errorMessage } = this.props;
+		const notFilled = required && this.state.value.trim().length === 0;
+		const notValid = notFilled || errorMessage;
 		return (
 			<form
 				onSubmit={this.onSubmit}
 				className={classNames(theme['tc-editable-text-form'], 'tc-editable-text-form')}
 			>
-				<div className={classNames('form-group', { 'has-error': notFilled })}>
+				<div className={classNames('form-group', { 'has-error': notValid })}>
 					<input
 						ref={this.selectInput}
 						id="inputTitle"
 						type="text"
+						placeholder={placeholder}
 						className={classNames(
 							theme['tc-editable-text-form-input'],
 							'tc-editable-text-form-input',
@@ -80,6 +87,9 @@ class InlineForm extends React.Component {
 						onChange={this.onChange}
 						value={this.state.value}
 					/>
+					<p className="help-block text-danger">
+						{errorMessage}
+					</p>
 				</div>
 				<div
 					className={classNames(
@@ -114,7 +124,7 @@ class InlineForm extends React.Component {
 							theme['tc-editable-text-form-buttons-submit'],
 							'tc-editable-text-form-buttons-submit',
 						)}
-						disabled={notFilled}
+						disabled={notValid}
 						hideLabel
 						data-feature={feature && `${feature}.submit`}
 					/>
