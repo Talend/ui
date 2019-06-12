@@ -13,8 +13,14 @@ export function renderInputComponent(props) {
 	const { caret, key, debounceMinLength, debounceTimeout, icon, inputRef, ...rest } = props;
 
 	const hasIcon = icon || caret;
+	const typeaheadContainerIconClasses = classNames(
+		'tc-typeahead-typeahead-input-icon',
+		theme['typeahead-input-container'],
+		hasIcon && theme['typeahead-input-icon'],
+		caret && theme['typeahead-input-caret'],
+	);
 	return (
-		<div className={classNames(theme['typeahead-input-icon'], 'tc-typeahead-typeahead-input-icon')}>
+		<div className={typeaheadContainerIconClasses}>
 			<ControlLabel srOnly htmlFor={key}>
 				Search
 			</ControlLabel>
