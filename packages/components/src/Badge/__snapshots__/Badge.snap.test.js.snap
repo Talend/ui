@@ -2,7 +2,7 @@
 
 exports[`BadgeSpec should render Badge 1`] = `
 <div
-  className="tc-badge theme-tc-badge tc-badge-readonly theme-tc-badge-readonly tc-badge-display-large theme-tc-badge-display-large"
+  className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-readonly theme-tc-badge-readonly"
 >
   <div
     className="tc-badge-button theme-tc-badge-button"
@@ -28,7 +28,7 @@ exports[`BadgeSpec should render Badge 1`] = `
 
 exports[`BadgeSpec should render Badge as button 1`] = `
 <div
-  className="tc-badge theme-tc-badge tc-badge-readonly theme-tc-badge-readonly tc-badge-display-large theme-tc-badge-display-large"
+  className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-readonly theme-tc-badge-readonly"
 >
   <button
     className="tc-badge-button theme-tc-badge-button"
@@ -143,7 +143,7 @@ exports[`BadgeSpec should render Badge with delete icon 1`] = `
 
 exports[`BadgeSpec should render Badge with selection handler and select id 1`] = `
 <div
-  className="tc-badge theme-tc-badge tc-badge-readonly theme-tc-badge-readonly tc-badge-display-large theme-tc-badge-display-large"
+  className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-readonly theme-tc-badge-readonly"
 >
   <button
     className="tc-badge-button theme-tc-badge-button"
@@ -172,7 +172,7 @@ exports[`BadgeSpec should render Badge with selection handler and select id 1`] 
 
 exports[`BadgeSpec should render disabled Badge with delete icon and delete id 1`] = `
 <div
-  className="tc-badge theme-tc-badge tc-badge-disabled theme-tc-badge-disabled tc-badge-display-large theme-tc-badge-display-large"
+  className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-disabled theme-tc-badge-disabled"
 >
   <div
     className="tc-badge-button theme-tc-badge-button"
@@ -209,7 +209,7 @@ exports[`BadgeSpec should render disabled Badge with delete icon and delete id 1
 
 exports[`BadgeSpec should render selected Badge with delete icon 1`] = `
 <div
-  className="tc-badge theme-tc-badge tc-badge-selected theme-tc-badge-selected tc-badge-display-large theme-tc-badge-display-large"
+  className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-selected theme-tc-badge-selected"
 >
   <div
     className="tc-badge-button theme-tc-badge-button"
