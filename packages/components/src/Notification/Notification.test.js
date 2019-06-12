@@ -7,6 +7,7 @@ import NotificationsContainer, {
 	CloseButton,
 	Message,
 	MessageAction,
+	Timer,
 } from './Notification.component';
 
 jest.useFakeTimers();
@@ -114,17 +115,25 @@ describe('Notification', () => {
 
 describe('NotificationContainer', () => {
 	describe('Timer Registry Utility', () => {
-		it('register, cancel, isRegistered', () => {
+		it('register, pause, resume, cancel, isRegistered', () => {
 			const notification = {
 				id: 'test-1',
 			};
-			const mockTimer = 1;
+			const mockTimer = {
+				pause: jest.fn(),
+				resume: jest.fn(),
+				cancel: jest.fn(),
+			};
 			const instance = new NotificationsContainer({ notifications: [] });
 			instance.registry.register(notification, mockTimer);
 			expect(instance.timerRegistry[notification.id]).toEqual(mockTimer);
 			expect(instance.registry.isRegistered(notification)).toEqual(true);
+			instance.registry.pause(notification);
+			expect(mockTimer.pause).toHaveBeenCalled();
+			instance.registry.resume(notification);
+			expect(mockTimer.resume).toHaveBeenCalled();
 			instance.registry.cancel(notification);
-			expect(clearTimeout).toHaveBeenCalledWith(mockTimer);
+			expect(mockTimer.cancel).toHaveBeenCalled();
 		});
 	});
 
@@ -154,15 +163,14 @@ describe('NotificationContainer', () => {
 
 		it('onMouseEnter', () => {
 			const instance = new NotificationsContainer({ notifications: [] });
-			instance.registry.cancel = jest.fn();
+			instance.registry.pause = jest.fn();
 			const event = {
 				currentTarget: {
 					setAttribute: jest.fn(),
 				},
 			};
 			instance.onMouseEnter(event, mockNotification);
-			expect(instance.registry.cancel).toHaveBeenCalledWith(mockNotification);
-			expect(event.currentTarget.setAttribute).toHaveBeenCalledWith('pin', 'true');
+			expect(instance.registry.pause).toHaveBeenCalledWith(mockNotification);
 		});
 
 		it('onMouseOut', () => {
@@ -173,9 +181,10 @@ describe('NotificationContainer', () => {
 			};
 			const instance = new NotificationsContainer(props);
 			instance.registry.register = jest.fn();
+			instance.registry.resume = jest.fn();
 			instance.onMouseOut(mockEvent, mockNotification);
 			expect(mockEvent.currentTarget.getAttribute).toHaveBeenCalledWith('pin');
-			expect(props.leaveFn).toHaveBeenCalledWith(mockNotification);
+			expect(instance.registry.resume).toHaveBeenCalledWith(mockNotification);
 		});
 
 		it('onClick', () => {

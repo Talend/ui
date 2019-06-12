@@ -111,6 +111,29 @@ export function Notification({ notification, leaveFn, ...props }) {
 	);
 }
 
+export function Timer(callback, delay) {
+	let timerId;
+	let start;
+	let remaining = delay;
+
+	this.pause = () => {
+		window.clearTimeout(timerId);
+		remaining -= Date.now() - start;
+	};
+
+	this.resume = () => {
+		start = Date.now();
+		window.clearTimeout(timerId);
+		timerId = window.setTimeout(callback, remaining);
+	};
+
+	this.cancel = () => {
+		window.clearTimeout(timerId);
+	};
+
+	this.resume();
+}
+
 class NotificationsContainer extends React.Component {
 	constructor(props) {
 		super(props);
@@ -127,9 +150,19 @@ class NotificationsContainer extends React.Component {
 				self.timerRegistry[notification.id] = timer;
 			},
 			isRegistered: notification => !!self.timerRegistry[notification.id],
+			pause(notification) {
+				if (this.isRegistered(notification)) {
+					self.timerRegistry[notification.id].pause();
+				}
+			},
+			resume(notification) {
+				if (this.isRegistered(notification)) {
+					self.timerRegistry[notification.id].resume();
+				}
+			},
 			cancel(notification) {
 				if (this.isRegistered(notification)) {
-					clearTimeout(self.timerRegistry[notification.id]);
+					self.timerRegistry[notification.id].cancel();
 				}
 			},
 		};
@@ -159,8 +192,7 @@ class NotificationsContainer extends React.Component {
 
 	onMouseEnter(event, notification) {
 		if (notification.error !== 'error' || this.props.autoLeaveError) {
-			this.registry.cancel(notification);
-			event.currentTarget.setAttribute('pin', 'true');
+			this.registry.pause(notification);
 		}
 	}
 
@@ -169,7 +201,7 @@ class NotificationsContainer extends React.Component {
 			(notification.type !== 'error' || this.props.autoLeaveError) &&
 			event.currentTarget.getAttribute('pin') !== 'true'
 		) {
-			this.props.leaveFn(notification);
+			this.registry.resume(notification);
 		}
 	}
 
@@ -180,7 +212,7 @@ class NotificationsContainer extends React.Component {
 			.forEach(notification => {
 				this.registry.register(
 					notification,
-					setTimeout(() => this.props.leaveFn(notification), this.props.autoLeaveTimeout),
+					new Timer(() => this.props.leaveFn(notification), this.props.autoLeaveTimeout),
 				);
 			});
 	}
