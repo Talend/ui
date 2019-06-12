@@ -107,6 +107,8 @@ function Badge({
 	);
 }
 
+Badge.SIZES = SIZES;
+
 Badge.propTypes = {
 	id: PropTypes.string,
 	label: PropTypes.string,
@@ -118,7 +120,7 @@ Badge.propTypes = {
 	t: PropTypes.func.isRequired,
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	className: PropTypes.string,
-	display: PropTypes.oneOf([SIZES.small, SIZES.large]),
+	display: PropTypes.oneOf([Badge.SIZES.small, Badge.SIZES.large]),
 	aslink: PropTypes.bool,
 	edit: PropTypes.bool,
 	white: PropTypes.bool,
