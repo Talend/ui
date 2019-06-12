@@ -51,6 +51,7 @@ function Grid({
 			compactType={compactType}
 			isResizable={isResizable}
 			useCSSTransforms={false}
+			verticalCompact={false}
 		>
 			{isLoading
 				? (skeletonConfiguration || SKELETON_TILE_CONF).map(tile => (
