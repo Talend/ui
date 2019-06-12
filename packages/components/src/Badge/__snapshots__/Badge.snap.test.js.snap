@@ -28,7 +28,7 @@ exports[`BadgeSpec should render Badge 1`] = `
 
 exports[`BadgeSpec should render Badge as button 1`] = `
 <div
-  className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-readonly theme-tc-badge-readonly"
+  className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-edit theme-tc-badge-edit"
 >
   <button
     className="tc-badge-button theme-tc-badge-button"
@@ -143,7 +143,7 @@ exports[`BadgeSpec should render Badge with delete icon 1`] = `
 
 exports[`BadgeSpec should render Badge with selection handler and select id 1`] = `
 <div
-  className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-readonly theme-tc-badge-readonly"
+  className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-edit theme-tc-badge-edit"
 >
   <button
     className="tc-badge-button theme-tc-badge-button"

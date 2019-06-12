@@ -30,7 +30,6 @@ function Badge({
 	className,
 	display = SIZES.large,
 	aslink,
-	edit,
 	icon,
 	white,
 }) {
@@ -42,7 +41,7 @@ function Badge({
 		'tc-badge-disabled': disabled,
 		'tc-badge-readonly': !onDelete,
 		'tc-badge-aslink': aslink,
-		'tc-badge-edit': edit,
+		'tc-badge-edit': onDelete && onSelect,
 	});
 	const badgeClasses = theme('tc-badge-button', {
 		'tc-badge-white': white,
@@ -69,7 +68,7 @@ function Badge({
 			</TooltipTrigger>
 			{icon && <Icon name={icon} className={theme('tc-badge-label-icon')} />}
 		</div>,
-		icon && <span className={[theme('tc-badge-separator', 'tc-badge-separator-icon')]} />,
+		icon && onDelete && <span className={[theme('tc-badge-separator', 'tc-badge-separator-icon')]} />,
 		onDelete && (
 			<Action
 				key="delete"
@@ -117,7 +116,6 @@ Badge.propTypes = {
 	className: PropTypes.string,
 	display: PropTypes.oneOf([Badge.SIZES.small, Badge.SIZES.large]),
 	aslink: PropTypes.bool,
-	edit: PropTypes.bool,
 	white: PropTypes.bool,
 	icon: PropTypes.string,
 };
