@@ -154,7 +154,7 @@ describe('Date widget', () => {
 			});
 		});
 
-		it('should return undefined when undefined value is provided', () => {
+		it('should not throw any error message', () => {
 			// given
 			const onChange = jest.fn();
 			const timestampSchema = {
