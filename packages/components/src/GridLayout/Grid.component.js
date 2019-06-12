@@ -47,8 +47,7 @@ function Grid({
 			cols={columns}
 			measureBeforeMount={false}
 			margin={[MARGIN, MARGIN]}
-			compactType="vertical"
-			verticalCompact
+			compactType="horizontal"
 			isResizable={isResizable}
 			useCSSTransforms={false}
 		>
