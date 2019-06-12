@@ -58,19 +58,21 @@ Intercom.defaultProps = {
 	t: getDefaultT(),
 };
 
-Intercom.propTypes = {
-	id: PropTypes.string.isRequired,
-	className: PropTypes.string,
-	config: PropTypes.shape({
-		app_id: PropTypes.string.isRequired,
-		name: PropTypes.string,
-		email: PropTypes.string,
-		company: PropTypes.shape({
-			id: PropTypes.string.isRequired,
+if (process.env.NODE_ENV !== 'production') {
+	Intercom.propTypes = {
+		id: PropTypes.string.isRequired,
+		className: PropTypes.string,
+		config: PropTypes.shape({
+			app_id: PropTypes.string.isRequired,
 			name: PropTypes.string,
-		}),
-	}).isRequired,
-	t: PropTypes.func,
-};
+			email: PropTypes.string.isRequired,
+			company: PropTypes.shape({
+				id: PropTypes.string.isRequired,
+				name: PropTypes.string,
+			}),
+		}).isRequired,
+		t: PropTypes.func,
+	};
+}
 
 export default translate(I18N_DOMAIN_COMPONENTS)(Intercom);
