@@ -13,6 +13,12 @@
           "type": "string"
         }
       },
+      "readOnlyArray": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
       "comments": {
         "type": "array",
         "maxItems": 2,
@@ -65,6 +71,7 @@
   },
   "uiSchema": [
     { "key": "names" },
+    { "key": "readOnlyArray", "readOnly": true },
     {
       "key": "comments",
       "triggers": ["validation"],
@@ -114,6 +121,7 @@
   ],
   "properties": {
     "names": ["aze", "bslkdjf"],
+    "readOnlyArray": ["aze", "bslkdjf"],
     "comments": [
       {
         "name": "Jimmy",
