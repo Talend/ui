@@ -47,34 +47,29 @@ function Badge({
 	const badgeClasses = theme('tc-badge-button', {
 		'tc-badge-white': white,
 	});
-	const categoryClasses = theme('tc-badge-category');
-	const separatorClasses = theme('tc-badge-separator');
-	const separatorIconClasses = theme('tc-badge-separator', 'tc-badge-separator-icon');
-	const labelClasses = theme('tc-badge-label');
 	const labelTextClasses = theme({
 		'tc-badge-label-text': !(!aslink && category),
 		'tc-badge-label-text-with-categ': !aslink && category,
 	});
-	const labelIconClasses = theme('tc-badge-label-icon');
 
 	const children = [
 		category && (
 			<TooltipTrigger label={category} tooltipPlacement="top">
-				<span key="category" aria-label={category} className={categoryClasses}>
+				<span key="category" aria-label={category} className={theme('tc-badge-category')}>
 					{category}
 				</span>
 			</TooltipTrigger>
 		),
-		category && <span className={separatorClasses} />,
-		<div className={labelClasses}>
+		category && <span className={theme('tc-badge-separator')} />,
+		<div className={theme('tc-badge-label')}>
 			<TooltipTrigger label={label} tooltipPlacement="top">
 				<span key="label" className={labelTextClasses}>
 					{label}
 				</span>
 			</TooltipTrigger>
-			{icon && <Icon name={icon} className={labelIconClasses} />}
+			{icon && <Icon name={icon} className={theme('tc-badge-label-icon')} />}
 		</div>,
-		icon && <span className={[separatorIconClasses]} />,
+		icon && <span className={[theme('tc-badge-separator', 'tc-badge-separator-icon')]} />,
 		onDelete && (
 			<Action
 				key="delete"
