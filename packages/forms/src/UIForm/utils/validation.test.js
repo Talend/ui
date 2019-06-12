@@ -202,6 +202,39 @@ describe('Validation utils', () => {
 			// then
 			expect(errors).toEqual({ [schema.key]: 'Missing required property: firstname' });
 		});
+		it('should validate optional object with required field', () => {
+			// given
+			const url = {
+				type: 'string',
+			};
+			const schema = {
+				key: ['user'],
+				items: [
+					{
+						key: ['user', 'url'],
+						schema: url,
+						type: 'text',
+						required: true,
+					},
+				],
+				schema: {
+					type: 'object',
+					properties: {
+						url,
+					},
+					required: ['url'],
+				},
+				type: 'fieldset',
+			};
+			const value = undefined;
+			const properties = {};
+
+			// when
+			const errors = validateSimple(schema, value, properties, false, true);
+
+			// then
+			expect(errors).toEqual({ user: null });
+		});
 	});
 
 	describe('#validateSingle', () => {
