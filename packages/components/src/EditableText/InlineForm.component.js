@@ -87,9 +87,7 @@ class InlineForm extends React.Component {
 						onChange={this.onChange}
 						value={this.state.value}
 					/>
-					<p className="help-block text-danger">
-						{errorMessage}
-					</p>
+					<p className="help-block text-danger">{errorMessage}</p>
 				</div>
 				<div
 					className={classNames(
