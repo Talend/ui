@@ -68,7 +68,9 @@ function Badge({
 			</TooltipTrigger>
 			{icon && <Icon name={icon} className={theme('tc-badge-label-icon')} />}
 		</div>,
-		icon && onDelete && <span className={[theme('tc-badge-separator', 'tc-badge-separator-icon')]} />,
+		icon && onDelete && (
+			<span className={[theme('tc-badge-separator', 'tc-badge-separator-icon')]} />
+		),
 		onDelete && (
 			<Action
 				key="delete"
