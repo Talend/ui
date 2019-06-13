@@ -37,14 +37,16 @@ function DefaultArrayTemplate(props) {
 			data-content={schema.title}
 		>
 			{schema.title && <legend className="sr-only">{schema.title}</legend>}
-			{!schema.readOnly && (<Action
-				id={`${id || 'tf-array'}-btn`}
-				className={classNames(theme['tf-array-add'], 'tf-array-add')}
-				bsStyle={'info'}
-				onClick={onAdd}
-				disabled={valueIsUpdating || schema.disabled}
-				label={options.btnLabel || t('ARRAY_ADD_ELEMENT', { defaultValue: 'New Element' })}
-			/>)}
+			{!schema.readOnly && (
+				<Action
+					id={`${id || 'tf-array'}-btn`}
+					className={classNames(theme['tf-array-add'], 'tf-array-add')}
+					bsStyle={'info'}
+					onClick={onAdd}
+					disabled={valueIsUpdating || schema.disabled}
+					label={options.btnLabel || t('ARRAY_ADD_ELEMENT', { defaultValue: 'New Element' })}
+				/>
+			)}
 			<Message
 				className={isValid ? undefined : 'has-error'}
 				errorMessage={errorMessage}
