@@ -234,6 +234,6 @@ describe('InlineForm', () => {
 				.find('input')
 				.getElement()
 				.props.placeholder
-		).toBe(placeholder)
+		).toBe(placeholder);
 	});
 });
