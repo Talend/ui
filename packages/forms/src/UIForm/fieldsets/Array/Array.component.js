@@ -127,7 +127,7 @@ export default class ArrayWidget extends React.Component {
 
 	render() {
 		const { schema } = this.props;
-		const canReorder = schema.reorder !== false;
+		const canReorder = !schema.readOnly && schema.reorder !== false;
 		const ArrayTemplate = this.getArrayTemplate();
 
 		return (
