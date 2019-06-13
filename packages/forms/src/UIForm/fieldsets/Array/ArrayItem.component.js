@@ -119,7 +119,7 @@ function ArrayItem(props) {
 				)}
 			</div>
 			{renderItem(index, { actions })}
-			{!isCloseable && !readOnly && !disabled  && (
+			{!isCloseable && !readOnly && !disabled && (
 				<div className={theme.control}>
 					<Action {...deleteAction} />
 				</div>
