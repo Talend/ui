@@ -23,17 +23,14 @@ $tc-badge-disabled-opacity: 0.62;
 .tc-badge {
 	display: inline-flex;
 	max-width: 23.5rem;
+	cursor: pointer;
 
 	&.tc-badge-readonly {
 		.tc-badge-button {
 			cursor: default;
 		}
-		&:not(.tc-badge-disabled) {
-			.tc-badge-button {
-				cursor: pointer;
-			}
-		}
 	}
+	
 	.tc-badge-button {
 		display: inline-flex;
 		background-color: rgba($wild-sand, 0.5);
