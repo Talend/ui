@@ -24,8 +24,6 @@ $tc-badge-disabled-opacity: 0.62;
 
 	&.tc-badge-readonly {
 		.tc-badge-button {
-			padding-left: $padding-smaller;
-			padding-right: $padding-smaller;
 			cursor: default;
 		}
 		&:not(.tc-badge-disabled) {
@@ -125,6 +123,8 @@ $tc-badge-disabled-opacity: 0.62;
 		.tc-badge-button {
 			height: $tc-badge-large-height;
 			margin: $tc-badge-large-margin;
+			padding-left: $padding-small;
+			padding-right: $padding-small;
 
 			.tc-badge-category {
 				font-size: $tc-badge-large-label-font-size;
@@ -171,6 +171,8 @@ $tc-badge-disabled-opacity: 0.62;
 			height: $tc-badge-small-height;
 			margin: $tc-badge-small-margin;
 			padding-top: 0;
+			padding-left: 0.8rem;
+			padding-right: 0.8rem;
 
 			.tc-badge-category {
 				font-size: $tc-badge-small-label-font-size;
