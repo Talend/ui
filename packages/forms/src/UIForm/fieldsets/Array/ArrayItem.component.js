@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Icon from '@talend/react-components/lib/Icon';
 import { Action } from '@talend/react-components/lib/Actions';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
@@ -106,7 +105,7 @@ function ArrayItem(props) {
 			})}
 		>
 			<div className={theme.control}>
-				{!isClosed && onReorder && (
+				{!isClosed && onReorder && !readOnly && (
 					<React.Fragment>
 						<TranslatedReorderButton {...props} index={index} disabled={widgetIsDisabled} />
 						<TranslatedReorderButton
