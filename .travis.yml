@@ -53,7 +53,7 @@ matrix:
         - .travis/after_success_git.sh
 
     - language: java
-      jdk: oraclejdk8
+      jdk: openjdk8
       env:
         - NAME=demo NODE_VERSION=8 CC=clang CXX=clang++
       before_install:
