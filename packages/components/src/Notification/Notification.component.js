@@ -111,55 +111,61 @@ export function Notification({ notification, leaveFn, ...props }) {
 	);
 }
 
-function Timer(callback, delay) {
-	let timerId;
-	let start;
-	let remaining = delay;
+class Timer {
+	constructor(callback, delay) {
+		this.timerId = null;
+		this.start = null;
+		this.callbackFn = callback;
+		this.remaining = delay;
+		this.resume();
+	}
 
-	this.pause = () => {
-		clearTimeout(timerId);
-		remaining -= Date.now() - start;
-	};
+	pause() {
+		clearTimeout(this.timerId);
+		this.remaining -= Date.now() - this.start;
+	}
 
-	this.resume = () => {
-		start = Date.now();
-		clearTimeout(timerId);
-		timerId = setTimeout(callback, remaining);
-	};
+	resume() {
+		this.start = Date.now();
+		clearTimeout(this.timerId);
+		this.timerId = setTimeout(this.callbackFn, this.remaining);
+	}
 
-	this.cancel = () => {
-		clearTimeout(timerId);
-	};
-
-	this.resume();
+	cancel() {
+		clearTimeout(this.timerId);
+	}
 }
 
-function Registry() {
-	const timerRegistry = {};
+class Registry {
+	constructor() {
+		this.timerRegistry = {};
+	}
 
-	this.register = (notification, timer) => {
-		timerRegistry[notification.id] = timer;
-	};
+	isRegistered(notification) {
+		return !!this.timerRegistry[notification.id];
+	}
 
-	this.isRegistered = notification => !!timerRegistry[notification.id];
+	register(notification, timer) {
+		this.timerRegistry[notification.id] = timer;
+	}
 
-	this.pause = notification => {
+	pause(notification) {
 		if (this.isRegistered(notification)) {
-			timerRegistry[notification.id].pause();
+			this.timerRegistry[notification.id].pause();
 		}
-	};
+	}
 
-	this.resume = notification => {
+	resume(notification) {
 		if (this.isRegistered(notification)) {
-			timerRegistry[notification.id].resume();
+			this.timerRegistry[notification.id].resume();
 		}
-	};
+	}
 
-	this.cancel = notification => {
+	cancel(notification) {
 		if (this.isRegistered(notification)) {
-			timerRegistry[notification.id].cancel();
+			this.timerRegistry[notification.id].cancel();
 		}
-	};
+	}
 }
 
 class NotificationsContainer extends React.Component {
