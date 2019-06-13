@@ -84,7 +84,7 @@ exports[`InlineForm should render 1`] = `
       data-feature="my.custom.feature.cancel"
       hideLabel={true}
       icon="talend-cross"
-      label="Cancel"
+      label={[Function]}
       name="action-cancel-title"
       onClick={[Function]}
     />
@@ -95,7 +95,7 @@ exports[`InlineForm should render 1`] = `
       disabled={false}
       hideLabel={true}
       icon="talend-check"
-      label="Submit"
+      label={[Function]}
       name="action-submit-title"
       type="submit"
     />

@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import { Action } from '../index';
 import { EditableTextComponent, PlainTextTitle } from './EditableText.component';
 import InlineForm from './InlineForm.component';
+import getDefaultT from '../translate';
 
 describe('EditableText', () => {
 	let defaultProps;
@@ -100,6 +101,7 @@ describe('InlineForm', () => {
 			onChange: jest.fn(),
 			onCancel: jest.fn(),
 			required: true,
+			t: getDefaultT
 		};
 	});
 	it('should render', () => {
