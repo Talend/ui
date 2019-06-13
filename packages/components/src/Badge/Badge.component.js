@@ -94,7 +94,7 @@ function Badge({
 
 	return (
 		<div className={containerClasses} style={style}>
-			{onSelect || onDelete ? (
+			{onSelect ? (
 				<button {...badgeProps} key="button" type="button" disabled={disabled} onClick={onSelect} />
 			) : (
 				<div {...badgeProps} key="div" />
