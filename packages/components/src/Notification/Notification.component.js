@@ -134,38 +134,44 @@ function Timer(callback, delay) {
 	this.resume();
 }
 
+function Registry() {
+	const timerRegistry = {};
+
+	this.register = (notification, timer) => {
+		timerRegistry[notification.id] = timer;
+	};
+
+	this.isRegistered = notification => !!timerRegistry[notification.id];
+
+	this.pause = notification => {
+		if (this.isRegistered(notification)) {
+			timerRegistry[notification.id].pause();
+		}
+	};
+
+	this.resume = notification => {
+		if (this.isRegistered(notification)) {
+			timerRegistry[notification.id].resume();
+		}
+	};
+
+	this.cancel = notification => {
+		if (this.isRegistered(notification)) {
+			timerRegistry[notification.id].cancel();
+		}
+	};
+}
+
 class NotificationsContainer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {};
+		this.registry = new Registry();
 		this.onMouseEnter = this.onMouseEnter.bind(this);
 		this.onMouseOut = this.onMouseOut.bind(this);
 		this.onClick = this.onClick.bind(this);
 		this.onClose = this.onClose.bind(this);
 		this.register = this.register.bind(this);
-		this.timerRegistry = {};
-		const self = this;
-		this.registry = {
-			register: (notification, timer) => {
-				self.timerRegistry[notification.id] = timer;
-			},
-			isRegistered: notification => !!self.timerRegistry[notification.id],
-			pause(notification) {
-				if (this.isRegistered(notification)) {
-					self.timerRegistry[notification.id].pause();
-				}
-			},
-			resume(notification) {
-				if (this.isRegistered(notification)) {
-					self.timerRegistry[notification.id].resume();
-				}
-			},
-			cancel(notification) {
-				if (this.isRegistered(notification)) {
-					self.timerRegistry[notification.id].cancel();
-				}
-			},
-		};
 		this.register(props);
 	}
 

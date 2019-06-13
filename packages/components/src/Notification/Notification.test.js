@@ -125,7 +125,6 @@ describe('NotificationContainer', () => {
 			};
 			const instance = new NotificationsContainer({ notifications: [] });
 			instance.registry.register(notification, mockTimer);
-			expect(instance.timerRegistry[notification.id]).toEqual(mockTimer);
 			expect(instance.registry.isRegistered(notification)).toEqual(true);
 			instance.registry.pause(notification);
 			expect(mockTimer.pause).toHaveBeenCalled();
@@ -254,10 +253,10 @@ describe('NotificationContainer', () => {
 					leaveFn: mockLeaveFn,
 				};
 				const instance = new NotificationsContainer(props);
+				expect(instance).toBeDefined();
 				expect(mockLeaveFn).not.toHaveBeenCalled();
-				expect(Object.keys(instance.timerRegistry).length).toBe(3);
 				jest.runAllTimers();
-				expect(mockLeaveFn.mock.calls.length).toEqual(3);
+				expect(mockLeaveFn).toHaveBeenCalledTimes(3);
 			},
 		);
 	});
