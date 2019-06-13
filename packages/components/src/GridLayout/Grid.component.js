@@ -86,6 +86,7 @@ Grid.propTypes = {
 			}).isRequired,
 		}),
 	),
+	verticalCompact: PropTypes.bool,
 };
 
 export default Grid;
