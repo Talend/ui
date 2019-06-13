@@ -2,8 +2,8 @@
 
 
 src/Badge/Badge.scss
-  121:6  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  234:7  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  119:6  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  236:7  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/DateTimePickers/pickers/TimePicker/TimePicker.scss
   26:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
