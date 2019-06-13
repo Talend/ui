@@ -36,6 +36,7 @@ function Grid({
 	isLoading = false,
 	skeletonConfiguration,
 	compactType = 'vertical',
+	verticalCompact = true,
 }) {
 	return (
 		<ResponsiveGridLayout
@@ -51,7 +52,7 @@ function Grid({
 			compactType={compactType}
 			isResizable={isResizable}
 			useCSSTransforms={false}
-			verticalCompact={false}
+			verticalCompact={verticalCompact}
 		>
 			{isLoading
 				? (skeletonConfiguration || SKELETON_TILE_CONF).map(tile => (
@@ -85,6 +86,7 @@ Grid.propTypes = {
 			}).isRequired,
 		}),
 	),
+	verticalCompact: PropTypes.bool,
 };
 
 export default Grid;
