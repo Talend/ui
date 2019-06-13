@@ -1,10 +1,6 @@
 > sass-lint -v -q
 
 
-src/Badge/Badge.scss
-  119:6  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  236:7  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
-
 src/DateTimePickers/pickers/TimePicker/TimePicker.scss
   26:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
@@ -26,5 +22,5 @@ src/List/Toolbar/Toolbar.scss
 src/Typeahead/Typeahead.scss
   34:5  error  Mixins should come before declarations  mixins-before-declarations
 
-✖ 11 problems (9 errors, 2 warnings)
+✖ 9 problems (7 errors, 2 warnings)
 
