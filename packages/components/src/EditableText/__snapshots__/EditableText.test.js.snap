@@ -11,7 +11,6 @@ exports[`EditableText should render 1`] = `
     onEdit={[MockFunction]}
     onSubmit={[MockFunction]}
     required={true}
-    t={[MockFunction]}
     text="my text"
   />
 </div>
@@ -27,7 +26,6 @@ exports[`EditableText should render InlineForm 1`] = `
     onEdit={[MockFunction]}
     onSubmit={[MockFunction]}
     required={true}
-    t={[MockFunction]}
     text="my text"
   />
 </div>

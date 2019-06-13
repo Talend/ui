@@ -13,7 +13,6 @@ describe('EditableText', () => {
 				feature: 'my.custom.feature',
 				onEdit: jest.fn(),
 				onSubmit: jest.fn(),
-				t: jest.fn(),
 				required: true,
 			}),
 	);
@@ -41,7 +40,6 @@ describe('PlainTextTitle', () => {
 			text: 'text',
 			feature: 'my.custom.feature',
 			onEdit: jest.fn(),
-			t: jest.fn(),
 		};
 		const wrapper = shallow(<PlainTextTitle {...props} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -52,7 +50,6 @@ describe('PlainTextTitle', () => {
 			text: 'text',
 			feature: 'my.custom.feature',
 			onEdit: jest.fn(),
-			t: jest.fn(),
 			componentClass: 'h1',
 		};
 		const wrapper = shallow(<PlainTextTitle {...props} />);
@@ -63,7 +60,6 @@ describe('PlainTextTitle', () => {
 		const props = {
 			text: 'text',
 			onEdit: jest.fn(),
-			t: jest.fn(),
 			disabled: true,
 		};
 		const wrapper = shallow(<PlainTextTitle {...props} />);
@@ -75,7 +71,6 @@ describe('PlainTextTitle', () => {
 		const props = {
 			text: 'text',
 			onEdit: jest.fn(),
-			t: jest.fn(),
 			inProgress: true,
 		};
 		const wrapper = shallow(<PlainTextTitle {...props} />);
@@ -88,7 +83,6 @@ describe('PlainTextTitle', () => {
 			text: 'text',
 			onEdit,
 			inProgress: true,
-			t: jest.fn(),
 		};
 		const wrapper = shallow(<PlainTextTitle {...props} />);
 		wrapper.find('Action').simulate('click');
@@ -105,7 +99,6 @@ describe('InlineForm', () => {
 			onSubmit: jest.fn(),
 			onChange: jest.fn(),
 			onCancel: jest.fn(),
-			t: jest.fn(),
 			required: true,
 		};
 	});
