@@ -34,7 +34,7 @@ class DateWidget extends React.Component {
 		this.setState({ errorMessage });
 
 		let value = datetime;
-		if (!errorMessage) {
+		if (!errorMessage && datetime) {
 			const { schema } = this.props.schema;
 			if (schema.format === 'iso-datetime') {
 				value = this.dateToIsoStr(datetime);
