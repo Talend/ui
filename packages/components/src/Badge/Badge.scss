@@ -18,16 +18,22 @@ $tc-badge-small-icon-size: $svg-xs-size !default;
 
 $tc-badge-disabled-opacity: 0.62;
 
-div.tc-badge-button {
-	padding-left: $padding-smaller;
-	padding-right: $padding-smaller;
-	cursor: pointer;
-}
-
 .tc-badge {
 	display: inline-flex;
 	max-width: 23.5rem;
 
+	&.tc-badge-readonly {
+		.tc-badge-button {
+			padding-left: $padding-smaller;
+			padding-right: $padding-smaller;
+			cursor: default;
+		}
+		&:not(.tc-badge-disabled) {
+			.tc-badge-button {
+				cursor: pointer;
+			}
+		}
+	}
 	.tc-badge-button {
 		display: inline-flex;
 		background-color: rgba($wild-sand, 0.5);
@@ -224,6 +230,9 @@ div.tc-badge-button {
 		&:hover:not(.tc-badge-disabled) {
 			.tc-badge-button {
 				border-color: rgba($lochmara, 1);
+			}
+			div.tc-badge-button {
+				cursor: pointer;
 			}
 		}
 	}
