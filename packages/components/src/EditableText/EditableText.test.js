@@ -13,6 +13,8 @@ describe('EditableText', () => {
 				feature: 'my.custom.feature',
 				onEdit: jest.fn(),
 				onSubmit: jest.fn(),
+				t: jest.fn(),
+				required: true,
 			}),
 	);
 	it('should render', () => {
@@ -39,6 +41,7 @@ describe('PlainTextTitle', () => {
 			text: 'text',
 			feature: 'my.custom.feature',
 			onEdit: jest.fn(),
+			t: jest.fn(),
 		};
 		const wrapper = shallow(<PlainTextTitle {...props} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -49,6 +52,7 @@ describe('PlainTextTitle', () => {
 			text: 'text',
 			feature: 'my.custom.feature',
 			onEdit: jest.fn(),
+			t: jest.fn(),
 			componentClass: 'h1',
 		};
 		const wrapper = shallow(<PlainTextTitle {...props} />);
@@ -59,6 +63,7 @@ describe('PlainTextTitle', () => {
 		const props = {
 			text: 'text',
 			onEdit: jest.fn(),
+			t: jest.fn(),
 			disabled: true,
 		};
 		const wrapper = shallow(<PlainTextTitle {...props} />);
@@ -70,6 +75,7 @@ describe('PlainTextTitle', () => {
 		const props = {
 			text: 'text',
 			onEdit: jest.fn(),
+			t: jest.fn(),
 			inProgress: true,
 		};
 		const wrapper = shallow(<PlainTextTitle {...props} />);
@@ -82,6 +88,7 @@ describe('PlainTextTitle', () => {
 			text: 'text',
 			onEdit,
 			inProgress: true,
+			t: jest.fn(),
 		};
 		const wrapper = shallow(<PlainTextTitle {...props} />);
 		wrapper.find('Action').simulate('click');
@@ -99,6 +106,7 @@ describe('InlineForm', () => {
 			onChange: jest.fn(),
 			onCancel: jest.fn(),
 			t: jest.fn(),
+			required: true,
 		};
 	});
 	it('should render', () => {
@@ -171,5 +179,50 @@ describe('InlineForm', () => {
 		new InlineForm(defaultProps).selectInput(input);
 		expect(input.select).toHaveBeenCalled();
 		expect(input.focus).toHaveBeenCalled();
+	});
+	it('should show an error message if errorMessage is provided', () => {
+		const errorMessage = 'Custom error message';
+		const props = { ...defaultProps, errorMessage };
+		const wrapper = shallow(<InlineForm {...props} />);
+
+		expect(
+			wrapper
+				.find('.form-group')
+				.first()
+				.props().className,
+		).toBe('form-group has-error');
+		expect(
+			wrapper
+				.find('.form-group')
+				.first()
+				.text(),
+		).toBe(errorMessage);
+	});
+	it('should show enabled submit Action on empty text', () => {
+		const event = { preventDefault: jest.fn() };
+		const props = { ...defaultProps, required: false };
+		const wrapper = shallow(<InlineForm {...props} />);
+		expect(
+			wrapper
+				.find('Action')
+				.at(1)
+				.props().disabled,
+		).toBe(false);
+		wrapper.setState({ value: ' ' });
+		expect(
+			wrapper
+				.find('.form-group')
+				.first()
+				.props().className,
+		).toBe('form-group');
+		expect(
+			wrapper
+				.find('Action')
+				.at(1)
+				.props().disabled,
+		).toBe(false);
+		wrapper.find('form').simulate('submit', event);
+		expect(event.preventDefault).toHaveBeenCalled();
+		expect(defaultProps.onSubmit).toHaveBeenCalled();
 	});
 });

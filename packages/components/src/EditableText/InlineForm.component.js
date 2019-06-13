@@ -21,7 +21,6 @@ class InlineForm extends React.Component {
 	static defaultProps = {
 		t: getDefaultT(),
 		required: true,
-		errorMessage: '',
 	};
 
 	constructor(props) {
@@ -51,7 +50,7 @@ class InlineForm extends React.Component {
 
 	onSubmit(event) {
 		event.preventDefault();
-		if (this.state.value.trim().length !== 0) {
+		if (this.state.value.trim().length !== 0 || !this.props.required) {
 			this.props.onSubmit(event, { value: this.state.value, props: this.props });
 		}
 	}
@@ -67,7 +66,7 @@ class InlineForm extends React.Component {
 	render() {
 		const { feature, t, placeholder, required, errorMessage } = this.props;
 		const notFilled = required && this.state.value.trim().length === 0;
-		const notValid = notFilled || errorMessage;
+		const notValid = notFilled || !!errorMessage;
 		return (
 			<form
 				onSubmit={this.onSubmit}
@@ -87,9 +86,9 @@ class InlineForm extends React.Component {
 						onChange={this.onChange}
 						value={this.state.value}
 					/>
-					<p className="help-block text-danger">
+					{errorMessage && <p className="help-block text-danger">
 						{errorMessage}
-					</p>
+					</p>}
 				</div>
 				<div
 					className={classNames(
@@ -124,7 +123,7 @@ class InlineForm extends React.Component {
 							theme['tc-editable-text-form-buttons-submit'],
 							'tc-editable-text-form-buttons-submit',
 						)}
-						disabled={notValid}
+						disabled={notFilled}
 						hideLabel
 						data-feature={feature && `${feature}.submit`}
 					/>

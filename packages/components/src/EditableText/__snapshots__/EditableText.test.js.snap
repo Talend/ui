@@ -10,7 +10,8 @@ exports[`EditableText should render 1`] = `
     inProgress={false}
     onEdit={[MockFunction]}
     onSubmit={[MockFunction]}
-    t={[Function]}
+    required={true}
+    t={[MockFunction]}
     text="my text"
   />
 </div>
@@ -25,7 +26,8 @@ exports[`EditableText should render InlineForm 1`] = `
     inProgress={false}
     onEdit={[MockFunction]}
     onSubmit={[MockFunction]}
-    t={[Function]}
+    required={true}
+    t={[MockFunction]}
     text="my text"
   />
 </div>
@@ -34,7 +36,6 @@ exports[`EditableText should render InlineForm 1`] = `
 exports[`EditableText should render inProgress 1`] = `
 <div
   aria-busy={true}
-  aria-label="Edit in progress"
   className="theme-tc-editable-text tc-editable-text theme-tc-editable-text-blink tc-editable-text-blink"
 >
   <PlainTextTitle
@@ -43,7 +44,25 @@ exports[`EditableText should render inProgress 1`] = `
     inProgress={true}
     onEdit={[MockFunction]}
     onSubmit={[MockFunction]}
-    t={[Function]}
+    required={true}
+    t={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            "EDITABLE_TEXT_IN_PROGRESS",
+            Object {
+              "defaultValue": "Edit in progress",
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
     text="my text"
   />
 </div>
@@ -119,7 +138,6 @@ exports[`PlainTextTitle should render 1`] = `
     data-feature="my.custom.feature"
     hideLabel={true}
     icon="talend-pencil"
-    label="Edit"
     name="action-edit"
     onClick={[MockFunction]}
   />
@@ -147,7 +165,6 @@ exports[`PlainTextTitle should render provided component class 1`] = `
     data-feature="my.custom.feature"
     hideLabel={true}
     icon="talend-pencil"
-    label="Edit"
     name="action-edit"
     onClick={[MockFunction]}
   />
