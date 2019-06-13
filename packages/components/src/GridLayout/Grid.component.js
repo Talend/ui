@@ -35,6 +35,7 @@ function Grid({
 	onResizeStop = noOp,
 	isLoading = false,
 	skeletonConfiguration,
+	compactType = 'vertical',
 }) {
 	return (
 		<ResponsiveGridLayout
@@ -47,9 +48,10 @@ function Grid({
 			cols={columns}
 			measureBeforeMount={false}
 			margin={[MARGIN, MARGIN]}
-			compactType="horizontal"
+			compactType={compactType}
 			isResizable={isResizable}
 			useCSSTransforms={false}
+			verticalCompact={false}
 		>
 			{isLoading
 				? (skeletonConfiguration || SKELETON_TILE_CONF).map(tile => (
@@ -64,6 +66,7 @@ function Grid({
 
 Grid.propTypes = {
 	children: PropTypes.node,
+	compactType: PropTypes.string,
 	isResizable: PropTypes.bool,
 	onLayoutChange: PropTypes.func,
 	onBreakpointChange: PropTypes.func,
