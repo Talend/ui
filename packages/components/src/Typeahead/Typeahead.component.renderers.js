@@ -10,14 +10,25 @@ import Emphasis from '../Emphasis';
 import theme from './Typeahead.scss';
 
 export function renderInputComponent(props) {
-	const { caret, key, debounceMinLength, debounceTimeout, icon, inputRef, ...rest } = props;
+	const {
+		caret,
+		key,
+		debounceMinLength,
+		debounceTimeout,
+		icon,
+		inputRef,
+		disabled,
+		readOnly,
+		...rest
+	} = props;
 
-	const hasIcon = icon || caret;
+	const hasCaret = caret && !disabled && !readOnly;
+	const hasIcon = icon || hasCaret;
 	const typeaheadContainerIconClasses = classNames(
 		'tc-typeahead-typeahead-input-icon',
 		theme['typeahead-input-container'],
 		hasIcon && theme['typeahead-input-icon'],
-		caret && theme['typeahead-input-caret'],
+		hasCaret && theme['typeahead-input-caret'],
 	);
 	return (
 		<div className={typeaheadContainerIconClasses}>
@@ -29,18 +40,27 @@ export function renderInputComponent(props) {
 					id={key}
 					{...rest}
 					autoFocus
+					disabled={disabled}
+					readOnly={readOnly}
 					debounceTimeout={debounceTimeout}
 					element={FormControl}
 					minLength={debounceMinLength}
 					ref={inputRef}
 				/>
 			) : (
-				<FormControl id={key} autoFocus inputRef={inputRef} {...rest} />
+				<FormControl
+					id={key}
+					autoFocus
+					disabled={disabled}
+					readOnly={readOnly}
+					inputRef={inputRef}
+					{...rest}
+				/>
 			)}
 			{hasIcon && (
-				<div className={classNames(theme['icon-cls'], caret && theme['icon-caret'])}>
+				<div className={classNames(theme['icon-cls'], hasCaret && theme['icon-caret'])}>
 					{icon && <Icon {...icon} />}
-					{caret && <Icon name="talend-caret-down" />}
+					{hasCaret && <Icon name="talend-caret-down" />}
 				</div>
 			)}
 		</div>
@@ -56,6 +76,8 @@ renderInputComponent.propTypes = {
 	}),
 	inputRef: PropTypes.func,
 	caret: PropTypes.bool,
+	disabled: PropTypes.bool,
+	readOnly: PropTypes.bool,
 };
 
 export function renderItemsContainerFactory(
