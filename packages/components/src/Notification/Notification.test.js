@@ -7,7 +7,6 @@ import NotificationsContainer, {
 	CloseButton,
 	Message,
 	MessageAction,
-	Timer,
 } from './Notification.component';
 
 jest.useFakeTimers();

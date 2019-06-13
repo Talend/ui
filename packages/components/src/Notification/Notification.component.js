@@ -111,24 +111,24 @@ export function Notification({ notification, leaveFn, ...props }) {
 	);
 }
 
-export function Timer(callback, delay) {
+function Timer(callback, delay) {
 	let timerId;
 	let start;
 	let remaining = delay;
 
 	this.pause = () => {
-		window.clearTimeout(timerId);
+		clearTimeout(timerId);
 		remaining -= Date.now() - start;
 	};
 
 	this.resume = () => {
 		start = Date.now();
-		window.clearTimeout(timerId);
-		timerId = window.setTimeout(callback, remaining);
+		clearTimeout(timerId);
+		timerId = setTimeout(callback, remaining);
 	};
 
 	this.cancel = () => {
-		window.clearTimeout(timerId);
+		clearTimeout(timerId);
 	};
 
 	this.resume();
