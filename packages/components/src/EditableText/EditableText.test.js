@@ -222,11 +222,6 @@ describe('InlineForm', () => {
 		const placeholder = 'Your text here...';
 		const props = { ...defaultProps, required: false, placeholder };
 		const wrapper = shallow(<InlineForm {...props} />);
-		expect(
-			wrapper
-				.find('input')
-				.getElement()
-				.props.placeholder
-		).toBe(placeholder);
+		expect(wrapper.find('input').getElement().props.placeholder).toBe(placeholder);
 	});
 });
