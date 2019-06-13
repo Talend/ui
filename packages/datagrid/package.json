@@ -50,9 +50,9 @@
     "@storybook/addon-a11y": "^4.0.12",
     "@storybook/addon-actions": "^4.0.12",
     "@storybook/react": "^4.0.12",
-    "@talend/icons": "^3.9.1",
-    "@talend/react-components": "^3.9.1",
-    "@talend/react-storybook-cmf": "^3.9.1",
+    "@talend/icons": "^3.9.2",
+    "@talend/react-components": "^3.9.2",
+    "@talend/react-storybook-cmf": "^3.9.2",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.0",
@@ -80,9 +80,9 @@
     "style-loader": "^0.23.0"
   },
   "peerDependencies": {
-    "@talend/icons": "^3.9.1",
+    "@talend/icons": "^3.9.2",
     "@talend/react-cmf": "^1.6.0",
-    "@talend/react-components": "^3.9.1",
+    "@talend/react-components": "^3.9.2",
     "i18next": "^9.0.0",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
@@ -111,5 +111,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.9.1"
+  "version": "3.9.2"
 }
