@@ -198,7 +198,7 @@ describe('InlineForm', () => {
 				.text(),
 		).toBe(errorMessage);
 	});
-	it('should show enabled submit Action on empty text', () => {
+	it('should not show errors if not required', () => {
 		const event = { preventDefault: jest.fn() };
 		const props = { ...defaultProps, required: false };
 		const wrapper = shallow(<InlineForm {...props} />);
@@ -224,5 +224,16 @@ describe('InlineForm', () => {
 		wrapper.find('form').simulate('submit', event);
 		expect(event.preventDefault).toHaveBeenCalled();
 		expect(defaultProps.onSubmit).toHaveBeenCalled();
+	});
+	it('should add placeholder to input', () => {
+		const placeholder = 'Your text here...';
+		const props = { ...defaultProps, required: false, placeholder };
+		const wrapper = shallow(<InlineForm {...props} />);
+		expect(
+			wrapper
+				.find('input')
+				.getElement()
+				.props.placeholder
+		).toBe(placeholder)
 	});
 });
