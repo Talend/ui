@@ -101,7 +101,7 @@ describe('InlineForm', () => {
 			onChange: jest.fn(),
 			onCancel: jest.fn(),
 			required: true,
-			t: getDefaultT
+			t: getDefaultT,
 		};
 	});
 	it('should render', () => {
