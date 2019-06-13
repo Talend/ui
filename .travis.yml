@@ -24,12 +24,6 @@ matrix:
         - '11.10'
       script:
         - yarn test
-
-    - language: node_js
-      env: NAME=test_react_16 REACT_VERSION="^16.0.0"
-      node_js:
-        - '11.10'
-      script:
         - yarn test:extra
 
     - language: node_js
@@ -53,9 +47,9 @@ matrix:
         - .travis/after_success_git.sh
 
     - language: java
-      jdk: oraclejdk8
+      jdk: oraclejdk10
       env:
-        - NAME=demo NODE_VERSION=8 CC=clang CXX=clang++
+        - NAME=demo NODE_VERSION=11.10 CC=clang CXX=clang++
       before_install:
         - nvm install $NODE_VERSION
       before_script:
