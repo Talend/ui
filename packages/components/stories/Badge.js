@@ -43,7 +43,7 @@ storiesOf('Badge', module).add('default', () => (
 		<section>
 			<h1>New visual</h1>
 			<IconsProvider defaultIcons={icons} />
-			<div style={defaultStyle} id="header">
+			<div style={defaultStyle} id="newVisual-header">
 				<div style={columnStyle}>
 					<span>Tags as links</span>
 				</div>
@@ -61,7 +61,7 @@ storiesOf('Badge', module).add('default', () => (
 				</div>
 			</div>
 			<hr />
-			<div style={defaultStyle} id="default">
+			<div style={defaultStyle} id="newVisual">
 				<div style={columnStyle}>
 					<Badge label="Label" display={Badge.SIZES.large} aslink {...onSelect('A')} />
 					<br />
@@ -264,7 +264,7 @@ storiesOf('Badge', module).add('default', () => (
 		<section>
 			<h1>New visual - Disabled</h1>
 			<IconsProvider defaultIcons={icons} />
-			<div style={defaultStyle} id="header">
+			<div style={defaultStyle} id="newVisualDisabled-header">
 				<div style={columnStyle}>
 					<span>Tags as links</span>
 				</div>
@@ -282,7 +282,7 @@ storiesOf('Badge', module).add('default', () => (
 				</div>
 			</div>
 			<hr />
-			<div style={defaultStyle} id="default">
+			<div style={defaultStyle} id="newVisualDisabled">
 				<div style={columnStyle}>
 					<Badge label="Label" display={Badge.SIZES.large} aslink {...onSelect('A')} disabled />
 					<br />
@@ -541,7 +541,7 @@ storiesOf('Badge', module).add('default', () => (
 		<section style={greyBackgroundStyle}>
 			<h1>New visual - white background</h1>
 			<IconsProvider defaultIcons={icons} />
-			<div style={defaultStyle} id="header">
+			<div style={defaultStyle} id="newVisualWhite-header">
 				<div style={columnStyle}>
 					<span>/</span>
 				</div>
@@ -559,7 +559,7 @@ storiesOf('Badge', module).add('default', () => (
 				</div>
 			</div>
 			<hr />
-			<div style={defaultStyle} id="default">
+			<div style={defaultStyle} id="newVisualWhiteEnabled">
 				<div style={columnStyle}>enabled</div>
 				<div style={columnStyle}>
 					<Badge label="Label" display={Badge.SIZES.small} white aslink {...onSelect('B')} />
@@ -588,7 +588,7 @@ storiesOf('Badge', module).add('default', () => (
 				</div>
 			</div>
 			<hr />
-			<div style={defaultStyle} id="default">
+			<div style={defaultStyle} id="newVisualWhiteDisabled">
 				<div style={columnStyle}>disabled</div>
 				<div style={columnStyle}>
 					<Badge
@@ -631,7 +631,7 @@ storiesOf('Badge', module).add('default', () => (
 		<section>
 			<h1>Old Examples</h1>
 			<IconsProvider defaultIcons={icons} />
-			<div style={defaultStyle} id="header">
+			<div style={defaultStyle} id="oldExample-header">
 				<div style={columnStyle}>
 					<span>Read Only</span>
 				</div>
@@ -646,7 +646,7 @@ storiesOf('Badge', module).add('default', () => (
 				</div>
 			</div>
 			<hr />
-			<div style={defaultStyle} id="default">
+			<div style={defaultStyle} id="oldExample">
 				<div style={columnStyle}>
 					<Badge label="Group A" {...onSelect('A')} />
 					<Badge label={longStr} {...onSelect('B')} />
@@ -664,7 +664,7 @@ storiesOf('Badge', module).add('default', () => (
 					<Badge label={longStr} {...onDelete('Bd')} disabled />
 				</div>
 			</div>
-			<div style={defaultStyle} id="category">
+			<div style={defaultStyle} id="oldExampleCategory">
 				<div style={columnStyle}>
 					<Badge label="Little Gem Magnolia" category="Trees" {...onSelect('L')} />
 					<Badge label="Mexican Plum" category="Trees" {...onSelect('M')} />
