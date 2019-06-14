@@ -75,19 +75,11 @@ storiesOf('Action', module)
 			{story()}
 		</div>
 	))
-	.add(
-		'Disable the buttons',
-		() => (
-			<div>
-				<DisableActionButton />
-			</div>
-		),
-		{
-			a11y: {
-				disable: true,
-			},
-		},
-	)
+	.add('Disable the buttons', () => (
+		<div>
+			<DisableActionButton />
+		</div>
+	))
 	.add('default', () => (
 		<div>
 			<h3>By default :</h3>
