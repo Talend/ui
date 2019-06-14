@@ -1,8 +1,8 @@
-@import '~@talend/react-components/lib/Badge/Badge.scss';
 @import '~@talend/bootstrap-theme/src/theme/forms.guideline';
 $tf-datalist-items-background-color: $white !default;
 $tf-datalist-items-shadow-color: $shadow !default;
 $tf-typeahead-input-width: 135px !default;
+$tc-badge-margin: $padding-smaller !default;
 
 .wrapper {
 	position: relative;

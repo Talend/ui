@@ -9,7 +9,7 @@ exports[`Typeahead injection should use render props to inject extra components 
   role="combobox"
 >
   <div
-    className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
+    className="tc-typeahead-typeahead-input-icon theme-typeahead-input-container"
   >
     <label
       className="control-label sr-only"
@@ -112,7 +112,7 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
   role="combobox"
 >
   <div
-    className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
+    className="tc-typeahead-typeahead-input-icon theme-typeahead-input-container"
   >
     <label
       className="control-label sr-only"
@@ -346,7 +346,7 @@ exports[`Typeahead items should render typeahead with loading entry 1`] = `
   role="combobox"
 >
   <div
-    className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
+    className="tc-typeahead-typeahead-input-icon theme-typeahead-input-container"
   >
     <label
       className="control-label sr-only"
@@ -392,7 +392,7 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
   role="combobox"
 >
   <div
-    className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
+    className="tc-typeahead-typeahead-input-icon theme-typeahead-input-container"
   >
     <label
       className="control-label sr-only"
@@ -567,7 +567,7 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
   role="combobox"
 >
   <div
-    className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
+    className="tc-typeahead-typeahead-input-icon theme-typeahead-input-container"
   >
     <label
       className="control-label sr-only"
@@ -601,13 +601,13 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
     >
       <li
         aria-selected={false}
-        data-feature="data-feature-typeahead"
         id="react-autowhatever-my-search--item-0"
         role="option"
         style={Object {}}
       >
         <div
           className="theme-item"
+          data-feature="data-feature-typeahead"
           title="category 1"
         >
           <span
@@ -621,13 +621,13 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
       </li>
       <li
         aria-selected={false}
-        data-feature="data-feature-typeahead"
         id="react-autowhatever-my-search--item-1"
         role="option"
         style={Object {}}
       >
         <div
           className="theme-item"
+          data-feature="data-feature-typeahead"
           title="category 2"
         >
           <span
@@ -653,7 +653,7 @@ exports[`Typeahead items should render typeahead without items 1`] = `
   role="combobox"
 >
   <div
-    className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
+    className="tc-typeahead-typeahead-input-icon theme-typeahead-input-container"
   >
     <label
       className="control-label sr-only"
@@ -699,7 +699,7 @@ exports[`Typeahead position should render search bar on the right 1`] = `
   role="combobox"
 >
   <div
-    className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
+    className="tc-typeahead-typeahead-input-icon theme-typeahead-input-container"
   >
     <label
       className="control-label sr-only"
@@ -740,7 +740,7 @@ exports[`Typeahead should pass input extra props 1`] = `
   role="combobox"
 >
   <div
-    className="theme-typeahead-input-icon tc-typeahead-typeahead-input-icon"
+    className="tc-typeahead-typeahead-input-icon theme-typeahead-input-container"
   >
     <label
       className="control-label sr-only"

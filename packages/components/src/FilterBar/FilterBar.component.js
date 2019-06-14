@@ -146,6 +146,7 @@ export class FilterBarComponent extends React.Component {
 					hideLabel
 					icon="talend-search"
 					bsStyle="link"
+					data-feature={this.props['data-feature']}
 					tooltipPlacement={this.props.tooltipPlacement}
 					role="search"
 				/>
@@ -200,6 +201,7 @@ FilterBarComponent.propTypes = {
 	autoFocus: PropTypes.bool,
 	id: PropTypes.string,
 	className: PropTypes.string,
+	'data-feature': PropTypes.string,
 	debounceMinLength: PropTypes.number,
 	debounceTimeout: PropTypes.number,
 	docked: PropTypes.bool,
