@@ -47,13 +47,13 @@ function transform(lib, output) {
 	fs.writeFileSync(path.join(dist, output), code.code);
 }
 
-function toSVG() {
+function createSvgBundles() {
 	const bundles = new Set(Object.values(info).map(({ parent }) => parent));
 	const save = bundle => {
 		const lib = extract.default(`../src/svg/${bundle}`);
 		const buff = Object.keys(lib).map(key => `<symbol id="talend-${key}">${lib[key]}</symbol>`);
 		buff.unshift('');
-		buff.unshift('<svg xmlns="http://www.w3.org/2000/svg" focusable="false" className="sr-only">');
+		buff.unshift('<svg xmlns="http://www.w3.org/2000/svg" focusable="false" class="sr-only">');
 		buff.push('<svg>');
 		fs.writeFileSync(path.join(dist, `../dist/svg-bundle/${bundle}.svg`), buff.join(''));
 	};
@@ -73,7 +73,7 @@ function createGetIconHref() {
 }
 
 createGetIconHref();
-toSVG();
+createSvgBundles();
 transform(src, 'react.js');
 
 const styleSrc = path.join(__dirname, '../src/talendicons.css');

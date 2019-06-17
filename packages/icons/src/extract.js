@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
-function getDir(folder) {
+function getAbsolutePath(folder) {
 	if (folder.startsWith(__dirname)) {
 		return folder;
 	}
@@ -10,43 +10,51 @@ function getDir(folder) {
 }
 
 function getFiles(folder) {
-	const dir = getDir(folder);
+	const dir = getAbsolutePath(folder);
 	// case insensitive sort for windows users
 	return fs.readdirSync(dir).sort((a, b) => a.localeCompare(b, { sensitivity: 'base' }));
 }
 
+function getIconId(file) {
+	return file.split('.svg')[0];
+}
+
+function assertUnique(files, acc) {
+	const alreadyExists = Object.keys(files).filter(file => {
+		const iconId = getIconId(file);
+		return acc[iconId];
+	});
+	if (alreadyExists.length > 0) {
+		throw new Error(`Icons already exists ${alreadyExists}`);
+	}
+}
+
 function extractFiles(folder) {
-	const dir = getDir(folder);
+	const dir = getAbsolutePath(folder);
 	return getFiles(folder).reduce((acc, file) => {
 		const p = path.resolve(dir, file);
-		// compat : treat it has it is
 		if (fs.lstatSync(p).isDirectory()) {
-			// do nothing handles by bundles
-			// return acc;
-			return Object.assign(acc, extractFiles(p));
+			const files = extractFiles(p);
+			// check if the same file exists in another bundle
+			assertUnique(files, acc);
+			return Object.assign(acc, files);
 		}
-		// check if the same file exists in another bundle
-		const iconId = file.split('.svg')[0];
-		if (acc[iconId]) {
-			throw new Error(`Icon already exists ${iconId}`);
-		}
+		const iconId = getIconId(file);
 		return Object.assign(acc, { [iconId]: fs.readFileSync(path.resolve(dir, file)) });
 	}, {});
 }
 
 function extractInfo(folder, parent) {
-	const dir = getDir(folder);
+	const dir = getAbsolutePath(folder);
 	return getFiles(folder).reduce((acc, file) => {
 		const p = path.resolve(dir, file);
-		// compat : treat it has it is
 		if (fs.lstatSync(p).isDirectory()) {
-			return Object.assign(acc, extractInfo(p, file));
+			const infos = extractInfo(p, file);
+			assertUnique(infos, acc);
+			return Object.assign(acc, infos);
 		}
 		// check if the same file exists in another bundle
-		const iconId = file.split('.svg')[0];
-		if (acc[iconId]) {
-			throw new Error(`Icon already exists ${iconId}`);
-		}
+		const iconId = getIconId(file);
 		return Object.assign(acc, { [iconId]: { parent } });
 	}, {});
 }
