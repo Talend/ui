@@ -13,6 +13,27 @@ const listClasses = classNames(theme['tc-list-items'], 'tc-list-items');
 const itemsClasses = classNames(theme['tc-listview-items'], 'tc-listview-items');
 const itemContainer = classNames(theme['tc-item-container'], 'tc-item-container');
 
+/**
+ * Converts a string px size in a JS valid number
+ * @param {String} sizeInPixels
+ * @returns {Number}
+ */
+function pxToInt(sizeInPixels) {
+	if (!sizeInPixels) {
+		return 0;
+	}
+
+	const parsed = parseFloat(sizeInPixels.replace('px', ''));
+
+	return isNaN(parsed) ? 0 : parsed;
+}
+
+const TOGGLE_ALL_ROW_HEIGHT = 40;
+const ROW_LINE_HEIGHT = 13;
+const ROW_MARGIN = pxToInt(theme.rowMargin);
+const ROW_INNER_PADDINGS = pxToInt(theme.rowInnerPaddings);
+const ROW_HEIGHT = ROW_LINE_HEIGHT + ROW_MARGIN;
+
 export class ItemsComponent extends React.PureComponent {
 	constructor(props) {
 		super(props);
@@ -25,7 +46,7 @@ export class ItemsComponent extends React.PureComponent {
 
 		this.hasToggleAll = this.props.showToggleAll && this.props.items.length > 1;
 		this.cache = new CellMeasurerCache({
-			defaultHeight: props.getItemHeight(),
+			defaultHeight: props.getItemHeight ? props.getItemHeight() : ROW_HEIGHT,
 			fixedWidth: true,
 		});
 	}
@@ -35,6 +56,35 @@ export class ItemsComponent extends React.PureComponent {
 	}
 
 	getRowHeight({ index }) {
+		if (this.props.getItemHeight) {
+			// If an height computation has been provided, use the "old"
+			// way of computing row height with the provided computation
+			return this.oldGetRowHeight.call(this, { index });
+		}
+
+		if (this.hasToggleAll && index === 0) {
+			return TOGGLE_ALL_ROW_HEIGHT;
+		}
+
+		const currentItem = this.getItemByIndex(index);
+
+		if (currentItem && currentItem.children && currentItem.expanded) {
+			return (currentItem.children.length + 1) * ROW_HEIGHT + ROW_INNER_PADDINGS;
+		}
+
+		const isLastItem = index === (this.props.items.length - Number(!this.hasToggleAll));
+
+		return ROW_HEIGHT + (isLastItem ? ROW_MARGIN : 0);
+	}
+
+	getRowCount() {
+		if (this.hasToggleAll) {
+			return this.props.items.length + 1;
+		}
+		return this.props.items.length;
+	}
+
+	oldGetRowHeight({ index }) {
 		if (this.hasToggleAll && index === 0) {
 			return 40;
 		}
@@ -48,12 +98,6 @@ export class ItemsComponent extends React.PureComponent {
 		return this.props.getItemHeight() + extraHeight;
 	}
 
-	getRowCount() {
-		if (this.hasToggleAll) {
-			return this.props.items.length + 1;
-		}
-		return this.props.items.length;
-	}
 
 	rowRenderer(props) {
 		const { key, index, style } = props;

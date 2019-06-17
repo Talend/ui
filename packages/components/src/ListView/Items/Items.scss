@@ -14,3 +14,10 @@ $tc-listview-height: 40vh !default;
 		}
 	}
 }
+
+// This exported values are used to compute properly sizes
+// in react-virtualized's calculation method
+:export {
+	rowMargin: $padding-small;
+	rowInnerPaddings: $padding-normal + $padding-larger;
+}
