@@ -131,13 +131,25 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
               >
                 on TDP
               </div>
-              <span
-                className="theme-undefined label label-default"
-                onFocus={[Function]}
-                onMouseOver={[Function]}
+              <div
+                className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large theme-undefined theme-theme-undefined tc-badge-readonly theme-tc-badge-readonly"
               >
-                XML
-              </span>
+                <div
+                  className="tc-badge-button theme-tc-badge-button"
+                >
+                  <div
+                    className="tc-badge-label theme-tc-badge-label"
+                  >
+                    <span
+                      className="tc-badge-label-text theme-tc-badge-label-text"
+                      onFocus={[Function]}
+                      onMouseOver={[Function]}
+                    >
+                      XML
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </button>
@@ -171,24 +183,40 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
     <div
       className="panel-body"
     >
-      <dl
+      <div
         className="theme-content"
       >
-        <dt
-          className="theme-label"
+        <div
+          className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large theme-badge theme-theme-badge tc-badge-readonly theme-tc-badge-readonly"
         >
-          <span
-            className="label label-default"
+          <div
+            className="tc-badge-button theme-tc-badge-button"
           >
-            Content
-          </span>
-        </dt>
-        <dd
-          className="theme-description"
-        >
-          Description3
-        </dd>
-      </dl>
+            <span
+              aria-label="Content"
+              className="tc-badge-category theme-tc-badge-category"
+              onFocus={[Function]}
+              onMouseOver={[Function]}
+            >
+              Content
+            </span>
+            <span
+              className="tc-badge-separator theme-tc-badge-separator"
+            />
+            <div
+              className="tc-badge-label theme-tc-badge-label"
+            >
+              <span
+                className="tc-badge-label-text-with-categ theme-tc-badge-label-text-with-categ"
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+              >
+                Description3
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -325,13 +353,25 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
               >
                 on TDP
               </div>
-              <span
-                className="theme-undefined label label-default"
-                onFocus={[Function]}
-                onMouseOver={[Function]}
+              <div
+                className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large theme-undefined theme-theme-undefined tc-badge-readonly theme-tc-badge-readonly"
               >
-                XML
-              </span>
+                <div
+                  className="tc-badge-button theme-tc-badge-button"
+                >
+                  <div
+                    className="tc-badge-label theme-tc-badge-label"
+                  >
+                    <span
+                      className="tc-badge-label-text theme-tc-badge-label-text"
+                      onFocus={[Function]}
+                      onMouseOver={[Function]}
+                    >
+                      XML
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </button>
@@ -364,24 +404,40 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
     <div
       className="panel-body"
     >
-      <dl
+      <div
         className="theme-content"
       >
-        <dt
-          className="theme-label"
+        <div
+          className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large theme-badge theme-theme-badge tc-badge-readonly theme-tc-badge-readonly"
         >
-          <span
-            className="label label-default"
+          <div
+            className="tc-badge-button theme-tc-badge-button"
           >
-            Content
-          </span>
-        </dt>
-        <dd
-          className="theme-description"
-        >
-          Description3
-        </dd>
-      </dl>
+            <span
+              aria-label="Content"
+              className="tc-badge-category theme-tc-badge-category"
+              onFocus={[Function]}
+              onMouseOver={[Function]}
+            >
+              Content
+            </span>
+            <span
+              className="tc-badge-separator theme-tc-badge-separator"
+            />
+            <div
+              className="tc-badge-label theme-tc-badge-label"
+            >
+              <span
+                className="tc-badge-label-text-with-categ theme-tc-badge-label-text-with-categ"
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+              >
+                Description3
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -518,13 +574,25 @@ exports[`CollapsiblePanel should render default without content 1`] = `
               >
                 on TDP
               </div>
-              <span
-                className="theme-undefined label label-default"
-                onFocus={[Function]}
-                onMouseOver={[Function]}
+              <div
+                className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large theme-undefined theme-theme-undefined tc-badge-readonly theme-tc-badge-readonly"
               >
-                XML
-              </span>
+                <div
+                  className="tc-badge-button theme-tc-badge-button"
+                >
+                  <div
+                    className="tc-badge-label theme-tc-badge-label"
+                  >
+                    <span
+                      className="tc-badge-label-text theme-tc-badge-label-text"
+                      onFocus={[Function]}
+                      onMouseOver={[Function]}
+                    >
+                      XML
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </button>
