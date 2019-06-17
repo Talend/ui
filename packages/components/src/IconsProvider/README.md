@@ -34,7 +34,7 @@ export function App(props) {
 
 ## getIconHref or How to activate bundles
 
-bundles are available through a feature flag at compile time.
+Bundles are available through a feature flag at compile time.
 If you want to tests, add the following plugin to your webpack config:
 
 ```javascript
@@ -80,4 +80,4 @@ Once it is ok for you you can just drop the variable from the process:
 
 ## Roadmap
 
-Bundle will becomes the default behavior.
+Bundle will become the default behavior.
