@@ -20,8 +20,8 @@ src/List/Toolbar/Toolbar.scss
   80:6  error  Nesting depth 4 greater than max of 3  nesting-depth
 
 src/ListView/Items/Items.scss
-  21:2  error  Property `rowMargin` appears to be spelled incorrectly         no-misspelled-properties
-  22:2  error  Property `rowInnerPaddings` appears to be spelled incorrectly  no-misspelled-properties
+  22:2  error  Property `rowMargin` appears to be spelled incorrectly         no-misspelled-properties
+  23:2  error  Property `rowInnerPaddings` appears to be spelled incorrectly  no-misspelled-properties
 
 src/Typeahead/Typeahead.scss
   34:5  error  Mixins should come before declarations  mixins-before-declarations
