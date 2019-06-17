@@ -80,4 +80,4 @@ Once it is ok for you you can just drop the variable from the process:
 
 ## Roadmap
 
-Bundle will becomes the default behavior.
+Bundle will become the default behavior.
