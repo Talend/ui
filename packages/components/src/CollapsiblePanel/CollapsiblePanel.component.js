@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { OverlayTrigger, Panel, Button } from 'react-bootstrap';
+import { Label, OverlayTrigger, Panel, Button } from 'react-bootstrap';
 import { translate } from 'react-i18next';
 
 import Action from '../Actions/Action';
@@ -173,11 +173,16 @@ function CollapsiblePanelHeader(props) {
 
 function getKeyValueContent(content) {
 	return (
-		<div className={css.content}>
-			{content.map(item => [
-				<Badge className={css.badge} category={item.label} label={item.description} />,
+		<dl className={css.content}>
+			{content.map((item, index) => [
+				<dt className={css.label} key={`${index}_label`}>
+					<Label>{item.label}</Label>
+				</dt>,
+				<dd className={css.description} key={`${index}_desc`}>
+					{item.description}
+				</dd>,
 			])}
-		</div>
+		</dl>
 	);
 }
 
