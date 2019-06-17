@@ -69,7 +69,8 @@ public class StorybookTest {
                     categoryName.replaceAll("[\\W]+", "-").toLowerCase(),
                     storyName.replaceAll("[\\W]+", "-").toLowerCase()
             ));
-
+            System.out.println("LÔÔÔLLLLLLLLLLLLLLLÔÔÔLLLLLLLLLLLLLLLÔÔÔLLLLLLLLLLLLLLLÔÔÔLLLLLLLLLLLLLLLÔÔÔLLLLLLLLLLLLLL");
+            System.out.println(builder.build().toURL().toString());
             driver.get(builder.build().toURL().toString());
         } catch (Exception e) {
             e.printStackTrace();
