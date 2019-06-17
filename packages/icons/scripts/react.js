@@ -48,12 +48,7 @@ function transform(lib, output) {
 }
 
 function toSVG() {
-	const bundles = Object.values(info).reduce((acc, bundle) => {
-		if (bundle.parent && acc.indexOf(bundle.parent) === -1) {
-			acc.push(bundle.parent);
-		}
-		return acc;
-	}, []);
+	const bundles = new Set(Object.values(info).map(({ parent }) => parent));
 	const save = bundle => {
 		const lib = extract.default(`../src/svg/${bundle}`);
 		const buff = Object.keys(lib).map(key => `<symbol id="talend-${key}">${lib[key]}</symbol>`);
