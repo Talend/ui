@@ -12,6 +12,7 @@ $tc-typeahead-section-border-color: #e0e0e0 !default;
 
 $tc-typeahead-icon-color: $gray !default;
 $tc-typeahead-only-icon-color: #ccc !default;
+$tc-typeahead-selected-item-color: #e0f2ff !default;
 $tc-typeahead-section-header-color: #63aebd !default;
 
 $tc-typeahead-items-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4) !default;
@@ -182,7 +183,7 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 	}
 
 	&.selected {
-		background-color: rgba($scooter, 0.2);
+		background-color: $tc-typeahead-selected-item-color;
 	}
 }
 
