@@ -100,7 +100,7 @@ public class StorybookTest {
     private void goToStoryFrame() {
         final WebDriverWait wait = new WebDriverWait(driver, 10);
         final WebElement element = wait.until(visibilityOfElementLocated(By.id("storybook-preview-iframe")));
-        driver.switchTo().frame(driver.findElement(By.id("storybook-preview-iframe")));
+        driver.switchTo().frame(element);
     }
 
     private void goToMainElement() {
