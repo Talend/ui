@@ -72,7 +72,7 @@ export class ItemsComponent extends React.PureComponent {
 			return (currentItem.children.length + 1) * ROW_HEIGHT + ROW_INNER_PADDINGS;
 		}
 
-		const isLastItem = index === (this.props.items.length - Number(!this.hasToggleAll));
+		const isLastItem = index === this.props.items.length - Number(!this.hasToggleAll);
 
 		return ROW_HEIGHT + (isLastItem ? ROW_MARGIN : 0);
 	}
@@ -97,7 +97,6 @@ export class ItemsComponent extends React.PureComponent {
 
 		return this.props.getItemHeight() + extraHeight;
 	}
-
 
 	rowRenderer(props) {
 		const { key, index, style } = props;
