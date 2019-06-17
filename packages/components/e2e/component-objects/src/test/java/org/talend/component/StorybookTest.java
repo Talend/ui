@@ -8,8 +8,13 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.talend.config.WebDriverTest;
 import org.talend.config.WebDriverTestFactory;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 public class StorybookTest {
     private static final Logger LOGGER = LogManager.getLogger(StorybookTest.class);
@@ -69,8 +74,21 @@ public class StorybookTest {
                     categoryName.replaceAll("[\\W]+", "-").toLowerCase(),
                     storyName.replaceAll("[\\W]+", "-").toLowerCase()
             ));
+
+/*
+
+            builder.setScheme("http");
+            builder.setHost("2087.talend.surge.sh");
+            builder.setPort(80);
+            builder.setPath("/components/");
+            builder.addParameter("path", String.format(
+                    "/story/%s--%s",
+                    categoryName.replaceAll("[\\W]+", "-").toLowerCase(),
+                    storyName.replaceAll("[\\W]+", "-").toLowerCase()
+            ));
             System.out.println("LÔÔÔLLLLLLLLLLLLLLLÔÔÔLLLLLLLLLLLLLLLÔÔÔLLLLLLLLLLLLLLLÔÔÔLLLLLLLLLLLLLLLÔÔÔLLLLLLLLLLLLLL");
             System.out.println(builder.build().toURL().toString());
+*/
             driver.get(builder.build().toURL().toString());
         } catch (Exception e) {
             e.printStackTrace();
@@ -80,6 +98,8 @@ public class StorybookTest {
     }
 
     private void goToStoryFrame() {
+        final WebDriverWait wait = new WebDriverWait(driver, 10);
+        final WebElement element = wait.until(visibilityOfElementLocated(By.id("storybook-preview-iframe")));
         driver.switchTo().frame(driver.findElement(By.id("storybook-preview-iframe")));
     }
 
