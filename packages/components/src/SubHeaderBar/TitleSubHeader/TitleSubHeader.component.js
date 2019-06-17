@@ -22,22 +22,22 @@ function TitleSubHeader({
 	...rest
 }) {
 	const [isEditMode, setIsEditMode] = React.useState(false);
-	function handleEdit() {
+	function handleEdit(...args) {
 		setIsEditMode(true);
 		if (onEdit) {
-			onEdit();
+			onEdit(...args);
 		}
 	}
-	function handleCancel() {
+	function handleCancel(...args) {
 		setIsEditMode(false);
 		if (onCancel) {
-			onCancel();
+			onCancel(...args);
 		}
 	}
-	function handleSubmit() {
+	function handleSubmit(...args) {
 		setIsEditMode(false);
 		if (onSubmit) {
-			onSubmit();
+			onSubmit(...args);
 		}
 	}
 	if (loading) {
