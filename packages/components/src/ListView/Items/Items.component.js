@@ -86,7 +86,7 @@ export class ItemsComponent extends React.PureComponent {
 
 	oldGetRowHeight({ index }) {
 		if (this.hasToggleAll && index === 0) {
-			return 40;
+			return TOGGLE_ALL_ROW_HEIGHT;
 		}
 
 		let extraHeight = 0;
