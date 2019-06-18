@@ -17,9 +17,9 @@ $tc-listview-height: 40vh !default;
 
 // This exported values are used to compute properly sizes
 // in react-virtualized's calculation method
-/* eslint-disable no-mispelled-properties */
+// sass-lint:disable no-misspelled-properties
 :export {
 	rowMargin: $padding-small;
 	rowInnerPaddings: $padding-normal + $padding-larger;
 }
-/* eslint-enable no-mispelled-properties */
+// sass-lint:enable no-misspelled-properties
