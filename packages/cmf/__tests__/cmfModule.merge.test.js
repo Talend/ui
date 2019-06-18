@@ -182,4 +182,13 @@ describe('mergeModule', () => {
 		expect(config.preReducer[0]).toBe(array1[0]);
 		expect(config.preReducer[1]).toBe(array2[0]);
 	});
+	it('should merge httpInterceptors', () => {
+		const fn1 = jest.fn();
+		const fn2 = jest.fn();
+		const config = mergeModules({ httpInterceptors: [fn1]}, { httpInterceptors: [fn2]});
+		expect(Array.isArray(config.httpInterceptors)).toBeTruthy();
+		expect(config.httpInterceptors.length).toBe(2);
+		expect(config.httpInterceptors[0]).toBe(fn1);
+		expect(config.httpInterceptors[1]).toBe(fn2);
+	});
 });

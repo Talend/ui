@@ -3,18 +3,43 @@ import React from 'react';
 import get from 'lodash/get';
 import classNames from 'classnames';
 import { CellMeasurer, CellMeasurerCache } from 'react-virtualized';
+import isEmpty from 'lodash/isEmpty';
 
+import Skeleton from '../../Skeleton';
 import CollapsiblePanel from '../../CollapsiblePanel/CollapsiblePanel.component';
 import { getId, getRowData } from '../utils/gridrow';
 
 import withListGesture from '../../Gesture/withListGesture';
-import './RowCollapsiblePanel.scss';
+import theme from './RowCollapsiblePanel.scss';
 
 const cache = new CellMeasurerCache({ fixedWidth: true });
 const options = {
 	deferredMeasurementCache: cache,
 	rowHeight: cache.rowHeight,
 };
+
+function LoadingCollapsiblePanel() {
+	return (
+		<div className={theme['loading-collapsible-panel']}>
+			<span>
+				<Skeleton type={Skeleton.TYPES.circle} size={Skeleton.SIZES.small} />
+				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.xlarge} />
+			</span>
+			<span>
+				<Skeleton type={Skeleton.TYPES.circle} size={Skeleton.SIZES.small} />
+				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.medium} />
+			</span>
+			<span>
+				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.small} />
+			</span>
+			<span>
+				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.medium} />
+			</span>
+		</div>
+	);
+}
+
+const MemoLoadingCollapsiblePanel = React.memo(LoadingCollapsiblePanel);
 
 /**
  * Row renderer that displays a Collapsible Panel
@@ -55,12 +80,16 @@ class RowCollapsiblePanel extends React.Component {
 						aria-label={get(rowData, 'header[0].label')}
 						style={style}
 					>
-						<CollapsiblePanel
-							onEntered={measure}
-							onExited={measure}
-							onToggle={this.onToggle}
-							{...rowData}
-						/>
+						{isEmpty(rowData) ? (
+							<MemoLoadingCollapsiblePanel />
+						) : (
+							<CollapsiblePanel
+								onEntered={measure}
+								onExited={measure}
+								onToggle={this.onToggle}
+								{...rowData}
+							/>
+						)}
 					</div>
 				)}
 			</CellMeasurer>
