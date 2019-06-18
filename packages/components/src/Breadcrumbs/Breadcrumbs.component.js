@@ -46,7 +46,9 @@ export function BreadcrumbsComponent({ loading, id, items, maxItems, t }) {
 					{ size: Skeleton.SIZES.large, type: Skeleton.TYPES.text },
 					{ size: Skeleton.SIZES.small, type: Skeleton.TYPES.circle },
 					{ size: Skeleton.SIZES.large, type: Skeleton.TYPES.text },
-				].map(({ size, type }) => <Skeleton size={size} type={type} />)}
+				].map(({ size, type }) => (
+					<Skeleton size={size} type={type} />
+				))}
 			</div>
 		);
 	}
