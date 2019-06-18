@@ -6,7 +6,7 @@ import { getIconHref as getIcon } from '@talend/icons/dist/info';
 let talendIcons = {};
 
 if (!process.env.ICON_BUNDLE) {
-	console.log('WARNING ICON_BUNDLE will be the default in the next major release');
+	console.warn('WARNING ICON_BUNDLE will be the default in the next major release');
 	talendIcons = require('@talend/icons/dist/react').default;
 }
 
