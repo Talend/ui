@@ -20,12 +20,9 @@ function getIconId(file) {
 }
 
 function assertUnique(files, acc) {
-	const alreadyExists = Object.keys(files).filter(file => {
-		const iconId = getIconId(file);
-		return acc[iconId];
-	});
-	if (alreadyExists.length > 0) {
-		throw new Error(`Icons already exists ${alreadyExists}`);
+	const hasDuplicate = Object.keys(files).some(file => acc[getIconId(file)]);
+	if (hasDuplicate) {
+		throw new Error('Icons already exists');
 	}
 }
 
@@ -35,11 +32,13 @@ function extractFiles(folder) {
 		const p = path.resolve(dir, file);
 		if (fs.lstatSync(p).isDirectory()) {
 			const files = extractFiles(p);
-			// check if the same file exists in another bundle
 			assertUnique(files, acc);
 			return Object.assign(acc, files);
 		}
 		const iconId = getIconId(file);
+		if (acc[iconId]) {
+			throw new Error(`Icon ${iconId} already included in the bundle`);
+		}
 		return Object.assign(acc, { [iconId]: fs.readFileSync(path.resolve(dir, file)) });
 	}, {});
 }
@@ -55,6 +54,9 @@ function extractInfo(folder, parent) {
 		}
 		// check if the same file exists in another bundle
 		const iconId = getIconId(file);
+		if (acc[iconId]) {
+			throw new Error(`Icon ${iconId} already included in the bundle`);
+		}
 		return Object.assign(acc, { [iconId]: { parent } });
 	}, {});
 }
