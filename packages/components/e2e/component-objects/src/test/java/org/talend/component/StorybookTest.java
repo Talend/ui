@@ -77,27 +77,12 @@ public class StorybookTest {
                     storyName.replaceAll("[\\W]+", "-").toLowerCase()
             ));
 
-/*
-
-            builder.setScheme("http");
-            builder.setHost("2087.talend.surge.sh");
-            builder.setPort(80);
-            builder.setPath("/components/");
-            builder.addParameter("path", String.format(
-                    "/story/%s--%s",
-                    categoryName.replaceAll("[\\W]+", "-").toLowerCase(),
-                    storyName.replaceAll("[\\W]+", "-").toLowerCase()
-            ));
-            System.out.println("LÔÔÔLLLLLLLLLLLLLLLÔÔÔLLLLLLLLLLLLLLLÔÔÔLLLLLLLLLLLLLLLÔÔÔLLLLLLLLLLLLLLLÔÔÔLLLLLLLLLLLLLL");
-            System.out.println(builder.build().toURL().toString());
-*/
             driver.get(builder.build().toURL().toString());
             final WebDriverWait wait = new WebDriverWait(driver, 10);
             wait.until((webDriver) -> {
                 final WebElement item = webDriver.findElement(By.cssSelector(".sidebar-container .sidebar-item"));
                 return !"loading story".equals(item.getText());
             });
-            //wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
         } catch (Exception e) {
             e.printStackTrace();
         }
