@@ -14,6 +14,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.talend.config.WebDriverTest;
 import org.talend.config.WebDriverTestFactory;
 
+import java.util.function.Function;
+
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 public class StorybookTest {
@@ -90,6 +92,12 @@ public class StorybookTest {
             System.out.println(builder.build().toURL().toString());
 */
             driver.get(builder.build().toURL().toString());
+            final WebDriverWait wait = new WebDriverWait(driver, 10);
+            wait.until((webDriver) -> {
+                final WebElement item = webDriver.findElement(By.cssSelector(".sidebar-container .sidebar-item"));
+                return !"loading story".equals(item.getText());
+            });
+            //wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
         } catch (Exception e) {
             e.printStackTrace();
         }
