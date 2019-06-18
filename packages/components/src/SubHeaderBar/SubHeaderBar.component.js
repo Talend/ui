@@ -64,6 +64,7 @@ function SubHeaderBar({
 	onGoBack,
 	components,
 	getComponent,
+	goBackDataFeature,
 	className,
 	left,
 	center,
@@ -116,6 +117,7 @@ function SubHeaderBar({
 							label={t('BACK_ARROW_TOOLTIP', { defaultValue: 'Go Back' })}
 							icon="talend-arrow-left"
 							bsStyle="link"
+							data-feature={goBackDataFeature}
 							className={classNames(theme['tc-subheader-back-button'], 'tc-subheader-back-button')}
 							hideLabel
 						/>

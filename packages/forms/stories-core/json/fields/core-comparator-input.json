@@ -1,0 +1,102 @@
+{
+  "doc": "ComparatorInput/README.md",
+  "jsonSchema": {
+    "type": "object",
+    "title": "Comparator Input",
+    "properties": {
+      "default": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "operator": {
+            "type": "string",
+            "enum": [">", "<", "="]
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+
+      "numeric": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "operator": {
+            "type": "string",
+            "enum": ["orng", "pr"]
+          },
+          "value": {
+            "type": "number",
+            "minimum": -100,
+            "maximum": 100
+          }
+        }
+      },
+
+      "disabled": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "operator": {
+            "type": "string",
+            "enum": [">", "<", "="]
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "required": []
+  },
+  "uiSchema": [
+    {
+      "key": "default",
+      "widget": "comparator",
+      "title": "Default comparator"
+    },
+
+    {
+      "key": "numeric",
+      "widget": "comparator",
+      "title": "Numeric comparator",
+
+      "titleMap": [
+        {
+          "name": "Orange",
+          "value": "orng"
+        },
+
+        {
+          "name": "Pear",
+          "value": "pr"
+        }
+      ],
+      "options": {
+        "symbols": {
+          "orng": ">=",
+          "pr": "<="
+        }
+      }
+    },
+    {
+      "key": "disabled",
+      "widget": "comparator",
+      "title": "Disabled comparator",
+      "disabled": true
+    }
+  ],
+  "properties": {
+    "default": {
+      "operator": ">"
+    },
+    "numeric": {
+      "operator": "orng"
+    },
+    "disabled": {
+      "operator": ">",
+      "value": "hihihi"
+    }
+  }
+}
