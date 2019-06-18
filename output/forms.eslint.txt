@@ -10,4 +10,3 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   80:22  error  'value' is defined but never used                          no-unused-vars
 
 ✖ 3 problems (3 errors, 0 warnings)
-

@@ -1,12 +1,21 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import classNames from 'classnames';
 import { translate } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import Action from '../Actions/Action';
 import getDefaultT from '../translate';
-import theme from './Badge.scss';
+import Icon from '../Icon';
+import TooltipTrigger from '../TooltipTrigger';
+import badgeCssModule from './Badge.scss';
+import { getTheme } from '../theme';
+
+const theme = getTheme(badgeCssModule);
+
+const SIZES = {
+	large: 'large',
+	small: 'small',
+};
 
 function Badge({
 	id,
@@ -19,28 +28,63 @@ function Badge({
 	t,
 	style,
 	className,
+	display = SIZES.large,
+	aslink,
+	icon,
+	white,
 }) {
-	const containerClasses = classNames(
-		'tc-badge',
-		theme['tc-badge'],
-		selected && ['tc-badge-selected', theme['tc-badge-selected']],
-		disabled && ['tc-badge-disabled', theme['tc-badge-disabled']],
-		!onDelete && ['tc-badge-readonly', theme['tc-badge-readonly']],
-		className,
-	);
-	const badgeClasses = classNames('tc-badge-button', theme['tc-badge-button']);
-	const labelClasses = classNames('tc-badge-label', theme['tc-badge-label']);
-	const categoryClasses = classNames('tc-badge-category', theme['tc-badge-category']);
+	const displayClass =
+		display === SIZES.small ? 'tc-badge-display-small' : 'tc-badge-display-large';
+
+	const containerClasses = theme('tc-badge', displayClass, className, {
+		'tc-badge-selected': selected,
+		'tc-badge-disabled': disabled,
+		'tc-badge-readonly': !onDelete,
+		'tc-badge-aslink': aslink,
+		'tc-badge-edit': onDelete && onSelect,
+	});
+	const badgeClasses = theme('tc-badge-button', {
+		'tc-badge-white': white,
+	});
+	const labelTextClasses = theme({
+		'tc-badge-label-text': !(!aslink && category),
+		'tc-badge-label-text-with-categ': !aslink && category,
+	});
 
 	const children = [
-		category ? (
-			<span key="category" className={categoryClasses}>
-				{category}
-			</span>
-		) : null,
-		<span key="label" className={labelClasses}>
-			{label}
-		</span>,
+		category && (
+			<TooltipTrigger label={category} tooltipPlacement="top">
+				<span key="category" aria-label={category} className={theme('tc-badge-category')}>
+					{category}
+				</span>
+			</TooltipTrigger>
+		),
+		category && <span className={theme('tc-badge-separator')} />,
+		<div className={theme('tc-badge-label')}>
+			<TooltipTrigger label={label} tooltipPlacement="top">
+				<span key="label" className={labelTextClasses}>
+					{label}
+				</span>
+			</TooltipTrigger>
+			{icon && <Icon name={icon} className={theme('tc-badge-label-icon')} />}
+		</div>,
+		icon && onDelete && (
+			<span className={[theme('tc-badge-separator', 'tc-badge-separator-icon')]} />
+		),
+		onDelete && (
+			<Action
+				key="delete"
+				id={id && `tc-badge-delete-${id}`}
+				label={t('BADGE_DELETE', { defaultValue: 'delete' })}
+				hideLabel
+				onClick={onDelete}
+				disabled={disabled}
+				icon={'talend-cross'}
+				className={theme('tc-badge-delete-icon')}
+				link
+				role="button"
+			/>
+		),
 	];
 	const badgeProps = {
 		id: id && `tc-badge-select-${id}`,
@@ -55,23 +99,11 @@ function Badge({
 			) : (
 				<div {...badgeProps} key="div" />
 			)}
-			{onDelete && (
-				<Action
-					key="delete"
-					id={id && `tc-badge-delete-${id}`}
-					label={t('BADGE_DELETE', { defaultValue: 'delete' })}
-					hideLabel
-					onClick={onDelete}
-					disabled={disabled}
-					icon={'talend-cross'}
-					className={classNames('tc-badge-delete-icon', theme['tc-badge-delete-icon'])}
-					link
-					role="button"
-				/>
-			)}
 		</div>
 	);
 }
+
+Badge.SIZES = SIZES;
 
 Badge.propTypes = {
 	id: PropTypes.string,
@@ -84,6 +116,10 @@ Badge.propTypes = {
 	t: PropTypes.func.isRequired,
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	className: PropTypes.string,
+	display: PropTypes.oneOf([Badge.SIZES.small, Badge.SIZES.large]),
+	aslink: PropTypes.bool,
+	white: PropTypes.bool,
+	icon: PropTypes.string,
 };
 
 Badge.defaultProps = {

@@ -117,8 +117,7 @@ $tc-notification-icon-size: $svg-md-size !default;
 	}
 
 	&:hover > &-timer-bar {
-		transform: translateX(100%);
-		animation: none;
+		animation-play-state: paused;
 	}
 }
 

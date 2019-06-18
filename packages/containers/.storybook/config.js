@@ -9,7 +9,6 @@ import api, { actions, sagas } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import { call, put } from 'redux-saga/effects';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
-import 'focus-outline-manager';
 import ComponentOverlay from './ComponentOverlay';
 import examples from '../examples';
 import {
@@ -476,6 +475,12 @@ function loadStories() {
 			tooltipPlacement: 'top',
 			activeExpression: { id: 'isFlagExpression', args: ['action:icon:creator:flag'] },
 			payload: { type: 'TOGGLE_FLAG_TYPE', flagId: 'action:icon:creator:flag' },
+		};
+		actions['show:guidedTour'] = {
+			label: 'Start guided tour',
+			payload: {
+				type: 'GUIDED_TOUR_SHOW',
+			},
 		};
 		actions[actionsSubHeader.actionSubHeaderSharing.id] = actionsSubHeader.actionSubHeaderSharing;
 		actions[actionsSubHeader.actionSubHeaderBubbles.id] = actionsSubHeader.actionSubHeaderBubbles;

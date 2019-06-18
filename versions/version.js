@@ -52,7 +52,7 @@ const STACK_VERSION = {
 
 const VERSIONS = require('./dependencies');
 
-const REACT_VERSION_PEER = '^16.8.0';
+const REACT_VERSION_PEER = '^16.8.6';
 
 const files = [
 	path.join(__dirname, '../npm-audit/package.json'),

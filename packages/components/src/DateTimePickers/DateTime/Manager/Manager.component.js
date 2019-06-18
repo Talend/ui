@@ -24,15 +24,6 @@ import {
 	INPUT_ERRORS,
 } from '../constants';
 
-function haveErrorsChanged(oldErrors, newErrors) {
-	if (oldErrors.length !== newErrors.length) {
-		return true;
-	}
-
-	const oldErrorMessages = oldErrors.map(error => error.message);
-	return newErrors.some(error => !oldErrorMessages.includes(error.message));
-}
-
 class ContextualManager extends React.Component {
 	static displayName = 'DateTime.Manager';
 	static propTypes = {
@@ -103,16 +94,13 @@ class ContextualManager extends React.Component {
 	}
 
 	onChange(event, origin) {
-		const { errorMessage, datetime, textInput, errors, previousErrors } = this.state;
-
-		if (
-			this.props.onChange &&
-			(this.dateHasChanged() || haveErrorsChanged(previousErrors, errors))
-		) {
-			// we need to update the initial state once it has been changed
-			this.initialState = { ...this.state };
-			this.props.onChange(event, { errors, errorMessage, datetime, textInput, origin });
+		if (!this.props.onChange) {
+			return;
 		}
+		const { errorMessage, datetime, textInput, errors } = this.state;
+		// we need to update the initial state once it has been changed
+		this.initialState = { ...this.state };
+		this.props.onChange(event, { errors, errorMessage, datetime, textInput, origin });
 	}
 
 	onInputChange(event) {
@@ -222,13 +210,6 @@ class ContextualManager extends React.Component {
 
 		const errorCodesArray = Array.isArray(errorCodes) ? errorCodes : [errorCodes];
 		return !!this.state.errors.find(stateError => errorCodesArray.indexOf(stateError.code) > -1);
-	}
-
-	dateHasChanged() {
-		const datetime = this.state.datetime;
-		return (
-			datetime !== this.initialState.datetime && !isSameSecond(datetime, this.initialState.datetime)
-		);
 	}
 
 	render() {

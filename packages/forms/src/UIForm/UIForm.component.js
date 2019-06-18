@@ -36,6 +36,8 @@ export class UIFormComponent extends React.Component {
 		this.onSubmit = this.onSubmit.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onActionClick = this.onActionClick.bind(this);
+		this.focusFirstError = this.focusFirstError.bind(this);
+		this.setFormRef = this.setFormRef.bind(this);
 		// control the tv4 language here.
 		const language = getLanguage(props.t);
 		if (props.language != null) {
@@ -114,29 +116,31 @@ export class UIFormComponent extends React.Component {
 		} else {
 			newValue = getValue(this.props.properties, schema);
 		}
-
-		// validate value
-		const valueError = validateSingle(
+		// validate value. This validation can be deep if schema is an object or an array
+		const widgetErrors = validateSingle(
 			schema,
 			newValue,
 			this.props.properties,
 			this.props.customValidation,
 			deepValidation,
-		)[schema.key];
+		);
+		const hasErrors = Object.values(widgetErrors).find(Boolean);
 
 		// update errors map
-		let errors;
-		if (valueError) {
-			errors = addError(this.props.errors, schema, valueError);
-		} else {
-			errors = removeError(this.props.errors, schema);
-		}
+		let errors = Object.entries(widgetErrors).reduce((accu, [errorKey, errorValue]) => {
+			const errorSchema = { key: errorKey };
+			return errorValue ? addError(accu, errorSchema, errorValue) : removeError(accu, errorSchema);
+		}, this.props.errors);
+
+		// widget error modifier
 		if (widgetChangeErrors) {
 			errors = widgetChangeErrors(errors);
 		}
+
+		// commit errors
 		this.props.setErrors(event, errors);
 
-		if (!valueError && schema.triggers && schema.triggers.length) {
+		if (!hasErrors && schema.triggers && schema.triggers.length) {
 			let formData = this.props.properties;
 			if (value !== undefined) {
 				formData = mutateValue(formData, schema, value);
@@ -231,20 +235,38 @@ export class UIFormComponent extends React.Component {
 				return accu;
 			}, {});
 
-		this.props.setErrors(event, errors);
-
 		const isValid = !Object.keys(errors).length;
+		this.props.setErrors(event, errors, !isValid ? this.focusFirstError : undefined);
+
 		if (this.props.onSubmit && isValid) {
 			if (this.props.moz) {
 				this.props.onSubmit(null, { formData: properties });
 			} else {
-				this.props.onSubmit(event, properties);
+				this.props.onSubmit(event, properties, mergedSchema);
 			}
 		}
+
 		return isValid;
 	}
 
+	setFormRef(element) {
+		this.formRef = element;
+	}
+
+	focusFirstError() {
+		if (!this.formRef) {
+			return;
+		}
+
+		const elementWithError = this.formRef.querySelector('[aria-invalid="true"]');
+
+		if (elementWithError) {
+			elementWithError.focus();
+		}
+	}
+
 	render() {
+		const { onSubmitEnter, onSubmitLeave, properties } = this.props;
 		const actions = this.props.actions || [
 			{
 				bsStyle: 'primary',
@@ -252,6 +274,8 @@ export class UIFormComponent extends React.Component {
 				type: 'submit',
 				widget: 'button',
 				position: 'right',
+				onMouseEnter: onSubmitEnter && (event => onSubmitEnter(event, properties)),
+				onMouseLeave: onSubmitLeave,
 			},
 		];
 		if (!this.state.mergedSchema) {
@@ -310,6 +334,7 @@ export class UIFormComponent extends React.Component {
 				onReset={this.props.onReset}
 				onSubmit={this.onSubmit}
 				target={this.props.target}
+				ref={this.setFormRef}
 			>
 				{formTemplate({ children: this.props.children, widgetsRenderer, buttonsRenderer })}
 			</form>
@@ -367,6 +392,8 @@ if (process.env.NODE_ENV !== 'production') {
 		/** State management impl: Set All fields validations errors */
 		setErrors: PropTypes.func,
 		getComponent: PropTypes.func,
+		onSubmitEnter: PropTypes.func,
+		onSubmitLeave: PropTypes.func,
 	};
 	UIFormComponent.propTypes = I18NUIForm.propTypes;
 }
