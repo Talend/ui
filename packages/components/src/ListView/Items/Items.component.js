@@ -18,14 +18,8 @@ const itemContainer = classNames(theme['tc-item-container'], 'tc-item-container'
  * @param {String} sizeInPixels
  * @returns {Number}
  */
-function pxToInt(sizeInPixels) {
-	if (!sizeInPixels) {
-		return 0;
-	}
-
-	const parsed = parseFloat(sizeInPixels.replace('px', ''));
-
-	return isNaN(parsed) ? 0 : parsed;
+function pxToInt(sizeInPixels = '0') {
+	return parseFloat(sizeInPixels.replace('px', '')) || 0;
 }
 
 const TOGGLE_ALL_ROW_HEIGHT = 40;
