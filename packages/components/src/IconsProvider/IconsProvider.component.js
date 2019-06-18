@@ -12,6 +12,8 @@ if (!process.env.ICON_BUNDLE) {
 
 const context = {
 	ids: [],
+	// default no op for testing (case of Icon call without IconsProvider)
+	get: () => {},
 };
 
 export function getIconHREF(name) {
