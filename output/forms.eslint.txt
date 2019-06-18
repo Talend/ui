@@ -9,4 +9,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   80:14  error  Expected 'this' to be used by class method 'onLiveChange'  class-methods-use-this
   80:22  error  'value' is defined but never used                          no-unused-vars
 
-✖ 3 problems (3 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/Array/ArrayItem.component.js
+  3:8  error  'Icon' is defined but never used  no-unused-vars
+
+✖ 4 problems (4 errors, 0 warnings)
+
