@@ -116,7 +116,7 @@ export function validateSimple(
 
 	results[key] = validateValue(mergedSchema, value, properties, customValidationFn);
 
-	if (deepValidation && items && value) {
+	if (deepValidation && items) {
 		// eslint-disable-next-line no-use-before-define
 		const subResults = validateAll(items, properties, customValidationFn);
 		Object.assign(results, subResults);
@@ -163,7 +163,7 @@ export function validateAll(mergedSchema, properties, customValidationFn) {
 		const value = getValue(properties, schema);
 		const subResults = !shouldValidate(schema.condition, properties)
 			? true
-			: validateSingle(schema, value, properties, customValidationFn, true);
+			: validateSingle(schema, value, properties, customValidationFn, true); // deep validation
 		Object.assign(results, subResults);
 	});
 	return results;

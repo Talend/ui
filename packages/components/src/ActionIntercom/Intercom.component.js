@@ -38,7 +38,6 @@ function Intercom({ id, className, config, t }) {
 		? t('TC_INTERCOM_CLOSE', { defaultValue: 'Close support messenger.' })
 		: t('TC_INTERCOM_OPEN', { defaultValue: 'Open support messenger.' });
 
-	const icon = show ? 'talend-cross' : 'talend-bubbles';
 	return (
 		<TooltipTrigger label={label} tooltipPlacement="bottom">
 			<button
@@ -48,7 +47,7 @@ function Intercom({ id, className, config, t }) {
 					[theme.open]: show,
 				})}
 			>
-				<Icon name={icon} />
+				<Icon name="talend-bubbles" />
 			</button>
 		</TooltipTrigger>
 	);

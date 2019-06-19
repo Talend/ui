@@ -1,20 +1,27 @@
 const SASS_DATA = "@import '~@talend/bootstrap-theme/src/theme/guidelines';";
 const autoprefixer = require.main.require('autoprefixer');
-const path = require('path');
-const webpack = require.main.require('webpack');
-const autoPrefixerPlugin = autoprefixer({ browsers: ['last 2 versions'] })
+const autoPrefixerPlugin = autoprefixer({ browsers: ['last 2 versions'] });
 
-module.exports = storybookBaseConfig => {
-	storybookBaseConfig.module.rules.push(
-		{
-			test: /\.woff(2)?(\?[a-z0-9=&.]+)?$/,
-			loader: 'url-loader',
-			options: {
-				limit: 50000,
-				mimetype: 'application/font-woff',
-				name: './fonts/[name].[ext]',
+module.exports = ({ config }) => {
+	// Override css part to apply custom postcss config
+	const cssRuleIndex = config.module.rules.findIndex(
+		({ test }) => test.toString() === /\.css$/.toString(),
+	);
+	config.module.rules[cssRuleIndex] = {
+		test: /\.css$/,
+		use: [
+			'style-loader',
+			'css-loader',
+			{
+				loader: 'postcss-loader',
+				options: {
+					plugins: [autoPrefixerPlugin],
+				},
 			},
-		},
+		],
+	};
+
+	config.module.rules.push(
 		{
 			test: /theme.scss$/,
 			use: [
@@ -54,20 +61,7 @@ module.exports = storybookBaseConfig => {
 				},
 			],
 		},
-		{
-			test: /\.css$/,
-			use: [
-				'style-loader',
-				'css-loader',
-				{
-					loader: 'postcss-loader',
-					options: {
-						plugins: [autoPrefixerPlugin],
-					},
-				},
-			],
-		}
 	);
 
-	return storybookBaseConfig;
+	return config;
 };
