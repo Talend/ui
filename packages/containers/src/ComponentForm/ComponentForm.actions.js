@@ -11,6 +11,7 @@ export function setComponentFormDirtyState(componentId, dirty) {
 			`ComponentForm dirty state should be a boolean, received "${dirty}"(${typeof dirty}) instead`,
 		);
 	}
+
 	return {
 		componentId,
 		dirty,
