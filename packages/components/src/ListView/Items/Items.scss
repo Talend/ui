@@ -1,5 +1,10 @@
 $tc-listview-height: 40vh !default;
 
+// $tc-listview-row-height: 13px;
+$tc-listview-row-height: 19.2px; // invalid size
+$tc-listview-row-nested-inner-top-padding: $padding-normal - $padding-small;
+$tc-listview-row-nested-inner-bottom-padding: $padding-small;
+
 .tc-listview-items {
 	padding-left: 0;
 	min-height: 0;
@@ -9,6 +14,21 @@ $tc-listview-height: 40vh !default;
 	background-color: rgba(0, 0, 0, 0.025);
 
 	.tc-item-container {
+		:global {
+			.checkbox-nested {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: $tc-listview-row-nested-inner-top-padding;
+        padding-bottom: $tc-listview-row-nested-inner-bottom-padding;
+
+        .checkbox {
+          margin: 0;
+          padding: $padding-small 0 0;
+          // height: $tc-listview-row-height;
+        }
+      }
+    }
+
 		&.toggle {
 			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 		}
@@ -17,9 +37,10 @@ $tc-listview-height: 40vh !default;
 
 // This exported values are used to compute properly sizes
 // in react-virtualized's calculation method
-// sass-lint:disable no-misspelled-properties
 :export {
+	// sass-lint:disable no-misspelled-properties
+	rowHeight: $tc-listview-row-height;
 	rowMargin: $padding-small;
-	rowInnerPaddings: $padding-normal + $padding-larger;
+	rowInnerPaddings: $tc-listview-row-nested-inner-top-padding + $tc-listview-row-nested-inner-bottom-padding;
+	// sass-lint:enable no-misspelled-properties
 }
-// sass-lint:enable no-misspelled-properties

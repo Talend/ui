@@ -61,7 +61,7 @@ const withNestedItems = {
 			value: 'LoremParent',
 			onChange: action('onChange'),
 			onExpandToggle: action('onExpandToggle'),
-			expanded: false,
+			expanded: true,
 			children: [
 				{
 					label: 'Lorem',
@@ -76,6 +76,144 @@ const withNestedItems = {
 				{
 					label: 'Dolor',
 					value: 'Dolor',
+					onChange: action('onChange'),
+				},
+				{
+					label: 'Lorem',
+					value: 'Lorem',
+					onChange: action('onChange'),
+				},
+				// {
+				// 	label: 'Ipsum',
+				// 	value: 'Ipsum',
+				// 	onChange: action('onChange'),
+				// },
+				// {
+				// 	label: 'Dolor',
+				// 	value: 'Dolor',
+				// 	onChange: action('onChange'),
+				// },
+				// {
+				// 	label: 'Lorem',
+				// 	value: 'Lorem',
+				// 	onChange: action('onChange'),
+				// },
+				// {
+				// 	label: 'Ipsum',
+				// 	value: 'Ipsum',
+				// 	onChange: action('onChange'),
+				// },
+				// {
+				// 	label: 'Dolor',
+				// 	value: 'Dolor',
+				// 	onChange: action('onChange'),
+				// },
+				// {
+				// 	label: 'Lorem',
+				// 	value: 'Lorem',
+				// 	onChange: action('onChange'),
+				// },
+				// {
+				// 	label: 'Ipsum',
+				// 	value: 'Ipsum',
+				// 	onChange: action('onChange'),
+				// },
+				// {
+				// 	label: 'Dolor',
+				// 	value: 'Dolor',
+				// 	onChange: action('onChange'),
+				// },
+				// {
+				// 	label: 'Lorem',
+				// 	value: 'Lorem',
+				// 	onChange: action('onChange'),
+				// },
+				// {
+				// 	label: 'Ipsum',
+				// 	value: 'Ipsum',
+				// 	onChange: action('onChange'),
+				// },
+				// {
+				// 	label: 'Dolor',
+				// 	value: 'Dolor',
+				// 	onChange: action('onChange'),
+				// },
+				{
+					label: 'Lorem',
+					value: 'Lorem',
+					onChange: action('onChange'),
+				},
+				{
+					label: 'Ipsum',
+					value: 'Ipsum',
+					onChange: action('onChange'),
+				},
+				{
+					label: 'Dolor',
+					value: 'Dolor',
+					onChange: action('onChange'),
+				},
+				{
+					label: 'Lorem',
+					value: 'Lorem',
+					onChange: action('onChange'),
+				},
+				{
+					label: 'Ipsum',
+					value: 'Ipsum',
+					onChange: action('onChange'),
+				},
+				{
+					label: 'Dolor',
+					value: 'Dolor',
+					onChange: action('onChange'),
+				},
+			],
+		},
+		{
+			label: 'IpsumParent',
+			value: 'IpsumParent',
+			onChange: action('onChange'),
+			onExpandToggle: action('onExpandToggle'),
+			expanded: false,
+			children: [
+				{
+					label: 'Lorem2',
+					value: 'Lorem2',
+					onChange: action('onChange'),
+				},
+				{
+					label: 'Ipsum2',
+					value: 'Ipsum2',
+					onChange: action('onChange'),
+				},
+				{
+					label: 'Dolor2',
+					value: 'Dolor2',
+					onChange: action('onChange'),
+				},
+			],
+		},
+		{
+			label: 'IpsumParent',
+			value: 'IpsumParent',
+			onChange: action('onChange'),
+			onExpandToggle: action('onExpandToggle'),
+			expanded: true,
+			children: [
+				{
+					label: 'Lorem2',
+					value: 'Lorem2',
+					onChange: action('onChange'),
+				},
+				{
+					label: 'Ipsum2',
+					value: 'Ipsum2',
+					onChange: action('onChange'),
+				},
+				{
+					label: 'Dolor2',
+					value: 'Dolor2',
 					onChange: action('onChange'),
 				},
 			],

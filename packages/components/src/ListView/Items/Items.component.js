@@ -23,7 +23,7 @@ function pxToInt(sizeInPixels = '0') {
 }
 
 const TOGGLE_ALL_ROW_HEIGHT = 40;
-const ROW_LINE_HEIGHT = 13;
+const ROW_LINE_HEIGHT = pxToInt(theme.rowHeight);
 const ROW_MARGIN = pxToInt(theme.rowMargin);
 const ROW_INNER_PADDINGS = pxToInt(theme.rowInnerPaddings);
 const ROW_HEIGHT = ROW_LINE_HEIGHT + ROW_MARGIN;
@@ -62,13 +62,20 @@ export class ItemsComponent extends React.PureComponent {
 
 		const currentItem = this.getItemByIndex(index);
 
-		if (currentItem && currentItem.children && currentItem.expanded) {
-			return (currentItem.children.length + 1) * ROW_HEIGHT + ROW_INNER_PADDINGS;
+		if (!currentItem || !currentItem.children || !currentItem.expanded) {
+			return ROW_HEIGHT;
 		}
 
-		const isLastItem = index === this.props.items.length - Number(!this.hasToggleAll);
+		const firstItemIndex = this.hasToggleAll ? 1 : 0;
 
-		return ROW_HEIGHT + (isLastItem ? ROW_MARGIN : 0);
+		const isFirstItem = index === firstItemIndex;
+		const isLastItem = index === this.props.items.length - 1 - firstItemIndex;
+
+		return ROW_HEIGHT
+			+ currentItem.children.length * ROW_HEIGHT
+			+ ROW_INNER_PADDINGS
+			+ (isFirstItem ? ROW_MARGIN : 0)
+			+ (isLastItem ? ROW_MARGIN : 0);
 	}
 
 	getRowCount() {
