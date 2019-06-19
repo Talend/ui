@@ -5,7 +5,6 @@ import cmf from '@talend/react-cmf';
 import * as sagas from './ComponentForm.sagas';
 import ConnectedTCompForm, { TCompForm } from './ComponentForm.component';
 
-
 describe('ComponentForm saga', () => {
 	describe('*checkFormComponentId', () => {
 		it('checkFormComponentId return true if provided componentId and action type match action', () => {
