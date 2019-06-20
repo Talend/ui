@@ -11,6 +11,7 @@ import deleteResourceConst from './constants';
  * @param {Array<String>} [resourcePath]
  * @return {String || Array<String>}
  */
+
 export function getResourceLocator(resourceType, resourcePath) {
 	if (resourcePath) {
 		if (Array.isArray(resourcePath)) {
