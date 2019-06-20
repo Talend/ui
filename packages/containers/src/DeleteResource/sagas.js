@@ -75,6 +75,7 @@ export function* deleteResourceValidate(
 			yield put({
 				type: deleteResourceConst.DIALOG_BOX_DELETE_RESOURCE_SUCCESS,
 				model: {
+					...get(action, 'data.model', {}),
 					id: safeId,
 					labelResource: resource.get('label') || resource.get('name', ''),
 				},
