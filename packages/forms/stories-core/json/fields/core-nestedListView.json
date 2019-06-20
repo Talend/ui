@@ -39,41 +39,14 @@
 			"key": "food",
 			"title": "Food",
 			"widget": "nestedListView",
-			"autosize": true,
-			"expanded": true,
-			"expended": true,
 			"items": [
 				{
-					"key": "food.stuff",
-					"title": "Stuff",
+					"key": "food.fruits",
+					"title": "Fruits",
 					"titleMap": {
-						"carot": "carot",
-						"lettdfuce": "lettdfuce",
-						"turnqip": "turnqip",
-						"carozt": "carozt",
-						"lettuzce": "lettuzce",
-						"turnzip": "turnzip",
-						"carzot": "carzot",
-						"lezttuce": "lezttuce",
-						"tzurnip": "tzurnip",
-						"zcarot": "zcarot",
-						"lettucze": "lettucze",
-						"turnip": "turnip",
-						"carosst": "carosst",
-						"lettuce": "lettuce",
-						"tursnip": "tursnip",
-						"casrot": "casrot",
-						"lsettuce": "lsettuce",
-						"LASTITEM": "LASTITEM"
-					}
-				},
-				{
-					"key": "food.vegetables",
-					"title": "Vegetables",
-					"titleMap": {
-						"carot": "Carot",
-						"lettuce": "Lettuce",
-						"turnip": "Turnip"
+						"orange": "Orange",
+						"pear": "Pear",
+						"passion_fruit": "Passion fruit"
 					}
 				},
 				{
