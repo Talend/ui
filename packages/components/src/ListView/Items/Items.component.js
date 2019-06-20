@@ -23,10 +23,11 @@ function pxToInt(sizeInPixels = '0') {
 }
 
 const TOGGLE_ALL_ROW_HEIGHT = 40;
-const ROW_LINE_HEIGHT = pxToInt(theme.rowHeight);
-const ROW_MARGIN = pxToInt(theme.rowMargin);
-const ROW_INNER_PADDINGS = pxToInt(theme.rowInnerPaddings);
-const ROW_HEIGHT = ROW_LINE_HEIGHT + ROW_MARGIN;
+const ROW_LINE_HEIGHT = pxToInt(theme['row-height']);
+const ROW_VERTICAL_MARGIN = pxToInt(theme['row-vertical-margin']);
+const ROW_HEIGHT = ROW_LINE_HEIGHT + ROW_VERTICAL_MARGIN;
+const ROW_NESTED_INNER_MARGINS = pxToInt(theme['row-nested-inner-margin-top'])
+	+ pxToInt(theme['row-nested-inner-margin-bottom']);
 
 export class ItemsComponent extends React.PureComponent {
 	constructor(props) {
@@ -68,15 +69,13 @@ export class ItemsComponent extends React.PureComponent {
 
 		const firstItemIndex = this.hasToggleAll ? 1 : 0;
 
-		const isFirstItem = index === firstItemIndex;
+		// const isFirstItem = index === firstItemIndex;
 		const isLastItem = index === this.props.items.length - 1 - firstItemIndex;
 
 		return (
-			ROW_HEIGHT +
-			currentItem.children.length * ROW_HEIGHT +
-			ROW_INNER_PADDINGS +
-			(isFirstItem ? ROW_MARGIN : 0) +
-			(isLastItem ? ROW_MARGIN : 0)
+			(currentItem.children.length + 1) * ROW_HEIGHT + // Row own height + children's heights
+			ROW_NESTED_INNER_MARGINS + // Inner nested margins
+			(isLastItem ? ROW_VERTICAL_MARGIN : 0) // Bottom margin for the last item
 		);
 	}
 
