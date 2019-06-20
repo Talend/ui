@@ -26,8 +26,8 @@ const TOGGLE_ALL_ROW_HEIGHT = 40;
 const ROW_LINE_HEIGHT = pxToInt(theme['row-height']);
 const ROW_VERTICAL_MARGIN = pxToInt(theme['row-vertical-margin']);
 const ROW_HEIGHT = ROW_LINE_HEIGHT + ROW_VERTICAL_MARGIN;
-const ROW_NESTED_INNER_MARGINS = pxToInt(theme['row-nested-inner-margin-top'])
-	+ pxToInt(theme['row-nested-inner-margin-bottom']);
+const ROW_NESTED_INNER_MARGINS =
+	pxToInt(theme['row-nested-inner-margin-top']) + pxToInt(theme['row-nested-inner-margin-bottom']);
 
 export class ItemsComponent extends React.PureComponent {
 	constructor(props) {
