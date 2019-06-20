@@ -16,18 +16,18 @@ $tc-listview-row-nested-inner-bottom-padding: $padding-small;
 	.tc-item-container {
 		:global {
 			.checkbox-nested {
-        margin-top: 0;
-        margin-bottom: 0;
-        padding-top: $tc-listview-row-nested-inner-top-padding;
-        padding-bottom: $tc-listview-row-nested-inner-bottom-padding;
+				margin-top: 0;
+				margin-bottom: 0;
+				padding-top: $tc-listview-row-nested-inner-top-padding;
+				padding-bottom: $tc-listview-row-nested-inner-bottom-padding;
 
-        .checkbox {
-          margin: 0;
-          padding: $padding-small 0 0;
-          // height: $tc-listview-row-height;
-        }
-      }
-    }
+				.checkbox {
+					margin: 0;
+					padding: $padding-small 0 0;
+					// height: $tc-listview-row-height;
+				}
+			}
+		}
 
 		&.toggle {
 			border-bottom: 1px solid rgba(0, 0, 0, 0.1);

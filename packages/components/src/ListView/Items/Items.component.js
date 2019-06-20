@@ -71,11 +71,13 @@ export class ItemsComponent extends React.PureComponent {
 		const isFirstItem = index === firstItemIndex;
 		const isLastItem = index === this.props.items.length - 1 - firstItemIndex;
 
-		return ROW_HEIGHT
-			+ currentItem.children.length * ROW_HEIGHT
-			+ ROW_INNER_PADDINGS
-			+ (isFirstItem ? ROW_MARGIN : 0)
-			+ (isLastItem ? ROW_MARGIN : 0);
+		return (
+			ROW_HEIGHT +
+			currentItem.children.length * ROW_HEIGHT +
+			ROW_INNER_PADDINGS +
+			(isFirstItem ? ROW_MARGIN : 0) +
+			(isLastItem ? ROW_MARGIN : 0)
+		);
 	}
 
 	getRowCount() {
