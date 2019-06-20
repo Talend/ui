@@ -22,5 +22,14 @@ src/List/Toolbar/Toolbar.scss
 src/Typeahead/Typeahead.scss
   34:5  error  Mixins should come before declarations  mixins-before-declarations
 
-✖ 9 problems (7 errors, 2 warnings)
+src/VirtualizedList/HeaderResizable/HeaderResizable.scss
+   6:2  error  Class '.ReactVirtualized__Table' should be written in lowercase with hyphens     class-name-format
+  19:3  error  Class '.tc-header-TruncatedText' should be written in lowercase with hyphens     class-name-format
+  23:3  error  Class '.tc-header-DragHandle' should be written in lowercase with hyphens        class-name-format
+  29:3  error  Class '.tc-header-DragHandle' should be written in lowercase with hyphens        class-name-format
+  33:3  error  Class '.tc-header-DragHandleActive' should be written in lowercase with hyphens  class-name-format
+  34:3  error  Class '.tc-header-DragHandleActive' should be written in lowercase with hyphens  class-name-format
+  39:3  error  Class '.tc-header-DragHandleIcon' should be written in lowercase with hyphens    class-name-format
+
+✖ 16 problems (14 errors, 2 warnings)
 
