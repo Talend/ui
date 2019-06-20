@@ -14,8 +14,10 @@ import { HeaderBar, IconsProvider } from '../src';
 import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../src/Layout/constants';
 
 const icons = {
+	'talend-bubbles': talendIcons['talend-bubbles'],
 	'talend-burger': talendIcons['talend-burger'],
 	'talend-cog': talendIcons['talend-cog'],
+	'talend-cross': talendIcons['talend-cross'],
 	'talend-environment': talendIcons['talend-environment'],
 	'talend-filter': talendIcons['talend-filter'],
 	'talend-info-circle': talendIcons['talend-info-circle'],
@@ -390,6 +392,18 @@ decoratedStories
 			};
 			return <HeaderBar {...headerProps} />;
 		},
+		{ info: { styles: infoStyle } },
+	)
+	.add(
+		'intercom',
+		() => (
+			<HeaderBar
+				logo={props.logo}
+				brand={props.brand}
+				{...props}
+				intercom={{ id: 'intercom', config: { app_id: 'j9pqsz4w' } }}
+			/>
+		),
 		{ info: { styles: infoStyle } },
 	)
 	.add('barebone', () => <HeaderBar />, { info: { styles: infoStyle } });

@@ -88,6 +88,17 @@ describe('Array Item component', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should disable delete button', () => {
+		let deleteAction;
+		const renderItem = (index, { actions }) => {
+			deleteAction = actions[0];
+		};
+		// when
+		shallow(<ArrayItem id={'disabled-array-item'} renderItem={renderItem} disabled />);
+		// then
+		expect(deleteAction.disabled).toBe(true);
+	});
+
 	it('should trigger onRemove when remove button is clicked', () => {
 		// given
 		const onRemove = jest.fn();

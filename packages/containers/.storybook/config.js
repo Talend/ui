@@ -1,7 +1,6 @@
-import '@babel/polyfill';
 import { storiesOf, configure, addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
+import { withA11y } from '@storybook/addon-a11y';
 import createSagaMiddleware from 'redux-saga';
 import withCMF from '@talend/react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
@@ -19,7 +18,7 @@ import { actionsCreators as actionsCreatorsEditableText } from './editabletext.s
 import { registerAllContainers } from '../src/register';
 
 addDecorator(withCMF);
-addDecorator(checkA11y);
+addDecorator(withA11y);
 
 registerAllContainers();
 const actionLogger = action('dispatch');

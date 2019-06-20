@@ -12,6 +12,7 @@ import Inject from '../Inject';
 import theme from './Drawer.scss';
 
 const DEFAULT_TRANSITION_DURATION = 350;
+CSSTransition.childContextTypes = {};
 
 class DrawerAnimation extends React.Component {
 	constructor(props) {

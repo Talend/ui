@@ -3,6 +3,7 @@ import cmf from '@talend/react-cmf';
 import { fromJS } from 'immutable';
 import get from 'lodash/get';
 import Component from './ComponentForm.component';
+import { COMPONENT_FORM_SET_DIRTY } from './ComponentForm.actions';
 
 /**
  * @param {Action{definitionURL: String, uiSpecPath: String, componentId: String }} action
@@ -77,6 +78,7 @@ export function* onFormSubmit(componentId, submitURL, action) {
 	yield put({
 		type: response.ok ? Component.ON_SUBMIT_SUCCEED : Component.ON_SUBMIT_FAILED,
 		data,
+		formData: action.properties,
 		response,
 		componentId,
 	});
@@ -93,8 +95,18 @@ export function checkFormComponentId(componentId, actionType) {
 	};
 }
 
+/**
+ * This function handle a change of the dirty state for a given component form id
+ * @param {object} reduxAction with a componentId (string) & the dirtyState (boolean) to apply
+ */
+export function* handleSetDirtyState({ componentId, dirty }) {
+	const componentFormState = yield select(Component.getState, componentId);
+	yield put(Component.setStateAction(componentFormState.set('dirty', !!dirty), componentId));
+}
+
 export function* handle(props) {
 	yield call(onDidMount, props);
+	yield takeLatest(COMPONENT_FORM_SET_DIRTY, handleSetDirtyState);
 	yield takeEvery(
 		checkFormComponentId(props.componentId, Component.ON_DEFINITION_URL_CHANGED),
 		fetchDefinition,
