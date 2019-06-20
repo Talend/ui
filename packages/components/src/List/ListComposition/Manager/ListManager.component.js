@@ -26,13 +26,13 @@ function Manager(props) {
 
 	const contextValues = {
 		collection,
-		t: props.t,
 		displayMode,
 		setDisplayMode,
-		sortParams,
 		setSortParams,
-		textFilter,
 		setTextFilter,
+		sortParams,
+		t: props.t,
+		textFilter,
 	};
 
 	return <ListContext.Provider value={contextValues}>{props.children}</ListContext.Provider>;

@@ -32,7 +32,6 @@ export function compareOrder(a, b) {
 
 export function ListToVirtualizedList(props) {
 	const { itemProps, sort, titleProps } = props;
-
 	if (titleProps) {
 		if (!titleProps.actionsKey) {
 			titleProps.actionsKey = 'actions';
@@ -41,6 +40,7 @@ export function ListToVirtualizedList(props) {
 			titleProps.persistentActionsKey = 'persistentActions';
 		}
 	}
+
 	// Backward compatibility: find array in object attr:
 	const supposedActions = {};
 	if (props.items.length > 0) {
@@ -55,26 +55,26 @@ export function ListToVirtualizedList(props) {
 	// Allow to override or add new cell renderer from outside
 	const listCellDictionary = { ...cellDictionary, ...props.cellDictionary };
 	const listHeaderDictionary = { ...headerDictionary, ...props.headerDictionary };
-
 	return (
 		<VirtualizedList
-			id={props.id}
 			collection={props.items}
+			columnsWidths={props.columnsWidths}
+			defaultHeight={props.defaultHeight}
+			id={props.id}
+			inProgress={props.inProgress}
 			isActive={itemProps && itemProps.isActive}
 			isSelected={itemProps && itemProps.isSelected}
-			inProgress={props.inProgress}
+			noRowsRenderer={props.noRowsRenderer}
 			onRowClick={itemProps && itemProps.onRowClick}
 			onRowDoubleClick={titleProps && titleProps.onClick}
 			onToggleAll={itemProps && itemProps.onToggleAll}
-			defaultHeight={props.defaultHeight}
-			noRowsRenderer={props.noRowsRenderer}
 			rowHeight={props.rowHeight}
+			rowRenderers={props.rowRenderers}
 			selectionToggle={itemProps && itemProps.onToggle}
 			sort={adaptOnSort(sort && sort.onChange)}
 			sortBy={sort && sort.field}
 			sortDirection={sort && sort.isDescending ? SORT_BY.DESC : SORT_BY.ASC}
 			type={props.displayMode.toUpperCase()}
-			rowRenderers={props.rowRenderers}
 		>
 			{props.columns
 				.filter(item => !item.hidden)
@@ -105,7 +105,7 @@ export function ListToVirtualizedList(props) {
 							columnData: column.data,
 						});
 					}
-					return <VirtualizedList.Content key={index} {...cProps} />;
+					return <List.VContent key={index} {...cProps} />;
 				})}
 		</VirtualizedList>
 	);

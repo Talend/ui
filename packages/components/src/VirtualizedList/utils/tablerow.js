@@ -51,9 +51,11 @@ export function insertSelectionConfiguration(props) {
  * - header and row fixed classnames
  * - parent id (via columnData)
  */
-export function toColumns({ id, theme, children }) {
+export function toColumns({ id, theme, children, widths, TOTAL_WIDTH }) {
 	return React.Children.toArray(children).map((field, index) => {
 		const colClassName = `tc-list-cell-${field.props.dataKey}`;
+		const widthObj =
+			Array.isArray(widths) && widths.find(col => col.dataKey === field.props.dataKey);
 		const colProps = {
 			...field.props,
 			headerClassName: classNames(field.props.headerClassName, theme.header, colClassName),
@@ -62,6 +64,7 @@ export function toColumns({ id, theme, children }) {
 				...field.props.columnData,
 				id,
 			},
+			width: widthObj && widthObj.width,
 		};
 		return <Column key={index} {...colProps} />;
 	});
