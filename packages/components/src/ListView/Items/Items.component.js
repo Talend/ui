@@ -61,7 +61,7 @@ export class ItemsComponent extends React.PureComponent {
 			return TOGGLE_ALL_ROW_HEIGHT;
 		}
 
-		const isLastItem = (index + (this.hasToggleAll ? 0 : 1)) === this.props.items.length;
+		const isLastItem = index + (this.hasToggleAll ? 0 : 1) === this.props.items.length;
 		const currentItem = this.getItemByIndex(index);
 
 		let height = ROW_HEIGHT;
@@ -77,8 +77,8 @@ export class ItemsComponent extends React.PureComponent {
 
 		return (
 			height + // Own height
-			(currentItem.children.length * ROW_HEIGHT) + // Children heights
-			ROW_NESTED_INNER_MARGINS// Inner nested margins
+			currentItem.children.length * ROW_HEIGHT + // Children heights
+			ROW_NESTED_INNER_MARGINS // Inner nested margins
 		);
 	}
 
