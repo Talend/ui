@@ -61,21 +61,24 @@ export class ItemsComponent extends React.PureComponent {
 			return TOGGLE_ALL_ROW_HEIGHT;
 		}
 
+		const isLastItem = (index + (this.hasToggleAll ? 0 : 1)) === this.props.items.length;
 		const currentItem = this.getItemByIndex(index);
 
-		if (!currentItem || !currentItem.children || !currentItem.expanded) {
-			return ROW_HEIGHT;
+		let height = ROW_HEIGHT;
+
+		if (isLastItem) {
+			height += ROW_NESTED_INNER_MARGINS;
+			height += this.hasToggleAll ? 1 : 0; // Horizontal "Toggle all" separation height
 		}
 
-		const firstItemIndex = this.hasToggleAll ? 1 : 0;
-
-		// const isFirstItem = index === firstItemIndex;
-		const isLastItem = index === this.props.items.length - 1 - firstItemIndex;
+		if (!currentItem || !currentItem.children || !currentItem.expanded) {
+			return height;
+		}
 
 		return (
-			(currentItem.children.length + 1) * ROW_HEIGHT + // Row own height + children's heights
-			ROW_NESTED_INNER_MARGINS + // Inner nested margins
-			(isLastItem ? ROW_VERTICAL_MARGIN : 0) // Bottom margin for the last item
+			height + // Own height
+			(currentItem.children.length * ROW_HEIGHT) + // Children heights
+			ROW_NESTED_INNER_MARGINS// Inner nested margins
 		);
 	}
 

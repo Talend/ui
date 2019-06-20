@@ -1,12 +1,13 @@
 $tc-listview-height: 40vh !default;
 
 $row-height: 13px;
+$row-left-margin: 5px;
 $row-vertical-margin: $padding-small;
 $row-nested-inner-margin-top: $padding-normal - $padding-small;
 $row-nested-inner-margin-bottom: $padding-larger - $padding-small;
 
 .tc-listview-items {
-	padding-left: 0;
+	padding-left: $row-left-margin;
 	min-height: 0;
 	list-style: none;
 	box-shadow: inset 0 21px 3px -20px $shadow, inset 0 -21px 3px -20px $shadow;
@@ -16,6 +17,7 @@ $row-nested-inner-margin-bottom: $padding-larger - $padding-small;
 	.tc-item-container {
 		:global {
 			.checkbox-nested {
+				padding-left: $row-left-margin;
 				margin-top: $row-nested-inner-margin-top;
 				margin-bottom: $row-nested-inner-margin-bottom;
 			}
