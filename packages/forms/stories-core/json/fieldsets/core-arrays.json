@@ -10,12 +10,21 @@
       "names": {
         "type": "array",
         "items": {
+          "title": "name",
           "type": "string"
         }
       },
       "readOnlyArray": {
         "type": "array",
         "items": {
+          "title": "name",
+          "type": "string"
+        }
+      },
+      "disabledArray": {
+        "type": "array",
+        "items": {
+          "title": "name",
           "type": "string"
         }
       },
@@ -24,6 +33,7 @@
         "maxItems": 2,
         "items": {
           "type": "object",
+          "title": "comment",
           "properties": {
             "name": {
               "type": "string"
@@ -72,6 +82,7 @@
   "uiSchema": [
     { "key": "names" },
     { "key": "readOnlyArray", "readOnly": true },
+    { "key": "disabledArray", "disabled": true },
     {
       "key": "comments",
       "triggers": ["validation"],
@@ -120,8 +131,9 @@
     }
   ],
   "properties": {
-    "names": ["aze", "bslkdjf"],
-    "readOnlyArray": ["aze", "bslkdjf"],
+    "names": ["foo", "bar"],
+    "readOnlyArray": ["foo", "bar"],
+    "disabledArray": ["foo", "bar"],
     "comments": [
       {
         "name": "Jimmy",
