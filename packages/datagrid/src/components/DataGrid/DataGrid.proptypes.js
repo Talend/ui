@@ -10,7 +10,7 @@ const DATAGRID_PROPTYPES = {
 	loading: PropTypes.bool,
 	enableColResize: PropTypes.bool,
 	columnMinWidth: PropTypes.number,
-	forceRedrawRows: PropTypes.func,
+	forceRedrawRows: PropTypes.func, // deprecated
 	getComponent: PropTypes.func,
 	getPinnedColumnDefsFn: PropTypes.func,
 	getColumnDefsFn: PropTypes.func,

@@ -87,6 +87,26 @@ export default class DataGrid extends React.Component {
 		this.onKeyDownHeaderColumn = this.onKeyDownHeaderColumn.bind(this);
 	}
 
+	/**
+	 * componentDidUpdate - call forceRedrawRows after props changes to redraw or
+	 * not the grid
+	 * @deprecated
+	 * @param  {object} prevProps previous props
+	 */
+	componentDidUpdate(prevProps) {
+		if (this.props.loading || !this.gridAPI) {
+			return;
+		}
+
+		if (this.props.forceRedrawRows) {
+			console.warn('forceRedrawRows is deprecated');
+		}
+
+		if (this.props.forceRedrawRows && this.props.forceRedrawRows(this.props, prevProps)) {
+			this.gridAPI.redrawRows();
+		}
+	}
+
 	onGridReady({ api }) {
 		this.gridAPI = api;
 	}
@@ -154,6 +174,10 @@ export default class DataGrid extends React.Component {
 	}
 
 	getAgGridConfig() {
+		if (this.props.rowData && this.props.getRowDataFn) {
+			console.warn('Should use either rowData nor getRowDataFn. Not the both in the same time');
+		}
+
 		let rowData = this.props.rowData;
 		if (typeof this.props.getRowDataFn === 'function') {
 			rowData = this.props.getRowDataFn(this.props.data, this.props.startIndex);

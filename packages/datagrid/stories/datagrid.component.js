@@ -177,6 +177,9 @@ storiesOf('Component Datagrid', module)
 		}
 		return <WithLayout />;
 	})
+	.add('@deprecated - dynamic change data with forceRedrawRows', () => (
+		<DynamicDataGrid forceRedraw />
+	))
 	.add('dynamic change data', () => <DynamicDataGrid />)
 	.add('faster datagrid', () => (
 		<div style={{ height: '100vh' }}>

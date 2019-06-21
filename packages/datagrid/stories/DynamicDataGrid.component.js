@@ -1,8 +1,10 @@
 import React from 'react';
 import random from 'lodash/random';
 import { IconsProvider } from '@talend/react-components';
+import PropTypes from 'prop-types';
 
 import DataGrid from '../src/components/';
+import serializer from '../src/components/DatasetSerializer';
 import sample from './sample.json';
 import { getComponent } from './datagrid.component';
 
@@ -11,6 +13,53 @@ const LOADING_ITEM = {
 	loading: true,
 	value: {},
 };
+
+/**
+ * getRowDataInfos - this function return information about how many row of each type are loaded
+ *
+ * @param  {array} rowData array of rowData
+ * @return {object}        state of the rowData
+ */
+export function getRowDataInfos(rowData) {
+	return rowData.reduce(
+		(acc, item) => {
+			if (item.loading === false && Object.keys(item).length === 2) {
+				// eslint-disable-next-line no-param-reassign
+				acc.notLoaded += 1;
+			} else if (item.loading === true) {
+				// eslint-disable-next-line no-param-reassign
+				acc.loading += 1;
+			} else {
+				// eslint-disable-next-line no-param-reassign
+				acc.loaded += 1;
+			}
+			return acc;
+		},
+		{
+			loaded: 0,
+			loading: 0,
+			notLoaded: 0,
+		},
+	);
+}
+
+/**
+ * redrawRows - call redrawRows only if necessary. (improve ag-grid performance)
+ *
+ * @param  {object} props     component props
+ * @param  {object} prevProps previous component prop
+ * @return {boolean}         return true if we need to reload the grid
+ */
+function forceRedrawRows(props, prevProps) {
+	const prevInfos = getRowDataInfos(prevProps.rowData);
+	const currentInfos = getRowDataInfos(props.rowData);
+
+	return (
+		prevInfos.loaded !== currentInfos.loaded ||
+		prevInfos.loading !== currentInfos.loading ||
+		prevInfos.notLoaded !== currentInfos.notLoaded
+	);
+}
 
 function getItemWithRandomValue() {
 	return {
@@ -62,6 +111,10 @@ function getItemWithRandomValue() {
 }
 
 export default class DynamicDataGrid extends React.Component {
+	static propTypes = {
+		forceRedraw: PropTypes.bool,
+	};
+
 	constructor() {
 		super();
 
@@ -144,7 +197,13 @@ export default class DynamicDataGrid extends React.Component {
 				/>
 				Number of data : {this.state.sample.data.length}
 				<IconsProvider />
-				<DataGrid data={this.state.sample} getComponent={getComponent} rowSelection="multiple" />
+				<DataGrid
+					data={this.state.sample}
+					getComponent={getComponent}
+					rowSelection="multiple"
+					forceRedrawRows={this.props.forceRedraw ? forceRedrawRows : null}
+					rowData={this.props.forceRedraw ? serializer.getRowData(this.state.sample) : null} //
+				/>
 			</div>
 		);
 	}
