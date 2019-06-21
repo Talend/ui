@@ -7,17 +7,16 @@
 @import './colors';
 @import './paddings';
 @import './variables';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/mixins';
 @import './visual-helpers';
 @import './datagrid';
 
 /// Button font size
 /// @type Number (Unit)
-$btn-font-size: 14px !default;
+$btn-font-size: 1.4rem !default;
 
 /// Button box shadow width
 /// @type Number (Unit)
-$btn-box-shadow-width: 3px !default;
+$btn-box-shadow-width: 0.3rem !default;
 
 /// Button background tinting percent
 /// @type Number (Unitless)
@@ -29,11 +28,11 @@ $dropdown-caret-size: $caret-width-large !default;
 
 /// Input group button padding
 /// @type Number (Unit)
-$input-group-btn-padding: 5px !default;
+$input-group-btn-padding: 0.5rem !default;
 
 /// Input group add-on padding
 /// @type Number (Unit)
-$input-group-addon-padding: 8px !default;
+$input-group-addon-padding: 0.8rem !default;
 
 /// Modal header background color
 ///
@@ -47,8 +46,8 @@ $modal-header-color: $black !default;
 
 /// Navbar brand logo width
 /// @type Number (Unit)
-$navbar-brand-logo-height: 20px !default;
-$navbar-brand-logo-width: 75px !default;
+$navbar-brand-logo-height: 2rem !default;
+$navbar-brand-logo-width: 7.5rem !default;
 
 /// Drawer z-index
 /// should always stay lower than dialog z-index which is set to 1040

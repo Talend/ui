@@ -1,65 +1,65 @@
 @import './fonts';
 // Reset and dependencies
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/normalize';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/print';
-//@import '~bootstrap-sass/assets/stylesheets/bootstrap/glyphicons';
+@import './variables';
+@import '~bootstrap/scss/bootstrap-reboot';
+html {
+	font-size: 10px;
+}
+@import '~bootstrap/scss/root';
+
+@import '~bootstrap/scss/type';
+@import '~bootstrap/scss/images';
+@import '~bootstrap/scss/code';
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/tables';
+@import '~bootstrap/scss/forms';
+@import '~bootstrap/scss/buttons';
+@import '~bootstrap/scss/transitions';
+@import '~bootstrap/scss/dropdown';
+@import '~bootstrap/scss/button-group';
+@import '~bootstrap/scss/input-group';
+@import '~bootstrap/scss/custom-forms';
+@import '~bootstrap/scss/nav';
+@import '~bootstrap/scss/navbar';
+@import '~bootstrap/scss/card';
+@import '~bootstrap/scss/breadcrumb';
+@import '~bootstrap/scss/pagination';
+@import '~bootstrap/scss/badge';
+@import '~bootstrap/scss/jumbotron';
+@import '~bootstrap/scss/alert';
+@import '~bootstrap/scss/progress';
+@import '~bootstrap/scss/media';
+@import '~bootstrap/scss/list-group';
+@import '~bootstrap/scss/close';
+@import '~bootstrap/scss/toasts';
+@import '~bootstrap/scss/modal';
+@import '~bootstrap/scss/tooltip';
+@import '~bootstrap/scss/popover';
+@import '~bootstrap/scss/carousel';
+@import '~bootstrap/scss/spinners';
+@import '~bootstrap/scss/utilities';
+@import '~bootstrap/scss/print';
 
 // Core CSS
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/scaffolding';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/type';
 @import './type';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/code';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/grid';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/tables';
-@import './tables';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/forms';
-@import './forms';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/buttons';
-@import './buttons';
-@import './hyperlinks';
-@import './animation';
+// @import './tables';
+// @import './forms';
+// @import './buttons';
+// @import './hyperlinks';
+// @import './animation';
 
 // Components
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/component-animations';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/dropdowns';
-@import './dropdowns';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/button-groups';
-@import './button-groups';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/input-groups';
-@import './input-groups';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/labels';
-@import './labels';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/navs';
-@import './navs';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/navbar';
-@import './navbar';
-@import './navbar.button';
-@import './navbar.dropdown';
-@import './navbar.search';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/breadcrumbs';
-@import './breadcrumbs';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/pagination';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/pager';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/badges';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/jumbotron';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/thumbnails';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/alerts';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/progress-bars';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/media';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/list-group';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/panels';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/responsive-embed';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/wells';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/close';
+// @import './dropdowns';
+// @import './button-groups';
+// @import './input-groups';
+// @import './labels';
+// @import './navs';
+// @import './navbar';
+// @import './navbar.button';
+// @import './navbar.dropdown';
+// @import './navbar.search';
+// @import './breadcrumbs';
 
 // Components w/ JavaScript
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/modals';
-@import './modals';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/tooltip';
-@import './tooltip';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/popovers';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/carousel';
-
-// Utility classes
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/utilities';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities';
+// @import './modals';
+// @import './tooltip';

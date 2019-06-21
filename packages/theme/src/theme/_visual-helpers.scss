@@ -130,7 +130,7 @@
 			:global(.btn) {
 				&:hover,
 				&:focus {
-					box-shadow: 0 200px 100px -100px rgba(255, 255, 255, 0.12) inset;
+					box-shadow: 0 20rem 10rem -10rem rgba(255, 255, 255, 0.12) inset;
 				}
 			}
 		}
@@ -151,7 +151,7 @@
 			content: '';
 			position: absolute;
 			left: 0;
-			bottom: -50px;
+			bottom: -5rem;
 			height: $logo-size;
 			width: $logo-size;
 			background-repeat: no-repeat;
@@ -170,7 +170,7 @@
 			&:hover {
 				&:not([aria-current]) {
 					background: none;
-					box-shadow: 0 200px 100px -100px rgba(255, 255, 255, 0.12) inset;
+					box-shadow: 0 20rem 10rem -10rem rgba(255, 255, 255, 0.12) inset;
 				}
 			}
 		}
