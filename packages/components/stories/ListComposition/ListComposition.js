@@ -131,9 +131,10 @@ storiesOf('List Composition', module)
 			<IconsProvider />
 			<h1>List with display mode change</h1>
 			<p>
-				You can control the display mode by<br />
-				- passing the display mode to List.DisplayMode and List.VList<br />
-				- handling the display mode change via List.DisplayMode onChange prop
+				You can control the display mode by
+				<br />
+				- passing the display mode to List.DisplayMode and List.VList
+				<br />- handling the display mode change via List.DisplayMode onChange prop
 			</p>
 			<pre>{`
 <List.Manager
@@ -170,9 +171,7 @@ storiesOf('List Composition', module)
 		<div className="virtualized-list">
 			<IconsProvider />
 			<h1>Text Filter</h1>
-			<p>
-				You can filter the dataset with the text by adding the component and let it work itself
-			</p>
+			<p>You can filter the dataset with the text by adding the component and let it work itself</p>
 			<pre>{`<List.Manager
  	id="my-list"
  	collection={collection}
@@ -200,9 +199,10 @@ storiesOf('List Composition', module)
 			<IconsProvider />
 			<h1>Text Filter</h1>
 			<p>
-				You can control the filter feature by providing callbacks to<br />
-				- handle the text filter value change and filter data<br />
-				- handle the text filter's docked status
+				You can control the filter feature by providing callbacks to
+				<br />
+				- handle the text filter value change and filter data
+				<br />- handle the text filter's docked status
 			</p>
 			<pre>{`<List.Manager
  	id="my-list"
@@ -308,10 +308,11 @@ storiesOf('List Composition', module)
 			<h1>List supporting infinite scroll</h1>
 			<p>
 				The InfiniteScrollList list component allows to create lists that supports infinite scroll
-				feature.<br />
-				It requires :<br />
-				- <code>loadMoreRows</code> prop triggered when data loading is required<br />
-				- <code>rowCount</code> prop representing the collection's total number of items<br />
+				feature.
+				<br />
+				It requires :<br />- <code>loadMoreRows</code> prop triggered when data loading is required
+				<br />- <code>rowCount</code> prop representing the collection's total number of items
+				<br />
 				Skeleton rows are rendered when data is missing, while they are being fetched.
 			</p>
 			<pre>{`
@@ -322,8 +323,9 @@ storiesOf('List Composition', module)
 	</List.InfiniteScrollList>
 </List.Manager>
 `}</pre>
-			<section style={{ height: '50vh' }}>
-				<List.Manager id="my-list" collection={simpleCollection.slice(0, 2)}>
+			<h2>Table mode</h2>
+			<section style={{ height: '30vh' }}>
+				<List.Manager id="my-table-list" collection={[simpleCollection[0]]}>
 					<CustomListInfiniteScroll
 						type="TABLE"
 						loadMoreRows={action('onLoadMoreRows')}
@@ -331,4 +333,53 @@ storiesOf('List Composition', module)
 					/>
 				</List.Manager>
 			</section>
-		</div>));
+
+			<h2>Large mode</h2>
+			<section style={{ height: '30vh' }}>
+				<List.Manager id="my-large-list" collection={[simpleCollection[0]]}>
+					<CustomListInfiniteScroll
+						type="LARGE"
+						loadMoreRows={action('onLoadMoreRows')}
+						rowCount={simpleCollection.length}
+					/>
+				</List.Manager>
+			</section>
+
+			<h2>Collapsible panel mode</h2>
+			<section style={{ height: '30vh' }}>
+				<List.Manager
+					id="my-collapsible-panels-list"
+					collection={[{
+						id: 'status-header',
+						header: [
+							{
+								displayMode: 'status',
+								actions: [],
+								status: 'successful',
+								label: 'Successful',
+								icon: 'talend-check',
+							},
+						],
+						content: [
+							{
+								label: 'Content1',
+								description: 'Description1',
+							},
+							{
+								label: 'Content2',
+								description: 'Description2',
+							},
+						],
+						expanded: true,
+						children: <div>HELLO WORLD</div>,
+					}]}
+				>
+					<CustomListInfiniteScroll
+						type="COLLAPSIBLE_PANEL"
+						loadMoreRows={action('onLoadMoreRows')}
+						rowCount={50}
+					/>
+				</List.Manager>
+			</section>
+		</div>
+	));

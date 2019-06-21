@@ -57,6 +57,12 @@ function adaptArrayItemKey(arraySchema, item, itemIndex) {
 		indexedKey[arrayKey.length] = itemIndex;
 		schema.key = indexedKey;
 	}
+	if (arraySchema.readOnly) {
+		schema.readOnly = true;
+	}
+	if (arraySchema.disabled) {
+		schema.disabled = true;
+	}
 
 	if (itemChildren) {
 		schema.items = itemChildren.map(child => adaptArrayItemKey(arraySchema, child, itemIndex));
