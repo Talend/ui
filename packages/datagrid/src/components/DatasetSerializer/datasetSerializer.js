@@ -199,33 +199,16 @@ export function getRowData(sample, startIndex = 0) {
 
 	const plainObjectSample = convertSample(sample);
 
-	/*
-
-	[`${NAMESPACE_DATA}${key}`]: {
-		value: row.value[key].value,
-		quality: row.value[key].quality,
-		comments: [],
-		avro: {},
-	},
-
-
-	[`${NAMESPACE_DATA}${key}`]: sample
-		.get('data')
-		.get(index)
-		.get('value')
-		.get(key),
-
-	*/
-
 	return get(plainObjectSample, 'data', []).map((row, index) =>
 		Object.keys(row.value).reduce(
 			(rowData, key) => ({
 				...rowData,
-				[`${NAMESPACE_DATA}${key}`]: sample
-					.get('data')
-					.get(index)
-					.get('value')
-					.get(key),
+				[`${NAMESPACE_DATA}${key}`]: {
+					value: row.value[key].value,
+					quality: row.value[key].quality,
+					comments: [],
+					avro: {},
+				},
 			}),
 			{
 				[`${NAMESPACE_INDEX}${COLUMN_INDEX}`]: index + startIndex,

@@ -101,12 +101,10 @@ export default class DynamicDataGrid extends React.Component {
 					...rowData.value,
 					field5: {
 						...rowData.value.field5,
-						quality: 1,
+						quality: rowData.value.field5.quality === 1 ? -1 : 1,
 					},
 				},
 			}));
-
-			console.log(datagridSample);
 
 			return {
 				sample: datagridSample,

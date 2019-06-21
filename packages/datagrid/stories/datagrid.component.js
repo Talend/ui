@@ -33,25 +33,6 @@ export function getComponent(component) {
 	}
 }
 
-function CustomHeaderRenderer({ api, displayName }) {
-	console.log(api);
-	return (
-		<div>
-			<span>{displayName}</span>
-			<button onClick={api.ensureIndexVisible(1)}>ensure first row</button>
-		</div>
-	);
-}
-
-export function withCustomHeaderRenderer(component) {
-	switch (component) {
-		case 'CustomRenderer':
-			return CustomHeaderRenderer;
-		default:
-			return getComponent(component);
-	}
-}
-
 sample.data[0].value.field0.value = `﻿﻿﻿﻿﻿﻿﻿  loreum lo
 psum	 	 `;
 
