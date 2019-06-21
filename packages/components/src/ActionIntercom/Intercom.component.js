@@ -1,7 +1,7 @@
 import React, { useState, useLayoutEffect, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { withTranslation } from 'react-i18next';
+import { translate } from 'react-i18next';
 
 import TooltipTrigger from '../TooltipTrigger';
 import Icon from '../Icon';
@@ -73,4 +73,4 @@ Intercom.propTypes = {
 	t: PropTypes.func,
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(Intercom);
+export default translate(I18N_DOMAIN_COMPONENTS)(Intercom);

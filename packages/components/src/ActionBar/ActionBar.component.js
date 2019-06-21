@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { withTranslation } from 'react-i18next';
+import { translate } from 'react-i18next';
 import { Action, Actions, ActionDropdown, ActionSplitDropdown } from '../Actions';
 import Inject from '../Inject';
 import getDefaultT from '../translate';
@@ -238,4 +238,4 @@ ActionBarComponent.SwitchActions = SwitchActions;
 ActionBarComponent.getActionsToRender = getActionsToRender;
 ActionBarComponent.Content = Content;
 ActionBarComponent.getContentClassName = getContentClassName;
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(ActionBarComponent);
+export default translate(I18N_DOMAIN_COMPONENTS)(ActionBarComponent);

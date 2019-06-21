@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
-import { withTranslation } from 'react-i18next';
+import { translate } from 'react-i18next';
 
 import { Action } from '../Actions';
 import theme from './Notification.scss';
@@ -33,7 +33,7 @@ CloseButtonComponent.propTypes = {
 CloseButtonComponent.defaultProps = {
 	t: getDefaultT(),
 };
-export const CloseButton = withTranslation(I18N_DOMAIN_COMPONENTS)(CloseButtonComponent);
+export const CloseButton = translate(I18N_DOMAIN_COMPONENTS)(CloseButtonComponent);
 
 export function MessageAction({ action }) {
 	return (

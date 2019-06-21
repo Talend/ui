@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { withTranslation } from 'react-i18next';
+import { translate } from 'react-i18next';
 import Skeleton from '../Skeleton';
 import TooltipTrigger from '../TooltipTrigger';
 import { Action } from '../Actions';
@@ -99,4 +99,4 @@ EditableTextComponent.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(EditableTextComponent);
+export default translate(I18N_DOMAIN_COMPONENTS)(EditableTextComponent);

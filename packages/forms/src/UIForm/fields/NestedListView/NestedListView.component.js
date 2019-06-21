@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import keycode from 'keycode';
 import ListView from '@talend/react-components/lib/ListView';
-import { withTranslation } from 'react-i18next';
+import { translate } from 'react-i18next';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
@@ -253,4 +253,4 @@ if (process.env.NODE_ENV !== 'production') {
 
 export { NestedListViewWidget };
 
-export default withTranslation(I18N_DOMAIN_FORMS)(NestedListViewWidget);
+export default translate(I18N_DOMAIN_FORMS)(NestedListViewWidget);

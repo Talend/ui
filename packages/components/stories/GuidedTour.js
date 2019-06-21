@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { I18nextProvider, withTranslation } from 'react-i18next';
+import { I18nextProvider, translate } from 'react-i18next';
 import i18n, { LanguageSwitcher } from './config/i18n';
 
 import { GuidedTour } from '../src/index';
@@ -87,7 +87,7 @@ class GuidedTourContainer extends React.Component {
 	}
 }
 
-const TranslatedGuidedTourContainer = withTranslation(I18N_DOMAIN_COMPONENTS)(GuidedTourContainer);
+const TranslatedGuidedTourContainer = translate(I18N_DOMAIN_COMPONENTS)(GuidedTourContainer);
 
 // @see https://github.com/elrumordelaluz/reactour#steps
 function getSteps({ hideControls, showControls, t }) {

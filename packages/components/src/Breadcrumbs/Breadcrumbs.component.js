@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import uuid from 'uuid';
-import { withTranslation } from 'react-i18next';
+import { translate } from 'react-i18next';
 
 import theme from './Breadcrumbs.scss';
 import { Action, ActionDropdown } from '../Actions';
@@ -150,4 +150,4 @@ BreadcrumbsComponent.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(BreadcrumbsComponent);
+export default translate(I18N_DOMAIN_COMPONENTS)(BreadcrumbsComponent);

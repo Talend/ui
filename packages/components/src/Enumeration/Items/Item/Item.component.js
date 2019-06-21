@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Button } from 'react-bootstrap';
-import { withTranslation } from 'react-i18next';
+import { translate } from 'react-i18next';
 
 import { removeDuplicates, allIndexOf } from './utils';
 import Action from '../../../Actions/Action';
@@ -146,4 +146,4 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 
 Item.propTypes = ItemPropTypes;
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(Item);
+export default translate(I18N_DOMAIN_COMPONENTS)(Item);

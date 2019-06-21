@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { withTranslation } from 'react-i18next';
+import { translate } from 'react-i18next';
 
 import getDefaultT from '../translate';
 import headerPropTypes from './Header/Header.propTypes';
@@ -221,4 +221,4 @@ HeaderEnumeration.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(EnumerationComponent);
+export default translate(I18N_DOMAIN_COMPONENTS)(EnumerationComponent);

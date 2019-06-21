@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Icon } from '@talend/react-components';
-import { withTranslation } from 'react-i18next';
+import { translate } from 'react-i18next';
 
 import getDefaultT from '../../translate';
 import I18N_DOMAIN_DATAGRID from '../../constant';
@@ -172,4 +172,4 @@ FormatValueComponent.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withTranslation(I18N_DOMAIN_DATAGRID)(FormatValueComponent);
+export default translate(I18N_DOMAIN_DATAGRID)(FormatValueComponent);

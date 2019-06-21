@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import omit from 'lodash/omit';
-import { withTranslation } from 'react-i18next';
+import { translate } from 'react-i18next';
 
 import Inject from '../Inject';
 import Action from '../Actions/Action';
@@ -450,4 +450,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(HeaderBar);
+export default translate(I18N_DOMAIN_COMPONENTS)(HeaderBar);

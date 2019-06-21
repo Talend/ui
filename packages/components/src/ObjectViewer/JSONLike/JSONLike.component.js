@@ -3,7 +3,7 @@ import React from 'react';
 import invariant from 'invariant';
 import isObject from 'lodash/isObject';
 import classNames from 'classnames';
-import { withTranslation } from 'react-i18next';
+import { translate } from 'react-i18next';
 
 import { Action } from '../../Actions';
 import TooltipTrigger from '../../TooltipTrigger';
@@ -398,7 +398,7 @@ UntranslatedComplexItem.propTypes = {
  *
  * AxelC
  */
-export const ComplexItem = withTranslation(I18N_DOMAIN_COMPONENTS)(UntranslatedComplexItem);
+export const ComplexItem = translate(I18N_DOMAIN_COMPONENTS)(UntranslatedComplexItem);
 
 export function Item(props) {
 	const { data, tagged, jsonpath, tupleLabel } = props;

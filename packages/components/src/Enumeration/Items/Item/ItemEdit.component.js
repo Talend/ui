@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import keycode from 'keycode';
-import { withTranslation } from 'react-i18next';
+import { translate } from 'react-i18next';
 
 import Action from '../../../Actions/Action';
 import theme from './Item.scss';
@@ -172,4 +172,4 @@ ItemEdit.propTypes = {
 	}),
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(ItemEdit);
+export default translate(I18N_DOMAIN_COMPONENTS)(ItemEdit);

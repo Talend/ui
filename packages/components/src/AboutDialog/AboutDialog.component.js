@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { withTranslation } from 'react-i18next';
+import { translate } from 'react-i18next';
 
 import { Dialog, Skeleton, Icon } from '../';
 import getDefaultT from '../translate';
@@ -161,4 +161,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(AboutDialog);
+export default translate(I18N_DOMAIN_COMPONENTS)(AboutDialog);
