@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconsProvider } from '@talend/react-components';
-import { fromJS } from 'immutable';
+import Immutable, { fromJS } from 'immutable';
 
 import DataGrid from '../src/components/';
 import { NAMESPACE_DATA, NAMESPACE_INDEX, COLUMN_INDEX } from '../src/constants';
@@ -13,23 +13,20 @@ export function getRowData(sampleData, startIndex = 0) {
 	}
 
 	return sampleData.get('data', []).map((row, index) =>
-		row
-			.get('value', {})
-			.keys()
-			.reduce(
-				(rowData, key) => ({
-					...rowData,
-					[`${NAMESPACE_DATA}${key}`]: sampleData
-						.get('data')
-						.get(index)
-						.get('value')
-						.get(key),
-				}),
-				{
-					[`${NAMESPACE_INDEX}${COLUMN_INDEX}`]: index + startIndex,
-					loading: !!row.loading,
-				},
-			),
+		[...row.get('value', Immutable.Map({})).keys()].reduce(
+			(rowData, key) => ({
+				...rowData,
+				[`${NAMESPACE_DATA}${key}`]: sampleData
+					.get('data')
+					.get(index)
+					.get('value')
+					.get(key),
+			}),
+			{
+				[`${NAMESPACE_INDEX}${COLUMN_INDEX}`]: index + startIndex,
+				loading: !!row.loading,
+			},
+		),
 	);
 }
 
@@ -65,7 +62,7 @@ export default class ImmutableDataGrid extends React.Component {
 					onClick={this.changeColumnQuality}
 				/>
 				<IconsProvider />
-				<DataGrid data={this.state.sample} getRowData={getRowData} getComponent={getComponent} />
+				<DataGrid data={this.state.sample} getRowDataFn={getRowData} getComponent={getComponent} />
 			</div>
 		);
 	}
