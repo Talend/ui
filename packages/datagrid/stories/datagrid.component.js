@@ -10,6 +10,7 @@ import DefaultCellRenderer from '../src/components/DefaultCellRenderer';
 import DefaultHeaderRenderer from '../src/components/DefaultHeaderRenderer';
 import DynamicDataGrid from './DynamicDataGrid.component';
 import FasterDatagrid from './FasterDatagrid.component';
+import ImmutableDataGrid from './ImmutableDatagrid.component';
 import sample from './sample.json';
 import sample2 from './sample2.json';
 import sample3 from './sample3.json';
@@ -127,7 +128,7 @@ storiesOf('Component Datagrid', module)
 			/>
 		</div>
 	))
-	.add('loading', () => (
+	.add('loading datagrid', () => (
 		<div style={{ height: '100vh' }}>
 			<IconsProvider />
 			<DataGrid data={sample} loading />
@@ -209,4 +210,5 @@ storiesOf('Component Datagrid', module)
 
 			<FasterDatagrid />
 		</div>
-	));
+	))
+	.add('datagrid with immutable data', () => <ImmutableDataGrid />);

@@ -1,34 +1,35 @@
 import React from 'react';
 import { IconsProvider } from '@talend/react-components';
 import { fromJS } from 'immutable';
-import get from 'lodash/get'
 
 import DataGrid from '../src/components/';
+import { NAMESPACE_DATA, NAMESPACE_INDEX, COLUMN_INDEX } from '../src/constants';
 import sample from './sample.json';
 import { getComponent } from './datagrid.component';
 
-export function getRowData(sample, startIndex = 0) {
+export function getRowData(sampleData, startIndex = 0) {
 	if (!sample) {
 		return [];
 	}
 
-	const plainObjectSample = convertSample(sample);
-
-	return get(plainObjectSample, 'data', []).map((row, index) =>
-		Object.keys(row.value).reduce(
-			(rowData, key) => ({
-				...rowData,
-				[`${NAMESPACE_DATA}${key}`]: sample
-					.get('data')
-					.get(index)
-					.get('value')
-					.get(key),
-			}),
-			{
-				[`${NAMESPACE_INDEX}${COLUMN_INDEX}`]: index + startIndex,
-				loading: !!row.loading,
-			},
-		),
+	return sampleData.get('data', []).map((row, index) =>
+		row
+			.get('value', {})
+			.keys()
+			.reduce(
+				(rowData, key) => ({
+					...rowData,
+					[`${NAMESPACE_DATA}${key}`]: sampleData
+						.get('data')
+						.get(index)
+						.get('value')
+						.get(key),
+				}),
+				{
+					[`${NAMESPACE_INDEX}${COLUMN_INDEX}`]: index + startIndex,
+					loading: !!row.loading,
+				},
+			),
 	);
 }
 
@@ -45,7 +46,12 @@ export default class ImmutableDataGrid extends React.Component {
 				'data',
 				this.state.sample
 					.get('data')
-					.map(rowData => rowData.setIn(['value', 'field5', 'quality'], 1)),
+					.map(rowData =>
+						rowData.setIn(
+							['value', 'field5', 'quality'],
+							rowData.getIn(['value', 'field5', 'quality']) === 1 ? -1 : 1,
+						),
+					),
 			),
 		});
 	};
@@ -59,7 +65,7 @@ export default class ImmutableDataGrid extends React.Component {
 					onClick={this.changeColumnQuality}
 				/>
 				<IconsProvider />
-				<DataGrid data={this.state.sample} getRowData={} getComponent={getComponent} />
+				<DataGrid data={this.state.sample} getRowData={getRowData} getComponent={getComponent} />
 			</div>
 		);
 	}
