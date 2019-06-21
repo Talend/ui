@@ -29,7 +29,7 @@ const HeaderResizable = ({
 	return (
 		<Consumer>
 			{({ resizeRow }) => (
-				<React.Fragment className={classNames(test['tc-header-column'])} key={dataKey}>
+				<React.Fragment key={dataKey}>
 					<div className={classNames(test['tc-header-TruncatedText'])} style={{ flex: 'auto' }}>
 						<HeaderResizableContent customRender={children} label={label} />
 					</div>
@@ -37,7 +37,10 @@ const HeaderResizable = ({
 						axis="x"
 						defaultClassName={classNames(test['tc-header-DragHandle'])}
 						defaultClassNameDragging={classNames(test['tc-header-DragHandleActive'])}
-						onDrag={(_, { deltaX }) => resizeRow(dataKey, deltaX)}
+						onDrag={(_, data) => {
+							// console.log({ data });
+							resizeRow(dataKey, data.deltaX);
+						}}
 						position={{ x: 0 }}
 						zIndex={999}
 					>

@@ -18,8 +18,21 @@ const addWidth = percentDelta => value => percentDelta + value;
 const soustractWidth = percentDelta => value => percentDelta - value;
 const calculateWidth = (index, calculFn) => columnsWidths => {
 	const newWidths = [...columnsWidths];
-	const { width } = columnsWidths[index];
-	newWidths[index] = { ...columnsWidths[index], width: calculFn(width) };
+	if (index !== -1) {
+		// if (Array.isArray(index)) {
+		// 	index.forEach(i => {
+		// 		const { width } = columnsWidths[i];
+		// 		if (width >= 40) {
+		// 			newWidths[i] = { ...columnsWidths[i], width: calculFn(width) };
+		// 		} else {
+		// 			newWidths[i] = { ...columnsWidths[i], width: 40 };
+		// 		}
+		// 	});
+		// } else {
+		const { width } = columnsWidths[index];
+		newWidths[index] = { ...columnsWidths[index], width: calculFn(width) };
+		// }
+	}
 	return newWidths;
 };
 
@@ -61,18 +74,33 @@ function VirtualizedList(props) {
 		onToggleAll,
 		children,
 	});
-	const TOTAL_WIDTH = 2000;
 	const [widths, setWidths] = useState(columnsWidth);
+
+	// eslint-disable-next-line consistent-return
+	const getNext = index => {
+		// console.log({ index });
+		if (widths.length - 1 <= index) {
+			return -1;
+		}
+		const indexes = [];
+		for (let i = index + 1; i < widths.length; i += 1) {
+			if (widths[i].resizable && i !== index) {
+				// indexes.push(i);
+				return i;
+			}
+		}
+		return indexes;
+	};
 
 	const resizeRow = (dataKey, deltaX) => {
 		const percentDelta = deltaX;
 		const currentIndexColumn = widths.findIndex(value => dataKey === value.dataKey);
-		const nextIndexColumn = widths.length - 1 >= currentIndexColumn ? 0 : currentIndexColumn + 1;
-		flow([
+		const nextIndexColumn = getNext(currentIndexColumn);
+		const toto = flow([
 			calculateWidth(currentIndexColumn, addWidth(percentDelta)),
-			calculateWidth(nextIndexColumn, soustractWidth(percentDelta)),
-			setWidths,
+			// calculateWidth(nextIndexColumn, soustractWidth(percentDelta)),
 		])(widths);
+		setWidths(toto);
 	};
 
 	const columnDefinitions = toColumns({
@@ -80,12 +108,12 @@ function VirtualizedList(props) {
 		theme: tableTheme,
 		children: columnDefinitionsWithSelection,
 		widths,
-		TOTAL_WIDTH,
 	});
 
 	if (type === LARGE && inProgress) {
 		return <Loader id={id && `${id}-loader`} className={theme['tc-list-progress']} />;
 	}
+	console.log({ widths });
 	return (
 		<virtualizedListContext.Provider value={{ resizeRow }}>
 			<AutoSizer>
@@ -105,7 +133,7 @@ function VirtualizedList(props) {
 						sortBy={sortBy}
 						sortDirection={sortDirection}
 						type={type}
-						width={TOTAL_WIDTH}
+						width={width}
 						disableHeader={disableHeader}
 						inProgress={inProgress}
 						rowRenderers={rowRenderers}
