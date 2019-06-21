@@ -3,5 +3,6 @@
 
 	:global(.tc-icon-toggle) {
 		margin: $padding-normal 0 $padding-normal $padding-normal;
+		display: inherit;
 	}
 }
