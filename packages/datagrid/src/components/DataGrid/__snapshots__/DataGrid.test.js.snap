@@ -79,6 +79,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
             },
           },
           "avroRenderer": Object {
+            "dateCellRenderer": "DefaultDateCellRenderer",
             "intCellRenderer": "DefaultIntCellRenderer",
             "stringCellRenderer": "DefaultStringCellRenderer",
           },
@@ -124,6 +125,7 @@ exports[`#DataGrid should render DataGrid with columnsDefs and rowData 1`] = `
             },
           },
           "avroRenderer": Object {
+            "dateCellRenderer": "DefaultDateCellRenderer",
             "intCellRenderer": "DefaultIntCellRenderer",
             "stringCellRenderer": "DefaultStringCellRenderer",
           },
