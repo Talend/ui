@@ -178,4 +178,27 @@ describe('Array Item component', () => {
 		// then
 		expect(onReorder).toBeCalledWith(expect.anything(), { previousIndex: 3, nextIndex: 4 });
 	});
+	it('should support readonly (do not display actions)', () => {
+		// given
+		const onReorder = jest.fn();
+		const renderItem = jest.fn(() => null);
+		// when
+		const wrapper = mount(
+			<ArrayItem
+				hasMoveDown
+				hasMoveUp
+				id={'talend-control-3'}
+				index={3}
+				renderItem={renderItem}
+				onRemove={jest.fn()}
+				onReorder={onReorder}
+				readOnly
+			/>,
+		);
+
+		// then
+		// can t find delete action
+		expect(wrapper.find('Action').length).toBe(0);
+		expect(renderItem).toHaveBeenCalledWith(3, { actions: [] });
+	});
 });

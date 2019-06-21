@@ -126,14 +126,12 @@ export default class ArrayWidget extends React.Component {
 	}
 
 	render() {
-		const { schema } = this.props;
-		const canReorder = schema.reorder !== false;
 		const ArrayTemplate = this.getArrayTemplate();
 
 		return (
 			<ArrayTemplate
 				{...this.props}
-				canReorder={canReorder}
+				canReorder={this.props.schema.reorder !== false}
 				onAdd={this.onAdd}
 				onReorder={this.onReorder}
 				onRemove={this.onRemove}
