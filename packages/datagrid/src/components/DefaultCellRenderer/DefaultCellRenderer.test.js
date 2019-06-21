@@ -6,6 +6,7 @@ import { QUALITY_EMPTY_KEY } from '../../constants';
 
 import DefaultCellRenderer from './DefaultCellRenderer.component';
 import AvroRenderer from './AvroRenderer.component';
+import QualityIndicator from './QualityIndicator.component';
 
 function getComponent() {}
 
@@ -40,5 +41,6 @@ describe('#DefaultCellRenderer', () => {
 		);
 
 		expect(wrapper.find(AvroRenderer).props().data).toEqual({ quality: QUALITY_EMPTY_KEY });
+		expect(wrapper.find(QualityIndicator).props().qualityIndex).toEqual(QUALITY_EMPTY_KEY);
 	});
 });
