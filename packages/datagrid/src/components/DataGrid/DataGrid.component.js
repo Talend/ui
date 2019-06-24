@@ -5,9 +5,10 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import Inject from '@talend/react-components/lib/Inject';
 import Skeleton from '@talend/react-components/lib/Skeleton';
+import invariant from 'invariant';
 
 import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from '../DefaultHeaderRenderer';
-import { CELL_RENDERER_COMPONENT } from '../DefaultCellRenderer';
+import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from '../DefaultCellRenderer';
 import DefaultPinHeaderRenderer, {
 	PIN_HEADER_RENDERER_COMPONENT,
 } from '../DefaultPinHeaderRenderer';
@@ -15,7 +16,6 @@ import DefaultPinHeaderRenderer, {
 import DATAGRID_PROPTYPES from './DataGrid.proptypes';
 import { NAMESPACE_INDEX } from '../../constants';
 import serializer from '../DatasetSerializer';
-import InjectedCellRenderer from './InjectedCellRenderer.component';
 import theme from './DataGrid.scss';
 
 export const AG_GRID = {
@@ -41,6 +41,12 @@ export function injectHeaderRenderer(
 	const Component = Inject.get(getComponent, injectedHeaderRenderer, DefaultHeaderRenderer);
 
 	return props => <Component {...props} onFocusedColumn={onFocusedColumn} onKeyDown={onKeyDown} />;
+}
+
+export function injectedCellRenderer(getComponent, cellRenderer, avroRenderer) {
+	const Component = Inject.get(getComponent, cellRenderer, DefaultCellRenderer);
+
+	return props => <Component {...props} avroRenderer={avroRenderer} getComponent={getComponent} />;
 }
 
 export function getAvroRenderer(avroRenderer) {
@@ -98,11 +104,8 @@ export default class DataGrid extends React.Component {
 			return;
 		}
 
-		if (this.props.forceRedrawRows) {
-			console.warn('forceRedrawRows is deprecated');
-		}
-
 		if (this.props.forceRedrawRows && this.props.forceRedrawRows(this.props, prevProps)) {
+			console.warn('forceRedrawRows is deprecated');
 			this.gridAPI.redrawRows();
 		}
 	}
@@ -174,9 +177,7 @@ export default class DataGrid extends React.Component {
 	}
 
 	getAgGridConfig() {
-		if (this.props.rowData && this.props.getRowDataFn) {
-			console.warn('Should use either rowData nor getRowDataFn. Not the both in the same time');
-		}
+		console.warn('Should use either rowData nor getRowDataFn. Not the both in the same time');
 
 		let rowData = this.props.rowData;
 		if (typeof this.props.getRowDataFn === 'function') {
@@ -231,8 +232,6 @@ export default class DataGrid extends React.Component {
 					minWidth: this.props.columnMinWidth,
 					valueGetter: this.props.getCellValueFn,
 					width: CELL_WIDTH,
-					avroRenderer: getAvroRenderer(this.props.avroRenderer),
-					injectedCellRenderer: this.props.cellRenderer,
 					...columnDef,
 					[AG_GRID.CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
 					[AG_GRID.CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,
@@ -242,7 +241,11 @@ export default class DataGrid extends React.Component {
 
 		agGridOptions.columnDefs = adaptedColumnDefs;
 		agGridOptions.frameworkComponents = {
-			[CELL_RENDERER_COMPONENT]: InjectedCellRenderer,
+			[CELL_RENDERER_COMPONENT]: injectedCellRenderer(
+				this.props.getComponent,
+				this.props.cellRenderer,
+				getAvroRenderer(this.props.avroRenderer),
+			),
 			[HEADER_RENDERER_COMPONENT]: injectHeaderRenderer(
 				this.props.getComponent,
 				this.props.headerRenderer,

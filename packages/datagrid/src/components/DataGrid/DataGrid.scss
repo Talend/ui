@@ -66,7 +66,6 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 		user-select: text;
 	}
 
-	:global(.ag-body), // @deprecated on UI#4
 	:global(.ag-center-cols-clipper) {
 		background-color: $td-body-background-color;
 		font-family: $td-body-font-family;

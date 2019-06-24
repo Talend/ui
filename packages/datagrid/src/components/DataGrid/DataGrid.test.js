@@ -5,7 +5,11 @@ import { JSDOM } from 'jsdom';
 
 import { NAMESPACE_DATA, NAMESPACE_INDEX } from '../../constants';
 
-import DataGrid, { injectHeaderRenderer, AG_GRID } from './DataGrid.component';
+import DataGrid, {
+	injectedCellRenderer,
+	injectHeaderRenderer,
+	AG_GRID,
+} from './DataGrid.component';
 
 function PinHeaderRenderer() {}
 
@@ -167,6 +171,62 @@ describe('#DataGrid', () => {
 	it('should render DataGrid', () => {
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should not call forceRedrawRows when the DataGrid is loading', () => {
+		const forceRedrawRows = jest.fn(() => true);
+		const wrapper = shallow(
+			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} loading />,
+		);
+
+		wrapper.instance().componentDidUpdate();
+		expect(forceRedrawRows).not.toHaveBeenCalled();
+	});
+
+	it('should not call forceRedrawRows when the DataGrid is not ready', () => {
+		const forceRedrawRows = jest.fn(() => true);
+		const wrapper = shallow(
+			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} />,
+		);
+
+		wrapper.instance().componentDidUpdate();
+		expect(forceRedrawRows).not.toHaveBeenCalled();
+	});
+
+	it('should call redrawRows when forceRedrawRows return true', () => {
+		const forceRedrawRows = jest.fn(() => true);
+		const redrawRows = jest.fn();
+		const wrapper = shallow(
+			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} rowData={[]} />,
+		);
+
+		wrapper.instance().onGridReady({
+			api: {
+				redrawRows,
+			},
+		});
+		wrapper.instance().componentDidUpdate();
+
+		expect(forceRedrawRows).toHaveBeenCalled();
+		expect(redrawRows).toHaveBeenCalled();
+	});
+
+	it('should not call redrawRows when forceRedrawRows return false', () => {
+		const forceRedrawRows = jest.fn(() => false);
+		const redrawRows = jest.fn();
+		const wrapper = shallow(
+			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} rowData={[]} />,
+		);
+
+		wrapper.instance().onGridReady({
+			api: {
+				redrawRows,
+			},
+		});
+		wrapper.instance().componentDidUpdate();
+
+		expect(forceRedrawRows).toHaveBeenCalled();
+		expect(redrawRows).not.toHaveBeenCalled();
 	});
 
 	it('should render DataGrid with columnsDefs and rowData', () => {
