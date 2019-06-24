@@ -5,8 +5,8 @@ import RJSForm from 'react-jsonschema-form/lib/index';
 import Inject from '@talend/react-components/lib/Inject';
 import Action from '@talend/react-components/lib/Actions/Action';
 
-import { UIForm } from './UIForm';
-import { wrapCustomWidget } from './UIForm/merge';
+import { UIForm } from '../UIForm';
+import { wrapCustomWidget } from '../UIForm/merge';
 import BooleanField from './fields/BooleanField';
 import ObjectField from './fields/ObjectField';
 import StringField from './fields/StringField';
