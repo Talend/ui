@@ -14,26 +14,32 @@ import { virtualizedListContext } from './virtualizedListContext';
 
 const { LARGE } = listTypes;
 
+const MIN_COL_SIZE = 40;
+
 const addWidth = percentDelta => value => percentDelta + value;
-const soustractWidth = percentDelta => value => percentDelta - value;
+const soustractWidth = percentDelta => value => value - percentDelta;
+
+const getWidth = (width, minWidth = MIN_COL_SIZE) => (width <= minWidth ? minWidth : width);
+
 const calculateWidth = (index, calculFn) => columnsWidths => {
 	const newWidths = [...columnsWidths];
-	if (index !== -1) {
-		// if (Array.isArray(index)) {
-		// 	index.forEach(i => {
-		// 		const { width } = columnsWidths[i];
-		// 		if (width >= 40) {
-		// 			newWidths[i] = { ...columnsWidths[i], width: calculFn(width) };
-		// 		} else {
-		// 			newWidths[i] = { ...columnsWidths[i], width: 40 };
-		// 		}
-		// 	});
-		// } else {
-		const { width } = columnsWidths[index];
-		newWidths[index] = { ...columnsWidths[index], width: calculFn(width) };
-		// }
+	// if (index >= 0) {
+	const { width } = columnsWidths[index];
+	if (width >= 40) {
+		const calculatedWidth = calculFn(width);
+		newWidths[index] = {
+			...columnsWidths[index],
+			width: getWidth(calculatedWidth),
+		};
 	}
+	// }
 	return newWidths;
+};
+
+const setResized = index => collection => {
+	const collectionCopy = [...collection];
+	collectionCopy[index] = { ...collectionCopy[index], resized: true };
+	return collectionCopy;
 };
 
 /**
@@ -76,30 +82,92 @@ function VirtualizedList(props) {
 	});
 	const [widths, setWidths] = useState(columnsWidth);
 
-	// eslint-disable-next-line consistent-return
-	const getNext = index => {
-		// console.log({ index });
-		if (widths.length - 1 <= index) {
-			return -1;
-		}
-		const indexes = [];
+	const getShrinkIndexRight = index => {
 		for (let i = index + 1; i < widths.length; i += 1) {
-			if (widths[i].resizable && i !== index) {
-				// indexes.push(i);
+			const next = i + 1;
+			// Shrink columns on the right of the current, if resizable and width above minimal.
+			if (widths[i].resizable && widths[i].width > 40) {
+				return i;
+			// Shrink the after first columns on the right, if the next one is already at minimal width.
+			} else if (
+				widths[i] === 40 &&
+				next < widths.length - 1 &&
+				widths[next].resizable &&
+				widths[next].width > 40
+			) {
+				return next;
+			}
+		}
+		return -1;
+	};
+
+	const getEnlargeIndexRight = index => {
+		for (let i = index + 1; i < widths.length; i += 1) {
+			// Enlarge right columns when the current one is at minimal width.
+			if (widths[i].resizable && widths[index] === 40) {
+				return i;
+			}
+			// Enlarge the last column only if trigger by the before last column.
+			if (
+				index === widths.length - 2 &&
+				i === widths.length - 1 &&
+				widths[i].resizable
+			) {
 				return i;
 			}
 		}
-		return indexes;
+		return -1;
+	};
+
+	const getSkrinkIndexLeft = index => {
+		for (let i = index; i >= 0; i -= 1) {
+			const previous = i - 1;
+			// Shrink column at left, if above minimal width.
+			if (widths[i].resizable && widths[i].width > 40) {
+				return i;
+			// Shrink the after first colum on the left, if the previous one is already at minimal width.
+			} else if (widths[i] === 40 && previous < 0 && widths[previous].resizable) {
+				return previous;
+			}
+		}
+		return -1;
 	};
 
 	const resizeRow = (dataKey, deltaX) => {
-		const percentDelta = deltaX;
+		const resetWidths = widths.map(item => ({ ...item, resized: false }));
 		const currentIndexColumn = widths.findIndex(value => dataKey === value.dataKey);
-		const nextIndexColumn = getNext(currentIndexColumn);
-		const toto = flow([
-			calculateWidth(currentIndexColumn, addWidth(percentDelta)),
-			// calculateWidth(nextIndexColumn, soustractWidth(percentDelta)),
-		])(widths);
+		console.log({ deltaX });
+		let toto = resetWidths;
+		if (deltaX >= 0) {
+			const shrinkIndexRight = getShrinkIndexRight(currentIndexColumn);
+			if (currentIndexColumn >= 0) {
+				toto = flow([
+					calculateWidth(currentIndexColumn, addWidth(deltaX), setResized(currentIndexColumn)),
+				])(toto);
+			}
+			if (shrinkIndexRight >= 0) {
+				toto = flow([
+					calculateWidth(shrinkIndexRight, soustractWidth(deltaX)),
+					setResized(shrinkIndexRight),
+				])(toto);
+			}
+		} else {
+			const shrinkIndexLeft = getSkrinkIndexLeft(currentIndexColumn);
+			const enlargeIndexRight = getEnlargeIndexRight(currentIndexColumn);
+			if (shrinkIndexLeft >= 0) {
+				toto = flow([
+					calculateWidth(shrinkIndexLeft, soustractWidth(Math.abs(deltaX))),
+					setResized(shrinkIndexLeft),
+				])(toto);
+			}
+			if (enlargeIndexRight >= 0) {
+				toto = flow([
+					calculateWidth(enlargeIndexRight, addWidth(Math.abs(deltaX))),
+					setResized(enlargeIndexRight),
+				])(toto);
+			}
+		}
+		console.log({ toto });
 		setWidths(toto);
 	};
 
@@ -113,7 +181,6 @@ function VirtualizedList(props) {
 	if (type === LARGE && inProgress) {
 		return <Loader id={id && `${id}-loader`} className={theme['tc-list-progress']} />;
 	}
-	console.log({ widths });
 	return (
 		<virtualizedListContext.Provider value={{ resizeRow }}>
 			<AutoSizer>

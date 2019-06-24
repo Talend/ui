@@ -46,16 +46,26 @@ export function insertSelectionConfiguration(props) {
 	return contentsConfiguration;
 }
 
+const getWidth = (widths, { dataKey }) => {
+	const columnWidth = Array.isArray(widths) && widths.find(col => col.dataKey === dataKey);
+	if (!columnWidth || !columnWidth.resized || !columnWidth.resizable || columnWidth.width <= 40) {
+		return {
+			width: columnWidth && columnWidth.width,
+			flexShrink: 0,
+			flexGrow: 0,
+		};
+	}
+	return { width: columnWidth.width };
+};
+
 /**
  * Create new Columns from children, enhanced with
  * - header and row fixed classnames
  * - parent id (via columnData)
  */
-export function toColumns({ id, theme, children, widths, TOTAL_WIDTH }) {
+export function toColumns({ id, theme, children, widths }) {
 	return React.Children.toArray(children).map((field, index) => {
 		const colClassName = `tc-list-cell-${field.props.dataKey}`;
-		const widthObj =
-			Array.isArray(widths) && widths.find(col => col.dataKey === field.props.dataKey);
 		const colProps = {
 			...field.props,
 			headerClassName: classNames(field.props.headerClassName, theme.header, colClassName),
@@ -64,8 +74,9 @@ export function toColumns({ id, theme, children, widths, TOTAL_WIDTH }) {
 				...field.props.columnData,
 				id,
 			},
-			width: widthObj && widthObj.width,
+			...getWidth(widths, field.props),
 		};
+		// console.log({ colProps });
 		return <Column key={index} {...colProps} />;
 	});
 }

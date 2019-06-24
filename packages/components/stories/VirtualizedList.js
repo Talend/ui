@@ -764,9 +764,9 @@ storiesOf('VirtualizedList', module)
 					collection={collection}
 					id={'my-list'}
 					columnsWidth={[
-						{ dataKey: 'name', width: 100 },
-						{ dataKey: 'description', width: 100, resizable: true },
-						{ dataKey: 'author', width: 350 },
+						{ dataKey: 'name', width: 250, resizable: true },
+						{ dataKey: 'description', width: 350, resizable: true },
+						{ dataKey: 'author', width: 200 },
 						{ dataKey: 'created', width: 100, resizable: true },
 						{ dataKey: 'modified', width: 100, resizable: true },
 					]}
@@ -777,6 +777,7 @@ storiesOf('VirtualizedList', module)
 						dataKey="name"
 						columnData={titleProps}
 						{...CellTitle}
+						headerRenderer={headerDictionary['resizable']}
 					/>
 					<VirtualizedList.Content
 						label="Description"
@@ -784,19 +785,13 @@ storiesOf('VirtualizedList', module)
 						disableSort
 						headerRenderer={headerDictionary['resizable']}
 					/>
-					<VirtualizedList.Content
-						label="Author"
-						dataKey="author"
-					/>
+					<VirtualizedList.Content label="Author" dataKey="author" />
 					<VirtualizedList.Content
 						label="Created"
 						dataKey="created"
 						headerRenderer={headerDictionary['resizable']}
 					/>
-					<VirtualizedList.Content
-						label="Modified"
-						dataKey="modified"
-					/>
+					<VirtualizedList.Content label="Modified" dataKey="modified" />
 				</VirtualizedList>
 			</section>
 		</div>
