@@ -43,19 +43,6 @@ describe('Container(Form)', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render with prop uiform = false : Form', () => {
-		const wrapper = mount(<Container jsonSchema={{}} uiSchema={{}} uiform={false} />);
-
-		expect(wrapper.find('TalendForm').length).toBe(1);
-		expect(wrapper.find('TalendUIForm').length).toBe(0);
-	});
-
-	it('should render with prop uiform = true : UIForm', () => {
-		const wrapper = mount(<Container jsonSchema={{}} uiSchema={{}} uiform />);
-		expect(wrapper.find('TalendForm').length).toBe(1);
-		expect(wrapper.find('TalendUIForm').length).toBe(1);
-	});
-
 	it('should render UIForm with language prop set', () => {
 		const wrapper = mount(
 			<Container
