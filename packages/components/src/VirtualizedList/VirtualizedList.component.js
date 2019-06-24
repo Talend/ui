@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { AutoSizer } from 'react-virtualized';
 import { listTypes } from './utils/constants';
 import Loader from '../Loader';
@@ -13,8 +13,6 @@ import tableTheme from './ListTable/ListTable.scss';
 import { virtualizedListContext } from './virtualizedListContext';
 
 const { LARGE } = listTypes;
-
-const MIN_COL_SIZE = 40;
 
 /**
  * Composable List based on react-virtualized
