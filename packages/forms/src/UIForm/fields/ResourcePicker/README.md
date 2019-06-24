@@ -33,6 +33,8 @@ This widget allows you to render a resource picker to select one or multiple res
 | multi | Allow multiselection | `false` |
 | title | The title to display next to the field |  |
 | widget | The widget to use | `resourcePicker` |
+| filters | An array of the filter we want to display, possible values : ["certified", "selection", "favorites"] |
+| sort | An array of the sortable field, possible values : ["name", "date"] |
 
 ```json
 [

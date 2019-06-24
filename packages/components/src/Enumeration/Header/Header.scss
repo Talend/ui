@@ -3,7 +3,6 @@ $tc-enumeration-small-padding: $padding-small !default;
 $tc-enumeration-normal-padding: $padding-normal !default;
 $tc-enumeration-large-padding: $padding-large !default;
 $tc-enumeration-header-height: 28px !default;
-$tc-enumeration-svg-color: #666 !default;
 $tc-enumeration-font-size: 1.4rem !default;
 
 $tc-enumeration-header-error-background-color: white !default;
@@ -39,7 +38,6 @@ $tc-enumeration-header-error-padding: 2px !default;
 		height: 30px;
 
 		:global(.tc-svg-icon) {
-			fill: $tc-enumeration-svg-color;
 			height: $tc-enumeration-font-size;
 			width: $tc-enumeration-font-size;
 			margin-right: 0;

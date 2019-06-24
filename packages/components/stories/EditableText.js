@@ -23,4 +23,7 @@ storiesOf('EditableText', module)
 	.add('loading', () => <EditableText loading {...props} />)
 	.add('disabled', () => <EditableText disabled {...props} />)
 	.add('in progress', () => <EditableText inProgress {...props} />)
-	.add('edit mode', () => <EditableText editMode {...props} />);
+	.add('edit mode', () => <EditableText editMode {...props} />)
+	.add('not required', () => <EditableText required={false} editMode {...props} />)
+	.add('placeholder', () => <EditableText editMode placeholder="Enter your text here.." {...props} text="" />)
+	.add('with error', () => <EditableText editMode {...props} text="" errorMessage="custom error message" />);

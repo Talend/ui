@@ -10,11 +10,28 @@ import Emphasis from '../Emphasis';
 import theme from './Typeahead.scss';
 
 export function renderInputComponent(props) {
-	const { caret, key, debounceMinLength, debounceTimeout, icon, inputRef, ...rest } = props;
+	const {
+		caret,
+		key,
+		debounceMinLength,
+		debounceTimeout,
+		icon,
+		inputRef,
+		disabled,
+		readOnly,
+		...rest
+	} = props;
 
-	const hasIcon = icon || caret;
+	const hasCaret = caret && !disabled && !readOnly;
+	const hasIcon = icon || hasCaret;
+	const typeaheadContainerIconClasses = classNames(
+		'tc-typeahead-typeahead-input-icon',
+		theme['typeahead-input-container'],
+		hasIcon && theme['typeahead-input-icon'],
+		hasCaret && theme['typeahead-input-caret'],
+	);
 	return (
-		<div className={classNames(theme['typeahead-input-icon'], 'tc-typeahead-typeahead-input-icon')}>
+		<div className={typeaheadContainerIconClasses}>
 			<ControlLabel srOnly htmlFor={key}>
 				Search
 			</ControlLabel>
@@ -23,18 +40,27 @@ export function renderInputComponent(props) {
 					id={key}
 					{...rest}
 					autoFocus
+					disabled={disabled}
+					readOnly={readOnly}
 					debounceTimeout={debounceTimeout}
 					element={FormControl}
 					minLength={debounceMinLength}
 					ref={inputRef}
 				/>
 			) : (
-				<FormControl id={key} autoFocus inputRef={inputRef} {...rest} />
+				<FormControl
+					id={key}
+					autoFocus
+					disabled={disabled}
+					readOnly={readOnly}
+					inputRef={inputRef}
+					{...rest}
+				/>
 			)}
 			{hasIcon && (
-				<div className={classNames(theme['icon-cls'], caret && theme['icon-caret'])}>
+				<div className={classNames(theme['icon-cls'], hasCaret && theme['icon-caret'])}>
 					{icon && <Icon {...icon} />}
-					{caret && <Icon name="talend-caret-down" />}
+					{hasCaret && <Icon name="talend-caret-down" />}
 				</div>
 			)}
 		</div>
@@ -50,6 +76,8 @@ renderInputComponent.propTypes = {
 	}),
 	inputRef: PropTypes.func,
 	caret: PropTypes.bool,
+	disabled: PropTypes.bool,
+	readOnly: PropTypes.bool,
 };
 
 export function renderItemsContainerFactory(
@@ -64,11 +92,8 @@ export function renderItemsContainerFactory(
 	const isShown = items;
 	const noResult = items && !items.length;
 
-	function ItemsContainerComponent(props) {
-		const { id, ref, containerProps, children } = props;
-		const { className, ...restProps } = containerProps;
-
-		const containerClassName = classNames(className, theme['items-container'], {
+	function ItemsContainerComponent({ containerProps, children }) {
+		const containerClassName = classNames(containerProps.className, theme['items-container'], {
 			[theme['container-open']]: searching || noResult,
 		});
 
@@ -95,17 +120,29 @@ export function renderItemsContainerFactory(
 		} else {
 			content = children;
 		}
-
 		return (
-			<div id={id} ref={ref} className={containerClassName} {...restProps}>
-				{render(content, { searching, loading, noResult, isShown })}
+			<div
+				className={containerClassName}
+				id={containerProps.id}
+				key={containerProps.key}
+				ref={containerProps.ref}
+				role={containerProps.role}
+			>
+				{render(
+					content,
+					{
+						isShown,
+						loading,
+						noResult,
+						searching,
+					},
+					containerProps.ref,
+				)}
 			</div>
 		);
 	}
 
 	ItemsContainerComponent.propTypes = {
-		id: PropTypes.string,
-		ref: PropTypes.func,
 		containerProps: PropTypes.object,
 		children: PropTypes.node,
 	};
@@ -129,7 +166,7 @@ export function renderSectionTitle(section) {
 	return null;
 }
 
-export function renderItem(item, { value }) {
+export function renderItem(item, { value, ...rest }) {
 	let title;
 	let description;
 	if (typeof item === 'string') {
@@ -140,7 +177,11 @@ export function renderItem(item, { value }) {
 	}
 
 	return (
-		<div className={classNames(theme.item, { [theme.disabled]: item.disabled })} title={title}>
+		<div
+			className={classNames(theme.item, { [theme.disabled]: item.disabled })}
+			title={title}
+			data-feature={rest['data-feature']}
+		>
 			<span className={classNames(theme['item-title'], 'tc-typeahead-item-title')}>
 				<Emphasis value={value} text={title} />
 			</span>

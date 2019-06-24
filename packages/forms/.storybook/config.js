@@ -1,8 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import a11y from 'react-a11y';
 import { configure, addDecorator } from '@storybook/react';
-import { checkA11y } from '@storybook/addon-a11y';
+import { withA11y } from '@storybook/addon-a11y';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import { I18nextProvider } from 'react-i18next';
 
@@ -12,8 +10,6 @@ import i18n from '../stories/config/i18n';
 function loadStories() {
 	require('../stories-core');
 }
-a11y(ReactDOM);
-addDecorator(checkA11y);
 
 const withFormLayout = (story, options) => {
 	if (options.kind === 'Layout') {
@@ -49,5 +45,6 @@ const withFormLayout = (story, options) => {
 	);
 };
 
+addDecorator(withA11y);
 addDecorator(withFormLayout);
 configure(loadStories, module);

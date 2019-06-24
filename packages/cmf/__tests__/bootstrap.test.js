@@ -1,4 +1,3 @@
-import { render } from 'react-dom';
 import createSagaMiddleware from 'redux-saga';
 
 import bootstrap, * as internals from '../src/bootstrap';
@@ -157,6 +156,14 @@ describe('bootstrap', () => {
 				storeCallback: store => {
 					expect(store.dispatch).toHaveBeenCalled();
 					expect(store.dispatch.mock.calls[0][0].url).toBe('/foo/settings.json');
+				},
+			};
+			bootstrap(options);
+		});
+		it('should work without settings', () => {
+			const options = {
+				storeCallback: store => {
+					expect(store.dispatch).not.toBeCalled();
 				},
 			};
 			bootstrap(options);
