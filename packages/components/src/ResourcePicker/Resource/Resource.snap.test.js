@@ -3,6 +3,15 @@ import { shallow } from 'enzyme';
 
 import Resource from './Resource.component';
 
+const dateToYMD = date => {
+	const d = date.getDate();
+	const m = date.getMonth() + 1;
+	const y = date.getFullYear() - 2;
+	return `${y}-${m <= 9 ? `0${m}` : m}-${d <= 9 ? `0${d}` : d}`;
+};
+
+const modifiedDate = dateToYMD(new Date());
+
 describe('Resource component snaps', () => {
 	describe('renderers', () => {
 		it('should render an empty Resource', () => {
@@ -27,7 +36,7 @@ describe('Resource component snaps', () => {
 				{
 					id: 0,
 					name: 'Title with few actions',
-					modified: '2016-09-22',
+					modified: modifiedDate,
 					author: 'Jean-Pierre DUPONT',
 					icon: 'talend-file-xls-o',
 				},
@@ -75,7 +84,7 @@ describe('Resource component snaps', () => {
 				{
 					id: 0,
 					name: 'Title with few actions',
-					modified: '2016-09-22',
+					modified: modifiedDate,
 					author: 'Jean-Pierre DUPONT',
 				},
 			];
@@ -99,7 +108,7 @@ describe('Resource component snaps', () => {
 				{
 					id: 0,
 					name: 'Title with few actions',
-					modified: '2016-09-22',
+					modified: modifiedDate,
 					author: 'Jean-Pierre DUPONT',
 					icon: 'talend-file-xls-o',
 					flags: ['CERTIFIED'],
@@ -125,7 +134,7 @@ describe('Resource component snaps', () => {
 				{
 					id: 0,
 					name: 'Title with few actions',
-					modified: '2016-09-22',
+					modified: modifiedDate,
 					author: 'Jean-Pierre DUPONT',
 					icon: 'talend-file-xls-o',
 					flags: ['FAVORITE'],
@@ -151,7 +160,7 @@ describe('Resource component snaps', () => {
 				{
 					id: 0,
 					name: 'Title with few actions',
-					modified: '2016-09-22',
+					modified: modifiedDate,
 					author: 'Jean-Pierre DUPONT',
 					icon: 'talend-file-xls-o',
 					flags: ['CERTIFIED', 'FAVORITE'],
