@@ -27,19 +27,10 @@ function replaceTranslateCalls(file, j) {
 		.forEach(nodePath => {
 			nodePath.value.callee = j.identifier('withTranslation');
 		})
-		.toSource();
+		.toSource({ useTabs: true, quote: 'single', trailingComma: true });
 }
 
 export default function transformer(file, api) {
-	/*
-		return j(file.source)
-			.find(j.Identifier)
-			.filter(nodePath => nodePath.node.name === 'translate')
-			.forEach(nodePath => {
-				j(nodePath).replaceWith(j.identifier("withTranslation"));
-		  })
-			.toSource();
-		  */
 	const j = api.jscodeshift;
 
 	const result = replaceTranslateImport(file, j);

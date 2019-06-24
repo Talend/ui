@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import ActionIconToggle from '../../../Actions/ActionIconToggle';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import getDefaultT from '../../../translate';
@@ -72,4 +72,4 @@ StateFilter.defaultProps = {
 	types: [TYPES.SELECTION, TYPES.FAVORITES, TYPES.CERTIFIED],
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(StateFilter);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(StateFilter);

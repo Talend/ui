@@ -10,7 +10,7 @@ exports[`NestedListView component should render component 1`] = `
     id="NestedListView"
     isValid={true}
   >
-    <Translate(ListView)
+    <withI18nextTranslation(ListView)
       displayedItems={
         Array [
           Object {

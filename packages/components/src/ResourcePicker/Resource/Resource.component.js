@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { distanceInWordsToNow } from 'date-fns';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { getRowData } from '../../VirtualizedList/utils/gridrow';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
@@ -104,4 +104,4 @@ Resource.propTypes = {
 	}),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(Resource);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(Resource);

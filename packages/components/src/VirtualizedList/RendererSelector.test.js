@@ -116,7 +116,7 @@ describe('RendererSelector', () => {
 
 		// then
 		expect(wrapper.prop('rowRenderer').displayName).toBe(
-			'ListGesture(Translate(VirtualizedList(RowLarge)))',
+			'ListGesture(withI18nextTranslation(VirtualizedList(RowLarge)))',
 		);
 	});
 
