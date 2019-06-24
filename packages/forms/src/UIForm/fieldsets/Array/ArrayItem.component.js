@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Icon from '@talend/react-components/lib/Icon';
 import { Action } from '@talend/react-components/lib/Actions';
 import classNames from 'classnames';
 import { translate } from 'react-i18next';
@@ -80,6 +79,7 @@ function ArrayItem(props) {
 		isClosed,
 		valueIsUpdating,
 		isCloseable,
+		readOnly,
 	} = props;
 
 	const widgetIsDisabled = disabled || valueIsUpdating;
@@ -94,7 +94,10 @@ function ArrayItem(props) {
 		hideLabel: true,
 		link: true,
 	};
-	const actions = [deleteAction];
+	const actions = [];
+	if (!readOnly) {
+		actions.push(deleteAction);
+	}
 	return (
 		<div
 			className={classNames(theme['tf-array-item'], 'tf-array-item', {
@@ -102,7 +105,7 @@ function ArrayItem(props) {
 			})}
 		>
 			<div className={theme.control}>
-				{!isClosed && onReorder && (
+				{!isClosed && onReorder && !readOnly && (
 					<React.Fragment>
 						<TranslatedReorderButton {...props} index={index} disabled={widgetIsDisabled} />
 						<TranslatedReorderButton
@@ -115,7 +118,7 @@ function ArrayItem(props) {
 				)}
 			</div>
 			{renderItem(index, { actions })}
-			{!isCloseable && (
+			{!isCloseable && !readOnly && !disabled && (
 				<div className={theme.control}>
 					<Action {...deleteAction} />
 				</div>
@@ -128,6 +131,7 @@ if (process.env.NODE_ENV !== 'production') {
 	ArrayItem.propTypes = {
 		renderItem: PropTypes.func.isRequired,
 		disabled: PropTypes.bool,
+		readOnly: PropTypes.bool,
 		id: PropTypes.string,
 		index: PropTypes.number.isRequired,
 		isClosed: PropTypes.bool,
