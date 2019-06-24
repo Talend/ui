@@ -6,6 +6,13 @@ import { cmfConnect } from '@talend/react-cmf';
 import BaseForm from '@talend/react-forms';
 import classnames from 'classnames';
 
+let DefaultArrayFieldTemplate = () => null;
+if (process.env.FORM_MOZ) {
+	// eslint-disable-next-line global-require
+	DefaultArrayFieldTemplate = require('@talend/react-forms/lib/deprecated/templates/ArrayFieldTemplate');
+}
+
+
 export const DEFAULT_STATE = new Immutable.Map({});
 
 /**
@@ -149,7 +156,7 @@ class Form extends React.Component {
 				dirty: state.dirty,
 				pristine: !state.dirty,
 			}),
-			ArrayFieldTemplate: this.props.ArrayFieldTemplate,
+			ArrayFieldTemplate: this.props.ArrayFieldTemplate || DefaultArrayFieldTemplate,
 			actions: this.formActions(),
 			fields: this.props.fields,
 			onChange: this.onChange,
