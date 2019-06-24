@@ -138,7 +138,6 @@ describe('FilterBar', () => {
 		};
 		const filterInstance = mount(<FilterBarComponent {...props} />);
 		// when
-		jest.clearAllTimers();
 		filterInstance.find('input').simulate('change');
 
 		// then
