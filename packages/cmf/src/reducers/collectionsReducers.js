@@ -131,7 +131,7 @@ function updateCollectionElement(state, action) {
  * @returns {object} the new state
  */
 function mutateCollection(state, action) {
-	if (!action.operations || !state.has(action.id) || state.isEmpty()) {
+	if (!action.operations || !state.hasIn(action.path) || state.isEmpty()) {
 		return state;
 	}
 	let newState = addCollectionElement(state, action);
@@ -147,16 +147,16 @@ function mutateCollection(state, action) {
 function collectionsReducers(state = defaultState, action) {
 	switch (action.type) {
 		case CONSTANTS.COLLECTION_ADD_OR_REPLACE:
-			return state.set(action.collectionId, fromJS(action.data));
+			return state.setIn(action.path, fromJS(action.data));
 		case CONSTANTS.COLLECTION_REMOVE:
-			if (!state.get(action.collectionId)) {
+			if (!state.getIn(action.path)) {
 				invariant(
 					process.env.NODE_ENV === 'production',
-					`Can't remove collection ${action.collectionId} since it doesn't exist.`,
+					`Can't remove collection ${action.path} since it doesn't exist.`,
 				);
 				return state;
 			}
-			return state.delete(action.collectionId);
+			return state.deleteIn(action.path);
 		case CONSTANTS.COLLECTION_MUTATE:
 			return mutateCollection(state, action);
 		default:

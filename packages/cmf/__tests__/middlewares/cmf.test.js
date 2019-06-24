@@ -27,7 +27,7 @@ describe('CMF middleware', () => {
 		expect(store.dispatch).toHaveBeenCalled();
 		const arg = store.dispatch.mock.calls[0][0];
 		expect(arg.type).toBe(CONSTANT.COLLECTION_ADD_OR_REPLACE);
-		expect(arg.collectionId).toBe('mycollection');
+		expect(arg.collectionId).toBe(['mycollection']);
 		expect(arg.data).toBe(action.response);
 	});
 });
