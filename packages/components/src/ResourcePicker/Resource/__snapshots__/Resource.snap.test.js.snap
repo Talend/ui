@@ -22,7 +22,7 @@ exports[`Resource component snaps renderers should render a Resource with CERTIF
     <small
       className="author theme-author"
     >
-      owned by Jean-Pierre DUPONT, almost 3 years ago
+      owned by Jean-Pierre DUPONT, about 2 years ago
     </small>
   </div>
   <div
@@ -62,7 +62,7 @@ exports[`Resource component snaps renderers should render a Resource with FAVORI
     <small
       className="author theme-author"
     >
-      owned by Jean-Pierre DUPONT, almost 3 years ago
+      owned by Jean-Pierre DUPONT, about 2 years ago
     </small>
   </div>
   <div
@@ -102,7 +102,7 @@ exports[`Resource component snaps renderers should render a Resource with both C
     <small
       className="author theme-author"
     >
-      owned by Jean-Pierre DUPONT, almost 3 years ago
+      owned by Jean-Pierre DUPONT, about 2 years ago
     </small>
   </div>
   <div
@@ -139,7 +139,7 @@ exports[`Resource component snaps renderers should render a Resource without ico
     <small
       className="author theme-author"
     >
-      owned by Jean-Pierre DUPONT, almost 3 years ago
+      owned by Jean-Pierre DUPONT, about 2 years ago
     </small>
   </div>
   <div
@@ -179,7 +179,7 @@ exports[`Resource component snaps renderers should render a regular Resource 1`]
     <small
       className="author theme-author"
     >
-      owned by Jean-Pierre DUPONT, almost 3 years ago
+      owned by Jean-Pierre DUPONT, about 2 years ago
     </small>
   </div>
   <div
