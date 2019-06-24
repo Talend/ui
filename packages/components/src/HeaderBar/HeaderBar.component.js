@@ -263,7 +263,7 @@ function Intercom({ id, config }) {
 			<ActionIntercom
 				className="btn btn-link"
 				id={id}
-				config={{ ...config, vertical_padding: 70 }}
+				config={React.useMemo(() => ({ ...config, vertical_padding: 70 }), [config])}
 			/>
 		</li>
 	);
