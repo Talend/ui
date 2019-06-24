@@ -5,11 +5,7 @@ import { JSDOM } from 'jsdom';
 
 import { NAMESPACE_DATA, NAMESPACE_INDEX } from '../../constants';
 
-import DataGrid, {
-	injectedCellRenderer,
-	injectHeaderRenderer,
-	AG_GRID,
-} from './DataGrid.component';
+import DataGrid, { injectHeaderRenderer, AG_GRID } from './DataGrid.component';
 
 function PinHeaderRenderer() {}
 

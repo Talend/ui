@@ -5,7 +5,6 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import Inject from '@talend/react-components/lib/Inject';
 import Skeleton from '@talend/react-components/lib/Skeleton';
-import invariant from 'invariant';
 
 import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from '../DefaultHeaderRenderer';
 import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from '../DefaultCellRenderer';
@@ -43,7 +42,7 @@ export function injectHeaderRenderer(
 	return props => <Component {...props} onFocusedColumn={onFocusedColumn} onKeyDown={onKeyDown} />;
 }
 
-export function injectedCellRenderer(getComponent, cellRenderer, avroRenderer) {
+export function injectCellRenderer(getComponent, cellRenderer, avroRenderer) {
 	const Component = Inject.get(getComponent, cellRenderer, DefaultCellRenderer);
 
 	return props => <Component {...props} avroRenderer={avroRenderer} getComponent={getComponent} />;
@@ -241,7 +240,7 @@ export default class DataGrid extends React.Component {
 
 		agGridOptions.columnDefs = adaptedColumnDefs;
 		agGridOptions.frameworkComponents = {
-			[CELL_RENDERER_COMPONENT]: injectedCellRenderer(
+			[CELL_RENDERER_COMPONENT]: injectCellRenderer(
 				this.props.getComponent,
 				this.props.cellRenderer,
 				getAvroRenderer(this.props.avroRenderer),
