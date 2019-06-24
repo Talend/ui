@@ -12,7 +12,6 @@ if (process.env.FORM_MOZ) {
 	DefaultArrayFieldTemplate = require('@talend/react-forms/lib/deprecated/templates/ArrayFieldTemplate');
 }
 
-
 export const DEFAULT_STATE = new Immutable.Map({});
 
 /**
