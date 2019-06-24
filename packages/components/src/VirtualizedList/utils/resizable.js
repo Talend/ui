@@ -90,7 +90,7 @@ const setResized = resized => column => ({ ...column, resized });
  * Set all the array elements to resized false.
  * @param {array} columnsWidths
  */
-export const resetResized = columnsWidths => columnsWidths.map(setResized(false));
+const resetResized = columnsWidths => columnsWidths.map(setResized(false));
 
 const addWidth = percentDelta => value => percentDelta + value;
 
@@ -129,7 +129,7 @@ const setColumn = (columnsWidths, index) => column => {
  * @param {number} deltaX
  * @param {integer} index
  */
-export const shrinkLeftColumn = (deltaX, index) => columnsWidths => {
+const shrinkLeftColumn = (deltaX, index) => columnsWidths => {
 	const shrinkIndexLeft = getSkrinkIndexLeft(index, columnsWidths);
 	if (shrinkIndexLeft >= 0) {
 		flow([
@@ -147,7 +147,7 @@ export const shrinkLeftColumn = (deltaX, index) => columnsWidths => {
  * @param {number} deltaX
  * @param {integer} index
  */
-export const enlargeRightColumn = (deltaX, index) => columnsWidths => {
+const enlargeRightColumn = (deltaX, index) => columnsWidths => {
 	const enlargeIndexRight = getEnlargeIndexRight(index, columnsWidths);
 	if (enlargeIndexRight >= 0) {
 		flow([
@@ -165,7 +165,7 @@ export const enlargeRightColumn = (deltaX, index) => columnsWidths => {
  * @param {number} deltaX
  * @param {integer} index
  */
-export const shrinkRightColumn = (deltaX, index) => columnsWidths => {
+const shrinkRightColumn = (deltaX, index) => columnsWidths => {
 	const shrinkIndexRight = getShrinkIndexRight(index, columnsWidths);
 	if (shrinkIndexRight >= 0) {
 		flow([
@@ -182,7 +182,7 @@ export const shrinkRightColumn = (deltaX, index) => columnsWidths => {
  * @param {number} deltaX
  * @param {integer} index
  */
-export const enlargeCurrentColumn = (deltaX, index) => columnsWidths => {
+const enlargeCurrentColumn = (deltaX, index) => columnsWidths => {
 	if (index >= 0) {
 		flow([calculateWidth(addWidth(deltaX)), setResized(true), setColumn(columnsWidths, index)])(
 			columnsWidths[index],
@@ -196,7 +196,7 @@ export const enlargeCurrentColumn = (deltaX, index) => columnsWidths => {
  * @param {number} deltaX
  * @param {integer} index
  */
-export const resizeRight = (deltaX, index) => columnsWidths => {
+const resizeRight = (deltaX, index) => columnsWidths => {
 	if (deltaX >= 0) {
 		flow([enlargeCurrentColumn(deltaX, index), shrinkRightColumn(deltaX, index)])(columnsWidths);
 	}
@@ -208,7 +208,7 @@ export const resizeRight = (deltaX, index) => columnsWidths => {
  * @param {number} deltaX
  * @param {integer} index
  */
-export const resizeLeft = (deltaX, index) => columnsWidths => {
+const resizeLeft = (deltaX, index) => columnsWidths => {
 	if (deltaX < 0) {
 		flow([shrinkLeftColumn(deltaX, index), enlargeRightColumn(deltaX, index)])(columnsWidths);
 	}
@@ -221,6 +221,7 @@ export const resizeLeft = (deltaX, index) => columnsWidths => {
  * @param {array} columnsWidths
  * @param {integer} currentIndex
  */
+// eslint-disable-next-line import/prefer-default-export
 export const resizeColumns = (deltaX, columnsWidths, currentIndex) =>
 	flow([resetResized, resizeRight(deltaX, currentIndex), resizeLeft(deltaX, currentIndex)])(
 		columnsWidths,

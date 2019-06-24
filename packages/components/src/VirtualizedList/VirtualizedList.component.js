@@ -56,8 +56,10 @@ function VirtualizedList(props) {
 
 	const resizeRow = (dataKey, deltaX) => {
 		const currentIndexColumn = widths.findIndex(value => dataKey === value.dataKey);
-		const result = resizeColumns(deltaX, widths, currentIndexColumn);
-		setWidths(result);
+		if (currentIndexColumn >= 0) {
+			const result = resizeColumns(deltaX, widths, currentIndexColumn);
+			setWidths(result);
+		}
 	};
 
 	const columnDefinitions = toColumns({
