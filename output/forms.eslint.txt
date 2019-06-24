@@ -2,8 +2,34 @@
 
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 
-/home/travis/build/Talend/ui/packages/forms/src/fields/CollapsibleFieldset.js
+/home/travis/build/Talend/ui/packages/forms/src/deprecated/fields/CollapsibleFieldset.js
   82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-✖ 1 problem (1 error, 0 warnings)
+/home/travis/build/Talend/ui/packages/forms/src/deprecated/Form.js
+  8:24  error  Unable to resolve path to module './UIForm'        import/no-unresolved
+  9:34  error  Unable to resolve path to module './UIForm/merge'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/forms/src/deprecated/templates/ArrayFieldTemplate.js
+   9:35  error  Unable to resolve path to module '../constants'  import/no-unresolved
+  10:8   error  Unable to resolve path to module '../translate'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/forms/src/deprecated/widgets/ColumnsWidget/ColumnsWidget.test.js
+  6:24  error  Unable to resolve path to module '../../../stories/json/columns.json'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/forms/src/deprecated/widgets/EnumerationWidget/EnumerationWidget.js
+   9:35  error  Unable to resolve path to module '../../constants'  import/no-unresolved
+  10:25  error  Unable to resolve path to module '../../translate'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/forms/src/deprecated/widgets/EnumerationWidget/EnumerationWidget.test.js
+  4:31  error  Unable to resolve path to module '../../../__mocks__/props-without-i18n'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/forms/src/deprecated/widgets/ListViewWidget/ListViewWidget.js
+  6:35  error  Unable to resolve path to module '../../constants'  import/no-unresolved
+  7:25  error  Unable to resolve path to module '../../translate'  import/no-unresolved
+
+/home/travis/build/Talend/ui/packages/forms/src/deprecated/widgets/MultiSelectTagWidget/MultiSelectTagWidget.js
+   9:35  error  Unable to resolve path to module '../../constants'  import/no-unresolved
+  10:8   error  Unable to resolve path to module '../../translate'  import/no-unresolved
+
+✖ 13 problems (13 errors, 0 warnings)
 
