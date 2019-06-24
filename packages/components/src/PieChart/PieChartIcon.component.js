@@ -81,9 +81,7 @@ export function propTypeCheckSize(props, propName, componentName) {
 		props[propName] > PIECHART_CONSTANTS.MAX_SIZE
 	) {
 		return new Error(
-			`Invalid prop ${propName} supplied to ${componentName} : ${
-				props[propName]
-			}. Validation failed.`,
+			`Invalid prop ${propName} supplied to ${componentName} : ${props[propName]}. Validation failed.`,
 		);
 	}
 	return null;
