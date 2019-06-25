@@ -764,7 +764,7 @@ storiesOf('VirtualizedList', module)
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList collection={collection} id={'my-list'}>
 					<VirtualizedList.Content label="Id" dataKey="id" />
-					<VirtualizedList.Ckontent
+					<VirtualizedList.Content
 						{...CellTitle}
 						columnData={titleProps}
 						dataKey="name"
