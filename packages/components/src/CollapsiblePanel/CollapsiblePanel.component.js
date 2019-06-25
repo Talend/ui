@@ -8,7 +8,6 @@ import Action from '../Actions/Action';
 import Icon from '../Icon/Icon.component';
 import { Status, getbsStyleFromStatus } from '../Status';
 import TooltipTrigger from '../TooltipTrigger';
-import Badge from '../Badge';
 import getDefaultT from '../translate';
 
 import css from './CollapsiblePanel.scss';
@@ -78,7 +77,9 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 			const { label, tooltipLabel, tooltipPlacement, ...rest } = headerItem;
 			return (
 				<TooltipTrigger key={key} label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
-					<Badge {...rest} label={label} className={css[className]} />
+					<Label {...rest} className={css[className]}>
+						{label}
+					</Label>
 				</TooltipTrigger>
 			);
 		}
