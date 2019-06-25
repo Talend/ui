@@ -199,11 +199,11 @@ export default class DataGrid extends React.Component {
 			ref: this.setGridInstance, // use ref in AgGridReact to get the current instance
 			rowBuffer: this.props.rowBuffer,
 			rowData,
-			tabToNextCell: this.handleKeyboard,
 			rowHeight: this.props.rowHeight,
 			rowSelection: this.props.rowSelection,
 			suppressDragLeaveHidesColumns: true,
 			suppressPropertyNamesCheck: true,
+			tabToNextCell: this.handleKeyboard,
 		};
 
 		if (this.props.onVerticalScroll) {
