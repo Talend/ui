@@ -9,7 +9,7 @@ exports[`RowCollapsiblePanel should render a row with no data (loading) 1`] = `
   role="listitem"
   tabIndex="0"
 >
-  <LoadingCollapsiblePanel>
+  <Memo(LoadingCollapsiblePanel)>
     <div
       className="theme-loading-collapsible-panel"
     >
@@ -286,7 +286,7 @@ exports[`RowCollapsiblePanel should render a row with no data (loading) 1`] = `
         </Translate(Skeleton)>
       </span>
     </div>
-  </LoadingCollapsiblePanel>
+  </Memo(LoadingCollapsiblePanel)>
 </div>
 `;
 

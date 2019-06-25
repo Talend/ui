@@ -14,7 +14,7 @@ exports[`List DisplayMode should render 1`] = `
   <div
     className="theme-tc-display-mode-toggle tc-display-mode-toggle"
   >
-    <Component
+    <Memo()
       displayMode="table"
       displayModeOption="table"
       icon="talend-table"
@@ -80,8 +80,8 @@ exports[`List DisplayMode should render 1`] = `
           </Button>
         </TooltipTrigger>
       </ActionIconToggle>
-    </Component>
-    <Component
+    </Memo()>
+    <Memo()
       displayMode="table"
       displayModeOption="large"
       icon="talend-expanded"
@@ -147,7 +147,7 @@ exports[`List DisplayMode should render 1`] = `
           </Button>
         </TooltipTrigger>
       </ActionIconToggle>
-    </Component>
+    </Memo()>
   </div>
 </ListDisplayMode>
 `;
