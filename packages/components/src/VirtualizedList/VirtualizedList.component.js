@@ -53,7 +53,7 @@ function VirtualizedList(props) {
 	});
 	const [columnsWidths, setWidths] = useState();
 
-	// Settings the data for resizable columns only at mounting.
+	// Settings the data for resizable columns only at mount.
 	useEffect(() => {
 		setWidths(extractResizableProps(React.Children.toArray(children)));
 	}, []);
