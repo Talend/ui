@@ -3,6 +3,10 @@ import { shallow } from 'enzyme';
 
 import Resource from './Resource.component';
 
+jest.mock('date-fns', () => ({
+	distanceInWordsToNow: () => 'over 2 years ago',
+}));
+
 const dateToYMD = date => {
 	const d = date.getDate();
 	const m = date.getMonth() + 1;
@@ -13,6 +17,10 @@ const dateToYMD = date => {
 const modifiedDate = dateToYMD(new Date());
 
 describe('Resource component snaps', () => {
+	afterAll(() => {
+		jest.unmock('date-fns');
+	});
+
 	describe('renderers', () => {
 		it('should render an empty Resource', () => {
 			const collection = [];
