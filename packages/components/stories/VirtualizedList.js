@@ -12,7 +12,6 @@ import MyCustomRow from './List/MyCustomRow.component';
 import { headerDictionary } from '../src/VirtualizedList/utils/dictionary';
 import { headerType as headerResizableType } from '../src/VirtualizedList/HeaderResizable';
 
-
 function NoRowsRenderer() {
 	return (
 		<span className={'tc-virtualizedlist-no-result'} role="status" aria-live="polite">
@@ -789,7 +788,12 @@ storiesOf('VirtualizedList', module)
 						resizable
 						width={100}
 					/>
-					<VirtualizedList.Content label="Modified" dataKey="modified" width={100} resizable />
+					<VirtualizedList.Content
+						dataKey="modified"
+						label="Modified"
+						resizable
+						width={100}
+					/>
 				</VirtualizedList>
 			</section>
 		</div>

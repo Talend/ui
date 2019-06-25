@@ -7,8 +7,8 @@ import { Column } from 'react-virtualized';
 
 import CellCheckboxRenderer from '../CellCheckbox';
 import HeaderCheckboxRenderer from '../HeaderCheckbox';
+import { createColumnWidthProps, getColumnWidth } from './resizable';
 import { internalIds } from './constants';
-
 /**
  * Insert a checkbox column configuration to select a row.
  */
@@ -46,43 +46,26 @@ export function insertSelectionConfiguration(props) {
 	return contentsConfiguration;
 }
 
-const getWidth = (columnsWidths, { dataKey }) => {
-	const columnWidth =
-		Array.isArray(columnsWidths) && columnsWidths.find(col => col.dataKey === dataKey);
-	if (!columnWidth || !columnWidth.resized || !columnWidth.resizable || columnWidth.width <= 40) {
-		return {
-			width: columnWidth && columnWidth.width,
-			flexShrink: 0,
-			flexGrow: 0,
-		};
-	}
-	return { width: columnWidth.width };
-};
-
 /**
  * Create new Columns from children, enhanced with
  * - header and row fixed classnames
  * - parent id (via columnData)
  */
-export function toColumns({ id, theme, children, columnsWidths, columnDataKeyResizing }) {
-	console.log({ columnsWidths });
+export function toColumns({ id, theme, children, columnsWidths }) {
 	return React.Children.toArray(children).map((field, index) => {
-		const columnWidth =
-			Array.isArray(columnsWidths) &&
-			columnsWidths.find(col => col.dataKey === field.props.dataKey);
+		const columnWidth = getColumnWidth(field.props.dataKey, columnsWidths);
 		const colClassName = `tc-list-cell-${field.props.dataKey}`;
 		const colProps = {
 			...field.props,
 			headerClassName: classNames(field.props.headerClassName, theme.header, colClassName, {
-				'tc-header-resizable': columnWidth && columnWidth.resizable,
-				'tc-header-resizing': columnDataKeyResizing === field.props.dataKey,
+				'tc-header-resizable': columnWidth.resizable,
 			}),
 			className: classNames(field.props.className, theme.cell, colClassName),
 			columnData: {
 				...field.props.columnData,
 				id,
 			},
-			...getWidth(columnsWidths, field.props),
+			...createColumnWidthProps(columnWidth),
 		};
 		return <Column key={index} {...colProps} />;
 	});

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { AutoSizer } from 'react-virtualized';
 import { listTypes } from './utils/constants';
 import Loader from '../Loader';
@@ -52,9 +52,9 @@ function VirtualizedList(props) {
 		onToggleAll,
 		selectionToggle,
 	});
-	const [columnsWidths, setWidths] = useState([]);
-	const [columnDataKeyResizing, setColumnDataKeyResizing] = useState([]);
+	const [columnsWidths, setWidths] = useState();
 
+	// Settings the data for resizable columns only at mounting.
 	useEffect(() => {
 		setWidths(extractResizableProps(React.Children.toArray(children)));
 	}, []);
@@ -72,14 +72,17 @@ function VirtualizedList(props) {
 		theme: tableTheme,
 		children: columnDefinitionsWithSelection,
 		columnsWidths,
-		columnDataKeyResizing,
 	});
 
 	if (type === LARGE && inProgress) {
 		return <Loader id={id && `${id}-loader`} className={theme['tc-list-progress']} />;
 	}
+
+	const contextValueVList = useMemo(() => ({ resizeRow }), [
+		resizeRow,
+	]);
 	return (
-		<virtualizedListContext.Provider value={{ resizeRow, setColumnDataKeyResizing }}>
+		<virtualizedListContext.Provider value={contextValueVList}>
 			<AutoSizer>
 				{({ height, width }) => (
 					<RendererSelector

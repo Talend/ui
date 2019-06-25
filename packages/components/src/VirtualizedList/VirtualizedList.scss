@@ -28,16 +28,21 @@
 }
 
 :global(div[role='columnheader'].tc-header-resizable.ReactVirtualized__Table__headerColumn) {
+	height: inherit;
+	padding: 0;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	width: 100%;
+
 	&:hover {
 		cursor: pointer;
 	}
-	&:global(.tc-header-resizing) {
-		background-color: rgba(102,189,255,0.1);
-		// background-color: #66bdff19;
+	:global(.ReactVirtualized__Table__headerTruncatedText) {
+		align-self: center;
+		overflow: hidden;
+		padding-left: 10px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 }
 

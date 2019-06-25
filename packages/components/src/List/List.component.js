@@ -71,7 +71,6 @@ ListToolbar.propTypes = {
  * @param {object} props react props
  * @example
  const props = {
-	 columnsWidth: { dataKey: number},
 	displayMode: 'table' / 'large'
 	list: {
 		items: [{}, {}, ...],
@@ -110,7 +109,6 @@ function List({
 	toolbar,
 	defaultHeight,
 	rowHeight,
-	columnsWidths,
 	getComponent,
 	components = {},
 	rowRenderers,
@@ -156,7 +154,6 @@ function List({
 					rowHeight={rowHeight}
 					getComponent={getComponent}
 					rowRenderers={rowRenderers}
-					columnsWidths={columnsWidths}
 					{...list}
 				/>
 				{injected('after-list')}

@@ -234,10 +234,29 @@ export const extractResizableProps = arrayOfReactElements => {
 	if (Array.isArray(arrayOfReactElements)) {
 		return arrayOfReactElements.map(({ props }) => ({
 			dataKey: props.dataKey,
-			minWidth: props.minWidth,
+			minWidth: props.minWidth || MINIMUM_COLUMN_WIDTH,
 			resizable: props.resizable,
 			width: props.width,
 		}));
 	}
 	return [];
+};
+
+export const findColumnByDataKey = dataKey => column => column.dataKey === dataKey;
+export const getColumnWidth = (dataKey, columnsWidths) => {
+	if (Array.isArray(columnsWidths)) {
+		return columnsWidths.find(findColumnByDataKey(dataKey));
+	}
+	return {};
+};
+
+export const createColumnWidthProps = ({ resized, resizable, width, minWidth }) => {
+	if (!resized || !resizable || width <= minWidth) {
+		return {
+			width,
+			flexShrink: 0,
+			flexGrow: 0,
+		};
+	}
+	return { width };
 };

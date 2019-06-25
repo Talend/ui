@@ -58,7 +58,6 @@ export function ListToVirtualizedList(props) {
 	return (
 		<VirtualizedList
 			collection={props.items}
-			columnsWidths={props.columnsWidths}
 			defaultHeight={props.defaultHeight}
 			id={props.id}
 			inProgress={props.inProgress}
@@ -105,7 +104,7 @@ export function ListToVirtualizedList(props) {
 							columnData: column.data,
 						});
 					}
-					return <List.VContent key={index} {...cProps} />;
+					return <VirtualizedList.Content key={index} {...cProps} />;
 				})}
 		</VirtualizedList>
 	);

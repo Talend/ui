@@ -1,4 +1,3 @@
-
 $drag-element-width: 0.5rem;
 
 .tc-header-cell-resizable {
@@ -6,10 +5,23 @@ $drag-element-width: 0.5rem;
 	justify-content: space-between;
 	width: 100%;
 
+	&-resizing {
+		/* 
+			This is scooter hex color.
+			We want to apply opacity only on the background,
+		 	so we are using rgba to be compatible with ie.
+		*/
+		background-color: rgba(102, 189, 255, 0.1);
+	}
+
 	&-truncated-text {
+		padding-left: 10px;
+		align-self: center;
+
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+		min-width: 0;
 	}
 
 	&-drag-handle {
@@ -17,11 +29,6 @@ $drag-element-width: 0.5rem;
 	}
 
 	&-drag-handle-icon {
-		/* 
-			React-Draggable component doesn't like relative / absolute transformation.
-			So we are enlarging our handle icon with negative margin value.
-		*/
-		margin: -$padding-small;
 		min-width: $drag-element-width;
 		width: $drag-element-width;
 		&:hover,
