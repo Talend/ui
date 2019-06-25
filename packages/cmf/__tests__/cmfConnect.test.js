@@ -747,7 +747,7 @@ describe('cmfConnect', () => {
 			const context = mock.context();
 			const CMFConnected = cmfConnect({})(Button);
 			const mounted = mount(<CMFConnected store={context.store} label={'text'} renderIf={false} />);
-			expect(mounted.html()).toBe('');
+			expect(mounted.html()).toBeNull();
 		});
 
 		it('should not spread propTypes and defaultProps of wrappedComponent to the CMFContainer', () => {
