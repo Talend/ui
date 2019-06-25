@@ -27,6 +27,20 @@
 	white-space: nowrap;
 }
 
+:global(div[role='columnheader'].tc-header-resizable.ReactVirtualized__Table__headerColumn) {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 100%;
+	&:hover {
+		cursor: pointer;
+	}
+	&:global(.tc-header-resizing) {
+		background-color: rgba(102,189,255,0.1);
+		// background-color: #66bdff19;
+	}
+}
+
 .tc-list-progress {
 	width: 100%;
 	display: flex;

@@ -61,7 +61,7 @@ const getEnlargeIndexRight = (index, columnsWidths) => {
  * @param {integer} index
  * @param {array} columnsWidths
  */
-const getSkrinkIndexLeft = (index, columnsWidths) => {
+const getShrinkIndexLeft = (index, columnsWidths) => {
 	for (let i = index; i >= 0; i -= 1) {
 		const previous = i - 1;
 		// Shrink column at left, if above minimal width.
@@ -94,16 +94,16 @@ const resetResized = columnsWidths => columnsWidths.map(setResized(false));
 
 const addWidth = percentDelta => value => percentDelta + value;
 
-const soustractWidth = percentDelta => value => value - percentDelta;
+const subtractWidth = percentDelta => value => value - percentDelta;
 
 /**
  * Calculate the new width the parameter function, and assign the result to the given column.
- * @param {function} calculFn
+ * @param {function} calcFn
  */
-const calculateWidth = calculFn => column => {
+const calculateWidth = calcFn => column => {
 	const { width, minWidth = MINIMUM_COLUMN_WIDTH } = column;
 	if (width >= minWidth) {
-		const calculatedWidth = calculFn(width);
+		const calculatedWidth = calcFn(width);
 		return {
 			...column,
 			width: getWidth(calculatedWidth, minWidth),
@@ -130,10 +130,10 @@ const setColumn = (columnsWidths, index) => column => {
  * @param {integer} index
  */
 const shrinkLeftColumn = (deltaX, index) => columnsWidths => {
-	const shrinkIndexLeft = getSkrinkIndexLeft(index, columnsWidths);
+	const shrinkIndexLeft = getShrinkIndexLeft(index, columnsWidths);
 	if (shrinkIndexLeft >= 0) {
 		flow([
-			calculateWidth(soustractWidth(Math.abs(deltaX))),
+			calculateWidth(subtractWidth(Math.abs(deltaX))),
 			setResized(true),
 			setColumn(columnsWidths, shrinkIndexLeft),
 		])(columnsWidths[shrinkIndexLeft]);
@@ -169,7 +169,7 @@ const shrinkRightColumn = (deltaX, index) => columnsWidths => {
 	const shrinkIndexRight = getShrinkIndexRight(index, columnsWidths);
 	if (shrinkIndexRight >= 0) {
 		flow([
-			calculateWidth(soustractWidth(deltaX)),
+			calculateWidth(subtractWidth(deltaX)),
 			setResized(true),
 			setColumn(columnsWidths, shrinkIndexRight),
 		])(columnsWidths[shrinkIndexRight]);
@@ -221,8 +221,23 @@ const resizeLeft = (deltaX, index) => columnsWidths => {
  * @param {array} columnsWidths
  * @param {integer} currentIndex
  */
-// eslint-disable-next-line import/prefer-default-export
 export const resizeColumns = (deltaX, columnsWidths, currentIndex) =>
 	flow([resetResized, resizeRight(deltaX, currentIndex), resizeLeft(deltaX, currentIndex)])(
 		columnsWidths,
 	);
+
+/**
+ * Extract some props from the converted react elements array.
+ * @param {array} arrayOfReactElements
+ */
+export const extractResizableProps = arrayOfReactElements => {
+	if (Array.isArray(arrayOfReactElements)) {
+		return arrayOfReactElements.map(({ props }) => ({
+			dataKey: props.dataKey,
+			minWidth: props.minWidth,
+			resizable: props.resizable,
+			width: props.width,
+		}));
+	}
+	return [];
+};

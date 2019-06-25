@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AutoSizer } from 'react-virtualized';
 import { listTypes } from './utils/constants';
 import Loader from '../Loader';
@@ -6,7 +6,7 @@ import RendererSelector from './RendererSelector.component';
 import Content from './Content.component';
 import propTypes from './PropTypes';
 import { insertSelectionConfiguration, toColumns } from './utils/tablerow';
-import { resizeColumns } from './utils/resizable';
+import { resizeColumns, extractResizableProps } from './utils/resizable';
 import theme from './VirtualizedList.scss';
 import tableTheme from './ListTable/ListTable.scss';
 
@@ -21,7 +21,6 @@ function VirtualizedList(props) {
 	const {
 		children,
 		collection,
-		columnsWidth,
 		defaultHeight,
 		disableHeader,
 		noRowsRenderer,
@@ -45,19 +44,25 @@ function VirtualizedList(props) {
 		rowCount,
 		type,
 	} = props;
+	extractResizableProps(children);
 	const columnDefinitionsWithSelection = insertSelectionConfiguration({
+		children,
 		collection,
 		isSelected,
-		selectionToggle,
 		onToggleAll,
-		children,
+		selectionToggle,
 	});
-	const [widths, setWidths] = useState(columnsWidth);
+	const [columnsWidths, setWidths] = useState([]);
+	const [columnDataKeyResizing, setColumnDataKeyResizing] = useState([]);
+
+	useEffect(() => {
+		setWidths(extractResizableProps(React.Children.toArray(children)));
+	}, []);
 
 	const resizeRow = (dataKey, deltaX) => {
-		const currentIndexColumn = widths.findIndex(value => dataKey === value.dataKey);
+		const currentIndexColumn = columnsWidths.findIndex(value => dataKey === value.dataKey);
 		if (currentIndexColumn >= 0) {
-			const result = resizeColumns(deltaX, widths, currentIndexColumn);
+			const result = resizeColumns(deltaX, columnsWidths, currentIndexColumn);
 			setWidths(result);
 		}
 	};
@@ -66,14 +71,15 @@ function VirtualizedList(props) {
 		id,
 		theme: tableTheme,
 		children: columnDefinitionsWithSelection,
-		widths,
+		columnsWidths,
+		columnDataKeyResizing,
 	});
 
 	if (type === LARGE && inProgress) {
 		return <Loader id={id && `${id}-loader`} className={theme['tc-list-progress']} />;
 	}
 	return (
-		<virtualizedListContext.Provider value={{ resizeRow }}>
+		<virtualizedListContext.Provider value={{ resizeRow, setColumnDataKeyResizing }}>
 			<AutoSizer>
 				{({ height, width }) => (
 					<RendererSelector

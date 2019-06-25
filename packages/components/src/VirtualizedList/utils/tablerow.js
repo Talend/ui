@@ -46,8 +46,9 @@ export function insertSelectionConfiguration(props) {
 	return contentsConfiguration;
 }
 
-const getWidth = (widths, { dataKey }) => {
-	const columnWidth = Array.isArray(widths) && widths.find(col => col.dataKey === dataKey);
+const getWidth = (columnsWidths, { dataKey }) => {
+	const columnWidth =
+		Array.isArray(columnsWidths) && columnsWidths.find(col => col.dataKey === dataKey);
 	if (!columnWidth || !columnWidth.resized || !columnWidth.resizable || columnWidth.width <= 40) {
 		return {
 			width: columnWidth && columnWidth.width,
@@ -63,20 +64,26 @@ const getWidth = (widths, { dataKey }) => {
  * - header and row fixed classnames
  * - parent id (via columnData)
  */
-export function toColumns({ id, theme, children, widths }) {
+export function toColumns({ id, theme, children, columnsWidths, columnDataKeyResizing }) {
+	console.log({ columnsWidths });
 	return React.Children.toArray(children).map((field, index) => {
+		const columnWidth =
+			Array.isArray(columnsWidths) &&
+			columnsWidths.find(col => col.dataKey === field.props.dataKey);
 		const colClassName = `tc-list-cell-${field.props.dataKey}`;
 		const colProps = {
 			...field.props,
-			headerClassName: classNames(field.props.headerClassName, theme.header, colClassName),
+			headerClassName: classNames(field.props.headerClassName, theme.header, colClassName, {
+				'tc-header-resizable': columnWidth && columnWidth.resizable,
+				'tc-header-resizing': columnDataKeyResizing === field.props.dataKey,
+			}),
 			className: classNames(field.props.className, theme.cell, colClassName),
 			columnData: {
 				...field.props.columnData,
 				id,
 			},
-			...getWidth(widths, field.props),
+			...getWidth(columnsWidths, field.props),
 		};
-		// console.log({ colProps });
 		return <Column key={index} {...colProps} />;
 	});
 }

@@ -1,9 +1,14 @@
 /* eslint-disable dot-notation */
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Draggable from 'react-draggable';
+import { SortIndicator } from 'react-virtualized';
 import { virtualizedListContext } from '../virtualizedListContext';
-import test from './HeaderResizable.scss';
+import headerResizableCssModule from './HeaderResizable.scss';
+import { getTheme } from '../../theme';
+
+const theme = getTheme(headerResizableCssModule);
 
 const HeaderResizableContent = ({ label, customRender, ...rest }) => {
 	if (typeof customRender === 'function') {
@@ -11,40 +16,30 @@ const HeaderResizableContent = ({ label, customRender, ...rest }) => {
 	} else if (label) {
 		return label;
 	}
-	throw new Error('blabla api');
+	throw new Error('[HeaderResizableContent]: No children as function or label provided.');
 };
 
-const HeaderResizable = ({
-	children,
-	columnData,
-	dataKey,
-	disableSort,
-	label,
-	sortBy,
-	sortDirection,
-}) => {
+const HeaderResizable = ({ children, dataKey, label, sortDirection, sortBy }) => {
 	const { Consumer } = virtualizedListContext;
 	return (
 		<Consumer>
-			{({ resizeRow }) => (
-				<div
-					key={dataKey}
-					style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}
-				>
-					<div className={classNames(test['tc-header-TruncatedText'])} style={{ flex: 'auto' }}>
+			{({ resizeRow, setColumnDataKeyResizing }) => (
+				<div key={dataKey} className={classNames(theme('tc-header-cell-resizable'))}>
+					<div className={classNames(theme('tc-header-cell-resizable-truncated-text'))}>
 						<HeaderResizableContent customRender={children} label={label} />
+						{sortBy === dataKey && <SortIndicator sortDirection={sortDirection} />}
 					</div>
 					<Draggable
 						axis="x"
-						defaultClassName={classNames(test['tc-header-DragHandle'])}
-						defaultClassNameDragging={classNames(test['tc-header-DragHandleActive'])}
+						defaultClassName={classNames(theme('tc-header-cell-resizable-drag-handle'))}
+						onStart={() => setColumnDataKeyResizing(dataKey)}
 						onDrag={(_, data) => {
 							resizeRow(dataKey, data.deltaX);
 						}}
+						onStop={() => setColumnDataKeyResizing('')}
 						position={{ x: 0 }}
-						zIndex={999}
 					>
-						<span className={classNames(test['tc-header-DragHandleIcon'])}>⋮</span>
+						<div className={classNames(theme('tc-header-cell-resizable-drag-handle-icon'))} />
 					</Draggable>
 				</div>
 			)}
@@ -52,4 +47,12 @@ const HeaderResizable = ({
 	);
 };
 
-export default HeaderResizable;
+HeaderResizable.propTypes = {
+	children: PropTypes.oneOfType[(PropTypes.element, PropTypes.arrayOf(PropTypes.element))],
+	dataKey: PropTypes.string,
+	label: PropTypes.string,
+	sortBy: PropTypes.string,
+	sortDirection: PropTypes.bool,
+};
+
+export default props => <HeaderResizable {...props} />;

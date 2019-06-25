@@ -10,6 +10,8 @@ import CellBadge from '../src/VirtualizedList/CellBadge';
 import MyCustomRow from './List/MyCustomRow.component';
 
 import { headerDictionary } from '../src/VirtualizedList/utils/dictionary';
+import { headerType as headerResizableType } from '../src/VirtualizedList/HeaderResizable';
+
 
 function NoRowsRenderer() {
 	return (
@@ -760,38 +762,34 @@ storiesOf('VirtualizedList', module)
 			</p>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
-				<VirtualizedList
-					collection={collection}
-					id={'my-list'}
-					columnsWidth={[
-						{ dataKey: 'name', width: 250, resizable: true },
-						{ dataKey: 'description', width: 350, resizable: true },
-						{ dataKey: 'author', width: 200 },
-						{ dataKey: 'created', width: 100, resizable: true },
-						{ dataKey: 'modified', width: 100, resizable: true },
-					]}
-				>
+				<VirtualizedList collection={collection} id={'my-list'}>
 					<VirtualizedList.Content label="Id" dataKey="id" />
-					<VirtualizedList.Content
-						label="Name"
-						dataKey="name"
-						columnData={titleProps}
+					<VirtualizedList.Ckontent
 						{...CellTitle}
-						headerRenderer={headerDictionary['resizable']}
+						columnData={titleProps}
+						dataKey="name"
+						headerRenderer={headerDictionary[headerResizableType]}
+						label="Name"
+						resizable
+						width={250}
 					/>
 					<VirtualizedList.Content
-						label="Description"
 						dataKey="description"
 						disableSort
-						headerRenderer={headerDictionary['resizable']}
+						headerRenderer={headerDictionary[headerResizableType]}
+						label="Description"
+						resizable
+						width={350}
 					/>
-					<VirtualizedList.Content label="Author" dataKey="author" />
+					<VirtualizedList.Content label="Author" dataKey="author" width={200} />
 					<VirtualizedList.Content
-						label="Created"
 						dataKey="created"
-						headerRenderer={headerDictionary['resizable']}
+						headerRenderer={headerDictionary[headerResizableType]}
+						label="Created"
+						resizable
+						width={100}
 					/>
-					<VirtualizedList.Content label="Modified" dataKey="modified" />
+					<VirtualizedList.Content label="Modified" dataKey="modified" width={100} resizable />
 				</VirtualizedList>
 			</section>
 		</div>

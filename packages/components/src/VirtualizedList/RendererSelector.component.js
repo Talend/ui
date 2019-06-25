@@ -71,7 +71,6 @@ class RendererSelector extends React.Component {
 		} = this.props;
 
 		const collection = inProgress ? [] : this.props.collection;
-		console.log({ width });
 		const commonProps = {
 			children,
 			collection,

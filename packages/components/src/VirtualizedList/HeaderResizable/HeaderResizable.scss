@@ -1,46 +1,32 @@
-body {
-	font-family: sans-serif;
-	font-size: 12px;
-}
 
-.ReactVirtualized__Table {
-	display: inline-block;
-	border: 2px solid rgba(0, 0, 0, 0.1);
-}
+$drag-element-width: 0.5rem;
 
-.tc-header {
-	// &-column {
-	// 	display: flex;
-	// 	flex-direction: row;
-	// 	justify-content: center;
-	// 	padding: 0;
-	// }
+.tc-header-cell-resizable {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
 
-	&-TruncatedText {
-		flex: auto;
+	&-truncated-text {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
-	&-DragHandle {
-		flex: 0 0 16px;
-		z-index: 2;
+	&-drag-handle {
 		cursor: col-resize;
-		color: #0085ff;
-	}
-	&-DragHandle:hover {
-		background-color: rgba(0, 0, 0, 0.1);
 	}
 
-	&-DragHandleActive,
-	&-DragHandleActive:hover {
-		color: #0b6fcc;
-		z-index: 3;
-	}
-
-	&-DragHandleIcon {
-		flex: 0 0 12px;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
+	&-drag-handle-icon {
+		/* 
+			React-Draggable component doesn't like relative / absolute transformation.
+			So we are enlarging our handle icon with negative margin value.
+		*/
+		margin: -$padding-small;
+		min-width: $drag-element-width;
+		width: $drag-element-width;
+		&:hover,
+		&:active {
+			background: $scooter;
+		}
 	}
 }
