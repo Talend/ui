@@ -44,7 +44,6 @@ function VirtualizedList(props) {
 		rowCount,
 		type,
 	} = props;
-	extractResizableProps(children);
 	const columnDefinitionsWithSelection = insertSelectionConfiguration({
 		children,
 		collection,
