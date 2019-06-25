@@ -80,6 +80,11 @@ const actions = {
 	items: ['object:delete'],
 };
 
+const actionsWithPersistent = {
+	...actions,
+	persistentItemsActions: ['object:add'],
+};
+
 const toolbar = {
 	sort: {
 		field: 'id',
@@ -204,6 +209,18 @@ const ExampleList = {
 			<IconsProvider />
 			<div className="list-container">
 				<List {...props} items={items} />
+			</div>
+		</div>
+	),
+	'with persistent actions': () => (
+		<div>
+			<IconsProvider />
+			<div className="list-container">
+				<List
+					{...props}
+					actions={actionsWithPersistent}
+					items={items}
+				/>
 			</div>
 		</div>
 	),

@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import ArrayWidget from './Array.component';
 
 const schema = {
@@ -128,6 +128,46 @@ describe('Array component', () => {
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render a readOnly array', () => {
+		const wrapper = mount(
+			<ArrayWidget
+				description={'My array description'}
+				errorMessage={'This array is not correct'}
+				id={'talend-array'}
+				isValid
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				schema={{ ...schema, readOnly: true }}
+				value={value}
+				errors={[]}
+			/>,
+		);
+		expect(wrapper.find('Action').length).toBe(0);
+	});
+
+	it('should render array with Add/Delete button disabled', () => {
+		// given
+		const disabledSchema = {
+			...schema,
+			disabled: true,
+		};
+		// when
+		const wrapper = mount(
+			<ArrayWidget
+				description={'My array description'}
+				id={'talend-array'}
+				isValid
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				schema={disabledSchema}
+				value={value}
+				errors={{}}
+			/>,
+		);
+		// then
+		expect(wrapper.find('Action#talend-array-btn').prop('disabled')).toBe(true);
 	});
 
 	describe('#onAdd', () => {

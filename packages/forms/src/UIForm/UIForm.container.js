@@ -123,11 +123,12 @@ export default class UIForm extends React.Component {
 	 * On user submit change local state and call this.props.onSubmit
 	 * @param event submit event
 	 * @param {Object} properties
+	 * @param {Object} mergedSchema
 	 */
-	onSubmit(event, properties) {
+	onSubmit(event, properties, mergedSchema) {
 		this.setState(setLiveAsInitialState);
 		if (typeof this.props.onSubmit === 'function') {
-			this.props.onSubmit(event, properties);
+			this.props.onSubmit(event, properties, mergedSchema);
 		}
 	}
 

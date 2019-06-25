@@ -60,4 +60,19 @@ $tc-list-large-field-value-color: $dove-gray !default;
 		white-space: nowrap;
 		flex: 1;
 	}
+
+	.loading-large-column-wrapper {
+		margin: $padding-large;
+		display: flex;
+		flex: 1;
+		flex-direction: row;
+
+		.loading-inner-column {
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			flex: 1;
+			justify-content: space-between;
+		}
+	}
 }

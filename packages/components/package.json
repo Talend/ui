@@ -53,6 +53,7 @@
     "react-debounce-input": "3.2.0",
     "react-dnd": "^2.5.4",
     "react-dnd-html5-backend": "^2.5.4",
+    "react-grid-layout": "0.16.6",
     "react-immutable-proptypes": "^2.1.0",
     "react-transition-group": "^2.3.1",
     "react-virtualized": "9.21.0",
@@ -70,16 +71,16 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
-    "@storybook/addon-a11y": "^4.0.12",
-    "@storybook/addon-actions": "^4.0.12",
-    "@storybook/addon-info": "^4.0.12",
-    "@storybook/addon-storyshots": "^4.0.12",
-    "@storybook/react": "^4.0.12",
-    "@talend/bootstrap-theme": "^3.6.0-0",
-    "@talend/icons": "^3.6.0-0",
+    "@storybook/addon-a11y": "^5.1.0",
+    "@storybook/addon-actions": "^5.1.0",
+    "@storybook/addons": "^5.1.0",
+    "@storybook/react": "^5.1.0",
+    "@talend/bootstrap-theme": "^3.10.0",
+    "@talend/icons": "^3.10.0",
     "autoprefixer": "^7.1.4",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.7.1",
+    "copy-webpack-plugin": "^5.0.3",
     "cpx": "^1.5.0",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.1",
@@ -112,8 +113,8 @@
     "style-loader": "^0.23.0"
   },
   "peerDependencies": {
-    "@talend/bootstrap-theme": "^3.6.0-0",
-    "@talend/icons": "^3.6.0-0",
+    "@talend/bootstrap-theme": "^3.10.0",
+    "@talend/icons": "^3.10.0",
     "i18next": "^9.0.0",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
@@ -141,5 +142,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.6.0-0"
+  "version": "3.10.0"
 }
