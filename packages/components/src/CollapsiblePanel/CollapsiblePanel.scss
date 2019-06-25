@@ -196,13 +196,15 @@ $tc-toggle-color: #555964 !default;
 			width: 100%;
 
 			.label {
-				flex-basis: 10%;
+				flex-basis: 5%;
 				flex-shrink: 0;
 				flex-grow: 1;
+				display: flex;
+				align-items: center;
 			}
 
 			.description {
-				flex-basis: 90%;
+				flex-basis: 95%;
 				flex-shrink: 0;
 				flex-grow: 1;
 				font-weight: normal;

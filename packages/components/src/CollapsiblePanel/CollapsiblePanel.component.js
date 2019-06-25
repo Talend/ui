@@ -5,9 +5,9 @@ import { Label, OverlayTrigger, Panel, Button } from 'react-bootstrap';
 import { translate } from 'react-i18next';
 
 import Action from '../Actions/Action';
-import Icon from './../Icon/Icon.component';
+import Icon from '../Icon/Icon.component';
 import { Status, getbsStyleFromStatus } from '../Status';
-import TooltipTrigger from './../TooltipTrigger';
+import TooltipTrigger from '../TooltipTrigger';
 import getDefaultT from '../translate';
 
 import css from './CollapsiblePanel.scss';
