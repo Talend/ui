@@ -123,7 +123,7 @@ describe('ListViewWidget', () => {
 			// when
 			values.forEach((_, i) => {
 				wrapper
-					.find(`#checkbox-my-widget-${i + 1}-item`)
+					.find(`input#checkbox-my-widget-${i + 1}-item`)
 					.at(0)
 					.simulate('change', evt);
 			});
@@ -233,11 +233,11 @@ describe('ListViewWidget', () => {
 
 		// when
 		wrapper
-			.find('#checkbox-my-widget-2-item')
+			.find('input#checkbox-my-widget-2-item')
 			.at(0)
 			.simulate('change', evt);
 		wrapper
-			.find('#checkbox-my-widget-3-item')
+			.find('input#checkbox-my-widget-3-item')
 			.at(0)
 			.simulate('change', evt);
 
@@ -275,8 +275,7 @@ describe('ListViewWidget', () => {
 			// then
 			values.forEach((v, i) => {
 				const node = wrapper
-					.find(`#my-widget-${i + 1}-item`)
-					.find('.tc-listview-item-label')
+					.find(`#my-widget-${i + 1}-item label`)
 					.at(0);
 				expect(node.text()).toBe(v.label);
 			});
@@ -290,8 +289,7 @@ describe('ListViewWidget', () => {
 			// then
 			values.forEach((v, i) => {
 				const node = wrapper
-					.find(`#my-widget-${i + 1}-item`)
-					.find('.tc-listview-item-label')
+					.find(`#my-widget-${i + 1}-item label`)
 					.at(0);
 				expect(node.text()).toBe(v);
 			});
@@ -306,7 +304,7 @@ describe('ListViewWidget', () => {
 
 			// when
 			wrapper
-				.find('#checkbox-my-widget-0-item')
+				.find('input#checkbox-my-widget-0-item')
 				.at(0)
 				.simulate('change', evt);
 
