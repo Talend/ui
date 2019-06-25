@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Draggable from 'react-draggable';
-import { SortIndicator } from 'react-virtualized';
 import { virtualizedListContext } from '../virtualizedListContext';
 import headerResizableCssModule from './HeaderResizable.scss';
 import { getTheme } from '../../theme';
@@ -19,7 +18,7 @@ const HeaderResizableContent = ({ label, customRender, ...rest }) => {
 	throw new Error('[HeaderResizableContent]: No children as function or label provided.');
 };
 
-const HeaderResizable = ({ children, dataKey, label, sortDirection, sortBy }) => {
+const HeaderResizable = ({ children, dataKey, label }) => {
 	const { Consumer } = virtualizedListContext;
 	return (
 		<Consumer>
@@ -27,7 +26,6 @@ const HeaderResizable = ({ children, dataKey, label, sortDirection, sortBy }) =>
 				<div key={dataKey} className={classNames(theme('tc-header-cell-resizable'))}>
 					<div className={classNames(theme('tc-header-cell-resizable-truncated-text'))}>
 						<HeaderResizableContent customRender={children} label={label} />
-						{sortBy === dataKey && <SortIndicator sortDirection={sortDirection} />}
 					</div>
 					<Draggable
 						axis="x"
@@ -51,8 +49,6 @@ HeaderResizable.propTypes = {
 	children: PropTypes.oneOfType[(PropTypes.element, PropTypes.arrayOf(PropTypes.element))],
 	dataKey: PropTypes.string,
 	label: PropTypes.string,
-	sortBy: PropTypes.string,
-	sortDirection: PropTypes.bool,
 };
 
 export default props => <HeaderResizable {...props} />;
