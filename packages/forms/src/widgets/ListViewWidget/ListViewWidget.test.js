@@ -274,9 +274,7 @@ describe('ListViewWidget', () => {
 
 			// then
 			values.forEach((v, i) => {
-				const node = wrapper
-					.find(`#my-widget-${i + 1}-item label`)
-					.at(0);
+				const node = wrapper.find(`#my-widget-${i + 1}-item label`).at(0);
 				expect(node.text()).toBe(v.label);
 			});
 		});
@@ -288,9 +286,7 @@ describe('ListViewWidget', () => {
 
 			// then
 			values.forEach((v, i) => {
-				const node = wrapper
-					.find(`#my-widget-${i + 1}-item label`)
-					.at(0);
+				const node = wrapper.find(`#my-widget-${i + 1}-item label`).at(0);
 				expect(node.text()).toBe(v);
 			});
 		});
