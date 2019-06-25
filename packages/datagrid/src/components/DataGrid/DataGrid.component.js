@@ -104,7 +104,7 @@ export default class DataGrid extends React.Component {
 		}
 
 		if (this.props.forceRedrawRows && this.props.forceRedrawRows(this.props, prevProps)) {
-			console.warn('forceRedrawRows is deprecated');
+			console.warn('DEPRECATED: forceRedrawRows is deprecated');
 			this.gridAPI.redrawRows();
 		}
 	}
