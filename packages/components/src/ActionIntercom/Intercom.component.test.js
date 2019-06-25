@@ -100,7 +100,7 @@ describe('Intercom button', () => {
 		expect(IntercomService.shutdown).toBeCalled();
 	});
 
-	it('should change icon and label on open/close', () => {
+	it('should change label on open/close', () => {
 		// given
 		const wrapper = mount(<Intercom.WrappedComponent id="my-intercom" config={config} />, {
 			attachTo: insertionElement,
@@ -109,7 +109,6 @@ describe('Intercom button', () => {
 		const onHide = IntercomService.onHide.mock.calls[0][0];
 
 		expect(wrapper.find('TooltipTrigger').prop('label')).toBe('Open support messenger.');
-		expect(wrapper.find('Icon').prop('name')).toBe('talend-bubbles');
 
 		// when/then show
 		act(() => {
@@ -117,7 +116,6 @@ describe('Intercom button', () => {
 		});
 		wrapper.update();
 		expect(wrapper.find('TooltipTrigger').prop('label')).toBe('Close support messenger.');
-		expect(wrapper.find('Icon').prop('name')).toBe('talend-cross');
 
 		// when/then hide
 		act(() => {
@@ -125,7 +123,6 @@ describe('Intercom button', () => {
 		});
 		wrapper.update();
 		expect(wrapper.find('TooltipTrigger').prop('label')).toBe('Open support messenger.');
-		expect(wrapper.find('Icon').prop('name')).toBe('talend-bubbles');
 	});
 
 	it('should set messenger position', () => {

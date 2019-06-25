@@ -28,7 +28,7 @@ $tc-list-toolbar-order-chooser-icon-size: 0.6rem !default;
 	:global(.tc-list-toolbar-order-chooser) {
 		background-color: $wild-sand;
 		color: $black;
-		display: flex;
+		display: inherit;
 
 		padding: 0;
 
