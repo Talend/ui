@@ -38,10 +38,6 @@
 			}
 		}
 
-		&.separator {
-			min-width: 0;
-		}
-
 		&.active span {
 			font-weight: 600;
 			color: $breadcrumb-items-active-color;
@@ -69,7 +65,10 @@
 		}
 
 		> span {
-			display: inline-block;
+			display: block;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
 		}
 	}
 }

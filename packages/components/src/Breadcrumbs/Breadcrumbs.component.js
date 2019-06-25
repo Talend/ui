@@ -22,6 +22,12 @@ const DEFAULT_MAX_ITEMS = 4;
  */
 const DEFAULT_NB_ITEMS_BEFORE_ELLIPSIS = 1;
 
+const BREADCRUMB_SKELETON = [
+	{ type: Skeleton.TYPES.text, size: Skeleton.SIZES.large },
+	{ type: Skeleton.TYPES.circle, size: Skeleton.SIZES.small },
+	{ type: Skeleton.TYPES.text, size: Skeleton.SIZES.large },
+];
+
 /**
  * Indicate the current page location within a navigational hierarchy.
  * @param {object} props   react props
@@ -42,19 +48,15 @@ export function BreadcrumbsComponent({ loading, id, items, maxItems, t }) {
 					'tc-breadcrumb--loading',
 				)}
 			>
-				{[
-					{ size: Skeleton.SIZES.large, type: Skeleton.TYPES.text },
-					{ size: Skeleton.SIZES.small, type: Skeleton.TYPES.circle },
-					{ size: Skeleton.SIZES.large, type: Skeleton.TYPES.text },
-				].map(({ size, type }) => (
-					<Skeleton size={size} type={type} />
+				{BREADCRUMB_SKELETON.map(({ size, type }, index) => (
+					<Skeleton key={index} size={size} type={type} />
 				))}
 			</div>
 		);
 	}
 	const nbItems = items.length;
 	const maxItemsReached = nbItems > maxItems;
-	const ellipsisIndex = nbItems - 1 - maxItems + 1 + DEFAULT_NB_ITEMS_BEFORE_ELLIPSIS;
+	const ellipsisIndex = nbItems - maxItems + DEFAULT_NB_ITEMS_BEFORE_ELLIPSIS;
 	const hiddenItems = items
 		.slice(DEFAULT_NB_ITEMS_BEFORE_ELLIPSIS, ellipsisIndex + 1)
 		.map((hiddenItem, index) => ({
