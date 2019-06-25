@@ -29,7 +29,7 @@ cmf.bootstrap({
 
 ## DataGrid Component
 
-The dataGrid component used to show datagrid on all talend projects. This library use [Ag-Grid](http://ag-grid.com) to show the grid. It's an enhanced Ag-Grid.
+The dataGrid component used to show datagrid on all talend projects. This library uses [Ag-Grid](http://ag-grid.com) to show the grid. It's an enhanced Ag-Grid.
 
 Features:
 
