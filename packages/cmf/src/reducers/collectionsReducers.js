@@ -28,12 +28,12 @@ export function getId(element) {
 function addCollectionElement(state, action) {
 	if (action.operations.add) {
 		return action.operations.add.reduce((s, e) => {
-			const element = s.get(action.id);
+			const element = s.getIn(action.path);
 			if (List.isList(element)) {
-				return s.set(action.id, element.push(e));
+				return s.setIn(action.path, element.push(e));
 			}
 			if (Map.isMap(element)) {
-				return s.set(action.id, element.merge(e));
+				return s.setIn(action.path, element.merge(e));
 			}
 			return state;
 		}, state);
@@ -46,22 +46,22 @@ function deleteListElements(state, action) {
 		return action.operations.delete.indexOf(getId(element)) >= 0;
 	}
 
-	const collection = state.get(action.id);
+	const collection = state.getIn(action.path);
 	if (collection.some(shouldBeRemoved)) {
-		return state.set(action.id, collection.filterNot(shouldBeRemoved));
+		return state.setIn(action.path, collection.filterNot(shouldBeRemoved));
 	}
 	return state;
 }
 
 function deleteMapElements(state, action) {
-	const collection = state.get(action.id);
+	const collection = state.getIn(action.path);
 
 	if (action.operations.delete.some(id => collection.has(id))) {
 		const changedCollection = action.operations.delete.reduce(
 			(collectionAccu, element) => collectionAccu.delete(element),
 			collection,
 		);
-		return state.set(action.id, changedCollection);
+		return state.setIn(action.path, changedCollection);
 	}
 
 	return state;
@@ -76,7 +76,7 @@ function deleteMapElements(state, action) {
  */
 function deleteCollectionElement(state, action) {
 	if (action.operations.delete) {
-		const collection = state.get(action.id);
+		const collection = state.getIn(action.path);
 		if (Map.isMap(collection)) {
 			return deleteMapElements(state, action);
 		} else if (List.isList(collection)) {
@@ -90,17 +90,17 @@ function deleteCollectionElement(state, action) {
 function updateListElements(state, action) {
 	const updates = action.operations.update;
 
-	const changedCollection = state.get(action.id).map(element => updates[getId(element)] || element);
-	return state.set(action.id, changedCollection);
+	const changedCollection = state.getIn(action.path).map(element => updates[getId(element)] || element);
+	return state.setIn(action.path, changedCollection);
 }
 
 function updateMapElements(state, action) {
 	const updates = action.operations.update;
 	const changedCollection = Object.keys(updates).reduce(
 		(collectionAccu, id) => collectionAccu.set(id, updates[id]),
-		state.get(action.id),
+		state.getIn(action.path),
 	);
-	return state.set(action.id, changedCollection);
+	return state.setIn(action.path, changedCollection);
 }
 
 /**
@@ -112,7 +112,7 @@ function updateMapElements(state, action) {
  */
 function updateCollectionElement(state, action) {
 	if (action.operations.update) {
-		const collection = state.get(action.id);
+		const collection = state.getIn(action.path);
 		if (Map.isMap(collection)) {
 			return updateMapElements(state, action);
 		} else if (List.isList(collection)) {

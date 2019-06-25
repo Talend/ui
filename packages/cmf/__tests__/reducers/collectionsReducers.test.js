@@ -8,7 +8,7 @@ describe('check collection management reducer', () => {
 	it('REACT_CMF.COLLECTION_ADD_OR_REPLACE should properly add data into store', () => {
 		expect(collectionsReducers(initialState, {
 			type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
-			collectionId: 'collectionId',
+			path: ['collectionId'],
 			data: 'data can be anything',
 		})).toEqual(new Map()
 			.set('collection1', 'super data')
@@ -18,7 +18,7 @@ describe('check collection management reducer', () => {
 	it('REACT_CMF.COLLECTION_ADD_OR_REPLACE should properly replace data into store', () => {
 		expect(collectionsReducers(initialState, {
 			type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
-			collectionId: 'collection1',
+			path: ['collection1'],
 			data: 'data can be anything',
 		})).toEqual(new Map().set('collection1', 'data can be anything'));
 	});
@@ -26,14 +26,14 @@ describe('check collection management reducer', () => {
 	it('REACT_CMF.COLLECTION_REMOVE should properly remove collection from the store', () => {
 		expect(collectionsReducers(initialState, {
 			type: 'REACT_CMF.COLLECTION_REMOVE',
-			collectionId: 'collection1',
+			path: ['collection1'],
 		})).toEqual(new Map());
 	});
 	it('REACT_CMF.COLLECTION_REMOVE should throw when collection doesn\'t exist', () => {
 		expect(() => {
 			collectionsReducers(initialState, {
 				type: 'REACT_CMF.COLLECTION_REMOVE',
-				collectionId: 'unknown collection',
+				path: ['unknown collection'],
 			});
 		}).toThrowError('Can\'t remove collection unknown collection since it doesn\'t exist.');
 	});
@@ -52,7 +52,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 	it('shouldn\'t mutate if id doesn\'t exist', () => {
 		expect(collectionsReducers(mapInitialState, {
 			type: 'REACT_CMF.COLLECTION_MUTATE',
-			id: 'wrongCollectionid',
+			path: ['wrongCollectionid'],
 			operation: {},
 		})).toEqual(mapInitialState);
 	});
@@ -60,7 +60,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 	it('shouldn\'t mutate if no operations', () => {
 		expect(collectionsReducers(mapInitialState, {
 			type: 'REACT_CMF.COLLECTION_MUTATE',
-			id: 'collectionid',
+			path: ['collectionid'],
 		})).toEqual(mapInitialState);
 	});
 
@@ -68,7 +68,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 		it('should insert elements to List properly', () => {
 			const nextState = collectionsReducers(listInitialState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				id: 'collectionid',
+				path: ['collectionid'],
 				operations: {
 					add: [{ id: 2, label: 'test data 2' }],
 				},
@@ -82,7 +82,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 		it('should insert elements to Map properly', () => {
 			const nextState = collectionsReducers(mapInitialState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				id: 'collectionid',
+				path: ['collectionid'],
 				operations: {
 					add: [{ test2: 'test data 2' }],
 				},
@@ -101,7 +101,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 		it('should delete elements from List properly', () => {
 			const nextState = collectionsReducers(listInitialState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				id: 'collectionid',
+				path: ['collectionid'],
 				operations: {
 					delete: [0],
 				},
@@ -114,7 +114,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 		it('should delete elements from Map properly', () => {
 			const nextState = collectionsReducers(mapInitialState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				id: 'collectionid',
+				path: ['collectionid'],
 				operations: {
 					delete: ['test0'],
 				},
@@ -129,7 +129,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 		it('should delete nothing when ids don\'t match in List', () => {
 			const nextState = collectionsReducers(listInitialState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				id: 'collectionid',
+				path: ['collectionid'],
 				operations: {
 					delete: ['unknown'],
 				},
@@ -140,7 +140,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 		it('should delete nothing when ids don\'t match in Map', () => {
 			const nextState = collectionsReducers(mapInitialState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				id: 'collectionid',
+				path: ['collectionid'],
 				operations: {
 					delete: ['unknown'],
 				},
@@ -153,7 +153,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 		it('should update elements of List properly', () => {
 			const nextState = collectionsReducers(listInitialState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				id: 'collectionid',
+				path: ['collectionid'],
 				operations: {
 					update: {
 						0: { id: 0, label: 'new test data 0' },
@@ -169,7 +169,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 		it('should update elements of Map properly', () => {
 			const nextState = collectionsReducers(mapInitialState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				id: 'collectionid',
+				path: ['collectionid'],
 				operations: {
 					update: {
 						test0: 'new test data 0',
