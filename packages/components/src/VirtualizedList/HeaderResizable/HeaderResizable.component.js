@@ -59,7 +59,10 @@ class HeaderResizable extends React.Component {
 								onStop={() => this.setResizing()}
 								position={{ x: 0 }}
 							>
-								<div className={classNames(theme('tc-header-cell-resizable-drag-handle-icon'))} />
+								<div
+									className={classNames(theme('tc-header-cell-resizable-drag-handle-icon'))}
+									title={tooltipLabel}
+								/>
 							</Draggable>
 						</TooltipTrigger>
 					</div>
