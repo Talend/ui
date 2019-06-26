@@ -15,7 +15,7 @@ $row-nested-inner-margin-bottom: $padding-larger - $padding-small;
 	.tc-item-container {
 		:global {
 			.checkbox {
-				margin-left: 5px;
+				margin-left: $padding-smaller;
 			}
 
 			.checkbox-nested {
