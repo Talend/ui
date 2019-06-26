@@ -7,7 +7,6 @@ $row-nested-inner-margin-top: $padding-normal - $padding-small;
 $row-nested-inner-margin-bottom: $padding-larger - $padding-small;
 
 .tc-listview-items {
-	padding-left: $row-left-margin;
 	min-height: 0;
 	list-style: none;
 	box-shadow: inset 0 21px 3px -20px $shadow, inset 0 -21px 3px -20px $shadow;
@@ -16,8 +15,11 @@ $row-nested-inner-margin-bottom: $padding-larger - $padding-small;
 
 	.tc-item-container {
 		:global {
+			.checkbox {
+				margin-left: 5px;
+			}
+
 			.checkbox-nested {
-				padding-left: $row-left-margin;
 				margin-top: $row-nested-inner-margin-top;
 				margin-bottom: $row-nested-inner-margin-bottom;
 			}
