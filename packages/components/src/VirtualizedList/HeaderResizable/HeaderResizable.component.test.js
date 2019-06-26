@@ -80,8 +80,6 @@ describe('HeaderResizable', () => {
 			),
 		).toHaveLength(1);
 		expect(wrapper.state('resizing')).toBe(true);
-		// wrapper.find('Draggable').simulate('mouseup');
-		// expect(wrapper.state('resizing')).toBe(false);
 	});
 	it('should change resizing state when dragging is ended', () => {
 		// given
