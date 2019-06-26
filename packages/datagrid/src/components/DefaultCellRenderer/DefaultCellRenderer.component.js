@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Skeleton } from '@talend/react-components';
+import memoize from 'lodash/memoize';
 
 import { AVRO_TYPES } from '../../constants';
 import DATAGRID_PROPTYPES from '../DataGrid/DataGrid.proptypes';
@@ -12,13 +13,20 @@ import theme from './DefaultCell.scss';
 
 export const CELL_RENDERER_COMPONENT = 'cellRenderer';
 
+function convertValue(value) {
+	if (!value.toJS) {
+		return value;
+	}
+
+	return value.toJS();
+}
+
+const memoizedConvertValue = memoize(convertValue);
+
 function DefaultCellRenderer({ avroRenderer, colDef, value, getComponent, data }) {
 	let content;
 
-	let plainValue = value;
-	if (value.toJS) {
-		plainValue = value.toJS();
-	}
+	const plainValue = memoizedConvertValue(value);
 
 	if (data.loading) {
 		content = <Skeleton key="1" />;
