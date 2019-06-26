@@ -1,6 +1,11 @@
 const SASS_DATA = "@import '~@talend/bootstrap-theme/src/theme/guidelines';";
 const autoprefixer = require.main.require('autoprefixer');
+const path = require('path');
+const webpack = require.main.require('webpack');
 const autoPrefixerPlugin = autoprefixer({ browsers: ['last 2 versions'] });
+const CopyPlugin = require('copy-webpack-plugin');
+const icons = require.resolve('@talend/icons/dist/info');
+const iconsDist = path.dirname(icons);
 
 module.exports = ({ config }) => {
 	// Override css part to apply custom postcss config
@@ -62,6 +67,11 @@ module.exports = ({ config }) => {
 			],
 		},
 	);
-
+	config.plugins = config.plugins.concat(
+		new CopyPlugin([{ from: path.join(iconsDist, 'svg-bundle') }]),
+		new webpack.DefinePlugin({
+			'process.env.ICON_BUNDLE': JSON.stringify(process.env.ICON_BUNDLE),
+		}),
+	);
 	return config;
 };

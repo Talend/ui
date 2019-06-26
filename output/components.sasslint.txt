@@ -20,7 +20,7 @@ src/List/Toolbar/Toolbar.scss
   80:6  error  Nesting depth 4 greater than max of 3  nesting-depth
 
 src/Typeahead/Typeahead.scss
-  34:5  error  Mixins should come before declarations  mixins-before-declarations
+  33:5  error  Mixins should come before declarations  mixins-before-declarations
 
 src/VirtualizedList/HeaderResizable/HeaderResizable.scss
    6:2  error  Class '.ReactVirtualized__Table' should be written in lowercase with hyphens     class-name-format
