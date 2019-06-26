@@ -6,7 +6,6 @@ $tc-typeahead-input-width: 26rem !default;
 $tc-typeahead-opened-items-container-color: #aaa !default;
 $tc-typeahead-opened-items-container-background-color: #fff !default;
 
-$tc-typeahead-focused-item-background-color: #f7f7f7 !default;
 $tc-typeahead-item-description-color: #c0c0c0 !default;
 
 $tc-typeahead-section-border-color: #e0e0e0 !default;
@@ -164,8 +163,12 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		color: $tc-typeahead-item-description-color;
 	}
 
-	&-highlighted {
-		background-color: $tc-typeahead-focused-item-background-color;
+	&:hover {
+		background-color: $concrete;
+
+		&.selected {
+			background-color: #ccdce8;
+		}
 	}
 
 	&.disabled {
@@ -175,6 +178,10 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		&:hover {
 			background: none;
 		}
+	}
+
+	&.selected {
+		background-color: rgba($scooter, 0.2);
 	}
 }
 
