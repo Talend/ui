@@ -31,10 +31,15 @@
 		}
 
 		& + li {
+			// https://www.w3.org/TR/wai-aria-practices/examples/breadcrumb/index.html
 			&:before {
-				content: '/';
-				padding: 0 $padding-small;
-				color: $breadcrumb-items-separator-color;
+				display: block;
+				content: '';
+				margin: 0 $padding-small $padding-smaller $padding-smaller;
+				padding: 0 0 0 $padding-small;
+				transform: rotate(30deg);
+				border-right: 0.1rem solid $breadcrumb-items-separator-color;
+				height: 1.25rem;
 			}
 		}
 
