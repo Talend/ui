@@ -164,17 +164,17 @@ describe('ListView field', () => {
 			wrapper.update();
 
 			// then
-			expect(wrapper.find('.tc-listview-item-label').length).toBe(2);
+			expect(wrapper.find('input[id^="checkbox-my-list-view-"]').length).toBe(2);
 			expect(
 				wrapper
-					.find('.tc-listview-item-label')
-					.at(0)
+					.find('.theme-tc-item-container label')
+					.at(1)
 					.text(),
 			).toBe('Albania');
 			expect(
 				wrapper
-					.find('.tc-listview-item-label')
-					.at(1)
+					.find('.theme-tc-item-container label')
+					.at(2)
 					.text(),
 			).toBe('Algeria');
 		});
@@ -240,7 +240,7 @@ describe('ListView field', () => {
 
 			// when
 			wrapper
-				.find('#checkbox-my-list-view-1-item')
+				.find('input#checkbox-my-list-view-1-item')
 				.simulate('change', { target: { checked: true } });
 
 			// then
