@@ -248,8 +248,8 @@ export const getColumnWidth = (dataKey, columnsWidths) => {
 	return {};
 };
 
-const isFixedColumnWidth = (resized, resizable, width, minWidth) =>
-	!resized || !resizable || width <= minWidth;
+const isFixedColumnWidth = (resizable, resized, width, minWidth) =>
+	!resizable || !resized || width <= minWidth;
 
 export const createColumnWidthProps = columnsWidthsParams => {
 	if (!columnsWidthsParams) {
