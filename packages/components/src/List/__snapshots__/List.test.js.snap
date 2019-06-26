@@ -308,9 +308,9 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                         role="columnheader"
                         style={
                           Object {
-                            "WebkitFlex": "0 1 -1px",
-                            "flex": "0 1 -1px",
-                            "msFlex": "0 1 -1px",
+                            "WebkitFlex": "0 0 -1px",
+                            "flex": "0 0 -1px",
+                            "msFlex": "0 0 -1px",
                           }
                         }
                       >
@@ -328,9 +328,9 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                         role="columnheader"
                         style={
                           Object {
-                            "WebkitFlex": "0 1 -1px",
-                            "flex": "0 1 -1px",
-                            "msFlex": "0 1 -1px",
+                            "WebkitFlex": "0 0 -1px",
+                            "flex": "0 0 -1px",
+                            "msFlex": "0 0 -1px",
                           }
                         }
                       >
@@ -1367,9 +1367,9 @@ exports[`List should render 1`] = `
                         role="columnheader"
                         style={
                           Object {
-                            "WebkitFlex": "0 1 -1px",
-                            "flex": "0 1 -1px",
-                            "msFlex": "0 1 -1px",
+                            "WebkitFlex": "0 0 -1px",
+                            "flex": "0 0 -1px",
+                            "msFlex": "0 0 -1px",
                           }
                         }
                       >
@@ -1387,9 +1387,9 @@ exports[`List should render 1`] = `
                         role="columnheader"
                         style={
                           Object {
-                            "WebkitFlex": "0 1 -1px",
-                            "flex": "0 1 -1px",
-                            "msFlex": "0 1 -1px",
+                            "WebkitFlex": "0 0 -1px",
+                            "flex": "0 0 -1px",
+                            "msFlex": "0 0 -1px",
                           }
                         }
                       >
@@ -2455,9 +2455,9 @@ exports[`List should render id if provided 1`] = `
                         role="columnheader"
                         style={
                           Object {
-                            "WebkitFlex": "0 1 -1px",
-                            "flex": "0 1 -1px",
-                            "msFlex": "0 1 -1px",
+                            "WebkitFlex": "0 0 -1px",
+                            "flex": "0 0 -1px",
+                            "msFlex": "0 0 -1px",
                           }
                         }
                       >
@@ -2475,9 +2475,9 @@ exports[`List should render id if provided 1`] = `
                         role="columnheader"
                         style={
                           Object {
-                            "WebkitFlex": "0 1 -1px",
-                            "flex": "0 1 -1px",
-                            "msFlex": "0 1 -1px",
+                            "WebkitFlex": "0 0 -1px",
+                            "flex": "0 0 -1px",
+                            "msFlex": "0 0 -1px",
                           }
                         }
                       >
