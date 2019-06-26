@@ -208,7 +208,7 @@ class NestedListViewWidget extends React.Component {
 				>
 					<ListView
 						{...this.state}
-						getItemHeight={getItemHeight}
+						getItemHeight={schema.autosize ? null : getItemHeight}
 						id={this.props.id}
 						items={this.state.displayedItems}
 						headerDefault={this.defaultHeaderActions}
@@ -244,6 +244,7 @@ if (process.env.NODE_ENV !== 'production') {
 			placeholder: PropTypes.string,
 			required: PropTypes.bool,
 			title: PropTypes.string,
+			autosize: PropTypes.bool,
 		}),
 		value: PropTypes.object,
 		valueIsUpdating: PropTypes.bool,
