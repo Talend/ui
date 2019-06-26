@@ -1,0 +1,102 @@
+import React from 'react';
+import { mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
+import { HeaderResizable } from './HeaderResizable.component';
+import { virtualizedListContext } from '../virtualizedListContext';
+
+describe('HeaderResizable', () => {
+	it('should throw an error if used outside the virtualized list provider', () => {
+		// when
+		try {
+			mount(<HeaderResizable />);
+			expect.fail(
+				'It should have thrown an error because useListContext is used outside of context provider',
+			);
+		} catch (error) {
+			// then
+			expect(error.message).toBe(
+				'@talend/react-components > VirtualizedList: you are using a sub component out of VirtualizedList.',
+			);
+		}
+	});
+	it('should render with no specific props', () => {
+		// given
+		const resizeRow = jest.fn();
+		// when
+		const wrapper = mount(
+			<virtualizedListContext.Provider value={{ resizeRow }}>
+				<HeaderResizable />
+			</virtualizedListContext.Provider>,
+		);
+		// then
+		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(wrapper.html()).toMatchSnapshot();
+	});
+	it('should render with label', () => {
+		// given
+		const label = 'my header label';
+		const resizeRow = jest.fn();
+		// when
+		const wrapper = mount(
+			<virtualizedListContext.Provider value={{ resizeRow }}>
+				<HeaderResizable label={label} />
+			</virtualizedListContext.Provider>,
+		);
+		// then
+		expect(wrapper.find('HeaderResizableContent').prop('label')).toBe(label);
+	});
+	it('should render with custom header resizable', () => {
+		// given
+		const label = 'my header label';
+		const resizeRow = jest.fn();
+		// when
+		const wrapper = mount(
+			<virtualizedListContext.Provider value={{ resizeRow }}>
+				<HeaderResizable>
+					<button id="myCustomButton">{label}</button>
+					<span>This is a custom resizable header</span>
+				</HeaderResizable>
+			</virtualizedListContext.Provider>,
+		);
+		// then
+		expect(wrapper.find('button#myCustomButton').text()).toBe(label);
+	});
+	it('should change resizing state when dragging is trigger', () => {
+		// given
+		const label = 'my header label';
+		const resizeRow = jest.fn();
+		// when
+		const wrapper = mount(
+			<virtualizedListContext.Provider value={{ resizeRow }}>
+				<HeaderResizable label={label} />
+			</virtualizedListContext.Provider>,
+		);
+		expect(wrapper.state('resizing')).toBe(false);
+		wrapper.find('Draggable').simulate('mousedown');
+		// then
+		expect(
+			wrapper.find(
+				'div[className="tc-header-cell-resizable theme-tc-header-cell-resizable tc-header-cell-resizable-resizing theme-tc-header-cell-resizable-resizing"]',
+			),
+		).toHaveLength(1);
+		expect(wrapper.state('resizing')).toBe(true);
+		// wrapper.find('Draggable').simulate('mouseup');
+		// expect(wrapper.state('resizing')).toBe(false);
+	});
+	it('should change resizing state when dragging is ended', () => {
+		// given
+		const label = 'my header label';
+		const resizeRow = jest.fn();
+		// when
+		const wrapper = mount(
+			<virtualizedListContext.Provider value={{ resizeRow }}>
+				<HeaderResizable label={label} />
+			</virtualizedListContext.Provider>,
+		);
+		wrapper.find('Draggable').simulate('mousedown');
+		expect(wrapper.state('resizing')).toBe(true);
+		// then
+		wrapper.find('Draggable').simulate('mouseup');
+		expect(wrapper.state('resizing')).toBe(false);
+	});
+});

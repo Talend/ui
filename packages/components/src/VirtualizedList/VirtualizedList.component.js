@@ -59,10 +59,14 @@ function VirtualizedList(props) {
 	}, []);
 
 	const resizeRow = (dataKey, deltaX) => {
-		const currentIndexColumn = columnsWidths.findIndex(value => dataKey === value.dataKey);
-		if (currentIndexColumn >= 0) {
-			const result = resizeColumns(deltaX, columnsWidths, currentIndexColumn);
-			setWidths(result);
+		if (props.resizeRow) {
+			props.resizeRow(dataKey, deltaX);
+		} else {
+			const currentIndexColumn = columnsWidths.findIndex(value => dataKey === value.dataKey);
+			if (currentIndexColumn >= 0) {
+				const result = resizeColumns(deltaX, columnsWidths, currentIndexColumn);
+				setWidths(result);
+			}
 		}
 	};
 
@@ -77,9 +81,7 @@ function VirtualizedList(props) {
 		return <Loader id={id && `${id}-loader`} className={theme['tc-list-progress']} />;
 	}
 
-	const contextValueVList = useMemo(() => ({ resizeRow }), [
-		resizeRow,
-	]);
+	const contextValueVList = useMemo(() => ({ resizeRow }), [resizeRow]);
 	return (
 		<virtualizedListContext.Provider value={contextValueVList}>
 			<AutoSizer>

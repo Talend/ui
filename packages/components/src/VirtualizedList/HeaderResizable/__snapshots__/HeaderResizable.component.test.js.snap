@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderResizable should render with no specific props 1`] = `
+<HeaderResizable>
+  <ConsumerVirtualizedList>
+    <div
+      className="tc-header-cell-resizable theme-tc-header-cell-resizable"
+    >
+      <div
+        className="tc-header-cell-resizable-truncated-text theme-tc-header-cell-resizable-truncated-text"
+      >
+        <HeaderResizableContent />
+      </div>
+      <Draggable
+        allowAnyClick={false}
+        axis="x"
+        bounds={false}
+        cancel={null}
+        defaultClassName="tc-header-cell-resizable-drag-handle theme-tc-header-cell-resizable-drag-handle"
+        defaultClassNameDragged="react-draggable-dragged"
+        defaultClassNameDragging="react-draggable-dragging"
+        defaultPosition={
+          Object {
+            "x": 0,
+            "y": 0,
+          }
+        }
+        disabled={false}
+        enableUserSelectHack={true}
+        grid={null}
+        handle={null}
+        offsetParent={null}
+        onDrag={[Function]}
+        onMouseDown={[Function]}
+        onStart={[Function]}
+        onStop={[Function]}
+        position={
+          Object {
+            "x": 0,
+          }
+        }
+        scale={1}
+        transform={null}
+      >
+        <DraggableCore
+          allowAnyClick={false}
+          axis="x"
+          bounds={false}
+          cancel={null}
+          defaultClassName="tc-header-cell-resizable-drag-handle theme-tc-header-cell-resizable-drag-handle"
+          defaultClassNameDragged="react-draggable-dragged"
+          defaultClassNameDragging="react-draggable-dragging"
+          defaultPosition={
+            Object {
+              "x": 0,
+              "y": 0,
+            }
+          }
+          disabled={false}
+          enableUserSelectHack={true}
+          grid={null}
+          handle={null}
+          offsetParent={null}
+          onDrag={[Function]}
+          onMouseDown={[Function]}
+          onStart={[Function]}
+          onStop={[Function]}
+          position={
+            Object {
+              "x": 0,
+            }
+          }
+          scale={1}
+          transform={null}
+        >
+          <div
+            className="tc-header-cell-resizable-drag-handle-icon theme-tc-header-cell-resizable-drag-handle-icon tc-header-cell-resizable-drag-handle theme-tc-header-cell-resizable-drag-handle"
+            onMouseDown={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchStart={[Function]}
+            style={
+              Object {
+                "touchAction": "none",
+                "transform": "translate(0px,undefinedpx)",
+              }
+            }
+            title="Resize column"
+            transform={null}
+          />
+        </DraggableCore>
+      </Draggable>
+    </div>
+  </ConsumerVirtualizedList>
+</HeaderResizable>
+`;
+
+exports[`HeaderResizable should render with no specific props 2`] = `"<div class=\\"tc-header-cell-resizable theme-tc-header-cell-resizable\\"><div class=\\"tc-header-cell-resizable-truncated-text theme-tc-header-cell-resizable-truncated-text\\"></div><div class=\\"tc-header-cell-resizable-drag-handle-icon theme-tc-header-cell-resizable-drag-handle-icon tc-header-cell-resizable-drag-handle theme-tc-header-cell-resizable-drag-handle\\" title=\\"Resize column\\" style=\\"transform: translate(0px,undefinedpx);\\"></div></div>"`;

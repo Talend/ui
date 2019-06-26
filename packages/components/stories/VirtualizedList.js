@@ -1,7 +1,10 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
+
+import { SortIndicator } from 'react-virtualized';
 
 import { IconsProvider } from '../src/index';
 import VirtualizedList, { listTypes } from '../src/VirtualizedList';
@@ -11,6 +14,8 @@ import MyCustomRow from './List/MyCustomRow.component';
 
 import { headerDictionary } from '../src/VirtualizedList/utils/dictionary';
 import { headerType as headerResizableType } from '../src/VirtualizedList/HeaderResizable';
+import { HeaderResizable } from '../src/VirtualizedList/HeaderResizable/HeaderResizable.component';
+import { headerType as headerIconType } from '../src/VirtualizedList/HeaderIcon';
 
 function NoRowsRenderer() {
 	return (
@@ -412,6 +417,17 @@ function CollapsiblePanels(props) {
 		</div>
 	);
 }
+
+const CustomRenderResizableWidthRenderProps = props => (
+	<HeaderResizable {...props}>
+		<React.Fragment>
+			<button>{props.label}</button>
+			<SortIndicator sortDirection="DESC" />
+			<span>This is a custom resizable header</span>
+		</React.Fragment>
+	</HeaderResizable>
+);
+
 storiesOf('VirtualizedList', module)
 	.add('List > Table : sort', () => (
 		<div className="virtualized-list">
@@ -767,10 +783,10 @@ storiesOf('VirtualizedList', module)
 						{...CellTitle}
 						columnData={titleProps}
 						dataKey="name"
-						headerRenderer={headerDictionary[headerResizableType]}
+						headerRenderer={CustomRenderResizableWidthRenderProps}
 						label="Name"
 						resizable
-						width={250}
+						width={650}
 					/>
 					<VirtualizedList.Content
 						dataKey="description"
@@ -778,9 +794,17 @@ storiesOf('VirtualizedList', module)
 						headerRenderer={headerDictionary[headerResizableType]}
 						label="Description"
 						resizable
-						width={350}
+						width={850}
 					/>
-					<VirtualizedList.Content label="Author" dataKey="author" width={200} />
+					<VirtualizedList.Content
+						columnData={{
+							iconName: 'talend-badge',
+						}}
+						label="Author"
+						{...headerDictionary[headerIconType]}
+						dataKey="author"
+						width={80}
+					/>
 					<VirtualizedList.Content
 						dataKey="created"
 						headerRenderer={headerDictionary[headerResizableType]}
@@ -788,12 +812,7 @@ storiesOf('VirtualizedList', module)
 						resizable
 						width={100}
 					/>
-					<VirtualizedList.Content
-						dataKey="modified"
-						label="Modified"
-						resizable
-						width={100}
-					/>
+					<VirtualizedList.Content dataKey="modified" label="Modified" resizable width={100} />
 				</VirtualizedList>
 			</section>
 		</div>
