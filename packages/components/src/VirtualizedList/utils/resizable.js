@@ -94,14 +94,49 @@ const addWidth = percentDelta => value => percentDelta + value;
 
 const subtractWidth = percentDelta => value => value - percentDelta;
 
+const calculTotal = columnsWidths => {
+	let currentTotalWidth = 0;
+	columnsWidths.forEach(column => {
+		if (column.width) {
+			currentTotalWidth += column.width;
+		}
+	});
+	columnsWidths.forEach(column => {
+		// if (column.width) {
+		// eslint-disable-next-line no-param-reassign
+		column.currentTotalWidth = currentTotalWidth;
+		// }
+	});
+	return columnsWidths;
+};
 /**
  * Calculate the new width the parameter function, and assign the result to the given column.
  * @param {function} calcFn
  */
-const calculateWidth = calcFn => column => {
-	const { width, minWidth = MINIMUM_COLUMN_WIDTH } = column;
-	if (width >= minWidth) {
-		const calculatedWidth = calcFn(width);
+const calculateWidth = (calcFn, deltaX, shrink = false) => column => {
+	const { dataKey, currentTotalWidth, widthList, width, minWidth = MINIMUM_COLUMN_WIDTH } = column;
+	const calculatedWidth = calcFn(width);
+	console.log({ deltaX });
+	if (shrink && width >= minWidth) {
+		return {
+			...column,
+			width: getWidth(calculatedWidth, minWidth),
+		};
+	}
+	if (!shrink && currentTotalWidth <= widthList) {
+		console.log('currentTotalWidth', currentTotalWidth);
+		const newTotal = currentTotalWidth + deltaX;
+		// console.log('new total', newTotal);
+		if (newTotal >= widthList) {
+			const newX = widthList - currentTotalWidth;
+			// console.log('newX', newX);
+			const toto = width + newX;
+			return {
+				...column,
+				width: toto,
+			};
+		}
+		// }
 		return {
 			...column,
 			width: getWidth(calculatedWidth, minWidth),
@@ -131,7 +166,7 @@ const shrinkLeftColumn = (deltaX, index) => columnsWidths => {
 	const shrinkIndexLeft = getShrinkIndexLeft(index, columnsWidths);
 	if (shrinkIndexLeft >= 0) {
 		flow([
-			calculateWidth(subtractWidth(Math.abs(deltaX))),
+			calculateWidth(subtractWidth(Math.abs(deltaX)), deltaX, true),
 			setResized(true),
 			setColumn(columnsWidths, shrinkIndexLeft),
 		])(columnsWidths[shrinkIndexLeft]);
@@ -149,7 +184,7 @@ const enlargeRightColumn = (deltaX, index) => columnsWidths => {
 	const enlargeIndexRight = getEnlargeIndexRight(index, columnsWidths);
 	if (enlargeIndexRight >= 0) {
 		flow([
-			calculateWidth(addWidth(Math.abs(deltaX))),
+			calculateWidth(addWidth(Math.abs(deltaX)), deltaX),
 			setResized(true),
 			setColumn(columnsWidths, enlargeIndexRight),
 		])(columnsWidths[enlargeIndexRight]);
@@ -167,7 +202,7 @@ const shrinkRightColumn = (deltaX, index) => columnsWidths => {
 	const shrinkIndexRight = getShrinkIndexRight(index, columnsWidths);
 	if (shrinkIndexRight >= 0) {
 		flow([
-			calculateWidth(subtractWidth(deltaX)),
+			calculateWidth(subtractWidth(deltaX), deltaX, true),
 			setResized(true),
 			setColumn(columnsWidths, shrinkIndexRight),
 		])(columnsWidths[shrinkIndexRight]);
@@ -182,9 +217,11 @@ const shrinkRightColumn = (deltaX, index) => columnsWidths => {
  */
 const enlargeCurrentColumn = (deltaX, index) => columnsWidths => {
 	if (index >= 0) {
-		flow([calculateWidth(addWidth(deltaX)), setResized(true), setColumn(columnsWidths, index)])(
-			columnsWidths[index],
-		);
+		flow([
+			calculateWidth(addWidth(deltaX), deltaX),
+			setResized(true),
+			setColumn(columnsWidths, index),
+		])(columnsWidths[index]);
 	}
 	return columnsWidths;
 };
@@ -195,8 +232,14 @@ const enlargeCurrentColumn = (deltaX, index) => columnsWidths => {
  * @param {integer} index
  */
 const resizeRight = (deltaX, index) => columnsWidths => {
+	console.log({ columnsWidths });
 	if (deltaX >= 0) {
-		flow([enlargeCurrentColumn(deltaX, index), shrinkRightColumn(deltaX, index)])(columnsWidths);
+		flow([
+			shrinkRightColumn(deltaX, index),
+			calculTotal,
+			enlargeCurrentColumn(deltaX, index),
+			// calculTotal,
+		])(columnsWidths);
 	}
 	return columnsWidths;
 };
@@ -208,7 +251,12 @@ const resizeRight = (deltaX, index) => columnsWidths => {
  */
 const resizeLeft = (deltaX, index) => columnsWidths => {
 	if (deltaX < 0) {
-		flow([shrinkLeftColumn(deltaX, index), enlargeRightColumn(deltaX, index)])(columnsWidths);
+		flow([
+			shrinkLeftColumn(deltaX, index),
+			calculTotal,
+			enlargeRightColumn(deltaX, index),
+			// calculTotal,
+		])(columnsWidths);
 	}
 	return columnsWidths;
 };

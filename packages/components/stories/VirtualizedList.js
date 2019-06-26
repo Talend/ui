@@ -778,7 +778,7 @@ storiesOf('VirtualizedList', module)
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
 				<VirtualizedList collection={collection} id={'my-list'}>
-					<VirtualizedList.Content label="Id" dataKey="id" />
+					<VirtualizedList.Content label="Id" dataKey="id" width={40} />
 					<VirtualizedList.Content
 						{...CellTitle}
 						columnData={titleProps}

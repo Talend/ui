@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { AutoSizer } from 'react-virtualized';
 import { listTypes } from './utils/constants';
 import Loader from '../Loader';
@@ -9,6 +9,8 @@ import { insertSelectionConfiguration, toColumns } from './utils/tablerow';
 import { resizeColumns, findColumnByDataKey, extractResizableProps } from './utils/resizable';
 import theme from './VirtualizedList.scss';
 import tableTheme from './ListTable/ListTable.scss';
+
+import get from 'lodash/get';
 
 import { virtualizedListContext } from './virtualizedListContext';
 
@@ -52,6 +54,7 @@ function VirtualizedList(props) {
 		selectionToggle,
 	});
 	const [columnsWidths, setWidths] = useState();
+	const rendererSelectorRef = useRef();
 
 	// Settings the data for resizable columns only at mount.
 	useEffect(() => {
@@ -64,12 +67,24 @@ function VirtualizedList(props) {
 		} else {
 			const currentIndexColumn = columnsWidths.findIndex(findColumnByDataKey(dataKey));
 			if (currentIndexColumn >= 0) {
-				const result = resizeColumns(deltaX, columnsWidths, currentIndexColumn);
+				const widthList = get(rendererSelectorRef, 'current.props.width', 0);
+				let currentTotalWidth = 0;
+				columnsWidths.forEach(column => {
+					if (column.width) {
+						currentTotalWidth += column.width;
+					}
+				});
+				console.log('ALL', currentTotalWidth);
+				const enhancedColumnsWidths = columnsWidths.map(column => ({
+					...column,
+					currentTotalWidth,
+					widthList,
+				}));
+				const result = resizeColumns(deltaX, enhancedColumnsWidths, currentIndexColumn);
 				setWidths(result);
 			}
 		}
 	};
-
 	const columnDefinitions = toColumns({
 		id,
 		theme: tableTheme,
@@ -87,6 +102,7 @@ function VirtualizedList(props) {
 			<AutoSizer>
 				{({ height, width }) => (
 					<RendererSelector
+						ref={rendererSelectorRef}
 						collection={collection}
 						noRowsRenderer={noRowsRenderer}
 						height={height || defaultHeight}
