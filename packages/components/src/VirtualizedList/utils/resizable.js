@@ -37,11 +37,8 @@ const getShrinkIndexRight = (index, columnsWidths) => {
  */
 const getEnlargeIndexRight = (index, columnsWidths) => {
 	for (let i = index + 1; i < columnsWidths.length; i += 1) {
-		// Enlarge right columns when the current one is at minimal width.
-		if (
-			columnsWidths[i].resizable &&
-			columnsWidths[index] === getMinimumWidth(columnsWidths[index])
-		) {
+		// Enlarge the nearest right column.
+		if (columnsWidths[i].resizable && columnsWidths[i].width > getMinimumWidth(columnsWidths[i])) {
 			return i;
 		}
 		// Enlarge the last column only if trigger by the before last column.
@@ -64,7 +61,7 @@ const getEnlargeIndexRight = (index, columnsWidths) => {
 const getShrinkIndexLeft = (index, columnsWidths) => {
 	for (let i = index; i >= 0; i -= 1) {
 		const previous = i - 1;
-		// Shrink column at left, if above minimal width.
+		// Shrink column at left.
 		if (columnsWidths[i].resizable && columnsWidths[i].width > getMinimumWidth(columnsWidths[i])) {
 			return i;
 			// Shrink the after first colum on the left,
@@ -72,7 +69,8 @@ const getShrinkIndexLeft = (index, columnsWidths) => {
 		} else if (
 			columnsWidths[i] === getMinimumWidth(columnsWidths[i]) &&
 			previous < 0 &&
-			columnsWidths[previous].resizable
+			columnsWidths[previous].resizable &&
+			columnsWidths[previous].width > getMinimumWidth(columnsWidths[previous])
 		) {
 			return previous;
 		}
@@ -250,8 +248,11 @@ export const getColumnWidth = (dataKey, columnsWidths) => {
 	return {};
 };
 
+const isFixedColumnWidth = (resized, resizable, width, minWidth) =>
+	!resized || !resizable || width <= minWidth;
+
 export const createColumnWidthProps = ({ resized, resizable, width, minWidth }) => {
-	if (!resized || !resizable || width <= minWidth) {
+	if (isFixedColumnWidth(resized, resizable, width, minWidth)) {
 		return {
 			width,
 			flexShrink: 0,

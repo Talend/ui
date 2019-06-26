@@ -6,7 +6,7 @@ import RendererSelector from './RendererSelector.component';
 import Content from './Content.component';
 import propTypes from './PropTypes';
 import { insertSelectionConfiguration, toColumns } from './utils/tablerow';
-import { resizeColumns, extractResizableProps } from './utils/resizable';
+import { resizeColumns, findColumnByDataKey, extractResizableProps } from './utils/resizable';
 import theme from './VirtualizedList.scss';
 import tableTheme from './ListTable/ListTable.scss';
 
@@ -62,7 +62,7 @@ function VirtualizedList(props) {
 		if (props.resizeRow) {
 			props.resizeRow(dataKey, deltaX);
 		} else {
-			const currentIndexColumn = columnsWidths.findIndex(value => dataKey === value.dataKey);
+			const currentIndexColumn = columnsWidths.findIndex(findColumnByDataKey(dataKey));
 			if (currentIndexColumn >= 0) {
 				const result = resizeColumns(deltaX, columnsWidths, currentIndexColumn);
 				setWidths(result);
