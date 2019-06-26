@@ -4,7 +4,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Column } from 'react-virtualized';
-
 import CellCheckboxRenderer from '../CellCheckbox';
 import HeaderCheckboxRenderer from '../HeaderCheckbox';
 import { createColumnWidthProps, getColumnWidth } from './resizable';
@@ -58,7 +57,7 @@ export function toColumns({ id, theme, children, columnsWidths }) {
 		const colProps = {
 			...field.props,
 			headerClassName: classNames(field.props.headerClassName, theme.header, colClassName, {
-				'tc-header-resizable': columnWidth.resizable,
+				'tc-header-resizable': columnWidth && columnWidth.resizable,
 			}),
 			className: classNames(field.props.className, theme.cell, colClassName),
 			columnData: {

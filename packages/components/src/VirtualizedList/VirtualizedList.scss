@@ -40,7 +40,7 @@
 	:global(.ReactVirtualized__Table__headerTruncatedText) {
 		align-self: center;
 		overflow: hidden;
-		padding-left: 10px;
+		padding-left: $padding-small;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}

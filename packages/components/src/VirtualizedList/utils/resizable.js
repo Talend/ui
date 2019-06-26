@@ -251,7 +251,8 @@ export const getColumnWidth = (dataKey, columnsWidths) => {
 const isFixedColumnWidth = (resized, resizable, width, minWidth) =>
 	!resized || !resizable || width <= minWidth;
 
-export const createColumnWidthProps = ({ resized, resizable, width, minWidth }) => {
+export const createColumnWidthProps = (columnsWidthsParams = {}) => {
+	const { resized, resizable, width, minWidth } = columnsWidthsParams;
 	if (isFixedColumnWidth(resized, resizable, width, minWidth)) {
 		return {
 			width,

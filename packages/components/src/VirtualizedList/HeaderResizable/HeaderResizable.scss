@@ -15,13 +15,11 @@ $drag-element-width: 0.5rem;
 	}
 
 	&-truncated-text {
-		padding-left: 10px;
 		align-self: center;
-
 		overflow: hidden;
+		padding-left: $padding-small;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-		min-width: 0;
 	}
 
 	&-drag-handle {

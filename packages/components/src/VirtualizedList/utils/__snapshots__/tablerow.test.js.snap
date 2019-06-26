@@ -96,12 +96,11 @@ Array [
     dataKey="id"
     defaultSortDirection="ASC"
     flexGrow={0}
-    flexShrink={1}
+    flexShrink={0}
     headerClassName="tc-list-cell-id"
     headerRenderer={[Function]}
     label="Id"
     style={Object {}}
-    width={50}
   />,
 ]
 `;
@@ -120,12 +119,11 @@ Array [
     dataKey="id"
     defaultSortDirection="ASC"
     flexGrow={0}
-    flexShrink={1}
+    flexShrink={0}
     headerClassName="tc-list-cell-id"
     headerRenderer={[Function]}
     label="Id"
     style={Object {}}
-    width={50}
   />,
 ]
 `;
@@ -144,12 +142,11 @@ Array [
     dataKey="id"
     defaultSortDirection="ASC"
     flexGrow={0}
-    flexShrink={1}
+    flexShrink={0}
     headerClassName="my-header-classname theme-header-classname tc-list-cell-id"
     headerRenderer={[Function]}
     label="Id"
     style={Object {}}
-    width={50}
   />,
 ]
 `;
