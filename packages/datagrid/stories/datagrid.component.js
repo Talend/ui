@@ -184,33 +184,6 @@ storiesOf('Component Datagrid', module)
 	.add('faster datagrid', () => (
 		<div style={{ height: '100vh' }}>
 			<IconsProvider />
-			<p>
-				Optimize the datagrid with pass your rowData to Ag-grid to avoid a long parsing with the
-				method getRowData very cost with a lot of rows.
-			</p>
-			<p>
-				Before:
-				<ul>
-					<li>we get the data(this can necessary one process with a loop on all rows)</li>
-					<li>Datagrid process this new data props with getRowData (this loops on all rows) </li>
-					<li>Datagrid gives this data to ag-grid</li>
-					<li>Ag-grid compare all rows to refresh the updated cell</li>
-				</ul>
-				We have three loops.
-			</p>
-			<p>We can externalize the rowData for to do twice instead three Now:</p>
-			<p>
-				Now:
-				<ul>
-					<li>we get the data(this can necessary one process with a loop on all rows)</li>
-					<li>we process this data to generate the corresponding rowData </li>
-					<li>
-						Datagrid receives this new rowData props * Datagrid gives rowData props to ag-grid
-					</li>
-					<li>Ag-grid compare all rows to refresh the updated cell => we have two loops.</li>
-				</ul>
-			</p>
-
 			<FasterDatagrid />
 		</div>
 	))
