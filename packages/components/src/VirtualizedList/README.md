@@ -159,3 +159,78 @@ import CellTitle from 'react-talend-components/lib/VirtualizedList/CellTitle'; /
     />
 </VirtualizedList>
 ```
+
+### Column resizable
+
+You can now make the column resizable via the header.
+
+```javascript
+import { headerDictionary } from  '../src/VirtualizedList/utils/dictionary';
+import { headerType  as  headerResizableType } from  '../src/VirtualizedList/HeaderResizable';
+
+<VirtualizedList.Content
+
+label="Name"
+
+dataKey="name"
+
+width={myWidth}
+
+columnData={titleProps}
+
+headerRenderer={headerDictionary[headerResizableType]}
+
+resizable
+
+/>
+```
+
+You must give a width to every column even the one not resizable. 
+Also you need to add the resizable header to headerRenderer props.
+
+You can also custom the render of the HeaderResizable component.
+
+```javascript
+import { HeaderResizable } from  '../src/VirtualizedList/HeaderResizable';
+
+const  CustomRenderResizableWidthRenderProps  =  props  =>  (
+
+<HeaderResizable  {...props}>
+
+<React.Fragment>
+
+<button>{props.label}</button>
+
+<SortIndicator  sortDirection="DESC" />
+
+<span>This is a custom resizable header</span>
+
+</React.Fragment>
+
+</HeaderResizable>
+
+);
+
+/>
+
+------------------------------------------------------------------------------------
+
+<VirtualizedList.Content
+
+dataKey="name"
+
+label="Name"
+
+headerRenderer={CustomRenderResizableWidthRenderProps}
+
+resizable
+
+width={myWidth}
+
+/>
+
+```
+
+Be carefull the default export of HeaderResizable is a function returning a class component.
+It's the way react-virtualized consume the header renderer props.
+You need to make a named export to get directly the HeaderResizable component.
