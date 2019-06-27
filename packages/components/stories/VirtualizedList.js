@@ -420,11 +420,9 @@ function CollapsiblePanels(props) {
 
 const CustomRenderResizableWidthRenderProps = props => (
 	<HeaderResizable {...props}>
-		<React.Fragment>
-			<button>{props.label}</button>
-			<SortIndicator sortDirection="DESC" />
-			<span>This is a custom resizable header</span>
-		</React.Fragment>
+		<button onClick={action('custom action')}>{props.label}</button>
+		<SortIndicator sortDirection="DESC" />
+		<span>This is a custom resizable header</span>
 	</HeaderResizable>
 );
 
@@ -542,6 +540,56 @@ storiesOf('VirtualizedList', module)
 			</section>
 		</div>
 	))
+	.add('List > Table : resizable', () => (
+		<div className="virtualized-list">
+			<h1>Virtualized List</h1>
+			<p>
+				You can enable resizing by passing <b>resizable</b> and a <b>width</b> to the content.<br />
+				Also you have to give the proper header renderer, <b>HeaderResizable</b>.< br />
+			</p>
+			<IconsProvider defaultIcons={icons} />
+			<section style={{ height: '50vh' }}>
+				<VirtualizedList collection={collection} id={'my-list'}>
+					<VirtualizedList.Content label="Id" dataKey="id" width={40} />
+					<VirtualizedList.Content
+						{...CellTitle}
+						columnData={titleProps}
+						dataKey="name"
+						headerRenderer={CustomRenderResizableWidthRenderProps}
+						label="Name"
+						resizable
+						width={650}
+					/>
+					<VirtualizedList.Content
+						dataKey="description"
+						disableSort
+						headerRenderer={headerDictionary[headerResizableType]}
+						label="Description"
+						resizable
+						width={850}
+					/>
+					<VirtualizedList.Content
+						columnData={{
+							iconName: 'talend-badge',
+						}}
+						label="Author"
+						{...headerDictionary[headerIconType]}
+						dataKey="author"
+						width={80}
+					/>
+					<VirtualizedList.Content
+						dataKey="created"
+						headerRenderer={headerDictionary[headerResizableType]}
+						label="Created"
+						resizable
+						width={100}
+					/>
+					<VirtualizedList.Content dataKey="modified" label="Modified" resizable width={100} />
+				</VirtualizedList>
+			</section>
+		</div>
+	))
+
 	.add('List > Large', () => (
 		<div>
 			<h1>Virtualized List</h1>
@@ -765,54 +813,6 @@ storiesOf('VirtualizedList', module)
 					<VirtualizedList.Content label="Author" dataKey="author" width={-1} />
 					<VirtualizedList.Content label="Created" dataKey="created" width={-1} />
 					<VirtualizedList.Content label="Modified" dataKey="modified" width={-1} />
-				</VirtualizedList>
-			</section>
-		</div>
-	))
-	.add('List > Table : resizable', () => (
-		<div className="virtualized-list">
-			<h1>Virtualized List</h1>
-			<p>
-				You can enable resizing by passing <b>columnsWidth</b>.<br />
-			</p>
-			<IconsProvider defaultIcons={icons} />
-			<section style={{ height: '50vh' }}>
-				<VirtualizedList collection={collection} id={'my-list'}>
-					<VirtualizedList.Content label="Id" dataKey="id" />
-					<VirtualizedList.Content
-						{...CellTitle}
-						columnData={titleProps}
-						dataKey="name"
-						headerRenderer={CustomRenderResizableWidthRenderProps}
-						label="Name"
-						resizable
-						width={650}
-					/>
-					<VirtualizedList.Content
-						dataKey="description"
-						disableSort
-						headerRenderer={headerDictionary[headerResizableType]}
-						label="Description"
-						resizable
-						width={850}
-					/>
-					<VirtualizedList.Content
-						columnData={{
-							iconName: 'talend-badge',
-						}}
-						label="Author"
-						{...headerDictionary[headerIconType]}
-						dataKey="author"
-						width={80}
-					/>
-					<VirtualizedList.Content
-						dataKey="created"
-						headerRenderer={headerDictionary[headerResizableType]}
-						label="Created"
-						resizable
-						width={100}
-					/>
-					<VirtualizedList.Content dataKey="modified" label="Modified" resizable width={100} />
 				</VirtualizedList>
 			</section>
 		</div>

@@ -82,33 +82,15 @@ const getShrinkIndexLeft = (index, columnsWidths) => {
  * Set the collection with the value, and return it.
  * @param {boolean} resized the value to set.
  */
-const setResized = resized => column => ({ ...column, resized });
+const setColumnResized = resized => column => ({ ...column, resized });
 
 /**
- * Set all the array elements to resized false.
- * @param {array} columnsWidths
+ * Set the collection with the value, and return it.
+ * @param {integer} listWidth
  */
-const resetResized = columnsWidths => columnsWidths.map(setResized(false));
+const setColumnListWidth = listWidth => column => ({ ...column, listWidth });
 
-const addWidth = percentDelta => value => percentDelta + value;
-
-const subtractWidth = percentDelta => value => value - percentDelta;
-
-/**
- * Calculate the new width the parameter function, and assign the result to the given column.
- * @param {function} calcFn
- */
-const calculateWidth = calcFn => column => {
-	const { width, minWidth = MINIMUM_COLUMN_WIDTH } = column;
-	if (width >= minWidth) {
-		const calculatedWidth = calcFn(width);
-		return {
-			...column,
-			width: getWidth(calculatedWidth, minWidth),
-		};
-	}
-	return column;
-};
+const setColumnWidth = width => column => ({ ...column, width });
 
 /**
  * Set a new column to the current list.
@@ -122,6 +104,67 @@ const setColumn = (columnsWidths, index) => column => {
 };
 
 /**
+ * Set all the array elements to resized false.
+ * @param {array} columnsWidths
+ */
+const resetListResized = columnsWidths => columnsWidths.map(setColumnResized(false));
+// TODO: both return a new structure, could be improved ?
+const setListWidth = listWidth => columnsWidths => columnsWidths.map(setColumnListWidth(listWidth));
+
+const addWidth = (deltaX, value) => deltaX + value;
+
+const subtractWidth = (deltaX, value) => value - deltaX;
+
+const calcTotalCurrentWidth = columnsWidths => {
+	let currentTotalWidth = 0;
+	columnsWidths.forEach(column => {
+		if (column.width) {
+			currentTotalWidth += column.width;
+		}
+	});
+	columnsWidths.forEach(column => {
+		// eslint-disable-next-line no-param-reassign
+		column.currentTotalWidth = currentTotalWidth;
+	});
+	return columnsWidths;
+};
+/**
+ * Calculate the new width the parameter function, and assign the result to the given column.
+ * @param {function} calcFn
+ */
+
+const calcWidthEnlarge = ({ currentTotalWidth, listWidth, width }, deltaX) => {
+	const calculatedWidth = addWidth(deltaX, width);
+	const newTotal = currentTotalWidth + deltaX;
+	if (newTotal >= listWidth) {
+		const newX = listWidth - currentTotalWidth;
+		const toto = width + newX;
+		return toto;
+	}
+	return calculatedWidth;
+};
+
+const calcWidthShrink = ({ width, minWidth }, deltaX) => {
+	const calculatedWidth = subtractWidth(deltaX, width);
+	return getWidth(calculatedWidth, minWidth);
+};
+
+const calcWidth = shrink => deltaX => column => {
+	const { currentTotalWidth, listWidth, width, minWidth = MINIMUM_COLUMN_WIDTH } = column;
+	let newWidth = width;
+	if (shrink && width >= minWidth) {
+		newWidth = calcWidthShrink(column, deltaX);
+	}
+	if (!shrink && currentTotalWidth <= listWidth) {
+		newWidth = calcWidthEnlarge(column, deltaX);
+	}
+	return { ...column, width: newWidth };
+};
+
+const calcShrink = calcWidth(true);
+const calcEnlarge = calcWidth(false);
+
+/**
  * Get the nearest column index to shrink on the left side of the given index,
  * and update the corresponding column with computed width.
  * @param {number} deltaX
@@ -130,9 +173,11 @@ const setColumn = (columnsWidths, index) => column => {
 const shrinkLeftColumn = (deltaX, index) => columnsWidths => {
 	const shrinkIndexLeft = getShrinkIndexLeft(index, columnsWidths);
 	if (shrinkIndexLeft >= 0) {
+		// const width = calcShrink(Math.abs(deltaX))(columnsWidths[shrinkIndexLeft]);
 		flow([
-			calculateWidth(subtractWidth(Math.abs(deltaX))),
-			setResized(true),
+			// setColumnWidth(width),
+			calcWidth(true)(Math.abs(deltaX)),
+			setColumnResized(true),
 			setColumn(columnsWidths, shrinkIndexLeft),
 		])(columnsWidths[shrinkIndexLeft]);
 	}
@@ -149,8 +194,8 @@ const enlargeRightColumn = (deltaX, index) => columnsWidths => {
 	const enlargeIndexRight = getEnlargeIndexRight(index, columnsWidths);
 	if (enlargeIndexRight >= 0) {
 		flow([
-			calculateWidth(addWidth(Math.abs(deltaX))),
-			setResized(true),
+			calcWidth(false)(Math.abs(deltaX)),
+			setColumnResized(true),
 			setColumn(columnsWidths, enlargeIndexRight),
 		])(columnsWidths[enlargeIndexRight]);
 	}
@@ -167,8 +212,8 @@ const shrinkRightColumn = (deltaX, index) => columnsWidths => {
 	const shrinkIndexRight = getShrinkIndexRight(index, columnsWidths);
 	if (shrinkIndexRight >= 0) {
 		flow([
-			calculateWidth(subtractWidth(deltaX)),
-			setResized(true),
+			calcWidth(true)(Math.abs(deltaX)),
+			setColumnResized(true),
 			setColumn(columnsWidths, shrinkIndexRight),
 		])(columnsWidths[shrinkIndexRight]);
 	}
@@ -182,9 +227,11 @@ const shrinkRightColumn = (deltaX, index) => columnsWidths => {
  */
 const enlargeCurrentColumn = (deltaX, index) => columnsWidths => {
 	if (index >= 0) {
-		flow([calculateWidth(addWidth(deltaX)), setResized(true), setColumn(columnsWidths, index)])(
-			columnsWidths[index],
-		);
+		flow([
+			calcWidth(false)(Math.abs(deltaX)),
+			setColumnResized(true),
+			setColumn(columnsWidths, index),
+		])(columnsWidths[index]);
 	}
 	return columnsWidths;
 };
@@ -196,7 +243,11 @@ const enlargeCurrentColumn = (deltaX, index) => columnsWidths => {
  */
 const resizeRight = (deltaX, index) => columnsWidths => {
 	if (deltaX >= 0) {
-		flow([enlargeCurrentColumn(deltaX, index), shrinkRightColumn(deltaX, index)])(columnsWidths);
+		flow([
+			shrinkRightColumn(deltaX, index),
+			calcTotalCurrentWidth,
+			enlargeCurrentColumn(deltaX, index),
+		])(columnsWidths);
 	}
 	return columnsWidths;
 };
@@ -208,7 +259,11 @@ const resizeRight = (deltaX, index) => columnsWidths => {
  */
 const resizeLeft = (deltaX, index) => columnsWidths => {
 	if (deltaX < 0) {
-		flow([shrinkLeftColumn(deltaX, index), enlargeRightColumn(deltaX, index)])(columnsWidths);
+		flow([
+			shrinkLeftColumn(deltaX, index),
+			calcTotalCurrentWidth,
+			enlargeRightColumn(deltaX, index),
+		])(columnsWidths);
 	}
 	return columnsWidths;
 };
@@ -219,10 +274,14 @@ const resizeLeft = (deltaX, index) => columnsWidths => {
  * @param {array} columnsWidths
  * @param {integer} currentIndex
  */
-export const resizeColumns = (deltaX, columnsWidths, currentIndex) =>
-	flow([resetResized, resizeRight(deltaX, currentIndex), resizeLeft(deltaX, currentIndex)])(
-		columnsWidths,
-	);
+export const resizeColumns = (deltaX, columnsWidths, listWidth, currentIndex) =>
+	flow([
+		resetListResized,
+		setListWidth(listWidth),
+		calcTotalCurrentWidth,
+		resizeRight(deltaX, currentIndex),
+		resizeLeft(deltaX, currentIndex),
+	])(columnsWidths);
 
 /**
  * Extract some props from the converted react elements array.

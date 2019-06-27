@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { AutoSizer } from 'react-virtualized';
+import get from 'lodash/get';
 import { listTypes } from './utils/constants';
 import Loader from '../Loader';
 import RendererSelector from './RendererSelector.component';
@@ -52,24 +53,21 @@ function VirtualizedList(props) {
 		selectionToggle,
 	});
 	const [columnsWidths, setWidths] = useState();
+	const rendererSelectorRef = useRef();
 
 	// Settings the data for resizable columns only at mount.
 	useEffect(() => {
 		setWidths(extractResizableProps(React.Children.toArray(children)));
 	}, []);
 
-	const resizeRow = (dataKey, deltaX) => {
-		if (props.resizeRow) {
-			props.resizeRow(dataKey, deltaX);
-		} else {
-			const currentIndexColumn = columnsWidths.findIndex(findColumnByDataKey(dataKey));
-			if (currentIndexColumn >= 0) {
-				const result = resizeColumns(deltaX, columnsWidths, currentIndexColumn);
-				setWidths(result);
-			}
+	const resizeColumn = (dataKey, deltaX) => {
+		const currentIndexColumn = columnsWidths.findIndex(findColumnByDataKey(dataKey));
+		if (currentIndexColumn >= 0) {
+			const listWidth = get(rendererSelectorRef, 'current.props.width', 0);
+			const result = resizeColumns(deltaX, columnsWidths, listWidth, currentIndexColumn);
+			setWidths(result);
 		}
 	};
-
 	const columnDefinitions = toColumns({
 		id,
 		theme: tableTheme,
@@ -81,12 +79,12 @@ function VirtualizedList(props) {
 		return <Loader id={id && `${id}-loader`} className={theme['tc-list-progress']} />;
 	}
 
-	const contextValueVList = useMemo(() => ({ resizeRow }), [resizeRow]);
 	return (
-		<virtualizedListContext.Provider value={contextValueVList}>
+		<virtualizedListContext.Provider value={{ resizeColumn }}>
 			<AutoSizer>
 				{({ height, width }) => (
 					<RendererSelector
+						ref={rendererSelectorRef}
 						collection={collection}
 						noRowsRenderer={noRowsRenderer}
 						height={height || defaultHeight}
