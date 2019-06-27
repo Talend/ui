@@ -35,7 +35,7 @@ export class HeaderResizable extends React.Component {
 		const tooltipLabel = t('RESIZE_COLUMN', { defaultValue: 'Resize column' });
 		return (
 			<ConsumerVirtualizedList>
-				{({ resizeRow }) => (
+				{({ resizeColumn }) => (
 					<div
 						key={dataKey}
 						className={classNames(
@@ -51,7 +51,7 @@ export class HeaderResizable extends React.Component {
 							defaultClassName={classNames(theme('tc-header-cell-resizable-drag-handle'))}
 							onStart={() => this.setResizing()}
 							onDrag={(_, data) => {
-								resizeRow(dataKey, data.deltaX);
+								resizeColumn(dataKey, data.deltaX);
 							}}
 							onStop={() => this.setResizing()}
 							position={{ x: 0 }}
