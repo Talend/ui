@@ -165,7 +165,7 @@ class Datalist extends Component {
 						'aria-required': this.props.schema.required,
 						'aria-describedby': `${descriptionId} ${errorId}`,
 					}}
-					restricted={this.props.schema.restricted}
+					restricted={get(this.props, 'schema.restricted', false)}
 				/>
 			</FieldTemplate>
 		);
