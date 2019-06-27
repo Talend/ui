@@ -62,27 +62,11 @@ function VirtualizedList(props) {
 	}, []);
 
 	const resizeRow = (dataKey, deltaX) => {
-		if (props.resizeRow) {
-			props.resizeRow(dataKey, deltaX);
-		} else {
-			const currentIndexColumn = columnsWidths.findIndex(findColumnByDataKey(dataKey));
-			if (currentIndexColumn >= 0) {
-				const widthList = get(rendererSelectorRef, 'current.props.width', 0);
-				let currentTotalWidth = 0;
-				columnsWidths.forEach(column => {
-					if (column.width) {
-						currentTotalWidth += column.width;
-					}
-				});
-				console.log('ALL', currentTotalWidth);
-				const enhancedColumnsWidths = columnsWidths.map(column => ({
-					...column,
-					currentTotalWidth,
-					widthList,
-				}));
-				const result = resizeColumns(deltaX, enhancedColumnsWidths, currentIndexColumn);
-				setWidths(result);
-			}
+		const currentIndexColumn = columnsWidths.findIndex(findColumnByDataKey(dataKey));
+		if (currentIndexColumn >= 0) {
+			const listWidth = get(rendererSelectorRef, 'current.props.width', 0);
+			const result = resizeColumns(deltaX, columnsWidths, listWidth, currentIndexColumn);
+			setWidths(result);
 		}
 	};
 	const columnDefinitions = toColumns({
