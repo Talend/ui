@@ -23,10 +23,10 @@ export class HeaderResizable extends React.Component {
 		resizing: false,
 	};
 
-	setResizing = () => {
-		this.setState(prevState => ({
-			resizing: !prevState.resizing,
-		}));
+	setResizing = resizing => {
+		this.setState({
+			resizing,
+		});
 	};
 
 	render() {
@@ -49,11 +49,11 @@ export class HeaderResizable extends React.Component {
 						<Draggable
 							axis="x"
 							defaultClassName={classNames(theme('tc-header-cell-resizable-drag-handle'))}
-							onStart={() => this.setResizing()}
+							onStart={() => this.setResizing(true)}
 							onDrag={(_, data) => {
 								resizeColumn(dataKey, data.deltaX);
 							}}
-							onStop={() => this.setResizing()}
+							onStop={() => this.setResizing(false)}
 							position={{ x: 0 }}
 						>
 							<div
