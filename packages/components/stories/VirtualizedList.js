@@ -548,7 +548,7 @@ storiesOf('VirtualizedList', module)
 				Also you have to give the proper header renderer, <b>HeaderResizable</b>.< br />
 			</p>
 			<IconsProvider defaultIcons={icons} />
-			<section style={{ height: '50vh' }}>
+			<section>
 				<VirtualizedList collection={collection} id={'my-list'}>
 					<VirtualizedList.Content label="Id" dataKey="id" width={40} />
 					<VirtualizedList.Content
@@ -558,7 +558,7 @@ storiesOf('VirtualizedList', module)
 						headerRenderer={CustomRenderResizableWidthRenderProps}
 						label="Name"
 						resizable
-						width={650}
+						width={250}
 					/>
 					<VirtualizedList.Content
 						dataKey="description"
@@ -566,7 +566,7 @@ storiesOf('VirtualizedList', module)
 						headerRenderer={headerDictionary[headerResizableType]}
 						label="Description"
 						resizable
-						width={850}
+						width={650}
 					/>
 					<VirtualizedList.Content
 						columnData={{
