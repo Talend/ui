@@ -179,7 +179,7 @@ Also you need to add the resizable header to headerRenderer props.
 You can also customize the render of the HeaderResizable component.
 
 ```javascript
-import { HeaderResizable } from  '../src/VirtualizedList/HeaderResizable';
+import { HeaderResizable } from  '../src/VirtualizedList/HeaderResizable.component';
 
 const CustomRenderResizableWidthRenderProps = props => (
 	<HeaderResizable {...props}>
@@ -202,4 +202,4 @@ const CustomRenderResizableWidthRenderProps = props => (
 
 Be careful the default export of HeaderResizable is a function returning a class component.
 It's the way `react-virtualized` consumes the `headerRenderer ` props.
-You need to make a named export to get directly the HeaderResizable component.
+You need to do a named export to get directly the HeaderResizable component.
