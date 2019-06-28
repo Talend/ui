@@ -12,18 +12,28 @@ import theme from './DefaultCell.scss';
 
 export const CELL_RENDERER_COMPONENT = 'cellRenderer';
 
-export default function DefaultCellRenderer({ avroRenderer, colDef, value, getComponent, data }) {
+function convertValue(value) {
+	if (!value.toJS) {
+		return value;
+	}
+
+	return value.toJS();
+}
+
+function DefaultCellRenderer({ avroRenderer, colDef, value, getComponent, data }) {
 	let content;
+
+	const plainValue = convertValue(value);
 
 	if (data.loading) {
 		content = <Skeleton key="1" />;
 	} else {
 		content = [
-			<QualityIndicator key="2" qualityIndex={value.quality} />,
+			<QualityIndicator key="2" qualityIndex={plainValue.quality} />,
 			<AvroRenderer
 				key="3"
 				colDef={colDef}
-				data={value}
+				data={plainValue}
 				avroRenderer={avroRenderer}
 				getComponent={getComponent}
 			/>,
@@ -55,3 +65,5 @@ DefaultCellRenderer.propTypes = {
 	data: PropTypes.object,
 	getComponent: PropTypes.func,
 };
+
+export default DefaultCellRenderer;
