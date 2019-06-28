@@ -171,6 +171,7 @@
     {
       "key": "datalistWithCategoryRestricted",
       "title": "Datalist With category and restricted value",
+      "restricted": true,
       "widget": "datalist",
       "options": {
         "isMultiSection": true,
@@ -304,7 +305,6 @@
       "key": "datalistWithCategoryNotRestricted",
       "title": "Datalist With category and without restricted value",
       "widget": "datalist",
-      "restricted": false,
       "options": {
         "isMultiSection": true,
 
