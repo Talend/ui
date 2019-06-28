@@ -289,6 +289,9 @@ class Datalist extends Component {
 				this.setState({
 					previousValue: previousValue.name,
 				});
+			} else if (newValue.length === 0 || newValue.trim().length === 0) {
+				this.props.onChange(event, { value: undefined });
+				this.clearValue();
 			} else {
 				this.resetValue();
 			}
@@ -306,6 +309,13 @@ class Datalist extends Component {
 		this.setState({
 			value: this.state.previousValue,
 		});
+	}
+
+	clearValue() {
+		this.setState({
+			value: undefined,
+		});
+		this.resetSuggestions();
 	}
 
 	/**
