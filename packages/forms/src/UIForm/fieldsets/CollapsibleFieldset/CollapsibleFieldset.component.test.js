@@ -76,7 +76,8 @@ describe('CollapsibleFieldset', () => {
 				/>,
 			);
 
-			// when
+            // when
+            expect(wrapper.getElements()).toBe("pony")
 			wrapper.find(opts.selector).simulate(opts.actionType, event);
 
 			// then
@@ -109,8 +110,8 @@ describe('CollapsibleFieldset', () => {
 			/>,
 		);
 
-		expect(wrapper.exists('Actions')).toEqual(true);
-		expect(wrapper.find('Actions').prop('actions')).toEqual(actions);
+		expect(wrapper.exists('Translate(CollapsiblePanel)')).toEqual(true);
+		expect(wrapper.find('Translate(CollapsiblePanel)').prop('header')[1]).toEqual([{"displayMode": "action", "id": "action1"}, {"displayMode": "action", "id": "action2"}]);
 	});
 
 	it('should not render Actions component if actions are not provided', () => {

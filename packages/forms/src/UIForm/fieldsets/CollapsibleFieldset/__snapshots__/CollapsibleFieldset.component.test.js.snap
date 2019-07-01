@@ -135,94 +135,43 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
 `;
 
 exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`] = `
-<fieldset
-  className="form-group theme-collapsible-panel collapsible-panel"
+<div
+  className="collapsible-panel theme-collapsible-panel"
 >
-  <div
-    className="theme-title-bar"
-    id="my-fieldset__title_bar"
-    onDoubleClick={[Function]}
-    role="button"
-  >
-    <div
-      className="theme-title"
-      id="my-fieldset__title_wrapper"
-      onClick={[Function]}
-      role="button"
-    >
-      <legend
-        id="my-fieldset__title"
-      >
-        Basic
-      </legend>
+  <Translate(CollapsiblePanel)
+        expanded={true}
+        header={
+        Array [
+            Object {
+            "label": "Basic",
+            },
+            Array [],
+        ]
+        }
+        id="my-fieldset"
+        onToggle={[Function]}
+        >
+        <Widget
+        id="my-fieldset"
+        schema={
+            Object {
+            "key": Array [
+                "age",
+            }
+        }
+        widgets={Object {}}
+        />
+        <Widget
+        id="my-fieldset"
+        schema={
+            Object {
+            "key": Array [
+                "address",
+            "lastname": "Somsanith",
+            }
+        }
+        widgets={Object {}}
+        />
+    </Translate(CollapsiblePanel)>
     </div>
-    <div
-      className="theme-action-wrapper"
-    >
-      <ActionIconToggle
-        active={true}
-        className="theme-collapse"
-        icon="talend-caret-down"
-        iconTransform="flip-vertical"
-        id="my-fieldset__collapse"
-        label="Collapse"
-        onClick={[Function]}
-        tooltipPlacement="top"
-        type="button"
-      />
-    </div>
-  </div>
-  <div
-    className="theme-body"
-  >
-    <Widget
-      actions={Array []}
-      id="my-fieldset"
-      schema={
-        Object {
-          "key": Array [
-            "age",
-          ],
-          "schema": Object {
-            "type": "number",
-          },
-          "title": "Age",
-          "type": "number",
-        }
-      }
-      value={
-        Object {
-          "firstname": "Jimmy",
-          "isClosed": false,
-          "lastname": "Somsanith",
-        }
-      }
-      widgets={Object {}}
-    />
-    <Widget
-      actions={Array []}
-      id="my-fieldset"
-      schema={
-        Object {
-          "key": Array [
-            "address",
-          ],
-          "schema": Object {
-            "type": "string",
-          },
-          "title": "Adress",
-          "type": "text",
-        }
-      }
-      value={
-        Object {
-          "firstname": "Jimmy",
-          "isClosed": false,
-          "lastname": "Somsanith",
-        }
-      }
-      widgets={Object {}}
-    />
-  </div>
-</fieldset>
 `;
