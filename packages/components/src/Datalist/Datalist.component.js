@@ -308,13 +308,6 @@ class Datalist extends Component {
 		});
 	}
 
-	clearValue() {
-		this.setState({
-			value: undefined,
-		});
-		this.resetSuggestions();
-	}
-
 	/**
 	 * Building multiSection items or single section items
 	 * return the items list
