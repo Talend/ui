@@ -178,7 +178,10 @@ export function renderItem(item, { value, ...rest }) {
 
 	return (
 		<div
-			className={classNames(theme.item, { [theme.disabled]: item.disabled })}
+			className={classNames(theme.item, {
+				[theme.disabled]: item.disabled,
+				[theme.selected]: value === title,
+			})}
 			title={title}
 			data-feature={rest['data-feature']}
 		>
