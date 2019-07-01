@@ -157,25 +157,19 @@ describe('resizeColumns', () => {
 		// then
 		expect(ret).toEqual([
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnOne',
-				listWidth: 300,
 				resizable: true,
 				resized: false,
 				width: 70,
 			},
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnTwo',
-				listWidth: 300,
 				resizable: true,
 				resized: true,
 				width: 110,
 			},
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnThree',
-				listWidth: 300,
 				resizable: true,
 				resized: true,
 				width: 120,
@@ -209,25 +203,19 @@ describe('resizeColumns', () => {
 		// then
 		expect(ret).toEqual([
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnOne',
-				listWidth: 240,
 				resizable: true,
 				resized: true,
 				width: 80,
 			},
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnTwo',
-				listWidth: 240,
 				resizable: true,
 				resized: false,
 				width: 40,
 			},
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnThree',
-				listWidth: 240,
 				resizable: true,
 				resized: true,
 				width: 120,
@@ -266,33 +254,25 @@ describe('resizeColumns', () => {
 		// then
 		expect(ret).toEqual([
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnOne',
-				listWidth: 470,
 				resizable: true,
 				resized: false,
 				width: 70,
 			},
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnTwo',
-				listWidth: 470,
 				resizable: true,
 				resized: true,
 				width: 160,
 			},
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnThree',
-				listWidth: 470,
 				resizable: false,
 				resized: false,
 				width: 120,
 			},
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnFour',
-				listWidth: 470,
 				resizable: true,
 				resized: true,
 				width: 120,
@@ -326,25 +306,19 @@ describe('resizeColumns', () => {
 		// then
 		expect(ret).toEqual([
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnOne',
-				listWidth: 300,
 				resizable: true,
 				resized: false,
 				width: 70,
 			},
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnTwo',
-				listWidth: 300,
 				resizable: true,
 				resized: true,
 				width: 90,
 			},
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnThree',
-				listWidth: 300,
 				resizable: true,
 				resized: true,
 				width: 140,
@@ -377,24 +351,18 @@ describe('resizeColumns', () => {
 		// then
 		expect(ret).toEqual([
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnOne',
-				listWidth: 240,
 				resizable: true,
 				resized: true,
 				width: 60,
 			},
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnTwo',
-				listWidth: 240,
 				resized: false,
 				width: 40,
 			},
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnThree',
-				listWidth: 240,
 				resizable: true,
 				resized: true,
 				width: 140,
@@ -428,25 +396,19 @@ describe('resizeColumns', () => {
 		// then
 		expect(ret).toEqual([
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnOne',
-				listWidth: 300,
 				resizable: true,
 				resized: false,
 				width: 70,
 			},
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnTwo',
-				listWidth: 300,
 				resizable: true,
 				resized: true,
 				width: 190,
 			},
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnThree',
-				listWidth: 300,
 				resizable: true,
 				resized: true,
 				width: 40,
@@ -480,25 +442,19 @@ describe('resizeColumns', () => {
 		// then
 		expect(ret).toEqual([
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnOne',
-				listWidth: 300,
 				resizable: true,
 				resized: false,
 				width: 70,
 			},
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnTwo',
-				listWidth: 300,
 				resizable: true,
 				resized: true,
 				width: 40,
 			},
 			{
-				currentTotalWidth: listWidth,
 				dataKey: 'columnThree',
-				listWidth: 300,
 				resizable: true,
 				resized: true,
 				width: 190,
