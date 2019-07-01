@@ -6,8 +6,8 @@ import Icon from '@talend/react-components/lib/Icon';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import { translate } from 'react-i18next';
 
-import { I18N_DOMAIN_FORMS } from '../constants';
-import '../translate';
+import { I18N_DOMAIN_FORMS } from '../../constants';
+import '../../translate';
 
 import theme from './ArrayFieldTemplate.scss';
 
