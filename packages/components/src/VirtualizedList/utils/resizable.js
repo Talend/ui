@@ -1,4 +1,6 @@
 import flow from 'lodash/flow';
+import findLastIndex from 'lodash/findLastIndex';
+import findIndex from 'lodash/findIndex';
 
 const MINIMUM_COLUMN_WIDTH = 40;
 
@@ -6,52 +8,33 @@ const getMinimumWidth = column => column.minWidth || MINIMUM_COLUMN_WIDTH;
 
 const getWidth = (width, minWidth = MINIMUM_COLUMN_WIDTH) => (width <= minWidth ? minWidth : width);
 
+const isShrinkable = column => column.resizable && column.width > getMinimumWidth(column);
+
+const isEnlargeable = column => column.resizable;
+
 /**
  * Search for the nearest index shrinkable on the right.
  * @param {integer} index
  * @param {array} columnsWidths
  */
-const getShrinkIndexRight = (index, columnsWidths) => {
-	for (let i = index + 1; i < columnsWidths.length; i += 1) {
-		const next = i + 1;
-		// Shrink columns on the right of the current, if resizable and width above minimal.
-		if (columnsWidths[i].resizable && columnsWidths[i].width > getMinimumWidth(columnsWidths[i])) {
-			return i;
-			// Shrink the after first columns on the right, if the next one is already at minimal width.
-		} else if (
-			columnsWidths[i] === getMinimumWidth(columnsWidths[i]) &&
-			next < columnsWidths.length - 1 &&
-			columnsWidths[next].resizable &&
-			columnsWidths[next].width > getMinimumWidth(columnsWidths[next])
-		) {
-			return next;
-		}
-	}
-	return -1;
-};
+const getShrinkIndexRight = (index, columnsWidths) =>
+	findIndex(columnsWidths, isShrinkable, index + 1);
 
 /**
  * Search for the nearest index enlargeable on the right.
  * @param {integer} index
  * @param {array} columnsWidths
  */
-const getEnlargeIndexRight = (index, columnsWidths) => {
-	const nextItemIndex = index + 1;
-	const foundIndex = columnsWidths.slice(nextItemIndex).findIndex(colWidth => colWidth.resizable);
-	return foundIndex === -1 ? -1 : nextItemIndex + foundIndex;
-};
+const getEnlargeIndexRight = (index, columnsWidths) =>
+	findIndex(columnsWidths, isEnlargeable, index + 1);
 
 /**
- * Search for the nearest index shrinkable on the left.
+ * Search for the nearest index shrinkable on the left including himself.
  * @param {integer} index
  * @param {array} columnsWidths
  */
-const getShrinkIndexLeft = (index, columnsWidths) => {
-	const sliceAtCurrentItem = index + 1;
-	return columnsWidths
-		.slice(0, sliceAtCurrentItem)
-		.findIndex(colWidth => colWidth.resizable && colWidth.width > getMinimumWidth(colWidth));
-};
+const getShrinkIndexLeft = (index, columnsWidths) =>
+	findLastIndex(columnsWidths, isShrinkable, index);
 
 /**
  * Set the collection with the value, and return it.
@@ -65,8 +48,6 @@ const setColumnResized = resized => column => ({ ...column, resized });
  */
 const setColumnListWidth = listWidth => column => ({ ...column, listWidth });
 
-// const setColumnWidth = width => column => ({ ...column, width });
-
 /**
  * Set a new column to the current list.
  * @param {array} columnsWidths
@@ -79,12 +60,16 @@ const setColumn = (columnsWidths, index) => column => {
 };
 
 /**
- * Set all the array elements to resized false.
+ * Set all the array elements to resized false and with the widthList.
  * @param {array} columnsWidths
  */
-const resetListResized = columnsWidths => columnsWidths.map(setColumnResized(false));
-// TODO: both return a new structure, could be improved ?
-const setListWidth = listWidth => columnsWidths => columnsWidths.map(setColumnListWidth(listWidth));
+const prepareColumnsWidthsForResize = listWidth => columnsWidths =>
+	columnsWidths.map(
+		flow(
+			setColumnResized(false),
+			setColumnListWidth(listWidth),
+		),
+	);
 
 const addWidth = (deltaX, value) => deltaX + value;
 
@@ -109,13 +94,12 @@ const calcTotalCurrentWidth = columnsWidths => {
  */
 
 const calcWidthEnlarge = ({ currentTotalWidth, listWidth, width }, deltaX) => {
-	const calculatedWidth = addWidth(deltaX, width);
-	const newTotal = currentTotalWidth + deltaX;
-	if (newTotal >= listWidth) {
-		const newX = listWidth - currentTotalWidth;
-		const toto = width + newX;
-		return toto;
+	// If the dragging is going too far,
+	// we are only returning the max value possible.
+	if (currentTotalWidth + deltaX >= listWidth) {
+		return width + (listWidth - currentTotalWidth);
 	}
+	const calculatedWidth = addWidth(deltaX, width);
 	return calculatedWidth;
 };
 
@@ -124,20 +108,21 @@ const calcWidthShrink = ({ width, minWidth }, deltaX) => {
 	return getWidth(calculatedWidth, minWidth);
 };
 
-const calcWidth = shrink => deltaX => column => {
-	const { currentTotalWidth, listWidth, width, minWidth = MINIMUM_COLUMN_WIDTH } = column;
-	let newWidth = width;
-	if (shrink && width >= minWidth) {
-		newWidth = calcWidthShrink(column, deltaX);
+const setShrinkingColumnWidth = deltaX => column => {
+	const { width, minWidth = MINIMUM_COLUMN_WIDTH } = column;
+	if (width >= minWidth) {
+		return { ...column, width: calcWidthShrink(column, deltaX) };
 	}
-	if (!shrink && currentTotalWidth <= listWidth) {
-		newWidth = calcWidthEnlarge(column, deltaX);
-	}
-	return { ...column, width: newWidth };
+	return { ...column, width };
 };
 
-// const calcShrink = calcWidth(true);
-// const calcEnlarge = calcWidth(false);
+const setEnlargingColumnWidth = deltaX => column => {
+	const { currentTotalWidth, listWidth, width } = column;
+	if (currentTotalWidth <= listWidth) {
+		return { ...column, width: calcWidthEnlarge(column, deltaX) };
+	}
+	return { ...column, width };
+};
 
 /**
  * Get the nearest column index to shrink on the left side of the given index,
@@ -149,7 +134,7 @@ const shrinkLeftColumn = (deltaX, index) => columnsWidths => {
 	const shrinkIndexLeft = getShrinkIndexLeft(index, columnsWidths);
 	if (shrinkIndexLeft >= 0) {
 		flow([
-			calcWidth(true)(Math.abs(deltaX)),
+			setShrinkingColumnWidth(Math.abs(deltaX)),
 			setColumnResized(true),
 			setColumn(columnsWidths, shrinkIndexLeft),
 		])(columnsWidths[shrinkIndexLeft]);
@@ -167,7 +152,7 @@ const enlargeRightColumn = (deltaX, index) => columnsWidths => {
 	const enlargeIndexRight = getEnlargeIndexRight(index, columnsWidths);
 	if (enlargeIndexRight >= 0) {
 		flow([
-			calcWidth(false)(Math.abs(deltaX)),
+			setEnlargingColumnWidth(Math.abs(deltaX)),
 			setColumnResized(true),
 			setColumn(columnsWidths, enlargeIndexRight),
 		])(columnsWidths[enlargeIndexRight]);
@@ -185,7 +170,7 @@ const shrinkRightColumn = (deltaX, index) => columnsWidths => {
 	const shrinkIndexRight = getShrinkIndexRight(index, columnsWidths);
 	if (shrinkIndexRight >= 0) {
 		flow([
-			calcWidth(true)(deltaX),
+			setShrinkingColumnWidth(deltaX),
 			setColumnResized(true),
 			setColumn(columnsWidths, shrinkIndexRight),
 		])(columnsWidths[shrinkIndexRight]);
@@ -200,9 +185,11 @@ const shrinkRightColumn = (deltaX, index) => columnsWidths => {
  */
 const enlargeCurrentColumn = (deltaX, index) => columnsWidths => {
 	if (index >= 0) {
-		flow([calcWidth(false)(deltaX), setColumnResized(true), setColumn(columnsWidths, index)])(
-			columnsWidths[index],
-		);
+		flow([
+			setEnlargingColumnWidth(deltaX),
+			setColumnResized(true),
+			setColumn(columnsWidths, index),
+		])(columnsWidths[index]);
 	}
 	return columnsWidths;
 };
@@ -240,6 +227,7 @@ const resizeLeft = (deltaX, index) => columnsWidths => {
 };
 
 /**
+ * This is the entry point of the resize functionality.
  * Clone the incoming collection, mutate it, and return new widths value.
  * @param {number} deltaX
  * @param {array} columnsWidths
@@ -247,13 +235,17 @@ const resizeLeft = (deltaX, index) => columnsWidths => {
  */
 export const resizeColumns = (deltaX, columnsWidths, listWidth, currentIndex) =>
 	flow([
-		resetListResized,
-		setListWidth(listWidth),
-		calcTotalCurrentWidth,
+		prepareColumnsWidthsForResize(listWidth),
 		resizeRight(deltaX, currentIndex),
 		resizeLeft(deltaX, currentIndex),
 		calcTotalCurrentWidth,
 	])(columnsWidths);
+
+
+/*-----------------------------------------------------------------------------------
+	Above you can see the code dedicated to the resizable functionality.
+	Bottom it's tools used in the virtualized list component.
+------------------------------------------------------------------------------------*/
 
 /**
  * Extract some props from the converted react elements array.
