@@ -7,7 +7,6 @@ jest.mock('date-fns', () => ({
 	distanceInWordsToNow: () => 'over 2 years ago',
 }));
 
-
 describe('Resource component snaps', () => {
 	afterAll(() => {
 		jest.unmock('date-fns');
