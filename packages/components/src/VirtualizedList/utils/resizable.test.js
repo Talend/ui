@@ -151,13 +151,35 @@ describe('resizeColumns', () => {
 			},
 		];
 		const currentIndex = 1;
+		const listWidth = 300;
 		// when
-		const ret = resizeColumns(deltaX, columnsWidths, currentIndex);
+		const ret = resizeColumns(deltaX, columnsWidths, listWidth, currentIndex);
 		// then
 		expect(ret).toEqual([
-			{ dataKey: 'columnOne', resizable: true, resized: false, width: 70 },
-			{ dataKey: 'columnTwo', resizable: true, resized: true, width: 110 },
-			{ dataKey: 'columnThree', resizable: true, resized: true, width: 120 },
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnOne',
+				listWidth: 300,
+				resizable: true,
+				resized: false,
+				width: 70,
+			},
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnTwo',
+				listWidth: 300,
+				resizable: true,
+				resized: true,
+				width: 110,
+			},
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnThree',
+				listWidth: 300,
+				resizable: true,
+				resized: true,
+				width: 120,
+			},
 		]);
 	});
 	it('should enlarge columnOne and shrink columnThree, skipping columnTwo which is at minimum width', () => {
@@ -181,13 +203,35 @@ describe('resizeColumns', () => {
 			},
 		];
 		const currentIndex = 0;
+		const listWidth = 240;
 		// when
-		const ret = resizeColumns(deltaX, columnsWidths, currentIndex);
+		const ret = resizeColumns(deltaX, columnsWidths, listWidth, currentIndex);
 		// then
 		expect(ret).toEqual([
-			{ dataKey: 'columnOne', resizable: true, resized: true, width: 80 },
-			{ dataKey: 'columnTwo', resizable: true, resized: false, width: 40 },
-			{ dataKey: 'columnThree', resizable: true, resized: true, width: 120 },
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnOne',
+				listWidth: 240,
+				resizable: true,
+				resized: true,
+				width: 80,
+			},
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnTwo',
+				listWidth: 240,
+				resizable: true,
+				resized: false,
+				width: 40,
+			},
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnThree',
+				listWidth: 240,
+				resizable: true,
+				resized: true,
+				width: 120,
+			},
 		]);
 	});
 	it('should enlarge columnTwo and shrink columnFour, skipping columnThree which is not resizable', () => {
@@ -216,14 +260,43 @@ describe('resizeColumns', () => {
 			},
 		];
 		const currentIndex = 1;
+		const listWidth = 470;
 		// when
-		const ret = resizeColumns(deltaX, columnsWidths, currentIndex);
+		const ret = resizeColumns(deltaX, columnsWidths, listWidth, currentIndex);
 		// then
 		expect(ret).toEqual([
-			{ dataKey: 'columnOne', resizable: true, resized: false, width: 70 },
-			{ dataKey: 'columnTwo', resizable: true, resized: true, width: 160 },
-			{ dataKey: 'columnThree', resizable: false, resized: false, width: 120 },
-			{ dataKey: 'columnFour', resizable: true, resized: true, width: 120 },
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnOne',
+				listWidth: 470,
+				resizable: true,
+				resized: false,
+				width: 70,
+			},
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnTwo',
+				listWidth: 470,
+				resizable: true,
+				resized: true,
+				width: 160,
+			},
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnThree',
+				listWidth: 470,
+				resizable: false,
+				resized: false,
+				width: 120,
+			},
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnFour',
+				listWidth: 470,
+				resizable: true,
+				resized: true,
+				width: 120,
+			},
 		]);
 	});
 	it('should shrink columnTwo and enlarge columnThree', () => {
@@ -247,16 +320,38 @@ describe('resizeColumns', () => {
 			},
 		];
 		const currentIndex = 1;
+		const listWidth = 300;
 		// when
-		const ret = resizeColumns(deltaX, columnsWidths, currentIndex);
+		const ret = resizeColumns(deltaX, columnsWidths, listWidth, currentIndex);
 		// then
 		expect(ret).toEqual([
-			{ dataKey: 'columnOne', resizable: true, resized: false, width: 70 },
-			{ dataKey: 'columnTwo', resizable: true, resized: true, width: 90 },
-			{ dataKey: 'columnThree', resizable: true, resized: true, width: 140 },
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnOne',
+				listWidth: 300,
+				resizable: true,
+				resized: false,
+				width: 70,
+			},
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnTwo',
+				listWidth: 300,
+				resizable: true,
+				resized: true,
+				width: 90,
+			},
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnThree',
+				listWidth: 300,
+				resizable: true,
+				resized: true,
+				width: 140,
+			},
 		]);
 	});
-	it('should shrink columnOne and enlarge columnThree, skipping columnTwo which is at minimum width', () => {
+	it('should shrink columnOne, skip columnTwo not resizable, and enlarge columnThree', () => {
 		// given
 		const deltaX = -10;
 		const columnsWidths = [
@@ -268,7 +363,6 @@ describe('resizeColumns', () => {
 			{
 				dataKey: 'columnTwo',
 				width: 40,
-				resizable: true,
 			},
 			{
 				dataKey: 'columnThree',
@@ -277,18 +371,39 @@ describe('resizeColumns', () => {
 			},
 		];
 		const currentIndex = 1;
+		const listWidth = 240;
 		// when
-		const ret = resizeColumns(deltaX, columnsWidths, currentIndex);
+		const ret = resizeColumns(deltaX, columnsWidths, listWidth, currentIndex);
 		// then
 		expect(ret).toEqual([
-			{ dataKey: 'columnOne', resizable: true, resized: true, width: 60 },
-			{ dataKey: 'columnTwo', resizable: true, resized: false, width: 40 },
-			{ dataKey: 'columnThree', resizable: true, resized: true, width: 140 },
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnOne',
+				listWidth: 240,
+				resizable: true,
+				resized: true,
+				width: 60,
+			},
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnTwo',
+				listWidth: 240,
+				resized: false,
+				width: 40,
+			},
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnThree',
+				listWidth: 240,
+				resizable: true,
+				resized: true,
+				width: 140,
+			},
 		]);
 	});
-	it('should shrink columnOne and enlarge columnFour, skipping columnThree and two which are no resizable and at minimum width', () => {
+	it('should not exceed the list width when dragging right', () => {
 		// given
-		const deltaX = -10;
+		const deltaX = 1000;
 		const columnsWidths = [
 			{
 				dataKey: 'columnOne',
@@ -297,29 +412,97 @@ describe('resizeColumns', () => {
 			},
 			{
 				dataKey: 'columnTwo',
-				width: 40,
+				width: 100,
 				resizable: true,
 			},
 			{
 				dataKey: 'columnThree',
-				width: 150,
-				resizable: false,
-			},
-			{
-				dataKey: 'columnFour',
 				width: 130,
 				resizable: true,
 			},
 		];
 		const currentIndex = 1;
+		const listWidth = 300;
 		// when
-		const ret = resizeColumns(deltaX, columnsWidths, currentIndex);
+		const ret = resizeColumns(deltaX, columnsWidths, listWidth, currentIndex);
 		// then
 		expect(ret).toEqual([
-			{ dataKey: 'columnOne', resizable: true, resized: true, width: 60 },
-			{ dataKey: 'columnTwo', resizable: true, resized: false, width: 40 },
-			{ dataKey: 'columnThree', resizable: false, resized: false, width: 150 },
-			{ dataKey: 'columnFour', resizable: true, resized: true, width: 140 },
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnOne',
+				listWidth: 300,
+				resizable: true,
+				resized: false,
+				width: 70,
+			},
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnTwo',
+				listWidth: 300,
+				resizable: true,
+				resized: true,
+				width: 190,
+			},
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnThree',
+				listWidth: 300,
+				resizable: true,
+				resized: true,
+				width: 40,
+			},
+		]);
+	});
+	it('should not exceed the list width when dragging left', () => {
+		// given
+		const deltaX = -1000;
+		const columnsWidths = [
+			{
+				dataKey: 'columnOne',
+				width: 70,
+				resizable: true,
+			},
+			{
+				dataKey: 'columnTwo',
+				width: 100,
+				resizable: true,
+			},
+			{
+				dataKey: 'columnThree',
+				width: 130,
+				resizable: true,
+			},
+		];
+		const currentIndex = 1;
+		const listWidth = 300;
+		// when
+		const ret = resizeColumns(deltaX, columnsWidths, listWidth, currentIndex);
+		// then
+		expect(ret).toEqual([
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnOne',
+				listWidth: 300,
+				resizable: true,
+				resized: false,
+				width: 70,
+			},
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnTwo',
+				listWidth: 300,
+				resizable: true,
+				resized: true,
+				width: 40,
+			},
+			{
+				currentTotalWidth: listWidth,
+				dataKey: 'columnThree',
+				listWidth: 300,
+				resizable: true,
+				resized: true,
+				width: 190,
+			},
 		]);
 	});
 });

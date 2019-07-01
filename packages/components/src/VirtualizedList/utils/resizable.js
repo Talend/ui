@@ -36,21 +36,9 @@ const getShrinkIndexRight = (index, columnsWidths) => {
  * @param {array} columnsWidths
  */
 const getEnlargeIndexRight = (index, columnsWidths) => {
-	for (let i = index + 1; i < columnsWidths.length; i += 1) {
-		// Enlarge the nearest right column.
-		if (columnsWidths[i].resizable && columnsWidths[i].width > getMinimumWidth(columnsWidths[i])) {
-			return i;
-		}
-		// Enlarge the last column only if trigger by the before last column.
-		if (
-			index === columnsWidths.length - 2 &&
-			i === columnsWidths.length - 1 &&
-			columnsWidths[i].resizable
-		) {
-			return i;
-		}
-	}
-	return -1;
+	const nextItemIndex = index + 1;
+	const foundIndex = columnsWidths.slice(nextItemIndex).findIndex(colWidth => colWidth.resizable);
+	return foundIndex === -1 ? -1 : nextItemIndex + foundIndex;
 };
 
 /**
@@ -59,23 +47,10 @@ const getEnlargeIndexRight = (index, columnsWidths) => {
  * @param {array} columnsWidths
  */
 const getShrinkIndexLeft = (index, columnsWidths) => {
-	for (let i = index; i >= 0; i -= 1) {
-		const previous = i - 1;
-		// Shrink column at left.
-		if (columnsWidths[i].resizable && columnsWidths[i].width > getMinimumWidth(columnsWidths[i])) {
-			return i;
-			// Shrink the after first colum on the left,
-			// if the previous one is already at minimal width.
-		} else if (
-			columnsWidths[i] === getMinimumWidth(columnsWidths[i]) &&
-			previous < 0 &&
-			columnsWidths[previous].resizable &&
-			columnsWidths[previous].width > getMinimumWidth(columnsWidths[previous])
-		) {
-			return previous;
-		}
-	}
-	return -1;
+	const sliceAtCurrentItem = index + 1;
+	return columnsWidths
+		.slice(0, sliceAtCurrentItem)
+		.findIndex(colWidth => colWidth.resizable && colWidth.width > getMinimumWidth(colWidth));
 };
 
 /**
@@ -90,7 +65,7 @@ const setColumnResized = resized => column => ({ ...column, resized });
  */
 const setColumnListWidth = listWidth => column => ({ ...column, listWidth });
 
-const setColumnWidth = width => column => ({ ...column, width });
+// const setColumnWidth = width => column => ({ ...column, width });
 
 /**
  * Set a new column to the current list.
@@ -161,8 +136,8 @@ const calcWidth = shrink => deltaX => column => {
 	return { ...column, width: newWidth };
 };
 
-const calcShrink = calcWidth(true);
-const calcEnlarge = calcWidth(false);
+// const calcShrink = calcWidth(true);
+// const calcEnlarge = calcWidth(false);
 
 /**
  * Get the nearest column index to shrink on the left side of the given index,
@@ -173,9 +148,7 @@ const calcEnlarge = calcWidth(false);
 const shrinkLeftColumn = (deltaX, index) => columnsWidths => {
 	const shrinkIndexLeft = getShrinkIndexLeft(index, columnsWidths);
 	if (shrinkIndexLeft >= 0) {
-		// const width = calcShrink(Math.abs(deltaX))(columnsWidths[shrinkIndexLeft]);
 		flow([
-			// setColumnWidth(width),
 			calcWidth(true)(Math.abs(deltaX)),
 			setColumnResized(true),
 			setColumn(columnsWidths, shrinkIndexLeft),
@@ -212,7 +185,7 @@ const shrinkRightColumn = (deltaX, index) => columnsWidths => {
 	const shrinkIndexRight = getShrinkIndexRight(index, columnsWidths);
 	if (shrinkIndexRight >= 0) {
 		flow([
-			calcWidth(true)(Math.abs(deltaX)),
+			calcWidth(true)(deltaX),
 			setColumnResized(true),
 			setColumn(columnsWidths, shrinkIndexRight),
 		])(columnsWidths[shrinkIndexRight]);
@@ -227,11 +200,9 @@ const shrinkRightColumn = (deltaX, index) => columnsWidths => {
  */
 const enlargeCurrentColumn = (deltaX, index) => columnsWidths => {
 	if (index >= 0) {
-		flow([
-			calcWidth(false)(Math.abs(deltaX)),
-			setColumnResized(true),
-			setColumn(columnsWidths, index),
-		])(columnsWidths[index]);
+		flow([calcWidth(false)(deltaX), setColumnResized(true), setColumn(columnsWidths, index)])(
+			columnsWidths[index],
+		);
 	}
 	return columnsWidths;
 };
@@ -281,6 +252,7 @@ export const resizeColumns = (deltaX, columnsWidths, listWidth, currentIndex) =>
 		calcTotalCurrentWidth,
 		resizeRight(deltaX, currentIndex),
 		resizeLeft(deltaX, currentIndex),
+		calcTotalCurrentWidth,
 	])(columnsWidths);
 
 /**
