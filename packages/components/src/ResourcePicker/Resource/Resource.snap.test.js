@@ -36,7 +36,7 @@ describe('Resource component snaps', () => {
 				{
 					id: 0,
 					name: 'Title with few actions',
-					modified: modifiedDate,
+					modified: '2016-09-22',
 					author: 'Jean-Pierre DUPONT',
 					icon: 'talend-file-xls-o',
 				},
@@ -84,7 +84,7 @@ describe('Resource component snaps', () => {
 				{
 					id: 0,
 					name: 'Title with few actions',
-					modified: modifiedDate,
+					modified: '2016-09-22',
 					author: 'Jean-Pierre DUPONT',
 				},
 			];
@@ -108,7 +108,7 @@ describe('Resource component snaps', () => {
 				{
 					id: 0,
 					name: 'Title with few actions',
-					modified: modifiedDate,
+					modified: '2016-09-22',
 					author: 'Jean-Pierre DUPONT',
 					icon: 'talend-file-xls-o',
 					flags: ['CERTIFIED'],
@@ -134,7 +134,7 @@ describe('Resource component snaps', () => {
 				{
 					id: 0,
 					name: 'Title with few actions',
-					modified: modifiedDate,
+					modified: '2016-09-22',
 					author: 'Jean-Pierre DUPONT',
 					icon: 'talend-file-xls-o',
 					flags: ['FAVORITE'],
@@ -160,7 +160,7 @@ describe('Resource component snaps', () => {
 				{
 					id: 0,
 					name: 'Title with few actions',
-					modified: modifiedDate,
+					modified: '2016-09-22',
 					author: 'Jean-Pierre DUPONT',
 					icon: 'talend-file-xls-o',
 					flags: ['CERTIFIED', 'FAVORITE'],
