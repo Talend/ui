@@ -191,28 +191,6 @@ describe('Datalist component', () => {
 		expect(onChange).toBeCalledWith(expect.anything(), payload);
 	});
 
-	it('should clear the value on blur when in restricted mode and value is only spaces', () => {
-		// given
-		const onChange = jest.fn();
-		const wrapper = mount(
-			<Datalist
-				id="my-datalist"
-				isValid
-				multiSection={false}
-				errorMessage={'This should be correct'}
-				onChange={onChange}
-				{...props}
-				value={'fooo'}
-			/>,
-		);
-		const input = wrapper.find('input').at(0);
-		input.simulate('change', { target: { value: '    ' } });
-		// when
-		input.simulate('blur');
-		// then
-		expect(input.text().length).toBe(0);
-	});
-
 	it('should not reset to old value when clearing input, in restricted mode, and then onBlur', () => {
 		// given
 		const onChange = jest.fn();
