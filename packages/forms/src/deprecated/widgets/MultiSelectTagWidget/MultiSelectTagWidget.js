@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import Badge from '@talend/react-components/lib/Badge';
 import Typeahead from '@talend/react-components/lib/Typeahead';
 import classNames from 'classnames';
@@ -374,4 +374,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_FORMS)(MultiSelectTagWidgetComponent);
+export default withTranslation(I18N_DOMAIN_FORMS)(MultiSelectTagWidgetComponent);

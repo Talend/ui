@@ -14,276 +14,156 @@ exports[`RowCollapsiblePanel should render a row with no data (loading) 1`] = `
       className="theme-loading-collapsible-panel"
     >
       <span>
-        <Translate(Skeleton)
+        <withI18nextTranslation(Skeleton)
           size="small"
           type="circle"
         >
-          <I18n
-            bindI18n="languageChanged loaded"
-            bindStore="added removed"
+          <Skeleton
+            heartbeat={true}
             i18n={Object {}}
-            ns={
-              Array [
-                "tui-components",
-              ]
-            }
-            nsMode="default"
-            omitBoundRerender={true}
             size="small"
-            translateFuncName="t"
+            t={[Function]}
+            tReady={true}
             type="circle"
-            usePureComponent={false}
-            wait={false}
-            withRef={false}
           >
-            <Skeleton
-              heartbeat={true}
-              i18n={Object {}}
-              lng="en"
-              size="small"
-              t={[Function]}
-              tReady={false}
-              type="circle"
-            >
-              <span
-                aria-label="circle (loading)"
-                className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
-                style={
-                  Object {
-                    "height": undefined,
-                    "width": undefined,
-                  }
+            <span
+              aria-label="circle (loading)"
+              className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+              style={
+                Object {
+                  "height": undefined,
+                  "width": undefined,
                 }
-              />
-            </Skeleton>
-          </I18n>
-        </Translate(Skeleton)>
-        <Translate(Skeleton)
+              }
+            />
+          </Skeleton>
+        </withI18nextTranslation(Skeleton)>
+        <withI18nextTranslation(Skeleton)
           size="xlarge"
           type="text"
         >
-          <I18n
-            bindI18n="languageChanged loaded"
-            bindStore="added removed"
+          <Skeleton
+            heartbeat={true}
             i18n={Object {}}
-            ns={
-              Array [
-                "tui-components",
-              ]
-            }
-            nsMode="default"
-            omitBoundRerender={true}
             size="xlarge"
-            translateFuncName="t"
+            t={[Function]}
+            tReady={true}
             type="text"
-            usePureComponent={false}
-            wait={false}
-            withRef={false}
           >
-            <Skeleton
-              heartbeat={true}
-              i18n={Object {}}
-              lng="en"
-              size="xlarge"
-              t={[Function]}
-              tReady={false}
-              type="text"
-            >
-              <span
-                aria-label="text (loading)"
-                className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-xlarge theme-tc-skeleton-text-xlarge tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
-                style={
-                  Object {
-                    "height": undefined,
-                    "width": undefined,
-                  }
+            <span
+              aria-label="text (loading)"
+              className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-xlarge theme-tc-skeleton-text-xlarge tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+              style={
+                Object {
+                  "height": undefined,
+                  "width": undefined,
                 }
-              />
-            </Skeleton>
-          </I18n>
-        </Translate(Skeleton)>
+              }
+            />
+          </Skeleton>
+        </withI18nextTranslation(Skeleton)>
       </span>
       <span>
-        <Translate(Skeleton)
+        <withI18nextTranslation(Skeleton)
           size="small"
           type="circle"
         >
-          <I18n
-            bindI18n="languageChanged loaded"
-            bindStore="added removed"
+          <Skeleton
+            heartbeat={true}
             i18n={Object {}}
-            ns={
-              Array [
-                "tui-components",
-              ]
-            }
-            nsMode="default"
-            omitBoundRerender={true}
             size="small"
-            translateFuncName="t"
+            t={[Function]}
+            tReady={true}
             type="circle"
-            usePureComponent={false}
-            wait={false}
-            withRef={false}
           >
-            <Skeleton
-              heartbeat={true}
-              i18n={Object {}}
-              lng="en"
-              size="small"
-              t={[Function]}
-              tReady={false}
-              type="circle"
-            >
-              <span
-                aria-label="circle (loading)"
-                className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
-                style={
-                  Object {
-                    "height": undefined,
-                    "width": undefined,
-                  }
+            <span
+              aria-label="circle (loading)"
+              className="tc-skeleton theme-tc-skeleton tc-skeleton-circle theme-tc-skeleton-circle tc-skeleton-circle-small theme-tc-skeleton-circle-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+              style={
+                Object {
+                  "height": undefined,
+                  "width": undefined,
                 }
-              />
-            </Skeleton>
-          </I18n>
-        </Translate(Skeleton)>
-        <Translate(Skeleton)
+              }
+            />
+          </Skeleton>
+        </withI18nextTranslation(Skeleton)>
+        <withI18nextTranslation(Skeleton)
           size="medium"
           type="text"
         >
-          <I18n
-            bindI18n="languageChanged loaded"
-            bindStore="added removed"
+          <Skeleton
+            heartbeat={true}
             i18n={Object {}}
-            ns={
-              Array [
-                "tui-components",
-              ]
-            }
-            nsMode="default"
-            omitBoundRerender={true}
             size="medium"
-            translateFuncName="t"
+            t={[Function]}
+            tReady={true}
             type="text"
-            usePureComponent={false}
-            wait={false}
-            withRef={false}
           >
-            <Skeleton
-              heartbeat={true}
-              i18n={Object {}}
-              lng="en"
-              size="medium"
-              t={[Function]}
-              tReady={false}
-              type="text"
-            >
-              <span
-                aria-label="text (loading)"
-                className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-medium theme-tc-skeleton-text-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
-                style={
-                  Object {
-                    "height": undefined,
-                    "width": undefined,
-                  }
+            <span
+              aria-label="text (loading)"
+              className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-medium theme-tc-skeleton-text-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+              style={
+                Object {
+                  "height": undefined,
+                  "width": undefined,
                 }
-              />
-            </Skeleton>
-          </I18n>
-        </Translate(Skeleton)>
+              }
+            />
+          </Skeleton>
+        </withI18nextTranslation(Skeleton)>
       </span>
       <span>
-        <Translate(Skeleton)
+        <withI18nextTranslation(Skeleton)
           size="small"
           type="text"
         >
-          <I18n
-            bindI18n="languageChanged loaded"
-            bindStore="added removed"
+          <Skeleton
+            heartbeat={true}
             i18n={Object {}}
-            ns={
-              Array [
-                "tui-components",
-              ]
-            }
-            nsMode="default"
-            omitBoundRerender={true}
             size="small"
-            translateFuncName="t"
+            t={[Function]}
+            tReady={true}
             type="text"
-            usePureComponent={false}
-            wait={false}
-            withRef={false}
           >
-            <Skeleton
-              heartbeat={true}
-              i18n={Object {}}
-              lng="en"
-              size="small"
-              t={[Function]}
-              tReady={false}
-              type="text"
-            >
-              <span
-                aria-label="text (loading)"
-                className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-small theme-tc-skeleton-text-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
-                style={
-                  Object {
-                    "height": undefined,
-                    "width": undefined,
-                  }
+            <span
+              aria-label="text (loading)"
+              className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-small theme-tc-skeleton-text-small tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+              style={
+                Object {
+                  "height": undefined,
+                  "width": undefined,
                 }
-              />
-            </Skeleton>
-          </I18n>
-        </Translate(Skeleton)>
+              }
+            />
+          </Skeleton>
+        </withI18nextTranslation(Skeleton)>
       </span>
       <span>
-        <Translate(Skeleton)
+        <withI18nextTranslation(Skeleton)
           size="medium"
           type="text"
         >
-          <I18n
-            bindI18n="languageChanged loaded"
-            bindStore="added removed"
+          <Skeleton
+            heartbeat={true}
             i18n={Object {}}
-            ns={
-              Array [
-                "tui-components",
-              ]
-            }
-            nsMode="default"
-            omitBoundRerender={true}
             size="medium"
-            translateFuncName="t"
+            t={[Function]}
+            tReady={true}
             type="text"
-            usePureComponent={false}
-            wait={false}
-            withRef={false}
           >
-            <Skeleton
-              heartbeat={true}
-              i18n={Object {}}
-              lng="en"
-              size="medium"
-              t={[Function]}
-              tReady={false}
-              type="text"
-            >
-              <span
-                aria-label="text (loading)"
-                className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-medium theme-tc-skeleton-text-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
-                style={
-                  Object {
-                    "height": undefined,
-                    "width": undefined,
-                  }
+            <span
+              aria-label="text (loading)"
+              className="tc-skeleton theme-tc-skeleton tc-skeleton-text theme-tc-skeleton-text tc-skeleton-text-medium theme-tc-skeleton-text-medium tc-skeleton-heartbeat theme-tc-skeleton-heartbeat"
+              style={
+                Object {
+                  "height": undefined,
+                  "width": undefined,
                 }
-              />
-            </Skeleton>
-          </I18n>
-        </Translate(Skeleton)>
+              }
+            />
+          </Skeleton>
+        </withI18nextTranslation(Skeleton)>
       </span>
     </div>
   </LoadingCollapsiblePanel>
@@ -305,7 +185,7 @@ exports[`RowCollapsiblePanel should render collapsible panel row 1`] = `
   }
   tabIndex="0"
 >
-  <Translate(CollapsiblePanel)
+  <withI18nextTranslation(CollapsiblePanel)
     content={
       Array [
         Object {

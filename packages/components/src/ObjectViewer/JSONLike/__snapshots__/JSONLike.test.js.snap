@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`JSONLike ComplexItem should render 1`] = `
-<I18n
-  bindI18n="languageChanged loaded"
-  bindStore="added removed"
+<ComplexItem
   edited={Array []}
   i18n={
     Object {
@@ -21,7 +19,13 @@ exports[`JSONLike ComplexItem should render 1`] = `
       "off": [Function],
       "on": [Function],
       "options": Object {},
+      "reportNamespaces": ReportNamespaces {
+        "usedNamespaces": Object {
+          "tui-components": true,
+        },
+      },
       "services": Object {
+        "backendConnector": Object {},
         "resourceStore": Object {
           "data": Object {},
         },
@@ -36,25 +40,14 @@ exports[`JSONLike ComplexItem should render 1`] = `
   }
   info={Object {}}
   name="name"
-  ns={
-    Array [
-      "tui-components",
-    ]
-  }
-  nsMode="default"
-  omitBoundRerender={true}
   onKeyDown={[MockFunction]}
   onSelect={[MockFunction]}
   onToggle={[MockFunction]}
   onToggleAllSiblings={[MockFunction]}
   opened={Array []}
-  translateFuncName="t"
-  usePureComponent={false}
-  wait={false}
-  withRef={false}
->
-  [Function]
-</I18n>
+  t={[Function]}
+  tReady={true}
+/>
 `;
 
 exports[`JSONLike should render 1`] = `

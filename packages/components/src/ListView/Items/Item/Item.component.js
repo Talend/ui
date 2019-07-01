@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import ItemPropTypes from './Item.propTypes';
 import Action from '../../../Actions/Action';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
@@ -85,4 +85,4 @@ class Item extends Component {
 
 Item.propTypes = ItemPropTypes;
 
-export default translate(I18N_DOMAIN_COMPONENTS)(Item);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(Item);

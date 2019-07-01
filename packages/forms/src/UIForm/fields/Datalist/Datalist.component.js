@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DataListComponent from '@talend/react-components/lib/Datalist';
 import omit from 'lodash/omit';
 import get from 'lodash/get';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import FieldTemplate from '../FieldTemplate';
 import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
@@ -233,4 +233,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_FORMS)(Datalist);
+export default withTranslation(I18N_DOMAIN_FORMS)(Datalist);

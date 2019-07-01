@@ -1,5 +1,5 @@
 import bootstrap from './bootstrap';
-import { I18N_DOMAIN_COMPONENTS, CIRCULAR_PROGRESS_SIZE } from './constants';
+import I18N_DOMAIN_COMPONENTS, { CIRCULAR_PROGRESS_SIZE } from './constants';
 import AboutDialog from './AboutDialog';
 import {
 	Action,

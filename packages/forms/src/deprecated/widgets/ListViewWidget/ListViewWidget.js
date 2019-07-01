@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import ListView from '@talend/react-components/lib/ListView';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
@@ -190,4 +190,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_FORMS)(ListViewWidget);
+export default withTranslation(I18N_DOMAIN_FORMS)(ListViewWidget);

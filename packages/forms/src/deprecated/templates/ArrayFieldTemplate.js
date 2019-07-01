@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import Icon from '@talend/react-components/lib/Icon';
 import IconsProvider from '@talend/react-components/lib/IconsProvider';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { I18N_DOMAIN_FORMS } from '../../constants';
 import '../../translate';
@@ -106,4 +106,4 @@ if (process.env.NODE_ENV !== 'production') {
 		t: PropTypes.func.isRequired,
 	};
 }
-export default translate(I18N_DOMAIN_FORMS)(ArrayFieldTemplate);
+export default withTranslation(I18N_DOMAIN_FORMS)(ArrayFieldTemplate);

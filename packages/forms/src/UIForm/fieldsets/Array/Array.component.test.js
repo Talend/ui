@@ -437,7 +437,9 @@ describe('Array component', () => {
 					value={value}
 				/>,
 			);
-			expect(wrapper.find('Translate(DefaultArrayTemplate)').prop('isCloseable')).toEqual(true);
+			expect(
+				wrapper.find('withI18nextTranslation(DefaultArrayTemplate)').prop('isCloseable'),
+			).toEqual(true);
 		});
 
 		it('should pass isCloseable false if widget has isCloseable property set to false', () => {
@@ -453,7 +455,9 @@ describe('Array component', () => {
 					value={value}
 				/>,
 			);
-			expect(wrapper.find('Translate(DefaultArrayTemplate)').prop('isCloseable')).toEqual(false);
+			expect(
+				wrapper.find('withI18nextTranslation(DefaultArrayTemplate)').prop('isCloseable'),
+			).toEqual(false);
 		});
 
 		it('should pass isCloseable false if widget does not have isCloseable property', () => {
@@ -469,7 +473,9 @@ describe('Array component', () => {
 					value={value}
 				/>,
 			);
-			expect(wrapper.find('Translate(DefaultArrayTemplate)').prop('isCloseable')).toEqual(false);
+			expect(
+				wrapper.find('withI18nextTranslation(DefaultArrayTemplate)').prop('isCloseable'),
+			).toEqual(false);
 		});
 	});
 });

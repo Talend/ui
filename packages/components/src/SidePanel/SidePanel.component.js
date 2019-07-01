@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import '../translate';
@@ -127,4 +127,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS)(SidePanel);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(SidePanel);
