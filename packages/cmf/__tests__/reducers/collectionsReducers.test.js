@@ -23,12 +23,56 @@ describe('check collection management reducer', () => {
 		})).toEqual(new Map().set('collection1', 'data can be anything'));
 	});
 
+	it('REACT_CMF.COLLECTION_ADD_OR_REPLACE should properly add nested collection into store', () => {
+		const initState = fromJS({
+			collection1: {
+				data: 'data can be anything',
+			},
+		});
+		const expectedResult = initState.setIn(['collection1', 'nestedCollection'], fromJS(['item 1', 'item 2']));
+		expect(collectionsReducers(initState, {
+			type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
+			path: ['collection1', 'nestedCollection'],
+			data: ['item 1', 'item 2'],
+		})).toEqual(expectedResult);
+	});
+
+	it('REACT_CMF.COLLECTION_ADD_OR_REPLACE should properly replace nested collection into store', () => {
+		const initState = fromJS({
+			collection1: {
+				nestedCollection: 'data can be anything',
+			},
+		});
+		const expectedResult = initState.setIn(['collection1', 'nestedCollection'], fromJS(['item 1', 'item 2']));
+		expect(collectionsReducers(initState, {
+			type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
+			path: ['collection1', 'nestedCollection'],
+			data: ['item 1', 'item 2'],
+		})).toEqual(expectedResult);
+	});
+
 	it('REACT_CMF.COLLECTION_REMOVE should properly remove collection from the store', () => {
 		expect(collectionsReducers(initialState, {
 			type: 'REACT_CMF.COLLECTION_REMOVE',
 			path: ['collection1'],
 		})).toEqual(new Map());
 	});
+
+	it('REACT_CMF.COLLECTION_REMOVE should properly remove nested collection from the store', () => {
+		const initState = fromJS({
+			collection: {
+				nestedCollection: {
+					list: ['item 1', 'item 2'],
+				},
+			},
+		});
+		const expectedResult = initState.deleteIn(['collection', 'nestedCollection', 'list']);
+		expect(collectionsReducers(initState, {
+			type: 'REACT_CMF.COLLECTION_REMOVE',
+			path: ['collection', 'nestedCollection', 'list'],
+		})).toEqual(expectedResult);
+	});
+
 	it('REACT_CMF.COLLECTION_REMOVE should throw when collection doesn\'t exist', () => {
 		expect(() => {
 			collectionsReducers(initialState, {
@@ -79,6 +123,34 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 				{ id: 2, label: 'test data 2' },
 			]);
 		});
+
+		it('should insert elements to nested List properly', () => {
+			const initState = fromJS({
+				collection: {
+					nestedCollection: {
+						list: [
+							{ id: 0, label: 'test data 0' },
+						],
+					},
+				},
+			});
+			const nextState = collectionsReducers(initState, {
+				type: 'REACT_CMF.COLLECTION_MUTATE',
+				path: ['collection', 'nestedCollection', 'list'],
+				operations: {
+					add: [
+						{ id: 1, label: 'test data 1' },
+						{ id: 2, label: 'test data 2' },
+					],
+				},
+			});
+			expect(nextState.getIn(['collection', 'nestedCollection', 'list']).toJS()).toEqual([
+				{ id: 0, label: 'test data 0' },
+				{ id: 1, label: 'test data 1' },
+				{ id: 2, label: 'test data 2' },
+			]);
+		});
+
 		it('should insert elements to Map properly', () => {
 			const nextState = collectionsReducers(mapInitialState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
@@ -93,6 +165,39 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 					test1: 'test data 1',
 					test2: 'test data 2',
 				}))
+			);
+		});
+
+		it('should insert elements to nested Map properly', () => {
+			const initState = fromJS({
+				collection: {
+					nestedCollection: {
+						obj: {
+							test0: 'test data 0',
+							test1: 'test data 1',
+						},
+					},
+				},
+			});
+			const nextState = collectionsReducers(initState, {
+				type: 'REACT_CMF.COLLECTION_MUTATE',
+				path: ['collection', 'nestedCollection', 'obj'],
+				operations: {
+					add: [{ test2: 'test data 2' }],
+				},
+			});
+			expect(nextState).toEqual(
+				fromJS({
+					collection: {
+						nestedCollection: {
+							obj: {
+								test0: 'test data 0',
+								test1: 'test data 1',
+								test2: 'test data 2',
+							},
+						},
+					},
+				}),
 			);
 		});
 	});
@@ -111,6 +216,30 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 			]);
 		});
 
+		it('should delete elements from nested List properly', () => {
+			const initState = fromJS({
+				collection: {
+					nestedCollection: {
+						list: [
+							{ id: 0, label: 'test data 0' },
+							{ id: 1, label: 'test data 1' },
+							{ id: 2, label: 'test data 2' },
+						],
+					},
+				},
+			});
+			const nextState = collectionsReducers(initState, {
+				type: 'REACT_CMF.COLLECTION_MUTATE',
+				path: ['collection', 'nestedCollection', 'list'],
+				operations: {
+					delete: [0, 1],
+				},
+			});
+			expect(nextState.getIn(['collection', 'nestedCollection', 'list']).toJS()).toEqual([
+				{ id: 2, label: 'test data 2' },
+			]);
+		});
+
 		it('should delete elements from Map properly', () => {
 			const nextState = collectionsReducers(mapInitialState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
@@ -124,6 +253,30 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 					test1: 'test data 1',
 				}))
 			);
+		});
+
+		it('should delete elements from nested Map properly', () => {
+			const initState = fromJS({
+				collection: {
+					nestedCollection: {
+						obj: {
+							test0: 'test data 0',
+							test1: 'test data 1',
+							test2: 'test data 2',
+						},
+					},
+				},
+			});
+			const nextState = collectionsReducers(initState, {
+				type: 'REACT_CMF.COLLECTION_MUTATE',
+				path: ['collection', 'nestedCollection', 'obj'],
+				operations: {
+					delete: ['test0', 'test1'],
+				},
+			});
+			expect(nextState.getIn(['collection', 'nestedCollection', 'obj']).toJS()).toEqual({
+				test2: 'test data 2',
+			});
 		});
 
 		it('should delete nothing when ids don\'t match in List', () => {
