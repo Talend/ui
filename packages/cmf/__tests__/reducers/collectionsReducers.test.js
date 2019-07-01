@@ -319,6 +319,35 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 			]);
 		});
 
+		it('should update elements of nested List properly', () => {
+			const initState = fromJS({
+				collection: {
+					nestedCollection: {
+						list: [
+							{ id: 0, label: 'test data 0' },
+							{ id: 1, label: 'test data 1' },
+							{ id: 2, label: 'test data 2' },
+						],
+					},
+				},
+			});
+			const nextState = collectionsReducers(initState, {
+				type: 'REACT_CMF.COLLECTION_MUTATE',
+				path: ['collection', 'nestedCollection', 'list'],
+				operations: {
+					update: {
+						0: { id: 0, label: 'new test data 0' },
+						1: { id: 1, label: 'new test data 1' },
+					},
+				},
+			});
+			expect(nextState.getIn(['collection', 'nestedCollection', 'list']).toJS()).toEqual([
+				{ id: 0, label: 'new test data 0' },
+				{ id: 1, label: 'new test data 1' },
+				{ id: 2, label: 'test data 2' },
+			]);
+		});
+
 		it('should update elements of Map properly', () => {
 			const nextState = collectionsReducers(mapInitialState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
@@ -335,6 +364,35 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 					test1: 'test data 1',
 				}))
 			);
+		});
+
+		it('should update elements of nested Map properly', () => {
+			const initState = fromJS({
+				collection: {
+					nestedCollection: {
+						obj: {
+							test0: 'test data 0',
+							test1: 'test data 1',
+							test2: 'test data 2',
+						},
+					},
+				},
+			});
+			const nextState = collectionsReducers(initState, {
+				type: 'REACT_CMF.COLLECTION_MUTATE',
+				path: ['collection', 'nestedCollection', 'obj'],
+				operations: {
+					update: {
+						test0: 'new test data 0',
+						test1: 'new test data 1',
+					},
+				},
+			});
+			expect(nextState.getIn(['collection', 'nestedCollection', 'obj']).toJS()).toEqual({
+				test0: 'new test data 0',
+				test1: 'new test data 1',
+				test2: 'test data 2',
+			});
 		});
 	});
 });
