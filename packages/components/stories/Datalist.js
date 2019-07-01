@@ -5,6 +5,7 @@ import { action } from '@storybook/addon-actions';
 import { Datalist, IconsProvider } from '../src/index';
 
 const defaultProps = {
+	onChange: action('onChange'),
 	disabled: false,
 	readOnly: false,
 	placeholder: 'search for something...',
