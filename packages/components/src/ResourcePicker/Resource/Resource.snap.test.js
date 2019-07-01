@@ -7,14 +7,6 @@ jest.mock('date-fns', () => ({
 	distanceInWordsToNow: () => 'over 2 years ago',
 }));
 
-const dateToYMD = date => {
-	const d = date.getDate();
-	const m = date.getMonth() + 1;
-	const y = date.getFullYear() - 2;
-	return `${y}-${m <= 9 ? `0${m}` : m}-${d <= 9 ? `0${d}` : d}`;
-};
-
-const modifiedDate = dateToYMD(new Date());
 
 describe('Resource component snaps', () => {
 	afterAll(() => {
