@@ -108,6 +108,11 @@ const setEnlargingColumnWidth = (deltaX, listWidth, currentTotalWidth) => column
 	return { ...column, width };
 };
 
+/**
+ * This is a function factory. 
+ * @param {function} setWidthFn
+ * @param {function} getIndexFn
+ */
 const changeWidthColumn = (setWidthFn, getIndexFn) => (deltaX, index, listWidth) => ([
 	columnsWidths,
 	currentTotalWidth,
@@ -179,7 +184,7 @@ const resizeRight = (deltaX, index, listWidth) => columnsWidths => {
 };
 
 /**
- * Flow of operations to handle dragging column to the right.
+ * Flow of operations to handle dragging column to the left.
  * @param {number} deltaX
  * @param {integer} index
  */
@@ -196,7 +201,8 @@ const resizeLeft = (deltaX, index, listWidth) => columnsWidths => {
 
 /**
  * This is the entry point of the resize functionality.
- * Clone the incoming collection, mutate it, and return new widths value.
+ * It clones the incoming collection, mutates it, and return new widths value.
+ * To improve performance all changes to the columns list are mutable.
  * @param {number} deltaX
  * @param {array} columnsWidths
  * @param {integer} currentIndex
