@@ -86,7 +86,7 @@ function ArrayItem(props) {
 	const deleteAction = {
 		id: id && `${id}-delete`,
 		onClick: event => onRemove(event, index),
-		label: 'Delete',
+		label: props.t('ARRAY_FIELD_TEMPLATE_ACTION_DELETE', { defaultValue: 'Delete' }),
 		type: 'button',
 		disabled: widgetIsDisabled,
 		className: theme.delete,
@@ -139,12 +139,14 @@ if (process.env.NODE_ENV !== 'production') {
 		onReorder: PropTypes.func.isRequired,
 		valueIsUpdating: PropTypes.bool,
 		isCloseable: PropTypes.bool,
+		t: PropTypes.func.isRequired,
 	};
 }
 
 ArrayItem.defaultProps = {
 	isCloseable: false,
 	renderItem: () => null,
+	t: getDefaultT(),
 };
 
 export default ArrayItem;
