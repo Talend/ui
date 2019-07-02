@@ -12,7 +12,7 @@ import { getTheme } from '../theme';
 
 const theme = getTheme(badgeCssModule);
 
-const SIZES = {
+export const SIZES = {
 	large: 'large',
 	small: 'small',
 };
