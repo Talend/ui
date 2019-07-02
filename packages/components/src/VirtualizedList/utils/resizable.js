@@ -12,6 +12,13 @@ const isShrinkable = column => column.resizable && column.width > getMinimumWidt
 
 const isEnlargeable = column => column.resizable;
 
+const isColumnAtMinimumWidth = column => column.width === getMinimumWidth(column);
+
+const isValueLowerThanColumnMinimumWidth = (column, value) => value < getMinimumWidth(column);
+
+const isLeftColumnAtMinimumWidth = (columnsWidths, index) =>
+	!columnsWidths.slice(0, index + 1).every(isColumnAtMinimumWidth);
+
 /**
  * Search for the nearest index shrinkable on the right.
  * @param {integer} index
@@ -37,13 +44,13 @@ const getShrinkIndexLeft = (index, columnsWidths) =>
 	findLastIndex(columnsWidths, isShrinkable, index);
 
 /**
- * Set the collection with the value, and return it.
+ * Set the collection with the resized value, and return a new instance of the given column.
  * @param {boolean} resized the value to set.
  */
 const setColumnResized = resized => column => ({ ...column, resized });
 
 /**
- * Set a new column to the current list.
+ * Set an item of the array.
  * @param {array} columnsWidths
  * @param {integer} index
  */
@@ -54,6 +61,7 @@ const setColumn = (columnsWidths, index) => column => {
 };
 
 /**
+ * Prepare the list before resizing.
  * Set all the array elements to resized false.
  * @param {array} columnsWidths
  */
@@ -63,6 +71,10 @@ const addWidth = (deltaX, value) => deltaX + value;
 
 const subtractWidth = (deltaX, value) => value - deltaX;
 
+/**
+ * Return a tuple containing, the array and the total of all width of the array parameter.
+ * @param {array} columnsWidths
+ */
 const calcTotalCurrentWidth = columnsWidths => {
 	let currentTotalWidth = 0;
 	columnsWidths.forEach(column => {
@@ -70,13 +82,16 @@ const calcTotalCurrentWidth = columnsWidths => {
 			currentTotalWidth += column.width;
 		}
 	});
-	return [columnsWidths, currentTotalWidth];
+	return currentTotalWidth;
 };
-/**
- * Calculate the new width the parameter function, and assign the result to the given column.
- * @param {function} calcFn
- */
 
+/**
+ * Add the deltaX to the current width.
+ * @param {object} column.width
+ * @param {number} deltaX
+ * @param {integer} listWidth
+ * @param {integer} currentTotalWidth
+ */
 const calcWidthEnlarge = ({ width }, deltaX, listWidth, currentTotalWidth) => {
 	// If the dragging is going too far,
 	// we are only returning the max value possible.
@@ -87,11 +102,20 @@ const calcWidthEnlarge = ({ width }, deltaX, listWidth, currentTotalWidth) => {
 	return calculatedWidth;
 };
 
+/**
+ * Subtract the deltaX to the current width.
+ * @param {object} column.width
+ * @param {number} deltaX
+ */
 const calcWidthShrink = ({ width, minWidth }, deltaX) => {
 	const calculatedWidth = subtractWidth(deltaX, width);
 	return getWidth(calculatedWidth, minWidth);
 };
 
+/**
+ * Decrement the width if possible, and return the new width.
+ * @param {integer} deltaX
+ */
 const setShrinkingColumnWidth = deltaX => column => {
 	const { width, minWidth = MINIMUM_COLUMN_WIDTH } = column;
 	if (width >= minWidth) {
@@ -100,6 +124,12 @@ const setShrinkingColumnWidth = deltaX => column => {
 	return { ...column, width };
 };
 
+/**
+ * Increment the width if possible, and return the new width.
+ * @param {number} deltaX
+ * @param {integer} listWidth
+ * @param {integer} currentTotalWidth
+ */
 const setEnlargingColumnWidth = (deltaX, listWidth, currentTotalWidth) => column => {
 	const { width } = column;
 	if (currentTotalWidth <= listWidth) {
@@ -108,62 +138,66 @@ const setEnlargingColumnWidth = (deltaX, listWidth, currentTotalWidth) => column
 	return { ...column, width };
 };
 
+const checkDeltaValue = (column, deltaX) => {
+	// If the user try to shrink the column above the minimum value,
+	// we are returning a new delta to be exactly at the minimum value authorized.
+	if (deltaX < 0 && isValueLowerThanColumnMinimumWidth(column.width - Math.abs(deltaX), column)) {
+		return column.width - getMinimumWidth(column);
+	} else if (deltaX < 0) {
+		return Math.abs(deltaX);
+	}
+	return deltaX;
+};
+
 /**
- * This is a function factory. 
+ * This is a function factory.
+ * It returns a function which can set a new width to the columns width list.
  * @param {function} setWidthFn
  * @param {function} getIndexFn
  */
-const changeWidthColumn = (setWidthFn, getIndexFn) => (deltaX, index, listWidth) => ([
+const changeWidthColumn = (setWidthFn, getIndexFn) => (index, listWidth) => ([
 	columnsWidths,
 	currentTotalWidth,
+	deltaX,
 ]) => {
 	let workingIndex = index;
 	if (getIndexFn) {
 		workingIndex = getIndexFn(index, columnsWidths);
 	}
+	const absDeltaX = checkDeltaValue(columnsWidths[workingIndex], deltaX);
 	if (workingIndex >= 0) {
 		const widthBeforeChange = columnsWidths[workingIndex].width;
 		flow([
-			setWidthFn(deltaX, listWidth, currentTotalWidth),
+			setWidthFn(absDeltaX, listWidth, currentTotalWidth),
 			setColumnResized(true),
 			setColumn(columnsWidths, workingIndex),
 		])(columnsWidths[workingIndex]);
 		return [
 			columnsWidths,
 			currentTotalWidth - widthBeforeChange + columnsWidths[workingIndex].width,
+			absDeltaX,
 		];
 	}
-	return [columnsWidths, currentTotalWidth];
+	return [columnsWidths, currentTotalWidth, absDeltaX];
 };
 
 /**
- * Get the nearest column index to shrink on the left side of the given index,
- * and update the corresponding column with computed width.
- * @param {number} deltaX
- * @param {integer} index
+ * Shrink nearest eligible column on the left of the dragged item.
  */
 const shrinkLeftColumn = changeWidthColumn(setShrinkingColumnWidth, getShrinkIndexLeft);
 
 /**
- * Get the nearest column index to enlarge on the right side of the given index,
- * and update the corresponding column with computed width.
- * @param {number} deltaX
- * @param {integer} index
+ * Enlarge nearest eligible column on the right of the dragged item.
  */
 const enlargeRightColumn = changeWidthColumn(setEnlargingColumnWidth, getEnlargeIndexRight);
 
 /**
- * Get the nearest column index to shrink on the right side of the given index,
- * and update the corresponding column with computed width.
- * @param {number} deltaX
- * @param {integer} index
+ * Shrink nearest eligible column on the right of the dragged item.
  */
 const shrinkRightColumn = changeWidthColumn(setShrinkingColumnWidth, getShrinkIndexRight);
 
 /**
  * Enlarge the column index.
- * @param {number} deltaX
- * @param {integer} index
  */
 const enlargeCurrentColumn = changeWidthColumn(setEnlargingColumnWidth);
 
@@ -171,14 +205,15 @@ const enlargeCurrentColumn = changeWidthColumn(setEnlargingColumnWidth);
  * Flow of operations to handle dragging column to the right.
  * @param {number} deltaX
  * @param {integer} index
+ * @param {integer} listWidth
  */
 const resizeRight = (deltaX, index, listWidth) => columnsWidths => {
-	if (deltaX >= 0) {
-		flow([
-			calcTotalCurrentWidth,
-			shrinkRightColumn(deltaX, index),
-			enlargeCurrentColumn(deltaX, index, listWidth),
-		])(columnsWidths);
+	if (deltaX > 0) {
+		flow([shrinkRightColumn(index), enlargeCurrentColumn(index, listWidth)])([
+			columnsWidths,
+			calcTotalCurrentWidth(columnsWidths),
+			deltaX,
+		]);
 	}
 	return columnsWidths;
 };
@@ -187,14 +222,15 @@ const resizeRight = (deltaX, index, listWidth) => columnsWidths => {
  * Flow of operations to handle dragging column to the left.
  * @param {number} deltaX
  * @param {integer} index
+ * @param {integer} listWidth
  */
 const resizeLeft = (deltaX, index, listWidth) => columnsWidths => {
-	if (deltaX < 0) {
-		flow([
-			calcTotalCurrentWidth,
-			shrinkLeftColumn(Math.abs(deltaX), index),
-			enlargeRightColumn(Math.abs(deltaX), index, listWidth),
-		])(columnsWidths);
+	if (deltaX < 0 && isLeftColumnAtMinimumWidth(columnsWidths, index)) {
+		flow([shrinkLeftColumn(index), enlargeRightColumn(index, listWidth)])([
+			columnsWidths,
+			calcTotalCurrentWidth(columnsWidths),
+			deltaX,
+		]);
 	}
 	return columnsWidths;
 };
