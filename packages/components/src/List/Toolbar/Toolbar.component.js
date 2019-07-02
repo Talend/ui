@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import omit from 'lodash/omit';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import classNames from 'classnames';
 
 import Pagination from './Pagination';
@@ -155,4 +155,4 @@ Toolbar.propTypes = {
 
 Toolbar.defaultProps = {};
 
-export default translate(I18N_DOMAIN_COMPONENTS)(Toolbar);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(Toolbar);

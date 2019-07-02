@@ -3,7 +3,7 @@
 exports[`skeleton tile should compute skeleton tile 1`] = `
 <Tile>
   <Body>
-    <Translate(Skeleton)
+    <withI18nextTranslation(Skeleton)
       height="100%"
       width="100%"
     />

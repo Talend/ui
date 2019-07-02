@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import noop from 'lodash/noop';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
@@ -181,4 +181,4 @@ FileWidget.defaultProps = {
 
 export { FileWidget };
 
-export default translate(I18N_DOMAIN_FORMS)(FileWidget);
+export default withTranslation(I18N_DOMAIN_FORMS)(FileWidget);

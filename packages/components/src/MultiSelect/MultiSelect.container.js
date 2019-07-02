@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import keycode from 'keycode';
 import memoizeOne from 'memoize-one';
 
@@ -320,4 +320,4 @@ class MultiSelect extends React.Component {
 	}
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS)(MultiSelect);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(MultiSelect);

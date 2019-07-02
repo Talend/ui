@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
 import { ConfirmDialog } from '@talend/react-components';
-import { Trans, translate } from 'react-i18next';
+import { Trans, withTranslation } from 'react-i18next';
 import getDefaultT from '../translate';
 import I18N_DOMAIN_CONTAINERS from '../constant';
 import CONSTANTS from './constants';
@@ -149,4 +149,4 @@ export class DeleteResource extends React.Component {
 	}
 }
 
-export default translate(I18N_DOMAIN_CONTAINERS)(DeleteResource);
+export default withTranslation(I18N_DOMAIN_CONTAINERS)(DeleteResource);

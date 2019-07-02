@@ -136,7 +136,7 @@ describe('HeaderBar', () => {
 		const intercomTrigger = wrapper
 			.find('Intercom')
 			.dive()
-			.find('Translate(Intercom)');
+			.find('withI18nextTranslation(Intercom)');
 		expect(intercomTrigger.length).toBe(1);
 		expect(intercomTrigger.props()).toEqual({
 			className: 'btn btn-link',

@@ -4,8 +4,6 @@ import { shallow, mount } from 'enzyme';
 import { FilterBarComponent } from './FilterBar.component';
 import Icon from '../Icon';
 
-jest.useFakeTimers();
-
 let defaultProps = {};
 
 describe('FilterBar', () => {
@@ -131,9 +129,8 @@ describe('FilterBar', () => {
 		expect(props.onBlur).toBeCalled();
 	});
 
-	it('should call onFilter with debounce options', () => {
+	it('should call onFilter with debounce options', done => {
 		// given
-		const initialTimeoutCount = setTimeout.mock.calls.length;
 		const debounceTimeout = 300;
 		const props = {
 			...defaultProps,
@@ -142,14 +139,17 @@ describe('FilterBar', () => {
 		const filterInstance = mount(<FilterBarComponent {...props} />);
 		// when
 		filterInstance.find('input').simulate('change');
+
 		// then
-		expect(setTimeout.mock.calls.length).toBe(initialTimeoutCount + 1);
-		expect(setTimeout.mock.calls[0][1]).toBe(debounceTimeout);
+		expect(props.onFilter).not.toBeCalled();
+		setTimeout(() => {
+			expect(props.onFilter).toBeCalled();
+			done();
+		}, debounceTimeout);
 	});
 
-	it('should call onFilter with debounceMinLength options', () => {
+	it('should call onFilter with debounceMinLength options', done => {
 		// given
-		const initialTimeoutCount = setTimeout.mock.calls.length;
 		const debounceTimeout = 300;
 		const props = {
 			...defaultProps,
@@ -161,18 +161,23 @@ describe('FilterBar', () => {
 		const filterInstance = mount(<FilterBarComponent {...props} />);
 		// when
 		filterInstance.find('input').simulate('change', underMinLengthEvent);
+
 		// then
-		expect(setTimeout.mock.calls.length).toBe(initialTimeoutCount);
+		expect(props.onFilter).not.toBeCalled();
+
 		// when
 		filterInstance.find('input').simulate('change', overMinLengthEvent);
+
 		// then
-		expect(setTimeout.mock.calls.length).toBe(initialTimeoutCount + 1);
-		expect(setTimeout.mock.calls[0][1]).toBe(debounceTimeout);
+		setTimeout(() => {
+			expect(props.onFilter).toBeCalled();
+			done();
+		}, debounceTimeout);
 	});
 
 	it('when value is reset to undefined form outside search icon should be displayed', () => {
 		// given
-		const props = { dockable: false };
+		const props = { ...defaultProps, dockable: false };
 		const filterInstance = mount(<FilterBarComponent {...props} />);
 		// when
 		// value is change by the user

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import toJsonWithoutI18n from '../../test/props-without-i18n';
 
-import { ActionBarComponent } from './ActionBar.component';
+import ActionBar from './ActionBar.component';
 
 const primaryAction = {
 	label: 'Primary',
@@ -63,11 +63,11 @@ describe('ActionBar', () => {
 			},
 		};
 		// when
-		const wrapper = shallow(<ActionBarComponent {...props} />);
-		const wrapperMounted = mount(<ActionBarComponent {...props} />);
+		const wrapper = shallow(<ActionBar.WrappedComponent {...props} />);
+		const wrapperMounted = mount(<ActionBar.WrappedComponent {...props} />);
 		// then
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
-		const switchActions = wrapperMounted.find(ActionBarComponent.SwitchActions).first();
+		const switchActions = wrapperMounted.find(ActionBar.SwitchActions).first();
 		expect(switchActions.props().left).toBe(true);
 		expect(switchActions.props().components).toBeUndefined();
 	});
@@ -82,7 +82,7 @@ describe('ActionBar', () => {
 			},
 		};
 		// when
-		const wrapper = shallow(<ActionBarComponent {...props} />);
+		const wrapper = shallow(<ActionBar.WrappedComponent {...props} />);
 		// then
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
@@ -96,7 +96,7 @@ describe('ActionBar', () => {
 			},
 		};
 		// when
-		const wrapper = mount(<ActionBarComponent {...props} />).find('nav');
+		const wrapper = mount(<ActionBar.WrappedComponent {...props} />).find('nav');
 		// then
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
@@ -111,7 +111,7 @@ describe('ActionBar', () => {
 			},
 		};
 		// when
-		const wrapper = shallow(<ActionBarComponent {...props} />);
+		const wrapper = shallow(<ActionBar.WrappedComponent {...props} />);
 		// then
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
@@ -130,7 +130,7 @@ describe('ActionBar', () => {
 				},
 			};
 			// when
-			const wrapper = shallow(<ActionBarComponent {...props} />);
+			const wrapper = shallow(<ActionBar.WrappedComponent {...props} />);
 			// then
 			expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 		},
@@ -146,7 +146,7 @@ describe('ActionBar', () => {
 			},
 		};
 		// when
-		const wrapper = shallow(<ActionBarComponent {...props} />);
+		const wrapper = shallow(<ActionBar.WrappedComponent {...props} />);
 		// then
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
@@ -157,7 +157,7 @@ describe('ActionBar', () => {
 				left: [btnGroupAction],
 			},
 		};
-		const wrapper = shallow(<ActionBarComponent {...props} />);
+		const wrapper = shallow(<ActionBar.WrappedComponent {...props} />);
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 });
@@ -165,9 +165,9 @@ describe('ActionBar', () => {
 describe('ActionBar.Count', () => {
 	it('should render if selected', () => {
 		const wrapper = shallow(
-			<ActionBarComponent.Count selected={1} t={(key, value) => `${value.selected} ${key}`} />,
+			<ActionBar.Count selected={1} t={(key, value) => `${value.selected} ${key}`} />,
 		);
-		const noselected = shallow(<ActionBarComponent.Count />);
+		const noselected = shallow(<ActionBar.Count />);
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 		expect(noselected.getElement()).toBe(null);
 	});
@@ -176,23 +176,23 @@ describe('ActionBar.Count', () => {
 describe('ActionBar.SwitchActions', () => {
 	const actions = [{ label: 'action' }];
 	it('should render one Action on navbar-left', () => {
-		const wrapper = shallow(<ActionBarComponent.SwitchActions actions={actions} left />);
+		const wrapper = shallow(<ActionBar.SwitchActions actions={actions} left />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render one Action on navbar-right', () => {
-		const wrapper = shallow(<ActionBarComponent.SwitchActions actions={actions} right />);
+		const wrapper = shallow(<ActionBar.SwitchActions actions={actions} right />);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	it('should render one Action on navbar-left with an injection', () => {
 		const countComponent = (
-			<ActionBarComponent.Count selected={3} t={(key, value) => `${value.selected} ${key}`} />
+			<ActionBar.Count selected={3} t={(key, value) => `${value.selected} ${key}`} />
 		);
 		const components = {
 			'before-actions': countComponent,
 		};
 
 		const wrapper = shallow(
-			<ActionBarComponent.SwitchActions
+			<ActionBar.SwitchActions
 				actions={actions}
 				getComponent={'whatever'}
 				components={components}

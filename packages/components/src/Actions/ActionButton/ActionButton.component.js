@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { Button, OverlayTrigger as BaseOverlayTrigger } from 'react-bootstrap';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
@@ -255,4 +255,4 @@ ActionButton.defaultProps = {
 };
 
 ActionButton.displayName = 'ActionButton';
-export default translate(I18N_DOMAIN_COMPONENTS)(ActionButton);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(ActionButton);

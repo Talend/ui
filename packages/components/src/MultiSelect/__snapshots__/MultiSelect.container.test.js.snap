@@ -2,9 +2,6 @@
 
 exports[`Container MultiSelect should render MultiSelect with props 1`] = `
 Object {
-  "bindI18n": "languageChanged loaded",
-  "bindStore": "added removed",
-  "children": [Function],
   "i18n": Object {
     "changeLanguage": [Function],
     "getFixedT": [Function],
@@ -20,7 +17,13 @@ Object {
     "off": [Function],
     "on": [Function],
     "options": Object {},
+    "reportNamespaces": ReportNamespaces {
+      "usedNamespaces": Object {
+        "tui-components": true,
+      },
+    },
     "services": Object {
+      "backendConnector": Object {},
       "resourceStore": Object {
         "data": Object {},
       },
@@ -32,14 +35,11 @@ Object {
     },
     "t": [Function],
   },
-  "ns": Array [
-    "tui-components",
-  ],
-  "nsMode": "default",
-  "omitBoundRerender": true,
-  "translateFuncName": "t",
-  "usePureComponent": false,
-  "wait": false,
-  "withRef": false,
+  "itemOptionRender": [Function],
+  "itemViewRender": [Function],
+  "options": Array [],
+  "selected": Array [],
+  "t": [Function],
+  "tReady": true,
 }
 `;

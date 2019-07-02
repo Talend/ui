@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Action } from '@talend/react-components/lib/Actions';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
@@ -66,7 +66,7 @@ if (process.env.NODE_ENV !== 'production') {
 		t: PropTypes.func.isRequired,
 	};
 }
-const TranslatedReorderButton = translate(I18N_DOMAIN_FORMS)(ReorderButton);
+const TranslatedReorderButton = withTranslation(I18N_DOMAIN_FORMS)(ReorderButton);
 
 function ArrayItem(props) {
 	const {
