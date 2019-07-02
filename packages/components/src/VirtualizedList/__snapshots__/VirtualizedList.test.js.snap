@@ -4,7 +4,7 @@ exports[`VirtualizedList should render CircularProgress 1`] = `
 <Context.Provider
   value={
     Object {
-      "resizeRow": [Function],
+      "resizeColumn": [Function],
     }
   }
 >
@@ -23,7 +23,7 @@ exports[`VirtualizedList should use AutoSizer 1`] = `
 <Context.Provider
   value={
     Object {
-      "resizeRow": [Function],
+      "resizeColumn": [Function],
     }
   }
 >
