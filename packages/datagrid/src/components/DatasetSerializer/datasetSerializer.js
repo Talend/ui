@@ -1,3 +1,5 @@
+import React from 'react';
+
 import get from 'lodash/get';
 import isArray from 'lodash/isArray';
 import round from 'lodash/round';
@@ -186,9 +188,22 @@ export function getColumnDefs(sample, columnsConf) {
 	return get(plainObjectSample, 'schema.fields', []).map(avroField => ({
 		avro: sanitizeAvro(avroField),
 		field: `${NAMESPACE_DATA}${avroField.name}`,
+		key: `${NAMESPACE_DATA}${avroField.name}`,
+		name: avroField.doc || avroField.name,
 		headerName: avroField.doc || avroField.name,
+		fieldName: `${NAMESPACE_DATA}${avroField.name}`,
 		type: get(columnsConf, 'hideSubType', false) ? '' : getType(avroField.type),
 		...getFieldQuality(avroField.type),
+		isResizable: true,
+		// onRender: () => <span>header</span>,
+
+		// (
+		//
+		// 	<span>
+		// 		{get(item, [`${NAMESPACE_DATA}${avroField.name}`, 'value', 'bytes']) ||
+		// 			get(item, [`${NAMESPACE_DATA}${avroField.name}`, 'value'])}
+		// 	</span>
+		// ),
 	}));
 }
 

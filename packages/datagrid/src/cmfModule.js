@@ -3,7 +3,7 @@ import DefaultHeaderRenderer from './components/DefaultHeaderRenderer';
 import DefaultPinHeaderRenderer from './components/DefaultPinHeaderRenderer';
 import DefaultIntCellRenderer from './components/DefaultIntCellRenderer';
 import DefaultDateCellRenderer from './components/DefaultDateCellRenderer';
-import DataGrid from './containers';
+import DataGrid from './containers/FabricDataGrid/FabricDataGrid.connect';
 
 const components = {
 	DataGrid,

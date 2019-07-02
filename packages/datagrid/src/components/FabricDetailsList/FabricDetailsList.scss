@@ -1,0 +1,33 @@
+:global(.ms-List) {
+	:global(.td-cell) {
+		padding: 0;
+		height: auto;
+	}
+	:global(.ms-DetailsRow) {
+		max-height: 42px;
+	}
+
+	:global(.td-default-cell) {
+		height: 16px;
+	}
+}
+
+:global(.ms-DetailsList-contentWrapper) {
+	overflow: scroll;
+}
+
+// :global([data-automation-key='index.index']) {
+// 	position: absolute;
+// 	min-width: 20px;
+// 	background-color: white;
+// 	z-index: 1;
+// }
+//
+// :global(.ms-DetailsRow-cell:nth-child(2)) {
+// 	margin-left: 145px;
+// }
+//
+// :global(.ms-DetailsRow),
+// :global(.ms-DetailsList) {
+// 	position: initial;
+// }

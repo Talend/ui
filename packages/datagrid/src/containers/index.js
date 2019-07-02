@@ -1,3 +1,3 @@
-import DataGrid from './DataGrid/DataGrid.connect';
+import DataGrid from './FabricDataGrid/FabricDataGrid.connect';
 
 export default DataGrid;
