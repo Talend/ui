@@ -427,6 +427,56 @@ const CustomRenderResizableWidthRenderProps = props => (
 );
 
 storiesOf('VirtualizedList', module)
+	.add('List > Table', () => (
+		<div className="virtualized-list">
+			<h1>Virtualized List</h1>
+			<p>
+				By default each columns have the same size. The cells are placed using flexbox. You can
+				customize the flex properties of the cells using the generated classnames.
+			</p>
+			<p>
+				Example here
+				<pre>
+					{`.virtualized-list div.tc-list-cell-id { flex: 0 0 50px; }
+.virtualized-list div.tc-list-cell-name { flex: 0 0 350px; }
+.virtualized-list div.tc-list-cell-actions { flex: 0 0 120px; }
+.virtualized-list div.tc-list-cell-tag { flex: 0 0 120px; }
+.virtualized-list div.tc-list-cell-description { flex: 1 0 120px; }
+.virtualized-list div.tc-list-cell-author { flex: 1 0 90px; }
+.virtualized-list div.tc-list-cell-created,
+.virtualized-list div.tc-list-cell-modified { flex: 0 0 90px;}`}
+				</pre>
+			</p>
+			<IconsProvider defaultIcons={icons} />
+			<section style={{ height: '50vh' }}>
+				<VirtualizedList collection={collection} id={'my-list'}>
+					<VirtualizedList.Content label="Id" dataKey="id" width={-1} />
+					<VirtualizedList.Content
+						label="Name"
+						dataKey="name"
+						columnData={titleProps}
+						width={-1}
+						{...CellTitle}
+					/>
+					<VirtualizedList.Content
+						label="Tag"
+						dataKey="tag"
+						columnData={{ selected: true }}
+						width={-1}
+						{...CellBadge}
+					/>
+					<VirtualizedList.Content
+						label="Description (non sortable)"
+						dataKey="description"
+						width={-1}
+					/>
+					<VirtualizedList.Content label="Author" dataKey="author" width={-1} />
+					<VirtualizedList.Content label="Created" dataKey="created" width={-1} />
+					<VirtualizedList.Content label="Modified" dataKey="modified" width={-1} />
+				</VirtualizedList>
+			</section>
+		</div>
+	))
 	.add('List > Table : sort', () => (
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>
@@ -544,8 +594,9 @@ storiesOf('VirtualizedList', module)
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>
 			<p>
-				You can enable resizing by passing <b>resizable</b> and a <b>width</b> to the content.<br />
-				Also you have to give the proper header renderer, <b>HeaderResizable</b>.< br />
+				You can enable resizing by passing <b>resizable</b> and a <b>width</b> to the content.
+				<br />
+				Also you have to give the proper header renderer, <b>HeaderResizable</b>.<br />
 			</p>
 			<IconsProvider defaultIcons={icons} />
 			<section>
