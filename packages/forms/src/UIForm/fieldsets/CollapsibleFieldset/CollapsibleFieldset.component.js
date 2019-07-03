@@ -3,7 +3,9 @@ import React from 'react';
 import classNames from 'classnames';
 import { Actions } from '@talend/react-components/lib/Actions';
 import ActionIconToggle from '@talend/react-components/lib/Actions/ActionIconToggle';
+import { withTranslation } from 'react-i18next';
 import Widget from '../../Widget';
+import getDefaultT from '../../../translate';
 
 import theme from './CollapsibleFieldset.scss';
 
@@ -32,7 +34,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 		}
 
 		render() {
-			const { id, schema, value, ...restProps } = this.props;
+			const { id, schema, value, t, ...restProps } = this.props;
 			const { items } = schema;
 			const iconTransform = !this.props.value.isClosed ? 'flip-vertical' : null;
 
@@ -62,7 +64,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 								className={theme.collapse}
 								onClick={this.toggle}
 								id={id && `${id}__collapse`}
-								label="Collapse"
+								label={t('FIELDSET_COLLAPSE', { defaultValue: 'Collapse' })}
 								type="button"
 								active={!value.isClosed}
 								icon="talend-caret-down"
@@ -85,6 +87,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 	CollapsibleFieldset.defaultProps = {
 		value: {},
 		actions: [],
+		t: getDefaultT(),
 	};
 	CollapsibleFieldset.isCloseable = true;
 
@@ -97,8 +100,9 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 			}).isRequired,
 			value: PropTypes.object,
 			actions: PropTypes.array,
+			t: PropTypes.func.isRequired,
 		};
 	}
 
-	return CollapsibleFieldset;
+	return withTranslation()(CollapsibleFieldset);
 }
