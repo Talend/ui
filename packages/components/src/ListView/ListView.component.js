@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
@@ -18,7 +18,7 @@ function listviewClasses() {
 }
 
 function ListView(props) {
-	const noResultLabel = props.t('LISTVIEW_NO_RESULT', { defaultValue: 'No result found.' });
+	const noResultLabel = props.t('NO_RESULT_FOUND', { defaultValue: 'No result found.' });
 	const emptyLabel = props.t('LISTVIEW_EMPTY', { defaultValue: 'This list is empty.' });
 	const label = props.displayMode === DISPLAY_MODE_SEARCH ? noResultLabel : emptyLabel;
 	return (
@@ -118,4 +118,4 @@ HeaderListView.propTypes = {
 	t: PropTypes.func,
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(ListView);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(ListView);

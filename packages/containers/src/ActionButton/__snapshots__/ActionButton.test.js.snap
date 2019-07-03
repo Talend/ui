@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CMF(Container(ActionButton)) should render 1`] = `
-<Translate(ActionButton)
+<withI18nextTranslation(ActionButton)
   actionId="menu:article"
   extra="foo"
   onClick={[Function]}

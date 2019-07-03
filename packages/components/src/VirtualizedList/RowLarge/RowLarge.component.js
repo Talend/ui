@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import isEmpty from 'lodash/isEmpty';
 
 import Skeleton from '../../Skeleton';
@@ -171,4 +171,4 @@ RowLarge.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withListGesture(translate(I18N_DOMAIN_COMPONENTS)(RowLarge));
+export default withListGesture(withTranslation(I18N_DOMAIN_COMPONENTS)(RowLarge));

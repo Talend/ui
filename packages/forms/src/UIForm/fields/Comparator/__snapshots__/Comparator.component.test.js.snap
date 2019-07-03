@@ -4,7 +4,7 @@ exports[`Comparator field should render default Comparator 1`] = `
 <div
   className="theme-comparator"
 >
-  <Translate(ActionDropdown)
+  <withI18nextTranslation(ActionDropdown)
     items={
       Array [
         Object {
@@ -75,7 +75,7 @@ exports[`Comparator field should render disabled Comparator 1`] = `
 <div
   className="theme-comparator"
 >
-  <Translate(ActionDropdown)
+  <withI18nextTranslation(ActionDropdown)
     disabled={true}
     items={
       Array [

@@ -41,6 +41,7 @@ jest.mock('i18next', () => {
 			resourceStore: {
 				data: {},
 			},
+			backendConnector: {},
 		},
 		store: {
 			data: {},
@@ -49,7 +50,7 @@ jest.mock('i18next', () => {
 		},
 		changeLanguage: noop,
 	};
-	i18n.init = (options) => {
+	i18n.init = options => {
 		// i18n.store.data = options.resources;
 	};
 	return {

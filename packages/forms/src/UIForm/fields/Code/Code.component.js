@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import keyCode from 'keycode';
 import FieldTemplate from '../FieldTemplate';
 import TextArea from '../TextArea';
@@ -192,4 +192,4 @@ try {
 	CodeWidget = WrappedTextArea;
 }
 
-export default translate(I18N_DOMAIN_FORMS)(CodeWidget);
+export default withTranslation(I18N_DOMAIN_FORMS)(CodeWidget);

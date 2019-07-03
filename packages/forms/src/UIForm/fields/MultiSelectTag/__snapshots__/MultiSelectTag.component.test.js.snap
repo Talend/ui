@@ -14,11 +14,11 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
   <div
     className="theme-wrapper form-control"
   >
-    <Translate(Badge)
+    <withI18nextTranslation(Badge)
       label="aze"
       onDelete={[Function]}
     />
-    <Translate(Badge)
+    <withI18nextTranslation(Badge)
       label="tata"
       onDelete={[Function]}
     />

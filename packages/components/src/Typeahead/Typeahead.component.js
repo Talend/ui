@@ -3,6 +3,7 @@ import React from 'react';
 import uuid from 'uuid';
 import classNames from 'classnames';
 import Autowhatever from 'react-autowhatever';
+import { t } from 'i18next';
 
 import theme from './Typeahead.scss';
 import {
@@ -130,7 +131,7 @@ Typeahead.defaultProps = {
 	id: uuid.v4().toString(),
 	items: null,
 	multiSection: true, // TODO this is for compat, see if we can do the reverse :(
-	noResultText: 'No result.',
+	noResultText: t('tui-components:NO_RESULT_FOUND', { defaultValue: 'No result.' }),
 	position: 'left',
 	readOnly: false,
 	searching: false,

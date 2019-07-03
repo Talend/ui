@@ -9,7 +9,7 @@ exports[`DateTimeView should render 1`] = `
       <div
         className="theme-date"
       >
-        <Translate(CalendarGesture(DatePicker))
+        <withI18nextTranslation(CalendarGesture(DatePicker))
           allowFocus={true}
           calendar={
             Object {
@@ -25,7 +25,7 @@ exports[`DateTimeView should render 1`] = `
       <div
         className="theme-time"
       >
-        <Translate(TimePicker)
+        <withI18nextTranslation(TimePicker)
           allowFocus={true}
           onChange={[MockFunction]}
           value={
@@ -48,7 +48,7 @@ exports[`DateTimeView should render 1`] = `
         onClick={[Function]}
         tabIndex="-1"
       />,
-      "middleElement": <Translate(HeaderTitle)
+      "middleElement": <withI18nextTranslation(HeaderTitle)
         button={
           Object {
             "aria-label": "Switch to month and year pickers view",
@@ -82,7 +82,7 @@ exports[`DateTimeView should render without timePicker 1`] = `
       <div
         className="theme-date"
       >
-        <Translate(CalendarGesture(DatePicker))
+        <withI18nextTranslation(CalendarGesture(DatePicker))
           allowFocus={true}
           calendar={
             Object {
@@ -107,7 +107,7 @@ exports[`DateTimeView should render without timePicker 1`] = `
         onClick={[Function]}
         tabIndex="-1"
       />,
-      "middleElement": <Translate(HeaderTitle)
+      "middleElement": <withI18nextTranslation(HeaderTitle)
         button={
           Object {
             "aria-label": "Switch to month and year pickers view",
