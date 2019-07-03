@@ -1,5 +1,8 @@
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
+import { I18nextProvider } from 'react-i18next';
+import i18n from 'i18next';
 
 import jsonStories from './jsonStories';
 import playgroundStory from './playgroundStory';
@@ -12,7 +15,9 @@ import customErrors from './customErrors';
 import customDisplayMode from './customDisplayMode';
 import customHoverSubmitStory from './customHoverSubmitStory';
 
-const coreConceptsStories = storiesOf('Core concepts', module);
+const coreConceptsStories = storiesOf('Core concepts', module).addDecorator(story => (
+	<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
+));
 
 const coreFieldsetsStories = storiesOf('Core fieldsets', module);
 
