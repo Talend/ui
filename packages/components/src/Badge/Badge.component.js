@@ -48,7 +48,7 @@ export function Badge({
 	});
 
 	const defaultContent = [
-		category && <BadgeLib.Label label={category} />,
+		category && <BadgeLib.Category label={category} />,
 		category && <BadgeLib.Separator />,
 		<BadgeLib.Label aslink={aslink} category={category} label={label}>
 			{icon && <BadgeLib.Icon name={icon} />}
