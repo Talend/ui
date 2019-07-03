@@ -11,7 +11,7 @@ import WithDrawer from '../../WithDrawer';
  * @example
  <OneColumn name="Hello world"></OneColumn>
  */
-function OneColumn({ drawers, children, tabs, ...props }) {
+function OneColumn({ drawers, children, tabs }) {
 	const container = classnames('tc-layout-one-column', theme.main);
 	const style = {
 		overflow: 'auto',
@@ -20,7 +20,7 @@ function OneColumn({ drawers, children, tabs, ...props }) {
 		flexDirection: 'column',
 	};
 	return (
-		<div role="main" id="tc-layout-main" tabIndex="-1" className={container} {...props}>
+		<div role="main" id="tc-layout-main" tabIndex="-1" className={container}>
 			<WithDrawer drawers={drawers}>
 				{tabs && <TabBar {...tabs} />}
 				<div style={style}>{children}</div>
