@@ -16,7 +16,7 @@ export const SIZES = {
 	small: 'small',
 };
 
-function Badge({
+export function Badge({
 	aslink,
 	category,
 	className,

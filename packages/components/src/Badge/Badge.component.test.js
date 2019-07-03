@@ -1,8 +1,7 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { shallow, mount } from 'enzyme';
 
-import Badge from './Badge.component';
+import BadgeI18n, { Badge } from './Badge.component';
 
 describe('Badge', () => {
 	it('should render by default', () => {
@@ -10,8 +9,14 @@ describe('Badge', () => {
 		// when
 		const wrapper = mount(<Badge />);
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
 		expect(wrapper.html()).toMatchSnapshot();
+	});
+	it('should render with i18n', () => {
+		// given nothing
+		// when
+		const wrapper = shallow(<BadgeI18n />);
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 });
 
