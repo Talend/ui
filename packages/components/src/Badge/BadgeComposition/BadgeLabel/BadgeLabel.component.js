@@ -24,10 +24,10 @@ const BadgeLabel = ({ aslink, category, label, children }) => {
 };
 
 BadgeLabel.propTypes = {
-	aslink: PropTypes.any,
-	category: PropTypes.any,
-	label: PropTypes.any,
-	children: PropTypes.any,
+	aslink: PropTypes.bool,
+	category: PropTypes.string,
+	label: PropTypes.string.isRequired,
+	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 };
 
 export default BadgeLabel;

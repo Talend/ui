@@ -5,9 +5,10 @@ import BadgeI18n, { Badge } from './Badge.component';
 
 describe('Badge', () => {
 	it('should render by default', () => {
-		// given nothing
+		// given
+		const label = 'my label';
 		// when
-		const wrapper = mount(<Badge />);
+		const wrapper = mount(<Badge label={label} />);
 		// then
 		expect(wrapper.html()).toMatchSnapshot();
 	});
