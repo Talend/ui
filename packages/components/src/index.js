@@ -66,7 +66,7 @@ console.warn(`DEPRECATED:
   You should not anymore rely on it.
   It increase the bundle size for nothing.
   You should pick the component you need on by one as with lodash:
-  import List from @talend/react-components';`);
+  import List from @talend/react-components/lib/List';`);
 
 const {
 	Alert,
