@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import omit from 'lodash/omit';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import Inject from '../Inject';
 import Action from '../Actions/Action';
@@ -263,7 +263,7 @@ function Intercom({ id, config }) {
 			<ActionIntercom
 				className="btn btn-link"
 				id={id}
-				config={{ ...config, vertical_padding: 70 }}
+				config={React.useMemo(() => ({ ...config, vertical_padding: 70 }), [config])}
 			/>
 		</li>
 	);
@@ -450,4 +450,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS)(HeaderBar);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(HeaderBar);

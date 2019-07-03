@@ -6,7 +6,6 @@ $tc-typeahead-input-width: 26rem !default;
 $tc-typeahead-opened-items-container-color: #aaa !default;
 $tc-typeahead-opened-items-container-background-color: #fff !default;
 
-$tc-typeahead-focused-item-background-color: #f7f7f7 !default;
 $tc-typeahead-item-description-color: #c0c0c0 !default;
 
 $tc-typeahead-section-border-color: #e0e0e0 !default;
@@ -27,7 +26,7 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 	width: auto;
 
 	&.loading {
-		.typeahead-input-icon,
+		.typeahead-input-container,
 		.items-container {
 			> * {
 				color: inherit;
@@ -78,20 +77,30 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		display: flex;
 		align-items: center;
 
+		[type='text'].typeahead-input {
+			padding-right: 2.5em;
+		}
+
 		.icon-cls {
 			margin: -2em;
 			color: $tc-typeahead-icon-color;
 			pointer-events: none;
+		}
+	}
 
-			&.icon-caret {
-				position: absolute;
-				margin: 0;
-				right: 0;
+	&-caret {
+		[type='text'].typeahead-input {
+			padding-right: 1em;
+		}
 
-				> svg {
-					height: 0.8rem;
-					width: 0.8rem;
-				}
+		.icon-caret {
+			position: absolute;
+			margin: 0;
+			right: 0;
+
+			> svg {
+				height: 0.8rem;
+				width: 0.8rem;
 			}
 		}
 	}
@@ -154,8 +163,12 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		color: $tc-typeahead-item-description-color;
 	}
 
-	&-highlighted {
-		background-color: $tc-typeahead-focused-item-background-color;
+	&:hover {
+		background-color: $concrete;
+
+		&.selected {
+			background-color: #ccdce8;
+		}
 	}
 
 	&.disabled {
@@ -165,6 +178,10 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		&:hover {
 			background: none;
 		}
+	}
+
+	&.selected {
+		background-color: rgba($scooter, 0.2);
 	}
 }
 

@@ -1,9 +1,4 @@
-import React from 'react';
 import Redirect from './Redirect.container';
-
-jest.mock('@talend/react-components', () => ({
-	CircularProgress: props => <div className="tc-circular-project" {...props} />,
-}));
 
 describe('Redirect', () => {
 	it('should dispatch a redirect action', () => {

@@ -76,9 +76,8 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
     ]
   }
   label="related items"
-  lng="en"
   t={[Function]}
-  tReady={false}
+  tReady={true}
   tooltipPlacement="top"
 >
   <DropdownButton
@@ -87,7 +86,6 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
     className="theme-tc-dropdown-button tc-dropdown-button"
     i18n={Object {}}
     id="dropdown-id"
-    lng="en"
     onSelect={[Function]}
     onToggle={[Function]}
     role="button"
@@ -138,7 +136,6 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
               i18n={Object {}}
               id="dropdown-id"
               key=".0"
-              lng="en"
               onClick={[Function]}
               onKeyDown={[Function]}
               open={false}
@@ -157,7 +154,6 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
                 disabled={false}
                 i18n={Object {}}
                 id="dropdown-id"
-                lng="en"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 role="button"
@@ -170,7 +166,6 @@ exports[`ActionDropdown should render a button dropdown with its menu 1`] = `
                   disabled={false}
                   i18n={Object {}}
                   id="dropdown-id"
-                  lng="en"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="button"
@@ -337,7 +332,6 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
   className="theme-tc-dropdown-button tc-dropdown-button"
   i18n={Object {}}
   id="dropdown-id"
-  lng="en"
   onSelect={[Function]}
   onToggle={[Function]}
   role="button"
@@ -388,7 +382,6 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
             i18n={Object {}}
             id="dropdown-id"
             key=".0"
-            lng="en"
             onClick={[Function]}
             onKeyDown={[Function]}
             open={false}
@@ -407,7 +400,6 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
               disabled={false}
               i18n={Object {}}
               id="dropdown-id"
-              lng="en"
               onClick={[Function]}
               onKeyDown={[Function]}
               role="button"
@@ -420,7 +412,6 @@ exports[`ActionDropdown should render a button with "link" theme 1`] = `
                 disabled={false}
                 i18n={Object {}}
                 id="dropdown-id"
-                lng="en"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 role="button"
@@ -586,7 +577,6 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
   className="theme-tc-dropdown-button tc-dropdown-button"
   i18n={Object {}}
   id="dropdown-id"
-  lng="en"
   onSelect={[Function]}
   onToggle={[Function]}
   role="button"
@@ -639,7 +629,6 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
             i18n={Object {}}
             id="dropdown-id"
             key=".0"
-            lng="en"
             onClick={[Function]}
             onKeyDown={[Function]}
             open={false}
@@ -658,7 +647,6 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
               disabled={false}
               i18n={Object {}}
               id="dropdown-id"
-              lng="en"
               onClick={[Function]}
               onKeyDown={[Function]}
               role="button"
@@ -671,7 +659,6 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
                 disabled={false}
                 i18n={Object {}}
                 id="dropdown-id"
-                lng="en"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 role="button"
@@ -848,7 +835,6 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
   className="theme-tc-dropdown-button tc-dropdown-button"
   i18n={Object {}}
   id="dropdown-id"
-  lng="en"
   onFocus={[Function]}
   onMouseOver={[Function]}
   onSelect={[Function]}
@@ -899,7 +885,6 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
             i18n={Object {}}
             id="dropdown-id"
             key=".0"
-            lng="en"
             onClick={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -920,7 +905,6 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
               disabled={false}
               i18n={Object {}}
               id="dropdown-id"
-              lng="en"
               onClick={[Function]}
               onFocus={[Function]}
               onKeyDown={[Function]}
@@ -935,7 +919,6 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
                 disabled={false}
                 i18n={Object {}}
                 id="dropdown-id"
-                lng="en"
                 onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
@@ -1261,9 +1244,8 @@ exports[`ActionDropdown should render immutable items 1`] = `
     ]
   }
   label="related items"
-  lng="en"
   t={[Function]}
-  tReady={false}
+  tReady={true}
   tooltipPlacement="top"
 >
   <DropdownButton
@@ -1272,7 +1254,6 @@ exports[`ActionDropdown should render immutable items 1`] = `
     className="theme-tc-dropdown-button tc-dropdown-button"
     i18n={Object {}}
     id="dropdown-id"
-    lng="en"
     onSelect={[Function]}
     onToggle={[Function]}
     role="button"
@@ -1323,7 +1304,6 @@ exports[`ActionDropdown should render immutable items 1`] = `
               i18n={Object {}}
               id="dropdown-id"
               key=".0"
-              lng="en"
               onClick={[Function]}
               onKeyDown={[Function]}
               open={false}
@@ -1342,7 +1322,6 @@ exports[`ActionDropdown should render immutable items 1`] = `
                 disabled={false}
                 i18n={Object {}}
                 id="dropdown-id"
-                lng="en"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 role="button"
@@ -1355,7 +1334,6 @@ exports[`ActionDropdown should render immutable items 1`] = `
                   disabled={false}
                   i18n={Object {}}
                   id="dropdown-id"
-                  lng="en"
                   onClick={[Function]}
                   onKeyDown={[Function]}
                   role="button"
@@ -1550,54 +1528,36 @@ exports[`ActionDropdown should render loader item 1`] = `
           onKeyDown={[Function]}
           role="heading"
         >
-          <Translate(CircularProgress)>
-            <I18n
-              bindI18n="languageChanged loaded"
-              bindStore="added removed"
+          <withI18nextTranslation(CircularProgress)>
+            <CircularProgress
               i18n={Object {}}
-              ns={
-                Array [
-                  "tui-components",
-                ]
-              }
-              nsMode="default"
-              omitBoundRerender={true}
-              translateFuncName="t"
-              usePureComponent={false}
-              wait={false}
-              withRef={false}
+              size="default"
+              t={[Function]}
+              tReady={true}
             >
-              <CircularProgress
-                i18n={Object {}}
-                lng="en"
-                size="default"
-                t={[Function]}
-                tReady={false}
+              <svg
+                aria-busy="true"
+                aria-label="Loading "
+                className="tc-circular-progress theme-loader theme-animate theme-default"
+                focusable="false"
+                viewBox="0 0 50 50"
               >
-                <svg
-                  aria-busy="true"
-                  aria-label="Loading "
-                  className="tc-circular-progress theme-loader theme-animate theme-default"
-                  focusable="false"
-                  viewBox="0 0 50 50"
-                >
-                  <circle
-                    className="theme-path"
-                    cx={25}
-                    cy={25}
-                    fill="none"
-                    r={20}
-                    style={
-                      Object {
-                        "strokeDasharray": 12.566370614359172,
-                        "strokeDashoffset": 0,
-                      }
+                <circle
+                  className="theme-path"
+                  cx={25}
+                  cy={25}
+                  fill="none"
+                  r={20}
+                  style={
+                    Object {
+                      "strokeDasharray": 12.566370614359172,
+                      "strokeDashoffset": 0,
                     }
-                  />
-                </svg>
-              </CircularProgress>
-            </I18n>
-          </Translate(CircularProgress)>
+                  }
+                />
+              </svg>
+            </CircularProgress>
+          </withI18nextTranslation(CircularProgress)>
         </li>
       </MenuItem>
     </ul>
@@ -1751,54 +1711,36 @@ exports[`ActionDropdown should render loader item below existing items 1`] = `
           onKeyDown={[Function]}
           role="heading"
         >
-          <Translate(CircularProgress)>
-            <I18n
-              bindI18n="languageChanged loaded"
-              bindStore="added removed"
+          <withI18nextTranslation(CircularProgress)>
+            <CircularProgress
               i18n={Object {}}
-              ns={
-                Array [
-                  "tui-components",
-                ]
-              }
-              nsMode="default"
-              omitBoundRerender={true}
-              translateFuncName="t"
-              usePureComponent={false}
-              wait={false}
-              withRef={false}
+              size="default"
+              t={[Function]}
+              tReady={true}
             >
-              <CircularProgress
-                i18n={Object {}}
-                lng="en"
-                size="default"
-                t={[Function]}
-                tReady={false}
+              <svg
+                aria-busy="true"
+                aria-label="Loading "
+                className="tc-circular-progress theme-loader theme-animate theme-default"
+                focusable="false"
+                viewBox="0 0 50 50"
               >
-                <svg
-                  aria-busy="true"
-                  aria-label="Loading "
-                  className="tc-circular-progress theme-loader theme-animate theme-default"
-                  focusable="false"
-                  viewBox="0 0 50 50"
-                >
-                  <circle
-                    className="theme-path"
-                    cx={25}
-                    cy={25}
-                    fill="none"
-                    r={20}
-                    style={
-                      Object {
-                        "strokeDasharray": 12.566370614359172,
-                        "strokeDashoffset": 0,
-                      }
+                <circle
+                  className="theme-path"
+                  cx={25}
+                  cy={25}
+                  fill="none"
+                  r={20}
+                  style={
+                    Object {
+                      "strokeDasharray": 12.566370614359172,
+                      "strokeDashoffset": 0,
                     }
-                  />
-                </svg>
-              </CircularProgress>
-            </I18n>
-          </Translate(CircularProgress)>
+                  }
+                />
+              </svg>
+            </CircularProgress>
+          </withI18nextTranslation(CircularProgress)>
         </li>
       </MenuItem>
     </ul>

@@ -30,7 +30,7 @@ exports[`CellTitle actions should NOT render the actions when no actions key is 
       }
     }
   />
-  <Translate(VirtualizedList(CellTitleActions))
+  <withI18nextTranslation(VirtualizedList(CellTitleActions))
     displayMode="text"
     getComponent={[MockFunction]}
     id="my-title-1-title-actions"
@@ -75,7 +75,7 @@ exports[`CellTitle actions should NOT render the actions when rowData has no act
       }
     }
   />
-  <Translate(VirtualizedList(CellTitleActions))
+  <withI18nextTranslation(VirtualizedList(CellTitleActions))
     actionsKey="actions"
     displayMode="text"
     getComponent={[MockFunction]}
@@ -121,7 +121,7 @@ exports[`CellTitle actions should render the actions 1`] = `
       }
     }
   />
-  <Translate(VirtualizedList(CellTitleActions))
+  <withI18nextTranslation(VirtualizedList(CellTitleActions))
     actionsKey="actions"
     displayMode="text"
     getComponent={[MockFunction]}
@@ -167,7 +167,7 @@ exports[`CellTitle icon should NOT render the icon when no iconKey is provided 1
       }
     }
   />
-  <Translate(VirtualizedList(CellTitleActions))
+  <withI18nextTranslation(VirtualizedList(CellTitleActions))
     displayMode="text"
     getComponent={[MockFunction]}
     id="my-title-1-title-actions"
@@ -201,7 +201,7 @@ exports[`CellTitle icon should NOT render the icon when the rowData has no icon 
       }
     }
   />
-  <Translate(VirtualizedList(CellTitleActions))
+  <withI18nextTranslation(VirtualizedList(CellTitleActions))
     displayMode="text"
     getComponent={[MockFunction]}
     id="my-title-1-title-actions"
@@ -247,7 +247,7 @@ exports[`CellTitle icon should render icon with tooltip when iconLabelKey is pro
       }
     }
   />
-  <Translate(VirtualizedList(CellTitleActions))
+  <withI18nextTranslation(VirtualizedList(CellTitleActions))
     displayMode="text"
     getComponent={[MockFunction]}
     id="my-title-1-title-actions"
@@ -290,7 +290,7 @@ exports[`CellTitle should render title selector component 1`] = `
       }
     }
   />
-  <Translate(VirtualizedList(CellTitleActions))
+  <withI18nextTranslation(VirtualizedList(CellTitleActions))
     displayMode="text"
     getComponent={[MockFunction]}
     id="my-title-1-title-actions"

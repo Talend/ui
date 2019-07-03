@@ -6,7 +6,7 @@
  */
 
 import bootstrap from './bootstrap';
-import { I18N_DOMAIN_COMPONENTS, CIRCULAR_PROGRESS_SIZE } from './constants';
+import I18N_DOMAIN_COMPONENTS, { CIRCULAR_PROGRESS_SIZE } from './constants';
 import AboutDialog from './AboutDialog';
 import {
 	Action,
@@ -36,6 +36,8 @@ import EditableText from './EditableText';
 import Emphasis from './Emphasis';
 import Enumeration from './Enumeration';
 import FilterBar from './FilterBar';
+import GridLayout from './GridLayout';
+import Tile from './GridLayout/Tile';
 import GuidedTour from './GuidedTour';
 import HeaderTitle from './HeaderTitle';
 import ListView from './ListView';
@@ -159,6 +161,8 @@ export {
 	Emphasis,
 	Enumeration,
 	FilterBar,
+	GridLayout,
+	Tile,
 	GuidedTour,
 	HeaderBar,
 	HeaderTitle,

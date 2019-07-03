@@ -10,6 +10,7 @@ exports[`EditableText should render 1`] = `
     inProgress={false}
     onEdit={[MockFunction]}
     onSubmit={[MockFunction]}
+    required={true}
     t={[Function]}
     text="my text"
   />
@@ -25,6 +26,7 @@ exports[`EditableText should render InlineForm 1`] = `
     inProgress={false}
     onEdit={[MockFunction]}
     onSubmit={[MockFunction]}
+    required={true}
     t={[Function]}
     text="my text"
   />
@@ -43,6 +45,7 @@ exports[`EditableText should render inProgress 1`] = `
     inProgress={true}
     onEdit={[MockFunction]}
     onSubmit={[MockFunction]}
+    required={true}
     t={[Function]}
     text="my text"
   />
@@ -50,7 +53,7 @@ exports[`EditableText should render inProgress 1`] = `
 `;
 
 exports[`EditableText should render skeleton 1`] = `
-<Translate(Skeleton)
+<withI18nextTranslation(Skeleton)
   size="large"
   type="text"
 />
@@ -81,6 +84,7 @@ exports[`InlineForm should render 1`] = `
       data-feature="my.custom.feature.cancel"
       hideLabel={true}
       icon="talend-cross"
+      label={[Function]}
       name="action-cancel-title"
       onClick={[Function]}
     />
@@ -91,6 +95,7 @@ exports[`InlineForm should render 1`] = `
       disabled={false}
       hideLabel={true}
       icon="talend-check"
+      label={[Function]}
       name="action-submit-title"
       type="submit"
     />

@@ -160,7 +160,7 @@ describe('Typeahead', () => {
 
 			// then
 			expect(setTimeout.mock.calls.length).toBe(initialTimeoutCount + 1);
-			expect(setTimeout.mock.calls[0][1]).toBe(debounceTimeout);
+			expect(setTimeout.mock.calls[initialTimeoutCount][1]).toBe(debounceTimeout);
 		});
 
 		it('should call onChange event with debounceMinLength options', () => {
@@ -190,7 +190,7 @@ describe('Typeahead', () => {
 
 			// then
 			expect(setTimeout.mock.calls.length).toBe(initialTimeoutCount + 1);
-			expect(setTimeout.mock.calls[0][1]).toBe(debounceTimeout);
+			expect(setTimeout.mock.calls[initialTimeoutCount - 1][1]).toBe(debounceTimeout);
 		});
 
 		it('should call onBlur', () => {

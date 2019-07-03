@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import Icon from '../Icon';
 import skeletonCssModule from './Skeleton.scss';
 import { getTheme } from '../theme';
@@ -66,24 +66,10 @@ function Skeleton({ heartbeat, type, size, width, height, name, className, t }) 
 	return <span style={{ width, height }} className={classes} aria-label={ariaLabel} />;
 }
 
-Skeleton.TYPES = TYPES;
-
-Skeleton.SIZES = SIZES;
-
 Skeleton.propTypes = {
 	heartbeat: PropTypes.bool,
-	type: PropTypes.oneOf([
-		Skeleton.TYPES.button,
-		Skeleton.TYPES.circle,
-		Skeleton.TYPES.icon,
-		Skeleton.TYPES.text,
-	]).isRequired,
-	size: PropTypes.oneOf([
-		Skeleton.SIZES.small,
-		Skeleton.SIZES.medium,
-		Skeleton.SIZES.large,
-		Skeleton.SIZES.xlarge,
-	]),
+	type: PropTypes.oneOf([TYPES.button, TYPES.circle, TYPES.icon, TYPES.text]).isRequired,
+	size: PropTypes.oneOf([SIZES.small, SIZES.medium, SIZES.large, SIZES.xlarge]),
 	width: PropTypes.number,
 	height: PropTypes.number,
 	name: PropTypes.string,
@@ -92,11 +78,14 @@ Skeleton.propTypes = {
 };
 
 Skeleton.defaultProps = {
-	type: Skeleton.TYPES.text,
-	size: Skeleton.SIZES.medium,
+	type: TYPES.text,
+	size: SIZES.medium,
 	heartbeat: true,
 };
 
 Skeleton.displayName = 'Skeleton';
+const TranslatedSkeleton = withTranslation(I18N_DOMAIN_COMPONENTS)(Skeleton);
+TranslatedSkeleton.TYPES = TYPES;
+TranslatedSkeleton.SIZES = SIZES;
 
-export default translate(I18N_DOMAIN_COMPONENTS)(Skeleton);
+export default TranslatedSkeleton;
