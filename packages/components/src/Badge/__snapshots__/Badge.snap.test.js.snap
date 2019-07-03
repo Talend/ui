@@ -1,243 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BadgeSpec should render Badge 1`] = `
-<div
-  className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-readonly theme-tc-badge-readonly"
->
-  <div
-    className="tc-badge-button theme-tc-badge-button"
-    id="tc-badge-select-my-badge"
-  >
-    <div
-      className="tc-badge-label theme-tc-badge-label"
-    >
-      <TooltipTrigger
-        label="Label"
-        tooltipPlacement="top"
-      >
-        <span
-          className="tc-badge-label-text theme-tc-badge-label-text"
-        >
-          Label
-        </span>
-      </TooltipTrigger>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`BadgeSpec should render Badge as button 1`] = `
-<div
-  className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-readonly theme-tc-badge-readonly"
->
-  <button
-    className="tc-badge-button theme-tc-badge-button"
+exports[`Badge should render by default 1`] = `
+<withI18nextTranslation(Badge)>
+  <Badge
     disabled={false}
-    id="tc-badge-select-my-badge"
-    onClick={[MockFunction]}
-    type="button"
+    i18n={
+      Object {
+        "changeLanguage": [Function],
+        "getFixedT": [Function],
+        "hasResourceBundle": [Function],
+        "init": [Function],
+        "isInitialized": true,
+        "isMock": true,
+        "language": "en",
+        "languages": Array [
+          "en",
+        ],
+        "loadNamespaces": [Function],
+        "off": [Function],
+        "on": [Function],
+        "options": Object {},
+        "reportNamespaces": ReportNamespaces {
+          "usedNamespaces": Object {
+            "tui-components": true,
+          },
+        },
+        "services": Object {
+          "backendConnector": Object {},
+          "resourceStore": Object {
+            "data": Object {},
+          },
+        },
+        "store": Object {
+          "data": Object {},
+          "off": [Function],
+          "on": [Function],
+        },
+        "t": [Function],
+      }
+    }
+    selected={false}
+    t={[Function]}
+    tReady={true}
   >
     <div
-      className="tc-badge-label theme-tc-badge-label"
+      className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-readonly theme-tc-badge-readonly"
     >
-      <TooltipTrigger
-        label="Label"
-        tooltipPlacement="top"
+      <div
+        className="tc-badge-button theme-tc-badge-button"
+        key="div"
       >
-        <span
-          className="tc-badge-label-text theme-tc-badge-label-text"
-        >
-          Label
-        </span>
-      </TooltipTrigger>
+        <BadgeLabel>
+          <div
+            className="tc-badge-label theme-tc-badge-label"
+          >
+            <TooltipTrigger
+              tooltipPlacement="top"
+            >
+              <span
+                className="tc-badge-label-text theme-tc-badge-label-text"
+                key="label"
+                onFocus={[Function]}
+                onMouseOver={[Function]}
+              />
+            </TooltipTrigger>
+          </div>
+        </BadgeLabel>
+      </div>
     </div>
-  </button>
-</div>
+  </Badge>
+</withI18nextTranslation(Badge)>
 `;
 
-exports[`BadgeSpec should render Badge with category and delete icon 1`] = `
-<div
-  className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large"
->
-  <div
-    className="tc-badge-button theme-tc-badge-button"
-  >
-    <TooltipTrigger
-      label="Category"
-      tooltipPlacement="top"
-    >
-      <span
-        aria-label="Category"
-        className="tc-badge-category theme-tc-badge-category"
-      >
-        Category
-      </span>
-    </TooltipTrigger>
-    <span
-      className="tc-badge-separator theme-tc-badge-separator"
-    />
-    <div
-      className="tc-badge-label theme-tc-badge-label"
-    >
-      <TooltipTrigger
-        label="Label"
-        tooltipPlacement="top"
-      >
-        <span
-          className="tc-badge-label-text-with-categ theme-tc-badge-label-text-with-categ"
-        >
-          Label
-        </span>
-      </TooltipTrigger>
-    </div>
-    <Action
-      className="tc-badge-delete-icon theme-tc-badge-delete-icon"
-      disabled={false}
-      hideLabel={true}
-      icon="talend-cross"
-      label="delete"
-      link={true}
-      onClick={[Function]}
-      role="button"
-    />
-  </div>
-</div>
-`;
-
-exports[`BadgeSpec should render Badge with delete icon 1`] = `
-<div
-  className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large"
->
-  <div
-    className="tc-badge-button theme-tc-badge-button"
-    id="tc-badge-select-my-badge"
-  >
-    <div
-      className="tc-badge-label theme-tc-badge-label"
-    >
-      <TooltipTrigger
-        label="Label"
-        tooltipPlacement="top"
-      >
-        <span
-          className="tc-badge-label-text theme-tc-badge-label-text"
-        >
-          Label
-        </span>
-      </TooltipTrigger>
-    </div>
-    <Action
-      className="tc-badge-delete-icon theme-tc-badge-delete-icon"
-      disabled={false}
-      hideLabel={true}
-      icon="talend-cross"
-      id="tc-badge-delete-my-badge"
-      label="delete"
-      link={true}
-      onClick={[Function]}
-      role="button"
-    />
-  </div>
-</div>
-`;
-
-exports[`BadgeSpec should render Badge with selection handler and select id 1`] = `
-<div
-  className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-readonly theme-tc-badge-readonly"
->
-  <button
-    className="tc-badge-button theme-tc-badge-button"
-    disabled={false}
-    id="tc-badge-select-select"
-    onClick={[Function]}
-    type="button"
-  >
-    <div
-      className="tc-badge-label theme-tc-badge-label"
-    >
-      <TooltipTrigger
-        label="Label"
-        tooltipPlacement="top"
-      >
-        <span
-          className="tc-badge-label-text theme-tc-badge-label-text"
-        >
-          Label
-        </span>
-      </TooltipTrigger>
-    </div>
-  </button>
-</div>
-`;
-
-exports[`BadgeSpec should render disabled Badge with delete icon and delete id 1`] = `
-<div
-  className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-disabled theme-tc-badge-disabled"
->
-  <div
-    className="tc-badge-button theme-tc-badge-button"
-    id="tc-badge-select-delete"
-  >
-    <div
-      className="tc-badge-label theme-tc-badge-label"
-    >
-      <TooltipTrigger
-        label="Label"
-        tooltipPlacement="top"
-      >
-        <span
-          className="tc-badge-label-text theme-tc-badge-label-text"
-        >
-          Label
-        </span>
-      </TooltipTrigger>
-    </div>
-    <Action
-      className="tc-badge-delete-icon theme-tc-badge-delete-icon"
-      disabled={true}
-      hideLabel={true}
-      icon="talend-cross"
-      id="tc-badge-delete-delete"
-      label="delete"
-      link={true}
-      onClick={[Function]}
-      role="button"
-    />
-  </div>
-</div>
-`;
-
-exports[`BadgeSpec should render selected Badge with delete icon 1`] = `
-<div
-  className="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-selected theme-tc-badge-selected"
->
-  <div
-    className="tc-badge-button theme-tc-badge-button"
-  >
-    <div
-      className="tc-badge-label theme-tc-badge-label"
-    >
-      <TooltipTrigger
-        label="Label"
-        tooltipPlacement="top"
-      >
-        <span
-          className="tc-badge-label-text theme-tc-badge-label-text"
-        >
-          Label
-        </span>
-      </TooltipTrigger>
-    </div>
-    <Action
-      className="tc-badge-delete-icon theme-tc-badge-delete-icon"
-      disabled={false}
-      hideLabel={true}
-      icon="talend-cross"
-      label="delete"
-      link={true}
-      onClick={[Function]}
-      role="button"
-    />
-  </div>
-</div>
-`;
+exports[`Badge should render by default 2`] = `"<div class=\\"tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-readonly theme-tc-badge-readonly\\"><div class=\\"tc-badge-button theme-tc-badge-button\\"><div class=\\"tc-badge-label theme-tc-badge-label\\"><span class=\\"tc-badge-label-text theme-tc-badge-label-text\\"></span></div></div></div>"`;

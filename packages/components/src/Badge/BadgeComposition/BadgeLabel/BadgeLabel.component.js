@@ -1,7 +1,8 @@
 import React from 'react';
-import TooltipTrigger from '../../TooltipTrigger';
-import badgeCssModule from '../Badge.scss';
-import { getTheme } from '../../theme';
+import PropTypes from 'prop-types';
+import TooltipTrigger from '../../../TooltipTrigger';
+import badgeCssModule from '../../Badge.scss';
+import { getTheme } from '../../../theme';
 
 const theme = getTheme(badgeCssModule);
 
@@ -20,6 +21,13 @@ const BadgeLabel = ({ aslink, category, label, children }) => {
 			{children}
 		</div>
 	);
+};
+
+BadgeLabel.propTypes = {
+	aslink: PropTypes.any,
+	category: PropTypes.any,
+	label: PropTypes.any,
+	children: PropTypes.any,
 };
 
 export default BadgeLabel;

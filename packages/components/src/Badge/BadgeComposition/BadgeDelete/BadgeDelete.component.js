@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Action from '../../Actions/Action';
-import badgeCssModule from '../Badge.scss';
-import { getTheme } from '../../theme';
+import Action from '../../../Actions/Action';
+import badgeCssModule from '../../Badge.scss';
+import { getTheme } from '../../../theme';
 
 const theme = getTheme(badgeCssModule);
 
