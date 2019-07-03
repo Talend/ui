@@ -18,19 +18,20 @@ export const SIZES = {
 };
 
 function Badge({
+	aslink,
+	category,
+	className,
+	children,
+	disabled,
+	display = SIZES.large,
+	icon,
 	id,
 	label,
-	category,
 	onDelete,
 	onSelect,
 	selected,
-	disabled,
-	t,
 	style,
-	className,
-	display = SIZES.large,
-	aslink,
-	icon,
+	t,
 	white,
 }) {
 	const displayClass =
@@ -51,7 +52,7 @@ function Badge({
 		'tc-badge-label-text-with-categ': !aslink && category,
 	});
 
-	const children = [
+	const content = [
 		category && (
 			<TooltipTrigger label={category} tooltipPlacement="top">
 				<span key="category" aria-label={category} className={theme('tc-badge-category')}>
@@ -89,15 +90,18 @@ function Badge({
 	const badgeProps = {
 		id: id && `tc-badge-select-${id}`,
 		className: badgeClasses,
-		children,
 	};
 
 	return (
 		<div className={containerClasses} style={style}>
 			{onSelect ? (
-				<button {...badgeProps} key="button" type="button" disabled={disabled} onClick={onSelect} />
+				<button {...badgeProps} key="button" type="button" disabled={disabled} onClick={onSelect}>
+					{!children ? content : children}
+				</button>
 			) : (
-				<div {...badgeProps} key="div" />
+				<div {...badgeProps} key="div">
+					{!children ? content : children}
+				</div>
 			)}
 		</div>
 	);
@@ -109,6 +113,7 @@ Badge.propTypes = {
 	id: PropTypes.string,
 	label: PropTypes.string,
 	category: PropTypes.string,
+	children: PropTypes.oneOf([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 	onDelete: PropTypes.func,
 	onSelect: PropTypes.func,
 	selected: PropTypes.bool,
