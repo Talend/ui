@@ -91,7 +91,7 @@ Badge.propTypes = {
 	onDelete: PropTypes.func,
 	onSelect: PropTypes.func,
 	selected: PropTypes.bool,
-	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+	style: PropTypes.object,
 	t: PropTypes.func.isRequired,
 	white: PropTypes.bool,
 };
