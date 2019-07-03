@@ -1,83 +1,44 @@
-/// Define button colors based on its background
+/// Define button based on its color
 /// @access public
-/// @param {Color} $btn-bg [$btn-default-bg] - button background color to tint
-@mixin btn-colors($btn-bg: $btn-default-bg) {
+/// @param {Color} $color [$default] - button color to tint
+@mixin btn-colors($color: $default) {
+	@include button-variant($color, $color, $color, $color, darken($color, 12%), darken($color, 20%));
 	box-shadow: 0 (-1 * $btn-box-shadow-width) 0 rgba(0, 0, 0, 0.15) inset;
-
-	&:focus,
-	&.focus,
-	&:hover {
-		background-color: $btn-bg;
-		border-color: $btn-bg;
-	}
 
 	&:hover {
 		opacity: 0.8;
 	}
 
-	&:active,
-	&.active,
-	.open > &.dropdown-toggle {
-		&,
-		&.focus,
-		&:focus,
-		&:hover {
-			opacity: 1;
-			background-color: shade($btn-bg, 12%);
-			border-color: shade($btn-bg, 12%);
-			box-shadow: none;
-		}
-	}
-
+	&,
+	&:hover,
 	&.disabled,
-	&[disabled],
-	fieldset[disabled] & {
-		&,
-		&:hover,
-		&:focus,
-		&.focus {
-			opacity: 0.4;
-		}
+	&:disabled,
+	&:not(:disabled):not(.disabled):active,
+	&:not(:disabled):not(.disabled).active,
+	.show > &.dropdown-toggle {
+		color: $white;
 	}
 }
 
-/// Define inverse button colors based on the button color
+/// Define inverse button based on the button color
 /// @access public
-/// @param {Color} $btn-color [$btn-default-bg] - button background color to tint
-@mixin btn-inverse-colors($btn-color: $btn-default-bg) {
-	// we have a border but we cannot use box-sizing: border-box because we don't have a height.
-	// so we change the line-height to match 3.5rem ($btn-line-height) - borders
-	$border-width: 0.15rem;
+/// @param {Color} $color [$default] - button color to tint
+@mixin btn-inverse-colors($color: $default) {
+	@include button-variant(transparent, $color, transparent, $color, transparent, darken($color, 20%));
+	border: 0.15rem SOLID;
+	box-shadow: none;
 
-	&.btn-inverse {
-		background-color: transparent;
-		color: $btn-color;
-		box-shadow: none;
-		border: $border-width solid $btn-color;
-		line-height: $btn-line-height - (2 * $border-width);
-		// this is to avoid background issue in case of an inverse button
-		// being in disabled and focused state
-		&:disabled,
-		&.disabled {
-			&:focus,
-			&:hover {
-				background-color: transparent;
-				border: $border-width solid $btn-color;
-			}
-		}
+	&,
+	&:hover,
+	&.disabled,
+	&:disabled,
+	.show > &.dropdown-toggle {
+		color: $color;
+	}
 
-		&:active,
-		&.active,
-		.open > &.dropdown-toggle {
-			&,
-			&.focus,
-			&:focus,
-			&:hover {
-				background-color: transparent;
-				color: shade($btn-color, 12%);
-				border-color: shade($btn-color, 12%);
-			}
-		}
+	&:not(:disabled):not(.disabled):active,
+	&:not(:disabled):not(.disabled).active {
+		color: darken($color, 20%);
 	}
 }
 
