@@ -114,7 +114,7 @@ Badge.propTypes = {
 	t: PropTypes.func.isRequired,
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	className: PropTypes.string,
-	display: PropTypes.oneOf([SIZES.small, SIZES.large]),
+	display: PropTypes.oneOf(Object.values(SIZES)),
 	aslink: PropTypes.bool,
 	white: PropTypes.bool,
 	icon: PropTypes.string,
