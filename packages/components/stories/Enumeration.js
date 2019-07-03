@@ -1,5 +1,4 @@
 import React from 'react';
-import { I18nextProvider } from 'react-i18next';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
@@ -300,11 +299,9 @@ storiesOf('Enumeration', module)
 			<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
 			<button onClick={() => i18n.changeLanguage('it')}>it</button>
 			<IconsProvider />
-			<I18nextProvider i18n={i18n}>
-				<Enumeration
-					{...defaultEmptyListProps}
-				/>
-			</I18nextProvider>
+			<Enumeration
+				{...defaultEmptyListProps}
+			/>
 		</div>
 	))
 	.add('default - empty list', () => (

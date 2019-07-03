@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { IconsProvider } from '@talend/react-components';
 import api from '@talend/react-cmf';
 import Immutable from 'immutable';
-import { I18nextProvider } from 'react-i18next';
 import cloneDeep from 'lodash/cloneDeep';
 
 import { List } from '../src';
@@ -216,11 +215,7 @@ const ExampleList = {
 		<div>
 			<IconsProvider />
 			<div className="list-container">
-				<List
-					{...props}
-					actions={actionsWithPersistent}
-					items={items}
-				/>
+				<List {...props} actions={actionsWithPersistent} items={items} />
 			</div>
 		</div>
 	),
@@ -347,17 +342,15 @@ const ExampleList = {
 		</div>
 	),
 	i18n: () => (
-		<I18nextProvider i18n={i18n}>
-			<div>
-				<p>Change language on the toolbar</p>
-				<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
-				<button onClick={() => i18n.changeLanguage('it')}>it</button>
-				<IconsProvider />
-				<div className="list-container">
-					<List {...props} items={items} />
-				</div>
+		<div>
+			<p>Change language on the toolbar</p>
+			<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
+			<button onClick={() => i18n.changeLanguage('it')}>it</button>
+			<IconsProvider />
+			<div className="list-container">
+				<List {...props} items={items} />
 			</div>
-		</I18nextProvider>
+		</div>
 	),
 	'sort on timestamps': () => (
 		<div>

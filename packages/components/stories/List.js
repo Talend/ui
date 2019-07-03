@@ -4,11 +4,10 @@ import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
-import { I18nextProvider } from 'react-i18next';
 import cloneDeep from 'lodash/cloneDeep';
 
 import { List, IconsProvider } from '../src/index';
-import i18n, { LanguageSwitcher } from './config/i18n';
+import { LanguageSwitcher } from './config/i18n';
 import MyCustomRow from './List/MyCustomRow.component';
 /**
  * Cell renderer that displays hello + text
@@ -473,7 +472,7 @@ storiesOf('List', module)
 		<div>
 			<LanguageSwitcher />
 			<IconsProvider defaultIcons={icons} />
-			<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
+			{story()}
 		</div>
 	))
 	.add('Table display', () => (
@@ -651,10 +650,10 @@ storiesOf('List', module)
 			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
-				For table view, user toggle column header to select/disselect all items.
+					For table view, user toggle column header to select/disselect all items.
 					<br />
-				When List displayed in large view,
-				there's a one-line checkbox of "Select All" above the list.
+					When List displayed in large view, there's a one-line checkbox of "Select All" above the
+					list.
 					<br />
 				</p>
 				<List {...selectedItemsProps} rowHeight={140} displayMode="large" />
@@ -736,9 +735,7 @@ storiesOf('List', module)
 		return (
 			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
-				<p>
-					Show Sort widgets on List toolbar when display in large view
-				</p>
+				<p>Show Sort widgets on List toolbar when display in large view</p>
 				<List {...tprops} rowHeight={140} displayMode="large" />
 			</div>
 		);
