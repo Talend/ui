@@ -219,7 +219,7 @@ storiesOf('Container Datagrid', module)
 	.addDecorator(story => (
 		<div>
 			<LanguageSwitcher />
-			<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
+			{story()}
 		</div>
 	))
 	.addDecorator(withCMF)
