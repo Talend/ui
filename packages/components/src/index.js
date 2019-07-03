@@ -1,10 +1,3 @@
-/**
- * Please consider this file as DEPRECATED
- * You should not anymore rely on it.
- * components is now too big.
- * You should pick the component you need
- */
-
 import bootstrap from './bootstrap';
 import I18N_DOMAIN_COMPONENTS, { CIRCULAR_PROGRESS_SIZE } from './constants';
 import AboutDialog from './AboutDialog';
@@ -66,6 +59,14 @@ import WithDrawer from './WithDrawer';
 import Inject from './Inject';
 import RichLayout from './RichTooltip/RichLayout';
 import RichError from './RichTooltip/RichError';
+
+// eslint-disable-next-line no-console
+console.warn(`DEPRECATED:
+  Please consider '@talend/react-components' global import as deprecated
+  You should not anymore rely on it.
+  It increase the bundle size for nothing.
+  You should pick the component you need on by one as with lodash:
+  import List from @talend/react-components';`);
 
 const {
 	Alert,
