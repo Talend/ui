@@ -40,7 +40,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   4:8  error  'Container' is defined but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/components/src/translate.js
-  10:2  warning  Unexpected console statement  no-console
+  5:2  warning  Unexpected console statement  no-console
 
 /home/travis/build/Talend/ui/packages/components/src/TranslateWrapper/TranslateWrapper.component.js
   2:2  warning  Unexpected console statement  no-console
