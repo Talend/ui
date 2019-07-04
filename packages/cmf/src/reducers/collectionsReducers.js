@@ -19,8 +19,8 @@ export function getId(element) {
 }
 
 /*
-* backward compatibility, as mutateCollection action creator still use 'id' field
-* to represent path to collection
+ * backward compatibility, as mutateCollection action creator still use 'id' field
+ * to represent path to collection
  */
 export function getActionWithCollectionIdAsArray(action) {
 	if (action.collectionId || action.id) {
