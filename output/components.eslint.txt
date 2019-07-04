@@ -42,12 +42,15 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/translate.js
   10:2  warning  Unexpected console statement  no-console
 
+/home/travis/build/Talend/ui/packages/components/src/TranslateWrapper/TranslateWrapper.component.js
+  6:3  warning  Unexpected console statement  no-console
+
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/CellTitle/CellTitleActions.component.js
   166:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   42:3  warning  Unexpected console statement  no-console
 
-✖ 24 problems (20 errors, 4 warnings)
+✖ 25 problems (20 errors, 5 warnings)
   1 error, 0 warnings potentially fixable with the `--fix` option.
 
