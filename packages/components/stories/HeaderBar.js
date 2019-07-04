@@ -6,7 +6,7 @@ import { makeDecorator } from '@storybook/addons';
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
 
-import i18n from './config/i18n';
+import './config/i18n';
 
 import { HeaderBar, IconsProvider } from '../src';
 

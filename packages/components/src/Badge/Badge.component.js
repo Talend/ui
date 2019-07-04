@@ -103,8 +103,6 @@ function Badge({
 	);
 }
 
-Badge.SIZES = SIZES;
-
 Badge.propTypes = {
 	id: PropTypes.string,
 	label: PropTypes.string,
@@ -116,7 +114,7 @@ Badge.propTypes = {
 	t: PropTypes.func.isRequired,
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	className: PropTypes.string,
-	display: PropTypes.oneOf([Badge.SIZES.small, Badge.SIZES.large]),
+	display: PropTypes.oneOf(Object.values(SIZES)),
 	aslink: PropTypes.bool,
 	white: PropTypes.bool,
 	icon: PropTypes.string,
@@ -128,4 +126,6 @@ Badge.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(Badge);
+const TranslatedBadge = withTranslation(I18N_DOMAIN_COMPONENTS)(Badge);
+TranslatedBadge.SIZES = SIZES;
+export default TranslatedBadge;

@@ -7,7 +7,7 @@ import talendIcons from '@talend/icons/dist/react';
 import cloneDeep from 'lodash/cloneDeep';
 
 import { List, IconsProvider } from '../src/index';
-import i18n, { LanguageSwitcher } from './config/i18n';
+import { LanguageSwitcher } from './config/i18n';
 import MyCustomRow from './List/MyCustomRow.component';
 /**
  * Cell renderer that displays hello + text

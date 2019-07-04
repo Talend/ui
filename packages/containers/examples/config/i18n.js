@@ -1,6 +1,6 @@
 import React from 'react';
 import i18n from 'i18next';
-import initReactI18next from 'react-i18next';
+import { initReactI18next } from 'react-i18next';
 import { I18N_DOMAIN_COMPONENTS } from '@talend/react-components';
 import I18N_DOMAIN_CONTAINERS from '../../src/constant';
 
