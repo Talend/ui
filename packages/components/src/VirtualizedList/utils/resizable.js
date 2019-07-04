@@ -9,6 +9,12 @@ const getMinimumWidth = column => column.minWidth || MINIMUM_COLUMN_WIDTH;
 
 const getWidth = (width, minWidth = MINIMUM_COLUMN_WIDTH) => (width <= minWidth ? minWidth : width);
 
+const throwNoWidthErrorMsg = dataKey => {
+	throw new Error(
+		`[vList:resizable]: column ${dataKey} has no width. To use resizable, every columns need to have a width`,
+	);
+};
+
 /*-----------------------------------------------------------------------------------
 	Predicate
 ------------------------------------------------------------------------------------*/
@@ -75,7 +81,12 @@ const addValue = (deltaX, value) => deltaX + value;
 
 const subtractValue = (deltaX, value) => value - deltaX;
 
-const addWidth = (a, b) => a + b.width;
+const addWidth = (a, b) => {
+	if (!b.width) {
+		throwNoWidthErrorMsg(b.dataKey);
+	}
+	return a + b.width;
+};
 /**
  * Return the total of all width of the array parameter.
  * @param {array} columnsWidths
@@ -124,9 +135,10 @@ const calcWidthShrink = ({ width, minWidth }, deltaX) => {
 const setShrinkingColumnWidth = deltaX => column => {
 	const { width, minWidth = MINIMUM_COLUMN_WIDTH } = column;
 	if (width >= minWidth) {
-		return { ...column, width: calcWidthShrink(column, deltaX) };
+		// eslint-disable-next-line no-param-reassign
+		column.width = calcWidthShrink(column, deltaX);
 	}
-	return { ...column, width };
+	return column;
 };
 
 /**
@@ -136,11 +148,12 @@ const setShrinkingColumnWidth = deltaX => column => {
  * @param {integer} currentTotalWidth
  */
 const setEnlargingColumnWidth = (deltaX, listWidth, currentTotalWidth) => column => {
-	const { width } = column;
+	// const { width } = column;
 	if (currentTotalWidth <= listWidth) {
-		return { ...column, width: calcWidthEnlarge(column, deltaX, listWidth, currentTotalWidth) };
+		// eslint-disable-next-line no-param-reassign
+		column.width = calcWidthEnlarge(column, deltaX, listWidth, currentTotalWidth);
 	}
-	return { ...column, width };
+	return column;
 };
 
 /*-----------------------------------------------------------------------------------
@@ -179,20 +192,20 @@ const changeWidthColumn = (setWidthFn, getIndexFn) => (index, listWidth) => ([
 	if (getIndexFn) {
 		workingIndex = getIndexFn(index, columnsWidths);
 	}
-	const absDeltaX = transformDeltaValue(columnsWidths[workingIndex], deltaX);
+	const currentColumn = columnsWidths[workingIndex];
+	if (!currentColumn.width) {
+		throwNoWidthErrorMsg(currentColumn.dataKey);
+	}
+	const absDeltaX = transformDeltaValue(currentColumn, deltaX);
 	if (workingIndex >= 0) {
-		const widthBeforeChange = columnsWidths[workingIndex].width;
+		const widthBeforeChange = currentColumn.width;
 		flow([
 			setWidthFn(absDeltaX, listWidth, currentTotalWidth),
 			setColumn(columnsWidths, workingIndex),
-		])(columnsWidths[workingIndex]);
+		])(currentColumn);
 		return [
 			columnsWidths,
-			updateTotalCurrentWidth(
-				currentTotalWidth,
-				widthBeforeChange,
-				columnsWidths[workingIndex].width,
-			),
+			updateTotalCurrentWidth(currentTotalWidth, widthBeforeChange, currentColumn.width),
 			absDeltaX,
 		];
 	}

@@ -148,10 +148,10 @@ describe('resizeColumns', () => {
 				resizable: true,
 			},
 		];
-		const currentIndex = 1;
+		const dataKey = 'columnTwo';
 		const listWidth = 300;
 		// when
-		const ret = resizeColumns(deltaX, columnsWidths, listWidth, currentIndex);
+		const ret = resizeColumns(deltaX, columnsWidths, listWidth, dataKey);
 		// then
 		expect(ret).toEqual([
 			{
@@ -191,10 +191,10 @@ describe('resizeColumns', () => {
 				resizable: true,
 			},
 		];
-		const currentIndex = 0;
+		const dataKey = 'columnOne';
 		const listWidth = 240;
 		// when
-		const ret = resizeColumns(deltaX, columnsWidths, listWidth, currentIndex);
+		const ret = resizeColumns(deltaX, columnsWidths, listWidth, dataKey);
 		// then
 		expect(ret).toEqual([
 			{
@@ -239,10 +239,10 @@ describe('resizeColumns', () => {
 				resizable: true,
 			},
 		];
-		const currentIndex = 1;
+		const dataKey = 'columnTwo';
 		const listWidth = 470;
 		// when
-		const ret = resizeColumns(deltaX, columnsWidths, listWidth, currentIndex);
+		const ret = resizeColumns(deltaX, columnsWidths, listWidth, dataKey);
 		// then
 		expect(ret).toEqual([
 			{
@@ -287,10 +287,10 @@ describe('resizeColumns', () => {
 				resizable: true,
 			},
 		];
-		const currentIndex = 1;
+		const dataKey = 'columnTwo';
 		const listWidth = 300;
 		// when
-		const ret = resizeColumns(deltaX, columnsWidths, listWidth, currentIndex);
+		const ret = resizeColumns(deltaX, columnsWidths, listWidth, dataKey);
 		// then
 		expect(ret).toEqual([
 			{
@@ -329,10 +329,10 @@ describe('resizeColumns', () => {
 				resizable: true,
 			},
 		];
-		const currentIndex = 1;
+		const dataKey = 'columnTwo';
 		const listWidth = 240;
 		// when
-		const ret = resizeColumns(deltaX, columnsWidths, listWidth, currentIndex);
+		const ret = resizeColumns(deltaX, columnsWidths, listWidth, dataKey);
 		// then
 		expect(ret).toEqual([
 			{
@@ -371,10 +371,10 @@ describe('resizeColumns', () => {
 				resizable: true,
 			},
 		];
-		const currentIndex = 1;
+		const dataKey = 'columnTwo';
 		const listWidth = 300;
 		// when
-		const ret = resizeColumns(deltaX, columnsWidths, listWidth, currentIndex);
+		const ret = resizeColumns(deltaX, columnsWidths, listWidth, dataKey);
 		// then
 		expect(ret).toEqual([
 			{
@@ -414,10 +414,10 @@ describe('resizeColumns', () => {
 				resizable: true,
 			},
 		];
-		const currentIndex = 1;
+		const dataKey = 'columnTwo';
 		const listWidth = 300;
 		// when
-		const ret = resizeColumns(deltaX, columnsWidths, listWidth, currentIndex);
+		const ret = resizeColumns(deltaX, columnsWidths, listWidth, dataKey);
 		// then
 		expect(ret).toEqual([
 			{
@@ -436,5 +436,64 @@ describe('resizeColumns', () => {
 				width: 190,
 			},
 		]);
+	});
+	it('should return the same values if the dataKey is not matched', () => {
+		// given
+		const deltaX = 10;
+		const columnsWidths = [
+			{
+				dataKey: 'columnOne',
+				width: 70,
+				resizable: true,
+			},
+			{
+				dataKey: 'columnTwo',
+				width: 100,
+				resizable: true,
+			},
+			{
+				dataKey: 'columnThree',
+				width: 130,
+				resizable: true,
+			},
+		];
+		const dataKey = 'something';
+		const listWidth = 300;
+		// when
+		const ret = resizeColumns(deltaX, columnsWidths, listWidth, dataKey);
+		// then
+		expect(ret).toEqual(columnsWidths);
+	});
+	it('should throw an error if a column has no width', () => {
+		// given
+		const deltaX = 10;
+		const columnsWidths = [
+			{
+				dataKey: 'columnOne',
+				width: 70,
+				resizable: true,
+			},
+			{
+				dataKey: 'columnTwo',
+				resizable: true,
+			},
+			{
+				dataKey: 'columnThree',
+				width: 130,
+				resizable: true,
+			},
+		];
+		const dataKey = 'columnTwo';
+		const listWidth = 300;
+		// when
+		try {
+			resizeColumns(deltaX, columnsWidths, listWidth, dataKey);
+			expect.fail('should have thrown an error because columnTwo has no width');
+			// then
+		} catch (error) {
+			expect(error.message).toBe(
+				`[vList:resizable]: column ${dataKey} has no width. To use resizable, every columns need to have a width`,
+			);
+		}
 	});
 });
