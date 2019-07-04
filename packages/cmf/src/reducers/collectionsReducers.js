@@ -105,7 +105,9 @@ function deleteCollectionElement(state, action) {
 function updateListElements(state, action) {
 	const updates = action.operations.update;
 
-	const changedCollection = state.getIn(action.collectionId).map(element => updates[getId(element)] || element);
+	const changedCollection = state
+		.getIn(action.collectionId)
+		.map(element => updates[getId(element)] || element);
 	return state.setIn(action.collectionId, changedCollection);
 }
 
