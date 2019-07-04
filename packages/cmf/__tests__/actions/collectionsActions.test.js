@@ -20,7 +20,7 @@ describe('test collection management action creators', () => {
 		});
 	});
 
-	it('addOrReplaceCollection dispatch with path to nested collections, path can be either strings separated with dots or array of string', () => {
+	it('addOrReplaceCollection dispatch with path to nested collections (path can be either strings separated with dots or array of strings)', () => {
 		expect(
 			addOrReplace('collectionId.nestedCollection.nestedObjField', 'data can be anything')
 		).toEqual({
@@ -46,12 +46,7 @@ describe('test collection management action creators', () => {
 		expect(store.getActions()).toEqual(expectedActions);
 	});
 
-	it('removeCollection dispatch with path to nested collections, path can be either strings separated with dots or array of string', () => {
-		expect(remove('collectionId.nestedCollection.nestedObjField')).toEqual({
-			type: 'REACT_CMF.COLLECTION_REMOVE',
-			collectionId: 'collectionId.nestedCollection.nestedObjField',
-		});
-
+	it('removeCollection dispatch with path to nested collections (path can be either strings separated with dots or array of strings)', () => {
 		expect(remove('collectionId.nestedCollection.nestedObjField')).toEqual({
 			type: 'REACT_CMF.COLLECTION_REMOVE',
 			collectionId: 'collectionId.nestedCollection.nestedObjField',
@@ -75,7 +70,7 @@ describe('mutateCollection', () => {
 		});
 	});
 
-	it('dispatch well with path to nested collections, path can be either strings separated with dots or array of string', () => {
+	it('dispatch well with path to nested collections (path can be either strings separated with dots or array of strings)', () => {
 		expect(mutate('collectionId.nestedCollection.nestedObjField', operations)).toEqual({
 			type: 'REACT_CMF.COLLECTION_MUTATE',
 			id: 'collectionId.nestedCollection.nestedObjField',
