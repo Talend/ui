@@ -37,7 +37,7 @@
     "react": "^16.8.6",
     "react-ace": "6.2.0",
     "react-dom": "^16.8.6",
-    "react-i18next": "^10.10.0",
+    "react-i18next": "^10.11.4",
     "redux-logger": "^3.0.6"
   }
 }
