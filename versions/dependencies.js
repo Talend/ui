@@ -37,7 +37,7 @@ module.exports = {
 	'react-immutable-proptypes': '^2.1.0',
 	i18next: '^15.1.3',
 	'i18next-parser': '^0.13.0',
-	'react-i18next': '^10.10.0',
+	'react-i18next': '^10.11.4',
 	'react-redux': '^5.0.7',
 	'react-router': '^3.2.0',
 	'react-router-redux': '^4.0.8',
