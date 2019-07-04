@@ -22,7 +22,7 @@ const isColumnAtMinimumWidth = column => column.width === getMinimumWidth(column
 const isValueLowerThanColumnMinimumWidth = (value, column) => value <= getMinimumWidth(column);
 
 const isLeftColumnAtMinimumWidth = (columnsWidths, index) =>
-	!columnsWidths.slice(0, index + 1).every(isColumnAtMinimumWidth);
+	columnsWidths.slice(0, index + 1).every(isColumnAtMinimumWidth);
 
 /*-----------------------------------------------------------------------------------
 	Column setters
@@ -71,23 +71,17 @@ const getShrinkIndexLeft = (index, columnsWidths) =>
 	Calc functions
 ------------------------------------------------------------------------------------*/
 
-const addWidth = (deltaX, value) => deltaX + value;
+const addValue = (deltaX, value) => deltaX + value;
 
-const subtractWidth = (deltaX, value) => value - deltaX;
+const subtractValue = (deltaX, value) => value - deltaX;
 
+const addWidth = (a, b) => a + b.width;
 /**
  * Return the total of all width of the array parameter.
  * @param {array} columnsWidths
+ * @returns {integer} value of all width
  */
-const calcTotalCurrentWidth = columnsWidths => {
-	let currentTotalWidth = 0;
-	columnsWidths.forEach(column => {
-		if (column.width) {
-			currentTotalWidth += column.width;
-		}
-	});
-	return currentTotalWidth;
-};
+const calcTotalCurrentWidth = columnsWidths => columnsWidths.reduce(addWidth, 0);
 
 const updateTotalCurrentWidth = (currentTotalWidth, oldColumnWidth, newColumnWidth) =>
 	currentTotalWidth - oldColumnWidth + newColumnWidth;
@@ -105,7 +99,7 @@ const calcWidthEnlarge = ({ width }, deltaX, listWidth, currentTotalWidth) => {
 	if (currentTotalWidth + deltaX >= listWidth) {
 		return width + (listWidth - currentTotalWidth);
 	}
-	const calculatedWidth = addWidth(deltaX, width);
+	const calculatedWidth = addValue(deltaX, width);
 	return calculatedWidth;
 };
 
@@ -115,7 +109,7 @@ const calcWidthEnlarge = ({ width }, deltaX, listWidth, currentTotalWidth) => {
  * @param {number} deltaX
  */
 const calcWidthShrink = ({ width, minWidth }, deltaX) => {
-	const calculatedWidth = subtractWidth(deltaX, width);
+	const calculatedWidth = subtractValue(deltaX, width);
 	return getWidth(calculatedWidth, minWidth);
 };
 
@@ -249,7 +243,7 @@ const resizeRight = (deltaX, index, listWidth) => columnsWidths => {
  * @param {integer} listWidth
  */
 const resizeLeft = (deltaX, index, listWidth) => columnsWidths => {
-	if (deltaX < 0 && isLeftColumnAtMinimumWidth(columnsWidths, index)) {
+	if (deltaX < 0 && !isLeftColumnAtMinimumWidth(columnsWidths, index)) {
 		flow([shrinkLeftColumn(index), enlargeRightColumn(index, listWidth)])([
 			columnsWidths,
 			calcTotalCurrentWidth(columnsWidths),
@@ -258,25 +252,6 @@ const resizeLeft = (deltaX, index, listWidth) => columnsWidths => {
 	}
 	return columnsWidths;
 };
-
-/*-----------------------------------------------------------------------------------
-	Resizable functionality entry point
-------------------------------------------------------------------------------------*/
-
-/**
- * This is the entry point of the resize functionality.
- * It clones the incoming collection, mutates it, and return new widths value.
- * To improve performance all changes to the columns list are mutable.
- * @param {number} deltaX
- * @param {array} columnsWidths
- * @param {integer} currentIndex
- */
-export const resizeColumns = (deltaX, columnsWidths, listWidth, currentIndex) =>
-	flow([
-		cloneDeep,
-		resizeRight(deltaX, currentIndex, listWidth),
-		resizeLeft(deltaX, currentIndex, listWidth),
-	])(columnsWidths);
 
 /*-----------------------------------------------------------------------------------
 	Resizable api utils
@@ -306,8 +281,7 @@ export const getColumnWidth = (dataKey, columnsWidths) => {
 	return {};
 };
 
-const isFixedColumnWidth = (resizable, width, minWidth) =>
-	!resizable || width <= minWidth;
+const isFixedColumnWidth = (resizable, width, minWidth) => !resizable || width <= minWidth;
 
 export const createColumnWidthProps = columnsWidthsParams => {
 	if (!columnsWidthsParams) {
@@ -322,4 +296,28 @@ export const createColumnWidthProps = columnsWidthsParams => {
 		};
 	}
 	return { width };
+};
+
+/*-----------------------------------------------------------------------------------
+	Resizable functionality entry point
+------------------------------------------------------------------------------------*/
+
+/**
+ * This is the entry point of the resize functionality.
+ * It clones the incoming collection, mutates it, and return new widths value.
+ * To improve performance all changes to the columns list are mutable.
+ * @param {number} deltaX
+ * @param {array} columnsWidths
+ * @param {integer} currentIndex
+ */
+export const resizeColumns = (deltaX, columnsWidths, listWidth, dataKey) => {
+	const currentIndexColumn = columnsWidths.findIndex(findColumnByDataKey(dataKey));
+	if (currentIndexColumn >= 0) {
+		return flow([
+			cloneDeep,
+			resizeRight(deltaX, currentIndexColumn, listWidth),
+			resizeLeft(deltaX, currentIndexColumn, listWidth),
+		])(columnsWidths);
+	}
+	return columnsWidths;
 };

@@ -172,9 +172,9 @@ Also you need to add the resizable header to headerRenderer props.
 
 | Props | Description |
 |---|---|
-| headerRenderer |  component |
-| resizable |  boolean |
-| width |  integer |
+| headerRenderer |  header that will be render, HeaderResizable to allow dragging |
+| resizable | make the column resizable |
+| width | initial width of the column |
 
 You can also customize the render of the HeaderResizable component.
 
