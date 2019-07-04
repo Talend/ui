@@ -1,4 +1,4 @@
-import i18next, { createInstance } from 'i18next';
+import { createInstance } from 'i18next';
 import { getI18n, setI18n } from 'react-i18next';
 
 const I18N_TEST_KEY = 'TEST';

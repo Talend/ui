@@ -1,4 +1,4 @@
-import i18next, { createInstance } from 'i18next';
+import { createInstance } from 'i18next';
 import { setI18n, getI18n } from 'react-i18next';
 
 export default function getDefaultT() {
@@ -12,6 +12,4 @@ export default function getDefaultT() {
 if (!getI18n()) {
 	console.warn('@talend/react-datagrid used without i18n host.');
 	setI18n(createInstance({}, () => {}));
-} else {
-	setI18n(i18next);
 }
