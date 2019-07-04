@@ -15,7 +15,7 @@ describe('test collection management action creators', () => {
 	it('addOrReplaceCollection dispatch well formed action object', () => {
 		expect(addOrReplace('collectionId', 'data can be anything')).toEqual({
 			type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
-			path: ['collectionId'],
+			collectionId: 'collectionId',
 			data: 'data can be anything',
 		});
 	});
@@ -25,15 +25,7 @@ describe('test collection management action creators', () => {
 			addOrReplace('collectionId.nestedCollection.nestedObjField', 'data can be anything')
 		).toEqual({
 			type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
-			path: ['collectionId', 'nestedCollection', 'nestedObjField'],
-			data: 'data can be anything',
-		});
-
-		expect(
-			addOrReplace(['collectionId', 'nestedCollection', 'nestedObjField'], 'data can be anything')
-		).toEqual({
-			type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
-			path: ['collectionId', 'nestedCollection', 'nestedObjField'],
+			collectionId: 'collectionId.nestedCollection.nestedObjField',
 			data: 'data can be anything',
 		});
 	});
@@ -41,7 +33,7 @@ describe('test collection management action creators', () => {
 	it('removeCollection dispatch well formed action object', () => {
 		const expectedActions = [{
 			type: 'REACT_CMF.COLLECTION_REMOVE',
-			path: ['collectionId'],
+			collectionId: 'collectionId',
 		}];
 
 		const store = mockStore({
@@ -57,12 +49,12 @@ describe('test collection management action creators', () => {
 	it('removeCollection dispatch with path to nested collections, path can be either strings separated with dots or array of string', () => {
 		expect(remove('collectionId.nestedCollection.nestedObjField')).toEqual({
 			type: 'REACT_CMF.COLLECTION_REMOVE',
-			path: ['collectionId', 'nestedCollection', 'nestedObjField'],
+			collectionId: 'collectionId.nestedCollection.nestedObjField',
 		});
 
-		expect(remove(['collectionId', 'nestedCollection', 'nestedObjField'])).toEqual({
+		expect(remove('collectionId.nestedCollection.nestedObjField')).toEqual({
 			type: 'REACT_CMF.COLLECTION_REMOVE',
-			path: ['collectionId', 'nestedCollection', 'nestedObjField'],
+			collectionId: 'collectionId.nestedCollection.nestedObjField',
 		});
 	});
 });
@@ -78,7 +70,7 @@ describe('mutateCollection', () => {
 	it('dispatch well formed action object', () => {
 		expect(mutate('collectionid', operations)).toEqual({
 			type: 'REACT_CMF.COLLECTION_MUTATE',
-			path: ['collectionid'],
+			id: 'collectionid',
 			operations,
 		});
 	});
@@ -86,13 +78,7 @@ describe('mutateCollection', () => {
 	it('dispatch well with path to nested collections, path can be either strings separated with dots or array of string', () => {
 		expect(mutate('collectionId.nestedCollection.nestedObjField', operations)).toEqual({
 			type: 'REACT_CMF.COLLECTION_MUTATE',
-			path: ['collectionId', 'nestedCollection', 'nestedObjField'],
-			operations,
-		});
-
-		expect(mutate(['collectionId', 'nestedCollection', 'nestedObjField'], operations)).toEqual({
-			type: 'REACT_CMF.COLLECTION_MUTATE',
-			path: ['collectionId', 'nestedCollection', 'nestedObjField'],
+			id: 'collectionId.nestedCollection.nestedObjField',
 			operations,
 		});
 	});

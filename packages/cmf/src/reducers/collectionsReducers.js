@@ -18,6 +18,21 @@ export function getId(element) {
 	return id;
 }
 
+/*
+* backward compatibility, as mutateCollection action creator still use 'id' field
+* to represent path to collection
+ */
+export function getActionWithCollectionIdAsArray(action) {
+	if (action.collectionId || action.id) {
+		const collectionId = action.collectionId || action.id;
+		return {
+			...action,
+			collectionId: Array.isArray(collectionId) ? collectionId : collectionId.split('.'),
+		};
+	}
+	return action;
+}
+
 /**
  * addElementToCollection
  *
@@ -28,12 +43,12 @@ export function getId(element) {
 function addCollectionElement(state, action) {
 	if (action.operations.add) {
 		return action.operations.add.reduce((s, e) => {
-			const element = s.getIn(action.path);
+			const element = s.getIn(action.collectionId);
 			if (List.isList(element)) {
-				return s.setIn(action.path, element.push(e));
+				return s.setIn(action.collectionId, element.push(e));
 			}
 			if (Map.isMap(element)) {
-				return s.setIn(action.path, element.merge(e));
+				return s.setIn(action.collectionId, element.merge(e));
 			}
 			return state;
 		}, state);
@@ -46,22 +61,22 @@ function deleteListElements(state, action) {
 		return action.operations.delete.indexOf(getId(element)) >= 0;
 	}
 
-	const collection = state.getIn(action.path);
+	const collection = state.getIn(action.collectionId);
 	if (collection.some(shouldBeRemoved)) {
-		return state.setIn(action.path, collection.filterNot(shouldBeRemoved));
+		return state.setIn(action.collectionId, collection.filterNot(shouldBeRemoved));
 	}
 	return state;
 }
 
 function deleteMapElements(state, action) {
-	const collection = state.getIn(action.path);
+	const collection = state.getIn(action.collectionId);
 
 	if (action.operations.delete.some(id => collection.has(id))) {
 		const changedCollection = action.operations.delete.reduce(
 			(collectionAccu, element) => collectionAccu.delete(element),
 			collection,
 		);
-		return state.setIn(action.path, changedCollection);
+		return state.setIn(action.collectionId, changedCollection);
 	}
 
 	return state;
@@ -76,7 +91,7 @@ function deleteMapElements(state, action) {
  */
 function deleteCollectionElement(state, action) {
 	if (action.operations.delete) {
-		const collection = state.getIn(action.path);
+		const collection = state.getIn(action.collectionId);
 		if (Map.isMap(collection)) {
 			return deleteMapElements(state, action);
 		} else if (List.isList(collection)) {
@@ -90,17 +105,17 @@ function deleteCollectionElement(state, action) {
 function updateListElements(state, action) {
 	const updates = action.operations.update;
 
-	const changedCollection = state.getIn(action.path).map(element => updates[getId(element)] || element);
-	return state.setIn(action.path, changedCollection);
+	const changedCollection = state.getIn(action.collectionId).map(element => updates[getId(element)] || element);
+	return state.setIn(action.collectionId, changedCollection);
 }
 
 function updateMapElements(state, action) {
 	const updates = action.operations.update;
 	const changedCollection = Object.keys(updates).reduce(
 		(collectionAccu, id) => collectionAccu.set(id, updates[id]),
-		state.getIn(action.path),
+		state.getIn(action.collectionId),
 	);
-	return state.setIn(action.path, changedCollection);
+	return state.setIn(action.collectionId, changedCollection);
 }
 
 /**
@@ -112,7 +127,7 @@ function updateMapElements(state, action) {
  */
 function updateCollectionElement(state, action) {
 	if (action.operations.update) {
-		const collection = state.getIn(action.path);
+		const collection = state.getIn(action.collectionId);
 		if (Map.isMap(collection)) {
 			return updateMapElements(state, action);
 		} else if (List.isList(collection)) {
@@ -131,7 +146,7 @@ function updateCollectionElement(state, action) {
  * @returns {object} the new state
  */
 function mutateCollection(state, action) {
-	if (!action.operations || !state.hasIn(action.path) || state.isEmpty()) {
+	if (!action.operations || !state.hasIn(action.collectionId) || state.isEmpty()) {
 		return state;
 	}
 	let newState = addCollectionElement(state, action);
@@ -144,21 +159,22 @@ function mutateCollection(state, action) {
  * @param  {object} action redux action
  * @return {object}        the new state
  */
-function collectionsReducers(state = defaultState, action) {
-	switch (action.type) {
+function collectionsReducers(state = defaultState, action = { type: '' }) {
+	const newAction = getActionWithCollectionIdAsArray(action);
+	switch (newAction.type) {
 		case CONSTANTS.COLLECTION_ADD_OR_REPLACE:
-			return state.setIn(action.path, fromJS(action.data));
+			return state.setIn(newAction.collectionId, fromJS(newAction.data));
 		case CONSTANTS.COLLECTION_REMOVE:
-			if (!state.getIn(action.path)) {
+			if (!state.getIn(newAction.collectionId)) {
 				invariant(
 					process.env.NODE_ENV === 'production',
-					`Can't remove collection ${action.path} since it doesn't exist.`,
+					`Can't remove collection ${newAction.collectionId} since it doesn't exist.`,
 				);
 				return state;
 			}
-			return state.deleteIn(action.path);
+			return state.deleteIn(newAction.collectionId);
 		case CONSTANTS.COLLECTION_MUTATE:
-			return mutateCollection(state, action);
+			return mutateCollection(state, newAction);
 		default:
 			return state;
 	}

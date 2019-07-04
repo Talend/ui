@@ -1,14 +1,18 @@
 import { Map, List, fromJS } from 'immutable';
 
-import collectionsReducers, { defaultState, getId } from '../../src/reducers/collectionsReducers';
+import collectionsReducers, { defaultState, getId, getActionWithCollectionIdAsArray } from '../../src/reducers/collectionsReducers';
 
 describe('check collection management reducer', () => {
 	const initialState = defaultState.set('collection1', 'super data');
 
+	it('should return state if no action passed', () => {
+		expect(collectionsReducers(initialState)).toEqual(initialState);
+	});
+
 	it('REACT_CMF.COLLECTION_ADD_OR_REPLACE should properly add data into store', () => {
 		expect(collectionsReducers(initialState, {
 			type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
-			path: ['collectionId'],
+			collectionId: ['collectionId'],
 			data: 'data can be anything',
 		})).toEqual(new Map()
 			.set('collection1', 'super data')
@@ -18,7 +22,7 @@ describe('check collection management reducer', () => {
 	it('REACT_CMF.COLLECTION_ADD_OR_REPLACE should properly replace data into store', () => {
 		expect(collectionsReducers(initialState, {
 			type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
-			path: ['collection1'],
+			collectionId: ['collection1'],
 			data: 'data can be anything',
 		})).toEqual(new Map().set('collection1', 'data can be anything'));
 	});
@@ -32,7 +36,7 @@ describe('check collection management reducer', () => {
 		const expectedResult = initState.setIn(['collection1', 'nestedCollection'], fromJS(['item 1', 'item 2']));
 		expect(collectionsReducers(initState, {
 			type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
-			path: ['collection1', 'nestedCollection'],
+			collectionId: ['collection1', 'nestedCollection'],
 			data: ['item 1', 'item 2'],
 		})).toEqual(expectedResult);
 	});
@@ -46,7 +50,7 @@ describe('check collection management reducer', () => {
 		const expectedResult = initState.setIn(['collection1', 'nestedCollection'], fromJS(['item 1', 'item 2']));
 		expect(collectionsReducers(initState, {
 			type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
-			path: ['collection1', 'nestedCollection'],
+			collectionId: ['collection1', 'nestedCollection'],
 			data: ['item 1', 'item 2'],
 		})).toEqual(expectedResult);
 	});
@@ -54,7 +58,7 @@ describe('check collection management reducer', () => {
 	it('REACT_CMF.COLLECTION_REMOVE should properly remove collection from the store', () => {
 		expect(collectionsReducers(initialState, {
 			type: 'REACT_CMF.COLLECTION_REMOVE',
-			path: ['collection1'],
+			collectionId: ['collection1'],
 		})).toEqual(new Map());
 	});
 
@@ -69,7 +73,7 @@ describe('check collection management reducer', () => {
 		const expectedResult = initState.deleteIn(['collection', 'nestedCollection', 'list']);
 		expect(collectionsReducers(initState, {
 			type: 'REACT_CMF.COLLECTION_REMOVE',
-			path: ['collection', 'nestedCollection', 'list'],
+			collectionId: ['collection', 'nestedCollection', 'list'],
 		})).toEqual(expectedResult);
 	});
 
@@ -77,7 +81,7 @@ describe('check collection management reducer', () => {
 		expect(() => {
 			collectionsReducers(initialState, {
 				type: 'REACT_CMF.COLLECTION_REMOVE',
-				path: ['unknown collection'],
+				collectionId: ['unknown collection'],
 			});
 		}).toThrowError('Can\'t remove collection unknown collection since it doesn\'t exist.');
 	});
@@ -96,7 +100,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 	it('shouldn\'t mutate if id doesn\'t exist', () => {
 		expect(collectionsReducers(mapInitialState, {
 			type: 'REACT_CMF.COLLECTION_MUTATE',
-			path: ['wrongCollectionid'],
+			id: ['wrongCollectionid'],
 			operation: {},
 		})).toEqual(mapInitialState);
 	});
@@ -104,7 +108,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 	it('shouldn\'t mutate if no operations', () => {
 		expect(collectionsReducers(mapInitialState, {
 			type: 'REACT_CMF.COLLECTION_MUTATE',
-			path: ['collectionid'],
+			id: ['collectionid'],
 		})).toEqual(mapInitialState);
 	});
 
@@ -112,7 +116,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 		it('should insert elements to List properly', () => {
 			const nextState = collectionsReducers(listInitialState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				path: ['collectionid'],
+				id: ['collectionid'],
 				operations: {
 					add: [{ id: 2, label: 'test data 2' }],
 				},
@@ -136,7 +140,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 			});
 			const nextState = collectionsReducers(initState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				path: ['collection', 'nestedCollection', 'list'],
+				id: ['collection', 'nestedCollection', 'list'],
 				operations: {
 					add: [
 						{ id: 1, label: 'test data 1' },
@@ -154,7 +158,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 		it('should insert elements to Map properly', () => {
 			const nextState = collectionsReducers(mapInitialState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				path: ['collectionid'],
+				id: ['collectionid'],
 				operations: {
 					add: [{ test2: 'test data 2' }],
 				},
@@ -181,7 +185,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 			});
 			const nextState = collectionsReducers(initState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				path: ['collection', 'nestedCollection', 'obj'],
+				id: ['collection', 'nestedCollection', 'obj'],
 				operations: {
 					add: [{ test2: 'test data 2' }],
 				},
@@ -206,7 +210,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 		it('should delete elements from List properly', () => {
 			const nextState = collectionsReducers(listInitialState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				path: ['collectionid'],
+				id: ['collectionid'],
 				operations: {
 					delete: [0],
 				},
@@ -230,7 +234,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 			});
 			const nextState = collectionsReducers(initState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				path: ['collection', 'nestedCollection', 'list'],
+				id: ['collection', 'nestedCollection', 'list'],
 				operations: {
 					delete: [0, 1],
 				},
@@ -243,7 +247,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 		it('should delete elements from Map properly', () => {
 			const nextState = collectionsReducers(mapInitialState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				path: ['collectionid'],
+				id: ['collectionid'],
 				operations: {
 					delete: ['test0'],
 				},
@@ -269,7 +273,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 			});
 			const nextState = collectionsReducers(initState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				path: ['collection', 'nestedCollection', 'obj'],
+				id: ['collection', 'nestedCollection', 'obj'],
 				operations: {
 					delete: ['test0', 'test1'],
 				},
@@ -282,7 +286,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 		it('should delete nothing when ids don\'t match in List', () => {
 			const nextState = collectionsReducers(listInitialState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				path: ['collectionid'],
+				id: ['collectionid'],
 				operations: {
 					delete: ['unknown'],
 				},
@@ -293,7 +297,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 		it('should delete nothing when ids don\'t match in Map', () => {
 			const nextState = collectionsReducers(mapInitialState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				path: ['collectionid'],
+				id: ['collectionid'],
 				operations: {
 					delete: ['unknown'],
 				},
@@ -306,7 +310,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 		it('should update elements of List properly', () => {
 			const nextState = collectionsReducers(listInitialState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				path: ['collectionid'],
+				id: ['collectionid'],
 				operations: {
 					update: {
 						0: { id: 0, label: 'new test data 0' },
@@ -333,7 +337,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 			});
 			const nextState = collectionsReducers(initState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				path: ['collection', 'nestedCollection', 'list'],
+				id: ['collection', 'nestedCollection', 'list'],
 				operations: {
 					update: {
 						0: { id: 0, label: 'new test data 0' },
@@ -351,7 +355,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 		it('should update elements of Map properly', () => {
 			const nextState = collectionsReducers(mapInitialState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				path: ['collectionid'],
+				id: ['collectionid'],
 				operations: {
 					update: {
 						test0: 'new test data 0',
@@ -380,7 +384,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 			});
 			const nextState = collectionsReducers(initState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
-				path: ['collection', 'nestedCollection', 'obj'],
+				id: ['collection', 'nestedCollection', 'obj'],
 				operations: {
 					update: {
 						test0: 'new test data 0',
@@ -418,5 +422,42 @@ describe('getId', () => {
 
 		// then
 		expect(id).toBe('toto');
+	});
+});
+
+describe('getActionWithCollectionIdAsArray', () => {
+	it('should return action if there is not collectionId or id fields in action object', () => {
+		const action = {
+			type: 'SOME_ACTION',
+		};
+		const result = getActionWithCollectionIdAsArray(action);
+		expect(result).toEqual(action);
+	});
+
+	it('should return new formed action if path to collection is represented by "collectionId" field', () => {
+		const action = {
+			type: 'SOME_ACTION',
+			collectionId: 'collection.nestedCollection',
+		};
+		const expectedResult = {
+			type: 'SOME_ACTION',
+			collectionId: ['collection', 'nestedCollection'],
+		};
+		const result = getActionWithCollectionIdAsArray(action);
+		expect(result).toEqual(expectedResult);
+	});
+
+	it('should return new formed action if path to collection is represented by "id" field (mutateCollection action creator)', () => {
+		const action = {
+			type: 'SOME_ACTION',
+			id: 'collection.nestedCollection',
+		};
+		const expectedResult = {
+			type: 'SOME_ACTION',
+			id: 'collection.nestedCollection',
+			collectionId: ['collection', 'nestedCollection'],
+		};
+		const result = getActionWithCollectionIdAsArray(action);
+		expect(result).toEqual(expectedResult);
 	});
 });

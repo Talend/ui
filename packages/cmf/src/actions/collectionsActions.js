@@ -10,32 +10,32 @@ export const { COLLECTION_ADD_OR_REPLACE, COLLECTION_REMOVE, COLLECTION_MUTATE }
 /**
  * Add or replace collection data in store
  * curried function
- * @param {string} path - path to collection
+ * @param {string | Array<string>} collectionId - path to collection
  * @param {any} data element that represent business data
  */
-export const addOrReplace = curry((path, data) => ({
+export const addOrReplace = curry((collectionId, data) => ({
 	type: CONSTANTS.COLLECTION_ADD_OR_REPLACE,
-	path: Array.isArray(path) ? path : path.split('.'),
+	collectionId,
 	data,
 }));
 
 /**
  * Remove collection data in store to free space
- * @param {string} path - path to collection
+ * @param {string | Array<string>} collectionId - path to collection
  *
  * @throws if you try to remove non existent collection
  */
-export function remove(path) {
+export function remove(collectionId) {
 	return {
 		type: CONSTANTS.COLLECTION_REMOVE,
-		path: Array.isArray(path) ? path : path.split('.'),
+		collectionId,
 	};
 }
 
 /**
  * mutateCollection let's you apply operations on a given collection
  * curried function
- * @param {string} path - path to collection
+ * @param {string | Array<string>} collectionId - path to collection
  * @param {object} operations operations to be applied on the collection
  * {
  * 		add: [],
@@ -43,9 +43,9 @@ export function remove(path) {
  * 		delete: []
  * }
  */
-export const mutate = curry((path, operations) => ({
+export const mutate = curry((id, operations) => ({
 	type: CONSTANTS.COLLECTION_MUTATE,
-	path: Array.isArray(path) ? path : path.split('.'),
+	id,
 	operations,
 }));
 
