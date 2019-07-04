@@ -76,15 +76,13 @@ export function Badge({
 	);
 }
 
-Badge.SIZES = SIZES;
-
 Badge.propTypes = {
 	aslink: PropTypes.bool,
 	category: PropTypes.string,
 	children: PropTypes.oneOf([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 	className: PropTypes.string,
 	disabled: PropTypes.bool,
-	display: PropTypes.oneOf([Badge.SIZES.small, Badge.SIZES.large]),
+	display: PropTypes.oneOf([SIZES.small, SIZES.large]),
 	icon: PropTypes.string,
 	id: PropTypes.string,
 	label: PropTypes.string,
