@@ -9,7 +9,6 @@ describe('createColumnWidthProps', () => {
 	it('should return an object with fixed width', () => {
 		// given
 		const params = {
-			resized: true,
 			resizable: true,
 			width: 40,
 			minWidth: 40,
@@ -26,7 +25,6 @@ describe('createColumnWidthProps', () => {
 	it('should return an object with only the width', () => {
 		// given
 		const params = {
-			resized: true,
 			resizable: true,
 			width: 180,
 			minWidth: 40,
@@ -159,19 +157,16 @@ describe('resizeColumns', () => {
 			{
 				dataKey: 'columnOne',
 				resizable: true,
-				resized: false,
 				width: 70,
 			},
 			{
 				dataKey: 'columnTwo',
 				resizable: true,
-				resized: true,
 				width: 110,
 			},
 			{
 				dataKey: 'columnThree',
 				resizable: true,
-				resized: true,
 				width: 120,
 			},
 		]);
@@ -205,19 +200,16 @@ describe('resizeColumns', () => {
 			{
 				dataKey: 'columnOne',
 				resizable: true,
-				resized: true,
 				width: 80,
 			},
 			{
 				dataKey: 'columnTwo',
 				resizable: true,
-				resized: false,
 				width: 40,
 			},
 			{
 				dataKey: 'columnThree',
 				resizable: true,
-				resized: true,
 				width: 120,
 			},
 		]);
@@ -256,25 +248,21 @@ describe('resizeColumns', () => {
 			{
 				dataKey: 'columnOne',
 				resizable: true,
-				resized: false,
 				width: 70,
 			},
 			{
 				dataKey: 'columnTwo',
 				resizable: true,
-				resized: true,
 				width: 160,
 			},
 			{
 				dataKey: 'columnThree',
 				resizable: false,
-				resized: false,
 				width: 120,
 			},
 			{
 				dataKey: 'columnFour',
 				resizable: true,
-				resized: true,
 				width: 120,
 			},
 		]);
@@ -308,19 +296,16 @@ describe('resizeColumns', () => {
 			{
 				dataKey: 'columnOne',
 				resizable: true,
-				resized: false,
 				width: 70,
 			},
 			{
 				dataKey: 'columnTwo',
 				resizable: true,
-				resized: true,
 				width: 90,
 			},
 			{
 				dataKey: 'columnThree',
 				resizable: true,
-				resized: true,
 				width: 140,
 			},
 		]);
@@ -353,18 +338,15 @@ describe('resizeColumns', () => {
 			{
 				dataKey: 'columnOne',
 				resizable: true,
-				resized: true,
 				width: 60,
 			},
 			{
 				dataKey: 'columnTwo',
-				resized: false,
 				width: 40,
 			},
 			{
 				dataKey: 'columnThree',
 				resizable: true,
-				resized: true,
 				width: 140,
 			},
 		]);
@@ -398,19 +380,16 @@ describe('resizeColumns', () => {
 			{
 				dataKey: 'columnOne',
 				resizable: true,
-				resized: false,
 				width: 70,
 			},
 			{
 				dataKey: 'columnTwo',
 				resizable: true,
-				resized: true,
 				width: 190,
 			},
 			{
 				dataKey: 'columnThree',
 				resizable: true,
-				resized: true,
 				width: 40,
 			},
 		]);
@@ -444,19 +423,16 @@ describe('resizeColumns', () => {
 			{
 				dataKey: 'columnOne',
 				resizable: true,
-				resized: false,
 				width: 70,
 			},
 			{
 				dataKey: 'columnTwo',
 				resizable: true,
-				resized: true,
 				width: 40,
 			},
 			{
 				dataKey: 'columnThree',
 				resizable: true,
-				resized: true,
 				width: 190,
 			},
 		]);

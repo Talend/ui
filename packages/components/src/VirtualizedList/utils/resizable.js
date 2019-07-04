@@ -1,6 +1,7 @@
 import flow from 'lodash/flow';
 import findLastIndex from 'lodash/findLastIndex';
 import findIndex from 'lodash/findIndex';
+import cloneDeep from 'lodash/cloneDeep';
 
 const MINIMUM_COLUMN_WIDTH = 40;
 
@@ -43,13 +44,6 @@ const setColumn = (columnsWidths, index) => column => {
 	columnsWidths[index] = column;
 	return columnsWidths;
 };
-
-/**
- * Prepare the list before resizing.
- * Set all the array elements to resized false.
- * @param {array} columnsWidths
- */
-const prepareColumnsWidthsForResize = columnsWidths => columnsWidths.map(setColumnResized(false));
 
 /*-----------------------------------------------------------------------------------
 	Index getters
@@ -202,7 +196,7 @@ const changeWidthColumn = (setWidthFn, getIndexFn) => (index, listWidth) => ([
 		const widthBeforeChange = columnsWidths[workingIndex].width;
 		flow([
 			setWidthFn(absDeltaX, listWidth, currentTotalWidth),
-			setColumnResized(true),
+			// setColumnResized(true),
 			setColumn(columnsWidths, workingIndex),
 		])(columnsWidths[workingIndex]);
 		return [
@@ -286,7 +280,7 @@ const resizeLeft = (deltaX, index, listWidth) => columnsWidths => {
  */
 export const resizeColumns = (deltaX, columnsWidths, listWidth, currentIndex) =>
 	flow([
-		prepareColumnsWidthsForResize,
+		cloneDeep,
 		resizeRight(deltaX, currentIndex, listWidth),
 		resizeLeft(deltaX, currentIndex, listWidth),
 	])(columnsWidths);
@@ -319,15 +313,15 @@ export const getColumnWidth = (dataKey, columnsWidths) => {
 	return {};
 };
 
-const isFixedColumnWidth = (resizable, resized, width, minWidth) =>
-	!resizable || !resized || width <= minWidth;
+const isFixedColumnWidth = (resizable, width, minWidth) =>
+	!resizable || width <= minWidth;
 
 export const createColumnWidthProps = columnsWidthsParams => {
 	if (!columnsWidthsParams) {
 		return undefined;
 	}
-	const { resized, resizable, width, minWidth } = columnsWidthsParams;
-	if (isFixedColumnWidth(resized, resizable, width, minWidth)) {
+	const { resizable, width, minWidth } = columnsWidthsParams;
+	if (isFixedColumnWidth(resizable, width, minWidth)) {
 		return {
 			width,
 			flexShrink: 0,
