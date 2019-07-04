@@ -2,9 +2,18 @@ import { Map, List, fromJS } from 'immutable';
 
 import collectionsReducers, { defaultState, getId, getActionWithCollectionIdAsArray } from '../../src/reducers/collectionsReducers';
 
-describe('check collection management reducer', () => {
-	const initialState = defaultState.set('collection1', 'super data');
+const initialState = defaultState.set('collection1', 'super data');
 
+const listInitialState = defaultState.set(
+	'collectionid',
+	new List().set(0, { id: 0, label: 'test data 0' }).set(1, { id: 1, label: 'test data 1' })
+);
+const mapInitialState = defaultState.set(
+	'collectionid',
+	new Map().set('test0', 'test data 0').set('test1', 'test data 1')
+);
+
+describe('check collection management reducer', () => {
 	it('should return state if no action passed', () => {
 		expect(collectionsReducers(initialState)).toEqual(initialState);
 	});
@@ -88,15 +97,6 @@ describe('check collection management reducer', () => {
 });
 
 describe('REACT_CMF.COLLECTION_MUTATE', () => {
-	const listInitialState = defaultState.set(
-		'collectionid',
-		new List().set(0, { id: 0, label: 'test data 0' }).set(1, { id: 1, label: 'test data 1' })
-	);
-	const mapInitialState = defaultState.set(
-		'collectionid',
-		new Map().set('test0', 'test data 0').set('test1', 'test data 1')
-	);
-
 	it('shouldn\'t mutate if id doesn\'t exist', () => {
 		expect(collectionsReducers(mapInitialState, {
 			type: 'REACT_CMF.COLLECTION_MUTATE',
@@ -398,6 +398,48 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 				test2: 'test data 2',
 			});
 		});
+	});
+});
+
+describe('should properly perform all operations if collectionId is string', () => {
+	it('REACT_CMF.COLLECTION_ADD_OR_REPLACE should properly add data into store', () => {
+		expect(collectionsReducers(initialState, {
+			type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
+			collectionId: 'collectionId',
+			data: 'data can be anything',
+		})).toEqual(new Map()
+			.set('collection1', 'super data')
+			.set('collectionId', 'data can be anything'));
+	});
+
+	it('REACT_CMF.COLLECTION_REMOVE should properly remove collection from the store', () => {
+		const initState = fromJS({
+			collection: {
+				nestedCollection: {
+					list: ['item 1', 'item 2'],
+				},
+			},
+		});
+		const expectedResult = initState.deleteIn(['collection', 'nestedCollection', 'list']);
+		expect(collectionsReducers(initState, {
+			type: 'REACT_CMF.COLLECTION_REMOVE',
+			collectionId: 'collection.nestedCollection.list',
+		})).toEqual(expectedResult);
+	});
+
+	it('REACT_CMF.COLLECTION_MUTATE should mutate List properly', () => {
+		const nextState = collectionsReducers(listInitialState, {
+			type: 'REACT_CMF.COLLECTION_MUTATE',
+			id: 'collectionid',
+			operations: {
+				add: [{ id: 2, label: 'test data 2' }],
+			},
+		});
+		expect(nextState.get('collectionid').toJS()).toEqual([
+			{ id: 0, label: 'test data 0' },
+			{ id: 1, label: 'test data 1' },
+			{ id: 2, label: 'test data 2' },
+		]);
 	});
 });
 
