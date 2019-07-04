@@ -51,6 +51,7 @@ import { Status } from './Status';
 import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
 import Toggle, { Checkbox } from './Toggle';
+import getTranslated from './TranslateWrapper';
 import TooltipTrigger from './TooltipTrigger';
 import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
@@ -184,6 +185,7 @@ export {
 	Typeahead,
 	VirtualizedList,
 	WithDrawer,
+	getTranslated,
 	I18N_DOMAIN_COMPONENTS,
 	CIRCULAR_PROGRESS_SIZE,
 	// bootstrap
