@@ -6,7 +6,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/forms/src/translate.js
-  14:2  warning  Unexpected console statement  no-console
+  10:2  warning  Unexpected console statement  no-console
 
 ✖ 2 problems (1 error, 1 warning)
 
