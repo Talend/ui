@@ -184,7 +184,6 @@ export {
 	Typeahead,
 	VirtualizedList,
 	WithDrawer,
-	getTranslated,
 	I18N_DOMAIN_COMPONENTS,
 	CIRCULAR_PROGRESS_SIZE,
 	// bootstrap
