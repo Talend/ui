@@ -148,7 +148,6 @@ const setShrinkingColumnWidth = deltaX => column => {
  * @param {integer} currentTotalWidth
  */
 const setEnlargingColumnWidth = (deltaX, listWidth, currentTotalWidth) => column => {
-	// const { width } = column;
 	if (currentTotalWidth <= listWidth) {
 		// eslint-disable-next-line no-param-reassign
 		column.width = calcWidthEnlarge(column, deltaX, listWidth, currentTotalWidth);
