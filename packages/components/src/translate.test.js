@@ -1,5 +1,8 @@
 import i18next from 'i18next';
+
 import { getCurrentLanguage } from './translate';
+
+// use a variable to avoid that i18next-parser parse this key
 
 describe('getCurrentLanguage', () => {
 	let originalLang;

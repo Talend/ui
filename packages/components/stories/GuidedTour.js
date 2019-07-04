@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { I18nextProvider, withTranslation } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import i18n, { LanguageSwitcher } from './config/i18n';
 
 import { GuidedTour } from '../src/index';
@@ -277,12 +277,10 @@ storiesOf('GuidedTour', module)
 	.addDecorator(story => (
 		<React.Fragment>
 			<LanguageSwitcher />
-			<I18nextProvider i18n={i18n}>
-				<React.Fragment>
-					{story()}
-					{getLayoutWithLoremIpsum()}
-				</React.Fragment>
-			</I18nextProvider>
+			<React.Fragment>
+				{story()}
+				{getLayoutWithLoremIpsum()}
+			</React.Fragment>
 		</React.Fragment>
 	))
 	.add('default', () => <TranslatedGuidedTourContainer getSteps={getSteps} />);

@@ -1,9 +1,17 @@
-import { createInstance } from 'i18next';
+import i18next, { createInstance } from 'i18next';
 import { getI18n, setI18n } from 'react-i18next';
 
+const I18N_TEST_KEY = 'TEST';
+
 export default function getDefaultT() {
-	return getI18n().t.bind(getI18n());
+	const i18n = getI18n();
+	if (i18n && i18n.t) {
+		return i18n.t.bind(getI18n());
+	}
+	return global.I18NEXT_T;
 }
 
-// https://github.com/i18next/i18next/issues/936#issuecomment-307550677
-// setI18n(createInstance({}, () => {}));
+if (!getI18n()) {
+	console.warn('@talend/react-containers used without i18n host.');
+	setI18n(createInstance({}, () => {}));
+}

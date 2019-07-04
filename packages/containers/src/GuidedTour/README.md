@@ -20,11 +20,9 @@ const storeCallback = cmf.localStorage.getStoreCallback(localStorageKey, [
 ```javascript
 export default function App() {
 	return (
-		<I18nextProvider i18n={i18n}>
-			<AppLoader>
-				<GuidedTour steps={getSteps()}/>
-			</AppLoader>
-		</I18nextProvider>
+		<AppLoader>
+			<GuidedTour steps={getSteps()} />
+		</AppLoader>
 	);
 }
 ```

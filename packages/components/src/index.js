@@ -52,7 +52,6 @@ import SubHeaderBar from './SubHeaderBar';
 import TabBar from './TabBar';
 import Toggle, { Checkbox } from './Toggle';
 import TooltipTrigger from './TooltipTrigger';
-import getTranslated from './TranslateWrapper';
 import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
 import WithDrawer from './WithDrawer';
