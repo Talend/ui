@@ -29,12 +29,6 @@ const isLeftColumnAtMinimumWidth = (columnsWidths, index) =>
 ------------------------------------------------------------------------------------*/
 
 /**
- * Set the collection with the resized value, and return a new instance of the given column.
- * @param {boolean} resized the value to set.
- */
-const setColumnResized = resized => column => ({ ...column, resized });
-
-/**
  * Set an item of the array.
  * @param {array} columnsWidths
  * @param {integer} index
@@ -196,7 +190,6 @@ const changeWidthColumn = (setWidthFn, getIndexFn) => (index, listWidth) => ([
 		const widthBeforeChange = columnsWidths[workingIndex].width;
 		flow([
 			setWidthFn(absDeltaX, listWidth, currentTotalWidth),
-			// setColumnResized(true),
 			setColumn(columnsWidths, workingIndex),
 		])(columnsWidths[workingIndex]);
 		return [
