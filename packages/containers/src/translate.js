@@ -1,8 +1,6 @@
 import { createInstance } from 'i18next';
 import { getI18n, setI18n } from 'react-i18next';
 
-const I18N_TEST_KEY = 'TEST';
-
 export default function getDefaultT() {
 	const i18n = getI18n();
 	if (i18n && i18n.t) {
