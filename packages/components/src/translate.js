@@ -8,7 +8,7 @@ if (!getI18n()) {
 
 export default function getDefaultT() {
 	const i18n = getI18n();
-	if (i18n && i18n.t) {
+	if (i18n) {
 		return i18n.t.bind(getI18n());
 	}
 	return global.I18NEXT_T;

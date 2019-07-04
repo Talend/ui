@@ -3,11 +3,7 @@ import { setI18n, getI18n } from 'react-i18next';
 
 // eslint-disable-next-line import/prefer-default-export
 export default function getDefaultT() {
-	const i18n = getI18n();
-	if (i18n && i18n.t) {
-		return i18n.t.bind(getI18n());
-	}
-	return global.I18NEXT_T;
+	return getI18n().t.bind(getI18n());
 }
 
 if (!getI18n()) {
