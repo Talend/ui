@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import i18n, { LanguageSwitcher } from './config/i18n';
+import { LanguageSwitcher } from './config/i18n';
 import { ListView, IconsProvider } from '../src/index';
 
 const filterAction = {

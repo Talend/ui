@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { IconsProvider } from '@talend/react-components';
 
+import './config/i18n';
 import DataGrid from '../src/components/';
 import DefaultRenderer from '../src/components/DefaultCellRenderer/DefaultRenderer.component';
 import DefaultIntCellRenderer from '../src/components/DefaultIntCellRenderer';

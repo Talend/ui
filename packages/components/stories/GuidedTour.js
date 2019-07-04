@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { withTranslation } from 'react-i18next';
-import i18n, { LanguageSwitcher } from './config/i18n';
+import { LanguageSwitcher } from './config/i18n';
 
 import { GuidedTour } from '../src/index';
 import I18N_DOMAIN_COMPONENTS from '../src/constants';
