@@ -27,6 +27,25 @@
 	white-space: nowrap;
 }
 
+:global(div[role='columnheader'].tc-header-resizable.ReactVirtualized__Table__headerColumn) {
+	height: inherit;
+	padding: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+	&:hover {
+		cursor: pointer;
+	}
+	:global(.ReactVirtualized__Table__headerTruncatedText) {
+		align-self: center;
+		overflow: hidden;
+		padding-left: $padding-small;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+}
+
 .tc-list-progress {
 	width: 100%;
 	display: flex;
