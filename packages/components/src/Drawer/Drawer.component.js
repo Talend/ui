@@ -97,7 +97,12 @@ export function cancelActionComponent(onCancelAction, getComponent) {
 		},
 		onCancelAction,
 	);
-	return <ActionComponent {...enhancedCancelAction} className={classnames(theme['tc-drawer-close-action'], enhancedCancelAction.className)} />;
+	return (
+		<ActionComponent
+			{...enhancedCancelAction}
+			className={classnames(theme['tc-drawer-close-action'], enhancedCancelAction.className)}
+		/>
+	);
 }
 
 export function subtitleComponent(subtitle) {
