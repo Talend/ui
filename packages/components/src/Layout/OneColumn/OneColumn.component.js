@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
+import omit from 'lodash/omit';
 
 import theme from './OneColumn.scss';
 import TabBar from '../../TabBar';
@@ -11,7 +12,7 @@ import WithDrawer from '../../WithDrawer';
  * @example
  <OneColumn name="Hello world"></OneColumn>
  */
-function OneColumn({ drawers, children, tabs }) {
+function OneColumn({ drawers, children, tabs, ...props }) {
 	const container = classnames('tc-layout-one-column', theme.main);
 	const style = {
 		overflow: 'auto',
@@ -20,7 +21,13 @@ function OneColumn({ drawers, children, tabs }) {
 		flexDirection: 'column',
 	};
 	return (
-		<div role="main" id="tc-layout-main" tabIndex="-1" className={container}>
+		<div
+			role="main"
+			id="tc-layout-main"
+			tabIndex="-1"
+			className={container}
+			{...omit(props, 'getComponents')}
+		>
 			<WithDrawer drawers={drawers}>
 				{tabs && <TabBar {...tabs} />}
 				<div style={style}>{children}</div>
