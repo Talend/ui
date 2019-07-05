@@ -59,6 +59,8 @@ const primary = {
 const onCancelAction = {
 	label: 'Cancel',
 	onClick: action('You clicked on cancel action'),
+	bsStyle: 'default',
+	className: 'btn-inverse',
 };
 
 const panelActions = {
