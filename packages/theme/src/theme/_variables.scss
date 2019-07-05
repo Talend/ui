@@ -240,32 +240,35 @@ $cursor-disabled: not-allowed !default;
 //
 //## Dropdown menu container and contents.
 
-//** Background for the dropdown menu.
-$dropdown-bg: $white !default;
-//** Dropdown menu `border-color`.
-$dropdown-border: rgba(0, 0, 0, 0.15) !default;
-//** Dropdown menu `border-color` **for IE8**.
-$dropdown-fallback-border: #ccc !default;
-//** Divider color for between dropdown items.
-$dropdown-divider-bg: #e5e5e5 !default;
+$dropdown-item-padding-y: 0.75rem;
+$dropdown-item-padding-x: 2rem;
 
-//** Dropdown link text color.
-$dropdown-link-color: tint($gray-base, 25) !default;
-//** Hover color for dropdown links.
-$dropdown-link-hover-color: tint($gray-base, 15) !default;
-//** Hover background for dropdown links.
-$dropdown-link-hover-bg: tint($brand-primary, 95) !default;
+// //** Background for the dropdown menu.
+// $dropdown-bg: $white !default;
+// //** Dropdown menu `border-color`.
+// $dropdown-border: rgba(0, 0, 0, 0.15) !default;
+// //** Dropdown menu `border-color` **for IE8**.
+// $dropdown-fallback-border: #ccc !default;
+// //** Divider color for between dropdown items.
+// $dropdown-divider-bg: #e5e5e5 !default;
 
-//** Active dropdown menu item text color.
-$dropdown-link-active-color: $component-active-color !default;
-//** Active dropdown menu item background color.
-$dropdown-link-active-bg: $component-active-bg !default;
+// //** Dropdown link text color.
+// $dropdown-link-color: tint($gray-base, 25) !default;
+// //** Hover color for dropdown links.
+// $dropdown-link-hover-color: tint($gray-base, 15) !default;
+// //** Hover background for dropdown links.
+// $dropdown-link-hover-bg: tint($brand-primary, 95) !default;
 
-//** Disabled dropdown menu item background color.
-$dropdown-link-disabled-color: $gray-light !default;
+// //** Active dropdown menu item text color.
+// $dropdown-link-active-color: $component-active-color !default;
+// //** Active dropdown menu item background color.
+// $dropdown-link-active-bg: $component-active-bg !default;
 
-//** Text color for headers within dropdown menus.
-$dropdown-header-color: $gray-light !default;
+// //** Disabled dropdown menu item background color.
+// $dropdown-link-disabled-color: $gray-light !default;
+
+// //** Text color for headers within dropdown menus.
+// $dropdown-header-color: $gray-light !default;
 
 //-- Z-index master list
 //
