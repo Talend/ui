@@ -136,7 +136,7 @@ if (process.env.NODE_ENV !== 'production') {
 		index: PropTypes.number.isRequired,
 		isClosed: PropTypes.bool,
 		onRemove: PropTypes.func.isRequired,
-		onReorder: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]).isRequired,
+		onReorder: PropTypes.func.isRequired,
 		valueIsUpdating: PropTypes.bool,
 		isCloseable: PropTypes.bool,
 	};
