@@ -43,7 +43,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   166:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
-  42:3  warning  Unexpected console statement  no-console
+  41:3  warning  Unexpected console statement  no-console
 
 ✖ 23 problems (20 errors, 3 warnings)
   1 error, 0 warnings potentially fixable with the `--fix` option.

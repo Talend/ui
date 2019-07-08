@@ -77,7 +77,7 @@ ListToolbar.propTypes = {
 		columns: [
 			{key, label},
 			{key, label},
-		]
+		],
 	},
 	toolbar: {
 		display: {

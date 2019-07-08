@@ -85,7 +85,7 @@
     "react": "^16.8.6",
     "react-ace": "6.2.0",
     "react-dom": "^16.8.6",
-    "react-i18next": "^10.10.0",
+    "react-i18next": "^10.11.4",
     "react-test-renderer": "^16.8.6",
     "rimraf": "^2.6.2",
     "sass-lint": "^1.13.1",

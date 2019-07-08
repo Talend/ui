@@ -11,7 +11,7 @@ import BadgeLib from './BadgeComposition';
 
 const theme = getTheme(badgeCssModule);
 
-export const SIZES = {
+const SIZES = {
 	large: 'large',
 	small: 'small',
 };
@@ -82,7 +82,7 @@ Badge.propTypes = {
 	children: PropTypes.oneOf([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 	className: PropTypes.string,
 	disabled: PropTypes.bool,
-	display: PropTypes.oneOf([SIZES.small, SIZES.large]),
+	display: PropTypes.oneOf(Object.values(SIZES)),
 	icon: PropTypes.string,
 	id: PropTypes.string,
 	label: PropTypes.string,
@@ -100,4 +100,6 @@ Badge.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(Badge);
+const TranslatedBadge = withTranslation(I18N_DOMAIN_COMPONENTS)(Badge);
+TranslatedBadge.SIZES = SIZES;
+export default TranslatedBadge;

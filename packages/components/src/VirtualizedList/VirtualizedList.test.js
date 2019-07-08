@@ -84,7 +84,7 @@ describe('VirtualizedList', () => {
 
 	it('should render RendererSelector', () => {
 		// given
-		const wrapper = shallow(
+		const wrapper = mount(
 			<VirtualizedList
 				collection={collection}
 				height={600}
@@ -104,13 +104,7 @@ describe('VirtualizedList', () => {
 				{contentFields}
 			</VirtualizedList>,
 		);
-		const renderer = wrapper.getElement().props.children;
-
-		// when
-		const rendererInstance = renderer({ height: 600, width: 300 });
-
-		// then
-		expect(rendererInstance).toMatchSnapshot();
+		expect(wrapper.find('VirtualizedList(RendererSelector)')).toHaveLength(1);
 	});
 
 	it('should render CircularProgress', () => {
