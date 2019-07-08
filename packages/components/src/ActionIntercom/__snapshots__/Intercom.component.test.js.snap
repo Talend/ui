@@ -17,7 +17,7 @@ exports[`Intercom button should render a button 1`] = `
   t={[Function]}
 >
   <TooltipTrigger
-    label="Open support messenger."
+    label="Chat with Talend Support."
     tooltipPlacement="bottom"
   >
     <OverlayTrigger
@@ -32,7 +32,7 @@ exports[`Intercom button should render a button 1`] = `
           id={42}
           placement="right"
         >
-          Open support messenger.
+          Chat with Talend Support.
         </Tooltip>
       }
       placement="bottom"

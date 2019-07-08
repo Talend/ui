@@ -108,21 +108,21 @@ describe('Intercom button', () => {
 		const onShow = IntercomService.onShow.mock.calls[0][0];
 		const onHide = IntercomService.onHide.mock.calls[0][0];
 
-		expect(wrapper.find('TooltipTrigger').prop('label')).toBe('Open support messenger.');
+		expect(wrapper.find('TooltipTrigger').prop('label')).toBe('Chat with Talend Support.');
 
 		// when/then show
 		act(() => {
 			onShow();
 		});
 		wrapper.update();
-		expect(wrapper.find('TooltipTrigger').prop('label')).toBe('Close support messenger.');
+		expect(wrapper.find('TooltipTrigger').prop('label')).toBe('Close chat with Talend support.');
 
 		// when/then hide
 		act(() => {
 			onHide();
 		});
 		wrapper.update();
-		expect(wrapper.find('TooltipTrigger').prop('label')).toBe('Open support messenger.');
+		expect(wrapper.find('TooltipTrigger').prop('label')).toBe('Chat with Talend Support.');
 	});
 
 	it('should set messenger position', () => {

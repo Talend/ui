@@ -35,7 +35,7 @@ function Intercom({ id, className, config, t }) {
 	useLayoutEffect(() => IntercomService.setPosition(ref.current), [ref.current]);
 
 	const label = show
-		? t('TC_INTERCOM_CLOSE', { defaultValue: 'Close chat with Talend messenger.' })
+		? t('TC_INTERCOM_CLOSE', { defaultValue: 'Close chat with Talend support.' })
 		: t('TC_INTERCOM_OPEN', { defaultValue: 'Chat with Talend Support.' });
 
 	return (
