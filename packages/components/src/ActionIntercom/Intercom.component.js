@@ -72,7 +72,7 @@ if (process.env.NODE_ENV !== 'production') {
 			}),
 		}).isRequired,
 		t: PropTypes.func,
-		tooltipPlacement: PropTypes.string
+		tooltipPlacement: PropTypes.string,
 	};
 }
 
