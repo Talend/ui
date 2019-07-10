@@ -3,12 +3,11 @@ import React from 'react';
 import { withTranslation } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
-import Action from '../Actions/Action';
 import getDefaultT from '../translate';
-import Icon from '../Icon';
-import TooltipTrigger from '../TooltipTrigger';
 import badgeCssModule from './Badge.scss';
 import { getTheme } from '../theme';
+
+import BadgeLib from './BadgeComposition';
 
 const theme = getTheme(badgeCssModule);
 
@@ -17,20 +16,21 @@ const SIZES = {
 	small: 'small',
 };
 
-function Badge({
+export function Badge({
+	aslink,
+	category,
+	className,
+	children,
+	disabled,
+	display = SIZES.large,
+	icon,
 	id,
 	label,
-	category,
 	onDelete,
 	onSelect,
 	selected,
-	disabled,
-	t,
 	style,
-	className,
-	display = SIZES.large,
-	aslink,
-	icon,
+	t,
 	white,
 }) {
 	const displayClass =
@@ -46,80 +46,52 @@ function Badge({
 	const badgeClasses = theme('tc-badge-button', {
 		'tc-badge-white': white,
 	});
-	const labelTextClasses = theme({
-		'tc-badge-label-text': !(!aslink && category),
-		'tc-badge-label-text-with-categ': !aslink && category,
-	});
 
-	const children = [
-		category && (
-			<TooltipTrigger label={category} tooltipPlacement="top">
-				<span key="category" aria-label={category} className={theme('tc-badge-category')}>
-					{category}
-				</span>
-			</TooltipTrigger>
-		),
-		category && <span className={theme('tc-badge-separator')} />,
-		<div className={theme('tc-badge-label')}>
-			<TooltipTrigger label={label} tooltipPlacement="top">
-				<span key="label" className={labelTextClasses}>
-					{label}
-				</span>
-			</TooltipTrigger>
-			{icon && <Icon name={icon} className={theme('tc-badge-label-icon')} />}
-		</div>,
-		icon && onDelete && (
-			<span className={[theme('tc-badge-separator', 'tc-badge-separator-icon')]} />
-		),
-		onDelete && (
-			<Action
-				key="delete"
-				id={id && `tc-badge-delete-${id}`}
-				label={t('BADGE_DELETE', { defaultValue: 'delete' })}
-				hideLabel
-				onClick={onDelete}
-				disabled={disabled}
-				icon={'talend-cross'}
-				className={theme('tc-badge-delete-icon')}
-				link
-				role="button"
-			/>
-		),
+	const defaultContent = [
+		category && <BadgeLib.Category label={category} />,
+		category && <BadgeLib.Separator />,
+		<BadgeLib.Label aslink={aslink} category={category} label={label}>
+			{icon && <BadgeLib.Icon name={icon} />}
+		</BadgeLib.Label>,
+		icon && onDelete && <BadgeLib.Separator iconSeparator />,
+		onDelete && <BadgeLib.DeleteAction id={id} onClick={onDelete} disabled={disabled} t={t} />,
 	];
 	const badgeProps = {
 		id: id && `tc-badge-select-${id}`,
 		className: badgeClasses,
-		children,
 	};
 
 	return (
 		<div className={containerClasses} style={style}>
 			{onSelect ? (
-				<button {...badgeProps} key="button" type="button" disabled={disabled} onClick={onSelect} />
+				<button {...badgeProps} key="button" type="button" disabled={disabled} onClick={onSelect}>
+					{!children ? defaultContent : children}
+				</button>
 			) : (
-				<div {...badgeProps} key="div" />
+				<div {...badgeProps} key="div">
+					{!children ? defaultContent : children}
+				</div>
 			)}
 		</div>
 	);
 }
 
-Badge.SIZES = SIZES;
-
 Badge.propTypes = {
+	aslink: PropTypes.bool,
+	category: PropTypes.string,
+	children: PropTypes.oneOf([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+	className: PropTypes.string,
+	disabled: PropTypes.bool,
+	display: PropTypes.oneOf(Object.values(SIZES)),
+	icon: PropTypes.string,
 	id: PropTypes.string,
 	label: PropTypes.string,
-	category: PropTypes.string,
 	onDelete: PropTypes.func,
 	onSelect: PropTypes.func,
 	selected: PropTypes.bool,
-	disabled: PropTypes.bool,
+	style: PropTypes.object,
 	t: PropTypes.func.isRequired,
-	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-	className: PropTypes.string,
-	display: PropTypes.oneOf([Badge.SIZES.small, Badge.SIZES.large]),
-	aslink: PropTypes.bool,
 	white: PropTypes.bool,
-	icon: PropTypes.string,
 };
 
 Badge.defaultProps = {
@@ -128,4 +100,6 @@ Badge.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(Badge);
+const TranslatedBadge = withTranslation(I18N_DOMAIN_COMPONENTS)(Badge);
+TranslatedBadge.SIZES = SIZES;
+export default TranslatedBadge;

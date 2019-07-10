@@ -1,17 +1,17 @@
-import Manager from './Manager';
-import Toolbar from './Toolbar';
 import DisplayMode from './DisplayMode';
-import TextFilter from './TextFilter';
-import VList from './VList';
 import InfiniteScrollList from './InfiniteScrollList';
+import Manager from './Manager';
 import SortBy from './SortBy';
+import TextFilter from './TextFilter';
+import Toolbar from './Toolbar';
+import VList from './VList';
 
 export default {
-	Manager,
-	Toolbar,
 	DisplayMode,
-	TextFilter,
-	VList,
 	InfiniteScrollList,
+	Manager,
 	SortBy,
+	TextFilter,
+	Toolbar,
+	VList,
 };
