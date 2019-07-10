@@ -28,28 +28,6 @@ describe('SimpleCheckBox field', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render input with specific data-feature on its label', () => {
-		const dataFeature = 'my.custom.feature';
-
-		const wrapper = shallow(
-			<SimpleCheckBox
-				describedby={'myForm-description myForm-error'}
-				onChange={jest.fn()}
-				onFinish={jest.fn()}
-				id={'myForm'}
-				label={'My checkbox custom label'}
-				schema={{
-					...schema,
-					'data-feature': dataFeature,
-				}}
-				value
-			/>,
-		);
-
-		// then
-		expect(wrapper.find(`label[data-feature="${dataFeature}"]`).exists()).toBeTruthy();
-	});
-
 	it('should render disabled input', () => {
 		// given
 		const disabledSchema = {
@@ -124,5 +102,64 @@ describe('SimpleCheckBox field', () => {
 
 		// then
 		expect(onFinish).toBeCalledWith(event, { schema, value: false });
+	});
+
+	describe('data-feature', () => {
+		it('should render checkbox with specific data-feature while starting to be unchecked', () => {
+			const dataFeature = 'my.custom.feature';
+
+			const wrapper = shallow(
+				<SimpleCheckBox
+					describedby={'myForm-description myForm-error'}
+					onChange={jest.fn()}
+					onFinish={jest.fn()}
+					id={'myForm'}
+					label={'My checkbox custom label'}
+					schema={{
+						...schema,
+						'data-feature': dataFeature,
+					}}
+				/>,
+			);
+			expect(wrapper.find(`label[data-feature="${dataFeature}.check"]`).exists()).toBeTruthy();
+
+			// when
+			wrapper
+				.find('input')
+				.at(0)
+				.simulate('change', { target: { checked: true } });
+
+			// then
+			expect(wrapper.find(`label[data-feature="${dataFeature}.uncheck"]`).exists()).toBeTruthy();
+		});
+
+		it('should render checkbox with specific data-feature while starting to be checked', () => {
+			const dataFeature = 'my.custom.feature';
+
+			const wrapper = shallow(
+				<SimpleCheckBox
+					describedby={'myForm-description myForm-error'}
+					onChange={jest.fn()}
+					onFinish={jest.fn()}
+					id={'myForm'}
+					label={'My checkbox custom label'}
+					schema={{
+						...schema,
+						'data-feature': dataFeature,
+					}}
+					value
+				/>,
+			);
+			expect(wrapper.find(`label[data-feature="${dataFeature}.uncheck"]`).exists()).toBeTruthy();
+
+			// when
+			wrapper
+				.find('input')
+				.at(0)
+				.simulate('change', { target: { checked: false } });
+
+			// then
+			expect(wrapper.find(`label[data-feature="${dataFeature}.check"]`).exists()).toBeTruthy();
+		});
 	});
 });

@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-for */
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import classnames from 'classnames';
+import { get } from 'lodash';
 
 export default function SimpleCheckBox({
 	describedby,
@@ -14,17 +15,30 @@ export default function SimpleCheckBox({
 	schema,
 	value,
 }) {
+	const [checked, setChecked] = useState(value);
+
 	const { autoFocus } = schema;
+
+	function getDataFeature() {
+		const dataFeature = get(schema, 'data-feature');
+		if (dataFeature) {
+			return `${dataFeature}.${checked ? 'uncheck' : 'check'}`;
+		}
+		return undefined;
+	}
+
 	return (
 		<div className={classnames('checkbox', { disabled })}>
-			<label data-feature={schema['data-feature']}>
+			<label data-feature={getDataFeature()}>
 				<input
 					id={id}
 					autoFocus={autoFocus}
 					disabled={disabled}
 					onChange={event => {
-						onChange(event, { schema, value: event.target.checked });
-						onFinish(event, { schema, value: event.target.checked });
+						const isChecked = event.target.checked;
+						setChecked(isChecked);
+						onChange(event, { schema, value: isChecked });
+						onFinish(event, { schema, value: isChecked });
 					}}
 					type="checkbox"
 					checked={value}
