@@ -46,7 +46,8 @@
   "uiSchema": [
     {
       "key": "standard",
-      "title": "Check if you are happy (standard)"
+      "title": "Check if you are happy (standard)",
+      "data-feature": "my.custom.feature"
     },
     {
       "key": "autofocused",

@@ -28,6 +28,32 @@ describe('SimpleCheckBox field', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render input with specific data-feature on its label', () => {
+		const dataFeature = 'my.custom.feature';
+
+		const wrapper = shallow(
+			<SimpleCheckBox
+				describedby={'myForm-description myForm-error'}
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				id={'myForm'}
+				label={'My checkbox custom label'}
+				schema={{
+					...schema,
+					'data-feature': dataFeature,
+				}}
+				value
+			/>,
+		);
+
+		// then
+		expect(
+			wrapper
+				.find(`label[data-feature="${dataFeature}"]`)
+				.exists(),
+		).toBeTruthy();
+	});
+
 	it('should render disabled input', () => {
 		// given
 		const disabledSchema = {

@@ -17,7 +17,7 @@ export default function SimpleCheckBox({
 	const { autoFocus } = schema;
 	return (
 		<div className={classnames('checkbox', { disabled })}>
-			<label>
+			<label data-feature={schema['data-feature']}>
 				<input
 					id={id}
 					autoFocus={autoFocus}
