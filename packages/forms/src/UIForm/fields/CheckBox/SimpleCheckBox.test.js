@@ -47,11 +47,7 @@ describe('SimpleCheckBox field', () => {
 		);
 
 		// then
-		expect(
-			wrapper
-				.find(`label[data-feature="${dataFeature}"]`)
-				.exists(),
-		).toBeTruthy();
+		expect(wrapper.find(`label[data-feature="${dataFeature}"]`).exists()).toBeTruthy();
 	});
 
 	it('should render disabled input', () => {
