@@ -105,9 +105,9 @@ describe('SimpleCheckBox field', () => {
 	});
 
 	describe('data-feature', () => {
-		it('should render checkbox with specific data-feature while starting to be unchecked', () => {
-			const dataFeature = 'my.custom.feature';
+		const dataFeature = 'my.custom.feature';
 
+		it('should render checkbox with specific data-feature while starting to be unchecked', () => {
 			const wrapper = shallow(
 				<SimpleCheckBox
 					describedby={'myForm-description myForm-error'}
@@ -134,8 +134,6 @@ describe('SimpleCheckBox field', () => {
 		});
 
 		it('should render checkbox with specific data-feature while starting to be checked', () => {
-			const dataFeature = 'my.custom.feature';
-
 			const wrapper = shallow(
 				<SimpleCheckBox
 					describedby={'myForm-description myForm-error'}
