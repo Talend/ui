@@ -145,10 +145,9 @@ function merge(options, errorCallback) {
 		file.write(JSON.stringify(settingWithoutI18n) + String.fromCharCode(10));
 		file.end();
 		logger('CMF settings has been merged');
-		return jsonFiles.concat(cmfconfigPath);
 	}
 
-	return [];
+	return jsonFiles.concat(cmfconfigPath);
 }
 
 module.exports = merge;
