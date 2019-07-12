@@ -42,6 +42,7 @@ exports[`Default Array Template component should render default array template 1
         onRemove={[MockFunction]}
         onReorder={[MockFunction]}
         renderItem={[Function]}
+        t={[Function]}
       />
     </li>
     <li
@@ -56,6 +57,7 @@ exports[`Default Array Template component should render default array template 1
         onRemove={[MockFunction]}
         onReorder={[MockFunction]}
         renderItem={[Function]}
+        t={[Function]}
       />
     </li>
     <li
@@ -70,6 +72,7 @@ exports[`Default Array Template component should render default array template 1
         onRemove={[MockFunction]}
         onReorder={[MockFunction]}
         renderItem={[Function]}
+        t={[Function]}
       />
     </li>
   </ol>

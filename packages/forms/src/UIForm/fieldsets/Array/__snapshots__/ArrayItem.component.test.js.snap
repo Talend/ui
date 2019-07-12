@@ -65,6 +65,7 @@ exports[`Array Item component should disable moveDown 1`] = `
         onRemove={[MockFunction]}
         onReorder={[MockFunction]}
         renderItem={[Function]}
+        t={[Function]}
       />
       <withI18nextTranslation(ReorderButton)
         hasMoveDown={false}
@@ -76,6 +77,7 @@ exports[`Array Item component should disable moveDown 1`] = `
         onRemove={[MockFunction]}
         onReorder={[MockFunction]}
         renderItem={[Function]}
+        t={[Function]}
       />
     </React.Fragment>
   </div>
@@ -113,6 +115,7 @@ exports[`Array Item component should disable moveUp 1`] = `
         onRemove={[MockFunction]}
         onReorder={[MockFunction]}
         renderItem={[Function]}
+        t={[Function]}
       />
       <withI18nextTranslation(ReorderButton)
         hasMoveDown={true}
@@ -124,6 +127,7 @@ exports[`Array Item component should disable moveUp 1`] = `
         onRemove={[MockFunction]}
         onReorder={[MockFunction]}
         renderItem={[Function]}
+        t={[Function]}
       />
     </React.Fragment>
   </div>
@@ -161,6 +165,7 @@ exports[`Array Item component should render control panel with item content 1`] 
         onRemove={[MockFunction]}
         onReorder={[MockFunction]}
         renderItem={[Function]}
+        t={[Function]}
       />
       <withI18nextTranslation(ReorderButton)
         hasMoveDown={true}
@@ -172,6 +177,7 @@ exports[`Array Item component should render control panel with item content 1`] 
         onRemove={[MockFunction]}
         onReorder={[MockFunction]}
         renderItem={[Function]}
+        t={[Function]}
       />
     </React.Fragment>
   </div>
