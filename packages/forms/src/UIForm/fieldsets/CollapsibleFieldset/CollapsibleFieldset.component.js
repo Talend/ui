@@ -32,6 +32,8 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 		const { t } = useTranslation(I18N_DOMAIN_FORMS);
 		const { items } = schema;
 		const iconTransform = !props.value.isClosed ? 'flip-vertical' : null;
+		const expandLabel = t('FIELDSET_EXPAND', { defaultValue: 'Expand' });
+		const collapseLabel = t('FIELDSET_COLLAPSE', { defaultValue: 'Collapse' });
 
 		return (
 			<fieldset
@@ -59,7 +61,7 @@ export default function createCollapsibleFieldset(title = defaultTitle) {
 							className={theme.collapse}
 							onClick={toggle}
 							id={id && `${id}__collapse`}
-							label={t('FIELDSET_COLLAPSE', { defaultValue: 'Collapse' })}
+							label={props.value.isClosed ? expandLabel : collapseLabel}
 							type="button"
 							active={!value.isClosed}
 							icon="talend-caret-down"
