@@ -10,6 +10,7 @@ import TabBar from '../TabBar';
 import Inject from '../Inject';
 
 import theme from './Drawer.scss';
+import { renderActions } from '../ListView/Header/Header.component';
 
 const DEFAULT_TRANSITION_DURATION = 350;
 CSSTransition.childContextTypes = {};
@@ -100,22 +101,66 @@ export function cancelActionComponent(onCancelAction, getComponent) {
 	return <ActionComponent className={theme['tc-drawer-close-action']} {...enhancedCancelAction} />;
 }
 
-export function subtitleComponent(subtitle) {
+export function SubtitleComponent({ subtitle }) {
 	if (!subtitle || !subtitle.length) {
 		return null;
 	}
 	return <h2 title={subtitle}>{subtitle}</h2>;
 }
 
-function DrawerTitle({ title, subtitle, children, onCancelAction, getComponent }) {
+function DrawerTitle({
+	title,
+	subtitle,
+	children,
+	onCancelAction,
+	getComponent,
+	editable,
+	inProgress,
+	onEdit,
+	onSubmit,
+	onCancel,
+}) {
+	const [isEditMode, setIsEditMode] = React.useState(false);
+	function handleEdit(...args) {
+		setIsEditMode(true);
+		if (onEdit) {
+			onEdit(...args);
+		}
+	}
+	function handleCancel(...args) {
+		setIsEditMode(false);
+		if (onCancel) {
+			onCancel(...args);
+		}
+	}
+	function handleSubmit(...args) {
+		setIsEditMode(false);
+		if (onSubmit) {
+			onSubmit(...args);
+		}
+	}
+
 	if (!title) {
 		return null;
 	}
 	return (
 		<div className={classnames('tc-drawer-header', theme['tc-drawer-header'])}>
 			<div className={classnames('tc-drawer-header-title', theme['tc-drawer-header-title'])}>
-				<h1 title={title}>{title}</h1>
-				{subtitleComponent(subtitle)}
+				{!editable ? (
+					<h1 title={title}>{title}</h1>
+				) : (
+					<InjectedEditableText
+						text={title}
+						inProgress={inProgress}
+						feature="drawertitle.rename"
+						componentClass="h1"
+						onEdit={handleEdit}
+						onCancel={handleCancel}
+						onSubmit={handleSubmit}
+						{...rest}
+					/>
+				)}
+				{!isEditMode ? <SubtitleComponent subtitle={subtitle} /> : null}
 				{cancelActionComponent(onCancelAction, getComponent)}
 			</div>
 			<div
