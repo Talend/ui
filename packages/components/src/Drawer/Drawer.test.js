@@ -349,4 +349,11 @@ describe('Drawer', () => {
 		expect(combinedFooterActions(onCancelAction, footerActions)).toEqual(result);
 		expect(combinedFooterActions(onCancelAction, footerActions)).toEqual(result);
 	});
+
+	it('should render cancelActionComponent with passed in className', () => {
+		const wrapper = mount(cancelActionComponent({ className: 'btn-inverse' }));
+		expect(wrapper.find('Action').prop('className')).toEqual(
+			'theme-tc-drawer-close-action btn-inverse',
+		);
+	});
 });
