@@ -53,7 +53,7 @@ function merge(options, errorCallback) {
 		destination = path.join(process.cwd(), cmfconfig.settings.destination);
 	}
 	let settings;
-	let jsonFiles;
+	let jsonFiles = [];
 
 	if (cmfconfig.settings.destination) {
 		// Extract json from sources
