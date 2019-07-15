@@ -2,17 +2,17 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Action } from '@talend/react-components/lib/Actions';
 import classNames from 'classnames';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
-import getDefaultT from '../../../translate';
 
 import theme from './ArrayItem.scss';
 import fieldTemplateTheme from '../../fields/FieldTemplate/FieldTemplate.scss';
 
 export function ReorderButton(props) {
-	const { disabled, index, hasMoveDown, hasMoveUp, id, isMoveDown, onReorder, t } = props;
+	const { disabled, index, hasMoveDown, hasMoveUp, id, isMoveDown, onReorder } = props;
 	let buttonProps;
+	const { t } = useTranslation(I18N_DOMAIN_FORMS);
 
 	if (isMoveDown) {
 		buttonProps = {
@@ -51,9 +51,6 @@ export function ReorderButton(props) {
 	);
 }
 
-ReorderButton.defaultProps = {
-	t: getDefaultT(),
-};
 if (process.env.NODE_ENV !== 'production') {
 	ReorderButton.propTypes = {
 		disabled: PropTypes.bool,
@@ -63,10 +60,8 @@ if (process.env.NODE_ENV !== 'production') {
 		index: PropTypes.number.isRequired,
 		isMoveDown: PropTypes.bool,
 		onReorder: PropTypes.func.isRequired,
-		t: PropTypes.func.isRequired,
 	};
 }
-const TranslatedReorderButton = withTranslation(I18N_DOMAIN_FORMS)(ReorderButton);
 
 function ArrayItem(props) {
 	const {
@@ -81,12 +76,13 @@ function ArrayItem(props) {
 		isCloseable,
 		readOnly,
 	} = props;
+	const { t } = useTranslation(I18N_DOMAIN_FORMS);
 
 	const widgetIsDisabled = disabled || valueIsUpdating;
 	const deleteAction = {
 		id: id && `${id}-delete`,
 		onClick: event => onRemove(event, index),
-		label: 'Delete',
+		label: t('ARRAY_FIELD_TEMPLATE_ACTION_DELETE', { defaultValue: 'Delete' }),
 		type: 'button',
 		disabled: widgetIsDisabled,
 		className: theme.delete,
@@ -107,13 +103,8 @@ function ArrayItem(props) {
 			<div className={theme.control}>
 				{!isClosed && onReorder && !readOnly && (
 					<React.Fragment>
-						<TranslatedReorderButton {...props} index={index} disabled={widgetIsDisabled} />
-						<TranslatedReorderButton
-							{...props}
-							index={index}
-							isMoveDown
-							disabled={widgetIsDisabled}
-						/>
+						<ReorderButton {...props} index={index} disabled={widgetIsDisabled} />
+						<ReorderButton {...props} index={index} isMoveDown disabled={widgetIsDisabled} />
 					</React.Fragment>
 				)}
 			</div>

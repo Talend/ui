@@ -31,7 +31,7 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
         icon="talend-caret-down"
         iconTransform={null}
         id="my-fieldset__collapse"
-        label="Collapse"
+        label="Expand"
         onClick={[Function]}
         tooltipPlacement="top"
         type="button"
