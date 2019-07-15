@@ -44,6 +44,7 @@ function TitleSubHeader({
 		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
 	}
 	const InjectedEditableText = Inject.get(getComponent, 'EditableText', EditableText);
+	console.log('editmode', editMode);
 	return (
 		<div
 			className={classNames(theme['tc-subheader-details'], 'tc-subheader-details', {
@@ -73,6 +74,7 @@ function TitleSubHeader({
 							onEdit={handleEdit}
 							onCancel={handleCancel}
 							onSubmit={handleSubmit}
+							editMode={isEditMode}
 							{...rest}
 						/>
 					) : (
