@@ -85,6 +85,10 @@ $tc-drawer-z-index: $drawer-z-index !default;
 			white-space: nowrap;
 			overflow: hidden;
 		}
+
+		&>.tc-editable-text {
+			width: unset;
+		}
 	}
 
 	.tc-drawer-close-action {

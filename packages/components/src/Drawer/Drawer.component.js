@@ -8,9 +8,9 @@ import ActionBar from '../ActionBar';
 import Action from '../Actions/Action';
 import TabBar from '../TabBar';
 import Inject from '../Inject';
+import EditableText from '../EditableText';
 
 import theme from './Drawer.scss';
-import { renderActions } from '../ListView/Header/Header.component';
 
 const DEFAULT_TRANSITION_DURATION = 350;
 CSSTransition.childContextTypes = {};
@@ -118,7 +118,10 @@ function DrawerTitle({
 	inProgress,
 	onEdit,
 	onSubmit,
+	actionCreatorSubmit,
 	onCancel,
+	dispatchActionCreator,
+	...props
 }) {
 	const [isEditMode, setIsEditMode] = React.useState(false);
 	function handleEdit(...args) {
@@ -135,14 +138,18 @@ function DrawerTitle({
 	}
 	function handleSubmit(...args) {
 		setIsEditMode(false);
-		if (onSubmit) {
+		if (typeof onSubmit === 'function') {
 			onSubmit(...args);
+		}
+		if (actionCreatorSubmit) {
+			dispatchActionCreator(actionCreatorSubmit, event, args[1]);
 		}
 	}
 
 	if (!title) {
 		return null;
 	}
+	const InjectedEditableText = Inject.get(getComponent, 'EditableText', EditableText);
 	return (
 		<div className={classnames('tc-drawer-header', theme['tc-drawer-header'])}>
 			<div className={classnames('tc-drawer-header-title', theme['tc-drawer-header-title'])}>
@@ -157,7 +164,8 @@ function DrawerTitle({
 						onEdit={handleEdit}
 						onCancel={handleCancel}
 						onSubmit={handleSubmit}
-						{...rest}
+						editMode={isEditMode}
+						{...props}
 					/>
 				)}
 				{!isEditMode ? <SubtitleComponent subtitle={subtitle} /> : null}
