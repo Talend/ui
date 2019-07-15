@@ -27,10 +27,8 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget 1`] = `
       disabled={false}
       docked={false}
       id="42"
-      isLoadingText="Loading..."
       items={null}
       multiSection={false}
-      noResultText="No result."
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
@@ -39,7 +37,6 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget 1`] = `
       position="left"
       readOnly={false}
       searching={false}
-      searchingText="Searching for matches..."
       theme={
         Object {
           "container": "theme-typeahead",
