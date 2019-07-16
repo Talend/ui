@@ -40,6 +40,15 @@ html {
 @import '~bootstrap/scss/utilities';
 @import '~bootstrap/scss/print';
 
+// @import './variations/mdm';
+// @import './variations/portal';
+// @import './variations/tdc';
+// @import './variations/tdp';
+// @import './variations/tds';
+// @import './variations/tfd';
+// @import './variations/tic';
+// @import './variations/tmc';
+
 // Core CSS
 @import './type';
 // @import './tables';
@@ -54,10 +63,7 @@ html {
 // @import './input-groups';
 @import './labels';
 // @import './navs';
-// @import './navbar';
-// @import './navbar.button';
-// @import './navbar.dropdown';
-// @import './navbar.search';
+@import './navbar';
 // @import './breadcrumbs';
 
 // Components w/ JavaScript
