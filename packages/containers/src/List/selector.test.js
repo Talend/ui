@@ -1,6 +1,7 @@
-import { store } from '@talend/react-cmf/lib/mock';
-import { fromJS } from 'immutable';
+import mock, { store } from '@talend/react-cmf/lib/mock';
+import { fromJS, List } from 'immutable';
 import { mapStateToProps } from './List.connect';
+import { compare, getSortedResults } from './selector';
 
 const localConfig = {
 	collectionId: 'default',
@@ -27,6 +28,9 @@ state.cmf.collections = fromJS({
 		columns: [{ key: 'id', name: 'ID' }, { key: 'value', name: 'Value' }],
 		items: localConfig.items,
 	},
+});
+state.cmf.registry = fromJS({
+	myCustomSortFn: () => () => -1,
 });
 
 describe('List Selector tests', () => {
@@ -98,5 +102,107 @@ describe('List Selector tests', () => {
 		});
 		const props = mapStateToProps(state, { ...localConfig, toolbar: { pagination: {} } });
 		expect(props.items.size).toBe(1);
+	});
+
+	it('should sort a different column type correctly', () => {
+		expect(fromJS([
+			{ stringID: '1' },
+			{ stringID: '11' },
+			{ stringID: '12' },
+			{ stringID: '2' },
+		]).sort(compare('stringID'))).toEqual(fromJS([
+			{ stringID: '1' },
+			{ stringID: '11' },
+			{ stringID: '12' },
+			{ stringID: '2' },
+		]));
+		expect(fromJS([
+			{ stringName: 'Uzbekistan' },
+			{ stringName: 'American Samoa' },
+			{ stringName: 'Djibouti' },
+			{ stringName: 'Luxembourg' },
+		]).sort(compare('stringName'))).toEqual(fromJS([
+			{ stringName: 'American Samoa' },
+			{ stringName: 'Djibouti' },
+			{ stringName: 'Luxembourg' },
+			{ stringName: 'Uzbekistan' },
+		]));
+		expect(fromJS([
+			{ intID: 1 },
+			{ intID: 11 },
+			{ intID: 12 },
+			{ intID: 2 },
+		]).sort(compare('intID'))).toEqual(fromJS([
+			{ intID: 1 },
+			{ intID: 2 },
+			{ intID: 11 },
+			{ intID: 12 },
+		]));
+		expect(fromJS([
+			{ mixedID: '1' },
+			{ mixedID: '11' },
+			{ mixedID: '-' },
+			{ mixedID: '2' },
+		]).sort(compare('mixedID'))).toEqual(fromJS([
+			{ mixedID: '-' },
+			{ mixedID: '1' },
+			{ mixedID: '11' },
+			{ mixedID: '2' },
+		]));
+	});
+
+	it('should test the getSortedResults method', () => {
+		const context = mock.context();
+		context.registry = {
+			myCustomSortFn: () => () => -1,
+		};
+
+		const componentState = fromJS({
+			sortOn: 'counter',
+			sortAsc: true,
+		});
+		const config = {
+			columns: [
+				{
+					key: 'counter',
+					label: 'Counter Column',
+				},
+			],
+		};
+
+		// Sorting the list
+		expect(getSortedResults(componentState, config, fromJS([
+			{ counter: 0 },
+			{ counter: 4 },
+			{ counter: 2 },
+			{ counter: 11 },
+			{ counter: 1 },
+			{ counter: 23 },
+		]))).toEqual(fromJS([
+			{ counter: 0 },
+			{ counter: 1 },
+			{ counter: 2 },
+			{ counter: 4 },
+			{ counter: 11 },
+			{ counter: 23 },
+		]));
+
+		// Sorting by column and custom sort function
+		expect(
+			getSortedResults(
+				fromJS({ sortOn: 'withCustomSortFn', sortAsc: true }),
+				{ columns: [{ key: 'withCustomSortFn', sortFunction: 'myCustomSortFn' }] },
+				fromJS([{ a: 1 }, { a: 3 }, { a: 2 }]),
+			),
+		).toEqual(fromJS([{ a: 3 }, { a: 2 }, { a: 1 }]));
+
+		// Edge cases
+		[null, undefined, 1, true, false, [], {}].forEach(val =>
+			expect(getSortedResults(val, val, fromJS([{ item: 'one' }])))
+				.toEqual(fromJS([{ item: 'one' }]))
+		);
+
+		// With no items
+		expect(getSortedResults(componentState, config, null)).toEqual(new List());
 	});
 });
