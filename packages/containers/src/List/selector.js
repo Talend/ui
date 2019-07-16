@@ -101,7 +101,7 @@ export function getSortedResults(componentState, config, listItems) {
 	if (!isEmpty(componentState)) {
 		const sortBy = componentState.get('sortOn');
 		const sortAsc = componentState.get('sortAsc');
-		const sortedColumn = get(config, 'columns', []) // TODO: is it immutable?
+		const sortedColumn = get(config, 'columns', [])
 			.find(column => column.key === sortBy);
 
 		if (sortedColumn && sortedColumn.sortFunction) {
