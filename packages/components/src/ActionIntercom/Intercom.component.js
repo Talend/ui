@@ -35,8 +35,8 @@ function Intercom({ id, className, config, t }) {
 	useLayoutEffect(() => IntercomService.setPosition(ref.current), [ref.current]);
 
 	const label = show
-		? t('TC_INTERCOM_CLOSE', { defaultValue: 'Close support messenger.' })
-		: t('TC_INTERCOM_OPEN', { defaultValue: 'Open support messenger.' });
+		? t('TC_INTERCOM_CLOSE', { defaultValue: 'Close chat with Talend Support' })
+		: t('TC_INTERCOM_OPEN', { defaultValue: 'Chat with Talend Support' });
 
 	return (
 		<TooltipTrigger label={label} tooltipPlacement="bottom">
