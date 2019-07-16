@@ -291,8 +291,7 @@ storiesOf('DatePicker', module)
 	.add('Date picker - parent with fixed height', () => (
 		<div>
 			<IconsProvider />
-			<h1>DatePicker with time</h1>
-			<p>You can require time with a simple "useTime" props.</p>
+			<h1>DatePicker with fixed-height parent</h1>
 			<div style={{ height: 300, overflow: 'auto', border: 'solid' }}>
 				<form style={{ width: 320, float: 'left' }}>
 					<InputDateTimePicker
