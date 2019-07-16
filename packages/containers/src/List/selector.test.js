@@ -150,6 +150,17 @@ describe('List Selector tests', () => {
 			{ mixedID: '11' },
 			{ mixedID: '2' },
 		]));
+		expect(fromJS([
+			{ mixedString: 'a' },
+			{ mixedString: 'b' },
+			{ mixedString: 'C' },
+			{ mixedString: 'D' },
+		]).sort(compare('mixedString'))).toEqual(fromJS([
+			{ mixedString: 'a' },
+			{ mixedString: 'b' },
+			{ mixedString: 'C' },
+			{ mixedString: 'D' },
+		]));
 	});
 
 	it('should test the getSortedResults method', () => {
@@ -161,33 +172,33 @@ describe('List Selector tests', () => {
 		});
 
 		const componentState = fromJS({
-			sortOn: 'counter',
+			sortOn: 'data',
 			sortAsc: true,
 		});
 		const config = {
 			columns: [
 				{
-					key: 'counter',
-					label: 'Counter Column',
+					key: 'data',
+					label: 'Data Column',
 				},
 			],
 		};
 
 		// Sorting the list
 		expect(getSortedResults(componentState, config, fromJS([
-			{ counter: 0 },
-			{ counter: 4 },
-			{ counter: 2 },
-			{ counter: 11 },
-			{ counter: 1 },
-			{ counter: 23 },
+			{ data: 0 },
+			{ data: 4 },
+			{ data: 2 },
+			{ data: 11 },
+			{ data: 1 },
+			{ data: 23 },
 		]))).toEqual(fromJS([
-			{ counter: 0 },
-			{ counter: 1 },
-			{ counter: 2 },
-			{ counter: 4 },
-			{ counter: 11 },
-			{ counter: 23 },
+			{ data: 0 },
+			{ data: 1 },
+			{ data: 2 },
+			{ data: 4 },
+			{ data: 11 },
+			{ data: 23 },
 		]));
 
 		// Sorting by column and custom sort function
