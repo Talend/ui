@@ -177,21 +177,21 @@ describe('List Selector tests', () => {
 		};
 
 		// Sorting the list
-		// expect(getSortedResults(componentState, config, fromJS([
-		// 	{ counter: 0 },
-		// 	{ counter: 4 },
-		// 	{ counter: 2 },
-		// 	{ counter: 11 },
-		// 	{ counter: 1 },
-		// 	{ counter: 23 },
-		// ]))).toEqual(fromJS([
-		// 	{ counter: 0 },
-		// 	{ counter: 1 },
-		// 	{ counter: 2 },
-		// 	{ counter: 4 },
-		// 	{ counter: 11 },
-		// 	{ counter: 23 },
-		// ]));
+		expect(getSortedResults(componentState, config, fromJS([
+			{ counter: 0 },
+			{ counter: 4 },
+			{ counter: 2 },
+			{ counter: 11 },
+			{ counter: 1 },
+			{ counter: 23 },
+		]))).toEqual(fromJS([
+			{ counter: 0 },
+			{ counter: 1 },
+			{ counter: 2 },
+			{ counter: 4 },
+			{ counter: 11 },
+			{ counter: 23 },
+		]));
 
 		// Sorting by column and custom sort function
 		expect(
@@ -203,12 +203,12 @@ describe('List Selector tests', () => {
 		).toEqual(fromJS([{ a: 3 }, { a: 2 }, { a: 1 }]));
 
 		// Edge cases
-		// [null, undefined, 1, true, false, [], {}].forEach(val =>
-		// 	expect(getSortedResults(val, val, fromJS([{ item: 'one' }])))
-		// 		.toEqual(fromJS([{ item: 'one' }]))
-		// );
+		[null, undefined, 1, true, false, [], {}].forEach(val =>
+			expect(getSortedResults(val, val, fromJS([{ item: 'one' }])))
+				.toEqual(fromJS([{ item: 'one' }]))
+		);
 
 		// With no items
-		// expect(getSortedResults(componentState, config, null)).toEqual(new List());
+		expect(getSortedResults(componentState, config, null)).toEqual(new List());
 	});
 });
