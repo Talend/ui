@@ -154,13 +154,10 @@ describe('List Selector tests', () => {
 
 	it('should test the getSortedResults method', () => {
 		cmf.registry.addToRegistry('myCustomSortFn', (sortBy, sortAsc) => (a, b) => {
-			if (a.get(sortBy)) {
-				return a > b ? 1 : -1;
+			if (sortAsc) {
+				return a.get(sortBy) > b.get(sortBy) ? -1 : 1;
 			}
-			if (!sortAsc) {
-				return 0;
-			}
-			return -1;
+			return 0;
 		});
 
 		const componentState = fromJS({
@@ -196,11 +193,20 @@ describe('List Selector tests', () => {
 		// Sorting by column and custom sort function
 		expect(
 			getSortedResults(
-				fromJS({ sortOn: 'withCustomSortFn', sortAsc: false }),
-				{ columns: [{ key: 'withCustomSortFn', sortFunction: 'myCustomSortFn' }] },
+				fromJS({ sortOn: 'a', sortAsc: true }),
+				{ columns: [{ key: 'a', sortFunction: 'myCustomSortFn' }] },
 				fromJS([{ a: 1 }, { a: 3 }, { a: 2 }]),
 			),
 		).toEqual(fromJS([{ a: 3 }, { a: 2 }, { a: 1 }]));
+
+		// Desc sort
+		expect(
+			getSortedResults(
+				fromJS({ sortOn: 'key', sortAsc: false }),
+				config,
+				fromJS([{ key: 1 }, { key: 3 }, { key: 2 }]),
+			),
+		).toEqual(fromJS([{ key: 3 }, { key: 2 }, { key: 1 }]));
 
 		// Edge cases
 		[null, undefined, 1, true, false, [], {}].forEach(val =>

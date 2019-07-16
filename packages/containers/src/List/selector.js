@@ -1,5 +1,6 @@
 import cmf from '@talend/react-cmf';
 import get from 'lodash/get';
+import isEmpty from 'lodash/isEmpty';
 import { createSelector } from 'reselect';
 import { Map, List } from 'immutable';
 
@@ -97,14 +98,17 @@ export function getSortedResults(componentState, config, listItems) {
 		return new List();
 	}
 	let results = listItems;
-	if (componentState) {
+	if (!isEmpty(componentState)) {
 		const sortBy = componentState.get('sortOn');
 		const sortAsc = componentState.get('sortAsc');
 		const sortedColumn = get(config, 'columns', []) // TODO: is it immutable?
 			.find(column => column.key === sortBy);
 
 		if (sortedColumn && sortedColumn.sortFunction) {
-			results = results.sort(cmf.registry.getFromRegistry(sortedColumn.sortFunction)(sortBy, sortAsc));
+			// Immutable sort method returns sorted array
+			results = results.sort(
+				cmf.registry.getFromRegistry(sortedColumn.sortFunction)(sortBy, sortAsc)
+			);
 		} else {
 			results = results.sort(compare(sortBy));
 		}
