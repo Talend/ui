@@ -17,6 +17,7 @@
 	letter-spacing: 0.1rem;
 	min-height: $btn-line-height;
 	text-transform: uppercase;
+	transition: 0.1s background-color ease-out;
 
 	&:focus,
 	&.focus {

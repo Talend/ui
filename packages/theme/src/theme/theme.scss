@@ -51,14 +51,14 @@ html {
 
 // Core CSS
 @import './type';
-// @import './tables';
+@import './tables';
 // @import './forms';
 @import './buttons';
 // @import './hyperlinks';
 // @import './animation';
 
 // Components
-// @import './dropdowns';
+@import './dropdowns';
 @import './button-groups';
 // @import './input-groups';
 @import './labels';
