@@ -96,7 +96,7 @@ export function getSortedResults(componentState, config, listItems) {
 	if (!List.isList(listItems)) {
 		return new List();
 	}
-	const results = listItems;
+	let results = listItems;
 	if (componentState) {
 		const sortBy = componentState.get('sortOn');
 		const sortAsc = componentState.get('sortAsc');
@@ -104,13 +104,13 @@ export function getSortedResults(componentState, config, listItems) {
 			.find(column => column.key === sortBy);
 
 		if (sortedColumn && sortedColumn.sortFunction) {
-			results.sort(cmf.registry.getFromRegistry(sortedColumn.sortFunction)(sortBy, sortAsc));
+			results = results.sort(cmf.registry.getFromRegistry(sortedColumn.sortFunction)(sortBy, sortAsc));
 		} else {
-			results.sort(compare(sortBy));
+			results = results.sort(compare(sortBy));
 		}
 
 		if (!sortAsc) {
-			results.reverse();
+			results = results.reverse();
 		}
 	}
 	return results;
