@@ -105,13 +105,12 @@ export function getSortedResults(componentState, config, listItems) {
 	if (!isEmpty(componentState)) {
 		const sortBy = componentState.get('sortOn');
 		const sortAsc = componentState.get('sortAsc');
-		const sortedColumn = get(config, 'columns', [])
-			.find(column => column.key === sortBy);
+		const sortedColumn = get(config, 'columns', []).find(column => column.key === sortBy);
 
 		if (get(sortedColumn, 'sortFunction')) {
 			// Immutable sort method returns sorted array
 			results = results.sort(
-				cmf.registry.getFromRegistry(sortedColumn.sortFunction)(sortBy, sortAsc)
+				cmf.registry.getFromRegistry(sortedColumn.sortFunction)(sortBy, sortAsc),
 			);
 		} else {
 			results = results.sort(compare(sortBy));

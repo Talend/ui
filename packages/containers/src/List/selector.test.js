@@ -103,61 +103,51 @@ describe('List Selector tests', () => {
 	});
 
 	it('should sort a different column type correctly', () => {
-		expect(fromJS([
-			{ stringID: '1' },
-			{ stringID: '11' },
-			{ stringID: '12' },
-			{ stringID: '2' },
-		]).sort(compare('stringID'))).toEqual(fromJS([
-			{ stringID: '1' },
-			{ stringID: '11' },
-			{ stringID: '12' },
-			{ stringID: '2' },
-		]));
-		expect(fromJS([
-			{ stringName: 'Uzbekistan' },
-			{ stringName: 'American Samoa' },
-			{ stringName: 'Djibouti' },
-			{ stringName: 'Luxembourg' },
-		]).sort(compare('stringName'))).toEqual(fromJS([
-			{ stringName: 'American Samoa' },
-			{ stringName: 'Djibouti' },
-			{ stringName: 'Luxembourg' },
-			{ stringName: 'Uzbekistan' },
-		]));
-		expect(fromJS([
-			{ intID: 1 },
-			{ intID: 11 },
-			{ intID: 12 },
-			{ intID: 2 },
-		]).sort(compare('intID'))).toEqual(fromJS([
-			{ intID: 1 },
-			{ intID: 2 },
-			{ intID: 11 },
-			{ intID: 12 },
-		]));
-		expect(fromJS([
-			{ mixedID: '1' },
-			{ mixedID: '11' },
-			{ mixedID: '-' },
-			{ mixedID: '2' },
-		]).sort(compare('mixedID'))).toEqual(fromJS([
-			{ mixedID: '-' },
-			{ mixedID: '1' },
-			{ mixedID: '11' },
-			{ mixedID: '2' },
-		]));
-		expect(fromJS([
-			{ mixedString: 'a' },
-			{ mixedString: 'b' },
-			{ mixedString: 'C' },
-			{ mixedString: 'D' },
-		]).sort(compare('mixedString'))).toEqual(fromJS([
-			{ mixedString: 'a' },
-			{ mixedString: 'b' },
-			{ mixedString: 'C' },
-			{ mixedString: 'D' },
-		]));
+		expect(
+			fromJS([{ stringID: '1' }, { stringID: '11' }, { stringID: '12' }, { stringID: '2' }]).sort(
+				compare('stringID'),
+			),
+		).toEqual(
+			fromJS([{ stringID: '1' }, { stringID: '11' }, { stringID: '12' }, { stringID: '2' }]),
+		);
+		expect(
+			fromJS([
+				{ stringName: 'Uzbekistan' },
+				{ stringName: 'American Samoa' },
+				{ stringName: 'Djibouti' },
+				{ stringName: 'Luxembourg' },
+			]).sort(compare('stringName')),
+		).toEqual(
+			fromJS([
+				{ stringName: 'American Samoa' },
+				{ stringName: 'Djibouti' },
+				{ stringName: 'Luxembourg' },
+				{ stringName: 'Uzbekistan' },
+			]),
+		);
+		expect(
+			fromJS([{ intID: 1 }, { intID: 11 }, { intID: 12 }, { intID: 2 }]).sort(compare('intID')),
+		).toEqual(fromJS([{ intID: 1 }, { intID: 2 }, { intID: 11 }, { intID: 12 }]));
+		expect(
+			fromJS([{ mixedID: '1' }, { mixedID: '11' }, { mixedID: '-' }, { mixedID: '2' }]).sort(
+				compare('mixedID'),
+			),
+		).toEqual(fromJS([{ mixedID: '-' }, { mixedID: '1' }, { mixedID: '11' }, { mixedID: '2' }]));
+		expect(
+			fromJS([
+				{ mixedString: 'a' },
+				{ mixedString: 'b' },
+				{ mixedString: 'C' },
+				{ mixedString: 'D' },
+			]).sort(compare('mixedString')),
+		).toEqual(
+			fromJS([
+				{ mixedString: 'a' },
+				{ mixedString: 'b' },
+				{ mixedString: 'C' },
+				{ mixedString: 'D' },
+			]),
+		);
 	});
 
 	it('should test the getSortedResults method', () => {
@@ -182,21 +172,15 @@ describe('List Selector tests', () => {
 		};
 
 		// Sorting the list
-		expect(getSortedResults(componentState, config, fromJS([
-			{ data: 0 },
-			{ data: 4 },
-			{ data: 2 },
-			{ data: 11 },
-			{ data: 1 },
-			{ data: 23 },
-		]))).toEqual(fromJS([
-			{ data: 0 },
-			{ data: 1 },
-			{ data: 2 },
-			{ data: 4 },
-			{ data: 11 },
-			{ data: 23 },
-		]));
+		expect(
+			getSortedResults(
+				componentState,
+				config,
+				fromJS([{ data: 0 }, { data: 4 }, { data: 2 }, { data: 11 }, { data: 1 }, { data: 23 }]),
+			),
+		).toEqual(
+			fromJS([{ data: 0 }, { data: 1 }, { data: 2 }, { data: 4 }, { data: 11 }, { data: 23 }]),
+		);
 
 		// Sorting by column and custom sort function
 		expect(
@@ -218,8 +202,9 @@ describe('List Selector tests', () => {
 
 		// Edge cases
 		[null, undefined, 1, true, false, [], {}].forEach(val =>
-			expect(getSortedResults(val, val, fromJS([{ item: 'one' }])))
-				.toEqual(fromJS([{ item: 'one' }]))
+			expect(getSortedResults(val, val, fromJS([{ item: 'one' }]))).toEqual(
+				fromJS([{ item: 'one' }]),
+			),
 		);
 
 		// With no items
