@@ -2,9 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
-import { Overlay, Popover } from 'react-bootstrap';
 import keycode from 'keycode';
 import uuid from 'uuid';
+import { Popper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
 import { DateTimeContext } from '../DateTime/Context';
@@ -133,7 +133,11 @@ class InputDateTimePicker extends React.Component {
 			if (showPicker === isShown) {
 				return extra;
 			}
-			return { showPicker: isShown, ...extra };
+			return {
+				showPicker: isShown,
+				style: this.inputRef ? { width: this.inputRef.getBoundingClientRect().width } : {},
+				...extra,
+			};
 		});
 	}
 
@@ -148,21 +152,38 @@ class InputDateTimePicker extends React.Component {
 					this.inputRef = ref;
 				}}
 			/>,
-			<div
-				className={theme['dropdown-wrapper']}
-				key="dropdown"
-				ref={ref => {
-					this.dropdownWrapperRef = ref;
-				}}
-			>
-				<Overlay container={this.dropdownWrapperRef} show={this.state.showPicker}>
-					<Popover className={theme.popover} id={this.popoverId}>
-						<DateTime.Picker />
-						{this.props.formMode && <DateTime.Validation />}
-					</Popover>
-				</Overlay>
-			</div>,
-		];
+			this.state.showPicker && (
+				<Popper
+					key="popper"
+					referenceElement={this.inputRef}
+					placement="bottom-end"
+					modifiers={{
+						hide: {
+							enabled: false,
+						},
+						preventOverflow: {
+							enabled: false,
+						},
+					}}
+					positionFixed
+				>
+					{({ ref, style }) => (
+						<div
+							id={this.popoverId}
+							className={theme.popper}
+							style={{
+								...this.state.style,
+								...style,
+							}}
+							ref={ref}
+						>
+							<DateTime.Picker />
+							{this.props.formMode && <DateTime.Validation />}
+						</div>
+					)}
+				</Popper>
+			),
+		].filter(Boolean);
 
 		return (
 			<DateTime.Manager

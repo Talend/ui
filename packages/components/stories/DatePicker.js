@@ -287,4 +287,50 @@ storiesOf('DatePicker', module)
 				</div>
 			</div>
 		);
-	});
+	})
+	.add('Date picker - parent with fixed height', () => (
+		<div>
+			<IconsProvider />
+			<h1>DatePicker with time</h1>
+			<p>You can require time with a simple "useTime" props.</p>
+			<div style={{ height: 300, overflow: 'auto', border: 'solid' }}>
+				<form style={{ width: 320, float: 'left' }}>
+					<InputDateTimePicker
+						id="my-date-picker-top-left"
+						name="Datetime"
+						onBlur={action('onBlur')}
+						onChange={action('onChange')}
+						useTime
+					/>
+				</form>
+				<form style={{ width: 160, float: 'right' }}>
+					<InputDateTimePicker
+						id="my-date-picker-top-right"
+						name="Datetime"
+						onBlur={action('onBlur')}
+						onChange={action('onChange')}
+						useTime
+					/>
+				</form>
+				<div style={{ height: 600 }} />
+				<form style={{ width: 320, float: 'left' }}>
+					<InputDateTimePicker
+						id="my-date-picker-bottom-left"
+						name="Datetime"
+						onBlur={action('onBlur')}
+						onChange={action('onChange')}
+						useTime
+					/>
+				</form>
+				<form style={{ width: 160, float: 'right' }}>
+					<InputDateTimePicker
+						id="my-date-picker-bottom-right"
+						name="Datetime"
+						onBlur={action('onBlur')}
+						onChange={action('onChange')}
+						useTime
+					/>
+				</form>
+			</div>
+		</div>
+	));
