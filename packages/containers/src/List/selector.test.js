@@ -30,9 +30,6 @@ state.cmf.collections = fromJS({
 		items: localConfig.items,
 	},
 });
-state.cmf.registry = fromJS({
-	myCustomSortFn: () => () => -1,
-});
 
 describe('List Selector tests', () => {
 	it('should not filter the list when there is no search query', () => {
