@@ -108,7 +108,7 @@ export function getSortedResults(componentState, config, listItems) {
 		const sortedColumn = get(config, 'columns', [])
 			.find(column => column.key === sortBy);
 
-		if (sortedColumn && sortedColumn.sortFunction) {
+		if (get(sortedColumn, 'sortFunction')) {
 			// Immutable sort method returns sorted array
 			results = results.sort(
 				cmf.registry.getFromRegistry(sortedColumn.sortFunction)(sortBy, sortAsc)
