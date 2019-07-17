@@ -302,12 +302,12 @@ storiesOf('List Composition', module)
 			</section>
 		</div>
 	))
-	.add('Infinite scroll', () => (
+	.add('Lazy Loading', () => (
 		<div className="virtualized-list">
 			<IconsProvider />
-			<h1>List supporting infinite scroll</h1>
+			<h1>List supporting Lazy Loding</h1>
 			<p>
-				The LazyLoadingList list component allows to create lists that supports infinite scroll
+				The LazyLoadingList list component allows to create lists that supports lazy loading
 				feature.
 				<br />
 				It requires :<br />- <code>loadMoreRows</code> prop triggered when data loading is required
