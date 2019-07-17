@@ -24,15 +24,18 @@ $tc-circle-editable-text-size: 16px !default;
 		}
 	}
 }
+.tc-editable-text:hover {
+	&-pencil {
+		color: $scooter;
+	}
+}
 
 .tc-editable-text {
-	margin: 0 110px 0 0;
-	max-width: 90rem;
+	margin: 0;
 
 	&-title {
 		display: flex;
 		align-items: center;
-		max-width: 90rem;
 
 		:global(.tc-action-disabled-btn-container) {
 			height: 19px;
@@ -50,11 +53,7 @@ $tc-circle-editable-text-size: 16px !default;
 		flex: 0 0 auto;
 		line-height: inherit;
 		min-height: inherit;
-		color: $gray;
-
-		&:global(.btn-link) {
-			color: $gray;
-		}
+		color: $brand-primary-lighter;
 		&:focus,
 		&:hover {
 			color: $scooter;

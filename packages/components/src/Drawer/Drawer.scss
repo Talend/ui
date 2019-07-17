@@ -68,6 +68,11 @@ $tc-drawer-z-index: $drawer-z-index !default;
 	}
 }
 
+.tc-drawer-header:hover {
+	:global(.tc-editable-text-pencil) {
+		color: $scooter;
+	}
+}
 .tc-drawer-header {
 	background-color: $brand-primary-lighter;
 
@@ -84,10 +89,6 @@ $tc-drawer-z-index: $drawer-z-index !default;
 			width: 90%;
 			white-space: nowrap;
 			overflow: hidden;
-		}
-
-		&>.tc-editable-text {
-			width: unset;
 		}
 	}
 
