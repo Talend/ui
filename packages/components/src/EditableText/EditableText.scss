@@ -50,6 +50,7 @@ $tc-circle-editable-text-size: 16px !default;
 		flex: 0 0 auto;
 		line-height: inherit;
 		min-height: inherit;
+		color: $gray;
 
 		&:global(.btn-link) {
 			color: $gray;
