@@ -275,7 +275,7 @@ function Drawer({
 			style={style}
 			withTransition={withTransition}
 		>
-			<DrawerTitle title={title} onCancelAction={onCancelAction} getComponent={getComponent} />
+			<DrawerTitle editable title={title} onCancelAction={onCancelAction} getComponent={getComponent} />
 			{tabs && (
 				<div className={classnames('tc-drawer-tabs-container', theme['tc-drawer-tabs-container'])}>
 					<TabBarComponent
