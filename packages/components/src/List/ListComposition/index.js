@@ -9,6 +9,7 @@ import VList from './VList';
 export default {
 	DisplayMode,
 	LazyLoadingList,
+	InfiniteScrollList: LazyLoadingList,
 	Manager,
 	SortBy,
 	TextFilter,
