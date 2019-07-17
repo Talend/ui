@@ -1,5 +1,5 @@
 import DisplayMode from './DisplayMode';
-import InfiniteScrollList from './InfiniteScrollList';
+import LazyLoadingList from './LazyLoadingList';
 import Manager from './Manager';
 import SortBy from './SortBy';
 import TextFilter from './TextFilter';
@@ -8,7 +8,7 @@ import VList from './VList';
 
 export default {
 	DisplayMode,
-	InfiniteScrollList,
+	LazyLoadingList,
 	Manager,
 	SortBy,
 	TextFilter,
