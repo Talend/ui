@@ -288,48 +288,51 @@ storiesOf('DatePicker', module)
 			</div>
 		);
 	})
-	.add('Date picker - parent with fixed height', () => (
-		<div>
-			<IconsProvider />
-			<h1>DatePicker with fixed-height parent</h1>
-			<div style={{ height: 300, overflow: 'auto', border: 'solid' }}>
-				<form style={{ width: 320, float: 'left' }}>
-					<InputDateTimePicker
-						id="my-date-picker-top-left"
-						name="Datetime"
-						onBlur={action('onBlur')}
-						onChange={action('onChange')}
-						useTime
-					/>
-				</form>
-				<form style={{ width: 160, float: 'right' }}>
-					<InputDateTimePicker
-						id="my-date-picker-top-right"
-						name="Datetime"
-						onBlur={action('onBlur')}
-						onChange={action('onChange')}
-						useTime
-					/>
-				</form>
-				<div style={{ height: 600 }} />
-				<form style={{ width: 320, float: 'left' }}>
-					<InputDateTimePicker
-						id="my-date-picker-bottom-left"
-						name="Datetime"
-						onBlur={action('onBlur')}
-						onChange={action('onChange')}
-						useTime
-					/>
-				</form>
-				<form style={{ width: 160, float: 'right' }}>
-					<InputDateTimePicker
-						id="my-date-picker-bottom-right"
-						name="Datetime"
-						onBlur={action('onBlur')}
-						onChange={action('onChange')}
-						useTime
-					/>
-				</form>
+	.add('Date picker - parent with fixed height', () => {
+		const width = 150;
+		return (
+			<div>
+				<IconsProvider />
+				<h1>DatePicker with fixed-height parent</h1>
+				<div style={{ height: 300, overflow: 'auto', border: 'solid' }}>
+					<form style={{ width, float: 'left' }}>
+						<InputDateTimePicker
+							id="my-date-picker-top-left"
+							name="Datetime"
+							onBlur={action('onBlur')}
+							onChange={action('onChange')}
+							useTime
+						/>
+					</form>
+					<form style={{ width, float: 'right' }}>
+						<InputDateTimePicker
+							id="my-date-picker-top-right"
+							name="Datetime"
+							onBlur={action('onBlur')}
+							onChange={action('onChange')}
+							useTime
+						/>
+					</form>
+					<div style={{ height: 600 }} />
+					<form style={{ width, float: 'left' }}>
+						<InputDateTimePicker
+							id="my-date-picker-bottom-left"
+							name="Datetime"
+							onBlur={action('onBlur')}
+							onChange={action('onChange')}
+							useTime
+						/>
+					</form>
+					<form style={{ width, float: 'right' }}>
+						<InputDateTimePicker
+							id="my-date-picker-bottom-right"
+							name="Datetime"
+							onBlur={action('onBlur')}
+							onChange={action('onChange')}
+							useTime
+						/>
+					</form>
+				</div>
 			</div>
-		</div>
-	));
+		);
+	});

@@ -124,6 +124,17 @@ class InputDateTimePicker extends React.Component {
 		}
 	}
 
+	getPopperPlacement() {
+		const input = this.inputRef;
+		if (input) {
+			const inputDimensions = input.getBoundingClientRect();
+			if (inputDimensions.left > window.innerWidth / 2) {
+				return 'bottom-end';
+			}
+		}
+		return 'bottom-start';
+	}
+
 	setPickerVisibility(isShown, extra = {}) {
 		if (this.props.readOnly) {
 			return;
@@ -135,7 +146,6 @@ class InputDateTimePicker extends React.Component {
 			}
 			return {
 				showPicker: isShown,
-				style: this.inputRef ? { width: this.inputRef.getBoundingClientRect().width } : {},
 				...extra,
 			};
 		});
@@ -155,8 +165,6 @@ class InputDateTimePicker extends React.Component {
 			this.state.showPicker && (
 				<Popper
 					key="popper"
-					referenceElement={this.inputRef}
-					placement="bottom-end"
 					modifiers={{
 						hide: {
 							enabled: false,
@@ -165,18 +173,12 @@ class InputDateTimePicker extends React.Component {
 							enabled: false,
 						},
 					}}
+					placement={this.getPopperPlacement()}
 					positionFixed
+					referenceElement={this.inputRef}
 				>
 					{({ ref, style }) => (
-						<div
-							id={this.popoverId}
-							className={theme.popper}
-							style={{
-								...this.state.style,
-								...style,
-							}}
-							ref={ref}
-						>
+						<div id={this.popoverId} className={theme.popper} style={style} ref={ref}>
 							<DateTime.Picker />
 							{this.props.formMode && <DateTime.Validation />}
 						</div>

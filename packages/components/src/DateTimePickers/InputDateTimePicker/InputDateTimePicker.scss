@@ -1,8 +1,9 @@
+$tc-datetimepicker-width: 31rem !default;
 $tc-datetimepicker-background: $white !default;
+$tc-datetimepicker-box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.2) !default;
 
 .popper {
-	min-width: 310px;
-	max-width: 700px;
+	width: $tc-datetimepicker-width;
 	background: $tc-datetimepicker-background;
-	box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.2);
+	box-shadow: $tc-datetimepicker-box-shadow;
 }
