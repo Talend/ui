@@ -40,6 +40,7 @@ const list = {
 	columns: [
 		{ key: 'id', label: 'Id' },
 		{ key: 'label', label: 'Name' },
+		{ key: 'count', label: 'Count' },
 		{ key: 'author', label: 'Author' },
 		{ key: 'created', label: 'Created' },
 		{ key: 'modified', label: 'Modified' },
@@ -120,6 +121,7 @@ const items = Immutable.fromJS([
 	{
 		id: 'id1',
 		label: 'Title with actions',
+		count: 1,
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT',
@@ -130,6 +132,7 @@ const items = Immutable.fromJS([
 	{
 		id: 'ID2',
 		label: 'Title in input mode',
+		count: 11,
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT',
@@ -140,6 +143,7 @@ const items = Immutable.fromJS([
 	{
 		id: 'iD3',
 		label: 'Super long title to trigger overflow on some rendering',
+		count: 2,
 		created: '2016-09-22',
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT with super long name',
