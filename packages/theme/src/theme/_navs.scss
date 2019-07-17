@@ -1,154 +1,72 @@
 .nav {
-	.btn-link {
-		color: inherit;
-		display: inline-block;
+	.nav-link {
+		background: transparent;
+		display: flex;
+		align-items: center;
 
-		&:focus,
-		&:active,
-		&:hover {
-			text-decoration: none;
+		&.disabled {
+			cursor: not-allowed;
 		}
-
-		> *,
-		> span > * {
-			vertical-align: middle;
-		}
-	}
-
-	&-inverse {
-		color: $navbar-inverse-color;
-		background-color: $brand-primary;
 	}
 
 	&-pills {
-		> li {
-			&,
-			& + li {
-				margin: 0;
-			}
+		.nav-item {
+			max-width: 100%;
 
-			&:hover,
-			&.active,
-			&.open {
-				color: $navbar-inverse-color;
-				background-color: $brand-primary-dark;
-			}
-
-			&.disabled .btn {
-				&:focus,
-				&:hover {
-					color: shade($navbar-inverse-color, 10);
-				}
-			}
-		}
-
-		.btn.btn-link {
-			padding: $padding-large;
-			width: 100%;
-			line-height: 1;
-			text-align: left;
-			text-overflow: ellipsis;
-			overflow: hidden;
-			white-space: nowrap;
-
-			&.dropdown-toggle {
-				position: relative;
-				padding-right: 2 * $padding-large;
-
-				.caret {
-					position: absolute;
-					right: $padding-large;
-					margin-top: $dropdown-caret-size / 2;
-				}
-			}
-		}
-
-		&.nav-stacked {
-			.btn.btn-link {
+			.nav-link {
+				display: block;
+				line-height: 1;
+				overflow: hidden;
+				padding: $padding-large;
+				text-overflow: ellipsis;
+				white-space: nowrap;
 				width: 100%;
-				text-align: left;
-				background-color: transparent;
-			}
-		}
-	}
 
-	&-pills.nav-inverse {
-		> li {
-			&:focus,
-			&:hover {
-				background-color: rgba($white, 0.12);
+				&.dropdown-toggle {
+					display: flex;
+				}
 			}
 
-			&:active,
-			&.active,
-			&.open {
-				background-color: rgba($white, 0.25);
+			@include hover-focus {
+				.nav-link {
+					color: $nav-pills-link-active-color;
+					background-color: $nav-pills-link-active-bg;
+
+					&.disabled {
+						color: $nav-link-disabled-color;
+						cursor: not-allowed;
+					}
+				}
 			}
 		}
 	}
 
 	&-tabs {
-		border: none;
+		.nav-item {
+			padding: $nav-tabs-link-padding-y $nav-tabs-link-padding-x;
+		}
 
-		> li {
-			margin: 0;
-			&:first-of-type > * {
-				padding-left: $padding-large;
-			}
-			&:last-of-type > * {
-				padding-right: $padding-large;
-			}
+		.nav-link {
+			color: $nav-tabs-link-color;
 
-			> a,
-			> button {
-				background: transparent;
-				border: none;
-				border-radius: 0;
-				color: $dark-silver;
-				line-height: 1;
-				margin-bottom: 0.5rem;
-				outline: none;
-				padding: $padding-normal;
-				text-transform: uppercase;
+			@include hover-focus {
+				color: $nav-tabs-link-active-color;
 
-				&:hover,
-				&:focus {
-					color: $scooter;
-				}
-			}
-
-			&.active {
-				> a,
-				> button {
-					box-shadow: 0 -2px 0 $brand-primary inset;
-					border: none;
-					color: $brand-primary;
-
-					&:focus,
-					&:hover {
-						color: $scooter;
-					}
-				}
-			}
-
-			&.disabled {
-				> a,
-				> button {
+				&.disabled {
+					color: $nav-link-disabled-color;
 					cursor: not-allowed;
-					color: rgba(1, 1, 1, 0.4);
-
-					&,
-					&:focus,
-					&:hover {
-						background: transparent;
-						border: none;
-					}
 				}
 			}
 		}
 
-		+ .tab-content {
-			padding-top: $padding-large;
+		.nav-link.active,
+		&.show .nav-link {
+			border-bottom: solid 0.2rem;
+			font-weight: semi-bold;
 		}
 	}
+}
+
+.tab-content {
+	padding-top: $padding-large;
 }

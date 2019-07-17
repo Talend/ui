@@ -273,69 +273,6 @@ $container-large-desktop: (114rem + $grid-gutter-width) !default;
 //** For `$screen-lg-min` and up.
 $container-lg: $container-large-desktop !default;
 
-//== Navs
-//
-//##
-
-//=== Shared nav styles
-$nav-link-padding: 1rem 1.5rem !default;
-$nav-link-hover-bg: $gray-lighter !default;
-
-$nav-disabled-link-color: $gray-light !default;
-$nav-disabled-link-hover-color: $gray-light !default;
-
-//== Tabs
-$nav-tabs-border-color: #ddd !default;
-
-$nav-tabs-link-hover-border-color: $gray-lighter !default;
-
-$nav-tabs-active-link-hover-bg: $body-bg !default;
-$nav-tabs-active-link-hover-color: $gray !default;
-$nav-tabs-active-link-hover-border-color: #ddd !default;
-
-$nav-tabs-justified-link-border-color: #ddd !default;
-$nav-tabs-justified-active-link-border-color: $body-bg !default;
-
-//== Pills
-$nav-pills-border-radius: 0 !default;
-$nav-pills-active-link-hover-bg: $brand-primary-darker !default;
-$nav-pills-active-link-hover-color: $white !default;
-
-//== Pagination
-//
-//##
-
-$pagination-color: $link-color !default;
-$pagination-bg: #fff !default;
-$pagination-border: #ddd !default;
-
-$pagination-hover-color: $link-hover-color !default;
-$pagination-hover-bg: $gray-lighter !default;
-$pagination-hover-border: #ddd !default;
-
-$pagination-active-color: #fff !default;
-$pagination-active-bg: $brand-primary !default;
-$pagination-active-border: $brand-primary !default;
-
-$pagination-disabled-color: $gray-light !default;
-$pagination-disabled-bg: #fff !default;
-$pagination-disabled-border: #ddd !default;
-
-//== Pager
-//
-//##
-
-$pager-bg: $pagination-bg !default;
-$pager-border: $pagination-border !default;
-$pager-border-radius: 1.5rem !default;
-
-$pager-hover-bg: $pagination-hover-bg !default;
-
-$pager-active-bg: $pagination-active-bg !default;
-$pager-active-color: $pagination-active-color !default;
-
-$pager-disabled-color: $pagination-disabled-color !default;
-
 //== Jumbotron
 //
 //##
@@ -788,3 +725,57 @@ $navbar-dark-color: $white !default;
 $navbar-dark-hover-color: $white !default;
 $navbar-dark-active-color: $white !default;
 $navbar-dark-active-bg: rgba(255, 255, 255, 0.12) !default;
+
+//== Navs
+//
+//##
+
+$nav-link-disabled-color: $dark-silver !default;
+
+$nav-tabs-link-color: $black !default;
+$nav-tabs-border-radius: 0 !default;
+$nav-tabs-border-width: 0 !default;
+$nav-tabs-link-padding-x: $padding-small !default;
+$nav-tabs-link-padding-y: $padding-smaller !default;
+$nav-tabs-link-active-bg: transparent !default;
+$nav-tabs-link-active-color: $lochmara !default;
+$nav-tabs-link-active-border-color: $lochmara !default;
+
+$nav-pills-border-radius: 0;
+$nav-pills-link-active-bg: $brand-primary-dark;
+$nav-pills-link-active-color: $white;
+
+// //== Pagination
+// //
+// //##
+
+// $pagination-color: $link-color !default;
+// $pagination-bg: #fff !default;
+// $pagination-border: #ddd !default;
+
+// $pagination-hover-color: $link-hover-color !default;
+// $pagination-hover-bg: $gray-lighter !default;
+// $pagination-hover-border: #ddd !default;
+
+// $pagination-active-color: #fff !default;
+// $pagination-active-bg: $brand-primary !default;
+// $pagination-active-border: $brand-primary !default;
+
+// $pagination-disabled-color: $gray-light !default;
+// $pagination-disabled-bg: #fff !default;
+// $pagination-disabled-border: #ddd !default;
+
+// //== Pager
+// //
+// //##
+
+// $pager-bg: $pagination-bg !default;
+// $pager-border: $pagination-border !default;
+// $pager-border-radius: 1.5rem !default;
+
+// $pager-hover-bg: $pagination-hover-bg !default;
+
+// $pager-active-bg: $pagination-active-bg !default;
+// $pager-active-color: $pagination-active-color !default;
+
+// $pager-disabled-color: $pagination-disabled-color !default;
