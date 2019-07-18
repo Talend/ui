@@ -16,6 +16,16 @@ describe('Drawer', () => {
 			.toJSON();
 		expect(wrapper).toMatchSnapshot();
 	});
+	it('should render with editable title', () => {
+		const wrapper = renderer
+			.create(
+				<Drawer editable title="edit title here">
+					<h1>Hello world</h1>
+				</Drawer>,
+			)
+			.toJSON();
+		expect(wrapper).toMatchSnapshot();
+	});
 	it('should render without tc-drawer-transition class', () => {
 		const wrapper = renderer
 			.create(
