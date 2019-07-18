@@ -24,12 +24,12 @@ $tc-circle-editable-text-size: 16px !default;
 		}
 	}
 }
+
 .tc-editable-text:hover {
-	&-pencil {
-		color: $scooter;
+	:global(.tc-editable-text-pencil) {
+		color: $gray;
 	}
 }
-
 .tc-editable-text {
 	margin: 0;
 
@@ -56,7 +56,7 @@ $tc-circle-editable-text-size: 16px !default;
 		color: $brand-primary-lighter;
 		&:focus,
 		&:hover {
-			color: $scooter;
+			color: $gray;
 		}
 	}
 
