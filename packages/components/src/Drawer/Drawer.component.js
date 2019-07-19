@@ -326,7 +326,7 @@ Drawer.displayName = 'Drawer';
 Drawer.propTypes = {
 	stacked: PropTypes.bool,
 	title: PropTypes.string,
-	editableTitle:  PropTypes.bool,
+	editableTitle: PropTypes.bool,
 	children: PropTypes.node,
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	className: PropTypes.string,

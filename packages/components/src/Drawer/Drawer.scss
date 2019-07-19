@@ -99,7 +99,7 @@ $tc-drawer-z-index: $drawer-z-index !default;
 			overflow: hidden;
 		}
 
-		&> .tc-editable-text {
+		& > .tc-editable-text {
 			width: unset;
 		}
 	}
