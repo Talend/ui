@@ -131,9 +131,7 @@ function DrawerTitle({
 	inProgress,
 	onEdit,
 	onSubmit,
-	actionCreatorSubmit,
 	onCancel,
-	dispatchActionCreator,
 	...props
 }) {
 	const [isEditMode, setIsEditMode] = React.useState(false);
@@ -151,11 +149,8 @@ function DrawerTitle({
 	}
 	function handleSubmit(...args) {
 		setIsEditMode(false);
-		if (typeof onSubmit === 'function') {
+		if (onSubmit) {
 			onSubmit(...args);
-		}
-		if (actionCreatorSubmit) {
-			dispatchActionCreator(actionCreatorSubmit, event, args[1]);
 		}
 	}
 
@@ -203,9 +198,7 @@ DrawerTitle.propTypes = {
 	inProgress: PropTypes.bool,
 	onEdit: PropTypes.func,
 	onSubmit: PropTypes.func,
-	actionCreatorSubmit: PropTypes.string,
 	onCancel: PropTypes.func,
-	dispatchActionCreator: PropTypes.func,
 };
 
 function DrawerContent({ children, className, ...rest }) {
