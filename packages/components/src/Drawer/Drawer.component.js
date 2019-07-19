@@ -121,6 +121,11 @@ SubtitleComponent.propTypes = {
 	subtitle: PropTypes.string,
 };
 
+export function subtitleComponent(subtitle) {
+	// backward compatibility
+	return <SubtitleComponent subtitle={subtitle} />;
+}
+
 function DrawerTitle({
 	title,
 	subtitle,
