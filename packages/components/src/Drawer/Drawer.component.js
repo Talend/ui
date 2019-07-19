@@ -261,6 +261,7 @@ function Drawer({
 	withTransition,
 	getComponent,
 	selectedTabKey,
+	editableTitle,
 }) {
 	if (!children) {
 		return null;
@@ -289,7 +290,7 @@ function Drawer({
 			withTransition={withTransition}
 		>
 			<DrawerTitle
-				editable
+				editable={editableTitle}
 				title={title}
 				onCancelAction={onCancelAction}
 				getComponent={getComponent}
@@ -325,6 +326,7 @@ Drawer.displayName = 'Drawer';
 Drawer.propTypes = {
 	stacked: PropTypes.bool,
 	title: PropTypes.string,
+	editableTitle:  PropTypes.bool,
 	children: PropTypes.node,
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	className: PropTypes.string,

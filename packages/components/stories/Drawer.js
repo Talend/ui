@@ -217,7 +217,7 @@ const editableDrawers = [
 		<h1>Hello drawer 1</h1>
 		<p>{"You should not being able to read this because I'm first"}</p>
 	</Drawer>,
-	<Drawer editable title="Im drawer 20" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
+	<Drawer editableTitle title="Im drawer 20" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
 		<h1>Hello drawer 2</h1>
 		<p>The content dictate the scroll</p>
 		<h1>Hello drawer 3</h1>
