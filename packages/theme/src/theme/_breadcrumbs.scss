@@ -4,76 +4,38 @@
 ////
 
 .breadcrumb {
-	display: flex;
-	flex-direction: row;
-	margin: 0;
-	padding: 0 $padding-normal;
-	height: $breadcrumb-height;
-	white-space: nowrap;
-	color: $breadcrumb-items-color;
-	border-radius: 0;
+	font-size: 1.4rem;
 
-	> li {
-		display: flex;
-		align-items: center;
+	&-item {
+		max-width: 30rem;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 
-		> a,
-		> span,
-		> .btn {
-			display: inline-block;
-			flex: 1;
-			flex-basis: auto; // https://github.com/philipwalton/flexbugs#6-the-default-flex-value-has-changed
-			max-width: $breadcrumb-items-max-width;
-			padding: 0;
-			text-overflow: ellipsis;
-			white-space: nowrap;
-			overflow: hidden;
-		}
+		a,
+		button {
+			color: $black;
 
-		& + li {
-			// https://www.w3.org/TR/wai-aria-practices/examples/breadcrumb/index.html
-			&:before {
-				display: block;
-				content: '';
-				margin: 0 $padding-small $padding-smaller $padding-smaller;
-				padding: 0 0 0 $padding-small;
-				transform: rotate(30deg);
-				border-right: 0.1rem solid $breadcrumb-items-separator-color;
-				height: 1.25rem;
+			@include hover-focus {
+				color: $scooter;
+				text-decoration: none;
 			}
 		}
 
-		&.active span {
-			font-weight: 600;
-			color: $breadcrumb-items-active-color;
-		}
-	}
-
-	// Buttons need to have the same behavior as links
-	a,
-	.btn {
-		font-size: inherit;
-		letter-spacing: 0;
-		text-align: left;
-		text-transform: none;
-		background: transparent;
-		border: none;
-
-		&:focus,
-		&:hover,
-		&:active,
-		&:active:focus,
 		&.active {
-			color: $breadcrumb-items-color-hover;
-			background: transparent;
-			text-decoration: none;
+			font-weight: 600;
 		}
 
-		> span {
-			display: block;
-			text-overflow: ellipsis;
-			overflow: hidden;
-			white-space: nowrap;
+		&.dropdown {
+			overflow: visible;
+			.dropdown-toggle {
+				min-height: auto;
+				height: auto;
+				line-height: inherit;
+				&:after {
+					content: none;
+				}
+			}
 		}
 	}
 }

@@ -547,21 +547,6 @@ $thumbnail-caption-padding: 0.9rem !default;
 $well-bg: #f5f5f5 !default;
 $well-border: darken($well-bg, 7%) !default;
 
-//== Breadcrumbs
-//
-//##
-
-$breadcrumb-padding-vertical: $padding-normal !default;
-$breadcrumb-padding-horizontal: $padding-normal !default;
-//** Breadcrumb background color
-$breadcrumb-bg: #fff !default;
-//** Breadcrumb text color
-$breadcrumb-color: $gray-lighter !default;
-//** Text color of current page in the breadcrumb
-$breadcrumb-active-color: $gray-darker !default;
-//** Textual separator for between breadcrumb elements
-$breadcrumb-separator: '>' !default;
-
 //== Carousel
 //
 //##
@@ -745,37 +730,14 @@ $nav-pills-border-radius: 0;
 $nav-pills-link-active-bg: $brand-primary-dark;
 $nav-pills-link-active-color: $white;
 
-// //== Pagination
-// //
-// //##
+//== Breadcrumbs
+//
+//##
 
-// $pagination-color: $link-color !default;
-// $pagination-bg: #fff !default;
-// $pagination-border: #ddd !default;
-
-// $pagination-hover-color: $link-hover-color !default;
-// $pagination-hover-bg: $gray-lighter !default;
-// $pagination-hover-border: #ddd !default;
-
-// $pagination-active-color: #fff !default;
-// $pagination-active-bg: $brand-primary !default;
-// $pagination-active-border: $brand-primary !default;
-
-// $pagination-disabled-color: $gray-light !default;
-// $pagination-disabled-bg: #fff !default;
-// $pagination-disabled-border: #ddd !default;
-
-// //== Pager
-// //
-// //##
-
-// $pager-bg: $pagination-bg !default;
-// $pager-border: $pagination-border !default;
-// $pager-border-radius: 1.5rem !default;
-
-// $pager-hover-bg: $pagination-hover-bg !default;
-
-// $pager-active-bg: $pagination-active-bg !default;
-// $pager-active-color: $pagination-active-color !default;
-
-// $pager-disabled-color: $pagination-disabled-color !default;
+$breadcrumb-padding-y: $padding-normal !default;
+$breadcrumb-padding-x: $padding-normal !default;
+$breadcrumb-bg: transparent !default;
+$breadcrumb-item-padding: 1rem !default;
+$breadcrumb-divider-color: $gray !default;
+$breadcrumb-active-color: $dove-gray !default;
+$breadcrumb-border-radius: 0 !default;
