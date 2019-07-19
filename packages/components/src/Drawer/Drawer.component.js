@@ -117,6 +117,10 @@ export function SubtitleComponent({ subtitle }) {
 	return <h2 title={subtitle}>{subtitle}</h2>;
 }
 
+SubtitleComponent.propTypes = {
+	subtitle: PropTypes.string,
+};
+
 function DrawerTitle({
 	title,
 	subtitle,
@@ -195,6 +199,13 @@ DrawerTitle.propTypes = {
 	onCancelAction: PropTypes.shape(Action.propTypes),
 	children: PropTypes.node,
 	getComponent: PropTypes.func,
+	editable: PropTypes.bool,
+	inProgress: PropTypes.bool,
+	onEdit: PropTypes.func,
+	onSubmit: PropTypes.func,
+	actionCreatorSubmit: PropTypes.string,
+	onCancel: PropTypes.func,
+	dispatchActionCreator: PropTypes.func,
 };
 
 function DrawerContent({ children, className, ...rest }) {
