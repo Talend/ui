@@ -98,7 +98,16 @@ export function cancelActionComponent(onCancelAction, getComponent) {
 		},
 		onCancelAction,
 	);
-	return <ActionComponent className={classnames('tc-drawer-close-action', theme['tc-drawer-close-action'], enhancedCancelAction.className)} {...enhancedCancelAction} />;
+	return (
+		<ActionComponent
+			{...enhancedCancelAction}
+			className={classnames(
+				'tc-drawer-close-action',
+				theme['tc-drawer-close-action'],
+				enhancedCancelAction.className,
+			)}
+		/>
+	);
 }
 
 export function SubtitleComponent({ subtitle }) {
@@ -270,7 +279,12 @@ function Drawer({
 			style={style}
 			withTransition={withTransition}
 		>
-			<DrawerTitle editable title={title} onCancelAction={onCancelAction} getComponent={getComponent} />
+			<DrawerTitle
+				editable
+				title={title}
+				onCancelAction={onCancelAction}
+				getComponent={getComponent}
+			/>
 			{tabs && (
 				<div className={classnames('tc-drawer-tabs-container', theme['tc-drawer-tabs-container'])}>
 					<TabBarComponent
