@@ -12,29 +12,38 @@ exports[`title-bar 1`] = `
   <form
     className="tc-table-filters-bar theme-tc-table-filters-bar"
   >
-    <button
-      aria-label="Toggle filter"
-      className="tc-string-filter tc-filter theme-tc-filter name-filter btn-icon-only btn btn-link"
-      disabled={false}
+    <span
+      aria-describedby={42}
+      className="theme-tc-tooltip"
+      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseDown={[Function]}
+      onKeyPress={[Function]}
+      onMouseOut={[Function]}
       onMouseOver={[Function]}
-      role="search"
-      type="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
-        name="talend-search"
-        title={null}
+      <button
+        aria-label="Toggle filter"
+        className="tc-string-filter tc-filter theme-tc-filter name-filter btn-icon-only btn btn-link"
+        disabled={false}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="search"
+        type="button"
       >
-        <use
-          xlinkHref="#talend-search"
-        />
-      </svg>
-    </button>
+        <svg
+          aria-hidden="true"
+          className="theme-tc-svg-icon tc-svg-icon"
+          focusable="false"
+          name="talend-search"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-search"
+          />
+        </svg>
+      </button>
+    </span>
     <div
       className="checkbox tc-toggle theme-tc-toggle tc-boolean-filter tc-filter theme-tc-filter mandatory-field-filter"
     >
