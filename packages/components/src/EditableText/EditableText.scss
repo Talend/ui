@@ -13,18 +13,6 @@ $tc-circle-editable-text-size: 16px !default;
 	@include heartbeat(object-blink);
 }
 
-:global {
-	.tc-editable-text-form-buttons-submit:focus,
-	.tc-editable-text-form-buttons-submit:hover {
-		background: $scooter;
-		border-color: $scooter;
-		color: $scooter;
-		& svg {
-			background: $scooter;
-		}
-	}
-}
-
 .tc-editable-text {
 	&-title {
 		display: flex;
