@@ -79,7 +79,7 @@ export function Badge({
 Badge.propTypes = {
 	aslink: PropTypes.bool,
 	category: PropTypes.string,
-	children: PropTypes.oneOf([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 	className: PropTypes.string,
 	disabled: PropTypes.bool,
 	display: PropTypes.oneOf(Object.values(SIZES)),
