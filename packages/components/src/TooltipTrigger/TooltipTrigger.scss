@@ -70,7 +70,7 @@ $tc-tooltip-arrow-color: $tc-tooltip-background !default;
 
 	&-top-left,
 	&-top-right {
-		margin: $tc-tooltip-margin (-1 * $tc-tooltip-margin);
+		bottom: $tc-tooltip-margin;
 
 		&:before {
 			bottom: -2 * $tc-tooltip-arrow-border-size;
@@ -79,7 +79,7 @@ $tc-tooltip-arrow-color: $tc-tooltip-background !default;
 	}
 
 	&-top-left {
-		margin-right: (-3 * $tc-tooltip-margin) + $tc-tooltip-arrow-border-size;
+		right: (-3 * $tc-tooltip-margin) + $tc-tooltip-arrow-border-size;
 		margin-left : auto;
 
 		&:before {
@@ -90,7 +90,7 @@ $tc-tooltip-arrow-color: $tc-tooltip-background !default;
 	}
 
 	&-top-right {
-		margin-left: (-3 * $tc-tooltip-margin) + $tc-tooltip-arrow-border-size;
+		left: (-3 * $tc-tooltip-margin) + $tc-tooltip-arrow-border-size;
 		margin-right : auto;
 
 		&:before {
@@ -117,7 +117,7 @@ $tc-tooltip-arrow-color: $tc-tooltip-background !default;
 	}
 
 	&-bottom-right {
-		margin-left: (-3 * $tc-tooltip-margin) + $tc-tooltip-arrow-border-size;
+		left: (-3 * $tc-tooltip-margin) + $tc-tooltip-arrow-border-size;
 		margin-right: auto;
 
 		&:before {
@@ -127,8 +127,8 @@ $tc-tooltip-arrow-color: $tc-tooltip-background !default;
 	}
 
 	&-bottom-left {
+		right: (-3 * $tc-tooltip-margin) + $tc-tooltip-arrow-border-size;
 		margin-left: auto;
-		margin-right: (-3 * $tc-tooltip-margin) + $tc-tooltip-arrow-border-size;;
 
 		&:before {
 			right: $tc-tooltip-margin;
@@ -158,6 +158,8 @@ $tc-tooltip-arrow-color: $tc-tooltip-background !default;
 
 	&-right-bottom,
 	&-left-bottom {
+		bottom: (-1 * $tc-tooltip-margin);
+
 		&:before {
 			top: auto;
 			bottom: $tc-tooltip-margin - $tc-tooltip-arrow-border-size;
