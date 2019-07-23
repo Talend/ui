@@ -114,7 +114,7 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
     className="theme-progress"
     role="progressbar"
   >
-    <span
+    <div
       aria-describedby={42}
       className="theme-tc-tooltip"
       onBlur={[Function]}
@@ -132,7 +132,7 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
           }
         }
       />
-    </span>
+    </div>
   </div>
   <div
     className="Body mocked-component"

@@ -72,7 +72,7 @@ exports[`TextFilter should render text filter component 1`] = `
               label="Toggle filter"
               tooltipPlacement="top"
             >
-              <span
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -123,7 +123,7 @@ exports[`TextFilter should render text filter component 1`] = `
                     </Icon>
                   </button>
                 </Button>
-              </span>
+              </div>
             </TooltipTrigger>
           </ActionButton>
         </withI18nextTranslation(ActionButton)>
@@ -206,7 +206,7 @@ exports[`TextFilter should render text filter component with defined docked stat
               label="Toggle filter"
               tooltipPlacement="top"
             >
-              <span
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -257,7 +257,7 @@ exports[`TextFilter should render text filter component with defined docked stat
                     </Icon>
                   </button>
                 </Button>
-              </span>
+              </div>
             </TooltipTrigger>
           </ActionButton>
         </withI18nextTranslation(ActionButton)>

@@ -1043,7 +1043,7 @@ exports[`Items should render with nested items 1`] = `
                                     label="Expand Lorem ipsum dolor Parent"
                                     tooltipPlacement="top"
                                   >
-                                    <span
+                                    <div
                                       aria-describedby={42}
                                       className="theme-tc-tooltip"
                                       onBlur={[Function]}
@@ -1092,7 +1092,7 @@ exports[`Items should render with nested items 1`] = `
                                           </Icon>
                                         </button>
                                       </Button>
-                                    </span>
+                                    </div>
                                   </TooltipTrigger>
                                 </ActionButton>
                               </withI18nextTranslation(ActionButton)>

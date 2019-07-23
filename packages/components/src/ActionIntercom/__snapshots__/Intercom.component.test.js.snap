@@ -20,7 +20,7 @@ exports[`Intercom button should render a button 1`] = `
     label="Chat with Talend Support"
     tooltipPlacement="bottom"
   >
-    <span
+    <div
       aria-describedby={42}
       className="theme-tc-tooltip"
       onBlur={[Function]}
@@ -50,7 +50,7 @@ exports[`Intercom button should render a button 1`] = `
           </svg>
         </Icon>
       </button>
-    </span>
+    </div>
   </TooltipTrigger>
 </Intercom>
 `;

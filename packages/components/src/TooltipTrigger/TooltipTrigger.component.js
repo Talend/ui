@@ -155,7 +155,11 @@ class TooltipTrigger extends React.Component {
 		const { placement, style } = this.getTooltipPosition();
 
 		return (
-			<span
+			// we use div here to wrap tooltip trigger
+			// it should not be reachable
+			// It is just a way to handle click and keyboard events
+			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
+			<div
 				{...omit(this.props, Object.keys(TooltipTrigger.propTypes))}
 				className={theme['tc-tooltip']}
 				onFocus={this.showTooltip}
@@ -181,7 +185,7 @@ class TooltipTrigger extends React.Component {
 						</div>
 					</TooltipPortal>
 				)}
-			</span>
+			</div>
 		);
 	}
 }

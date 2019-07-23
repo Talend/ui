@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ActionTooltip should render custom tooltip when focus the children 1`] = `
-<span
+<div
   aria-describedby={42}
   ariaLabel="a custom tooltip"
   className="theme-tc-tooltip"
@@ -15,11 +15,11 @@ exports[`ActionTooltip should render custom tooltip when focus the children 1`] 
   <div>
     Action
   </div>
-</span>
+</div>
 `;
 
 exports[`ActionTooltip should render only the children 1`] = `
-<span
+<div
   aria-describedby={42}
   className="theme-tc-tooltip"
   onBlur={[Function]}
@@ -32,11 +32,11 @@ exports[`ActionTooltip should render only the children 1`] = `
   <div>
     Action
   </div>
-</span>
+</div>
 `;
 
 exports[`ActionTooltip should render tooltip when focus the children 1`] = `
-<span
+<div
   aria-describedby={42}
   className="theme-tc-tooltip"
   onBlur={[Function]}
@@ -49,11 +49,11 @@ exports[`ActionTooltip should render tooltip when focus the children 1`] = `
   <div>
     Action
   </div>
-</span>
+</div>
 `;
 
 exports[`ActionTooltip should render tooltip when hover the children 1`] = `
-<span
+<div
   aria-describedby={42}
   className="theme-tc-tooltip"
   onBlur={[Function]}
@@ -66,5 +66,5 @@ exports[`ActionTooltip should render tooltip when hover the children 1`] = `
   <div>
     Action
   </div>
-</span>
+</div>
 `;

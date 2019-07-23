@@ -775,7 +775,7 @@ exports[`Typeahead should pass input extra props 1`] = `
 `;
 
 exports[`Typeahead with toggle should render button 1`] = `
-<span
+<div
   aria-describedby={42}
   className="theme-tc-tooltip"
   onBlur={[Function]}
@@ -800,5 +800,5 @@ exports[`Typeahead with toggle should render button 1`] = `
       title={null}
     />
   </button>
-</span>
+</div>
 `;

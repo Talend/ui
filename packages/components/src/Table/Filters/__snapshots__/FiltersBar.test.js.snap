@@ -4,7 +4,7 @@ exports[`two-filters 1`] = `
 <form
   className="tc-table-filters-bar theme-tc-table-filters-bar"
 >
-  <span
+  <div
     aria-describedby={42}
     className="theme-tc-tooltip"
     onBlur={[Function]}
@@ -35,7 +35,7 @@ exports[`two-filters 1`] = `
         />
       </svg>
     </button>
-  </span>
+  </div>
   <div
     className="checkbox tc-toggle theme-tc-toggle tc-boolean-filter tc-filter theme-tc-filter mandatory-field-filter"
   >

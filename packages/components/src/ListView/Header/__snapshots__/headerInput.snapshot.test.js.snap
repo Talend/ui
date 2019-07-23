@@ -12,7 +12,7 @@ exports[`Header should render filter header 1`] = `
     placeholder="Search"
     type="text"
   />
-  <span
+  <div
     aria-describedby={42}
     className="theme-tc-tooltip"
     onBlur={[Function]}
@@ -43,6 +43,6 @@ exports[`Header should render filter header 1`] = `
         />
       </svg>
     </button>
-  </span>
+  </div>
 </header>
 `;

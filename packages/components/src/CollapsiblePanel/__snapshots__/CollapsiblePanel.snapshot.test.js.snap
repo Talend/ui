@@ -91,7 +91,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
             <div
               className="theme-undefined theme-col-4"
             >
-              <span
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -117,12 +117,12 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                     title={null}
                   />
                 </button>
-              </span>
+              </div>
             </div>
             <div
               className="theme-undefined theme-col-4"
             >
-              <span
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -137,12 +137,12 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                 >
                   by Charles
                 </div>
-              </span>
+              </div>
             </div>
             <div
               className="theme-group theme-col-4"
             >
-              <span
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -157,8 +157,8 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                 >
                   on TDP
                 </div>
-              </span>
-              <span
+              </div>
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -173,7 +173,7 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
                 >
                   XML
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </button>
@@ -321,7 +321,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
             <div
               className="theme-undefined theme-col-4"
             >
-              <span
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -347,12 +347,12 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                     title={null}
                   />
                 </button>
-              </span>
+              </div>
             </div>
             <div
               className="theme-undefined theme-col-4"
             >
-              <span
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -367,12 +367,12 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                 >
                   by Charles
                 </div>
-              </span>
+              </div>
             </div>
             <div
               className="theme-group theme-col-4"
             >
-              <span
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -387,8 +387,8 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                 >
                   on TDP
                 </div>
-              </span>
-              <span
+              </div>
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -403,7 +403,7 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
                 >
                   XML
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </button>
@@ -550,7 +550,7 @@ exports[`CollapsiblePanel should render default without content 1`] = `
             <div
               className="theme-undefined theme-col-4"
             >
-              <span
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -576,12 +576,12 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                     title={null}
                   />
                 </button>
-              </span>
+              </div>
             </div>
             <div
               className="theme-undefined theme-col-4"
             >
-              <span
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -596,12 +596,12 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                 >
                   by Charles
                 </div>
-              </span>
+              </div>
             </div>
             <div
               className="theme-group theme-col-4"
             >
-              <span
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -616,8 +616,8 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                 >
                   on TDP
                 </div>
-              </span>
-              <span
+              </div>
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -632,7 +632,7 @@ exports[`CollapsiblePanel should render default without content 1`] = `
                 >
                   XML
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </button>
@@ -675,7 +675,7 @@ exports[`CollapsiblePanel should render panel with custom element 1`] = `
             <div
               className="theme-undefined theme-col-3"
             >
-              <span
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -690,12 +690,12 @@ exports[`CollapsiblePanel should render panel with custom element 1`] = `
                 >
                   Version 1 Version 1
                 </div>
-              </span>
+              </div>
             </div>
             <div
               className="theme-undefined theme-col-3"
             >
-              <span
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -712,12 +712,12 @@ exports[`CollapsiblePanel should render panel with custom element 1`] = `
                     Custom element
                   </span>
                 </div>
-              </span>
+              </div>
             </div>
             <div
               className="theme-undefined theme-col-3"
             >
-              <span
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -732,7 +732,7 @@ exports[`CollapsiblePanel should render panel with custom element 1`] = `
                 >
                   03/02/2017 14:44:55
                 </div>
-              </span>
+              </div>
             </div>
           </div>
         </button>
@@ -775,7 +775,7 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
             <div
               className="theme-group theme-col-2"
             >
-              <span
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -790,8 +790,8 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
                 >
                   Version 1 Version 1
                 </div>
-              </span>
-              <span
+              </div>
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -806,12 +806,12 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
                 >
                   (Read Only)
                 </div>
-              </span>
+              </div>
             </div>
             <div
               className="theme-undefined theme-col-2"
             >
-              <span
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -826,7 +826,7 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
                 >
                   03/02/2017 14:44:55
                 </div>
-              </span>
+              </div>
             </div>
           </div>
         </button>
@@ -865,7 +865,7 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
         <div
           className="theme-head"
         >
-          <span
+          <div
             aria-describedby={42}
             className="theme-tc-tooltip"
             onBlur={[Function]}
@@ -878,8 +878,8 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
             <span>
               21 step
             </span>
-          </span>
-          <span
+          </div>
+          <div
             aria-describedby={42}
             className="theme-tc-tooltip"
             onBlur={[Function]}
@@ -894,7 +894,7 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
             >
               by Abdelaziz Maalej test 1 test 2 test 1 test 2
             </span>
-          </span>
+          </div>
         </div>
         <div
           className="theme-content-description content-description"
@@ -940,7 +940,7 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
             <div
               className="theme-group theme-col-2"
             >
-              <span
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -955,8 +955,8 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
                 >
                   Version 1 Version 1
                 </div>
-              </span>
-              <span
+              </div>
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -971,12 +971,12 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
                 >
                   (Read Only)
                 </div>
-              </span>
+              </div>
             </div>
             <div
               className="theme-undefined theme-col-2"
             >
-              <span
+              <div
                 aria-describedby={42}
                 className="theme-tc-tooltip"
                 onBlur={[Function]}
@@ -991,7 +991,7 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
                 >
                   03/02/2017 14:44:55
                 </div>
-              </span>
+              </div>
             </div>
           </div>
         </button>

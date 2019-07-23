@@ -10,7 +10,7 @@ exports[`Header should render header with one button 1`] = `
   <div
     className="actions"
   >
-    <span
+    <div
       aria-describedby={42}
       className="theme-tc-tooltip"
       onBlur={[Function]}
@@ -41,7 +41,7 @@ exports[`Header should render header with one button 1`] = `
           />
         </svg>
       </button>
-    </span>
+    </div>
   </div>
 </header>
 `;
