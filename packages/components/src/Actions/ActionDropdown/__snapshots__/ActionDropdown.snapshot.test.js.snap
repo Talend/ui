@@ -830,11 +830,13 @@ exports[`ActionDropdown should render a button with icon and label 1`] = `
 
 exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
 <DropdownButton
+  aria-describedby={42}
   aria-label="related items"
   bsStyle="default"
   className="theme-tc-dropdown-button tc-dropdown-button"
   i18n={Object {}}
   id="dropdown-id"
+  key=".0"
   onSelect={[Function]}
   onToggle={[Function]}
   role="button"
@@ -875,6 +877,7 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
           className="dropdown btn-group btn-group-default"
         >
           <DropdownToggle
+            aria-describedby={42}
             aria-label="related items"
             bsClass="dropdown-toggle"
             bsRole="toggle"
@@ -891,6 +894,7 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
           >
             <Button
               active={false}
+              aria-describedby={42}
               aria-expanded={false}
               aria-haspopup={true}
               aria-label="related items"
@@ -906,6 +910,7 @@ exports[`ActionDropdown should render icon only with hideLabel props 1`] = `
               role="button"
             >
               <button
+                aria-describedby={42}
                 aria-expanded={false}
                 aria-haspopup={true}
                 aria-label="related items"

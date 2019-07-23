@@ -48,6 +48,7 @@ exports[`List DisplayMode should render 1`] = `
           >
             <Button
               active={false}
+              aria-describedby={42}
               aria-label="Set Table as current display mode."
               aria-pressed={true}
               block={false}
@@ -56,9 +57,11 @@ exports[`List DisplayMode should render 1`] = `
               className="tc-icon-toggle theme-tc-icon-toggle theme-active active"
               disabled={true}
               id="myDisplayMode-table"
+              key=".0"
               onClick={[Function]}
             >
               <button
+                aria-describedby={42}
                 aria-label="Set Table as current display mode."
                 aria-pressed={true}
                 className="tc-icon-toggle theme-tc-icon-toggle theme-active active btn btn-link"
@@ -122,6 +125,7 @@ exports[`List DisplayMode should render 1`] = `
           >
             <Button
               active={false}
+              aria-describedby={42}
               aria-label="Set Expanded as current display mode."
               aria-pressed={false}
               block={false}
@@ -130,9 +134,11 @@ exports[`List DisplayMode should render 1`] = `
               className="tc-icon-toggle theme-tc-icon-toggle"
               disabled={false}
               id="myDisplayMode-large"
+              key=".0"
               onClick={[Function]}
             >
               <button
+                aria-describedby={42}
                 aria-label="Set Expanded as current display mode."
                 aria-pressed={false}
                 className="tc-icon-toggle theme-tc-icon-toggle btn btn-link"

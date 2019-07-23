@@ -125,6 +125,7 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
       onMouseOver={[Function]}
     >
       <div
+        aria-describedby={42}
         className="theme-progress-percent"
         style={
           Object {

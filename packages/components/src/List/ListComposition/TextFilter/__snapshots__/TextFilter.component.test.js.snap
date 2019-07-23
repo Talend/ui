@@ -84,6 +84,7 @@ exports[`TextFilter should render text filter component 1`] = `
               >
                 <Button
                   active={false}
+                  aria-describedby={42}
                   aria-label="Toggle filter"
                   block={false}
                   bsClass="btn"
@@ -91,11 +92,13 @@ exports[`TextFilter should render text filter component 1`] = `
                   className="btn-icon-only"
                   disabled={false}
                   id="myTextFilter"
+                  key=".0"
                   onClick={[Function]}
                   onMouseDown={[Function]}
                   role="search"
                 >
                   <button
+                    aria-describedby={42}
                     aria-label="Toggle filter"
                     className="btn-icon-only btn btn-link"
                     disabled={false}
@@ -218,6 +221,7 @@ exports[`TextFilter should render text filter component with defined docked stat
               >
                 <Button
                   active={false}
+                  aria-describedby={42}
                   aria-label="Toggle filter"
                   block={false}
                   bsClass="btn"
@@ -225,11 +229,13 @@ exports[`TextFilter should render text filter component with defined docked stat
                   className="btn-icon-only"
                   disabled={false}
                   id="myTextFilter"
+                  key=".0"
                   onClick={[Function]}
                   onMouseDown={[Function]}
                   role="search"
                 >
                   <button
+                    aria-describedby={42}
                     aria-label="Toggle filter"
                     className="btn-icon-only btn btn-link"
                     disabled={false}

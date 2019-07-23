@@ -786,6 +786,7 @@ exports[`Typeahead with toggle should render button 1`] = `
   onMouseOver={[Function]}
 >
   <button
+    aria-describedby={42}
     aria-label="Toggle search bar"
     className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
     disabled={false}

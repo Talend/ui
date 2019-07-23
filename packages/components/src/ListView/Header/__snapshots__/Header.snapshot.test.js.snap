@@ -21,6 +21,7 @@ exports[`Header should render header with one button 1`] = `
       onMouseOver={[Function]}
     >
       <button
+        aria-describedby={42}
         aria-label="Search for specific values"
         className="btn-icon-only btn btn-link"
         disabled={false}

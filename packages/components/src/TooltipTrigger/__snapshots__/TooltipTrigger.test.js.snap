@@ -12,7 +12,9 @@ exports[`ActionTooltip should render custom tooltip when focus the children 1`] 
   onMouseOut={[Function]}
   onMouseOver={[Function]}
 >
-  <div>
+  <div
+    aria-describedby={42}
+  >
     Action
   </div>
 </div>
@@ -29,7 +31,9 @@ exports[`ActionTooltip should render only the children 1`] = `
   onMouseOut={[Function]}
   onMouseOver={[Function]}
 >
-  <div>
+  <div
+    aria-describedby={42}
+  >
     Action
   </div>
 </div>
@@ -46,7 +50,9 @@ exports[`ActionTooltip should render tooltip when focus the children 1`] = `
   onMouseOut={[Function]}
   onMouseOver={[Function]}
 >
-  <div>
+  <div
+    aria-describedby={42}
+  >
     Action
   </div>
 </div>
@@ -63,7 +69,9 @@ exports[`ActionTooltip should render tooltip when hover the children 1`] = `
   onMouseOut={[Function]}
   onMouseOver={[Function]}
 >
-  <div>
+  <div
+    aria-describedby={42}
+  >
     Action
   </div>
 </div>

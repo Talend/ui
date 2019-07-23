@@ -23,6 +23,7 @@ exports[`Header should render filter header 1`] = `
     onMouseOver={[Function]}
   >
     <button
+      aria-describedby={42}
       aria-label="Abort"
       className="btn-icon-only btn btn-link"
       disabled={false}

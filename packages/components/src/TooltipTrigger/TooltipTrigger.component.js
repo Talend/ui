@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState, useEffect } from 'react';
+import React, { cloneElement, useEffect, useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import uuid from 'uuid';
 import classNames from 'classnames';
@@ -11,14 +11,95 @@ const DEFAULT_OFFSET_X = 300;
 const DEFAULT_OFFSET_Y = 50;
 
 function TooltipPortal(props) {
-	const [el] = useState(document.createElement('div'));
+	const el = useRef(document.createElement('div'));
 	useEffect(() => {
-		document.body.appendChild(el);
+		if (el.current) {
+			document.body.appendChild(el.current);
+		}
 		return () => {
-			document.body.removeChild(el);
+			document.body.removeChild(el.current);
 		};
 	}, []);
-	return ReactDOM.createPortal(props.children, el);
+	return ReactDOM.createPortal(props.children, el.current);
+}
+
+/**
+ * Adjust tooltip placement depending on its position in the viewport
+ * @param tooltipPlacement initial tooltip placement to adjust
+ * @param dimensions ref dimensions
+ * @param offsets tooltip offsets
+ * @returns {string} adjusted tooltip placement regarding ref position
+ */
+function getAdjustedTooltipPlacement(tooltipPlacement, dimensions, offsets) {
+	const { top, right, bottom, left } = dimensions;
+	const { tooltipHeight, tooltipWidth } = offsets;
+	const { innerWidth, innerHeight } = window;
+
+	let placement = tooltipPlacement;
+	if (bottom + tooltipHeight > innerHeight) {
+		if (['left', 'right'].includes(tooltipPlacement)) {
+			placement = `${tooltipPlacement}-bottom`;
+		} else if (tooltipPlacement === 'bottom') {
+			placement = 'top';
+		}
+	} else if (top - tooltipHeight < 0) {
+		if (tooltipPlacement === 'top') {
+			placement = 'bottom';
+		}
+	}
+	if (left - tooltipWidth / 2 < 0) {
+		if (['top', 'bottom'].includes(tooltipPlacement)) {
+			placement = `${placement}-right`;
+		} else if (tooltipPlacement === 'left') {
+			placement = placement.replace('left', 'right');
+		}
+	} else if (right + tooltipWidth / 2 > innerWidth) {
+		if (['top', 'bottom'].includes(tooltipPlacement)) {
+			placement = `${placement}-left`;
+		} else if (tooltipPlacement === 'right') {
+			placement = placement.replace('right', 'left');
+		}
+	}
+	return placement;
+}
+
+function getTop(placement, dimensions) {
+	if (placement.startsWith('bottom')) {
+		return dimensions.bottom;
+	}
+	if (['left', 'right'].includes(placement)) {
+		return (dimensions.top + dimensions.bottom) / 2;
+	}
+	return undefined;
+}
+
+function getLeft(placement, dimensions, tooltipWidth) {
+	if (placement === 'top-right' || placement === 'bottom-right') {
+		return (dimensions.left + dimensions.right) / 2;
+	}
+	if (placement === 'top-left' || placement === 'bottom-left') {
+		return (dimensions.left + dimensions.right) / 2 - tooltipWidth;
+	}
+	if (placement.includes('left')) {
+		return `calc(${Math.trunc(dimensions.left)}px - ${Math.trunc(tooltipWidth)}px)`;
+	}
+	if (placement.includes('right')) {
+		return Math.trunc(dimensions.right);
+	}
+	if (['top', 'bottom'].includes(placement)) {
+		return (dimensions.left + dimensions.right) / 2;
+	}
+	return undefined;
+}
+
+function getBottom(placement, dimensions) {
+	if (placement === 'top' || placement === 'top-right' || placement === 'top-left') {
+		return `calc(100vh - ${Math.trunc(dimensions.top)}px)`;
+	}
+	if (placement === 'right-bottom' || placement === 'left-bottom') {
+		return `calc(100vh - ${Math.trunc((dimensions.top + dimensions.bottom) / 2)}px)`;
+	}
+	return undefined;
 }
 
 /**
@@ -32,163 +113,108 @@ const props = {
 	<Icon name="my-icon" />
 </TooltipTrigger>
  */
-class TooltipTrigger extends React.Component {
-	static displayName = 'TooltipTrigger';
+function TooltipTrigger(props) {
+	const id = uuid.v4();
 
-	constructor(props) {
-		super(props);
+	const refContainer = useRef(null);
 
-		this.timeout = null;
+	const [visible, setVisible] = useState(false);
 
-		this.state = {
-			visible: false,
-			id: uuid.v4(),
-		};
+	let timeout = null;
 
-		this.showTooltip = this.showTooltip.bind(this);
-		this.hideTooltip = this.hideTooltip.bind(this);
-	}
+	useEffect(
+		() =>
+			// returned function will be called on component unmount
+			() => {
+				clearTimeout(timeout);
+			},
+		[],
+	);
 
-	componentWillUnmount() {
-		clearTimeout(this.timeout);
-	}
+	function getTooltipPosition() {
+		const {
+			tooltipPlacement = 'right',
+			tooltipHeight = DEFAULT_OFFSET_Y,
+			tooltipWidth = DEFAULT_OFFSET_X,
+		} = props;
 
-	getAdjustedTooltipPlacement(tooltipPlacement, dimensions) {
-		const { tooltipHeight = DEFAULT_OFFSET_Y, tooltipWidth = DEFAULT_OFFSET_X } = this.props;
-		let placement = tooltipPlacement;
-		if (dimensions.bottom + tooltipHeight > window.innerHeight) {
-			if (['left', 'right'].includes(tooltipPlacement)) {
-				placement = `${tooltipPlacement}-bottom`;
-			} else if (tooltipPlacement === 'bottom') {
-				placement = 'top';
-			}
-		} else if (dimensions.top - tooltipHeight < 0) {
-			if (tooltipPlacement === 'top') {
-				placement = 'bottom';
-			}
-		}
-		if (dimensions.left - tooltipWidth / 2 < 0) {
-			if (['top', 'bottom'].includes(tooltipPlacement)) {
-				placement = `${placement}-right`;
-			} else if (tooltipPlacement === 'left') {
-				placement = placement.replace('left', 'right');
-			}
-		} else if (dimensions.right + tooltipWidth / 2 > window.innerWidth) {
-			if (['top', 'bottom'].includes(tooltipPlacement)) {
-				placement = `${placement}-left`;
-			} else if (tooltipPlacement === 'right') {
-				placement = placement.replace('right', 'left');
-			}
-		}
-		return placement;
-	}
-
-	getTooltipPosition() {
-		const { tooltipPlacement = 'right', tooltipWidth = DEFAULT_OFFSET_X } = this.props;
-
-		if (!this.el) {
+		if (!refContainer.current) {
 			return {
 				tooltipPlacement,
 			};
 		}
 
-		const dimensions = this.el.getBoundingClientRect();
+		const dimensions = refContainer.current.getBoundingClientRect();
 
-		const placement = this.getAdjustedTooltipPlacement(tooltipPlacement, dimensions);
+		const placement = getAdjustedTooltipPlacement(tooltipPlacement, dimensions, {
+			tooltipHeight,
+			tooltipWidth,
+		});
 
 		return {
 			placement,
 			style: {
-				top: (() => {
-					if (placement.startsWith('bottom')) {
-						return dimensions.bottom;
-					}
-					if (['left', 'right'].includes(placement)) {
-						return (dimensions.top + dimensions.bottom) / 2;
-					}
-					return undefined;
-				})(),
-				left: (() => {
-					if (placement === 'top-right' || placement === 'bottom-right') {
-						return (dimensions.left + dimensions.right) / 2;
-					}
-					if (placement === 'top-left' || placement === 'bottom-left') {
-						return (dimensions.left + dimensions.right) / 2 - tooltipWidth;
-					}
-					if (placement.includes('left')) {
-						return `calc(${Math.trunc(dimensions.left)}px - ${Math.trunc(tooltipWidth)}px)`;
-					}
-					if (placement.includes('right')) {
-						return Math.trunc(dimensions.right);
-					}
-					if (['top', 'bottom'].includes(placement)) {
-						return (dimensions.left + dimensions.right) / 2;
-					}
-					return undefined;
-				})(),
-				bottom: (() => {
-					if (placement === 'top' || placement === 'top-right' || placement === 'top-left') {
-						return `calc(100vh - ${Math.trunc(dimensions.top)}px)`;
-					}
-					if (placement === 'right-bottom' || placement === 'left-bottom') {
-						return `calc(100vh - ${Math.trunc((dimensions.top + dimensions.bottom) / 2)}px)`;
-					}
-					return undefined;
-				})(),
+				top: getTop(placement, dimensions),
+				left: getLeft(placement, dimensions, tooltipWidth),
+				bottom: getBottom(placement, dimensions),
 			},
 		};
 	}
 
-	showTooltip() {
-		const { tooltipDelay = DEFAULT_TIMEOUT } = this.props;
-		this.timeout = setTimeout(() => {
-			this.setState({ visible: true });
+	const showTooltip = () => {
+		const { tooltipDelay = DEFAULT_TIMEOUT } = props;
+		timeout = setTimeout(() => {
+			setVisible(true);
 		}, tooltipDelay);
-	}
+	};
 
-	hideTooltip() {
-		clearTimeout(this.timeout);
-		this.setState({ visible: false });
-	}
+	const hideTooltip = () => {
+		clearTimeout(timeout);
+		setVisible(false);
+	};
 
-	render() {
-		const { placement, style } = this.getTooltipPosition();
+	const { placement, style } = getTooltipPosition();
 
-		return (
-			// we use div here to wrap tooltip trigger
-			// it should not be reachable
-			// It is just a way to handle click and keyboard events
-			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
-			<div
-				{...omit(this.props, Object.keys(TooltipTrigger.propTypes))}
-				className={theme['tc-tooltip']}
-				onFocus={this.showTooltip}
-				onBlur={this.hideTooltip}
-				onKeyPress={this.hideTooltip}
-				onMouseOver={this.showTooltip}
-				onMouseOut={this.hideTooltip}
-				onClick={this.hideTooltip}
-				aria-describedby={this.state.id}
-				ref={el => (this.el = el)}
-			>
-				{this.props.children}
+	return (
+		// we use div here to wrap tooltip trigger
+		// it should not be reachable
+		// It is just a way to handle click and keyboard events
+		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
+		<div
+			{...omit(props, Object.keys(TooltipTrigger.propTypes))}
+			className={theme['tc-tooltip']}
+			onFocus={showTooltip}
+			onBlur={hideTooltip}
+			onKeyPress={hideTooltip}
+			onMouseOver={showTooltip}
+			onMouseOut={hideTooltip}
+			onClick={hideTooltip}
+			aria-describedby={id}
+			ref={refContainer}
+		>
+			{React.Children.map(props.children, child =>
+				cloneElement(child, {
+					'aria-describedby': id,
+				}),
+			)}
 
-				{this.state.visible && (
-					<TooltipPortal>
-						<div className={theme['tc-tooltip-container']} style={style}>
-							<div
-								id={this.state.id}
-								className={classNames(theme['tc-tooltip-body'], theme[`tc-tooltip-${placement}`])}
-							>
-								{this.props.label}
-							</div>
+			{visible && (
+				<TooltipPortal>
+					<div className={theme['tc-tooltip-container']} style={style}>
+						<div
+							id={id}
+							className={classNames(theme['tc-tooltip-body'], theme[`tc-tooltip-${placement}`])}
+						>
+							{props.label}
 						</div>
-					</TooltipPortal>
-				)}
-			</div>
-		);
-	}
+					</div>
+				</TooltipPortal>
+			)}
+		</div>
+	);
 }
+
+TooltipTrigger.displayName = 'TooltipTrigger';
 
 TooltipTrigger.propTypes = {
 	label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),

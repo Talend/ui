@@ -1055,17 +1055,20 @@ exports[`Items should render with nested items 1`] = `
                                     >
                                       <Button
                                         active={false}
+                                        aria-describedby={42}
                                         aria-label="Expand Lorem ipsum dolor Parent"
                                         block={false}
                                         bsClass="btn"
                                         bsStyle="link"
                                         className="btn-icon-only"
                                         disabled={false}
+                                        key=".0"
                                         onClick={[Function]}
                                         onMouseDown={[Function]}
                                         role={null}
                                       >
                                         <button
+                                          aria-describedby={42}
                                           aria-label="Expand Lorem ipsum dolor Parent"
                                           className="btn-icon-only btn btn-link"
                                           disabled={false}
