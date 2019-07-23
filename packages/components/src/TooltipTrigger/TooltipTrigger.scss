@@ -53,7 +53,7 @@ $tc-tooltip-arrow-color: $tc-tooltip-background !default;
 	&-right,
 	&-left,
 	&-right-bottom,
-	&-left-bottom{
+	&-left-bottom {
 		margin-top: -1 * $tc-tooltip-margin;
 
 		&:before {
@@ -80,7 +80,7 @@ $tc-tooltip-arrow-color: $tc-tooltip-background !default;
 
 	&-top-left {
 		margin-right: (-3 * $tc-tooltip-margin) + $tc-tooltip-arrow-border-size;
-		margin-left : auto;
+		margin-left: auto;
 
 		&:before {
 			right: $tc-tooltip-margin;
@@ -91,7 +91,7 @@ $tc-tooltip-arrow-color: $tc-tooltip-background !default;
 
 	&-top-right {
 		margin-left: (-3 * $tc-tooltip-margin) + $tc-tooltip-arrow-border-size;
-		margin-right : auto;
+		margin-right: auto;
 
 		&:before {
 			left: $tc-tooltip-margin;
@@ -128,7 +128,7 @@ $tc-tooltip-arrow-color: $tc-tooltip-background !default;
 
 	&-bottom-left {
 		margin-left: auto;
-		margin-right: (-3 * $tc-tooltip-margin) + $tc-tooltip-arrow-border-size;;
+		margin-right: (-3 * $tc-tooltip-margin) + $tc-tooltip-arrow-border-size;
 
 		&:before {
 			right: $tc-tooltip-margin;
