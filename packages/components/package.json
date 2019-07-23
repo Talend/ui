@@ -17,7 +17,8 @@
     "start": "start-storybook -p 6006",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "cpx": "cpx \"./src/**/*.scss\" ./lib"
+    "cpx": "cpx \"./src/**/*.scss\" ./lib",
+    "chroma": "CHROMA_APP_CODE=x8p2jxrsvbq chroma publish"
   },
   "keywords": [
     "react",
@@ -112,6 +113,7 @@
     "sass-lint": "^1.13.1",
     "sass-loader": "^7.1.0",
     "slimerjs": "^0.10.2",
+    "storybook-chroma": "^2.0.0",
     "style-loader": "^0.23.0"
   },
   "peerDependencies": {
