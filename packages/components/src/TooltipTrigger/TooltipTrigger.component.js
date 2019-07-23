@@ -130,10 +130,7 @@ class TooltipTrigger extends React.Component {
 					if (placement === 'top' || placement === 'top-right' || placement === 'top-left') {
 						return `calc(100vh - ${Math.trunc(dimensions.top)}px)`;
 					}
-					if (
-						placement === 'right-bottom' ||
-						placement === 'left-bottom'
-					) {
+					if (placement === 'right-bottom' || placement === 'left-bottom') {
 						return `calc(100vh - ${Math.trunc((dimensions.top + dimensions.bottom) / 2)}px)`;
 					}
 					return undefined;
