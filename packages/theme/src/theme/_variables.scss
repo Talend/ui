@@ -371,40 +371,6 @@ $label-color: #fff !default;
 //** Default text color of a linked label
 $label-link-hover-color: #fff !default;
 
-//== Modals
-//
-//##
-
-//** Padding applied to the modal body
-$modal-inner-padding: 1.5rem 3rem !default;
-
-//** Padding applied to the modal title
-$modal-title-padding: 3rem !default;
-$modal-title-padding-top: 1.9rem !default;
-$modal-title-padding-bottom: 1.4rem !default;
-//** Modal title line-height
-$modal-title-line-height: $line-height-base !default;
-
-//** Background color of modal content area
-$modal-content-bg: $wild-sand !default;
-//** Modal content border color
-$modal-content-border-color: $shadow !default;
-//** Modal content border color **for IE8**
-$modal-content-fallback-border-color: #999 !default;
-
-//** Modal backdrop background color
-$modal-backdrop-bg: #000 !default;
-//** Modal backdrop opacity
-$modal-backdrop-opacity: 0.5 !default;
-//** Modal header border color
-$modal-header-border-color: #e5e5e5 !default;
-//** Modal footer border color
-$modal-footer-border-color: transparent !default;
-
-$modal-lg: 90rem !default;
-$modal-md: 65rem !default;
-$modal-sm: 55rem !default;
-
 //== Alerts
 //
 //## Define alert colors, border radius, and padding.
@@ -741,3 +707,28 @@ $breadcrumb-item-padding: 1rem !default;
 $breadcrumb-divider-color: $gray !default;
 $breadcrumb-active-color: $dove-gray !default;
 $breadcrumb-border-radius: 0 !default;
+
+//== Modals
+//
+//##
+
+$modal-content-bg: $wild-sand !default;
+$modal-content-border-color: $shadow !default;
+$modal-content-box-shadow-xs: 0 5px 15px rgba(0, 0, 0, 0.5) !default;
+$modal-content-box-shadow-sm-up: 0 5px 15px rgba(0, 0, 0, 0.5) !default;
+$modal-header-padding: $padding-large $padding-larger !default;
+$modal-header-padding-x: $padding-larger !default;
+$modal-header-padding-y: $padding-large !default;
+$modal-header-border-color: $gallery !default;
+$modal-title-line-height: $line-height-base !default;
+$modal-content-border-radius: 0.4rem !default;
+$modal-inner-padding: $padding-larger !default;
+$modal-footer-border-width: 0 !default;
+
+$modal-backdrop-bg: #000 !default;
+$modal-backdrop-opacity: 0.5 !default;
+$modal-header-border-color: #e5e5e5 !default;
+
+$modal-lg: 90rem !default;
+$modal-md: 65rem !default;
+$modal-sm: 55rem !default;
