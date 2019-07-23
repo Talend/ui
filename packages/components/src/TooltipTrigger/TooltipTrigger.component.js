@@ -10,19 +10,6 @@ const DEFAULT_TIMEOUT = 600;
 const DEFAULT_OFFSET_X = 300;
 const DEFAULT_OFFSET_Y = 50;
 
-function TooltipPortal(props) {
-	const el = useRef(document.createElement('div'));
-	useEffect(() => {
-		if (el.current) {
-			document.body.appendChild(el.current);
-		}
-		return () => {
-			document.body.removeChild(el.current);
-		};
-	}, []);
-	return ReactDOM.createPortal(props.children, el.current);
-}
-
 /**
  * Adjust tooltip placement depending on its position in the viewport
  * @param tooltipPlacement initial tooltip placement to adjust
@@ -114,11 +101,10 @@ const props = {
 </TooltipTrigger>
  */
 function TooltipTrigger(props) {
-	const id = uuid.v4();
-
 	const refContainer = useRef(null);
 
 	const [visible, setVisible] = useState(false);
+	const [id] = useState(uuid.v4());
 
 	let timeout = null;
 
@@ -198,8 +184,8 @@ function TooltipTrigger(props) {
 				}),
 			)}
 
-			{visible && (
-				<TooltipPortal>
+			{visible &&
+				ReactDOM.createPortal(
 					<div className={theme['tc-tooltip-container']} style={style}>
 						<div
 							id={id}
@@ -207,9 +193,9 @@ function TooltipTrigger(props) {
 						>
 							{props.label}
 						</div>
-					</div>
-				</TooltipPortal>
-			)}
+					</div>,
+					document.body,
+				)}
 		</div>
 	);
 }
