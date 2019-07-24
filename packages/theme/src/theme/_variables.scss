@@ -303,20 +303,6 @@ $state-danger-text: shade($brand-danger, 20%) !default;
 $state-danger-bg: tint($brand-danger, 80%) !default;
 $state-danger-border: darken(adjust-hue($state-danger-bg, -10), 5%) !default;
 
-//== Labels
-//
-//##
-
-$label-default-bg: $gray-light !default;
-$label-primary-bg: $brand-primary !default;
-$label-success-bg: $brand-success !default;
-$label-info-bg: $lochmara !default;
-$label-warning-bg: $jaffa !default;
-$label-danger-bg: $brand-danger !default;
-
-$label-color: $white !default;
-$label-link-hover-color: $white !default;
-
 //== Alerts
 //
 //## Define alert colors, border radius, and padding.
@@ -420,22 +406,6 @@ $thumbnail-caption-padding: 0.9rem !default;
 
 $well-bg: #f5f5f5 !default;
 $well-border: darken($well-bg, 7%) !default;
-
-//== Carousel
-//
-//##
-
-$carousel-text-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.6) !default;
-
-$carousel-control-color: #fff !default;
-$carousel-control-width: 15% !default;
-$carousel-control-opacity: 0.5 !default;
-$carousel-control-font-size: 2rem !default;
-
-$carousel-indicator-active-bg: #fff !default;
-$carousel-indicator-border-color: #fff !default;
-
-$carousel-caption-color: #fff !default;
 
 //== Close
 //
