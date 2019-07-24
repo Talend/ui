@@ -4,14 +4,14 @@ import buildFormatLocale from './formatters';
 export function buildDistanceInWordsLocale(t) {
 	function localize(token, count, options = {}) {
 		const distanceInWordsLocale = {
-			lessThanXSeconds: t('DATE_FNS_LESS_THAN_SECONDS', {
-				defaultValue: 'less than {{count}} seconds',
+			lessThanXSeconds: t('DATE_FNS_LESS_THAN_SECOND', {
+				defaultValue: 'less than {{count}} second',
 				count,
 			}),
 			xSeconds: t('DATE_FNS_SECOND', { defaultValue: '{{count}} seconds', count }),
 			halfAMinute: t('DATE_FNS_HALF_A_MINUTE', { defaultValue: 'half a minute' }),
-			lessThanXMinutes: t('DATE_FNS_LESS_THAN_MINUTES', {
-				defaultValue: 'less than {{count}} minutes',
+			lessThanXMinutes: t('DATE_FNS_LESS_THAN_MINUTE', {
+				defaultValue: 'less than {{count}} minute',
 				count,
 			}),
 			xMinutes: t('DATE_FNS_ABOUT_MINUTE', { defaultValue: '{{count}} minutes', count }),
