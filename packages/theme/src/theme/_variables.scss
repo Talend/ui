@@ -38,10 +38,9 @@ $body-bg: #fff !default;
 $text-color: $gray-dark !default;
 
 //** Global textual link color.
-$link-color: $brand-primary !default;
+$link-color: $lochmara !default;
 //** Link hover color set via `darken()` function.
 $link-hover-color: darken($link-color, 15%) !default;
-//** Link hover decoration.
 $link-hover-decoration: underline !default;
 
 //== Typography
@@ -303,51 +302,6 @@ $state-warning-border: darken(adjust-hue($state-warning-bg, -10), 5%) !default;
 $state-danger-text: shade($brand-danger, 20%) !default;
 $state-danger-bg: tint($brand-danger, 80%) !default;
 $state-danger-border: darken(adjust-hue($state-danger-bg, -10), 5%) !default;
-
-//== Tooltips
-//
-//##
-
-//** Tooltip max width
-$tooltip-max-width: 20rem !default;
-//** Tooltip text color
-$tooltip-color: #fff !default;
-//** Tooltip background color
-$tooltip-bg: #000 !default;
-$tooltip-opacity: 0.9 !default;
-
-//** Tooltip arrow width
-$tooltip-arrow-width: 0.5rem !default;
-//** Tooltip arrow color
-$tooltip-arrow-color: $tooltip-bg !default;
-
-//== Popovers
-//
-//##
-
-//** Popover body background color
-$popover-bg: #fff !default;
-//** Popover maximum width
-$popover-max-width: 27.6rem !default;
-//** Popover border color
-$popover-border-color: $shadow !default;
-//** Popover fallback border color
-$popover-fallback-border-color: #ccc !default;
-
-//** Popover title background color
-$popover-title-bg: darken($popover-bg, 3%) !default;
-
-//** Popover arrow width
-$popover-arrow-width: 1rem !default;
-//** Popover arrow color
-$popover-arrow-color: $popover-bg !default;
-
-//** Popover outer arrow width
-$popover-arrow-outer-width: ($popover-arrow-width + 1) !default;
-//** Popover outer arrow color
-$popover-arrow-outer-color: fade-in($popover-border-color, 0.05) !default;
-//** Popover outer arrow fallback color
-$popover-arrow-outer-fallback-color: darken($popover-fallback-border-color, 20%) !default;
 
 //== Labels
 //
@@ -732,3 +686,36 @@ $modal-header-border-color: #e5e5e5 !default;
 $modal-lg: 90rem !default;
 $modal-md: 65rem !default;
 $modal-sm: 55rem !default;
+
+//== Tooltips
+//
+//##
+
+$tooltip-bg: $black !default;
+$tooltip-arrow-color: $tooltip-bg !default;
+$tooltip-arrow-height: 0.4rem !default;
+$tooltip-arrow-width: 0.6rem !default;
+$tooltip-border-radius: 0.4rem !default;
+$tooltip-color: $white !default;
+$tooltip-font-size: 1.2rem !default;
+$tooltip-max-width: 25rem !default;
+$tooltip-opacity: 0.9 !default;
+$tooltip-padding-x: $padding-small !default;
+
+//== Popovers
+//
+//##
+
+$popover-bg: #fff !default;
+$popover-max-width: 27.6rem !default;
+$popover-border-color: $shadow !default;
+$popover-fallback-border-color: #ccc !default;
+
+$popover-title-bg: darken($popover-bg, 3%) !default;
+
+$popover-arrow-width: 1rem !default;
+$popover-arrow-color: $popover-bg !default;
+
+$popover-arrow-outer-width: ($popover-arrow-width + 1) !default;
+$popover-arrow-outer-color: fade-in($popover-border-color, 0.05) !default;
+$popover-arrow-outer-fallback-color: darken($popover-fallback-border-color, 20%) !default;
