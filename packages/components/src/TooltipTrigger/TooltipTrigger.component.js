@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import React, { cloneElement, useEffect, useState, useRef } from 'react';
+import React, { cloneElement, useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import uuid from 'uuid';
 import classNames from 'classnames';
 import omit from 'lodash/omit';
 import theme from './TooltipTrigger.scss';
+import useTooltipVisibility from './TooltipTrigger.hook';
 
-const DEFAULT_TIMEOUT = 600;
 const DEFAULT_OFFSET_X = 300;
 const DEFAULT_OFFSET_Y = 50;
 
@@ -103,19 +103,9 @@ const props = {
 function TooltipTrigger(props) {
 	const refContainer = useRef(null);
 
-	const [visible, setVisible] = useState(false);
+	const [visible, setVisible] = useTooltipVisibility(props.tooltipDelay);
+
 	const [id] = useState(uuid.v4());
-
-	let timeout = null;
-
-	useEffect(
-		() =>
-			// returned function will be called on component unmount
-			() => {
-				clearTimeout(timeout);
-			},
-		[],
-	);
 
 	function getTooltipPosition() {
 		const {
@@ -147,19 +137,10 @@ function TooltipTrigger(props) {
 		};
 	}
 
-	const showTooltip = () => {
-		const { tooltipDelay = DEFAULT_TIMEOUT } = props;
-		timeout = setTimeout(() => {
-			setVisible(true);
-		}, tooltipDelay);
-	};
-
-	const hideTooltip = () => {
-		clearTimeout(timeout);
-		setVisible(false);
-	};
-
 	const { placement, style } = getTooltipPosition();
+
+	const show = setVisible(true);
+	const hide = setVisible(false);
 
 	return (
 		// we use div here to wrap tooltip trigger
@@ -169,12 +150,12 @@ function TooltipTrigger(props) {
 		<div
 			{...omit(props, Object.keys(TooltipTrigger.propTypes))}
 			className={theme['tc-tooltip']}
-			onFocus={showTooltip}
-			onBlur={hideTooltip}
-			onKeyPress={hideTooltip}
-			onMouseOver={showTooltip}
-			onMouseOut={hideTooltip}
-			onClick={hideTooltip}
+			onFocus={show}
+			onBlur={hide}
+			onKeyPress={hide}
+			onMouseOver={show}
+			onMouseOut={hide}
+			onClick={hide}
 			aria-describedby={id}
 			ref={refContainer}
 		>
