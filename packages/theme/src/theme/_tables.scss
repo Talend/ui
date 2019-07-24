@@ -12,13 +12,16 @@
 	}
 
 	&-hover {
-		> tbody > tr:hover {
-			font-weight: 700;
+		tbody tr {
+			@include hover {
+				font-weight: 700;
+			}
 		}
 	}
 }
 
-@-moz-document url-prefix() { /* fix Firefox only https://bugzilla.mozilla.org/show_bug.cgi?id=410959 */
+@-moz-document url-prefix() {
+	/* fix Firefox only https://bugzilla.mozilla.org/show_bug.cgi?id=410959 */
 	.table {
 		border-collapse: separate !important;
 		border-spacing: 0;

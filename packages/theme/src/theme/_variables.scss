@@ -116,26 +116,6 @@ $caret-width-base: 0.4rem !default;
 //** Carets increase slightly in size for larger components.
 $caret-width-large: 0.5rem !default;
 
-//== Tables
-//
-//## Customizes the `.table` component with basic values, each used across all table variations.
-
-//** Padding for `<th>`s and `<td>`s.
-$table-cell-padding: 0.8rem !default;
-//** Padding for cells in `.table-condensed`.
-$table-condensed-cell-padding: 0.5rem !default;
-
-//** Default background color used for all tables.
-$table-bg: transparent !default;
-//** Background color used for `.table-striped`.
-$table-bg-accent: #f9f9f9 !default;
-//** Background color used for `.table-hover`.
-$table-bg-hover: #f5f5f5 !default;
-$table-bg-active: $table-bg-hover !default;
-
-//** Border color for table and cell borders.
-$table-border-color: #ddd !default;
-
 //== Forms
 //
 //##
@@ -150,7 +130,6 @@ $input-color: $black !default;
 //** `<input>` border color
 $input-border: #ccc !default;
 
-// TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
 //** Default `.form-control` border radius
 // This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
 $input-border-radius: $border-radius-base !default;
@@ -271,17 +250,6 @@ $container-md: $container-desktop !default;
 $container-large-desktop: (114rem + $grid-gutter-width) !default;
 //** For `$screen-lg-min` and up.
 $container-lg: $container-large-desktop !default;
-
-//== Jumbotron
-//
-//##
-
-$jumbotron-padding: 3rem !default;
-$jumbotron-color: inherit !default;
-$jumbotron-bg: $gray-lighter !default;
-$jumbotron-heading-color: inherit !default;
-$jumbotron-font-size: ceil(($font-size-base * 1.5)) !default;
-$jumbotron-heading-font-size: ceil(($font-size-base * 4.5)) !default;
 
 //== Form states and alerts
 //
@@ -641,3 +609,11 @@ $popover-header-padding-x: $padding-large !default;
 $popover-header-padding-y: $padding-larger !default;
 $popover-body-padding-x: $padding-large !default;
 $popover-body-padding-y: $padding-normal !default;
+
+//== Tables
+//
+//## Customizes the `.table` component with basic values, each used across all table variations.
+
+$table-cell-padding: 0.8rem !default;
+$table-bg: transparent !default;
+$table-border-color: #ddd !default;
