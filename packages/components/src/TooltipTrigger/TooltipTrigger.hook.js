@@ -16,9 +16,7 @@ const useTooltipVisibility = (tooltipDelay = 600) => {
 		setVisible(false);
 	};
 
-	const setVisibility = visibility => (visibility ? show : hide);
-
-	return [visible, setVisibility];
+	return [visible, show, hide];
 };
 
 export default useTooltipVisibility;

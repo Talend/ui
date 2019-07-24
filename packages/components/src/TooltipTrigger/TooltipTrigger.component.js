@@ -103,7 +103,7 @@ const props = {
 function TooltipTrigger(props) {
 	const refContainer = useRef(null);
 
-	const [visible, setVisible] = useTooltipVisibility(props.tooltipDelay);
+	const [visible, show, hide] = useTooltipVisibility(props.tooltipDelay);
 
 	const [id] = useState(uuid.v4());
 
@@ -138,9 +138,6 @@ function TooltipTrigger(props) {
 	}
 
 	const { placement, style } = getTooltipPosition();
-
-	const show = setVisible(true);
-	const hide = setVisible(false);
 
 	return (
 		// we use div here to wrap tooltip trigger
