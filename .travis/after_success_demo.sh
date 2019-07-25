@@ -7,14 +7,8 @@ cp -R packages/cmf/jsdoc .static/cmf
 cp -R packages/cmf/website/build/cmf-doc/* .static/cmf
 echo "✓ Copy cmf jsdoc to .static"
 
-cp -R packages/components/storybook-static/* .static/components
-echo "✓ Copy components showcase to .static"
-
 cp -R packages/containers/storybook-static/* .static/containers
 echo "✓ Copy containers showcase to .static"
-
-cp -R packages/datagrid/storybook-static/* .static/datagrid
-echo "✓ Copy datagrid showcase to .static"
 
 cp -R packages/forms/storybook-static/* .static/forms
 echo "✓ Copy forms showcase to .static"

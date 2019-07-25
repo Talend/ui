@@ -11,7 +11,7 @@
     "test:noisy": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
-    "test:demo": "build-storybook",
+    "test:demo": "echo chroma",
     "lint:es": "eslint --config ../../.eslintrc src",
     "lint": "npm run lint:es",
     "storybook": "start-storybook -p 6010",
