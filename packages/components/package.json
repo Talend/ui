@@ -17,8 +17,7 @@
     "start": "start-storybook -p 6006",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "cpx": "cpx \"./src/**/*.scss\" ./lib",
-    "chroma": "CHROMA_APP_CODE=x8p2jxrsvbq chroma publish"
+    "cpx": "cpx \"./src/**/*.scss\" ./lib"
   },
   "keywords": [
     "react",
@@ -74,10 +73,10 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
-    "@storybook/addon-a11y": "^5.1.0",
-    "@storybook/addon-actions": "^5.1.0",
-    "@storybook/addons": "^5.1.0",
-    "@storybook/react": "^5.1.0",
+    "@storybook/addon-a11y": "^5.2.0-beta.7",
+    "@storybook/addon-actions": "^5.2.0-beta.7",
+    "@storybook/addons": "^5.2.0-beta.7",
+    "@storybook/react": "^5.2.0-beta.7",
     "@talend/bootstrap-theme": "^4.2.0",
     "@talend/icons": "^4.2.0",
     "autoprefixer": "^7.1.4",

@@ -1,2 +1,2 @@
-import './datagrid.container';
-import './datagrid.component';
+import './container.stories';
+import './component.stories';

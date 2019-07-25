@@ -1,5 +1,4 @@
 import '@talend/bootstrap-theme/src/theme/theme.scss';
-import 'storybook-chroma';
 import React from 'react';
 
 import { configure, addDecorator } from '@storybook/react';

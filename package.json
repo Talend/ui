@@ -1,5 +1,12 @@
 {
   "devDependencies": {
+    "@mdx-js/mdx": "^1.1.0",
+    "@storybook/addon-a11y": "^5.2.0-beta.7",
+    "@storybook/addon-actions": "^5.2.0-beta.7",
+    "@storybook/addon-docs": "^5.2.0-alpha.0",
+    "@storybook/addon-knobs": "^5.2.0-beta.7",
+    "@storybook/addons": "^5.2.0-beta.7",
+    "@storybook/react": "^5.2.0-beta.7",
     "commander": "^2.9.0",
     "cpx": "^1.5.0",
     "i18next-scanner": "^2.9.1",
@@ -46,7 +53,9 @@
     "extract-i18n-datagrid": "i18next-scanner --config packages/datagrid/i18next-scanner.config.js 'packages/datagrid/src/**/*.js'",
     "audit-router": "cd packages/router && yarn audit --json && cd ../../",
     "audit-scripts": "cd packages/scripts && yarn audit -s --json && cd ../../",
-    "audit-html": "cd packages/html-webpack-plugin && yarn audit --json && cd ../../"
+    "audit-html": "cd packages/html-webpack-plugin && yarn audit --json && cd ../../",
+    "storybook": "start-storybook -p 6006",
+    "chroma": "CHROMA_APP_CODE=x8p2jxrsvbq chroma publish"
   },
   "repository": {
     "type": "git",
