@@ -7,7 +7,7 @@ import talendIcons from '@talend/icons/dist/react';
 import cloneDeep from 'lodash/cloneDeep';
 
 import { List, IconsProvider } from '../src/index';
-import { LanguageSwitcher } from './config/i18n';
+import { LanguageSwitcher } from '../../../.storybook/i18n';
 import MyCustomRow from './List/MyCustomRow.component';
 /**
  * Cell renderer that displays hello + text
@@ -298,82 +298,6 @@ const minusTwoHours = referenceDatetime - 3600 * 2 * 1000;
 const minusOneHours = referenceDatetime - 3600 * 1 * 1000;
 const minusThreeMin = referenceDatetime - 60 * 3 * 1000;
 
-const propsWithVirtualized = {
-	id: 'talend',
-	displayMode: 'table',
-	virtualized: true,
-	list: {
-		columns: [
-			{ key: 'id', label: 'Id' },
-			{ key: 'name', label: 'Name' },
-			{ key: 'author', label: 'Author' },
-			{
-				key: 'created',
-				label: 'Created',
-				type: 'datetime',
-				data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' },
-			},
-			{ key: 'modified', label: 'Modified', type: 'datetime', data: { mode: 'ago' } },
-		],
-		items: [
-			{
-				id: 0,
-				name: 'Title with actions',
-				created: 1518596913333,
-				modified: minusThreeHours,
-				author: 'Jean-Pierre DUPONT',
-				actions,
-				icon: 'talend-file-xls-o',
-				display: 'text',
-				className: 'item-0-class',
-			},
-			{
-				persistentActions,
-				id: 1,
-				name: 'Title in input mode',
-				created: 1518596913333,
-				modified: minusTwoHours,
-				author: 'Jean-Pierre DUPONT',
-				icon: 'talend-file-json-o',
-				display: 'input',
-				className: 'item-1-class',
-			},
-			{
-				persistentActions,
-				id: 2,
-				name: 'Super long title to trigger overflow on tile rendering',
-				created: 1518596913333,
-				modified: minusOneHours,
-				author: 'Jean-Pierre DUPONT',
-				className: 'item-2-class',
-			},
-			{
-				persistentActions,
-				id: 3,
-				name: 'Title',
-				created: 1518596913333,
-				modified: minusThreeMin,
-				author: 'Jean-Pierre DUPONT',
-				actions,
-				icon: 'talend-file-xls-o',
-				display: 'text',
-				className: 'item-3-class',
-			},
-		],
-		titleProps: {
-			key: 'name',
-			iconKey: 'icon',
-			displayModeKey: 'display',
-			onClick: action('onTitleClick'),
-			onEditCancel: action('onEditCancel'),
-			onEditSubmit: action('onEditSubmit'),
-		},
-		itemProps: {
-			classNameKey: 'className',
-		},
-	},
-};
-
 const itemPropsForItems = {
 	classNameKey: 'className',
 	onOpen: action('onItemOpen'),
@@ -452,101 +376,71 @@ const itemsForListWithIcons = [
 		name: 'Title 1',
 		status: 'ok',
 		cat: 'fluffy',
+		created: 1518596913333,
 	},
 	{
 		id: 1,
 		name: 'Title 2',
 		status: 'warning',
 		cat: 'fat',
+		created: 1518596913333,
 	},
 	{
 		id: 2,
 		name: 'Title 3',
 		status: 'random',
 		cat: 'regular',
+		created: 1518596913333,
 	},
 ];
 
-storiesOf('List', module)
-	.addDecorator(story => (
-		<div>
-			<LanguageSwitcher />
-			<IconsProvider defaultIcons={icons} />
-			{story()}
-		</div>
-	))
-	.add('Table display', () => (
+const StoryDecorator = story => (
+	<div>
+		<IconsProvider defaultIcons={icons} />
+		{story()}
+	</div>
+);
+
+storiesOf('Components/Specific Feature/List/Table view', module)
+	.addDecorator(StoryDecorator)
+	.add('Default', () => (
 		<div style={{ height: '70vh' }} className="virtualized-list">
-			<h1>List</h1>
-			<p>
-				Display the list in table mode.
-				<br />
-				This is the default mode.
-			</p>
 			<List {...props} />
 		</div>
 	))
-	.add('Table icons', () => {
-		const customProps = cloneDeep(props);
-
-		customProps.list.columns = [
-			{ key: 'id', label: 'Id' },
-			{ key: 'name', label: 'Name' },
-			{ key: 'status', label: 'Status', type: 'texticon', data: { getIcon } },
-			{ key: 'cat', label: 'Cat' },
-		];
-
-		customProps.list.items = itemsForListWithIcons;
-
+	.add('No Toolbar', () => {
+		const tprops = cloneDeep(props);
+		tprops.toolbar = undefined;
 		return (
 			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>
-					Display the list in table mode.
-					<br />
-					This is the default mode.
-				</p>
-				<List {...customProps} />
+				<List {...tprops} />
 			</div>
 		);
 	})
-	.add('Large display', () => (
-		<div style={{ height: '70vh' }} className="virtualized-list">
-			<h1>List</h1>
-			<p>
-				Display the list in large mode.
-				<br />
-				You just need to pass the props displayMode.
-			</p>
-			<pre>&lt;List displayMode="large" ... &gt;</pre>
-			<List {...props} rowHeight={140} displayMode="large" />
-		</div>
-	))
-	.add('Large display overrides by rowRenderers', () => (
-		<div style={{ height: '70vh' }} className="virtualized-list">
-			<h1>List</h1>
-			<p>
-				Display the list in large mode.
-				<br />
-				You just need to pass the props displayMode.
-			</p>
-			<pre>&lt;List displayMode="large" rowRenderers= ... &gt;</pre>
-			<List {...props} rowHeight={116} displayMode="large" rowRenderers={{ LARGE: MyCustomRow }} />
-		</div>
-	))
-	.add('Large display with icons', () => {
+	.add('Actions column', () => {
+		const columnActionsProps = getActionsProps();
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<p>A column can contains only actions that appear on mouseover.</p>
+				<List {...columnActionsProps} />
+			</div>
+		);
+	})
+	.add('TextIcon column', () => {
 		const customProps = cloneDeep(props);
+
 		customProps.list.columns = [
 			{ key: 'id', label: 'Id' },
 			{ key: 'name', label: 'Name' },
 			{ key: 'status', label: 'Status', type: 'texticon', data: { getIcon } },
 			{ key: 'cat', label: 'Cat' },
 		];
+
 		customProps.list.items = itemsForListWithIcons;
 
 		return (
 			<div style={{ height: '70vh' }} className="virtualized-list">
-				<List {...customProps} rowHeight={140} displayMode="large" />
+				<List {...customProps} />
 			</div>
 		);
 	})
@@ -554,48 +448,18 @@ storiesOf('List', module)
 		const emptyListProps = cloneDeep(props);
 		emptyListProps.list.items = [];
 
-		const customEmptyRendererListProps = cloneDeep(props);
-		customEmptyRendererListProps.list.items = [];
-		customEmptyRendererListProps.list.noRowsRenderer = () => (
-			<span className={'tc-virtualizedlist-no-result'} role="status" aria-live="polite">
-				I'm a custom NoRowsRenderer
-			</span>
-		);
-
 		return (
 			<div style={{ height: '70vh' }}>
-				<h1>List</h1>
-				<p>When the list is empty, a message is displayed instead of the rows.</p>
-				<h2>Table</h2>
 				<List {...emptyListProps} />
-				<h2>Large</h2>
-				<List {...emptyListProps} displayMode="large" />
-				<h2>Custom no row renderer</h2>
-				<List {...customEmptyRendererListProps} />
 			</div>
 		);
 	})
-	.add('List in progress', () => {
+	.add('In progress', () => {
 		const loadingListProps = cloneDeep(props);
 		loadingListProps.list.inProgress = true;
 		return (
 			<div style={{ height: '70vh' }}>
-				<h1>List</h1>
-				<p>When the list is loading, a CircularProgress is displayed instead of the rows.</p>
-				<h2>Table</h2>
 				<List {...loadingListProps} />
-				<h2>Large</h2>
-				<List {...loadingListProps} displayMode="large" />
-			</div>
-		);
-	})
-	.add('Column actions', () => {
-		const columnActionsProps = getActionsProps();
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>A column can contains only actions that appear on mouseover.</p>
-				<List {...columnActionsProps} />
 			</div>
 		);
 	})
@@ -614,7 +478,6 @@ storiesOf('List', module)
 		selectedItemsProps.list.itemProps = itemPropsForItems;
 		return (
 			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
 				<p>
 					You can manage selection by passing 2 props : onSelect and isSelected.
 					<br />
@@ -633,40 +496,12 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Selection - large', () => {
-		const selectedItemsProps = cloneDeep(props);
-		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
-			left: [
-				{
-					id: 'remove',
-					label: 'Delete selection',
-					icon: 'talend-trash',
-					onClick: action('remove'),
-				},
-			],
-		};
-		selectedItemsProps.list.itemProps = itemPropsForItems;
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>
-					For table view, user toggle column header to select/disselect all items.
-					<br />
-					When List displayed in large view, there's a one-line checkbox of "Select All" above the
-					list.
-					<br />
-				</p>
-				<List {...selectedItemsProps} rowHeight={140} displayMode="large" />
-			</div>
-		);
-	})
 	.add('Activation', () => {
 		const selectedItemsProps = cloneDeep(props);
 		selectedItemsProps.list.itemProps.isActive = item => item.id === 0;
 		selectedItemsProps.list.itemProps.onRowClick = action('onRowClick');
 		return (
 			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
 				<p>
 					You can manage selection by passing 2 props : onRowClick and isActive.
 					<br />
@@ -684,31 +519,16 @@ storiesOf('List', module)
 				</pre>
 				<h2>Table</h2>
 				<List {...selectedItemsProps} displayMode="table" />
-				<h2>Large</h2>
-				<List {...cloneDeep(selectedItemsProps)} rowHeight={140} displayMode="large" />
-			</div>
-		);
-	})
-	.add('No toolbar', () => {
-		const tprops = cloneDeep(props);
-		tprops.toolbar = undefined;
-		return (
-			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>Table without toolbar</p>
-				<List {...tprops} />
 			</div>
 		);
 	})
 	.add('Sort', () => {
 		const tprops = cloneDeep(props);
-		// disable sort on column author
-		let authorColumn = tprops.list.columns.find(e => e.key === 'author');
+		const authorColumn = tprops.list.columns.find(e => e.key === 'author');
 		authorColumn.disableSort = true;
 		tprops.list.sort = sort;
 		return (
 			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
 				<p>You add sort management with column header click.</p>
 				<pre>
 					listProps.sort.field = 'modified';
@@ -728,19 +548,154 @@ storiesOf('List', module)
 				<List {...tprops} />
 			</div>
 		);
+	});
+
+storiesOf('Components/Specific Feature/List/Expanded view', module)
+	.addDecorator(StoryDecorator)
+	.add('Default', () => (
+		<div style={{ height: '70vh' }} className="virtualized-list">
+			<List {...props} rowHeight={140} displayMode="large" />
+		</div>
+	))
+	.add('No toolbar', () => {
+		const tprops = cloneDeep(props);
+		tprops.toolbar = undefined;
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<List {...tprops} displayMode="large" />
+			</div>
+		);
 	})
-	.add('Sort - large', () => {
+	.add('TextIcon column', () => {
+		const customProps = cloneDeep(props);
+		customProps.list.columns = [
+			{ key: 'id', label: 'Id' },
+			{ key: 'name', label: 'Name' },
+			{ key: 'status', label: 'Status', type: 'texticon', data: { getIcon } },
+			{ key: 'cat', label: 'Cat' },
+		];
+		customProps.list.items = itemsForListWithIcons;
+
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<List {...customProps} rowHeight={140} displayMode="large" />
+			</div>
+		);
+	})
+	.add('Empty list', () => {
+		const emptyListProps = cloneDeep(props);
+		emptyListProps.list.items = [];
+
+		return (
+			<div style={{ height: '70vh' }}>
+				<List {...emptyListProps} displayMode="large" />
+			</div>
+		);
+	})
+	.add('In progress', () => {
+		const loadingListProps = cloneDeep(props);
+		loadingListProps.list.inProgress = true;
+		return (
+			<div style={{ height: '70vh' }}>
+				<List {...loadingListProps} displayMode="large" />
+			</div>
+		);
+	})
+	.add('Selection', () => {
+		const selectedItemsProps = cloneDeep(props);
+		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
+			left: [
+				{
+					id: 'remove',
+					label: 'Delete selection',
+					icon: 'talend-trash',
+					onClick: action('remove'),
+				},
+			],
+		};
+		selectedItemsProps.list.itemProps = itemPropsForItems;
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<p>
+					For table view, user toggle column header to select/disselect all items.
+					<br />
+					When List displayed in large view, there's a one-line checkbox of "Select All" above the
+					list.
+					<br />
+				</p>
+				<List {...selectedItemsProps} rowHeight={140} displayMode="large" />
+			</div>
+		);
+	})
+	.add('Activation', () => {
+		const selectedItemsProps = cloneDeep(props);
+		selectedItemsProps.list.itemProps.isActive = item => item.id === 0;
+		selectedItemsProps.list.itemProps.onRowClick = action('onRowClick');
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<p>
+					You can manage selection by passing 2 props : onRowClick and isActive.
+					<br />
+					<b>onRowClick(event, item)</b> : item selection callback
+					<br />
+					<b>isActive(item)</b> : returns true if the item is selected
+				</p>
+				<pre>
+					listProps.itemProps.onRowClick = (event, rowData) => myRowClickCallback(rowData);
+					<br />
+					listProps.itemProps.isActive = (item) => item.id === 0;
+					<br />
+					&lt;List ... list=&#123;listProps&#125; &gt;
+					<br />
+				</pre>
+				<h2>Large</h2>
+				<List {...selectedItemsProps} rowHeight={140} displayMode="large" />
+			</div>
+		);
+	})
+	.add('Sort', () => {
 		const tprops = cloneDeep(props);
 		tprops.list.sort = sort;
 		return (
 			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
 				<p>Show Sort widgets on List toolbar when display in large view</p>
 				<List {...tprops} rowHeight={140} displayMode="large" />
 			</div>
 		);
+	});
+
+storiesOf('Components/Specific Feature/List/Custom view', module)
+	.addDecorator(StoryDecorator)
+	.add('Empty list', () => {
+		const emptyListProps = cloneDeep(props);
+		emptyListProps.list.items = [];
+
+		const customEmptyRendererListProps = cloneDeep(props);
+		customEmptyRendererListProps.list.items = [];
+		customEmptyRendererListProps.list.noRowsRenderer = () => (
+			<span className={'tc-virtualizedlist-no-result'} role="status" aria-live="polite">
+				I'm a custom NoRowsRenderer
+			</span>
+		);
+
+		return (
+			<div style={{ height: '70vh' }}>
+				<List {...customEmptyRendererListProps} />
+			</div>
+		);
 	})
-	.add('Custom cell renderer', () => {
+	.add('Row renderer', () => (
+		<div style={{ height: '70vh' }} className="virtualized-list">
+			<p>
+				Display the list in large mode.
+				<br />
+				You just need to pass the props displayMode.
+			</p>
+			<pre>&lt;List displayMode="large" rowRenderers= ... &gt;</pre>
+			<List {...props} rowHeight={116} displayMode="large" rowRenderers={{ LARGE: MyCustomRow }} />
+		</div>
+	))
+	.add('Cell renderer', () => {
 		const customProps = cloneDeep(props);
 
 		customProps.list.columns = [
@@ -748,6 +703,12 @@ storiesOf('List', module)
 			{ key: 'name', label: 'Name' },
 			{ key: 'status', label: 'Status', type: 'hello' },
 			{ key: 'cat', label: 'Cat' },
+			{
+				key: 'created',
+				label: 'Created',
+				type: 'datetime',
+				data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' },
+			},
 		];
 
 		customProps.list.items = itemsForListWithIcons;
@@ -755,12 +716,14 @@ storiesOf('List', module)
 
 		return (
 			<div style={{ height: '70vh' }} className="virtualized-list">
-				<h1>List</h1>
-				<p>Display the list with a custom renderer for the status column.</p>
+				<p>Display the list with a custom renderer for the "status" and "created" columns.</p>
 				<List {...customProps} />
 			</div>
 		);
-	})
+	});
+
+storiesOf('Components/Specific Feature/List/Toolbar', module)
+	.addDecorator(StoryDecorator)
 	.add('Filter', () => {
 		const dockedProps = cloneDeep(props);
 		dockedProps.list.items = [dockedProps.list.items[0]];
@@ -826,11 +789,15 @@ storiesOf('List', module)
 				<List {...tprops} />
 			</div>
 		);
-	})
+	});
+
+storiesOf('Components/Specific Feature/List/TODO', module)
+	.addDecorator(StoryDecorator)
 	.add('i18n', () => (
-		<div>
+		<div style={{ height: '70vh' }} className="virtualized-list">
 			<h1>List with i18n</h1>
 			<p>Change language in the toolbar</p>
+			<LanguageSwitcher />
 			<List {...props} />
 		</div>
 	))
@@ -874,28 +841,12 @@ storiesOf('List', module)
 			</div>
 		);
 	})
-	.add('Custom classnames', () => (
-		<div style={{ height: '70vh' }} className="virtualized-list virtualized-list-customized-row">
-			<h1>List</h1>
-			<p>Display the list with hidden header labels.</p>
-			<List {...props} />
-		</div>
-	))
 	.add('Inline parent', () => (
-		<div className="virtualized-list">
+		<div style={{ height: '70vh' }} className="virtualized-list">
 			<h1>List</h1>
 			{/* Do not reproduce!*/}
 			<span>
 				<List {...props} />
-			</span>
-		</div>
-	))
-	.add('List cell renderer', () => (
-		<div className="virtualized-list">
-			<h1>List with specified VirtualizedList cell renderer</h1>
-			<p>CellDatetimeRenderer in action.</p>
-			<span>
-				<List {...propsWithVirtualized} />
 			</span>
 		</div>
 	))

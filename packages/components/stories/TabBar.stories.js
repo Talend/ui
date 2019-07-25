@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { TabBar } from '../src/';
+import { TabBar } from '../src';
 
 const tabProps = {
 	id: 'my-tabs',
@@ -62,7 +62,7 @@ class InteractiveTabs extends React.Component {
 	}
 }
 
-const stories = storiesOf('TabBar', module);
+const stories = storiesOf('Components/Navigation & Layout/Tabs', module);
 
 stories
 	.add('default', () => (
@@ -78,8 +78,10 @@ stories
 			<h3>TabBar with custom ids</h3>
 			<p>
 				By default, you pass an id (required for accessibility) to the component and all ids are
-				generated.<br />
-				But you can customize the ids.<br />
+				generated.
+				<br />
+				But you can customize the ids.
+				<br />
 				The generated id will be passed to the panel as aria-describedby.
 				<pre>{`
 function generateChildId(key, kind) {
@@ -110,11 +112,19 @@ function generateChildId(key, kind) {
 			<h3>TabBar with custom content</h3>
 			<div id="customContent">
 				<TabBar {...tabProps} generateChildId={generateChildId} />
-				<div id="my-custom-id-1" style={{ display: 'none' }}>I'm the existing content of tab 1</div>
+				<div id="my-custom-id-1" style={{ display: 'none' }}>
+					I'm the existing content of tab 1
+				</div>
 				<div id="my-custom-id-2">I'm the existing content of tab 2</div>
-				<div id="my-custom-id-3" style={{ display: 'none' }}>I'm the existing content of tab 3</div>
-				<div id="my-custom-id-4" style={{ display: 'none' }}>I'm the existing content of tab 4</div>
-				<div id="my-custom-id-5" style={{ display: 'none' }}>I'm the existing content of tab 5</div>
+				<div id="my-custom-id-3" style={{ display: 'none' }}>
+					I'm the existing content of tab 3
+				</div>
+				<div id="my-custom-id-4" style={{ display: 'none' }}>
+					I'm the existing content of tab 4
+				</div>
+				<div id="my-custom-id-5" style={{ display: 'none' }}>
+					I'm the existing content of tab 5
+				</div>
 			</div>
 		</nav>
 	))

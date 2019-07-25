@@ -1,15 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 
 import MultiSelect from '../src/MultiSelect';
 import IconsProvider from '../src/IconsProvider';
-
-function onSelect(value, title) {
-	return {
-		onSelect: action(`selec ${value} ${title}`),
-	};
-}
 
 class Photos extends React.Component {
 	constructor(props) {
@@ -57,4 +50,4 @@ class Photos extends React.Component {
 	}
 }
 
-storiesOf('MultiSelect', module).add('default', () => <Photos />);
+storiesOf('Components/Legacy/MultiSelect', module).add('default', () => <Photos />);

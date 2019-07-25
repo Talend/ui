@@ -87,7 +87,7 @@ const noHeaderItems = [
 	},
 ];
 
-storiesOf('Typeahead', module)
+storiesOf('Components/Controls/Typeahead', module)
 	.addDecorator(story => (
 		<div>
 			<IconsProvider />

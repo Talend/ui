@@ -68,35 +68,34 @@ const actions = [
 const functionToFormat = value => `${value}-test`;
 const functionFormatFloor = value => `${Math.floor(value)}`;
 
-storiesOf('Slider', module)
-	.add('default', () => (
-		<section>
-			<IconsProvider />
-			<div style={style}>
-				<div style={delimiterStyle} >
-					<p>By default</p>
-					<Slider />
-				</div>
-				<div style={delimiterStyle}>
-					<p>With disabled</p>
-					<Slider disabled />
-				</div>
-				<div style={delimiterStyle}>
-					<p>With value & format</p>
-					<Slider id="selectable" captionsFormat={functionToFormat} value={10} />
-				</div>
-				<div style={delimiterStyle}>
-					<p>With icons</p>
-					<Slider captionIcons={icons} />
-				</div>
-				<div style={delimiterStyle}>
-					<p>with icon buttons</p>
-					<Slider captionActions={actions} value={50} />
-				</div>
-				<div style={delimiterStyle}>
-					<p>with step number</p>
-					<Slider value={25} captionTextStepNumber={5} captionsFormat={functionFormatFloor} />
-				</div>
+storiesOf('Components/Controls/Slider', module).add('default', () => (
+	<section>
+		<IconsProvider />
+		<div style={style}>
+			<div style={delimiterStyle}>
+				<p>By default</p>
+				<Slider />
 			</div>
-		</section>
-	));
+			<div style={delimiterStyle}>
+				<p>With disabled</p>
+				<Slider disabled />
+			</div>
+			<div style={delimiterStyle}>
+				<p>With value & format</p>
+				<Slider id="selectable" captionsFormat={functionToFormat} value={10} />
+			</div>
+			<div style={delimiterStyle}>
+				<p>With icons</p>
+				<Slider captionIcons={icons} />
+			</div>
+			<div style={delimiterStyle}>
+				<p>with icon buttons</p>
+				<Slider captionActions={actions} value={50} />
+			</div>
+			<div style={delimiterStyle}>
+				<p>with step number</p>
+				<Slider value={25} captionTextStepNumber={5} captionsFormat={functionFormatFloor} />
+			</div>
+		</div>
+	</section>
+));

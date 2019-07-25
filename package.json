@@ -43,8 +43,8 @@
     "start-forms": "cd packages/forms && yarn start",
     "start-theme": "cd packages/theme && yarn start",
     "publish": "lerna publish --force-publish=*",
-    "build-storybook": "npm run test:demo && export ACTION=\"test:demo\" && export TRAVIS_BRANCH=\"master\" && export TRAVIS_BUILD_DIR=`pwd` && .travis/after_success_static.sh && .travis/after_success_demo.sh && .travis/after_success_coverage.sh",
-    "publish-storybook": "npm run build-storybook && cd .static && surge",
+    "build-demo": "npm run test:demo && export ACTION=\"test:demo\" && export TRAVIS_BRANCH=\"master\" && export TRAVIS_BUILD_DIR=`pwd` && .travis/after_success_static.sh && .travis/after_success_demo.sh && .travis/after_success_coverage.sh",
+    "publish-demo": "npm run build-storybook && cd .static && surge",
     "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %<(100,trunc)%s\" --date=short --color",
     "extract-i18n": "npm run extract-i18n-components && npm run extract-i18n-forms && npm run extract-i18n-containers && npm run extract-i18n-datagrid",
     "extract-i18n-components": "i18next-scanner --config packages/components/i18next-scanner.config.js 'packages/components/src/**/*.js'",
@@ -55,6 +55,7 @@
     "audit-scripts": "cd packages/scripts && yarn audit -s --json && cd ../../",
     "audit-html": "cd packages/html-webpack-plugin && yarn audit --json && cd ../../",
     "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
     "chroma": "CHROMA_APP_CODE=x8p2jxrsvbq chroma publish"
   },
   "repository": {

@@ -66,4 +66,32 @@ i18n.use(initReactI18next).init({
 	wait: true, // globally set to wait for loaded translations in translate hoc
 });
 
+export const LanguageSwitcher = () => {
+	const style = {
+		position: 'fixed',
+		bottom: 0,
+		width: '100vw',
+		textAlign: 'center',
+		zIndex: 1,
+	};
+
+	function renderBtn(locale, isDefault) {
+		return (
+			<button className="btn" onClick={() => i18n.changeLanguage(locale)}>
+				{locale} {isDefault && '(default)'}
+			</button>
+		);
+	}
+
+	return (
+		<nav style={style}>
+			<div className="btn-group" data-tour="language-switcher">
+				{renderBtn('en', true)}
+				{renderBtn('fr')}
+				{renderBtn('it')}
+			</div>
+		</nav>
+	);
+};
+
 export default i18n;

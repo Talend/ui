@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { LanguageSwitcher } from './config/i18n';
+import { LanguageSwitcher } from '../../../.storybook/i18n';
 import { ListView, IconsProvider } from '../src/index';
 
 const filterAction = {
@@ -113,7 +113,7 @@ const withNestedItems = {
 	showToggleAll: false,
 };
 
-storiesOf('ListView', module)
+storiesOf('Components/Controls/OptionList', module)
 	.addDecorator(story => (
 		<div>
 			<LanguageSwitcher />

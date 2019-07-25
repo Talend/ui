@@ -1,7 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Loader, CIRCULAR_PROGRESS_SIZE as SIZE } from '../src/';
+import Loader from '../src/Loader';
+import { CIRCULAR_PROGRESS_SIZE as SIZE } from '../src/constants';
 
 const containerStyle = {
 	display: 'flex',
@@ -11,12 +12,9 @@ const containerStyle = {
 	width: '100vw',
 };
 
-const decoratedStories = storiesOf('Loader', module)
-	.addDecorator(story => (
-		<div style={containerStyle}>
-			{story()}
-		</div>
-	));
+const decoratedStories = storiesOf('Components/Legacy/Loader', module).addDecorator(story => (
+	<div style={containerStyle}>{story()}</div>
+));
 
 decoratedStories
 	.add('default', () => <Loader />)

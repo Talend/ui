@@ -640,7 +640,7 @@ SortedFilteredTable.propTypes = {
 
 const SortedFilteredTableWithDND = dndContext(HTML5Backend)(SortedFilteredTable);
 
-const stories = storiesOf('Table', module);
+const stories = storiesOf('Components/Legacy/Table', module);
 
 stories
 	.addDecorator(story => (
@@ -653,7 +653,7 @@ stories
 		<div className="story-table">
 			<Table elements={schema1.elements} columns={columns1} withHeader />
 		</div>
-		))
+	))
 	.add('Table (as list)', () => (
 		<div className="default-table">
 			<Table
@@ -663,7 +663,7 @@ stories
 				onLeaveRow={action('onLeaveRow called!')}
 			/>
 		</div>
-		))
+	))
 	.add('Table with drag and drop', () => (
 		<div className="table-with-dnd">
 			<TableWithDND
@@ -673,7 +673,7 @@ stories
 				onScroll={action('onScroll called!')}
 			/>
 		</div>
-		))
+	))
 	.add('Table with filters', () => (
 		<div className="filtered-table">
 			<SortedFilteredTable
@@ -683,7 +683,7 @@ stories
 				title={schema3.name}
 			/>
 		</div>
-		))
+	))
 	.add('Table with sorters', () => (
 		<div className="sorted-table">
 			<SortedFilteredTable
@@ -692,7 +692,7 @@ stories
 				sorters={createSorters(sorterKeys)}
 			/>
 		</div>
-		))
+	))
 	.add('Table with dnd, sorters & filters', () => (
 		<div className={classnames('table-with-dnd', 'filtered-table', 'sorted-table')}>
 			<SortedFilteredTableWithDND
@@ -703,4 +703,4 @@ stories
 				title={schema3.name}
 			/>
 		</div>
-		));
+	));

@@ -7,10 +7,7 @@ const schema = {
 	jsonSchema: {
 		title: 'A registration form',
 		type: 'object',
-		required: [
-			'firstName',
-			'lastName',
-		],
+		required: ['firstName', 'lastName'],
 		properties: {
 			password: {
 				type: 'string',
@@ -70,14 +67,7 @@ const schema = {
 		},
 	},
 	uiSchema: {
-		'ui:order': [
-			'firstName',
-			'lastName',
-			'nested',
-			'age',
-			'bio',
-			'password',
-		],
+		'ui:order': ['firstName', 'lastName', 'nested', 'age', 'bio', 'password'],
 		nested: {
 			'ui:order': ['nestedInteger', 'nestedElement'],
 			nestedHidden: {
@@ -116,10 +106,9 @@ const schema = {
 	},
 };
 
-storiesOf('JSONSchemaRenderer')
-	.add('default', () => (
-		<div>
-			<h1>Basic</h1>
-			<JSONSchemaRenderer schema={schema} />
-		</div>
-	));
+storiesOf('Components/Legacy/JSONSchemaRenderer').add('default', () => (
+	<div>
+		<h1>Basic</h1>
+		<JSONSchemaRenderer schema={schema} />
+	</div>
+));

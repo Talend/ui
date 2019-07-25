@@ -54,7 +54,11 @@ const drawers = [
 const content = (
 	<div>
 		<h1>Welcome to the content for testing scroll</h1>
-		<ul>{[...new Array(138)].map(() => <li>one</li>)}</ul>
+		<ul>
+			{[...new Array(138)].map(() => (
+				<li>one</li>
+			))}
+		</ul>
 	</div>
 );
 const sidePanel = (
@@ -164,12 +168,14 @@ const tabs = {
 	selectedKey: '2',
 };
 
-const stories = storiesOf('Layout', module).addDecorator(story => (
-	<div>
-		<IconsProvider defaultIcons={icons} />
-		{story()}
-	</div>
-));
+const stories = storiesOf('Components/Navigation & Layout/AppLayout', module).addDecorator(
+	story => (
+		<div>
+			<IconsProvider defaultIcons={icons} />
+			{story()}
+		</div>
+	),
+);
 
 const appStyle = require('./config/themes.scss');
 
@@ -181,9 +187,7 @@ const appStyle = require('./config/themes.scss');
  * @param layoutStoryContent Optional custom children
  */
 function layoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent = content) {
-	stories.add(layoutStoryName, () => (
-		<Layout {...layoutStoryProps}>{layoutStoryContent}</Layout>
-	));
+	stories.add(layoutStoryName, () => <Layout {...layoutStoryProps}>{layoutStoryContent}</Layout>);
 }
 
 /**

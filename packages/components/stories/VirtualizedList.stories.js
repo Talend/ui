@@ -426,7 +426,7 @@ const CustomRenderResizableWidthRenderProps = props => (
 	</HeaderResizable>
 );
 
-storiesOf('VirtualizedList', module)
+storiesOf('Components/Specific Feature/List/VirtualizedList', module)
 	.add('List > Table', () => (
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>
