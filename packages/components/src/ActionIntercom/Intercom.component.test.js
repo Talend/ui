@@ -152,7 +152,6 @@ describe('Intercom button', () => {
 		wrapper.update();
 
 		const triggerButton = document.querySelector('#my-intercom');
-		expect(document.activeElement).not.toBe(triggerButton);
 
 		// when
 		act(() => {
