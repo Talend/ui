@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import isEqual from 'lodash/isEqual';
 import Immutable from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
 import BaseForm from '@talend/react-forms';
@@ -51,9 +50,7 @@ class Form extends React.Component {
 			return null;
 		}
 		if (nextProps.data !== prevState.data) {
-			if (!isEqual(nextProps.data, prevState.data)) {
-				return { data: nextProps.data };
-			}
+			return { data: nextProps.data };
 		}
 		return null;
 	}
