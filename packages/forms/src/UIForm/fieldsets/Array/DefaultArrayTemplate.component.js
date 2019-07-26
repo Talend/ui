@@ -69,7 +69,7 @@ function DefaultArrayTemplate(props) {
 							id={id && `${id}-control-${index}`}
 							index={index}
 							onRemove={onRemove}
-							onReorder={canReorder && onReorder}
+							onReorder={canReorder ? onReorder : undefined}
 							isClosed={itemValue.isClosed}
 							valueIsUpdating={valueIsUpdating}
 							renderItem={renderItem}

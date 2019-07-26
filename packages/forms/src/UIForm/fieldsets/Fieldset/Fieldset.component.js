@@ -20,7 +20,7 @@ export default function Fieldset(props) {
 if (process.env.NODE_ENV !== 'production') {
 	Fieldset.propTypes = {
 		schema: PropTypes.shape({
-			title: PropTypes.string.isRequired,
+			title: PropTypes.string,
 			items: PropTypes.array.isRequired,
 		}).isRequired,
 	};

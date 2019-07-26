@@ -9,7 +9,12 @@ describe('BadgeCategory', () => {
 		// when
 		const wrapper = mount(<BadgeCategory label={label} />);
 		// then
-		expect(wrapper.find('span').text()).toEqual(label);
+		expect(
+			wrapper
+				.find('.tc-badge-category')
+				.at(0)
+				.text(),
+		).toBe(label);
 		expect(wrapper.html()).toMatchSnapshot();
 	});
 });

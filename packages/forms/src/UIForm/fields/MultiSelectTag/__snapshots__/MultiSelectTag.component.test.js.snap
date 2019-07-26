@@ -39,10 +39,8 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
             "aria-required": true,
           }
         }
-        isLoadingText="Loading..."
         items={null}
         multiSection={false}
-        noResultText="No result."
         onChange={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -51,7 +49,6 @@ exports[`MultiSelectTag field should render MultiSelectTag 1`] = `
         position="left"
         readOnly={false}
         searching={false}
-        searchingText="Searching for matches..."
         theme={
           Object {
             "container": "theme-typeahead",

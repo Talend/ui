@@ -1,4 +1,4 @@
-# InfiniteScrollList component
+# LazyLoadingList component
 
 ## Description
 

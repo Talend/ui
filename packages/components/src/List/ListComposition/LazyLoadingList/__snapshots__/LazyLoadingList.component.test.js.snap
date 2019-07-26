@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InfiniteScrollList should render infinite scroll list component 1`] = `
-<InfiniteScrollList
-  id="myInfiniteScrollList"
+exports[`LazyLoadingList should render lazy loading list component 1`] = `
+<LazyLoadingList
+  id="myLazyLoadingList"
   minimumBatchSize={20}
   threshold={5}
 >
@@ -13,14 +13,14 @@ exports[`InfiniteScrollList should render infinite scroll list component 1`] = `
     threshold={5}
   >
     <VList
-      id="myInfiniteScrollList"
+      id="myLazyLoadingList"
       onRowsRendered={[Function]}
       registerChild={[Function]}
     >
       <VirtualizedList
         collection={Array []}
         defaultHeight={250}
-        id="myInfiniteScrollList"
+        id="myLazyLoadingList"
         onRowsRendered={[Function]}
         registerChild={[Function]}
         type="TABLE"
@@ -43,7 +43,7 @@ exports[`InfiniteScrollList should render infinite scroll list component 1`] = `
             <VirtualizedList(RendererSelector)
               collection={Array []}
               height={250}
-              id="myInfiniteScrollList"
+              id="myLazyLoadingList"
               noRowsRenderer={[Function]}
               onRowsRendered={[Function]}
               registerChild={[Function]}
@@ -54,7 +54,7 @@ exports[`InfiniteScrollList should render infinite scroll list component 1`] = `
                 collection={Array []}
                 disableHeader={false}
                 height={250}
-                id="myInfiniteScrollList"
+                id="myLazyLoadingList"
                 noRowsRenderer={[Function]}
                 onRowsRendered={[Function]}
                 registerChild={[Function]}
@@ -70,7 +70,7 @@ exports[`InfiniteScrollList should render infinite scroll list component 1`] = `
                   headerRowRenderer={[Function]}
                   headerStyle={Object {}}
                   height={250}
-                  id="myInfiniteScrollList"
+                  id="myLazyLoadingList"
                   noRowsRenderer={[Function]}
                   onRowsRendered={[Function]}
                   onScroll={[Function]}
@@ -92,7 +92,7 @@ exports[`InfiniteScrollList should render infinite scroll list component 1`] = `
                     aria-colcount={0}
                     aria-rowcount={0}
                     className="ReactVirtualized__Table tc-list-table theme-tc-list-table"
-                    id="myInfiniteScrollList"
+                    id="myLazyLoadingList"
                     role="grid"
                     style={Object {}}
                   >
@@ -193,5 +193,5 @@ exports[`InfiniteScrollList should render infinite scroll list component 1`] = `
       </VirtualizedList>
     </VList>
   </InfiniteLoader>
-</InfiniteScrollList>
+</LazyLoadingList>
 `;

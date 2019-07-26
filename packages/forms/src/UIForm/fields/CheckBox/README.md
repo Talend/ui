@@ -58,6 +58,7 @@ This widget allows you to render checkboxes input.
 | autoFocus | Focus on input on render | `false` |
 | disabled | Disable the input | `false` |
 | titleMap | A mapping of value/label to display |  |
+| data-feature | A `data-feature` value to set on the checkbox label |  |
 
 ```json
 [
