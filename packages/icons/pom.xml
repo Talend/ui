@@ -13,7 +13,7 @@
 
         <project.previous.version>3.6.0</project.previous.version>
 
-        <component-api.version>1.1.10-SNAPSHOT</component-api.version>
+        <component-api.version>1.1.11</component-api.version>
         <lombok.version>1.18.4</lombok.version>
         <gmavenplus.version>1.6.2</gmavenplus.version>
         <groovy.version>2.5.7</groovy.version>
