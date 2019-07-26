@@ -119,3 +119,15 @@ cd ../..
 yarn build-icons
 # this builds the new icons and build components with this new icons and launch the unit test
 ```
+
+# Interaction with backend product
+
+The icons module produces the icons as jars:
+
+* `org.talend.ui:talend-icon:${talend-ui.version}:jar:api`: Talend Component Kit API extension for internal icons.
+* `org.talend.ui:talend-icon:${talend-ui.version}:jar:svg`: the SVG icons.
+* `org.talend.ui:talend-icon:${talend-ui.version}:jar:png`: the icons as PNG (for the Studio).
+
+You can ensure the jar is ready to be released using the following command - you must have maven installed:
+
+    npm run prepare-jar
