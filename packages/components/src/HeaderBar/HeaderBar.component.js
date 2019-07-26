@@ -250,7 +250,7 @@ function AppNotification({ getComponent, hasUnread, t, ...props }) {
 	);
 }
 
-function Intercom({ id, config }) {
+function Intercom({ id, config, tooltipPlacement }) {
 	return (
 		<li
 			role="presentation"
@@ -264,6 +264,7 @@ function Intercom({ id, config }) {
 				className="btn btn-link"
 				id={id}
 				config={React.useMemo(() => ({ ...config, vertical_padding: 70 }), [config])}
+				tooltipPlacement={tooltipPlacement}
 			/>
 		</li>
 	);

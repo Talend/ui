@@ -46,9 +46,9 @@ function CustomList(props) {
 	);
 }
 
-function CustomListInfiniteScroll(props) {
+function CustomListLazyLoading(props) {
 	return (
-		<List.InfiniteScrollList id="my-infinite-scroll-list" {...props}>
+		<List.LazyLoadingList id="my-infinite-scroll-list" {...props}>
 			<List.VList.Content label="Id" dataKey="id" width={-1} />
 			<List.VList.Content
 				label="Name"
@@ -69,7 +69,7 @@ function CustomListInfiniteScroll(props) {
 			<List.VList.Content label="Author" dataKey="author" width={-1} />
 			<List.VList.Content label="Created" dataKey="created" width={-1} />
 			<List.VList.Content label="Modified" dataKey="modified" width={-1} />
-		</List.InfiniteScrollList>
+		</List.LazyLoadingList>
 	);
 }
 
@@ -302,12 +302,12 @@ storiesOf('List Composition', module)
 			</section>
 		</div>
 	))
-	.add('Infinite scroll', () => (
+	.add('Lazy Loading', () => (
 		<div className="virtualized-list">
 			<IconsProvider />
-			<h1>List supporting infinite scroll</h1>
+			<h1>List supporting Lazy Loding</h1>
 			<p>
-				The InfiniteScrollList list component allows to create lists that supports infinite scroll
+				The LazyLoadingList list component allows to create lists that supports lazy loading
 				feature.
 				<br />
 				It requires :<br />- <code>loadMoreRows</code> prop triggered when data loading is required
@@ -317,16 +317,16 @@ storiesOf('List Composition', module)
 			</p>
 			<pre>{`
 <List.Manager id="my-list" collection={collection}>
-	<List.InfiniteScrollList id="my-infinite-scroll-list" loadMoreRows={loadMoreRows} rowCount={totalRowCount}>
+	<List.LazyLoadingList id="my-infinite-scroll-list" loadMoreRows={loadMoreRows} rowCount={totalRowCount}>
 		<List.VList.Content label="Id" dataKey="id" width={-1} />
 			...
-	</List.InfiniteScrollList>
+	</List.LazyLoadingList>
 </List.Manager>
 `}</pre>
 			<h2>Table mode</h2>
 			<section style={{ height: '30vh' }}>
 				<List.Manager id="my-table-list" collection={[simpleCollection[0]]}>
-					<CustomListInfiniteScroll
+					<CustomListLazyLoading
 						type="TABLE"
 						loadMoreRows={action('onLoadMoreRows')}
 						rowCount={simpleCollection.length}
@@ -337,7 +337,7 @@ storiesOf('List Composition', module)
 			<h2>Large mode</h2>
 			<section style={{ height: '30vh' }}>
 				<List.Manager id="my-large-list" collection={[simpleCollection[0]]}>
-					<CustomListInfiniteScroll
+					<CustomListLazyLoading
 						type="LARGE"
 						loadMoreRows={action('onLoadMoreRows')}
 						rowCount={simpleCollection.length}
@@ -374,7 +374,7 @@ storiesOf('List Composition', module)
 						children: <div>HELLO WORLD</div>,
 					}]}
 				>
-					<CustomListInfiniteScroll
+					<CustomListLazyLoading
 						type="COLLAPSIBLE_PANEL"
 						loadMoreRows={action('onLoadMoreRows')}
 						rowCount={50}

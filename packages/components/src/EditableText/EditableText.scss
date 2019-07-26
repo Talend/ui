@@ -14,9 +14,6 @@ $tc-circle-editable-text-size: 16px !default;
 }
 
 .tc-editable-text {
-	margin: 0 110px 0 0;
-	max-width: 90rem;
-
 	&-title {
 		display: flex;
 		align-items: center;
@@ -38,9 +35,15 @@ $tc-circle-editable-text-size: 16px !default;
 		flex: 0 0 auto;
 		line-height: inherit;
 		min-height: inherit;
+		color: $gray;
 
 		&:global(.btn-link) {
-			color: $silver;
+			color: $gray;
+		}
+
+		&:focus,
+		&:hover {
+			color: $scooter;
 		}
 	}
 
@@ -96,6 +99,15 @@ $tc-circle-editable-text-size: 16px !default;
 			}
 
 			&-submit {
+				&:focus,
+				&:hover {
+					color: $scooter;
+					background: $scooter;
+					border-color: $scooter;
+					& svg {
+						background: $scooter;
+					}
+				}
 				border-color: $rio-grande;
 				background: $rio-grande;
 				fill: white;
@@ -103,6 +115,11 @@ $tc-circle-editable-text-size: 16px !default;
 				> svg {
 					color: white;
 				}
+			}
+			&-cancel:focus,
+			&-cancel:hover {
+				color: $scooter;
+				border-color: $scooter;
 			}
 		}
 

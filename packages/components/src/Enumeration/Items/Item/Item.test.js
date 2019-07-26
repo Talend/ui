@@ -95,7 +95,12 @@ describe('Item', () => {
 		};
 
 		const wrapper = mount(<Item {...props} />);
-		expect(wrapper.find('span').text()).toEqual('toto');
+		expect(
+			wrapper
+				.find('.tc-enumeration-item-label')
+				.at(0)
+				.text(),
+		).toEqual('toto');
 	});
 
 	it('should display the item with an icon appended', () => {

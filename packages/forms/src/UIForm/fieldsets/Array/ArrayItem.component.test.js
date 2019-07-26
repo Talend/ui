@@ -115,7 +115,7 @@ describe('Array Item component', () => {
 
 		// when
 		wrapper
-			.findWhere(n => n.prop('id') === 'talend-control-3-delete')
+			.find('Button#talend-control-3-delete')
 			.first()
 			.simulate('click');
 
@@ -147,7 +147,7 @@ describe('Array Item component', () => {
 
 		// when
 		wrapper
-			.findWhere(n => n.prop('id') === 'talend-control-3-moveUp')
+			.find('Button#talend-control-3-moveUp')
 			.first()
 			.simulate('click');
 
@@ -171,7 +171,7 @@ describe('Array Item component', () => {
 
 		// when
 		wrapper
-			.findWhere(n => n.prop('id') === 'talend-control-3-moveDown')
+			.find('Button#talend-control-3-moveDown')
 			.first()
 			.simulate('click');
 

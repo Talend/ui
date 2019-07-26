@@ -342,8 +342,8 @@ function UntranslatedComplexItem(props) {
 					<sup
 						key="badge"
 						className={`${theme.badge} badge`}
-						aria-label={t('TC_OBJECT_VIEWER_NB_CHILDREN', {
-							defaultValue: 'Contains {{count}} children',
+						aria-label={t('TC_OBJECT_VIEWER_NB_CHILD', {
+							defaultValue: 'Contains {{count}} child',
 							count: info.length,
 						})}
 					>

@@ -1,117 +1,78 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ActionTooltip should render custom tooltip when focus the children 1`] = `
-<OverlayTrigger
-  animation={false}
-  defaultOverlayShown={false}
-  delayShow={400}
+<div
+  aria-describedby={42}
+  ariaLabel="a custom tooltip"
+  className="theme-tc-tooltip"
+  onBlur={[Function]}
   onClick={[Function]}
-  overlay={
-    <Tooltip
-      bsClass="tooltip"
-      className="theme-tooltip-container tooltip-container"
-      id={42}
-      placement="right"
-    >
-      <div>
-        a custom tooltip
-      </div>
-    </Tooltip>
-  }
-  placement="right"
-  trigger={
-    Array [
-      "hover",
-      "focus",
-    ]
-  }
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
 >
   <div
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
-    onMouseDown={[Function]}
-    onMouseUp={[Function]}
+    aria-describedby={42}
   >
     Action
   </div>
-</OverlayTrigger>
+</div>
 `;
 
 exports[`ActionTooltip should render only the children 1`] = `
 <div
+  aria-describedby={42}
+  className="theme-tc-tooltip"
+  onBlur={[Function]}
+  onClick={[Function]}
   onFocus={[Function]}
+  onKeyPress={[Function]}
+  onMouseOut={[Function]}
   onMouseOver={[Function]}
 >
-  Action
+  <div
+    aria-describedby={42}
+  >
+    Action
+  </div>
 </div>
 `;
 
 exports[`ActionTooltip should render tooltip when focus the children 1`] = `
-<OverlayTrigger
-  animation={false}
-  defaultOverlayShown={false}
-  delayShow={400}
+<div
+  aria-describedby={42}
+  className="theme-tc-tooltip"
+  onBlur={[Function]}
   onClick={[Function]}
-  overlay={
-    <Tooltip
-      bsClass="tooltip"
-      className="theme-tooltip-container tooltip-container"
-      id={42}
-      placement="right"
-    >
-      toto
-    </Tooltip>
-  }
-  placement="right"
-  trigger={
-    Array [
-      "hover",
-      "focus",
-    ]
-  }
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
 >
   <div
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
-    onMouseDown={[Function]}
-    onMouseUp={[Function]}
+    aria-describedby={42}
   >
     Action
   </div>
-</OverlayTrigger>
+</div>
 `;
 
 exports[`ActionTooltip should render tooltip when hover the children 1`] = `
-<OverlayTrigger
-  animation={false}
-  defaultOverlayShown={false}
-  delayShow={400}
+<div
+  aria-describedby={42}
+  className="theme-tc-tooltip"
+  onBlur={[Function]}
   onClick={[Function]}
-  overlay={
-    <Tooltip
-      bsClass="tooltip"
-      className="theme-tooltip-container tooltip-container"
-      id={42}
-      placement="right"
-    >
-      toto
-    </Tooltip>
-  }
-  placement="right"
-  trigger={
-    Array [
-      "hover",
-      "focus",
-    ]
-  }
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
 >
   <div
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
-    onMouseDown={[Function]}
-    onMouseUp={[Function]}
+    aria-describedby={42}
   >
     Action
   </div>
-</OverlayTrigger>
+</div>
 `;
