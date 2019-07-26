@@ -91,53 +91,93 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
             <div
               className="theme-undefined theme-col-4"
             >
-              <button
-                aria-label="edit"
-                className="theme-undefined btn-icon-only btn btn-link"
-                disabled={false}
+              <div
+                aria-describedby={42}
+                className="theme-tc-tooltip"
+                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseDown={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
-                role="link"
-                type="button"
               >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-edit"
-                  focusable="false"
-                  title={null}
-                />
-              </button>
+                <button
+                  aria-describedby={42}
+                  aria-label="edit"
+                  className="theme-undefined btn-icon-only btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  role="link"
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-edit"
+                    focusable="false"
+                    title={null}
+                  />
+                </button>
+              </div>
             </div>
             <div
               className="theme-undefined theme-col-4"
             >
               <div
-                className="theme-undefined"
+                aria-describedby={42}
+                className="theme-tc-tooltip"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
-                by Charles
+                <div
+                  aria-describedby={42}
+                  className="theme-undefined"
+                >
+                  by Charles
+                </div>
               </div>
             </div>
             <div
               className="theme-group theme-col-4"
             >
               <div
-                className="theme-undefined"
+                aria-describedby={42}
+                className="theme-tc-tooltip"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
-                on TDP
+                <div
+                  aria-describedby={42}
+                  className="theme-undefined"
+                >
+                  on TDP
+                </div>
               </div>
-              <span
-                className="theme-undefined label label-default"
+              <div
+                aria-describedby={42}
+                className="theme-tc-tooltip"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
-                XML
-              </span>
+                <span
+                  aria-describedby={42}
+                  className="theme-undefined label label-default"
+                >
+                  XML
+                </span>
+              </div>
             </div>
           </div>
         </button>
@@ -285,53 +325,93 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
             <div
               className="theme-undefined theme-col-4"
             >
-              <button
-                aria-label="edit"
-                className="theme-undefined btn-icon-only btn btn-link"
-                disabled={false}
+              <div
+                aria-describedby={42}
+                className="theme-tc-tooltip"
+                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseDown={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
-                role="link"
-                type="button"
               >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-edit"
-                  focusable="false"
-                  title={null}
-                />
-              </button>
+                <button
+                  aria-describedby={42}
+                  aria-label="edit"
+                  className="theme-undefined btn-icon-only btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  role="link"
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-edit"
+                    focusable="false"
+                    title={null}
+                  />
+                </button>
+              </div>
             </div>
             <div
               className="theme-undefined theme-col-4"
             >
               <div
-                className="theme-undefined"
+                aria-describedby={42}
+                className="theme-tc-tooltip"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
-                by Charles
+                <div
+                  aria-describedby={42}
+                  className="theme-undefined"
+                >
+                  by Charles
+                </div>
               </div>
             </div>
             <div
               className="theme-group theme-col-4"
             >
               <div
-                className="theme-undefined"
+                aria-describedby={42}
+                className="theme-tc-tooltip"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
-                on TDP
+                <div
+                  aria-describedby={42}
+                  className="theme-undefined"
+                >
+                  on TDP
+                </div>
               </div>
-              <span
-                className="theme-undefined label label-default"
+              <div
+                aria-describedby={42}
+                className="theme-tc-tooltip"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
-                XML
-              </span>
+                <span
+                  aria-describedby={42}
+                  className="theme-undefined label label-default"
+                >
+                  XML
+                </span>
+              </div>
             </div>
           </div>
         </button>
@@ -478,53 +558,93 @@ exports[`CollapsiblePanel should render default without content 1`] = `
             <div
               className="theme-undefined theme-col-4"
             >
-              <button
-                aria-label="edit"
-                className="theme-undefined btn-icon-only btn btn-link"
-                disabled={false}
+              <div
+                aria-describedby={42}
+                className="theme-tc-tooltip"
+                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
-                onMouseDown={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
-                role="link"
-                type="button"
               >
-                <i
-                  aria-hidden="true"
-                  className="fa fa-edit"
-                  focusable="false"
-                  title={null}
-                />
-              </button>
+                <button
+                  aria-describedby={42}
+                  aria-label="edit"
+                  className="theme-undefined btn-icon-only btn btn-link"
+                  disabled={false}
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  role="link"
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-edit"
+                    focusable="false"
+                    title={null}
+                  />
+                </button>
+              </div>
             </div>
             <div
               className="theme-undefined theme-col-4"
             >
               <div
-                className="theme-undefined"
+                aria-describedby={42}
+                className="theme-tc-tooltip"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
-                by Charles
+                <div
+                  aria-describedby={42}
+                  className="theme-undefined"
+                >
+                  by Charles
+                </div>
               </div>
             </div>
             <div
               className="theme-group theme-col-4"
             >
               <div
-                className="theme-undefined"
+                aria-describedby={42}
+                className="theme-tc-tooltip"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
-                on TDP
+                <div
+                  aria-describedby={42}
+                  className="theme-undefined"
+                >
+                  on TDP
+                </div>
               </div>
-              <span
-                className="theme-undefined label label-default"
+              <div
+                aria-describedby={42}
+                className="theme-tc-tooltip"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
-                XML
-              </span>
+                <span
+                  aria-describedby={42}
+                  className="theme-undefined label label-default"
+                >
+                  XML
+                </span>
+              </div>
             </div>
           </div>
         </button>
@@ -568,35 +688,65 @@ exports[`CollapsiblePanel should render panel with custom element 1`] = `
               className="theme-undefined theme-col-3"
             >
               <div
-                className="theme-undefined"
+                aria-describedby={42}
+                className="theme-tc-tooltip"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
-                Version 1 Version 1
+                <div
+                  aria-describedby={42}
+                  className="theme-undefined"
+                >
+                  Version 1 Version 1
+                </div>
               </div>
             </div>
             <div
               className="theme-undefined theme-col-3"
             >
               <div
-                className="theme-undefined"
+                aria-describedby={42}
+                className="theme-tc-tooltip"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
-                <span>
-                  Custom element
-                </span>
+                <div
+                  aria-describedby={42}
+                  className="theme-undefined"
+                >
+                  <span>
+                    Custom element
+                  </span>
+                </div>
               </div>
             </div>
             <div
               className="theme-undefined theme-col-3"
             >
               <div
-                className="theme-undefined"
+                aria-describedby={42}
+                className="theme-tc-tooltip"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
-                03/02/2017 14:44:55
+                <div
+                  aria-describedby={42}
+                  className="theme-undefined"
+                >
+                  03/02/2017 14:44:55
+                </div>
               </div>
             </div>
           </div>
@@ -641,29 +791,59 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
               className="theme-group theme-col-2"
             >
               <div
-                className="theme-undefined"
+                aria-describedby={42}
+                className="theme-tc-tooltip"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
-                Version 1 Version 1
+                <div
+                  aria-describedby={42}
+                  className="theme-undefined"
+                >
+                  Version 1 Version 1
+                </div>
               </div>
               <div
-                className="theme-undefined"
+                aria-describedby={42}
+                className="theme-tc-tooltip"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
-                (Read Only)
+                <div
+                  aria-describedby={42}
+                  className="theme-undefined"
+                >
+                  (Read Only)
+                </div>
               </div>
             </div>
             <div
               className="theme-undefined theme-col-2"
             >
               <div
-                className="theme-undefined"
+                aria-describedby={42}
+                className="theme-tc-tooltip"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
-                03/02/2017 14:44:55
+                <div
+                  aria-describedby={42}
+                  className="theme-undefined"
+                >
+                  03/02/2017 14:44:55
+                </div>
               </div>
             </div>
           </div>
@@ -703,19 +883,39 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
         <div
           className="theme-head"
         >
-          <span
+          <div
+            aria-describedby={42}
+            className="theme-tc-tooltip"
+            onBlur={[Function]}
+            onClick={[Function]}
             onFocus={[Function]}
+            onKeyPress={[Function]}
+            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
-            21 step
-          </span>
-          <span
-            className="text-right"
+            <span
+              aria-describedby={42}
+            >
+              21 step
+            </span>
+          </div>
+          <div
+            aria-describedby={42}
+            className="theme-tc-tooltip"
+            onBlur={[Function]}
+            onClick={[Function]}
             onFocus={[Function]}
+            onKeyPress={[Function]}
+            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
-            by Abdelaziz Maalej test 1 test 2 test 1 test 2
-          </span>
+            <span
+              aria-describedby={42}
+              className="text-right"
+            >
+              by Abdelaziz Maalej test 1 test 2 test 1 test 2
+            </span>
+          </div>
         </div>
         <div
           className="theme-content-description content-description"
@@ -762,29 +962,59 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
               className="theme-group theme-col-2"
             >
               <div
-                className="theme-undefined"
+                aria-describedby={42}
+                className="theme-tc-tooltip"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
-                Version 1 Version 1
+                <div
+                  aria-describedby={42}
+                  className="theme-undefined"
+                >
+                  Version 1 Version 1
+                </div>
               </div>
               <div
-                className="theme-undefined"
+                aria-describedby={42}
+                className="theme-tc-tooltip"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
-                (Read Only)
+                <div
+                  aria-describedby={42}
+                  className="theme-undefined"
+                >
+                  (Read Only)
+                </div>
               </div>
             </div>
             <div
               className="theme-undefined theme-col-2"
             >
               <div
-                className="theme-undefined"
+                aria-describedby={42}
+                className="theme-tc-tooltip"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
-                03/02/2017 14:44:55
+                <div
+                  aria-describedby={42}
+                  className="theme-undefined"
+                >
+                  03/02/2017 14:44:55
+                </div>
               </div>
             </div>
           </div>

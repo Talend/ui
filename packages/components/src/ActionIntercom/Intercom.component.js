@@ -11,7 +11,7 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 
 import theme from './Intercom.scss';
 
-function Intercom({ id, className, config, t }) {
+function Intercom({ id, className, config, t, tooltipPlacement }) {
 	const [show, setShow] = useState(false);
 	const ref = useRef(null);
 
@@ -35,11 +35,11 @@ function Intercom({ id, className, config, t }) {
 	useLayoutEffect(() => IntercomService.setPosition(ref.current), [ref.current]);
 
 	const label = show
-		? t('TC_INTERCOM_CLOSE', { defaultValue: 'Close support messenger.' })
-		: t('TC_INTERCOM_OPEN', { defaultValue: 'Open support messenger.' });
+		? t('TC_INTERCOM_CLOSE', { defaultValue: 'Close chat with Talend Support' })
+		: t('TC_INTERCOM_OPEN', { defaultValue: 'Chat with Talend Support' });
 
 	return (
-		<TooltipTrigger label={label} tooltipPlacement="bottom">
+		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
 			<button
 				ref={ref}
 				id={id}
@@ -55,6 +55,7 @@ function Intercom({ id, className, config, t }) {
 
 Intercom.defaultProps = {
 	t: getDefaultT(),
+	tooltipPlacement: 'bottom',
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -71,6 +72,7 @@ if (process.env.NODE_ENV !== 'production') {
 			}),
 		}).isRequired,
 		t: PropTypes.func,
+		tooltipPlacement: PropTypes.string,
 	};
 }
 

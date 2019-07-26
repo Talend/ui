@@ -9,12 +9,12 @@ describe('BadgeLabel', () => {
 		// when
 		const wrapper = mount(<BadgeLabel label={label} />);
 		// then
-		expect(wrapper.find('span').prop('className')).toEqual(
-			'tc-badge-label-text theme-tc-badge-label-text',
-		);
 		expect(
-			wrapper.find('span[className="tc-badge-label-text theme-tc-badge-label-text"]').text(),
-		).toEqual(label);
+			wrapper
+				.find('.tc-badge-label-text')
+				.at(0)
+				.text(),
+		).toBe(label);
 		expect(wrapper.html()).toMatchSnapshot();
 	});
 	it('should render with category', () => {
@@ -24,9 +24,12 @@ describe('BadgeLabel', () => {
 		// when
 		const wrapper = mount(<BadgeLabel label={label} category={category} />);
 		// then
-		expect(wrapper.find('span').prop('className')).toEqual(
-			'tc-badge-label-text-with-categ theme-tc-badge-label-text-with-categ',
-		);
+		expect(
+			wrapper
+				.find('.tc-badge-label-text-with-categ')
+				.at(0)
+				.text(),
+		).toBe(label);
 	});
 	it('should render with children', () => {
 		// given

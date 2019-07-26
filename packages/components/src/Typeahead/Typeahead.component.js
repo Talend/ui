@@ -13,7 +13,7 @@ import {
 	renderItem,
 } from './Typeahead.component.renderers';
 import { Action } from '../Actions';
-import { I18N_DOMAIN_COMPONENTS } from '../constants';
+import I18N_DOMAIN_COMPONENTS from '../constants';
 
 /**
  * Show suggestions for search bar
