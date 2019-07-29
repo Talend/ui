@@ -38,7 +38,7 @@ export default function ColumnChooser({
 	useEffect(() => {
 		// eslint-disable-next-line no-console
 		console.warn(
-			'Guideline and developpement of the ColumnChooser component still in progress. It may have breaking change in the future',
+			'Guideline and development of the ColumnChooser component still in progress. It may have breaking change in the future',
 		);
 	}, [id]);
 

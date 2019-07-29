@@ -20,6 +20,9 @@ const SubmitButton = () => {
 const SelectAllCheckbox = () => {
 	const { id, onSelectAll, stateColumnChooser, t } = useContext(columnChooserContext);
 	const value = stateColumnChooser.selectAll;
+	const onChange = () => {
+		onSelectAll(!value);
+	};
 	return (
 		<span
 			className={classNames(
@@ -34,7 +37,7 @@ const SelectAllCheckbox = () => {
 					aria-label={t('COLUMN_CHOOSER_FOOTER_SELECT_ALL_INPUT', {
 						defaultValue: 'select all columns',
 					})}
-					onChange={event => onSelectAll(event, !value)}
+					onChange={onChange}
 					type="checkbox"
 					checked={value}
 					value={value}

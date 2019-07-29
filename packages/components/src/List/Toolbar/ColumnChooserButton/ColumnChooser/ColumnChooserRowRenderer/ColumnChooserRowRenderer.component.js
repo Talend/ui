@@ -18,6 +18,9 @@ Label.propTypes = {
 
 const Visibility = ({ index, locked, value }) => {
 	const { onChangeVisibility, t } = useContext(columnChooserContext);
+	const onClick = () => {
+		onChangeVisibility(index)(!value);
+	};
 	return (
 		<div
 			className={classNames(
@@ -36,7 +39,7 @@ const Visibility = ({ index, locked, value }) => {
 						theme['tc-column-displayer-visibility-checkbox'],
 						'tc-column-displayer-visibility-checkbox',
 					)}
-					onChange={event => onChangeVisibility(index)(event, !value)}
+					onChange={onClick}
 					type="checkbox"
 					checked={!value}
 					value={!value}
@@ -70,6 +73,5 @@ ColumnChooserRowRenderer.propTypes = {
 
 ColumnChooserRowRenderer.Visibility = Visibility;
 ColumnChooserRowRenderer.Label = Label;
-
 
 export default ColumnChooserRowRenderer;
