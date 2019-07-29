@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import get from 'lodash/get';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import DebounceInput from 'react-debounce-input';
@@ -35,6 +36,7 @@ export function renderInputComponent(props) {
 			<ControlLabel srOnly htmlFor={key}>
 				Search
 			</ControlLabel>
+			{get(props, 'selecteditem.icon') && <Icon {...props.selecteditem.icon} className={theme['item-icon']} />}
 			{debounceMinLength || debounceTimeout ? (
 				<DebounceInput
 					id={key}
@@ -74,6 +76,7 @@ renderInputComponent.propTypes = {
 		name: PropTypes.string,
 		title: PropTypes.string,
 	}),
+	selecteditem: PropTypes.object,
 	inputRef: PropTypes.func,
 	caret: PropTypes.bool,
 	disabled: PropTypes.bool,

@@ -84,6 +84,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			icon,
 			caret: rest.caret,
 			role: rest.role,
+			selecteditem: rest.selecteditem,
 			...rest.inputProps,
 		},
 	};
