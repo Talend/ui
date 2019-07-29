@@ -36,7 +36,9 @@ export function renderInputComponent(props) {
 			<ControlLabel srOnly htmlFor={key}>
 				Search
 			</ControlLabel>
-			{get(props, 'selecteditem.icon') && <Icon {...props.selecteditem.icon} className={theme['item-icon']} />}
+			{get(props, 'selecteditem.icon') && (
+				<Icon {...props.selecteditem.icon} className={theme['item-icon']} />
+			)}
 			{debounceMinLength || debounceTimeout ? (
 				<DebounceInput
 					id={key}
