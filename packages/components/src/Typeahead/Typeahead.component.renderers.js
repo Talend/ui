@@ -36,9 +36,6 @@ export function renderInputComponent(props) {
 			<ControlLabel srOnly htmlFor={key}>
 				Search
 			</ControlLabel>
-			{get(props, 'selecteditem.icon') && (
-				<Icon className={theme['item-icon']} {...props.selecteditem.icon} />
-			)}
 			{debounceMinLength || debounceTimeout ? (
 				<DebounceInput
 					id={key}
@@ -78,7 +75,6 @@ renderInputComponent.propTypes = {
 		name: PropTypes.string,
 		title: PropTypes.string,
 	}),
-	selecteditem: PropTypes.object,
 	inputRef: PropTypes.func,
 	caret: PropTypes.bool,
 	disabled: PropTypes.bool,
@@ -183,14 +179,14 @@ export function renderItem(item, { value, ...rest }) {
 
 	return (
 		<div
-			className={classNames(theme.item, item.className, {
+			className={classNames(theme.item, {
 				[theme.disabled]: item.disabled,
 				[theme.selected]: value === title,
 			})}
 			title={title}
 			data-feature={rest['data-feature']}
 		>
-			{item.icon && <Icon className={theme['item-icon']} {...item.icon} />}
+			{get(item, 'icon') && <Icon className={theme['item-icon']} {...item.icon} />}
 			<div className={theme['item-text']}>
 				<span className={classNames(theme['item-title'], 'tc-typeahead-item-title')}>
 					<Emphasis value={value} text={title} />
