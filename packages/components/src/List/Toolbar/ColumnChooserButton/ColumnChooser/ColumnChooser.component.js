@@ -44,6 +44,7 @@ export default function ColumnChooser({
 	}, [id]);
 
 	const onSubmit = event => {
+		event.preventDefault();
 		onSubmitColumnChooser(event);
 		onClose();
 	};
