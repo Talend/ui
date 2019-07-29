@@ -7,7 +7,7 @@ import { columnChooserContext } from '../columnChooser.context';
 import theme from './ColumnChooserRowRenderer.scss';
 
 const Label = props => (
-	<span className={classNames(theme['tc-column-displayer-label'], 'tc-column-displayer-label')}>
+	<span className={classNames(theme['tc-column-chooser-row-label'], 'tc-column-chooser-row-label')}>
 		{props.label}
 	</span>
 );
@@ -19,13 +19,13 @@ Label.propTypes = {
 const Visibility = ({ index, locked, value }) => {
 	const { onChangeVisibility, t } = useContext(columnChooserContext);
 	const onClick = () => {
-		onChangeVisibility(index)(!value);
+		onChangeVisibility(index, !value);
 	};
 	return (
 		<div
 			className={classNames(
-				theme['tc-column-displayer-visibility'],
-				'tc-column-displayer-visibility',
+				theme['tc-column-chooser-row-visibility'],
+				'tc-column-chooser-row-visibility',
 			)}
 		>
 			{locked ? (
@@ -36,8 +36,8 @@ const Visibility = ({ index, locked, value }) => {
 						defaultValue: 'change visibility',
 					})}
 					className={classNames(
-						theme['tc-column-displayer-visibility-checkbox'],
-						'tc-column-displayer-visibility-checkbox',
+						theme['tc-column-chooser-row-visibility-checkbox'],
+						'tc-column-chooser-row-visibility-checkbox',
 					)}
 					onChange={onClick}
 					type="checkbox"
@@ -59,8 +59,8 @@ const ColumnChooserRowRenderer = ({ children }) => {
 	const { id } = useContext(columnChooserContext);
 	return (
 		<div
-			id={`${id}-displayer`}
-			className={classNames(theme['tc-column-displayer'], 'tc-column-displayer')}
+			id={`${id}-row`}
+			className={classNames(theme['tc-column-chooser-row'], 'tc-column-chooser-row')}
 		>
 			{children}
 		</div>

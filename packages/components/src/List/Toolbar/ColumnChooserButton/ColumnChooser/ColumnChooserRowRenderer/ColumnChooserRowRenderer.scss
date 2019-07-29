@@ -2,25 +2,12 @@ $tc-border-color: #ededed !default;
 $tc-icon-size: 1.3rem !default;
 $tc-height: 4rem;
 
-.tc-column-displayer {
+.tc-column-chooser-row {
 	display: flex;
 	position: relative;
 	align-items: center;
 	height: $tc-height;
 	min-height: $tc-height;
-	&-dragging {
-		background-color: red;
-		position: absolute;
-		content: '';
-		top: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
-		z-index: -1;
-		margin-right: -$padding-large;
-		margin-left: -$padding-large;
-	}
-
 	&-visibility {
 		align-items: center;
 		border-right: 0.1rem solid $tc-border-color;
@@ -39,26 +26,5 @@ $tc-height: 4rem;
 	&-label {
 		padding-left: $padding-large;
 		width: 100vw;
-	}
-
-	&-order {
-		align-items: center;
-		display: flex;
-		justify-content: flex-end;
-		width: 100%;
-		&-value,
-		&-input-text {
-			font-weight: bold;
-			font-size: 1.5rem;
-			padding-right: $padding-smaller;
-		}
-		&-input-text {
-			text-align: right;
-			max-width: 5rem;
-		}
-		:global(.btn) {
-			color: $dove-gray;
-			padding: 0;
-		}
 	}
 }
