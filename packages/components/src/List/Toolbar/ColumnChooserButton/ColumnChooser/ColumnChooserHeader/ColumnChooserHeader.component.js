@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import theme from '../ColumnChooser.scss';
-import { columnChooserContext } from '../columnChooser.context';
-import Tooltip from '../../Tooltip';
+import { useColumnChooserContext } from '../columnChooser.context';
+import Tooltip from '../../../../../Tooltip';
 
 const Title = props => {
-	const { t } = useContext(columnChooserContext);
+	const { t } = useColumnChooserContext();
 	if (props.value) {
 		return props.value;
 	}

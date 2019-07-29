@@ -2,12 +2,12 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ActionButton from '../../../../../Actions/ActionButton';
-import { columnChooserContext } from '../columnChooser.context';
+import { useColumnChooserContext } from '../columnChooser.context';
 import theme from '../ColumnChooser.scss';
-import Tooltip from '../../Tooltip';
+import Tooltip from '../../../../../Tooltip';
 
 const SubmitButton = () => {
-	const { id, t } = useContext(columnChooserContext);
+	const { id, t } = useColumnChooserContext();
 	return (
 		<ActionButton
 			id={`${id}-submit-button`}
@@ -18,7 +18,7 @@ const SubmitButton = () => {
 };
 
 const SelectAllCheckbox = () => {
-	const { id, onSelectAll, selectAll, t } = useContext(columnChooserContext);
+	const { id, onSelectAll, selectAll, t } = useColumnChooserContext();
 	const onChange = () => {
 		onSelectAll(!selectAll);
 	};
@@ -68,7 +68,7 @@ const DefaultFooterContent = (
 );
 
 const ColumnChooserFooter = ({ children, className }) => {
-	const { id } = useContext(columnChooserContext);
+	const { id } = useColumnChooserContext();
 	return (
 		<Tooltip.Footer
 			id={id}

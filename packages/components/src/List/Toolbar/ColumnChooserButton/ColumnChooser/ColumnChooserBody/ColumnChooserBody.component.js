@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import ColumnChooserRowRenderer from '../ColumnChooserRowRenderer';
 import theme from '../ColumnChooser.scss';
-import { columnChooserContext } from '../columnChooser.context';
-import Tooltip from '../../Tooltip';
+import { useColumnChooserContext } from '../columnChooser.context';
+import Tooltip from '../../../../../Tooltip';
 
 const ColumnChooserTable = ({ columns }) =>
 	columns.map((column, index) => (
@@ -23,7 +23,7 @@ ColumnChooserTable.propTypes = {
 };
 
 const ColumnChooserBody = () => {
-	const { id, columnsChooser } = useContext(columnChooserContext);
+	const { id, columnsChooser } = useColumnChooserContext();
 	return (
 		<Tooltip.Body
 			id={`${id}-content`}

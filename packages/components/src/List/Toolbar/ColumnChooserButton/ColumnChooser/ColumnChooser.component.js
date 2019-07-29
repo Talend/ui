@@ -9,7 +9,7 @@ import ColumnChooserFooter from './ColumnChooserFooter';
 import ColumnChooserHeader from './ColumnChooserHeader';
 import getDefaultT from '../../../../translate';
 import theme from './ColumnChooser.scss';
-import Tooltip from '../Tooltip';
+import Tooltip from '../../../../Tooltip';
 
 const DefaultColumnChooser = (
 	<React.Fragment>
