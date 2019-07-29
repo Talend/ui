@@ -54,6 +54,18 @@ storiesOf('Datalist', module)
 	.add('default multiSection', () => {
 		const restrictedValues = { ...propsMultiSection, restricted: true };
 		const defaultValue = { ...propsMultiSection, value: 'lol' };
+		const withIcons = {
+			...propsMultiSection,
+			titleMap: propsMultiSection.titleMap.map(tm => ({
+				...tm,
+				suggestions: tm.suggestions.map(
+					s => ({
+						...s,
+						icon: { name: 'talend-clock' },
+					}),
+				),
+			})),
+		};
 		return (
 			<form className="form">
 				<IconsProvider />
@@ -63,6 +75,8 @@ storiesOf('Datalist', module)
 				<Datalist {...defaultValue} />
 				<h3>Restricted values</h3>
 				<Datalist {...restrictedValues} />
+				<h3>With icons</h3>
+				<Datalist {...withIcons} />
 				<h3>Auto focused</h3>
 				<Datalist {...propsMultiSection} autoFocus />
 			</form>
