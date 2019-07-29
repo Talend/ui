@@ -178,21 +178,24 @@ export function renderItem(item, { value, ...rest }) {
 
 	return (
 		<div
-			className={classNames(theme.item, {
+			className={classNames(theme.item, item.className, {
 				[theme.disabled]: item.disabled,
 				[theme.selected]: value === title,
 			})}
 			title={title}
 			data-feature={rest['data-feature']}
 		>
-			<span className={classNames(theme['item-title'], 'tc-typeahead-item-title')}>
-				<Emphasis value={value} text={title} />
-			</span>
-			{description && (
-				<p className={classNames(theme['item-description'], 'tc-typeahead-item-description')}>
-					<Emphasis value={value} text={description} />
-				</p>
-			)}
+			{item.icon && <Icon {...item.icon} className={theme['item-icon']} />}
+			<div className={theme['item-text']}>
+				<span className={classNames(theme['item-title'], 'tc-typeahead-item-title')}>
+					<Emphasis value={value} text={title} />
+				</span>
+				{description && (
+					<p className={classNames(theme['item-description'], 'tc-typeahead-item-description')}>
+						<Emphasis value={value} text={description} />
+					</p>
+				)}
+			</div>
 		</div>
 	);
 }
