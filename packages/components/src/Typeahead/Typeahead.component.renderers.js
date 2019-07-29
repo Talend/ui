@@ -37,7 +37,7 @@ export function renderInputComponent(props) {
 				Search
 			</ControlLabel>
 			{get(props, 'selecteditem.icon') && (
-				<Icon {...props.selecteditem.icon} className={theme['item-icon']} />
+				<Icon className={theme['item-icon']} {...props.selecteditem.icon} />
 			)}
 			{debounceMinLength || debounceTimeout ? (
 				<DebounceInput
@@ -190,7 +190,7 @@ export function renderItem(item, { value, ...rest }) {
 			title={title}
 			data-feature={rest['data-feature']}
 		>
-			{item.icon && <Icon {...item.icon} className={theme['item-icon']} />}
+			{item.icon && <Icon className={theme['item-icon']} {...item.icon} />}
 			<div className={theme['item-text']}>
 				<span className={classNames(theme['item-title'], 'tc-typeahead-item-title')}>
 					<Emphasis value={value} text={title} />
