@@ -5,16 +5,6 @@ import ColumnChooser from './ColumnChooser';
 import getDefaultT from '../../../translate';
 import ActionButton from '../../../Actions/ActionButton';
 
-/*
-const DefaultColumnChooser = (
-	<React.Fragment>
-		<ColumnChooser.Header />
-		<ColumnChooser.Body />
-		<ColumnChooser.Footer />
-	</React.Fragment>
-);
-*/
-
 export default function ColumnChooserButton({
 	ariaLabel,
 	children,
@@ -29,19 +19,13 @@ export default function ColumnChooserButton({
 	const changeOpened = () => {
 		setOpened(!opened);
 	};
-	/*
-	const onHide = () => {
-		setOpened(false)
-		add transition, copy from overlay trigger
-	}
-	*/
 	return (
 		<Nav>
 			<ActionButton
 				aria-label={
 					ariaLabel || t('COLUMN_CHOOSER_OVERLAY_BUTTON', { defaultValue: 'Column chooser button' })
 				}
-				buttonRef={target => setButtonRef(target)}
+				buttonRef={setButtonRef}
 				data-feature="open-column-chooser-overlay-action"
 				icon="talend-column-chooser"
 				id={`${id}-column-chooser-button`}
