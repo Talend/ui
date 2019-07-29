@@ -56,11 +56,11 @@ storiesOf('Datalist', module)
 		const defaultValue = { ...propsMultiSection, value: 'lol' };
 		const withIcons = {
 			...propsMultiSection,
-			titleMap: propsMultiSection.titleMap.map(tm => ({
-				...tm,
-				suggestions: tm.suggestions.map(
-					s => ({
-						...s,
+			titleMap: propsMultiSection.titleMap.map(titleMap => ({
+				...titleMap,
+				suggestions: titleMap.suggestions.map(
+					suggestion => ({
+						...suggestion,
 						icon: { name: 'talend-clock' },
 					}),
 				),
@@ -88,8 +88,8 @@ storiesOf('Datalist', module)
 		const disabledItems = { ...singleSectionProps, titleMap: titleMapWithDisabledItems };
 		const withIcons = {
 			...singleSectionProps,
-			titleMap: singleSectionProps.titleMap.map((tm, i) => ({
-				...tm,
+			titleMap: singleSectionProps.titleMap.map((titleMap, i) => ({
+				...titleMap,
 				icon: {
 					name: ['talend-clock', 'talend-world', 'talend-flow', 'talend-flow-o'][i],
 					title: 'My icon',
