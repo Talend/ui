@@ -7,6 +7,7 @@ import get from 'lodash/get';
 import Typeahead from '../Typeahead';
 import theme from './Datalist.scss';
 import FocusManager from '../FocusManager';
+import Icon from '../Icon';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -33,7 +34,6 @@ class Datalist extends Component {
 		this.state = {
 			previousValue: props.value,
 			value: props.value,
-			selectedItem: props.value,
 			titleMapping: this.buildTitleMapping(props.titleMap),
 		};
 	}
@@ -204,6 +204,17 @@ class Datalist extends Component {
 	}
 
 	/**
+	 * Returns the selected item's icon props if there's one or undefined.
+	 * @returns {Object|undefined}
+	 */
+	getSelectedIcon() {
+		if (this.props.titleMap) {
+			return get(this.props.titleMap.find(titleMap => titleMap.name === this.state.value), 'icon');
+		}
+		return undefined;
+	}
+
+	/**
 	 * Reset the focused item and section
 	 */
 	resetSelection() {
@@ -270,7 +281,6 @@ class Datalist extends Component {
 		this.setState({
 			// setting the filtered value so it needs to be actual value
 			value: newValue,
-			selectedItem: value,
 		});
 		if (persist) {
 			let enumValue = value;
@@ -367,14 +377,15 @@ class Datalist extends Component {
 
 	render() {
 		const label = this.getSelectedLabel();
+		const icon = this.getSelectedIcon();
 		return (
-			<FocusManager onFocusOut={this.resetSuggestions}>
+			<FocusManager onFocusOut={this.resetSuggestions} className={theme['tc-datalist-item']}>
+				{icon && <Icon className={theme['tc-datalist-item-icon']} {...icon} />}
 				<Typeahead
 					{...omit(this.props, PROPS_TO_OMIT)}
 					className={classNames('tc-datalist', this.props.className)}
 					focusedItemIndex={this.state.focusedItemIndex}
 					focusedSectionIndex={this.state.focusedSectionIndex}
-					selectedItem={this.state.selectedItem}
 					items={this.state.suggestions}
 					onBlur={this.onBlur}
 					onChange={this.onChange}
