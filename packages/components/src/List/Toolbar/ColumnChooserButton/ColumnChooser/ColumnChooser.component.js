@@ -32,7 +32,7 @@ export default function ColumnChooser({
 		columnsChooser,
 		onChangeVisibility,
 		onSelectAll,
-		onSubmitColumnChooser,
+		onSubmit,
 		selectAll,
 	} = useColumnChooserManager(columns, submit, nbLockedLeftItems);
 
@@ -41,11 +41,11 @@ export default function ColumnChooser({
 		console.warn(
 			'Guideline and development of the ColumnChooser component still in progress. It may have breaking change in the future',
 		);
-	}, [id]);
+	}, []);
 
-	const onSubmit = event => {
+	const onSubmitColumnChooser = event => {
 		event.preventDefault();
-		onSubmitColumnChooser(event);
+		onSubmit(event);
 		onClose();
 	};
 	return (
@@ -63,9 +63,9 @@ export default function ColumnChooser({
 		>
 			<Tooltip>
 				<form
-					id={`${id}-column-chooser-content`}
+					id={`${id}-form`}
 					className={classNames(theme['tc-column-chooser'], 'tc-column-chooser')}
-					onSubmit={onSubmit}
+					onSubmit={onSubmitColumnChooser}
 				>
 					{!children ? DefaultColumnChooser : children}
 				</form>

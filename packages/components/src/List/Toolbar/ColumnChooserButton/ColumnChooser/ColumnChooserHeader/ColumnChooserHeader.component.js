@@ -5,29 +5,27 @@ import theme from '../ColumnChooser.scss';
 import { useColumnChooserContext } from '../columnChooser.context';
 import Tooltip from '../../../../../Tooltip';
 
-const Title = props => {
+const ColumnChooserHeader = ({ className, children }) => {
 	const { t } = useColumnChooserContext();
-	if (props.value) {
-		return props.value;
-	}
-	return t('COLUMN_CHOOSER_HEADER_TITLE', {
-		defaultValue: 'Modify columns position',
+	const title = t('COLUMN_CHOOSER_HEADER_TITLE', {
+		defaultValue: 'Modify columns',
 	});
+	return (
+		<Tooltip.Header
+			className={classNames(
+				className,
+				theme['tc-column-chooser-header'],
+				'tc-column-chooser-header',
+			)}
+		>
+			{!children ? title : children}
+		</Tooltip.Header>
+	);
 };
-
-const ColumnChooserHeader = ({ className, children }) => (
-	<Tooltip.Header
-		className={classNames(className, theme['tc-column-chooser-header'], 'tc-column-chooser-header')}
-	>
-		{!children ? <Title /> : children}
-	</Tooltip.Header>
-);
 
 ColumnChooserHeader.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 	className: PropTypes.string,
 };
-
-ColumnChooserHeader.Title = Title;
 
 export default ColumnChooserHeader;

@@ -42,9 +42,9 @@ storiesOf('Column Chooser', module)
 			<IconsProvider defaultIcons={icons} />
 			<ColumnChooser columns={columns} id="default-column-chooser" submit={action('submit')}>
 				<ColumnChooser.Header>
-					<ColumnChooser.Header.Title value="Hello world" />
+					Hello world
 					<button style={{ marginLeft: '200px' }}>My Button</button>
-				</ColumnChooser.Header>
+				</ColumnChooser.Header>ß
 				<ColumnChooser.Body>
 					{hookColumns => (
 						<React.Fragment>

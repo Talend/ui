@@ -6,50 +6,46 @@ import getDefaultT from '../../../translate';
 import ActionButton from '../../../Actions/ActionButton';
 
 export default function ColumnChooserButton({
-	ariaLabel,
 	children,
 	columns,
 	id,
 	nbLockedLeftItems,
-	submitColumnChooser,
+	submit,
 	t,
 }) {
 	const [opened, setOpened] = useState(false);
 	const [buttonRef, setButtonRef] = useState(null);
-	const changeOpened = () => {
-		setOpened(!opened);
-	};
+	const changeOpened = () => setOpened(!opened);
+	const closePopover = () => setOpened(false);
+	const colChooserButtonId = `${id}-column-chooser`;
 	return (
 		<Nav>
 			<ActionButton
-				aria-label={
-					ariaLabel || t('COLUMN_CHOOSER_OVERLAY_BUTTON', { defaultValue: 'Column chooser button' })
-				}
 				buttonRef={setButtonRef}
 				data-feature="open-column-chooser-overlay-action"
 				icon="talend-column-chooser"
-				id={`${id}-column-chooser-button`}
-				label=""
+				id={`${colChooserButtonId}-button`}
+				label={t('COLUMN_CHOOSER_OVERLAY_BUTTON', { defaultValue: 'Column chooser button' })}
 				link
 				onClick={changeOpened}
 				overlayPlacement="bottom"
 			/>
 			<Overlay
-				id={`${id}-column-chooser-overlay`}
-				onHide={() => setOpened(false)}
+				id={`${colChooserButtonId}-overlay`}
+				onHide={closePopover}
 				placement="right"
 				rootClose
 				show={opened}
 				target={buttonRef}
 			>
-				<Popover id={`${id}-column-chooser-popover`}>
+				<Popover id={`${colChooserButtonId}-popover`}>
 					{!children ? (
 						<ColumnChooser
 							columns={columns}
-							id={`${id}-column-chooser`}
+							id={colChooserButtonId}
 							nbLockedLeftItems={nbLockedLeftItems}
 							onClose={changeOpened}
-							submit={submitColumnChooser}
+							submit={submit}
 							t={t}
 						/>
 					) : (
@@ -62,12 +58,11 @@ export default function ColumnChooserButton({
 }
 
 ColumnChooserButton.propTypes = {
-	ariaLabel: PropTypes.string,
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 	columns: PropTypes.array.isRequired,
 	id: PropTypes.string.isRequired,
 	nbLockedLeftItems: PropTypes.number,
-	submitColumnChooser: PropTypes.func.isRequired,
+	submit: PropTypes.func.isRequired,
 	t: PropTypes.func,
 };
 

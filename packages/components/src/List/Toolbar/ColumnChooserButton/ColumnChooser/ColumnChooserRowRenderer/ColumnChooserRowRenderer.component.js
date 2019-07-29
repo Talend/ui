@@ -6,9 +6,9 @@ import { columnChooserContext } from '../columnChooser.context';
 
 import theme from './ColumnChooserRowRenderer.scss';
 
-const Label = props => (
+const Label = ({ label }) => (
 	<span className={classNames(theme['tc-column-chooser-row-label'], 'tc-column-chooser-row-label')}>
-		{props.label}
+		{label}
 	</span>
 );
 

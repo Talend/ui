@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import ColumnChooserRowRenderer from '../ColumnChooserRowRenderer';
@@ -22,23 +22,25 @@ ColumnChooserTable.propTypes = {
 	columns: PropTypes.array.isRequired,
 };
 
-const ColumnChooserBody = () => {
+const ColumnChooserBody = ({ children }) => {
 	const { id, columnsChooser } = useColumnChooserContext();
 	return (
 		<Tooltip.Body
 			id={`${id}-content`}
 			className={classNames(theme['tc-column-chooser-body'], 'tc-column-chooser-body')}
 		>
-			<ColumnChooserTable columns={columnsChooser} />
+			{!children ? <ColumnChooserTable columns={columnsChooser} /> : children}
 		</Tooltip.Body>
 	);
 };
 
 ColumnChooserBody.RowRenderer = ColumnChooserRowRenderer;
-ColumnChooserBody.Table = ColumnChooserTable;
 
 ColumnChooserBody.propTypes = {
-	children: PropTypes.func,
+	children: PropTypes.oneOfType([
+		PropTypes.element,
+		PropTypes.arrayOf(PropTypes.element),
+	]),
 };
 
 export default ColumnChooserBody;
