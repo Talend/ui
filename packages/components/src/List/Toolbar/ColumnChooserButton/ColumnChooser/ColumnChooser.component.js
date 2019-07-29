@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { columnChooserContext } from './columnChooser.context';
+import { ColumnChooserProvider } from './columnChooser.context';
 import { useColumnChooserManager } from '../hooks';
 import ColumnChooserBody from './ColumnChooserBody';
 import ColumnChooserFooter from './ColumnChooserFooter';
@@ -29,10 +29,11 @@ export default function ColumnChooser({
 	t,
 }) {
 	const {
+		columnsChooser,
 		onChangeVisibility,
 		onSelectAll,
-		stateColumnChooser,
 		onSubmitColumnChooser,
+		selectAll,
 	} = useColumnChooserManager(columns, submit, nbLockedLeftItems);
 
 	useEffect(() => {
@@ -42,20 +43,20 @@ export default function ColumnChooser({
 		);
 	}, [id]);
 
-	const { Provider } = columnChooserContext;
 	const onSubmit = event => {
 		onSubmitColumnChooser(event);
 		onClose();
 	};
 	return (
-		<Provider
+		<ColumnChooserProvider
 			value={{
+				columnsChooser,
 				id,
 				onChangeVisibility,
 				onClose,
 				onSelectAll,
 				onSubmitColumnChooser,
-				stateColumnChooser,
+				selectAll,
 				t,
 			}}
 		>
@@ -63,12 +64,12 @@ export default function ColumnChooser({
 				<form
 					id={`${id}-column-chooser-content`}
 					className={classNames(theme['tc-column-chooser'], 'tc-column-chooser')}
-					onSubmit={event => onSubmit(event)}
+					onSubmit={onSubmit}
 				>
 					{!children ? DefaultColumnChooser : children}
 				</form>
 			</Tooltip>
-		</Provider>
+		</ColumnChooserProvider>
 	);
 }
 

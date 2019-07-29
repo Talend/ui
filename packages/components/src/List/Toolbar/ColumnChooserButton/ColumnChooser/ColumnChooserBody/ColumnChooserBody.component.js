@@ -11,8 +11,8 @@ const ColumnChooserTable = ({ columns }) =>
 		<ColumnChooserRowRenderer>
 			<ColumnChooserRowRenderer.Visibility
 				index={index}
-				value={column.hidden}
 				locked={column.locked}
+				value={column.hidden}
 			/>
 			<ColumnChooserRowRenderer.Label label={column.label} />
 		</ColumnChooserRowRenderer>
@@ -22,21 +22,14 @@ ColumnChooserTable.propTypes = {
 	columns: PropTypes.array.isRequired,
 };
 
-const getColumnChooserBodyContent = (columns, children) => {
-	if (typeof children === 'function') {
-		return children(columns);
-	}
-	return <ColumnChooserTable columns={columns} />;
-};
-
-const ColumnChooserBody = ({ children }) => {
-	const { id, stateColumnChooser } = useContext(columnChooserContext);
+const ColumnChooserBody = () => {
+	const { id, columnsChooser } = useContext(columnChooserContext);
 	return (
 		<Tooltip.Body
 			id={`${id}-content`}
 			className={classNames(theme['tc-column-chooser-body'], 'tc-column-chooser-body')}
 		>
-			{getColumnChooserBodyContent(stateColumnChooser.editedColumns, children)}
+			<ColumnChooserTable columns={columnsChooser} />
 		</Tooltip.Body>
 	);
 };

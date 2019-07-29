@@ -18,10 +18,9 @@ const SubmitButton = () => {
 };
 
 const SelectAllCheckbox = () => {
-	const { id, onSelectAll, stateColumnChooser, t } = useContext(columnChooserContext);
-	const value = stateColumnChooser.selectAll;
+	const { id, onSelectAll, selectAll, t } = useContext(columnChooserContext);
 	const onChange = () => {
-		onSelectAll(!value);
+		onSelectAll(!selectAll);
 	};
 	return (
 		<span
@@ -39,8 +38,8 @@ const SelectAllCheckbox = () => {
 					})}
 					onChange={onChange}
 					type="checkbox"
-					checked={value}
-					value={value}
+					checked={selectAll}
+					value={selectAll}
 					className={classNames(
 						theme['tc-column-chooser-footer-select-all-checkbox'],
 						'tc-column-chooser-footer-select-all-checkbox',

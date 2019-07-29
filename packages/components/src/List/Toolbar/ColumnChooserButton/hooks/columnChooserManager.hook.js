@@ -15,18 +15,15 @@ const isAnyItemHidden = items => {
 
 export const getColumn = index => collection => collection[index];
 
-export const setColumn = (column, index) => collection => {
-	const tmp = [...collection];
-	tmp[index] = column;
-	return tmp;
-};
+// eslint-disable-next-line
+export const setColumn = (column, index) => collection => collection[index] = column
 
-const updateEditedColumns = editedColumns => state => ({
+const updateColumns = editedColumns => state => ({
 	...state,
 	editedColumns,
 });
 
-const orderEditedColumns = collection => {
+const orderColumns = collection => {
 	collection.sort(compareOrder).forEach((item, index) => {
 		// eslint-disable-next-line no-param-reassign
 		item.order = index + 1;
@@ -59,35 +56,42 @@ const setItemsLocked = (items, lockedLeftItems) =>
 		return extractColumnValues(item);
 	});
 
-export const useColumnChooserManager = (columns, submit, nbLockedLeftItems) => {
-	const columnsWithLocked = setItemsLocked(columns, nbLockedLeftItems);
+
+/**
+ * Hooks
+ * @param {*} initColumns
+ * @param {*} submit
+ * @param {*} nbLockedLeftItems
+ */
+export const useColumnChooserManager = (initColumns, submit, nbLockedLeftItems) => {
+	const columnsWithLocked = setItemsLocked(initColumns, nbLockedLeftItems);
 	const [state, setState] = useState({
-		editedColumns: orderEditedColumns(columnsWithLocked),
+		columns: orderColumns(columnsWithLocked),
 		selectAll: isAnyItemHidden(columnsWithLocked),
 	});
 
-	const onChangeVisibility = index => value => {
-		const column = flow([getColumn, updateAttributeVisibility(value)])(index);
-		flow([setColumn(column, index), updateEditedColumns, setState])(state.editedColumns);
+	const onChangeVisibility = (index, value) => {
+		const columnUpdated = flow([getColumn(index), updateAttributeVisibility(value)])(state.columns);
+		flow([setColumn(columnUpdated, index), updateColumns, setState])(state.columns);
 	};
 
 	const onSelectAll = value => {
-		state.editedColumns.forEach(updateAttributeVisibility(!value));
 		setState({
 			...state,
-			editedColumns: state.editedColumns,
+			columns: state.columns.map(updateAttributeVisibility(!value)),
 			selectAll: value,
 		});
 	};
 
-	function onSubmitColumnChooser(event) {
-		submit(event, cloneDeep(state.editedColumns));
+	function onSubmit(event) {
+		submit(event, cloneDeep(state.columns));
 	}
 
 	return {
 		onChangeVisibility,
 		onSelectAll,
-		onSubmitColumnChooser,
-		stateColumnChooser: Object.freeze(state),
+		onSubmitColumnChooser: onSubmit,
+		columnsChooser: state.columns,
+		selectAll: state.selectAll,
 	};
 };
