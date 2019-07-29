@@ -20,7 +20,7 @@ src/List/Toolbar/Toolbar.scss
   80:6  error  Nesting depth 4 greater than max of 3  nesting-depth
 
 src/Typeahead/Typeahead.scss
-  33:5  error  Mixins should come before declarations  mixins-before-declarations
+  31:5  error  Mixins should come before declarations  mixins-before-declarations
 
 ✖ 9 problems (7 errors, 2 warnings)
 
