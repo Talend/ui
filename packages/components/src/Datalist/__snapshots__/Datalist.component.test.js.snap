@@ -25,6 +25,7 @@ exports[`Datalist component should render a typeahead 1`] = `
     position="left"
     readOnly={false}
     searching={false}
+    selecteditem="foo"
     theme={
       Object {
         "container": "theme-container tc-datalist-container",
