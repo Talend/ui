@@ -94,6 +94,7 @@ const toolbar = {
 		displayModes: ['large', 'table'],
 	},
 	filter: {
+		id: 'toto',
 		placeholder: 'find an object',
 	},
 };

@@ -285,12 +285,18 @@ class List extends React.Component {
 			}
 
 			if (props.toolbar.filter) {
+				props.toolbar.filter.onClear = (event) => {
+					this.props.dispatch({
+						type: Constants.LIST_FILTER_CLEAR,
+						collectionId: props.collectionId,
+						event,
+					});
+				};
 				props.toolbar.filter.onToggle = (event, data) => {
 					this.props.dispatch({
 						type: Constants.LIST_TOGGLE_FILTER,
 						payload: Object.assign({}, data, {
 							filterDocked: state.filterDocked,
-							searchQuery: state.searchQuery,
 						}),
 						collectionId: props.collectionId,
 						event,
