@@ -72,6 +72,16 @@ storiesOf('Datalist', module)
 		const restrictedValues = { ...singleSectionProps, restricted: true };
 		const defaultValue = { ...singleSectionProps, value: 'lol' };
 		const disabledItems = { ...singleSectionProps, titleMap: titleMapWithDisabledItems };
+		const withIcons = {
+			...singleSectionProps,
+			titleMap: singleSectionProps.titleMap.map((tm, i) => ({
+				...tm,
+				icon: {
+					name: ['talend-clock', 'talend-world', 'talend-flow', 'talend-flow-o'][i],
+					title: 'My icon',
+				},
+			})),
+		};
 		return (
 			<form className="form">
 				<IconsProvider />
@@ -87,6 +97,8 @@ storiesOf('Datalist', module)
 				<Datalist {...singleSectionProps} autoFocus />
 				<h3>With disabled Items</h3>
 				<Datalist {...disabledItems} autoFocus />
+				<h3>With icons</h3>
+				<Datalist {...withIcons} />
 				<h3>Insert custom elements via render props</h3>
 				<Datalist {...singleSectionProps}>
 					{(content, { isShown }) => (
