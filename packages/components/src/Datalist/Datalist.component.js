@@ -33,7 +33,7 @@ class Datalist extends Component {
 		this.state = {
 			previousValue: props.value,
 			value: props.value,
-			selecteditem: props.value,
+			selectedItem: props.value,
 			titleMapping: this.buildTitleMapping(props.titleMap),
 		};
 	}
@@ -270,7 +270,7 @@ class Datalist extends Component {
 		this.setState({
 			// setting the filtered value so it needs to be actual value
 			value: newValue,
-			selecteditem: value,
+			selectedItem: value,
 		});
 		if (persist) {
 			let enumValue = value;
@@ -374,7 +374,7 @@ class Datalist extends Component {
 					className={classNames('tc-datalist', this.props.className)}
 					focusedItemIndex={this.state.focusedItemIndex}
 					focusedSectionIndex={this.state.focusedSectionIndex}
-					selecteditem={this.state.selecteditem}
+					selectedItem={this.state.selectedItem}
 					items={this.state.suggestions}
 					onBlur={this.onBlur}
 					onChange={this.onChange}
