@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { useListContext } from '../context';
 import FilterBar from '../../../FilterBar';
 
+const noOp = () => {};
+
 function TextFilter(props) {
-	const { docked, initialDocked, onChange, onToggle, value, ...restProps } = props;
+	const { docked, initialDocked, onChange, onToggle, onClear = noOp, value, ...restProps } = props;
 	const { textFilter, setTextFilter } = useListContext();
 	const [dockedState, setDocked] = useState(initialDocked);
 
@@ -12,9 +14,8 @@ function TextFilter(props) {
 	const isFilterControlled = onChange;
 
 	const onFilterFunction = isFilterControlled ? onChange : (_, val) => setTextFilter(val);
-	const onToggleUncontrolled = event => {
+	const onToggleUncontrolled = () => {
 		setDocked(!dockedState);
-		onFilterFunction(event, '');
 	};
 	const onToggleFunction = isToggleControlled ? onToggle : onToggleUncontrolled;
 
@@ -26,6 +27,7 @@ function TextFilter(props) {
 
 		docked: isToggleControlled ? docked : dockedState,
 		onToggle: onToggleFunction,
+		onClear: isToggleControlled ? onClear : (event) => onFilterFunction(event, ''),
 	};
 
 	return <FilterBar {...filterBarProps} {...restProps} />;

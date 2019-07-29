@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import DebounceInput from 'react-debounce-input';
 import FormControl from 'react-bootstrap/lib/FormControl';
@@ -12,6 +13,7 @@ import getDefaultT from '../translate';
 import theme from './FilterBar.scss';
 
 function onKeyDown(event, escAction, enterAction) {
+	console.log('here');
 	switch (event.keyCode) {
 		case keycode.codes.enter:
 			if (enterAction) {
@@ -19,6 +21,7 @@ function onKeyDown(event, escAction, enterAction) {
 			}
 			break;
 		case keycode.codes.esc:
+			console.log('here');
 			if (escAction) {
 				escAction(event);
 			}
@@ -34,6 +37,7 @@ function FilterInput(props) {
 		debounceMinLength,
 		debounceTimeout,
 		onBlur,
+		onClear,
 		onFocus,
 		onFilter,
 		onToggle,
@@ -55,7 +59,10 @@ function FilterInput(props) {
 		onBlur: onBlur && (event => onBlur(event, event.target.value)),
 		onFocus: onFocus && (event => onFocus(event, event.target.value)),
 		onChange: event => onFilter(event, event.target.value),
-		onKeyDown: event => onKeyDown(event, onToggle, onBlur),
+		onKeyDown: event => onKeyDown(event, onClear, event => {
+			event.target.blur();
+			// onBlur(event, event.target.value);
+		}),
 		autoFocus,
 		role: 'searchbox',
 	};
@@ -99,7 +106,9 @@ export class FilterBarComponent extends React.Component {
 		this.onBlur = this.onBlur.bind(this);
 		this.onFilter = this.onFilter.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
+		this.onClear = this.onClear.bind(this);
 		this.state = { focus: this.props.focus, value: this.props.value };
+		this.textInput = React.createRef();
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -120,6 +129,16 @@ export class FilterBarComponent extends React.Component {
 		if (this.props.onBlur) {
 			this.props.onBlur(event);
 		}
+		if (!this.state.value) {
+			this.props.onToggle(event)
+		}
+	}
+
+	onClear(event) {
+		if (this.props.onClear) {
+			this.props.onClear(event);
+		}
+		this.textInput.current.querySelector(`#${this.props.id}-input`).focus();
 	}
 
 	onFilter(event) {
@@ -164,14 +183,20 @@ export class FilterBarComponent extends React.Component {
 					className={classNames('form-group', {
 						[theme.animate]: this.props.dockable,
 					})}
+					ref={this.textInput}
 				>
-					<Icon name="talend-search" className={theme['search-icon']} />
+					<Icon name="talend-search" className={theme['search-icon']}
+					      className={classNames(theme['search-icon'], {
+						      [theme['search-focused']]: this.state.focus,
+					      })}
+					/>
 					<FilterInput
 						autoFocus={this.props.autoFocus}
 						id={this.props.id && `${this.props.id}-input`}
 						debounceMinLength={this.props.debounceMinLength}
 						debounceTimeout={this.props.debounceTimeout}
 						onBlur={this.onBlur}
+						onClear={this.onClear}
 						onFocus={this.onFocus}
 						onFilter={this.onFilter}
 						onToggle={this.props.onToggle}
@@ -179,17 +204,21 @@ export class FilterBarComponent extends React.Component {
 						value={this.state.value}
 						dockable={this.props.dockable}
 						t={t}
+						ref={ref => (this.ref = ref)}
 					/>
-					<Action
-						className={theme.remove}
-						id={this.props.id && `${this.props.id}-cross-icon`}
-						bsStyle="link"
-						icon="talend-cross"
-						label={t('LIST_FILTER_REMOVE', { defaultValue: 'Remove filter' })}
-						hideLabel
-						tooltipPlacement={this.props.tooltipPlacement}
-						onClick={this.props.onToggle}
-					/>
+					{
+						this.state.value ?
+							<Action
+								className={theme.remove}
+								id={this.props.id && `${this.props.id}-cross-icon`}
+								bsStyle="link"
+								icon="talend-cross"
+								label={t('LIST_FILTER_REMOVE', { defaultValue: 'Remove filter' })}
+								hideLabel
+								tooltipPlacement={this.props.tooltipPlacement}
+								onClick={this.onClear}
+							/> : null
+					}
 				</div>
 			</form>
 		);

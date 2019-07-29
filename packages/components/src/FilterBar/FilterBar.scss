@@ -1,5 +1,5 @@
 // Filter styles
-$tc-filter-bar-highlight-color: #f6e5bb !default;
+$tc-filter-bar-highlight-color: rgba($lightning-yellow, 0.75) !default;
 $tc-filter-bar-width: 250px !default;
 
 .filter {
@@ -12,10 +12,14 @@ $tc-filter-bar-width: 250px !default;
 	border-radius: $border-radius-base;
 
 	.search-icon {
-		margin: $padding-small;
-		margin-right: $padding-smaller;
-		margin-top: 7px;
+		margin: $padding-smaller;
+		height: $svg-rg-size;
+		width: $svg-rg-size;
 		fill: $gray;
+
+		&.search-focused {
+			fill: $scooter;
+		}
 	}
 
 	> :global(.form-group) {
@@ -26,7 +30,7 @@ $tc-filter-bar-width: 250px !default;
 
 	:global(.form-group.form-group) {
 		padding: 0;
-		background: none;
+		background: rgba($white, 0.5);
 	}
 
 	.animate {
@@ -38,7 +42,7 @@ $tc-filter-bar-width: 250px !default;
 		box-shadow: none;
 		color: $dove-gray;
 		font-size: $font-size-base;
-		margin: 0 $padding-small;
+		margin: 0 $padding-small 0 0;
 
 		&::placeholder {
 			color: $dark-silver;
@@ -53,7 +57,7 @@ $tc-filter-bar-width: 250px !default;
 	.remove {
 		display: inline-block;
 		color: opacify($gray, 0.2);
-		padding: $padding-smaller 0;
+		padding: $padding-smaller;
 		line-height: 2rem;
 		height: 100%;
 		// sorry magic number
@@ -81,6 +85,9 @@ $tc-filter-bar-width: 250px !default;
 
 .highlight {
 	background-color: $tc-filter-bar-highlight-color;
+	.search-icon, .search {
+        fill: rgba($black, 0.50);
+	}
 }
 
 @keyframes reveal {
