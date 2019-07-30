@@ -5,7 +5,7 @@ import omit from 'lodash/omit';
 import Immutable from 'immutable';
 import { FilterBar as Component } from '@talend/react-components';
 
-export const QUERY_ATTR = 'searchQuery';
+export const QUERY_ATTR = 'query';
 export const DEFAULT_STATE = new Immutable.Map({
 	[QUERY_ATTR]: '',
 	docked: true,
@@ -39,6 +39,7 @@ class FilterBar extends React.Component {
 		super(props);
 		this.onFilter = this.onFilter.bind(this);
 		this.onToggle = this.onToggle.bind(this);
+		this.onClear = this.onClear.bind(this);
 	}
 
 	onFilter(event, value) {
@@ -57,12 +58,21 @@ class FilterBar extends React.Component {
 		this.props.setState(prevState => {
 			let state = prevState.state;
 			if (this.props.dockable) {
-				state = state.set('docked', !this.props.state.get('docked'));
+				return state.set('docked', !this.props.state.get('docked'));
 			}
-			return state.set(QUERY_ATTR, '');
 		});
 		if (this.props.onToggle) {
 			this.props.onToggle(event);
+		}
+	}
+
+	onClear(event) {
+		this.props.setState(prevState => {
+			let state = prevState.state;
+			return state.set(QUERY_ATTR, '');
+		});
+		if (this.props.onClear) {
+			this.props.onClear(event);
 		}
 	}
 
@@ -73,7 +83,7 @@ class FilterBar extends React.Component {
 			value: this.props.value ? this.props.value : state.get(QUERY_ATTR, ''),
 			onToggle: this.onToggle,
 			onFilter: this.onFilter,
-			onClear: this.props.onClear,
+			onClear: this.onClear,
 		});
 		return <Component {...props} />;
 	}
