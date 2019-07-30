@@ -11,6 +11,10 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
 import theme from './FilterBar.scss';
 
+function forceBlur(event) {
+	event.target.blur();
+}
+
 function onKeyDown(event, escAction, enterAction) {
 	switch (event.keyCode) {
 		case keycode.codes.enter:
@@ -37,7 +41,6 @@ function FilterInput(props) {
 		onClear,
 		onFocus,
 		onFilter,
-		onToggle,
 		autoFocus,
 		placeholder,
 		value,
@@ -61,9 +64,7 @@ function FilterInput(props) {
 		onFocus: onFocus && (event => onFocus(event, event.target.value)),
 		onChange: event => onFilter(event, event.target.value),
 		onKeyDown: event =>
-			onKeyDown(event, onClear, event => {
-				event.target.blur();
-			}),
+			onKeyDown(event, onClear, forceBlur),
 		autoFocus,
 		role: 'searchbox',
 	};
@@ -87,9 +88,9 @@ FilterInput.propTypes = {
 	debounceMinLength: PropTypes.number,
 	debounceTimeout: PropTypes.number,
 	onBlur: PropTypes.func,
+	onClear: PropTypes.func,
 	onFocus: PropTypes.func,
 	onFilter: PropTypes.func.isRequired,
-	onToggle: PropTypes.func,
 	placeholder: PropTypes.string,
 	value: PropTypes.string,
 	t: PropTypes.func.isRequired,
@@ -189,7 +190,6 @@ export class FilterBarComponent extends React.Component {
 				>
 					<Icon
 						name="talend-search"
-						className={theme['search-icon']}
 						className={classNames(theme['search-icon'], {
 							[theme['search-focused']]: this.state.focus,
 						})}
@@ -241,6 +241,7 @@ FilterBarComponent.propTypes = {
 	focus: PropTypes.bool,
 	navbar: PropTypes.bool,
 	onBlur: PropTypes.func,
+	onClear: PropTypes.func,
 	onFocus: PropTypes.func,
 	onFilter: PropTypes.func.isRequired,
 	onToggle: PropTypes.func,

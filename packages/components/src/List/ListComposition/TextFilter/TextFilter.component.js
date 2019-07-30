@@ -44,6 +44,7 @@ if (process.env.NODE_ENV !== 'production') {
 		docked: PropTypes.bool,
 		initialDocked: PropTypes.bool,
 		onChange: PropTypes.func,
+		onClear: PropTypes.func,
 		onToggle: PropTypes.func,
 		value: PropTypes.string,
 	};
