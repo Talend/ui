@@ -24,6 +24,7 @@
 	b. [compareOrder](#compareOrder)
 
 ## Presentation
+<a name="Presentation"></a>
 The column chooser is an overlay / popover component.
 It allows you to edit the columns present in a list.
 You can hide and show each column individually or by using the select all button.
