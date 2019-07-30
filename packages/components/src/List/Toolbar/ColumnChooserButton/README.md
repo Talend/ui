@@ -237,7 +237,7 @@ import { columnChooserContext, ColumnChooserProvider }
 | hidden | PropTypes.bool | the state of visibility of the column
 | order | PropTypes.number | indicates the ordering of the column
 
-### ColumnChooserPropTypes
+### ColumnsChooserPropTypes
 
 An array of [ColumnChooserPropTypes](#columnchooserproptypes)
 
