@@ -63,8 +63,7 @@ function FilterInput(props) {
 			}),
 		onFocus: onFocus && (event => onFocus(event, event.target.value)),
 		onChange: event => onFilter(event, event.target.value),
-		onKeyDown: event =>
-			onKeyDown(event, onClear, forceBlur),
+		onKeyDown: event => onKeyDown(event, onClear, forceBlur),
 		autoFocus,
 		role: 'searchbox',
 	};
