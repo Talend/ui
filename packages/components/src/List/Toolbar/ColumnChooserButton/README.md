@@ -23,14 +23,14 @@
 	a. [mergedColumnsChooser](#mergedColumnsChooser)
 	b. [compareOrder](#compareOrder)
 
-##Presentation
+## Presentation
 The column chooser is an overlay / popover component.
 It allows you to edit the columns present in a list.
 You can hide and show each column individually or by using the select all button.
 The column chooser is present is the list toolbar.
 The component uses hooks and context.
 
-##How to use it
+## How to use it
 
 If you are still using the legacy list (no composition) you have to pass a new props named columnChooser to the list.
 The column chooser will appear in the Toolbar component if the props is present.
@@ -82,10 +82,10 @@ Do not forget to pass an id in this case.
 
 Either way you will have to update the columns props given to the list with the submitted values.
 
-##Components
+## Components
 ### ColumnChooserButton
 
-The button wich will trigger the popover with the form and content.
+The button which will trigger the popover with the form and content.
 If you pass children you will override the default column chooser renderer.
 
 | Props | Type | Info
@@ -97,7 +97,7 @@ If you pass children you will override the default column chooser renderer.
 | nbLockedLeftItems | number | the number of locked columns you want, beginning at the left
 | t | function | i18n translate
 
-###ColumnChooser
+### ColumnChooser
 
 The base of the popover component.
 This component holds the form. If you pass children you will override the default column chooser renderer.
@@ -118,7 +118,7 @@ The component holds reference :
 | submit | function | callback trigger when the form is submit, passed to the column manager hook (see hook)
 | t | function | i18n translate
 
-###ColumnChooserHeader
+### ColumnChooserHeader
 
 The header of the column chooser.
 Title by default is "Modify columns".
@@ -130,7 +130,7 @@ It consumes the [columnChooserContext](#columnChooserContext).
 | className | string | class passed to the tooltip header
 | children | React.element, [React.element] | the header's content of the popover
 
-###ColumnChooserFooter
+### ColumnChooserFooter
 
 Footer of the column chooser.
 There is two inputs, the select all, which select / unselect all the columns.
@@ -145,12 +145,12 @@ The component holds reference :
 | Props | Type | Info
 |---|---|---|
 | className | string | class passed to the tooltip header
-| children | React.element, [React.element] | the footer's  content of the popover
+| children | React.element, [React.element] | the footer  content of the popover
 
-###ColumnChooserBody
+### ColumnChooserBody
 
 Body of the column chooser.
-It renders the differents column row, by default [ColumnChooserRowRenderer](#ColumnChooserRowRenderer).
+It renders the different column row, by default [ColumnChooserRowRenderer](#ColumnChooserRowRenderer).
 You can pass children to override it. Children use the render props pattern. It receives the columns as parameters.
 It consumes the [columnChooserContext](#columnChooserContext).
 
@@ -161,7 +161,7 @@ The component holds reference :
 |---|---|---|
 | children | function | the body's  content of the popover, called with the columns as arguments.
 
-###ColumnChooserRowRenderer
+### ColumnChooserRowRenderer
 
 The row renderer only render its children.
 It holds reference to other components: , .
@@ -175,9 +175,9 @@ The component holds reference :
 |---|---|---|
 | children | React.element, [React.element] | the row's  content of the popover
 
-###RowVisibilityCheckbox
+### RowVisibilityCheckbox
 
-Add a checkbox to swith the visibility of a column.
+Add a checkbox to switch the visibility of a column.
 If the column is locked, a locked icon replaces the checkbox.
 It consumes the [columnChooserContext](#columnChooserContext).
 
@@ -187,7 +187,7 @@ It consumes the [columnChooserContext](#columnChooserContext).
 | locked | bool | indicates if the column is locked or not
 | value | bool | indicates the visibility value, and if the checkbox is checked
 
-###RowLabel
+### RowLabel
 
 Add the label of the column to the row.
 
@@ -195,8 +195,8 @@ Add the label of the column to the row.
 |---|---|---|
 | label | string | the label of the column
 
-##Hooks
-###ColumnChooserManagerHook
+## Hooks
+### ColumnChooserManagerHook
 
 This hook manages all the logic behavior in the [ColumnChooser](#ColumnChooser).
 It holds the state of the columns edited by the user.
@@ -215,9 +215,9 @@ And it returns an object with some values and handlers
 | columnsChooser | [ColumnsChooserPropTypes](#ColumnsChooserPropTypes) | the hook columns
 | selectAll | bool | state of the select all button, checked or not.
 
-##Context
+## Context
 
-###columnChooserContext
+### columnChooserContext
 
 The column chooser uses a context to pass some props to its children and avoir props drilling.
 By default the context is initialized in [ColumnChooser](#ColumnChooser).
@@ -227,9 +227,9 @@ import { columnChooserContext, ColumnChooserProvider }
 															from '.../columnChooserContext'
 ```
 
-##PropTypes and Structures
+## PropTypes and Structures
 
-###ColumnChooserPropTypes
+### ColumnChooserPropTypes
 
 | Props | Type | Info
 |---|---|---|
@@ -237,13 +237,13 @@ import { columnChooserContext, ColumnChooserProvider }
 | hidden | PropTypes.bool | the state of visibility of the column
 | order | PropTypes.number | indicates the ordering of the column
 
-###ColumnChooserPropTypes
+### ColumnChooserPropTypes
 
 An array of [ColumnChooserPropTypes](#ColumnChooserPropTypes)
 
-##Utils
-###mergedColumnsChooser
+## Utils
+### mergedColumnsChooser
 Helper to merge the columns chooser collection into the columns list.
 
-###compareOrder
+### compareOrder
 Compare the order of the columns chooser collection and order them ascending
