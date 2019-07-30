@@ -29,12 +29,12 @@ const ColumnChooserBody = ({ children }) => {
 			id={`${id}-content`}
 			className={classNames(theme['tc-column-chooser-body'], 'tc-column-chooser-body')}
 		>
-			{!children ? <ColumnChooserTable columns={columnsChooser} /> : children}
+			{!children ? <ColumnChooserTable columns={columnsChooser} /> : children(columnsChooser)}
 		</Tooltip.Body>
 	);
 };
 
-ColumnChooserBody.RowRenderer = ColumnChooserRowRenderer;
+ColumnChooserBody.Row = ColumnChooserRowRenderer;
 
 ColumnChooserBody.propTypes = {
 	children: PropTypes.oneOfType([

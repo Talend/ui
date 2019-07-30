@@ -12,7 +12,7 @@
 	e. [ColumnChooserRowRenderer](#ColumnChooserRowRenderer)
 4. [Hooks](#Hooks)
 5. [Context](#Context)
-6. [Proptypes and structure](#Proptypes and structure)
+6. [PropTypes and structure](#PropTypes and structure)
 
 ##Presentation
 The column chooser is an overlay / popover component.
@@ -98,23 +98,42 @@ It consumes the [columnChooserContext](#columnChooserContext).
 
 Body of the column chooser.
 It renders the differents column row, by default [ColumnChooserRowRenderer](#ColumnChooserRowRenderer).
-You can pass children to override it.
+You can pass children to override it. Children use the render props pattern. It receives the columns as parameters.
 It consumes the [columnChooserContext](#columnChooserContext).
 
 | Props | Type | Info
 |---|---|---|
-| children | React.element, [React.element] | the body's  content of the popover
+| children | function | the body's  content of the popover, called with the columns as arguments.
 
 ###ColumnChooserRowRenderer
 
 The row renderer only render its children.
-It holds reference to other components: [RowVisibility](#RowVisibility), [RowLabel](#RowLabel).
+It holds reference to other components: [RowVisibilityCheckbox](#RowVisibilityCheckbox), [RowLabel](#RowLabel).
 It consumes the [columnChooserContext](#columnChooserContext).
 
 | Props | Type | Info
 |---|---|---|
 | children | React.element, [React.element] | the row's  content of the popover
 
+###RowVisibilityCheckbox
+
+Add a checkbox to swith the visibility of a column.
+If the column is locked, a locked icon replaces the checkbox.
+It consumes the [columnChooserContext](#columnChooserContext).
+
+| Props | Type | Info
+|---|---|---|
+| index | number | the index of the column
+| locked | bool | indicates if the column is locked or not
+| value | bool | indicates the visibility value, and if the checkbox is checked
+
+###RowLabel
+
+Add the label's column to the row.
+
+| Props | Type | Info
+|---|---|---|
+| label | string | the label of the column
 
 ##Hooks
 ### ColumnChooserManagerHook

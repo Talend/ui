@@ -44,20 +44,20 @@ storiesOf('Column Chooser', module)
 				<ColumnChooser.Header>
 					Hello world
 					<button style={{ marginLeft: '200px' }}>My Button</button>
-				</ColumnChooser.Header>ß
+				</ColumnChooser.Header>
 				<ColumnChooser.Body>
 					{hookColumns => (
 						<React.Fragment>
 							<div>Some special stuff</div>
 							{hookColumns.map((column, index) => (
-								<ColumnChooser.Body.RowRenderer>
-									<ColumnChooser.Body.RowRenderer.Visibility
+								<ColumnChooser.Body.Row>
+									<ColumnChooser.Body.Row.Visibility
 										index={index}
 										value={column.hidden}
 										locked={column.locked}
 									/>
 									<span style={{ paddingLeft: '20px' }}>More data</span>
-									<ColumnChooser.Body.RowRenderer.Label label={column.label} />
+									<ColumnChooser.Body.Row.Label label={column.label} />
 									<span style={{ paddingRight: '20px ' }}>Icon</span>
 									<button
 										style={{ marginLeft: '20px', display: 'flex', height: '50%' }}
@@ -65,7 +65,7 @@ storiesOf('Column Chooser', module)
 									>
 										Action
 									</button>
-								</ColumnChooser.Body.RowRenderer>
+								</ColumnChooser.Body.Row>
 							))}
 							<p>
 								<button style={{ width: '100%' }}>A new action for all columns</button>
