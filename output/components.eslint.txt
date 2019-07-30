@@ -20,13 +20,12 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   35:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
 
 /home/travis/build/Talend/ui/packages/components/src/FilterBar/FilterBar.component.js
-    3:8   error  'ReactDOM' is defined but never used            no-unused-vars
-   38:3   error  'onClear' is missing in props validation        react/prop-types
-   41:3   error  'onToggle' is assigned a value but never used   no-unused-vars
-   65:30  error  'event' is already declared in the upper scope  no-shadow
-  140:18  error  'onClear' is missing in props validation        react/prop-types
-  141:15  error  'onClear' is missing in props validation        react/prop-types
-  194:7   error  No duplicate props allowed                      react/jsx-no-duplicate-props
+   37:3   error  'onClear' is missing in props validation        react/prop-types
+   40:3   error  'onToggle' is assigned a value but never used   no-unused-vars
+   64:30  error  'event' is already declared in the upper scope  no-shadow
+  139:18  error  'onClear' is missing in props validation        react/prop-types
+  140:15  error  'onClear' is missing in props validation        react/prop-types
+  193:7   error  No duplicate props allowed                      react/jsx-no-duplicate-props
 
 /home/travis/build/Talend/ui/packages/components/src/GridLayout/Grid.component.js
   59:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
@@ -61,6 +60,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   41:3  warning  Unexpected console statement  no-console
 
-✖ 33 problems (30 errors, 3 warnings)
+✖ 32 problems (29 errors, 3 warnings)
   1 error, 0 warnings potentially fixable with the `--fix` option.
 
