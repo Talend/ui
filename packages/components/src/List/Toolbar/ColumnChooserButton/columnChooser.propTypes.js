@@ -1,16 +1,11 @@
 import PropTypes from 'prop-types';
 
-const columnPropTypes = PropTypes.shape({
+const columnChooserPropTypes = PropTypes.shape({
 	label: PropTypes.string.isRequired,
+	hidden: PropTypes.bool,
 	order: PropTypes.order,
 });
 
-export { columnPropTypes };
+const columnsChooserPropTypes = PropTypes.arrayOf(columnChooserPropTypes);
 
-
-// {
-//     label: 'myLabel',
-//     order: 1,
-//     locked: false,
-//     hidden: false,
-//    }
+export { columnChooserPropTypes, columnsChooserPropTypes };

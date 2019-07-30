@@ -17,6 +17,11 @@ function transformCollection(columnChooserCollection) {
 	};
 }
 
+/**
+ * Merged the columns chooser collection into the columns list.
+ * @param {array} originalCollection
+ * @param {arrayOf(ColumnChooserPropTypes)} columnChooserCollection
+ */
 export function mergedColumnsChooser(originalCollection, columnChooserCollection = []) {
 	if (columnChooserCollection.length > 0) {
 		return originalCollection.map(transformCollection(columnChooserCollection));

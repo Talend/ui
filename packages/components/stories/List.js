@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
@@ -11,7 +11,7 @@ import { List, IconsProvider } from '../src/index';
 import i18n, { LanguageSwitcher } from './config/i18n';
 import { MyCustomRow } from './VirtualizedList';
 
-import { columnChooserHooks } from '../src/List/Toolbar/ColumnChooserButton';
+import { columnChooserService } from '../src/List/Toolbar/ColumnChooserButton';
 /**
  * Cell renderer that displays hello + text
  */
@@ -915,39 +915,20 @@ storiesOf('List', module)
 		</div>
 	));
 
+// eslint-disable-next-line react/prop-types
 function ListColumnChooser({ list, ...rest }) {
-	/*
-		ColumnChooserClient do the merge of your props columns and the column chooser columns for you.
-		If you need to have complete control, do not use useColumnChooserClient.
-		const mergedColumns =
-			columnChooserService.utils.mergedColumnsChooser(
-				props.list.columns,
-				props.somewhere.columnChooserResult
-			);
-		return <List
-					{...rest}
-					list={{...list, columns: mergedColumns }}
-					columnChooser={{ submitCustomChooser: myCustomSubmit, columns: mergedColumns}} />
-	*/
-	const {
-		columnsChooser,
-		submitColumnChooser,
-	} = columnChooserHooks.useColumnChooserClient(
-		list.columns,
-		action('My custom submit column chooser event'),
-	);
+	const [columnsChooser, setColumnsChooser] = useState(list.columns);
+	const onSubmit = (_, newColumnsChooser) => {
+		setColumnsChooser(newColumnsChooser);
+	};
 	const enrichedList = {
 		...list,
-		columns: columnsChooser,
+		columns: columnChooserService.utils.mergedColumnsChooser(list.columns, columnsChooser),
 	};
 	const columnChooser = {
 		columns: columnsChooser,
-		submit: submitColumnChooser,
+		submit: onSubmit,
 		nbLockedLeftItems: 2,
 	};
 	return <List {...rest} list={enrichedList} columnChooser={columnChooser} />;
 }
-
-ListColumnChooser.propTypes = {
-	list: PropTypes.object.isRequired,
-};

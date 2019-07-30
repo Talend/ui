@@ -32,9 +32,8 @@ export default function ColumnChooser({
 		columnsChooser,
 		onChangeVisibility,
 		onSelectAll,
-		onSubmit,
 		selectAll,
-	} = useColumnChooserManager(columns, submit, nbLockedLeftItems);
+	} = useColumnChooserManager(columns, nbLockedLeftItems);
 
 	useEffect(() => {
 		// eslint-disable-next-line no-console
@@ -45,7 +44,7 @@ export default function ColumnChooser({
 
 	const onSubmitColumnChooser = event => {
 		event.preventDefault();
-		onSubmit(event);
+		submit(event, columnsChooser);
 		onClose();
 	};
 	return (
@@ -56,7 +55,6 @@ export default function ColumnChooser({
 				onChangeVisibility,
 				onClose,
 				onSelectAll,
-				// onSubmitColumnChooser,
 				selectAll,
 				t,
 			}}

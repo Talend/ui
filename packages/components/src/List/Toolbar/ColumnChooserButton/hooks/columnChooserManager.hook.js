@@ -63,7 +63,7 @@ const setItemsLocked = (items, lockedLeftItems) =>
  * @param {*} submit
  * @param {*} nbLockedLeftItems
  */
-export const useColumnChooserManager = (initColumns, submit, nbLockedLeftItems) => {
+export const useColumnChooserManager = (initColumns, nbLockedLeftItems) => {
 	const columnsWithLocked = setItemsLocked(initColumns, nbLockedLeftItems);
 	const [state, setState] = useState({
 		columns: orderColumns(columnsWithLocked),
@@ -83,15 +83,17 @@ export const useColumnChooserManager = (initColumns, submit, nbLockedLeftItems) 
 		});
 	};
 
-	function onSubmit(event) {
-		submit(event, cloneDeep(state.columns));
-	}
+	// function onSubmit(event) {
+	// 	if (submit) {
+	// 		submit(event, cloneDeep(state.columns));
+	// 	}
+	// }
 
 	return {
 		onChangeVisibility,
 		onSelectAll,
-		onSubmit,
-		columnsChooser: state.columns,
+		// onSubmit,
+		columnsChooser: cloneDeep(state.columns),
 		selectAll: state.selectAll,
 	};
 };
