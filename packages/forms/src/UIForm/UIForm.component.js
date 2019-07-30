@@ -281,11 +281,11 @@ export class UIFormComponent extends React.Component {
 		}
 
 		if (onSubmitEnter) {
-			actions = actions.map(a => (a.type === 'submit' ? {
-				...a,
-				onMouseEnter: onSubmitEnter && (event => onSubmitEnter(event, properties)),
+			actions = actions.map(action => (action.type === 'submit' ? {
+				...action,
+				onMouseEnter: event => onSubmitEnter(event, properties),
 				onMouseLeave: onSubmitLeave,
-			} : a));
+			} : action));
 		}
 
 
