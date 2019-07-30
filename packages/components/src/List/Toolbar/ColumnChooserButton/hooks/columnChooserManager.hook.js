@@ -16,7 +16,7 @@ const isAnyItemHidden = items => {
 export const getColumn = index => collection => collection[index];
 
 // eslint-disable-next-line
-export const setColumn = (column, index) => collection => collection[index] = column
+export const setColumn = (column, index) => collection => (collection[index] = column);
 
 const updateColumns = editedColumns => state => ({
 	...state,
@@ -48,22 +48,21 @@ const extractColumnValues = item => ({
 
 const setItemsLocked = (items, lockedLeftItems) =>
 	items.map((item, it) => {
-		// eslint-disable-next-line no-console
-		console.warn(`This item is locked ${item}: use the lockedItems props to lock item`);
 		if (it < lockedLeftItems) {
 			return { ...extractColumnValues(item), locked: true };
 		}
 		return extractColumnValues(item);
 	});
 
+const updateColumnAttribute = (index, value, fn) => flow([getColumn(index), fn(value)]);
+const updateCollectionColumn = (index, column) => flow([setColumn(column, index), updateColumns]);
 
 /**
- * Hooks
- * @param {*} initColumns
- * @param {*} submit
- * @param {*} nbLockedLeftItems
+ * Manage the state of each row representing a column for the ColumnChooser overlay.
+ * @param {array} initColumns
+ * @param {number} nbLockedLeftItems
  */
-export const useColumnChooserManager = (initColumns, nbLockedLeftItems) => {
+export const useColumnChooserManager = (initColumns = [], nbLockedLeftItems = 0) => {
 	const columnsWithLocked = setItemsLocked(initColumns, nbLockedLeftItems);
 	const [state, setState] = useState({
 		columns: orderColumns(columnsWithLocked),
@@ -71,8 +70,11 @@ export const useColumnChooserManager = (initColumns, nbLockedLeftItems) => {
 	});
 
 	const onChangeVisibility = (index, value) => {
-		const columnUpdated = flow([getColumn(index), updateAttributeVisibility(value)])(state.columns);
-		flow([setColumn(columnUpdated, index), updateColumns, setState])(state.columns);
+		const columnUpdated = updateColumnAttribute(index, value, updateAttributeVisibility)(
+			state.columns,
+		);
+		const collectionUpdated = updateCollectionColumn(index, columnUpdated)(state.columns);
+		setState(collectionUpdated);
 	};
 
 	const onSelectAll = value => {
@@ -83,16 +85,9 @@ export const useColumnChooserManager = (initColumns, nbLockedLeftItems) => {
 		});
 	};
 
-	// function onSubmit(event) {
-	// 	if (submit) {
-	// 		submit(event, cloneDeep(state.columns));
-	// 	}
-	// }
-
 	return {
 		onChangeVisibility,
 		onSelectAll,
-		// onSubmit,
 		columnsChooser: cloneDeep(state.columns),
 		selectAll: state.selectAll,
 	};

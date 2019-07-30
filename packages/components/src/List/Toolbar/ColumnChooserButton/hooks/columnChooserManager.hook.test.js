@@ -1,186 +1,112 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import {
-	useColumnChooserManager,
-	changeAttribute,
-	organiseEditedColumns,
-} from './columnChooserManager.hook';
+import { act } from 'react-dom/test-utils';
+import { useColumnChooserManager } from './columnChooserManager.hook';
 
-describe('changeColumnAttribute', () => {
-	const key = 'myAttr';
-	const changeMyAttr = changeAttribute(key);
-	it('should change the collection index', () => {
-		// given
-		const value = 'myNewValue';
-		const index = 0;
-		const collection = [{ myAttr: 'myOldValue' }];
-		// when
-		changeMyAttr(value, index)(collection);
-		// then
-		expect(collection).toEqual([{ myAttr: 'myNewValue' }]);
-	});
-	it('should change the object key', () => {
-		// given
-		const value = 'myNewValue';
-		const object = { myAttr: 'myOldValue' };
-		// when
-		changeMyAttr(value)(object);
-		// then
-		expect(object).toEqual({ myAttr: 'myNewValue' });
-	});
-});
+const initialColumns = [
+	{
+		key: 'id',
+		label: 'Id',
+		order: 1,
+	},
+	{
+		key: 'name',
+		label: 'Name',
+		order: 2,
+	},
+	{
+		key: 'author',
+		label: 'Author',
+		order: 3,
+	},
+	{
+		key: 'created',
+		label: 'Created',
+		order: 6,
+	},
+	{
+		key: 'modified',
+		label: 'Modified',
+		order: 4,
+		header: 'icon',
+		data: {
+			iconName: 'talend-scheduler',
+		},
+	},
+	{
+		key: 'icon',
+		label: 'Icon',
+		hidden: true,
+		order: 5,
+	},
+];
 
-describe('organiseEditedColumns', () => {
-	it('should return the collection organised with correct order', () => {
-		// given
-		const collection = [
-			{ label: 'first', order: 18 },
-			{ label: 'third', order: 105 },
-			{ label: 'second', order: 27 },
-		];
-		// when
-		organiseEditedColumns(collection);
-		// then
-		expect(collection).toEqual([
-			{ label: 'first', order: 1 },
-			{ label: 'second', order: 2 },
-			{ label: 'third', order: 3 },
-		]);
-	});
-});
+const lockedLeftItems = 2;
+
+const TestHook = ({ hook }) => {
+	hook();
+	return null;
+};
+
+const testHook = hook => {
+	mount(<TestHook hook={hook} />);
+};
 
 describe('useColumnChooserManager', () => {
-	const columns = [
-		{
-			hidden: false,
-			label: 'label1',
-			locked: true,
-			order: 1,
-		},
-		{
-			hidden: true,
-			label: 'label2',
-			locked: false,
-			order: 2,
-		},
-		{
-			hidden: false,
-			label: 'label3',
-			locked: false,
-			order: 3,
-		},
-	];
-	const customSubmit = jest.fn();
-	it('should call the customSubmit', () => {
-		// given
-		const event = {};
-		const MyTestComponent = () => {
-			const { onSubmitColumnChooser } = useColumnChooserManager(columns, customSubmit);
-			function onClick() {
-				onSubmitColumnChooser(event);
-			}
-			return <button onClick={onClick}>TestComponent</button>;
-		};
-		// when
-		const wrapper = mount(<MyTestComponent />);
-		wrapper.find('button').simulate('click');
-		// then
-		expect(customSubmit).toHaveBeenCalledWith(event, columns);
+	let columnChooserHook;
+	beforeEach(() =>
+		testHook(() => (columnChooserHook = useColumnChooserManager(initialColumns, lockedLeftItems))),
+	);
+	it('should have no columns defined', () => {
+		// given nothing
+		let hookWithNoValue;
+		// when mounting component
+		testHook(() => (hookWithNoValue = useColumnChooserManager()));
+		expect(hookWithNoValue.columnsChooser).toEqual([]);
 	});
-	it('should have changed all columns visibility to true', () => {
-		// given
-		let state;
-		const MyTestComponent = () => {
-			const { onSelectAll, stateColumnChooser } = useColumnChooserManager(columns, customSubmit);
-			state = stateColumnChooser;
-			function onClick() {
-				onSelectAll(!stateColumnChooser.selectAll);
-			}
-			return <button onClick={onClick}>TestComponent</button>;
-		};
-		// when
-		const wrapper = mount(<MyTestComponent />);
-		wrapper.find('button').simulate('click');
+	it('should have columns with some the first two left locked', () => {
+		// given before each
+		// when mounting before each
 		// then
-		expect(state.editedColumns).toEqual([
-			{ hidden: false, label: 'label1', locked: true, order: 1 },
-			{ hidden: true, label: 'label2', locked: false, order: 2 },
-			{ hidden: true, label: 'label3', locked: false, order: 3 },
+		expect(columnChooserHook.columnsChooser).toEqual([
+			{ hidden: undefined, label: 'Id', locked: true, order: 1 },
+			{ hidden: undefined, label: 'Name', locked: true, order: 2 },
+			{ hidden: undefined, label: 'Author', order: 3 },
+			{ hidden: undefined, label: 'Modified', order: 4 },
+			{ hidden: true, label: 'Icon', order: 5 },
+			{ hidden: undefined, label: 'Created', order: 6 },
 		]);
 	});
-	it('should have changed order of two items (onBlur)', () => {
-		// given
-		let state;
-		const event = {};
-		const MyTestComponent = () => {
-			const { onBlurInputTextOrder, stateColumnChooser } = useColumnChooserManager(
-				columns,
-				customSubmit,
-			);
-			state = stateColumnChooser;
-			function onClick() {
-				onBlurInputTextOrder(2)(event, 2);
-			}
-			return <button onClick={onClick}>TestComponent</button>;
-		};
+	it('should change the hidden property of the third column', () => {
+		// given before each
 		// when
-		const wrapper = mount(<MyTestComponent />);
-		wrapper.find('button').simulate('click');
+		expect(columnChooserHook.columnsChooser[2].hidden).toBe(undefined);
+		act(() => columnChooserHook.onChangeVisibility(2, true));
 		// then
-		expect(state.editedColumns).toEqual([
-			{ hidden: false, label: 'label1', locked: true, order: 1 },
-			{ hidden: false, label: 'label3', locked: false, order: 2 },
-			{ hidden: true, label: 'label2', locked: false, order: 3 },
-		]);
+		expect(columnChooserHook.columnsChooser[2].hidden).toBe(true);
 	});
-	it('should have changed order of two items (onKeyPress)', () => {
-		// given
-		let state;
-		const event = {};
-		const MyTestComponent = () => {
-			const { onKeyPressInputTextOrder, stateColumnChooser } = useColumnChooserManager(
-				columns,
-				customSubmit,
-			);
-			state = stateColumnChooser;
-			function onClick() {
-				onKeyPressInputTextOrder(2)(event, 2);
-			}
-			return <button onClick={onClick}>TestComponent</button>;
-		};
+	it('should not change the hidden property of the second column which is locked', () => {
+		// given before each
 		// when
-		const wrapper = mount(<MyTestComponent />);
-		wrapper.find('button').simulate('click');
+		expect(columnChooserHook.columnsChooser[1].hidden).toBe(undefined);
+		act(() => columnChooserHook.onChangeVisibility(1, true));
 		// then
-		expect(state.editedColumns).toEqual([
-			{ hidden: false, label: 'label1', locked: true, order: 1 },
-			{ hidden: false, label: 'label3', locked: false, order: 2 },
-			{ hidden: true, label: 'label2', locked: false, order: 3 },
-		]);
+		expect(columnChooserHook.columnsChooser[1].hidden).toBe(undefined);
 	});
-	it('should have changed visibility of one item', () => {
-		// given
-		let state;
-		const event = {};
-		const MyTestComponent = () => {
-			const { onChangeVisibility, stateColumnChooser } = useColumnChooserManager(
-				columns,
-				customSubmit,
-			);
-			state = stateColumnChooser;
-			function onClick() {
-				onChangeVisibility(2)(event, true);
-			}
-			return <button onClick={onClick}>TestComponent</button>;
-		};
+	it('should change the hidden value of every column except the locked ones', () => {
+		// given before each
 		// when
-		const wrapper = mount(<MyTestComponent />);
-		wrapper.find('button').simulate('click');
+		expect(columnChooserHook.columnsChooser[0].hidden).toBe(undefined);
+		expect(columnChooserHook.columnsChooser[1].hidden).toBe(undefined);
+		expect(columnChooserHook.columnsChooser[2].hidden).toBe(undefined);
+		expect(columnChooserHook.columnsChooser[3].hidden).toBe(undefined);
+		expect(columnChooserHook.columnsChooser[4].hidden).toBe(true);
+		act(() => columnChooserHook.onSelectAll(false));
 		// then
-		expect(state.editedColumns).toEqual([
-			{ hidden: false, label: 'label1', locked: true, order: 1 },
-			{ hidden: true, label: 'label2', locked: false, order: 2 },
-			{ hidden: true, label: 'label3', locked: false, order: 3 },
-		]);
+		expect(columnChooserHook.columnsChooser[0].hidden).toBe(undefined);
+		expect(columnChooserHook.columnsChooser[1].hidden).toBe(undefined);
+		expect(columnChooserHook.columnsChooser[2].hidden).toBe(true);
+		expect(columnChooserHook.columnsChooser[3].hidden).toBe(true);
+		expect(columnChooserHook.columnsChooser[4].hidden).toBe(true);
 	});
 });
