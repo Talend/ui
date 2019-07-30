@@ -2,26 +2,26 @@
 
 
 1. [Presentation](#presentation)
-2. [How to use it](#How to use it)
-3. [Components](#Components)
-	a. [ColumnChooserButton](#ColumnChooserButton)
-	b. [ColumnChooser](#ColumnChooser)
-	c. [ColumnChooserHeader](#ColumnChooserHeader)
-	d. [ColumnChooserFooter](#ColumnChooserFooter)
-	f. [ColumnChooserBody](#ColumnChooserBody)
-	e. [ColumnChooserRowRenderer](#ColumnChooserRowRenderer)
-	g. [RowVisibilityCheckbox](#RowVisibilityCheckbox)
-	h. [RowLabel](#RowLabel)
-4. [Hooks](#Hooks)
-	a. [ColumnChooserManagerHook](#ColumnChooserManagerHook)
-5. [Context](#Context)
-	a. [columnChooserContext](#columnChooserContext)
+2. [How to use it](#how-to-use-it)
+3. [Components](#components)
+	a. [ColumnChooserButton](#columnchooserbutton)
+	b. [ColumnChooser](#columnchooser)
+	c. [ColumnChooserHeader](#columnchooserheader)
+	d. [ColumnChooserFooter](#columnchooserfooter)
+	f. [ColumnChooserBody](#columnchooserbody)
+	e. [ColumnChooserRowRenderer](#columnchooserrowrenderer)
+	g. [RowVisibilityCheckbox](#rowvisibilitycheckbox)
+	h. [RowLabel](#rowlabel)
+4. [Hooks](#hooks)
+	a. [ColumnChooserManagerHook](#columnchoosermanagerhook)
+5. [Context](#context)
+	a. [columnChooserContext](#columnchoosercontext)
 6. [PropTypes and structure](#PropTypes and Structures)
-	a [ColumnChooserPropTypes](#ColumnChooserPropTypes)
-	b. [ColumnsChooserPropTypes](#ColumnsChooserPropTypes)
-7. [Utils](#Service)
-	a. [mergedColumnsChooser](#mergedColumnsChooser)
-	b. [compareOrder](#compareOrder)
+	a [ColumnChooserPropTypes](#columnchooserproptypes)
+	b. [ColumnsChooserPropTypes](#columnschooserproptypes)
+7. [Utils](#utils)
+	a. [mergedColumnsChooser](#mergedcolumnschooser)
+	b. [compareOrder](#compareorder)
 
 ## Presentation
 <a name="Presentation"></a>
@@ -40,7 +40,7 @@ The column chooser will appear in the Toolbar component if the props is present.
 ```
 
 You have to pass a columnChooser props to the List.
-This object must holds two fields, columns ([ColumnsChooserPropTypes](#ColumnsChooserPropTypes))and submit. You can also locked some columns with nbLockedLeftItems.
+This object must holds two fields, columns ([ColumnsChooserPropTypes](#columnschooserproptypes))and submit. You can also locked some columns with nbLockedLeftItems.
 ```javascript
 import { List } from '@talend/react-components';
 ...
@@ -64,12 +64,12 @@ This settings will create a column chooser with two columns. The first one will 
 
 | Fields | Type | Info
 |---|---|---|
-| columns | [ColumnsChooserPropTypes](#ColumnsChooserPropTypes) | populate the popover
+| columns | [ColumnsChooserPropTypes](#columnschooserproptypes) | populate the popover
 | submit | function | callback trigger when the form is submit
 | nbLockedLeftItems | number | the number of locked items you want, beginning at the left
 
 To keep the columns from the list sync with the inputs of the user, you will need to merge the data from the column chooser with the columns from the list.
-There is a service to help you to do that, [mergedColumnsChooser](#mergedColumnsChooser).
+There is a service to help you to do that, [mergedColumnsChooser](#mergedcolumnschooser).
 
 ```javascript
 const columnsMergedWithColumnChooser = {
@@ -78,7 +78,7 @@ const columnsMergedWithColumnChooser = {
 };
 <List {...rest} columnChooser={...} list={columnsMergedWithColumnChooser} />;
 ```
-If you are using the compound list you just have to import the [ColumnChooserButton](#ColumnChooserButton) and place it where you need it.
+If you are using the compound list you just have to import the [ColumnChooserButton](#columnchooserButton) and place it where you need it.
 Do not forget to pass an id in this case.
 
 Either way you will have to update the columns props given to the list with the submitted values.
@@ -102,12 +102,12 @@ If you pass children you will override the default column chooser renderer.
 
 The base of the popover component.
 This component holds the form. If you pass children you will override the default column chooser renderer.
-The [columnChooserContext](#columnChooserContext) is initialized here.
+The [columnChooserContext](#columnchoosercontext) is initialized here.
 
 The component holds reference :
-* Header : [ColumnChooserHeader](#ColumnChooserHeader)
-* Body: [ColumnChooserBody](#ColumnChooserBody)
-* Footer :[ColumnChooserFooter](#ColumnChooserFooter)
+* Header : [ColumnChooserHeader](#columnchooserheader)
+* Body: [ColumnChooserBody](#columnchooserbody)
+* Footer :[ColumnChooserFooter](#columnchooserfooter)
 
 | Props | Type | Info
 |---|---|---|
@@ -124,7 +124,7 @@ The component holds reference :
 The header of the column chooser.
 Title by default is "Modify columns".
 You can pass children to the header to customize it.
-It consumes the [columnChooserContext](#columnChooserContext).
+It consumes the [columnChooserContext](#columnchoosercontext).
 
 | Props | Type | Info
 |---|---|---|
@@ -137,7 +137,7 @@ Footer of the column chooser.
 There is two inputs, the select all, which select / unselect all the columns.
 And the apply button, which submit the form.
 You can pass children and override the default render.
-It consumes the [columnChooserContext](#columnChooserContext).
+It consumes the [columnChooserContext](#columnchoosercontext).
 
 The component holds reference :
 * Submit : [SubmitButton](#SubmitButton)
@@ -151,12 +151,12 @@ The component holds reference :
 ### ColumnChooserBody
 
 Body of the column chooser.
-It renders the different column row, by default [ColumnChooserRowRenderer](#ColumnChooserRowRenderer).
+It renders the different column row, by default [ColumnChooserRowRenderer](#columnchooserrowrenderer).
 You can pass children to override it. Children use the render props pattern. It receives the columns as parameters.
-It consumes the [columnChooserContext](#columnChooserContext).
+It consumes the [columnChooserContext](#columnchoosercontext).
 
 The component holds reference :
-* Row : [ColumnChooserRowRenderer](#ColumnChooserRowRenderer)
+* Row : [ColumnChooserRowRenderer](#columnchooserrowrenderer)
 
 | Props | Type | Info
 |---|---|---|
@@ -166,11 +166,11 @@ The component holds reference :
 
 The row renderer only render its children.
 It holds reference to other components: , .
-It consumes the [columnChooserContext](#columnChooserContext).
+It consumes the [columnChooserContext](#columnchoosercontext).
 
 The component holds reference :
-* Visibility: [RowVisibilityCheckbox](#RowVisibilityCheckbox)
-* Label: [RowLabel](#RowLabel)
+* Visibility: [RowVisibilityCheckbox](#rowvisibilitycheckbox)
+* Label: [RowLabel](#rowlabel)
 
 | Props | Type | Info
 |---|---|---|
@@ -180,7 +180,7 @@ The component holds reference :
 
 Add a checkbox to switch the visibility of a column.
 If the column is locked, a locked icon replaces the checkbox.
-It consumes the [columnChooserContext](#columnChooserContext).
+It consumes the [columnChooserContext](#columnchoosercontext).
 
 | Props | Type | Info
 |---|---|---|
@@ -199,7 +199,7 @@ Add the label of the column to the row.
 ## Hooks
 ### ColumnChooserManagerHook
 
-This hook manages all the logic behavior in the [ColumnChooser](#ColumnChooser).
+This hook manages all the logic behavior in the [ColumnChooser](#columnchooser).
 It holds the state of the columns edited by the user.
 
 | Parameters | Type | Info
@@ -213,7 +213,7 @@ And it returns an object with some values and handlers
 |---|---|---|
 | onChangeVisibility | function | change the visibility of the given column index|
 | onSelectAll | function | change the visibility of every columns
-| columnsChooser | [ColumnsChooserPropTypes](#ColumnsChooserPropTypes) | the hook columns
+| columnsChooser | [ColumnsChooserPropTypes](#columnschooserproptypes) | the hook columns
 | selectAll | bool | state of the select all button, checked or not.
 
 ## Context
@@ -221,7 +221,7 @@ And it returns an object with some values and handlers
 ### columnChooserContext
 
 The column chooser uses a context to pass some props to its children and avoir props drilling.
-By default the context is initialized in [ColumnChooser](#ColumnChooser).
+By default the context is initialized in [ColumnChooser](#columnchooser).
 You can import directly the provider and the consumer from columnChooser.context
 ```
 import { columnChooserContext, ColumnChooserProvider } 
@@ -240,7 +240,7 @@ import { columnChooserContext, ColumnChooserProvider }
 
 ### ColumnChooserPropTypes
 
-An array of [ColumnChooserPropTypes](#ColumnChooserPropTypes)
+An array of [ColumnChooserPropTypes](#columnchooserproptypes)
 
 ## Utils
 ### mergedColumnsChooser
