@@ -13,7 +13,6 @@ import getDefaultT from '../translate';
 import theme from './FilterBar.scss';
 
 function onKeyDown(event, escAction, enterAction) {
-	console.log('here');
 	switch (event.keyCode) {
 		case keycode.codes.enter:
 			if (enterAction) {
@@ -21,7 +20,6 @@ function onKeyDown(event, escAction, enterAction) {
 			}
 			break;
 		case keycode.codes.esc:
-			console.log('here');
 			if (escAction) {
 				escAction(event);
 			}
@@ -56,12 +54,11 @@ function FilterInput(props) {
 		autoComplete: 'off',
 		className: classNames(theme.search),
 		'aria-label': placeholder || t('LIST_FILTER_LABEL', { defaultValue: 'Filter' }),
-		onBlur: onBlur && (event => onBlur(event, event.target.value)),
+		onBlur: onBlur && (event => { onBlur(event, event.target.value) }),
 		onFocus: onFocus && (event => onFocus(event, event.target.value)),
 		onChange: event => onFilter(event, event.target.value),
 		onKeyDown: event => onKeyDown(event, onClear, event => {
 			event.target.blur();
-			// onBlur(event, event.target.value);
 		}),
 		autoFocus,
 		role: 'searchbox',
@@ -138,7 +135,8 @@ export class FilterBarComponent extends React.Component {
 		if (this.props.onClear) {
 			this.props.onClear(event);
 		}
-		this.textInput.current.querySelector(`#${this.props.id}-input`).focus();
+		// reselecting after blur
+		this.textInput.current.querySelector('input').focus();
 	}
 
 	onFilter(event) {
