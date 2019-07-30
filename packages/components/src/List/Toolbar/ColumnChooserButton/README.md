@@ -1,7 +1,7 @@
 # Column Chooser
 
 
-1. [Presentation](./README.md#Presentation)
+1. [Presentation](#presentation)
 2. [How to use it](#How to use it)
 3. [Components](#Components)
 	a. [ColumnChooserButton](#ColumnChooserButton)
