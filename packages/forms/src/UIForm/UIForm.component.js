@@ -267,20 +267,27 @@ export class UIFormComponent extends React.Component {
 
 	render() {
 		const { onSubmitEnter, onSubmitLeave, properties } = this.props;
-		const actions = this.props.actions || [
+		let actions = this.props.actions || [
 			{
 				bsStyle: 'primary',
 				label: 'Submit',
 				type: 'submit',
 				widget: 'button',
 				position: 'right',
-				onMouseEnter: onSubmitEnter && (event => onSubmitEnter(event, properties)),
-				onMouseLeave: onSubmitLeave,
 			},
 		];
 		if (!this.state.mergedSchema) {
 			return null;
 		}
+
+		if (onSubmitEnter) {
+			actions = actions.map(a => (a.type === 'submit' ? {
+				...a,
+				onMouseEnter: onSubmitEnter && (event => onSubmitEnter(event, properties)),
+				onMouseLeave: onSubmitLeave,
+			} : a));
+		}
+
 
 		const formTemplate =
 			this.props.displayMode === 'text' ? TextModeFormTemplate : DefaultFormTemplate;
