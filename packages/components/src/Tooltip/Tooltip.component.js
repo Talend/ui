@@ -5,7 +5,11 @@ import theme from './Tooltip.scss';
 
 const TooltipPropTypes = {
 	id: PropTypes.string.isRequired,
-	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+	children: PropTypes.oneOfType([
+		PropTypes.element,
+		PropTypes.arrayOf(PropTypes.element),
+		PropTypes.string,
+	]),
 	className: PropTypes.string,
 };
 

@@ -6,7 +6,7 @@ import { columnChooserContext } from '../../columnChooser.context';
 
 import theme from '../ColumnChooserRowRenderer.scss';
 
-const RowVisibilityCheckbox = ({ index, locked, value }) => {
+const RowVisibilityCheckbox = ({ index, locked, value = false }) => {
 	const { onChangeVisibility, t } = useContext(columnChooserContext);
 	const onClick = () => {
 		onChangeVisibility(index, !value);
@@ -42,7 +42,7 @@ const RowVisibilityCheckbox = ({ index, locked, value }) => {
 RowVisibilityCheckbox.propTypes = {
 	index: PropTypes.number.isRequired,
 	locked: PropTypes.bool,
-	value: PropTypes.bool.isRequired,
+	value: PropTypes.bool,
 };
 
 export default RowVisibilityCheckbox;

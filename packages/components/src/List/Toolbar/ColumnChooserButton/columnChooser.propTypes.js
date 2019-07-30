@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 const columnChooserPropTypes = PropTypes.shape({
 	label: PropTypes.string.isRequired,
 	hidden: PropTypes.bool,
-	order: PropTypes.order,
+	order: PropTypes.number,
 });
 
 const columnsChooserPropTypes = PropTypes.arrayOf(columnChooserPropTypes);

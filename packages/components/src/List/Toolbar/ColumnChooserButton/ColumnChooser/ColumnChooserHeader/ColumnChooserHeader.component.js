@@ -6,7 +6,7 @@ import { useColumnChooserContext } from '../columnChooser.context';
 import Tooltip from '../../../../../Tooltip';
 
 const ColumnChooserHeader = ({ className, children }) => {
-	const { t } = useColumnChooserContext();
+	const { id, t } = useColumnChooserContext();
 	const title = t('COLUMN_CHOOSER_HEADER_TITLE', {
 		defaultValue: 'Modify columns',
 	});
@@ -17,6 +17,7 @@ const ColumnChooserHeader = ({ className, children }) => {
 				theme['tc-column-chooser-header'],
 				'tc-column-chooser-header',
 			)}
+			id={id}
 		>
 			{!children ? title : children}
 		</Tooltip.Header>
