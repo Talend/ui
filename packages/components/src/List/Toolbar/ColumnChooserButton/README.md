@@ -216,6 +216,7 @@ And it returns an object with some values and handlers
 | selectAll | bool | state of the select all button, checked or not.
 
 ##Context
+
 ###columnChooserContext
 
 The column chooser uses a context to pass some props to its children and avoir props drilling.
@@ -227,6 +228,7 @@ import { columnChooserContext, ColumnChooserProvider }
 ```
 
 ##PropTypes and Structures
+
 ###ColumnChooserPropTypes
 
 | Props | Type | Info
