@@ -58,8 +58,9 @@ class FilterBar extends React.Component {
 		this.props.setState(prevState => {
 			let state = prevState.state;
 			if (this.props.dockable) {
-				return state.set('docked', !this.props.state.get('docked'));
+				state = state.set('docked', !this.props.state.get('docked'));
 			}
+			return state;
 		});
 		if (this.props.onToggle) {
 			this.props.onToggle(event);
@@ -68,7 +69,7 @@ class FilterBar extends React.Component {
 
 	onClear(event) {
 		this.props.setState(prevState => {
-			let state = prevState.state;
+			const state = prevState.state;
 			return state.set(QUERY_ATTR, '');
 		});
 		if (this.props.onClear) {
