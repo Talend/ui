@@ -209,6 +209,16 @@ class Datalist extends Component {
 	 */
 	getSelectedIcon() {
 		if (this.props.titleMap) {
+			const multiSection = this.props.titleMap.find(titleMap =>
+				titleMap.suggestions && titleMap.suggestions.find(
+					suggestion => suggestion.name === this.state.value
+				),
+			);
+
+			if (multiSection) {
+				return get(multiSection.suggestions.find(suggestion => suggestion.name === this.state.value), 'icon');
+			}
+
 			return get(this.props.titleMap.find(titleMap => titleMap.name === this.state.value), 'icon');
 		}
 		return undefined;
