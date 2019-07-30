@@ -15,7 +15,9 @@ function TextFilter(props) {
 
 	const onFilterFunction = isFilterControlled ? onChange : (_, val) => setTextFilter(val);
 	const onToggleUncontrolled = () => {
-		setDocked(!dockedState);
+		if (dockedState || !textFilter) {
+			setDocked(!dockedState);
+		}
 	};
 	const onToggleFunction = isToggleControlled ? onToggle : onToggleUncontrolled;
 

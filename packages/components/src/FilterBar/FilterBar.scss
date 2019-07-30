@@ -85,8 +85,9 @@ $tc-filter-bar-width: 250px !default;
 
 .highlight {
 	background-color: $tc-filter-bar-highlight-color;
-	.search-icon, .search {
-        fill: rgba($black, 0.50);
+	.search-icon,
+	.search {
+		fill: rgba($black, 0.5);
 	}
 }
 

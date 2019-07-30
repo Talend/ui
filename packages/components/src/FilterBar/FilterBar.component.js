@@ -54,12 +54,17 @@ function FilterInput(props) {
 		autoComplete: 'off',
 		className: classNames(theme.search),
 		'aria-label': placeholder || t('LIST_FILTER_LABEL', { defaultValue: 'Filter' }),
-		onBlur: onBlur && (event => { onBlur(event, event.target.value) }),
+		onBlur:
+			onBlur &&
+			(event => {
+				onBlur(event, event.target.value);
+			}),
 		onFocus: onFocus && (event => onFocus(event, event.target.value)),
 		onChange: event => onFilter(event, event.target.value),
-		onKeyDown: event => onKeyDown(event, onClear, event => {
-			event.target.blur();
-		}),
+		onKeyDown: event =>
+			onKeyDown(event, onClear, event => {
+				event.target.blur();
+			}),
 		autoFocus,
 		role: 'searchbox',
 	};
@@ -127,7 +132,7 @@ export class FilterBarComponent extends React.Component {
 			this.props.onBlur(event);
 		}
 		if (!this.state.value) {
-			this.props.onToggle(event)
+			this.props.onToggle(event);
 		}
 	}
 
@@ -183,10 +188,12 @@ export class FilterBarComponent extends React.Component {
 					})}
 					ref={this.textInput}
 				>
-					<Icon name="talend-search" className={theme['search-icon']}
-					      className={classNames(theme['search-icon'], {
-						      [theme['search-focused']]: this.state.focus,
-					      })}
+					<Icon
+						name="talend-search"
+						className={theme['search-icon']}
+						className={classNames(theme['search-icon'], {
+							[theme['search-focused']]: this.state.focus,
+						})}
 					/>
 					<FilterInput
 						autoFocus={this.props.autoFocus}
@@ -204,19 +211,18 @@ export class FilterBarComponent extends React.Component {
 						t={t}
 						ref={ref => (this.ref = ref)}
 					/>
-					{
-						this.state.value ?
-							<Action
-								className={theme.remove}
-								id={this.props.id && `${this.props.id}-cross-icon`}
-								bsStyle="link"
-								icon="talend-cross"
-								label={t('LIST_FILTER_REMOVE', { defaultValue: 'Remove filter' })}
-								hideLabel
-								tooltipPlacement={this.props.tooltipPlacement}
-								onClick={this.onClear}
-							/> : null
-					}
+					{this.state.value ? (
+						<Action
+							className={theme.remove}
+							id={this.props.id && `${this.props.id}-cross-icon`}
+							bsStyle="link"
+							icon="talend-cross"
+							label={t('LIST_FILTER_REMOVE', { defaultValue: 'Remove filter' })}
+							hideLabel
+							tooltipPlacement={this.props.tooltipPlacement}
+							onClick={this.onClear}
+						/>
+					) : null}
 				</div>
 			</form>
 		);

@@ -285,7 +285,7 @@ class List extends React.Component {
 			}
 
 			if (props.toolbar.filter) {
-				props.toolbar.filter.onClear = (event) => {
+				props.toolbar.filter.onClear = event => {
 					this.props.dispatch({
 						type: Constants.LIST_FILTER_CLEAR,
 						collectionId: props.collectionId,
