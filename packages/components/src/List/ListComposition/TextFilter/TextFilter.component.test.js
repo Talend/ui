@@ -211,4 +211,30 @@ describe('TextFilter', () => {
 				.prop('docked'),
 		).toBe(true);
 	});
+
+	it('should empty the filter when clearing in uncontrolled', () => {
+		// given
+		const context = {
+			...defaultContext,
+			textFilter: 'something',
+			setTextFilter: jest.fn(),
+		};
+		// when
+		let wrapper;
+		act(() => {
+			wrapper = mount(
+				<ListContext.Provider value={context}>
+					<TextFilter id="myTextFilter" />
+				</ListContext.Provider>,
+			);
+			wrapper
+				.find('FilterBar')
+				.at(0)
+				.prop('onClear')();
+		});
+		wrapper.update();
+
+		// then
+		expect(context.setTextFilter).toHaveBeenCalledWith('');
+	});
 });
