@@ -56,7 +56,7 @@ export default function ColumnChooser({
 				onChangeVisibility,
 				onClose,
 				onSelectAll,
-				onSubmitColumnChooser,
+				// onSubmitColumnChooser,
 				selectAll,
 				t,
 			}}

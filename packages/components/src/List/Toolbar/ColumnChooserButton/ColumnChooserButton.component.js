@@ -23,6 +23,7 @@ export default function ColumnChooserButton({
 			<ActionButton
 				buttonRef={setButtonRef}
 				data-feature="open-column-chooser-overlay-action"
+				hideLabel
 				icon="talend-column-chooser"
 				id={`${colChooserButtonId}-button`}
 				label={t('COLUMN_CHOOSER_OVERLAY_BUTTON', { defaultValue: 'Column chooser button' })}

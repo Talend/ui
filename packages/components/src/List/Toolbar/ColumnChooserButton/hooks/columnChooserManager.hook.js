@@ -90,7 +90,7 @@ export const useColumnChooserManager = (initColumns, submit, nbLockedLeftItems) 
 	return {
 		onChangeVisibility,
 		onSelectAll,
-		onSubmitColumnChooser: onSubmit,
+		onSubmit,
 		columnsChooser: state.columns,
 		selectAll: state.selectAll,
 	};

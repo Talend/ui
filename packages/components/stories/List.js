@@ -904,7 +904,7 @@ storiesOf('List', module)
 		);
 	})
 	.add('Table with column chooser', () => (
-		<div style={{ height: '70vh' }} className="virtualized-list">
+		<div style={{ height: '100vh' }} className="virtualized-list">
 			<h1>List</h1>
 			<p>
 				Display the list with the column chooser.
@@ -930,7 +930,7 @@ function ListColumnChooser({ list, ...rest }) {
 					columnChooser={{ submitCustomChooser: myCustomSubmit, columns: mergedColumns}} />
 	*/
 	const {
-		stateColumnChooserClient,
+		columnsChooser,
 		submitColumnChooser,
 	} = columnChooserHooks.useColumnChooserClient(
 		list.columns,
@@ -938,11 +938,11 @@ function ListColumnChooser({ list, ...rest }) {
 	);
 	const enrichedList = {
 		...list,
-		columns: stateColumnChooserClient.columns,
+		columns: columnsChooser,
 	};
 	const columnChooser = {
-		columns: stateColumnChooserClient.columns,
-		submitColumnChooser,
+		columns: columnsChooser,
+		submit: submitColumnChooser,
 		nbLockedLeftItems: 2,
 	};
 	return <List {...rest} list={enrichedList} columnChooser={columnChooser} />;
