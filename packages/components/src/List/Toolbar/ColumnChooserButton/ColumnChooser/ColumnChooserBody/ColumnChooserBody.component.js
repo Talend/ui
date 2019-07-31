@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import ColumnChooserRowRenderer from '../ColumnChooserRowRenderer';
 import theme from '../ColumnChooser.scss';
 import { useColumnChooserContext } from '../columnChooser.context';
-import { ColumnsChooserPropTypes } from '../../columnChooser.propTypes';
+import { columnsChooserPropTypes } from '../../columnChooser.propTypes';
 import Tooltip from '../../../../../Tooltip';
 
 const ColumnChooserTable = ({ columns = [] }) =>
@@ -20,7 +20,7 @@ const ColumnChooserTable = ({ columns = [] }) =>
 	));
 
 ColumnChooserTable.propTypes = {
-	columns: ColumnsChooserPropTypes,
+	columns: columnsChooserPropTypes,
 };
 
 const ColumnChooserBody = ({ children }) => {
