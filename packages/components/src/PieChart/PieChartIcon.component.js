@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { arc } from 'd3-shape';
-import { translate } from 'react-i18next';
-import classnames from 'classnames';
+import { withTranslation } from 'react-i18next';
 import omit from 'lodash/omit';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
 import Skeleton from '../Skeleton';
-import theme from './PieChart.scss';
+import pieChartCssModule from './PieChart.scss';
+import { getTheme } from '../theme';
 
+const theme = getTheme(pieChartCssModule);
 export const PIECHART_CONSTANTS = {
 	MIN_SIZE: 20,
 	MAX_SIZE: 50,
@@ -80,9 +81,7 @@ export function propTypeCheckSize(props, propName, componentName) {
 		props[propName] > PIECHART_CONSTANTS.MAX_SIZE
 	) {
 		return new Error(
-			`Invalid prop ${propName} supplied to ${componentName} : ${
-				props[propName]
-			}. Validation failed.`,
+			`Invalid prop ${propName} supplied to ${componentName} : ${props[propName]}. Validation failed.`,
 		);
 	}
 	return null;
@@ -110,7 +109,7 @@ export function getEmptyPartCircle(values, size, minimumPercentage) {
 	});
 	return (
 		<path
-			className={classnames(theme['tc-pie-chart-color-alto'], 'tc-pie-chart-color-alto')}
+			className={theme('tc-pie-chart-color-alto')}
 			d={arcGenerated}
 			transform={`translate(${size.svgSize / 2},${size.svgSize / 2})`}
 		/>
@@ -192,17 +191,32 @@ export function getPercentageToIndex(values, index) {
 }
 
 /**
+ * This function return the percentage label rounded or with some prefix
+ * @param {number} percentage percentage to show as label
+ */
+function getPercentageAndPrefix(percentage) {
+	if (percentage > 0 && percentage < 1) {
+		return { prefix: '< ', percentage: 1 };
+	} else if (percentage > 99 && percentage < 100) {
+		return { prefix: '> ', percentage: 99 };
+	}
+	return { prefix: '', percentage: Math.round(percentage) };
+}
+
+/**
  * This function return the label or nothing if the label is npt passed or hidden
  * @param {boolean} hideLabel tell if the label has to be hidden or not
  * @param {number} labelValue the label value ( percentage )
  * @param {function} t translate function
  */
-function getLabel(hideLabel, labelValue, t) {
+export function getLabel(hideLabel, labelValue, t) {
 	if (!hideLabel && labelValue.percentage != null) {
-		return t('PIE_CHART_PERCENTAGE', {
+		const { percentage, prefix } = getPercentageAndPrefix(labelValue.percentage);
+		const labelPercentage = t('PIE_CHART_PERCENTAGE', {
 			defaultValue: '{{percentage}}%',
-			percentage: labelValue.percentage,
+			percentage,
 		});
+		return `${prefix}${labelPercentage}`;
 	}
 	return '';
 }
@@ -229,10 +243,7 @@ export function getCircle(value, index, values, size) {
 		<path
 			key={index}
 			d={arcGenerated}
-			className={classnames(
-				theme[`tc-pie-chart-color-${value.color}`],
-				`tc-pie-chart-color-${value.color}`,
-			)}
+			className={theme(`tc-pie-chart-color-${value.color}`)}
 			transform={`translate(${size.svgSize / 2},${size.svgSize / 2})`}
 		/>
 	);
@@ -282,7 +293,7 @@ export function PieChartIconComponent({
 	if (loading) {
 		return (
 			<span
-				className={classnames(theme['tc-pie-chart-loading'], 'tc-pie-chart-loading')}
+				className={theme('tc-pie-chart-loading')}
 				aria-busy="true"
 				aria-label={t('PIE_CHART_LOADING', { defaultValue: 'Loading chart' })}
 			>
@@ -290,10 +301,7 @@ export function PieChartIconComponent({
 					type={Skeleton.TYPES.circle}
 					width={sizeObject.svgSize}
 					height={sizeObject.svgSize}
-					className={classnames(
-						theme['tc-pie-chart-loading-circle'],
-						'tc-pie-chart-loading-circle',
-					)}
+					className={theme('tc-pie-chart-loading-circle')}
 				/>
 				{!hideLabel && <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.small} />}
 			</span>
@@ -304,24 +312,20 @@ export function PieChartIconComponent({
 	// Here we are omitting the props from i18n,
 	// to keep only the event listener from the TooltipTrigger.
 	const omitI18N = omit(rest, ['i18n', 'tReady']);
+
 	return (
-		<span className={classnames(theme['tc-pie-chart-icon'], 'tc-pie-icon-chart')}>
+		<span className={theme('tc-pie-chart-icon')}>
 			<svg
 				width={sizeObject.svgSize}
 				height={sizeObject.svgSize}
-				className={classnames(theme['tc-pie-chart-icon-graph'], 'tc-pie-chart-icon-graph')}
+				className={theme('tc-pie-chart-icon-graph')}
 				style={{ width: sizeObject.svgSize, height: sizeObject.svgSize }}
 				{...omitI18N}
 			>
 				{preparedValues.map((value, index) => getCircle(value, index, preparedValues, sizeObject))}
 				{getEmptyPartCircle(preparedValues, sizeObject, minimumPercentage)}
 			</svg>
-			<div
-				className={classnames(
-					theme[`tc-pie-chart-color-${labelValue.color}`],
-					`tc-pie-chart-color-${labelValue.color}`,
-				)}
-			>
+			<div className={theme(`tc-pie-chart-color-${labelValue.color}`)}>
 				{getLabel(hideLabel, labelValue, t)}
 			</div>
 		</span>
@@ -363,4 +367,4 @@ PieChartIconComponent.defaultProps = {
 
 PieChartIconComponent.displayName = 'PieChartIcon';
 
-export default translate(I18N_DOMAIN_COMPONENTS)(PieChartIconComponent);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(PieChartIconComponent);

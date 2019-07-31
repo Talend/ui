@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import keycode from 'keycode';
 import ListView from '@talend/react-components/lib/ListView';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
@@ -183,6 +183,7 @@ class ListViewWidget extends React.Component {
 				id={this.props.id}
 				isValid={this.props.isValid}
 				required={this.props.schema.required}
+				valueIsUpdating={this.props.valueIsUpdating}
 			>
 				<ListView
 					{...this.state}
@@ -221,10 +222,11 @@ if (process.env.NODE_ENV !== 'production') {
 			),
 		}),
 		value: PropTypes.arrayOf(PropTypes.string),
+		valueIsUpdating: PropTypes.bool,
 		t: PropTypes.func,
 	};
 }
 
 export { ListViewWidget };
 
-export default translate(I18N_DOMAIN_FORMS)(ListViewWidget);
+export default withTranslation(I18N_DOMAIN_FORMS)(ListViewWidget);

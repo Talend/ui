@@ -34,7 +34,7 @@ class DateWidget extends React.Component {
 		this.setState({ errorMessage });
 
 		let value = datetime;
-		if (!errorMessage) {
+		if (!errorMessage && datetime) {
 			const { schema } = this.props.schema;
 			if (schema.format === 'iso-datetime') {
 				value = this.dateToIsoStr(datetime);
@@ -61,7 +61,17 @@ class DateWidget extends React.Component {
 	}
 
 	render() {
-		const { errorMessage, id, isValid, options, schema, useSeconds, useTime, value } = this.props;
+		const {
+			errorMessage,
+			id,
+			isValid,
+			options,
+			schema,
+			useSeconds,
+			useTime,
+			value,
+			valueIsUpdating,
+		} = this.props;
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
 		const convertedValue = schema.format === 'iso-datetime' ? this.isoStrToDate(value) : value;
@@ -76,11 +86,12 @@ class DateWidget extends React.Component {
 				isValid={isValid}
 				label={schema.title}
 				required={schema.required}
+				valueIsUpdating={valueIsUpdating}
 			>
 				<InputDateTimePicker
 					autoFocus={schema.autoFocus}
 					dateFormat={options.dateFormat}
-					disabled={schema.disabled}
+					disabled={schema.disabled || valueIsUpdating}
 					id={id}
 					onChange={this.onChange}
 					onBlur={this.onBlur}
@@ -131,6 +142,7 @@ if (process.env.NODE_ENV !== 'production') {
 		useTime: PropTypes.bool,
 		useSeconds: PropTypes.bool,
 		value: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.instanceOf(Date)]),
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 

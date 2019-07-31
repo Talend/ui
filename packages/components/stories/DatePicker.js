@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconsProvider } from '../src/index';
 
-import InputDateTimePicker, { DateTimePicker } from '../src/DateTimePickers';
+import InputDateTimePicker, { DateTime } from '../src/DateTimePickers';
 
 class TestPickerWrapper extends React.Component {
 	static propTypes = {
@@ -79,12 +79,7 @@ storiesOf('DatePicker', module)
 				Default date picker doesn't include time<br />
 				It comes with classical keyboard gesture.
 			</p>
-			<TestPickerWrapper
-				id="my-date-picker"
-				selectedDateTime={new Date(2018, 4, 13, 12, 30)}
-				onChange={action('onChange')}
-				name="Datetime"
-			/>
+			<TestPickerWrapper id="my-date-picker" onChange={action('onChange')} name="Datetime" />
 		</div>
 	))
 	.add('Date picker - time', () => (
@@ -105,7 +100,6 @@ storiesOf('DatePicker', module)
 					name="Datetime"
 					onBlur={action('onBlur')}
 					onChange={action('onChange')}
-					selectedDateTime={new Date(2018, 4, 13, 12, 30, 44)}
 					useTime
 				/>
 			</form>
@@ -133,7 +127,6 @@ storiesOf('DatePicker', module)
 					name="Datetime"
 					onBlur={action('onBlur')}
 					onChange={action('onChange')}
-					selectedDateTime={new Date(2018, 4, 13, 12, 30, 44)}
 					useSeconds
 					useTime
 				/>
@@ -199,6 +192,47 @@ storiesOf('DatePicker', module)
 			</form>
 		</div>
 	))
+	.add('Date picker - form mode', () => (
+		<div>
+			<IconsProvider />
+			<h1>DatePicker in form mode</h1>
+			<p>
+				Date picker is in form mode.You can switch to form mode with a simple "formMode" props.
+				<br />
+				It means that the changes are taken into account only with a form validation (submit
+				button).
+				<br />
+				Any other picker close will revert the value.
+			</p>
+			<pre>{`
+<InputDateTimePicker
+	id="my-date-picker"
+	...
+	formMode
+/>
+			`}</pre>
+			<div style={{ width: 320 }}>
+				<InputDateTimePicker
+					id="my-date-picker"
+					onChange={action('onChange')}
+					name="Datetime"
+					formMode
+				/>
+			</div>
+			<div style={{ width: 320 }}>
+				<InputDateTimePicker
+					id="my-date-picker"
+					name="Datetime"
+					onBlur={action('onBlur')}
+					onChange={action('onChange')}
+					useTime
+					formMode
+					required={false}
+					useSeconds
+				/>
+			</div>
+		</div>
+	))
 	.add('Date picker - no input', () => {
 		const blockStyle = { width: 320, border: '1px solid black', marginRight: '1rem' };
 		return (
@@ -218,30 +252,86 @@ storiesOf('DatePicker', module)
 					<div>
 						<h2>Date</h2>
 						<div style={blockStyle}>
-							<DateTimePicker onSubmit={action('onSubmit')} />
+							<DateTime.Manager id="simple" onChange={action('onChange')}>
+								<DateTime.Picker />
+							</DateTime.Manager>
 						</div>
 					</div>
 
 					<div>
 						<h2>Date time</h2>
 						<div style={blockStyle}>
-							<DateTimePicker onSubmit={action('onSubmit')} useTime />
+							<DateTime.Manager id="time" onChange={action('onChange')} useTime>
+								<DateTime.Picker />
+							</DateTime.Manager>
 						</div>
 					</div>
 
 					<div>
 						<h2>Date time seconds</h2>
 						<div style={blockStyle}>
-							<DateTimePicker onSubmit={action('onSubmit')} useTime useSeconds />
+							<DateTime.Manager id="time-seconds" onChange={action('onChange')} useTime useSeconds>
+								<DateTime.Picker />
+							</DateTime.Manager>
 						</div>
 					</div>
 
 					<div>
 						<h2>Date time seconds UTC</h2>
 						<div style={blockStyle}>
-							<DateTimePicker onSubmit={action('onSubmit')} useTime useSeconds useUTC />
+							<DateTime.Manager id="utc" onChange={action('onChange')} useTime useSeconds useUTC>
+								<DateTime.Picker />
+							</DateTime.Manager>
 						</div>
 					</div>
+				</div>
+			</div>
+		);
+	})
+	.add('Date picker - parent with fixed height', () => {
+		const width = 150;
+		return (
+			<div>
+				<IconsProvider />
+				<h1>DatePicker with fixed-height parent</h1>
+				<div style={{ height: 300, overflow: 'auto', border: 'solid' }}>
+					<form style={{ width, float: 'left' }}>
+						<InputDateTimePicker
+							id="my-date-picker-top-left"
+							name="Datetime"
+							onBlur={action('onBlur')}
+							onChange={action('onChange')}
+							useTime
+						/>
+					</form>
+					<form style={{ width, float: 'right' }}>
+						<InputDateTimePicker
+							id="my-date-picker-top-right"
+							name="Datetime"
+							onBlur={action('onBlur')}
+							onChange={action('onChange')}
+							useTime
+						/>
+					</form>
+					<div style={{ height: 600 }} />
+					<form style={{ width, float: 'left' }}>
+						<InputDateTimePicker
+							id="my-date-picker-bottom-left"
+							name="Datetime"
+							onBlur={action('onBlur')}
+							onChange={action('onChange')}
+							useTime
+						/>
+					</form>
+					<form style={{ width, float: 'right' }}>
+						<InputDateTimePicker
+							id="my-date-picker-bottom-right"
+							name="Datetime"
+							onBlur={action('onBlur')}
+							onChange={action('onChange')}
+							useTime
+						/>
+					</form>
 				</div>
 			</div>
 		);

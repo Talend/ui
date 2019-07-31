@@ -1,9 +1,8 @@
 import React from 'react';
-import { I18nextProvider } from 'react-i18next';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
-import i18n, { LanguageSwitcher } from './config/i18n';
+import { LanguageSwitcher } from './config/i18n';
 import { IconsProvider, Layout, SidePanel } from '../src/index';
 
 import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../src/Layout/constants';
@@ -80,9 +79,7 @@ stories
 		<div>
 			<LanguageSwitcher />
 			<IconsProvider defaultIcons={icons} />
-			<I18nextProvider i18n={i18n}>
-				{story()}
-			</I18nextProvider>
+			{story()}
 		</div>
 	))
 	.add('default', () => (
@@ -177,9 +174,9 @@ stories
 				return (
 					<Layout mode="TwoColumns" one={panel}>
 						<ol>
-							{new Array(100)
-								.fill('This is some random content')
-								.map((item, num) => <li key={num}>{item}</li>)}
+							{new Array(100).fill('This is some random content').map((item, num) => (
+								<li key={num}>{item}</li>
+							))}
 						</ol>
 					</Layout>
 				);
@@ -216,9 +213,9 @@ stories
 				return (
 					<Layout mode="TwoColumns" one={panel}>
 						<ol>
-							{new Array(100)
-								.fill('This is some random content')
-								.map((item, num) => <li key={num}>{item}</li>)}
+							{new Array(100).fill('This is some random content').map((item, num) => (
+								<li key={num}>{item}</li>
+							))}
 						</ol>
 					</Layout>
 				);
@@ -231,19 +228,17 @@ stories
 const appStyle = require('./config/themes.scss');
 
 apps.forEach(app => {
-	stories
-		.add(`🎨 [${app.toUpperCase()}] SidePanel`, () => (
-			<div className={appStyle[app]}>
-				<div className={TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
-					<SidePanel
-						id="context"
-						actions={actions}
-						onToggleDock={action('Toggle dock clicked')}
-						docked={false}
-						tooltipPlacement="top"
-					/>
-				</div>
+	stories.add(`🎨 [${app.toUpperCase()}] SidePanel`, () => (
+		<div className={appStyle[app]}>
+			<div className={TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
+				<SidePanel
+					id="context"
+					actions={actions}
+					onToggleDock={action('Toggle dock clicked')}
+					docked={false}
+					tooltipPlacement="top"
+				/>
 			</div>
-		)
-	);
+		</div>
+	));
 });

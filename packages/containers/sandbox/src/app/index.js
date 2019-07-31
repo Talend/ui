@@ -4,19 +4,25 @@
  * and other style can override it
  */
 
-import '@talend/bootstrap-theme/src/theme/theme.scss';
+import getRouter from '@talend/react-cmf-router';
 import containersModule from '@talend/react-containers';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 import cmf from '@talend/react-cmf';
 import { createLogger } from 'redux-logger';
+import SandboxBody from './SandboxBody';
 import actions from './actions';
+import componentFormSagas from '../../../src/ComponentForm/ComponentForm.sagas';
+
+const router = getRouter();
 
 const app = {
-	components: { ComponentForm },
+	components: { ComponentForm, SandboxBody },
 	settingsURL: '/settings.json',
 	actionCreators: actions,
 	middlewares: [createLogger({})],
-	modules: [containersModule],
+	modules: [router.cmfModule, containersModule],
+	sagas: componentFormSagas,
+	RootComponent: router.RootComponent,
 };
 
 /**

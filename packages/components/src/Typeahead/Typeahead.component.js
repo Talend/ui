@@ -3,6 +3,7 @@ import React from 'react';
 import uuid from 'uuid';
 import classNames from 'classnames';
 import Autowhatever from 'react-autowhatever';
+import { useTranslation } from 'react-i18next';
 
 import theme from './Typeahead.scss';
 import {
@@ -12,6 +13,7 @@ import {
 	renderItem,
 } from './Typeahead.component.renderers';
 import { Action } from '../Actions';
+import I18N_DOMAIN_COMPONENTS from '../constants';
 
 /**
  * Show suggestions for search bar
@@ -86,17 +88,24 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		},
 	};
 
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+	const noResultText = rest.noResultText || t('NO_RESULT_FOUND', { defaultValue: 'No result.' });
+	const searchingText =
+		rest.searchingText || t('TYPEAHEAD_SEARCHING', { defaultValue: 'Searching for matches...' });
+	const isLoadingText =
+		rest.isLoadingText || t('TYPEAHEAD_LOADING', { defaultValue: 'Loading...' });
 	const defaultRenderersProps = {
 		renderItem,
 		renderItemsContainer: renderItemsContainerFactory(
 			rest.items,
-			rest.noResultText,
+			noResultText,
 			rest.searching,
-			rest.searchingText,
+			searchingText,
 			rest.isLoading,
-			rest.isLoadingText,
+			isLoadingText,
+			rest.children,
 		),
-		renderItemData: { value: rest.value },
+		renderItemData: { value: rest.value, 'data-feature': rest['data-feature'] },
 	};
 
 	const compatibilityProps = {
@@ -112,9 +121,10 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		...themeProps,
 		...inputProps,
 		items: rest.items || [],
-		itemProps: {
+		itemProps: ({ itemIndex }) => ({
 			onMouseDown: rest.onSelect,
-		},
+			'aria-disabled': rest.items[itemIndex] && rest.items[itemIndex].disabled,
+		}),
 	};
 
 	return <Autowhatever {...autowhateverProps} />;
@@ -128,12 +138,9 @@ Typeahead.defaultProps = {
 	id: uuid.v4().toString(),
 	items: null,
 	multiSection: true, // TODO this is for compat, see if we can do the reverse :(
-	noResultText: 'No result.',
 	position: 'left',
 	readOnly: false,
 	searching: false,
-	searchingText: 'Searching for matches...',
-	isLoadingText: 'Loading...',
 	docked: false,
 };
 
@@ -190,6 +197,7 @@ Typeahead.propTypes = {
 			}),
 		]),
 	),
+	children: PropTypes.func, // render props
 };
 
 export default Typeahead;

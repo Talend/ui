@@ -28,7 +28,7 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 	}
 
 	/* ==== HEADER ==== */
-	:global(.ag-header-container) {
+	:global(.ag-header-viewport) {
 		background-color: $white;
 		color: $dove-gray;
 	}
@@ -62,7 +62,11 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 		font-family: inherit;
 	}
 
-	:global(.ag-body) {
+	:global(.ag-body-viewport) {
+		user-select: text;
+	}
+
+	:global(.ag-center-cols-clipper) {
 		background-color: $td-body-background-color;
 		font-family: $td-body-font-family;
 	}

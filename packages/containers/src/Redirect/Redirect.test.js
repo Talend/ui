@@ -1,14 +1,9 @@
-import React from 'react';
-import { RedirectContainer } from './Redirect.container';
-
-jest.mock('@talend/react-components', () => ({
-	CircularProgress: props => <div className="tc-circular-project" {...props} />,
-}));
+import Redirect from './Redirect.container';
 
 describe('Redirect', () => {
 	it('should dispatch a redirect action', () => {
 		const dispatch = jest.fn();
-		const result = new RedirectContainer({ path: '/hello-world' }, { store: { dispatch } });
+		const result = new Redirect.WrappedComponent({ path: '/hello-world', dispatch });
 		expect(dispatch.mock.calls.length).toBe(1);
 		const action = dispatch.mock.calls[0][0];
 		expect(action.type).toBe('REDIRECT');
@@ -19,7 +14,7 @@ describe('Redirect', () => {
 	it('should dispatch a redirect action if to props given', () => {
 		const dispatch = jest.fn();
 		// eslint-disable-next-line new-cap
-		RedirectContainer({ path: '/to' }, { store: { dispatch } });
+		Redirect.WrappedComponent({ path: '/to', dispatch });
 		expect(dispatch.mock.calls.length).toBe(1);
 		const action = dispatch.mock.calls[0][0];
 		expect(action.type).toBe('REDIRECT');

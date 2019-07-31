@@ -15,13 +15,13 @@ import {
 	ActionBar,
 } from '../src/index';
 
-import { ON_CANCEL_ACTION_POSITION_HEADER } from '../src/Drawer/Drawer.component';
-
 const header = <HeaderBar brand={{ label: 'Example App Name' }} />;
 
 const icons = {
 	'talend-arrow-left': talendIcons['talend-arrow-left'],
+	'talend-check': talendIcons['talend-check'],
 	'talend-dataprep': talendIcons['talend-dataprep'],
+	'talend-pencil': talendIcons['talend-pencil'],
 	'talend-folder': talendIcons['talend-folder'],
 	'talend-plus-circle': talendIcons['talend-plus-circle'],
 	'talend-star': talendIcons['talend-star'],
@@ -50,6 +50,7 @@ const actions = [
 const cancel = {
 	label: 'Cancel',
 	onClick: action('You clicked me'),
+	className: 'btn-inverse',
 };
 
 const primary = {
@@ -61,7 +62,6 @@ const primary = {
 const onCancelAction = {
 	label: 'Cancel',
 	onClick: action('You clicked on cancel action'),
-	position: ON_CANCEL_ACTION_POSITION_HEADER,
 };
 
 const panelActions = {
@@ -208,6 +208,24 @@ const drawers = [
 	</Drawer>,
 ];
 
+const editableDrawers = [
+	<Drawer
+		stacked
+		title="Im stacked drawer 1"
+		footerActions={Object.assign({}, basicProps, { selected: 0 })}
+	>
+		<h1>Hello drawer 1</h1>
+		<p>{"You should not being able to read this because I'm first"}</p>
+	</Drawer>,
+	<Drawer editableTitle title="Im drawer 20" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
+		<h1>Hello drawer 2</h1>
+		<p>The content dictate the scroll</p>
+		<h1>Hello drawer 3</h1>
+		{scrollableContent()}
+	</Drawer>,
+];
+
+
 const drawersNoTransition = [
 	<Drawer
 		route={{ state: { withTransition: false } }}
@@ -231,34 +249,32 @@ const drawersNoTransition = [
 ];
 
 const sidePanel = <SidePanel actions={actions} onToggleDock={action('Toggle dock clicked')} />;
-
+const twentyRows = [];
+for (let index = 0; index < 20; index++) {
+	twentyRows.push(<p key={index}>The content dictate the width</p>);
+}
 storiesOf('Drawer', module)
-	.add('Default', () => {
-		const rows = [];
-		for (let index = 0; index < 20; index++) {
-			rows.push(<p key={index}>The content dictate the width</p>);
-		}
-		return (
-			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawers}>
-				<span>zone with drawer</span>
-				{rows}
-				<IconsProvider defaultIcons={icons} />
-			</Layout>
-		);
-	})
-	.add('Default with no transition', () => {
-		const rows = [];
-		for (let index = 0; index < 20; index++) {
-			rows.push(<p key={index}>The content dictate the width</p>);
-		}
-		return (
-			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersNoTransition}>
-				<span>zone with drawer</span>
-				{rows}
-				<IconsProvider defaultIcons={icons} />
-			</Layout>
-		);
-	})
+	.add('Default', () => (
+		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawers}>
+			<span>zone with drawer</span>
+			{twentyRows}
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
+	.add('with editable header', () => (
+		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={editableDrawers}>
+			<span>zone with drawer</span>
+			{twentyRows}
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
+	.add('Default with no transition', () => (
+		<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={drawersNoTransition}>
+			<span>zone with drawer</span>
+			{twentyRows}
+			<IconsProvider defaultIcons={icons} />
+		</Layout>
+	))
 	.add('stacked drawers', () => {
 		const stackedDrawers = [
 			<Drawer
@@ -288,14 +304,14 @@ storiesOf('Drawer', module)
 				{scrollableContent()}
 			</Drawer>,
 		];
-		const rows = [];
+		const fiftyRows = [];
 		for (let index = 0; index < 50; index++) {
-			rows.push(<p key={index}>The content dictate the width</p>);
+			fiftyRows.push(<p key={index}>The content dictate the width</p>);
 		}
 		return (
 			<Layout header={header} mode="TwoColumns" one={sidePanel} drawers={stackedDrawers}>
 				<span>zone with drawer</span>
-				{rows}
+				{fiftyRows}
 				<IconsProvider defaultIcons={icons} />
 			</Layout>
 		);
@@ -401,13 +417,15 @@ storiesOf('Drawer', module)
 		);
 	})
 	.add('Custom stacked', () => {
+		// Use same cancel action props with className for Title and Footer
+		const sameCancelAction = panelActions.left[0];
 		const customDrawers = [
 			<Drawer.Container stacked>
 				<Tab.Container defaultActiveKey="info">
 					<div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
 						<Drawer.Title
 							title="Custom drawer with tabs and a super long name that breaks the drawer title"
-							onCancelAction={onCancelAction}
+							onCancelAction={sameCancelAction}
 						/>
 						<Tab.Content>
 							<Drawer.Content>

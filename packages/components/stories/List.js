@@ -4,12 +4,11 @@ import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
-import { I18nextProvider } from 'react-i18next';
 import cloneDeep from 'lodash/cloneDeep';
 
 import { List, IconsProvider } from '../src/index';
-import i18n, { LanguageSwitcher } from './config/i18n';
-import { MyCustomRow } from './VirtualizedList';
+import { LanguageSwitcher } from './config/i18n';
+import MyCustomRow from './List/MyCustomRow.component';
 /**
  * Cell renderer that displays hello + text
  */
@@ -48,6 +47,8 @@ const icons = {
 	'talend-trash': talendIcons['talend-trash'],
 	'talend-warning': talendIcons['talend-warning'],
 	'talend-file-s3-o': talendIcons['talend-file-s3-o'],
+	'talend-sort-desc': talendIcons['talend-sort-desc'],
+	'talend-sort-asc': talendIcons['talend-sort-asc'],
 };
 
 const selected = [
@@ -278,12 +279,7 @@ const props = {
 		sort: {
 			field: 'name',
 			onChange: action('sort.onChange'),
-			options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
-		},
-		pagination: {
-			itemsPerPage: 5,
-			totalResults: 10,
-			onChange: action('pagination.onChange'),
+			options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name With Multiple Words' }],
 		},
 		filter: {
 			docked: true,
@@ -476,14 +472,15 @@ storiesOf('List', module)
 		<div>
 			<LanguageSwitcher />
 			<IconsProvider defaultIcons={icons} />
-			<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
+			{story()}
 		</div>
 	))
 	.add('Table display', () => (
 		<div style={{ height: '70vh' }} className="virtualized-list">
 			<h1>List</h1>
 			<p>
-				Display the list in table mode.<br />
+				Display the list in table mode.
+				<br />
 				This is the default mode.
 			</p>
 			<List {...props} />
@@ -505,7 +502,8 @@ storiesOf('List', module)
 			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
-					Display the list in table mode.<br />
+					Display the list in table mode.
+					<br />
 					This is the default mode.
 				</p>
 				<List {...customProps} />
@@ -516,7 +514,8 @@ storiesOf('List', module)
 		<div style={{ height: '70vh' }} className="virtualized-list">
 			<h1>List</h1>
 			<p>
-				Display the list in large mode.<br />
+				Display the list in large mode.
+				<br />
 				You just need to pass the props displayMode.
 			</p>
 			<pre>&lt;List displayMode="large" ... &gt;</pre>
@@ -527,7 +526,8 @@ storiesOf('List', module)
 		<div style={{ height: '70vh' }} className="virtualized-list">
 			<h1>List</h1>
 			<p>
-				Display the list in large mode.<br />
+				Display the list in large mode.
+				<br />
 				You just need to pass the props displayMode.
 			</p>
 			<pre>&lt;List displayMode="large" rowRenderers= ... &gt;</pre>
@@ -616,16 +616,47 @@ storiesOf('List', module)
 			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
-					You can manage selection by passing 2 props : onSelect and isSelected.<br />
+					You can manage selection by passing 2 props : onSelect and isSelected.
+					<br />
 					<b>onSelect(event, item)</b> : item selection callback
 					<b>isSelected(item)</b> : returns true if the item is selected
 				</p>
 				<pre>
-					listProps.itemProps.onSelect = (event, item) => mySelectionCallback(event, item);<br />
-					listProps.itemProps.isSelected = (item) => item.id === 2;<br />
-					&lt;List ... list=&#123;listProps&#125; &gt;<br />
+					listProps.itemProps.onSelect = (event, item) => mySelectionCallback(event, item);
+					<br />
+					listProps.itemProps.isSelected = (item) => item.id === 2;
+					<br />
+					&lt;List ... list=&#123;listProps&#125; &gt;
+					<br />
 				</pre>
 				<List {...selectedItemsProps} />
+			</div>
+		);
+	})
+	.add('Selection - large', () => {
+		const selectedItemsProps = cloneDeep(props);
+		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
+			left: [
+				{
+					id: 'remove',
+					label: 'Delete selection',
+					icon: 'talend-trash',
+					onClick: action('remove'),
+				},
+			],
+		};
+		selectedItemsProps.list.itemProps = itemPropsForItems;
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>
+					For table view, user toggle column header to select/disselect all items.
+					<br />
+					When List displayed in large view, there's a one-line checkbox of "Select All" above the
+					list.
+					<br />
+				</p>
+				<List {...selectedItemsProps} rowHeight={140} displayMode="large" />
 			</div>
 		);
 	})
@@ -637,19 +668,24 @@ storiesOf('List', module)
 			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
-					You can manage selection by passing 2 props : onRowClick and isActive.<br />
-					<b>onRowClick(event, item)</b> : item selection callback<br />
+					You can manage selection by passing 2 props : onRowClick and isActive.
+					<br />
+					<b>onRowClick(event, item)</b> : item selection callback
+					<br />
 					<b>isActive(item)</b> : returns true if the item is selected
 				</p>
 				<pre>
-					listProps.itemProps.onRowClick = (event, rowData) => myRowClickCallback(rowData);<br />
-					listProps.itemProps.isActive = (item) => item.id === 0;<br />
-					&lt;List ... list=&#123;listProps&#125; &gt;<br />
+					listProps.itemProps.onRowClick = (event, rowData) => myRowClickCallback(rowData);
+					<br />
+					listProps.itemProps.isActive = (item) => item.id === 0;
+					<br />
+					&lt;List ... list=&#123;listProps&#125; &gt;
+					<br />
 				</pre>
 				<h2>Table</h2>
-				<List {...selectedItemsProps} />
+				<List {...selectedItemsProps} displayMode="table" />
 				<h2>Large</h2>
-				<List {...selectedItemsProps} rowHeight={140} displayMode="large" />
+				<List {...cloneDeep(selectedItemsProps)} rowHeight={140} displayMode="large" />
 			</div>
 		);
 	})
@@ -675,17 +711,32 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>You add sort management with column header click.</p>
 				<pre>
-					listProps.sort.field = 'modified';<br />
-					listProps.sort.isDescending = false;<br />
+					listProps.sort.field = 'modified';
+					<br />
+					listProps.sort.isDescending = false;
+					<br />
 					listProps.sort.onChange = (event, &#123;field, isDescending&#125;) => sort(field,
-					isDescending);<br />
-					&lt;List ... list=&#123;listProps&#125; &gt;<br />
+					isDescending);
+					<br />
+					&lt;List ... list=&#123;listProps&#125; &gt;
+					<br />
 				</pre>
 				<p>
 					To disable sort on a column, add the <strong>disableSort</strong> props (see Author
 					column).
 				</p>
 				<List {...tprops} />
+			</div>
+		);
+	})
+	.add('Sort - large', () => {
+		const tprops = cloneDeep(props);
+		tprops.list.sort = sort;
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>Show Sort widgets on List toolbar when display in large view</p>
+				<List {...tprops} rowHeight={140} displayMode="large" />
 			</div>
 		);
 	})
@@ -713,7 +764,6 @@ storiesOf('List', module)
 	.add('Filter', () => {
 		const dockedProps = cloneDeep(props);
 		dockedProps.list.items = [dockedProps.list.items[0]];
-		dockedProps.toolbar.actionBar = null;
 
 		const inputProps = Immutable.fromJS(dockedProps).toJS();
 		inputProps.toolbar.filter.docked = false;
@@ -729,7 +779,8 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<h2>Definition</h2>
 				<p>
-					Filter in toolbar can have multiple states.<br />
+					Filter in toolbar can have multiple states.
+					<br />
 					Its state, input, and callbacks are customizable.
 				</p>
 				<h2>Docked</h2>
@@ -755,6 +806,7 @@ storiesOf('List', module)
 		const tprops = {
 			...props,
 			toolbar: {
+				actionBar: {},
 				display: {
 					onChange: action('display.onChange'),
 					displayModes: ['large', 'table'],
@@ -766,8 +818,10 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>You can get limited options for displayMode.</p>
 				<pre>
-					toolbarProps.display.displayModes = ['large', 'table'];<br />
-					&lt;List ... toolbar=&#123;toolbarProps&#125; &gt;<br />
+					toolbarProps.display.displayModes = ['large', 'table'];
+					<br />
+					&lt;List ... toolbar=&#123;toolbarProps&#125; &gt;
+					<br />
 				</pre>
 				<List {...tprops} />
 			</div>
@@ -790,8 +844,10 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>To have not clickable titles, just don't pass any onClick callback</p>
 				<pre>
-					const props = &#123;...&#125;;<br />
-					props.list.titleProps.onClick = null;<br />
+					const props = &#123;...&#125;;
+					<br />
+					props.list.titleProps.onClick = null;
+					<br />
 					&lt;List &#123;...props&#125; /&gt;
 				</pre>
 				<List {...tprops} />
@@ -808,8 +864,10 @@ storiesOf('List', module)
 				<h1>List</h1>
 				<p>Display the list with hidden header labels.</p>
 				<pre>
-					const props = &#123;...&#125;;<br />
-					props.list.columns[0].hideHeader = true;<br />
+					const props = &#123;...&#125;;
+					<br />
+					props.list.columns[0].hideHeader = true;
+					<br />
 					&lt;List &#123;...props&#125; /&gt;
 				</pre>
 				<List {...tprops} />
@@ -866,10 +924,30 @@ storiesOf('List', module)
 			<div style={{ height: '70vh' }} className="virtualized-list">
 				<h1>List</h1>
 				<p>
-					Display the list in table mode.<br />
+					Display the list in table mode.
+					<br />
 					This is the default mode.
 				</p>
 				<List {...listProps} />
+			</div>
+		);
+	})
+	.add('Pagination - to be deprecated', () => {
+		const customProps = cloneDeep(props);
+		customProps.toolbar.pagination = {
+			itemsPerPage: 5,
+			totalResults: 10,
+			onChange: action('pagination.onChange'),
+		};
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p style={{ color: '#ea8330' }}>
+					Warning: Pagination is deprecated and will be removed in the next major version.
+					<br />
+					For now pagination will show on second toolbar if you use it.
+				</p>
+				<List {...customProps} />
 			</div>
 		);
 	});

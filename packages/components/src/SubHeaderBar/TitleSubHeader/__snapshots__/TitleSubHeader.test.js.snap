@@ -1,5 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`SubTitle should render 1`] = `
+<small
+  className="theme-tc-subheader-details-text-subtitle tc-subheader-details-text-subtitle"
+>
+  mySubTitle
+</small>
+`;
+
+exports[`SubTitle should render in loading mode 1`] = `
+<withI18nextTranslation(Skeleton)
+  className="theme-tc-subheader-details-loading-subtitle tc-subheader-details-loading-subtitle"
+  size="large"
+  type="text"
+/>
+`;
+
 exports[`TitleSubHeader should render 1`] = `
 <div
   className="theme-tc-subheader-details tc-subheader-details"
@@ -25,6 +41,9 @@ exports[`TitleSubHeader should render 1`] = `
         </h1>
       </TooltipTrigger>
     </div>
+    <SubTitle
+      t={[Function]}
+    />
   </div>
 </div>
 `;
@@ -50,11 +69,10 @@ exports[`TitleSubHeader should render 2`] = `
         </h1>
       </TooltipTrigger>
     </div>
-    <small
-      className="theme-tc-subheader-details-text-subtitle tc-subheader-details-text-subtitle"
-    >
-      mySubTitle
-    </small>
+    <SubTitle
+      subTitle="mySubTitle"
+      t={[Function]}
+    />
   </div>
 </div>
 `;

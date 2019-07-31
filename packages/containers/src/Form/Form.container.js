@@ -2,9 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
-import ComponentForm from '@talend/react-forms';
-import DefaultArrayFieldTemplate from '@talend/react-forms/lib/templates/ArrayFieldTemplate';
+import BaseForm from '@talend/react-forms';
 import classnames from 'classnames';
+
+let DefaultArrayFieldTemplate = () => null;
+if (process.env.FORM_MOZ) {
+	// eslint-disable-next-line global-require
+	DefaultArrayFieldTemplate = require('@talend/react-forms/lib/deprecated/templates/ArrayFieldTemplate');
+}
 
 export const DEFAULT_STATE = new Immutable.Map({});
 
@@ -35,8 +40,24 @@ class Form extends React.Component {
 		return state.cmf.components.getIn(['Container(Form)', formId, 'data'], new Immutable.Map());
 	}
 
+	static getDerivedStateFromProps(nextProps, prevState) {
+		if (!prevState) {
+			nextProps.initState();
+			return null;
+		}
+		if (!nextProps.state && nextProps.formId !== prevState.formId) {
+			nextProps.deleteState();
+			return null;
+		}
+		if (nextProps.data !== prevState.data) {
+			return { data: nextProps.data };
+		}
+		return null;
+	}
+
 	constructor(props) {
 		super(props);
+		this.state = DEFAULT_STATE.toJS();
 		this.formActions = this.formActions.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
@@ -46,16 +67,9 @@ class Form extends React.Component {
 		this.data = this.data.bind(this);
 	}
 
-	componentWillReceiveProps(nextProps) {
-		if (nextProps.formId !== this.props.formId) {
-			if (this.props.state) {
-				this.props.deleteState();
-			}
-			if (!nextProps.state) {
-				nextProps.initState();
-			}
-		} else if (nextProps.properties !== this.props.properties) {
-			this.props.setState({ data: nextProps.data });
+	componentDidUpdate(prevProps, prevState) {
+		if (prevState.data !== this.state.data) {
+			this.props.setState({ data: this.state.data });
 		}
 	}
 
@@ -67,6 +81,7 @@ class Form extends React.Component {
 	}
 
 	onErrors(event, errors) {
+		this.props.setState({ errors });
 		if (this.props.onErrors) {
 			this.props.onErrors(event, errors);
 		}
@@ -108,6 +123,14 @@ class Form extends React.Component {
 		return Object.assign({}, this.props.data, state.data);
 	}
 
+	errors() {
+		const state = (this.props.state || DEFAULT_STATE).toJS();
+		if (typeof this.props.errors === 'function') {
+			return this.props.errors(state.errors);
+		}
+		return Object.assign({}, this.props.errors, state.errors);
+	}
+
 	formActions() {
 		if (typeof this.props.actions === 'function') {
 			const state = (this.props.state || DEFAULT_STATE).toJS();
@@ -123,6 +146,7 @@ class Form extends React.Component {
 				jsonSchema: this.jsonSchema(),
 				uiSchema: this.uiSchema(),
 				properties: this.data(),
+				errors: this.errors(),
 			},
 			className: classnames('tc-form', 'rjsf', this.props.className, {
 				dirty: state.dirty,
@@ -146,7 +170,7 @@ class Form extends React.Component {
 			loading: this.props.loading,
 			...this.props.formProps,
 		};
-		return <ComponentForm {...props}>{this.props.children}</ComponentForm>;
+		return <BaseForm {...props}>{this.props.children}</BaseForm>;
 	}
 }
 Form.defaultProps = {

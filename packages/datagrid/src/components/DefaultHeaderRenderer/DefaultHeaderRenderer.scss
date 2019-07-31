@@ -10,6 +10,13 @@ $td-grip-resize-width: 6px !default;
 	}
 }
 
+.td-header-type {
+	&::first-letter {
+		text-transform: uppercase;
+	}
+	text-transform: lowercase;
+}
+
 .td-header-component {
 	height: 100%;
 

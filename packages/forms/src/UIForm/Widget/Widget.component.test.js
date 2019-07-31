@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { TooltipTrigger } from '@talend/react-components';
 
 import Widget from './Widget.component';
 
@@ -39,6 +40,22 @@ describe('Widget component', () => {
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should wrapper widget into a tooltip trigger', () => {
+		const wrapper = shallow(
+			<Widget
+				id={'myForm'}
+				onChange={jest.fn('onChange')}
+				onFinish={jest.fn('onFinish')}
+				onTrigger={jest.fn('onTrigger')}
+				properties={properties}
+				schema={{ ...schema, tooltip: 'example tooltip' }}
+				errors={errors}
+			/>,
+		);
+
+		expect(wrapper.getElement().type).toBe(TooltipTrigger);
 	});
 
 	it('should render widget with the specific displayMode', () => {
@@ -210,5 +227,25 @@ describe('Widget component', () => {
 
 		// then
 		expect(wrapper.getElement()).toBe(null);
+	});
+
+	it('should pass value updating status', () => {
+		// when
+		const wrapper = shallow(
+			<Widget
+				id={'myForm'}
+				onChange={jest.fn('onChange')}
+				onFinish={jest.fn('onFinish')}
+				onTrigger={jest.fn('onTrigger')}
+				properties={properties}
+				schema={schema}
+				errors={errors}
+				displayMode={'text'}
+				updating={[schema.key.join('.')]}
+			/>,
+		);
+
+		// then
+		expect(wrapper.prop('valueIsUpdating')).toBe(true);
 	});
 });

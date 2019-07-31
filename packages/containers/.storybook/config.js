@@ -1,7 +1,6 @@
-import '@babel/polyfill';
 import { storiesOf, configure, addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
+import { withA11y } from '@storybook/addon-a11y';
 import createSagaMiddleware from 'redux-saga';
 import withCMF from '@talend/react-storybook-cmf';
 import mock from '@talend/react-cmf/lib/mock';
@@ -9,7 +8,6 @@ import api, { actions, sagas } from '@talend/react-cmf';
 import { List, Map } from 'immutable';
 import { call, put } from 'redux-saga/effects';
 import '@talend/bootstrap-theme/src/theme/theme.scss';
-import 'focus-outline-manager';
 import ComponentOverlay from './ComponentOverlay';
 import examples from '../examples';
 import {
@@ -20,7 +18,7 @@ import { actionsCreators as actionsCreatorsEditableText } from './editabletext.s
 import { registerAllContainers } from '../src/register';
 
 addDecorator(withCMF);
-addDecorator(checkA11y);
+addDecorator(withA11y);
 
 registerAllContainers();
 const actionLogger = action('dispatch');
@@ -36,13 +34,25 @@ function flagToggleReducer(state = {}, { type, flagId }) {
 	}
 	return state;
 }
-
-function reducer(state = {}, action) {
+function appReducer(state = {}, action) {
 	actionLogger(action);
 	return {
 		flags: flagToggleReducer(state.flags, action),
 	};
 }
+
+function routerReducer(state = {}, action) {
+	actionLogger(action);
+	return {
+		locationBeforeTransitions: {
+			pathname: '/storybook',
+		},
+	};
+}
+const reducer = {
+	app: appReducer,
+	routing: routerReducer,
+};
 
 function objectView(event, data) {
 	return {
@@ -464,6 +474,12 @@ function loadStories() {
 			tooltipPlacement: 'top',
 			activeExpression: { id: 'isFlagExpression', args: ['action:icon:creator:flag'] },
 			payload: { type: 'TOGGLE_FLAG_TYPE', flagId: 'action:icon:creator:flag' },
+		};
+		actions['show:guidedTour'] = {
+			label: 'Start guided tour',
+			payload: {
+				type: 'GUIDED_TOUR_SHOW',
+			},
 		};
 		actions[actionsSubHeader.actionSubHeaderSharing.id] = actionsSubHeader.actionSubHeaderSharing;
 		actions[actionsSubHeader.actionSubHeaderBubbles.id] = actionsSubHeader.actionSubHeaderBubbles;

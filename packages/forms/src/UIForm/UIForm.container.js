@@ -123,11 +123,12 @@ export default class UIForm extends React.Component {
 	 * On user submit change local state and call this.props.onSubmit
 	 * @param event submit event
 	 * @param {Object} properties
+	 * @param {Object} mergedSchema
 	 */
-	onSubmit(event, properties) {
+	onSubmit(event, properties, mergedSchema) {
 		this.setState(setLiveAsInitialState);
 		if (typeof this.props.onSubmit === 'function') {
-			this.props.onSubmit(event, properties);
+			this.props.onSubmit(event, properties, mergedSchema);
 		}
 	}
 
@@ -143,8 +144,28 @@ export default class UIForm extends React.Component {
 
 	onTrigger(event, payload) {
 		return this.props.onTrigger(event, payload).then(data => {
+			const liveState = this.state.liveState;
 			if (data.errors) {
-				this.setErrors(event, data.errors);
+				let errors = data.errors;
+				if (typeof data.errors === 'function') {
+					errors = data.errors(liveState.errors);
+				}
+				this.setErrors(event, errors);
+			}
+			if (data.properties) {
+				let properties = data.properties;
+				if (typeof properties === 'function') {
+					properties = properties(liveState.properties);
+				}
+
+				const { schema, value, oldProperties } = payload;
+				this.onChange(event, {
+					schema,
+					value,
+					oldProperties,
+					properties,
+					formData: properties,
+				});
 			}
 			return data;
 		});
@@ -153,9 +174,11 @@ export default class UIForm extends React.Component {
 	/**
 	 * Set all fields validation in state
 	 * @param errors the validation errors
+	 * @param callback callback to call after setState
 	 */
-	setErrors(event, errors) {
-		this.setState(setLiveStateErrors(errors));
+	setErrors(event, errors, callback) {
+		this.setState(setLiveStateErrors(errors), callback);
+
 		if (this.props.onErrors) {
 			this.props.onErrors(event, errors);
 		}

@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import get from 'lodash/get';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 import { convertValue } from '../../utils/properties';
 
 export default function Text(props) {
-	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
+	const { id, isValid, errorMessage, onChange, onFinish, schema, value, valueIsUpdating } = props;
 	const {
 		autoFocus,
 		description,
@@ -34,12 +35,13 @@ export default function Text(props) {
 			label={title}
 			labelAfter
 			required={schema.required}
+			valueIsUpdating={valueIsUpdating}
 		>
 			<input
 				id={id}
 				autoFocus={autoFocus}
 				className="form-control"
-				disabled={disabled}
+				disabled={disabled || valueIsUpdating}
 				onBlur={event => onFinish(event, { schema })}
 				onChange={event =>
 					onChange(event, { schema, value: convertValue(type, event.target.value) })
@@ -48,9 +50,11 @@ export default function Text(props) {
 				readOnly={readOnly}
 				type={type}
 				value={value}
+				min={get(schema, 'schema.minimum')}
+				max={get(schema, 'schema.maximum')}
 				// eslint-disable-next-line jsx-a11y/aria-proptypes
 				aria-invalid={!isValid}
-				aria-required={schema.required}
+				aria-required={get(schema, 'required')}
 				aria-describedby={`${descriptionId} ${errorId}`}
 			/>
 		</FieldTemplate>
@@ -72,8 +76,10 @@ if (process.env.NODE_ENV !== 'production') {
 			readOnly: PropTypes.bool,
 			title: PropTypes.string,
 			type: PropTypes.string,
+			schema: PropTypes.object,
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 

@@ -5,5 +5,8 @@ export default function getDefaultT() {
 	return getI18n().t.bind(getI18n());
 }
 
-// https://github.com/i18next/i18next/issues/936#issuecomment-307550677
-setI18n(createInstance({}, () => {}));
+if (!getI18n()) {
+	// eslint-disable-next-line no-console
+	console.warn('@talend/react-datagrid used without i18n host.');
+	setI18n(createInstance({}, () => {}));
+}

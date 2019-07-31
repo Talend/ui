@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import noop from 'lodash/noop';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
@@ -49,6 +49,17 @@ function getBase64(value, fileName) {
 }
 
 class FileWidget extends React.Component {
+	static getDerivedStateFromProps(nextProps, prevState) {
+		const fileName = getFileName(nextProps.value);
+		if (prevState.fileName !== fileName) {
+			// Update file name if file is changed
+			return {
+				fileName,
+			};
+		}
+		return null;
+	}
+
 	constructor(props) {
 		super(props);
 		this.onChange = this.onChange.bind(this);
@@ -84,7 +95,7 @@ class FileWidget extends React.Component {
 	}
 
 	render() {
-		const { id, isValid, errorMessage, onFinish, schema } = this.props;
+		const { id, isValid, errorMessage, onFinish, schema, valueIsUpdating } = this.props;
 		const {
 			autoFocus,
 			description,
@@ -96,6 +107,7 @@ class FileWidget extends React.Component {
 		} = schema;
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
+
 		return (
 			<FieldTemplate
 				description={description}
@@ -107,13 +119,14 @@ class FileWidget extends React.Component {
 				label={title}
 				labelAfter={false}
 				required={required}
+				valueIsUpdating={valueIsUpdating}
 			>
 				<div className={theme.file}>
 					<input
 						id={`input-${id}`}
 						autoFocus={autoFocus}
 						className={`form-control ${theme['file-input']}`}
-						disabled={disabled}
+						disabled={disabled || valueIsUpdating}
 						onBlur={event => onFinish(event, { schema })}
 						onChange={this.onChange}
 						placeholder={placeholder}
@@ -157,6 +170,7 @@ if (process.env.NODE_ENV !== 'production') {
 			type: PropTypes.string,
 		}),
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 
@@ -167,4 +181,4 @@ FileWidget.defaultProps = {
 
 export { FileWidget };
 
-export default translate(I18N_DOMAIN_FORMS)(FileWidget);
+export default withTranslation(I18N_DOMAIN_FORMS)(FileWidget);

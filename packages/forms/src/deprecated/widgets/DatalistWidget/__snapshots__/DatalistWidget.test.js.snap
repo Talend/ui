@@ -1,0 +1,1619 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DatalistWidget should render "empty list" message 1`] = `
+<DatalistWidget
+  formContext={Object {}}
+  id="myWidget"
+  onChange={[MockFunction]}
+  options={Object {}}
+  renderEmptyList={[Function]}
+  required={true}
+  schema={Object {}}
+>
+  <Autowhatever
+    containerProps={Object {}}
+    getSectionItems={[Function]}
+    highlightedItemIndex={null}
+    highlightedSectionIndex={null}
+    id="myWidget"
+    inputProps={
+      Object {
+        "onBlur": [Function],
+        "onChange": [Function],
+        "onFocus": [Function],
+        "onKeyDown": [Function],
+        "placeholder": undefined,
+        "required": true,
+        "value": "",
+      }
+    }
+    itemProps={
+      Object {
+        "onMouseDown": [Function],
+        "onMouseEnter": [Function],
+        "onMouseLeave": [Function],
+      }
+    }
+    items={Array []}
+    multiSection={false}
+    renderInputComponent={[Function]}
+    renderItem={[Function]}
+    renderItemData={
+      Object {
+        "value": "",
+      }
+    }
+    renderItemsContainer={[Function]}
+    renderSectionTitle={[Function]}
+    theme={
+      Object {
+        "container": "form-control theme-tf-typeahead-container tf-typeahead-container",
+        "containerOpen": "theme-container-open",
+        "highlight": "theme-highlight-match",
+        "input": "theme-typeahead-input",
+        "itemHighlighted": "theme-item-highlighted",
+        "itemsContainer": "theme-items-container",
+        "itemsList": "theme-items",
+      }
+    }
+  >
+    <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-myWidget"
+      className="form-control theme-tf-typeahead-container tf-typeahead-container"
+      key="react-autowhatever-myWidget-container"
+      role="combobox"
+    >
+      <div
+        className="theme-typeahead-input-icon"
+      >
+        <FormControl
+          aria-activedescendant={null}
+          aria-autocomplete="list"
+          aria-controls="react-autowhatever-myWidget"
+          autoComplete="off"
+          bsClass="form-control"
+          className="theme-typeahead-input"
+          componentClass="input"
+          key="react-autowhatever-myWidget-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          required={true}
+          type="text"
+          value=""
+        >
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-controls="react-autowhatever-myWidget"
+            autoComplete="off"
+            className="theme-typeahead-input form-control"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            required={true}
+            type="text"
+            value=""
+          />
+        </FormControl>
+        <div
+          className="theme-dropdown-toggle"
+        >
+          <span
+            className="caret"
+          />
+        </div>
+      </div>
+      Empty list
+    </div>
+  </Autowhatever>
+</DatalistWidget>
+`;
+
+exports[`DatalistWidget should render "no match" message 1`] = `
+<DatalistWidget
+  formContext={Object {}}
+  id="myWidget"
+  onChange={[MockFunction]}
+  options={Object {}}
+  required={true}
+  schema={
+    Object {
+      "enum": Array [
+        "aze",
+        "banane",
+        "bananAze",
+        "   AzErTy   ",
+        "Toto",
+      ],
+    }
+  }
+>
+  <Autowhatever
+    containerProps={Object {}}
+    getSectionItems={[Function]}
+    highlightedItemIndex={null}
+    highlightedSectionIndex={null}
+    id="myWidget"
+    inputProps={
+      Object {
+        "onBlur": [Function],
+        "onChange": [Function],
+        "onFocus": [Function],
+        "onKeyDown": [Function],
+        "placeholder": undefined,
+        "required": true,
+        "value": "noMatchingValue",
+      }
+    }
+    itemProps={
+      Object {
+        "onMouseDown": [Function],
+        "onMouseEnter": [Function],
+        "onMouseLeave": [Function],
+      }
+    }
+    items={Array []}
+    multiSection={false}
+    renderInputComponent={[Function]}
+    renderItem={[Function]}
+    renderItemData={
+      Object {
+        "value": "noMatchingValue",
+      }
+    }
+    renderItemsContainer={[Function]}
+    renderSectionTitle={[Function]}
+    theme={
+      Object {
+        "container": "form-control theme-tf-typeahead-container tf-typeahead-container",
+        "containerOpen": "theme-container-open",
+        "highlight": "theme-highlight-match",
+        "input": "theme-typeahead-input",
+        "itemHighlighted": "theme-item-highlighted",
+        "itemsContainer": "theme-items-container",
+        "itemsList": "theme-items",
+      }
+    }
+  >
+    <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-myWidget"
+      className="form-control theme-tf-typeahead-container tf-typeahead-container"
+      key="react-autowhatever-myWidget-container"
+      role="combobox"
+    >
+      <div
+        className="theme-typeahead-input-icon"
+      >
+        <FormControl
+          aria-activedescendant={null}
+          aria-autocomplete="list"
+          aria-controls="react-autowhatever-myWidget"
+          autoComplete="off"
+          bsClass="form-control"
+          className="theme-typeahead-input"
+          componentClass="input"
+          key="react-autowhatever-myWidget-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          required={true}
+          type="text"
+          value="noMatchingValue"
+        >
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-controls="react-autowhatever-myWidget"
+            autoComplete="off"
+            className="theme-typeahead-input form-control"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            required={true}
+            type="text"
+            value="noMatchingValue"
+          />
+        </FormControl>
+        <div
+          className="theme-dropdown-toggle"
+        >
+          <span
+            className="caret"
+          />
+        </div>
+      </div>
+      <div
+        className="theme-items-container theme-no-result"
+      >
+        <span>
+          No match.
+        </span>
+      </div>
+    </div>
+  </Autowhatever>
+</DatalistWidget>
+`;
+
+exports[`DatalistWidget should render all suggestions on focus 1`] = `
+<DatalistWidget
+  formContext={Object {}}
+  id="myWidget"
+  onChange={[MockFunction]}
+  options={Object {}}
+  required={true}
+  schema={
+    Object {
+      "enum": Array [
+        "aze",
+        "banane",
+        "bananAze",
+        "   AzErTy   ",
+        "Toto",
+      ],
+    }
+  }
+>
+  <Autowhatever
+    containerProps={Object {}}
+    getSectionItems={[Function]}
+    highlightedItemIndex={null}
+    highlightedSectionIndex={null}
+    id="myWidget"
+    inputProps={
+      Object {
+        "onBlur": [Function],
+        "onChange": [Function],
+        "onFocus": [Function],
+        "onKeyDown": [Function],
+        "placeholder": undefined,
+        "required": true,
+        "value": "",
+      }
+    }
+    itemProps={
+      Object {
+        "onMouseDown": [Function],
+        "onMouseEnter": [Function],
+        "onMouseLeave": [Function],
+      }
+    }
+    items={
+      Array [
+        "aze",
+        "banane",
+        "bananAze",
+        "   AzErTy   ",
+        "Toto",
+      ]
+    }
+    multiSection={false}
+    renderInputComponent={[Function]}
+    renderItem={[Function]}
+    renderItemData={
+      Object {
+        "value": "",
+      }
+    }
+    renderItemsContainer={[Function]}
+    renderSectionTitle={[Function]}
+    theme={
+      Object {
+        "container": "form-control theme-tf-typeahead-container tf-typeahead-container",
+        "containerOpen": "theme-container-open",
+        "highlight": "theme-highlight-match",
+        "input": "theme-typeahead-input",
+        "itemHighlighted": "theme-item-highlighted",
+        "itemsContainer": "theme-items-container",
+        "itemsList": "theme-items",
+      }
+    }
+  >
+    <div
+      aria-expanded={true}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-myWidget"
+      className="form-control theme-tf-typeahead-container tf-typeahead-container theme-container-open"
+      key="react-autowhatever-myWidget-container"
+      role="combobox"
+    >
+      <div
+        className="theme-typeahead-input-icon"
+      >
+        <FormControl
+          aria-activedescendant={null}
+          aria-autocomplete="list"
+          aria-controls="react-autowhatever-myWidget"
+          autoComplete="off"
+          bsClass="form-control"
+          className="theme-typeahead-input"
+          componentClass="input"
+          key="react-autowhatever-myWidget-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          required={true}
+          type="text"
+          value=""
+        >
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-controls="react-autowhatever-myWidget"
+            autoComplete="off"
+            className="theme-typeahead-input form-control"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            required={true}
+            type="text"
+            value=""
+          />
+        </FormControl>
+        <div
+          className="theme-dropdown-toggle"
+        >
+          <span
+            className="caret"
+          />
+        </div>
+      </div>
+      <div
+        className="theme-items-container"
+        id="react-autowhatever-myWidget"
+        key="react-autowhatever-myWidget-items-container"
+        role="listbox"
+      >
+        <ItemsList
+          getItemId={[Function]}
+          highlightedItemIndex={null}
+          itemProps={
+            Object {
+              "onMouseDown": [Function],
+              "onMouseEnter": [Function],
+              "onMouseLeave": [Function],
+            }
+          }
+          items={
+            Array [
+              "aze",
+              "banane",
+              "bananAze",
+              "   AzErTy   ",
+              "Toto",
+            ]
+          }
+          keyPrefix="react-autowhatever-myWidget-"
+          onHighlightedItemChange={[Function]}
+          renderItem={[Function]}
+          renderItemData={
+            Object {
+              "value": "",
+            }
+          }
+          sectionIndex={null}
+          theme={[Function]}
+        >
+          <ul
+            className="theme-items"
+            key="react-autowhatever-myWidget-items-list"
+            role="listbox"
+          >
+            <Item
+              aria-selected={false}
+              id="react-autowhatever-myWidget--item-0"
+              isHighlighted={false}
+              item="aze"
+              itemIndex={0}
+              key="react-autowhatever-myWidget-item-0"
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              renderItem={[Function]}
+              renderItemData={
+                Object {
+                  "value": "",
+                }
+              }
+              sectionIndex={null}
+              style={Object {}}
+            >
+              <li
+                aria-selected={false}
+                id="react-autowhatever-myWidget--item-0"
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                role="option"
+                style={Object {}}
+              >
+                <div
+                  className="theme-item datalist-item"
+                >
+                  <Emphasis
+                    text="aze"
+                    value=""
+                  >
+                    <span>
+                      aze
+                    </span>
+                  </Emphasis>
+                </div>
+              </li>
+            </Item>
+            <Item
+              aria-selected={false}
+              id="react-autowhatever-myWidget--item-1"
+              isHighlighted={false}
+              item="banane"
+              itemIndex={1}
+              key="react-autowhatever-myWidget-item-1"
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              renderItem={[Function]}
+              renderItemData={
+                Object {
+                  "value": "",
+                }
+              }
+              sectionIndex={null}
+              style={Object {}}
+            >
+              <li
+                aria-selected={false}
+                id="react-autowhatever-myWidget--item-1"
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                role="option"
+                style={Object {}}
+              >
+                <div
+                  className="theme-item datalist-item"
+                >
+                  <Emphasis
+                    text="banane"
+                    value=""
+                  >
+                    <span>
+                      banane
+                    </span>
+                  </Emphasis>
+                </div>
+              </li>
+            </Item>
+            <Item
+              aria-selected={false}
+              id="react-autowhatever-myWidget--item-2"
+              isHighlighted={false}
+              item="bananAze"
+              itemIndex={2}
+              key="react-autowhatever-myWidget-item-2"
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              renderItem={[Function]}
+              renderItemData={
+                Object {
+                  "value": "",
+                }
+              }
+              sectionIndex={null}
+              style={Object {}}
+            >
+              <li
+                aria-selected={false}
+                id="react-autowhatever-myWidget--item-2"
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                role="option"
+                style={Object {}}
+              >
+                <div
+                  className="theme-item datalist-item"
+                >
+                  <Emphasis
+                    text="bananAze"
+                    value=""
+                  >
+                    <span>
+                      bananAze
+                    </span>
+                  </Emphasis>
+                </div>
+              </li>
+            </Item>
+            <Item
+              aria-selected={false}
+              id="react-autowhatever-myWidget--item-3"
+              isHighlighted={false}
+              item="   AzErTy   "
+              itemIndex={3}
+              key="react-autowhatever-myWidget-item-3"
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              renderItem={[Function]}
+              renderItemData={
+                Object {
+                  "value": "",
+                }
+              }
+              sectionIndex={null}
+              style={Object {}}
+            >
+              <li
+                aria-selected={false}
+                id="react-autowhatever-myWidget--item-3"
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                role="option"
+                style={Object {}}
+              >
+                <div
+                  className="theme-item datalist-item"
+                >
+                  <Emphasis
+                    text="   AzErTy   "
+                    value=""
+                  >
+                    <span>
+                         AzErTy   
+                    </span>
+                  </Emphasis>
+                </div>
+              </li>
+            </Item>
+            <Item
+              aria-selected={false}
+              id="react-autowhatever-myWidget--item-4"
+              isHighlighted={false}
+              item="Toto"
+              itemIndex={4}
+              key="react-autowhatever-myWidget-item-4"
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              renderItem={[Function]}
+              renderItemData={
+                Object {
+                  "value": "",
+                }
+              }
+              sectionIndex={null}
+              style={Object {}}
+            >
+              <li
+                aria-selected={false}
+                id="react-autowhatever-myWidget--item-4"
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                role="option"
+                style={Object {}}
+              >
+                <div
+                  className="theme-item datalist-item"
+                >
+                  <Emphasis
+                    text="Toto"
+                    value=""
+                  >
+                    <span>
+                      Toto
+                    </span>
+                  </Emphasis>
+                </div>
+              </li>
+            </Item>
+          </ul>
+        </ItemsList>
+      </div>
+    </div>
+  </Autowhatever>
+</DatalistWidget>
+`;
+
+exports[`DatalistWidget should render hightlighted matching suggestions on value change 1`] = `
+<DatalistWidget
+  formContext={Object {}}
+  id="myWidget"
+  onChange={[MockFunction]}
+  options={Object {}}
+  required={true}
+  schema={
+    Object {
+      "enum": Array [
+        "aze",
+        "banane",
+        "bananAze",
+        "   AzErTy   ",
+        "Toto",
+      ],
+    }
+  }
+>
+  <Autowhatever
+    containerProps={Object {}}
+    getSectionItems={[Function]}
+    highlightedItemIndex={null}
+    highlightedSectionIndex={null}
+    id="myWidget"
+    inputProps={
+      Object {
+        "onBlur": [Function],
+        "onChange": [Function],
+        "onFocus": [Function],
+        "onKeyDown": [Function],
+        "placeholder": undefined,
+        "required": true,
+        "value": "aze",
+      }
+    }
+    itemProps={
+      Object {
+        "onMouseDown": [Function],
+        "onMouseEnter": [Function],
+        "onMouseLeave": [Function],
+      }
+    }
+    items={Array []}
+    multiSection={false}
+    renderInputComponent={[Function]}
+    renderItem={[Function]}
+    renderItemData={
+      Object {
+        "value": "aze",
+      }
+    }
+    renderItemsContainer={[Function]}
+    renderSectionTitle={[Function]}
+    theme={
+      Object {
+        "container": "form-control theme-tf-typeahead-container tf-typeahead-container",
+        "containerOpen": "theme-container-open",
+        "highlight": "theme-highlight-match",
+        "input": "theme-typeahead-input",
+        "itemHighlighted": "theme-item-highlighted",
+        "itemsContainer": "theme-items-container",
+        "itemsList": "theme-items",
+      }
+    }
+  >
+    <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-myWidget"
+      className="form-control theme-tf-typeahead-container tf-typeahead-container"
+      key="react-autowhatever-myWidget-container"
+      role="combobox"
+    >
+      <div
+        className="theme-typeahead-input-icon"
+      >
+        <FormControl
+          aria-activedescendant={null}
+          aria-autocomplete="list"
+          aria-controls="react-autowhatever-myWidget"
+          autoComplete="off"
+          bsClass="form-control"
+          className="theme-typeahead-input"
+          componentClass="input"
+          key="react-autowhatever-myWidget-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          required={true}
+          type="text"
+          value="aze"
+        >
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-controls="react-autowhatever-myWidget"
+            autoComplete="off"
+            className="theme-typeahead-input form-control"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            required={true}
+            type="text"
+            value="aze"
+          />
+        </FormControl>
+        <div
+          className="theme-dropdown-toggle"
+        >
+          <span
+            className="caret"
+          />
+        </div>
+      </div>
+      <div
+        className="theme-items-container theme-no-result"
+      >
+        <span>
+          No match.
+        </span>
+      </div>
+    </div>
+  </Autowhatever>
+</DatalistWidget>
+`;
+
+exports[`DatalistWidget should render input 1`] = `
+<div
+  aria-expanded={false}
+  aria-haspopup="listbox"
+  aria-owns="react-autowhatever-myWidget"
+  className="form-control theme-tf-typeahead-container tf-typeahead-container"
+  role="combobox"
+>
+  <div
+    className="theme-typeahead-input-icon"
+  >
+    <input
+      aria-activedescendant={null}
+      aria-autocomplete="list"
+      aria-controls="react-autowhatever-myWidget"
+      autoComplete="off"
+      className="theme-typeahead-input form-control"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      required={true}
+      type="text"
+      value=""
+    />
+    <div
+      className="theme-dropdown-toggle"
+    >
+      <span
+        className="caret"
+      />
+    </div>
+  </div>
+  <div
+    className="theme-items-container"
+    id="react-autowhatever-myWidget"
+    role="listbox"
+  />
+</div>
+`;
+
+exports[`DatalistWidget should render items under category when it has "category" property 1`] = `
+<DatalistWidget
+  formContext={Object {}}
+  id="datawidget"
+  options={
+    Object {
+      "enumOptions": Array [
+        Object {
+          "label": Object {
+            "category": "fruit",
+            "label": "Apple",
+          },
+          "value": "apple",
+        },
+        Object {
+          "label": Object {
+            "category": "color",
+            "label": "Blue",
+          },
+          "value": "blue",
+        },
+      ],
+      "groupBy": "category",
+    }
+  }
+>
+  <Autowhatever
+    containerProps={Object {}}
+    getSectionItems={[Function]}
+    highlightedItemIndex={null}
+    highlightedSectionIndex={null}
+    id="datawidget"
+    inputProps={
+      Object {
+        "onBlur": [Function],
+        "onChange": [Function],
+        "onFocus": [Function],
+        "onKeyDown": [Function],
+        "placeholder": undefined,
+        "required": undefined,
+        "value": "",
+      }
+    }
+    itemProps={
+      Object {
+        "onMouseDown": [Function],
+        "onMouseEnter": [Function],
+        "onMouseLeave": [Function],
+      }
+    }
+    items={
+      Array [
+        Object {
+          "items": Array [
+            Object {
+              "text": "Apple",
+              "value": "apple",
+            },
+          ],
+          "title": "fruit",
+        },
+        Object {
+          "items": Array [
+            Object {
+              "text": "Blue",
+              "value": "blue",
+            },
+          ],
+          "title": "color",
+        },
+      ]
+    }
+    multiSection={true}
+    renderInputComponent={[Function]}
+    renderItem={[Function]}
+    renderItemData={
+      Object {
+        "value": "",
+      }
+    }
+    renderItemsContainer={[Function]}
+    renderSectionTitle={[Function]}
+    theme={
+      Object {
+        "container": "form-control theme-tf-typeahead-container tf-typeahead-container",
+        "containerOpen": "theme-container-open",
+        "highlight": "theme-highlight-match",
+        "input": "theme-typeahead-input",
+        "itemHighlighted": "theme-item-highlighted",
+        "itemsContainer": "theme-items-container",
+        "itemsList": "theme-items",
+      }
+    }
+  >
+    <div
+      aria-expanded={true}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-datawidget"
+      className="form-control theme-tf-typeahead-container tf-typeahead-container theme-container-open"
+      key="react-autowhatever-datawidget-container"
+      role="combobox"
+    >
+      <div
+        className="theme-typeahead-input-icon"
+      >
+        <FormControl
+          aria-activedescendant={null}
+          aria-autocomplete="list"
+          aria-controls="react-autowhatever-datawidget"
+          autoComplete="off"
+          bsClass="form-control"
+          className="theme-typeahead-input"
+          componentClass="input"
+          key="react-autowhatever-datawidget-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          type="text"
+          value=""
+        >
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-controls="react-autowhatever-datawidget"
+            autoComplete="off"
+            className="theme-typeahead-input form-control"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            type="text"
+            value=""
+          />
+        </FormControl>
+        <div
+          className="theme-dropdown-toggle"
+        >
+          <span
+            className="caret"
+          />
+        </div>
+      </div>
+      <div
+        className="theme-items-container"
+        id="react-autowhatever-datawidget"
+        key="react-autowhatever-datawidget-items-container"
+        role="listbox"
+      >
+        <div
+          key="react-autowhatever-datawidget-section-0-container"
+          style={Object {}}
+        >
+          <SectionTitle
+            renderSectionTitle={[Function]}
+            section={
+              Object {
+                "items": Array [
+                  Object {
+                    "text": "Apple",
+                    "value": "apple",
+                  },
+                ],
+                "title": "fruit",
+              }
+            }
+            sectionKeyPrefix="react-autowhatever-datawidget-section-0-"
+            theme={[Function]}
+          >
+            <div
+              key="react-autowhatever-datawidget-section-0-title"
+              style={Object {}}
+            >
+              <div
+                className="theme-title"
+              >
+                fruit
+              </div>
+            </div>
+          </SectionTitle>
+          <ItemsList
+            getItemId={[Function]}
+            highlightedItemIndex={null}
+            itemProps={
+              Object {
+                "onMouseDown": [Function],
+                "onMouseEnter": [Function],
+                "onMouseLeave": [Function],
+              }
+            }
+            items={
+              Array [
+                Object {
+                  "text": "Apple",
+                  "value": "apple",
+                },
+              ]
+            }
+            keyPrefix="react-autowhatever-datawidget-"
+            onHighlightedItemChange={[Function]}
+            renderItem={[Function]}
+            renderItemData={
+              Object {
+                "value": "",
+              }
+            }
+            sectionIndex={0}
+            theme={[Function]}
+          >
+            <ul
+              className="theme-items"
+              key="react-autowhatever-datawidget-section-0-items-list"
+              role="listbox"
+            >
+              <Item
+                aria-selected={false}
+                id="react-autowhatever-datawidget-section-0-item-0"
+                isHighlighted={false}
+                item={
+                  Object {
+                    "text": "Apple",
+                    "value": "apple",
+                  }
+                }
+                itemIndex={0}
+                key="react-autowhatever-datawidget-section-0-item-0"
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                renderItem={[Function]}
+                renderItemData={
+                  Object {
+                    "value": "",
+                  }
+                }
+                sectionIndex={0}
+                style={Object {}}
+              >
+                <li
+                  aria-selected={false}
+                  id="react-autowhatever-datawidget-section-0-item-0"
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  role="option"
+                  style={Object {}}
+                >
+                  <div
+                    className="theme-item datalist-item"
+                  >
+                    <Emphasis
+                      text="Apple"
+                      value=""
+                    >
+                      <span>
+                        Apple
+                      </span>
+                    </Emphasis>
+                  </div>
+                </li>
+              </Item>
+            </ul>
+          </ItemsList>
+        </div>
+        <div
+          key="react-autowhatever-datawidget-section-1-container"
+          style={Object {}}
+        >
+          <SectionTitle
+            renderSectionTitle={[Function]}
+            section={
+              Object {
+                "items": Array [
+                  Object {
+                    "text": "Blue",
+                    "value": "blue",
+                  },
+                ],
+                "title": "color",
+              }
+            }
+            sectionKeyPrefix="react-autowhatever-datawidget-section-1-"
+            theme={[Function]}
+          >
+            <div
+              key="react-autowhatever-datawidget-section-1-title"
+              style={Object {}}
+            >
+              <div
+                className="theme-title"
+              >
+                color
+              </div>
+            </div>
+          </SectionTitle>
+          <ItemsList
+            getItemId={[Function]}
+            highlightedItemIndex={null}
+            itemProps={
+              Object {
+                "onMouseDown": [Function],
+                "onMouseEnter": [Function],
+                "onMouseLeave": [Function],
+              }
+            }
+            items={
+              Array [
+                Object {
+                  "text": "Blue",
+                  "value": "blue",
+                },
+              ]
+            }
+            keyPrefix="react-autowhatever-datawidget-"
+            onHighlightedItemChange={[Function]}
+            renderItem={[Function]}
+            renderItemData={
+              Object {
+                "value": "",
+              }
+            }
+            sectionIndex={1}
+            theme={[Function]}
+          >
+            <ul
+              className="theme-items"
+              key="react-autowhatever-datawidget-section-1-items-list"
+              role="listbox"
+            >
+              <Item
+                aria-selected={false}
+                id="react-autowhatever-datawidget-section-1-item-0"
+                isHighlighted={false}
+                item={
+                  Object {
+                    "text": "Blue",
+                    "value": "blue",
+                  }
+                }
+                itemIndex={0}
+                key="react-autowhatever-datawidget-section-1-item-0"
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                renderItem={[Function]}
+                renderItemData={
+                  Object {
+                    "value": "",
+                  }
+                }
+                sectionIndex={1}
+                style={Object {}}
+              >
+                <li
+                  aria-selected={false}
+                  id="react-autowhatever-datawidget-section-1-item-0"
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  role="option"
+                  style={Object {}}
+                >
+                  <div
+                    className="theme-item datalist-item"
+                  >
+                    <Emphasis
+                      text="Blue"
+                      value=""
+                    >
+                      <span>
+                        Blue
+                      </span>
+                    </Emphasis>
+                  </div>
+                </li>
+              </Item>
+            </ul>
+          </ItemsList>
+        </div>
+      </div>
+    </div>
+  </Autowhatever>
+</DatalistWidget>
+`;
+
+exports[`DatalistWidget should reset value on unknown value input blur 1`] = `
+<DatalistWidget
+  formContext={Object {}}
+  id="myWidget"
+  onChange={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          undefined,
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  options={
+    Object {
+      "restricted": true,
+    }
+  }
+  required={true}
+  schema={
+    Object {
+      "enum": Array [
+        "aze",
+        "banane",
+        "bananAze",
+        "   AzErTy   ",
+        "Toto",
+      ],
+    }
+  }
+>
+  <Autowhatever
+    containerProps={Object {}}
+    getSectionItems={[Function]}
+    highlightedItemIndex={null}
+    highlightedSectionIndex={null}
+    id="myWidget"
+    inputProps={
+      Object {
+        "onBlur": [Function],
+        "onChange": [Function],
+        "onFocus": [Function],
+        "onKeyDown": [Function],
+        "placeholder": undefined,
+        "required": true,
+        "value": "",
+      }
+    }
+    itemProps={
+      Object {
+        "onMouseDown": [Function],
+        "onMouseEnter": [Function],
+        "onMouseLeave": [Function],
+      }
+    }
+    items={Array []}
+    multiSection={false}
+    renderInputComponent={[Function]}
+    renderItem={[Function]}
+    renderItemData={
+      Object {
+        "value": "",
+      }
+    }
+    renderItemsContainer={[Function]}
+    renderSectionTitle={[Function]}
+    theme={
+      Object {
+        "container": "form-control theme-tf-typeahead-container tf-typeahead-container",
+        "containerOpen": "theme-container-open",
+        "highlight": "theme-highlight-match",
+        "input": "theme-typeahead-input",
+        "itemHighlighted": "theme-item-highlighted",
+        "itemsContainer": "theme-items-container",
+        "itemsList": "theme-items",
+      }
+    }
+  >
+    <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-myWidget"
+      className="form-control theme-tf-typeahead-container tf-typeahead-container"
+      key="react-autowhatever-myWidget-container"
+      role="combobox"
+    >
+      <div
+        className="theme-typeahead-input-icon"
+      >
+        <FormControl
+          aria-activedescendant={null}
+          aria-autocomplete="list"
+          aria-controls="react-autowhatever-myWidget"
+          autoComplete="off"
+          bsClass="form-control"
+          className="theme-typeahead-input"
+          componentClass="input"
+          key="react-autowhatever-myWidget-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          required={true}
+          type="text"
+          value=""
+        >
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-controls="react-autowhatever-myWidget"
+            autoComplete="off"
+            className="theme-typeahead-input form-control"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            required={true}
+            type="text"
+            value=""
+          />
+        </FormControl>
+        <div
+          className="theme-dropdown-toggle"
+        >
+          <span
+            className="caret"
+          />
+        </div>
+      </div>
+      <div
+        className="theme-items-container"
+        id="react-autowhatever-myWidget"
+        key="react-autowhatever-myWidget-items-container"
+        role="listbox"
+      />
+    </div>
+  </Autowhatever>
+</DatalistWidget>
+`;
+
+exports[`DatalistWidget should select item under category when press enter on focused item 1`] = `
+<DatalistWidget
+  formContext={Object {}}
+  id="datawidget"
+  onChange={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "apple",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  options={
+    Object {
+      "enumOptions": Array [
+        Object {
+          "label": Object {
+            "category": "fruit",
+            "label": "Apple",
+          },
+          "value": "apple",
+        },
+        Object {
+          "label": Object {
+            "category": "color",
+            "label": "Blue",
+          },
+          "value": "blue",
+        },
+      ],
+      "groupBy": "category",
+    }
+  }
+>
+  <Autowhatever
+    containerProps={Object {}}
+    getSectionItems={[Function]}
+    highlightedItemIndex={null}
+    highlightedSectionIndex={null}
+    id="datawidget"
+    inputProps={
+      Object {
+        "onBlur": [Function],
+        "onChange": [Function],
+        "onFocus": [Function],
+        "onKeyDown": [Function],
+        "placeholder": undefined,
+        "required": undefined,
+        "value": "apple",
+      }
+    }
+    itemProps={
+      Object {
+        "onMouseDown": [Function],
+        "onMouseEnter": [Function],
+        "onMouseLeave": [Function],
+      }
+    }
+    items={Array []}
+    multiSection={true}
+    renderInputComponent={[Function]}
+    renderItem={[Function]}
+    renderItemData={
+      Object {
+        "value": "apple",
+      }
+    }
+    renderItemsContainer={[Function]}
+    renderSectionTitle={[Function]}
+    theme={
+      Object {
+        "container": "form-control theme-tf-typeahead-container tf-typeahead-container",
+        "containerOpen": "theme-container-open",
+        "highlight": "theme-highlight-match",
+        "input": "theme-typeahead-input",
+        "itemHighlighted": "theme-item-highlighted",
+        "itemsContainer": "theme-items-container",
+        "itemsList": "theme-items",
+      }
+    }
+  >
+    <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-datawidget"
+      className="form-control theme-tf-typeahead-container tf-typeahead-container"
+      key="react-autowhatever-datawidget-container"
+      role="combobox"
+    >
+      <div
+        className="theme-typeahead-input-icon"
+      >
+        <FormControl
+          aria-activedescendant={null}
+          aria-autocomplete="list"
+          aria-controls="react-autowhatever-datawidget"
+          autoComplete="off"
+          bsClass="form-control"
+          className="theme-typeahead-input"
+          componentClass="input"
+          key="react-autowhatever-datawidget-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          type="text"
+          value="Apple"
+        >
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-controls="react-autowhatever-datawidget"
+            autoComplete="off"
+            className="theme-typeahead-input form-control"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            type="text"
+            value="Apple"
+          />
+        </FormControl>
+        <div
+          className="theme-dropdown-toggle"
+        >
+          <span
+            className="caret"
+          />
+        </div>
+      </div>
+      <div
+        className="theme-items-container"
+        id="react-autowhatever-datawidget"
+        key="react-autowhatever-datawidget-items-container"
+        role="listbox"
+      />
+    </div>
+  </Autowhatever>
+</DatalistWidget>
+`;
+
+exports[`DatalistWidget should set value and reset suggestions on suggestion selection 1`] = `
+<DatalistWidget
+  formContext={Object {}}
+  id="myWidget"
+  onChange={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "aze",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  options={Object {}}
+  required={true}
+  schema={
+    Object {
+      "enum": Array [
+        "aze",
+        "banane",
+        "bananAze",
+        "   AzErTy   ",
+        "Toto",
+      ],
+    }
+  }
+>
+  <Autowhatever
+    containerProps={Object {}}
+    getSectionItems={[Function]}
+    highlightedItemIndex={null}
+    highlightedSectionIndex={null}
+    id="myWidget"
+    inputProps={
+      Object {
+        "onBlur": [Function],
+        "onChange": [Function],
+        "onFocus": [Function],
+        "onKeyDown": [Function],
+        "placeholder": undefined,
+        "required": true,
+        "value": "aze",
+      }
+    }
+    itemProps={
+      Object {
+        "onMouseDown": [Function],
+        "onMouseEnter": [Function],
+        "onMouseLeave": [Function],
+      }
+    }
+    items={Array []}
+    multiSection={false}
+    renderInputComponent={[Function]}
+    renderItem={[Function]}
+    renderItemData={
+      Object {
+        "value": "aze",
+      }
+    }
+    renderItemsContainer={[Function]}
+    renderSectionTitle={[Function]}
+    theme={
+      Object {
+        "container": "form-control theme-tf-typeahead-container tf-typeahead-container",
+        "containerOpen": "theme-container-open",
+        "highlight": "theme-highlight-match",
+        "input": "theme-typeahead-input",
+        "itemHighlighted": "theme-item-highlighted",
+        "itemsContainer": "theme-items-container",
+        "itemsList": "theme-items",
+      }
+    }
+  >
+    <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="react-autowhatever-myWidget"
+      className="form-control theme-tf-typeahead-container tf-typeahead-container"
+      key="react-autowhatever-myWidget-container"
+      role="combobox"
+    >
+      <div
+        className="theme-typeahead-input-icon"
+      >
+        <FormControl
+          aria-activedescendant={null}
+          aria-autocomplete="list"
+          aria-controls="react-autowhatever-myWidget"
+          autoComplete="off"
+          bsClass="form-control"
+          className="theme-typeahead-input"
+          componentClass="input"
+          key="react-autowhatever-myWidget-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          required={true}
+          type="text"
+          value="aze"
+        >
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-controls="react-autowhatever-myWidget"
+            autoComplete="off"
+            className="theme-typeahead-input form-control"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            required={true}
+            type="text"
+            value="aze"
+          />
+        </FormControl>
+        <div
+          className="theme-dropdown-toggle"
+        >
+          <span
+            className="caret"
+          />
+        </div>
+      </div>
+      <div
+        className="theme-items-container"
+        id="react-autowhatever-myWidget"
+        key="react-autowhatever-myWidget-items-container"
+        role="listbox"
+      />
+    </div>
+  </Autowhatever>
+</DatalistWidget>
+`;

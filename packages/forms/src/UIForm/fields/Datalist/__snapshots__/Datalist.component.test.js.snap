@@ -9,13 +9,11 @@ exports[`Datalist component should render 1`] = `
   id="my-datalist"
   isValid={true}
   label="My List"
-  labelAfter={true}
   required={true}
 >
   <Datalist component
     autoFocus={true}
     className="form-control-container"
-    disabled={false}
     id="my-datalist"
     inputProps={
       Object {
@@ -61,13 +59,11 @@ exports[`Datalist component should render with multisection 1`] = `
   id="my-datalist"
   isValid={true}
   label="My List"
-  labelAfter={true}
   required={true}
 >
   <Datalist component
     autoFocus={true}
     className="form-control-container"
-    disabled={false}
     id="my-datalist"
     inputProps={
       Object {

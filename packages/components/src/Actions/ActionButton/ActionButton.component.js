@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { Button, OverlayTrigger as BaseOverlayTrigger } from 'react-bootstrap';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
@@ -75,6 +75,17 @@ function getContent(props) {
 	return adjustContentPlacement(getIcon(props), getLabel(props), props.iconPosition);
 }
 
+function getHandler(func, model, label, rest) {
+	return (
+		func &&
+		(event =>
+			func(event, {
+				action: { label, ...rest },
+				model,
+			}))
+	);
+}
+
 function noOp() {}
 
 /**
@@ -103,6 +114,8 @@ export function ActionButton(props) {
 		model,
 		onMouseDown = noOp,
 		onClick = noOp,
+		onMouseEnter,
+		onMouseLeave,
 		overlayId,
 		overlayComponent,
 		overlayPlacement,
@@ -127,18 +140,10 @@ export function ActionButton(props) {
 	const btnIsDisabled = inProgress || disabled;
 	const style = link ? 'link' : bsStyle;
 
-	const rClick =
-		onClick &&
-		(event =>
-			onClick(event, {
-				action: { label, ...rest },
-				model,
-			}));
-	const rMouseDown = event =>
-		onMouseDown(event, {
-			action: { label, ...rest },
-			model,
-		});
+	const rClick = getHandler(onClick, model, label, rest);
+	const rMouseDown = getHandler(onMouseDown, model, label, rest);
+	const rMouseEnter = getHandler(onMouseEnter, model, label, rest);
+	const rMouseLeave = getHandler(onMouseLeave, model, label, rest);
 
 	buttonProps.className = classNames(buttonProps.className, {
 		'btn-icon-only': hideLabel || !label,
@@ -153,17 +158,23 @@ export function ActionButton(props) {
 		});
 	}
 	if (loading) {
-		ariaLabel = t('SKELETON_LOADING', { defaultValue: ' {{type}} (loading)', type: ariaLabel });
+		ariaLabel = t('SKELETON_LOADING', { defaultValue: '{{type}} (loading)', type: ariaLabel });
 	}
 
 	const hasPopup = !inProgress && overlayComponent;
 	if (hasPopup) {
 		buttonProps['aria-haspopup'] = true;
 	}
+	// enforce security on target="_blank"
+	if (buttonProps.target === '_blank') {
+		buttonProps.rel = 'noopener noreferrer';
+	}
 	let btn = (
 		<Button
 			onMouseDown={!overlayComponent ? rMouseDown : null}
 			onClick={!overlayComponent ? rClick : null}
+			onMouseEnter={!overlayComponent ? rMouseEnter : null}
+			onMouseLeave={!overlayComponent ? rMouseLeave : null}
 			bsStyle={style}
 			disabled={btnIsDisabled}
 			role={link ? 'link' : null}
@@ -178,6 +189,8 @@ export function ActionButton(props) {
 		btn = (
 			<OverlayTrigger
 				onClick={rClick}
+				onMouseEnter={rMouseEnter}
+				onMouseLeave={rMouseLeave}
 				overlayRef={overlayRef}
 				overlayId={overlayId}
 				overlayPlacement={overlayPlacement}
@@ -242,4 +255,4 @@ ActionButton.defaultProps = {
 };
 
 ActionButton.displayName = 'ActionButton';
-export default translate(I18N_DOMAIN_COMPONENTS)(ActionButton);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(ActionButton);

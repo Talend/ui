@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import keyCode from 'keycode';
 import FieldTemplate from '../FieldTemplate';
 import TextArea from '../TextArea';
@@ -90,8 +90,8 @@ class Code extends React.Component {
 	}
 
 	render() {
-		const { id, isValid, errorMessage, schema, value, t } = this.props;
-		const { autoFocus, description, disabled = false, options, readOnly = false, title } = schema;
+		const { id, isValid, errorMessage, schema, value, valueIsUpdating, t } = this.props;
+		const { autoFocus, description, options, readOnly = false, title } = schema;
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
 		const instructionsId = generateId(id, 'instructions');
@@ -100,6 +100,7 @@ class Code extends React.Component {
 			errorId,
 			instructionsId,
 		};
+
 		return (
 			<FieldTemplate
 				description={description}
@@ -110,6 +111,7 @@ class Code extends React.Component {
 				isValid={isValid}
 				label={title}
 				required={schema.required}
+				valueIsUpdating={valueIsUpdating}
 			>
 				<div // eslint-disable-line jsx-a11y/no-static-element-interactions
 					id={id && `${id}-editor-container`}
@@ -128,7 +130,6 @@ class Code extends React.Component {
 					<AceEditor
 						key="ace"
 						className="tf-widget-code form-control"
-						disabled={disabled}
 						editorProps={{ $blockScrolling: Infinity }} // https://github.com/securingsincity/react-ace/issues/29
 						focus={autoFocus}
 						name={`${id}_wrapper`}
@@ -136,7 +137,9 @@ class Code extends React.Component {
 						onBlur={this.onFinish}
 						onLoad={this.onLoad}
 						onChange={this.onChange}
-						readOnly={readOnly}
+						// disabled is not supported by ace use readonly
+						// https://github.com/ajaxorg/ace/issues/406
+						readOnly={readOnly || schema.disabled || valueIsUpdating}
 						setOptions={DEFAULT_SET_OPTIONS}
 						showGutter={false}
 						showPrintMargin={false}
@@ -169,6 +172,7 @@ if (process.env.NODE_ENV !== 'production') {
 		}),
 		t: PropTypes.func,
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 
@@ -188,4 +192,4 @@ try {
 	CodeWidget = WrappedTextArea;
 }
 
-export default translate(I18N_DOMAIN_FORMS)(CodeWidget);
+export default withTranslation(I18N_DOMAIN_FORMS)(CodeWidget);

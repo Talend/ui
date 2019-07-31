@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import DebounceInput from 'react-debounce-input';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import keycode from 'keycode';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { Action } from '../Actions';
 import Icon from '../Icon';
 import I18N_DOMAIN_COMPONENTS from '../constants';
@@ -146,6 +146,7 @@ export class FilterBarComponent extends React.Component {
 					hideLabel
 					icon="talend-search"
 					bsStyle="link"
+					data-feature={this.props['data-feature']}
 					tooltipPlacement={this.props.tooltipPlacement}
 					role="search"
 				/>
@@ -164,9 +165,7 @@ export class FilterBarComponent extends React.Component {
 						[theme.animate]: this.props.dockable,
 					})}
 				>
-					{(this.props.iconAlwaysVisible || !(this.state.focus || this.state.value)) && (
-						<Icon name="talend-search" className={theme['search-icon']} />
-					)}
+					<Icon name="talend-search" className={theme['search-icon']} />
 					<FilterInput
 						autoFocus={this.props.autoFocus}
 						id={this.props.id && `${this.props.id}-input`}
@@ -200,9 +199,9 @@ export class FilterBarComponent extends React.Component {
 FilterBarComponent.displayName = 'FilterBar';
 FilterBarComponent.propTypes = {
 	autoFocus: PropTypes.bool,
-	iconAlwaysVisible: PropTypes.bool,
 	id: PropTypes.string,
 	className: PropTypes.string,
+	'data-feature': PropTypes.string,
 	debounceMinLength: PropTypes.number,
 	debounceTimeout: PropTypes.number,
 	docked: PropTypes.bool,
@@ -224,7 +223,6 @@ FilterBarComponent.defaultProps = {
 	autoFocus: true,
 	dockable: true,
 	docked: true,
-	iconAlwaysVisible: false,
 	navbar: true,
 	focus: false,
 	placeholder: 'Filter',
@@ -232,4 +230,4 @@ FilterBarComponent.defaultProps = {
 	className: '',
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(FilterBarComponent);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(FilterBarComponent);

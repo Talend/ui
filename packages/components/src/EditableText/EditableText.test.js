@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import { Action } from '../index';
 import { EditableTextComponent, PlainTextTitle } from './EditableText.component';
 import InlineForm from './InlineForm.component';
+import getDefaultT from '../translate';
 
 describe('EditableText', () => {
 	let defaultProps;
@@ -13,6 +14,7 @@ describe('EditableText', () => {
 				feature: 'my.custom.feature',
 				onEdit: jest.fn(),
 				onSubmit: jest.fn(),
+				required: true,
 			}),
 	);
 	it('should render', () => {
@@ -39,6 +41,17 @@ describe('PlainTextTitle', () => {
 			text: 'text',
 			feature: 'my.custom.feature',
 			onEdit: jest.fn(),
+		};
+		const wrapper = shallow(<PlainTextTitle {...props} />);
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should render provided component class', () => {
+		const props = {
+			text: 'text',
+			feature: 'my.custom.feature',
+			onEdit: jest.fn(),
+			componentClass: 'h1',
 		};
 		const wrapper = shallow(<PlainTextTitle {...props} />);
 		expect(wrapper.getElement()).toMatchSnapshot();
@@ -87,7 +100,8 @@ describe('InlineForm', () => {
 			onSubmit: jest.fn(),
 			onChange: jest.fn(),
 			onCancel: jest.fn(),
-			t: jest.fn(),
+			required: true,
+			t: getDefaultT,
 		};
 	});
 	it('should render', () => {
@@ -160,5 +174,56 @@ describe('InlineForm', () => {
 		new InlineForm(defaultProps).selectInput(input);
 		expect(input.select).toHaveBeenCalled();
 		expect(input.focus).toHaveBeenCalled();
+	});
+	it('should show an error message if errorMessage is provided', () => {
+		const errorMessage = 'Custom error message';
+		const props = { ...defaultProps, errorMessage };
+		const wrapper = shallow(<InlineForm {...props} />);
+
+		expect(
+			wrapper
+				.find('.form-group')
+				.first()
+				.props().className,
+		).toBe('form-group has-error');
+		expect(
+			wrapper
+				.find('.form-group')
+				.first()
+				.text(),
+		).toBe(errorMessage);
+	});
+	it('should not show errors if not required', () => {
+		const event = { preventDefault: jest.fn() };
+		const props = { ...defaultProps, required: false };
+		const wrapper = shallow(<InlineForm {...props} />);
+		expect(
+			wrapper
+				.find('Action')
+				.at(1)
+				.props().disabled,
+		).toBe(false);
+		wrapper.setState({ value: ' ' });
+		expect(
+			wrapper
+				.find('.form-group')
+				.first()
+				.props().className,
+		).toBe('form-group');
+		expect(
+			wrapper
+				.find('Action')
+				.at(1)
+				.props().disabled,
+		).toBe(false);
+		wrapper.find('form').simulate('submit', event);
+		expect(event.preventDefault).toHaveBeenCalled();
+		expect(defaultProps.onSubmit).toHaveBeenCalled();
+	});
+	it('should add placeholder to input', () => {
+		const placeholder = 'Your text here...';
+		const props = { ...defaultProps, required: false, placeholder };
+		const wrapper = shallow(<InlineForm {...props} />);
+		expect(wrapper.find('input').getElement().props.placeholder).toBe(placeholder);
 	});
 });

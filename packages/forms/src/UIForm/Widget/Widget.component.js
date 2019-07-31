@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { sfPath } from '@talend/json-schema-form-core';
+import { TooltipTrigger } from '@talend/react-components';
 
 import defaultWidgets from '../utils/widgets';
 import { getError } from '../utils/errors';
@@ -20,8 +21,27 @@ function getWidget(displayMode, widgetId, customWidgets) {
 	return widget;
 }
 
+function isUpdating(updatingKeys = [], key) {
+	if (updatingKeys.length === 0 || !key) {
+		return false;
+	}
+	// we need to support current and parent path
+	const serializedKey = key.join('.');
+	return updatingKeys.some(path => serializedKey.startsWith(path));
+}
+
 export default function Widget(props) {
-	const { condition, key, options, type, validationMessage, widget, displayMode } = props.schema;
+	const {
+		condition,
+		key,
+		options,
+		type,
+		validationMessage,
+		widget,
+		displayMode,
+		tooltip,
+		tooltipPlacement,
+	} = props.schema;
 	const widgetId = widget || type;
 
 	if (widgetId === 'hidden' || !shouldRender(condition, props.properties, key)) {
@@ -37,23 +57,36 @@ export default function Widget(props) {
 	const id = sfPath.name(key, '_', props.id);
 	const error = getError(props.errors, props.schema);
 	const errorMessage = validationMessage || error;
-	return (
-		<WidgetImpl
-			{...props}
-			id={id}
-			key={id}
-			errorMessage={errorMessage}
-			isValid={!error}
-			value={getValue(props.properties, props.schema)}
-			options={options}
-		/>
-	);
+	const all = {
+		...props,
+		id,
+		key: id,
+		options,
+		errorMessage,
+		isValid: !error,
+		value: getValue(props.properties, props.schema),
+		valueIsUpdating: isUpdating(props.updating, props.schema.key),
+	};
+
+	if (tooltip) {
+		return (
+			<TooltipTrigger label={tooltip} tooltipPlacement={tooltipPlacement || 'left'}>
+				<div>
+					<WidgetImpl {...all} />
+				</div>
+			</TooltipTrigger>
+		);
+	}
+
+	return <WidgetImpl {...all} />;
 }
 
 if (process.env.NODE_ENV !== 'production') {
 	Widget.propTypes = {
+		displayMode: PropTypes.string,
 		errors: PropTypes.object,
 		id: PropTypes.string,
+		properties: PropTypes.object,
 		schema: PropTypes.shape({
 			conditions: PropTypes.arrayOf(
 				PropTypes.shape({
@@ -69,8 +102,7 @@ if (process.env.NODE_ENV !== 'production') {
 			validationMessage: PropTypes.string,
 			widget: PropTypes.string,
 		}).isRequired,
-		properties: PropTypes.object,
-		displayMode: PropTypes.string,
+		updating: PropTypes.arrayOf(PropTypes.shape({ path: PropTypes.string })),
 		widgets: PropTypes.object,
 	};
 }

@@ -1,4 +1,5 @@
 const url = require('url');
+const http = require('https');
 const forms = require('./mock/kit');
 
 function getTriggerInfo(req) {
@@ -60,6 +61,7 @@ function reloadForm({ id }) {
 
 function suggestionForDemo() {
 	return {
+		cacheable: true,
 		items: [
 			{ id: 'clafoutis', label: 'Clafoutis aux poires et aux fruits' },
 			{ id: 'conchiglioni-au-thon', label: 'Conchiglioni au thon' },
@@ -68,6 +70,38 @@ function suggestionForDemo() {
 			{ id: 'pomme-savane', label: 'Pomme savane' },
 			{ id: 'tarte-au-citron', label: 'Tarte  au citron' },
 		],
+	};
+}
+
+const cache = {};
+
+function suggestionBig() {
+	if (cache.photos) {
+		return cache.photos;
+	}
+	return res => {
+		let body = '';
+		function onData(chunk) {
+			console.log('onData', chunk);
+			body += chunk;
+		}
+		function onEnd() {
+			console.log('onEnd', body);
+			cache.photos = {
+				cacheable: true,
+				items: JSON.parse(body).map(item => ({ id: item.id.toString(), label: item.title })),
+			};
+			res.json(cache.photos);
+		}
+		function onResponse(resp) {
+			console.log(`Got response: ${resp.statusCode}`);
+			resp.on('data', onData);
+			resp.on('end', onEnd);
+		}
+		function onError(e) {
+			console.error(e.message);
+		}
+		http.get('https://jsonplaceholder.typicode.com/photos', onResponse).on('error', onError);
 	};
 }
 
@@ -85,6 +119,21 @@ function updateProperties({ type }) {
 	}
 }
 
+function giveMeFive() {
+	return res => {
+		res
+			.status(500)
+			.json({
+				timestamp: 1548781374412,
+				status: 500,
+				error: 'Internal Server Error',
+				exception: 'javax.ws.rs.ClientErrorException',
+				message: 'An internal server error occurs',
+				path: '/proxy/v1/action/execute/dataset',
+			});
+	};
+}
+
 const TRIGGERS = {
 	validation: {
 		urlValidation,
@@ -100,9 +149,13 @@ const TRIGGERS = {
 	},
 	suggestions: {
 		suggestionForDemo,
+		suggestionBig,
 	},
 	update: {
 		updateProperties,
+	},
+	error: {
+		giveMeFive,
 	},
 };
 
@@ -117,6 +170,11 @@ module.exports = function addRoutes(app) {
 		res.json(forms[req.params.formId]);
 	});
 	app.post('/api/v1/application/action', (req, res) => {
-		res.json(trigger(req));
+		const result = trigger(req);
+		if (typeof result === 'function') {
+			result(res);
+		} else {
+			res.json(result);
+		}
 	});
 };

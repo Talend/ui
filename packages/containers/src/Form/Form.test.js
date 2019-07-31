@@ -1,11 +1,16 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import { fromJS } from 'immutable';
 
 import Container from './Form.container';
 import Connected from './Form.connect';
 
 describe('Container(Form)', () => {
+	const noOp = jest.fn();
+	const defaultProps = {
+		initState: noOp,
+		deleteState: noOp,
+	};
 	it('should pass props to Form lib', () => {
 		const wrapper = shallow(
 			<Container
@@ -17,6 +22,7 @@ describe('Container(Form)', () => {
 				onTrigger={jest.fn()}
 				formProps={{ other: true }} // extra props
 				loading
+				{...defaultProps}
 			/>,
 		);
 		const props = wrapper.props();
@@ -31,76 +37,24 @@ describe('Container(Form)', () => {
 				uiSchema={{ uiSchema: true }}
 				actions={[]}
 				formProps={{ other: true }} // extra props
+				{...defaultProps}
 			/>,
 		);
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should render with prop uiform = false : Form', () => {
-		const wrapper = mount(<Container jsonSchema={{}} uiSchema={{}} uiform={false} />);
-
-		expect(wrapper.find('TalendForm').length).toBe(1);
-		expect(wrapper.find('TalendUIForm').length).toBe(0);
-	});
-
-	it('should render with prop uiform = true : UIForm', () => {
-		const wrapper = mount(<Container jsonSchema={{}} uiSchema={{}} uiform />);
-		expect(wrapper.find('TalendForm').length).toBe(1);
-		expect(wrapper.find('TalendUIForm').length).toBe(1);
-	});
-
-	it('should render UIForm with language prop set', () => {
-		const wrapper = mount(
-			<Container
-				formId="test-form"
-				jsonSchema={{}}
-				uiSchema={{}}
-				actions={[]}
-				formProps={{ other: true }}
-				uiform
-				language={{ OBJECT_REQUIRED: 'Field translated' }}
-			/>,
-		).find('TalendUIForm');
-		expect(wrapper.props().language.OBJECT_REQUIRED).toEqual('Field translated');
-	});
-
-	it('should render UIForm with customFormat prop set', () => {
-		// given
-		const notABCRegExp = /[^abc]+/g;
-		const customFormats = {
-			noABC: fieldData => {
-				if (typeof fieldData === 'string' && !notABCRegExp.test(fieldData)) {
-					return 'test custom';
-				}
-				return null;
-			},
-		};
-		const customValidation = (schema, value) =>
-			value.length >= 5 && 'Custom validation : The value should be less than 5 chars';
-		const wrapper = mount(
-			<Container
-				formId="test-form"
-				jsonSchema={{}}
-				uiSchema={{}}
-				actions={[]}
-				formProps={{ other: true }}
-				uiform
-				customFormats={customFormats}
-				customValidation={customValidation}
-			/>,
-		).find('TalendUIForm');
-		expect(wrapper.props().customFormats).toEqual(customFormats);
-		expect(wrapper.props().customValidation).toEqual(customValidation);
-	});
-
 	it('should use props.onError', () => {
 		const onErrors = jest.fn();
+		const setState = jest.fn();
+		const event = { target: 'test' };
 		const form = new Container({
 			state: fromJS({ data: { schema: true } }),
 			onErrors,
+			setState,
 		});
-		form.onErrors(null, { foo: 'bar' });
-		expect(onErrors.mock.calls[0][1]).toEqual({ foo: 'bar' });
+		form.onErrors(event, { foo: 'bar' });
+		expect(onErrors).toBeCalledWith(event, { foo: 'bar' });
+		expect(setState).toBeCalledWith({ errors: { foo: 'bar' } });
 	});
 
 	it('should use props.onSubmit', () => {
@@ -126,12 +80,13 @@ describe('Container(Form)', () => {
 	it('should use props.onChange', () => {
 		const onChange = jest.fn();
 		const setState = jest.fn();
+		const event = { target: 'test' };
 		const form = new Container({
 			state: fromJS({ data: { schema: true } }),
 			onChange,
 			setState,
 		});
-		form.onChange(null, { foo: 'bar' }, 'my-form', 'key', 'value');
+		form.onChange(event, { foo: 'bar' }, 'my-form', 'key', 'value');
 		expect(onChange.mock.calls[0]).toMatchSnapshot();
 		expect(setState.mock.calls[0]).toMatchSnapshot();
 	});
@@ -217,6 +172,7 @@ describe('Container(Form)', () => {
 				actions={[]}
 				className="foo"
 				formProps={{ other: true }} // extra props
+				{...defaultProps}
 			/>,
 		);
 		const props = wrapper.props();

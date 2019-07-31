@@ -15,14 +15,34 @@ function TitleSubHeader({
 	loading,
 	inProgress,
 	editable,
-	subTitle,
 	getComponent,
+	onEdit,
+	onCancel,
+	onSubmit,
 	...rest
 }) {
+	const [isEditMode, setIsEditMode] = React.useState(false);
+	function handleEdit(...args) {
+		setIsEditMode(true);
+		if (onEdit) {
+			onEdit(...args);
+		}
+	}
+	function handleCancel(...args) {
+		setIsEditMode(false);
+		if (onCancel) {
+			onCancel(...args);
+		}
+	}
+	function handleSubmit(...args) {
+		setIsEditMode(false);
+		if (onSubmit) {
+			onSubmit(...args);
+		}
+	}
 	if (loading) {
 		return <Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.large} />;
 	}
-
 	const InjectedEditableText = Inject.get(getComponent, 'EditableText', EditableText);
 	return (
 		<div
@@ -49,6 +69,10 @@ function TitleSubHeader({
 							text={title}
 							inProgress={inProgress}
 							feature="subheaderbar.rename"
+							componentClass="h1"
+							onEdit={handleEdit}
+							onCancel={handleCancel}
+							onSubmit={handleSubmit}
 							{...rest}
 						/>
 					) : (
@@ -64,20 +88,46 @@ function TitleSubHeader({
 						</TooltipTrigger>
 					)}
 				</div>
-				{subTitle && (
-					<small
-						className={classNames(
-							theme['tc-subheader-details-text-subtitle'],
-							'tc-subheader-details-text-subtitle',
-						)}
-					>
-						{subTitle}
-					</small>
-				)}
+				{!isEditMode ? <SubTitle {...rest} /> : null}
 			</div>
 		</div>
 	);
 }
+
+function SubTitle({ subTitleLoading, subTitle }) {
+	if (subTitleLoading) {
+		return (
+			<Skeleton
+				className={classNames(
+					theme['tc-subheader-details-loading-subtitle'],
+					'tc-subheader-details-loading-subtitle',
+				)}
+				type={Skeleton.TYPES.text}
+				size={Skeleton.SIZES.large}
+			/>
+		);
+	}
+
+	if (subTitle) {
+		return (
+			<small
+				className={classNames(
+					theme['tc-subheader-details-text-subtitle'],
+					'tc-subheader-details-text-subtitle',
+				)}
+			>
+				{subTitle}
+			</small>
+		);
+	}
+
+	return null;
+}
+
+SubTitle.propTypes = {
+	subTitle: PropTypes.string,
+	subTitleLoading: PropTypes.bool,
+};
 
 TitleSubHeader.propTypes = {
 	title: PropTypes.string.isRequired,
@@ -86,6 +136,9 @@ TitleSubHeader.propTypes = {
 	inProgress: PropTypes.bool,
 	editable: PropTypes.bool,
 	subTitle: PropTypes.string,
+	onEdit: PropTypes.func,
+	onSubmit: PropTypes.func,
+	onCancel: PropTypes.func,
 	...Inject.PropTypes,
 };
 
@@ -96,4 +149,4 @@ TitleSubHeader.defaultProps = {
 	editable: false,
 };
 
-export { TitleSubHeader as default };
+export { TitleSubHeader as default, SubTitle };

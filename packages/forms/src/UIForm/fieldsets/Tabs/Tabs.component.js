@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import TabBar from '@talend/react-components/lib/TabBar';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import Widget from '../../Widget';
 import { isValid } from '../../utils/validation';
@@ -32,7 +32,12 @@ class Tabs extends React.Component {
 				'aria-label': tabIsValid
 					? undefined
 					: `${item.title} (${t('TF_TABS_HAS_ERRORS', { defaultValue: 'has errors' })})`,
-				children: <Widget {...restProps} schema={{ widget: 'fieldset', ...item }} />,
+				children: (
+					<Widget
+						{...restProps}
+						schema={{ widget: 'fieldset', ...item, options: { ...item.options, hideTitle: true } }}
+					/>
+				),
 			};
 		});
 		const { selectedKey } = this.state;
@@ -67,4 +72,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_FORMS)(Tabs);
+export default withTranslation(I18N_DOMAIN_FORMS)(Tabs);

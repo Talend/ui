@@ -106,10 +106,6 @@ describe('mergeModule', () => {
 		const left = mergeModules({ appId: 'foo' }, {}, {});
 		expect(left.appId).toBe('foo');
 	});
-	it('should throw an exception if two config has history', () => {
-		const toThrow = () => mergeModules({ history: 'foo' }, { history: 'bar' });
-		expect(toThrow).toThrow();
-	});
 	it('should merge enhancer functions', () => {
 		const fn1 = jest.fn();
 		const fn2 = jest.fn();
@@ -185,5 +181,14 @@ describe('mergeModule', () => {
 		expect(config.preReducer.length).toBe(2);
 		expect(config.preReducer[0]).toBe(array1[0]);
 		expect(config.preReducer[1]).toBe(array2[0]);
+	});
+	it('should merge httpInterceptors', () => {
+		const fn1 = jest.fn();
+		const fn2 = jest.fn();
+		const config = mergeModules({ httpInterceptors: [fn1]}, { httpInterceptors: [fn2]});
+		expect(Array.isArray(config.httpInterceptors)).toBeTruthy();
+		expect(config.httpInterceptors.length).toBe(2);
+		expect(config.httpInterceptors[0]).toBe(fn1);
+		expect(config.httpInterceptors[1]).toBe(fn2);
 	});
 });

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { Action, Actions, ActionDropdown, ActionSplitDropdown } from '../Actions';
 import Inject from '../Inject';
 import getDefaultT from '../translate';
@@ -12,6 +12,7 @@ const DISPLAY_MODES = {
 	DROPDOWN: 'dropdown',
 	SPLIT_DROPDOWN: 'splitDropdown',
 	BTN_GROUP: 'btnGroup',
+	DIVIDER: 'divider',
 };
 const TAG_TYPES = {
 	DIV: 'div',
@@ -37,8 +38,24 @@ const actionsShape = {
 	children: PropTypes.node,
 };
 
-function getActionsToRender({ selected, actions, multiSelectActions }) {
+function getActionsToRender({ selected, actions, multiSelectActions = {}, appMultiSelectActions }) {
 	if (selected > 0) {
+		if (appMultiSelectActions) {
+			return ['left', 'center', 'right'].reduce((result, type) => {
+				if (multiSelectActions[type] && appMultiSelectActions[type]) {
+					return Object.assign({}, result, {
+						[type]: [
+							...multiSelectActions[type],
+							{ displayMode: 'divider' },
+							...appMultiSelectActions[type],
+						],
+					});
+				}
+				return Object.assign({}, result, {
+					[type]: multiSelectActions[type] || appMultiSelectActions[type],
+				});
+			}, {});
+		}
 		return multiSelectActions || {};
 	}
 	return actions || {};
@@ -83,9 +100,11 @@ function getActionsFromRenderers(actions, getComponent) {
 		ActionDropdown,
 		ActionSplitDropdown,
 	});
-	return actions.map((action, index) => {
+	function getActionsElements(action, index) {
 		const { displayMode, ...rest } = action;
 		switch (displayMode) {
+			case DISPLAY_MODES.DIVIDER:
+				return <span className="divider">|</span>;
 			case DISPLAY_MODES.DROPDOWN:
 				return <Renderers.ActionDropdown key={index} {...rest} />;
 			case DISPLAY_MODES.SPLIT_DROPDOWN:
@@ -98,14 +117,22 @@ function getActionsFromRenderers(actions, getComponent) {
 				}
 				return <Renderers.Action key={index} {...rest} />;
 		}
-	});
+	}
+	return actions.map(getActionsElements);
 }
 
-function SwitchActions({ actions, left, right, center, selected, getComponent, t }) {
+function SwitchActions({ actions, left, right, center, getComponent, components }) {
+	if (!actions.length && !components) {
+		return null;
+	}
+
+	const injected = Inject.all(getComponent, components);
+
 	return (
 		<Content left={left} right={right} center={center}>
-			{selected > 0 && left ? <Count selected={selected} t={t} /> : null}
+			{injected('before-actions')}
 			{getActionsFromRenderers(actions, getComponent)}
+			{injected('after-actions')}
 		</Content>
 	);
 }
@@ -114,9 +141,8 @@ SwitchActions.propTypes = {
 	left: PropTypes.bool,
 	right: PropTypes.bool,
 	center: PropTypes.bool,
-	selected: PropTypes.number,
 	getComponent: PropTypes.func,
-	t: PropTypes.func,
+	components: PropTypes.object,
 };
 SwitchActions.defaultProps = {
 	actions: [],
@@ -138,6 +164,20 @@ Count.propTypes = {
 	t: PropTypes.func,
 };
 
+function defineComponentLeft(parentComponentLeft, selected, t) {
+	if (parentComponentLeft) {
+		return parentComponentLeft;
+	}
+
+	if (selected > 0) {
+		return {
+			'before-actions': <Count selected={selected} t={t} />,
+		};
+	}
+
+	return undefined;
+}
+
 export function ActionBarComponent(props) {
 	const { left, right, center } = getActionsToRender(props);
 	const cssClass = classNames(
@@ -146,39 +186,35 @@ export function ActionBarComponent(props) {
 		'nav',
 		props.className,
 	);
+
+	const componentsLeft = defineComponentLeft(props.components.left, props.selected, props.t);
+	const componentsCenter = props.components.center;
+	const componentsRight = props.components.right;
+
 	return (
 		<div className={cssClass}>
-			{(left || !!props.selected) && (
-				<SwitchActions
-					getComponent={props.getComponent}
-					key={0}
-					actions={left}
-					selected={props.selected}
-					left
-					t={props.t}
-				/>
-			)}
+			<SwitchActions
+				getComponent={props.getComponent}
+				key={0}
+				actions={left}
+				left
+				components={componentsLeft}
+			/>
 			{props.children}
-			{center && (
-				<SwitchActions
-					getComponent={props.getComponent}
-					key={1}
-					actions={center}
-					selected={props.selected}
-					center
-					t={props.t}
-				/>
-			)}
-			{right && (
-				<SwitchActions
-					getComponent={props.getComponent}
-					key={2}
-					actions={right}
-					selected={props.selected}
-					right
-					t={props.t}
-				/>
-			)}
+			<SwitchActions
+				getComponent={props.getComponent}
+				key={1}
+				actions={center}
+				center
+				components={componentsCenter}
+			/>
+			<SwitchActions
+				getComponent={props.getComponent}
+				key={2}
+				actions={right}
+				right
+				components={componentsRight}
+			/>
 		</div>
 	);
 }
@@ -189,13 +225,18 @@ ActionBarComponent.propTypes = {
 	className: PropTypes.string,
 	getComponent: PropTypes.func,
 	t: PropTypes.func,
+	components: PropTypes.object,
 };
-
+ActionBarComponent.defaultProps = {
+	components: {},
+};
 ActionBarComponent.displayName = 'ActionBar';
-ActionBarComponent.DISPLAY_MODES = DISPLAY_MODES;
-ActionBarComponent.Count = Count;
-ActionBarComponent.SwitchActions = SwitchActions;
-ActionBarComponent.getActionsToRender = getActionsToRender;
-ActionBarComponent.Content = Content;
-ActionBarComponent.getContentClassName = getContentClassName;
-export default translate(I18N_DOMAIN_COMPONENTS)(ActionBarComponent);
+
+const TranslatedActionBar = withTranslation(I18N_DOMAIN_COMPONENTS)(ActionBarComponent);
+TranslatedActionBar.DISPLAY_MODES = DISPLAY_MODES;
+TranslatedActionBar.Count = Count;
+TranslatedActionBar.SwitchActions = SwitchActions;
+TranslatedActionBar.getActionsToRender = getActionsToRender;
+TranslatedActionBar.Content = Content;
+TranslatedActionBar.getContentClassName = getContentClassName;
+export default TranslatedActionBar;

@@ -5,10 +5,12 @@ exports[`EditableText should render 1`] = `
   className="theme-tc-editable-text tc-editable-text"
 >
   <PlainTextTitle
+    componentClass="span"
     feature="my.custom.feature"
     inProgress={false}
     onEdit={[MockFunction]}
     onSubmit={[MockFunction]}
+    required={true}
     t={[Function]}
     text="my text"
   />
@@ -24,6 +26,7 @@ exports[`EditableText should render InlineForm 1`] = `
     inProgress={false}
     onEdit={[MockFunction]}
     onSubmit={[MockFunction]}
+    required={true}
     t={[Function]}
     text="my text"
   />
@@ -37,10 +40,12 @@ exports[`EditableText should render inProgress 1`] = `
   className="theme-tc-editable-text tc-editable-text theme-tc-editable-text-blink tc-editable-text-blink"
 >
   <PlainTextTitle
+    componentClass="span"
     feature="my.custom.feature"
     inProgress={true}
     onEdit={[MockFunction]}
     onSubmit={[MockFunction]}
+    required={true}
     t={[Function]}
     text="my text"
   />
@@ -48,7 +53,7 @@ exports[`EditableText should render inProgress 1`] = `
 `;
 
 exports[`EditableText should render skeleton 1`] = `
-<Translate(Skeleton)
+<withI18nextTranslation(Skeleton)
   size="large"
   type="text"
 />
@@ -79,6 +84,7 @@ exports[`InlineForm should render 1`] = `
       data-feature="my.custom.feature.cancel"
       hideLabel={true}
       icon="talend-cross"
+      label={[Function]}
       name="action-cancel-title"
       onClick={[Function]}
     />
@@ -89,6 +95,7 @@ exports[`InlineForm should render 1`] = `
       disabled={false}
       hideLabel={true}
       icon="talend-check"
+      label={[Function]}
       name="action-submit-title"
       type="submit"
     />
@@ -110,6 +117,34 @@ exports[`PlainTextTitle should render 1`] = `
     >
       text
     </span>
+  </TooltipTrigger>
+  <Action
+    bsStyle="link"
+    className="theme-tc-editable-text-pencil tc-editable-text-pencil"
+    data-feature="my.custom.feature"
+    hideLabel={true}
+    icon="talend-pencil"
+    label="Edit"
+    name="action-edit"
+    onClick={[MockFunction]}
+  />
+</div>
+`;
+
+exports[`PlainTextTitle should render provided component class 1`] = `
+<div
+  className="theme-tc-editable-text-title"
+>
+  <TooltipTrigger
+    label="text"
+    tooltipPlacement="bottom"
+  >
+    <h1
+      className="theme-tc-editable-text-wording tc-editable-text-wording"
+      onDoubleClick={[MockFunction]}
+    >
+      text
+    </h1>
   </TooltipTrigger>
   <Action
     bsStyle="link"

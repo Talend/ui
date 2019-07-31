@@ -1,0 +1,14 @@
+////
+/// Bootstrap hyperlinks customization
+/// @group Hyperlinks
+////
+
+a {
+	font-weight: 600;
+	color: $lochmara;
+
+	&:hover {
+		color: $scooter;
+		text-decoration: underline;
+	}
+}

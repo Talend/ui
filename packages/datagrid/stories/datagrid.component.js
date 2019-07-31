@@ -2,19 +2,23 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { IconsProvider } from '@talend/react-components';
 
+import './config/i18n';
 import DataGrid from '../src/components/';
-import DynamicDataGrid from './DynamicDataGrid.component';
 import DefaultRenderer from '../src/components/DefaultCellRenderer/DefaultRenderer.component';
 import DefaultIntCellRenderer from '../src/components/DefaultIntCellRenderer';
 import DefaultPinHeaderRenderer from '../src/components/DefaultPinHeaderRenderer';
 import DefaultCellRenderer from '../src/components/DefaultCellRenderer';
 import DefaultHeaderRenderer from '../src/components/DefaultHeaderRenderer';
-
+import DynamicDataGrid from './DynamicDataGrid.component';
+import FasterDatagrid from './FasterDatagrid.component';
+import ImmutableDataGrid from './ImmutableDatagrid.component';
 import sample from './sample.json';
 import sample2 from './sample2.json';
 import sample3 from './sample3.json';
+import sampleWithoutQuality from './sampleWithoutQuality.json';
 
-function getComponent(component) {
+// eslint-disable-next-line import/prefer-default-export
+export function getComponent(component) {
 	switch (component) {
 		case 'DefaultIntCellRenderer':
 			return DefaultIntCellRenderer;
@@ -27,12 +31,8 @@ function getComponent(component) {
 		case 'DefaultStringCellRenderer':
 			return DefaultRenderer;
 		default:
-			console.error(component);
+			return DefaultRenderer;
 	}
-}
-
-function forceRedrawRows(props, oldProps) {
-	return props.rowData[0].loading !== oldProps.rowData[0].loading;
 }
 
 sample.data[0].value.field0.value = `﻿﻿﻿﻿﻿﻿﻿  loreum lo
@@ -45,12 +45,40 @@ sample.data[2].value.field0.value =
 	'very looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong value';
 
 storiesOf('Component Datagrid', module)
-
 	.add('default', () => (
 		<div style={{ height: '100vh' }}>
 			<IconsProvider />
 			<DataGrid
 				data={sample}
+				getComponent={getComponent}
+				onFocusedCell={event => console.log(event)}
+				onFocusedColumn={event => console.log(event)}
+				onVerticalScroll={event => console.log(event)}
+				rowSelection="multiple"
+				enableColResize={false}
+			/>
+		</div>
+	))
+	.add('without subtype', () => (
+		<div style={{ height: '100vh' }}>
+			<IconsProvider />
+			<DataGrid
+				columnsConf={{ hideSubType: true }}
+				data={sample}
+				getComponent={getComponent}
+				onFocusedCell={event => console.log(event)}
+				onFocusedColumn={event => console.log(event)}
+				onVerticalScroll={event => console.log(event)}
+				rowSelection="multiple"
+				enableColResize={false}
+			/>
+		</div>
+	))
+	.add('datagrid without quality', () => (
+		<div style={{ height: '100vh' }}>
+			<IconsProvider />
+			<DataGrid
+				data={sampleWithoutQuality}
 				getComponent={getComponent}
 				onFocusedCell={event => console.log(event)}
 				onFocusedColumn={event => console.log(event)}
@@ -101,7 +129,7 @@ storiesOf('Component Datagrid', module)
 			/>
 		</div>
 	))
-	.add('loading', () => (
+	.add('loading datagrid', () => (
 		<div style={{ height: '100vh' }}>
 			<IconsProvider />
 			<DataGrid data={sample} loading />
@@ -150,4 +178,14 @@ storiesOf('Component Datagrid', module)
 		}
 		return <WithLayout />;
 	})
-	.add('dynamic change data', () => <DynamicDataGrid />);
+	.add('@deprecated - dynamic change data with forceRedrawRows', () => (
+		<DynamicDataGrid forceRedraw />
+	))
+	.add('dynamic change data', () => <DynamicDataGrid />)
+	.add('faster datagrid', () => (
+		<div style={{ height: '100vh' }}>
+			<IconsProvider />
+			<FasterDatagrid />
+		</div>
+	))
+	.add('datagrid with immutable data', () => <ImmutableDataGrid />);

@@ -13,7 +13,7 @@ function getValues(value = [], itemValue, checked) {
 }
 
 export default function CheckBoxes(props) {
-	const { id, isValid, errorMessage, onChange, onFinish, schema, value } = props;
+	const { id, isValid, errorMessage, onChange, onFinish, schema, value, valueIsUpdating } = props;
 	const { description, title, titleMap } = schema;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
@@ -27,10 +27,12 @@ export default function CheckBoxes(props) {
 			isValid={isValid}
 			label={title}
 			required={schema.required}
+			valueIsUpdating={valueIsUpdating}
 		>
 			{titleMap.map((item, index) => (
 				<SimpleCheckBox
 					describedby={`${descriptionId} ${errorId}`}
+					disabled={schema.disabled || valueIsUpdating}
 					id={id}
 					key={index}
 					isValid={isValid}
@@ -41,7 +43,12 @@ export default function CheckBoxes(props) {
 							value: getValues(value, item.value, payload.value),
 						})
 					}
-					onFinish={onFinish}
+					onFinish={(event, payload) =>
+						onFinish(event, {
+							schema: payload.schema,
+							value: getValues(value, item.value, payload.value),
+						})
+					}
 					schema={schema}
 					value={value && value.includes(item.value)}
 				/>
@@ -68,6 +75,7 @@ if (process.env.NODE_ENV !== 'production') {
 			),
 		}),
 		value: PropTypes.arrayOf(PropTypes.string),
+		valueIsUpdating: PropTypes.bool,
 	};
 }
 

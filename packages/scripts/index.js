@@ -12,15 +12,12 @@ console.log(`Running command: ${command}`, `With options: ${options}`);
 switch (command) {
 	case 'start':
 	case 'build':
+	case 'build:lib':
 	case 'lint:es':
 	case 'test':
+	case 'test:ng':
+	case 'extends':
 		require('./webapp')(command, options);
-		break;
-	case 'i18n-extract':
-	case 'i18n-upload':
-	case 'i18n-download':
-	case 'i18n-to-github':
-		require('./internationalization')(command);
 		break;
 	default:
 		console.log(`Command ${command} not found.`);

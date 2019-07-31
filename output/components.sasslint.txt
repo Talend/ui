@@ -5,16 +5,22 @@ src/DateTimePickers/pickers/TimePicker/TimePicker.scss
   26:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/Drawer/Drawer.scss
-  14:4  warning  Statement must begin on a new line  brace-style
+  15:4  warning  Statement must begin on a new line  brace-style
 
 src/FilterBar/FilterBar.scss
-  47:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
+  48:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
+
+src/GuidedTour/GuidedTour.scss
+  71:4  error  Class '.reactour__mask' should be written in lowercase with hyphens            class-name-format
+  80:4  error  Class '.reactour__dot--is-active' should be written in lowercase with hyphens  class-name-format
+
+src/List/Toolbar/Toolbar.scss
+  71:6  error  Nesting depth 4 greater than max of 3  nesting-depth
+  75:6  error  Nesting depth 4 greater than max of 3  nesting-depth
+  80:6  error  Nesting depth 4 greater than max of 3  nesting-depth
 
 src/Typeahead/Typeahead.scss
-  97:5  error  Nesting depth 4 greater than max of 3  nesting-depth
+  31:5  error  Mixins should come before declarations  mixins-before-declarations
 
-src/VirtualizedList/RowCollapsiblePanel/RowCollapsiblePanel.scss
-  2:24  error  Strings must use single quotes  quotes
-
-✖ 5 problems (3 errors, 2 warnings)
+✖ 9 problems (7 errors, 2 warnings)
 

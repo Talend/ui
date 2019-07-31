@@ -3,7 +3,7 @@ import React from 'react';
 import invariant from 'invariant';
 import isObject from 'lodash/isObject';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Action } from '../../Actions';
 import TooltipTrigger from '../../TooltipTrigger';
@@ -275,7 +275,7 @@ export function getDataAbstract(data) {
 	return abstract;
 }
 
-export function ComplexItem(props) {
+function UntranslatedComplexItem(props) {
 	const { data, id, info, jsonpath, level, opened, t } = props;
 	const isOpened = opened.indexOf(jsonpath) !== -1;
 
@@ -342,8 +342,8 @@ export function ComplexItem(props) {
 					<sup
 						key="badge"
 						className={`${theme.badge} badge`}
-						aria-label={t('TC_OBJECT_VIEWER_NB_CHILDREN', {
-							defaultValue: 'Contains {{count}} children',
+						aria-label={t('TC_OBJECT_VIEWER_NB_CHILD', {
+							defaultValue: 'Contains {{count}} child',
 							count: info.length,
 						})}
 					>
@@ -357,10 +357,13 @@ export function ComplexItem(props) {
 		</LineItem>
 	);
 }
-ComplexItem.defaultProps = {
+UntranslatedComplexItem.defaultProps = {
 	t: getDefaultT(),
 };
-ComplexItem.propTypes = {
+
+UntranslatedComplexItem.displayName = 'ComplexItem';
+
+UntranslatedComplexItem.propTypes = {
 	data: PropTypes.oneOfType([
 		PropTypes.bool,
 		PropTypes.number,
@@ -381,6 +384,21 @@ ComplexItem.propTypes = {
 	showType: PropTypes.bool,
 	t: PropTypes.func,
 };
+
+/**
+ * translated complex item is still exported as is, the UntranslatedComplexItem undecorated const
+ * was kept to avoid import breaking change on client app
+ * I think translation probably should not have crept in UI/components.
+ * First it create a strong cooupling between the translation stack and the component stack.
+ * Second it make UI much more complex.
+ *
+ * Anyway the next release that may contains breaking changes would be a good opportunity to
+ * rename the undecorated component to ComplexItem
+ * rename the exported variable containing the translated component to TranslatedComplexItem
+ *
+ * AxelC
+ */
+export const ComplexItem = withTranslation(I18N_DOMAIN_COMPONENTS)(UntranslatedComplexItem);
 
 export function Item(props) {
 	const { data, tagged, jsonpath, tupleLabel } = props;
@@ -522,4 +540,4 @@ JSONLike.propTypes = {
 	tupleLabel: PropTypes.string,
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(withTreeGesture(JSONLike));
+export default withTreeGesture(JSONLike);

@@ -5,12 +5,9 @@ import * as containers from './containers';
 
 const components = Object.keys(allComponents).reduce((acc, key) => {
 	if (!acc[key] && typeof allComponents[key] === 'function') {
-		let options = {};
-		if (key === 'Layout') {
-			options = {
-				omitCMFProps: true,
-				withComponentRegistry: true,
-			};
+		const options = {};
+		if (['ActionList', 'Layout', 'RichLayout', 'Dialog'].includes(key)) {
+			options.withComponentRegistry = true;
 		}
 		if (!allComponents[key].displayName) {
 			allComponents[key].displayName = key;
