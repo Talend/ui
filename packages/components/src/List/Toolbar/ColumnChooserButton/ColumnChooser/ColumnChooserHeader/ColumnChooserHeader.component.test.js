@@ -17,7 +17,7 @@ const HeaderWithContext = ({ children, id, t = getDefaultT(), ...rest }) => (
 	</ColumnChooserProvider>
 );
 
-describe('Name of the group', () => {
+describe('ColumnChooserHeader', () => {
 	it('should render by default', () => {
 		// Given
 		const id = 'col-chooser-id';
