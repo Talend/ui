@@ -1,9 +1,9 @@
 # Column Chooser
 
 
-- [Presentation](#presentation)
-- [How to use it](#how-to-use-it)
-- [Components](#components)
+1. [Presentation](#presentation)
+2. [How to use it](#how-to-use-it)
+3. [Components](#components)
 	- [ColumnChooserButton](#columnchooserbutton)
 	- [ColumnChooser](#columnchooser)
 	- [ColumnChooserHeader](#columnchooserheader)
@@ -12,14 +12,14 @@
 	- [ColumnChooserRowRenderer](#columnchooserrowrenderer)
 	- [RowVisibilityCheckbox](#rowvisibilitycheckbox)
 	- [RowLabel](#rowlabel)
-- [Hooks](#hooks)
+4. [Hooks](#hooks)
 	- [ColumnChooserManagerHook](#columnchoosermanagerhook)
-- [Context](#context)
+5. [Context](#context)
 	- [columnChooserContext](#columnchoosercontext)
-- [PropTypes and structure](#proptypes-and-structures)
+6. [PropTypes and structure](#proptypes-and-structures)
 	- [ColumnChooserPropTypes](#columnchooserproptypes)
 	- [ColumnsChooserPropTypes](#columnschooserproptypes)
-- [Utils](#utils)
+7. [Utils](#utils)
 	- [mergedColumnsChooser](#mergedcolumnschooser)
 	- [compareOrder](#compareorder)
 
@@ -29,6 +29,8 @@ It allows you to edit the columns present in a list.
 You can hide and show each column individually or by using the select all button.
 The column chooser is present is the list toolbar.
 The component uses hooks and context.
+
+[Frontify](http://guidelines.talend.com/document/92132#/navigation-layout/column-chooser)
 
 ## How to use it
 
@@ -206,7 +208,7 @@ It holds the state of the columns edited by the user.
 | initColumns | array | array of columns object from the list
 | nbLockedLeftItems | number | the number of columns that will be locked, left to right
 
-And it returns an object with some values and handlers
+And it returns an object with hook state values and handlers to manipulate them.
 
 | Fields | Type | Info
 |---|---|---|
@@ -219,7 +221,7 @@ And it returns an object with some values and handlers
 
 ### columnChooserContext
 
-The column chooser uses a context to pass some props to its children and avoir props drilling.
+The column chooser uses a context to pass some props to its children and avoid props drilling.
 By default the context is initialized in [ColumnChooser](#columnchooser).
 You can import directly the provider and the consumer from columnChooser.context
 ```
