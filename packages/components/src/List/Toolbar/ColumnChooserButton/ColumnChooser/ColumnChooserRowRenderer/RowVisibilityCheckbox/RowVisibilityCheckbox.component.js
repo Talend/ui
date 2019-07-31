@@ -34,7 +34,7 @@ const RowVisibilityCheckbox = ({ index, locked, value = false }) => {
 				'tc-column-chooser-row-visibility',
 			)}
 		>
-			{locked ? <Icon name="talend-locked" /> : CheckboxInput }
+			{locked ? <Icon name="talend-locked" /> : CheckboxInput}
 		</div>
 	);
 };
