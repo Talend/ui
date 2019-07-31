@@ -110,12 +110,18 @@ $tc-toggle-color: #555964 !default;
 		}
 	}
 
-	.toggle svg {
+	:global(.tc-icon-toggle) {
+		height: 1.6rem;
+		width: 1.6rem;
 		transform-origin: center;
+		svg {
+			height: 1rem;
+			width: 1rem;
+		}
 	}
 
 	&.open {
-		.toggle svg {
+		:global(.tc-icon-toggle) svg {
 			transform: rotate(180deg);
 		}
 	}
@@ -140,36 +146,43 @@ $tc-toggle-color: #555964 !default;
 		}
 	}
 
-	.panel-heading {
-		display: flex;
-		justify-content: space-between;
-		padding: 0;
+	:global {
+		.panel-heading {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 $padding-normal;
 
-		> * {
-			padding: 0;
-			letter-spacing: 0;
-			text-decoration: none;
-		}
-
-		.panel-title {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			flex-basis: 100%;
-			overflow: hidden;
-			text-decoration: none;
-			text-transform: none;
-			font-size: 1.4rem;
-			padding-left: 5px;
-			padding-right: 5px;
-
-			> * {
-				@include col-style;
-				display: flex;
-				align-items: center;
-				height: 4rem;
+            > * {
+                padding: 0;
+                letter-spacing: 0;
+                text-decoration: none;
+            }
+			> .panel-title {
+				padding: 0;
 			}
-		}
+            .panel-title {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-basis: 100%;
+                overflow: hidden;
+                text-decoration: none;
+                text-transform: none;
+                font-size: 1.4rem;
+				width: 100%;
+				padding-right: $padding-smaller;
+				> *, .panel-header-content {
+                    @include col-style;
+                    display: flex;
+                    align-items: center;
+                    height: 4rem;
+					justify-content: space-between;
+				}
+				.panel-header-content, > a {
+					width: 100%;
+				}
+            }
+	    }
 	}
 }
 
@@ -227,6 +240,14 @@ $tc-toggle-color: #555964 !default;
 			fill: $tc-toggle-color;
 			height: 10px;
 			width: 10px;
+		}
+	}
+
+	&.open {
+		:global(.toggle) {
+			svg {
+				fill: $white;
+			}
 		}
 	}
 

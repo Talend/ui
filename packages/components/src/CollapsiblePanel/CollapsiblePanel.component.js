@@ -5,7 +5,7 @@ import { Label, OverlayTrigger, Panel, Button } from 'react-bootstrap';
 import { withTranslation } from 'react-i18next';
 
 import Action from '../Actions/Action';
-import Icon from './../Icon/Icon.component';
+import ActionIconToggle from '../Actions/ActionIconToggle';
 import { Status, getbsStyleFromStatus } from '../Status';
 import TooltipTrigger from './../TooltipTrigger';
 import getDefaultT from '../translate';
@@ -155,21 +155,21 @@ function CollapsiblePanelHeader(props) {
 			: t('COLLAPSIBLE_PANEL_EXPAND', { defaultValue: 'Expand panel' });
 
 		const defaultCaret = (
-			<Button
-				aria-controls={id}
-				className={classNames(css.toggle, 'toggle')}
-				bsStyle="link"
-				key="default-toggle"
-				onClick={onToggle}
-				title={caretText}
+			<ActionIconToggle
 				aria-expanded={expanded}
-			>
-				<Icon key={header.length} name="talend-caret-down" />
-			</Button>
+				className={classNames(css.toggle, 'toggle')}
+				onClick={onToggle}
+				id={id && `${id}__collapse`}
+				label={caretText}
+				type="button"
+				active={expanded}
+				icon="talend-caret-down"
+				iconTransform={expanded ? 'flip-vertical' : null}
+			/>
 		);
 		wrappedHeader.push(defaultCaret);
 	}
-	return <div className={classNames(css['panel-heading'], 'panel-heading')}>{wrappedHeader}</div>;
+	return <div className={classNames(css['panel-header-content'], 'panel-header-content')}>{wrappedHeader}</div>;
 }
 
 function getKeyValueContent(content) {
