@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Nav, Overlay, Popover } from 'react-bootstrap';
+import { Overlay, Popover } from 'react-bootstrap';
 import ColumnChooser from './ColumnChooser';
 import getDefaultT from '../../../translate';
 import ActionButton from '../../../Actions/ActionButton';
@@ -26,7 +26,7 @@ export default function ColumnChooserButton({
 	};
 
 	return (
-		<Nav>
+		<>
 			<ActionButton
 				buttonRef={setButtonRef}
 				data-feature="open-column-chooser-overlay-action"
@@ -59,7 +59,7 @@ export default function ColumnChooserButton({
 					)}
 				</Popover>
 			</Overlay>
-		</Nav>
+		</>
 	);
 }
 

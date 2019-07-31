@@ -105,7 +105,11 @@ function Toolbar({
 								</li>
 							)}
 							{injected('after-sort')}
-							{columnChooser && <ColumnChooserButton id={id} {...columnChooser} t={t} />}
+							{columnChooser && (
+								<li className="separated">
+									<ColumnChooserButton id={id} {...columnChooser} t={t} />
+								</li>
+							)}
 							{injected('before-displaymode')}
 							{display && (
 								<li className="separated">
