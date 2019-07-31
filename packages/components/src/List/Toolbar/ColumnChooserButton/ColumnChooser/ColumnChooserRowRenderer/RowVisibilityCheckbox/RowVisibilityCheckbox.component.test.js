@@ -58,7 +58,9 @@ describe('RowVisibilityCheckbox', () => {
 		const wrapper = mount(
 			<RowCheckboxWithContext index={index} onChangeVisibility={onChangeVisibility} />,
 		);
-		act(() => wrapper.find('input').simulate('change'));
+		act(() => {
+			wrapper.find('input').simulate('change');
+		});
 		// Then
 		expect(onChangeVisibility.mock.calls.length).toBe(1);
 		expect(onChangeVisibility.mock.calls[0][0]).toBe(index);
