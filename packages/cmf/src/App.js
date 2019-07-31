@@ -29,14 +29,14 @@ export default class App extends React.Component {
 	}
 
 	render() {
+		let content = this.props.children;
+		if (this.state.error) {
+			content = <ErrorFeedBack full />;
+		}
 		return (
 			<Provider store={this.props.store}>
 				<RegistryProvider>
-					{this.state.error ? (
-						<ErrorFeedBack full />
-					) : (
-						this.props.children
-					)}
+					{content}
 				</RegistryProvider>
 			</Provider>
 		);
