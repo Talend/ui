@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Name of the group should render by default 1`] = `"<header id=\\"col-chooser-id-header\\" class=\\"theme-tc-column-chooser-header tc-column-chooser-header theme-header tc-tooltip-header\\">Modify columns</header>"`;
