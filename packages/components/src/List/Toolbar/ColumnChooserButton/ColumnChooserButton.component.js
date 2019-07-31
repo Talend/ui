@@ -18,6 +18,12 @@ export default function ColumnChooserButton({
 	const changeOpened = () => setOpened(!opened);
 	const closePopover = () => setOpened(false);
 	const colChooserButtonId = `${id}-column-chooser`;
+
+	const onSubmitColumnChooser = (event, columnsChooser) => {
+		submit(event, columnsChooser);
+		closePopover();
+	};
+
 	return (
 		<Nav>
 			<ActionButton
@@ -45,8 +51,7 @@ export default function ColumnChooserButton({
 							columns={columns}
 							id={colChooserButtonId}
 							nbLockedLeftItems={nbLockedLeftItems}
-							onClose={changeOpened}
-							submit={submit}
+							submit={onSubmitColumnChooser}
 							t={t}
 						/>
 					) : (

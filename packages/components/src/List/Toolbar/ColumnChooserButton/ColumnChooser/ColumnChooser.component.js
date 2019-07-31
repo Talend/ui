@@ -28,12 +28,10 @@ export default function ColumnChooser({
 	submit,
 	t,
 }) {
-	const {
-		columnsChooser,
-		onChangeVisibility,
-		onSelectAll,
-		selectAll,
-	} = useColumnChooserManager(columns, nbLockedLeftItems);
+	const { columnsChooser, onChangeVisibility, onSelectAll, selectAll } = useColumnChooserManager(
+		columns,
+		nbLockedLeftItems,
+	);
 
 	useEffect(() => {
 		// eslint-disable-next-line no-console
@@ -42,11 +40,11 @@ export default function ColumnChooser({
 		);
 	}, []);
 
-	const onSubmitColumnChooser = event => {
+	const onSubmit = event => {
 		event.preventDefault();
 		submit(event, columnsChooser);
-		onClose();
 	};
+
 	return (
 		<ColumnChooserProvider
 			value={{
@@ -63,7 +61,7 @@ export default function ColumnChooser({
 				<form
 					id={`${id}-form`}
 					className={classNames(theme['tc-column-chooser'], 'tc-column-chooser')}
-					onSubmit={onSubmitColumnChooser}
+					onSubmit={onSubmit}
 				>
 					{!children ? DefaultColumnChooser : children}
 				</form>
