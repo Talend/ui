@@ -8,7 +8,7 @@ import { useListContext } from '../context';
 const DEFAULT_THRESHOLD = 5;
 const DEFAULT_MIN_BATCH_SIZE = 20;
 
-function InfiniteScrollList(props) {
+function LazyLoadingList(props) {
 	const { rowCount, threshold, minimumBatchSize, loadMoreRows, ...restProps } = props;
 	const { collection } = useListContext();
 
@@ -34,13 +34,13 @@ function InfiniteScrollList(props) {
 	);
 }
 
-InfiniteScrollList.defaultProps = {
+LazyLoadingList.defaultProps = {
 	threshold: DEFAULT_THRESHOLD,
 	minimumBatchSize: DEFAULT_MIN_BATCH_SIZE,
 };
 
 if (process.env.NODE_ENV !== 'production') {
-	InfiniteScrollList.propTypes = {
+	LazyLoadingList.propTypes = {
 		loadMoreRows: PropTypes.func.isRequired,
 		rowCount: PropTypes.number,
 		threshold: PropTypes.number,
@@ -48,4 +48,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default InfiniteScrollList;
+export default LazyLoadingList;

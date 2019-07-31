@@ -4,26 +4,26 @@ import buildFormatLocale from './formatters';
 export function buildDistanceInWordsLocale(t) {
 	function localize(token, count, options = {}) {
 		const distanceInWordsLocale = {
-			lessThanXSeconds: t('DATE_FNS_LESS_THAN_SECONDS', {
-				defaultValue: 'less than {{count}} seconds',
+			lessThanXSeconds: t('DATE_FNS_LESS_THAN_SECOND', {
+				defaultValue: 'less than {{count}} second',
 				count,
 			}),
-			xSeconds: t('DATE_FNS_SECOND', { defaultValue: '{{count}} seconds', count }),
+			xSeconds: t('DATE_FNS_SECOND', { defaultValue: '{{count}} second', count }),
 			halfAMinute: t('DATE_FNS_HALF_A_MINUTE', { defaultValue: 'half a minute' }),
-			lessThanXMinutes: t('DATE_FNS_LESS_THAN_MINUTES', {
-				defaultValue: 'less than {{count}} minutes',
+			lessThanXMinutes: t('DATE_FNS_LESS_THAN_MINUTE', {
+				defaultValue: 'less than {{count}} minute',
 				count,
 			}),
-			xMinutes: t('DATE_FNS_ABOUT_MINUTE', { defaultValue: '{{count}} minutes', count }),
-			aboutXHours: t('DATE_FNS_ABOUT_HOUR', { defaultValue: 'about {{count}} hours', count }),
-			xHours: t('DATE_FNS_HOUR', { defaultValue: '{{count}} hours', count }),
-			xDays: t('DATE_FNS_DAY', { defaultValue: '{{count}} days', count }),
-			aboutXMonths: t('DATE_FNS_ABOUT_MONTH', { defaultValue: 'about {{count}} months', count }),
-			xMonths: t('DATE_FNS_MONTH', { defaultValue: '{{count}} months', count }),
-			aboutXYears: t('DATE_FNS_ABOUT_YEAR', { defaultValue: 'about {{count}} years', count }),
-			xYears: t('DATE_FNS_YEAR', { defaultValue: '{{count}} years', count }),
-			overXYears: t('DATE_FNS_OVER_YEAR', { defaultValue: 'over {{count}} years', count }),
-			almostXYears: t('DATE_FNS_ALMOST_YEAR', { defaultValue: 'almost {{count}} years', count }),
+			xMinutes: t('DATE_FNS_ABOUT_MINUTE', { defaultValue: '{{count}} minute', count }),
+			aboutXHours: t('DATE_FNS_ABOUT_HOUR', { defaultValue: 'about {{count}} hour', count }),
+			xHours: t('DATE_FNS_HOUR', { defaultValue: '{{count}} hour', count }),
+			xDays: t('DATE_FNS_DAY', { defaultValue: '{{count}} day', count }),
+			aboutXMonths: t('DATE_FNS_ABOUT_MONTH', { defaultValue: 'about {{count}} month', count }),
+			xMonths: t('DATE_FNS_MONTH', { defaultValue: '{{count}} month', count }),
+			aboutXYears: t('DATE_FNS_ABOUT_YEAR', { defaultValue: 'about {{count}} year', count }),
+			xYears: t('DATE_FNS_YEAR', { defaultValue: '{{count}} year', count }),
+			overXYears: t('DATE_FNS_OVER_YEAR', { defaultValue: 'over {{count}} year', count }),
+			almostXYears: t('DATE_FNS_ALMOST_YEAR', { defaultValue: 'almost {{count}} year', count }),
 		};
 
 		const result = distanceInWordsLocale[token];

@@ -66,13 +66,17 @@ exports[`Typeahead injection should use render props to inject extra components 
             className="theme-item"
             title="category 1"
           >
-            <span
-              className="theme-item-title tc-typeahead-item-title"
+            <div
+              className="theme-item-text"
             >
-              <span>
-                category 1
+              <span
+                className="theme-item-title tc-typeahead-item-title"
+              >
+                <span>
+                  category 1
+                </span>
               </span>
-            </span>
+            </div>
           </div>
         </li>
         <li
@@ -85,13 +89,17 @@ exports[`Typeahead injection should use render props to inject extra components 
             className="theme-item"
             title="category 2"
           >
-            <span
-              className="theme-item-title tc-typeahead-item-title"
+            <div
+              className="theme-item-text"
             >
-              <span>
-                category 2
+              <span
+                className="theme-item-title tc-typeahead-item-title"
+              >
+                <span>
+                  category 2
+                </span>
               </span>
-            </span>
+            </div>
           </div>
         </li>
       </ul>
@@ -177,37 +185,41 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
             className="theme-item"
             title="le title 1"
           >
-            <span
-              className="theme-item-title tc-typeahead-item-title"
+            <div
+              className="theme-item-text"
             >
-              <span>
-                <em
-                  className="theme-highlight"
-                >
-                  le
-                </em>
-                 tit
-                <em
-                  className="theme-highlight"
-                >
-                  le
-                </em>
-                 1
+              <span
+                className="theme-item-title tc-typeahead-item-title"
+              >
+                <span>
+                  <em
+                    className="theme-highlight"
+                  >
+                    le
+                  </em>
+                   tit
+                  <em
+                    className="theme-highlight"
+                  >
+                    le
+                  </em>
+                   1
+                </span>
               </span>
-            </span>
-            <p
-              className="theme-item-description tc-typeahead-item-description"
-            >
-              <span>
-                description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibi
-                <em
-                  className="theme-highlight"
-                >
-                  le
-                </em>
-                 tempus ardore.
-              </span>
-            </p>
+              <p
+                className="theme-item-description tc-typeahead-item-description"
+              >
+                <span>
+                  description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibi
+                  <em
+                    className="theme-highlight"
+                  >
+                    le
+                  </em>
+                   tempus ardore.
+                </span>
+              </p>
+            </div>
           </div>
         </li>
         <li
@@ -220,49 +232,53 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
             className="theme-item"
             title="title 2 les elephants elementaires ont des aile"
           >
-            <span
-              className="theme-item-title tc-typeahead-item-title"
+            <div
+              className="theme-item-text"
             >
-              <span>
-                tit
-                <em
-                  className="theme-highlight"
-                >
-                  le
-                </em>
-                 2 
-                <em
-                  className="theme-highlight"
-                >
-                  le
-                </em>
-                s e
-                <em
-                  className="theme-highlight"
-                >
-                  le
-                </em>
-                phants e
-                <em
-                  className="theme-highlight"
-                >
-                  le
-                </em>
-                mentaires ont des ai
-                <em
-                  className="theme-highlight"
-                >
-                  le
-                </em>
+              <span
+                className="theme-item-title tc-typeahead-item-title"
+              >
+                <span>
+                  tit
+                  <em
+                    className="theme-highlight"
+                  >
+                    le
+                  </em>
+                   2 
+                  <em
+                    className="theme-highlight"
+                  >
+                    le
+                  </em>
+                  s e
+                  <em
+                    className="theme-highlight"
+                  >
+                    le
+                  </em>
+                  phants e
+                  <em
+                    className="theme-highlight"
+                  >
+                    le
+                  </em>
+                  mentaires ont des ai
+                  <em
+                    className="theme-highlight"
+                  >
+                    le
+                  </em>
+                </span>
               </span>
-            </span>
-            <p
-              className="theme-item-description tc-typeahead-item-description"
-            >
-              <span>
-                description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
-              </span>
-            </p>
+              <p
+                className="theme-item-description tc-typeahead-item-description"
+              >
+                <span>
+                  description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
+                </span>
+              </p>
+            </div>
           </div>
         </li>
       </ul>
@@ -303,32 +319,36 @@ exports[`Typeahead items should render typeahead items with match 1`] = `
             className="theme-item"
             title="title 3"
           >
-            <span
-              className="theme-item-title tc-typeahead-item-title"
+            <div
+              className="theme-item-text"
             >
-              <span>
-                tit
-                <em
-                  className="theme-highlight"
-                >
-                  le
-                </em>
-                 3
+              <span
+                className="theme-item-title tc-typeahead-item-title"
+              >
+                <span>
+                  tit
+                  <em
+                    className="theme-highlight"
+                  >
+                    le
+                  </em>
+                   3
+                </span>
               </span>
-            </span>
-            <p
-              className="theme-item-description tc-typeahead-item-description"
-            >
-              <span>
-                description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium va
-                <em
-                  className="theme-highlight"
-                >
-                  le
-                </em>
-                at.
-              </span>
-            </p>
+              <p
+                className="theme-item-description tc-typeahead-item-description"
+              >
+                <span>
+                  description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium va
+                  <em
+                    className="theme-highlight"
+                  >
+                    le
+                  </em>
+                  at.
+                </span>
+              </p>
+            </div>
           </div>
         </li>
       </ul>
@@ -456,20 +476,24 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
             className="theme-item"
             title="le title 1"
           >
-            <span
-              className="theme-item-title tc-typeahead-item-title"
+            <div
+              className="theme-item-text"
             >
-              <span>
-                le title 1
+              <span
+                className="theme-item-title tc-typeahead-item-title"
+              >
+                <span>
+                  le title 1
+                </span>
               </span>
-            </span>
-            <p
-              className="theme-item-description tc-typeahead-item-description"
-            >
-              <span>
-                description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
-              </span>
-            </p>
+              <p
+                className="theme-item-description tc-typeahead-item-description"
+              >
+                <span>
+                  description: Uxoresque est in pacto est marito est hastam nomine in eos discessura incredibile tempus ardore.
+                </span>
+              </p>
+            </div>
           </div>
         </li>
         <li
@@ -482,20 +506,24 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
             className="theme-item"
             title="title 2 les elephants elementaires ont des aile"
           >
-            <span
-              className="theme-item-title tc-typeahead-item-title"
+            <div
+              className="theme-item-text"
             >
-              <span>
-                title 2 les elephants elementaires ont des aile
+              <span
+                className="theme-item-title tc-typeahead-item-title"
+              >
+                <span>
+                  title 2 les elephants elementaires ont des aile
+                </span>
               </span>
-            </span>
-            <p
-              className="theme-item-description tc-typeahead-item-description"
-            >
-              <span>
-                description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
-              </span>
-            </p>
+              <p
+                className="theme-item-description tc-typeahead-item-description"
+              >
+                <span>
+                  description: Aut aut cum satis inter Epicuri quidem cum erat inquam controversia autem mihi utrumque Attico.
+                </span>
+              </p>
+            </div>
           </div>
         </li>
       </ul>
@@ -536,20 +564,24 @@ exports[`Typeahead items should render typeahead with object items 1`] = `
             className="theme-item"
             title="title 3"
           >
-            <span
-              className="theme-item-title tc-typeahead-item-title"
+            <div
+              className="theme-item-text"
             >
-              <span>
-                title 3
+              <span
+                className="theme-item-title tc-typeahead-item-title"
+              >
+                <span>
+                  title 3
+                </span>
               </span>
-            </span>
-            <p
-              className="theme-item-description tc-typeahead-item-description"
-            >
-              <span>
-                description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
-              </span>
-            </p>
+              <p
+                className="theme-item-description tc-typeahead-item-description"
+              >
+                <span>
+                  description: In sanciatur libere audeamus exspectemus amicitia et dum ne audeamus causa monendum honesta studium valeat.
+                </span>
+              </p>
+            </div>
           </div>
         </li>
       </ul>
@@ -610,13 +642,17 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
           data-feature="data-feature-typeahead"
           title="category 1"
         >
-          <span
-            className="theme-item-title tc-typeahead-item-title"
+          <div
+            className="theme-item-text"
           >
-            <span>
-              category 1
+            <span
+              className="theme-item-title tc-typeahead-item-title"
+            >
+              <span>
+                category 1
+              </span>
             </span>
-          </span>
+          </div>
         </div>
       </li>
       <li
@@ -630,13 +666,17 @@ exports[`Typeahead items should render typeahead with string items 1`] = `
           data-feature="data-feature-typeahead"
           title="category 2"
         >
-          <span
-            className="theme-item-title tc-typeahead-item-title"
+          <div
+            className="theme-item-text"
           >
-            <span>
-              category 2
+            <span
+              className="theme-item-title tc-typeahead-item-title"
+            >
+              <span>
+                category 2
+              </span>
             </span>
-          </span>
+          </div>
         </div>
       </li>
     </ul>
@@ -775,21 +815,31 @@ exports[`Typeahead should pass input extra props 1`] = `
 `;
 
 exports[`Typeahead with toggle should render button 1`] = `
-<button
-  aria-label="Toggle search bar"
-  className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
-  disabled={false}
+<div
+  aria-describedby={42}
+  className="theme-tc-tooltip"
+  onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
-  onMouseDown={[Function]}
+  onKeyPress={[Function]}
+  onMouseOut={[Function]}
   onMouseOver={[Function]}
-  type="button"
 >
-  <i
-    aria-hidden="true"
-    className="fa fa-search"
-    focusable="false"
-    title={null}
-  />
-</button>
+  <button
+    aria-describedby={42}
+    aria-label="Toggle search bar"
+    className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
+    disabled={false}
+    onClick={[Function]}
+    onMouseDown={[Function]}
+    type="button"
+  >
+    <i
+      aria-hidden="true"
+      className="fa fa-search"
+      focusable="false"
+      title={null}
+    />
+  </button>
+</div>
 `;

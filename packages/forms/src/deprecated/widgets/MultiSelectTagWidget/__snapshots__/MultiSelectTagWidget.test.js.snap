@@ -72,13 +72,17 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = 
         className="theme-item"
         title="Bar"
       >
-        <span
-          className="theme-item-title tc-typeahead-item-title"
+        <div
+          className="theme-item-text"
         >
-          <span>
-            Bar
+          <span
+            className="theme-item-title tc-typeahead-item-title"
+          >
+            <span>
+              Bar
+            </span>
           </span>
-        </span>
+        </div>
       </div>
     </li>
   </ul>
@@ -126,13 +130,17 @@ exports[`MultiSelectTagWidget should render section title when items has categor
           className="theme-item"
           title="Puppy"
         >
-          <span
-            className="theme-item-title tc-typeahead-item-title"
+          <div
+            className="theme-item-text"
           >
-            <span>
-              Puppy
+            <span
+              className="theme-item-title tc-typeahead-item-title"
+            >
+              <span>
+                Puppy
+              </span>
             </span>
-          </span>
+          </div>
         </div>
       </li>
     </ul>

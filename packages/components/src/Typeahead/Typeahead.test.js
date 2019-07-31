@@ -111,7 +111,7 @@ describe('Typeahead', () => {
 			// when
 			const typeaheadInstance = mount(typeahead);
 			typeaheadInstance
-				.find('Action')
+				.find('Button.tc-typeahead-toggle')
 				.at(0)
 				.simulate('click');
 

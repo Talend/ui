@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import get from 'lodash/get';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import DebounceInput from 'react-debounce-input';
@@ -185,14 +186,17 @@ export function renderItem(item, { value, ...rest }) {
 			title={title}
 			data-feature={rest['data-feature']}
 		>
-			<span className={classNames(theme['item-title'], 'tc-typeahead-item-title')}>
-				<Emphasis value={value} text={title} />
-			</span>
-			{description && (
-				<p className={classNames(theme['item-description'], 'tc-typeahead-item-description')}>
-					<Emphasis value={value} text={description} />
-				</p>
-			)}
+			{get(item, 'icon') && <Icon className={theme['item-icon']} {...item.icon} />}
+			<div className={theme['item-text']}>
+				<span className={classNames(theme['item-title'], 'tc-typeahead-item-title')}>
+					<Emphasis value={value} text={title} />
+				</span>
+				{description && (
+					<p className={classNames(theme['item-description'], 'tc-typeahead-item-description')}>
+						<Emphasis value={value} text={description} />
+					</p>
+				)}
+			</div>
 		</div>
 	);
 }
