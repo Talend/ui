@@ -114,6 +114,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
         defaultHeight={250}
         isSelected={[Function]}
         onRowDoubleClick={[MockFunction]}
+        onToggleAll={[MockFunction]}
         selectionToggle={[MockFunction]}
         sort={null}
         sortDirection="ASC"
@@ -247,11 +248,59 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                           }
                         }
                       >
-                        <span
-                          className="ReactVirtualized__Table__headerTruncatedText"
-                          key="label"
-                          title=""
-                        />
+                        <VirtualizedList(HeaderCheckbox)
+                          columnData={
+                            Object {
+                              "collection": Array [
+                                Object {
+                                  "id": 1,
+                                  "name": "Hello world",
+                                },
+                                Object {
+                                  "id": 2,
+                                  "name": "Foo",
+                                },
+                                Object {
+                                  "id": 3,
+                                  "name": "Bar",
+                                },
+                              ],
+                              "id": undefined,
+                              "isSelected": [Function],
+                              "label": "Select this element",
+                              "onChange": [MockFunction],
+                              "onToggleAll": [MockFunction],
+                            }
+                          }
+                          dataKey=""
+                          disableSort={true}
+                          label=""
+                          sortDirection="ASC"
+                          t={[Function]}
+                        >
+                          <form
+                            className="tc-list-checkbox theme-tc-list-checkbox"
+                          >
+                            <div
+                              className="checkbox"
+                              title="Select All"
+                            >
+                              <label>
+                                <input
+                                  checked={false}
+                                  disabled={false}
+                                  onChange={[MockFunction]}
+                                  type="checkbox"
+                                />
+                                <span
+                                  className="sr-only"
+                                >
+                                  Select All
+                                </span>
+                              </label>
+                            </div>
+                          </form>
+                        </VirtualizedList(HeaderCheckbox)>
                       </div>
                       <div
                         className="ReactVirtualized__Table__headerColumn theme-header tc-list-cell-id"
@@ -259,9 +308,9 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                         role="columnheader"
                         style={
                           Object {
-                            "WebkitFlex": "0 1 -1px",
-                            "flex": "0 1 -1px",
-                            "msFlex": "0 1 -1px",
+                            "WebkitFlex": "0 0 -1px",
+                            "flex": "0 0 -1px",
+                            "msFlex": "0 0 -1px",
                           }
                         }
                       >
@@ -279,9 +328,9 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                         role="columnheader"
                         style={
                           Object {
-                            "WebkitFlex": "0 1 -1px",
-                            "flex": "0 1 -1px",
-                            "msFlex": "0 1 -1px",
+                            "WebkitFlex": "0 0 -1px",
+                            "flex": "0 0 -1px",
+                            "msFlex": "0 0 -1px",
                           }
                         }
                       >
@@ -462,7 +511,7 @@ exports[`List should render 1`] = `
       }
     }
   >
-    <Translate(Toolbar)
+    <withI18nextTranslation(Toolbar)
       components={Object {}}
       display={
         Object {
@@ -484,47 +533,9 @@ exports[`List should render 1`] = `
           "totalResults": 13,
         }
       }
-      selectAllCheckbox={
-        Object {
-          "id": undefined,
-          "isSelected": [Function],
-          "items": Array [
-            Object {
-              "id": 1,
-              "name": "Hello world",
-            },
-            Object {
-              "id": 2,
-              "name": "Foo",
-            },
-            Object {
-              "id": 3,
-              "name": "Bar",
-            },
-          ],
-          "onToggleAll": [MockFunction],
-        }
-      }
-      sort={
-        Object {
-          "field": "name",
-          "onChange": [MockFunction],
-          "options": Array [
-            Object {
-              "id": "id",
-              "name": "Id",
-            },
-            Object {
-              "id": "name",
-              "name": "Name",
-            },
-          ],
-        }
-      }
+      sort={false}
     >
-      <I18n
-        bindI18n="languageChanged loaded"
-        bindStore="added removed"
+      <Toolbar
         components={Object {}}
         display={
           Object {
@@ -539,13 +550,6 @@ exports[`List should render 1`] = `
           }
         }
         i18n={Object {}}
-        ns={
-          Array [
-            "tui-components",
-          ]
-        }
-        nsMode="default"
-        omitBoundRerender={true}
         pagination={
           Object {
             "itemsPerPage": 5,
@@ -554,1315 +558,512 @@ exports[`List should render 1`] = `
             "totalResults": 13,
           }
         }
-        selectAllCheckbox={
-          Object {
-            "id": undefined,
-            "isSelected": [Function],
-            "items": Array [
-              Object {
-                "id": 1,
-                "name": "Hello world",
-              },
-              Object {
-                "id": 2,
-                "name": "Foo",
-              },
-              Object {
-                "id": 3,
-                "name": "Bar",
-              },
-            ],
-            "onToggleAll": [MockFunction],
-          }
-        }
-        sort={
-          Object {
-            "field": "name",
-            "onChange": [MockFunction],
-            "options": Array [
-              Object {
-                "id": "id",
-                "name": "Id",
-              },
-              Object {
-                "id": "name",
-                "name": "Name",
-              },
-            ],
-          }
-        }
-        translateFuncName="t"
-        usePureComponent={false}
-        wait={false}
-        withRef={false}
+        sort={false}
+        t={[Function]}
+        tReady={true}
       >
-        <Toolbar
-          components={Object {}}
-          display={
-            Object {
-              "mode": "table",
-              "onChange": [MockFunction],
-            }
-          }
-          filter={
-            Object {
-              "onFilter": [MockFunction],
-              "onToggle": [MockFunction],
-            }
-          }
-          i18n={Object {}}
-          lng="en"
-          pagination={
-            Object {
-              "itemsPerPage": 5,
-              "onChange": [MockFunction],
-              "startIndex": 6,
-              "totalResults": 13,
-            }
-          }
-          selectAllCheckbox={
-            Object {
-              "id": undefined,
-              "isSelected": [Function],
-              "items": Array [
-                Object {
-                  "id": 1,
-                  "name": "Hello world",
-                },
-                Object {
-                  "id": 2,
-                  "name": "Foo",
-                },
-                Object {
-                  "id": 3,
-                  "name": "Bar",
-                },
-              ],
-              "onToggleAll": [MockFunction],
-            }
-          }
-          sort={
-            Object {
-              "field": "name",
-              "onChange": [MockFunction],
-              "options": Array [
-                Object {
-                  "id": "id",
-                  "name": "Id",
-                },
-                Object {
-                  "id": "name",
-                  "name": "Name",
-                },
-              ],
-            }
-          }
-          t={[Function]}
-          tReady={false}
+        <div
+          className="theme-tc-list-toolbar tc-list-toolbar"
         >
-          <div
-            className="tc-list-toolbar"
+          <Uncontrolled(Navbar)
+            bsStyle="default"
+            className="theme-tc-list-toolbar"
+            componentClass="div"
+            fluid={true}
+            role="toolbar"
           >
-            <Uncontrolled(Navbar)
+            <Navbar
+              bsClass="navbar"
               bsStyle="default"
               className="theme-tc-list-toolbar"
+              collapseOnSelect={false}
               componentClass="div"
+              fixedBottom={false}
+              fixedTop={false}
               fluid={true}
+              inverse={false}
+              onToggle={[Function]}
               role="toolbar"
+              staticTop={false}
             >
-              <Navbar
-                bsClass="navbar"
-                bsStyle="default"
-                className="theme-tc-list-toolbar"
-                collapseOnSelect={false}
-                componentClass="div"
-                fixedBottom={false}
-                fixedTop={false}
-                fluid={true}
-                inverse={false}
-                onToggle={[Function]}
+              <div
+                className="theme-tc-list-toolbar navbar navbar-default"
                 role="toolbar"
-                staticTop={false}
               >
-                <div
-                  className="theme-tc-list-toolbar navbar navbar-default"
-                  role="toolbar"
+                <Grid
+                  bsClass="container"
+                  componentClass="div"
+                  fluid={true}
                 >
-                  <Grid
-                    bsClass="container"
-                    componentClass="div"
-                    fluid={true}
+                  <div
+                    className="container-fluid"
                   >
-                    <div
-                      className="container-fluid"
+                    <Label
+                      text="Show:"
                     >
-                      <SelectAll
-                        isSelected={[Function]}
-                        items={
-                          Array [
-                            Object {
-                              "id": 1,
-                              "name": "Hello world",
-                            },
-                            Object {
-                              "id": 2,
-                              "name": "Foo",
-                            },
-                            Object {
-                              "id": 3,
-                              "name": "Bar",
-                            },
-                          ]
-                        }
-                        onToggleAll={[MockFunction]}
-                        t={[Function]}
+                      <NavbarText
+                        componentClass="p"
+                        pullLeft={false}
+                        pullRight={false}
                       >
-                        <form
-                          className="theme-container navbar-form navbar-left"
+                        <p
+                          className="navbar-text"
                         >
-                          <div
-                            className="checkbox-inline navbar-text theme-tc-list-toolbar-select-all"
-                          >
-                            <label
-                              className="tc-list-toolbar-select-all"
-                            >
-                              <input
-                                checked={false}
-                                disabled={false}
-                                onChange={[Function]}
-                                type="checkbox"
-                              />
-                              <span>
-                                Select All
-                              </span>
-                            </label>
-                          </div>
-                        </form>
-                      </SelectAll>
-                      <Label
-                        text="Display:"
+                          <label>
+                            Show:
+                          </label>
+                        </p>
+                      </NavbarText>
+                    </Label>
+                    <Pagination
+                      itemsPerPage={5}
+                      itemsPerPageOptions={
+                        Array [
+                          5,
+                          10,
+                          20,
+                          50,
+                        ]
+                      }
+                      onChange={[MockFunction]}
+                      startIndex={6}
+                      t={[Function]}
+                      totalResults={13}
+                    >
+                      <Nav
+                        bsClass="nav"
+                        className="theme-tc-pagination"
+                        justified={false}
+                        onSelect={[Function]}
+                        pullLeft={false}
+                        pullRight={false}
+                        stacked={false}
                       >
-                        <NavbarText
-                          componentClass="p"
-                          pullLeft={false}
-                          pullRight={false}
+                        <ul
+                          className="theme-tc-pagination nav navbar-nav"
+                          role={null}
                         >
-                          <p
-                            className="navbar-text"
+                          <NavDropdown
+                            id={42}
+                            key=".0"
+                            onSelect={[Function]}
+                            title={5}
                           >
-                            <label>
-                              Display:
-                            </label>
-                          </p>
-                        </NavbarText>
-                      </Label>
-                      <SelectDisplayMode
-                        mode="table"
-                        onChange={[MockFunction]}
-                        t={[Function]}
-                      >
-                        <Nav
-                          bsClass="nav"
-                          justified={false}
-                          pullLeft={false}
-                          pullRight={false}
-                          stacked={false}
-                        >
-                          <ul
-                            className="nav navbar-nav"
-                            role={null}
-                          >
-                            <NavDropdown
-                              aria-label="Change display mode. Current display mode: table."
+                            <Uncontrolled(Dropdown)
+                              className=""
+                              componentClass="li"
                               id={42}
-                              key=".0"
                               onSelect={[Function]}
-                              title={
-                                <Icon
-                                  name="talend-table"
-                                />
-                              }
                             >
-                              <Uncontrolled(Dropdown)
+                              <Dropdown
+                                bsClass="dropdown"
                                 className=""
                                 componentClass="li"
                                 id={42}
                                 onSelect={[Function]}
+                                onToggle={[Function]}
                               >
-                                <Dropdown
-                                  bsClass="dropdown"
-                                  className=""
-                                  componentClass="li"
-                                  id={42}
-                                  onSelect={[Function]}
-                                  onToggle={[Function]}
+                                <li
+                                  className="dropdown"
                                 >
-                                  <li
-                                    className="dropdown"
+                                  <DropdownToggle
+                                    bsClass="dropdown-toggle"
+                                    bsRole="toggle"
+                                    id={42}
+                                    key=".0"
+                                    onClick={[Function]}
+                                    onKeyDown={[Function]}
+                                    open={false}
+                                    useAnchor={true}
                                   >
-                                    <DropdownToggle
-                                      aria-label="Change display mode. Current display mode: table."
-                                      bsClass="dropdown-toggle"
-                                      bsRole="toggle"
+                                    <SafeAnchor
+                                      aria-expanded={false}
+                                      aria-haspopup={true}
+                                      className="dropdown-toggle"
+                                      componentClass="a"
                                       id={42}
-                                      key=".0"
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
-                                      open={false}
-                                      useAnchor={true}
+                                      role="button"
                                     >
-                                      <SafeAnchor
+                                      <a
                                         aria-expanded={false}
                                         aria-haspopup={true}
-                                        aria-label="Change display mode. Current display mode: table."
                                         className="dropdown-toggle"
-                                        componentClass="a"
+                                        href="#"
                                         id={42}
                                         onClick={[Function]}
                                         onKeyDown={[Function]}
                                         role="button"
                                       >
-                                        <a
-                                          aria-expanded={false}
-                                          aria-haspopup={true}
-                                          aria-label="Change display mode. Current display mode: table."
-                                          className="dropdown-toggle"
-                                          href="#"
-                                          id={42}
-                                          onClick={[Function]}
-                                          onKeyDown={[Function]}
-                                          role="button"
-                                        >
-                                          <Icon
-                                            name="talend-table"
-                                          >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
-                                              name="talend-table"
-                                              title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-table"
-                                              />
-                                            </svg>
-                                          </Icon>
-                                           
-                                          <span
-                                            className="caret"
-                                          />
-                                        </a>
-                                      </SafeAnchor>
-                                    </DropdownToggle>
-                                    <DropdownMenu
-                                      bsClass="dropdown-menu"
-                                      bsRole="menu"
-                                      key=".1"
-                                      labelledBy={42}
-                                      onClose={[Function]}
-                                      onSelect={[Function]}
-                                      pullRight={false}
-                                    >
-                                      <RootCloseWrapper
-                                        disabled={true}
-                                        event="click"
-                                        onRootClose={[Function]}
-                                      >
-                                        <ul
-                                          aria-labelledby={42}
-                                          className="dropdown-menu"
-                                          role="menu"
-                                        >
-                                          <MenuItem
-                                            aria-label="Set Table as current display mode."
-                                            bsClass="dropdown"
-                                            disabled={false}
-                                            divider={false}
-                                            eventKey="table"
-                                            header={false}
-                                            key=".$.$table"
-                                            onKeyDown={[Function]}
-                                            onSelect={[Function]}
-                                          >
-                                            <li
-                                              className=""
-                                              role="presentation"
-                                            >
-                                              <SafeAnchor
-                                                aria-label="Set Table as current display mode."
-                                                componentClass="a"
-                                                onClick={[Function]}
-                                                onKeyDown={[Function]}
-                                                role="menuitem"
-                                                tabIndex="-1"
-                                              >
-                                                <a
-                                                  aria-label="Set Table as current display mode."
-                                                  href="#"
-                                                  onClick={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  role="menuitem"
-                                                  tabIndex="-1"
-                                                >
-                                                  <Icon
-                                                    name="talend-table"
-                                                  >
-                                                    <svg
-                                                      aria-hidden="true"
-                                                      className="theme-tc-svg-icon tc-svg-icon"
-                                                      focusable="false"
-                                                      name="talend-table"
-                                                      title={null}
-                                                    >
-                                                      <use
-                                                        xlinkHref="#talend-table"
-                                                      />
-                                                    </svg>
-                                                  </Icon>
-                                                  Table
-                                                </a>
-                                              </SafeAnchor>
-                                            </li>
-                                          </MenuItem>
-                                          <MenuItem
-                                            aria-label="Set Expanded as current display mode."
-                                            bsClass="dropdown"
-                                            disabled={false}
-                                            divider={false}
-                                            eventKey="large"
-                                            header={false}
-                                            key=".$.$large"
-                                            onKeyDown={[Function]}
-                                            onSelect={[Function]}
-                                          >
-                                            <li
-                                              className=""
-                                              role="presentation"
-                                            >
-                                              <SafeAnchor
-                                                aria-label="Set Expanded as current display mode."
-                                                componentClass="a"
-                                                onClick={[Function]}
-                                                onKeyDown={[Function]}
-                                                role="menuitem"
-                                                tabIndex="-1"
-                                              >
-                                                <a
-                                                  aria-label="Set Expanded as current display mode."
-                                                  href="#"
-                                                  onClick={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  role="menuitem"
-                                                  tabIndex="-1"
-                                                >
-                                                  <Icon
-                                                    name="talend-expanded"
-                                                  >
-                                                    <svg
-                                                      aria-hidden="true"
-                                                      className="theme-tc-svg-icon tc-svg-icon"
-                                                      focusable="false"
-                                                      name="talend-expanded"
-                                                      title={null}
-                                                    >
-                                                      <use
-                                                        xlinkHref="#talend-expanded"
-                                                      />
-                                                    </svg>
-                                                  </Icon>
-                                                  Expanded
-                                                </a>
-                                              </SafeAnchor>
-                                            </li>
-                                          </MenuItem>
-                                        </ul>
-                                      </RootCloseWrapper>
-                                    </DropdownMenu>
-                                  </li>
-                                </Dropdown>
-                              </Uncontrolled(Dropdown)>
-                            </NavDropdown>
-                          </ul>
-                        </Nav>
-                      </SelectDisplayMode>
-                      <Label
-                        text="Sort by:"
-                      >
-                        <NavbarText
-                          componentClass="p"
-                          pullLeft={false}
-                          pullRight={false}
-                        >
-                          <p
-                            className="navbar-text"
-                          >
-                            <label>
-                              Sort by:
-                            </label>
-                          </p>
-                        </NavbarText>
-                      </Label>
-                      <SelectSortBy
-                        field="name"
-                        onChange={[MockFunction]}
-                        options={
-                          Array [
-                            Object {
-                              "id": "id",
-                              "name": "Id",
-                            },
-                            Object {
-                              "id": "name",
-                              "name": "Name",
-                            },
-                          ]
-                        }
-                        t={[Function]}
-                      >
-                        <Nav
-                          bsClass="nav"
-                          className="theme-tc-list-toolbar-sort-by"
-                          justified={false}
-                          pullLeft={false}
-                          pullRight={false}
-                          stacked={false}
-                        >
-                          <ul
-                            className="theme-tc-list-toolbar-sort-by nav navbar-nav"
-                            role={null}
-                          >
-                            <NavDropdown
-                              aria-label="Change sort criteria. Current sort by Name."
-                              className="theme-sort-by-items"
-                              id={42}
-                              key=".0"
-                              onSelect={[Function]}
-                              title="Name"
-                            >
-                              <Uncontrolled(Dropdown)
-                                className="theme-sort-by-items"
-                                componentClass="li"
-                                id={42}
-                                onSelect={[Function]}
-                              >
-                                <Dropdown
-                                  bsClass="dropdown"
-                                  className="theme-sort-by-items"
-                                  componentClass="li"
-                                  id={42}
-                                  onSelect={[Function]}
-                                  onToggle={[Function]}
-                                >
-                                  <li
-                                    className="theme-sort-by-items dropdown"
-                                  >
-                                    <DropdownToggle
-                                      aria-label="Change sort criteria. Current sort by Name."
-                                      bsClass="dropdown-toggle"
-                                      bsRole="toggle"
-                                      id={42}
-                                      key=".0"
-                                      onClick={[Function]}
-                                      onKeyDown={[Function]}
-                                      open={false}
-                                      useAnchor={true}
-                                    >
-                                      <SafeAnchor
-                                        aria-expanded={false}
-                                        aria-haspopup={true}
-                                        aria-label="Change sort criteria. Current sort by Name."
-                                        className="dropdown-toggle"
-                                        componentClass="a"
-                                        id={42}
-                                        onClick={[Function]}
-                                        onKeyDown={[Function]}
-                                        role="button"
-                                      >
-                                        <a
-                                          aria-expanded={false}
-                                          aria-haspopup={true}
-                                          aria-label="Change sort criteria. Current sort by Name."
-                                          className="dropdown-toggle"
-                                          href="#"
-                                          id={42}
-                                          onClick={[Function]}
-                                          onKeyDown={[Function]}
-                                          role="button"
-                                        >
-                                          Name
-                                           
-                                          <span
-                                            className="caret"
-                                          />
-                                        </a>
-                                      </SafeAnchor>
-                                    </DropdownToggle>
-                                    <DropdownMenu
-                                      bsClass="dropdown-menu"
-                                      bsRole="menu"
-                                      key=".1"
-                                      labelledBy={42}
-                                      onClose={[Function]}
-                                      onSelect={[Function]}
-                                      pullRight={false}
-                                    >
-                                      <RootCloseWrapper
-                                        disabled={true}
-                                        event="click"
-                                        onRootClose={[Function]}
-                                      >
-                                        <ul
-                                          aria-labelledby={42}
-                                          className="dropdown-menu"
-                                          role="menu"
-                                        >
-                                          <MenuItem
-                                            aria-label="Select Id as current sort criteria."
-                                            bsClass="dropdown"
-                                            disabled={false}
-                                            divider={false}
-                                            eventKey={
-                                              Object {
-                                                "id": "id",
-                                                "name": "Id",
-                                              }
-                                            }
-                                            header={false}
-                                            key=".$.$0"
-                                            onKeyDown={[Function]}
-                                            onSelect={[Function]}
-                                          >
-                                            <li
-                                              className=""
-                                              role="presentation"
-                                            >
-                                              <SafeAnchor
-                                                aria-label="Select Id as current sort criteria."
-                                                componentClass="a"
-                                                onClick={[Function]}
-                                                onKeyDown={[Function]}
-                                                role="menuitem"
-                                                tabIndex="-1"
-                                              >
-                                                <a
-                                                  aria-label="Select Id as current sort criteria."
-                                                  href="#"
-                                                  onClick={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  role="menuitem"
-                                                  tabIndex="-1"
-                                                >
-                                                  Id
-                                                </a>
-                                              </SafeAnchor>
-                                            </li>
-                                          </MenuItem>
-                                          <MenuItem
-                                            aria-label="Select Name as current sort criteria."
-                                            bsClass="dropdown"
-                                            disabled={false}
-                                            divider={false}
-                                            eventKey={
-                                              Object {
-                                                "id": "name",
-                                                "name": "Name",
-                                              }
-                                            }
-                                            header={false}
-                                            key=".$.$1"
-                                            onKeyDown={[Function]}
-                                            onSelect={[Function]}
-                                          >
-                                            <li
-                                              className=""
-                                              role="presentation"
-                                            >
-                                              <SafeAnchor
-                                                aria-label="Select Name as current sort criteria."
-                                                componentClass="a"
-                                                onClick={[Function]}
-                                                onKeyDown={[Function]}
-                                                role="menuitem"
-                                                tabIndex="-1"
-                                              >
-                                                <a
-                                                  aria-label="Select Name as current sort criteria."
-                                                  href="#"
-                                                  onClick={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  role="menuitem"
-                                                  tabIndex="-1"
-                                                >
-                                                  Name
-                                                </a>
-                                              </SafeAnchor>
-                                            </li>
-                                          </MenuItem>
-                                        </ul>
-                                      </RootCloseWrapper>
-                                    </DropdownMenu>
-                                  </li>
-                                </Dropdown>
-                              </Uncontrolled(Dropdown)>
-                            </NavDropdown>
-                            <NavItem
-                              active={false}
-                              aria-label="Change sort order. Current order: Ascending."
-                              disabled={false}
-                              key=".1"
-                              onClick={[Function]}
-                              onSelect={null}
-                            >
-                              <li
-                                className=""
-                                role="presentation"
-                              >
-                                <SafeAnchor
-                                  aria-label="Change sort order. Current order: Ascending."
-                                  componentClass="a"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  <a
-                                    aria-label="Change sort order. Current order: Ascending."
-                                    href="#"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                    role="button"
-                                  >
-                                    Ascending
-                                  </a>
-                                </SafeAnchor>
-                              </li>
-                            </NavItem>
-                          </ul>
-                        </Nav>
-                      </SelectSortBy>
-                      <Label
-                        text="Show:"
-                      >
-                        <NavbarText
-                          componentClass="p"
-                          pullLeft={false}
-                          pullRight={false}
-                        >
-                          <p
-                            className="navbar-text"
-                          >
-                            <label>
-                              Show:
-                            </label>
-                          </p>
-                        </NavbarText>
-                      </Label>
-                      <Pagination
-                        itemsPerPage={5}
-                        itemsPerPageOptions={
-                          Array [
-                            5,
-                            10,
-                            20,
-                            50,
-                          ]
-                        }
-                        onChange={[MockFunction]}
-                        startIndex={6}
-                        t={[Function]}
-                        totalResults={13}
-                      >
-                        <Nav
-                          bsClass="nav"
-                          className="theme-tc-pagination"
-                          justified={false}
-                          onSelect={[Function]}
-                          pullLeft={false}
-                          pullRight={false}
-                          stacked={false}
-                        >
-                          <ul
-                            className="theme-tc-pagination nav navbar-nav"
-                            role={null}
-                          >
-                            <NavDropdown
-                              id={42}
-                              key=".0"
-                              onSelect={[Function]}
-                              title={5}
-                            >
-                              <Uncontrolled(Dropdown)
-                                className=""
-                                componentClass="li"
-                                id={42}
-                                onSelect={[Function]}
-                              >
-                                <Dropdown
-                                  bsClass="dropdown"
-                                  className=""
-                                  componentClass="li"
-                                  id={42}
-                                  onSelect={[Function]}
-                                  onToggle={[Function]}
-                                >
-                                  <li
-                                    className="dropdown"
-                                  >
-                                    <DropdownToggle
-                                      bsClass="dropdown-toggle"
-                                      bsRole="toggle"
-                                      id={42}
-                                      key=".0"
-                                      onClick={[Function]}
-                                      onKeyDown={[Function]}
-                                      open={false}
-                                      useAnchor={true}
-                                    >
-                                      <SafeAnchor
-                                        aria-expanded={false}
-                                        aria-haspopup={true}
-                                        className="dropdown-toggle"
-                                        componentClass="a"
-                                        id={42}
-                                        onClick={[Function]}
-                                        onKeyDown={[Function]}
-                                        role="button"
-                                      >
-                                        <a
-                                          aria-expanded={false}
-                                          aria-haspopup={true}
-                                          className="dropdown-toggle"
-                                          href="#"
-                                          id={42}
-                                          onClick={[Function]}
-                                          onKeyDown={[Function]}
-                                          role="button"
-                                        >
-                                          5
-                                           
-                                          <span
-                                            className="caret"
-                                          />
-                                        </a>
-                                      </SafeAnchor>
-                                    </DropdownToggle>
-                                    <DropdownMenu
-                                      bsClass="dropdown-menu"
-                                      bsRole="menu"
-                                      key=".1"
-                                      labelledBy={42}
-                                      onClose={[Function]}
-                                      onSelect={[Function]}
-                                      pullRight={false}
-                                    >
-                                      <RootCloseWrapper
-                                        disabled={true}
-                                        event="click"
-                                        onRootClose={[Function]}
-                                      >
-                                        <ul
-                                          aria-labelledby={42}
-                                          className="dropdown-menu"
-                                          role="menu"
-                                        >
-                                          <MenuItem
-                                            bsClass="dropdown"
-                                            disabled={false}
-                                            divider={false}
-                                            eventKey={5}
-                                            header={false}
-                                            key=".$.$0"
-                                            onKeyDown={[Function]}
-                                            onSelect={[Function]}
-                                          >
-                                            <li
-                                              className=""
-                                              role="presentation"
-                                            >
-                                              <SafeAnchor
-                                                componentClass="a"
-                                                onClick={[Function]}
-                                                onKeyDown={[Function]}
-                                                role="menuitem"
-                                                tabIndex="-1"
-                                              >
-                                                <a
-                                                  href="#"
-                                                  onClick={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  role="menuitem"
-                                                  tabIndex="-1"
-                                                >
-                                                  5
-                                                </a>
-                                              </SafeAnchor>
-                                            </li>
-                                          </MenuItem>
-                                          <MenuItem
-                                            bsClass="dropdown"
-                                            disabled={false}
-                                            divider={false}
-                                            eventKey={10}
-                                            header={false}
-                                            key=".$.$1"
-                                            onKeyDown={[Function]}
-                                            onSelect={[Function]}
-                                          >
-                                            <li
-                                              className=""
-                                              role="presentation"
-                                            >
-                                              <SafeAnchor
-                                                componentClass="a"
-                                                onClick={[Function]}
-                                                onKeyDown={[Function]}
-                                                role="menuitem"
-                                                tabIndex="-1"
-                                              >
-                                                <a
-                                                  href="#"
-                                                  onClick={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  role="menuitem"
-                                                  tabIndex="-1"
-                                                >
-                                                  10
-                                                </a>
-                                              </SafeAnchor>
-                                            </li>
-                                          </MenuItem>
-                                          <MenuItem
-                                            bsClass="dropdown"
-                                            disabled={false}
-                                            divider={false}
-                                            eventKey={20}
-                                            header={false}
-                                            key=".$.$2"
-                                            onKeyDown={[Function]}
-                                            onSelect={[Function]}
-                                          >
-                                            <li
-                                              className=""
-                                              role="presentation"
-                                            >
-                                              <SafeAnchor
-                                                componentClass="a"
-                                                onClick={[Function]}
-                                                onKeyDown={[Function]}
-                                                role="menuitem"
-                                                tabIndex="-1"
-                                              >
-                                                <a
-                                                  href="#"
-                                                  onClick={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  role="menuitem"
-                                                  tabIndex="-1"
-                                                >
-                                                  20
-                                                </a>
-                                              </SafeAnchor>
-                                            </li>
-                                          </MenuItem>
-                                          <MenuItem
-                                            bsClass="dropdown"
-                                            disabled={false}
-                                            divider={false}
-                                            eventKey={50}
-                                            header={false}
-                                            key=".$.$3"
-                                            onKeyDown={[Function]}
-                                            onSelect={[Function]}
-                                          >
-                                            <li
-                                              className=""
-                                              role="presentation"
-                                            >
-                                              <SafeAnchor
-                                                componentClass="a"
-                                                onClick={[Function]}
-                                                onKeyDown={[Function]}
-                                                role="menuitem"
-                                                tabIndex="-1"
-                                              >
-                                                <a
-                                                  href="#"
-                                                  onClick={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  role="menuitem"
-                                                  tabIndex="-1"
-                                                >
-                                                  50
-                                                </a>
-                                              </SafeAnchor>
-                                            </li>
-                                          </MenuItem>
-                                        </ul>
-                                      </RootCloseWrapper>
-                                    </DropdownMenu>
-                                  </li>
-                                </Dropdown>
-                              </Uncontrolled(Dropdown)>
-                            </NavDropdown>
-                            <NavItem
-                              active={false}
-                              aria-label="Go to first page."
-                              className="btn-link"
-                              disabled={false}
-                              eventKey="first"
-                              key=".1:$first"
-                              onSelect={[Function]}
-                            >
-                              <li
-                                className="btn-link"
-                                role="presentation"
-                              >
-                                <SafeAnchor
-                                  aria-label="Go to first page."
-                                  componentClass="a"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  <a
-                                    aria-label="Go to first page."
-                                    href="#"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                    role="button"
-                                  >
-                                    <Icon
-                                      name="talend-chevron-end"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        className="theme-tc-svg-icon tc-svg-icon"
-                                        focusable="false"
-                                        name="talend-chevron-end"
-                                        title={null}
-                                      >
-                                        <use
-                                          xlinkHref="#talend-chevron-end"
+                                        5
+                                         
+                                        <span
+                                          className="caret"
                                         />
-                                      </svg>
-                                    </Icon>
-                                  </a>
-                                </SafeAnchor>
-                              </li>
-                            </NavItem>
-                            <NavItem
-                              active={false}
-                              aria-label="Go to previous page. Current page: 2."
-                              className="btn-link"
-                              disabled={false}
-                              eventKey="prev"
-                              key=".1:$prev"
-                              onSelect={[Function]}
-                            >
-                              <li
-                                className="btn-link"
-                                role="presentation"
-                              >
-                                <SafeAnchor
-                                  aria-label="Go to previous page. Current page: 2."
-                                  componentClass="a"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  <a
-                                    aria-label="Go to previous page. Current page: 2."
-                                    href="#"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                    role="button"
+                                      </a>
+                                    </SafeAnchor>
+                                  </DropdownToggle>
+                                  <DropdownMenu
+                                    bsClass="dropdown-menu"
+                                    bsRole="menu"
+                                    key=".1"
+                                    labelledBy={42}
+                                    onClose={[Function]}
+                                    onSelect={[Function]}
+                                    pullRight={false}
                                   >
-                                    <Icon
-                                      name="talend-chevron-left"
+                                    <RootCloseWrapper
+                                      disabled={true}
+                                      event="click"
+                                      onRootClose={[Function]}
                                     >
-                                      <svg
-                                        aria-hidden="true"
-                                        className="theme-tc-svg-icon tc-svg-icon"
-                                        focusable="false"
-                                        name="talend-chevron-left"
-                                        title={null}
+                                      <ul
+                                        aria-labelledby={42}
+                                        className="dropdown-menu"
+                                        role="menu"
                                       >
-                                        <use
-                                          xlinkHref="#talend-chevron-left"
-                                        />
-                                      </svg>
-                                    </Icon>
-                                  </a>
-                                </SafeAnchor>
-                              </li>
-                            </NavItem>
-                            <li
-                              className="theme-page-index"
-                              key=".1:2"
-                              onSelect={[Function]}
-                            >
-                              2
-                              /
-                              3
-                            </li>
-                            <NavItem
-                              active={false}
-                              aria-label="Go to next page. Current page: 2."
-                              className="btn-link"
-                              disabled={false}
-                              eventKey="next"
-                              key=".1:$next"
-                              onSelect={[Function]}
-                            >
-                              <li
-                                className="btn-link"
-                                role="presentation"
-                              >
-                                <SafeAnchor
-                                  aria-label="Go to next page. Current page: 2."
-                                  componentClass="a"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  <a
-                                    aria-label="Go to next page. Current page: 2."
-                                    href="#"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                    role="button"
-                                  >
-                                    <Icon
-                                      name="talend-chevron-left"
-                                      transform="rotate-180"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-                                        focusable="false"
-                                        name="talend-chevron-left"
-                                        title={null}
-                                      >
-                                        <use
-                                          xlinkHref="#talend-chevron-left"
-                                        />
-                                      </svg>
-                                    </Icon>
-                                  </a>
-                                </SafeAnchor>
-                              </li>
-                            </NavItem>
-                            <NavItem
-                              active={false}
-                              aria-label="Go to last page."
-                              className="btn-link"
-                              disabled={false}
-                              eventKey="last"
-                              key=".1:$last"
-                              onSelect={[Function]}
-                            >
-                              <li
-                                className="btn-link"
-                                role="presentation"
-                              >
-                                <SafeAnchor
-                                  aria-label="Go to last page."
-                                  componentClass="a"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                >
-                                  <a
-                                    aria-label="Go to last page."
-                                    href="#"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                    role="button"
-                                  >
-                                    <Icon
-                                      name="talend-chevron-end"
-                                      transform="rotate-180"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-                                        focusable="false"
-                                        name="talend-chevron-end"
-                                        title={null}
-                                      >
-                                        <use
-                                          xlinkHref="#talend-chevron-end"
-                                        />
-                                      </svg>
-                                    </Icon>
-                                  </a>
-                                </SafeAnchor>
-                              </li>
-                            </NavItem>
-                          </ul>
-                        </Nav>
-                      </Pagination>
-                      <Translate(FilterBar)
-                        className="navbar-right"
-                        navbar={true}
-                        onFilter={[MockFunction]}
-                        onToggle={[MockFunction]}
-                        t={[Function]}
-                      >
-                        <I18n
-                          bindI18n="languageChanged loaded"
-                          bindStore="added removed"
-                          className="navbar-right"
-                          i18n={Object {}}
-                          navbar={true}
-                          ns={
-                            Array [
-                              "tui-components",
-                            ]
-                          }
-                          nsMode="default"
-                          omitBoundRerender={true}
-                          onFilter={[MockFunction]}
-                          onToggle={[MockFunction]}
-                          t={[Function]}
-                          translateFuncName="t"
-                          usePureComponent={false}
-                          wait={false}
-                          withRef={false}
-                        >
-                          <FilterBar
-                            autoFocus={true}
-                            className="navbar-right"
-                            dockable={true}
-                            docked={true}
-                            focus={false}
-                            i18n={Object {}}
-                            lng="en"
-                            navbar={true}
-                            onFilter={[MockFunction]}
-                            onToggle={[MockFunction]}
-                            placeholder="Filter"
-                            t={[Function]}
-                            tReady={false}
-                          >
-                            <Action
-                              bsStyle="link"
-                              className="navbar-right"
-                              hideLabel={true}
-                              icon="talend-search"
-                              label="Toggle filter"
-                              onClick={[MockFunction]}
-                              role="search"
-                            >
-                              <Translate(ActionButton)
-                                bsStyle="link"
-                                className="navbar-right"
-                                hideLabel={true}
-                                icon="talend-search"
-                                label="Toggle filter"
-                                onClick={[MockFunction]}
-                                role="search"
-                              >
-                                <I18n
-                                  bindI18n="languageChanged loaded"
-                                  bindStore="added removed"
-                                  bsStyle="link"
-                                  className="navbar-right"
-                                  hideLabel={true}
-                                  i18n={Object {}}
-                                  icon="talend-search"
-                                  label="Toggle filter"
-                                  ns={
-                                    Array [
-                                      "tui-components",
-                                    ]
-                                  }
-                                  nsMode="default"
-                                  omitBoundRerender={true}
-                                  onClick={[MockFunction]}
-                                  role="search"
-                                  translateFuncName="t"
-                                  usePureComponent={false}
-                                  wait={false}
-                                  withRef={false}
-                                >
-                                  <ActionButton
-                                    available={true}
-                                    bsStyle="link"
-                                    className="navbar-right"
-                                    disabled={false}
-                                    hideLabel={true}
-                                    i18n={Object {}}
-                                    icon="talend-search"
-                                    inProgress={false}
-                                    label="Toggle filter"
-                                    lng="en"
-                                    loading={false}
-                                    onClick={[MockFunction]}
-                                    role="search"
-                                    t={[Function]}
-                                    tReady={false}
-                                    tooltipPlacement="top"
-                                  >
-                                    <TooltipTrigger
-                                      label="Toggle filter"
-                                      tooltipPlacement="top"
-                                    >
-                                      <Button
-                                        active={false}
-                                        aria-label="Toggle filter"
-                                        block={false}
-                                        bsClass="btn"
-                                        bsStyle="link"
-                                        className="navbar-right btn-icon-only"
-                                        disabled={false}
-                                        onClick={[Function]}
-                                        onFocus={[Function]}
-                                        onMouseDown={[Function]}
-                                        onMouseOver={[Function]}
-                                        role="search"
-                                      >
-                                        <button
-                                          aria-label="Toggle filter"
-                                          className="navbar-right btn-icon-only btn btn-link"
+                                        <MenuItem
+                                          bsClass="dropdown"
                                           disabled={false}
-                                          onClick={[Function]}
-                                          onFocus={[Function]}
-                                          onMouseDown={[Function]}
-                                          onMouseOver={[Function]}
-                                          role="search"
-                                          type="button"
+                                          divider={false}
+                                          eventKey={5}
+                                          header={false}
+                                          key=".$.$0"
+                                          onKeyDown={[Function]}
+                                          onSelect={[Function]}
                                         >
-                                          <Icon
-                                            key="icon"
-                                            name="talend-search"
+                                          <li
+                                            className=""
+                                            role="presentation"
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
-                                              name="talend-search"
-                                              title={null}
+                                            <SafeAnchor
+                                              componentClass="a"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              role="menuitem"
+                                              tabIndex="-1"
                                             >
-                                              <use
-                                                xlinkHref="#talend-search"
-                                              />
-                                            </svg>
-                                          </Icon>
-                                        </button>
-                                      </Button>
-                                    </TooltipTrigger>
-                                  </ActionButton>
-                                </I18n>
-                              </Translate(ActionButton)>
-                            </Action>
-                          </FilterBar>
-                        </I18n>
-                      </Translate(FilterBar)>
-                    </div>
-                  </Grid>
-                </div>
-              </Navbar>
-            </Uncontrolled(Navbar)>
-          </div>
-        </Toolbar>
-      </I18n>
-    </Translate(Toolbar)>
+                                              <a
+                                                href="#"
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
+                                                role="menuitem"
+                                                tabIndex="-1"
+                                              >
+                                                5
+                                              </a>
+                                            </SafeAnchor>
+                                          </li>
+                                        </MenuItem>
+                                        <MenuItem
+                                          bsClass="dropdown"
+                                          disabled={false}
+                                          divider={false}
+                                          eventKey={10}
+                                          header={false}
+                                          key=".$.$1"
+                                          onKeyDown={[Function]}
+                                          onSelect={[Function]}
+                                        >
+                                          <li
+                                            className=""
+                                            role="presentation"
+                                          >
+                                            <SafeAnchor
+                                              componentClass="a"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              role="menuitem"
+                                              tabIndex="-1"
+                                            >
+                                              <a
+                                                href="#"
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
+                                                role="menuitem"
+                                                tabIndex="-1"
+                                              >
+                                                10
+                                              </a>
+                                            </SafeAnchor>
+                                          </li>
+                                        </MenuItem>
+                                        <MenuItem
+                                          bsClass="dropdown"
+                                          disabled={false}
+                                          divider={false}
+                                          eventKey={20}
+                                          header={false}
+                                          key=".$.$2"
+                                          onKeyDown={[Function]}
+                                          onSelect={[Function]}
+                                        >
+                                          <li
+                                            className=""
+                                            role="presentation"
+                                          >
+                                            <SafeAnchor
+                                              componentClass="a"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              role="menuitem"
+                                              tabIndex="-1"
+                                            >
+                                              <a
+                                                href="#"
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
+                                                role="menuitem"
+                                                tabIndex="-1"
+                                              >
+                                                20
+                                              </a>
+                                            </SafeAnchor>
+                                          </li>
+                                        </MenuItem>
+                                        <MenuItem
+                                          bsClass="dropdown"
+                                          disabled={false}
+                                          divider={false}
+                                          eventKey={50}
+                                          header={false}
+                                          key=".$.$3"
+                                          onKeyDown={[Function]}
+                                          onSelect={[Function]}
+                                        >
+                                          <li
+                                            className=""
+                                            role="presentation"
+                                          >
+                                            <SafeAnchor
+                                              componentClass="a"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              role="menuitem"
+                                              tabIndex="-1"
+                                            >
+                                              <a
+                                                href="#"
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
+                                                role="menuitem"
+                                                tabIndex="-1"
+                                              >
+                                                50
+                                              </a>
+                                            </SafeAnchor>
+                                          </li>
+                                        </MenuItem>
+                                      </ul>
+                                    </RootCloseWrapper>
+                                  </DropdownMenu>
+                                </li>
+                              </Dropdown>
+                            </Uncontrolled(Dropdown)>
+                          </NavDropdown>
+                          <NavItem
+                            active={false}
+                            aria-label="Go to first page."
+                            className="btn-link"
+                            disabled={false}
+                            eventKey="first"
+                            key=".1:$first"
+                            onSelect={[Function]}
+                          >
+                            <li
+                              className="btn-link"
+                              role="presentation"
+                            >
+                              <SafeAnchor
+                                aria-label="Go to first page."
+                                componentClass="a"
+                                disabled={false}
+                                onClick={[Function]}
+                              >
+                                <a
+                                  aria-label="Go to first page."
+                                  href="#"
+                                  onClick={[Function]}
+                                  onKeyDown={[Function]}
+                                  role="button"
+                                >
+                                  <Icon
+                                    name="talend-chevron-end"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      className="theme-tc-svg-icon tc-svg-icon"
+                                      focusable="false"
+                                      name="talend-chevron-end"
+                                      title={null}
+                                    >
+                                      <use
+                                        xlinkHref="#talend-chevron-end"
+                                      />
+                                    </svg>
+                                  </Icon>
+                                </a>
+                              </SafeAnchor>
+                            </li>
+                          </NavItem>
+                          <NavItem
+                            active={false}
+                            aria-label="Go to previous page. Current page: 2."
+                            className="btn-link"
+                            disabled={false}
+                            eventKey="prev"
+                            key=".1:$prev"
+                            onSelect={[Function]}
+                          >
+                            <li
+                              className="btn-link"
+                              role="presentation"
+                            >
+                              <SafeAnchor
+                                aria-label="Go to previous page. Current page: 2."
+                                componentClass="a"
+                                disabled={false}
+                                onClick={[Function]}
+                              >
+                                <a
+                                  aria-label="Go to previous page. Current page: 2."
+                                  href="#"
+                                  onClick={[Function]}
+                                  onKeyDown={[Function]}
+                                  role="button"
+                                >
+                                  <Icon
+                                    name="talend-chevron-left"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      className="theme-tc-svg-icon tc-svg-icon"
+                                      focusable="false"
+                                      name="talend-chevron-left"
+                                      title={null}
+                                    >
+                                      <use
+                                        xlinkHref="#talend-chevron-left"
+                                      />
+                                    </svg>
+                                  </Icon>
+                                </a>
+                              </SafeAnchor>
+                            </li>
+                          </NavItem>
+                          <li
+                            className="theme-page-index"
+                            key=".1:2"
+                            onSelect={[Function]}
+                          >
+                            2
+                            /
+                            3
+                          </li>
+                          <NavItem
+                            active={false}
+                            aria-label="Go to next page. Current page: 2."
+                            className="btn-link"
+                            disabled={false}
+                            eventKey="next"
+                            key=".1:$next"
+                            onSelect={[Function]}
+                          >
+                            <li
+                              className="btn-link"
+                              role="presentation"
+                            >
+                              <SafeAnchor
+                                aria-label="Go to next page. Current page: 2."
+                                componentClass="a"
+                                disabled={false}
+                                onClick={[Function]}
+                              >
+                                <a
+                                  aria-label="Go to next page. Current page: 2."
+                                  href="#"
+                                  onClick={[Function]}
+                                  onKeyDown={[Function]}
+                                  role="button"
+                                >
+                                  <Icon
+                                    name="talend-chevron-left"
+                                    transform="rotate-180"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
+                                      focusable="false"
+                                      name="talend-chevron-left"
+                                      title={null}
+                                    >
+                                      <use
+                                        xlinkHref="#talend-chevron-left"
+                                      />
+                                    </svg>
+                                  </Icon>
+                                </a>
+                              </SafeAnchor>
+                            </li>
+                          </NavItem>
+                          <NavItem
+                            active={false}
+                            aria-label="Go to last page."
+                            className="btn-link"
+                            disabled={false}
+                            eventKey="last"
+                            key=".1:$last"
+                            onSelect={[Function]}
+                          >
+                            <li
+                              className="btn-link"
+                              role="presentation"
+                            >
+                              <SafeAnchor
+                                aria-label="Go to last page."
+                                componentClass="a"
+                                disabled={false}
+                                onClick={[Function]}
+                              >
+                                <a
+                                  aria-label="Go to last page."
+                                  href="#"
+                                  onClick={[Function]}
+                                  onKeyDown={[Function]}
+                                  role="button"
+                                >
+                                  <Icon
+                                    name="talend-chevron-end"
+                                    transform="rotate-180"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
+                                      focusable="false"
+                                      name="talend-chevron-end"
+                                      title={null}
+                                    >
+                                      <use
+                                        xlinkHref="#talend-chevron-end"
+                                      />
+                                    </svg>
+                                  </Icon>
+                                </a>
+                              </SafeAnchor>
+                            </li>
+                          </NavItem>
+                        </ul>
+                      </Nav>
+                    </Pagination>
+                  </div>
+                </Grid>
+              </div>
+            </Navbar>
+          </Uncontrolled(Navbar)>
+        </div>
+      </Toolbar>
+    </withI18nextTranslation(Toolbar)>
   </ListToolbar>
   <div
     className="tc-list-display-virtualized"
@@ -1932,6 +1133,7 @@ exports[`List should render 1`] = `
         defaultHeight={250}
         isSelected={[Function]}
         onRowDoubleClick={[MockFunction]}
+        onToggleAll={[MockFunction]}
         selectionToggle={[MockFunction]}
         sort={null}
         sortDirection="ASC"
@@ -2065,11 +1267,59 @@ exports[`List should render 1`] = `
                           }
                         }
                       >
-                        <span
-                          className="ReactVirtualized__Table__headerTruncatedText"
-                          key="label"
-                          title=""
-                        />
+                        <VirtualizedList(HeaderCheckbox)
+                          columnData={
+                            Object {
+                              "collection": Array [
+                                Object {
+                                  "id": 1,
+                                  "name": "Hello world",
+                                },
+                                Object {
+                                  "id": 2,
+                                  "name": "Foo",
+                                },
+                                Object {
+                                  "id": 3,
+                                  "name": "Bar",
+                                },
+                              ],
+                              "id": undefined,
+                              "isSelected": [Function],
+                              "label": "Select this element",
+                              "onChange": [MockFunction],
+                              "onToggleAll": [MockFunction],
+                            }
+                          }
+                          dataKey=""
+                          disableSort={true}
+                          label=""
+                          sortDirection="ASC"
+                          t={[Function]}
+                        >
+                          <form
+                            className="tc-list-checkbox theme-tc-list-checkbox"
+                          >
+                            <div
+                              className="checkbox"
+                              title="Select All"
+                            >
+                              <label>
+                                <input
+                                  checked={false}
+                                  disabled={false}
+                                  onChange={[MockFunction]}
+                                  type="checkbox"
+                                />
+                                <span
+                                  className="sr-only"
+                                >
+                                  Select All
+                                </span>
+                              </label>
+                            </div>
+                          </form>
+                        </VirtualizedList(HeaderCheckbox)>
                       </div>
                       <div
                         className="ReactVirtualized__Table__headerColumn theme-header tc-list-cell-id"
@@ -2077,9 +1327,9 @@ exports[`List should render 1`] = `
                         role="columnheader"
                         style={
                           Object {
-                            "WebkitFlex": "0 1 -1px",
-                            "flex": "0 1 -1px",
-                            "msFlex": "0 1 -1px",
+                            "WebkitFlex": "0 0 -1px",
+                            "flex": "0 0 -1px",
+                            "msFlex": "0 0 -1px",
                           }
                         }
                       >
@@ -2097,9 +1347,9 @@ exports[`List should render 1`] = `
                         role="columnheader"
                         style={
                           Object {
-                            "WebkitFlex": "0 1 -1px",
-                            "flex": "0 1 -1px",
-                            "msFlex": "0 1 -1px",
+                            "WebkitFlex": "0 0 -1px",
+                            "flex": "0 0 -1px",
+                            "msFlex": "0 0 -1px",
                           }
                         }
                       >
@@ -2281,7 +1531,7 @@ exports[`List should render id if provided 1`] = `
       }
     }
   >
-    <Translate(Toolbar)
+    <withI18nextTranslation(Toolbar)
       components={Object {}}
       display={
         Object {
@@ -2304,47 +1554,9 @@ exports[`List should render id if provided 1`] = `
           "totalResults": 13,
         }
       }
-      selectAllCheckbox={
-        Object {
-          "id": "context",
-          "isSelected": [Function],
-          "items": Array [
-            Object {
-              "id": 1,
-              "name": "Hello world",
-            },
-            Object {
-              "id": 2,
-              "name": "Foo",
-            },
-            Object {
-              "id": 3,
-              "name": "Bar",
-            },
-          ],
-          "onToggleAll": [MockFunction],
-        }
-      }
-      sort={
-        Object {
-          "field": "name",
-          "onChange": [MockFunction],
-          "options": Array [
-            Object {
-              "id": "id",
-              "name": "Id",
-            },
-            Object {
-              "id": "name",
-              "name": "Name",
-            },
-          ],
-        }
-      }
+      sort={false}
     >
-      <I18n
-        bindI18n="languageChanged loaded"
-        bindStore="added removed"
+      <Toolbar
         components={Object {}}
         display={
           Object {
@@ -2360,13 +1572,6 @@ exports[`List should render id if provided 1`] = `
         }
         i18n={Object {}}
         id="context"
-        ns={
-          Array [
-            "tui-components",
-          ]
-        }
-        nsMode="default"
-        omitBoundRerender={true}
         pagination={
           Object {
             "itemsPerPage": 5,
@@ -2375,1367 +1580,528 @@ exports[`List should render id if provided 1`] = `
             "totalResults": 13,
           }
         }
-        selectAllCheckbox={
-          Object {
-            "id": "context",
-            "isSelected": [Function],
-            "items": Array [
-              Object {
-                "id": 1,
-                "name": "Hello world",
-              },
-              Object {
-                "id": 2,
-                "name": "Foo",
-              },
-              Object {
-                "id": 3,
-                "name": "Bar",
-              },
-            ],
-            "onToggleAll": [MockFunction],
-          }
-        }
-        sort={
-          Object {
-            "field": "name",
-            "onChange": [MockFunction],
-            "options": Array [
-              Object {
-                "id": "id",
-                "name": "Id",
-              },
-              Object {
-                "id": "name",
-                "name": "Name",
-              },
-            ],
-          }
-        }
-        translateFuncName="t"
-        usePureComponent={false}
-        wait={false}
-        withRef={false}
+        sort={false}
+        t={[Function]}
+        tReady={true}
       >
-        <Toolbar
-          components={Object {}}
-          display={
-            Object {
-              "mode": "table",
-              "onChange": [MockFunction],
-            }
-          }
-          filter={
-            Object {
-              "onFilter": [MockFunction],
-              "onToggle": [MockFunction],
-            }
-          }
-          i18n={Object {}}
-          id="context"
-          lng="en"
-          pagination={
-            Object {
-              "itemsPerPage": 5,
-              "onChange": [MockFunction],
-              "startIndex": 6,
-              "totalResults": 13,
-            }
-          }
-          selectAllCheckbox={
-            Object {
-              "id": "context",
-              "isSelected": [Function],
-              "items": Array [
-                Object {
-                  "id": 1,
-                  "name": "Hello world",
-                },
-                Object {
-                  "id": 2,
-                  "name": "Foo",
-                },
-                Object {
-                  "id": 3,
-                  "name": "Bar",
-                },
-              ],
-              "onToggleAll": [MockFunction],
-            }
-          }
-          sort={
-            Object {
-              "field": "name",
-              "onChange": [MockFunction],
-              "options": Array [
-                Object {
-                  "id": "id",
-                  "name": "Id",
-                },
-                Object {
-                  "id": "name",
-                  "name": "Name",
-                },
-              ],
-            }
-          }
-          t={[Function]}
-          tReady={false}
+        <div
+          className="theme-tc-list-toolbar tc-list-toolbar"
         >
-          <div
-            className="tc-list-toolbar"
+          <Uncontrolled(Navbar)
+            bsStyle="default"
+            className="theme-tc-list-toolbar"
+            componentClass="div"
+            fluid={true}
+            role="toolbar"
           >
-            <Uncontrolled(Navbar)
+            <Navbar
+              bsClass="navbar"
               bsStyle="default"
               className="theme-tc-list-toolbar"
+              collapseOnSelect={false}
               componentClass="div"
+              fixedBottom={false}
+              fixedTop={false}
               fluid={true}
+              inverse={false}
+              onToggle={[Function]}
               role="toolbar"
+              staticTop={false}
             >
-              <Navbar
-                bsClass="navbar"
-                bsStyle="default"
-                className="theme-tc-list-toolbar"
-                collapseOnSelect={false}
-                componentClass="div"
-                fixedBottom={false}
-                fixedTop={false}
-                fluid={true}
-                inverse={false}
-                onToggle={[Function]}
+              <div
+                className="theme-tc-list-toolbar navbar navbar-default"
                 role="toolbar"
-                staticTop={false}
               >
-                <div
-                  className="theme-tc-list-toolbar navbar navbar-default"
-                  role="toolbar"
+                <Grid
+                  bsClass="container"
+                  componentClass="div"
+                  fluid={true}
                 >
-                  <Grid
-                    bsClass="container"
-                    componentClass="div"
-                    fluid={true}
+                  <div
+                    className="container-fluid"
                   >
-                    <div
-                      className="container-fluid"
+                    <Label
+                      htmlFor="context-pagination-size"
+                      text="Show:"
                     >
-                      <SelectAll
-                        id="context"
-                        isSelected={[Function]}
-                        items={
-                          Array [
-                            Object {
-                              "id": 1,
-                              "name": "Hello world",
-                            },
-                            Object {
-                              "id": 2,
-                              "name": "Foo",
-                            },
-                            Object {
-                              "id": 3,
-                              "name": "Bar",
-                            },
-                          ]
-                        }
-                        onToggleAll={[MockFunction]}
-                        t={[Function]}
+                      <NavbarText
+                        componentClass="p"
+                        pullLeft={false}
+                        pullRight={false}
                       >
-                        <form
-                          className="theme-container navbar-form navbar-left"
+                        <p
+                          className="navbar-text"
                         >
-                          <div
-                            className="checkbox-inline navbar-text theme-tc-list-toolbar-select-all"
+                          <label
+                            htmlFor="context-pagination-size"
                           >
-                            <label
-                              className="tc-list-toolbar-select-all"
-                              htmlFor="context-check-all"
-                            >
-                              <input
-                                checked={false}
-                                disabled={false}
-                                id="context-check-all"
-                                onChange={[Function]}
-                                type="checkbox"
-                              />
-                              <span>
-                                Select All
-                              </span>
-                            </label>
-                          </div>
-                        </form>
-                      </SelectAll>
-                      <Label
-                        htmlFor="context-display-mode"
-                        text="Display:"
+                            Show:
+                          </label>
+                        </p>
+                      </NavbarText>
+                    </Label>
+                    <Pagination
+                      id="context-pagination"
+                      itemsPerPage={5}
+                      itemsPerPageOptions={
+                        Array [
+                          5,
+                          10,
+                          20,
+                          50,
+                        ]
+                      }
+                      onChange={[MockFunction]}
+                      startIndex={6}
+                      t={[Function]}
+                      totalResults={13}
+                    >
+                      <Nav
+                        bsClass="nav"
+                        className="theme-tc-pagination"
+                        justified={false}
+                        onSelect={[Function]}
+                        pullLeft={false}
+                        pullRight={false}
+                        stacked={false}
                       >
-                        <NavbarText
-                          componentClass="p"
-                          pullLeft={false}
-                          pullRight={false}
+                        <ul
+                          className="theme-tc-pagination nav navbar-nav"
+                          role={null}
                         >
-                          <p
-                            className="navbar-text"
+                          <NavDropdown
+                            id="context-pagination-size"
+                            key=".0"
+                            onSelect={[Function]}
+                            title={5}
                           >
-                            <label
-                              htmlFor="context-display-mode"
-                            >
-                              Display:
-                            </label>
-                          </p>
-                        </NavbarText>
-                      </Label>
-                      <SelectDisplayMode
-                        id="context-display-mode"
-                        mode="table"
-                        onChange={[MockFunction]}
-                        t={[Function]}
-                      >
-                        <Nav
-                          bsClass="nav"
-                          justified={false}
-                          pullLeft={false}
-                          pullRight={false}
-                          stacked={false}
-                        >
-                          <ul
-                            className="nav navbar-nav"
-                            role={null}
-                          >
-                            <NavDropdown
-                              aria-label="Change display mode. Current display mode: table."
-                              id="context-display-mode"
-                              key=".0"
-                              onSelect={[Function]}
-                              title={
-                                <Icon
-                                  name="talend-table"
-                                />
-                              }
-                            >
-                              <Uncontrolled(Dropdown)
-                                className=""
-                                componentClass="li"
-                                id="context-display-mode"
-                                onSelect={[Function]}
-                              >
-                                <Dropdown
-                                  bsClass="dropdown"
-                                  className=""
-                                  componentClass="li"
-                                  id="context-display-mode"
-                                  onSelect={[Function]}
-                                  onToggle={[Function]}
-                                >
-                                  <li
-                                    className="dropdown"
-                                  >
-                                    <DropdownToggle
-                                      aria-label="Change display mode. Current display mode: table."
-                                      bsClass="dropdown-toggle"
-                                      bsRole="toggle"
-                                      id="context-display-mode"
-                                      key=".0"
-                                      onClick={[Function]}
-                                      onKeyDown={[Function]}
-                                      open={false}
-                                      useAnchor={true}
-                                    >
-                                      <SafeAnchor
-                                        aria-expanded={false}
-                                        aria-haspopup={true}
-                                        aria-label="Change display mode. Current display mode: table."
-                                        className="dropdown-toggle"
-                                        componentClass="a"
-                                        id="context-display-mode"
-                                        onClick={[Function]}
-                                        onKeyDown={[Function]}
-                                        role="button"
-                                      >
-                                        <a
-                                          aria-expanded={false}
-                                          aria-haspopup={true}
-                                          aria-label="Change display mode. Current display mode: table."
-                                          className="dropdown-toggle"
-                                          href="#"
-                                          id="context-display-mode"
-                                          onClick={[Function]}
-                                          onKeyDown={[Function]}
-                                          role="button"
-                                        >
-                                          <Icon
-                                            name="talend-table"
-                                          >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
-                                              name="talend-table"
-                                              title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-table"
-                                              />
-                                            </svg>
-                                          </Icon>
-                                           
-                                          <span
-                                            className="caret"
-                                          />
-                                        </a>
-                                      </SafeAnchor>
-                                    </DropdownToggle>
-                                    <DropdownMenu
-                                      bsClass="dropdown-menu"
-                                      bsRole="menu"
-                                      key=".1"
-                                      labelledBy="context-display-mode"
-                                      onClose={[Function]}
-                                      onSelect={[Function]}
-                                      pullRight={false}
-                                    >
-                                      <RootCloseWrapper
-                                        disabled={true}
-                                        event="click"
-                                        onRootClose={[Function]}
-                                      >
-                                        <ul
-                                          aria-labelledby="context-display-mode"
-                                          className="dropdown-menu"
-                                          role="menu"
-                                        >
-                                          <MenuItem
-                                            aria-label="Set Table as current display mode."
-                                            bsClass="dropdown"
-                                            disabled={false}
-                                            divider={false}
-                                            eventKey="table"
-                                            header={false}
-                                            id="context-display-mode-table"
-                                            key=".$.$table"
-                                            onKeyDown={[Function]}
-                                            onSelect={[Function]}
-                                          >
-                                            <li
-                                              className=""
-                                              role="presentation"
-                                            >
-                                              <SafeAnchor
-                                                aria-label="Set Table as current display mode."
-                                                componentClass="a"
-                                                id="context-display-mode-table"
-                                                onClick={[Function]}
-                                                onKeyDown={[Function]}
-                                                role="menuitem"
-                                                tabIndex="-1"
-                                              >
-                                                <a
-                                                  aria-label="Set Table as current display mode."
-                                                  href="#"
-                                                  id="context-display-mode-table"
-                                                  onClick={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  role="menuitem"
-                                                  tabIndex="-1"
-                                                >
-                                                  <Icon
-                                                    name="talend-table"
-                                                  >
-                                                    <svg
-                                                      aria-hidden="true"
-                                                      className="theme-tc-svg-icon tc-svg-icon"
-                                                      focusable="false"
-                                                      name="talend-table"
-                                                      title={null}
-                                                    >
-                                                      <use
-                                                        xlinkHref="#talend-table"
-                                                      />
-                                                    </svg>
-                                                  </Icon>
-                                                  Table
-                                                </a>
-                                              </SafeAnchor>
-                                            </li>
-                                          </MenuItem>
-                                          <MenuItem
-                                            aria-label="Set Expanded as current display mode."
-                                            bsClass="dropdown"
-                                            disabled={false}
-                                            divider={false}
-                                            eventKey="large"
-                                            header={false}
-                                            id="context-display-mode-large"
-                                            key=".$.$large"
-                                            onKeyDown={[Function]}
-                                            onSelect={[Function]}
-                                          >
-                                            <li
-                                              className=""
-                                              role="presentation"
-                                            >
-                                              <SafeAnchor
-                                                aria-label="Set Expanded as current display mode."
-                                                componentClass="a"
-                                                id="context-display-mode-large"
-                                                onClick={[Function]}
-                                                onKeyDown={[Function]}
-                                                role="menuitem"
-                                                tabIndex="-1"
-                                              >
-                                                <a
-                                                  aria-label="Set Expanded as current display mode."
-                                                  href="#"
-                                                  id="context-display-mode-large"
-                                                  onClick={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  role="menuitem"
-                                                  tabIndex="-1"
-                                                >
-                                                  <Icon
-                                                    name="talend-expanded"
-                                                  >
-                                                    <svg
-                                                      aria-hidden="true"
-                                                      className="theme-tc-svg-icon tc-svg-icon"
-                                                      focusable="false"
-                                                      name="talend-expanded"
-                                                      title={null}
-                                                    >
-                                                      <use
-                                                        xlinkHref="#talend-expanded"
-                                                      />
-                                                    </svg>
-                                                  </Icon>
-                                                  Expanded
-                                                </a>
-                                              </SafeAnchor>
-                                            </li>
-                                          </MenuItem>
-                                        </ul>
-                                      </RootCloseWrapper>
-                                    </DropdownMenu>
-                                  </li>
-                                </Dropdown>
-                              </Uncontrolled(Dropdown)>
-                            </NavDropdown>
-                          </ul>
-                        </Nav>
-                      </SelectDisplayMode>
-                      <Label
-                        htmlFor="context-sort-by"
-                        text="Sort by:"
-                      >
-                        <NavbarText
-                          componentClass="p"
-                          pullLeft={false}
-                          pullRight={false}
-                        >
-                          <p
-                            className="navbar-text"
-                          >
-                            <label
-                              htmlFor="context-sort-by"
-                            >
-                              Sort by:
-                            </label>
-                          </p>
-                        </NavbarText>
-                      </Label>
-                      <SelectSortBy
-                        field="name"
-                        id="context-sort"
-                        onChange={[MockFunction]}
-                        options={
-                          Array [
-                            Object {
-                              "id": "id",
-                              "name": "Id",
-                            },
-                            Object {
-                              "id": "name",
-                              "name": "Name",
-                            },
-                          ]
-                        }
-                        t={[Function]}
-                      >
-                        <Nav
-                          bsClass="nav"
-                          className="theme-tc-list-toolbar-sort-by"
-                          justified={false}
-                          pullLeft={false}
-                          pullRight={false}
-                          stacked={false}
-                        >
-                          <ul
-                            className="theme-tc-list-toolbar-sort-by nav navbar-nav"
-                            role={null}
-                          >
-                            <NavDropdown
-                              aria-label="Change sort criteria. Current sort by Name."
-                              className="theme-sort-by-items"
-                              id="context-sort-by"
-                              key=".0"
-                              onSelect={[Function]}
-                              title="Name"
-                            >
-                              <Uncontrolled(Dropdown)
-                                className="theme-sort-by-items"
-                                componentClass="li"
-                                id="context-sort-by"
-                                onSelect={[Function]}
-                              >
-                                <Dropdown
-                                  bsClass="dropdown"
-                                  className="theme-sort-by-items"
-                                  componentClass="li"
-                                  id="context-sort-by"
-                                  onSelect={[Function]}
-                                  onToggle={[Function]}
-                                >
-                                  <li
-                                    className="theme-sort-by-items dropdown"
-                                  >
-                                    <DropdownToggle
-                                      aria-label="Change sort criteria. Current sort by Name."
-                                      bsClass="dropdown-toggle"
-                                      bsRole="toggle"
-                                      id="context-sort-by"
-                                      key=".0"
-                                      onClick={[Function]}
-                                      onKeyDown={[Function]}
-                                      open={false}
-                                      useAnchor={true}
-                                    >
-                                      <SafeAnchor
-                                        aria-expanded={false}
-                                        aria-haspopup={true}
-                                        aria-label="Change sort criteria. Current sort by Name."
-                                        className="dropdown-toggle"
-                                        componentClass="a"
-                                        id="context-sort-by"
-                                        onClick={[Function]}
-                                        onKeyDown={[Function]}
-                                        role="button"
-                                      >
-                                        <a
-                                          aria-expanded={false}
-                                          aria-haspopup={true}
-                                          aria-label="Change sort criteria. Current sort by Name."
-                                          className="dropdown-toggle"
-                                          href="#"
-                                          id="context-sort-by"
-                                          onClick={[Function]}
-                                          onKeyDown={[Function]}
-                                          role="button"
-                                        >
-                                          Name
-                                           
-                                          <span
-                                            className="caret"
-                                          />
-                                        </a>
-                                      </SafeAnchor>
-                                    </DropdownToggle>
-                                    <DropdownMenu
-                                      bsClass="dropdown-menu"
-                                      bsRole="menu"
-                                      key=".1"
-                                      labelledBy="context-sort-by"
-                                      onClose={[Function]}
-                                      onSelect={[Function]}
-                                      pullRight={false}
-                                    >
-                                      <RootCloseWrapper
-                                        disabled={true}
-                                        event="click"
-                                        onRootClose={[Function]}
-                                      >
-                                        <ul
-                                          aria-labelledby="context-sort-by"
-                                          className="dropdown-menu"
-                                          role="menu"
-                                        >
-                                          <MenuItem
-                                            aria-label="Select Id as current sort criteria."
-                                            bsClass="dropdown"
-                                            disabled={false}
-                                            divider={false}
-                                            eventKey={
-                                              Object {
-                                                "id": "id",
-                                                "name": "Id",
-                                              }
-                                            }
-                                            header={false}
-                                            id="context-sort-by-item-id"
-                                            key=".$.$0"
-                                            onKeyDown={[Function]}
-                                            onSelect={[Function]}
-                                          >
-                                            <li
-                                              className=""
-                                              role="presentation"
-                                            >
-                                              <SafeAnchor
-                                                aria-label="Select Id as current sort criteria."
-                                                componentClass="a"
-                                                id="context-sort-by-item-id"
-                                                onClick={[Function]}
-                                                onKeyDown={[Function]}
-                                                role="menuitem"
-                                                tabIndex="-1"
-                                              >
-                                                <a
-                                                  aria-label="Select Id as current sort criteria."
-                                                  href="#"
-                                                  id="context-sort-by-item-id"
-                                                  onClick={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  role="menuitem"
-                                                  tabIndex="-1"
-                                                >
-                                                  Id
-                                                </a>
-                                              </SafeAnchor>
-                                            </li>
-                                          </MenuItem>
-                                          <MenuItem
-                                            aria-label="Select Name as current sort criteria."
-                                            bsClass="dropdown"
-                                            disabled={false}
-                                            divider={false}
-                                            eventKey={
-                                              Object {
-                                                "id": "name",
-                                                "name": "Name",
-                                              }
-                                            }
-                                            header={false}
-                                            id="context-sort-by-item-name"
-                                            key=".$.$1"
-                                            onKeyDown={[Function]}
-                                            onSelect={[Function]}
-                                          >
-                                            <li
-                                              className=""
-                                              role="presentation"
-                                            >
-                                              <SafeAnchor
-                                                aria-label="Select Name as current sort criteria."
-                                                componentClass="a"
-                                                id="context-sort-by-item-name"
-                                                onClick={[Function]}
-                                                onKeyDown={[Function]}
-                                                role="menuitem"
-                                                tabIndex="-1"
-                                              >
-                                                <a
-                                                  aria-label="Select Name as current sort criteria."
-                                                  href="#"
-                                                  id="context-sort-by-item-name"
-                                                  onClick={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  role="menuitem"
-                                                  tabIndex="-1"
-                                                >
-                                                  Name
-                                                </a>
-                                              </SafeAnchor>
-                                            </li>
-                                          </MenuItem>
-                                        </ul>
-                                      </RootCloseWrapper>
-                                    </DropdownMenu>
-                                  </li>
-                                </Dropdown>
-                              </Uncontrolled(Dropdown)>
-                            </NavDropdown>
-                            <NavItem
-                              active={false}
-                              aria-label="Change sort order. Current order: Ascending."
-                              disabled={false}
-                              id="context-sort-order"
-                              key=".1"
-                              onClick={[Function]}
-                              onSelect={null}
-                            >
-                              <li
-                                className=""
-                                role="presentation"
-                              >
-                                <SafeAnchor
-                                  aria-label="Change sort order. Current order: Ascending."
-                                  componentClass="a"
-                                  disabled={false}
-                                  id="context-sort-order"
-                                  onClick={[Function]}
-                                >
-                                  <a
-                                    aria-label="Change sort order. Current order: Ascending."
-                                    href="#"
-                                    id="context-sort-order"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                    role="button"
-                                  >
-                                    Ascending
-                                  </a>
-                                </SafeAnchor>
-                              </li>
-                            </NavItem>
-                          </ul>
-                        </Nav>
-                      </SelectSortBy>
-                      <Label
-                        htmlFor="context-pagination-size"
-                        text="Show:"
-                      >
-                        <NavbarText
-                          componentClass="p"
-                          pullLeft={false}
-                          pullRight={false}
-                        >
-                          <p
-                            className="navbar-text"
-                          >
-                            <label
-                              htmlFor="context-pagination-size"
-                            >
-                              Show:
-                            </label>
-                          </p>
-                        </NavbarText>
-                      </Label>
-                      <Pagination
-                        id="context-pagination"
-                        itemsPerPage={5}
-                        itemsPerPageOptions={
-                          Array [
-                            5,
-                            10,
-                            20,
-                            50,
-                          ]
-                        }
-                        onChange={[MockFunction]}
-                        startIndex={6}
-                        t={[Function]}
-                        totalResults={13}
-                      >
-                        <Nav
-                          bsClass="nav"
-                          className="theme-tc-pagination"
-                          justified={false}
-                          onSelect={[Function]}
-                          pullLeft={false}
-                          pullRight={false}
-                          stacked={false}
-                        >
-                          <ul
-                            className="theme-tc-pagination nav navbar-nav"
-                            role={null}
-                          >
-                            <NavDropdown
+                            <Uncontrolled(Dropdown)
+                              className=""
+                              componentClass="li"
                               id="context-pagination-size"
-                              key=".0"
                               onSelect={[Function]}
-                              title={5}
                             >
-                              <Uncontrolled(Dropdown)
+                              <Dropdown
+                                bsClass="dropdown"
                                 className=""
                                 componentClass="li"
                                 id="context-pagination-size"
                                 onSelect={[Function]}
+                                onToggle={[Function]}
                               >
-                                <Dropdown
-                                  bsClass="dropdown"
-                                  className=""
-                                  componentClass="li"
-                                  id="context-pagination-size"
-                                  onSelect={[Function]}
-                                  onToggle={[Function]}
+                                <li
+                                  className="dropdown"
                                 >
-                                  <li
-                                    className="dropdown"
+                                  <DropdownToggle
+                                    bsClass="dropdown-toggle"
+                                    bsRole="toggle"
+                                    id="context-pagination-size"
+                                    key=".0"
+                                    onClick={[Function]}
+                                    onKeyDown={[Function]}
+                                    open={false}
+                                    useAnchor={true}
                                   >
-                                    <DropdownToggle
-                                      bsClass="dropdown-toggle"
-                                      bsRole="toggle"
+                                    <SafeAnchor
+                                      aria-expanded={false}
+                                      aria-haspopup={true}
+                                      className="dropdown-toggle"
+                                      componentClass="a"
                                       id="context-pagination-size"
-                                      key=".0"
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
-                                      open={false}
-                                      useAnchor={true}
+                                      role="button"
                                     >
-                                      <SafeAnchor
+                                      <a
                                         aria-expanded={false}
                                         aria-haspopup={true}
                                         className="dropdown-toggle"
-                                        componentClass="a"
+                                        href="#"
                                         id="context-pagination-size"
                                         onClick={[Function]}
                                         onKeyDown={[Function]}
                                         role="button"
                                       >
-                                        <a
-                                          aria-expanded={false}
-                                          aria-haspopup={true}
-                                          className="dropdown-toggle"
-                                          href="#"
-                                          id="context-pagination-size"
-                                          onClick={[Function]}
-                                          onKeyDown={[Function]}
-                                          role="button"
-                                        >
-                                          5
-                                           
-                                          <span
-                                            className="caret"
-                                          />
-                                        </a>
-                                      </SafeAnchor>
-                                    </DropdownToggle>
-                                    <DropdownMenu
-                                      bsClass="dropdown-menu"
-                                      bsRole="menu"
-                                      key=".1"
-                                      labelledBy="context-pagination-size"
-                                      onClose={[Function]}
-                                      onSelect={[Function]}
-                                      pullRight={false}
+                                        5
+                                         
+                                        <span
+                                          className="caret"
+                                        />
+                                      </a>
+                                    </SafeAnchor>
+                                  </DropdownToggle>
+                                  <DropdownMenu
+                                    bsClass="dropdown-menu"
+                                    bsRole="menu"
+                                    key=".1"
+                                    labelledBy="context-pagination-size"
+                                    onClose={[Function]}
+                                    onSelect={[Function]}
+                                    pullRight={false}
+                                  >
+                                    <RootCloseWrapper
+                                      disabled={true}
+                                      event="click"
+                                      onRootClose={[Function]}
                                     >
-                                      <RootCloseWrapper
-                                        disabled={true}
-                                        event="click"
-                                        onRootClose={[Function]}
+                                      <ul
+                                        aria-labelledby="context-pagination-size"
+                                        className="dropdown-menu"
+                                        role="menu"
                                       >
-                                        <ul
-                                          aria-labelledby="context-pagination-size"
-                                          className="dropdown-menu"
-                                          role="menu"
+                                        <MenuItem
+                                          bsClass="dropdown"
+                                          disabled={false}
+                                          divider={false}
+                                          eventKey={5}
+                                          header={false}
+                                          key=".$.$0"
+                                          onKeyDown={[Function]}
+                                          onSelect={[Function]}
                                         >
-                                          <MenuItem
-                                            bsClass="dropdown"
-                                            disabled={false}
-                                            divider={false}
-                                            eventKey={5}
-                                            header={false}
-                                            key=".$.$0"
-                                            onKeyDown={[Function]}
-                                            onSelect={[Function]}
+                                          <li
+                                            className=""
+                                            role="presentation"
                                           >
-                                            <li
-                                              className=""
-                                              role="presentation"
+                                            <SafeAnchor
+                                              componentClass="a"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              role="menuitem"
+                                              tabIndex="-1"
                                             >
-                                              <SafeAnchor
-                                                componentClass="a"
+                                              <a
+                                                href="#"
                                                 onClick={[Function]}
                                                 onKeyDown={[Function]}
                                                 role="menuitem"
                                                 tabIndex="-1"
                                               >
-                                                <a
-                                                  href="#"
-                                                  onClick={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  role="menuitem"
-                                                  tabIndex="-1"
-                                                >
-                                                  5
-                                                </a>
-                                              </SafeAnchor>
-                                            </li>
-                                          </MenuItem>
-                                          <MenuItem
-                                            bsClass="dropdown"
-                                            disabled={false}
-                                            divider={false}
-                                            eventKey={10}
-                                            header={false}
-                                            key=".$.$1"
-                                            onKeyDown={[Function]}
-                                            onSelect={[Function]}
+                                                5
+                                              </a>
+                                            </SafeAnchor>
+                                          </li>
+                                        </MenuItem>
+                                        <MenuItem
+                                          bsClass="dropdown"
+                                          disabled={false}
+                                          divider={false}
+                                          eventKey={10}
+                                          header={false}
+                                          key=".$.$1"
+                                          onKeyDown={[Function]}
+                                          onSelect={[Function]}
+                                        >
+                                          <li
+                                            className=""
+                                            role="presentation"
                                           >
-                                            <li
-                                              className=""
-                                              role="presentation"
+                                            <SafeAnchor
+                                              componentClass="a"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              role="menuitem"
+                                              tabIndex="-1"
                                             >
-                                              <SafeAnchor
-                                                componentClass="a"
+                                              <a
+                                                href="#"
                                                 onClick={[Function]}
                                                 onKeyDown={[Function]}
                                                 role="menuitem"
                                                 tabIndex="-1"
                                               >
-                                                <a
-                                                  href="#"
-                                                  onClick={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  role="menuitem"
-                                                  tabIndex="-1"
-                                                >
-                                                  10
-                                                </a>
-                                              </SafeAnchor>
-                                            </li>
-                                          </MenuItem>
-                                          <MenuItem
-                                            bsClass="dropdown"
-                                            disabled={false}
-                                            divider={false}
-                                            eventKey={20}
-                                            header={false}
-                                            key=".$.$2"
-                                            onKeyDown={[Function]}
-                                            onSelect={[Function]}
+                                                10
+                                              </a>
+                                            </SafeAnchor>
+                                          </li>
+                                        </MenuItem>
+                                        <MenuItem
+                                          bsClass="dropdown"
+                                          disabled={false}
+                                          divider={false}
+                                          eventKey={20}
+                                          header={false}
+                                          key=".$.$2"
+                                          onKeyDown={[Function]}
+                                          onSelect={[Function]}
+                                        >
+                                          <li
+                                            className=""
+                                            role="presentation"
                                           >
-                                            <li
-                                              className=""
-                                              role="presentation"
+                                            <SafeAnchor
+                                              componentClass="a"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              role="menuitem"
+                                              tabIndex="-1"
                                             >
-                                              <SafeAnchor
-                                                componentClass="a"
+                                              <a
+                                                href="#"
                                                 onClick={[Function]}
                                                 onKeyDown={[Function]}
                                                 role="menuitem"
                                                 tabIndex="-1"
                                               >
-                                                <a
-                                                  href="#"
-                                                  onClick={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  role="menuitem"
-                                                  tabIndex="-1"
-                                                >
-                                                  20
-                                                </a>
-                                              </SafeAnchor>
-                                            </li>
-                                          </MenuItem>
-                                          <MenuItem
-                                            bsClass="dropdown"
-                                            disabled={false}
-                                            divider={false}
-                                            eventKey={50}
-                                            header={false}
-                                            key=".$.$3"
-                                            onKeyDown={[Function]}
-                                            onSelect={[Function]}
+                                                20
+                                              </a>
+                                            </SafeAnchor>
+                                          </li>
+                                        </MenuItem>
+                                        <MenuItem
+                                          bsClass="dropdown"
+                                          disabled={false}
+                                          divider={false}
+                                          eventKey={50}
+                                          header={false}
+                                          key=".$.$3"
+                                          onKeyDown={[Function]}
+                                          onSelect={[Function]}
+                                        >
+                                          <li
+                                            className=""
+                                            role="presentation"
                                           >
-                                            <li
-                                              className=""
-                                              role="presentation"
+                                            <SafeAnchor
+                                              componentClass="a"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              role="menuitem"
+                                              tabIndex="-1"
                                             >
-                                              <SafeAnchor
-                                                componentClass="a"
+                                              <a
+                                                href="#"
                                                 onClick={[Function]}
                                                 onKeyDown={[Function]}
                                                 role="menuitem"
                                                 tabIndex="-1"
                                               >
-                                                <a
-                                                  href="#"
-                                                  onClick={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  role="menuitem"
-                                                  tabIndex="-1"
-                                                >
-                                                  50
-                                                </a>
-                                              </SafeAnchor>
-                                            </li>
-                                          </MenuItem>
-                                        </ul>
-                                      </RootCloseWrapper>
-                                    </DropdownMenu>
-                                  </li>
-                                </Dropdown>
-                              </Uncontrolled(Dropdown)>
-                            </NavDropdown>
-                            <NavItem
-                              active={false}
-                              aria-label="Go to first page."
+                                                50
+                                              </a>
+                                            </SafeAnchor>
+                                          </li>
+                                        </MenuItem>
+                                      </ul>
+                                    </RootCloseWrapper>
+                                  </DropdownMenu>
+                                </li>
+                              </Dropdown>
+                            </Uncontrolled(Dropdown)>
+                          </NavDropdown>
+                          <NavItem
+                            active={false}
+                            aria-label="Go to first page."
+                            className="btn-link"
+                            disabled={false}
+                            eventKey="first"
+                            id="context-pagination-nav-to-first"
+                            key=".1:$first"
+                            onSelect={[Function]}
+                          >
+                            <li
                               className="btn-link"
-                              disabled={false}
-                              eventKey="first"
-                              id="context-pagination-nav-to-first"
-                              key=".1:$first"
-                              onSelect={[Function]}
+                              role="presentation"
                             >
-                              <li
-                                className="btn-link"
-                                role="presentation"
+                              <SafeAnchor
+                                aria-label="Go to first page."
+                                componentClass="a"
+                                disabled={false}
+                                id="context-pagination-nav-to-first"
+                                onClick={[Function]}
                               >
-                                <SafeAnchor
+                                <a
                                   aria-label="Go to first page."
-                                  componentClass="a"
-                                  disabled={false}
+                                  href="#"
                                   id="context-pagination-nav-to-first"
                                   onClick={[Function]}
+                                  onKeyDown={[Function]}
+                                  role="button"
                                 >
-                                  <a
-                                    aria-label="Go to first page."
-                                    href="#"
-                                    id="context-pagination-nav-to-first"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                    role="button"
+                                  <Icon
+                                    name="talend-chevron-end"
                                   >
-                                    <Icon
+                                    <svg
+                                      aria-hidden="true"
+                                      className="theme-tc-svg-icon tc-svg-icon"
+                                      focusable="false"
                                       name="talend-chevron-end"
+                                      title={null}
                                     >
-                                      <svg
-                                        aria-hidden="true"
-                                        className="theme-tc-svg-icon tc-svg-icon"
-                                        focusable="false"
-                                        name="talend-chevron-end"
-                                        title={null}
-                                      >
-                                        <use
-                                          xlinkHref="#talend-chevron-end"
-                                        />
-                                      </svg>
-                                    </Icon>
-                                  </a>
-                                </SafeAnchor>
-                              </li>
-                            </NavItem>
-                            <NavItem
-                              active={false}
-                              aria-label="Go to previous page. Current page: 2."
+                                      <use
+                                        xlinkHref="#talend-chevron-end"
+                                      />
+                                    </svg>
+                                  </Icon>
+                                </a>
+                              </SafeAnchor>
+                            </li>
+                          </NavItem>
+                          <NavItem
+                            active={false}
+                            aria-label="Go to previous page. Current page: 2."
+                            className="btn-link"
+                            disabled={false}
+                            eventKey="prev"
+                            id="context-pagination-nav-to-prev"
+                            key=".1:$prev"
+                            onSelect={[Function]}
+                          >
+                            <li
                               className="btn-link"
-                              disabled={false}
-                              eventKey="prev"
-                              id="context-pagination-nav-to-prev"
-                              key=".1:$prev"
-                              onSelect={[Function]}
+                              role="presentation"
                             >
-                              <li
-                                className="btn-link"
-                                role="presentation"
+                              <SafeAnchor
+                                aria-label="Go to previous page. Current page: 2."
+                                componentClass="a"
+                                disabled={false}
+                                id="context-pagination-nav-to-prev"
+                                onClick={[Function]}
                               >
-                                <SafeAnchor
+                                <a
                                   aria-label="Go to previous page. Current page: 2."
-                                  componentClass="a"
-                                  disabled={false}
+                                  href="#"
                                   id="context-pagination-nav-to-prev"
                                   onClick={[Function]}
+                                  onKeyDown={[Function]}
+                                  role="button"
                                 >
-                                  <a
-                                    aria-label="Go to previous page. Current page: 2."
-                                    href="#"
-                                    id="context-pagination-nav-to-prev"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                    role="button"
+                                  <Icon
+                                    name="talend-chevron-left"
                                   >
-                                    <Icon
+                                    <svg
+                                      aria-hidden="true"
+                                      className="theme-tc-svg-icon tc-svg-icon"
+                                      focusable="false"
                                       name="talend-chevron-left"
+                                      title={null}
                                     >
-                                      <svg
-                                        aria-hidden="true"
-                                        className="theme-tc-svg-icon tc-svg-icon"
-                                        focusable="false"
-                                        name="talend-chevron-left"
-                                        title={null}
-                                      >
-                                        <use
-                                          xlinkHref="#talend-chevron-left"
-                                        />
-                                      </svg>
-                                    </Icon>
-                                  </a>
-                                </SafeAnchor>
-                              </li>
-                            </NavItem>
-                            <li
-                              className="theme-page-index"
-                              key=".1:2"
-                              onSelect={[Function]}
-                            >
-                              2
-                              /
-                              3
+                                      <use
+                                        xlinkHref="#talend-chevron-left"
+                                      />
+                                    </svg>
+                                  </Icon>
+                                </a>
+                              </SafeAnchor>
                             </li>
-                            <NavItem
-                              active={false}
-                              aria-label="Go to next page. Current page: 2."
+                          </NavItem>
+                          <li
+                            className="theme-page-index"
+                            key=".1:2"
+                            onSelect={[Function]}
+                          >
+                            2
+                            /
+                            3
+                          </li>
+                          <NavItem
+                            active={false}
+                            aria-label="Go to next page. Current page: 2."
+                            className="btn-link"
+                            disabled={false}
+                            eventKey="next"
+                            id="context-pagination-nav-to-next"
+                            key=".1:$next"
+                            onSelect={[Function]}
+                          >
+                            <li
                               className="btn-link"
-                              disabled={false}
-                              eventKey="next"
-                              id="context-pagination-nav-to-next"
-                              key=".1:$next"
-                              onSelect={[Function]}
+                              role="presentation"
                             >
-                              <li
-                                className="btn-link"
-                                role="presentation"
+                              <SafeAnchor
+                                aria-label="Go to next page. Current page: 2."
+                                componentClass="a"
+                                disabled={false}
+                                id="context-pagination-nav-to-next"
+                                onClick={[Function]}
                               >
-                                <SafeAnchor
+                                <a
                                   aria-label="Go to next page. Current page: 2."
-                                  componentClass="a"
-                                  disabled={false}
+                                  href="#"
                                   id="context-pagination-nav-to-next"
                                   onClick={[Function]}
+                                  onKeyDown={[Function]}
+                                  role="button"
                                 >
-                                  <a
-                                    aria-label="Go to next page. Current page: 2."
-                                    href="#"
-                                    id="context-pagination-nav-to-next"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                    role="button"
+                                  <Icon
+                                    name="talend-chevron-left"
+                                    transform="rotate-180"
                                   >
-                                    <Icon
+                                    <svg
+                                      aria-hidden="true"
+                                      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
+                                      focusable="false"
                                       name="talend-chevron-left"
-                                      transform="rotate-180"
+                                      title={null}
                                     >
-                                      <svg
-                                        aria-hidden="true"
-                                        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-                                        focusable="false"
-                                        name="talend-chevron-left"
-                                        title={null}
-                                      >
-                                        <use
-                                          xlinkHref="#talend-chevron-left"
-                                        />
-                                      </svg>
-                                    </Icon>
-                                  </a>
-                                </SafeAnchor>
-                              </li>
-                            </NavItem>
-                            <NavItem
-                              active={false}
-                              aria-label="Go to last page."
+                                      <use
+                                        xlinkHref="#talend-chevron-left"
+                                      />
+                                    </svg>
+                                  </Icon>
+                                </a>
+                              </SafeAnchor>
+                            </li>
+                          </NavItem>
+                          <NavItem
+                            active={false}
+                            aria-label="Go to last page."
+                            className="btn-link"
+                            disabled={false}
+                            eventKey="last"
+                            id="context-pagination-nav-to-last"
+                            key=".1:$last"
+                            onSelect={[Function]}
+                          >
+                            <li
                               className="btn-link"
-                              disabled={false}
-                              eventKey="last"
-                              id="context-pagination-nav-to-last"
-                              key=".1:$last"
-                              onSelect={[Function]}
+                              role="presentation"
                             >
-                              <li
-                                className="btn-link"
-                                role="presentation"
+                              <SafeAnchor
+                                aria-label="Go to last page."
+                                componentClass="a"
+                                disabled={false}
+                                id="context-pagination-nav-to-last"
+                                onClick={[Function]}
                               >
-                                <SafeAnchor
+                                <a
                                   aria-label="Go to last page."
-                                  componentClass="a"
-                                  disabled={false}
+                                  href="#"
                                   id="context-pagination-nav-to-last"
                                   onClick={[Function]}
+                                  onKeyDown={[Function]}
+                                  role="button"
                                 >
-                                  <a
-                                    aria-label="Go to last page."
-                                    href="#"
-                                    id="context-pagination-nav-to-last"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                    role="button"
+                                  <Icon
+                                    name="talend-chevron-end"
+                                    transform="rotate-180"
                                   >
-                                    <Icon
+                                    <svg
+                                      aria-hidden="true"
+                                      className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
+                                      focusable="false"
                                       name="talend-chevron-end"
-                                      transform="rotate-180"
+                                      title={null}
                                     >
-                                      <svg
-                                        aria-hidden="true"
-                                        className="theme-tc-svg-icon tc-svg-icon theme-rotate-180"
-                                        focusable="false"
-                                        name="talend-chevron-end"
-                                        title={null}
-                                      >
-                                        <use
-                                          xlinkHref="#talend-chevron-end"
-                                        />
-                                      </svg>
-                                    </Icon>
-                                  </a>
-                                </SafeAnchor>
-                              </li>
-                            </NavItem>
-                          </ul>
-                        </Nav>
-                      </Pagination>
-                      <Translate(FilterBar)
-                        className="navbar-right"
-                        id="context-filter"
-                        navbar={true}
-                        onFilter={[MockFunction]}
-                        onToggle={[MockFunction]}
-                        t={[Function]}
-                      >
-                        <I18n
-                          bindI18n="languageChanged loaded"
-                          bindStore="added removed"
-                          className="navbar-right"
-                          i18n={Object {}}
-                          id="context-filter"
-                          navbar={true}
-                          ns={
-                            Array [
-                              "tui-components",
-                            ]
-                          }
-                          nsMode="default"
-                          omitBoundRerender={true}
-                          onFilter={[MockFunction]}
-                          onToggle={[MockFunction]}
-                          t={[Function]}
-                          translateFuncName="t"
-                          usePureComponent={false}
-                          wait={false}
-                          withRef={false}
-                        >
-                          <FilterBar
-                            autoFocus={true}
-                            className="navbar-right"
-                            dockable={true}
-                            docked={true}
-                            focus={false}
-                            i18n={Object {}}
-                            id="context-filter"
-                            lng="en"
-                            navbar={true}
-                            onFilter={[MockFunction]}
-                            onToggle={[MockFunction]}
-                            placeholder="Filter"
-                            t={[Function]}
-                            tReady={false}
-                          >
-                            <Action
-                              bsStyle="link"
-                              className="navbar-right"
-                              hideLabel={true}
-                              icon="talend-search"
-                              id="context-filter"
-                              label="Toggle filter"
-                              onClick={[MockFunction]}
-                              role="search"
-                            >
-                              <Translate(ActionButton)
-                                bsStyle="link"
-                                className="navbar-right"
-                                hideLabel={true}
-                                icon="talend-search"
-                                id="context-filter"
-                                label="Toggle filter"
-                                onClick={[MockFunction]}
-                                role="search"
-                              >
-                                <I18n
-                                  bindI18n="languageChanged loaded"
-                                  bindStore="added removed"
-                                  bsStyle="link"
-                                  className="navbar-right"
-                                  hideLabel={true}
-                                  i18n={Object {}}
-                                  icon="talend-search"
-                                  id="context-filter"
-                                  label="Toggle filter"
-                                  ns={
-                                    Array [
-                                      "tui-components",
-                                    ]
-                                  }
-                                  nsMode="default"
-                                  omitBoundRerender={true}
-                                  onClick={[MockFunction]}
-                                  role="search"
-                                  translateFuncName="t"
-                                  usePureComponent={false}
-                                  wait={false}
-                                  withRef={false}
-                                >
-                                  <ActionButton
-                                    available={true}
-                                    bsStyle="link"
-                                    className="navbar-right"
-                                    disabled={false}
-                                    hideLabel={true}
-                                    i18n={Object {}}
-                                    icon="talend-search"
-                                    id="context-filter"
-                                    inProgress={false}
-                                    label="Toggle filter"
-                                    lng="en"
-                                    loading={false}
-                                    onClick={[MockFunction]}
-                                    role="search"
-                                    t={[Function]}
-                                    tReady={false}
-                                    tooltipPlacement="top"
-                                  >
-                                    <TooltipTrigger
-                                      label="Toggle filter"
-                                      tooltipPlacement="top"
-                                    >
-                                      <Button
-                                        active={false}
-                                        aria-label="Toggle filter"
-                                        block={false}
-                                        bsClass="btn"
-                                        bsStyle="link"
-                                        className="navbar-right btn-icon-only"
-                                        disabled={false}
-                                        id="context-filter"
-                                        onClick={[Function]}
-                                        onFocus={[Function]}
-                                        onMouseDown={[Function]}
-                                        onMouseOver={[Function]}
-                                        role="search"
-                                      >
-                                        <button
-                                          aria-label="Toggle filter"
-                                          className="navbar-right btn-icon-only btn btn-link"
-                                          disabled={false}
-                                          id="context-filter"
-                                          onClick={[Function]}
-                                          onFocus={[Function]}
-                                          onMouseDown={[Function]}
-                                          onMouseOver={[Function]}
-                                          role="search"
-                                          type="button"
-                                        >
-                                          <Icon
-                                            key="icon"
-                                            name="talend-search"
-                                          >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
-                                              name="talend-search"
-                                              title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-search"
-                                              />
-                                            </svg>
-                                          </Icon>
-                                        </button>
-                                      </Button>
-                                    </TooltipTrigger>
-                                  </ActionButton>
-                                </I18n>
-                              </Translate(ActionButton)>
-                            </Action>
-                          </FilterBar>
-                        </I18n>
-                      </Translate(FilterBar)>
-                    </div>
-                  </Grid>
-                </div>
-              </Navbar>
-            </Uncontrolled(Navbar)>
-          </div>
-        </Toolbar>
-      </I18n>
-    </Translate(Toolbar)>
+                                      <use
+                                        xlinkHref="#talend-chevron-end"
+                                      />
+                                    </svg>
+                                  </Icon>
+                                </a>
+                              </SafeAnchor>
+                            </li>
+                          </NavItem>
+                        </ul>
+                      </Nav>
+                    </Pagination>
+                  </div>
+                </Grid>
+              </div>
+            </Navbar>
+          </Uncontrolled(Navbar)>
+        </div>
+      </Toolbar>
+    </withI18nextTranslation(Toolbar)>
   </ListToolbar>
   <div
     className="tc-list-display-virtualized"
@@ -3807,6 +2173,7 @@ exports[`List should render id if provided 1`] = `
         id="context"
         isSelected={[Function]}
         onRowDoubleClick={[MockFunction]}
+        onToggleAll={[MockFunction]}
         selectionToggle={[MockFunction]}
         sort={null}
         sortDirection="ASC"
@@ -3944,11 +2311,62 @@ exports[`List should render id if provided 1`] = `
                           }
                         }
                       >
-                        <span
-                          className="ReactVirtualized__Table__headerTruncatedText"
-                          key="label"
-                          title=""
-                        />
+                        <VirtualizedList(HeaderCheckbox)
+                          columnData={
+                            Object {
+                              "collection": Array [
+                                Object {
+                                  "id": 1,
+                                  "name": "Hello world",
+                                },
+                                Object {
+                                  "id": 2,
+                                  "name": "Foo",
+                                },
+                                Object {
+                                  "id": 3,
+                                  "name": "Bar",
+                                },
+                              ],
+                              "id": "context",
+                              "isSelected": [Function],
+                              "label": "Select this element",
+                              "onChange": [MockFunction],
+                              "onToggleAll": [MockFunction],
+                            }
+                          }
+                          dataKey=""
+                          disableSort={true}
+                          label=""
+                          sortDirection="ASC"
+                          t={[Function]}
+                        >
+                          <form
+                            className="tc-list-checkbox theme-tc-list-checkbox"
+                          >
+                            <div
+                              className="checkbox"
+                              title="Select All"
+                            >
+                              <label
+                                htmlFor="context-header-check"
+                              >
+                                <input
+                                  checked={false}
+                                  disabled={false}
+                                  id="context-header-check"
+                                  onChange={[MockFunction]}
+                                  type="checkbox"
+                                />
+                                <span
+                                  className="sr-only"
+                                >
+                                  Select All
+                                </span>
+                              </label>
+                            </div>
+                          </form>
+                        </VirtualizedList(HeaderCheckbox)>
                       </div>
                       <div
                         className="ReactVirtualized__Table__headerColumn theme-header tc-list-cell-id"
@@ -3956,9 +2374,9 @@ exports[`List should render id if provided 1`] = `
                         role="columnheader"
                         style={
                           Object {
-                            "WebkitFlex": "0 1 -1px",
-                            "flex": "0 1 -1px",
-                            "msFlex": "0 1 -1px",
+                            "WebkitFlex": "0 0 -1px",
+                            "flex": "0 0 -1px",
+                            "msFlex": "0 0 -1px",
                           }
                         }
                       >
@@ -3976,9 +2394,9 @@ exports[`List should render id if provided 1`] = `
                         role="columnheader"
                         style={
                           Object {
-                            "WebkitFlex": "0 1 -1px",
-                            "flex": "0 1 -1px",
-                            "msFlex": "0 1 -1px",
+                            "WebkitFlex": "0 0 -1px",
+                            "flex": "0 0 -1px",
+                            "msFlex": "0 0 -1px",
                           }
                         }
                       >

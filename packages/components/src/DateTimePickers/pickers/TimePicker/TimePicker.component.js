@@ -41,11 +41,11 @@ class TimePicker extends React.PureComponent {
 		const inputValue = event.target.value;
 		const newValue = { ...this.props.value };
 		if (field === FIELD_HOURS) {
-			newValue.hours = inputValue;
+			newValue.hours = inputValue.trim();
 		} else if (field === FIELD_MINUTES) {
-			newValue.minutes = inputValue;
+			newValue.minutes = inputValue.trim();
 		} else if (field === FIELD_SECONDS) {
-			newValue.seconds = inputValue;
+			newValue.seconds = inputValue.trim();
 		}
 		this.props.onChange(event, newValue, field);
 	}

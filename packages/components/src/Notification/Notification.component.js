@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { Action } from '../Actions';
 import theme from './Notification.scss';
@@ -33,7 +33,7 @@ CloseButtonComponent.propTypes = {
 CloseButtonComponent.defaultProps = {
 	t: getDefaultT(),
 };
-export const CloseButton = translate(I18N_DOMAIN_COMPONENTS)(CloseButtonComponent);
+export const CloseButton = withTranslation(I18N_DOMAIN_COMPONENTS)(CloseButtonComponent);
 
 export function MessageAction({ action }) {
 	return (
@@ -111,28 +111,73 @@ export function Notification({ notification, leaveFn, ...props }) {
 	);
 }
 
+class Timer {
+	constructor(callback, delay) {
+		this.timerId = null;
+		this.start = null;
+		this.callbackFn = callback;
+		this.remaining = delay;
+		this.resume();
+	}
+
+	pause() {
+		clearTimeout(this.timerId);
+		this.remaining -= Date.now() - this.start;
+	}
+
+	resume() {
+		this.start = Date.now();
+		clearTimeout(this.timerId);
+		this.timerId = setTimeout(this.callbackFn, this.remaining);
+	}
+
+	cancel() {
+		clearTimeout(this.timerId);
+	}
+}
+
+class Registry {
+	constructor() {
+		this.timerRegistry = {};
+	}
+
+	isRegistered(notification) {
+		return !!this.timerRegistry[notification.id];
+	}
+
+	register(notification, timer) {
+		this.timerRegistry[notification.id] = timer;
+	}
+
+	pause(notification) {
+		if (this.isRegistered(notification)) {
+			this.timerRegistry[notification.id].pause();
+		}
+	}
+
+	resume(notification) {
+		if (this.isRegistered(notification)) {
+			this.timerRegistry[notification.id].resume();
+		}
+	}
+
+	cancel(notification) {
+		if (this.isRegistered(notification)) {
+			this.timerRegistry[notification.id].cancel();
+		}
+	}
+}
+
 class NotificationsContainer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {};
+		this.registry = new Registry();
 		this.onMouseEnter = this.onMouseEnter.bind(this);
 		this.onMouseOut = this.onMouseOut.bind(this);
 		this.onClick = this.onClick.bind(this);
 		this.onClose = this.onClose.bind(this);
 		this.register = this.register.bind(this);
-		this.timerRegistry = {};
-		const self = this;
-		this.registry = {
-			register: (notification, timer) => {
-				self.timerRegistry[notification.id] = timer;
-			},
-			isRegistered: notification => !!self.timerRegistry[notification.id],
-			cancel(notification) {
-				if (this.isRegistered(notification)) {
-					clearTimeout(self.timerRegistry[notification.id]);
-				}
-			},
-		};
 		this.register(props);
 	}
 
@@ -159,8 +204,7 @@ class NotificationsContainer extends React.Component {
 
 	onMouseEnter(event, notification) {
 		if (notification.error !== 'error' || this.props.autoLeaveError) {
-			this.registry.cancel(notification);
-			event.currentTarget.setAttribute('pin', 'true');
+			this.registry.pause(notification);
 		}
 	}
 
@@ -169,7 +213,7 @@ class NotificationsContainer extends React.Component {
 			(notification.type !== 'error' || this.props.autoLeaveError) &&
 			event.currentTarget.getAttribute('pin') !== 'true'
 		) {
-			this.props.leaveFn(notification);
+			this.registry.resume(notification);
 		}
 	}
 
@@ -180,7 +224,7 @@ class NotificationsContainer extends React.Component {
 			.forEach(notification => {
 				this.registry.register(
 					notification,
-					setTimeout(() => this.props.leaveFn(notification), this.props.autoLeaveTimeout),
+					new Timer(() => this.props.leaveFn(notification), this.props.autoLeaveTimeout),
 				);
 			});
 	}

@@ -11,15 +11,25 @@ exports[`Progress should normalize percent to 0 when prop is < 0 1`] = `
   role="progressbar"
 >
   <div
-    className="theme-progress-percent"
+    aria-describedby={42}
+    className="theme-tc-tooltip"
+    onBlur={[Function]}
+    onClick={[Function]}
     onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
     onMouseOver={[Function]}
-    style={
-      Object {
-        "width": "0%",
+  >
+    <div
+      aria-describedby={42}
+      className="theme-progress-percent"
+      style={
+        Object {
+          "width": "0%",
+        }
       }
-    }
-  />
+    />
+  </div>
 </div>
 `;
 
@@ -34,15 +44,25 @@ exports[`Progress should normalize percent to 100 when prop is > 100 1`] = `
   role="progressbar"
 >
   <div
-    className="theme-progress-percent"
+    aria-describedby={42}
+    className="theme-tc-tooltip"
+    onBlur={[Function]}
+    onClick={[Function]}
     onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
     onMouseOver={[Function]}
-    style={
-      Object {
-        "width": "100%",
+  >
+    <div
+      aria-describedby={42}
+      className="theme-progress-percent"
+      style={
+        Object {
+          "width": "100%",
+        }
       }
-    }
-  />
+    />
+  </div>
 </div>
 `;
 
@@ -57,15 +77,25 @@ exports[`Progress should render a contained progress 1`] = `
   role="progressbar"
 >
   <div
-    className="theme-progress-percent"
+    aria-describedby={42}
+    className="theme-tc-tooltip"
+    onBlur={[Function]}
+    onClick={[Function]}
     onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
     onMouseOver={[Function]}
-    style={
-      Object {
-        "width": "60%",
+  >
+    <div
+      aria-describedby={42}
+      className="theme-progress-percent"
+      style={
+        Object {
+          "width": "60%",
+        }
       }
-    }
-  />
+    />
+  </div>
 </div>
 `;
 
@@ -78,18 +108,28 @@ exports[`Progress should render an infinite progress 1`] = `
   role="status"
 >
   <div
-    className="theme-progress-percent"
+    aria-describedby={42}
+    className="theme-tc-tooltip"
+    onBlur={[Function]}
+    onClick={[Function]}
     onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
     onMouseOver={[Function]}
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
   >
     <div
-      className="theme-infinite-indicator"
-    />
+      aria-describedby={42}
+      className="theme-progress-percent"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="theme-infinite-indicator"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -105,15 +145,25 @@ exports[`Progress should render hidden progress at 0% 1`] = `
   role="progressbar"
 >
   <div
-    className="theme-progress-percent"
+    aria-describedby={42}
+    className="theme-tc-tooltip"
+    onBlur={[Function]}
+    onClick={[Function]}
     onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
     onMouseOver={[Function]}
-    style={
-      Object {
-        "width": "0%",
+  >
+    <div
+      aria-describedby={42}
+      className="theme-progress-percent"
+      style={
+        Object {
+          "width": "0%",
+        }
       }
-    }
-  />
+    />
+  </div>
 </div>
 `;
 
@@ -128,14 +178,24 @@ exports[`Progress should render progress with given percentage 1`] = `
   role="progressbar"
 >
   <div
-    className="theme-progress-percent"
+    aria-describedby={42}
+    className="theme-tc-tooltip"
+    onBlur={[Function]}
+    onClick={[Function]}
     onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
     onMouseOver={[Function]}
-    style={
-      Object {
-        "width": "60%",
+  >
+    <div
+      aria-describedby={42}
+      className="theme-progress-percent"
+      style={
+        Object {
+          "width": "60%",
+        }
       }
-    }
-  />
+    />
+  </div>
 </div>
 `;

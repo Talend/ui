@@ -87,5 +87,47 @@ describe('tablerow', () => {
 			// then
 			expect(result).toMatchSnapshot();
 		});
+		it('should return a column with fixed width', () => {
+			// given
+			const id = 'my-id';
+			const children = [
+				<VirtualizedList.Content
+					label="Id"
+					dataKey="id"
+					columnData={{ custom: 'lol' }}
+					width={50}
+				/>,
+			];
+			// when
+			const result = toColumns({
+				id,
+				theme: {},
+				children,
+				columnsWidths: [{ dataKey: 'id', width: 50 }],
+			});
+			// them
+			expect(result).toMatchSnapshot();
+		});
+		it('should return a column with resizable width and classname', () => {
+			// given
+			const id = 'my-id';
+			const children = [
+				<VirtualizedList.Content
+					label="Id"
+					dataKey="id"
+					columnData={{ custom: 'lol' }}
+					width={50}
+				/>,
+			];
+			// when
+			const result = toColumns({
+				id,
+				theme: {},
+				children,
+				columnsWidths: [{ dataKey: 'id', width: 50, resized: true, resizable: true }],
+			});
+			// them
+			expect(result).toMatchSnapshot();
+		});
 	});
 });

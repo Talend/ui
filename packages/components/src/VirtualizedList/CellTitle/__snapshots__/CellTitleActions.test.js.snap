@@ -29,7 +29,7 @@ exports[`CellTitleActions should display 2 actions and the rest in an ellipsis d
       link={true}
       onClick={[MockFunction]}
     />
-    <Translate(ActionDropdown)
+    <withI18nextTranslation(ActionDropdown)
       className="cell-title-actions-menu theme-cell-title-actions-menu"
       hideLabel={true}
       id="my-actions-ellispsis-actions"
@@ -216,7 +216,7 @@ exports[`CellTitleActions should extract dropdown actions, completed with simple
       link={true}
       pullRight={true}
     />
-    <Translate(ActionDropdown)
+    <withI18nextTranslation(ActionDropdown)
       className="cell-title-actions-menu theme-cell-title-actions-menu"
       hideLabel={true}
       id="my-actions-ellispsis-actions"
@@ -331,7 +331,7 @@ exports[`CellTitleActions should extract only dropdown actions, when there are l
       label="Open with Data Preparation"
       link={true}
     />
-    <Translate(ActionDropdown)
+    <withI18nextTranslation(ActionDropdown)
       className="cell-title-actions-menu theme-cell-title-actions-menu"
       hideLabel={true}
       id="my-actions-ellispsis-actions"

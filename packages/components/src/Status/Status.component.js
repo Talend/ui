@@ -98,7 +98,7 @@ Status.propTypes = {
 		STATUS.CANCELED,
 		STATUS.WARNING,
 	]),
-	label: PropTypes.string.isRequired,
+	label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
 	icon: PropTypes.string,
 	actions: Actions.propTypes.actions,
 	progress: PropTypes.number,

@@ -83,7 +83,6 @@ describe('HeaderBar sagas', () => {
 			handleOpenProduct(action);
 			expect(global.open).toHaveBeenCalled();
 			expect(result.opened).toEqual({
-				location: 'productUrl',
 				opener: null,
 			});
 		});

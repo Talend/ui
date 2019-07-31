@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RowLarge should render large row 1`] = `
-<Translate(VirtualizedList(RowLarge))
+<withI18nextTranslation(VirtualizedList(RowLarge))
   className="my-class-names"
   index={1}
   onKeyDown={[Function]}

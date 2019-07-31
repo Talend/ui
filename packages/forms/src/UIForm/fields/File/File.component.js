@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import noop from 'lodash/noop';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
@@ -49,6 +49,17 @@ function getBase64(value, fileName) {
 }
 
 class FileWidget extends React.Component {
+	static getDerivedStateFromProps(nextProps, prevState) {
+		const fileName = getFileName(nextProps.value);
+		if (prevState.fileName !== fileName) {
+			// Update file name if file is changed
+			return {
+				fileName,
+			};
+		}
+		return null;
+	}
+
 	constructor(props) {
 		super(props);
 		this.onChange = this.onChange.bind(this);
@@ -170,4 +181,4 @@ FileWidget.defaultProps = {
 
 export { FileWidget };
 
-export default translate(I18N_DOMAIN_FORMS)(FileWidget);
+export default withTranslation(I18N_DOMAIN_FORMS)(FileWidget);

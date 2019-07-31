@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import getDefaultT from '../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
@@ -15,7 +15,7 @@ export function NoRowsComponent(props) {
 			role="status"
 			aria-live="polite"
 		>
-			{props.t('VIRTUALIZEDLIST_NO_RESULT', { defaultValue: 'No result found' })}
+			{props.t('NO_RESULT_FOUND', { defaultValue: 'No result found' })}
 		</span>
 	);
 }
@@ -28,4 +28,4 @@ NoRowsComponent.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(NoRowsComponent);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(NoRowsComponent);
