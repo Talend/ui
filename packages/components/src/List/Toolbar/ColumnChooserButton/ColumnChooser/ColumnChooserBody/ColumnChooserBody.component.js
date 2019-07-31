@@ -7,9 +7,9 @@ import { useColumnChooserContext } from '../columnChooser.context';
 import { ColumnsChooserPropTypes } from '../../columnChooser.propTypes';
 import Tooltip from '../../../../../Tooltip';
 
-const ColumnChooserTable = ({ columns }) =>
+const ColumnChooserTable = ({ columns = [] }) =>
 	columns.map((column, index) => (
-		<ColumnChooserRowRenderer>
+		<ColumnChooserRowRenderer key={column.label}>
 			<ColumnChooserRowRenderer.Visibility
 				index={index}
 				locked={column.locked}

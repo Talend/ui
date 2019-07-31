@@ -1,8 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
-import { act } from 'react-dom/test-utils';
 import { ColumnChooserProvider } from '../columnChooser.context';
 import getDefaultT from '../../../../../translate';
 
@@ -31,13 +29,22 @@ const columns = [
 ];
 
 describe('ColumnChooserBody', () => {
-	it('should render by default', () => {
+	it('should render with columns', () => {
 		// Given
+		const id = 'body-context-id';
 		const columnsChooser = columns;
 		// When
-		const wrapper = mount(
-			<BodyWithContext columnsChooser={columnsChooser} id={'body-context-id'} />,
-		);
+		const wrapper = mount(<BodyWithContext columnsChooser={columnsChooser} id={id} />);
 		// Then
+		expect(wrapper.find('div#body-context-id-row')).toHaveLength(columnsChooser.length);
+		expect(wrapper.html()).toMatchSnapshot();
+	});
+	it('should render no columns', () => {
+		// Given
+		const id = 'body-context-id';
+		// When
+		const wrapper = mount(<BodyWithContext id={id} />);
+		// Then
+		expect(wrapper.find('div#body-context-id-row')).toHaveLength(0);
 	});
 });
