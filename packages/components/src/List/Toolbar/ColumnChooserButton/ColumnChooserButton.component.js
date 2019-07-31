@@ -9,7 +9,7 @@ export default function ColumnChooserButton({
 	children,
 	columns,
 	id,
-	placement = 'bottom',
+	placement = 'left',
 	nbLockedLeftItems,
 	submit,
 	t,
@@ -26,7 +26,7 @@ export default function ColumnChooserButton({
 	};
 
 	return (
-		<>
+		<React.Fragment>
 			<ActionButton
 				buttonRef={setButtonRef}
 				data-feature="open-column-chooser-overlay-action"
@@ -59,7 +59,7 @@ export default function ColumnChooserButton({
 					)}
 				</Popover>
 			</Overlay>
-		</>
+		</React.Fragment>
 	);
 }
 

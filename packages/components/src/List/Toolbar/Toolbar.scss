@@ -91,7 +91,7 @@ $tc-list-toolbar-height: 7rem !default;
 	}
 
 	:global(li.separated button[data-feature='open-column-chooser-overlay-action']) {
-		padding-right: 0;
 		margin: 0;
+		padding-right: 0;
 	}
 }

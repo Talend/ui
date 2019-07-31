@@ -12,9 +12,6 @@
 }
 
 .tc-column-chooser-footer {
-	align-items: center;
-	display: flex;
-	justify-content: space-between;
 	&-select-all {
 		align-items: center;
 		display: flex;
@@ -24,8 +21,8 @@
 		}
 		&-label {
 			color: $silver-chalice;
-			padding-left: $padding-larger;
 			font-weight: 400;
+			padding-left: $padding-larger;
 		}
 	}
 }

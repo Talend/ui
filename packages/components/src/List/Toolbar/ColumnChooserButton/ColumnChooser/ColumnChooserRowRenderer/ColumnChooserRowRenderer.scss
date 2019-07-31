@@ -4,15 +4,12 @@ $tc-height: 4rem;
 
 .tc-column-chooser-row {
 	display: flex;
-	position: relative;
 	align-items: center;
 	height: $tc-height;
 	min-height: $tc-height;
 	&-visibility {
 		align-items: center;
-		border-right: 0.1rem solid $tc-border-color;
 		display: flex;
-		height: 70%;
 		padding-right: $padding-large;
 		&-checkbox {
 			margin: 0;
@@ -24,7 +21,6 @@ $tc-height: 4rem;
 		}
 	}
 	&-label {
-		padding-left: $padding-large;
 		width: 100vw;
 	}
 }
