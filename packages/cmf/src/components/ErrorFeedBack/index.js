@@ -1,3 +1,3 @@
-import ErrorFeedBack from './ErrorFeedBack.container.js';
+import ErrorFeedBack from './ErrorFeedBack.component';
 
 export default ErrorFeedBack;

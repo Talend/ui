@@ -136,6 +136,7 @@ function reportResponse(response) {
 function report(error) {
 	const info = {
 		error,
+		context: JSON.stringify(getErrorInfo(error)),
 		reported: false,
 		reason: 'Draft',
 	};
@@ -147,7 +148,7 @@ function report(error) {
 			'Content-Type': 'application/json',
 		},
 		credentials: 'same-origin',
-		body: JSON.stringify(getErrorInfo(error)),
+		body: info.context,
 	};
 	const httpDefault = getDefaultConfig();
 	if (httpDefault !== null) {
@@ -260,10 +261,18 @@ function getErrors() {
 	return ref.errors;
 }
 
+/**
+ * @return {Boolean} true if we can do report to backend
+ */
+function hasReportURL() {
+	return !!ref.serverURL;
+}
+
 export default {
 	addOnErrorListener,
 	bootstrap,
 	addAction,
+	hasReportURL,
 	report,
 	subscribe,
 	getErrors,

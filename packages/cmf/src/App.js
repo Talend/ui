@@ -33,7 +33,7 @@ export default class App extends React.Component {
 			<Provider store={this.props.store}>
 				<RegistryProvider>
 					{this.state.error ? (
-						<ErrorFeedBack />
+						<ErrorFeedBack full />
 					) : (
 						this.props.children
 					)}

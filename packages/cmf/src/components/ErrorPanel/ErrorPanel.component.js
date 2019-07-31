@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
+import onError from '../../onError';
 
 /**
  * reload is an event handler. It will reload the current page
@@ -8,42 +10,53 @@ function reload() {
 	location.reload(true);
 }
 
+function download(data) {
+	let safeData = data;
+	if (typeof data !== 'string') {
+		safeData = JSON.stringify(data);
+	}
+	const MIME_TYPE = 'application/json';
+	const blob = new File([safeData], { name: 'report.json', type: MIME_TYPE });
+	return window.URL.createObjectURL(blob);
+}
+
 function ErrorPanel(props) {
 	let currentErrorStatus;
 	if (props.reported) {
 		currentErrorStatus = `Has been reported under ${props.response.id}`;
 	} else {
-		currentErrorStatus = props.reason;
+		currentErrorStatus = get(props.reason, 'message');
 	}
 	return (
-		<div className="panel panel-default">
-			<div className="panel-heading">{props.title}</div>
-			<div className="panel-body">
-				<p className="text-danger">
-					{props.error.name}: {props.error.message}
-				</p>
+		<div>
+			<p className="error-title">
+				{props.error.name}: {props.error.message}
+			</p>
+			{onError.hasReportURL() ? (
 				<p>Report status: {currentErrorStatus}</p>
-				<div className="btn-group" style={{ marginTop: 20 }}>
-					<button className="btn btn-default btn-sm" onClick={reload}>
-						Refresh
-					</button>
-					<button className="btn btn-default btn-sm" onClick={props.onClickDetails}>
-						Show error details
-					</button>
-				</div>
-				<pre className={props.hidden ? 'hidden' : ''}>{props.error.stack}</pre>
-			</div>
+			) : (
+				<React.Fragment>
+					<p>From here you have two choices:</p>
+					<p>1. Refresh the app and retry</p>
+					<p>2. Download the details and then contact the support</p>
+				</React.Fragment>
+			)}
+			<button className="btn btn-danger btn-inverse" onClick={reload} data-feature="refresh-on-error" style={{ margin: 20 }}>
+				Refresh
+			</button>
+			<a className="btn btn-primary btn-inverse" href={download(props.context)} download="report.json" data-feature="download-on-error-details">
+				Download details
+			</a>
 		</div>
 	);
 }
 
 ErrorPanel.displayName = 'ErrorPanel';
 ErrorPanel.propTypes = {
-	title: PropTypes.string,
+	context: PropTypes.string,
 	reported: PropTypes.bool,
-	hidden: PropTypes.bool,
 	onClickDetails: PropTypes.func,
-	reason: PropTypes.string,
+	reason: PropTypes.shape({ message: PropTypes.string }),
 	response: PropTypes.shape({ id: PropTypes.node }),
 	error: PropTypes.shape({
 		name: PropTypes.string,
@@ -54,7 +67,6 @@ ErrorPanel.propTypes = {
 ErrorPanel.defaultProps = {
 	reported: false,
 	reason: 'Waiting for report response',
-	title: 'Whoops, an error occured',
 	response: {},
 	error: {},
 	hidden: true,
