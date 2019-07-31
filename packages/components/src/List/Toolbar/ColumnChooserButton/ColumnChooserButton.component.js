@@ -9,6 +9,7 @@ export default function ColumnChooserButton({
 	children,
 	columns,
 	id,
+	placement = 'bottom',
 	nbLockedLeftItems,
 	submit,
 	t,
@@ -35,12 +36,11 @@ export default function ColumnChooserButton({
 				label={t('COLUMN_CHOOSER_OVERLAY_BUTTON', { defaultValue: 'Column chooser button' })}
 				link
 				onClick={changeOpened}
-				overlayPlacement="bottom"
 			/>
 			<Overlay
 				id={`${colChooserButtonId}-overlay`}
 				onHide={closePopover}
-				placement="right"
+				placement={placement}
 				rootClose
 				show={opened}
 				target={buttonRef}
@@ -68,6 +68,7 @@ ColumnChooserButton.propTypes = {
 	columns: PropTypes.array.isRequired,
 	id: PropTypes.string.isRequired,
 	nbLockedLeftItems: PropTypes.number,
+	placement: PropTypes.oneOf(['top', 'bottom', 'right', 'left']),
 	submit: PropTypes.func.isRequired,
 	t: PropTypes.func,
 };

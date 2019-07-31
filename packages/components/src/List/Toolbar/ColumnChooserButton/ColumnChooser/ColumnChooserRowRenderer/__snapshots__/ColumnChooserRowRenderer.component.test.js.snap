@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColumnChooserRowRenderer should render 1`] = `"<div id=\\"row-renderer-context-id-row\\" class=\\"theme-tc-column-chooser-row tc-column-chooser-row\\"><div id=\\"my-child\\">Hello World</div></div>"`;

@@ -99,6 +99,7 @@ If you pass children you will override the default column chooser renderer.
 | children | React.element | the content of the popover
 | columns | array | these columns comes from the list, they will populate the popover
 | id | string | Use as prefix for all the children components
+| placement | string | Position of the popover
 | nbLockedLeftItems | number | the number of locked columns you want, beginning at the left
 | submit | function | callback trigger when the form is submit
 | t | function | i18n translate

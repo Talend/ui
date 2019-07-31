@@ -1,26 +1,32 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import Component from './ColumnChooserRowRenderer.component';
+import { ColumnChooserProvider } from '../columnChooser.context';
 
-const t = jest.fn((_, translationValue) => translationValue.defaultValue);
+// eslint-disable-next-line react/prop-types
+const RowRendererWithContext = ({ children, id }) => (
+	<ColumnChooserProvider
+		value={{
+			id,
+		}}
+	>
+		<Component>{children}</Component>
+	</ColumnChooserProvider>
+);
 
 describe('ColumnChooserRowRenderer', () => {
 	it('should render', () => {
 		// given
-		const props = {
-			label: 'myLabel',
-			hidden: false,
-			locked: false,
-			order: 1,
-			length: 3,
-			onChangeVisibility: jest.fn(),
-			onBlurOrder: jest.fn(),
-			onKeyPressOrder: jest.fn(),
-			t,
-		};
+		const id = 'row-renderer-context-id';
+		const Children = () => <div id="my-child">Hello World</div>;
 		// when
-		const wrapper = shallow(<Component {...props} />);
+		const wrapper = mount(
+			<RowRendererWithContext id={id}>
+				<Children />
+			</RowRendererWithContext>,
+		);
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find('div#my-child').text()).toBe('Hello World');
+		expect(wrapper.html()).toMatchSnapshot();
 	});
 });

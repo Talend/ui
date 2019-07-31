@@ -1,31 +1,28 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import ColumnChooserButton from './ColumnChooserButton.component';
 
+const columns = [
+	{ hidden: undefined, label: 'col1', locked: true, order: 1 },
+	{ hidden: undefined, label: 'col2', locked: true, order: 2 },
+	{ hidden: undefined, label: 'col3', order: 3 },
+	{ hidden: undefined, label: 'col4', order: 4 },
+	{ hidden: true, label: 'col5', order: 5 },
+	{ hidden: undefined, label: 'col6', order: 6 },
+];
+
 describe('ColumnChooserButton', () => {
-	it('should return the component', () => {
+	it('should render the component by default', () => {
 		// given
-		const id = 'myIdColumnChooserId';
-		const columns = [
-			{
-				label: 'col1',
-				order: 1,
-				locked: false,
-				hidden: false,
-			},
-			{
-				label: 'col2',
-				order: 2,
-				locked: false,
-				hidden: false,
-			},
-		];
-		const submitColumnChooser = jest.fn();
+		const props = {
+			id: 'my-wrapper-id',
+			columns,
+			submit: jest.fn(),
+		};
 		// when
-		const wrapper = shallow(
-			<ColumnChooserButton id={id} columns={columns} submitColumnChooser={submitColumnChooser} />,
-		);
+		const wrapper = mount(<ColumnChooserButton {...props} />);
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find('svg[name="talend-column-chooser"]')).toHaveLength(1);
+		expect(wrapper.html()).toMatchSnapshot();
 	});
 });
