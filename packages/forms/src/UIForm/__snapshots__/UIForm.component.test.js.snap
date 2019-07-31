@@ -113,8 +113,6 @@ exports[`UIForm component should render form 1`] = `
             Object {
               "bsStyle": "primary",
               "label": "Submit",
-              "onMouseEnter": undefined,
-              "onMouseLeave": undefined,
               "position": "right",
               "type": "submit",
               "widget": "button",
