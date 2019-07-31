@@ -79,10 +79,14 @@ const columnsMergedWithColumnChooser = {
 };
 <List {...rest} columnChooser={...} list={columnsMergedWithColumnChooser} />;
 ```
-If you are using the compound list you just have to import the [ColumnChooserButton](#columnchooserButton) and place it where you need it.
-Do not forget to pass an id in this case.
+If you are using the compound list you just have to import the [ColumnChooserButton](#columnchooserButton), pass the props and place it where you need it. Do not forget to pass an id in this case.
 
-Either way you will have to update the columns props given to the list with the submitted values.
+
+```javascript
+<ColumnChooserButton id={id} columns={...} nbLockedLeftItems={...} submit={...} />
+```
+
+Either way you will have to update the columns props given to the list with the submitted values in order to keep everybody sync.
 
 ## Components
 ### ColumnChooserButton
