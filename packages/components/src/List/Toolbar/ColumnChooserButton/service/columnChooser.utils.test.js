@@ -1,7 +1,7 @@
 import { mergedColumnsChooser, compareOrder } from './columnChooser.utils';
 
 describe('mergedColumnsChooser', () => {
-	const originalCOllection = [
+	const originalCollection = [
 		{
 			label: 'label1',
 			metadata: 'metadata1',
@@ -32,7 +32,7 @@ describe('mergedColumnsChooser', () => {
 			},
 		];
 		// when
-		const ret = mergedColumnsChooser(originalCOllection, columnChooserCollection);
+		const ret = mergedColumnsChooser(originalCollection, columnChooserCollection);
 		// then
 		expect(ret).toEqual([
 			{ label: 'label1', metadata: 'metadata1', moreStuff: true },
@@ -43,9 +43,9 @@ describe('mergedColumnsChooser', () => {
 	it('should return the original collection', () => {
 		// given nothing
 		// when
-		const ret = mergedColumnsChooser(originalCOllection);
+		const ret = mergedColumnsChooser(originalCollection);
 		// then
-		expect(ret).toBe(originalCOllection);
+		expect(ret).toBe(originalCollection);
 	});
 });
 
