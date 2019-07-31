@@ -8,7 +8,6 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import RegistryProvider from './RegistryProvider';
-import UIRouter from './UIRouter';
 import onError from './onError';
 import { ErrorFeedBack } from './components';
 
@@ -50,5 +49,5 @@ App.propTypes = {
 	children: PropTypes.node,
 };
 App.defaultProps = {
-	ErrorFeedBack: onError.ErrorFeedBack,
+	ErrorFeedBack,
 };
