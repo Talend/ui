@@ -20,7 +20,7 @@ const ref = {
 	actions: [],
 	sensibleKeys: [],
 	store: {
-		getState: () => {},
+		getState: () => { },
 	},
 };
 
@@ -29,6 +29,21 @@ const SENSIBLE_REGEXP = /^_|^\$|password|secret|key|mail/;
 
 function random() {
 	return DICT[Math.floor((1 + Math.random()) * 25)];
+}
+
+function serialize(error) {
+	const std = {
+		name: error.name,
+		message: error.message,
+		fileName: error.fileName,
+		lineNumber: error.lineNumber,
+		columnNumber: error.columnNumber,
+		stack: error.stack,
+	};
+	Object.keys(error).reduce((acc, key) => {
+		acc[key] = error[key];
+	}, std);
+	return std;
 }
 
 function isSensibleKey(key) {
@@ -157,9 +172,13 @@ function report(error) {
 
 	if (!ref.serverURL) {
 		info.reason = new Error('no serverURL has been set to report Error');
-		ref.callbacks.forEach(cb => cb(ref.errors));
+		// ref.callbacks.forEach(cb => cb(ref.errors));
+		ref.store.dispatch({
+			type: 'CMF_ERROR',
+			error: serialize(error),
+		});
 	} else {
-		ref.callbacks.forEach(cb => cb(ref.errors));
+		// ref.callbacks.forEach(cb => cb(ref.errors));
 		try {
 			fetch(ref.serverURL, options)
 				.then(reportResponse, err => {
@@ -268,6 +287,18 @@ function hasReportURL() {
 	return !!ref.serverURL;
 }
 
+function middleware() {
+	return next => action => {
+		try {
+			return next(action);
+		} catch (err) {
+			err.action = action;
+			report(err);
+			return err;
+		}
+	};
+}
+
 export default {
 	addOnErrorListener,
 	bootstrap,
@@ -276,4 +307,5 @@ export default {
 	report,
 	subscribe,
 	getErrors,
+	middleware,
 };

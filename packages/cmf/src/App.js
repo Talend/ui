@@ -8,46 +8,27 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import RegistryProvider from './RegistryProvider';
-import onError from './onError';
-import { ErrorFeedBack } from './components';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.component';
 
 /**
  * The React component that render your app and provide CMF environment.
  * @param  {object} props { store }
  * @return {object} ReactElement
  */
-export default class App extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {};
-		onError.subscribe(errors => this.setState({ error: errors[0] }));
-	}
-
-	// eslint-disable-next-line class-methods-use-this
-	componentDidCatch(error) {
-		this.setState({ error: { error } });
-	}
-
-	render() {
-		let content = this.props.children;
-		if (this.state.error) {
-			content = <ErrorFeedBack full />;
-		}
-		return (
-			<Provider store={this.props.store}>
-				<RegistryProvider>
-					{content}
-				</RegistryProvider>
-			</Provider>
-		);
-	}
+export default function App(props) {
+	return (
+		<Provider store={props.store}>
+			<RegistryProvider>
+				<ErrorBoundary full>
+					{props.children}
+				</ErrorBoundary>
+			</RegistryProvider>
+		</Provider>
+	);
 }
 
 App.displayName = 'CMFApp';
 App.propTypes = {
 	store: PropTypes.object.isRequired,
 	children: PropTypes.node,
-};
-App.defaultProps = {
-	ErrorFeedBack,
 };

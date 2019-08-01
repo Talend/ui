@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ErrorFeedBack from '../ErrorFeedBack';
 
 export default class ErrorBoundary extends React.Component {
@@ -12,11 +13,16 @@ export default class ErrorBoundary extends React.Component {
 	}
 
 	render() {
-		if (this.state.errors.length > 1) {
-			// You can render any custom fallback UI
-			return <ErrorFeedBack errors={this.state.errors} />;
+		if (this.state.errors.length > 0) {
+			const renderErrors = this.props.renderErrors;
+			return renderErrors({ errors: this.state.errors, full: this.props.full });
 		}
-
 		return this.props.children;
 	}
 }
+ErrorBoundary.propTypes = {
+	renderErrors: PropTypes.func,
+};
+ErrorBoundary.defaultProps = {
+	renderErrors: ErrorFeedBack,
+};

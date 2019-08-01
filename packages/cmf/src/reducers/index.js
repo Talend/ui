@@ -10,6 +10,18 @@ import collectionsReducers from './collectionsReducers';
 import { componentsReducers } from './componentsReducers';
 import { settingsReducers } from './settingsReducers';
 
+const defaultState = [];
+
+/**
+ * errorsReducer
+ */
+function errorsReducer(state = defaultState, action) {
+	if (action.type === 'CMF_ERROR') {
+		return state.concat(action.error);
+	}
+	return state;
+}
+
 /**
  * exported API
  * @type {object}
@@ -20,4 +32,5 @@ export default combineReducers({
 	collections: collectionsReducers,
 	components: componentsReducers,
 	settings: settingsReducers,
+	errors: errorsReducer,
 });

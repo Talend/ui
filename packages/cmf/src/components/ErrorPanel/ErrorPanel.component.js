@@ -55,7 +55,6 @@ ErrorPanel.displayName = 'ErrorPanel';
 ErrorPanel.propTypes = {
 	context: PropTypes.string,
 	reported: PropTypes.bool,
-	onClickDetails: PropTypes.func,
 	reason: PropTypes.shape({ message: PropTypes.string }),
 	response: PropTypes.shape({ id: PropTypes.node }),
 	error: PropTypes.shape({
@@ -66,7 +65,7 @@ ErrorPanel.propTypes = {
 };
 ErrorPanel.defaultProps = {
 	reported: false,
-	reason: 'Waiting for report response',
+	reason: { message: 'Waiting for report response' },
 	response: {},
 	error: {},
 	hidden: true,
