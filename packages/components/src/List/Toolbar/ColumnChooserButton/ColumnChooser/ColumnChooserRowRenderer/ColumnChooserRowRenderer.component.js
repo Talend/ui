@@ -1,19 +1,17 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { columnChooserContext } from '../columnChooser.context';
 import Label from './RowLabel';
-import Visibility from './RowVisibilityCheckbox';
+import Checkbox from './RowCheckbox';
+import cssModule from '../ColumnChooser.scss';
+import { getTheme } from '../../../../../theme';
 
-import theme from './ColumnChooserRowRenderer.scss';
+const theme = getTheme(cssModule);
 
-const ColumnChooserRowRenderer = ({ children }) => {
+const ColumnChooserRowRenderer = ({ children, className }) => {
 	const { id } = useContext(columnChooserContext);
 	return (
-		<div
-			id={`${id}-row`}
-			className={classNames(theme['tc-column-chooser-row'], 'tc-column-chooser-row')}
-		>
+		<div id={`${id}-row`} className={theme('tc-column-chooser-row', className)}>
 			{children}
 		</div>
 	);
@@ -21,9 +19,10 @@ const ColumnChooserRowRenderer = ({ children }) => {
 
 ColumnChooserRowRenderer.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+	className: PropTypes.string,
 };
 
-ColumnChooserRowRenderer.Visibility = Visibility;
+ColumnChooserRowRenderer.Checkbox = Checkbox;
 ColumnChooserRowRenderer.Label = Label;
 
 export default ColumnChooserRowRenderer;

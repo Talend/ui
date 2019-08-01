@@ -1,28 +1,70 @@
-.tc-column-chooser-header {
-	display: flex;
-	align-items: center;
-	font-weight: bold;
-}
+$tc-popover-border-color: rgb(226, 226, 226) !default;
+$tc-popover-border-width: 0.1rem !default;
+$tc-border-color: #ededed !default;
+$tc-icon-size: 1.2rem !default;
+$tc-height: 4rem;
 
-.tc-column-chooser-body {
-	display: flex;
-	flex-direction: column;
-	overflow-y: auto;
-	overflow-x: hidden;
-}
+.tc-column-chooser {
+	:global(.tc-tooltip-body) {
+		margin: 0;
+	}
 
-.tc-column-chooser-footer {
-	&-select-all {
+	&-aria-hidden {
+		position: absolute;
+		left: -200em;
+		top: -20em;
+	}
+
+	&-header {
+		display: flex;
+		align-items: center;
+		font-weight: bold;
+	}
+
+	&-body {
+		overflow-y: auto;
+		width: 100%;
+	}
+
+	&-footer {
 		align-items: center;
 		display: flex;
-		&-checkbox {
-			margin: 0;
-			position: relative;
+		justify-content: flex-end;
+	}
+
+	&-row {
+		padding: 0 $padding-large 0 $padding-large;
+		display: flex;
+		align-items: center;
+		height: $tc-height;
+		min-height: $tc-height;
+
+		&-select-all {
+			border-bottom: $tc-popover-border-width solid $tc-popover-border-color;
 		}
-		&-label {
-			color: $silver-chalice;
-			font-weight: 400;
-			padding-left: $padding-larger;
+
+		&:hover {
+			background: $wild-sand;
+		}
+
+		&-label,
+		:global(.control-label) {
+			font-size: 1.4rem;
+			padding-left: $padding-large;
+		}
+
+		:global(.checkbox > label) {
+			padding-left: $padding-normal;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			max-width: 21rem;
+			min-height: 0;
+		}
+
+		svg[name='talend-locked'] {
+			height: $tc-icon-size;
+			width: $tc-icon-size;
 		}
 	}
 }

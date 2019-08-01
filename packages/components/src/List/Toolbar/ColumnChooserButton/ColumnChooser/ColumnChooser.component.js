@@ -14,7 +14,7 @@ import Tooltip from '../../../../Tooltip';
 const DefaultColumnChooser = (
 	<React.Fragment>
 		<ColumnChooserHeader />
-		<ColumnChooserBody />
+		<ColumnChooserBody />\
 		<ColumnChooserFooter />
 	</React.Fragment>
 );

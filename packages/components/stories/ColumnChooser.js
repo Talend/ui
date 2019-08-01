@@ -19,7 +19,7 @@ const columns = [
 	{ key: 'created', label: 'Created', order: 6 },
 	{
 		key: 'modified',
-		label: 'Modified',
+		label: 'Very long name long name long name long name long name',
 		order: 4,
 		header: 'icon',
 		data: { iconName: 'talend-scheduler' },
@@ -32,7 +32,8 @@ storiesOf('Column Chooser', module)
 		<div>
 			<h1>Column chooser tooltip</h1>
 			<p>Default mode with minimal props</p>
-			<ColumnChooser columns={columns} id="default-column-chooser" submit={action('submit')} />
+			<IconsProvider defaultIcons={icons} />
+			<ColumnChooser columns={columns} nbLockedLeftItems={2} id="default-column-chooser" submit={action('submit')} />
 		</div>
 	))
 	.add('Total customization', () => (

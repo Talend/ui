@@ -69,7 +69,7 @@ export const useColumnChooserManager = (initColumns = [], nbLockedLeftItems = 0)
 		selectAll: isAnyItemHidden(columnsWithLocked),
 	});
 
-	const onChangeVisibility = (index, value) => {
+	const onChangeVisibility = index => value => {
 		const columnUpdated = updateColumnAttribute(index, value, updateAttributeVisibility)(
 			state.columns,
 		);

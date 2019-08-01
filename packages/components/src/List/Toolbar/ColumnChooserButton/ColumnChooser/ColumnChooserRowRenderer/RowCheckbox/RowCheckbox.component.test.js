@@ -5,7 +5,7 @@ import { act } from 'react-dom/test-utils';
 import { ColumnChooserProvider } from '../../columnChooser.context';
 import getDefaultT from '../../../../../../translate';
 
-import Component from './RowVisibilityCheckbox.component';
+import Component from './RowCheckbox.component';
 
 // eslint-disable-next-line react/prop-types
 const RowCheckboxWithContext = ({ onChangeVisibility, id, t = getDefaultT(), ...rest }) => (
