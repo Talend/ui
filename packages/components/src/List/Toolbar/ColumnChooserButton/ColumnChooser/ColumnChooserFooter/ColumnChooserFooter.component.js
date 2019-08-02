@@ -19,7 +19,7 @@ const SubmitButton = () => {
 	);
 };
 
-const ColumnChooserFooter = ({ children, className }) => {
+const ColumnChooserFooter = ({ children = <SubmitButton />, className }) => {
 	const { id } = useColumnChooserContext();
 	return (
 		<Tooltip.Footer
@@ -28,7 +28,7 @@ const ColumnChooserFooter = ({ children, className }) => {
 				(className, classNames(theme['tc-column-chooser-footer'], 'tc-column-chooser-footer'))
 			}
 		>
-			{!children ? <SubmitButton /> : children}
+			{children}
 		</Tooltip.Footer>
 	);
 };

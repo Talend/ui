@@ -33,40 +33,33 @@ ColumnChooserTable.propTypes = {
 	columns: columnsChooserPropTypes,
 };
 
-const ColumnChooserBody = ({ children }) => {
+const Default = () => {
 	const {
-		id,
 		columnsChooser,
+		id,
 		onChangeVisibility,
 		onSelectAll,
 		selectAll,
 		t,
 	} = useColumnChooserContext();
 	const bodyId = `${id}-body`;
-
 	return (
-		<Tooltip.Body id={bodyId} className={theme('tc-column-chooser-body')}>
-			{!children ? (
-				<React.Fragment>
-					<SelectAllColumnsCheckbox id={bodyId} onClick={onSelectAll} value={selectAll} t={t} />
-					<ColumnChooserTable
-						id={bodyId}
-						columns={columnsChooser}
-						onClick={onChangeVisibility}
-						t={t}
-					/>
-				</React.Fragment>
-			) : (
-				children(columnsChooser)
-			)}
-		</Tooltip.Body>
+		<React.Fragment>
+			<SelectAllColumnsCheckbox id={bodyId} onClick={onSelectAll} value={selectAll} t={t} />
+			<ColumnChooserTable id={bodyId} columns={columnsChooser} onClick={onChangeVisibility} t={t} />
+		</React.Fragment>
 	);
 };
 
-ColumnChooserBody.Row = ColumnChooserRowRenderer;
-
+const ColumnChooserBody = ({ children = <Default /> }) => (
+	<Tooltip.Body id={'column-chooser'} className={theme('tc-column-chooser-body')}>
+		{children}
+	</Tooltip.Body>
+);
 ColumnChooserBody.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 };
+
+ColumnChooserBody.Row = ColumnChooserRowRenderer;
 
 export default ColumnChooserBody;

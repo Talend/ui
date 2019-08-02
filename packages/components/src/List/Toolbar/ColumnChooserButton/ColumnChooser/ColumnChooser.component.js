@@ -18,6 +18,7 @@ const haveColumnLabel = label => column => column.label.toLowerCase().includes(l
 const filterColumnsChooser = (columns, filter) => columns.filter(haveColumnLabel(filter));
 
 export default function ColumnChooser({
+	children,
 	columns,
 	filterValue,
 	id,
@@ -49,19 +50,8 @@ export default function ColumnChooser({
 		columnsChooser,
 		filter,
 	]);
-
-	return (
-		<ColumnChooserProvider
-			value={{
-				columnsChooser: filteredColumnsChooser,
-				id,
-				onChangeVisibility,
-				onClose,
-				onSelectAll,
-				selectAll,
-				t,
-			}}
-		>
+	const Default = (
+		<React.Fragment>
 			<ColumnChooserHeader />
 			<FilterBar
 				autoFocus={false}
@@ -81,6 +71,21 @@ export default function ColumnChooser({
 				<ColumnChooserBody />
 				<ColumnChooserFooter />
 			</form>
+		</React.Fragment>
+	);
+	return (
+		<ColumnChooserProvider
+			value={{
+				columnsChooser: filteredColumnsChooser,
+				id,
+				onChangeVisibility,
+				onClose,
+				onSelectAll,
+				selectAll,
+				t,
+			}}
+		>
+			{!children ? Default : children}
 		</ColumnChooserProvider>
 	);
 }
@@ -95,6 +100,7 @@ ColumnChooser.defaultProps = {
 };
 
 ColumnChooser.propTypes = {
+	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 	columns: PropTypes.array.isRequired,
 	filterValue: PropTypes.string,
 	id: PropTypes.string.isRequired,

@@ -9,15 +9,15 @@ const theme = getTheme(cssModule);
 
 const filterVisibleColumns = column => !column.hidden;
 
-const ColumnChooserHeader = ({ className, children }) => {
-	const { id, columnsChooser, t } = useColumnChooserContext();
-	const lengthVisibleColumns = columnsChooser.filter(filterVisibleColumns).length;
+const Default = () => {
+	const { columnsChooser, t } = useColumnChooserContext();
 	const selectedColumns = t('SELECT_COLUMNS', {
 		defaultValue: 'selected columns',
 	});
-	const Content = (
+	const lengthVisibleColumns = columnsChooser.filter(filterVisibleColumns).length;
+	return (
 		<div>
-			<div className={theme('tc-column-chooser-header-title', className)}>
+			<div className={theme('tc-column-chooser-header-title')}>
 				{t('COLUMN_CHOOSER_HEADER_TITLE', {
 					defaultValue: 'Modify columns',
 				})}
@@ -25,15 +25,19 @@ const ColumnChooserHeader = ({ className, children }) => {
 			<div>{`${lengthVisibleColumns}/${columnsChooser.length} ${selectedColumns}`}</div>
 		</div>
 	);
-	return (
-		<Tooltip.Header className={theme('tc-column-chooser-header', className)} id={id}>
-			{!children ? Content : children}
-		</Tooltip.Header>
-	);
 };
 
+const ColumnChooserHeader = ({ className, children = <Default /> }) => (
+	<Tooltip.Header id="column-chooser" className={theme('tc-column-chooser-header', className)}>
+		{children}
+	</Tooltip.Header>
+);
+
 ColumnChooserHeader.propTypes = {
-	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+	children: PropTypes.oneOfType([
+		PropTypes.element,
+		PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.element])),
+	]),
 	className: PropTypes.string,
 };
 
