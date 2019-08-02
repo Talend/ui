@@ -11,9 +11,10 @@ const SubmitButton = () => {
 	const { id, t } = useColumnChooserContext();
 	return (
 		<ActionButton
+			bsStyle="info"
 			id={`${id}-submit-button`}
+			label={t('COLUMN_CHOOSER_APPLY_BUTTON', { defaultValue: 'Apply' })}
 			type="submit"
-			label={t('COLUMN_CHOOSER_FOOTER_BUTTON', { defaultValue: 'Modify' })}
 		/>
 	);
 };
