@@ -27,12 +27,13 @@ $tc-height: 4rem;
 		}
 	}
 
+	&-filter {
+		margin: 0 $padding-small 0 $padding-small;
+	}
+
 	&-body {
 		overflow-y: auto;
 		width: 100%;
-		&-filter {
-			margin: 0 $padding-small 0 $padding-small;
-		}
 	}
 
 	&-footer {

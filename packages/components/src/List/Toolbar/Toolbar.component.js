@@ -157,8 +157,8 @@ Toolbar.propTypes = {
 	getComponent: PropTypes.func,
 	components: PropTypes.object,
 	columnChooser: PropTypes.shape({
-		handlerColumnChooser: PropTypes.func.isRequired,
-		columns: PropTypes.array.isRequired,
+		submit: PropTypes.func,
+		columns: PropTypes.array,
 	}),
 };
 

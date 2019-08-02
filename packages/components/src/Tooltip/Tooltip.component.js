@@ -48,7 +48,7 @@ Footer.propTypes = {
 	...TooltipPropTypes,
 };
 
-const Tooltip = ({ children }) => <React.Fragment>{children}</React.Fragment>;
+const Tooltip = ({ children }) => children;
 Tooltip.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 };
