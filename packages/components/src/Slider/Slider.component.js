@@ -3,8 +3,8 @@ import React from 'react';
 import classnames from 'classnames';
 import RcSlider from 'rc-slider';
 import Tooltip from 'rc-tooltip';
-import rcSliderTheme from 'rc-slider/assets/index.css'; // eslint-disable-line no-unused-vars
 import range from 'lodash/range';
+import 'rc-slider/assets/index.css'; // eslint-disable-line no-unused-vars
 import Icon from '../Icon';
 import theme from './Slider.scss';
 import Action from '../Actions/Action';

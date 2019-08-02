@@ -96,7 +96,7 @@ Object {
 `;
 
 exports[`UIForm container should render form 2`] = `
-<Translate(TalendUIForm)
+<withI18nextTranslation(TalendUIForm)
   autoComplete="off"
   buttonBlockClass="form-actions"
   className="my-form-class"

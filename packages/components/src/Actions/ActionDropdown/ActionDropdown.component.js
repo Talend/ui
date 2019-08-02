@@ -5,7 +5,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import classNames from 'classnames';
 import { Iterable } from 'immutable';
 import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import omit from 'lodash/omit';
 import Inject from '../../Inject';
 import theme from './ActionDropdown.scss';
@@ -300,4 +300,4 @@ ActionDropdown.defaultProps = {
 };
 
 export { getMenuItem, InjectDropdownMenuItem };
-export default translate(I18N_DOMAIN_COMPONENTS)(ActionDropdown);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(ActionDropdown);

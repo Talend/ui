@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import get from 'lodash/get';
 import { Actions, ActionDropdown } from '../../Actions';
 import { cellTitleDisplayModes, listTypes } from '../utils/constants';
@@ -194,4 +194,4 @@ CellTitleActionsComponent.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(CellTitleActionsComponent);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(CellTitleActionsComponent);

@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { AutoSizer } from 'react-virtualized';
-
+import get from 'lodash/get';
 import { listTypes } from './utils/constants';
 import Loader from '../Loader';
 import RendererSelector from './RendererSelector.component';
 import Content from './Content.component';
 import propTypes from './PropTypes';
 import { insertSelectionConfiguration, toColumns } from './utils/tablerow';
+import { resizeColumns, extractResizableProps } from './utils/resizable';
 import theme from './VirtualizedList.scss';
 import tableTheme from './ListTable/ListTable.scss';
+
+import { virtualizedListContext } from './virtualizedListContext';
 
 const { LARGE } = listTypes;
 
@@ -17,9 +20,10 @@ const { LARGE } = listTypes;
  */
 function VirtualizedList(props) {
 	const {
-		collection,
 		children,
+		collection,
 		defaultHeight,
+		disableHeader,
 		noRowsRenderer,
 		id,
 		isActive,
@@ -27,26 +31,45 @@ function VirtualizedList(props) {
 		inProgress,
 		onRowClick,
 		onRowDoubleClick,
+		onRowsRendered,
 		onScroll,
+		onToggleAll,
+		registerChild,
 		rowHeight,
+		rowRenderers,
+		scrollToIndex,
 		selectionToggle,
 		sort,
 		sortBy,
 		sortDirection,
+		rowCount,
 		type,
-		disableHeader,
-		rowRenderers,
 	} = props;
-
 	const columnDefinitionsWithSelection = insertSelectionConfiguration({
-		isSelected,
-		selectionToggle,
 		children,
+		collection,
+		isSelected,
+		onToggleAll,
+		selectionToggle,
 	});
+	const [columnsWidths, setWidths] = useState();
+	const rendererSelectorRef = useRef();
+
+	// Settings the data for resizable columns only at mount.
+	useEffect(() => {
+		setWidths(extractResizableProps(React.Children.toArray(children)));
+	}, []);
+
+	const resizeColumn = (dataKey, deltaX) => {
+		const listWidth = get(rendererSelectorRef, 'current.props.width', 0);
+		setWidths(resizeColumns(deltaX, columnsWidths, listWidth, dataKey));
+	};
+
 	const columnDefinitions = toColumns({
 		id,
 		theme: tableTheme,
 		children: columnDefinitionsWithSelection,
+		columnsWidths,
 	});
 
 	if (type === LARGE && inProgress) {
@@ -54,32 +77,39 @@ function VirtualizedList(props) {
 	}
 
 	return (
-		<AutoSizer>
-			{({ height, width }) => (
-				<RendererSelector
-					collection={collection}
-					noRowsRenderer={noRowsRenderer}
-					height={height || defaultHeight}
-					id={id}
-					isActive={isActive}
-					isSelected={isSelected}
-					onRowClick={onRowClick}
-					onRowDoubleClick={onRowDoubleClick}
-					onScroll={onScroll}
-					rowHeight={rowHeight}
-					sort={sort}
-					sortBy={sortBy}
-					sortDirection={sortDirection}
-					type={type}
-					width={width}
-					disableHeader={disableHeader}
-					inProgress={inProgress}
-					rowRenderers={rowRenderers}
-				>
-					{columnDefinitions}
-				</RendererSelector>
-			)}
-		</AutoSizer>
+		<virtualizedListContext.Provider value={{ resizeColumn }}>
+			<AutoSizer>
+				{({ height, width }) => (
+					<RendererSelector
+						ref={rendererSelectorRef}
+						collection={collection}
+						noRowsRenderer={noRowsRenderer}
+						height={height || defaultHeight}
+						id={id}
+						isActive={isActive}
+						isSelected={isSelected}
+						onRowClick={onRowClick}
+						onRowDoubleClick={onRowDoubleClick}
+						onScroll={onScroll}
+						rowHeight={rowHeight}
+						sort={sort}
+						sortBy={sortBy}
+						sortDirection={sortDirection}
+						type={type}
+						width={width}
+						disableHeader={disableHeader}
+						inProgress={inProgress}
+						rowRenderers={rowRenderers}
+						rowCount={rowCount}
+						onRowsRendered={onRowsRendered}
+						registerChild={registerChild}
+						scrollToIndex={scrollToIndex}
+					>
+						{columnDefinitions}
+					</RendererSelector>
+				)}
+			</AutoSizer>
+		</virtualizedListContext.Provider>
 	);
 }
 

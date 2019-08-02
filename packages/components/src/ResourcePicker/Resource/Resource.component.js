@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { distanceInWordsToNow } from 'date-fns';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { getRowData } from '../../VirtualizedList/utils/gridrow';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
@@ -59,9 +59,11 @@ function Resource({ parent, index, style, className, t }) {
 			{icon && <Icon name={icon} />}
 			<div className={classNames('data-container', theme['data-container'])}>
 				<span className={classNames('title', theme.title)}>{name}</span>
-				<small className={classNames('author', theme.author)}>
-					{getAuthorLabel(t, author, modified)}
-				</small>
+				{author ? (
+					<small className={classNames('author', theme.author)}>
+						{getAuthorLabel(t, author, modified)}
+					</small>
+				) : null}
 			</div>
 			<div className={classNames('flags-container', theme['flags-container'])}>
 				{Object.keys(FLAGS).map(flag => (
@@ -102,4 +104,4 @@ Resource.propTypes = {
 	}),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(Resource);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(Resource);

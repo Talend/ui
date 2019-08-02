@@ -3,18 +3,43 @@ import React from 'react';
 import get from 'lodash/get';
 import classNames from 'classnames';
 import { CellMeasurer, CellMeasurerCache } from 'react-virtualized';
+import isEmpty from 'lodash/isEmpty';
 
-import PureCollapsiblePanel from './PureCollapsiblePanel';
+import Skeleton from '../../Skeleton';
+import CollapsiblePanel from '../../CollapsiblePanel/CollapsiblePanel.component';
 import { getId, getRowData } from '../utils/gridrow';
 
 import withListGesture from '../../Gesture/withListGesture';
-import './RowCollapsiblePanel.scss';
+import theme from './RowCollapsiblePanel.scss';
 
 const cache = new CellMeasurerCache({ fixedWidth: true });
 const options = {
 	deferredMeasurementCache: cache,
 	rowHeight: cache.rowHeight,
 };
+
+function LoadingCollapsiblePanel() {
+	return (
+		<div className={theme['loading-collapsible-panel']}>
+			<span>
+				<Skeleton type={Skeleton.TYPES.circle} size={Skeleton.SIZES.small} />
+				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.xlarge} />
+			</span>
+			<span>
+				<Skeleton type={Skeleton.TYPES.circle} size={Skeleton.SIZES.small} />
+				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.medium} />
+			</span>
+			<span>
+				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.small} />
+			</span>
+			<span>
+				<Skeleton type={Skeleton.TYPES.text} size={Skeleton.SIZES.medium} />
+			</span>
+		</div>
+	);
+}
+
+const MemoLoadingCollapsiblePanel = React.memo(LoadingCollapsiblePanel);
 
 /**
  * Row renderer that displays a Collapsible Panel
@@ -24,11 +49,10 @@ class RowCollapsiblePanel extends React.Component {
 		super(props);
 		this.onToggle = this.onToggle.bind(this);
 	}
-	onToggle(event, measure) {
+	onToggle(event) {
 		const { parent, index } = this.props;
 		if (parent.props.onRowClick) {
 			parent.props.onRowClick({ event, rowData: { ...getRowData(parent, index), index } });
-			setTimeout(measure, 0);
 		}
 	}
 	render() {
@@ -39,13 +63,7 @@ class RowCollapsiblePanel extends React.Component {
 		const rowData = getRowData(parent, index);
 
 		return (
-			<CellMeasurer
-				cache={options.deferredMeasurementCache}
-				columnIndex={0}
-				key={this.props.index}
-				parent={this.props.parent}
-				rowIndex={index}
-			>
+			<CellMeasurer cache={cache} columnIndex={0} key={index} parent={parent} rowIndex={index}>
 				{({ measure }) => (
 					// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 					<div
@@ -62,7 +80,16 @@ class RowCollapsiblePanel extends React.Component {
 						aria-label={get(rowData, 'header[0].label')}
 						style={style}
 					>
-						<PureCollapsiblePanel {...{ rowData, measure, onToggle: this.onToggle }} />
+						{isEmpty(rowData) ? (
+							<MemoLoadingCollapsiblePanel />
+						) : (
+							<CollapsiblePanel
+								onEntered={measure}
+								onExited={measure}
+								onToggle={this.onToggle}
+								{...rowData}
+							/>
+						)}
 					</div>
 				)}
 			</CellMeasurer>

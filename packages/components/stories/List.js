@@ -4,12 +4,11 @@ import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
-import { I18nextProvider } from 'react-i18next';
 import cloneDeep from 'lodash/cloneDeep';
 
 import { List, IconsProvider } from '../src/index';
-import i18n, { LanguageSwitcher } from './config/i18n';
-import { MyCustomRow } from './VirtualizedList';
+import { LanguageSwitcher } from './config/i18n';
+import MyCustomRow from './List/MyCustomRow.component';
 /**
  * Cell renderer that displays hello + text
  */
@@ -48,6 +47,8 @@ const icons = {
 	'talend-trash': talendIcons['talend-trash'],
 	'talend-warning': talendIcons['talend-warning'],
 	'talend-file-s3-o': talendIcons['talend-file-s3-o'],
+	'talend-sort-desc': talendIcons['talend-sort-desc'],
+	'talend-sort-asc': talendIcons['talend-sort-asc'],
 };
 
 const selected = [
@@ -280,11 +281,6 @@ const props = {
 			onChange: action('sort.onChange'),
 			options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name With Multiple Words' }],
 		},
-		pagination: {
-			itemsPerPage: 5,
-			totalResults: 10,
-			onChange: action('pagination.onChange'),
-		},
 		filter: {
 			docked: true,
 			onBlur: action('filter.onBlur'),
@@ -476,7 +472,7 @@ storiesOf('List', module)
 		<div>
 			<LanguageSwitcher />
 			<IconsProvider defaultIcons={icons} />
-			<I18nextProvider i18n={i18n}>{story()}</I18nextProvider>
+			{story()}
 		</div>
 	))
 	.add('Table display', () => (
@@ -637,6 +633,33 @@ storiesOf('List', module)
 			</div>
 		);
 	})
+	.add('Selection - large', () => {
+		const selectedItemsProps = cloneDeep(props);
+		selectedItemsProps.toolbar.actionBar.multiSelectActions = {
+			left: [
+				{
+					id: 'remove',
+					label: 'Delete selection',
+					icon: 'talend-trash',
+					onClick: action('remove'),
+				},
+			],
+		};
+		selectedItemsProps.list.itemProps = itemPropsForItems;
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>
+					For table view, user toggle column header to select/disselect all items.
+					<br />
+					When List displayed in large view, there's a one-line checkbox of "Select All" above the
+					list.
+					<br />
+				</p>
+				<List {...selectedItemsProps} rowHeight={140} displayMode="large" />
+			</div>
+		);
+	})
 	.add('Activation', () => {
 		const selectedItemsProps = cloneDeep(props);
 		selectedItemsProps.list.itemProps.isActive = item => item.id === 0;
@@ -660,9 +683,9 @@ storiesOf('List', module)
 					<br />
 				</pre>
 				<h2>Table</h2>
-				<List {...selectedItemsProps} />
+				<List {...selectedItemsProps} displayMode="table" />
 				<h2>Large</h2>
-				<List {...selectedItemsProps} rowHeight={140} displayMode="large" />
+				<List {...cloneDeep(selectedItemsProps)} rowHeight={140} displayMode="large" />
 			</div>
 		);
 	})
@@ -706,6 +729,17 @@ storiesOf('List', module)
 			</div>
 		);
 	})
+	.add('Sort - large', () => {
+		const tprops = cloneDeep(props);
+		tprops.list.sort = sort;
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p>Show Sort widgets on List toolbar when display in large view</p>
+				<List {...tprops} rowHeight={140} displayMode="large" />
+			</div>
+		);
+	})
 	.add('Custom cell renderer', () => {
 		const customProps = cloneDeep(props);
 
@@ -730,7 +764,6 @@ storiesOf('List', module)
 	.add('Filter', () => {
 		const dockedProps = cloneDeep(props);
 		dockedProps.list.items = [dockedProps.list.items[0]];
-		dockedProps.toolbar.actionBar = null;
 
 		const inputProps = Immutable.fromJS(dockedProps).toJS();
 		inputProps.toolbar.filter.docked = false;
@@ -773,6 +806,7 @@ storiesOf('List', module)
 		const tprops = {
 			...props,
 			toolbar: {
+				actionBar: {},
 				display: {
 					onChange: action('display.onChange'),
 					displayModes: ['large', 'table'],
@@ -895,6 +929,25 @@ storiesOf('List', module)
 					This is the default mode.
 				</p>
 				<List {...listProps} />
+			</div>
+		);
+	})
+	.add('Pagination - to be deprecated', () => {
+		const customProps = cloneDeep(props);
+		customProps.toolbar.pagination = {
+			itemsPerPage: 5,
+			totalResults: 10,
+			onChange: action('pagination.onChange'),
+		};
+		return (
+			<div style={{ height: '70vh' }} className="virtualized-list">
+				<h1>List</h1>
+				<p style={{ color: '#ea8330' }}>
+					Warning: Pagination is deprecated and will be removed in the next major version.
+					<br />
+					For now pagination will show on second toolbar if you use it.
+				</p>
+				<List {...customProps} />
 			</div>
 		);
 	});

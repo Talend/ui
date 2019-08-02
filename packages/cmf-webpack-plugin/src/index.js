@@ -91,7 +91,9 @@ ReactCMFWebpackPlugin.prototype.apply = function reactCMFWebpackPluginApply(comp
 		this.modifiedFiles
 			.filter(file => !compilationFileDependencies.has(file))
 			.forEach(file => compilation.fileDependencies.add(file));
-
+		if (!compilationFileDependencies.has(cmfconfigPath)) {
+			compilation.fileDependencies.add(cmfconfigPath);
+		}
 		callback();
 	}
 

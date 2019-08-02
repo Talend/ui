@@ -23,6 +23,22 @@ For now there are 3 goals :
 
 ## Possible issues
 
+### Build
+
+While building a huge app, you can run into a `JavaScript heap out of memory`, espacially on production mode, with webpack optimisation and sourcemap.
+You can increase the node space size to overcome this issue.
+
+Package.json
+```json
+{
+    "scripts": {
+        "build": "NODE_OPTIONS=--max_old_space_size=4096 talend-scripts build"
+    }
+}
+```
+
+### Test
+
 @talend/scripts uses `jest` to run tests. On mac and watch mode, if you have a lot of files to watch, you can bump into this error
 ```
 $ jest --watch

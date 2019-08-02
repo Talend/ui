@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comparator field should render default Comparator 1`] = `
+<div
+  className="theme-comparator"
+>
+  <withI18nextTranslation(ActionDropdown)
+    items={
+      Array [
+        Object {
+          "id": "comparison-operator-0",
+          "label": <OperatorListElement
+            name=""
+            selected={false}
+            symbol=">"
+          />,
+          "title": ">",
+          "value": ">",
+        },
+        Object {
+          "id": "comparison-operator-1",
+          "label": <OperatorListElement
+            name=""
+            selected={false}
+            symbol="<"
+          />,
+          "title": "<",
+          "value": "<",
+        },
+        Object {
+          "id": "comparison-operator-2",
+          "label": <OperatorListElement
+            name=""
+            selected={false}
+            symbol="="
+          />,
+          "title": "=",
+          "value": "=",
+        },
+      ]
+    }
+    noCaret={true}
+    onSelect={[Function]}
+  />
+  <Widget
+    errors={Object {}}
+    id="default"
+    isValid={true}
+    onChange={[Function]}
+    onFinish={[Function]}
+    schema={
+      Object {
+        "autoFocus": undefined,
+        "disabled": undefined,
+        "key": Array [
+          "default",
+          "value",
+        ],
+        "readOnly": undefined,
+        "required": true,
+        "schema": Object {
+          "type": "string",
+        },
+        "title": "value",
+        "type": "text",
+      }
+    }
+    value={Object {}}
+    widgets={Object {}}
+  />
+</div>
+`;
+
+exports[`Comparator field should render disabled Comparator 1`] = `
+<div
+  className="theme-comparator"
+>
+  <withI18nextTranslation(ActionDropdown)
+    disabled={true}
+    items={
+      Array [
+        Object {
+          "id": "comparison-operator-0",
+          "label": <OperatorListElement
+            name=""
+            selected={false}
+            symbol=">"
+          />,
+          "title": ">",
+          "value": ">",
+        },
+        Object {
+          "id": "comparison-operator-1",
+          "label": <OperatorListElement
+            name=""
+            selected={false}
+            symbol="<"
+          />,
+          "title": "<",
+          "value": "<",
+        },
+        Object {
+          "id": "comparison-operator-2",
+          "label": <OperatorListElement
+            name=""
+            selected={false}
+            symbol="="
+          />,
+          "title": "=",
+          "value": "=",
+        },
+      ]
+    }
+    noCaret={true}
+    onSelect={[Function]}
+  />
+  <Widget
+    errors={Object {}}
+    id="default"
+    isValid={true}
+    onChange={[Function]}
+    onFinish={[Function]}
+    schema={
+      Object {
+        "autoFocus": undefined,
+        "disabled": true,
+        "key": Array [
+          "default",
+          "value",
+        ],
+        "readOnly": undefined,
+        "required": true,
+        "schema": Object {
+          "type": "string",
+        },
+        "title": "value",
+        "type": "text",
+      }
+    }
+    value={Object {}}
+    widgets={Object {}}
+  />
+</div>
+`;

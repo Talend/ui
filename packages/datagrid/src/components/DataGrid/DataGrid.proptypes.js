@@ -2,8 +2,6 @@ import PropTypes from 'prop-types';
 
 const DATAGRID_PROPTYPES = {
 	avroRenderer: PropTypes.shape({
-		booleanCellRenderer: PropTypes.string,
-		dateCellRenderer: PropTypes.string,
 		intCellRenderer: PropTypes.string,
 		stringCellRenderer: PropTypes.string,
 	}),
@@ -12,7 +10,7 @@ const DATAGRID_PROPTYPES = {
 	loading: PropTypes.bool,
 	enableColResize: PropTypes.bool,
 	columnMinWidth: PropTypes.number,
-	forceRedrawRows: PropTypes.func,
+	forceRedrawRows: PropTypes.func, // deprecated
 	getComponent: PropTypes.func,
 	getPinnedColumnDefsFn: PropTypes.func,
 	getColumnDefsFn: PropTypes.func,

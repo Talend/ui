@@ -3,15 +3,6 @@ const yosay = require('yosay');
 const slug = require('slugg');
 
 module.exports = class CMFAppGenerator extends Generator {
-	initializing() {
-		this.composeWith('talend:dotfiles', {
-			name: () => this.props.name,
-			babelrc: false,
-			eslint: false,
-			sasslint: false,
-			travis: false,
-		});
-	}
 
 	prompting() {
 		// Have Yeoman greet the user.
@@ -42,7 +33,7 @@ module.exports = class CMFAppGenerator extends Generator {
 	}
 
 	writing() {
-		const fileToCopy = ['src', 'cmf.json', 'talend-scripts.json', 'test-setup.js'];
+		const fileToCopy = ['src', 'cmf.json', 'talend-scripts.json', '.eslintrc'];
 		const tplToCopy = ['package.json'];
 		fileToCopy.forEach(name => {
 			this.fs.copy(this.templatePath(name), this.destinationPath(name));

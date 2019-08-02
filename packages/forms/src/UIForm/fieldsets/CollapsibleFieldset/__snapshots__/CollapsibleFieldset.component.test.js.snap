@@ -22,18 +22,21 @@ exports[`CollapsibleFieldset should render a collapsed fieldset (header only) 1`
         Basic
       </legend>
     </div>
-    <button
-      className="theme-toggle"
-      id="my-fieldset__collapse"
-      onClick={[Function]}
-      title="Collapse"
-      type="button"
+    <div
+      className="theme-action-wrapper"
     >
-      <Icon
-        name="talend-caret-down"
-        transform={null}
+      <ActionIconToggle
+        active={false}
+        className="theme-collapse"
+        icon="talend-caret-down"
+        iconTransform={null}
+        id="my-fieldset__collapse"
+        label="Expand"
+        onClick={[Function]}
+        tooltipPlacement="top"
+        type="button"
       />
-    </button>
+    </div>
   </div>
 </fieldset>
 `;
@@ -60,23 +63,27 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
         Basic: Jimmy Somsanith
       </legend>
     </div>
-    <button
-      className="theme-toggle"
-      id="my-fieldset__collapse"
-      onClick={[Function]}
-      title="Collapse"
-      type="button"
+    <div
+      className="theme-action-wrapper"
     >
-      <Icon
-        name="talend-caret-down"
-        transform="flip-vertical"
+      <ActionIconToggle
+        active={true}
+        className="theme-collapse"
+        icon="talend-caret-down"
+        iconTransform="flip-vertical"
+        id="my-fieldset__collapse"
+        label="Collapse"
+        onClick={[Function]}
+        tooltipPlacement="top"
+        type="button"
       />
-    </button>
+    </div>
   </div>
   <div
     className="theme-body"
   >
     <Widget
+      actions={Array []}
       id="my-fieldset"
       schema={
         Object {
@@ -100,6 +107,7 @@ exports[`CollapsibleFieldset should render a custom title 1`] = `
       widgets={Object {}}
     />
     <Widget
+      actions={Array []}
       id="my-fieldset"
       schema={
         Object {
@@ -148,23 +156,27 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
         Basic
       </legend>
     </div>
-    <button
-      className="theme-toggle"
-      id="my-fieldset__collapse"
-      onClick={[Function]}
-      title="Collapse"
-      type="button"
+    <div
+      className="theme-action-wrapper"
     >
-      <Icon
-        name="talend-caret-down"
-        transform="flip-vertical"
+      <ActionIconToggle
+        active={true}
+        className="theme-collapse"
+        icon="talend-caret-down"
+        iconTransform="flip-vertical"
+        id="my-fieldset__collapse"
+        label="Collapse"
+        onClick={[Function]}
+        tooltipPlacement="top"
+        type="button"
       />
-    </button>
+    </div>
   </div>
   <div
     className="theme-body"
   >
     <Widget
+      actions={Array []}
       id="my-fieldset"
       schema={
         Object {
@@ -188,6 +200,7 @@ exports[`CollapsibleFieldset should render a full fieldset (header and body) 1`]
       widgets={Object {}}
     />
     <Widget
+      actions={Array []}
       id="my-fieldset"
       schema={
         Object {

@@ -10,29 +10,39 @@ exports[`Header should render header with one button 1`] = `
   <div
     className="actions"
   >
-    <button
-      aria-label="Search for specific values"
-      className="btn-icon-only btn btn-link"
-      disabled={false}
+    <div
+      aria-describedby={42}
+      className="theme-tc-tooltip"
+      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
-      onMouseDown={[Function]}
+      onKeyPress={[Function]}
+      onMouseOut={[Function]}
       onMouseOver={[Function]}
-      role="link"
-      type="button"
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
-        name="talend-search"
-        title={null}
+      <button
+        aria-describedby={42}
+        aria-label="Search for specific values"
+        className="btn-icon-only btn btn-link"
+        disabled={false}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="link"
+        type="button"
       >
-        <use
-          xlinkHref="#talend-search"
-        />
-      </svg>
-    </button>
+        <svg
+          aria-hidden="true"
+          className="theme-tc-svg-icon tc-svg-icon"
+          focusable="false"
+          name="talend-search"
+          title={null}
+        >
+          <use
+            xlinkHref="#talend-search"
+          />
+        </svg>
+      </button>
+    </div>
   </div>
 </header>
 `;

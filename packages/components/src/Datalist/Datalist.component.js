@@ -7,6 +7,7 @@ import get from 'lodash/get';
 import Typeahead from '../Typeahead';
 import theme from './Datalist.scss';
 import FocusManager from '../FocusManager';
+import Icon from '../Icon';
 
 export function escapeRegexCharacters(str) {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -64,7 +65,18 @@ class Datalist extends Component {
 		const { value, previousValue } = this.state;
 
 		if (value !== previousValue) {
-			this.updateValue(event, value, true);
+			let newValue = value;
+			if (!this.props.multiSection && this.state.suggestions && value) {
+				const hasMatchingSuggestion = this.state.suggestions.find(
+					item => !item.disabled && item.name.toLowerCase() === value.toLowerCase(),
+				);
+
+				if (hasMatchingSuggestion) {
+					newValue = hasMatchingSuggestion;
+				}
+			}
+
+			this.updateValue(event, newValue, true);
 		}
 	}
 
@@ -192,6 +204,28 @@ class Datalist extends Component {
 	}
 
 	/**
+	 * Returns the selected item's icon props if there's one or undefined.
+	 * @returns {Object|undefined}
+	 */
+	getSelectedIcon() {
+		if (this.props.titleMap) {
+			if (this.props.multiSection) {
+				const multiSection = this.props.titleMap.find(titleMap =>
+					titleMap.suggestions.find(suggestion => suggestion.name === this.state.value),
+				);
+				return get(
+					multiSection &&
+						multiSection.suggestions.find(suggestion => suggestion.name === this.state.value),
+					'icon',
+				);
+			}
+
+			return get(this.props.titleMap.find(titleMap => titleMap.name === this.state.value), 'icon');
+		}
+		return undefined;
+	}
+
+	/**
 	 * Reset the focused item and section
 	 */
 	resetSelection() {
@@ -209,7 +243,7 @@ class Datalist extends Component {
 	 */
 	buildTitleMapping(titleMap) {
 		return titleMap.reduce((obj, item) => {
-			if (this.props.multiSection && item.title && item.suggestions) {
+			if (this.props.multiSection && item.title !== undefined && item.suggestions) {
 				const children = this.buildTitleMapping(item.suggestions);
 				return { ...obj, ...children };
 			}
@@ -272,6 +306,7 @@ class Datalist extends Component {
 				}
 			}
 			const selectedEnumValue = get(enumValue, 'value');
+
 			if (selectedEnumValue || !this.props.restricted) {
 				this.props.onChange(event, { value: selectedEnumValue || value });
 				this.setState({
@@ -353,8 +388,10 @@ class Datalist extends Component {
 
 	render() {
 		const label = this.getSelectedLabel();
+		const icon = this.getSelectedIcon();
 		return (
-			<FocusManager onFocusOut={this.resetSuggestions}>
+			<FocusManager onFocusOut={this.resetSuggestions} className={theme['tc-datalist-item']}>
+				{icon && <Icon className={theme['tc-datalist-item-icon']} {...icon} />}
 				<Typeahead
 					{...omit(this.props, PROPS_TO_OMIT)}
 					className={classNames('tc-datalist', this.props.className)}

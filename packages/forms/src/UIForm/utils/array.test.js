@@ -178,5 +178,12 @@ describe('Array utils', () => {
 			// then
 			expect(result.widget).toEqual('collapsiblePanel');
 		});
+		it('should support readonly', () => {
+			// when
+			const result = getArrayElementSchema({ ...arraySchema, readOnly: true }, 2);
+
+			// then
+			expect(result.items[0].readOnly).toBe(true);
+		});
 	});
 });

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { Label, OverlayTrigger, Panel, Button } from 'react-bootstrap';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import Action from '../Actions/Action';
 import Icon from './../Icon/Icon.component';
@@ -212,7 +212,7 @@ function getTextualContent(content) {
 }
 
 function CollapsiblePanel(props) {
-	const { content, id, onToggle, status, expanded, theme } = props;
+	const { content, id, onToggle, status, expanded, theme, onEntered, onExited } = props;
 	const className = classNames('panel panel-default', css['tc-collapsible-panel'], {
 		[css['default-panel']]: !theme,
 		[css[theme]]: !!theme,
@@ -232,7 +232,7 @@ function CollapsiblePanel(props) {
 					<CollapsiblePanelHeader {...props} />
 				</Panel.Title>
 			</Panel.Heading>
-			<Panel.Collapse>
+			<Panel.Collapse onEntered={onEntered} onExited={onExited}>
 				<Panel.Body>
 					{children}
 					{props.children}
@@ -286,4 +286,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS)(CollapsiblePanel);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(CollapsiblePanel);
