@@ -103,10 +103,10 @@ function prepareObject(originalState) {
 }
 
 /**
- * getErrorInfo serialize the error and enrich it
+ * getReportInfo serialize the error and enrich it
  * so as the dev will have as much information as possible
  */
-function getErrorInfo(error) {
+function getReportInfo(error) {
 	return {
 		time: new Date().toISOString(),
 		browser: navigator.userAgent,
@@ -151,7 +151,7 @@ function reportResponse(response) {
 function report(error) {
 	const info = {
 		error,
-		context: JSON.stringify(getErrorInfo(error)),
+		context: JSON.stringify(getReportInfo(error)),
 		reported: false,
 		reason: 'Draft',
 	};
@@ -307,6 +307,7 @@ export default {
 	bootstrap,
 	addAction,
 	hasReportURL,
+	getReportInfo,
 	report,
 	subscribe,
 	getErrors,

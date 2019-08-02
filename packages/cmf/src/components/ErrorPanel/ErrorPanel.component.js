@@ -10,7 +10,8 @@ function reload() {
 	location.reload(true);
 }
 
-function download(data) {
+function download(error) {
+	const data = onError.getReportInfo(error);
 	let safeData = data;
 	if (typeof data !== 'string') {
 		safeData = JSON.stringify(data);
@@ -44,7 +45,7 @@ function ErrorPanel(props) {
 			<button className="btn btn-danger btn-inverse" onClick={reload} data-feature="refresh-on-error" style={{ margin: 20 }}>
 				Refresh
 			</button>
-			<a className="btn btn-primary btn-inverse" href={download(props.context)} download="report.json" data-feature="download-on-error-details">
+			<a className="btn btn-primary btn-inverse" href={download(props.error)} download="report.json" data-feature="download-on-error-details">
 				Download details
 			</a>
 		</div>
