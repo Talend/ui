@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ColumnChooserRowRenderer from '../ColumnChooserRowRenderer';
+import SelectAllColumnsCheckbox from '../SelectAllColumnsCheckbox';
 import { useColumnChooserContext } from '../columnChooser.context';
 import { columnsChooserPropTypes } from '../../columnChooser.propTypes';
 import Tooltip from '../../../../../Tooltip';
@@ -31,27 +32,6 @@ const ColumnChooserTable = ({ columns = [], id, onClick, t }) => {
 
 ColumnChooserTable.propTypes = {
 	columns: columnsChooserPropTypes,
-};
-
-const SelectAllColumnsCheckbox = ({ id, onClick, value, t }) => {
-	return (
-		<ColumnChooserRowRenderer className={theme('tc-column-chooser-row-select-all')}>
-			<ColumnChooserRowRenderer.Checkbox
-				id={id}
-				dataFeature="select-all-columns"
-				describedby="desc-select-all-columns"
-				description={t('CHECKBOX_SELECT_ALL_COLUMNS_ARIA_DESCRIPTION', {
-					defaultValue: 'select or deselect all the columns',
-				})}
-				label={t('CHECKBOX_VISIBILITY_LABEL', {
-					defaultValue: 'Columns',
-				})}
-				onClick={onClick}
-				value={value}
-				t={t}
-			/>
-		</ColumnChooserRowRenderer>
-	);
 };
 
 const ColumnChooserBody = ({ children }) => {

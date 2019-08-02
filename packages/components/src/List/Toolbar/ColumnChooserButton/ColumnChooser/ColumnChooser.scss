@@ -9,6 +9,10 @@ $tc-height: 4rem;
 		margin: 0;
 	}
 
+	:global(.tc-tooltip-footer) {
+		justify-content: flex-end;
+	}
+
 	&-aria-hidden {
 		position: absolute;
 		left: -200em;
@@ -29,7 +33,6 @@ $tc-height: 4rem;
 	&-footer {
 		align-items: center;
 		display: flex;
-		justify-content: flex-end;
 	}
 
 	&-row {
