@@ -9,7 +9,7 @@ $tc-height: 4rem;
 		margin: 0;
 	}
 
-	:global(.tc-tooltip-footer) {
+	:global(.tc-tooltip-footer.tc-column-chooser-footer) {
 		justify-content: flex-end;
 	}
 

@@ -3,32 +3,27 @@ import cloneDeep from 'lodash/cloneDeep';
 import flow from 'lodash/flow';
 import { compareOrder } from '../service';
 
-const isItemHiddenOrLocked = item => !item.hidden || item.locked;
+const isItemHidden = item => item.hidden;
 
 const isAnyItemHidden = items => {
-	const hiddenItems = items.filter(isItemHiddenOrLocked);
+	const hiddenItems = items.filter(isItemHidden);
 	if (hiddenItems) {
 		return hiddenItems.length === items.length;
 	}
-	return false;
+	return true;
 };
 
-export const getColumn = index => collection => collection[index];
+export const getColumn = index => columns => columns[index];
 
 // eslint-disable-next-line
-export const setColumn = (column, index) => collection => (collection[index] = column);
+export const setColumn = (column, index) => columns => (columns[index] = column);
 
-const updateColumns = editedColumns => state => ({
-	...state,
-	editedColumns,
-});
-
-const orderColumns = collection => {
-	collection.sort(compareOrder).forEach((item, index) => {
+const orderColumns = columns => {
+	columns.sort(compareOrder).forEach((item, index) => {
 		// eslint-disable-next-line no-param-reassign
 		item.order = index + 1;
 	});
-	return collection;
+	return columns;
 };
 
 export const changeColumnChooserAttribute = key => value => column => {
@@ -40,22 +35,32 @@ export const changeColumnChooserAttribute = key => value => column => {
 
 const updateAttributeVisibility = changeColumnChooserAttribute('hidden');
 
-const extractColumnValues = item => ({
-	label: item.label,
-	order: item.order,
-	hidden: item.hidden,
+const extractColumnValues = column => ({
+	hidden: column.hidden,
+	label: column.label,
+	order: column.order,
 });
 
-const setItemsLocked = (items, lockedLeftItems) =>
-	items.map((item, it) => {
-		if (it < lockedLeftItems) {
-			return { ...extractColumnValues(item), locked: true };
-		}
-		return extractColumnValues(item);
-	});
+const setColumnLocked = (lockedLeftItems, index) => column => {
+	if (index < lockedLeftItems) {
+		return { ...column, locked: true };
+	}
+	return column;
+};
+
+const setColumnHidden = column => {
+	if (column.hidden === undefined) {
+		return { ...column, hidden: false };
+	}
+	return column;
+};
+
+const prepareColumns = (columns, lockedLeftItems) =>
+	columns.map((column, index) =>
+		flow([extractColumnValues, setColumnHidden, setColumnLocked(lockedLeftItems, index)])(column),
+	);
 
 const updateColumnAttribute = (index, value, fn) => flow([getColumn(index), fn(value)]);
-const updateCollectionColumn = (index, column) => flow([setColumn(column, index), updateColumns]);
 
 /**
  * Manage the state of each row representing a column for the ColumnChooser overlay.
@@ -63,26 +68,29 @@ const updateCollectionColumn = (index, column) => flow([setColumn(column, index)
  * @param {number} nbLockedLeftItems
  */
 export const useColumnChooserManager = (initColumns = [], nbLockedLeftItems = 0) => {
-	const columnsWithLocked = setItemsLocked(initColumns, nbLockedLeftItems);
+	const columnsChooser = prepareColumns(initColumns, nbLockedLeftItems);
 	const [state, setState] = useState({
-		columns: orderColumns(columnsWithLocked),
-		selectAll: isAnyItemHidden(columnsWithLocked),
+		columns: orderColumns(columnsChooser),
+		selectAll: isAnyItemHidden(columnsChooser),
 	});
+
+	const updateState = (columns, selectAll) => {
+		setState({
+			columns,
+			selectAll: selectAll || isAnyItemHidden(columns),
+		});
+	};
 
 	const onChangeVisibility = index => value => {
 		const columnUpdated = updateColumnAttribute(index, value, updateAttributeVisibility)(
 			state.columns,
 		);
-		const collectionUpdated = updateCollectionColumn(index, columnUpdated)(state.columns);
-		setState(collectionUpdated);
+		setColumn(columnUpdated, index)(state.columns);
+		updateState(state.columns);
 	};
 
 	const onSelectAll = value => {
-		setState({
-			...state,
-			columns: state.columns.map(updateAttributeVisibility(!value)),
-			selectAll: value,
-		});
+		updateState(state.columns.map(updateAttributeVisibility(!value)), value);
 	};
 
 	return {
