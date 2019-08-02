@@ -13,10 +13,15 @@ const isAnyItemHidden = items => {
 	return true;
 };
 
-export const getColumn = index => columns => columns[index];
+const findColumnLabel = label => column => column.label === label;
 
-// eslint-disable-next-line
-export const setColumn = (column, index) => columns => (columns[index] = column);
+export const getColumn = label => columns => columns.find(findColumnLabel(label));
+
+export const setColumn = (column, label) => columns => {
+	const index = columns.findIndex(findColumnLabel(label));
+	// eslint-disable-next-line no-param-reassign
+	columns[index] = column;
+};
 
 const orderColumns = columns => {
 	columns.sort(compareOrder).forEach((item, index) => {
@@ -60,7 +65,7 @@ const prepareColumns = (columns, lockedLeftItems) =>
 		flow([extractColumnValues, setColumnHidden, setColumnLocked(lockedLeftItems, index)])(column),
 	);
 
-const updateColumnAttribute = (index, value, fn) => flow([getColumn(index), fn(value)]);
+const updateColumnAttribute = (label, value, fn) => flow([getColumn(label), fn(value)]);
 
 /**
  * Manage the state of each row representing a column for the ColumnChooser overlay.
@@ -81,11 +86,11 @@ export const useColumnChooserManager = (initColumns = [], nbLockedLeftItems = 0)
 		});
 	};
 
-	const onChangeVisibility = index => value => {
-		const columnUpdated = updateColumnAttribute(index, value, updateAttributeVisibility)(
+	const onChangeVisibility = label => value => {
+		const columnUpdated = updateColumnAttribute(label, value, updateAttributeVisibility)(
 			state.columns,
 		);
-		setColumn(columnUpdated, index)(state.columns);
+		setColumn(columnUpdated, label)(state.columns);
 		updateState(state.columns);
 	};
 

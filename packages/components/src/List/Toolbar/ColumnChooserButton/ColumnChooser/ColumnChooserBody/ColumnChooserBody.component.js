@@ -12,7 +12,7 @@ import { getTheme } from '../../../../../theme';
 const theme = getTheme(cssModule);
 
 const ColumnChooserTable = ({ columns = [], id, onClick, t }) => {
-	return columns.map((column, index) => (
+	return columns.map(column => (
 		<ColumnChooserRowRenderer key={column.label}>
 			<ColumnChooserRowRenderer.Checkbox
 				id={id}
@@ -23,7 +23,7 @@ const ColumnChooserTable = ({ columns = [], id, onClick, t }) => {
 				})}
 				label={column.label}
 				locked={column.locked}
-				onClick={onClick(index)}
+				onClick={onClick(column.label)}
 				value={column.hidden}
 				t={t}
 			/>
@@ -36,8 +36,7 @@ ColumnChooserTable.propTypes = {
 };
 
 const haveColumnLabel = label => column => column.label.toLowerCase().includes(label.toLowerCase());
-const filterColumnsChooser = (columns, filter) =>
-	columns.filter(haveColumnLabel(filter));
+const filterColumnsChooser = (columns, filter) => columns.filter(haveColumnLabel(filter));
 
 const ColumnChooserBody = ({ children, filterValue }) => {
 	const {
