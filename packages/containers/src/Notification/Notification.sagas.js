@@ -1,7 +1,8 @@
-import { put, select, takeEvery } from 'redux-saga/effects';
+import { take, put, select, takeEvery } from 'redux-saga/effects';
 import objectId from 'uuid/v4';
 import Notification from './Notification.connect';
 import Constants from './Notification.constants';
+import { pushError } from './Notification.actions';
 
 const DEFAULT_COMPONENT_ID = 'Notification';
 
@@ -18,8 +19,20 @@ export function* onPushNotification(action) {
 	yield put(updateStateAction);
 }
 
+function* onCMFError(action) {
+	const error = action.error;
+	const notification = {
+		type: 'error',
+		title: `${error.name}: ${error.message}`,
+		message: error.stack,
+		// action: refresh
+	};
+	yield put(pushError(notification));
+}
+
 function* defaultHandler() {
 	yield takeEvery(Constants.PUSH_NOTIFICATION, onPushNotification);
+	yield takeEvery('CMF_ERROR', onCMFError);
 }
 
 export default {

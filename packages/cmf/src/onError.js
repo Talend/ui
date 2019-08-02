@@ -259,18 +259,21 @@ function bootstrap(options, store) {
  * addOnErrorListener plug window.onerror to onError.report
  */
 function addOnErrorListener() {
-	window.onerror = (msg, url, lineNo, columnNo, error) => {
-		if (error) {
-			report(error);
-		} else {
-			// throw 'something bad happens' / no stack
-			report({
-				name: 'Error',
-				message: msg,
-				stack: `url: ${url}, lineNo: ${lineNo}, columnNo: ${columnNo}}`,
-			});
+	window.addEventListener('error', event => {
+		const error = event.error;
+		if (!error) {
+			return;
 		}
-	};
+		// remove duplicate in dev mode
+		// SEE: https://github.com/facebook/react/issues/10474
+		if (process.env.NODE_ENV !== 'production') {
+			if (error.CMF_ERROR) {
+				return;
+			}
+			error.CMF_ERROR = true;
+		}
+		report(error);
+	});
 }
 
 /**
