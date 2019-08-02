@@ -11,14 +11,6 @@ import getDefaultT from '../../../../translate';
 import theme from './ColumnChooser.scss';
 import Tooltip from '../../../../Tooltip';
 
-const DefaultColumnChooser = (
-	<React.Fragment>
-		<ColumnChooserHeader />
-		<ColumnChooserBody />\
-		<ColumnChooserFooter />
-	</React.Fragment>
-);
-
 export default function ColumnChooser({
 	children,
 	columns,
@@ -63,7 +55,15 @@ export default function ColumnChooser({
 					className={classNames(theme['tc-column-chooser'], 'tc-column-chooser')}
 					onSubmit={onSubmit}
 				>
-					{!children ? DefaultColumnChooser : children}
+					{!children ? (
+						<React.Fragment>
+							<ColumnChooserHeader />
+							<ColumnChooserBody />
+							<ColumnChooserFooter />
+						</React.Fragment>
+					) : (
+						children
+					)}
 				</form>
 			</Tooltip>
 		</ColumnChooserProvider>

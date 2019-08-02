@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import ColumnChooserRowRenderer from '../ColumnChooserRowRenderer';
 import SelectAllColumnsCheckbox from '../SelectAllColumnsCheckbox';
+import FilterBar from '../../../../../FilterBar';
 import { useColumnChooserContext } from '../columnChooser.context';
 import { columnsChooserPropTypes } from '../../columnChooser.propTypes';
 import Tooltip from '../../../../../Tooltip';
@@ -34,7 +35,11 @@ ColumnChooserTable.propTypes = {
 	columns: columnsChooserPropTypes,
 };
 
-const ColumnChooserBody = ({ children }) => {
+const haveColumnLabel = label => column => column.label.toLowerCase().includes(label.toLowerCase());
+const filterColumnsChooser = (columns, filter) =>
+	columns.filter(haveColumnLabel(filter));
+
+const ColumnChooserBody = ({ children, filterValue }) => {
 	const {
 		id,
 		columnsChooser,
@@ -44,14 +49,36 @@ const ColumnChooserBody = ({ children }) => {
 		t,
 	} = useColumnChooserContext();
 	const bodyId = `${id}-body`;
+	const [filter, setFilter] = useState(filterValue || '');
+
+	const onFilter = (_, value) => setFilter(value);
+	const resetFilter = () => setFilter('');
+	const filteredColumnsChooser = useMemo(() => filterColumnsChooser(columnsChooser, filter), [
+		columnsChooser,
+		filter,
+	]);
 	return (
 		<Tooltip.Body id={bodyId} className={theme('tc-column-chooser-body')}>
 			{!children ? (
 				<React.Fragment>
+					<FilterBar
+						autoFocus={false}
+						className={theme('tc-column-chooser-body-filter')}
+						dockable={false}
+						docked={false}
+						iconAlwaysVisible
+						id={`${id}-filter`}
+						placeholder={t('FIND_COLUMN_FILTER_PLACEHOLDER', {
+							defaultValue: 'Find a column',
+						})}
+						onToggle={resetFilter}
+						onFilter={onFilter}
+						value={filter}
+					/>
 					<SelectAllColumnsCheckbox id={bodyId} onClick={onSelectAll} value={selectAll} t={t} />
 					<ColumnChooserTable
 						id={bodyId}
-						columns={columnsChooser}
+						columns={filteredColumnsChooser}
 						onClick={onChangeVisibility}
 						t={t}
 					/>
@@ -67,6 +94,7 @@ ColumnChooserBody.Row = ColumnChooserRowRenderer;
 
 ColumnChooserBody.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+	filterValue: PropTypes.string,
 };
 
 export default ColumnChooserBody;

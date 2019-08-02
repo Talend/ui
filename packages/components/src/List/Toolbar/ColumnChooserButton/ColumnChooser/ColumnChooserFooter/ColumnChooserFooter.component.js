@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ActionButton from '../../../../../Actions/ActionButton';
+import SelectAllColumnsCheckbox from '../SelectAllColumnsCheckbox';
 import { useColumnChooserContext } from '../columnChooser.context';
 import theme from '../ColumnChooser.scss';
 import Tooltip from '../../../../../Tooltip';
@@ -32,7 +33,7 @@ const ColumnChooserFooter = ({ children, className }) => {
 };
 
 ColumnChooserFooter.Submit = SubmitButton;
-// ColumnChooserFooter.SelectAll = SelectAllCheckbox;
+ColumnChooserFooter.SelectAll = SelectAllColumnsCheckbox;
 
 ColumnChooserFooter.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),

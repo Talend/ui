@@ -33,7 +33,12 @@ storiesOf('Column Chooser', module)
 			<h1>Column chooser tooltip</h1>
 			<p>Default mode with minimal props</p>
 			<IconsProvider defaultIcons={icons} />
-			<ColumnChooser columns={columns} nbLockedLeftItems={2} id="default-column-chooser" submit={action('submit')} />
+			<ColumnChooser
+				columns={columns}
+				nbLockedLeftItems={2}
+				id="default-column-chooser"
+				submit={action('submit')}
+			/>
 		</div>
 	))
 	.add('Total customization', () => (
@@ -52,10 +57,11 @@ storiesOf('Column Chooser', module)
 							<div>Some special stuff</div>
 							{hookColumns.map((column, index) => (
 								<ColumnChooser.Body.Row>
-									<ColumnChooser.Body.Row.Visibility
+									<ColumnChooser.Body.Row.Checkbox
 										index={index}
 										value={column.hidden}
 										locked={column.locked}
+										onClick={action('checkbox')}
 									/>
 									<span style={{ paddingLeft: '20px' }}>More data</span>
 									<ColumnChooser.Body.Row.Label label={column.label} />
