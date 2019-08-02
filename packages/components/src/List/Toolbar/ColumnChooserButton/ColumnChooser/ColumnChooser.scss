@@ -22,7 +22,9 @@ $tc-height: 4rem;
 	&-header {
 		display: flex;
 		align-items: center;
-		font-weight: bold;
+		&-title {
+			font-weight: bold;
+		}
 	}
 
 	&-body {

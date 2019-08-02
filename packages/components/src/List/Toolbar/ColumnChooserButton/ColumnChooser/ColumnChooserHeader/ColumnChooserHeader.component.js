@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import theme from '../ColumnChooser.scss';
 import { useColumnChooserContext } from '../columnChooser.context';
 import Tooltip from '../../../../../Tooltip';
+import cssModule from '../ColumnChooser.scss';
+import { getTheme } from '../../../../../theme';
+
+const theme = getTheme(cssModule);
 
 const filterVisibleColumns = column => !column.hidden;
 
@@ -15,7 +17,7 @@ const ColumnChooserHeader = ({ className, children }) => {
 	});
 	const Content = (
 		<div>
-			<div>
+			<div className={theme('tc-column-chooser-header-title', className)}>
 				{t('COLUMN_CHOOSER_HEADER_TITLE', {
 					defaultValue: 'Modify columns',
 				})}
@@ -24,14 +26,7 @@ const ColumnChooserHeader = ({ className, children }) => {
 		</div>
 	);
 	return (
-		<Tooltip.Header
-			className={classNames(
-				className,
-				theme['tc-column-chooser-header'],
-				'tc-column-chooser-header',
-			)}
-			id={id}
-		>
+		<Tooltip.Header className={theme('tc-column-chooser-header', className)} id={id}>
 			{!children ? Content : children}
 		</Tooltip.Header>
 	);

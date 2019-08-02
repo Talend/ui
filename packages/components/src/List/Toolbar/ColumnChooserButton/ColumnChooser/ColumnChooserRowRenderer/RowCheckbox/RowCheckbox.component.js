@@ -12,9 +12,9 @@ const noOp = () => {};
 
 const RowCheckbox = ({
 	dataFeature,
-	id,
 	describedby,
 	description,
+	id,
 	label,
 	locked = false,
 	onClick,
@@ -44,32 +44,14 @@ const RowCheckbox = ({
 			</div>
 		</React.Fragment>
 	);
-	// const CheckboxInput = (
-	// 	<input
-	// 		aria-label={label}
-	// 		className={classNames(
-	// 			theme['tc-column-chooser-row-visibility-checkbox'],
-	// 			'tc-column-chooser-row-visibility-checkbox',
-	// 		)}
-	// 		onChange={onClickCheckbox}
-	// 		type="checkbox"
-	// 		checked={!value}
-	// 		value={!value}
-	// 	/>
-	// );
-	// return (
-	// 	<div
-	// 		className={classNames(
-	// 			theme['tc-column-chooser-row-visibility'],
-	// 			'tc-column-chooser-row-visibility',
-	// 		)}
-	// 	>
-	// 		{locked ? <Icon name="talend-locked" /> : CheckboxInput}
-	// 	</div>
-	// );
 };
 
 RowCheckbox.propTypes = {
+	dataFeature: PropTypes.string.isRequired,
+	describedby: PropTypes.string.isRequired,
+	description: PropTypes.string.isRequired,
+	id: PropTypes.string.isRequired,
+	label: PropTypes.string.isRequired,
 	locked: PropTypes.bool,
 	onClick: PropTypes.func.isRequired,
 	value: PropTypes.bool,
