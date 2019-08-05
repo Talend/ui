@@ -5,10 +5,14 @@ import { compareOrder } from '../service';
 
 const isItemVisible = item => item.visible;
 
-const isAnyItemVisible = items => {
-	const visibleItems = items.filter(isItemVisible);
+/**
+ * Helps to change the select all visible status. If all columns are visible, select all is checked.
+ * @param {array} columns
+ */
+const isAnyItemVisible = columns => {
+	const visibleItems = columns.filter(isItemVisible);
 	if (visibleItems) {
-		return visibleItems.length === items.length;
+		return visibleItems.length === columns.length;
 	}
 	return true;
 };
@@ -37,6 +41,11 @@ const extractColumnValues = column => ({
 	order: column.order,
 });
 
+/**
+ * Add the attribute locked to the columns, depending of the value of lockedLeftItems.
+ * @param {number} lockedLeftItems
+ * @param {number} index
+ */
 const addColumnLockedAttr = (lockedLeftItems, index) => column => {
 	if (index < lockedLeftItems) {
 		return { ...column, locked: true };
@@ -44,6 +53,10 @@ const addColumnLockedAttr = (lockedLeftItems, index) => column => {
 	return column;
 };
 
+/**
+ * Set the visible attribute if is missing.
+ * @param {object} column
+ */
 const addMissingVisibleAttr = column => {
 	if (column.visible === undefined) {
 		return { ...column, visible: false };
@@ -58,11 +71,9 @@ const addMissingVisibleAttr = column => {
  */
 const prepareColumns = (columns, lockedLeftItems) =>
 	columns.map((column, index) =>
-		flow([
-			extractColumnValues,
-			addMissingVisibleAttr,
-			addColumnLockedAttr(lockedLeftItems, index),
-		])(column),
+		flow([extractColumnValues, addMissingVisibleAttr, addColumnLockedAttr(lockedLeftItems, index)])(
+			column,
+		),
 	);
 
 export const changeColumnChooserAttribute = key => value => column => {
