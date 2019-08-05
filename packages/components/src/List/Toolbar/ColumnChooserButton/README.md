@@ -160,8 +160,9 @@ The component holds reference :
 
 Body of the column chooser.
 It renders the different column row.
-You can pass children to override it. Children use the render props pattern. It receives the columns as parameters.
-By default, it consumes the [columnChooserContext](#columnchoosercontext).
+You can pass a function as children, it will receive the columns as arguments.
+Else, if children is not a function it will render normally.
+It consumes the [columnChooserContext](#columnchoosercontext).
 
 The component holds reference :
 * Row : [ColumnChooserRowRenderer](#columnchooserrowrenderer)

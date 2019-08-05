@@ -39,6 +39,7 @@ export default function ColumnChooser({
 		);
 	}, []);
 
+	// We are transforming back the field visible to hidden, to be compliant with the list.
 	const onSubmit = event => {
 		event.preventDefault();
 		submit(event, transformColumnsChooser(columnsChooser));

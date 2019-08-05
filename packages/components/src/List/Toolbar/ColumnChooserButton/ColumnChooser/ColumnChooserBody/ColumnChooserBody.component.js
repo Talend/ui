@@ -33,11 +33,18 @@ const Default = () => {
 	);
 };
 
-const ColumnChooserBody = ({ children = <Default /> }) => (
-	<Tooltip.Body id={'column-chooser'} className={theme('tc-column-chooser-body')}>
-		{children}
-	</Tooltip.Body>
-);
+const ColumnChooserBody = ({ children = <Default /> }) => {
+	const { columnsChooser } = useColumnChooserContext();
+	if (typeof children === 'function') {
+		return children(columnsChooser);
+	}
+	return (
+		<Tooltip.Body id={'column-chooser'} className={theme('tc-column-chooser-body')}>
+			{children}
+		</Tooltip.Body>
+	);
+};
+
 ColumnChooserBody.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 };

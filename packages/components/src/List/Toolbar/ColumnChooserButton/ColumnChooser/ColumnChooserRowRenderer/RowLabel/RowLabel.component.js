@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import cssModule from '../../ColumnChooser.scss';
+import { getTheme } from '../../../../../../theme';
 
-import theme from '../../ColumnChooser.scss';
+const theme = getTheme(cssModule);
 
 const RowLabel = ({ label }) => (
-	<span className={classNames(theme['tc-column-chooser-row-label'], 'tc-column-chooser-row-label')}>
-		{label}
-	</span>
+	<span className={theme('tc-column-chooser-row-label')}>{label}</span>
 );
 
 RowLabel.propTypes = {

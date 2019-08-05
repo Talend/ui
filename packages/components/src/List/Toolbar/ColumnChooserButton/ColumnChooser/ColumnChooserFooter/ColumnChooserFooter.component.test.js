@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { mount } from 'enzyme';
@@ -6,32 +5,21 @@ import getDefaultT from '../../../../../translate';
 import Component from './ColumnChooserFooter.component';
 import { ColumnChooserProvider } from '../columnChooser.context';
 
-const FooterWithContext = ({
-	children,
-	id,
-	onSelectAll,
-	t = getDefaultT(),
-	selectAll,
-	...rest
-}) => (
-	<ColumnChooserProvider
-		value={{
-			id,
-			onSelectAll,
-			t,
-			selectAll,
-		}}
-	>
-		<Component {...rest}>{children}</Component>
-	</ColumnChooserProvider>
-);
-
 describe('ColumnChooserFooter', () => {
 	it('should render by default', () => {
 		// given
 		const id = 'footer-context-id';
 		// when
-		const wrapper = mount(<FooterWithContext id={id} />);
+		const wrapper = mount(
+			<ColumnChooserProvider
+				value={{
+					id,
+					t: getDefaultT(),
+				}}
+			>
+				<Component />
+			</ColumnChooserProvider>,
+		);
 		// then
 		expect(wrapper.html()).toMatchSnapshot();
 	});
@@ -41,9 +29,9 @@ describe('ColumnChooserFooter', () => {
 		const Children = () => <div id="my-child">Hello world</div>;
 		// when
 		const wrapper = mount(
-			<FooterWithContext id={id}>
+			<Component>
 				<Children />
-			</FooterWithContext>,
+			</Component>,
 		);
 		// then
 		expect(wrapper.find('div#my-child').text()).toBe('Hello world');
