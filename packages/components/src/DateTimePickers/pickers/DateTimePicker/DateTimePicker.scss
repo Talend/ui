@@ -16,13 +16,10 @@
 			color: $st-tropaz;
 			text-decoration: none;
 
+
 			:hover{
 				background-color: rgba( $st-tropaz, 0.1);
-				animation-duration: 0.2s;
-				animationn-timing-function: ease-in;
-				-moz-animation-timing-function: ease-in;
-				-webkit-animation-timing-function: ease-in;
-				-o-animation-timing-function: ease-in;
+				transition: opacity 0.1s ease-in;
 			}
 			:focus{
 				background-color: rgba( $st-tropaz, 0.2);
@@ -38,6 +35,7 @@
 	padding: 0px;
 	height: 25px;
 	>span {
+		border-radius: 4px;
 		padding-left: $padding-small;
 		padding-right: $padding-small;
 	}
