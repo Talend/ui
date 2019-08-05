@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getMonth from 'date-fns/get_month';
 import getYear from 'date-fns/get_year';
+import startOfDay from 'date-fns/start_of_day';
 
 import theme from './DateTimePicker.scss';
 import DateTimeView from '../../views/DateTimeView';
@@ -138,7 +139,7 @@ class DateTimePicker extends React.Component {
             if(!this.state.isDateTimeView){
                 this.setDateTimeView(event);
             }
-            this.onSelectDate(event, new Date());
+            this.onSelectDate(event, startOfDay(new Date()));
         }
 
 		if (this.state.isDateTimeView) {
