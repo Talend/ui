@@ -14,6 +14,8 @@ const theme = getTheme(cssModule);
 
 const haveColumnLabel = label => column => column.label.toLowerCase().includes(label.toLowerCase());
 const filterColumnsChooser = (columns, filter) => columns.filter(haveColumnLabel(filter));
+const changeVisibleToHidden = column => ({ ...column, hidden: !column.visible });
+const transformColumnsChooser = columns => columns.map(changeVisibleToHidden);
 
 export default function ColumnChooser({
 	children,
@@ -39,7 +41,7 @@ export default function ColumnChooser({
 
 	const onSubmit = event => {
 		event.preventDefault();
-		submit(event, columnsChooser);
+		submit(event, transformColumnsChooser(columnsChooser));
 	};
 	const [filter, setFilter] = useState(filterValue || '');
 	const onFilter = (_, value) => setFilter(value);
