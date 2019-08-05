@@ -92,10 +92,10 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		}
 
 		.icon-caret {
+			display: flex;
 			position: absolute;
 			right: 0;
-			bottom: 50%;
-			margin: 0 0 -10px 0;
+			margin: 0;
 
 			> svg {
 				height: 0.8rem;
