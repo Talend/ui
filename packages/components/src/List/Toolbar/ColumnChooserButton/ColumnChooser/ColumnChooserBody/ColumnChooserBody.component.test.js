@@ -41,9 +41,16 @@ describe('ColumnChooserBody', () => {
 	});
 	it('should render with children', () => {
 		// Given
+		const contextValues = {
+			columnsChooser: columns,
+		};
 		const Children = <div id="my-child">Hello</div>;
 		// When
-		const wrapper = mount(<Component>{Children}</Component>);
+		const wrapper = mount(
+			<ColumnChooserProvider value={contextValues}>
+				<Component>{Children}</Component>
+			</ColumnChooserProvider>,
+		);
 		// Then
 		expect(wrapper.find('div#my-child')).toHaveLength(1);
 	});
@@ -72,7 +79,6 @@ describe('ColumnChooserBody', () => {
 		// Then
 		expect(onChangeVisibility.mock.calls.length).toBe(1);
 		expect(onChangeVisibility.mock.calls[0][1]).toBe('col3');
-
 	});
 	it('should call the onSelectAll when onChange is triggered on the column chooser table', () => {
 		const onSelectAll = jest.fn();

@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RowLabel should render the props label 1`] = `"<span class=\\"theme-tc-column-chooser-row-label tc-column-chooser-row-label\\">Hello world</span>"`;
+exports[`RowLabel should render the props label 1`] = `"<span class=\\"tc-column-chooser-row-label theme-tc-column-chooser-row-label\\">Hello world</span>"`;
