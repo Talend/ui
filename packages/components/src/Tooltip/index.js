@@ -1,3 +1,7 @@
-import Component from './Tooltip.component';
+import { Header, Body, Footer } from './Tooltip.component';
 
-export default Component;
+export default {
+	Header,
+	Body,
+	Footer,
+};

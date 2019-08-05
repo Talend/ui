@@ -48,13 +48,4 @@ Footer.propTypes = {
 	...TooltipPropTypes,
 };
 
-const Tooltip = ({ children }) => children;
-Tooltip.propTypes = {
-	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
-};
-
-Tooltip.Header = Header;
-Tooltip.Body = Body;
-Tooltip.Footer = Footer;
-
-export default Tooltip;
+export { Header, Body, Footer };
