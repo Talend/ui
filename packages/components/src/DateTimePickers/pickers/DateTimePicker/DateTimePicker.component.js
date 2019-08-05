@@ -134,6 +134,12 @@ class DateTimePicker extends React.Component {
 
 	render() {
 		let viewElement;
+        const todayFunction = event => {
+            if(!this.state.isDateTimeView){
+                this.setDateTimeView(event);
+            }
+            this.onSelectDate(event, new Date());
+        }
 
 		if (this.state.isDateTimeView) {
 			viewElement = (
@@ -178,7 +184,7 @@ class DateTimePicker extends React.Component {
 					<Action
 						bsStyle='link'
 						label='Today'
-						onClick={event => this.onSelectDate(event, new Date())}
+						onClick={todayFunction}
 						className={theme['btn-today']}
 					/>
                 </div>
