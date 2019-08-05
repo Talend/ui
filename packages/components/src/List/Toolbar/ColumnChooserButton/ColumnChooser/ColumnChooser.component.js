@@ -1,7 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-
 import { ColumnChooserProvider } from './columnChooser.context';
 import { useColumnChooserManager } from '../hooks';
 import FilterBar from '../../../../FilterBar';
@@ -22,10 +20,10 @@ export default function ColumnChooser({
 	columns,
 	filterValue,
 	id,
-	nbLockedLeftItems,
+	nbLockedLeftItems = 0,
 	onClose,
 	submit,
-	t,
+	t = getDefaultT(),
 }) {
 	const { columnsChooser, onChangeVisibility, onSelectAll, selectAll } = useColumnChooserManager(
 		columns,
@@ -93,11 +91,6 @@ export default function ColumnChooser({
 ColumnChooser.Header = ColumnChooserHeader;
 ColumnChooser.Body = ColumnChooserBody;
 ColumnChooser.Footer = ColumnChooserFooter;
-
-ColumnChooser.defaultProps = {
-	nbLockedLeftItems: 0,
-	t: getDefaultT(),
-};
 
 ColumnChooser.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),

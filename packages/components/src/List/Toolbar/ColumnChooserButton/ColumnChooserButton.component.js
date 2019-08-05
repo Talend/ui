@@ -12,7 +12,7 @@ export default function ColumnChooserButton({
 	placement = 'left',
 	nbLockedLeftItems,
 	submit,
-	t,
+	t = getDefaultT(),
 }) {
 	const [opened, setOpened] = useState(false);
 	const [buttonRef, setButtonRef] = useState(null);
@@ -71,8 +71,4 @@ ColumnChooserButton.propTypes = {
 	placement: PropTypes.oneOf(['top', 'bottom', 'right', 'left']),
 	submit: PropTypes.func.isRequired,
 	t: PropTypes.func,
-};
-
-ColumnChooserButton.defaultProps = {
-	t: getDefaultT(),
 };

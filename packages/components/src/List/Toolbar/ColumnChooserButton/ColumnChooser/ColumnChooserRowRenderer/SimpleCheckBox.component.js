@@ -4,6 +4,10 @@ import React, { useState } from 'react';
 import classnames from 'classnames';
 import { get } from 'lodash';
 
+/*
+	This is a copy of the SimpleCheckBox present in the form package.
+	Wh have a dep cyclic redundancy problem, so for now we have hard copy the component here.
+*/
 export default function SimpleCheckBox({
 	describedby,
 	disabled,
