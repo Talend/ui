@@ -15,7 +15,7 @@ const ColumnChooserTable = ({ columns = [], id, onClick, t }) =>
 		<ColumnChooserRowRenderer key={column.label}>
 			<ColumnChooserRowRenderer.Checkbox
 				id={id}
-				dataFeature={'select-column-visibility-checkbox'}
+				dataFeature="select-column-visibility-checkbox"
 				describedby={`desc-column-${column.label}`}
 				description={t('CHECKBOX_VISIBILITY_COLUMN_ARIA_DESCRIPTION', {
 					defaultValue: `change visibility of column ${column.label}`,
@@ -23,7 +23,7 @@ const ColumnChooserTable = ({ columns = [], id, onClick, t }) =>
 				label={column.label}
 				locked={column.locked}
 				onClick={onClick(column.label)}
-				value={column.hidden}
+				checked={column.visible}
 				t={t}
 			/>
 		</ColumnChooserRowRenderer>

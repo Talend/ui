@@ -20,7 +20,7 @@ const SelectAllColumnsCheckbox = ({ id, onClick, value, t }) => {
 					defaultValue: 'Columns',
 				})}
 				onClick={onClick}
-				value={value}
+				checked={value}
 				t={t}
 			/>
 		</ColumnChooserRowRenderer>

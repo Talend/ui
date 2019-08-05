@@ -17,10 +17,10 @@ const RowCheckbox = ({
 	label,
 	locked = false,
 	onClick,
-	value = false,
+	checked = false,
 }) => {
 	const onClickCheckbox = event => {
-		onClick(!event.target.value);
+		onClick(event.target.checked);
 	};
 	return locked ? (
 		<React.Fragment>
@@ -30,13 +30,13 @@ const RowCheckbox = ({
 	) : (
 		<React.Fragment>
 			<Toggle
+				checked={checked}
 				className="checkbox"
-				id={`${id}-checkbox-${label}`}
+				data-feature={dataFeature}
 				describedby={describedby}
+				id={`${id}-checkbox-${label}`}
 				label={label}
 				onChange={onClickCheckbox}
-				checked={!value}
-				data-feature={dataFeature}
 			/>
 			<div id={describedby} className={theme('tc-column-chooser-aria-hidden')}>
 				{description}
@@ -53,7 +53,7 @@ RowCheckbox.propTypes = {
 	label: PropTypes.string.isRequired,
 	locked: PropTypes.bool,
 	onClick: PropTypes.func.isRequired,
-	value: PropTypes.bool,
+	checked: PropTypes.bool,
 };
 
 export default RowCheckbox;

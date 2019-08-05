@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import cloneDeep from 'lodash/cloneDeep';
 import flow from 'lodash/flow';
+import cloneDeep from 'lodash/cloneDeep';
 import { compareOrder } from '../service';
 
-const isItemHidden = item => item.hidden;
+const isItemVisible = item => item.visible;
 
-const isAnyItemHidden = items => {
-	const hiddenItems = items.filter(isItemHidden);
-	if (hiddenItems) {
-		return hiddenItems.length === items.length;
+const isAnyItemVisible = items => {
+	const visibleItems = items.filter(isItemVisible);
+	if (visibleItems) {
+		return visibleItems.length === items.length;
 	}
 	return true;
 };
@@ -31,17 +31,8 @@ const orderColumns = columns => {
 	return columns;
 };
 
-export const changeColumnChooserAttribute = key => value => column => {
-	if (!column.locked) {
-		return { ...column, [key]: value };
-	}
-	return column;
-};
-
-const updateAttributeVisibility = changeColumnChooserAttribute('hidden');
-
 const extractColumnValues = column => ({
-	hidden: column.hidden,
+	visible: !column.hidden,
 	label: column.label,
 	order: column.order,
 });
@@ -60,12 +51,24 @@ const setColumnHidden = column => {
 	return column;
 };
 
+/**
+ * Prepare the columns data for the column chooser hook.
+ * @param {array} columns
+ * @param {number} lockedLeftItems
+ */
 const prepareColumns = (columns, lockedLeftItems) =>
 	columns.map((column, index) =>
 		flow([extractColumnValues, setColumnHidden, setColumnLocked(lockedLeftItems, index)])(column),
 	);
 
-const updateColumnAttribute = (label, value, fn) => flow([getColumn(label), fn(value)]);
+export const changeColumnChooserAttribute = key => value => column => {
+	if (!column.locked) {
+		return { ...column, [key]: value };
+	}
+	return column;
+};
+
+const updateAttributeVisibility = changeColumnChooserAttribute('visible');
 
 /**
  * Manage the state of each row representing a column for the ColumnChooser overlay.
@@ -76,26 +79,24 @@ export const useColumnChooserManager = (initColumns = [], nbLockedLeftItems = 0)
 	const columnsChooser = prepareColumns(initColumns, nbLockedLeftItems);
 	const [state, setState] = useState({
 		columns: orderColumns(columnsChooser),
-		selectAll: isAnyItemHidden(columnsChooser),
+		selectAll: isAnyItemVisible(columnsChooser),
 	});
 
 	const updateState = (columns, selectAll) => {
 		setState({
 			columns,
-			selectAll: selectAll || isAnyItemHidden(columns),
+			selectAll: selectAll || isAnyItemVisible(columns),
 		});
 	};
 
 	const onChangeVisibility = label => value => {
-		const columnUpdated = updateColumnAttribute(label, value, updateAttributeVisibility)(
-			state.columns,
-		);
+		const columnUpdated = flow([getColumn(label), updateAttributeVisibility(value)])(state.columns);
 		setColumn(columnUpdated, label)(state.columns);
 		updateState(state.columns);
 	};
 
 	const onSelectAll = value => {
-		updateState(state.columns.map(updateAttributeVisibility(!value)), value);
+		updateState(state.columns.map(updateAttributeVisibility(value)), value);
 	};
 
 	return {
