@@ -2,22 +2,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { ColumnChooserProvider } from '../columnChooser.context';
+import { act } from 'react-dom/test-utils';
 import getDefaultT from '../../../../../translate';
 
 import Component from './ColumnChooserBody.component';
-
-// eslint-disable-next-line react/prop-types
-const BodyWithContext = ({ children, columnsChooser, id, t = getDefaultT(), ...rest }) => (
-	<ColumnChooserProvider
-		value={{
-			columnsChooser,
-			id,
-			t,
-		}}
-	>
-		<Component {...rest}>{children}</Component>
-	</ColumnChooserProvider>
-);
 
 const columns = [
 	{ hidden: undefined, label: 'col1', locked: true, order: 1 },
@@ -29,22 +17,61 @@ const columns = [
 ];
 
 describe('ColumnChooserBody', () => {
-	it('should render with columns', () => {
+	it('should render the columns rows and the column select all', () => {
 		// Given
-		const id = 'body-context-id';
-		const columnsChooser = columns;
+		const contextValues = {
+			columnsChooser: columns,
+			id: 'body-context-id',
+			onChangeVisibility: () => () => {},
+			onSelectAll: jest.fn(),
+			selectAll: true,
+			t: getDefaultT(),
+		};
 		// When
-		const wrapper = mount(<BodyWithContext columnsChooser={columnsChooser} id={id} />);
+		const wrapper = mount(
+			<ColumnChooserProvider value={contextValues}>
+				<Component />
+			</ColumnChooserProvider>,
+		);
 		// Then
-		expect(wrapper.find('div#body-context-id-row')).toHaveLength(columnsChooser.length);
+		expect(wrapper.find('.tc-column-chooser-row.theme-tc-column-chooser-row')).toHaveLength(
+			columns.length + 1,
+		);
 		expect(wrapper.html()).toMatchSnapshot();
 	});
-	it('should render no columns', () => {
+	it('should render with children', () => {
 		// Given
-		const id = 'body-context-id';
+		const Children = <div id="my-child">Hello</div>;
 		// When
-		const wrapper = mount(<BodyWithContext id={id} />);
+		const wrapper = mount(<Component>{Children}</Component>);
 		// Then
-		expect(wrapper.find('div#body-context-id-row')).toHaveLength(0);
+		expect(wrapper.find('div#my-child')).toHaveLength(1);
+	});
+	it('should call the onChangeVisibility when checkbox trigger change', () => {
+		const onChange = jest.fn();
+		// Given
+		const contextValues = {
+			columnsChooser: columns,
+			id: 'body-context-id',
+			onChangeVisibility: () => onChange,
+			onSelectAll: jest.fn(),
+			selectAll: true,
+			t: getDefaultT(),
+		};
+		// When
+		const wrapper = mount(
+			<ColumnChooserProvider value={contextValues}>
+				<Component />
+			</ColumnChooserProvider>,
+		);
+		// Then
+		// expect(wrapper.find('.tc-column-chooser-row.theme-tc-column-chooser-row')).toHaveLength(
+		// 	columns.length + 1,
+		// );
+		// expect(wrapper.html()).toMatchSnapshot();
+		expect(wrapper.find('input#body-context-id-body-checkbox-col3').prop('checked')).toBe(true);
+		act(() => wrapper.find('input#body-context-id-body-checkbox-col3').simulate('click'));
+		wrapper.update();
+		expect(wrapper.find('input#body-context-id-body-checkbox-col3').prop('checked')).toBe(false);
 	});
 });

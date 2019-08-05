@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SimpleCheckBox from '../SimpleCheckBox.component';
+// import SimpleCheckBox from '../SimpleCheckBox.component';
 import Icon from '../../../../../../Icon';
 import RowLabel from '../RowLabel';
 import cssModule from '../../ColumnChooser.scss';
 import { getTheme } from '../../../../../../theme';
+import Toggle from '../../../../../../Toggle';
 
 const theme = getTheme(cssModule);
-
-const noOp = () => {};
 
 const RowCheckbox = ({
 	dataFeature,
@@ -20,8 +19,8 @@ const RowCheckbox = ({
 	onClick,
 	value = false,
 }) => {
-	const onClickCheckbox = (_, uiSchema) => {
-		onClick(!uiSchema.value);
+	const onClickCheckbox = event => {
+		onClick(!event.target.value);
 	};
 	return locked ? (
 		<React.Fragment>
@@ -30,14 +29,14 @@ const RowCheckbox = ({
 		</React.Fragment>
 	) : (
 		<React.Fragment>
-			<SimpleCheckBox
-				id={`${id}-checkbox`}
+			<Toggle
+				className="checkbox"
+				id={`${id}-checkbox-${label}`}
 				describedby={describedby}
 				label={label}
 				onChange={onClickCheckbox}
-				onFinish={noOp}
-				value={!value}
-				schema={{ 'data-feature': dataFeature }}
+				checked={!value}
+				data-feature={dataFeature}
 			/>
 			<div id={describedby} className={theme('tc-column-chooser-aria-hidden')}>
 				{description}

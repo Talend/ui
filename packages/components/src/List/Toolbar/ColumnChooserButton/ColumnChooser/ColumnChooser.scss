@@ -56,20 +56,25 @@ $tc-height: 4rem;
 			background: $wild-sand;
 		}
 
+		:global(.checkbox.tc-toggle) {
+			display: flex;
+		}
+
 		&-label,
-		:global(.control-label) {
+		:global(.checkbox.tc-toggle > label span) {
 			font-size: 1.4rem;
 			padding-left: $padding-large;
 		}
 
-		:global(.checkbox > label) {
-			padding-left: $padding-normal;
+		:global(.checkbox.tc-toggle > label) {
+			padding-left: $padding-small;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			max-width: 21rem;
 			min-height: 0;
 		}
+
 
 		svg[name='talend-locked'] {
 			height: $tc-icon-size;
