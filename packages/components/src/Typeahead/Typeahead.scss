@@ -93,9 +93,9 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 
 		.icon-caret {
 			position: absolute;
-			margin: 0;
 			right: 0;
-			bottom: 0.6rem;
+			bottom: 50%;
+			margin: 0 0 -10px 0;
 
 			> svg {
 				height: 0.8rem;
