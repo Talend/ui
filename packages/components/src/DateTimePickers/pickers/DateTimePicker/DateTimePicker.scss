@@ -1,3 +1,5 @@
+@import '../../shared/styles/variables';
+
 .container {
 	color: $dove-gray;
 	min-height: 25rem;
@@ -5,5 +7,38 @@
 
 	button:focus {
 		outline: 1px solid black;
+	}
+}
+
+.footer{
+	:global {
+		.btn-link{
+			color: $st-tropaz;
+			text-decoration: none;
+
+			:hover{
+				background-color: rgba( $st-tropaz, 0.1);
+				animation-duration: 0.2s;
+				animationn-timing-function: ease-in;
+				-moz-animation-timing-function: ease-in;
+				-webkit-animation-timing-function: ease-in;
+				-o-animation-timing-function: ease-in;
+			}
+			:focus{
+				background-color: rgba( $st-tropaz, 0.2);
+			}
+		}
+	}
+}
+
+.btn-today {
+	color: $st-tropaz;
+	font-weight:bold;
+	text-transform: uppercase;
+	padding: 0px;
+	height: 25px;
+	>span {
+		padding-left: $padding-small;
+		padding-right: $padding-small;
 	}
 }

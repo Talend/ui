@@ -7,6 +7,7 @@ import theme from './DateTimePicker.scss';
 import DateTimeView from '../../views/DateTimeView';
 import MonthYearView from '../../views/MonthYearView';
 import { focusOnCalendar } from '../../../Gesture/withCalendarGesture';
+import Action from "../../../Actions/Action/Action.component";
 
 class DateTimePicker extends React.Component {
 	constructor(props) {
@@ -173,6 +174,14 @@ class DateTimePicker extends React.Component {
 				aria-label="Date picker"
 			>
 				{viewElement}
+				<div className={theme.footer}>
+					<Action
+						bsStyle='link'
+						label='Today'
+						onClick={event => this.onSelectDate(event, new Date())}
+						className={theme['btn-today']}
+					/>
+                </div>
 			</div>
 		);
 	}
