@@ -3,7 +3,8 @@ import { storiesOf } from '@storybook/react';
 import talendIcons from '@talend/icons/dist/react';
 
 import ActionIconToggle from '../src/Actions/ActionIconToggle';
-import { GridLayout, IconsProvider } from '../src/';
+import GridLayout from '../src/GridLayout';
+import IconsProvider from '../src/IconsProvider';
 import Tile from '../src/GridLayout/Tile/index';
 import Action from '../src/Actions/Action';
 
@@ -18,22 +19,20 @@ export const customSkeletonConf = [
 ];
 
 function TdsTileContent() {
-	const { displayMode= 'chart', setDisplayMode } = Tile.useTileContext();
+	const { displayMode = 'chart', setDisplayMode } = Tile.useTileContext();
 
 	const submitAction = {
 		label: 'Click me',
 		onClick: () => {
 			setDisplayMode('chart');
-		}
+		},
 	};
 
 	switch (displayMode) {
 		case 'chart':
 			return (
 				<React.Fragment>
-					<div>
-						'my chart'
-					</div>
+					<div>'my chart'</div>
 				</React.Fragment>
 			);
 		case 'filter':
@@ -81,11 +80,9 @@ function ViewSelector() {
 
 	return (
 		<div style={{ display: 'flex' }}>
-			{
-				[addItemAction, filterAction].map(action => (
-					<ActionIconToggle {...action} />
-				))
-			}
+			{[addItemAction, filterAction].map(action => (
+				<ActionIconToggle {...action} />
+			))}
 		</div>
 	);
 }
@@ -95,14 +92,12 @@ function ChartTile({ tile }) {
 
 	return (
 		<Tile.Container>
-			{
-				tile.header ? (
-					<Tile.Header>
-						{ tile.header.label }
-						<ViewSelector></ViewSelector>
-					</Tile.Header> )
-					: null
-			}
+			{tile.header ? (
+				<Tile.Header>
+					{tile.header.label}
+					<ViewSelector />
+				</Tile.Header>
+			) : null}
 			<Tile.Body>
 				<TdsTileContent />
 			</Tile.Body>
@@ -114,61 +109,57 @@ function GridContainer({ isLoading = false, skeletonConfiguration }) {
 	const [tiles, setTiles] = useState([
 		{
 			header: {
-				label: 'My tile\'s title',
+				label: "My tile's title",
 			},
 			key: 'firstTile',
-			'data-grid': {w: 2, h: 2, x: 0, y: 0, i: 'firstTile'},
+			'data-grid': { w: 2, h: 2, x: 0, y: 0, i: 'firstTile' },
 		},
 		{
 			header: {
-				label: 'My second tile\'s title',
+				label: "My second tile's title",
 			},
 			key: 'secondTile',
-			'data-grid': {w: 2, h: 2, x: 2, y: 0, i: 'secondTile'},
+			'data-grid': { w: 2, h: 2, x: 2, y: 0, i: 'secondTile' },
 		},
 		{
 			key: 'thirdTile',
-			'data-grid': {w: 12, h: 2, x: 0, y: 2, i: 'thirdTile'},
+			'data-grid': { w: 12, h: 2, x: 0, y: 2, i: 'thirdTile' },
 		},
 		{
 			header: {
-				label: 'My fourth tile\'s title',
+				label: "My fourth tile's title",
 			},
 			key: 'fourthTile',
-			'data-grid': {w: 2, h: 2, x: 4, y: 2, i: 'fourthTile'},
+			'data-grid': { w: 2, h: 2, x: 4, y: 2, i: 'fourthTile' },
 		},
 		{
 			header: {
-				label: 'My Fifth tile\'s title',
+				label: "My Fifth tile's title",
 			},
 			key: 'fifthTile',
-			'data-grid': {w: 4, h: 2, x: 4, y: 2, i: 'fifthTile'},
+			'data-grid': { w: 4, h: 2, x: 4, y: 2, i: 'fifthTile' },
 		},
 		{
 			header: {
-				label: 'My Sixth tile\'s title',
+				label: "My Sixth tile's title",
 			},
 			key: 'sixthTile',
-			'data-grid': {w: 4, h: 2, x: 4, y: 2, i: 'sixthTile'},
+			'data-grid': { w: 4, h: 2, x: 4, y: 2, i: 'sixthTile' },
 		},
 	]);
 
 	return (
 		<div className="App">
-			<GridLayout
-				isResizable
-				isLoading={isLoading}
-				skeletonConfiguration={skeletonConfiguration}>
-				{ tiles.map(tile => (
+			<GridLayout isResizable isLoading={isLoading} skeletonConfiguration={skeletonConfiguration}>
+				{tiles.map(tile => (
 					<div key={tile.key} data-grid={tile['data-grid']}>
 						<ChartTile tile={tile} />
-					</div>)
-				)}
+					</div>
+				))}
 			</GridLayout>
 		</div>
 	);
 }
-
 
 storiesOf('GridLayout', module)
 	.addDecorator(story => (
@@ -179,5 +170,6 @@ storiesOf('GridLayout', module)
 	))
 	.add('default', () => <GridContainer />)
 	.add('isLoading', () => <GridContainer isLoading />)
-	.add('isLoading with custom grid', () => <GridContainer isLoading skeletonConfiguration={customSkeletonConf} />);
-;
+	.add('isLoading with custom grid', () => (
+		<GridContainer isLoading skeletonConfiguration={customSkeletonConf} />
+	));

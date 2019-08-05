@@ -89,7 +89,7 @@ Actions.propTypes = {
 	actions: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.shape(Action.propTypes)])),
 	className: PropTypes.string,
 	hideLabel: PropTypes.bool,
-	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	tooltipPlacement: PropTypes.string,
 	link: PropTypes.bool,
 	...ButtonGroup.propTypes,
 };

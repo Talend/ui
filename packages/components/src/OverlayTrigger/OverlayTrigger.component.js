@@ -1,7 +1,7 @@
 import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
-import BaseOverlayTrigger from 'react-bootstrap/lib/OverlayTrigger';
-import Popover from 'react-bootstrap/lib/Popover';
+import BaseOverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Popover from 'react-bootstrap/Popover';
 import classNames from 'classnames';
 import Inject from '../Inject';
 import { getOverlayElement, getContainerElement, getAdaptedPlacement } from './overlay';
@@ -11,7 +11,7 @@ import theme from './OverlayTrigger.scss';
 export const overlayPropTypes = {
 	overlayComponent: Inject.getReactElement.propTypes,
 	overlayId: PropTypes.string,
-	overlayPlacement: BaseOverlayTrigger.propTypes.placement,
+	overlayPlacement: PropTypes.string,
 	overlayRef: PropTypes.func,
 	preventScrolling: PropTypes.bool,
 };

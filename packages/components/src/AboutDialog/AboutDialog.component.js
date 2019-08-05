@@ -3,7 +3,9 @@ import React from 'react';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 
-import { Dialog, Skeleton, Icon } from '../';
+import Dialog from '../Dialog';
+import Skeleton from '../Skeleton';
+import Icon from '../Icon';
 import getDefaultT from '../translate';
 import theme from './AboutDialog.scss';
 

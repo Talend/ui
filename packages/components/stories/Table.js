@@ -5,7 +5,9 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import classnames from 'classnames';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions'; // eslint-disable-line import/no-extraneous-dependencies
-import { DraggableComponent as draggable, IconsProvider, Table } from '../src/index';
+import draggable from '../src/Draggable';
+import IconsProvider from '../src/IconsProvider';
+import Table from '../src/Table';
 
 const dataPrepSchema = {
 	id: 'd1fg158sc',
@@ -653,7 +655,7 @@ stories
 		<div className="story-table">
 			<Table elements={schema1.elements} columns={columns1} withHeader />
 		</div>
-		))
+	))
 	.add('Table (as list)', () => (
 		<div className="default-table">
 			<Table
@@ -663,7 +665,7 @@ stories
 				onLeaveRow={action('onLeaveRow called!')}
 			/>
 		</div>
-		))
+	))
 	.add('Table with drag and drop', () => (
 		<div className="table-with-dnd">
 			<TableWithDND
@@ -673,7 +675,7 @@ stories
 				onScroll={action('onScroll called!')}
 			/>
 		</div>
-		))
+	))
 	.add('Table with filters', () => (
 		<div className="filtered-table">
 			<SortedFilteredTable
@@ -683,7 +685,7 @@ stories
 				title={schema3.name}
 			/>
 		</div>
-		))
+	))
 	.add('Table with sorters', () => (
 		<div className="sorted-table">
 			<SortedFilteredTable
@@ -692,7 +694,7 @@ stories
 				sorters={createSorters(sorterKeys)}
 			/>
 		</div>
-		))
+	))
 	.add('Table with dnd, sorters & filters', () => (
 		<div className={classnames('table-with-dnd', 'filtered-table', 'sorted-table')}>
 			<SortedFilteredTableWithDND
@@ -703,4 +705,4 @@ stories
 				title={schema3.name}
 			/>
 		</div>
-		));
+	));

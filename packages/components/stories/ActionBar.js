@@ -2,7 +2,9 @@ import React from 'react';
 import talendIcons from '@talend/icons/dist/react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { Action, ActionBar, IconsProvider } from '../src/index';
+import Action from '../src/Actions/Action';
+import ActionBar from '../src/ActionBar';
+import IconsProvider from '../src/IconsProvider';
 
 const primary = {
 	label: 'Primary',
@@ -248,8 +250,8 @@ const massActions = {
 };
 
 const appMassActions = {
-	left:  [multiFavorite, multiCertify],
-}
+	left: [multiFavorite, multiCertify],
+};
 
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],

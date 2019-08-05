@@ -5,7 +5,10 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 
-import { ObjectViewer, Icon, IconsProvider, TooltipTrigger } from '../src/index';
+import ObjectViewer from '../src/ObjectViewer';
+import Icon from '../src/Icon';
+import IconsProvider from '../src/IconsProvider';
+import TooltipTrigger from '../src/TooltipTrigger';
 
 const icons = {
 	'talend-caret-down': talendIcons['talend-caret-down'],

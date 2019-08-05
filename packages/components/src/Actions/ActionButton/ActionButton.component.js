@@ -237,7 +237,7 @@ ActionButton.propTypes = {
 	model: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	name: PropTypes.string,
 	onClick: PropTypes.func,
-	tooltipPlacement: BaseOverlayTrigger.propTypes.placement,
+	tooltipPlacement: PropTypes.string,
 	t: PropTypes.func,
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,

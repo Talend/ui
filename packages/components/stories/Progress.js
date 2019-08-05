@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Progress } from '../src/index';
+import Progress from '../src/Progress';
 
 const containerStyle = {
 	border: '1px solid black',
@@ -15,7 +15,8 @@ storiesOf('Progress', module)
 			<h1>Action</h1>
 			<h2>Definition</h2>
 			<p>
-				The component displays a progress bar at the top of the window.<br />
+				The component displays a progress bar at the top of the window.
+				<br />
 				<a href="http://guidelines.talend.com/document/92132#/messaging-communication/progress-bar-circle">
 					Spec
 				</a>
@@ -30,7 +31,8 @@ storiesOf('Progress', module)
 			<h1>Action</h1>
 			<h2>Definition</h2>
 			<p>
-				The component displays an infinite progress bar at the top of the window.<br />
+				The component displays an infinite progress bar at the top of the window.
+				<br />
 				<a href="http://guidelines.talend.com/document/92132#/messaging-communication/progress-bar-circle">
 					Spec
 				</a>
@@ -45,7 +47,8 @@ storiesOf('Progress', module)
 			<h1>Action</h1>
 			<h2>Definition</h2>
 			<p>
-				The component displays an infinite progress bar at the top of the window.<br />
+				The component displays an infinite progress bar at the top of the window.
+				<br />
 				<a href="http://guidelines.talend.com/document/92132#/messaging-communication/progress-bar-circle">
 					Spec
 				</a>

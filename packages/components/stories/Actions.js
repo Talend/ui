@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { Actions } from '../src/index';
+import { Actions } from '../src/Actions';
 
 const actions = [
 	{
@@ -63,35 +63,23 @@ const actions = [
 	},
 ];
 
-storiesOf('Actions', module)
-	.add('default', () => (
-		<div>
-			<p>By default :</p>
-			<div id="default">
-				<Actions actions={actions} />
-			</div>
-			<p>With hideLabel option</p>
-			<div id="hidelabel">
-				<Actions
-					actions={actions}
-					hideLabel
-				/>
-			</div>
-			<p>Vertical</p>
-			<div id="vertical">
-				<Actions
-					actions={actions}
-					vertical
-				/>
-			</div>
-			<p>Vertical with hideLabel</p>
-			<div id="vhidelabel">
-				<Actions
-					actions={actions}
-					placement="right"
-					hideLabel
-					vertical
-				/>
-			</div>
+storiesOf('Actions', module).add('default', () => (
+	<div>
+		<p>By default :</p>
+		<div id="default">
+			<Actions actions={actions} />
 		</div>
-	));
+		<p>With hideLabel option</p>
+		<div id="hidelabel">
+			<Actions actions={actions} hideLabel />
+		</div>
+		<p>Vertical</p>
+		<div id="vertical">
+			<Actions actions={actions} vertical />
+		</div>
+		<p>Vertical with hideLabel</p>
+		<div id="vhidelabel">
+			<Actions actions={actions} placement="right" hideLabel vertical />
+		</div>
+	</div>
+));

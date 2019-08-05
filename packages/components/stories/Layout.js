@@ -3,15 +3,13 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 
-import {
-	List,
-	IconsProvider,
-	Layout,
-	SidePanel,
-	HeaderBar,
-	Drawer,
-	SubHeaderBar,
-} from '../src/index';
+import List from '../src/List';
+import IconsProvider from '../src/IconsProvider';
+import Layout from '../src/Layout';
+import SidePanel from '../src/SidePanel';
+import HeaderBar from '../src/HeaderBar';
+import Drawer from '../src/Drawer';
+import SubHeaderBar from '../src/SubHeaderBar';
 
 import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../src/Layout/constants';
 
@@ -54,7 +52,11 @@ const drawers = [
 const content = (
 	<div>
 		<h1>Welcome to the content for testing scroll</h1>
-		<ul>{[...new Array(138)].map(() => <li>one</li>)}</ul>
+		<ul>
+			{[...new Array(138)].map(() => (
+				<li>one</li>
+			))}
+		</ul>
 	</div>
 );
 const sidePanel = (
@@ -181,9 +183,7 @@ const appStyle = require('./config/themes.scss');
  * @param layoutStoryContent Optional custom children
  */
 function layoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent = content) {
-	stories.add(layoutStoryName, () => (
-		<Layout {...layoutStoryProps}>{layoutStoryContent}</Layout>
-	));
+	stories.add(layoutStoryName, () => <Layout {...layoutStoryProps}>{layoutStoryContent}</Layout>);
 }
 
 /**

@@ -3,7 +3,9 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 import { LanguageSwitcher } from './config/i18n';
-import { IconsProvider, Layout, SidePanel } from '../src/index';
+import IconsProvider from '../src/IconsProvider';
+import Layout from '../src/Layout';
+import SidePanel from '../src/SidePanel';
 
 import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../src/Layout/constants';
 

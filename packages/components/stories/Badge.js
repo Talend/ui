@@ -3,7 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 
-import { Badge, IconsProvider } from '../src/';
+import Badge from '../src/Badge';
+import IconsProvider from '../src/IconsProvider';
 
 const defaultStyle = {
 	display: 'flex',

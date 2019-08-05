@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { CircularProgress } from '../src';
+import CircularProgress from '../src/CircularProgress';
 
 storiesOf('CircularProgress', module)
 	.add('default', () => (

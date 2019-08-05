@@ -3,7 +3,8 @@ import { storiesOf } from '@storybook/react';
 import talendIcons from '@talend/icons/dist/react';
 import { action } from '@storybook/addon-actions';
 
-import { ActionSplitDropdown, IconsProvider } from '../src/index';
+import ActionSplitDropdown from '../src/Actions/ActionSplitDropdown';
+import IconsProvider from '../src/IconsProvider';
 
 const icons = {
 	'talend-environment': talendIcons['talend-environment'],

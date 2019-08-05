@@ -6,7 +6,7 @@ import talendIcons from '@talend/icons/dist/react';
 
 import { SortIndicator } from 'react-virtualized';
 
-import { IconsProvider } from '../src/index';
+import IconsProvider from '../src/IconsProvider';
 import VirtualizedList, { listTypes } from '../src/VirtualizedList';
 import CellTitle from '../src/VirtualizedList/CellTitle';
 import CellBadge from '../src/VirtualizedList/CellBadge';

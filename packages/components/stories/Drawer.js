@@ -3,17 +3,14 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import talendIcons from '@talend/icons/dist/react';
-import {
-	Layout,
-	Drawer,
-	IconsProvider,
-	SidePanel,
-	Nav,
-	NavItem,
-	Tab,
-	HeaderBar,
-	ActionBar,
-} from '../src/index';
+
+import { Nav, NavItem, Tab } from 'react-bootstrap';
+import Layout from '../src/Layout';
+import Drawer from '../src/Drawer';
+import IconsProvider from '../src/IconsProvider';
+import SidePanel from '../src/SidePanel';
+import HeaderBar from '../src/HeaderBar';
+import ActionBar from '../src/ActionBar';
 
 const header = <HeaderBar brand={{ label: 'Example App Name' }} />;
 
@@ -217,14 +214,17 @@ const editableDrawers = [
 		<h1>Hello drawer 1</h1>
 		<p>{"You should not being able to read this because I'm first"}</p>
 	</Drawer>,
-	<Drawer editableTitle title="Im drawer 20" footerActions={Object.assign({}, basicProps, { selected: 0 })}>
+	<Drawer
+		editableTitle
+		title="Im drawer 20"
+		footerActions={Object.assign({}, basicProps, { selected: 0 })}
+	>
 		<h1>Hello drawer 2</h1>
 		<p>The content dictate the scroll</p>
 		<h1>Hello drawer 3</h1>
 		{scrollableContent()}
 	</Drawer>,
 ];
-
 
 const drawersNoTransition = [
 	<Drawer

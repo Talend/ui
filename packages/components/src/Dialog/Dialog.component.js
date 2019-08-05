@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Modal from 'react-bootstrap/lib/Modal';
+import Modal from 'react-bootstrap/Modal';
 import classNames from 'classnames';
 
 import './Dialog.scss';

@@ -3,7 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 
-import { ActionIconToggle, IconsProvider } from '../src/index';
+import ActionIconToggle from '../src/Actions/ActionIconToggle';
+import IconsProvider from '../src/IconsProvider';
 
 const icons = {
 	'talend-panel-opener-right': talendIcons['talend-panel-opener-right'],

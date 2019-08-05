@@ -77,7 +77,7 @@ class ActionFile extends React.Component {
 		model: PropTypes.object,
 		name: PropTypes.string,
 		onChange: PropTypes.func.isRequired,
-		tooltipPlacement: OverlayTrigger.propTypes.placement,
+		tooltipPlacement: PropTypes.string,
 		tooltip: PropTypes.bool,
 		tooltipLabel: PropTypes.string,
 	};

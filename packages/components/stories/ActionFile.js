@@ -3,7 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 
-import { Action, IconsProvider } from '../src/index';
+import Action from '../src/Actions/Action';
+import IconsProvider from '../src/IconsProvider';
 
 const icons = {
 	'talend-upload': talendIcons['talend-upload'],
@@ -42,6 +43,11 @@ storiesOf('ActionFile', module)
 			<Action id="default" {...myAction} tooltipLabel="Custom label here" />
 			<p>Bootstrap style</p>
 			<Action id="default" {...myAction} bsStyle="primary" tooltipLabel="Custom label here" />
-			<Action id="default" {...myAction} className="btn-default btn-inverse" tooltipLabel="Custom label here" />
+			<Action
+				id="default"
+				{...myAction}
+				className="btn-default btn-inverse"
+				tooltipLabel="Custom label here"
+			/>
 		</div>
 	));

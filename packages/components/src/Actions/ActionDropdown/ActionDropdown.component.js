@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import classNames from 'classnames';
 import { Iterable } from 'immutable';
-import { DropdownButton, MenuItem, OverlayTrigger } from 'react-bootstrap';
+import { DropdownButton, Dropdown, OverlayTrigger } from 'react-bootstrap';
 import { withTranslation } from 'react-i18next';
 import omit from 'lodash/omit';
 import Inject from '../../Inject';
@@ -30,7 +30,7 @@ function InjectDropdownMenuItem({
 	onKeyDown,
 	...rest
 }) {
-	const Renderers = Inject.getAll(getComponent, { MenuItem });
+	const Renderers = Inject.getAll(getComponent, { MenuItem: Dropdown.Item });
 	if (divider) {
 		return <Renderers.MenuItem key={key} {...menuItemProps} divider />;
 	}
@@ -62,7 +62,7 @@ InjectDropdownMenuItem.propTypes = {
 InjectDropdownMenuItem.displayname = 'InjectDropdownMenuItem';
 
 function renderMutableMenuItem(item, index, getComponent) {
-	const Renderers = Inject.getAll(getComponent, { MenuItem });
+	const Renderers = Inject.getAll(getComponent, { MenuItem: Dropdown.Item });
 	if (item.divider) {
 		return <Renderers.MenuItem key={index} divider />;
 	}
@@ -189,7 +189,7 @@ class ActionDropdown extends React.Component {
 			...rest
 		} = this.props;
 
-		const Renderers = Inject.getAll(getComponent, { MenuItem, DropdownButton });
+		const Renderers = Inject.getAll(getComponent, { MenuItem: Dropdown.Item, DropdownButton });
 		const injected = Inject.all(getComponent, components, InjectDropdownMenuItem);
 		const title = [
 			icon ? <Icon name={icon} key={'icon'} /> : null,
@@ -271,7 +271,7 @@ ActionDropdown.propTypes = {
 			PropTypes.shape({
 				icon: PropTypes.string,
 				label: PropTypes.string,
-				...MenuItem.propTypes,
+				...Dropdown.Item.propTypes,
 			}),
 		),
 		ImmutablePropTypes.list,
@@ -281,7 +281,7 @@ ActionDropdown.propTypes = {
 	loading: PropTypes.bool,
 	onToggle: PropTypes.func,
 	onSelect: PropTypes.func,
-	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	tooltipPlacement: PropTypes.string,
 	tooltipLabel: PropTypes.string,
 	getComponent: PropTypes.func,
 	components: PropTypes.shape({

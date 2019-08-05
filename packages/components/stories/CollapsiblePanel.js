@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { checkA11y } from '@storybook/addon-a11y';
 import talendIcons from '@talend/icons/dist/react';
 
-import { CollapsiblePanel, IconsProvider } from '../src/index';
+import CollapsiblePanel from '../src/CollapsiblePanel';
+import IconsProvider from '../src/IconsProvider';
 
 const icons = {
 	'talend-cross': talendIcons['talend-cross'],

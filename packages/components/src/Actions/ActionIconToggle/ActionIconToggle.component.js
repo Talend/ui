@@ -41,7 +41,7 @@ ActionIconToggle.propTypes = {
 	id: PropTypes.string,
 	label: PropTypes.string.isRequired,
 	onClick: PropTypes.func.isRequired,
-	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	tooltipPlacement: PropTypes.string,
 };
 
 ActionIconToggle.defaultProps = {

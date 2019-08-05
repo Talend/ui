@@ -3,7 +3,9 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 
-import { List, ConfirmDialog, IconsProvider } from '../src/index';
+import List from '../src/List';
+import ConfirmDialog from '../src/ConfirmDialog';
+import IconsProvider from '../src/IconsProvider';
 
 const icons = {
 	'talend-badge': talendIcons['talend-badge'],
@@ -41,7 +43,6 @@ const defaultProps = {
 		className: 'btn-inverse',
 	},
 };
-
 
 const propsWithoutHeader = {
 	show: true,
@@ -105,8 +106,7 @@ const withProgressBarProps = {
 	progressValue: 66,
 };
 
-const children = (<div>BODY content. You can put what ever you want here</div>);
-
+const children = <div>BODY content. You can put what ever you want here</div>;
 
 storiesOf('ConfirmDialog', module)
 	.add('default', () => (
@@ -147,9 +147,7 @@ storiesOf('ConfirmDialog', module)
 		return (
 			<div>
 				<h1>Dialog</h1>
-				<ConfirmDialog {...withProgressBarProps}>
-					{rows}
-				</ConfirmDialog>
+				<ConfirmDialog {...withProgressBarProps}>{rows}</ConfirmDialog>
 			</div>
 		);
 	})
@@ -276,10 +274,7 @@ storiesOf('ConfirmDialog', module)
 				sort: {
 					field: 'name',
 					onChange: action('sort.onChange'),
-					options: [
-						{ id: 'id', name: 'Id' },
-						{ id: 'name', name: 'Name' },
-					],
+					options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
 				},
 				pagination: {
 					itemsPerPage: 5,

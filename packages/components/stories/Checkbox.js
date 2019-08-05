@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { Checkbox } from '../src/index';
+import { Checkbox } from '../src/Toggle';
 
 const onChange = action('onChange');
 
@@ -26,28 +26,30 @@ const withLabel = {
 	label: 'Some label',
 };
 
+storiesOf('Checkbox', module).add('default', () => (
+	<div style={{ padding: 30 }}>
+		<h1>Checkbox</h1>
+		<h2>Definition</h2>
+		<p>The Checkbox component is basically a fancy checkbox like you have in your iphone</p>
+		<h2>Examples</h2>
+		<form>
+			<h3>Default Checkbox</h3>
+			<Checkbox {...defaultProps} />
 
-storiesOf('Checkbox', module)
-	.add('default', () => (
-		<div style={{ padding: 30 }}>
-			<h1>Checkbox</h1>
-			<h2>Definition</h2>
-			<p>
-				The Checkbox component is basically a fancy checkbox like you have in your iphone
-			</p>
-			<h2>Examples</h2>
-			<form>
-				<h3>Default Checkbox</h3>
-				<Checkbox {...defaultProps} />
+			<h3>
+				Checkbox with <code>checked: true</code>
+			</h3>
+			<Checkbox {...checked} />
 
-				<h3>Checkbox with <code>checked: true</code></h3>
-				<Checkbox {...checked} />
+			<h3>
+				Checkbox with <code>disabled: true</code>
+			</h3>
+			<Checkbox {...disabled} />
 
-				<h3>Checkbox with <code>disabled: true</code></h3>
-				<Checkbox {...disabled} />
-
-				<h3>Checkbox with <code>label: Some label</code></h3>
-				<Checkbox {...withLabel} />
-			</form>
-		</div>
-	));
+			<h3>
+				Checkbox with <code>label: Some label</code>
+			</h3>
+			<Checkbox {...withLabel} />
+		</form>
+	</div>
+));

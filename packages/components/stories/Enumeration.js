@@ -2,7 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { Enumeration, IconsProvider } from '../src/index';
+import Enumeration from '../src/Enumeration';
+import IconsProvider from '../src/IconsProvider';
 import i18n from './config/i18n';
 
 import theme from './Enumeration.scss';

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Navbar from 'react-bootstrap/lib/Navbar';
+import Navbar from 'react-bootstrap/Navbar';
 
 import theme from './ListToolbar.scss';
 

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { SplitButton, MenuItem } from 'react-bootstrap';
+import { SplitButton, Dropdown } from 'react-bootstrap';
 import { withTranslation } from 'react-i18next';
 import uuid from 'uuid';
 import Icon from '../../Icon';
@@ -54,13 +54,13 @@ export function ActionSplitDropdown(props) {
 		>
 			{items.length ? (
 				items.map((item, index) => (
-					<MenuItem {...item} key={index} onClick={wrapOnClick(item)}>
+					<Dropdown.Item {...item} key={index} onClick={wrapOnClick(item)}>
 						{item.icon && <Icon name={item.icon} />}
 						{item.label}
-					</MenuItem>
+					</Dropdown.Item>
 				))
 			) : (
-				<MenuItem disabled>{emptyDropdownLabel}</MenuItem>
+				<Dropdown.Item disabled>{emptyDropdownLabel}</Dropdown.Item>
 			)}
 		</SplitButton>
 	);
@@ -74,7 +74,7 @@ ActionSplitDropdown.propTypes = {
 		PropTypes.shape({
 			icon: PropTypes.string,
 			label: PropTypes.string,
-			...MenuItem.propTypes,
+			...Dropdown.Item.propTypes,
 		}),
 	).isRequired,
 	label: PropTypes.string.isRequired,

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Skeleton from '../../Skeleton';
-import { EditableText } from '../..';
+import EditableText from '../../EditableText';
 import theme from './TitleSubHeader.scss';
 import Icon from '../../Icon';
 import Inject from '../../Inject';

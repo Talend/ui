@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import get from 'lodash/get';
-import ControlLabel from 'react-bootstrap/lib/ControlLabel';
-import FormControl from 'react-bootstrap/lib/FormControl';
+import Form from 'react-bootstrap/Form';
 import DebounceInput from 'react-debounce-input';
 import classNames from 'classnames';
 import Icon from '../Icon';
@@ -33,9 +32,9 @@ export function renderInputComponent(props) {
 	);
 	return (
 		<div className={typeaheadContainerIconClasses}>
-			<ControlLabel srOnly htmlFor={key}>
+			<Form.Label srOnly htmlFor={key}>
 				Search
-			</ControlLabel>
+			</Form.Label>
 			{debounceMinLength || debounceTimeout ? (
 				<DebounceInput
 					id={key}
@@ -44,12 +43,12 @@ export function renderInputComponent(props) {
 					disabled={disabled}
 					readOnly={readOnly}
 					debounceTimeout={debounceTimeout}
-					element={FormControl}
+					element={Form.Control}
 					minLength={debounceMinLength}
 					ref={inputRef}
 				/>
 			) : (
-				<FormControl
+				<Form.Control
 					id={key}
 					autoFocus
 					disabled={disabled}

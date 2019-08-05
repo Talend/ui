@@ -4,7 +4,8 @@ import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
 import withPropsCombinations from 'react-storybook-addon-props-combinations';
 
-import { Action, IconsProvider } from '../src/index';
+import Action from '../src/Actions/Action';
+import IconsProvider from '../src/IconsProvider';
 
 import theme from './Action.scss';
 

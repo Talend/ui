@@ -41,7 +41,7 @@ PieChart.propTypes = {
 	label: PropTypes.string,
 	onClick: PropTypes.func,
 	tooltip: PropTypes.bool,
-	tooltipPlacement: OverlayTrigger.propTypes.placement,
+	tooltipPlacement: PropTypes.string,
 };
 
 PieChart.defaultProps = {

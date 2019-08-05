@@ -6,7 +6,8 @@ import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-d
 import talendIcons from '@talend/icons/dist/react';
 import cloneDeep from 'lodash/cloneDeep';
 
-import { List, IconsProvider } from '../src/index';
+import List from '../src/List';
+import IconsProvider from '../src/IconsProvider';
 import { LanguageSwitcher } from './config/i18n';
 import MyCustomRow from './List/MyCustomRow.component';
 /**

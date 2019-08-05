@@ -7,7 +7,7 @@
 }
 
 $tc-icon-editable-text-size: 0.8rem !default;
-$tc-circle-editable-text-size: 16px !default;
+$tc-circle-editable-text-size: 1.6rem !default;
 
 :global(.tc-editable-text-blink) {
 	@include heartbeat(object-blink);

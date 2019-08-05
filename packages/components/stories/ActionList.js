@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import talendIcons from '@talend/icons/dist/react';
-import { IconsProvider, ActionList } from '../src/index';
-
+import ActionList from '../src/ActionList';
+import IconsProvider from '../src/IconsProvider';
 
 const icons = {
 	'talend-clock': talendIcons['talend-clock'],
@@ -54,7 +54,6 @@ const actions = [
 	},
 ];
 
-
 const stories = storiesOf('ActionList', module);
 
 stories
@@ -79,8 +78,7 @@ stories
 		<div>
 			<p>You can add your custom classnames to the container and items</p>
 			<pre>
-				{
-					`
+				{`
 .custom-container-classname {
 	border: 5px solid turquoise;
 }
@@ -88,30 +86,25 @@ stories
 .custom-item-classname {
 	background-color: pink;
 }
-					`
-				}
+					`}
 			</pre>
 			<pre>
-				{
-			`
+				{`
 <ActionList
 	className={'custom-container-classname'}
 	itemClassName={'custom-item-classname'}
 	{...otherProps}
 />
-			`
-				}
+			`}
 			</pre>
 			<style>
-				{
-					`.custom-container-classname {
+				{`.custom-container-classname {
 						border: 5px solid turquoise;
 					}
 
 					.custom-item-classname {
 						background-color: pink;
-					}`
-				}
+					}`}
 			</style>
 			<div style={{ display: 'inline-table' }}>
 				<ActionList

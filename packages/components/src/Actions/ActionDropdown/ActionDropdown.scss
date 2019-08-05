@@ -20,9 +20,5 @@ $tc-dropdown-loader-padding: $padding-small !default;
 		padding: $tc-dropdown-loader-padding 0;
 		text-align: center;
 		background: $concrete;
-
-		:global(.divider) + & {
-			margin: -($tc-dropdown-loader-padding - 1px) 0;
-		}
 	}
 }

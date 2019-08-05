@@ -2,7 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { Datalist, IconsProvider } from '../src/index';
+import Datalist from '../src/Datalist';
+import IconsProvider from '../src/IconsProvider';
 
 const defaultProps = {
 	onChange: action('onChange'),

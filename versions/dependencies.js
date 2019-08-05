@@ -59,7 +59,7 @@ module.exports = {
 	// deps: libs that interact with the DOM
 	'd3-shape': '1.2.0',
 	'react-ace': '6.2.0',
-	'react-bootstrap': '0.32.4',
+	'react-bootstrap': '1.0.0-beta.10',
 	'rc-slider': '8.6.3',
 	'rc-tooltip': '3.7.3',
 	'react-autowhatever': '10.2.0',

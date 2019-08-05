@@ -119,7 +119,7 @@ PieChartButtonComponent.propTypes = {
 	onMouseDown: PropTypes.func,
 	overlayComponent: PropTypes.element,
 	overlayId: PropTypes.string,
-	overlayPlacement: OverlayTrigger.propTypes.placement,
+	overlayPlacement: PropTypes.string,
 	overlayRef: PropTypes.func,
 };
 

@@ -8,7 +8,8 @@ import talendIcons from '@talend/icons/dist/react';
 
 import './config/i18n';
 
-import { HeaderBar, IconsProvider } from '../src';
+import HeaderBar from '../src/HeaderBar';
+import IconsProvider from '../src/IconsProvider';
 
 import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../src/Layout/constants';
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { EditableText, IconsProvider } from '../src/index';
+import EditableText from '../src/EditableText';
+import IconsProvider from '../src/IconsProvider';
 
 const props = {
 	text: 'Lorem ipsum dolor sit amet',
@@ -25,5 +26,9 @@ storiesOf('EditableText', module)
 	.add('in progress', () => <EditableText inProgress {...props} />)
 	.add('edit mode', () => <EditableText editMode {...props} />)
 	.add('not required', () => <EditableText required={false} editMode {...props} />)
-	.add('placeholder', () => <EditableText editMode placeholder="Enter your text here.." {...props} text="" />)
-	.add('with error', () => <EditableText editMode {...props} text="" errorMessage="custom error message" />);
+	.add('placeholder', () => (
+		<EditableText editMode placeholder="Enter your text here.." {...props} text="" />
+	))
+	.add('with error', () => (
+		<EditableText editMode {...props} text="" errorMessage="custom error message" />
+	));

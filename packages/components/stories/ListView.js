@@ -3,7 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { LanguageSwitcher } from './config/i18n';
-import { ListView, IconsProvider } from '../src/index';
+import ListView from '../src/ListView';
+import IconsProvider from '../src/IconsProvider';
 
 const filterAction = {
 	label: 'Filter',

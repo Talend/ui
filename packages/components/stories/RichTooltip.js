@@ -2,16 +2,13 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import {
-	Action,
-	Actions,
-	ActionBar,
-	IconsProvider,
-	CircularProgress,
-	HeaderTitle,
-	RichError,
-	RichLayout,
-} from '../src/index';
+import { Actions, Action } from '../src/Actions';
+import ActionBar from '../src/ActionBar';
+import IconsProvider from '../src/IconsProvider';
+import CircularProgress from '../src/CircularProgress';
+import HeaderTitle from '../src/HeaderTitle';
+import RichError from '../src/RichTooltip/RichError';
+import RichLayout from '../src/RichTooltip/RichLayout';
 
 const myAction = {
 	label: 'Click me to show the tooltip',

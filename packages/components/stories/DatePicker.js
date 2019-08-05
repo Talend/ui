@@ -1,9 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { IconsProvider } from '../src/index';
 
 import InputDateTimePicker, { DateTime } from '../src/DateTimePickers';
+import IconsProvider from '../src/IconsProvider';
 
 class TestPickerWrapper extends React.Component {
 	static propTypes = {
@@ -76,7 +76,8 @@ storiesOf('DatePicker', module)
 			<IconsProvider />
 			<h1>DatePicker</h1>
 			<p>
-				Default date picker doesn't include time<br />
+				Default date picker doesn't include time
+				<br />
 				It comes with classical keyboard gesture.
 			</p>
 			<TestPickerWrapper id="my-date-picker" onChange={action('onChange')} name="Datetime" />

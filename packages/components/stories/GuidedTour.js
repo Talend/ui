@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import { withTranslation } from 'react-i18next';
 import { LanguageSwitcher } from './config/i18n';
 
-import { GuidedTour } from '../src/index';
+import GuidedTour from '../src/GuidedTour';
 import I18N_DOMAIN_COMPONENTS from '../src/constants';
 
 class ImportDemo extends React.Component {

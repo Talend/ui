@@ -2,7 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { ActionBar, FilterBar, IconsProvider } from '../src/';
+import ActionBar from '../src/ActionBar';
+import FilterBar from '../src/FilterBar';
+import IconsProvider from '../src/IconsProvider';
 
 const propsDockToggle = {
 	id: 'FILTER-dockAndDockable',

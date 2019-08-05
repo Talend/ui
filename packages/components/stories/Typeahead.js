@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { Typeahead } from '../src';
+import Typeahead from '../src/Typeahead';
 import IconsProvider from '../src/IconsProvider';
 
 const items = [
