@@ -22,8 +22,13 @@ const Default = () => {
 	const bodyId = `${id}-body`;
 	return (
 		<React.Fragment>
-			<SelectAllColumnsCheckbox id={bodyId} onClick={onSelectAll} value={selectAll} t={t} />
-			<ColumnChooserTable id={bodyId} columns={columnsChooser} onClick={onChangeVisibility} t={t} />
+			<SelectAllColumnsCheckbox id={bodyId} onChange={onSelectAll} value={selectAll} t={t} />
+			<ColumnChooserTable
+				id={bodyId}
+				columns={columnsChooser}
+				onChangeCheckbox={onChangeVisibility}
+				t={t}
+			/>
 		</React.Fragment>
 	);
 };

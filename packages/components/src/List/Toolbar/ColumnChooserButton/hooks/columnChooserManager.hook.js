@@ -37,14 +37,14 @@ const extractColumnValues = column => ({
 	order: column.order,
 });
 
-const setColumnLocked = (lockedLeftItems, index) => column => {
+const addColumnLockedAttr = (lockedLeftItems, index) => column => {
 	if (index < lockedLeftItems) {
 		return { ...column, locked: true };
 	}
 	return column;
 };
 
-const setColumnHidden = column => {
+const addMissingVisibleAttr = column => {
 	if (column.visible === undefined) {
 		return { ...column, visible: false };
 	}
@@ -58,7 +58,11 @@ const setColumnHidden = column => {
  */
 const prepareColumns = (columns, lockedLeftItems) =>
 	columns.map((column, index) =>
-		flow([extractColumnValues, setColumnHidden, setColumnLocked(lockedLeftItems, index)])(column),
+		flow([
+			extractColumnValues,
+			addMissingVisibleAttr,
+			addColumnLockedAttr(lockedLeftItems, index),
+		])(column),
 	);
 
 export const changeColumnChooserAttribute = key => value => column => {
@@ -68,7 +72,11 @@ export const changeColumnChooserAttribute = key => value => column => {
 	return column;
 };
 
-const updateAttributeVisibility = changeColumnChooserAttribute('visible');
+const updateVisibilityAttr = changeColumnChooserAttribute('visible');
+
+/** *******************************************************************************
+ * HOOK ENTRY POINT
+ *********************************************************************************/
 
 /**
  * Manage the state of each row representing a column for the ColumnChooser overlay.
@@ -90,13 +98,13 @@ export const useColumnChooserManager = (initColumns = [], nbLockedLeftItems = 0)
 	};
 
 	const onChangeVisibility = (value, label) => {
-		const columnUpdated = flow([getColumn(label), updateAttributeVisibility(value)])(state.columns);
+		const columnUpdated = flow([getColumn(label), updateVisibilityAttr(value)])(state.columns);
 		setColumn(columnUpdated, label)(state.columns);
 		updateState(state.columns);
 	};
 
 	const onSelectAll = value => {
-		updateState(state.columns.map(updateAttributeVisibility(value)), value);
+		updateState(state.columns.map(updateVisibilityAttr(value)), value);
 	};
 
 	return {

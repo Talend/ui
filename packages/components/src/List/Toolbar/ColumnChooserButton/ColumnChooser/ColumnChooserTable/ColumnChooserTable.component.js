@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ColumnChooserRowRenderer from '../ColumnChooserRowRenderer';
 import { columnsChooserPropTypes } from '../../columnChooser.propTypes';
 
-const ColumnChooserTable = ({ columns = [], id, onClick, t }) =>
+const ColumnChooserTable = ({ columns = [], id, onChangeCheckbox, t }) =>
 	columns.map(column => (
 		<ColumnChooserRowRenderer key={column.label}>
 			<ColumnChooserRowRenderer.Checkbox
@@ -14,7 +15,7 @@ const ColumnChooserTable = ({ columns = [], id, onClick, t }) =>
 				})}
 				label={column.label}
 				locked={column.locked}
-				onClick={onClick}
+				onChange={onChangeCheckbox}
 				checked={column.visible}
 				t={t}
 			/>
@@ -23,6 +24,9 @@ const ColumnChooserTable = ({ columns = [], id, onClick, t }) =>
 
 ColumnChooserTable.propTypes = {
 	columns: columnsChooserPropTypes,
+	id: PropTypes.string.isRequired,
+	onChangeCheckbox: PropTypes.func.isRequired,
+	t: PropTypes.func.isRequired,
 };
 
 export default ColumnChooserTable;

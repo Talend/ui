@@ -10,7 +10,7 @@
 	- [ColumnChooserFooter](#columnchooserfooter)
 	- [ColumnChooserBody](#columnchooserbody)
 	- [ColumnChooserRowRenderer](#columnchooserrowrenderer)
-	- [RowVisibilityCheckbox](#rowvisibilitycheckbox)
+	- [RowCheckbox](#rowcheckbox)
 	- [RowLabel](#rowlabel)
 4. [Hooks](#hooks)
 	- [ColumnChooserManagerHook](#columnchoosermanagerhook)
@@ -98,7 +98,9 @@ If you pass children you will override the default column chooser renderer.
 |---|---|---|
 | children | React.element | the content of the popover
 | columns | array | these columns comes from the list, they will populate the popover
+| filterValue | string | value of the filter at mounting
 | id | string | Use as prefix for all the children components
+| initialOpenedPopover | bool | state of the popover at mounting, show / hide
 | placement | string | Position of the popover
 | nbLockedLeftItems | number | the number of locked columns you want, beginning at the left
 | submit | function | callback trigger when the form is submit
@@ -108,6 +110,7 @@ If you pass children you will override the default column chooser renderer.
 
 The base of the popover component.
 This component holds the form. If you pass children you will override the default column chooser renderer.
+A filterbar is also present and helps searching the column you need.
 The [columnChooserContext](#columnchoosercontext) is initialized here.
 
 The component holds reference :
@@ -119,6 +122,7 @@ The component holds reference :
 |---|---|---|
 | children | React.element, [React.element] | the content of the popover
 | columns | array |  these columns comes from the list, they will populate the popover
+| filterValue | string | the current value of the filter
 | id | string | Use as prefix for all the children components
 | nbLockedLeftItems | number | the number of locked items you want, beginning at the left
 | submit | function | callback trigger when the form is submit, passed to the column manager hook (see hook)
@@ -127,9 +131,9 @@ The component holds reference :
 ### ColumnChooserHeader
 
 The header of the column chooser.
-Title by default is "Modify columns".
+Title by default is "Modify columns". The number of selected columns is displayed here.
 You can pass children to the header to customize it.
-It consumes the [columnChooserContext](#columnchoosercontext).
+By default, it consumes the [columnChooserContext](#columnchoosercontext).
 
 | Props | Type | Info
 |---|---|---|
@@ -139,10 +143,9 @@ It consumes the [columnChooserContext](#columnchoosercontext).
 ### ColumnChooserFooter
 
 Footer of the column chooser.
-There is two inputs, the select all, which select / unselect all the columns.
-And the apply button, which submit the form.
+The apply button is here and it submit the form.
 You can pass children and override the default render.
-It consumes the [columnChooserContext](#columnchoosercontext).
+By default, it consumes the [columnChooserContext](#columnchoosercontext).
 
 The component holds reference :
 * Submit : [SubmitButton](#SubmitButton)
@@ -156,9 +159,9 @@ The component holds reference :
 ### ColumnChooserBody
 
 Body of the column chooser.
-It renders the different column row, by default [ColumnChooserRowRenderer](#columnchooserrowrenderer).
+It renders the different column row.
 You can pass children to override it. Children use the render props pattern. It receives the columns as parameters.
-It consumes the [columnChooserContext](#columnchoosercontext).
+By default, it consumes the [columnChooserContext](#columnchoosercontext).
 
 The component holds reference :
 * Row : [ColumnChooserRowRenderer](#columnchooserrowrenderer)
@@ -171,27 +174,40 @@ The component holds reference :
 
 The row renderer only render its children.
 It holds reference to other components: , .
-It consumes the [columnChooserContext](#columnchoosercontext).
+By default, it consumes the [columnChooserContext](#columnchoosercontext).
 
 The component holds reference :
-* Visibility: [RowVisibilityCheckbox](#rowvisibilitycheckbox)
+* Visibility: [RowCheckbox](#rowcheckbox)
 * Label: [RowLabel](#rowlabel)
 
 | Props | Type | Info
 |---|---|---|
+| className | string | class passed to div wrapper row
 | children | React.element, [React.element] | the row's  content of the popover
 
-### RowVisibilityCheckbox
+### RowCheckbox
 
 Add a checkbox to switch the visibility of a column.
 If the column is locked, a locked icon replaces the checkbox.
-It consumes the [columnChooserContext](#columnchoosercontext).
+	dataFeature,
+	describedby,
+	description,
+	id,
+	label,
+	locked = false,
+	onClick,
+	checked = false,
 
 | Props | Type | Info
 |---|---|---|
-| index | number | the index of the column
+| dataFeature | string | data-feature attribute of the input
+| describedby | string | the id of the markup holding the description
+| description | string | the description
+| id | string | id of the checkbox input
+| label | string | label used
 | locked | bool | indicates if the column is locked or not
-| value | bool | indicates the visibility value, and if the checkbox is checked
+| onChange | func | trigger when the checkbox is clicked
+| checked | bool | indicates the visibility value, and if the checkbox is checked
 
 ### RowLabel
 
@@ -240,8 +256,10 @@ import { columnChooserContext, ColumnChooserProvider }
 | Props | Type | Info
 |---|---|---|
 | label | PropTypes.string | the label of the column
-| hidden | PropTypes.bool | the state of visibility of the column
+| locked | PropTypes.bool | indicates the locked state
 | order | PropTypes.number | indicates the ordering of the column
+| visible | PropTypes.bool | the state of visibility of the column
+
 
 ### ColumnsChooserPropTypes
 

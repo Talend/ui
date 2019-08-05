@@ -13,7 +13,7 @@ describe('RowCheckBox', () => {
 			description: 'this is my checkbox',
 			id: 'some-id',
 			label: 'column-label',
-			onClick: jest.fn(),
+			onChange: jest.fn(),
 		};
 		// When
 		const wrapper = mount(<Component {...props} />);
@@ -30,7 +30,7 @@ describe('RowCheckBox', () => {
 			id: 'some-id',
 			label: 'column-label',
 			locked: true,
-			onClick: jest.fn(),
+			onChange: jest.fn(),
 		};
 		// When
 		const wrapper = mount(<Component {...props} />);
@@ -39,14 +39,14 @@ describe('RowCheckBox', () => {
 	});
 	it('should call the onClick when checkbox trigger change', () => {
 		// Given
-		const onClick = jest.fn();
+		const onChange = jest.fn();
 		const props = {
 			dataFeature: 'my-feature',
 			describedby: 'my-div-desc',
 			description: 'this is my checkbox',
 			id: 'some-id',
 			label: 'column-label',
-			onClick,
+			onChange,
 		};
 		// When
 		const wrapper = mount(<Component {...props} />);
@@ -54,7 +54,7 @@ describe('RowCheckBox', () => {
 			wrapper.find('input[type="checkbox"]').simulate('change');
 		});
 		// Then
-		expect(onClick).toHaveBeenCalled();
-		expect(onClick.mock.calls[0][0]).toEqual(false);
+		expect(onChange).toHaveBeenCalled();
+		expect(onChange.mock.calls[0][0]).toEqual(false);
 	});
 });

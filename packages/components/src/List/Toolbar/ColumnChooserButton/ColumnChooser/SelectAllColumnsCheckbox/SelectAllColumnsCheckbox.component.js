@@ -6,7 +6,7 @@ import { getTheme } from '../../../../../theme';
 
 const theme = getTheme(cssModule);
 
-const SelectAllColumnsCheckbox = ({ id, onClick, value, t }) => {
+const SelectAllColumnsCheckbox = ({ id, onChange, value, t }) => {
 	return (
 		<ColumnChooserRowRenderer className={theme('tc-column-chooser-row-select-all')}>
 			<ColumnChooserRowRenderer.Checkbox
@@ -19,7 +19,7 @@ const SelectAllColumnsCheckbox = ({ id, onClick, value, t }) => {
 				label={t('CHECKBOX_VISIBILITY_LABEL', {
 					defaultValue: 'Columns',
 				})}
-				onClick={onClick}
+				onChange={onChange}
 				checked={value}
 				t={t}
 			/>
@@ -29,7 +29,7 @@ const SelectAllColumnsCheckbox = ({ id, onClick, value, t }) => {
 
 SelectAllColumnsCheckbox.propTypes = {
 	id: PropTypes.string.isRequired,
-	onClick: PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired,
 	value: PropTypes.bool,
 	t: PropTypes.func.isRequired,
 };

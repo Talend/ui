@@ -8,13 +8,15 @@ import ActionButton from '../../../Actions/ActionButton';
 export default function ColumnChooserButton({
 	children,
 	columns,
+	filterValue,
 	id,
+	initialOpenedPopover,
 	placement = 'left',
 	nbLockedLeftItems,
 	submit,
 	t = getDefaultT(),
 }) {
-	const [opened, setOpened] = useState(false);
+	const [opened, setOpened] = useState(initialOpenedPopover || false);
 	const [buttonRef, setButtonRef] = useState(null);
 	const changeOpened = () => setOpened(!opened);
 	const closePopover = () => setOpened(false);
@@ -49,6 +51,7 @@ export default function ColumnChooserButton({
 					{!children ? (
 						<ColumnChooser
 							columns={columns}
+							filterValue={filterValue}
 							id={colChooserButtonId}
 							nbLockedLeftItems={nbLockedLeftItems}
 							submit={onSubmitColumnChooser}
@@ -66,7 +69,9 @@ export default function ColumnChooserButton({
 ColumnChooserButton.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 	columns: PropTypes.array.isRequired,
+	filterValue: PropTypes.string,
 	id: PropTypes.string.isRequired,
+	initialOpenedPopover: PropTypes.bool,
 	nbLockedLeftItems: PropTypes.number,
 	placement: PropTypes.oneOf(['top', 'bottom', 'right', 'left']),
 	submit: PropTypes.func.isRequired,

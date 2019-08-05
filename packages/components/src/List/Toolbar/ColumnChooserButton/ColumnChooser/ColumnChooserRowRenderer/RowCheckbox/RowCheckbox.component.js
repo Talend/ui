@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import SimpleCheckBox from '../SimpleCheckBox.component';
 import Icon from '../../../../../../Icon';
 import RowLabel from '../RowLabel';
 import cssModule from '../../ColumnChooser.scss';
@@ -16,11 +15,11 @@ const RowCheckbox = ({
 	id,
 	label,
 	locked = false,
-	onClick,
+	onChange,
 	checked = false,
 }) => {
-	const onClickCheckbox = event => {
-		onClick(event.target.checked, label);
+	const onChangeCheckbox = event => {
+		onChange(event.target.checked, label);
 	};
 	return locked ? (
 		<React.Fragment>
@@ -30,13 +29,14 @@ const RowCheckbox = ({
 	) : (
 		<React.Fragment>
 			<Toggle
+				aria-checked={checked}
 				checked={checked}
 				className="checkbox"
 				data-feature={dataFeature}
 				describedby={describedby}
 				id={`${id}-checkbox-${label}`}
 				label={label}
-				onChange={onClickCheckbox}
+				onChange={onChangeCheckbox}
 			/>
 			<div id={describedby} className={theme('tc-column-chooser-aria-hidden')}>
 				{description}
@@ -52,7 +52,7 @@ RowCheckbox.propTypes = {
 	id: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,
 	locked: PropTypes.bool,
-	onClick: PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired,
 	checked: PropTypes.bool,
 };
 
