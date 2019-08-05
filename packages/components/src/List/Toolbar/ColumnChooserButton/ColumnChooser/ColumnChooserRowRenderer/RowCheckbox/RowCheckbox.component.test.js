@@ -50,7 +50,9 @@ describe('RowCheckBox', () => {
 		};
 		// When
 		const wrapper = mount(<Component {...props} />);
-		act(() => wrapper.find('input[type="checkbox"]').simulate('change'));
+		act(() => {
+			wrapper.find('input[type="checkbox"]').simulate('change');
+		});
 		// Then
 		expect(onClick).toHaveBeenCalled();
 		expect(onClick.mock.calls[0][0]).toEqual(false);

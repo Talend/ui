@@ -2,36 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ColumnChooserRowRenderer from '../ColumnChooserRowRenderer';
 import SelectAllColumnsCheckbox from '../SelectAllColumnsCheckbox';
+import ColumnChooserTable from '../ColumnChooserTable';
 import { useColumnChooserContext } from '../columnChooser.context';
-import { columnsChooserPropTypes } from '../../columnChooser.propTypes';
 import Tooltip from '../../../../../Tooltip';
 import cssModule from '../ColumnChooser.scss';
 import { getTheme } from '../../../../../theme';
 
 const theme = getTheme(cssModule);
-
-const ColumnChooserTable = ({ columns = [], id, onClick, t }) =>
-	columns.map(column => (
-		<ColumnChooserRowRenderer key={column.label}>
-			<ColumnChooserRowRenderer.Checkbox
-				id={id}
-				dataFeature="select-column-visibility-checkbox"
-				describedby={`desc-column-${column.label}`}
-				description={t('CHECKBOX_VISIBILITY_COLUMN_ARIA_DESCRIPTION', {
-					defaultValue: `change visibility of column ${column.label}`,
-				})}
-				label={column.label}
-				locked={column.locked}
-				onClick={onClick}
-				checked={column.visible}
-				t={t}
-			/>
-		</ColumnChooserRowRenderer>
-	));
-
-ColumnChooserTable.propTypes = {
-	columns: columnsChooserPropTypes,
-};
 
 const Default = () => {
 	const {
