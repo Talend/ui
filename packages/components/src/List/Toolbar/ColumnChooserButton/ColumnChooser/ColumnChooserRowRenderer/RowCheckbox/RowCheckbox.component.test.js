@@ -2,68 +2,57 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import { ColumnChooserProvider } from '../../columnChooser.context';
-import getDefaultT from '../../../../../../translate';
-
 import Component from './RowCheckbox.component';
 
-// eslint-disable-next-line react/prop-types
-const RowCheckboxWithContext = ({ onChangeVisibility, id, t = getDefaultT(), ...rest }) => (
-	<ColumnChooserProvider
-		value={{
-			onChangeVisibility,
-			id,
-			t,
-		}}
-	>
-		<Component {...rest} />
-	</ColumnChooserProvider>
-);
-
-describe('RowVisibilityCheckbox', () => {
+describe('RowCheckBox', () => {
 	it('should render a checked checkbox input by default', () => {
 		// Given
-		const index = 0;
+		const props = {
+			dataFeature: 'my-feature',
+			describedby: 'my-div-desc',
+			description: 'this is my checkbox',
+			id: 'some-id',
+			label: 'column-label',
+			onClick: jest.fn(),
+		};
 		// When
-		const wrapper = mount(<RowCheckboxWithContext index={index} />);
+		const wrapper = mount(<Component {...props} />);
 		// Then
 		expect(wrapper.find('input[type="checkbox"]')).toHaveLength(1);
-		expect(wrapper.find('input[type="checkbox"]').prop('value')).toEqual(true);
 		expect(wrapper.html()).toMatchSnapshot();
 	});
-	it('should render a non checked checked box input', () => {
+	it('should render a locked item', () => {
 		// Given
-		const index = 0;
-		const value = false;
+		const props = {
+			dataFeature: 'my-feature',
+			describedby: 'my-div-desc',
+			description: 'this is my checkbox',
+			id: 'some-id',
+			label: 'column-label',
+			locked: true,
+			onClick: jest.fn(),
+		};
 		// When
-		const wrapper = mount(<RowCheckboxWithContext index={index} value={value} />);
+		const wrapper = mount(<Component {...props} />);
 		// Then
-		expect(wrapper.find('input[type="checkbox"]').prop('value')).toEqual(true);
+		expect(wrapper.find('svg[name="talend-locked"]')).toHaveLength(1);
 	});
-	it('should render a locked icon', () => {
+	it('should call the onClick when checkbox trigger change', () => {
 		// Given
-		const index = 0;
-		const locked = true;
+		const onClick = jest.fn();
+		const props = {
+			dataFeature: 'my-feature',
+			describedby: 'my-div-desc',
+			description: 'this is my checkbox',
+			id: 'some-id',
+			label: 'column-label',
+			onClick,
+		};
 		// When
-		const wrapper = mount(<RowCheckboxWithContext index={index} locked={locked} />);
+		const wrapper = mount(<Component {...props} />);
+		act(() => wrapper.find('input[type="checkbox"]').simulate('change'));
 		// Then
-		expect(wrapper.find('svg').prop('name')).toEqual('talend-locked');
-	});
-	it('should call the onChangeVisibility when checkbox change and send the negate value', () => {
-		// Given
-		const index = 0;
-		const onChangeVisibility = jest.fn();
-		const value = false;
-		// When
-		const wrapper = mount(
-			<RowCheckboxWithContext index={index} onChangeVisibility={onChangeVisibility} />,
-		);
-		act(() => {
-			wrapper.find('input').simulate('change');
-		});
-		// Then
-		expect(onChangeVisibility.mock.calls.length).toBe(1);
-		expect(onChangeVisibility.mock.calls[0][0]).toBe(index);
-		expect(onChangeVisibility.mock.calls[0][1]).toBe(!value);
+		expect(onClick).toHaveBeenCalled();
+		expect(onClick.mock.calls[0][0]).toEqual(false);
 	});
 });
