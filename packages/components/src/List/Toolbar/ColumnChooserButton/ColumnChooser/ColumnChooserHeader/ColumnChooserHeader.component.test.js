@@ -6,12 +6,12 @@ import Component from './ColumnChooserHeader.component';
 import { ColumnChooserProvider } from '../columnChooser.context';
 
 const columns = [
-	{ visible: undefined, label: 'col1', locked: true, order: 1 },
-	{ visible: undefined, label: 'col2', locked: true, order: 2 },
-	{ visible: undefined, label: 'col3', order: 3 },
-	{ visible: undefined, label: 'col4', order: 4 },
+	{ visible: true, label: 'col1', locked: true, order: 1 },
+	{ visible: true, label: 'col2', locked: true, order: 2 },
+	{ visible: true, label: 'col3', order: 3 },
+	{ visible: true, label: 'col4', order: 4 },
 	{ visible: true, label: 'col5', order: 5 },
-	{ visible: undefined, label: 'col6', order: 6 },
+	{ visible: false, label: 'col6', order: 6 },
 ];
 
 describe('ColumnChooserHeader', () => {

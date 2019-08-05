@@ -45,8 +45,8 @@ const setColumnLocked = (lockedLeftItems, index) => column => {
 };
 
 const setColumnHidden = column => {
-	if (column.hidden === undefined) {
-		return { ...column, hidden: false };
+	if (column.visible === undefined) {
+		return { ...column, visible: false };
 	}
 	return column;
 };
