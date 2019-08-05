@@ -7,7 +7,7 @@ import { getTheme } from '../../../../../theme';
 
 const theme = getTheme(cssModule);
 
-const filterVisibleColumns = column => !column.hidden;
+const filterVisibleColumns = column => column.visible;
 
 const Default = () => {
 	const { columnsChooser, t } = useColumnChooserContext();
