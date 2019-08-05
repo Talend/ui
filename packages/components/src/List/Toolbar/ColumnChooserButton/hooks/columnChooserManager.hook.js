@@ -89,7 +89,7 @@ export const useColumnChooserManager = (initColumns = [], nbLockedLeftItems = 0)
 		});
 	};
 
-	const onChangeVisibility = label => value => {
+	const onChangeVisibility = (value, label) => {
 		const columnUpdated = flow([getColumn(label), updateAttributeVisibility(value)])(state.columns);
 		setColumn(columnUpdated, label)(state.columns);
 		updateState(state.columns);

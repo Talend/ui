@@ -22,7 +22,7 @@ const ColumnChooserTable = ({ columns = [], id, onClick, t }) =>
 				})}
 				label={column.label}
 				locked={column.locked}
-				onClick={onClick(column.label)}
+				onClick={onClick}
 				checked={column.visible}
 				t={t}
 			/>

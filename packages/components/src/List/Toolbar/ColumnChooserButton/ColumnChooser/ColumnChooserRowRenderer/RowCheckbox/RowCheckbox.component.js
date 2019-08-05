@@ -20,7 +20,7 @@ const RowCheckbox = ({
 	checked = false,
 }) => {
 	const onClickCheckbox = event => {
-		onClick(event.target.checked);
+		onClick(event.target.checked, label);
 	};
 	return locked ? (
 		<React.Fragment>
