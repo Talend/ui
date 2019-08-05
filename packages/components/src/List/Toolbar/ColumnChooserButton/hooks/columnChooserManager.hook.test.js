@@ -64,47 +64,47 @@ describe('useColumnChooserManager', () => {
 		testHook(() => (hookWithNoValue = useColumnChooserManager()));
 		expect(hookWithNoValue.columnsChooser).toEqual([]);
 	});
-	it('should have columns with some the first two left locked', () => {
+	it('should have some columns with the first two left locked', () => {
 		// given before each
 		// when mounting before each
 		// then
 		expect(columnChooserHook.columnsChooser).toEqual([
-			{ hidden: undefined, label: 'Id', locked: true, order: 1 },
-			{ hidden: undefined, label: 'Name', locked: true, order: 2 },
-			{ hidden: undefined, label: 'Author', order: 3 },
-			{ hidden: undefined, label: 'Modified', order: 4 },
+			{ hidden: false, label: 'Id', locked: true, order: 1 },
+			{ hidden: false, label: 'Name', locked: true, order: 2 },
+			{ hidden: false, label: 'Author', order: 3 },
+			{ hidden: false, label: 'Modified', order: 4 },
 			{ hidden: true, label: 'Icon', order: 5 },
-			{ hidden: undefined, label: 'Created', order: 6 },
+			{ hidden: false, label: 'Created', order: 6 },
 		]);
 	});
 	it('should change the hidden property of the third column', () => {
 		// given before each
 		// when
-		expect(columnChooserHook.columnsChooser[2].hidden).toBe(undefined);
-		act(() => columnChooserHook.onChangeVisibility(2, true));
+		expect(columnChooserHook.columnsChooser[2].hidden).toBe(false);
+		act(() => columnChooserHook.onChangeVisibility('Author')(true));
 		// then
 		expect(columnChooserHook.columnsChooser[2].hidden).toBe(true);
 	});
 	it('should not change the hidden property of the second column which is locked', () => {
 		// given before each
 		// when
-		expect(columnChooserHook.columnsChooser[1].hidden).toBe(undefined);
-		act(() => columnChooserHook.onChangeVisibility(1, true));
+		expect(columnChooserHook.columnsChooser[1].hidden).toBe(false);
+		act(() => columnChooserHook.onChangeVisibility('Name')(true));
 		// then
-		expect(columnChooserHook.columnsChooser[1].hidden).toBe(undefined);
+		expect(columnChooserHook.columnsChooser[1].hidden).toBe(false);
 	});
 	it('should change the hidden value of every column except the locked ones', () => {
 		// given before each
 		// when
-		expect(columnChooserHook.columnsChooser[0].hidden).toBe(undefined);
-		expect(columnChooserHook.columnsChooser[1].hidden).toBe(undefined);
-		expect(columnChooserHook.columnsChooser[2].hidden).toBe(undefined);
-		expect(columnChooserHook.columnsChooser[3].hidden).toBe(undefined);
+		expect(columnChooserHook.columnsChooser[0].hidden).toBe(false);
+		expect(columnChooserHook.columnsChooser[1].hidden).toBe(false);
+		expect(columnChooserHook.columnsChooser[2].hidden).toBe(false);
+		expect(columnChooserHook.columnsChooser[3].hidden).toBe(false);
 		expect(columnChooserHook.columnsChooser[4].hidden).toBe(true);
 		act(() => columnChooserHook.onSelectAll(false));
 		// then
-		expect(columnChooserHook.columnsChooser[0].hidden).toBe(undefined);
-		expect(columnChooserHook.columnsChooser[1].hidden).toBe(undefined);
+		expect(columnChooserHook.columnsChooser[0].hidden).toBe(false);
+		expect(columnChooserHook.columnsChooser[1].hidden).toBe(false);
 		expect(columnChooserHook.columnsChooser[2].hidden).toBe(true);
 		expect(columnChooserHook.columnsChooser[3].hidden).toBe(true);
 		expect(columnChooserHook.columnsChooser[4].hidden).toBe(true);

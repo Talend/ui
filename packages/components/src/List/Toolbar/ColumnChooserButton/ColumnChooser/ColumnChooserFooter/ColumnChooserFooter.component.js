@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import ActionButton from '../../../../../Actions/ActionButton';
 import SelectAllColumnsCheckbox from '../SelectAllColumnsCheckbox';
 import { useColumnChooserContext } from '../columnChooser.context';
-import theme from '../ColumnChooser.scss';
 import Tooltip from '../../../../../Tooltip';
+import cssModule from '../ColumnChooser.scss';
+import { getTheme } from '../../../../../theme';
+
+const theme = getTheme(cssModule);
 
 const SubmitButton = () => {
 	const { id, t } = useColumnChooserContext();
@@ -19,19 +21,14 @@ const SubmitButton = () => {
 	);
 };
 
-const ColumnChooserFooter = ({ children = <SubmitButton />, className }) => {
-	const { id } = useColumnChooserContext();
-	return (
-		<Tooltip.Footer
-			id={id}
-			className={
-				(className, classNames(theme['tc-column-chooser-footer'], 'tc-column-chooser-footer'))
-			}
-		>
-			{children}
-		</Tooltip.Footer>
-	);
-};
+const ColumnChooserFooter = ({ children = <SubmitButton />, className }) => (
+	<Tooltip.Footer
+		id={'column-chooser-footer'}
+		className={(className, theme('tc-column-chooser-footer'))}
+	>
+		{children}
+	</Tooltip.Footer>
+);
 
 ColumnChooserFooter.Submit = SubmitButton;
 ColumnChooserFooter.SelectAll = SelectAllColumnsCheckbox;

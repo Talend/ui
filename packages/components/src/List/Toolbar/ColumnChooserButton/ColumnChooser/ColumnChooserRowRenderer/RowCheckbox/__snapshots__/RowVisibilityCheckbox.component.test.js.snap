@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`RowVisibilityCheckbox should render a checked checkbox input by default 1`] = `"<div class=\\"theme-tc-column-chooser-row-visibility tc-column-chooser-row-visibility\\"><input aria-label=\\"change visibility\\" class=\\"theme-tc-column-chooser-row-visibility-checkbox tc-column-chooser-row-visibility-checkbox\\" type=\\"checkbox\\" value=\\"true\\" checked=\\"\\"></div>"`;
