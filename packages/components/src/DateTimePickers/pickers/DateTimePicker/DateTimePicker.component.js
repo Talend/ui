@@ -3,14 +3,12 @@ import PropTypes from 'prop-types';
 import getMonth from 'date-fns/get_month';
 import getYear from 'date-fns/get_year';
 import startOfDay from 'date-fns/start_of_day';
-import { withTranslation } from 'react-i18next';
 
 import theme from './DateTimePicker.scss';
 import DateTimeView from '../../views/DateTimeView';
 import MonthYearView from '../../views/MonthYearView';
 import { focusOnCalendar } from '../../../Gesture/withCalendarGesture';
 import Action from '../../../Actions/Action/Action.component';
-import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import getDefaultT from '../../../translate';
 
 class DateTimePicker extends React.Component {
@@ -248,4 +246,4 @@ DateTimePicker.defaultProps = {
 	selection: {},
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(DateTimePicker);
+export default DateTimePicker;
