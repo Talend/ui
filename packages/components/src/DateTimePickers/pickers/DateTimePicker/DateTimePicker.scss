@@ -10,19 +10,18 @@
 	}
 }
 
-.footer{
+.footer {
 	:global {
-		.btn-link{
+		.btn-link {
 			color: $st-tropaz;
 			text-decoration: none;
 
-
-			:hover{
-				background-color: rgba( $st-tropaz, 0.1);
+			:hover {
+				background-color: rgba($st-tropaz, 0.1);
 				transition: opacity 0.1s ease-in;
 			}
-			:focus{
-				background-color: rgba( $st-tropaz, 0.2);
+			:focus {
+				background-color: rgba($st-tropaz, 0.2);
 			}
 		}
 	}
@@ -30,9 +29,9 @@
 
 .btn-today {
 	color: $st-tropaz;
-	font-weight:bold;
+	font-weight: bold;
 	text-transform: uppercase;
-	padding: 0px;
+	padding: 0;
 	height: 25px;
 	>span {
 		border-radius: 4px;
