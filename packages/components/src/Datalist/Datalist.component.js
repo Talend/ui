@@ -155,6 +155,10 @@ class Datalist extends Component {
 					this.updateSelectedIndexes(this.state.value);
 					break;
 				}
+				console.log('[NC] focus : ', {
+					focusedItemIndex: newHighlightedItemIndex,
+					focusedSectionIndex: newHighlightedSectionIndex,
+				});
 				this.setState({
 					focusedItemIndex: newHighlightedItemIndex,
 					focusedSectionIndex: newHighlightedSectionIndex,
