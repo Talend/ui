@@ -76,7 +76,8 @@ function storyWithErrors() {
 			<h2>Hover submit handler with errors</h2>
 			<p>
 				Submit can detect if mouse enters or leaves by using <code>onSubmitEnter</code> and{' '}
-				<code>onSubmitLeave</code>
+				<code>onSubmitLeave</code> but it will never trigger <code>onSubmitEnter</code> since the form is{' '}
+				invalid
 			</p>
 			<UIFormWithOnSubmitHover errors={errors} />
 		</div>
