@@ -21,8 +21,6 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 .tc-typeahead-container {
 	position: relative;
 	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
 	width: auto;
 
 	&.loading {
@@ -94,9 +92,14 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		}
 
 		.icon-caret {
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			position: absolute;
-			margin: 0;
+			top: 0;
 			right: 0;
+			bottom: 0;
+			margin: 0;
 
 			> svg {
 				height: 0.8rem;
@@ -156,11 +159,19 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 	padding: $padding-normal;
 	cursor: pointer;
 	white-space: pre;
+	align-items: center;
 
 	&-description {
 		margin-bottom: 0;
 		font-size: 1.3rem;
 		color: $tc-typeahead-item-description-color;
+	}
+
+	&-icon {
+		width: $svg-md-size;
+		height: $svg-md-size;
+		color: $black;
+		margin-right: $padding-normal;
 	}
 
 	&:hover {
