@@ -34,6 +34,7 @@ export class UIFormComponent extends React.Component {
 		this.onChange = this.onChange.bind(this);
 		this.onFinish = this.onFinish.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
+		this.onSubmitEnter = this.onSubmitEnter.bind(this);
 		this.onTrigger = this.onTrigger.bind(this);
 		this.onActionClick = this.onActionClick.bind(this);
 		this.focusFirstError = this.focusFirstError.bind(this);
@@ -216,6 +217,32 @@ export class UIFormComponent extends React.Component {
 			event.preventDefault();
 		}
 
+		const isValid = this.validate();
+
+		if (this.props.onSubmit && isValid) {
+			const { properties } = this.props;
+			if (this.props.moz) {
+				this.props.onSubmit(null, { formData: properties });
+			} else {
+				this.props.onSubmit(event, properties, this.state.mergedSchema);
+			}
+		}
+
+		return isValid;
+	}
+
+	onSubmitEnter(event) {
+		const { onSubmitEnter, properties } = this.props;
+		if (onSubmitEnter && this.validate()) {
+			onSubmitEnter(event, properties);
+		}
+	}
+
+	setFormRef(element) {
+		this.formRef = element;
+	}
+
+	validate() {
 		const { mergedSchema } = this.state;
 		const { properties, customValidation } = this.props;
 		const newErrors = validateAll(mergedSchema, properties, customValidation);
@@ -234,23 +261,9 @@ export class UIFormComponent extends React.Component {
 				accu[key] = value;
 				return accu;
 			}, {});
-
 		const isValid = !Object.keys(errors).length;
 		this.props.setErrors(event, errors, !isValid ? this.focusFirstError : undefined);
-
-		if (this.props.onSubmit && isValid) {
-			if (this.props.moz) {
-				this.props.onSubmit(null, { formData: properties });
-			} else {
-				this.props.onSubmit(event, properties, mergedSchema);
-			}
-		}
-
 		return isValid;
-	}
-
-	setFormRef(element) {
-		this.formRef = element;
 	}
 
 	focusFirstError() {
@@ -266,7 +279,7 @@ export class UIFormComponent extends React.Component {
 	}
 
 	render() {
-		const { onSubmitEnter, onSubmitLeave, properties } = this.props;
+		const { onSubmitEnter, onSubmitLeave } = this.props;
 		let actions = this.props.actions || [
 			{
 				bsStyle: 'primary',
@@ -285,7 +298,7 @@ export class UIFormComponent extends React.Component {
 				if (action.type === 'submit') {
 					return {
 						...action,
-						onMouseEnter: event => onSubmitEnter(event, properties),
+						onMouseEnter: this.onSubmitEnter,
 						onMouseLeave: onSubmitLeave,
 					};
 				}

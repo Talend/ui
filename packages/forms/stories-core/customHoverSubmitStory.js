@@ -24,7 +24,12 @@ const schema = {
 	},
 };
 
-function UIFormWithOnSubmitHover() {
+const errors = schema.uiSchema.reduce((acc, current) => ({
+	...acc,
+	[current.key.split('.').join(',')]: 'There is an error',
+}), {});
+
+function UIFormWithOnSubmitHover(props) {
 	const [hover, setHover] = useState(0);
 	return (
 		<div
@@ -46,6 +51,7 @@ function UIFormWithOnSubmitHover() {
 					action('onSubmitLeave')(...args);
 					setHover(false);
 				}}
+				{...props}
 			/>
 		</div>
 	);
@@ -64,7 +70,26 @@ function story() {
 	);
 }
 
-export default {
-	name: 'Core Concept hover submit',
-	story,
-};
+function storyWithErrors() {
+	return (
+		<div>
+			<h2>Hover submit handler with errors</h2>
+			<p>
+				Submit can detect if mouse enters or leaves by using <code>onSubmitEnter</code> and{' '}
+				<code>onSubmitLeave</code>
+			</p>
+			<UIFormWithOnSubmitHover errors={errors} />
+		</div>
+	);
+}
+
+export default [
+	{
+		name: 'Core Concept hover submit',
+		story,
+	},
+	{
+		name: 'Core Concept hover submit with errors',
+		story: storyWithErrors,
+	},
+];

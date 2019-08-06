@@ -49,4 +49,4 @@ coreConceptsStories.add(customActionsStory.name, customActionsStory.story);
 coreConceptsStories.add(customUpdating.name, customUpdating.story);
 coreConceptsStories.add(customErrors.name, customErrors.story);
 coreConceptsStories.add(customDisplayMode.name, customDisplayMode.story);
-coreConceptsStories.add(customHoverSubmitStory.name, customHoverSubmitStory.story);
+customHoverSubmitStory.forEach(({ name, story }) => coreConceptsStories.add(name, story));
