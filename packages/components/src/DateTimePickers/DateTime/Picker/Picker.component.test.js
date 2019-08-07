@@ -26,7 +26,7 @@ describe('DateTime.Picker', () => {
 				useSeconds: true,
 				useUTC: false,
 			},
-           t: jest.fn(),
+			t: jest.fn(),
 		};
 
 		// when
