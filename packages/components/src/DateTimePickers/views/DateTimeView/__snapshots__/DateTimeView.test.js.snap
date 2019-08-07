@@ -22,20 +22,6 @@ exports[`DateTimeView should render 1`] = `
           onSelect={[MockFunction]}
         />
       </div>
-      <div
-        className="theme-time"
-      >
-        <withI18nextTranslation(TimePicker)
-          allowFocus={true}
-          onChange={[MockFunction]}
-          value={
-            Object {
-              "hours": "15",
-              "minutes": "45",
-            }
-          }
-        />
-      </div>
     </div>
   }
   header={

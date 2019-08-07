@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Action } from '../../../Actions';
 import DatePicker from '../../pickers/DatePicker';
-import TimePicker from '../../pickers/TimePicker';
 import ViewLayout from '../ViewLayout';
 import HeaderTitle from '../HeaderTitle';
 import theme from './DateTimeView.scss';
@@ -50,20 +49,6 @@ class DateTimeView extends React.PureComponent {
 
 		this.goToPreviousMonth = this.incrementMonthIndex.bind(this, -1);
 		this.goToNextMonth = this.incrementMonthIndex.bind(this, 1);
-	}
-
-	getTimePicker() {
-		return (
-			<div key="time" className={theme.time}>
-				<TimePicker
-					allowFocus={this.props.allowFocus}
-					value={this.props.selectedTime}
-					onChange={this.props.onSelectTime}
-					useSeconds={this.props.useSeconds}
-					useUTC={this.props.useUTC}
-				/>
-			</div>
-		);
 	}
 
 	incrementMonthIndex(monthIncrement, callback) {
@@ -132,7 +117,6 @@ class DateTimeView extends React.PureComponent {
 						goToNextMonth={this.goToNextMonth}
 					/>
 				</div>
-				{this.props.useTime && this.getTimePicker()}
 			</div>
 		);
 
