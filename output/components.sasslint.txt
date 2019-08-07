@@ -1,9 +1,6 @@
 > sass-lint -v -q
 
 
-src/DateTimePickers/pickers/TimePicker/TimePicker.scss
-  26:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
-
 src/Drawer/Drawer.scss
   15:4  warning  Statement must begin on a new line  brace-style
 
@@ -22,5 +19,5 @@ src/List/Toolbar/Toolbar.scss
 src/Typeahead/Typeahead.scss
   31:5  error  Mixins should come before declarations  mixins-before-declarations
 
-✖ 9 problems (7 errors, 2 warnings)
+✖ 8 problems (6 errors, 2 warnings)
 

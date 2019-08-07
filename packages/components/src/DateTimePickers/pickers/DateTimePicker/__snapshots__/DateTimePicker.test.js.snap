@@ -6,7 +6,7 @@ exports[`DateTimePicker should render 1`] = `
   className="theme-container"
   tabIndex={0}
 >
-  <withI18nextTranslation(DateTimeView)
+  <withI18nextTranslation(DateView)
     allowFocus={true}
     calendar={
       Object {

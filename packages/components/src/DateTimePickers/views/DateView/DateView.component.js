@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Action } from '../../../Actions';
 import DatePicker from '../../pickers/DatePicker';
-import TimePicker from '../../pickers/TimePicker';
 import ViewLayout from '../ViewLayout';
 import HeaderTitle from '../HeaderTitle';
-import theme from './DateTimeView.scss';
+import theme from './DateView.scss';
 import getDefaultT from '../../../translate';
 
 /**
@@ -19,7 +18,7 @@ function euclideanModulo(dividend, divisor) {
 	return modulo < 0 ? modulo + Math.abs(divisor) : modulo;
 }
 
-class DateTimeView extends React.PureComponent {
+class DateView extends React.PureComponent {
 	static propTypes = {
 		allowFocus: PropTypes.bool,
 		calendar: PropTypes.shape({
@@ -29,15 +28,7 @@ class DateTimeView extends React.PureComponent {
 		onTitleClick: PropTypes.func.isRequired,
 		onSelectMonthYear: PropTypes.func.isRequired,
 		onSelectDate: PropTypes.func.isRequired,
-		onSelectTime: PropTypes.func.isRequired,
 		selectedDate: PropTypes.instanceOf(Date),
-		selectedTime: PropTypes.shape({
-			hours: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-			minutes: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-		}),
-		useSeconds: PropTypes.bool,
-		useTime: PropTypes.bool,
-		useUTC: PropTypes.bool,
 		t: PropTypes.func.isRequired,
 	};
 
@@ -50,20 +41,6 @@ class DateTimeView extends React.PureComponent {
 
 		this.goToPreviousMonth = this.incrementMonthIndex.bind(this, -1);
 		this.goToNextMonth = this.incrementMonthIndex.bind(this, 1);
-	}
-
-	getTimePicker() {
-		return (
-			<div key="time" className={theme.time}>
-				<TimePicker
-					allowFocus={this.props.allowFocus}
-					value={this.props.selectedTime}
-					onChange={this.props.onSelectTime}
-					useSeconds={this.props.useSeconds}
-					useUTC={this.props.useUTC}
-				/>
-			</div>
-		);
 	}
 
 	incrementMonthIndex(monthIncrement, callback) {
@@ -132,7 +109,6 @@ class DateTimeView extends React.PureComponent {
 						goToNextMonth={this.goToNextMonth}
 					/>
 				</div>
-				{this.props.useTime && this.getTimePicker()}
 			</div>
 		);
 
@@ -140,4 +116,4 @@ class DateTimeView extends React.PureComponent {
 	}
 }
 
-export default DateTimeView;
+export default DateView;

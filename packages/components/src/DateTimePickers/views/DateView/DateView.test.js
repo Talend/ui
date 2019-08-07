@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import cases from 'jest-in-case';
 
-import DateTimeView from './DateTimeView.component';
+import DateView from './DateView.component';
 
 function getActions(wrapper) {
 	return wrapper
@@ -23,11 +23,11 @@ function clickOnNextMonth(wrapper) {
 		.simulate('click');
 }
 
-describe('DateTimeView', () => {
+describe('DateView', () => {
 	it('should render', () => {
 		// when
 		const wrapper = shallow(
-			<DateTimeView
+			<DateView
 				allowFocus
 				calendar={{
 					monthIndex: 5,
@@ -49,7 +49,7 @@ describe('DateTimeView', () => {
 	it('should render without timePicker', () => {
 		// when
 		const wrapper = shallow(
-			<DateTimeView
+			<DateView
 				allowFocus
 				calendar={{
 					monthIndex: 5,
@@ -71,7 +71,7 @@ describe('DateTimeView', () => {
 		// given
 		const onTitleClick = jest.fn();
 		const wrapper = mount(
-			<DateTimeView
+			<DateView
 				calendar={{
 					monthIndex: 5,
 					year: 2006,
@@ -98,7 +98,7 @@ describe('DateTimeView', () => {
 	it('should manage tabIndex', () => {
 		// given
 		const wrapper = mount(
-			<DateTimeView
+			<DateView
 				calendar={{
 					monthIndex: 5,
 					year: 2006,
@@ -137,7 +137,7 @@ describe('DateTimeView', () => {
 			// given
 			const onSelectMonthYear = jest.fn();
 			const wrapper = shallow(
-				<DateTimeView
+				<DateView
 					calendar={calendar}
 					onTitleClick={jest.fn()}
 					onSelectMonthYear={onSelectMonthYear}
