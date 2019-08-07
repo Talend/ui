@@ -227,4 +227,21 @@ describe('DateTimePicker', () => {
 			expect(onSubmit).toBeCalledWith(event, { date: initialDate, time });
 		});
 	});
+
+    describe('today function', () => {
+        it('should switch state to DateTimeView when Today is clicked', () => {
+            // given
+            const wrapper = mount(<DateTimePicker onSubmit={() => {}} />);
+            wrapper.setState({ isDateTimeView: false });
+
+            // when
+            wrapper
+                .find('.theme-btn-today')
+                .at(0)
+                .simulate('click');
+
+            // then
+            expect(wrapper.state('isDateTimeView')).toBe(true);
+        });
+	});
 });
