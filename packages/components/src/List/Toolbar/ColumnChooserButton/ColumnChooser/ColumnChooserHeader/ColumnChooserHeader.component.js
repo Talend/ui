@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useColumnChooserContext } from '../columnChooser.context';
-import Tooltip from '../../../../../Tooltip';
+import RichLayout from '../../../../../RichTooltip/RichLayout';
 import cssModule from '../ColumnChooser.scss';
 import { getTheme } from '../../../../../theme';
 
@@ -22,15 +22,20 @@ const Default = () => {
 					defaultValue: 'Modify columns',
 				})}
 			</div>
-			<div id="selected-columns-text">{`${lengthVisibleColumns}/${columnsChooser.length} ${selectedColumns}`}</div>
+			<div id="selected-columns-text">{`${lengthVisibleColumns}/${
+				columnsChooser.length
+			} ${selectedColumns}`}</div>
 		</div>
 	);
 };
 
 const ColumnChooserHeader = ({ className, children = <Default /> }) => (
-	<Tooltip.Header id="column-chooser" className={theme('tc-column-chooser-header', className)}>
+	<RichLayout.Header
+		id="column-chooser-header"
+		className={theme('tc-column-chooser-header', className)}
+	>
 		{children}
-	</Tooltip.Header>
+	</RichLayout.Header>
 );
 
 ColumnChooserHeader.propTypes = {
