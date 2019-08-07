@@ -3,7 +3,6 @@ import { mount } from 'enzyme';
 
 import { DateTimeContext } from '../Context';
 import Picker from './Picker.component';
-import getDefaultT from '../../../translate';
 
 describe('DateTime.Picker', () => {
 	it('should render', () => {
