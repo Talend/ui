@@ -41,6 +41,7 @@ class DateTimePicker extends React.Component {
 		this.disallowFocus = this.setAllowFocus.bind(this, false);
 		this.setDateTimeView = this.setView.bind(this, true);
 		this.setMonthYearView = this.setView.bind(this, false);
+		this.onClickToday = this.onClickToday.bind(this);
 	}
 
 	componentDidMount() {
@@ -134,17 +135,19 @@ class DateTimePicker extends React.Component {
 		});
 	}
 
+	onClickToday(event){
+        const now = new Date();
+        if (!this.state.isDateTimeView) {
+            this.onSelectCalendarYear(event, getYear(now));
+            this.onSelectCalendarMonth(event, getMonth(now));
+            this.setView(true);
+        }
+        this.onSelectDate(event, startOfDay(now));
+	}
+
 	render() {
 		let viewElement;
-		const todayFunction = event => {
-			const now = new Date();
-			if (!this.state.isDateTimeView) {
-				this.onSelectCalendarYear(event, getYear(now));
-				this.onSelectCalendarMonth(event, getMonth(now));
-				this.setView(true);
-			}
-			this.onSelectDate(event, startOfDay(now));
-		};
+
 
 		if (this.state.isDateTimeView) {
 			viewElement = (
@@ -193,7 +196,7 @@ class DateTimePicker extends React.Component {
 						aria-label={this.props.t('DATEPICKER_SELECT_TODAY', {
 							defaultValue: 'Select Today',
 						})}
-						onClick={todayFunction}
+						onClick={this.onClickToday}
 						className={theme['btn-today']}
 						link
 					/>
