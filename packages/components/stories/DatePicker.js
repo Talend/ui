@@ -82,57 +82,6 @@ storiesOf('DatePicker', module)
 			<TestPickerWrapper id="my-date-picker" onChange={action('onChange')} name="Datetime" />
 		</div>
 	))
-	.add('Date picker - time', () => (
-		<div>
-			<IconsProvider />
-			<h1>DatePicker with time</h1>
-			<p>You can require time with a simple "useTime" props.</p>
-			<pre>{`
-<InputDateTimePicker
-	id="my-date-picker"
-	...
-	useTime
-/>
-			`}</pre>
-			<form style={{ width: 320 }}>
-				<InputDateTimePicker
-					id="my-date-picker"
-					name="Datetime"
-					onBlur={action('onBlur')}
-					onChange={action('onChange')}
-					useTime
-				/>
-			</form>
-		</div>
-	))
-	.add('Date picker - seconds', () => (
-		<div>
-			<IconsProvider />
-			<h1>DatePicker with seconds</h1>
-			<p>
-				By default, time is only hours and minutes (HH:mm). You can require seconds with a simple
-				"useSeconds" props.
-			</p>
-			<pre>{`
-<InputDateTimePicker
-	id="my-date-picker"
-	...
-	useTime
-	useSeconds
-/>
-			`}</pre>
-			<form style={{ width: 320 }}>
-				<InputDateTimePicker
-					id="my-date-picker"
-					name="Datetime"
-					onBlur={action('onBlur')}
-					onChange={action('onChange')}
-					useSeconds
-					useTime
-				/>
-			</form>
-		</div>
-	))
 	.add('Date picker - UTC', () => (
 		<div>
 			<IconsProvider />
