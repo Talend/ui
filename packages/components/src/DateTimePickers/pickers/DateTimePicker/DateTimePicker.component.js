@@ -191,8 +191,8 @@ class DateTimePicker extends React.Component {
 				<div className={theme.footer}>
 					<Action
 						label={this.props.t('DATEPICKER_TODAY_ACTION', {
-                            defaultValue: 'Today',
-                        })}
+							defaultValue: 'Today',
+						})}
 						aria-label={this.props.t('DATEPICKER_SELECT_TODAY', {
 							defaultValue: 'Select Today',
 						})}
