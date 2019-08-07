@@ -4,7 +4,7 @@ import { Action } from '../../../Actions';
 import DatePicker from '../../pickers/DatePicker';
 import ViewLayout from '../ViewLayout';
 import HeaderTitle from '../HeaderTitle';
-import theme from './DateTimeView.scss';
+import theme from './DateView.scss';
 import getDefaultT from '../../../translate';
 
 /**
@@ -18,7 +18,7 @@ function euclideanModulo(dividend, divisor) {
 	return modulo < 0 ? modulo + Math.abs(divisor) : modulo;
 }
 
-class DateTimeView extends React.PureComponent {
+class DateView extends React.PureComponent {
 	static propTypes = {
 		allowFocus: PropTypes.bool,
 		calendar: PropTypes.shape({
@@ -116,4 +116,4 @@ class DateTimeView extends React.PureComponent {
 	}
 }
 
-export default DateTimeView;
+export default DateView;

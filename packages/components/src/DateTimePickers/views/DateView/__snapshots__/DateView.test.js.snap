@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DateTimeView should render 1`] = `
+exports[`DateView should render 1`] = `
 <ViewLayout
   bodyElement={
     <div
@@ -59,7 +59,7 @@ exports[`DateTimeView should render 1`] = `
 />
 `;
 
-exports[`DateTimeView should render without timePicker 1`] = `
+exports[`DateView should render without timePicker 1`] = `
 <ViewLayout
   bodyElement={
     <div
