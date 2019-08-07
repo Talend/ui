@@ -12,8 +12,8 @@ import { getTheme } from '../../../../theme';
 
 const theme = getTheme(cssModule);
 
-const haveColumnLabel = label => column => column.label.toLowerCase().includes(label.toLowerCase());
-const filterColumnsChooser = (columns, filter) => columns.filter(haveColumnLabel(filter));
+const hasColumnLabel = label => column => column.label.toLowerCase().includes(label.toLowerCase());
+const filterColumnsChooser = (columns, filter) => columns.filter(hasColumnLabel(filter));
 const changeVisibleToHidden = column => ({ ...column, hidden: !column.visible });
 const transformColumnsChooser = columns => columns.map(changeVisibleToHidden);
 
