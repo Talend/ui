@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 
 import { DateTimeContext } from '../Context';
 import Picker from './Picker.component';
+import getDefaultT from "../../../translate";
 
 describe('DateTime.Picker', () => {
 	it('should render', () => {
@@ -25,12 +26,13 @@ describe('DateTime.Picker', () => {
 				useSeconds: true,
 				useUTC: false,
 			},
+           t: jest.fn(),
 		};
 
 		// when
 		const wrapper = mount(
 			<DateTimeContext.Provider value={managerValue}>
-				<Picker other="custom props" />
+				<Picker other="custom props"/>
 			</DateTimeContext.Provider>,
 		);
 
@@ -46,6 +48,7 @@ describe('DateTime.Picker', () => {
 			useSeconds: true,
 			useTime: true,
 			useUTC: false,
+			t: expect.any(Function),
 		});
 	});
 
