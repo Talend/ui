@@ -173,7 +173,7 @@ The component holds reference :
 
 ### ColumnChooserRowRenderer
 
-The row renderer only render its children.
+It only renders its children.
 It holds reference to other components: , .
 By default, it consumes the [columnChooserContext](#columnchoosercontext).
 
