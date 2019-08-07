@@ -4,7 +4,7 @@ import getMonth from 'date-fns/get_month';
 import getYear from 'date-fns/get_year';
 
 import theme from './DateTimePicker.scss';
-import DateTimeView from '../../views/DateTimeView';
+import DateView from '../../views/DateView';
 import MonthYearView from '../../views/MonthYearView';
 import { focusOnCalendar } from '../../../Gesture/withCalendarGesture';
 
@@ -18,7 +18,7 @@ class DateTimePicker extends React.Component {
 		const initialCalendarDate = selectedDate === undefined ? new Date() : selectedDate;
 
 		this.state = {
-			isDateTimeView: true,
+			isDateView: true,
 			calendar: {
 				monthIndex: getMonth(initialCalendarDate),
 				year: getYear(initialCalendarDate),
@@ -117,8 +117,8 @@ class DateTimePicker extends React.Component {
 		this.setState({ allowFocus: value });
 	}
 
-	setView(isDateTimeView) {
-		this.setState({ isDateTimeView }, () => {
+	setView(isDateView) {
+		this.setState({ isDateView }, () => {
 			focusOnCalendar(this.pickerRef);
 		});
 	}
@@ -134,9 +134,9 @@ class DateTimePicker extends React.Component {
 	render() {
 		let viewElement;
 
-		if (this.state.isDateTimeView) {
+		if (this.state.isDateView) {
 			viewElement = (
-				<DateTimeView
+				<DateView
 					allowFocus={this.state.allowFocus}
 					calendar={this.state.calendar}
 					onSelectDate={this.onSelectDate}

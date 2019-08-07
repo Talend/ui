@@ -2,7 +2,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 
 import DateTimePicker from './DateTimePicker.component';
-import DateTimeView from '../../views/DateTimeView';
+import DateView from '../../views/DateView';
 import MonthYearView from '../../views/MonthYearView';
 
 describe('DateTimePicker', () => {
@@ -25,7 +25,7 @@ describe('DateTimePicker', () => {
 		const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
 
 		// then
-		const dateTimeView = wrapper.find(DateTimeView);
+		const dateTimeView = wrapper.find(DateView);
 		expect(dateTimeView.prop('calendar')).toEqual({
 			monthIndex: 4,
 			year: 2016,
@@ -91,39 +91,39 @@ describe('DateTimePicker', () => {
 	});
 
 	describe('view switching', () => {
-		it('should switch state to MonthYearView when header title of DateTimeView is clicked', () => {
+		it('should switch state to MonthYearView when header title of DateView is clicked', () => {
 			// given
 			const wrapper = mount(<DateTimePicker onSubmit={() => {}} />);
-			wrapper.setState({ isDateTimeView: true });
+			wrapper.setState({ isDateView: true });
 
 			// when
-			const clickTitleHandler = wrapper.find(DateTimeView).prop('onTitleClick');
+			const clickTitleHandler = wrapper.find(DateView).prop('onTitleClick');
 			clickTitleHandler();
 
 			// then
-			expect(wrapper.state('isDateTimeView')).toBe(false);
+			expect(wrapper.state('isDateView')).toBe(false);
 		});
 
-		it('should switch state to DateTimeView when header back action of MonthYearView is clicked', () => {
+		it('should switch state to DateView when header back action of MonthYearView is clicked', () => {
 			// given
 			const wrapper = mount(<DateTimePicker onSubmit={() => {}} />);
-			wrapper.setState({ isDateTimeView: false });
+			wrapper.setState({ isDateView: false });
 
 			// when
 			const clickBackHandler = wrapper.find(MonthYearView).prop('onBackClick');
 			clickBackHandler();
 
 			// then
-			expect(wrapper.state('isDateTimeView')).toBe(true);
+			expect(wrapper.state('isDateView')).toBe(true);
 		});
 
 		it('should switch to new month/year value from day picker', () => {
 			// given
 			const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
-			wrapper.setState({ isDateTimeView: true, calendar: { monthIndex: 10, year: 2018 } });
+			wrapper.setState({ isDateView: true, calendar: { monthIndex: 10, year: 2018 } });
 
 			// when
-			wrapper.find(DateTimeView).prop('onSelectMonthYear')({ monthIndex: 5, year: 2016 });
+			wrapper.find(DateView).prop('onSelectMonthYear')({ monthIndex: 5, year: 2016 });
 
 			// then`
 			const calendar = wrapper.state('calendar');
@@ -134,7 +134,7 @@ describe('DateTimePicker', () => {
 		it('should switch to new month from monthYear picker', () => {
 			// given
 			const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
-			wrapper.setState({ isDateTimeView: false, calendar: { monthIndex: 10, year: 2018 } });
+			wrapper.setState({ isDateView: false, calendar: { monthIndex: 10, year: 2018 } });
 			const event = { target: {} };
 
 			// when
@@ -148,7 +148,7 @@ describe('DateTimePicker', () => {
 		it('should switch to new year from monthYear picker', () => {
 			// given
 			const wrapper = shallow(<DateTimePicker onSubmit={() => {}} />);
-			wrapper.setState({ isDateTimeView: false, calendar: { monthIndex: 10, year: 2018 } });
+			wrapper.setState({ isDateView: false, calendar: { monthIndex: 10, year: 2018 } });
 			const event = { target: {} };
 
 			// when
@@ -200,7 +200,7 @@ describe('DateTimePicker', () => {
 			);
 
 			// when
-			wrapper.find(DateTimeView).prop('onSelectDate')(event, date);
+			wrapper.find(DateView).prop('onSelectDate')(event, date);
 
 			// then
 			expect(wrapper.state('selectedDate')).toBe(date);
@@ -220,7 +220,7 @@ describe('DateTimePicker', () => {
 			);
 
 			// when
-			wrapper.find(DateTimeView).prop('onSelectTime')(event, time);
+			wrapper.find(DateView).prop('onSelectTime')(event, time);
 
 			// then
 			expect(wrapper.state('selectedTime')).toBe(time);
