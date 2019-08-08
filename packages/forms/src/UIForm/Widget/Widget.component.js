@@ -72,7 +72,11 @@ export default function Widget(props) {
 
 	if (tooltip) {
 		return (
-			<TooltipTrigger className={theme.tooltip} label={tooltip} tooltipPlacement={tooltipPlacement || 'left'}>
+			<TooltipTrigger
+				className={theme.tooltip}
+				label={tooltip}
+				tooltipPlacement={tooltipPlacement || 'left'}
+			>
 				<div>
 					<WidgetImpl {...all} />
 				</div>
