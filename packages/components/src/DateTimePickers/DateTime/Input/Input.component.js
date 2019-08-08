@@ -15,7 +15,7 @@ export default function Input(props) {
 			className="form-control"
 			debounceTimeout={300}
 			onFocus={errorManagement.onInputFocus}
-			value={props.type === 'date' ? datetime.dateTextInput : datetime.timeTextInput}
+			value={datetime.textInput}
 			{...inputManagement}
 			{...props}
 			type="text"
