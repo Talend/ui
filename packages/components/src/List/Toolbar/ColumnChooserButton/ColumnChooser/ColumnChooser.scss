@@ -45,7 +45,6 @@ $tc-height: 4rem;
 		padding: 0 $padding-large;
 		display: flex;
 		align-items: center;
-		height: $tc-height;
 		min-height: $tc-height;
 
 		&-select-all {
@@ -72,7 +71,6 @@ $tc-height: 4rem;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			max-width: 21rem;
-			min-height: 0;
 		}
 
 		svg[name='talend-locked'] {
