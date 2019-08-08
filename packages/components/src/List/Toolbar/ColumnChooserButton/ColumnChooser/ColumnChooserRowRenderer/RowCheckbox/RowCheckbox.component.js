@@ -23,7 +23,7 @@ const RowCheckbox = ({
 	};
 	return locked ? (
 		<React.Fragment>
-			<Icon name="talend-locked" />
+			<Icon name="talend-locked" className={theme('tc-column-chooser-row-locked-icon')} />
 			<RowLabel label={label} />
 		</React.Fragment>
 	) : (
