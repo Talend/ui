@@ -24,6 +24,18 @@ $tc-datalist-item-height: 4rem !default;
 	}
 }
 
+.tc-datalist-item {
+	display: flex;
+	align-items: center;
+
+	.tc-datalist-item-icon {
+		width: $svg-md-size;
+		height: $svg-md-size;
+		color: $black;
+		margin-right: $padding-normal;
+	}
+}
+
 .items {
 	margin: 0;
 	padding: 0;
@@ -31,8 +43,6 @@ $tc-datalist-item-height: 4rem !default;
 
 	> li > div {
 		display: flex;
-		flex-direction: column;
-		justify-content: center;
 		height: $tc-datalist-item-height;
 		padding: 0 $padding-normal;
 		&:hover {
