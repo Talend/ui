@@ -304,23 +304,20 @@ const propsWithVirtualized = {
 	virtualized: true,
 	list: {
 		columns: [
-			{ key: 'id', label: 'Id', width: 50 },
-			{ key: 'name', label: 'Name', width: 600, resizable: true, header: 'resizable' },
-			{ key: 'author', label: 'Author', width: 600, resizable: true, header: 'resizable' },
+			{ key: 'id', label: 'Id' },
+			{ key: 'name', label: 'Name' },
+			{ key: 'author', label: 'Author' },
 			{
 				key: 'created',
 				label: 'Created',
 				type: 'datetime',
 				data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' },
-				width: 70,
 			},
 			{
 				key: 'modified',
 				label: 'Modified',
 				type: 'datetime',
 				data: { mode: 'ago' },
-				width: 100,
-				resizable: true,
 			},
 		],
 		items: [
