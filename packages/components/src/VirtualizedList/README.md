@@ -167,7 +167,7 @@ import { headerType as headerResizableType } from '../src/VirtualizedList/Header
 />;
 ```
 
-You must give a width to every column even the one not resizable, and the amount of all the sizes must be the width of your vList if you want to avoid glitches.
+You must give a width to every column even the one not resizable, and the amount of all the sizes must be equals to the width of your vList.
 Also you need to add the resizable header to headerRenderer props.
 
 | Props | Type | Description |
