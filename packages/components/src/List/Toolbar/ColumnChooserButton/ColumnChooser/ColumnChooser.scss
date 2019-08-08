@@ -28,7 +28,7 @@ $tc-height: 4rem;
 	}
 
 	&-filter {
-		margin: 0 $padding-small 0 $padding-small;
+		margin: 0 $padding-small;
 	}
 
 	&-body {
@@ -42,7 +42,7 @@ $tc-height: 4rem;
 	}
 
 	&-row {
-		padding: 0 $padding-large 0 $padding-large;
+		padding: 0 $padding-large;
 		display: flex;
 		align-items: center;
 		height: $tc-height;
