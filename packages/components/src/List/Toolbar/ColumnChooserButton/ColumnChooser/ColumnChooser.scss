@@ -13,12 +13,6 @@ $tc-height: 4rem;
 		justify-content: flex-end;
 	}
 
-	&-aria-hidden {
-		position: absolute;
-		left: -200em;
-		top: -20em;
-	}
-
 	&-header {
 		display: flex;
 		align-items: center;

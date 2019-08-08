@@ -38,7 +38,7 @@ const RowCheckbox = ({
 				label={label}
 				onChange={onChangeCheckbox}
 			/>
-			<div id={describedby} className={theme('tc-column-chooser-aria-hidden')}>
+			<div id={describedby} className="sr-only">
 				{description}
 			</div>
 		</React.Fragment>
