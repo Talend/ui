@@ -23,7 +23,7 @@ function ListColumnChooser({ list, ...rest }) {
 	};
 	const columnChooser = {
 		columns: columnsChooser,
-		submit: onSubmit,
+		onSubmit,
 		nbLockedLeftItems: 2,
 	};
 	return <List {...rest} list={enrichedList} columnChooser={columnChooser} />;

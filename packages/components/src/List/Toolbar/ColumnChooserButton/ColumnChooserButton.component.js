@@ -13,7 +13,7 @@ export default function ColumnChooserButton({
 	initialOpenedPopover,
 	placement = 'left',
 	nbLockedLeftItems,
-	submit,
+	onSubmit,
 	t = getDefaultT(),
 }) {
 	const [opened, setOpened] = useState(initialOpenedPopover || false);
@@ -23,7 +23,7 @@ export default function ColumnChooserButton({
 	const colChooserButtonId = `${id}-column-chooser`;
 
 	const onSubmitColumnChooser = (event, columnsChooser) => {
-		submit(event, columnsChooser);
+		onSubmit(event, columnsChooser);
 		closePopover();
 	};
 
@@ -54,7 +54,7 @@ export default function ColumnChooserButton({
 							initialFilterValue={initialFilterValue}
 							id={colChooserButtonId}
 							nbLockedLeftItems={nbLockedLeftItems}
-							submit={onSubmitColumnChooser}
+							onSubmit={onSubmitColumnChooser}
 							t={t}
 						/>
 					) : (
@@ -74,6 +74,6 @@ ColumnChooserButton.propTypes = {
 	initialOpenedPopover: PropTypes.bool,
 	nbLockedLeftItems: PropTypes.number,
 	placement: PropTypes.oneOf(['top', 'bottom', 'right', 'left']),
-	submit: PropTypes.func.isRequired,
+	onSubmit: PropTypes.func.isRequired,
 	t: PropTypes.func,
 };

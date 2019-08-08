@@ -70,7 +70,7 @@ This settings will create a column chooser with two columns. The first one will 
 | Fields            | Type                                                | Info                                                       |
 | ----------------- | --------------------------------------------------- | ---------------------------------------------------------- |
 | columns           | [ColumnsChooserPropTypes](#columnschooserproptypes) | populate the popover                                       |
-| submit            | function                                            | callback when the form is submitted                        |
+| onSubmit            | function                                            | callback when the form is submitted                        |
 | nbLockedLeftItems | number                                              | the number of locked items you want, beginning at the left |
 
 To keep the columns from the list sync with the inputs of the user, you will need to merge the data from the column chooser with the columns from the list.
@@ -110,7 +110,7 @@ If you pass children you will override the default column chooser renderer.
 | initialOpenedPopover | bool          | state of the popover at mounting, show / hide                    |
 | placement            | string        | Position of the popover                                          |
 | nbLockedLeftItems    | number        | the number of locked columns you want, beginning on the left     |
-| submit               | function      | callback when the form is submitted                              |
+| onSubmit               | function      | callback when the form is submitted                              |
 | t                    | function      | i18n translate                                                   |
 
 ### ColumnChooser
@@ -133,7 +133,7 @@ The component holds references :
 | initialFilterValue       | string                         | value of the filter at mounting                                  |
 | id                | string                         | Use as prefix for all the children components                    |
 | nbLockedLeftItems | number                         | the number of locked items you want, beginning on the left       |
-| submit            | function                       | callback when the form is submitted                              |
+| onSubmit            | function                       | callback when the form is submitted                              |
 | t                 | function                       | i18n translate                                                   |
 
 ### ColumnChooserHeader
@@ -250,7 +250,7 @@ By default the context is initialized in [ColumnChooser](#columnchooser).
 You can import directly the provider and the consumer from columnChooser.context
 
 ```javascript
-import { columnChooserContext, ColumnChooserProvider } from '.../columnChooserContext';
+import { columnChooserContext, ColumnChooserProvider } from '../columnChooserContext';
 ```
 
 ## PropTypes and Structures

@@ -24,7 +24,7 @@ export default function ColumnChooser({
 	initialFilterValue,
 	nbLockedLeftItems = 0,
 	onClose,
-	submit,
+	onSubmit,
 	t = getDefaultT(),
 }) {
 	const { columnsChooser, onChangeVisibility, onSelectAll, selectAll } = useColumnChooserManager(
@@ -40,9 +40,9 @@ export default function ColumnChooser({
 	}, []);
 
 	// We are transforming back the field visible to hidden, to be compliant with the list.
-	const onSubmit = event => {
+	const onSubmitForm = event => {
 		event.preventDefault();
-		submit(event, transformColumnsChooser(columnsChooser));
+		onSubmit(event, transformColumnsChooser(columnsChooser));
 	};
 	const [filter, setFilter] = useState(initialFilterValue || '');
 	const onFilter = (_, value) => setFilter(value);
@@ -68,7 +68,7 @@ export default function ColumnChooser({
 				onFilter={onFilter}
 				value={filter}
 			/>
-			<form id={`${id}-form`} className={theme('tc-column-chooser')} onSubmit={onSubmit}>
+			<form id={`${id}-form`} className={theme('tc-column-chooser')} onSubmit={onSubmitForm}>
 				<ColumnChooserBody />
 				<ColumnChooserFooter />
 			</form>
@@ -102,6 +102,6 @@ ColumnChooser.propTypes = {
 	initialFilterValue: PropTypes.string,
 	nbLockedLeftItems: PropTypes.number,
 	onClose: PropTypes.func,
-	submit: PropTypes.func.isRequired,
+	onSubmit: PropTypes.func.isRequired,
 	t: PropTypes.func,
 };
