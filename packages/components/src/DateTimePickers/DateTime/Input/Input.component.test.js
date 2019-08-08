@@ -24,7 +24,7 @@ describe('DateTime.Input', () => {
 		// when
 		const wrapper = mount(
 			<DateTimeContext.Provider value={managerValue}>
-				<Input aria-labelledby="labelId" />
+				<Input aria-labelledby="labelId" type="date" />
 			</DateTimeContext.Provider>,
 		);
 
@@ -45,7 +45,7 @@ describe('DateTime.Input', () => {
 
 		const wrapper = mount(
 			<DateTimeContext.Provider value={managerValue}>
-				<Input aria-labelledby="labelId" />
+				<Input aria-labelledby="labelId" type="date" />
 			</DateTimeContext.Provider>,
 		);
 		expect(managerValue.errorManagement.onInputFocus).not.toBeCalled();

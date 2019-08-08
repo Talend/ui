@@ -3,6 +3,7 @@
 exports[`DateTime.Input should render 1`] = `
 <DateTime.Input
   aria-labelledby="labelId"
+  type="date"
 >
   <DebounceInput
     aria-describedby="inputErrorId"

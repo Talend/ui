@@ -24,6 +24,10 @@ export default function Input(props) {
 	);
 }
 
+Input.defaultProps = {
+	type: 'date',
+};
+
 Input.propTypes = {
 	type: PropTypes.oneOf(['date', 'time']).isRequired,
 };
