@@ -6,7 +6,7 @@ import { useColumnChooserManager } from './hooks';
 export default ColumnChooserButton;
 
 const columnChooserService = {
-	utils: { mergedColumnsChooser },
+	mergedColumnsChooser,
 };
 
 const columnChooserHooks = {

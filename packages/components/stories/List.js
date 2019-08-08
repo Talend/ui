@@ -19,11 +19,11 @@ function ListColumnChooser({ list, ...rest }) {
 	};
 	const enrichedList = {
 		...list,
-		columns: columnChooserService.utils.mergedColumnsChooser(list.columns, columnsChooser),
+		columns: columnChooserService.mergedColumnsChooser(list.columns, columnsChooser),
 	};
 	const columnChooser = {
 		columns: columnsChooser,
-		submit: onSubmit,
+		onSubmit,
 		nbLockedLeftItems: 2,
 	};
 	return <List {...rest} list={enrichedList} columnChooser={columnChooser} />;

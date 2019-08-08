@@ -6,26 +6,24 @@ import { getTheme } from '../../../../../theme';
 
 const theme = getTheme(cssModule);
 
-const SelectAllColumnsCheckbox = ({ id, onChange, value, t }) => {
-	return (
-		<ColumnChooserRowRenderer className={theme('tc-column-chooser-row-select-all')}>
-			<ColumnChooserRowRenderer.Checkbox
-				id={id}
-				dataFeature="select-all-columns"
-				describedby="desc-select-all-columns"
-				description={t('CHECKBOX_SELECT_ALL_COLUMNS_ARIA_DESCRIPTION', {
-					defaultValue: 'select or deselect all the columns',
-				})}
-				label={t('CHECKBOX_VISIBILITY_LABEL', {
-					defaultValue: 'Columns',
-				})}
-				onChange={onChange}
-				checked={value}
-				t={t}
-			/>
-		</ColumnChooserRowRenderer>
-	);
-};
+const SelectAllColumnsCheckbox = ({ id, onChange, value, t }) => (
+	<ColumnChooserRowRenderer className={theme('tc-column-chooser-row-select-all')}>
+		<ColumnChooserRowRenderer.Checkbox
+			id={id}
+			dataFeature="select-all-columns"
+			describedby="desc-select-all-columns"
+			description={t('CHECKBOX_SELECT_ALL_COLUMNS_ARIA_DESCRIPTION', {
+				defaultValue: 'select or deselect all the columns',
+			})}
+			label={t('CHECKBOX_VISIBILITY_LABEL', {
+				defaultValue: 'Columns',
+			})}
+			onChange={onChange}
+			checked={value}
+			t={t}
+		/>
+	</ColumnChooserRowRenderer>
+);
 
 SelectAllColumnsCheckbox.propTypes = {
 	id: PropTypes.string.isRequired,
