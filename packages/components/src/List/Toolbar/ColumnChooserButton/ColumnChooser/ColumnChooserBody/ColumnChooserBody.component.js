@@ -4,7 +4,7 @@ import ColumnChooserRowRenderer from '../ColumnChooserRowRenderer';
 import SelectAllColumnsCheckbox from '../SelectAllColumnsCheckbox';
 import ColumnChooserTable from '../ColumnChooserTable';
 import { useColumnChooserContext } from '../columnChooser.context';
-import Tooltip from '../../../../../Tooltip';
+import RichLayout from '../../../../../RichTooltip/RichLayout';
 import cssModule from '../ColumnChooser.scss';
 import { getTheme } from '../../../../../theme';
 
@@ -39,9 +39,9 @@ const ColumnChooserBody = ({ children = <Default /> }) => {
 		return children(columnsChooser);
 	}
 	return (
-		<Tooltip.Body id={'column-chooser'} className={theme('tc-column-chooser-body')}>
-			{children}
-		</Tooltip.Body>
+		<RichLayout.Body id="column-chooser-body">
+			<div className={theme('tc-column-chooser-body')}>{children}</div>
+		</RichLayout.Body>
 	);
 };
 

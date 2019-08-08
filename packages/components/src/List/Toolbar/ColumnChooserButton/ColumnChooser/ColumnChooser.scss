@@ -28,6 +28,8 @@ $tc-height: 4rem;
 	&-body {
 		overflow-y: auto;
 		width: 100%;
+		display: flex;
+		flex-direction: column;
 	}
 
 	&-footer {

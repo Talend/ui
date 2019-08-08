@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ActionButton from '../../../../../Actions/ActionButton';
 import SelectAllColumnsCheckbox from '../SelectAllColumnsCheckbox';
 import { useColumnChooserContext } from '../columnChooser.context';
-import Tooltip from '../../../../../Tooltip';
+import RichLayout from '../../../../../RichTooltip/RichLayout';
 import cssModule from '../ColumnChooser.scss';
 import { getTheme } from '../../../../../theme';
 
@@ -22,12 +22,12 @@ const SubmitButton = () => {
 };
 
 const ColumnChooserFooter = ({ children = <SubmitButton />, className }) => (
-	<Tooltip.Footer
-		id={'column-chooser-footer'}
+	<RichLayout.Footer
+		id="column-chooser-footer"
 		className={(className, theme('tc-column-chooser-footer'))}
 	>
 		{children}
-	</Tooltip.Footer>
+	</RichLayout.Footer>
 );
 
 ColumnChooserFooter.Submit = SubmitButton;
