@@ -29,13 +29,13 @@ export function renderInputComponent(props) {
 	const typeaheadContainerIconClasses = classNames(
 		'tc-typeahead-typeahead-input-icon',
 		theme['typeahead-input-container'],
-        hasIcon && theme['typeahead-input-icon'],
-        hasCaret && theme['typeahead-input-caret'],
+		hasIcon && theme['typeahead-input-icon'],
+		hasCaret && theme['typeahead-input-caret'],
 	);
 	return (
 		<div className={typeaheadContainerIconClasses}>
 			<ControlLabel srOnly htmlFor={key}>
-                Search
+				Search
 			</ControlLabel>
 			{debounceMinLength || debounceTimeout ? (
 				<DebounceInput
@@ -60,10 +60,10 @@ export function renderInputComponent(props) {
 				/>
 			)}
 			{hasIcon && (
-			<div className={classNames(theme['icon-cls'], hasCaret && theme['icon-caret'])}>
-				{icon && <Icon {...icon} />}
-				{hasCaret && <Icon name="talend-caret-down" />}
-			</div>
+				<div className={classNames(theme['icon-cls'], hasCaret && theme['icon-caret'])}>
+					{icon && <Icon {...icon} />}
+					{hasCaret && <Icon name="talend-caret-down" />}
+				</div>
 			)}
 		</div>
 	);
@@ -158,10 +158,7 @@ export function renderItemsContainerFactory(
 							...style,
 						}}
 					>
-						<div
-							ref={containerProps.ref}
-							className={theme['items-body']}
-						>
+						<div ref={containerProps.ref} className={theme['items-body']}>
 							{render(
 								content,
 								{
@@ -228,9 +225,9 @@ export function renderItem(item, { value, ...rest }) {
 					<Emphasis value={value} text={title} />
 				</span>
 				{description && (
-				<p className={classNames(theme['item-description'], 'tc-typeahead-item-description')}>
-					<Emphasis value={value} text={description} />
-				</p>
+					<p className={classNames(theme['item-description'], 'tc-typeahead-item-description')}>
+						<Emphasis value={value} text={description} />
+					</p>
 				)}
 			</div>
 		</div>
