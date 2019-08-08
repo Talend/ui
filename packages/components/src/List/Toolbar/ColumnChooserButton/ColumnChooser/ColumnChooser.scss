@@ -45,6 +45,7 @@ $tc-height: 4rem;
 			border-bottom: $tc-popover-border-width solid $tc-popover-border-color;
 		}
 
+		&:global(.ally-focus-within),
 		&:hover {
 			background: $wild-sand;
 		}
