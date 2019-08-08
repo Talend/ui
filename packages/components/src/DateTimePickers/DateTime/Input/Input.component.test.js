@@ -35,6 +35,9 @@ describe('DateTime.Input', () => {
 	it('should call manager focus callback in input focus', () => {
 		// given
 		const managerValue = {
+			inputManagement: {
+				placeholder: 'YYYY-MM-DD',
+			},
 			errorManagement: {
 				onInputFocus: jest.fn(),
 			},
