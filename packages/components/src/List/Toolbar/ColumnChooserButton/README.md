@@ -79,7 +79,7 @@ There is a service to help you to do that, [mergedColumnsChooser](#mergedcolumns
 ```javascript
 const columnsMergedWithColumnChooser = {
 		...list,
-		columns: columnChooserService.utils.mergedColumnsChooser(list.columns, columnsChooser),
+		columns: columnChooserService.mergedColumnsChooser(list.columns, columnsChooser),
 };
 <List {...rest} columnChooser={...} list={columnsMergedWithColumnChooser} />;
 ```
