@@ -11,6 +11,7 @@ import Icon from '../Icon';
 import CircularProgress from '../CircularProgress';
 import Emphasis from '../Emphasis';
 import theme from './Typeahead.scss';
+
 export function renderInputComponent(props) {
 	const {
 		caret,
