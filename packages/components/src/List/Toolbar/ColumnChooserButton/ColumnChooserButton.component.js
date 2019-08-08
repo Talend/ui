@@ -8,7 +8,7 @@ import ActionButton from '../../../Actions/ActionButton';
 export default function ColumnChooserButton({
 	children,
 	columns,
-	filterValue,
+	initialFilterValue,
 	id,
 	initialOpenedPopover,
 	placement = 'left',
@@ -51,7 +51,7 @@ export default function ColumnChooserButton({
 					{!children ? (
 						<ColumnChooser
 							columns={columns}
-							filterValue={filterValue}
+							initialFilterValue={initialFilterValue}
 							id={colChooserButtonId}
 							nbLockedLeftItems={nbLockedLeftItems}
 							submit={onSubmitColumnChooser}
@@ -69,8 +69,8 @@ export default function ColumnChooserButton({
 ColumnChooserButton.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 	columns: PropTypes.array.isRequired,
-	filterValue: PropTypes.string,
 	id: PropTypes.string.isRequired,
+	initialFilterValue: PropTypes.string,
 	initialOpenedPopover: PropTypes.bool,
 	nbLockedLeftItems: PropTypes.number,
 	placement: PropTypes.oneOf(['top', 'bottom', 'right', 'left']),

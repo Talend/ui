@@ -105,7 +105,7 @@ If you pass children you will override the default column chooser renderer.
 | -------------------- | ------------- | ---------------------------------------------------------------- |
 | children             | React.element | the content of the popover                                       |
 | columns              | array         | these columns come from the list, they will populate the popover |
-| filterValue          | string        | value of the filter at mounting                                  |
+| initialFilterValue          | string        | value of the filter at mounting                                  |
 | id                   | string        | use as prefix for all the children components                    |
 | initialOpenedPopover | bool          | state of the popover at mounting, show / hide                    |
 | placement            | string        | Position of the popover                                          |
@@ -130,7 +130,7 @@ The component holds references :
 | ----------------- | ------------------------------ | ---------------------------------------------------------------- |
 | children          | React.element, [React.element] | the content of the popover                                       |
 | columns           | array                          | these columns come from the list, they will populate the popover |
-| filterValue       | string                         | value of the filter at mounting                                  |
+| initialFilterValue       | string                         | value of the filter at mounting                                  |
 | id                | string                         | Use as prefix for all the children components                    |
 | nbLockedLeftItems | number                         | the number of locked items you want, beginning on the left       |
 | submit            | function                       | callback when the form is submitted                              |

@@ -20,8 +20,8 @@ const transformColumnsChooser = columns => columns.map(changeVisibleToHidden);
 export default function ColumnChooser({
 	children,
 	columns,
-	filterValue,
 	id,
+	initialFilterValue,
 	nbLockedLeftItems = 0,
 	onClose,
 	submit,
@@ -44,7 +44,7 @@ export default function ColumnChooser({
 		event.preventDefault();
 		submit(event, transformColumnsChooser(columnsChooser));
 	};
-	const [filter, setFilter] = useState(filterValue || '');
+	const [filter, setFilter] = useState(initialFilterValue || '');
 	const onFilter = (_, value) => setFilter(value);
 	const resetFilter = () => setFilter('');
 	const filteredColumnsChooser = useMemo(() => filterColumnsChooser(columnsChooser, filter), [
@@ -98,8 +98,8 @@ ColumnChooser.Footer = ColumnChooserFooter;
 ColumnChooser.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 	columns: PropTypes.array.isRequired,
-	filterValue: PropTypes.string,
 	id: PropTypes.string.isRequired,
+	initialFilterValue: PropTypes.string,
 	nbLockedLeftItems: PropTypes.number,
 	onClose: PropTypes.func,
 	submit: PropTypes.func.isRequired,
