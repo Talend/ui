@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import DebounceInput from 'react-debounce-input';
 
 import { DateTimeContext } from '../Context';
+import { extractPartsFromDateTimeFormat } from '../date-extraction';
 
 export default function Input(props) {
 	const { datetime, inputManagement, errorManagement } = useContext(DateTimeContext);
+
 	return (
 		<DebounceInput
 			aria-describedby={errorManagement.inputErrorId}
@@ -17,6 +19,7 @@ export default function Input(props) {
 			{...inputManagement}
 			{...props}
 			type="text"
+			placeholder={extractPartsFromDateTimeFormat(inputManagement.placeholder, props.type)}
 		/>
 	);
 }

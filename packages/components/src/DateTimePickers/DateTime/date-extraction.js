@@ -424,6 +424,21 @@ function extractPartsFromDateTime(datetime, options) {
 }
 
 /**
+ * extract date/time part from datetimeformat
+ * @param {string} datetimeFormat
+ * @param {string} type
+ */
+function extractPartsFromDateTimeFormat(datetimeFormat, type) {
+	const formats = datetimeFormat.split(' ');
+	if (type === 'date') {
+		return formats[0];
+	} else if (formats.length === 2) {
+		return formats[1];
+	}
+	return '';
+}
+
+/**
  * Extract parts (date, time, date/time, textInput) from a Date and time definition
  * @param date {Date}
  * @param time {Object}
@@ -568,6 +583,7 @@ export {
 	checkSupportedDateFormat,
 	extractParts,
 	extractPartsFromDateTime,
+	extractPartsFromDateTimeFormat,
 	extractPartsFromDateAndTime,
 	extractPartsFromTextInput,
 	getFullDateFormat,
