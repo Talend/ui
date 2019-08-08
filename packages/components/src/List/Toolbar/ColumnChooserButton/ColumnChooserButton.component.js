@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Overlay, Popover } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 import ColumnChooser from './ColumnChooser';
-import getDefaultT from '../../../translate';
 import ActionButton from '../../../Actions/ActionButton';
 
 export default function ColumnChooserButton({
@@ -14,8 +14,8 @@ export default function ColumnChooserButton({
 	placement = 'left',
 	nbLockedLeftItems,
 	onSubmit,
-	t = getDefaultT(),
 }) {
+	const { t } = useTranslation();
 	const [opened, setOpened] = useState(initialOpenedPopover || false);
 	const [buttonRef, setButtonRef] = useState(null);
 	const changeOpened = () => setOpened(!opened);

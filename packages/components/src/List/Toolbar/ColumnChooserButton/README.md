@@ -104,14 +104,13 @@ If you pass children you will override the default column chooser renderer.
 | Props                | Type          | Info                                                             |
 | -------------------- | ------------- | ---------------------------------------------------------------- |
 | children             | React.element | the content of the popover                                       |
-| columns              | array         | these columns come from the list, they will populate the popover |
+| columns              | array         | these columns come from the list, they will populate the chooser popover |
 | initialFilterValue          | string        | value of the filter at mounting                                  |
 | id                   | string        | use as prefix for all the children components                    |
 | initialOpenedPopover | bool          | state of the popover at mounting, show / hide                    |
 | placement            | string        | Position of the popover                                          |
 | nbLockedLeftItems    | number        | the number of locked columns you want, beginning on the left     |
 | onSubmit               | function      | callback when the form is submitted                              |
-| t                    | function      | i18n translate                                                   |
 
 ### ColumnChooser
 
@@ -134,7 +133,6 @@ The component holds references :
 | id                | string                         | Use as prefix for all the children components                    |
 | nbLockedLeftItems | number                         | the number of locked items you want, beginning on the left       |
 | onSubmit            | function                       | callback when the form is submitted                              |
-| t                 | function                       | i18n translate                                                   |
 
 ### ColumnChooserHeader
 

@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import { ColumnChooserProvider } from './columnChooser.context';
 import { useColumnChooserManager } from '../hooks';
 import FilterBar from '../../../../FilterBar';
 import ColumnChooserBody from './ColumnChooserBody';
 import ColumnChooserFooter from './ColumnChooserFooter';
 import ColumnChooserHeader from './ColumnChooserHeader';
-import getDefaultT from '../../../../translate';
 import cssModule from './ColumnChooser.scss';
 import { getTheme } from '../../../../theme';
 
@@ -25,8 +25,8 @@ export default function ColumnChooser({
 	nbLockedLeftItems = 0,
 	onClose,
 	onSubmit,
-	t = getDefaultT(),
 }) {
+	const { t } = useTranslation();
 	const { columnsChooser, onChangeVisibility, onSelectAll, selectAll } = useColumnChooserManager(
 		columns,
 		nbLockedLeftItems,
