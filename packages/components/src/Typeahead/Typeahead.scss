@@ -33,6 +33,11 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		}
 	}
 
+	.items-container,
+	.items-body {
+		max-height: 70vh;
+	}
+
 	.items-container {
 		display: none;
 		margin-top: $padding-smaller;
@@ -45,7 +50,6 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 	}
 
 	.items-body {
-		max-height: 70vh;
 		overflow-y: auto;
 	}
 
