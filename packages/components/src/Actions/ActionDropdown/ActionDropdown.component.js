@@ -43,7 +43,7 @@ function InjectDropdownMenuItem({
 	}
 	return (
 		<li role="presentation" key={key} {...liProps}>
-			<Inject component={component} getComponent={getComponent} {...rest} />
+			<Inject component={component} getComponent={getComponent} onSelect={onSelect} {...rest} />
 		</li>
 	);
 }

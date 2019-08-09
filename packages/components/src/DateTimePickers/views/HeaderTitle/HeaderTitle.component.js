@@ -36,9 +36,11 @@ function HeaderTitle(props) {
 		components: {
 			itemsDropdown: [
 				{
+				    id: 'year-picker-in-datetime-header',
 					component: 'YearPicker',
 					label: 'First item',
 					'data-feature': 'actiondropdown.items',
+					onSelect: prps.onSelectYear,
 				},
 			],
 		},
@@ -63,6 +65,7 @@ HeaderTitle.propTypes = {
 	button: PropTypes.object,
 	className: PropTypes.string,
 	t: PropTypes.func,
+	onSelectYear: PropTypes.func.isRequired,
 };
 
 HeaderTitle.defaultProps = {
