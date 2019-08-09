@@ -125,36 +125,6 @@ describe('Date extraction', () => {
 		});
 	});
 
-	describe('extractFormatByPart', () => {
-		it('should extract date format from format string', () => {
-			// given
-			const type = 'date';
-			const datetimeFormat = 'YYYY/MM/DD   HH:mm';
-			// when
-			const dateFormat = extractFormatByPart(datetimeFormat, type);
-			// then
-			expect(dateFormat).toEqual('YYYY/MM/DD');
-		});
-		it('should extract time format from format string', () => {
-			// given
-			const type = 'time';
-			const datetimeFormat = 'YYYY/MM/DD HH:mm:ss';
-			// when
-			const timeFormat = extractFormatByPart(datetimeFormat, type);
-			// then
-			expect(timeFormat).toEqual('HH:mm:ss');
-		});
-		it('should return date format string for date format', () => {
-			// given
-			const type = 'date';
-			const datetimeFormat = 'YYYY/MM/DD';
-			// when
-			const dateFormat = extractFormatByPart(datetimeFormat, type);
-			// then
-			expect(dateFormat).toEqual('YYYY/MM/DD');
-		});
-	});
-
 	describe('extractPartsFromDateTime', () => {
 		it('should return empty parts on invalid date', () => {
 			// given

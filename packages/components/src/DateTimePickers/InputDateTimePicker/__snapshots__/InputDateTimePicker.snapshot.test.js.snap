@@ -40,13 +40,13 @@ exports[`InputDateTimePicker should render 1`] = `
           id="my-picker-input"
           inputRef={[Function]}
           key="input"
-          type="date"
+          part="date"
         >
           <Mock
             className="InputMock"
             id="my-picker-input"
             inputRef={[Function]}
-            type="date"
+            part="date"
           >
             <div
               className="InputMock"

@@ -456,10 +456,10 @@ describe('DateTime.Manager', () => {
 		});
 	});
 
-	describe('input management', () => {
+	describe('date/time input management', () => {
 		cases(
 			'should pass placeholder',
-			({ dateFormat, useTime, useSeconds, expectedPlaceholder }) => {
+			({ dateFormat, useTime, useSeconds, expectedDatePlaceholder, expectedTimePlaceholder }) => {
 				// when
 				const wrapper = mount(
 					<Manager
@@ -473,8 +473,10 @@ describe('DateTime.Manager', () => {
 				);
 
 				// then
-				const { placeholder } = wrapper.find('DateTimeConsumerDiv').prop('inputManagement');
-				expect(placeholder).toBe(expectedPlaceholder);
+				const { placeholder: dateInputPlaceholder } = wrapper.find('DateTimeConsumerDiv').prop('dateInputManagement');
+				expect(dateInputPlaceholder).toBe(expectedDatePlaceholder);
+				const { placeholder: timeInputPlaceholder } = wrapper.find('DateTimeConsumerDiv').prop('timeInputManagement');
+				expect(timeInputPlaceholder).toBe(expectedTimePlaceholder);
 			},
 			[
 				{
@@ -482,28 +484,32 @@ describe('DateTime.Manager', () => {
 					dateFormat: undefined,
 					useTime: false,
 					useSeconds: false,
-					expectedPlaceholder: 'YYYY-MM-DD',
+					expectedDatePlaceholder: 'YYYY-MM-DD',
+					expectedTimePlaceholder: '',
 				},
 				{
 					name: 'with time',
 					dateFormat: undefined,
 					useTime: true,
 					useSeconds: false,
-					expectedPlaceholder: 'YYYY-MM-DD HH:mm',
+					expectedDatePlaceholder: 'YYYY-MM-DD',
+					expectedTimePlaceholder: 'HH:mm',
 				},
 				{
 					name: 'with time and seconds',
 					dateFormat: undefined,
 					useTime: true,
 					useSeconds: true,
-					expectedPlaceholder: 'YYYY-MM-DD HH:mm:ss',
+					expectedDatePlaceholder: 'YYYY-MM-DD',
+					expectedTimePlaceholder: 'HH:mm:ss',
 				},
 				{
 					name: 'with custom format',
 					dateFormat: 'DD/MM/YYYY',
 					useTime: false,
 					useSeconds: false,
-					expectedPlaceholder: 'DD/MM/YYYY',
+					expectedDatePlaceholder: 'DD/MM/YYYY',
+					expectedTimePlaceholder: '',
 				},
 			],
 		);

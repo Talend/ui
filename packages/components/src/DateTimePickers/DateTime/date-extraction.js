@@ -424,19 +424,22 @@ function extractPartsFromDateTime(datetime, options) {
 }
 
 /**
- * extract date/time part from datetimeformat
- * @param {string} datetimeFormat
+ * extract date/time part from dateFormat
+ * @param {string} dateFormat
  * @param {string} part
  */
-function extractFormatByPart(datetimeFormat, part = 'date') {
-	const formatParts = datetimeFormat
+function extractFormatByPart({ dateFormat, useTime, useSeconds }, part = 'date') {
+	const formatParts = dateFormat
 		.split(/\s/g) // split from blank
 		.filter(formatPart => formatPart); // remove empty elements
 
 	if (part === 'date') {
 		return formatParts[0] || '';
 	}
-	return formatParts[1] || '';
+	if (useTime) {
+		return useSeconds ? 'HH:mm:ss' : 'HH:mm';
+	}
+	return '';
 }
 
 /**
