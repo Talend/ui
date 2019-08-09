@@ -12,7 +12,6 @@ import {
 	extractParts,
 	extractPartsFromDateAndTime,
 	extractPartsFromTextInput,
-	extractFormatByPart,
 	getTimeFormat,
 } from '../date-extraction';
 import {
