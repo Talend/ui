@@ -135,7 +135,7 @@ class DateTimePicker extends React.Component {
 		});
 	}
 
-	onClickToday(event){
+	onClickToday(event) {
 		const now = new Date();
 		if (!this.state.isDateTimeView) {
 			this.onSelectCalendarYear(event, getYear(now));
@@ -147,7 +147,6 @@ class DateTimePicker extends React.Component {
 
 	render() {
 		let viewElement;
-
 
 		if (this.state.isDateTimeView) {
 			viewElement = (
