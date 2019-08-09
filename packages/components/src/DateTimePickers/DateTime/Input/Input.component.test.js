@@ -16,15 +16,18 @@ describe('DateTime.Input', () => {
 			datetime: {
 				textInput: '2007-01-02',
 			},
-			inputManagement: {
+			dateInputManagement: {
 				placeholder: 'YYY-MM-DD',
+			},
+			timeInputManagement: {
+				placeholder: 'HH:mm',
 			},
 		};
 
 		// when
 		const wrapper = mount(
 			<DateTimeContext.Provider value={managerValue}>
-				<Input aria-labelledby="labelId" />
+				<Input aria-labelledby="labelId" part="date" />
 			</DateTimeContext.Provider>,
 		);
 
@@ -45,7 +48,7 @@ describe('DateTime.Input', () => {
 
 		const wrapper = mount(
 			<DateTimeContext.Provider value={managerValue}>
-				<Input aria-labelledby="labelId" />
+				<Input aria-labelledby="labelId" part="date" />
 			</DateTimeContext.Provider>,
 		);
 		expect(managerValue.errorManagement.onInputFocus).not.toBeCalled();

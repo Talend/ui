@@ -161,6 +161,7 @@ class InputDateTimePicker extends React.Component {
 				inputRef={ref => {
 					this.inputRef = ref;
 				}}
+				part="date"
 			/>,
 			this.state.showPicker && (
 				<Popper

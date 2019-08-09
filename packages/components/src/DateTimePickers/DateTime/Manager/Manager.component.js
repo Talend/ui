@@ -12,7 +12,7 @@ import {
 	extractParts,
 	extractPartsFromDateAndTime,
 	extractPartsFromTextInput,
-	getFullDateFormat,
+	getTimeFormat,
 } from '../date-extraction';
 import {
 	HOUR_ERRORS,
@@ -239,7 +239,14 @@ class ContextualManager extends React.Component {
 							this.inputRef = ref;
 						},
 						onChange: this.onInputChange,
-						placeholder: getFullDateFormat(this.getDateOptions()),
+					},
+
+					dateInputManagement: {
+						placeholder: this.props.dateFormat,
+					},
+
+					timeInputManagement: {
+						placeholder: getTimeFormat(this.props.useSeconds),
 					},
 
 					pickerManagement: {

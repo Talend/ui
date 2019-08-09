@@ -424,6 +424,14 @@ function extractPartsFromDateTime(datetime, options) {
 }
 
 /**
+ * get time format base on useSeconds
+ * @param {string} useSeconds
+ */
+function getTimeFormat(useSeconds) {
+	return useSeconds ? 'HH:mm:ss' : 'HH:mm';
+}
+
+/**
  * Extract parts (date, time, date/time, textInput) from a Date and time definition
  * @param date {Date}
  * @param time {Object}
@@ -571,4 +579,5 @@ export {
 	extractPartsFromDateAndTime,
 	extractPartsFromTextInput,
 	getFullDateFormat,
+	getTimeFormat,
 };

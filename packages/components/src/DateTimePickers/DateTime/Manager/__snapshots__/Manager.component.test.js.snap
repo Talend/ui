@@ -4,6 +4,9 @@ exports[`DateTime.Manager should render its children 1`] = `
 <Context.Provider
   value={
     Object {
+      "dateInputManagement": Object {
+        "placeholder": "YYYY-MM-DD",
+      },
       "datetime": Object {
         "date": 2017-04-03T22:00:00.000Z,
         "textInput": "2017-04-04 15:27",
@@ -31,13 +34,15 @@ exports[`DateTime.Manager should render its children 1`] = `
       "inputManagement": Object {
         "inputRef": [Function],
         "onChange": [Function],
-        "placeholder": "YYYY-MM-DD HH:mm",
       },
       "pickerManagement": Object {
         "onSubmit": [Function],
         "useSeconds": false,
         "useTime": true,
         "useUTC": false,
+      },
+      "timeInputManagement": Object {
+        "placeholder": "HH:mm",
       },
     }
   }

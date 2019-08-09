@@ -6,6 +6,7 @@ import {
 	extractPartsFromTextInput,
 	getFullDateFormat,
 	check,
+	getTimeFormat,
 } from './date-extraction';
 
 describe('Date extraction', () => {
@@ -715,6 +716,24 @@ describe('Date extraction', () => {
 
 			// then
 			expect(format).toBe('YYYY-MM-DD HH:mm:ss');
+		});
+	});
+	describe('getTimeFormat', () => {
+		it('should return time format with seconds', () => {
+			// given
+			const useSeconds = true;
+			// when
+			const timeFormat = getTimeFormat(useSeconds);
+			// then
+			expect(timeFormat).toEqual('HH:mm:ss');
+		});
+		it('should return time format without seconds', () => {
+			// given
+			const useSeconds = false;
+			// when
+			const timeFormat = getTimeFormat(useSeconds);
+			// then
+			expect(timeFormat).toEqual('HH:mm');
 		});
 	});
 	describe('check', () => {

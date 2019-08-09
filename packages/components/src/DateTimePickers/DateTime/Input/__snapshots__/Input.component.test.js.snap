@@ -3,6 +3,7 @@
 exports[`DateTime.Input should render 1`] = `
 <DateTime.Input
   aria-labelledby="labelId"
+  part="date"
 >
   <DebounceInput
     aria-describedby="inputErrorId"
@@ -15,6 +16,7 @@ exports[`DateTime.Input should render 1`] = `
     forceNotifyOnBlur={true}
     minLength={0}
     onFocus={[MockFunction]}
+    part="date"
     placeholder="YYY-MM-DD"
     type="text"
     value="2007-01-02"
@@ -28,6 +30,7 @@ exports[`DateTime.Input should render 1`] = `
       onChange={[Function]}
       onFocus={[MockFunction]}
       onKeyDown={[Function]}
+      part="date"
       placeholder="YYY-MM-DD"
       type="text"
       value="2007-01-02"
