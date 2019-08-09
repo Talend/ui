@@ -24,7 +24,7 @@ function LazyLoadingList(props) {
 	return (
 		<InfiniteLoader
 			isRowLoaded={isRowLoaded}
-			loadMoreRows={loadMoreRows}
+			loadMoreRows={loadMoreRowsCallback}
 			minimumBatchSize={minimumBatchSize}
 			rowCount={rowCount}
 			threshold={threshold}
