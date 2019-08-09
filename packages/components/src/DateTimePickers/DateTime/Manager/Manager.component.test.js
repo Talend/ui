@@ -485,7 +485,7 @@ describe('DateTime.Manager', () => {
 					useTime: false,
 					useSeconds: false,
 					expectedDatePlaceholder: 'YYYY-MM-DD',
-					expectedTimePlaceholder: '',
+					expectedTimePlaceholder: 'HH:mm',
 				},
 				{
 					name: 'with time',
@@ -509,7 +509,7 @@ describe('DateTime.Manager', () => {
 					useTime: false,
 					useSeconds: false,
 					expectedDatePlaceholder: 'DD/MM/YYYY',
-					expectedTimePlaceholder: '',
+					expectedTimePlaceholder: 'HH:mm',
 				},
 			],
 		);

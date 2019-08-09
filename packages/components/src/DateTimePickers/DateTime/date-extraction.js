@@ -424,22 +424,11 @@ function extractPartsFromDateTime(datetime, options) {
 }
 
 /**
- * extract date/time part from dateFormat
- * @param {string} dateFormat
- * @param {string} part
+ * get time format base on useSeconds
+ * @param {string} useSeconds
  */
-function extractFormatByPart({ dateFormat, useTime, useSeconds }, part = 'date') {
-	const formatParts = dateFormat
-		.split(/\s/g) // split from blank
-		.filter(formatPart => formatPart); // remove empty elements
-
-	if (part === 'date') {
-		return formatParts[0] || '';
-	}
-	if (useTime) {
-		return useSeconds ? 'HH:mm:ss' : 'HH:mm';
-	}
-	return '';
+function getTimeFormat(useSeconds) {
+	return useSeconds ? 'HH:mm:ss' : 'HH:mm';
 }
 
 /**
@@ -585,10 +574,10 @@ export {
 	checkMinutes,
 	checkSeconds,
 	checkSupportedDateFormat,
-	extractFormatByPart,
 	extractParts,
 	extractPartsFromDateTime,
 	extractPartsFromDateAndTime,
 	extractPartsFromTextInput,
 	getFullDateFormat,
+	getTimeFormat,
 };
