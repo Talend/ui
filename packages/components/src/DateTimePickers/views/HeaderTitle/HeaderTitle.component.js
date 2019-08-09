@@ -7,11 +7,13 @@ import format from 'date-fns/format';
 import theme from './HeaderTitle.scss';
 import { getPickerLocale } from '../../generator';
 import getDefaultT from '../../../translate';
+import { ActionDropdown } from '../../../Actions';
+import YearPicker from '../../pickers/YearPicker';
 
 function HeaderTitle(props) {
 	const isButton = !!props.button;
 
-	const className = classNames(theme.common, { [theme.button]: isButton }, props.className);
+	const className = classNames(isButton ? [theme.button] : [theme.common], props.className);
 
 	const propsToSpread = {
 		className,
@@ -21,12 +23,34 @@ function HeaderTitle(props) {
 	const pickerLocale = getPickerLocale(props.t);
 	const date = setYear(setMonth(new Date(0), props.monthIndex), props.year);
 	const label = format(date, 'MMMM YYYY', pickerLocale);
+	const yearLabel = format(date, 'YYYY', pickerLocale);
+	const monthLabel = format(date, 'MMMM', pickerLocale);
+
+	const withComponents = {
+		getComponent: key => {
+			if (key === 'YearPicker') {
+				return YearPicker;
+			}
+			throw new Error('Component not found');
+		},
+		components: {
+			itemsDropdown: [
+				{
+					component: 'YearPicker',
+					label: 'First item',
+					'data-feature': 'actiondropdown.items',
+				},
+			],
+		},
+	};
 
 	if (isButton) {
-		return (
+		return (<div className={theme.common}>
 			<button type="button" {...propsToSpread}>
-				{label}
+				{monthLabel}
 			</button>
+			<ActionDropdown link label={yearLabel} {...withComponents} />
+		</div>
 		);
 	}
 
