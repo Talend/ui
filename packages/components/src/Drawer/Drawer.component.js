@@ -159,7 +159,7 @@ function DrawerTitle({
 		}
 	}
 
-	if (!title) {
+	if (!title && !children) {
 		return null;
 	}
 	const InjectedEditableText = Inject.get(getComponent, 'EditableText', EditableText);

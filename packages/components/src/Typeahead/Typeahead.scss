@@ -92,9 +92,14 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		}
 
 		.icon-caret {
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			position: absolute;
-			margin: 0;
+			top: 0;
 			right: 0;
+			bottom: 0;
+			margin: 0;
 
 			> svg {
 				height: 0.8rem;
@@ -169,6 +174,7 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		margin-right: $padding-normal;
 	}
 
+	&-highlighted,
 	&:hover {
 		background-color: $concrete;
 
