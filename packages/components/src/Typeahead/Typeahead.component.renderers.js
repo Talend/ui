@@ -98,6 +98,10 @@ export function renderItemsContainerFactory(
 	const noResult = items && !items.length;
 
 	function ItemsContainerComponent({ containerProps, children }) {
+		if (!isShown) {
+			return undefined;
+		}
+
 		const containerClassName = classNames(containerProps.className, theme['items-container'], {
 			[theme['container-open']]: searching || noResult,
 		});
@@ -143,36 +147,47 @@ export function renderItemsContainerFactory(
 					preventOverflow: {
 						enabled: false,
 					},
+					shift: {
+						enabled: false,
+					},
 				}}
 				positionFixed
+				boundariesElement="viewport"
 				referenceElement={inputRef}
 				placement="bottom-start"
 			>
-				{({ ref, style }) => (
-					<div
-						className={containerClassName}
-						id={containerProps.id}
-						ref={ref}
-						role={containerProps.role}
-						style={{
-							...getPopperStyle(),
-							...style,
-						}}
-					>
-						<div ref={containerProps.ref} className={theme['items-body']}>
-							{render(
-								content,
-								{
-									isShown,
-									loading,
-									noResult,
-									searching,
-								},
-								containerProps.ref,
-							)}
+				{({ placement = '', ref, scheduleUpdate, style }) => {
+					if (placement.includes('top')) {
+					// @see https://github.com/FezVrasta/react-popper/issues/283#issuecomment-512879262
+						scheduleUpdate();
+					}
+					return (
+						<div
+							className={containerClassName}
+							id={containerProps.id}
+							key={containerProps.key}
+							ref={ref}
+							role={containerProps.role}
+							style={{
+								...getPopperStyle(),
+								...style,
+							}}
+						>
+							<div ref={containerProps.ref} className={theme['items-body']}>
+								{render(
+									content,
+									{
+										isShown,
+										loading,
+										noResult,
+										searching,
+									},
+									containerProps.ref,
+								)}
+							</div>
 						</div>
-					</div>
-				)}
+					);
+				}}
 			</Popper>
 		);
 	}

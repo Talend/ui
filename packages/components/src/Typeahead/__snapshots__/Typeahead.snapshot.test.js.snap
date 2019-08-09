@@ -847,25 +847,6 @@ exports[`Typeahead position should render search bar on the right 1`] = `
       type="text"
     />
   </div>
-  <div
-    className="theme-items-container tc-typeahead-items-container theme-items-container"
-    id="react-autowhatever-my-search"
-    role="listbox"
-    style={
-      Object {
-        "left": 0,
-        "opacity": 0,
-        "pointerEvents": "none",
-        "position": "absolute",
-        "top": 0,
-        "width": 0,
-      }
-    }
-  >
-    <div
-      className="theme-items-body"
-    />
-  </div>
 </div>
 `;
 
@@ -902,25 +883,6 @@ exports[`Typeahead should pass input extra props 1`] = `
       readOnly={false}
       role="searchbox"
       type="text"
-    />
-  </div>
-  <div
-    className="theme-items-container tc-typeahead-items-container theme-items-container"
-    id="react-autowhatever-my-search"
-    role="listbox"
-    style={
-      Object {
-        "left": 0,
-        "opacity": 0,
-        "pointerEvents": "none",
-        "position": "absolute",
-        "top": 0,
-        "width": 0,
-      }
-    }
-  >
-    <div
-      className="theme-items-body"
     />
   </div>
 </div>
