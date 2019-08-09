@@ -1,9 +1,9 @@
 import {
 	checkSupportedDateFormat,
+	extractFormatByPart,
 	extractParts,
 	extractPartsFromDateAndTime,
 	extractPartsFromDateTime,
-	extractPartsFromDateTimeFormat,
 	extractPartsFromTextInput,
 	getFullDateFormat,
 	check,
@@ -125,22 +125,22 @@ describe('Date extraction', () => {
 		});
 	});
 
-	describe('extractPartsFromDateTimeFormat', () => {
-		it('should extract date part from format string', () => {
+	describe('extractFormatByPart', () => {
+		it('should extract date format from format string', () => {
 			// given
 			const type = 'date';
-			const datetimeFormat = 'YYYY/MM/DD HH:mm';
+			const datetimeFormat = 'YYYY/MM/DD   HH:mm';
 			// when
-			const dateFormat = extractPartsFromDateTimeFormat(datetimeFormat, type);
+			const dateFormat = extractFormatByPart(datetimeFormat, type);
 			// then
 			expect(dateFormat).toEqual('YYYY/MM/DD');
 		});
-		it('should extract time part from format string', () => {
+		it('should extract time format from format string', () => {
 			// given
 			const type = 'time';
 			const datetimeFormat = 'YYYY/MM/DD HH:mm:ss';
 			// when
-			const timeFormat = extractPartsFromDateTimeFormat(datetimeFormat, type);
+			const timeFormat = extractFormatByPart(datetimeFormat, type);
 			// then
 			expect(timeFormat).toEqual('HH:mm:ss');
 		});
@@ -149,7 +149,7 @@ describe('Date extraction', () => {
 			const type = 'date';
 			const datetimeFormat = 'YYYY/MM/DD';
 			// when
-			const dateFormat = extractPartsFromDateTimeFormat(datetimeFormat, type);
+			const dateFormat = extractFormatByPart(datetimeFormat, type);
 			// then
 			expect(dateFormat).toEqual('YYYY/MM/DD');
 		});
