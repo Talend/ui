@@ -16,8 +16,11 @@ describe('DateTime.Input', () => {
 			datetime: {
 				textInput: '2007-01-02',
 			},
-			inputManagement: {
+			dateInputManagement: {
 				placeholder: 'YYY-MM-DD',
+			},
+			timeInputManagement: {
+				placeholder: 'HH:mm',
 			},
 		};
 
