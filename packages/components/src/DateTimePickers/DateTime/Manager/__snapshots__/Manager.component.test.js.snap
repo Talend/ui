@@ -32,7 +32,6 @@ exports[`DateTime.Manager should render its children 1`] = `
         "onSubmit": [Function],
       },
       "inputManagement": Object {
-        "inputRef": [Function],
         "onChange": [Function],
       },
       "pickerManagement": Object {

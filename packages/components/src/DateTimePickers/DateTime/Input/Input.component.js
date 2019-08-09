@@ -13,6 +13,7 @@ export default function Input(props) {
 		errorManagement,
 	} = useContext(DateTimeContext);
 	const partInputManagement = props.part === 'date' ? dateInputManagement : timeInputManagement;
+	const onChange = event => inputManagement.onChange(event, props.onChange);
 
 	return (
 		<DebounceInput
@@ -26,6 +27,7 @@ export default function Input(props) {
 			{...inputManagement}
 			{...partInputManagement}
 			{...props}
+			onChange={onChange}
 		/>
 	);
 }
@@ -36,6 +38,7 @@ Input.defaultProps = {
 
 Input.propTypes = {
 	part: PropTypes.oneOf(['date', 'time']).isRequired,
+	onChange: PropTypes.func,
 };
 
 Input.displayName = 'DateTime.Input';

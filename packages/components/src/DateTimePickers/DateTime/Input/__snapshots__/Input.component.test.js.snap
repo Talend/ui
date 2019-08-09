@@ -15,6 +15,7 @@ exports[`DateTime.Input should render 1`] = `
     forceNotifyByEnter={true}
     forceNotifyOnBlur={true}
     minLength={0}
+    onChange={[Function]}
     onFocus={[MockFunction]}
     part="date"
     placeholder="YYY-MM-DD"

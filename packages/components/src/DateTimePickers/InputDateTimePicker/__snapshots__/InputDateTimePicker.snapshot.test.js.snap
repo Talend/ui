@@ -15,46 +15,66 @@ exports[`InputDateTimePicker should render 1`] = `
     dateFormat="YYYY-MM-DD"
     formMode={false}
     id="my-picker"
-    onChange={[Function]}
     required={true}
     selectedDateTime={2017-04-04T13:27:00.000Z}
     useSeconds={true}
     useTime={true}
     useUTC={false}
   >
-    <FocusManager
-      divRef={[Function]}
-      onClick={[Function]}
-      onFocusIn={[Function]}
-      onFocusOut={[Function]}
-      onKeyDown={[Function]}
+    <InputPicker
+      dateFormat="YYYY-MM-DD"
+      formMode={false}
+      id="my-picker"
+      required={true}
+      selectedDateTime={2017-04-04T13:27:00.000Z}
+      useSeconds={true}
+      useTime={true}
+      useUTC={false}
     >
-      <div
-        onBlur={[Function]}
+      <FocusManager
+        divRef={[Function]}
         onClick={[Function]}
-        onFocus={[Function]}
+        onFocusIn={[Function]}
+        onFocusOut={[Function]}
         onKeyDown={[Function]}
-        tabIndex={-1}
+        style={
+          Object {
+            "display": "inline-block",
+          }
+        }
       >
-        <Component
-          id="my-picker-input"
-          inputRef={[Function]}
-          key="input"
-          part="date"
+        <div
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "display": "inline-block",
+            }
+          }
+          tabIndex={-1}
         >
-          <Mock
-            className="InputMock"
-            id="my-picker-input"
+          <Component
+            id="my-picker-date-input"
             inputRef={[Function]}
+            key="input"
             part="date"
           >
-            <div
+            <Mock
               className="InputMock"
-            />
-          </Mock>
-        </Component>
-      </div>
-    </FocusManager>
+              id="my-picker-date-input"
+              inputRef={[Function]}
+              part="date"
+            >
+              <div
+                className="InputMock"
+              />
+            </Mock>
+          </Component>
+        </div>
+      </FocusManager>
+    </InputPicker>
   </DateTime.Manager>
 </InputDateTimePicker>
 `;

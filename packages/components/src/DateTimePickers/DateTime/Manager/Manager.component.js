@@ -93,7 +93,7 @@ class ContextualManager extends React.Component {
 		}
 	}
 
-	onChange(event, origin) {
+	onChange(event, origin, callback) {
 		if (!this.props.onChange) {
 			return;
 		}
@@ -101,14 +101,17 @@ class ContextualManager extends React.Component {
 		// we need to update the initial state once it has been changed
 		this.initialState = { ...this.state };
 		this.props.onChange(event, { errors, errorMessage, datetime, textInput, origin });
+		if (callback) {
+			callback(event, { errors, errorMessage, datetime, textInput, origin });
+		}
 	}
 
-	onInputChange(event) {
+	onInputChange(event, callback) {
 		const textInput = event.target.value;
 		const nextState = extractPartsFromTextInput(textInput, this.getDateOptions());
 		this.setState({ previousErrors: this.state.errors, ...nextState }, () => {
 			if (!this.props.formMode) {
-				this.onChange(event, 'INPUT');
+				this.onChange(event, 'INPUT', callback);
 			}
 		});
 	}
@@ -235,9 +238,6 @@ class ContextualManager extends React.Component {
 					},
 
 					inputManagement: {
-						inputRef: ref => {
-							this.inputRef = ref;
-						},
 						onChange: this.onInputChange,
 					},
 
