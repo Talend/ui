@@ -2,6 +2,7 @@
 
 exports[`LazyLoadingList should render lazy loading list component 1`] = `
 <LazyLoadingList
+  debounceDelay={0}
   id="myLazyLoadingList"
   minimumBatchSize={20}
   threshold={5}
