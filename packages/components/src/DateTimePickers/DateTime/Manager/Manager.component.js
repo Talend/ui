@@ -116,7 +116,7 @@ class ContextualManager extends React.Component {
 		});
 	}
 
-	onPickerChange(event, { date, time, field }) {
+	onPickerChange(event, { date, time, field }, callback) {
 		const isTimeUpdate = [FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS].includes(field);
 		const nextState = extractPartsFromDateAndTime(date, time, this.getDateOptions());
 
@@ -160,12 +160,12 @@ class ContextualManager extends React.Component {
 
 		this.setState({ previousErrors: this.state.errors, ...nextState, errors: nextErrors }, () => {
 			if (!this.props.formMode) {
-				this.onChange(event, 'PICKER');
+				this.onChange(event, 'PICKER', callback);
 			}
 		});
 	}
 
-	onSubmit(event, origin) {
+	onSubmit(event, origin, callback) {
 		event.preventDefault();
 
 		// validation
@@ -178,7 +178,7 @@ class ContextualManager extends React.Component {
 
 		this.setState({ errors, errorMessage: errors[0] ? errors[0].message : '' }, () => {
 			if (!errors.length) {
-				this.onChange(event, origin);
+				this.onChange(event, origin, callback);
 			}
 		});
 	}

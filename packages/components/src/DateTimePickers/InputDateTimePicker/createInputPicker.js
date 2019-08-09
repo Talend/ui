@@ -22,6 +22,7 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'useTime',
 	'useUTC',
 	'onBlur',
+	'onChange',
 ];
 
 export const INPUT_PICKER_PROPTYPES = {
@@ -152,6 +153,7 @@ export default function createInputPicker({ part, theme, Picker }) {
 						this.inputRef = ref;
 					}}
 					part={part}
+					onChange={this.onChange}
 				/>,
 				this.state.showPicker && (
 					<Popper
@@ -170,7 +172,7 @@ export default function createInputPicker({ part, theme, Picker }) {
 					>
 						{({ ref, style }) => (
 							<div id={this.popoverId} className={theme.popper} style={style} ref={ref}>
-								<Picker {...this.props} />
+								<Picker {...this.props} onChange={this.onChange} />
 								{this.props.formMode && <DateTime.Validation />}
 							</div>
 						)}
@@ -196,7 +198,11 @@ export default function createInputPicker({ part, theme, Picker }) {
 							}}
 						>
 							{this.props.formMode ? (
-								<form key="form" onSubmit={formManagement.onSubmit}>
+								<form
+									key="form"
+									onSubmit={(event, payload) =>
+										formManagement.onSubmit(event, payload, this.onChange)}
+								>
 									{picker}
 								</form>
 							) : (
