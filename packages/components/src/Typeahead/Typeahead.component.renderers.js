@@ -158,7 +158,7 @@ export function renderItemsContainerFactory(
 			>
 				{({ placement = '', ref, scheduleUpdate, style }) => {
 					if (placement.includes('top')) {
-					// @see https://github.com/FezVrasta/react-popper/issues/283#issuecomment-512879262
+						// @see https://github.com/FezVrasta/react-popper/issues/283#issuecomment-512879262
 						scheduleUpdate();
 					}
 					return (
