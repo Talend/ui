@@ -7,41 +7,71 @@ import createInputPicker, { INPUT_PICKER_PROPTYPES } from './createInputPicker';
 
 import theme from './InputDateTimePicker.scss';
 
-function InputDateTimePicker(props) {
-	const dateInputProps = {
-		part: 'date',
-		theme,
-		Picker: DateTime.Picker,
-	};
-	const InputDatePicker = createInputPicker(dateInputProps);
-	return (
-		<DateTime.Manager
-			dateFormat={props.dateFormat}
-			formMode={props.formMode}
-			id={props.id}
-			required={props.required}
-			selectedDateTime={props.selectedDateTime}
-			useSeconds={props.useSeconds}
-			useTime={props.useTime}
-			useUTC={props.useUTC}
-			onChange={props.onChange}
-		>
-			<DateTimeContext.Consumer>
-				{({ formManagement }) => (props.formMode ? (
-					<form
-						key="form"
-						onSubmit={(event, payload) => {
-							formManagement.onSubmit(event, payload);
-						}}
-					>
-						<InputDatePicker {...props} formManagement={formManagement} />
-					</form>
-				) : (
-					<InputDatePicker {...props} formManagement={formManagement} />
-				))}
-			</DateTimeContext.Consumer>
-		</DateTime.Manager>
-	);
+class InputDateTimePicker extends React.Component {
+	constructor(props) {
+		super(props);
+		this.onChange = this.onChange.bind(this);
+		this.state = {
+			showDatePicker: false,
+		};
+	}
+	onChange(event, payload) {
+		this.props.onChange(event, payload);
+		if (
+			this.props.formMode ||
+			(!this.props.formMode && !this.props.useTime && payload.origin !== 'INPUT')
+		) {
+			this.dateInputRef.focus();
+			this.setState({
+				showDatePicker: false,
+			});
+		}
+	}
+	render() {
+		const dateInputProps = {
+			part: 'date',
+			theme,
+			Picker: DateTime.Picker,
+		};
+		const InputDatePicker = createInputPicker(dateInputProps);
+
+		return (
+			<DateTime.Manager
+				dateFormat={this.props.dateFormat}
+				formMode={this.props.formMode}
+				id={this.props.id}
+				required={this.props.required}
+				selectedDateTime={this.props.selectedDateTime}
+				useSeconds={this.props.useSeconds}
+				useTime={this.props.useTime}
+				useUTC={this.props.useUTC}
+				onChange={this.onChange}
+			>
+				<DateTimeContext.Consumer>
+					{({ formManagement }) => {
+						const inputDatePicker = (<InputDatePicker
+							{...this.props}
+							formManagement={formManagement}
+							showPicker={this.state.showDatePicker}
+							setRef={ref => (this.dateInputRef = ref)}
+						/>);
+						return this.props.formMode ? (
+							<form
+								key="form"
+								onSubmit={(event, payload) => {
+									formManagement.onSubmit(event, payload);
+								}}
+							>
+								{inputDatePicker}
+							</form>
+						) : (
+							{ inputDatePicker }
+						);
+					}}
+				</DateTimeContext.Consumer>
+			</DateTime.Manager>
+		);
+	}
 }
 
 InputDateTimePicker.propTypes = {
