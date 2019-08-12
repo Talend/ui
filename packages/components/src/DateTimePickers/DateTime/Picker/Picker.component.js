@@ -6,7 +6,6 @@ import DateTimePicker from '../../pickers/DateTimePicker';
 
 export default function Picker(props) {
 	const { datetime, pickerManagement } = useContext(DateTimeContext);
-	const onSubmit = (event, payload) => pickerManagement.onSubmit(event, payload, props.onChange);
 	return (
 		<DateTimePicker
 			manageFocus
@@ -16,7 +15,6 @@ export default function Picker(props) {
 			}}
 			{...pickerManagement}
 			{...props}
-			onSubmit={onSubmit}
 		/>
 	);
 }

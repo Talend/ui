@@ -52,7 +52,7 @@ export default function createInputPicker({ part, theme, Picker }) {
 
 			this.popoverId = `input-${part}-picker-${props.id || uuid.v4()}`;
 			this.state = {
-				showPicker: false,
+				showPicker: props.showPicker,
 			};
 
 			this.onBlur = this.onBlur.bind(this);
@@ -63,6 +63,12 @@ export default function createInputPicker({ part, theme, Picker }) {
 			this.openPicker = this.setPickerVisibility.bind(this, true);
 			this.closePicker = this.setPickerVisibility.bind(this, false);
 			this.focusInputAndClosePicker = this.focusInputAndClosePicker.bind(this);
+		}
+
+		componentWillReceiveProps(nextProps) {
+			if (nextProps.showPicker !==this.state.showPicker) {
+				this.setState({showPicker: nextProps.showPicker});
+			}
 		}
 
 		onKeyDown(event, { onReset }) {
@@ -153,9 +159,9 @@ export default function createInputPicker({ part, theme, Picker }) {
 					key="input"
 					inputRef={ref => {
 						this.inputRef = ref;
+						this.props.setRef(ref);
 					}}
 					part={part}
-					onChange={this.onChange}
 				/>,
 				this.state.showPicker && (
 					<Popper
