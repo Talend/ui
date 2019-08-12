@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 
 import { DateTimeContext } from '../Context';
 import DateTimePicker from '../../pickers/DateTimePicker';
@@ -18,9 +17,5 @@ export default function Picker(props) {
 		/>
 	);
 }
-
-Picker.propTypes = {
-	onChange: PropTypes.func,
-};
 
 Picker.displayName = 'DateTime.Picker';
