@@ -58,17 +58,9 @@ export default function createInputPicker({ part, theme, Picker }) {
 			this.onBlur = this.onBlur.bind(this);
 			this.onFocus = this.onFocus.bind(this);
 			this.onClick = this.onClick.bind(this);
-			this.onChange = this.onChange.bind(this);
 			this.onKeyDown = this.onKeyDown.bind(this);
 			this.openPicker = this.setPickerVisibility.bind(this, true);
 			this.closePicker = this.setPickerVisibility.bind(this, false);
-			this.focusInputAndClosePicker = this.focusInputAndClosePicker.bind(this);
-		}
-
-		componentWillReceiveProps(nextProps) {
-			if (nextProps.showPicker !==this.state.showPicker) {
-				this.setState({showPicker: nextProps.showPicker});
-			}
 		}
 
 		onKeyDown(event, { onReset }) {
@@ -110,17 +102,6 @@ export default function createInputPicker({ part, theme, Picker }) {
 
 		onClick() {
 			this.openPicker();
-		}
-
-		focusInputAndClosePicker() {
-			this.inputRef.focus();
-			this.closePicker({ picked: true });
-		}
-
-		onChange(event, payload) {
-			if (!this.props.formMode && payload.origin !== 'INPUT') {
-				this.focusInputAndClosePicker();
-			}
 		}
 
 		getPopperPlacement() {

@@ -52,7 +52,6 @@ class InputDateTimePicker extends React.Component {
 						const inputDatePicker = (<InputDatePicker
 							{...this.props}
 							formManagement={formManagement}
-							showPicker={this.state.showDatePicker}
 							setRef={ref => (this.dateInputRef = ref)}
 						/>);
 						return this.props.formMode ? (
@@ -64,9 +63,7 @@ class InputDateTimePicker extends React.Component {
 							>
 								{inputDatePicker}
 							</form>
-						) : (
-							{ inputDatePicker }
-						);
+						) : inputDatePicker;
 					}}
 				</DateTimeContext.Consumer>
 			</DateTime.Manager>
