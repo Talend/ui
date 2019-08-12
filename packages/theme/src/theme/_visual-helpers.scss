@@ -44,16 +44,29 @@
 /// Define inverse button colors based on the button color
 /// @access public
 /// @param {Color} $btn-color [$btn-default-bg] - button background color to tint
-@mixin btn-inverse-colors($btn-color: $btn-default-bg) {
+@mixin btn-inverse-colors($btn-color: $btn-default-bg, $isTertiary: false) {
 	// we have a border but we cannot use box-sizing: border-box because we don't have a height.
 	// so we change the line-height to match 3.5rem ($btn-line-height) - borders
 	$border-width: 0.15rem;
 
 	&.btn-inverse {
-		background-color: transparent;
-		color: $btn-color;
+		@if $isTertiary {
+			background-color: tint($btn-color, 20%);
+			:global{
+				line-height: $btn-tertiary-line-height;
+				min-height: $btn-tertiary-line-height;
+			}
+
+			color: $btn-tertiary-inverse-color;
+			border: $border-width solid $btn-tertiary-inverse-color;
+		}@else {
+			background-color: transparent;
+			color: $btn-color;
+			border: $border-width solid $btn-color;
+		}
+
 		box-shadow: none;
-		border: $border-width solid $btn-color;
+
 		line-height: $btn-line-height - (2 * $border-width);
 		// this is to avoid background issue in case of an inverse button
 		// being in disabled and focused state
@@ -61,8 +74,14 @@
 		&.disabled {
 			&:focus,
 			&:hover {
-				background-color: transparent;
-				border: $border-width solid $btn-color;
+				@if $isTertiary {
+					background-color: tint($btn-color, 10%);
+					border: $border-width solid $btn-tertiary-inverse-color;
+				}@else {
+					background-color: transparent;
+					border: $border-width solid $btn-color;
+				}
+
 			}
 		}
 
@@ -73,9 +92,16 @@
 			&.focus,
 			&:focus,
 			&:hover {
-				background-color: transparent;
-				color: shade($btn-color, 12%);
-				border-color: shade($btn-color, 12%);
+				@if $isTertiary {
+					background-color: tint($btn-color, 20%);
+					color: shade($btn-tertiary-inverse-color, 12%);
+					border-color: shade($btn-tertiary-inverse-color, 12%);
+				}@else {
+					background-color: transparent;
+					color: shade($btn-color, 12%);
+					border-color: shade($btn-color, 12%);
+				}
+
 			}
 		}
 	}
