@@ -10,22 +10,6 @@ import theme from './InputDateTimePicker.scss';
 class InputDateTimePicker extends React.Component {
 	constructor(props) {
 		super(props);
-		this.onChange = this.onChange.bind(this);
-		this.state = {
-			showDatePicker: false,
-		};
-	}
-	onChange(event, payload) {
-		this.props.onChange(event, payload);
-		if (
-			this.props.formMode ||
-			(!this.props.formMode && !this.props.useTime && payload.origin !== 'INPUT')
-		) {
-			this.dateInputRef.focus();
-			this.setState({
-				showDatePicker: false,
-			});
-		}
 	}
 	render() {
 		const dateInputProps = {
@@ -45,13 +29,15 @@ class InputDateTimePicker extends React.Component {
 				useSeconds={this.props.useSeconds}
 				useTime={this.props.useTime}
 				useUTC={this.props.useUTC}
-				onChange={this.onChange}
+				onChange={this.props.onChange}
 			>
 				<DateTimeContext.Consumer>
-					{({ formManagement }) => {
+					{({ formManagement, inputManagement, pickerManagement }) => {
 						const inputDatePicker = (<InputDatePicker
 							{...this.props}
 							formManagement={formManagement}
+							inputManagement={inputManagement}
+							pickerManagement={pickerManagement}
 							setRef={ref => (this.dateInputRef = ref)}
 						/>);
 						return this.props.formMode ? (
