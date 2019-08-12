@@ -141,7 +141,6 @@ export default function createInputPicker({ part, theme, Picker }) {
 					key="input"
 					inputRef={ref => {
 						this.inputRef = ref;
-						this.props.setRef(ref);
 					}}
 					part={part}
 				/>,
@@ -162,7 +161,7 @@ export default function createInputPicker({ part, theme, Picker }) {
 					>
 						{({ ref, style }) => (
 							<div id={this.popoverId} className={theme.popper} style={style} ref={ref}>
-								<Picker {...this.props} onChange={this.onChange} />
+								<Picker {...this.props} />
 								{this.props.formMode && <DateTime.Validation />}
 							</div>
 						)}
