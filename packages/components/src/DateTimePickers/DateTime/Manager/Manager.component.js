@@ -93,7 +93,7 @@ class ContextualManager extends React.Component {
 		}
 	}
 
-	onChange(event, origin, callback) {
+	onChange(event, origin) {
 		if (!this.props.onChange) {
 			return;
 		}
@@ -101,22 +101,19 @@ class ContextualManager extends React.Component {
 		// we need to update the initial state once it has been changed
 		this.initialState = { ...this.state };
 		this.props.onChange(event, { errors, errorMessage, datetime, textInput, origin });
-		if (callback) {
-			callback(event, { errors, errorMessage, datetime, textInput, origin });
-		}
 	}
 
-	onInputChange(event, callback) {
+	onInputChange(event) {
 		const textInput = event.target.value;
 		const nextState = extractPartsFromTextInput(textInput, this.getDateOptions());
 		this.setState({ previousErrors: this.state.errors, ...nextState }, () => {
 			if (!this.props.formMode) {
-				this.onChange(event, 'INPUT', callback);
+				this.onChange(event, 'INPUT');
 			}
 		});
 	}
 
-	onPickerChange(event, { date, time, field }, callback) {
+	onPickerChange(event, { date, time, field }) {
 		const isTimeUpdate = [FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS].includes(field);
 		const nextState = extractPartsFromDateAndTime(date, time, this.getDateOptions());
 
@@ -160,12 +157,12 @@ class ContextualManager extends React.Component {
 
 		this.setState({ previousErrors: this.state.errors, ...nextState, errors: nextErrors }, () => {
 			if (!this.props.formMode) {
-				this.onChange(event, 'PICKER', callback);
+				this.onChange(event, 'PICKER');
 			}
 		});
 	}
 
-	onSubmit(event, origin, callback) {
+	onSubmit(event, origin) {
 		event.preventDefault();
 
 		// validation
@@ -178,7 +175,7 @@ class ContextualManager extends React.Component {
 
 		this.setState({ errors, errorMessage: errors[0] ? errors[0].message : '' }, () => {
 			if (!errors.length) {
-				this.onChange(event, origin, callback);
+				this.onChange(event, origin);
 			}
 		});
 	}
