@@ -2,21 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import DateTime from '../DateTime';
+import { DateTimeContext } from '../DateTime/Context';
 import createInputPicker, { INPUT_PICKER_PROPTYPES } from './createInputPicker';
 
 import theme from './InputDateTimePicker.scss';
 
-const dateInputProps = {
-	part: 'date',
-	theme,
-	Picker: DateTime.Picker,
-
-};
-
-const InputDatePicker = createInputPicker(dateInputProps);
-// TODO: const InputTimePicker = createInputPicker(timeInputProps);
-
 function InputDateTimePicker(props) {
+	const dateInputProps = {
+		part: 'date',
+		theme,
+		Picker: DateTime.Picker,
+	};
+	const InputDatePicker = createInputPicker(dateInputProps);
 	return (
 		<DateTime.Manager
 			dateFormat={props.dateFormat}
@@ -29,14 +26,27 @@ function InputDateTimePicker(props) {
 			useUTC={props.useUTC}
 			onChange={props.onChange}
 		>
-			<InputDatePicker {...props} />
-			{/* TODO: {props.useTime && <InputTimePicker {...props} />} */}
+			<DateTimeContext.Consumer>
+				{({ formManagement }) => (props.formMode ? (
+					<form
+						key="form"
+						onSubmit={(event, payload) => {
+							formManagement.onSubmit(event, payload);
+						}}
+					>
+						<InputDatePicker {...props} formManagement={formManagement} />
+					</form>
+				) : (
+					<InputDatePicker {...props} formManagement={formManagement} />
+				))}
+			</DateTimeContext.Consumer>
 		</DateTime.Manager>
 	);
 }
 
 InputDateTimePicker.propTypes = {
 	...INPUT_PICKER_PROPTYPES,
+	onChange: PropTypes.func,
 	selectedDateTime: PropTypes.oneOfType([
 		PropTypes.instanceOf(Date),
 		PropTypes.number,

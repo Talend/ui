@@ -7,7 +7,6 @@ import uuid from 'uuid';
 import { Popper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
-import { DateTimeContext } from '../DateTime/Context';
 import DateTime from '../DateTime';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 
@@ -23,13 +22,14 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'useUTC',
 	'onBlur',
 	'onChange',
+	'formManagement',
 ];
 
 export const INPUT_PICKER_PROPTYPES = {
 	id: PropTypes.string.isRequired,
-	onChange: PropTypes.func,
 	onBlur: PropTypes.func,
 	readOnly: PropTypes.bool,
+	formManagement: PropTypes.obj,
 	formMode: PropTypes.bool,
 };
 
@@ -62,6 +62,7 @@ export default function createInputPicker({ part, theme, Picker }) {
 			this.onKeyDown = this.onKeyDown.bind(this);
 			this.openPicker = this.setPickerVisibility.bind(this, true);
 			this.closePicker = this.setPickerVisibility.bind(this, false);
+			this.focusInputAndClosePicker = this.focusInputAndClosePicker.bind(this);
 		}
 
 		onKeyDown(event, { onReset }) {
@@ -105,13 +106,14 @@ export default function createInputPicker({ part, theme, Picker }) {
 			this.openPicker();
 		}
 
+		focusInputAndClosePicker() {
+			this.inputRef.focus();
+			this.closePicker({ picked: true });
+		}
+
 		onChange(event, payload) {
-			if (
-				this.props.formMode ||
-				(!this.props.formMode && payload.origin !== 'INPUT')
-			) {
-				this.inputRef.focus();
-				this.closePicker({ picked: true });
+			if (!this.props.formMode && payload.origin !== 'INPUT') {
+				this.focusInputAndClosePicker();
 			}
 		}
 
@@ -181,36 +183,22 @@ export default function createInputPicker({ part, theme, Picker }) {
 			].filter(Boolean);
 
 			return (
-				<DateTimeContext.Consumer>
-					{({ formManagement }) => (
-						<FocusManager
-							style={{ display: 'inline-block' }}
-							divRef={ref => {
-								this.containerRef = ref;
-							}}
-							onClick={this.onClick}
-							onFocusIn={this.onFocus}
-							onFocusOut={event => {
-								this.onBlur(event, formManagement);
-							}}
-							onKeyDown={event => {
-								this.onKeyDown(event, formManagement);
-							}}
-						>
-							{this.props.formMode ? (
-								<form
-									key="form"
-									onSubmit={(event, payload) =>
-										formManagement.onSubmit(event, payload, this.onChange)}
-								>
-									{picker}
-								</form>
-							) : (
-									picker
-							)}
-						</FocusManager>
-					)}
-				</DateTimeContext.Consumer>
+				<FocusManager
+					style={{ display: 'inline-block' }}
+					divRef={ref => {
+						this.containerRef = ref;
+					}}
+					onClick={this.onClick}
+					onFocusIn={this.onFocus}
+					onFocusOut={event => {
+						this.onBlur(event, this.props.formManagement);
+					}}
+					onKeyDown={event => {
+						this.onKeyDown(event, this.props.formManagement);
+					}}
+				>
+					{picker}
+				</FocusManager>
 			);
 		}
 	};
