@@ -23,13 +23,14 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'onBlur',
 	'onChange',
 	'formManagement',
+	'setRef',
 ];
 
 export const INPUT_PICKER_PROPTYPES = {
 	id: PropTypes.string.isRequired,
 	onBlur: PropTypes.func,
 	readOnly: PropTypes.bool,
-	formManagement: PropTypes.obj,
+	formManagement: PropTypes.object,
 	formMode: PropTypes.bool,
 };
 
@@ -52,7 +53,7 @@ export default function createInputPicker({ part, theme, Picker }) {
 
 			this.popoverId = `input-${part}-picker-${props.id || uuid.v4()}`;
 			this.state = {
-				showPicker: props.showPicker,
+				showPicker: false,
 			};
 
 			this.onBlur = this.onBlur.bind(this);

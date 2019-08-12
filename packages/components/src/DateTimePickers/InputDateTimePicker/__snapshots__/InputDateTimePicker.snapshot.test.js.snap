@@ -15,6 +15,7 @@ exports[`InputDateTimePicker should render 1`] = `
     dateFormat="YYYY-MM-DD"
     formMode={false}
     id="my-picker"
+    onChange={[Function]}
     required={true}
     selectedDateTime={2017-04-04T13:27:00.000Z}
     useSeconds={true}
@@ -23,10 +24,17 @@ exports[`InputDateTimePicker should render 1`] = `
   >
     <InputPicker
       dateFormat="YYYY-MM-DD"
+      formManagement={
+        Object {
+          "onReset": [Function],
+          "onSubmit": [Function],
+        }
+      }
       formMode={false}
       id="my-picker"
       required={true}
       selectedDateTime={2017-04-04T13:27:00.000Z}
+      setRef={[Function]}
       useSeconds={true}
       useTime={true}
       useUTC={false}
@@ -59,14 +67,12 @@ exports[`InputDateTimePicker should render 1`] = `
             id="my-picker-date-input"
             inputRef={[Function]}
             key="input"
-            onChange={[Function]}
             part="date"
           >
             <Mock
               className="InputMock"
               id="my-picker-date-input"
               inputRef={[Function]}
-              onChange={[Function]}
               part="date"
             >
               <div
