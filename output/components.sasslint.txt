@@ -14,10 +14,6 @@ src/GuidedTour/GuidedTour.scss
   71:4  error  Class '.reactour__mask' should be written in lowercase with hyphens            class-name-format
   80:4  error  Class '.reactour__dot--is-active' should be written in lowercase with hyphens  class-name-format
 
-src/List/Toolbar/ColumnChooserButton/ColumnChooser/ColumnChooser.scss
-  31:11  warning  Property `margin` should be written more concisely as `0 $padding-small` instead of `0 $padding-small 0 $padding-small`   shorthand-values
-  45:12  warning  Property `padding` should be written more concisely as `0 $padding-large` instead of `0 $padding-large 0 $padding-large`  shorthand-values
-
 src/List/Toolbar/Toolbar.scss
   71:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
   75:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
@@ -27,5 +23,5 @@ src/List/Toolbar/Toolbar.scss
 src/Typeahead/Typeahead.scss
   31:5  error  Mixins should come before declarations  mixins-before-declarations
 
-✖ 12 problems (8 errors, 4 warnings)
+✖ 10 problems (8 errors, 2 warnings)
 
