@@ -20,7 +20,6 @@ export default function ColumnChooserButton({
 	const [buttonRef, setButtonRef] = useState(null);
 	const changeOpened = () => setOpened(!opened);
 	const closePopover = () => setOpened(false);
-	const colChooserButtonId = `${id}-column-chooser`;
 
 	const onSubmitColumnChooser = (event, columnsChooser) => {
 		onSubmit(event, columnsChooser);
@@ -34,25 +33,25 @@ export default function ColumnChooserButton({
 				data-feature="open-column-chooser-overlay-action"
 				hideLabel
 				icon="talend-column-chooser"
-				id={`${colChooserButtonId}-button`}
+				id={`${id}-button`}
 				label={t('COLUMN_CHOOSER_OVERLAY_BUTTON', { defaultValue: 'Open the column chooser' })}
 				link
 				onClick={changeOpened}
 			/>
 			<Overlay
-				id={`${colChooserButtonId}-overlay`}
+				id={`${id}-overlay`}
 				onHide={closePopover}
 				placement={placement}
 				rootClose
 				show={opened}
 				target={buttonRef}
 			>
-				<Popover id={`${colChooserButtonId}-popover`}>
+				<Popover id={`${id}-popover`}>
 					{!children ? (
 						<ColumnChooser
 							columns={columns}
 							initialFilterValue={initialFilterValue}
-							id={colChooserButtonId}
+							id={id}
 							nbLockedLeftItems={nbLockedLeftItems}
 							onSubmit={onSubmitColumnChooser}
 							t={t}
