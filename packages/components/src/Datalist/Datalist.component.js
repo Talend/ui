@@ -224,7 +224,9 @@ class Datalist extends Component {
 			if (!item) {
 				item = this.props.titleMap.find(titleMap => titleMap.value === this.state.value);
 			}
-			if (item) return get(item, 'icon');
+			if (item) {
+				return get(item, 'icon');
+			}
 		}
 		return undefined;
 	}
