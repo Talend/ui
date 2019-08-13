@@ -52,14 +52,14 @@
 	&.btn-inverse {
 		@if $isTertiary {
 			background-color: tint($btn-color, 20%);
-			:global{
+			:global {
 				line-height: $btn-tertiary-line-height;
 				min-height: $btn-tertiary-line-height;
 			}
 
 			color: $btn-tertiary-inverse-color;
 			border: $border-width solid $btn-tertiary-inverse-color;
-		}@else {
+		} @else {
 			background-color: transparent;
 			color: $btn-color;
 			border: $border-width solid $btn-color;
@@ -77,11 +77,10 @@
 				@if $isTertiary {
 					background-color: tint($btn-color, 10%);
 					border: $border-width solid $btn-tertiary-inverse-color;
-				}@else {
+				} @else {
 					background-color: transparent;
 					border: $border-width solid $btn-color;
 				}
-
 			}
 		}
 
@@ -96,12 +95,11 @@
 					background-color: tint($btn-color, 20%);
 					color: shade($btn-tertiary-inverse-color, 12%);
 					border-color: shade($btn-tertiary-inverse-color, 12%);
-				}@else {
+				} @else {
 					background-color: transparent;
 					color: shade($btn-color, 12%);
 					border-color: shade($btn-color, 12%);
 				}
-
 			}
 		}
 	}
