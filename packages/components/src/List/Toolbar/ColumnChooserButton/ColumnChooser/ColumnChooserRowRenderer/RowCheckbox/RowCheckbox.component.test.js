@@ -50,11 +50,8 @@ describe('RowCheckBox', () => {
 		};
 		// When
 		const wrapper = mount(<Component {...props} />);
-		act(() => {
-			wrapper.find('input[type="checkbox"]').simulate('change');
-		});
+		wrapper.find('input[type="checkbox"]').simulate('change');
 		// Then
-		expect(onChange).toHaveBeenCalled();
-		expect(onChange.mock.calls[0][0]).toEqual(false);
+		expect(onChange).toHaveBeenNthCalledWith(1, false, 'column-label');
 	});
 });

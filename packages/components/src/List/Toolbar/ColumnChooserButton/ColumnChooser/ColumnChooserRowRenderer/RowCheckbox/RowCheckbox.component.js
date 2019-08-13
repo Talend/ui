@@ -4,7 +4,7 @@ import Icon from '../../../../../../Icon';
 import RowLabel from '../RowLabel';
 import cssModule from '../../ColumnChooser.scss';
 import { getTheme } from '../../../../../../theme';
-import Toggle from '../../../../../../Toggle';
+import { Checkbox } from '../../../../../../Toggle';
 
 const theme = getTheme(cssModule);
 
@@ -28,10 +28,9 @@ const RowCheckbox = ({
 		</React.Fragment>
 	) : (
 		<React.Fragment>
-			<Toggle
+			<Checkbox
 				aria-checked={checked}
 				checked={checked}
-				className="checkbox"
 				data-feature={dataFeature}
 				describedby={describedby}
 				id={`${id}-checkbox-${label}`}
