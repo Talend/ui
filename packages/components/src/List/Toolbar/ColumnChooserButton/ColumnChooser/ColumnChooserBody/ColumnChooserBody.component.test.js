@@ -80,30 +80,4 @@ describe('ColumnChooserBody', () => {
 		expect(onChangeVisibility.mock.calls.length).toBe(1);
 		expect(onChangeVisibility.mock.calls[0][1]).toBe('col3');
 	});
-	it('should call the onSelectAll when onChange is triggered on the column chooser table', () => {
-		const onSelectAll = jest.fn();
-		// Given
-		const contextValues = {
-			columnsChooser: columns,
-			id: 'body-context-id',
-			onChangeVisibility: jest.fn(),
-			onSelectAll,
-			selectAll: true,
-			t: getDefaultT(),
-		};
-		// When
-		const wrapper = mount(
-			<ColumnChooserProvider value={contextValues}>
-				<Component />
-			</ColumnChooserProvider>,
-		);
-		expect(wrapper.find('input#body-context-id-body-checkbox-Columns').prop('checked')).toBe(true);
-		act(() => {
-			wrapper.find('input#body-context-id-body-checkbox-Columns').simulate('change');
-		});
-		wrapper.update();
-		// Then
-		expect(onSelectAll.mock.calls.length).toBe(1);
-		expect(onSelectAll.mock.calls[0][1]).toBe('Columns');
-	});
 });
