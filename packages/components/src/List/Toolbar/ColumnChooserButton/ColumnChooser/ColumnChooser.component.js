@@ -103,5 +103,4 @@ ColumnChooser.propTypes = {
 	nbLockedLeftItems: PropTypes.number,
 	onClose: PropTypes.func,
 	onSubmit: PropTypes.func.isRequired,
-	t: PropTypes.func,
 };

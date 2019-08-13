@@ -34,7 +34,7 @@ storiesOf('Column Chooser', module)
 				columns={columns}
 				nbLockedLeftItems={2}
 				id="default-column-chooser"
-				submit={action('submit')}
+				onSubmit={action('submit')}
 			/>
 		</div>
 	))
@@ -43,7 +43,7 @@ storiesOf('Column Chooser', module)
 			<h1>Column chooser tooltip</h1>
 			<p>You can provide and compose some of the column chooser part.</p>
 			<IconsProvider defaultIcons={icons} />
-			<ColumnChooser columns={columns} id="default-column-chooser" submit={action('submit')}>
+			<ColumnChooser columns={columns} id="default-column-chooser" onSubmit={action('submit')}>
 				<ColumnChooser.Header>
 					<span>Hello world</span>
 					<button style={{ marginLeft: '200px' }}>My Button</button>
@@ -51,7 +51,7 @@ storiesOf('Column Chooser', module)
 				<ColumnChooser.Body>
 					{myBodyColumns =>
 						myBodyColumns.map(column => (
-							<div>
+							<div key={column.label}>
 								<ColumnChooser.Body.Row>
 									<ColumnChooser.Body.Row.Label label={column.label} />
 									<button

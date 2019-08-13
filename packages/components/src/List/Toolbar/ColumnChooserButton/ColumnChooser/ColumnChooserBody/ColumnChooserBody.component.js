@@ -46,7 +46,7 @@ const ColumnChooserBody = ({ children = <Default /> }) => {
 };
 
 ColumnChooserBody.propTypes = {
-	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+	children: PropTypes.func,
 };
 
 ColumnChooserBody.Row = ColumnChooserRowRenderer;
