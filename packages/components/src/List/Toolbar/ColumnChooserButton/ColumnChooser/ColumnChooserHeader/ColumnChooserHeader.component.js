@@ -7,14 +7,15 @@ import { getTheme } from '../../../../../theme';
 
 const theme = getTheme(cssModule);
 
-const filterVisibleColumns = column => column.visible;
+const isVisible = column => column.visible;
 
 const Default = () => {
 	const { columnsChooser, t } = useColumnChooserContext();
+	const lengthVisibleColumns = columnsChooser.filter(isVisible).length;
 	const selectedColumns = t('SELECT_COLUMNS', {
-		defaultValue: 'selected columns',
+		count: lengthVisibleColumns,
+		defaultValue: `{{count}}/${columnsChooser.length} selected column`,
 	});
-	const lengthVisibleColumns = columnsChooser.filter(filterVisibleColumns).length;
 	return (
 		<div>
 			<div className={theme('tc-column-chooser-header-title')}>
@@ -22,9 +23,7 @@ const Default = () => {
 					defaultValue: 'Modify columns',
 				})}
 			</div>
-			<div id="selected-columns-text">{`${lengthVisibleColumns}/${
-				columnsChooser.length
-			} ${selectedColumns}`}</div>
+			<div id="selected-columns-text">{selectedColumns}</div>
 		</div>
 	);
 };
