@@ -15,8 +15,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           >
             <input type="checkbox"
                    id="body-context-id-body-checkbox-Columns"
-                   aria-checked="true"
-                   describedby="desc-select-all-columns"
+                   aria-describedby="body-context-id-body-select or deselect all the columns"
                    checked
             >
             <span>
@@ -24,7 +23,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
             </span>
           </label>
         </div>
-        <div id="desc-select-all-columns"
+        <div id="body-context-id-body-select or deselect all the columns"
              class="sr-only"
         >
           select or deselect all the columns
@@ -63,8 +62,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           >
             <input type="checkbox"
                    id="body-context-id-body-checkbox-col3"
-                   aria-checked="true"
-                   describedby="desc-column-col3"
+                   aria-describedby="body-context-id-body-change visibility of column col3"
                    checked
             >
             <span>
@@ -72,7 +70,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
             </span>
           </label>
         </div>
-        <div id="desc-column-col3"
+        <div id="body-context-id-body-change visibility of column col3"
              class="sr-only"
         >
           change visibility of column col3
@@ -85,15 +83,14 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           >
             <input type="checkbox"
                    id="body-context-id-body-checkbox-col4"
-                   aria-checked="false"
-                   describedby="desc-column-col4"
+                   aria-describedby="body-context-id-body-change visibility of column col4"
             >
             <span>
               col4
             </span>
           </label>
         </div>
-        <div id="desc-column-col4"
+        <div id="body-context-id-body-change visibility of column col4"
              class="sr-only"
         >
           change visibility of column col4
@@ -106,8 +103,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           >
             <input type="checkbox"
                    id="body-context-id-body-checkbox-col5"
-                   aria-checked="true"
-                   describedby="desc-column-col5"
+                   aria-describedby="body-context-id-body-change visibility of column col5"
                    checked
             >
             <span>
@@ -115,7 +111,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
             </span>
           </label>
         </div>
-        <div id="desc-column-col5"
+        <div id="body-context-id-body-change visibility of column col5"
              class="sr-only"
         >
           change visibility of column col5
@@ -128,15 +124,14 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           >
             <input type="checkbox"
                    id="body-context-id-body-checkbox-col6"
-                   aria-checked="false"
-                   describedby="desc-column-col6"
+                   aria-describedby="body-context-id-body-change visibility of column col6"
             >
             <span>
               col6
             </span>
           </label>
         </div>
-        <div id="desc-column-col6"
+        <div id="body-context-id-body-change visibility of column col6"
              class="sr-only"
         >
           change visibility of column col6

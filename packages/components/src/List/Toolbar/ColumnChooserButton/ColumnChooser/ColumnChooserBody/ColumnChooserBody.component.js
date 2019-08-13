@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ColumnChooserRowRenderer from '../ColumnChooserRowRenderer';
+import ColumnChooserRow from '../ColumnChooserRow';
 import SelectAllColumnsCheckbox from '../SelectAllColumnsCheckbox';
 import ColumnChooserTable from '../ColumnChooserTable';
 import { useColumnChooserContext } from '../columnChooser.context';
@@ -49,6 +49,6 @@ ColumnChooserBody.propTypes = {
 	children: PropTypes.func,
 };
 
-ColumnChooserBody.Row = ColumnChooserRowRenderer;
+ColumnChooserBody.Row = ColumnChooserRow;
 
 export default ColumnChooserBody;

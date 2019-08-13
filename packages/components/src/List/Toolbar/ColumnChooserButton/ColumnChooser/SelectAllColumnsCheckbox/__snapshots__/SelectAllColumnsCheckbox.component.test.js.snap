@@ -8,15 +8,14 @@ exports[`SelectAllColumnsCheckbox should render by default 1`] = `
     >
       <input type="checkbox"
              id="select-all-id-checkbox-Columns"
-             aria-checked="false"
-             describedby="desc-select-all-columns"
+             aria-describedby="select-all-id-select or deselect all the columns"
       >
       <span>
         Columns
       </span>
     </label>
   </div>
-  <div id="desc-select-all-columns"
+  <div id="select-all-id-select or deselect all the columns"
        class="sr-only"
   >
     select or deselect all the columns

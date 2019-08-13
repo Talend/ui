@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ColumnChooserRowRenderer from '../ColumnChooserRowRenderer';
+import ColumnChooserRow from '../ColumnChooserRow';
 import { columnsChooserPropTypes } from '../../columnChooser.propTypes';
 
 const ColumnChooserTable = ({ columns = [], id, onChangeCheckbox, t }) =>
 	columns.map(column => (
-		<ColumnChooserRowRenderer key={column.label}>
-			<ColumnChooserRowRenderer.Checkbox
+		<ColumnChooserRow key={column.label}>
+			<ColumnChooserRow.Checkbox
 				id={id}
 				dataFeature="select-column-visibility-checkbox"
 				describedby={`desc-column-${column.label}`}
@@ -19,7 +19,7 @@ const ColumnChooserTable = ({ columns = [], id, onChangeCheckbox, t }) =>
 				checked={column.visible}
 				t={t}
 			/>
-		</ColumnChooserRowRenderer>
+		</ColumnChooserRow>
 	));
 
 ColumnChooserTable.propTypes = {

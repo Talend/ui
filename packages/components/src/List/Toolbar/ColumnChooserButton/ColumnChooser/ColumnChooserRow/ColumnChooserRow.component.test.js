@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Component from './ColumnChooserRowRenderer.component';
+import Component from './ColumnChooserRow.component';
 
-describe('ColumnChooserRowRenderer', () => {
+describe('ColumnChooserRow', () => {
 	it('should render', () => {
 		// given
 		const id = 'row-renderer-context-id';

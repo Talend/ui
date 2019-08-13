@@ -7,16 +7,16 @@ import { getTheme } from '../../../../../theme';
 
 const theme = getTheme(cssModule);
 
-const ColumnChooserRowRenderer = ({ children, className }) => (
+const ColumnChooserRow = ({ children, className }) => (
 	<div className={theme('tc-column-chooser-row', className)}>{children}</div>
 );
 
-ColumnChooserRowRenderer.propTypes = {
+ColumnChooserRow.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 	className: PropTypes.string,
 };
 
-ColumnChooserRowRenderer.Checkbox = Checkbox;
-ColumnChooserRowRenderer.Label = Label;
+ColumnChooserRow.Checkbox = Checkbox;
+ColumnChooserRow.Label = Label;
 
-export default ColumnChooserRowRenderer;
+export default ColumnChooserRow;

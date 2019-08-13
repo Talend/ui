@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ColumnChooserRowRenderer from '../ColumnChooserRowRenderer';
+import ColumnChooserRow from '../ColumnChooserRow';
 import cssModule from '../ColumnChooser.scss';
 import { getTheme } from '../../../../../theme';
 
 const theme = getTheme(cssModule);
 
 const SelectAllColumnsCheckbox = ({ id, onChange, value, t }) => (
-	<ColumnChooserRowRenderer className={theme('tc-column-chooser-row-select-all')}>
-		<ColumnChooserRowRenderer.Checkbox
+	<ColumnChooserRow className={theme('tc-column-chooser-row-select-all')}>
+		<ColumnChooserRow.Checkbox
 			id={id}
 			dataFeature="select-all-columns"
 			describedby="desc-select-all-columns"
@@ -22,7 +22,7 @@ const SelectAllColumnsCheckbox = ({ id, onChange, value, t }) => (
 			checked={value}
 			t={t}
 		/>
-	</ColumnChooserRowRenderer>
+	</ColumnChooserRow>
 );
 
 SelectAllColumnsCheckbox.propTypes = {

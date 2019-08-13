@@ -10,7 +10,7 @@
    - [ColumnChooserHeader](#columnchooserheader)
    - [ColumnChooserFooter](#columnchooserfooter)
    - [ColumnChooserBody](#columnchooserbody)
-   - [ColumnChooserRowRenderer](#columnchooserrowrenderer)
+   - [ColumnChooserRow](#columnchooserrow)
    - [RowCheckbox](#rowcheckbox)
    - [RowLabel](#rowlabel)
 4. [Hooks](#hooks)
@@ -172,13 +172,13 @@ It consumes the [columnChooserContext](#columnchoosercontext).
 
 The component holds reference :
 
-- Row : [ColumnChooserRowRenderer](#columnchooserrowrenderer)
+- Row : [ColumnChooserRow](#columnchooserrow)
 
 | Props    | Type     | Info                                                                     |
 | -------- | -------- | ------------------------------------------------------------------------ |
 | children | function | the body's content of the popover, called with the columns as arguments. |
 
-### ColumnChooserRowRenderer
+### ColumnChooserRow
 
 It only renders its children.
 It holds reference to other components:
