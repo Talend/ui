@@ -203,37 +203,21 @@
 	}
 }
 
-@mixin btn-tertiary($secondary: false){
+@mixin btn-tertiary($color){
 	font-weight: $btn-tertiary-font-weight;
 	line-height: $btn-tertiary-line-height;
 	min-height: $btn-tertiary-line-height;
 	padding: 0 $padding-small;
 	transition: background 0.2s ease-in;
-	@if $secondary{
-		color: $btn-tertiary-secondary-color;
-		&:hover {
-			color: $btn-tertiary-secondary-color;
-			background: tint($btn-tertiary-secondary-color, 90%);
-		}
-		&:active {
-			background: tint($btn-tertiary-secondary-color, 80%);
-		}
-		&:focus {
-			color: $btn-tertiary-secondary-color;
-		}
-	}@else {
-		color: $btn-tertiary-primary-color;
-		&:hover {
-			color: $btn-tertiary-primary-color;
-			background: tint($btn-tertiary-primary-color, 90%);
-		}
-		&:active {
-			background: tint($btn-tertiary-primary-color, 80%);
-		}
-		&:focus {
-			color: $btn-tertiary-primary-color;
-		}
+	color: $color;
+	&:hover {
+		color: $color;
+		background: tint($color, 90%);
 	}
-
-
+	&:active {
+		background: tint($color, 80%);
+	}
+	&:focus {
+		color: $color;
+	}
 }

@@ -91,12 +91,12 @@
 	}
 
 	&-tertiary-primary {
-		@include btn-tertiary();
+		@include btn-tertiary($btn-tertiary-primary-color);
 		@include btn-inverse-colors($btn-tertiary-primary-color, true);
 	}
 
 	&-tertiary-secondary {
-		@include btn-tertiary(true);
+		@include btn-tertiary($btn-tertiary-secondary-color);
 		@include btn-inverse-colors($btn-tertiary-secondary-color, true);
 	}
 
