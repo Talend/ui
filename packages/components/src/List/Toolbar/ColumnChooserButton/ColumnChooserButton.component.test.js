@@ -23,5 +23,6 @@ describe('ColumnChooserButton', () => {
 		const wrapper = mount(<ColumnChooserButton {...props} />);
 		// then
 		expect(wrapper.find('svg[name="talend-column-chooser"]')).toHaveLength(1);
+		expect(wrapper.find('button#my-wrapper-id-column-chooser-button')).toHaveLength(1);
 	});
 });
