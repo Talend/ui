@@ -35,6 +35,7 @@ exports[`InputDateTimePicker should render 1`] = `
       required={true}
       selectedDateTime={2017-04-04T13:27:00.000Z}
       setRef={[Function]}
+      show={false}
       useSeconds={true}
       useTime={true}
       useUTC={false}
@@ -68,12 +69,14 @@ exports[`InputDateTimePicker should render 1`] = `
             inputRef={[Function]}
             key="input"
             part="date"
+            show={false}
           >
             <Mock
               className="InputMock"
               id="my-picker-date-input"
               inputRef={[Function]}
               part="date"
+              show={false}
             >
               <div
                 className="InputMock"

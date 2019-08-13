@@ -10,6 +10,28 @@ import theme from './InputDateTimePicker.scss';
 class InputDateTimePicker extends React.Component {
 	constructor(props) {
 		super(props);
+		this.onChange = this.onChange.bind(this);
+		this.closeDatePicker = this.closeDatePicker.bind(this);
+		this.state = {
+			showDatePicker: false,
+		};
+	}
+
+	onChange(event, payload) {
+		this.props.onChange(event, payload);
+		if (
+			this.props.formMode ||
+			(!this.props.formMode && !this.props.useTime && payload.origin !== 'INPUT')
+		) {
+			this.closeDatePicker();
+			this.dateInputRef.focus();
+		}
+	}
+	closeDatePicker() {
+		this.dateInputRef.focus();
+		this.setState({
+			show: false,
+		});
 	}
 	render() {
 		const dateInputProps = {
@@ -29,24 +51,18 @@ class InputDateTimePicker extends React.Component {
 				useSeconds={this.props.useSeconds}
 				useTime={this.props.useTime}
 				useUTC={this.props.useUTC}
-				onChange={this.props.onChange}
+				onChange={this.onChange}
 			>
 				<DateTimeContext.Consumer>
-					{({ formManagement, inputManagement, pickerManagement }) => {
+					{({ formManagement }) => {
 						const inputDatePicker = (<InputDatePicker
 							{...this.props}
 							formManagement={formManagement}
-							inputManagement={inputManagement}
-							pickerManagement={pickerManagement}
 							setRef={ref => (this.dateInputRef = ref)}
+							show={this.state.showDatePicker}
 						/>);
 						return this.props.formMode ? (
-							<form
-								key="form"
-								onSubmit={(event, payload) => {
-									formManagement.onSubmit(event, payload);
-								}}
-							>
+							<form key="form" onSubmit={formManagement.onSubmit}>
 								{inputDatePicker}
 							</form>
 						) : inputDatePicker;

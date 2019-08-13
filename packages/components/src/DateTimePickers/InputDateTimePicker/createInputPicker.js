@@ -32,12 +32,14 @@ export const INPUT_PICKER_PROPTYPES = {
 	readOnly: PropTypes.bool,
 	formManagement: PropTypes.object,
 	formMode: PropTypes.bool,
-	useTime: PropTypes.bool,
 };
 
 export default function createInputPicker({ part, theme, Picker }) {
 	return class InputPicker extends React.Component {
-		static propTypes = INPUT_PICKER_PROPTYPES;
+		static propTypes = {
+			...INPUT_PICKER_PROPTYPES,
+			showPicker: PropTypes.bool,
+		};
 
 		static defaultProps = {
 			dateFormat: 'YYYY-MM-DD',
@@ -54,11 +56,10 @@ export default function createInputPicker({ part, theme, Picker }) {
 
 			this.popoverId = `input-${part}-picker-${props.id || uuid.v4()}`;
 			this.state = {
-				showPicker: false,
+				showPicker: props.showPicker,
 			};
 
 			this.onBlur = this.onBlur.bind(this);
-			this.onChange = this.onChange.bind(this);
 			this.onClick = this.onClick.bind(this);
 			this.onFocus = this.onFocus.bind(this);
 			this.onKeyDown = this.onKeyDown.bind(this);
@@ -66,13 +67,12 @@ export default function createInputPicker({ part, theme, Picker }) {
 			this.closePicker = this.setPickerVisibility.bind(this, false);
 		}
 
-		onChange(event, payload) {
-			if (
-				this.props.formMode ||
-				(!this.props.formMode && !this.props.useTime && payload.origin !== 'INPUT')
-			) {
-				this.inputRef.focus();
-				this.closePicker({ picked: true });
+		componentWillReceiveProps(nextProps) {
+			if (nextProps.showPicker !== this.props.showPicker
+					&& nextProps.showPicker !== this.state.showPicker) {
+				this.setState({
+					showPicker: nextProps.showPicker,
+				});
 			}
 		}
 
@@ -153,13 +153,9 @@ export default function createInputPicker({ part, theme, Picker }) {
 					key="input"
 					inputRef={ref => {
 						this.inputRef = ref;
+						this.props.setRef(ref);
 					}}
 					part={part}
-					onChange={event => {
-						this.props.inputManagement.onChange(event);
-						this.onChange(event, { origin: 'INPUT' });
-					}
-					}
 				/>,
 				this.state.showPicker && (
 					<Popper
@@ -178,13 +174,7 @@ export default function createInputPicker({ part, theme, Picker }) {
 					>
 						{({ ref, style }) => (
 							<div id={this.popoverId} className={theme.popper} style={style} ref={ref}>
-								<Picker
-									{...this.props}
-									onSubmit={(event, payload) => {
-										this.props.pickerManagement.onSubmit(event, payload);
-										this.onChange(event, { origin: 'PICKER' });
-									}}
-								/>
+								<Picker {...this.props} />
 								{this.props.formMode && <DateTime.Validation />}
 							</div>
 						)}
