@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { sfPath } from '@talend/json-schema-form-core';
-import { TooltipTrigger } from '@talend/react-components';
+import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
 
 import defaultWidgets from '../utils/widgets';
 import { getError } from '../utils/errors';
 import { getValue } from '../utils/properties';
 import shouldRender from '../utils/condition';
+
+import theme from './Widget.component.scss';
 
 function getWidget(displayMode, widgetId, customWidgets) {
 	// resolve the widget id depending on the display mode
@@ -70,7 +72,11 @@ export default function Widget(props) {
 
 	if (tooltip) {
 		return (
-			<TooltipTrigger label={tooltip} tooltipPlacement={tooltipPlacement || 'left'}>
+			<TooltipTrigger
+				className={theme.tooltip}
+				label={tooltip}
+				tooltipPlacement={tooltipPlacement || 'left'}
+			>
 				<div>
 					<WidgetImpl {...all} />
 				</div>

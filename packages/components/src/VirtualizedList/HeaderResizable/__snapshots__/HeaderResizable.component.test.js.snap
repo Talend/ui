@@ -95,4 +95,14 @@ exports[`HeaderResizable should render with no specific props 1`] = `
 </HeaderResizable>
 `;
 
-exports[`HeaderResizable should render with no specific props 2`] = `"<div class=\\"tc-header-cell-resizable theme-tc-header-cell-resizable\\"><div class=\\"tc-header-cell-resizable-truncated-text theme-tc-header-cell-resizable-truncated-text\\"></div><div class=\\"tc-header-cell-resizable-drag-handle-icon theme-tc-header-cell-resizable-drag-handle-icon tc-header-cell-resizable-drag-handle theme-tc-header-cell-resizable-drag-handle\\" title=\\"Resize column\\" style=\\"transform: translate(0px,undefinedpx);\\"></div></div>"`;
+exports[`HeaderResizable should render with no specific props 2`] = `
+<div class="tc-header-cell-resizable theme-tc-header-cell-resizable">
+  <div class="tc-header-cell-resizable-truncated-text theme-tc-header-cell-resizable-truncated-text">
+  </div>
+  <div class="tc-header-cell-resizable-drag-handle-icon theme-tc-header-cell-resizable-drag-handle-icon tc-header-cell-resizable-drag-handle theme-tc-header-cell-resizable-drag-handle"
+       title="Resize column"
+       style="transform: translate(0px,undefinedpx);"
+  >
+  </div>
+</div>
+`;
