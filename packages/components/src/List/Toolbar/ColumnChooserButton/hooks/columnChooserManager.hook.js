@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import flow from 'lodash/flow';
-import cloneDeep from 'lodash/cloneDeep';
+import clone from 'lodash/cloneDeep';
 import { compareOrder } from '../service';
 
 const isItemVisible = item => item.visible;
@@ -9,13 +9,7 @@ const isItemVisible = item => item.visible;
  * Helps to change the select all visible status. If all columns are visible, select all is checked.
  * @param {array} columns
  */
-const isEveryItemVisible = columns => {
-	const visibleItems = columns.filter(isItemVisible);
-	if (visibleItems) {
-		return visibleItems.length === columns.length;
-	}
-	return true;
-};
+const isEveryItemVisible = columns => columns.every(isItemVisible);
 
 const findColumnLabel = label => column => column.label === label;
 
@@ -104,14 +98,13 @@ export const useColumnChooserManager = (initColumns = [], nbLockedLeftItems = 0)
 	const updateState = (columns, selectAll) => {
 		setState({
 			columns,
-			selectAll: selectAll || isEveryItemVisible(columns),
+			selectAll,
 		});
 	};
-
 	const onChangeVisibility = (value, label) => {
 		const columnUpdated = flow([getColumn(label), updateVisibilityAttr(value)])(state.columns);
 		setColumn(columnUpdated, label)(state.columns);
-		updateState(state.columns);
+		updateState(state.columns, isEveryItemVisible(state.columns));
 	};
 
 	const onSelectAll = value => {
@@ -121,7 +114,7 @@ export const useColumnChooserManager = (initColumns = [], nbLockedLeftItems = 0)
 	return {
 		onChangeVisibility,
 		onSelectAll,
-		columnsChooser: cloneDeep(state.columns),
+		columnsChooser: clone(state.columns),
 		selectAll: state.selectAll,
 	};
 };
