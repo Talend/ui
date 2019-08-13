@@ -75,5 +75,4 @@ ColumnChooserButton.propTypes = {
 	nbLockedLeftItems: PropTypes.number,
 	placement: PropTypes.oneOf(['top', 'bottom', 'right', 'left']),
 	onSubmit: PropTypes.func.isRequired,
-	t: PropTypes.func,
 };
