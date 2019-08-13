@@ -22,9 +22,7 @@ const Default = () => {
 					defaultValue: 'Modify columns',
 				})}
 			</div>
-			<div id="selected-columns-text">{`${lengthVisibleColumns}/${
-				columnsChooser.length
-			} ${selectedColumns}`}</div>
+			<div id="selected-columns-text">{`${lengthVisibleColumns}/${columnsChooser.length} ${selectedColumns}`}</div>
 		</div>
 	);
 };
