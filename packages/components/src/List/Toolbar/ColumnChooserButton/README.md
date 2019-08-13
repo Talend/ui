@@ -21,7 +21,7 @@
    - [ColumnChooserPropTypes](#columnchooserproptypes)
    - [ColumnsChooserPropTypes](#columnschooserproptypes)
 7. [Utils](#utils)
-   - [mergedColumnsChooser](#mergedcolumnschooser)
+   - [mergeWithColumnChooserCollection](#mergeWithColumnChooserCollection)
    - [compareOrder](#compareorder)
 
 ## Presentation
@@ -74,12 +74,12 @@ This settings will create a column chooser with two columns. The first one will 
 | nbLockedLeftItems | number                                              | the number of locked items you want, beginning at the left |
 
 To keep the columns from the list sync with the inputs of the user, you will need to merge the data from the column chooser with the columns from the list.
-There is a service to help you to do that, [mergedColumnsChooser](#mergedcolumnschooser).
+There is a service to help you to do that, [mergeWithColumnChooserCollection](#mergeWithColumnChooserCollection).
 
 ```javascript
 const columnsMergedWithColumnChooser = {
 		...list,
-		columns: columnChooserService.mergedColumnsChooser(list.columns, columnsChooser),
+		columns: columnChooserService.mergeWithColumnChooserCollection(list.columns, columnsChooser),
 };
 <List {...rest} columnChooser={...} list={columnsMergedWithColumnChooser} />;
 ```
@@ -268,7 +268,7 @@ An array of [ColumnChooserPropTypes](#columnchooserproptypes)
 
 ## Utils
 
-### mergedColumnsChooser
+### mergeWithColumnChooserCollection
 
 The columns you will receive from the column chooser are not synced with the one from the list.
 So you will have to use this helper to merge the content given by the column chooser with the one from the list.

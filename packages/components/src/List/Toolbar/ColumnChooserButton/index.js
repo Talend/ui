@@ -1,12 +1,12 @@
 import ColumnChooserButton from './ColumnChooserButton.component';
 import ColumnChooser from './ColumnChooser';
-import { mergedColumnsChooser } from './service';
+import { mergeWithColumnChooserCollection } from './service';
 import { useColumnChooserManager } from './hooks';
 
 export default ColumnChooserButton;
 
 const columnChooserService = {
-	mergedColumnsChooser,
+	mergeWithColumnChooserCollection,
 };
 
 const columnChooserHooks = {

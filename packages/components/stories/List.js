@@ -19,7 +19,7 @@ function ListColumnChooser({ list, ...rest }) {
 	};
 	const enrichedList = {
 		...list,
-		columns: columnChooserService.mergedColumnsChooser(list.columns, columnsChooser),
+		columns: columnChooserService.mergeWithColumnChooserCollection(list.columns, columnsChooser),
 	};
 	const columnChooser = {
 		columns: columnsChooser,

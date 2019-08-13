@@ -1,6 +1,6 @@
-import { mergedColumnsChooser, compareOrder } from './columnChooser.utils';
+import { mergeWithColumnChooserCollection, compareOrder } from './columnChooser.utils';
 
-describe('mergedColumnsChooser', () => {
+describe('mergeWithColumnChooserCollection', () => {
 	const originalCollection = [
 		{
 			label: 'label1',
@@ -32,7 +32,7 @@ describe('mergedColumnsChooser', () => {
 			},
 		];
 		// when
-		const ret = mergedColumnsChooser(originalCollection, columnChooserCollection);
+		const ret = mergeWithColumnChooserCollection(originalCollection, columnChooserCollection);
 		// then
 		expect(ret).toEqual([
 			{ label: 'label1', metadata: 'metadata1', moreStuff: true },
@@ -43,7 +43,7 @@ describe('mergedColumnsChooser', () => {
 	it('should return the original collection', () => {
 		// given nothing
 		// when
-		const ret = mergedColumnsChooser(originalCollection);
+		const ret = mergeWithColumnChooserCollection(originalCollection);
 		// then
 		expect(ret).toBe(originalCollection);
 	});

@@ -1,3 +1,3 @@
-import { compareOrder, mergedColumnsChooser } from './columnChooser.utils';
+import { compareOrder, mergeWithColumnChooserCollection } from './columnChooser.utils';
 
-export { compareOrder, mergedColumnsChooser };
+export { compareOrder, mergeWithColumnChooserCollection };

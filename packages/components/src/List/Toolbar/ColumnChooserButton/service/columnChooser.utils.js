@@ -1,30 +1,24 @@
-function findMatchingIemLabel(label) {
-	return function find(item) {
-		return item.label === label;
-	};
-}
+const hasLabel = label => item => item.label === label;
 
-function transformCollection(columnChooserCollection) {
-	return function transform(item) {
-		const itemToMerged = columnChooserCollection.find(findMatchingIemLabel(item.label));
-		if (itemToMerged) {
-			return {
-				...item,
-				...itemToMerged,
-			};
-		}
-		return item;
-	};
-}
+const mergeWithCollection = collection => originalItem => {
+	const itemToMerge = collection.find(hasLabel(originalItem.label));
+	if (itemToMerge) {
+		return {
+			...originalItem,
+			...itemToMerge,
+		};
+	}
+	return originalItem;
+};
 
 /**
  * Merged the columns chooser collection into the columns list.
  * @param {array} originalCollection
  * @param {arrayOf(ColumnChooserPropTypes)} columnChooserCollection
  */
-export function mergedColumnsChooser(originalCollection, columnChooserCollection = []) {
+export function mergeWithColumnChooserCollection(originalCollection, columnChooserCollection = []) {
 	if (columnChooserCollection.length > 0) {
-		return originalCollection.map(transformCollection(columnChooserCollection));
+		return originalCollection.map(mergeWithCollection(columnChooserCollection));
 	}
 	return originalCollection;
 }
