@@ -9,7 +9,7 @@ const isItemVisible = item => item.visible;
  * Helps to change the select all visible status. If all columns are visible, select all is checked.
  * @param {array} columns
  */
-const isAnyItemVisible = columns => {
+const isEveryItemVisible = columns => {
 	const visibleItems = columns.filter(isItemVisible);
 	if (visibleItems) {
 		return visibleItems.length === columns.length;
@@ -98,13 +98,13 @@ export const useColumnChooserManager = (initColumns = [], nbLockedLeftItems = 0)
 	const columnsChooser = prepareColumns(initColumns, nbLockedLeftItems);
 	const [state, setState] = useState({
 		columns: orderColumns(columnsChooser),
-		selectAll: isAnyItemVisible(columnsChooser),
+		selectAll: isEveryItemVisible(columnsChooser),
 	});
 
 	const updateState = (columns, selectAll) => {
 		setState({
 			columns,
-			selectAll: selectAll || isAnyItemVisible(columns),
+			selectAll: selectAll || isEveryItemVisible(columns),
 		});
 	};
 
