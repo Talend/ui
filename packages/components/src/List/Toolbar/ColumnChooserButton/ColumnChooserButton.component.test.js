@@ -12,7 +12,7 @@ const columns = [
 ];
 
 describe('ColumnChooserButton', () => {
-	it('should render the component by default', () => {
+	it('should render the button', () => {
 		// given
 		const props = {
 			id: 'my-wrapper-id',
