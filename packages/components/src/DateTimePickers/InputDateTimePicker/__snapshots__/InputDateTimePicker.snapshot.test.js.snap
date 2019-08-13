@@ -15,14 +15,13 @@ exports[`InputDateTimePicker should render 1`] = `
     dateFormat="YYYY-MM-DD"
     formMode={false}
     id="my-picker"
-    onChange={[Function]}
     required={true}
     selectedDateTime={2017-04-04T13:27:00.000Z}
     useSeconds={true}
     useTime={true}
     useUTC={false}
   >
-    <InputPicker
+    <InputDatePicker
       dateFormat="YYYY-MM-DD"
       formManagement={
         Object {
@@ -32,10 +31,21 @@ exports[`InputDateTimePicker should render 1`] = `
       }
       formMode={false}
       id="my-picker"
+      inputManagement={
+        Object {
+          "onChange": [Function],
+        }
+      }
+      pickerManagement={
+        Object {
+          "onSubmit": [Function],
+          "useSeconds": true,
+          "useTime": true,
+          "useUTC": false,
+        }
+      }
       required={true}
       selectedDateTime={2017-04-04T13:27:00.000Z}
-      setRef={[Function]}
-      show={false}
       useSeconds={true}
       useTime={true}
       useUTC={false}
@@ -66,17 +76,43 @@ exports[`InputDateTimePicker should render 1`] = `
         >
           <Component
             id="my-picker-date-input"
+            inputManagement={
+              Object {
+                "onChange": [Function],
+              }
+            }
             inputRef={[Function]}
             key="input"
+            onChange={[Function]}
             part="date"
-            show={false}
+            pickerManagement={
+              Object {
+                "onSubmit": [Function],
+                "useSeconds": true,
+                "useTime": true,
+                "useUTC": false,
+              }
+            }
           >
             <Mock
               className="InputMock"
               id="my-picker-date-input"
+              inputManagement={
+                Object {
+                  "onChange": [Function],
+                }
+              }
               inputRef={[Function]}
+              onChange={[Function]}
               part="date"
-              show={false}
+              pickerManagement={
+                Object {
+                  "onSubmit": [Function],
+                  "useSeconds": true,
+                  "useTime": true,
+                  "useUTC": false,
+                }
+              }
             >
               <div
                 className="InputMock"
@@ -85,7 +121,7 @@ exports[`InputDateTimePicker should render 1`] = `
           </Component>
         </div>
       </FocusManager>
-    </InputPicker>
+    </InputDatePicker>
   </DateTime.Manager>
 </InputDateTimePicker>
 `;
