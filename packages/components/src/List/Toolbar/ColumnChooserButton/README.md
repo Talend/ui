@@ -202,7 +202,6 @@ If the column is locked, a locked icon replaces the checkbox.
 | Props       | Type   | Info                                         |
 | ----------- | ------ | -------------------------------------------- |
 | dataFeature | string | input data-feature attribute                 |
-| describedby | string | the id of the markup holding the description |
 | description | string | the description                              |
 | id          | string | id of the checkbox input                     |
 | label       | string | the input label                              |

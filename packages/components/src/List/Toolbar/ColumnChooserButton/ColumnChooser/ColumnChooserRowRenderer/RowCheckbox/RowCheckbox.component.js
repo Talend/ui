@@ -10,7 +10,6 @@ const theme = getTheme(cssModule);
 
 const RowCheckbox = ({
 	dataFeature,
-	describedby,
 	description,
 	id,
 	label,
@@ -21,6 +20,7 @@ const RowCheckbox = ({
 	const onChangeCheckbox = event => {
 		onChange(event.target.checked, label);
 	};
+	const describedby = `${id}-${description}`;
 	return locked ? (
 		<React.Fragment>
 			<Icon name="talend-locked" className={theme('tc-column-chooser-row-locked-icon')} />
@@ -29,10 +29,9 @@ const RowCheckbox = ({
 	) : (
 		<React.Fragment>
 			<Checkbox
-				aria-checked={checked}
 				checked={checked}
 				data-feature={dataFeature}
-				describedby={describedby}
+				aria-describedby={describedby}
 				id={`${id}-checkbox-${label}`}
 				label={label}
 				onChange={onChangeCheckbox}
@@ -46,7 +45,6 @@ const RowCheckbox = ({
 
 RowCheckbox.propTypes = {
 	dataFeature: PropTypes.string.isRequired,
-	describedby: PropTypes.string.isRequired,
 	description: PropTypes.string.isRequired,
 	id: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,
