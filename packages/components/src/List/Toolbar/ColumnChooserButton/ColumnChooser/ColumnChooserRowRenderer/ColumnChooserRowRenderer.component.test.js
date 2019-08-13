@@ -14,7 +14,6 @@ describe('ColumnChooserRowRenderer', () => {
 			</Component>,
 		);
 		// then
-		expect(wrapper.find('div#my-child').text()).toBe('Hello World');
 		expect(wrapper.html()).toMatchSnapshot();
 	});
 });
