@@ -35,7 +35,7 @@ export default function ColumnChooserButton({
 				hideLabel
 				icon="talend-column-chooser"
 				id={`${colChooserButtonId}-button`}
-				label={t('COLUMN_CHOOSER_OVERLAY_BUTTON', { defaultValue: 'Column chooser button' })}
+				label={t('COLUMN_CHOOSER_OVERLAY_BUTTON', { defaultValue: 'Open the column chooser' })}
 				link
 				onClick={changeOpened}
 			/>
