@@ -15,7 +15,7 @@ describe('mergeWithColumnChooserCollection', () => {
 			metadata: 'metadata3',
 		},
 	];
-	it('return a the collection merger', () => {
+	it('return the merged collection', () => {
 		// given
 		const columnChooserCollection = [
 			{
@@ -23,7 +23,7 @@ describe('mergeWithColumnChooserCollection', () => {
 				moreStuff: true,
 			},
 			{
-				label: 'label2',
+				label: 'noMatchedLabel',
 				moreStuff: true,
 			},
 			{
@@ -36,7 +36,7 @@ describe('mergeWithColumnChooserCollection', () => {
 		// then
 		expect(ret).toEqual([
 			{ label: 'label1', metadata: 'metadata1', moreStuff: true },
-			{ label: 'label2', metadata: 'metadata2', moreStuff: true },
+			{ label: 'label2', metadata: 'metadata2' },
 			{ label: 'label3', metadata: 'metadata3', moreStuff: true },
 		]);
 	});
