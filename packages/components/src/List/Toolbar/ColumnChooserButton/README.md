@@ -245,7 +245,7 @@ And it returns an object with hook state values and handlers to manipulate them.
 
 The column chooser uses a context to pass some props to its children and avoid props drilling.
 By default the context is initialized in [ColumnChooser](#columnchooser).
-You can import directly the provider and the consumer from columnChooser.context
+You can import directly the provider and the consumer from [columnChooserContext](#columnchoosercontext)
 
 ```javascript
 import { columnChooserContext, ColumnChooserProvider } from '../columnChooserContext';
