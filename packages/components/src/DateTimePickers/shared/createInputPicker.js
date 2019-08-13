@@ -24,6 +24,7 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'onChange',
 	'formManagement',
 	'setRef',
+	'showPicker',
 ];
 
 export const INPUT_PICKER_PROPTYPES = {
@@ -41,16 +42,6 @@ export default function createInputPicker({ part, theme, Picker }) {
 			showPicker: PropTypes.bool,
 		};
 
-		static defaultProps = {
-			dateFormat: 'YYYY-MM-DD',
-			useSeconds: false,
-			useTime: false,
-			useUTC: false,
-			formMode: false,
-			// default behaviour is to forbid empty values
-			required: true,
-		};
-
 		constructor(props) {
 			super(props);
 
@@ -60,6 +51,7 @@ export default function createInputPicker({ part, theme, Picker }) {
 			};
 
 			this.onBlur = this.onBlur.bind(this);
+			this.onChange = this.onChange.bind(this);
 			this.onClick = this.onClick.bind(this);
 			this.onFocus = this.onFocus.bind(this);
 			this.onKeyDown = this.onKeyDown.bind(this);
@@ -68,8 +60,7 @@ export default function createInputPicker({ part, theme, Picker }) {
 		}
 
 		componentWillReceiveProps(nextProps) {
-			if (nextProps.showPicker !== this.props.showPicker
-					&& nextProps.showPicker !== this.state.showPicker) {
+			if (!nextProps.showPicker && this.props.showPicker) {
 				this.setState({
 					showPicker: nextProps.showPicker,
 				});
@@ -104,6 +95,13 @@ export default function createInputPicker({ part, theme, Picker }) {
 			this.closePicker({ picked: false });
 			if (this.props.onBlur) {
 				this.props.onBlur(event);
+			}
+		}
+
+		onChange(event, { origin }) {
+			if (!this.props.formMode) {
+				this.inputRef.focus();
+				this.closePicker();
 			}
 		}
 
@@ -156,6 +154,10 @@ export default function createInputPicker({ part, theme, Picker }) {
 						this.props.setRef(ref);
 					}}
 					part={part}
+					onChange={event => {
+						this.onChange(event, { origin: 'INPUT' });
+						this.props.inputManagement.onChange(event);
+					}}
 				/>,
 				this.state.showPicker && (
 					<Popper
@@ -174,7 +176,13 @@ export default function createInputPicker({ part, theme, Picker }) {
 					>
 						{({ ref, style }) => (
 							<div id={this.popoverId} className={theme.popper} style={style} ref={ref}>
-								<Picker {...this.props} />
+								<Picker
+									{...this.props}
+									onSubmit={(event, payload) => {
+										this.onChange(event, { origin: 'PICKER' });
+										this.props.pickerManagement.onSubmit(event, payload);
+									}}	
+								/>
 								{this.props.formMode && <DateTime.Validation />}
 							</div>
 						)}
@@ -197,6 +205,7 @@ export default function createInputPicker({ part, theme, Picker }) {
 						this.onKeyDown(event, this.props.formManagement);
 					}}
 				>
+					
 					{picker}
 				</FocusManager>
 			);
