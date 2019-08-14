@@ -115,7 +115,7 @@ class InputDateTimePicker extends React.Component {
 							onClick: this.onClick,
 							onFocus: this.onFocus,
 							onKeyDown: this.onKeyDown,
-						}
+						};
 						const pickers = [<InputDatePicker
 							{...this.props}
 							{...eventProps}
