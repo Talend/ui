@@ -40,14 +40,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-src/theme/_visual-helpers.scss
-  47:56  error    Variable 'isTertiary' should be written in lowercase with hyphens  variable-name-format
-  53:7   error    Variable 'isTertiary' should be written in lowercase with hyphens  variable-name-format
-  62:5   warning  Statement must begin on a new line                                 brace-style
-  77:9   error    Variable 'isTertiary' should be written in lowercase with hyphens  variable-name-format
-  80:7   warning  Statement must begin on a new line                                 brace-style
-  94:9   error    Variable 'isTertiary' should be written in lowercase with hyphens  variable-name-format
-  98:7   warning  Statement must begin on a new line                                 brace-style
-
-✖ 30 problems (17 errors, 13 warnings)
+✖ 23 problems (13 errors, 10 warnings)
 
