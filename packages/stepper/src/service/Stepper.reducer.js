@@ -28,10 +28,7 @@ function mapStepWithNoError(step, action) {
 			status: LOADING_STEP_STATUSES.SUCCESS,
 		};
 	}
-	if (
-		isEventTriggerLoading(step, action.event) &&
-		step.status !== LOADING_STEP_STATUSES.SUCCESS
-	) {
+	if (isEventTriggerLoading(step, action.event) && step.status !== LOADING_STEP_STATUSES.SUCCESS) {
 		return {
 			...step,
 			status: LOADING_STEP_STATUSES.LOADING,

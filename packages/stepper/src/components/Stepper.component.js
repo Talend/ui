@@ -7,10 +7,7 @@ import { getTheme } from '@talend/react-components/lib/theme';
 import I18N_DOMAIN_STEPPER from './constant';
 import theme from './Stepper.scss';
 import { LOADING_STEP_STATUSES } from '../Stepper.constants';
-import {
-	DEFAULT_TRANSITION_DURATION,
-	StepperTransition,
-} from './StepperTransition.component';
+import { DEFAULT_TRANSITION_DURATION, StepperTransition } from './StepperTransition.component';
 import { isErrorInSteps, isStepsLoading, isAllSuccessful } from '../service/Stepper.utils';
 
 const getClass = getTheme(theme);
@@ -88,9 +85,7 @@ function showStep(step, index) {
 
 			{step.message && (
 				<div className={getClass('stepper-step-message')}>
-					<span className={getClass('stepper-step-message-label')}>
-						{step.message.label}
-					</span>
+					<span className={getClass('stepper-step-message-label')}>{step.message.label}</span>
 					{step.message.description && <p>{step.message.description}</p>}
 				</div>
 			)}
