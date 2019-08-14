@@ -46,10 +46,7 @@ export default function ColumnChooser({
 	const [filter, setFilter] = useState(initialFilterValue || '');
 	const onFilter = (_, value) => setFilter(value);
 	const resetFilter = () => setFilter('');
-	const filteredColumns = useMemo(() => filterColumns(columns, filter), [
-		columns,
-		filter,
-	]);
+	const filteredColumns = useMemo(() => filterColumns(columns, filter), [columns, filter]);
 	const Default = (
 		<React.Fragment>
 			<ColumnChooserHeader />

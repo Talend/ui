@@ -11,14 +11,7 @@ import { getTheme } from '../../../../../theme';
 const theme = getTheme(cssModule);
 
 const Default = () => {
-	const {
-		columns,
-		id,
-		onChangeVisibility,
-		onSelectAll,
-		selectAll,
-		t,
-	} = useColumnChooserContext();
+	const { columns, id, onChangeVisibility, onSelectAll, selectAll, t } = useColumnChooserContext();
 	const bodyId = `${id}-body`;
 	return (
 		<React.Fragment>
