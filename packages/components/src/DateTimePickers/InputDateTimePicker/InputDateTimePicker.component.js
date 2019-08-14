@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 
 import DateTime from '../DateTime';
 import { DateTimeContext } from '../DateTime/Context';
-import createInputPicker, { INPUT_PICKER_PROPTYPES } from './createInputPicker';
-
-import theme from './InputDateTimePicker.scss';
+import InputDatePicker from '../InputDatePicker';
+import { INPUT_PICKER_PROPTYPES } from '../shared/createInputPicker';
 
 class InputDateTimePicker extends React.Component {
 	constructor(props) {
@@ -13,7 +12,7 @@ class InputDateTimePicker extends React.Component {
 		this.onChange = this.onChange.bind(this);
 		this.closeDatePicker = this.closeDatePicker.bind(this);
 		this.state = {
-			showDatePicker: false,
+			showPicker: false,
 		};
 	}
 
@@ -23,10 +22,11 @@ class InputDateTimePicker extends React.Component {
 			this.props.formMode ||
 			(!this.props.formMode && !this.props.useTime && payload.origin !== 'INPUT')
 		) {
-			this.closeDatePicker();
 			this.dateInputRef.focus();
+			this.closeDatePicker();
 		}
 	}
+
 	closeDatePicker() {
 		this.dateInputRef.focus();
 		this.setState({
@@ -34,13 +34,6 @@ class InputDateTimePicker extends React.Component {
 		});
 	}
 	render() {
-		const dateInputProps = {
-			part: 'date',
-			theme,
-			Picker: DateTime.Picker,
-		};
-		const InputDatePicker = createInputPicker(dateInputProps);
-
 		return (
 			<DateTime.Manager
 				dateFormat={this.props.dateFormat}
@@ -59,7 +52,7 @@ class InputDateTimePicker extends React.Component {
 							{...this.props}
 							formManagement={formManagement}
 							setRef={ref => (this.dateInputRef = ref)}
-							show={this.state.showDatePicker}
+							showPicker={this.state.showPicker}
 						/>);
 						return this.props.formMode ? (
 							<form key="form" onSubmit={formManagement.onSubmit}>
