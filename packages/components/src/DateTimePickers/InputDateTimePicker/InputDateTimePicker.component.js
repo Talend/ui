@@ -5,6 +5,8 @@ import keycode from 'keycode';
 import DateTime from '../DateTime';
 import { DateTimeContext } from '../DateTime/Context';
 import InputDatePicker from '../InputDatePicker';
+import InputTimePicker from '../InputTimePicker';
+
 import { INPUT_PICKER_PROPTYPES } from '../shared/createInputPicker';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 
@@ -118,11 +120,26 @@ class InputDateTimePicker extends React.Component {
 							onFocus={this.onFocus}
 							onKeyDown={this.onKeyDown}
 						/>);
+						const inputTimePicker = (<InputTimePicker
+							{...this.props}
+							formManagement={formManagement}
+							setRef={ref => (this.inputRef = ref)}
+							setContainerRef={ref => (this.containerRef = ref)}
+							showPicker={this.state.showDatePicker}
+							onBlur={this.onBlur}
+							onClick={this.onClick}
+							onFocus={this.onFocus}
+							onKeyDown={this.onKeyDown}
+						/>);
+						const pickers = [
+							inputDatePicker,
+							this.props.useTime && inputTimePicker,
+						].filter(Boolean);
 						return this.props.formMode ? (
 							<form key="form" onSubmit={formManagement.onSubmit}>
-								{inputDatePicker}
+								{pickers}
 							</form>
-						) : inputDatePicker;
+						) : pickers;
 					}}
 				</DateTimeContext.Consumer>
 			</DateTime.Manager>
