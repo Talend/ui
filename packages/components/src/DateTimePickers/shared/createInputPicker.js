@@ -42,7 +42,6 @@ export default function createInputPicker({ part, theme, Picker }) {
 
 		constructor(props) {
 			super(props);
-
 			this.popoverId = `input-${part}-picker-${props.id || uuid.v4()}`;
 		}
 
