@@ -13,22 +13,22 @@ import { getTheme } from '../../../../theme';
 const theme = getTheme(cssModule);
 
 const hasColumnLabel = label => column => column.label.toLowerCase().includes(label.toLowerCase());
-const filterColumnsChooser = (columns, filter) => columns.filter(hasColumnLabel(filter));
+const filterColumns = (columns, filter) => columns.filter(hasColumnLabel(filter));
 const changeVisibleToHidden = column => ({ ...column, hidden: !column.visible });
-const transformColumnsChooser = columns => columns.map(changeVisibleToHidden);
+const mapToColumnsList = columns => columns.map(changeVisibleToHidden);
 
 export default function ColumnChooser({
 	children,
-	columns,
 	id,
+	columnsFromList,
 	initialFilterValue,
 	nbLockedLeftItems = 0,
 	onClose,
 	onSubmit,
 }) {
 	const { t } = useTranslation();
-	const { columnsChooser, onChangeVisibility, onSelectAll, selectAll } = useColumnChooserManager(
-		columns,
+	const { columns, onChangeVisibility, onSelectAll, selectAll } = useColumnChooserManager(
+		columnsFromList,
 		nbLockedLeftItems,
 	);
 
@@ -42,13 +42,13 @@ export default function ColumnChooser({
 	// We are transforming back the field visible to hidden, to be compliant with the list.
 	const onSubmitForm = event => {
 		event.preventDefault();
-		onSubmit(event, transformColumnsChooser(columnsChooser));
+		onSubmit(event, mapToColumnsList(columns));
 	};
 	const [filter, setFilter] = useState(initialFilterValue || '');
 	const onFilter = (_, value) => setFilter(value);
 	const resetFilter = () => setFilter('');
-	const filteredColumnsChooser = useMemo(() => filterColumnsChooser(columnsChooser, filter), [
-		columnsChooser,
+	const filteredColumns = useMemo(() => filterColumns(columns, filter), [
+		columns,
 		filter,
 	]);
 	const Default = (
@@ -77,7 +77,7 @@ export default function ColumnChooser({
 	return (
 		<ColumnChooserProvider
 			value={{
-				columnsChooser: filteredColumnsChooser,
+				columns: filteredColumns,
 				id,
 				onChangeVisibility,
 				onClose,
@@ -97,7 +97,7 @@ ColumnChooser.Footer = ColumnChooserFooter;
 
 ColumnChooser.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
-	columns: PropTypes.array.isRequired,
+	columnsFromList: PropTypes.array.isRequired,
 	id: PropTypes.string.isRequired,
 	initialFilterValue: PropTypes.string,
 	nbLockedLeftItems: PropTypes.number,

@@ -10,11 +10,11 @@ const theme = getTheme(cssModule);
 const isVisible = column => column.visible;
 
 const Default = () => {
-	const { columnsChooser, t } = useColumnChooserContext();
-	const lengthVisibleColumns = columnsChooser.filter(isVisible).length;
+	const { columns, t } = useColumnChooserContext();
+	const lengthVisibleColumns = columns.filter(isVisible).length;
 	const selectedColumns = t('SELECT_COLUMNS', {
 		count: lengthVisibleColumns,
-		defaultValue: `{{count}}/${columnsChooser.length} selected column`,
+		defaultValue: `{{count}}/${columns.length} selected column`,
 	});
 	return (
 		<div>

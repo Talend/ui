@@ -19,7 +19,7 @@
    - [columnChooserContext](#columnchoosercontext)
 6. [PropTypes and structure](#proptypes-and-structures)
    - [ColumnChooserPropTypes](#columnchooserproptypes)
-   - [ColumnsChooserPropTypes](#columnschooserproptypes)
+   - [ColumnsPropTypes](#columnsproptypes)
 7. [Utils](#utils)
    - [mergeWithColumnChooserCollection](#mergeWithColumnChooserCollection)
    - [compareOrder](#compareorder)
@@ -67,11 +67,11 @@ import { List } from '@talend/react-components';
 
 This settings will create a column chooser with two columns. The first one will be locked, because of nbLockedLeftItems: 1.
 
-| Fields            | Type                                                | Info                                                       |
-| ----------------- | --------------------------------------------------- | ---------------------------------------------------------- |
-| columns           | [ColumnsChooserPropTypes](#columnschooserproptypes) | populate the popover                                       |
-| onSubmit            | function                                            | callback when the form is submitted                        |
-| nbLockedLeftItems | number                                              | the number of locked items you want, beginning at the left |
+| Fields            | Type                                  | Info                                                       |
+| ----------------- | ------------------------------------- | ---------------------------------------------------------- |
+| columns           | [ColumnsPropTypes](#columnsproptypes) | populate the popover                                       |
+| onSubmit          | function                              | callback when the form is submitted                        |
+| nbLockedLeftItems | number                                | the number of locked items you want, beginning at the left |
 
 To keep the columns from the list sync with the inputs of the user, you will need to merge the data from the column chooser with the columns from the list.
 There is a service to help you to do that, [mergeWithColumnChooserCollection](#mergeWithColumnChooserCollection).
@@ -79,7 +79,7 @@ There is a service to help you to do that, [mergeWithColumnChooserCollection](#m
 ```javascript
 const columnsMergedWithColumnChooser = {
 		...list,
-		columns: columnChooserService.mergeWithColumnChooserCollection(list.columns, columnsChooser),
+		columns: columnChooserService.mergeWithColumnChooserCollection(list.columns, columns),
 };
 <List {...rest} columnChooser={...} list={columnsMergedWithColumnChooser} />;
 ```
@@ -101,16 +101,16 @@ Either way you will have to update the columns props given to the list with the 
 The button triggers the column chooser popover.
 If you pass children you will override the default column chooser renderer.
 
-| Props                | Type          | Info                                                             |
-| -------------------- | ------------- | ---------------------------------------------------------------- |
-| children             | React.element | the content of the popover                                       |
+| Props                | Type          | Info                                                                     |
+| -------------------- | ------------- | ------------------------------------------------------------------------ |
+| children             | React.element | the content of the popover                                               |
 | columns              | array         | these columns come from the list, they will populate the chooser popover |
-| initialFilterValue          | string        | value of the filter at mounting                                  |
-| id                   | string        | use as prefix for all the children components                    |
-| initialOpenedPopover | bool          | state of the popover at mounting, show / hide                    |
-| placement            | string        | Position of the popover                                          |
-| nbLockedLeftItems    | number        | the number of locked columns you want, beginning on the left     |
-| onSubmit               | function      | callback when the form is submitted                              |
+| initialFilterValue   | string        | value of the filter at mounting                                          |
+| id                   | string        | use as prefix for all the children components                            |
+| initialOpenedPopover | bool          | state of the popover at mounting, show / hide                            |
+| placement            | string        | Position of the popover                                                  |
+| nbLockedLeftItems    | number        | the number of locked columns you want, beginning on the left             |
+| onSubmit             | function      | callback when the form is submitted                                      |
 
 ### ColumnChooser
 
@@ -125,14 +125,14 @@ The component holds references :
 - Body: [ColumnChooserBody](#columnchooserbody)
 - Footer :[ColumnChooserFooter](#columnchooserfooter)
 
-| Props             | Type                           | Info                                                             |
-| ----------------- | ------------------------------ | ---------------------------------------------------------------- |
-| children          | React.element, [React.element] | the content of the popover                                       |
-| columns           | array                          | these columns come from the list, they will populate the popover |
-| initialFilterValue       | string                         | value of the filter at mounting                                  |
-| id                | string                         | Use as prefix for all the children components                    |
-| nbLockedLeftItems | number                         | the number of locked items you want, beginning on the left       |
-| onSubmit            | function                       | callback when the form is submitted                              |
+| Props              | Type                           | Info                                                             |
+| ------------------ | ------------------------------ | ---------------------------------------------------------------- |
+| children           | React.element, [React.element] | the content of the popover                                       |
+| columns            | array                          | these columns come from the list, they will populate the popover |
+| initialFilterValue | string                         | value of the filter at mounting                                  |
+| id                 | string                         | Use as prefix for all the children components                    |
+| nbLockedLeftItems  | number                         | the number of locked items you want, beginning on the left       |
+| onSubmit           | function                       | callback when the form is submitted                              |
 
 ### ColumnChooserHeader
 
@@ -199,15 +199,15 @@ The component holds reference :
 Add a checkbox to switch the visibility of a column.
 If the column is locked, a locked icon replaces the checkbox.
 
-| Props       | Type   | Info                                         |
-| ----------- | ------ | -------------------------------------------- |
-| dataFeature | string | input data-feature attribute                 |
-| description | string | the description                              |
-| id          | string | id of the checkbox input                     |
-| label       | string | the input label                              |
-| locked      | bool   | indicates if the column is locked or not     |
-| onChange    | func   | triggered when the checkbox is clicked       |
-| checked     | bool   | the current visibility value                 |
+| Props       | Type   | Info                                     |
+| ----------- | ------ | ---------------------------------------- |
+| dataFeature | string | input data-feature attribute             |
+| description | string | the description                          |
+| id          | string | id of the checkbox input                 |
+| label       | string | the input label                          |
+| locked      | bool   | indicates if the column is locked or not |
+| onChange    | func   | triggered when the checkbox is clicked   |
+| checked     | bool   | the current visibility value             |
 
 ### RowLabel
 
@@ -231,12 +231,12 @@ It holds the state of the columns edited by the user.
 
 And it returns an object with hook state values and handlers to manipulate them.
 
-| Fields             | Type                                                | Info                                            |
-| ------------------ | --------------------------------------------------- | ----------------------------------------------- |
-| onChangeVisibility | function                                            | change the visibility of the given column index |
-| onSelectAll        | function                                            | change the visibility of every columns          |
-| columnsChooser     | [ColumnsChooserPropTypes](#columnschooserproptypes) | the hook columns                                |
-| selectAll          | bool                                                | state of the select all button, checked or not. |
+| Fields             | Type                                  | Info                                            |
+| ------------------ | ------------------------------------- | ----------------------------------------------- |
+| onChangeVisibility | function                              | change the visibility of the given column index |
+| onSelectAll        | function                              | change the visibility of every columns          |
+| columns            | [ColumnsPropTypes](#columnsproptypes) | the hook columns                                |
+| selectAll          | bool                                  | state of the select all button, checked or not. |
 
 ## Context
 
@@ -261,9 +261,9 @@ import { columnChooserContext, ColumnChooserProvider } from '../columnChooserCon
 | order   | PropTypes.number | indicates the ordering of the column  |
 | visible | PropTypes.bool   | the state of visibility of the column |
 
-### ColumnsChooserPropTypes
+### ColumnsPropTypes
 
-An array of [ColumnChooserPropTypes](#columnchooserproptypes)
+An array of [ColumnPropTypes](#columnproptypes)
 
 ## Utils
 

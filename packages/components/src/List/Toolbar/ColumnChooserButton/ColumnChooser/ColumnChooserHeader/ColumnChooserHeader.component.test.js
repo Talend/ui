@@ -23,7 +23,7 @@ describe('ColumnChooserHeader', () => {
 			<ColumnChooserProvider
 				value={{
 					id,
-					columnsChooser: columns,
+					columns,
 					t: getDefaultT(),
 				}}
 			>

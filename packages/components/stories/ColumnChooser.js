@@ -31,7 +31,7 @@ storiesOf('Column Chooser', module)
 			<p>Default mode with minimal props</p>
 			<IconsProvider defaultIcons={icons} />
 			<ColumnChooser
-				columns={columns}
+				columnsFromList={columns}
 				nbLockedLeftItems={2}
 				id="default-column-chooser"
 				onSubmit={action('submit')}
@@ -43,7 +43,7 @@ storiesOf('Column Chooser', module)
 			<h1>Column chooser tooltip</h1>
 			<p>You can provide and compose some of the column chooser part.</p>
 			<IconsProvider defaultIcons={icons} />
-			<ColumnChooser columns={columns} id="default-column-chooser" onSubmit={action('submit')}>
+			<ColumnChooser columnsFromList={columns} id="default-column-chooser" onSubmit={action('submit')}>
 				<ColumnChooser.Header>
 					<span>Hello world</span>
 					<button style={{ marginLeft: '200px' }}>My Button</button>

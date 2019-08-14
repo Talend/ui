@@ -12,7 +12,7 @@ const theme = getTheme(cssModule);
 
 const Default = () => {
 	const {
-		columnsChooser,
+		columns,
 		id,
 		onChangeVisibility,
 		onSelectAll,
@@ -25,7 +25,7 @@ const Default = () => {
 			<SelectAllColumnsCheckbox id={bodyId} onChange={onSelectAll} value={selectAll} t={t} />
 			<ColumnChooserTable
 				id={bodyId}
-				columns={columnsChooser}
+				columns={columns}
 				onChangeCheckbox={onChangeVisibility}
 				t={t}
 			/>
@@ -34,9 +34,9 @@ const Default = () => {
 };
 
 const ColumnChooserBody = ({ children = <Default /> }) => {
-	const { columnsChooser } = useColumnChooserContext();
+	const { columns } = useColumnChooserContext();
 	if (typeof children === 'function') {
-		return children(columnsChooser);
+		return children(columns);
 	}
 	return (
 		<RichLayout.Body id="column-chooser-body">

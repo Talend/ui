@@ -20,7 +20,7 @@ describe('ColumnChooserBody', () => {
 	it('should render the columns rows and the column select all', () => {
 		// Given
 		const contextValues = {
-			columnsChooser: columns,
+			columns,
 			id: 'body-context-id',
 			onChangeVisibility: jest.fn(),
 			onSelectAll: jest.fn(),
@@ -42,7 +42,7 @@ describe('ColumnChooserBody', () => {
 	it('should render with children', () => {
 		// Given
 		const contextValues = {
-			columnsChooser: columns,
+			columns,
 		};
 		const Children = <div id="my-child">Hello</div>;
 		// When
@@ -58,7 +58,7 @@ describe('ColumnChooserBody', () => {
 		const onChangeVisibility = jest.fn();
 		// Given
 		const contextValues = {
-			columnsChooser: columns,
+			columns,
 			id: 'body-context-id',
 			onChangeVisibility,
 			onSelectAll: jest.fn(),
@@ -77,7 +77,6 @@ describe('ColumnChooserBody', () => {
 		});
 		wrapper.update();
 		// Then
-		expect(onChangeVisibility.mock.calls.length).toBe(1);
-		expect(onChangeVisibility.mock.calls[0][1]).toBe('col3');
+		expect(onChangeVisibility).toHaveBeenNthCalledWith(1, true, 'col3');
 	});
 });

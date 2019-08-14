@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Overlay, Popover } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
@@ -21,8 +21,8 @@ export default function ColumnChooserButton({
 	const changeOpened = () => setOpened(!opened);
 	const closePopover = () => setOpened(false);
 
-	const onSubmitColumnChooser = (event, columnsChooser) => {
-		onSubmit(event, columnsChooser);
+	const onSubmitColumnChooser = (event, columnsFromColumnChooser) => {
+		onSubmit(event, columnsFromColumnChooser);
 		closePopover();
 	};
 
@@ -49,7 +49,7 @@ export default function ColumnChooserButton({
 				<Popover id={`${id}-popover`}>
 					{!children ? (
 						<ColumnChooser
-							columns={columns}
+							columnsFromList={columns}
 							initialFilterValue={initialFilterValue}
 							id={id}
 							nbLockedLeftItems={nbLockedLeftItems}

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ColumnChooserRow from '../ColumnChooserRow';
-import { columnsChooserPropTypes } from '../../columnChooser.propTypes';
+import { columnsPropTypes } from '../../columnChooser.propTypes';
 
 const getDescription = (checked, label, t) => {
 	if (checked) {
@@ -34,7 +34,7 @@ const ColumnChooserTable = ({ columns = [], id, onChangeCheckbox, t }) =>
 	));
 
 ColumnChooserTable.propTypes = {
-	columns: columnsChooserPropTypes,
+	columns: columnsPropTypes,
 	id: PropTypes.string.isRequired,
 	onChangeCheckbox: PropTypes.func.isRequired,
 	t: PropTypes.func.isRequired,

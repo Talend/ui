@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 
-const columnChooserPropTypes = PropTypes.shape({
+const columnPropTypes = PropTypes.shape({
 	label: PropTypes.string.isRequired,
 	locked: PropTypes.bool,
 	order: PropTypes.number,
 	visible: PropTypes.bool,
 });
 
-const columnsChooserPropTypes = PropTypes.arrayOf(columnChooserPropTypes);
+const columnsPropTypes = PropTypes.arrayOf(columnPropTypes);
 
-export { columnChooserPropTypes, columnsChooserPropTypes };
+export { columnPropTypes, columnsPropTypes };
