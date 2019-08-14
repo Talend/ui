@@ -42,7 +42,7 @@ class InputDateTimePicker extends React.Component {
 			this.props.formMode ||
 			(!this.props.formMode && !this.props.useTime && payload.origin !== 'INPUT')
 		) {
-			this.inputRef.focus();
+			this.dateInputRef.focus();
 			this.closePicker();
 		}
 	}
@@ -61,15 +61,15 @@ class InputDateTimePicker extends React.Component {
 		switch (event.keyCode) {
 			case keycode.codes.esc:
 				onReset();
-				this.inputRef.focus();
+				this.dateInputRef.focus();
 				this.closePicker();
 				break;
 			case keycode.codes.down:
-				if (event.target !== this.inputRef) {
+				if (event.target !== this.dateInputRef) {
 					return;
 				}
 				if (this.state.showDatePicker) {
-					focusOnCalendar(this.containerRef);
+					focusOnCalendar(this.datePickerRef);
 				} else {
 					this.openPicker();
 				}
@@ -120,15 +120,15 @@ class InputDateTimePicker extends React.Component {
 							{...this.props}
 							{...eventProps}
 							showPicker={this.state.showDatePicker}
-							setRef={ref => (this.inputRef = ref)}
-							setContainerRef={ref => (this.containerRef = ref)}
+							setRef={ref => (this.dateInputRef = ref)}
+							setContainerRef={ref => (this.datePickerRef = ref)}
 						/>,
 						this.props.useTime && <InputTimePicker
 							{...this.props}
 							showPicker={this.state.showDatePicker}
 							{...eventProps}
-							setRef={ref => (this.inputRef = ref)}
-							setContainerRef={ref => (this.containerRef = ref)}
+							setRef={ref => (this.timeInputRef = ref)}
+							setContainerRef={ref => (this.timePickerRef = ref)}
 						/>].filter(Boolean);
 						return this.props.formMode ? (
 							<form key="form" onSubmit={formManagement.onSubmit}>
