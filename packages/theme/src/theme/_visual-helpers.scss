@@ -52,10 +52,9 @@
 	&.btn-inverse {
 
 		background-color: transparent;
+		box-shadow: none;
 		color: $btn-color;
 		border: $border-width solid $btn-color;
-
-		box-shadow: none;
 
 		line-height: $btn-line-height - (2 * $border-width);
 		// this is to avoid background issue in case of an inverse button
