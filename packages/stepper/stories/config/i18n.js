@@ -8,12 +8,12 @@ i18n.use(initReactI18next).init({
 	resources: {
 		en: {
 			[I18N_DOMAIN_STEPPER]: {
-				HEY: 'Invalid value',
+				ABORTED: ' (Aborted)',
 			},
 		},
 		fr: {
 			[I18N_DOMAIN_STEPPER]: {
-				HEY: 'Invalid value',
+				ABORTED: ' (Annulé)',
 			},
 		},
 	},

@@ -4,6 +4,7 @@ import { Action } from '@talend/react-components';
 import { storiesOf } from '@storybook/react';
 // eslint-disable-next-line
 
+import { LanguageSwitcher } from './config/i18n';
 import Stepper from '../src/components/Stepper.component';
 import { StepperConstants } from '../src';
 
@@ -26,6 +27,7 @@ function renderActions(isInError) {
 stories
 	.addDecorator(story => (
 		<div style={{ backgroundColor: 'white', height: '400px' }} className="col-lg-offset-2 col-lg-8">
+			<LanguageSwitcher />
 			{story()}
 		</div>
 	))
