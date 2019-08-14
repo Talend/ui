@@ -2,13 +2,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
-import keycode from 'keycode';
 import uuid from 'uuid';
 import { Popper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
 import DateTime from '../DateTime';
-import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 
 
 const PROPS_TO_OMIT_FOR_INPUT = [
@@ -24,6 +22,7 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'onChange',
 	'onClick',
 	'onFocus',
+	'onKeyDown',
 	'formManagement',
 ];
 
@@ -45,42 +44,8 @@ export default function createInputPicker({ part, theme, Picker }) {
 			super(props);
 
 			this.popoverId = `input-${part}-picker-${props.id || uuid.v4()}`;
-			this.state = {
-				showPicker: false,
-			};
-
-			this.onBlur = this.onBlur.bind(this);
-			this.onKeyDown = this.onKeyDown.bind(this);
 		}
 
-		onKeyDown(event, { onReset }) {
-			switch (event.keyCode) {
-				case keycode.codes.esc:
-					onReset();
-					this.inputRef.focus();
-					this.closePicker();
-					break;
-				case keycode.codes.down:
-					if (event.target !== this.inputRef) {
-						return;
-					}
-					if (this.state.showPicker) {
-						focusOnCalendar(this.containerRef);
-					} else {
-						this.openPicker();
-					}
-					break;
-				default:
-					break;
-			}
-		}
-
-		onBlur(event, { onReset }) {
-			onReset();
-			if (this.props.onBlur) {
-				this.props.onBlur(event);
-			}
-		}
 		getPopperPlacement() {
 			const input = this.inputRef;
 			if (input) {
@@ -101,6 +66,7 @@ export default function createInputPicker({ part, theme, Picker }) {
 					key="input"
 					inputRef={ref => {
 						this.inputRef = ref;
+						this.props.setRef(ref);
 					}}
 					part={part}
 				/>,
@@ -134,14 +100,15 @@ export default function createInputPicker({ part, theme, Picker }) {
 					style={{ display: 'inline-block' }}
 					divRef={ref => {
 						this.containerRef = ref;
+						this.props.setContainerRef(ref);
 					}}
 					onClick={this.props.onClick}
 					onFocusIn={this.props.onFocus}
 					onFocusOut={event => {
-						this.onBlur(event, this.props.formManagement);
+						this.props.onBlur(event, this.props.formManagement);
 					}}
 					onKeyDown={event => {
-						this.onKeyDown(event, this.props.formManagement);
+						this.props.onKeyDown(event, this.props.formManagement);
 					}}
 				>
 					{picker}

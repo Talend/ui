@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import keycode from 'keycode';
 
 import DateTime from '../DateTime';
 import { DateTimeContext } from '../DateTime/Context';
 import InputDatePicker from '../InputDatePicker';
 import { INPUT_PICKER_PROPTYPES } from '../shared/createInputPicker';
+import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
+
 
 class InputDateTimePicker extends React.Component {
 	constructor(props) {
@@ -13,6 +16,7 @@ class InputDateTimePicker extends React.Component {
 		this.onChange = this.onChange.bind(this);
 		this.onClick = this.onClick.bind(this);
 		this.onFocus = this.onFocus.bind(this);
+		this.onKeyDown = this.onKeyDown.bind(this);
 		this.openPicker = this.setPickerVisibility.bind(this, true);
 		this.closePicker = this.setPickerVisibility.bind(this, false);
 
@@ -22,7 +26,8 @@ class InputDateTimePicker extends React.Component {
 		};
 	}
 
-	onBlur() {
+	onBlur(event, { onReset }) {
+		onReset();
 		this.closePicker({ picked: false });
 	}
 
@@ -32,8 +37,8 @@ class InputDateTimePicker extends React.Component {
 			this.props.formMode ||
 			(!this.props.formMode && !this.props.useTime && payload.origin !== 'INPUT')
 		) {
-			this.dateInputRef.focus();
-			this.closeDatePicker();
+			this.inputRef.focus();
+			this.closePicker();
 		}
 	}
 
@@ -44,6 +49,28 @@ class InputDateTimePicker extends React.Component {
 	onFocus() {
 		if (!this.state.picked) {
 			this.openPicker();
+		}
+	}
+
+	onKeyDown(event, { onReset }) {
+		switch (event.keyCode) {
+			case keycode.codes.esc:
+				onReset();
+				this.inputRef.focus();
+				this.closePicker();
+				break;
+			case keycode.codes.down:
+				if (event.target !== this.inputRef) {
+					return;
+				}
+				if (this.state.showPicker) {
+					focusOnCalendar(this.containerRef);
+				} else {
+					this.openPicker();
+				}
+				break;
+			default:
+				break;
 		}
 	}
 
@@ -80,11 +107,13 @@ class InputDateTimePicker extends React.Component {
 						const inputDatePicker = (<InputDatePicker
 							{...this.props}
 							formManagement={formManagement}
-							setRef={ref => (this.dateInputRef = ref)}
+							setRef={ref => (this.inputRef = ref)}
+							setContainerRef={ref => (this.containerRef = ref)}
 							showPicker={this.state.showPicker}
 							onBlur={this.onBlur}
 							onClick={this.onClick}
 							onFocus={this.onFocus}
+							onKeyDown={this.onKeyDown}
 						/>);
 						return this.props.formMode ? (
 							<form key="form" onSubmit={formManagement.onSubmit}>
