@@ -6,7 +6,7 @@ module.exports = {
 			extensions: ['.js'],
 		},
 		lngs: ['en'],
-		defaultNs: 'tui-stepper',
+		defaultNs: 'tui-datagrid',
 		defaultValue: '__STRING_NOT_TRANSLATED__',
 		resource: {
 			savePath: 'i18n/{{ns}}.json',
