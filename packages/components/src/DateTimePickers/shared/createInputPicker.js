@@ -50,11 +50,7 @@ export default function createInputPicker({ part, theme, Picker }) {
 			};
 
 			this.onBlur = this.onBlur.bind(this);
-			this.onClick = this.onClick.bind(this);
-			this.onFocus = this.onFocus.bind(this);
 			this.onKeyDown = this.onKeyDown.bind(this);
-			this.openPicker = this.setPickerVisibility.bind(this, true);
-			this.closePicker = this.setPickerVisibility.bind(this, false);
 		}
 
 		onKeyDown(event, { onReset }) {
@@ -81,22 +77,10 @@ export default function createInputPicker({ part, theme, Picker }) {
 
 		onBlur(event, { onReset }) {
 			onReset();
-			this.closePicker({ picked: false });
 			if (this.props.onBlur) {
 				this.props.onBlur(event);
 			}
 		}
-
-		onFocus() {
-			if (!this.state.picked) {
-				this.openPicker();
-			}
-		}
-
-		onClick() {
-			this.openPicker();
-		}
-
 		getPopperPlacement() {
 			const input = this.inputRef;
 			if (input) {
@@ -106,22 +90,6 @@ export default function createInputPicker({ part, theme, Picker }) {
 				}
 			}
 			return 'bottom-start';
-		}
-
-		setPickerVisibility(isShown, extra = {}) {
-			if (this.props.readOnly) {
-				return;
-			}
-
-			this.setState(({ showPicker }) => {
-				if (showPicker === isShown) {
-					return extra;
-				}
-				return {
-					showPicker: isShown,
-					...extra,
-				};
-			});
 		}
 
 		render() {

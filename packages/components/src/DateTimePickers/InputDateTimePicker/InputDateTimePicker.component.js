@@ -9,14 +9,21 @@ import { INPUT_PICKER_PROPTYPES } from '../shared/createInputPicker';
 class InputDateTimePicker extends React.Component {
 	constructor(props) {
 		super(props);
+		this.onBlur = this.onBlur.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onClick = this.onClick.bind(this);
 		this.onFocus = this.onFocus.bind(this);
 		this.openPicker = this.setPickerVisibility.bind(this, true);
+		this.closePicker = this.setPickerVisibility.bind(this, false);
+
 		this.state = {
 			showPicker: false,
 			picked: false,
 		};
+	}
+
+	onBlur() {
+		this.closePicker({ picked: false });
 	}
 
 	onChange(event, payload) {
@@ -29,6 +36,7 @@ class InputDateTimePicker extends React.Component {
 			this.closeDatePicker();
 		}
 	}
+
 	onClick() {
 		this.openPicker();
 	}
@@ -74,8 +82,9 @@ class InputDateTimePicker extends React.Component {
 							formManagement={formManagement}
 							setRef={ref => (this.dateInputRef = ref)}
 							showPicker={this.state.showPicker}
-							onFocus={this.onFocus}
+							onBlur={this.onBlur}
 							onClick={this.onClick}
+							onFocus={this.onFocus}
 						/>);
 						return this.props.formMode ? (
 							<form key="form" onSubmit={formManagement.onSubmit}>
