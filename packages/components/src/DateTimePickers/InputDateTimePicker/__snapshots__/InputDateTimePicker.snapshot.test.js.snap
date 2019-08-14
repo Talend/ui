@@ -22,7 +22,7 @@ exports[`InputDateTimePicker should render 1`] = `
     useTime={true}
     useUTC={false}
   >
-    <InputPicker
+    <InputDatePicker
       dateFormat="YYYY-MM-DD"
       formManagement={
         Object {
@@ -32,10 +32,15 @@ exports[`InputDateTimePicker should render 1`] = `
       }
       formMode={false}
       id="my-picker"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
       required={true}
       selectedDateTime={2017-04-04T13:27:00.000Z}
+      setContainerRef={[Function]}
       setRef={[Function]}
-      show={false}
+      showPicker={false}
       useSeconds={true}
       useTime={true}
       useUTC={false}
@@ -69,14 +74,18 @@ exports[`InputDateTimePicker should render 1`] = `
             inputRef={[Function]}
             key="input"
             part="date"
-            show={false}
+            setContainerRef={[Function]}
+            setRef={[Function]}
+            showPicker={false}
           >
             <Mock
               className="InputMock"
               id="my-picker-date-input"
               inputRef={[Function]}
               part="date"
-              show={false}
+              setContainerRef={[Function]}
+              setRef={[Function]}
+              showPicker={false}
             >
               <div
                 className="InputMock"
@@ -85,7 +94,7 @@ exports[`InputDateTimePicker should render 1`] = `
           </Component>
         </div>
       </FocusManager>
-    </InputPicker>
+    </InputDatePicker>
   </DateTime.Manager>
 </InputDateTimePicker>
 `;

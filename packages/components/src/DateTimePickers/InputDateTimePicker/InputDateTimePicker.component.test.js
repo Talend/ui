@@ -184,7 +184,7 @@ describe('InputDateTimePicker', () => {
 		});
 
 		// TODO: fix test
-		xit('should close in form mode submit', () => {
+		it('should close in form mode submit', () => {
 			// given
 			const wrapper = mount(<InputDateTimePicker id="my-picker" onChange={jest.fn()} formMode />);
 			wrapper.find('InputDatePicker').simulate('focus');
