@@ -30,7 +30,7 @@ export default function ColumnChooserButton({
 		<React.Fragment>
 			<ActionButton
 				buttonRef={setButtonRef}
-				data-feature="open-column-chooser-overlay-action"
+				data-feature="column-chooser.open"
 				hideLabel
 				icon="talend-column-chooser"
 				id={`${id}-button`}

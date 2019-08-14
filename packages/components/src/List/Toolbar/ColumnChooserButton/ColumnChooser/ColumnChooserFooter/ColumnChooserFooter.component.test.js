@@ -25,7 +25,6 @@ describe('ColumnChooserFooter', () => {
 	});
 	it('should render the children', () => {
 		// given
-		const id = 'footer-context-id';
 		const Children = () => <div id="my-child">Hello world</div>;
 		// when
 		const wrapper = mount(

@@ -11,11 +11,11 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
       <div class="tc-column-chooser-row theme-tc-column-chooser-row tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all theme-tc-column-chooser-row-select-all">
         <div class="checkbox tc-toggle theme-tc-toggle checkbox">
           <label for="body-context-id-body-checkbox-Columns"
-                 data-feature="select-all-columns.disable"
+                 data-feature="column-chooser.select.all.disable"
           >
             <input type="checkbox"
                    id="body-context-id-body-checkbox-Columns"
-                   aria-describedby="body-context-id-body-select or deselect all the columns"
+                   aria-describedby="body-context-id-body-hide all the columns"
                    checked
             >
             <span>
@@ -23,10 +23,10 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
             </span>
           </label>
         </div>
-        <div id="body-context-id-body-select or deselect all the columns"
+        <div id="body-context-id-body-hide all the columns"
              class="sr-only"
         >
-          select or deselect all the columns
+          hide all the columns
         </div>
       </div>
       <div class="tc-column-chooser-row theme-tc-column-chooser-row">
@@ -58,11 +58,11 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
       <div class="tc-column-chooser-row theme-tc-column-chooser-row">
         <div class="checkbox tc-toggle theme-tc-toggle checkbox">
           <label for="body-context-id-body-checkbox-col3"
-                 data-feature="select-column-visibility-checkbox.disable"
+                 data-feature="column-chooser.select.disable"
           >
             <input type="checkbox"
                    id="body-context-id-body-checkbox-col3"
-                   aria-describedby="body-context-id-body-change visibility of column col3"
+                   aria-describedby="body-context-id-body-hide the column "
                    checked
             >
             <span>
@@ -70,40 +70,40 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
             </span>
           </label>
         </div>
-        <div id="body-context-id-body-change visibility of column col3"
+        <div id="body-context-id-body-hide the column "
              class="sr-only"
         >
-          change visibility of column col3
+          hide the column
         </div>
       </div>
       <div class="tc-column-chooser-row theme-tc-column-chooser-row">
         <div class="checkbox tc-toggle theme-tc-toggle checkbox">
           <label for="body-context-id-body-checkbox-col4"
-                 data-feature="select-column-visibility-checkbox.enable"
+                 data-feature="column-chooser.select.enable"
           >
             <input type="checkbox"
                    id="body-context-id-body-checkbox-col4"
-                   aria-describedby="body-context-id-body-change visibility of column col4"
+                   aria-describedby="body-context-id-body-display the column col4"
             >
             <span>
               col4
             </span>
           </label>
         </div>
-        <div id="body-context-id-body-change visibility of column col4"
+        <div id="body-context-id-body-display the column col4"
              class="sr-only"
         >
-          change visibility of column col4
+          display the column col4
         </div>
       </div>
       <div class="tc-column-chooser-row theme-tc-column-chooser-row">
         <div class="checkbox tc-toggle theme-tc-toggle checkbox">
           <label for="body-context-id-body-checkbox-col5"
-                 data-feature="select-column-visibility-checkbox.disable"
+                 data-feature="column-chooser.select.disable"
           >
             <input type="checkbox"
                    id="body-context-id-body-checkbox-col5"
-                   aria-describedby="body-context-id-body-change visibility of column col5"
+                   aria-describedby="body-context-id-body-hide the column "
                    checked
             >
             <span>
@@ -111,30 +111,30 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
             </span>
           </label>
         </div>
-        <div id="body-context-id-body-change visibility of column col5"
+        <div id="body-context-id-body-hide the column "
              class="sr-only"
         >
-          change visibility of column col5
+          hide the column
         </div>
       </div>
       <div class="tc-column-chooser-row theme-tc-column-chooser-row">
         <div class="checkbox tc-toggle theme-tc-toggle checkbox">
           <label for="body-context-id-body-checkbox-col6"
-                 data-feature="select-column-visibility-checkbox.enable"
+                 data-feature="column-chooser.select.enable"
           >
             <input type="checkbox"
                    id="body-context-id-body-checkbox-col6"
-                   aria-describedby="body-context-id-body-change visibility of column col6"
+                   aria-describedby="body-context-id-body-display the column col6"
             >
             <span>
               col6
             </span>
           </label>
         </div>
-        <div id="body-context-id-body-change visibility of column col6"
+        <div id="body-context-id-body-display the column col6"
              class="sr-only"
         >
-          change visibility of column col6
+          display the column col6
         </div>
       </div>
     </div>
