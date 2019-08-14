@@ -10,9 +10,12 @@ class InputDateTimePicker extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onChange = this.onChange.bind(this);
-		this.closeDatePicker = this.closeDatePicker.bind(this);
+		this.onClick = this.onClick.bind(this);
+		this.onFocus = this.onFocus.bind(this);
+		this.openPicker = this.setPickerVisibility.bind(this, true);
 		this.state = {
 			showPicker: false,
+			picked: false,
 		};
 	}
 
@@ -26,11 +29,29 @@ class InputDateTimePicker extends React.Component {
 			this.closeDatePicker();
 		}
 	}
+	onClick() {
+		this.openPicker();
+	}
 
-	closeDatePicker() {
-		this.dateInputRef.focus();
-		this.setState({
-			show: false,
+	onFocus() {
+		if (!this.state.picked) {
+			this.openPicker();
+		}
+	}
+
+	setPickerVisibility(isShown, extra = {}) {
+		if (this.props.readOnly) {
+			return;
+		}
+
+		this.setState(({ showPicker }) => {
+			if (showPicker === isShown) {
+				return extra;
+			}
+			return {
+				showPicker: isShown,
+				...extra,
+			};
 		});
 	}
 	render() {
@@ -53,6 +74,8 @@ class InputDateTimePicker extends React.Component {
 							formManagement={formManagement}
 							setRef={ref => (this.dateInputRef = ref)}
 							showPicker={this.state.showPicker}
+							onFocus={this.onFocus}
+							onClick={this.onClick}
 						/>);
 						return this.props.formMode ? (
 							<form key="form" onSubmit={formManagement.onSubmit}>

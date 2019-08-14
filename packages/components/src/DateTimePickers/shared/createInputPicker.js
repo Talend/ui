@@ -22,6 +22,8 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'useUTC',
 	'onBlur',
 	'onChange',
+	'onClick',
+	'onFocus',
 	'formManagement',
 ];
 
@@ -165,8 +167,8 @@ export default function createInputPicker({ part, theme, Picker }) {
 					divRef={ref => {
 						this.containerRef = ref;
 					}}
-					onClick={this.onClick}
-					onFocusIn={this.onFocus}
+					onClick={this.props.onClick}
+					onFocusIn={this.props.onFocus}
 					onFocusOut={event => {
 						this.onBlur(event, this.props.formManagement);
 					}}
