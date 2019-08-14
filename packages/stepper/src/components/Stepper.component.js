@@ -27,9 +27,9 @@ function getStatusText(status) {
 	const { t } = useTranslation(I18N_DOMAIN_STEPPER);
 	switch (status) {
 		case LOADING_STEP_STATUSES.ABORTED:
-			return t('dataset-app:ABORTED', { defaultValue: ' (Aborted)' });
+			return t('ABORTED', { defaultValue: ' (Aborted)' });
 		case LOADING_STEP_STATUSES.PENDING:
-			return t('dataset-app:PENDING', { defaultValue: ' (Pending)' });
+			return t('PENDING', { defaultValue: ' (Pending)' });
 		default:
 			return null;
 	}
