@@ -21,14 +21,14 @@ class InputDateTimePicker extends React.Component {
 		this.closePicker = this.setPickerVisibility.bind(this, false);
 
 		this.state = {
-			showPicker: false,
-			picked: false,
+			showDatePicker: false,
+			datePicked: false,
 		};
 	}
 
 	onBlur(event, { onReset }) {
 		onReset();
-		this.closePicker({ picked: false });
+		this.closePicker({ datePicked: false });
 		if (this.props.onBlur) {
 			this.props.onBlur(event);
 		}
@@ -50,7 +50,7 @@ class InputDateTimePicker extends React.Component {
 	}
 
 	onFocus() {
-		if (!this.state.picked) {
+		if (!this.state.datePicked) {
 			this.openPicker();
 		}
 	}
@@ -66,7 +66,7 @@ class InputDateTimePicker extends React.Component {
 				if (event.target !== this.inputRef) {
 					return;
 				}
-				if (this.state.showPicker) {
+				if (this.state.showDatePicker) {
 					focusOnCalendar(this.containerRef);
 				} else {
 					this.openPicker();
@@ -82,12 +82,12 @@ class InputDateTimePicker extends React.Component {
 			return;
 		}
 
-		this.setState(({ showPicker }) => {
-			if (showPicker === isShown) {
+		this.setState(({ showDatePicker }) => {
+			if (showDatePicker === isShown) {
 				return extra;
 			}
 			return {
-				showPicker: isShown,
+				showDatePicker: isShown,
 				...extra,
 			};
 		});
@@ -112,7 +112,7 @@ class InputDateTimePicker extends React.Component {
 							formManagement={formManagement}
 							setRef={ref => (this.inputRef = ref)}
 							setContainerRef={ref => (this.containerRef = ref)}
-							showPicker={this.state.showPicker}
+							showPicker={this.state.showDatePicker}
 							onBlur={this.onBlur}
 							onClick={this.onClick}
 							onFocus={this.onFocus}
