@@ -109,32 +109,27 @@ class InputDateTimePicker extends React.Component {
 			>
 				<DateTimeContext.Consumer>
 					{({ formManagement }) => {
-						const inputDatePicker = (<InputDatePicker
+						const eventProps = {
+							formManagement,
+							onBlur: this.onBlur,
+							onClick: this.onClick,
+							onFocus: this.onFocus,
+							onKeyDown: this.onKeyDown,
+						}
+						const pickers = [<InputDatePicker
 							{...this.props}
-							formManagement={formManagement}
+							{...eventProps}
+							showPicker={this.state.showDatePicker}
 							setRef={ref => (this.inputRef = ref)}
 							setContainerRef={ref => (this.containerRef = ref)}
-							showPicker={this.state.showDatePicker}
-							onBlur={this.onBlur}
-							onClick={this.onClick}
-							onFocus={this.onFocus}
-							onKeyDown={this.onKeyDown}
-						/>);
-						const inputTimePicker = (<InputTimePicker
+						/>,
+						this.props.useTime && <InputTimePicker
 							{...this.props}
-							formManagement={formManagement}
+							showPicker={this.state.showDatePicker}
+							{...eventProps}
 							setRef={ref => (this.inputRef = ref)}
 							setContainerRef={ref => (this.containerRef = ref)}
-							showPicker={this.state.showDatePicker}
-							onBlur={this.onBlur}
-							onClick={this.onClick}
-							onFocus={this.onFocus}
-							onKeyDown={this.onKeyDown}
-						/>);
-						const pickers = [
-							inputDatePicker,
-							this.props.useTime && inputTimePicker,
-						].filter(Boolean);
+						/>].filter(Boolean);
 						return this.props.formMode ? (
 							<form key="form" onSubmit={formManagement.onSubmit}>
 								{pickers}
