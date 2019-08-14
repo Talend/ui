@@ -62,7 +62,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           >
             <input type="checkbox"
                    id="body-context-id-body-checkbox-col3"
-                   aria-describedby="body-context-id-body-hide the column "
+                   aria-describedby="body-context-id-body-hide the column col3"
                    checked
             >
             <span>
@@ -70,10 +70,10 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
             </span>
           </label>
         </div>
-        <div id="body-context-id-body-hide the column "
+        <div id="body-context-id-body-hide the column col3"
              class="sr-only"
         >
-          hide the column
+          hide the column col3
         </div>
       </div>
       <div class="tc-column-chooser-row theme-tc-column-chooser-row">
@@ -103,7 +103,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           >
             <input type="checkbox"
                    id="body-context-id-body-checkbox-col5"
-                   aria-describedby="body-context-id-body-hide the column "
+                   aria-describedby="body-context-id-body-hide the column col5"
                    checked
             >
             <span>
@@ -111,10 +111,10 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
             </span>
           </label>
         </div>
-        <div id="body-context-id-body-hide the column "
+        <div id="body-context-id-body-hide the column col5"
              class="sr-only"
         >
-          hide the column
+          hide the column col5
         </div>
       </div>
       <div class="tc-column-chooser-row theme-tc-column-chooser-row">

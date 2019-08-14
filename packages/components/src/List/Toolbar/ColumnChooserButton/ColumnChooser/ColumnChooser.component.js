@@ -14,7 +14,11 @@ const theme = getTheme(cssModule);
 
 const hasColumnLabel = label => column => column.label.toLowerCase().includes(label.toLowerCase());
 const filterColumns = (columns, filter) => columns.filter(hasColumnLabel(filter));
-const changeVisibleToHidden = column => ({ ...column, hidden: !column.visible });
+const changeVisibleToHidden = column => ({
+	hidden: !column.visible,
+	label: column.label,
+	order: column.order,
+});
 const mapToColumnsList = columns => columns.map(changeVisibleToHidden);
 
 export default function ColumnChooser({

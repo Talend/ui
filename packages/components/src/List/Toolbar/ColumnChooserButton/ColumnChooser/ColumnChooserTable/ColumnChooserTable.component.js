@@ -6,12 +6,12 @@ import { columnsPropTypes } from '../../columnChooser.propTypes';
 const getDescription = (checked, label, t) => {
 	if (checked) {
 		return t('CHECKBOX_HIDE_COLUMN_DESCRIPTION', {
-			defaultValue: 'hide the column {{  }}',
+			defaultValue: 'hide the column {{label}}',
 			label,
 		});
 	}
 	return t('CHECKBOX_DISPLAY_COLUMN_DESCRIPTION', {
-		defaultValue: 'display the column {{ label }}',
+		defaultValue: 'display the column {{label}}',
 		label,
 	});
 };
