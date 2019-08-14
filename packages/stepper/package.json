@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "prepublish": "babel -d lib ./src/ && rimraf lib/**/*.test.js && cpx -v \"./src/**/*.scss\" ./lib",
-    "start": "start-storybook -p 6010",
+    "start": "start-storybook -p 6009",
     "test": "jest --silent",
     "test:noisy": "jest",
     "test:watch": "jest --watch",
@@ -14,7 +14,7 @@
     "test:demo": "build-storybook",
     "lint:es": "eslint --config ../../.eslintrc src",
     "lint": "npm run lint:es",
-    "storybook": "start-storybook -p 6010",
+    "storybook": "start-storybook -p 6009",
     "build-storybook": "build-storybook"
   },
   "keywords": [

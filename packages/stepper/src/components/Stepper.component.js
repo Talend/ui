@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-// import { Icon, CircularProgress } from '@talend/react-components';
-// import { getTheme } from '@talend/react-components/lib/theme';
+import { Icon, CircularProgress } from '@talend/react-components';
+import { getTheme } from '@talend/react-components/lib/theme';
 
 import I18N_DOMAIN_STEPPER from './constant';
 import theme from './Stepper.scss';
@@ -13,7 +13,7 @@ import {
 } from './StepperTransition.component';
 import { isErrorInSteps, isStepsLoading, isAllSuccessful } from '../service/Stepper.utils';
 
-const getClass = ''; // getTheme(theme);
+const getClass = getTheme(theme);
 
 const SHOW_COMPLETED_TRANSITION_TIMER = 1000;
 export const TRANSITION_STATE = {
@@ -43,22 +43,21 @@ function getStatusText(status) {
  * @param {string} status the current step status
  */
 function getIconByStatus(status) {
-	// const iconCLass = getClass(`stepper-icon-${status}`, 'stepper-icon');
-	return <span>lol</span>;
-	// switch (status) {
-	// 	case LOADING_STEP_STATUSES.SUCCESS:
-	// 		return <Icon name="talend-check" className={iconCLass} />;
-	// 	case LOADING_STEP_STATUSES.ABORTED:
-	// 		return <Icon name="talend-cross" className={iconCLass} />;
-	// 	case LOADING_STEP_STATUSES.PENDING:
-	// 		return <span className={iconCLass}>-</span>;
-	// 	case LOADING_STEP_STATUSES.FAILURE:
-	// 		return <Icon name="talend-warning" className={iconCLass} />;
-	// 	case LOADING_STEP_STATUSES.LOADING:
-	// 		return <CircularProgress className={iconCLass} />;
-	// 	default:
-	// 		return null;
-	// }
+	const iconCLass = getClass(`stepper-icon-${status}`, 'stepper-icon');
+	switch (status) {
+		case LOADING_STEP_STATUSES.SUCCESS:
+			return <Icon name="talend-check" className={iconCLass} />;
+		case LOADING_STEP_STATUSES.ABORTED:
+			return <Icon name="talend-cross" className={iconCLass} />;
+		case LOADING_STEP_STATUSES.PENDING:
+			return <span className={iconCLass}>-</span>;
+		case LOADING_STEP_STATUSES.FAILURE:
+			return <Icon name="talend-warning" className={iconCLass} />;
+		case LOADING_STEP_STATUSES.LOADING:
+			return <CircularProgress className={iconCLass} />;
+		default:
+			return null;
+	}
 }
 
 function changeTransitionState(newTransitionState, setTransitionState, timer = 0) {
@@ -119,7 +118,7 @@ const transitionEmptyToChildren = transition(
 const transitionChildrenToEmpty = transition(TRANSITION_STATE.TRANSITION);
 const transitionEmptyToLoading = transition(TRANSITION_STATE.STEPS, DEFAULT_TRANSITION_DURATION);
 
-export function Stepper({ steps, title, renderActions, children }) {
+export default function Stepper({ steps, title, renderActions, children }) {
 	const isInError = isErrorInSteps(steps);
 	const [transitionState, setTransitionState] = useState(
 		isStepsLoading(steps) ? TRANSITION_STATE.STEPS : TRANSITION_STATE.CHILD,
