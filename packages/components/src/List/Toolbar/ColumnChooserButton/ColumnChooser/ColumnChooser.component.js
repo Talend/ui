@@ -23,7 +23,6 @@ export default function ColumnChooser({
 	columnsFromList,
 	initialFilterValue,
 	nbLockedLeftItems = 0,
-	onClose,
 	onSubmit,
 }) {
 	const { t } = useTranslation();
@@ -80,7 +79,6 @@ export default function ColumnChooser({
 				columns: filteredColumns,
 				id,
 				onChangeVisibility,
-				onClose,
 				onSelectAll,
 				selectAll,
 				t,
@@ -101,6 +99,5 @@ ColumnChooser.propTypes = {
 	id: PropTypes.string.isRequired,
 	initialFilterValue: PropTypes.string,
 	nbLockedLeftItems: PropTypes.number,
-	onClose: PropTypes.func,
 	onSubmit: PropTypes.func.isRequired,
 };

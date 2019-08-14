@@ -77,11 +77,13 @@ To keep the columns from the list sync with the inputs of the user, you will nee
 There is a service to help you to do that, [mergeWithColumnChooserCollection](#mergeWithColumnChooserCollection).
 
 ```javascript
-const columnsMergedWithColumnChooser = {
+const mergedColumns = {
 		...list,
-		columns: columnChooserService.mergeWithColumnChooserCollection(list.columns, columns),
+        columns: columnChooserService
+        .mergeWithColumnChooserCollection
+        (columnsFromList, columnsFromColumnChooser),
 };
-<List {...rest} columnChooser={...} list={columnsMergedWithColumnChooser} />;
+<List {...rest} columnChooser={...} list={mergedColumns} />;
 ```
 
 ### Compound list
@@ -89,7 +91,11 @@ const columnsMergedWithColumnChooser = {
 If you are using the compound list you just have to import the [ColumnChooserButton](#columnchooserButton), pass the props and place it where you need it. Do not forget to pass an id in this case.
 
 ```javascript
-<ColumnChooserButton id={id} columns={...} nbLockedLeftItems={...} submit={...} />
+<ColumnChooserButton 
+    id={id} c
+    olumns={...} 
+    nbLockedLeftItems={...} 
+    onSubmit={...} />
 ```
 
 Either way you will have to update the columns props given to the list with the submitted values in order to keep everybody in sync.
@@ -103,7 +109,7 @@ If you pass children you will override the default column chooser renderer.
 
 | Props                | Type          | Info                                                                     |
 | -------------------- | ------------- | ------------------------------------------------------------------------ |
-| children             | React.element | the content of the popover                                               |
+| children             | react.element | the content of the popover                                               |
 | columns              | array         | these columns come from the list, they will populate the chooser popover |
 | initialFilterValue   | string        | value of the filter at mounting                                          |
 | id                   | string        | use as prefix for all the children components                            |
@@ -125,14 +131,14 @@ The component holds references :
 - Body: [ColumnChooserBody](#columnchooserbody)
 - Footer :[ColumnChooserFooter](#columnchooserfooter)
 
-| Props              | Type                           | Info                                                             |
-| ------------------ | ------------------------------ | ---------------------------------------------------------------- |
-| children           | React.element, [React.element] | the content of the popover                                       |
-| columns            | array                          | these columns come from the list, they will populate the popover |
-| initialFilterValue | string                         | value of the filter at mounting                                  |
-| id                 | string                         | Use as prefix for all the children components                    |
-| nbLockedLeftItems  | number                         | the number of locked items you want, beginning on the left       |
-| onSubmit           | function                       | callback when the form is submitted                              |
+| Props              | Type                           | Info                                                                  |
+| ------------------ | ------------------------------ | --------------------------------------------------------------------- |
+| children           | react.element, [react.element] | the content of the popover                                            |
+| columnsFromList    | array                          | these columns come from the list, they will help populate the popover |
+| initialFilterValue | string                         | value of the filter at mounting                                       |
+| id                 | string                         | Use as prefix for all the children components                         |
+| nbLockedLeftItems  | number                         | the number of locked items you want, beginning on the left            |
+| onSubmit           | function                       | callback when the form is submitted                                   |
 
 ### ColumnChooserHeader
 
@@ -144,7 +150,7 @@ By default, it consumes the [columnChooserContext](#columnchoosercontext).
 | Props     | Type                           | Info                               |
 | --------- | ------------------------------ | ---------------------------------- |
 | className | string                         | class passed to the tooltip header |
-| children  | React.element, [React.element] | the header content of the popover  |
+| children  | react.element, [react.element] | the header content of the popover  |
 
 ### ColumnChooserFooter
 
@@ -161,7 +167,7 @@ The component holds references :
 | Props     | Type                           | Info                               |
 | --------- | ------------------------------ | ---------------------------------- |
 | className | string                         | class passed to the tooltip header |
-| children  | React.element, [React.element] | the footer content of the popover  |
+| children  | react.element, [react.element] | the footer content of the popover  |
 
 ### ColumnChooserBody
 
@@ -192,7 +198,7 @@ The component holds reference :
 | Props     | Type                           | Info                            |
 | --------- | ------------------------------ | ------------------------------- |
 | className | string                         | class passed to the row wrapper |
-| children  | React.element, [React.element] | the row content of the popover  |
+| children  | react.element, [react.element] | the row content of the popover  |
 
 ### RowCheckbox
 
@@ -226,17 +232,17 @@ It holds the state of the columns edited by the user.
 
 | Parameters        | Type   | Info                                                 |
 | ----------------- | ------ | ---------------------------------------------------- |
-| initColumns       | array  | array of columns object from the list                |
+| initialColumns    | array  | the columns provided by the list component           |
 | nbLockedLeftItems | number | the number of locked columns, starting from the left |
 
 And it returns an object with hook state values and handlers to manipulate them.
 
-| Fields             | Type                                  | Info                                            |
-| ------------------ | ------------------------------------- | ----------------------------------------------- |
-| onChangeVisibility | function                              | change the visibility of the given column index |
-| onSelectAll        | function                              | change the visibility of every columns          |
-| columns            | [ColumnsPropTypes](#columnsproptypes) | the hook columns                                |
-| selectAll          | bool                                  | state of the select all button, checked or not. |
+| Fields             | Type                                  | Info                                                                                                                                             |
+| ------------------ | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| onChangeVisibility | function                              | change the visibility of the given column index                                                                                                  |
+| onSelectAll        | function                              | change the visibility of every columns                                                                                                           |
+| columns            | [ColumnsPropTypes](#columnsproptypes) | the columns derived from the initial columns (from the list), it is the entity used in the column chooser component to keep state of each column |
+| selectAll          | bool                                  | state of the select all button, checked or not.                                                                                                  |
 
 ## Context
 
