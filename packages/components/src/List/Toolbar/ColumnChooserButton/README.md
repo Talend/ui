@@ -92,8 +92,8 @@ If you are using the compound list you just have to import the [ColumnChooserBut
 
 ```javascript
 <ColumnChooserButton 
-    id={id} c
-    olumns={...} 
+    id={id}
+    columns={...} 
     nbLockedLeftItems={...} 
     onSubmit={...} />
 ```

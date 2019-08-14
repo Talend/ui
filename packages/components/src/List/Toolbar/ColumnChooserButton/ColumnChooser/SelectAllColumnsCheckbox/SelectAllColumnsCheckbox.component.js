@@ -17,24 +17,22 @@ const getDescription = (checked, t) => {
 	});
 };
 
-const SelectAllColumnsCheckbox = ({ id, onChange, value, t }) => {
-	return (
-		<ColumnChooserRow className={theme('tc-column-chooser-row-select-all')}>
-			<ColumnChooserRow.Checkbox
-				id={id}
-				dataFeature="column-chooser.select.all"
-				describedby="desc-select-all-columns"
-				description={getDescription(value, t)}
-				label={t('CHECKBOX_VISIBILITY_LABEL', {
-					defaultValue: 'Columns',
-				})}
-				onChange={onChange}
-				checked={value}
-				t={t}
-			/>
-		</ColumnChooserRow>
-	);
-};
+const SelectAllColumnsCheckbox = ({ id, onChange, value, t }) => (
+	<ColumnChooserRow className={theme('tc-column-chooser-row-select-all')}>
+		<ColumnChooserRow.Checkbox
+			id={id}
+			dataFeature="column-chooser.select.all"
+			describedby="desc-select-all-columns"
+			description={getDescription(value, t)}
+			label={t('CHECKBOX_VISIBILITY_LABEL', {
+				defaultValue: 'Columns',
+			})}
+			onChange={onChange}
+			checked={value}
+			t={t}
+		/>
+	</ColumnChooserRow>
+);
 
 SelectAllColumnsCheckbox.propTypes = {
 	id: PropTypes.string.isRequired,
