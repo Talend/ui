@@ -88,17 +88,17 @@ const updateVisibilityAttr = changeColumnChooserAttribute('visible');
  * @param {array} initColumns
  * @param {number} nbLockedLeftItems
  */
-export const useColumnChooserManager = (initColumns = [], nbLockedLeftItems = 0) => {
-	const columnsChooser = prepareColumns(initColumns, nbLockedLeftItems);
+export const useColumnChooserManager = (initialColumns = [], nbLockedLeftItems = 0) => {
+	const columns = prepareColumns(initialColumns, nbLockedLeftItems);
 	const [state, setState] = useState({
-		columns: orderColumns(columnsChooser),
-		selectAll: isEveryItemVisible(columnsChooser),
+		columns: orderColumns(columns),
+		selectAll: isEveryItemVisible(columns),
 	});
 
-	const updateState = (columns, selectAll) => {
+	const updateState = (updatedColumns, updatedSelectAll) => {
 		setState({
-			columns,
-			selectAll,
+			columns: updatedColumns,
+			selectAll: updatedSelectAll,
 		});
 	};
 	const onChangeVisibility = (value, label) => {
@@ -114,7 +114,7 @@ export const useColumnChooserManager = (initColumns = [], nbLockedLeftItems = 0)
 	return {
 		onChangeVisibility,
 		onSelectAll,
-		columnsChooser: clone(state.columns),
+		columns: clone(state.columns),
 		selectAll: state.selectAll,
 	};
 };
