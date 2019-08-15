@@ -24,6 +24,9 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'onFocus',
 	'onKeyDown',
 	'formManagement',
+	'showPicker',
+	'setRef',
+	'setContainerRef',
 ];
 
 export const INPUT_PICKER_PROPTYPES = {
