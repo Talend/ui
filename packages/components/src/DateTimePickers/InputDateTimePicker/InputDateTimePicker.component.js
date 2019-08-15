@@ -52,23 +52,26 @@ class InputDateTimePicker extends React.Component {
 		}
 	}
 
-	onClick() {
-		// if (event.target === this.dateInputRef
-			// || this.datePickerRef.contains(event.target)) {
+	onClick(event) {
+		if (event.target === this.dateInputRef
+			|| this.datePickerRef.contains(event.target)) {
 			this.openDatePicker();
-		// } else if (event.target === this.dateInputRef
-			// || this.datePickerRef.contains(event.target)) {
-				// this.openTimePicker();
-			// }
+		} else if (event.target === this.timeInputRef
+			|| this.timePickerRef.contains(event.target)) {
+			this.openTimePicker();
+		}
 	}
 
-	onFocus() {
-		// if (event.target === this.dateInputRef
-			// || this.datePickerRef.contains(event.target)) {
+	onFocus(event) {
+		if (event.target === this.dateInputRef
+			|| this.datePickerRef.contains(event.target)) {
 			if (!this.state.datePicked) {
 				this.openDatePicker();
 			}
-		// }
+		} else if (event.target === this.timeInputRef
+			|| this.timePickerRef.contains(event.target)) {
+			this.openTimePicker();
+		}
 	}
 
 	onKeyDown(event, { onReset }) {
