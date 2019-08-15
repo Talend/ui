@@ -73,6 +73,7 @@ class ContextualManager extends React.Component {
 		this.onSubmit = this.onSubmit.bind(this);
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onDateInputChange = this.onDateInputChange.bind(this);
+		this.onTimeInputChange = this.onTimeInputChange.bind(this);
 		this.onPickerChange = this.onPickerChange.bind(this);
 	}
 
@@ -117,6 +118,12 @@ class ContextualManager extends React.Component {
 	onDateInputChange(event) {
 		const dateTextInput = event.target.value;
 		const { timeTextInput } = this.state;
+		this.onInputChange(event, dateTextInput, timeTextInput);
+	}
+
+	onTimeInputChange(event) {
+		const timeTextInput = event.target.value;
+		const { dateTextInput } = this.state;
 		this.onInputChange(event, dateTextInput, timeTextInput);
 	}
 
@@ -255,6 +262,8 @@ class ContextualManager extends React.Component {
 
 					timeInputManagement: {
 						placeholder: getTimeFormat(this.props.useSeconds),
+						onChange: this.onTimeInputChange,
+
 					},
 
 					pickerManagement: {
