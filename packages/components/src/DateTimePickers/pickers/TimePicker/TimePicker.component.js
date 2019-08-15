@@ -2,6 +2,8 @@ import React from 'react';
 import { FIELD_HOURS, FIELD_MINUTES } from '../../DateTime/constants';
 import { strToTime } from '../../DateTime/date-extraction';
 
+import theme from './TimePicker.scss';
+
 const options = [
 	'00:00',
 	'01:00',
@@ -52,11 +54,18 @@ class TimePicker extends React.Component {
 		});
 	}
 	render() {
-		return (<ul>
+		return (<div className={theme.container}>
 			{options.map((time, index) => (
-				<li key={index} onClick={event => this.onSelect(event, time, index)}>{time}</li>
+				<button
+					type="button"
+					key={index}
+					className={theme.time}
+					onClick={event => this.onSelect(event, time, index)}
+				>
+					{time}
+				</button>
 			))}
-		</ul>);
+		</div>);
 	}
 }
 
