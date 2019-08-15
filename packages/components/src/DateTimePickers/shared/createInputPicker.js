@@ -107,10 +107,10 @@ export default function createInputPicker({ part, theme, Picker }) {
 					onClick={this.props.onClick}
 					onFocusIn={this.props.onFocus}
 					onFocusOut={event => {
-						this.props.onBlur(event, this.props.formManagement);
+						this.props.onBlur(event, this.props.formManagement, part);
 					}}
 					onKeyDown={event => {
-						this.props.onKeyDown(event, this.props.formManagement);
+						this.props.onKeyDown(event, this.props.formManagement, part);
 					}}
 				>
 					{picker}

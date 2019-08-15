@@ -33,9 +33,13 @@ class InputDateTimePicker extends React.Component {
 		};
 	}
 
-	onBlur(event, { onReset }) {
+	onBlur(event, { onReset }, part) {
 		onReset();
-		this.closeDatePicker({ datePicked: false });
+		if (part === 'date') {
+			this.closeDatePicker({ datePicked: false });
+		} else {
+			this.closeTimePicker();
+		}
 		if (this.props.onBlur) {
 			this.props.onBlur(event);
 		}
