@@ -21,6 +21,10 @@ class InputDateTimePicker extends React.Component {
 		this.onKeyDown = this.onKeyDown.bind(this);
 		this.openPicker = this.setPickerVisibility.bind(this, true);
 		this.closePicker = this.setPickerVisibility.bind(this, false);
+		this.openDatePicker = this.openPicker.bind(this, 'showDatePicker');
+		this.openTimePicker = this.openPicker.bind(this, 'showTimePicker');
+		this.closeDatePicker = this.closePicker.bind(this, 'showDatePicker');
+		this.closeTimePicker = this.closePicker.bind(this, 'showTimePicker');
 
 		this.state = {
 			datePicked: false,
@@ -31,7 +35,7 @@ class InputDateTimePicker extends React.Component {
 
 	onBlur(event, { onReset }) {
 		onReset();
-		this.closePicker({ datePicked: false });
+		this.closeDatePicker({ datePicked: false });
 		if (this.props.onBlur) {
 			this.props.onBlur(event);
 		}
@@ -44,18 +48,27 @@ class InputDateTimePicker extends React.Component {
 			(!this.props.formMode && !this.props.useTime && payload.origin !== 'INPUT')
 		) {
 			this.dateInputRef.focus();
-			this.closePicker();
+			this.closeDatePicker({ datePicked: true });
 		}
 	}
 
 	onClick() {
-		this.openPicker();
+		// if (event.target === this.dateInputRef
+			// || this.datePickerRef.contains(event.target)) {
+			this.openDatePicker();
+		// } else if (event.target === this.dateInputRef
+			// || this.datePickerRef.contains(event.target)) {
+				// this.openTimePicker();
+			// }
 	}
 
 	onFocus() {
-		if (!this.state.datePicked) {
-			this.openPicker();
-		}
+		// if (event.target === this.dateInputRef
+			// || this.datePickerRef.contains(event.target)) {
+			if (!this.state.datePicked) {
+				this.openDatePicker();
+			}
+		// }
 	}
 
 	onKeyDown(event, { onReset }) {
@@ -63,7 +76,7 @@ class InputDateTimePicker extends React.Component {
 			case keycode.codes.esc:
 				onReset();
 				this.dateInputRef.focus();
-				this.closePicker();
+				this.closeDatePicker();
 				break;
 			case keycode.codes.down:
 				if (event.target !== this.dateInputRef) {
@@ -72,7 +85,7 @@ class InputDateTimePicker extends React.Component {
 				if (this.state.showDatePicker) {
 					focusOnCalendar(this.datePickerRef);
 				} else {
-					this.openPicker();
+					this.openDatePicker();
 				}
 				break;
 			default:
@@ -80,17 +93,17 @@ class InputDateTimePicker extends React.Component {
 		}
 	}
 
-	setPickerVisibility(isShown, extra = {}) {
+	setPickerVisibility(isShown, showWhichPicker, extra = {}) {
 		if (this.props.readOnly) {
 			return;
 		}
 
-		this.setState(({ showDatePicker }) => {
-			if (showDatePicker === isShown) {
+		this.setState(({ [showWhichPicker]: showPicker }) => {
+			if (showPicker === isShown) {
 				return extra;
 			}
 			return {
-				showDatePicker: isShown,
+				[showWhichPicker]: isShown,
 				...extra,
 			};
 		});
