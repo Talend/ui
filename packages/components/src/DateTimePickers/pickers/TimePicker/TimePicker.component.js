@@ -1,5 +1,5 @@
 import React from 'react';
-import { FIELD_HOURS, FIELD_MINUTES } from '../../DateTime/constants';
+import { FIELD_HOURS } from '../../DateTime/constants';
 import { strToTime } from '../../DateTime/date-extraction';
 
 import theme from './TimePicker.scss';
@@ -40,6 +40,20 @@ class TimePicker extends React.Component {
 			selectdTime: props.selection.time,
 		};
 	}
+	componentDidUpdate(prevProps) {
+		if (prevProps.filter !== this.props.textInput) {
+			const found = options.findIndex(option => option.includes(this.props.textInput));
+			if (found) {
+				const ref = this.containerRef.childNodes[found];
+				if (ref) {
+					ref.scrollIntoView({
+						behavior: 'smooth',
+						block: 'center',
+					});
+				}
+			}
+		}
+	}
 	onSelect(event, time) {
 		this.setState({
 			selectdTime: time,
@@ -54,7 +68,7 @@ class TimePicker extends React.Component {
 		});
 	}
 	render() {
-		return (<div className={theme.container}>
+		return (<div className={theme.container} ref={ref => (this.containerRef = ref)}>
 			{options.map((time, index) => (
 				<button
 					type="button"

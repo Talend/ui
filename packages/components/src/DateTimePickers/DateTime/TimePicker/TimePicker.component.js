@@ -11,6 +11,7 @@ export default function Picker(props) {
 			selection={{
 				time: datetime.time,
 			}}
+			textInput={datetime.timeTextInput}
 			{...pickerManagement}
 			{...props}
 		/>
