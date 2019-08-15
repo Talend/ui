@@ -68,7 +68,6 @@ export default function createInputPicker({ part, theme, Picker }) {
 					key="input"
 					inputRef={ref => {
 						this.inputRef = ref;
-						this.props.setRef(ref);
 					}}
 					part={part}
 				/>,
