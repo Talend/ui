@@ -359,12 +359,12 @@ function strToTime(strToParse, useSeconds) {
  * If a part is not used, it is init to 00, otherwise it's empty, so user have to enter it.
  */
 function initTime({ useTime, useSeconds }) {
-	if (!useTime) {
-		return { hours: '00', minutes: '00', seconds: '00' };
-	} else if (!useSeconds) {
-		return { hours: '', minutes: '', seconds: '00' };
-	}
-	return { hours: '', minutes: '', seconds: '' };
+	// if (!useTime) {
+	// 	return { hours: '00', minutes: '00', seconds: '00' };
+	// } else if (!useSeconds) {
+	// 	return { hours: '', minutes: '', seconds: '00' };
+	// }
+	return { hours: '00', minutes: '00', seconds: '00' };
 }
 
 /**
@@ -448,7 +448,7 @@ function extractPartsFromDateAndTime(date, time, options) {
 	let errors = [];
 	let timeToUse = time;
 
-	if (options.useTime) {
+	if (options.useTime && time) {
 		try {
 			checkTime(time);
 		} catch (error) {
@@ -457,12 +457,13 @@ function extractPartsFromDateAndTime(date, time, options) {
 	} else {
 		timeToUse = initTime(options);
 	}
-
+	const datetime = dateAndTimeToDateTime(date, timeToUse, options);
 	return {
 		date,
 		time: timeToUse,
-		textInput: dateTimeToStr(date, timeToUse, options),
-		datetime: dateAndTimeToDateTime(date, timeToUse, options),
+		datetime,
+		dateTextInput: format(datetime, options.dateFormat),
+		timeTextInput: format(datetime, getTimeFormat(options.useSeconds)),
 		errorMessage: errors[0] ? errors[0].message : null,
 		errors,
 	};
@@ -480,25 +481,26 @@ function extractPartsFromDateAndTime(date, time, options) {
  *		textInput: string
  * 	}}
  */
-function extractPartsFromTextInput(textInput, options) {
+function extractPartsFromTextInput(dateTextInput, timeTextInput, options) {
 	let time = initTime(options);
-	if (textInput === '') {
+	if (dateTextInput === '') {
 		return {
 			date: undefined,
 			time,
 			datetime: undefined,
-			textInput,
+			dateTextInput,
+			timeTextInput,
 			errors: [],
 		};
 	}
 
 	let date;
 	let errors = [];
-	let dateTextToParse = textInput;
+	let dateTextToParse = `${dateTextInput} ${timeTextInput}`;
 
 	try {
-		if (options.useTime) {
-			const splitMatches = textInput.match(splitDateAndTimePartsRegex) || [];
+		if (options.useTime && timeTextInput) {
+			const splitMatches = dateTextToParse.match(splitDateAndTimePartsRegex) || [];
 			if (!splitMatches.length) {
 				throw new DatePickerException('DATETIME_INVALID_FORMAT', 'DATETIME_INVALID_FORMAT');
 			} else {
@@ -526,11 +528,13 @@ function extractPartsFromTextInput(textInput, options) {
 		errors = [error];
 	}
 
+	const datetime = dateAndTimeToDateTime(date, time, options);
 	return {
 		date,
 		time,
-		datetime: dateAndTimeToDateTime(date, time, options),
-		textInput,
+		datetime,
+		dateTextInput,
+		timeTextInput,
 		errors,
 		errorMessage: errors[0] ? errors[0].message : null,
 	};
@@ -564,6 +568,8 @@ function extractParts(value, options) {
 		time: initTime(options),
 		datetime: undefined,
 		textInput: '',
+		dateTextInput: '',
+		timeTextInput: '',
 		errors: [],
 	};
 }

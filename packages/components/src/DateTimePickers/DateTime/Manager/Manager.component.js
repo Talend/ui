@@ -72,6 +72,7 @@ class ContextualManager extends React.Component {
 		this.onReset = this.onReset.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 		this.onInputChange = this.onInputChange.bind(this);
+		this.onDateInputChange = this.onDateInputChange.bind(this);
 		this.onPickerChange = this.onPickerChange.bind(this);
 	}
 
@@ -103,9 +104,9 @@ class ContextualManager extends React.Component {
 		this.props.onChange(event, { errors, errorMessage, datetime, textInput, origin });
 	}
 
-	onInputChange(event) {
-		const textInput = event.target.value;
-		const nextState = extractPartsFromTextInput(textInput, this.getDateOptions());
+	onInputChange(event, dateTextInput, timeTextInput) {
+		const nextState =
+			extractPartsFromTextInput(dateTextInput, timeTextInput, this.getDateOptions());
 		this.setState({ previousErrors: this.state.errors, ...nextState }, () => {
 			if (!this.props.formMode) {
 				this.onChange(event, 'INPUT');
@@ -113,9 +114,16 @@ class ContextualManager extends React.Component {
 		});
 	}
 
+	onDateInputChange(event) {
+		const dateTextInput = event.target.value;
+		const { timeTextInput } = this.state;
+		this.onInputChange(event, dateTextInput, timeTextInput);
+	}
+
 	onPickerChange(event, { date, time, field }) {
 		const isTimeUpdate = [FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS].includes(field);
-		const nextState = extractPartsFromDateAndTime(date, time, this.getDateOptions());
+		const dateToUse = date || this.state.date;
+		const nextState = extractPartsFromDateAndTime(dateToUse, time, this.getDateOptions());
 
 		// we need to retrieve the input error from nextState to add them to the current one
 		// because, by changing the picker, we update the textInput so we need to update its errors
@@ -218,6 +226,8 @@ class ContextualManager extends React.Component {
 				value={{
 					datetime: {
 						textInput: this.state.textInput,
+						dateTextInput: this.state.dateTextInput,
+						timeTextInput: this.state.timeTextInput,
 						date: this.state.date,
 						time: this.state.time,
 					},
@@ -240,6 +250,7 @@ class ContextualManager extends React.Component {
 
 					dateInputManagement: {
 						placeholder: this.props.dateFormat,
+						onChange: this.onDateInputChange,
 					},
 
 					timeInputManagement: {

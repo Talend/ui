@@ -13,7 +13,6 @@ class DateTimePicker extends React.Component {
 		super(props);
 
 		const selectedDate = props.selection.date;
-		const selectedTime = props.selection.time;
 
 		const initialCalendarDate = selectedDate === undefined ? new Date() : selectedDate;
 
@@ -24,7 +23,6 @@ class DateTimePicker extends React.Component {
 				year: getYear(initialCalendarDate),
 			},
 			selectedDate,
-			selectedTime,
 			allowFocus: !props.manageFocus,
 		};
 
@@ -32,7 +30,6 @@ class DateTimePicker extends React.Component {
 		this.onSelectCalendarYear = this.onSelectCalendarYear.bind(this);
 		this.onSelectCalendarMonthYear = this.onSelectCalendarMonthYear.bind(this);
 		this.onSelectDate = this.onSelectDate.bind(this);
-		this.onSelectTime = this.onSelectTime.bind(this);
 
 		this.allowFocus = this.setAllowFocus.bind(this, true);
 		this.disallowFocus = this.setAllowFocus.bind(this, false);
@@ -49,10 +46,8 @@ class DateTimePicker extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		const newSelectedDate = nextProps.selection.date;
-		const newSelectedTime = nextProps.selection.time;
 		const needToUpdateDate = newSelectedDate !== this.state.selectedDate;
-		const needToUpdateTime = newSelectedTime !== this.state.selectedTime;
-		const noNeedToUpdateState = !needToUpdateDate && !needToUpdateTime;
+		const noNeedToUpdateState = !needToUpdateDate;
 
 		if (noNeedToUpdateState) {
 			return;
@@ -60,7 +55,6 @@ class DateTimePicker extends React.Component {
 
 		const newState = {
 			selectedDate: newSelectedDate,
-			selectedTime: newSelectedTime,
 		};
 		if (needToUpdateDate && newSelectedDate) {
 			newState.calendar = {
@@ -83,13 +77,6 @@ class DateTimePicker extends React.Component {
 		event.persist();
 		this.setState({ selectedDate }, () => {
 			this.submit(event);
-		});
-	}
-
-	onSelectTime(event, selectedTime, field) {
-		event.persist();
-		this.setState({ selectedTime }, () => {
-			this.submit(event, field);
 		});
 	}
 
@@ -126,7 +113,6 @@ class DateTimePicker extends React.Component {
 	submit(event, field) {
 		this.props.onSubmit(event, {
 			date: this.state.selectedDate,
-			time: this.state.selectedTime,
 			field,
 		});
 	}
@@ -141,10 +127,8 @@ class DateTimePicker extends React.Component {
 					calendar={this.state.calendar}
 					onSelectDate={this.onSelectDate}
 					onSelectMonthYear={this.onSelectCalendarMonthYear}
-					onSelectTime={this.onSelectTime}
 					onTitleClick={this.setMonthYearView}
 					selectedDate={this.state.selectedDate}
-					selectedTime={this.state.selectedTime}
 					useSeconds={this.props.useSeconds}
 					useTime={this.props.useTime}
 					useUTC={this.props.useUTC}
