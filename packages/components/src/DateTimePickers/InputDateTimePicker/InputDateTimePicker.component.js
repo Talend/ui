@@ -23,8 +23,9 @@ class InputDateTimePicker extends React.Component {
 		this.closePicker = this.setPickerVisibility.bind(this, false);
 
 		this.state = {
-			showDatePicker: false,
 			datePicked: false,
+			showDatePicker: false,
+			showTimePicker: false,
 		};
 	}
 
@@ -125,8 +126,8 @@ class InputDateTimePicker extends React.Component {
 						/>,
 						this.props.useTime && <InputTimePicker
 							{...this.props}
-							showPicker={this.state.showDatePicker}
 							{...eventProps}
+							showPicker={this.state.showTimePicker}
 							setRef={ref => (this.timeInputRef = ref)}
 							setContainerRef={ref => (this.timePickerRef = ref)}
 						/>].filter(Boolean);
