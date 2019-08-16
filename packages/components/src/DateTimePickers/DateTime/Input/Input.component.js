@@ -14,8 +14,10 @@ export default function Input(props) {
 	} = useContext(DateTimeContext);
 	const partInputManagement = props.part === 'date' ? dateInputManagement : timeInputManagement;
 	const value = props.part === 'date' ? datetime.dateTextInput : datetime.timeTextInput;
+	const defaultWidth = props.part === 'date' ? 10 : 5;
 	return (
 		<DebounceInput
+			style={{ width: `${partInputManagement.placeholder.length || defaultWidth}ch` }}
 			aria-describedby={errorManagement.inputErrorId}
 			autoComplete="off"
 			className="form-control"

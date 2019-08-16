@@ -99,7 +99,7 @@ export default function createInputPicker({ part, theme, Picker }) {
 
 			return (
 				<FocusManager
-					style={{ display: 'inline-block' }}
+					className="focus-manager"
 					divRef={ref => {
 						this.containerRef = ref;
 						this.props.setContainerRef(ref);

@@ -1,0 +1,9 @@
+.pickers-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    :global(.focus-manager) {
+        margin-right: $padding-small;
+    }
+}

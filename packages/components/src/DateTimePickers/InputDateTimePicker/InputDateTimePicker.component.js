@@ -10,6 +10,8 @@ import InputTimePicker from '../InputTimePicker';
 import { INPUT_PICKER_PROPTYPES } from '../shared/createInputPicker';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 
+import theme from './InputDateTimePicker.scss';
+
 
 class InputDateTimePicker extends React.Component {
 	constructor(props) {
@@ -151,11 +153,12 @@ class InputDateTimePicker extends React.Component {
 							setRef={ref => (this.timeInputRef = ref)}
 							setContainerRef={ref => (this.timePickerRef = ref)}
 						/>].filter(Boolean);
+						const pickersWrapper = <div className={theme['pickers-container']}>{pickers}</div>;
 						return this.props.formMode ? (
 							<form key="form" onSubmit={formManagement.onSubmit}>
-								{pickers}
+								{pickersWrapper}
 							</form>
-						) : pickers;
+						) : pickersWrapper;
 					}}
 				</DateTimeContext.Consumer>
 			</DateTime.Manager>
