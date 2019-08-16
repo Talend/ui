@@ -6,6 +6,7 @@ import Tab from 'react-bootstrap/lib/Tab';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
 import keycode from 'keycode';
+import debounce from 'lodash/debounce';
 import Datalist from '../Datalist';
 
 class TabBar extends React.Component {
@@ -13,9 +14,12 @@ class TabBar extends React.Component {
 		super(props);
 		this.handleSelect = this.handleSelect.bind(this);
 		this.handleKeyDown = this.handleKeyDown.bind(this);
+		this.shouldShowDropdown = this.shouldShowDropdown.bind(this);
+		this.showNavBarAndTest = this.showNavBarAndTest.bind(this);
 		this.state = {
 			showDropdown: false,
 		};
+		this.resizeListener = window.addEventListener('resize', debounce(this.showNavBarAndTest, 200));
 	}
 
 	componentDidMount() {
@@ -35,15 +39,27 @@ class TabBar extends React.Component {
 	}
 
 	shouldShowDropdown() {
-		const container = ReactDOM.findDOMNode(this.ref);
-		if (container) {
-			const firstChild = container.querySelector('li:first-child');
+		const tabBarContainer = ReactDOM.findDOMNode(this.ref);
+		if (tabBarContainer) {
+			// There is a TabBar, test if the height of this TabBar is equal to the height of a nav item.
+			const firstChild = tabBarContainer.querySelector('li:first-child');
 			if (firstChild) {
-				if (container.offsetHeight !== firstChild.offsetHeight) {
+				if (tabBarContainer.offsetHeight !== firstChild.offsetHeight) {
 					this.setState({ showDropdown: true });
 				}
 			}
+		} else {
+			// There is no TabBar, show it to test if dropdown is needed
+			this.setState({ showDropdown: false });
 		}
+	}
+
+	/**
+	 * Just show the navBar and test if there is enough width.
+	 */
+	showNavBarAndTest() {
+		this.setState({ showDropdown: false });
+		this.shouldShowDropdown();
 	}
 
 	handleSelect(selectedKey, event) {
