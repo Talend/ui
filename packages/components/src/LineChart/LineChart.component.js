@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {
 	Legend,
@@ -21,9 +22,7 @@ import {
 
 import './LineChart.scss';
 
-const colors = ['#0565A7', '#70A338', '#CA7129', '#677077', '#C95357'];
-
-export function renderLine(data, key, highlightLegendKey, selectedLegends) {
+export function renderLine(data, key, highlightLegendKey, selectedLegends, colors) {
 	let dataKeys = new Set();
 	data.forEach((dots) => {
 		dataKeys = union(dataKeys, new Set(Object.keys(dots)));
@@ -109,13 +108,13 @@ export function handleMouseLeave(setHighlightLegendKey) {
 	};
 }
 
-export default function CustomLineChart({ data, key = 'name', height = '100%', width = '100%', labelFormatter, tickFormatter, ticks }) {
+function CustomLineChart({ data, key = 'name', height = '100%', width = '100%', labelFormatter, tickFormatter, ticks, margin, colors = ['#0565A7', '#70A338', '#CA7129', '#677077', '#C95357'] }) {
 	const [highlightLegendKey, setHighlightLegendKey] = useState('');
 	const [selectedLegends, setSelectedLegends] = useState([]);
 	return (
 		<React.Fragment>
 			<ResponsiveContainer width={width} height={height}>
-				<LineChart data={data} margin={{ top: 7, right: 20, bottom: 5, left: 5 }}>
+				<LineChart data={data} margin={margin}>
 					<CartesianGrid stroke="#F2F2F2" strokeDasharray="2" vertical={false} />
 					<XAxis dy={5} dataKey={key} tickLine={false} />
 					<YAxis dx={-5} tickFormatter={tickFormatter} ticks={ticks} />
@@ -124,12 +123,24 @@ export default function CustomLineChart({ data, key = 'name', height = '100%', w
 							renderLegend(highlightLegendKey, selectedLegends, handleMouseDown(selectedLegends, setSelectedLegends), handleMouseEnter(setHighlightLegendKey), handleMouseLeave(setHighlightLegendKey))
 						}
 						verticalAlign="bottom"
-						iconType={'circle'}
 					/>
 					<Tooltip contentStyle={{fontSize: 10}} formatter={labelFormatter} />
-					{renderLine(data, key, highlightLegendKey, selectedLegends)}
+					{renderLine(data, key, highlightLegendKey, selectedLegends, colors)}
 				</LineChart>
 			</ResponsiveContainer>
 		</React.Fragment>
 	);
 }
+
+CustomLineChart.propTypes = {
+	color: PropTypes.arrayOf(PropTypes.string),
+	height: PropTypes.string,
+	key: PropTypes.string.required,
+	labelFormatter: PropTypes.fn,
+	margin: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+	tickFormatter: PropTypes.fn,
+	ticks: PropTypes.arrayOf(PropTypes.integer),
+	width: PropTypes.string,
+};
+
+export default  CustomLineChart;

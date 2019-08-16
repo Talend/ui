@@ -56,6 +56,6 @@ const data = [{
 storiesOf('LineChart', module)
 	.add('default', () =>
 		<div style={{height: '300px', padding: '20px'}}>
-			<LineChart data={data} />
+			<LineChart data={data} colors={['blue', '#70A338', '#CA7129', 'pink', '#C95357']} />
 		</div>
 	);

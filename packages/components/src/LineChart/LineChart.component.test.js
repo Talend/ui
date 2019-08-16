@@ -29,7 +29,7 @@ describe('linechart', () => {
 			// selected/higlight
 			const wrapper = shallow(
 				<div>
-					{ renderLine(data, 'name', 'Coco  Bongo', []) }
+					{ renderLine(data, 'name', 'Coco  Bongo', [], []) }
 				</div>);
 			expect(wrapper.find(Line).length).toBe(4);
 			// not selected/higlight
