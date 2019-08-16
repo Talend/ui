@@ -6,12 +6,20 @@ import Tab from 'react-bootstrap/lib/Tab';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
 import keycode from 'keycode';
+import Datalist from '../Datalist';
 
 class TabBar extends React.Component {
 	constructor(props) {
 		super(props);
 		this.handleSelect = this.handleSelect.bind(this);
 		this.handleKeyDown = this.handleKeyDown.bind(this);
+		this.state = {
+			showDropdown: false,
+		};
+	}
+
+	componentDidMount() {
+		this.shouldShowDropdown();
 	}
 
 	componentDidUpdate() {
@@ -23,6 +31,18 @@ class TabBar extends React.Component {
 		if (activeChild) {
 			activeChild.focus();
 			this.needsRefocus = false;
+		}
+	}
+
+	shouldShowDropdown() {
+		const container = ReactDOM.findDOMNode(this.ref);
+		if (container) {
+			const firstChild = container.querySelector('li:first-child');
+			if (firstChild) {
+				if (container.offsetHeight !== firstChild.offsetHeight) {
+					this.setState({ showDropdown: true });
+				}
+			}
 		}
 	}
 
@@ -54,6 +74,31 @@ class TabBar extends React.Component {
 	render() {
 		const { className, id, items, selectedKey, children, generateChildId } = this.props;
 		const hasChildren = children || items.some(item => item.children);
+		if (this.state.showDropdown) {
+			const dataListProps = {
+				onChange: this.handleSelect,
+				disabled: false,
+				readOnly: false,
+				titleMap: items.map(item => ({
+					name: item.label,
+				})),
+			};
+			return (
+				<React.Fragment>
+					<Datalist {...dataListProps} />
+					{hasChildren && (
+						<Tab.Content>
+							{items.map(item => (
+								<Tab.Pane eventKey={item.key} key={item.key}>
+									{item.children}
+									{selectedKey === item.key ? children : null}
+								</Tab.Pane>
+							))}
+						</Tab.Content>
+					)}
+				</React.Fragment>
+			);
+		}
 		return (
 			<Tab.Container
 				id={id}
