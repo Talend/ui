@@ -43,7 +43,7 @@ class TimePicker extends React.Component {
 		};
 	}
 	componentDidUpdate(prevProps) {
-		if (prevProps.filter !== this.props.textInput) {
+		if (prevProps.textInput !== this.props.textInput) {
 			const found = options.findIndex(option => option.includes(this.props.textInput));
 			if (found) {
 				const ref = this.containerRef.childNodes[found];
