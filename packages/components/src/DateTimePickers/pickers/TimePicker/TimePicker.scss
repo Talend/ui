@@ -8,10 +8,12 @@
     font-size: 1.4rem;
     font-weight: normal;
     background-color: $white;
-    &:hover {
+
+    &:global(.highlight) {
         background-color: $wild-sand;
     }
-    &:active {
+
+    &:global(.highlight):active {
         background-color: tint($lochmara, 90%);
     }
 }

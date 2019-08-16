@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import { FIELD_HOURS } from '../../DateTime/constants';
 import { strToTime } from '../../DateTime/date-extraction';
 
@@ -34,6 +35,7 @@ const options = [
 class TimePicker extends React.Component {
 	constructor(props) {
 		super(props);
+		this.onMouseOver = this.onMouseOver.bind(this);
 		this.onSelect = this.onSelect.bind(this);
 		this.submit = this.submit.bind(this);
 		this.state = {
@@ -51,8 +53,14 @@ class TimePicker extends React.Component {
 						block: 'center',
 					});
 				}
+				if (found !== this.state.hightlightedItemIndex) {
+					this.updateHighlightIndex(found);
+				}
 			}
 		}
+	}
+	onMouseOver(event, index) {
+		this.updateHighlightIndex(index);
 	}
 	onSelect(event, time) {
 		this.setState({
@@ -67,18 +75,33 @@ class TimePicker extends React.Component {
 			field: FIELD_HOURS,
 		});
 	}
+	updateHighlightIndex(index) {
+		this.setState(({ hightlightedItemIndex }) => {
+			if (hightlightedItemIndex !== index) {
+				return {
+					hightlightedItemIndex: index,
+				};
+			}
+			return {};
+		});
+	}
 	render() {
 		return (<div className={theme.container} ref={ref => (this.containerRef = ref)}>
-			{options.map((time, index) => (
-				<button
-					type="button"
-					key={index}
-					className={theme.time}
-					onClick={event => this.onSelect(event, time, index)}
-				>
-					{time}
-				</button>
-			))}
+			{options.map((time, index) => {
+				const className = classNames(theme.time,
+					{ highlight: index === this.state.hightlightedItemIndex });
+				return (
+					<button
+						type="button"
+						key={index}
+						className={className}
+						onMouseOver={event => this.onMouseOver(event, index)}
+						onClick={event => this.onSelect(event, time, index)}
+					>
+						{time}
+					</button>
+				);
+			})}
 		</div>);
 	}
 }
