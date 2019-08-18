@@ -10,7 +10,7 @@ Some of the key features:
 * build onEvent handler using registered actionCreator or simple dispatch
 * component registry available for composition
 
-Note that CMFConnect itself uses [react-redux](https://github.com/reactjs/react-redux), [connect](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options), [higher order component](https://reactjs.org/docs/higher-order-components.html) under the hood.
+Note that CMFConnect itself uses [react-redux](https://github.com/reactjs/react-redux), [connect](https://github.com/reduxjs/react-redux/blob/master/docs/api/connect.md), [higher order component](https://reactjs.org/docs/higher-order-components.html) under the hood.
 
 ## API
 
