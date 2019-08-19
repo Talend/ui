@@ -7,6 +7,7 @@ import { storiesOf } from '@storybook/react';
 import { LanguageSwitcher } from './config/i18n';
 import Stepper from '../src/components/Stepper.component';
 import { StepperConstants } from '../src';
+import './style.scss';
 
 const stories = storiesOf('Stepper', module);
 const title = 'Sample processing...';
