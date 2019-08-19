@@ -44,4 +44,6 @@ ColumnChooserHeader.propTypes = {
 	className: PropTypes.string,
 };
 
+ColumnChooserHeader.SelectAll = ColumnChooserHeader;
+
 export default ColumnChooserHeader;

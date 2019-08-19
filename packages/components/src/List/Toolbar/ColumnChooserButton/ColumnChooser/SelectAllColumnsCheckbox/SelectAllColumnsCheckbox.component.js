@@ -22,7 +22,6 @@ const SelectAllColumnsCheckbox = ({ id, onChange, value, t }) => (
 		<ColumnChooserRow.Checkbox
 			id={id}
 			dataFeature="column-chooser.select.all"
-			describedby="desc-select-all-columns"
 			description={getDescription(value, t)}
 			label={t('CHECKBOX_VISIBILITY_LABEL', {
 				defaultValue: 'Columns',

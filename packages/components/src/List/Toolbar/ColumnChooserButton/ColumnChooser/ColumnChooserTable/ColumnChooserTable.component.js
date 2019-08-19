@@ -3,19 +3,6 @@ import PropTypes from 'prop-types';
 import ColumnChooserRow from '../ColumnChooserRow';
 import { columnsPropTypes } from '../../columnChooser.propTypes';
 
-const getDescription = (checked, label, t) => {
-	if (checked) {
-		return t('CHECKBOX_HIDE_COLUMN_DESCRIPTION', {
-			defaultValue: 'hide the column {{label}}',
-			label,
-		});
-	}
-	return t('CHECKBOX_DISPLAY_COLUMN_DESCRIPTION', {
-		defaultValue: 'display the column {{label}}',
-		label,
-	});
-};
-
 const ColumnChooserTable = ({ columns = [], id, onChangeCheckbox, t }) =>
 	columns.map(column => (
 		<ColumnChooserRow key={column.label}>
@@ -23,8 +10,10 @@ const ColumnChooserTable = ({ columns = [], id, onChangeCheckbox, t }) =>
 				checked={column.visible}
 				id={id}
 				dataFeature="column-chooser.select"
-				describedby={`desc-column-${column.label}`}
-				description={getDescription(column.visible, column.label, t)}
+				description={t('CHECKBOX_DISPLAY_COLUMN_DESCRIPTION', {
+					defaultValue: 'display the column {{label}}',
+					label: column.label,
+				})}
 				label={column.label}
 				locked={column.locked}
 				onChange={onChangeCheckbox}

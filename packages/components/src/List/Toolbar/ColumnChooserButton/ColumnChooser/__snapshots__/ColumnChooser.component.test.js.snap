@@ -38,7 +38,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             >
               <input type="checkbox"
                      id="my-id-body-checkbox-Id"
-                     aria-describedby="my-id-body-hide the column Id"
+                     aria-describedby="my-id-body-display the column Id"
                      checked
               >
               <span>
@@ -46,10 +46,10 @@ exports[`ColumnChooser should render with default props 1`] = `
               </span>
             </label>
           </div>
-          <div id="my-id-body-hide the column Id"
+          <div id="my-id-body-display the column Id"
                class="sr-only"
           >
-            hide the column Id
+            display the column Id
           </div>
         </div>
         <div class="tc-column-chooser-row theme-tc-column-chooser-row">
@@ -59,7 +59,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             >
               <input type="checkbox"
                      id="my-id-body-checkbox-Name"
-                     aria-describedby="my-id-body-hide the column Name"
+                     aria-describedby="my-id-body-display the column Name"
                      checked
               >
               <span>
@@ -67,10 +67,10 @@ exports[`ColumnChooser should render with default props 1`] = `
               </span>
             </label>
           </div>
-          <div id="my-id-body-hide the column Name"
+          <div id="my-id-body-display the column Name"
                class="sr-only"
           >
-            hide the column Name
+            display the column Name
           </div>
         </div>
         <div class="tc-column-chooser-row theme-tc-column-chooser-row">
@@ -80,7 +80,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             >
               <input type="checkbox"
                      id="my-id-body-checkbox-Author"
-                     aria-describedby="my-id-body-hide the column Author"
+                     aria-describedby="my-id-body-display the column Author"
                      checked
               >
               <span>
@@ -88,10 +88,10 @@ exports[`ColumnChooser should render with default props 1`] = `
               </span>
             </label>
           </div>
-          <div id="my-id-body-hide the column Author"
+          <div id="my-id-body-display the column Author"
                class="sr-only"
           >
-            hide the column Author
+            display the column Author
           </div>
         </div>
         <div class="tc-column-chooser-row theme-tc-column-chooser-row">
@@ -101,7 +101,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             >
               <input type="checkbox"
                      id="my-id-body-checkbox-Very long name long name long name long name long name"
-                     aria-describedby="my-id-body-hide the column Very long name long name long name long name long name"
+                     aria-describedby="my-id-body-display the column Very long name long name long name long name long name"
                      checked
               >
               <span>
@@ -109,10 +109,10 @@ exports[`ColumnChooser should render with default props 1`] = `
               </span>
             </label>
           </div>
-          <div id="my-id-body-hide the column Very long name long name long name long name long name"
+          <div id="my-id-body-display the column Very long name long name long name long name long name"
                class="sr-only"
           >
-            hide the column Very long name long name long name long name long name
+            display the column Very long name long name long name long name long name
           </div>
         </div>
         <div class="tc-column-chooser-row theme-tc-column-chooser-row">
@@ -142,7 +142,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             >
               <input type="checkbox"
                      id="my-id-body-checkbox-Created"
-                     aria-describedby="my-id-body-hide the column Created"
+                     aria-describedby="my-id-body-display the column Created"
                      checked
               >
               <span>
@@ -150,10 +150,10 @@ exports[`ColumnChooser should render with default props 1`] = `
               </span>
             </label>
           </div>
-          <div id="my-id-body-hide the column Created"
+          <div id="my-id-body-display the column Created"
                class="sr-only"
           >
-            hide the column Created
+            display the column Created
           </div>
         </div>
       </div>

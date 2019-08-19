@@ -71,7 +71,7 @@ This settings will create a column chooser with two columns. The first one will 
 | ----------------- | ------------------------------------- | ---------------------------------------------------------- |
 | columns           | [ColumnsPropTypes](#columnsproptypes) | populate the popover                                       |
 | onSubmit          | function                              | callback when the form is submitted                        |
-| nbLockedLeftItems | number                                | the number of locked items you want, beginning at the left |
+| nbLockedLeftItems | number                                | the number of locked items you want, beginning on the left |
 
 To keep the columns from the list sync with the inputs of the user, you will need to merge the data from the column chooser with the columns from the list.
 There is a service to help you to do that, [mergeWithColumnChooserCollection](#mergeWithColumnChooserCollection).
@@ -79,9 +79,7 @@ There is a service to help you to do that, [mergeWithColumnChooserCollection](#m
 ```javascript
 const mergedColumns = {
 		...list,
-        columns: columnChooserService
-        .mergeWithColumnChooserCollection
-        (columnsFromList, columnsFromColumnChooser),
+        columns: columnChooserService.mergeWithColumnChooserCollection(columnsFromList, columnsFromColumnChooser),
 };
 <List {...rest} columnChooser={...} list={mergedColumns} />;
 ```
@@ -142,6 +140,10 @@ The component holds references :
 
 ### ColumnChooserHeader
 
+The component holds references :
+
+- SelectAll: [SelectAllCheckbox](#SelectAllCheckbox)
+
 The header of the column chooser.
 Title and number of selected columns is displayed here.
 You can pass children to the header to customize it.
@@ -162,7 +164,6 @@ By default, it consumes the [columnChooserContext](#columnchoosercontext).
 The component holds references :
 
 - Submit : [SubmitButton](#SubmitButton)
-- SelectAll: [SelectAllCheckbox](#SelectAllCheckbox)
 
 | Props     | Type                           | Info                               |
 | --------- | ------------------------------ | ---------------------------------- |

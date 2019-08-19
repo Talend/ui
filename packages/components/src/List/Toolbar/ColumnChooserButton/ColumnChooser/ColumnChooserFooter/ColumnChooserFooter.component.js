@@ -31,7 +31,6 @@ const ColumnChooserFooter = ({ children = <SubmitButton />, className }) => (
 );
 
 ColumnChooserFooter.Submit = SubmitButton;
-ColumnChooserFooter.SelectAll = SelectAllColumnsCheckbox;
 
 ColumnChooserFooter.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
