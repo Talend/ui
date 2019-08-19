@@ -31,7 +31,6 @@ describe('ColumnChooserHeader', () => {
 			</ColumnChooserProvider>,
 		);
 		// Then
-		expect(wrapper.find('div#selected-columns-text').text()).toBe('5/6 selected columns');
 		expect(wrapper.html()).toMatchSnapshot();
 	});
 
