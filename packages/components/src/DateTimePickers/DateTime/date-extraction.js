@@ -386,6 +386,14 @@ function checkSupportedDateFormat(dateFormat) {
 }
 
 /**
+ * get time format base on useSeconds
+ * @param {string} useSeconds
+ */
+function getTimeFormat(useSeconds) {
+	return useSeconds ? 'HH:mm:ss' : 'HH:mm';
+}
+
+/**
  * Extract parts (date, time, date/time, textInput) from a Date
  * @param datetime {Date}
  * @param options {Object}
@@ -419,16 +427,10 @@ function extractPartsFromDateTime(datetime, options) {
 		time,
 		datetime: startOfSecond(datetime),
 		textInput: dateTimeToStr(date, time, options),
+		dateTextInput: format(datetime, options.dateFormat),
+		timeTextInput: format(datetime, getTimeFormat(options.useSeconds)),
 		errors: [],
 	};
-}
-
-/**
- * get time format base on useSeconds
- * @param {string} useSeconds
- */
-function getTimeFormat(useSeconds) {
-	return useSeconds ? 'HH:mm:ss' : 'HH:mm';
 }
 
 /**
@@ -481,26 +483,25 @@ function extractPartsFromDateAndTime(date, time, options) {
  *		textInput: string
  * 	}}
  */
-function extractPartsFromTextInput(dateTextInput, timeTextInput, options) {
+function extractPartsFromTextInput(textInput, options) {
 	let time = initTime(options);
-	if (dateTextInput === '') {
+	if (textInput === '') {
 		return {
 			date: undefined,
 			time,
 			datetime: undefined,
-			dateTextInput,
-			timeTextInput,
+			textInput,
 			errors: [],
 		};
 	}
 
 	let date;
 	let errors = [];
-	let dateTextToParse = `${dateTextInput} ${timeTextInput}`;
+	let dateTextToParse = textInput;
 
 	try {
-		if (options.useTime && timeTextInput) {
-			const splitMatches = dateTextToParse.match(splitDateAndTimePartsRegex) || [];
+		if (options.useTime) {
+			const splitMatches = textInput.match(splitDateAndTimePartsRegex) || [];
 			if (!splitMatches.length) {
 				throw new DatePickerException('DATETIME_INVALID_FORMAT', 'DATETIME_INVALID_FORMAT');
 			} else {
@@ -533,8 +534,8 @@ function extractPartsFromTextInput(dateTextInput, timeTextInput, options) {
 		date,
 		time,
 		datetime,
-		dateTextInput,
-		timeTextInput,
+		dateTextInput: format(datetime, options.dateFormat),
+		timeTextInput: format(datetime, getTimeFormat(options.useSeconds)),
 		errors,
 		errorMessage: errors[0] ? errors[0].message : null,
 	};
