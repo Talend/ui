@@ -100,10 +100,17 @@ class ContextualManager extends React.Component {
 		if (!this.props.onChange) {
 			return;
 		}
-		const { errorMessage, datetime, textInput, errors } = this.state;
+		const { errorMessage, datetime, dateTextInput, timeTextInput, errors } = this.state;
+		let textInput = '';
+		if (dateTextInput) {
+			textInput = `${dateTextInput}${timeTextInput ? ` ${timeTextInput}` : ''}`;
+		}
 		// we need to update the initial state once it has been changed
 		this.initialState = { ...this.state };
-		this.props.onChange(event, { errors, errorMessage, datetime, textInput, origin });
+		this.props.onChange(
+			event,
+			{ errors, errorMessage, datetime, textInput, origin }
+		);
 	}
 
 	onInputChange(nextState) {
@@ -128,7 +135,7 @@ class ContextualManager extends React.Component {
 		this.onInputChange(nextState);
 	}
 
-	onPickerChange(nextState, nextErrors) {
+	onPickerChange(event, nextState, nextErrors) {
 		this.setState({ previousErrors: this.state.errors, ...nextState, errors: nextErrors }, () => {
 			if (!this.props.formMode) {
 				this.onChange(event, 'PICKER');
@@ -149,7 +156,7 @@ class ContextualManager extends React.Component {
 			// add new main input errors
 			.concat(nextState.errors.filter(error => INPUT_ERRORS.includes(error.code)));
 
-		this.onPickerChange(nextState, nextErrors);
+		this.onPickerChange(event, nextState, nextErrors);
 	}
 
 	onTimePickerChange(event, { time }) {
@@ -168,7 +175,7 @@ class ContextualManager extends React.Component {
 		if (newError) {
 			nextErrors.push(newError);
 		}
-		this.onPickerChange(nextState, nextErrors);
+		this.onPickerChange(event, nextState, nextErrors);
 	}
 
 	onSubmit(event, origin) {
