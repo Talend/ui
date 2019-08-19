@@ -45,7 +45,7 @@
 	&-default {
 		@include btn-colors;
 		@include btn-inverse-colors;
-		@include btn-tertiary-colors();
+		@include btn-tertiary-colors;
 	}
 
 	&-primary {
