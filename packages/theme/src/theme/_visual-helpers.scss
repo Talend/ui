@@ -177,21 +177,26 @@
 	}
 }
 
-@mixin btn-tertiary($color) {
-	font-weight: $btn-tertiary-font-weight;
-	line-height: $btn-tertiary-line-height;
-	min-height: $btn-tertiary-line-height;
-	padding: 0 $padding-small;
-	transition: background 0.2s ease-in;
-	color: $color;
-	&:hover {
+@mixin btn-tertiary-colors($color: $btn-tertiary-default-color) {
+	&.btn-tertiary {
+		background-color: transparent;
+		border: none;
+		box-shadow: none;
+		font-weight: $btn-tertiary-font-weight;
+		line-height: $btn-tertiary-line-height;
+		min-height: $btn-tertiary-line-height;
+		padding: 0 $padding-small;
+		transition: background 0.2s ease-in;
 		color: $color;
-		background: tint($color, 90%);
-	}
-	&:active {
-		background: tint($color, 80%);
-	}
-	&:focus {
-		color: $color;
+		&:hover {
+			color: $color;
+			background: tint($color, 90%);
+		}
+		&:active {
+			background: tint($color, 80%);
+		}
+		&:focus {
+			color: $color;
+		}
 	}
 }

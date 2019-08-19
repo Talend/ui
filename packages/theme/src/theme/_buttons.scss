@@ -45,6 +45,7 @@
 	&-default {
 		@include btn-colors;
 		@include btn-inverse-colors;
+		@include btn-tertiary-colors();
 	}
 
 	&-primary {
@@ -61,6 +62,7 @@
 	&-info {
 		@include btn-colors($btn-info-bg);
 		@include btn-inverse-colors($btn-info-bg);
+		@include btn-tertiary-colors($btn-tertiary-info-color);
 	}
 
 	&-warning {
@@ -88,14 +90,6 @@
 		&:active {
 			color: darken($scooter, 12%);
 		}
-	}
-
-	&-tertiary-action {
-		@include btn-tertiary($btn-tertiary-action-color);
-	}
-
-	&-tertiary-info {
-		@include btn-tertiary($btn-tertiary-info-color);
 	}
 
 	&-icon-only {
