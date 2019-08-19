@@ -32,7 +32,8 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "recharts": "1.6.2"
+    "recharts": "1.6.2",
+    "classnames": "^2.2.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",

@@ -1,9 +1,9 @@
 export function union(setA, setB) {
-	const union = new Set(setA);
+	const uniontRes = new Set(setA);
 	for (const elem of setB) {
-		union.add(elem);
+		uniontRes.add(elem);
 	}
-	return union;
+	return uniontRes;
 }
 
 export function isSelectedOrHighlight(dataKey, highlightLegendKey, selectedLegends) {

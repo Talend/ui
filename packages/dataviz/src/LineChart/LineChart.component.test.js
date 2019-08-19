@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Line } from 'recharts';
 
-import LineChart, {
+import {
 	renderLine,
 	renderLegend,
 	handleMouseLeave,
