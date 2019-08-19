@@ -76,13 +76,12 @@ describe('ColumnChooser', () => {
 		};
 		// When
 		const wrapper = mount(<Component {...props} />);
-		console.log(wrapper.find('input').debug());
 		// Then
 		expect(
 			wrapper.find('input[aria-describedby="my-id-body-display the column Author"]'),
 		).toHaveLength(0);
 		expect(
-			wrapper.find('input[aria-describedby="my-id-body-displayq the column Name"]'),
+			wrapper.find('input[aria-describedby="my-id-body-display the column Name"]'),
 		).toHaveLength(1);
 	});
 	it('should locked the first two columns', () => {
