@@ -125,7 +125,7 @@ function SubTitle({ subTitleLoading, subTitle }) {
 }
 
 SubTitle.propTypes = {
-	subTitle: PropTypes.string,
+	subTitle: PropTypes.node,
 	subTitleLoading: PropTypes.bool,
 };
 
@@ -135,7 +135,7 @@ TitleSubHeader.propTypes = {
 	loading: PropTypes.bool,
 	inProgress: PropTypes.bool,
 	editable: PropTypes.bool,
-	subTitle: PropTypes.string,
+	subTitle: PropTypes.node,
 	onEdit: PropTypes.func,
 	onSubmit: PropTypes.func,
 	onCancel: PropTypes.func,
