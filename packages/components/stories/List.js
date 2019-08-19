@@ -337,7 +337,89 @@ const propsWithVirtualized = {
 				type: 'datetime',
 				data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' },
 			},
-			{ key: 'modified', label: 'Modified', type: 'datetime', data: { mode: 'ago' } },
+			{
+				key: 'modified',
+				label: 'Modified',
+				type: 'datetime',
+				data: { mode: 'ago' },
+			},
+		],
+		items: [
+			{
+				id: 0,
+				name: 'Title with actions',
+				created: 1518596913333,
+				modified: minusThreeHours,
+				author: 'Jean-Pierre DUPONT',
+				actions,
+				icon: 'talend-file-xls-o',
+				display: 'text',
+				className: 'item-0-class',
+			},
+			{
+				persistentActions,
+				id: 1,
+				name: 'Title in input mode',
+				created: 1518596913333,
+				modified: minusTwoHours,
+				author: 'Jean-Pierre DUPONT',
+				icon: 'talend-file-json-o',
+				display: 'input',
+				className: 'item-1-class',
+			},
+			{
+				persistentActions,
+				id: 2,
+				name: 'Super long title to trigger overflow on tile rendering',
+				created: 1518596913333,
+				modified: minusOneHours,
+				author: 'Jean-Pierre DUPONT',
+				className: 'item-2-class',
+			},
+			{
+				persistentActions,
+				id: 3,
+				name: 'Title',
+				created: 1518596913333,
+				modified: minusThreeMin,
+				author: 'Jean-Pierre DUPONT',
+				actions,
+				icon: 'talend-file-xls-o',
+				display: 'text',
+				className: 'item-3-class',
+			},
+		],
+		titleProps: {
+			key: 'name',
+			iconKey: 'icon',
+			displayModeKey: 'display',
+			onClick: action('onTitleClick'),
+			onEditCancel: action('onEditCancel'),
+			onEditSubmit: action('onEditSubmit'),
+		},
+		itemProps: {
+			classNameKey: 'className',
+		},
+	},
+};
+
+const propsWithResizable = {
+	id: 'talend',
+	displayMode: 'table',
+	virtualized: true,
+	list: {
+		columns: [
+			{ key: 'id', label: 'Id', width: 85 },
+			{ key: 'name', label: 'Name', width: 600, resizable: true, header: 'resizable' },
+			{ key: 'author', label: 'Author', width: 600, resizable: true, header: 'resizable' },
+			{
+				key: 'modified',
+				label: 'Modified',
+				type: 'datetime',
+				data: { mode: 'ago' },
+				width: 135,
+				resizable: true,
+			},
 		],
 		items: [
 			{
@@ -915,11 +997,19 @@ storiesOf('List', module)
 		</div>
 	))
 	.add('List cell renderer', () => (
-		<div className="virtualized-list">
+		<div className="virtualized-list" style={{ height: '70vh' }}>
 			<h1>List with specified VirtualizedList cell renderer</h1>
 			<p>CellDatetimeRenderer in action.</p>
 			<span>
 				<List {...propsWithVirtualized} />
+			</span>
+		</div>
+	))
+	.add('List resizable', () => (
+		<div className="virtualized-list" style={{ height: '70vh' }}>
+			<h1>List with resizable columns</h1>
+			<span>
+				<List {...propsWithResizable} />
 			</span>
 		</div>
 	))
