@@ -18,6 +18,7 @@ front-end stack.
 ## The stack
 
 - [react-cmf](https://github.com/Talend/ui/tree/master/packages/cmf)
+- [react-dataviz](https://github.com/Talend/ui/tree/master/packages/dataviz)
 - [react-talend-containers](https://github.com/Talend/ui/tree/master/packages/containers)
 - [react-talend-components](https://github.com/Talend/ui/tree/master/packages/components)
 - [react-talend-forms](https://github.com/Talend/ui/tree/master/packages/forms)

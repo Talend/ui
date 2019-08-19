@@ -24,7 +24,6 @@ import './EditableText';
 import './Enumeration';
 import './FilterBar';
 import './GridLayout';
-import './LineChart';
 import './GuidedTour';
 import './HeaderBar';
 import './HttpError';

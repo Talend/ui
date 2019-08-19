@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import LineChart from '../src/LineChart';
+import LineChart from '../src/components/LineChart';
 
 const data = [{
 	'name': 'W20 2016',
