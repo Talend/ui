@@ -264,7 +264,7 @@ class ContextualManager extends React.Component {
 					timeInputManagement: {
 						placeholder: getTimeFormat(this.props.useSeconds),
 						onChange: this.onTimeInputChange,
-
+						useSeconds: this.props.useSeconds,
 					},
 
 					pickerManagement: {
