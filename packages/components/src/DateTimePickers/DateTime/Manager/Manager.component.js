@@ -5,9 +5,7 @@ import isSameSecond from 'date-fns/is_same_second';
 import { DateTimeContext } from '../Context';
 import {
 	check,
-	checkHours,
-	checkMinutes,
-	checkSeconds,
+	checkTime,
 	checkSupportedDateFormat,
 	extractParts,
 	extractPartsFromDateAndTime,
@@ -154,48 +152,23 @@ class ContextualManager extends React.Component {
 		this.onPickerChange(nextState, nextErrors);
 	}
 
-	onTimePickerChange(event, { time, field }) {
+	onTimePickerChange(event, { time }) {
 		const dateToUse = this.state.date;
 		const nextState = extractPartsFromDateAndTime(dateToUse, time, this.getDateOptions());
 
 		// we need to retrieve the input error from nextState to add them to the current one
 		// because, by changing the picker, we update the textInput so we need to update its errors
-		let nextErrors = this.state.errors
+		const nextErrors = this.state.errors
 			// remove old main input errors
 			.filter(error => !INPUT_ERRORS.includes(error.code))
 			// add new main input errors
 			.concat(nextState.errors.filter(error => INPUT_ERRORS.includes(error.code)));
 
-		if (true) {
-			// to avoid having errors on untouched time elements, we check only the updated part
-			let newError;
-			switch (field) {
-				case FIELD_HOURS:
-					newError = checkHours(time.hours);
-					break;
-				case FIELD_MINUTES:
-					newError = checkMinutes(time.minutes);
-					break;
-				case FIELD_SECONDS:
-					newError = checkSeconds(time.seconds);
-					break;
-				default:
-					break;
-			}
-
-			// remove old error on updated time part
-			nextErrors = nextErrors.filter(
-				error =>
-					(field === FIELD_HOURS && !HOUR_ERRORS.includes(error.code)) ||
-					(field === FIELD_MINUTES && !MINUTES_ERRORS.includes(error.code)) ||
-					(field === FIELD_SECONDS && !SECONDS_ERRORS.includes(error.code)),
-			);
-			// add the new error on updated time part
-			if (newError) {
-				nextErrors.push(newError);
-			}
+		const newError = checkTime(time);
+		if (newError) {
+			nextErrors.push(newError);
 		}
-		this.onInputChange(nextState, nextErrors);
+		this.onPickerChange(nextState, nextErrors);
 	}
 	onSubmit(event, origin) {
 		event.preventDefault();
