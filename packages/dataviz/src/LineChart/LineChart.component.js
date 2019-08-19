@@ -22,7 +22,6 @@ import {
 
 import './LineChart.scss';
 
-
 export function handleMouseDown(selectedLegends, setSelectedLegends) {
 	return o => {
 		const { dataKey } = o;
