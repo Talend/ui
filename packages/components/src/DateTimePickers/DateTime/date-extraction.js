@@ -656,5 +656,6 @@ export {
 	extractTimeFromTextInput,
 	getFullDateFormat,
 	getTimeFormat,
+	pad,
 	strToTime,
 };
