@@ -167,9 +167,8 @@ $btn-secondary-color: #fff !default;
 $btn-secondary-bg: $brand-secondary !default;
 $btn-secondary-border: darken($btn-secondary-bg, 5%) !default;
 
-$btn-tertiary-primary-color: $st-tropaz !default;
-$btn-tertiary-secondary-color: $dark-silver !default;
-$btn-tertiary-inverse-color: #fff !default;
+$btn-tertiary-action-color: $st-tropaz !default;
+$btn-tertiary-info-color: $dark-silver !default;
 $btn-tertiary-line-height: 2.5rem !default;
 $btn-tertiary-font-weight: 600 !default;
 

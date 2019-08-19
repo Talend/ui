@@ -33,11 +33,12 @@
 	}
 
 	&-primary,
-	&-tertiary,
 	&-success,
 	&-info,
 	&-warning,
-	&-danger {
+	&-danger,
+	&-tertiay-action,
+	&-tertiay-info {
 		border-color: transparent;
 	}
 
@@ -89,14 +90,12 @@
 		}
 	}
 
-	&-tertiary-primary {
-		@include btn-tertiary($btn-tertiary-primary-color);
-		@include btn-inverse-colors($btn-tertiary-primary-color);
+	&-tertiary-action {
+		@include btn-tertiary($btn-tertiary-action-color);
 	}
 
-	&-tertiary-secondary {
-		@include btn-tertiary($btn-tertiary-secondary-color);
-		@include btn-inverse-colors($btn-tertiary-secondary-color);
+	&-tertiary-info {
+		@include btn-tertiary($btn-tertiary-info-color);
 	}
 
 	&-icon-only {
