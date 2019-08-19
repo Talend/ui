@@ -11,8 +11,9 @@ import {
 	checkSupportedDateFormat,
 	extractParts,
 	extractPartsFromDateAndTime,
-	extractPartsFromTextInput,
 	getTimeFormat,
+	extractDateFromTextInput,
+	extractTimeFromTextInput,
 } from '../date-extraction';
 import {
 	HOUR_ERRORS,
@@ -105,9 +106,7 @@ class ContextualManager extends React.Component {
 		this.props.onChange(event, { errors, errorMessage, datetime, textInput, origin });
 	}
 
-	onInputChange(event, dateTextInput, timeTextInput) {
-		const nextState =
-			extractPartsFromTextInput(dateTextInput, timeTextInput, this.getDateOptions());
+	onInputChange(nextState) {
 		this.setState({ previousErrors: this.state.errors, ...nextState }, () => {
 			if (!this.props.formMode) {
 				this.onChange(event, 'INPUT');
@@ -117,14 +116,16 @@ class ContextualManager extends React.Component {
 
 	onDateInputChange(event) {
 		const dateTextInput = event.target.value;
-		const { timeTextInput } = this.state;
-		this.onInputChange(event, dateTextInput, timeTextInput);
+		const { time } = this.state;
+		const nextState = extractDateFromTextInput(dateTextInput, this.getDateOptions(), time);
+		this.onInputChange(nextState);
 	}
 
 	onTimeInputChange(event) {
 		const timeTextInput = event.target.value;
-		const { dateTextInput } = this.state;
-		this.onInputChange(event, dateTextInput, timeTextInput);
+		const { date } = this.state;
+		const nextState = extractTimeFromTextInput(timeTextInput, this.getDateOptions(), date);
+		this.onInputChange(nextState);
 	}
 
 	onPickerChange(event, { date, time, field }) {

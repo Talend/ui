@@ -10,7 +10,6 @@ export default function Picker(props) {
 			manageFocus
 			selection={{
 				date: datetime.date,
-				time: datetime.time,
 			}}
 			{...pickerManagement}
 			{...props}

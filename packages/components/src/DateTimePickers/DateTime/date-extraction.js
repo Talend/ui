@@ -541,6 +541,73 @@ function extractPartsFromTextInput(dateTextInput, timeTextInput, options) {
 }
 
 /**
+ * Extract date from textInput
+ * @param {string} textInput user input from date input field
+ * @param {object} options
+ * @param {object} time selected time or initial time
+ */
+function extractDateFromTextInput(textInput, options, time) {
+	if (textInput === '') {
+		return {
+			date: undefined,
+			datetime: undefined,
+			dateTextInput: textInput,
+			errors: [],
+		};
+	}
+	let timeToUse = time;
+	if (!time) {
+		timeToUse = initTime();
+	}
+	let date;
+	let errors = [];
+	try {
+		// parse date
+		try {
+			date = strToDate(textInput, options.dateFormat);
+		} catch (error) {
+			errors = errors.concat(error);
+		}
+	} catch (error) {
+		errors = [error];
+	}
+
+	const datetime = dateAndTimeToDateTime(date, timeToUse, options);
+	return {
+		date,
+		datetime,
+		dateTextInput: textInput,
+		errors,
+		errorMessage: errors[0] ? errors[0].message : null,
+	};
+}
+
+/**
+ * Extract time from text input
+ * @param {string} textInput user input for time input
+ * @param {object} options
+ * @param {Date} date date selected or today
+ */
+function extractTimeFromTextInput(textInput, options, date) {
+	let time;
+	let errors = [];
+	try {
+		time = strToTime(textInput, options.useSeconds);
+		checkTime(time);
+	} catch (error) {
+		errors = errors.concat(error);
+	}
+	const datetime = dateAndTimeToDateTime(date, time, options);
+	return {
+		time,
+		datetime,
+		timeTextInput: textInput,
+		errors,
+		errorMessage: errors[0] ? errors[0].message : null,
+	};
+}
+
+/**
  * Extract parts (date, time, date/time, textInput) from a value with
  * different possible types
  * @param value {string | Date | number}
@@ -583,7 +650,8 @@ export {
 	extractParts,
 	extractPartsFromDateTime,
 	extractPartsFromDateAndTime,
-	extractPartsFromTextInput,
+	extractDateFromTextInput,
+	extractTimeFromTextInput,
 	getFullDateFormat,
 	getTimeFormat,
 	strToTime,
