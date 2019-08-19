@@ -4,7 +4,7 @@ import { DateTimeContext } from '../Context';
 import TimePicker from '../../pickers/TimePicker';
 
 export default function Picker(props) {
-	const { datetime, pickerManagement } = useContext(DateTimeContext);
+	const { datetime, pickerManagement, timePickerManagement } = useContext(DateTimeContext);
 	return (
 		<TimePicker
 			manageFocus
@@ -13,6 +13,7 @@ export default function Picker(props) {
 			}}
 			textInput={datetime.timeTextInput}
 			{...pickerManagement}
+			{...timePickerManagement}
 			{...props}
 		/>
 	);

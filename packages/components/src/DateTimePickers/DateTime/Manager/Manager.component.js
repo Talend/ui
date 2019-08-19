@@ -76,6 +76,8 @@ class ContextualManager extends React.Component {
 		this.onDateInputChange = this.onDateInputChange.bind(this);
 		this.onTimeInputChange = this.onTimeInputChange.bind(this);
 		this.onPickerChange = this.onPickerChange.bind(this);
+		this.onDatePickerChange = this.onDatePickerChange.bind(this);
+		this.onTimePickerChange = this.onTimePickerChange.bind(this);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -128,9 +130,32 @@ class ContextualManager extends React.Component {
 		this.onInputChange(nextState);
 	}
 
-	onPickerChange(event, { date, time, field }) {
-		const isTimeUpdate = [FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS].includes(field);
-		const dateToUse = date || this.state.date;
+	onPickerChange(nextState, nextErrors) {
+		this.setState({ previousErrors: this.state.errors, ...nextState, errors: nextErrors }, () => {
+			if (!this.props.formMode) {
+				this.onChange(event, 'PICKER');
+			}
+		});
+	}
+
+	onDatePickerChange(event, { date }) {
+		const dateToUse = date;
+		const { time } = this.state;
+		const nextState = extractPartsFromDateAndTime(dateToUse, time, this.getDateOptions());
+
+		// we need to retrieve the input error from nextState to add them to the current one
+		// because, by changing the picker, we update the textInput so we need to update its errors
+		const nextErrors = this.state.errors
+			// remove old main input errors
+			.filter(error => !INPUT_ERRORS.includes(error.code))
+			// add new main input errors
+			.concat(nextState.errors.filter(error => INPUT_ERRORS.includes(error.code)));
+
+		this.onPickerChange(nextState, nextErrors);
+	}
+
+	onTimePickerChange(event, { time, field }) {
+		const dateToUse = this.state.date;
 		const nextState = extractPartsFromDateAndTime(dateToUse, time, this.getDateOptions());
 
 		// we need to retrieve the input error from nextState to add them to the current one
@@ -141,7 +166,7 @@ class ContextualManager extends React.Component {
 			// add new main input errors
 			.concat(nextState.errors.filter(error => INPUT_ERRORS.includes(error.code)));
 
-		if (isTimeUpdate) {
+		if (true) {
 			// to avoid having errors on untouched time elements, we check only the updated part
 			let newError;
 			switch (field) {
@@ -170,14 +195,8 @@ class ContextualManager extends React.Component {
 				nextErrors.push(newError);
 			}
 		}
-
-		this.setState({ previousErrors: this.state.errors, ...nextState, errors: nextErrors }, () => {
-			if (!this.props.formMode) {
-				this.onChange(event, 'PICKER');
-			}
-		});
+		this.onInputChange(nextState, nextErrors);
 	}
-
 	onSubmit(event, origin) {
 		event.preventDefault();
 
@@ -268,10 +287,17 @@ class ContextualManager extends React.Component {
 					},
 
 					pickerManagement: {
-						onSubmit: this.onPickerChange,
 						useTime: this.props.useTime,
 						useSeconds: this.props.useSeconds,
 						useUTC: this.props.useUTC,
+					},
+
+					datePickerManagement: {
+						onSubmit: this.onDatePickerChange,
+					},
+
+					timePickerManagement: {
+						onSubmit: this.onTimePickerChange,
 					},
 
 					formManagement: {

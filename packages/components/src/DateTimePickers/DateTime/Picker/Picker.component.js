@@ -4,7 +4,7 @@ import { DateTimeContext } from '../Context';
 import DateTimePicker from '../../pickers/DateTimePicker';
 
 export default function Picker(props) {
-	const { datetime, pickerManagement } = useContext(DateTimeContext);
+	const { datetime, pickerManagement, datePickerManagement } = useContext(DateTimeContext);
 	return (
 		<DateTimePicker
 			manageFocus
@@ -12,6 +12,7 @@ export default function Picker(props) {
 				date: datetime.date,
 			}}
 			{...pickerManagement}
+			{...datePickerManagement}
 			{...props}
 		/>
 	);
