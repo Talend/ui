@@ -272,6 +272,18 @@ function dateTimeToStr(date, time, options) {
 }
 
 /**
+ * Convert time object to string
+ * @param {object} time 
+ * @param {boolean} useSeconds 
+ */
+function timeToStr(time, useSeconds) {
+	const hours = pad(time.hours);
+	const minutes = pad(time.minutes);
+	const seconds = pad(time.seconds);
+	return `${hours}:${minutes}${useSeconds ? `:${seconds}` : ''}`;
+}
+
+/**
  * Set the time to the provided date
  * @param date {Date} Date in current TZ
  * @param time {{hours: string, minutes: string, seconds: string}} Time in current TZ
@@ -656,6 +668,6 @@ export {
 	extractTimeFromTextInput,
 	getFullDateFormat,
 	getTimeFormat,
-	pad,
 	strToTime,
+	timeToStr,
 };

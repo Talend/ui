@@ -1,24 +1,25 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { FIELD_HOURS } from '../../DateTime/constants';
-import { strToTime, pad } from '../../DateTime/date-extraction';
+import { strToTime, timeToStr } from '../../DateTime/date-extraction';
 
 import theme from './TimePicker.scss';
 
 function isBefore(a, b) {
-	if (Number(a.hours) > Number(b.hours)) {
+	if (a.hours > b.hours) {
 		return false;
-	} else if (Number(a.hours) === Number(b.hours) && Number(a.minutes) > Number(b.minutes)) {
+	} else if (a.hours === b.hours && a.minutes > b.minutes) {
 		return false;
-	} else if (Number(a.hours) === Number(b.hours) && Number(a.minutes) === Number(b.minutes) && Number(a.seconds) > Number(b.seconds)) {
+	} else if (a.hours === b.hours && a.minutes === b.minutes && a.seconds >= b.seconds) {
 		return false;
 	}
 	return true;
 }
 
 function addInterval({ hours, minutes, seconds }, interval) {
-	let newMinutes = Number(minutes) + interval;
-	let newHours = Number(hours);
+	let newMinutes = minutes + interval;
+	let newHours = hours;
 	if (Math.floor(newMinutes / 60) > 0) {
 		newHours += Math.floor(newMinutes / 60);
 		newMinutes %= 60;
@@ -30,12 +31,7 @@ function addInterval({ hours, minutes, seconds }, interval) {
 	};
 }
 
-function timeToStr(time, useSeconds) {
-	const hours = pad(time.hours);
-	const minutes = pad(time.minutes);
-	const seconds = pad(time.seconds);
-	return `${hours}:${minutes}${useSeconds ? `:${seconds}` : ''}`;
-}
+
 function getOptions(interval = 60) {
 	const options = [];
 	const start = { hours: 0, minutes: 0, seconds: 0 };
@@ -51,6 +47,14 @@ function getOptions(interval = 60) {
 
 
 class TimePicker extends React.Component {
+	static propTypes = {
+		selection: PropTypes.shape({
+			time: PropTypes.string,
+		}),
+		interval: PropTypes.number,
+		textInput: PropTypes.string,
+		onSubmit: PropTypes.func.isRequired,
+	};
 	constructor(props) {
 		super(props);
 		this.onMouseOver = this.onMouseOver.bind(this);
@@ -59,7 +63,7 @@ class TimePicker extends React.Component {
 		this.state = {
 			selectdTime: props.selection.time,
 		};
-		this.options = getOptions(props.interval)
+		this.options = getOptions(props.interval);
 	}
 	componentDidUpdate(prevProps) {
 		if (prevProps.textInput !== this.props.textInput) {
