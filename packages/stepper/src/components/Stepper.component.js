@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next';
 import { Icon, CircularProgress } from '@talend/react-components';
+import { withTranslation } from 'react-i18next';
 import { getTheme } from '@talend/react-components/lib/theme';
 
 import I18N_DOMAIN_STEPPER from './constant';
@@ -9,6 +9,7 @@ import theme from './Stepper.scss';
 import { LOADING_STEP_STATUSES } from '../Stepper.constants';
 import { DEFAULT_TRANSITION_DURATION, StepperTransition } from './StepperTransition.component';
 import { isErrorInSteps, isStepsLoading, isAllSuccessful } from '../service/Stepper.utils';
+import getDefaultT from '../translate';
 
 const getClass = getTheme(theme);
 
@@ -23,8 +24,7 @@ export const TRANSITION_STATE = {
  * This function return a label for some status
  * @param {string} status the current step status
  */
-function getStatusText(status) {
-	const { t } = useTranslation(I18N_DOMAIN_STEPPER);
+function getStatusText(t, status) {
 	switch (status) {
 		case LOADING_STEP_STATUSES.ABORTED:
 			return t('ABORTED', { defaultValue: ' (Aborted)' });
@@ -72,7 +72,7 @@ function changeTransitionState(newTransitionState, setTransitionState, timer = 0
  * @param {object} step the current loading step
  * @param {number} index the index for the key
  */
-function showStep(step, index) {
+function showStep(t, step, index) {
 	const cssStep = getClass('stepper-step', `stepper-step-${step.status}`);
 
 	return (
@@ -80,7 +80,7 @@ function showStep(step, index) {
 			<div className={getClass('stepper-step-infos')}>
 				{getIconByStatus(step.status)}
 				{step.label}
-				{getStatusText(step.status)}
+				{getStatusText(t, step.status)}
 			</div>
 
 			{step.message && (
@@ -113,7 +113,7 @@ const transitionEmptyToChildren = transition(
 const transitionChildrenToEmpty = transition(TRANSITION_STATE.TRANSITION);
 const transitionEmptyToLoading = transition(TRANSITION_STATE.STEPS, DEFAULT_TRANSITION_DURATION);
 
-export default function Stepper({ steps, title, renderActions, children }) {
+export function Stepper({ steps, title, renderActions, children, t }) {
 	const isInError = isErrorInSteps(steps);
 	const [transitionState, setTransitionState] = useState(
 		isStepsLoading(steps) ? TRANSITION_STATE.STEPS : TRANSITION_STATE.CHILD,
@@ -147,7 +147,7 @@ export default function Stepper({ steps, title, renderActions, children }) {
 						})}
 					>
 						{title && <h2>{title}</h2>}
-						{steps.map(showStep)}
+						{steps.map(step => showStep(t, step))}
 						<div>{renderActions && renderActions(isInError)}</div>
 					</div>
 				</div>
@@ -157,10 +157,14 @@ export default function Stepper({ steps, title, renderActions, children }) {
 }
 
 Stepper.displayName = 'Stepper';
+
 Stepper.defaultProps = {
 	steps: [],
+	t: getDefaultT(),
 };
+
 Stepper.propTypes = {
+	t: PropTypes.func,
 	title: PropTypes.string,
 	renderActions: PropTypes.func,
 	children: PropTypes.element.isRequired,
@@ -175,3 +179,5 @@ Stepper.propTypes = {
 		}),
 	),
 };
+
+export default withTranslation(I18N_DOMAIN_STEPPER)(Stepper);
