@@ -259,7 +259,7 @@ function dateTimeToStr(date, time, options) {
 	}
 
 	const { dateFormat, useTime, useSeconds } = options;
-	if (time === undefined || useTime === false) {
+	if (time === undefined || !useTime) {
 		return [format(date, dateFormat)];
 	}
 
@@ -383,12 +383,12 @@ function strToTime(strToParse, useSeconds) {
  * If a part is not used, it is init to 00, otherwise it's empty, so user have to enter it.
  */
 function initTime({ useTime, useSeconds }) {
-	// if (!useTime) {
-	// 	return { hours: '00', minutes: '00', seconds: '00' };
-	// } else if (!useSeconds) {
-	// 	return { hours: '', minutes: '', seconds: '00' };
-	// }
-	return { hours: '00', minutes: '00', seconds: '00' };
+	if (!useTime) {
+		return { hours: '00', minutes: '00', seconds: '00' };
+	} else if (!useSeconds) {
+		return { hours: '', minutes: '', seconds: '00' };
+	}
+	return { hours: '', minutes: '', seconds: '' };
 }
 
 /**
@@ -429,7 +429,8 @@ function extractPartsFromDateTime(datetime, options) {
 			date: undefined,
 			time,
 			datetime,
-			textInput: '',
+			dateTextInput: '',
+			timeTextInput: '',
 			errors: [],
 		};
 	}
@@ -468,7 +469,7 @@ function extractPartsFromDateAndTime(date, time, options) {
 	let errors = [];
 	let timeToUse = time;
 
-	if (options.useTime && time) {
+	if (options.useTime) {
 		try {
 			checkTime(time);
 		} catch (error) {
@@ -484,7 +485,7 @@ function extractPartsFromDateAndTime(date, time, options) {
 		time: timeToUse,
 		datetime,
 		dateTextInput,
-		timeTextInput,
+		timeTextInput: options.useTime ? timeTextInput : '',
 		errorMessage: errors[0] ? errors[0].message : null,
 		errors,
 	};
@@ -509,7 +510,8 @@ function extractPartsFromTextInput(textInput, options) {
 			date: undefined,
 			time,
 			datetime: undefined,
-			textInput,
+			dateTextInput: '',
+			timeTextInput: '',
 			errors: [],
 		};
 	}
@@ -655,7 +657,6 @@ function extractParts(value, options) {
 		date: undefined,
 		time: initTime(options),
 		datetime: undefined,
-		textInput: '',
 		dateTextInput: '',
 		timeTextInput: '',
 		errors: [],

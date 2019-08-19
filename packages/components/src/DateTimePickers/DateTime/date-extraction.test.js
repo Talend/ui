@@ -83,7 +83,6 @@ describe('Date extraction', () => {
 				date: new Date(2015, 8, 15),
 				datetime: date,
 				dateTextInput: '2015-09-15',
-				timeTextInput: '',
 				errors: [],
 				time: { hours: '00', minutes: '00', seconds: '00' },
 			});
@@ -92,7 +91,7 @@ describe('Date extraction', () => {
 		it('should return parts from Date', () => {
 			// given
 			const validDate = new Date(2015, 8, 15, 12, 58, 22);
-			const options = { dateFormat: 'YYYY-MM-DD' };
+			const options = { dateFormat: 'YYYY-MM-DD', useTime: false };
 
 			// when
 			const parts = extractParts(validDate, options);
@@ -102,7 +101,6 @@ describe('Date extraction', () => {
 				date: new Date(2015, 8, 15),
 				datetime: validDate,
 				dateTextInput: '2015-09-15',
-				timeTextInput: '',
 				errors: [],
 				time: { hours: '00', minutes: '00', seconds: '00' },
 			});
@@ -147,7 +145,8 @@ describe('Date extraction', () => {
 				date: undefined,
 				time: { hours: '', minutes: '', seconds: '' },
 				datetime: 'lol',
-				textInput: '',
+				dateTextInput: '',
+				timeTextInput: '',
 				errors: [],
 			});
 		});
@@ -155,7 +154,7 @@ describe('Date extraction', () => {
 		it('should return valid date parts', () => {
 			// given
 			const validDate = new Date(2015, 8, 15, 12, 58, 22);
-			const options = { dateFormat: 'YYYY-MM-DD' };
+			const options = { dateFormat: 'YYYY-MM-DD', useTime: false };
 
 			// when
 			const parts = extractPartsFromDateTime(validDate, options);
@@ -165,7 +164,6 @@ describe('Date extraction', () => {
 				date: new Date(2015, 8, 15),
 				datetime: validDate,
 				dateTextInput: '2015-09-15',
-				timeTextInput: '',
 				time: { hours: '00', minutes: '00', seconds: '00' },
 				errors: [],
 			});
