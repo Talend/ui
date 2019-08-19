@@ -121,6 +121,7 @@ export function ActionButton(props) {
 		overlayPlacement,
 		overlayRef,
 		tooltipPlacement,
+		tooltipClassName,
 		tooltip,
 		tooltipLabel,
 		available,
@@ -202,9 +203,14 @@ export function ActionButton(props) {
 			</OverlayTrigger>
 		);
 	}
+
 	if (hideLabel || tooltip || tooltipLabel) {
 		btn = (
-			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
+			<TooltipTrigger
+				label={tooltipLabel || label}
+				tooltipPlacement={tooltipPlacement}
+				className={tooltipClassName}
+			>
 				{btnIsDisabled ? (
 					<span
 						className={classNames(
@@ -241,6 +247,7 @@ ActionButton.propTypes = {
 	t: PropTypes.func,
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,
+	tooltipClassName: PropTypes.string,
 	...overlayPropTypes,
 };
 
