@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import flow from 'lodash/flow';
-import clone from 'lodash/clone';
+import cloneDeep from 'lodash/cloneDeep';
 import { compareOrder } from '../service';
 
 const isItemVisible = item => item.visible;
@@ -114,7 +114,7 @@ export const useColumnChooserManager = (initialColumns = [], nbLockedLeftItems =
 	return {
 		onChangeVisibility,
 		onSelectAll,
-		columns: clone(state.columns),
+		columns: cloneDeep(state.columns),
 		selectAll: state.selectAll,
 	};
 };
