@@ -63,7 +63,8 @@ describe('Date extraction', () => {
 				date: undefined,
 				time: { hours: '', minutes: '', seconds: '' },
 				datetime: undefined,
-				textInput: '',
+				dateTextInput: '',
+				timeTextInput: '',
 				errors: [],
 			});
 		});
@@ -81,7 +82,8 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
 				datetime: date,
-				textInput: '2015-09-15',
+				dateTextInput: '2015-09-15',
+				timeTextInput: '',
 				errors: [],
 				time: { hours: '00', minutes: '00', seconds: '00' },
 			});
@@ -99,7 +101,8 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
 				datetime: validDate,
-				textInput: '2015-09-15',
+				dateTextInput: '2015-09-15',
+				timeTextInput: '',
 				errors: [],
 				time: { hours: '00', minutes: '00', seconds: '00' },
 			});
@@ -117,7 +120,8 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
 				datetime: new Date(2015, 8, 15),
-				textInput: value,
+				dateTextInput: value,
+				timeTextInput: '',
 				errors: [],
 				errorMessage: null,
 				time: { hours: '00', minutes: '00', seconds: '00' },
@@ -160,7 +164,8 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
 				datetime: validDate,
-				textInput: '2015-09-15',
+				dateTextInput: '2015-09-15',
+				timeTextInput: '',
 				time: { hours: '00', minutes: '00', seconds: '00' },
 				errors: [],
 			});
@@ -181,7 +186,8 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
 				datetime: validDate,
-				textInput: '2015-09-15 12:58',
+				dateTextInput: '2015-09-15',
+				timeTextInput: '12:58',
 				time: { hours: '12', minutes: '58', seconds: '00' },
 				errors: [],
 			});
@@ -203,7 +209,8 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
 				datetime: validDate,
-				textInput: '2015-09-15 12:58:22',
+				dateTextInput: '2015-09-15',
+				timeTextInput: '12:58:22',
 				errors: [],
 				time: { hours: '12', minutes: '58', seconds: '22' },
 			});
@@ -227,7 +234,8 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
 				datetime: validDate,
-				textInput: '2015-09-15 10:58:22',
+				dateTextInput: '2015-09-15',
+				timeTextInput: '10:58:22',
 				errors: [],
 				time: { hours: '10', minutes: '58', seconds: '22' },
 			});
@@ -251,7 +259,8 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 14),
 				datetime: validDate,
-				textInput: '2015-09-14 23:00:22',
+				dateTextInput: '2015-09-14',
+				timeTextInput: '23:00:22',
 				errors: [],
 				time: { hours: '23', minutes: '00', seconds: '22' },
 			});
@@ -272,7 +281,8 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date,
 				datetime: date,
-				textInput: '2015-09-15',
+				dateTextInput: '2015-09-15',
+				timeTextInput: '',
 				errors: [],
 				errorMessage: null,
 				time: { hours: '00', minutes: '00', seconds: '00' },
@@ -295,7 +305,8 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date,
 				datetime: new Date(2015, 8, 15, 12, 58),
-				textInput: '2015-09-15 12:58',
+				dateTextInput: '2015-09-15',
+				timeTextInput: '12:58',
 				errors: [],
 				errorMessage: null,
 				time: { hours: '12', minutes: '58', seconds: '00' },
@@ -319,7 +330,8 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date,
 				datetime: new Date(2015, 8, 15, 12, 58, 22),
-				textInput: '2015-09-15 12:58:22',
+				dateTextInput: '2015-09-15',
+				timeTextInput: '12:58:22',
 				time,
 				errors: [],
 				errorMessage: null,
@@ -342,7 +354,8 @@ describe('Date extraction', () => {
 			// then
 			expect(parts.date).toBe(date);
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
-			expect(parts.textInput).toBe('2015-09-15 66:58:12');
+			expect(parts.dateTextInput).toBe('2015-09-15');
+			expect(parts.timeTextInput).toBe('66:58:12');
 			expect(parts.time).toBe(time);
 			expect(parts.errors).toEqual([
 				{ code: 'INVALID_HOUR', message: 'Hour must be between 00 and 23' },
@@ -366,7 +379,8 @@ describe('Date extraction', () => {
 			// then
 			expect(parts.date).toBe(date);
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
-			expect(parts.textInput).toBe('2015-09-15 12:66:12');
+			expect(parts.dateTextInput).toBe('2015-09-15');
+			expect(parts.timeTextInput).toBe('12:66:12');
 			expect(parts.time).toBe(time);
 			expect(parts.errors).toEqual([
 				{ code: 'INVALID_MINUTES', message: 'Minutes value must be between 00 and 59' },
@@ -390,7 +404,8 @@ describe('Date extraction', () => {
 			// then
 			expect(parts.date).toBe(date);
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
-			expect(parts.textInput).toBe('2015-09-15 12:90:66');
+			expect(parts.dateTextInput).toBe('2015-09-15');
+			expect(parts.timeTextInput).toBe('12:90:66');
 			expect(parts.time).toBe(time);
 			expect(parts.errors).toEqual([
 				{ code: 'INVALID_MINUTES', message: 'Minutes value must be between 00 and 59' },
@@ -415,7 +430,7 @@ describe('Date extraction', () => {
 			// then
 			expect(parts.date).toBe(date);
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
-			expect(parts.textInput).toBe('Invalid Date');
+			expect(parts.dateTextInput).toBe('Invalid Date');
 			expect(parts.time).toBe(time);
 		});
 
@@ -437,7 +452,8 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date,
 				datetime: new Date(2015, 8, 15, 14, 58, 22),
-				textInput: '2015-09-15 12:58:22',
+				dateTextInput: '2015-09-15',
+				timeTextInput: '12:58:22',
 				time,
 				errorMessage: null,
 				errors: [],
@@ -462,7 +478,8 @@ describe('Date extraction', () => {
 				date: undefined,
 				time: { hours: '', minutes: '', seconds: '00' },
 				datetime: undefined,
-				textInput: '',
+				dateTextInput: '',
+				timeTextInput: '',
 				errors: [],
 			});
 		});
@@ -480,7 +497,8 @@ describe('Date extraction', () => {
 				date: new Date(2018, 11, 25),
 				time: { hours: '00', minutes: '00', seconds: '00' },
 				datetime: new Date(2018, 11, 25),
-				textInput,
+				dateTextInput: '2018-12-25',
+				timeTextInput: '',
 				errorMessage: null,
 				errors: [],
 			});
@@ -502,7 +520,8 @@ describe('Date extraction', () => {
 				date: new Date(2018, 11, 25),
 				time: { hours: '22', minutes: '58', seconds: '00' },
 				datetime: new Date(2018, 11, 25, 22, 58),
-				textInput,
+				dateTextInput: '2018-12-25',
+				timeTextInput: '22:58',
 				errorMessage: null,
 				errors: [],
 			});
@@ -525,7 +544,8 @@ describe('Date extraction', () => {
 				date: new Date(2018, 11, 25),
 				time: { hours: '22', minutes: '58', seconds: '12' },
 				datetime: new Date(2018, 11, 25, 22, 58, 12),
-				textInput,
+				dateTextInput: '2018-12-25',
+				timeTextInput: '22:58:12',
 				errorMessage: null,
 				errors: [],
 			});
@@ -546,7 +566,8 @@ describe('Date extraction', () => {
 			// then
 			expect(parts.date).toBe(undefined);
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
-			expect(parts.textInput).toBe(textInput);
+			expect(parts.dateTextInput).toBe('2018-12-36');
+			expect(parts.timeTextInput).toBe('22:58:12');
 			expect(parts.time).toEqual({ hours: '22', minutes: '58', seconds: '12' });
 			expect(parts.errorMessage).toBe("Day value doesn't match an existing day in the month");
 			expect(parts.errors).toEqual([
@@ -572,7 +593,8 @@ describe('Date extraction', () => {
 			// then
 			expect(parts.date).toBe(undefined);
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
-			expect(parts.textInput).toBe(textInput);
+			expect(parts.dateTextInput).toBe('2018-13-25');
+			expect(parts.timeTextInput).toBe('22:58:12');
 			expect(parts.time).toEqual({ hours: '22', minutes: '58', seconds: '12' });
 			expect(parts.errorMessage).toBe('Month must be between 01 and 12');
 			expect(parts.errors).toEqual([
@@ -595,7 +617,8 @@ describe('Date extraction', () => {
 			// then
 			expect(parts.date).toEqual(new Date(2018, 11, 25));
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
-			expect(parts.textInput).toBe(textInput);
+			expect(parts.dateTextInput).toBe('2018-12-25');
+			expect(parts.timeTextInput).toBe('66:58:12');
 			expect(parts.time).toEqual({ hours: '66', minutes: '58', seconds: '12' });
 			expect(parts.errorMessage).toBe('Hour must be between 00 and 23');
 			expect(parts.errors).toEqual([
@@ -618,7 +641,8 @@ describe('Date extraction', () => {
 			// then
 			expect(parts.date).toEqual(new Date(2018, 11, 25));
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
-			expect(parts.textInput).toBe(textInput);
+			expect(parts.dateTextInput).toBe('2018-12-25');
+			expect(parts.timeTextInput).toBe('55:66:12');
 			expect(parts.time).toEqual({ hours: '55', minutes: '66', seconds: '12' });
 			expect(parts.errorMessage).toBe('Hour must be between 00 and 23');
 			expect(parts.errors).toEqual([
@@ -642,7 +666,8 @@ describe('Date extraction', () => {
 			// then
 			expect(parts.date).toEqual(new Date(2018, 11, 25));
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
-			expect(parts.textInput).toBe(textInput);
+			expect(parts.dateTextInput).toBe('2018-12-25');
+			expect(parts.timeTextInput).toBe('44:90:66');
 			expect(parts.time).toEqual({ hours: '44', minutes: '90', seconds: '66' });
 			expect(parts.errorMessage).toBe('Hour must be between 00 and 23');
 			expect(parts.errors).toEqual([
@@ -668,9 +693,10 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date: new Date(2018, 11, 25),
+				dateTextInput: '2018-12-25',
+				timeTextInput: '22:58:12',
 				time: { hours: '22', minutes: '58', seconds: '12' },
 				datetime: new Date(2018, 11, 25, 23, 58, 12),
-				textInput,
 				errorMessage: null,
 				errors: [],
 			});

@@ -247,6 +247,7 @@ function getTimeFormat(useSeconds) {
 
 /**
  * Convert date and time to string with 'YYYY-MM-DD HH:mm' format
+ * return value is an array of [dateStr, timeStr]
  * @param date {Date}
  * @param time {{hours: string, minutes: string, seconds: string}}
  * @param options {Object}
@@ -284,7 +285,7 @@ function dateTimeToStr(date, time, options) {
 
 /**
  * Convert time object to string
- * @param {object} time
+ * @param {object} time {{hours: string, minutes: string, seconds: string}}
  * @param {boolean} useSeconds
  */
 function timeToStr(time, useSeconds) {
@@ -442,7 +443,6 @@ function extractPartsFromDateTime(datetime, options) {
 		date,
 		time,
 		datetime: startOfSecond(datetime),
-		textInput: dateTimeToStr(date, time, options),
 		dateTextInput,
 		timeTextInput,
 		errors: [],
@@ -450,7 +450,8 @@ function extractPartsFromDateTime(datetime, options) {
 }
 
 /**
- * Extract parts (date, time, date/time, dateTextInput, timeTextInput) from a Date and time definition
+ * Extract parts (date, time, date/time, dateTextInput, timeTextInput)
+ * from a Date and time definition
  * @param date {Date}
  * @param time {Object}
  * @param options {Object}
@@ -516,6 +517,7 @@ function extractPartsFromTextInput(textInput, options) {
 	let date;
 	let errors = [];
 	let dateTextToParse = textInput;
+	let timeTextToParse = '';
 
 	try {
 		if (options.useTime) {
@@ -528,7 +530,7 @@ function extractPartsFromTextInput(textInput, options) {
 
 				// extract time part and parse it
 				try {
-					const timeTextToParse = splitMatches[2];
+					timeTextToParse = splitMatches[2];
 					time = strToTime(timeTextToParse, options.useSeconds);
 					checkTime(time);
 				} catch (error) {
@@ -552,8 +554,8 @@ function extractPartsFromTextInput(textInput, options) {
 		date,
 		time,
 		datetime,
-		dateTextInput: format(datetime, options.dateFormat),
-		timeTextInput: format(datetime, getTimeFormat(options.useSeconds)),
+		dateTextInput: dateTextToParse,
+		timeTextInput: timeTextToParse,
 		errors,
 		errorMessage: errors[0] ? errors[0].message : null,
 	};
@@ -670,6 +672,7 @@ export {
 	extractParts,
 	extractPartsFromDateTime,
 	extractPartsFromDateAndTime,
+	extractPartsFromTextInput,
 	extractDateFromTextInput,
 	extractTimeFromTextInput,
 	getFullDateFormat,
