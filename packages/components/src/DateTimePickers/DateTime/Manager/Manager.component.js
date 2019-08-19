@@ -170,6 +170,7 @@ class ContextualManager extends React.Component {
 		}
 		this.onPickerChange(nextState, nextErrors);
 	}
+
 	onSubmit(event, origin) {
 		event.preventDefault();
 

@@ -55,6 +55,11 @@ class TimePicker extends React.Component {
 		textInput: PropTypes.string,
 		onSubmit: PropTypes.func.isRequired,
 	};
+
+	static defaultProps = {
+		interval: 60,
+	};
+
 	constructor(props) {
 		super(props);
 		this.onMouseOver = this.onMouseOver.bind(this);
@@ -95,7 +100,6 @@ class TimePicker extends React.Component {
 	submit(time) {
 		this.props.onSubmit(event, {
 			time: strToTime(time),
-			field: FIELD_HOURS,
 		});
 	}
 	updateHighlightIndex(index) {

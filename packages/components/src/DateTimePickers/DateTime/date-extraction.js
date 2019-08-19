@@ -238,43 +238,54 @@ function timeToSeconds(hours, minutes, seconds) {
 }
 
 /**
+ * get time format base on useSeconds
+ * @param {string} useSeconds
+ */
+function getTimeFormat(useSeconds) {
+	return useSeconds ? 'HH:mm:ss' : 'HH:mm';
+}
+
+/**
  * Convert date and time to string with 'YYYY-MM-DD HH:mm' format
  * @param date {Date}
  * @param time {{hours: string, minutes: string, seconds: string}}
  * @param options {Object}
- * @returns {string}
+ * @returns {array} [dateStr, timeStr]
  */
 function dateTimeToStr(date, time, options) {
 	if (date === undefined) {
-		return '';
+		return [];
 	}
 
-	const { dateFormat, useTime } = options;
+	const { dateFormat, useTime, useSeconds } = options;
 	if (time === undefined || useTime === false) {
-		return format(date, dateFormat);
+		return [format(date, dateFormat)];
 	}
 
 	const { hours, minutes, seconds } = time;
 	try {
 		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
 		const fullDate = setSeconds(date, timeInSeconds);
-		return format(fullDate, getFullDateFormat(options));
+		return [
+			format(fullDate, dateFormat),
+			format(fullDate, getTimeFormat(useSeconds)),
+		];
 	} catch (e) {
 		const dateStr = format(date, dateFormat);
 		if (hours !== '' && minutes !== '') {
 			if (options.useSeconds && seconds !== '') {
-				return `${dateStr} ${hours}:${minutes}:${seconds}`;
+				return [dateStr, `${hours}:${minutes}:${seconds}`];
 			}
-			return `${dateStr} ${hours}:${minutes}`;
+			return [dateStr, `${hours}:${minutes}`];
 		}
-		return dateStr;
+		return [dateStr];
 	}
 }
 
 /**
  * Convert time object to string
- * @param {object} time 
- * @param {boolean} useSeconds 
+ * @param {object} time
+ * @param {boolean} useSeconds
  */
 function timeToStr(time, useSeconds) {
 	const hours = pad(time.hours);
@@ -397,13 +408,6 @@ function checkSupportedDateFormat(dateFormat) {
 	}
 }
 
-/**
- * get time format base on useSeconds
- * @param {string} useSeconds
- */
-function getTimeFormat(useSeconds) {
-	return useSeconds ? 'HH:mm:ss' : 'HH:mm';
-}
 
 /**
  * Extract parts (date, time, date/time, textInput) from a Date
@@ -433,20 +437,20 @@ function extractPartsFromDateTime(datetime, options) {
 	if (options.useTime) {
 		time = extractTimeOnly(datetime, options);
 	}
-
+	const [dateTextInput, timeTextInput] = dateTimeToStr(date, time, options);
 	return {
 		date,
 		time,
 		datetime: startOfSecond(datetime),
 		textInput: dateTimeToStr(date, time, options),
-		dateTextInput: format(datetime, options.dateFormat),
-		timeTextInput: format(datetime, getTimeFormat(options.useSeconds)),
+		dateTextInput,
+		timeTextInput,
 		errors: [],
 	};
 }
 
 /**
- * Extract parts (date, time, date/time, textInput) from a Date and time definition
+ * Extract parts (date, time, date/time, dateTextInput, timeTextInput) from a Date and time definition
  * @param date {Date}
  * @param time {Object}
  * @param options {Object}
@@ -455,7 +459,8 @@ function extractPartsFromDateTime(datetime, options) {
  *		date: Date,
  *		time: { hours: string, minutes: string, seconds: string },
  *		datetime: Date,
- *		textInput: string
+ *		dateTextInput: string,
+ *		timeTextInput: string,
  * 	}}
  */
 function extractPartsFromDateAndTime(date, time, options) {
@@ -472,12 +477,13 @@ function extractPartsFromDateAndTime(date, time, options) {
 		timeToUse = initTime(options);
 	}
 	const datetime = dateAndTimeToDateTime(date, timeToUse, options);
+	const [dateTextInput, timeTextInput] = dateTimeToStr(date, timeToUse, options);
 	return {
 		date,
 		time: timeToUse,
 		datetime,
-		dateTextInput: format(datetime, options.dateFormat),
-		timeTextInput: format(datetime, getTimeFormat(options.useSeconds)),
+		dateTextInput,
+		timeTextInput,
 		errorMessage: errors[0] ? errors[0].message : null,
 		errors,
 	};
