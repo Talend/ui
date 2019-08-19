@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ActionButton from '../../../../../Actions/ActionButton';
-import SelectAllColumnsCheckbox from '../SelectAllColumnsCheckbox';
 import { useColumnChooserContext } from '../columnChooser.context';
 import RichLayout from '../../../../../RichTooltip/RichLayout';
 import cssModule from '../ColumnChooser.scss';
