@@ -13,33 +13,39 @@ import LineChart, {
 describe('linechart', () => {
 	describe('line chart configuration', () => {
 		it('should return lines with the right configuration', () => {
-			const data = [{
-				'name': 'H2 2015',
-				'Unassigned': 5,
-				'Coco  Bongo': 1,
-				'User 2 malade': 7,
-				'Owner 2 Cocorico': 0,
-			}, {
-				'name': 'H2 2016',
-				'Unassigned': 2,
-				'Coco  Bongo': 0,
-				'User 2 malade': 0,
-				'Owner 2 Cocorico': 18,
-			}];
+			const data = [
+				{
+					name: 'H2 2015',
+					Unassigned: 5,
+					'Coco  Bongo': 1,
+					'User 2 malade': 7,
+					'Owner 2 Cocorico': 0,
+				},
+				{
+					name: 'H2 2016',
+					Unassigned: 2,
+					'Coco  Bongo': 0,
+					'User 2 malade': 0,
+					'Owner 2 Cocorico': 18,
+				},
+			];
 			// selected/higlight
-			const wrapper = shallow(
-				<div>
-					{ renderLine(data, 'name', 'Coco  Bongo', [], []) }
-				</div>);
+			const wrapper = shallow(<div>{renderLine(data, 'name', 'Coco  Bongo', [], [])}</div>);
 			expect(wrapper.find(Line).length).toBe(4);
 			// not selected/higlight
-			const notSelectedLineProps = wrapper.find(Line).at(0).getElement().props;
+			const notSelectedLineProps = wrapper
+				.find(Line)
+				.at(0)
+				.getElement().props;
 			expect(notSelectedLineProps.strokeWidth).toBe(1.5);
 			expect(notSelectedLineProps.strokeOpacity).toBe(0.25);
 			expect(notSelectedLineProps.activeDot.r).toBe(0);
 			expect(notSelectedLineProps.dot.r).toBe(0);
 			// not selected/higlight
-			const selectedLine = wrapper.find(Line).at(1).getElement().props;
+			const selectedLine = wrapper
+				.find(Line)
+				.at(1)
+				.getElement().props;
 			expect(selectedLine.strokeWidth).toBe(2);
 			expect(selectedLine.strokeOpacity).toBe(1);
 			expect(selectedLine.activeDot.r).toBe(5);
@@ -47,19 +53,22 @@ describe('linechart', () => {
 		});
 		it('should return legends configuration', () => {
 			const data = {
-				payload: [{
-					inactive: false,
-					dataKey: 'Coco  Bongo',
-					type: 'circle',
-					color: '#0565A7',
-					value: 'Coco  Bongo',
-				}, {
-					inactive: false,
-					dataKey: 'Jane Doe',
-					type: 'circle',
-					color: '#70A338',
-					value: 'Jane Doe',
-				}],
+				payload: [
+					{
+						inactive: false,
+						dataKey: 'Coco  Bongo',
+						type: 'circle',
+						color: '#0565A7',
+						value: 'Coco  Bongo',
+					},
+					{
+						inactive: false,
+						dataKey: 'Jane Doe',
+						type: 'circle',
+						color: '#70A338',
+						value: 'Jane Doe',
+					},
+				],
 			};
 			const mouseDownFn = jest.fn();
 			const mouseEnterFn = jest.fn();
@@ -67,15 +76,20 @@ describe('linechart', () => {
 
 			// selected/higlight
 			const wrapper = shallow(
-				<div>
-					{ renderLegend('Jane Doe', [], mouseDownFn, mouseEnterFn, mouseLeaveFn)(data) }
-				</div>);
+				<div>{renderLegend('Jane Doe', [], mouseDownFn, mouseEnterFn, mouseLeaveFn)(data)}</div>,
+			);
 			expect(wrapper.find('.recharts-legend-item').length).toBe(2);
 			// not selected/higlight
-			const firstLegend = wrapper.find('.recharts-legend-item').at(0).getElement().props;
+			const firstLegend = wrapper
+				.find('.recharts-legend-item')
+				.at(0)
+				.getElement().props;
 			expect(firstLegend.className.indexOf('legend-selected') > -1).toBeFalsy();
 			// higlighted
-			const secondLegend = wrapper.find('.recharts-legend-item').at(1).getElement().props;
+			const secondLegend = wrapper
+				.find('.recharts-legend-item')
+				.at(1)
+				.getElement().props;
 			expect(secondLegend.className.indexOf('legend-selected') > -1).toBeTruthy();
 		});
 		it('should legend mouseLeave event', () => {

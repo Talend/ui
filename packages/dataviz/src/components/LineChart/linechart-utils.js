@@ -7,8 +7,11 @@ export function union(setA, setB) {
 }
 
 export function isSelectedOrHighlight(dataKey, highlightLegendKey, selectedLegends) {
-	if ((!highlightLegendKey && (!selectedLegends || selectedLegends.length === 0)) ||
-		highlightLegendKey === dataKey || selectedLegends.find(legend => legend === dataKey)) {
+	if (
+		(!highlightLegendKey && (!selectedLegends || selectedLegends.length === 0)) ||
+		highlightLegendKey === dataKey ||
+		selectedLegends.find(legend => legend === dataKey)
+	) {
 		return true;
 	}
 	return false;

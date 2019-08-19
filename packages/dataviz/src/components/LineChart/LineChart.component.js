@@ -24,7 +24,7 @@ import './LineChart.scss';
 
 export function renderLine(data, key, highlightLegendKey, selectedLegends, colors) {
 	let dataKeys = new Set();
-	data.forEach((dots) => {
+	data.forEach(dots => {
 		dataKeys = union(dataKeys, new Set(Object.keys(dots)));
 	});
 	dataKeys.delete(key);
@@ -40,52 +40,69 @@ export function renderLine(data, key, highlightLegendKey, selectedLegends, color
 				connectNulls
 				strokeOpacity={getStrokeOpacity(dataKey, highlightLegendKey, selectedLegends)}
 				dot={{ r: getDotR(dataKey, highlightLegendKey, selectedLegends), fill: color }}
-				activeDot={{ r: getActiveDotR(dataKey, highlightLegendKey, selectedLegends), fill: 'white', stroke: color }}
+				activeDot={{
+					r: getActiveDotR(dataKey, highlightLegendKey, selectedLegends),
+					fill: 'white',
+					stroke: color,
+				}}
 			/>
 		);
 	});
 }
 
-export const renderLegend = (highlightLegendKey, selectedLegends, handleMouseDown, handleMouseEnter, handleMouseLeave) => (props) => {
+export const renderLegend = (
+	highlightLegendKey,
+	selectedLegends,
+	handleMouseDown,
+	handleMouseEnter,
+	handleMouseLeave,
+) => props => {
 	const { payload } = props;
 	return (
 		<ul>
-			{
-				payload.map((entry, index) => {
-					const isSelected = isSelectedOrHighlight(entry.dataKey, highlightLegendKey, selectedLegends);
-					const legendClass = classNames({
-						'recharts-legend-item': true,
-						'legend-selected': isSelected,
-					});
-					return (
-						<li className={legendClass}
-						    key={`item-${index}`}
-						    onMouseEnter={() => { handleMouseEnter(entry); }}
-						    onMouseLeave={handleMouseLeave}
-						    onClick={() => { handleMouseDown(entry); }}
-						>
-							<svg width="30" height="30">
-								<path
-									strokeWidth="2"
-									fill={isSelected ? entry.color : '#fff'}
-									stroke={entry.color}
-									d="M0,16h10.666666666666666
+			{payload.map((entry, index) => {
+				const isSelected = isSelectedOrHighlight(
+					entry.dataKey,
+					highlightLegendKey,
+					selectedLegends,
+				);
+				const legendClass = classNames({
+					'recharts-legend-item': true,
+					'legend-selected': isSelected,
+				});
+				return (
+					<li
+						className={legendClass}
+						key={`item-${index}`}
+						onMouseEnter={() => {
+							handleMouseEnter(entry);
+						}}
+						onMouseLeave={handleMouseLeave}
+						onClick={() => {
+							handleMouseDown(entry);
+						}}
+					>
+						<svg width="30" height="30">
+							<path
+								strokeWidth="2"
+								fill={isSelected ? entry.color : '#fff'}
+								stroke={entry.color}
+								d="M0,16h10.666666666666666
 				            A5.333333333333333,5.333333333333333,0,1,1,21.333333333333332,16
 				            H32M21.333333333333332,16
 				            A5.333333333333333,5.333333333333333,0,1,1,10.666666666666666,16"
-								/>
-							</svg>
-							{entry.value}
-						</li>
-					);
-				})
-			}
+							/>
+						</svg>
+						{entry.value}
+					</li>
+				);
+			})}
 		</ul>
 	);
-}
+};
 
 export function handleMouseDown(selectedLegends, setSelectedLegends) {
-	return (o) => {
+	return o => {
 		const { dataKey } = o;
 		if (!selectedLegends.find(legend => legend === dataKey)) {
 			setSelectedLegends(selectedLegends.concat([dataKey]));
@@ -96,7 +113,7 @@ export function handleMouseDown(selectedLegends, setSelectedLegends) {
 }
 
 export function handleMouseEnter(setHighlightLegendKey) {
-	return (o) => {
+	return o => {
 		const { dataKey } = o;
 		setHighlightLegendKey(dataKey);
 	};
@@ -108,7 +125,17 @@ export function handleMouseLeave(setHighlightLegendKey) {
 	};
 }
 
-function CustomLineChart({ data, key = 'name', height = '100%', width = '100%', labelFormatter, tickFormatter, ticks, margin, colors = ['#0565A7', '#70A338', '#CA7129', '#677077', '#C95357'] }) {
+function CustomLineChart({
+	data,
+	key = 'name',
+	height = '100%',
+	width = '100%',
+	labelFormatter,
+	tickFormatter,
+	ticks,
+	margin,
+	colors = ['#0565A7', '#70A338', '#CA7129', '#677077', '#C95357'],
+}) {
 	const [highlightLegendKey, setHighlightLegendKey] = useState('');
 	const [selectedLegends, setSelectedLegends] = useState([]);
 	return (
@@ -119,12 +146,16 @@ function CustomLineChart({ data, key = 'name', height = '100%', width = '100%', 
 					<XAxis dy={5} dataKey={key} tickLine={false} />
 					<YAxis dx={-5} tickFormatter={tickFormatter} ticks={ticks} />
 					<Legend
-						content={
-							renderLegend(highlightLegendKey, selectedLegends, handleMouseDown(selectedLegends, setSelectedLegends), handleMouseEnter(setHighlightLegendKey), handleMouseLeave(setHighlightLegendKey))
-						}
+						content={renderLegend(
+							highlightLegendKey,
+							selectedLegends,
+							handleMouseDown(selectedLegends, setSelectedLegends),
+							handleMouseEnter(setHighlightLegendKey),
+							handleMouseLeave(setHighlightLegendKey),
+						)}
 						verticalAlign="bottom"
 					/>
-					<Tooltip contentStyle={{fontSize: 10}} formatter={labelFormatter} />
+					<Tooltip contentStyle={{ fontSize: 10 }} formatter={labelFormatter} />
 					{renderLine(data, key, highlightLegendKey, selectedLegends, colors)}
 				</LineChart>
 			</ResponsiveContainer>
@@ -143,4 +174,4 @@ CustomLineChart.propTypes = {
 	width: PropTypes.string,
 };
 
-export default  CustomLineChart;
+export default CustomLineChart;
