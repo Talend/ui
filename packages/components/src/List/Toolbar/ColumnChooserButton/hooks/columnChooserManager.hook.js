@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import flow from 'lodash/flow';
-import clone from 'lodash/cloneDeep';
+import clone from 'lodash/clone';
 import { compareOrder } from '../service';
 
 const isItemVisible = item => item.visible;
