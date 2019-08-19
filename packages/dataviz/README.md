@@ -13,5 +13,5 @@ yarn add @talend/react-dataviz
 ```
 
 ```javascript
-import { LineChart } from '@talend/react-dataviz'; //use the DataGrid Container
+import { LineChart } from '@talend/react-dataviz';
 ```
