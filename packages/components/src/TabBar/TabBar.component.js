@@ -90,28 +90,31 @@ class TabBar extends React.Component {
 	render() {
 		const { className, id, items, selectedKey, children, generateChildId } = this.props;
 		const hasChildren = children || items.some(item => item.children);
+		const tabContent = hasChildren && (
+			<Tab.Content>
+				{items.map(item => (
+					<Tab.Pane eventKey={item.key} key={item.key}>
+						{item.children}
+						{selectedKey === item.key ? children : null}
+					</Tab.Pane>
+				))}
+			</Tab.Content>
+		);
 		if (this.state.showDropdown) {
 			const dataListProps = {
-				onChange: this.handleSelect,
+				onChange: (event, item) => this.handleSelect(item.value, event),
 				disabled: false,
 				readOnly: false,
+				multiSection: false,
 				titleMap: items.map(item => ({
 					name: item.label,
+					value: item.key,
 				})),
 			};
 			return (
 				<React.Fragment>
 					<Datalist {...dataListProps} />
-					{hasChildren && (
-						<Tab.Content>
-							{items.map(item => (
-								<Tab.Pane eventKey={item.key} key={item.key}>
-									{item.children}
-									{selectedKey === item.key ? children : null}
-								</Tab.Pane>
-							))}
-						</Tab.Content>
-					)}
+					{tabContent}
 				</React.Fragment>
 			);
 		}
@@ -138,16 +141,7 @@ class TabBar extends React.Component {
 							</NavItem>
 						))}
 					</Nav>
-					{hasChildren && (
-						<Tab.Content>
-							{items.map(item => (
-								<Tab.Pane eventKey={item.key} key={item.key}>
-									{item.children}
-									{selectedKey === item.key ? children : null}
-								</Tab.Pane>
-							))}
-						</Tab.Content>
-					)}
+					{tabContent}
 				</div>
 			</Tab.Container>
 		);
