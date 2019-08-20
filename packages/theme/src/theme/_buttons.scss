@@ -36,9 +36,7 @@
 	&-success,
 	&-info,
 	&-warning,
-	&-danger,
-	&-tertiay-action,
-	&-tertiay-info {
+	&-danger {
 		border-color: transparent;
 	}
 
@@ -62,7 +60,7 @@
 	&-info {
 		@include btn-colors($btn-info-bg);
 		@include btn-inverse-colors($btn-info-bg);
-		@include btn-tertiary-colors($btn-tertiary-info-color);
+		@include btn-tertiary-colors($btn-info-bg);
 	}
 
 	&-warning {
