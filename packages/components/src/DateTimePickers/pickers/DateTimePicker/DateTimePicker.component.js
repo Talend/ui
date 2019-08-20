@@ -127,9 +127,9 @@ class DateTimePicker extends React.Component {
 		this.onSelectDate(event, startOfDay(now));
 	}
 
-    setAllowFocus(value) {
-        this.setState({ allowFocus: value });
-    }
+	setAllowFocus(value) {
+		this.setState({ allowFocus: value });
+	}
 
 	setView(isDateTimeView) {
 		this.setState({ isDateTimeView }, () => {
