@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { FIELD_HOURS } from '../../DateTime/constants';
 import { strToTime, timeToStr } from '../../DateTime/date-extraction';
 
 import theme from './TimePicker.scss';
@@ -17,7 +16,7 @@ function isBefore(a, b) {
 	return true;
 }
 
-function addInterval({ hours, minutes, seconds }, interval) {
+function addInterval({ hours, minutes, seconds }, interval = 60) {
 	let newMinutes = minutes + interval;
 	let newHours = hours;
 	if (Math.floor(newMinutes / 60) > 0) {
@@ -32,13 +31,13 @@ function addInterval({ hours, minutes, seconds }, interval) {
 }
 
 
-function getOptions(interval = 60) {
+function getOptions(interval = 60, useSeconds = false) {
 	const options = [];
 	const start = { hours: 0, minutes: 0, seconds: 0 };
 	const end = { hours: 23, minutes: 59, seconds: 59 };
 	let current = start;
 	while (isBefore(current, end)) {
-		options.push(timeToStr(current));
+		options.push(timeToStr(current, useSeconds));
 		current = addInterval(current, interval);
 	}
 
@@ -54,10 +53,12 @@ class TimePicker extends React.Component {
 		interval: PropTypes.number,
 		textInput: PropTypes.string,
 		onSubmit: PropTypes.func.isRequired,
+		useSeconds: PropTypes.bool,
 	};
 
 	static defaultProps = {
 		interval: 60,
+		useSeconds: false,
 	};
 
 	constructor(props) {
@@ -68,7 +69,7 @@ class TimePicker extends React.Component {
 		this.state = {
 			selectdTime: props.selection.time,
 		};
-		this.options = getOptions(props.interval);
+		this.options = getOptions(props.interval, props.useSeconds);
 	}
 	componentDidUpdate(prevProps) {
 		if (prevProps.textInput !== this.props.textInput) {
@@ -99,7 +100,7 @@ class TimePicker extends React.Component {
 	}
 	submit(time) {
 		this.props.onSubmit(event, {
-			time: strToTime(time),
+			time: strToTime(time, this.props.useSeconds),
 		});
 	}
 	updateHighlightIndex(index) {
