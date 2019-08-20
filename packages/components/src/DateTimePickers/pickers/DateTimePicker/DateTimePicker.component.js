@@ -121,15 +121,15 @@ class DateTimePicker extends React.Component {
 		this.setState({ allowFocus: value });
 	}
 
-    onClickToday(event) {
-        const now = new Date();
-        if (!this.state.isDateTimeView) {
-            this.onSelectCalendarYear(event, getYear(now));
-            this.onSelectCalendarMonth(event, getMonth(now));
-            this.setView(true);
-        }
-        this.onSelectDate(event, startOfDay(now));
-    }
+	onClickToday(event) {
+		const now = new Date();
+		if (!this.state.isDateTimeView) {
+			this.onSelectCalendarYear(event, getYear(now));
+			this.onSelectCalendarMonth(event, getMonth(now));
+			this.setView(true);
+		}
+		this.onSelectDate(event, startOfDay(now));
+	}
 
 	setView(isDateTimeView) {
 		this.setState({ isDateTimeView }, () => {
