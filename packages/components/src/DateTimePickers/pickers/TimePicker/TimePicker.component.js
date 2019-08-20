@@ -5,7 +5,7 @@ import { strToTime, timeToStr } from '../../DateTime/date-extraction';
 
 import theme from './TimePicker.scss';
 
-function isBefore(a, b) {
+export function isBefore(a, b) {
 	if (a.hours > b.hours) {
 		return false;
 	} else if (a.hours === b.hours && a.minutes > b.minutes) {
@@ -16,7 +16,7 @@ function isBefore(a, b) {
 	return true;
 }
 
-function addInterval({ hours, minutes, seconds }, interval = 60) {
+export function addInterval({ hours, minutes, ...seconds }, interval = 60) {
 	let newMinutes = minutes + interval;
 	let newHours = hours;
 	if (Math.floor(newMinutes / 60) > 0) {
@@ -26,12 +26,12 @@ function addInterval({ hours, minutes, seconds }, interval = 60) {
 	return {
 		hours: newHours,
 		minutes: newMinutes,
-		seconds,
+		...seconds,
 	};
 }
 
 
-function getOptions(interval = 60, useSeconds = false) {
+export function getOptions(interval = 60, useSeconds = false) {
 	const options = [];
 	const start = { hours: 0, minutes: 0, seconds: 0 };
 	const end = { hours: 23, minutes: 59, seconds: 59 };
@@ -47,9 +47,6 @@ function getOptions(interval = 60, useSeconds = false) {
 
 class TimePicker extends React.Component {
 	static propTypes = {
-		selection: PropTypes.shape({
-			time: PropTypes.string,
-		}),
 		interval: PropTypes.number,
 		textInput: PropTypes.string,
 		onSubmit: PropTypes.func.isRequired,
@@ -65,11 +62,12 @@ class TimePicker extends React.Component {
 		super(props);
 		this.onMouseOver = this.onMouseOver.bind(this);
 		this.onSelect = this.onSelect.bind(this);
-		this.submit = this.submit.bind(this);
-		this.state = {
-			selectdTime: props.selection.time,
-		};
+		this.updateHighlightIndex = this.updateHighlightIndex.bind(this);
 		this.options = getOptions(props.interval, props.useSeconds);
+		this.state = {
+			hightlightedItemIndex:
+				this.options.findIndex(option => option.includes(props.textInput)),
+		};
 	}
 	componentDidUpdate(prevProps) {
 		if (prevProps.textInput !== this.props.textInput) {
@@ -92,13 +90,6 @@ class TimePicker extends React.Component {
 		this.updateHighlightIndex(index);
 	}
 	onSelect(event, time) {
-		this.setState({
-			selectdTime: time,
-		}, () => {
-			this.submit(time);
-		});
-	}
-	submit(time) {
 		this.props.onSubmit(event, {
 			time: strToTime(time, this.props.useSeconds),
 		});
