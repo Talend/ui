@@ -207,7 +207,6 @@ export class FilterBarComponent extends React.Component {
 						value={this.state.value}
 						dockable={this.props.dockable}
 						t={t}
-						ref={ref => (this.ref = ref)}
 					/>
 					{this.state.value ? (
 						<Action
