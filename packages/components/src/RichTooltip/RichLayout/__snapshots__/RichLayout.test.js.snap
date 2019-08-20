@@ -2,52 +2,32 @@
 
 exports[`RichLayout should render RichLayout with header, content and footer 1`] = `
 <span>
-  <header
-    className="theme-header tc-tooltip-header"
-  >
+  <Header>
     <div>
       Header
     </div>
-  </header>
-  <div
-    className="theme-body tc-tooltip-body"
-  >
-    <div
-      className="theme-content tc-tooltip-content"
-    >
-      <div>
-        Content
-      </div>
+  </Header>
+  <Body>
+    <div>
+      Content
     </div>
-  </div>
-  <footer
-    className="theme-footer tc-tooltip-footer"
-  >
+  </Body>
+  <Footer>
     <div>
       Footer
     </div>
-  </footer>
+  </Footer>
 </span>
 `;
 
 exports[`RichLayout should render with a text in the body 1`] = `
 <span>
-  <header
-    className="theme-header tc-tooltip-header"
-  />
-  <div
-    className="theme-body tc-tooltip-body"
-  >
-    <div
-      className="theme-content tc-tooltip-content"
-    >
-      <p>
-        loreum
-      </p>
-    </div>
-  </div>
-  <footer
-    className="theme-footer tc-tooltip-footer"
-  />
+  <Header />
+  <Body>
+    <p>
+      loreum
+    </p>
+  </Body>
+  <Footer />
 </span>
 `;

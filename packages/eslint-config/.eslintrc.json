@@ -1,6 +1,9 @@
 {
   "extends": "airbnb",
   "parser": "babel-eslint",
+  "plugins": [
+    "react-hooks"
+  ],
   "rules": {
     "arrow-parens": [2, "as-needed"],
     "comma-dangle": ["error", {
@@ -34,12 +37,14 @@
     "jsx-a11y/no-autofocus": "off",
     "jsx-a11y/no-redundant-roles": "off",
 
+    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": "error",
     "react/default-props-match-prop-types": "off",
     "react/forbid-prop-types": [0],
     "react/jsx-curly-brace-presence": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
-    "react/jsx-indent": ["error", "tab"],
     "react/jsx-indent-props": ["error", "tab"],
+    "react/jsx-indent": ["error", "tab"],
     "react/no-array-index-key": "off",
     "react/no-children-prop": "off",
     "react/no-unescaped-entities": "off",

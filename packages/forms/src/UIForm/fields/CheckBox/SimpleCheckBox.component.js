@@ -2,7 +2,6 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import classnames from 'classnames';
-import { get } from 'lodash';
 
 export default function SimpleCheckBox({
 	describedby,
@@ -20,11 +19,8 @@ export default function SimpleCheckBox({
 	const { autoFocus } = schema;
 
 	function getDataFeature() {
-		const dataFeature = get(schema, 'data-feature');
-		if (dataFeature) {
-			return `${dataFeature}.${checked ? 'uncheck' : 'check'}`;
-		}
-		return undefined;
+		const dataFeature = schema['data-feature'];
+		return dataFeature ? `${dataFeature}.${checked ? 'uncheck' : 'check'}` : undefined;
 	}
 
 	return (
@@ -64,6 +60,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
+			'data-feature': PropTypes.string,
 			autoFocus: PropTypes.bool,
 			disabled: PropTypes.bool,
 		}),
