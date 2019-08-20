@@ -135,7 +135,15 @@ class ContextualManager extends React.Component {
 		this.onInputChange(event, nextState);
 	}
 
-	onPickerChange(event, nextState, nextErrors) {
+	onPickerChange(event, nextState) {
+		// we need to retrieve the input error from nextState to add them to the current one
+		// because, by changing the picker, we update the textInput so we need to update its errors
+		const nextErrors = this.state.errors
+			// remove old main input errors
+			.filter(error => !INPUT_ERRORS.includes(error.code))
+			// add new main input errors
+			.concat(nextState.errors.filter(error => INPUT_ERRORS.includes(error.code)));
+
 		this.setState({ previousErrors: this.state.errors, ...nextState, errors: nextErrors }, () => {
 			if (!this.props.formMode) {
 				this.onChange(event, 'PICKER');
@@ -147,35 +155,13 @@ class ContextualManager extends React.Component {
 		const dateToUse = date;
 		const { time } = this.state;
 		const nextState = extractPartsFromDateAndTime(dateToUse, time, this.getDateOptions());
-
-		// we need to retrieve the input error from nextState to add them to the current one
-		// because, by changing the picker, we update the textInput so we need to update its errors
-		const nextErrors = this.state.errors
-			// remove old main input errors
-			.filter(error => !INPUT_ERRORS.includes(error.code))
-			// add new main input errors
-			.concat(nextState.errors.filter(error => INPUT_ERRORS.includes(error.code)));
-
-		this.onPickerChange(event, nextState, nextErrors);
+		this.onPickerChange(event, nextState);
 	}
 
 	onTimePickerChange(event, { time }) {
 		const dateToUse = this.state.date;
 		const nextState = extractPartsFromDateAndTime(dateToUse, time, this.getDateOptions());
-
-		// we need to retrieve the input error from nextState to add them to the current one
-		// because, by changing the picker, we update the textInput so we need to update its errors
-		const nextErrors = this.state.errors
-			// remove old main input errors
-			.filter(error => !INPUT_ERRORS.includes(error.code))
-			// add new main input errors
-			.concat(nextState.errors.filter(error => INPUT_ERRORS.includes(error.code)));
-
-		const newError = checkTime(time);
-		if (newError) {
-			nextErrors.push(newError);
-		}
-		this.onPickerChange(event, nextState, nextErrors);
+		this.onPickerChange(event, nextState);
 	}
 
 	onSubmit(event, origin) {
