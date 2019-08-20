@@ -1,5 +1,4 @@
 @import '../../shared/styles/variables';
-$btn-color: $st-tropaz;
 
 .container {
 	color: $dove-gray;
@@ -8,36 +7,5 @@ $btn-color: $st-tropaz;
 
 	button:focus {
 		outline: 1px solid black;
-	}
-}
-
-.footer {
-	:global {
-		.btn-link {
-			color: $btn-color;
-			text-decoration: none;
-
-			:hover {
-				background-color: rgba($btn-color, 0.1);
-				transition: opacity 0.1s ease-in;
-			}
-			:focus {
-				background-color: rgba($btn-color, 0.2);
-			}
-		}
-	}
-}
-
-.btn-today {
-	color: $btn-color;
-	font-weight: 600;
-	text-transform: uppercase;
-	padding: 0;
-	height: 2.5rem;
-	> span {
-		line-height: 2.5rem;
-		border-radius: $border-radius-base;
-		padding-left: $padding-small;
-		padding-right: $padding-small;
 	}
 }
