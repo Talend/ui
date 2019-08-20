@@ -33,7 +33,6 @@
 	}
 
 	&-primary,
-	&-tertiary,
 	&-success,
 	&-info,
 	&-warning,
@@ -89,27 +88,6 @@
 		&:active {
 			color: darken($scooter, 12%);
 		}
-
-	}
-
-	&-tertiary {
-		font-weight: $btn-tertiary-font-weight;
-		color: $btn-tertiary-color;
-		line-height: $btn-tertiary-line-height;
-		min-height: $btn-tertiary-line-height;
-		padding: 0 $padding-small;
-		transition: background 0.2s ease-in;
-		&:hover {
-			color: $btn-tertiary-color;
-			background: tint($btn-tertiary-color, 90%);
-		}
-		&:active {
-			background: tint($btn-tertiary-color, 80%);
-		}
-		&:focus {
-			color: $btn-tertiary-color;
-		}
-		@include btn-inverse-colors($btn-tertiary-color, true);
 	}
 
 	&-icon-only {
