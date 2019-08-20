@@ -113,7 +113,7 @@ class ContextualManager extends React.Component {
 		);
 	}
 
-	onInputChange(nextState) {
+	onInputChange(event, nextState) {
 		this.setState({ previousErrors: this.state.errors, ...nextState }, () => {
 			if (!this.props.formMode) {
 				this.onChange(event, 'INPUT');
@@ -125,14 +125,14 @@ class ContextualManager extends React.Component {
 		const dateTextInput = event.target.value;
 		const { time } = this.state;
 		const nextState = extractDateFromTextInput(dateTextInput, this.getDateOptions(), time);
-		this.onInputChange(nextState);
+		this.onInputChange(event, nextState);
 	}
 
 	onTimeInputChange(event) {
 		const timeTextInput = event.target.value;
 		const { date } = this.state;
 		const nextState = extractTimeFromTextInput(timeTextInput, this.getDateOptions(), date);
-		this.onInputChange(nextState);
+		this.onInputChange(event, nextState);
 	}
 
 	onPickerChange(event, nextState, nextErrors) {
