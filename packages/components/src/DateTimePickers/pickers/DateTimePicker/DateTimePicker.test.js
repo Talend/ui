@@ -236,13 +236,13 @@ describe('DateTimePicker', () => {
 
 			// when
 			wrapper
-				.find('.theme-btn-today')
+				.find('.btn-tertiary')
 				.at(0)
 				.simulate('click');
 
 			// then
 			expect(wrapper.state('isDateTimeView')).toBe(true);
-			expect(wrapper.state('selectedDate')).toBe(startOfDay(new Date()));
+			expect(wrapper.state('selectedDate')).toStrictEqual(startOfDay(new Date()));
 		});
 	});
 });
