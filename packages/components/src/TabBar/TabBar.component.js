@@ -7,7 +7,8 @@ import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
 import keycode from 'keycode';
 import debounce from 'lodash/debounce';
-import Datalist from '../Datalist';
+import classnames from 'classnames';
+import theme from './TabBar.scss';
 
 class TabBar extends React.Component {
 	constructor(props) {
@@ -19,10 +20,11 @@ class TabBar extends React.Component {
 		this.state = {
 			showDropdown: false,
 		};
-		this.resizeListener = window.addEventListener('resize', debounce(this.showNavBarAndTest, 200));
+		this.navBarContainerRef = React.createRef();
 	}
 
 	componentDidMount() {
+		this.resizeListener = window.addEventListener('resize', debounce(this.showNavBarAndTest, 200));
 		this.shouldShowDropdown();
 	}
 
@@ -38,13 +40,18 @@ class TabBar extends React.Component {
 		}
 	}
 
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.resizeListener, false);
+	}
+
 	shouldShowDropdown() {
-		const tabBarContainer = ReactDOM.findDOMNode(this.ref);
-		if (tabBarContainer) {
-			// There is a TabBar, test if the height of this TabBar is equal to the height of a nav item.
-			const firstChild = tabBarContainer.querySelector('li:first-child');
-			if (firstChild) {
-				if (tabBarContainer.offsetHeight !== firstChild.offsetHeight) {
+		const tabContainer = this.navBarContainerRef.current;
+		if (tabContainer) {
+			// There is a TabBar, test if the right of this TabBar
+			// is smaller than the right of his last nav item.
+			const lastChild = this.navBarContainerRef.current.querySelector('li:last-child');
+			if (lastChild) {
+				if (tabContainer.getBoundingClientRect().right < lastChild.getBoundingClientRect().right) {
 					this.setState({ showDropdown: true });
 				}
 			}
@@ -101,19 +108,20 @@ class TabBar extends React.Component {
 			</Tab.Content>
 		);
 		if (this.state.showDropdown) {
-			const dataListProps = {
-				onChange: (event, item) => this.handleSelect(item.value, event),
-				disabled: false,
-				readOnly: false,
-				multiSection: false,
-				titleMap: items.map(item => ({
-					name: item.label,
-					value: item.key,
-				})),
-			};
 			return (
 				<React.Fragment>
-					<Datalist {...dataListProps} />
+					<form>
+						<div className={classnames('form-group', theme['tc-responsive-tabBar-select-container'])}>
+							<select onChange={event => this.handleSelect(event.target.value, event)} className="form-control">
+								{items.map(item => <option
+									value={item.key}
+									selected={selectedKey === item.key}
+								>
+									{item.label}
+								</option>)}
+							</select>
+						</div>
+					</form>
 					{tabContent}
 				</React.Fragment>
 			);
@@ -127,10 +135,10 @@ class TabBar extends React.Component {
 				onKeyDown={this.handleKeyDown}
 				generateChildId={generateChildId}
 			>
-				<div>
+				<div ref={this.navBarContainerRef}>
 					<Nav
 						bsStyle="tabs"
-						className="tc-tab-bar"
+						className={classnames('tc-tab-bar', theme['tc-responsive-tabBar'])}
 						ref={ref => {
 							this.ref = ref;
 						}}
