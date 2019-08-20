@@ -117,10 +117,6 @@ class DateTimePicker extends React.Component {
 		this.onSelectCalendarMonthYear({ year });
 	}
 
-	setAllowFocus(value) {
-		this.setState({ allowFocus: value });
-	}
-
 	onClickToday(event) {
 		const now = new Date();
 		if (!this.state.isDateTimeView) {
@@ -130,6 +126,10 @@ class DateTimePicker extends React.Component {
 		}
 		this.onSelectDate(event, startOfDay(now));
 	}
+
+    setAllowFocus(value) {
+        this.setState({ allowFocus: value });
+    }
 
 	setView(isDateTimeView) {
 		this.setState({ isDateTimeView }, () => {
@@ -189,7 +189,7 @@ class DateTimePicker extends React.Component {
 				{viewElement}
 				<div>
 					<Action
-						label={this.props.t('DATEPICKER_TODAY_ACTION', {
+						label={this.props.t('DATEPICKER_TODAY', {
 							defaultValue: 'Today',
 						})}
 						aria-label={this.props.t('DATEPICKER_PICK_TODAY', {
