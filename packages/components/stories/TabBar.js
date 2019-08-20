@@ -35,17 +35,17 @@ const tabProps = {
 		{
 			key: '6',
 			label: 'Tab6 Lorem ipsum',
-			'data-feature': 'action.1',
+			'data-feature': 'action.6',
 		},
 		{
 			key: '7',
 			label: 'Tab7 Lorem ipsum',
-			'data-feature': 'action.2',
+			'data-feature': 'action.7',
 		},
 		{
 			key: '8',
 			label: 'Tab8 Lorem ipsum',
-			'data-feature': 'action.3',
+			'data-feature': 'action.8',
 		},
 	],
 	onSelect: action('onSelect'),
