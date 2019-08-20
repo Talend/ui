@@ -112,10 +112,10 @@ class TabBar extends React.Component {
 				<React.Fragment>
 					<form>
 						<div className={classnames('form-group', theme['tc-responsive-tabBar-select-container'])}>
-							<select onChange={event => this.handleSelect(event.target.value, event)} className="form-control">
+							<select onChange={event => this.handleSelect(event.target.value, event)} value={selectedKey} className="form-control">
 								{items.map(item => <option
 									value={item.key}
-									selected={selectedKey === item.key}
+									key={item.key}
 								>
 									{item.label}
 								</option>)}
