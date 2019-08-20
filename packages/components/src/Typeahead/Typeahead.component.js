@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useRef } from 'react';
 import uuid from 'uuid';
 import classNames from 'classnames';
 import Autowhatever from 'react-autowhatever';
@@ -22,6 +22,8 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
  * <Typeahead {...props} />
  */
 function Typeahead({ onToggle, icon, position, docked, ...rest }) {
+	const inputRef = useRef(null);
+
 	if (docked && onToggle) {
 		return (
 			<Action
@@ -73,7 +75,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			debounceTimeout: rest.debounceTimeout,
 			disabled: rest.disabled,
 			id: rest.id,
-			inputRef: rest.inputRef,
+			inputRef,
 			onBlur: rest.onBlur,
 			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
 			onFocus: rest.onFocus,
@@ -103,6 +105,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			searchingText,
 			rest.isLoading,
 			isLoadingText,
+			inputRef.current,
 			rest.children,
 		),
 		renderItemData: { value: rest.value, 'data-feature': rest['data-feature'] },
@@ -171,7 +174,6 @@ Typeahead.propTypes = {
 	onBlur: PropTypes.func,
 	onChange: PropTypes.func,
 	onFocus: PropTypes.func,
-	inputRef: PropTypes.func,
 	placeholder: PropTypes.string,
 	readOnly: PropTypes.bool,
 	value: PropTypes.string,
