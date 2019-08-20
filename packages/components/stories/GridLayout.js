@@ -4,7 +4,7 @@ import talendIcons from '@talend/icons/dist/react';
 import { action } from '@storybook/addon-actions';
 
 import ActionIconToggle from '../src/Actions/ActionIconToggle';
-import InputDateTimePicker, { DateTime } from '../src/DateTimePickers';
+import InputDateTimePicker from '../src/DateTimePickers';
 import { GridLayout, IconsProvider } from '../src/';
 import Tile from '../src/GridLayout/Tile/index';
 import Action from '../src/Actions/Action';
@@ -119,11 +119,6 @@ function ChartTile({ tile }) {
 	);
 }
 
-function dragStart(event, something, tata, toto) {
-	// event.persist();
-	return
-}
-
 function GridContainer({ isLoading = false, skeletonConfiguration }) {
 	const [tiles, setTiles] = useState([
 		{
@@ -170,7 +165,6 @@ function GridContainer({ isLoading = false, skeletonConfiguration }) {
 	return (
 		<div className="App">
 			<GridLayout
-				onDragStart={dragStart}
 				isResizable
 				isLoading={isLoading}
 				skeletonConfiguration={skeletonConfiguration}>
