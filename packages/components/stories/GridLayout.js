@@ -40,7 +40,6 @@ function TdsTileContent() {
 						name="Datetime"
 						onBlur={action('onBlur')}
 						onChange={action('onChange')}
-						useTime
 					/>
 				</div>
 			</React.Fragment>
