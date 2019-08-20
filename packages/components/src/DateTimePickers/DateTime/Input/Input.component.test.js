@@ -44,6 +44,9 @@ describe('DateTime.Input', () => {
 			datetime: {
 				textInput: '',
 			},
+			dateInputManagement: {
+				placeholder: 'YYY-MM-DD',
+			},
 		};
 
 		const wrapper = mount(

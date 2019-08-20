@@ -18,8 +18,8 @@ exports[`DateTime.Input should render 1`] = `
     onFocus={[MockFunction]}
     part="date"
     placeholder="YYY-MM-DD"
+    size={9}
     type="text"
-    value="2007-01-02"
   >
     <input
       aria-describedby="inputErrorId"
@@ -32,8 +32,9 @@ exports[`DateTime.Input should render 1`] = `
       onKeyDown={[Function]}
       part="date"
       placeholder="YYY-MM-DD"
+      size={9}
       type="text"
-      value="2007-01-02"
+      value=""
     />
   </DebounceInput>
 </DateTime.Input>
