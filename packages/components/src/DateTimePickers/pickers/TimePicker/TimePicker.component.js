@@ -103,23 +103,30 @@ class TimePicker extends React.Component {
 		});
 	}
 	render() {
-		return (<div className={theme.container} ref={ref => (this.containerRef = ref)}>
-			{this.options.map((time, index) => {
-				const className = classNames(theme.time,
-					{ highlight: index === this.state.hightlightedItemIndex });
-				return (
-					<button
-						type="button"
-						key={index}
-						className={className}
-						onMouseOver={event => this.onMouseOver(event, index)}
-						onClick={event => this.onSelect(event, time, index)}
-					>
-						{time}
-					</button>
-				);
-			})}
-		</div>);
+		return (
+			<div
+				className={theme.container}
+				ref={ref => (this.containerRef = ref)}
+				role="list"
+			>
+				{this.options.map((time, index) => {
+					const className = classNames(theme.time,
+						{ highlight: index === this.state.hightlightedItemIndex });
+					return (
+						<button
+							type="button"
+							key={index}
+							className={className}
+							onMouseOver={event => this.onMouseOver(event, index)}
+							onClick={event => this.onSelect(event, time, index)}
+							role="listitem"
+						>
+							{time}
+						</button>
+					);
+				})}
+			</div>
+		);
 	}
 }
 

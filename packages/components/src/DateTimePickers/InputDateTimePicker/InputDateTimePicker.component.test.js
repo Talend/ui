@@ -126,7 +126,7 @@ describe('InputDateTimePicker', () => {
 		it('should NOT close from input change', () => {
 			// given
 			const wrapper = mount(<InputDateTimePicker id="my-picker" onChange={jest.fn()} />);
-			wrapper.simulate('focus');
+			wrapper.find('InputDatePicker').simulate('focus');
 			expect(getOverlay(wrapper).exists()).toBe(true);
 
 			// when

@@ -1,13 +1,14 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import PropTypes from 'prop-types';
+import keycode from 'keycode';
 import omit from 'lodash/omit';
 import uuid from 'uuid';
 import { Popper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
 import DateTime from '../DateTime';
-
+import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	'dateFormat',
@@ -17,14 +18,7 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'useSeconds',
 	'useTime',
 	'useUTC',
-	'onBlur',
 	'onChange',
-	'onClick',
-	'onFocus',
-	'onKeyDown',
-	'showPicker',
-	'setRef',
-	'setContainerRef',
 ];
 
 export const INPUT_PICKER_PROPTYPES = {
@@ -35,13 +29,22 @@ export const INPUT_PICKER_PROPTYPES = {
 
 export default function createInputPicker({ part, theme, Picker }) {
 	return class InputPicker extends React.Component {
-		static propTypes = {
-			...INPUT_PICKER_PROPTYPES,
-		};
+		static propTypes = INPUT_PICKER_PROPTYPES;
 
 		constructor(props) {
 			super(props);
 			this.popoverId = `input-${part}-picker-${props.id || uuid.v4()}`;
+			this.state = {
+				showPicker: false,
+			};
+
+			this.onBlur = this.onBlur.bind(this);
+			this.onChange = this.onChange.bind(this);
+			this.onClick = this.onClick.bind(this);
+			this.onFocus = this.onFocus.bind(this);
+			this.onKeyDown = this.onKeyDown.bind(this);
+			this.openPicker = this.setPickerVisibility.bind(this, true);
+			this.closePicker = this.setPickerVisibility.bind(this, false);
 		}
 
 		getPopperPlacement() {
@@ -54,6 +57,60 @@ export default function createInputPicker({ part, theme, Picker }) {
 			}
 			return 'bottom-start';
 		}
+		onBlur(event) {
+			this.closePicker({ picked: false });
+			if (this.props.onBlur) {
+				this.props.onBlur(event);
+			}
+		}
+		onChange() {
+			this.inputRef.focus();
+			this.closePicker();
+		}
+		onClick() {
+			this.openPicker();
+		}
+
+		onFocus() {
+			if (!this.state.picked) {
+				this.openPicker();
+			}
+		}
+		onKeyDown(event) {
+			switch (event.keyCode) {
+				case keycode.codes.esc:
+					this.inputRef.focus();
+					this.closePicker();
+					break;
+				case keycode.codes.down:
+					if (event.target !== this.inputRef) {
+						return;
+					}
+					if (this.state.showPicker) {
+						focusOnCalendar(this.containerRef);
+					} else {
+						this.openPicker();
+					}
+					break;
+				default:
+					break;
+			}
+		}
+		setPickerVisibility(isShown, extra = {}) {
+			if (this.props.readOnly) {
+				return;
+			}
+
+			this.setState(({ showPicker }) => {
+				if (showPicker === isShown) {
+					return extra;
+				}
+				return {
+					showPicker: isShown,
+					...extra,
+				};
+			});
+		}
 
 		render() {
 			const inputProps = omit(this.props, PROPS_TO_OMIT_FOR_INPUT);
@@ -64,11 +121,11 @@ export default function createInputPicker({ part, theme, Picker }) {
 					key="input"
 					inputRef={ref => {
 						this.inputRef = ref;
-						this.props.setRef(ref);
 					}}
 					part={part}
+					onChange={this.onChange}
 				/>,
-				this.props.showPicker && (
+				this.state.showPicker && (
 					<Popper
 						key="popper"
 						modifiers={{
@@ -85,7 +142,7 @@ export default function createInputPicker({ part, theme, Picker }) {
 					>
 						{({ ref, style }) => (
 							<div id={this.popoverId} className={theme.popper} style={style} ref={ref}>
-								<Picker {...this.props} />
+								<Picker {...this.props} onSubmit={this.onChange} />
 							</div>
 						)}
 					</Popper>
@@ -97,15 +154,14 @@ export default function createInputPicker({ part, theme, Picker }) {
 					className="focus-manager"
 					divRef={ref => {
 						this.containerRef = ref;
-						this.props.setContainerRef(ref);
 					}}
-					onClick={this.props.onClick}
-					onFocusIn={this.props.onFocus}
+					onClick={this.onClick}
+					onFocusIn={this.onFocus}
 					onFocusOut={event => {
-						this.props.onBlur(event, part);
+						this.onBlur(event);
 					}}
 					onKeyDown={event => {
-						this.props.onKeyDown(event, part);
+						this.onKeyDown(event);
 					}}
 				>
 					{picker}
