@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RelativeDate should render RelativeDate component the simple way 1`] = `
+<span
+  title="2019-08-21 12:00:00"
+>
+  about 6 hours ago
+</span>
+`;
+
+exports[`RelativeDate should render RelativeDate component with an icon 1`] = `
+<TooltipTrigger
+  label="2019-08-21 12:00:00"
+  tooltipPlacement="top"
+>
+  <React.Fragment>
+    <Icon
+      name="talend-scheduler"
+    />
+     
+    about 6 hours ago
+  </React.Fragment>
+</TooltipTrigger>
+`;

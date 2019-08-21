@@ -43,6 +43,7 @@ import List from './List';
 import Loader from './Loader';
 import ObjectViewer from './ObjectViewer';
 import Progress from './Progress';
+import RelativeDate from './RelativeDate';
 import ResourcePicker from './ResourcePicker';
 import Skeleton from './Skeleton';
 import SidePanel from './SidePanel';
@@ -171,6 +172,7 @@ export {
 	Notification,
 	ObjectViewer,
 	Progress,
+	RelativeDate,
 	ResourcePicker,
 	RichError,
 	RichLayout,
