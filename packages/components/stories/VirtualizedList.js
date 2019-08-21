@@ -8,8 +8,6 @@ import { SortIndicator } from 'react-virtualized';
 
 import { IconsProvider } from '../src/index';
 import VirtualizedList, { listTypes } from '../src/VirtualizedList';
-import CellTitle from '../src/VirtualizedList/CellTitle';
-import CellBadge from '../src/VirtualizedList/CellBadge';
 import MyCustomRow from './List/MyCustomRow.component';
 
 import { headerDictionary } from '../src/VirtualizedList/utils/dictionary';
@@ -511,12 +509,7 @@ storiesOf('VirtualizedList', module)
 					onToggleAll={action('toggleAll')}
 				>
 					<VirtualizedList.Text label="Id" dataKey="id" />
-					<VirtualizedList.Title
-						label="Name"
-						dataKey="name"
-						columnData={titleProps}
-						{...CellTitle}
-					/>
+					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
 					<VirtualizedList.Text label="Description (non sortable)" dataKey="description" />
 					<VirtualizedList.Text label="Author" dataKey="author" />
 					<VirtualizedList.Datetime label="Created" dataKey="created" />
