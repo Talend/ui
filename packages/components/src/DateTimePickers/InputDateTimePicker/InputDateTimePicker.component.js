@@ -26,6 +26,10 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'onChange',
 ];
 
+function onMouseDown(event) {
+	event.stopPropagation();
+}
+
 class InputDateTimePicker extends React.Component {
 	static propTypes = {
 		id: PropTypes.string.isRequired,
@@ -178,7 +182,13 @@ class InputDateTimePicker extends React.Component {
 					referenceElement={this.inputRef}
 				>
 					{({ ref, style }) => (
-						<div id={this.popoverId} className={theme.popper} style={style} ref={ref}>
+						<div
+							id={this.popoverId}
+							className={theme.popper}
+							style={style}
+							ref={ref}
+							onMouseDown={onMouseDown}
+						>
 							<DateTime.Picker />
 							{this.props.formMode && <DateTime.Validation />}
 						</div>
