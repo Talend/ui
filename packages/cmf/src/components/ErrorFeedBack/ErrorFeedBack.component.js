@@ -3,15 +3,9 @@ import PropTypes from 'prop-types';
 import ErrorPanel from '../ErrorPanel';
 
 function ErrorFeedBack(props) {
-	const content = props.errors.map(error => (
-		<ErrorPanel key={error} error={error} />
-	));
+	const content = props.errors.map(error => <ErrorPanel key={error} error={error} />);
 	if (!props.full) {
-		return (
-			<React.Fragment>
-				{content}
-			</React.Fragment>
-		);
+		return <React.Fragment>{content}</React.Fragment>;
 	}
 	const style = {
 		'overflow-y': 'auto',
