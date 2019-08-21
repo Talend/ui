@@ -1,14 +1,18 @@
 import React from 'react';
-import Content from '../Content.component';
-import BadgeConfiguration from './BadgeColumn.configuration';
+import CellBadge from './CellBadge.component';
+import { defaultColumnConfiguration } from '../Content.component';
 
-function BadgeColumn(props) {
-	return <Content {...props} />;
-}
-
-BadgeColumn.defaultProps = {
-	...Content.defaultProps,
-	...BadgeConfiguration,
+export const cellType = 'badge';
+export const badgeColumnConfiguration = {
+	cellRenderer: props => <CellBadge {...props} />,
 };
 
-export default BadgeColumn;
+// this is a fake component to be usable in JSX,
+// but the element is used as props object internally (VirtualizedList / RV)
+export default function BadgeColumn() {
+	return null;
+}
+BadgeColumn.defaultProps = {
+	...defaultColumnConfiguration,
+	...badgeColumnConfiguration,
+};

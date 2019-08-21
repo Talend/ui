@@ -1,5 +1,4 @@
-import ColumnConfiguration, { cellType } from './ActionsColumn.configuration';
-import ActionsColumn from './ActionsColumn.component';
+import ActionsColumn, { cellType, actionColumnConfiguration } from './ActionsColumn.component';
 
 export { cellType, ActionsColumn };
-export default ColumnConfiguration;
+export default actionColumnConfiguration;

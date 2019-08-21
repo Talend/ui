@@ -1,5 +1,4 @@
-import ColumnConfiguration, { cellType } from './TextIconColumn.configuration';
-import TextIconColumn from './TextIconColumn.component';
+import TextIconColumn, { cellType, textIconColumnConfiguration } from './TextIconColumn.component';
 
 export { cellType, TextIconColumn };
-export default ColumnConfiguration;
+export default textIconColumnConfiguration;

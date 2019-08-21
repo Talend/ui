@@ -1,5 +1,4 @@
-import ColumnConfiguration, { cellType } from './BadgeColumn.configuration';
-import BadgeColumn from './BadgeColumn.component';
+import BadgeColumn, { cellType, badgeColumnConfiguration } from './BadgeColumn.component';
 
 export { cellType, BadgeColumn };
-export default ColumnConfiguration;
+export default badgeColumnConfiguration;

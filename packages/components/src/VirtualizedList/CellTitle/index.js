@@ -1,6 +1,5 @@
 import '../../polyfills/focus-within';
-import TitleColumn from './TitleColumn.component';
-import ColumnConfiguration, { cellType } from './TitleColumn.configuration';
+import TitleColumn, { cellType, titleColumnConfiguration } from './TitleColumn.component';
 
 export { cellType, TitleColumn };
-export default ColumnConfiguration;
+export default titleColumnConfiguration;

@@ -1,14 +1,18 @@
 import React from 'react';
-import Content from '../Content.component';
-import DatetimeConfiguration from './DatetimeColumn.configuration';
+import { defaultColumnConfiguration } from '../Content.component';
+import CellDatetime from './CellDatetime.component';
 
-function DatetimeColumn(props) {
-	return <Content {...props} />;
-}
-
-DatetimeColumn.defaultProps = {
-	...Content.defaultProps,
-	...DatetimeConfiguration,
+export const cellType = 'datetime';
+export const datetimeColumnConfiguration = {
+	cellRenderer: props => <CellDatetime {...props} />,
 };
 
-export default DatetimeColumn;
+// this is a fake component to be usable in JSX,
+// but the element is used as props object internally (VirtualizedList / RV)
+export default function DatetimeColumn() {
+	return null;
+}
+DatetimeColumn.defaultProps = {
+	...defaultColumnConfiguration,
+	...datetimeColumnConfiguration,
+};

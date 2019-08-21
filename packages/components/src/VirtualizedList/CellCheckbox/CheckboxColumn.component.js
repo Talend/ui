@@ -1,14 +1,18 @@
 import React from 'react';
-import Content from '../Content.component';
-import CheckboxConfiguration from './CheckboxColumn.configuration';
+import { defaultColumnConfiguration } from '../Content.component';
+import CellCheckbox from './CellCheckbox.component';
 
-function CheckboxColumn(props) {
-	return <Content {...props} />;
-}
-
-CheckboxColumn.defaultProps = {
-	...Content.defaultProps,
-	...CheckboxConfiguration,
+export const cellType = 'checkbox';
+export const checkboxColumnConfiguration = {
+	cellRenderer: props => <CellCheckbox {...props} />,
 };
 
-export default CheckboxColumn;
+// this is a fake component to be usable in JSX,
+// but the element is used as props object internally (VirtualizedList / RV)
+export default function CheckboxColumn() {
+	return null;
+}
+CheckboxColumn.defaultProps = {
+	...defaultColumnConfiguration,
+	...checkboxColumnConfiguration,
+};

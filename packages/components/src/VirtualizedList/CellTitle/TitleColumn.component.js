@@ -1,14 +1,20 @@
 import React from 'react';
-import Content from '../Content.component';
-import TitleConfiguration from './TitleColumn.configuration';
+import { defaultColumnConfiguration } from '../Content.component';
+import CellTitle from './CellTitle.component';
 
-function TitleColumn(props) {
-	return <Content {...props} />;
-}
-
-TitleColumn.defaultProps = {
-	...Content.defaultProps,
-	...TitleConfiguration,
+export const cellType = 'title';
+export const titleColumnConfiguration = {
+	cellType,
+	cellRenderer: props => <CellTitle {...props} />,
+	className: 'tc-list-title-cell',
 };
 
-export default TitleColumn;
+// this is a fake component to be usable in JSX,
+// but the element is used as props object internally (VirtualizedList / RV)
+export default function TitleColumn() {
+	return null;
+}
+TitleColumn.defaultProps = {
+	...defaultColumnConfiguration,
+	...titleColumnConfiguration,
+};
