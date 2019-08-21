@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
@@ -9,6 +9,27 @@ import cloneDeep from 'lodash/cloneDeep';
 import { List, IconsProvider } from '../src/index';
 import { LanguageSwitcher } from './config/i18n';
 import MyCustomRow from './List/MyCustomRow.component';
+import { columnChooserService } from '../src/List/Toolbar/ColumnChooserButton';
+
+// eslint-disable-next-line react/prop-types
+function ListColumnChooser({ list, ...rest }) {
+	const [columnsChooser, setColumnsChooser] = useState(list.columns);
+	const onSubmit = (_, newColumnsChooser) => {
+		setColumnsChooser(newColumnsChooser);
+	};
+	const enrichedList = {
+		...list,
+		columns: columnChooserService.mergeWithColumnChooserCollection(list.columns, columnsChooser),
+	};
+	const columnChooser = {
+		columns: columnsChooser,
+		onSubmit,
+		nbLockedLeftItems: 2,
+	};
+	return <List {...rest} list={enrichedList} columnChooser={columnChooser} />;
+}
+
+
 /**
  * Cell renderer that displays hello + text
  */
@@ -47,6 +68,9 @@ const icons = {
 	'talend-trash': talendIcons['talend-trash'],
 	'talend-warning': talendIcons['talend-warning'],
 	'talend-file-s3-o': talendIcons['talend-file-s3-o'],
+	'talend-locked': talendIcons['talend-locked'],
+	'talend-unlocked': talendIcons['talend-unlocked'],
+	'talend-column-chooser': talendIcons['talend-column-chooser'],
 	'talend-sort-desc': talendIcons['talend-sort-desc'],
 	'talend-sort-asc': talendIcons['talend-sort-asc'],
 };
@@ -162,10 +186,10 @@ const props = {
 	displayMode: 'table',
 	list: {
 		columns: [
-			{ key: 'id', label: 'Id', order: 0 },
-			{ key: 'name', label: 'Name', order: 1 },
+			{ key: 'id', label: 'Id', order: 1 },
+			{ key: 'name', label: 'Name', order: 2 },
 			{ key: 'author', label: 'Author', order: 3 },
-			{ key: 'created', label: 'Created', order: 2 },
+			{ key: 'created', label: 'Created', order: 6 },
 			{
 				key: 'modified',
 				label: 'Modified',
@@ -313,7 +337,89 @@ const propsWithVirtualized = {
 				type: 'datetime',
 				data: { mode: 'format', pattern: 'HH:mm:ss YYYY-MM-DD' },
 			},
-			{ key: 'modified', label: 'Modified', type: 'datetime', data: { mode: 'ago' } },
+			{
+				key: 'modified',
+				label: 'Modified',
+				type: 'datetime',
+				data: { mode: 'ago' },
+			},
+		],
+		items: [
+			{
+				id: 0,
+				name: 'Title with actions',
+				created: 1518596913333,
+				modified: minusThreeHours,
+				author: 'Jean-Pierre DUPONT',
+				actions,
+				icon: 'talend-file-xls-o',
+				display: 'text',
+				className: 'item-0-class',
+			},
+			{
+				persistentActions,
+				id: 1,
+				name: 'Title in input mode',
+				created: 1518596913333,
+				modified: minusTwoHours,
+				author: 'Jean-Pierre DUPONT',
+				icon: 'talend-file-json-o',
+				display: 'input',
+				className: 'item-1-class',
+			},
+			{
+				persistentActions,
+				id: 2,
+				name: 'Super long title to trigger overflow on tile rendering',
+				created: 1518596913333,
+				modified: minusOneHours,
+				author: 'Jean-Pierre DUPONT',
+				className: 'item-2-class',
+			},
+			{
+				persistentActions,
+				id: 3,
+				name: 'Title',
+				created: 1518596913333,
+				modified: minusThreeMin,
+				author: 'Jean-Pierre DUPONT',
+				actions,
+				icon: 'talend-file-xls-o',
+				display: 'text',
+				className: 'item-3-class',
+			},
+		],
+		titleProps: {
+			key: 'name',
+			iconKey: 'icon',
+			displayModeKey: 'display',
+			onClick: action('onTitleClick'),
+			onEditCancel: action('onEditCancel'),
+			onEditSubmit: action('onEditSubmit'),
+		},
+		itemProps: {
+			classNameKey: 'className',
+		},
+	},
+};
+
+const propsWithResizable = {
+	id: 'talend',
+	displayMode: 'table',
+	virtualized: true,
+	list: {
+		columns: [
+			{ key: 'id', label: 'Id', width: 85 },
+			{ key: 'name', label: 'Name', width: 600, resizable: true, header: 'resizable' },
+			{ key: 'author', label: 'Author', width: 600, resizable: true, header: 'resizable' },
+			{
+				key: 'modified',
+				label: 'Modified',
+				type: 'datetime',
+				data: { mode: 'ago' },
+				width: 135,
+				resizable: true,
+			},
 		],
 		items: [
 			{
@@ -891,11 +997,19 @@ storiesOf('List', module)
 		</div>
 	))
 	.add('List cell renderer', () => (
-		<div className="virtualized-list">
+		<div className="virtualized-list" style={{ height: '70vh' }}>
 			<h1>List with specified VirtualizedList cell renderer</h1>
 			<p>CellDatetimeRenderer in action.</p>
 			<span>
 				<List {...propsWithVirtualized} />
+			</span>
+		</div>
+	))
+	.add('List resizable', () => (
+		<div className="virtualized-list" style={{ height: '70vh' }}>
+			<h1>List with resizable columns</h1>
+			<span>
+				<List {...propsWithResizable} />
 			</span>
 		</div>
 	))
@@ -932,6 +1046,17 @@ storiesOf('List', module)
 			</div>
 		);
 	})
+	.add('Table with column chooser', () => (
+		<div style={{ height: '100vh' }} className="virtualized-list">
+			<h1>List</h1>
+			<p>
+				Display the list with the column chooser.
+				<br />
+				Using columnChooserClientHook.
+			</p>
+			<ListColumnChooser {...props} />
+		</div>
+	))
 	.add('Pagination - to be deprecated', () => {
 		const customProps = cloneDeep(props);
 		customProps.toolbar.pagination = {

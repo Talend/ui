@@ -46,6 +46,7 @@ describe('DateTime.Picker', () => {
 			useSeconds: true,
 			useTime: true,
 			useUTC: false,
+			t: expect.any(Function),
 		});
 	});
 
