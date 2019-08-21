@@ -31,4 +31,18 @@ describe('BadgeDelete', () => {
 		wrapper.find('button').simulate('click');
 		expect(onClick).toHaveBeenCalledTimes(1);
 	});
+	it('should pass the props label to the button', () => {
+		// given
+		const onClick = jest.fn();
+		const props = {
+			label: 'My custom label',
+			id: 'my-id',
+			onClick,
+			t: getDefaultT(),
+		};
+		// when
+		const wrapper = mount(<BadgeDelete {...props} />);
+		// then
+		expect(wrapper.find('button').prop('aria-label')).toBe('My custom label');
+	});
 });
