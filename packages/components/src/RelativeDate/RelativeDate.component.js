@@ -34,7 +34,8 @@ function RelativeDateWithIcon({ fromNow, fullDate, tooltipPlacement, t }) {
 	return (
 		<TooltipTrigger label={fullDate} tooltipPlacement={tooltipPlacement}>
 			<React.Fragment>
-				<Icon name="talend-scheduler" /> {t('DATE_FNS_AGO', { defaultValue: '{{value}} ago', value: fromNow })}
+				<Icon name="talend-scheduler" />{' '}
+				{t('DATE_FNS_AGO', { defaultValue: '{{value}} ago', value: fromNow })}
 			</React.Fragment>
 		</TooltipTrigger>
 	);
@@ -53,19 +54,14 @@ function RelativeDate({ withIcon, date, fullDateFormat, options, t }) {
 		t,
 	};
 
-	return withIcon
-		? <RelativeDateWithIcon {...props} />
-		: <RelativeDateSimple {...props} />;
+	return withIcon ? <RelativeDateWithIcon {...props} /> : <RelativeDateSimple {...props} />;
 }
 
 if (process.env.NODE_ENV !== 'production') {
 	RelativeDate.propTypes = {
 		withIcon: PropTypes.bool,
-		date: PropTypes.oneOfType([
-			PropTypes.instanceOf(Date),
-			PropTypes.string,
-			PropTypes.number,
-		]).isRequired,
+		date: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string, PropTypes.number])
+			.isRequired,
 		options: PropTypes.object,
 		fullDateFormat: PropTypes.string,
 		t: PropTypes.func,
