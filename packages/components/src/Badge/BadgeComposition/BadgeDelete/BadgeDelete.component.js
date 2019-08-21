@@ -26,7 +26,7 @@ BadgeDelete.propTypes = {
 	id: PropTypes.string.isRequired,
 	label: PropTypes.string,
 	onClick: PropTypes.func.isRequired,
-	t: PropTypes.func.isRequired,
+	t: PropTypes.func,
 };
 
 export default BadgeDelete;
