@@ -1,6 +1,6 @@
-import merge from 'lodash/merge';
 import { assertTypeOf } from './assert';
-import { handleCSRFToken, getDefaultConfig } from './sagas/http';
+import CONST from './constant';
+import actions from './actions';
 
 /* eslint-disable no-param-reassign */
 /**
@@ -40,8 +40,10 @@ function serialize(error) {
 		columnNumber: error.columnNumber,
 		stack: error.stack,
 	};
+	// support dynamic properties
 	Object.keys(error).reduce((acc, key) => {
 		acc[key] = error[key];
+		return acc;
 	}, std);
 	return std;
 }
@@ -121,90 +123,44 @@ function getReportInfo(error) {
 	};
 }
 
-function reportError(error) {
-	return new Promise((resolve, reject) => reject(error));
-}
-
 /**
- * reportResponse function process the `fetch` result and try to
- * extract as most information as possible
- * @param {Object} response Fetch response
- * @return {Promise} with the content of the response
- */
-function reportResponse(response) {
-	if (response.ok) {
-		if (response.json) {
-			return response.json();
-		}
-		return response.text();
-	}
-	if (response.json) {
-		return response.json().then(data => reportError(data));
-	}
-	return response.text().then(data => reportError(data));
-}
-
-/**
- * report function create a report, notify CMF App and try to post it to the backend
+ * report function create a serilized error and dispatch action.
  * @param {Error} error instance of Error
  */
 function report(error) {
 	const info = {
-		error,
+		error: serialize(error),
 		context: JSON.stringify(getReportInfo(error)),
 		reported: false,
 		reason: 'Draft',
 	};
 	ref.error = info;
 	ref.errors.push(info);
-	let options = {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		credentials: 'same-origin',
-		body: info.context,
-	};
-	const httpDefault = getDefaultConfig();
-	if (httpDefault !== null) {
-		options = handleCSRFToken(merge(options, httpDefault));
-	}
-
 	if (!ref.serverURL) {
-		info.reason = new Error('no serverURL has been set to report Error');
-		// ref.callbacks.forEach(cb => cb(ref.errors));
 		ref.store.dispatch({
-			type: 'CMF_ERROR',
-			error: serialize(error),
+			type: CONST.ERROR,
+			...info,
 		});
 	} else {
-		// ref.callbacks.forEach(cb => cb(ref.errors));
-		try {
-			fetch(ref.serverURL, options)
-				.then(reportResponse, err => {
-					info.reported = false;
-					info.reason = err;
-					ref.callbacks.forEach(cb => cb(ref.errors));
-				})
-				.then(response => {
-					info.reported = true;
-					info.response = response;
-					ref.callbacks.forEach(cb => cb(ref.errors));
-				});
-		} catch (err) {
-			info.reason = err;
-			ref.callbacks.forEach(cb => cb(ref.errors));
-		}
+		ref.store.dispatch(actions.http.post(ref.serverURL, info, {
+			onError: err => {
+				info.reported = false;
+				info.reason = serialize(err);
+				return {
+					type: CONST.ERROR,
+					...info,
+				}
+			},
+			onResponse: response => {
+				info.reported = true;
+				info.response = response;
+				return {
+					type: CONST.ERROR,
+					...info,
+				};
+			},
+		}));
 	}
-}
-
-/**
- * Internal.
- * This function store a callback to call when onError.report is called
- * @param {function} callback a function with only error data structure as argument
- */
-function subscribe(callback) {
-	ref.callbacks.push(callback);
 }
 
 /**
@@ -248,7 +204,6 @@ function bootstrap(options, store) {
 	ref.store = store;
 	const opt = options.onError || {};
 	ref.serverURL = opt.reportURL;
-	ref.homePath = opt.homePath;
 	ref.settingsURL = options.settingsURL;
 	if (opt.sensibleKeys) {
 		opt.sensibleKeys.forEach(r => addSensibleKeyRegexp(r));
@@ -267,10 +222,10 @@ function addOnErrorListener() {
 		// remove duplicate in dev mode
 		// SEE: https://github.com/facebook/react/issues/10474
 		if (process.env.NODE_ENV !== 'production') {
-			if (error.CMF_ERROR) {
+			if (error.ALREADY_THROWN) {
 				return;
 			}
-			error.CMF_ERROR = true;
+			error.ALREADY_THROWN = true;
 		}
 		report(error);
 	});
@@ -302,6 +257,18 @@ function middleware() {
 	};
 }
 
+
+function createObjectURL(error) {
+	const data = getReportInfo(error);
+	let safeData = data;
+	if (typeof data !== 'string') {
+		safeData = JSON.stringify(data);
+	}
+	const MIME_TYPE = 'application/json';
+	const blob = new File([safeData], { name: 'report.json', type: MIME_TYPE });
+	return window.URL.createObjectURL(blob);
+}
+
 export default {
 	addOnErrorListener,
 	bootstrap,
@@ -309,7 +276,7 @@ export default {
 	hasReportURL,
 	getReportInfo,
 	report,
-	subscribe,
 	getErrors,
 	middleware,
+	createObjectURL,
 };

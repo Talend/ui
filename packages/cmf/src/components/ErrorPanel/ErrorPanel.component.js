@@ -10,17 +10,6 @@ function reload() {
 	location.reload(true);
 }
 
-function download(error) {
-	const data = onError.getReportInfo(error);
-	let safeData = data;
-	if (typeof data !== 'string') {
-		safeData = JSON.stringify(data);
-	}
-	const MIME_TYPE = 'application/json';
-	const blob = new File([safeData], { name: 'report.json', type: MIME_TYPE });
-	return window.URL.createObjectURL(blob);
-}
-
 function ErrorPanel(props) {
 	let currentErrorStatus;
 	if (props.reported) {
@@ -45,7 +34,7 @@ function ErrorPanel(props) {
 			<button className="btn btn-danger btn-inverse" onClick={reload} data-feature="refresh-on-error" style={{ margin: 20 }}>
 				Refresh
 			</button>
-			<a className="btn btn-primary btn-inverse" href={download(props.error)} download="report.json" data-feature="download-on-error-details">
+			<a className="btn btn-primary btn-inverse" href={onError.createObjectURL(props.error)} download="report.json" data-feature="download-on-error-details">
 				Download details
 			</a>
 		</div>
@@ -54,7 +43,6 @@ function ErrorPanel(props) {
 
 ErrorPanel.displayName = 'ErrorPanel';
 ErrorPanel.propTypes = {
-	context: PropTypes.string,
 	reported: PropTypes.bool,
 	reason: PropTypes.shape({ message: PropTypes.string }),
 	response: PropTypes.shape({ id: PropTypes.node }),

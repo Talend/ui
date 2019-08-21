@@ -9,6 +9,7 @@ import { combineReducers } from 'redux';
 import collectionsReducers from './collectionsReducers';
 import { componentsReducers } from './componentsReducers';
 import { settingsReducers } from './settingsReducers';
+import CONST from '../constant';
 
 const defaultState = [];
 
@@ -16,7 +17,7 @@ const defaultState = [];
  * errorsReducer
  */
 function errorsReducer(state = defaultState, action) {
-	if (action.type === 'CMF_ERROR') {
+	if (action.type === CONST.ERROR) {
 		return state.concat(action.error);
 	}
 	return state;

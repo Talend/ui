@@ -110,6 +110,7 @@ export function ActionButton(props) {
 		hideLabel,
 		label,
 		loading,
+		download,
 		link,
 		model,
 		onMouseDown = noOp,
@@ -180,6 +181,7 @@ export function ActionButton(props) {
 			role={link ? 'link' : null}
 			aria-label={ariaLabel}
 			ref={buttonRef}
+			download={download}
 			{...buttonProps}
 		>
 			{buttonContent}
@@ -229,6 +231,7 @@ ActionButton.propTypes = {
 	bsStyle: PropTypes.string,
 	buttonRef: PropTypes.func,
 	disabled: PropTypes.bool,
+	download: PropTypes.string,
 	hideLabel: PropTypes.bool,
 	iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
 	label: PropTypes.string.isRequired,

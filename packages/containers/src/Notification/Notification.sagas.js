@@ -1,5 +1,7 @@
-import { take, put, select, takeEvery } from 'redux-saga/effects';
+import { put, select, takeEvery } from 'redux-saga/effects';
 import objectId from 'uuid/v4';
+import CMF_CONST from '@talend/react-cmf/lib/constant';
+import onError from '@talend/react-cmf/lib/onError';
 import Notification from './Notification.connect';
 import Constants from './Notification.constants';
 import { pushError } from './Notification.actions';
@@ -21,18 +23,24 @@ export function* onPushNotification(action) {
 
 function* onCMFError(action) {
 	const error = action.error;
+	const download = {
+		href: onError.createObjectURL(error),
+		label: 'Download details',
+		download: 'report.json',
+		'data-feature': 'download-on-error-details',
+	};
 	const notification = {
 		type: 'error',
 		title: `${error.name}: ${error.message}`,
 		message: error.stack,
-		// action: refresh
+		action: download,
 	};
 	yield put(pushError(notification));
 }
 
 function* defaultHandler() {
 	yield takeEvery(Constants.PUSH_NOTIFICATION, onPushNotification);
-	yield takeEvery('CMF_ERROR', onCMFError);
+	yield takeEvery(CMF_CONST.ERROR, onCMFError);
 }
 
 export default {
