@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import talendIcons from '@talend/icons/dist/react';
+import { action } from '@storybook/addon-actions';
 
 import ActionIconToggle from '../src/Actions/ActionIconToggle';
+import InputDateTimePicker from '../src/DateTimePickers';
 import { GridLayout, IconsProvider } from '../src/';
 import Tile from '../src/GridLayout/Tile/index';
 import Action from '../src/Actions/Action';
@@ -28,31 +30,37 @@ function TdsTileContent() {
 	};
 
 	switch (displayMode) {
-		case 'chart':
-			return (
-				<React.Fragment>
-					<div>
-						'my chart'
-					</div>
-				</React.Fragment>
-			);
-		case 'filter':
-			return (
-				<React.Fragment>
-					<div>my filter</div>
-					<Action {...submitAction} />
-				</React.Fragment>
-			);
-		case 'filterUser': {
-			return (
-				<React.Fragment>
-					<div>'user list'</div>
-					<Action {...submitAction} />
-				</React.Fragment>
-			);
-		}
-		default:
-			return null;
+	case 'chart':
+		return (
+			<React.Fragment>
+				<div>
+					'my chart'
+					<InputDateTimePicker
+						id="my-date-picker"
+						name="Datetime"
+						onBlur={action('onBlur')}
+						onChange={action('onChange')}
+					/>
+				</div>
+			</React.Fragment>
+		);
+	case 'filter':
+		return (
+			<React.Fragment>
+				<div>my filter</div>
+				<Action {...submitAction} />
+			</React.Fragment>
+		);
+	case 'filterUser': {
+		return (
+			<React.Fragment>
+				<div>'user list'</div>
+				<Action {...submitAction} />
+			</React.Fragment>
+		);
+	}
+	default:
+		return null;
 	}
 }
 
@@ -97,10 +105,10 @@ function ChartTile({ tile }) {
 		<Tile.Container>
 			{
 				tile.header ? (
-					<Tile.Header>
-						{ tile.header.label }
-						<ViewSelector></ViewSelector>
-					</Tile.Header> )
+						<Tile.Header>
+							{ tile.header.label }
+							<ViewSelector></ViewSelector>
+						</Tile.Header> )
 					: null
 			}
 			<Tile.Body>
