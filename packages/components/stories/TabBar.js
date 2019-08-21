@@ -9,42 +9,42 @@ const tabProps = {
 	items: [
 		{
 			key: '1',
-			label: 'Tab1 Lorem ipsum',
+			label: 'Tab1',
 			'data-feature': 'action.1',
 		},
 		{
 			key: '2',
-			label: 'Tab2 Lorem ipsum',
+			label: 'Tab2',
 			'data-feature': 'action.2',
 		},
 		{
 			key: '3',
-			label: 'Tab3 Lorem ipsum',
+			label: 'Tab3',
 			'data-feature': 'action.3',
 		},
 		{
 			key: '4',
-			label: 'Tab4 Lorem ipsum',
+			label: 'Tab4',
 			'data-feature': 'action.4',
 		},
 		{
 			key: '5',
-			label: 'Tab5 Lorem ipsum',
+			label: 'Tab5',
 			'data-feature': 'action.5',
 		},
 		{
 			key: '6',
-			label: 'Tab6 Lorem ipsum',
+			label: 'Tab6',
 			'data-feature': 'action.6',
 		},
 		{
 			key: '7',
-			label: 'Tab7 Lorem ipsum',
+			label: 'Tab7',
 			'data-feature': 'action.7',
 		},
 		{
 			key: '8',
-			label: 'Tab8 Lorem ipsum',
+			label: 'Tab8',
 			'data-feature': 'action.8',
 		},
 	],

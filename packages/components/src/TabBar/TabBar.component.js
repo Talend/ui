@@ -111,7 +111,7 @@ class TabBar extends React.Component {
 			return (
 				<React.Fragment>
 					<form>
-						<div className={theme['tc-responsive-tabBar-select-container']}>
+						<div className={theme['tc-responsive-tab-bar-select-container']}>
 							<select
 								onChange={event => this.handleSelect(event.target.value, event)}
 								value={selectedKey}
@@ -140,7 +140,7 @@ class TabBar extends React.Component {
 				<div ref={this.navBarContainerRef}>
 					<Nav
 						bsStyle="tabs"
-						className={classnames('tc-tab-bar', theme['tc-responsive-tabBar'])}
+						className={classnames('tc-tab-bar', theme['tc-responsive-tab-bar'])}
 						ref={ref => {
 							this.ref = ref;
 						}}

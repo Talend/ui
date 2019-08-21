@@ -6,15 +6,15 @@
         str-length($search)), $search, $replace), 
         $string); 
 }    
-@function hexToUrl($color) {
+@function hex-to-url($color) {
     $newcolor: str-replace('' + $color, '#', '%23');
     @return $newcolor;
 }
 @mixin caret-down($color) {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z" fill="#{hexToUrl($color)}"/></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z" fill="#{hex-to-url($color)}"/></svg>');
 }
 
-.tc-responsive-tabBar {
+.tc-responsive-tab-bar {
 	overflow: hidden;
 	white-space: nowrap;
 
@@ -23,7 +23,7 @@
 		display: inline-block;
 	}
 }
-.tc-responsive-tabBar-select-container {
+.tc-responsive-tab-bar-select-container {
 	select {
         @include caret-down($st-tropaz);
         background-position: right center;
