@@ -110,6 +110,38 @@ $tc-toggle-color: #555964 !default;
 		}
 	}
 
+	.panel-header-content {
+		display: flex;
+		height: 4rem;
+		align-items: center;
+		padding: 0 $padding-normal;
+		& > a {
+			width: 100%;
+		}
+		.panel-title {
+			padding: 0;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-basis: 100%;
+			overflow: hidden;
+			text-decoration: none;
+			text-transform: none;
+			font-size: 1.4rem;
+			width: 100%;
+			padding-right: $padding-smaller;
+			> * {
+				padding: 0;
+				letter-spacing: 0;
+				text-decoration: none;
+				@include col-style;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+		}
+	}
+
 	:global(.tc-icon-toggle) {
 		height: 1.6rem;
 		width: 1.6rem;
@@ -132,9 +164,12 @@ $tc-toggle-color: #555964 !default;
 
 	:global {
 		.panel-heading {
-			padding-top: 0;
-			padding-bottom: 0;
-
+			display: flex;
+			justify-content: space-between;
+			padding: 0;
+			.panel-title {
+				width: 100%;
+			}
 			&:hover {
 				background: $white;
 				cursor: pointer;
@@ -144,45 +179,6 @@ $tc-toggle-color: #555964 !default;
 				}
 			}
 		}
-	}
-
-	:global {
-		.panel-heading {
-            display: flex;
-            justify-content: space-between;
-            padding: 0 $padding-normal;
-
-            > * {
-                padding: 0;
-                letter-spacing: 0;
-                text-decoration: none;
-            }
-			> .panel-title {
-				padding: 0;
-			}
-            .panel-title {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                flex-basis: 100%;
-                overflow: hidden;
-                text-decoration: none;
-                text-transform: none;
-                font-size: 1.4rem;
-				width: 100%;
-				padding-right: $padding-smaller;
-				> *, .panel-header-content {
-                    @include col-style;
-                    display: flex;
-                    align-items: center;
-                    height: 4rem;
-					justify-content: space-between;
-				}
-				.panel-header-content, > a {
-					width: 100%;
-				}
-            }
-	    }
 	}
 }
 

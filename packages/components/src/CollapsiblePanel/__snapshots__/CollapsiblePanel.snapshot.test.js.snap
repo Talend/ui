@@ -14,13 +14,13 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
         className="theme-panel-header-content panel-header-content"
       >
         <button
-          className="theme-panel-title panel-title btn btn-link"
+          className="theme-panel-title btn btn-link"
           disabled={false}
           onClick={[MockFunction]}
           type="button"
         >
           <div
-            className="theme-panel-title panel-title"
+            className="theme-panel-title"
           >
             <div
               className="theme-undefined theme-col-4"
@@ -261,13 +261,13 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
         className="theme-panel-header-content panel-header-content"
       >
         <button
-          className="theme-panel-title panel-title btn btn-link"
+          className="theme-panel-title btn btn-link"
           disabled={false}
           onClick={[MockFunction]}
           type="button"
         >
           <div
-            className="theme-panel-title panel-title"
+            className="theme-panel-title"
           >
             <div
               className="theme-undefined theme-col-4"
@@ -507,13 +507,13 @@ exports[`CollapsiblePanel should render default without content 1`] = `
         className="theme-panel-header-content panel-header-content"
       >
         <button
-          className="theme-panel-title panel-title btn btn-link"
+          className="theme-panel-title btn btn-link"
           disabled={false}
           onClick={[MockFunction]}
           type="button"
         >
           <div
-            className="theme-panel-title panel-title"
+            className="theme-panel-title"
           >
             <div
               className="theme-undefined theme-col-4"
@@ -702,13 +702,13 @@ exports[`CollapsiblePanel should render panel with custom element 1`] = `
         className="theme-panel-header-content panel-header-content"
       >
         <button
-          className="theme-panel-title panel-title btn btn-link"
+          className="theme-panel-title btn btn-link"
           disabled={false}
           onClick={[MockFunction]}
           type="button"
         >
           <div
-            className="theme-panel-title panel-title"
+            className="theme-panel-title"
           >
             <div
               className="theme-undefined theme-col-3"
@@ -805,13 +805,13 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
         className="theme-panel-header-content panel-header-content"
       >
         <button
-          className="theme-panel-title panel-title btn btn-link"
+          className="theme-panel-title btn btn-link"
           disabled={false}
           onClick={[MockFunction]}
           type="button"
         >
           <div
-            className="theme-panel-title panel-title"
+            className="theme-panel-title"
           >
             <div
               className="theme-group theme-col-2"
@@ -989,13 +989,13 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
         className="theme-panel-header-content panel-header-content"
       >
         <button
-          className="theme-panel-title panel-title btn btn-link"
+          className="theme-panel-title btn btn-link"
           disabled={false}
           onClick={[MockFunction]}
           type="button"
         >
           <div
-            className="theme-panel-title panel-title"
+            className="theme-panel-title"
           >
             <div
               className="theme-group theme-col-2"

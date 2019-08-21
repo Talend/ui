@@ -130,17 +130,17 @@ function CollapsiblePanelHeader(props) {
 	const wrappedHeader = [
 		onSelect ? (
 			<Button
-				className={classNames(css['panel-title'], 'panel-title')}
+				className={classNames(css['panel-title'])}
 				bsStyle="link"
 				key="panel-toggle"
 				onClick={onSelect}
 			>
-				<div className={classNames(css['panel-title'], 'panel-title')}>{headerItems}</div>
+				<div className={classNames(css['panel-title'])}>{headerItems}</div>
 			</Button>
 		) : (
 			/* eslint-disable jsx-a11y/no-static-element-interactions */
 			<div
-				className={classNames(css['panel-title'], 'panel-title')}
+				className={classNames(css['panel-title'])}
 				key="panel-toggle"
 				onClick={onToggle}
 			>
