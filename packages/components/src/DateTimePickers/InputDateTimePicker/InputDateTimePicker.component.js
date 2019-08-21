@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import keycode from 'keycode';
 
 import DateTime from '../DateTime';
-import { DateTimeContext } from '../DateTime/Context';
 import InputDatePicker from '../InputDatePicker';
 import InputTimePicker from '../InputTimePicker';
 
@@ -115,6 +114,26 @@ class InputDateTimePicker extends React.Component {
 		});
 	}
 	render() {
+		const eventProps = {
+			onBlur: this.onBlur,
+			onClick: this.onClick,
+			onFocus: this.onFocus,
+			onKeyDown: this.onKeyDown,
+		};
+		const pickers = [<InputDatePicker
+			{...this.props}
+			{...eventProps}
+			showPicker={this.state.showDatePicker}
+			setRef={ref => (this.dateInputRef = ref)}
+			setContainerRef={ref => (this.datePickerRef = ref)}
+		/>,
+		this.props.useTime && <InputTimePicker
+			{...this.props}
+			{...eventProps}
+			showPicker={this.state.showTimePicker}
+			setRef={ref => (this.timeInputRef = ref)}
+			setContainerRef={ref => (this.timePickerRef = ref)}
+		/>].filter(Boolean);
 		return (
 			<DateTime.Manager
 				dateFormat={this.props.dateFormat}
@@ -126,31 +145,9 @@ class InputDateTimePicker extends React.Component {
 				useUTC={this.props.useUTC}
 				onChange={this.onChange}
 			>
-				<DateTimeContext.Consumer>
-					{() => {
-						const eventProps = {
-							onBlur: this.onBlur,
-							onClick: this.onClick,
-							onFocus: this.onFocus,
-							onKeyDown: this.onKeyDown,
-						};
-						const pickers = [<InputDatePicker
-							{...this.props}
-							{...eventProps}
-							showPicker={this.state.showDatePicker}
-							setRef={ref => (this.dateInputRef = ref)}
-							setContainerRef={ref => (this.datePickerRef = ref)}
-						/>,
-						this.props.useTime && <InputTimePicker
-							{...this.props}
-							{...eventProps}
-							showPicker={this.state.showTimePicker}
-							setRef={ref => (this.timeInputRef = ref)}
-							setContainerRef={ref => (this.timePickerRef = ref)}
-						/>].filter(Boolean);
-						return <div className={theme['pickers-container']}>{pickers}</div>;
-					}}
-				</DateTimeContext.Consumer>
+				<div className={theme['pickers-container']}>
+					{pickers}
+				</div>
 			</DateTime.Manager>
 		);
 	}
