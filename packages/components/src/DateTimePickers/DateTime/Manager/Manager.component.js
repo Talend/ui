@@ -5,7 +5,6 @@ import isSameSecond from 'date-fns/is_same_second';
 import { DateTimeContext } from '../Context';
 import {
 	check,
-	checkTime,
 	checkSupportedDateFormat,
 	extractParts,
 	extractPartsFromDateAndTime,
@@ -14,13 +13,9 @@ import {
 	extractTimeFromTextInput,
 } from '../date-extraction';
 import {
-	HOUR_ERRORS,
-	MINUTES_ERRORS,
-	SECONDS_ERRORS,
-	FIELD_HOURS,
-	FIELD_MINUTES,
-	FIELD_SECONDS,
 	INPUT_ERRORS,
+	TIME_INPUT_ERRORS,
+	ALL_INPUT_ERRORS,
 } from '../constants';
 
 class ContextualManager extends React.Component {
@@ -140,10 +135,9 @@ class ContextualManager extends React.Component {
 		// because, by changing the picker, we update the textInput so we need to update its errors
 		const nextErrors = this.state.errors
 			// remove old main input errors
-			.filter(error => !INPUT_ERRORS.includes(error.code))
+			.filter(error => !ALL_INPUT_ERRORS.includes(error.code))
 			// add new main input errors
-			.concat(nextState.errors.filter(error => INPUT_ERRORS.includes(error.code)));
-
+			.concat(nextState.errors.filter(error => ALL_INPUT_ERRORS.includes(error.code)));
 		this.setState({ previousErrors: this.state.errors, ...nextState, errors: nextErrors }, () => {
 			if (!this.props.formMode) {
 				this.onChange(event, 'PICKER');
@@ -219,7 +213,6 @@ class ContextualManager extends React.Component {
 			<DateTimeContext.Provider
 				value={{
 					datetime: {
-						textInput: this.state.textInput,
 						dateTextInput: this.state.dateTextInput,
 						timeTextInput: this.state.timeTextInput,
 						date: this.state.date,

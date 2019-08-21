@@ -5,16 +5,21 @@ exports[`DateTime.Manager should render its children 1`] = `
   value={
     Object {
       "dateInputManagement": Object {
+        "onChange": [Function],
         "placeholder": "YYYY-MM-DD",
+      },
+      "datePickerManagement": Object {
+        "onSubmit": [Function],
       },
       "datetime": Object {
         "date": 2017-04-03T22:00:00.000Z,
-        "textInput": "2017-04-04 15:27",
+        "dateTextInput": "2017-04-04",
         "time": Object {
           "hours": "15",
           "minutes": "27",
           "seconds": "00",
         },
+        "timeTextInput": "15:27",
       },
       "errorManagement": Object {
         "errors": Array [],
@@ -35,13 +40,17 @@ exports[`DateTime.Manager should render its children 1`] = `
         "onChange": [Function],
       },
       "pickerManagement": Object {
-        "onSubmit": [Function],
         "useSeconds": false,
         "useTime": true,
         "useUTC": false,
       },
       "timeInputManagement": Object {
+        "onChange": [Function],
         "placeholder": "HH:mm",
+        "useSeconds": false,
+      },
+      "timePickerManagement": Object {
+        "onSubmit": [Function],
       },
     }
   }

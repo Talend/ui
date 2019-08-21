@@ -595,10 +595,9 @@ function extractDateFromTextInput(textInput, options, time) {
 		errors = [error];
 	}
 
-	const datetime = dateAndTimeToDateTime(date, timeToUse, options);
 	return {
 		date,
-		datetime,
+		datetime: dateAndTimeToDateTime(date, timeToUse, options),
 		dateTextInput: textInput,
 		errors,
 		errorMessage: errors[0] ? errors[0].message : null,
@@ -612,6 +611,13 @@ function extractDateFromTextInput(textInput, options, time) {
  * @param {Date} date date selected or today
  */
 function extractTimeFromTextInput(textInput, options, date) {
+	if (textInput === '') {
+		return {
+			time: undefined,
+			timeTextInput: textInput,
+			errors: [],
+		};
+	}
 	let time;
 	let errors = [];
 	try {
