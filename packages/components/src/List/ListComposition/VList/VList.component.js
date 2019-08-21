@@ -8,6 +8,7 @@ function VList(props) {
 	return <VirtualizedList collection={collection} type={displayMode.toUpperCase()} {...props} />;
 }
 
+// we port the VirtualizedList columns to VList to allow VList.Title/Badge/...
 Object.entries(VirtualizedList).forEach(([key, value]) => {
 	VList[key] = value;
 });
