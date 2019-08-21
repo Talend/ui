@@ -1,15 +1,16 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import BadgeDelete from './BadgeDelete.component';
+import getDefaultT from '../../../translate';
 
 describe('BadgeDelete', () => {
 	it('should render', () => {
 		// given
 		const onClick = jest.fn();
 		const props = {
-			id: 'my id',
+			id: 'my-id',
 			onClick,
-			t: () => 'delete',
+			t: getDefaultT(),
 		};
 		// when
 		const wrapper = mount(<BadgeDelete {...props} />);
@@ -20,9 +21,9 @@ describe('BadgeDelete', () => {
 		// given
 		const onClick = jest.fn();
 		const props = {
-			id: 'my id',
+			id: 'my-id',
 			onClick,
-			t: () => 'delete',
+			t: getDefaultT(),
 		};
 		// when
 		const wrapper = mount(<BadgeDelete {...props} />);

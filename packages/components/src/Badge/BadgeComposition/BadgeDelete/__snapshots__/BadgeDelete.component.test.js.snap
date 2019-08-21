@@ -6,7 +6,7 @@ exports[`BadgeDelete should render 1`] = `
 >
   <button role="button"
           aria-label="delete"
-          id="tc-badge-delete-my id"
+          id="tc-badge-delete-my-id"
           aria-describedby="42"
           type="button"
           class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
