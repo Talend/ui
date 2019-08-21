@@ -21,11 +21,12 @@ src/List/Toolbar/Toolbar.scss
   93:12  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/TabBar/TabBar.scss
-   1:2  error  Class '.tc-responsive-tabBar' should be written in lowercase with hyphens                   class-name-format
-  10:2  error  Class '.tc-responsive-tabBar-select-container' should be written in lowercase with hyphens  class-name-format
+   5:11  error  Function 'hexToUrl' should be written in lowercase with hyphens                             function-name-format
+  13:2   error  Class '.tc-responsive-tabBar' should be written in lowercase with hyphens                   class-name-format
+  22:2   error  Class '.tc-responsive-tabBar-select-container' should be written in lowercase with hyphens  class-name-format
 
 src/Typeahead/Typeahead.scss
   31:5  error  Mixins should come before declarations  mixins-before-declarations
 
-✖ 12 problems (10 errors, 2 warnings)
+✖ 13 problems (11 errors, 2 warnings)
 
