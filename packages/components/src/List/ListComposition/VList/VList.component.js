@@ -8,7 +8,8 @@ function VList(props) {
 	return <VirtualizedList collection={collection} type={displayMode.toUpperCase()} {...props} />;
 }
 
-VList.Content = VirtualizedList.Content;
-VList.propTypes = VirtualizedList.propTypes;
-
+Object.entries(VirtualizedList).forEach(([key, value]) => {
+	VList[key] = value;
+});
+VList.displayName = 'VList';
 export default VList;
