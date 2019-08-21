@@ -1,8 +1,5 @@
-import React from 'react';
-import CellCheckbox from './CellCheckbox.component';
+import ColumnConfiguration, { cellType } from './CheckboxColumn.configuration';
+import CheckboxColumn from './CheckboxColumn.component';
 
-export const cellType = 'checkbox';
-
-export default {
-	cellRenderer: props => <CellCheckbox {...props} />,
-};
+export { cellType, CheckboxColumn };
+export default ColumnConfiguration;

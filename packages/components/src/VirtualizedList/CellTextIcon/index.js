@@ -1,8 +1,5 @@
-import React from 'react';
-import CellWithIcon from './CellWithIcon.component';
+import ColumnConfiguration, { cellType } from './TextIconColumn.configuration';
+import TextIconColumn from './TextIconColumn.component';
 
-export const cellType = 'texticon';
-
-export default {
-	cellRenderer: props => <CellWithIcon {...props} />,
-};
+export { cellType, TextIconColumn };
+export default ColumnConfiguration;

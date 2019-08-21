@@ -1,8 +1,5 @@
-import React from 'react';
-import CellDatetime from './CellDatetime.component';
+import ColumnConfiguration, { cellType } from './DatetimeColumn.configuration';
+import DatetimeColumn from './DatetimeColumn.component';
 
-export const cellType = 'datetime';
-
-export default {
-	cellRenderer: props => <CellDatetime {...props} />,
-};
+export { cellType, DatetimeColumn };
+export default ColumnConfiguration;
