@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import keycode from 'keycode';
-import cases from 'jest-in-case';
 
 import InputDateTimePicker from './InputDateTimePicker.component';
 import Manager from '../DateTime/Manager';
