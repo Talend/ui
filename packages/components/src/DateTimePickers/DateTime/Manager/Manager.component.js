@@ -13,8 +13,6 @@ import {
 	extractTimeFromTextInput,
 } from '../date-extraction';
 import {
-	INPUT_ERRORS,
-	TIME_INPUT_ERRORS,
 	ALL_INPUT_ERRORS,
 } from '../constants';
 
@@ -23,7 +21,6 @@ class ContextualManager extends React.Component {
 	static propTypes = {
 		children: PropTypes.node,
 		dateFormat: PropTypes.string,
-		formMode: PropTypes.bool,
 		id: PropTypes.string.isRequired,
 		onChange: PropTypes.func,
 		required: PropTypes.bool,
@@ -39,7 +36,6 @@ class ContextualManager extends React.Component {
 
 	static defaultProps = {
 		dateFormat: 'YYYY-MM-DD',
-		formMode: false,
 		// default behaviour is to forbid empty values
 		required: true,
 		useSeconds: false,
@@ -51,19 +47,12 @@ class ContextualManager extends React.Component {
 		super(props);
 
 		checkSupportedDateFormat(props.dateFormat);
-		this.inputErrorId = `${props.id}-input-error`;
-		this.hoursErrorId = `${props.id}-hours-error`;
-		this.minutesErrorId = `${props.id}-minutes-error`;
-		this.secondsErrorId = `${props.id}-seconds-error`;
 		this.initialState = extractParts(props.selectedDateTime, this.getDateOptions());
 		this.state = {
 			...this.initialState,
 			previousErrors: [],
 		};
 
-		this.onInputFocus = this.onInputFocus.bind(this);
-		this.hasError = this.hasError.bind(this);
-		this.onReset = this.onReset.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onDateInputChange = this.onDateInputChange.bind(this);
@@ -110,9 +99,7 @@ class ContextualManager extends React.Component {
 
 	onInputChange(event, nextState) {
 		this.setState({ previousErrors: this.state.errors, ...nextState }, () => {
-			if (!this.props.formMode) {
-				this.onChange(event, 'INPUT');
-			}
+			this.onChange(event, 'INPUT');
 		});
 	}
 
@@ -139,9 +126,7 @@ class ContextualManager extends React.Component {
 			// add new main input errors
 			.concat(nextState.errors.filter(error => ALL_INPUT_ERRORS.includes(error.code)));
 		this.setState({ previousErrors: this.state.errors, ...nextState, errors: nextErrors }, () => {
-			if (!this.props.formMode) {
-				this.onChange(event, 'PICKER');
-			}
+			this.onChange(event, 'PICKER');
 		});
 	}
 
@@ -176,18 +161,6 @@ class ContextualManager extends React.Component {
 		});
 	}
 
-	onInputFocus(event, focusedId) {
-		this.setState({ focusedInput: focusedId });
-	}
-
-	onReset() {
-		// in form mode user has to explicitly validate the persist the selected date
-		// Otherwise, on picker close, the date is reset to the previous value
-		if (this.props.formMode) {
-			this.setState({ ...this.initialState });
-		}
-	}
-
 	getDateOptions() {
 		return {
 			dateFormat: this.props.dateFormat,
@@ -196,16 +169,6 @@ class ContextualManager extends React.Component {
 			useUTC: this.props.useUTC,
 			required: this.props.required,
 		};
-	}
-
-	hasError(errorCodes) {
-		// no error management in component when not in formMode
-		if (!this.props.formMode) {
-			return false;
-		}
-
-		const errorCodesArray = Array.isArray(errorCodes) ? errorCodes : [errorCodes];
-		return !!this.state.errors.find(stateError => errorCodesArray.indexOf(stateError.code) > -1);
 	}
 
 	render() {
@@ -217,18 +180,6 @@ class ContextualManager extends React.Component {
 						timeTextInput: this.state.timeTextInput,
 						date: this.state.date,
 						time: this.state.time,
-					},
-
-					errorManagement: {
-						onInputFocus: this.onInputFocus,
-						focusedInput: this.state.focusedInput,
-						errors: this.state.errors,
-						hasError: this.hasError,
-						formMode: this.props.formMode,
-						inputErrorId: this.inputErrorId,
-						hoursErrorId: this.hoursErrorId,
-						minutesErrorId: this.minutesErrorId,
-						secondsErrorId: this.secondsErrorId,
 					},
 
 					inputManagement: {
@@ -258,11 +209,6 @@ class ContextualManager extends React.Component {
 
 					timePickerManagement: {
 						onSubmit: this.onTimePickerChange,
-					},
-
-					formManagement: {
-						onReset: this.onReset,
-						onSubmit: this.onSubmit,
 					},
 				}}
 			>

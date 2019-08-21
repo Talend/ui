@@ -123,53 +123,6 @@ describe('InputDateTimePicker', () => {
 			expect(onChange).toBeCalledWith(event, payload);
 		});
 
-		cases(
-			'from picker',
-			({ expectedOverlay, formMode, useTime }) => {
-				// given
-				const wrapper = mount(
-					<InputDateTimePicker
-						id="my-picker"
-						onChange={jest.fn()}
-						formMode={formMode}
-						useTime={useTime}
-					/>,
-				);
-				wrapper.find('InputDatePicker').simulate('focus');
-				expect(getOverlay(wrapper).exists()).toBe(true);
-
-				// when
-				wrapper
-					.find('.tc-date-picker-day')
-					.first()
-					.simulate('click');
-
-				// then
-				expect(getOverlay(wrapper).exists()).toBe(expectedOverlay);
-			},
-			[
-				{
-					name: 'should close overlay',
-					expectedOverlay: false,
-					formMode: false,
-					useTime: false,
-				},
-				{
-					name: 'should NOT close overlay in form mode',
-					expectedOverlay: true,
-					formMode: true,
-					useTime: false,
-				},
-				// TODO: restore tests when time picker is done.
-				// {
-				// 	name: 'should close overlay in time mode',
-				// 	expectedOverlay: false,
-				// 	formMode: false,
-				// 	useTime: true,
-				// },
-			],
-		);
-
 		it('should NOT close from input change', () => {
 			// given
 			const wrapper = mount(<InputDateTimePicker id="my-picker" onChange={jest.fn()} />);
@@ -181,24 +134,6 @@ describe('InputDateTimePicker', () => {
 
 			// then
 			expect(getOverlay(wrapper).exists()).toBe(true);
-		});
-
-		// TODO: fix test
-		it('should close in form mode submit', () => {
-			// given
-			const wrapper = mount(<InputDateTimePicker id="my-picker" onChange={jest.fn()} formMode />);
-			wrapper.find('InputDatePicker').simulate('focus');
-			expect(getOverlay(wrapper).exists()).toBe(true);
-
-			// when
-			wrapper
-				.find('.tc-date-picker-day')
-				.last()
-				.simulate('click');
-			wrapper.find('form').simulate('submit');
-
-			// then
-			expect(getOverlay(wrapper).exists()).toBe(false);
 		});
 	});
 });

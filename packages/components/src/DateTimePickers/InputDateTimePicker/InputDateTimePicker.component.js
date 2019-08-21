@@ -35,8 +35,7 @@ class InputDateTimePicker extends React.Component {
 		};
 	}
 
-	onBlur(event, { onReset }, part) {
-		onReset();
+	onBlur(event, part) {
 		if (part === 'date') {
 			this.closeDatePicker({ datePicked: false });
 		} else {
@@ -50,8 +49,7 @@ class InputDateTimePicker extends React.Component {
 	onChange(event, payload) {
 		this.props.onChange(event, payload);
 		if (
-			this.props.formMode ||
-			(!this.props.formMode && !this.props.useTime && payload.origin !== 'INPUT')
+			(!this.props.useTime && payload.origin !== 'INPUT')
 		) {
 			this.dateInputRef.focus();
 			this.closeDatePicker({ datePicked: true });
@@ -80,10 +78,9 @@ class InputDateTimePicker extends React.Component {
 		}
 	}
 
-	onKeyDown(event, { onReset }) {
+	onKeyDown(event) {
 		switch (event.keyCode) {
 			case keycode.codes.esc:
-				onReset();
 				this.dateInputRef.focus();
 				this.closeDatePicker();
 				break;
@@ -121,7 +118,6 @@ class InputDateTimePicker extends React.Component {
 		return (
 			<DateTime.Manager
 				dateFormat={this.props.dateFormat}
-				formMode={this.props.formMode}
 				id={this.props.id}
 				required={this.props.required}
 				selectedDateTime={this.props.selectedDateTime}
@@ -131,9 +127,8 @@ class InputDateTimePicker extends React.Component {
 				onChange={this.onChange}
 			>
 				<DateTimeContext.Consumer>
-					{({ formManagement }) => {
+					{() => {
 						const eventProps = {
-							formManagement,
 							onBlur: this.onBlur,
 							onClick: this.onClick,
 							onFocus: this.onFocus,
@@ -153,12 +148,7 @@ class InputDateTimePicker extends React.Component {
 							setRef={ref => (this.timeInputRef = ref)}
 							setContainerRef={ref => (this.timePickerRef = ref)}
 						/>].filter(Boolean);
-						const pickersWrapper = <div className={theme['pickers-container']}>{pickers}</div>;
-						return this.props.formMode ? (
-							<form key="form" onSubmit={formManagement.onSubmit}>
-								{pickersWrapper}
-							</form>
-						) : pickersWrapper;
+						return <div className={theme['pickers-container']}>{pickers}</div>;
 					}}
 				</DateTimeContext.Consumer>
 			</DateTime.Manager>
@@ -185,7 +175,6 @@ InputDateTimePicker.defaultProps = {
 	useSeconds: false,
 	useTime: false,
 	useUTC: false,
-	formMode: false,
 	// default behaviour is to forbid empty values
 	required: true,
 };

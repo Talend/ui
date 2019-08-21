@@ -11,7 +11,6 @@ import DateTime from '../DateTime';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	'dateFormat',
-	'formMode',
 	'id',
 	'required',
 	'selectedDateTime',
@@ -23,7 +22,6 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'onClick',
 	'onFocus',
 	'onKeyDown',
-	'formManagement',
 	'showPicker',
 	'setRef',
 	'setContainerRef',
@@ -33,14 +31,12 @@ export const INPUT_PICKER_PROPTYPES = {
 	id: PropTypes.string.isRequired,
 	onBlur: PropTypes.func,
 	readOnly: PropTypes.bool,
-	formMode: PropTypes.bool,
 };
 
 export default function createInputPicker({ part, theme, Picker }) {
 	return class InputPicker extends React.Component {
 		static propTypes = {
 			...INPUT_PICKER_PROPTYPES,
-			formManagement: PropTypes.object,
 		};
 
 		constructor(props) {
@@ -90,7 +86,6 @@ export default function createInputPicker({ part, theme, Picker }) {
 						{({ ref, style }) => (
 							<div id={this.popoverId} className={theme.popper} style={style} ref={ref}>
 								<Picker {...this.props} />
-								{this.props.formMode && <DateTime.Validation />}
 							</div>
 						)}
 					</Popper>
@@ -107,10 +102,10 @@ export default function createInputPicker({ part, theme, Picker }) {
 					onClick={this.props.onClick}
 					onFocusIn={this.props.onFocus}
 					onFocusOut={event => {
-						this.props.onBlur(event, this.props.formManagement, part);
+						this.props.onBlur(event, part);
 					}}
 					onKeyDown={event => {
-						this.props.onKeyDown(event, this.props.formManagement, part);
+						this.props.onKeyDown(event, part);
 					}}
 				>
 					{picker}
