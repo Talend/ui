@@ -5,6 +5,7 @@ import SortBy from './SortBy';
 import TextFilter from './TextFilter';
 import Toolbar from './Toolbar';
 import VList from './VList';
+import useCollectionSort from './Manager/sort.hook';
 
 export default {
 	DisplayMode,
@@ -16,3 +17,5 @@ export default {
 	Toolbar,
 	VList,
 };
+
+export { useCollectionSort };

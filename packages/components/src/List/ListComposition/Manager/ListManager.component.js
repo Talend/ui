@@ -5,18 +5,18 @@ import { withTranslation } from 'react-i18next';
 import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
-import { sortCollection } from './sort';
+import useCollectionSort from './sort.hook';
 import { filterCollectionByText } from './filter';
 
 function Manager(props) {
+	let collection;
+
 	const [displayMode, setDisplayMode] = useState();
-	const [sortParams, setSortParams] = useState({});
 	const [textFilter, setTextFilter] = useState();
 
-	let collection = props.collection;
-
 	// Sort items
-	collection = useMemo(() => sortCollection(collection, sortParams), [collection, sortParams]);
+	const { sortedCollection, sortParams, setSortParams } = useCollectionSort(props.collection);
+	collection = sortedCollection;
 
 	// Filter by text
 	collection = useMemo(() => filterCollectionByText(collection, textFilter), [
