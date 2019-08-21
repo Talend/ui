@@ -5,84 +5,8 @@ import keycode from 'keycode';
 import InputDateTimePicker from './InputDateTimePicker.component';
 import Manager from '../DateTime/Manager';
 
-function getOverlay(wrapper) {
-	return wrapper.find('Popper').first();
-}
-
 describe('InputDateTimePicker', () => {
-	describe('focus/blur', () => {
-		it('should open picker on focus', () => {
-			// given
-			const wrapper = mount(<InputDateTimePicker id="my-picker" />);
-			expect(getOverlay(wrapper).exists()).toBe(false);
-
-			// when
-			wrapper.simulate('focus');
-
-			// then
-			expect(getOverlay(wrapper).exists()).toBe(true);
-		});
-
-		it('should close picker on blur', () => {
-			// given
-			jest.useFakeTimers();
-			const wrapper = mount(<InputDateTimePicker id="my-picker" />);
-			wrapper.simulate('focus');
-			expect(getOverlay(wrapper).exists()).toBe(true);
-
-			// when
-			wrapper.simulate('blur');
-			jest.runAllTimers();
-			wrapper.update();
-
-			// then
-			expect(getOverlay(wrapper).exists()).toBe(false);
-		});
-
-		it('should trigger props.onBlur', () => {
-			// given
-			jest.useFakeTimers();
-			const onBlur = jest.fn();
-			const wrapper = mount(<InputDateTimePicker id="my-picker" onBlur={onBlur} />);
-			expect(onBlur).not.toBeCalled();
-
-			// when
-			wrapper.simulate('blur');
-			jest.runAllTimers();
-
-			// then
-			expect(onBlur).toBeCalled();
-		});
-	});
-
 	describe('keydown', () => {
-		it('should close the picker and focus on input with ESC', () => {
-			// given
-			const wrapper = mount(<InputDateTimePicker id="my-picker" />);
-			wrapper.simulate('focus');
-			expect(getOverlay(wrapper).exists()).toBe(true);
-			const event = { keyCode: keycode.codes.esc };
-
-			// when
-			wrapper.simulate('keydown', event);
-
-			// then
-			expect(getOverlay(wrapper).exists()).toBe(false);
-		});
-
-		it('should open picker if it is closed with DOWN on input', () => {
-			// given
-			const wrapper = mount(<InputDateTimePicker id="my-picker" />);
-			expect(getOverlay(wrapper).exists()).toBe(false);
-			const event = { keyCode: keycode.codes.down };
-
-			// when
-			wrapper.find('input').simulate('keydown', event);
-
-			// then
-			expect(getOverlay(wrapper).exists()).toBe(true);
-		});
-
 		it('should focus on calendar day if it is open with input DOWN', () => {
 			// given
 			const wrapper = mount(<InputDateTimePicker id="my-picker" />);
@@ -120,19 +44,6 @@ describe('InputDateTimePicker', () => {
 
 			// then
 			expect(onChange).toBeCalledWith(event, payload);
-		});
-
-		it('should NOT close from input change', () => {
-			// given
-			const wrapper = mount(<InputDateTimePicker id="my-picker" onChange={jest.fn()} />);
-			wrapper.find('InputDatePicker').simulate('focus');
-			expect(getOverlay(wrapper).exists()).toBe(true);
-
-			// when
-			wrapper.find('DebounceInput').simulate('change');
-
-			// then
-			expect(getOverlay(wrapper).exists()).toBe(true);
 		});
 	});
 });
