@@ -22,40 +22,22 @@ function getLocaleObject(t) {
 	}
 }
 
-function RelativeDateSimple({ fromNow, fullDate, t }) {
-	return (
-		<span title={fullDate}>
-			{t('DATE_FNS_AGO', { defaultValue: '{{value}} ago', value: fromNow })}
-		</span>
-	);
-}
-
-function RelativeDateWithIcon({ fromNow, fullDate, tooltipPlacement, t }) {
-	return (
-		<TooltipTrigger label={fullDate} tooltipPlacement={tooltipPlacement}>
-			<React.Fragment>
-				<Icon name="talend-scheduler" /> {t('DATE_FNS_AGO', { defaultValue: '{{value}} ago', value: fromNow })}
-			</React.Fragment>
-		</TooltipTrigger>
-	);
-}
-
-RelativeDateWithIcon.defaultProps = {
-	tooltipPlacement: 'top',
-};
-
 function RelativeDate({ withIcon, date, fullDateFormat, options, t }) {
 	const locale = getLocaleObject(t);
 
-	const props = {
-		fullDate: format(date, fullDateFormat),
-		fromNow: distanceInWordsToNow(date, { locale, ...options }),
-		t,
-	};
+	const fullDate = format(date, fullDateFormat);
+	const fromNow = distanceInWordsToNow(date, { locale, ...options });
+	const relativeDate = t('DATE_FNS_AGO', { defaultValue: '{{value}} ago', value: fromNow });
 
 	return withIcon
-		? <RelativeDateWithIcon {...props} />
-		: <RelativeDateSimple {...props} />;
+		? (
+			<TooltipTrigger label={fullDate} tooltipPlacement="top">
+				<React.Fragment>
+					<Icon name="talend-scheduler" /> {relativeDate}
+				</React.Fragment>
+			</TooltipTrigger>
+		)
+		: <span title={fullDate}>{relativeDate}</span>;
 }
 
 if (process.env.NODE_ENV !== 'production') {
@@ -69,17 +51,6 @@ if (process.env.NODE_ENV !== 'production') {
 		options: PropTypes.object,
 		fullDateFormat: PropTypes.string,
 		t: PropTypes.func,
-	};
-
-	RelativeDateSimple.propTypes = {
-		fromNow: PropTypes.string,
-		fullDate: PropTypes.string,
-		t: PropTypes.func,
-	};
-
-	RelativeDateWithIcon.propTypes = {
-		...RelativeDateSimple.propTypes,
-		tooltipPlacement: TooltipTrigger.propTypes.tooltipPlacement,
 	};
 }
 
