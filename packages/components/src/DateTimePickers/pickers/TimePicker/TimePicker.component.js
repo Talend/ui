@@ -88,6 +88,7 @@ class TimePicker extends React.Component {
 		this.updateHighlightIndex(index);
 	}
 	onSelect(event, time) {
+		event.stopPropagation();
 		this.props.onSubmit(event, {
 			time: strToTime(time, this.props.useSeconds),
 		});
@@ -118,7 +119,7 @@ class TimePicker extends React.Component {
 							key={index}
 							className={className}
 							onMouseOver={event => this.onMouseOver(event, index)}
-							onClick={event => this.onSelect(event, time, index)}
+							onClick={event => this.onSelect(event, time)}
 							role="listitem"
 						>
 							{time}
