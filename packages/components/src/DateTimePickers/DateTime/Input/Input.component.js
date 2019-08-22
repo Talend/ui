@@ -15,7 +15,7 @@ export default function Input(props) {
 	const value = props.part === 'date' ? datetime.dateTextInput : datetime.timeTextInput;
 	return (
 		<DebounceInput
-			size={partInputManagement.placeholder.length}
+			size={partInputManagement.placeholder.length + 1}
 			autoComplete="off"
 			className="form-control"
 			debounceTimeout={300}

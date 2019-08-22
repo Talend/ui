@@ -16,7 +16,7 @@ exports[`DateTime.Input should render 1`] = `
     minLength={0}
     part="date"
     placeholder="YYY-MM-DD"
-    size={9}
+    size={10}
     type="text"
   >
     <input
@@ -28,7 +28,7 @@ exports[`DateTime.Input should render 1`] = `
       onKeyDown={[Function]}
       part="date"
       placeholder="YYY-MM-DD"
-      size={9}
+      size={10}
       type="text"
       value=""
     />
