@@ -41,7 +41,7 @@ class TabBar extends React.Component {
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener('resize', this.resizeListener, false);
+		window.removeEventListener('resize', this.resizeListener);
 	}
 
 	shouldShowDropdown() {
