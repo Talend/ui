@@ -2,22 +2,24 @@
 @import '../../shared/styles/variables';
 
 .container {
+	&:after {
+		bottom: -0.5rem;
+		@include picker-underline;
+	}
 	width: 100%;
 	position: relative;
 }
 
 .calendar-header {
+	height: 3rem;
 	&:after {
-		content: '';
-		position: absolute;
-		width: calc(100% - 2rem);
-		top: 2rem;
-		left: 1rem;
-		border-bottom: $border-default;
+		top: 2.5rem;
+		@include picker-underline;
 	}
 
 	th {
 		text-align: center;
+		padding-bottom: $padding-small;
 	}
 
 	abbr {
