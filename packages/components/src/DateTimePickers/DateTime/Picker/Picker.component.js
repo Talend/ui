@@ -18,11 +18,7 @@ export default function Picker(props) {
 		if (props.onSubmit) {
 			props.onSubmit(event, payload);
 		}
-		if (props.part === 'date') {
-			datePickerManagement.onSubmit(event, payload);
-		} else {
-			timePickerManagement.onSubmit(event, payload);
-		}
+		partPickerManagement.onSubmit(event, payload);
 	};
 	return (
 		<PickerComponent
