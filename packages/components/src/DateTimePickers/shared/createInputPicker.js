@@ -47,7 +47,6 @@ export default function createInputPicker({ part, theme, Picker }) {
 			this.openPicker = this.setPickerVisibility.bind(this, true);
 			this.closePicker = this.setPickerVisibility.bind(this, false);
 		}
-
 		getPopperPlacement() {
 			const input = this.inputRef;
 			if (input) {
@@ -71,7 +70,6 @@ export default function createInputPicker({ part, theme, Picker }) {
 		onClick() {
 			this.openPicker();
 		}
-
 		onFocus() {
 			if (!this.state.picked) {
 				this.openPicker();
@@ -116,7 +114,6 @@ export default function createInputPicker({ part, theme, Picker }) {
 				};
 			});
 		}
-
 		render() {
 			const inputProps = omit(this.props, PROPS_TO_OMIT_FOR_INPUT);
 			const picker = [
