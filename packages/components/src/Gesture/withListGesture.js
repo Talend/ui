@@ -58,10 +58,12 @@ function onKeyDown(event, ref) {
 	switch (event.keyCode) {
 		case keycode.codes.down:
 			event.stopPropagation();
+			event.preventDefault();
 			focusOn(event, getNextItem(ref));
 			break;
 		case keycode.codes.up:
 			event.stopPropagation();
+			event.preventDefault();
 			focusOn(event, getPreviousItem(ref));
 			break;
 		default:
