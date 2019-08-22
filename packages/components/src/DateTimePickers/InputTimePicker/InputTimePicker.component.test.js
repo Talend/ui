@@ -3,15 +3,15 @@ import { shallow, mount } from 'enzyme';
 
 import { DateTimeContext } from '../DateTime/Context';
 import DateTime from '../DateTime';
-import InputDatePicker from './InputDatePicker.component';
+import InputTimePicker from './InputTimePicker.component';
 
-describe('InputDatePicker', () => {
-	it('should render Input for date', () => {
-		const wrapper = shallow(<InputDatePicker id="my-picker" />);
+describe('InputTimePicker', () => {
+	it('should render Input for time', () => {
+		const wrapper = shallow(<InputTimePicker id="my-picker" />);
 
-		expect(wrapper.find(DateTime.Input).prop('part')).toBe('date');
+		expect(wrapper.find(DateTime.Input).prop('part')).toBe('time');
 	});
-	it('should render date picker when focus on Input', () => {
+	it('should render time picker when focus on Input', () => {
 		// given
 		const managerValue = {
 			datetime: {
@@ -27,7 +27,7 @@ describe('InputDatePicker', () => {
 
 		const wrapper = mount(
 			<DateTimeContext.Provider value={managerValue}>
-				<InputDatePicker id="my-id" />
+				<InputTimePicker id="my-id" />
 			</DateTimeContext.Provider>
 		);
 
@@ -35,6 +35,6 @@ describe('InputDatePicker', () => {
 		wrapper.simulate('focus');
 
 		// then
-		expect(wrapper.find(DateTime.Picker).length).toBe(1);
+		expect(wrapper.find(DateTime.TimePicker).length).toBe(1);
 	});
 });
