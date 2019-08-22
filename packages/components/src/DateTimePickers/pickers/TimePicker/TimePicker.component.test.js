@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import TimePicker, { isBefore, addInterval, getOptions } from './TimePicker.component';
+import { TimePicker, isBefore, addInterval, getOptions } from './TimePicker.component';
 
 describe('TimePicker component', () => {
 	it('should render', () => {

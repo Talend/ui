@@ -45,7 +45,7 @@ export function getOptions(interval = 60, useSeconds = false) {
 	return options;
 }
 
-class TimePicker extends React.Component {
+export class TimePicker extends React.Component {
 	static propTypes = {
 		interval: PropTypes.number,
 		onSubmit: PropTypes.func.isRequired,
