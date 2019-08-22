@@ -35,7 +35,7 @@ describe('InputTimePicker', () => {
 		wrapper.simulate('focus');
 
 		// then
-		expect(wrapper.find(DateTime.TimePicker).length).toBe(1);
+		expect(wrapper.find('TimePicker').length).toBe(1);
 	});
 	it('should focus on time if it is open with input DOWN', () => {
 		// given

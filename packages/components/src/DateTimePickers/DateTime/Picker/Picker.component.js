@@ -3,29 +3,44 @@ import PropTypes from 'prop-types';
 
 import { DateTimeContext } from '../Context';
 import DateTimePicker from '../../pickers/DateTimePicker';
+import TimePicker from '../../pickers/TimePicker';
 
 export default function Picker(props) {
-	const { datetime, pickerManagement, datePickerManagement } = useContext(DateTimeContext);
+	const {
+		datetime,
+		pickerManagement,
+		datePickerManagement,
+		timePickerManagement,
+	} = useContext(DateTimeContext);
+	const PickerComponent = props.part === 'date' ? DateTimePicker : TimePicker;
+	const partPickerManagement = props.part === 'date' ? datePickerManagement : timePickerManagement;
+	const onSubmit = (event, payload) => {
+		if (props.onSubmit) {
+			props.onSubmit(event, payload);
+		}
+		if (props.part === 'date') {
+			datePickerManagement.onSubmit(event, payload);
+		} else {
+			timePickerManagement.onSubmit(event, payload);
+		}
+	};
 	return (
-		<DateTimePicker
+		<PickerComponent
 			manageFocus
 			selection={{
 				date: datetime.date,
+				time: datetime.time,
 			}}
 			{...pickerManagement}
-			{...datePickerManagement}
+			{...partPickerManagement}
 			{...props}
-			onSubmit={(event, payload) => {
-				if (props.onSubmit) {
-					props.onSubmit(event, payload);
-				}
-				datePickerManagement.onSubmit(event, payload);
-			}}
+			onSubmit={onSubmit}
 		/>
 	);
 }
 
 Picker.propTypes = {
+	part: PropTypes.oneOf(['date', 'time']),
 	onSubmit: PropTypes.func.isRequired,
 };
 

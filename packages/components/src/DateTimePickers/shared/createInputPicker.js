@@ -28,7 +28,7 @@ export const INPUT_PICKER_PROPTYPES = {
 	readOnly: PropTypes.bool,
 };
 
-export default function createInputPicker({ part, theme, Picker }) {
+export default function createInputPicker({ part, theme }) {
 	return class InputPicker extends React.Component {
 		static propTypes = INPUT_PICKER_PROPTYPES;
 
@@ -143,7 +143,7 @@ export default function createInputPicker({ part, theme, Picker }) {
 					>
 						{({ ref, style }) => (
 							<div id={this.popoverId} className={theme.popper} style={style} ref={ref}>
-								<Picker {...this.props} onSubmit={this.onChange} />
+								<DateTime.Picker {...this.props} onSubmit={this.onChange} part={part} />
 							</div>
 						)}
 					</Popper>
