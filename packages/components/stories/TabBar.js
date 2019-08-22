@@ -86,6 +86,10 @@ stories
 			<div id="default">
 				<TabBar {...tabProps}>I'm the child</TabBar>
 			</div>
+			<h3>Default TabBar with too small container</h3>
+			<div id="default-smaller" style={{ width: '300px' }}>
+				<TabBar {...tabProps}>I'm the child</TabBar>
+			</div>
 		</nav>
 	))
 	.add('custom id generator', () => (
