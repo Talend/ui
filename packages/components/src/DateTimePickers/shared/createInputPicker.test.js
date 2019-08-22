@@ -90,7 +90,8 @@ describe('InputPicker', () => {
 			const wrapper = mount(
 				<DateTimeContext.Provider value={managerValue}>
 					<InputSomethingPicker id="my-id" />
-				</DateTimeContext.Provider>);
+				</DateTimeContext.Provider>
+			);
 			wrapper.simulate('focus');
 			expect(getOverlay(wrapper).exists()).toBe(true);
 			const event = { keyCode: keycode.codes.esc };

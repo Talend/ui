@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
 import { strToTime, timeToStr } from '../../DateTime/date-extraction';
+import withListGesture from '../../../Gesture/withListGesture';
+
 
 import theme from './TimePicker.scss';
 
@@ -46,8 +49,9 @@ export function getOptions(interval = 60, useSeconds = false) {
 class TimePicker extends React.Component {
 	static propTypes = {
 		interval: PropTypes.number,
-		textInput: PropTypes.string,
 		onSubmit: PropTypes.func.isRequired,
+		onKeyDown: PropTypes.func.isRequired,
+		textInput: PropTypes.string,
 		useSeconds: PropTypes.bool,
 	};
 
@@ -113,14 +117,20 @@ class TimePicker extends React.Component {
 				{this.options.map((time, index) => {
 					const className = classNames(theme.time,
 						{ highlight: index === this.state.hightlightedItemIndex });
+					const ariaProps = {};
+					if (index === this.state.hightlightedItemIndex) {
+						ariaProps['aria-current'] = 'time';
+					}
 					return (
 						<button
+							role="listitem"
 							type="button"
 							key={index}
 							className={className}
 							onMouseOver={event => this.onMouseOver(event, index)}
 							onClick={event => this.onSelect(event, time)}
-							role="listitem"
+							onKeyDown={event => this.props.onKeyDown(event, this.containerRef.childNodes[index])}
+							{...ariaProps}
 						>
 							{time}
 						</button>
@@ -131,4 +141,4 @@ class TimePicker extends React.Component {
 	}
 }
 
-export default TimePicker;
+export default withListGesture(TimePicker);

@@ -8,7 +8,8 @@ import { Popper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
 import DateTime from '../DateTime';
-import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
+import { focusOnCalendar, focusOnTime } from '../../Gesture/withCalendarGesture';
+
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	'dateFormat',
@@ -87,7 +88,11 @@ export default function createInputPicker({ part, theme, Picker }) {
 						return;
 					}
 					if (this.state.showPicker) {
-						focusOnCalendar(this.containerRef);
+						if (part === 'date') {
+							focusOnCalendar(this.containerRef);
+						} else {
+							focusOnTime(this.containerRef);
+						}
 					} else {
 						this.openPicker();
 					}
