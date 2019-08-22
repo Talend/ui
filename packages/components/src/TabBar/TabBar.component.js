@@ -16,15 +16,15 @@ class TabBar extends React.Component {
 		this.handleSelect = this.handleSelect.bind(this);
 		this.handleKeyDown = this.handleKeyDown.bind(this);
 		this.shouldShowDropdown = this.shouldShowDropdown.bind(this);
-		this.showNavBarAndTest = this.showNavBarAndTest.bind(this);
+		this.showTabBarAndTest = this.showTabBarAndTest.bind(this);
 		this.state = {
 			showDropdown: false,
 		};
-		this.navBarContainerRef = React.createRef();
+		this.tabBarContainerRef = React.createRef();
 	}
 
 	componentDidMount() {
-		this.resizeListener = window.addEventListener('resize', debounce(this.showNavBarAndTest, 200));
+		this.resizeListener = window.addEventListener('resize', debounce(this.showTabBarAndTest, 200));
 		this.shouldShowDropdown();
 	}
 
@@ -45,11 +45,11 @@ class TabBar extends React.Component {
 	}
 
 	shouldShowDropdown() {
-		const tabContainer = this.navBarContainerRef.current;
+		const tabContainer = this.tabBarContainerRef.current;
 		if (tabContainer) {
-			// There is a TabBar, test if the right of this TabBar
-			// is smaller than the right of his last nav item.
-			const lastChild = this.navBarContainerRef.current.querySelector('li:last-child');
+			// There is a TabBar, test if the right boundary point of this TabBar
+			// is closer than the right boundary point of its last nav item.
+			const lastChild = this.tabBarContainerRef.current.querySelector('li:last-child');
 			if (lastChild) {
 				if (tabContainer.getBoundingClientRect().right < lastChild.getBoundingClientRect().right) {
 					this.setState({ showDropdown: true });
@@ -62,9 +62,9 @@ class TabBar extends React.Component {
 	}
 
 	/**
-	 * Just show the navBar and test if there is enough width.
+	 * Just show the tabBar and test if there is enough width.
 	 */
-	showNavBarAndTest() {
+	showTabBarAndTest() {
 		this.setState({ showDropdown: false });
 		this.shouldShowDropdown();
 	}
@@ -137,7 +137,7 @@ class TabBar extends React.Component {
 				onKeyDown={this.handleKeyDown}
 				generateChildId={generateChildId}
 			>
-				<div ref={this.navBarContainerRef}>
+				<div ref={this.tabBarContainerRef}>
 					<Nav
 						bsStyle="tabs"
 						className={classnames('tc-tab-bar', theme['tc-responsive-tab-bar'])}
