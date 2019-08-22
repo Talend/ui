@@ -114,7 +114,7 @@ export class TimePicker extends React.Component {
 				role="list"
 			>
 				{this.options.map((time, index) => {
-					const className = classNames(theme.time,
+					const className = classNames(
 						{ highlight: index === this.state.hightlightedItemIndex });
 					const ariaProps = {};
 					if (index === this.state.hightlightedItemIndex) {
