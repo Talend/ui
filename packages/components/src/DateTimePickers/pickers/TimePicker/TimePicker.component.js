@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { strToTime, timeToStr } from '../../DateTime/date-extraction';
 import withListGesture from '../../../Gesture/withListGesture';
 
-
 import theme from './TimePicker.scss';
 
 export function isBefore(a, b) {
