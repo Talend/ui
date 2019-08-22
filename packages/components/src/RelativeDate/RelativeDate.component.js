@@ -43,11 +43,8 @@ function RelativeDate({ withIcon, date, fullDateFormat, options, t }) {
 if (process.env.NODE_ENV !== 'production') {
 	RelativeDate.propTypes = {
 		withIcon: PropTypes.bool,
-		date: PropTypes.oneOfType([
-			PropTypes.instanceOf(Date),
-			PropTypes.string,
-			PropTypes.number,
-		]).isRequired,
+		date: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string, PropTypes.number])
+			.isRequired,
 		options: PropTypes.object,
 		fullDateFormat: PropTypes.string,
 		t: PropTypes.func,
