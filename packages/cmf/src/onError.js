@@ -20,7 +20,7 @@ const ref = {
 	actions: [],
 	sensibleKeys: [],
 	store: {
-		getState: () => { },
+		getState: () => ({}),
 	},
 };
 

@@ -1,53 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component ErrorPanel should render the error 1`] = `
-<div
-  className="panel panel-default"
->
-  <div
-    className="panel-heading"
+<div>
+  <p
+    className="error-title"
   >
-    Whoops, an error occured
-  </div>
-  <div
-    className="panel-body"
-  >
-    <p
-      className="text-danger"
-    >
-      Error
-      : 
+    Error
+    : 
+  </p>
+  <React.Fragment>
+    <p>
+      From here you have two choices:
     </p>
     <p>
-      Report status: 
-      Has been reported under 42
+      1. Refresh the app and retry
     </p>
-    <div
-      className="btn-group"
-      style={
-        Object {
-          "marginTop": 20,
-        }
+    <p>
+      2. Download the details and then contact the support
+    </p>
+  </React.Fragment>
+  <button
+    className="btn btn-danger btn-inverse"
+    data-feature="refresh-on-error"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 20,
       }
-    >
-      <button
-        className="btn btn-default btn-sm"
-        onClick={[Function]}
-      >
-        Refresh
-      </button>
-      <button
-        className="btn btn-default btn-sm"
-        onClick={undefined}
-      >
-        Show error details
-      </button>
-    </div>
-    <pre
-      className="hidden"
-    >
-      here it is
-    </pre>
-  </div>
+    }
+  >
+    Refresh
+  </button>
+  <a
+    className="btn btn-primary btn-inverse"
+    data-feature="download-on-error-details"
+    download="report.json"
+  >
+    Download details
+  </a>
 </div>
 `;

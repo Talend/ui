@@ -80,7 +80,8 @@
     "react-dom": "^16.8.6",
     "react-test-renderer": "^16.8.6",
     "redux-mock-store": "^1.2.3",
-    "redux-saga-tester": "^1.0.345"
+    "redux-saga-tester": "^1.0.345",
+    "rewire": "^4.0.1"
   },
   "peerDependencies": {
     "react": "^16.8.6",

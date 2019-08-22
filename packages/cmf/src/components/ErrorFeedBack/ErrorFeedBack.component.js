@@ -14,7 +14,7 @@ function ErrorFeedBack(props) {
 		);
 	}
 	const style = {
-		'overflow-y': 'auto',
+		overflowY: 'auto',
 		height: '100vh',
 	};
 	if (props.errors.length === 1) {

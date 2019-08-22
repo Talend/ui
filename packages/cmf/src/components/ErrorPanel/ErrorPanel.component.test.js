@@ -3,11 +3,12 @@ import { shallow } from 'enzyme';
 
 import Component from './ErrorPanel.component';
 
+global.window.URL.createObjectURL = jest.fn();
+
 describe('Component ErrorPanel', () => {
-	it('should render a panel', () => {
+	it('should render a div', () => {
 		const wrapper = shallow(<Component />);
-		expect(wrapper.props().className).toBe('panel panel-default');
-		expect(wrapper.find('.panel-heading').props().children).toBe('Whoops, an error occured');
+		expect(wrapper.type()).toBe('div');
 	});
 	it('should render the error', () => {
 		const error = {

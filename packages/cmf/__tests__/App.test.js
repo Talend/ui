@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 
 import App from '../src/App';
 import RegistryProvider from '../src/RegistryProvider';
+import ErrorBoundary from '../src/components/ErrorBoundary/ErrorBoundary.component';
 
 describe('CMF App', () => {
 	it('App should init stuff', () => {
@@ -19,9 +20,11 @@ describe('CMF App', () => {
 		expect(wrapper.contains(
 			<Provider store={store}>
 				<RegistryProvider>
-					<div className="children" />
+					<ErrorBoundary full>
+						<div className="children" />
+					</ErrorBoundary>
 				</RegistryProvider>
-			</Provider>)
-		).toEqual(true);
+			</Provider>
+		)).toEqual(true);
 	});
 });

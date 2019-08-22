@@ -1,7 +1,8 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-
+import { shallow, mount } from 'enzyme';
 import Component from './ErrorFeedBack.component';
+
+global.window.URL.createObjectURL = jest.fn();
 
 describe('Component ErrorFeedBack', () => {
 	it('should render ErrorPanel', () => {
@@ -13,27 +14,28 @@ describe('Component ErrorFeedBack', () => {
 		const wrapper = shallow(<Component errors={errors} />);
 		const panels = wrapper.find('ErrorPanel');
 		expect(panels.length).toBe(1);
-		expect(panels.props()).toEqual(errors[0]);
+		expect(panels.props().error).toEqual(errors[0]);
 	});
-	it('should add marginTop if one error', () => {
+	it('should add marginTop if full', () => {
 		const errors = [
 			{
-				foo: 'bar',
+				message: 'Error message',
+				name: 'Error name',
+				stack: 'Error stack',
 			},
 		];
-		const wrapper = shallow(<Component errors={errors} />);
+		const wrapper = mount(<Component errors={errors} full />);
 		expect(wrapper.find('.col-md-6').props().style.marginTop).toBe(200);
 	});
-	it('should not marginTop if two errors', () => {
+	it('should render react fragment if not full', () => {
 		const errors = [
 			{
-				foo: 'bar',
-			},
-			{
-				foo: 'bar',
+				message: 'Error message',
+				name: 'Error name',
+				stack: 'Error stack',
 			},
 		];
 		const wrapper = shallow(<Component errors={errors} />);
-		expect(wrapper.find('.col-md-6').props().style.marginTop).toBeUndefined();
+		expect(wrapper.find('Fragment').length).toBe(1);
 	});
 });
