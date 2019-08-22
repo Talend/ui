@@ -29,15 +29,15 @@ function RelativeDate({ withIcon, date, fullDateFormat, options, t }) {
 	const fromNow = distanceInWordsToNow(date, { locale, ...options });
 	const relativeDate = t('DATE_FNS_AGO', { defaultValue: '{{value}} ago', value: fromNow });
 
-	return withIcon
-		? (
-			<TooltipTrigger label={fullDate} tooltipPlacement="top">
-				<React.Fragment>
-					<Icon name="talend-scheduler" /> {relativeDate}
-				</React.Fragment>
-			</TooltipTrigger>
-		)
-		: <span title={fullDate}>{relativeDate}</span>;
+	return withIcon ? (
+		<TooltipTrigger label={fullDate} tooltipPlacement="top">
+			<React.Fragment>
+				<Icon name="talend-scheduler" /> {relativeDate}
+			</React.Fragment>
+		</TooltipTrigger>
+	) : (
+		<span title={fullDate}>{relativeDate}</span>
+	);
 }
 
 if (process.env.NODE_ENV !== 'production') {
