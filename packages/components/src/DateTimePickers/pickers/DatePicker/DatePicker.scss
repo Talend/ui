@@ -3,8 +3,8 @@
 
 .container {
 	&:after {
-		bottom: -0.5rem;
 		@include picker-underline;
+		bottom: -0.5rem;
 	}
 	width: 100%;
 	position: relative;
@@ -13,8 +13,8 @@
 .calendar-header {
 	height: 3rem;
 	&:after {
-		top: 2.5rem;
 		@include picker-underline;
+		top: 2.5rem;
 	}
 
 	th {
