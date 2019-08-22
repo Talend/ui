@@ -7,7 +7,7 @@ import { useListContext } from '../context';
 
 function SortBy(props) {
 	const { id, initialValue, options, onChange, value } = props;
-	const { sortParams, setSortParams, t } = useListContext();
+	const { displayMode, sortParams, setSortParams, t } = useListContext();
 	const isControlled = onChange;
 
 	useEffect(() => {
@@ -40,39 +40,43 @@ function SortBy(props) {
 	const onOrderChange = event =>
 		performChange(event, { ...currentValue, isDescending: !currentValue.isDescending });
 
+	const isVisible = !(props.hideOnDisplayMode && props.hideOnDisplayMode === displayMode);
+
 	return (
-		<React.Fragment>
-			<Navbar.Text>
-				<label htmlFor={id}>{t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}</label>
-			</Navbar.Text>
-			<Nav>
-				<NavDropdown
-					id={id}
-					title={selectedLabel}
-					onSelect={onSortByChange}
-					aria-label={t('LIST_CHANGE_DISPLAY_MODE', {
-						defaultValue: 'Change sorting option. Current sorting: {{sortBy}}.',
-						sortBy: selectedLabel,
-					})}
-				>
-					{options.map(({ key, label }) => (
-						<MenuItem id={`${id}-${key}`} key={key} eventKey={key} aria-label={label}>
-							{label}
-						</MenuItem>
-					))}
-				</NavDropdown>
-				<NavItem
-					id={`${id}-order`}
-					onClick={onOrderChange}
-					aria-label={t('LIST_CHANGE_SORT_BY_ORDER', {
-						defaultValue: 'Change sort order. Current order: {{sortOrder}}.',
-						sortOrder: orderLabel,
-					})}
-				>
-					{orderLabel}
-				</NavItem>
-			</Nav>
-		</React.Fragment>
+		isVisible && (
+			<React.Fragment>
+				<Navbar.Text>
+					<label htmlFor={id}>{t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}</label>
+				</Navbar.Text>
+				<Nav>
+					<NavDropdown
+						id={id}
+						title={selectedLabel}
+						onSelect={onSortByChange}
+						aria-label={t('LIST_CHANGE_DISPLAY_MODE', {
+							defaultValue: 'Change sorting option. Current sorting: {{sortBy}}.',
+							sortBy: selectedLabel,
+						})}
+					>
+						{options.map(({ key, label }) => (
+							<MenuItem id={`${id}-${key}`} key={key} eventKey={key} aria-label={label}>
+								{label}
+							</MenuItem>
+						))}
+					</NavDropdown>
+					<NavItem
+						id={`${id}-order`}
+						onClick={onOrderChange}
+						aria-label={t('LIST_CHANGE_SORT_BY_ORDER', {
+							defaultValue: 'Change sort order. Current order: {{sortOrder}}.',
+							sortOrder: orderLabel,
+						})}
+					>
+						{orderLabel}
+					</NavItem>
+				</Nav>
+			</React.Fragment>
+		)
 	);
 }
 
