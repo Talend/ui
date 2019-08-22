@@ -110,10 +110,9 @@ class DateTimePicker extends React.Component {
 		});
 	}
 
-	submit(event, field) {
+	submit(event) {
 		this.props.onSubmit(event, {
 			date: this.state.selectedDate,
-			field,
 		});
 	}
 

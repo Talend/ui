@@ -3,11 +3,14 @@
 exports[`TimePicker component should render 1`] = `
 <div
   className="theme-container"
+  role="list"
 >
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     00:00
@@ -15,7 +18,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     01:00
@@ -23,7 +28,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     02:00
@@ -31,7 +38,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     03:00
@@ -39,7 +48,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     04:00
@@ -47,7 +58,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     05:00
@@ -55,7 +68,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     06:00
@@ -63,7 +78,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     07:00
@@ -71,7 +88,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     08:00
@@ -79,7 +98,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     09:00
@@ -87,7 +108,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     10:00
@@ -95,7 +118,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     11:00
@@ -103,7 +128,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     12:00
@@ -111,7 +138,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     13:00
@@ -119,7 +148,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     14:00
@@ -127,7 +158,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     15:00
@@ -135,7 +168,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     16:00
@@ -143,7 +178,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     17:00
@@ -151,7 +188,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     18:00
@@ -159,7 +198,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     19:00
@@ -167,7 +208,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     20:00
@@ -175,7 +218,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     21:00
@@ -183,7 +228,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     22:00
@@ -191,7 +238,9 @@ exports[`TimePicker component should render 1`] = `
   <button
     className="theme-time"
     onClick={[Function]}
+    onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="listitem"
     type="button"
   >
     23:00

@@ -28,18 +28,15 @@ describe('DateTime.Picker', () => {
 		);
 
 		// then
-		expect(wrapper.find('DateTimePicker').props()).toEqual({
-			manageFocus: true,
-			onSubmit: managerValue.pickerManagement.onSubmit,
-			other: 'custom props',
-			selection: {
-				date: new Date(2007, 0, 2),
-				time: { hours: '01', minutes: '02', seconds: '03' },
-			},
-			useSeconds: true,
-			useTime: true,
-			useUTC: false,
+		const props = wrapper.find('DateTimePicker').props();
+		expect(props.manageFocus).toBe(true);
+		expect(props.other).toBe('custom props');
+		expect(props.selection).toEqual({
+			date: new Date(2007, 0, 2),
 		});
+		expect(props.useSeconds).toBe(true);
+		expect(props.useTime).toBe(true);
+		expect(props.useUTC).toBe(false);
 	});
 
 	it('should call manager onSubmit callback on picker submission', () => {
@@ -49,22 +46,22 @@ describe('DateTime.Picker', () => {
 				date: new Date(2007, 0, 2),
 				time: { hours: '01', minutes: '02', seconds: '03' },
 			},
-			pickerManagement: {
+			datePickerManagement: {
 				onSubmit: jest.fn(),
 			},
 		};
 
 		const wrapper = mount(
 			<DateTimeContext.Provider value={managerValue}>
-				<Picker />
+				<Picker onSubmit={jest.fn()} />
 			</DateTimeContext.Provider>,
 		);
-		expect(managerValue.pickerManagement.onSubmit).not.toBeCalled();
+		expect(managerValue.datePickerManagement.onSubmit).not.toBeCalled();
 
 		// when
 		wrapper.find('DateTimePicker').prop('onSubmit')();
 
 		// then
-		expect(managerValue.pickerManagement.onSubmit).toBeCalled();
+		expect(managerValue.datePickerManagement.onSubmit).toBeCalled();
 	});
 });

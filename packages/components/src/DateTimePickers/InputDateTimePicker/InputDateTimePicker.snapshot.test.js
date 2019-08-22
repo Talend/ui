@@ -7,7 +7,6 @@ import InputDateTimePicker from './InputDateTimePicker.component';
 
 const Mock = ({ className }) => <div className={className} />;
 jest.mock('../DateTime/Picker', () => props => <Mock className="PickerMock" {...props} />);
-jest.mock('../DateTime/Validation', () => props => <Mock className="ValidationMock" {...props} />);
 jest.mock('../DateTime/Input', () => props => <Mock className="InputMock" {...props} />);
 
 describe('InputDateTimePicker', () => {

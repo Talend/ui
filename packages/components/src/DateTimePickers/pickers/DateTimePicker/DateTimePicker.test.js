@@ -174,19 +174,6 @@ describe('DateTimePicker', () => {
 			expect(wrapper.state('selectedDate')).toBe(d2);
 		});
 
-		it('should update state on time props change', () => {
-			// given
-			const t1 = { hours: 1, minutes: 15 };
-			const t2 = { hours: 23, minutes: 25 };
-			const wrapper = shallow(<DateTimePicker selection={{ time: t1 }} onSubmit={() => {}} />);
-
-			// when
-			wrapper.setProps({ selection: { time: t2 } });
-
-			// then
-			expect(wrapper.state('selectedTime')).toBe(t2);
-		});
-
 		it('should update state and submit on date picked', () => {
 			// given
 			const initialTime = { hours: 1, minutes: 15 };
@@ -204,27 +191,7 @@ describe('DateTimePicker', () => {
 
 			// then
 			expect(wrapper.state('selectedDate')).toBe(date);
-			expect(onSubmit).toBeCalledWith(event, { date, time: initialTime });
-		});
-
-		it('should update state and submit on time picked', () => {
-			// given
-			const initialTime = { hours: 1, minutes: 15 };
-			const initialDate = new Date(2015, 10, 18);
-			const time = { hours: 23, minutes: 59 };
-			const event = { target: {}, persist() {} };
-			const onSubmit = jest.fn();
-
-			const wrapper = shallow(
-				<DateTimePicker selection={{ date: initialDate, time: initialTime }} onSubmit={onSubmit} />,
-			);
-
-			// when
-			wrapper.find(DateView).prop('onSelectTime')(event, time);
-
-			// then
-			expect(wrapper.state('selectedTime')).toBe(time);
-			expect(onSubmit).toBeCalledWith(event, { date: initialDate, time });
+			expect(onSubmit).toBeCalledWith(event, { date });
 		});
 	});
 });

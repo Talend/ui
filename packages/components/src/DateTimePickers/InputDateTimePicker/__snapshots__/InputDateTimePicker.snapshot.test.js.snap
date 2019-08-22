@@ -3,7 +3,6 @@
 exports[`InputDateTimePicker should render 1`] = `
 <InputDateTimePicker
   dateFormat="YYYY-MM-DD"
-  formMode={false}
   id="my-picker"
   required={true}
   selectedDateTime={2017-04-04T13:27:00.000Z}
@@ -13,7 +12,6 @@ exports[`InputDateTimePicker should render 1`] = `
 >
   <DateTime.Manager
     dateFormat="YYYY-MM-DD"
-    formMode={false}
     id="my-picker"
     required={true}
     selectedDateTime={2017-04-04T13:27:00.000Z}
@@ -21,91 +19,100 @@ exports[`InputDateTimePicker should render 1`] = `
     useTime={true}
     useUTC={false}
   >
-    <InputDatePicker
-      dateFormat="YYYY-MM-DD"
-      formManagement={
-        Object {
-          "onReset": [Function],
-          "onSubmit": [Function],
-        }
-      }
-      formMode={false}
-      id="my-picker"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      required={true}
-      selectedDateTime={2017-04-04T13:27:00.000Z}
-      setContainerRef={[Function]}
-      setRef={[Function]}
-      showPicker={false}
-      useSeconds={true}
-      useTime={true}
-      useUTC={false}
+    <div
+      className="theme-pickers-container"
     >
-      <FocusManager
-        divRef={[Function]}
-        onClick={[Function]}
-        onFocusIn={[Function]}
-        onFocusOut={[Function]}
-        onKeyDown={[Function]}
-        style={
-          Object {
-            "display": "inline-block",
-          }
-        }
+      <InputDatePicker
+        dateFormat="YYYY-MM-DD"
+        id="my-picker"
+        required={true}
+        selectedDateTime={2017-04-04T13:27:00.000Z}
+        useSeconds={true}
+        useTime={true}
+        useUTC={false}
       >
-        <div
-          onBlur={[Function]}
+        <FocusManager
+          className="focus-manager"
+          divRef={[Function]}
           onClick={[Function]}
-          onFocus={[Function]}
+          onFocusIn={[Function]}
+          onFocusOut={[Function]}
           onKeyDown={[Function]}
-          style={
-            Object {
-              "display": "inline-block",
-            }
-          }
-          tabIndex={-1}
         >
-          <Component
-            id="my-picker-date-input"
-            inputManagement={
-              Object {
-                "onChange": [Function],
-              }
-            }
-            inputRef={[Function]}
-            key="input"
-            onChange={[Function]}
-            part="date"
-            setContainerRef={[Function]}
-            setRef={[Function]}
-            showPicker={false}
+          <div
+            className="focus-manager"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            tabIndex={-1}
           >
-            <Mock
-              className="InputMock"
+            <Component
               id="my-picker-date-input"
-              inputManagement={
-                Object {
-                  "onChange": [Function],
-                }
-              }
               inputRef={[Function]}
-              onChange={[Function]}
+              key="input"
               part="date"
-              setContainerRef={[Function]}
-              setRef={[Function]}
-              showPicker={false}
             >
-              <div
+              <Mock
                 className="InputMock"
-              />
-            </Mock>
-          </Component>
-        </div>
-      </FocusManager>
-    </InputDatePicker>
+                id="my-picker-date-input"
+                inputRef={[Function]}
+                part="date"
+              >
+                <div
+                  className="InputMock"
+                />
+              </Mock>
+            </Component>
+          </div>
+        </FocusManager>
+      </InputDatePicker>
+      <InputTimePicker
+        dateFormat="YYYY-MM-DD"
+        id="my-picker"
+        required={true}
+        selectedDateTime={2017-04-04T13:27:00.000Z}
+        useSeconds={true}
+        useTime={true}
+        useUTC={false}
+      >
+        <FocusManager
+          className="focus-manager"
+          divRef={[Function]}
+          onClick={[Function]}
+          onFocusIn={[Function]}
+          onFocusOut={[Function]}
+          onKeyDown={[Function]}
+        >
+          <div
+            className="focus-manager"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            tabIndex={-1}
+          >
+            <Component
+              id="my-picker-time-input"
+              inputRef={[Function]}
+              key="input"
+              part="time"
+            >
+              <Mock
+                className="InputMock"
+                id="my-picker-time-input"
+                inputRef={[Function]}
+                part="time"
+              >
+                <div
+                  className="InputMock"
+                />
+              </Mock>
+            </Component>
+          </div>
+        </FocusManager>
+      </InputTimePicker>
+    </div>
   </DateTime.Manager>
 </InputDateTimePicker>
 `;
