@@ -5,16 +5,19 @@
  * @param {string} text
  * @returns {array}
  */
+import isNil from 'lodash/isNil';
+
 export function filterCollectionByText(collection, text) {
 	if (!text) {
 		return collection;
 	}
 
 	const searchedText = text.toLowerCase();
+	const EMPTY_STRING = '';
 
 	return collection.filter(item =>
 		Object.values(item).find(value =>
-			value
+			(isNil(value) ? EMPTY_STRING : value)
 				.toString()
 				.toLowerCase()
 				.includes(searchedText),
