@@ -123,7 +123,6 @@ export default function createInputPicker({ part, theme, Picker }) {
 						this.inputRef = ref;
 					}}
 					part={part}
-					onChange={this.onChange}
 				/>,
 				this.state.showPicker && (
 					<Popper
