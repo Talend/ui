@@ -2,15 +2,15 @@
 
 exports[`RelativeDate should render RelativeDate component the simple way 1`] = `
 <span
-  title="2019-08-21 12:00:00"
+  title="[2019-08-21 12:00:00 formatted with date-fns]"
 >
-  about 6 hours ago
+  a year ago ago
 </span>
 `;
 
 exports[`RelativeDate should render RelativeDate component with an icon 1`] = `
 <TooltipTrigger
-  label="2019-08-21 12:00:00"
+  label="[2019-08-21 12:00:00 formatted with date-fns]"
   tooltipPlacement="top"
 >
   <React.Fragment>
@@ -18,7 +18,7 @@ exports[`RelativeDate should render RelativeDate component with an icon 1`] = `
       name="talend-scheduler"
     />
      
-    about 6 hours ago
+    a year ago ago
   </React.Fragment>
 </TooltipTrigger>
 `;
