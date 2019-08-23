@@ -86,7 +86,7 @@ describe('TimePicker component', () => {
 			// when
 			wrapper.find('button').at(3).simulate('click');
 			// then
-			expect(onSubmit).toBeCalledWith(event, { time: { hours: '03', minutes: '00', seconds: '00' } });
+			expect(onSubmit).toBeCalledWith(event, { time: '03:00' });
 		});
 		it('should hightlight item matches user input', () => {
 			// when
@@ -96,7 +96,7 @@ describe('TimePicker component', () => {
 			wrapper.update();
 			// then
 			expect(scrollIntoViewMock).toBeCalledWith({ block: 'center' });
-			expect(wrapper.state().hightlightedItemIndex).toBe(12);
+			expect(wrapper.find('button').at(12).hasClass('highlight')).toBe(true);
 		});
 		it('should sroll the first match into view when user inputs', () => {
 			// given
@@ -111,7 +111,7 @@ describe('TimePicker component', () => {
 
 			// then
 			expect(scrollIntoViewMock).toBeCalledWith({ block: 'center' });
-			expect(wrapper.state().hightlightedItemIndex).toBe(20);
+			expect(wrapper.find('button').at(20).hasClass('highlight')).toBe(true);
 		});
 	});
 });
