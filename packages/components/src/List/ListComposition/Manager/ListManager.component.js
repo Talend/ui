@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 
@@ -6,23 +6,20 @@ import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import useCollectionSort from './sort.hook';
-import { filterCollectionByText } from './filter';
+import useCollectionFilter from './filter.hook';
 
 function Manager(props) {
-	let collection;
+	let collection = props.collection;
 
 	const [displayMode, setDisplayMode] = useState();
-	const [textFilter, setTextFilter] = useState();
 
 	// Sort items
-	const { sortedCollection, sortParams, setSortParams } = useCollectionSort(props.collection);
+	const { sortedCollection, sortParams, setSortParams } = useCollectionSort(collection);
 	collection = sortedCollection;
 
 	// Filter by text
-	collection = useMemo(() => filterCollectionByText(collection, textFilter), [
-		collection,
-		textFilter,
-	]);
+	const { filteredCollection, textFilter, setTextFilter } = useCollectionFilter(collection);
+	collection = filteredCollection;
 
 	const contextValues = {
 		collection,
