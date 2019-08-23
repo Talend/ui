@@ -30,7 +30,7 @@ describe('TimePicker component', () => {
 			expect(scrollIntoViewMock).toBeCalledWith({ block: 'center' });
 			expect(wrapper.find('button').at(12).hasClass('highlight')).toBe(true);
 		});
-		it('should sroll the first match into view when user inputs', () => {
+		it('should scroll the first match into view when user inputs', () => {
 			// given
 			const onSubmit = jest.fn();
 			const scrollIntoViewMock = jest.fn();
