@@ -7,7 +7,7 @@ import withListGesture from '../../../Gesture/withListGesture';
 
 import theme from './TimePicker.scss';
 
-export function isBefore(a, b) {
+function isBefore(a, b) {
 	if (a.hours > b.hours) {
 		return false;
 	} else if (a.hours === b.hours && a.minutes > b.minutes) {
@@ -18,7 +18,7 @@ export function isBefore(a, b) {
 	return true;
 }
 
-export function addInterval({ hours, minutes, ...seconds }, interval = 60) {
+function addInterval({ hours, minutes, ...seconds }, interval = 60) {
 	let newMinutes = minutes + interval;
 	let newHours = hours;
 	if (Math.floor(newMinutes / 60) > 0) {
@@ -32,13 +32,13 @@ export function addInterval({ hours, minutes, ...seconds }, interval = 60) {
 	};
 }
 
-export function getOptions(interval = 60, useSeconds = false) {
+function getOptions(interval = 60) {
 	const options = [];
 	const start = { hours: 0, minutes: 0, seconds: 0 };
 	const end = { hours: 23, minutes: 59, seconds: 59 };
 	let current = start;
 	while (isBefore(current, end)) {
-		options.push(timeToStr(current, useSeconds));
+		options.push({ label: timeToStr(current), value: current });
 		current = addInterval(current, interval);
 	}
 
@@ -67,7 +67,7 @@ export class TimePicker extends React.Component {
 		this.options = getOptions(props.interval, props.useSeconds);
 		this.state = {
 			hightlightedItemIndex:
-				this.options.findIndex(option => option.includes(props.textInput)),
+				this.options.findIndex(option => option.label.includes(props.textInput)),
 		};
 	}
 	componentDidMount() {
@@ -80,13 +80,14 @@ export class TimePicker extends React.Component {
 			this.scrollItemIntoView(this.props.textInput);
 		}
 	}
-	onSelect(event, time) {
+	onSelect(event, option) {
 		this.props.onSubmit(event, {
-			time,
+			textInput: option.label,
+			time: option.value,
 		});
 	}
 	scrollItemIntoView(textInput) {
-		const found = this.options.findIndex(option => option.includes(textInput));
+		const found = this.options.findIndex(option => option.label.includes(textInput));
 		if (found) {
 			const ref = this.containerRef.childNodes[found];
 			if (ref) {
@@ -116,7 +117,7 @@ export class TimePicker extends React.Component {
 				ref={ref => (this.containerRef = ref)}
 				role="list"
 			>
-				{this.options.map((time, index) => {
+				{this.options.map((option, index) => {
 					const className = classNames(
 						{ highlight: index === this.state.hightlightedItemIndex });
 					const ariaProps = {};
@@ -129,11 +130,11 @@ export class TimePicker extends React.Component {
 							type="button"
 							key={index}
 							className={className}
-							onClick={event => this.onSelect(event, time)}
+							onClick={event => this.onSelect(event, option)}
 							onKeyDown={event => this.props.onKeyDown(event, this.containerRef.childNodes[index])}
 							{...ariaProps}
 						>
-							{time}
+							{option.label}
 						</button>
 					);
 				})}
