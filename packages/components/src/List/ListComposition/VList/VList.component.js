@@ -8,7 +8,9 @@ function VList(props) {
 	return <VirtualizedList collection={collection} type={displayMode.toUpperCase()} {...props} />;
 }
 
-VList.Content = VirtualizedList.Content;
-VList.propTypes = VirtualizedList.propTypes;
-
+// we port the VirtualizedList columns to VList to allow VList.Title/Badge/...
+Object.entries(VirtualizedList).forEach(([key, value]) => {
+	VList[key] = value;
+});
+VList.displayName = 'VList';
 export default VList;
