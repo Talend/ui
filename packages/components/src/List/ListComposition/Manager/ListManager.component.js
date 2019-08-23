@@ -43,7 +43,6 @@ Manager.defaultProps = {
 Manager.propTypes = {
 	children: PropTypes.node,
 	collection: PropTypes.array,
-	sortParams: PropTypes.object,
 	t: PropTypes.func,
 };
 export default withTranslation(I18N_DOMAIN_COMPONENTS)(Manager);
