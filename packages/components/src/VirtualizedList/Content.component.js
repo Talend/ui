@@ -15,7 +15,10 @@ export const defaultColumnConfiguration = {
 	width: -1,
 };
 
-export default function Content(props) {
-	return <Column {...props} />;
+// this is a fake component to be usable in JSX,
+// but the element is used as props object internally (VirtualizedList / RV)
+export default function Content() {
+	return null;
 }
+Content.displayName = 'Content';
 Content.defaultProps = defaultColumnConfiguration;

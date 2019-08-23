@@ -1,5 +1,5 @@
 import React from 'react';
-import VirtualizedList from '../VirtualizedList.component';
+import VirtualizedList from '..';
 import { insertSelectionConfiguration, toColumns } from './tablerow';
 
 describe('tablerow', () => {
