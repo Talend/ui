@@ -103,7 +103,7 @@ export class TimePicker extends React.Component {
 					hightlightedItemIndex: index,
 				};
 			}
-			return {};
+			return null;
 		});
 	}
 	render() {
