@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { IconsProvider } from '../src/index';
 
 import InputDateTimePicker, { DateTime } from '../src/DateTimePickers';
+import { TimePicker } from '../src/DateTimePickers/pickers/TimePicker/TimePicker.component';
 
 class TestPickerWrapper extends React.Component {
 	static propTypes = {
@@ -281,6 +282,46 @@ storiesOf('DatePicker', module)
 							useTime
 						/>
 					</form>
+				</div>
+			</div>
+		);
+	})
+	.add('Time picker - no input', () => {
+		const containerStyle = {
+			overflow: 'scroll',
+			width: '7rem',
+			height: '17rem',
+			boxShadow: '0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.2)',
+			marginRight: 60,
+		};
+		return (
+			<div>
+				<h1>TimePicker without input</h1>
+				<div style={{ display: 'flex', alignItems: 'flex-start' }}>
+					<div>
+						<p>default range</p>
+						<div style={containerStyle}>
+							<TimePicker />
+						</div>
+					</div>
+					<div>
+						<p>range 120 minutes</p>
+						<div style={containerStyle}>
+							<TimePicker interval={120} />
+						</div>
+					</div>
+					<div>
+						<p>use secconds</p>
+						<div style={containerStyle}>
+							<TimePicker useSeconds />
+						</div>
+					</div>
+					<div>
+						<p>with textInput</p>
+						<div style={containerStyle}>
+							<TimePicker textInput="20:00" />
+						</div>
+					</div>
 				</div>
 			</div>
 		);
