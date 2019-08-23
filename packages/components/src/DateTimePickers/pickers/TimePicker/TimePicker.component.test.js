@@ -90,8 +90,12 @@ describe('TimePicker component', () => {
 		});
 		it('should hightlight item matches user input', () => {
 			// when
+			const scrollIntoViewMock = jest.fn();
+			window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock;
 			const wrapper = mount(<TimePicker onSubmit={jest.fn()} textInput="12:00" />);
+			wrapper.update();
 			// then
+			expect(scrollIntoViewMock).toBeCalledWith({ block: 'center' });
 			expect(wrapper.state().hightlightedItemIndex).toBe(12);
 		});
 		it('should sroll the first match into view when user inputs', () => {
@@ -106,7 +110,7 @@ describe('TimePicker component', () => {
 			wrapper.update();
 
 			// then
-			expect(scrollIntoViewMock).toBeCalledWith({ behavior: 'smooth', block: 'center' });
+			expect(scrollIntoViewMock).toBeCalledWith({ block: 'center' });
 			expect(wrapper.state().hightlightedItemIndex).toBe(20);
 		});
 	});
