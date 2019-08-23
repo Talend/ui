@@ -131,7 +131,7 @@ export default function bootstrap(appOptions = {}) {
 	saga.run();
 	const RootComponent = options.RootComponent;
 	render(
-		<App store={store} loading={options.AppLoader}>
+		<App store={store} loading={options.AppLoader} withSettings={options.settingsURL}>
 			<RootComponent />
 		</App>,
 		document.getElementById(appId),
