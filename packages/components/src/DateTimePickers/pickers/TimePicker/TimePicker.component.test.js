@@ -94,7 +94,7 @@ describe('TimePicker component', () => {
 			// then
 			expect(wrapper.state().hightlightedItemIndex).toBe(12);
 		});
-		it('should sroll the first match into view when user inputs', () => {
+		it('should scroll the first match into view when user inputs', () => {
 			// given
 			const onSubmit = jest.fn();
 			const scrollIntoViewMock = jest.fn();
