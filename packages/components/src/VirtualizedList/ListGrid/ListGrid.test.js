@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
 import ListGrid from './ListGrid.component';
-import VirtualizedList from '../VirtualizedList.component';
+import VirtualizedList from '..';
 import RowLarge from '../RowLarge';
 import collection from '../collection';
 
