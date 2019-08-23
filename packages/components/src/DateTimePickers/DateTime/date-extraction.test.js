@@ -1,3 +1,5 @@
+import cases from 'jest-in-case';
+
 import {
 	checkSupportedDateFormat,
 	extractParts,
@@ -7,6 +9,7 @@ import {
 	getFullDateFormat,
 	check,
 	getTimeFormat,
+	timeToStr,
 } from './date-extraction';
 
 describe('Date extraction', () => {
@@ -784,5 +787,33 @@ describe('Date extraction', () => {
 			// then
 			expect(errors.length).toBe(0);
 		});
+	});
+	describe('timeToStr', () => {
+		cases(
+			'should convert time object to string',
+			({ time, useSeconds, expectedStr }) => {
+				expect(timeToStr(time, useSeconds)).toBe(expectedStr);
+			},
+			[
+				{
+					name: 'when useSeconds is false',
+					time: { hours: '12', minutes: '30', seconds: '00'},
+					useSeconds: false,
+					expectedStr: '12:30',
+				},
+				{
+					name: 'when useSeconds is true',
+					time: { hours: '12', minutes: '30', seconds: '00'},
+					useSeconds: true,
+					expectedStr: '12:30:00',
+				},
+				{
+					name: 'when hours, minutes, seconds are numbers',
+					time: { hours: 23, minutes: 59, seconds: 0},
+					useSeconds: false,
+					expectedStr: '23:59',
+				},
+			],
+		);
 	});
 });

@@ -567,6 +567,17 @@ function extractParts(value, options) {
 		errors: [],
 	};
 }
+/**
+ * Convert time object to string
+ * @param {object} time {{hours: string|number, minutes: string|number, seconds: string|number}}
+ * @param {boolean} useSeconds
+ */
+function timeToStr(time, useSeconds) {
+	const hours = pad(time.hours);
+	const minutes = pad(time.minutes);
+	const seconds = pad(time.seconds);
+	return `${hours}:${minutes}${useSeconds ? `:${seconds}` : ''}`;
+}
 
 export {
 	check,
@@ -580,4 +591,6 @@ export {
 	extractPartsFromTextInput,
 	getFullDateFormat,
 	getTimeFormat,
+	strToTime,
+	timeToStr,
 };
