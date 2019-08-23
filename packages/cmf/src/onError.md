@@ -59,6 +59,25 @@ CMF will post to the backend the following data structure:
 | `uiState` | quite big object | the redux store |
 | `actions` | [ { type: 'REDUX_TYPE', payload }] | last actions |
 
+A component named ErrorBoundary is exposed and already used at the App level, so you can use it
+in your own components in some key places.
+
+```javascript
+import { ErrorBoundary } from '@talend/react-cmf';
+
+function DoComplexComponent(props) {
+    // ... do some stuff
+}
+
+export function ComplexComponent(props) {
+    return (
+        <ErrorBounday>
+            <DoComplexComponent {...props} />
+        </ErrorBounday>
+    );
+}
+```
+
 ## Anonymisation / remove sensible data
 
 In the process of the report all data are anonymise if the `key` lowercase name match one of the following rules.

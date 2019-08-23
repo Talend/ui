@@ -142,24 +142,26 @@ function report(error) {
 			...info,
 		});
 	} else {
-		ref.store.dispatch(actions.http.post(ref.serverURL, info, {
-			onError: err => {
-				info.reported = false;
-				info.reason = serialize(err);
-				return {
-					type: CONST.ERROR,
-					...info,
-				}
-			},
-			onResponse: response => {
-				info.reported = true;
-				info.response = response;
-				return {
-					type: CONST.ERROR,
-					...info,
-				};
-			},
-		}));
+		ref.store.dispatch(
+			actions.http.post(ref.serverURL, info, {
+				onError: err => {
+					info.reported = false;
+					info.reason = serialize(err);
+					return {
+						type: CONST.ERROR,
+						...info,
+					};
+				},
+				onResponse: response => {
+					info.reported = true;
+					info.response = response;
+					return {
+						type: CONST.ERROR,
+						...info,
+					};
+				},
+			}),
+		);
 	}
 }
 
@@ -256,7 +258,6 @@ function middleware() {
 		}
 	};
 }
-
 
 function createObjectURL(error) {
 	const data = getReportInfo(error);

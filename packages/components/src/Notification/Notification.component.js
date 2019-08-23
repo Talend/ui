@@ -106,7 +106,11 @@ export function Notification({ notification, leaveFn, ...props }) {
 			onMouseLeave={leaveAction}
 			tabIndex={0}
 		>
-			<CloseButton notification={notification} leaveFn={leaveFn} data-feature={`close-notification-${notification.type}`} />
+			<CloseButton
+				notification={notification}
+				leaveFn={leaveFn}
+				data-feature={`close-notification-${notification.type}`}
+			/>
 			<Message notification={notification} />
 			<TimerBar type={notification.type} autoLeaveError={props.autoLeaveError} />
 		</div>

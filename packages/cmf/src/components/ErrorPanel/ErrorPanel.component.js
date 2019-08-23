@@ -31,10 +31,20 @@ function ErrorPanel(props) {
 					<p>2. Download the details and then contact the support</p>
 				</React.Fragment>
 			)}
-			<button className="btn btn-danger btn-inverse" onClick={reload} data-feature="refresh-on-error" style={{ margin: 20 }}>
+			<button
+				className="btn btn-danger btn-inverse"
+				onClick={reload}
+				data-feature="refresh-on-error"
+				style={{ margin: 20 }}
+			>
 				Refresh
 			</button>
-			<a className="btn btn-primary btn-inverse" href={onError.createObjectURL(props.error)} download="report.json" data-feature="download-on-error-details">
+			<a
+				className="btn btn-primary btn-inverse"
+				href={onError.createObjectURL(props.error)}
+				download="report.json"
+				data-feature="download-on-error-details"
+			>
 				Download details
 			</a>
 		</div>
