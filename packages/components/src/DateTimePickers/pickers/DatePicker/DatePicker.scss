@@ -4,7 +4,7 @@
 .container {
 	&:after {
 		@include picker-underline;
-		bottom: -0.5rem;
+		bottom: -$padding-smaller;
 	}
 	width: 100%;
 	position: relative;
