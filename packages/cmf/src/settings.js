@@ -106,7 +106,6 @@ export const mapStateToViewProps = memoize(
 		`${ownProps.view}-${componentName}-${componentId}-${state.cmf.settings.initialized}`,
 );
 
-
 function PureWaitForSettings(props) {
 	if (!props.initialized) {
 		return <props.loading />;
