@@ -1,3 +1,3 @@
-import TimePicker from './TimePicker.component';
+import TimePickerWithGesture from './TimePicker.component';
 
-export default TimePicker;
+export default TimePickerWithGesture;
