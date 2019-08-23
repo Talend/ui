@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { strToTime, timeToStr } from '../../DateTime/date-extraction';
+import { timeToStr } from '../../DateTime/date-extraction';
 import withListGesture from '../../../Gesture/withListGesture';
 
 import theme from './TimePicker.scss';
@@ -81,9 +81,8 @@ export class TimePicker extends React.Component {
 		}
 	}
 	onSelect(event, time) {
-		event.stopPropagation();
 		this.props.onSubmit(event, {
-			time: strToTime(time, this.props.useSeconds),
+			time,
 		});
 	}
 	scrollItemIntoView(textInput) {
