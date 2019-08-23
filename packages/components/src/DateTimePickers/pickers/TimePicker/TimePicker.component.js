@@ -64,27 +64,21 @@ export class TimePicker extends React.Component {
 		this.onMouseOver = this.onMouseOver.bind(this);
 		this.onSelect = this.onSelect.bind(this);
 		this.updateHighlightIndex = this.updateHighlightIndex.bind(this);
+		this.scrollItemIntoView = this.scrollItemIntoView.bind(this);
 		this.options = getOptions(props.interval, props.useSeconds);
 		this.state = {
 			hightlightedItemIndex:
 				this.options.findIndex(option => option.includes(props.textInput)),
 		};
 	}
+	componentDidMount() {
+		if (this.props.textInput) {
+			this.scrollItemIntoView(this.props.textInput);
+		}
+	}
 	componentDidUpdate(prevProps) {
 		if (prevProps.textInput !== this.props.textInput) {
-			const found = this.options.findIndex(option => option.includes(this.props.textInput));
-			if (found) {
-				const ref = this.containerRef.childNodes[found];
-				if (ref) {
-					ref.scrollIntoView({
-						behavior: 'smooth',
-						block: 'center',
-					});
-				}
-				if (found !== this.state.hightlightedItemIndex) {
-					this.updateHighlightIndex(found);
-				}
-			}
+			this.scrollItemIntoView(this.props.textInput);
 		}
 	}
 	onMouseOver(event, index) {
@@ -95,6 +89,20 @@ export class TimePicker extends React.Component {
 		this.props.onSubmit(event, {
 			time: strToTime(time, this.props.useSeconds),
 		});
+	}
+	scrollItemIntoView(textInput) {
+		const found = this.options.findIndex(option => option.includes(textInput));
+		if (found) {
+			const ref = this.containerRef.childNodes[found];
+			if (ref) {
+				ref.scrollIntoView({
+					block: 'center',
+				});
+			}
+			if (found !== this.state.hightlightedItemIndex) {
+				this.updateHighlightIndex(found);
+			}
+		}
 	}
 	updateHighlightIndex(index) {
 		this.setState(({ hightlightedItemIndex }) => {
