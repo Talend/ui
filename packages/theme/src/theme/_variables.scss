@@ -64,7 +64,9 @@ $font-size-h4: $font-size-small;
 $font-size-h5: $font-size-small;
 $font-size-h6: $font-size-small;
 
-$font-weight-bold: 600;
+$font-weight-bold: 800;
+$font-weight-semi-bold: 600;
+$font-weight-regular: 400;
 
 //** Unit-less `line-height` for use in components like buttons.
 $line-height-base: 1.428571429 !default; // 20/14
@@ -72,7 +74,7 @@ $line-height-base: 1.428571429 !default; // 20/14
 $line-height-computed: floor(($font-size-base * $line-height-base)) !default; // ~20px
 
 $form-label-base-color: #888 !default;
-$form-base-font-weight: 400 !default;
+$form-base-font-weight: $font-weight-regular !default;
 $form-input-font-size: 16px !default;
 
 //** By default, this inherits from the `<body>`.
@@ -168,7 +170,7 @@ $btn-secondary-bg: $brand-secondary !default;
 $btn-secondary-border: darken($btn-secondary-bg, 5%) !default;
 
 $btn-tertiary-line-height: 2.5rem !default;
-$btn-tertiary-font-weight: 600 !default;
+$btn-tertiary-font-weight: $font-weight-semi-bold !default;
 
 $btn-validation-color: #fff !default;
 $btn-validation-bg: $rio-grande !default;
@@ -289,11 +291,12 @@ $dropdown-header-color: $gray-light !default;
 
 $zindex-navbar: 1000 !default;
 $zindex-dropdown: 1000 !default;
-$zindex-popover: 1060 !default;
-$zindex-tooltip: 1070 !default;
 $zindex-navbar-fixed: 1030 !default;
 $zindex-modal-background: 1040 !default;
 $zindex-modal: 1050 !default;
+$zindex-popover: 1060 !default;
+$zindex-tooltip: 1070 !default;
+$zindex-notification: 1080 !default;
 
 //== Media queries breakpoints
 //
