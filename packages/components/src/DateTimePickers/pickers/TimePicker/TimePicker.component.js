@@ -61,7 +61,6 @@ export class TimePicker extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.onMouseOver = this.onMouseOver.bind(this);
 		this.onSelect = this.onSelect.bind(this);
 		this.updateHighlightIndex = this.updateHighlightIndex.bind(this);
 		this.scrollItemIntoView = this.scrollItemIntoView.bind(this);
@@ -80,9 +79,6 @@ export class TimePicker extends React.Component {
 		if (prevProps.textInput !== this.props.textInput) {
 			this.scrollItemIntoView(this.props.textInput);
 		}
-	}
-	onMouseOver(event, index) {
-		this.updateHighlightIndex(index);
 	}
 	onSelect(event, time) {
 		event.stopPropagation();
@@ -134,7 +130,6 @@ export class TimePicker extends React.Component {
 							type="button"
 							key={index}
 							className={className}
-							onMouseOver={event => this.onMouseOver(event, index)}
 							onClick={event => this.onSelect(event, time)}
 							onKeyDown={event => this.props.onKeyDown(event, this.containerRef.childNodes[index])}
 							{...ariaProps}

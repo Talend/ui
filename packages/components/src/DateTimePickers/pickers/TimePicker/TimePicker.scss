@@ -12,15 +12,12 @@
         background-color: $white;
     
         &:global(.highlight) {
-            background-color: $wild-sand;
-        }
-    
-        &:global(.highlight):active {
             background-color: tint($lochmara, 90%);
         }
-
+    
+        &:hover,
         &:focus {
-            outline: 1px solid black;
+            background-color: $wild-sand;
         }
     }
 }
