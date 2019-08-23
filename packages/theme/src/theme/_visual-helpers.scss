@@ -137,40 +137,42 @@
 	}
 
 	[role='navigation'] {
-		$gradient-angle: 'to bottom';
-		position: relative;
-		height: 100%;
-		overflow: hidden;
-		background: linear-gradient(#{$gradient-angle}, $st-tropaz, $brand-primary 95%);
+		&:not(.reverse) {
+			$gradient-angle: 'to bottom';
+			position: relative;
+			height: 100%;
+			overflow: hidden;
+			background: linear-gradient(#{$gradient-angle}, $st-tropaz, $brand-primary 95%);
 
-		.nav-inverse {
-			background-color: transparent;
-		}
-
-		&:before {
-			content: '';
-			position: absolute;
-			left: 0;
-			bottom: -50px;
-			height: $logo-size;
-			width: $logo-size;
-			background-repeat: no-repeat;
-		}
-
-		&[aria-expanded='false']:before {
-			content: none;
-		}
-
-		[role='presentation'] {
-			&[aria-current] {
-				$gradient-angle: 'to right';
-				background: linear-gradient(#{$gradient-angle}, $green-talend -15%, $brand-secondary 45%);
+			.nav-inverse {
+				background-color: transparent;
 			}
 
-			&:hover {
-				&:not([aria-current]) {
-					background: none;
-					box-shadow: 0 200px 100px -100px rgba(255, 255, 255, 0.12) inset;
+			&:before {
+				content: '';
+				position: absolute;
+				left: 0;
+				bottom: -50px;
+				height: $logo-size;
+				width: $logo-size;
+				background-repeat: no-repeat;
+			}
+
+			&[aria-expanded='false']:before {
+				content: none;
+			}
+
+			[role='presentation'] {
+				&[aria-current] {
+					$gradient-angle: 'to right';
+					background: linear-gradient(#{$gradient-angle}, $green-talend -15%, $brand-secondary 45%);
+				}
+
+				&:hover {
+					&:not([aria-current]) {
+						background: none;
+						box-shadow: 0 200px 100px -100px rgba(255, 255, 255, 0.12) inset;
+					}
 				}
 			}
 		}
