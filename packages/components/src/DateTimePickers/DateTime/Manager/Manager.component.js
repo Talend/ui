@@ -73,6 +73,8 @@ class ContextualManager extends React.Component {
 		this.onSubmit = this.onSubmit.bind(this);
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onPickerChange = this.onPickerChange.bind(this);
+		this.onDatePickerChange = this.onDatePickerChange.bind(this);
+		this.onTimePickerChange = this.onTimePickerChange.bind(this);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -113,53 +115,31 @@ class ContextualManager extends React.Component {
 		});
 	}
 
-	onPickerChange(event, { date, time, field }) {
-		const isTimeUpdate = [FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS].includes(field);
-		const nextState = extractPartsFromDateAndTime(date, time, this.getDateOptions());
-
+	onPickerChange(event, nextState) {
 		// we need to retrieve the input error from nextState to add them to the current one
 		// because, by changing the picker, we update the textInput so we need to update its errors
-		let nextErrors = this.state.errors
+		const nextErrors = this.state.errors
 			// remove old main input errors
 			.filter(error => !INPUT_ERRORS.includes(error.code))
 			// add new main input errors
 			.concat(nextState.errors.filter(error => INPUT_ERRORS.includes(error.code)));
 
-		if (isTimeUpdate) {
-			// to avoid having errors on untouched time elements, we check only the updated part
-			let newError;
-			switch (field) {
-				case FIELD_HOURS:
-					newError = checkHours(time.hours);
-					break;
-				case FIELD_MINUTES:
-					newError = checkMinutes(time.minutes);
-					break;
-				case FIELD_SECONDS:
-					newError = checkSeconds(time.seconds);
-					break;
-				default:
-					break;
-			}
-
-			// remove old error on updated time part
-			nextErrors = nextErrors.filter(
-				error =>
-					(field === FIELD_HOURS && !HOUR_ERRORS.includes(error.code)) ||
-					(field === FIELD_MINUTES && !MINUTES_ERRORS.includes(error.code)) ||
-					(field === FIELD_SECONDS && !SECONDS_ERRORS.includes(error.code)),
-			);
-			// add the new error on updated time part
-			if (newError) {
-				nextErrors.push(newError);
-			}
-		}
-
 		this.setState({ previousErrors: this.state.errors, ...nextState, errors: nextErrors }, () => {
-			if (!this.props.formMode) {
-				this.onChange(event, 'PICKER');
-			}
+			this.onChange(event, 'PICKER');
 		});
+	}
+
+	onDatePickerChange(event, { date }) {
+		const dateToUse = date;
+		const { time } = this.state;
+		const nextState = extractPartsFromDateAndTime(dateToUse, time, this.getDateOptions());
+		this.onPickerChange(event, nextState);
+	}
+
+	onTimePickerChange(event, { time }) {
+		const dateToUse = this.state.date;
+		const nextState = extractPartsFromDateAndTime(dateToUse, time, this.getDateOptions());
+		this.onPickerChange(event, nextState);
 	}
 
 	onSubmit(event, origin) {
@@ -256,9 +236,12 @@ class ContextualManager extends React.Component {
 						useUTC: this.props.useUTC,
 					},
 
-					formManagement: {
-						onReset: this.onReset,
-						onSubmit: this.onSubmit,
+					datePickerManagement: {
+						onSubmit: this.onDatePickerChange,
+					},
+
+					timePickerManagement: {
+						onSubmit: this.onTimePickerChange,
 					},
 				}}
 			>
