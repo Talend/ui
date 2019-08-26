@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
-import useCollectionSort from './sort.hook';
+import useCollectionSort from './useCollectionSort.hook';
 
 const Div = () => <div />;
 function SortComponent({ collection, initialSortParams, sortFunctions }) {
