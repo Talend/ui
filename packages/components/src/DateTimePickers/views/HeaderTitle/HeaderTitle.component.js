@@ -40,7 +40,7 @@ function HeaderTitle(props) {
 					component: 'YearPicker',
 					label: 'First item',
 					'data-feature': 'actiondropdown.items',
-					onSelect: prps.onSelectYear,
+					onSelect: props.onSelectYear,
 				},
 			],
 		},
