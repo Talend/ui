@@ -15,7 +15,6 @@ import theme from './InputDateTimePicker.scss';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	'dateFormat',
-	'formMode',
 	'id',
 	'required',
 	'selectedDateTime',
@@ -41,7 +40,6 @@ class InputDateTimePicker extends React.Component {
 		useSeconds: PropTypes.bool,
 		useTime: PropTypes.bool,
 		useUTC: PropTypes.bool,
-		formMode: PropTypes.bool,
 		required: PropTypes.bool,
 	};
 
@@ -116,8 +114,7 @@ class InputDateTimePicker extends React.Component {
 	onChange(event, payload) {
 		this.props.onChange(event, payload);
 		if (
-			this.props.formMode ||
-			(!this.props.formMode && !this.props.useTime && payload.origin !== 'INPUT')
+			(!this.props.useTime && payload.origin !== 'INPUT')
 		) {
 			this.inputRef.focus();
 			this.closePicker({ picked: true });
@@ -181,7 +178,6 @@ class InputDateTimePicker extends React.Component {
 					{({ ref, style }) => (
 						<div id={this.popoverId} className={theme.popper} style={style} ref={ref}>
 							<DateTime.Picker />
-							{this.props.formMode && <DateTime.Validation />}
 						</div>
 					)}
 				</Popper>
@@ -191,7 +187,6 @@ class InputDateTimePicker extends React.Component {
 		return (
 			<DateTime.Manager
 				dateFormat={this.props.dateFormat}
-				formMode={this.props.formMode}
 				id={this.props.id}
 				required={this.props.required}
 				selectedDateTime={this.props.selectedDateTime}
@@ -215,13 +210,7 @@ class InputDateTimePicker extends React.Component {
 								this.onKeyDown(event, formManagement);
 							}}
 						>
-							{this.props.formMode ? (
-								<form key="form" onSubmit={formManagement.onSubmit}>
-									{dateTimePicker}
-								</form>
-							) : (
-								dateTimePicker
-							)}
+							{dateTimePicker}
 						</FocusManager>
 					)}
 				</DateTimeContext.Consumer>
