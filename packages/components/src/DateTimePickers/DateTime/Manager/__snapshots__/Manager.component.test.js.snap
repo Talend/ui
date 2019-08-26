@@ -16,21 +16,6 @@ exports[`DateTime.Manager should render its children 1`] = `
           "seconds": "00",
         },
       },
-      "errorManagement": Object {
-        "errors": Array [],
-        "focusedInput": undefined,
-        "formMode": false,
-        "hasError": [Function],
-        "hoursErrorId": "DEFAULT_ID-hours-error",
-        "inputErrorId": "DEFAULT_ID-input-error",
-        "minutesErrorId": "DEFAULT_ID-minutes-error",
-        "onInputFocus": [Function],
-        "secondsErrorId": "DEFAULT_ID-seconds-error",
-      },
-      "formManagement": Object {
-        "onReset": [Function],
-        "onSubmit": [Function],
-      },
       "inputManagement": Object {
         "inputRef": [Function],
         "onChange": [Function],

@@ -9,10 +9,6 @@ describe('DateTime.Input', () => {
 	it('should render', () => {
 		// given
 		const managerValue = {
-			errorManagement: {
-				inputErrorId: 'inputErrorId',
-				onInputFocus: jest.fn(),
-			},
 			datetime: {
 				textInput: '2007-01-02',
 			},
@@ -33,30 +29,5 @@ describe('DateTime.Input', () => {
 
 		// then
 		expect(toJson(wrapper)).toMatchSnapshot();
-	});
-
-	it('should call manager focus callback in input focus', () => {
-		// given
-		const managerValue = {
-			errorManagement: {
-				onInputFocus: jest.fn(),
-			},
-			datetime: {
-				textInput: '',
-			},
-		};
-
-		const wrapper = mount(
-			<DateTimeContext.Provider value={managerValue}>
-				<Input aria-labelledby="labelId" part="date" />
-			</DateTimeContext.Provider>,
-		);
-		expect(managerValue.errorManagement.onInputFocus).not.toBeCalled();
-
-		// when
-		wrapper.find('input').simulate('focus');
-
-		// then
-		expect(managerValue.errorManagement.onInputFocus).toBeCalled();
 	});
 });

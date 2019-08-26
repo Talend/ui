@@ -7,7 +7,6 @@ import uuid from 'uuid';
 import { Popper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
-import { DateTimeContext } from '../DateTime/Context';
 import DateTime from '../DateTime';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 
@@ -15,7 +14,6 @@ import theme from './InputDateTimePicker.scss';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	'dateFormat',
-	'formMode',
 	'id',
 	'required',
 	'selectedDateTime',
@@ -41,7 +39,6 @@ class InputDateTimePicker extends React.Component {
 		useSeconds: PropTypes.bool,
 		useTime: PropTypes.bool,
 		useUTC: PropTypes.bool,
-		formMode: PropTypes.bool,
 		required: PropTypes.bool,
 	};
 
@@ -50,7 +47,6 @@ class InputDateTimePicker extends React.Component {
 		useSeconds: false,
 		useTime: false,
 		useUTC: false,
-		formMode: false,
 		// default behaviour is to forbid empty values
 		required: true,
 	};
@@ -72,10 +68,9 @@ class InputDateTimePicker extends React.Component {
 		this.closePicker = this.setPickerVisibility.bind(this, false);
 	}
 
-	onKeyDown(event, { onReset }) {
+	onKeyDown(event) {
 		switch (event.keyCode) {
 			case keycode.codes.esc:
-				onReset();
 				this.inputRef.focus();
 				this.closePicker();
 				break;
@@ -95,8 +90,7 @@ class InputDateTimePicker extends React.Component {
 		}
 	}
 
-	onBlur(event, { onReset }) {
-		onReset();
+	onBlur(event) {
 		this.closePicker({ picked: false });
 		if (this.props.onBlur) {
 			this.props.onBlur(event);
@@ -116,8 +110,7 @@ class InputDateTimePicker extends React.Component {
 	onChange(event, payload) {
 		this.props.onChange(event, payload);
 		if (
-			this.props.formMode ||
-			(!this.props.formMode && !this.props.useTime && payload.origin !== 'INPUT')
+			(!this.props.useTime && payload.origin !== 'INPUT')
 		) {
 			this.inputRef.focus();
 			this.closePicker({ picked: true });
@@ -180,8 +173,7 @@ class InputDateTimePicker extends React.Component {
 				>
 					{({ ref, style }) => (
 						<div id={this.popoverId} className={theme.popper} style={style} ref={ref}>
-							<DateTime.Picker part="date" />
-							{this.props.formMode && <DateTime.Validation />}
+							<DateTime.Picker />
 						</div>
 					)}
 				</Popper>
@@ -191,7 +183,6 @@ class InputDateTimePicker extends React.Component {
 		return (
 			<DateTime.Manager
 				dateFormat={this.props.dateFormat}
-				formMode={this.props.formMode}
 				id={this.props.id}
 				required={this.props.required}
 				selectedDateTime={this.props.selectedDateTime}
@@ -200,31 +191,21 @@ class InputDateTimePicker extends React.Component {
 				useUTC={this.props.useUTC}
 				onChange={this.onChange}
 			>
-				<DateTimeContext.Consumer>
-					{({ formManagement }) => (
-						<FocusManager
-							divRef={ref => {
-								this.containerRef = ref;
-							}}
-							onClick={this.onClick}
-							onFocusIn={this.onFocus}
-							onFocusOut={event => {
-								this.onBlur(event, formManagement);
-							}}
-							onKeyDown={event => {
-								this.onKeyDown(event, formManagement);
-							}}
-						>
-							{this.props.formMode ? (
-								<form key="form" onSubmit={formManagement.onSubmit}>
-									{dateTimePicker}
-								</form>
-							) : (
-								dateTimePicker
-							)}
-						</FocusManager>
-					)}
-				</DateTimeContext.Consumer>
+				<FocusManager
+					divRef={ref => {
+						this.containerRef = ref;
+					}}
+					onClick={this.onClick}
+					onFocusIn={this.onFocus}
+					onFocusOut={event => {
+						this.onBlur(event);
+					}}
+					onKeyDown={event => {
+						this.onKeyDown(event);
+					}}
+				>
+					{dateTimePicker}
+				</FocusManager>
 			</DateTime.Manager>
 		);
 	}
