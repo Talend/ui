@@ -5,7 +5,7 @@ import SortBy from './SortBy';
 import TextFilter from './TextFilter';
 import Toolbar from './Toolbar';
 import VList from './VList';
-import useCollectionSort from './Manager/hooks/sort.hook';
+import useCollectionSort from './Manager/hooks/useCollectionSort.hook';
 import useLocalStorage from './Manager/hooks/useLocalStorage.hook';
 
 export default {
