@@ -29,7 +29,6 @@ class ContextualManager extends React.Component {
 	static propTypes = {
 		children: PropTypes.node,
 		dateFormat: PropTypes.string,
-		formMode: PropTypes.bool,
 		id: PropTypes.string.isRequired,
 		onChange: PropTypes.func,
 		required: PropTypes.bool,
@@ -45,7 +44,6 @@ class ContextualManager extends React.Component {
 
 	static defaultProps = {
 		dateFormat: 'YYYY-MM-DD',
-		formMode: false,
 		// default behaviour is to forbid empty values
 		required: true,
 		useSeconds: false,
@@ -107,9 +105,7 @@ class ContextualManager extends React.Component {
 		const textInput = event.target.value;
 		const nextState = extractPartsFromTextInput(textInput, this.getDateOptions());
 		this.setState({ previousErrors: this.state.errors, ...nextState }, () => {
-			if (!this.props.formMode) {
-				this.onChange(event, 'INPUT');
-			}
+			this.onChange(event, 'INPUT');
 		});
 	}
 
@@ -156,9 +152,7 @@ class ContextualManager extends React.Component {
 		}
 
 		this.setState({ previousErrors: this.state.errors, ...nextState, errors: nextErrors }, () => {
-			if (!this.props.formMode) {
-				this.onChange(event, 'PICKER');
-			}
+			this.onChange(event, 'PICKER');
 		});
 	}
 
@@ -227,7 +221,6 @@ class ContextualManager extends React.Component {
 						focusedInput: this.state.focusedInput,
 						errors: this.state.errors,
 						hasError: this.hasError,
-						formMode: this.props.formMode,
 						inputErrorId: this.inputErrorId,
 						hoursErrorId: this.hoursErrorId,
 						minutesErrorId: this.minutesErrorId,
