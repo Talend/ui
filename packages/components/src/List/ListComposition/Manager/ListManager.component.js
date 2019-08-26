@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
+import useLocalStorage from 'react-use/lib/useLocalStorage';
 
 import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
-import useCollectionSort from './sort.hook';
+import useCollectionSort from './hooks/useCollectionSort.hook';
 import useCollectionFilter from './hooks/useCollectionFilter.hook';
 
 function Manager(props) {
 	let collection = props.collection;
 
-	const [displayMode, setDisplayMode] = useState();
+	const [displayMode, setDisplayMode] = useLocalStorage(props.id && `${props.id}-displayMode`);
 
 	// Sort items
 	const { sortedCollection, sortParams, setSortParams } = useCollectionSort(collection);
@@ -38,6 +39,7 @@ Manager.defaultProps = {
 	t: getDefaultT(),
 };
 Manager.propTypes = {
+	id: PropTypes.string.isRequired,
 	children: PropTypes.node,
 	collection: PropTypes.array,
 	t: PropTypes.func,
