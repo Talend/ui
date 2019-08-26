@@ -49,14 +49,15 @@ function HeaderTitle(props) {
 	if (isButton) {
 		return (<div className={theme.common}>
 			<button type="button" {...propsToSpread}>
-				{monthLabel}
+				{label}
 			</button>
-			<ActionDropdown link label={yearLabel} {...withComponents} />
-		</div>
-		);
+		</div>);
 	}
 
-	return <span {...propsToSpread}>{label}</span>;
+	return (<div className={theme.common}>
+		<div className={theme.month}><span {...propsToSpread}>{monthLabel}</span></div>
+        <ActionDropdown className='btn-tertiary btn-info' label={yearLabel}  {...withComponents} />
+	</div>);
 }
 
 HeaderTitle.propTypes = {

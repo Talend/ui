@@ -155,7 +155,6 @@ class DateTimePicker extends React.Component {
 					calendar={this.state.calendar}
 					onSelectDate={this.onSelectDate}
 					onSelectMonthYear={this.onSelectCalendarMonthYear}
-					onSelectYear={this.onSelectCalendarYear}
 					onSelectTime={this.onSelectTime}
 					onTitleClick={this.setMonthYearView}
 					selectedDate={this.state.selectedDate}

@@ -22,7 +22,7 @@ function MonthYearView(props) {
 				link
 			/>
 		),
-		middleElement: <HeaderTitle monthIndex={props.selectedMonthIndex} year={props.selectedYear} />,
+		middleElement: <HeaderTitle monthIndex={props.selectedMonthIndex} year={props.selectedYear} onSelectYear={props.onSelectYear}/>,
 	};
 
 	const bodyElement = (
@@ -33,13 +33,6 @@ function MonthYearView(props) {
 					selectedMonthIndex={props.selectedMonthIndex}
 					selectedYear={props.selectedYear}
 					onSelect={props.onSelectMonth}
-				/>
-			</div>
-			<div className={theme.year}>
-				<YearPicker
-					allowFocus={props.allowFocus}
-					selectedYear={props.selectedYear}
-					onSelect={props.onSelectYear}
 				/>
 			</div>
 		</div>

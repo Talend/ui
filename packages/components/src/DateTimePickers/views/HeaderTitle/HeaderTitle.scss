@@ -8,6 +8,10 @@
 	font-weight: 600;
 }
 
+.month {
+	margin-right: $padding-smaller;
+}
+
 .button {
 	@include nav-action;
 	&:hover {
@@ -15,5 +19,11 @@
 	}
 	&:active {
 		color: darken($scooter, 12%);
+	}
+}
+
+.tc-dropdown-container {
+	> ul {
+		min-width: 63px;
 	}
 }
