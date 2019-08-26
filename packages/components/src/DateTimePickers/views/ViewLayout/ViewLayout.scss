@@ -2,11 +2,12 @@
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+	margin-bottom: $padding-smaller;
 
 	.header {
 		display: flex;
 		height: 5rem;
-		margin-bottom: $padding-normal;
+		margin-bottom: $padding-small;
 
 		.left,
 		.right {
