@@ -48,7 +48,6 @@ class InputDateTimePicker extends React.Component {
 		useSeconds: false,
 		useTime: false,
 		useUTC: false,
-		formMode: false,
 		// default behaviour is to forbid empty values
 		required: true,
 	};
