@@ -12,7 +12,7 @@ import useLocalStorage from './hooks/useLocalStorage.hook';
 function Manager(props) {
 	let collection;
 
-	const [displayMode, setDisplayMode] = useLocalStorage();
+	const [displayMode, setDisplayMode] = useLocalStorage(props.id && `${props.id}-displayMode`);
 	const [textFilter, setTextFilter] = useState();
 
 	// Sort items
@@ -42,6 +42,7 @@ Manager.defaultProps = {
 	t: getDefaultT(),
 };
 Manager.propTypes = {
+	id: PropTypes.string,
 	children: PropTypes.node,
 	collection: PropTypes.array,
 	t: PropTypes.func,
