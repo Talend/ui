@@ -4,9 +4,6 @@ import isSameSecond from 'date-fns/is_same_second';
 
 import { DateTimeContext } from '../Context';
 import {
-	checkHours,
-	checkMinutes,
-	checkSeconds,
 	checkSupportedDateFormat,
 	extractParts,
 	extractPartsFromDateAndTime,
@@ -14,12 +11,6 @@ import {
 	getTimeFormat,
 } from '../date-extraction';
 import {
-	HOUR_ERRORS,
-	MINUTES_ERRORS,
-	SECONDS_ERRORS,
-	FIELD_HOURS,
-	FIELD_MINUTES,
-	FIELD_SECONDS,
 	INPUT_ERRORS,
 } from '../constants';
 
@@ -59,8 +50,6 @@ class ContextualManager extends React.Component {
 
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onPickerChange = this.onPickerChange.bind(this);
-		this.onDatePickerChange = this.onDatePickerChange.bind(this);
-		this.onTimePickerChange = this.onTimePickerChange.bind(this);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -99,7 +88,10 @@ class ContextualManager extends React.Component {
 		});
 	}
 
-	onPickerChange(event, nextState) {
+	onPickerChange(event, selection) {
+		const date = selection.date || this.state.date;
+		const time = selection.time || this.state.time;
+		const nextState = extractPartsFromDateAndTime(date, time, this.getDateOptions());
 		// we need to retrieve the input error from nextState to add them to the current one
 		// because, by changing the picker, we update the textInput so we need to update its errors
 		const nextErrors = this.state.errors
@@ -111,19 +103,6 @@ class ContextualManager extends React.Component {
 		this.setState({ previousErrors: this.state.errors, ...nextState, errors: nextErrors }, () => {
 			this.onChange(event, 'PICKER');
 		});
-	}
-
-	onDatePickerChange(event, { date }) {
-		const dateToUse = date;
-		const { time } = this.state;
-		const nextState = extractPartsFromDateAndTime(dateToUse, time, this.getDateOptions());
-		this.onPickerChange(event, nextState);
-	}
-
-	onTimePickerChange(event, { time }) {
-		const dateToUse = this.state.date;
-		const nextState = extractPartsFromDateAndTime(dateToUse, time, this.getDateOptions());
-		this.onPickerChange(event, nextState);
 	}
 
 	getDateOptions() {
@@ -166,14 +145,6 @@ class ContextualManager extends React.Component {
 						useTime: this.props.useTime,
 						useSeconds: this.props.useSeconds,
 						useUTC: this.props.useUTC,
-					},
-
-					datePickerManagement: {
-						onSubmit: this.onDatePickerChange,
-					},
-
-					timePickerManagement: {
-						onSubmit: this.onTimePickerChange,
 					},
 				}}
 			>

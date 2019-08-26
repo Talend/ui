@@ -9,11 +9,8 @@ export default function Picker(props) {
 	const {
 		datetime,
 		pickerManagement,
-		datePickerManagement,
-		timePickerManagement,
 	} = useContext(DateTimeContext);
 	const PickerComponent = props.part === 'date' ? DateTimePicker : TimePicker;
-	const partPickerManagement = props.part === 'date' ? datePickerManagement : timePickerManagement;
 	return (
 		<PickerComponent
 			manageFocus
@@ -22,7 +19,6 @@ export default function Picker(props) {
 				time: datetime.time,
 			}}
 			{...pickerManagement}
-			{...partPickerManagement}
 			{...props}
 		/>
 	);

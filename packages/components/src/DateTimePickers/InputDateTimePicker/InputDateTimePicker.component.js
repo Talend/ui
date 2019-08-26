@@ -173,7 +173,7 @@ class InputDateTimePicker extends React.Component {
 				>
 					{({ ref, style }) => (
 						<div id={this.popoverId} className={theme.popper} style={style} ref={ref}>
-							<DateTime.Picker />
+							<DateTime.Picker part="date" />
 						</div>
 					)}
 				</Popper>
