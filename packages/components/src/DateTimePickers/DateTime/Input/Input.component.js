@@ -10,17 +10,14 @@ export default function Input(props) {
 		inputManagement,
 		dateInputManagement,
 		timeInputManagement,
-		errorManagement,
 	} = useContext(DateTimeContext);
 	const partInputManagement = props.part === 'date' ? dateInputManagement : timeInputManagement;
 
 	return (
 		<DebounceInput
-			aria-describedby={errorManagement.inputErrorId}
 			autoComplete="off"
 			className="form-control"
 			debounceTimeout={300}
-			onFocus={errorManagement.onInputFocus}
 			type="text"
 			value={datetime.textInput}
 			{...inputManagement}
