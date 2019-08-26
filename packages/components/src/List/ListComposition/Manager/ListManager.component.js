@@ -42,7 +42,7 @@ Manager.defaultProps = {
 	t: getDefaultT(),
 };
 Manager.propTypes = {
-	id: PropTypes.string,
+	id: PropTypes.string.isRequired,
 	children: PropTypes.node,
 	collection: PropTypes.array,
 	t: PropTypes.func,
