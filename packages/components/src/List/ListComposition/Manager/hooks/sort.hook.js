@@ -28,11 +28,12 @@ function sort(collection, sortParams, sortFunctions) {
 }
 
 export default function useCollectionSort(
+	stateId,
 	collection = [],
 	initialSortParams = {},
 	sortFunctions = {},
 ) {
-	const [sortParams, setSortParams] = useState(initialSortParams);
+	const [sortParams, setSortParams] = useState(stateId, initialSortParams);
 	const sortedCollection = useMemo(() => sort(collection, sortParams, sortFunctions), [
 		collection,
 		sortParams,

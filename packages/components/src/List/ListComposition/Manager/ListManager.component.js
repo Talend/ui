@@ -5,13 +5,14 @@ import { withTranslation } from 'react-i18next';
 import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
-import useCollectionSort from './sort.hook';
+import useCollectionSort from './hooks/sort.hook';
 import { filterCollectionByText } from './filter';
+import useLocalStorage from './hooks/useLocalStorage.hook';
 
 function Manager(props) {
 	let collection;
 
-	const [displayMode, setDisplayMode] = useState();
+	const [displayMode, setDisplayMode] = useLocalStorage();
 	const [textFilter, setTextFilter] = useState();
 
 	// Sort items
