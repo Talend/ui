@@ -142,47 +142,6 @@ storiesOf('DatePicker', module)
 			</form>
 		</div>
 	))
-	.add('Date picker - form mode', () => (
-		<div>
-			<IconsProvider />
-			<h1>DatePicker in form mode</h1>
-			<p>
-				Date picker is in form mode.You can switch to form mode with a simple "formMode" props.
-				<br />
-				It means that the changes are taken into account only with a form validation (submit
-				button).
-				<br />
-				Any other picker close will revert the value.
-			</p>
-			<pre>{`
-<InputDateTimePicker
-	id="my-date-picker"
-	...
-	formMode
-/>
-			`}</pre>
-			<div style={{ width: 320 }}>
-				<InputDateTimePicker
-					id="my-date-picker"
-					onChange={action('onChange')}
-					name="Datetime"
-					formMode
-				/>
-			</div>
-			<div style={{ width: 320 }}>
-				<InputDateTimePicker
-					id="my-date-picker"
-					name="Datetime"
-					onBlur={action('onBlur')}
-					onChange={action('onChange')}
-					useTime
-					formMode
-					required={false}
-					useSeconds
-				/>
-			</div>
-		</div>
-	))
 	.add('Date picker - no input', () => {
 		const blockStyle = { width: 320, border: '1px solid black', marginRight: '1rem' };
 		return (
