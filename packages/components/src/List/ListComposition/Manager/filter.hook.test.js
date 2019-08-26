@@ -42,26 +42,7 @@ const collection = [
 		number: 4,
 	},
 ];
-/*
-	it('should do nothing if no text filter has been provided', () => {
-		// when
-		const result = filterCollectionByText(collection);
 
-		// then
-		expect(result).toEqual(collection);
-	});
-
-	it('filter the collection case-insensitively', () => {
-		// given
-		const textFilter = 'L';
-
-		// when
-		const result = filterCollectionByText(collection, textFilter);
-
-		// then
-		expect(result.length).toEqual(3);
-	});
-*/
 describe('useCollectionFilter', () => {
 	it('should not filter when no text filter is provided', () => {
 		// when
@@ -108,14 +89,11 @@ describe('useCollectionFilter', () => {
 	it('should filter with custom filter function', () => {
 		// given
 		const filterFunctions = {
-			number: (value, textFilter) => {
-				return (
-					(textFilter === 'one' && value === 1) ||
-					(textFilter === 'two' && value === 2) ||
-					(textFilter === 'three' && value === 3) ||
-					(textFilter === 'four' && value === 4)
-				);
-			},
+			number: (value, textFilter) =>
+				(textFilter === 'one' && value === 1) ||
+				(textFilter === 'two' && value === 2) ||
+				(textFilter === 'three' && value === 3) ||
+				(textFilter === 'four' && value === 4),
 		};
 
 		// when

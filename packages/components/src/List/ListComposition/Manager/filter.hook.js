@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 
-function defaultFilterFunction(value, textFilter) {
+function defaultFilterFunction(value = '', textFilter) {
 	return value
 		.toString()
 		.toLowerCase()
