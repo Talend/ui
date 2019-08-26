@@ -153,11 +153,6 @@ describe('InputDateTimePicker', () => {
 					useTime: false,
 				},
 				{
-					name: 'should NOT close overlay in form mode',
-					expectedOverlay: true,
-					useTime: false,
-				},
-				{
 					name: 'should NOT close overlay in time mode',
 					expectedOverlay: true,
 					useTime: true,
