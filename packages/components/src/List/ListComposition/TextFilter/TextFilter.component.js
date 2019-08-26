@@ -12,12 +12,11 @@ function TextFilter(props) {
 	const isFilterControlled = onChange;
 
 	const onFilterFunction = isFilterControlled ? onChange : (_, val) => setTextFilter(val);
-	const onToggleFunction = isToggleControlled
-		? onToggle
-		: event => {
-				setDocked(!dockedState);
-				onFilterFunction(event, '');
-		  };
+	const onToggleUncontrolled = event => {
+		setDocked(!dockedState);
+		onFilterFunction(event, '');
+	};
+	const onToggleFunction = isToggleControlled ? onToggle : onToggleUncontrolled;
 
 	const filterBarProps = {
 		debounceTimeout: 300,
