@@ -21,7 +21,7 @@ export function filter(collection, textFilter, filterFunctions) {
 	);
 }
 
-export default function useCollectionSort(
+export default function useCollectionFilter(
 	collection = [],
 	initialTextFilter,
 	filterFunctions = {},

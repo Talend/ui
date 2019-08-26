@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
-import useCollectionFilter from './filter.hook';
+import useCollectionFilter from './useCollectionFilter.hook';
 
 const Div = () => <div />;
 function FilterComponent({ collection, initialTextFilter, filterFunctions }) {

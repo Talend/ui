@@ -6,7 +6,7 @@ import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import useCollectionSort from './sort.hook';
-import useCollectionFilter from './filter.hook';
+import useCollectionFilter from './hooks/useCollectionFilter.hook';
 
 function Manager(props) {
 	let collection = props.collection;
