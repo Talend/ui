@@ -7,7 +7,6 @@ import uuid from 'uuid';
 import { Popper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
-import { DateTimeContext } from '../DateTime/Context';
 import DateTime from '../DateTime';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 
@@ -69,10 +68,9 @@ class InputDateTimePicker extends React.Component {
 		this.closePicker = this.setPickerVisibility.bind(this, false);
 	}
 
-	onKeyDown(event, { onReset }) {
+	onKeyDown(event) {
 		switch (event.keyCode) {
 			case keycode.codes.esc:
-				onReset();
 				this.inputRef.focus();
 				this.closePicker();
 				break;
@@ -92,8 +90,7 @@ class InputDateTimePicker extends React.Component {
 		}
 	}
 
-	onBlur(event, { onReset }) {
-		onReset();
+	onBlur(event) {
 		this.closePicker({ picked: false });
 		if (this.props.onBlur) {
 			this.props.onBlur(event);
@@ -194,25 +191,21 @@ class InputDateTimePicker extends React.Component {
 				useUTC={this.props.useUTC}
 				onChange={this.onChange}
 			>
-				<DateTimeContext.Consumer>
-					{({ formManagement }) => (
-						<FocusManager
-							divRef={ref => {
-								this.containerRef = ref;
-							}}
-							onClick={this.onClick}
-							onFocusIn={this.onFocus}
-							onFocusOut={event => {
-								this.onBlur(event, formManagement);
-							}}
-							onKeyDown={event => {
-								this.onKeyDown(event, formManagement);
-							}}
-						>
-							{dateTimePicker}
-						</FocusManager>
-					)}
-				</DateTimeContext.Consumer>
+				<FocusManager
+					divRef={ref => {
+						this.containerRef = ref;
+					}}
+					onClick={this.onClick}
+					onFocusIn={this.onFocus}
+					onFocusOut={event => {
+						this.onBlur(event);
+					}}
+					onKeyDown={event => {
+						this.onKeyDown(event);
+					}}
+				>
+					{dateTimePicker}
+				</FocusManager>
 			</DateTime.Manager>
 		);
 	}
