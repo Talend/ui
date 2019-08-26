@@ -3,7 +3,6 @@
 exports[`InputDateTimePicker should render 1`] = `
 <InputDateTimePicker
   dateFormat="YYYY-MM-DD"
-  formMode={false}
   id="my-picker"
   required={true}
   selectedDateTime={2017-04-04T13:27:00.000Z}
@@ -13,7 +12,6 @@ exports[`InputDateTimePicker should render 1`] = `
 >
   <DateTime.Manager
     dateFormat="YYYY-MM-DD"
-    formMode={false}
     id="my-picker"
     onChange={[Function]}
     required={true}
