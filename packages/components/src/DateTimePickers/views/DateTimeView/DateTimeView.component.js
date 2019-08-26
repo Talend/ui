@@ -28,6 +28,7 @@ class DateTimeView extends React.PureComponent {
 		}).isRequired,
 		onTitleClick: PropTypes.func.isRequired,
 		onSelectMonthYear: PropTypes.func.isRequired,
+		onSelectYear: PropTypes.func.isRequired,
 		onSelectDate: PropTypes.func.isRequired,
 		onSelectTime: PropTypes.func.isRequired,
 		selectedDate: PropTypes.instanceOf(Date),
@@ -98,6 +99,7 @@ class DateTimeView extends React.PureComponent {
 				<HeaderTitle
 					monthIndex={this.props.calendar.monthIndex}
 					year={this.props.calendar.year}
+					onSelectYear={this.props.onSelectYear}
 					button={{
 						'aria-label': t('DATEPICKER_TO_MONTH_YEAR', {
 							defaultValue: 'Switch to month and year pickers view',
