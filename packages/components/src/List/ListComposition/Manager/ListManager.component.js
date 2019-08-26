@@ -1,13 +1,13 @@
 import React, { useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
+import useLocalStorage from 'react-use/lib/useLocalStorage';
 
 import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import useCollectionSort from './hooks/useCollectionSort.hook';
 import { filterCollectionByText } from './filter';
-import useLocalStorage from './hooks/useLocalStorage.hook';
 
 function Manager(props) {
 	let collection;
