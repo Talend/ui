@@ -109,10 +109,7 @@ function TabBar(props) {
 			<React.Fragment>
 				<form>
 					<div className={theme['tc-responsive-tab-bar-select-container']}>
-						<select
-							onChange={event => handleSelect(event.target.value, event)}
-							value={selectedKey}
-						>
+						<select onChange={event => handleSelect(event.target.value, event)} value={selectedKey}>
 							{items.map(item => (
 								<option value={item.key} key={item.key}>
 									{item.label}
