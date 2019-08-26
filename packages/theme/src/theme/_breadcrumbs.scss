@@ -44,7 +44,7 @@
 		}
 
 		&.active span {
-			font-weight: 600;
+			font-weight: $font-weight-semi-bold;
 			color: $breadcrumb-items-active-color;
 		}
 	}

@@ -188,17 +188,16 @@ class DateTimePicker extends React.Component {
 				aria-label="Date picker"
 			>
 				{viewElement}
-				<div className={theme.footer}>
+				<div>
 					<Action
-						label={this.props.t('DATEPICKER_TODAY_ACTION', {
+						label={this.props.t('DATEPICKER_TODAY', {
 							defaultValue: 'Today',
 						})}
-						aria-label={this.props.t('DATEPICKER_SELECT_TODAY', {
-							defaultValue: 'Select Today',
+						aria-label={this.props.t('DATEPICKER_PICK_TODAY', {
+							defaultValue: 'Pick Today',
 						})}
 						onClick={this.onClickToday}
-						className={theme['btn-today']}
-						link
+						className="btn-tertiary btn-info"
 					/>
 				</div>
 			</div>

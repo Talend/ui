@@ -84,6 +84,7 @@ export function ListToVirtualizedList(props) {
 						dataKey: column.key,
 						disableSort: column.disableSort,
 						width: -1, // valid propType but disable inline style
+						...column,
 					};
 					if (titleProps && column.key === titleProps.key) {
 						Object.assign(cProps, listCellDictionary[titleCellType], {
@@ -100,7 +101,11 @@ export function ListToVirtualizedList(props) {
 						cProps.disableSort = true;
 						cProps.headerRenderer = HiddenHeader;
 					} else if (column.header && listHeaderDictionary[column.header]) {
-						Object.assign(cProps, listHeaderDictionary[column.header], {
+						let header = listHeaderDictionary[column.header];
+						if (typeof header === 'function') {
+							header = { headerRenderer: header };
+						}
+						Object.assign(cProps, header, {
 							columnData: column.data,
 						});
 					}

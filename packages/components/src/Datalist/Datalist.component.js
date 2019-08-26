@@ -220,7 +220,13 @@ class Datalist extends Component {
 				);
 			}
 
-			return get(this.props.titleMap.find(titleMap => titleMap.name === this.state.value), 'icon');
+			let item = this.props.titleMap.find(titleMap => titleMap.name === this.state.value);
+			if (!item) {
+				item = this.props.titleMap.find(titleMap => titleMap.value === this.state.value);
+			}
+			if (item) {
+				return get(item, 'icon');
+			}
 		}
 		return undefined;
 	}
