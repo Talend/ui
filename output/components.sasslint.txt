@@ -20,13 +20,8 @@ src/List/Toolbar/Toolbar.scss
   80:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
   93:12  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
-src/SidePanel/SidePanel.scss
-  183:7  error  Nesting depth 4 greater than max of 3  nesting-depth
-  194:7  error  Nesting depth 4 greater than max of 3  nesting-depth
-  206:7  error  Nesting depth 4 greater than max of 3  nesting-depth
-
 src/Typeahead/Typeahead.scss
   31:5  error  Mixins should come before declarations  mixins-before-declarations
 
-✖ 13 problems (11 errors, 2 warnings)
+✖ 10 problems (8 errors, 2 warnings)
 
