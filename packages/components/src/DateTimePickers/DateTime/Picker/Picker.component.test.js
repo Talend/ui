@@ -23,7 +23,7 @@ describe('DateTime.Picker', () => {
 		// when
 		const wrapper = mount(
 			<DateTimeContext.Provider value={managerValue}>
-				<Picker other="custom props" />
+				<Picker other="custom props" part="date" />
 			</DateTimeContext.Provider>,
 		);
 
@@ -42,6 +42,29 @@ describe('DateTime.Picker', () => {
 		});
 	});
 
+	it('should renad TimePicker when part="time"', () => {
+		// given
+		const managerValue = {
+			datetime: {
+				date: new Date(2007, 0, 2),
+				time: { hours: '01', minutes: '02', seconds: '03' },
+			},
+			pickerManagement: {
+				onSubmit: jest.fn(),
+			},
+		};
+
+		// when
+		const wrapper = mount(
+			<DateTimeContext.Provider value={managerValue}>
+				<Picker part="time" />
+			</DateTimeContext.Provider>,
+		);
+
+		// then
+		expect(wrapper.find('TimePicker').length).toBe(1);
+	});
+
 	it('should call manager onSubmit callback on picker submission', () => {
 		// given
 		const managerValue = {
@@ -56,7 +79,7 @@ describe('DateTime.Picker', () => {
 
 		const wrapper = mount(
 			<DateTimeContext.Provider value={managerValue}>
-				<Picker />
+				<Picker part="date" />
 			</DateTimeContext.Provider>,
 		);
 		expect(managerValue.pickerManagement.onSubmit).not.toBeCalled();

@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import omit from 'lodash/omit';
 
 import { DateTimeContext } from '../Context';
 import DateTimePicker from '../../pickers/DateTimePicker';
 import TimePicker from '../../pickers/TimePicker';
+
+const PROPS_TO_OMIT = ['part'];
 
 export default function Picker(props) {
 	const {
@@ -19,7 +22,7 @@ export default function Picker(props) {
 				time: datetime.time,
 			}}
 			{...pickerManagement}
-			{...props}
+			{...omit(props, PROPS_TO_OMIT)}
 		/>
 	);
 }

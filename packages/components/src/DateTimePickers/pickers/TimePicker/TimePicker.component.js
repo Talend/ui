@@ -46,6 +46,7 @@ function getOptions(interval = 60) {
 }
 
 export class TimePicker extends React.Component {
+	static displayName = 'TimePicker';
 	static propTypes = {
 		interval: PropTypes.number,
 		onSubmit: PropTypes.func.isRequired,
@@ -53,12 +54,10 @@ export class TimePicker extends React.Component {
 		textInput: PropTypes.string,
 		useSeconds: PropTypes.bool,
 	};
-
 	static defaultProps = {
 		interval: 60,
 		useSeconds: false,
 	};
-
 	constructor(props) {
 		super(props);
 		this.onSelect = this.onSelect.bind(this);
