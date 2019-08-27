@@ -236,7 +236,7 @@ describe('DateTimePicker', () => {
 
 			// when
 			wrapper
-				.find('.btn-tertiary')
+				.find('#date-picker-today-btn')
 				.at(0)
 				.simulate('click');
 

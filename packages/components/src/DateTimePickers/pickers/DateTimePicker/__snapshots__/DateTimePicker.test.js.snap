@@ -25,6 +25,7 @@ exports[`DateTimePicker should render 1`] = `
     <Action
       aria-label="Pick Today"
       className="btn-tertiary btn-info"
+      id="date-picker-today-btn"
       label="Today"
       onClick={[Function]}
     />
