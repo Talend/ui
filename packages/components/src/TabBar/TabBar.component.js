@@ -17,7 +17,7 @@ function TabBar(props) {
 
 	const [showDropdown, setShowDropDown] = useState(false);
 
-	function shouldShowDropdown() {
+	function tryShowDropdown() {
 		const tabContainer = tabBarContainerRef.current;
 		if (tabContainer) {
 			// There is a TabBar, test if the right boundary point of this TabBar
@@ -39,7 +39,7 @@ function TabBar(props) {
 	 */
 	function showTabBarAndTest() {
 		setShowDropDown(false);
-		shouldShowDropdown();
+		tryShowDropdown();
 	}
 
 	useEffect(() => {
@@ -52,7 +52,7 @@ function TabBar(props) {
 			return;
 		}
 		const tabBarRefNode = ReactDOM.findDOMNode(tabBarRef.current);
-		if (typeof tabBarRefNode.querySelector === 'function') {
+		if (tabBarRefNode && typeof tabBarRefNode.querySelector === 'function') {
 			const activeChild = tabBarRefNode.querySelector('[aria-selected=true]');
 			if (activeChild) {
 				activeChild.focus();
@@ -62,7 +62,7 @@ function TabBar(props) {
 	});
 
 	useEffect(() => {
-		shouldShowDropdown();
+		tryShowDropdown();
 	}, []);
 
 	const { onSelect } = props; // to avoid react/no-unused-prop-types
