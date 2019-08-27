@@ -108,6 +108,24 @@ function bootstrapInterceptors(options) {
 	}
 }
 
+function addOnErrorListener() {
+	window.addEventListener('error', event => {
+		const error = event.error;
+		if (!error) {
+			return;
+		}
+		// remove duplicate in dev mode
+		// SEE: https://github.com/facebook/react/issues/10474
+		if (process.env.NODE_ENV !== 'production') {
+			if (error.ALREADY_THROWN) {
+				return;
+			}
+			error.ALREADY_THROWN = true;
+		}
+		onError.report(error);
+	});
+}
+
 /**
  * Bootstrap your cmf app
  * It takes your configuration and provides a very good default one.
@@ -119,7 +137,7 @@ function bootstrapInterceptors(options) {
  */
 export default function bootstrap(appOptions = {}) {
 	// setup asap
-	onError.addOnErrorListener();
+	addOnErrorListener();
 	const options = cmfModule(appOptions);
 	assertTypeOf(options, 'appId', 'string');
 	assertTypeOf(options, 'RootComponent', 'function');
