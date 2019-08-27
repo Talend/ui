@@ -34,7 +34,7 @@ function HeaderTitle(props) {
 		components: {
 			itemsDropdown: [
 				{
-				    id: 'year-picker-in-datetime-header',
+					id: 'year-picker-in-datetime-header',
 					component: 'YearPicker',
 					label: 'First item',
 					'data-feature': 'actiondropdown.items',
@@ -45,13 +45,22 @@ function HeaderTitle(props) {
 	};
 
 	if (isButton) {
-		return (<button type="button" {...propsToSpread}>{label}</button>);
+		return (
+			<button type="button" {...propsToSpread}>
+				{label}
+			</button>
+		);
 	}
 
-	return (<div className={theme.common}>
-		<div className={theme.month}><span {...propsToSpread}>{monthLabel}</span></div>
-		<ActionDropdown className='btn-tertiary btn-info' label={yearLabel}  {...withComponents} />
-	</div>);
+
+	return (
+		<div className={theme.common}>
+			<div className={theme.month}>
+				<span {...propsToSpread}>{monthLabel}</span>
+			</div>
+			<ActionDropdown className="btn-tertiary btn-info" label={yearLabel} {...withComponents} />
+		</div>
+	);
 }
 
 HeaderTitle.propTypes = {
