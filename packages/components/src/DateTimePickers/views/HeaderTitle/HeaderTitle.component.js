@@ -52,7 +52,6 @@ function HeaderTitle(props) {
 		);
 	}
 
-
 	return (
 		<div className={theme.common}>
 			<div className={theme.month}>
