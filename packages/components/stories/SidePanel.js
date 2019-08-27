@@ -246,7 +246,9 @@ apps.forEach(app => {
 stories.add('🎨 [Portal] reverse', () => (
 	<div className={appStyle.portal}>
 		<h1>SidePanel</h1>
-		<p>Keep sidePanel reverse style even if <em>t7</em> styles are applied.</p>
+		<p>
+			Keep sidePanel reverse style even if <em>t7</em> styles are applied.
+		</p>
 		<div className={TALEND_T7_THEME_CLASSNAME} style={{ height: '100vh' }}>
 			<SidePanel
 				id="context"
