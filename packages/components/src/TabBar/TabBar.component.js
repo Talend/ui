@@ -42,7 +42,7 @@ function TabBar(props) {
 		shouldShowDropdown();
 	}
 
-	useLayoutEffect(() => {
+	useEffect(() => {
 		const resizeListener = window.addEventListener('resize', debounce(showTabBarAndTest, 200));
 		return () => window.removeEventListener('resize', resizeListener);
 	}, []);
