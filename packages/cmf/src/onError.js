@@ -212,7 +212,6 @@ function bootstrap(options, store) {
 	}
 }
 
-
 /**
  * return reference to the array of errors
  */

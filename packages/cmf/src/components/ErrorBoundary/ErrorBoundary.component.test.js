@@ -17,12 +17,20 @@ TestChildren.propTypes = {
 
 describe('Component ErrorBoundary', () => {
 	it('should render children', () => {
-		const wrapper = mount(<ErrorBoundary><TestChildren /></ErrorBoundary>);
+		const wrapper = mount(
+			<ErrorBoundary>
+				<TestChildren />
+			</ErrorBoundary>,
+		);
 		expect(wrapper.text()).toEqual('hello world');
 		expect(wrapper.find('ErrorPanel').length).toBe(0);
 	});
 	it('should render error panel when children break', () => {
-		const wrapper = mount(<ErrorBoundary><TestChildren breaking /></ErrorBoundary>);
+		const wrapper = mount(
+			<ErrorBoundary>
+				<TestChildren breaking />
+			</ErrorBoundary>,
+		);
 		expect(wrapper.text()).not.toEqual('hello world');
 		expect(wrapper.find('ErrorPanel').length).toBe(1);
 	});
