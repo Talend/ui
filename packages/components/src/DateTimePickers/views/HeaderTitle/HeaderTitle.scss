@@ -6,6 +6,10 @@
 	align-items: center;
 	text-transform: uppercase;
 	font-weight: 600;
+
+	:global(.dropdown-menu){
+		min-width: 63px;
+	}
 }
 
 .month {
@@ -19,11 +23,5 @@
 	}
 	&:active {
 		color: darken($scooter, 12%);
-	}
-}
-
-.tc-dropdown-container {
-	> ul {
-		min-width: 63px;
 	}
 }
