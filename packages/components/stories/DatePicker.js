@@ -5,6 +5,7 @@ import { IconsProvider } from '../src/index';
 
 import InputDateTimePicker, { DateTime } from '../src/DateTimePickers';
 import { TimePicker } from '../src/DateTimePickers/pickers/TimePicker/TimePicker.component';
+import InputTimePicker from '../src/DateTimePickers/InputTimePicker';
 
 class TestPickerWrapper extends React.Component {
 	static propTypes = {
@@ -284,5 +285,14 @@ storiesOf('DatePicker', module)
 					</div>
 				</div>
 			</div>
+		);
+	})
+	.add('Time picker - with input', () => {
+		return (
+			<form>
+				<InputTimePicker
+					onChange={action('onChange')}
+				/>
+			</form>
 		);
 	});

@@ -50,7 +50,9 @@ class ContextualManager extends React.Component {
 	constructor(props) {
 		super(props);
 
-		checkSupportedDateFormat(props.dateFormat);
+		if (props.dateFormat) {
+			checkSupportedDateFormat(props.dateFormat);
+		}
 		this.initialState = extractParts(props.selectedDateTime, this.getDateOptions());
 		this.state = {
 			...this.initialState,

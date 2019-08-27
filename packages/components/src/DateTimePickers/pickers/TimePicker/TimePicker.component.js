@@ -84,6 +84,7 @@ export class TimePicker extends React.Component {
 		this.props.onSubmit(event, {
 			textInput: option.label,
 			time: option.value,
+			origin: 'PICKER',
 		});
 	}
 	scrollItemIntoView(textInput) {
