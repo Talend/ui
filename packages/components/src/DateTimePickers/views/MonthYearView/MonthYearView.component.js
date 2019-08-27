@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Action } from '../../../Actions';
 import MonthPicker from '../../pickers/MonthPicker';
-import theme from './MonthYearView.scss';
 import ViewLayout from '../ViewLayout';
 import HeaderTitle from '../HeaderTitle';
 import getDefaultT from '../../../translate';
@@ -31,16 +30,12 @@ function MonthYearView(props) {
 	};
 
 	const bodyElement = (
-		<div className={theme.body}>
-			<div className={theme.month}>
-				<MonthPicker
-					allowFocus={props.allowFocus}
-					selectedMonthIndex={props.selectedMonthIndex}
-					selectedYear={props.selectedYear}
-					onSelect={props.onSelectMonth}
-				/>
-			</div>
-		</div>
+		<MonthPicker
+			allowFocus={props.allowFocus}
+			selectedMonthIndex={props.selectedMonthIndex}
+			selectedYear={props.selectedYear}
+			onSelect={props.onSelectMonth}
+		/>
 	);
 
 	return <ViewLayout header={header} bodyElement={bodyElement} />;

@@ -3,20 +3,12 @@
 exports[`MonthYearView should render 1`] = `
 <ViewLayout
   bodyElement={
-    <div
-      className="theme-body"
-    >
-      <div
-        className="theme-month"
-      >
-        <withI18nextTranslation(MonthCalendarGesture(MonthPicker))
-          allowFocus={true}
-          onSelect={[MockFunction]}
-          selectedMonthIndex={8}
-          selectedYear={2012}
-        />
-      </div>
-    </div>
+    <withI18nextTranslation(MonthCalendarGesture(MonthPicker))
+      allowFocus={true}
+      onSelect={[MockFunction]}
+      selectedMonthIndex={8}
+      selectedYear={2012}
+    />
   }
   header={
     Object {
