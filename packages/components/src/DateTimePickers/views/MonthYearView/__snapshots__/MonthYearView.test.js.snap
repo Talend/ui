@@ -16,15 +16,6 @@ exports[`MonthYearView should render 1`] = `
           selectedYear={2012}
         />
       </div>
-      <div
-        className="theme-year"
-      >
-        <withI18nextTranslation(YearPicker)
-          allowFocus={true}
-          onSelect={[MockFunction]}
-          selectedYear={2012}
-        />
-      </div>
     </div>
   }
   header={
@@ -39,6 +30,7 @@ exports[`MonthYearView should render 1`] = `
       />,
       "middleElement": <withI18nextTranslation(HeaderTitle)
         monthIndex={8}
+        onSelectYear={[MockFunction]}
         year={2012}
       />,
     }

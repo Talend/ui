@@ -12,9 +12,7 @@ import YearPicker from '../../pickers/YearPicker';
 
 function HeaderTitle(props) {
 	const isButton = !!props.button;
-
-	const className = classNames(isButton ? [theme.button] : [theme.common], props.className);
-
+	const className = classNames(theme.common, { [theme.button]: isButton }, props.className);
 	const propsToSpread = {
 		className,
 		...(isButton ? props.button : {}),
@@ -47,11 +45,7 @@ function HeaderTitle(props) {
 	};
 
 	if (isButton) {
-		return (<div className={theme.common}>
-			<button type="button" {...propsToSpread}>
-				{label}
-			</button>
-		</div>);
+		return (<button type="button" {...propsToSpread}>{label}</button>);
 	}
 
 	return (<div className={theme.common}>
@@ -66,7 +60,7 @@ HeaderTitle.propTypes = {
 	button: PropTypes.object,
 	className: PropTypes.string,
 	t: PropTypes.func,
-	onSelectYear: PropTypes.func.isRequired,
+	onSelectYear: PropTypes.func,
 };
 
 HeaderTitle.defaultProps = {

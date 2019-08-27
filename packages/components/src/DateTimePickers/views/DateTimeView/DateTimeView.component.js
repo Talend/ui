@@ -28,7 +28,6 @@ class DateTimeView extends React.PureComponent {
 		}).isRequired,
 		onTitleClick: PropTypes.func.isRequired,
 		onSelectMonthYear: PropTypes.func.isRequired,
-		onSelectYear: PropTypes.func.isRequired,
 		onSelectDate: PropTypes.func.isRequired,
 		onSelectTime: PropTypes.func.isRequired,
 		selectedDate: PropTypes.instanceOf(Date),

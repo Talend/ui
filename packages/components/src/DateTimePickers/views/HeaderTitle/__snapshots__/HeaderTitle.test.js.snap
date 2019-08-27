@@ -10,10 +10,36 @@ exports[`HeaderTitle should render a button 1`] = `
 </button>
 `;
 
-exports[`HeaderTitle should render a span 1`] = `
-<span
+exports[`HeaderTitle should render a span and ActionDropdown 1`] = `
+<div
   className="theme-common"
 >
-  September 2012
-</span>
+  <div
+    className="theme-month"
+  >
+    <span
+      className="theme-common"
+    >
+      September
+    </span>
+  </div>
+  <withI18nextTranslation(ActionDropdown)
+    className="btn-tertiary btn-info"
+    components={
+      Object {
+        "itemsDropdown": Array [
+          Object {
+            "component": "YearPicker",
+            "data-feature": "actiondropdown.items",
+            "id": "year-picker-in-datetime-header",
+            "label": "First item",
+            "onSelect": undefined,
+          },
+        ],
+      }
+    }
+    getComponent={[Function]}
+    label="2012"
+  />
+</div>
 `;
