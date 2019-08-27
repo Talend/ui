@@ -162,7 +162,7 @@ storiesOf('DatePicker', module)
 						<h2>Date</h2>
 						<div style={blockStyle}>
 							<DateTime.Manager id="simple" onChange={action('onChange')}>
-								<DateTime.Picker />
+								<DateTime.Picker part="date" />
 							</DateTime.Manager>
 						</div>
 					</div>
@@ -171,7 +171,7 @@ storiesOf('DatePicker', module)
 						<h2>Date time</h2>
 						<div style={blockStyle}>
 							<DateTime.Manager id="time" onChange={action('onChange')} useTime>
-								<DateTime.Picker />
+								<DateTime.Picker part="date" />
 							</DateTime.Manager>
 						</div>
 					</div>
@@ -180,7 +180,7 @@ storiesOf('DatePicker', module)
 						<h2>Date time seconds</h2>
 						<div style={blockStyle}>
 							<DateTime.Manager id="time-seconds" onChange={action('onChange')} useTime useSeconds>
-								<DateTime.Picker />
+								<DateTime.Picker part="date" />
 							</DateTime.Manager>
 						</div>
 					</div>
