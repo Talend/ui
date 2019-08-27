@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import uuid from 'uuid';
@@ -9,6 +9,7 @@ import DateTime from '../DateTime';
 import TimePicker from '../pickers/TimePicker';
 
 import theme from './InputTimePicker.scss';
+import useInputPikcerHandlers from '../hooks/useInputPickerHandlers';
 
 
 const PROPS_TO_OMIT_FOR_INPUT = [
@@ -20,88 +21,21 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'onChange',
 ];
 
-class InputTimePicker extends React.Component {
-	static propTypes = {
-		id: PropTypes.string.isRequired,
-		selectedTime: PropTypes.string,
-		useSeconds: PropTypes.bool,
-		onChange: PropTypes.func,
-		onBlur: PropTypes.func,
-	};
-	static defaultProps = {
-		useSeconds: false,
-	};
-	constructor(props) {
-		super(props);
-		this.popoverId = `time-picker-${props.id || uuid.v4()}`;
-		this.state = {
-			showPicker: false,
-		};
-
-		this.onBlur = this.onBlur.bind(this);
-		this.onClick = this.onClick.bind(this);
-		this.onChange = this.onChange.bind(this);
-		this.onFocus = this.onFocus.bind(this);
-		this.openPicker = this.setPickerVisibility.bind(this, true);
-		this.closePicker = this.setPickerVisibility.bind(this, false);
-	}
-	onClick() {
-		this.openPicker();
-	}
-	onChange(event, payload) {
-		this.props.onChange(event, payload);
-		if (
-			(payload.origin !== 'INPUT')
-		) {
-			this.inputRef.focus();
-			this.closePicker({ picked: true });
-		}
-	}
-	onBlur(event) {
-		this.closePicker({ picked: false });
-		if (this.props.onBlur) {
-			this.props.onBlur(event);
-		}
-	}
-	onFocus() {
-		if (!this.state.picked) {
-			this.openPicker();
-		}
-	}
-	getPopperPlacement() {
-		const input = this.inputRef;
-		if (input) {
-			const inputDimensions = input.getBoundingClientRect();
-			if (inputDimensions.left > window.innerWidth / 2) {
-				return 'bottom-end';
-			}
-		}
-		return 'bottom-start';
-	}
-	setPickerVisibility(isShown, extra = {}) {
-		this.setState(({ showPicker }) => {
-			if (showPicker === isShown) {
-				return extra;
-			}
-			return {
-				showPicker: isShown,
-				...extra,
-			};
-		});
-	}
-	render() {
-		const inputProps = omit(this.props, PROPS_TO_OMIT_FOR_INPUT);
-		const dateTimePicker = [
-			<DateTime.Input
-				{...inputProps}
-				id={`${this.props.id}-input`}
-				key="input"
-				inputRef={ref => {
-					this.inputRef = ref;
-				}}
-				part="time"
-			/>,
-			this.state.showPicker && (
+export default function InputTimePicker(props) {
+	const popoverId = `time-picker-${props.id || uuid.v4()}`;
+	const inputRef = useRef(null);
+	const containerRef = useRef(null);
+	const handlers = useInputPikcerHandlers(props);
+	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
+	const timePicker = [
+		<DateTime.Input
+			{...inputProps}
+			id={`${props.id}-input`}
+			key="input"
+			inputRef={inputRef}
+			part="time"
+		/>,
+			handlers.showPicker && (
 				<Popper
 					key="popper"
 					modifiers={{
@@ -112,42 +46,51 @@ class InputTimePicker extends React.Component {
 							enabled: false,
 						},
 					}}
-					placement={this.getPopperPlacement()}
+					placement={handlers.getPopperPlacement(inputRef.current)}
 					positionFixed
-					referenceElement={this.inputRef}
+					referenceElement={inputRef.current}
 				>
 					{({ ref, style }) => (
-						<div id={this.popoverId} className={theme.popper} style={style} ref={ref}>
-							<TimePicker useSeconds={this.props.useSeconds} onSubmit={this.onChange} />
+						<div id={popoverId} className={theme.popper} style={style} ref={ref}>
+							<TimePicker
+								useSeconds={props.useSeconds}
+								onSubmit={(...args) => handlers.onChange(...args, inputRef.current)}
+							/>
 						</div>
 					)}
 				</Popper>
-			),
-		].filter(Boolean);
-		return (
-			<DateTime.Manager
-				selectedTime={this.props.selectedTime}
-				useSeconds={this.props.useSeconds}
-				onChange={this.onChange}
+		),
+	].filter(Boolean);
+	return (
+		<DateTime.Manager
+			selectedTime={props.selectedTime}
+			useSeconds={props.useSeconds}
+			onChange={(...args) => handlers.onChange(...args, inputRef.current)}
+		>
+			<FocusManager
+				divRef={containerRef}
+				onClick={handlers.onClick}
+				onFocusIn={handlers.onFocus}
+				onFocusOut={handlers.onBlur}
+				onKeyDown={event => {
+					handlers.onKeyDown(event, inputRef.current, containerRef.current);
+				}}
 			>
-				<FocusManager
-					divRef={ref => {
-						this.containerRef = ref;
-					}}
-					onClick={this.onClick}
-					onFocusIn={this.onFocus}
-					onFocusOut={event => {
-						this.onBlur(event);
-					}}
-					onKeyDown={event => {
-						this.onKeyDown(event);
-					}}
-				>
-					{dateTimePicker}
-				</FocusManager>
-			</DateTime.Manager>
-		);
-	}
+				{timePicker}
+			</FocusManager>
+		</DateTime.Manager>
+	);
 }
 
-export default InputTimePicker;
+InputTimePicker.displayName = 'InputTimePicker';
+
+InputTimePicker.propTypes = {
+	id: PropTypes.string.isRequired,
+	selectedTime: PropTypes.string,
+	useSeconds: PropTypes.bool,
+	onChange: PropTypes.func,
+	onBlur: PropTypes.func,
+};
+InputTimePicker.defaultProps = {
+	useSeconds: false,
+};
