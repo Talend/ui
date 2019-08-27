@@ -50,7 +50,7 @@ function HeaderTitle(props) {
 
 	return (<div className={theme.common}>
 		<div className={theme.month}><span {...propsToSpread}>{monthLabel}</span></div>
-        <ActionDropdown className='btn-tertiary btn-info' label={yearLabel}  {...withComponents} />
+		<ActionDropdown className='btn-tertiary btn-info' label={yearLabel}  {...withComponents} />
 	</div>);
 }
 

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Action } from '../../../Actions';
 import MonthPicker from '../../pickers/MonthPicker';
-import YearPicker from '../../pickers/YearPicker';
 import theme from './MonthYearView.scss';
 import ViewLayout from '../ViewLayout';
 import HeaderTitle from '../HeaderTitle';
