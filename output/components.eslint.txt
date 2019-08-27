@@ -33,6 +33,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
    9:2   warning  Unexpected console statement  no-console
   10:16  error    Unexpected require()          global-require
 
+/home/travis/build/Talend/ui/packages/components/src/List/ListComposition/Manager/ListManager.component.js
+  1:17  error  'useState' is defined but never used  no-unused-vars
+
 /home/travis/build/Talend/ui/packages/components/src/MultiSelect/ItemOption.component.js
   57:9  error  'index' PropType is defined but prop is never used  react/no-unused-prop-types
 

@@ -11,31 +11,5 @@
 }
 
 .footer {
-	:global {
-		.btn-link {
-			color: $st-tropaz;
-			text-decoration: none;
-
-			:hover {
-				background-color: rgba($st-tropaz, 0.1);
-				transition: opacity 0.1s ease-in;
-			}
-			:focus {
-				background-color: rgba($st-tropaz, 0.2);
-			}
-		}
-	}
-}
-
-.btn-today {
-	color: $st-tropaz;
-	font-weight: bold;
-	text-transform: uppercase;
-	padding: 0;
-	height: 25px;
-	> span {
-		border-radius: 4px;
-		padding-left: $padding-small;
-		padding-right: $padding-small;
-	}
+	padding-top: $padding-normal;
 }
