@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import HeaderTitle from './HeaderTitle.component';
 import { ActionDropdown } from '../../../Actions';
-import Action from "../../../Actions/Action/Action.component";
+import Action from '../../../Actions/Action/Action.component';
 
 describe('HeaderTitle', () => {
 	it('should render a span and ActionDropdown', () => {
@@ -30,9 +30,21 @@ describe('HeaderTitle', () => {
 
 	it('should render the correct date and format', () => {
 		const wrapperSpanAction = shallow(<HeaderTitle monthIndex={2} year={2001} />);
-		const wrapperButton = shallow(<HeaderTitle monthIndex={11} year={2002} button={{ whateverButtonProp: 'whateverValue' }}/>);
-		expect(wrapperSpanAction.find('span').first().text()).toEqual('March');
-		expect(wrapperSpanAction.find(ActionDropdown).first().props().label).toEqual('2001');
+		const wrapperButton = shallow(
+			<HeaderTitle monthIndex={11} year={2002} button={{ whateverButtonProp: 'whateverValue' }} />,
+		);
+		expect(
+			wrapperSpanAction
+				.find('span')
+				.first()
+				.text(),
+		).toEqual('March');
+		expect(
+			wrapperSpanAction
+				.find(ActionDropdown)
+				.first()
+				.props().label,
+		).toEqual('2001');
 		expect(wrapperButton.text()).toBe('December 2002');
 	});
 });
