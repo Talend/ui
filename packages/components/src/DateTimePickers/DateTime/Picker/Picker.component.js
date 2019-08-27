@@ -9,10 +9,7 @@ import TimePicker from '../../pickers/TimePicker';
 const PROPS_TO_OMIT = ['part'];
 
 export default function Picker(props) {
-	const {
-		datetime,
-		pickerManagement,
-	} = useContext(DateTimeContext);
+	const { datetime, pickerManagement } = useContext(DateTimeContext);
 	const PickerComponent = props.part === 'date' ? DateTimePicker : TimePicker;
 	return (
 		<PickerComponent
