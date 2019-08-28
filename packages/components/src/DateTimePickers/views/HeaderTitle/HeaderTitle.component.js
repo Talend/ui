@@ -36,7 +36,6 @@ function HeaderTitle(props) {
 				{
 					id: 'year-picker-in-datetime-header',
 					component: 'YearPicker',
-					label: 'First item',
 					'data-feature': 'actiondropdown.items',
 					onSelect: props.onSelectYear,
 				},
