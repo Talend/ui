@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import keycode from 'keycode';
 
-
 export default function useInputPickerHandlers({ handleBlur, handleChange }) {
 	const [showPicker, setPickerVisibility] = useState(false);
 	const [picked, setPicked] = useState(false);

@@ -57,7 +57,9 @@ export default function InputTimePicker(props) {
 						<div id={popoverId} className={theme.popper} style={style} ref={ref}>
 							<TimePicker
 								useSeconds={props.useSeconds}
-								onChange={(...args) => handlers.onChange(...args, inputRef.current)}
+								onChange={(event, payload) =>
+									handlers.onChange(event, { ...payload, origin: 'PICKER' }, inputRef.current)
+								}
 							/>
 						</div>
 					)}
