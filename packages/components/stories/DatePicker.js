@@ -287,12 +287,10 @@ storiesOf('DatePicker', module)
 			</div>
 		);
 	})
-	.add('Time picker - with input', () => {
-		return (
-			<form>
-				<InputTimePicker
-					onChange={action('onChange')}
-				/>
-			</form>
-		);
-	});
+	.add('Time picker - with input', () => (
+		<form style={{ width: 320 }}>
+			<InputTimePicker
+				onChange={action('onChange')}
+			/>
+		</form>
+	));

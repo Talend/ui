@@ -9,7 +9,7 @@ import DateTime from '../DateTime';
 import TimePicker from '../pickers/TimePicker';
 
 import theme from './InputTimePicker.scss';
-import useInputPikcerHandlers from '../hooks/useInputPickerHandlers';
+import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 
 
 const PROPS_TO_OMIT_FOR_INPUT = [
@@ -25,7 +25,10 @@ export default function InputTimePicker(props) {
 	const popoverId = `time-picker-${props.id || uuid.v4()}`;
 	const inputRef = useRef(null);
 	const containerRef = useRef(null);
-	const handlers = useInputPikcerHandlers(props);
+	const handlers = useInputPickerHandlers({
+		handleBlur: props.onBlur,
+		handleChange: props.onChange,
+	});
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
 	const timePicker = [
 		<DateTime.Input
@@ -54,7 +57,7 @@ export default function InputTimePicker(props) {
 						<div id={popoverId} className={theme.popper} style={style} ref={ref}>
 							<TimePicker
 								useSeconds={props.useSeconds}
-								onSubmit={(...args) => handlers.onChange(...args, inputRef.current)}
+								onChange={(...args) => handlers.onChange(...args, inputRef.current)}
 							/>
 						</div>
 					)}

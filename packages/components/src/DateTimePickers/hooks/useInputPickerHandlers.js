@@ -2,7 +2,7 @@ import { useState } from 'react';
 import keycode from 'keycode';
 
 
-export default function useInputPikcerHandlers(props) {
+export default function useInputPickerHandlers({ handleBlur, handleChange}) {
 	const [showPicker, setPickerVisibility] = useState(false);
 	const [picked, setPicked] = useState(false);
 
@@ -15,19 +15,20 @@ export default function useInputPikcerHandlers(props) {
 	function onBlur(event) {
 		setPicked(false);
 		closePicker();
-		if (props.onBlur) {
-			props.onBlur(event);
+		if (handleBlur) {
+			handleBlur(event);
 		}
 	}
 	function onChange(event, payload, inputRef) {
-		props.onChange(event, payload);
-		if (
-			(payload.origin !== 'INPUT')
-		) {
-			inputRef.focus();
-			setPicked(true);
-			closePicker();
-		}
+        onBlur();
+		// handleChange(event, payload);
+		// if (
+		// 	(payload.origin !== 'INPUT')
+		// ) {
+		// 	inputRef.focus();
+		// 	setPicked(true);
+		// 	closePicker();
+		// }
 	}
 
 	function onClick() {
@@ -39,7 +40,7 @@ export default function useInputPikcerHandlers(props) {
 			openPicker();
 		}
 	}
-	function onKeyDown(event, inputRef, containerRef) {
+	function onKeyDown(event, inputRef) {
 		switch (event.keyCode) {
 			case keycode.codes.esc:
 				inputRef.focus();
