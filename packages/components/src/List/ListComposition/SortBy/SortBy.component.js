@@ -6,6 +6,7 @@ import uuid from 'uuid';
 import { useListContext } from '../context';
 
 function SortBy(props) {
+	const DISPLAY_TABLE = 'table';
 	const { id, initialValue, options, onChange, value } = props;
 	const { displayMode, sortParams, setSortParams, t } = useListContext();
 	const isControlled = onChange;
@@ -40,7 +41,7 @@ function SortBy(props) {
 	const onOrderChange = event =>
 		performChange(event, { ...currentValue, isDescending: !currentValue.isDescending });
 
-	return displayMode !== 'table' ? (
+	return displayMode !== DISPLAY_TABLE ? (
 		<React.Fragment>
 			<Navbar.Text>
 				<label htmlFor={id}>{t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}</label>
