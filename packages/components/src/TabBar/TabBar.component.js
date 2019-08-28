@@ -1,5 +1,5 @@
 /* eslint-disable react/no-find-dom-node */
-import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import Tab from 'react-bootstrap/lib/Tab';
