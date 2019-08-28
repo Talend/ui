@@ -48,7 +48,7 @@ function getOptions(interval = 60) {
 export class TimePicker extends React.Component {
 	static propTypes = {
 		interval: PropTypes.number,
-		onSubmit: PropTypes.func.isRequired,
+		onChange: PropTypes.func.isRequired,
 		onKeyDown: PropTypes.func.isRequired,
 		textInput: PropTypes.string,
 		useSeconds: PropTypes.bool,
@@ -81,7 +81,7 @@ export class TimePicker extends React.Component {
 		}
 	}
 	onSelect(event, option) {
-		this.props.onSubmit(event, {
+		this.props.onChange(event, {
 			textInput: option.label,
 			time: option.value,
 		});
