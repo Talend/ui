@@ -226,4 +226,38 @@ describe('InlineForm', () => {
 		const wrapper = shallow(<InlineForm {...props} />);
 		expect(wrapper.find('input').getElement().props.placeholder).toBe(placeholder);
 	});
+	it('should have disabled submit button if required and empty', () => {
+		const props = { ...defaultProps, required: true, text: '' };
+		const wrapper = shallow(<InlineForm {...props} />);
+		expect(
+			wrapper
+				.find('Action')
+				.at(1)
+				.props().disabled,
+		).toBe(true);
+		wrapper.setState({ value: 'Some text' });
+		expect(
+			wrapper
+				.find('Action')
+				.at(1)
+				.props().disabled,
+		).toBe(false);
+	});
+	it('should have disabled submit button if not valid', () => {
+		const props = { ...defaultProps, errorMessage: 'Error here' };
+		const wrapper = shallow(<InlineForm {...props} />);
+		expect(
+			wrapper
+				.find('Action')
+				.at(1)
+				.props().disabled,
+		).toBe(true);
+		wrapper.setState({ errorMessage: '' });
+		expect(
+			wrapper
+				.find('Action')
+				.at(1)
+				.props().disabled,
+		).toBe(false);
+	});
 });

@@ -121,7 +121,7 @@ class InlineForm extends React.Component {
 							theme['tc-editable-text-form-buttons-submit'],
 							'tc-editable-text-form-buttons-submit',
 						)}
-						disabled={notFilled}
+						disabled={notValid}
 						hideLabel
 						data-feature={feature && `${feature}.submit`}
 					/>

@@ -25,5 +25,11 @@ storiesOf('EditableText', module)
 	.add('in progress', () => <EditableText inProgress {...props} />)
 	.add('edit mode', () => <EditableText editMode {...props} />)
 	.add('not required', () => <EditableText required={false} editMode {...props} />)
-	.add('placeholder', () => <EditableText editMode placeholder="Enter your text here.." {...props} text="" />)
+	.add('required', () =>
+		<React.Fragment>
+			<p>Submit button is disabled as long as the content is empty or invalid.</p>
+			<EditableText placeholder="Content is required" required editMode {...props} text="" />
+		</React.Fragment>
+	)
+	.add('placeholder', () => <EditableText editMode placeholder="Enter your text here..." {...props} text="" />)
 	.add('with error', () => <EditableText editMode {...props} text="" errorMessage="custom error message" />);
