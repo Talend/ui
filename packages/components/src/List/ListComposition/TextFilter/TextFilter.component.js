@@ -29,7 +29,7 @@ function TextFilter(props) {
 
 		docked: isToggleControlled ? docked : dockedState,
 		onToggle: onToggleFunction,
-		onClear: isToggleControlled ? onClear : (event) => onFilterFunction(event, ''),
+		onClear: isToggleControlled ? onClear : event => onFilterFunction(event, ''),
 	};
 
 	return <FilterBar {...filterBarProps} {...restProps} />;
