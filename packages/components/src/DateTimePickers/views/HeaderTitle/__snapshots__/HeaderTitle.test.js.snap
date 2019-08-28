@@ -32,7 +32,6 @@ exports[`HeaderTitle should render a span and ActionDropdown 1`] = `
             "component": "YearPicker",
             "data-feature": "actiondropdown.items",
             "id": "year-picker-in-datetime-header",
-            "label": "First item",
             "onSelect": undefined,
           },
         ],
