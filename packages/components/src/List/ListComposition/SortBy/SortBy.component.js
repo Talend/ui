@@ -9,11 +9,6 @@ import { useListContext } from '../context';
 function SortBy(props) {
 	const { id, initialValue, options, onChange, value } = props;
 	const { displayMode, sortParams, setSortParams, t } = useListContext();
-
-	if (displayMode === DISPLAY_MODE.TABLE) {
-		return null;
-	}
-
 	const isControlled = onChange;
 
 	useEffect(() => {
@@ -21,6 +16,10 @@ function SortBy(props) {
 			setSortParams(initialValue);
 		}
 	}, []);
+
+	if (displayMode === DISPLAY_MODE.TABLE) {
+		return null;
+	}
 
 	const currentValue = isControlled ? value : sortParams;
 
