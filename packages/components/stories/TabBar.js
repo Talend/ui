@@ -32,6 +32,21 @@ const tabProps = {
 			label: 'Tab5',
 			'data-feature': 'action.5',
 		},
+		{
+			key: '6',
+			label: 'Tab6',
+			'data-feature': 'action.6',
+		},
+		{
+			key: '7',
+			label: 'Tab7',
+			'data-feature': 'action.7',
+		},
+		{
+			key: '8',
+			label: 'Tab8',
+			'data-feature': 'action.8',
+		},
 	],
 	onSelect: action('onSelect'),
 	selectedKey: '2',
@@ -69,6 +84,10 @@ stories
 		<nav>
 			<h3>Default TabBar</h3>
 			<div id="default">
+				<TabBar {...tabProps}>I'm the child</TabBar>
+			</div>
+			<h3>Default TabBar with too small container</h3>
+			<div id="default-smaller" style={{ width: '300px' }}>
 				<TabBar {...tabProps}>I'm the child</TabBar>
 			</div>
 		</nav>
