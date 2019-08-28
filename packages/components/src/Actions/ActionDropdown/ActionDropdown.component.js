@@ -292,6 +292,7 @@ ActionDropdown.propTypes = {
 		afterItemsDropdown: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 	}),
 	t: PropTypes.func,
+	children: PropTypes.node,
 };
 
 ActionDropdown.defaultProps = {
