@@ -41,7 +41,10 @@ function SortBy(props) {
 	const onOrderChange = event =>
 		performChange(event, { ...currentValue, isDescending: !currentValue.isDescending });
 
-	return displayMode !== DISPLAY_TABLE ? (
+	if (displayMode === DISPLAY_TABLE) {
+		return null;
+	}
+	return (
 		<React.Fragment>
 			<Navbar.Text>
 				<label htmlFor={id}>{t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}</label>
@@ -74,7 +77,7 @@ function SortBy(props) {
 				</NavItem>
 			</Nav>
 		</React.Fragment>
-	) : null;
+	);
 }
 
 SortBy.defaultProps = {
