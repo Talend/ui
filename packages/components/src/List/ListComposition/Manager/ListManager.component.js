@@ -1,28 +1,26 @@
-import React, { useMemo, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
+import useLocalStorage from 'react-use/lib/useLocalStorage';
 
 import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
-import { sortCollection } from './sort';
-import { filterCollectionByText } from './filter';
+import useCollectionSort from './hooks/useCollectionSort.hook';
+import useCollectionFilter from './hooks/useCollectionFilter.hook';
 
 function Manager(props) {
-	const [displayMode, setDisplayMode] = useState();
-	const [sortParams, setSortParams] = useState({});
-	const [textFilter, setTextFilter] = useState();
-
 	let collection = props.collection;
 
+	const [displayMode, setDisplayMode] = useLocalStorage(props.id && `${props.id}-displayMode`);
+
 	// Sort items
-	collection = useMemo(() => sortCollection(collection, sortParams), [collection, sortParams]);
+	const { sortedCollection, sortParams, setSortParams } = useCollectionSort(collection);
+	collection = sortedCollection;
 
 	// Filter by text
-	collection = useMemo(() => filterCollectionByText(collection, textFilter), [
-		collection,
-		textFilter,
-	]);
+	const { filteredCollection, textFilter, setTextFilter } = useCollectionFilter(collection);
+	collection = filteredCollection;
 
 	const contextValues = {
 		collection,
@@ -41,6 +39,7 @@ Manager.defaultProps = {
 	t: getDefaultT(),
 };
 Manager.propTypes = {
+	id: PropTypes.string.isRequired,
 	children: PropTypes.node,
 	collection: PropTypes.array,
 	t: PropTypes.func,
