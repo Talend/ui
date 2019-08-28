@@ -244,7 +244,7 @@ describe('InlineForm', () => {
 		).toBe(false);
 	});
 	it('should have disabled submit button if not valid', () => {
-		const props = { ...defaultProps, errorMessage: 'Error here' };
+		const props = { ...defaultProps, required: false, errorMessage: 'Error here' };
 		const wrapper = shallow(<InlineForm {...props} />);
 		expect(
 			wrapper
@@ -252,7 +252,7 @@ describe('InlineForm', () => {
 				.at(1)
 				.props().disabled,
 		).toBe(true);
-		wrapper.setState({ errorMessage: '' });
+		wrapper.setProps({ errorMessage: '' });
 		expect(
 			wrapper
 				.find('Action')
