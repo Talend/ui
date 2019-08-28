@@ -15,6 +15,7 @@ exports[`DateTime.Manager should render its children 1`] = `
           "minutes": "27",
           "seconds": "00",
         },
+        "timeTextInput": undefined,
       },
       "inputManagement": Object {
         "inputRef": [Function],
@@ -27,7 +28,11 @@ exports[`DateTime.Manager should render its children 1`] = `
         "useUTC": false,
       },
       "timeInputManagement": Object {
+        "onChange": [Function],
         "placeholder": "HH:mm",
+      },
+      "timePickerManagement": Object {
+        "onChange": [Function],
       },
     }
   }

@@ -481,7 +481,31 @@ function extractPartsFromDateAndTime(date, time, options) {
  * 	}}
  */
 function extractPartsFromTextInput(textInput, options) {
-	let time = initTime(options);
+	let errors = [];
+	let time;
+	if (options.timeOnly) {
+		if (textInput === '') {
+			return {
+				time: null,
+				timeTextInput: '',
+				errors: [],
+			};
+		}
+		try {
+			time = strToTime(textInput, options.useSeconds);
+			checkTime(time);
+		} catch (error) {
+			errors = errors.concat(error);
+		}
+
+		return {
+			time,
+			timeTextInput: textInput,
+			errors,
+		};
+	}
+
+	time = initTime(options);
 	if (textInput === '') {
 		return {
 			date: undefined,
@@ -493,7 +517,6 @@ function extractPartsFromTextInput(textInput, options) {
 	}
 
 	let date;
-	let errors = [];
 	let dateTextToParse = textInput;
 
 	try {
@@ -584,6 +607,7 @@ export {
 	checkHours,
 	checkMinutes,
 	checkSeconds,
+	checkTime,
 	checkSupportedDateFormat,
 	extractParts,
 	extractPartsFromDateTime,

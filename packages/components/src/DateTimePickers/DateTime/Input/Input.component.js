@@ -11,6 +11,7 @@ export default function Input(props) {
 		dateInputManagement,
 		timeInputManagement,
 	} = useContext(DateTimeContext);
+	const textInput = props.part === 'date' ? datetime.textInput : datetime.timeTextInput;
 	const partInputManagement = props.part === 'date' ? dateInputManagement : timeInputManagement;
 
 	return (
@@ -19,7 +20,7 @@ export default function Input(props) {
 			className="form-control"
 			debounceTimeout={300}
 			type="text"
-			value={datetime.textInput}
+			value={textInput}
 			{...inputManagement}
 			{...partInputManagement}
 			{...props}

@@ -7,11 +7,13 @@ import {
 	checkHours,
 	checkMinutes,
 	checkSeconds,
+	checkTime,
 	checkSupportedDateFormat,
 	extractParts,
 	extractPartsFromDateAndTime,
 	extractPartsFromTextInput,
 	getTimeFormat,
+	strToTime,
 } from '../date-extraction';
 import {
 	HOUR_ERRORS,
@@ -35,9 +37,11 @@ class ContextualManager extends React.Component {
 			PropTypes.number,
 			PropTypes.string,
 		]),
+		selectedTime: PropTypes.string,
 		useSeconds: PropTypes.bool,
 		useTime: PropTypes.bool,
 		useUTC: PropTypes.bool,
+		timeOnly: PropTypes.bool,
 	};
 
 	static defaultProps = {
@@ -51,14 +55,21 @@ class ContextualManager extends React.Component {
 		super(props);
 
 		checkSupportedDateFormat(props.dateFormat);
-		this.initialState = extractParts(props.selectedDateTime, this.getDateOptions());
+		if (props.selectedTime && props.timeOnly) {
+			this.initialState = extractParts(props.selectedTime, this.getDateOptions());
+		} else {
+			this.initialState = extractParts(props.selectedDateTime, this.getDateOptions());
+		}
+
 		this.state = {
 			...this.initialState,
 			previousErrors: [],
 		};
 
 		this.onInputChange = this.onInputChange.bind(this);
+		this.onTimeInputChange = this.onTimeInputChange.bind(this);
 		this.onPickerChange = this.onPickerChange.bind(this);
+		this.onTimePickerChange = this.onTimePickerChange.bind(this);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -83,10 +94,12 @@ class ContextualManager extends React.Component {
 		if (!this.props.onChange) {
 			return;
 		}
-		const { errorMessage, datetime, textInput, errors } = this.state;
+		const { errorMessage, datetime, textInput, timeTextInput, errors } = this.state;
+		const textInputToUse = this.props.timeOnly ? timeTextInput : textInput;
 		// we need to update the initial state once it has been changed
 		this.initialState = { ...this.state };
-		this.props.onChange(event, { errors, errorMessage, datetime, textInput, origin });
+		this.props.onChange(event,
+			{ errors, errorMessage, datetime, textInput: textInputToUse, origin });
 	}
 
 	onInputChange(event) {
@@ -95,6 +108,27 @@ class ContextualManager extends React.Component {
 		this.setState({ previousErrors: this.state.errors, ...nextState }, () => {
 			this.onChange(event, 'INPUT');
 		});
+	}
+
+	onTimeInputChange(event) {
+		const textInput = event.target.value;
+		if (this.props.timeOnly) {
+			const errors = [];
+			try {
+				const time = strToTime(textInput, this.props.useSeconds);
+				checkTime(time, this.getDateOptions());
+			} catch (error) {
+				errors.push(error);
+			}
+			const nextState = {
+				timeTextInput: textInput,
+				errors,
+				errorMessage: errors[0] ? errors[0].message : null,
+			};
+			this.setState({ previousErrors: this.state.errors, ...nextState }, () => {
+				this.onChange(event, 'INPUT');
+			});
+		}
 	}
 
 	onPickerChange(event, { date, time, field }) {
@@ -144,6 +178,18 @@ class ContextualManager extends React.Component {
 		});
 	}
 
+	onTimePickerChange(event, { time, textInput }) {
+		const nextState = {
+			time,
+			timeTextInput: textInput,
+			errors: [],
+			errorMessage: null,
+		};
+
+		this.setState({ previousErrors: this.state.errors, ...nextState }, () => {
+			this.onChange(event, 'PICKER');
+		});
+	}
 	getDateOptions() {
 		return {
 			dateFormat: this.props.dateFormat,
@@ -151,6 +197,7 @@ class ContextualManager extends React.Component {
 			useSeconds: this.props.useSeconds,
 			useUTC: this.props.useUTC,
 			required: this.props.required,
+			timeOnly: this.props.timeOnly,
 		};
 	}
 
@@ -160,6 +207,7 @@ class ContextualManager extends React.Component {
 				value={{
 					datetime: {
 						textInput: this.state.textInput,
+						timeTextInput: this.state.timeTextInput,
 						date: this.state.date,
 						time: this.state.time,
 					},
@@ -177,6 +225,7 @@ class ContextualManager extends React.Component {
 
 					timeInputManagement: {
 						placeholder: getTimeFormat(this.props.useSeconds),
+						onChange: this.onTimeInputChange,
 					},
 
 					pickerManagement: {
@@ -184,6 +233,10 @@ class ContextualManager extends React.Component {
 						useTime: this.props.useTime,
 						useSeconds: this.props.useSeconds,
 						useUTC: this.props.useUTC,
+					},
+
+					timePickerManagement: {
+						onChange: this.onTimePickerChange,
 					},
 				}}
 			>
