@@ -2,10 +2,15 @@ import React from 'react';
 
 import { useListContext } from '../context';
 import VirtualizedList from '../../../VirtualizedList';
-import { SORT } from '../constants';
+import { DISPLAY_MODE, SORT } from '../constants';
 
 function VList(props) {
-	const { displayMode = 'table', collection, setSortParams, sortParams } = useListContext();
+	const {
+		displayMode = DISPLAY_MODE.TABLE,
+		collection,
+		setSortParams,
+		sortParams,
+	} = useListContext();
 	return (
 		<VirtualizedList
 			collection={collection}
