@@ -24,11 +24,11 @@ const ref = {
 	},
 };
 
-const DICT = 'abcdefghijklmnopqrst';
+const DICT = 'abcdefghijklmnopqrstuvwxyz0123456789';
 const SENSIBLE_REGEXP = /^_|^\$|password|secret|key|mail/;
 
 function random() {
-	return DICT[Math.floor((1 + Math.random()) * 25)];
+	return DICT[Math.floor(Math.random() * DICT.length)];
 }
 
 function serialize(error) {
@@ -84,7 +84,7 @@ function anon(value, key) {
 function prepareObject(originalState) {
 	const state = originalState.toJS ? originalState.toJS() : originalState;
 	return Object.keys(state).reduce((acc, key) => {
-		const valueType = Array.isArray(acc[key]) ? 'array' : typeof acc[key];
+		const valueType = Array.isArray(acc[key]) ? 'array' : typeof state[key];
 		if (valueType === 'function') {
 			acc[key] = `function-${state[key].name}`;
 		} else if (valueType === 'array') {
@@ -203,6 +203,10 @@ function addSensibleKeyRegexp(r) {
  */
 function bootstrap(options, store) {
 	assertTypeOf(options, 'onError', 'object');
+	ref.actions = [];
+	ref.callbacks = [];
+	ref.errors = [];
+	ref.sensibleKeys = [];
 	ref.store = store;
 	const opt = options.onError || {};
 	ref.serverURL = opt.reportURL;
