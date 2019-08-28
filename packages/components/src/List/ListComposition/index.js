@@ -7,6 +7,7 @@ import TextFilter from './TextFilter';
 import Toolbar from './Toolbar';
 import VList from './VList';
 import useCollectionSort from './Manager/hooks/useCollectionSort.hook';
+import useCollectionActions from './Manager/hooks/useCollectionActions.hook';
 
 export default {
 	DisplayMode,
@@ -20,6 +21,7 @@ export default {
 };
 
 export const hooks = {
+	useCollectionActions,
 	useCollectionSort,
 	useDisplayMode: useLocalStorage,
 };
