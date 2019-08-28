@@ -24,25 +24,6 @@ function HeaderTitle(props) {
 	const yearLabel = format(date, 'YYYY', pickerLocale);
 	const monthLabel = format(date, 'MMMM', pickerLocale);
 
-	const withComponents = {
-		getComponent: key => {
-			if (key === 'YearPicker') {
-				return YearPicker;
-			}
-			throw new Error('Component not found');
-		},
-		components: {
-			itemsDropdown: [
-				{
-					id: 'year-picker-in-datetime-header',
-					component: 'YearPicker',
-					'data-feature': 'actiondropdown.items',
-					onSelect: props.onSelectYear,
-				},
-			],
-		},
-	};
-
 	if (isButton) {
 		return (
 			<button type="button" {...propsToSpread}>
@@ -56,7 +37,13 @@ function HeaderTitle(props) {
 			<div className={theme.month}>
 				<span {...propsToSpread}>{monthLabel}</span>
 			</div>
-			<ActionDropdown className="btn-tertiary btn-info" label={yearLabel} {...withComponents} />
+			<ActionDropdown className="btn-tertiary btn-info" label={yearLabel}>
+				<YearPicker
+					id="year-picker-in-datetime-header"
+					data-feature="actiondropdown.items"
+					onSelect={props.onSelectYear}
+				/>
+			</ActionDropdown>
 		</div>
 	);
 }
