@@ -2,6 +2,7 @@ import React from 'react';
 
 import { useListContext } from '../context';
 import VirtualizedList from '../../../VirtualizedList';
+import { SORT } from '../constants';
 
 function VList(props) {
 	const { displayMode = 'table', collection, setSortParams, sortParams } = useListContext();
@@ -10,9 +11,9 @@ function VList(props) {
 			collection={collection}
 			type={displayMode.toUpperCase()}
 			sortBy={sortParams.sortBy}
-			sortDirection={sortParams.isDescending ? 'DESC' : 'ASC'}
+			sortDirection={sortParams.isDescending ? SORT.DESC : SORT.ASC}
 			sort={({ sortBy, sortDirection }) =>
-				setSortParams({ sortBy, isDescending: sortDirection === 'DESC' })
+				setSortParams({ sortBy, isDescending: sortDirection === SORT.DESC })
 			}
 			{...props}
 		/>

@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { Navbar, NavDropdown, Nav, NavItem, MenuItem } from 'react-bootstrap';
 import uuid from 'uuid';
 
+import { DISPLAY_MODE } from '../constants';
 import { useListContext } from '../context';
 
 function SortBy(props) {
-	const DISPLAY_TABLE = 'table';
 	const { id, initialValue, options, onChange, value } = props;
 	const { displayMode, sortParams, setSortParams, t } = useListContext();
 	const isControlled = onChange;
@@ -41,7 +41,7 @@ function SortBy(props) {
 	const onOrderChange = event =>
 		performChange(event, { ...currentValue, isDescending: !currentValue.isDescending });
 
-	if (displayMode === DISPLAY_TABLE) {
+	if (displayMode === DISPLAY_MODE.TABLE) {
 		return null;
 	}
 	return (
