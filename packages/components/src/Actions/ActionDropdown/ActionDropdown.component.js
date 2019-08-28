@@ -185,6 +185,7 @@ class ActionDropdown extends React.Component {
 			components,
 			className,
 			loading,
+			children,
 			t,
 			...rest
 		} = this.props;
@@ -241,6 +242,7 @@ class ActionDropdown extends React.Component {
 					</Renderers.MenuItem>
 				)}
 				{injected('itemsDropdown')}
+				{children}
 				{injected('afterItemsDropdown')}
 			</Renderers.DropdownButton>
 		);
