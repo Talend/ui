@@ -124,10 +124,10 @@ describe('useCollectionFilter', () => {
 		);
 
 		// then
-		const hookCollection = wrapper.find('#mainChild').prop('collection');
-		expect(hookCollection[0].actions[0].label).toBe('Edit Watkins');
-		expect(hookCollection[0].actions[1].label).toBe('Delete Watkins');
-		expect(hookCollection[0].persistentActions[0].label).toBe('Set Watkins as favorite');
-		expect(hookCollection[0].persistentActions[1].label).toBe('Request Watkins certification');
+		const firstItem = wrapper.find('#mainChild').prop('collection')[0];
+		expect(firstItem.actions[0].label).toBe('Edit Watkins');
+		expect(firstItem.actions[1].label).toBe('Delete Watkins');
+		expect(firstItem.persistentActions[0].label).toBe('Set Watkins as favorite');
+		expect(firstItem.persistentActions[1].label).toBe('Request Watkins certification');
 	});
 });
