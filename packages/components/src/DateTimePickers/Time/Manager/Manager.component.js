@@ -42,7 +42,7 @@ class ContextualManager extends React.Component {
 		});
 	}
 
-	onPickerChange(evvent, { textInput, time }) {
+	onPickerChange(event, { textInput, time }) {
 		const nextState = {
 			time,
 			textInput,
