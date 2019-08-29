@@ -1,14 +1,6 @@
 import onError from '../src/onError';
 import { store as mock } from '../src/mock';
 
-/**
-	report,
-	getErrors,
-	middleware,
-	createObjectURL,
- */
-
-
 describe('onError', () => {
 	let store;
 	let state;
@@ -60,11 +52,58 @@ describe('onError', () => {
 	describe('report', () => {
 		it('should dispatch http action', () => {
 			expect(store.dispatch).not.toHaveBeenCalled();
-			onError.report(new Error('my'));
+			const error = new Error('my');
+			onError.report(error);
 			expect(store.dispatch).toHaveBeenCalled();
 			const action = store.dispatch.mock.calls[0][0];
 			expect(action.type).toBe('POST');
 			expect(action.url).toBe(config.onError.reportURL);
+		});
+	});
+	describe('getErrors', () => {
+		it('should return reported errors', () => {
+			const error = new Error('my');
+			onError.report(error);
+			const errors = onError.getErrors();
+			expect(errors.length).toBe(1);
+			expect(errors[0].error.name).toBe(error.name);
+			expect(errors[0].error.message).toBe(error.message);
+			expect(errors[0].reported).toBe(false);
+		});
+	});
+	describe('middleware', () => {
+		it('should let normal action happens', () => {
+			const mid = onError.middleware();
+			const next = jest.fn();
+			const action = {
+				type: 'TEST',
+			};
+			mid(next)(action);
+			expect(next).toHaveBeenCalledWith(action);
+		});
+		it('should report if next throw exception', () => {
+			const mid = onError.middleware();
+			const next = () => {
+				throw new Error('sth bad');
+			};
+			const action = {
+				type: 'TEST',
+			};
+			expect(() => mid(next)(action)).toThrow();
+			expect(onError.getErrors()[0].error.message).toBe('sth bad');
+		});
+	});
+	describe('createObjectURL', () => {
+		it('should use window.URL.createObjectURL', () => {
+			window.URL.createObjectURL = jest.fn();
+			const error = new Error('sth bad 2');
+			onError.createObjectURL(error);
+			expect(window.URL.createObjectURL).toHaveBeenCalled();
+			const blob = window.URL.createObjectURL.mock.calls[0][0];
+
+			expect(blob.name).toBe('report.json');
+			expect(blob.type).toBe('application/json');
+			expect(blob.size).toBeGreaterThan(0);
 		});
 	});
 });

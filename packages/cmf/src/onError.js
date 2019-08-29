@@ -156,7 +156,7 @@ function report(error) {
 					info.reported = true;
 					info.response = response;
 					return {
-						type: CONST.ERROR,
+						type: CONST.ERROR_REPORTED,
 						...info,
 					};
 				},
@@ -231,6 +231,9 @@ function hasReportURL() {
 	return !!ref.serverURL;
 }
 
+/**
+ * simple try catch middleware for redux
+ */
 function middleware() {
 	return next => action => {
 		try {
@@ -238,19 +241,16 @@ function middleware() {
 		} catch (err) {
 			err.action = action;
 			report(err);
-			return err;
+			throw err;
 		}
 	};
 }
 
 function createObjectURL(error) {
 	const data = getReportInfo(error);
-	let safeData = data;
-	if (typeof data !== 'string') {
-		safeData = JSON.stringify(data);
-	}
+	const strData = JSON.stringify(data);
 	const MIME_TYPE = 'application/json';
-	const blob = new File([safeData], { name: 'report.json', type: MIME_TYPE });
+	const blob = new File([strData], 'report.json', { type: MIME_TYPE });
 	return window.URL.createObjectURL(blob);
 }
 
