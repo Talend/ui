@@ -25,6 +25,8 @@ exports[`LazyLoadingList should render lazy loading list component 1`] = `
         id="myLazyLoadingList"
         onRowsRendered={[Function]}
         registerChild={[Function]}
+        sort={[Function]}
+        sortDirection="ASC"
         type="TABLE"
       >
         <AutoSizer
@@ -49,6 +51,8 @@ exports[`LazyLoadingList should render lazy loading list component 1`] = `
               noRowsRenderer={[Function]}
               onRowsRendered={[Function]}
               registerChild={[Function]}
+              sort={[Function]}
+              sortDirection="ASC"
               type="TABLE"
               width={0}
             >
@@ -61,6 +65,8 @@ exports[`LazyLoadingList should render lazy loading list component 1`] = `
                 onRowsRendered={[Function]}
                 registerChild={[Function]}
                 rowHeight={50}
+                sort={[Function]}
+                sortDirection="ASC"
                 width={0}
               >
                 <Table
@@ -87,6 +93,8 @@ exports[`LazyLoadingList should render lazy loading list component 1`] = `
                   rowStyle={Object {}}
                   scrollToAlignment="auto"
                   scrollToIndex={-1}
+                  sort={[Function]}
+                  sortDirection="ASC"
                   style={Object {}}
                   width={0}
                 >
@@ -156,6 +164,8 @@ exports[`LazyLoadingList should render lazy loading list component 1`] = `
                       scrollToRow={-1}
                       scrollbarWidth={0}
                       scrollingResetTimeInterval={150}
+                      sort={[Function]}
+                      sortDirection="ASC"
                       style={
                         Object {
                           "overflowX": "hidden",

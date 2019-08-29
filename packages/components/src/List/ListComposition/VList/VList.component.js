@@ -1,4 +1,5 @@
 import React from 'react';
+import get from 'lodash/get';
 
 import { useListContext } from '../context';
 import VirtualizedList from '../../../VirtualizedList';
@@ -15,8 +16,8 @@ function VList(props) {
 		<VirtualizedList
 			collection={collection}
 			type={displayMode.toUpperCase()}
-			sortBy={sortParams.sortBy}
-			sortDirection={sortParams.isDescending ? SORT.DESC : SORT.ASC}
+			sortBy={get(sortParams, 'sortBy')}
+			sortDirection={get(sortParams, 'isDescending') ? SORT.DESC : SORT.ASC}
 			sort={({ sortBy, sortDirection }) =>
 				setSortParams({ sortBy, isDescending: sortDirection === SORT.DESC })
 			}
