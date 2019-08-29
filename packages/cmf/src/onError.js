@@ -249,7 +249,10 @@ function createObjectURL(error) {
 	const data = getReportInfo(error);
 	const strData = JSON.stringify(data);
 	const MIME_TYPE = 'application/json';
-	const blob = new File([strData], 'report.json', { type: MIME_TYPE });
+	// For IE11, you can use the Blob class to construct a File object.
+	// This seems to be the most portable solution.
+	const blob = new Blob([strData], { type: MIME_TYPE });
+	blob.name = 'report.json';
 	return window.URL.createObjectURL(blob);
 }
 
