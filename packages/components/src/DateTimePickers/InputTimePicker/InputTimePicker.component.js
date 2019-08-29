@@ -106,7 +106,6 @@ export default function ContexualInputTimePicker(props) {
 			selectedTime={props.selectedTime}
 			useSeconds={props.useSeconds}
 			onChange={props.onChange}
-			timeOnly
 		>
 			<InputTimePicker {...props} />
 		</Time.Manager>
