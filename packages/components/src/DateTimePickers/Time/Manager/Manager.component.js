@@ -36,7 +36,7 @@ class ContextualManager extends React.Component {
 	onInputChange(event) {
 		const textInput = event.target.value;
 		const nextState = extractTime(textInput, this.props.useSeconds);
-		this.setState({ ...nextState }, () => {
+		this.setState(nextState, () => {
 			this.onChange(event, 'INPUT');
 		});
 	}
@@ -49,7 +49,7 @@ class ContextualManager extends React.Component {
 			errorMessage: null,
 		};
 
-		this.setState({ ...nextState }, () => {
+		this.setState(nextState, () => {
 			this.onChange(event, 'PICKER');
 		});
 	}

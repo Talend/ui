@@ -1,4 +1,4 @@
-import React, { useRef, useContext } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import uuid from 'uuid';
@@ -6,8 +6,6 @@ import { Popper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
 import Time from '../Time';
-import { TimeContext } from '../Time/Context';
-import TimePicker from '../pickers/TimePicker';
 
 import theme from './InputTimePicker.scss';
 import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
@@ -16,7 +14,7 @@ import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 const PROPS_TO_OMIT_FOR_INPUT = [
 	'id',
 	'required',
-	'selectedTime',
+	'value',
 	'useSeconds',
 	'onBlur',
 	'onChange',
@@ -32,8 +30,6 @@ function InputTimePicker(props) {
 		handleBlur: props.onBlur,
 	});
 
-	const { time, pickerManagement } = useContext(TimeContext);
-
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
 	const timePicker = [
 		<Time.Input
@@ -41,7 +37,6 @@ function InputTimePicker(props) {
 			id={`${props.id}-input`}
 			key="input"
 			inputRef={inputRef}
-			part="time"
 		/>,
 			handlers.showPicker && (
 				<Popper
@@ -60,11 +55,9 @@ function InputTimePicker(props) {
 				>
 					{({ ref, style }) => (
 						<div id={popoverId} className={theme.popper} style={style} ref={ref}>
-							<TimePicker
-								textInput={time.textInput}
-								useSeconds={props.useSeconds}
+							<Time.Picker
+								{...props}
 								onChange={(...args) => {
-									pickerManagement.onChange(...args);
 									handlers.onChange(...args, inputRef.current);
 								}}
 							/>
@@ -103,7 +96,7 @@ InputTimePicker.defaultProps = {
 export default function ContexualInputTimePicker(props) {
 	return (
 		<Time.Manager
-			selectedTime={props.selectedTime}
+			value={props.value}
 			useSeconds={props.useSeconds}
 			onChange={props.onChange}
 		>
@@ -115,7 +108,7 @@ export default function ContexualInputTimePicker(props) {
 ContexualInputTimePicker.displayName = 'ContexualInputTimePicker';
 ContexualInputTimePicker.propTypes = {
 	...InputTimePicker.propTypes,
-	selectedTime: PropTypes.string,
+	value: PropTypes.string,
 };
 ContexualInputTimePicker.defaultProps = {
 	useSeconds: false,

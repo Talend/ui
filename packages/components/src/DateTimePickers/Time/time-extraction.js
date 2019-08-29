@@ -121,7 +121,7 @@ function getTimeFormat(useSeconds) {
 }
 
 
-export default function extractTime(selectedTime, useSeconds) {
+export default function extractTime(selectedTime, useSeconds) { 
 	const errors = [];
 	let time;
 	if (!selectedTime) {
