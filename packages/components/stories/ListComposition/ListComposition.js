@@ -6,16 +6,16 @@ import { simpleCollection } from './collection';
 import { IconsProvider } from '../../src/index';
 import List from '../../src/List/ListComposition';
 
-const titleProps = {
+const titleProps = rowData => ({
 	onClick: action('onTitleClick'),
-	'data-feature': 'list.item.title',
+	'data-feature': `list.item.title.${rowData.id}`,
 	actionsKey: 'titleActions',
 	persistentActionsKey: 'persistentActions',
 	displayModeKey: 'display',
 	iconKey: 'icon',
 	onEditCancel: action('cancel-edit'),
 	onEditSubmit: action('submit-edit'),
-};
+});
 
 function CustomList(props) {
 	return (

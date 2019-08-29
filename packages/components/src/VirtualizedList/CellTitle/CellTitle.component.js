@@ -32,6 +32,11 @@ class CellTitle extends React.Component {
 	}
 	render() {
 		const { cellData, columnData, getComponent, rowData, rowIndex, type } = this.props;
+
+		let cellColumnData = columnData;
+		if (typeof columnData === 'function') {
+			cellColumnData = columnData(rowData);
+		}
 		const {
 			id,
 			onClick,
@@ -43,7 +48,7 @@ class CellTitle extends React.Component {
 			onEditCancel,
 			onEditSubmit,
 			...columnDataRest
-		} = columnData;
+		} = cellColumnData;
 
 		const displayMode = rowData[displayModeKey] || TITLE_MODE_TEXT;
 		const titleId = id && `${id}-${rowIndex}-title-cell`;
