@@ -62,8 +62,12 @@ describe('CellTitle', () => {
 		);
 
 		// then
-		console.log(wrapper.find('button').debug());
-		expect(wrapper.find('button').prop('data-feature')).toBe('list.click.1');
+		expect(
+			wrapper
+				.find('button')
+				.at(0)
+				.prop('data-feature'),
+		).toBe('list.click.1');
 	});
 
 	it('should render without active class if no onClick on the title', () => {
