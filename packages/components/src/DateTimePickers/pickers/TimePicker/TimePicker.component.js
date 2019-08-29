@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { timeToStr } from '../../DateTime/date-extraction';
+import { timeToStr } from '../../Time/time-extraction';
 import withListGesture from '../../../Gesture/withListGesture';
 
 import theme from './TimePicker.scss';

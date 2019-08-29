@@ -10,7 +10,7 @@ class ContextualManager extends React.Component {
 		children: PropTypes.node,
 		onChange: PropTypes.func,
 		useSeconds: PropTypes.bool,
-		selectedTime: PropTypes.string,
+		value: PropTypes.string,
 	};
 
 	static defaultProps = {
@@ -20,7 +20,7 @@ class ContextualManager extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = extractTime(props.selectedTime, props.useSeconds);
+		this.state = extractTime(props.value, props.useSeconds);
 		this.onChange = this.onChange.bind(this);
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onPickerChange = this.onPickerChange.bind(this);
@@ -30,14 +30,13 @@ class ContextualManager extends React.Component {
 		if (!this.props.onChange) {
 			return;
 		}
-		const { errorMessage, time, textInput, errors } = this.state;
-		this.props.onChange(event, { errors, errorMessage, time, textInput, origin });
+		this.props.onChange(event, { ...this.state, origin });
 	}
 
 	onInputChange(event) {
 		const textInput = event.target.value;
 		const nextState = extractTime(textInput, this.props.useSeconds);
-		this.setState({ previousErrors: this.state.errors, ...nextState }, () => {
+		this.setState({ ...nextState }, () => {
 			this.onChange(event, 'INPUT');
 		});
 	}
@@ -50,7 +49,7 @@ class ContextualManager extends React.Component {
 			errorMessage: null,
 		};
 
-		this.setState({ previousErrors: this.state.errors, ...nextState }, () => {
+		this.setState({ ...nextState }, () => {
 			this.onChange(event, 'PICKER');
 		});
 	}

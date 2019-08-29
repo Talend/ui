@@ -8,9 +8,11 @@ import {
 	extractPartsFromTextInput,
 	getFullDateFormat,
 	check,
+} from './date-extraction';
+import {
 	getTimeFormat,
 	timeToStr,
-} from './date-extraction';
+} from '../Time/time-extraction';
 
 describe('Date extraction', () => {
 	describe('checkSupportedDateFormat', () => {

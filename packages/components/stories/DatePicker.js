@@ -78,7 +78,7 @@ storiesOf('DatePicker', module)
 			<IconsProvider />
 			<h1>DatePicker</h1>
 			<p>
-				Default date picker doesn't include time
+				Default date picker
 				<br />
 				It comes with classical keyboard gesture.
 			</p>
@@ -301,7 +301,7 @@ storiesOf('DatePicker', module)
 				<div style={{ width: '7rem' }}>
 					<p>with initial selectedTime</p>
 					<form>
-						<InputTimePicker onChange={action('onChange')} selectedTime="12:00" />
+						<InputTimePicker onChange={action('onChange')} value="12:00" />
 					</form>
 				</div>
 			</div>

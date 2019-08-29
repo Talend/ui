@@ -4,15 +4,18 @@ import isSameSecond from 'date-fns/is_same_second';
 
 import { DateTimeContext } from '../Context';
 import {
-	checkHours,
-	checkMinutes,
-	checkSeconds,
 	checkSupportedDateFormat,
 	extractParts,
 	extractPartsFromDateAndTime,
 	extractPartsFromTextInput,
-	getTimeFormat,
+	strToTime,
 } from '../date-extraction';
+import {
+	checkHours,
+	checkMinutes,
+	checkSeconds,
+	getTimeFormat,
+} from '../../Time/time-extraction';
 import {
 	HOUR_ERRORS,
 	MINUTES_ERRORS,
