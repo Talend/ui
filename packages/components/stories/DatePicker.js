@@ -78,7 +78,8 @@ storiesOf('DatePicker', module)
 			<IconsProvider />
 			<h1>DatePicker</h1>
 			<p>
-				Default date picker doesn't include time<br />
+				Default date picker doesn't include time
+				<br />
 				It comes with classical keyboard gesture.
 			</p>
 			<TestPickerWrapper id="my-date-picker" onChange={action('onChange')} name="Datetime" />
@@ -288,9 +289,21 @@ storiesOf('DatePicker', module)
 		);
 	})
 	.add('Time picker - with input', () => (
-		<form style={{ width: 320 }}>
-			<InputTimePicker
-				onChange={action('onChange')}
-			/>
-		</form>
+		<div>
+			<h1>TimePicker with input</h1>
+			<div style={{ display: 'flex', alignItems: 'flex-start' }}>
+				<div style={{ width: '7rem', marginRight: 60 }}>
+					<p>with input</p>
+					<form>
+						<InputTimePicker onChange={action('onChange')} />
+					</form>
+				</div>
+				<div style={{ width: '7rem' }}>
+					<p>with initial selectedTime</p>
+					<form>
+						<InputTimePicker onChange={action('onChange')} selectedTime="12:00" />
+					</form>
+				</div>
+			</div>
+		</div>
 	));

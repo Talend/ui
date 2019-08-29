@@ -584,6 +584,7 @@ export {
 	checkHours,
 	checkMinutes,
 	checkSeconds,
+	checkTime,
 	checkSupportedDateFormat,
 	extractParts,
 	extractPartsFromDateTime,

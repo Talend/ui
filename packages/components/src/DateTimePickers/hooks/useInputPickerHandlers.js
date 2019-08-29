@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import keycode from 'keycode';
 
-export default function useInputPickerHandlers({ handleBlur, handleChange }) {
+export default function useInputPickerHandlers({ handleBlur }) {
 	const [showPicker, setPickerVisibility] = useState(false);
 	const [picked, setPicked] = useState(false);
 
@@ -19,7 +19,6 @@ export default function useInputPickerHandlers({ handleBlur, handleChange }) {
 		}
 	}
 	function onChange(event, payload, inputRef) {
-		handleChange(event, payload);
 		if (payload.origin !== 'INPUT') {
 			inputRef.focus();
 			setPicked(true);
