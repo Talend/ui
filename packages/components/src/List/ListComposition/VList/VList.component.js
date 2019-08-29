@@ -1,11 +1,29 @@
 import React from 'react';
+import get from 'lodash/get';
 
 import { useListContext } from '../context';
 import VirtualizedList from '../../../VirtualizedList';
+import { DISPLAY_MODE, SORT } from '../constants';
 
 function VList(props) {
-	const { displayMode = 'table', collection } = useListContext();
-	return <VirtualizedList collection={collection} type={displayMode.toUpperCase()} {...props} />;
+	const {
+		displayMode = DISPLAY_MODE.TABLE,
+		collection,
+		setSortParams,
+		sortParams,
+	} = useListContext();
+	return (
+		<VirtualizedList
+			collection={collection}
+			type={displayMode.toUpperCase()}
+			sortBy={get(sortParams, 'sortBy')}
+			sortDirection={get(sortParams, 'isDescending') ? SORT.DESC : SORT.ASC}
+			sort={({ sortBy, sortDirection }) =>
+				setSortParams({ sortBy, isDescending: sortDirection === SORT.DESC })
+			}
+			{...props}
+		/>
+	);
 }
 
 // we port the VirtualizedList columns to VList to allow VList.Title/Badge/...
