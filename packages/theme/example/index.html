@@ -1242,7 +1242,12 @@
                       </div>
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"><span>Checkbox with label wrapped into <code>span</code></span>
+                          <input type="checkbox" data-checked=1 checked><span>Checkbox intermediate</span>
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" ><span>Checkbox with label wrapped into <code>span</code></span>
                         </label>
                       </div>
                       <div class="checkbox">
@@ -1252,7 +1257,17 @@
                       </div>
                       <div class="checkbox disabled">
                         <label>
-                          <input type="checkbox" disabled=""> Disabled checkbox
+                          <input type="checkbox" disabled checked> Disabled checked checkbox
+                        </label>
+                      </div>
+                      <div class="checkbox disabled">
+                        <label>
+                          <input type="checkbox" disabled data-checked=1 checked> Disabled intermediate checkbox
+                        </label>
+                      </div>
+                      <div class="checkbox disabled">
+                        <label>
+                          <input type="checkbox" disabled> Disabled checkbox
                         </label>
                       </div>
                     </div>
@@ -2159,6 +2174,25 @@
 
 	$(function() {
 		setDropDownMenuVisibility();
+        // var $check = $("input[type=checkbox][data-checked]"), el;
+      $("input[type=checkbox][data-checked]")
+          .change(function(e) {
+            const el = $(this);
+            switch(el.attr('data-checked')) {
+              case "0":
+                el.attr('data-checked', 1);
+                el.attr('indeterminate', true);
+                break;
+              case "1":
+                el.attr('data-checked', 2);
+                el.removeAttr('indeterminate');
+                el.prop('checked', true);
+                break;
+              default:
+                el.attr('data-checked', 0);
+                el.prop('checked', false);
+            }
+          });
 	});
 
 	$(window).scroll(function() {
@@ -2218,6 +2252,11 @@
 	}
 })();
 </script>
+    <script>
+      $(() => {
+        console.log($.fn.jquery);
+      })
+    </script>
     <script src="dist/bootstrap.js"></script>
   </body>
 </html>

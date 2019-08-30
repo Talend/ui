@@ -181,9 +181,10 @@ form {
 		label {
 			cursor: pointer;
 			position: relative;
-			padding-left: 25px;
-			font-size: 16px;
-			color: $dove-gray;
+			padding-left: 12 + $padding-small;
+			font-size: 14px;
+			color: $black;
+
 			&:hover {
 				color: $scooter;
 			}
@@ -191,6 +192,7 @@ form {
 
 		input[type='radio'],
 		input[type='checkbox'] {
+			display: inline;
 			position: absolute;
 			left: 0;
 			margin: 0;
@@ -199,7 +201,7 @@ form {
 		}
 
 		&.disabled label {
-			opacity: 0.4;
+			opacity: 0.54;
 			&:hover {
 				color: inherit;
 			}
@@ -222,27 +224,27 @@ form {
 			top: -1px; /* IE 11 */
 			left: -1px; /* IE 11 */
 			content: '';
-			width: 18px;
-			height: 18px;
+			width: 1.2rem;
+			height: 1.2rem;
 			border-radius: 50%;
 		}
 
 		&:before,
 		+ *:before {
 			@include scale(0);
-			background-color: $brand-primary;
+			background-color: $lochmara;
 			z-index: 1;
 		}
 
 		&:after,
 		+ *:after {
-			border: 2px solid $gray;
-			background-color: $white;
+			border: 1px solid $dark-silver;
+			background-color: $wild-sand;
 		}
 
 		&:checked:before,
 		&:checked + *:before {
-			@include scale(0.45);
+			@include scale(0.6);
 		}
 
 		&:disabled:checked:before,
@@ -253,7 +255,7 @@ form {
 		&:focus + span:after,
 		&:checked:after,
 		&:checked + *:after {
-			border-color: $brand-primary;
+			border-color: shade($lochmara, 12);
 		}
 
 		&:focus:after,
