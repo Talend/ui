@@ -108,26 +108,29 @@ CellTitle.propTypes = {
 	// The cell value : props.rowData[props.dataKey]
 	cellData: PropTypes.string,
 	// The custom props passed to <VirtualizedList.Content columnData={}>.
-	columnData: PropTypes.shape({
-		// The List id. This is used as the title parts ids prefix.
-		id: PropTypes.string,
-		// The onClick callback triggered on title main button click.
-		onClick: PropTypes.func,
-		// The actions property key. Actions = props.rowData[props.actionsKey]
-		actionsKey: PropTypes.string,
-		// The persistent actions property key. Actions = props.rowData[props.persistentActionsKey]
-		persistentActionsKey: PropTypes.string,
-		// The display mode property key. DisplayMode = props.rowData[props.displayModeKey]
-		displayModeKey: PropTypes.string,
-		// The icon property key. Icon = props.rowData[props.iconKey]
-		iconKey: PropTypes.string,
-		// The icon tooltip label key. tooltiplabel = props.rowData[iconLabelKey]
-		iconLabelKey: PropTypes.string,
-		// Input mode : the cancel callback on ESC keydown.
-		onEditCancel: PropTypes.func,
-		// Input mode : the submit callback on ENTER keydown or blur.
-		onEditSubmit: PropTypes.func,
-	}),
+	columnData: PropTypes.oneOfType([
+		PropTypes.func,
+		PropTypes.shape({
+			// The List id. This is used as the title parts ids prefix.
+			id: PropTypes.string,
+			// The onClick callback triggered on title main button click.
+			onClick: PropTypes.func,
+			// The actions property key. Actions = props.rowData[props.actionsKey]
+			actionsKey: PropTypes.string,
+			// The persistent actions property key. Actions = props.rowData[props.persistentActionsKey]
+			persistentActionsKey: PropTypes.string,
+			// The display mode property key. DisplayMode = props.rowData[props.displayModeKey]
+			displayModeKey: PropTypes.string,
+			// The icon property key. Icon = props.rowData[props.iconKey]
+			iconKey: PropTypes.string,
+			// The icon tooltip label key. tooltiplabel = props.rowData[iconLabelKey]
+			iconLabelKey: PropTypes.string,
+			// Input mode : the cancel callback on ESC keydown.
+			onEditCancel: PropTypes.func,
+			// Input mode : the submit callback on ENTER keydown or blur.
+			onEditSubmit: PropTypes.func,
+		}),
+	]),
 	getComponent: PropTypes.func,
 	// The collection item.
 	rowData: PropTypes.object, // eslint-disable-line
