@@ -769,5 +769,4 @@ describe('Date extraction', () => {
 			expect(errors.length).toBe(0);
 		});
 	});
-
 });
