@@ -2178,12 +2178,12 @@
           .change(function() {
             const el = $(this);
             switch(el.attr('data-checked')) {
-              case 0:
+              case "0":
                 el.attr('data-checked', 1);
                 el.attr('indeterminate', true);
                 el.prop('checked', false);
                 break;
-              case 1:
+              case "1":
                 el.attr('data-checked', 2);
                 el.removeAttr('indeterminate');
                 el.prop('checked', true);
