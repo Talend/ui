@@ -1,30 +1,24 @@
-$tt-checkbox-size: 1.2rem !default;
+$tt-checkbox-size: $form-checkbox-and-radio-size !default;
 $tt-checkbox-background-color: $wild-sand !default;
 $tt-checkbox-border-color: $dark-silver !default;
 $tt-checkbox-checked-background-color: $lochmara !default;
 $tt-checkbox-checked-border-color: shade($lochmara, 15) !default;
 $tt-checkbox-focus-border-color: $scooter !default;
 $tt-checkbox-hover-border-color: $lochmara !default;
+$tt-checkbox-disabled-color: tint($tt-checkbox-border-color, 54);
 
-input[type='checkbox'],
-.checkbox input[type='checkbox'],
-.checkbox-inline input[type='checkbox'] {
-	width: $tt-checkbox-size;
-	height: $tt-checkbox-size;
-	outline: none;
-	-moz-appearance: none;
-	-webkit-appearance: none;
-
+[type='checkbox'] {
 	&:before,
 	&:after,
 	+ *:before,
 	+ *:after {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
 		width: $tt-checkbox-size;
 		height: $tt-checkbox-size;
+	}
+
+	&:after,
+	+ *:after {
+		background-size: contain;
 	}
 
 	&:before,
@@ -41,59 +35,60 @@ input[type='checkbox'],
 		}
 	}
 
+	&:focus {
+		&:before,
+		+ *:before {
+			// border-color: $tt-checkbox-focus-border-color;
+			@include checkbox-outline;
+		}
+	}
+
+	// Indeterminate Checkboxes style
+	&[data-checked='1']:before,
+	&[data-checked='1'] + *:before {
+		background-color: $tt-checkbox-checked-background-color;
+		border-color: $tt-checkbox-checked-border-color;
+	}
+
+	&[data-checked='1']:after,
+	&[data-checked='1'] + *:after {
+		margin: 0;
+		width: $tt-checkbox-size;
+		height: $tt-checkbox-size;
+		background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciICB2aWV3Qm94PSIwIDAgMTIgMTIiPgogIDxyZWN0IHg9IjMiIHk9IjUiIHdpZHRoPSI2IiBoZWlnaHQ9IjIiIGZpbGw9IiNGRkYiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPgo8L3N2Zz4K');
+	}
+
 	&:checked:before,
 	&:checked + *:before {
-		@include transition(240ms);
 		background-color: $tt-checkbox-checked-background-color;
 		border-color: $tt-checkbox-checked-border-color;
 	}
 
 	&:checked:after,
 	&:checked + *:after {
-		margin: 0.2rem 0.5rem;
-		width: 0.3rem;
-		height: 0.7rem;
-		border: solid $white;
-		border-width: 0 0.1rem 0.1rem 0;
-		transform: rotate(45deg);
-	}
-
-	&[data-checked="1"]:after,
-	&[data-checked="1"] + *:after {
-		margin: .6rem .3rem;
-		height: 0.1rem;
-		width: 0.6rem;
-		background: $white;
-		border: none;
-		transform: none;
-	}
-
-	&:focus {
-		&:before,
-		+ *:before {
-			border-color: $tt-checkbox-focus-border-color;
-			@include checkbox-outline;
-		}
+		$check-mark-margin: 0.1rem;
+		$check-mark-size: $tt-checkbox-size - 2 * $check-mark-margin;
+		@include transition(240ms);
+		margin: $check-mark-margin;
+		width: $check-mark-size;
+		height: $check-mark-size;
+		background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgc3R5bGU9ImZpbGw6IHdoaXRlIj4KCTxwYXRoIGQ9Ik02IDE0TDAgOGwxLjktMS45TDYgMTAuMiAxNC4xIDIgMTYgMy45eiI+PC9wYXRoPgo8L3N2Zz4=');
 	}
 
 	&:disabled:before,
 	&:disabled + *:before {
-		border-color: tint($tt-checkbox-border-color, 40);
+		border-color: $tt-checkbox-disabled-color;
+	}
+
+	&[data-checked='1']:disabled:before,
+	&[data-checked='1']:disabled + *:before {
+		background-color: $tt-checkbox-disabled-color;
+		border-color: $tt-checkbox-disabled-color;
 	}
 
 	&:checked:disabled:before,
 	&:checked:disabled + *:before {
-		background-color: tint($tt-checkbox-checked-background-color, 40);
-		border-color: tint($tt-checkbox-checked-border-color, 40);
-	}
-}
-
-.checkbox {
-	input {
-		cursor: pointer;
-	}
-	label {
-		line-height: $tt-checkbox-size;
-		min-height: $tt-checkbox-size;
+		background-color: $tt-checkbox-disabled-color;
+		border-color: $tt-checkbox-disabled-color;
 	}
 }

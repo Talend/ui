@@ -1242,7 +1242,7 @@
                       </div>
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox" data-checked=1 checked><span>Checkbox intermediate</span>
+                          <input type="checkbox" data-checked=1 indeterminate="true"><span>Checkbox intermediate</span>
                         </label>
                       </div>
                       <div class="checkbox">
@@ -1262,7 +1262,7 @@
                       </div>
                       <div class="checkbox disabled">
                         <label>
-                          <input type="checkbox" disabled data-checked=1 checked> Disabled intermediate checkbox
+                          <input type="checkbox" disabled data-checked=1 indeterminate="true"> Disabled intermediate checkbox
                         </label>
                       </div>
                       <div class="checkbox disabled">
@@ -2174,22 +2174,23 @@
 
 	$(function() {
 		setDropDownMenuVisibility();
-        // var $check = $("input[type=checkbox][data-checked]"), el;
-      $("input[type=checkbox][data-checked]")
-          .change(function(e) {
+        $("input[type=checkbox][data-checked]")
+          .change(function() {
             const el = $(this);
             switch(el.attr('data-checked')) {
-              case "0":
+              case 0:
                 el.attr('data-checked', 1);
                 el.attr('indeterminate', true);
+                el.prop('checked', false);
                 break;
-              case "1":
+              case 1:
                 el.attr('data-checked', 2);
                 el.removeAttr('indeterminate');
                 el.prop('checked', true);
                 break;
               default:
                 el.attr('data-checked', 0);
+                el.removeAttr('indeterminate');
                 el.prop('checked', false);
             }
           });
@@ -2209,7 +2210,7 @@
 		e.preventDefault();
 	});
 	var $button = $(
-		"<div id='source-button' class='btn btn-primary btn-xs'>&lt; &gt;</div>",
+		"<div id='source-button' class='btn btn-primary btn-xs'>&lt; &gt;</div>"
 	).click(function() {
 		var html = $(this)
 			.parent()
@@ -2227,7 +2228,7 @@
 		},
 		function() {
 			$button.hide();
-		},
+		}
 	);
 	function cleanSource(html) {
 		html = html
@@ -2252,11 +2253,6 @@
 	}
 })();
 </script>
-    <script>
-      $(() => {
-        console.log($.fn.jquery);
-      })
-    </script>
     <script src="dist/bootstrap.js"></script>
   </body>
 </html>

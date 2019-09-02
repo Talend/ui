@@ -12,6 +12,7 @@
 @import 'forms.switch';
 @import 'forms.switch-nested';
 @import 'forms.checkbox';
+@import 'forms.radio';
 
 form {
 	// Bootswatch Paper theme fork
@@ -157,117 +158,52 @@ form {
 		}
 	}
 
-	.switch .checkbox,
-	.checkbox.switch,
-	.checkbox.switch-nested {
-		label:hover {
-			input[type='checkbox'] + span {
-				color: $scooter;
-			}
-		}
-		&.disabled label {
-			&:hover {
-				input[type='checkbox'] + span {
-					color: inherit;
-				}
-			}
-		}
-	}
-
 	.radio,
 	.radio-inline,
 	.checkbox,
 	.checkbox-inline {
 		label {
-			cursor: pointer;
+			display: inline-block;
 			position: relative;
 			padding-left: 12 + $padding-small;
-			font-size: 14px;
+			line-height: $form-checkbox-and-radio-size;
+			min-height: $form-checkbox-and-radio-size;
+			font-size: 1.4rem;
 			color: $black;
-
-			&:hover {
-				color: $scooter;
-			}
 		}
 
-		input[type='radio'],
-		input[type='checkbox'] {
-			display: inline;
-			position: absolute;
-			left: 0;
-			margin: 0;
-			-moz-appearance: none;
-			-webkit-appearance: none;
+		label, input {
+			cursor: pointer;
 		}
 
 		&.disabled label {
 			opacity: 0.54;
-			&:hover {
-				color: inherit;
-			}
-		}
-	}
-
-	input[type='radio'],
-	.radio input[type='radio'],
-	.radio-inline input[type='radio'] {
-		&:focus {
-			outline: none;
 		}
 
-		&:before,
-		&:after,
-		+ *:before,
-		+ *:after {
-			@include transition(240ms);
+		[type='radio'],
+		[type='checkbox'] {
+			display: inline-block;
 			position: absolute;
-			top: -1px; /* IE 11 */
-			left: -1px; /* IE 11 */
-			content: '';
-			width: 1.2rem;
-			height: 1.2rem;
-			border-radius: 50%;
-		}
+			margin: 0;
+			margin-left: -1 * (12 + $padding-small);
+			width: $form-checkbox-and-radio-size;
+			height: $form-checkbox-and-radio-size;
+			appearance: none;
+			outline: none;
 
-		&:before,
-		+ *:before {
-			@include scale(0);
-			background-color: $lochmara;
-			z-index: 1;
-		}
+			+ * {
+				display: inline-block;
+			}
 
-		&:after,
-		+ *:after {
-			border: 1px solid $dark-silver;
-			background-color: $wild-sand;
-		}
-
-		&:checked:before,
-		&:checked + *:before {
-			@include scale(0.6);
-		}
-
-		&:disabled:checked:before,
-		&:disabled:checked + *:before {
-			background-color: $gray-light;
-		}
-
-		&:focus + span:after,
-		&:checked:after,
-		&:checked + *:after {
-			border-color: shade($lochmara, 12);
-		}
-
-		&:focus:after,
-		&:focus + span:after {
-			@include checkbox-outline;
-		}
-
-		&:disabled:after,
-		&:disabled:checked:after,
-		&:disabled + *:after,
-		&:disabled:checked + *:after {
-			border-color: $gray-light;
+			&:before,
+			&:after,
+			+ *:before,
+			+ *:after {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
 		}
 	}
 
