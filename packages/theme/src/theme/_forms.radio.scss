@@ -9,66 +9,66 @@ $tt-radio-hover-border-color: $lochmara !default;
 $tt-radio-focus-border-color: $scooter !default;
 
 [type='radio'] {
-  &:before,
-  &:after,
-  + *:before,
-  + *:after {
-    @include transition(240ms);
-    width: $tt-radio-size;
-    height: $tt-radio-size;
-    border-radius: 50%;
-  }
+	&:before,
+	&:after,
+	+ *:before,
+	+ *:after {
+		@include transition(240ms);
+		width: $tt-radio-size;
+		height: $tt-radio-size;
+		border-radius: 50%;
+	}
 
-  &:before,
-  + *:before {
-    @include scale(0);
-    background-color: $tt-radio-background-color;
-    z-index: 1;
-  }
+	&:before,
+	+ *:before {
+		@include scale(0);
+		background-color: $tt-radio-background-color;
+		z-index: 1;
+	}
 
-  &:after,
-  + *:after {
-    background-color: $tt-radio-background-color;
-    border: 1px solid $tt-radio-border-color;
-  }
+	&:after,
+	+ *:after {
+		background-color: $tt-radio-background-color;
+		border: 1px solid $tt-radio-border-color;
+	}
 
-  &:hover {
-    &:before,
-    + *:before {
-      border-color: $tt-radio-hover-border-color;
-    }
-  }
+	&:hover {
+		&:before,
+		+ *:before {
+			border-color: $tt-radio-hover-border-color;
+		}
+	}
 
-  &:focus {
-    outline: none;
-  }
+	&:focus {
+		outline: none;
+	}
 
-  &:checked:before,
-  &:checked + *:before {
-    @include scale(0.5);
-    background-color: $tt-radio-checked-background-color;
-  }
+	&:checked:before,
+	&:checked + *:before {
+		@include scale(0.5);
+		background-color: $tt-radio-checked-background-color;
+	}
 
-  &:disabled:checked:before,
-  &:disabled:checked + *:before {
-    background-color: $tt-radio-disabled-checked-background-color;
-  }
+	&:disabled:checked:before,
+	&:disabled:checked + *:before {
+		background-color: $tt-radio-disabled-checked-background-color;
+	}
 
-  &:focus + span:after,
-  &:checked:after,
-  &:checked + *:after {
-    border-color: $tt-radio-checked-border-color;
-  }
+	&:focus + span:after,
+	&:checked:after,
+	&:checked + *:after {
+		border-color: $tt-radio-checked-border-color;
+	}
 
-  &:focus:after,
-  &:focus + span:after {
-    @include checkbox-outline;
-  }
+	&:focus:after,
+	&:focus + span:after {
+		@include checkbox-outline;
+	}
 
-  &:disabled:after,
-  &:disabled:checked:after,
-  &:disabled + *:after,
-  &:disabled:checked + *:after {
-    border-color: $tt-radio-disabled-checked-border-color;
-  }
+	&:disabled:after,
+	&:disabled:checked:after,
+	&:disabled + *:after,
+	&:disabled:checked + *:after {
+		border-color: $tt-radio-disabled-checked-border-color;
+	}
 }
