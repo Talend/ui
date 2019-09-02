@@ -8,7 +8,6 @@ import {
 	extractParts,
 	extractPartsFromDateAndTime,
 	extractPartsFromTextInput,
-	strToTime,
 } from '../date-extraction';
 import {
 	checkHours,
