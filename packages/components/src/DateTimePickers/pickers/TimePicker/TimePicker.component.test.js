@@ -10,15 +10,15 @@ describe('TimePicker component', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 	describe('event handlers', () => {
-		it('should call onSubmit when select time', () => {
+		it('should call onChange when select time', () => {
 			// given
-			const onSubmit = jest.fn();
+			const onChange = jest.fn();
 			const event = expect.anything();
-			const wrapper = mount(<TimePicker onSubmit={onSubmit} />);
+			const wrapper = mount(<TimePicker onChange={onChange} />);
 			// when
 			wrapper.find('button').at(3).simulate('click');
 			// then
-			expect(onSubmit).toBeCalledWith(event, { textInput: '03:00', time: { hours: 3, minutes: 0, seconds: 0 } });
+			expect(onChange).toBeCalledWith(event, { textInput: '03:00', time: { hours: 3, minutes: 0, seconds: 0 } });
 		});
 		it('should hightlight item matches user input', () => {
 			// when

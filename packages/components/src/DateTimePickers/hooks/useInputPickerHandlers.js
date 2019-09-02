@@ -19,7 +19,9 @@ export default function useInputPickerHandlers({ handleBlur, handleChange }) {
 		}
 	}
 	function onChange(event, payload, inputRef) {
-		handleChange(event, payload);
+		if (handleChange) {
+			handleChange(event, payload);
+		}
 		if (payload.origin !== 'INPUT') {
 			inputRef.focus();
 			setPicked(true);

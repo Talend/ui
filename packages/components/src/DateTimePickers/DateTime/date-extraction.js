@@ -5,10 +5,14 @@ import setSeconds from 'date-fns/set_seconds';
 import setDate from 'date-fns/set_date';
 import startOfSecond from 'date-fns/start_of_second';
 import getErrorMessage from './error-messages';
+import {
+	checkTime,
+	pad,
+	strToTime,
+} from '../Time/time-extraction';
 
 const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
-const timePartRegex = new RegExp(/^(.*):(.*)$/);
-const timeWithSecondsPartRegex = new RegExp(/^(.*):(.*):(.*)$/);
+
 
 const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
 
@@ -17,13 +21,6 @@ export function DatePickerException(code, message) {
 	this.code = code;
 }
 
-function pad(num, size) {
-	let s = String(num);
-	while (s.length < (size || 2)) {
-		s = `0${s}`;
-	}
-	return s;
-}
 
 /**
  * Extract date and apply the current timezone, from datetime
@@ -126,73 +123,6 @@ function convertToUTC(date) {
 		),
 	);
 }
-
-/**
- * Check if hours are correct
- */
-function checkHours(hours) {
-	const hoursNum = Number(hours);
-	if (hours === '') {
-		return new DatePickerException('INVALID_HOUR', 'INVALID_HOUR_EMPTY');
-	} else if (hours.length !== 2 || isNaN(hoursNum) || hoursNum < 0 || hoursNum > 23) {
-		return new DatePickerException('INVALID_HOUR', 'INVALID_HOUR_NUMBER');
-	}
-	return null;
-}
-
-/**
- * Check if checkMinutes are correct
- */
-function checkMinutes(minutes) {
-	const minsNum = Number(minutes);
-	if (minutes === '') {
-		return new DatePickerException('INVALID_MINUTES', 'INVALID_MINUTES_EMPTY');
-	} else if (minutes.length !== 2 || isNaN(minsNum) || minsNum < 0 || minsNum > 59) {
-		return new DatePickerException('INVALID_MINUTES', 'INVALID_MINUTES_NUMBER');
-	}
-	return null;
-}
-
-/**
- * Check if seconds are correct.
- * This function throws the errors
- */
-function checkSeconds(seconds) {
-	const secondsNum = Number(seconds);
-	if (seconds === '') {
-		return new DatePickerException('INVALID_SECONDS', 'INVALID_SECONDS_EMPTY');
-	} else if (seconds.length !== 2 || isNaN(secondsNum) || secondsNum < 0 || secondsNum > 59) {
-		return new DatePickerException('INVALID_SECONDS', 'INVALID_SECONDS_NUMBER');
-	}
-	return null;
-}
-
-/**
- * Check if time is correct
- */
-function checkTime({ hours, minutes, seconds }) {
-	const timeErrors = [];
-
-	const hoursError = checkHours(hours);
-	if (hoursError) {
-		timeErrors.push(hoursError);
-	}
-
-	const minutesError = checkMinutes(minutes);
-	if (minutesError) {
-		timeErrors.push(minutesError);
-	}
-
-	const secondsError = checkSeconds(seconds);
-	if (secondsError) {
-		timeErrors.push(secondsError);
-	}
-
-	if (timeErrors.length > 0) {
-		throw timeErrors;
-	}
-}
-
 /**
  * Check if the time is empty
  */
@@ -334,25 +264,6 @@ function strToDate(strToParse, dateFormat) {
 	return setDate(monthDate, day);
 }
 
-/**
- * Convert string in 'HH:mm' format into the corresponding number of minutes
- * @param strToParse {string}
- * @param useSeconds {boolean}
- * @returns {{ hours: string, minutes: string }}
- */
-function strToTime(strToParse, useSeconds) {
-	const timeRegex = useSeconds ? timeWithSecondsPartRegex : timePartRegex;
-	const timeMatches = strToParse.match(timeRegex);
-	if (!timeMatches) {
-		throw new DatePickerException('TIME_FORMAT_INVALID', 'TIME_FORMAT_INVALID');
-	}
-
-	const hours = timeMatches[1];
-	const minutes = timeMatches[2];
-	const seconds = useSeconds ? timeMatches[3] : '00';
-
-	return { hours, minutes, seconds };
-}
 
 /**
  * Init time (hours, minutes, seconds), depending on the options.
@@ -421,14 +332,6 @@ function extractPartsFromDateTime(datetime, options) {
 		textInput: dateTimeToStr(date, time, options),
 		errors: [],
 	};
-}
-
-/**
- * get time format base on useSeconds
- * @param {string} useSeconds
- */
-function getTimeFormat(useSeconds) {
-	return useSeconds ? 'HH:mm:ss' : 'HH:mm';
 }
 
 /**
@@ -567,30 +470,14 @@ function extractParts(value, options) {
 		errors: [],
 	};
 }
-/**
- * Convert time object to string
- * @param {object} time {{hours: string|number, minutes: string|number, seconds: string|number}}
- * @param {boolean} useSeconds
- */
-function timeToStr(time, useSeconds) {
-	const hours = pad(time.hours);
-	const minutes = pad(time.minutes);
-	const seconds = pad(time.seconds);
-	return `${hours}:${minutes}${useSeconds ? `:${seconds}` : ''}`;
-}
+
 
 export {
 	check,
-	checkHours,
-	checkMinutes,
-	checkSeconds,
 	checkSupportedDateFormat,
 	extractParts,
 	extractPartsFromDateTime,
 	extractPartsFromDateAndTime,
 	extractPartsFromTextInput,
 	getFullDateFormat,
-	getTimeFormat,
-	strToTime,
-	timeToStr,
 };
