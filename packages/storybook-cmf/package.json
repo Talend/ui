@@ -29,7 +29,7 @@
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
-    "@storybook/react": "5.2.0-beta.8",
+    "@storybook/react": "5.2.0-rc.2",
     "@talend/react-cmf": "^4.7.0-1",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.7.1",
@@ -48,9 +48,9 @@
     "redux-saga": "^0.15.4"
   },
   "dependencies": {
-    "@storybook/addon-actions": "5.2.0-beta.8",
-    "@storybook/addon-info": "5.2.0-beta.8",
-    "@storybook/addons": "5.2.0-beta.8",
+    "@storybook/addon-actions": "5.2.0-rc.2",
+    "@storybook/addon-info": "5.2.0-rc.2",
+    "@storybook/addons": "5.2.0-rc.2",
     "prop-types": "^15.5.10"
   },
   "peerDependencies": {
