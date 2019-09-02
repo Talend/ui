@@ -35,7 +35,9 @@
 
 	.calendar-day {
 		&.today {
-			background-color: $concrete;
+			background-color: tint ($lochmara, 90%);
+			color: $lochmara;
+			border: solid 1px $lochmara;
 		}
 
 		@include picker-action;
