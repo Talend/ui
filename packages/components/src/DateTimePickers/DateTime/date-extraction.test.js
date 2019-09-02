@@ -1,4 +1,3 @@
-import cases from 'jest-in-case';
 
 import {
 	checkSupportedDateFormat,
@@ -9,10 +8,7 @@ import {
 	getFullDateFormat,
 	check,
 } from './date-extraction';
-import {
-	getTimeFormat,
-	timeToStr,
-} from '../Time/time-extraction';
+
 
 describe('Date extraction', () => {
 	describe('checkSupportedDateFormat', () => {
@@ -723,24 +719,7 @@ describe('Date extraction', () => {
 			expect(format).toBe('YYYY-MM-DD HH:mm:ss');
 		});
 	});
-	describe('getTimeFormat', () => {
-		it('should return time format with seconds', () => {
-			// given
-			const useSeconds = true;
-			// when
-			const timeFormat = getTimeFormat(useSeconds);
-			// then
-			expect(timeFormat).toEqual('HH:mm:ss');
-		});
-		it('should return time format without seconds', () => {
-			// given
-			const useSeconds = false;
-			// when
-			const timeFormat = getTimeFormat(useSeconds);
-			// then
-			expect(timeFormat).toEqual('HH:mm');
-		});
-	});
+
 	describe('check', () => {
 		it('should return date format error when date is empty', () => {
 			// when
@@ -790,32 +769,5 @@ describe('Date extraction', () => {
 			expect(errors.length).toBe(0);
 		});
 	});
-	describe('timeToStr', () => {
-		cases(
-			'should convert time object to string',
-			({ time, useSeconds, expectedStr }) => {
-				expect(timeToStr(time, useSeconds)).toBe(expectedStr);
-			},
-			[
-				{
-					name: 'when useSeconds is false',
-					time: { hours: '12', minutes: '30', seconds: '00' },
-					useSeconds: false,
-					expectedStr: '12:30',
-				},
-				{
-					name: 'when useSeconds is true',
-					time: { hours: '12', minutes: '30', seconds: '00' },
-					useSeconds: true,
-					expectedStr: '12:30:00',
-				},
-				{
-					name: 'when hours, minutes, seconds are numbers',
-					time: { hours: 23, minutes: 59, seconds: 0 },
-					useSeconds: false,
-					expectedStr: '23:59',
-				},
-			],
-		);
-	});
+
 });
