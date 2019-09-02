@@ -120,8 +120,7 @@ function getTimeFormat(useSeconds) {
 	return useSeconds ? 'HH:mm:ss' : 'HH:mm';
 }
 
-
-export default function extractTime(selectedTime, useSeconds) { 
+export default function extractTime(selectedTime, useSeconds) {
 	const errors = [];
 	let time;
 	if (!selectedTime) {
