@@ -20,6 +20,7 @@ export default function InputTimePicker(props) {
 
 	const handlers = useInputPickerHandlers({
 		handleBlur: props.onBlur,
+		handleChange: props.onChange,
 	});
 
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
@@ -42,21 +43,21 @@ export default function InputTimePicker(props) {
 			>
 				{({ ref, style }) => (
 					<div id={popoverId} className={theme.popper} style={style} ref={ref}>
-						<Time.Picker
-							{...props}
-							onChange={(...args) => {
-								handlers.onChange(...args, inputRef.current);
-							}}
-						/>
+						<Time.Picker {...props} />
 					</div>
 				)}
 			</Popper>
 		),
 	].filter(Boolean);
 	return (
-		<Time.Manager value={props.value} useSeconds={props.useSeconds} onChange={props.onChange}>
+		<Time.Manager
+			value={props.value}
+			useSeconds={props.useSeconds}
+			onChange={(...args) => handlers.onChange(...args, inputRef.current)}
+		>
 			<FocusManager
 				divRef={containerRef}
+				onClick={handlers.onClick}
 				onFocusIn={handlers.onFocus}
 				onFocusOut={handlers.onBlur}
 				onKeyDown={event => {
