@@ -61,7 +61,7 @@ export default function InputTimePicker(props) {
 				onFocusIn={handlers.onFocus}
 				onFocusOut={handlers.onBlur}
 				onKeyDown={event => {
-					handlers.onKeyDown(event, inputRef.current);
+					handlers.onKeyDown(event, inputRef.current, containerRef.current);
 				}}
 			>
 				{timePicker}
