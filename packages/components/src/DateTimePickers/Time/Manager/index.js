@@ -1,3 +1,3 @@
-import ContextualManager from './Manager.component';
+import Manager from './Manager.component';
 
-export default ContextualManager;
+export default Manager;
