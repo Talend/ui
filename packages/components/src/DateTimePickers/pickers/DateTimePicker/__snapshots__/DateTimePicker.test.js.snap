@@ -19,5 +19,15 @@ exports[`DateTimePicker should render 1`] = `
     onSelectTime={[Function]}
     onTitleClick={[Function]}
   />
+  <div
+    className="theme-footer"
+  >
+    <Action
+      aria-label="Pick Today"
+      className="btn-tertiary btn-info"
+      label="Today"
+      onClick={[Function]}
+    />
+  </div>
 </div>
 `;

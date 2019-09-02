@@ -54,6 +54,18 @@ storiesOf('Components/Controls/Datalist', module)
 	.add('default multiSection', () => {
 		const restrictedValues = { ...propsMultiSection, restricted: true };
 		const defaultValue = { ...propsMultiSection, value: 'lol' };
+		const withIcons = {
+			...propsMultiSection,
+			titleMap: propsMultiSection.titleMap.map(titleMap => ({
+				...titleMap,
+				suggestions: titleMap.suggestions.map(
+					suggestion => ({
+						...suggestion,
+						icon: { name: 'talend-clock' },
+					}),
+				),
+			})),
+		};
 		return (
 			<form className="form">
 				<IconsProvider />
@@ -63,6 +75,8 @@ storiesOf('Components/Controls/Datalist', module)
 				<Datalist {...defaultValue} />
 				<h3>Restricted values</h3>
 				<Datalist {...restrictedValues} />
+				<h3>With icons</h3>
+				<Datalist {...withIcons} />
 				<h3>Auto focused</h3>
 				<Datalist {...propsMultiSection} autoFocus />
 			</form>
@@ -72,6 +86,16 @@ storiesOf('Components/Controls/Datalist', module)
 		const restrictedValues = { ...singleSectionProps, restricted: true };
 		const defaultValue = { ...singleSectionProps, value: 'lol' };
 		const disabledItems = { ...singleSectionProps, titleMap: titleMapWithDisabledItems };
+		const withIcons = {
+			...singleSectionProps,
+			titleMap: singleSectionProps.titleMap.map((titleMap, i) => ({
+				...titleMap,
+				icon: {
+					name: ['talend-clock', 'talend-world', 'talend-flow', 'talend-flow-o'][i],
+					title: 'My icon',
+				},
+			})),
+		};
 		return (
 			<form className="form">
 				<IconsProvider />
@@ -87,6 +111,8 @@ storiesOf('Components/Controls/Datalist', module)
 				<Datalist {...singleSectionProps} autoFocus />
 				<h3>With disabled Items</h3>
 				<Datalist {...disabledItems} autoFocus />
+				<h3>With icons</h3>
+				<Datalist {...withIcons} />
 				<h3>Insert custom elements via render props</h3>
 				<Datalist {...singleSectionProps}>
 					{(content, { isShown }) => (

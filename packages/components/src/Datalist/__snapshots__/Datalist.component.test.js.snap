@@ -2,6 +2,7 @@
 
 exports[`Datalist component should render a typeahead 1`] = `
 <FocusManager
+  className="theme-tc-datalist-item"
   onFocusOut={[Function]}
 >
   <Typeahead

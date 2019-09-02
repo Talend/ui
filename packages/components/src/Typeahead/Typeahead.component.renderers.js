@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import get from 'lodash/get';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import DebounceInput from 'react-debounce-input';
 import classNames from 'classnames';
+import { Popper } from 'react-popper';
+
 import Icon from '../Icon';
 import CircularProgress from '../CircularProgress';
 import Emphasis from '../Emphasis';
@@ -66,6 +69,7 @@ export function renderInputComponent(props) {
 		</div>
 	);
 }
+
 renderInputComponent.propTypes = {
 	key: PropTypes.string,
 	debounceMinLength: PropTypes.number,
@@ -87,12 +91,17 @@ export function renderItemsContainerFactory(
 	searchingText,
 	loading,
 	loadingText,
+	inputRef,
 	render = content => content,
 ) {
 	const isShown = items;
 	const noResult = items && !items.length;
 
 	function ItemsContainerComponent({ containerProps, children }) {
+		if (!isShown) {
+			return undefined;
+		}
+
 		const containerClassName = classNames(containerProps.className, theme['items-container'], {
 			[theme['container-open']]: searching || noResult,
 		});
@@ -120,25 +129,66 @@ export function renderItemsContainerFactory(
 		} else {
 			content = children;
 		}
+
+		const getPopperStyle = () => {
+			if (!inputRef) return { width: 0 };
+			const inputDimensions = inputRef.getBoundingClientRect();
+			return {
+				width: inputDimensions.width,
+			};
+		};
+
 		return (
-			<div
-				className={containerClassName}
-				id={containerProps.id}
-				key={containerProps.key}
-				ref={containerProps.ref}
-				role={containerProps.role}
-			>
-				{render(
-					content,
-					{
-						isShown,
-						loading,
-						noResult,
-						searching,
+			<Popper
+				modifiers={{
+					hide: {
+						enabled: false,
 					},
-					containerProps.ref,
-				)}
-			</div>
+					preventOverflow: {
+						enabled: false,
+					},
+					shift: {
+						enabled: false,
+					},
+				}}
+				positionFixed
+				boundariesElement="viewport"
+				referenceElement={inputRef}
+				placement="bottom-start"
+			>
+				{({ placement = '', ref, scheduleUpdate, style }) => {
+					if (placement.includes('top')) {
+						// @see https://github.com/FezVrasta/react-popper/issues/283#issuecomment-512879262
+						scheduleUpdate();
+					}
+					return (
+						<div
+							className={containerClassName}
+							id={containerProps.id}
+							key={containerProps.key}
+							ref={ref}
+							role={containerProps.role}
+							style={{
+								...getPopperStyle(),
+								...style,
+							}}
+						>
+							<div ref={containerProps.ref} className={theme['items-body']}>
+								{render(
+									content,
+									{
+										isShown,
+										loading,
+										noResult,
+										searching,
+									},
+									containerProps.ref,
+								)}
+							</div>
+						</div>
+					);
+				}}
+			</Popper>
 		);
 	}
 
@@ -185,14 +235,17 @@ export function renderItem(item, { value, ...rest }) {
 			title={title}
 			data-feature={rest['data-feature']}
 		>
-			<span className={classNames(theme['item-title'], 'tc-typeahead-item-title')}>
-				<Emphasis value={value} text={title} />
-			</span>
-			{description && (
-				<p className={classNames(theme['item-description'], 'tc-typeahead-item-description')}>
-					<Emphasis value={value} text={description} />
-				</p>
-			)}
+			{get(item, 'icon') && <Icon className={theme['item-icon']} {...item.icon} />}
+			<div className={theme['item-text']}>
+				<span className={classNames(theme['item-title'], 'tc-typeahead-item-title')}>
+					<Emphasis value={value} text={title} />
+				</span>
+				{description && (
+					<p className={classNames(theme['item-description'], 'tc-typeahead-item-description')}>
+						<Emphasis value={value} text={description} />
+					</p>
+				)}
+			</div>
 		</div>
 	);
 }

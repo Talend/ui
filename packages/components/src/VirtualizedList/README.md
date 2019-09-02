@@ -167,14 +167,14 @@ import { headerType as headerResizableType } from '../src/VirtualizedList/Header
 />;
 ```
 
-You must give a width to every column even the one not resizable.
+You must give a width to every column even the one not resizable, and the amount of all the sizes must be equals to the width of your vList.
 Also you need to add the resizable header to headerRenderer props.
 
-| Props | Description |
+| Props | Type | Description |
 |---|---|
-| headerRenderer |  header that will be render, HeaderResizable to allow dragging |
-| resizable | make the column resizable |
-| width | initial width of the column |
+| headerRenderer | func | HeaderResizable which allow dragging |
+| resizable | bool | make the column resizable |
+| width | number | initial width of the column |
 
 You can also customize the render of the HeaderResizable component.
 

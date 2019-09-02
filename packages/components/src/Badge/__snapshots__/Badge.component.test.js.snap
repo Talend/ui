@@ -1,6 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Badge should render by default 1`] = `"<div class=\\"tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-readonly theme-tc-badge-readonly\\"><div class=\\"tc-badge-button theme-tc-badge-button\\"><div class=\\"tc-badge-label theme-tc-badge-label\\"><div class=\\"theme-tc-tooltip\\" aria-describedby=\\"42\\"><span class=\\"tc-badge-label-text theme-tc-badge-label-text\\" aria-describedby=\\"42\\">my label</span></div></div></div></div>"`;
+exports[`Badge should render by default 1`] = `
+<div class="tc-badge theme-tc-badge tc-badge-display-large theme-tc-badge-display-large tc-badge-readonly theme-tc-badge-readonly">
+  <div class="tc-badge-button theme-tc-badge-button">
+    <div class="tc-badge-label theme-tc-badge-label">
+      <div class="theme-tc-tooltip"
+           aria-describedby="42"
+      >
+        <span class="tc-badge-label-text theme-tc-badge-label-text"
+              aria-describedby="42"
+        >
+          my label
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
 
 exports[`Badge should render with i18n 1`] = `
 <Badge

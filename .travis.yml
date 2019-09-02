@@ -52,10 +52,11 @@ matrix:
       env: NAME=demo
       script:
         - yarn global add surge
+      script:
+        - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Demo skipped."; travis_terminate 0; fi
         - yarn install
         - yarn chroma
         - yarn test:demo
-        - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Demo skipped."; travis_terminate 0; fi
         - .travis/after_success_static.sh
         - .travis/after_success_demo.sh
         - .travis/after_success_deploy.sh

@@ -21,8 +21,6 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 .tc-typeahead-container {
 	position: relative;
 	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
 	width: auto;
 
 	&.loading {
@@ -35,21 +33,24 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		}
 	}
 
+	.items-container,
+	.items-body {
+		max-height: 70vh;
+	}
+
 	.items-container {
 		display: none;
-		position: absolute;
 		margin-top: $padding-smaller;
-		top: 100%;
-		left: 0;
-		right: 0;
-		max-height: 70vh;
 		min-width: $tc-typeahead-input-width;
 		font-size: $tc-typeahead-items-font-size;
 		background-color: $tc-typeahead-opened-items-container-background-color;
 		border-radius: $tc-typeahead-items-border-radius;
 		box-shadow: $tc-typeahead-items-box-shadow;
-		overflow-y: auto;
 		z-index: $zindex-dropdown;
+	}
+
+	.items-body {
+		overflow-y: auto;
 	}
 
 	&.right {
@@ -94,9 +95,14 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		}
 
 		.icon-caret {
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			position: absolute;
-			margin: 0;
+			top: 0;
 			right: 0;
+			bottom: 0;
+			margin: 0;
 
 			> svg {
 				height: 0.8rem;
@@ -156,6 +162,7 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 	padding: $padding-normal;
 	cursor: pointer;
 	white-space: pre;
+	align-items: center;
 
 	&-description {
 		margin-bottom: 0;
@@ -163,6 +170,14 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		color: $tc-typeahead-item-description-color;
 	}
 
+	&-icon {
+		width: $svg-md-size;
+		height: $svg-md-size;
+		color: $black;
+		margin-right: $padding-normal;
+	}
+
+	&-highlighted,
 	&:hover {
 		background-color: $concrete;
 

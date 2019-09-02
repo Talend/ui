@@ -43,7 +43,7 @@ function InjectDropdownMenuItem({
 	}
 	return (
 		<li role="presentation" key={key} {...liProps}>
-			<Inject component={component} getComponent={getComponent} {...rest} />
+			<Inject component={component} getComponent={getComponent} onSelect={onSelect} {...rest} />
 		</li>
 	);
 }
@@ -185,6 +185,7 @@ class ActionDropdown extends React.Component {
 			components,
 			className,
 			loading,
+			children,
 			t,
 			...rest
 		} = this.props;
@@ -219,7 +220,7 @@ class ActionDropdown extends React.Component {
 				onToggle={this.onToggle}
 				ref={ref => (this.ref = ref)}
 			>
-				{!items.length && !items.size && !loading && !components && (
+				{!children && !items.length && !items.size && !loading && !components && (
 					<Renderers.MenuItem key="empty" disabled>
 						{t('ACTION_DROPDOWN_EMPTY', { defaultValue: 'No options' })}
 					</Renderers.MenuItem>
@@ -241,6 +242,7 @@ class ActionDropdown extends React.Component {
 					</Renderers.MenuItem>
 				)}
 				{injected('itemsDropdown')}
+				{children}
 				{injected('afterItemsDropdown')}
 			</Renderers.DropdownButton>
 		);
@@ -290,6 +292,7 @@ ActionDropdown.propTypes = {
 		afterItemsDropdown: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 	}),
 	t: PropTypes.func,
+	children: PropTypes.node,
 };
 
 ActionDropdown.defaultProps = {

@@ -15,6 +15,7 @@ exports[`Intercom button should render a button 1`] = `
   }
   id="my-intercom"
   t={[Function]}
+  tooltipPlacement="bottom"
 >
   <TooltipTrigger
     label="Chat with Talend Support"

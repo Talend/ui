@@ -15,12 +15,13 @@ src/GuidedTour/GuidedTour.scss
   80:4  error  Class '.reactour__dot--is-active' should be written in lowercase with hyphens  class-name-format
 
 src/List/Toolbar/Toolbar.scss
-  71:6  error  Nesting depth 4 greater than max of 3  nesting-depth
-  75:6  error  Nesting depth 4 greater than max of 3  nesting-depth
-  80:6  error  Nesting depth 4 greater than max of 3  nesting-depth
+  71:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
+  75:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
+  80:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
+  93:12  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/Typeahead/Typeahead.scss
-  33:5  error  Mixins should come before declarations  mixins-before-declarations
+  31:5  error  Mixins should come before declarations  mixins-before-declarations
 
-✖ 9 problems (7 errors, 2 warnings)
+✖ 10 problems (8 errors, 2 warnings)
 

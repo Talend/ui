@@ -55,33 +55,51 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = 
   id="react-autowhatever-42"
   key="react-autowhatever-42-items-container"
   role="listbox"
+  style={
+    Object {
+      "left": 0,
+      "opacity": 0,
+      "pointerEvents": "none",
+      "position": "absolute",
+      "top": 0,
+      "width": 0,
+    }
+  }
 >
-  <ul
-    className="theme-items"
-    key="react-autowhatever-42-items-list"
-    role="listbox"
+  <div
+    className="theme-items-body"
   >
-    <li
-      aria-selected={true}
-      className="theme-item-highlighted tc-typeahead-item-highlighted"
-      id="react-autowhatever-42--item-0"
-      onMouseDown={[Function]}
-      role="option"
+    <ul
+      className="theme-items"
+      key="react-autowhatever-42-items-list"
+      role="listbox"
     >
-      <div
-        className="theme-item"
-        title="Bar"
+      <li
+        aria-selected={true}
+        className="theme-item-highlighted tc-typeahead-item-highlighted"
+        id="react-autowhatever-42--item-0"
+        onMouseDown={[Function]}
+        role="option"
       >
-        <span
-          className="theme-item-title tc-typeahead-item-title"
+        <div
+          className="theme-item"
+          title="Bar"
         >
-          <span>
-            Bar
-          </span>
-        </span>
-      </div>
-    </li>
-  </ul>
+          <div
+            className="theme-item-text"
+          >
+            <span
+              className="theme-item-title tc-typeahead-item-title"
+            >
+              <span>
+                Bar
+              </span>
+            </span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
 `;
 
@@ -91,51 +109,69 @@ exports[`MultiSelectTagWidget should render section title when items has categor
   id="react-autowhatever-42"
   key="react-autowhatever-42-items-container"
   role="listbox"
+  style={
+    Object {
+      "left": 0,
+      "opacity": 0,
+      "pointerEvents": "none",
+      "position": "absolute",
+      "top": 0,
+      "width": 0,
+    }
+  }
 >
   <div
-    className="theme-section-container tc-typeahead-section-container"
-    key="react-autowhatever-42-section-0-container"
+    className="theme-items-body"
   >
     <div
-      key="react-autowhatever-42-section-0-title"
-      style={Object {}}
+      className="theme-section-container tc-typeahead-section-container"
+      key="react-autowhatever-42-section-0-container"
     >
       <div
-        className="theme-section-header tc-typeahead-section-header"
-      >
-        <span
-          className="theme-section-header-title tc-typeahead-section-header-title"
-        >
-          pet
-        </span>
-      </div>
-    </div>
-    <ul
-      className="theme-items"
-      key="react-autowhatever-42-section-0-items-list"
-      role="listbox"
-    >
-      <li
-        aria-selected={true}
-        className="theme-item-highlighted tc-typeahead-item-highlighted"
-        id="react-autowhatever-42-section-0-item-0"
-        onMouseDown={[Function]}
-        role="option"
+        key="react-autowhatever-42-section-0-title"
+        style={Object {}}
       >
         <div
-          className="theme-item"
-          title="Puppy"
+          className="theme-section-header tc-typeahead-section-header"
         >
           <span
-            className="theme-item-title tc-typeahead-item-title"
+            className="theme-section-header-title tc-typeahead-section-header-title"
           >
-            <span>
-              Puppy
-            </span>
+            pet
           </span>
         </div>
-      </li>
-    </ul>
+      </div>
+      <ul
+        className="theme-items"
+        key="react-autowhatever-42-section-0-items-list"
+        role="listbox"
+      >
+        <li
+          aria-selected={true}
+          className="theme-item-highlighted tc-typeahead-item-highlighted"
+          id="react-autowhatever-42-section-0-item-0"
+          onMouseDown={[Function]}
+          role="option"
+        >
+          <div
+            className="theme-item"
+            title="Puppy"
+          >
+            <div
+              className="theme-item-text"
+            >
+              <span
+                className="theme-item-title tc-typeahead-item-title"
+              >
+                <span>
+                  Puppy
+                </span>
+              </span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 `;
@@ -146,12 +182,26 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
   id="react-autowhatever-42"
   key="react-autowhatever-42-items-container"
   role="listbox"
+  style={
+    Object {
+      "left": 0,
+      "opacity": 0,
+      "pointerEvents": "none",
+      "position": "absolute",
+      "top": 0,
+      "width": 0,
+    }
+  }
 >
   <div
-    className="theme-no-result no-result"
-    key="no-result"
+    className="theme-items-body"
   >
-    No result.
+    <div
+      className="theme-no-result no-result"
+      key="no-result"
+    >
+      No result.
+    </div>
   </div>
 </div>
 `;

@@ -267,19 +267,30 @@ export class UIFormComponent extends React.Component {
 
 	render() {
 		const { onSubmitEnter, onSubmitLeave, properties } = this.props;
-		const actions = this.props.actions || [
+		let actions = this.props.actions || [
 			{
 				bsStyle: 'primary',
 				label: 'Submit',
 				type: 'submit',
 				widget: 'button',
 				position: 'right',
-				onMouseEnter: onSubmitEnter && (event => onSubmitEnter(event, properties)),
-				onMouseLeave: onSubmitLeave,
 			},
 		];
 		if (!this.state.mergedSchema) {
 			return null;
+		}
+
+		if (onSubmitEnter) {
+			actions = actions.map(action => {
+				if (action.type === 'submit') {
+					return {
+						...action,
+						onMouseEnter: event => onSubmitEnter(event, properties),
+						onMouseLeave: onSubmitLeave,
+					};
+				}
+				return action;
+			});
 		}
 
 		const formTemplate =
@@ -309,7 +320,7 @@ export class UIFormComponent extends React.Component {
 			return (
 				<div className={classNames(theme['form-actions'], 'tf-actions-wrapper')} key="form-buttons">
 					<Buttons
-						id={`${this.props.id}-${this.props.id}-actions`}
+						id={`${this.props.id}-actions`}
 						onTrigger={this.onTrigger}
 						className={this.props.buttonBlockClass}
 						schema={{ items: actions }}

@@ -6,6 +6,14 @@
 	align-items: center;
 	text-transform: uppercase;
 	font-weight: 600;
+
+	:global(.dropdown-menu) {
+		min-width: 63px;
+	}
+}
+
+.month {
+	margin-right: $padding-smaller;
 }
 
 .button {
