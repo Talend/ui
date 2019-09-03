@@ -47,5 +47,17 @@ describe('List Gesture HOC', () => {
 			expectedActivePosition: 0,
 			keyCode: keycode.codes.up,
 		},
+		{
+			name: 'should focus on 1st item on down keydown at the last item',
+			elementPosition: 3,
+			expectedActivePosition: 0,
+			keyCode: keycode.codes.down,
+		},
+		{
+			name: 'should focus on last item on up keydown at the 1st item',
+			elementPosition: 0,
+			expectedActivePosition: 3,
+			keyCode: keycode.codes.up,
+		},
 	]);
 });
