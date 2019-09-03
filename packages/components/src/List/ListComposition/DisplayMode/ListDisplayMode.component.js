@@ -61,7 +61,7 @@ function ListDisplayMode({
 }) {
 	const { displayMode, setDisplayMode } = useListContext();
 	useEffect(() => {
-		if (!onChange) {
+		if (!onChange && !displayMode) {
 			setDisplayMode(initialDisplayMode);
 		}
 	}, []);
