@@ -8,6 +8,7 @@ import getDefaultT from '../../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import useCollectionSort from './hooks/useCollectionSort.hook';
 import useCollectionFilter from './hooks/useCollectionFilter.hook';
+import theme from '../List.scss';
 
 function Manager(props) {
 	let collection = props.collection;
@@ -33,7 +34,11 @@ function Manager(props) {
 		textFilter,
 	};
 
-	return <ListContext.Provider value={contextValues}>{props.children}</ListContext.Provider>;
+	return (
+		<ListContext.Provider value={contextValues}>
+			<div className={theme.list}>{props.children}</div>
+		</ListContext.Provider>
+	);
 }
 Manager.defaultProps = {
 	t: getDefaultT(),
