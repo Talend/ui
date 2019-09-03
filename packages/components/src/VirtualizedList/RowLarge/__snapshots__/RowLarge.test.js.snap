@@ -4,6 +4,7 @@ exports[`RowLarge should render large row 1`] = `
 <withI18nextTranslation(VirtualizedList(RowLarge))
   className="my-class-names"
   index={1}
+  loop={false}
   onKeyDown={[Function]}
   parent={
     Object {

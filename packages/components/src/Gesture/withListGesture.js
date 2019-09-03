@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import keycode from 'keycode';
 
 function focusOn(event, element) {
@@ -11,7 +12,7 @@ function getAllItems(ref) {
 	return ref.closest('[role="list"]').querySelectorAll('[role="listitem"]');
 }
 
-function getNextItem(ref) {
+function getNextItem(ref, loop) {
 	let nextElement;
 	let currentFound;
 	let hasNext;
@@ -19,15 +20,16 @@ function getNextItem(ref) {
 	const nodes = getAllItems(ref);
 	const iterator = nodes.values();
 
+	if (loop && ref === nodes.item(nodes.length - 1)) {
+		return nodes.item(0);
+	}
+
 	do {
 		const { value, done } = iterator.next();
 
 		if (currentFound) {
 			nextElement = value;
 			hasNext = false;
-			if (done && !nextElement) {
-				nextElement = nodes.item(0);
-			}
 		} else {
 			currentFound = value === ref;
 			hasNext = !done;
@@ -37,12 +39,16 @@ function getNextItem(ref) {
 	return nextElement;
 }
 
-function getPreviousItem(ref) {
+function getPreviousItem(ref, loop) {
 	let previousElement;
 	let hasNext;
 
 	const nodes = getAllItems(ref);
 	const iterator = nodes.values();
+
+	if (loop && ref === nodes.item(0)) {
+		return nodes.item(nodes.length - 1);
+	}
 
 	do {
 		const { value, done } = iterator.next();
@@ -50,9 +56,6 @@ function getPreviousItem(ref) {
 
 		if (currentFound) {
 			hasNext = false;
-			if (!previousElement) {
-				previousElement = nodes.item(nodes.length - 1);
-			}
 		} else {
 			previousElement = value;
 			hasNext = !done;
@@ -62,17 +65,17 @@ function getPreviousItem(ref) {
 	return previousElement;
 }
 
-function onKeyDown(event, ref) {
+function onKeyDown(event, ref, loop) {
 	switch (event.keyCode) {
 		case keycode.codes.down:
 			event.stopPropagation();
 			event.preventDefault();
-			focusOn(event, getNextItem(ref));
+			focusOn(event, getNextItem(ref, loop));
 			break;
 		case keycode.codes.up:
 			event.stopPropagation();
 			event.preventDefault();
-			focusOn(event, getPreviousItem(ref));
+			focusOn(event, getPreviousItem(ref, loop));
 			break;
 		default:
 			break;
@@ -81,9 +84,16 @@ function onKeyDown(event, ref) {
 
 export default function withListGesture(WrappedComponent) {
 	function ListGesture(props) {
-		return <WrappedComponent {...props} onKeyDown={onKeyDown} />;
+		const { loop } = props;
+		return <WrappedComponent {...props} onKeyDown={(...args) => onKeyDown(...args, loop)} />;
 	}
 
+	ListGesture.propTypes = {
+		loop: PropTypes.bool,
+	};
+	ListGesture.defaultProps = {
+		loop: false,
+	};
 	ListGesture.displayName = `ListGesture(${WrappedComponent.displayName})`;
 
 	return ListGesture;

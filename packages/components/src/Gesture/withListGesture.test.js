@@ -13,9 +13,9 @@ describe('List Gesture HOC', () => {
 		expect(ComponentWithGesture.displayName).toBe('ListGesture(List)');
 	});
 
-	function testFocus({ elementPosition, expectedActivePosition, keyCode }) {
+	function testFocus({ elementPosition, expectedActivePosition, keyCode, loop }) {
 		// given
-		const wrapper = mount(<ComponentWithGesture />);
+		const wrapper = mount(<ComponentWithGesture loop={loop} />);
 		const event = { keyCode };
 		const element = wrapper.find(`#item-${elementPosition}`);
 
@@ -48,16 +48,18 @@ describe('List Gesture HOC', () => {
 			keyCode: keycode.codes.up,
 		},
 		{
-			name: 'should focus on 1st item on down keydown at the last item',
+			name: 'should focus on 1st item on down keydown at the last item when loop',
 			elementPosition: 3,
 			expectedActivePosition: 0,
 			keyCode: keycode.codes.down,
+			loop: true,
 		},
 		{
-			name: 'should focus on last item on up keydown at the 1st item',
+			name: 'should focus on last item on up keydown at the 1st item when loop',
 			elementPosition: 0,
 			expectedActivePosition: 3,
 			keyCode: keycode.codes.up,
+			loop: true,
 		},
 	]);
 });
