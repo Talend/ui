@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { mount } from 'enzyme';
 import ErrorBoundary from './ErrorBoundary.component';
 
+// missing in jsdom: https://github.com/jsdom/jsdom/issues/1721
 global.window.URL.createObjectURL = jest.fn();
 
 function TestChildren(props) {

@@ -61,7 +61,7 @@ function isSensibleKey(key) {
 }
 
 /**
- * anon replace value by random if the key is considererd sensitive
+ * anon() replaces value by a random string if the key is considered sensitive
  */
 function anon(value, key) {
 	if (isSensibleKey(key)) {
@@ -170,10 +170,10 @@ function report(error) {
  */
 function addAction(action) {
 	if (ref.actions.length > 20) {
-		ref.actions.pop();
+		ref.actions.shift();
 	}
 	try {
-		const safeAction = prepareObject(action);
+		let safeAction = { ...action };
 		if (safeAction.type === 'DID_MOUNT_SAGA_START') {
 			delete safeAction.props;
 		} else if (safeAction.type === 'REACT_CMF.REQUEST_SETTINGS_OK') {
@@ -181,6 +181,7 @@ function addAction(action) {
 		} else if (safeAction.url === ref.settingsURL) {
 			delete safeAction.response;
 		}
+		safeAction = prepareObject(safeAction);
 		ref.actions.push(safeAction);
 	} catch (error) {
 		// eslint-disable-next-line no-console

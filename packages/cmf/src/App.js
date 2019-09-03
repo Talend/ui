@@ -19,7 +19,7 @@ export default function App(props) {
 	return (
 		<Provider store={props.store}>
 			<RegistryProvider>
-				<ErrorBoundary full>{props.children}</ErrorBoundary>
+				<ErrorBoundary fullPage>{props.children}</ErrorBoundary>
 			</RegistryProvider>
 		</Provider>
 	);

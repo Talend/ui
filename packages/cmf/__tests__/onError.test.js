@@ -20,7 +20,7 @@ describe('onError', () => {
 		jest.resetAllMocks();
 	});
 	describe('getReportInfo', () => {
-		it('shoud fill internal values', () => {
+		it('should fill internal values', () => {
 			expect(onError.hasReportURL()).toBe(true);
 			const info = onError.getReportInfo(new Error('my'));
 			expect(info.actions).toEqual([]);

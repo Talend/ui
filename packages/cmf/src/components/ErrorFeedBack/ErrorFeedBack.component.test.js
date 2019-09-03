@@ -16,7 +16,7 @@ describe('Component ErrorFeedBack', () => {
 		expect(panels.length).toBe(1);
 		expect(panels.props().error).toEqual(errors[0]);
 	});
-	it('should add marginTop if full', () => {
+	it('should add marginTop in fullPage mode', () => {
 		const errors = [
 			{
 				message: 'Error message',
@@ -24,10 +24,10 @@ describe('Component ErrorFeedBack', () => {
 				stack: 'Error stack',
 			},
 		];
-		const wrapper = mount(<Component errors={errors} full />);
+		const wrapper = mount(<Component errors={errors} fullPage />);
 		expect(wrapper.find('.col-md-6').props().style.marginTop).toBe(200);
 	});
-	it('should render react fragment if not full', () => {
+	it('should render react fragment in fullPage mode', () => {
 		const errors = [
 			{
 				message: 'Error message',

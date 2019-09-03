@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 
 import Component from './ErrorPanel.component';
 
+// missing in jsdom: https://github.com/jsdom/jsdom/issues/1721
 global.window.URL.createObjectURL = jest.fn();
 
 describe('Component ErrorPanel', () => {
