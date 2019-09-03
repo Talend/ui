@@ -5,43 +5,28 @@ import { action } from '@storybook/addon-actions';
 import { simpleCollection } from './collection';
 import { IconsProvider } from '../../src/index';
 import List from '../../src/List/ListComposition';
-import CellTitle from '../../src/VirtualizedList/CellTitle';
-import CellBadge from '../../src/VirtualizedList/CellBadge';
 
-const titleProps = {
+const titleProps = rowData => ({
 	onClick: action('onTitleClick'),
-	'data-feature': 'list.item.title',
+	'data-feature': `list.item.title.${rowData.id}`,
 	actionsKey: 'titleActions',
 	persistentActionsKey: 'persistentActions',
 	displayModeKey: 'display',
 	iconKey: 'icon',
 	onEditCancel: action('cancel-edit'),
 	onEditSubmit: action('submit-edit'),
-};
+});
 
 function CustomList(props) {
 	return (
 		<List.VList id="my-vlist" {...props}>
-			<List.VList.Content label="Id" dataKey="id" width={-1} />
-			<List.VList.Content
-				label="Name"
-				dataKey="name"
-				columnData={titleProps}
-				width={-1}
-				{...CellTitle}
-			/>
-			<List.VList.Content
-				label="Tag"
-				dataKey="tag"
-				columnData={{ selected: true }}
-				width={-1}
-				disableSort
-				{...CellBadge}
-			/>
-			<List.VList.Content label="Description" dataKey="description" width={-1} disableSort />
-			<List.VList.Content label="Author" dataKey="author" width={-1} />
-			<List.VList.Content label="Created" dataKey="created" width={-1} />
-			<List.VList.Content label="Modified" dataKey="modified" width={-1} />
+			<List.VList.Text label="Id" dataKey="id" />
+			<List.VList.Title label="Name" dataKey="name" columnData={titleProps} />
+			<List.VList.Badge label="Tag" dataKey="tag" columnData={{ selected: true }} disableSort />
+			<List.VList.Text label="Description" dataKey="description" disableSort />
+			<List.VList.Text label="Author" dataKey="author" />
+			<List.VList.Datetime label="Created" dataKey="created" />
+			<List.VList.Datetime label="Modified" dataKey="modified" />
 		</List.VList>
 	);
 }
@@ -49,26 +34,13 @@ function CustomList(props) {
 function CustomListLazyLoading(props) {
 	return (
 		<List.LazyLoadingList id="my-infinite-scroll-list" {...props}>
-			<List.VList.Content label="Id" dataKey="id" width={-1} />
-			<List.VList.Content
-				label="Name"
-				dataKey="name"
-				columnData={titleProps}
-				width={-1}
-				{...CellTitle}
-			/>
-			<List.VList.Content
-				label="Tag"
-				dataKey="tag"
-				columnData={{ selected: true }}
-				width={-1}
-				disableSort
-				{...CellBadge}
-			/>
-			<List.VList.Content label="Description" dataKey="description" width={-1} disableSort />
-			<List.VList.Content label="Author" dataKey="author" width={-1} />
-			<List.VList.Content label="Created" dataKey="created" width={-1} />
-			<List.VList.Content label="Modified" dataKey="modified" width={-1} />
+			<List.VList.Text label="Id" dataKey="id" />
+			<List.VList.Title label="Name" dataKey="name" columnData={titleProps} />
+			<List.VList.Badge label="Tag" dataKey="tag" columnData={{ selected: true }} disableSort />
+			<List.VList.Text label="Description" dataKey="description" disableSort />
+			<List.VList.Text label="Author" dataKey="author" />
+			<List.VList.Datetime label="Created" dataKey="created" />
+			<List.VList.Datetime label="Modified" dataKey="modified" />
 		</List.LazyLoadingList>
 	);
 }
@@ -82,15 +54,15 @@ storiesOf('List Composition', module)
 			<pre>{`
 <List.Manager id="my-list" collection={simpleCollection}>
 	<List.VList id="my-vlist">
-		<List.VList.Content label="Id" dataKey="id" />
-		<List.VList.Content
+		<List.VList.Text label="Id" dataKey="id" />
+		<List.VList.Title
 			label="Name"
 			dataKey="name"
 			columnData={titleProps}
 			{...CellTitle}
 		/>
 		...
-		<List.VList.Content label="Modified" dataKey="modified" />
+		<List.VList.Datetime label="Modified" dataKey="modified" />
 	</List.VList>
 </List.Manager>
 `}</pre>
@@ -318,7 +290,7 @@ storiesOf('List Composition', module)
 			<pre>{`
 <List.Manager id="my-list" collection={collection}>
 	<List.LazyLoadingList id="my-infinite-scroll-list" loadMoreRows={loadMoreRows} rowCount={totalRowCount}>
-		<List.VList.Content label="Id" dataKey="id" width={-1} />
+		<List.VList.Text label="Id" dataKey="id" width={-1} />
 			...
 	</List.LazyLoadingList>
 </List.Manager>
@@ -349,30 +321,32 @@ storiesOf('List Composition', module)
 			<section style={{ height: '30vh' }}>
 				<List.Manager
 					id="my-collapsible-panels-list"
-					collection={[{
-						id: 'status-header',
-						header: [
-							{
-								displayMode: 'status',
-								actions: [],
-								status: 'successful',
-								label: 'Successful',
-								icon: 'talend-check',
-							},
-						],
-						content: [
-							{
-								label: 'Content1',
-								description: 'Description1',
-							},
-							{
-								label: 'Content2',
-								description: 'Description2',
-							},
-						],
-						expanded: true,
-						children: <div>HELLO WORLD</div>,
-					}]}
+					collection={[
+						{
+							id: 'status-header',
+							header: [
+								{
+									displayMode: 'status',
+									actions: [],
+									status: 'successful',
+									label: 'Successful',
+									icon: 'talend-check',
+								},
+							],
+							content: [
+								{
+									label: 'Content1',
+									description: 'Description1',
+								},
+								{
+									label: 'Content2',
+									description: 'Description2',
+								},
+							],
+							expanded: true,
+							children: <div>HELLO WORLD</div>,
+						},
+					]}
 				>
 					<CustomListLazyLoading
 						type="COLLAPSIBLE_PANEL"

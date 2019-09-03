@@ -5,6 +5,7 @@ $tc-tooltip-background: $dove-gray !default;
 $tc-tooltip-border-radius: 0.2rem !default;
 $tc-tooltip-box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.2) !default;
 $tc-tooltip-margin: 1rem !default;
+$tc-tooltip-z-index: $zindex-tooltip !default;
 
 $tc-tooltip-arrow-border-size: 0.5rem !default;
 $tc-tooltip-arrow-color: $tc-tooltip-background !default;
@@ -17,6 +18,7 @@ $tc-tooltip-arrow-color: $tc-tooltip-background !default;
 		padding: 0 $tc-tooltip-margin;
 		width: $tc-tooltip-max-width;
 		pointer-events: none;
+		z-index: $tc-tooltip-z-index;
 	}
 
 	&-body {

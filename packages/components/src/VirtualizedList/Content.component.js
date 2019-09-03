@@ -3,24 +3,22 @@ import PropTypes from 'prop-types';
 import { Column } from 'react-virtualized';
 
 function DefaultRenderer({ cellData }) {
-	return <div className={'tc-virtualizedlist-default-cell'}>{cellData}</div>;
+	return <div className="tc-virtualizedlist-default-cell">{cellData}</div>;
 }
-
 DefaultRenderer.propTypes = {
 	cellData: PropTypes.string,
 };
 
-function Content(props) {
-	return <Column {...props} />;
-}
-
-Content.propTypes = {
-	...Column.propTypes,
-};
-
-Content.defaultProps = {
+export const defaultColumnConfiguration = {
 	...Column.defaultProps,
 	cellRenderer: DefaultRenderer,
+	width: -1,
 };
 
-export default Content;
+// this is a fake component to be usable in JSX,
+// but the element is used as props object internally (VirtualizedList / RV)
+export default function Content() {
+	return null;
+}
+Content.displayName = 'Content';
+Content.defaultProps = defaultColumnConfiguration;

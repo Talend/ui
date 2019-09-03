@@ -104,7 +104,7 @@ exports[`UIForm component should render form 1`] = `
   >
     <Buttons
       className="form-actions"
-      id="myFormId-myFormId-actions"
+      id="myFormId-actions"
       onClick={[Function]}
       onTrigger={[Function]}
       schema={
@@ -113,8 +113,6 @@ exports[`UIForm component should render form 1`] = `
             Object {
               "bsStyle": "primary",
               "label": "Submit",
-              "onMouseEnter": undefined,
-              "onMouseLeave": undefined,
               "position": "right",
               "type": "submit",
               "widget": "button",
@@ -336,7 +334,7 @@ exports[`UIForm component should render provided actions 1`] = `
   >
     <Buttons
       className="form-actions"
-      id="myFormId-myFormId-actions"
+      id="myFormId-actions"
       onClick={[Function]}
       onTrigger={[Function]}
       schema={
