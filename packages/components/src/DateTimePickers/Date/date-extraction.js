@@ -1,26 +1,14 @@
 import format from 'date-fns/format';
 import getDate from 'date-fns/get_date';
 import lastDayOfMonth from 'date-fns/last_day_of_month';
-import setSeconds from 'date-fns/set_seconds';
 import setDate from 'date-fns/set_date';
-import startOfSecond from 'date-fns/start_of_second';
 import getErrorMessage from './error-messages';
-import {
-	checkTime,
-	pad,
-	strToTime,
-} from '../Time/time-extraction';
 
-const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
-
-
-const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
 
 export function DatePickerException(code, message) {
 	this.message = getErrorMessage(message);
 	this.code = code;
 }
-
 
 /**
  * Extract date and apply the current timezone, from datetime
@@ -35,34 +23,6 @@ function extractDateOnly(date, { useUTC }) {
 		return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
 	}
 	return new Date(date.getFullYear(), date.getMonth(), date.getDate());
-}
-
-/**
- * Extract time
- * @param date {Date} The date to extract
- * @param useSeconds {boolean} Indicates if we should extract seconds
- * @param useUTC {boolean} Indicates if date is in UTC
- * @returns {*}
- */
-function extractTimeOnly(date, { useSeconds, useUTC }) {
-	let hours;
-	let minutes;
-	let seconds;
-	if (useUTC) {
-		hours = date.getUTCHours();
-		minutes = date.getUTCMinutes();
-		seconds = date.getUTCSeconds();
-	} else {
-		hours = date.getHours();
-		minutes = date.getMinutes();
-		seconds = date.getSeconds();
-	}
-
-	return {
-		hours: pad(hours, 2),
-		minutes: pad(minutes, 2),
-		seconds: useSeconds ? pad(seconds, 2) : '00',
-	};
 }
 
 /**
@@ -83,20 +43,6 @@ function getDateRegexp(dateFormat) {
 }
 
 /**
- * Build the date format with time.
- * @param dateFormat {string}
- * @param useTime {boolean}
- * @param useSeconds {boolean}
- */
-function getFullDateFormat({ dateFormat, useTime, useSeconds }) {
-	if (!useTime) {
-		return dateFormat;
-	}
-	const timeFormat = useSeconds ? 'HH:mm:ss' : 'HH:mm';
-	return `${dateFormat} ${timeFormat}`;
-}
-
-/**
  * Check if a date is a valid date.
  */
 function isDateValid(date, options) {
@@ -108,66 +54,6 @@ function isDateValid(date, options) {
 }
 
 /**
- * Convert a date in local TZ to UTC
- * Ex: 2015-05-23 23:58:46 (current TZ) --> 2015-05-23 23:58:46 (UTC)
- */
-function convertToUTC(date) {
-	return new Date(
-		Date.UTC(
-			date.getFullYear(),
-			date.getMonth(),
-			date.getDate(),
-			date.getHours(),
-			date.getMinutes(),
-			date.getSeconds(),
-		),
-	);
-}
-/**
- * Check if the time is empty
- */
-function isTimeEmpty(time) {
-	if (time.hours || time.minutes || time.seconds) {
-		return false;
-	}
-	return true;
-}
-
-/**
- * Check if the date and time are correct
- */
-function check(date, time, options) {
-	let errors = [];
-	const isPickerEmpty = !date && isTimeEmpty(time);
-
-	if (isPickerEmpty && !options.required) {
-		return errors;
-	}
-	try {
-		checkTime(time);
-	} catch (timeErrors) {
-		errors = errors.concat(timeErrors);
-	}
-
-	if (!isDateValid(date, options)) {
-		errors.push(new DatePickerException('INVALID_DATE_FORMAT', 'INVALID_DATE_FORMAT'));
-	}
-	return errors;
-}
-
-/**
- * Convert hour minutes and seconds into seconds
- * @param hours {string}
- * @param minutes {string}
- * @param seconds {string}
- * @returns {number}
- */
-function timeToSeconds(hours, minutes, seconds) {
-	checkTime({ hours, minutes, seconds });
-	return Number(hours) * 3600 + Number(minutes) * 60 + Number(seconds);
-}
-
-/**
  * Convert date to string with provided format
  * @param {Date} date
  * @param {Object} options
@@ -175,62 +61,6 @@ function timeToSeconds(hours, minutes, seconds) {
 function dateToStr(date, options) {
 	const { dateFormat } = options;
 	return format(date, dateFormat);
-}
-
-/**
- * Convert date and time to string with 'YYYY-MM-DD HH:mm' format
- * @param date {Date}
- * @param time {{hours: string, minutes: string, seconds: string}}
- * @param options {Object}
- * @returns {string}
- */
-function dateTimeToStr(date, time, options) {
-	if (date === undefined) {
-		return '';
-	}
-
-	const { dateFormat, useTime } = options;
-	if (time === undefined || useTime === false) {
-		return format(date, dateFormat);
-	}
-
-	const { hours, minutes, seconds } = time;
-	try {
-		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
-		const fullDate = setSeconds(date, timeInSeconds);
-		return format(fullDate, getFullDateFormat(options));
-	} catch (e) {
-		const dateStr = format(date, dateFormat);
-		if (hours !== '' && minutes !== '') {
-			if (options.useSeconds && seconds !== '') {
-				return `${dateStr} ${hours}:${minutes}:${seconds}`;
-			}
-			return `${dateStr} ${hours}:${minutes}`;
-		}
-		return dateStr;
-	}
-}
-
-/**
- * Set the time to the provided date
- * @param date {Date} Date in current TZ
- * @param time {{hours: string, minutes: string, seconds: string}} Time in current TZ
- * @param useUTC {boolean} Indicates that we ask for a date in UTC TZ
- * @returns {Date}
- */
-function dateAndTimeToDateTime(date, time, { useUTC }) {
-	if (date === undefined || time === undefined) {
-		return INTERNAL_INVALID_DATE;
-	}
-
-	try {
-		const { hours, minutes, seconds } = time;
-		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
-		const localTimezoneDate = setSeconds(date, timeInSeconds);
-		return useUTC ? convertToUTC(localTimezoneDate) : localTimezoneDate;
-	} catch (e) {
-		return INTERNAL_INVALID_DATE;
-	}
 }
 
 /**
@@ -274,19 +104,6 @@ function strToDate(strToParse, dateFormat) {
 	return setDate(monthDate, day);
 }
 
-
-/**
- * Init time (hours, minutes, seconds), depending on the options.
- * If a part is not used, it is init to 00, otherwise it's empty, so user have to enter it.
- */
-function initTime({ useTime, useSeconds }) {
-	if (!useTime) {
-		return { hours: '00', minutes: '00', seconds: '00' };
-	} else if (!useSeconds) {
-		return { hours: '', minutes: '', seconds: '00' };
-	}
-	return { hours: '', minutes: '', seconds: '' };
-}
 
 /**
  * Check that the date format is a composition of YYYY, MM, DD.
@@ -334,80 +151,6 @@ function extractPartsFromDate(date, options) {
 }
 
 /**
- * Extract parts (date, time, date/time, textInput) from a Date
- * @param datetime {Date}
- * @param options {Object}
- * @returns
- *	{{
- *		date: Date,
- *		time: { hours: string, minutes: string, seconds: string },
- *		datetime: Date,
- *		textInput: string
- * 	}}
- */
-function extractPartsFromDateTime(datetime, options) {
-	let time = initTime(options);
-	if (!isDateValid(datetime, options)) {
-		return {
-			date: undefined,
-			time,
-			datetime,
-			textInput: '',
-			errors: [],
-		};
-	}
-
-	const date = extractDateOnly(datetime, options);
-	if (options.useTime) {
-		time = extractTimeOnly(datetime, options);
-	}
-
-	return {
-		date,
-		time,
-		datetime: startOfSecond(datetime),
-		textInput: dateTimeToStr(date, time, options),
-		errors: [],
-	};
-}
-
-/**
- * Extract parts (date, time, date/time, textInput) from a Date and time definition
- * @param date {Date}
- * @param time {Object}
- * @param options {Object}
- * @returns
- *	{{
- *		date: Date,
- *		time: { hours: string, minutes: string, seconds: string },
- *		datetime: Date,
- *		textInput: string
- * 	}}
- */
-function extractPartsFromDateAndTime(date, time, options) {
-	let errors = [];
-	let timeToUse = time;
-
-	if (options.useTime) {
-		try {
-			checkTime(time);
-		} catch (error) {
-			errors = errors.concat(error);
-		}
-	} else {
-		timeToUse = initTime(options);
-	}
-
-	return {
-		date,
-		time: timeToUse,
-		textInput: dateTimeToStr(date, timeToUse, options),
-		datetime: dateAndTimeToDateTime(date, timeToUse, options),
-		errorMessage: errors[0] ? errors[0].message : null,
-		errors,
-	};
-}
-/**
  * Extract parts (date, textInput) from a string
  * @param textInput {string}
  * @param options {Object}
@@ -444,115 +187,25 @@ function extractDateFromTextInput(textInput, options) {
 	};
 }
 
-/**
- * Extract parts (date, time, date/time, textInput) from a string
- * @param textInput {string}
- * @param options {Object}
- * @returns
- *	{{
- *		date: Date,
- *		time: { hours: string, minutes: string, seconds: string },
- *		datetime: Date,
- *		textInput: string
- * 	}}
- */
-function extractPartsFromTextInput(textInput, options) {
-	let time = initTime(options);
-	if (textInput === '') {
-		return {
-			date: undefined,
-			time,
-			datetime: undefined,
-			textInput,
-			errors: [],
-		};
-	}
-
-	let date;
-	let errors = [];
-	let dateTextToParse = textInput;
-
-	try {
-		if (options.useTime) {
-			const splitMatches = textInput.match(splitDateAndTimePartsRegex) || [];
-			if (!splitMatches.length) {
-				throw new DatePickerException('DATETIME_INVALID_FORMAT', 'DATETIME_INVALID_FORMAT');
-			} else {
-				// extract date part from datetime
-				dateTextToParse = splitMatches[1];
-
-				// extract time part and parse it
-				try {
-					const timeTextToParse = splitMatches[2];
-					time = strToTime(timeTextToParse, options.useSeconds);
-					checkTime(time);
-				} catch (error) {
-					errors = errors.concat(error);
-				}
-			}
-		}
-
-		// parse date
-		try {
-			date = strToDate(dateTextToParse, options.dateFormat);
-		} catch (error) {
-			errors = errors.concat(error);
-		}
-	} catch (error) {
-		errors = [error];
-	}
-
-	return {
-		date,
-		time,
-		datetime: dateAndTimeToDateTime(date, time, options),
-		textInput,
-		errors,
-		errorMessage: errors[0] ? errors[0].message : null,
-	};
-}
-
-/**
- * Extract parts (date, time, date/time, textInput) from a value with
- * different possible types
- * @param value {string | Date | number}
- * @param options {Object}
- * @returns
- *	{{
- *		date: Date,
- *		time: { hours: string, minutes: string, seconds: string },
- *		datetime: Date,
- *		textInput: string
- * 	}}
- */
-function extractParts(value, options) {
+function extractDate(value, options) {
 	const typeOfValue = typeof value;
 	if (typeOfValue === 'number') {
-		return extractPartsFromDateTime(new Date(value), options);
+		return extractPartsFromDate(new Date(value), options);
 	} else if (typeOfValue === 'string') {
-		return extractPartsFromTextInput(value, options);
+		return extractDateFromTextInput(value, options);
 	} else if (value instanceof Date) {
-		return extractPartsFromDateTime(value, options);
+		return extractPartsFromDate(value, options);
 	}
-
 	return {
 		date: undefined,
-		time: initTime(options),
-		datetime: undefined,
 		textInput: '',
 		errors: [],
 	};
 }
 
-
 export {
-	check,
 	checkSupportedDateFormat,
-	extractParts,
+	extractDate,
 	extractDateFromTextInput,
-	extractPartsFromDateTime,
-	extractPartsFromDateAndTime,
 	extractPartsFromDate,
-	extractPartsFromTextInput,
-	getFullDateFormat,
 };
