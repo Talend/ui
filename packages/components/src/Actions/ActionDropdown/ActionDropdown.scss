@@ -16,7 +16,7 @@ $tc-dropdown-button-right-padding: 8px;
 		.tc-dropdown-caret {
 			width: 0.8rem;
 			height: 0.8rem;
-			transition: transform .1s ease-in;
+			transition: transform 0.1s ease-in;
 			will-change: transform;
 
 			&.tc-dropdown-caret-open {

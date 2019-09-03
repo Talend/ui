@@ -199,9 +199,12 @@ class ActionDropdown extends React.Component {
 					{label}
 				</span>
 			),
-			<Icon name="talend-caret-down" className={classNames(theme['tc-dropdown-caret'], {
-				[theme['tc-dropdown-caret-open']]: this.state.isOpen,
-			})} />
+			<Icon
+				name="talend-caret-down"
+				className={classNames(theme['tc-dropdown-caret'], {
+					[theme['tc-dropdown-caret-open']]: this.state.isOpen,
+				})}
+			/>,
 		];
 		const style = link ? 'link' : bsStyle;
 
