@@ -138,6 +138,7 @@ function extractPartsFromDate(date, options) {
 			date: undefined,
 			textInput: '',
 			errors: [],
+			errorMessage: null,
 		};
 	}
 
@@ -147,6 +148,7 @@ function extractPartsFromDate(date, options) {
 		date: dateToUse,
 		textInput: dateToStr(dateToUse, options),
 		errors: [],
+		errorMessage: null,
 	};
 }
 

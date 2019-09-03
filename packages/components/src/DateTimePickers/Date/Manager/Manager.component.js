@@ -79,7 +79,7 @@ class ContextualManager extends React.Component {
 	onInputChange(event) {
 		const textInput = event.target.value;
 		const nextState = extractDateFromTextInput(textInput, this.getDateOptions());
-		this.setState({ previousErrors: this.state.errors, ...nextState }, () => {
+		this.setState(nextState, () => {
 			this.onChange(event, 'INPUT');
 		});
 	}

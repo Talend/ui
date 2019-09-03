@@ -196,6 +196,7 @@ describe('Date.Manager', () => {
 						name: 'with custom date format',
 						textInput: '15/01/2015',
 						expectedDate: new Date(2015, 0, 15),
+						dateFormat: 'DD/MM/YYYY',
 					},
 				],
 			);
@@ -205,7 +206,7 @@ describe('Date.Manager', () => {
 				const onChange = jest.fn();
 				const event = { target: { value: '2015-01-15' } };
 				const wrapper = mount(
-					<Manager id={DEFAULT_ID} onChange={onChange} useTime>
+					<Manager id={DEFAULT_ID} onChange={onChange}>
 						<DateTimeConsumer />
 					</Manager>,
 				);
@@ -252,7 +253,7 @@ describe('Date.Manager', () => {
 				expect(args[1].errors).toEqual([
 					{ code: 'INVALID_DATE_FORMAT', message: 'Date format is invalid' },
 				]);
-				expect(isNaN(args[1].date.getTime())).toBe(true);
+				expect(args[1].date).toBe(undefined);
 				expect(args[1].origin).toBe('INPUT');
 			});
 		});
