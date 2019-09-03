@@ -1,4 +1,5 @@
 $tc-dropdown-loader-padding: $padding-small !default;
+$tc-dropdown-button-right-padding: 8px;
 
 .tc-dropdown {
 	&-button:global(.btn-link) {
@@ -10,7 +11,7 @@ $tc-dropdown-loader-padding: $padding-small !default;
 	}
 
 	&-button {
-		padding-right: 8px;
+		padding-right: $tc-dropdown-button-right-padding;
 
 		.tc-dropdown-caret {
 			width: 0.8rem;
