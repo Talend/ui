@@ -76,6 +76,7 @@ describe('Date extraction', () => {
 				date: new Date(2015, 8, 15),
 				textInput: '2015-09-15',
 				errors: [],
+				errorMessage: null,
 			});
 		});
 
@@ -92,6 +93,7 @@ describe('Date extraction', () => {
 				date: new Date(2015, 8, 15),
 				textInput: '2015-09-15',
 				errors: [],
+				errorMessage: null,
 			});
 		});
 
@@ -129,6 +131,7 @@ describe('Date extraction', () => {
 				date: undefined,
 				textInput: '',
 				errors: [],
+				errorMessage: null,
 			});
 		});
 
@@ -145,6 +148,7 @@ describe('Date extraction', () => {
 				date: new Date(2015, 8, 15),
 				textInput: '2015-09-15',
 				errors: [],
+				errorMessage: null,
 			});
 		});
 
@@ -165,6 +169,7 @@ describe('Date extraction', () => {
 				date: new Date(2015, 8, 15),
 				textInput: '2015-09-15',
 				errors: [],
+				errorMessage: null,
 			});
 		});
 
@@ -185,6 +190,7 @@ describe('Date extraction', () => {
 				date: new Date(2015, 8, 14),
 				textInput: '2015-09-14',
 				errors: [],
+				errorMessage: null,
 			});
 		});
 	});
