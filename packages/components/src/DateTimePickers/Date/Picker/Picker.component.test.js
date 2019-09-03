@@ -8,7 +8,7 @@ describe('Date.Picker', () => {
 	it('should render', () => {
 		// given
 		const managerValue = {
-			datetime: {
+			value: {
 				date: new Date(2007, 0, 2),
 			},
 			pickerManagement: {
@@ -39,7 +39,7 @@ describe('Date.Picker', () => {
 	it('should call manager onSubmit callback on picker submission', () => {
 		// given
 		const managerValue = {
-			datetime: {
+			value: {
 				date: new Date(2007, 0, 2),
 			},
 			pickerManagement: {

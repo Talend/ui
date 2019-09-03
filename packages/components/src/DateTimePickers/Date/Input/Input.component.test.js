@@ -9,10 +9,10 @@ describe('Date.Input', () => {
 	it('should render', () => {
 		// given
 		const managerValue = {
-			datetime: {
+			value: {
 				textInput: '2007-01-02',
 			},
-			dateInputManagement: {
+			inputManagement: {
 				placeholder: 'YYY-MM-DD',
 			},
 		};

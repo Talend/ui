@@ -4,12 +4,12 @@ import { DateContext } from '../Context';
 import DateTimePicker from '../../pickers/DateTimePicker';
 
 export default function Picker(props) {
-	const { datetime, pickerManagement } = useContext(DateContext);
+	const { value, pickerManagement } = useContext(DateContext);
 	return (
 		<DateTimePicker
 			manageFocus
 			selection={{
-				date: datetime.date,
+				date: value.date,
 			}}
 			{...pickerManagement}
 			{...props}

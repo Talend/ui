@@ -112,7 +112,7 @@ class ContextualManager extends React.Component {
 		return (
 			<DateContext.Provider
 				value={{
-					datetime: {
+					value: {
 						textInput: this.state.textInput,
 						date: this.state.date,
 					},
@@ -122,9 +122,6 @@ class ContextualManager extends React.Component {
 							this.inputRef = ref;
 						},
 						onChange: this.onInputChange,
-					},
-
-					dateInputManagement: {
 						placeholder: this.props.dateFormat,
 					},
 

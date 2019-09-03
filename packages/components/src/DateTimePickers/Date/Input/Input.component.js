@@ -5,9 +5,8 @@ import { DateContext } from '../Context';
 
 export default function Input(props) {
 	const {
-		datetime,
+		value,
 		inputManagement,
-		dateInputManagement,
 	} = useContext(DateContext);
 
 	return (
@@ -16,9 +15,8 @@ export default function Input(props) {
 			className="form-control"
 			debounceTimeout={300}
 			type="text"
-			value={datetime.textInput}
+			value={value.textInput}
 			{...inputManagement}
-			{...dateInputManagement}
 			{...props}
 		/>
 	);

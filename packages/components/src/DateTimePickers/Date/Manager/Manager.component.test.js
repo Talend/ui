@@ -32,7 +32,7 @@ describe('Date.Manager', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	describe('datetime management', () => {
+	describe('value management', () => {
 		cases(
 			'initial state',
 			({ initialDate, expectedTextInput, expectedDate }) => {
@@ -45,8 +45,8 @@ describe('Date.Manager', () => {
 
 				// then
 				const contextValue = wrapper.find('DateTimeConsumerDiv').props();
-				expect(contextValue.datetime.textInput).toBe(expectedTextInput);
-				expect(contextValue.datetime.date).toEqual(expectedDate);
+				expect(contextValue.value.textInput).toBe(expectedTextInput);
+				expect(contextValue.value.date).toEqual(expectedDate);
 			},
 			[
 				{
@@ -87,8 +87,8 @@ describe('Date.Manager', () => {
 
 				// then
 				const contextValue = wrapper.find('DateTimeConsumerDiv').props();
-				expect(contextValue.datetime.textInput).toBe(expectedTextInput);
-				expect(contextValue.datetime.date).toEqual(expectedDate);
+				expect(contextValue.value.textInput).toBe(expectedTextInput);
+				expect(contextValue.value.date).toEqual(expectedDate);
 			},
 			[
 				{
@@ -124,7 +124,7 @@ describe('Date.Manager', () => {
 						<DateTimeConsumer />
 					</Manager>,
 				);
-				const previousState = wrapper.find('DateTimeConsumerDiv').props('datetime');
+				const previousState = wrapper.find('DateTimeConsumerDiv').props('value');
 
 				// when
 				wrapper.setProps({
@@ -132,7 +132,7 @@ describe('Date.Manager', () => {
 				});
 
 				// then
-				const nextState = wrapper.find('DateTimeConsumerDiv').props('datetime');
+				const nextState = wrapper.find('DateTimeConsumerDiv').props('value');
 				expect(previousState.textInput).toBe(nextState.textInput);
 				expect(previousState.date).toBe(nextState.date);
 			},
@@ -170,10 +170,10 @@ describe('Date.Manager', () => {
 					wrapper.update();
 
 					// then
-					const datetime = wrapper.find('DateTimeConsumerDiv').prop('datetime');
-					expect(datetime.textInput).toBe(textInput);
+					const value = wrapper.find('DateTimeConsumerDiv').prop('value');
+					expect(value.textInput).toBe(textInput);
 
-					const { date } = datetime;
+					const { date } = value;
 					expect(date).toEqual(expectedDate);
 				},
 				[
@@ -278,9 +278,9 @@ describe('Date.Manager', () => {
 					wrapper.update();
 
 					// then
-					const datetime = wrapper.find('DateTimeConsumerDiv').prop('datetime');
-					expect(datetime.textInput).toBe(expectedTextInput);
-					expect(datetime.date).toEqual(date);
+					const dateValue = wrapper.find('DateTimeConsumerDiv').prop('value');
+					expect(dateValue.textInput).toBe(expectedTextInput);
+					expect(dateValue.date).toEqual(date);
 				},
 				[
 					{
