@@ -5,7 +5,7 @@ import isSameSecond from 'date-fns/is_same_second';
 import { DateContext } from '../Context';
 import {
 	checkSupportedDateFormat,
-	extractParts,
+	extractDate,
 	extractPartsFromDate,
 	extractDateFromTextInput,
 } from '../date-extraction';
@@ -31,8 +31,6 @@ class ContextualManager extends React.Component {
 
 	static defaultProps = {
 		dateFormat: 'YYYY-MM-DD',
-		useSeconds: false,
-		useTime: false,
 		useUTC: false,
 	};
 
@@ -40,7 +38,7 @@ class ContextualManager extends React.Component {
 		super(props);
 
 		checkSupportedDateFormat(props.dateFormat);
-		this.initialState = extractParts(props.selectedDate, this.getDateOptions());
+		this.initialState = extractDate(props.selectedDate, this.getDateOptions());
 		this.state = {
 			...this.initialState,
 			previousErrors: [],
@@ -63,7 +61,7 @@ class ContextualManager extends React.Component {
 		}
 
 		if (needDateTimeStateUpdate) {
-			const dateRelatedPartState = extractParts(newselectedDate, this.getDateOptions());
+			const dateRelatedPartState = extractDate(newselectedDate, this.getDateOptions());
 			this.setState(dateRelatedPartState);
 		}
 	}
@@ -72,10 +70,10 @@ class ContextualManager extends React.Component {
 		if (!this.props.onChange) {
 			return;
 		}
-		const { errorMessage, datetime, textInput, errors } = this.state;
+		const { errorMessage, date, textInput, errors } = this.state;
 		// we need to update the initial state once it has been changed
 		this.initialState = { ...this.state };
-		this.props.onChange(event, { errors, errorMessage, datetime, textInput, origin });
+		this.props.onChange(event, { errors, errorMessage, date, textInput, origin });
 	}
 
 	onInputChange(event) {

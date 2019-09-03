@@ -1,43 +1,37 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import { DateTimeContext } from '../Context';
+import { DateContext } from '../Context';
 import Picker from './Picker.component';
 
-describe('DateTime.Picker', () => {
+describe('Date.Picker', () => {
 	it('should render', () => {
 		// given
 		const managerValue = {
 			datetime: {
 				date: new Date(2007, 0, 2),
-				time: { hours: '01', minutes: '02', seconds: '03' },
 			},
 			pickerManagement: {
 				onSubmit: jest.fn(),
-				useTime: true,
-				useSeconds: true,
 				useUTC: false,
 			},
 		};
 
 		// when
 		const wrapper = mount(
-			<DateTimeContext.Provider value={managerValue}>
+			<DateContext.Provider value={managerValue}>
 				<Picker other="custom props" />
-			</DateTimeContext.Provider>,
+			</DateContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.find('DateTimePicker').props()).toEqual({
+		expect(wrapper.find('DatePicker').props()).toEqual({
 			manageFocus: true,
 			onSubmit: managerValue.pickerManagement.onSubmit,
 			other: 'custom props',
 			selection: {
 				date: new Date(2007, 0, 2),
-				time: { hours: '01', minutes: '02', seconds: '03' },
 			},
-			useSeconds: true,
-			useTime: true,
 			useUTC: false,
 		});
 	});
@@ -47,7 +41,6 @@ describe('DateTime.Picker', () => {
 		const managerValue = {
 			datetime: {
 				date: new Date(2007, 0, 2),
-				time: { hours: '01', minutes: '02', seconds: '03' },
 			},
 			pickerManagement: {
 				onSubmit: jest.fn(),
@@ -55,14 +48,14 @@ describe('DateTime.Picker', () => {
 		};
 
 		const wrapper = mount(
-			<DateTimeContext.Provider value={managerValue}>
+			<DateContext.Provider value={managerValue}>
 				<Picker />
-			</DateTimeContext.Provider>,
+			</DateContext.Provider>,
 		);
 		expect(managerValue.pickerManagement.onSubmit).not.toBeCalled();
 
 		// when
-		wrapper.find('DateTimePicker').prop('onSubmit')();
+		wrapper.find('DatePicker').prop('onSubmit')();
 
 		// then
 		expect(managerValue.pickerManagement.onSubmit).toBeCalled();

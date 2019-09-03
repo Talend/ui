@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DateTime.Manager should render its children 1`] = `
+exports[`Date.Manager should render its children 1`] = `
 <Context.Provider
   value={
     Object {
@@ -8,13 +8,8 @@ exports[`DateTime.Manager should render its children 1`] = `
         "placeholder": "YYYY-MM-DD",
       },
       "datetime": Object {
-        "date": 2017-04-03T22:00:00.000Z,
-        "textInput": "2017-04-04 15:27",
-        "time": Object {
-          "hours": "15",
-          "minutes": "27",
-          "seconds": "00",
-        },
+        "date": undefined,
+        "textInput": "",
       },
       "inputManagement": Object {
         "inputRef": [Function],
@@ -22,12 +17,7 @@ exports[`DateTime.Manager should render its children 1`] = `
       },
       "pickerManagement": Object {
         "onSubmit": [Function],
-        "useSeconds": false,
-        "useTime": true,
         "useUTC": false,
-      },
-      "timeInputManagement": Object {
-        "placeholder": "HH:mm",
       },
     }
   }

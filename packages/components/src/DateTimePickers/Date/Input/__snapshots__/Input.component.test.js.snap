@@ -1,9 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DateTime.Input should render 1`] = `
-<DateTime.Input
+exports[`Date.Input should render 1`] = `
+<Date.Input
   aria-labelledby="labelId"
-  part="date"
 >
   <DebounceInput
     aria-labelledby="labelId"
@@ -14,7 +13,6 @@ exports[`DateTime.Input should render 1`] = `
     forceNotifyByEnter={true}
     forceNotifyOnBlur={true}
     minLength={0}
-    part="date"
     placeholder="YYY-MM-DD"
     type="text"
     value="2007-01-02"
@@ -26,11 +24,10 @@ exports[`DateTime.Input should render 1`] = `
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
-      part="date"
       placeholder="YYY-MM-DD"
       type="text"
       value="2007-01-02"
     />
   </DebounceInput>
-</DateTime.Input>
+</Date.Input>
 `;
