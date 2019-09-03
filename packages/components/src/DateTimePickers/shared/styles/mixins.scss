@@ -10,7 +10,7 @@
 	&.selected {
 		background-color: $lochmara;
 		color: $white;
-		font-weight: 600;
+		font-weight: $font-weight-semi-bold;
 	}
 
 	&:disabled {
