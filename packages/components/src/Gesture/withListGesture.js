@@ -16,14 +16,18 @@ function getNextItem(ref) {
 	let currentFound;
 	let hasNext;
 
-	const nodes = getAllItems(ref).values();
+	const nodes = getAllItems(ref);
+	const iterator = nodes.values();
 
 	do {
-		const { value, done } = nodes.next();
+		const { value, done } = iterator.next();
 
 		if (currentFound) {
 			nextElement = value;
 			hasNext = false;
+			if (done && !nextElement) {
+				nextElement = nodes.item(0);
+			}
 		} else {
 			currentFound = value === ref;
 			hasNext = !done;
@@ -37,14 +41,18 @@ function getPreviousItem(ref) {
 	let previousElement;
 	let hasNext;
 
-	const nodes = getAllItems(ref).values();
+	const nodes = getAllItems(ref);
+	const iterator = nodes.values();
 
 	do {
-		const { value, done } = nodes.next();
+		const { value, done } = iterator.next();
 		const currentFound = value === ref;
 
 		if (currentFound) {
 			hasNext = false;
+			if (!previousElement) {
+				previousElement = nodes.item(nodes.length - 1);
+			}
 		} else {
 			previousElement = value;
 			hasNext = !done;
