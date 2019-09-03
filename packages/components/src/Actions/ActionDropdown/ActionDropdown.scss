@@ -9,6 +9,21 @@ $tc-dropdown-loader-padding: $padding-small !default;
 		}
 	}
 
+	&-button {
+		padding-right: 8px;
+
+		.tc-dropdown-caret {
+			width: 0.8rem;
+			height: 0.8rem;
+			transition: transform .1s ease-in;
+			will-change: transform;
+
+			&.tc-dropdown-caret-open {
+				transform: rotate(-180deg);
+			}
+		}
+	}
+
 	&-item {
 		a svg {
 			margin: 0 $padding-smaller;
