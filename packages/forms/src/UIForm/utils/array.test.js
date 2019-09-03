@@ -178,12 +178,31 @@ describe('Array utils', () => {
 			// then
 			expect(result.widget).toEqual('collapsiblePanel');
 		});
+
 		it('should support readonly', () => {
 			// when
 			const result = getArrayElementSchema({ ...arraySchema, readOnly: true }, 2);
 
 			// then
 			expect(result.items[0].readOnly).toBe(true);
+		});
+
+		it('should set schema with items schema', () => {
+			const arraySchemaEntry = {
+				...arraySchema,
+				schema: {
+					items: {
+						title: 'status',
+						type: 'string',
+						enum: ['pending', 'success'],
+					},
+				},
+			};
+			const result = getArrayElementSchema(arraySchemaEntry, 2);
+
+			expect(result.items[0].schema.title).toBe('status');
+			expect(result.items[0].schema.type).toBe('string');
+			expect(result.items[0].schema.enum).toEqual(['pending', 'success']);
 		});
 	});
 });
