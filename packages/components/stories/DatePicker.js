@@ -6,10 +6,11 @@ import { IconsProvider } from '../src/index';
 import InputDateTimePicker, { DateTime } from '../src/DateTimePickers';
 import { TimePicker } from '../src/DateTimePickers/pickers/TimePicker/TimePicker.component';
 import InputTimePicker from '../src/DateTimePickers/InputTimePicker';
+import InputDatePicker from '../src/DateTimePickers/InputDatePicker';
 
 class TestPickerWrapper extends React.Component {
 	static propTypes = {
-		...InputDateTimePicker.propTypes,
+		...InputDatePicker.propTypes,
 	};
 
 	constructor(props) {
@@ -17,7 +18,7 @@ class TestPickerWrapper extends React.Component {
 
 		this.state = {
 			inputEvalValue: '',
-			selectedDateTime: this.props.selectedDateTime,
+			selectedDate: this.props.selectedDate,
 		};
 		this.onSubmitEval = this.onSubmitEval.bind(this);
 		this.onChangeEvalInput = this.onChangeEvalInput.bind(this);
@@ -26,7 +27,7 @@ class TestPickerWrapper extends React.Component {
 	onSubmitEval() {
 		this.setState(prevState => ({
 			// eslint-disable-next-line no-eval
-			selectedDateTime: eval(prevState.inputEvalValue),
+			selectedDate: eval(prevState.inputEvalValue),
 		}));
 	}
 
@@ -46,7 +47,7 @@ class TestPickerWrapper extends React.Component {
 			>
 				<div>
 					<label htmlFor="TestWrapper_storybook_eval-input">
-						Text to eval for updating 'selectedDateTime' prop
+						Text to eval for updating 'selectedDate' prop
 					</label>
 					<br />
 					<input
@@ -60,9 +61,9 @@ class TestPickerWrapper extends React.Component {
 					</button>
 				</div>
 				<br />
-				<InputDateTimePicker
+				<InputDatePicker
 					{...this.props}
-					selectedDateTime={this.state.selectedDateTime}
+					selectedDate={this.state.selectedDate}
 					onChange={action('onChange')}
 					onBlur={action('onBlur')}
 					name="Datetime"
@@ -91,7 +92,7 @@ storiesOf('DatePicker', module)
 			<h1>DatePicker in UTC TZ</h1>
 			<p>You can require to work with only UTC dates (input and output).</p>
 			<pre>{`
-<InputDateTimePicker
+<InputDatePicker
 	id="my-date-picker"
 	...
 	useTime
@@ -99,12 +100,12 @@ storiesOf('DatePicker', module)
 />
 			`}</pre>
 			<form style={{ width: 320 }}>
-				<InputDateTimePicker
+				<InputDatePicker
 					id="my-date-picker"
 					name="Datetime"
 					onBlur={action('onBlur')}
 					onChange={action('onChange')}
-					selectedDateTime={new Date(Date.UTC(2018, 4, 13, 12, 30, 44))}
+					selectedDate={new Date(Date.UTC(2018, 4, 13, 12, 30, 44))}
 					useTime
 					useUTC
 				/>
@@ -124,7 +125,7 @@ storiesOf('DatePicker', module)
 				Here we set date format to: DD/MM/YYYY. (default is YYYY-MM-DD)
 			</p>
 			<pre>{`
-<InputDateTimePicker
+<InputDatePicker
 	id="my-date-picker"
 	...
 	dateFormat="DD/MM/YYYY"
@@ -132,12 +133,12 @@ storiesOf('DatePicker', module)
 			`}</pre>
 			<IconsProvider />
 			<form style={{ width: 320 }}>
-				<InputDateTimePicker
+				<InputDatePicker
 					id="my-date-picker"
 					name="Datetime"
 					onBlur={action('onBlur')}
 					onChange={action('onChange')}
-					selectedDateTime={new Date(2018, 4, 13, 12, 30)}
+					selectedDate={new Date(2018, 4, 13, 12, 30)}
 					dateFormat="DD/MM/YYYY"
 					useTime
 				/>
@@ -207,7 +208,7 @@ storiesOf('DatePicker', module)
 				<h1>DatePicker with fixed-height parent</h1>
 				<div style={{ height: 300, overflow: 'auto', border: 'solid' }}>
 					<form style={{ width, float: 'left' }}>
-						<InputDateTimePicker
+						<InputDatePicker
 							id="my-date-picker-top-left"
 							name="Datetime"
 							onBlur={action('onBlur')}
@@ -216,7 +217,7 @@ storiesOf('DatePicker', module)
 						/>
 					</form>
 					<form style={{ width, float: 'right' }}>
-						<InputDateTimePicker
+						<InputDatePicker
 							id="my-date-picker-top-right"
 							name="Datetime"
 							onBlur={action('onBlur')}
@@ -226,7 +227,7 @@ storiesOf('DatePicker', module)
 					</form>
 					<div style={{ height: 600 }} />
 					<form style={{ width, float: 'left' }}>
-						<InputDateTimePicker
+						<InputDatePicker
 							id="my-date-picker-bottom-left"
 							name="Datetime"
 							onBlur={action('onBlur')}
@@ -235,7 +236,7 @@ storiesOf('DatePicker', module)
 						/>
 					</form>
 					<form style={{ width, float: 'right' }}>
-						<InputDateTimePicker
+						<InputDatePicker
 							id="my-date-picker-bottom-right"
 							name="Datetime"
 							onBlur={action('onBlur')}

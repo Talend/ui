@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import keycode from 'keycode';
 
-import focusOnTime from '../gesture/timePickerGesture';
-
-export default function useInputPickerHandlers({ handleBlur, handleChange }) {
+export default function useInputPickerHandlers({ handleBlur, handleChange, handleKeyDown }) {
 	const [showPicker, setPickerVisibility] = useState(false);
 	const [picked, setPicked] = useState(false);
 
@@ -40,7 +38,7 @@ export default function useInputPickerHandlers({ handleBlur, handleChange }) {
 			openPicker();
 		}
 	}
-	function onKeyDown(event, inputRef, containerRef) {
+	function onKeyDown(event, inputRef) {
 		switch (event.keyCode) {
 			case keycode.codes.esc:
 				inputRef.focus();
@@ -52,7 +50,9 @@ export default function useInputPickerHandlers({ handleBlur, handleChange }) {
 				}
 
 				if (showPicker) {
-					focusOnTime(containerRef);
+					if (handleKeyDown) {
+						handleKeyDown();
+					}
 				} else {
 					openPicker();
 				}
