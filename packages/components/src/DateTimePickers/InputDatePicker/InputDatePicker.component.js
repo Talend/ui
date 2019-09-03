@@ -53,8 +53,8 @@ export default function InputDatePicker(props) {
 	].filter(Boolean);
 	return (
 		<Date.Manager
-			value={props.value}
-			useSeconds={props.useSeconds}
+			selectedDate={props.selectedDate}
+			dateFormat={props.dateFormat}
 			onChange={(...args) => handlers.onChange(...args, inputRef.current)}
 		>
 			<FocusManager
@@ -76,12 +76,12 @@ InputDatePicker.displayName = 'InputDatePicker';
 
 InputDatePicker.propTypes = {
 	id: PropTypes.string.isRequired,
-	useSeconds: PropTypes.bool,
+	dateFormat: PropTypes.string,
 	onChange: PropTypes.func,
 	onBlur: PropTypes.func,
-	value: PropTypes.string,
-};
-
-InputDatePicker.defaultProps = {
-	useSeconds: false,
+	selectedDate: PropTypes.oneOfType([
+		PropTypes.instanceOf(Date),
+		PropTypes.number,
+		PropTypes.string,
+	]),
 };
