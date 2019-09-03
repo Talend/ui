@@ -19,7 +19,6 @@ program
 		'-s, --stack [value]',
 		'[optional] stack version to use, by default the last published one',
 	)
-	.option('-u --upgrade-only')
 	.option('-f, --force');
 
 program.on('--help', () => {
@@ -109,20 +108,20 @@ function check(source, dep, version, category = 'dep') {
 				'WARNING: react and react-dom should always be added as peer dependencies in library',
 			);
 		}
+		if (!program.quiet) {
+			const willDowngrade = semver.gt(source[dep].replace('^', ''), safeVersion.replace('^', ''));
+			const message = `update ${dep}: '${safeVersion}' from ${source[dep]}`;
 
-		const willDowngrade = semver.gt(source[dep].replace('^', ''), safeVersion.replace('^', ''));
-
-		if (!willDowngrade || !program.upgradeOnly) {
-			// eslint-disable-next-line no-param-reassign
-			source[dep] = safeVersion;
-
-			modified = true;
-
-			if (!program.quiet) {
-				const message = `update ${dep}: '${safeVersion}' from ${source[dep]}`;
-				console.log(willDowngrade ? colors.yellow(message) : message);
+			if (willDowngrade) {
+				console.log(colors.yellow(message));
+				console.log(colors.yellow(`Feel free to propose a version upgrade on Talend/UI : ${dep} -> ${source[dep]}`));
+			} else {
+				console.log(message);
 			}
 		}
+		// eslint-disable-next-line no-param-reassign
+		source[dep] = safeVersion;
+		modified = true;
 	}
 	return modified;
 }
