@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import keycode from 'keycode';
 
 import Time from '../Time';
 import InputTimePicker from './InputTimePicker.component';
@@ -86,6 +87,50 @@ describe('InputTimePicker', () => {
 
 			// then
 			expect(getOverlay(wrapper).exists()).toBe(true);
+		});
+	});
+	describe('keydown', () => {
+		it('should close the picker and focus on input with ESC', () => {
+			// given
+			const wrapper = mount(<InputTimePicker id="my-picker" />);
+			wrapper.simulate('focus');
+			expect(getOverlay(wrapper).exists()).toBe(true);
+			const event = { keyCode: keycode.codes.esc };
+
+			// when
+			wrapper.simulate('keydown', event);
+
+			// then
+			expect(getOverlay(wrapper).exists()).toBe(false);
+		});
+
+		it('should open picker if it is closed with DOWN on input', () => {
+			// given
+			const wrapper = mount(<InputTimePicker id="my-picker" />);
+			expect(getOverlay(wrapper).exists()).toBe(false);
+			const event = { keyCode: keycode.codes.down };
+
+			// when
+			wrapper.find('input').simulate('keydown', event);
+
+			// then
+			expect(getOverlay(wrapper).exists()).toBe(true);
+		});
+
+		it('should focus on time option if it is open with input DOWN', () => {
+			// given
+			const wrapper = mount(<InputTimePicker id="my-picker" />);
+			wrapper.simulate('focus');
+			const event = { keyCode: keycode.codes.down };
+
+			// when
+			wrapper
+				.find('input')
+				.first()
+				.simulate('keydown', event);
+
+			// then
+			expect(document.activeElement.classList.contains('tc-time-picker-time')).toBe(true);
 		});
 	});
 });

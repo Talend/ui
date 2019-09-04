@@ -66,8 +66,9 @@ export class TimePicker extends React.Component {
 		this.scrollItemIntoView = this.scrollItemIntoView.bind(this);
 		this.options = getOptions(props.interval, props.useSeconds);
 		this.state = {
-			hightlightedItemIndex:
-				this.options.findIndex(option => option.label.includes(props.textInput)),
+			hightlightedItemIndex: this.options.findIndex(option =>
+				option.label.includes(props.textInput),
+			),
 		};
 	}
 	componentDidMount() {
@@ -112,20 +113,18 @@ export class TimePicker extends React.Component {
 	}
 	render() {
 		return (
-			<div
-				className={theme.container}
-				ref={ref => (this.containerRef = ref)}
-				role="list"
-			>
+			<div className={theme.container} ref={ref => (this.containerRef = ref)} role="list">
 				{this.options.map((option, index) => {
-					const className = classNames(
-						{ highlight: index === this.state.hightlightedItemIndex });
+					const className = classNames('tc-time-picker-time', {
+						highlight: index === this.state.hightlightedItemIndex,
+					});
 					const ariaProps = {};
 					if (index === this.state.hightlightedItemIndex) {
 						ariaProps['aria-current'] = 'time';
 					}
 					return (
 						<button
+							tabIndex={-1}
 							role="listitem"
 							type="button"
 							key={index}
@@ -143,4 +142,4 @@ export class TimePicker extends React.Component {
 	}
 }
 
-export default withListGesture(TimePicker);
+export default withListGesture(TimePicker, true);
