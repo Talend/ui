@@ -142,4 +142,4 @@ export class TimePicker extends React.Component {
 	}
 }
 
-export default withListGesture(TimePicker);
+export default withListGesture(TimePicker, true);
