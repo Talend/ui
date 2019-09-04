@@ -225,6 +225,7 @@ storiesOf('List Composition', module)
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
+						<List.DisplayMode id="my-list-displayMode" />
 						<List.SortBy
 							id="my-list-sortBy"
 							options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
