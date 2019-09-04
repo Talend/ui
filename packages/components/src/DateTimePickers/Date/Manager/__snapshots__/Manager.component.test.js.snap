@@ -5,7 +5,6 @@ exports[`Date.Manager should render its children 1`] = `
   value={
     Object {
       "inputManagement": Object {
-        "inputRef": [Function],
         "onChange": [Function],
         "placeholder": "YYYY-MM-DD",
       },
