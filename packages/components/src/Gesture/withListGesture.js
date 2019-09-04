@@ -1,6 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import omit from 'lodash/omit';
 import keycode from 'keycode';
 
 function focusOn(event, element) {
@@ -83,18 +81,11 @@ function onKeyDown(event, ref, loop) {
 	}
 }
 
-export default function withListGesture(WrappedComponent) {
+export default function withListGesture(WrappedComponent, loop = false) {
 	function ListGesture(props) {
-		const { loop } = props;
-		return <WrappedComponent {...omit(props, 'loop')} onKeyDown={(...args) => onKeyDown(...args, loop)} />;
+		return <WrappedComponent {...props} onKeyDown={(...args) => onKeyDown(...args, loop)} />;
 	}
 
-	ListGesture.propTypes = {
-		loop: PropTypes.bool,
-	};
-	ListGesture.defaultProps = {
-		loop: false,
-	};
 	ListGesture.displayName = `ListGesture(${WrappedComponent.displayName})`;
 
 	return ListGesture;

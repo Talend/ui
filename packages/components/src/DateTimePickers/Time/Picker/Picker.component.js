@@ -6,7 +6,7 @@ import TimePicker from '../../pickers/TimePicker';
 
 export default function Picker(props) {
 	const { time, pickerManagement } = useContext(TimeContext);
-	return <TimePicker textInput={time.textInput} {...props} {...pickerManagement} loop />;
+	return <TimePicker textInput={time.textInput} {...props} {...pickerManagement} />;
 }
 
 Picker.propTypes = {
