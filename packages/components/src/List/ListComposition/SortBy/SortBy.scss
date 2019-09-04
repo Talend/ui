@@ -1,11 +1,19 @@
 // SelectSortBy styles
 
 $tc-list-toolbar-display-color: $dove-gray !default;
-$tc-list-toolbar-order-chooser-icon-size: 0.6rem !default;
+$tc-order-chooser-icon-size: 0.6rem !default;
 
-.tc-list-toolbar-sort-by {
+.tc-sort-by {
 	display: flex;
 	align-items: center;
+	:global(.navbar-text) {
+		margin: 0;
+	}
+	&-label {
+		margin: 0;
+		font-weight: normal;
+		color: $dove-gray;
+	}
 
 	:global(.navbar-btn.btn) {
 		color: $tc-list-toolbar-display-color;
@@ -14,24 +22,9 @@ $tc-list-toolbar-order-chooser-icon-size: 0.6rem !default;
 		letter-spacing: 0;
 	}
 
-	&:global(.navbar-nav) li {
-		a[role='menuitem'],
-		a:global(.dropdown-toggle) {
-			text-transform: lowercase;
-			display: inline-block;
-			&::first-letter {
-				text-transform: uppercase;
-			}
-		}
-	}
-
-	:global(.tc-list-toolbar-order-chooser) {
-		background-color: $wild-sand;
+	&-order-chooser {
 		color: $black;
-		display: inherit;
-
 		padding: 0;
-
 		&:hover,
 		&:focus,
 		&:active {
@@ -39,22 +32,20 @@ $tc-list-toolbar-order-chooser-icon-size: 0.6rem !default;
 			box-shadow: none;
 		}
 
-		:global(.tc-order-indicator) {
-			width: $tc-list-toolbar-order-chooser-icon-size;
-			height: $tc-list-toolbar-order-chooser-icon-size;
+		svg.tc-sort-by-order-chooser-indicator {
+			width: $tc-order-chooser-icon-size;
+			height: $tc-order-chooser-icon-size;
 		}
-
-		.tc-list-toolbar-order-indicator {
-			width: $tc-list-toolbar-order-chooser-icon-size;
-			height: $tc-list-toolbar-order-chooser-icon-size;
-
-			&.asc {
-				transform: rotate(180deg);
+	}
+	li.tc-sort-by-items {
+		display: flex;
+		align-items: center;
+		> a[role='button'] {
+			text-transform: lowercase;
+			display: inline-block;
+			&::first-letter {
+				text-transform: uppercase;
 			}
 		}
 	}
-}
-
-.sort-by-items {
-	text-transform: capitalize;
 }
