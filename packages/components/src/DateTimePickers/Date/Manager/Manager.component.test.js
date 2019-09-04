@@ -108,7 +108,7 @@ describe('Date.Manager', () => {
 				{
 					name: 'from props valid date',
 					initialDate: new Date(),
-					newDate: new Date(2015, 3, 4, 12, 36),
+					newDate: new Date(2015, 3, 4),
 					expectedTextInput: '2015-04-04',
 					expectedDate: new Date(2015, 3, 4),
 				},

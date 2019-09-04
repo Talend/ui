@@ -25,7 +25,7 @@ describe('Date.Picker', () => {
 		);
 
 		// then
-		expect(wrapper.find('DatePicker').props()).toEqual({
+		expect(wrapper.find('DateTimePicker').props()).toEqual({
 			manageFocus: true,
 			onSubmit: managerValue.pickerManagement.onSubmit,
 			other: 'custom props',
@@ -55,7 +55,7 @@ describe('Date.Picker', () => {
 		expect(managerValue.pickerManagement.onSubmit).not.toBeCalled();
 
 		// when
-		wrapper.find('DatePicker').prop('onSubmit')();
+		wrapper.find('DateTimePicker').prop('onSubmit')();
 
 		// then
 		expect(managerValue.pickerManagement.onSubmit).toBeCalled();

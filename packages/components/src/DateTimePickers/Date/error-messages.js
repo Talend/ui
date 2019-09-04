@@ -13,10 +13,6 @@ export default function getErrorMessage(key) {
 			return i18next.t('INVALID_DAY_OF_MONTH', {
 				defaultValue: "Day value doesn't match an existing day in the month",
 			});
-		case 'TIME_FORMAT_INVALID':
-			return i18next.t('TIME_FORMAT_INVALID', { defaultValue: 'Time is invalid' });
-		case 'DATETIME_INVALID_FORMAT':
-			return i18next.t('DATETIME_INVALID_FORMAT', { defaultValue: 'Datetime is invalid' });
 		default:
 			return '';
 	}

@@ -106,9 +106,6 @@ class ContextualManager extends React.Component {
 					},
 
 					inputManagement: {
-						inputRef: ref => {
-							this.inputRef = ref;
-						},
 						onChange: this.onInputChange,
 						placeholder: this.props.dateFormat,
 					},
