@@ -103,9 +103,7 @@ describe('SortBy', () => {
 
 		// when
 		act(() => {
-			wrapper
-				.find('AscendingDescendingButton')
-				.prop('onClick')();
+			wrapper.find('AscendingDescendingButton').prop('onClick')();
 		});
 
 		// then
@@ -141,9 +139,7 @@ describe('SortBy', () => {
 			isDescending: true,
 		});
 
-		wrapper
-			.find('AscendingDescendingButton')
-			.prop('onClick')(event);
+		wrapper.find('AscendingDescendingButton').prop('onClick')(event);
 
 		// then
 		expect(props.onChange).toHaveBeenCalledWith(event, {
