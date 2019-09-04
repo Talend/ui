@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import isSameSecond from 'date-fns/is_same_second';
 
 import { DateContext } from '../Context';
 import {
@@ -38,11 +37,7 @@ class ContextualManager extends React.Component {
 		super(props);
 
 		checkSupportedDateFormat(props.dateFormat);
-		this.initialState = extractDate(props.selectedDate, this.getDateOptions());
-		this.state = {
-			...this.initialState,
-			previousErrors: [],
-		};
+		this.state = extractDate(props.selectedDate, this.getDateOptions());
 
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onPickerChange = this.onPickerChange.bind(this);
@@ -51,16 +46,15 @@ class ContextualManager extends React.Component {
 	componentWillReceiveProps(nextProps) {
 		const newselectedDate = nextProps.selectedDate;
 
-		const needDateTimeStateUpdate =
+		const needDateStateUpdate =
 			newselectedDate !== this.props.selectedDate && // selectedDate props updated
-			newselectedDate !== this.state.datetime && // not the same ref as state date time
-			!isSameSecond(newselectedDate, this.state.datetime); // not the same value as state
+			newselectedDate !== this.state.date; // not the same ref as state date
 
 		if (nextProps.dateFormat !== this.props.dateFormat) {
 			checkSupportedDateFormat(nextProps.dateFormat);
 		}
 
-		if (needDateTimeStateUpdate) {
+		if (needDateStateUpdate) {
 			const dateRelatedPartState = extractDate(newselectedDate, this.getDateOptions());
 			this.setState(dateRelatedPartState);
 		}
@@ -71,8 +65,6 @@ class ContextualManager extends React.Component {
 			return;
 		}
 		const { errorMessage, date, textInput, errors } = this.state;
-		// we need to update the initial state once it has been changed
-		this.initialState = { ...this.state };
 		this.props.onChange(event, { errors, errorMessage, date, textInput, origin });
 	}
 
@@ -87,15 +79,11 @@ class ContextualManager extends React.Component {
 	onPickerChange(event, { date }) {
 		const nextState = extractPartsFromDate(date, this.getDateOptions());
 
-		// we need to retrieve the input error from nextState to add them to the current one
-		// because, by changing the picker, we update the textInput so we need to update its errors
 		const nextErrors = this.state.errors
-			// remove old main input errors
 			.filter(error => !INPUT_ERRORS.includes(error.code))
-			// add new main input errors
 			.concat(nextState.errors.filter(error => INPUT_ERRORS.includes(error.code)));
 
-		this.setState({ previousErrors: this.state.errors, ...nextState, errors: nextErrors }, () => {
+		this.setState({ ...nextState, errors: nextErrors }, () => {
 			this.onChange(event, 'PICKER');
 		});
 	}

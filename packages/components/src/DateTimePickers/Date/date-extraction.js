@@ -11,21 +11,6 @@ export function DatePickerException(code, message) {
 }
 
 /**
- * Extract date and apply the current timezone, from datetime
- * Ex :
- * 2014-03-25 23:00:00 (UTC) 		--> 2014-03-25 OO:OO:OO (current TZ)
- * 2014-03-25 23:00:00 (current TZ) --> 2014-03-25 OO:OO:OO (current TZ)
- * @param date {Date} The date to extract
- * @param useUTC {boolean} Indicates if date is in UTC
- */
-function extractDateOnly(date, { useUTC }) {
-	if (useUTC) {
-		return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
-	}
-	return new Date(date.getFullYear(), date.getMonth(), date.getDate());
-}
-
-/**
  * Build date regexep from date format.
  * It returns the YYYY, MM, DD parts order too.
  * @param dateFormat {string}
@@ -62,7 +47,18 @@ function dateToStr(date, options) {
 	const { dateFormat } = options;
 	return format(date, dateFormat);
 }
-
+/**
+ * Convert a date in local TZ to UTC
+ */
+function convertToUTC(date) {
+	return new Date(
+		Date.UTC(
+			date.getFullYear(),
+			date.getMonth(),
+			date.getDate(),
+		),
+	);
+}
 /**
  * Convert string in dateFormat to date
  */
@@ -142,11 +138,9 @@ function extractPartsFromDate(date, options) {
 		};
 	}
 
-	const dateToUse = extractDateOnly(date, options);
-
 	return {
-		date: dateToUse,
-		textInput: dateToStr(dateToUse, options),
+		date: options.useUTC ? convertToUTC(date) : date,
+		textInput: dateToStr(date, options),
 		errors: [],
 		errorMessage: null,
 	};
@@ -182,7 +176,7 @@ function extractDateFromTextInput(textInput, options) {
 
 
 	return {
-		date,
+		date: options.useUTC ? convertToUTC(date) : date,
 		textInput,
 		errors,
 		errorMessage: errors[0] ? errors[0].message : null,

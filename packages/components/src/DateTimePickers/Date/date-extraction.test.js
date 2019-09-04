@@ -151,48 +151,6 @@ describe('Date extraction', () => {
 				errorMessage: null,
 			});
 		});
-
-		it('should create the gmt date from utc value', () => {
-			// given
-			// date is 2015-09-15T10:58:22.000Z UTC
-			const validDate = new Date(1442314702000);
-			const options = {
-				dateFormat: 'YYYY-MM-DD',
-				useUTC: true,
-			};
-
-			// when
-			const parts = extractPartsFromDate(validDate, options);
-
-			// then
-			expect(parts).toEqual({
-				date: new Date(2015, 8, 15),
-				textInput: '2015-09-15',
-				errors: [],
-				errorMessage: null,
-			});
-		});
-
-		it('should create the gmt date from utc value (previous day)', () => {
-			// given
-			// date is 2015-09-15T10:58:22.000Z UTC
-			const validDate = new Date(2015, 8, 15);
-			const options = {
-				dateFormat: 'YYYY-MM-DD',
-				useUTC: true,
-			};
-
-			// when
-			const parts = extractPartsFromDate(validDate, options);
-
-			// then
-			expect(parts).toEqual({
-				date: new Date(2015, 8, 14),
-				textInput: '2015-09-14',
-				errors: [],
-				errorMessage: null,
-			});
-		});
 	});
 
 	describe('extractDateFromTextInput', () => {
@@ -286,7 +244,7 @@ describe('Date extraction', () => {
 
 			// then
 			expect(parts).toEqual({
-				date: new Date(2018, 11, 25),
+				date: new Date(Date.UTC(2018, 11, 25)),
 				textInput,
 				errorMessage: null,
 				errors: [],
