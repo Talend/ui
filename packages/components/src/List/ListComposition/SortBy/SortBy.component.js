@@ -9,34 +9,38 @@ import theme from './SortBy.scss';
 import { DISPLAY_MODE } from '../constants';
 import { useListContext } from '../context';
 
-function SortByItem({ option, index, id, t }) {
-	const optionLabel = option.label || option.key;
-	return (
-		<MenuItem
-			id={id && `${id}-by-item-${option.key}`}
-			key={index}
-			eventKey={option}
-			aria-label={t('LIST_SELECT_SORT_BY', {
-				defaultValue: 'Select {{sortBy}} as current sort criteria.',
-				sortBy: optionLabel,
-			})}
-		>
-			{optionLabel}
-		</MenuItem>
-	);
-}
-SortByItem.propTypes = {
-	option: PropTypes.shape({
-		id: PropTypes.string,
-		name: PropTypes.string,
-	}),
-	index: PropTypes.number,
-	id: PropTypes.string,
-	t: PropTypes.func,
+const AscendingDescendingButton = ({ id, isDescending, orderLabel, t, onClick }) => (
+	<Button
+		aria-label={t('LIST_CHANGE_SORT_BY_ORDER', {
+			defaultValue: 'Change sort order. Current order: {{sortOrder}}.',
+			sortOrder: orderLabel,
+		})}
+		bsStyle=""
+		className={classNames(theme['tc-list-toolbar-order-chooser'], 'tc-list-toolbar-order-chooser')}
+		id={`${id}-order-chooser`}
+		onClick={onClick}
+	>
+		<Icon name={isDescending ? 'talend-sort-desc' : 'talend-sort-asc'} />
+		<Icon
+			className={classNames(
+				'tc-list-toolbar-order-indicator',
+				theme['tc-list-toolbar-order-indicator'],
+			)}
+			name="talend-caret-down"
+			transform={!isDescending ? 'rotate-180' : null}
+		/>
+	</Button>
+);
+
+AscendingDescendingButton.propTypes = {
+	id: PropTypes.string.isRequired,
+	isDescending: PropTypes.bool.isRequired,
+	onClick: PropTypes.func.isRequired,
+	orderLabel: PropTypes.string.isRequired,
+	t: PropTypes.func.isRequired,
 };
 
-function SortBy(props) {
-	const { id, initialValue, options, onChange, value } = props;
+function SortBy({ id, initialValue, options, onChange, value }) {
 	const { displayMode, sortParams, setSortParams, t } = useListContext();
 	const isControlled = onChange;
 
@@ -45,20 +49,15 @@ function SortBy(props) {
 			setSortParams(initialValue);
 		}
 	}, []);
-
 	if (displayMode === DISPLAY_MODE.TABLE) {
 		return null;
 	}
-
 	const currentValue = isControlled ? value : sortParams;
-
-	console.log({ currentValue });
-
+	const isDescending = currentValue.isDescending;
 	// Current selected option
 	const selectedOption = options.find(option => option.key === currentValue.sortBy);
 	const selectedLabel = selectedOption ? selectedOption.label : 'N.C';
-	const isDescending = currentValue.isDescending;
-	const orderLabel = currentValue.isDescending
+	const orderLabel = isDescending
 		? t('LIST_SELECT_SORT_BY_ORDER_DESC', { defaultValue: 'Descending' })
 		: t('LIST_SELECT_SORT_BY_ORDER_ASC', { defaultValue: 'Ascending' });
 
@@ -72,15 +71,12 @@ function SortBy(props) {
 
 	// Sort field
 	const onSortByChange = (val, event) => {
-		console.log({ val });
 		performChange(event, { ...currentValue, sortBy: val });
 	};
 
 	// Sort order
 	const onOrderChange = event =>
-		performChange(event, { ...currentValue, isDescending: !currentValue.isDescending });
-
-	const getMenuItem = SortByItem;
+		performChange(event, { ...currentValue, isDescending: !isDescending });
 
 	return (
 		<Nav className={theme['tc-list-toolbar-sort-by']}>
@@ -88,50 +84,39 @@ function SortBy(props) {
 				<li className="navbar-text">{options[0].name}</li>
 			) : (
 				<NavDropdown
-					id={`${id}-by`}
-					title={selectedLabel}
-					onSelect={onSortByChange}
-					className={theme['sort-by-items']}
 					aria-label={t('LIST_CHANGE_SORT_BY', {
 						defaultValue: 'Change sort criteria. Current sort by {{sortBy}}.',
 						sortBy: selectedLabel,
 					})}
+					className={theme['sort-by-items']}
+					id={`${id}-by`}
+					onSelect={onSortByChange}
+					title={selectedLabel}
 				>
-					{options.map((option, index) =>
-						getMenuItem({
-							option,
-							index,
-							id,
-							t,
-						}),
-					)}
+					{options.map(({ key, label }, index) => (
+						<MenuItem
+							aria-label={t('LIST_SELECT_SORT_BY', {
+								defaultValue: 'Select {{sortBy}} as current sort criteria.',
+								sortBy: label,
+							})}
+							eventKey={key}
+							key={`${key}-${index}`}
+							id={`${id}-${key}`}
+						>
+							{label}
+						</MenuItem>
+					))}
 				</NavDropdown>
 			)}
 			{selectedLabel && (
 				<li>
-					<Button
-						id={`${id}-order-chooser`}
-						aria-label={t('LIST_CHANGE_SORT_BY_ORDER', {
-							defaultValue: 'Change sort order. Current order: {{sortOrder}}.',
-							sortOrder: orderLabel,
-						})}
+					<AscendingDescendingButton
+						id={id}
+						isDescending={isDescending}
 						onClick={onOrderChange}
-						bsStyle=""
-						className={classNames(
-							theme['tc-list-toolbar-order-chooser'],
-							'tc-list-toolbar-order-chooser',
-						)}
-					>
-						<Icon name={isDescending ? 'talend-sort-desc' : 'talend-sort-asc'} />
-						<Icon
-							name="talend-caret-down"
-							transform={!isDescending && 'rotate-180'}
-							className={classNames(
-								'tc-list-toolbar-order-indicator',
-								theme['tc-list-toolbar-order-indicator'],
-							)}
-						/>
-					</Button>
+						orderLabel={orderLabel}
+						t={t}
+					/>
 				</li>
 			)}
 		</Nav>
