@@ -157,7 +157,7 @@ storiesOf('ResourcePicker', module)
 			<ResourcePicker id="default" {...props} />
 		</div>
 	))
-	.add('default simple', () => (
+	.add('generic subtitle', () => (
 		<div>
 			<p>By default :</p>
 			<div style={{ width: '40rem', height: '10rem' }}>
