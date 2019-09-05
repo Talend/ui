@@ -25,24 +25,23 @@ function InjectDropdownMenuItem({
 	withMenuItem,
 	liProps,
 	menuItemProps,
-	key,
 	onSelect,
 	onKeyDown,
 	...rest
 }) {
 	const Renderers = Inject.getAll(getComponent, { MenuItem });
 	if (divider) {
-		return <Renderers.MenuItem key={key} {...menuItemProps} divider />;
+		return <Renderers.MenuItem {...menuItemProps} divider />;
 	}
 	if (withMenuItem) {
 		return (
-			<Renderers.MenuItem key={key} {...menuItemProps} onSelect={onSelect} onKeyDown={onKeyDown}>
+			<Renderers.MenuItem {...menuItemProps} onSelect={onSelect} onKeyDown={onKeyDown}>
 				<Inject component={component} getComponent={getComponent} {...rest} />
 			</Renderers.MenuItem>
 		);
 	}
 	return (
-		<li role="presentation" key={key} {...liProps}>
+		<li role="presentation" {...liProps}>
 			<Inject component={component} getComponent={getComponent} onSelect={onSelect} {...rest} />
 		</li>
 	);
@@ -55,7 +54,6 @@ InjectDropdownMenuItem.propTypes = {
 	withMenuItem: PropTypes.bool,
 	liProps: PropTypes.object,
 	menuItemProps: PropTypes.object,
-	key: PropTypes.number,
 	onSelect: PropTypes.func,
 	onKeyDown: PropTypes.func,
 };
