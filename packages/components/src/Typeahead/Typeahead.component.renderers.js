@@ -130,14 +130,6 @@ export function renderItemsContainerFactory(
 			content = children;
 		}
 
-		const getPopperStyle = () => {
-			if (!inputRef) return { width: 0 };
-			const inputDimensions = inputRef.getBoundingClientRect();
-			return {
-				width: inputDimensions.width,
-			};
-		};
-
 		return (
 			<Popper
 				modifiers={{
@@ -150,6 +142,31 @@ export function renderItemsContainerFactory(
 					shift: {
 						enabled: false,
 					},
+					computePosition: {
+						enabled: true,
+						fn: data => {
+							const OFFSET_FROM_SCREEN_BOUNDARIES = 15;
+							const inputDimensions = data.offsets.reference;
+							const offsetFromTop = inputDimensions.top - OFFSET_FROM_SCREEN_BOUNDARIES;
+							const offsetFromBottom = window.innerHeight - inputDimensions.top - inputDimensions.height - OFFSET_FROM_SCREEN_BOUNDARIES;
+							const placements = data.placement.split('-');
+							let newPlacement = data.placement;
+							if (placements[0] === 'top' && offsetFromBottom > offsetFromTop) {
+								newPlacement = `bottom-${placements[1]}`;
+							}
+							const maxHeight = newPlacement.includes('top') ? offsetFromTop : offsetFromBottom;
+
+							return {
+								...data,
+								placement: newPlacement,
+								styles: {
+									...data.styles,
+									width: inputDimensions.width,
+									maxHeight,
+								},
+							};
+						},
+					}
 				}}
 				positionFixed
 				boundariesElement="viewport"
@@ -161,6 +178,7 @@ export function renderItemsContainerFactory(
 						// @see https://github.com/FezVrasta/react-popper/issues/283#issuecomment-512879262
 						scheduleUpdate();
 					}
+
 					return (
 						<div
 							className={containerClassName}
@@ -168,12 +186,9 @@ export function renderItemsContainerFactory(
 							key={containerProps.key}
 							ref={ref}
 							role={containerProps.role}
-							style={{
-								...getPopperStyle(),
-								...style,
-							}}
+							style={style}
 						>
-							<div ref={containerProps.ref} className={theme['items-body']}>
+							<div ref={containerProps.ref} className={theme['items-body']} style={{ maxHeight: style.maxHeight }}>
 								{render(
 									content,
 									{
@@ -225,7 +240,6 @@ export function renderItem(item, { value, ...rest }) {
 		title = (item.title || item.name || '').trim();
 		description = item.description;
 	}
-
 	return (
 		<div
 			className={classNames(theme.item, {
