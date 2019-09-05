@@ -12,6 +12,8 @@ module.exports = ({ config }) => {
 	const cssRuleIndex = config.module.rules.findIndex(
 		({ test }) => test.toString() === /\.css$/.toString(),
 	);
+
+	config.module.rules[0].use[0].options.sourceType = 'unambiguous';
 	config.module.rules[cssRuleIndex] = {
 		test: /\.css$/,
 		use: [

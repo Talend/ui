@@ -1,14 +1,15 @@
 import React from 'react';
 import Skeleton from '../../../Skeleton';
-import Tile from '../../Tile';
+import Tile from '../../Tile/Tile.component';
+import Body from '../../Tile/Body/TileBody.component';
 
 export default function SkeletonTile() {
 	return (
-		<Tile.Container>
-			<Tile.Body>
+		<Tile>
+			<Body>
 				<Skeleton width={'100%'} height={'100%'} />
-			</Tile.Body>
-		</Tile.Container>
+			</Body>
+		</Tile>
 	);
 }
 
