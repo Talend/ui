@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Navbar, MenuItem, NavDropdown, Nav, Button } from 'react-bootstrap';
 import uuid from 'uuid';
@@ -81,7 +81,7 @@ function SortBy({ id, initialValue, options, onChange, value }) {
 		performChange(event, { ...currentValue, isDescending: !isDescending });
 
 	return (
-		<div className={theme('tc-sort-by')}>
+		<li className={theme('tc-sort-by')}>
 			<Navbar.Text>
 				<label className={theme('tc-sort-by-label')} htmlFor={id}>
 					{t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}
@@ -126,7 +126,7 @@ function SortBy({ id, initialValue, options, onChange, value }) {
 					/>
 				)}
 			</Nav>
-		</div>
+		</li>
 	);
 }
 
