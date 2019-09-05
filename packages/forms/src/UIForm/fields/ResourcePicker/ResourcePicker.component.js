@@ -74,7 +74,12 @@ class ResourcePicker extends Component {
 		}
 
 		if (index > -1) {
-			selected.splice(index, 1);
+			if (multi) {
+				selected.splice(index, 1);
+			} else {
+				// in single selection if the resource is already selected do nothing
+				return;
+			}
 		} else {
 			selected.push(id);
 		}
