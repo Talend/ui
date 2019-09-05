@@ -145,16 +145,17 @@ export function renderItemsContainerFactory(
 					computePosition: {
 						enabled: true,
 						fn: data => {
-							const OFFSET_FROM_SCREEN_BOUNDARIES = 15;
+							const GAP = 15; // the offset between the end of items container and screen boundaries
 							const inputDimensions = data.offsets.reference;
-							const offsetFromTop = inputDimensions.top - OFFSET_FROM_SCREEN_BOUNDARIES;
-							const offsetFromBottom = window.innerHeight - inputDimensions.top - inputDimensions.height - OFFSET_FROM_SCREEN_BOUNDARIES;
+							const { top, height } = inputDimensions;
+							const offsetTop = top - GAP;
+							const offsetBottom = window.innerHeight - top - height - GAP;
 							const placements = data.placement.split('-');
 							let newPlacement = data.placement;
-							if (placements[0] === 'top' && offsetFromBottom > offsetFromTop) {
+							if (placements[0] === 'top' && offsetBottom > offsetTop) {
 								newPlacement = `bottom-${placements[1]}`;
 							}
-							const maxHeight = newPlacement.includes('top') ? offsetFromTop : offsetFromBottom;
+							const maxHeight = newPlacement.includes('top') ? offsetTop : offsetBottom;
 
 							return {
 								...data,
@@ -166,7 +167,7 @@ export function renderItemsContainerFactory(
 								},
 							};
 						},
-					}
+					},
 				}}
 				positionFixed
 				boundariesElement="viewport"
