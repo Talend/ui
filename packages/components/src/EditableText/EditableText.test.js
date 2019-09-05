@@ -174,7 +174,10 @@ describe('InlineForm', () => {
 		const event = { keyCode: keycode.codes.esc };
 		const wrapper = shallow(<InlineForm {...defaultProps} />);
 		wrapper.setState({ value: 'myDataBeforeCancel' });
-		wrapper.find('input').at(0).simulate('keydown', event);
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('keydown', event);
 		expect(defaultProps.onCancel).toHaveBeenCalledWith(event);
 		expect(wrapper.state('value')).toEqual('');
 	});

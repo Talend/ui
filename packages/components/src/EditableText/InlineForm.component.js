@@ -53,11 +53,11 @@ class InlineForm extends React.Component {
 
 	onKeyDown(event) {
 		switch (event.keyCode) {
-		case keycode.codes.esc:
-			this.onCancel(event);
-			break;
-		default:
-			break;
+			case keycode.codes.esc:
+				this.onCancel(event);
+				break;
+			default:
+				break;
 		}
 	}
 
