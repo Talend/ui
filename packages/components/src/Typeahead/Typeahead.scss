@@ -17,7 +17,6 @@ $tc-typeahead-section-header-color: #63aebd !default;
 $tc-typeahead-items-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4) !default;
 $tc-typeahead-items-border-radius: $border-radius-base !default;
 $tc-typeahead-items-font-size: 1.5rem !default;
-$tc-typeahead-items-zindex: $zindex-typeahead-items;
 
 .tc-typeahead-container {
 	position: relative;
@@ -37,7 +36,6 @@ $tc-typeahead-items-zindex: $zindex-typeahead-items;
 	.items-container,
 	.items-body {
 		max-height: 70vh;
-		z-index: $tc-typeahead-items-zindex;
 	}
 
 	.items-container {
@@ -48,7 +46,7 @@ $tc-typeahead-items-zindex: $zindex-typeahead-items;
 		background-color: $tc-typeahead-opened-items-container-background-color;
 		border-radius: $tc-typeahead-items-border-radius;
 		box-shadow: $tc-typeahead-items-box-shadow;
-		z-index: $zindex-dropdown;
+		z-index: $zindex-typeahead-items;
 	}
 
 	.items-body {
