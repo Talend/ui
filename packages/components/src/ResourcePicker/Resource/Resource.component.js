@@ -32,7 +32,7 @@ function getAuthorLabel(t, author, date) {
 	});
 }
 
-function getSubtitle({ author, modified, subtitle, t }) {
+function Subtitle({ author, modified, subtitle, t }) {
 	if (author) {
 		return (
 			<small className={classNames('author', theme.author)}>
@@ -52,7 +52,7 @@ function getSubtitle({ author, modified, subtitle, t }) {
 	return null;
 }
 
-getSubtitle.propTypes = {
+Subtitle.propTypes = {
 	author: PropTypes.string,
 	subtitle: PropTypes.string,
 	modified: PropTypes.string,
@@ -87,12 +87,7 @@ function Resource({ parent, index, style, className, t }) {
 			{icon && <Icon name={icon} />}
 			<div className={classNames('data-container', theme['data-container'])}>
 				<span className={classNames('title', theme.title)}>{name}</span>
-				{getSubtitle({
-					author,
-					modified,
-					subtitle,
-					t,
-				})}
+				<Subtitle author={author} modified={modified} subtitle={subtitle} t={t} />
 			</div>
 			{!isEmpty(flags) ? (
 				<div className={classNames('flags-container', theme['flags-container'])}>
