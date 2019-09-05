@@ -34,7 +34,7 @@ $tc-toolbar-height: 7rem;
 	&-separated:not(:first-child):before {
 		content: '|';
 		color: $silver;
-		padding: 0 $padding-normal 0 $padding-normal
+		padding: 0 $padding-normal 0 $padding-normal;
 	}
 
 	> :global(.container-fluid) {
