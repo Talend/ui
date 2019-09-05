@@ -57,7 +57,8 @@
 		}
 	}
 
-	&:hover {
+	&:hover,
+	&:focus {
 		background-color: $wild-sand;
 
 		.data-container {
@@ -68,7 +69,8 @@
 		}
 	}
 
-	&:global(.selected) {
+	&:global(.selected),
+	&:active {
 		background: tint($scooter, 90);
 
 		.data-container {
