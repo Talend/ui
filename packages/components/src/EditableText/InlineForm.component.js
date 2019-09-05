@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import keycode from 'keycode';
 import { Action } from '../Actions';
 import theme from './EditableText.scss';
 import getDefaultT from '../translate';
@@ -14,6 +15,7 @@ class InlineForm extends React.Component {
 		onSubmit: PropTypes.func.isRequired,
 		onCancel: PropTypes.func,
 		onChange: PropTypes.func,
+		onBlur: PropTypes.func,
 		t: PropTypes.func,
 		required: PropTypes.bool,
 	};
@@ -27,6 +29,7 @@ class InlineForm extends React.Component {
 		super(props);
 		this.onChange = this.onChange.bind(this);
 		this.onCancel = this.onCancel.bind(this);
+		this.onKeyDown = this.onKeyDown.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 		this.selectInput = this.selectInput.bind(this);
 		this.state = {
@@ -46,6 +49,16 @@ class InlineForm extends React.Component {
 			this.props.onCancel(event);
 		}
 		this.setState({ value: '' });
+	}
+
+	onKeyDown(event) {
+		switch (event.keyCode) {
+		case keycode.codes.esc:
+			this.onCancel(event);
+			break;
+		default:
+			break;
+		}
 	}
 
 	onSubmit(event) {
@@ -85,6 +98,8 @@ class InlineForm extends React.Component {
 						)}
 						onChange={this.onChange}
 						value={this.state.value}
+						onKeyDown={this.onKeyDown}
+						onBlur={this.onSubmit}
 					/>
 					{errorMessage && <p className="help-block text-danger">{errorMessage}</p>}
 				</div>
