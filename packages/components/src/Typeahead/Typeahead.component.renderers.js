@@ -189,7 +189,11 @@ export function renderItemsContainerFactory(
 							role={containerProps.role}
 							style={style}
 						>
-							<div ref={containerProps.ref} className={theme['items-body']} style={{ maxHeight: style.maxHeight }}>
+							<div
+								ref={containerProps.ref}
+								className={theme['items-body']}
+								style={{ maxHeight: style.maxHeight }}
+							>
 								{render(
 									content,
 									{
