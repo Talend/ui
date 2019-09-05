@@ -22,8 +22,19 @@ $tc-toolbar-height: 7rem;
 		padding: 0;
 	}
 
-	:global(.tc-display-mode-toggle) {
+	&-right {
+		align-items: center;
+		display: flex;
 		margin-left: auto;
+	}
+
+	:global(.tc-list-toolbar-separated) {
+		display: flex;
+	}
+	&-separated:not(:first-child):before {
+		content: '|';
+		color: $silver;
+		padding: 0 $padding-normal 0 $padding-normal
 	}
 
 	> :global(.container-fluid) {

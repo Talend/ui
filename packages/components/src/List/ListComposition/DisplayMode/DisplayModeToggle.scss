@@ -2,10 +2,14 @@ $tc-display-button-icon-height: 2.4rem;
 
 .tc-display-mode-toggle {
 	display: flex;
+	
+	div:first-child {
+		margin-right: $padding-normal;
+	}
 
 	:global(.tc-icon-toggle) {
 		height: $tc-display-button-icon-height;
 		min-height: $tc-display-button-icon-height;
-		margin: $padding-normal 0 $padding-normal $padding-normal;
+		margin: 0;
 	}
 }

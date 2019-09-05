@@ -91,7 +91,9 @@ storiesOf('List Composition', module)
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
-						<List.DisplayMode id="my-list-displayMode" />
+						<List.Toolbar.Right>
+							<List.DisplayMode id="my-list-displayMode" />
+						</List.Toolbar.Right>
 					</List.Toolbar>
 					<CustomList />
 				</List.Manager>
@@ -128,11 +130,13 @@ storiesOf('List Composition', module)
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
-						<List.DisplayMode
-							id="my-list-displayMode"
-							onChange={action('onDisplayModeChange')}
-							selectedDisplayMode="table"
-						/>
+						<List.Toolbar.Right>
+							<List.DisplayMode
+								id="my-list-displayMode"
+								onChange={action('onDisplayModeChange')}
+								selectedDisplayMode="table"
+							/>
+						</List.Toolbar.Right>
 					</List.Toolbar>
 					<CustomList type="TABLE" />
 				</List.Manager>
