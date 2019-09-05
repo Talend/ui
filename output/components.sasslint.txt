@@ -18,8 +18,8 @@ src/GuidedTour/GuidedTour.scss
   80:4  error  Class '.reactour__dot--is-active' should be written in lowercase with hyphens  class-name-format
 
 src/List/ListComposition/SortBy/SortBy.scss
-  35:6  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  40:4  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  38:6  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  43:4  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/List/Toolbar/Toolbar.scss
   71:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
