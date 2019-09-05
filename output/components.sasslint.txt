@@ -1,6 +1,9 @@
 > sass-lint -v -q
 
 
+src/CollapsiblePanel/CollapsiblePanel.scss
+  137:5  error  Mixins should come before declarations  mixins-before-declarations
+
 src/DateTimePickers/pickers/TimePicker/TimePicker.scss
   26:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
@@ -23,5 +26,5 @@ src/List/Toolbar/Toolbar.scss
 src/Typeahead/Typeahead.scss
   31:5  error  Mixins should come before declarations  mixins-before-declarations
 
-✖ 10 problems (8 errors, 2 warnings)
+✖ 11 problems (9 errors, 2 warnings)
 

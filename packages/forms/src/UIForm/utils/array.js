@@ -1,3 +1,5 @@
+import get from 'lodash/get';
+
 function arrayStartsWith(prefix, arrayToCheck) {
 	return prefix.every((next, index) => arrayToCheck[index] === next);
 }
@@ -43,12 +45,14 @@ function adaptArrayItemKey(arraySchema, item, itemIndex) {
 	const arrayKey = arraySchema.key;
 	const itemKey = item.key;
 	const itemChildren = item.items;
+	const childSchemaItems = get(arraySchema, 'schema.items', undefined);
 
 	if (itemKey && !arrayStartsWith(arrayKey, itemKey)) {
 		return item;
 	}
 
 	const schema = {
+		...(childSchemaItems && { schema: childSchemaItems }),
 		...item,
 	};
 
