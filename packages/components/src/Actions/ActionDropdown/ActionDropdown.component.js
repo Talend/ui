@@ -153,7 +153,11 @@ class ActionDropdown extends React.Component {
 			if (dropdownContainer) {
 				const dropdownRect = dropdownMenu.getBoundingClientRect();
 				const containerRect = dropdownContainer.getBoundingClientRect();
-				if (!dropdown.classList.contains('dropup') && dropdownRect.bottom > containerRect.bottom) {
+				if (
+					!dropdown.classList.contains('dropup') &&
+					dropdownRect.bottom > containerRect.bottom &&
+					dropdownRect.height < containerRect.top
+				) {
 					dropdown.classList.add('dropup');
 				} else if (dropdown.classList.contains('dropup') && dropdownRect.top < containerRect.top) {
 					dropdown.classList.remove('dropup');
