@@ -22,14 +22,17 @@ $tc-order-chooser-icon-size: 0.6rem !default;
 		letter-spacing: 0;
 	}
 
-	&-order-chooser {
-		color: $black;
+	:global(.tc-sort-by-order-chooser) {
+		display: inherit;
 		padding: 0;
 		&:hover,
 		&:focus,
 		&:active {
 			color: $black;
 			box-shadow: none;
+		}
+		> svg { 
+			vertical-align: initial;
 		}
 
 		svg.tc-sort-by-order-chooser-indicator {
@@ -41,11 +44,15 @@ $tc-order-chooser-icon-size: 0.6rem !default;
 		display: flex;
 		align-items: center;
 		> a[role='button'] {
-			text-transform: lowercase;
 			display: inline-block;
+			text-transform: lowercase;
 			&::first-letter {
 				text-transform: uppercase;
 			}
 		}
 	}
+}
+
+:global(.tc-sort-by-order-chooser) {
+	color: red;
 }

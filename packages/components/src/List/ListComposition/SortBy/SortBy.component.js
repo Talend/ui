@@ -81,7 +81,7 @@ function SortBy({ id, initialValue, options, onChange, value }) {
 		performChange(event, { ...currentValue, isDescending: !isDescending });
 
 	return (
-		<li className={theme('tc-sort-by')}>
+		<Nav className={theme('tc-sort-by')}>
 			<Navbar.Text>
 				<label className={theme('tc-sort-by-label')} htmlFor={id}>
 					{t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}
@@ -126,7 +126,7 @@ function SortBy({ id, initialValue, options, onChange, value }) {
 					/>
 				)}
 			</Nav>
-		</li>
+		</Nav>
 	);
 }
 
