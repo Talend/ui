@@ -2,7 +2,7 @@ $tc-display-button-icon-height: 2.4rem;
 
 .tc-display-mode-toggle {
 	display: flex;
-	
+
 	// We are selecting the first button / tooltip to apply a margin
 	div:first-child {
 		margin-right: $padding-normal;
