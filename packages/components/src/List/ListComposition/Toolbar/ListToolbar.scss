@@ -32,15 +32,20 @@ $tc-toolbar-height: 7rem;
 		display: flex;
 	}
 	&-separated:not(:first-child):before {
+		align-self: center;
 		content: '|';
 		color: $silver;
-		padding: 0 $padding-normal 0 $padding-normal
+		padding: 0 $padding-normal;
 	}
 
 	> :global(.container-fluid) {
 		display: flex;
 		align-items: center;
 		width: 100%;
+		padding: 0;
+	}
+
+	:global(button[role="search"][type='button']) {
 		padding: 0;
 	}
 }

@@ -81,7 +81,9 @@ storiesOf('List Composition', module)
 			<pre>{`
 <List.Manager id="my-list" collection={collection} initialDisplayMode="table">
 	<List.Toolbar>
-		<List.DisplayMode id="my-list-displayMode" />
+		<List.Toolbar.Right>
+			<List.DisplayMode id="my-list-displayMode" />
+		</List.Toolbar.Right>
 	</List.Toolbar>
 	<List.VList id="my-vlist">
 		...
@@ -116,11 +118,13 @@ storiesOf('List Composition', module)
  	collection={collection}
 >
 	<List.Toolbar>
-		<List.DisplayMode
-		 	id="my-list-displayMode"
-		 	selectedDisplayMode="table"
-		 	onChange={(event, displayMode) => changeDisplayMode(displayMode)}
-		/>
+		<List.Toolbar.Right>
+			<List.DisplayMode
+				id="my-list-displayMode"
+				selectedDisplayMode="table"
+				onChange={(event, displayMode) => changeDisplayMode(displayMode)}
+			/>
+		</List.Toolbar.Right>
 	</List.Toolbar>
 	<List.VList id="my-vlist" type="TABLE">
 		...
@@ -153,7 +157,9 @@ storiesOf('List Composition', module)
  	collection={collection}
 >
 	<List.Toolbar>
-		<List.TextFilter id="my-list-textFilter" />
+		<List.Toolbar.Right>
+			<List.TextFilter id="my-list-textFilter" />
+		</List.Toolbar.Right>
 	</List.Toolbar>
 	<List.VList id="my-vlist" type="TABLE">
 		...
@@ -163,7 +169,9 @@ storiesOf('List Composition', module)
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
-						<List.TextFilter id="my-list-textFilter" />
+						<List.Toolbar.Right>
+							<List.TextFilter id="my-list-textFilter" />
+						</List.Toolbar.Right>
 					</List.Toolbar>
 					<CustomList type="TABLE" />
 				</List.Manager>
@@ -185,7 +193,9 @@ storiesOf('List Composition', module)
  	collection={collection}
 >
 	<List.Toolbar>
-		<List.TextFilter id="my-list-textFilter" docked={false} onChange={action('onChange')} onToggle={action('onToggle')} />
+		<List.Toolbar.Right>
+			<List.TextFilter id="my-list-textFilter" docked={false} onChange={action('onChange')} onToggle={action('onToggle')} />
+		</List.Toolbar.Right>
 	</List.Toolbar>
 	<List.VList id="my-vlist" type="TABLE">
 		...
@@ -195,12 +205,14 @@ storiesOf('List Composition', module)
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
-						<List.TextFilter
-							id="my-list-textFilter"
-							docked={false}
-							onChange={action('onChange')}
-							onToggle={action('onToggle')}
-						/>
+						<List.Toolbar.Right>
+							<List.TextFilter
+								id="my-list-textFilter"
+								docked={false}
+								onChange={action('onChange')}
+								onToggle={action('onToggle')}
+							/>
+						</List.Toolbar.Right>
 					</List.Toolbar>
 					<CustomList type="TABLE" />
 				</List.Manager>
@@ -215,11 +227,13 @@ storiesOf('List Composition', module)
 			<pre>{`
 <List.Manager id="my-list" collection={simpleCollection}>
 	<List.Toolbar>
-		<List.SortBy
-		id="my-list-sortBy"
-		options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
-		initialValue={{ sortBy: 'id', isDescending: true }}
-		/>
+		<List.Toolbar.Right>
+			<List.SortBy
+			id="my-list-sortBy"
+			options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+			initialValue={{ sortBy: 'id', isDescending: true }}
+			/>
+		</List.Toolbar.Right>
 	</List.Toolbar>
 	<List.VList id="my-vlist">
 		...
@@ -234,6 +248,39 @@ storiesOf('List Composition', module)
 							options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
 							initialValue={{ sortBy: 'id', isDescending: true }}
 						/>
+					</List.Toolbar>
+					<CustomList />
+				</List.Manager>
+			</section>
+		</div>
+	))
+	.add('lots of actions, layout render: uncontrolled', () => (
+		<div className="virtualized-list">
+			<IconsProvider />
+			<h1>List with multiple right actions</h1>
+			<p>
+				With multiple actions the Right component will align the actions to the left,
+				and add a separator between each.
+			</p>
+			<pre>{`
+							<List.Manager id="my-list" collection={simpleCollection}>
+							<List.Toolbar>
+								<List.Toolbar.Right>
+									<List.TextFilter id="my-list-textFilter" />
+									<List.DisplayMode id="my-list-displayMode" />
+								</List.Toolbar.Right>
+							</List.Toolbar>
+							<CustomList />
+						</List.Manager>
+		
+`}</pre>
+			<section style={{ height: '50vh' }}>
+				<List.Manager id="my-list" collection={simpleCollection}>
+					<List.Toolbar>
+						<List.Toolbar.Right>
+							<List.TextFilter id="my-list-textFilter" />
+							<List.DisplayMode id="my-list-displayMode" />
+						</List.Toolbar.Right>
 					</List.Toolbar>
 					<CustomList />
 				</List.Manager>
