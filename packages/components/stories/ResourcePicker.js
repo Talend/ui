@@ -6,7 +6,6 @@ import talendIcons from '@talend/icons/dist/react';
 import ResourcePicker, { TOOLBAR_OPTIONS } from '../src/ResourcePicker';
 import IconsProvider from '../src/IconsProvider';
 
-
 const icons = {
 	'talend-file-xls-o': talendIcons['talend-file-xls-o'],
 	'talend-check-circle': talendIcons['talend-check-circle'],
@@ -72,6 +71,55 @@ const collection = [
 	},
 ];
 
+const simpleCollection = [
+	{
+		icon: 'talend-file-xls-o',
+		id: 0,
+		name: 'Title with few actions',
+		subtitle:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempor felis ultricies felis molestie placerat quis sit amet felis.',
+	},
+	{
+		icon: 'talend-file-xls-o',
+		id: 1,
+		name: 'Title with lot of actions',
+		subtitle:
+			'Duis eros erat, ultricies sit amet tincidunt at, placerat quis ipsum. Cras nisi felis, condimentum sodales odio aliquet, accumsan molestie velit.',
+	},
+	{
+		icon: 'talend-file-xls-o',
+		id: 2,
+		name: 'Title with persistant actions',
+		subtitle:
+			'Duis eros erat, ultricies sit amet tincidunt at, placerat quis ipsum. Cras nisi felis, condimentum sodales odio aliquet, accumsan molestie velit.',
+	},
+	{
+		icon: 'talend-file-xls-o',
+		id: 3,
+		name: 'Title with icon',
+		subtitle:
+			'Curabitur ac nulla ut augue vulputate aliquet vitae at est. Curabitur massa lacus, sagittis eu cursus vel, consectetur ultricies nibh.',
+	},
+	{
+		icon: 'talend-file-xls-o',
+		id: 4,
+		name: 'Title in input mode',
+		subtitle:
+			'Curabitur ac porttitor nunc. Quisque molestie sollicitudin nisi sed tincidunt. Nam facilisis enim nec urna pretium, vel porttitor nisl venenatis.',
+	},
+	{
+		icon: 'talend-file-xls-o',
+		id: 5,
+		subtitle:
+			'Cras enim ligula, ornare at lorem sed, hendrerit tempor magna. Integer ac sapien sapien. Nam scelerisque tellus at ligula pharetra vulputate.',
+	},
+	{
+		icon: 'talend-file-xls-o',
+		id: 6,
+		name: 'Without author',
+		subtitle: 'Vestibulum felis nulla, commodo sed sem ac, maximus sollicitudin libero.',
+	},
+];
 
 const name = {
 	onChange: action('Name filter changed'),
@@ -96,7 +144,6 @@ const props = {
 	onRowClick: action('Row clicked'),
 };
 
-
 storiesOf('ResourcePicker', module)
 	.addDecorator(story => (
 		<section>
@@ -108,6 +155,29 @@ storiesOf('ResourcePicker', module)
 		<div>
 			<p>By default :</p>
 			<ResourcePicker id="default" {...props} />
+		</div>
+	))
+	.add('default simple', () => (
+		<div>
+			<p>By default :</p>
+			<div style={{ width: '40rem', height: '10rem' }}>
+				<ResourcePicker
+					id="default"
+					{...props}
+					collection={simpleCollection}
+					toolbar={{
+						name,
+						sort: {
+							onChange: action('Sort option changed'),
+							types: [TOOLBAR_OPTIONS.SORT_OPTIONS.NAME],
+							orders: {
+								[TOOLBAR_OPTIONS.SORT_OPTIONS.NAME]: TOOLBAR_OPTIONS.ORDERS.DESC,
+							},
+						},
+						state: { types: [] },
+					}}
+				/>
+			</div>
 		</div>
 	))
 	.add('with selected resources', () => (
