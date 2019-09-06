@@ -19,6 +19,6 @@ exports[`Date.Manager should render its children 1`] = `
     }
   }
 >
-  <DateTimeConsumer />
+  <DateConsumer />
 </Context.Provider>
 `;

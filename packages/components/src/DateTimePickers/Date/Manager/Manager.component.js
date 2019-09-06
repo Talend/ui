@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { DateContext } from '../Context';
@@ -9,11 +9,22 @@ import {
 	extractDateFromTextInput,
 } from '../date-extraction';
 
-
 function ContextualManager(props) {
 	// eslint-disable-next-line no-use-before-define
 	const initialState = extractDate(props.value, getDateOptions());
 	const [state, setState] = useState(initialState);
+
+	useEffect(() => {
+		// eslint-disable-next-line no-use-before-define
+		const newState = extractDate(props.value, getDateOptions());
+		setState(newState);
+	}, [props.value]);
+
+	useEffect(() => {
+		checkSupportedDateFormat(props.dateFormat);
+	}, [props.dateFormat]);
+
+	checkSupportedDateFormat(props.dateFormat);
 
 	function getDateOptions() {
 		return {
@@ -43,8 +54,6 @@ function ContextualManager(props) {
 		onChange(event, 'PICKER', nextState);
 	}
 
-	checkSupportedDateFormat(props.dateFormat);
-
 	return (
 		<DateContext.Provider
 			value={{
@@ -72,8 +81,8 @@ function ContextualManager(props) {
 ContextualManager.propTypes = {
 	children: PropTypes.node,
 	dateFormat: PropTypes.string,
+	/* eslint-disable-next-line react/no-unused-prop-types */
 	onChange: PropTypes.func,
-	required: PropTypes.bool,
 	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	useUTC: PropTypes.bool,
 };

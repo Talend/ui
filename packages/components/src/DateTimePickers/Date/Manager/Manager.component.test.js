@@ -8,14 +8,14 @@ import { DateContext } from '../Context';
 
 const DEFAULT_ID = 'DEFAULT_ID';
 
-function DateTimeConsumerDiv() {
+function DateConsumerDiv() {
 	return <div />;
 }
 // eslint-disable-next-line react/prop-types
-function DateTimeConsumer() {
+function DateConsumer() {
 	return (
 		<DateContext.Consumer>
-			{contextValue => <DateTimeConsumerDiv {...contextValue} />}
+			{contextValue => <DateConsumerDiv {...contextValue} />}
 		</DateContext.Consumer>
 	);
 }
@@ -25,7 +25,7 @@ describe('Date.Manager', () => {
 		// when
 		const wrapper = shallow(
 			<Manager id={DEFAULT_ID} value={new Date(2017, 3, 4)}>
-				<DateTimeConsumer />
+				<DateConsumer />
 			</Manager>,
 		);
 
@@ -40,12 +40,12 @@ describe('Date.Manager', () => {
 				// when
 				const wrapper = mount(
 					<Manager id={DEFAULT_ID} value={initialDate}>
-						<DateTimeConsumer />
+						<DateConsumer />
 					</Manager>,
 				);
 
 				// then
-				const contextValue = wrapper.find('DateTimeConsumerDiv').props();
+				const contextValue = wrapper.find('DateConsumerDiv').props();
 				expect(contextValue.value.textInput).toBe(expectedTextInput);
 				expect(contextValue.value.date).toEqual(expectedDate);
 			},
@@ -70,6 +70,53 @@ describe('Date.Manager', () => {
 				},
 			],
 		);
+		cases(
+			'props update should update state',
+			({ initialDate, newDate, expectedTextInput, expectedDate }) => {
+				// given
+				const wrapper = mount(
+					<Manager id={DEFAULT_ID} value={initialDate}>
+						<DateConsumer />
+					</Manager>,
+				);
+
+				// when
+				act(() => {
+					wrapper.setProps({
+						value: newDate,
+					});
+				});
+				wrapper.update();
+
+				// then
+				const contextValue = wrapper.find('DateConsumerDiv').props();
+				expect(contextValue.value.textInput).toBe(expectedTextInput);
+				expect(contextValue.value.date).toEqual(expectedDate);
+			},
+			[
+				{
+					name: 'from undefined props',
+					initialDate: new Date(),
+					newDate: undefined,
+					expectedTextInput: '',
+					expectedDate: undefined,
+				},
+				{
+					name: 'from props invalid date',
+					initialDate: new Date(),
+					newDate: new Date(''), // invalid date
+					expectedTextInput: '',
+					expectedDate: undefined,
+				},
+				{
+					name: 'from props valid date',
+					initialDate: new Date(),
+					newDate: new Date(2015, 3, 4),
+					expectedTextInput: '2015-04-04',
+					expectedDate: new Date(2015, 3, 4),
+				},
+			],
+		);
 
 		cases(
 			'props update should NOT update state',
@@ -77,10 +124,10 @@ describe('Date.Manager', () => {
 				// given
 				const wrapper = mount(
 					<Manager id={DEFAULT_ID} value={initialDate}>
-						<DateTimeConsumer />
+						<DateConsumer />
 					</Manager>,
 				);
-				const previousState = wrapper.find('DateTimeConsumerDiv').props('value');
+				const previousState = wrapper.find('DateConsumerDiv').props('value');
 
 				// when
 				wrapper.setProps({
@@ -88,7 +135,7 @@ describe('Date.Manager', () => {
 				});
 
 				// then
-				const nextState = wrapper.find('DateTimeConsumerDiv').props('value');
+				const nextState = wrapper.find('DateConsumerDiv').props('value');
 				expect(previousState.textInput).toBe(nextState.textInput);
 				expect(previousState.date).toBe(nextState.date);
 			},
@@ -114,19 +161,19 @@ describe('Date.Manager', () => {
 					const event = { target: { value: textInput } };
 					const wrapper = mount(
 						<Manager id={DEFAULT_ID} dateFormat={dateFormat}>
-							<DateTimeConsumer />
+							<DateConsumer />
 						</Manager>,
 					);
 
 					// when
 					wrapper
-						.find('DateTimeConsumerDiv')
+						.find('DateConsumerDiv')
 						.prop('inputManagement')
 						.onChange(event);
 					wrapper.update();
 
 					// then
-					const value = wrapper.find('DateTimeConsumerDiv').prop('value');
+					const value = wrapper.find('DateConsumerDiv').prop('value');
 					expect(value.textInput).toBe(textInput);
 
 					const { date } = value;
@@ -163,14 +210,14 @@ describe('Date.Manager', () => {
 				const event = { target: { value: '2015-01-15' } };
 				const wrapper = mount(
 					<Manager id={DEFAULT_ID} onChange={onChange}>
-						<DateTimeConsumer />
+						<DateConsumer />
 					</Manager>,
 				);
 				expect(onChange).not.toBeCalled();
 
 				// when
 				wrapper
-					.find('DateTimeConsumerDiv')
+					.find('DateConsumerDiv')
 					.prop('inputManagement')
 					.onChange(event);
 
@@ -190,14 +237,14 @@ describe('Date.Manager', () => {
 				const event = { target: { value: '2015aze-01-15' } };
 				const wrapper = mount(
 					<Manager id={DEFAULT_ID} onChange={onChange}>
-						<DateTimeConsumer />
+						<DateConsumer />
 					</Manager>,
 				);
 				expect(onChange).not.toBeCalled();
 
 				// when
 				wrapper
-					.find('DateTimeConsumerDiv')
+					.find('DateConsumerDiv')
 					.prop('inputManagement')
 					.onChange(event);
 
@@ -222,19 +269,19 @@ describe('Date.Manager', () => {
 					const event = { preventDefault: () => {} };
 					const wrapper = mount(
 						<Manager id={DEFAULT_ID} dateFormat={dateFormat}>
-							<DateTimeConsumer />
+							<DateConsumer />
 						</Manager>,
 					);
 
 					// when
 					wrapper
-						.find('DateTimeConsumerDiv')
+						.find('DateConsumerDiv')
 						.prop('pickerManagement')
 						.onSubmit(event, { date });
 					wrapper.update();
 
 					// then
-					const dateValue = wrapper.find('DateTimeConsumerDiv').prop('value');
+					const dateValue = wrapper.find('DateConsumerDiv').prop('value');
 					expect(dateValue.textInput).toBe(expectedTextInput);
 					expect(dateValue.date).toEqual(date);
 				},
@@ -259,7 +306,7 @@ describe('Date.Manager', () => {
 				const event = { target: {}, preventDefault: () => {} };
 				const wrapper = mount(
 					<Manager id={DEFAULT_ID} onChange={onChange}>
-						<DateTimeConsumer />
+						<DateConsumer />
 					</Manager>,
 				);
 
@@ -268,7 +315,7 @@ describe('Date.Manager', () => {
 				// when
 				act(() => {
 					wrapper
-						.find('DateTimeConsumerDiv')
+						.find('DateConsumerDiv')
 						.prop('pickerManagement')
 						.onSubmit(event, {
 							date: new Date(2015, 0, 15),
@@ -291,12 +338,12 @@ describe('Date.Manager', () => {
 				// when
 				const wrapper = mount(
 					<Manager id={DEFAULT_ID} useUTC={false}>
-						<DateTimeConsumer />
+						<DateConsumer />
 					</Manager>,
 				);
 
 				// then
-				const { useUTC } = wrapper.find('DateTimeConsumerDiv').prop('pickerManagement');
+				const { useUTC } = wrapper.find('DateConsumerDiv').prop('pickerManagement');
 				expect(useUTC).toBe(false);
 			});
 		});
