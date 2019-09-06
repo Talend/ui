@@ -53,7 +53,7 @@ export default function InputDatePicker(props) {
 	].filter(Boolean);
 	return (
 		<Date.Manager
-			selectedDate={props.selectedDate}
+			value={props.value}
 			dateFormat={props.dateFormat}
 			onChange={(...args) => handlers.onChange(...args, inputRef.current)}
 			useUTC={props.useUTC}
@@ -80,7 +80,7 @@ InputDatePicker.propTypes = {
 	dateFormat: PropTypes.string,
 	onChange: PropTypes.func,
 	onBlur: PropTypes.func,
-	selectedDate: PropTypes.oneOfType([
+	value: PropTypes.oneOfType([
 		PropTypes.instanceOf(Date),
 		PropTypes.number,
 		PropTypes.string,

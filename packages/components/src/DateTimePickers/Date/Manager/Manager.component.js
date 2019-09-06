@@ -20,7 +20,7 @@ class ContextualManager extends React.Component {
 		dateFormat: PropTypes.string,
 		onChange: PropTypes.func,
 		required: PropTypes.bool,
-		selectedDate: PropTypes.oneOfType([
+		value: PropTypes.oneOfType([
 			PropTypes.instanceOf(Date),
 			PropTypes.number,
 			PropTypes.string,
@@ -37,25 +37,25 @@ class ContextualManager extends React.Component {
 		super(props);
 
 		checkSupportedDateFormat(props.dateFormat);
-		this.state = extractDate(props.selectedDate, this.getDateOptions());
+		this.state = extractDate(props.value, this.getDateOptions());
 
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onPickerChange = this.onPickerChange.bind(this);
 	}
 
 	componentWillReceiveProps(nextProps) {
-		const newselectedDate = nextProps.selectedDate;
+		const newValue = nextProps.value;
 
 		const needDateStateUpdate =
-			newselectedDate !== this.props.selectedDate && // selectedDate props updated
-			newselectedDate !== this.state.date; // not the same ref as state date
+			newValue !== this.props.value && // value props updated
+			newValue !== this.state.date; // not the same ref as state date
 
 		if (nextProps.dateFormat !== this.props.dateFormat) {
 			checkSupportedDateFormat(nextProps.dateFormat);
 		}
 
 		if (needDateStateUpdate) {
-			const dateRelatedPartState = extractDate(newselectedDate, this.getDateOptions());
+			const dateRelatedPartState = extractDate(newValue, this.getDateOptions());
 			this.setState(dateRelatedPartState);
 		}
 	}

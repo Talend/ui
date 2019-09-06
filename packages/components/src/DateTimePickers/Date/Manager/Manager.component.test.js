@@ -23,7 +23,7 @@ describe('Date.Manager', () => {
 	it('should render its children', () => {
 		// when
 		const wrapper = shallow(
-			<Manager id={DEFAULT_ID} selectedDateTime={new Date(2017, 3, 4)}>
+			<Manager id={DEFAULT_ID} value={new Date(2017, 3, 4)}>
 				<DateTimeConsumer />
 			</Manager>,
 		);
@@ -38,7 +38,7 @@ describe('Date.Manager', () => {
 			({ initialDate, expectedTextInput, expectedDate }) => {
 				// when
 				const wrapper = mount(
-					<Manager id={DEFAULT_ID} selectedDate={initialDate}>
+					<Manager id={DEFAULT_ID} value={initialDate}>
 						<DateTimeConsumer />
 					</Manager>,
 				);
@@ -75,14 +75,14 @@ describe('Date.Manager', () => {
 			({ initialDate, newDate, expectedTextInput, expectedDate }) => {
 				// given
 				const wrapper = mount(
-					<Manager id={DEFAULT_ID} selectedDateTime={initialDate}>
+					<Manager id={DEFAULT_ID} value={initialDate}>
 						<DateTimeConsumer />
 					</Manager>,
 				);
 
 				// when
 				wrapper.setProps({
-					selectedDate: newDate,
+					value: newDate,
 				});
 
 				// then
@@ -120,7 +120,7 @@ describe('Date.Manager', () => {
 			({ initialDate, newDate }) => {
 				// given
 				const wrapper = mount(
-					<Manager id={DEFAULT_ID} selectedDate={initialDate}>
+					<Manager id={DEFAULT_ID} value={initialDate}>
 						<DateTimeConsumer />
 					</Manager>,
 				);
@@ -128,7 +128,7 @@ describe('Date.Manager', () => {
 
 				// when
 				wrapper.setProps({
-					selectedDate: newDate,
+					value: newDate,
 				});
 
 				// then

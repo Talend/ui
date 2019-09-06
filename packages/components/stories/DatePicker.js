@@ -18,7 +18,7 @@ class TestPickerWrapper extends React.Component {
 
 		this.state = {
 			inputEvalValue: '',
-			selectedDate: this.props.selectedDate,
+			value: this.props.value,
 		};
 		this.onSubmitEval = this.onSubmitEval.bind(this);
 		this.onChangeEvalInput = this.onChangeEvalInput.bind(this);
@@ -27,7 +27,7 @@ class TestPickerWrapper extends React.Component {
 	onSubmitEval() {
 		this.setState(prevState => ({
 			// eslint-disable-next-line no-eval
-			selectedDate: eval(prevState.inputEvalValue),
+			value: eval(prevState.inputEvalValue),
 		}));
 	}
 
@@ -47,7 +47,7 @@ class TestPickerWrapper extends React.Component {
 			>
 				<div>
 					<label htmlFor="TestWrapper_storybook_eval-input">
-						Text to eval for updating 'selectedDate' prop
+						Text to eval for updating 'value' prop
 					</label>
 					<br />
 					<input
@@ -63,7 +63,7 @@ class TestPickerWrapper extends React.Component {
 				<br />
 				<InputDatePicker
 					{...this.props}
-					selectedDate={this.state.selectedDate}
+					value={this.state.value}
 					onChange={action('onChange')}
 					onBlur={action('onBlur')}
 					name="Datetime"
@@ -105,7 +105,7 @@ storiesOf('DatePicker', module)
 					name="Datetime"
 					onBlur={action('onBlur')}
 					onChange={action('onChange')}
-					selectedDate={new Date(Date.UTC(2018, 4, 13, 12, 30, 44))}
+					value={new Date(Date.UTC(2018, 4, 13, 12, 30, 44))}
 					useTime
 					useUTC
 				/>
@@ -138,7 +138,7 @@ storiesOf('DatePicker', module)
 					name="Datetime"
 					onBlur={action('onBlur')}
 					onChange={action('onChange')}
-					selectedDate={new Date(2018, 4, 13, 12, 30)}
+					value={new Date(2018, 4, 13, 12, 30)}
 					dateFormat="DD/MM/YYYY"
 					useTime
 				/>
