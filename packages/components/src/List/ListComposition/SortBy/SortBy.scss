@@ -40,7 +40,7 @@ $tc-order-chooser-icon-size: 0.6rem !default;
 			height: $tc-order-chooser-icon-size;
 		}
 	}
-	li.tc-sort-by-items {
+	:global(tc-sort-by-items) {
 		display: flex;
 		align-items: center;
 		> a[role='button'] {
