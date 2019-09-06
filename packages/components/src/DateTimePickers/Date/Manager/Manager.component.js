@@ -24,8 +24,6 @@ function ContextualManager(props) {
 		checkSupportedDateFormat(props.dateFormat);
 	}, [props.dateFormat]);
 
-	checkSupportedDateFormat(props.dateFormat);
-
 	function getDateOptions() {
 		return {
 			dateFormat: props.dateFormat,
@@ -81,7 +79,6 @@ function ContextualManager(props) {
 ContextualManager.propTypes = {
 	children: PropTypes.node,
 	dateFormat: PropTypes.string,
-	/* eslint-disable-next-line react/no-unused-prop-types */
 	onChange: PropTypes.func,
 	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	useUTC: PropTypes.bool,
