@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { DateContext } from '../Context';
@@ -9,116 +9,86 @@ import {
 	extractDateFromTextInput,
 } from '../date-extraction';
 
-import {
-	INPUT_ERRORS,
-} from '../constants';
+import { INPUT_ERRORS } from '../constants';
 
-class ContextualManager extends React.Component {
-	static displayName = 'Date.Manager';
-	static propTypes = {
-		children: PropTypes.node,
-		dateFormat: PropTypes.string,
-		onChange: PropTypes.func,
-		required: PropTypes.bool,
-		value: PropTypes.oneOfType([
-			PropTypes.instanceOf(Date),
-			PropTypes.number,
-			PropTypes.string,
-		]),
-		useUTC: PropTypes.bool,
-	};
+function ContextualManager(props) {
+	// eslint-disable-next-line no-use-before-define
+	const initialState = extractDate(props.value, getDateOptions());
+	const [state, setState] = useState(initialState);
 
-	static defaultProps = {
-		dateFormat: 'YYYY-MM-DD',
-		useUTC: false,
-	};
-
-	constructor(props) {
-		super(props);
-
-		checkSupportedDateFormat(props.dateFormat);
-		this.state = extractDate(props.value, this.getDateOptions());
-
-		this.onInputChange = this.onInputChange.bind(this);
-		this.onPickerChange = this.onPickerChange.bind(this);
+	function getDateOptions() {
+		return {
+			dateFormat: props.dateFormat,
+			useUTC: props.useUTC,
+			required: props.required,
+		};
 	}
-
-	componentWillReceiveProps(nextProps) {
-		const newValue = nextProps.value;
-
-		const needDateStateUpdate =
-			newValue !== this.props.value && // value props updated
-			newValue !== this.state.date; // not the same ref as state date
-
-		if (nextProps.dateFormat !== this.props.dateFormat) {
-			checkSupportedDateFormat(nextProps.dateFormat);
-		}
-
-		if (needDateStateUpdate) {
-			const dateRelatedPartState = extractDate(newValue, this.getDateOptions());
-			this.setState(dateRelatedPartState);
-		}
-	}
-
-	onChange(event, origin) {
-		if (!this.props.onChange) {
+	function onChange(event, origin, nextState) {
+		if (!props.onChange) {
 			return;
 		}
-		const { errorMessage, date, textInput, errors } = this.state;
-		this.props.onChange(event, { errors, errorMessage, date, textInput, origin });
+		const { errorMessage, date, textInput, errors } = nextState;
+		props.onChange(event, { errors, errorMessage, date, textInput, origin });
 	}
 
-	onInputChange(event) {
+	function onInputChange(event) {
 		const textInput = event.target.value;
-		const nextState = extractDateFromTextInput(textInput, this.getDateOptions());
-		this.setState(nextState, () => {
-			this.onChange(event, 'INPUT');
-		});
+		const nextState = extractDateFromTextInput(textInput, getDateOptions());
+		setState(nextState);
+		onChange(event, 'INPUT', nextState);
 	}
 
-	onPickerChange(event, { date }) {
-		const nextState = extractPartsFromDate(date, this.getDateOptions());
+	function onPickerChange(event, { date }) {
+		const nextState = extractPartsFromDate(date, getDateOptions());
 
-		const nextErrors = this.state.errors
+		const nextErrors = state.errors
 			.filter(error => !INPUT_ERRORS.includes(error.code))
 			.concat(nextState.errors.filter(error => INPUT_ERRORS.includes(error.code)));
 
-		this.setState({ ...nextState, errors: nextErrors }, () => {
-			this.onChange(event, 'PICKER');
-		});
+		setState({ ...nextState, errors: nextErrors });
+		onChange(event, 'PICKER', { ...nextState, errors: nextErrors });
 	}
 
-	getDateOptions() {
-		return {
-			dateFormat: this.props.dateFormat,
-			useUTC: this.props.useUTC,
-			required: this.props.required,
-		};
-	}
+	checkSupportedDateFormat(props.dateFormat);
 
-	render() {
-		return (
-			<DateContext.Provider
-				value={{
-					value: {
-						textInput: this.state.textInput,
-						date: this.state.date,
-					},
+	return (
+		<DateContext.Provider
+			value={{
+				value: {
+					textInput: state.textInput,
+					date: state.date,
+				},
 
-					inputManagement: {
-						onChange: this.onInputChange,
-						placeholder: this.props.dateFormat,
-					},
+				inputManagement: {
+					onChange: onInputChange,
+					placeholder: props.dateFormat,
+				},
 
-					pickerManagement: {
-						onSubmit: this.onPickerChange,
-						useUTC: this.props.useUTC,
-					},
-				}}
-			>
-				{this.props.children}
-			</DateContext.Provider>
-		);
-	}
+				pickerManagement: {
+					onSubmit: onPickerChange,
+					useUTC: props.useUTC,
+				},
+			}}
+		>
+			{props.children}
+		</DateContext.Provider>
+	);
 }
+
+ContextualManager.propTypes = {
+	children: PropTypes.node,
+	dateFormat: PropTypes.string,
+	onChange: PropTypes.func,
+	required: PropTypes.bool,
+	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
+	useUTC: PropTypes.bool,
+};
+
+ContextualManager.defaultProps = {
+	dateFormat: 'YYYY-MM-DD',
+	useUTC: false,
+};
+
+ContextualManager.displayName = 'Date.Manager';
+
 export default ContextualManager;

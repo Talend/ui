@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import cases from 'jest-in-case';
+import { act } from 'react-dom/test-utils';
 
 import Manager from './Manager.component';
 import { DateContext } from '../Context';
@@ -64,51 +65,6 @@ describe('Date.Manager', () => {
 				{
 					name: 'should init state from props',
 					initialDate: new Date(2015, 3, 4),
-					expectedTextInput: '2015-04-04',
-					expectedDate: new Date(2015, 3, 4),
-				},
-			],
-		);
-
-		cases(
-			'props update should update state',
-			({ initialDate, newDate, expectedTextInput, expectedDate }) => {
-				// given
-				const wrapper = mount(
-					<Manager id={DEFAULT_ID} value={initialDate}>
-						<DateTimeConsumer />
-					</Manager>,
-				);
-
-				// when
-				wrapper.setProps({
-					value: newDate,
-				});
-
-				// then
-				const contextValue = wrapper.find('DateTimeConsumerDiv').props();
-				expect(contextValue.value.textInput).toBe(expectedTextInput);
-				expect(contextValue.value.date).toEqual(expectedDate);
-			},
-			[
-				{
-					name: 'from undefined props',
-					initialDate: new Date(),
-					newDate: undefined,
-					expectedTextInput: '',
-					expectedDate: undefined,
-				},
-				{
-					name: 'from props invalid date',
-					initialDate: new Date(),
-					newDate: new Date(''), // invalid date
-					expectedTextInput: '',
-					expectedDate: undefined,
-				},
-				{
-					name: 'from props valid date',
-					initialDate: new Date(),
-					newDate: new Date(2015, 3, 4),
 					expectedTextInput: '2015-04-04',
 					expectedDate: new Date(2015, 3, 4),
 				},
@@ -310,12 +266,15 @@ describe('Date.Manager', () => {
 				expect(onChange).not.toBeCalled();
 
 				// when
-				wrapper
-					.find('DateTimeConsumerDiv')
-					.prop('pickerManagement')
-					.onSubmit(event, {
-						date: new Date(2015, 0, 15),
-					});
+				act(() => {
+					wrapper
+						.find('DateTimeConsumerDiv')
+						.prop('pickerManagement')
+						.onSubmit(event, {
+							date: new Date(2015, 0, 15),
+						});
+				});
+				wrapper.update();
 				// then
 				expect(onChange).toBeCalledWith(event, {
 					date: new Date(2015, 0, 15),
