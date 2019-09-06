@@ -20,14 +20,10 @@ function getLabel(option, t) {
 }
 
 export const DisplayModeIcon = React.memo(
-	({ displayMode, displayModeOption, icon, id, label, onSelect, isLast }) => {
+	({ displayMode, displayModeOption, icon, id, label, onSelect }) => {
 		const { t } = useListContext();
 		return (
 			<ActionIconToggle
-				className={theme({
-					'tc-display-mode-toggle-last-button': isLast,
-					'tc-display-mode-toggle-button': !isLast,
-				})}
 				key={displayModeOption}
 				id={`${id}-${displayModeOption}`}
 				icon={icon}
@@ -85,9 +81,8 @@ function ListDisplayMode({
 	}
 	return (
 		<div className={theme('tc-display-mode-toggle')}>
-			{displayModesOptions.map((displayModeOption, index) => (
+			{displayModesOptions.map(displayModeOption => (
 				<DisplayModeIcon
-					isLast={displayModesOptions.length - 1 === index}
 					displayMode={selectedDisplayMode || displayMode}
 					displayModeOption={displayModeOption}
 					icon={displayModeOption === 'table' ? 'talend-table' : 'talend-expanded'}
