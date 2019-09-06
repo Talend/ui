@@ -9,7 +9,6 @@ import {
 	extractDateFromTextInput,
 } from '../date-extraction';
 
-import { INPUT_ERRORS } from '../constants';
 
 function ContextualManager(props) {
 	// eslint-disable-next-line no-use-before-define
@@ -40,13 +39,8 @@ function ContextualManager(props) {
 
 	function onPickerChange(event, { date }) {
 		const nextState = extractPartsFromDate(date, getDateOptions());
-
-		const nextErrors = state.errors
-			.filter(error => !INPUT_ERRORS.includes(error.code))
-			.concat(nextState.errors.filter(error => INPUT_ERRORS.includes(error.code)));
-
-		setState({ ...nextState, errors: nextErrors });
-		onChange(event, 'PICKER', { ...nextState, errors: nextErrors });
+		setState(nextState);
+		onChange(event, 'PICKER', nextState);
 	}
 
 	checkSupportedDateFormat(props.dateFormat);
