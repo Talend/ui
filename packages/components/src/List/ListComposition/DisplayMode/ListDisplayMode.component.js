@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
 import { ActionIconToggle } from '../../../Actions';
-import theme from './DisplayModeToggle.scss';
 import { useListContext } from '../context';
+import cssModule from './DisplayModeToggle.scss';
+import { getTheme } from '../../../theme';
+
+const theme = getTheme(cssModule);
 
 function getLabel(option, t) {
 	switch (option) {
@@ -18,10 +20,14 @@ function getLabel(option, t) {
 }
 
 export const DisplayModeIcon = React.memo(
-	({ displayMode, displayModeOption, icon, id, label, onSelect }) => {
+	({ displayMode, displayModeOption, icon, id, label, onSelect, isLast }) => {
 		const { t } = useListContext();
 		return (
 			<ActionIconToggle
+				className={theme({
+					'tc-display-mode-toggle-last-button': isLast,
+					'tc-display-mode-toggle-button': !isLast,
+				})}
 				key={displayModeOption}
 				id={`${id}-${displayModeOption}`}
 				icon={icon}
@@ -78,9 +84,10 @@ function ListDisplayMode({
 		return children;
 	}
 	return (
-		<div className={classNames(theme['tc-display-mode-toggle'], 'tc-display-mode-toggle')}>
-			{displayModesOptions.map(displayModeOption => (
+		<div className={theme('tc-display-mode-toggle')}>
+			{displayModesOptions.map((displayModeOption, index) => (
 				<DisplayModeIcon
+					isLast={displayModesOptions.length - 1 === index}
 					displayMode={selectedDisplayMode || displayMode}
 					displayModeOption={displayModeOption}
 					icon={displayModeOption === 'table' ? 'talend-table' : 'talend-expanded'}

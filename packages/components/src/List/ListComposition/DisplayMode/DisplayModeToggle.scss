@@ -2,15 +2,14 @@ $tc-display-button-icon-height: 2.4rem;
 
 .tc-display-mode-toggle {
 	display: flex;
-
-	// We are selecting the first button / tooltip to apply a margin
-	div:first-child {
+	:global(.tc-display-mode-toggle-last-button) {
+		margin-right: 0;
+	}
+	:global(.tc-display-mode-toggle-button) {
 		margin-right: $padding-normal;
 	}
-
 	:global(.tc-icon-toggle) {
 		height: $tc-display-button-icon-height;
 		min-height: $tc-display-button-icon-height;
-		margin: 0;
 	}
 }
