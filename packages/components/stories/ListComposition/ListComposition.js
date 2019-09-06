@@ -254,39 +254,6 @@ storiesOf('List Composition', module)
 			</section>
 		</div>
 	))
-	.add('lots of actions, layout render: uncontrolled', () => (
-		<div className="virtualized-list">
-			<IconsProvider />
-			<h1>List with multiple right actions</h1>
-			<p>
-				With multiple actions the Right component will align the actions to the left,
-				and add a separator between each.
-			</p>
-			<pre>{`
-							<List.Manager id="my-list" collection={simpleCollection}>
-							<List.Toolbar>
-								<List.Toolbar.Right>
-									<List.TextFilter id="my-list-textFilter" />
-									<List.DisplayMode id="my-list-displayMode" />
-								</List.Toolbar.Right>
-							</List.Toolbar>
-							<CustomList />
-						</List.Manager>
-		
-`}</pre>
-			<section style={{ height: '50vh' }}>
-				<List.Manager id="my-list" collection={simpleCollection}>
-					<List.Toolbar>
-						<List.Toolbar.Right>
-							<List.TextFilter id="my-list-textFilter" />
-							<List.DisplayMode id="my-list-displayMode" />
-						</List.Toolbar.Right>
-					</List.Toolbar>
-					<CustomList />
-				</List.Manager>
-			</section>
-		</div>
-	))
 	.add('Sort by: controlled', () => (
 		<div className="virtualized-list">
 			<IconsProvider />
@@ -319,6 +286,49 @@ storiesOf('List Composition', module)
 							value={{ sortBy: 'name', isDescending: false }}
 							onChange={action('onSortChange')}
 						/>
+					</List.Toolbar>
+					<CustomList />
+				</List.Manager>
+			</section>
+		</div>
+	))
+	.add('lots of actions, layout render: uncontrolled', () => (
+		<div className="virtualized-list">
+			<IconsProvider />
+			<h1>List with multiple right actions</h1>
+			<p>
+				With multiple actions the Right component will align the actions to the right, and add a
+				separator between each.
+			</p>
+			<pre>{`
+							<List.Manager id="my-list" collection={simpleCollection}>
+							<List.Toolbar>
+								<List.Toolbar.Right>
+									<List.TextFilter id="my-list-textFilter" />
+									<List.SortBy
+										id="my-list-sortBy"
+										options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+										initialValue={{ sortBy: 'id', isDescending: true }}
+									/>
+									<List.DisplayMode id="my-list-displayMode" />
+								</List.Toolbar.Right>
+							</List.Toolbar>
+							<CustomList />
+						</List.Manager>
+		
+`}</pre>
+			<section style={{ height: '50vh' }}>
+				<List.Manager id="my-list" collection={simpleCollection}>
+					<List.Toolbar>
+						<List.Toolbar.Right>
+							<List.TextFilter id="my-list-textFilter" />
+							<List.SortBy
+								id="my-list-sortBy"
+								options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+								initialValue={{ sortBy: 'id', isDescending: true }}
+							/>
+							<List.DisplayMode id="my-list-displayMode" />
+						</List.Toolbar.Right>
 					</List.Toolbar>
 					<CustomList />
 				</List.Manager>
