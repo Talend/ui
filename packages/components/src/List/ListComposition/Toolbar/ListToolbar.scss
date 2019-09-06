@@ -28,7 +28,7 @@ $tc-toolbar-height: 7rem;
 		margin-left: auto;
 	}
 
-	:global(.tc-list-toolbar-separated) {
+	&-separated {
 		display: flex;
 	}
 	&-separated:not(:first-child):before {
