@@ -130,9 +130,12 @@ describe('Date.Manager', () => {
 				const previousState = wrapper.find('DateConsumerDiv').props('value');
 
 				// when
-				wrapper.setProps({
-					value: newDate,
+				act(() => {
+					wrapper.setProps({
+						value: newDate,
+					});
 				});
+				wrapper.update();
 
 				// then
 				const nextState = wrapper.find('DateConsumerDiv').props('value');
@@ -166,10 +169,12 @@ describe('Date.Manager', () => {
 					);
 
 					// when
-					wrapper
-						.find('DateConsumerDiv')
-						.prop('inputManagement')
-						.onChange(event);
+					act(() => {
+						wrapper
+							.find('DateConsumerDiv')
+							.prop('inputManagement')
+							.onChange(event);
+					});
 					wrapper.update();
 
 					// then
@@ -216,10 +221,13 @@ describe('Date.Manager', () => {
 				expect(onChange).not.toBeCalled();
 
 				// when
-				wrapper
-					.find('DateConsumerDiv')
-					.prop('inputManagement')
-					.onChange(event);
+				act(() => {
+					wrapper
+						.find('DateConsumerDiv')
+						.prop('inputManagement')
+						.onChange(event);
+				});
+				wrapper.update();
 
 				// then
 				expect(onChange).toBeCalledWith(event, {
@@ -243,10 +251,13 @@ describe('Date.Manager', () => {
 				expect(onChange).not.toBeCalled();
 
 				// when
-				wrapper
-					.find('DateConsumerDiv')
-					.prop('inputManagement')
-					.onChange(event);
+				act(() => {
+					wrapper
+						.find('DateConsumerDiv')
+						.prop('inputManagement')
+						.onChange(event);
+				});
+				wrapper.update();
 
 				// then
 				expect(onChange).toBeCalled();
@@ -274,10 +285,12 @@ describe('Date.Manager', () => {
 					);
 
 					// when
-					wrapper
-						.find('DateConsumerDiv')
-						.prop('pickerManagement')
-						.onSubmit(event, { date });
+					act(() => {
+						wrapper
+							.find('DateConsumerDiv')
+							.prop('pickerManagement')
+							.onSubmit(event, { date });
+					});
 					wrapper.update();
 
 					// then
