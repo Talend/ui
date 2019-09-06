@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { distanceInWordsToNow } from 'date-fns';
 import { withTranslation } from 'react-i18next';
-import isEmpty from 'lodash/isEmpty';
 import { getRowData } from '../../VirtualizedList/utils/gridrow';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
@@ -31,33 +30,6 @@ function getAuthorLabel(t, author, date) {
 		date: getDateLabel(t, date),
 	});
 }
-
-function Subtitle({ author, modified, subtitle, t }) {
-	if (author) {
-		return (
-			<small className={classNames('author', theme.author)}>
-				{getAuthorLabel(t, author, modified)}
-			</small>
-		);
-	}
-
-	if (subtitle !== undefined) {
-		return (
-			<small className={classNames('subtitle', theme.subtitle)} title={subtitle}>
-				{subtitle}
-			</small>
-		);
-	}
-
-	return null;
-}
-
-Subtitle.propTypes = {
-	author: PropTypes.string,
-	subtitle: PropTypes.string,
-	modified: PropTypes.string,
-	t: PropTypes.func.isRequired,
-};
 
 function Resource({ parent, index, style, className, t }) {
 	const rowData = getRowData(parent, index);
@@ -87,20 +59,29 @@ function Resource({ parent, index, style, className, t }) {
 			{icon && <Icon name={icon} />}
 			<div className={classNames('data-container', theme['data-container'])}>
 				<span className={classNames('title', theme.title)}>{name}</span>
-				<Subtitle author={author} modified={modified} subtitle={subtitle} t={t} />
+				{author && subtitle === undefined && (
+					<small className={classNames('author', theme.author)}>
+						{getAuthorLabel(t, author, modified)}
+					</small>
+				)}
+
+				{subtitle !== undefined && !author && (
+					<small className={classNames('subtitle', theme.subtitle)} title={subtitle}>
+						{subtitle}
+					</small>
+				)}
 			</div>
-			{!isEmpty(flags) ? (
-				<div className={classNames('flags-container', theme['flags-container'])}>
-					{Object.keys(FLAGS).map(flag => (
-						<Icon
-							className={classNames(theme.flag, {
-								[theme.visible]: flags.includes(flag),
-							})}
-							name={FLAGS[flag]}
-						/>
-					))}
-				</div>
-			) : null}
+
+			<div className={classNames('flags-container', theme['flags-container'])}>
+				{Object.keys(FLAGS).map(flag => (
+					<Icon
+						className={classNames(theme.flag, {
+							[theme.visible]: flags.includes(flag),
+						})}
+						name={FLAGS[flag]}
+					/>
+				))}
+			</div>
 		</div>
 	);
 }

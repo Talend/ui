@@ -120,7 +120,7 @@ exports[`Resource component snaps renderers should render a Resource with both C
 </div>
 `;
 
-exports[`Resource component snaps renderers should render a Resource with just a title/subtitle 1`] = `
+exports[`Resource component snaps renderers should render a Resource with just a title/subtitle/flags 1`] = `
 <div
   aria-label="Title with few actions"
   aria-posinset={1}
@@ -146,6 +146,18 @@ exports[`Resource component snaps renderers should render a Resource with just a
       Loreum lopsum
     </small>
   </div>
+  <div
+    className="flags-container theme-flags-container"
+  >
+    <Icon
+      className="theme-flag"
+      name="talend-badge"
+    />
+    <Icon
+      className="theme-flag"
+      name="talend-star"
+    />
+  </div>
 </div>
 `;
 
@@ -170,6 +182,18 @@ exports[`Resource component snaps renderers should render a Resource without ico
     >
       owned by Jean-Pierre DUPONT, over 2 years ago
     </small>
+  </div>
+  <div
+    className="flags-container theme-flags-container"
+  >
+    <Icon
+      className="theme-flag"
+      name="talend-badge"
+    />
+    <Icon
+      className="theme-flag"
+      name="talend-star"
+    />
   </div>
 </div>
 `;
@@ -198,6 +222,18 @@ exports[`Resource component snaps renderers should render a regular Resource 1`]
     >
       owned by Jean-Pierre DUPONT, over 2 years ago
     </small>
+  </div>
+  <div
+    className="flags-container theme-flags-container"
+  >
+    <Icon
+      className="theme-flag"
+      name="talend-badge"
+    />
+    <Icon
+      className="theme-flag"
+      name="talend-star"
+    />
   </div>
 </div>
 `;

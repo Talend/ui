@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import Resource from './Resource.component';
 
@@ -25,7 +25,7 @@ describe('Resource component snaps', () => {
 				index: 0,
 			};
 
-			const wrapper = mount(<Resource.WrappedComponent {...props} />);
+			const wrapper = shallow(<Resource.WrappedComponent {...props} />);
 
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
@@ -50,12 +50,12 @@ describe('Resource component snaps', () => {
 				index: 0,
 			};
 
-			const wrapper = mount(<Resource.WrappedComponent {...props} />);
+			const wrapper = shallow(<Resource.WrappedComponent {...props} />);
 			expect(wrapper.find('.author').length).toBe(1);
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
-		it('should render a Resource with just a title/subtitle', () => {
+		it('should render a Resource with just a title/subtitle/flags', () => {
 			const collection = [
 				{
 					id: 0,
@@ -74,7 +74,7 @@ describe('Resource component snaps', () => {
 				index: 0,
 			};
 
-			const wrapper = mount(<Resource.WrappedComponent {...props} />);
+			const wrapper = shallow(<Resource.WrappedComponent {...props} />);
 			expect(wrapper.find('.author').length).toBe(0);
 			expect(wrapper.find('.subtitle').length).toBe(1);
 			expect(wrapper.getElement()).toMatchSnapshot();
@@ -98,7 +98,7 @@ describe('Resource component snaps', () => {
 				index: 0,
 			};
 
-			const wrapper = mount(<Resource.WrappedComponent {...props} />);
+			const wrapper = shallow(<Resource.WrappedComponent {...props} />);
 
 			expect(wrapper.find('.author').length).toBe(0);
 		});
@@ -122,7 +122,7 @@ describe('Resource component snaps', () => {
 				index: 0,
 			};
 
-			const wrapper = mount(<Resource.WrappedComponent {...props} />);
+			const wrapper = shallow(<Resource.WrappedComponent {...props} />);
 
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
@@ -148,7 +148,7 @@ describe('Resource component snaps', () => {
 				index: 0,
 			};
 
-			const wrapper = mount(<Resource.WrappedComponent {...props} />);
+			const wrapper = shallow(<Resource.WrappedComponent {...props} />);
 
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
@@ -174,7 +174,7 @@ describe('Resource component snaps', () => {
 				index: 0,
 			};
 
-			const wrapper = mount(<Resource.WrappedComponent {...props} />);
+			const wrapper = shallow(<Resource.WrappedComponent {...props} />);
 
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
@@ -200,7 +200,7 @@ describe('Resource component snaps', () => {
 				index: 0,
 			};
 
-			const wrapper = mount(<Resource.WrappedComponent {...props} />);
+			const wrapper = shallow(<Resource.WrappedComponent {...props} />);
 
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
