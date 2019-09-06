@@ -5,16 +5,16 @@ import uuid from 'uuid';
 import { Popper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
-import Time from '../Time';
+import Date from '../Date';
 
-import theme from './InputTimePicker.scss';
+import theme from './InputDatePicker.scss';
 import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
-import focusOnTime from '../gesture/timePickerGesture';
+import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 
-const PROPS_TO_OMIT_FOR_INPUT = ['id', 'required', 'value', 'useSeconds', 'onBlur', 'onChange'];
+const PROPS_TO_OMIT_FOR_INPUT = ['id', 'required', 'value', 'useUTC', 'onBlur', 'onChange'];
 
-export default function InputTimePicker(props) {
-	const popoverId = `time-picker-${props.id || uuid.v4()}`;
+export default function InputDatePicker(props) {
+	const popoverId = `date-picker-${props.id || uuid.v4()}`;
 
 	const inputRef = useRef(null);
 	const containerRef = useRef(null);
@@ -22,12 +22,12 @@ export default function InputTimePicker(props) {
 	const handlers = useInputPickerHandlers({
 		handleBlur: props.onBlur,
 		handleChange: props.onChange,
-		handleKeyDown: () => focusOnTime(containerRef.current),
+		handleKeyDown: () => focusOnCalendar(containerRef.current),
 	});
 
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
 	const timePicker = [
-		<Time.Input {...inputProps} id={`${props.id}-input`} key="input" inputRef={inputRef} />,
+		<Date.Input {...inputProps} id={`${props.id}-input`} key="input" inputRef={inputRef} />,
 		handlers.showPicker && (
 			<Popper
 				key="popper"
@@ -45,17 +45,18 @@ export default function InputTimePicker(props) {
 			>
 				{({ ref, style }) => (
 					<div id={popoverId} className={theme.popper} style={style} ref={ref}>
-						<Time.Picker {...props} />
+						<Date.Picker {...props} />
 					</div>
 				)}
 			</Popper>
 		),
 	].filter(Boolean);
 	return (
-		<Time.Manager
+		<Date.Manager
 			value={props.value}
-			useSeconds={props.useSeconds}
+			dateFormat={props.dateFormat}
 			onChange={(...args) => handlers.onChange(...args, inputRef.current)}
+			useUTC={props.useUTC}
 		>
 			<FocusManager
 				divRef={containerRef}
@@ -63,25 +64,26 @@ export default function InputTimePicker(props) {
 				onFocusIn={handlers.onFocus}
 				onFocusOut={handlers.onBlur}
 				onKeyDown={event => {
-					handlers.onKeyDown(event, inputRef.current, containerRef.current);
+					handlers.onKeyDown(event, inputRef.current);
 				}}
 			>
 				{timePicker}
 			</FocusManager>
-		</Time.Manager>
+		</Date.Manager>
 	);
 }
 
-InputTimePicker.displayName = 'InputTimePicker';
+InputDatePicker.displayName = 'InputDatePicker';
 
-InputTimePicker.propTypes = {
+InputDatePicker.propTypes = {
 	id: PropTypes.string.isRequired,
-	useSeconds: PropTypes.bool,
+	dateFormat: PropTypes.string,
 	onChange: PropTypes.func,
 	onBlur: PropTypes.func,
-	value: PropTypes.string,
-};
-
-InputTimePicker.defaultProps = {
-	useSeconds: false,
+	value: PropTypes.oneOfType([
+		PropTypes.instanceOf(Date),
+		PropTypes.number,
+		PropTypes.string,
+	]),
+	useUTC: PropTypes.bool,
 };
