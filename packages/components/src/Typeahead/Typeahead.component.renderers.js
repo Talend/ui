@@ -84,6 +84,30 @@ renderInputComponent.propTypes = {
 	readOnly: PropTypes.bool,
 };
 
+function computePopperPosition(data) {
+	const GAP = 15; // the offset between the end of items container and screen boundaries
+	const inputDimensions = data.offsets.reference;
+	const { top, height } = inputDimensions;
+	const offsetTop = top - GAP;
+	const offsetBottom = window.innerHeight - top - height - GAP;
+	const placements = data.placement.split('-');
+	let newPlacement = data.placement;
+	if (placements[0] === 'top' && offsetBottom > offsetTop) {
+		newPlacement = `bottom-${placements[1]}`;
+	}
+	const maxHeight = newPlacement.includes('top') ? offsetTop : offsetBottom;
+
+	return {
+		...data,
+		placement: newPlacement,
+		styles: {
+			...data.styles,
+			width: inputDimensions.width,
+			maxHeight,
+		},
+	};
+}
+
 export function renderItemsContainerFactory(
 	items,
 	noResultText,
@@ -130,30 +154,6 @@ export function renderItemsContainerFactory(
 			content = children;
 		}
 
-		const computePopperPosition = data => {
-			const GAP = 15; // the offset between the end of items container and screen boundaries
-			const inputDimensions = data.offsets.reference;
-			const { top, height } = inputDimensions;
-			const offsetTop = top - GAP;
-			const offsetBottom = window.innerHeight - top - height - GAP;
-			const placements = data.placement.split('-');
-			let newPlacement = data.placement;
-			if (placements[0] === 'top' && offsetBottom > offsetTop) {
-				newPlacement = `bottom-${placements[1]}`;
-			}
-			const maxHeight = newPlacement.includes('top') ? offsetTop : offsetBottom;
-
-			return {
-				...data,
-				placement: newPlacement,
-				styles: {
-					...data.styles,
-					width: inputDimensions.width,
-					maxHeight,
-				},
-			};
-		};
-
 		return (
 			<Popper
 				modifiers={{
@@ -168,7 +168,7 @@ export function renderItemsContainerFactory(
 					},
 					computePosition: {
 						enabled: true,
-						fn: data => computePopperPosition(data),
+						fn: computePopperPosition,
 					},
 				}}
 				positionFixed
