@@ -22,8 +22,10 @@ $tc-order-chooser-icon-size: 0.6rem !default;
 		letter-spacing: 0;
 	}
 
-	:global(.tc-sort-by-order-chooser) {
-		display: inherit;
+	&-order-chooser[type='button'] {
+		display: flex;
+		margin-bottom: $padding-smaller;
+		align-items: flex-end;
 		padding: 0;
 		&:hover,
 		&:focus,
@@ -31,28 +33,22 @@ $tc-order-chooser-icon-size: 0.6rem !default;
 			color: $black;
 			box-shadow: none;
 		}
-		> svg {
-			vertical-align: initial;
-		}
 
-		svg.tc-sort-by-order-chooser-indicator {
+		:global(.tc-svg-icon.tc-sort-by-order-chooser-indicator) {
 			width: $tc-order-chooser-icon-size;
 			height: $tc-order-chooser-icon-size;
 		}
 	}
-	li.tc-sort-by-items {
+
+	:global(.nav.navbar-nav) {
 		display: flex;
 		align-items: center;
-		> a[role='button'] {
-			display: inline-block;
-			text-transform: lowercase;
-			&::first-letter {
-				text-transform: uppercase;
-			}
+	}
+	&-items > a[role='button'] {
+		display: inline-block;
+		text-transform: lowercase;
+		&::first-letter {
+			text-transform: uppercase;
 		}
 	}
-}
-
-:global(.tc-sort-by-order-chooser) {
-	color: red;
 }
