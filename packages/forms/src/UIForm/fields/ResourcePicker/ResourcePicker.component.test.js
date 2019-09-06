@@ -252,11 +252,15 @@ describe('ResourcePicker field', () => {
 		expect(onChangeUnselect.mock.calls.length).toBe(2);
 	});
 
-	it('should not unselect single selection', async () => {
+	it('should not unselect single selection when value is required', async () => {
 		const onChangeUnselect = jest.fn();
 		const unselectProps = {
 			...props,
 			onChange: onChangeUnselect,
+			schema: {
+				...props.schema,
+				required: true,
+			},
 		};
 		const wrapper = await mount(<ResourcePicker {...unselectProps} />);
 		await wrapper.instance().busy;
@@ -271,6 +275,31 @@ describe('ResourcePicker field', () => {
 			.at(0)
 			.simulate('click');
 		expect(onChangeUnselect.mock.calls.length).toBe(1);
+	});
+
+	it('should unselect single selection when value is not required', async () => {
+		const onChangeUnselect = jest.fn();
+		const unselectProps = {
+			...props,
+			onChange: onChangeUnselect,
+			schema: {
+				...props.schema,
+				required: false,
+			},
+		};
+		const wrapper = await mount(<ResourcePicker {...unselectProps} />);
+		await wrapper.instance().busy;
+		wrapper.update();
+
+		wrapper
+			.find(ResourceComponent)
+			.at(0)
+			.simulate('click');
+		wrapper
+			.find(ResourceComponent)
+			.at(0)
+			.simulate('click');
+		expect(onChangeUnselect.mock.calls.length).toBe(2);
 	});
 
 	it('should not allow multi selection', async () => {
