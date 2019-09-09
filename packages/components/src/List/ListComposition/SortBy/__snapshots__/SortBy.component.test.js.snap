@@ -2,13 +2,15 @@
 
 exports[`SortBy should render sort by component 1`] = `
 <ul class="tc-sort-by theme-tc-sort-by nav">
-  <p class="navbar-text">
-    <label class="tc-sort-by-label theme-tc-sort-by-label"
-           for="mySortBy"
-    >
-      Sort by:
-    </label>
-  </p>
+  <li>
+    <p class="navbar-text">
+      <label class="tc-sort-by-label theme-tc-sort-by-label"
+             for="mySortBy"
+      >
+        Sort by:
+      </label>
+    </p>
+  </li>
   <li class="tc-sort-by-items theme-tc-sort-by-items dropdown">
     <a aria-label="Change sort criteria. Current sort by N.C."
        id="mySortBy-by"

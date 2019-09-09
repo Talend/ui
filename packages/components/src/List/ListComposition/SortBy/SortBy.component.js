@@ -76,11 +76,13 @@ function SortBy({ id, initialValue, options, onChange, value }) {
 
 	return (
 		<Nav className={theme('tc-sort-by')}>
-			<Navbar.Text>
-				<label className={theme('tc-sort-by-label')} htmlFor={id}>
-					{t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}
-				</label>
-			</Navbar.Text>
+			<li>
+				<Navbar.Text>
+					<label className={theme('tc-sort-by-label')} htmlFor={id}>
+						{t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}
+					</label>
+				</Navbar.Text>
+			</li>
 			{options.length === 1 ? (
 				<li className="navbar-text">{options[0].name}</li>
 			) : (
