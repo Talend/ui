@@ -7,7 +7,7 @@ import {
 	extractPartsFromTextInput,
 	getFullDateFormat,
 	check,
-} from './date-extraction';
+} from './datetime-extraction';
 
 
 describe('Date extraction', () => {

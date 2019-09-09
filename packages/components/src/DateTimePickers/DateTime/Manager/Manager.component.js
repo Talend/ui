@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { DateTimeContext } from '../Context';
-import { extractParts, extractPartsFromDateAndTime } from '../date-extraction';
+import { extractParts, extractPartsFromDateAndTime } from '../datetime-extraction';
 
 function ContextualManager(props) {
 	const initialState = extractParts(props.selectedDateTime);
