@@ -73,7 +73,6 @@ exports[`InlineForm should render 1`] = `
       <input
         className="theme-tc-editable-text-form-input tc-editable-text-form-input form-control"
         id="inputTitle"
-        onBlur={[Function]}
         onChange={[Function]}
         onKeyDown={[Function]}
         type="text"

@@ -64,6 +64,7 @@ class InlineForm extends React.Component {
 
 	onSubmit(event) {
 		event.preventDefault();
+		// no submit when the blur
 		if (!event.target || event.target.tagName !== 'INPUT') {
 			if (this.state.value.trim().length !== 0 || !this.props.required) {
 				this.props.onSubmit(event, { value: this.state.value, props: this.props });
@@ -104,7 +105,6 @@ class InlineForm extends React.Component {
 							onChange={this.onChange}
 							value={this.state.value}
 							onKeyDown={this.onKeyDown}
-							onBlur={this.onSubmit}
 						/>
 						{errorMessage && <p className="help-block text-danger">{errorMessage}</p>}
 					</div>
