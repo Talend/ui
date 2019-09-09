@@ -14,6 +14,7 @@ const icons = {
 	'talend-sort-az': talendIcons['talend-sort-az'],
 	'talend-sort-desc': talendIcons['talend-sort-desc'],
 	'talend-caret-down': talendIcons['talend-caret-down'],
+	'talend-cross': talendIcons['talend-cross'],
 };
 
 const collection = [
