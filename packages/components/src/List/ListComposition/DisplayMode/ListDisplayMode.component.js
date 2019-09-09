@@ -1,11 +1,13 @@
 import React from 'react';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
 import { ActionIconToggle } from '../../../Actions';
-import theme from './DisplayModeToggle.scss';
 import { useListContext } from '../context';
 import { DISPLAY_MODE } from '../constants';
+import cssModule from './DisplayModeToggle.scss';
+import { getTheme } from '../../../theme';
+
+const theme = getTheme(cssModule);
 
 function getLabel(option, t) {
 	switch (option) {
@@ -66,7 +68,7 @@ function ListDisplayMode({ children, displayModesOptions, id, onChange, selected
 		return children;
 	}
 	return (
-		<div className={classNames(theme['tc-display-mode-toggle'], 'tc-display-mode-toggle')}>
+		<div className={theme('tc-display-mode-toggle')}>
 			{displayModesOptions.map(displayModeOption => (
 				<DisplayModeIcon
 					displayMode={selectedDisplayMode || displayMode}
