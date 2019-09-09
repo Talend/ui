@@ -1,19 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import Navbar from 'react-bootstrap/lib/Navbar';
 
-import listTheme from '../List.scss';
-import theme from './ListToolbar.scss';
+import cssModule from './ListToolbar.scss';
+import { getTheme } from '../../../theme';
+
+const theme = getTheme(cssModule);
+
+const Right = ({ children }) => (
+	<ul className={theme('tc-list-toolbar-right')}>
+		{React.Children.map(children, childElement => (
+			<li className={theme('tc-list-toolbar-separated')}>{childElement}</li>
+		))}
+	</ul>
+);
+
+Right.propTypes = {
+	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+};
 
 function ListToolbar(props) {
 	return (
-		<Navbar
-			componentClass="div"
-			className={classnames(listTheme, theme['tc-list-toolbar'], 'tc-list-toolbar')}
-			role="toolbar"
-			fluid
-		>
+		<Navbar componentClass="div" className={theme('tc-list-toolbar')} role="toolbar" fluid>
 			{props.children}
 		</Navbar>
 	);
@@ -21,5 +29,7 @@ function ListToolbar(props) {
 ListToolbar.propTypes = {
 	children: PropTypes.node,
 };
+
+ListToolbar.Right = Right;
 
 export default ListToolbar;
