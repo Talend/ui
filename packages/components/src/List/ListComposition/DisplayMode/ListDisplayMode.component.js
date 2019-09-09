@@ -51,13 +51,7 @@ DisplayModeIcon.propTypes = {
 	onSelect: PropTypes.func.isRequired,
 };
 
-function ListDisplayMode({
-	children,
-	displayModesOptions,
-	id,
-	onChange,
-	selectedDisplayMode,
-}) {
+function ListDisplayMode({ children, displayModesOptions, id, onChange, selectedDisplayMode }) {
 	const { displayMode, setDisplayMode } = useListContext();
 	function onSelect(event, value) {
 		if (onChange) {
@@ -86,9 +80,7 @@ function ListDisplayMode({
 	);
 }
 
-
 export const displayModesOptions = ['table', 'large'];
-
 
 ListDisplayMode.defaultProps = {
 	id: uuid.v4(),
