@@ -84,6 +84,30 @@ renderInputComponent.propTypes = {
 	readOnly: PropTypes.bool,
 };
 
+function computePopperPosition(data) {
+	const GAP = 15; // the offset between the end of items container and screen boundaries
+	const inputDimensions = data.offsets.reference;
+	const { top, height } = inputDimensions;
+	const offsetTop = top - GAP;
+	const offsetBottom = window.innerHeight - top - height - GAP;
+	const placements = data.placement.split('-');
+	let newPlacement = data.placement;
+	if (placements[0] === 'top' && offsetBottom > offsetTop) {
+		newPlacement = `bottom-${placements[1]}`;
+	}
+	const maxHeight = newPlacement.includes('top') ? offsetTop : offsetBottom;
+
+	return {
+		...data,
+		placement: newPlacement,
+		styles: {
+			...data.styles,
+			width: inputDimensions.width,
+			maxHeight,
+		},
+	};
+}
+
 export function renderItemsContainerFactory(
 	items,
 	noResultText,
@@ -130,14 +154,6 @@ export function renderItemsContainerFactory(
 			content = children;
 		}
 
-		const getPopperStyle = () => {
-			if (!inputRef) return { width: 0 };
-			const inputDimensions = inputRef.getBoundingClientRect();
-			return {
-				width: inputDimensions.width,
-			};
-		};
-
 		return (
 			<Popper
 				modifiers={{
@@ -150,6 +166,10 @@ export function renderItemsContainerFactory(
 					shift: {
 						enabled: false,
 					},
+					computePosition: {
+						enabled: true,
+						fn: computePopperPosition,
+					},
 				}}
 				positionFixed
 				boundariesElement="viewport"
@@ -161,6 +181,7 @@ export function renderItemsContainerFactory(
 						// @see https://github.com/FezVrasta/react-popper/issues/283#issuecomment-512879262
 						scheduleUpdate();
 					}
+
 					return (
 						<div
 							className={containerClassName}
@@ -168,12 +189,13 @@ export function renderItemsContainerFactory(
 							key={containerProps.key}
 							ref={ref}
 							role={containerProps.role}
-							style={{
-								...getPopperStyle(),
-								...style,
-							}}
+							style={style}
 						>
-							<div ref={containerProps.ref} className={theme['items-body']}>
+							<div
+								ref={containerProps.ref}
+								className={theme['items-body']}
+								style={{ maxHeight: style.maxHeight }}
+							>
 								{render(
 									content,
 									{
@@ -225,7 +247,6 @@ export function renderItem(item, { value, ...rest }) {
 		title = (item.title || item.name || '').trim();
 		description = item.description;
 	}
-
 	return (
 		<div
 			className={classNames(theme.item, {

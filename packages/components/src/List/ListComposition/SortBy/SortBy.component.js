@@ -4,7 +4,6 @@ import { Navbar, MenuItem, NavDropdown, Nav, Button } from 'react-bootstrap';
 import uuid from 'uuid';
 import Icon from '../../../Icon';
 
-import { DISPLAY_MODE } from '../constants';
 import { useListContext } from '../context';
 
 import cssModule from './SortBy.scss';
@@ -43,7 +42,7 @@ AscendingDescendingButton.propTypes = {
 };
 
 function SortBy({ id, initialValue, options, onChange, value }) {
-	const { displayMode, sortParams, setSortParams, t } = useListContext();
+	const { sortParams, setSortParams, t } = useListContext();
 	const isControlled = onChange;
 
 	useEffect(() => {
@@ -51,9 +50,6 @@ function SortBy({ id, initialValue, options, onChange, value }) {
 			setSortParams(initialValue);
 		}
 	}, []);
-	if (displayMode === DISPLAY_MODE.TABLE) {
-		return null;
-	}
 	const currentValue = isControlled ? value : sortParams;
 	const isDescending = currentValue.isDescending;
 	// Current selected option

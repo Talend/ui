@@ -12,7 +12,7 @@ exports[`List DisplayMode should render 1`] = `
   initialDisplayMode="table"
 >
   <div
-    className="theme-tc-display-mode-toggle tc-display-mode-toggle"
+    className="tc-display-mode-toggle theme-tc-display-mode-toggle"
   >
     <Component
       displayMode="table"
