@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SortBy should render sort by component 1`] = `
-<ul class="tc-sort-by theme-tc-sort-by nav">
+<div class="tc-sort-by theme-tc-sort-by">
   <p class="navbar-text">
     <label class="tc-sort-by-label theme-tc-sort-by-label"
            for="mySortBy"
@@ -54,5 +54,5 @@ exports[`SortBy should render sort by component 1`] = `
       </ul>
     </li>
   </ul>
-</ul>
+</div>
 `;

@@ -12,25 +12,23 @@ import { getTheme } from '../../../theme';
 const theme = getTheme(cssModule);
 
 const AscendingDescendingButton = ({ id, isDescending, orderLabel, t, onClick }) => (
-	<li>
-		<Button
-			aria-label={t('LIST_CHANGE_SORT_BY_ORDER', {
-				defaultValue: 'Change sort order. Current order: {{sortOrder}}.',
-				sortOrder: orderLabel,
-			})}
-			bsStyle="link"
-			className={theme('tc-sort-by-order-chooser')}
-			id={`${id}-order-chooser`}
-			onClick={onClick}
-		>
-			<Icon name={isDescending ? 'talend-sort-desc' : 'talend-sort-asc'} />
-			<Icon
-				className={theme('tc-sort-by-order-chooser-indicator')}
-				name="talend-caret-down"
-				transform={!isDescending ? 'rotate-180' : null}
-			/>
-		</Button>
-	</li>
+	<Button
+		aria-label={t('LIST_CHANGE_SORT_BY_ORDER', {
+			defaultValue: 'Change sort order. Current order: {{sortOrder}}.',
+			sortOrder: orderLabel,
+		})}
+		bsStyle="link"
+		className={theme('tc-sort-by-order-chooser')}
+		id={`${id}-order-chooser`}
+		onClick={onClick}
+	>
+		<Icon name={isDescending ? 'talend-sort-desc' : 'talend-sort-asc'} />
+		<Icon
+			className={theme('tc-sort-by-order-chooser-indicator')}
+			name="talend-caret-down"
+			transform={!isDescending ? 'rotate-180' : null}
+		/>
+	</Button>
 );
 
 AscendingDescendingButton.propTypes = {
@@ -77,7 +75,7 @@ function SortBy({ id, initialValue, options, onChange, value }) {
 		performChange(event, { ...currentValue, isDescending: !isDescending });
 
 	return (
-		<Nav className={theme('tc-sort-by')}>
+		<div className={theme('tc-sort-by')}>
 			<Navbar.Text>
 				<label className={theme('tc-sort-by-label')} htmlFor={id}>
 					{t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}
@@ -113,16 +111,18 @@ function SortBy({ id, initialValue, options, onChange, value }) {
 					</NavDropdown>
 				)}
 				{selectedOption && (
-					<AscendingDescendingButton
-						id={id}
-						isDescending={isDescending}
-						onClick={onOrderChange}
-						orderLabel={orderLabel}
-						t={t}
-					/>
+					<li>
+						<AscendingDescendingButton
+							id={id}
+							isDescending={isDescending}
+							onClick={onOrderChange}
+							orderLabel={orderLabel}
+							t={t}
+						/>
+					</li>
 				)}
 			</Nav>
-		</Nav>
+		</div>
 	);
 }
 
