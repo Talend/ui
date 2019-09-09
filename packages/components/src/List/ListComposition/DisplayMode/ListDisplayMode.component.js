@@ -5,6 +5,7 @@ import uuid from 'uuid';
 import { ActionIconToggle } from '../../../Actions';
 import theme from './DisplayModeToggle.scss';
 import { useListContext } from '../context';
+import { DISPLAY_MODE } from '../constants';
 
 function getLabel(option, t) {
 	switch (option) {
@@ -51,13 +52,7 @@ DisplayModeIcon.propTypes = {
 	onSelect: PropTypes.func.isRequired,
 };
 
-function ListDisplayMode({
-	children,
-	displayModesOptions,
-	id,
-	onChange,
-	selectedDisplayMode,
-}) {
+function ListDisplayMode({ children, displayModesOptions, id, onChange, selectedDisplayMode }) {
 	const { displayMode, setDisplayMode } = useListContext();
 	function onSelect(event, value) {
 		if (onChange) {
@@ -86,9 +81,7 @@ function ListDisplayMode({
 	);
 }
 
-
-export const displayModesOptions = ['table', 'large'];
-
+export const displayModesOptions = [DISPLAY_MODE.TABLE, DISPLAY_MODE.LARGE];
 
 ListDisplayMode.defaultProps = {
 	id: uuid.v4(),
