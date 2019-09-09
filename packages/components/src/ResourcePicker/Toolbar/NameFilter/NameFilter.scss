@@ -19,12 +19,11 @@
 	padding: $padding-smaller 0;
 	line-height: 2rem;
 	height: 100%;
-	margin-left: -28px;
 
 	:global(.tc-svg-icon) {
 		height: $svg-xs-size;
 		width: $svg-xs-size;
-		margin: 0 $padding-small;
+		margin: 0;
 		vertical-align: baseline;
 	}
 }
