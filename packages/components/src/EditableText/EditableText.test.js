@@ -4,7 +4,6 @@ import keycode from 'keycode';
 import { Action } from '../index';
 import { EditableTextComponent, PlainTextTitle } from './EditableText.component';
 import InlineForm from './InlineForm.component';
-import FocusManager from '../FocusManager';
 import getDefaultT from '../translate';
 
 describe('EditableText', () => {

@@ -16,7 +16,6 @@ class InlineForm extends React.Component {
 		onSubmit: PropTypes.func.isRequired,
 		onCancel: PropTypes.func,
 		onChange: PropTypes.func,
-		onBlur: PropTypes.func,
 		t: PropTypes.func,
 		required: PropTypes.bool,
 	};
