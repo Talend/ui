@@ -90,7 +90,6 @@ class InlineForm extends React.Component {
 					onSubmit={this.onSubmit}
 					className={classNames(theme['tc-editable-text-form'], 'tc-editable-text-form')}
 				>
-
 					<div className={classNames('form-group', { 'has-error': notValid })}>
 						<input
 							ref={this.selectInput}
