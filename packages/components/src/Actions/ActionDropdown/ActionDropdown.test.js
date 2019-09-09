@@ -169,8 +169,8 @@ describe('Dropup', () => {
 	cases('dropdown/dropup switch', testSwitch, [
 		{
 			name: 'should dropup on dropdown bottom overflow',
-			containerPosition: { top: 0, bottom: 35 },
-			menuPosition: { top: 20, bottom: 40 },
+			containerPosition: { top: 60, bottom: 95 },
+			menuPosition: { top: 80, bottom: 100, height: 20 },
 			isInitialDropup: false,
 			isDropupExpected: true,
 		},
@@ -183,17 +183,24 @@ describe('Dropup', () => {
 		},
 		{
 			name: 'should do nothing on dropdown without overflow',
-			containerPosition: { top: 0, bottom: 35 },
-			menuPosition: { top: 20, bottom: 30 },
+			containerPosition: { top: 60, bottom: 95 },
+			menuPosition: { top: 80, bottom: 90, height: 10 },
 			isInitialDropup: false,
 			isDropupExpected: false,
 		},
 		{
 			name: 'should do nothing on dropup without overflow',
-			containerPosition: { top: 0, bottom: 35 },
+			containerPosition: { top: 0, bottom: 60 },
 			menuPosition: { top: 20, bottom: 30 },
 			isInitialDropup: true,
 			isDropupExpected: true,
+		},
+		{
+			name: 'should do nothing on dropdown without enough space (top and bottom)',
+			containerPosition: { top: 10, bottom: 30 },
+			menuPosition: { top: 20, bottom: 90, height: 60 },
+			isInitialDropup: false,
+			isDropupExpected: false,
 		},
 	]);
 });
