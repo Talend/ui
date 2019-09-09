@@ -9,13 +9,16 @@ import useCollectionSort from './hooks/useCollectionSort.hook';
 import useCollectionFilter from './hooks/useCollectionFilter.hook';
 import theme from '../List.scss';
 
-function Manager({ initialDisplayMode, children, t, ...rest }) {
+function Manager({ initialDisplayMode, initialSortParams, children, t, ...rest }) {
 	let collection = rest.collection;
 
 	const [displayMode, setDisplayMode] = useState(initialDisplayMode || displayModesOptions[0]);
 
 	// Sort items
-	const { sortedCollection, sortParams, setSortParams } = useCollectionSort(collection);
+	const { sortedCollection, sortParams, setSortParams } = useCollectionSort(
+		collection,
+		initialSortParams,
+	);
 	collection = sortedCollection;
 
 	// Filter by text
@@ -47,6 +50,10 @@ Manager.propTypes = {
 	collection: PropTypes.array,
 	id: PropTypes.string.isRequired,
 	initialDisplayMode: PropTypes.oneOf(displayModesOptions),
+	initialSortParams: PropTypes.shape({
+		sortBy: PropTypes.string,
+		isDescending: PropTypes.bool,
+	}),
 	t: PropTypes.func,
 };
 export default withTranslation(I18N_DOMAIN_COMPONENTS)(Manager);

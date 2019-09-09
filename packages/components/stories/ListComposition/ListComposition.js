@@ -241,13 +241,16 @@ storiesOf('List Composition', module)
 </List.Manager>
 `}</pre>
 			<section style={{ height: '50vh' }}>
-				<List.Manager id="my-list" collection={simpleCollection}>
+				<List.Manager
+					collection={simpleCollection}
+					id="my-list"
+					initialSortParams={{ sortBy: 'id', isDescending: true }}
+				>
 					<List.Toolbar>
 						<List.Toolbar.Right>
 							<List.SortBy
 								id="my-list-sortBy"
 								options={[{ key: 'id', label: 'Id' }, { key: 'name', label: 'Name' }]}
-								initialValue={{ sortBy: 'id', isDescending: true }}
 							/>
 						</List.Toolbar.Right>
 					</List.Toolbar>
@@ -277,13 +280,16 @@ storiesOf('List Composition', module)
 				</List.Manager>
 		`}</pre>
 			<section style={{ height: '50vh' }}>
-				<List.Manager id="my-list" collection={simpleCollection}>
+				<List.Manager
+					collection={simpleCollection}
+					id="my-list"
+					initialSortParams={{ sortBy: 'id', isDescending: true }}
+				>
 					<List.Toolbar>
 						<List.Toolbar.Right>
 							<List.SortBy
 								id="my-list-sortBy"
 								options={[{ key: 'id', label: 'Id' }, { key: 'name', label: 'Name' }]}
-								initialValue={{ sortBy: 'id', isDescending: true }}
 							/>
 							<List.DisplayMode id="my-list-displayMode" initialDisplayMode="large" />
 						</List.Toolbar.Right>

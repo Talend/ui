@@ -72,20 +72,12 @@ describe('SortBy', () => {
 			setSortParams: jest.fn(),
 		};
 
-		const initialValue = { sortBy: 'lastName', isDescending: false };
-
-		let wrapper;
-		// when
-		act(() => {
-			wrapper = mount(
-				<ListContext.Provider value={context}>
-					<SortBy id="mySortBy" initialValue={initialValue} {...defaultProps} />
-				</ListContext.Provider>,
-			);
-		});
-
-		// then
-		expect(context.setSortParams).toHaveBeenCalledWith(initialValue);
+		const initialSortParams = { sortBy: 'lastName', isDescending: false };
+		const wrapper = mount(
+			<ListContext.Provider initialSortParams={initialSortParams} value={context}>
+				<SortBy id="mySortBy" {...defaultProps} />
+			</ListContext.Provider>,
+		);
 
 		// when
 		act(() => {

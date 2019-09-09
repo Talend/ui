@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Navbar, MenuItem, NavDropdown, Nav, Button } from 'react-bootstrap';
 import uuid from 'uuid';
@@ -41,15 +41,9 @@ AscendingDescendingButton.propTypes = {
 	t: PropTypes.func.isRequired,
 };
 
-function SortBy({ id, initialValue, options, onChange, value }) {
+function SortBy({ id, options, onChange, value }) {
 	const { sortParams, setSortParams, t } = useListContext();
-	const isControlled = onChange;
-
-	useEffect(() => {
-		if (!isControlled && initialValue) {
-			setSortParams(initialValue);
-		}
-	}, []);
+	const isControlled = onChange && value;
 	const currentValue = isControlled ? value : sortParams;
 	const isDescending = currentValue.isDescending;
 	// Current selected option
@@ -140,10 +134,6 @@ if (process.env.NODE_ENV !== 'production') {
 				label: PropTypes.string,
 			}),
 		).isRequired,
-		initialValue: PropTypes.shape({
-			sortBy: PropTypes.string,
-			isDescending: PropTypes.bool,
-		}),
 		onChange: PropTypes.func,
 		value: PropTypes.shape({
 			sortBy: PropTypes.string,
