@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
@@ -55,17 +55,10 @@ function ListDisplayMode({
 	children,
 	displayModesOptions,
 	id,
-	initialDisplayMode,
 	onChange,
 	selectedDisplayMode,
 }) {
 	const { displayMode, setDisplayMode } = useListContext();
-	useEffect(() => {
-		if (!onChange) {
-			setDisplayMode(initialDisplayMode);
-		}
-	}, []);
-
 	function onSelect(event, value) {
 		if (onChange) {
 			onChange(event, value);
@@ -93,16 +86,18 @@ function ListDisplayMode({
 	);
 }
 
+
+export const displayModesOptions = ['table', 'large'];
+
+
 ListDisplayMode.defaultProps = {
 	id: uuid.v4(),
-	displayModesOptions: ['table', 'large'],
-	initialDisplayMode: 'table',
+	displayModesOptions,
 };
 ListDisplayMode.propTypes = {
 	children: PropTypes.node,
 	displayModesOptions: PropTypes.arrayOf(PropTypes.string),
 	id: PropTypes.string,
-	initialDisplayMode: PropTypes.string,
 	onChange: PropTypes.func,
 	selectedDisplayMode: PropTypes.string,
 };

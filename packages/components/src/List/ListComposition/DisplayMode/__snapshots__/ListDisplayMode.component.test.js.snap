@@ -9,7 +9,6 @@ exports[`List DisplayMode should render 1`] = `
     ]
   }
   id="myDisplayMode"
-  initialDisplayMode="table"
 >
   <div
     className="theme-tc-display-mode-toggle tc-display-mode-toggle"
