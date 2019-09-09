@@ -30,6 +30,7 @@ function NameFilter({ label, value, onChange }) {
 				onChange={onChange}
 				className="form-control"
 				autoComplete="off"
+				required
 			/>
 			<Action
 				className={theme.remove}

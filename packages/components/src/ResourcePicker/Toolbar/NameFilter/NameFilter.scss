@@ -1,9 +1,20 @@
 .tc-resource-picker-name-filter {
 	flex: 1;
+	position: relative;
+
+	input + div {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	input:not(:invalid) + div .remove {
+		display: inline-block;
+	}
 }
 
 .remove {
-	display: inline-block;
+	display: none;
 	color: opacify($gray, 0.2);
 	padding: $padding-smaller 0;
 	line-height: 2rem;
