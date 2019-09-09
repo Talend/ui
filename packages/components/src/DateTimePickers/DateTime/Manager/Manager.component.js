@@ -5,18 +5,20 @@ import { DateTimeContext } from '../Context';
 import { extractParts, extractPartsFromDateAndTime } from '../datetime-extraction';
 
 function ContextualManager(props) {
-	const initialState = extractParts(props.selectedDateTime);
+	// eslint-disable-next-line no-use-before-define
+	const initialState = extractParts(props.value, getDateOptions());
 	const [state, setState] = useState(initialState);
 
 	useEffect(() => {
-		const nextState = extractParts(props.selectedDateTime);
+		// eslint-disable-next-line no-use-before-define
+		const nextState = extractParts(props.value, getDateOptions());
 		setState(nextState);
-	}, [props.selectedDateTime]);
+	}, [props.value]);
 
 	function getDateOptions() {
 		return {
 			dateFormat: props.dateFormat,
-			useTime: props.useTime,
+			useTime: true,
 			useSeconds: props.useSeconds,
 			useUTC: props.useUTC,
 			required: props.required,
@@ -28,15 +30,37 @@ function ContextualManager(props) {
 			props.onChange(event, { datetime, textInput, errors, errorMessage });
 		}
 	}
-	function onDateChange(event, { date }) {
-		const nextState = extractPartsFromDateAndTime(date, state.time, getDateOptions());
+	function onDateChange(event, { date, errors }) {
+		let nextValues;
+		let nextErrors = state.errors;
+		if (errors.length > 0) {
+			nextValues = { datetime: null, textInput: '' };
+			nextErrors = nextErrors.concat(errors);
+		} else {
+			nextValues = extractPartsFromDateAndTime(date, state.time, getDateOptions());
+		}
+		const nextState = {
+			...nextValues,
+			errors: nextErrors,
+			errorMessage: nextErrors[0] ? nextErrors[0].message : null,
+		};
 		setState(nextState);
 		onChange(event, nextState);
 	}
-	function onTimeChange(event, { time }) {
-		console.log('-------------')
-		console.log(time);
-		const nextState = extractPartsFromDateAndTime(state.date, time, getDateOptions());
+	function onTimeChange(event, { time, errors }) {
+		let newState;
+		let nextErrors = state.errors;
+		if (errors.length > 0) {
+			newState = { datetime: null, textInput: '' };
+			nextErrors = nextErrors.concat(errors);
+		} else {
+			newState = extractPartsFromDateAndTime(state.date, time, getDateOptions());
+		}
+		const nextState = {
+			...newState,
+			errors: nextErrors,
+			errorMessage: nextErrors[0] ? nextErrors[0].message : null,
+		};
 		setState(nextState);
 		onChange(event, nextState);
 	}
@@ -59,11 +83,7 @@ ContextualManager.propTypes = {
 	dateFormat: PropTypes.string,
 	onChange: PropTypes.func,
 	required: PropTypes.bool,
-	selectedDateTime: PropTypes.oneOfType([
-		PropTypes.instanceOf(Date),
-		PropTypes.number,
-		PropTypes.string,
-	]),
+	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	useSeconds: PropTypes.bool,
 	useUTC: PropTypes.bool,
 };

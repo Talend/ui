@@ -132,7 +132,7 @@ export default function extractTime(selectedTime, useSeconds) {
 		};
 	}
 	try {
-		time = strToTime(selectedTime, useSeconds);
+		time = typeof selectedTime === 'string' ? strToTime(selectedTime, useSeconds) : selectedTime;
 		checkTime(time);
 	} catch (error) {
 		errors.push(error);
@@ -140,7 +140,7 @@ export default function extractTime(selectedTime, useSeconds) {
 
 	return {
 		time,
-		textInput: selectedTime,
+		textInput: typeof selectedTime === 'string' ? selectedTime : timeToStr(time),
 		errors,
 		errorMessage: errors[0] ? errors[0].message : null,
 	};

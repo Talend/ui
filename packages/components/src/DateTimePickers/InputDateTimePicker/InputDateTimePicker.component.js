@@ -27,7 +27,7 @@ function InputDateTimePicker(props) {
 			dateFormat={props.dateFormat}
 			id={props.id}
 			required={props.required}
-			value={props.value}
+			value={props.selectedDateTime}
 			useSeconds={props.useSeconds}
 			useUTC={props.useUTC}
 			onChange={props.onChange}
@@ -57,7 +57,11 @@ function InputDateTimePicker(props) {
 }
 InputDateTimePicker.propTypes = {
 	id: PropTypes.string.isRequired,
-	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
+	selectedDateTime: PropTypes.oneOfType([
+		PropTypes.instanceOf(Date),
+		PropTypes.number,
+		PropTypes.string,
+	]),
 	onChange: PropTypes.func,
 	onBlur: PropTypes.func,
 	readOnly: PropTypes.bool,

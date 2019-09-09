@@ -323,7 +323,7 @@ storiesOf('DatePicker', module)
 					name="Datetime"
 					onBlur={action('onBlur')}
 					onChange={action('onChange')}
-					value={new Date(Date.UTC(2018, 4, 13, 12, 30, 44))}
+					selectedDateTime={new Date(2018, 4, 13, 12, 30, 44)}
 				/>
 			</form>
 		</div>

@@ -5,7 +5,7 @@ import setSeconds from 'date-fns/set_seconds';
 import setDate from 'date-fns/set_date';
 import startOfSecond from 'date-fns/start_of_second';
 import getErrorMessage from './error-messages';
-import { checkTime, pad, strToTime, timeToStr } from '../Time/time-extraction';
+import { checkTime, pad, strToTime } from '../Time/time-extraction';
 
 const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
 
@@ -173,7 +173,7 @@ function dateTimeToStr(date, time, options) {
 		return '';
 	}
 
-	const { dateFormat, useTime } = options;
+	const { dateFormat, useTime = true } = options;
 	if (time === undefined || useTime === false) {
 		return format(date, dateFormat);
 	}
@@ -193,6 +193,10 @@ function dateTimeToStr(date, time, options) {
 		}
 		return dateStr;
 	}
+}
+
+function dateTimeToStr2(datetime, options) {
+	return format(datetime, getFullDateFormat(options));
 }
 
 /**
@@ -259,31 +263,6 @@ function strToDate(strToParse, dateFormat) {
 }
 
 /**
- * Init time string, depending on the options.
- */
-function initTime({ useSeconds }) {
-	return useSeconds ? '00:00:00' : '00:00';
-}
-
-/**
- * Check that the date format is a composition of YYYY, MM, DD.
- * If not, it throws an error.
- * @param dateFormat {string}
- */
-function checkSupportedDateFormat(dateFormat) {
-	const partsOrder = dateFormat.split(/[^A-Za-z]/);
-	if (
-		partsOrder.indexOf('YYYY') === -1 ||
-		partsOrder.indexOf('MM') === -1 ||
-		partsOrder.indexOf('DD') === -1
-	) {
-		throw new Error(
-			`DATE FORMAT ${dateFormat} - NOT SUPPORTED. Please provide a composition of YYYY, MM, DD`,
-		);
-	}
-}
-
-/**
  * Extract parts (date, time, date/time, textInput) from a Date
  * @param datetime {Date}
  * @param options {Object}
@@ -296,25 +275,21 @@ function checkSupportedDateFormat(dateFormat) {
  * 	}}
  */
 function extractPartsFromDateTime(datetime, options) {
-	let time = initTime(options);
 	if (!isDateValid(datetime, options)) {
 		return {
 			date: undefined,
-			time,
+			time: undefined,
 			datetime,
 			textInput: '',
 			errors: [],
 		};
 	}
 
-	const date = extractDateOnly(datetime, options);
-	time = timeToStr(extractTimeOnly(datetime, options));
-
 	return {
-		date,
-		time,
+		date: extractDateOnly(datetime, options),
+		time: extractTimeOnly(datetime, options),
 		datetime: startOfSecond(datetime),
-		textInput: dateTimeToStr(date, time, options),
+		textInput: dateTimeToStr2(datetime, options),
 		errors: [],
 	};
 }
@@ -333,21 +308,11 @@ function extractPartsFromDateTime(datetime, options) {
  * 	}}
  */
 function extractPartsFromDateAndTime(date, time, options) {
-	let errors = [];
-
-	try {
-		checkTime(time);
-	} catch (error) {
-		errors = errors.concat(error);
-	}
-
 	return {
 		date,
 		time,
 		textInput: dateTimeToStr(date, time, options),
 		datetime: dateAndTimeToDateTime(date, time, options),
-		errorMessage: errors[0] ? errors[0].message : null,
-		errors,
 	};
 }
 
@@ -451,10 +416,8 @@ function extractParts(value, options) {
 
 export {
 	check,
-	checkSupportedDateFormat,
 	extractParts,
 	extractPartsFromDateTime,
 	extractPartsFromDateAndTime,
 	extractPartsFromTextInput,
-	getFullDateFormat,
 };
