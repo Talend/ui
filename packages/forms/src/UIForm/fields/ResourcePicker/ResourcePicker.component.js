@@ -148,6 +148,7 @@ class ResourcePicker extends Component {
 		const toolbar = {
 			name: {
 				label: schema.placeholder,
+				value: this.state.filters.name,
 				onChange: this.nameFilterChanged,
 			},
 			state: {
