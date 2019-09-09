@@ -5,14 +5,9 @@ import setSeconds from 'date-fns/set_seconds';
 import setDate from 'date-fns/set_date';
 import startOfSecond from 'date-fns/start_of_second';
 import getErrorMessage from './error-messages';
-import {
-	checkTime,
-	pad,
-	strToTime,
-} from '../Time/time-extraction';
+import { checkTime, pad, strToTime, timeToStr } from '../Time/time-extraction';
 
 const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
-
 
 const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
 
@@ -20,7 +15,6 @@ export function DatePickerException(code, message) {
 	this.message = getErrorMessage(message);
 	this.code = code;
 }
-
 
 /**
  * Extract date and apply the current timezone, from datetime
@@ -264,18 +258,11 @@ function strToDate(strToParse, dateFormat) {
 	return setDate(monthDate, day);
 }
 
-
 /**
- * Init time (hours, minutes, seconds), depending on the options.
- * If a part is not used, it is init to 00, otherwise it's empty, so user have to enter it.
+ * Init time string, depending on the options.
  */
-function initTime({ useTime, useSeconds }) {
-	if (!useTime) {
-		return { hours: '00', minutes: '00', seconds: '00' };
-	} else if (!useSeconds) {
-		return { hours: '', minutes: '', seconds: '00' };
-	}
-	return { hours: '', minutes: '', seconds: '' };
+function initTime({ useSeconds }) {
+	return useSeconds ? '00:00:00' : '00:00';
 }
 
 /**
@@ -321,9 +308,7 @@ function extractPartsFromDateTime(datetime, options) {
 	}
 
 	const date = extractDateOnly(datetime, options);
-	if (options.useTime) {
-		time = extractTimeOnly(datetime, options);
-	}
+	time = timeToStr(extractTimeOnly(datetime, options));
 
 	return {
 		date,
@@ -349,23 +334,18 @@ function extractPartsFromDateTime(datetime, options) {
  */
 function extractPartsFromDateAndTime(date, time, options) {
 	let errors = [];
-	let timeToUse = time;
 
-	if (options.useTime) {
-		try {
-			checkTime(time);
-		} catch (error) {
-			errors = errors.concat(error);
-		}
-	} else {
-		timeToUse = initTime(options);
+	try {
+		checkTime(time);
+	} catch (error) {
+		errors = errors.concat(error);
 	}
 
 	return {
 		date,
-		time: timeToUse,
-		textInput: dateTimeToStr(date, timeToUse, options),
-		datetime: dateAndTimeToDateTime(date, timeToUse, options),
+		time,
+		textInput: dateTimeToStr(date, time, options),
+		datetime: dateAndTimeToDateTime(date, time, options),
 		errorMessage: errors[0] ? errors[0].message : null,
 		errors,
 	};
@@ -384,11 +364,10 @@ function extractPartsFromDateAndTime(date, time, options) {
  * 	}}
  */
 function extractPartsFromTextInput(textInput, options) {
-	let time = initTime(options);
 	if (textInput === '') {
 		return {
 			date: undefined,
-			time,
+			time: undefined,
 			datetime: undefined,
 			textInput,
 			errors: [],
@@ -396,26 +375,25 @@ function extractPartsFromTextInput(textInput, options) {
 	}
 
 	let date;
+	let time;
 	let errors = [];
 	let dateTextToParse = textInput;
 
 	try {
-		if (options.useTime) {
-			const splitMatches = textInput.match(splitDateAndTimePartsRegex) || [];
-			if (!splitMatches.length) {
-				throw new DatePickerException('DATETIME_INVALID_FORMAT', 'DATETIME_INVALID_FORMAT');
-			} else {
-				// extract date part from datetime
-				dateTextToParse = splitMatches[1];
+		const splitMatches = textInput.match(splitDateAndTimePartsRegex) || [];
+		if (!splitMatches.length) {
+			throw new DatePickerException('DATETIME_INVALID_FORMAT', 'DATETIME_INVALID_FORMAT');
+		} else {
+			// extract date part from datetime
+			dateTextToParse = splitMatches[1];
 
-				// extract time part and parse it
-				try {
-					const timeTextToParse = splitMatches[2];
-					time = strToTime(timeTextToParse, options.useSeconds);
-					checkTime(time);
-				} catch (error) {
-					errors = errors.concat(error);
-				}
+			// extract time part and parse it
+			try {
+				const timeTextToParse = splitMatches[2];
+				time = strToTime(timeTextToParse, options.useSeconds);
+				checkTime(time);
+			} catch (error) {
+				errors = errors.concat(error);
 			}
 		}
 
@@ -464,13 +442,12 @@ function extractParts(value, options) {
 
 	return {
 		date: undefined,
-		time: initTime(options),
+		time: '',
 		datetime: undefined,
 		textInput: '',
 		errors: [],
 	};
 }
-
 
 export {
 	check,

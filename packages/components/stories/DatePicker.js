@@ -307,4 +307,24 @@ storiesOf('DatePicker', module)
 				</div>
 			</div>
 		</div>
+	))
+	.add('DateTime picker', () => (
+		<div>
+			<IconsProvider />
+			<h1>DatePicker</h1>
+			<p>
+				Default date picker
+				<br />
+				It comes with classical keyboard gesture.
+			</p>
+			<form style={{ width: 320 }}>
+				<InputDateTimePicker
+					id="my-date-picker"
+					name="Datetime"
+					onBlur={action('onBlur')}
+					onChange={action('onChange')}
+					value={new Date(Date.UTC(2018, 4, 13, 12, 30, 44))}
+				/>
+			</form>
+		</div>
 	));

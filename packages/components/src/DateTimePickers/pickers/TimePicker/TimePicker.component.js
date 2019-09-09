@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { timeToStr } from '../../Time/time-extraction';
+import { timeToStr, pad } from '../../Time/time-extraction';
 import withListGesture from '../../../Gesture/withListGesture';
 
 import theme from './TimePicker.scss';
@@ -84,7 +84,11 @@ export class TimePicker extends React.Component {
 	onSelect(event, option) {
 		this.props.onChange(event, {
 			textInput: option.label,
-			time: option.value,
+			time: {
+				hours: pad(option.value.hours),
+				minutes: pad(option.value.minutes),
+				seconds: pad(option.value.seconds),
+			},
 		});
 	}
 	scrollItemIntoView(textInput) {
