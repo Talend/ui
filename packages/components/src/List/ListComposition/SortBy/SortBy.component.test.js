@@ -2,9 +2,6 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
-
-import toJsonWithoutI18n from '../../../../test/props-without-i18n';
 import getDefaultT from '../../../translate';
 import { ListContext } from '../context';
 
@@ -30,7 +27,7 @@ describe('SortBy', () => {
 		);
 
 		// then
-		expect(toJson(wrapper)).toMatchSnapshot();
+		expect(wrapper.html()).toMatchSnapshot();
 	});
 
 	it('should render sort by component with sorting parameter from context', () => {
@@ -45,12 +42,16 @@ describe('SortBy', () => {
 		);
 
 		// then
-		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		expect(wrapper.find('a#mySortBy-by').text()).toBe('First Name ');
 	});
 
 	it('should render sort by component with sorting parameter from props', () => {
 		// given
-		const props = { ...defaultProps, value: { sortBy: 'lastName', isDescending: true } };
+		const props = {
+			...defaultProps,
+			onChange: jest.fn(),
+			value: { sortBy: 'lastName', isDescending: true },
+		};
 
 		// when
 		const wrapper = mount(
@@ -60,7 +61,7 @@ describe('SortBy', () => {
 		);
 
 		// then
-		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		expect(wrapper.find('a#mySortBy-by').text()).toBe('Last Name ');
 	});
 
 	it('should handle sort field and direction changes (uncontrolled mode)', () => {
@@ -102,10 +103,7 @@ describe('SortBy', () => {
 
 		// when
 		act(() => {
-			wrapper
-				.find('NavItem')
-				.at(0)
-				.prop('onClick')();
+			wrapper.find('AscendingDescendingButton').prop('onClick')();
 		});
 
 		// then
@@ -141,10 +139,7 @@ describe('SortBy', () => {
 			isDescending: true,
 		});
 
-		wrapper
-			.find('NavItem')
-			.at(0)
-			.prop('onClick')(event);
+		wrapper.find('AscendingDescendingButton').prop('onClick')(event);
 
 		// then
 		expect(props.onChange).toHaveBeenCalledWith(event, {
