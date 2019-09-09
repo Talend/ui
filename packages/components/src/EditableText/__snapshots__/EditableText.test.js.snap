@@ -60,49 +60,53 @@ exports[`EditableText should render skeleton 1`] = `
 `;
 
 exports[`InlineForm should render 1`] = `
-<form
-  className="theme-tc-editable-text-form tc-editable-text-form"
-  onSubmit={[Function]}
+<FocusManager
+  onFocusOut={[Function]}
 >
-  <div
-    className="form-group"
+  <form
+    className="theme-tc-editable-text-form tc-editable-text-form"
+    onSubmit={[Function]}
   >
-    <input
-      className="theme-tc-editable-text-form-input tc-editable-text-form-input form-control"
-      id="inputTitle"
-      onBlur={[Function]}
-      onChange={[Function]}
-      onKeyDown={[Function]}
-      type="text"
-      value="my text"
-    />
-  </div>
-  <div
-    className="theme-tc-editable-text-form-buttons tc-editable-text-form-buttons"
-  >
-    <Action
-      bsStyle="link"
-      className="theme-tc-editable-text-form-buttons-icon tc-editable-text-form-buttons-icon theme-tc-editable-text-form-buttons-cancel tc-editable-text-form-buttons-cancel"
-      data-feature="my.custom.feature.cancel"
-      hideLabel={true}
-      icon="talend-cross"
-      label={[Function]}
-      name="action-cancel-title"
-      onClick={[Function]}
-    />
-    <Action
-      bsStyle="link"
-      className="theme-tc-editable-text-form-buttons-icon tc-editable-text-form-buttons-icon theme-tc-editable-text-form-buttons-submit tc-editable-text-form-buttons-submit"
-      data-feature="my.custom.feature.submit"
-      disabled={false}
-      hideLabel={true}
-      icon="talend-check"
-      label={[Function]}
-      name="action-submit-title"
-      type="submit"
-    />
-  </div>
-</form>
+    <div
+      className="form-group"
+    >
+      <input
+        className="theme-tc-editable-text-form-input tc-editable-text-form-input form-control"
+        id="inputTitle"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        type="text"
+        value="my text"
+      />
+    </div>
+    <div
+      className="theme-tc-editable-text-form-buttons tc-editable-text-form-buttons"
+    >
+      <Action
+        bsStyle="link"
+        className="theme-tc-editable-text-form-buttons-icon tc-editable-text-form-buttons-icon theme-tc-editable-text-form-buttons-cancel tc-editable-text-form-buttons-cancel"
+        data-feature="my.custom.feature.cancel"
+        hideLabel={true}
+        icon="talend-cross"
+        label={[Function]}
+        name="action-cancel-title"
+        onClick={[Function]}
+      />
+      <Action
+        bsStyle="link"
+        className="theme-tc-editable-text-form-buttons-icon tc-editable-text-form-buttons-icon theme-tc-editable-text-form-buttons-submit tc-editable-text-form-buttons-submit"
+        data-feature="my.custom.feature.submit"
+        disabled={false}
+        hideLabel={true}
+        icon="talend-check"
+        label={[Function]}
+        name="action-submit-title"
+        type="submit"
+      />
+    </div>
+  </form>
+</FocusManager>
 `;
 
 exports[`PlainTextTitle should render 1`] = `
