@@ -75,54 +75,52 @@ function SortBy({ id, initialValue, options, onChange, value }) {
 		performChange(event, { ...currentValue, isDescending: !isDescending });
 
 	return (
-		<div className={theme('tc-sort-by')}>
+		<Nav className={theme('tc-sort-by')}>
 			<Navbar.Text>
 				<label className={theme('tc-sort-by-label')} htmlFor={id}>
 					{t('LIST_TOOLBAR_SORT_BY', { defaultValue: 'Sort by:' })}
 				</label>
 			</Navbar.Text>
-			<Nav>
-				{options.length === 1 ? (
-					<li className="navbar-text">{options[0].name}</li>
-				) : (
-					<NavDropdown
-						aria-label={t('LIST_CHANGE_SORT_BY', {
-							defaultValue: 'Change sort criteria. Current sort by {{sortBy}}.',
-							sortBy: selectedLabel,
-						})}
-						className={theme('tc-sort-by-items')}
-						id={`${id}-by`}
-						onSelect={onSortByChange}
-						title={selectedLabel}
-					>
-						{options.map(({ key, label }, index) => (
-							<MenuItem
-								aria-label={t('LIST_SELECT_SORT_BY', {
-									defaultValue: 'Select {{sortBy}} as current sort criteria.',
-									sortBy: label,
-								})}
-								eventKey={key}
-								key={`${key}-${index}`}
-								id={`${id}-${key}`}
-							>
-								{label}
-							</MenuItem>
-						))}
-					</NavDropdown>
-				)}
-				{selectedOption && (
-					<li>
-						<AscendingDescendingButton
-							id={id}
-							isDescending={isDescending}
-							onClick={onOrderChange}
-							orderLabel={orderLabel}
-							t={t}
-						/>
-					</li>
-				)}
-			</Nav>
-		</div>
+			{options.length === 1 ? (
+				<li className="navbar-text">{options[0].name}</li>
+			) : (
+				<NavDropdown
+					aria-label={t('LIST_CHANGE_SORT_BY', {
+						defaultValue: 'Change sort criteria. Current sort by {{sortBy}}.',
+						sortBy: selectedLabel,
+					})}
+					className={theme('tc-sort-by-items')}
+					id={`${id}-by`}
+					onSelect={onSortByChange}
+					title={selectedLabel}
+				>
+					{options.map(({ key, label }, index) => (
+						<MenuItem
+							aria-label={t('LIST_SELECT_SORT_BY', {
+								defaultValue: 'Select {{sortBy}} as current sort criteria.',
+								sortBy: label,
+							})}
+							eventKey={key}
+							key={`${key}-${index}`}
+							id={`${id}-${key}`}
+						>
+							{label}
+						</MenuItem>
+					))}
+				</NavDropdown>
+			)}
+			{selectedOption && (
+				<li>
+					<AscendingDescendingButton
+						id={id}
+						isDescending={isDescending}
+						onClick={onOrderChange}
+						orderLabel={orderLabel}
+						t={t}
+					/>
+				</li>
+			)}
+		</Nav>
 	);
 }
 

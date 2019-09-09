@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SortBy should render sort by component 1`] = `
-<div class="tc-sort-by theme-tc-sort-by">
+<ul class="tc-sort-by theme-tc-sort-by nav">
   <p class="navbar-text">
     <label class="tc-sort-by-label theme-tc-sort-by-label"
            for="mySortBy"
@@ -9,50 +9,48 @@ exports[`SortBy should render sort by component 1`] = `
       Sort by:
     </label>
   </p>
-  <ul class="nav">
-    <li class="tc-sort-by-items theme-tc-sort-by-items dropdown">
-      <a aria-label="Change sort criteria. Current sort by N.C."
-         id="mySortBy-by"
-         role="button"
-         class="dropdown-toggle"
-         aria-haspopup="true"
-         aria-expanded="false"
-         href="#"
+  <li class="tc-sort-by-items theme-tc-sort-by-items dropdown">
+    <a aria-label="Change sort criteria. Current sort by N.C."
+       id="mySortBy-by"
+       role="button"
+       class="dropdown-toggle"
+       aria-haspopup="true"
+       aria-expanded="false"
+       href="#"
+    >
+      N.C
+      <span class="caret">
+      </span>
+    </a>
+    <ul role="menu"
+        class="dropdown-menu"
+        aria-labelledby="mySortBy-by"
+    >
+      <li role="presentation"
+          class
       >
-        N.C
-        <span class="caret">
-        </span>
-      </a>
-      <ul role="menu"
-          class="dropdown-menu"
-          aria-labelledby="mySortBy-by"
+        <a aria-label="Select First Name as current sort criteria."
+           id="mySortBy-firstName"
+           role="menuitem"
+           tabindex="-1"
+           href="#"
+        >
+          First Name
+        </a>
+      </li>
+      <li role="presentation"
+          class
       >
-        <li role="presentation"
-            class
+        <a aria-label="Select Last Name as current sort criteria."
+           id="mySortBy-lastName"
+           role="menuitem"
+           tabindex="-1"
+           href="#"
         >
-          <a aria-label="Select First Name as current sort criteria."
-             id="mySortBy-firstName"
-             role="menuitem"
-             tabindex="-1"
-             href="#"
-          >
-            First Name
-          </a>
-        </li>
-        <li role="presentation"
-            class
-        >
-          <a aria-label="Select Last Name as current sort criteria."
-             id="mySortBy-lastName"
-             role="menuitem"
-             tabindex="-1"
-             href="#"
-          >
-            Last Name
-          </a>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</div>
+          Last Name
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
 `;
