@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
 import { ActionIconToggle } from '../../../Actions';
 import { useListContext } from '../context';
+import { DISPLAY_MODE } from '../constants';
 import cssModule from './DisplayModeToggle.scss';
 import { getTheme } from '../../../theme';
 
@@ -53,21 +54,8 @@ DisplayModeIcon.propTypes = {
 	onSelect: PropTypes.func.isRequired,
 };
 
-function ListDisplayMode({
-	children,
-	displayModesOptions,
-	id,
-	initialDisplayMode,
-	onChange,
-	selectedDisplayMode,
-}) {
+function ListDisplayMode({ children, displayModesOptions, id, onChange, selectedDisplayMode }) {
 	const { displayMode, setDisplayMode } = useListContext();
-	useEffect(() => {
-		if (!onChange) {
-			setDisplayMode(initialDisplayMode);
-		}
-	}, []);
-
 	function onSelect(event, value) {
 		if (onChange) {
 			onChange(event, value);
@@ -95,16 +83,16 @@ function ListDisplayMode({
 	);
 }
 
+export const displayModesOptions = [DISPLAY_MODE.TABLE, DISPLAY_MODE.LARGE];
+
 ListDisplayMode.defaultProps = {
 	id: uuid.v4(),
-	displayModesOptions: ['table', 'large'],
-	initialDisplayMode: 'table',
+	displayModesOptions,
 };
 ListDisplayMode.propTypes = {
 	children: PropTypes.node,
 	displayModesOptions: PropTypes.arrayOf(PropTypes.string),
 	id: PropTypes.string,
-	initialDisplayMode: PropTypes.string,
 	onChange: PropTypes.func,
 	selectedDisplayMode: PropTypes.string,
 };
