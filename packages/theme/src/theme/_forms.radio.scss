@@ -2,11 +2,9 @@ $tt-radio-size: $form-checkbox-and-radio-size !default;
 $tt-radio-background-color: $wild-sand !default;
 $tt-radio-border-color: $dark-silver !default;
 $tt-radio-checked-background-color: $lochmara !default;
-$tt-radio-checked-border-color: shade($lochmara, 12) !default;
-$tt-radio-disabled-checked-background-color: $gray-light !default;
-$tt-radio-disabled-checked-border-color: $gray-light !default;
-$tt-radio-hover-border-color: $lochmara !default;
-$tt-radio-focus-border-color: $scooter !default;
+$tt-radio-checked-border-color: shade($lochmara, 15) !default;
+$tt-radio-disabled-checked-color: $gray-light !default;
+$tt-radio-hover-border-color: tint($lochmara, 15) !default;
 
 [type='radio'] {
 	&:before,
@@ -32,43 +30,50 @@ $tt-radio-focus-border-color: $scooter !default;
 		border: 1px solid $tt-radio-border-color;
 	}
 
-	&:hover {
+	&:checked {
 		&:before,
 		+ *:before {
-			border-color: $tt-radio-hover-border-color;
+			@include scale(0.5);
+			background-color: $tt-radio-checked-background-color;
+		}
+
+		&:after,
+		+ *:after {
+			border-color: $tt-radio-checked-border-color;
+		}
+	}
+
+	&:hover,
+	+ *:hover {
+		&,
+		&:checked {
+			&:after,
+			+ *:after {
+				border-color: $tt-radio-hover-border-color;
+			}
 		}
 	}
 
 	&:focus {
 		outline: none;
+
+		&:after,
+		+ *:after {
+			@include checkbox-outline;
+		}
 	}
 
-	&:checked:before,
-	&:checked + *:before {
-		@include scale(0.5);
-		background-color: $tt-radio-checked-background-color;
-	}
+	&:disabled {
+		&:checked:before,
+		&:checked + *:before {
+			background-color: $tt-radio-disabled-checked-color;
+		}
 
-	&:disabled:checked:before,
-	&:disabled:checked + *:before {
-		background-color: $tt-radio-disabled-checked-background-color;
-	}
-
-	&:focus + span:after,
-	&:checked:after,
-	&:checked + *:after {
-		border-color: $tt-radio-checked-border-color;
-	}
-
-	&:focus:after,
-	&:focus + span:after {
-		@include checkbox-outline;
-	}
-
-	&:disabled:after,
-	&:disabled:checked:after,
-	&:disabled + *:after,
-	&:disabled:checked + *:after {
-		border-color: $tt-radio-disabled-checked-border-color;
+		&:after,
+		& + *:after,
+		&:checked:after,
+		&:checked + *:after {
+			border-color: $tt-radio-disabled-checked-color;
+		}
 	}
 }

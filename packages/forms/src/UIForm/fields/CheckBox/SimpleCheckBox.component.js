@@ -37,7 +37,9 @@ export default function SimpleCheckBox({
 						onFinish(event, { schema, value: isChecked });
 					}}
 					type="checkbox"
-					checked={value}
+					checked={checked}
+					defaultChecked={value}
+					data-checked={checked}
 					// eslint-disable-next-line jsx-a11y/aria-proptypes
 					aria-invalid={!isValid}
 					aria-describedby={describedby}

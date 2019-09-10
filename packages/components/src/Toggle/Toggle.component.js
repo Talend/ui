@@ -19,10 +19,17 @@ import theme from './Toggle.scss';
  * **/
 function Toggle({ id, label, className, ...props }) {
 	let dataFeature;
+	let dataChecked = 0;
 
 	if (!props.disabled && props['data-feature']) {
 		dataFeature = props['data-feature'];
 		dataFeature += props.checked ? '.disable' : '.enable';
+	}
+
+	if (props.intermediate) {
+		dataChecked = 1;
+	} else if (props.checked) {
+		dataChecked = 2;
 	}
 
 	return (
@@ -33,7 +40,7 @@ function Toggle({ id, label, className, ...props }) {
 			})}
 		>
 			<label htmlFor={id} data-feature={dataFeature}>
-				<input type="checkbox" id={id} {...omit(props, 'data-feature')} />
+				<input type="checkbox" id={id} data-checked={dataChecked} {...omit(props, 'data-feature')} />
 				<span>{label}</span>
 			</label>
 		</div>
@@ -45,6 +52,7 @@ Toggle.displayName = 'Toggle';
 Toggle.defaultProps = {
 	disabled: false,
 	checked: false,
+	intermediate: false,
 	label: '',
 	className: 'switch checkbox',
 };
@@ -57,6 +65,7 @@ Toggle.propTypes = {
 	checked: PropTypes.bool,
 	autoFocus: PropTypes.bool,
 	disabled: PropTypes.bool,
+	intermediate: PropTypes.bool,
 	className: PropTypes.string,
 	'data-feature': PropTypes.string,
 };
