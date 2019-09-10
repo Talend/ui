@@ -1,4 +1,5 @@
 .resource-item {
+	cursor: pointer;
 	display: flex;
 	align-items: center;
 	border-bottom: 0.1rem solid $gallery;
@@ -12,9 +13,14 @@
 
 	.data-container {
 		flex: 1;
+		min-width: 0;
 
 		> .title,
-		> .author {
+		> .author,
+		> .subtitle {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
 			font-size: 14px;
 			display: block;
 			color: $dove-gray;
@@ -62,7 +68,8 @@
 
 		.data-container {
 			> .title,
-			> .author {
+			> .author,
+			> .subtitle {
 				color: $scooter;
 			}
 		}
@@ -73,7 +80,8 @@
 
 		.data-container {
 			> .title,
-			> .author {
+			> .author,
+			> .subtitle {
 				color: $dove-gray;
 			}
 		}
