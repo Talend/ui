@@ -99,6 +99,7 @@ describe('ResourcePicker field', () => {
 		expect(wrapper.find('.tc-resource-picker-sort-options button').length).toBe(2);
 		expect(wrapper.find('.tc-resource-picker-state-filters button').length).toBe(3);
 		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find('ResourcePicker').props().toolbar.name.value).toEqual('');
 	});
 
 	it('should render simple select with wanted sort and filter', done => {
@@ -322,6 +323,9 @@ describe('ResourcePicker field', () => {
 	});
 
 	describe('filters', () => {
+		beforeEach(() => {
+			jest.clearAllMocks();
+		});
 		it('should filter on selection', async () => {
 			const wrapper = mount(<ResourcePicker {...props} />);
 			await wrapper.instance().busy;
@@ -407,6 +411,38 @@ describe('ResourcePicker field', () => {
 					selection: false,
 				},
 			});
+		});
+		it('should filter', () => {
+			const wrapper = shallow(<ResourcePicker {...props} />);
+
+			wrapper.instance().nameFilterChanged({ target: { value: 'test' } });
+			wrapper.update();
+
+			expect(props.onTrigger).toHaveBeenLastCalledWith(null, {
+				schema: expect.anything(),
+				errors: undefined,
+				properties: undefined,
+				trigger: {
+					action: 'resourcePickerFiltered',
+					onEvent: 'filter',
+				},
+				filters: {
+					certified: false,
+					favorites: false,
+					name: 'test',
+					selected: [],
+					selection: false,
+				},
+			});
+
+			expect(
+				wrapper
+					.find('FieldTemplate')
+					.shallow()
+					.children()
+					.at(1)
+					.prop('toolbar').name.value,
+			).toBe('test');
 		});
 	});
 
