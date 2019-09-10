@@ -21,7 +21,16 @@ exports[`NameFilter component snaps should render NameFilter in default mode 1`]
     minLength={0}
     onChange={[Function]}
     placeholder="Example label"
+    required={true}
     type="text"
+  />
+  <Action
+    bsStyle="link"
+    className="theme-remove"
+    hideLabel={true}
+    icon="talend-cross"
+    label="Remove filter"
+    onClick={[Function]}
   />
 </form>
 `;

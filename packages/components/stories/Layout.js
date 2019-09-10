@@ -1,28 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import talendIcons from '@talend/icons/dist/react';
 
-import {
-	List,
-	IconsProvider,
-	Layout,
-	SidePanel,
-	HeaderBar,
-	Drawer,
-	SubHeaderBar,
-} from '../src/index';
+import { IconsProvider, Layout, SidePanel, HeaderBar, Drawer, SubHeaderBar } from '../src/index';
+import List from '../src/List/ListComposition';
 
 import { TALEND_T7_THEME_APPS as apps, TALEND_T7_THEME_CLASSNAME } from '../src/Layout/constants';
-
-const icons = {
-	'talend-arrow-left': talendIcons['talend-arrow-left'],
-	'talend-dataprep': talendIcons['talend-dataprep'],
-	'talend-folder': talendIcons['talend-folder'],
-	'talend-plus-circle': talendIcons['talend-plus-circle'],
-	'talend-star': talendIcons['talend-star'],
-	'talend-opener': talendIcons['talend-opener'],
-};
 
 const actions = [
 	{
@@ -54,7 +37,11 @@ const drawers = [
 const content = (
 	<div>
 		<h1>Welcome to the content for testing scroll</h1>
-		<ul>{[...new Array(138)].map(() => <li>one</li>)}</ul>
+		<ul>
+			{[...new Array(138)].map(() => (
+				<li>one</li>
+			))}
+		</ul>
 	</div>
 );
 const sidePanel = (
@@ -67,80 +54,14 @@ const header = <HeaderBar brand={{ label: 'Example App Name' }} />;
 const subHeader = <SubHeaderBar title="MyTitle" onGoBack={action('SubHeader onGoBack')} />;
 const footer = 'Footer content';
 
-const listItem = {
-	id: 1,
+const items = [...new Array(61)].map((_, index) => ({
+	id: index,
 	name: 'Title',
 	created: '2016-09-22',
 	modified: '2016-09-22',
 	author: 'Jean-Pierre DUPONT',
 	display: 'text',
-};
-const listProps = {
-	id: 'talend-list',
-	displayMode: 'table',
-	list: {
-		columns: [
-			{ key: 'id', label: 'Id' },
-			{ key: 'name', label: 'Name' },
-			{ key: 'author', label: 'Author' },
-			{ key: 'created', label: 'Created' },
-			{ key: 'modified', label: 'Modified' },
-		],
-		items: [...new Array(61)].map(() => listItem),
-		titleProps: {
-			key: 'name',
-			iconKey: 'icon',
-			displayModeKey: 'display',
-			onClick: action('onClick'),
-			onEditCancel: action('onEditCancel'),
-			onEditSubmit: action('onEditSubmit'),
-		},
-		itemProps: {
-			classNameKey: 'className',
-			onSelect: action('onSelect'),
-			onToggle: action('onToggle'),
-			onToggleAll: action('onToggleAll'),
-			isSelected: () => false,
-		},
-	},
-	toolbar: {
-		actionBar: {
-			actions: {
-				left: [
-					{
-						id: 'add',
-						label: 'Add Folder',
-						bsStyle: 'primary',
-						icon: 'talend-plus-circle',
-						onClick: action('add.onClick'),
-					},
-					{
-						displayMode: 'splitDropdown',
-						label: 'Add File',
-						icon: 'talend-folder',
-						onClick: action('onAdd'),
-						items: [
-							{
-								label: 'From Local',
-								onClick: action('From Local click'),
-							},
-							{
-								label: 'From Remote',
-								onClick: action('From Remote click'),
-							},
-						],
-						emptyDropdownLabel: 'No option',
-					},
-				],
-			},
-		},
-		sort: {
-			field: 'name',
-			onChange: action('sort.onChange'),
-			options: [{ id: 'id', name: 'Id' }, { id: 'name', name: 'Name' }],
-		},
-	},
-};
+}));
 
 const tabs = {
 	items: [
@@ -166,7 +87,7 @@ const tabs = {
 
 const stories = storiesOf('Layout', module).addDecorator(story => (
 	<div>
-		<IconsProvider defaultIcons={icons} />
+		<IconsProvider />
 		{story()}
 	</div>
 ));
@@ -181,9 +102,7 @@ const appStyle = require('./config/themes.scss');
  * @param layoutStoryContent Optional custom children
  */
 function layoutStory(layoutStoryName, layoutStoryProps, layoutStoryContent = content) {
-	stories.add(layoutStoryName, () => (
-		<Layout {...layoutStoryProps}>{layoutStoryContent}</Layout>
-	));
+	stories.add(layoutStoryName, () => <Layout {...layoutStoryProps}>{layoutStoryContent}</Layout>);
 }
 
 /**
@@ -241,7 +160,18 @@ decoratedLayoutStory(
 		mode: 'TwoColumns',
 		one: sidePanel,
 	},
-	<List {...listProps} />,
+	<List.Manager id="my-list" collection={items}>
+		<List.Toolbar>
+			<List.DisplayMode id="my-list-displayMode" />
+		</List.Toolbar>
+		<List.VList id="my-vlist">
+			<List.VList.Text label="Id" dataKey="id" />
+			<List.VList.Text label="Name" dataKey="name" />
+			<List.VList.Text label="Author" dataKey="author" />
+			<List.VList.Text label="Created" dataKey="created" />
+			<List.VList.Text label="Modified" dataKey="modified" />
+		</List.VList>
+	</List.Manager>,
 );
 
 decoratedLayoutStory(
@@ -251,7 +181,18 @@ decoratedLayoutStory(
 		mode: 'TwoColumns',
 		one: sidePanel,
 	},
-	<List {...listProps} displayMode={'large'} />,
+	<List.Manager id="my-list" collection={items}>
+		<List.Toolbar>
+			<List.DisplayMode id="my-list-displayMode" initialValue="large" />
+		</List.Toolbar>
+		<List.VList id="my-vlist">
+			<List.VList.Text label="Id" dataKey="id" />
+			<List.VList.Text label="Name" dataKey="name" />
+			<List.VList.Text label="Author" dataKey="author" />
+			<List.VList.Text label="Created" dataKey="created" />
+			<List.VList.Text label="Modified" dataKey="modified" />
+		</List.VList>
+	</List.Manager>,
 );
 
 decoratedLayoutStory('TwoColumns docked', {
