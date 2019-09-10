@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { DateTimeContext } from '../Context';
-import { extractParts, extractPartsFromDateAndTime } from '../datetime-extraction';
+import {
+	extractParts,
+	extractPartsFromDateAndTime,
+} from '../datetime-extraction';
+import { DATE_INPUT_ERRORS, TIME_INPUT_ERRORS } from '../constants';
 
 function ContextualManager(props) {
 	// eslint-disable-next-line no-use-before-define
@@ -32,14 +36,17 @@ function ContextualManager(props) {
 	}
 	function onDateChange(event, { date, errors }) {
 		let nextValues;
-		let nextErrors = state.errors;
 		if (errors.length > 0) {
 			nextValues = { datetime: null, textInput: '' };
-			nextErrors = nextErrors.concat(errors);
 		} else {
 			nextValues = extractPartsFromDateAndTime(date, state.time, getDateOptions());
 		}
+		const nextErrors = state.errors
+			.filter(error => !DATE_INPUT_ERRORS.includes(error.code))
+			.concat(errors);
+
 		const nextState = {
+			...state,
 			...nextValues,
 			errors: nextErrors,
 			errorMessage: nextErrors[0] ? nextErrors[0].message : null,
@@ -48,16 +55,19 @@ function ContextualManager(props) {
 		onChange(event, nextState);
 	}
 	function onTimeChange(event, { time, errors }) {
-		let newState;
-		let nextErrors = state.errors;
+		let newValues;
 		if (errors.length > 0) {
-			newState = { datetime: null, textInput: '' };
-			nextErrors = nextErrors.concat(errors);
+			newValues = { datetime: null, textInput: '' };
 		} else {
-			newState = extractPartsFromDateAndTime(state.date, time, getDateOptions());
+			newValues = extractPartsFromDateAndTime(state.date, time, getDateOptions());
 		}
+		const nextErrors = state.errors
+			.filter(error => !TIME_INPUT_ERRORS.includes(error.code))
+			.concat(errors);
+
 		const nextState = {
-			...newState,
+			...state,
+			...newValues,
 			errors: nextErrors,
 			errorMessage: nextErrors[0] ? nextErrors[0].message : null,
 		};

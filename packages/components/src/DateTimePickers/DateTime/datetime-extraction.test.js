@@ -1,52 +1,13 @@
 
 import {
-	checkSupportedDateFormat,
 	extractParts,
 	extractPartsFromDateAndTime,
 	extractPartsFromDateTime,
 	extractPartsFromTextInput,
 	getFullDateFormat,
-	check,
 } from './datetime-extraction';
 
-
 describe('Date extraction', () => {
-	describe('checkSupportedDateFormat', () => {
-		it('should pass', () => {
-			// given
-			const format = 'DD/MM/YYYY';
-
-			// when
-			try {
-				checkSupportedDateFormat(format);
-			} catch (e) {
-				// then
-				fail(
-					`checkSupportedDateFormat() should not throw an error on ${format} because it is a composition of YYY MM DD`,
-				);
-			}
-		});
-
-		it('should throw an error when not a composition of YYYY MM DD', () => {
-			// given
-			const format = 'YYYY MMM DD';
-
-			// when
-			try {
-				checkSupportedDateFormat(format);
-			} catch (e) {
-				// then
-				expect(e.message).toBe(
-					'DATE FORMAT YYYY MMM DD - NOT SUPPORTED. Please provide a composition of YYYY, MM, DD',
-				);
-				return;
-			}
-			fail(
-				`checkSupportedDateFormat() should throw an error on ${format} because it is not a composition of YYY MM DD`,
-			);
-		});
-	});
-
 	describe('extractParts', () => {
 		it('should return empty parts on undefined value', () => {
 			// given

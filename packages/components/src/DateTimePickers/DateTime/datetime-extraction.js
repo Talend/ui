@@ -117,37 +117,6 @@ function convertToUTC(date) {
 		),
 	);
 }
-/**
- * Check if the time is empty
- */
-function isTimeEmpty(time) {
-	if (time.hours || time.minutes || time.seconds) {
-		return false;
-	}
-	return true;
-}
-
-/**
- * Check if the date and time are correct
- */
-function check(date, time, options) {
-	let errors = [];
-	const isPickerEmpty = !date && isTimeEmpty(time);
-
-	if (isPickerEmpty && !options.required) {
-		return errors;
-	}
-	try {
-		checkTime(time);
-	} catch (timeErrors) {
-		errors = errors.concat(timeErrors);
-	}
-
-	if (!isDateValid(date, options)) {
-		errors.push(new DatePickerException('INVALID_DATE_FORMAT', 'INVALID_DATE_FORMAT'));
-	}
-	return errors;
-}
 
 /**
  * Convert hour minutes and seconds into seconds
@@ -415,7 +384,6 @@ function extractParts(value, options) {
 }
 
 export {
-	check,
 	extractParts,
 	extractPartsFromDateTime,
 	extractPartsFromDateAndTime,

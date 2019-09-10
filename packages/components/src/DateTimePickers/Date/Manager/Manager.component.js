@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { DateContext } from '../Context';
@@ -13,16 +13,7 @@ function ContextualManager(props) {
 	// eslint-disable-next-line no-use-before-define
 	const initialState = extractDate(props.value, getDateOptions());
 	const [state, setState] = useState(initialState);
-
-	useEffect(() => {
-		// eslint-disable-next-line no-use-before-define
-		const newState = extractDate(props.value, getDateOptions());
-		setState(newState);
-	}, [props.value]);
-
-	useEffect(() => {
-		checkSupportedDateFormat(props.dateFormat);
-	}, [props.dateFormat]);
+	checkSupportedDateFormat(props.dateFormat);
 
 	function getDateOptions() {
 		return {

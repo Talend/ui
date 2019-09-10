@@ -79,7 +79,7 @@ InputTimePicker.propTypes = {
 	useSeconds: PropTypes.bool,
 	onChange: PropTypes.func,
 	onBlur: PropTypes.func,
-	value: PropTypes.string,
+	value: PropTypes.oneOfType[(PropTypes.string, PropTypes.object)],
 };
 
 InputTimePicker.defaultProps = {
