@@ -40,7 +40,12 @@ function Toggle({ id, label, className, ...props }) {
 			})}
 		>
 			<label htmlFor={id} data-feature={dataFeature}>
-				<input type="checkbox" id={id} data-checked={dataChecked} {...omit(props, 'data-feature')} />
+				<input
+					type="checkbox"
+					id={id}
+					data-checked={dataChecked}
+					{...omit(props, 'data-feature')}
+				/>
 				<span>{label}</span>
 			</label>
 		</div>
