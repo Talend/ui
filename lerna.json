@@ -4,17 +4,16 @@
   "npmClient": "yarn",
   "useWorkspaces": true,
   "packages": [
-    "packages/cmf",
-    "packages/cmf-cqrs",
-    "packages/cmf-webpack-plugin",
+    "packages/cmf/cmf-cqrs",
+    "packages/cmf/react-cmf",
+    "packages/cmf/sagas",
+    "packages/cmf/storybook-cmf",
+    "packages/webpack-plugins/cmf-webpack-plugin",
     "packages/components",
     "packages/containers",
-    "packages/forms",
-    "packages/generator",
+    "packages/datagrid",
+    "packages/forms/react-forms",
     "packages/icons",
-    "packages/sagas",
-    "packages/storybook-cmf",
-    "packages/theme",
-    "packages/datagrid"
+    "packages/theme"
   ]
 }
