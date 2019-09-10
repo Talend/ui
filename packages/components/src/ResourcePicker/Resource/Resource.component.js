@@ -38,7 +38,7 @@ function Resource({ parent, index, style, className, t }) {
 	}
 
 	let onRowClick;
-	const { icon, name, author, modified, flags = [] } = rowData;
+	const { icon, name, author, modified, flags = [], subtitle } = rowData;
 
 	if (parent.props.onRowClick) {
 		onRowClick = event => parent.props.onRowClick({ event, rowData });
@@ -59,12 +59,19 @@ function Resource({ parent, index, style, className, t }) {
 			{icon && <Icon name={icon} />}
 			<div className={classNames('data-container', theme['data-container'])}>
 				<span className={classNames('title', theme.title)}>{name}</span>
-				{author ? (
+				{author && subtitle === undefined && (
 					<small className={classNames('author', theme.author)}>
 						{getAuthorLabel(t, author, modified)}
 					</small>
-				) : null}
+				)}
+
+				{subtitle !== undefined && !author && (
+					<small className={classNames('subtitle', theme.subtitle)} title={subtitle}>
+						{subtitle}
+					</small>
+				)}
 			</div>
+
 			<div className={classNames('flags-container', theme['flags-container'])}>
 				{Object.keys(FLAGS).map(flag => (
 					<Icon
@@ -96,6 +103,7 @@ Resource.propTypes = {
 					icon: PropTypes.string,
 					name: PropTypes.string,
 					author: PropTypes.string,
+					subtitle: PropTypes.string,
 					modified: PropTypes.string,
 					flags: PropTypes.arrayOf(PropTypes.string),
 				}),

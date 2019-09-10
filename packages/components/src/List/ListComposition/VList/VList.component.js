@@ -5,6 +5,8 @@ import { useListContext } from '../context';
 import VirtualizedList from '../../../VirtualizedList';
 import { DISPLAY_MODE, SORT } from '../constants';
 
+import theme from '../List.scss';
+
 function VList(props) {
 	const {
 		displayMode = DISPLAY_MODE.TABLE,
@@ -13,16 +15,18 @@ function VList(props) {
 		sortParams,
 	} = useListContext();
 	return (
-		<VirtualizedList
-			collection={collection}
-			type={displayMode.toUpperCase()}
-			sortBy={get(sortParams, 'sortBy')}
-			sortDirection={get(sortParams, 'isDescending') ? SORT.DESC : SORT.ASC}
-			sort={({ sortBy, sortDirection }) =>
-				setSortParams({ sortBy, isDescending: sortDirection === SORT.DESC })
-			}
-			{...props}
-		/>
+		<div className={theme.vlist}>
+			<VirtualizedList
+				collection={collection}
+				type={displayMode.toUpperCase()}
+				sortBy={get(sortParams, 'sortBy')}
+				sortDirection={get(sortParams, 'isDescending') ? SORT.DESC : SORT.ASC}
+				sort={({ sortBy, sortDirection }) =>
+					setSortParams({ sortBy, isDescending: sortDirection === SORT.DESC })
+				}
+				{...props}
+			/>
+		</div>
 	);
 }
 

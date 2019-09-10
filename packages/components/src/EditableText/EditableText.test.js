@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import keycode from 'keycode';
 import { Action } from '../index';
 import { EditableTextComponent, PlainTextTitle } from './EditableText.component';
 import InlineForm from './InlineForm.component';
@@ -169,6 +170,18 @@ describe('InlineForm', () => {
 		expect(defaultProps.onCancel).toHaveBeenCalledWith(event);
 		expect(wrapper.state('value')).toEqual('');
 	});
+	it('should call onCancel when ESC', () => {
+		const event = { keyCode: keycode.codes.esc };
+		const wrapper = shallow(<InlineForm {...defaultProps} />);
+		wrapper.setState({ value: 'myDataBeforeCancel' });
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('keydown', event);
+		expect(defaultProps.onCancel).toHaveBeenCalledWith(event);
+		expect(wrapper.state('value')).toEqual('');
+	});
+
 	it('should call selectInput on render', () => {
 		const input = { select: jest.fn(), focus: jest.fn() };
 		new InlineForm(defaultProps).selectInput(input);

@@ -100,7 +100,10 @@ function AboutDialog({
 					<Text
 						text={
 							copyrights ||
-							t('ABOUT_COPYRIGHTS', { defaultValue: '© 2018 Talend. All Rights Reserved' })
+							t('ABOUT_COPYRIGHTS', {
+								defaultValue: '© {{year}} Talend. All Rights Reserved',
+								year: new Date().getFullYear(),
+							})
 						}
 						size={Skeleton.SIZES.large}
 						loading={loading}

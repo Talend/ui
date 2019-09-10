@@ -67,42 +67,38 @@ describe('List DisplayMode', () => {
 			const contextValue = { setDisplayMode: jest.fn(), t: getDefaultT() };
 
 			// when
-			act(() => {
-				mount(
-					<ListContext.Provider value={contextValue}>
-						<ListDisplayMode id="myDisplayMode" initialDisplayMode="large" />
-					</ListContext.Provider>,
-				);
-			});
+			const wrapper = mount(
+				<ListContext.Provider initialDisplayMode="large" value={contextValue}>
+					<ListDisplayMode id="myDisplayMode" />
+				</ListContext.Provider>,
+			);
 
 			// then
-			expect(contextValue.setDisplayMode).toBeCalledWith('large');
+			expect(
+				wrapper
+					.find('Button')
+					.at(0)
+					.prop('aria-label'),
+			).toBe('Set Table as current display mode.');
 		});
 
 		it('should propagate display mode', () => {
 			// given
 			const contextValue = { setDisplayMode: jest.fn(), t: getDefaultT() };
 
-			let wrapper;
-			act(() => {
-				wrapper = mount(
-					<ListContext.Provider value={contextValue}>
-						<ListDisplayMode id="myDisplayMode" />
-					</ListContext.Provider>,
-				);
-			});
+			const wrapper = mount(
+				<ListContext.Provider value={contextValue}>
+					<ListDisplayMode id="myDisplayMode" />
+				</ListContext.Provider>,
+			);
 
 			const event = { target: {} };
-			expect(contextValue.setDisplayMode.mock.calls.length).toBe(1);
-
-			// when: react-bootstrap use value-event instead of event-value
 			act(() => {
 				wrapper.find('Button#myDisplayMode-large').prop('onClick')(event, 'large');
 			});
 
 			// then
-			expect(contextValue.setDisplayMode.mock.calls.length).toBe(2);
-			expect(contextValue.setDisplayMode.mock.calls[1]).toEqual(['large']);
+			expect(contextValue.setDisplayMode).toHaveBeenNthCalledWith(1, 'large');
 		});
 	});
 

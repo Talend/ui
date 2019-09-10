@@ -24,7 +24,7 @@ src/List/Toolbar/Toolbar.scss
   93:12  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/Typeahead/Typeahead.scss
-  31:5  error  Mixins should come before declarations  mixins-before-declarations
+  32:5  error  Mixins should come before declarations  mixins-before-declarations
 
 ✖ 11 problems (9 errors, 2 warnings)
 
