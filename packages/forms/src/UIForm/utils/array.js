@@ -46,6 +46,7 @@ function adaptArrayItemKey(arraySchema, item, itemIndex) {
 	const itemKey = item.key;
 	const itemChildren = item.items;
 	const childSchemaItems = get(arraySchema, 'schema.items', undefined);
+	const childTitleMap = get(arraySchema, 'titleMap', undefined);
 
 	if (itemKey && !arrayStartsWith(arrayKey, itemKey)) {
 		return item;
@@ -53,6 +54,7 @@ function adaptArrayItemKey(arraySchema, item, itemIndex) {
 
 	const schema = {
 		...(childSchemaItems && { schema: childSchemaItems }),
+		...(childTitleMap && { titleMap: childTitleMap }),
 		...item,
 	};
 
