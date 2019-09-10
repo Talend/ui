@@ -9,9 +9,11 @@ const theme = getTheme(cssModule);
 
 const Right = ({ children }) => (
 	<ul className={theme('tc-list-toolbar-right')}>
-		{React.Children.map(children, childElement => (
-			<li className={theme('tc-list-toolbar-separated')}>{childElement}</li>
-		))}
+		{React.Children.map(
+			children,
+			childElement =>
+				childElement && <li className={theme('tc-list-toolbar-separated')}>{childElement}</li>,
+		)}
 	</ul>
 );
 
