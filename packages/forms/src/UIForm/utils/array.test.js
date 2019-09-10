@@ -204,5 +204,29 @@ describe('Array utils', () => {
 			expect(result.items[0].schema.type).toBe('string');
 			expect(result.items[0].schema.enum).toEqual(['pending', 'success']);
 		});
+
+		it('should set titleMap if items schema enum is provided', () => {
+			const arraySchemaEntry = {
+				...arraySchema,
+				schema: {
+					items: {
+						title: 'Color',
+						type: 'string',
+					},
+				},
+				titleMap: [
+					{ name: 'White', value: 'White' },
+					{ name: 'Lemon', value: 'Lemon' },
+					{ name: 'Khaki', value: 'Khaki' },
+				],
+			};
+			const result = getArrayElementSchema(arraySchemaEntry, 2);
+
+			expect(result.items[0].titleMap).toEqual([
+				{ name: 'White', value: 'White' },
+				{ name: 'Lemon', value: 'Lemon' },
+				{ name: 'Khaki', value: 'Khaki' },
+			]);
+		});
 	});
 });
