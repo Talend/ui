@@ -55,7 +55,7 @@ function TabBar(props) {
 		if (tabBarRefNode && typeof tabBarRefNode.querySelector === 'function') {
 			const activeChild = tabBarRefNode.querySelector('[aria-selected=true]');
 			if (activeChild) {
-				activeChild.focus();
+				activeChild.focus({ preventScroll: true });
 				needsRefocus.current = false;
 			}
 		}
