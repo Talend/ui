@@ -12,9 +12,10 @@ $tc-filter-bar-width: 250px !default;
 	border-radius: $border-radius-base;
 
 	.search-icon {
-		margin: $padding-smaller;
-		height: $svg-rg-size;
-		width: $svg-rg-size;
+        position: absolute;
+		margin: 8px 0 8px $padding-small;
+		height: $svg-md-size;
+		width: $svg-md-size;
 		fill: $gray;
 	}
 
@@ -25,13 +26,17 @@ $tc-filter-bar-width: 250px !default;
 	}
 
 	:global(.form-group.form-group) {
-		padding: 0;
+		padding: 0 0 0 $padding-small;
 		background: rgba($white, 0.5);
 	}
 
 	.animate {
+        position: absolute;
 		width: $tc-filter-bar-width;
 		animation: reveal 1s cubic-bezier(0.4, 0, 0.2, 1);
+        input {
+          padding-left: 40px;
+        }
 	}
 
 	.search {
@@ -56,12 +61,8 @@ $tc-filter-bar-width: 250px !default;
 		padding: $padding-smaller;
 		line-height: 2rem;
 		height: 100%;
-		// sorry magic number
-		// can't quite mix pixel units and rem
-		// $padding-small & $svg-xs-size
-		// ideally this should be -(($padding-small * 2) + $svg-xs-size)
-		margin-left: -28px;
-
+		position: absolute;
+        right: 0;
 		:global(.tc-svg-icon) {
 			height: $svg-xs-size;
 			width: $svg-xs-size;
