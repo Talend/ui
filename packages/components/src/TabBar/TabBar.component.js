@@ -1,152 +1,96 @@
 /* eslint-disable react/no-find-dom-node */
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import Tab from 'react-bootstrap/lib/Tab';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
 import keycode from 'keycode';
-import debounce from 'lodash/debounce';
-import classnames from 'classnames';
-import theme from './TabBar.scss';
 
-function TabBar(props) {
-	const tabBarContainerRef = useRef();
-	const tabBarRef = useRef();
-	const needsRefocus = useRef();
-
-	const [showDropdown, setShowDropDown] = useState(false);
-
-	function tryShowDropdown() {
-		const tabContainer = tabBarContainerRef.current;
-		if (tabContainer) {
-			// There is a TabBar, test if the right boundary point of this TabBar
-			// is closer than the right boundary point of its last nav item.
-			const lastChild = tabContainer.querySelector('li:last-child');
-			if (lastChild) {
-				if (tabContainer.getBoundingClientRect().right < lastChild.getBoundingClientRect().right) {
-					setShowDropDown(true);
-				}
-			}
-		} else {
-			// There is no TabBar, show it to test if dropdown is needed
-			setShowDropDown(false);
-		}
+class TabBar extends React.Component {
+	constructor(props) {
+		super(props);
+		this.handleSelect = this.handleSelect.bind(this);
+		this.handleKeyDown = this.handleKeyDown.bind(this);
 	}
 
-	/**
-	 * Just show the tabBar and test if there is enough width.
-	 */
-	function showTabBarAndTest() {
-		setShowDropDown(false);
-		tryShowDropdown();
-	}
-
-	useEffect(() => {
-		const resizeListener = window.addEventListener('resize', debounce(showTabBarAndTest, 200));
-		return () => window.removeEventListener('resize', resizeListener);
-	}, []);
-
-	useEffect(() => {
-		if (!needsRefocus || !tabBarRef.current) {
+	componentDidUpdate() {
+		if (!this.needsRefocus || !this.ref) {
 			return;
 		}
-		const tabBarRefNode = ReactDOM.findDOMNode(tabBarRef.current);
-		if (tabBarRefNode && typeof tabBarRefNode.querySelector === 'function') {
-			const activeChild = tabBarRefNode.querySelector('[aria-selected=true]');
-			if (activeChild) {
-				activeChild.focus();
-				needsRefocus.current = false;
-			}
+
+		const activeChild = ReactDOM.findDOMNode(this.ref).querySelector('[aria-selected=true]');
+		if (activeChild) {
+			activeChild.focus();
+			this.needsRefocus = false;
 		}
-	});
+	}
 
-	useEffect(() => {
-		tryShowDropdown();
-	}, []);
-
-	const { onSelect } = props; // to avoid react/no-unused-prop-types
-	function handleSelect(selectedKey, event) {
-		if (selectedKey !== props.selectedKey) {
+	handleSelect(selectedKey, event) {
+		if (selectedKey !== this.props.selectedKey) {
 			if (event) {
 				event.preventDefault();
 			}
-			onSelect(event, props.items.find(({ key }) => selectedKey === key));
+			this.props.onSelect(event, this.props.items.find(({ key }) => selectedKey === key));
 		}
 	}
 
-	function handleKeyDown(event) {
-		const { items } = props;
+	handleKeyDown(event) {
+		const { items } = this.props;
 		switch (event.which) {
 			case keycode.codes.home:
-				needsRefocus.current = true;
-				handleSelect(items[0].key, event);
+				this.needsRefocus = true;
+				this.handleSelect(items[0].key, event);
 				break;
 			case keycode.codes.end:
-				needsRefocus.current = true;
-				handleSelect(items[items.length - 1].key, event);
+				this.needsRefocus = true;
+				this.handleSelect(items[items.length - 1].key, event);
 				break;
 			default:
 				break;
 		}
 	}
 
-	const { className, id, items, selectedKey, children, generateChildId } = props;
-	const hasChildren = children || items.some(item => item.children);
-	const tabContent = hasChildren && (
-		<Tab.Content>
-			{items.map(item => (
-				<Tab.Pane eventKey={item.key} key={item.key}>
-					{item.children}
-					{selectedKey === item.key ? children : null}
-				</Tab.Pane>
-			))}
-		</Tab.Content>
-	);
-
-	if (showDropdown) {
+	render() {
+		const { className, id, items, selectedKey, children, generateChildId } = this.props;
+		const hasChildren = children || items.some(item => item.children);
 		return (
-			<React.Fragment>
-				<form>
-					<div className={theme['tc-responsive-tab-bar-select-container']}>
-						<select onChange={event => handleSelect(event.target.value, event)} value={selectedKey}>
+			<Tab.Container
+				id={id}
+				activeKey={selectedKey}
+				className={className}
+				onSelect={this.handleSelect}
+				onKeyDown={this.handleKeyDown}
+				generateChildId={generateChildId}
+			>
+				<div>
+					<Nav
+						bsStyle="tabs"
+						className="tc-tab-bar"
+						ref={ref => {
+							this.ref = ref;
+						}}
+					>
+						{items.map(item => (
+							<NavItem {...item} eventKey={item.key} componentClass="button">
+								{item.label}
+							</NavItem>
+						))}
+					</Nav>
+					{hasChildren && (
+						<Tab.Content>
 							{items.map(item => (
-								<option value={item.key} key={item.key}>
-									{item.label}
-								</option>
+								<Tab.Pane eventKey={item.key} key={item.key}>
+									{item.children}
+									{selectedKey === item.key ? children : null}
+								</Tab.Pane>
 							))}
-						</select>
-					</div>
-				</form>
-				{tabContent}
-			</React.Fragment>
+						</Tab.Content>
+					)}
+				</div>
+			</Tab.Container>
 		);
 	}
-	return (
-		<Tab.Container
-			id={id}
-			activeKey={selectedKey}
-			className={className}
-			onSelect={handleSelect}
-			onKeyDown={handleKeyDown}
-			generateChildId={generateChildId}
-		>
-			<div ref={tabBarContainerRef}>
-				<Nav
-					bsStyle="tabs"
-					className={classnames('tc-tab-bar', theme['tc-responsive-tab-bar'])}
-					ref={tabBarRef}
-				>
-					{items.map(item => (
-						<NavItem {...item} eventKey={item.key} componentClass="button">
-							{item.label}
-						</NavItem>
-					))}
-				</Nav>
-				{tabContent}
-			</div>
-		</Tab.Container>
-	);
 }
 
 TabBar.displayName = 'TabBar';

@@ -187,7 +187,7 @@ exports[`Drawer should render with tabs 1`] = `
         onKeyDown={[Function]}
       >
         <ul
-          className="tc-tab-bar theme-tc-responsive-tab-bar nav nav-tabs"
+          className="tc-tab-bar nav nav-tabs"
           role="tablist"
         >
           <li
