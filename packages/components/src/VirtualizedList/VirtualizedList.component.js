@@ -43,6 +43,8 @@ function VirtualizedList(props) {
 		sortDirection,
 		rowCount,
 		type,
+		columnsWidthsControlled,
+		setColumnsControlled,
 	} = props;
 	const columnDefinitionsWithSelection = insertSelectionConfiguration({
 		children,
@@ -51,8 +53,11 @@ function VirtualizedList(props) {
 		onToggleAll,
 		selectionToggle,
 	});
-	const [columnsWidths, setWidths] = useState();
+	const [columnsWidthsState, setWidthsState] = useState();
 	const rendererSelectorRef = useRef();
+
+	const setWidths = setColumnsControlled || setWidthsState;
+	const columnsWidths = columnsWidthsControlled || columnsWidthsState;
 
 	// Settings the data for resizable columns only at mount.
 	useEffect(() => {
@@ -61,7 +66,9 @@ function VirtualizedList(props) {
 
 	const resizeColumn = (dataKey, deltaX) => {
 		const listWidth = get(rendererSelectorRef, 'current.props.width', 0);
-		setWidths(resizeColumns(deltaX, columnsWidths, listWidth, dataKey));
+		const test = resizeColumns(deltaX, columnsWidths, listWidth, dataKey);
+		console.log('lgjlskdfjslkdfjslkdfj', test);
+		setWidths(test);
 	};
 
 	const columnDefinitions = toColumns({

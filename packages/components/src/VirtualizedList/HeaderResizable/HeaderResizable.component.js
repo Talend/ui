@@ -53,21 +53,32 @@ export class HeaderResizable extends React.Component {
 								sortDirection={sortDirection}
 							/>
 						</div>
-						<Draggable
-							axis="x"
-							defaultClassName={classNames(theme('tc-header-cell-resizable-drag-handle'))}
-							onStart={() => this.setResizing(true)}
-							onDrag={(e, data) => {
-								resizeColumn(dataKey, data.deltaX);
+						<button
+							className={classNames(theme('tc-header-cell-resizable-drag-button'))}
+							onClick={event => {
+								event.stopPropagation();
+								event.preventDefault();
 							}}
-							onStop={() => this.setResizing(false)}
-							position={{ x: 0 }}
 						>
-							<div
-								className={classNames(theme('tc-header-cell-resizable-drag-handle-icon'))}
-								title={tooltipLabel}
-							/>
-						</Draggable>
+							<Draggable
+								axis="x"
+								onStart={() => this.setResizing(true)}
+								onDrag={(_, data) => {
+									resizeColumn(dataKey, data.deltaX);
+								}}
+								onStop={() => {
+									this.setResizing(false);
+								}}
+								position={{ x: 0 }}
+							>
+								<div
+									className={classNames(theme('tc-header-cell-resizable-drag-handle-icon'))}
+									title={tooltipLabel}
+								>
+									⋮
+								</div>
+							</Draggable>
+						</button>
 					</div>
 				)}
 			</ConsumerVirtualizedList>

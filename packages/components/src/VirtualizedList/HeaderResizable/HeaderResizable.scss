@@ -6,7 +6,7 @@ $drag-element-width: $padding-smaller;
 	width: 100%;
 
 	&-resizing {
-		/* 
+		/*
 			This is scooter rgb color.
 			We want to apply opacity only on the background,
 		 	so we are using rgba to be compatible with ie.
@@ -26,9 +26,11 @@ $drag-element-width: $padding-smaller;
 		cursor: col-resize;
 	}
 
-	&-drag-handle-icon {
-		min-width: $drag-element-width;
-		width: $drag-element-width;
+	&-drag-button {
+		cursor: col-resize;
+		border: 0;
+		background: unset;
+
 		&:hover,
 		&:active {
 			background: $scooter;
