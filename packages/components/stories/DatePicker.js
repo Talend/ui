@@ -4,10 +4,11 @@ import { action } from '@storybook/addon-actions';
 import { IconsProvider } from '../src/index';
 
 import { TimePicker } from '../src/DateTimePickers/pickers/TimePicker/TimePicker.component';
+import DateManager from '../src/DateTimePickers/Date/Manager';
+import DatePicker from '../src/DateTimePickers/Date/Picker';
 import InputDateTimePicker from '../src/DateTimePickers';
 import InputTimePicker from '../src/DateTimePickers/InputTimePicker';
 import InputDatePicker from '../src/DateTimePickers/InputDatePicker';
-import Date from '../src/DateTimePickers/Date';
 
 class TestPickerWrapper extends React.Component {
 	static propTypes = {
@@ -164,36 +165,36 @@ storiesOf('DatePicker', module)
 					<div>
 						<h2>Date</h2>
 						<div style={blockStyle}>
-							<Date.Manager id="simple" onChange={action('onChange')}>
-								<Date.Picker />
-							</Date.Manager>
+							<DateManager id="simple" onChange={action('onChange')}>
+								<DatePicker />
+							</DateManager>
 						</div>
 					</div>
 
 					<div>
 						<h2>Date time</h2>
 						<div style={blockStyle}>
-							<Date.Manager id="time" onChange={action('onChange')}>
-								<Date.Picker />
-							</Date.Manager>
+							<DateManager id="time" onChange={action('onChange')}>
+								<DatePicker />
+							</DateManager>
 						</div>
 					</div>
 
 					<div>
 						<h2>Date time seconds</h2>
 						<div style={blockStyle}>
-							<Date.Manager id="time-seconds" onChange={action('onChange')}>
-								<Date.Picker />
-							</Date.Manager>
+							<DateManager id="time-seconds" onChange={action('onChange')}>
+								<DatePicker />
+							</DateManager>
 						</div>
 					</div>
 
 					<div>
 						<h2>Date time seconds UTC</h2>
 						<div style={blockStyle}>
-							<Date.Manager id="utc" onChange={action('onChange')} useUTC>
-								<Date.Picker />
-							</Date.Manager>
+							<DateManager id="utc" onChange={action('onChange')} useUTC>
+								<DatePicker />
+							</DateManager>
 						</div>
 					</div>
 				</div>
