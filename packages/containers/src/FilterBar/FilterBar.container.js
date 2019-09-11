@@ -69,8 +69,7 @@ class FilterBar extends React.Component {
 
 	onClear(event) {
 		this.props.setState(prevState => {
-			const state = prevState.state;
-			return state.set(QUERY_ATTR, '');
+			return prevState.state.set(QUERY_ATTR, '');
 		});
 		if (this.props.onClear) {
 			this.props.onClear(event);

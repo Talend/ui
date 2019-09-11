@@ -16,10 +16,6 @@ $tc-filter-bar-width: 250px !default;
 		height: $svg-rg-size;
 		width: $svg-rg-size;
 		fill: $gray;
-
-		&.search-focused {
-			fill: $scooter;
-		}
 	}
 
 	> :global(.form-group) {
