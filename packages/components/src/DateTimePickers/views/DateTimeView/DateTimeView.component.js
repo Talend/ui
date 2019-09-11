@@ -92,7 +92,7 @@ class DateTimeView extends React.PureComponent {
 					label=""
 					onClick={() => this.goToPreviousMonth()}
 					tabIndex="-1"
-					className={classNames("btn-tertiary", "btn-info")}
+					className={classNames('btn-tertiary', 'btn-info')}
 				/>
 			),
 			middleElement: (

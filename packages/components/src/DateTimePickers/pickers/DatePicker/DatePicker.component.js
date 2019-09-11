@@ -109,7 +109,7 @@ class DatePicker extends React.PureComponent {
 										},
 										'tc-date-picker-day',
 										'btn-tertiary',
-										'btn-default'
+										'btn-default',
 									);
 
 									let ariaLabel = format(date, 'dddd DD MMMM YYYY', pickerLocale);
