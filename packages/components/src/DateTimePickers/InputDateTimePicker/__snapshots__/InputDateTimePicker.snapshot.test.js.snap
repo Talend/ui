@@ -144,7 +144,6 @@ exports[`InputDateTimePicker should render 1`] = `
       >
         <Time.Manager
           onChange={[Function]}
-          textInput="15:27:00"
           useSeconds={true}
           value={
             Object {
