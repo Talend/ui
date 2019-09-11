@@ -21,7 +21,7 @@ class TabBar extends React.Component {
 
 		const activeChild = ReactDOM.findDOMNode(this.ref).querySelector('[aria-selected=true]');
 		if (activeChild) {
-			activeChild.focus();
+			activeChild.focus({ preventScroll: true });
 			this.needsRefocus = false;
 		}
 	}
