@@ -19,6 +19,10 @@ export default function getErrorMessage(key) {
 			return i18next.t('INVALID_SECONDS_NUMBER', {
 				defaultValue: 'Seconds value must be between 00 and 59',
 			});
+		case 'INVALID_TIME_EMPTY':
+			return i18next.t('INVALID_TIME_EMPTY', {
+				defaultValue: 'Time is required',
+			});
 		case 'TIME_FORMAT_INVALID':
 			return i18next.t('TIME_FORMAT_INVALID', { defaultValue: 'Time is invalid' });
 		default:

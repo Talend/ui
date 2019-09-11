@@ -1,10 +1,8 @@
-
 import {
 	extractParts,
 	extractPartsFromDateAndTime,
 	extractPartsFromDateTime,
 	extractPartsFromTextInput,
-	getFullDateFormat,
 } from './datetime-extraction';
 
 describe('Date extraction', () => {
@@ -13,7 +11,6 @@ describe('Date extraction', () => {
 			// given
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 				useSeconds: true,
 			};
 
@@ -23,7 +20,7 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date: undefined,
-				time: { hours: '', minutes: '', seconds: '' },
+				time: undefined,
 				datetime: undefined,
 				textInput: '',
 				errors: [],
@@ -43,9 +40,9 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
 				datetime: date,
-				textInput: '2015-09-15',
+				textInput: '2015-09-15 12:58',
 				errors: [],
-				time: { hours: '00', minutes: '00', seconds: '00' },
+				time: { hours: '12', minutes: '58', seconds: '00' },
 			});
 		});
 
@@ -61,15 +58,15 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
 				datetime: validDate,
-				textInput: '2015-09-15',
+				textInput: '2015-09-15 12:58',
 				errors: [],
-				time: { hours: '00', minutes: '00', seconds: '00' },
+				time: { hours: '12', minutes: '58', seconds: '00' },
 			});
 		});
 
 		it('should return parts from string', () => {
 			// given
-			const value = '2015-09-15';
+			const value = '2015-09-15 10:05';
 			const options = { dateFormat: 'YYYY-MM-DD' };
 
 			// when
@@ -78,11 +75,11 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
-				datetime: new Date(2015, 8, 15),
+				datetime: new Date(2015, 8, 15, 10, 5),
 				textInput: value,
 				errors: [],
 				errorMessage: null,
-				time: { hours: '00', minutes: '00', seconds: '00' },
+				time: { hours: '10', minutes: '05', seconds: '00' },
 			});
 		});
 	});
@@ -93,7 +90,6 @@ describe('Date extraction', () => {
 			const invalidDate = 'lol';
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 				useSeconds: true,
 			};
 
@@ -103,27 +99,9 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date: undefined,
-				time: { hours: '', minutes: '', seconds: '' },
+				time: undefined,
 				datetime: 'lol',
 				textInput: '',
-				errors: [],
-			});
-		});
-
-		it('should return valid date parts', () => {
-			// given
-			const validDate = new Date(2015, 8, 15, 12, 58, 22);
-			const options = { dateFormat: 'YYYY-MM-DD' };
-
-			// when
-			const parts = extractPartsFromDateTime(validDate, options);
-
-			// then
-			expect(parts).toEqual({
-				date: new Date(2015, 8, 15),
-				datetime: validDate,
-				textInput: '2015-09-15',
-				time: { hours: '00', minutes: '00', seconds: '00' },
 				errors: [],
 			});
 		});
@@ -133,7 +111,6 @@ describe('Date extraction', () => {
 			const validDate = new Date(2015, 8, 15, 12, 58, 22);
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 			};
 
 			// when
@@ -154,7 +131,6 @@ describe('Date extraction', () => {
 			const validDate = new Date(2015, 8, 15, 12, 58, 22);
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 				useSeconds: true,
 			};
 
@@ -177,7 +153,6 @@ describe('Date extraction', () => {
 			const validDate = new Date(1442314702000);
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 				useSeconds: true,
 				useUTC: true,
 			};
@@ -201,7 +176,6 @@ describe('Date extraction', () => {
 			const validDate = new Date(2015, 8, 15, 1, 0, 22);
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 				useSeconds: true,
 				useUTC: true,
 			};
@@ -221,33 +195,12 @@ describe('Date extraction', () => {
 	});
 
 	describe('extractPartsFromDateAndTime', () => {
-		it('should extract parts from date', () => {
-			// given
-			const date = new Date(2015, 8, 15);
-			const time = { hours: '12', minutes: '58', seconds: '22' };
-			const options = { dateFormat: 'YYYY-MM-DD' };
-
-			// when
-			const parts = extractPartsFromDateAndTime(date, time, options);
-
-			// then
-			expect(parts).toEqual({
-				date,
-				datetime: date,
-				textInput: '2015-09-15',
-				errors: [],
-				errorMessage: null,
-				time: { hours: '00', minutes: '00', seconds: '00' },
-			});
-		});
-
 		it('should extract parts from date with time', () => {
 			// given
 			const date = new Date(2015, 8, 15);
 			const time = { hours: '12', minutes: '58', seconds: '00' };
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 			};
 
 			// when
@@ -270,7 +223,6 @@ describe('Date extraction', () => {
 			const time = { hours: '12', minutes: '58', seconds: '22' };
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 				useSeconds: true,
 			};
 
@@ -294,7 +246,6 @@ describe('Date extraction', () => {
 			const time = { hours: '66', minutes: '58', seconds: '12' };
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 				useSeconds: true,
 			};
 
@@ -303,7 +254,7 @@ describe('Date extraction', () => {
 
 			// then
 			expect(parts.date).toBe(date);
-			expect(isNaN(parts.datetime.getTime())).toBe(true);
+			expect(parts.datetime).toBe(null);
 			expect(parts.textInput).toBe('2015-09-15 66:58:12');
 			expect(parts.time).toBe(time);
 			expect(parts.errors).toEqual([
@@ -318,7 +269,6 @@ describe('Date extraction', () => {
 			const time = { hours: '12', minutes: '66', seconds: '12' };
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 				useSeconds: true,
 			};
 
@@ -327,7 +277,7 @@ describe('Date extraction', () => {
 
 			// then
 			expect(parts.date).toBe(date);
-			expect(isNaN(parts.datetime.getTime())).toBe(true);
+			expect(parts.datetime).toBe(null);
 			expect(parts.textInput).toBe('2015-09-15 12:66:12');
 			expect(parts.time).toBe(time);
 			expect(parts.errors).toEqual([
@@ -342,7 +292,6 @@ describe('Date extraction', () => {
 			const time = { hours: '12', minutes: '90', seconds: '66' };
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 				useSeconds: true,
 			};
 
@@ -351,7 +300,7 @@ describe('Date extraction', () => {
 
 			// then
 			expect(parts.date).toBe(date);
-			expect(isNaN(parts.datetime.getTime())).toBe(true);
+			expect(parts.datetime).toBe(null);
 			expect(parts.textInput).toBe('2015-09-15 12:90:66');
 			expect(parts.time).toBe(time);
 			expect(parts.errors).toEqual([
@@ -367,7 +316,6 @@ describe('Date extraction', () => {
 			const time = { hours: '12', minutes: '58', seconds: '12' };
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 				useSeconds: true,
 			};
 
@@ -387,7 +335,6 @@ describe('Date extraction', () => {
 			const time = { hours: '12', minutes: '58', seconds: '22' };
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 				useSeconds: true,
 				useUTC: true,
 			};
@@ -413,7 +360,6 @@ describe('Date extraction', () => {
 			const textInput = '';
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 			};
 
 			// when
@@ -422,28 +368,9 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date: undefined,
-				time: { hours: '', minutes: '', seconds: '00' },
+				time: undefined,
 				datetime: undefined,
 				textInput: '',
-				errors: [],
-			});
-		});
-
-		it('should extract parts with valid date', () => {
-			// given
-			const textInput = '2018-12-25';
-			const options = { dateFormat: 'YYYY-MM-DD' };
-
-			// when
-			const parts = extractPartsFromTextInput(textInput, options);
-
-			// then
-			expect(parts).toEqual({
-				date: new Date(2018, 11, 25),
-				time: { hours: '00', minutes: '00', seconds: '00' },
-				datetime: new Date(2018, 11, 25),
-				textInput,
-				errorMessage: null,
 				errors: [],
 			});
 		});
@@ -453,7 +380,6 @@ describe('Date extraction', () => {
 			const textInput = '2018-12-25 22:58';
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 			};
 
 			// when
@@ -475,7 +401,6 @@ describe('Date extraction', () => {
 			const textInput = '2018-12-25 22:58:12';
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 				useSeconds: true,
 			};
 
@@ -498,7 +423,6 @@ describe('Date extraction', () => {
 			const textInput = '2018-12-36 22:58:12';
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 				useSeconds: true,
 			};
 
@@ -524,7 +448,6 @@ describe('Date extraction', () => {
 			const textInput = '2018-13-25 22:58:12';
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 				useSeconds: true,
 			};
 
@@ -547,7 +470,6 @@ describe('Date extraction', () => {
 			const textInput = '2018-12-25 66:58:12';
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 				useSeconds: true,
 			};
 
@@ -570,7 +492,6 @@ describe('Date extraction', () => {
 			const textInput = '2018-12-25 55:66:12';
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 				useSeconds: true,
 			};
 
@@ -594,7 +515,6 @@ describe('Date extraction', () => {
 			const textInput = '2018-12-25 44:90:66';
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 				useSeconds: true,
 			};
 
@@ -619,7 +539,6 @@ describe('Date extraction', () => {
 			const textInput = '2018-12-25 22:58:12';
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 				useSeconds: true,
 				useUTC: true,
 			};
@@ -636,98 +555,6 @@ describe('Date extraction', () => {
 				errorMessage: null,
 				errors: [],
 			});
-		});
-	});
-
-	describe('getFullDateFormat', () => {
-		it('should return date format only', () => {
-			// given
-			const options = { dateFormat: 'YYYY-MM-DD' };
-
-			// when
-			const format = getFullDateFormat(options);
-
-			// then
-			expect(format).toBe('YYYY-MM-DD');
-		});
-
-		it('should return date format with time', () => {
-			// given
-			const options = {
-				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
-			};
-
-			// when
-			const format = getFullDateFormat(options);
-
-			// then
-			expect(format).toBe('YYYY-MM-DD HH:mm');
-		});
-
-		it('should return date format with time and seconds', () => {
-			// given
-			const options = {
-				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
-				useSeconds: true,
-			};
-
-			// when
-			const format = getFullDateFormat(options);
-
-			// then
-			expect(format).toBe('YYYY-MM-DD HH:mm:ss');
-		});
-	});
-
-	describe('check', () => {
-		it('should return date format error when date is empty', () => {
-			// when
-			const errors = check(
-				undefined,
-				{
-					hours: '22',
-					minutes: '11',
-					seconds: '00',
-				},
-				{ required: true },
-			);
-
-			// then
-			expect(errors.length).toBe(1);
-			expect(errors[0].code).toBe('INVALID_DATE_FORMAT');
-		});
-		it('should return error on hours', () => {
-			// when
-			const errors = check(
-				new Date(),
-				{
-					hours: '',
-					minutes: '11',
-					seconds: '00',
-				},
-				{ required: true },
-			);
-
-			// then
-			expect(errors.length).toBe(1);
-			expect(errors[0].message).toBe('Hour is required');
-		});
-		it('should return no error when option required is false', () => {
-			// when
-			const errors = check(
-				undefined,
-				{
-					hours: '',
-					minutes: '',
-					seconds: '',
-				},
-				{ required: false },
-			);
-
-			// then
-			expect(errors.length).toBe(0);
 		});
 	});
 });

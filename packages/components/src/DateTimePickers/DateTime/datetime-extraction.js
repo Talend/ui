@@ -79,13 +79,9 @@ function getDateRegexp(dateFormat) {
 /**
  * Build the date format with time.
  * @param dateFormat {string}
- * @param useTime {boolean}
  * @param useSeconds {boolean}
  */
-function getFullDateFormat({ dateFormat, useTime, useSeconds }) {
-	if (!useTime) {
-		return dateFormat;
-	}
+function getFullDateFormat({ dateFormat, useSeconds }) {
 	const timeFormat = useSeconds ? 'HH:mm:ss' : 'HH:mm';
 	return `${dateFormat} ${timeFormat}`;
 }
@@ -142,8 +138,8 @@ function dateTimeToStr(date, time, options) {
 		return '';
 	}
 
-	const { dateFormat, useTime = true } = options;
-	if (time === undefined || useTime === false) {
+	const { dateFormat } = options;
+	if (time === undefined) {
 		return format(date, dateFormat);
 	}
 
@@ -162,10 +158,6 @@ function dateTimeToStr(date, time, options) {
 		}
 		return dateStr;
 	}
-}
-
-function dateTimeToStr2(datetime, options) {
-	return format(datetime, getFullDateFormat(options));
 }
 
 /**
@@ -254,11 +246,14 @@ function extractPartsFromDateTime(datetime, options) {
 		};
 	}
 
+	const date = extractDateOnly(datetime, options);
+	const time = extractTimeOnly(datetime, options);
+
 	return {
-		date: extractDateOnly(datetime, options),
-		time: extractTimeOnly(datetime, options),
+		date,
+		time,
 		datetime: startOfSecond(datetime),
-		textInput: dateTimeToStr2(datetime, options),
+		textInput: dateTimeToStr(date, time, options),
 		errors: [],
 	};
 }
@@ -277,11 +272,25 @@ function extractPartsFromDateTime(datetime, options) {
  * 	}}
  */
 function extractPartsFromDateAndTime(date, time, options) {
+	try {
+		checkTime(time);
+	} catch (errors) {
+		return {
+			date,
+			time,
+			textInput: dateTimeToStr(date, time, options),
+			datetime: null,
+			errors,
+			errorMessage: errors[0] ? errors[0].message : null,
+		};
+	}
 	return {
 		date,
 		time,
 		textInput: dateTimeToStr(date, time, options),
 		datetime: dateAndTimeToDateTime(date, time, options),
+		errors: [],
+		errorMessage: null,
 	};
 }
 
@@ -376,7 +385,7 @@ function extractParts(value, options) {
 
 	return {
 		date: undefined,
-		time: '',
+		time: undefined,
 		datetime: undefined,
 		textInput: '',
 		errors: [],

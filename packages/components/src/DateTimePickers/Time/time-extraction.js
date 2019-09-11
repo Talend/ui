@@ -59,8 +59,13 @@ function checkSeconds(seconds) {
 /**
  * Check if time is correct
  */
-function checkTime({ hours, minutes, seconds }) {
+function checkTime(time) {
 	const timeErrors = [];
+	if (!time) {
+		timeErrors.push(new TimePickerException('INVALID_TIME_EMPTY', 'INVALID_TIME_EMPTY'));
+		throw timeErrors;
+	}
+	const { hours, minutes, seconds } = time;
 
 	const hoursError = checkHours(hours);
 	if (hoursError) {

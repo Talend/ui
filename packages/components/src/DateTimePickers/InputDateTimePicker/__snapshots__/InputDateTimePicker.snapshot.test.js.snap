@@ -13,46 +13,221 @@ exports[`InputDateTimePicker should render 1`] = `
   <DateTime.Manager
     dateFormat="YYYY-MM-DD"
     id="my-picker"
-    onChange={[Function]}
-    required={true}
-    selectedDateTime={2017-04-04T13:27:00.000Z}
     useSeconds={true}
-    useTime={true}
+    useTime={false}
     useUTC={false}
+    value={2017-04-04T13:27:00.000Z}
   >
-    <FocusManager
-      divRef={[Function]}
-      onClick={[Function]}
-      onFocusIn={[Function]}
-      onFocusOut={[Function]}
-      onKeyDown={[Function]}
+    <div
+      className="theme-pickers-container"
     >
-      <div
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        tabIndex={-1}
+      <InputDatePicker
+        dateFormat="YYYY-MM-DD"
+        id="my-picker-date-picker"
+        onChange={[Function]}
+        value={2017-04-03T22:00:00.000Z}
       >
-        <Component
-          id="my-picker-input"
-          inputRef={[Function]}
-          key="input"
-          part="date"
+        <Date.Manager
+          dateFormat="YYYY-MM-DD"
+          onChange={[Function]}
+          useUTC={false}
+          value={2017-04-03T22:00:00.000Z}
         >
-          <Mock
-            className="InputMock"
-            id="my-picker-input"
-            inputRef={[Function]}
-            part="date"
+          <FocusManager
+            divRef={
+              Object {
+                "current": <div
+                  tabindex="-1"
+                >
+                  <input
+                    autocomplete="off"
+                    class="form-control"
+                    id="my-picker-date-picker-input"
+                    placeholder="YYYY-MM-DD"
+                    type="text"
+                    value="2017-04-04"
+                  />
+                </div>,
+              }
+            }
+            onClick={[Function]}
+            onFocusIn={[Function]}
+            onFocusOut={[Function]}
+            onKeyDown={[Function]}
           >
             <div
-              className="InputMock"
-            />
-          </Mock>
-        </Component>
-      </div>
-    </FocusManager>
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              tabIndex={-1}
+            >
+              <Date.Input
+                id="my-picker-date-picker-input"
+                inputRef={
+                  Object {
+                    "current": <input
+                      autocomplete="off"
+                      class="form-control"
+                      id="my-picker-date-picker-input"
+                      placeholder="YYYY-MM-DD"
+                      type="text"
+                      value="2017-04-04"
+                    />,
+                  }
+                }
+                key="input"
+              >
+                <DebounceInput
+                  autoComplete="off"
+                  className="form-control"
+                  debounceTimeout={300}
+                  element="input"
+                  forceNotifyByEnter={true}
+                  forceNotifyOnBlur={true}
+                  id="my-picker-date-picker-input"
+                  inputRef={
+                    Object {
+                      "current": <input
+                        autocomplete="off"
+                        class="form-control"
+                        id="my-picker-date-picker-input"
+                        placeholder="YYYY-MM-DD"
+                        type="text"
+                        value="2017-04-04"
+                      />,
+                    }
+                  }
+                  minLength={0}
+                  onChange={[Function]}
+                  placeholder="YYYY-MM-DD"
+                  type="text"
+                  value="2017-04-04"
+                >
+                  <input
+                    autoComplete="off"
+                    className="form-control"
+                    id="my-picker-date-picker-input"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onKeyDown={[Function]}
+                    placeholder="YYYY-MM-DD"
+                    type="text"
+                    value="2017-04-04"
+                  />
+                </DebounceInput>
+              </Date.Input>
+            </div>
+          </FocusManager>
+        </Date.Manager>
+      </InputDatePicker>
+      <InputTimePicker
+        id="my-picker-time-picker"
+        onChange={[Function]}
+        useSeconds={true}
+        value={
+          Object {
+            "hours": "15",
+            "minutes": "27",
+            "seconds": "00",
+          }
+        }
+      >
+        <Time.Manager
+          onChange={[Function]}
+          useSeconds={true}
+          value={
+            Object {
+              "hours": "15",
+              "minutes": "27",
+              "seconds": "00",
+            }
+          }
+        >
+          <FocusManager
+            divRef={
+              Object {
+                "current": <div
+                  tabindex="-1"
+                >
+                  <input
+                    autocomplete="off"
+                    class="form-control"
+                    id="my-picker-time-picker-input"
+                    type="text"
+                    value="15:27"
+                  />
+                </div>,
+              }
+            }
+            onClick={[Function]}
+            onFocusIn={[Function]}
+            onFocusOut={[Function]}
+            onKeyDown={[Function]}
+          >
+            <div
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              tabIndex={-1}
+            >
+              <Time.Input
+                id="my-picker-time-picker-input"
+                inputRef={
+                  Object {
+                    "current": <input
+                      autocomplete="off"
+                      class="form-control"
+                      id="my-picker-time-picker-input"
+                      type="text"
+                      value="15:27"
+                    />,
+                  }
+                }
+                key="input"
+              >
+                <DebounceInput
+                  autoComplete="off"
+                  className="form-control"
+                  debounceTimeout={300}
+                  element="input"
+                  forceNotifyByEnter={true}
+                  forceNotifyOnBlur={true}
+                  id="my-picker-time-picker-input"
+                  inputRef={
+                    Object {
+                      "current": <input
+                        autocomplete="off"
+                        class="form-control"
+                        id="my-picker-time-picker-input"
+                        type="text"
+                        value="15:27"
+                      />,
+                    }
+                  }
+                  minLength={0}
+                  onChange={[Function]}
+                  type="text"
+                  value="15:27"
+                >
+                  <input
+                    autoComplete="off"
+                    className="form-control"
+                    id="my-picker-time-picker-input"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onKeyDown={[Function]}
+                    type="text"
+                    value="15:27"
+                  />
+                </DebounceInput>
+              </Time.Input>
+            </div>
+          </FocusManager>
+        </Time.Manager>
+      </InputTimePicker>
+    </div>
   </DateTime.Manager>
 </InputDateTimePicker>
 `;

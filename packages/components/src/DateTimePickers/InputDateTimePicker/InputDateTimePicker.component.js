@@ -9,24 +9,10 @@ import { DateTimeContext } from '../DateTime/Context';
 
 import theme from './InputDateTimePicker.scss';
 
-const PROPS_TO_OMIT_FOR_INPUT = [
-	'dateFormat',
-	'id',
-	'required',
-	'selectedDateTime',
-	'useSeconds',
-	'useTime',
-	'useUTC',
-	'onBlur',
-	'onChange',
-];
-
 function InputDateTimePicker(props) {
 	return (
 		<DateTime.Manager
-			dateFormat={props.dateFormat}
 			id={props.id}
-			required={props.required}
 			value={props.selectedDateTime}
 			useSeconds={props.useSeconds}
 			useUTC={props.useUTC}
@@ -68,7 +54,6 @@ InputDateTimePicker.propTypes = {
 	dateFormat: PropTypes.string,
 	useSeconds: PropTypes.bool,
 	useUTC: PropTypes.bool,
-	required: PropTypes.bool,
 };
 
 InputDateTimePicker.defaultProps = {

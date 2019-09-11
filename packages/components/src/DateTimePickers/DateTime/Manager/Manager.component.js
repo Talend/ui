@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-prop-types */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
@@ -36,14 +37,15 @@ function ContextualManager(props) {
 	}
 	function onDateChange(event, { date, errors }) {
 		let nextValues;
-		if (errors.length > 0) {
+		if (errors && errors.length > 0) {
 			nextValues = { datetime: null, textInput: '' };
 		} else {
 			nextValues = extractPartsFromDateAndTime(date, state.time, getDateOptions());
 		}
 		const nextErrors = state.errors
 			.filter(error => !DATE_INPUT_ERRORS.includes(error.code))
-			.concat(errors);
+			.concat(errors)
+			.concat(nextValues.errors ? nextValues.errors : []);
 
 		const nextState = {
 			...state,
@@ -90,7 +92,6 @@ function ContextualManager(props) {
 ContextualManager.displayName = 'DateTime.Manager';
 ContextualManager.propTypes = {
 	children: PropTypes.node,
-	dateFormat: PropTypes.string,
 	onChange: PropTypes.func,
 	required: PropTypes.bool,
 	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
