@@ -11,7 +11,7 @@ src/Drawer/Drawer.scss
   15:4  warning  Statement must begin on a new line  brace-style
 
 src/FilterBar/FilterBar.scss
-  52:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
+  48:6  warning  Vendor prefixes should not be used  no-vendor-prefixes
 
 src/GuidedTour/GuidedTour.scss
   71:4  error  Class '.reactour__mask' should be written in lowercase with hyphens            class-name-format
