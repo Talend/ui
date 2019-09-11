@@ -31,6 +31,7 @@ exports[`InputDateTimePicker should render 1`] = `
         <Date.Manager
           dateFormat="YYYY-MM-DD"
           onChange={[Function]}
+          textInput="2017-04-04"
           useUTC={false}
           value={2017-04-03T22:00:00.000Z}
         >
@@ -131,29 +132,25 @@ exports[`InputDateTimePicker should render 1`] = `
       <InputTimePicker
         id="my-picker-time-picker"
         onChange={[Function]}
+        textInput="15:27:00"
         useSeconds={true}
         value={
           Object {
-            "textInput": "15:27:00",
-            "value": Object {
-              "hours": "15",
-              "minutes": "27",
-              "seconds": "00",
-            },
+            "hours": "15",
+            "minutes": "27",
+            "seconds": "00",
           }
         }
       >
         <Time.Manager
           onChange={[Function]}
+          textInput="15:27:00"
           useSeconds={true}
           value={
             Object {
-              "textInput": "15:27:00",
-              "value": Object {
-                "hours": "15",
-                "minutes": "27",
-                "seconds": "00",
-              },
+              "hours": "15",
+              "minutes": "27",
+              "seconds": "00",
             }
           }
         >
@@ -167,8 +164,9 @@ exports[`InputDateTimePicker should render 1`] = `
                     autocomplete="off"
                     class="form-control"
                     id="my-picker-time-picker-input"
+                    textinput="15:27:00"
                     type="text"
-                    value="undefined:undefined"
+                    value="15:27"
                   />
                 </div>,
               }
@@ -193,12 +191,14 @@ exports[`InputDateTimePicker should render 1`] = `
                       autocomplete="off"
                       class="form-control"
                       id="my-picker-time-picker-input"
+                      textinput="15:27:00"
                       type="text"
-                      value="undefined:undefined"
+                      value="15:27"
                     />,
                   }
                 }
                 key="input"
+                textInput="15:27:00"
               >
                 <DebounceInput
                   autoComplete="off"
@@ -214,15 +214,17 @@ exports[`InputDateTimePicker should render 1`] = `
                         autocomplete="off"
                         class="form-control"
                         id="my-picker-time-picker-input"
+                        textinput="15:27:00"
                         type="text"
-                        value="undefined:undefined"
+                        value="15:27"
                       />,
                     }
                   }
                   minLength={0}
                   onChange={[Function]}
+                  textInput="15:27:00"
                   type="text"
-                  value="undefined:undefined"
+                  value="15:27"
                 >
                   <input
                     autoComplete="off"
@@ -231,8 +233,9 @@ exports[`InputDateTimePicker should render 1`] = `
                     onBlur={[Function]}
                     onChange={[Function]}
                     onKeyDown={[Function]}
+                    textInput="15:27:00"
                     type="text"
-                    value="undefined:undefined"
+                    value="15:27"
                   />
                 </DebounceInput>
               </Time.Input>

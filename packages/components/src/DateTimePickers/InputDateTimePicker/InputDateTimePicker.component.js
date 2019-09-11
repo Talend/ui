@@ -19,24 +19,22 @@ function InputDateTimePicker(props) {
 			onChange={props.onChange}
 		>
 			<DateTimeContext.Consumer>
-				{({ date, time, onDateChange, onTimeChange }) => {
-					return (
-						<div className={theme['pickers-container']}>
-							<InputDatePicker
-								id={`${props.id}-date-picker`}
-								onChange={onDateChange}
-								dateFormat={props.dateFormat}
-								{...date}
-							/>
-							<InputTimePicker
-								id={`${props.id}-time-picker`}
-								value={time}
-								onChange={onTimeChange}
-								useSeconds={props.useSeconds}
-							/>
-						</div>
-					);
-				}}
+				{({ date, time, onDateChange, onTimeChange }) => (
+					<div className={theme['pickers-container']}>
+						<InputDatePicker
+							id={`${props.id}-date-picker`}
+							onChange={onDateChange}
+							dateFormat={props.dateFormat}
+							{...date}
+						/>
+						<InputTimePicker
+							id={`${props.id}-time-picker`}
+							onChange={onTimeChange}
+							useSeconds={props.useSeconds}
+							{...time}
+						/>
+					</div>
+				)}
 			</DateTimeContext.Consumer>
 		</DateTime.Manager>
 	);
