@@ -27,20 +27,16 @@ function sort(collection, sortParams, sortFunctions) {
 	return collection.slice(0).sort(sortFunctionGetter(sortParams));
 }
 
-export const useDefaultCollectionSort = (sortParams, sortFunctions) => collection =>
+export const sortCollection = (sortParams, sortFunctions) => collection =>
 	useMemo(() => sort(collection, sortParams, sortFunctions), [
 		collection,
 		sortParams,
 		sortFunctions,
 	]);
 
-export function useCollectionSort(
-	collection = [],
-	initialSortParams = {},
-	sortFunctions = {},
-) {
+export function useCollectionSort(collection = [], initialSortParams = {}, sortFunctions = {}) {
 	const [sortParams, setSortParams] = useState(initialSortParams);
-	const sortedCollection = useDefaultCollectionSort(sortParams, sortFunctions)(collection);
+	const sortedCollection = sortCollection(sortParams, sortFunctions)(collection);
 	return {
 		sortedCollection,
 		sortParams,

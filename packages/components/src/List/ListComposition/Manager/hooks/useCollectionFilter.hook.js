@@ -21,7 +21,7 @@ export function filter(collection, textFilter, filterFunctions) {
 	);
 }
 
-export const useDefaultCollectionFilter = (textFilter, filterFunctions = {}) => (collection = []) =>
+export const filterCollection = (textFilter, filterFunctions = {}) => (collection = []) =>
 	useMemo(() => filter(collection, textFilter, filterFunctions), [
 		collection,
 		textFilter,
@@ -32,7 +32,7 @@ export const useCollectionFilter = (collection = [], initialTextFilter, filterFu
 	const [textFilter, setTextFilter] = useState(initialTextFilter);
 
 	return {
-		collection: useDefaultCollectionFilter(textFilter, filterFunctions)(collection),
+		filteredCollection: filterCollection(textFilter, filterFunctions)(collection),
 		textFilter,
 		setTextFilter,
 	};

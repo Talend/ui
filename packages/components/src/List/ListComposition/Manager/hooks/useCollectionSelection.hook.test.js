@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
-import { useCollectionSelection } from './useCollectionSelection.hook';
+import useCollectionSelection from './useCollectionSelection.hook';
 
 const Div = () => <div />;
 function SelectionComponent({ collection, initialSelectedIds, idKey }) {
