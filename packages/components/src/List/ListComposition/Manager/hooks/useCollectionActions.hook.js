@@ -5,8 +5,9 @@ export default function useCollectionActions(collection, actions = [], persisten
 		() =>
 			collection.map(item => ({
 				...item,
-				actions,
-				persistentActions,
+				actions: typeof actions === 'function' ? actions(item) : actions,
+				persistentActions:
+					typeof persistentActions === 'function' ? persistentActions(item) : persistentActions,
 			})),
 		[collection, actions, persistentActions],
 	);

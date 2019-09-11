@@ -11,16 +11,16 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
       className="panel-title"
     >
       <div
-        className="theme-panel-heading panel-heading"
+        className="theme-panel-header-content panel-header-content"
       >
         <button
-          className="theme-panel-title panel-title btn btn-link"
+          className="theme-panel-title btn btn-link"
           disabled={false}
           onClick={[MockFunction]}
           type="button"
         >
           <div
-            className="theme-panel-title panel-title"
+            className="theme-panel-title"
           >
             <div
               className="theme-undefined theme-col-4"
@@ -181,26 +181,39 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
             </div>
           </div>
         </button>
-        <button
-          aria-expanded={true}
-          className="theme-toggle toggle btn btn-link"
-          disabled={false}
-          onClick={[MockFunction]}
-          title="Collapse panel"
-          type="button"
+        <div
+          aria-describedby={42}
+          className="theme-tc-tooltip"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyPress={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
         >
-          <svg
-            aria-hidden="true"
-            className="theme-tc-svg-icon tc-svg-icon"
-            focusable="false"
-            name="talend-caret-down"
-            title={null}
+          <button
+            aria-describedby={42}
+            aria-expanded={true}
+            aria-label="Collapse panel"
+            aria-pressed={true}
+            className="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle theme-active active btn btn-link"
+            disabled={false}
+            onClick={[MockFunction]}
+            type="button"
           >
-            <use
-              xlinkHref="#talend-caret-down"
-            />
-          </svg>
-        </button>
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon theme-flip-vertical"
+              focusable="false"
+              name="talend-caret-down"
+              title={null}
+            >
+              <use
+                xlinkHref="#talend-caret-down"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -245,16 +258,16 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
       className="panel-title"
     >
       <div
-        className="theme-panel-heading panel-heading"
+        className="theme-panel-header-content panel-header-content"
       >
         <button
-          className="theme-panel-title panel-title btn btn-link"
+          className="theme-panel-title btn btn-link"
           disabled={false}
           onClick={[MockFunction]}
           type="button"
         >
           <div
-            className="theme-panel-title panel-title"
+            className="theme-panel-title"
           >
             <div
               className="theme-undefined theme-col-4"
@@ -415,25 +428,38 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
             </div>
           </div>
         </button>
-        <button
-          className="theme-toggle toggle btn btn-link"
-          disabled={false}
-          onClick={[MockFunction]}
-          title="Expand panel"
-          type="button"
+        <div
+          aria-describedby={42}
+          className="theme-tc-tooltip"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyPress={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
         >
-          <svg
-            aria-hidden="true"
-            className="theme-tc-svg-icon tc-svg-icon"
-            focusable="false"
-            name="talend-caret-down"
-            title={null}
+          <button
+            aria-describedby={42}
+            aria-label="Expand panel"
+            aria-pressed={false}
+            className="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle btn btn-link"
+            disabled={false}
+            onClick={[MockFunction]}
+            type="button"
           >
-            <use
-              xlinkHref="#talend-caret-down"
-            />
-          </svg>
-        </button>
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-caret-down"
+              title={null}
+            >
+              <use
+                xlinkHref="#talend-caret-down"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -478,16 +504,16 @@ exports[`CollapsiblePanel should render default without content 1`] = `
       className="panel-title"
     >
       <div
-        className="theme-panel-heading panel-heading"
+        className="theme-panel-header-content panel-header-content"
       >
         <button
-          className="theme-panel-title panel-title btn btn-link"
+          className="theme-panel-title btn btn-link"
           disabled={false}
           onClick={[MockFunction]}
           type="button"
         >
           <div
-            className="theme-panel-title panel-title"
+            className="theme-panel-title"
           >
             <div
               className="theme-undefined theme-col-4"
@@ -673,16 +699,16 @@ exports[`CollapsiblePanel should render panel with custom element 1`] = `
       className="panel-title"
     >
       <div
-        className="theme-panel-heading panel-heading"
+        className="theme-panel-header-content panel-header-content"
       >
         <button
-          className="theme-panel-title panel-title btn btn-link"
+          className="theme-panel-title btn btn-link"
           disabled={false}
           onClick={[MockFunction]}
           type="button"
         >
           <div
-            className="theme-panel-title panel-title"
+            className="theme-panel-title"
           >
             <div
               className="theme-undefined theme-col-3"
@@ -776,16 +802,16 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
       className="panel-title"
     >
       <div
-        className="theme-panel-heading panel-heading"
+        className="theme-panel-header-content panel-header-content"
       >
         <button
-          className="theme-panel-title panel-title btn btn-link"
+          className="theme-panel-title btn btn-link"
           disabled={false}
           onClick={[MockFunction]}
           type="button"
         >
           <div
-            className="theme-panel-title panel-title"
+            className="theme-panel-title"
           >
             <div
               className="theme-group theme-col-2"
@@ -848,25 +874,38 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
             </div>
           </div>
         </button>
-        <button
-          className="theme-toggle toggle btn btn-link"
-          disabled={false}
-          onClick={[MockFunction]}
-          title="Expand panel"
-          type="button"
+        <div
+          aria-describedby={42}
+          className="theme-tc-tooltip"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyPress={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
         >
-          <svg
-            aria-hidden="true"
-            className="theme-tc-svg-icon tc-svg-icon"
-            focusable="false"
-            name="talend-caret-down"
-            title={null}
+          <button
+            aria-describedby={42}
+            aria-label="Expand panel"
+            aria-pressed={false}
+            className="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle btn btn-link"
+            disabled={false}
+            onClick={[MockFunction]}
+            type="button"
           >
-            <use
-              xlinkHref="#talend-caret-down"
-            />
-          </svg>
-        </button>
+            <svg
+              aria-hidden="true"
+              className="theme-tc-svg-icon tc-svg-icon"
+              focusable="false"
+              name="talend-caret-down"
+              title={null}
+            >
+              <use
+                xlinkHref="#talend-caret-down"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -947,16 +986,16 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
       className="panel-title"
     >
       <div
-        className="theme-panel-heading panel-heading"
+        className="theme-panel-header-content panel-header-content"
       >
         <button
-          className="theme-panel-title panel-title btn btn-link"
+          className="theme-panel-title btn btn-link"
           disabled={false}
           onClick={[MockFunction]}
           type="button"
         >
           <div
-            className="theme-panel-title panel-title"
+            className="theme-panel-title"
           >
             <div
               className="theme-group theme-col-2"

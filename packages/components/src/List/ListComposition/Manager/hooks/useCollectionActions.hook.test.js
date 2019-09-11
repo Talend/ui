@@ -86,4 +86,48 @@ describe('useCollectionFilter', () => {
 			expect(item.persistentActions).toBe(persistentActions);
 		});
 	});
+
+	it('should insert item-configured actions', () => {
+		// given
+		const getActions = item => [
+			{
+				id: 'edit',
+				label: `Edit ${item.firstName}`,
+				onClick: () => {},
+			},
+			{
+				id: 'delete',
+				label: `Delete ${item.firstName}`,
+				onClick: () => {},
+			},
+		];
+		const getPersistentActions = item => [
+			{
+				label: `Set ${item.firstName} as favorite`,
+				icon: 'talend-star',
+				onClick: () => {},
+			},
+			{
+				label: `Request ${item.firstName} certification`,
+				icon: 'talend-badge',
+				onClick: () => {},
+			},
+		];
+
+		// when
+		const wrapper = mount(
+			<ActionComponent
+				collection={collection}
+				actions={getActions}
+				persistentActions={getPersistentActions}
+			/>,
+		);
+
+		// then
+		const firstItem = wrapper.find('#mainChild').prop('collection')[0];
+		expect(firstItem.actions[0].label).toBe('Edit Watkins');
+		expect(firstItem.actions[1].label).toBe('Delete Watkins');
+		expect(firstItem.persistentActions[0].label).toBe('Set Watkins as favorite');
+		expect(firstItem.persistentActions[1].label).toBe('Request Watkins certification');
+	});
 });

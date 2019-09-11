@@ -53,8 +53,10 @@ exports[`title-bar 1`] = `
       >
         <input
           checked={false}
+          data-checked={0}
           disabled={false}
           id="mandatory-field-filter"
+          intermediate={false}
           onChange={[Function]}
           type="checkbox"
         />

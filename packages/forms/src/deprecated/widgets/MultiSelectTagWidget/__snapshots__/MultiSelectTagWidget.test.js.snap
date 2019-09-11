@@ -62,12 +62,16 @@ exports[`MultiSelectTagWidget should render multiSelectTagWidget dropdown 1`] = 
       "pointerEvents": "none",
       "position": "absolute",
       "top": 0,
-      "width": 0,
     }
   }
 >
   <div
     className="theme-items-body"
+    style={
+      Object {
+        "maxHeight": undefined,
+      }
+    }
   >
     <ul
       className="theme-items"
@@ -116,12 +120,16 @@ exports[`MultiSelectTagWidget should render section title when items has categor
       "pointerEvents": "none",
       "position": "absolute",
       "top": 0,
-      "width": 0,
     }
   }
 >
   <div
     className="theme-items-body"
+    style={
+      Object {
+        "maxHeight": undefined,
+      }
+    }
   >
     <div
       className="theme-section-container tc-typeahead-section-container"
@@ -189,12 +197,16 @@ exports[`MultiSelectTagWidget should take default message when there isnt items 
       "pointerEvents": "none",
       "position": "absolute",
       "top": 0,
-      "width": 0,
     }
   }
 >
   <div
     className="theme-items-body"
+    style={
+      Object {
+        "maxHeight": undefined,
+      }
+    }
   >
     <div
       className="theme-no-result no-result"
