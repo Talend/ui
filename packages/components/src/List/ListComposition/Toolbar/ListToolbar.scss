@@ -20,6 +20,7 @@ $tc-toolbar-height: 7rem;
 
 	:global(.tc-actionbar-container) {
 		padding: 0;
+		width: auto;
 	}
 
 	&-right {
