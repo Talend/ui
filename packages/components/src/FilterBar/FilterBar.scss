@@ -35,7 +35,8 @@ $tc-filter-bar-width: 250px !default;
 		width: $tc-filter-bar-width;
 		animation: reveal 1s cubic-bezier(0.4, 0, 0.2, 1);
         input {
-          padding-left: 40px;
+	  		padding-left: 40px;
+			padding-right: $padding-normal;
         }
 	}
 
