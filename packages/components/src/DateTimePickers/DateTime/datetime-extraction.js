@@ -5,7 +5,7 @@ import setSeconds from 'date-fns/set_seconds';
 import setDate from 'date-fns/set_date';
 import startOfSecond from 'date-fns/start_of_second';
 import getErrorMessage from './error-messages';
-import { checkTime, pad, strToTime } from '../Time/time-extraction';
+import { checkTime, pad, strToTime, timeToStr } from '../Time/time-extraction';
 
 const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
 
@@ -242,6 +242,8 @@ function extractPartsFromDateTime(datetime, options) {
 			time: undefined,
 			datetime,
 			textInput: '',
+			dateTextInput: '',
+			timeTextInput: '',
 			errors: [],
 		};
 	}
@@ -252,6 +254,8 @@ function extractPartsFromDateTime(datetime, options) {
 	return {
 		date,
 		time,
+		dateTextInput: dateTimeToStr(date, undefined, options),
+		timeTextInput: timeToStr(time, options.useSeconds),
 		datetime: startOfSecond(datetime),
 		textInput: dateTimeToStr(date, time, options),
 		errors: [],
@@ -388,6 +392,8 @@ function extractParts(value, options) {
 		time: undefined,
 		datetime: undefined,
 		textInput: '',
+		dateTextInput: '',
+		timeTextInput: '',
 		errors: [],
 	};
 }

@@ -36,7 +36,7 @@ describe('DateTime.Manager', () => {
 	describe('datetime management', () => {
 		cases(
 			'initial state',
-			({ initialDate, expectedDate, expectedTime }) => {
+			({ initialDate, expectedDate, expectedTime, expectedDateTextInput, expectedTimeTextInput }) => {
 				// when
 				const wrapper = mount(
 					<Manager id={DEFAULT_ID} value={initialDate} useSeconds>
@@ -46,8 +46,10 @@ describe('DateTime.Manager', () => {
 
 				// then
 				const contextValue = wrapper.find('DateTimeConsumerDiv').props();
-				expect(contextValue.date).toEqual(expectedDate);
-				expect(contextValue.time).toEqual(expectedTime);
+				expect(contextValue.date.value).toEqual(expectedDate);
+				expect(contextValue.date.textInput).toEqual(expectedDateTextInput);
+				expect(contextValue.time.value).toEqual(expectedTime);
+				expect(contextValue.time.textInput).toEqual(expectedTimeTextInput);
 			},
 			[
 				{
@@ -55,25 +57,39 @@ describe('DateTime.Manager', () => {
 					initialDate: undefined,
 					expectedDate: undefined,
 					expectedTime: undefined,
+					expectedDateTextInput: '',
+					expectedTimeTextInput: '',
 				},
 				{
 					name: 'should init default state from props invalid date',
 					initialDate: new Date(''), // invalid date
 					expectedDate: undefined,
 					expectedTime: undefined,
+					expectedDateTextInput: '',
+					expectedTimeTextInput: '',
 				},
 				{
 					name: 'should init state from props',
 					initialDate: new Date(2015, 3, 4, 12, 36),
 					expectedDate: new Date(2015, 3, 4),
 					expectedTime: { hours: '12', minutes: '36', seconds: '00' },
+					expectedDateTextInput: '2015-04-04',
+					expectedTimeTextInput: '12:36:00',
 				},
 			],
 		);
 
 		cases(
 			'props update should update state',
-			({ initialDate, newDate, expectedDate, expectedTime, useSeconds }) => {
+			({
+				initialDate,
+				newDate,
+				expectedDate,
+				expectedTime,
+				expectedDateTextInput,
+				expectedTimeTextInput,
+				useSeconds,
+			}) => {
 				// given
 				const wrapper = mount(
 					<Manager id={DEFAULT_ID} value={initialDate} useSeconds={useSeconds}>
@@ -91,8 +107,10 @@ describe('DateTime.Manager', () => {
 
 				// then
 				const contextValue = wrapper.find('DateTimeConsumerDiv').props();
-				expect(contextValue.date).toEqual(expectedDate);
-				expect(contextValue.time).toEqual(expectedTime);
+				expect(contextValue.date.value).toEqual(expectedDate);
+				expect(contextValue.date.textInput).toEqual(expectedDateTextInput);
+				expect(contextValue.time.value).toEqual(expectedTime);
+				expect(contextValue.time.textInput).toEqual(expectedTimeTextInput);
 			},
 			[
 				{
@@ -101,6 +119,8 @@ describe('DateTime.Manager', () => {
 					newDate: undefined,
 					expectedDate: undefined,
 					expectedTime: undefined,
+					expectedDateTextInput: '',
+					expectedTimeTextInput: '',
 				},
 				{
 					name: 'from props invalid date',
@@ -108,6 +128,8 @@ describe('DateTime.Manager', () => {
 					newDate: new Date(''), // invalid date
 					expectedDate: undefined,
 					expectedTime: undefined,
+					expectedDateTextInput: '',
+					expectedTimeTextInput: '',
 				},
 				{
 					name: 'from props valid date',
@@ -115,6 +137,8 @@ describe('DateTime.Manager', () => {
 					newDate: new Date(2015, 3, 4, 12, 36),
 					expectedDate: new Date(2015, 3, 4),
 					expectedTime: { hours: '12', minutes: '36', seconds: '00' },
+					expectedDateTextInput: '2015-04-04',
+					expectedTimeTextInput: '12:36',
 				},
 				{
 					name: 'from props valid date with seconds',
@@ -122,6 +146,8 @@ describe('DateTime.Manager', () => {
 					newDate: new Date(2015, 3, 4, 12, 36, 30),
 					expectedDate: new Date(2015, 3, 4),
 					expectedTime: { hours: '12', minutes: '36', seconds: '30' },
+					expectedDateTextInput: '2015-04-04',
+					expectedTimeTextInput: '12:36:30',
 					useSeconds: true,
 				},
 			],
@@ -145,8 +171,8 @@ describe('DateTime.Manager', () => {
 
 				// then
 				const nextState = wrapper.find('DateTimeConsumerDiv').props();
-				expect(previousState.date).toBe(nextState.date);
-				expect(previousState.time).toBe(nextState.time);
+				expect(previousState.date).toEqual(nextState.date);
+				expect(previousState.time).toEqual(nextState.time);
 			},
 			[
 				{
@@ -164,7 +190,15 @@ describe('DateTime.Manager', () => {
 		describe('on change', () => {
 			cases(
 				'should update state when date change',
-				({ expectedDate, expectedTime, textInput, dateFormat, useSeconds }) => {
+				({
+					expectedDate,
+					expectedTime,
+					textInput,
+					dateFormat,
+					expectedDateTextInput,
+					expectedTimeTextInput,
+					useSeconds,
+				}) => {
 					// given
 					const event = { target: { value: textInput } };
 					const wrapper = mount(
@@ -185,8 +219,10 @@ describe('DateTime.Manager', () => {
 					// then
 					const props = wrapper.find('DateTimeConsumerDiv').props();
 
-					expect(props.date).toEqual(expectedDate);
-					expect(props.time).toEqual(expectedTime);
+					expect(props.date.value).toEqual(expectedDate);
+					expect(props.date.textInput).toEqual(expectedDateTextInput);
+					expect(props.time.value).toEqual(expectedTime);
+					expect(props.time.textInput).toEqual(expectedTimeTextInput);
 				},
 				[
 					{
@@ -194,31 +230,24 @@ describe('DateTime.Manager', () => {
 						textInput: '2015-01-15',
 						expectedDate: new Date(2015, 0, 15),
 						expectedTime: undefined,
+						expectedDateTextInput: '2015-01-15',
+						expectedTimeTextInput: '',
 					},
-					// {
-					// 	name: 'with valid datetime with seconds',
-					// 	textInput: '2015-01-15 15:45:22',
-					// 	expectedDate: new Date(2015, 0, 15),
-					// 	expectedTime: { hours: '15', minutes: '45', seconds: '22' },
-					// 	useSeconds: true,
-					// },
 					{
 						name: 'with invalid date',
-						textInput: '2015aze-01-15 15:45',
+						textInput: '2015aze-01-15',
 						expectedDate: undefined,
 						expectedTime: undefined,
+						expectedDateTextInput: '2015aze-01-15',
+						expectedTimeTextInput: '',
 					},
-					// {
-					// 	name: 'with invalid time',
-					// 	textInput: '2015-01-15 15aze:45',
-					// 	expectedDate: new Date(2015, 0, 15),
-					// 	expectedTime: { hours: '15aze', minutes: '45', seconds: '00' },
-					// },
 					{
 						name: 'with empty string',
 						textInput: '',
 						expectedDate: undefined,
 						expectedTime: undefined,
+						expectedDateTextInput: '',
+						expectedTimeTextInput: '',
 					},
 					{
 						name: 'with custom date format',
@@ -226,12 +255,23 @@ describe('DateTime.Manager', () => {
 						expectedDate: new Date(2015, 0, 15),
 						expectedTime: undefined,
 						dateFormat: 'DD/MM/YYYY',
+						expectedDateTextInput: '15/01/2015',
+						expectedTimeTextInput: '',
 					},
 				],
 			);
 			cases(
 				'should update state when time change',
-				({ expectedDate, expectedTime, textInput, dateFormat, useSeconds }) => {
+				({
+					expectedDateTime,
+					expectedDate,
+					expectedTime,
+					textInput,
+					dateTextInput,
+					timeTextInput,
+					dateFormat,
+					useSeconds,
+				}) => {
 					// given
 					const event = { target: { value: textInput } };
 					const wrapper = mount(
@@ -239,7 +279,7 @@ describe('DateTime.Manager', () => {
 							id={DEFAULT_ID}
 							dateFormat={dateFormat}
 							useSeconds={useSeconds}
-							value={expectedDate}
+							value={expectedDateTime}
 						>
 							<DateTimeConsumer />
 						</Manager>,
@@ -257,13 +297,18 @@ describe('DateTime.Manager', () => {
 					// then
 					const props = wrapper.find('DateTimeConsumerDiv').props();
 
-					expect(props.date).toEqual(expectedDate);
-					expect(props.time).toEqual(expectedTime);
+					expect(props.date.value).toEqual(expectedDate);
+					expect(props.date.textInput).toEqual(dateTextInput);
+					expect(props.time.value).toEqual(expectedTime);
+					expect(props.time.textInput).toEqual(timeTextInput);
 				},
 				[
 					{
 						name: 'with valid time with seconds',
 						textInput: '15:45:22',
+						dateTextInput: '2015-01-15',
+						timeTextInput: '15:45:22',
+						expectedDateTime: new Date(2015, 0, 15, 15, 45, 22),
 						expectedDate: new Date(2015, 0, 15),
 						expectedTime: { hours: '15', minutes: '45', seconds: '22' },
 						useSeconds: true,
@@ -271,7 +316,10 @@ describe('DateTime.Manager', () => {
 					{
 						name: 'with invalid time',
 						textInput: '15aze:45',
+						dateTextInput: '2015-01-15',
+						timeTextInput: '15aze:45',
 						expectedDate: new Date(2015, 0, 15),
+						expectedDateTime: new Date(2015, 0, 15),
 						expectedTime: { hours: '15aze', minutes: '45', seconds: '00' },
 					},
 				],
@@ -430,7 +478,9 @@ describe('DateTime.Manager', () => {
 				expect(args[0]).toBe(timeEvent);
 				expect(args[1].datetime).toBe(null);
 				expect(args[1].textInput).toBe('');
-				expect(args[1].errors).toEqual([{ code: 'TIME_FORMAT_INVALID', message: 'Time is invalid' }]);
+				expect(args[1].errors).toEqual([
+					{ code: 'TIME_FORMAT_INVALID', message: 'Time is invalid' },
+				]);
 				expect(args[1].errorMessage).toBe('Time is invalid');
 			});
 		});

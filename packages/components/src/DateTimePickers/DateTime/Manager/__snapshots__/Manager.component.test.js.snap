@@ -4,10 +4,16 @@ exports[`DateTime.Manager should render its children 1`] = `
 <Context.Provider
   value={
     Object {
-      "date": undefined,
+      "date": Object {
+        "textInput": "",
+        "value": undefined,
+      },
       "onDateChange": [Function],
       "onTimeChange": [Function],
-      "time": undefined,
+      "time": Object {
+        "textInput": "",
+        "value": undefined,
+      },
     }
   }
 >

@@ -35,7 +35,7 @@ function ContextualManager(props) {
 			props.onChange(event, { datetime, textInput, errors, errorMessage });
 		}
 	}
-	function onDateChange(event, { date, errors }) {
+	function onDateChange(event, { date, textInput, errors }) {
 		let nextValues;
 		if (errors && errors.length > 0) {
 			nextValues = { datetime: null, textInput: '' };
@@ -50,13 +50,14 @@ function ContextualManager(props) {
 		const nextState = {
 			...state,
 			...nextValues,
+			dateTextInput: textInput,
 			errors: nextErrors,
 			errorMessage: nextErrors[0] ? nextErrors[0].message : null,
 		};
 		setState(nextState);
 		onChange(event, nextState);
 	}
-	function onTimeChange(event, { time, errors }) {
+	function onTimeChange(event, { time, textInput, errors }) {
 		let newValues;
 		if (errors.length > 0) {
 			newValues = { datetime: null, textInput: '' };
@@ -70,6 +71,7 @@ function ContextualManager(props) {
 		const nextState = {
 			...state,
 			...newValues,
+			timeTextInput: textInput,
 			errors: nextErrors,
 			errorMessage: nextErrors[0] ? nextErrors[0].message : null,
 		};
@@ -79,8 +81,14 @@ function ContextualManager(props) {
 	return (
 		<DateTimeContext.Provider
 			value={{
-				date: state.date,
-				time: state.time,
+				date: {
+					value: state.date,
+					textInput: state.dateTextInput,
+				},
+				time: {
+					value: state.time,
+					textInput: state.timeTextInput,
+				},
 				onDateChange,
 				onTimeChange,
 			}}

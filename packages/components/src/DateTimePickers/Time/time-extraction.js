@@ -112,6 +112,7 @@ function strToTime(strToParse, useSeconds) {
  * @param {boolean} useSeconds
  */
 function timeToStr(time, useSeconds) {
+	if (!time) return '';
 	const hours = pad(time.hours);
 	const minutes = pad(time.minutes);
 	const seconds = pad(time.seconds);

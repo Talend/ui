@@ -24,9 +24,9 @@ function InputDateTimePicker(props) {
 						<div className={theme['pickers-container']}>
 							<InputDatePicker
 								id={`${props.id}-date-picker`}
-								value={date}
 								onChange={onDateChange}
 								dateFormat={props.dateFormat}
+								{...date}
 							/>
 							<InputTimePicker
 								id={`${props.id}-time-picker`}

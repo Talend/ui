@@ -24,6 +24,8 @@ describe('Date extraction', () => {
 				datetime: undefined,
 				textInput: '',
 				errors: [],
+				timeTextInput: '',
+				dateTextInput: '',
 			});
 		});
 
@@ -43,6 +45,8 @@ describe('Date extraction', () => {
 				textInput: '2015-09-15 12:58',
 				errors: [],
 				time: { hours: '12', minutes: '58', seconds: '00' },
+				timeTextInput: '12:58',
+				dateTextInput: '2015-09-15',
 			});
 		});
 
@@ -61,6 +65,8 @@ describe('Date extraction', () => {
 				textInput: '2015-09-15 12:58',
 				errors: [],
 				time: { hours: '12', minutes: '58', seconds: '00' },
+				dateTextInput: '2015-09-15',
+				timeTextInput: '12:58',
 			});
 		});
 
@@ -103,6 +109,8 @@ describe('Date extraction', () => {
 				datetime: 'lol',
 				textInput: '',
 				errors: [],
+				timeTextInput: '',
+				dateTextInput: '',
 			});
 		});
 
@@ -119,9 +127,11 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
+				dateTextInput: '2015-09-15',
 				datetime: validDate,
 				textInput: '2015-09-15 12:58',
 				time: { hours: '12', minutes: '58', seconds: '00' },
+				timeTextInput: '12:58',
 				errors: [],
 			});
 		});
@@ -140,10 +150,12 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
+				dateTextInput: '2015-09-15',
 				datetime: validDate,
 				textInput: '2015-09-15 12:58:22',
 				errors: [],
 				time: { hours: '12', minutes: '58', seconds: '22' },
+				timeTextInput: '12:58:22',
 			});
 		});
 
@@ -163,10 +175,12 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
+				dateTextInput: '2015-09-15',
 				datetime: validDate,
 				textInput: '2015-09-15 10:58:22',
 				errors: [],
 				time: { hours: '10', minutes: '58', seconds: '22' },
+				timeTextInput: '10:58:22',
 			});
 		});
 
@@ -186,10 +200,12 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 14),
+				dateTextInput: '2015-09-14',
 				datetime: validDate,
 				textInput: '2015-09-14 23:00:22',
 				errors: [],
 				time: { hours: '23', minutes: '00', seconds: '22' },
+				timeTextInput: '23:00:22',
 			});
 		});
 	});
