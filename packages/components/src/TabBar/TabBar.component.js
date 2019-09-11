@@ -48,14 +48,14 @@ function TabBar(props) {
 	}, []);
 
 	useEffect(() => {
-		if (!needsRefocus || !tabBarRef.current) {
+		if (!needsRefocus.current || !tabBarRef.current) {
 			return;
 		}
 		const tabBarRefNode = ReactDOM.findDOMNode(tabBarRef.current);
 		if (tabBarRefNode && typeof tabBarRefNode.querySelector === 'function') {
 			const activeChild = tabBarRefNode.querySelector('[aria-selected=true]');
 			if (activeChild) {
-				activeChild.focus();
+				activeChild.focus({ preventScroll: true });
 				needsRefocus.current = false;
 			}
 		}
