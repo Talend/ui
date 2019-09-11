@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { Action } from '../../../Actions';
 import DatePicker from '../../pickers/DatePicker';
 import TimePicker from '../../pickers/TimePicker';
@@ -87,11 +88,11 @@ class DateTimeView extends React.PureComponent {
 			leftElement: (
 				<Action
 					aria-label={t('DATEPICKER_MONTH_PREVIOUS', { defaultValue: 'Go to previous month' })}
-					icon="talend-chevron-left"
+					icon="talend-arrow-left"
 					label=""
 					onClick={() => this.goToPreviousMonth()}
 					tabIndex="-1"
-					link
+					className={classNames("btn-tertiary", "btn-info")}
 				/>
 			),
 			middleElement: (
@@ -110,12 +111,12 @@ class DateTimeView extends React.PureComponent {
 			rightElement: (
 				<Action
 					aria-label={t('DATEPICKER_MONTH_NEXT', { defaultValue: 'Go to next month' })}
-					icon="talend-chevron-left"
+					icon="talend-arrow-left"
 					iconTransform="rotate-180"
 					label=""
 					onClick={() => this.goToNextMonth()}
 					tabIndex="-1"
-					link
+					className="btn-tertiary btn-info"
 				/>
 			),
 		};

@@ -6,16 +6,18 @@
 
 	.header {
 		display: flex;
-		height: 5rem;
+		height: 2.5rem;
 		margin-bottom: $padding-small;
 
-		.left,
+		.left {
+			padding-left: $padding-small;
+		}
 		.right {
-			flex: 1;
+			padding-right: $padding-small;
 		}
 
 		.middle {
-			flex: 4;
+			flex: 1;
 		}
 
 		:global(.btn-icon-only) {
