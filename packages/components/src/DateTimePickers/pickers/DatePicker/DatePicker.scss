@@ -35,7 +35,7 @@
 
 	.calendar-day {
 		&.today {
-			background-color: tint ($lochmara, 90%);
+			background-color: tint($lochmara, 90%);
 			color: $lochmara;
 			border: solid 1px $lochmara;
 		}
