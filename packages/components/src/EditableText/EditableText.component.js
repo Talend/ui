@@ -16,7 +16,7 @@ export function PlainTextTitle({ componentClass, onEdit, disabled, text, inProgr
 	const ComponentClass = componentClass;
 	return (
 		<div className={theme['tc-editable-text-title']}>
-			<TooltipTrigger label={text} tooltipPlacement="bottom">
+			<TooltipTrigger label={text} tooltipPlacement="bottom" className={'tc-editable-text-wording-wrapper'}>
 				<ComponentClass
 					className={classNames(theme['tc-editable-text-wording'], 'tc-editable-text-wording')}
 					onDoubleClick={isDisabled ? undefined : onEdit}
@@ -30,7 +30,7 @@ export function PlainTextTitle({ componentClass, onEdit, disabled, text, inProgr
 				icon="talend-pencil"
 				onClick={onEdit}
 				bsStyle="link"
-				className={classNames(theme['tc-editable-text-pencil'], 'tc-editable-text-pencil')}
+				className={classNames(theme['tc-editable-text-pencil'], 'tc-editable-text-pencil', 'sr-only', 'sr-only-focusable')}
 				disabled={disabled || inProgress}
 				hideLabel
 				data-feature={feature}

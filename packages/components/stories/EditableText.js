@@ -20,6 +20,7 @@ storiesOf('EditableText', module)
 		</div>
 	))
 	.add('default', () => <EditableText {...props} />)
+	.add('with ellipsis', () => <div style={{width: 150}}><EditableText {...props} /></div>)
 	.add('loading', () => <EditableText loading {...props} />)
 	.add('disabled', () => <EditableText disabled {...props} />)
 	.add('in progress', () => <EditableText inProgress {...props} />)
