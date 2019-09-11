@@ -7,7 +7,7 @@ import TextFilter from './TextFilter';
 import Toolbar from './Toolbar';
 import VList from './VList';
 import { useDefaultCollectionSort as useCollectionSort } from './Manager/hooks/useCollectionSort.hook';
-import { useDefaultCollectionSort as useCollectionFilter } from './Manager/hooks/useCollectionFilter.hook';
+import { useDefaultCollectionFilter as useCollectionFilter } from './Manager/hooks/useCollectionFilter.hook';
 import useCollectionActions from './Manager/hooks/useCollectionActions.hook';
 
 export default {
