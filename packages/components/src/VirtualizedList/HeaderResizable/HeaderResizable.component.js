@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Draggable from 'react-draggable';
+import { defaultTableHeaderRenderer } from 'react-virtualized';
 import { ConsumerVirtualizedList } from '../virtualizedListContext';
 import headerResizableCssModule from './HeaderResizable.scss';
 import { getTheme } from '../../theme';
@@ -13,7 +14,7 @@ const HeaderResizableContent = ({ customRender, ...rest }) => {
 	if (customRender) {
 		return customRender;
 	} else if (rest.label) {
-		return rest.label;
+		return defaultTableHeaderRenderer(rest);
 	}
 	return null;
 };
@@ -30,7 +31,7 @@ export class HeaderResizable extends React.Component {
 	};
 
 	render() {
-		const { children, dataKey, label, t = getDefaultT() } = this.props;
+		const { children, dataKey, label, sortBy, sortDirection, t = getDefaultT() } = this.props;
 		const { resizing } = this.state;
 		const tooltipLabel = t('RESIZE_COLUMN', { defaultValue: 'Resize column' });
 		return (
@@ -44,13 +45,19 @@ export class HeaderResizable extends React.Component {
 						)}
 					>
 						<div className={classNames(theme('tc-header-cell-resizable-truncated-text'))}>
-							<HeaderResizableContent customRender={children} label={label} />
+							<HeaderResizableContent
+								customRender={children}
+								label={label}
+								dataKey={dataKey}
+								sortBy={sortBy}
+								sortDirection={sortDirection}
+							/>
 						</div>
 						<Draggable
 							axis="x"
 							defaultClassName={classNames(theme('tc-header-cell-resizable-drag-handle'))}
 							onStart={() => this.setResizing(true)}
-							onDrag={(_, data) => {
+							onDrag={(e, data) => {
 								resizeColumn(dataKey, data.deltaX);
 							}}
 							onStop={() => this.setResizing(false)}
@@ -72,6 +79,8 @@ HeaderResizable.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 	dataKey: PropTypes.string,
 	label: PropTypes.string,
+	sortBy: PropTypes.string,
+	sortDirection: PropTypes.string,
 	t: PropTypes.func,
 };
 
