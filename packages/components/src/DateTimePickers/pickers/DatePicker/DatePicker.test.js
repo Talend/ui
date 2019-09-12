@@ -192,7 +192,7 @@ describe('DatePicker', () => {
 				.prop('tabIndex'),
 		).toBe(0);
 	});
-
+	
     it('should have 6 weeks', () => {
         const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
         const wrapper = mount(
@@ -204,11 +204,7 @@ describe('DatePicker', () => {
             />,
         );
 
-        expect(
-            wrapper
-                .find('.tc-date-picker-day')
-                .length
-        ).toBe(6 * 7);
+        expect(wrapper.find('.tc-date-picker-day').length).toBe(6 * 7);
     });
 
     it('should go to next month if select a date of next month', () => {
@@ -237,4 +233,5 @@ describe('DatePicker', () => {
         expect(currentCalenndar.monthIndex).toBe(0);
         expect(currentCalenndar.year).toBe( 2020);
     });
+
 });
