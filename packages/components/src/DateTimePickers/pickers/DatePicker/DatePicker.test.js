@@ -189,4 +189,22 @@ describe('DatePicker', () => {
 				.prop('tabIndex'),
 		).toBe(0);
 	});
+
+    it('should have 6 weeks', () => {
+        const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
+        const wrapper = mount(
+            <DatePicker
+                calendar={calendar}
+                onSelect={jest.fn()}
+                goToPreviousMonth={jest.fn()}
+                goToNextMonth={jest.fn()}
+            />,
+        );
+
+        expect(
+            wrapper
+                .find('.tc-date-picker-day')
+                .length
+        ).toBe(6 * 7);
+    });
 });
