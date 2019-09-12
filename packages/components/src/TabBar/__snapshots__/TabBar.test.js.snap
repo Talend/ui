@@ -12,7 +12,7 @@ exports[`TabBar component should render with selected children from item definit
     <Nav
       bsClass="nav"
       bsStyle="tabs"
-      className="tc-tab-bar theme-tc-responsive-tab-bar"
+      className="tc-tab-bar"
       justified={false}
       pullLeft={false}
       pullRight={false}
@@ -138,7 +138,7 @@ exports[`TabBar component should render with selected children managed by user 1
     <Nav
       bsClass="nav"
       bsStyle="tabs"
-      className="tc-tab-bar theme-tc-responsive-tab-bar"
+      className="tc-tab-bar"
       justified={false}
       pullLeft={false}
       pullRight={false}
