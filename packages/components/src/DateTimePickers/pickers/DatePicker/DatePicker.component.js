@@ -64,15 +64,15 @@ class DatePicker extends React.PureComponent {
 		);
 	}
 
-	selectDate(event, date, year, monthIndex){
-        if(!this.isCurrentMonth(date)){
-            if(date < startOfMonth(new Date(year, monthIndex))){
-                this.props.goToPreviousMonth();
-            }else {
-                this.props.goToNextMonth();
-            }
-        }
-        this.props.onSelect(event, date);
+	selectDate(event, date, year, monthIndex) {
+		if (!this.isCurrentMonth(date)) {
+			if (date < startOfMonth(new Date(year, monthIndex))) {
+				this.props.goToPreviousMonth();
+			} else {
+				this.props.goToNextMonth();
+			}
+		}
+		this.props.onSelect(event, date);
 	}
 
 	render() {

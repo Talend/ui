@@ -192,46 +192,41 @@ describe('DatePicker', () => {
 				.prop('tabIndex'),
 		).toBe(0);
 	});
-	
-    it('should have 6 weeks', () => {
-        const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
-        const wrapper = mount(
-            <DatePicker
-                calendar={calendar}
-                onSelect={jest.fn()}
-                goToPreviousMonth={jest.fn()}
-                goToNextMonth={jest.fn()}
-            />,
-        );
 
-        expect(wrapper.find('.tc-date-picker-day').length).toBe(6 * 7);
-    });
+	it('should have 6 weeks', () => {
+		const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
+		const wrapper = mount(
+			<DatePicker
+				calendar={calendar}
+				onSelect={jest.fn()}
+				goToPreviousMonth={jest.fn()}
+				goToNextMonth={jest.fn()}
+			/>,
+		);
 
-    it('should go to next month if select a date of next month', () => {
-        const calendar = { year: 2019, monthIndex: 11 };
-        const props = {
-    		calendar,
+		expect(wrapper.find('.tc-date-picker-day').length).toBe(6 * 7);
+	});
+
+	it('should go to next month if select a date of next month', () => {
+		const calendar = { year: 2019, monthIndex: 11 };
+		const props = {
+			calendar,
 			onSelect: jest.fn(),
 			goToPreviousMonth: jest.fn(),
 			goToNextMonth: jest.fn(),
 		};
-        const wrapper = mount(
-            <DatePicker {...props}/>,
-        );
-        wrapper
-            .find('.tc-date-picker-day')
-            .at(37) // click 2020-01-01
-            .simulate('click');
+		const wrapper = mount(<DatePicker {...props} />);
+		wrapper
+			.find('.tc-date-picker-day')
+			.at(37) // click 2020-01-01
+			.simulate('click');
 
-        wrapper.update();
+		wrapper.update();
 
-        const currentCalenndar = wrapper
-            .find('DatePicker')
-            .prop('calendar')
+		const currentCalenndar = wrapper.find('DatePicker').prop('calendar');
 
-        expect(props.goToNextMonth).toBeCalled();
-        expect(currentCalenndar.monthIndex).toBe(0);
-        expect(currentCalenndar.year).toBe( 2020);
-    });
-
+		expect(props.goToNextMonth).toBeCalled();
+		expect(currentCalenndar.monthIndex).toBe(0);
+		expect(currentCalenndar.year).toBe(2020);
+	});
 });
