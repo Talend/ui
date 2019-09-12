@@ -90,6 +90,15 @@ describe('PlainTextTitle', () => {
 		wrapper.find('Action').simulate('click');
 		expect(onEdit).toHaveBeenCalled();
 	});
+
+	it('should render empty text with pencil', () => {
+		const props = {
+			text: '',
+			onEdit: jest.fn(),
+		};
+		const wrapper = shallow(<PlainTextTitle {...props} />);
+		expect(wrapper.find('Action').props().className.includes('tc-editable-text-empty-pencil')).toBeTruthy();
+	});
 });
 
 describe('InlineForm', () => {

@@ -17,6 +17,11 @@ $tc-circle-editable-text-size: 16px !default;
 	:global(.tc-editable-text-wording-wrapper) {
 		@include ellipsis;
 	}
+	.tc-editable-text-empty-pencil {
+		position: static;
+		width: auto;
+		height: auto;
+	}
 	&:hover {
 		.tc-editable-text-pencil {
 			position: static;

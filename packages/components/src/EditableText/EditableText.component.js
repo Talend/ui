@@ -39,6 +39,7 @@ export function PlainTextTitle({ componentClass, onEdit, disabled, text, inProgr
 					'tc-editable-text-pencil',
 					'sr-only',
 					'sr-only-focusable',
+					{ [theme['tc-editable-text-empty-pencil']]: !text }
 				)}
 				disabled={disabled || inProgress}
 				hideLabel

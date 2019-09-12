@@ -20,6 +20,10 @@ storiesOf('EditableText', module)
 		</div>
 	))
 	.add('default', () => <EditableText {...props} />)
+	.add('without value', () => {
+		const propWithoutText = { ...props, text: '' };
+		return <div style={{width: 150}}><EditableText {...propWithoutText} /></div>
+	})
 	.add('with ellipsis', () => <div style={{width: 150}}><EditableText {...props} /></div>)
 	.add('loading', () => <EditableText loading {...props} />)
 	.add('disabled', () => <EditableText disabled {...props} />)
