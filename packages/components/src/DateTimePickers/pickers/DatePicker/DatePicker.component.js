@@ -9,6 +9,7 @@ import getYear from 'date-fns/get_year';
 import isSameDay from 'date-fns/is_same_day';
 import setMonth from 'date-fns/set_month';
 import format from 'date-fns/format';
+import isWithinRange from 'date-fns/is_within_range';
 
 import theme from './DatePicker.scss';
 import { buildDayNames, buildWeeks, getPickerLocale } from '../../generator';
@@ -43,16 +44,20 @@ class DatePicker extends React.PureComponent {
 		return getMonth(date) === this.props.calendar.monthIndex;
 	}
 
+	isCurrentCalendarMonth(date, firstDayOfCalendar, lastDayOfCalendar) {
+		return isWithinRange(date, firstDayOfCalendar, lastDayOfCalendar);
+	}
+
 	isCurrentYear(date) {
 		return getYear(date) === this.props.calendar.year;
 	}
 
-	isSelectedInCurrentCalendar() {
+	isSelectedInCurrentCalendar(firstDayOfCalendar, lastDayOfCalendar) {
 		const { selectedDate } = this.props;
 		if (!selectedDate) {
 			return false;
 		}
-		return this.isCurrentYear(selectedDate) && this.isCurrentMonth(selectedDate);
+		return this.isCurrentYear(selectedDate) && this.isCurrentCalendarMonth(selectedDate, firstDayOfCalendar, lastDayOfCalendar);
 	}
 
 	render() {
@@ -60,9 +65,9 @@ class DatePicker extends React.PureComponent {
 		const { year, monthIndex } = calendar;
 		const pickerLocale = getPickerLocale(t);
 
-		const weeks = this.getWeeks(year, monthIndex);
+		const weeks = this.getWeeks(year, monthIndex, 1, true);
 		const dayNames = getDayNames(undefined, this.props.t);
-		const selectedInCurrentCalendar = this.isSelectedInCurrentCalendar();
+		const selectedInCurrentCalendar = this.isSelectedInCurrentCalendar(weeks[0][0], weeks[5][6]);
 
 		const monthStr = format(setMonth(new Date(0), monthIndex), 'MMMM', pickerLocale);
 
@@ -92,20 +97,20 @@ class DatePicker extends React.PureComponent {
 							className={classNames(theme['calendar-row'], 'tc-date-picker-calendar-row')}
 						>
 							{week.map((date, j) => {
-								if (this.isCurrentMonth(date)) {
 									const day = getDate(date);
 									const disabled = this.isDisabledDate(date);
 									const selected = this.isSelectedDate(date);
 									const today = isToday(date);
 									const shouldBeFocussable =
 										(selectedInCurrentCalendar && selected) ||
-										(!selectedInCurrentCalendar && day === 1);
+										(!selectedInCurrentCalendar && i === 0 && j === 0);
 
 									const className = classNames(
 										theme['calendar-day'],
 										{
 											[theme.selected]: selected,
 											[theme.today]: today,
+											[theme['not-current-month']]: !this.isCurrentMonth(date),
 										},
 										'tc-date-picker-day',
 									);
@@ -145,8 +150,6 @@ class DatePicker extends React.PureComponent {
 											</button>
 										</td>
 									);
-								}
-								return <td key={j} />;
 							})}
 						</tr>
 					))}

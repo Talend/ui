@@ -127,17 +127,69 @@ exports[`DatePicker should render a DatePicker 1`] = `
             key="0"
           >
             <td
+              className="theme-calendar-col"
               key="0"
-            />
+            >
+              <button
+                aria-label="Monday 28 May 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                28
+              </button>
+            </td>
             <td
+              className="theme-calendar-col"
               key="1"
-            />
+            >
+              <button
+                aria-label="Tuesday 29 May 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                29
+              </button>
+            </td>
             <td
+              className="theme-calendar-col"
               key="2"
-            />
+            >
+              <button
+                aria-label="Wednesday 30 May 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                30
+              </button>
+            </td>
             <td
+              className="theme-calendar-col"
               key="3"
-            />
+            >
+              <button
+                aria-label="Thursday 31 May 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                31
+              </button>
+            </td>
             <td
               className="theme-calendar-col"
               key="4"
@@ -640,8 +692,138 @@ exports[`DatePicker should render a DatePicker 1`] = `
               </button>
             </td>
             <td
+              className="theme-calendar-col"
               key="6"
-            />
+            >
+              <button
+                aria-label="Sunday 01 July 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                1
+              </button>
+            </td>
+          </tr>
+          <tr
+            className="theme-calendar-row tc-date-picker-calendar-row"
+            key="5"
+          >
+            <td
+              className="theme-calendar-col"
+              key="0"
+            >
+              <button
+                aria-label="Monday 02 July 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                2
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="1"
+            >
+              <button
+                aria-label="Tuesday 03 July 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                3
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="2"
+            >
+              <button
+                aria-label="Wednesday 04 July 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                4
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="3"
+            >
+              <button
+                aria-label="Thursday 05 July 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                5
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="4"
+            >
+              <button
+                aria-label="Friday 06 July 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                6
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="5"
+            >
+              <button
+                aria-label="Saturday 07 July 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                7
+              </button>
+            </td>
+            <td
+              className="theme-calendar-col"
+              key="6"
+            >
+              <button
+                aria-label="Sunday 08 July 2018"
+                className="theme-calendar-day theme-not-current-month tc-date-picker-day"
+                disabled={false}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={-1}
+                type="button"
+              >
+                8
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>

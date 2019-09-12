@@ -35,17 +35,20 @@ export function buildDayNames(firstDayOfweek = 1, t) {
 /**
  * Generate the set of weeks for a specific month
  */
-export function buildWeeks(year, monthIndex, firstDayOfWeek = 1) {
+export function buildWeeks(year, monthIndex, firstDayOfWeek = 1, show6weeks = false) {
 	const firstDateOfMonth = new Date(year, monthIndex);
 	const firstDateOfCalendar = startOfWeek(firstDateOfMonth, {
 		weekStartsOn: firstDayOfWeek,
 	});
 
-	const lastDateOfMonth = endOfMonth(firstDateOfMonth);
-	const diffWeeks = differenceInCalendarWeeks(lastDateOfMonth, firstDateOfCalendar, {
-		weekStartsOn: firstDayOfWeek,
-	});
-	const nbWeeksToRender = diffWeeks + 1;
+	let nbWeeksToRender = 6;
+	if(!show6weeks) {
+        const lastDateOfMonth = endOfMonth(firstDateOfMonth);
+        const diffWeeks = differenceInCalendarWeeks(lastDateOfMonth, firstDateOfCalendar, {
+            weekStartsOn: firstDayOfWeek,
+        });
+        nbWeeksToRender =  diffWeeks + 1;
+    }
 
 	const dates = new Array(7 * nbWeeksToRender)
 		.fill(0)

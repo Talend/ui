@@ -16,15 +16,19 @@ function getDisabledChecker(disabledDates) {
 }
 
 describe('DatePicker', () => {
+	const YEAR = 2018;
+	const MONTH_INDEX = 5; // month July
+	const numOfPreviousDaysInCurrentCalendar = 4;// last 4 days of May will be showed in current calendar month
+
 	beforeEach(() => {
-		mockIsTodayWith(new Date(2018, 5, 20));
+		mockIsTodayWith(new Date(YEAR, MONTH_INDEX, 20));
 	});
 
 	it('should render a DatePicker', () => {
 		// given
-		const calendar = { year: 2018, monthIndex: 5 };
-		const isDisabledChecker = getDisabledChecker([new Date(2018, 5, 6), new Date(2018, 5, 15)]);
-		const selectedDate = new Date(2018, 5, 12);
+		const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
+		const isDisabledChecker = getDisabledChecker([new Date(YEAR, MONTH_INDEX, 6), new Date(YEAR, MONTH_INDEX, 15)]);
+		const selectedDate = new Date(YEAR, MONTH_INDEX, 12);
 
 		// when
 		const wrapper = mount(
@@ -44,7 +48,7 @@ describe('DatePicker', () => {
 
 	it('should highlight today', () => {
 		// given
-		const calendar = { year: 2018, monthIndex: 5 };
+		const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
 
 		// when
 		const wrapper = mount(
@@ -66,15 +70,15 @@ describe('DatePicker', () => {
 		expect(
 			wrapper
 				.find('.tc-date-picker-day')
-				.at(19) // isToday is mocked as 2018-06-20
+				.at(19 + numOfPreviousDaysInCurrentCalendar) // isToday is mocked as 2018-06-20.
 				.prop('className'),
 		).toContain('theme-today');
 	});
 
 	it('should highlight selected date', () => {
 		// given
-		const calendar = { year: 2018, monthIndex: 5 };
-		const selectedDate = new Date(2018, 5, 12);
+		const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
+		const selectedDate = new Date(YEAR, MONTH_INDEX, 12);
 
 		// when
 		const wrapper = mount(
@@ -97,15 +101,15 @@ describe('DatePicker', () => {
 		expect(
 			wrapper
 				.find('.tc-date-picker-day')
-				.at(11)
+				.at(11 + numOfPreviousDaysInCurrentCalendar)
 				.prop('className'),
 		).toContain('theme-selected');
 	});
 
 	it('should fade disable date', () => {
 		// given
-		const calendar = { year: 2018, monthIndex: 5 };
-		const isDisabledChecker = getDisabledChecker([new Date(2018, 5, 6)]);
+		const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
+		const isDisabledChecker = getDisabledChecker([new Date(YEAR, MONTH_INDEX, 6)]);
 
 		// when
 		const wrapper = mount(
@@ -128,14 +132,14 @@ describe('DatePicker', () => {
 		expect(
 			wrapper
 				.find('.tc-date-picker-day')
-				.at(5)
+				.at(5 + numOfPreviousDaysInCurrentCalendar)
 				.prop('disabled'),
 		).toBe(true);
 	});
 
 	it('should select date', () => {
 		// given
-		const calendar = { year: 2018, monthIndex: 5 };
+		const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
 		const onSelect = jest.fn();
 		const wrapper = mount(
 			<DatePicker
@@ -150,15 +154,15 @@ describe('DatePicker', () => {
 		// when
 		wrapper
 			.find('.tc-date-picker-day')
-			.at(0)
+			.at(0 + numOfPreviousDaysInCurrentCalendar)
 			.simulate('click');
 
 		// then
-		expect(onSelect).toBeCalledWith(expect.anything(), new Date(2018, 5, 1));
+		expect(onSelect).toBeCalledWith(expect.anything(), new Date(YEAR, MONTH_INDEX, 1));
 	});
 
 	it('should manage tabIndex', () => {
-		const calendar = { year: 2018, monthIndex: 5 };
+		const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
 		const wrapper = mount(
 			<DatePicker
 				calendar={calendar}
