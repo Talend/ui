@@ -57,7 +57,7 @@ export class HeaderResizable extends React.Component {
 							axis="x"
 							defaultClassName={classNames(theme('tc-header-cell-resizable-drag-handle'))}
 							onStart={() => this.setResizing(true)}
-							onDrag={(e, data) => {
+							onDrag={(_, data) => {
 								resizeColumn(dataKey, data.deltaX);
 							}}
 							onStop={() => this.setResizing(false)}
