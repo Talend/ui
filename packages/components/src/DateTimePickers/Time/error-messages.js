@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-named-as-default-member
+/* eslint-disable import/no-named-as-default-member */
 import i18next from 'i18next';
 
 export default function getErrorMessage(key) {

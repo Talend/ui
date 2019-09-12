@@ -38,7 +38,7 @@ export default function useInputPickerHandlers({ handleBlur, handleChange, handl
 			openPicker();
 		}
 	}
-	function onKeyDown(event, inputRef, containerRef) {
+	function onKeyDown(event, inputRef) {
 		switch (event.keyCode) {
 			case keycode.codes.esc:
 				inputRef.focus();

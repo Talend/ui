@@ -82,6 +82,7 @@ function ContextualManager(props) {
 ContextualManager.propTypes = {
 	children: PropTypes.node,
 	dateFormat: PropTypes.string,
+	// eslint-disable-next-line react/no-unused-prop-types
 	onChange: PropTypes.func,
 	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	textInput: PropTypes.string,
