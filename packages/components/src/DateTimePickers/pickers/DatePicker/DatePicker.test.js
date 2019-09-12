@@ -18,7 +18,7 @@ function getDisabledChecker(disabledDates) {
 describe('DatePicker', () => {
 	const YEAR = 2018;
 	const MONTH_INDEX = 5; // month July
-	const numOfPreviousDaysInCurrentCalendar = 4;// last 4 days of May will be showed in current calendar month
+	const numOfPreviousDaysInCurrentCalendar = 4; // last 4 days of May will be showed in current calendar month
 
 	beforeEach(() => {
 		mockIsTodayWith(new Date(YEAR, MONTH_INDEX, 20));
@@ -27,7 +27,10 @@ describe('DatePicker', () => {
 	it('should render a DatePicker', () => {
 		// given
 		const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
-		const isDisabledChecker = getDisabledChecker([new Date(YEAR, MONTH_INDEX, 6), new Date(YEAR, MONTH_INDEX, 15)]);
+		const isDisabledChecker = getDisabledChecker([
+			new Date(YEAR, MONTH_INDEX, 6),
+			new Date(YEAR, MONTH_INDEX, 15),
+		]);
 		const selectedDate = new Date(YEAR, MONTH_INDEX, 12);
 
 		// when

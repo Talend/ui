@@ -42,13 +42,13 @@ export function buildWeeks(year, monthIndex, firstDayOfWeek = 1, show6weeks = fa
 	});
 
 	let nbWeeksToRender = 6;
-	if(!show6weeks) {
-        const lastDateOfMonth = endOfMonth(firstDateOfMonth);
-        const diffWeeks = differenceInCalendarWeeks(lastDateOfMonth, firstDateOfCalendar, {
-            weekStartsOn: firstDayOfWeek,
-        });
-        nbWeeksToRender =  diffWeeks + 1;
-    }
+	if (!show6weeks) {
+		const lastDateOfMonth = endOfMonth(firstDateOfMonth);
+		const diffWeeks = differenceInCalendarWeeks(lastDateOfMonth, firstDateOfCalendar, {
+			weekStartsOn: firstDayOfWeek,
+		});
+		nbWeeksToRender = diffWeeks + 1;
+	}
 
 	const dates = new Array(7 * nbWeeksToRender)
 		.fill(0)
