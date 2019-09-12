@@ -5,8 +5,8 @@ import { displayModesOptions } from '../DisplayMode/ListDisplayMode.component';
 import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
-import useCollectionSort from './hooks/useCollectionSort.hook';
-import useCollectionFilter from './hooks/useCollectionFilter.hook';
+import { useCollectionSort } from './hooks/useCollectionSort.hook';
+import { useCollectionFilter } from './hooks/useCollectionFilter.hook';
 import theme from '../List.scss';
 
 function Manager({ initialDisplayMode, initialSortParams, children, t, ...rest }) {
