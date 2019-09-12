@@ -26,5 +26,8 @@ src/List/Toolbar/Toolbar.scss
 src/Typeahead/Typeahead.scss
   32:5  error  Mixins should come before declarations  mixins-before-declarations
 
-✖ 11 problems (9 errors, 2 warnings)
+src/VirtualizedList/HeaderResizable/HeaderResizable.scss
+  31:11  error  A value of `0` is not allowed. `none` must be used  border-zero
+
+✖ 12 problems (10 errors, 2 warnings)
 
