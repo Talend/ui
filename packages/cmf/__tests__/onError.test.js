@@ -64,21 +64,18 @@ describe('onError', () => {
 			});
 		});
 		it('should delete props of DID_MOUNT_SAGA_START', () => {
-			// eslint-disable-next-line no-plusplus
 			onError.addAction({ type: 'DID_MOUNT_SAGA_START', props: {} });
 			const info = onError.getReportInfo(new Error('my'));
 			expect(info.actions.length).toBe(1);
 			expect(info.actions[0].props).toBeUndefined();
 		});
 		it('should delete settings of REACT_CMF.REQUEST_SETTINGS_OK', () => {
-			// eslint-disable-next-line no-plusplus
 			onError.addAction({ type: 'REACT_CMF.REQUEST_SETTINGS_OK', settings: {} });
 			const info = onError.getReportInfo(new Error('my'));
 			expect(info.actions.length).toBe(1);
 			expect(info.actions[0].settings).toBeUndefined();
 		});
 		it('should delete settings of REACT_CMF.REQUEST_SETTINGS_OK', () => {
-			// eslint-disable-next-line no-plusplus
 			onError.addAction({ type: 'FOO', url: config.settingsURL, response: {} });
 			const info = onError.getReportInfo(new Error('my'));
 			expect(info.actions.length).toBe(1);

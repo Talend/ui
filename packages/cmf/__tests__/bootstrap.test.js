@@ -55,8 +55,8 @@ describe('bootstrap', () => {
 		window.addEventListener.mockClear();
 		onError.bootstrap.mockClear();
 	});
-	describe('addOnErrorListener', () => {
-		it('should call addEventListener', () => {
+	describe('error management', () => {
+		it('should call add event listener on window', () => {
 			bootstrap({});
 			expect(window.addEventListener).toHaveBeenCalled();
 			const call = window.addEventListener.mock.calls[0];
@@ -68,9 +68,8 @@ describe('bootstrap', () => {
 			expect(callback(event)).toBeUndefined();
 			expect(onError.report).toHaveBeenCalledWith(event.error);
 		});
-	});
-	describe('onError', () => {
-		it('should call onError.bootstrap', () => {
+
+		it('should bootstrap onError', () => {
 			const options = {
 				onError: {
 					reportURL: '/api/v1/report',
