@@ -23,7 +23,6 @@ function ContextualManager(props) {
 	function getDateOptions() {
 		return {
 			dateFormat: props.dateFormat,
-			useTime: true,
 			useSeconds: props.useSeconds,
 			useUTC: props.useUTC,
 			required: props.required,
@@ -110,7 +109,6 @@ ContextualManager.propTypes = {
 ContextualManager.defaultProps = {
 	dateFormat: 'YYYY-MM-DD',
 	useSeconds: false,
-	useTime: false,
 	useUTC: false,
 };
 export default ContextualManager;

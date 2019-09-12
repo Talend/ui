@@ -57,7 +57,6 @@ InputDateTimePicker.propTypes = {
 InputDateTimePicker.defaultProps = {
 	dateFormat: 'YYYY-MM-DD',
 	useSeconds: false,
-	useTime: false,
 	useUTC: false,
 	// default behaviour is to forbid empty values
 	required: true,

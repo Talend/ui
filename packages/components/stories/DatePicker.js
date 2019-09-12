@@ -97,7 +97,6 @@ storiesOf('DatePicker', module)
 <InputDatePicker
 	id="my-date-picker"
 	...
-	useTime
 	useUTC
 />
 			`}</pre>
@@ -141,7 +140,6 @@ storiesOf('DatePicker', module)
 					onChange={action('onChange')}
 					value={new Date(2018, 4, 13, 12, 30)}
 					dateFormat="DD/MM/YYYY"
-					useTime
 				/>
 			</form>
 		</div>
@@ -214,7 +212,6 @@ storiesOf('DatePicker', module)
 							name="Datetime"
 							onBlur={action('onBlur')}
 							onChange={action('onChange')}
-							useTime
 						/>
 					</form>
 					<form style={{ width, float: 'right' }}>
@@ -223,7 +220,6 @@ storiesOf('DatePicker', module)
 							name="Datetime"
 							onBlur={action('onBlur')}
 							onChange={action('onChange')}
-							useTime
 						/>
 					</form>
 					<div style={{ height: 600 }} />
@@ -233,7 +229,6 @@ storiesOf('DatePicker', module)
 							name="Datetime"
 							onBlur={action('onBlur')}
 							onChange={action('onChange')}
-							useTime
 						/>
 					</form>
 					<form style={{ width, float: 'right' }}>
@@ -242,7 +237,6 @@ storiesOf('DatePicker', module)
 							name="Datetime"
 							onBlur={action('onBlur')}
 							onChange={action('onChange')}
-							useTime
 						/>
 					</form>
 				</div>

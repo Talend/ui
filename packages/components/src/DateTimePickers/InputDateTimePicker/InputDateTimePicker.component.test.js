@@ -16,7 +16,7 @@ describe('InputDateTimePicker', () => {
 				errors: [],
 				errorMessage: null,
 			};
-			const wrapper = mount(<InputDateTimePicker id="my-picker" onChange={onChange} useTime />);
+			const wrapper = mount(<InputDateTimePicker id="my-picker" onChange={onChange} />);
 			expect(onChange).not.toBeCalled();
 
 			// when

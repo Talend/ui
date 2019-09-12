@@ -24,7 +24,7 @@ describe('DateTime.Manager', () => {
 	it('should render its children', () => {
 		// when
 		const wrapper = shallow(
-			<Manager id={DEFAULT_ID} selectedDateTime={new Date(2017, 3, 4, 15, 27)} useTime>
+			<Manager id={DEFAULT_ID} selectedDateTime={new Date(2017, 3, 4, 15, 27)}>
 				<DateTimeConsumer />
 			</Manager>,
 		);
@@ -36,7 +36,13 @@ describe('DateTime.Manager', () => {
 	describe('datetime management', () => {
 		cases(
 			'initial state',
-			({ initialDate, expectedDate, expectedTime, expectedDateTextInput, expectedTimeTextInput }) => {
+			({
+				initialDate,
+				expectedDate,
+				expectedTime,
+				expectedDateTextInput,
+				expectedTimeTextInput,
+			}) => {
 				// when
 				const wrapper = mount(
 					<Manager id={DEFAULT_ID} value={initialDate} useSeconds>
