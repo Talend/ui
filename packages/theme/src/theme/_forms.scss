@@ -183,19 +183,18 @@ form {
 
 		[type='radio'],
 		[type='checkbox'] {
-			display: inline-block;
-			position: absolute;
 			margin: 0;
-			margin-left: -1 * (12 + $padding-small);
 			width: $form-checkbox-and-radio-size;
 			height: $form-checkbox-and-radio-size;
 			appearance: none;
 			outline: none;
 
+			&,
 			+ * {
 				display: inline-block;
 			}
 
+			&,
 			&:before,
 			&:after,
 			+ *:before,
@@ -204,6 +203,13 @@ form {
 				position: absolute;
 				top: 0;
 				left: 0;
+			}
+
+			&:before,
+			&:after,
+			+ *:before,
+			+ *:after {
+				content: '';
 			}
 		}
 	}
