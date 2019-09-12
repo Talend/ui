@@ -19,6 +19,12 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   33:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
   35:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
 
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/pickers/DatePicker/DatePicker.component.js
+  47:24  error  Expected 'this' to be used by class method 'isCurrentCalendarMonth'  class-methods-use-this
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/pickers/DatePicker/DatePicker.test.js
+  21:1  error  Line 21 exceeds the maximum line length of 100  max-len
+
 /home/travis/build/Talend/ui/packages/components/src/GridLayout/Grid.component.js
   59:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
   62:2  error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
@@ -49,6 +55,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   41:3  warning  Unexpected console statement  no-console
   69:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
 
-✖ 25 problems (22 errors, 3 warnings)
+✖ 27 problems (24 errors, 3 warnings)
   1 error, 0 warnings potentially fixable with the `--fix` option.
 

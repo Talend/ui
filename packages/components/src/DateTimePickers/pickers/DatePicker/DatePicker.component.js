@@ -57,7 +57,10 @@ class DatePicker extends React.PureComponent {
 		if (!selectedDate) {
 			return false;
 		}
-		return this.isCurrentYear(selectedDate) && this.isCurrentCalendarMonth(selectedDate, firstDayOfCalendar, lastDayOfCalendar);
+		return (
+			this.isCurrentYear(selectedDate) &&
+			this.isCurrentCalendarMonth(selectedDate, firstDayOfCalendar, lastDayOfCalendar)
+		);
 	}
 
 	render() {
@@ -97,59 +100,59 @@ class DatePicker extends React.PureComponent {
 							className={classNames(theme['calendar-row'], 'tc-date-picker-calendar-row')}
 						>
 							{week.map((date, j) => {
-									const day = getDate(date);
-									const disabled = this.isDisabledDate(date);
-									const selected = this.isSelectedDate(date);
-									const today = isToday(date);
-									const shouldBeFocussable =
-										(selectedInCurrentCalendar && selected) ||
-										(!selectedInCurrentCalendar && i === 0 && j === 0);
+								const day = getDate(date);
+								const disabled = this.isDisabledDate(date);
+								const selected = this.isSelectedDate(date);
+								const today = isToday(date);
+								const shouldBeFocussable =
+									(selectedInCurrentCalendar && selected) ||
+									(!selectedInCurrentCalendar && i === 0 && j === 0);
 
-									const className = classNames(
-										theme['calendar-day'],
-										{
-											[theme.selected]: selected,
-											[theme.today]: today,
-											[theme['not-current-month']]: !this.isCurrentMonth(date),
-										},
-										'tc-date-picker-day',
-									);
+								const className = classNames(
+									theme['calendar-day'],
+									{
+										[theme.selected]: selected,
+										[theme.today]: today,
+										[theme['not-current-month']]: !this.isCurrentMonth(date),
+									},
+									'tc-date-picker-day',
+								);
 
-									let ariaLabel = format(date, 'dddd DD MMMM YYYY', pickerLocale);
-									const tdProps = {
-										key: j,
-										className: theme['calendar-col'],
-									};
-									if (selected) {
-										tdProps['aria-current'] = 'date';
-										ariaLabel = t('DATEPICKER_DAY_SELECTED', {
-											defaultValue: '{{date}}, selected',
-											date: ariaLabel,
-										});
-									}
-									if (today) {
-										ariaLabel = t('DATEPICKER_DAY_TODAY', {
-											defaultValue: 'Today, {{date}}',
-											date: ariaLabel,
-										});
-									}
-									return (
-										<td {...tdProps}>
-											<button
-												type="button"
-												className={className}
-												onClick={event => {
-													this.props.onSelect(event, date);
-												}}
-												disabled={disabled}
-												tabIndex={this.props.allowFocus && shouldBeFocussable ? 0 : -1}
-												onKeyDown={event => this.props.onKeyDown(event, this.calendarRef, day - 1)}
-												aria-label={ariaLabel}
-											>
-												{day}
-											</button>
-										</td>
-									);
+								let ariaLabel = format(date, 'dddd DD MMMM YYYY', pickerLocale);
+								const tdProps = {
+									key: j,
+									className: theme['calendar-col'],
+								};
+								if (selected) {
+									tdProps['aria-current'] = 'date';
+									ariaLabel = t('DATEPICKER_DAY_SELECTED', {
+										defaultValue: '{{date}}, selected',
+										date: ariaLabel,
+									});
+								}
+								if (today) {
+									ariaLabel = t('DATEPICKER_DAY_TODAY', {
+										defaultValue: 'Today, {{date}}',
+										date: ariaLabel,
+									});
+								}
+								return (
+									<td {...tdProps}>
+										<button
+											type="button"
+											className={className}
+											onClick={event => {
+												this.props.onSelect(event, date);
+											}}
+											disabled={disabled}
+											tabIndex={this.props.allowFocus && shouldBeFocussable ? 0 : -1}
+											onKeyDown={event => this.props.onKeyDown(event, this.calendarRef, day - 1)}
+											aria-label={ariaLabel}
+										>
+											{day}
+										</button>
+									</td>
+								);
 							})}
 						</tr>
 					))}
