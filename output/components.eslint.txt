@@ -20,7 +20,7 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   35:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/pickers/DatePicker/DatePicker.component.js
-  47:24  error  Expected 'this' to be used by class method 'isCurrentCalendarMonth'  class-methods-use-this
+  48:24  error  Expected 'this' to be used by class method 'isCurrentCalendarMonth'  class-methods-use-this
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/pickers/DatePicker/DatePicker.test.js
   21:1  error  Line 21 exceeds the maximum line length of 100  max-len
