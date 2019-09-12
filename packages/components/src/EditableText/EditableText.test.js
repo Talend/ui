@@ -97,7 +97,12 @@ describe('PlainTextTitle', () => {
 			onEdit: jest.fn(),
 		};
 		const wrapper = shallow(<PlainTextTitle {...props} />);
-		expect(wrapper.find('Action').props().className.includes('tc-editable-text-empty-pencil')).toBeTruthy();
+		expect(
+			wrapper
+				.find('Action')
+				.props()
+				.className.includes('tc-editable-text-empty-pencil'),
+		).toBeTruthy();
 	});
 });
 
