@@ -210,4 +210,31 @@ describe('DatePicker', () => {
                 .length
         ).toBe(6 * 7);
     });
+
+    it('should go to next month if select a date of next month', () => {
+        const calendar = { year: 2019, monthIndex: 11 };
+        const props = {
+    		calendar,
+			onSelect: jest.fn(),
+			goToPreviousMonth: jest.fn(),
+			goToNextMonth: jest.fn(),
+		};
+        const wrapper = mount(
+            <DatePicker {...props}/>,
+        );
+        wrapper
+            .find('.tc-date-picker-day')
+            .at(37) // click 2020-01-01
+            .simulate('click');
+
+        wrapper.update();
+
+        const currentCalenndar = wrapper
+            .find('DatePicker')
+            .prop('calendar')
+
+        expect(props.goToNextMonth).toBeCalled();
+        expect(currentCalenndar.monthIndex).toBe(0);
+        expect(currentCalenndar.year).toBe( 2020);
+    });
 });

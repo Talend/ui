@@ -9,6 +9,7 @@ import getYear from 'date-fns/get_year';
 import isSameDay from 'date-fns/is_same_day';
 import setMonth from 'date-fns/set_month';
 import format from 'date-fns/format';
+import startOfMonth from 'date-fns/start_of_month';
 import isWithinRange from 'date-fns/is_within_range';
 
 import theme from './DatePicker.scss';
@@ -61,6 +62,17 @@ class DatePicker extends React.PureComponent {
 			this.isCurrentYear(selectedDate) &&
 			this.isCurrentCalendarMonth(selectedDate, firstDayOfCalendar, lastDayOfCalendar)
 		);
+	}
+
+	selectDate(event, date, year, monthIndex){
+        if(!this.isCurrentMonth(date)){
+            if(date < startOfMonth(new Date(year, monthIndex))){
+                this.props.goToPreviousMonth();
+            }else {
+                this.props.goToNextMonth();
+            }
+        }
+        this.props.onSelect(event, date);
 	}
 
 	render() {
@@ -141,9 +153,7 @@ class DatePicker extends React.PureComponent {
 										<button
 											type="button"
 											className={className}
-											onClick={event => {
-												this.props.onSelect(event, date);
-											}}
+											onClick={event => this.selectDate(event, date, year, monthIndex)}
 											disabled={disabled}
 											tabIndex={this.props.allowFocus && shouldBeFocussable ? 0 : -1}
 											onKeyDown={event => this.props.onKeyDown(event, this.calendarRef, day - 1)}
@@ -173,6 +183,8 @@ DatePicker.propTypes = {
 	isDisabledChecker: PropTypes.func,
 	onKeyDown: PropTypes.func.isRequired,
 	t: PropTypes.func,
+	goToPreviousMonth: PropTypes.func.isRequired,
+	goToNextMonth: PropTypes.func.isRequired,
 };
 
 DatePicker.defaultProps = {
