@@ -3,7 +3,6 @@ import React, { cloneElement, useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import uuid from 'uuid';
 import classNames from 'classnames';
-import omit from 'lodash/omit';
 import theme from './TooltipTrigger.scss';
 import useTooltipVisibility from './TooltipTrigger.hook';
 
@@ -89,11 +88,13 @@ function getBottom(placement, dimensions) {
 	return undefined;
 }
 
-function findDOMElement(reactElement) {
+function dangerouslyFindDOMNode(reactElement) {
 	try {
-		console.warn("'dangerouslyFindDOMNode' is liable to break, and often");
 		// eslint-disable-next-line no-underscore-dangle
 		let fiberNode = reactElement._reactInternalFiber;
+		if (!fiberNode) {
+			return reactElement;
+		}
 		while (fiberNode && !(fiberNode.stateNode instanceof Element)) {
 			fiberNode = fiberNode.child;
 		}
@@ -137,7 +138,9 @@ function TooltipTrigger(props) {
 
 		let dimensions;
 		try {
-			dimensions = findDOMElement(refContainer.current).getBoundingClientRect();
+			const dfDN = dangerouslyFindDOMNode(refContainer.current);
+			console.log(dfDN);
+			dimensions = dfDN.getBoundingClientRect();
 		} catch (e) {
 			dimensions = {};
 		}
@@ -222,7 +225,12 @@ function TooltipTrigger(props) {
 					onMouseOver,
 					onMouseOut,
 					onClick,
-					ref: refContainer,
+					ref: node => {
+						refContainer.current = node;
+						const { ref } = child;
+						if (typeof ref === 'function') ref(node);
+						else if (ref) ref.current = node;
+					},
 				}),
 			)}
 

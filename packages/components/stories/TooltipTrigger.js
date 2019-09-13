@@ -2,7 +2,7 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 
-import { TooltipTrigger, Button } from '../src/index';
+import { Button, TooltipTrigger } from '../src/index';
 
 function generateButtonWithTooltip(label, tooltipPlacement) {
 	return (
@@ -11,7 +11,9 @@ function generateButtonWithTooltip(label, tooltipPlacement) {
 			tooltipPlacement={tooltipPlacement}
 			data-feature="my.feature"
 		>
-			<Button onClick={action('click')}>{label}</Button>
+			<div>
+				<Button onClick={action('click')} >{label}</Button>
+			</div>
 		</TooltipTrigger>
 	);
 }

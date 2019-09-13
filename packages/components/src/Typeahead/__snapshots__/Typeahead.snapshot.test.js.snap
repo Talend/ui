@@ -913,31 +913,25 @@ exports[`Typeahead should pass input extra props 1`] = `
 `;
 
 exports[`Typeahead with toggle should render button 1`] = `
-<div
+<button
   aria-describedby={42}
-  className="theme-tc-tooltip"
+  aria-label="Toggle search bar"
+  className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
+  disabled={false}
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
   onKeyPress={[Function]}
+  onMouseDown={[Function]}
   onMouseOut={[Function]}
   onMouseOver={[Function]}
+  type="button"
 >
-  <button
-    aria-describedby={42}
-    aria-label="Toggle search bar"
-    className="theme-only-icon-cls tc-typeahead-toggle btn-icon-only btn btn-link"
-    disabled={false}
-    onClick={[Function]}
-    onMouseDown={[Function]}
-    type="button"
-  >
-    <i
-      aria-hidden="true"
-      className="fa fa-search"
-      focusable="false"
-      title={null}
-    />
-  </button>
-</div>
+  <i
+    aria-hidden="true"
+    className="fa fa-search"
+    focusable="false"
+    title={null}
+  />
+</button>
 `;

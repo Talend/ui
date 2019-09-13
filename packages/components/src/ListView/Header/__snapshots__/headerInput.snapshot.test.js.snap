@@ -12,38 +12,32 @@ exports[`Header should render filter header 1`] = `
     placeholder="Search"
     type="text"
   />
-  <div
+  <button
     aria-describedby={42}
-    className="theme-tc-tooltip"
+    aria-label="Abort"
+    className="btn-icon-only btn btn-link"
+    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
     onKeyPress={[Function]}
+    onMouseDown={[Function]}
     onMouseOut={[Function]}
     onMouseOver={[Function]}
+    role="link"
+    type="button"
   >
-    <button
-      aria-describedby={42}
-      aria-label="Abort"
-      className="btn-icon-only btn btn-link"
-      disabled={false}
-      onClick={[Function]}
-      onMouseDown={[Function]}
-      role="link"
-      type="button"
+    <svg
+      aria-hidden="true"
+      className="theme-tc-svg-icon tc-svg-icon"
+      focusable="false"
+      name="talend-cross"
+      title={null}
     >
-      <svg
-        aria-hidden="true"
-        className="theme-tc-svg-icon tc-svg-icon"
-        focusable="false"
-        name="talend-cross"
-        title={null}
-      >
-        <use
-          xlinkHref="#talend-cross"
-        />
-      </svg>
-    </button>
-  </div>
+      <use
+        xlinkHref="#talend-cross"
+      />
+    </svg>
+  </button>
 </header>
 `;
