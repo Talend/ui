@@ -156,7 +156,7 @@ class DatePicker extends React.PureComponent {
 											onClick={event => this.selectDate(event, date, year, monthIndex)}
 											disabled={disabled}
 											tabIndex={this.props.allowFocus && shouldBeFocussable ? 0 : -1}
-											onKeyDown={event => this.props.onKeyDown(event, this.calendarRef, day - 1)}
+											onKeyDown={event => this.props.onKeyDown(event, this.calendarRef, (i * 7 +j))}
 											aria-label={ariaLabel}
 										>
 											{day}
