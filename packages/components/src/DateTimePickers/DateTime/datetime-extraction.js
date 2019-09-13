@@ -1,11 +1,7 @@
 import format from 'date-fns/format';
-import getDate from 'date-fns/get_date';
-import lastDayOfMonth from 'date-fns/last_day_of_month';
 import setSeconds from 'date-fns/set_seconds';
-import setDate from 'date-fns/set_date';
-import startOfSecond from 'date-fns/start_of_second';
 import getErrorMessage from './error-messages';
-import { checkTime, pad, strToTime, timeToStr } from '../Time/time-extraction';
+import { checkTime, pad, timeToStr } from '../Time/time-extraction';
 
 const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
 
@@ -60,23 +56,6 @@ function extractTimeOnly(date, { useSeconds, useUTC }) {
 }
 
 /**
- * Build date regexep from date format.
- * It returns the YYYY, MM, DD parts order too.
- * @param dateFormat {string}
- * @returns {{partsOrder: array, regexp: RegExp}}
- */
-function getDateRegexp(dateFormat) {
-	const partsOrder = dateFormat.split(/[^A-Za-z]/);
-	const dateFormatAsRegexp = dateFormat
-		.replace(/[A-Za-z]{4}/g, '([0-9]{4})')
-		.replace(/[A-Za-z]{2}/g, '([0-9]{2})');
-	return {
-		partsOrder,
-		regexp: new RegExp(`^\\s*${dateFormatAsRegexp}\\s*$`),
-	};
-}
-
-/**
  * Build the date format with time.
  * @param dateFormat {string}
  * @param useSeconds {boolean}
@@ -84,17 +63,6 @@ function getDateRegexp(dateFormat) {
 function getFullDateFormat({ dateFormat, useSeconds }) {
 	const timeFormat = useSeconds ? 'HH:mm:ss' : 'HH:mm';
 	return `${dateFormat} ${timeFormat}`;
-}
-
-/**
- * Check if a date is a valid date.
- */
-function isDateValid(date, options) {
-	if (!options.required && date === undefined) {
-		return true;
-	}
-
-	return date instanceof Date && !isNaN(date.getTime());
 }
 
 /**
@@ -182,45 +150,17 @@ function dateAndTimeToDateTime(date, time, { useUTC }) {
 	}
 }
 
-/**
- * Convert string in dateFormat to date
- */
-function strToDate(strToParse, dateFormat) {
-	const dateErrors = [];
-	const { partsOrder, regexp } = getDateRegexp(dateFormat);
-	const dateMatches = strToParse.match(regexp);
-	if (!dateMatches) {
-		dateErrors.push(new DatePickerException('INVALID_DATE_FORMAT', 'INVALID_DATE_FORMAT'));
-		throw dateErrors;
+function dateAndTimeToStr(date, dateTextInput, time, timeTextInput, options) {
+	let dateStr = dateTextInput;
+	let timeStr = timeTextInput;
+	if (!dateTextInput) {
+		dateStr = date instanceof Date ? format(date, options.dateFormat) : date;
+	}
+	if (!timeTextInput) {
+		timeStr = typeof time === 'string' ? time : timeToStr(time);
 	}
 
-	const yearIndex = partsOrder.indexOf('YYYY');
-	const monthIndex = partsOrder.indexOf('MM');
-	const dayIndex = partsOrder.indexOf('DD');
-
-	const monthString = dateMatches[monthIndex + 1];
-	const month = parseInt(monthString, 10);
-	if (month === 0 || month > 12) {
-		dateErrors.push(new DatePickerException('INVALID_MONTH', 'INVALID_MONTH_NUMBER'));
-	}
-
-	const dayString = dateMatches[dayIndex + 1];
-	const day = parseInt(dayString, 10);
-	if (day === 0) {
-		dateErrors.push(new DatePickerException('INVALID_DAY_NUMBER', 'INVALID_DAY_NUMBER'));
-	}
-
-	const yearString = dateMatches[yearIndex + 1];
-	const year = parseInt(yearString, 10);
-	const monthDate = new Date(year, month - 1);
-	const lastDateOfMonth = lastDayOfMonth(monthDate);
-	if (day > getDate(lastDateOfMonth)) {
-		dateErrors.push(new DatePickerException('INVALID_DAY_OF_MONTH', 'INVALID_DAY_OF_MONTH'));
-	}
-	if (dateErrors.length > 0) {
-		throw dateErrors;
-	}
-	return setDate(monthDate, day);
+	return `${dateStr} ${timeStr}`.trim();
 }
 
 /**
@@ -231,70 +171,12 @@ function strToDate(strToParse, dateFormat) {
  *	{{
  *		date: Date,
  *		time: { hours: string, minutes: string, seconds: string },
- *		datetime: Date,
- *		textInput: string
  * 	}}
  */
 function extractPartsFromDateTime(datetime, options) {
-	if (!isDateValid(datetime, options)) {
-		return {
-			date: undefined,
-			time: undefined,
-			datetime,
-			textInput: '',
-			dateTextInput: '',
-			timeTextInput: '',
-			errors: [],
-		};
-	}
-
-	const date = extractDateOnly(datetime, options);
-	const time = extractTimeOnly(datetime, options);
-
 	return {
-		date,
-		time,
-		dateTextInput: dateTimeToStr(date, undefined, options),
-		timeTextInput: timeToStr(time, options.useSeconds),
-		datetime: startOfSecond(datetime),
-		textInput: dateTimeToStr(date, time, options),
-		errors: [],
-	};
-}
-
-/**
- * Extract parts (date, time, date/time, textInput) from a Date and time definition
- * @param date {Date}
- * @param time {Object}
- * @param options {Object}
- * @returns
- *	{{
- *		date: Date,
- *		time: { hours: string, minutes: string, seconds: string },
- *		datetime: Date,
- *		textInput: string
- * 	}}
- */
-function extractPartsFromDateAndTime(date, time, options) {
-	try {
-		checkTime(time);
-	} catch (errors) {
-		return {
-			date,
-			time,
-			textInput: dateTimeToStr(date, time, options),
-			datetime: null,
-			errors,
-			errorMessage: errors[0] ? errors[0].message : null,
-		};
-	}
-	return {
-		date,
-		time,
-		textInput: dateTimeToStr(date, time, options),
-		datetime: dateAndTimeToDateTime(date, time, options),
-		errors: [],
-		errorMessage: null,
+		date: extractDateOnly(datetime, options),
+		time: extractTimeOnly(datetime, options),
 	};
 }
 
@@ -310,45 +192,27 @@ function extractPartsFromDateAndTime(date, time, options) {
  *		textInput: string
  * 	}}
  */
-function extractPartsFromTextInput(textInput, options) {
+function extractPartsFromTextInput(textInput) {
 	if (textInput === '') {
 		return {
-			date: undefined,
-			time: undefined,
-			datetime: undefined,
-			textInput,
+			date: '',
+			time: '',
 			errors: [],
+			errorMessage: null,
 		};
 	}
 
 	let date;
 	let time;
 	let errors = [];
-	let dateTextToParse = textInput;
 
 	try {
 		const splitMatches = textInput.match(splitDateAndTimePartsRegex) || [];
 		if (!splitMatches.length) {
 			throw new DatePickerException('DATETIME_INVALID_FORMAT', 'DATETIME_INVALID_FORMAT');
 		} else {
-			// extract date part from datetime
-			dateTextToParse = splitMatches[1];
-
-			// extract time part and parse it
-			try {
-				const timeTextToParse = splitMatches[2];
-				time = strToTime(timeTextToParse, options.useSeconds);
-				checkTime(time);
-			} catch (error) {
-				errors = errors.concat(error);
-			}
-		}
-
-		// parse date
-		try {
-			date = strToDate(dateTextToParse, options.dateFormat);
-		} catch (error) {
-			errors = errors.concat(error);
+			date = splitMatches[1];
+			time = splitMatches[2];
 		}
 	} catch (error) {
 		errors = [error];
@@ -357,8 +221,6 @@ function extractPartsFromTextInput(textInput, options) {
 	return {
 		date,
 		time,
-		datetime: dateAndTimeToDateTime(date, time, options),
-		textInput,
 		errors,
 		errorMessage: errors[0] ? errors[0].message : null,
 	};
@@ -390,17 +252,14 @@ function extractParts(value, options) {
 	return {
 		date: undefined,
 		time: undefined,
-		datetime: undefined,
-		textInput: '',
-		dateTextInput: '',
-		timeTextInput: '',
 		errors: [],
 	};
 }
 
 export {
+	dateAndTimeToDateTime,
+	dateAndTimeToStr,
 	extractParts,
 	extractPartsFromDateTime,
-	extractPartsFromDateAndTime,
 	extractPartsFromTextInput,
 };

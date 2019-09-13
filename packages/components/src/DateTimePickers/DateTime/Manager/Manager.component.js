@@ -1,13 +1,12 @@
-/* eslint-disable react/no-unused-prop-types */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { DateTimeContext } from '../Context';
 import {
+	dateAndTimeToDateTime,
 	extractParts,
-	extractPartsFromDateAndTime,
+	dateAndTimeToStr,
 } from '../datetime-extraction';
-import { DATE_INPUT_ERRORS, TIME_INPUT_ERRORS } from '../constants';
 
 function ContextualManager(props) {
 	// eslint-disable-next-line no-use-before-define
@@ -34,45 +33,50 @@ function ContextualManager(props) {
 			props.onChange(event, { datetime, textInput, errors, errorMessage });
 		}
 	}
-	function onDateChange(event, { date, textInput, errors }) {
-		let nextValues;
-		if (errors && errors.length > 0) {
-			nextValues = { datetime: null, textInput: '' };
+	function onDateChange(event, { date, textInput: dateTextInput, errors = [] }) {
+		let datetime;
+		if (errors.length > 0) {
+			datetime = null;
 		} else {
-			nextValues = extractPartsFromDateAndTime(date, state.time, getDateOptions());
+			datetime = dateAndTimeToDateTime(date, state.time, getDateOptions());
 		}
-		const nextErrors = state.errors
-			.filter(error => !DATE_INPUT_ERRORS.includes(error.code))
-			.concat(errors)
-			.concat(nextValues.errors ? nextValues.errors : []);
-
 		const nextState = {
 			...state,
-			...nextValues,
-			dateTextInput: textInput,
-			errors: nextErrors,
-			errorMessage: nextErrors[0] ? nextErrors[0].message : null,
+			dateTextInput,
+			datetime,
+			textInput: dateAndTimeToStr(
+				date,
+				dateTextInput,
+				state.time,
+				state.timeTextInput,
+				getDateOptions,
+			),
+			errors,
+			errorMessage: errors[0] ? errors[0].message : null,
 		};
 		setState(nextState);
 		onChange(event, nextState);
 	}
-	function onTimeChange(event, { time, textInput, errors }) {
-		let newValues;
+	function onTimeChange(event, { time, textInput: timeTextInput, errors = [] }) {
+		let datetime;
 		if (errors.length > 0) {
-			newValues = { datetime: null, textInput: '' };
+			datetime = null;
 		} else {
-			newValues = extractPartsFromDateAndTime(state.date, time, getDateOptions());
+			datetime = dateAndTimeToDateTime(state.date, time, getDateOptions());
 		}
-		const nextErrors = state.errors
-			.filter(error => !TIME_INPUT_ERRORS.includes(error.code))
-			.concat(errors);
-
 		const nextState = {
 			...state,
-			...newValues,
-			timeTextInput: textInput,
-			errors: nextErrors,
-			errorMessage: nextErrors[0] ? nextErrors[0].message : null,
+			timeTextInput,
+			datetime,
+			textInput: dateAndTimeToStr(
+				state.date,
+				state.dateTextInput,
+				time,
+				timeTextInput,
+				getDateOptions(),
+			),
+			errors,
+			errorMessage: errors[0] ? errors[0].message : null,
 		};
 		setState(nextState);
 		onChange(event, nextState);
@@ -80,14 +84,8 @@ function ContextualManager(props) {
 	return (
 		<DateTimeContext.Provider
 			value={{
-				date: {
-					value: state.date,
-					textInput: state.dateTextInput,
-				},
-				time: {
-					value: state.time,
-					textInput: state.timeTextInput,
-				},
+				date: state.date || state.dateTextInput,
+				time: state.time || state.timeTextInput,
 				onDateChange,
 				onTimeChange,
 			}}

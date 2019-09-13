@@ -20,10 +20,6 @@ function ContextualManager(props) {
 	}, [props.value]);
 
 	useEffect(() => {
-		setState({ ...state, textInput: props.textInput });
-	}, [props.textInput]);
-
-	useEffect(() => {
 		checkSupportedDateFormat(props.dateFormat);
 	}, [props.dateFormat]);
 
@@ -85,7 +81,6 @@ ContextualManager.propTypes = {
 	// eslint-disable-next-line react/no-unused-prop-types
 	onChange: PropTypes.func,
 	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
-	textInput: PropTypes.string,
 	useUTC: PropTypes.bool,
 };
 
