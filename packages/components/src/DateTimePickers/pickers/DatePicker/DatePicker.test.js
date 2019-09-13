@@ -228,5 +228,4 @@ describe('DatePicker', () => {
         expect(props.goToNextMonth).toBeCalled();
         expect(props.goToPreviousMonth).not.toBeCalled();
     });
-
 });
