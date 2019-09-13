@@ -193,39 +193,39 @@ describe('DatePicker', () => {
 		).toBe(0);
 	});
 
-    it('should have 6 weeks', () => {
-        const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
-        const wrapper = mount(
-            <DatePicker
-                calendar={calendar}
-                onSelect={jest.fn()}
-                goToPreviousMonth={jest.fn()}
-                goToNextMonth={jest.fn()}
-            />,
-        );
+	it('should have 6 weeks', () => {
+		const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
+		const wrapper = mount(
+			<DatePicker
+				calendar={calendar}
+				onSelect={jest.fn()}
+				goToPreviousMonth={jest.fn()}
+				goToNextMonth={jest.fn()}
+			/>,
+		);
 
-        expect(wrapper.find('.tc-date-picker-day').length).toBe(6 * 7);
-    });
+		expect(wrapper.find('.tc-date-picker-day').length).toBe(6 * 7);
+	});
 
-    it('should go to next month if select a date of next month', () => {
-    	const year = 2019;
-    	const monthIndex = 11;
-    	const calendar = { year, monthIndex };
+	it('should go to next month if select a date of next month', () => {
+		const year = 2019;
+		const monthIndex = 11;
+		const calendar = { year, monthIndex };
 
-        const props = {
-    		calendar,
+		const props = {
+			calendar,
 			onSelect: jest.fn(),
 			goToPreviousMonth: jest.fn(),
 			goToNextMonth: jest.fn(),
 		};
-        const wrapper = mount(<DatePicker {...props}/>);
-        wrapper
-            .find('.tc-date-picker-day')
-            .at(40) // click 2020-01-04
-            .simulate('click');
+		const wrapper = mount(<DatePicker {...props} />);
+		wrapper
+			.find('.tc-date-picker-day')
+			.at(40) // click 2020-01-04
+			.simulate('click');
 
-        expect(props.onSelect).toBeCalledWith(expect.anything(), new Date(year + 1, 0,4));
-        expect(props.goToNextMonth).toBeCalled();
-        expect(props.goToPreviousMonth).not.toBeCalled();
-    });
+		expect(props.onSelect).toBeCalledWith(expect.anything(), new Date(year + 1, 0, 4));
+		expect(props.goToNextMonth).toBeCalled();
+		expect(props.goToPreviousMonth).not.toBeCalled();
+	});
 });
