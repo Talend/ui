@@ -89,6 +89,21 @@ function getBottom(placement, dimensions) {
 	return undefined;
 }
 
+function findDOMElement(reactElement) {
+	try {
+		console.warn("'dangerouslyFindDOMNode' is liable to break, and often");
+		// eslint-disable-next-line no-underscore-dangle
+		let fiberNode = reactElement._reactInternalFiber;
+		while (fiberNode && !(fiberNode.stateNode instanceof Element)) {
+			fiberNode = fiberNode.child;
+		}
+		return fiberNode ? fiberNode.stateNode : null;
+	} catch (e) {
+		console.error(e);
+		return null;
+	}
+}
+
 /**
  * @param {object} props react props
  * @example
@@ -101,7 +116,7 @@ const props = {
 </TooltipTrigger>
  */
 function TooltipTrigger(props) {
-	const refContainer = useRef(null);
+	const refContainer = useRef();
 
 	const [visible, show, hide] = useTooltipVisibility(props.tooltipDelay);
 
@@ -114,13 +129,18 @@ function TooltipTrigger(props) {
 			tooltipWidth = DEFAULT_OFFSET_X,
 		} = props;
 
-		if (!refContainer.current) {
+		if (!refContainer || !refContainer.current) {
 			return {
 				tooltipPlacement,
 			};
 		}
 
-		const dimensions = refContainer.current.getBoundingClientRect();
+		let dimensions;
+		try {
+			dimensions = findDOMElement(refContainer.current).getBoundingClientRect();
+		} catch (e) {
+			dimensions = {};
+		}
 
 		const placement = getAdjustedTooltipPlacement(tooltipPlacement, dimensions, {
 			tooltipHeight,
@@ -137,6 +157,54 @@ function TooltipTrigger(props) {
 		};
 	}
 
+	/**
+	 * Activate the tooltip when children are focused
+	 */
+	const onFocus = (...args) => {
+		show();
+		if (props.children.props.onFocus) {
+			props.children.props.onFocus(...args);
+		}
+	};
+
+	/**
+	 * Desactive the tooltip when children are not focused anymore
+	 */
+	const onBlur = (...args) => {
+		hide();
+		if (props.children.props.onBlur) {
+			props.children.props.onBlur(...args);
+		}
+	};
+
+	const onKeyPress = (...args) => {
+		hide();
+		if (props.children.props.onKeyPress) {
+			props.children.props.onKeyPress(...args);
+		}
+	};
+
+	const onMouseOver = (...args) => {
+		show();
+		if (props.children.props.onMouseOver) {
+			props.children.props.onMouseOver(...args);
+		}
+	};
+
+	const onMouseOut = (...args) => {
+		hide();
+		if (props.children.props.onMouseOut) {
+			props.children.props.onMouseOut(...args);
+		}
+	};
+
+	const onClick = (...args) => {
+		hide();
+		if (props.children.props.onClick) {
+			props.children.props.onClick(...args);
+		}
+	};
+
 	const { placement, style } = getTooltipPosition();
 
 	return (
@@ -144,21 +212,17 @@ function TooltipTrigger(props) {
 		// it should not be reachable
 		// It is just a way to handle click and keyboard events
 		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
-		<div
-			{...omit(props, Object.keys(TooltipTrigger.propTypes))}
-			className={classNames(theme['tc-tooltip'], props.className)}
-			onFocus={show}
-			onBlur={hide}
-			onKeyPress={hide}
-			onMouseOver={show}
-			onMouseOut={hide}
-			onClick={hide}
-			aria-describedby={id}
-			ref={refContainer}
-		>
+		<React.Fragment>
 			{React.Children.map(props.children, child =>
 				cloneElement(child, {
 					'aria-describedby': id,
+					onFocus,
+					onBlur,
+					onKeyPress,
+					onMouseOver,
+					onMouseOut,
+					onClick,
+					ref: refContainer,
 				}),
 			)}
 
@@ -174,7 +238,7 @@ function TooltipTrigger(props) {
 					</div>,
 					document.body,
 				)}
-		</div>
+		</React.Fragment>
 	);
 }
 
