@@ -2,7 +2,6 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import classnames from 'classnames';
-import { get } from 'lodash';
 
 export default function SimpleCheckBox({
 	describedby,
@@ -20,11 +19,15 @@ export default function SimpleCheckBox({
 	const { autoFocus } = schema;
 
 	function getDataFeature() {
-		const dataFeature = get(schema, 'data-feature');
-		if (dataFeature) {
-			return `${dataFeature}.${checked ? 'uncheck' : 'check'}`;
+		const dataFeature = schema['data-feature'];
+		return dataFeature ? `${dataFeature}.${checked ? 'uncheck' : 'check'}` : undefined;
+	}
+
+	function getDataChecked() {
+		if (checked) {
+			return 2;
 		}
-		return undefined;
+		return 0;
 	}
 
 	return (
@@ -41,7 +44,8 @@ export default function SimpleCheckBox({
 						onFinish(event, { schema, value: isChecked });
 					}}
 					type="checkbox"
-					checked={value}
+					checked={checked}
+					data-checked={getDataChecked()}
 					// eslint-disable-next-line jsx-a11y/aria-proptypes
 					aria-invalid={!isValid}
 					aria-describedby={describedby}
@@ -64,6 +68,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
+			'data-feature': PropTypes.string,
 			autoFocus: PropTypes.bool,
 			disabled: PropTypes.bool,
 		}),

@@ -16,3 +16,11 @@
 		color: $silver-chalice;
 	}
 }
+
+@mixin picker-underline {
+	content: '';
+	position: absolute;
+	width: calc(100% - 2rem);
+	left: 1rem;
+	border-bottom: $border-default;
+}

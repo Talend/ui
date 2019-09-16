@@ -995,6 +995,10 @@
               </a>
             </p>
 
+            <p id="btn-tertiary"  class="bs-component">
+              <a href="#" class="btn btn-tertiary btn-info">Tertiary Info</a>
+              <a href="#" class="btn btn-tertiary btn-default">Tertiary Default</a>
+            </p>
           </div>
           <div id="btn-groups" class="col-lg-4">
 
@@ -1238,7 +1242,12 @@
                       </div>
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"><span>Checkbox with label wrapped into <code>span</code></span>
+                          <input type="checkbox" data-checked=1 indeterminate="true"><span>Checkbox intermediate</span>
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" ><span>Checkbox with label wrapped into <code>span</code></span>
                         </label>
                       </div>
                       <div class="checkbox">
@@ -1248,9 +1257,28 @@
                       </div>
                       <div class="checkbox disabled">
                         <label>
-                          <input type="checkbox" disabled=""> Disabled checkbox
+                          <input type="checkbox" disabled checked> Disabled checked checkbox
                         </label>
                       </div>
+                      <div class="checkbox disabled">
+                        <label>
+                          <input type="checkbox" disabled data-checked=1 indeterminate="true"> Disabled intermediate checkbox
+                        </label>
+                      </div>
+                      <div class="checkbox disabled">
+                        <label>
+                          <input type="checkbox" disabled> Disabled checkbox
+                        </label>
+                      </div>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox3" value="option3"> <span>3</span>
+                      </label>
                     </div>
                   </div>
                   <div class="form-group">
@@ -1287,6 +1315,15 @@
                           Disabled option
                         </label>
                       </div>
+                      <label class="radio-inline">
+                        <input type="radio" name="optionsRadios" id="inlineRadio1" value="option1"> 1
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" name="optionsRadios" id="inlineRadio2" value="option2"> 2
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" name="optionsRadios" id="inlineRadio3" value="option3"> <span>3</span>
+                      </label>
                     </div>
                   </div>
                   <div class="form-group switch">
@@ -2155,6 +2192,26 @@
 
 	$(function() {
 		setDropDownMenuVisibility();
+        $("input[type=checkbox][data-checked]")
+          .change(function() {
+            const el = $(this);
+            switch(el.attr('data-checked')) {
+              case "0":
+                el.attr('data-checked', 1);
+                el.attr('indeterminate', true);
+                el.prop('checked', false);
+                break;
+              case "1":
+                el.attr('data-checked', 2);
+                el.removeAttr('indeterminate');
+                el.prop('checked', true);
+                break;
+              default:
+                el.attr('data-checked', 0);
+                el.removeAttr('indeterminate');
+                el.prop('checked', false);
+            }
+          });
 	});
 
 	$(window).scroll(function() {
@@ -2171,7 +2228,7 @@
 		e.preventDefault();
 	});
 	var $button = $(
-		"<div id='source-button' class='btn btn-primary btn-xs'>&lt; &gt;</div>",
+		"<div id='source-button' class='btn btn-primary btn-xs'>&lt; &gt;</div>"
 	).click(function() {
 		var html = $(this)
 			.parent()
@@ -2189,7 +2246,7 @@
 		},
 		function() {
 			$button.hide();
-		},
+		}
 	);
 	function cleanSource(html) {
 		html = html

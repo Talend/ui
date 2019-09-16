@@ -106,6 +106,7 @@ export function cancelActionComponent(onCancelAction, getComponent) {
 				theme['tc-drawer-close-action'],
 				enhancedCancelAction.className,
 			)}
+			tooltipClassName={theme['drawer-close-action-tooltip']}
 		/>
 	);
 }
@@ -159,7 +160,7 @@ function DrawerTitle({
 		}
 	}
 
-	if (!title) {
+	if (!title && !children) {
 		return null;
 	}
 	const InjectedEditableText = Inject.get(getComponent, 'EditableText', EditableText);

@@ -14,4 +14,20 @@ describe('NameFilter component snaps', () => {
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
+
+	it('should reset the filter', () => {
+		const onChange = jest.fn();
+		const props = {
+			onChange,
+			label: 'Example label',
+		};
+
+		const wrapper = shallow(<NameFilter {...props} />);
+		wrapper
+			.find('Action')
+			.props()
+			.onClick();
+
+		expect(onChange).toHaveBeenLastCalledWith({ target: { value: '' } });
+	});
 });
