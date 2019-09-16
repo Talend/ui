@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { DateTimeContext } from '../Context';
-import {
-	dateAndTimeToDateTime,
-	extractParts,
-	dateAndTimeToStr,
-} from '../datetime-extraction';
+import { dateAndTimeToDateTime, extractParts, dateAndTimeToStr } from '../datetime-extraction';
 
 function ContextualManager(props) {
 	// eslint-disable-next-line no-use-before-define
@@ -42,15 +38,9 @@ function ContextualManager(props) {
 		}
 		const nextState = {
 			...state,
-			dateTextInput,
+			date: date || dateTextInput,
 			datetime,
-			textInput: dateAndTimeToStr(
-				date,
-				dateTextInput,
-				state.time,
-				state.timeTextInput,
-				getDateOptions,
-			),
+			textInput: dateAndTimeToStr(date || dateTextInput, state.time, getDateOptions()),
 			errors,
 			errorMessage: errors[0] ? errors[0].message : null,
 		};
@@ -66,15 +56,9 @@ function ContextualManager(props) {
 		}
 		const nextState = {
 			...state,
-			timeTextInput,
+			time: time || timeTextInput,
 			datetime,
-			textInput: dateAndTimeToStr(
-				state.date,
-				state.dateTextInput,
-				time,
-				timeTextInput,
-				getDateOptions(),
-			),
+			textInput: dateAndTimeToStr(state.date, timeTextInput, getDateOptions()),
 			errors,
 			errorMessage: errors[0] ? errors[0].message : null,
 		};
@@ -84,8 +68,8 @@ function ContextualManager(props) {
 	return (
 		<DateTimeContext.Provider
 			value={{
-				date: state.date || state.dateTextInput,
-				time: state.time || state.timeTextInput,
+				date: state.date,
+				time: state.time,
 				onDateChange,
 				onTimeChange,
 			}}

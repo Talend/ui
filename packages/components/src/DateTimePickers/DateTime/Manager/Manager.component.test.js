@@ -303,17 +303,13 @@ describe('DateTime.Manager', () => {
 					// then
 					const props = wrapper.find('DateTimeConsumerDiv').props();
 
-					expect(props.date.value).toEqual(expectedDate);
-					expect(props.date.textInput).toEqual(dateTextInput);
-					expect(props.time.value).toEqual(expectedTime);
-					expect(props.time.textInput).toEqual(timeTextInput);
+					expect(props.date).toEqual(expectedDate);
+					expect(props.time).toEqual(expectedTime);
 				},
 				[
 					{
 						name: 'with valid time with seconds',
 						textInput: '15:45:22',
-						dateTextInput: '2015-01-15',
-						timeTextInput: '15:45:22',
 						expectedDateTime: new Date(2015, 0, 15, 15, 45, 22),
 						expectedDate: new Date(2015, 0, 15),
 						expectedTime: { hours: '15', minutes: '45', seconds: '22' },
@@ -322,8 +318,6 @@ describe('DateTime.Manager', () => {
 					{
 						name: 'with invalid time',
 						textInput: '15aze:45',
-						dateTextInput: '2015-01-15',
-						timeTextInput: '15aze:45',
 						expectedDate: new Date(2015, 0, 15),
 						expectedDateTime: new Date(2015, 0, 15),
 						expectedTime: { hours: '15aze', minutes: '45', seconds: '00' },
@@ -474,7 +468,7 @@ describe('DateTime.Manager', () => {
 						.find('DateTimeConsumerDiv')
 						.props()
 						.onTimeChange(timeEvent, {
-							textInput: '12:45',
+							textInput: '12dfd:45',
 							errors: [{ code: 'TIME_FORMAT_INVALID', message: 'Time is invalid' }],
 						});
 				});
@@ -483,7 +477,7 @@ describe('DateTime.Manager', () => {
 				const args = onChange.mock.calls[1];
 				expect(args[0]).toBe(timeEvent);
 				expect(args[1].datetime).toBe(null);
-				expect(args[1].textInput).toBe('');
+				expect(args[1].textInput).toBe('2015-01-15 12dfd:45');
 				expect(args[1].errors).toEqual([
 					{ code: 'TIME_FORMAT_INVALID', message: 'Time is invalid' },
 				]);

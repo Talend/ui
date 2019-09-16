@@ -127,7 +127,7 @@ function getTimeFormat(useSeconds) {
 }
 
 export default function extractTime(selectedTime, useSeconds) {
-	const errors = [];
+	let errors = [];
 	let time;
 	if (!selectedTime) {
 		return {
@@ -139,11 +139,15 @@ export default function extractTime(selectedTime, useSeconds) {
 	}
 	try {
 		time = typeof selectedTime === 'string' ? strToTime(selectedTime, useSeconds) : selectedTime;
-		checkTime(time);
 	} catch (error) {
 		errors.push(error);
 	}
 
+	try {
+		checkTime(time);
+	} catch (timeErrors) {
+		errors = errors.concat(timeErrors);
+	}
 	return {
 		time,
 		textInput: typeof selectedTime === 'string' ? selectedTime : timeToStr(time),

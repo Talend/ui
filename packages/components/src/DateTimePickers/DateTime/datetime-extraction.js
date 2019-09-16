@@ -56,16 +56,6 @@ function extractTimeOnly(date, { useSeconds, useUTC }) {
 }
 
 /**
- * Build the date format with time.
- * @param dateFormat {string}
- * @param useSeconds {boolean}
- */
-function getFullDateFormat({ dateFormat, useSeconds }) {
-	const timeFormat = useSeconds ? 'HH:mm:ss' : 'HH:mm';
-	return `${dateFormat} ${timeFormat}`;
-}
-
-/**
  * Convert a date in local TZ to UTC
  * Ex: 2015-05-23 23:58:46 (current TZ) --> 2015-05-23 23:58:46 (UTC)
  */
@@ -95,40 +85,6 @@ function timeToSeconds(hours, minutes, seconds) {
 }
 
 /**
- * Convert date and time to string with 'YYYY-MM-DD HH:mm' format
- * @param date {Date}
- * @param time {{hours: string, minutes: string, seconds: string}}
- * @param options {Object}
- * @returns {string}
- */
-function dateTimeToStr(date, time, options) {
-	if (date === undefined) {
-		return '';
-	}
-
-	const { dateFormat } = options;
-	if (time === undefined) {
-		return format(date, dateFormat);
-	}
-
-	const { hours, minutes, seconds } = time;
-	try {
-		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
-		const fullDate = setSeconds(date, timeInSeconds);
-		return format(fullDate, getFullDateFormat(options));
-	} catch (e) {
-		const dateStr = format(date, dateFormat);
-		if (hours !== '' && minutes !== '') {
-			if (options.useSeconds && seconds !== '') {
-				return `${dateStr} ${hours}:${minutes}:${seconds}`;
-			}
-			return `${dateStr} ${hours}:${minutes}`;
-		}
-		return dateStr;
-	}
-}
-
-/**
  * Set the time to the provided date
  * @param date {Date} Date in current TZ
  * @param time {{hours: string, minutes: string, seconds: string}} Time in current TZ
@@ -150,15 +106,9 @@ function dateAndTimeToDateTime(date, time, { useUTC }) {
 	}
 }
 
-function dateAndTimeToStr(date, dateTextInput, time, timeTextInput, options) {
-	let dateStr = dateTextInput;
-	let timeStr = timeTextInput;
-	if (!dateTextInput) {
-		dateStr = date instanceof Date ? format(date, options.dateFormat) : date;
-	}
-	if (!timeTextInput) {
-		timeStr = typeof time === 'string' ? time : timeToStr(time);
-	}
+function dateAndTimeToStr(date = '', time = '', options) {
+	const dateStr = date instanceof Date ? format(date, options.dateFormat) : date;
+	const timeStr = typeof time === 'string' ? time : timeToStr(time);
 
 	return `${dateStr} ${timeStr}`.trim();
 }
@@ -256,10 +206,4 @@ function extractParts(value, options) {
 	};
 }
 
-export {
-	dateAndTimeToDateTime,
-	dateAndTimeToStr,
-	extractParts,
-	extractPartsFromDateTime,
-	extractPartsFromTextInput,
-};
+export { dateAndTimeToDateTime, dateAndTimeToStr, extractParts };

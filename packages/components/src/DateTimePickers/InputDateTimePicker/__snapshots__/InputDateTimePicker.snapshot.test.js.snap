@@ -17,19 +17,17 @@ exports[`InputDateTimePicker should render 1`] = `
     value={2017-04-04T13:27:00.000Z}
   >
     <div
-      className="theme-pickers-container"
+      className="theme-date-time-picker"
     >
       <InputDatePicker
         dateFormat="YYYY-MM-DD"
         id="my-picker-date-picker"
         onChange={[Function]}
-        textInput="2017-04-04"
         value={2017-04-03T22:00:00.000Z}
       >
         <Date.Manager
           dateFormat="YYYY-MM-DD"
           onChange={[Function]}
-          textInput="2017-04-04"
           useUTC={false}
           value={2017-04-03T22:00:00.000Z}
         >
@@ -44,7 +42,6 @@ exports[`InputDateTimePicker should render 1`] = `
                     class="form-control"
                     id="my-picker-date-picker-input"
                     placeholder="YYYY-MM-DD"
-                    textinput="2017-04-04"
                     type="text"
                     value="2017-04-04"
                   />
@@ -72,14 +69,12 @@ exports[`InputDateTimePicker should render 1`] = `
                       class="form-control"
                       id="my-picker-date-picker-input"
                       placeholder="YYYY-MM-DD"
-                      textinput="2017-04-04"
                       type="text"
                       value="2017-04-04"
                     />,
                   }
                 }
                 key="input"
-                textInput="2017-04-04"
               >
                 <DebounceInput
                   autoComplete="off"
@@ -96,7 +91,6 @@ exports[`InputDateTimePicker should render 1`] = `
                         class="form-control"
                         id="my-picker-date-picker-input"
                         placeholder="YYYY-MM-DD"
-                        textinput="2017-04-04"
                         type="text"
                         value="2017-04-04"
                       />,
@@ -105,7 +99,6 @@ exports[`InputDateTimePicker should render 1`] = `
                   minLength={0}
                   onChange={[Function]}
                   placeholder="YYYY-MM-DD"
-                  textInput="2017-04-04"
                   type="text"
                   value="2017-04-04"
                 >
@@ -117,7 +110,6 @@ exports[`InputDateTimePicker should render 1`] = `
                     onChange={[Function]}
                     onKeyDown={[Function]}
                     placeholder="YYYY-MM-DD"
-                    textInput="2017-04-04"
                     type="text"
                     value="2017-04-04"
                   />
@@ -130,7 +122,6 @@ exports[`InputDateTimePicker should render 1`] = `
       <InputTimePicker
         id="my-picker-time-picker"
         onChange={[Function]}
-        textInput="15:27:00"
         useSeconds={true}
         value={
           Object {
@@ -161,7 +152,6 @@ exports[`InputDateTimePicker should render 1`] = `
                     autocomplete="off"
                     class="form-control"
                     id="my-picker-time-picker-input"
-                    textinput="15:27:00"
                     type="text"
                     value="15:27"
                   />
@@ -188,14 +178,12 @@ exports[`InputDateTimePicker should render 1`] = `
                       autocomplete="off"
                       class="form-control"
                       id="my-picker-time-picker-input"
-                      textinput="15:27:00"
                       type="text"
                       value="15:27"
                     />,
                   }
                 }
                 key="input"
-                textInput="15:27:00"
               >
                 <DebounceInput
                   autoComplete="off"
@@ -211,7 +199,6 @@ exports[`InputDateTimePicker should render 1`] = `
                         autocomplete="off"
                         class="form-control"
                         id="my-picker-time-picker-input"
-                        textinput="15:27:00"
                         type="text"
                         value="15:27"
                       />,
@@ -219,7 +206,6 @@ exports[`InputDateTimePicker should render 1`] = `
                   }
                   minLength={0}
                   onChange={[Function]}
-                  textInput="15:27:00"
                   type="text"
                   value="15:27"
                 >
@@ -230,7 +216,6 @@ exports[`InputDateTimePicker should render 1`] = `
                     onBlur={[Function]}
                     onChange={[Function]}
                     onKeyDown={[Function]}
-                    textInput="15:27:00"
                     type="text"
                     value="15:27"
                   />
