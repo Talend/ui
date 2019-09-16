@@ -57,10 +57,6 @@ RichLayout.Header = Header;
 RichLayout.Body = Body;
 RichLayout.Footer = Footer;
 
-RichLayout.defaultProps = {
-	prefixId: 'richlayout',
-};
-
 RichLayout.propTypes = {
 	className: PropTypes.string,
 	Content: Inject.getReactElement.propTypes,
@@ -68,5 +64,5 @@ RichLayout.propTypes = {
 	Header: Inject.getReactElement.propTypes,
 	Footer: Inject.getReactElement.propTypes,
 	text: PropTypes.string,
-	prefixId: PropTypes.string,
+	prefixId: PropTypes.string.isRequired,
 };
