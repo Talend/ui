@@ -124,6 +124,12 @@ function dateAndTimeToStr(date = '', time = '', options) {
  * 	}}
  */
 function extractPartsFromDateTime(datetime, options) {
+	if (isNaN(datetime.getTime())) {
+		return {
+			date: undefined,
+			time: undefined,
+		}
+	}
 	return {
 		date: extractDateOnly(datetime, options),
 		time: extractTimeOnly(datetime, options),
