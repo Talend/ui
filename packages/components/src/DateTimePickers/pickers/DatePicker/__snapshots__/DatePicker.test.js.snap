@@ -12,7 +12,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
   goToPreviousMonth={[MockFunction]}
   isDisabledChecker={[Function]}
   onSelect={[MockFunction]}
-  selectedDate={2018-06-11T16:00:00.000Z}
+  selectedDate={2018-06-11T22:00:00.000Z}
 >
   <div>
     <DatePicker
@@ -27,7 +27,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
       isDisabledChecker={[Function]}
       onKeyDown={[Function]}
       onSelect={[MockFunction]}
-      selectedDate={2018-06-11T16:00:00.000Z}
+      selectedDate={2018-06-11T22:00:00.000Z}
       t={[Function]}
     >
       <table

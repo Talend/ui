@@ -128,7 +128,7 @@ function extractPartsFromDateTime(datetime, options) {
 		return {
 			date: undefined,
 			time: undefined,
-		}
+		};
 	}
 	return {
 		date: extractDateOnly(datetime, options),

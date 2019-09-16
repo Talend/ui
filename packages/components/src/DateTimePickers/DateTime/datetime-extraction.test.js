@@ -145,7 +145,7 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 14),
-				time: { hours: '17', minutes: '00', seconds: '22' },
+				time: { hours: '23', minutes: '00', seconds: '22' },
 			});
 		});
 	});
