@@ -5,7 +5,7 @@ import Inject from '../../Inject';
 import theme from './RichLayout.scss';
 
 const TooltipPropTypes = {
-	id: PropTypes.string.isRequired,
+	id: PropTypes.string,
 	children: PropTypes.oneOfType([
 		PropTypes.element,
 		PropTypes.arrayOf(PropTypes.element),

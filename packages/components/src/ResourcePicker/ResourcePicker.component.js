@@ -53,5 +53,5 @@ ResourcePicker.propTypes = {
 	isLoading: PropTypes.bool,
 	isSelected: PropTypes.func,
 	onRowClick: PropTypes.func,
-	toolbar: Toolbar.propTypes,
+	toolbar: PropTypes.shape(Toolbar.propTypes),
 };
