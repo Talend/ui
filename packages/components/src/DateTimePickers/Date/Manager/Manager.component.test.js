@@ -36,10 +36,10 @@ describe('Date.Manager', () => {
 	describe('value management', () => {
 		cases(
 			'initial state',
-			({ initialDate, expectedTextInput, expectedDate, textInput }) => {
+			({ initialDate, expectedTextInput, expectedDate }) => {
 				// when
 				const wrapper = mount(
-					<Manager id={DEFAULT_ID} value={initialDate} textInput={textInput}>
+					<Manager id={DEFAULT_ID} value={initialDate}>
 						<DateConsumer />
 					</Manager>,
 				);
@@ -53,21 +53,18 @@ describe('Date.Manager', () => {
 				{
 					name: 'should init default state',
 					initialDate: undefined,
-					textInput: '',
 					expectedTextInput: '',
 					expectedDate: undefined,
 				},
 				{
 					name: 'should init default state from props invalid date',
 					initialDate: new Date(''), // invalid date
-					textInput: '',
 					expectedTextInput: '',
 					expectedDate: undefined,
 				},
 				{
 					name: 'should init state from props',
 					initialDate: new Date(2015, 3, 4),
-					textInput: '2015-04-04',
 					expectedTextInput: '2015-04-04',
 					expectedDate: new Date(2015, 3, 4),
 				},
