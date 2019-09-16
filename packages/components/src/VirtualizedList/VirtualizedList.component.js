@@ -69,6 +69,15 @@ function VirtualizedList(props) {
 		setWidths(resizeColumns(deltaX, columnsWidths, listWidth, dataKey));
 	};
 
+	const getListWidth = () => get(rendererSelectorRef, 'current.props.width', 0);
+
+	const getColumnWidth = dataKey => {
+		const value = columnsWidths
+			? columnsWidths.find(item => item.dataKey === dataKey)
+			: { width: 0 };
+		return value;
+	};
+
 	const columnDefinitions = toColumns({
 		id,
 		theme: tableTheme,
@@ -81,7 +90,7 @@ function VirtualizedList(props) {
 	}
 
 	return (
-		<virtualizedListContext.Provider value={{ resizeColumn }}>
+		<virtualizedListContext.Provider value={{ resizeColumn, getListWidth, getColumnWidth }}>
 			<AutoSizer>
 				{({ height, width }) => (
 					<RendererSelector

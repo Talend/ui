@@ -22,11 +22,20 @@ const HeaderResizableContent = ({ customRender, ...rest }) => {
 export class HeaderResizable extends React.Component {
 	state = {
 		resizing: false,
+		rangeValue: 0,
 	};
 
 	setResizing = resizing => {
 		this.setState({
+			...this.state,
 			resizing,
+		});
+	};
+
+	setRangeValue = rangeValue => {
+		this.setState({
+			...this.state,
+			rangeValue,
 		});
 	};
 
@@ -34,9 +43,11 @@ export class HeaderResizable extends React.Component {
 		const { children, dataKey, label, sortBy, sortDirection, t = getDefaultT() } = this.props;
 		const { resizing } = this.state;
 		const tooltipLabel = t('RESIZE_COLUMN', { defaultValue: 'Resize column' });
+
+		/* eslint-disable jsx-a11y/no-static-element-interactions */
 		return (
 			<ConsumerVirtualizedList>
-				{({ resizeColumn }) => (
+				{({ resizeColumn, getListWidth, getColumnWidth }) => (
 					<div
 						key={dataKey}
 						className={classNames(
@@ -53,18 +64,40 @@ export class HeaderResizable extends React.Component {
 								sortDirection={sortDirection}
 							/>
 						</div>
-						<button
-							className={classNames(theme('tc-header-cell-resizable-drag-button'))}
+						<input
+							className={classNames(theme('tc-header-cell-resizable-drag-button-accessibility'))}
+							title={tooltipLabel}
+							type="range"
+							min={getColumnWidth(dataKey).minWidth}
+							max={getListWidth()}
+							step="10"
+							value={this.state.rangeValue || getColumnWidth(dataKey).width}
 							onClick={event => {
 								event.stopPropagation();
 								event.preventDefault();
 							}}
+							onChange={event => {
+								const rangeValue = event.target.value;
+								resizeColumn(dataKey, event.target.value - getColumnWidth(dataKey).width);
+								this.setRangeValue(rangeValue);
+							}}
+						/>
+						<span
+							className={classNames(theme('tc-header-cell-resizable-drag-button-handle'))}
+							onClick={event => {
+								event.stopPropagation();
+							}}
 						>
 							<Draggable
+								onMouseDown={event => {
+									event.stopPropagation();
+									event.preventDefault();
+								}}
 								axis="x"
 								onStart={() => this.setResizing(true)}
 								onDrag={(_, data) => {
 									resizeColumn(dataKey, data.deltaX);
+									this.setRangeValue(getColumnWidth(dataKey).width);
 								}}
 								onStop={() => {
 									this.setResizing(false);
@@ -72,17 +105,16 @@ export class HeaderResizable extends React.Component {
 								position={{ x: 0 }}
 							>
 								<div
-									className={classNames(theme('tc-header-cell-resizable-drag-handle-icon'))}
+									className={classNames(theme('tc-header-cell-resizable-drag-button-handle-icon'))}
 									title={tooltipLabel}
-								>
-									⋮
-								</div>
+								/>
 							</Draggable>
-						</button>
+						</span>
 					</div>
 				)}
 			</ConsumerVirtualizedList>
 		);
+		/* eslint-enable jsx-a11y/no-static-element-interactions */
 	}
 }
 
