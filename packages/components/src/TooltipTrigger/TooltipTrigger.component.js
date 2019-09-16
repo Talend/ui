@@ -121,7 +121,8 @@ function TooltipTrigger(props) {
 
 		let dimensions;
 		try {
-			dimensions = refContainer.current.getBoundingClientRect();
+			// eslint-disable-next-line react/no-find-dom-node
+			dimensions = ReactDOM.findDOMNode(refContainer.current).getBoundingClientRect();
 		} catch (e) {
 			dimensions = {};
 		}
@@ -215,18 +216,17 @@ function TooltipTrigger(props) {
 				}),
 			)}
 
-			{visible &&
-				ReactDOM.createPortal(
-					<div className={theme['tc-tooltip-container']} style={style}>
-						<div
-							id={id}
-							className={classNames(theme['tc-tooltip-body'], theme[`tc-tooltip-${placement}`])}
-						>
-							{props.label}
-						</div>
-					</div>,
-					document.body,
-				)}
+			{visible && ReactDOM.createPortal(
+				<div className={theme['tc-tooltip-container']} style={getTooltipPosition().style}>
+					<div
+						id={id}
+						className={classNames(theme['tc-tooltip-body'], theme[`tc-tooltip-${getTooltipPosition().placement}`])}
+					>
+						{props.label}
+					</div>
+				</div>,
+				document.body,
+			)}
 		</React.Fragment>
 	);
 }

@@ -5,6 +5,7 @@ import { storiesOf } from '@storybook/react';
 import { Button, TooltipTrigger } from '../src/index';
 
 function generateButtonWithTooltip(label, tooltipPlacement) {
+	// need a wrapper (div) here since Button is a functional component
 	return (
 		<TooltipTrigger
 			label="This is a huuuuuuuuuuuuuuuuuuuuuuge tooltip for a very very demo"
