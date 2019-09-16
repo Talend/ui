@@ -1,4 +1,4 @@
-import getErrorMessage from './error-messages';
+import getErrorMessage from '../shared/error-messages';
 
 const timePartRegex = new RegExp(/^(.*):(.*)$/);
 const timeWithSecondsPartRegex = new RegExp(/^(.*):(.*):(.*)$/);

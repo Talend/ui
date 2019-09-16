@@ -2,7 +2,7 @@ import format from 'date-fns/format';
 import getDate from 'date-fns/get_date';
 import lastDayOfMonth from 'date-fns/last_day_of_month';
 import setDate from 'date-fns/set_date';
-import getErrorMessage from './error-messages';
+import getErrorMessage from '../shared/error-messages';
 
 
 export function DatePickerException(code, message) {

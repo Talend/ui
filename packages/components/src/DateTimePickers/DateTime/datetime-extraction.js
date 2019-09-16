@@ -1,6 +1,6 @@
 import format from 'date-fns/format';
 import setSeconds from 'date-fns/set_seconds';
-import getErrorMessage from './error-messages';
+import getErrorMessage from '../shared/error-messages';
 import { checkTime, pad, timeToStr } from '../Time/time-extraction';
 
 const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
