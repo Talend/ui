@@ -256,6 +256,10 @@ function createObjectURL(error) {
 	return window.URL.createObjectURL(blob);
 }
 
+function revokeObjectURL(url) {
+	window.URL.revokeObjectURL(url);
+}
+
 export default {
 	bootstrap,
 	addAction,
@@ -265,4 +269,5 @@ export default {
 	getErrors,
 	middleware,
 	createObjectURL,
+	revokeObjectURL,
 };

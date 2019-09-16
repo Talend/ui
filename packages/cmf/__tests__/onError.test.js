@@ -106,4 +106,12 @@ describe('onError', () => {
 			expect(blob.size).toBeGreaterThan(0);
 		});
 	});
+	describe('revokeObjectURL', () => {
+		it('should use window.URL.revokeObjectURL', () => {
+			const url = {};
+			window.URL.revokeObjectURL = jest.fn();
+			onError.revokeObjectURL(url);
+			expect(window.URL.revokeObjectURL).toHaveBeenCalledWith(url);
+		});
+	});
 });

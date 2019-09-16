@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import onError from '../../onError';
@@ -11,6 +11,13 @@ function reload() {
 }
 
 function ErrorPanel(props) {
+	const [url, setURL] = React.useState();
+	useEffect(() => {
+		setURL(onError.createObjectURL(props.error));
+		return () => {
+			onError.revokeObjectURL(url);
+		};
+	}, [props.error]);
 	let currentErrorStatus;
 	if (props.reported) {
 		currentErrorStatus = `Has been reported under ${props.response.id}`;
@@ -41,7 +48,7 @@ function ErrorPanel(props) {
 			</button>
 			<a
 				className="btn btn-primary btn-inverse"
-				href={onError.createObjectURL(props.error)}
+				href={url}
 				download="report.json"
 				data-feature="download-on-error-details"
 			>
