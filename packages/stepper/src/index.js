@@ -1,4 +1,4 @@
-import { StepperReducer } from './service/Stepper.reducer';
+import { stepperReducer } from './service/Stepper.reducer';
 import { initStepper, proceedLoadingEvent, removeStepper } from './service/Stepper.actions';
 import { getStepsForResource, isResourceLoading } from './service/Stepper.selectors';
 import { isAllSuccessful, isStepsLoading, isErrorInSteps } from './service/Stepper.utils';
@@ -8,7 +8,7 @@ import { STATE_KEY, LOADING_STEP_STATUSES } from './Stepper.constants';
 const cmfModule = {
 	id: 'dataset-stepper',
 	reducer: {
-		[STATE_KEY]: StepperReducer,
+		[STATE_KEY]: stepperReducer,
 	},
 };
 

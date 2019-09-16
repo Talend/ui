@@ -19,6 +19,10 @@ const transitionStyles = {
 };
 
 export function StepperTransition({ children, active }) {
+	if (!children) {
+		return null;
+	}
+
 	return (
 		<Transition timeout={DEFAULT_TRANSITION_DURATION} in={active}>
 			{state => (
@@ -28,7 +32,7 @@ export function StepperTransition({ children, active }) {
 						...transitionStyles[state],
 					}}
 				>
-					{children || null}
+					{children}
 				</div>
 			)}
 		</Transition>

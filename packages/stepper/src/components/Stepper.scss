@@ -1,15 +1,24 @@
-$stepper-icon-size: 16px !default;
+$stepper-icon-size: $svg-md-size !default;
 
 .stepper {
-	padding-left: $padding-small;
 	display: flex;
 	width: 100%;
 	justify-content: center;
+	padding-left: $padding-small;
+
 	&-content-error {
-		width: 750px;
+		width: 75rem;
 	}
+
 	&-step {
 		padding: $padding-small 0;
+
+		&s {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
 		&-infos {
 			display: flex;
 		}
@@ -37,9 +46,11 @@ $stepper-icon-size: 16px !default;
 		&-success {
 			fill: $rio-grande;
 		}
+
 		&-failure {
 			fill: $chestnut-rose;
 		}
+
 		&-aborted {
 			padding-top: 1px;
 			padding-left: 1px;

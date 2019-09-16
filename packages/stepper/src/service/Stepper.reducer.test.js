@@ -1,6 +1,6 @@
 import { LOADING_STEP_STATUSES } from '../Stepper.constants';
 import { StepperActions } from '../index';
-import { StepperReducer } from './Stepper.reducer';
+import { stepperReducer } from './Stepper.reducer';
 
 const DATASET_SAMPLE_EVENTS = {
 	SAMPLE_FETCHING_STARTED: 'SAMPLE_FETCHING_STARTED',
@@ -56,7 +56,7 @@ const steps = [
 ];
 
 describe('Stepper Service', () => {
-	describe('StepperReducer', () => {
+	describe('stepperReducer', () => {
 		describe('errors', () => {
 			it('should throw an error when there is no resourceId', () => {
 				// when
@@ -78,7 +78,7 @@ describe('Stepper Service', () => {
 			// given
 			const action = StepperActions.initStepper('dataset', 'id12', steps);
 			// when
-			const newState = StepperReducer({}, action);
+			const newState = stepperReducer({}, action);
 			// then
 			expect(newState).toEqual({
 				'dataset-id12': {
@@ -129,7 +129,7 @@ describe('Stepper Service', () => {
 			// given
 			const action = StepperActions.removeStepper('dataset', 'id12');
 			// when
-			const newState = StepperReducer(
+			const newState = stepperReducer(
 				{ 'dataset-id12': { steps }, 'dataset-id13': { steps } },
 				action,
 			);
@@ -143,7 +143,7 @@ describe('Stepper Service', () => {
 			let initState;
 			beforeEach(() => {
 				const initAction = StepperActions.initStepper('dataset', 'id12', steps);
-				initState = StepperReducer({}, initAction);
+				initState = stepperReducer({}, initAction);
 			});
 
 			it('should fail the stuff', () => {
@@ -155,7 +155,7 @@ describe('Stepper Service', () => {
 					'You fail',
 				);
 				// when
-				const resultState = StepperReducer(initState, failAction);
+				const resultState = stepperReducer(initState, failAction);
 				// then
 				expect(resultState).toEqual({
 					'dataset-id12': {
@@ -213,7 +213,7 @@ describe('Stepper Service', () => {
 					DATASET_SAMPLE_EVENTS.SAMPLE_FETCHED,
 				);
 				// when
-				const resultState = StepperReducer(initState, failAction);
+				const resultState = stepperReducer(initState, failAction);
 				// then
 				expect(resultState).toEqual({
 					'dataset-id12': {
@@ -273,8 +273,8 @@ describe('Stepper Service', () => {
 					DATASET_SAMPLE_EVENTS.SAMPLE_FETCHED,
 				);
 				// when
-				const intermediateState = StepperReducer(initState, updateAction1);
-				const resultState = StepperReducer(intermediateState, updateAction2);
+				const intermediateState = stepperReducer(initState, updateAction1);
+				const resultState = stepperReducer(intermediateState, updateAction2);
 				// then
 				expect(resultState).toEqual({
 					'dataset-id12': {
@@ -329,7 +329,7 @@ describe('Stepper Service', () => {
 					DATASET_SAMPLE_EVENTS.SAMPLE_QUALITY_COMPUTED,
 				);
 				// when
-				const resultState = StepperReducer(initState, failAction);
+				const resultState = stepperReducer(initState, failAction);
 				// then
 				expect(resultState).toEqual({
 					'dataset-id12': {

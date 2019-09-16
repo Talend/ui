@@ -2,9 +2,8 @@
 
 ## What it does
 
-This component provides a service to show progress when we have long loading steps
+This component provides a service to show progress when we have long loading steps.  
 The main purpose is to have this workflow ->
-
 -   Init the steps with labels & set events to fail / success
 -   When you have some progress in the app, you have dispatchers available
 
@@ -16,8 +15,8 @@ First of all, you have to register the module in your application, it's the defa
 ( of course, it is done in dataset but as it could be available later in UI, this step need to be written )
 
 ```javascript
-// My index.js file
-import StepperModule from 'whereItIs';
+// index.js file
+import StepperModule from '@talend/react-stepper';
 
 export default {
 	id: 'MyModuleName',
@@ -51,11 +50,10 @@ interface Step {
 
 ### initStepper
 
-This action is used to boostrap a loading
-resourceType / resourceId & steps are required to do so
+This action is used to bootstrap a loading resourceType / resourceId & steps are required to do so
 
 ```javascript
-import { StepperActions, StepperConstants } from '.moduleLocation/Stepper';
+import { StepperActions, StepperConstants } from '@talend/react-stepper';
 
 const steps = [
 	{
@@ -118,7 +116,7 @@ You may want to know for some use cases if a loading step is currently in loadin
 To have this information, you can use `isResourceLoading` selector :
 
 ```javascript
-import { StepperSelectors } from '.moduleLocation/Stepper';
+import { StepperSelectors } from '@talend/react-stepper';
 
 function mapStateToProps(store) {
 	const isLoading = StepperSelectors.isResourceLoading(store, 'dataset', 'id12');
@@ -127,11 +125,12 @@ function mapStateToProps(store) {
 
 ### getStepsForResource
 
-For some use cases, you may want to get the current state of the steps. It could be to know if the loading step has ended but with an error or to count how many steps are done ...
+For some use cases, you may want to get the current state of the steps. 
+It could be to know if the loading step has ended but with an error or to count how many steps are done...
 It will return the step with the same given model shape at init.
 
 ```javascript
-import { StepperSelectors } from '.moduleLocation/Stepper';
+import { StepperSelectors } from '@talend/react-stepper';
 
 function mapStateToProps(store) {
 	const steps = StepperSelectors.getStepsForResource(store, 'dataset', 'id12');
@@ -142,36 +141,33 @@ function mapStateToProps(store) {
 
 ### isAllSuccessful
 
-Take a list of step in parameter and tell if all the steps are in a success state
+Take a list of steps in parameter and tell if all the steps are in a success state
 
 ```javascript
-import { StepperUtils } from '.moduleLocation/Stepper';
+import { StepperUtils } from '@talend/react-stepper';
 
 // ... get the steps
 const steps = StepperUtils.isAllSuccessful(steps);
-}
 ```
 
-### isErrorInSteps,
+### isErrorInSteps
 
-Take a list of step in parameter and tell if there is an error in the steps
+Take a list of steps in parameter and tell if there is an error in the steps
 
 ```javascript
-import { StepperUtils } from '.moduleLocation/Stepper';
+import { StepperUtils } from '@talend/react-stepper';
 
 // ... get the steps
 const steps = StepperUtils.isErrorInSteps(steps);
-}
 ```
 
-### isStepsLoading,
+### isStepsLoading
 
-Take a list of step in parameter and tell if the loading steps is still loading
+Take a list of steps in parameter and tell if the loading steps is still loading
 
 ```javascript
-import { StepperUtils } from '.moduleLocation/Stepper';
+import { StepperUtils } from '@talend/react-stepper';
 
 // ... get the steps
 const steps = StepperUtils.isStepsLoading(steps);
-}
 ```
