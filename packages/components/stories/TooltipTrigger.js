@@ -11,8 +11,8 @@ function generateButtonWithTooltip(label, tooltipPlacement) {
 			tooltipPlacement={tooltipPlacement}
 			data-feature="my.feature"
 		>
-			<div>
-				<Button onClick={action('click')} >{label}</Button>
+			<div style={{ display: 'inline-block' }}>
+				<Button onClick={action('click')}>{label}</Button>
 			</div>
 		</TooltipTrigger>
 	);

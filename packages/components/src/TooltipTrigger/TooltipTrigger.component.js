@@ -88,23 +88,6 @@ function getBottom(placement, dimensions) {
 	return undefined;
 }
 
-function dangerouslyFindDOMNode(reactElement) {
-	try {
-		// eslint-disable-next-line no-underscore-dangle
-		let fiberNode = reactElement._reactInternalFiber;
-		if (!fiberNode) {
-			return reactElement;
-		}
-		while (fiberNode && !(fiberNode.stateNode instanceof Element)) {
-			fiberNode = fiberNode.child;
-		}
-		return fiberNode ? fiberNode.stateNode : null;
-	} catch (e) {
-		console.error(e);
-		return null;
-	}
-}
-
 /**
  * @param {object} props react props
  * @example
@@ -138,9 +121,7 @@ function TooltipTrigger(props) {
 
 		let dimensions;
 		try {
-			const dfDN = dangerouslyFindDOMNode(refContainer.current);
-			console.log(dfDN);
-			dimensions = dfDN.getBoundingClientRect();
+			dimensions = refContainer.current.getBoundingClientRect();
 		} catch (e) {
 			dimensions = {};
 		}
