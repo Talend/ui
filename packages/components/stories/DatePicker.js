@@ -307,9 +307,7 @@ storiesOf('DatePicker', module)
 		<div>
 			<IconsProvider />
 			<h1>DateTimePicker</h1>
-			<p>
-				datetime picker
-			</p>
+			<p>datetime picker</p>
 			<form style={{ width: 320 }}>
 				<InputDateTimePicker
 					id="my-date-picker"
@@ -317,6 +315,29 @@ storiesOf('DatePicker', module)
 					onBlur={action('onBlur')}
 					onChange={action('onChange')}
 					selectedDateTime={new Date(2018, 4, 13, 12, 30, 44)}
+				/>
+			</form>
+		</div>
+	))
+	.add('DateTime picker - UTC', () => (
+		<div>
+			<IconsProvider />
+			<h1>DateTimePicker in UTC TZ</h1>
+			<p>You can require to work with only UTC datetime (input and output).</p>
+			<pre>{`
+<InputDateTimePicker
+	id="my-date-picker"
+	...
+	useUTC
+/>
+			`}</pre>
+			<form style={{ width: 320 }}>
+				<InputDateTimePicker
+					id="my-datetime-picker"
+					name="Datetime"
+					onChange={action('onChange')}
+					selectedDateTime={new Date(Date.UTC(2018, 4, 13, 12, 30, 44))}
+					useUTC
 				/>
 			</form>
 		</div>
