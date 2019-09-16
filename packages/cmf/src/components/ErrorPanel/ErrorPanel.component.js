@@ -29,15 +29,18 @@ function ErrorPanel(props) {
 			<p className="error-title">
 				{props.error.name}: {props.error.message}
 			</p>
-			{onError.hasReportURL() ? (
-				<p>Report status: {currentErrorStatus}</p>
-			) : (
-				<React.Fragment>
-					<p>From here you have two choices:</p>
-					<p>1. Refresh the app and retry</p>
-					<p>2. Download the details and then contact the support</p>
-				</React.Fragment>
-			)}
+			<React.Fragment>
+				{onError.hasReportURL() ? (
+					<p>
+						The error report has been sent.
+						<br />
+						Report status: {currentErrorStatus}
+					</p>
+				) : null}
+				<p>From here you have two choices:</p>
+				<p>1. Refresh the app and retry</p>
+				<p>2. Download the details and then contact the support</p>
+			</React.Fragment>
 			<button
 				className="btn btn-danger btn-inverse"
 				onClick={reload}

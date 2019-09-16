@@ -16,15 +16,21 @@ describe('CMF App', () => {
 			},
 		};
 		const history = {};
-		const wrapper = shallow(<App store={store} history={history} loading="AppLoader" ><div className="children" /></App>);
-		expect(wrapper.contains(
-			<Provider store={store}>
-				<RegistryProvider>
-					<ErrorBoundary full>
-						<div className="children" />
-					</ErrorBoundary>
-				</RegistryProvider>
-			</Provider>
-		)).toEqual(true);
+		const wrapper = shallow(
+			<App store={store} history={history} loading="AppLoader">
+				<div className="children" />
+			</App>,
+		);
+		expect(
+			wrapper.contains(
+				<Provider store={store}>
+					<RegistryProvider>
+						<ErrorBoundary fullPage>
+							<div className="children" />
+						</ErrorBoundary>
+					</RegistryProvider>
+				</Provider>,
+			),
+		).toEqual(true);
 	});
 });

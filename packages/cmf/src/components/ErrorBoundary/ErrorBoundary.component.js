@@ -14,14 +14,14 @@ export default class ErrorBoundary extends React.Component {
 
 	render() {
 		if (this.state.errors.length > 0) {
-			return this.props.renderErrors({ errors: this.state.errors, full: this.props.full });
+			return this.props.renderErrors({ errors: this.state.errors, fullPage: this.props.fullPage });
 		}
 		return this.props.children;
 	}
 }
 ErrorBoundary.propTypes = {
 	renderErrors: PropTypes.func,
-	full: PropTypes.bool,
+	fullPage: PropTypes.bool,
 	children: PropTypes.node,
 };
 ErrorBoundary.defaultProps = {

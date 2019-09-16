@@ -1,6 +1,9 @@
 import onError from '../src/onError';
 import { store as mock } from '../src/mock';
 
+// eslint-disable-next-line
+const EMAIL = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 describe('onError', () => {
 	let store;
 	let state;
@@ -10,17 +13,17 @@ describe('onError', () => {
 		store = mock.store(state);
 		store.dispatch = jest.fn();
 		config = {
-			settingsURL: '/foo/bar.json',
+			settingsURL: '/settings',
 			onError: {
 				reportURL: '/api/v1/report',
-				sensibleKeys: [],
+				sensibleKeys: [EMAIL],
 			},
 		};
 		onError.bootstrap(config, store);
 		jest.resetAllMocks();
 	});
 	describe('getReportInfo', () => {
-		it('shoud fill internal values', () => {
+		it('should fill internal values', () => {
 			expect(onError.hasReportURL()).toBe(true);
 			const info = onError.getReportInfo(new Error('my'));
 			expect(info.actions).toEqual([]);
@@ -48,9 +51,39 @@ describe('onError', () => {
 			});
 			expect(info.actions[0].password).not.toBe('secret');
 		});
+		it('should keep last 20 actions', () => {
+			// eslint-disable-next-line no-plusplus
+			for (let index = 0; index < 30; index++) {
+				onError.addAction({ type: `FOO ${index}`, password: 'secret' });
+			}
+			const info = onError.getReportInfo(new Error('my'));
+			expect(info.actions.length).toBe(20);
+			expect(info.actions[0]).toMatchObject({
+				type: 'FOO 10',
+				password: expect.anything(),
+			});
+		});
+		it('should delete props of DID_MOUNT_SAGA_START', () => {
+			onError.addAction({ type: 'DID_MOUNT_SAGA_START', props: {} });
+			const info = onError.getReportInfo(new Error('my'));
+			expect(info.actions.length).toBe(1);
+			expect(info.actions[0].props).toBeUndefined();
+		});
+		it('should delete settings of REACT_CMF.REQUEST_SETTINGS_OK', () => {
+			onError.addAction({ type: 'REACT_CMF.REQUEST_SETTINGS_OK', settings: {} });
+			const info = onError.getReportInfo(new Error('my'));
+			expect(info.actions.length).toBe(1);
+			expect(info.actions[0].settings).toBeUndefined();
+		});
+		it('should delete settings of REACT_CMF.REQUEST_SETTINGS_OK', () => {
+			onError.addAction({ type: 'FOO', url: config.settingsURL, response: {} });
+			const info = onError.getReportInfo(new Error('my'));
+			expect(info.actions.length).toBe(1);
+			expect(info.actions[0].response).toBeUndefined();
+		});
 	});
 	describe('report', () => {
-		it('should dispatch http action', () => {
+		it('should dispatch http action if serverURL', () => {
 			expect(store.dispatch).not.toHaveBeenCalled();
 			const error = new Error('my');
 			onError.report(error);
@@ -58,6 +91,23 @@ describe('onError', () => {
 			const action = store.dispatch.mock.calls[0][0];
 			expect(action.type).toBe('POST');
 			expect(action.url).toBe(config.onError.reportURL);
+		});
+		it('should dispatch ERROR action if no serverURL', () => {
+			config = {
+				settingsURL: '/foo/bar.json',
+				onError: {
+					sensibleKeys: [],
+				},
+			};
+			onError.bootstrap(config, store);
+			expect(store.dispatch).not.toHaveBeenCalled();
+			const error = new Error('my');
+			onError.report(error);
+			expect(store.dispatch).toHaveBeenCalled();
+			const action = store.dispatch.mock.calls[0][0];
+			expect(action.type).toBe('REACT_CMF.ERROR');
+			expect(action.reported).toBe(false);
+			expect(action.error.message).toBe('my');
 		});
 	});
 	describe('getErrors', () => {
