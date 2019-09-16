@@ -5,7 +5,7 @@ import Inject from '../../Inject';
 import theme from './RichLayout.scss';
 
 const TooltipPropTypes = {
-	id: PropTypes.string,
+	id: PropTypes.string.isRequired,
 	children: PropTypes.oneOfType([
 		PropTypes.element,
 		PropTypes.arrayOf(PropTypes.element),
@@ -40,12 +40,16 @@ Footer.propTypes = TooltipPropTypes;
 export default function RichLayout(props) {
 	return (
 		<span>
-			<Header>{Inject.getReactElement(props.getComponent, props.Header)}</Header>
-			<Body className={props.className}>
+			<Header id="richlayout-header">
+				{Inject.getReactElement(props.getComponent, props.Header)}
+			</Header>
+			<Body id="richlayout-body" className={props.className}>
 				{props.text && <p>{props.text}</p>}
 				{!props.text && Inject.getReactElement(props.getComponent, props.Content)}
 			</Body>
-			<Footer>{Inject.getReactElement(props.getComponent, props.Footer)}</Footer>
+			<Footer id="richlayout-footer">
+				{Inject.getReactElement(props.getComponent, props.Footer)}
+			</Footer>
 		</span>
 	);
 }
