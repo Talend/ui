@@ -60,30 +60,24 @@ function checkSeconds(seconds) {
  * Check if time is correct
  */
 function checkTime(time) {
-	const timeErrors = [];
 	if (!time) {
-		timeErrors.push(new TimePickerException('INVALID_TIME_EMPTY', 'INVALID_TIME_EMPTY'));
-		throw timeErrors;
+		throw new TimePickerException('INVALID_TIME_EMPTY', 'INVALID_TIME_EMPTY');
 	}
 	const { hours, minutes, seconds } = time;
 
 	const hoursError = checkHours(hours);
 	if (hoursError) {
-		timeErrors.push(hoursError);
+		throw hoursError;
 	}
 
 	const minutesError = checkMinutes(minutes);
 	if (minutesError) {
-		timeErrors.push(minutesError);
+		throw minutesError;
 	}
 
 	const secondsError = checkSeconds(seconds);
 	if (secondsError) {
-		timeErrors.push(secondsError);
-	}
-
-	if (timeErrors.length > 0) {
-		throw timeErrors;
+		throw secondsError;
 	}
 }
 /**
@@ -127,7 +121,7 @@ function getTimeFormat(useSeconds) {
 }
 
 export default function extractTime(selectedTime, useSeconds) {
-	let errors = [];
+	const errors = [];
 	let time;
 	if (!selectedTime) {
 		return {
@@ -139,15 +133,11 @@ export default function extractTime(selectedTime, useSeconds) {
 	}
 	try {
 		time = typeof selectedTime === 'string' ? strToTime(selectedTime, useSeconds) : selectedTime;
+		checkTime(time);
 	} catch (error) {
 		errors.push(error);
 	}
 
-	try {
-		checkTime(time);
-	} catch (timeErrors) {
-		errors = errors.concat(timeErrors);
-	}
 	return {
 		time,
 		textInput: typeof selectedTime === 'string' ? selectedTime : timeToStr(time),

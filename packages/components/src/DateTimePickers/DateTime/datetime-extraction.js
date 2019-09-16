@@ -206,4 +206,10 @@ function extractParts(value, options) {
 	};
 }
 
-export { dateAndTimeToDateTime, dateAndTimeToStr, extractParts };
+export {
+	dateAndTimeToDateTime,
+	dateAndTimeToStr,
+	extractParts,
+	extractPartsFromDateTime,
+	extractPartsFromTextInput,
+};
