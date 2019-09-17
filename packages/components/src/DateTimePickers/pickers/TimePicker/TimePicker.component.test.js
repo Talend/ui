@@ -18,7 +18,7 @@ describe('TimePicker component', () => {
 			// when
 			wrapper.find('button').at(3).simulate('click');
 			// then
-			expect(onChange).toBeCalledWith(event, { textInput: '03:00', time: { hours: 3, minutes: 0, seconds: 0 } });
+			expect(onChange).toBeCalledWith(event, { textInput: '03:00', time: { hours: '03', minutes: '00', seconds: '00' } });
 		});
 		it('should hightlight item matches user input', () => {
 			// when

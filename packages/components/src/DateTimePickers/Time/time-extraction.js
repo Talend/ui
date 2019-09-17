@@ -1,4 +1,4 @@
-import getErrorMessage from './error-messages';
+import getErrorMessage from '../shared/error-messages';
 
 const timePartRegex = new RegExp(/^(.*):(.*)$/);
 const timeWithSecondsPartRegex = new RegExp(/^(.*):(.*):(.*)$/);
@@ -59,26 +59,25 @@ function checkSeconds(seconds) {
 /**
  * Check if time is correct
  */
-function checkTime({ hours, minutes, seconds }) {
-	const timeErrors = [];
+function checkTime(time) {
+	if (!time) {
+		throw new TimePickerException('INVALID_TIME_EMPTY', 'INVALID_TIME_EMPTY');
+	}
+	const { hours, minutes, seconds } = time;
 
 	const hoursError = checkHours(hours);
 	if (hoursError) {
-		timeErrors.push(hoursError);
+		throw hoursError;
 	}
 
 	const minutesError = checkMinutes(minutes);
 	if (minutesError) {
-		timeErrors.push(minutesError);
+		throw minutesError;
 	}
 
 	const secondsError = checkSeconds(seconds);
 	if (secondsError) {
-		timeErrors.push(secondsError);
-	}
-
-	if (timeErrors.length > 0) {
-		throw timeErrors;
+		throw secondsError;
 	}
 }
 /**
@@ -107,6 +106,7 @@ function strToTime(strToParse, useSeconds) {
  * @param {boolean} useSeconds
  */
 function timeToStr(time, useSeconds) {
+	if (!time) return '';
 	const hours = pad(time.hours);
 	const minutes = pad(time.minutes);
 	const seconds = pad(time.seconds);
@@ -132,7 +132,7 @@ export default function extractTime(selectedTime, useSeconds) {
 		};
 	}
 	try {
-		time = strToTime(selectedTime, useSeconds);
+		time = typeof selectedTime === 'string' ? strToTime(selectedTime, useSeconds) : selectedTime;
 		checkTime(time);
 	} catch (error) {
 		errors.push(error);
@@ -140,7 +140,7 @@ export default function extractTime(selectedTime, useSeconds) {
 
 	return {
 		time,
-		textInput: selectedTime,
+		textInput: typeof selectedTime === 'string' ? selectedTime : timeToStr(time),
 		errors,
 		errorMessage: errors[0] ? errors[0].message : null,
 	};

@@ -159,7 +159,6 @@ describe('Date extraction', () => {
 			const textInput = '';
 			const options = {
 				dateFormat: 'YYYY-MM-DD',
-				useTime: true,
 			};
 
 			// when

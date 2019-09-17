@@ -3,8 +3,10 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconsProvider } from '../src/index';
 
-import InputDateTimePicker, { DateTime } from '../src/DateTimePickers';
 import { TimePicker } from '../src/DateTimePickers/pickers/TimePicker/TimePicker.component';
+import DateManager from '../src/DateTimePickers/Date/Manager';
+import DatePicker from '../src/DateTimePickers/Date/Picker';
+import InputDateTimePicker from '../src/DateTimePickers';
 import InputTimePicker from '../src/DateTimePickers/InputTimePicker';
 import InputDatePicker from '../src/DateTimePickers/InputDatePicker';
 
@@ -95,7 +97,6 @@ storiesOf('DatePicker', module)
 <InputDatePicker
 	id="my-date-picker"
 	...
-	useTime
 	useUTC
 />
 			`}</pre>
@@ -106,7 +107,6 @@ storiesOf('DatePicker', module)
 					onBlur={action('onBlur')}
 					onChange={action('onChange')}
 					value={new Date(Date.UTC(2018, 4, 13, 12, 30, 44))}
-					useTime
 					useUTC
 				/>
 			</form>
@@ -140,7 +140,6 @@ storiesOf('DatePicker', module)
 					onChange={action('onChange')}
 					value={new Date(2018, 4, 13, 12, 30)}
 					dateFormat="DD/MM/YYYY"
-					useTime
 				/>
 			</form>
 		</div>
@@ -164,36 +163,36 @@ storiesOf('DatePicker', module)
 					<div>
 						<h2>Date</h2>
 						<div style={blockStyle}>
-							<DateTime.Manager id="simple" onChange={action('onChange')}>
-								<DateTime.Picker />
-							</DateTime.Manager>
+							<DateManager id="simple" onChange={action('onChange')}>
+								<DatePicker />
+							</DateManager>
 						</div>
 					</div>
 
 					<div>
 						<h2>Date time</h2>
 						<div style={blockStyle}>
-							<DateTime.Manager id="time" onChange={action('onChange')} useTime>
-								<DateTime.Picker />
-							</DateTime.Manager>
+							<DateManager id="time" onChange={action('onChange')}>
+								<DatePicker />
+							</DateManager>
 						</div>
 					</div>
 
 					<div>
 						<h2>Date time seconds</h2>
 						<div style={blockStyle}>
-							<DateTime.Manager id="time-seconds" onChange={action('onChange')} useTime useSeconds>
-								<DateTime.Picker />
-							</DateTime.Manager>
+							<DateManager id="time-seconds" onChange={action('onChange')}>
+								<DatePicker />
+							</DateManager>
 						</div>
 					</div>
 
 					<div>
 						<h2>Date time seconds UTC</h2>
 						<div style={blockStyle}>
-							<DateTime.Manager id="utc" onChange={action('onChange')} useTime useSeconds useUTC>
-								<DateTime.Picker />
-							</DateTime.Manager>
+							<DateManager id="utc" onChange={action('onChange')} useUTC>
+								<DatePicker />
+							</DateManager>
 						</div>
 					</div>
 				</div>
@@ -213,7 +212,6 @@ storiesOf('DatePicker', module)
 							name="Datetime"
 							onBlur={action('onBlur')}
 							onChange={action('onChange')}
-							useTime
 						/>
 					</form>
 					<form style={{ width, float: 'right' }}>
@@ -222,7 +220,6 @@ storiesOf('DatePicker', module)
 							name="Datetime"
 							onBlur={action('onBlur')}
 							onChange={action('onChange')}
-							useTime
 						/>
 					</form>
 					<div style={{ height: 600 }} />
@@ -232,7 +229,6 @@ storiesOf('DatePicker', module)
 							name="Datetime"
 							onBlur={action('onBlur')}
 							onChange={action('onChange')}
-							useTime
 						/>
 					</form>
 					<form style={{ width, float: 'right' }}>
@@ -241,7 +237,6 @@ storiesOf('DatePicker', module)
 							name="Datetime"
 							onBlur={action('onBlur')}
 							onChange={action('onChange')}
-							useTime
 						/>
 					</form>
 				</div>
@@ -306,5 +301,44 @@ storiesOf('DatePicker', module)
 					</form>
 				</div>
 			</div>
+		</div>
+	))
+	.add('DateTime picker', () => (
+		<div>
+			<IconsProvider />
+			<h1>DateTimePicker</h1>
+			<p>datetime picker</p>
+			<form style={{ width: 320 }}>
+				<InputDateTimePicker
+					id="my-date-picker"
+					name="Datetime"
+					onBlur={action('onBlur')}
+					onChange={action('onChange')}
+					value={new Date(2018, 4, 13, 12, 30, 44)}
+				/>
+			</form>
+		</div>
+	))
+	.add('DateTime picker - UTC', () => (
+		<div>
+			<IconsProvider />
+			<h1>DateTimePicker in UTC TZ</h1>
+			<p>You can require to work with only UTC datetime (input and output).</p>
+			<pre>{`
+<InputDateTimePicker
+	id="my-date-picker"
+	...
+	useUTC
+/>
+			`}</pre>
+			<form style={{ width: 320 }}>
+				<InputDateTimePicker
+					id="my-datetime-picker"
+					name="Datetime"
+					onChange={action('onChange')}
+					value={new Date(Date.UTC(2018, 4, 13, 12, 30, 44))}
+					useUTC
+				/>
+			</form>
 		</div>
 	));

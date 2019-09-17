@@ -38,7 +38,6 @@ describe('DateView', () => {
 				onSelectDate={jest.fn()}
 				onSelectTime={jest.fn()}
 				selectedTime={{ hours: '15', minutes: '45' }}
-				useTime
 			/>,
 		);
 

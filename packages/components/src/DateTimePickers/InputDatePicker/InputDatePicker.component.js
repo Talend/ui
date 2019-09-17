@@ -11,7 +11,15 @@ import theme from './InputDatePicker.scss';
 import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 
-const PROPS_TO_OMIT_FOR_INPUT = ['id', 'required', 'value', 'useUTC', 'onBlur', 'onChange'];
+const PROPS_TO_OMIT_FOR_INPUT = [
+	'id',
+	'dateFormat',
+	'required',
+	'value',
+	'useUTC',
+	'onBlur',
+	'onChange',
+];
 
 export default function InputDatePicker(props) {
 	const popoverId = `date-picker-${props.id || uuid.v4()}`;
@@ -54,6 +62,7 @@ export default function InputDatePicker(props) {
 	return (
 		<Date.Manager
 			value={props.value}
+			textInput={props.textInput}
 			dateFormat={props.dateFormat}
 			onChange={(...args) => handlers.onChange(...args, inputRef.current)}
 			useUTC={props.useUTC}
@@ -80,10 +89,7 @@ InputDatePicker.propTypes = {
 	dateFormat: PropTypes.string,
 	onChange: PropTypes.func,
 	onBlur: PropTypes.func,
-	value: PropTypes.oneOfType([
-		PropTypes.instanceOf(Date),
-		PropTypes.number,
-		PropTypes.string,
-	]),
+	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
+	textInput: PropTypes.string,
 	useUTC: PropTypes.bool,
 };

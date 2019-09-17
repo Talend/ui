@@ -10,12 +10,12 @@ class ContextualManager extends React.Component {
 		children: PropTypes.node,
 		onChange: PropTypes.func,
 		useSeconds: PropTypes.bool,
-		value: PropTypes.string,
+		value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 	};
 
 	static defaultProps = {
 		useSeconds: false,
-	}
+	};
 
 	constructor(props) {
 		super(props);
