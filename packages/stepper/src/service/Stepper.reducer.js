@@ -128,7 +128,7 @@ function handleEvent(state, action) {
  * @param {object} state Redux state
  * @param {object} action Redux Action
  */
-export function stepperReducer(state = initialState, action) {
+function stepperReducer(state = initialState, action) {
 	switch (action.type) {
 		case LOADING_STEPS_INIT:
 			return { ...state, [getStepperKey(action)]: { steps: checkSteps(action.steps) } };
@@ -140,3 +140,7 @@ export function stepperReducer(state = initialState, action) {
 			return state;
 	}
 }
+
+export default {
+	stepperReducer,
+};

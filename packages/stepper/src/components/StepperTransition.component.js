@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Transition from 'react-transition-group/Transition';
 
 export const DEFAULT_TRANSITION_DURATION = 300;
+
 const defaultStyle = {
 	transition: `opacity ${DEFAULT_TRANSITION_DURATION}ms ease-in-out`,
 	opacity: 0,
@@ -38,6 +39,7 @@ export function StepperTransition({ children, active }) {
 		</Transition>
 	);
 }
+
 StepperTransition.propTypes = {
 	children: PropTypes.element,
 	active: PropTypes.bool.isRequired,

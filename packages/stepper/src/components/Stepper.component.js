@@ -6,7 +6,7 @@ import { withTranslation } from 'react-i18next';
 import { getTheme } from '@talend/react-components/lib/theme';
 
 import I18N_NAMESPACE from './constant';
-import theme from './Stepper.scss';
+import theme from './Stepper.component.scss';
 import { LOADING_STEP_STATUSES } from '../Stepper.constants';
 import { DEFAULT_TRANSITION_DURATION, StepperTransition } from './StepperTransition.component';
 import { isErrorInSteps, isStepsLoading, isAllSuccessful } from '../service/Stepper.utils';
