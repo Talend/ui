@@ -72,10 +72,6 @@ export class HeaderResizable extends React.Component {
 							max={getListWidth()}
 							step="10"
 							value={this.state.rangeValue || getColumnWidth(dataKey).width}
-							onClick={event => {
-								event.stopPropagation();
-								event.preventDefault();
-							}}
 							onChange={event => {
 								const rangeValue = event.target.value;
 								resizeColumn(dataKey, event.target.value - getColumnWidth(dataKey).width);
