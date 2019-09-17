@@ -17,6 +17,8 @@ function TabBar(props) {
 
 	const [showDropdown, setShowDropDown] = useState(false);
 
+	const { responsive = true } = props;
+
 	function tryShowDropdown() {
 		const tabContainer = tabBarContainerRef.current;
 		if (tabContainer) {
@@ -43,8 +45,11 @@ function TabBar(props) {
 	}
 
 	useEffect(() => {
-		const resizeListener = window.addEventListener('resize', debounce(showTabBarAndTest, 200));
-		return () => window.removeEventListener('resize', resizeListener);
+		if (responsive) {
+			const resizeListener = window.addEventListener('resize', debounce(showTabBarAndTest, 200));
+			return () => window.removeEventListener('resize', resizeListener);
+		}
+		return undefined;
 	}, []);
 
 	useEffect(() => {
@@ -62,7 +67,9 @@ function TabBar(props) {
 	});
 
 	useEffect(() => {
-		tryShowDropdown();
+		if (responsive) {
+			tryShowDropdown();
+		}
 	}, []);
 
 	const { onSelect } = props; // to avoid react/no-unused-prop-types
@@ -104,19 +111,28 @@ function TabBar(props) {
 		</Tab.Content>
 	);
 
-	if (showDropdown) {
+	if (responsive && showDropdown) {
 		return (
 			<React.Fragment>
 				<form>
-					<div className={theme['tc-responsive-tab-bar-select-container']}>
-						<select onChange={event => handleSelect(event.target.value, event)} value={selectedKey}>
-							{items.map(item => (
-								<option value={item.key} key={item.key}>
-									{item.label}
-								</option>
-							))}
-						</select>
-					</div>
+					<select
+						className={classnames(theme['tc-tab-bar__dropdown'], 'tc-tab-bar__dropdown')}
+						onChange={event => handleSelect(event.target.value, event)}
+						value={selectedKey}
+					>
+						{items.map(item => (
+							<option
+								className={classnames(
+									theme['tc-tab-bar__dropdown__item'],
+									'tc-tab-bar__dropdown__item',
+								)}
+								value={item.key}
+								key={item.key}
+							>
+								{item.label}
+							</option>
+						))}
+					</select>
 				</form>
 				{tabContent}
 			</React.Fragment>
@@ -134,11 +150,21 @@ function TabBar(props) {
 			<div ref={tabBarContainerRef}>
 				<Nav
 					bsStyle="tabs"
-					className={classnames('tc-tab-bar', theme['tc-responsive-tab-bar'])}
+					className={classnames(
+						theme['tc-tab-bar'],
+						'tc-tab-bar',
+						responsive && theme['tc-tab-bar--responsive'],
+						responsive && 'tc-tab-bar--responsive',
+					)}
 					ref={tabBarRef}
 				>
 					{items.map(item => (
-						<NavItem {...item} eventKey={item.key} componentClass="button">
+						<NavItem
+							className={classnames(theme['tc-tab-bar__item'], 'tc-tab-bar__item')}
+							{...item}
+							eventKey={item.key}
+							componentClass="button"
+						>
 							{item.label}
 						</NavItem>
 					))}
@@ -164,6 +190,7 @@ TabBar.propTypes = {
 		}).isRequired,
 	).isRequired,
 	onSelect: PropTypes.func.isRequired,
+	responsive: PropTypes.bool,
 	selectedKey: PropTypes.any,
 };
 
