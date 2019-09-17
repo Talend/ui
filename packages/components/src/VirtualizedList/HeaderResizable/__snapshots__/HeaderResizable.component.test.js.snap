@@ -11,43 +11,27 @@ exports[`HeaderResizable should render with no specific props 1`] = `
       >
         <HeaderResizableContent />
       </div>
-      <Draggable
-        allowAnyClick={false}
-        axis="x"
-        bounds={false}
-        cancel={null}
-        defaultClassName="tc-header-cell-resizable-drag-handle theme-tc-header-cell-resizable-drag-handle"
-        defaultClassNameDragged="react-draggable-dragged"
-        defaultClassNameDragging="react-draggable-dragging"
-        defaultPosition={
-          Object {
-            "x": 0,
-            "y": 0,
-          }
-        }
-        disabled={false}
-        enableUserSelectHack={true}
-        grid={null}
-        handle={null}
-        offsetParent={null}
-        onDrag={[Function]}
-        onMouseDown={[Function]}
-        onStart={[Function]}
-        onStop={[Function]}
-        position={
-          Object {
-            "x": 0,
-          }
-        }
-        scale={1}
-        transform={null}
+      <input
+        className="tc-header-cell-resizable-drag-accessibility theme-tc-header-cell-resizable-drag-accessibility"
+        max={100}
+        min={0}
+        onChange={[Function]}
+        onClick={[Function]}
+        step="10"
+        title="Resize column"
+        type="range"
+      />
+      <span
+        className="tc-header-cell-resizable-drag-button theme-tc-header-cell-resizable-drag-button"
+        onClick={[Function]}
       >
-        <DraggableCore
+        <Draggable
           allowAnyClick={false}
           axis="x"
           bounds={false}
           cancel={null}
-          defaultClassName="tc-header-cell-resizable-drag-handle theme-tc-header-cell-resizable-drag-handle"
+          className="tc-header-cell-resizable-drag-button-handle theme-tc-header-cell-resizable-drag-button-handle"
+          defaultClassName="react-draggable"
           defaultClassNameDragged="react-draggable-dragged"
           defaultClassNameDragging="react-draggable-dragging"
           defaultPosition={
@@ -73,23 +57,56 @@ exports[`HeaderResizable should render with no specific props 1`] = `
           scale={1}
           transform={null}
         >
-          <div
-            className="tc-header-cell-resizable-drag-handle-icon theme-tc-header-cell-resizable-drag-handle-icon tc-header-cell-resizable-drag-handle theme-tc-header-cell-resizable-drag-handle"
-            onMouseDown={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
-            style={
+          <DraggableCore
+            allowAnyClick={false}
+            axis="x"
+            bounds={false}
+            cancel={null}
+            className="tc-header-cell-resizable-drag-button-handle theme-tc-header-cell-resizable-drag-button-handle"
+            defaultClassName="react-draggable"
+            defaultClassNameDragged="react-draggable-dragged"
+            defaultClassNameDragging="react-draggable-dragging"
+            defaultPosition={
               Object {
-                "touchAction": "none",
-                "transform": "translate(0px,undefinedpx)",
+                "x": 0,
+                "y": 0,
               }
             }
-            title="Resize column"
+            disabled={false}
+            enableUserSelectHack={true}
+            grid={null}
+            handle={null}
+            offsetParent={null}
+            onDrag={[Function]}
+            onMouseDown={[Function]}
+            onStart={[Function]}
+            onStop={[Function]}
+            position={
+              Object {
+                "x": 0,
+              }
+            }
+            scale={1}
             transform={null}
-          />
-        </DraggableCore>
-      </Draggable>
+          >
+            <div
+              className="tc-header-cell-resizable-drag-button-handle-icon theme-tc-header-cell-resizable-drag-button-handle-icon react-draggable"
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchStart={[Function]}
+              style={
+                Object {
+                  "touchAction": "none",
+                  "transform": "translate(0px,undefinedpx)",
+                }
+              }
+              title="Resize column"
+              transform={null}
+            />
+          </DraggableCore>
+        </Draggable>
+      </span>
     </div>
   </ConsumerVirtualizedList>
 </HeaderResizable>
@@ -99,10 +116,20 @@ exports[`HeaderResizable should render with no specific props 2`] = `
 <div class="tc-header-cell-resizable theme-tc-header-cell-resizable">
   <div class="tc-header-cell-resizable-truncated-text theme-tc-header-cell-resizable-truncated-text">
   </div>
-  <div class="tc-header-cell-resizable-drag-handle-icon theme-tc-header-cell-resizable-drag-handle-icon tc-header-cell-resizable-drag-handle theme-tc-header-cell-resizable-drag-handle"
-       title="Resize column"
-       style="transform: translate(0px,undefinedpx);"
+  <input class="tc-header-cell-resizable-drag-accessibility theme-tc-header-cell-resizable-drag-accessibility"
+         title="Resize column"
+         type="range"
+         min="0"
+         max="100"
+         step="10"
+         value
   >
-  </div>
+  <span class="tc-header-cell-resizable-drag-button theme-tc-header-cell-resizable-drag-button">
+    <div class="tc-header-cell-resizable-drag-button-handle-icon theme-tc-header-cell-resizable-drag-button-handle-icon react-draggable"
+         title="Resize column"
+         style="transform: translate(0px,undefinedpx);"
+    >
+    </div>
+  </span>
 </div>
 `;

@@ -4,6 +4,15 @@ import toJson from 'enzyme-to-json';
 import { HeaderResizable } from './HeaderResizable.component';
 import { virtualizedListContext } from '../virtualizedListContext';
 
+const resizeRow = jest.fn();
+const getColumnWidth = jest.fn();
+const getListWidth = jest.fn();
+
+getColumnWidth.mockReturnValue({
+	minWidth: 0,
+});
+getListWidth.mockReturnValue(100);
+
 describe('HeaderResizable', () => {
 	it('should throw an error if used outside the virtualized list provider', () => {
 		// when
@@ -20,11 +29,9 @@ describe('HeaderResizable', () => {
 		}
 	});
 	it('should render with no specific props', () => {
-		// given
-		const resizeRow = jest.fn();
 		// when
 		const wrapper = mount(
-			<virtualizedListContext.Provider value={{ resizeRow }}>
+			<virtualizedListContext.Provider value={{ resizeRow, getColumnWidth, getListWidth }}>
 				<HeaderResizable />
 			</virtualizedListContext.Provider>,
 		);
@@ -35,10 +42,9 @@ describe('HeaderResizable', () => {
 	it('should render with label', () => {
 		// given
 		const label = 'my header label';
-		const resizeRow = jest.fn();
 		// when
 		const wrapper = mount(
-			<virtualizedListContext.Provider value={{ resizeRow }}>
+			<virtualizedListContext.Provider value={{ resizeRow, getColumnWidth, getListWidth }}>
 				<HeaderResizable label={label} />
 			</virtualizedListContext.Provider>,
 		);
@@ -48,10 +54,9 @@ describe('HeaderResizable', () => {
 	it('should render with custom header resizable', () => {
 		// given
 		const label = 'my header label';
-		const resizeRow = jest.fn();
 		// when
 		const wrapper = mount(
-			<virtualizedListContext.Provider value={{ resizeRow }}>
+			<virtualizedListContext.Provider value={{ resizeRow, getColumnWidth, getListWidth }}>
 				<HeaderResizable>
 					<button id="myCustomButton">{label}</button>
 					<span>This is a custom resizable header</span>
@@ -64,10 +69,9 @@ describe('HeaderResizable', () => {
 	it('should change resizing state when dragging is trigger', () => {
 		// given
 		const label = 'my header label';
-		const resizeRow = jest.fn();
 		// when
 		const wrapper = mount(
-			<virtualizedListContext.Provider value={{ resizeRow }}>
+			<virtualizedListContext.Provider value={{ resizeRow, getColumnWidth, getListWidth }}>
 				<HeaderResizable label={label} />
 			</virtualizedListContext.Provider>,
 		);
@@ -84,10 +88,9 @@ describe('HeaderResizable', () => {
 	it('should change resizing state when dragging is ended', () => {
 		// given
 		const label = 'my header label';
-		const resizeRow = jest.fn();
 		// when
 		const wrapper = mount(
-			<virtualizedListContext.Provider value={{ resizeRow }}>
+			<virtualizedListContext.Provider value={{ resizeRow, getColumnWidth, getListWidth }}>
 				<HeaderResizable label={label} />
 			</virtualizedListContext.Provider>,
 		);
