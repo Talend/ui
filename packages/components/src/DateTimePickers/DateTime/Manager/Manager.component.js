@@ -5,16 +5,6 @@ import { DateTimeContext } from '../Context';
 import { dateAndTimeToDateTime, extractParts, dateAndTimeToStr } from '../datetime-extraction';
 
 function ContextualManager(props) {
-	// eslint-disable-next-line no-use-before-define
-	const initialState = extractParts(props.value, getDateOptions());
-	const [state, setState] = useState(initialState);
-
-	useEffect(() => {
-		// eslint-disable-next-line no-use-before-define
-		const nextState = extractParts(props.value, getDateOptions());
-		setState(nextState);
-	}, [props.value]);
-
 	function getDateOptions() {
 		return {
 			dateFormat: props.dateFormat,
@@ -23,6 +13,15 @@ function ContextualManager(props) {
 			required: props.required,
 		};
 	}
+
+	const initialState = extractParts(props.value, getDateOptions());
+	const [state, setState] = useState(initialState);
+
+	useEffect(() => {
+		const nextState = extractParts(props.value, getDateOptions());
+		setState(nextState);
+	}, [props.value]);
+
 	function onChange(event, payload) {
 		if (props.onChange) {
 			const { datetime, textInput, errors, errorMessage } = payload;
