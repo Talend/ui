@@ -8,13 +8,15 @@ const Footer = <div>Footer</div>;
 
 describe('RichLayout', () => {
 	it('should render RichLayout with header, content and footer', () => {
-		const wrapper = shallow(<RichLayout Header={Header} Content={Content} Footer={Footer} />);
+		const wrapper = shallow(
+			<RichLayout prefixId="richlayout" Header={Header} Content={Content} Footer={Footer} />,
+		);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
 	it('should render with a text in the body', () => {
-		const wrapper = shallow(<RichLayout text="loreum" />);
+		const wrapper = shallow(<RichLayout prefixId="richlayout" text="loreum" />);
 
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
