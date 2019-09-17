@@ -14,12 +14,12 @@
 	white-space: nowrap;
 	overflow: hidden;
 
-	& &__item {
+	& &-item {
 		float: none;
 		display: inline-block;
 	}
 
-	&__dropdown {
+	&-dropdown {
 		@include caret-down($st-tropaz);
 		background-position: right center;
 		background-repeat: no-repeat;
@@ -34,7 +34,7 @@
 		appearance: none;
 		padding: 13px 30px 12px 20px;
 
-		&__item {
+		&-item {
 			color: initial;
 		}
 	}

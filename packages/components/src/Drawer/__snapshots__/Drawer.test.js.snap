@@ -187,11 +187,11 @@ exports[`Drawer should render with tabs 1`] = `
         onKeyDown={[Function]}
       >
         <ul
-          className="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar--responsive tc-tab-bar--responsive nav nav-tabs"
+          className="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive nav nav-tabs"
           role="tablist"
         >
           <li
-            className="theme-tc-tab-bar__item tc-tab-bar__item"
+            className="theme-tc-tab-bar-item tc-tab-bar-item"
             role="presentation"
           >
             <button
@@ -209,7 +209,7 @@ exports[`Drawer should render with tabs 1`] = `
             </button>
           </li>
           <li
-            className="theme-tc-tab-bar__item tc-tab-bar__item active"
+            className="theme-tc-tab-bar-item tc-tab-bar-item active"
             role="presentation"
           >
             <button

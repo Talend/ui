@@ -116,15 +116,15 @@ function TabBar(props) {
 			<React.Fragment>
 				<form>
 					<select
-						className={classnames(theme['tc-tab-bar__dropdown'], 'tc-tab-bar__dropdown')}
+						className={classnames(theme['tc-tab-bar-dropdown'], 'tc-tab-bar-dropdown')}
 						onChange={event => handleSelect(event.target.value, event)}
 						value={selectedKey}
 					>
 						{items.map(item => (
 							<option
 								className={classnames(
-									theme['tc-tab-bar__dropdown__item'],
-									'tc-tab-bar__dropdown__item',
+									theme['tc-tab-bar-dropdown-item'],
+									'tc-tab-bar-dropdown-item',
 								)}
 								value={item.key}
 								key={item.key}
@@ -153,14 +153,14 @@ function TabBar(props) {
 					className={classnames(
 						theme['tc-tab-bar'],
 						'tc-tab-bar',
-						responsive && theme['tc-tab-bar--responsive'],
-						responsive && 'tc-tab-bar--responsive',
+						responsive && theme['tc-tab-bar-responsive'],
+						responsive && 'tc-tab-bar-responsive',
 					)}
 					ref={tabBarRef}
 				>
 					{items.map(item => (
 						<NavItem
-							className={classnames(theme['tc-tab-bar__item'], 'tc-tab-bar__item')}
+							className={classnames(theme['tc-tab-bar-item'], 'tc-tab-bar-item')}
 							{...item}
 							eventKey={item.key}
 							componentClass="button"
