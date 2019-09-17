@@ -34,7 +34,7 @@ describe('Stepper Selectors', () => {
 			expect(result).toBe(true);
 		});
 
-		it('should indicates that resource laoding is done', () => {
+		it('should indicates that resource loading is done', () => {
 			const result = isResourceLoading(
 				{
 					...store,
@@ -42,7 +42,7 @@ describe('Stepper Selectors', () => {
 						...store.stepper,
 						[`${resourceType}-${resourceId}`]: {
 							...store.stepper[`${resourceType}-${resourceId}`],
-							steps: steps.map(step => step.status === LOADING_STEP_STATUSES.SUCCESS),
+							steps: steps.map(step => ({ ...step, status: LOADING_STEP_STATUSES.SUCCESS })),
 						},
 					},
 				},
