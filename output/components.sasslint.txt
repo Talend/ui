@@ -27,17 +27,17 @@ src/Typeahead/Typeahead.scss
   32:5  error  Mixins should come before declarations  mixins-before-declarations
 
 src/VirtualizedList/HeaderResizable/HeaderResizable.scss
-  27:21  error  !important not allowed                              no-important
-  28:15  error  !important not allowed                              no-important
-  29:10  error  A value of `0` is not allowed. `none` must be used  border-zero
-  29:12  error  !important not allowed                              no-important
-  30:13  error  !important not allowed                              no-important
-  31:13  error  !important not allowed                              no-important
-  32:14  error  !important not allowed                              no-important
-  33:19  error  !important not allowed                              no-important
-  34:22  error  !important not allowed                              no-important
+  26:22  error  !important not allowed                              no-important
+  27:16  error  !important not allowed                              no-important
+  28:11  error  A value of `0` is not allowed. `none` must be used  border-zero
+  28:13  error  !important not allowed                              no-important
+  29:14  error  !important not allowed                              no-important
+  30:14  error  !important not allowed                              no-important
+  31:15  error  !important not allowed                              no-important
+  32:20  error  !important not allowed                              no-important
+  33:23  error  !important not allowed                              no-important
+  34:24  error  !important not allowed                              no-important
   35:23  error  !important not allowed                              no-important
-  36:22  error  !important not allowed                              no-important
 
 ✖ 22 problems (20 errors, 2 warnings)
 
