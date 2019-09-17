@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { Action } from '@talend/react-components';
+import Action from '@talend/react-components/lib/Actions/Action';
 // eslint-disable-next-line
 import { storiesOf } from '@storybook/react';
-// eslint-disable-next-line
+import { action } from '@storybook/addon-actions';
 
 import { LanguageSwitcher } from './config/i18n';
-import Stepper from '../src/components/Stepper.component';
+import { default as Stepper } from '../src/components/Stepper.component';
 import { StepperConstants } from '../src';
+
 import './style.scss';
 
 const stories = storiesOf('Stepper', module);
+
 const title = 'Sample processing...';
 
 function renderActions(isInError) {
@@ -69,7 +71,7 @@ stories
 	})
 	.add('Stepper without steps', () => (
 		<Stepper title={title} renderActions={renderActions}>
-			<div>this is not to load</div>
+			<p>No step to display here, it means content is already loaded.</p>
 		</Stepper>
 	))
 	.add('Stepper successful', () => {
@@ -109,6 +111,7 @@ stories
 					},
 				]);
 			};
+
 			const end = () => {
 				setSteps([
 					{
@@ -146,12 +149,13 @@ stories
 				{steps => (
 					<Stepper steps={steps} title={title}>
 						<div>
-							Here i am
+							Content is loaded.
 							<div>
 								<Action
-									label="CLICK ME 8888!!!!"
+									label="Action"
 									bsStyle="info"
 									className="btn-inverse button-padding"
+									onClick={action('click')}
 								/>
 							</div>
 						</div>
