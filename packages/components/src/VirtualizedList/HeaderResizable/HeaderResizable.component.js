@@ -65,7 +65,7 @@ export class HeaderResizable extends React.Component {
 							/>
 						</div>
 						<input
-							className={classNames(theme('tc-header-cell-resizable-drag-button-accessibility'))}
+							className={classNames(theme('tc-header-cell-resizable-drag-accessibility'))}
 							title={tooltipLabel}
 							type="range"
 							min={getColumnWidth(dataKey).minWidth}
@@ -83,16 +83,13 @@ export class HeaderResizable extends React.Component {
 							}}
 						/>
 						<span
-							className={classNames(theme('tc-header-cell-resizable-drag-button-handle'))}
 							onClick={event => {
 								event.stopPropagation();
 							}}
+							className={classNames(theme('tc-header-cell-resizable-drag-button'))}
 						>
 							<Draggable
-								onMouseDown={event => {
-									event.stopPropagation();
-									event.preventDefault();
-								}}
+								className={classNames(theme('tc-header-cell-resizable-drag-button-handle'))}
 								axis="x"
 								onStart={() => this.setResizing(true)}
 								onDrag={(_, data) => {

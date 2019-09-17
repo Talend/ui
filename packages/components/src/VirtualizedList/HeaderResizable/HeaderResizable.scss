@@ -21,47 +21,40 @@ $drag-element-width: $padding-smaller;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
-}
 
-.tc-header-cell-resizable-drag-button-accessibility {
-	position: absolute !important;
-	margin: -1px !important;
-	border: 0 !important;
-	padding: 0 !important;
-	width: 1px !important;
-	height: 1px !important;
-	overflow: hidden !important;
-	clip: rect(0 0 0 0) !important;
-	text-transform: none !important;
-	white-space: nowrap !important;
-}
+	&-drag-accessibility {
+		position: absolute !important;
+		margin: -1px !important;
+		border: 0 !important;
+		padding: 0 !important;
+		width: 1px !important;
+		height: 1px !important;
+		overflow: hidden !important;
+		clip: rect(0 0 0 0) !important;
+		text-transform: none !important;
+		white-space: nowrap !important;
+	}
 
-.tc-header-cell-resizable-drag-button-handle {
-	min-width: $drag-element-width;
-	width: $drag-element-width;
-	height: 100%;
-	opacity: 0;
-	padding-top: 10px;
-	padding-bottom: 12px;
+	&-drag-button {
+		&-handle {
+			&-icon {
+				min-width: $drag-element-width;
+				width: $drag-element-width;
+				height: 100%;
+				cursor: col-resize;
+				opacity: 0;
 
-	&:hover,
-	&:focus {
-		opacity: 1;
-		//background: $scooter;
+				&:hover,
+				&:active {
+					background: $scooter;
+					opacity: 1;
+				}
+			}
+		}
 	}
 }
 
-.tc-header-cell-resizable-drag-button-handle-icon {
-	cursor: col-resize;
-	min-width: 1px;
-	width: 1px;
-	height: 100%;
-	z-index: -1;
-	float: right;
-	background: #e5e5e5;
-}
-
-.tc-header-cell-resizable-drag-button-accessibility:focus ~ .tc-header-cell-resizable-drag-button-handle {
+.tc-header-cell-resizable-drag-accessibility:focus ~ .tc-header-cell-resizable-drag-button > .tc-header-cell-resizable-drag-button-handle-icon {
 	opacity: 1;
 	background: $scooter;
 }
