@@ -23,13 +23,8 @@ src/List/Toolbar/Toolbar.scss
   80:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
   93:12  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
-src/TabBar/TabBar.scss
-  17:5  error  Class '.tc-tab-bar__item' should be written in lowercase with hyphens            class-name-format
-  22:3  error  Class '.tc-tab-bar__dropdown' should be written in lowercase with hyphens        class-name-format
-  37:4  error  Class '.tc-tab-bar__dropdown__item' should be written in lowercase with hyphens  class-name-format
-
 src/Typeahead/Typeahead.scss
   32:5  error  Mixins should come before declarations  mixins-before-declarations
 
-✖ 14 problems (12 errors, 2 warnings)
+✖ 11 problems (9 errors, 2 warnings)
 
