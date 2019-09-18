@@ -1,8 +1,3 @@
 > eslint --config ../../.eslintrc src
 
-
-> @talend/react-stepper@4.4.0 lint:es /home/travis/build/Talend/ui/packages/stepper
-> eslint --config ../../.eslintrc src
-
-The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
 The react/require-extension rule is deprecated. Please use the import/extensions rule from eslint-plugin-import instead.
