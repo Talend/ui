@@ -8,6 +8,8 @@ import NavItem from 'react-bootstrap/lib/NavItem';
 import keycode from 'keycode';
 import debounce from 'lodash/debounce';
 import classnames from 'classnames';
+
+import Icon from '../Icon';
 import theme from './TabBar.scss';
 
 function TabBar(props) {
@@ -158,13 +160,18 @@ function TabBar(props) {
 					)}
 					ref={tabBarRef}
 				>
-					{items.map(item => (
+					{items.map(({ icon, ...item }) => (
 						<NavItem
 							className={classnames(theme['tc-tab-bar-item'], 'tc-tab-bar-item')}
 							{...item}
 							eventKey={item.key}
 							componentClass="button"
 						>
+							{icon && (
+								<Icon
+									className={classnames(theme['tc-tab-bar-item-icon'], 'tc-tab-bar-item-icon')}
+									{...icon}
+								/>)}
 							{item.label}
 						</NavItem>
 					))}

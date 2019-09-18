@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { TabBar } from '../src/';
+import { TabBar, IconsProvider } from '../src/';
 
 const tabProps = {
 	id: 'my-tabs',
@@ -16,16 +16,25 @@ const tabProps = {
 			key: '2',
 			label: 'Tab2',
 			'data-feature': 'action.2',
+			icon: {
+				name: 'talend-empty-calendar',
+			},
 		},
 		{
 			key: '3',
-			label: 'Tab3',
+			label: 'Tab3 and very very long text that should be truncated',
 			'data-feature': 'action.3',
+			icon: {
+				name: 'talend-user-circle',
+			},
 		},
 		{
 			key: '4',
 			label: 'Tab4',
 			'data-feature': 'action.4',
+			icon: {
+				name: 'talend-arrow-right',
+			},
 		},
 		{
 			key: '5',
@@ -36,16 +45,31 @@ const tabProps = {
 			key: '6',
 			label: 'Tab6',
 			'data-feature': 'action.6',
+			icon: {
+				name: 'fa fa-asterisk',
+			},
 		},
 		{
 			key: '7',
 			label: 'Tab7',
 			'data-feature': 'action.7',
+			icon: {
+				name: 'talend-star',
+			},
 		},
 		{
 			key: '8',
 			label: 'Tab8',
 			'data-feature': 'action.8',
+			icon: {
+				name: 'fa fa-file-excel-o',
+			},
+		},
+		{
+			key: '9',
+			label: 'Tab9',
+			'data-feature': 'action.9',
+			disabled: true,
 		},
 	],
 	onSelect: action('onSelect'),
@@ -101,6 +125,7 @@ stories
 					{renderContent()}
 				</TabBar>
 			</div>
+			<IconsProvider />
 		</nav>
 	))
 	.add('custom id generator', () => (
@@ -133,6 +158,7 @@ function generateChildId(key, kind) {
 					I'm the child
 				</TabBar>
 			</div>
+			<IconsProvider />
 		</nav>
 	))
 	.add('With existing content', () => (
@@ -154,6 +180,7 @@ function generateChildId(key, kind) {
 					I'm the existing content of tab 5
 				</div>
 			</div>
+			<IconsProvider />
 		</nav>
 	))
 	.add('Fully interactive', () => (
@@ -162,5 +189,6 @@ function generateChildId(key, kind) {
 			<div id="interactive">
 				<InteractiveTabs {...tabProps}>I'm the child</InteractiveTabs>
 			</div>
+			<IconsProvider />
 		</nav>
 	));
