@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { TimeContext } from '../Context';
-import extractTime from '../time-extraction';
+import extractTime, { getTimeFormat } from '../time-extraction';
 
 class ContextualManager extends React.Component {
 	static displayName = 'Time.Manager';
@@ -65,6 +65,7 @@ class ContextualManager extends React.Component {
 
 					inputManagement: {
 						onChange: this.onInputChange,
+						placeholder: getTimeFormat(this.props.useSeconds),
 					},
 
 					pickerManagement: {
