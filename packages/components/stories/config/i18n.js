@@ -64,7 +64,6 @@ i18n.use(initReactI18next).init({
 	},
 	debug: false,
 	wait: true, // globally set to wait for loaded translations in translate hoc
-	withRef: true,
 });
 
 export const LanguageSwitcher = () => {
