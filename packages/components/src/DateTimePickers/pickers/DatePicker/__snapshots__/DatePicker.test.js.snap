@@ -196,7 +196,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Friday 01 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -212,7 +212,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Saturday 02 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -228,7 +228,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Sunday 03 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -249,7 +249,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Monday 04 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -265,7 +265,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Tuesday 05 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -281,7 +281,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Wednesday 06 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={true}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -297,7 +297,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Thursday 07 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -313,7 +313,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Friday 08 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -329,7 +329,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Saturday 09 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -345,7 +345,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Sunday 10 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -366,7 +366,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Monday 11 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -383,7 +383,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Tuesday 12 June 2018, selected"
-                className="theme-calendar-day theme-selected tc-date-picker-day"
+                className="theme-calendar-day theme-selected tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -399,7 +399,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Wednesday 13 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -415,7 +415,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Thursday 14 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -431,7 +431,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Friday 15 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={true}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -447,7 +447,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Saturday 16 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -463,7 +463,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Sunday 17 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -484,7 +484,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Monday 18 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -500,7 +500,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Tuesday 19 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -516,7 +516,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Today, Wednesday 20 June 2018"
-                className="theme-calendar-day theme-today tc-date-picker-day"
+                className="theme-calendar-day theme-today tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -532,7 +532,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Thursday 21 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -548,7 +548,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Friday 22 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -564,7 +564,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Saturday 23 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -580,7 +580,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Sunday 24 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -601,7 +601,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Monday 25 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -617,7 +617,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Tuesday 26 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -633,7 +633,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Wednesday 27 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -649,7 +649,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Thursday 28 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -665,7 +665,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Friday 29 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -681,7 +681,7 @@ exports[`DatePicker should render a DatePicker 1`] = `
             >
               <button
                 aria-label="Saturday 30 June 2018"
-                className="theme-calendar-day tc-date-picker-day"
+                className="theme-calendar-day tc-date-picker-day btn-tertiary btn-default"
                 disabled={false}
                 onClick={[Function]}
                 onKeyDown={[Function]}

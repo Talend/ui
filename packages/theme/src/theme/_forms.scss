@@ -162,12 +162,13 @@ form {
 	.radio-inline,
 	.checkbox,
 	.checkbox-inline {
+		line-height: $form-checkbox-and-radio-size;
+		min-height: $form-checkbox-and-radio-size;
+
 		label {
 			display: inline-block;
 			position: relative;
 			padding-left: 12 + $padding-small;
-			line-height: $form-checkbox-and-radio-size;
-			min-height: $form-checkbox-and-radio-size;
 			font-size: 1.4rem;
 			color: $black;
 		}
@@ -183,17 +184,25 @@ form {
 
 		[type='radio'],
 		[type='checkbox'] {
-			display: inline-block;
-			position: absolute;
 			margin: 0;
-			margin-left: -1 * (12 + $padding-small);
 			width: $form-checkbox-and-radio-size;
 			height: $form-checkbox-and-radio-size;
 			appearance: none;
 			outline: none;
 
+			&,
 			+ * {
 				display: inline-block;
+			}
+
+			&,
+			&:before,
+			&:after,
+			+ *:before,
+			+ *:after {
+				position: absolute;
+				top: 0;
+				left: 0;
 			}
 
 			&:before,
@@ -201,9 +210,6 @@ form {
 			+ *:before,
 			+ *:after {
 				content: '';
-				position: absolute;
-				top: 0;
-				left: 0;
 			}
 		}
 	}
@@ -358,6 +364,22 @@ form {
 			color: $form-label-base-color;
 			font-weight: $form-base-font-weight;
 			font-size: $font-size-base;
+		}
+	}
+
+	&-horizontal {
+		.radio-inline,
+		.checkbox-inline {
+			[type='checkbox'],
+			[type='radio'] {
+				&,
+				+ *:before,
+				+ *:after {
+					// Same as Bootstrap's padding-top
+					// @see ~bootstrap-sass/assets/stylesheets/bootstrap/forms
+					top: $padding-base-vertical + 1;
+				}
+			}
 		}
 	}
 }

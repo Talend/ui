@@ -113,6 +113,7 @@ exports[`PlainTextTitle should render 1`] = `
   className="theme-tc-editable-text-title"
 >
   <TooltipTrigger
+    className="tc-editable-text-wording-wrapper"
     label="text"
     tooltipPlacement="bottom"
   >
@@ -125,7 +126,7 @@ exports[`PlainTextTitle should render 1`] = `
   </TooltipTrigger>
   <Action
     bsStyle="link"
-    className="theme-tc-editable-text-pencil tc-editable-text-pencil"
+    className="theme-tc-editable-text-pencil tc-editable-text-pencil sr-only sr-only-focusable"
     data-feature="my.custom.feature"
     hideLabel={true}
     icon="talend-pencil"
@@ -141,6 +142,7 @@ exports[`PlainTextTitle should render provided component class 1`] = `
   className="theme-tc-editable-text-title"
 >
   <TooltipTrigger
+    className="tc-editable-text-wording-wrapper"
     label="text"
     tooltipPlacement="bottom"
   >
@@ -153,7 +155,7 @@ exports[`PlainTextTitle should render provided component class 1`] = `
   </TooltipTrigger>
   <Action
     bsStyle="link"
-    className="theme-tc-editable-text-pencil tc-editable-text-pencil"
+    className="theme-tc-editable-text-pencil tc-editable-text-pencil sr-only sr-only-focusable"
     data-feature="my.custom.feature"
     hideLabel={true}
     icon="talend-pencil"
