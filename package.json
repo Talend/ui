@@ -68,6 +68,7 @@
     "packages/generator",
     "packages/icons",
     "packages/sagas",
+    "packages/stepper",
     "packages/storybook-cmf",
     "packages/theme"
   ]
