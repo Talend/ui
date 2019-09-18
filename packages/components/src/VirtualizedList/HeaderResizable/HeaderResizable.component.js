@@ -65,7 +65,10 @@ export class HeaderResizable extends React.Component {
 							/>
 						</div>
 						<input
-							className={classNames(theme('tc-header-cell-resizable-drag-accessibility'))}
+							className={classNames(
+								theme('tc-header-cell-resizable-drag-accessibility'),
+								'sr-only',
+							)}
 							title={tooltipLabel}
 							type="range"
 							min={getColumnWidth(dataKey).minWidth}

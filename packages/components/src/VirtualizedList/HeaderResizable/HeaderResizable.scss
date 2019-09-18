@@ -22,19 +22,6 @@ $drag-element-width: $padding-smaller;
 		white-space: nowrap;
 	}
 
-	&-drag-accessibility {
-		position: absolute;
-		margin: -1px;
-		border: none;
-		padding: none;
-		width: 1px;
-		height: 1px;
-		overflow: hidden;
-		clip: rect(0 0 0 0);
-		text-transform: none;
-		white-space: nowrap;
-	}
-
 	&-drag-button {
 		&-handle {
 			&-icon {
