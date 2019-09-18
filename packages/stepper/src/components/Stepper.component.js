@@ -79,7 +79,7 @@ function showStep(t, step, index, steps) {
 	const a11y = {};
 	if (
 		[LOADING_STEP_STATUSES.LOADING, LOADING_STEP_STATUSES.FAILURE].includes(step.status) ||
-		(index === (steps.length - 1) && step.status === LOADING_STEP_STATUSES.SUCCESS)
+		(index === steps.length - 1 && step.status === LOADING_STEP_STATUSES.SUCCESS)
 	) {
 		a11y['aria-current'] = true;
 	}

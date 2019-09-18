@@ -55,6 +55,31 @@ describe('Resource component snaps', () => {
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
+		it('should render a Resource with just a title/subtitle/flags', () => {
+			const collection = [
+				{
+					id: 0,
+					name: 'Title with few actions',
+					subtitle: 'Loreum lopsum',
+					icon: 'talend-file-xls-o',
+				},
+			];
+			const props = {
+				parent: {
+					props: {
+						collection,
+						rowGetter: index => collection[index],
+					},
+				},
+				index: 0,
+			};
+
+			const wrapper = shallow(<Resource.WrappedComponent {...props} />);
+			expect(wrapper.find('.author').length).toBe(0);
+			expect(wrapper.find('.subtitle').length).toBe(1);
+			expect(wrapper.getElement()).toMatchSnapshot();
+		});
+
 		it('should render a regular Resource without author information', () => {
 			const collection = [
 				{

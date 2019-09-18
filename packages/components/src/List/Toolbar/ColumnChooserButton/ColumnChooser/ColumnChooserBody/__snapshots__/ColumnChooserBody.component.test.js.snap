@@ -15,6 +15,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           >
             <input type="checkbox"
                    id="body-context-id-body-checkbox-Columns"
+                   data-checked="2"
                    aria-describedby="body-context-id-body-hide all the columns"
                    checked
             >
@@ -62,6 +63,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           >
             <input type="checkbox"
                    id="body-context-id-body-checkbox-col3"
+                   data-checked="2"
                    aria-describedby="body-context-id-body-display the column col3"
                    checked
             >
@@ -83,6 +85,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           >
             <input type="checkbox"
                    id="body-context-id-body-checkbox-col4"
+                   data-checked="0"
                    aria-describedby="body-context-id-body-display the column col4"
             >
             <span>
@@ -103,6 +106,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           >
             <input type="checkbox"
                    id="body-context-id-body-checkbox-col5"
+                   data-checked="2"
                    aria-describedby="body-context-id-body-display the column col5"
                    checked
             >
@@ -124,6 +128,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           >
             <input type="checkbox"
                    id="body-context-id-body-checkbox-col6"
+                   data-checked="0"
                    aria-describedby="body-context-id-body-display the column col6"
             >
             <span>

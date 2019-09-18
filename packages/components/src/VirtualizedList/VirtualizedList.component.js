@@ -4,7 +4,6 @@ import get from 'lodash/get';
 import { listTypes } from './utils/constants';
 import Loader from '../Loader';
 import RendererSelector from './RendererSelector.component';
-import Content from './Content.component';
 import propTypes from './PropTypes';
 import { insertSelectionConfiguration, toColumns } from './utils/tablerow';
 import { resizeColumns, extractResizableProps } from './utils/resizable';
@@ -118,7 +117,5 @@ VirtualizedList.propTypes = propTypes;
 VirtualizedList.defaultProps = {
 	defaultHeight: 250,
 };
-
-VirtualizedList.Content = Content;
 
 export default VirtualizedList;

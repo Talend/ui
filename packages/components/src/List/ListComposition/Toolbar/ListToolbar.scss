@@ -20,16 +20,33 @@ $tc-toolbar-height: 7rem;
 
 	:global(.tc-actionbar-container) {
 		padding: 0;
+		flex: 1 0 0%;
 	}
 
-	:global(.tc-display-mode-toggle) {
+	&-right {
+		align-items: center;
+		display: flex;
 		margin-left: auto;
+	}
+
+	&-separated {
+		display: flex;
+	}
+	&-separated:not(:first-child):before {
+		align-self: center;
+		content: '|';
+		color: $silver;
+		padding: 0 $padding-normal;
 	}
 
 	> :global(.container-fluid) {
 		display: flex;
 		align-items: center;
 		width: 100%;
+		padding: 0;
+	}
+
+	:global(button[role='search'][type='button']) {
 		padding: 0;
 	}
 }

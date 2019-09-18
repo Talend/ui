@@ -9,11 +9,12 @@ import theme from './Notification.scss';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
 
-function CloseButtonComponent({ notification, leaveFn, t }) {
+function CloseButtonComponent(props) {
 	return (
 		<Action
-			onClick={() => leaveFn(notification)}
-			label={''}
+			onClick={() => props.leaveFn(props.notification)}
+			data-feature={props['data-feature']}
+			label=""
 			icon={'talend-cross'}
 			bsClass={classNames(
 				theme['tc-notification-action'],
@@ -21,7 +22,7 @@ function CloseButtonComponent({ notification, leaveFn, t }) {
 				theme['tc-notification-close'],
 				'.tc-notification-close',
 			)}
-			aria-label={t('NOTIFICATION_CLOSE', { defaultValue: 'Close notification' })}
+			aria-label={props.t('NOTIFICATION_CLOSE', { defaultValue: 'Close notification' })}
 		/>
 	);
 }
@@ -29,6 +30,7 @@ CloseButtonComponent.propTypes = {
 	notification: PropTypes.object,
 	leaveFn: PropTypes.func,
 	t: PropTypes.func,
+	'data-feature': PropTypes.string,
 };
 CloseButtonComponent.defaultProps = {
 	t: getDefaultT(),
@@ -104,7 +106,11 @@ export function Notification({ notification, leaveFn, ...props }) {
 			onMouseLeave={leaveAction}
 			tabIndex={0}
 		>
-			<CloseButton {...{ notification, leaveFn }} />
+			<CloseButton
+				notification={notification}
+				leaveFn={leaveFn}
+				data-feature={`close-notification-${notification.type}`}
+			/>
 			<Message notification={notification} />
 			<TimerBar type={notification.type} autoLeaveError={props.autoLeaveError} />
 		</div>

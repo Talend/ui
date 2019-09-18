@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component ErrorPanel should render the error 1`] = `
+<div>
+  <p
+    className="error-title"
+  >
+    Error
+    : 
+  </p>
+  <React.Fragment>
+    <p>
+      From here you have two choices:
+    </p>
+    <p>
+      1. Refresh the app and retry
+    </p>
+    <p>
+      2. Download the details and then contact the support
+    </p>
+  </React.Fragment>
+  <button
+    className="btn btn-danger btn-inverse"
+    data-feature="refresh-on-error"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 20,
+      }
+    }
+  >
+    Refresh
+  </button>
+  <a
+    className="btn btn-primary btn-inverse"
+    data-feature="download-on-error-details"
+    download="report.json"
+  >
+    Download details
+  </a>
+</div>
+`;

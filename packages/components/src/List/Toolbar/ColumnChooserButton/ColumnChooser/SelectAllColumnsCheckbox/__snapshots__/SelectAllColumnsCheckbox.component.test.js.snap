@@ -8,6 +8,7 @@ exports[`SelectAllColumnsCheckbox should render by default 1`] = `
     >
       <input type="checkbox"
              id="select-all-id-checkbox-Columns"
+             data-checked="0"
              aria-describedby="select-all-id-display all the columns"
       >
       <span>

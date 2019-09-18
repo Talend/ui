@@ -5,9 +5,22 @@
 		.control-label:after {
 			content: '*';
 		}
-		.checkbox .control-label:after {
-			position: static;
-			outline: none;
+
+		.checkbox {
+			&:after {
+				position: static;
+				display: inline;
+				content: '*';
+			}
+
+			.control-label:after {
+				content: '';
+			}
+		}
+
+		// Remove required stars for multi selection
+		.control-label ~ .checkbox:after {
+			content: '';
 		}
 	}
 }
