@@ -50,7 +50,7 @@ interface Step {
 
 ### initStepper
 
-This action is used to bootstrap a loading resourceType / resourceId & steps are required to do so
+This action is used to bootstrap a loading resourceType / resourceId. Steps are required to do so
 
 ```javascript
 import { StepperActions, StepperConstants } from '@talend/react-stepper';
