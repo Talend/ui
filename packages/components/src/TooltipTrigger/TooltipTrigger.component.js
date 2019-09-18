@@ -147,8 +147,11 @@ function TooltipTrigger(props) {
 	 */
 	const onFocus = (...args) => {
 		show();
-		if (props.children.props.onFocus) {
-			props.children.props.onFocus(...args);
+		const {
+			children: { props: childrenProps },
+		} = props;
+		if (childrenProps.onFocus) {
+			childrenProps.onFocus(...args);
 		}
 	};
 
@@ -157,46 +160,59 @@ function TooltipTrigger(props) {
 	 */
 	const onBlur = (...args) => {
 		hide();
-		if (props.children.props.onBlur) {
-			props.children.props.onBlur(...args);
+		const {
+			children: { props: childrenProps },
+		} = props;
+
+		if (childrenProps.onBlur) {
+			childrenProps.onBlur(...args);
 		}
 	};
 
 	const onKeyPress = (...args) => {
 		hide();
-		if (props.children.props.onKeyPress) {
-			props.children.props.onKeyPress(...args);
+		const {
+			children: { props: childrenProps },
+		} = props;
+
+		if (childrenProps.onKeyPress) {
+			childrenProps.onKeyPress(...args);
 		}
 	};
 
 	const onMouseOver = (...args) => {
 		show();
-		if (props.children.props.onMouseOver) {
-			props.children.props.onMouseOver(...args);
+		const {
+			children: { props: childrenProps },
+		} = props;
+		if (childrenProps.onMouseOver) {
+			childrenProps.onMouseOver(...args);
 		}
 	};
 
 	const onMouseOut = (...args) => {
 		hide();
-		if (props.children.props.onMouseOut) {
-			props.children.props.onMouseOut(...args);
+		const {
+			children: { props: childrenProps },
+		} = props;
+		if (childrenProps.onMouseOut) {
+			childrenProps.onMouseOut(...args);
 		}
 	};
 
 	const onClick = (...args) => {
 		hide();
-		if (props.children.props.onClick) {
-			props.children.props.onClick(...args);
+		const {
+			children: { props: childrenProps },
+		} = props;
+		if (childrenProps.onClick) {
+			childrenProps.onClick(...args);
 		}
 	};
 
 	const { placement, style } = getTooltipPosition();
 
 	return (
-		// we use div here to wrap tooltip trigger
-		// it should not be reachable
-		// It is just a way to handle click and keyboard events
-		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 		<React.Fragment>
 			{React.Children.map(props.children, child =>
 				cloneElement(child, {
@@ -207,6 +223,10 @@ function TooltipTrigger(props) {
 					onMouseOver,
 					onMouseOut,
 					onClick,
+					// Because of React Fragment, we need to maintaining ref through cloneElement
+					// @see https://github.com/facebook/react/issues/8873#issuecomment-275423780
+					// We need to follow the status of this RFC to change it as soon as possible
+					// @see https://github.com/reactjs/rfcs/pull/97
 					ref: node => {
 						refContainer.current = node;
 						const { ref } = child;
@@ -218,13 +238,10 @@ function TooltipTrigger(props) {
 
 			{visible &&
 				ReactDOM.createPortal(
-					<div className={theme['tc-tooltip-container']} style={getTooltipPosition().style}>
+					<div className={theme['tc-tooltip-container']} style={style}>
 						<div
 							id={id}
-							className={classNames(
-								theme['tc-tooltip-body'],
-								theme[`tc-tooltip-${getTooltipPosition().placement}`],
-							)}
+							className={classNames(theme['tc-tooltip-body'], theme[`tc-tooltip-${placement}`])}
 						>
 							{props.label}
 						</div>
