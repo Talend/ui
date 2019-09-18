@@ -99,20 +99,23 @@ const props = {
 	<Icon name="my-icon" />
 </TooltipTrigger>
  */
-function TooltipTrigger(props) {
+function TooltipTrigger({
+	children,
+	label,
+	tooltipDelay,
+	tooltipPlacement = 'right',
+	tooltipHeight = DEFAULT_OFFSET_Y,
+	tooltipWidth = DEFAULT_OFFSET_X,
+}) {
 	const refContainer = useRef();
 
-	const [visible, show, hide] = useTooltipVisibility(props.tooltipDelay);
+	const [visible, show, hide] = useTooltipVisibility(tooltipDelay);
 
 	const [id] = useState(uuid.v4());
 
-	function getTooltipPosition() {
-		const {
-			tooltipPlacement = 'right',
-			tooltipHeight = DEFAULT_OFFSET_Y,
-			tooltipWidth = DEFAULT_OFFSET_X,
-		} = props;
+	const { props: childrenProps } = children;
 
+	function getTooltipPosition() {
 		if (!refContainer || !refContainer.current) {
 			return {
 				tooltipPlacement,
@@ -147,9 +150,6 @@ function TooltipTrigger(props) {
 	 */
 	const onFocus = (...args) => {
 		show();
-		const {
-			children: { props: childrenProps },
-		} = props;
 		if (childrenProps.onFocus) {
 			childrenProps.onFocus(...args);
 		}
@@ -160,10 +160,6 @@ function TooltipTrigger(props) {
 	 */
 	const onBlur = (...args) => {
 		hide();
-		const {
-			children: { props: childrenProps },
-		} = props;
-
 		if (childrenProps.onBlur) {
 			childrenProps.onBlur(...args);
 		}
@@ -171,10 +167,6 @@ function TooltipTrigger(props) {
 
 	const onKeyPress = (...args) => {
 		hide();
-		const {
-			children: { props: childrenProps },
-		} = props;
-
 		if (childrenProps.onKeyPress) {
 			childrenProps.onKeyPress(...args);
 		}
@@ -182,9 +174,6 @@ function TooltipTrigger(props) {
 
 	const onMouseOver = (...args) => {
 		show();
-		const {
-			children: { props: childrenProps },
-		} = props;
 		if (childrenProps.onMouseOver) {
 			childrenProps.onMouseOver(...args);
 		}
@@ -192,9 +181,6 @@ function TooltipTrigger(props) {
 
 	const onMouseOut = (...args) => {
 		hide();
-		const {
-			children: { props: childrenProps },
-		} = props;
 		if (childrenProps.onMouseOut) {
 			childrenProps.onMouseOut(...args);
 		}
@@ -202,9 +188,6 @@ function TooltipTrigger(props) {
 
 	const onClick = (...args) => {
 		hide();
-		const {
-			children: { props: childrenProps },
-		} = props;
 		if (childrenProps.onClick) {
 			childrenProps.onClick(...args);
 		}
@@ -214,7 +197,7 @@ function TooltipTrigger(props) {
 
 	return (
 		<React.Fragment>
-			{React.Children.map(props.children, child =>
+			{React.Children.map(children, child =>
 				cloneElement(child, {
 					'aria-describedby': id,
 					onFocus,
@@ -243,7 +226,7 @@ function TooltipTrigger(props) {
 							id={id}
 							className={classNames(theme['tc-tooltip-body'], theme[`tc-tooltip-${placement}`])}
 						>
-							{props.label}
+							{label}
 						</div>
 					</div>,
 					document.body,
