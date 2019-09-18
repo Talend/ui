@@ -29,7 +29,7 @@ export default {
 
 After bootstrapping the module, there is a reducer listening the events.
 StepperService provides some actionCreators to manage the loading state.
-For each of this action creators, some parameters are required: the resourceType & the resourceId. Theses parameters allow the Stepper service to identify each loading with uniqueness.
+For each of these action creators, some parameters are required: the resourceType & the resourceId. Theses parameters allow the Stepper service to identify each loading with uniqueness.
 
 ## What is a step
 
