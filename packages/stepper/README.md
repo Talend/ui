@@ -80,7 +80,7 @@ StepperActions.initStepper('dataset', 'id12', steps);
 
 ### removeStepper
 
-this action is used when a loading is over and we want to remove it from the store
+This action is used when a loading is over and we want to remove it from the store
 it requires only the resourceType & the resourceId
 
 ```javascript
