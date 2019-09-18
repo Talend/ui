@@ -12,7 +12,12 @@ import YearPicker from '../../pickers/YearPicker';
 
 function HeaderTitle(props) {
 	const isButton = !!props.button;
-	const className = classNames(theme.common, { [theme.button]: isButton }, {'btn-tertiary btn-info': isButton}, props.className);
+	const className = classNames(
+		theme.common,
+		{ [theme.button]: isButton },
+		{ 'btn-tertiary btn-info': isButton },
+		props.className,
+	);
 	const propsToSpread = {
 		className,
 		...(isButton ? props.button : {}),
@@ -25,7 +30,7 @@ function HeaderTitle(props) {
 	const monthLabel = format(date, 'MMMM', pickerLocale);
 
 	if (isButton) {
-		return (<Action {...propsToSpread} label={label}/>);
+		return <Action {...propsToSpread} label={label} />;
 	}
 
 	return (
