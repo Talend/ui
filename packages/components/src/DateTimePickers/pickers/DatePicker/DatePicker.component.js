@@ -125,6 +125,7 @@ class DatePicker extends React.PureComponent {
 									{
 										[theme.selected]: selected,
 										[theme.today]: today,
+										[theme['not-current-month']]: !this.isCurrentMonth(date),
 									},
 									'tc-date-picker-day',
 										'btn-tertiary',
