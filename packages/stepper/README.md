@@ -33,7 +33,7 @@ For each of these action creators, some parameters are required: the resourceTyp
 
 ## What is a step
 
-A step is an object that matched this typescript interface :
+A step is an object that matches this typescript interface :
 
 ```typescript
 interface Step {
