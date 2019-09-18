@@ -12,7 +12,6 @@ Here, it will not make the process work by itself, it's an api that provide tool
 ## Bootstrap
 
 First of all, you have to register the module in your application, it's the default export of the module :
-( of course, it is done in dataset but as it could be available later in UI, this step need to be written )
 
 ```javascript
 // index.js file
@@ -90,11 +89,11 @@ StepperActions.removeStepper('dataset', 'id12');
 
 ### proceedLoadingEvent
 
-This action is used when an event has to be proceed in a Loading step currently, the workflow is for an event dispatched :
+This action is used when an event has to be processed, the workflow for a dispatched event is :
 
--   If a step has a successOn with this event, the current step status is set to success
--   If a step has a loadingOn with this event, the current step status is set to loading
--   If a step has a failureOn with this event, the current step status is set to failure & all the steps that are not in success status are set to aborted
+-   If a step has a successOn as event, the current step status is set to success
+-   If a step has a loadingOn as event, the current step status is set to loading
+-   If a step has a failureOn as event, the current step status is set to failure & all the steps that are not in success status are set to aborted
 
 A message can be also passed to the failure event to display a label below the current fail step
 
