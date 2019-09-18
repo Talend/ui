@@ -112,7 +112,7 @@ const failAction = StepperActions.proceedLoadingEvent(
 ### isResourceLoading
 
 You may want to know for some use cases if a loading step is currently in loading state, it will return a boolean to say if it's finished.
-⚠️ In the current API, if there is an error, the steps are considered finished event if the component is still rendered
+⚠️ In the current API, if there is an error, the steps are considered finished even if the component is still rendered
 To have this information, you can use `isResourceLoading` selector :
 
 ```javascript
