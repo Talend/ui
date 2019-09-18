@@ -4,7 +4,7 @@ import { format } from 'date-fns';
 
 const inputTextSizerStyle = {
 	fontWeight: 400,
-	fontSize: '16px',
+	fontSize: '1.6rem',
 	visibility: 'hidden',
 };
 
@@ -27,7 +27,7 @@ function InputSizer({ placeholder, inputText, children }) {
 		<React.Fragment>
 			{children(width)}
 			<span style={style} ref={sizerRef}>
-				{text}
+				{text}&nbsp;
 			</span>
 		</React.Fragment>
 	);
