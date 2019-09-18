@@ -13,7 +13,7 @@ export const getStepperKey = action => `${action.resourceType}-${action.resource
  * @param {array} steps array of steps
  */
 export const isErrorInSteps = steps =>
-	!!steps.find(step => step.status === LOADING_STEP_STATUSES.FAILURE);
+	steps.some(step => step.status === LOADING_STEP_STATUSES.FAILURE);
 
 /**
  * This function tells if all the steps are successful
