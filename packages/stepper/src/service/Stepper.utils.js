@@ -20,7 +20,7 @@ export const isErrorInSteps = steps =>
  * @param {array} steps array of steps
  */
 export const isAllSuccessful = steps =>
-	steps.filter(step => step.status === LOADING_STEP_STATUSES.SUCCESS).length === steps.length;
+	steps.every(step => step.status === LOADING_STEP_STATUSES.SUCCESS);
 
 /**
  * This function tells if the loading is done, by an error, a success ot not started
