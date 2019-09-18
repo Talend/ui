@@ -14,9 +14,9 @@ exports[`MonthYearView should render 1`] = `
     Object {
       "leftElement": <Action
         aria-label="Switch back to date and time pickers view"
+        className="btn-tertiary btn-info"
         icon="talend-arrow-left"
         label=""
-        link={true}
         onClick={[MockFunction]}
         tabIndex={0}
       />,
