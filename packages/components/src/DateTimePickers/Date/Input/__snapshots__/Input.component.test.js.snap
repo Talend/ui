@@ -4,30 +4,56 @@ exports[`Date.Input should render 1`] = `
 <Date.Input
   aria-labelledby="labelId"
 >
-  <DebounceInput
-    aria-labelledby="labelId"
-    autoComplete="off"
-    className="form-control"
-    debounceTimeout={300}
-    element="input"
-    forceNotifyByEnter={true}
-    forceNotifyOnBlur={true}
-    minLength={0}
+  <InputSizer
+    inputText="2007-01-02"
     placeholder="YYY-MM-DD"
-    type="text"
-    value="2007-01-02"
   >
-    <input
+    <DebounceInput
       aria-labelledby="labelId"
       autoComplete="off"
       className="form-control"
-      onBlur={[Function]}
-      onChange={[Function]}
-      onKeyDown={[Function]}
+      debounceTimeout={300}
+      element="input"
+      forceNotifyByEnter={true}
+      forceNotifyOnBlur={true}
+      minLength={0}
       placeholder="YYY-MM-DD"
+      style={
+        Object {
+          "width": 0,
+        }
+      }
       type="text"
       value="2007-01-02"
-    />
-  </DebounceInput>
+    >
+      <input
+        aria-labelledby="labelId"
+        autoComplete="off"
+        className="form-control"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        placeholder="YYY-MM-DD"
+        style={
+          Object {
+            "width": 0,
+          }
+        }
+        type="text"
+        value="2007-01-02"
+      />
+    </DebounceInput>
+    <span
+      style={
+        Object {
+          "fontSize": "16px",
+          "fontWeight": 400,
+          "visibility": "hidden",
+        }
+      }
+    >
+      19Y-09-18
+    </span>
+  </InputSizer>
 </Date.Input>
 `;

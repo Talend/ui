@@ -6,6 +6,7 @@ exports[`Time.Manager should render its children 1`] = `
     Object {
       "inputManagement": Object {
         "onChange": [Function],
+        "placeholder": "HH:mm",
       },
       "pickerManagement": Object {
         "onChange": [Function],
