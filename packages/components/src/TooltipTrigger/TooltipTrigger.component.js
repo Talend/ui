@@ -216,17 +216,21 @@ function TooltipTrigger(props) {
 				}),
 			)}
 
-			{visible && ReactDOM.createPortal(
-				<div className={theme['tc-tooltip-container']} style={getTooltipPosition().style}>
-					<div
-						id={id}
-						className={classNames(theme['tc-tooltip-body'], theme[`tc-tooltip-${getTooltipPosition().placement}`])}
-					>
-						{props.label}
-					</div>
-				</div>,
-				document.body,
-			)}
+			{visible &&
+				ReactDOM.createPortal(
+					<div className={theme['tc-tooltip-container']} style={getTooltipPosition().style}>
+						<div
+							id={id}
+							className={classNames(
+								theme['tc-tooltip-body'],
+								theme[`tc-tooltip-${getTooltipPosition().placement}`],
+							)}
+						>
+							{props.label}
+						</div>
+					</div>,
+					document.body,
+				)}
 		</React.Fragment>
 	);
 }
