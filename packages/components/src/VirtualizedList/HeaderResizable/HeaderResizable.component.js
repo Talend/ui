@@ -74,7 +74,7 @@ export class HeaderResizable extends React.Component {
 							value={this.state.rangeValue || getColumnWidth(dataKey).width}
 							onChange={event => {
 								const rangeValue = event.target.value;
-								resizeColumn(dataKey, event.target.value - getColumnWidth(dataKey).width);
+								resizeColumn(dataKey, rangeValue - getColumnWidth(dataKey).width);
 								this.setRangeValue(rangeValue);
 							}}
 						/>

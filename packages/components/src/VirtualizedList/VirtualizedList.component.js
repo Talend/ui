@@ -72,10 +72,10 @@ function VirtualizedList(props) {
 	const getListWidth = () => get(rendererSelectorRef, 'current.props.width', 0);
 
 	const getColumnWidth = dataKey => {
-		const value = columnsWidths
-			? columnsWidths.find(item => item.dataKey === dataKey)
-			: { width: 0 };
-		return value;
+		if (columnsWidths) {
+			return columnsWidths.find(item => item.dataKey === dataKey);
+		}
+		return { width: 0 };
 	};
 
 	const columnDefinitions = toColumns({
