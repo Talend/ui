@@ -6,6 +6,7 @@
 
 	.header {
 		display: flex;
+		justify-content: space-between;
 		margin-bottom: $padding-small;
 
 		.left {
@@ -13,10 +14,6 @@
 		}
 		.right {
 			padding-right: $padding-small;
-		}
-
-		.middle {
-			flex: 1;
 		}
 
 		:global(.btn-icon-only) {
