@@ -5,6 +5,8 @@ import { action } from '@storybook/addon-actions';
 import { simpleCollection } from './collection';
 import { IconsProvider } from '../../src/index';
 import List from '../../src/List/ListComposition';
+import { headerDictionary } from '../../src/VirtualizedList/utils/dictionary';
+import { headerType as headerResizableType } from '../../src/VirtualizedList/HeaderResizable';
 
 const titleProps = rowData => ({
 	onClick: action('onTitleClick'),
@@ -27,6 +29,36 @@ function CustomList(props) {
 			<List.VList.Text label="Author" dataKey="author" />
 			<List.VList.Datetime label="Created" dataKey="created" />
 			<List.VList.Datetime label="Modified" dataKey="modified" />
+		</List.VList>
+	);
+}
+
+function CustomListResizable(props) {
+	return (
+		<List.VList id="my-vlist" {...props}>
+			<List.VList.Text
+				label="Id"
+				dataKey="id"
+				resizable
+				width={400}
+				headerRenderer={headerDictionary[headerResizableType]}
+			/>
+			<List.VList.Title
+				label="Name"
+				dataKey="name"
+				columnData={titleProps}
+				resizable
+				width={400}
+				headerRenderer={headerDictionary[headerResizableType]}
+			/>
+			<List.VList.Badge
+				label="Tag"
+				dataKey="tag"
+				columnData={{ selected: true }}
+				disableSort
+				resizable
+				width={400}
+			/>
 		</List.VList>
 	);
 }
@@ -339,6 +371,73 @@ storiesOf('List Composition', module)
 			</section>
 		</div>
 	))
+	.add('Sort by and resizable column: uncontrolled', () => (
+		<div className="virtualized-list">
+			<IconsProvider />
+			<h1>List with sorting feature and resizing column</h1>
+			<p>You can change the sorting criteria by adding the component in the toolbar</p>
+			<p>
+				You can add the resizing column by adding the properties resizable, a width and use the
+				headerRenderer "headerResizableType" (note: the last column don't need to have the
+				headerRenderer)
+			</p>
+			<pre>{`
+<List.Manager id="my-list" collection={simpleCollection}>
+	<List.Toolbar>
+		<List.Toolbar.Right>
+			<List.SortBy
+			id="my-list-sortBy"
+			options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+			initialValue={{ sortBy: 'id', isDescending: true }}
+			/>
+		</List.Toolbar.Right>
+	</List.Toolbar>
+	<List.VList id="my-vlist">
+		<List.VList.Text
+			label="Id"
+			dataKey="id"
+			resizable
+			width={400}
+			headerRenderer={headerDictionary[headerResizableType]}
+		/>
+		<List.VList.Title
+			label="Name"
+			dataKey="name"
+			columnData={titleProps}
+			resizable
+			width={400}
+			headerRenderer={headerDictionary[headerResizableType]}
+		/>
+		<List.VList.Badge
+			label="Tag"
+			dataKey="tag"
+			columnData={{ selected: true }}
+			disableSort
+			resizable
+			width={400}
+		/>
+	</List.VList>
+</List.Manager>
+`}</pre>
+			<section style={{ height: '50vh' }}>
+				<List.Manager
+					collection={simpleCollection}
+					id="my-list"
+					initialSortParams={{ sortBy: 'id', isDescending: true }}
+				>
+					<List.Toolbar>
+						<List.Toolbar.Right>
+							<List.SortBy
+								id="my-list-sortBy"
+								options={[{ key: 'id', label: 'Id' }, { key: 'name', label: 'Name' }]}
+							/>
+						</List.Toolbar.Right>
+					</List.Toolbar>
+					<CustomListResizable />
+				</List.Manager>
+			</section>
+		</div>
+	))
 	.add('lots of actions, layout render: uncontrolled', () => (
 		<div className="virtualized-list">
 			<IconsProvider />
@@ -362,7 +461,7 @@ storiesOf('List Composition', module)
 							</List.Toolbar>
 							<CustomList />
 						</List.Manager>
-		
+
 `}</pre>
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection}>
