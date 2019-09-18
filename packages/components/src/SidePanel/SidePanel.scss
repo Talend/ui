@@ -167,7 +167,7 @@ $toggle-button-padding: $padding-small;
 		}
 	}
 
-	&.reverse {
+	&.reverse[role='navigation'][aria-expanded] {
 		background: $wild-sand;
 		border-right: $tc-side-panel-border-size solid $alto;
 
@@ -202,7 +202,7 @@ $toggle-button-padding: $padding-small;
 				}
 
 				&.active {
-					background-color: $list-item-color;
+					background: $list-item-color;
 
 					.btn.btn-link,
 					.tc-svg-icon {

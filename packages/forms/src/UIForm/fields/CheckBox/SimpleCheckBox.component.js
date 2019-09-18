@@ -23,6 +23,13 @@ export default function SimpleCheckBox({
 		return dataFeature ? `${dataFeature}.${checked ? 'uncheck' : 'check'}` : undefined;
 	}
 
+	function getDataChecked() {
+		if (checked) {
+			return 2;
+		}
+		return 0;
+	}
+
 	return (
 		<div className={classnames('checkbox', { disabled })}>
 			<label data-feature={getDataFeature()}>
@@ -37,7 +44,8 @@ export default function SimpleCheckBox({
 						onFinish(event, { schema, value: isChecked });
 					}}
 					type="checkbox"
-					checked={value}
+					checked={checked}
+					data-checked={getDataChecked()}
 					// eslint-disable-next-line jsx-a11y/aria-proptypes
 					aria-invalid={!isValid}
 					aria-describedby={describedby}

@@ -18,6 +18,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             >
               <input type="checkbox"
                      id="my-id-body-checkbox-Columns"
+                     data-checked="0"
                      aria-describedby="my-id-body-display all the columns"
               >
               <span>
@@ -38,6 +39,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             >
               <input type="checkbox"
                      id="my-id-body-checkbox-Id"
+                     data-checked="2"
                      aria-describedby="my-id-body-display the column Id"
                      checked
               >
@@ -59,6 +61,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             >
               <input type="checkbox"
                      id="my-id-body-checkbox-Name"
+                     data-checked="2"
                      aria-describedby="my-id-body-display the column Name"
                      checked
               >
@@ -80,6 +83,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             >
               <input type="checkbox"
                      id="my-id-body-checkbox-Author"
+                     data-checked="2"
                      aria-describedby="my-id-body-display the column Author"
                      checked
               >
@@ -101,6 +105,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             >
               <input type="checkbox"
                      id="my-id-body-checkbox-Very long name long name long name long name long name"
+                     data-checked="2"
                      aria-describedby="my-id-body-display the column Very long name long name long name long name long name"
                      checked
               >
@@ -122,6 +127,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             >
               <input type="checkbox"
                      id="my-id-body-checkbox-Icon"
+                     data-checked="0"
                      aria-describedby="my-id-body-display the column Icon"
               >
               <span>
@@ -142,6 +148,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             >
               <input type="checkbox"
                      id="my-id-body-checkbox-Created"
+                     data-checked="2"
                      aria-describedby="my-id-body-display the column Created"
                      checked
               >

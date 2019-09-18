@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-
+import startOfDay from 'date-fns/start_of_day';
 import DateTimePicker from './DateTimePicker.component';
 import DateTimeView from '../../views/DateTimeView';
 import MonthYearView from '../../views/MonthYearView';
@@ -225,6 +225,24 @@ describe('DateTimePicker', () => {
 			// then
 			expect(wrapper.state('selectedTime')).toBe(time);
 			expect(onSubmit).toBeCalledWith(event, { date: initialDate, time });
+		});
+	});
+
+	describe('today function', () => {
+		it('should switch state to DateTimeView when Today is clicked', () => {
+			// given
+			const wrapper = mount(<DateTimePicker onSubmit={() => {}} />);
+			wrapper.setState({ isDateTimeView: false });
+
+			// when
+			wrapper
+				.find({ label: 'Today' })
+				.at(0)
+				.simulate('click');
+
+			// then
+			expect(wrapper.state('isDateTimeView')).toBe(true);
+			expect(wrapper.state('selectedDate')).toStrictEqual(startOfDay(new Date()));
 		});
 	});
 });

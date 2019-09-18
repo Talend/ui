@@ -4,6 +4,8 @@
 const fs = require('fs');
 const path = require('path');
 const program = require('commander');
+const semver = require('semver');
+const colors = require('colors');
 
 program
 	.version('0.0.1')
@@ -109,7 +111,15 @@ function check(source, dep, version, category = 'dep') {
 			);
 		}
 		if (!program.quiet) {
-			console.log(`update ${dep}: '${safeVersion}' from ${source[dep]}`);
+			const willDowngrade = semver.gt(source[dep].replace('^', ''), safeVersion.replace('^', ''));
+			const message = `update ${dep}: '${safeVersion}' from ${source[dep]}`;
+
+			if (willDowngrade) {
+				console.log(colors.yellow(message));
+				console.log(colors.yellow(`Feel free to propose a version upgrade on Talend/UI : ${dep} -> ${source[dep]}`));
+			} else {
+				console.log(message);
+			}
 		}
 		// eslint-disable-next-line no-param-reassign
 		source[dep] = safeVersion;

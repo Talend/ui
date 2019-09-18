@@ -36,6 +36,7 @@ cmf.bootstrap({
 | middlewares | Array | undefined | Redux middlewares |
 | storeCallback | function | undefined | Let you call a function once the store is created |
 | AppLoader | React Component | undefined | Let you define the React component to use to show the app is currently loading (waiting for the settings) |
+| onError | object | undefined | configure error handling |
 | RootComponent | React Component | undefined | Let you define the React component to use to wrapp the App. It can be a react-router for example. |
 | registry | Object | undefined | Let you register anything you want as key/value in the CMF registry |
 | httpInterceptors | Array | undefined | Let you register interceptors |
@@ -65,3 +66,15 @@ cmf.boostrap({
 ## How to setup store using localStorage ?
 
 We provide a [simple API for that](./localStorage.md).
+
+
+## onError
+
+The error handling is well described in it's own [documentation page](./onError.md).
+
+In bootstrap you can pass the following options
+
+| attribute | default value | description |
+| -- | -- | -- |
+| reportURL | undefined | the error where to post. For example '/api/errors' |
+| sensibleKeys | [] | array of regex to remove sensible data from your app |

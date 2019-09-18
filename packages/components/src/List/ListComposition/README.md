@@ -378,3 +378,20 @@ function MySimpleList() {
 }
 ```
 
+The Toolbar got a sub component named Right.
+It allows to align children on the right and to add separator between each children.
+It uses a compound approach.
+
+```javascript
+<List.Toolbar>
+	<List.Toolbar.Right>
+		<List.TextFilter id="my-list-textFilter" />
+		<List.SortBy
+			id="my-list-sortBy"
+			options={[{ key: 'name', label: 'Name' }, { key: 'id', label: 'Id' }]}
+			initialValue={{ sortBy: 'id', isDescending: true }}
+		/>
+		<List.DisplayMode id="my-list-displayMode" />
+	</List.Toolbar.Right>
+</List.Toolbar>
+```

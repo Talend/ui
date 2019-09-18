@@ -308,6 +308,7 @@ exports[`Items should render 1`] = `
                               <label>
                                 <input
                                   aria-label="Select Lorem ipsum dolor sit amet 0"
+                                  data-checked={0}
                                   onChange={[Function]}
                                   type="checkbox"
                                 />
@@ -415,6 +416,7 @@ exports[`Items should render 1`] = `
                                 <input
                                   aria-label="Deselect Lorem ipsum dolor sit amet 1"
                                   checked={true}
+                                  data-checked={2}
                                   onChange={[Function]}
                                   type="checkbox"
                                 />
@@ -517,6 +519,7 @@ exports[`Items should render 1`] = `
                               <label>
                                 <input
                                   aria-label="Select Lorem ipsum dolor sit amet 2"
+                                  data-checked={0}
                                   onChange={[Function]}
                                   type="checkbox"
                                 />
@@ -870,6 +873,7 @@ exports[`Items should render with nested items 1`] = `
                               <label>
                                 <input
                                   aria-label="Select Lorem ipsum dolor default"
+                                  data-checked={0}
                                   onChange={[Function]}
                                   type="checkbox"
                                 />
@@ -998,6 +1002,7 @@ exports[`Items should render with nested items 1`] = `
                                 <input
                                   aria-label="Deselect Lorem ipsum dolor Parent"
                                   checked={true}
+                                  data-checked={2}
                                   onChange={[Function]}
                                   type="checkbox"
                                 />
@@ -1432,6 +1437,7 @@ exports[`Items should render with provided id 1`] = `
                               >
                                 <input
                                   aria-label="Select Lorem ipsum dolor sit amet 0"
+                                  data-checked={0}
                                   id="checkbox-my-widget-1-item"
                                   onChange={[Function]}
                                   type="checkbox"
@@ -1547,6 +1553,7 @@ exports[`Items should render with provided id 1`] = `
                                 <input
                                   aria-label="Deselect Lorem ipsum dolor sit amet 1"
                                   checked={true}
+                                  data-checked={2}
                                   id="checkbox-my-widget-2-item"
                                   onChange={[Function]}
                                   type="checkbox"
@@ -1657,6 +1664,7 @@ exports[`Items should render with provided id 1`] = `
                               >
                                 <input
                                   aria-label="Select Lorem ipsum dolor sit amet 2"
+                                  data-checked={0}
                                   id="checkbox-my-widget-3-item"
                                   onChange={[Function]}
                                   type="checkbox"

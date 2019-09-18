@@ -2,19 +2,18 @@
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+	margin-bottom: $padding-smaller;
 
 	.header {
 		display: flex;
-		height: 5rem;
-		margin-bottom: $padding-normal;
+		justify-content: space-between;
+		margin-bottom: $padding-small;
 
-		.left,
-		.right {
-			flex: 1;
+		.left {
+			padding-left: $padding-small;
 		}
-
-		.middle {
-			flex: 4;
+		.right {
+			padding-right: $padding-small;
 		}
 
 		:global(.btn-icon-only) {
