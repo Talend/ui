@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { format } from 'date-fns';
 
 const inputTextSizerStyle = {
 	fontWeight: 400,
@@ -20,11 +21,13 @@ function InputSizer({ placeholder, inputText, children }) {
 		setWidth(sizerRef.current.getBoundingClientRect().width);
 	}, [inputText, placeholder]);
 
+	const style = inputText ? inputTextSizerStyle : placeholderSizerStyle;
+	const text = inputText ? format(new Date(), placeholder) : placeholder;
 	return (
 		<React.Fragment>
 			{children(width)}
-			<span style={inputText ? inputTextSizerStyle : placeholderSizerStyle} ref={sizerRef}>
-				{placeholder}
+			<span style={style} ref={sizerRef}>
+				{text}
 			</span>
 		</React.Fragment>
 	);
@@ -32,7 +35,7 @@ function InputSizer({ placeholder, inputText, children }) {
 
 InputSizer.propTypes = {
 	placeholder: PropTypes.string.isRequired,
-	inputText: PropTypes.string.isRequired,
+	inputText: PropTypes.string,
 	children: PropTypes.func.isRequired,
 };
 
