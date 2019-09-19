@@ -84,8 +84,8 @@ function anon(value, key) {
 function prepareObject(originalState) {
 	const state = originalState && originalState.toJS ? originalState.toJS() : originalState;
 
-	if (state === undefined || state === null) {
-		return '';
+	if (state === null) {
+		return null;
 	}
 
 	return Object.keys(state).reduce((acc, key) => {
