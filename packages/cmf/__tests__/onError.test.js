@@ -42,7 +42,14 @@ describe('onError', () => {
 	});
 	describe('addAction', () => {
 		it('should add action in singleton', () => {
-			onError.addAction({ type: 'FOO', password: 'secret', value: null, other: false, number: 0 });
+			onError.addAction({
+				type: 'FOO',
+				password: 'secret',
+				value: null,
+				other: false,
+				number: 0,
+				NaN,
+			});
 			const info = onError.getReportInfo(new Error('my'));
 			expect(info.actions.length).toBe(1);
 			expect(info.actions[0]).toEqual({
@@ -51,7 +58,9 @@ describe('onError', () => {
 				value: null,
 				other: false,
 				number: 0,
+				NaN,
 			});
+			expect(info.actions[0].password).not.toBe('secret');
 		});
 		it('should keep last 20 actions', () => {
 			// eslint-disable-next-line no-plusplus
