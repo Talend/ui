@@ -13,12 +13,12 @@ exports[`HeaderResizable should render with no specific props 1`] = `
       </div>
       <input
         className="tc-header-cell-resizable-drag-accessibility theme-tc-header-cell-resizable-drag-accessibility sr-only"
-        max={100}
-        min={0}
-        onChange={[Function]}
-        step="10"
+        data-testId="resize-input-button-ally"
+        onClick={[Function]}
+        onKeyDown={[Function]}
         title="Resize column"
-        type="range"
+        type="button"
+        value="Resize column"
       />
       <span
         className="tc-header-cell-resizable-drag-button theme-tc-header-cell-resizable-drag-button"
@@ -115,13 +115,11 @@ exports[`HeaderResizable should render with no specific props 2`] = `
 <div class="tc-header-cell-resizable theme-tc-header-cell-resizable">
   <div class="tc-header-cell-resizable-truncated-text theme-tc-header-cell-resizable-truncated-text">
   </div>
-  <input class="tc-header-cell-resizable-drag-accessibility theme-tc-header-cell-resizable-drag-accessibility sr-only"
+  <input data-testid="resize-input-button-ally"
+         class="tc-header-cell-resizable-drag-accessibility theme-tc-header-cell-resizable-drag-accessibility sr-only"
          title="Resize column"
-         type="range"
-         min="0"
-         max="100"
-         step="10"
-         value
+         type="button"
+         value="Resize column"
   >
   <span class="tc-header-cell-resizable-drag-button theme-tc-header-cell-resizable-drag-button">
     <div class="tc-header-cell-resizable-drag-button-handle-icon theme-tc-header-cell-resizable-drag-button-handle-icon react-draggable"

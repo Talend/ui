@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Draggable from 'react-draggable';
+import keycode from 'keycode';
 import { defaultTableHeaderRenderer } from 'react-virtualized';
 import { ConsumerVirtualizedList } from '../virtualizedListContext';
 import headerResizableCssModule from './HeaderResizable.scss';
@@ -22,21 +23,28 @@ const HeaderResizableContent = ({ customRender, ...rest }) => {
 export class HeaderResizable extends React.Component {
 	state = {
 		resizing: false,
-		rangeValue: 0,
 	};
 
-	setResizing = resizing => {
+	onKeyDownResizeColumn = (event, resizeFn) => {
+		resizeFn(this.props.dataKey, this.getDeltaFromKeyCode(event));
+	};
+
+	setResizing = resizing => () => {
 		this.setState({
 			...this.state,
 			resizing,
 		});
 	};
 
-	setRangeValue = rangeValue => {
-		this.setState({
-			...this.state,
-			rangeValue,
-		});
+	getDeltaFromKeyCode = event => {
+		switch (event.keyCode) {
+			case keycode.codes.left:
+				return -10;
+			case keycode.codes.right:
+				return 10;
+			default:
+				return 0;
+		}
 	};
 
 	render() {
@@ -47,7 +55,7 @@ export class HeaderResizable extends React.Component {
 		/* eslint-disable jsx-a11y/no-static-element-interactions */
 		return (
 			<ConsumerVirtualizedList>
-				{({ resizeColumn, getListWidth, getColumnWidth }) => (
+				{({ resizeColumn }) => (
 					<div
 						key={dataKey}
 						className={classNames(
@@ -65,21 +73,16 @@ export class HeaderResizable extends React.Component {
 							/>
 						</div>
 						<input
+							data-testId="resize-input-button-ally"
 							className={classNames(
 								theme('tc-header-cell-resizable-drag-accessibility'),
 								'sr-only',
 							)}
 							title={tooltipLabel}
-							type="range"
-							min={getColumnWidth(dataKey).minWidth}
-							max={getListWidth()}
-							step="10"
-							value={this.state.rangeValue || getColumnWidth(dataKey).width}
-							onChange={event => {
-								const rangeValue = event.target.value;
-								resizeColumn(dataKey, rangeValue - getColumnWidth(dataKey).width);
-								this.setRangeValue(rangeValue);
-							}}
+							type="button"
+							value={tooltipLabel}
+							onKeyDown={event => this.onKeyDownResizeColumn(event, resizeColumn)}
+							onClick={event => this.onKeyDownResizeColumn(event, resizeColumn)}
 						/>
 						<span
 							onClick={event => {
@@ -90,14 +93,11 @@ export class HeaderResizable extends React.Component {
 							<Draggable
 								className={classNames(theme('tc-header-cell-resizable-drag-button-handle'))}
 								axis="x"
-								onStart={() => this.setResizing(true)}
+								onStart={this.setResizing(true)}
 								onDrag={(_, data) => {
 									resizeColumn(dataKey, data.deltaX);
-									this.setRangeValue(getColumnWidth(dataKey).width);
 								}}
-								onStop={() => {
-									this.setResizing(false);
-								}}
+								onStop={this.setResizing(false)}
 								position={{ x: 0 }}
 							>
 								<div

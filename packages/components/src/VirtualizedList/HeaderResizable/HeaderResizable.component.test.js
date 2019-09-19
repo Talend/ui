@@ -1,17 +1,9 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
+
 import { HeaderResizable } from './HeaderResizable.component';
 import { virtualizedListContext } from '../virtualizedListContext';
-
-const resizeRow = jest.fn();
-const getColumnWidth = jest.fn();
-const getListWidth = jest.fn();
-
-getColumnWidth.mockReturnValue({
-	minWidth: 0,
-});
-getListWidth.mockReturnValue(100);
 
 describe('HeaderResizable', () => {
 	it('should throw an error if used outside the virtualized list provider', () => {
@@ -29,9 +21,10 @@ describe('HeaderResizable', () => {
 		}
 	});
 	it('should render with no specific props', () => {
+		const resizeColumn = jest.fn();
 		// when
 		const wrapper = mount(
-			<virtualizedListContext.Provider value={{ resizeRow, getColumnWidth, getListWidth }}>
+			<virtualizedListContext.Provider value={{ resizeColumn }}>
 				<HeaderResizable />
 			</virtualizedListContext.Provider>,
 		);
@@ -41,10 +34,11 @@ describe('HeaderResizable', () => {
 	});
 	it('should render with label', () => {
 		// given
+		const resizeColumn = jest.fn();
 		const label = 'my header label';
 		// when
 		const wrapper = mount(
-			<virtualizedListContext.Provider value={{ resizeRow, getColumnWidth, getListWidth }}>
+			<virtualizedListContext.Provider value={{ resizeColumn }}>
 				<HeaderResizable label={label} />
 			</virtualizedListContext.Provider>,
 		);
@@ -53,10 +47,11 @@ describe('HeaderResizable', () => {
 	});
 	it('should render with custom header resizable', () => {
 		// given
+		const resizeColumn = jest.fn();
 		const label = 'my header label';
 		// when
 		const wrapper = mount(
-			<virtualizedListContext.Provider value={{ resizeRow, getColumnWidth, getListWidth }}>
+			<virtualizedListContext.Provider value={{ resizeColumn }}>
 				<HeaderResizable>
 					<button id="myCustomButton">{label}</button>
 					<span>This is a custom resizable header</span>
@@ -68,10 +63,11 @@ describe('HeaderResizable', () => {
 	});
 	it('should change resizing state when dragging is trigger', () => {
 		// given
+		const resizeColumn = jest.fn();
 		const label = 'my header label';
 		// when
 		const wrapper = mount(
-			<virtualizedListContext.Provider value={{ resizeRow, getColumnWidth, getListWidth }}>
+			<virtualizedListContext.Provider value={{ resizeColumn }}>
 				<HeaderResizable label={label} />
 			</virtualizedListContext.Provider>,
 		);
@@ -88,9 +84,10 @@ describe('HeaderResizable', () => {
 	it('should change resizing state when dragging is ended', () => {
 		// given
 		const label = 'my header label';
+		const resizeColumn = jest.fn();
 		// when
 		const wrapper = mount(
-			<virtualizedListContext.Provider value={{ resizeRow, getColumnWidth, getListWidth }}>
+			<virtualizedListContext.Provider value={{ resizeColumn }}>
 				<HeaderResizable label={label} />
 			</virtualizedListContext.Provider>,
 		);
@@ -99,5 +96,56 @@ describe('HeaderResizable', () => {
 		// then
 		wrapper.find('Draggable').simulate('mouseup');
 		expect(wrapper.state('resizing')).toBe(false);
+	});
+	it('should change the width by 10 when right keyboard is trigger', () => {
+		// given
+		const label = 'my header label';
+		const resizeColumn = jest.fn();
+		const dataKey = 'myDataKey';
+		const wrapper = mount(
+			<virtualizedListContext.Provider value={{ resizeColumn }}>
+				<HeaderResizable dataKey={dataKey} label={label} />
+			</virtualizedListContext.Provider>,
+		);
+		// when
+		wrapper
+			.find('input[data-testId="resize-input-button-ally"]')
+			.simulate('keyDown', { keyCode: 39 });
+		// then
+		expect(resizeColumn).toHaveBeenNthCalledWith(1, dataKey, 10);
+	});
+	it('should change the width by 10 when enter keyboard is trigger', () => {
+		// given
+		const label = 'my header label';
+		const resizeColumn = jest.fn();
+		const dataKey = 'myDataKey';
+		const wrapper = mount(
+			<virtualizedListContext.Provider value={{ resizeColumn }}>
+				<HeaderResizable dataKey={dataKey} label={label} />
+			</virtualizedListContext.Provider>,
+		);
+		// when
+		wrapper
+			.find('input[data-testId="resize-input-button-ally"]')
+			.simulate('keyDown', { keyCode: 'something' });
+		// then
+		expect(resizeColumn).toHaveBeenNthCalledWith(1, dataKey, 0);
+	});
+	it('should change the width by -10 when left keyboard is trigger', () => {
+		// given
+		const label = 'my header label';
+		const resizeColumn = jest.fn();
+		const dataKey = 'myDataKey';
+		const wrapper = mount(
+			<virtualizedListContext.Provider value={{ resizeColumn }}>
+				<HeaderResizable dataKey={dataKey} label={label} />
+			</virtualizedListContext.Provider>,
+		);
+		// when
+		wrapper
+			.find('input[data-testId="resize-input-button-ally"]')
+			.simulate('keyDown', { keyCode: 37 });
+		// then
+		expect(resizeColumn).toHaveBeenNthCalledWith(1, dataKey, -10);
 	});
 });
