@@ -125,8 +125,8 @@ class DatePicker extends React.PureComponent {
 										[theme['not-current-month']]: !this.isCurrentMonth(date),
 									},
 									'tc-date-picker-day',
-										'btn-tertiary',
-										'btn-default',
+									'btn-tertiary',
+									'btn-default',
 								);
 
 								let ariaLabel = format(date, 'dddd DD MMMM YYYY', pickerLocale);
