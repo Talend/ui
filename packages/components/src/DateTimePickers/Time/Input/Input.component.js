@@ -4,6 +4,7 @@ import DebounceInput from 'react-debounce-input';
 import Icon from '../../../Icon';
 import { TimeContext } from '../Context';
 import InputSizer from '../../shared/InputSizer';
+import theme from './Input.scss';
 
 export default function Input(props) {
 	const { time, inputManagement } = useContext(TimeContext);
@@ -11,7 +12,7 @@ export default function Input(props) {
 	return (
 		<InputSizer placeholder={inputManagement.placeholder} inputText={time.textInput}>
 			{width => (
-				<div style={{display: 'flex', alignItems: 'center'}}>
+				<div className={theme['time-picker-input']}>
 					<DebounceInput
 						autoComplete="off"
 						className="form-control"
@@ -22,7 +23,12 @@ export default function Input(props) {
 						{...inputManagement}
 						{...props}
 					/>
-					{time.timezone && <Icon name="talend-info-circle" title={time.timezone} />}
+					{time.timezone && (
+						<Icon
+							name="talend-info-circle"
+							title={time.timezone}
+						/>
+					)}
 				</div>
 			)}
 		</InputSizer>
