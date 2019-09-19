@@ -3,6 +3,9 @@ import React from 'react';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
 
+import 'simplebar';
+import 'simplebar/dist/simplebar.css';
+
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import '../translate';
 import Action from '../Actions/Action';
@@ -38,6 +41,7 @@ function SidePanel({
 	components,
 	docked,
 	reverse,
+	minimised,
 	large,
 	dockable,
 	onToggleDock,
@@ -46,7 +50,7 @@ function SidePanel({
 	const injected = Inject.all(getComponent, components);
 	const navCSS = classNames(theme['tc-side-panel'], 'tc-side-panel', {
 		docked,
-		[theme.docked]: docked,
+		[theme.docked]: docked || minimised,
 		large,
 		[theme.large]: large,
 		reverse,
@@ -61,8 +65,14 @@ function SidePanel({
 	const toggleButtonTitle = docked ? expandLabel : collapseTitle;
 	const Components = Inject.getAll(getComponent, { Action, ActionList });
 	return (
-		<nav id={id} className={navCSS} role="navigation" aria-expanded={!(dockable && docked)}>
-			{dockable && (
+		<nav
+			id={id}
+			data-simplebar
+			className={navCSS}
+			role="navigation"
+			aria-expanded={!((dockable && docked) || minimised)}
+		>
+			{dockable && !minimised && (
 				<div className={classNames(theme['toggle-btn'], 'tc-side-panel-toggle-btn')}>
 					<Components.Action
 						id={id && `${id}-toggle-dock`}
@@ -99,6 +109,7 @@ SidePanel.defaultProps = {
 	reverse: false,
 	large: false,
 	dockable: true,
+	minimised: false,
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -122,6 +133,7 @@ if (process.env.NODE_ENV !== 'production') {
 		reverse: PropTypes.bool,
 		large: PropTypes.bool,
 		dockable: PropTypes.bool,
+		minimised: PropTypes.bool,
 		selected: actionPropType,
 		t: PropTypes.func,
 	};
