@@ -22,7 +22,7 @@ const HeaderResizableContent = ({ customRender, ...rest }) => {
 export class HeaderResizable extends React.Component {
 	state = {
 		resizing: false,
-		rangeValue: 0,
+		// rangeValue: 0,
 	};
 
 	setResizing = resizing => {
@@ -32,12 +32,15 @@ export class HeaderResizable extends React.Component {
 		});
 	};
 
-	setRangeValue = rangeValue => {
-		this.setState({
-			...this.state,
-			rangeValue,
-		});
-	};
+	// setRangeValue = rangeValue => {
+	// 	this.setState({
+	// 		...this.state,
+	// 		rangeValue,
+	// 	});
+	// };
+
+	const on
+
 
 	render() {
 		const { children, dataKey, label, sortBy, sortDirection, t = getDefaultT() } = this.props;
@@ -70,15 +73,18 @@ export class HeaderResizable extends React.Component {
 								'sr-only',
 							)}
 							title={tooltipLabel}
-							type="range"
-							min={getColumnWidth(dataKey).minWidth}
-							max={getListWidth()}
-							step="10"
-							value={this.state.rangeValue || getColumnWidth(dataKey).width}
-							onChange={event => {
-								const rangeValue = event.target.value;
-								resizeColumn(dataKey, rangeValue - getColumnWidth(dataKey).width);
-								this.setRangeValue(rangeValue);
+							type="button"
+							value="toto"
+							onKeyDown={event => {
+								if (event.keyCode === 37) {
+									resizeColumn(dataKey, -10);
+								}
+								if (event.keyCode === 39) {
+									resizeColumn(dataKey, 10);
+								}
+							}}
+							onClick={event => {
+								resizeColumn(dataKey, 10);
 							}}
 						/>
 						<span
@@ -93,7 +99,7 @@ export class HeaderResizable extends React.Component {
 								onStart={() => this.setResizing(true)}
 								onDrag={(_, data) => {
 									resizeColumn(dataKey, data.deltaX);
-									this.setRangeValue(getColumnWidth(dataKey).width);
+									// this.setRangeValue(getColumnWidth(dataKey).width);
 								}}
 								onStop={() => {
 									this.setResizing(false);

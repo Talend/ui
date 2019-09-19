@@ -65,6 +65,7 @@ function VirtualizedList(props) {
 	}, []);
 
 	const resizeColumn = (dataKey, deltaX) => {
+		console.log({ deltaX });
 		const listWidth = get(rendererSelectorRef, 'current.props.width', 0);
 		setWidths(resizeColumns(deltaX, columnsWidths, listWidth, dataKey));
 	};
