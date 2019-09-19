@@ -191,12 +191,12 @@ describe('DatePicker', () => {
 				.at(0)
 				.prop('tabIndex'),
 		).toBe(-1);
-        expect(
-            wrapper
-                .find('.tc-date-picker-day[id]')
-                .at(0)
-                .prop('tabIndex'),
-        ).toBe(0);
+		expect(
+			wrapper
+				.find('.tc-date-picker-day[id]')
+				.at(0)
+				.prop('tabIndex'),
+		).toBe(0);
 	});
 
 	it('should have 6 weeks', () => {

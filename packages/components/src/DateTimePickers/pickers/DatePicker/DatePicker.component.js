@@ -58,7 +58,7 @@ class DatePicker extends React.PureComponent {
 		if (!selectedDate) {
 			return false;
 		}
-        return this.isCurrentYear(selectedDate) && this.isCurrentMonth(selectedDate);
+		return this.isCurrentYear(selectedDate) && this.isCurrentMonth(selectedDate);
 	}
 
 	selectDate(event, date, year, monthIndex) {
@@ -147,8 +147,8 @@ class DatePicker extends React.PureComponent {
 										date: ariaLabel,
 									});
 								}
-								const buttonProps = this.isCurrentMonth(date)? {id:day} : undefined;
-                                return (
+								const buttonProps = this.isCurrentMonth(date) ? { id: day } : undefined;
+								return (
 									<td {...tdProps}>
 										<button
 											type="button"
