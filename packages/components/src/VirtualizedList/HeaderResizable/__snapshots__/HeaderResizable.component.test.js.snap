@@ -11,19 +11,20 @@ exports[`HeaderResizable should render with no specific props 1`] = `
       >
         <HeaderResizableContent />
       </div>
-      <input
-        className="tc-header-cell-resizable-drag-accessibility theme-tc-header-cell-resizable-drag-accessibility sr-only"
-        data-testId="resize-input-button-ally"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        title="Resize column"
-        type="button"
-        value="Resize column"
-      />
       <span
         className="tc-header-cell-resizable-drag-button theme-tc-header-cell-resizable-drag-button"
         onClick={[Function]}
+        onKeyDown={[Function]}
       >
+        <input
+          className="tc-header-cell-resizable-drag-accessibility theme-tc-header-cell-resizable-drag-accessibility sr-only"
+          data-testId="resize-input-button-ally"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          title="Resize column"
+          type="button"
+          value="Resize column"
+        />
         <Draggable
           allowAnyClick={false}
           axis="x"
@@ -115,13 +116,13 @@ exports[`HeaderResizable should render with no specific props 2`] = `
 <div class="tc-header-cell-resizable theme-tc-header-cell-resizable">
   <div class="tc-header-cell-resizable-truncated-text theme-tc-header-cell-resizable-truncated-text">
   </div>
-  <input data-testid="resize-input-button-ally"
-         class="tc-header-cell-resizable-drag-accessibility theme-tc-header-cell-resizable-drag-accessibility sr-only"
-         title="Resize column"
-         type="button"
-         value="Resize column"
-  >
   <span class="tc-header-cell-resizable-drag-button theme-tc-header-cell-resizable-drag-button">
+    <input data-testid="resize-input-button-ally"
+           class="tc-header-cell-resizable-drag-accessibility theme-tc-header-cell-resizable-drag-accessibility sr-only"
+           title="Resize column"
+           type="button"
+           value="Resize column"
+    >
     <div class="tc-header-cell-resizable-drag-button-handle-icon theme-tc-header-cell-resizable-drag-button-handle-icon react-draggable"
          title="Resize column"
          style="transform: translate(0px,undefinedpx);"

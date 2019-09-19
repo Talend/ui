@@ -54,7 +54,7 @@ export class HeaderResizable extends React.Component {
 
 		/* eslint-disable jsx-a11y/no-static-element-interactions */
 		return (
-			<ConsumerVirtualizedList className={classNames(theme('tc-test'))}>
+			<ConsumerVirtualizedList>
 				{({ resizeColumn }) => (
 					<div
 						key={dataKey}
