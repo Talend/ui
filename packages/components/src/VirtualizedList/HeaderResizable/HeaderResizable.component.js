@@ -40,7 +40,6 @@ export class HeaderResizable extends React.Component {
 		switch (event.keyCode) {
 			case keycode.codes.left:
 				return -10;
-			case keycode.codes.enter:
 			case keycode.codes.right:
 				return 10;
 			default:
