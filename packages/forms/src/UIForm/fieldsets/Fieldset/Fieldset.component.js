@@ -5,7 +5,7 @@ import Widget from '../../Widget';
 
 export default function Fieldset(props) {
 	const { schema, ...restProps } = props;
-	const { title, items = [], options } = schema;
+	const { title, items, options } = schema;
 
 	return items.length ? (
 		<fieldset className="form-group">
