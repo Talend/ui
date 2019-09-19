@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import ReactDOM from 'react-dom';
 import get from 'lodash/get';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
@@ -48,16 +49,19 @@ export function renderInputComponent(props) {
 					debounceTimeout={debounceTimeout}
 					element={FormControl}
 					minLength={debounceMinLength}
-					ref={inputRef}
+					inputRef={node => {
+						// eslint-disable-next-line react/no-find-dom-node
+						inputRef.current = ReactDOM.findDOMNode(node);
+					}}
 				/>
 			) : (
 				<FormControl
 					id={key}
+					{...rest}
 					autoFocus
 					disabled={disabled}
 					readOnly={readOnly}
 					inputRef={inputRef}
-					{...rest}
 				/>
 			)}
 			{hasIcon && (
@@ -173,7 +177,7 @@ export function renderItemsContainerFactory(
 				}}
 				positionFixed
 				boundariesElement="viewport"
-				referenceElement={inputRef}
+				referenceElement={inputRef.current}
 				placement="bottom-start"
 			>
 				{({ placement = '', ref, scheduleUpdate, style }) => {
