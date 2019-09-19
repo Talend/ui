@@ -23,7 +23,7 @@ describe('HeaderTitle', () => {
 		);
 
 		// Then
-		expect(wrapper.name()).toEqual('button');
+		expect(wrapper.name()).toEqual('Action');
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
@@ -44,6 +44,6 @@ describe('HeaderTitle', () => {
 				.first()
 				.props().label,
 		).toEqual('2001');
-		expect(wrapperButton.text()).toBe('December 2002');
+		expect(wrapperButton.prop('label')).toBe('December 2002');
 	});
 });

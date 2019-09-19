@@ -12,7 +12,7 @@ exports[`TabBar component should render with selected children from item definit
     <Nav
       bsClass="nav"
       bsStyle="tabs"
-      className="tc-tab-bar"
+      className="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive"
       justified={false}
       pullLeft={false}
       pullRight={false}
@@ -20,6 +20,7 @@ exports[`TabBar component should render with selected children from item definit
     >
       <NavItem
         active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
         componentClass="button"
         data-feature="action.1"
         disabled={false}
@@ -30,6 +31,7 @@ exports[`TabBar component should render with selected children from item definit
       </NavItem>
       <NavItem
         active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
         componentClass="button"
         data-feature="action.2"
         disabled={false}
@@ -40,6 +42,7 @@ exports[`TabBar component should render with selected children from item definit
       </NavItem>
       <NavItem
         active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
         componentClass="button"
         data-feature="action.3"
         disabled={false}
@@ -50,6 +53,7 @@ exports[`TabBar component should render with selected children from item definit
       </NavItem>
       <NavItem
         active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
         componentClass="button"
         data-feature="action.4"
         disabled={false}
@@ -60,6 +64,7 @@ exports[`TabBar component should render with selected children from item definit
       </NavItem>
       <NavItem
         active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
         componentClass="button"
         data-feature="action.5"
         disabled={false}
@@ -138,7 +143,7 @@ exports[`TabBar component should render with selected children managed by user 1
     <Nav
       bsClass="nav"
       bsStyle="tabs"
-      className="tc-tab-bar"
+      className="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive"
       justified={false}
       pullLeft={false}
       pullRight={false}
@@ -146,6 +151,7 @@ exports[`TabBar component should render with selected children managed by user 1
     >
       <NavItem
         active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
         componentClass="button"
         data-feature="action.1"
         disabled={false}
@@ -156,6 +162,7 @@ exports[`TabBar component should render with selected children managed by user 1
       </NavItem>
       <NavItem
         active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
         componentClass="button"
         data-feature="action.2"
         disabled={false}
@@ -166,6 +173,7 @@ exports[`TabBar component should render with selected children managed by user 1
       </NavItem>
       <NavItem
         active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
         componentClass="button"
         data-feature="action.3"
         disabled={false}
@@ -176,6 +184,7 @@ exports[`TabBar component should render with selected children managed by user 1
       </NavItem>
       <NavItem
         active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
         componentClass="button"
         data-feature="action.4"
         disabled={false}
@@ -186,6 +195,7 @@ exports[`TabBar component should render with selected children managed by user 1
       </NavItem>
       <NavItem
         active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
         componentClass="button"
         data-feature="action.5"
         disabled={false}

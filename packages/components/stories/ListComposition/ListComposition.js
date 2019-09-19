@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { simpleCollection } from './collection';
-import { IconsProvider } from '../../src/index';
+import { ActionBar, IconsProvider } from '../../src/index';
 import List from '../../src/List/ListComposition';
 import { headerDictionary } from '../../src/VirtualizedList/utils/dictionary';
 import { headerType as headerResizableType } from '../../src/VirtualizedList/HeaderResizable';
@@ -466,6 +466,14 @@ storiesOf('List Composition', module)
 			<section style={{ height: '50vh' }}>
 				<List.Manager id="my-list" collection={simpleCollection}>
 					<List.Toolbar>
+						<ActionBar
+							actions={{
+								left: [
+									{ icon: 'talend-cog', label: 'Foo', onClick: action('foo') },
+									{ icon: 'talend-cog', label: 'Bar', onClick: action('bar') },
+								],
+							}}
+						/>
 						<List.Toolbar.Right>
 							<List.TextFilter id="my-list-textFilter" />
 							<List.SortBy
