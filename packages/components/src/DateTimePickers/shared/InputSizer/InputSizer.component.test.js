@@ -16,7 +16,7 @@ describe('InputSizer', () => {
 		});
 
 		// then
-		expect(children).toHaveBeenCalledWith(42);
+		expect(children).toHaveBeenCalledWith(47);
 	});
 	it('should apply placeholder style when no input', () => {
 		// given

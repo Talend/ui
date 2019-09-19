@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
 
+const EXTRA_SPACE = 5;
+
 const inputTextSizerStyle = {
 	fontWeight: 400,
 	fontSize: '1.6rem',
@@ -25,9 +27,9 @@ function InputSizer({ placeholder, inputText, children }) {
 	const text = inputText ? format(new Date(), placeholder) : placeholder;
 	return (
 		<React.Fragment>
-			{children(width)}
+			{children(width + EXTRA_SPACE)}
 			<span style={style} ref={sizerRef}>
-				{text}&nbsp;
+				{text}
 			</span>
 		</React.Fragment>
 	);
