@@ -29,10 +29,9 @@ describe('Fieldset widget', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should not render fieldset with empty items', () => {
+	it('should not render fieldset legend without any title', () => {
 		// given
 		const schema = {
-			title: 'My fieldset',
 			items: [
 				{
 					key: ['user', 'firstname'],
@@ -54,9 +53,10 @@ describe('Fieldset widget', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	it('should not render fieldset legend without any title', () => {
+	it('should not render fieldset with empty items', () => {
 		// given
 		const schema = {
+			title: 'My fieldset',
 			items: [],
 		};
 

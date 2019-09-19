@@ -1,16 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Fieldset widget should not render fieldset legend without any title 1`] = `null`;
-
-exports[`Fieldset widget should not render fieldset with empty items 1`] = `
+exports[`Fieldset widget should not render fieldset legend without any title 1`] = `
 <fieldset
   className="form-group"
 >
-  <legend
-    className=""
-  >
-    My fieldset
-  </legend>
   <Widget
     schema={
       Object {
@@ -43,6 +36,8 @@ exports[`Fieldset widget should not render fieldset with empty items 1`] = `
   />
 </fieldset>
 `;
+
+exports[`Fieldset widget should not render fieldset with empty items 1`] = `null`;
 
 exports[`Fieldset widget should render fieldset 1`] = `
 <fieldset
