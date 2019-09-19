@@ -11,7 +11,7 @@ import theme from './InputTimePicker.scss';
 import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 import focusOnTime from '../gesture/timePickerGesture';
 
-const PROPS_TO_OMIT_FOR_INPUT = ['id', 'required', 'value', 'useSeconds', 'onBlur', 'onChange'];
+const PROPS_TO_OMIT_FOR_INPUT = ['id', 'required', 'value', 'useSeconds', 'onBlur', 'onChange', 'timezone'];
 
 export default function InputTimePicker(props) {
 	const popoverId = `time-picker-${props.id || uuid.v4()}`;
@@ -55,6 +55,7 @@ export default function InputTimePicker(props) {
 		<Time.Manager
 			value={props.value}
 			useSeconds={props.useSeconds}
+			timezone={props.timezone}
 			onChange={(...args) => handlers.onChange(...args, inputRef.current)}
 		>
 			<FocusManager
@@ -79,6 +80,7 @@ InputTimePicker.propTypes = {
 	useSeconds: PropTypes.bool,
 	onChange: PropTypes.func,
 	onBlur: PropTypes.func,
+	timezone: PropTypes.string,
 	value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
 
