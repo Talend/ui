@@ -5,16 +5,18 @@ import Widget from '../../Widget';
 
 export default function Fieldset(props) {
 	const { schema, ...restProps } = props;
-	const { title, items, options } = schema;
+	const { title, items = [], options } = schema;
 
-	return (
+	return items.length ? (
 		<fieldset className="form-group">
-			<legend className={classnames({ 'sr-only': options && options.hideTitle })}>{title}</legend>
+			{title && (
+				<legend className={classnames({ 'sr-only': options && options.hideTitle })}>{title}</legend>
+			)}
 			{items.map((itemSchema, index) => (
 				<Widget {...restProps} key={index} schema={itemSchema} />
 			))}
 		</fieldset>
-	);
+	) : null;
 }
 
 if (process.env.NODE_ENV !== 'production') {

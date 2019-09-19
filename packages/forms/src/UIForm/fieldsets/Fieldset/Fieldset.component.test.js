@@ -29,6 +29,44 @@ describe('Fieldset widget', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should not render fieldset with empty items', () => {
+		// given
+		const schema = {
+			title: 'My fieldset',
+			items: [
+				{
+					key: ['user', 'firstname'],
+					type: 'text',
+					schema: { type: 'string' },
+				},
+				{
+					key: ['user', 'lastname'],
+					type: 'text',
+					schema: { type: 'string' },
+				},
+			],
+		};
+
+		// when
+		const wrapper = shallow(<Fieldset schema={schema} />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
+	it('should not render fieldset legend without any title', () => {
+		// given
+		const schema = {
+			items: [],
+		};
+
+		// when
+		const wrapper = shallow(<Fieldset schema={schema} />);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should hide title', () => {
 		// given
 		const schema = {
