@@ -294,16 +294,26 @@ storiesOf('DatePicker', module)
 			<IconsProvider defaultIcons={icons} />
 			<h1>TimePicker with input</h1>
 			<div style={{ display: 'flex', alignItems: 'flex-start' }}>
-				<div style={{ width: '7rem', marginRight: 60 }}>
+				<div style={{ width: '16rem', marginRight: 60 }}>
 					<p>with input</p>
 					<form>
-						<InputTimePicker onChange={action('onChange')} timezone="UTC" />
+						<InputTimePicker onChange={action('onChange')} />
 					</form>
 				</div>
-				<div style={{ width: '7rem' }}>
+				<div style={{ width: '16rem', marginRight: 60 }}>
 					<p>with initial selectedTime</p>
 					<form>
 						<InputTimePicker onChange={action('onChange')} value="12:00" />
+					</form>
+				</div>
+				<div style={{ width: '16rem' }}>
+					<p>with timezone info</p>
+					<form>
+						<InputTimePicker
+							onChange={action('onChange')}
+							value="12:00"
+							timezone="Timezone:(UTC+2:00)Paris"
+						/>
 					</form>
 				</div>
 			</div>
