@@ -15,6 +15,7 @@
     "packages/sagas",
     "packages/storybook-cmf",
     "packages/theme",
-    "packages/datagrid"
+    "packages/datagrid",
+    "packages/stepper"
   ]
 }

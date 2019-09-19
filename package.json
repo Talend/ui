@@ -33,6 +33,7 @@
     "start-components": "cd packages/components && yarn start",
     "start-containers": "cd packages/containers && yarn start",
     "start-datagrid": "cd packages/datagrid && yarn start",
+    "start-stepper": "cd packages/stepper && yarn start",
     "start-forms": "cd packages/forms && yarn start",
     "start-theme": "cd packages/theme && yarn start",
     "publish": "lerna publish --force-publish=*",
@@ -44,6 +45,7 @@
     "extract-i18n-forms": "i18next-scanner --config packages/forms/i18next-scanner.config.js 'packages/forms/src/**/*.js'",
     "extract-i18n-containers": "i18next-scanner --config packages/containers/i18next-scanner.config.js 'packages/containers/src/**/*.js'",
     "extract-i18n-datagrid": "i18next-scanner --config packages/datagrid/i18next-scanner.config.js 'packages/datagrid/src/**/*.js'",
+    "extract-i18n-stepper": "i18next-scanner --config packages/stepper/i18next-scanner.config.js 'packages/stepper/src/**/*.js'",
     "audit-router": "cd packages/router && yarn audit --json && cd ../../",
     "audit-scripts": "cd packages/scripts && yarn audit -s --json && cd ../../",
     "audit-html": "cd packages/html-webpack-plugin && yarn audit --json && cd ../../"
@@ -65,6 +67,7 @@
     "packages/generator",
     "packages/icons",
     "packages/sagas",
+    "packages/stepper",
     "packages/storybook-cmf",
     "packages/theme"
   ]
