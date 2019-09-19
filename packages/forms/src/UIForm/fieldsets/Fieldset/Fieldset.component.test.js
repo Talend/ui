@@ -50,21 +50,7 @@ describe('Fieldset widget', () => {
 		const wrapper = shallow(<Fieldset schema={schema} />);
 
 		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
-	});
-
-	it('should not render fieldset with empty items', () => {
-		// given
-		const schema = {
-			title: 'My fieldset',
-			items: [],
-		};
-
-		// when
-		const wrapper = shallow(<Fieldset schema={schema} />);
-
-		// then
-		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find('legend').length).toBe(0);
 	});
 
 	it('should hide title', () => {
