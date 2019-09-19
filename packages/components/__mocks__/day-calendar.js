@@ -28,7 +28,7 @@ class DayCalendar extends React.Component {
 								const day = getDate(date);
 								return (
 									<td key={dayIndex}>
-										<button id={this.isCurrentMonth(date) && day} onKeyDown={event => onKeyDown(event, this.calendarRef, day - 1)}>
+										<button name={this.isCurrentMonth(date) && day} onKeyDown={event => onKeyDown(event, this.calendarRef, day - 1)}>
 											{day}
 										</button>
 									</td>
