@@ -5,6 +5,10 @@ import getMonth from 'date-fns/get_month';
 import { buildWeeks } from '../src/DateTimePickers/generator';
 
 class DayCalendar extends React.Component {
+    isCurrentMonth(date) {
+        return getMonth(date) === this.props.month;
+    }
+
 	render() {
 		const { year, month, onKeyDown } = this.props;
 		const weeks = buildWeeks(year, month);
@@ -24,7 +28,7 @@ class DayCalendar extends React.Component {
 								const day = getDate(date);
 								return (
 									<td key={dayIndex}>
-										<button onKeyDown={event => onKeyDown(event, this.calendarRef, day - 1)}>
+										<button id={this.isCurrentMonth(date) && day} onKeyDown={event => onKeyDown(event, this.calendarRef, day - 1)}>
 											{day}
 										</button>
 									</td>

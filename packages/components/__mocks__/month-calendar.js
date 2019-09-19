@@ -13,46 +13,46 @@ class MonthCalendar extends React.Component {
 				<tbody>
 					<tr>
 						<td>
-							<button onKeyDown={event => onKeyDown(event, this.calendarRef, 0)}>JAN</button>
+							<button id='0' onKeyDown={event => onKeyDown(event, this.calendarRef, 0)}>JAN</button>
 						</td>
 						<td>
-							<button onKeyDown={event => onKeyDown(event, this.calendarRef, 1)}>FEB</button>
+							<button id='1' onKeyDown={event => onKeyDown(event, this.calendarRef, 1)}>FEB</button>
 						</td>
 						<td>
-							<button onKeyDown={event => onKeyDown(event, this.calendarRef, 2)}>MAR</button>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<button onKeyDown={event => onKeyDown(event, this.calendarRef, 3)}>APR</button>
-						</td>
-						<td>
-							<button onKeyDown={event => onKeyDown(event, this.calendarRef, 4)}>MAY</button>
-						</td>
-						<td>
-							<button onKeyDown={event => onKeyDown(event, this.calendarRef, 5)}>JUN</button>
+							<button id='2' onKeyDown={event => onKeyDown(event, this.calendarRef, 2)}>MAR</button>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<button onKeyDown={event => onKeyDown(event, this.calendarRef, 6)}>JULY</button>
+							<button id='3' onKeyDown={event => onKeyDown(event, this.calendarRef, 3)}>APR</button>
 						</td>
 						<td>
-							<button onKeyDown={event => onKeyDown(event, this.calendarRef, 7)}>AUG</button>
+							<button id='4' onKeyDown={event => onKeyDown(event, this.calendarRef, 4)}>MAY</button>
 						</td>
 						<td>
-							<button onKeyDown={event => onKeyDown(event, this.calendarRef, 8)}>SEP</button>
+							<button id='5' onKeyDown={event => onKeyDown(event, this.calendarRef, 5)}>JUN</button>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<button onKeyDown={event => onKeyDown(event, this.calendarRef, 9)}>OCT</button>
+							<button id='6' onKeyDown={event => onKeyDown(event, this.calendarRef, 6)}>JULY</button>
 						</td>
 						<td>
-							<button onKeyDown={event => onKeyDown(event, this.calendarRef, 10)}>NOV</button>
+							<button id='7' onKeyDown={event => onKeyDown(event, this.calendarRef, 7)}>AUG</button>
 						</td>
 						<td>
-							<button onKeyDown={event => onKeyDown(event, this.calendarRef, 11)}>DEC</button>
+							<button id='8' onKeyDown={event => onKeyDown(event, this.calendarRef, 8)}>SEP</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button id='9' onKeyDown={event => onKeyDown(event, this.calendarRef, 9)}>OCT</button>
+						</td>
+						<td>
+							<button id='10' onKeyDown={event => onKeyDown(event, this.calendarRef, 10)}>NOV</button>
+						</td>
+						<td>
+							<button id='11' onKeyDown={event => onKeyDown(event, this.calendarRef, 11)}>DEC</button>
 						</td>
 					</tr>
 				</tbody>

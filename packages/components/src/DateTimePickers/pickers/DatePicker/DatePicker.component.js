@@ -53,15 +53,12 @@ class DatePicker extends React.PureComponent {
 		return getYear(date) === this.props.calendar.year;
 	}
 
-	isSelectedInCurrentCalendar(firstDayOfCalendar, lastDayOfCalendar) {
+	isSelectedInCurrentCalendar() {
 		const { selectedDate } = this.props;
 		if (!selectedDate) {
 			return false;
 		}
-		return (
-			this.isCurrentYear(selectedDate) &&
-			this.isCurrentCalendarMonth(selectedDate, firstDayOfCalendar, lastDayOfCalendar)
-		);
+        return this.isCurrentYear(selectedDate) && this.isCurrentMonth(selectedDate);
 	}
 
 	selectDate(event, date, year, monthIndex) {
@@ -82,7 +79,7 @@ class DatePicker extends React.PureComponent {
 
 		const weeks = this.getWeeks(year, monthIndex, 1, true);
 		const dayNames = getDayNames(undefined, this.props.t);
-		const selectedInCurrentCalendar = this.isSelectedInCurrentCalendar(weeks[0][0], weeks[5][6]);
+		const selectedInCurrentCalendar = this.isSelectedInCurrentCalendar();
 
 		const monthStr = format(setMonth(new Date(0), monthIndex), 'MMMM', pickerLocale);
 
@@ -118,7 +115,7 @@ class DatePicker extends React.PureComponent {
 								const today = isToday(date);
 								const shouldBeFocussable =
 									(selectedInCurrentCalendar && selected) ||
-									(!selectedInCurrentCalendar && i === 0 && j === 0);
+									(!selectedInCurrentCalendar && day === 1);
 
 								const className = classNames(
 									theme['calendar-day'],
@@ -150,7 +147,8 @@ class DatePicker extends React.PureComponent {
 										date: ariaLabel,
 									});
 								}
-								return (
+								const buttonProps = this.isCurrentMonth(date)? {id:day} : undefined;
+                                return (
 									<td {...tdProps}>
 										<button
 											type="button"
@@ -158,8 +156,9 @@ class DatePicker extends React.PureComponent {
 											onClick={event => this.selectDate(event, date, year, monthIndex)}
 											disabled={disabled}
 											tabIndex={this.props.allowFocus && shouldBeFocussable ? 0 : -1}
-											onKeyDown={event => this.props.onKeyDown(event, this.calendarRef, i * 7 + j)}
+											onKeyDown={event => this.props.onKeyDown(event, this.calendarRef, day - 1)}
 											aria-label={ariaLabel}
+											{...buttonProps}
 										>
 											{day}
 										</button>
