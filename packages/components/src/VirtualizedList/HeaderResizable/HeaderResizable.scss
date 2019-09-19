@@ -4,7 +4,6 @@ $drag-element-width: $padding-smaller;
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
-	// padding: 0 0 0 $padding-large;
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -23,7 +22,6 @@ $drag-element-width: $padding-smaller;
 	&-truncated-text {
 		align-self: center;
 		overflow: hidden;
-		// padding-left: 0;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
@@ -47,7 +45,7 @@ $drag-element-width: $padding-smaller;
 	}
 }
 
-.tc-header-cell-resizable-drag-accessibility:focus ~ .tc-header-cell-resizable-drag-button > .tc-header-cell-resizable-drag-button-handle-icon {
+.tc-header-cell-resizable-drag-accessibility:focus ~ .tc-header-cell-resizable-drag-button-handle-icon {
 	opacity: 1;
 	background: $scooter;
 }

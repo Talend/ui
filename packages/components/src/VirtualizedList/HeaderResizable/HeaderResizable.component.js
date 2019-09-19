@@ -72,24 +72,27 @@ export class HeaderResizable extends React.Component {
 								sortDirection={sortDirection}
 							/>
 						</div>
-						<input
-							data-testId="resize-input-button-ally"
-							className={classNames(
-								theme('tc-header-cell-resizable-drag-accessibility'),
-								'sr-only',
-							)}
-							title={tooltipLabel}
-							type="button"
-							value={tooltipLabel}
-							onKeyDown={event => this.onKeyDownResizeColumn(event, resizeColumn)}
-							onClick={event => this.onKeyDownResizeColumn(event, resizeColumn)}
-						/>
 						<span
 							onClick={event => {
 								event.stopPropagation();
 							}}
+							onKeyDown={event => {
+								event.stopPropagation();
+							}}
 							className={classNames(theme('tc-header-cell-resizable-drag-button'))}
 						>
+							<input
+								data-testId="resize-input-button-ally"
+								className={classNames(
+									theme('tc-header-cell-resizable-drag-accessibility'),
+									'sr-only',
+								)}
+								title={tooltipLabel}
+								type="button"
+								value={tooltipLabel}
+								onKeyDown={event => this.onKeyDownResizeColumn(event, resizeColumn)}
+								onClick={event => this.onKeyDownResizeColumn(event, resizeColumn)}
+							/>
 							<Draggable
 								className={classNames(theme('tc-header-cell-resizable-drag-button-handle'))}
 								axis="x"

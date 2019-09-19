@@ -28,7 +28,7 @@
 }
 
 :global(div[role='columnheader'].tc-header-resizable.ReactVirtualized__Table__headerColumn) {
-	height: inherit;
+	height: calc(100% - 5px);
 	padding: 0 0 0 $padding-large;
 	position: relative;
 	overflow: hidden;
