@@ -4,6 +4,12 @@ $drag-element-width: $padding-smaller;
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
+	// padding: 0 0 0 $padding-large;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 
 	&-resizing {
 		/*
@@ -17,7 +23,7 @@ $drag-element-width: $padding-smaller;
 	&-truncated-text {
 		align-self: center;
 		overflow: hidden;
-		padding-left: $padding-small;
+		// padding-left: 0;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
