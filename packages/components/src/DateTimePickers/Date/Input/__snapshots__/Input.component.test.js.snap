@@ -20,7 +20,7 @@ exports[`Date.Input should render 1`] = `
       placeholder="YYY-MM-DD"
       style={
         Object {
-          "width": 47,
+          "width": 5,
         }
       }
       type="text"
@@ -36,7 +36,7 @@ exports[`Date.Input should render 1`] = `
         placeholder="YYY-MM-DD"
         style={
           Object {
-            "width": 47,
+            "width": 5,
           }
         }
         type="text"
