@@ -74,6 +74,7 @@ export class HeaderResizable extends React.Component {
 							/>
 						</div>
 						<input
+							data-testId="resize-input-button-ally"
 							className={classNames(
 								theme('tc-header-cell-resizable-drag-accessibility'),
 								'sr-only',
