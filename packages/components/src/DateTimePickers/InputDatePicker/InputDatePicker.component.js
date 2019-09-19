@@ -60,25 +60,27 @@ export default function InputDatePicker(props) {
 		),
 	].filter(Boolean);
 	return (
-		<Date.Manager
-			value={props.value}
-			textInput={props.textInput}
-			dateFormat={props.dateFormat}
-			onChange={(...args) => handlers.onChange(...args, inputRef.current)}
-			useUTC={props.useUTC}
-		>
-			<FocusManager
-				divRef={containerRef}
-				onClick={handlers.onClick}
-				onFocusIn={handlers.onFocus}
-				onFocusOut={handlers.onBlur}
-				onKeyDown={event => {
-					handlers.onKeyDown(event, inputRef.current);
-				}}
+		<div className="date-picker">
+			<Date.Manager
+				value={props.value}
+				textInput={props.textInput}
+				dateFormat={props.dateFormat}
+				onChange={(...args) => handlers.onChange(...args, inputRef.current)}
+				useUTC={props.useUTC}
 			>
-				{timePicker}
-			</FocusManager>
-		</Date.Manager>
+				<FocusManager
+					divRef={containerRef}
+					onClick={handlers.onClick}
+					onFocusIn={handlers.onFocus}
+					onFocusOut={handlers.onBlur}
+					onKeyDown={event => {
+						handlers.onKeyDown(event, inputRef.current);
+					}}
+				>
+					{timePicker}
+				</FocusManager>
+			</Date.Manager>
+		</div>
 	);
 }
 
