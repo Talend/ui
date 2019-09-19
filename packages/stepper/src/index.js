@@ -1,4 +1,4 @@
-import { stepperReducer } from './service/Stepper.reducer';
+import stepperReducer from './service/Stepper.reducer';
 import { initStepper, proceedLoadingEvent, removeStepper } from './service/Stepper.actions';
 import { getStepsForResource, isResourceLoading } from './service/Stepper.selectors';
 import { isAllSuccessful, isStepsLoading, isErrorInSteps } from './service/Stepper.utils';

@@ -1,6 +1,6 @@
 import { LOADING_STEP_STATUSES } from '../Stepper.constants';
 import { StepperActions } from '../index';
-import { stepperReducer } from './Stepper.reducer';
+import stepperReducer from './Stepper.reducer';
 
 const DATASET_SAMPLE_EVENTS = {
 	SAMPLE_FETCHING_STARTED: 'SAMPLE_FETCHING_STARTED',
