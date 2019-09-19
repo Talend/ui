@@ -158,7 +158,7 @@ stories
 	))
 	.add('with a large amount of items', () => (
 		<SidePanel
-			actions={_.shuffle([...items, ...other, ...other, ...other])}
+			actions={[...items, ...other, ...other, ...other]}
 			onSelect={action('onItemSelect')}
 			onToggleDock={action('onToggleDock')}
 			selected={items[1]}
@@ -192,7 +192,7 @@ stories
 				]);
 				const panel = (
 					<SidePanel
-						actions={_.shuffle([...items, ...other, ...other, ...other])}
+						actions={[...items, ...other, ...other, ...other]}
 						onSelect={action('onItemSelect')}
 						onToggleDock={() => this.setState({ docked: !this.state.docked })}
 						docked={this.state.docked}
