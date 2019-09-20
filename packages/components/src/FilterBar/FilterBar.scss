@@ -23,6 +23,10 @@ $tc-filter-bar-width: 250px !default;
 		margin-bottom: 0;
 		display: flex;
 		flex-grow: 1;
+		input {
+			padding-left: 40px;
+			padding-right: $padding-normal;
+		}
 	}
 
 	:global(.form-group.form-group) {
@@ -31,13 +35,9 @@ $tc-filter-bar-width: 250px !default;
 	}
 
 	.animate {
-		position: absolute;
+		// position: absolute;
 		width: $tc-filter-bar-width;
 		animation: reveal 1s cubic-bezier(0.4, 0, 0.2, 1);
-		input {
-			padding-left: 40px;
-			padding-right: $padding-normal;
-		}
 	}
 
 	.search {
