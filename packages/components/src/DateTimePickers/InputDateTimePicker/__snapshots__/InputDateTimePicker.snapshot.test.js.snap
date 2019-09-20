@@ -45,7 +45,7 @@ exports[`InputDateTimePicker should render 1`] = `
                       class="form-control"
                       id="my-picker-date-picker-input"
                       placeholder="YYYY-MM-DD"
-                      style="width: 5px;"
+                      style="width: 47px;"
                       type="text"
                       value="2017-04-04"
                     />
@@ -78,7 +78,7 @@ exports[`InputDateTimePicker should render 1`] = `
                         class="form-control"
                         id="my-picker-date-picker-input"
                         placeholder="YYYY-MM-DD"
-                        style="width: 5px;"
+                        style="width: 47px;"
                         type="text"
                         value="2017-04-04"
                       />,
@@ -105,7 +105,7 @@ exports[`InputDateTimePicker should render 1`] = `
                             class="form-control"
                             id="my-picker-date-picker-input"
                             placeholder="YYYY-MM-DD"
-                            style="width: 5px;"
+                            style="width: 47px;"
                             type="text"
                             value="2017-04-04"
                           />,
@@ -116,7 +116,7 @@ exports[`InputDateTimePicker should render 1`] = `
                       placeholder="YYYY-MM-DD"
                       style={
                         Object {
-                          "width": 5,
+                          "width": 47,
                         }
                       }
                       type="text"
@@ -132,7 +132,7 @@ exports[`InputDateTimePicker should render 1`] = `
                         placeholder="YYYY-MM-DD"
                         style={
                           Object {
-                            "width": 5,
+                            "width": 47,
                           }
                         }
                         type="text"
@@ -194,7 +194,7 @@ exports[`InputDateTimePicker should render 1`] = `
                       class="form-control"
                       id="my-picker-time-picker-input"
                       placeholder="HH:mm:ss"
-                      style="width: 5px;"
+                      style="width: 47px;"
                       type="text"
                       value="15:27"
                     />
@@ -228,7 +228,7 @@ exports[`InputDateTimePicker should render 1`] = `
                       class="form-control"
                       id="my-picker-time-picker-input"
                       placeholder="HH:mm:ss"
-                      style="width: 5px;"
+                      style="width: 47px;"
                       type="text"
                       value="15:27"
                     />,
@@ -258,7 +258,7 @@ exports[`InputDateTimePicker should render 1`] = `
                             class="form-control"
                             id="my-picker-time-picker-input"
                             placeholder="HH:mm:ss"
-                            style="width: 5px;"
+                            style="width: 47px;"
                             type="text"
                             value="15:27"
                           />,
@@ -269,7 +269,7 @@ exports[`InputDateTimePicker should render 1`] = `
                       placeholder="HH:mm:ss"
                       style={
                         Object {
-                          "width": 5,
+                          "width": 47,
                         }
                       }
                       type="text"
@@ -285,7 +285,7 @@ exports[`InputDateTimePicker should render 1`] = `
                         placeholder="HH:mm:ss"
                         style={
                           Object {
-                            "width": 5,
+                            "width": 47,
                           }
                         }
                         type="text"
