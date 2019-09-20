@@ -32,19 +32,23 @@ $toggle-button-padding: $padding-small;
 		transition: 0.2s min-width ease-out;
 	}
 
-	.tc-side-panel-list {
-		:global .tc-action-list-item {
-			.btn.btn-link {
-				height: $list-item-height;
-				padding-left: $padding-large;
-				> span {
-					margin-left: $padding-small;
+	.action-list-container {
+		height: 100%;
+
+		.tc-side-panel-list {
+			:global .tc-action-list-item {
+				.btn.btn-link {
+					height: $list-item-height;
+					padding-left: $padding-large;
+					> span {
+						margin-left: $padding-small;
+					}
 				}
-			}
-			.tc-svg-icon {
-				width: $tc-side-panel-icons-size;
-				height: $tc-side-panel-icons-size;
-				margin: 0;
+				.tc-svg-icon {
+					width: $tc-side-panel-icons-size;
+					height: $tc-side-panel-icons-size;
+					margin: 0;
+				}
 			}
 		}
 	}
@@ -55,13 +59,7 @@ $toggle-button-padding: $padding-small;
 		padding-top: 0;
 		padding-bottom: 0;
 		padding-left: $toggle-button-padding;
-		background: $list-item-reverse-color;
 		text-align: left;
-		position: sticky;
-		top: 0;
-		left: 0;
-		right: 0;
-		z-index: 10;
 
 		:global {
 			.btn.btn-link {

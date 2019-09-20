@@ -67,7 +67,6 @@ function SidePanel({
 	return (
 		<nav
 			id={id}
-			data-simplebar
 			className={navCSS}
 			role="navigation"
 			aria-expanded={!((dockable && docked) || minimised)}
@@ -88,14 +87,19 @@ function SidePanel({
 			)}
 			{injected('before-actions')}
 			{actions && (
-				<Components.ActionList
-					className={listCSS}
-					onSelect={onSelect}
-					selected={selected}
-					actions={actions}
-					id={id}
-					isNav
-				/>
+				<div
+					data-simplebar
+					className={classNames(theme['action-list-container'], 'tc-side-panel-action-list-container')}
+				>
+					<Components.ActionList
+						className={listCSS}
+						onSelect={onSelect}
+						selected={selected}
+						actions={actions}
+						id={id}
+						isNav
+					/>
+				</div>
 			)}
 			{injected('actions')}
 		</nav>
