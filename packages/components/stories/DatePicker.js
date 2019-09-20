@@ -291,13 +291,17 @@ storiesOf('DatePicker', module)
 				<div style={{ width: '7rem', marginRight: 60 }}>
 					<p>with input</p>
 					<form>
-						<InputTimePicker onChange={action('onChange')} />
+						<InputTimePicker onChange={action('onChange')} onBlur={action('onBlur')} />
 					</form>
 				</div>
 				<div style={{ width: '7rem' }}>
 					<p>with initial selectedTime</p>
 					<form>
-						<InputTimePicker onChange={action('onChange')} value="12:00" />
+						<InputTimePicker
+							onChange={action('onChange')}
+							onBlur={action('onBlur')}
+							value="12:00"
+						/>
 					</form>
 				</div>
 			</div>
@@ -314,7 +318,7 @@ storiesOf('DatePicker', module)
 					name="Datetime"
 					onBlur={action('onBlur')}
 					onChange={action('onChange')}
-					value={new Date(2018, 4, 13, 12, 30, 44)}
+					// value={new Date(2018, 4, 13, 12, 30, 44)}
 				/>
 			</form>
 		</div>

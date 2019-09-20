@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DateWidget from './Date.component';
 
 export default function DateTimeWidget(props) {
-	return <DateWidget {...props} useSeconds={props.options.useSeconds} useTime />;
+	return <DateWidget {...props} useSeconds={props.options.useSeconds} />;
 }
 DateTimeWidget.displayMode = 'DateTimeWidget';
 DateTimeWidget.defaultProps = {

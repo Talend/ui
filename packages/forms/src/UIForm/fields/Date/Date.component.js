@@ -33,6 +33,10 @@ class DateWidget extends React.Component {
 	onChange(event, { errorMessage, datetime, textInput }) {
 		this.setState({ errorMessage });
 
+		console.log('------------------Date.component onChange')
+		console.log(errorMessage)
+		console.log(datetime)
+		console.log(textInput)
 		let value = datetime;
 		if (!errorMessage && datetime) {
 			const { schema } = this.props.schema;
@@ -68,7 +72,6 @@ class DateWidget extends React.Component {
 			options,
 			schema,
 			useSeconds,
-			useTime,
 			value,
 			valueIsUpdating,
 		} = this.props;
@@ -97,8 +100,7 @@ class DateWidget extends React.Component {
 					onBlur={this.onBlur}
 					placeholder={schema.placeholder}
 					readOnly={schema.readOnly}
-					selectedDateTime={convertedValue}
-					useTime={useTime}
+					value={convertedValue}
 					useSeconds={useSeconds}
 					useUTC={options.useUTC}
 					// eslint-disable-next-line jsx-a11y/aria-proptypes
