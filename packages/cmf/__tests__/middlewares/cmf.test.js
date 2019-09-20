@@ -1,5 +1,10 @@
 import cmfMiddleware from '../../src/middlewares/cmf';
+import onError from '../../src/onError';
 import CONSTANT from '../../src/constant';
+
+jest.mock('../../src/onError', () => ({
+	addAction: jest.fn(),
+}));
 
 describe('CMF middleware', () => {
 	let store;
@@ -29,5 +34,15 @@ describe('CMF middleware', () => {
 		expect(arg.type).toBe(CONSTANT.COLLECTION_ADD_OR_REPLACE);
 		expect(arg.collectionId).toBe('mycollection');
 		expect(arg.data).toBe(action.response);
+	});
+	it('should call add action in error action stack', () => {
+		const action = {
+			cmf: {
+				collectionId: 'mycollection',
+			},
+			response: { somedata: true },
+		};
+		middleware(action);
+		expect(onError.addAction).toHaveBeenCalledWith(action);
 	});
 });

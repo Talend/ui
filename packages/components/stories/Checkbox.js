@@ -10,18 +10,23 @@ const defaultProps = {
 	id: 'id1',
 	onChange,
 };
-const checked = {
+const intermediate = {
 	id: 'id2',
+	onChange,
+	intermediate: true,
+};
+const checked = {
+	id: 'id3',
 	onChange,
 	checked: true,
 };
 const disabled = {
-	id: 'id3',
+	id: 'id4',
 	onChange,
 	disabled: true,
 };
 const withLabel = {
-	id: 'id4',
+	id: 'id5',
 	onChange,
 	label: 'Some label',
 };
@@ -39,6 +44,9 @@ storiesOf('Checkbox', module)
 			<form>
 				<h3>Default Checkbox</h3>
 				<Checkbox {...defaultProps} />
+
+				<h3>Checkbox with <code>intermediate: true</code></h3>
+				<Checkbox {...intermediate} />
 
 				<h3>Checkbox with <code>checked: true</code></h3>
 				<Checkbox {...checked} />

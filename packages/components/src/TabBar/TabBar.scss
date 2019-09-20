@@ -10,17 +10,16 @@
 	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z" fill="#{hex-to-url($color)}"/></svg>');
 }
 
-.tc-responsive-tab-bar {
-	overflow: hidden;
+.tc-tab-bar {
 	white-space: nowrap;
+	overflow: hidden;
 
-	li {
+	& &-item {
 		float: none;
 		display: inline-block;
 	}
-}
-.tc-responsive-tab-bar-select-container {
-	select {
+
+	&-dropdown {
 		@include caret-down($st-tropaz);
 		background-position: right center;
 		background-repeat: no-repeat;
@@ -35,7 +34,7 @@
 		appearance: none;
 		padding: 13px 30px 12px 20px;
 
-		option {
+		&-item {
 			color: initial;
 		}
 	}

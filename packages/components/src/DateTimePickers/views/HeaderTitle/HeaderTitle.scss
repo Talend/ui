@@ -5,7 +5,7 @@
 	justify-content: center;
 	align-items: center;
 	text-transform: uppercase;
-	font-weight: 600;
+	font-weight: $font-weight-semi-bold;
 
 	:global(.dropdown-menu) {
 		min-width: 63px;

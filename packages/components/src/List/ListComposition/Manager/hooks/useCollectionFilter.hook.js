@@ -21,20 +21,19 @@ export function filter(collection, textFilter, filterFunctions) {
 	);
 }
 
-export default function useCollectionFilter(
-	collection = [],
-	initialTextFilter,
-	filterFunctions = {},
-) {
-	const [textFilter, setTextFilter] = useState(initialTextFilter);
-	const filteredCollection = useMemo(() => filter(collection, textFilter, filterFunctions), [
+export const filterCollection = (textFilter, filterFunctions = {}) => (collection = []) =>
+	useMemo(() => filter(collection, textFilter, filterFunctions), [
 		collection,
 		textFilter,
 		filterFunctions,
 	]);
+
+export const useCollectionFilter = (collection = [], initialTextFilter, filterFunctions = {}) => {
+	const [textFilter, setTextFilter] = useState(initialTextFilter);
+
 	return {
-		filteredCollection,
+		filteredCollection: filterCollection(textFilter, filterFunctions)(collection),
 		textFilter,
 		setTextFilter,
 	};
-}
+};

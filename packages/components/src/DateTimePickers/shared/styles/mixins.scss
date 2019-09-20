@@ -8,12 +8,14 @@
 	font-size: 1.2rem;
 
 	&.selected {
-		background-color: $scooter;
+		background-color: $lochmara;
 		color: $white;
+		font-weight: $font-weight-semi-bold;
 	}
 
 	&:disabled {
 		color: $silver-chalice;
+		opacity: 0.54;
 	}
 }
 
