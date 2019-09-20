@@ -52,7 +52,7 @@ exports[`InputDateTimePicker should render 1`] = `
                     <span
                       style="font-weight: 400; font-size: 1.6rem; visibility: hidden;"
                     >
-                      2019-09-19
+                      2017-04-04
                     </span>
                   </div>,
                 }
@@ -148,7 +148,7 @@ exports[`InputDateTimePicker should render 1`] = `
                         }
                       }
                     >
-                      2019-09-19
+                      2017-04-04
                     </span>
                   </InputSizer>
                 </Date.Input>
@@ -202,7 +202,7 @@ exports[`InputDateTimePicker should render 1`] = `
                   <span
                     style="font-weight: 400; font-size: 1.6rem; visibility: hidden;"
                   >
-                    11:55:46
+                    15:27
                   </span>
                 </div>,
               }
@@ -302,7 +302,7 @@ exports[`InputDateTimePicker should render 1`] = `
                       }
                     }
                   >
-                    11:55:46
+                    15:27
                   </span>
                 </InputSizer>
               </Time.Input>

@@ -11,7 +11,7 @@ export default function Input(props) {
 	const { time, inputManagement } = useContext(TimeContext);
 
 	return (
-		<InputSizer placeholder={inputManagement.placeholder} inputText={time.textInput}>
+		<InputSizer placeholder={inputManagement.placeholder} inputText={time.time ? time.textInput : ''}>
 			{width => (
 				<div className={theme['time-picker-input']}>
 					<DebounceInput
