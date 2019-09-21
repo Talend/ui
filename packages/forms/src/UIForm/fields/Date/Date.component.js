@@ -32,11 +32,6 @@ class DateWidget extends React.Component {
 
 	onChange(event, { errorMessage, datetime, textInput }) {
 		this.setState({ errorMessage });
-
-		console.log('------------------Date.component onChange')
-		console.log(errorMessage)
-		console.log(datetime)
-		console.log(textInput)
 		let value = datetime;
 		if (!errorMessage && datetime) {
 			const { schema } = this.props.schema;
