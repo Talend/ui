@@ -7,7 +7,7 @@ const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/
 
 const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
 
-export function DatePickerException(code, message) {
+export function DateTimePickerException(code, message) {
 	this.message = getErrorMessage(message);
 	this.code = code;
 }
@@ -92,8 +92,21 @@ function timeToSeconds(hours, minutes, seconds) {
  * @returns {Date}
  */
 function dateAndTimeToDateTime(date, time, { useUTC }) {
-	if (date === undefined || time === undefined) {
-		return INTERNAL_INVALID_DATE;
+	if (date === undefined) {
+		const error = new DateTimePickerException('INVALID_DATE_EMPTY', 'INVALID_DATE_EMPTY');
+		return {
+			datetime: INTERNAL_INVALID_DATE,
+			errors: [error],
+			errorMessage: error.message,
+		};
+	}
+	if (time === undefined) {
+		const error = new DateTimePickerException('INVALID_TIME_EMPTY', 'INVALID_TIME_EMPTY');
+		return {
+			datetime: INTERNAL_INVALID_DATE,
+			errors: [error],
+			errorMessage: error.message,
+		};
 	}
 
 	try {
@@ -102,7 +115,11 @@ function dateAndTimeToDateTime(date, time, { useUTC }) {
 		const localTimezoneDate = setSeconds(date, timeInSeconds);
 		return useUTC ? convertToUTC(localTimezoneDate) : localTimezoneDate;
 	} catch (e) {
-		return INTERNAL_INVALID_DATE;
+		return {
+			datetime: INTERNAL_INVALID_DATE,
+			errors: [e],
+			errorMessage: e.message,
+		};
 	}
 }
 
