@@ -10,7 +10,7 @@
 	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z" fill="#{hex-to-url($color)}"/></svg>');
 }
 
-$tc-tabbar-active-border-size: .2rem !default;
+$tc-tabbar-active-border-size: 0.2rem !default;
 
 .tc-tab-bar {
 	white-space: nowrap;
