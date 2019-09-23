@@ -45,8 +45,6 @@ class DatePicker extends React.PureComponent {
 		return getMonth(date) === this.props.calendar.monthIndex;
 	}
 
-
-
 	isCurrentYear(date) {
 		return getYear(date) === this.props.calendar.year;
 	}

@@ -18,7 +18,7 @@ function getDisabledChecker(disabledDates) {
 describe('DatePicker', () => {
 	const YEAR = 2018;
 	const MONTH_INDEX = 5; // month July
-    // last 4 days of May will be showed in current calendar month
+	// last 4 days of May will be showed in current calendar month
 	const numOfPreviousDaysInCurrentCalendar = 4;
 
 	beforeEach(() => {
