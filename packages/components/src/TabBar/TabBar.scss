@@ -41,7 +41,7 @@ $underline-height: 2px;
 				color: $lochmara;
 			}
 
-			&[aria-selected=true] {
+			&[aria-selected='true'] {
 				position: relative;
 
 				font-size: 14px;

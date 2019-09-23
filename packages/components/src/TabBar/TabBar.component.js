@@ -171,7 +171,8 @@ function TabBar(props) {
 								<Icon
 									className={classnames(theme['tc-tab-bar-item-icon'], 'tc-tab-bar-item-icon')}
 									{...icon}
-								/>)}
+								/>
+							)}
 							{item.label}
 						</NavItem>
 					))}
