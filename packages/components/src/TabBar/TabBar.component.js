@@ -164,22 +164,24 @@ function TabBar(props) {
 					ref={tabBarRef}
 				>
 					{items.map(({ icon, ...item }) => (
-						<TooltipTrigger label={item.label} tooltipPlacement={props.tooltipPlacement}>
-							<NavItem
-								className={classnames(theme['tc-tab-bar-item'], 'tc-tab-bar-item')}
-								{...item}
-								eventKey={item.key}
-								componentClass="button"
-							>
-								{icon && (
-									<Icon
-										className={classnames(theme['tc-tab-bar-item-icon'], 'tc-tab-bar-item-icon')}
-										{...icon}
-									/>
-								)}
-								{item.label}
-							</NavItem>
-						</TooltipTrigger>
+						<NavItem
+							className={classnames(theme['tc-tab-bar-item'], 'tc-tab-bar-item')}
+							{...item}
+							eventKey={item.key}
+							componentClass="button"
+						>
+							<TooltipTrigger label={item.label} tooltipPlacement={props.tooltipPlacement}>
+								<React.Fragment>
+									{icon && (
+										<Icon
+											className={classnames(theme['tc-tab-bar-item-icon'], 'tc-tab-bar-item-icon')}
+											{...icon}
+										/>
+									)}
+									{item.label}
+								</React.Fragment>
+							</TooltipTrigger>
+						</NavItem>
 					))}
 				</Nav>
 				{tabContent}
