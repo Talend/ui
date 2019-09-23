@@ -11,6 +11,7 @@
 }
 
 $tc-tabbar-active-border-size: 0.2rem !default;
+$tc-tabbar-active-color: $lochmara;
 
 .tc-tab-bar {
 	white-space: nowrap;
@@ -39,14 +40,14 @@ $tc-tabbar-active-border-size: 0.2rem !default;
 			text-overflow: ellipsis;
 
 			&:hover {
-				color: $lochmara;
+				color: $tc-tabbar-active-color;
 			}
 
 			&[aria-selected='true'] {
 				position: relative;
 
 				font-weight: semi-bold;
-				color: $lochmara;
+				color: $tc-tabbar-active-color;
 				box-shadow: none;
 
 				&:after {
@@ -57,7 +58,7 @@ $tc-tabbar-active-border-size: 0.2rem !default;
 					right: $padding-small;
 					bottom: 0;
 
-					border-bottom: solid $tc-tabbar-active-border-size $lochmara;
+					border-bottom: solid $tc-tabbar-active-border-size $tc-tabbar-active-color;
 				}
 			}
 		}
