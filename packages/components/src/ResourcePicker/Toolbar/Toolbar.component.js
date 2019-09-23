@@ -1,5 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
 import NameFilter from './NameFilter';
 import SortOptions from './SortOptions';
 import StateFilter from './StateFilter';
@@ -26,9 +28,9 @@ function Toolbar({ name, sort, state }) {
 }
 
 Toolbar.propTypes = {
-	name: NameFilter.propTypes,
-	state: StateFilter.propTypes,
-	sort: SortOptions.propTypes,
+	name: PropTypes.shape(NameFilter.propTypes),
+	state: PropTypes.shape(StateFilter.propTypes),
+	sort: PropTypes.shape(SortOptions.propTypes),
 };
 
 export default Toolbar;
