@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
-import RcSlider from 'rc-slider';
+import RcSlider, { Range } from 'rc-slider';
 import Tooltip from 'rc-tooltip';
 import range from 'lodash/range';
 import 'rc-slider/assets/index.css'; // eslint-disable-line no-unused-vars
@@ -205,7 +205,7 @@ class Slider extends React.Component {
 
 	static propTypes = {
 		id: PropTypes.string,
-		value: PropTypes.number,
+		value: PropTypes.oneOf([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
 		onChange: PropTypes.func.isRequired,
 		onAfterChange: PropTypes.func,
 		captionActions: PropTypes.array,
@@ -239,20 +239,35 @@ class Slider extends React.Component {
 			...rest
 		} = this.props;
 		const noValue = value === null || value === undefined;
+		console.log(Array.isArray(value));
 		return (
 			<div>
 				<div className={classnames(theme['tc-slider'], 'tc-slider')}>
-					<RcSlider
-						id={id}
-						value={value}
-						min={min}
-						max={max}
-						handle={noValue ? undefined : this.state.handle}
-						className={classnames(theme['tc-slider-rc-slider'], 'tc-slider-rc-slider')}
-						onChange={onChange}
-						disabled={disabled}
-						{...rest}
-					/>
+					{!Array.isArray(value) ? (
+						<RcSlider
+							id={id}
+							value={value}
+							min={min}
+							max={max}
+							handle={noValue ? undefined : this.state.handle}
+							className={classnames(theme['tc-slider-rc-slider'], 'tc-slider-rc-slider')}
+							onChange={onChange}
+							disabled={disabled}
+							{...rest}
+						/>
+					) : (
+						<Range
+							id={id}
+							value={value}
+							min={min}
+							max={max}
+							handle={noValue ? undefined : this.state.handle}
+							className={classnames(theme['tc-slider-rc-slider'], 'tc-slider-rc-slider')}
+							onChange={onChange}
+							disabled={disabled}
+							{...rest}
+						/>
+					)}
 				</div>
 				{getCaption(
 					captionActions,
