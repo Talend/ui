@@ -68,11 +68,6 @@ const actions = [
 const functionToFormat = value => `${value}-test`;
 const functionFormatFloor = value => `${Math.floor(value)}`;
 
-const InteractiveSlider = props => {
-	const [value, setValue] = useState(props.value);
-	return <Slider {...props} onChange={setValue} value={value} />;
-};
-
 storiesOf('Slider', module).add('default', () => (
 	<section>
 		<IconsProvider />
@@ -102,8 +97,8 @@ storiesOf('Slider', module).add('default', () => (
 				<Slider value={25} captionTextStepNumber={5} captionsFormat={functionFormatFloor} />
 			</div>
 			<div style={delimiterStyle}>
-				<p>with interactive range</p>
-				<InteractiveSlider min={0} max={100} value={[25, 75]} allowCross={false} />
+				<p>with range</p>
+				<Slider min={0} max={100} value={[25, 75]} allowCross={false} />
 			</div>
 		</div>
 	</section>
