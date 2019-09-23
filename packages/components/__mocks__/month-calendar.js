@@ -13,46 +13,46 @@ class MonthCalendar extends React.Component {
 				<tbody>
 					<tr>
 						<td>
-							<button name='0' onKeyDown={event => onKeyDown(event, this.calendarRef, 0)}>JAN</button>
+							<button name="0" onKeyDown={event => onKeyDown(event, this.calendarRef, 0)}>JAN</button>
 						</td>
 						<td>
-							<button name='1' onKeyDown={event => onKeyDown(event, this.calendarRef, 1)}>FEB</button>
+							<button name="1" onKeyDown={event => onKeyDown(event, this.calendarRef, 1)}>FEB</button>
 						</td>
 						<td>
-							<button name='2' onKeyDown={event => onKeyDown(event, this.calendarRef, 2)}>MAR</button>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<button name='3' onKeyDown={event => onKeyDown(event, this.calendarRef, 3)}>APR</button>
-						</td>
-						<td>
-							<button name='4' onKeyDown={event => onKeyDown(event, this.calendarRef, 4)}>MAY</button>
-						</td>
-						<td>
-							<button name='5' onKeyDown={event => onKeyDown(event, this.calendarRef, 5)}>JUN</button>
+							<button name="2" onKeyDown={event => onKeyDown(event, this.calendarRef, 2)}>MAR</button>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<button name='6' onKeyDown={event => onKeyDown(event, this.calendarRef, 6)}>JULY</button>
+							<button name="3" onKeyDown={event => onKeyDown(event, this.calendarRef, 3)}>APR</button>
 						</td>
 						<td>
-							<button name='7' onKeyDown={event => onKeyDown(event, this.calendarRef, 7)}>AUG</button>
+							<button name="4" onKeyDown={event => onKeyDown(event, this.calendarRef, 4)}>MAY</button>
 						</td>
 						<td>
-							<button name='8' onKeyDown={event => onKeyDown(event, this.calendarRef, 8)}>SEP</button>
+							<button name="5" onKeyDown={event => onKeyDown(event, this.calendarRef, 5)}>JUN</button>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<button name='9' onKeyDown={event => onKeyDown(event, this.calendarRef, 9)}>OCT</button>
+							<button name="6" onKeyDown={event => onKeyDown(event, this.calendarRef, 6)}>JULY</button>
 						</td>
 						<td>
-							<button name='10' onKeyDown={event => onKeyDown(event, this.calendarRef, 10)}>NOV</button>
+							<button name="7" onKeyDown={event => onKeyDown(event, this.calendarRef, 7)}>AUG</button>
 						</td>
 						<td>
-							<button name='11' onKeyDown={event => onKeyDown(event, this.calendarRef, 11)}>DEC</button>
+							<button name="8" onKeyDown={event => onKeyDown(event, this.calendarRef, 8)}>SEP</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button name="9" onKeyDown={event => onKeyDown(event, this.calendarRef, 9)}>OCT</button>
+						</td>
+						<td>
+							<button name="10" onKeyDown={event => onKeyDown(event, this.calendarRef, 10)}>NOV</button>
+						</td>
+						<td>
+							<button name="11" onKeyDown={event => onKeyDown(event, this.calendarRef, 11)}>DEC</button>
 						</td>
 					</tr>
 				</tbody>
@@ -60,7 +60,7 @@ class MonthCalendar extends React.Component {
 		);
 	}
 }
-MonthCalendar.displayName = 'MonthCalendar';
+MonthCalendar.displayName = "MonthCalendar";
 MonthCalendar.propTypes = {
 	onKeyDown: PropTypes.func.isRequired,
 };

@@ -10,7 +10,6 @@ import isSameDay from 'date-fns/is_same_day';
 import setMonth from 'date-fns/set_month';
 import format from 'date-fns/format';
 import startOfMonth from 'date-fns/start_of_month';
-import isWithinRange from 'date-fns/is_within_range';
 
 import theme from './DatePicker.scss';
 import { buildDayNames, buildWeeks, getPickerLocale } from '../../generator';
