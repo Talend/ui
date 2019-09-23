@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import memoizeOne from 'memoize-one';
-import InputDateTimePicker from '@talend/react-components/lib/DateTimePickers';
+import { InputDatePicker } from '@talend/react-components/lib/DateTimePickers';
 import FieldTemplate from '../FieldTemplate';
 import { isoDateTimeRegExp } from '../../customFormats';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
@@ -86,7 +86,7 @@ class DateWidget extends React.Component {
 				required={schema.required}
 				valueIsUpdating={valueIsUpdating}
 			>
-				<InputDateTimePicker
+				<InputDatePicker
 					autoFocus={schema.autoFocus}
 					dateFormat={options.dateFormat}
 					disabled={schema.disabled || valueIsUpdating}
@@ -136,7 +136,6 @@ if (process.env.NODE_ENV !== 'production') {
 				type: PropTypes.string,
 			}),
 		}),
-		useTime: PropTypes.bool,
 		useSeconds: PropTypes.bool,
 		value: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.instanceOf(Date)]),
 		valueIsUpdating: PropTypes.bool,
