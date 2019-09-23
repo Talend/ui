@@ -5,9 +5,9 @@ import getMonth from 'date-fns/get_month';
 import { buildWeeks } from '../src/DateTimePickers/generator';
 
 class DayCalendar extends React.Component {
-    isCurrentMonth(date) {
-        return getMonth(date) === this.props.month;
-    }
+	isCurrentMonth(date) {
+		return getMonth(date) === this.props.month;
+	}
 
 	render() {
 		const { year, month, onKeyDown } = this.props;
