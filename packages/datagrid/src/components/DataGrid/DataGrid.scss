@@ -35,6 +35,11 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 
 	:global(.ag-react-container) {
 		height: 100%;
+		width: 100%;
+	}
+
+	:global(.ag-header-cell-resize) {
+		cursor: col-resize;
 	}
 	/* ==== PIN ==== */
 	:global(.ag-pinned-left-header) {
