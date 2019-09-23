@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "ag-grid-community": "^21.2.1",
-    "ag-grid-react": "^21.2.1 ",
+    "ag-grid-react": "^21.2.1",
     "classnames": "^2.2.5",
     "keycode": "^2.2.0",
     "lodash": "^4.17.4"
