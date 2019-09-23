@@ -87,15 +87,15 @@ describe('Date generator', () => {
 					new Date(2018, 5, 30),
 					new Date(2018, 6, 1),
 				],
-                [
-                    new Date(2018, 6, 2),
-                    new Date(2018, 6, 3),
-                    new Date(2018, 6, 4),
-                    new Date(2018, 6, 5),
-                    new Date(2018, 6, 6),
-                    new Date(2018, 6, 7),
-                    new Date(2018, 6, 8),
-                ]
+				[
+					new Date(2018, 6, 2),
+					new Date(2018, 6, 3),
+					new Date(2018, 6, 4),
+					new Date(2018, 6, 5),
+					new Date(2018, 6, 6),
+					new Date(2018, 6, 7),
+					new Date(2018, 6, 8),
+				],
 			]);
 		});
 
@@ -150,15 +150,15 @@ describe('Date generator', () => {
 					new Date(2018, 6, 1),
 					new Date(2018, 6, 2),
 				],
-                [
-                    new Date(2018, 6, 3),
-                    new Date(2018, 6, 4),
-                    new Date(2018, 6, 5),
-                    new Date(2018, 6, 6),
-                    new Date(2018, 6, 7),
-                    new Date(2018, 6, 8),
-                    new Date(2018, 6, 9),
-                ],
+				[
+					new Date(2018, 6, 3),
+					new Date(2018, 6, 4),
+					new Date(2018, 6, 5),
+					new Date(2018, 6, 6),
+					new Date(2018, 6, 7),
+					new Date(2018, 6, 8),
+					new Date(2018, 6, 9),
+				],
 			]);
 		});
 	});

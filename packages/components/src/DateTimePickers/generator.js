@@ -41,9 +41,7 @@ export function buildWeeks(year, monthIndex, firstDayOfWeek = 1) {
 		weekStartsOn: firstDayOfWeek,
 	});
 
-	const dates = new Array(7 * 6)
-		.fill(0)
-		.map((_, i) => addDays(firstDateOfCalendar, i));
+	const dates = new Array(7 * 6).fill(0).map((_, i) => addDays(firstDateOfCalendar, i));
 
 	return chunk(dates, 7);
 }
