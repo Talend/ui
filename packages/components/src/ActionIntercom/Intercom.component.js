@@ -39,7 +39,7 @@ function Intercom({ id, className, config, t, tooltipPlacement }) {
 		: t('TC_INTERCOM_OPEN', { defaultValue: 'Chat with Talend Support' });
 
 	return (
-		<TooltipTrigger label={label} tooltipPlacement={'top-right'}>
+		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
 			<button
 				ref={ref}
 				id={id}
