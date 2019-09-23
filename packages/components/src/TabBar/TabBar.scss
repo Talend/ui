@@ -42,7 +42,7 @@ $tc-tabbar-active-border-size: .2rem !default;
 				color: $lochmara;
 			}
 
-			&[aria-selected=true] {
+			&[aria-selected='true'] {
 				position: relative;
 
 				font-weight: semi-bold;
