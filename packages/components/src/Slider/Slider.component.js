@@ -243,19 +243,17 @@ class Slider extends React.Component {
 		return (
 			<div>
 				<div className={classnames(theme['tc-slider'], 'tc-slider')}>
-					{
-						<Component
-							id={id}
-							value={value}
-							min={min}
-							max={max}
-							handle={noValue ? undefined : this.state.handle}
-							className={classnames(theme['tc-slider-rc-slider'], 'tc-slider-rc-slider')}
-							onChange={onChange}
-							disabled={disabled}
-							{...rest}
-						/>
-					}
+					<Component
+						id={id}
+						value={value}
+						min={min}
+						max={max}
+						handle={noValue ? undefined : this.state.handle}
+						className={classnames(theme['tc-slider-rc-slider'], 'tc-slider-rc-slider')}
+						onChange={onChange}
+						disabled={disabled}
+						{...rest}
+					/>
 				</div>
 				{getCaption(
 					captionActions,
