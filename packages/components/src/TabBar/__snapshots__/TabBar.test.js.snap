@@ -27,7 +27,14 @@ exports[`TabBar component should render with selected children from item definit
         eventKey="1"
         label="Tab1"
       >
-        Tab1
+        <TooltipTrigger
+          label="Tab1"
+          tooltipPlacement="top"
+        >
+          <React.Fragment>
+            Tab1
+          </React.Fragment>
+        </TooltipTrigger>
       </NavItem>
       <NavItem
         active={false}
@@ -38,7 +45,14 @@ exports[`TabBar component should render with selected children from item definit
         eventKey="2"
         label="Tab2"
       >
-        Tab2
+        <TooltipTrigger
+          label="Tab2"
+          tooltipPlacement="top"
+        >
+          <React.Fragment>
+            Tab2
+          </React.Fragment>
+        </TooltipTrigger>
       </NavItem>
       <NavItem
         active={false}
@@ -49,7 +63,14 @@ exports[`TabBar component should render with selected children from item definit
         eventKey="3"
         label="Tab3"
       >
-        Tab3
+        <TooltipTrigger
+          label="Tab3"
+          tooltipPlacement="top"
+        >
+          <React.Fragment>
+            Tab3
+          </React.Fragment>
+        </TooltipTrigger>
       </NavItem>
       <NavItem
         active={false}
@@ -60,7 +81,14 @@ exports[`TabBar component should render with selected children from item definit
         eventKey="4"
         label="Tab4"
       >
-        Tab4
+        <TooltipTrigger
+          label="Tab4"
+          tooltipPlacement="top"
+        >
+          <React.Fragment>
+            Tab4
+          </React.Fragment>
+        </TooltipTrigger>
       </NavItem>
       <NavItem
         active={false}
@@ -71,7 +99,14 @@ exports[`TabBar component should render with selected children from item definit
         eventKey="5"
         label="Tab5"
       >
-        Tab5
+        <TooltipTrigger
+          label="Tab5"
+          tooltipPlacement="top"
+        >
+          <React.Fragment>
+            Tab5
+          </React.Fragment>
+        </TooltipTrigger>
       </NavItem>
     </Nav>
     <TabContent
@@ -158,7 +193,14 @@ exports[`TabBar component should render with selected children managed by user 1
         eventKey="1"
         label="Tab1"
       >
-        Tab1
+        <TooltipTrigger
+          label="Tab1"
+          tooltipPlacement="top"
+        >
+          <React.Fragment>
+            Tab1
+          </React.Fragment>
+        </TooltipTrigger>
       </NavItem>
       <NavItem
         active={false}
@@ -169,7 +211,14 @@ exports[`TabBar component should render with selected children managed by user 1
         eventKey="2"
         label="Tab2"
       >
-        Tab2
+        <TooltipTrigger
+          label="Tab2"
+          tooltipPlacement="top"
+        >
+          <React.Fragment>
+            Tab2
+          </React.Fragment>
+        </TooltipTrigger>
       </NavItem>
       <NavItem
         active={false}
@@ -180,7 +229,14 @@ exports[`TabBar component should render with selected children managed by user 1
         eventKey="3"
         label="Tab3"
       >
-        Tab3
+        <TooltipTrigger
+          label="Tab3"
+          tooltipPlacement="top"
+        >
+          <React.Fragment>
+            Tab3
+          </React.Fragment>
+        </TooltipTrigger>
       </NavItem>
       <NavItem
         active={false}
@@ -191,7 +247,14 @@ exports[`TabBar component should render with selected children managed by user 1
         eventKey="4"
         label="Tab4"
       >
-        Tab4
+        <TooltipTrigger
+          label="Tab4"
+          tooltipPlacement="top"
+        >
+          <React.Fragment>
+            Tab4
+          </React.Fragment>
+        </TooltipTrigger>
       </NavItem>
       <NavItem
         active={false}
@@ -202,7 +265,14 @@ exports[`TabBar component should render with selected children managed by user 1
         eventKey="5"
         label="Tab5"
       >
-        Tab5
+        <TooltipTrigger
+          label="Tab5"
+          tooltipPlacement="top"
+        >
+          <React.Fragment>
+            Tab5
+          </React.Fragment>
+        </TooltipTrigger>
       </NavItem>
     </Nav>
     <TabContent

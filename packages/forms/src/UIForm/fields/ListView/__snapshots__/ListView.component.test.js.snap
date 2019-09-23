@@ -569,58 +569,59 @@ exports[`ListView field render should render no items message 1`] = `
                     label="Search for specific values"
                     tooltipPlacement="top"
                   >
-                    <Button
-                      active={false}
+                    <div
                       aria-describedby={42}
-                      aria-label="Search for specific values"
-                      block={false}
-                      bsClass="btn"
-                      bsStyle="link"
-                      className="btn-icon-only"
-                      disabled={false}
-                      key=".0"
+                      className="theme-tc-tooltip"
                       onBlur={[Function]}
                       onClick={[Function]}
                       onFocus={[Function]}
                       onKeyPress={[Function]}
-                      onMouseDown={[Function]}
                       onMouseOut={[Function]}
                       onMouseOver={[Function]}
-                      role="link"
                     >
-                      <button
+                      <Button
+                        active={false}
                         aria-describedby={42}
                         aria-label="Search for specific values"
-                        className="btn-icon-only btn btn-link"
+                        block={false}
+                        bsClass="btn"
+                        bsStyle="link"
+                        className="btn-icon-only"
                         disabled={false}
-                        onBlur={[Function]}
+                        key=".0"
                         onClick={[Function]}
-                        onFocus={[Function]}
-                        onKeyPress={[Function]}
                         onMouseDown={[Function]}
-                        onMouseOut={[Function]}
-                        onMouseOver={[Function]}
                         role="link"
-                        type="button"
                       >
-                        <Icon
-                          key="icon"
-                          name="talend-search"
+                        <button
+                          aria-describedby={42}
+                          aria-label="Search for specific values"
+                          className="btn-icon-only btn btn-link"
+                          disabled={false}
+                          onClick={[Function]}
+                          onMouseDown={[Function]}
+                          role="link"
+                          type="button"
                         >
-                          <svg
-                            aria-hidden="true"
-                            className="theme-tc-svg-icon tc-svg-icon"
-                            focusable="false"
+                          <Icon
+                            key="icon"
                             name="talend-search"
-                            title={null}
                           >
-                            <use
-                              xlinkHref="#talend-search"
-                            />
-                          </svg>
-                        </Icon>
-                      </button>
-                    </Button>
+                            <svg
+                              aria-hidden="true"
+                              className="theme-tc-svg-icon tc-svg-icon"
+                              focusable="false"
+                              name="talend-search"
+                              title={null}
+                            >
+                              <use
+                                xlinkHref="#talend-search"
+                              />
+                            </svg>
+                          </Icon>
+                        </button>
+                      </Button>
+                    </div>
                   </TooltipTrigger>
                 </ActionButton>
               </withI18nextTranslation(ActionButton)>
