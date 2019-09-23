@@ -17,7 +17,7 @@ function MonthYearView(props) {
 				icon="talend-arrow-left"
 				onClick={props.onBackClick}
 				tabIndex={props.allowFocus ? 0 : -1}
-				link
+				className="btn-tertiary btn-info"
 			/>
 		),
 		middleElement: (

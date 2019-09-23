@@ -7,12 +7,17 @@ import format from 'date-fns/format';
 import theme from './HeaderTitle.scss';
 import { getPickerLocale } from '../../generator';
 import getDefaultT from '../../../translate';
-import { ActionDropdown } from '../../../Actions';
+import { ActionDropdown, Action } from '../../../Actions';
 import YearPicker from '../../pickers/YearPicker';
 
 function HeaderTitle(props) {
 	const isButton = !!props.button;
-	const className = classNames(theme.common, { [theme.button]: isButton }, props.className);
+	const className = classNames(
+		theme.common,
+		{ [theme.button]: isButton },
+		{ 'btn-tertiary btn-info': isButton },
+		props.className,
+	);
 	const propsToSpread = {
 		className,
 		...(isButton ? props.button : {}),
@@ -25,11 +30,7 @@ function HeaderTitle(props) {
 	const monthLabel = format(date, 'MMMM', pickerLocale);
 
 	if (isButton) {
-		return (
-			<button type="button" {...propsToSpread}>
-				{label}
-			</button>
-		);
+		return <Action {...propsToSpread} label={label} />;
 	}
 
 	return (

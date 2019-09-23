@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
@@ -32,6 +32,21 @@ const tabProps = {
 			label: 'Tab5',
 			'data-feature': 'action.5',
 		},
+		{
+			key: '6',
+			label: 'Tab6',
+			'data-feature': 'action.6',
+		},
+		{
+			key: '7',
+			label: 'Tab7',
+			'data-feature': 'action.7',
+		},
+		{
+			key: '8',
+			label: 'Tab8',
+			'data-feature': 'action.8',
+		},
 	],
 	onSelect: action('onSelect'),
 	selectedKey: '2',
@@ -44,32 +59,47 @@ function generateChildId(key, kind) {
 	return null;
 }
 
-class InteractiveTabs extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = { selectedKey: '2' };
-		this.onSelect = this.onSelect.bind(this);
-	}
-	onSelect(event, item) {
-		this.setState({ selectedKey: item.key });
-	}
-	render() {
-		return (
-			<TabBar {...this.props} selectedKey={this.state.selectedKey} onSelect={this.onSelect}>
-				I'm the child of tab {this.state.selectedKey}
-			</TabBar>
-		);
-	}
+const InteractiveTabs = props => {
+	const [selectedKey, setSelectedKey] = useState('2');
+
+	return (
+		<TabBar
+			{...props}
+			selectedKey={selectedKey}
+			onSelect={(event, item) => setSelectedKey(item.key)}
+		>
+			I'm the child of tab {selectedKey}
+		</TabBar>
+	);
+};
+
+function renderContent() {
+	return (
+		<div style={{ padding: '1rem 2rem' }}>
+			<p>I'm the child</p>
+		</div>
+	);
 }
 
 const stories = storiesOf('TabBar', module);
-
 stories
 	.add('default', () => (
 		<nav>
 			<h3>Default TabBar</h3>
 			<div id="default">
-				<TabBar {...tabProps}>I'm the child</TabBar>
+				<TabBar {...tabProps}>{renderContent()}</TabBar>
+			</div>
+			<h3>Default TabBar with too small container</h3>
+			<div id="default-smaller" style={{ width: '30rem', border: '1px solid' }}>
+				<TabBar {...tabProps}>{renderContent()}</TabBar>
+			</div>
+			<h3>
+				Default TabBar with too small container and <code>responsive = false</code>
+			</h3>
+			<div id="default-smaller" style={{ width: '47rem', border: '1px solid' }}>
+				<TabBar {...tabProps} responsive={false}>
+					{renderContent()}
+				</TabBar>
 			</div>
 		</nav>
 	))
@@ -78,8 +108,10 @@ stories
 			<h3>TabBar with custom ids</h3>
 			<p>
 				By default, you pass an id (required for accessibility) to the component and all ids are
-				generated.<br />
-				But you can customize the ids.<br />
+				generated.
+				<br />
+				But you can customize the ids.
+				<br />
 				The generated id will be passed to the panel as aria-describedby.
 				<pre>{`
 function generateChildId(key, kind) {
@@ -87,9 +119,7 @@ function generateChildId(key, kind) {
 		return \`my-custom-id-\${key}\`;
 	}
 }
-
 ...
-
 <TabBar
 	{...tabProps}
 	generateChildId={generateChildId}
@@ -110,11 +140,19 @@ function generateChildId(key, kind) {
 			<h3>TabBar with custom content</h3>
 			<div id="customContent">
 				<TabBar {...tabProps} generateChildId={generateChildId} />
-				<div id="my-custom-id-1" style={{ display: 'none' }}>I'm the existing content of tab 1</div>
+				<div id="my-custom-id-1" style={{ display: 'none' }}>
+					I'm the existing content of tab 1
+				</div>
 				<div id="my-custom-id-2">I'm the existing content of tab 2</div>
-				<div id="my-custom-id-3" style={{ display: 'none' }}>I'm the existing content of tab 3</div>
-				<div id="my-custom-id-4" style={{ display: 'none' }}>I'm the existing content of tab 4</div>
-				<div id="my-custom-id-5" style={{ display: 'none' }}>I'm the existing content of tab 5</div>
+				<div id="my-custom-id-3" style={{ display: 'none' }}>
+					I'm the existing content of tab 3
+				</div>
+				<div id="my-custom-id-4" style={{ display: 'none' }}>
+					I'm the existing content of tab 4
+				</div>
+				<div id="my-custom-id-5" style={{ display: 'none' }}>
+					I'm the existing content of tab 5
+				</div>
 			</div>
 		</nav>
 	))

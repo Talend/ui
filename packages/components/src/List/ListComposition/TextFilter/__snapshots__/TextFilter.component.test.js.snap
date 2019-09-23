@@ -72,61 +72,60 @@ exports[`TextFilter should render text filter component 1`] = `
               label="Toggle filter"
               tooltipPlacement="top"
             >
-              <div
+              <Button
+                active={false}
                 aria-describedby={42}
-                className="theme-tc-tooltip"
+                aria-label="Toggle filter"
+                block={false}
+                bsClass="btn"
+                bsStyle="link"
+                className="btn-icon-only"
+                disabled={false}
+                id="myTextFilter"
+                key=".0"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
                 onKeyPress={[Function]}
+                onMouseDown={[Function]}
                 onMouseOut={[Function]}
                 onMouseOver={[Function]}
+                role="search"
               >
-                <Button
-                  active={false}
+                <button
                   aria-describedby={42}
                   aria-label="Toggle filter"
-                  block={false}
-                  bsClass="btn"
-                  bsStyle="link"
-                  className="btn-icon-only"
+                  className="btn-icon-only btn btn-link"
                   disabled={false}
                   id="myTextFilter"
-                  key=".0"
+                  onBlur={[Function]}
                   onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyPress={[Function]}
                   onMouseDown={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
                   role="search"
+                  type="button"
                 >
-                  <button
-                    aria-describedby={42}
-                    aria-label="Toggle filter"
-                    className="btn-icon-only btn btn-link"
-                    disabled={false}
-                    id="myTextFilter"
-                    onClick={[Function]}
-                    onMouseDown={[Function]}
-                    role="search"
-                    type="button"
+                  <Icon
+                    key="icon"
+                    name="talend-search"
                   >
-                    <Icon
-                      key="icon"
+                    <svg
+                      aria-hidden="true"
+                      className="theme-tc-svg-icon tc-svg-icon"
+                      focusable="false"
                       name="talend-search"
+                      title={null}
                     >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        name="talend-search"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-search"
-                        />
-                      </svg>
-                    </Icon>
-                  </button>
-                </Button>
-              </div>
+                      <use
+                        xlinkHref="#talend-search"
+                      />
+                    </svg>
+                  </Icon>
+                </button>
+              </Button>
             </TooltipTrigger>
           </ActionButton>
         </withI18nextTranslation(ActionButton)>
@@ -209,61 +208,60 @@ exports[`TextFilter should render text filter component with defined docked stat
               label="Toggle filter"
               tooltipPlacement="top"
             >
-              <div
+              <Button
+                active={false}
                 aria-describedby={42}
-                className="theme-tc-tooltip"
+                aria-label="Toggle filter"
+                block={false}
+                bsClass="btn"
+                bsStyle="link"
+                className="btn-icon-only"
+                disabled={false}
+                id="myTextFilter"
+                key=".0"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
                 onKeyPress={[Function]}
+                onMouseDown={[Function]}
                 onMouseOut={[Function]}
                 onMouseOver={[Function]}
+                role="search"
               >
-                <Button
-                  active={false}
+                <button
                   aria-describedby={42}
                   aria-label="Toggle filter"
-                  block={false}
-                  bsClass="btn"
-                  bsStyle="link"
-                  className="btn-icon-only"
+                  className="btn-icon-only btn btn-link"
                   disabled={false}
                   id="myTextFilter"
-                  key=".0"
+                  onBlur={[Function]}
                   onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyPress={[Function]}
                   onMouseDown={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
                   role="search"
+                  type="button"
                 >
-                  <button
-                    aria-describedby={42}
-                    aria-label="Toggle filter"
-                    className="btn-icon-only btn btn-link"
-                    disabled={false}
-                    id="myTextFilter"
-                    onClick={[Function]}
-                    onMouseDown={[Function]}
-                    role="search"
-                    type="button"
+                  <Icon
+                    key="icon"
+                    name="talend-search"
                   >
-                    <Icon
-                      key="icon"
+                    <svg
+                      aria-hidden="true"
+                      className="theme-tc-svg-icon tc-svg-icon"
+                      focusable="false"
                       name="talend-search"
+                      title={null}
                     >
-                      <svg
-                        aria-hidden="true"
-                        className="theme-tc-svg-icon tc-svg-icon"
-                        focusable="false"
-                        name="talend-search"
-                        title={null}
-                      >
-                        <use
-                          xlinkHref="#talend-search"
-                        />
-                      </svg>
-                    </Icon>
-                  </button>
-                </Button>
-              </div>
+                      <use
+                        xlinkHref="#talend-search"
+                      />
+                    </svg>
+                  </Icon>
+                </button>
+              </Button>
             </TooltipTrigger>
           </ActionButton>
         </withI18nextTranslation(ActionButton)>

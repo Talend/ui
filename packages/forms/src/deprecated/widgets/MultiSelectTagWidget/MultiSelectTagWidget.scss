@@ -50,7 +50,7 @@ $tf-typeahead-section-border-color: #e0e0e0 !default;
 		background-color: $white;
 		border-radius: $border-radius-base;
 		box-shadow: 0 1px 3px 0 $shadow;
-		overflow-y: auto;
+		overflow-y: hidden;
 		z-index: 999;
 
 		.section-title {

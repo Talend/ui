@@ -15,6 +15,12 @@
         "minimum": 0,
         "maximum": 7
       },
+      "numberMinMaxStep": {
+        "type": "number",
+        "minimum": 1.5,
+        "maximum": 3,
+        "step": 0.1
+      },
       "password": {
         "type": "string"
       }
@@ -32,6 +38,10 @@
     {
       "key": "numberMinMax",
       "title": "Number (with min and max)"
+    },
+    {
+      "key": "numberMinMaxStep",
+      "title": "Number (with min, max and step)"
     },
     {
       "key": "password",
