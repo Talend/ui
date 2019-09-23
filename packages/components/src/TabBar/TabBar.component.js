@@ -212,7 +212,7 @@ TabBar.propTypes = {
 
 TabBar.defaultProps = {
 	tooltipPlacement: 'top',
-}
+};
 
 TabBar.Tab = Tab;
 
