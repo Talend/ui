@@ -72,7 +72,7 @@ class DatePicker extends React.PureComponent {
 		const { year, monthIndex } = calendar;
 		const pickerLocale = getPickerLocale(t);
 
-		const weeks = this.getWeeks(year, monthIndex, 1, true);
+		const weeks = this.getWeeks(year, monthIndex, 1);
 		const dayNames = getDayNames(undefined, this.props.t);
 		const selectedInCurrentCalendar = this.isSelectedInCurrentCalendar();
 
