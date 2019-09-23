@@ -239,11 +239,12 @@ class Slider extends React.Component {
 			...rest
 		} = this.props;
 		const noValue = value === null || value === undefined;
+		const Component = Array.isArray(value) ? Range : RcSlider;
 		return (
 			<div>
 				<div className={classnames(theme['tc-slider'], 'tc-slider')}>
-					{!Array.isArray(value) ? (
-						<RcSlider
+					{
+						<Component
 							id={id}
 							value={value}
 							min={min}
@@ -254,19 +255,7 @@ class Slider extends React.Component {
 							disabled={disabled}
 							{...rest}
 						/>
-					) : (
-						<Range
-							id={id}
-							value={value}
-							min={min}
-							max={max}
-							handle={noValue ? undefined : this.state.handle}
-							className={classnames(theme['tc-slider-rc-slider'], 'tc-slider-rc-slider')}
-							onChange={onChange}
-							disabled={disabled}
-							{...rest}
-						/>
-					)}
+					}
 				</div>
 				{getCaption(
 					captionActions,
