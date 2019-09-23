@@ -239,7 +239,6 @@ class Slider extends React.Component {
 			...rest
 		} = this.props;
 		const noValue = value === null || value === undefined;
-		console.log(Array.isArray(value));
 		return (
 			<div>
 				<div className={classnames(theme['tc-slider'], 'tc-slider')}>
