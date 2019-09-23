@@ -194,7 +194,7 @@ describe('DatePicker', () => {
 		).toBe(-1);
 		expect(
 			wrapper
-				.find('.tc-date-picker-day[name]')
+				.find('.tc-date-picker-day[data-value]')
 				.at(0)
 				.prop('tabIndex'),
 		).toBe(0);

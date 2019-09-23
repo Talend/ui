@@ -34,7 +34,7 @@ exports[`MonthPicker should render 1`] = `
               <button
                 aria-label="January 2018"
                 className="theme-calendar-month tc-date-picker-month"
-                name={0}
+                data-value={0}
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 tabIndex={-1}
@@ -50,7 +50,7 @@ exports[`MonthPicker should render 1`] = `
               <button
                 aria-label="February 2018"
                 className="theme-calendar-month tc-date-picker-month"
-                name={1}
+                data-value={1}
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 tabIndex={-1}
@@ -66,7 +66,7 @@ exports[`MonthPicker should render 1`] = `
               <button
                 aria-label="March 2018"
                 className="theme-calendar-month tc-date-picker-month"
-                name={2}
+                data-value={2}
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 tabIndex={-1}
@@ -87,7 +87,7 @@ exports[`MonthPicker should render 1`] = `
               <button
                 aria-label="April 2018"
                 className="theme-calendar-month tc-date-picker-month"
-                name={3}
+                data-value={3}
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 tabIndex={-1}
@@ -104,7 +104,7 @@ exports[`MonthPicker should render 1`] = `
               <button
                 aria-label="May 2018, selected"
                 className="theme-calendar-month theme-selected tc-date-picker-month"
-                name={4}
+                data-value={4}
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 tabIndex={-1}
@@ -120,7 +120,7 @@ exports[`MonthPicker should render 1`] = `
               <button
                 aria-label="June 2018"
                 className="theme-calendar-month tc-date-picker-month"
-                name={5}
+                data-value={5}
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 tabIndex={-1}
@@ -141,7 +141,7 @@ exports[`MonthPicker should render 1`] = `
               <button
                 aria-label="July 2018"
                 className="theme-calendar-month tc-date-picker-month"
-                name={6}
+                data-value={6}
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 tabIndex={-1}
@@ -157,7 +157,7 @@ exports[`MonthPicker should render 1`] = `
               <button
                 aria-label="August 2018"
                 className="theme-calendar-month tc-date-picker-month"
-                name={7}
+                data-value={7}
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 tabIndex={-1}
@@ -173,7 +173,7 @@ exports[`MonthPicker should render 1`] = `
               <button
                 aria-label="September 2018"
                 className="theme-calendar-month tc-date-picker-month"
-                name={8}
+                data-value={8}
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 tabIndex={-1}
@@ -194,7 +194,7 @@ exports[`MonthPicker should render 1`] = `
               <button
                 aria-label="October 2018"
                 className="theme-calendar-month tc-date-picker-month"
-                name={9}
+                data-value={9}
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 tabIndex={-1}
@@ -210,7 +210,7 @@ exports[`MonthPicker should render 1`] = `
               <button
                 aria-label="November 2018"
                 className="theme-calendar-month tc-date-picker-month"
-                name={10}
+                data-value={10}
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 tabIndex={-1}
@@ -226,7 +226,7 @@ exports[`MonthPicker should render 1`] = `
               <button
                 aria-label="December 2018"
                 className="theme-calendar-month tc-date-picker-month"
-                name={11}
+                data-value={11}
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 tabIndex={-1}

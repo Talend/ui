@@ -142,7 +142,7 @@ class DatePicker extends React.PureComponent {
 										date: ariaLabel,
 									});
 								}
-								const buttonProps = this.isCurrentMonth(date) ? { name: day } : undefined;
+								const buttonProps = this.isCurrentMonth(date) ? { 'data-value': day } : undefined;
 								return (
 									<td {...tdProps}>
 										<button

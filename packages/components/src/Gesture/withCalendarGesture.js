@@ -17,7 +17,7 @@ function focusOn(element) {
  * Select all items in current calendar
  */
 function getAllItems(calendarRef) {
-	return calendarRef.querySelectorAll('td > button[name]');
+	return calendarRef.querySelectorAll('td > button[data-value]');
 }
 
 /**

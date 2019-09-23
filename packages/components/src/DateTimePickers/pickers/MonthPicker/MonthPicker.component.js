@@ -54,7 +54,7 @@ class MonthPicker extends React.PureComponent {
 								return (
 									<td key={index} {...tdProps}>
 										<button
-											name={index}
+											data-value={index}
 											type="button"
 											className={className}
 											onClick={event => {
