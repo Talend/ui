@@ -5,11 +5,14 @@ import PropTypes from 'prop-types';
 import Tab from 'react-bootstrap/lib/Tab';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
+import { OverlayTrigger } from 'react-bootstrap';
 import keycode from 'keycode';
 import debounce from 'lodash/debounce';
 import classnames from 'classnames';
 
 import Icon from '../Icon';
+import TooltipTrigger from '../TooltipTrigger';
+
 import theme from './TabBar.scss';
 
 function TabBar(props) {
@@ -161,19 +164,21 @@ function TabBar(props) {
 					ref={tabBarRef}
 				>
 					{items.map(({ icon, ...item }) => (
-						<NavItem
-							className={classnames(theme['tc-tab-bar-item'], 'tc-tab-bar-item')}
-							{...item}
-							eventKey={item.key}
-							componentClass="button"
-						>
-							{icon && (
-								<Icon
-									className={classnames(theme['tc-tab-bar-item-icon'], 'tc-tab-bar-item-icon')}
-									{...icon}
-								/>)}
-							{item.label}
-						</NavItem>
+						<TooltipTrigger label={item.label} tooltipPlacement={props.tooltipPlacement}>
+							<NavItem
+								className={classnames(theme['tc-tab-bar-item'], 'tc-tab-bar-item')}
+								{...item}
+								eventKey={item.key}
+								componentClass="button"
+							>
+								{icon && (
+									<Icon
+										className={classnames(theme['tc-tab-bar-item-icon'], 'tc-tab-bar-item-icon')}
+										{...icon}
+									/>)}
+								{item.label}
+							</NavItem>
+						</TooltipTrigger>
 					))}
 				</Nav>
 				{tabContent}
@@ -199,7 +204,12 @@ TabBar.propTypes = {
 	onSelect: PropTypes.func.isRequired,
 	responsive: PropTypes.bool,
 	selectedKey: PropTypes.any,
+	tooltipPlacement: OverlayTrigger.propTypes.placement,
 };
+
+TabBar.defaultProps = {
+	tooltipPlacement: 'top',
+}
 
 TabBar.Tab = Tab;
 

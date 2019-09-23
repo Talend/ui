@@ -10,7 +10,7 @@
 	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z" fill="#{hex-to-url($color)}"/></svg>');
 }
 
-$underline-height: 2px;
+$tc-tabbar-active-border-size: .2rem !default;
 
 .tc-tab-bar {
 	white-space: nowrap;
@@ -29,8 +29,9 @@ $underline-height: 2px;
 
 		button {
 			padding: $padding-smaller $padding-small;
-			padding-bottom: calc(#{$padding-smaller} + #{$underline-height});
+			padding-bottom: calc(#{$padding-smaller} + #{$tc-tabbar-active-border-size});
 			color: $black;
+			text-transform: none;
 
 			max-width: 200px;
 			white-space: nowrap;
@@ -44,7 +45,6 @@ $underline-height: 2px;
 			&[aria-selected=true] {
 				position: relative;
 
-				font-size: 14px;
 				font-weight: semi-bold;
 				color: $lochmara;
 				box-shadow: none;
@@ -57,7 +57,7 @@ $underline-height: 2px;
 					right: $padding-small;
 					bottom: 0;
 
-					border-bottom: solid $underline-height $lochmara;
+					border-bottom: solid $tc-tabbar-active-border-size $lochmara;
 				}
 			}
 		}
