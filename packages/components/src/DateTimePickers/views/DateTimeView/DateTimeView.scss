@@ -1,10 +1,18 @@
 @import '../../shared/styles/variables';
+@import '../../shared/styles/mixins';
 
 .body {
 	display: flex;
 
 	.date {
 		flex: 3 0 200px;
+		&:after {
+			@include picker-underline-base;
+			@include picker-underline-date;
+			display: block;
+			margin-top: $padding-smaller;
+			margin-left: $padding-small;
+		}
 	}
 
 	.time {

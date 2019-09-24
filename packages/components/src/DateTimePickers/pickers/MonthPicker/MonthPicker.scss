@@ -1,6 +1,14 @@
 @import '../../shared/styles/mixins';
 @import '../../shared/styles/variables';
 
+.wrapper {
+	&:after {
+		@include picker-underline-base;
+		display: block;
+		margin-top: $padding-normal;
+	}
+}
+
 .container {
 	width: 100%;
 	tbody {
@@ -27,7 +35,7 @@
 	@include picker-action;
 
 	flex: 1;
-	height: 5rem;
+	height: 5.7rem;
 	width: 100%;
 
 	background: transparent;

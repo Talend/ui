@@ -2,10 +2,6 @@
 @import '../../shared/styles/variables';
 
 .container {
-	&:after {
-		@include picker-underline;
-		bottom: -$padding-smaller;
-	}
 	width: 100%;
 	position: relative;
 }
@@ -13,7 +9,10 @@
 .calendar-header {
 	height: 3rem;
 	&:after {
-		@include picker-underline;
+		@include picker-underline-base;
+		@include picker-underline-date;
+		position: absolute;
+		left: 1rem;
 		top: 2.5rem;
 	}
 

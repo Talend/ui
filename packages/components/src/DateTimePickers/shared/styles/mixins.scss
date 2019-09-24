@@ -19,10 +19,11 @@
 	}
 }
 
-@mixin picker-underline {
+@mixin picker-underline-base {
 	content: '';
-	position: absolute;
-	width: calc(100% - 2rem);
-	left: 1rem;
 	border-bottom: $border-default;
+}
+
+@mixin picker-underline-date {
+	width: calc(100% - 2rem);
 }
