@@ -234,13 +234,14 @@ storiesOf('DatePicker', module)
 		</div>
 	))
 	.add('Date picker - no input', () => {
-		const blockStyle = { width: 320, border: '1px solid black', marginRight: '1rem' };
+		const blockStyle = { border: '1px solid black', marginRight: '1rem' };
 		return (
 			<div>
 				<h1>DatePicker without input</h1>
 				<IconsProvider />
 				<ul>
-					<li>Width is defined by the parent (here fixed to 320px) but is responsive </li>
+					<li>The minimum width is 290px. The left one is 290px since the width is not set explicitly. </li>
+					<li>Width can be defined by the parent. </li>
 					<li>Height is responsive relatively to the default font-size</li>
 					<li>
 						The outer border style (black) is here just as visual shape indication, it's not part of
