@@ -10,9 +10,6 @@
 	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 13.6l-8-8L2.6 3 8 8.4 13.4 3 16 5.6z" fill="#{hex-to-url($color)}"/></svg>');
 }
 
-$tc-tabbar-active-border-size: 0.2rem !default;
-$tc-tabbar-active-color: $lochmara;
-
 .tc-tab-bar {
 	white-space: nowrap;
 	overflow: hidden;
@@ -26,46 +23,6 @@ $tc-tabbar-active-color: $lochmara;
 			width: $svg-sm-size;
 			height: $svg-sm-size;
 			font-size: $svg-sm-size;
-		}
-
-		button {
-			padding: $padding-smaller $padding-small;
-			padding-bottom: calc(#{$padding-smaller} + #{$tc-tabbar-active-border-size});
-			color: $black;
-			text-transform: none;
-
-			max-width: 20rem;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-
-			&:hover {
-				color: $tc-tabbar-active-color;
-			}
-
-			&[aria-selected='true'] {
-				position: relative;
-
-				font-weight: semi-bold;
-				color: $tc-tabbar-active-color;
-				box-shadow: none;
-
-				&:after {
-					position: absolute;
-					content: '';
-
-					left: $padding-small;
-					right: $padding-small;
-					bottom: 0;
-
-					border-bottom: solid $tc-tabbar-active-border-size $tc-tabbar-active-color;
-				}
-			}
-		}
-
-		&:global(.disabled) button {
-			color: $black;
-			opacity: 0.54;
 		}
 	}
 
