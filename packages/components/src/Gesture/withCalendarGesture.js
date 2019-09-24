@@ -85,7 +85,7 @@ export function focusOnCalendar(containerRef) {
 		target = containerRef.querySelector('td > button[disabled=false]');
 	}
 	if (!target) {
-		target = containerRef.querySelector('td > button');
+		target = containerRef.querySelector('td > button[data-value]');
 	}
 	if (target) {
 		target.focus();
