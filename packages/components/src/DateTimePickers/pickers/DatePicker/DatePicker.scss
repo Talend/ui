@@ -12,7 +12,7 @@
 		@include picker-underline-base;
 		@include picker-underline-date;
 		position: absolute;
-		left: 1rem;
+		left: $padding-small;
 		top: 2.5rem;
 	}
 
