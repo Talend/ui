@@ -19,7 +19,6 @@ class MonthPicker extends React.PureComponent {
 		const { t, selectedYear } = this.props;
 
 		return (
-			<div className={theme.wrapper}>
 			<table
 				className={theme.container}
 				ref={ref => {
@@ -74,7 +73,6 @@ class MonthPicker extends React.PureComponent {
 					))}
 				</tbody>
 			</table>
-			</div>
 		);
 	}
 }

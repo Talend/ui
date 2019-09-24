@@ -13,7 +13,7 @@ function ViewLayout(props) {
 				<div className={classNames(theme['element-container'], theme.middle)}>{middleElement}</div>
 				<div className={classNames(theme['element-container'], theme.right)}>{rightElement}</div>
 			</div>
-			<div className={classNames(theme['element-container'], theme.body)}>{props.bodyElement}</div>
+			<div className={classNames(theme['element-container'], theme.body, theme[props.bodyClass])}>{props.bodyElement}</div>
 		</div>
 	);
 }
@@ -25,6 +25,7 @@ ViewLayout.propTypes = {
 		rightElement: PropTypes.element,
 	}).isRequired,
 	bodyElement: PropTypes.element.isRequired,
+	bodyClass: PropTypes.string.isRequired,
 };
 
 export default ViewLayout;

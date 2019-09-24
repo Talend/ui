@@ -38,7 +38,7 @@ function MonthYearView(props) {
 		/>
 	);
 
-	return <ViewLayout header={header} bodyElement={bodyElement} />;
+	return <ViewLayout header={header} bodyElement={bodyElement} bodyClass="month-body"/>;
 }
 
 MonthYearView.propTypes = {

@@ -1,3 +1,6 @@
+@import '../../shared/styles/mixins';
+@import '../../shared/styles/variables';
+
 .container {
 	height: 100%;
 	display: flex;
@@ -29,6 +32,25 @@
 
 	.body {
 		flex: 1 1 auto;
+
+		&.date-body {
+			&:after {
+				@include picker-underline-base;
+				@include picker-underline-date;
+				display: block;
+				margin-left: $padding-small;
+				margin-top: $padding-smaller;
+			}
+		}
+
+		&.month-body {
+			&:after {
+				@include picker-underline-base;
+				display: block;
+				margin-top: $padding-normal;
+			}
+		}
+
 	}
 
 	.element-container > * {

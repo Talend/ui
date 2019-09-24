@@ -14,7 +14,7 @@ describe('ViewLayout', () => {
 		const bodyElement = <whateverBodyElement />;
 
 		// when
-		const wrapper = shallow(<ViewLayout header={header} bodyElement={bodyElement} />);
+		const wrapper = shallow(<ViewLayout header={header} bodyElement={bodyElement} bodyClass="date"/>);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
