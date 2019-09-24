@@ -123,10 +123,10 @@ $tc-tabbar-active-color: $lochmara;
 				> a,
 				> button {
 					color: $lochmara;
-					font-weight: semi-bold;
-					
+					font-weight: $semi-bold;
+
 					position: relative;
-					
+
 					&:after {
 						position: absolute;
 						content: '';
@@ -138,7 +138,9 @@ $tc-tabbar-active-color: $lochmara;
 						border-bottom: solid $tc-tabbar-active-border-size $lochmara;
 					}
 
-					&:focus,
+					&:focus {
+						color: $scooter;
+					}
 					&:hover {
 						color: $lochmara;
 					}
