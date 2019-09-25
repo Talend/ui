@@ -10,7 +10,7 @@
 		margin-bottom: $padding-small;
 
 		:global(.btn-icon-only) {
-			padding: 0 0.5rem;
+			padding: 0 $padding-smaller;
 
 			svg {
 				width: $svg-sm-size;
