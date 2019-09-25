@@ -2,7 +2,7 @@ import format from 'date-fns/format';
 import getDate from 'date-fns/get_date';
 import lastDayOfMonth from 'date-fns/last_day_of_month';
 import setDate from 'date-fns/set_date';
-import { parseFromTimeZone } from 'date-fns-timezone';
+import { parseFromTimeZone, formatToTimeZone } from 'date-fns-timezone';
 import getErrorMessage from '../shared/error-messages';
 
 export function DatePickerException(code, message) {
@@ -45,6 +45,9 @@ function isDateValid(date, options) {
  */
 function dateToStr(date, options) {
 	const { dateFormat } = options;
+	if (options.timezone) {
+		return formatToTimeZone(date, dateFormat, { timeZone: options.timezone });
+	}
 	return format(date, dateFormat);
 }
 /**
@@ -118,8 +121,6 @@ function getDateWithTimezone(date, options) {
 	}
 	if (options.timezone) {
 		const dateString = format(date, options.dateFormat);
-		console.log('--------------getDateWithTimezone');
-		console.log(options.timezone);
 		const timezoneDate = parseFromTimeZone(dateString, {
 			timeZone: options.timezone,
 		});

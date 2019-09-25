@@ -135,7 +135,7 @@ storiesOf('DatePicker', module)
 					name="Datetime"
 					onBlur={action('onBlur')}
 					onChange={action('onChange')}
-					value={new Date(2019, 8, 25, 12, 30, 44)}
+					value={1569340800000}
 					timezone="Europe/Berlin"
 				/>
 			</form>
@@ -336,7 +336,6 @@ storiesOf('DatePicker', module)
 						<InputTimePicker
 							onChange={action('onChange')}
 							value="12:00"
-							timezone="Timezone:(UTC+2:00)Paris"
 						/>
 					</form>
 				</div>
@@ -393,7 +392,7 @@ storiesOf('DatePicker', module)
 	id="my-date-picker"
 	...
 	value={'2019-09-25 09:02'}
-	timezone="Asia/Beijing"
+	timezone="Europe/Berlin"
 />
 			`}</pre>
 			<form style={{ width: 320 }}>
@@ -402,7 +401,7 @@ storiesOf('DatePicker', module)
 					name="Datetime"
 					onChange={action('onChange')}
 					value="2019-09-25 09:02"
-					timezone="Asia/Beijing"
+					timezone="Europe/Berlin"
 				/>
 			</form>
 			<p>Unix time format</p>
@@ -410,8 +409,8 @@ storiesOf('DatePicker', module)
 <InputDateTimePicker
 	id="my-date-picker"
 	...
-	value={1569373373596}
-	timezone="Asia/Beijing"
+	value={1569340800000}
+	timezone="America/New_York"
 />
 			`}</pre>
 			<form style={{ width: 320 }}>
@@ -419,8 +418,8 @@ storiesOf('DatePicker', module)
 					id="my-datetime-picker"
 					name="Datetime"
 					onChange={action('onChange')}
-					value={1569373373596}
-					timezone="Asia/Beijing"
+					value={1569340800000}
+					timezone="America/New_York"
 				/>
 			</form>
 		</div>
