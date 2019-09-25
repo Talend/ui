@@ -376,11 +376,11 @@ describe('#Datagrid method', () => {
 			},
 		};
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
-		const nextCellDef = {
+		const nextCellPosition = {
 			rowIndex: 1,
 		};
 
-		const previousCellDef = {
+		const previousCellPosition = {
 			rowIndex: 2,
 		};
 
@@ -390,15 +390,15 @@ describe('#Datagrid method', () => {
 			.onGridReady({ api });
 
 		const nextFocusedCell = wrapper.instance().handleKeyboard({
-			nextCellDef,
-			previousCellDef,
+			nextCellPosition,
+			previousCellPosition,
 		});
 
-		expect(nextFocusedCell).toBe(nextCellDef);
+		expect(nextFocusedCell).toBe(nextCellPosition);
 		expect(setSelected).toHaveBeenCalledWith(true, true);
 	});
 
-	it('should not manage the cells with keyboard if any nextCellDef', () => {
+	it('should not manage the cells with keyboard if any nextCellPosition', () => {
 		const setSelected = jest.fn();
 		const api = {
 			getDisplayedRowAtIndex() {
@@ -408,9 +408,9 @@ describe('#Datagrid method', () => {
 			},
 		};
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
-		const nextCellDef = null;
+		const nextCellPosition = null;
 
-		const previousCellDef = {
+		const previousCellPosition = {
 			rowIndex: 2,
 		};
 
@@ -420,8 +420,8 @@ describe('#Datagrid method', () => {
 			.onGridReady({ api });
 
 		const nextFocusedCell = wrapper.instance().handleKeyboard({
-			nextCellDef,
-			previousCellDef,
+			nextCellPosition,
+			previousCellPosition,
 		});
 
 		expect(nextFocusedCell).toBe(null);
@@ -432,11 +432,11 @@ describe('#Datagrid method', () => {
 		const setSelected = jest.fn();
 		const api = null;
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
-		const nextCellDef = {
+		const nextCellPosition = {
 			rowIndex: 1,
 		};
 
-		const previousCellDef = {
+		const previousCellPosition = {
 			rowIndex: 2,
 		};
 
@@ -446,11 +446,11 @@ describe('#Datagrid method', () => {
 			.onGridReady({ api });
 
 		const nextFocusedCell = wrapper.instance().handleKeyboard({
-			nextCellDef,
-			previousCellDef,
+			nextCellPosition,
+			previousCellPosition,
 		});
 
-		expect(nextFocusedCell).toBe(nextCellDef);
+		expect(nextFocusedCell).toBe(nextCellPosition);
 		expect(setSelected).not.toHaveBeenCalled();
 	});
 
