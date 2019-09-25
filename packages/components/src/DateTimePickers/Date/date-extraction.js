@@ -1,8 +1,9 @@
 import format from 'date-fns/format';
 import getDate from 'date-fns/get_date';
 import lastDayOfMonth from 'date-fns/last_day_of_month';
+import parse from 'date-fns/parse';
 import setDate from 'date-fns/set_date';
-import { parseFromTimeZone, formatToTimeZone } from 'date-fns-timezone';
+import { formatToTimeZone } from 'date-fns-timezone';
 import getErrorMessage from '../shared/error-messages';
 
 export function DatePickerException(code, message) {
@@ -43,10 +44,9 @@ function isDateValid(date, options) {
  * @param {Date} date
  * @param {Object} options
  */
-function dateToStr(date, options) {
-	const { dateFormat } = options;
-	if (options.timezone) {
-		return formatToTimeZone(date, dateFormat, { timeZone: options.timezone });
+function dateToStr(date, { dateFormat, timezone }) {
+	if (timezone) {
+		return formatToTimeZone(date, dateFormat, { timeZone: timezone });
 	}
 	return format(date, dateFormat);
 }
@@ -115,19 +115,24 @@ function checkSupportedDateFormat(dateFormat) {
 	}
 }
 
-function getDateWithTimezone(date, options) {
-	if (options.useUTC) {
-		return convertToUTC(date);
+/**
+ * Extract date and apply the current timezone, from datetime
+ * Ex :
+ * 2014-03-25 23:00:00 (UTC) 		--> 2014-03-25 OO:OO:OO (current TZ)
+ * 2014-03-25 23:00:00 (current TZ) --> 2014-03-25 OO:OO:OO (current TZ)
+ * @param date {Date} The date to extract
+ * @param useUTC {boolean} Indicates if date is in UTC
+ */
+function extractDateOnly(date, { dateFormat, useUTC, timezone }) {
+	if (useUTC) {
+		return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
 	}
-	if (options.timezone) {
-		const dateString = format(date, options.dateFormat);
-		const timezoneDate = parseFromTimeZone(dateString, {
-			timeZone: options.timezone,
-		});
-		return timezoneDate;
+	if (timezone) {
+		return parse(formatToTimeZone(date, dateFormat, { timeZone: timezone }));
 	}
-	return date;
+	return new Date(date.getFullYear(), date.getMonth(), date.getDate());
 }
+
 /**
  * Extract parts (date, textInput) from a Date
  * @param date {Date}
@@ -149,7 +154,7 @@ function extractPartsFromDate(date, options) {
 	}
 
 	return {
-		date: getDateWithTimezone(date, options),
+		date: extractDateOnly(date, options),
 		textInput: dateToStr(date, options),
 		errors: [],
 		errorMessage: null,
