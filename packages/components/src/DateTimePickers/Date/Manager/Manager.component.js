@@ -28,6 +28,7 @@ function ContextualManager(props) {
 			dateFormat: props.dateFormat,
 			useUTC: props.useUTC,
 			required: props.required,
+			timezone: props.timezone,
 		};
 	}
 	function onChange(event, origin, nextState) {

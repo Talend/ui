@@ -117,6 +117,30 @@ storiesOf('DatePicker', module)
 			</form>
 		</div>
 	))
+	.add('Date picker - timezone', () => (
+		<div>
+			<IconsProvider />
+			<h1>DatePicker with timezone</h1>
+			<p>You can require to work with timezone (input and output).</p>
+			<pre>{`
+<InputDatePicker
+	id="my-date-picker"
+	...
+	timezone="Europe/Berlin"
+/>
+			`}</pre>
+			<form style={{ width: 320 }}>
+				<InputDatePicker
+					id="my-date-picker"
+					name="Datetime"
+					onBlur={action('onBlur')}
+					onChange={action('onChange')}
+					value={new Date(2019, 8, 25, 12, 30, 44)}
+					timezone="Europe/Berlin"
+				/>
+			</form>
+		</div>
+	))
 	.add('Date picker - custom format', () => (
 		<div>
 			<h1>DatePicker with custom format</h1>
@@ -363,10 +387,12 @@ storiesOf('DatePicker', module)
 			<IconsProvider />
 			<h1>DateTimePicker with custom timezone</h1>
 			<p>You can require to work with specific timezone (input and output).</p>
+			<p>String format</p>
 			<pre>{`
 <InputDateTimePicker
 	id="my-date-picker"
 	...
+	value={'2019-09-25 09:02'}
 	timezone="Asia/Beijing"
 />
 			`}</pre>
@@ -375,7 +401,25 @@ storiesOf('DatePicker', module)
 					id="my-datetime-picker"
 					name="Datetime"
 					onChange={action('onChange')}
-					value={new Date(2018, 4, 13, 12, 30, 44)}
+					value="2019-09-25 09:02"
+					timezone="Asia/Beijing"
+				/>
+			</form>
+			<p>Unix time format</p>
+			<pre>{`
+<InputDateTimePicker
+	id="my-date-picker"
+	...
+	value={1569373373596}
+	timezone="Asia/Beijing"
+/>
+			`}</pre>
+			<form style={{ width: 320 }}>
+				<InputDateTimePicker
+					id="my-datetime-picker"
+					name="Datetime"
+					onChange={action('onChange')}
+					value={1569373373596}
 					timezone="Asia/Beijing"
 				/>
 			</form>

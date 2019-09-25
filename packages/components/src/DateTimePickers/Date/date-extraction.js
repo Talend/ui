@@ -2,8 +2,8 @@ import format from 'date-fns/format';
 import getDate from 'date-fns/get_date';
 import lastDayOfMonth from 'date-fns/last_day_of_month';
 import setDate from 'date-fns/set_date';
+import { parseFromTimeZone } from 'date-fns-timezone';
 import getErrorMessage from '../shared/error-messages';
-
 
 export function DatePickerException(code, message) {
 	this.message = getErrorMessage(message);
@@ -51,13 +51,7 @@ function dateToStr(date, options) {
  * Convert a date in local TZ to UTC
  */
 function convertToUTC(date) {
-	return new Date(
-		Date.UTC(
-			date.getFullYear(),
-			date.getMonth(),
-			date.getDate(),
-		),
-	);
+	return new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
 }
 /**
  * Convert string in dateFormat to date
@@ -100,7 +94,6 @@ function strToDate(strToParse, dateFormat) {
 	return setDate(monthDate, day);
 }
 
-
 /**
  * Check that the date format is a composition of YYYY, MM, DD.
  * If not, it throws an error.
@@ -117,6 +110,22 @@ function checkSupportedDateFormat(dateFormat) {
 			`DATE FORMAT ${dateFormat} - NOT SUPPORTED. Please provide a composition of YYYY, MM, DD`,
 		);
 	}
+}
+
+function getDateWithTimezone(date, options) {
+	if (options.useUTC) {
+		return convertToUTC(date);
+	}
+	if (options.timezone) {
+		const dateString = format(date, options.dateFormat);
+		console.log('--------------getDateWithTimezone');
+		console.log(options.timezone);
+		const timezoneDate = parseFromTimeZone(dateString, {
+			timeZone: options.timezone,
+		});
+		return timezoneDate;
+	}
+	return date;
 }
 /**
  * Extract parts (date, textInput) from a Date
@@ -139,7 +148,7 @@ function extractPartsFromDate(date, options) {
 	}
 
 	return {
-		date: options.useUTC ? convertToUTC(date) : date,
+		date: getDateWithTimezone(date, options),
 		textInput: dateToStr(date, options),
 		errors: [],
 		errorMessage: null,
@@ -174,7 +183,6 @@ function extractDateFromTextInput(textInput, options) {
 		errors = errors.concat(error);
 	}
 
-
 	return {
 		date: options.useUTC ? convertToUTC(date) : date,
 		textInput,
@@ -199,9 +207,4 @@ function extractDate(value, options) {
 	};
 }
 
-export {
-	checkSupportedDateFormat,
-	extractDate,
-	extractDateFromTextInput,
-	extractPartsFromDate,
-};
+export { checkSupportedDateFormat, extractDate, extractDateFromTextInput, extractPartsFromDate };

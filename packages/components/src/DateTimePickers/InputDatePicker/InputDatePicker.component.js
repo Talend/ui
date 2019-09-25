@@ -19,6 +19,7 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'useUTC',
 	'onBlur',
 	'onChange',
+	'timezone',
 ];
 
 export default function InputDatePicker(props) {
@@ -67,6 +68,7 @@ export default function InputDatePicker(props) {
 				dateFormat={props.dateFormat}
 				onChange={(...args) => handlers.onChange(...args, inputRef.current)}
 				useUTC={props.useUTC}
+				timezone={props.timezone}
 			>
 				<FocusManager
 					divRef={containerRef}
@@ -93,5 +95,6 @@ InputDatePicker.propTypes = {
 	onBlur: PropTypes.func,
 	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	textInput: PropTypes.string,
+	timezone: PropTypes.string,
 	useUTC: PropTypes.bool,
 };
