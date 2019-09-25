@@ -234,7 +234,7 @@ storiesOf('DatePicker', module)
 		</div>
 	))
 	.add('Date picker - no input', () => {
-		const blockStyle = { width: 320, height: 360, border: '1px solid black', marginRight: '1rem' };
+		const blockStyle = { border: '1px solid black', marginRight: '1rem' };
 		return (
 			<div>
 				<h1>DatePicker without input</h1>
@@ -242,7 +242,7 @@ storiesOf('DatePicker', module)
 				<ul>
 					<li>The minimum width is 290px, and minimum height is 352px. </li>
 					<li>The width and height can be defined by the parent. </li>
-					<li>If no width or height are set explicitly, it will use minimum width and height by default.</li>
+					<li>If no width or height are set explicitly, it uses minimum width and height by default, like the first one.</li>
 					<li>
 						The outer border style (black) is here just as visual shape indication, it's not part of
 						the component rendered
