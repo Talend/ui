@@ -240,9 +240,9 @@ storiesOf('DatePicker', module)
 				<h1>DatePicker without input</h1>
 				<IconsProvider />
 				<ul>
-					<li>The minimum width is 290px. The left one is 290px since the width is not set explicitly. </li>
-					<li>Width can be defined by the parent. </li>
-					<li>Height is responsive relatively to the default font-size</li>
+					<li>The minimum width is 290px, and minimum height is 352px. </li>
+					<li>The width and height can be defined by the parent. </li>
+					<li>If no width or height are set explicitly, it uses minimum width and height by default, like the first one.</li>
 					<li>
 						The outer border style (black) is here just as visual shape indication, it's not part of
 						the component rendered
