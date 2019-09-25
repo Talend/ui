@@ -78,6 +78,7 @@ export function validateArray(mergedSchema, value, properties, customValidationF
 			items: [],
 		},
 	};
+
 	results[key] = validateValue(schemaWithoutItems, value, properties, customValidationFn);
 
 	// validate each value of the array
@@ -111,10 +112,13 @@ export function validateSimple(
 	customValidationFn,
 	deepValidation,
 ) {
+
 	const results = {};
 	const { key, items } = mergedSchema;
+	const isFieldset = mergedSchema.type === 'fieldset';
 
-	results[key] = validateValue(mergedSchema, value, properties, customValidationFn);
+	results[key] = isFieldset ? null :
+		validateValue(mergedSchema, value, properties, customValidationFn);
 
 	if (deepValidation && items) {
 		// eslint-disable-next-line no-use-before-define

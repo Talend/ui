@@ -202,6 +202,32 @@ describe('Validation utils', () => {
 			// then
 			expect(errors).toEqual({ [schema.key]: 'Missing required property: firstname' });
 		});
+
+		it('should not assign validation on fieldset', () => {
+			// given
+			const schema = {
+				key: ['features'],
+				type: 'fieldset',
+				items: [
+					{
+						key: ['features', 'name'],
+						title: 'Name',
+						schema: { title: 'Name', type: 'string' },
+						type: 'text',
+					},
+				],
+			};
+			const value = {};
+			const properties = {};
+
+			// when
+			const errors = validateSimple(schema, value, properties);
+
+			// then
+			expect(errors).toEqual({
+				features: null,
+			});
+		});
 	});
 
 	describe('#validateSingle', () => {
