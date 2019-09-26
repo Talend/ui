@@ -1,11 +1,9 @@
+import { listTimeZones } from 'timezone-support';
 import format from 'date-fns/format';
 import getDate from 'date-fns/get_date';
 import lastDayOfMonth from 'date-fns/last_day_of_month';
 import setDate from 'date-fns/set_date';
-import {
-	convertToLocalTime,
-	convertToTimeZone,
-} from 'date-fns-timezone';
+import { convertToLocalTime, convertToTimeZone } from 'date-fns-timezone';
 import getErrorMessage from '../shared/error-messages';
 
 export function DatePickerException(code, message) {
@@ -125,6 +123,15 @@ function checkSupportedDateFormat(dateFormat) {
 	}
 }
 
+function checkSupportedTimezone(timezone) {
+	const timzones = listTimeZones();
+	if (!timzones.includes(timezone)) {
+		throw new Error(
+			`Timezone: ${timezone} - NOT SUPPORTED`,
+		);
+	}
+}
+
 /**
  * Extract date and apply the current timezone, from datetime
  * Ex :
@@ -238,7 +245,6 @@ function extractFromDate(date, options) {
 	};
 }
 
-
 export {
 	checkSupportedDateFormat,
 	extractDate,
@@ -246,4 +252,5 @@ export {
 	extractFromDate,
 	extractDateFromTextInput,
 	extractDateFromDate,
+	checkSupportedTimezone,
 };

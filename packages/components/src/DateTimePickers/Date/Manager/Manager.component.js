@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { DateContext } from '../Context';
 import {
 	checkSupportedDateFormat,
+	checkSupportedTimezone,
 	extractDate,
 	extractFromDate,
 	extractDateFromTextInput,
@@ -22,6 +23,11 @@ function ContextualManager(props) {
 	useEffect(() => {
 		checkSupportedDateFormat(props.dateFormat);
 	}, [props.dateFormat]);
+	useEffect(() => {
+		if (props.timezone) {
+			checkSupportedTimezone(props.timezone);
+		}
+	}, [props.timezone]);
 
 	function getDateOptions() {
 		return {
@@ -82,6 +88,7 @@ ContextualManager.propTypes = {
 	onChange: PropTypes.func,
 	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	useUTC: PropTypes.bool,
+	timezone: PropTypes.string,
 };
 
 ContextualManager.defaultProps = {
