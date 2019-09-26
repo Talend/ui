@@ -52,7 +52,6 @@ function InputDateTimePicker(props) {
 							<TooltipTrigger
 								label={props.timezone}
 								tooltipPlacement="top"
-								style={{ display: 'block' }}
 							>
 								<Icon name="talend-info-circle" />
 							</TooltipTrigger>

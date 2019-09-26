@@ -1,8 +1,6 @@
 import React, { useContext } from 'react';
 import DebounceInput from 'react-debounce-input';
 
-import Icon from '../../../Icon';
-import TooltipTrigger from '../../../TooltipTrigger';
 import { TimeContext } from '../Context';
 import InputSizer from '../../shared/InputSizer';
 import theme from './Input.scss';
@@ -24,11 +22,6 @@ export default function Input(props) {
 						{...inputManagement}
 						{...props}
 					/>
-					{time.timezone && (
-						<TooltipTrigger label={time.timezone} tooltipPlacement="top">
-							<Icon name="talend-info-circle" />
-						</TooltipTrigger>
-					)}
 				</div>
 			)}
 		</InputSizer>

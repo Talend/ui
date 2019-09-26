@@ -1,11 +1,10 @@
-
+import { subHours } from 'date-fns';
 import {
 	checkSupportedDateFormat,
 	extractDate,
 	extractDateFromTextInput,
 	extractPartsFromDate,
 } from './date-extraction';
-
 
 describe('Date extraction', () => {
 	describe('checkSupportedDateFormat', () => {
@@ -250,6 +249,26 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				localDate: new Date(2018, 11, 25),
 				date: new Date(Date.UTC(2018, 11, 25)),
+				textInput,
+				errorMessage: null,
+				errors: [],
+			});
+		});
+		it('should convert date to timezone', () => {
+			// given
+			const textInput = '2018-12-25';
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				timezone: 'Asia/Tokyo',
+			};
+
+			// when
+			const parts = extractDateFromTextInput(textInput, options);
+
+			// then
+			expect(parts).toEqual({
+				localDate: new Date(2018, 11, 25),
+				date: subHours(new Date(2018, 11, 25), 8),
 				textInput,
 				errorMessage: null,
 				errors: [],
