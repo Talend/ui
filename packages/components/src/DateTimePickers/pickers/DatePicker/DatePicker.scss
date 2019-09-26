@@ -9,7 +9,7 @@
 .calendar-header {
 	&:after {
 		@include picker-underline-base;
-        width: 100%;
+		width: 100%;
 		position: absolute;
 		left: 0;
 		top: 2.5rem;
@@ -24,7 +24,7 @@
 		border: none;
 		font-weight: normal;
 		text-decoration: none;
-        text-transform: uppercase;
+		text-transform: uppercase;
 	}
 }
 
