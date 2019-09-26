@@ -33,11 +33,7 @@ const BadgeTextArea = ({ id, onChange, onSubmit, value, t }) => {
 				/>
 			</Tooltip.Body>
 			<Tooltip.Footer id={id}>
-				<Action
-					type="submit"
-					label={t('APPLY', { defaultValue: 'Apply' })}
-					bsStyle="info"
-				/>
+				<Action type="submit" label={t('APPLY', { defaultValue: 'Apply' })} bsStyle="info" />
 			</Tooltip.Footer>
 		</form>
 	);

@@ -9,12 +9,7 @@ const BadgesGenerator = ({ badges, getBadge, t }) =>
 		const BadgeComponent = getBadge(get(properties, 'type'));
 		if (BadgeComponent) {
 			acc.push(
-				<BadgeComponent
-					{...properties}
-					id={metadata.badgeId}
-					key={metadata.badgeId}
-					t={t}
-				/>,
+				<BadgeComponent {...properties} id={metadata.badgeId} key={metadata.badgeId} t={t} />,
 			);
 		}
 		return acc;

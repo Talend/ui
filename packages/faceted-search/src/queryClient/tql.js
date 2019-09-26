@@ -55,9 +55,7 @@ const createTqlQuery = facetedQuery => {
 	}
 	if (Array.isArray(facetedQuery)) {
 		const preparedBadges = prepareBadges(facetedQuery);
-		return preparedBadges
-			.reduce(fromBadgeToTql(preparedBadges.length), new Query())
-			.serialize();
+		return preparedBadges.reduce(fromBadgeToTql(preparedBadges.length), new Query()).serialize();
 	}
 	return formatValue(facetedQuery);
 };

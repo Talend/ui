@@ -32,9 +32,7 @@ const reducer = (state, { type, payload }) => {
 		case BADGES_ACTIONS_KEYS.UPDATE_BADGE:
 			return {
 				...state,
-				badges: updateBadge(payload.badgeId, payload.properties, payload.metadata)(
-					state.badges,
-				),
+				badges: updateBadge(payload.badgeId, payload.properties, payload.metadata)(state.badges),
 			};
 		case BADGES_ACTIONS_KEYS.DELETE_BADGE:
 			return { ...state, badges: deleteBadge(payload.badgeId)(state.badges) };

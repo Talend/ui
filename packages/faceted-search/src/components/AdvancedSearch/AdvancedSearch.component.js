@@ -80,14 +80,12 @@ export function AdvancedSearch({
 					type="search"
 					value={query}
 					placeholder={
-						placeholder ||
-						t('ADV_SEARCH_FACETED_PLACEHOLDER', { defaultValue: 'Enter your query' })
+						placeholder || t('ADV_SEARCH_FACETED_PLACEHOLDER', { defaultValue: 'Enter your query' })
 					}
 					autoComplete="off"
 					className={css('adv-search-input', { 'has-error': error })}
 					aria-label={
-						placeholder ||
-						t('ADV_SEARCH_FACETED_ARIA', { defaultValue: 'Advanced Faceted Search' })
+						placeholder || t('ADV_SEARCH_FACETED_ARIA', { defaultValue: 'Advanced Faceted Search' })
 					}
 					autoFocus
 					role="search"
@@ -101,10 +99,7 @@ export function AdvancedSearch({
 						<React.Fragment>
 							<Action
 								bsStyle="link"
-								className={css(
-									'adv-search-buttons-icon',
-									'adv-search-buttons-cancel',
-								)}
+								className={css('adv-search-buttons-icon', 'adv-search-buttons-cancel')}
 								data-feature={`${dataFeature}.cancel`}
 								hideLabel
 								icon="talend-cross"
@@ -114,10 +109,7 @@ export function AdvancedSearch({
 							/>
 							<Action
 								bsStyle="link"
-								className={css(
-									'adv-search-buttons-icon',
-									'adv-search-buttons-submit',
-								)}
+								className={css('adv-search-buttons-icon', 'adv-search-buttons-submit')}
 								data-feature={`${dataFeature}.submit`}
 								hideLabel
 								icon="talend-check"
