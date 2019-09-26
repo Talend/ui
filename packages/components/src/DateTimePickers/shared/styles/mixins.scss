@@ -23,7 +23,3 @@
 	content: '';
 	border-bottom: $border-default;
 }
-
-@mixin picker-underline-date {
-	width: calc(100% - 2rem);
-}

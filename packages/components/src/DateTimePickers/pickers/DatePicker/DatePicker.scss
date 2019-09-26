@@ -9,9 +9,9 @@
 .calendar-header {
 	&:after {
 		@include picker-underline-base;
-		@include picker-underline-date;
+        width: 100%;
 		position: absolute;
-		left: $padding-small;
+		left: 0;
 		top: 2.5rem;
 	}
 
@@ -24,6 +24,7 @@
 		border: none;
 		font-weight: normal;
 		text-decoration: none;
+        text-transform: uppercase;
 	}
 }
 

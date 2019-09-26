@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import getMonth from 'date-fns/get_month';
 import getYear from 'date-fns/get_year';
 import startOfDay from 'date-fns/start_of_day';
+import classNames from 'classnames';
 
 import theme from './DateTimePicker.scss';
 import DateTimeView from '../../views/DateTimeView';
@@ -187,7 +188,7 @@ class DateTimePicker extends React.Component {
 				aria-label="Date picker"
 			>
 				{viewElement}
-				<div className={theme.footer}>
+				<div className={classNames(theme.footer, {[theme['date-padding']]: this.state.isDateTimeView})}>
 					<Action
 						label={this.props.t('DATEPICKER_TODAY', {
 							defaultValue: 'Today',
