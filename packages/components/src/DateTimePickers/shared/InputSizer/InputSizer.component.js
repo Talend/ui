@@ -7,6 +7,7 @@ const inputTextSizerStyle = {
 	fontWeight: 400,
 	fontSize: '1.6rem',
 	visibility: 'hidden',
+	position: 'absolute',
 };
 
 const placeholderSizerStyle = {
