@@ -22,6 +22,7 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'onBlur',
 	'onChange',
 	'timezone',
+	'hideTimezone',
 ];
 
 export default function InputDatePicker(props) {
@@ -84,7 +85,7 @@ export default function InputDatePicker(props) {
 					{timePicker}
 				</FocusManager>
 			</Date.Manager>
-			{props.showTimezone && props.timezone && <TimeZone timezone={props.timezone} />}
+			{!props.hideTimezone && props.timezone && <TimeZone timezone={props.timezone} />}
 		</div>
 	);
 }
@@ -100,5 +101,5 @@ InputDatePicker.propTypes = {
 	textInput: PropTypes.string,
 	timezone: PropTypes.string,
 	useUTC: PropTypes.bool,
-	showTimezone: PropTypes.bool,
+	hideTimezone: PropTypes.bool,
 };

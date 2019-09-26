@@ -137,7 +137,6 @@ storiesOf('DatePicker', module)
 					onChange={action('onChange')}
 					value={1569340800000}
 					timezone="Europe/Berlin"
-					showTimezone
 				/>
 			</form>
 		</div>

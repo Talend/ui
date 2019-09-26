@@ -36,6 +36,7 @@ function InputDateTimePicker(props) {
 							useUTC={props.useUTC}
 							timezone={props.timezone}
 							value={date}
+							hideTimezone
 						/>
 						<InputTimePicker
 							id={`${props.id}-time-picker`}
