@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Icon from '../../Icon';
-import TooltipTrigger from '../../TooltipTrigger';
-
 import InputDatePicker from '../InputDatePicker';
 import InputTimePicker from '../InputTimePicker';
+import TimeZone from '../TimeZone';
 
 import DateTime from '../DateTime';
 import { DateTimeContext } from '../DateTime/Context';
@@ -46,13 +44,7 @@ function InputDateTimePicker(props) {
 							value={time}
 						/>
 						{props.timezone && (
-							<TooltipTrigger
-								label={props.timezone}
-								tooltipPlacement="top"
-								style={{ height: '32px', display: 'flex', alignItems: 'center' }}
-							>
-								<Icon name="talend-info-circle" style={{ display: 'block' }} />
-							</TooltipTrigger>
+							<TimeZone timezone={props.timezone} />
 						)}
 					</div>
 				)}

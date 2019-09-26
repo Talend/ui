@@ -5,11 +5,13 @@ import uuid from 'uuid';
 import { Popper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
+import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
+
 import Date from '../Date';
+import TimeZone from '../TimeZone';
+import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 
 import theme from './InputDatePicker.scss';
-import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
-import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	'id',
@@ -61,7 +63,7 @@ export default function InputDatePicker(props) {
 		),
 	].filter(Boolean);
 	return (
-		<div className="date-picker">
+		<div className={theme['date-picker']}>
 			<Date.Manager
 				value={props.value}
 				textInput={props.textInput}
@@ -82,6 +84,7 @@ export default function InputDatePicker(props) {
 					{timePicker}
 				</FocusManager>
 			</Date.Manager>
+			{props.showTimezone && props.timezone && <TimeZone timezone={props.timezone} />}
 		</div>
 	);
 }
@@ -97,4 +100,5 @@ InputDatePicker.propTypes = {
 	textInput: PropTypes.string,
 	timezone: PropTypes.string,
 	useUTC: PropTypes.bool,
+	showTimezone: PropTypes.bool,
 };

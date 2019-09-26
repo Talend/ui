@@ -9,3 +9,7 @@ $tc-datetimepicker-z-index: $zindex-dropdown !default;
 	box-shadow: $tc-datetimepicker-box-shadow;
 	z-index: $tc-datetimepicker-z-index;
 }
+.date-picker {
+	display: flex;
+	align-items: center;
+}
