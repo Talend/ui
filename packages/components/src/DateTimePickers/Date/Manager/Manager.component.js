@@ -5,7 +5,7 @@ import { DateContext } from '../Context';
 import {
 	checkSupportedDateFormat,
 	extractDate,
-	extractDateFromDate,
+	extractFromDate,
 	extractDateFromTextInput,
 } from '../date-extraction';
 
@@ -47,7 +47,7 @@ function ContextualManager(props) {
 	}
 
 	function onPickerChange(event, { date }) {
-		const nextState = extractDateFromDate(date, getDateOptions());
+		const nextState = extractFromDate(date, getDateOptions());
 		setState(nextState);
 		onChange(event, 'PICKER', nextState);
 	}

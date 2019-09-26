@@ -3,7 +3,8 @@ import {
 	checkSupportedDateFormat,
 	extractDate,
 	extractDateFromTextInput,
-	extractPartsFromDate,
+	extractDateFromDate,
+	extractDateOnly,
 } from './date-extraction';
 
 describe('Date extraction', () => {
@@ -126,7 +127,7 @@ describe('Date extraction', () => {
 			};
 
 			// when
-			const parts = extractPartsFromDate(invalidDate, options);
+			const parts = extractDateFromDate(invalidDate, options);
 
 			// then
 			expect(parts).toEqual({
@@ -143,7 +144,7 @@ describe('Date extraction', () => {
 			const options = { dateFormat: 'YYYY-MM-DD' };
 
 			// when
-			const parts = extractPartsFromDate(validDate, options);
+			const parts = extractDateFromDate(validDate, options);
 
 			// then
 			expect(parts).toEqual({
@@ -273,6 +274,49 @@ describe('Date extraction', () => {
 				errorMessage: null,
 				errors: [],
 			});
+		});
+	});
+	describe('extractDateOnly', () => {
+		it('should extract date only', () => {
+			// given
+			const datetime = new Date(2019, 8, 26, 6, 20, 39);
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+			};
+
+			// when
+			const date = extractDateOnly(datetime, options);
+
+			// then
+			expect(date).toEqual(new Date(2019, 8, 26));
+		});
+		it('should extract date when useUTC', () => {
+			// given
+			const datetime = new Date(2019, 8, 26, 0, 20, 39);
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useUTC: true,
+			};
+
+			// when
+			const date = extractDateOnly(datetime, options);
+
+			// then
+			expect(date).toEqual(new Date(2019, 8, 25));
+		});
+		it('should extract date when timezone provided', () => {
+			// given
+			const datetime = new Date(2019, 8, 26, 23, 20, 39);
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				timezone: 'Asia/Shanghai',
+			};
+
+			// when
+			const date = extractDateOnly(datetime, options);
+
+			// then
+			expect(date).toEqual(new Date(2019, 8, 27));
 		});
 	});
 });
