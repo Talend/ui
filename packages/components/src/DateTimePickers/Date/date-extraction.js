@@ -61,11 +61,7 @@ function convertDateToTimezone(date, { useUTC, timezone }) {
 		return convertToUTC(date);
 	}
 	if (timezone) {
-		const converted = convertToLocalTime(date, { timeZone: timezone });
-		console.log('--------convertDateToTimezone');
-		console.log(date);
-		console.log(converted);
-		return converted;
+		return convertToLocalTime(date, { timeZone: timezone });
 	}
 	return date;
 }
@@ -170,8 +166,8 @@ function extractPartsFromDate(date, options) {
 	const dateToUse = extractDateOnly(date, options);
 
 	return {
-		date: dateToUse,
-		dateWithTimezone: date,
+		localDate: dateToUse,
+		date,
 		textInput: dateToStr(dateToUse, options),
 		errors: [],
 		errorMessage: null,
@@ -191,7 +187,7 @@ function extractPartsFromDate(date, options) {
 function extractDateFromTextInput(textInput, options) {
 	if (textInput === '') {
 		return {
-			date: undefined,
+			localDate: undefined,
 			textInput,
 			errors: [],
 		};
@@ -207,8 +203,8 @@ function extractDateFromTextInput(textInput, options) {
 	}
 
 	return {
-		date,
-		dateWithTimezone: convertDateToTimezone(date, options),
+		localDate: date,
+		date: convertDateToTimezone(date, options),
 		textInput,
 		errors,
 		errorMessage: errors[0] ? errors[0].message : null,
@@ -233,8 +229,8 @@ function extractDate(value, options) {
 
 function extractDateFromDate(date, { dateFormat, timezone }) {
 	return {
-		date,
-		dateWithTimezone: convertToLocalTime(date, { timeZone: timezone }),
+		localDate: date,
+		date: convertToLocalTime(date, { timeZone: timezone }),
 		textInput: format(date, dateFormat),
 		errors: [],
 		errorMessage: null,

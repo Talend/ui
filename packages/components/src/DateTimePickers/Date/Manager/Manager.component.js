@@ -6,7 +6,6 @@ import {
 	checkSupportedDateFormat,
 	extractDate,
 	extractDateFromDate,
-	extractPartsFromDate,
 	extractDateFromTextInput,
 } from '../date-extraction';
 
@@ -36,8 +35,8 @@ function ContextualManager(props) {
 		if (!props.onChange) {
 			return;
 		}
-		const { errorMessage, dateWithTimezone, textInput, errors } = nextState;
-		props.onChange(event, { errors, errorMessage, date: dateWithTimezone, textInput, origin });
+		const { errorMessage, date, textInput, errors } = nextState;
+		props.onChange(event, { errors, errorMessage, date, textInput, origin });
 	}
 
 	function onInputChange(event) {
@@ -58,7 +57,7 @@ function ContextualManager(props) {
 			value={{
 				value: {
 					textInput: state.textInput,
-					date: state.date,
+					date: state.localDate,
 				},
 
 				inputManagement: {
