@@ -1,0 +1,44 @@
+$circle-size-large: 2.2rem !default;
+$circle-size-small: 1.8rem !default;
+
+.tc-badge-operator {
+	&-small {
+		width: $circle-size-small;
+		height: $circle-size-small;
+	}
+	&-large {
+		width: $circle-size-large;
+		height: $circle-size-large;
+	}
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: white;
+	border-radius: 10rem;
+	margin: 0 $padding-smaller 0 $padding-smaller;
+
+	&-button {
+		padding: 0;
+	}
+	&-popover {
+		display: flex;
+		flex-direction: column;
+		:global(.tc-tooltip-body) {
+			margin-right: 0;
+			margin-left: 0;
+		}
+	}
+
+	&-row-button {
+		display: flex;
+		justify-content: flex-start;
+		padding: 0 $padding-small 0 $padding-small;
+		text-transform: none;
+		width: 100%;
+		padding: 0 $padding-large 0 $padding-large;
+		&:hover {
+			background: $concrete;
+			text-decoration: none;
+		}
+	}
+}

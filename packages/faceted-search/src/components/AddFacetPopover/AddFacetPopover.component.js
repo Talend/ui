@@ -1,0 +1,89 @@
+import React, { useState, useMemo } from 'react';
+import PropTypes from 'prop-types';
+import { getTheme } from '@talend/react-components/lib/theme';
+import Action from '@talend/react-components/lib/Actions/Action';
+import { FilterBar } from '@talend/react-components';
+
+import Tooltip from '../../../../components/Tooltip';
+import cssModule from './AddFacetPopover.scss';
+import { badgesFacetedPropTypes, badgeFacetedPropTypes } from '../facetedSearch.propTypes';
+
+const theme = getTheme(cssModule);
+
+const AddFacetRow = ({ badgeDefinition, id, label, onClick }) => {
+	const onClickRow = event => {
+		onClick(event, badgeDefinition);
+	};
+	return (
+		<Action
+			className={theme('tc-add-facet-popover-row')}
+			id={`${id}-row-button-${label}`}
+			onClick={onClickRow}
+			label={label}
+			link
+			role="button"
+		/>
+	);
+};
+
+AddFacetRow.propTypes = {
+	id: PropTypes.string.isRequired,
+	badgeDefinition: badgeFacetedPropTypes.isRequired,
+	label: PropTypes.string.isRequired,
+	onClick: PropTypes.func.isRequired,
+};
+
+const filterByAttribute = attribute => badgeDefinition =>
+	badgeDefinition.properties.attribute.includes(attribute);
+
+const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onClick, t }) => {
+	const [filterValue, setFilterValue] = useState(initialFilterValue || '');
+	const onFilter = (_, value) => {
+		setFilterValue(value);
+	};
+	const resetFilter = () => setFilterValue('');
+	const badgesDefinitionsFaceted = useMemo(
+		() => badgesDefinitions.filter(filterByAttribute(filterValue)),
+		[badgesDefinitions, filterValue],
+	);
+	const addFacetId = `${id}-add-facet-popover`;
+	return (
+		<div id={addFacetId} className={theme('tc-add-facet-popover')}>
+			<Tooltip.Header id={addFacetId}>Faceted Search</Tooltip.Header>
+			<Tooltip.Body id={addFacetId}>
+				<FilterBar
+					autoFocus={false}
+					className={theme('tc-add-facet-popover-filter')}
+					dockable={false}
+					docked={false}
+					iconAlwaysVisible
+					id={`${addFacetId}-filter`}
+					placeholder={t('ADD_FACET_FILTER_PLACEHOLDER', {
+						defaultValue: 'Find a filter',
+					})}
+					onToggle={resetFilter}
+					onFilter={onFilter}
+					value={filterValue}
+				/>
+				{badgesDefinitionsFaceted.map(badgeDefinition => (
+					<AddFacetRow
+						badgeDefinition={badgeDefinition}
+						id={addFacetId}
+						label={badgeDefinition.properties.label}
+						onClick={onClick}
+					/>
+				))}
+			</Tooltip.Body>
+		</div>
+	);
+};
+
+AddFacetPopover.propTypes = {
+	id: PropTypes.string.isRequired,
+	initialFilterValue: PropTypes.string,
+	badgesDefinitions: badgesFacetedPropTypes,
+	onClick: PropTypes.func.isRequired,
+	t: PropTypes.func.isRequired,
+};
+
+export { AddFacetPopover };
