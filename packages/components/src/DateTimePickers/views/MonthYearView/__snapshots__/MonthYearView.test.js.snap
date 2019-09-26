@@ -2,7 +2,6 @@
 
 exports[`MonthYearView should render 1`] = `
 <ViewLayout
-  bodyClass="month-body"
   bodyElement={
     <withI18nextTranslation(MonthCalendarGesture(MonthPicker))
       allowFocus={true}

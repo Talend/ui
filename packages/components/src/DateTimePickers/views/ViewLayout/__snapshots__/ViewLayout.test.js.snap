@@ -30,7 +30,7 @@ exports[`ViewLayout should render a ViewLayout 1`] = `
     </div>
   </div>
   <div
-    className="theme-element-container theme-body theme-date"
+    className="theme-element-container theme-body"
   >
     <whateverBodyElement />
   </div>

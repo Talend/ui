@@ -2,7 +2,6 @@
 
 exports[`DateTimeView should render 1`] = `
 <ViewLayout
-  bodyClass="date-body"
   bodyElement={
     <div
       className="theme-body"
@@ -76,7 +75,6 @@ exports[`DateTimeView should render 1`] = `
 
 exports[`DateTimeView should render without timePicker 1`] = `
 <ViewLayout
-  bodyClass="date-body"
   bodyElement={
     <div
       className="theme-body"
