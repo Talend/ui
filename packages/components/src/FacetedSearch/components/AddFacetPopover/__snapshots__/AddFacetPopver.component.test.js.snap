@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddFacetPopover should render the html output 1`] = `
+<div id="my id-add-facet-popover"
+     class="tc-add-facet-popover theme-tc-add-facet-popover"
+>
+  <header id="my id-add-facet-popover-header"
+          class="theme-header tc-tooltip-header"
+  >
+    Faceted Search
+  </header>
+  <div id="my id-add-facet-popover-body"
+       class="theme-body tc-tooltip-body"
+  >
+    <div id="my id-add-facet-popover-body-content">
+      <form class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
+            role="search"
+      >
+        <div class="form-group">
+          <svg name="talend-search"
+               class="theme-tc-svg-icon tc-svg-icon theme-search-icon"
+               focusable="false"
+               aria-hidden="true"
+          >
+            <use xlink:href="#talend-search">
+            </use>
+          </svg>
+          <input name="search"
+                 placeholder="Filter"
+                 autocomplete="off"
+                 aria-label="Filter"
+                 role="searchbox"
+                 type="search"
+                 id="my id-add-facet-popover-filter-input"
+                 class="theme-search form-control"
+                 value
+          >
+          <div class="theme-tc-tooltip"
+               aria-describedby="42"
+          >
+            <button aria-label="Remove filter"
+                    id="my id-add-facet-popover-filter-cross-icon"
+                    aria-describedby="42"
+                    type="button"
+                    class="theme-remove btn-icon-only btn btn-link"
+            >
+              <svg name="talend-cross"
+                   class="theme-tc-svg-icon tc-svg-icon"
+                   focusable="false"
+                   aria-hidden="true"
+              >
+                <use xlink:href="#talend-cross">
+                </use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
