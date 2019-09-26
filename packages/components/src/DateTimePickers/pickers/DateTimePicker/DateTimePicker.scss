@@ -9,7 +9,7 @@
 
 .footer {
 	&:before {
-		@include picker-underline-base;
+		@include picker-underline;
 		display: block;
 		margin-bottom: $padding-normal;
 	}

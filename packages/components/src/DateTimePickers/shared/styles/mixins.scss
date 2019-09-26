@@ -19,7 +19,7 @@
 	}
 }
 
-@mixin picker-underline-base {
+@mixin picker-underline {
 	content: '';
 	border-bottom: $border-default;
 }

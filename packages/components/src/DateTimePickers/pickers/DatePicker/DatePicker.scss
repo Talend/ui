@@ -9,7 +9,7 @@
 .calendar-header {
     height: 3rem;
 	&:after {
-		@include picker-underline-base;
+		@include picker-underline;
 		width: 100%;
 		position: absolute;
 		left: 0;
