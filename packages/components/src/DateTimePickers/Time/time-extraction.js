@@ -140,7 +140,7 @@ export default function extractTime(selectedTime, useSeconds) {
 
 	return {
 		time,
-		textInput: typeof selectedTime === 'string' ? selectedTime : timeToStr(time),
+		textInput: typeof selectedTime === 'string' ? selectedTime : timeToStr(time, useSeconds),
 		errors,
 		errorMessage: errors[0] ? errors[0].message : null,
 	};

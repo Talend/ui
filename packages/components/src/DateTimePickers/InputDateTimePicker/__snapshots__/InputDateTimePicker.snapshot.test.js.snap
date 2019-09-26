@@ -21,6 +21,7 @@ exports[`InputDateTimePicker should render 1`] = `
     >
       <InputDatePicker
         dateFormat="YYYY-MM-DD"
+        hideTimezone={true}
         id="my-picker-date-picker"
         onChange={[Function]}
         useUTC={false}
@@ -198,13 +199,13 @@ exports[`InputDateTimePicker should render 1`] = `
                       placeholder="HH:mm:ss"
                       style="width: 47px;"
                       type="text"
-                      value="15:27"
+                      value="15:27:00"
                     />
                   </div>
                   <span
                     style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
                   >
-                    15:27
+                    15:27:00
                   </span>
                 </div>,
               }
@@ -232,14 +233,14 @@ exports[`InputDateTimePicker should render 1`] = `
                       placeholder="HH:mm:ss"
                       style="width: 47px;"
                       type="text"
-                      value="15:27"
+                      value="15:27:00"
                     />,
                   }
                 }
                 key="input"
               >
                 <InputSizer
-                  inputText="15:27"
+                  inputText="15:27:00"
                   placeholder="HH:mm:ss"
                 >
                   <div
@@ -262,7 +263,7 @@ exports[`InputDateTimePicker should render 1`] = `
                             placeholder="HH:mm:ss"
                             style="width: 47px;"
                             type="text"
-                            value="15:27"
+                            value="15:27:00"
                           />,
                         }
                       }
@@ -275,7 +276,7 @@ exports[`InputDateTimePicker should render 1`] = `
                         }
                       }
                       type="text"
-                      value="15:27"
+                      value="15:27:00"
                     >
                       <input
                         autoComplete="off"
@@ -291,7 +292,7 @@ exports[`InputDateTimePicker should render 1`] = `
                           }
                         }
                         type="text"
-                        value="15:27"
+                        value="15:27:00"
                       />
                     </DebounceInput>
                   </div>
@@ -305,7 +306,7 @@ exports[`InputDateTimePicker should render 1`] = `
                       }
                     }
                   >
-                    15:27
+                    15:27:00
                   </span>
                 </InputSizer>
               </Time.Input>
