@@ -1,9 +1,11 @@
 import format from 'date-fns/format';
 import getDate from 'date-fns/get_date';
 import lastDayOfMonth from 'date-fns/last_day_of_month';
-import parse from 'date-fns/parse';
 import setDate from 'date-fns/set_date';
-import { formatToTimeZone } from 'date-fns-timezone';
+import {
+	convertToLocalTime,
+	convertToTimeZone,
+} from 'date-fns-timezone';
 import getErrorMessage from '../shared/error-messages';
 
 export function DatePickerException(code, message) {
@@ -44,10 +46,7 @@ function isDateValid(date, options) {
  * @param {Date} date
  * @param {Object} options
  */
-function dateToStr(date, { dateFormat, timezone }) {
-	if (timezone) {
-		return formatToTimeZone(date, dateFormat, { timeZone: timezone });
-	}
+function dateToStr(date, { dateFormat }) {
 	return format(date, dateFormat);
 }
 /**
@@ -56,6 +55,21 @@ function dateToStr(date, { dateFormat, timezone }) {
 function convertToUTC(date) {
 	return new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
 }
+
+function convertDateToTimezone(date, { useUTC, timezone }) {
+	if (useUTC) {
+		return convertToUTC(date);
+	}
+	if (timezone) {
+		const converted = convertToLocalTime(date, { timeZone: timezone });
+		console.log('--------convertDateToTimezone');
+		console.log(date);
+		console.log(converted);
+		return converted;
+	}
+	return date;
+}
+
 /**
  * Convert string in dateFormat to date
  */
@@ -123,12 +137,12 @@ function checkSupportedDateFormat(dateFormat) {
  * @param date {Date} The date to extract
  * @param useUTC {boolean} Indicates if date is in UTC
  */
-function extractDateOnly(date, { dateFormat, useUTC, timezone }) {
+function extractDateOnly(date, { useUTC, timezone }) {
 	if (useUTC) {
 		return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
 	}
 	if (timezone) {
-		return parse(formatToTimeZone(date, dateFormat, { timeZone: timezone }));
+		return convertToTimeZone(date, { timeZone: timezone });
 	}
 	return new Date(date.getFullYear(), date.getMonth(), date.getDate());
 }
@@ -153,9 +167,12 @@ function extractPartsFromDate(date, options) {
 		};
 	}
 
+	const dateToUse = extractDateOnly(date, options);
+
 	return {
-		date: extractDateOnly(date, options),
-		textInput: dateToStr(date, options),
+		date: dateToUse,
+		dateWithTimezone: date,
+		textInput: dateToStr(dateToUse, options),
 		errors: [],
 		errorMessage: null,
 	};
@@ -190,7 +207,8 @@ function extractDateFromTextInput(textInput, options) {
 	}
 
 	return {
-		date: options.useUTC ? convertToUTC(date) : date,
+		date,
+		dateWithTimezone: convertDateToTimezone(date, options),
 		textInput,
 		errors,
 		errorMessage: errors[0] ? errors[0].message : null,
@@ -213,4 +231,21 @@ function extractDate(value, options) {
 	};
 }
 
-export { checkSupportedDateFormat, extractDate, extractDateFromTextInput, extractPartsFromDate };
+function extractDateFromDate(date, { dateFormat, timezone }) {
+	return {
+		date,
+		dateWithTimezone: convertToLocalTime(date, { timeZone: timezone }),
+		textInput: format(date, dateFormat),
+		errors: [],
+		errorMessage: null,
+	};
+}
+
+
+export {
+	checkSupportedDateFormat,
+	extractDate,
+	extractDateFromDate,
+	extractDateFromTextInput,
+	extractPartsFromDate,
+};
