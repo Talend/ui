@@ -50,10 +50,7 @@ function InputDateTimePicker(props) {
 						/>
 						{props.timezone && (
 							<TooltipTrigger
-								label={props.t('DATE_TIME_PICKER_TIMEZONE', {
-									defaultValue: 'Timezone: {{timezone}}',
-									timezone: props.timezone,
-								})}
+								label={props.timezone}
 								tooltipPlacement="top"
 								style={{ display: 'block' }}
 							>
