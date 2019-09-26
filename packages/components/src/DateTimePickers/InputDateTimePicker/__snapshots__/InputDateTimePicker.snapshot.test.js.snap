@@ -27,7 +27,7 @@ exports[`InputDateTimePicker should render 1`] = `
         value={2017-04-03T22:00:00.000Z}
       >
         <div
-          className="date-picker"
+          className="theme-date-picker"
         >
           <Date.Manager
             dateFormat="YYYY-MM-DD"
