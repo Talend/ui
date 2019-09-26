@@ -27,7 +27,6 @@ ViewLayout.propTypes = {
 		rightElement: PropTypes.element,
 	}).isRequired,
 	bodyElement: PropTypes.element.isRequired,
-	bodyClass: PropTypes.string.isRequired,
 };
 
 export default ViewLayout;
