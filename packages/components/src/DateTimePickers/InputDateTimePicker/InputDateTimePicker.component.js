@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
 
 import Icon from '../../Icon';
 import TooltipTrigger from '../../TooltipTrigger';
@@ -10,8 +9,6 @@ import InputTimePicker from '../InputTimePicker';
 
 import DateTime from '../DateTime';
 import { DateTimeContext } from '../DateTime/Context';
-
-import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 import theme from './InputDateTimePicker.scss';
 
@@ -52,8 +49,9 @@ function InputDateTimePicker(props) {
 							<TooltipTrigger
 								label={props.timezone}
 								tooltipPlacement="top"
+								style={{ height: '32px', display: 'flex', alignItems: 'center' }}
 							>
-								<Icon name="talend-info-circle" />
+								<Icon name="talend-info-circle" style={{ display: 'block' }} />
 							</TooltipTrigger>
 						)}
 					</div>
@@ -77,7 +75,6 @@ InputDateTimePicker.propTypes = {
 	useSeconds: PropTypes.bool,
 	useUTC: PropTypes.bool,
 	timezone: PropTypes.string,
-	t: PropTypes.func.isRequired,
 };
 
 InputDateTimePicker.defaultProps = {
@@ -88,4 +85,4 @@ InputDateTimePicker.defaultProps = {
 	required: true,
 };
 
-export default withTranslation(I18N_DOMAIN_COMPONENTS)(InputDateTimePicker);
+export default InputDateTimePicker;
