@@ -99,6 +99,7 @@ describe('ResourcePicker field', () => {
 		expect(wrapper.find('.tc-resource-picker-sort-options button').length).toBe(2);
 		expect(wrapper.find('.tc-resource-picker-state-filters button').length).toBe(3);
 		expect(wrapper.getElement()).toMatchSnapshot();
+		expect(wrapper.find('ResourcePicker').props().toolbar.name.value).toEqual('');
 	});
 
 	it('should render simple select with wanted sort and filter', done => {
@@ -227,8 +228,17 @@ describe('ResourcePicker field', () => {
 		});
 	});
 
-	it('should unselect', async () => {
-		const wrapper = await mount(<ResourcePicker {...props} />);
+	it('should unselect in multi case', async () => {
+		const onChangeUnselect = jest.fn();
+		const multi = {
+			...props,
+			onChange: onChangeUnselect,
+			schema: {
+				...props.schema,
+				multi: true,
+			},
+		};
+		const wrapper = await mount(<ResourcePicker {...multi} />);
 		await wrapper.instance().busy;
 		wrapper.update();
 
@@ -240,10 +250,57 @@ describe('ResourcePicker field', () => {
 			.find(ResourceComponent)
 			.at(0)
 			.simulate('click');
-		expect(props.onChange).toBeCalledWith(expect.anything(), {
-			schema: expect.anything(),
-			value: undefined,
-		});
+		expect(onChangeUnselect.mock.calls.length).toBe(2);
+	});
+
+	it('should not unselect single selection when value is required', async () => {
+		const onChangeUnselect = jest.fn();
+		const unselectProps = {
+			...props,
+			onChange: onChangeUnselect,
+			schema: {
+				...props.schema,
+				required: true,
+			},
+		};
+		const wrapper = await mount(<ResourcePicker {...unselectProps} />);
+		await wrapper.instance().busy;
+		wrapper.update();
+
+		wrapper
+			.find(ResourceComponent)
+			.at(0)
+			.simulate('click');
+		wrapper
+			.find(ResourceComponent)
+			.at(0)
+			.simulate('click');
+		expect(onChangeUnselect.mock.calls.length).toBe(1);
+	});
+
+	it('should unselect single selection when value is not required', async () => {
+		const onChangeUnselect = jest.fn();
+		const unselectProps = {
+			...props,
+			onChange: onChangeUnselect,
+			schema: {
+				...props.schema,
+				required: false,
+			},
+		};
+		const wrapper = await mount(<ResourcePicker {...unselectProps} />);
+		await wrapper.instance().busy;
+		wrapper.update();
+
+		wrapper
+			.find(ResourceComponent)
+			.at(0)
+			.simulate('click');
+		wrapper
+			.find(ResourceComponent)
+			.at(0)
+			.simulate('click');
+		expect(onChangeUnselect.mock.calls.length).toBe(2);
 	});
 
 	it('should not allow multi selection', async () => {
@@ -266,6 +323,9 @@ describe('ResourcePicker field', () => {
 	});
 
 	describe('filters', () => {
+		beforeEach(() => {
+			jest.clearAllMocks();
+		});
 		it('should filter on selection', async () => {
 			const wrapper = mount(<ResourcePicker {...props} />);
 			await wrapper.instance().busy;
@@ -351,6 +411,38 @@ describe('ResourcePicker field', () => {
 					selection: false,
 				},
 			});
+		});
+		it('should filter', () => {
+			const wrapper = shallow(<ResourcePicker {...props} />);
+
+			wrapper.instance().nameFilterChanged({ target: { value: 'test' } });
+			wrapper.update();
+
+			expect(props.onTrigger).toHaveBeenLastCalledWith(null, {
+				schema: expect.anything(),
+				errors: undefined,
+				properties: undefined,
+				trigger: {
+					action: 'resourcePickerFiltered',
+					onEvent: 'filter',
+				},
+				filters: {
+					certified: false,
+					favorites: false,
+					name: 'test',
+					selected: [],
+					selection: false,
+				},
+			});
+
+			expect(
+				wrapper
+					.find('FieldTemplate')
+					.shallow()
+					.children()
+					.at(1)
+					.prop('toolbar').name.value,
+			).toBe('test');
 		});
 	});
 

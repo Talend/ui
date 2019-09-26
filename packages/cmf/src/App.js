@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 
 import RegistryProvider from './RegistryProvider';
 import { WaitForSettings } from './settings';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.component';
 
 /**
  * The React component that render your app and provide CMF environment.
@@ -22,11 +23,14 @@ export default function App(props) {
 	}
 	return (
 		<Provider store={props.store}>
-			<RegistryProvider>{content}</RegistryProvider>
+			<RegistryProvider>
+				<ErrorBoundary fullPage>{content}</ErrorBoundary>
+			</RegistryProvider>
 		</Provider>
 	);
 }
 
+App.displayName = 'CMFApp';
 App.propTypes = {
 	store: PropTypes.object.isRequired,
 	children: PropTypes.node,

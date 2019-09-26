@@ -187,7 +187,6 @@ export default class DataGrid extends React.Component {
 
 		const agGridOptions = {
 			deltaRowDataMode: this.props.deltaRowDataMode,
-			enableColResize: this.props.enableColResize,
 			getRowNodeId: data => data[this.props.rowNodeIdentifier],
 			headerHeight: this.props.headerHeight,
 			navigateToNextCell: this.handleKeyboard,
@@ -233,6 +232,7 @@ export default class DataGrid extends React.Component {
 					minWidth: this.props.columnMinWidth,
 					valueGetter: this.props.getCellValueFn,
 					width: CELL_WIDTH,
+					resizable: this.props.enableColResize,
 					...columnDef,
 					[AG_GRID.CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
 					[AG_GRID.CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,
@@ -291,18 +291,18 @@ export default class DataGrid extends React.Component {
 		}
 	}
 
-	handleKeyboard({ nextCellDef, previousCellDef }) {
-		if (!nextCellDef) {
+	handleKeyboard({ nextCellPosition, previousCellPosition }) {
+		if (!nextCellPosition) {
 			return null;
 		}
 
-		if (this.gridAPI && previousCellDef.rowIndex !== nextCellDef.rowIndex) {
+		if (this.gridAPI && previousCellPosition.rowIndex !== nextCellPosition.rowIndex) {
 			// ag-grid workaround: ag-grid set a selected row only by a click by an user
 			// This allows, when the user move the cell by the keyboard/tab, to set the selected row
-			this.gridAPI.getDisplayedRowAtIndex(nextCellDef.rowIndex).setSelected(true, true);
+			this.gridAPI.getDisplayedRowAtIndex(nextCellPosition.rowIndex).setSelected(true, true);
 		}
 
-		return nextCellDef;
+		return nextCellPosition;
 	}
 
 	render() {

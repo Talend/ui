@@ -8,6 +8,7 @@ import expression from '../src/expression';
 import registry from '../src/registry';
 import storeAPI from '../src/store';
 import sagas from '../src/sagas';
+import onError from '../src/onError';
 
 jest.mock('react-dom', () => ({
 	render: jest.fn(),
@@ -19,8 +20,10 @@ jest.mock('redux-saga', () => {
 	middleware.clearRun = () => run.mockClear();
 	return middleware;
 });
-
-// we mock all internal dependencies
+jest.mock('../src/onError', () => ({
+	report: jest.fn(),
+	bootstrap: jest.fn(),
+}));
 jest.mock('../src/registry', () => ({
 	registerMany: jest.fn(),
 }));
@@ -45,15 +48,46 @@ jest.mock('../src/store', () => ({
 	setHttpMiddleware: jest.fn(),
 	initialize: jest.fn(() => ({ dispatch: jest.fn(), applyMiddleware: jest.fn() })),
 }));
+window.addEventListener = jest.fn();
 
 describe('bootstrap', () => {
+	beforeEach(() => {
+		window.addEventListener.mockClear();
+		onError.bootstrap.mockClear();
+	});
+	describe('error management', () => {
+		it('should call add event listener on window', () => {
+			bootstrap({});
+			expect(window.addEventListener).toHaveBeenCalled();
+			const call = window.addEventListener.mock.calls[0];
+			expect(call[0]).toBe('error');
+			const callback = call[1];
+			expect(callback({})).toBeUndefined();
+			expect(onError.report).not.toHaveBeenCalled();
+			const event = { error: new Error('foo') };
+			expect(callback(event)).toBeUndefined();
+			expect(onError.report).toHaveBeenCalledWith(event.error);
+		});
+
+		it('should bootstrap onError', () => {
+			const options = {
+				onError: {
+					reportURL: '/api/v1/report',
+					sensibleKeys: [],
+				},
+			};
+			bootstrap(options);
+			expect(onError.bootstrap).toHaveBeenCalled();
+			const call = onError.bootstrap.mock.calls[0];
+			expect(call[0]).toMatchObject(options);
+		});
+	});
 	describe('registry', () => {
 		it('should check options', () => {
 			const toThrow = () => bootstrap({ appId: {} });
 			expect(toThrow).toThrow('appId must be a string but got object');
 		});
 		it('should call registerInternals', () => {
-			registerInternals.mockClear();
 			bootstrap({});
 			expect(registerInternals).toHaveBeenCalled();
 		});

@@ -107,6 +107,7 @@ storiesOf('Typeahead', module)
 	.add('searching', () => {
 		const props = {
 			value: 'Lorem ipsum',
+			items: [],
 			onBlur: action('onBlur'),
 			onChange: action('onChange'),
 			searching: true,
@@ -120,6 +121,19 @@ storiesOf('Typeahead', module)
 			items,
 			onBlur: action('onBlur'),
 			onChange: action('onChange'),
+			onSelect: action('onSelect'),
+			role: 'searchbox',
+			'data-feature': 'data-feature-typeahead',
+		};
+		return <Typeahead {...props} />;
+	})
+	.add('with debounce input and results', () => {
+		const props = {
+			value: 'le',
+			items,
+			onBlur: action('onBlur'),
+			onChange: action('onChange'),
+			debounceTimeout: 300,
 			onSelect: action('onSelect'),
 			role: 'searchbox',
 			'data-feature': 'data-feature-typeahead',

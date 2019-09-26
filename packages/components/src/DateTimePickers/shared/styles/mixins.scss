@@ -8,11 +8,21 @@
 	font-size: 1.2rem;
 
 	&.selected {
-		background-color: $scooter;
+		background-color: $lochmara;
 		color: $white;
+		font-weight: $font-weight-semi-bold;
 	}
 
 	&:disabled {
 		color: $silver-chalice;
+		opacity: 0.54;
 	}
+}
+
+@mixin picker-underline {
+	content: '';
+	position: absolute;
+	width: calc(100% - 2rem);
+	left: 1rem;
+	border-bottom: $border-default;
 }

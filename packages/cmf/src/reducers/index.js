@@ -9,6 +9,19 @@ import { combineReducers } from 'redux';
 import collectionsReducers from './collectionsReducers';
 import { componentsReducers } from './componentsReducers';
 import { settingsReducers } from './settingsReducers';
+import CONST from '../constant';
+
+const defaultState = [];
+
+/**
+ * errorsReducer
+ */
+function errorsReducer(state = defaultState, action) {
+	if (action.type === CONST.ERROR) {
+		return state.concat(action.error);
+	}
+	return state;
+}
 
 /**
  * exported API
@@ -20,4 +33,5 @@ export default combineReducers({
 	collections: collectionsReducers,
 	components: componentsReducers,
 	settings: settingsReducers,
+	errors: errorsReducer,
 });

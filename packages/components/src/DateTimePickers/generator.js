@@ -1,8 +1,6 @@
 import addDays from 'date-fns/add_days';
 import chunk from 'lodash/chunk';
-import differenceInCalendarWeeks from 'date-fns/difference_in_calendar_weeks';
 import addMonths from 'date-fns/add_months';
-import endOfMonth from 'date-fns/end_of_month';
 import format from 'date-fns/format';
 import getYear from 'date-fns/get_year';
 import setDay from 'date-fns/set_day';
@@ -41,15 +39,7 @@ export function buildWeeks(year, monthIndex, firstDayOfWeek = 1) {
 		weekStartsOn: firstDayOfWeek,
 	});
 
-	const lastDateOfMonth = endOfMonth(firstDateOfMonth);
-	const diffWeeks = differenceInCalendarWeeks(lastDateOfMonth, firstDateOfCalendar, {
-		weekStartsOn: firstDayOfWeek,
-	});
-	const nbWeeksToRender = diffWeeks + 1;
-
-	const dates = new Array(7 * nbWeeksToRender)
-		.fill(0)
-		.map((_, i) => addDays(firstDateOfCalendar, i));
+	const dates = new Array(7 * 6).fill(0).map((_, i) => addDays(firstDateOfCalendar, i));
 
 	return chunk(dates, 7);
 }
