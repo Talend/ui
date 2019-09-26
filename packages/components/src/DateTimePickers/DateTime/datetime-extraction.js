@@ -4,7 +4,7 @@ import { convertToTimeZone } from 'date-fns-timezone';
 
 import getErrorMessage from '../shared/error-messages';
 import { extractDateOnly } from '../Date/date-extraction';
-import { checkTime, pad, timeToStr } from '../Time/time-extraction';
+import { checkTime, pad, timeToStr, strToTime } from '../Time/time-extraction';
 
 const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
 
@@ -70,6 +70,10 @@ function dateAndTimeToDateTime(date, time) {
 	}
 
 	try {
+		if (typeof time === 'string') {
+			// eslint-disable-next-line no-param-reassign
+			time = strToTime(time);
+		}
 		const { hours, minutes, seconds } = time;
 		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
 		return addSeconds(date, timeInSeconds);
