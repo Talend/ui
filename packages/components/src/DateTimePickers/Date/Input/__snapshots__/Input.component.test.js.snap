@@ -49,6 +49,7 @@ exports[`Date.Input should render 1`] = `
           "fontSize": "1.6rem",
           "fontStyle": "oblique",
           "fontWeight": 400,
+          "position": "absolute",
           "visibility": "hidden",
         }
       }

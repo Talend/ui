@@ -227,11 +227,11 @@ function extractDate(value, options) {
 	};
 }
 
-function extractDateFromDate(date, { dateFormat, timezone }) {
+function extractDateFromDate(date, options) {
 	return {
 		localDate: date,
-		date: convertToLocalTime(date, { timeZone: timezone }),
-		textInput: format(date, dateFormat),
+		date: convertDateToTimezone(date, options),
+		textInput: format(date, options.dateFormat),
 		errors: [],
 		errorMessage: null,
 	};

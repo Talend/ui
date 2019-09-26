@@ -74,6 +74,7 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
+				localDate: new Date(2015, 8, 15),
 				textInput: '2015-09-15',
 				errors: [],
 				errorMessage: null,
@@ -91,6 +92,7 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
+				localDate: new Date(2015, 8, 15),
 				textInput: '2015-09-15',
 				errors: [],
 				errorMessage: null,
@@ -108,6 +110,7 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
+				localDate: new Date(2015, 8, 15),
 				textInput: value,
 				errors: [],
 				errorMessage: null,
@@ -146,6 +149,7 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
+				localDate: new Date(2015, 8, 15),
 				textInput: '2015-09-15',
 				errors: [],
 				errorMessage: null,
@@ -183,6 +187,7 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date: new Date(2018, 11, 25),
+				localDate: new Date(2018, 11, 25),
 				textInput,
 				errorMessage: null,
 				errors: [],
@@ -243,6 +248,7 @@ describe('Date extraction', () => {
 
 			// then
 			expect(parts).toEqual({
+				localDate: new Date(2018, 11, 25),
 				date: new Date(Date.UTC(2018, 11, 25)),
 				textInput,
 				errorMessage: null,
