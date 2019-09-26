@@ -5,13 +5,13 @@ import { useTranslation } from 'react-i18next';
 import { FACETED_MODE } from '../../FacetedSearch.constants';
 import { FacetedToolbar } from '../FacetedToolbar';
 import { FacetedManager } from '../FacetedManager';
-import { controlled } from '../../../controlled';
-import { I18N } from '../../../../constants';
+import controlled from '../../../../controlled';
+import I18N_DOMAIN_COMPONENTS from '../../../constants';
 
 const FacetedSearch = ({ children, error, facetedMode, id, inProgress, setFacetedMode }) => {
 	const isControlled = controlled('FacetedSearch', facetedMode, setFacetedMode);
 	const [facetedModeState, setFacetedModeState] = useState(FACETED_MODE.BASIC);
-	const { t } = useTranslation(I18N.DATASET_NAME_SPACE);
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const facetedId = `${id}-faceted`;
 	const mode = isControlled ? facetedMode : facetedModeState;
 	const setMode = isControlled ? setFacetedMode : setFacetedModeState;
@@ -33,4 +33,4 @@ FacetedSearch.propTypes = {
 	setFacetedMode: PropTypes.func,
 };
 
-export { FacetedSearch };
+export default FacetedSearch;
