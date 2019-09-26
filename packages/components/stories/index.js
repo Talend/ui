@@ -23,6 +23,7 @@ import './Drawer';
 import './EditableText';
 import './Emphasis';
 import './Enumeration';
+import './FacetedSearch';
 import './FilterBar';
 import './GridLayout';
 import './GuidedTour';

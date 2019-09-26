@@ -1,12 +1,11 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-import { I18N } from '../../../../../app/constants';
-
+import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import { FacetedSearchProvider } from '../context/facetedSearch.context';
 
 const FacetedManager = ({ children, id, inProgress, error }) => {
-	const { t } = useTranslation(I18N.DATASET_NAME_SPACE);
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const contextValue = useMemo(() => ({ id, inProgress, error, t }), [error, id, inProgress, t]);
 
 	return <FacetedSearchProvider value={contextValue}>{children}</FacetedSearchProvider>;
@@ -19,4 +18,6 @@ FacetedManager.propTypes = {
 	error: PropTypes.string,
 };
 
+
+// eslint-disable-next-line import/prefer-default-export
 export { FacetedManager };

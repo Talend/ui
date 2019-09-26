@@ -1,10 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { getTheme } from '@talend/react-components/lib/theme';
-import Action from '@talend/react-components/lib/Actions/Action';
-import { FilterBar } from '@talend/react-components';
+import { getTheme } from '../../../theme';
+import Action from '../../../Actions/Action';
+import { FilterBar } from '../../../FilterBar';
 
-import Tooltip from '../../../../components/Tooltip';
+import { RichLayout } from '../../../RichTooltip/RichLayout';
 import cssModule from './AddFacetPopover.scss';
 import { badgesFacetedPropTypes, badgeFacetedPropTypes } from '../facetedSearch.propTypes';
 
@@ -49,8 +49,8 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 	const addFacetId = `${id}-add-facet-popover`;
 	return (
 		<div id={addFacetId} className={theme('tc-add-facet-popover')}>
-			<Tooltip.Header id={addFacetId}>Faceted Search</Tooltip.Header>
-			<Tooltip.Body id={addFacetId}>
+			<RichLayout.Header id={addFacetId}>Faceted Search</RichLayout.Header>
+			<RichLayout.Body id={addFacetId}>
 				<FilterBar
 					autoFocus={false}
 					className={theme('tc-add-facet-popover-filter')}
@@ -73,7 +73,7 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 						onClick={onClick}
 					/>
 				))}
-			</Tooltip.Body>
+			</RichLayout.Body>
 		</div>
 	);
 };
@@ -86,4 +86,5 @@ AddFacetPopover.propTypes = {
 	t: PropTypes.func.isRequired,
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export { AddFacetPopover };

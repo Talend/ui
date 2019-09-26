@@ -8,10 +8,11 @@ import { FacetedManager } from '../FacetedManager';
 import controlled from '../../../../controlled';
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 
-const FacetedSearch = ({ children, error, facetedMode, id, inProgress, setFacetedMode }) => {
+// eslint-disable-next-line import/prefer-default-export
+export const FacetedSearch = ({ children, error, facetedMode, id, inProgress, setFacetedMode }) => {
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const isControlled = controlled('FacetedSearch', facetedMode, setFacetedMode);
 	const [facetedModeState, setFacetedModeState] = useState(FACETED_MODE.BASIC);
-	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
 	const facetedId = `${id}-faceted`;
 	const mode = isControlled ? facetedMode : facetedModeState;
 	const setMode = isControlled ? setFacetedMode : setFacetedModeState;
@@ -32,5 +33,3 @@ FacetedSearch.propTypes = {
 	inProgress: PropTypes.bool,
 	setFacetedMode: PropTypes.func,
 };
-
-export default FacetedSearch;

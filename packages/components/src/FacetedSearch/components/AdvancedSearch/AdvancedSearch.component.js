@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import keycode from 'keycode';
-import { Icon, Action, CircularProgress } from '@talend/react-components';
 import FormControl from 'react-bootstrap/lib/FormControl';
-import { getTheme } from '@talend/react-components/lib/theme';
+import CircularProgress from '../../../CircularProgress';
+import Icon from '../../../Icon';
+import { Action } from '../../../Actions';
+import { getTheme } from '../../../theme';
 
 import { useFacetedSearchContext } from '../context/facetedSearch.context';
 
@@ -24,6 +26,7 @@ AdvancedSearchError.propTypes = {
 	id: PropTypes.string.isRequired,
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export function AdvancedSearch({
 	dataFeature = DATA_FEATURE,
 	initialQuery = '',
@@ -69,7 +72,6 @@ export function AdvancedSearch({
 		}
 	};
 	const advSearchId = `${id}-adv-search`;
-	// TODO: slice this component during hackaton.
 	return (
 		<div id={advSearchId} className={css('adv-search')}>
 			<form id={`${advSearchId}-form`} onSubmit={formSubmit}>
@@ -80,14 +82,12 @@ export function AdvancedSearch({
 					type="search"
 					value={query}
 					placeholder={
-						placeholder ||
-						t('ADV_SEARCH_FACETED_PLACEHOLDER', { defaultValue: 'Enter your query' })
+						placeholder || t('ADV_SEARCH_FACETED_PLACEHOLDER', { defaultValue: 'Enter your query' })
 					}
 					autoComplete="off"
 					className={css('adv-search-input', { 'has-error': error })}
 					aria-label={
-						placeholder ||
-						t('ADV_SEARCH_FACETED_ARIA', { defaultValue: 'Advanced Faceted Search' })
+						placeholder || t('ADV_SEARCH_FACETED_ARIA', { defaultValue: 'Advanced Faceted Search' })
 					}
 					autoFocus
 					role="search"
@@ -101,10 +101,7 @@ export function AdvancedSearch({
 						<React.Fragment>
 							<Action
 								bsStyle="link"
-								className={css(
-									'adv-search-buttons-icon',
-									'adv-search-buttons-cancel',
-								)}
+								className={css('adv-search-buttons-icon', 'adv-search-buttons-cancel')}
 								data-feature={`${dataFeature}.cancel`}
 								hideLabel
 								icon="talend-cross"
@@ -114,10 +111,7 @@ export function AdvancedSearch({
 							/>
 							<Action
 								bsStyle="link"
-								className={css(
-									'adv-search-buttons-icon',
-									'adv-search-buttons-submit',
-								)}
+								className={css('adv-search-buttons-icon', 'adv-search-buttons-submit')}
 								data-feature={`${dataFeature}.submit`}
 								hideLabel
 								icon="talend-check"

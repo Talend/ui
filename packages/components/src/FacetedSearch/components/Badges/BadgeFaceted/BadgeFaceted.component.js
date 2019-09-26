@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Badge from '@talend/react-components/lib/Badge';
-import BadgeComposition from '@talend/react-components/lib/Badge/BadgeComposition';
-import { getTheme } from '@talend/react-components/lib/theme';
+import Badge from '../../../../Badge';
+import BadgeComposition from '../../../../Badge/BadgeComposition';
+import { getTheme } from '../../../../theme';
 
 import { BadgeOperatorOverlay } from '../BadgeOperator';
 import { BadgeOverlay } from '../BadgeOverlay';

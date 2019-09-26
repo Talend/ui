@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Action from '@talend/react-components/lib/Actions/Action';
-import { getTheme } from '@talend/react-components/lib/theme';
+import Action from '../../../..//Actions/Action';
+import { getTheme } from '../../../..//theme';
 
 import { operatorsPropTypes } from '../../facetedSearch.propTypes';
-import Tooltip from '../../../../../components/Tooltip';
+import RichLayout from '../../../../RichTooltip/RichLayout';
 
 import cssModule from './BadgeOperator.scss';
 
@@ -38,7 +38,7 @@ BadgeOperatorRow.propTypes = {
 const BadgeOperatorPopover = ({ id, operators, onClick }) => {
 	return (
 		<div className={theme('tc-badge-operator-popover')}>
-			<Tooltip.Body id={id}>
+			<RichLayout.Body id={id}>
 				{operators.map(operator => (
 					<BadgeOperatorRow
 						id={id}
@@ -47,7 +47,7 @@ const BadgeOperatorPopover = ({ id, operators, onClick }) => {
 						{...operator}
 					/>
 				))}
-			</Tooltip.Body>
+			</RichLayout.Body>
 		</div>
 	);
 };
@@ -58,4 +58,5 @@ BadgeOperatorPopover.propTypes = {
 	onClick: PropTypes.func.isRequired,
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export { BadgeOperatorPopover };

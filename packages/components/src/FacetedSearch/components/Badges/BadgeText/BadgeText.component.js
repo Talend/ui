@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import Badge from '@talend/react-components/lib/Badge';
+import Badge from '../../../..//Badge';
 
 import { BadgeFaceted } from '../BadgeFaceted';
 import { BadgeTextArea } from './BadgeTextArea.component';

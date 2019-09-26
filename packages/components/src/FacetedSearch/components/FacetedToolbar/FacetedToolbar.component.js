@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Action from '@talend/react-components/lib/Actions/Action';
-import { getTheme } from '@talend/react-components/lib/theme';
+import Action from '../../../Actions/Action';
+import { getTheme } from '../../../theme';
 
 import { FACETED_MODE } from '../../FacetedSearch.constants';
 import cssModule from './FacetedToolbar.scss';
@@ -67,4 +67,5 @@ FacetedToolbar.propTypes = {
 	t: PropTypes.func.isRequired,
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export { FacetedToolbar };

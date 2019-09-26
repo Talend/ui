@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Overlay, Popover } from 'react-bootstrap';
-import Action from '@talend/react-components/lib/Actions/Action';
+import Action from '../../../../Actions/Action';
 
 const getChildren = (children, setOverlayOpened) => {
 	if (typeof children === 'function') {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getTheme } from '@talend/react-components/lib/theme';
 import get from 'lodash/get';
+import { getTheme } from '../../../theme';
 
 import { AddFacetPopover } from '../AddFacetPopover';
 import { BadgeOverlay } from '../Badges';
@@ -69,4 +69,5 @@ BasicSearch.propTypes = {
 	setBadgesFaceted: PropTypes.func,
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export { BasicSearch };
