@@ -39,13 +39,17 @@ Footer.propTypes = TooltipPropTypes;
 
 export default function RichLayout(props) {
 	return (
-		<span>
-			<Header>{Inject.getReactElement(props.getComponent, props.Header)}</Header>
-			<Body className={props.className}>
+		<span id={props.id}>
+			<Header id={`${props.id}-header`}>
+				{Inject.getReactElement(props.getComponent, props.Header)}
+			</Header>
+			<Body id={`${props.id}-body`} className={props.className}>
 				{props.text && <p>{props.text}</p>}
 				{!props.text && Inject.getReactElement(props.getComponent, props.Content)}
 			</Body>
-			<Footer>{Inject.getReactElement(props.getComponent, props.Footer)}</Footer>
+			<Footer id={`${props.id}-footer`}>
+				{Inject.getReactElement(props.getComponent, props.Footer)}
+			</Footer>
 		</span>
 	);
 }
@@ -60,4 +64,5 @@ RichLayout.propTypes = {
 	Header: Inject.getReactElement.propTypes,
 	Footer: Inject.getReactElement.propTypes,
 	text: PropTypes.string,
+	id: PropTypes.string.isRequired,
 };

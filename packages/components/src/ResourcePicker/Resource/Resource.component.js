@@ -73,11 +73,12 @@ function Resource({ parent, index, style, className, t }) {
 			</div>
 
 			<div className={classNames('flags-container', theme['flags-container'])}>
-				{Object.keys(FLAGS).map(flag => (
+				{Object.keys(FLAGS).map((flag, flagIndex) => (
 					<Icon
 						className={classNames(theme.flag, {
 							[theme.visible]: flags.includes(flag),
 						})}
+						key={flagIndex}
 						name={FLAGS[flag]}
 					/>
 				))}

@@ -9,7 +9,7 @@ describe('onError', () => {
 	let state;
 	let config;
 	beforeEach(() => {
-		state = { foo: { ok: 'should be kept', password: 'secret' } };
+		state = { foo: { ok: 'should be kept', password: 'secret', keyUndefined: undefined } };
 		store = mock.store(state);
 		store.dispatch = jest.fn();
 		config = {
@@ -42,12 +42,23 @@ describe('onError', () => {
 	});
 	describe('addAction', () => {
 		it('should add action in singleton', () => {
-			onError.addAction({ type: 'FOO', password: 'secret' });
+			onError.addAction({
+				type: 'FOO',
+				password: 'secret',
+				value: null,
+				other: false,
+				number: 0,
+				NaN,
+			});
 			const info = onError.getReportInfo(new Error('my'));
 			expect(info.actions.length).toBe(1);
-			expect(info.actions[0]).toMatchObject({
+			expect(info.actions[0]).toEqual({
 				type: 'FOO',
 				password: expect.anything(),
+				value: null,
+				other: false,
+				number: 0,
+				NaN,
 			});
 			expect(info.actions[0].password).not.toBe('secret');
 		});

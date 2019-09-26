@@ -82,7 +82,12 @@ function anon(value, key) {
  * @return {Object} friendly with JSON.stringify
  */
 function prepareObject(originalState) {
+	if (originalState === null) {
+		return null;
+	}
+
 	const state = originalState.toJS ? originalState.toJS() : originalState;
+
 	return Object.keys(state).reduce((acc, key) => {
 		const valueType = Array.isArray(acc[key]) ? 'array' : typeof state[key];
 		if (valueType === 'function') {
@@ -96,6 +101,8 @@ function prepareObject(originalState) {
 			});
 		} else if (valueType === 'object') {
 			acc[key] = prepareObject(state[key]);
+		} else if (valueType === 'undefined') {
+			acc[key] = state[key];
 		} else {
 			// anonym it
 			acc[key] = anon(state[key], key);

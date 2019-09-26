@@ -229,6 +229,50 @@ describe('Array component', () => {
 				}
 			});
 		});
+
+		it('should add first enum value as default for single select', () => {
+			const selectSchema = {
+				key: 'Color',
+				type: 'array',
+				items: [
+					{
+						key: ['Color', ''],
+						type: 'select',
+					},
+				],
+				schema: {
+					items: {
+						type: 'string',
+						enum: ['White', 'Red', 'Black'],
+					},
+				},
+			};
+
+			// given
+			const onChange = jest.fn();
+			const onFinish = jest.fn();
+			const event = { target: {} };
+			const wrapper = shallow(
+				<ArrayWidget
+					description={'My array description'}
+					errorMessage={'This array is not correct'}
+					id={'talend-array'}
+					isValid
+					onChange={onChange}
+					onFinish={onFinish}
+					schema={selectSchema}
+					value={[]}
+				/>,
+			);
+
+			// when
+			wrapper.instance().onAdd(event);
+
+			// then
+			const payload = { schema: selectSchema, value: ['White'] };
+			expect(onChange).toBeCalledWith(event, payload);
+			expect(onFinish).toBeCalledWith(event, payload);
+		});
 	});
 
 	describe('#onRemove', () => {

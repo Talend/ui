@@ -17,6 +17,13 @@
 	& &-item {
 		float: none;
 		display: inline-block;
+
+		&-icon {
+			margin-right: $padding-smaller;
+			width: $svg-sm-size;
+			height: $svg-sm-size;
+			font-size: $svg-sm-size;
+		}
 	}
 
 	&-dropdown {
