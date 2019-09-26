@@ -89,7 +89,10 @@ function SidePanel({
 			{actions && (
 				<div
 					data-simplebar
-					className={classNames(theme['action-list-container'], 'tc-side-panel-action-list-container')}
+					className={classNames(
+						theme['action-list-container'],
+						'tc-side-panel-action-list-container',
+					)}
 				>
 					<Components.ActionList
 						className={listCSS}
