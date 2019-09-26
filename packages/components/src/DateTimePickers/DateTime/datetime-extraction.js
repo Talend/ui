@@ -1,6 +1,9 @@
 import format from 'date-fns/format';
-import setSeconds from 'date-fns/set_seconds';
+import addSeconds from 'date-fns/add_seconds';
+import { convertToTimeZone } from 'date-fns-timezone';
+
 import getErrorMessage from '../shared/error-messages';
+import { extractDateOnly } from '../Date/date-extraction';
 import { checkTime, pad, timeToStr } from '../Time/time-extraction';
 
 const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
@@ -13,39 +16,27 @@ export function DatePickerException(code, message) {
 }
 
 /**
- * Extract date and apply the current timezone, from datetime
- * Ex :
- * 2014-03-25 23:00:00 (UTC) 		--> 2014-03-25 OO:OO:OO (current TZ)
- * 2014-03-25 23:00:00 (current TZ) --> 2014-03-25 OO:OO:OO (current TZ)
- * @param date {Date} The date to extract
- * @param useUTC {boolean} Indicates if date is in UTC
- */
-function extractDateOnly(date, { useUTC }) {
-	if (useUTC) {
-		return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
-	}
-	return new Date(date.getFullYear(), date.getMonth(), date.getDate());
-}
-
-/**
  * Extract time
  * @param date {Date} The date to extract
  * @param useSeconds {boolean} Indicates if we should extract seconds
  * @param useUTC {boolean} Indicates if date is in UTC
+ * @param timezone {string} Indicates if use specific timezone
  * @returns {*}
  */
-function extractTimeOnly(date, { useSeconds, useUTC }) {
-	let hours;
-	let minutes;
-	let seconds;
+function extractTimeOnly(date, { useSeconds, useUTC, timezone }) {
+	let hours = date.getHours();
+	let minutes = date.getMinutes();
+	let seconds = date.getSeconds();
 	if (useUTC) {
 		hours = date.getUTCHours();
 		minutes = date.getUTCMinutes();
 		seconds = date.getUTCSeconds();
-	} else {
-		hours = date.getHours();
-		minutes = date.getMinutes();
-		seconds = date.getSeconds();
+	}
+	if (timezone) {
+		const converted = convertToTimeZone(date, { timeZone: timezone });
+		hours = converted.getHours();
+		minutes = converted.getMinutes();
+		seconds = converted.getSeconds();
 	}
 
 	return {
@@ -53,23 +44,6 @@ function extractTimeOnly(date, { useSeconds, useUTC }) {
 		minutes: pad(minutes, 2),
 		seconds: useSeconds ? pad(seconds, 2) : '00',
 	};
-}
-
-/**
- * Convert a date in local TZ to UTC
- * Ex: 2015-05-23 23:58:46 (current TZ) --> 2015-05-23 23:58:46 (UTC)
- */
-function convertToUTC(date) {
-	return new Date(
-		Date.UTC(
-			date.getFullYear(),
-			date.getMonth(),
-			date.getDate(),
-			date.getHours(),
-			date.getMinutes(),
-			date.getSeconds(),
-		),
-	);
 }
 
 /**
@@ -88,10 +62,9 @@ function timeToSeconds(hours, minutes, seconds) {
  * Set the time to the provided date
  * @param date {Date} Date in current TZ
  * @param time {{hours: string, minutes: string, seconds: string}} Time in current TZ
- * @param useUTC {boolean} Indicates that we ask for a date in UTC TZ
  * @returns {Date}
  */
-function dateAndTimeToDateTime(date, time, { useUTC }) {
+function dateAndTimeToDateTime(date, time) {
 	if (date === undefined || time === undefined) {
 		return INTERNAL_INVALID_DATE;
 	}
@@ -99,8 +72,7 @@ function dateAndTimeToDateTime(date, time, { useUTC }) {
 	try {
 		const { hours, minutes, seconds } = time;
 		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
-		const localTimezoneDate = setSeconds(date, timeInSeconds);
-		return useUTC ? convertToUTC(localTimezoneDate) : localTimezoneDate;
+		return addSeconds(date, timeInSeconds);
 	} catch (e) {
 		return INTERNAL_INVALID_DATE;
 	}

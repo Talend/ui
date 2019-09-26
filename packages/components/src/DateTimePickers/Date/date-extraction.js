@@ -241,6 +241,7 @@ function extractDateFromDate(date, { dateFormat, timezone }) {
 export {
 	checkSupportedDateFormat,
 	extractDate,
+	extractDateOnly,
 	extractDateFromDate,
 	extractDateFromTextInput,
 	extractPartsFromDate,

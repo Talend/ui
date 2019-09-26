@@ -10,7 +10,7 @@ function ContextualManager(props) {
 			dateFormat: props.dateFormat,
 			useSeconds: props.useSeconds,
 			useUTC: props.useUTC,
-			timezone: props.timzone,
+			timezone: props.timezone,
 			required: props.required,
 		};
 	}
