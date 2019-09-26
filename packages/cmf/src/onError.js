@@ -101,6 +101,8 @@ function prepareObject(originalState) {
 			});
 		} else if (valueType === 'object') {
 			acc[key] = prepareObject(state[key]);
+		} else if (valueType === 'undefined') {
+			acc[key] = state[key];
 		} else {
 			// anonym it
 			acc[key] = anon(state[key], key);
