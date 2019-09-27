@@ -5,8 +5,6 @@
   "private": true,
   "main": "app/index.js",
   "scripts": {
-    "start": "talend-scripts start",
-    "prepublish": "cd .. && yarn prepublish"
     "build": "talend-scripts build",
     "start": "talend-scripts start --open",
     "start-dist": "talend-scripts build && node serve-dist"
