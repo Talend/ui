@@ -7,13 +7,12 @@
 }
 
 .calendar-header {
-	height: 3rem;
 	&:after {
 		@include picker-underline;
 		width: 100%;
 		position: absolute;
 		left: 0;
-		top: 2.5rem;
+		top: 2.3rem;
 	}
 
 	th {
