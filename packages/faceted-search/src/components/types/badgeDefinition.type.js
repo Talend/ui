@@ -10,10 +10,10 @@ const getLabel = badgeDefinitionRaw => get(badgeDefinitionRaw, 'label');
 
 const facetedBadgeDefinitionStruct = {
 	properties: {
+		attribute: name,
 		initialOpenedOperator: false,
 		initialOpenedValue: false,
 		label: '',
-		name: '',
 		operator: {},
 		operators: [],
 		type: '',

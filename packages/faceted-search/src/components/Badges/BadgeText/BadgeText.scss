@@ -9,6 +9,10 @@
 		width: inherit;
 	}
 
+	:global(.tc-tooltip-content) {
+		flex-direction: column;
+	}
+
 	:global(.tc-tooltip-footer) {
 		justify-content: flex-end;
 	}

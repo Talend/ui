@@ -23,14 +23,16 @@ const operatorsPropTypes = PropTypes.arrayOf(operatorPropTypes);
 
 const badgeFacetedPropTypes = PropTypes.shape({
 	properties: PropTypes.shape({
+		attribute: PropTypes.string.isRequired,
 		label: PropTypes.string.isRequired,
 		initialOperatorOpened: PropTypes.bool,
 		initialValueOpened: PropTypes.bool,
 		operator: operatorPropTypes,
 		operators: operatorsPropTypes,
+		type: PropTypes.string.isRequired,
+
 	}),
 	metadata: PropTypes.shape({
-		attribute: PropTypes.string.isRequired,
 		badgeId: PropTypes.string.isRequired,
 		badgesPerFacet: PropTypes.string,
 		case: PropTypes.string,

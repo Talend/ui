@@ -10,11 +10,11 @@ $circle-size-small: 1.8rem !default;
 		width: $circle-size-large;
 		height: $circle-size-large;
 	}
-	display: flex;
 	align-items: center;
-	justify-content: center;
 	background: white;
 	border-radius: 10rem;
+	display: flex;
+	justify-content: center;
 	margin: 0 $padding-smaller 0 $padding-smaller;
 
 	&-button {
@@ -26,6 +26,10 @@ $circle-size-small: 1.8rem !default;
 		:global(.tc-tooltip-body) {
 			margin-right: 0;
 			margin-left: 0;
+		}
+		:global(.tc-tooltip-content) {
+			flex-direction: column;
+			min-height: 0;
 		}
 	}
 

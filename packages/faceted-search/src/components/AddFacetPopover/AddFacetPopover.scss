@@ -7,11 +7,11 @@
 		font-weight: 800;
 	}
 	:global(.tc-tooltip-body) {
-		> div:first-child {
-			width: 100%;
-		}
 		margin-right: 0;
 		margin-left: 0;
+		:global(.tc-tooltip-content) {
+			flex-direction: column;
+		}
 	}
 
 	&-filter {

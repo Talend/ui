@@ -21,21 +21,29 @@ const badgeName = {
 	},
 };
 
-storiesOf('FacetedSearch', module).add('default', () => (
-	<div>
-		<IconsProvider />
-		<FacetedSearch.Faceted id="my-faceted-search">
-			{currentFacetedMode =>
-				(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.ADVANCED && (
-					<FacetedSearch.AdvancedSearch onSubmit={action('onSubmit')} />
-				)) ||
-				(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.BASIC && (
-					<FacetedSearch.BasicSearch
-						badgesDefinitions={[badgeName]}
-						onSubmit={action('onSubmit')}
-					/>
-				))
-			}
-		</FacetedSearch.Faceted>
-	</div>
-));
+storiesOf('FacetedSearch', module)
+	.addDecorator(story => (
+		<div>
+			<IconsProvider />
+			<h1>Faceted Search</h1>
+			{story()}
+		</div>
+	))
+	.add('default', () => (
+		<div>
+			<IconsProvider />
+			<FacetedSearch.Faceted id="my-faceted-search">
+				{currentFacetedMode =>
+					(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.ADVANCED && (
+						<FacetedSearch.AdvancedSearch onSubmit={action('onSubmit')} />
+					)) ||
+					(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.BASIC && (
+						<FacetedSearch.BasicSearch
+							badgesDefinitions={[badgeName]}
+							onSubmit={action('onSubmit')}
+						/>
+					))
+				}
+			</FacetedSearch.Faceted>
+		</div>
+	));
