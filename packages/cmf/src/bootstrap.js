@@ -126,6 +126,10 @@ function addOnErrorListener() {
 	});
 }
 
+function DefaultRootComponent() {
+	return 'RootComponent is required';
+}
+
 /**
  * Bootstrap your cmf app
  * It takes your configuration and provides a very good default one.
@@ -150,9 +154,9 @@ export default function bootstrap(appOptions = {}) {
 	const store = bootstrapRedux(options, saga.middleware);
 	onError.bootstrap(options, store);
 	saga.run();
-	const RootComponent = options.RootComponent;
+	const RootComponent = options.RootComponent || DefaultRootComponent;
 	render(
-		<App store={store} loading={options.AppLoader} withSettings={options.settingsURL}>
+		<App store={store} loading={options.AppLoader} withSettings={!!options.settingsURL}>
 			<RootComponent />
 		</App>,
 		document.getElementById(appId),
