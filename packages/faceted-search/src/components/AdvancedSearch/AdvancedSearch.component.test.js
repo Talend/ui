@@ -77,9 +77,7 @@ describe('AdvancedSearch', () => {
 			</FacetedManager>,
 		);
 		act(() => {
-			wrapper
-				.find('input#some-id-form')
-				.simulate('keyDown', { keyCode: keycode.codes.enter });
+			wrapper.find('input#some-id-form').simulate('keyDown', { keyCode: keycode.codes.enter });
 		});
 		// then
 		expect(onSubmit).toHaveBeenCalled();
@@ -95,9 +93,7 @@ describe('AdvancedSearch', () => {
 			</FacetedManager>,
 		);
 		act(() => {
-			wrapper
-				.find('input#some-id-form')
-				.simulate('keyDown', { keyCode: keycode.codes.enter });
+			wrapper.find('input#some-id-form').simulate('keyDown', { keyCode: keycode.codes.enter });
 		});
 		// then
 		expect(onKeyDown).toHaveBeenCalled();
