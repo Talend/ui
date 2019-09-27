@@ -72,7 +72,7 @@ class DateWidget extends React.Component {
 		} = this.props;
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
-		const convertedValue = schema.format === 'iso-datetime' ? this.isoStrToDate(value) : value;
+		const convertedValue = schema.schema.format === 'iso-datetime' ? this.isoStrToDate(value) : value;
 
 		return (
 			<FieldTemplate

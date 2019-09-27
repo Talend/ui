@@ -162,20 +162,7 @@ function extractDateFromTextInput(textInput, options) {
 	let errors = [];
 
 	try {
-		let dateTextToParse;
-		
-		const splitMatches = textInput.match(splitDateAndTimePartsRegex) || [];
-
-		console.log('---------------date-extraction');
-		console.log(textInput);
-		console.log(splitMatches);
-		if (splitMatches.length) {
-			dateTextToParse = splitMatches[1];
-		} else {
-			dateTextToParse = textInput;
-		}
-
-		date = strToDate(dateTextToParse, options.dateFormat);
+		date = strToDate(textInput, options.dateFormat);
 	} catch (error) {
 		errors = errors.concat(error);
 	}
