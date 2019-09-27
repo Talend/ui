@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import IconsProvider from '@talend/react-components/lib/IconsProvider';
 import FacetedSearch from '../src';
 
 const badgeName = {
@@ -22,6 +23,7 @@ const badgeName = {
 
 storiesOf('FacetedSearch', module).add('default', () => (
 	<div>
+		<IconsProvider />
 		<FacetedSearch.Faceted id="my-faceted-search">
 			{currentFacetedMode =>
 				(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.ADVANCED && (
