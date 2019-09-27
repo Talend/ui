@@ -2,10 +2,6 @@
 @import '../../shared/styles/variables';
 
 .container {
-	&:after {
-		@include picker-underline;
-		bottom: -$padding-smaller;
-	}
 	width: 100%;
 	position: relative;
 }
@@ -14,6 +10,9 @@
 	height: 3rem;
 	&:after {
 		@include picker-underline;
+		width: 100%;
+		position: absolute;
+		left: 0;
 		top: 2.5rem;
 	}
 

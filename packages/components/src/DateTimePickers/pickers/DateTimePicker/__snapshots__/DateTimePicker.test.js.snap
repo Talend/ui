@@ -20,7 +20,7 @@ exports[`DateTimePicker should render 1`] = `
     onTitleClick={[Function]}
   />
   <div
-    className="theme-footer"
+    className="theme-footer theme-date-padding"
   >
     <Action
       aria-label="Pick Today"
