@@ -1,5 +1,6 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
+const brace = path.dirname(require.resolve('brace'));
 
 /**
  * react ace try to fetch resources but name are differents in sources
@@ -14,8 +15,8 @@ function transformPath(targetPath) {
 
 module.exports = {
 	plugins: [
-		new CopyWebpackPlugin([{ from: 'node_modules/brace/mode/*.js', transformPath }]),
-		new CopyWebpackPlugin([{ from: 'node_modules/brace/theme/*.js', transformPath }]),
-		new CopyWebpackPlugin([{ from: 'node_modules/brace/snippets', to: 'snippets/' }]),
+		new CopyWebpackPlugin([{ from: `${brace}/mode/*.js`, transformPath }]),
+		new CopyWebpackPlugin([{ from: `${brace}/theme/*.js`, transformPath }]),
+		new CopyWebpackPlugin([{ from: `${brace}/snippets`, to: 'snippets/' }]),
 	],
 };
