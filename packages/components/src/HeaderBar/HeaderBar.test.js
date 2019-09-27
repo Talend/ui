@@ -15,7 +15,7 @@ describe('HeaderBar', () => {
 			onClick: jest.fn(),
 		};
 		const wrapper = mount(<HeaderBarComponent.WrappedComponent logo={logo} />);
-		const element = wrapper.find('Action#logo');
+		const element = wrapper.find('Button.tc-header-bar-logo').at(0);
 		expect(element).not.toBeUndefined();
 		element.simulate('click');
 		expect(logo.onClick).toHaveBeenCalled();
@@ -47,7 +47,7 @@ describe('HeaderBar', () => {
 			},
 		};
 		const wrapper = mount(<HeaderBarComponent.WrappedComponent search={search} />);
-		const element = wrapper.find('Action[role="search"]');
+		const element = wrapper.find('Button[role="search"]');
 		expect(element).not.toBeUndefined();
 		element.simulate('click');
 		expect(search.onToggle).toHaveBeenCalled();
@@ -136,7 +136,7 @@ describe('HeaderBar', () => {
 		const intercomTrigger = wrapper
 			.find('Intercom')
 			.dive()
-			.find('Translate(Intercom)');
+			.find('withI18nextTranslation(Intercom)');
 		expect(intercomTrigger.length).toBe(1);
 		expect(intercomTrigger.props()).toEqual({
 			className: 'btn btn-link',

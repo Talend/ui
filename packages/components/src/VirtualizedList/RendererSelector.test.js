@@ -2,7 +2,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 
 import RendererSelector from './RendererSelector.component';
-import VirtualizedList from './VirtualizedList.component';
+import VirtualizedList from '.';
 import { listTypes } from './utils/constants';
 import collection from './collection';
 import NoRows from './NoRows';
@@ -116,7 +116,7 @@ describe('RendererSelector', () => {
 
 		// then
 		expect(wrapper.prop('rowRenderer').displayName).toBe(
-			'ListGesture(Translate(VirtualizedList(RowLarge)))',
+			'ListGesture(withI18nextTranslation(VirtualizedList(RowLarge)))',
 		);
 	});
 

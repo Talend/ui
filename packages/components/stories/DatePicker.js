@@ -234,14 +234,15 @@ storiesOf('DatePicker', module)
 		</div>
 	))
 	.add('Date picker - no input', () => {
-		const blockStyle = { width: 320, border: '1px solid black', marginRight: '1rem' };
+		const blockStyle = { border: '1px solid black', marginRight: '1rem' };
 		return (
 			<div>
 				<h1>DatePicker without input</h1>
 				<IconsProvider />
 				<ul>
-					<li>Width is defined by the parent (here fixed to 320px) but is responsive </li>
-					<li>Height is responsive relatively to the default font-size</li>
+					<li>The minimum width is 290px, and minimum height is 352px. </li>
+					<li>The width and height can be defined by the parent. </li>
+					<li>If no width or height are set explicitly, it uses minimum width and height by default, like the first one.</li>
 					<li>
 						The outer border style (black) is here just as visual shape indication, it's not part of
 						the component rendered
@@ -284,6 +285,54 @@ storiesOf('DatePicker', module)
 							</DateTime.Manager>
 						</div>
 					</div>
+				</div>
+			</div>
+		);
+	})
+	.add('Date picker - parent with fixed height', () => {
+		const width = 150;
+		return (
+			<div>
+				<IconsProvider />
+				<h1>DatePicker with fixed-height parent</h1>
+				<div style={{ height: 300, overflow: 'auto', border: 'solid' }}>
+					<form style={{ width, float: 'left' }}>
+						<InputDateTimePicker
+							id="my-date-picker-top-left"
+							name="Datetime"
+							onBlur={action('onBlur')}
+							onChange={action('onChange')}
+							useTime
+						/>
+					</form>
+					<form style={{ width, float: 'right' }}>
+						<InputDateTimePicker
+							id="my-date-picker-top-right"
+							name="Datetime"
+							onBlur={action('onBlur')}
+							onChange={action('onChange')}
+							useTime
+						/>
+					</form>
+					<div style={{ height: 600 }} />
+					<form style={{ width, float: 'left' }}>
+						<InputDateTimePicker
+							id="my-date-picker-bottom-left"
+							name="Datetime"
+							onBlur={action('onBlur')}
+							onChange={action('onChange')}
+							useTime
+						/>
+					</form>
+					<form style={{ width, float: 'right' }}>
+						<InputDateTimePicker
+							id="my-date-picker-bottom-right"
+							name="Datetime"
+							onBlur={action('onBlur')}
+							onChange={action('onChange')}
+							useTime
+						/>
+					</form>
 				</div>
 			</div>
 		);

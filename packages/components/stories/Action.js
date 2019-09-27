@@ -104,7 +104,12 @@ storiesOf('Action', module)
 			<h3>Reverse display</h3>
 			<Action id="reverseDisplay" {...myAction} iconPosition="right" />
 			<h3>With hover handlers</h3>
-			<Action id="withHoverHandlers" {...myAction} onMouseEnter={action('mouse enter')} onMouseLeave={action('mouse leave')} />
+			<Action
+				id="withHoverHandlers"
+				{...myAction}
+				onMouseEnter={action('mouse enter')}
+				onMouseLeave={action('mouse leave')}
+			/>
 			<h3>Transform icon</h3>
 			<Action id="reverseDisplay" {...myAction} iconTransform={'rotate-180'} />
 			<h3>Custom tooltip</h3>

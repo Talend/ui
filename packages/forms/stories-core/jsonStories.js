@@ -7,7 +7,6 @@ import { UIForm } from '../src/UIForm';
 const conceptsFilenames = require.context('./json/concepts', true, /.(js|json)$/);
 const fieldsetsFilenames = require.context('./json/fieldsets', true, /.(js|json)$/);
 const fieldsFilenames = require.context('./json/fields', true, /.(js|json)$/);
-const oldFilenames = require.context('../stories/json', true, /.(js|json)$/);
 
 const sampleFilenameRegex = /^.\/(.*).js/;
 const stories = [];
@@ -255,10 +254,6 @@ fieldsetsFilenames.keys().forEach(filename => {
 
 fieldsFilenames.keys().forEach(filename => {
 	stories.push(createStory('fields', fieldsFilenames, filename));
-});
-
-oldFilenames.keys().forEach(filename => {
-	stories.push(createStory('old', oldFilenames, filename));
 });
 
 export default stories;

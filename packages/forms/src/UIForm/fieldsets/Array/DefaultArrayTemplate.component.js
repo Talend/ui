@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { Action } from '@talend/react-components/lib/Actions';
 import ArrayItem from './ArrayItem.component';
 import Message from '../../Message';
@@ -37,14 +37,16 @@ function DefaultArrayTemplate(props) {
 			data-content={schema.title}
 		>
 			{schema.title && <legend className="sr-only">{schema.title}</legend>}
-			<Action
-				id={`${id || 'tf-array'}-btn`}
-				className={classNames(theme['tf-array-add'], 'tf-array-add')}
-				bsStyle={'info'}
-				onClick={onAdd}
-				disabled={valueIsUpdating || schema.disabled}
-				label={options.btnLabel || t('ARRAY_ADD_ELEMENT', { defaultValue: 'New Element' })}
-			/>
+			{!schema.readOnly && (
+				<Action
+					id={`${id || 'tf-array'}-btn`}
+					className={classNames(theme['tf-array-add'], 'tf-array-add')}
+					bsStyle={'info'}
+					onClick={onAdd}
+					disabled={valueIsUpdating || schema.disabled}
+					label={options.btnLabel || t('ARRAY_ADD_ELEMENT', { defaultValue: 'New Element' })}
+				/>
+			)}
 			<Message
 				className={isValid ? undefined : 'has-error'}
 				errorMessage={errorMessage}
@@ -67,12 +69,13 @@ function DefaultArrayTemplate(props) {
 							id={id && `${id}-control-${index}`}
 							index={index}
 							onRemove={onRemove}
-							onReorder={canReorder && onReorder}
+							onReorder={canReorder ? onReorder : undefined}
 							isClosed={itemValue.isClosed}
 							valueIsUpdating={valueIsUpdating}
 							renderItem={renderItem}
 							isCloseable={isCloseable}
 							disabled={schema.disabled}
+							readOnly={schema.readOnly}
 						/>
 					</li>
 				))}
@@ -107,4 +110,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_FORMS)(DefaultArrayTemplate);
+export default withTranslation(I18N_DOMAIN_FORMS)(DefaultArrayTemplate);

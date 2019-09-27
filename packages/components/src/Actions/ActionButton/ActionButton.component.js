@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { Button, OverlayTrigger as BaseOverlayTrigger } from 'react-bootstrap';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
@@ -110,6 +110,7 @@ export function ActionButton(props) {
 		hideLabel,
 		label,
 		loading,
+		download,
 		link,
 		model,
 		onMouseDown = noOp,
@@ -121,6 +122,7 @@ export function ActionButton(props) {
 		overlayPlacement,
 		overlayRef,
 		tooltipPlacement,
+		tooltipClassName,
 		tooltip,
 		tooltipLabel,
 		available,
@@ -180,6 +182,7 @@ export function ActionButton(props) {
 			role={link ? 'link' : null}
 			aria-label={ariaLabel}
 			ref={buttonRef}
+			download={download}
 			{...buttonProps}
 		>
 			{buttonContent}
@@ -202,9 +205,14 @@ export function ActionButton(props) {
 			</OverlayTrigger>
 		);
 	}
+
 	if (hideLabel || tooltip || tooltipLabel) {
 		btn = (
-			<TooltipTrigger label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
+			<TooltipTrigger
+				label={tooltipLabel || label}
+				tooltipPlacement={tooltipPlacement}
+				className={tooltipClassName}
+			>
 				{btnIsDisabled ? (
 					<span
 						className={classNames(
@@ -229,6 +237,7 @@ ActionButton.propTypes = {
 	bsStyle: PropTypes.string,
 	buttonRef: PropTypes.func,
 	disabled: PropTypes.bool,
+	download: PropTypes.string,
 	hideLabel: PropTypes.bool,
 	iconPosition: PropTypes.oneOf([LEFT, RIGHT]),
 	label: PropTypes.string.isRequired,
@@ -241,6 +250,7 @@ ActionButton.propTypes = {
 	t: PropTypes.func,
 	tooltip: PropTypes.bool,
 	tooltipLabel: PropTypes.string,
+	tooltipClassName: PropTypes.string,
 	...overlayPropTypes,
 };
 
@@ -255,4 +265,4 @@ ActionButton.defaultProps = {
 };
 
 ActionButton.displayName = 'ActionButton';
-export default translate(I18N_DOMAIN_COMPONENTS)(ActionButton);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(ActionButton);

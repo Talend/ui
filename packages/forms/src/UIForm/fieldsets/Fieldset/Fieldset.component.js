@@ -9,7 +9,9 @@ export default function Fieldset(props) {
 
 	return (
 		<fieldset className="form-group">
-			<legend className={classnames({ 'sr-only': options && options.hideTitle })}>{title}</legend>
+			{title && (
+				<legend className={classnames({ 'sr-only': options && options.hideTitle })}>{title}</legend>
+			)}
 			{items.map((itemSchema, index) => (
 				<Widget {...restProps} key={index} schema={itemSchema} />
 			))}
@@ -20,7 +22,7 @@ export default function Fieldset(props) {
 if (process.env.NODE_ENV !== 'production') {
 	Fieldset.propTypes = {
 		schema: PropTypes.shape({
-			title: PropTypes.string.isRequired,
+			title: PropTypes.string,
 			items: PropTypes.array.isRequired,
 		}).isRequired,
 	};

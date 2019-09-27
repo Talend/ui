@@ -216,7 +216,7 @@ function check(date, time, options) {
 	try {
 		checkTime(time);
 	} catch (timeErrors) {
-		errors = timeErrors;
+		errors = errors.concat(timeErrors);
 	}
 
 	if (!isDateValid(date, options)) {
@@ -444,7 +444,7 @@ function extractPartsFromDateAndTime(date, time, options) {
 		try {
 			checkTime(time);
 		} catch (error) {
-			errors = error;
+			errors = errors.concat(error);
 		}
 	} else {
 		timeToUse = initTime(options);

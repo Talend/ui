@@ -3,7 +3,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { distanceInWordsToNow, format } from 'date-fns';
 import invariant from 'invariant';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
 import getLocale from '../../DateFnsLocale/locale';
@@ -75,4 +75,4 @@ CellDatetimeComponent.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(CellDatetimeComponent);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(CellDatetimeComponent);

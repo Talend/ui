@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import I18N_DOMAIN_COMPONENTS from '../../../constants';
 import getDefaultT from '../../../translate';
@@ -87,4 +87,4 @@ Validation.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(Validation);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(Validation);

@@ -35,6 +35,11 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 
 	:global(.ag-react-container) {
 		height: 100%;
+		width: 100%;
+	}
+
+	:global(.ag-header-cell-resize) {
+		cursor: col-resize;
 	}
 	/* ==== PIN ==== */
 	:global(.ag-pinned-left-header) {
@@ -66,7 +71,7 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 		user-select: text;
 	}
 
-	:global(.ag-body) {
+	:global(.ag-center-cols-clipper) {
 		background-color: $td-body-background-color;
 		font-family: $td-body-font-family;
 	}

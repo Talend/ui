@@ -22,22 +22,22 @@ function TitleSubHeader({
 	...rest
 }) {
 	const [isEditMode, setIsEditMode] = React.useState(false);
-	function handleEdit() {
+	function handleEdit(...args) {
 		setIsEditMode(true);
 		if (onEdit) {
-			onEdit();
+			onEdit(...args);
 		}
 	}
-	function handleCancel() {
+	function handleCancel(...args) {
 		setIsEditMode(false);
 		if (onCancel) {
-			onCancel();
+			onCancel(...args);
 		}
 	}
-	function handleSubmit() {
+	function handleSubmit(...args) {
 		setIsEditMode(false);
 		if (onSubmit) {
-			onSubmit();
+			onSubmit(...args);
 		}
 	}
 	if (loading) {
@@ -125,7 +125,7 @@ function SubTitle({ subTitleLoading, subTitle }) {
 }
 
 SubTitle.propTypes = {
-	subTitle: PropTypes.string,
+	subTitle: PropTypes.node,
 	subTitleLoading: PropTypes.bool,
 };
 
@@ -135,7 +135,7 @@ TitleSubHeader.propTypes = {
 	loading: PropTypes.bool,
 	inProgress: PropTypes.bool,
 	editable: PropTypes.bool,
-	subTitle: PropTypes.string,
+	subTitle: PropTypes.node,
 	onEdit: PropTypes.func,
 	onSubmit: PropTypes.func,
 	onCancel: PropTypes.func,

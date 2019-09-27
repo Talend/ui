@@ -130,6 +130,23 @@ describe('Array component', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render a readOnly array', () => {
+		const wrapper = mount(
+			<ArrayWidget
+				description={'My array description'}
+				errorMessage={'This array is not correct'}
+				id={'talend-array'}
+				isValid
+				onChange={jest.fn()}
+				onFinish={jest.fn()}
+				schema={{ ...schema, readOnly: true }}
+				value={value}
+				errors={[]}
+			/>,
+		);
+		expect(wrapper.find('Action').length).toBe(0);
+	});
+
 	it('should render array with Add/Delete button disabled', () => {
 		// given
 		const disabledSchema = {
@@ -211,6 +228,50 @@ describe('Array component', () => {
 					expect(item.isClosed).toBe(true);
 				}
 			});
+		});
+
+		it('should add first enum value as default for single select', () => {
+			const selectSchema = {
+				key: 'Color',
+				type: 'array',
+				items: [
+					{
+						key: ['Color', ''],
+						type: 'select',
+					},
+				],
+				schema: {
+					items: {
+						type: 'string',
+						enum: ['White', 'Red', 'Black'],
+					},
+				},
+			};
+
+			// given
+			const onChange = jest.fn();
+			const onFinish = jest.fn();
+			const event = { target: {} };
+			const wrapper = shallow(
+				<ArrayWidget
+					description={'My array description'}
+					errorMessage={'This array is not correct'}
+					id={'talend-array'}
+					isValid
+					onChange={onChange}
+					onFinish={onFinish}
+					schema={selectSchema}
+					value={[]}
+				/>,
+			);
+
+			// when
+			wrapper.instance().onAdd(event);
+
+			// then
+			const payload = { schema: selectSchema, value: ['White'] };
+			expect(onChange).toBeCalledWith(event, payload);
+			expect(onFinish).toBeCalledWith(event, payload);
 		});
 	});
 
@@ -420,7 +481,9 @@ describe('Array component', () => {
 					value={value}
 				/>,
 			);
-			expect(wrapper.find('Translate(DefaultArrayTemplate)').prop('isCloseable')).toEqual(true);
+			expect(
+				wrapper.find('withI18nextTranslation(DefaultArrayTemplate)').prop('isCloseable'),
+			).toEqual(true);
 		});
 
 		it('should pass isCloseable false if widget has isCloseable property set to false', () => {
@@ -436,7 +499,9 @@ describe('Array component', () => {
 					value={value}
 				/>,
 			);
-			expect(wrapper.find('Translate(DefaultArrayTemplate)').prop('isCloseable')).toEqual(false);
+			expect(
+				wrapper.find('withI18nextTranslation(DefaultArrayTemplate)').prop('isCloseable'),
+			).toEqual(false);
 		});
 
 		it('should pass isCloseable false if widget does not have isCloseable property', () => {
@@ -452,7 +517,9 @@ describe('Array component', () => {
 					value={value}
 				/>,
 			);
-			expect(wrapper.find('Translate(DefaultArrayTemplate)').prop('isCloseable')).toEqual(false);
+			expect(
+				wrapper.find('withI18nextTranslation(DefaultArrayTemplate)').prop('isCloseable'),
+			).toEqual(false);
 		});
 	});
 });

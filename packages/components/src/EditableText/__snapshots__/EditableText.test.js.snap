@@ -10,6 +10,7 @@ exports[`EditableText should render 1`] = `
     inProgress={false}
     onEdit={[MockFunction]}
     onSubmit={[MockFunction]}
+    required={true}
     t={[Function]}
     text="my text"
   />
@@ -25,6 +26,7 @@ exports[`EditableText should render InlineForm 1`] = `
     inProgress={false}
     onEdit={[MockFunction]}
     onSubmit={[MockFunction]}
+    required={true}
     t={[Function]}
     text="my text"
   />
@@ -43,6 +45,7 @@ exports[`EditableText should render inProgress 1`] = `
     inProgress={true}
     onEdit={[MockFunction]}
     onSubmit={[MockFunction]}
+    required={true}
     t={[Function]}
     text="my text"
   />
@@ -50,52 +53,59 @@ exports[`EditableText should render inProgress 1`] = `
 `;
 
 exports[`EditableText should render skeleton 1`] = `
-<Translate(Skeleton)
+<withI18nextTranslation(Skeleton)
   size="large"
   type="text"
 />
 `;
 
 exports[`InlineForm should render 1`] = `
-<form
-  className="theme-tc-editable-text-form tc-editable-text-form"
-  onSubmit={[Function]}
+<FocusManager
+  onFocusOut={[Function]}
 >
-  <div
-    className="form-group"
+  <form
+    className="theme-tc-editable-text-form tc-editable-text-form"
+    onSubmit={[Function]}
   >
-    <input
-      className="theme-tc-editable-text-form-input tc-editable-text-form-input form-control"
-      id="inputTitle"
-      onChange={[Function]}
-      type="text"
-      value="my text"
-    />
-  </div>
-  <div
-    className="theme-tc-editable-text-form-buttons tc-editable-text-form-buttons"
-  >
-    <Action
-      bsStyle="link"
-      className="theme-tc-editable-text-form-buttons-icon tc-editable-text-form-buttons-icon theme-tc-editable-text-form-buttons-cancel tc-editable-text-form-buttons-cancel"
-      data-feature="my.custom.feature.cancel"
-      hideLabel={true}
-      icon="talend-cross"
-      name="action-cancel-title"
-      onClick={[Function]}
-    />
-    <Action
-      bsStyle="link"
-      className="theme-tc-editable-text-form-buttons-icon tc-editable-text-form-buttons-icon theme-tc-editable-text-form-buttons-submit tc-editable-text-form-buttons-submit"
-      data-feature="my.custom.feature.submit"
-      disabled={false}
-      hideLabel={true}
-      icon="talend-check"
-      name="action-submit-title"
-      type="submit"
-    />
-  </div>
-</form>
+    <div
+      className="form-group"
+    >
+      <input
+        className="theme-tc-editable-text-form-input tc-editable-text-form-input form-control"
+        id="inputTitle"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        type="text"
+        value="my text"
+      />
+    </div>
+    <div
+      className="theme-tc-editable-text-form-buttons tc-editable-text-form-buttons"
+    >
+      <Action
+        bsStyle="link"
+        className="theme-tc-editable-text-form-buttons-icon tc-editable-text-form-buttons-icon theme-tc-editable-text-form-buttons-cancel tc-editable-text-form-buttons-cancel"
+        data-feature="my.custom.feature.cancel"
+        hideLabel={true}
+        icon="talend-cross"
+        label={[Function]}
+        name="action-cancel-title"
+        onClick={[Function]}
+      />
+      <Action
+        bsStyle="link"
+        className="theme-tc-editable-text-form-buttons-icon tc-editable-text-form-buttons-icon theme-tc-editable-text-form-buttons-submit tc-editable-text-form-buttons-submit"
+        data-feature="my.custom.feature.submit"
+        disabled={false}
+        hideLabel={true}
+        icon="talend-check"
+        label={[Function]}
+        name="action-submit-title"
+        type="submit"
+      />
+    </div>
+  </form>
+</FocusManager>
 `;
 
 exports[`PlainTextTitle should render 1`] = `
@@ -103,6 +113,7 @@ exports[`PlainTextTitle should render 1`] = `
   className="theme-tc-editable-text-title"
 >
   <TooltipTrigger
+    className="tc-editable-text-wording-wrapper"
     label="text"
     tooltipPlacement="bottom"
   >
@@ -115,7 +126,7 @@ exports[`PlainTextTitle should render 1`] = `
   </TooltipTrigger>
   <Action
     bsStyle="link"
-    className="theme-tc-editable-text-pencil tc-editable-text-pencil"
+    className="theme-tc-editable-text-pencil tc-editable-text-pencil sr-only sr-only-focusable"
     data-feature="my.custom.feature"
     hideLabel={true}
     icon="talend-pencil"
@@ -131,6 +142,7 @@ exports[`PlainTextTitle should render provided component class 1`] = `
   className="theme-tc-editable-text-title"
 >
   <TooltipTrigger
+    className="tc-editable-text-wording-wrapper"
     label="text"
     tooltipPlacement="bottom"
   >
@@ -143,7 +155,7 @@ exports[`PlainTextTitle should render provided component class 1`] = `
   </TooltipTrigger>
   <Action
     bsStyle="link"
-    className="theme-tc-editable-text-pencil tc-editable-text-pencil"
+    className="theme-tc-editable-text-pencil tc-editable-text-pencil sr-only sr-only-focusable"
     data-feature="my.custom.feature"
     hideLabel={true}
     icon="talend-pencil"

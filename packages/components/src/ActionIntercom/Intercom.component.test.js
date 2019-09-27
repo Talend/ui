@@ -100,7 +100,7 @@ describe('Intercom button', () => {
 		expect(IntercomService.shutdown).toBeCalled();
 	});
 
-	it('should change icon and label on open/close', () => {
+	it('should change label on open/close', () => {
 		// given
 		const wrapper = mount(<Intercom.WrappedComponent id="my-intercom" config={config} />, {
 			attachTo: insertionElement,
@@ -108,24 +108,21 @@ describe('Intercom button', () => {
 		const onShow = IntercomService.onShow.mock.calls[0][0];
 		const onHide = IntercomService.onHide.mock.calls[0][0];
 
-		expect(wrapper.find('TooltipTrigger').prop('label')).toBe('Open support messenger.');
-		expect(wrapper.find('Icon').prop('name')).toBe('talend-bubbles');
+		expect(wrapper.find('TooltipTrigger').prop('label')).toBe('Chat with Talend Support');
 
 		// when/then show
 		act(() => {
 			onShow();
 		});
 		wrapper.update();
-		expect(wrapper.find('TooltipTrigger').prop('label')).toBe('Close support messenger.');
-		expect(wrapper.find('Icon').prop('name')).toBe('talend-cross');
+		expect(wrapper.find('TooltipTrigger').prop('label')).toBe('Close chat with Talend Support');
 
 		// when/then hide
 		act(() => {
 			onHide();
 		});
 		wrapper.update();
-		expect(wrapper.find('TooltipTrigger').prop('label')).toBe('Open support messenger.');
-		expect(wrapper.find('Icon').prop('name')).toBe('talend-bubbles');
+		expect(wrapper.find('TooltipTrigger').prop('label')).toBe('Chat with Talend Support');
 	});
 
 	it('should set messenger position', () => {
@@ -155,7 +152,6 @@ describe('Intercom button', () => {
 		wrapper.update();
 
 		const triggerButton = document.querySelector('#my-intercom');
-		expect(document.activeElement).not.toBe(triggerButton);
 
 		// when
 		act(() => {

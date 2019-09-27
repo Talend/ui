@@ -4,7 +4,7 @@ exports[`#DefaultCellRenderer should render DefaultCellRenderer 1`] = `
 <div
   className="theme-td-cell td-cell"
 >
-  <Translate(QualityIndicatorComponent)
+  <withI18nextTranslation(QualityIndicatorComponent)
     qualityIndex={0}
   />
   <AvroRenderer
@@ -34,6 +34,6 @@ exports[`#DefaultCellRenderer should render the default cell on loading state 1`
 <div
   className="theme-td-cell td-cell"
 >
-  <Translate(Skeleton) />
+  <withI18nextTranslation(Skeleton) />
 </div>
 `;

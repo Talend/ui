@@ -1,8 +1,10 @@
 import i18next, { createInstance } from 'i18next';
 import { setI18n, getI18n } from 'react-i18next';
 
-// https://github.com/i18next/i18next/issues/936#issuecomment-307550677
-if (createInstance) {
+if (!getI18n()) {
+	// eslint-disable-next-line no-console
+	console.warn('@talend/react-components used without i18n host.');
+	// https://github.com/i18next/i18next/issues/936#issuecomment-307550677
 	setI18n(createInstance({}, () => {}));
 }
 

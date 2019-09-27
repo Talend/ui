@@ -3,15 +3,6 @@ const yosay = require('yosay');
 const slug = require('slugg');
 
 module.exports = class CMFAppGenerator extends Generator {
-	initializing() {
-		this.composeWith('talend:dotfiles', {
-			name: () => this.props.name,
-			babelrc: false,
-			eslint: false,
-			sasslint: false,
-			travis: false,
-		});
-	}
 
 	prompting() {
 		// Have Yeoman greet the user.

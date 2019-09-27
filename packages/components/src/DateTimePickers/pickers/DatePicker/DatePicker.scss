@@ -8,16 +8,16 @@
 
 .calendar-header {
 	&:after {
-		content: '';
+		@include picker-underline;
+		width: 100%;
 		position: absolute;
-		width: calc(100% - 2rem);
-		top: 2rem;
-		left: 1rem;
-		border-bottom: $border-default;
+		left: 0;
+		top: 2.3rem;
 	}
 
 	th {
 		text-align: center;
+		padding-bottom: $padding-small;
 	}
 
 	abbr {
@@ -33,7 +33,9 @@
 
 	.calendar-day {
 		&.today {
-			background-color: $concrete;
+			background-color: tint($lochmara, 90%);
+			color: $lochmara;
+			border: solid 1px $lochmara;
 		}
 
 		@include picker-action;
@@ -45,5 +47,9 @@
 		border-radius: 50%;
 		line-height: 2.4rem;
 		padding: 0;
+
+		&.not-current-month {
+			opacity: 0.54;
+		}
 	}
 }

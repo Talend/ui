@@ -51,24 +51,6 @@ exports[`InputDateTimePicker should render 1`] = `
             />
           </Mock>
         </Component>
-        <div
-          className="theme-dropdown-wrapper"
-          key="dropdown"
-        >
-          <Overlay
-            animation={[Function]}
-            placement="right"
-            rootClose={false}
-            show={false}
-          >
-            <Overlay
-              placement="right"
-              rootClose={false}
-              show={false}
-              transition={[Function]}
-            />
-          </Overlay>
-        </div>
       </div>
     </FocusManager>
   </DateTime.Manager>

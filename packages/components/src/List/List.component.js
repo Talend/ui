@@ -9,7 +9,15 @@ import ListToVirtualizedList from './ListToVirtualizedList';
 import theme from './List.scss';
 import Inject from '../Inject';
 
-function ListToolbar({ id, toolbar, displayMode, list, getComponent, components = {} }) {
+function ListToolbar({
+	id,
+	columnChooser,
+	toolbar,
+	displayMode,
+	list,
+	getComponent,
+	components = {},
+}) {
 	if (!toolbar) {
 		return null;
 	}
@@ -18,6 +26,7 @@ function ListToolbar({ id, toolbar, displayMode, list, getComponent, components 
 	const toolbarProps = {
 		...toolbar,
 		id,
+		columnChooser,
 		getComponent,
 		components,
 	};
@@ -39,7 +48,6 @@ function ListToolbar({ id, toolbar, displayMode, list, getComponent, components 
 			onToggleAll: list.itemProps.onToggleAll,
 		};
 	}
-
 	return <Toolbar {...toolbarProps} sort={!shouldHideSortOptions && toolbarProps.sort} />;
 }
 
@@ -65,6 +73,17 @@ ListToolbar.propTypes = {
 		}),
 	}),
 	toolbar: PropTypes.shape(omit(Toolbar.propTypes, 't')),
+	columnChooser: PropTypes.shape({
+		submit: PropTypes.func,
+		columns: PropTypes.arrayOf(
+			PropTypes.shape({
+				hidden: PropTypes.bool,
+				label: PropTypes.string,
+				locked: PropTypes.bool,
+				order: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+			}),
+		),
+	}),
 };
 
 /**
@@ -77,7 +96,7 @@ ListToolbar.propTypes = {
 		columns: [
 			{key, label},
 			{key, label},
-		]
+		],
 	},
 	toolbar: {
 		display: {
@@ -103,15 +122,16 @@ ListToolbar.propTypes = {
  <List {...props}></List>
  */
 function List({
+	columnChooser,
+	components = {},
+	defaultHeight,
 	displayMode,
+	getComponent,
 	id,
 	list,
-	toolbar,
-	defaultHeight,
 	rowHeight,
-	getComponent,
-	components = {},
 	rowRenderers,
+	toolbar,
 }) {
 	const classnames = classNames('tc-list', theme.list);
 	const injected = Inject.all(getComponent, omit(components, ['toolbar', 'list']));
@@ -139,6 +159,7 @@ function List({
 				toolbar={toolbar}
 				displayMode={displayMode}
 				list={list}
+				columnChooser={columnChooser}
 				getComponent={getComponent}
 				components={components}
 			/>

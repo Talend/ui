@@ -15,64 +15,40 @@ exports[`Intercom button should render a button 1`] = `
   }
   id="my-intercom"
   t={[Function]}
+  tooltipPlacement="bottom"
 >
   <TooltipTrigger
-    label="Open support messenger."
+    label="Chat with Talend Support"
     tooltipPlacement="bottom"
   >
-    <OverlayTrigger
-      animation={false}
-      defaultOverlayShown={false}
-      delayShow={400}
+    <button
+      aria-describedby={42}
+      className="btn btn-link tc-intercom theme-tc-intercom"
+      id="my-intercom"
+      key=".0"
+      onBlur={[Function]}
       onClick={[Function]}
-      overlay={
-        <Tooltip
-          bsClass="tooltip"
-          className="theme-tooltip-container tooltip-container"
-          id={42}
-          placement="right"
-        >
-          Open support messenger.
-        </Tooltip>
-      }
-      placement="bottom"
-      trigger={
-        Array [
-          "hover",
-          "focus",
-        ]
-      }
+      onFocus={[Function]}
+      onKeyPress={[Function]}
+      onMouseOut={[Function]}
+      onMouseOver={[Function]}
     >
-      <button
-        className="btn btn-link tc-intercom theme-tc-intercom"
-        id="my-intercom"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseOut={[Function]}
-        onMouseOver={[Function]}
-        onMouseUp={[Function]}
+      <Icon
+        name="talend-bubbles"
       >
-        <Icon
+        <svg
+          aria-hidden="true"
+          className="theme-tc-svg-icon tc-svg-icon"
+          focusable="false"
           name="talend-bubbles"
+          title={null}
         >
-          <svg
-            aria-hidden="true"
-            className="theme-tc-svg-icon tc-svg-icon"
-            focusable="false"
-            name="talend-bubbles"
-            title={null}
-          >
-            <use
-              xlinkHref="#talend-bubbles"
-            />
-          </svg>
-        </Icon>
-      </button>
-    </OverlayTrigger>
+          <use
+            xlinkHref="#talend-bubbles"
+          />
+        </svg>
+      </Icon>
+    </button>
   </TooltipTrigger>
 </Intercom>
 `;

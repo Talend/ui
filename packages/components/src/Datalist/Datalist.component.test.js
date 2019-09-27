@@ -191,6 +191,55 @@ describe('Datalist component', () => {
 		expect(onChange).toBeCalledWith(expect.anything(), payload);
 	});
 
+	it('should not reset to old value when clearing input, in restricted mode, and then onBlur', () => {
+		// given
+		const onChange = jest.fn();
+		const wrapper = mount(
+			<Datalist
+				id="my-datalist"
+				isValid
+				multiSection={false}
+				errorMessage={'This should be correct'}
+				onChange={onChange}
+				{...props}
+				value={'fooo'}
+			/>,
+		);
+		const input = wrapper.find('input').at(0);
+		input.simulate('change', { target: { value: '' } });
+		// when
+		input.simulate('blur');
+		// then
+		expect(input.text().length).toBe(0);
+	});
+
+	it('should clear input even if there was a previous filter', () => {
+		// given
+		const onChange = jest.fn();
+		const wrapper = mount(
+			<Datalist
+				id="my-datalist"
+				isValid
+				multiSection={false}
+				errorMessage={'This should be correct'}
+				onChange={onChange}
+				{...props}
+				value={'foo'}
+			/>,
+		);
+		const input = wrapper.find('input').at(0);
+		input.simulate('change', { target: { value: 'foobar' } });
+		expect(wrapper.find(Typeahead).props().items.length).toBe(1);
+
+		// when
+		input.simulate('change', { target: { value: '' } });
+		expect(wrapper.find(Typeahead).props().items.length).toBe(4);
+		input.simulate('blur');
+
+		// then
+		expect(input.text().length).toBe(0);
+	});
+
 	it('should not change the value on blur in restricted mode and value does not exist', () => {
 		// given
 		const onChange = jest.fn();

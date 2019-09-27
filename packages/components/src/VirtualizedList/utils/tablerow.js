@@ -4,11 +4,10 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Column } from 'react-virtualized';
-
 import CellCheckboxRenderer from '../CellCheckbox';
 import HeaderCheckboxRenderer from '../HeaderCheckbox';
+import { createColumnWidthProps, getColumnWidth } from './resizable';
 import { internalIds } from './constants';
-
 /**
  * Insert a checkbox column configuration to select a row.
  */
@@ -51,17 +50,24 @@ export function insertSelectionConfiguration(props) {
  * - header and row fixed classnames
  * - parent id (via columnData)
  */
-export function toColumns({ id, theme, children }) {
+export function toColumns({ id, theme, children, columnsWidths }) {
 	return React.Children.toArray(children).map((field, index) => {
+		const columnWidth = getColumnWidth(field.props.dataKey, columnsWidths);
 		const colClassName = `tc-list-cell-${field.props.dataKey}`;
 		const colProps = {
 			...field.props,
-			headerClassName: classNames(field.props.headerClassName, theme.header, colClassName),
+			headerClassName: classNames(field.props.headerClassName, theme.header, colClassName, {
+				'tc-header-resizable': columnWidth && columnWidth.resizable,
+			}),
 			className: classNames(field.props.className, theme.cell, colClassName),
-			columnData: {
-				...field.props.columnData,
-				id,
-			},
+			columnData:
+				typeof field.props.columnData === 'function'
+					? rowData => ({ ...field.props.columnData(rowData), id })
+					: {
+							...field.props.columnData,
+							id,
+					  },
+			...createColumnWidthProps(columnWidth),
 		};
 		return <Column key={index} {...colProps} />;
 	});

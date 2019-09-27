@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import keyCode from 'keycode';
 import CircularProgress from '@talend/react-components/lib/CircularProgress';
 import FieldTemplate from '../FieldTemplate';
@@ -177,4 +177,5 @@ if (process.env.NODE_ENV !== 'production') {
 		valueIsUpdating: PropTypes.bool,
 	};
 }
-export default translate(I18N_DOMAIN_FORMS)(Code);
+
+export default withTranslation(I18N_DOMAIN_FORMS)(Code);

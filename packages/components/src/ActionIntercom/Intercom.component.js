@@ -1,7 +1,7 @@
 import React, { useState, useLayoutEffect, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import TooltipTrigger from '../TooltipTrigger';
 import Icon from '../Icon';
@@ -11,7 +11,7 @@ import I18N_DOMAIN_COMPONENTS from '../constants';
 
 import theme from './Intercom.scss';
 
-function Intercom({ id, className, config, t }) {
+function Intercom({ id, className, config, t, tooltipPlacement }) {
 	const [show, setShow] = useState(false);
 	const ref = useRef(null);
 
@@ -35,12 +35,11 @@ function Intercom({ id, className, config, t }) {
 	useLayoutEffect(() => IntercomService.setPosition(ref.current), [ref.current]);
 
 	const label = show
-		? t('TC_INTERCOM_CLOSE', { defaultValue: 'Close support messenger.' })
-		: t('TC_INTERCOM_OPEN', { defaultValue: 'Open support messenger.' });
+		? t('TC_INTERCOM_CLOSE', { defaultValue: 'Close chat with Talend Support' })
+		: t('TC_INTERCOM_OPEN', { defaultValue: 'Chat with Talend Support' });
 
-	const icon = show ? 'talend-cross' : 'talend-bubbles';
 	return (
-		<TooltipTrigger label={label} tooltipPlacement="bottom">
+		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
 			<button
 				ref={ref}
 				id={id}
@@ -48,7 +47,7 @@ function Intercom({ id, className, config, t }) {
 					[theme.open]: show,
 				})}
 			>
-				<Icon name={icon} />
+				<Icon name="talend-bubbles" />
 			</button>
 		</TooltipTrigger>
 	);
@@ -56,21 +55,25 @@ function Intercom({ id, className, config, t }) {
 
 Intercom.defaultProps = {
 	t: getDefaultT(),
+	tooltipPlacement: 'bottom',
 };
 
-Intercom.propTypes = {
-	id: PropTypes.string.isRequired,
-	className: PropTypes.string,
-	config: PropTypes.shape({
-		app_id: PropTypes.string.isRequired,
-		name: PropTypes.string,
-		email: PropTypes.string,
-		company: PropTypes.shape({
-			id: PropTypes.string.isRequired,
+if (process.env.NODE_ENV !== 'production') {
+	Intercom.propTypes = {
+		id: PropTypes.string.isRequired,
+		className: PropTypes.string,
+		config: PropTypes.shape({
+			app_id: PropTypes.string.isRequired,
 			name: PropTypes.string,
-		}),
-	}).isRequired,
-	t: PropTypes.func,
-};
+			email: PropTypes.string.isRequired,
+			company: PropTypes.shape({
+				id: PropTypes.string.isRequired,
+				name: PropTypes.string,
+			}),
+		}).isRequired,
+		t: PropTypes.func,
+		tooltipPlacement: PropTypes.string,
+	};
+}
 
-export default translate(I18N_DOMAIN_COMPONENTS)(Intercom);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(Intercom);

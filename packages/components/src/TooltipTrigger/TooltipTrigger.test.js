@@ -96,35 +96,4 @@ describe('ActionTooltip', () => {
 		// then
 		expect(wrapper.update().getElement()).toMatchSnapshot();
 	});
-
-	it('should force to hide the overlay', () => {
-		// given
-		const overlayApi = { handleDelayedHide: jest.fn() };
-		const props = {
-			label: 'toto',
-			tooltipPlacement: 'right',
-		};
-
-		// when
-		const wrapper = shallow(
-			<TooltipTrigger {...props}>
-				<div>Action</div>
-			</TooltipTrigger>,
-		);
-
-		wrapper
-			.find('div')
-			.at(0)
-			.simulate('mouseOver');
-
-		wrapper.instance().overlay = overlayApi;
-
-		wrapper
-			.find('OverlayTrigger')
-			.at(0)
-			.simulate('click');
-
-		// then
-		expect(overlayApi.handleDelayedHide).toHaveBeenCalled();
-	});
 });

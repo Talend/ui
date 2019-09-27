@@ -1,3 +1,5 @@
+import get from 'lodash/get';
+
 function arrayStartsWith(prefix, arrayToCheck) {
 	return prefix.every((next, index) => arrayToCheck[index] === next);
 }
@@ -43,12 +45,16 @@ function adaptArrayItemKey(arraySchema, item, itemIndex) {
 	const arrayKey = arraySchema.key;
 	const itemKey = item.key;
 	const itemChildren = item.items;
+	const childSchemaItems = get(arraySchema, 'schema.items', undefined);
+	const childTitleMap = get(arraySchema, 'titleMap', undefined);
 
 	if (itemKey && !arrayStartsWith(arrayKey, itemKey)) {
 		return item;
 	}
 
 	const schema = {
+		...(childSchemaItems && { schema: childSchemaItems }),
+		...(childTitleMap && { titleMap: childTitleMap }),
 		...item,
 	};
 
@@ -56,6 +62,12 @@ function adaptArrayItemKey(arraySchema, item, itemIndex) {
 		const indexedKey = [...itemKey];
 		indexedKey[arrayKey.length] = itemIndex;
 		schema.key = indexedKey;
+	}
+	if (arraySchema.readOnly) {
+		schema.readOnly = true;
+	}
+	if (arraySchema.disabled) {
+		schema.disabled = true;
 	}
 
 	if (itemChildren) {

@@ -6,8 +6,7 @@ import { makeDecorator } from '@storybook/addons';
 import Immutable from 'immutable'; // eslint-disable-line import/no-extraneous-dependencies
 import talendIcons from '@talend/icons/dist/react';
 
-import { I18nextProvider } from 'react-i18next';
-import i18n from './config/i18n';
+import './config/i18n';
 
 import { HeaderBar, IconsProvider } from '../src';
 
@@ -177,13 +176,11 @@ const withIcons = makeDecorator({
 	wrapper: (getStory, context) => {
 		const story = getStory(context);
 		return (
-			<I18nextProvider i18n={i18n}>
-				<div>
-					<IconsProvider defaultIcons={icons} />
-					{story}
-					<div className="container" style={{ paddingTop: 40 }} />
-				</div>
-			</I18nextProvider>
+			<div>
+				<IconsProvider defaultIcons={icons} />
+				{story}
+				<div className="container" style={{ paddingTop: 40 }} />
+			</div>
 		);
 	},
 });
@@ -401,7 +398,7 @@ decoratedStories
 				logo={props.logo}
 				brand={props.brand}
 				{...props}
-				intercom={{ id: 'intercom', config: { app_id: 'fyq3wodw' } }}
+				intercom={{ id: 'intercom', config: { app_id: 'j9pqsz4w' } }}
 			/>
 		),
 		{ info: { styles: infoStyle } },

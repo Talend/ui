@@ -60,15 +60,14 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
-    "@storybook/addon-a11y": "^4.0.12",
-    "@storybook/addon-actions": "^4.0.12",
-    "@storybook/addon-info": "^4.0.12",
-    "@storybook/addon-knobs": "^4.0.12",
-    "@storybook/addons": "^4.0.12",
-    "@storybook/react": "^4.0.12",
-    "@talend/bootstrap-theme": "^3.8.1",
-    "@talend/icons": "^3.8.1",
-    "@talend/react-components": "^3.8.1",
+    "@storybook/addon-a11y": "^5.2.1",
+    "@storybook/addon-actions": "^5.2.1",
+    "@storybook/addon-knobs": "^5.2.1",
+    "@storybook/addons": "^5.2.1",
+    "@storybook/react": "^5.2.1",
+    "@talend/bootstrap-theme": "^4.10.0",
+    "@talend/icons": "^4.10.0",
+    "@talend/react-components": "^4.10.0",
     "autoprefixer": "^7.1.4",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.7.1",
@@ -81,7 +80,7 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
-    "i18next": "^9.0.0",
+    "i18next": "^15.1.3",
     "jest": "^24.7.1",
     "jest-in-case": "^1.0.2",
     "json-loader": "^0.5.7",
@@ -89,21 +88,22 @@
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
     "react-a11y": "^0.3.3",
+    "react-ace": "6.2.0",
     "react-dom": "^16.8.6",
-    "react-i18next": "^7.6.1",
+    "react-i18next": "^10.11.4",
     "react-test-renderer": "^16.8.6",
     "rimraf": "^2.6.2",
     "sass-lint": "^1.13.1",
     "sass-loader": "^7.1.0"
   },
   "peerDependencies": {
-    "@talend/react-components": "^3.8.1",
-    "i18next": "^9.0.0",
+    "@talend/react-components": "^4.10.0",
+    "i18next": "^15.1.3",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
     "react-ace": "6.2.0",
     "react-dom": "^16.8.6",
-    "react-i18next": "^7.6.1"
+    "react-i18next": "^10.10.0"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -126,5 +126,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.8.1"
+  "version": "4.10.0"
 }

@@ -17,6 +17,7 @@ exports[`Notification should render 1`] = `
       <button
         aria-label="Close notification"
         className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        data-feature="close-notification-undefined"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -87,6 +88,7 @@ exports[`Notification should render 1`] = `
       <button
         aria-label="Close notification"
         className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        data-feature="close-notification-error"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -159,6 +161,7 @@ exports[`Notification should render 1`] = `
       <button
         aria-label="Close notification"
         className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        data-feature="close-notification-warning"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}
@@ -210,6 +213,7 @@ exports[`Notification should render 1`] = `
       <button
         aria-label="Close notification"
         className="btn-icon-only theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close theme-tc-notification-action tc-notification-action theme-tc-notification-close .tc-notification-close-default"
+        data-feature="close-notification-warning"
         disabled={false}
         onClick={[Function]}
         onMouseDown={[Function]}

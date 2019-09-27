@@ -52,6 +52,7 @@ export default function Text(props) {
 				value={value}
 				min={get(schema, 'schema.minimum')}
 				max={get(schema, 'schema.maximum')}
+				step={get(schema, 'schema.step')}
 				// eslint-disable-next-line jsx-a11y/aria-proptypes
 				aria-invalid={!isValid}
 				aria-required={get(schema, 'required')}

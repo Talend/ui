@@ -16,20 +16,14 @@ For example:
 import { Notification } from '@talend/react-containers';
 
 function App(props) {
-	const {
-		children,
-	} = props;
+	const { children } = props;
 
 	return (
-		<I18nextProvider
-			i18n={i18n}
-		>
-			<React.Fragment>
-				<IconsProvider />
-				<Notification />
-				{children}
-			</React.Fragment>
-		</I18nextProvider>
+		<React.Fragment>
+			<IconsProvider />
+			<Notification />
+			{children}
+		</React.Fragment>
 	);
 }
 ```
@@ -60,6 +54,6 @@ Available action creators which all take a `notification` argument :
 - `pushError` (forced 'error' notification type)
 - `pushGeneric` (allow giving a dynamic notification type)
 
-------------
+---
 
 See the `Notification` component documentation for the `notification` argument format.

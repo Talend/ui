@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-for */
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import classnames from 'classnames';
 
 export default function SimpleCheckBox({
@@ -14,20 +14,38 @@ export default function SimpleCheckBox({
 	schema,
 	value,
 }) {
+	const [checked, setChecked] = useState(value);
+
 	const { autoFocus } = schema;
+
+	function getDataFeature() {
+		const dataFeature = schema['data-feature'];
+		return dataFeature ? `${dataFeature}.${checked ? 'uncheck' : 'check'}` : undefined;
+	}
+
+	function getDataChecked() {
+		if (checked) {
+			return 2;
+		}
+		return 0;
+	}
+
 	return (
 		<div className={classnames('checkbox', { disabled })}>
-			<label>
+			<label data-feature={getDataFeature()}>
 				<input
 					id={id}
 					autoFocus={autoFocus}
 					disabled={disabled}
 					onChange={event => {
-						onChange(event, { schema, value: event.target.checked });
-						onFinish(event, { schema, value: event.target.checked });
+						const isChecked = event.target.checked;
+						setChecked(isChecked);
+						onChange(event, { schema, value: isChecked });
+						onFinish(event, { schema, value: isChecked });
 					}}
 					type="checkbox"
-					checked={value}
+					checked={checked}
+					data-checked={getDataChecked()}
 					// eslint-disable-next-line jsx-a11y/aria-proptypes
 					aria-invalid={!isValid}
 					aria-describedby={describedby}
@@ -50,6 +68,7 @@ if (process.env.NODE_ENV !== 'production') {
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
 		schema: PropTypes.shape({
+			'data-feature': PropTypes.string,
 			autoFocus: PropTypes.bool,
 			disabled: PropTypes.bool,
 		}),

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColumnChooserFooter should render by default 1`] = `
+<footer id="column-chooser-footer"
+        class="theme-footer tc-tooltip-footer tc-column-chooser-footer theme-tc-column-chooser-footer"
+>
+  <button aria-label="Apply"
+          id="footer-context-id-submit-button"
+          type="submit"
+          class="btn btn-info"
+  >
+    <span>
+      Apply
+    </span>
+  </button>
+</footer>
+`;

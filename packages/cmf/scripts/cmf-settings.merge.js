@@ -25,6 +25,12 @@ function getCmfconfig(cmfconfigPath, onError) {
 	return cmfconfig;
 }
 
+/**
+ * merge write a json settings file for CMF ready to be served
+ * @param {Object} options
+ * @param {function} errorCallback
+ * @return Array<string> source files used
+ */
 function merge(options, errorCallback) {
 	const onErrorCallback = errorCallback || Function.prototype;
 	function onError(...args) {
@@ -53,8 +59,7 @@ function merge(options, errorCallback) {
 		destination = path.join(process.cwd(), cmfconfig.settings.destination);
 	}
 	let settings;
-	let jsonFiles;
-
+	let jsonFiles = [];
 	if (cmfconfig.settings.destination) {
 		// Extract json from sources
 		jsonFiles = sources.reduce(
@@ -145,10 +150,8 @@ function merge(options, errorCallback) {
 		file.write(JSON.stringify(settingWithoutI18n) + String.fromCharCode(10));
 		file.end();
 		logger('CMF settings has been merged');
-		return jsonFiles.concat(cmfconfigPath);
 	}
-
-	return [];
+	return jsonFiles;
 }
 
 module.exports = merge;

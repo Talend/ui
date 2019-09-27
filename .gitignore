@@ -46,3 +46,4 @@ hs_err_pid*
 build/
 i18n/
 tmp/
+lib/

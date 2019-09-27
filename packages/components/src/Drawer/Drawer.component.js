@@ -8,6 +8,7 @@ import ActionBar from '../ActionBar';
 import Action from '../Actions/Action';
 import TabBar from '../TabBar';
 import Inject from '../Inject';
+import EditableText from '../EditableText';
 
 import theme from './Drawer.scss';
 
@@ -97,25 +98,91 @@ export function cancelActionComponent(onCancelAction, getComponent) {
 		},
 		onCancelAction,
 	);
-	return <ActionComponent className={theme['tc-drawer-close-action']} {...enhancedCancelAction} />;
+	return (
+		<ActionComponent
+			{...enhancedCancelAction}
+			className={classnames(
+				'tc-drawer-close-action',
+				theme['tc-drawer-close-action'],
+				enhancedCancelAction.className,
+			)}
+			tooltipClassName={theme['drawer-close-action-tooltip']}
+		/>
+	);
 }
 
-export function subtitleComponent(subtitle) {
+export function SubtitleComponent({ subtitle }) {
 	if (!subtitle || !subtitle.length) {
 		return null;
 	}
 	return <h2 title={subtitle}>{subtitle}</h2>;
 }
 
-function DrawerTitle({ title, subtitle, children, onCancelAction, getComponent }) {
-	if (!title) {
+SubtitleComponent.propTypes = {
+	subtitle: PropTypes.string,
+};
+
+export function subtitleComponent(subtitle) {
+	// backward compatibility
+	return <SubtitleComponent subtitle={subtitle} />;
+}
+
+function DrawerTitle({
+	title,
+	subtitle,
+	children,
+	onCancelAction,
+	getComponent,
+	editable,
+	inProgress,
+	onEdit,
+	onSubmit,
+	onCancel,
+	...props
+}) {
+	const [isEditMode, setIsEditMode] = React.useState(false);
+	function handleEdit(...args) {
+		setIsEditMode(true);
+		if (onEdit) {
+			onEdit(...args);
+		}
+	}
+	function handleCancel(...args) {
+		setIsEditMode(false);
+		if (onCancel) {
+			onCancel(...args);
+		}
+	}
+	function handleSubmit(...args) {
+		setIsEditMode(false);
+		if (onSubmit) {
+			onSubmit(...args);
+		}
+	}
+
+	if (!title && !children) {
 		return null;
 	}
+	const InjectedEditableText = Inject.get(getComponent, 'EditableText', EditableText);
 	return (
 		<div className={classnames('tc-drawer-header', theme['tc-drawer-header'])}>
 			<div className={classnames('tc-drawer-header-title', theme['tc-drawer-header-title'])}>
-				<h1 title={title}>{title}</h1>
-				{subtitleComponent(subtitle)}
+				{!editable ? (
+					<h1 title={title}>{title}</h1>
+				) : (
+					<InjectedEditableText
+						text={title}
+						inProgress={inProgress}
+						feature="drawertitle.rename"
+						componentClass="h1"
+						onEdit={handleEdit}
+						onCancel={handleCancel}
+						onSubmit={handleSubmit}
+						editMode={isEditMode}
+						{...props}
+					/>
+				)}
+				{!isEditMode ? <SubtitleComponent subtitle={subtitle} /> : null}
 				{cancelActionComponent(onCancelAction, getComponent)}
 			</div>
 			<div
@@ -133,6 +200,11 @@ DrawerTitle.propTypes = {
 	onCancelAction: PropTypes.shape(Action.propTypes),
 	children: PropTypes.node,
 	getComponent: PropTypes.func,
+	editable: PropTypes.bool,
+	inProgress: PropTypes.bool,
+	onEdit: PropTypes.func,
+	onSubmit: PropTypes.func,
+	onCancel: PropTypes.func,
 };
 
 function DrawerContent({ children, className, ...rest }) {
@@ -190,6 +262,7 @@ function Drawer({
 	withTransition,
 	getComponent,
 	selectedTabKey,
+	editableTitle,
 }) {
 	if (!children) {
 		return null;
@@ -217,7 +290,12 @@ function Drawer({
 			style={style}
 			withTransition={withTransition}
 		>
-			<DrawerTitle title={title} onCancelAction={onCancelAction} getComponent={getComponent} />
+			<DrawerTitle
+				editable={editableTitle}
+				title={title}
+				onCancelAction={onCancelAction}
+				getComponent={getComponent}
+			/>
 			{tabs && (
 				<div className={classnames('tc-drawer-tabs-container', theme['tc-drawer-tabs-container'])}>
 					<TabBarComponent
@@ -249,6 +327,7 @@ Drawer.displayName = 'Drawer';
 Drawer.propTypes = {
 	stacked: PropTypes.bool,
 	title: PropTypes.string,
+	editableTitle: PropTypes.bool,
 	children: PropTypes.node,
 	style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 	className: PropTypes.string,

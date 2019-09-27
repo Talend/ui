@@ -312,6 +312,7 @@ describe('ComponentForm saga', () => {
 				put({
 					type: TCompForm.ON_SUBMIT_SUCCEED,
 					data,
+					formData: action.properties,
 					response,
 					componentId,
 				}),
@@ -332,6 +333,7 @@ describe('ComponentForm saga', () => {
 				put({
 					type: TCompForm.ON_SUBMIT_FAILED,
 					data,
+					formData: action.properties,
 					response,
 					componentId,
 				}),

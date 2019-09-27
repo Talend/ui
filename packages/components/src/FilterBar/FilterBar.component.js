@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import DebounceInput from 'react-debounce-input';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import keycode from 'keycode';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { Action } from '../Actions';
 import Icon from '../Icon';
 import I18N_DOMAIN_COMPONENTS from '../constants';
@@ -230,4 +230,4 @@ FilterBarComponent.defaultProps = {
 	className: '',
 };
 
-export default translate(I18N_DOMAIN_COMPONENTS)(FilterBarComponent);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(FilterBarComponent);

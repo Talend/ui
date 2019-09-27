@@ -5,11 +5,7 @@ import { JSDOM } from 'jsdom';
 
 import { NAMESPACE_DATA, NAMESPACE_INDEX } from '../../constants';
 
-import DataGrid, {
-	injectedCellRenderer,
-	injectedHeaderRenderer,
-	AG_GRID,
-} from './DataGrid.component';
+import DataGrid, { injectHeaderRenderer, AG_GRID } from './DataGrid.component';
 
 function PinHeaderRenderer() {}
 
@@ -380,11 +376,11 @@ describe('#Datagrid method', () => {
 			},
 		};
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
-		const nextCellDef = {
+		const nextCellPosition = {
 			rowIndex: 1,
 		};
 
-		const previousCellDef = {
+		const previousCellPosition = {
 			rowIndex: 2,
 		};
 
@@ -394,15 +390,15 @@ describe('#Datagrid method', () => {
 			.onGridReady({ api });
 
 		const nextFocusedCell = wrapper.instance().handleKeyboard({
-			nextCellDef,
-			previousCellDef,
+			nextCellPosition,
+			previousCellPosition,
 		});
 
-		expect(nextFocusedCell).toBe(nextCellDef);
+		expect(nextFocusedCell).toBe(nextCellPosition);
 		expect(setSelected).toHaveBeenCalledWith(true, true);
 	});
 
-	it('should not manage the cells with keyboard if any nextCellDef', () => {
+	it('should not manage the cells with keyboard if any nextCellPosition', () => {
 		const setSelected = jest.fn();
 		const api = {
 			getDisplayedRowAtIndex() {
@@ -412,9 +408,9 @@ describe('#Datagrid method', () => {
 			},
 		};
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
-		const nextCellDef = null;
+		const nextCellPosition = null;
 
-		const previousCellDef = {
+		const previousCellPosition = {
 			rowIndex: 2,
 		};
 
@@ -424,8 +420,8 @@ describe('#Datagrid method', () => {
 			.onGridReady({ api });
 
 		const nextFocusedCell = wrapper.instance().handleKeyboard({
-			nextCellDef,
-			previousCellDef,
+			nextCellPosition,
+			previousCellPosition,
 		});
 
 		expect(nextFocusedCell).toBe(null);
@@ -436,11 +432,11 @@ describe('#Datagrid method', () => {
 		const setSelected = jest.fn();
 		const api = null;
 		const wrapper = shallow(<DataGrid getComponent={getComponent} />);
-		const nextCellDef = {
+		const nextCellPosition = {
 			rowIndex: 1,
 		};
 
-		const previousCellDef = {
+		const previousCellPosition = {
 			rowIndex: 2,
 		};
 
@@ -450,11 +446,11 @@ describe('#Datagrid method', () => {
 			.onGridReady({ api });
 
 		const nextFocusedCell = wrapper.instance().handleKeyboard({
-			nextCellDef,
-			previousCellDef,
+			nextCellPosition,
+			previousCellPosition,
 		});
 
-		expect(nextFocusedCell).toBe(nextCellDef);
+		expect(nextFocusedCell).toBe(nextCellPosition);
 		expect(setSelected).not.toHaveBeenCalled();
 	});
 
@@ -716,35 +712,7 @@ describe('#Datagrid method', () => {
 	});
 });
 
-describe('#injectedCellRenderer', () => {
-	const Component = () => {};
-	const avroRenderer = {};
-
-	it('should injected the cell renderer', () => {
-		const getCellComponent = jest.fn(() => Component);
-		const componentId = 'cellRenderer';
-		const myProps = 'myProps';
-		const InjectedComponent = injectedCellRenderer(getCellComponent, 'cellRenderer', avroRenderer);
-
-		const wrapper = shallow(<InjectedComponent id="injectedComponent" myProps="myProps" />);
-
-		expect(wrapper.find(Component).length).toBe(1);
-		expect(getCellComponent).toHaveBeenCalledWith(componentId);
-		expect(wrapper.props().myProps).toBe(myProps);
-		expect(wrapper.props().avroRenderer).toBe(avroRenderer);
-		expect(wrapper.props().getComponent).toBe(getCellComponent);
-	});
-
-	it('should injected the default cell renderer', () => {
-		const InjectedComponent = injectedCellRenderer(null, 'header', avroRenderer);
-
-		const wrapper = shallow(<InjectedComponent id="injectedComponent" />);
-
-		expect(wrapper.find('DefaultCellRenderer').length).toBe(1);
-	});
-});
-
-describe('#injectedHeaderRenderer', () => {
+describe('#injectHeaderRenderer', () => {
 	const Component = () => {};
 	const onFocusedColumn = jest.fn();
 	const onKeyDown = jest.fn();
@@ -752,7 +720,7 @@ describe('#injectedHeaderRenderer', () => {
 	it('should injected the header renderer', () => {
 		const getCellComponent = jest.fn(() => Component);
 		const componentId = 'header';
-		const InjectedComponent = injectedHeaderRenderer(
+		const InjectedComponent = injectHeaderRenderer(
 			getCellComponent,
 			'header',
 			onFocusedColumn,
@@ -770,10 +738,68 @@ describe('#injectedHeaderRenderer', () => {
 	});
 
 	it('should injected the default header renderer', () => {
-		const InjectedComponent = injectedHeaderRenderer(null, 'header', onFocusedColumn);
+		const InjectedComponent = injectHeaderRenderer(null, 'header', onFocusedColumn);
 
 		const wrapper = shallow(<InjectedComponent id="injectedComponent" />);
 
 		expect(wrapper.find('DefaultHeaderRenderer').length).toBe(1);
+	});
+});
+
+describe('#forceRedraw', () => {
+	it('should not call forceRedrawRows when the DataGrid is loading', () => {
+		const forceRedrawRows = jest.fn(() => true);
+		const wrapper = shallow(
+			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} loading />,
+		);
+
+		wrapper.instance().componentDidUpdate();
+		expect(forceRedrawRows).not.toHaveBeenCalled();
+	});
+
+	it('should not call forceRedrawRows when the DataGrid is not ready', () => {
+		const forceRedrawRows = jest.fn(() => true);
+		const wrapper = shallow(
+			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} />,
+		);
+
+		wrapper.instance().componentDidUpdate();
+		expect(forceRedrawRows).not.toHaveBeenCalled();
+	});
+
+	it('should call redrawRows when forceRedrawRows return true', () => {
+		const forceRedrawRows = jest.fn(() => true);
+		const redrawRows = jest.fn();
+		const wrapper = shallow(
+			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} rowData={[]} />,
+		);
+
+		wrapper.instance().onGridReady({
+			api: {
+				redrawRows,
+			},
+		});
+		wrapper.instance().componentDidUpdate();
+
+		expect(forceRedrawRows).toHaveBeenCalled();
+		expect(redrawRows).toHaveBeenCalled();
+	});
+
+	it('should not call redrawRows when forceRedrawRows return false', () => {
+		const forceRedrawRows = jest.fn(() => false);
+		const redrawRows = jest.fn();
+		const wrapper = shallow(
+			<DataGrid getComponent={getComponent} forceRedrawRows={forceRedrawRows} rowData={[]} />,
+		);
+
+		wrapper.instance().onGridReady({
+			api: {
+				redrawRows,
+			},
+		});
+		wrapper.instance().componentDidUpdate();
+
+		expect(forceRedrawRows).toHaveBeenCalled();
+		expect(redrawRows).not.toHaveBeenCalled();
 	});
 });

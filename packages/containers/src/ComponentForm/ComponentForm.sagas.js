@@ -78,6 +78,7 @@ export function* onFormSubmit(componentId, submitURL, action) {
 	yield put({
 		type: response.ok ? Component.ON_SUBMIT_SUCCEED : Component.ON_SUBMIT_FAILED,
 		data,
+		formData: action.properties,
 		response,
 		componentId,
 	});

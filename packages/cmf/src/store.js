@@ -10,6 +10,7 @@ import invariant from 'invariant';
 import cmfReducers from './reducers';
 import httpMiddleware from './middlewares/http';
 import cmfMiddleware from './middlewares/cmf';
+import onError from './onError';
 
 /**
  * @typedef {Object} Store
@@ -17,7 +18,7 @@ import cmfMiddleware from './middlewares/cmf';
 
 const preReducers = [];
 const enhancers = [];
-const middlewares = [thunk, cmfMiddleware];
+const middlewares = [thunk, cmfMiddleware, onError.middleware];
 
 if (window) {
 	// eslint-disable-next-line no-underscore-dangle

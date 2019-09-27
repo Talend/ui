@@ -100,7 +100,7 @@ exports[`Component HomeListView should render with object props 1`] = `
     ]
   }
   header={
-    <Translate(HeaderBar)
+    <withI18nextTranslation(HeaderBar)
       app="hello app"
     />
   }

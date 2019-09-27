@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import isEqual from 'lodash/isEqual';
 import Immutable from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
-import ComponentForm from '@talend/react-forms';
-import DefaultArrayFieldTemplate from '@talend/react-forms/lib/templates/ArrayFieldTemplate';
+import BaseForm from '@talend/react-forms';
 import classnames from 'classnames';
+
+let DefaultArrayFieldTemplate = () => null;
+if (process.env.FORM_MOZ) {
+	// eslint-disable-next-line global-require
+	DefaultArrayFieldTemplate = require('@talend/react-forms/lib/deprecated/templates/ArrayFieldTemplate');
+}
 
 export const DEFAULT_STATE = new Immutable.Map({});
 
@@ -46,9 +50,7 @@ class Form extends React.Component {
 			return null;
 		}
 		if (nextProps.data !== prevState.data) {
-			if (!isEqual(nextProps.data, prevState.data)) {
-				return { data: nextProps.data };
-			}
+			return { data: nextProps.data };
 		}
 		return null;
 	}
@@ -168,7 +170,7 @@ class Form extends React.Component {
 			loading: this.props.loading,
 			...this.props.formProps,
 		};
-		return <ComponentForm {...props}>{this.props.children}</ComponentForm>;
+		return <BaseForm {...props}>{this.props.children}</BaseForm>;
 	}
 }
 Form.defaultProps = {

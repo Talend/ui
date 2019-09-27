@@ -5,7 +5,7 @@ exports[`TextFilter should render text filter component 1`] = `
   id="myTextFilter"
   initialDocked={true}
 >
-  <Translate(FilterBar)
+  <withI18nextTranslation(FilterBar)
     debounceTimeout={300}
     docked={true}
     id="myTextFilter"
@@ -13,47 +13,34 @@ exports[`TextFilter should render text filter component 1`] = `
     onToggle={[Function]}
     value=""
   >
-    <I18n
-      bindI18n="languageChanged loaded"
-      bindStore="added removed"
+    <FilterBar
+      autoFocus={true}
+      className=""
       debounceTimeout={300}
+      dockable={true}
       docked={true}
+      focus={false}
       i18n={Object {}}
       id="myTextFilter"
-      ns={
-        Array [
-          "tui-components",
-        ]
-      }
-      nsMode="default"
-      omitBoundRerender={true}
+      navbar={true}
       onFilter={[Function]}
       onToggle={[Function]}
-      translateFuncName="t"
-      usePureComponent={false}
+      placeholder="Filter"
+      t={[Function]}
+      tReady={true}
       value=""
-      wait={false}
-      withRef={false}
     >
-      <FilterBar
-        autoFocus={true}
+      <Action
+        bsStyle="link"
         className=""
-        debounceTimeout={300}
-        dockable={true}
-        docked={true}
-        focus={false}
-        i18n={Object {}}
+        hideLabel={true}
+        icon="talend-search"
         id="myTextFilter"
-        lng="en"
-        navbar={true}
-        onFilter={[Function]}
-        onToggle={[Function]}
-        placeholder="Filter"
-        t={[Function]}
-        tReady={false}
-        value=""
+        label="Toggle filter"
+        onClick={[Function]}
+        role="search"
       >
-        <Action
+        <withI18nextTranslation(ActionButton)
           bsStyle="link"
           className=""
           hideLabel={true}
@@ -63,116 +50,88 @@ exports[`TextFilter should render text filter component 1`] = `
           onClick={[Function]}
           role="search"
         >
-          <Translate(ActionButton)
+          <ActionButton
+            available={true}
             bsStyle="link"
             className=""
+            disabled={false}
             hideLabel={true}
+            i18n={Object {}}
             icon="talend-search"
             id="myTextFilter"
+            inProgress={false}
             label="Toggle filter"
+            loading={false}
             onClick={[Function]}
             role="search"
+            t={[Function]}
+            tReady={true}
+            tooltipPlacement="top"
           >
-            <I18n
-              bindI18n="languageChanged loaded"
-              bindStore="added removed"
-              bsStyle="link"
-              className=""
-              hideLabel={true}
-              i18n={Object {}}
-              icon="talend-search"
-              id="myTextFilter"
+            <TooltipTrigger
               label="Toggle filter"
-              ns={
-                Array [
-                  "tui-components",
-                ]
-              }
-              nsMode="default"
-              omitBoundRerender={true}
-              onClick={[Function]}
-              role="search"
-              translateFuncName="t"
-              usePureComponent={false}
-              wait={false}
-              withRef={false}
+              tooltipPlacement="top"
             >
-              <ActionButton
-                available={true}
+              <Button
+                active={false}
+                aria-describedby={42}
+                aria-label="Toggle filter"
+                block={false}
+                bsClass="btn"
                 bsStyle="link"
-                className=""
+                className="btn-icon-only"
                 disabled={false}
-                hideLabel={true}
-                i18n={Object {}}
-                icon="talend-search"
                 id="myTextFilter"
-                inProgress={false}
-                label="Toggle filter"
-                lng="en"
-                loading={false}
+                key=".0"
+                onBlur={[Function]}
                 onClick={[Function]}
+                onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseDown={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
                 role="search"
-                t={[Function]}
-                tReady={false}
-                tooltipPlacement="top"
               >
-                <TooltipTrigger
-                  label="Toggle filter"
-                  tooltipPlacement="top"
+                <button
+                  aria-describedby={42}
+                  aria-label="Toggle filter"
+                  className="btn-icon-only btn btn-link"
+                  disabled={false}
+                  id="myTextFilter"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyPress={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  role="search"
+                  type="button"
                 >
-                  <Button
-                    active={false}
-                    aria-label="Toggle filter"
-                    block={false}
-                    bsClass="btn"
-                    bsStyle="link"
-                    className="btn-icon-only"
-                    disabled={false}
-                    id="myTextFilter"
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseOver={[Function]}
-                    role="search"
+                  <Icon
+                    key="icon"
+                    name="talend-search"
                   >
-                    <button
-                      aria-label="Toggle filter"
-                      className="btn-icon-only btn btn-link"
-                      disabled={false}
-                      id="myTextFilter"
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onMouseDown={[Function]}
-                      onMouseOver={[Function]}
-                      role="search"
-                      type="button"
+                    <svg
+                      aria-hidden="true"
+                      className="theme-tc-svg-icon tc-svg-icon"
+                      focusable="false"
+                      name="talend-search"
+                      title={null}
                     >
-                      <Icon
-                        key="icon"
-                        name="talend-search"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          className="theme-tc-svg-icon tc-svg-icon"
-                          focusable="false"
-                          name="talend-search"
-                          title={null}
-                        >
-                          <use
-                            xlinkHref="#talend-search"
-                          />
-                        </svg>
-                      </Icon>
-                    </button>
-                  </Button>
-                </TooltipTrigger>
-              </ActionButton>
-            </I18n>
-          </Translate(ActionButton)>
-        </Action>
-      </FilterBar>
-    </I18n>
-  </Translate(FilterBar)>
+                      <use
+                        xlinkHref="#talend-search"
+                      />
+                    </svg>
+                  </Icon>
+                </button>
+              </Button>
+            </TooltipTrigger>
+          </ActionButton>
+        </withI18nextTranslation(ActionButton)>
+      </Action>
+    </FilterBar>
+  </withI18nextTranslation(FilterBar)>
 </TextFilter>
 `;
 
@@ -182,7 +141,7 @@ exports[`TextFilter should render text filter component with defined docked stat
   id="myTextFilter"
   initialDocked={true}
 >
-  <Translate(FilterBar)
+  <withI18nextTranslation(FilterBar)
     debounceTimeout={300}
     docked={true}
     id="myTextFilter"
@@ -190,47 +149,34 @@ exports[`TextFilter should render text filter component with defined docked stat
     onToggle={[Function]}
     value=""
   >
-    <I18n
-      bindI18n="languageChanged loaded"
-      bindStore="added removed"
+    <FilterBar
+      autoFocus={true}
+      className=""
       debounceTimeout={300}
+      dockable={true}
       docked={true}
+      focus={false}
       i18n={Object {}}
       id="myTextFilter"
-      ns={
-        Array [
-          "tui-components",
-        ]
-      }
-      nsMode="default"
-      omitBoundRerender={true}
+      navbar={true}
       onFilter={[Function]}
       onToggle={[Function]}
-      translateFuncName="t"
-      usePureComponent={false}
+      placeholder="Filter"
+      t={[Function]}
+      tReady={true}
       value=""
-      wait={false}
-      withRef={false}
     >
-      <FilterBar
-        autoFocus={true}
+      <Action
+        bsStyle="link"
         className=""
-        debounceTimeout={300}
-        dockable={true}
-        docked={true}
-        focus={false}
-        i18n={Object {}}
+        hideLabel={true}
+        icon="talend-search"
         id="myTextFilter"
-        lng="en"
-        navbar={true}
-        onFilter={[Function]}
-        onToggle={[Function]}
-        placeholder="Filter"
-        t={[Function]}
-        tReady={false}
-        value=""
+        label="Toggle filter"
+        onClick={[Function]}
+        role="search"
       >
-        <Action
+        <withI18nextTranslation(ActionButton)
           bsStyle="link"
           className=""
           hideLabel={true}
@@ -240,115 +186,87 @@ exports[`TextFilter should render text filter component with defined docked stat
           onClick={[Function]}
           role="search"
         >
-          <Translate(ActionButton)
+          <ActionButton
+            available={true}
             bsStyle="link"
             className=""
+            disabled={false}
             hideLabel={true}
+            i18n={Object {}}
             icon="talend-search"
             id="myTextFilter"
+            inProgress={false}
             label="Toggle filter"
+            loading={false}
             onClick={[Function]}
             role="search"
+            t={[Function]}
+            tReady={true}
+            tooltipPlacement="top"
           >
-            <I18n
-              bindI18n="languageChanged loaded"
-              bindStore="added removed"
-              bsStyle="link"
-              className=""
-              hideLabel={true}
-              i18n={Object {}}
-              icon="talend-search"
-              id="myTextFilter"
+            <TooltipTrigger
               label="Toggle filter"
-              ns={
-                Array [
-                  "tui-components",
-                ]
-              }
-              nsMode="default"
-              omitBoundRerender={true}
-              onClick={[Function]}
-              role="search"
-              translateFuncName="t"
-              usePureComponent={false}
-              wait={false}
-              withRef={false}
+              tooltipPlacement="top"
             >
-              <ActionButton
-                available={true}
+              <Button
+                active={false}
+                aria-describedby={42}
+                aria-label="Toggle filter"
+                block={false}
+                bsClass="btn"
                 bsStyle="link"
-                className=""
+                className="btn-icon-only"
                 disabled={false}
-                hideLabel={true}
-                i18n={Object {}}
-                icon="talend-search"
                 id="myTextFilter"
-                inProgress={false}
-                label="Toggle filter"
-                lng="en"
-                loading={false}
+                key=".0"
+                onBlur={[Function]}
                 onClick={[Function]}
+                onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseDown={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
                 role="search"
-                t={[Function]}
-                tReady={false}
-                tooltipPlacement="top"
               >
-                <TooltipTrigger
-                  label="Toggle filter"
-                  tooltipPlacement="top"
+                <button
+                  aria-describedby={42}
+                  aria-label="Toggle filter"
+                  className="btn-icon-only btn btn-link"
+                  disabled={false}
+                  id="myTextFilter"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyPress={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  role="search"
+                  type="button"
                 >
-                  <Button
-                    active={false}
-                    aria-label="Toggle filter"
-                    block={false}
-                    bsClass="btn"
-                    bsStyle="link"
-                    className="btn-icon-only"
-                    disabled={false}
-                    id="myTextFilter"
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseOver={[Function]}
-                    role="search"
+                  <Icon
+                    key="icon"
+                    name="talend-search"
                   >
-                    <button
-                      aria-label="Toggle filter"
-                      className="btn-icon-only btn btn-link"
-                      disabled={false}
-                      id="myTextFilter"
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onMouseDown={[Function]}
-                      onMouseOver={[Function]}
-                      role="search"
-                      type="button"
+                    <svg
+                      aria-hidden="true"
+                      className="theme-tc-svg-icon tc-svg-icon"
+                      focusable="false"
+                      name="talend-search"
+                      title={null}
                     >
-                      <Icon
-                        key="icon"
-                        name="talend-search"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          className="theme-tc-svg-icon tc-svg-icon"
-                          focusable="false"
-                          name="talend-search"
-                          title={null}
-                        >
-                          <use
-                            xlinkHref="#talend-search"
-                          />
-                        </svg>
-                      </Icon>
-                    </button>
-                  </Button>
-                </TooltipTrigger>
-              </ActionButton>
-            </I18n>
-          </Translate(ActionButton)>
-        </Action>
-      </FilterBar>
-    </I18n>
-  </Translate(FilterBar)>
+                      <use
+                        xlinkHref="#talend-search"
+                      />
+                    </svg>
+                  </Icon>
+                </button>
+              </Button>
+            </TooltipTrigger>
+          </ActionButton>
+        </withI18nextTranslation(ActionButton)>
+      </Action>
+    </FilterBar>
+  </withI18nextTranslation(FilterBar)>
 </TextFilter>
 `;

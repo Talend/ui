@@ -28,8 +28,10 @@ $tc-icon-toggle-icon-size: $svg-sm-size !default;
 	padding: 0;
 
 	svg {
+		display: block;
 		color: $gray;
 	}
+
 	&[disabled] {
 		&:hover,
 		&:focus {

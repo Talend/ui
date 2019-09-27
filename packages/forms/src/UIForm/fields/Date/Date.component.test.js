@@ -154,6 +154,42 @@ describe('Date widget', () => {
 			});
 		});
 
+		it('should not throw any error message', () => {
+			// given
+			const onChange = jest.fn();
+			const timestampSchema = {
+				...schema,
+				schema: { type: 'number' },
+			};
+			const wrapper = shallow(
+				<DateWidget
+					id={'myForm'}
+					isValid={false}
+					errorMessage={'My error message'}
+					onChange={onChange}
+					onFinish={jest.fn()}
+					options={{ dafeFormat: 'DD/MM/YYYY' }}
+					schema={timestampSchema}
+				/>,
+			);
+			expect(onChange).not.toBeCalled();
+			const event = { target: {} };
+			const payload = {
+				datetime: undefined,
+				textInput: '',
+				errorMessage: undefined,
+			};
+
+			// when
+			wrapper.find('InputDateTimePicker').simulate('change', event, payload);
+
+			// then
+			expect(onChange).toBeCalledWith(event, {
+				schema: timestampSchema,
+				value: undefined,
+			});
+		});
+
 		it('should convert valid date to ise-datetime', () => {
 			// given
 			const onChange = jest.fn();

@@ -5,12 +5,16 @@ exports[`two-filters 1`] = `
   className="tc-table-filters-bar theme-tc-table-filters-bar"
 >
   <button
+    aria-describedby={42}
     aria-label="Toggle filter"
     className="tc-string-filter tc-filter theme-tc-filter name-filter btn-icon-only btn btn-link"
     disabled={false}
+    onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
+    onKeyPress={[Function]}
     onMouseDown={[Function]}
+    onMouseOut={[Function]}
     onMouseOver={[Function]}
     role="search"
     type="button"
@@ -35,8 +39,10 @@ exports[`two-filters 1`] = `
     >
       <input
         checked={false}
+        data-checked={0}
         disabled={false}
         id="mandatory-field-filter"
+        intermediate={false}
         onChange={[Function]}
         type="checkbox"
       />

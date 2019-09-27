@@ -10,7 +10,7 @@ export const { COLLECTION_ADD_OR_REPLACE, COLLECTION_REMOVE, COLLECTION_MUTATE }
 /**
  * Add or replace collection data in store
  * curried function
- * @param {string} collectionId identifier
+ * @param {string | Array<string>} collectionId - path to collection
  * @param {any} data element that represent business data
  */
 export const addOrReplace = curry((collectionId, data) => ({
@@ -21,7 +21,7 @@ export const addOrReplace = curry((collectionId, data) => ({
 
 /**
  * Remove collection data in store to free space
- * @param {string} collectionId identifier
+ * @param {string | Array<string>} collectionId - path to collection
  *
  * @throws if you try to remove non existent collection
  */
@@ -35,7 +35,7 @@ export function remove(collectionId) {
 /**
  * mutateCollection let's you apply operations on a given collection
  * curried function
- * @param {string} id collection identifier
+ * @param {string | Array<string>} collectionId - path to collection
  * @param {object} operations operations to be applied on the collection
  * {
  * 		add: [],
