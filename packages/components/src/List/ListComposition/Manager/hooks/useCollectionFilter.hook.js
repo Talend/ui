@@ -1,7 +1,9 @@
 import { useMemo, useState } from 'react';
+import isNil from 'lodash/isNil';
 
-function defaultFilterFunction(value = '', textFilter) {
-	return value
+function defaultFilterFunction(value, textFilter) {
+	const filteredValue = isNil(value) ? '' : value;
+	return filteredValue
 		.toString()
 		.toLowerCase()
 		.includes(textFilter);
