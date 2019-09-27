@@ -4,21 +4,14 @@ import {
 	AdvancedSearch,
 	BasicSearch,
 } from './components';
-import { FacetedSearchActions, facetedSearchReducer } from './service';
-import * as FacetedSearchConstants from './FacetedSearch.constants';
+// import { FacetedSearchActions, facetedSearchReducer } from './service';
+import * as constants from './FacetedSearch.constants';
 
-const FacetedSearchComponents = {
+const components = {
 	Icon,
 	Faceted,
 	AdvancedSearch,
 	BasicSearch,
 };
 
-const cmfModule = {
-	id: 'faceted-search',
-	reducer: {
-		[FacetedSearchConstants.STORE_KEY]: facetedSearchReducer,
-	},
-};
-
-export { FacetedSearchComponents, FacetedSearchActions, cmfModule, FacetedSearchConstants };
+export default { ...components, constants };
