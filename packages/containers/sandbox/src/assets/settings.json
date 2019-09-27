@@ -18,27 +18,7 @@
       "onClickDispatch": {
         "type": "MENU_COMPONENT_FORM_CLICKED",
         "cmf": {
-          "routerPush": "/tacokit/titleMap"
-        }
-      }
-    },
-    "menu:tacokitExternalApi": {
-      "icon": "talend-burger",
-      "label": "TCK External API",
-      "onClickDispatch": {
-        "type": "MENU_COMPONENT_FORM_CLICKED",
-        "cmf": {
-          "routerPush": "/tacokit/external-api"
-        }
-      }
-    },
-    "menu:tacokitValidation": {
-      "icon": "talend-burger",
-      "label": "TCK validation",
-      "onClickDispatch": {
-        "type": "MENU_COMPONENT_FORM_CLICKED",
-        "cmf": {
-          "routerPush": "/tacokit/validation"
+          "routerPush": "/ComponentForm"
         }
       }
     }
@@ -90,9 +70,7 @@
     "SidePanel#default": {
       "actionIds": [
         "menu:HeaderBar",
-        "menu:tacokitTitleMap",
-        "menu:tacokitValidation",
-        "menu:tacokitExternalApi"
+        "menu:ComponentForm"
       ]
     },
     "Layout#default": {
@@ -128,23 +106,7 @@
       },
       {
         "path": "ComponentForm",
-        "component": "Layout",
-        "childRoutes": [
-          {
-            "path": "validation",
-            "component": "ComponentForm",
-            "componentId": "validation"
-          },
-          {
-            "path": "titleMap",
-            "component": "ComponentForm",
-            "componentId": "titleMap"
-          },
-          {
-            "path": "external-api",
-            "component": "SandboxBody"
-          }
-        ]
+        "component": "ComponentFormSandbox"
       },
       {
         "path": "*",

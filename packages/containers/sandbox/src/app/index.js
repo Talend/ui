@@ -5,23 +5,23 @@
  */
 
 import getRouter from '@talend/react-cmf-router';
+import cmf from '@talend/react-cmf';
 import containersModule from '@talend/react-containers';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
-import cmf from '@talend/react-cmf';
+// import componentFormSagas from '@talend/react-containers/lib/ComponentForm/ComponentForm.sagas';
 import { createLogger } from 'redux-logger';
-import SandboxBody from './SandboxBody';
+import ComponentFormSandbox from './ComponentFormSandbox';
 import actions from './actions';
-import componentFormSagas from '../../../src/ComponentForm/ComponentForm.sagas';
 
 const router = getRouter();
 
 const app = {
-	components: { ComponentForm, SandboxBody },
+	components: { ComponentForm, ComponentFormSandbox: ComponentFormSandbox },
 	settingsURL: '/settings.json',
 	actionCreators: actions,
 	middlewares: [createLogger({})],
 	modules: [router.cmfModule, containersModule],
-	sagas: componentFormSagas,
+	// sagas: componentFormSagas,
 	RootComponent: router.RootComponent,
 };
 
