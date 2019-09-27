@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { getTheme } from '@talend/react-components/lib/theme';
 import get from 'lodash/get';
@@ -11,7 +11,6 @@ import { useFacetedSearchContext } from '../context/facetedSearch.context';
 import { BadgeFacetedProvider } from '../context/badgeFaceted.context';
 
 import { getBadgeTypeFromDict } from '../../dictionary/badge.dictionary';
-import { operatorsDictionary } from '../../dictionary/operator.dictionary';
 
 import { badgesFacetedPropTypes } from '../facetedSearch.propTypes';
 
@@ -22,10 +21,8 @@ import theme from './BasicSearch.scss';
 const css = getTheme(theme);
 
 const BasicSearch = ({ badgesDefinitions, badgesFaceted, onSubmit, setBadgesFaceted }) => {
-	const { id, t } = useFacetedSearchContext();
+	const { getOperatorsFromDict, id, t } = useFacetedSearchContext();
 	const [state, dispatch] = useFacetedBadges(badgesFaceted, setBadgesFaceted);
-	const { getOperatorsFromDict } = useMemo(() => operatorsDictionary(t), [operatorsDictionary, t]);
-
 	const onClickOverlayRow = setOverlayOpened => (_, badgeDefinition) => {
 		const operators = getOperatorsFromDict(get(badgeDefinition, 'metadata.operators'));
 		dispatch(BADGES_ACTIONS.add(generateBadge(operators)(badgeDefinition)));
