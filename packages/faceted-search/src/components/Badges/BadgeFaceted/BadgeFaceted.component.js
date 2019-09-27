@@ -104,7 +104,12 @@ const BadgeFaceted = ({
 			>
 				{children({ onSubmitBadge, onChangeValue, badgeValue })}
 			</BadgeOverlay>
-			<BadgeComposition.DeleteAction id={id} onClick={onDeleteBadge} t={t} />
+			<BadgeComposition.DeleteAction
+				id={id}
+				label={t('DELETE_BADGE_ACTION', { defaultValue: 'Delete badge' })}
+				onClick={onDeleteBadge}
+				t={t}
+			/>
 		</Badge>
 	);
 };
