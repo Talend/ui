@@ -10,6 +10,7 @@
 	&.selected {
 		background-color: $lochmara;
 		color: $white;
+		transition: color 0.2s ease-in;
 		font-weight: $font-weight-semi-bold;
 	}
 
