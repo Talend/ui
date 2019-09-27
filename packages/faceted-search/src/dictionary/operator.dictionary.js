@@ -1,31 +1,29 @@
-import i18n from '../../../i18n';
-
 const operatorNames = {
 	contains: 'contains',
 	equal: '=',
 	notEqual: 'notEqual',
 };
 
-const standardOperators = {
+const standardOperators = t => ({
 	[operatorNames.notEqual]: {
-		label: i18n.t('OPERATOR_NOT_EQUALS_LABEL', { defaultValue: 'Not equals' }),
+		label: t('OPERATOR_NOT_EQUALS_LABEL', { defaultValue: 'Not equals' }),
 		name: 'notEqual',
 		iconName: 'not-equal',
 	},
 	[operatorNames.equal]: {
-		label: i18n.t('OPERATOR_EQUALS_LABEL', { defaultValue: 'Equals' }),
+		label: t('OPERATOR_EQUALS_LABEL', { defaultValue: 'Equals' }),
 		name: '=',
 		iconName: 'equal',
 	},
 	[operatorNames.contains]: {
-		label: i18n.t('OPERATOR_CONTAINS_LABEL', { defaultValue: 'Contains' }),
+		label: t('OPERATOR_CONTAINS_LABEL', { defaultValue: 'Contains' }),
 		name: 'contains',
 		iconName: 'contains',
 	},
-};
+});
 
-const operatorsDictionary = items => {
-	let dictionary = items;
+const operatorsDictionary = (t, items = standardOperators) => {
+	let dictionary = items(t);
 	const addOperatorToDict = newOperator => {
 		dictionary = {
 			...dictionary,
@@ -37,6 +35,5 @@ const operatorsDictionary = items => {
 	return { addOperatorToDict, getOperatorsFromDict };
 };
 
-const { addOperatorToDict, getOperatorsFromDict } = operatorsDictionary(standardOperators);
-
-export { addOperatorToDict, getOperatorsFromDict };
+// eslint-disable-next-line import/prefer-default-export
+export { operatorsDictionary };
