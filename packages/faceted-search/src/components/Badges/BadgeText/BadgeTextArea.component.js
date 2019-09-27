@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import Action from '@talend/react-components/lib/Actions/Action';
 import TextArea from '@talend/react-forms/lib/UIForm/fields/TextArea';
 import { getTheme } from '@talend/react-components/lib/theme';
-
-import Tooltip from '../../../../../components/Tooltip';
+import RichLayout from '@talend/react-components/lib/RichTooltip/RichLayout';
 
 import cssModule from './BadgeText.scss';
 
@@ -23,7 +22,7 @@ const BadgeTextArea = ({ id, onChange, onSubmit, value, t }) => {
 
 	return (
 		<form className={theme('tc-badge-text-form')} id={`${id}-text-area`} onSubmit={onSubmit}>
-			<Tooltip.Body id={id} className={theme('tc-badge-text-form-body')}>
+			<RichLayout.Body id={id} className={theme('tc-badge-text-form-body')}>
 				<TextArea
 					id={`${id}-area`}
 					onChange={onChangeTextArea}
@@ -31,10 +30,10 @@ const BadgeTextArea = ({ id, onChange, onSubmit, value, t }) => {
 					schema={schema}
 					value={value}
 				/>
-			</Tooltip.Body>
-			<Tooltip.Footer id={id}>
+			</RichLayout.Body>
+			<RichLayout.Footer id={id}>
 				<Action type="submit" label={t('APPLY', { defaultValue: 'Apply' })} bsStyle="info" />
-			</Tooltip.Footer>
+			</RichLayout.Footer>
 		</form>
 	);
 };
@@ -47,4 +46,5 @@ BadgeTextArea.propTypes = {
 	t: PropTypes.func.isRequired,
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export { BadgeTextArea };

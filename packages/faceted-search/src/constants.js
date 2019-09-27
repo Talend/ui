@@ -1,3 +1,8 @@
-const I18N_DOMAIN_COMPONENTS = 'tui-faceted-search';
+const I18N_DOMAIN_FACETED_SEARCH = 'tui-faceted-search';
 
-export default I18N_DOMAIN_COMPONENTS;
+const FACETED_MODE = {
+	ADVANCED: 'advanced',
+	BASIC: 'basic',
+};
+
+export { I18N_DOMAIN_FACETED_SEARCH, FACETED_MODE };

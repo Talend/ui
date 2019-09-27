@@ -4,8 +4,7 @@ import {
 	AdvancedSearch,
 	BasicSearch,
 } from './components';
-// import { FacetedSearchActions, facetedSearchReducer } from './service';
-import * as constants from './FacetedSearch.constants';
+import * as constants from './constants';
 
 const components = {
 	Icon,
