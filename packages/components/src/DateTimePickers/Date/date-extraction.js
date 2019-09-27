@@ -51,13 +51,7 @@ function dateToStr(date, options) {
  * Convert a date in local TZ to UTC
  */
 function convertToUTC(date) {
-	return new Date(
-		Date.UTC(
-			date.getFullYear(),
-			date.getMonth(),
-			date.getDate(),
-		),
-	);
+	return new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
 }
 /**
  * Convert string in dateFormat to date
@@ -99,7 +93,6 @@ function strToDate(strToParse, dateFormat) {
 	}
 	return setDate(monthDate, day);
 }
-
 
 /**
  * Check that the date format is a composition of YYYY, MM, DD.
@@ -169,15 +162,27 @@ function extractDateFromTextInput(textInput, options) {
 	let errors = [];
 
 	try {
-		date = strToDate(textInput, options.dateFormat);
+		let dateTextToParse;
+		
+		const splitMatches = textInput.match(splitDateAndTimePartsRegex) || [];
+
+		console.log('---------------date-extraction');
+		console.log(textInput);
+		console.log(splitMatches);
+		if (splitMatches.length) {
+			dateTextToParse = splitMatches[1];
+		} else {
+			dateTextToParse = textInput;
+		}
+
+		date = strToDate(dateTextToParse, options.dateFormat);
 	} catch (error) {
 		errors = errors.concat(error);
 	}
 
-
 	return {
 		date: options.useUTC ? convertToUTC(date) : date,
-		textInput,
+		textInput: format(date, options.dateFormat),
 		errors,
 		errorMessage: errors[0] ? errors[0].message : null,
 	};
@@ -199,9 +204,4 @@ function extractDate(value, options) {
 	};
 }
 
-export {
-	checkSupportedDateFormat,
-	extractDate,
-	extractDateFromTextInput,
-	extractPartsFromDate,
-};
+export { checkSupportedDateFormat, extractDate, extractDateFromTextInput, extractPartsFromDate };

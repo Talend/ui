@@ -30,15 +30,15 @@ class DateWidget extends React.Component {
 		this.onBlur = this.onBlur.bind(this);
 	}
 
-	onChange(event, { errorMessage, datetime, textInput }) {
+	onChange(event, { errorMessage, date, textInput }) {
 		this.setState({ errorMessage });
-		let value = datetime;
-		if (!errorMessage && datetime) {
+		let value = date;
+		if (!errorMessage && date) {
 			const { schema } = this.props.schema;
 			if (schema.format === 'iso-datetime') {
-				value = this.dateToIsoStr(datetime);
+				value = this.dateToIsoStr(date);
 			} else if (schema.type === 'number') {
-				value = datetime.getTime();
+				value = date.getTime();
 			} else {
 				value = textInput;
 			}
