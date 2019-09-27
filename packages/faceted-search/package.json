@@ -33,9 +33,13 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
+    "@talend/daikon-tql-client": "^1.2.0",
     "classnames": "^2.2.5",
+    "invariant": "^2.2.2",
     "keycode": "^2.2.0",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "react-bootstrap": "0.32.4",
+    "uuid": "^3.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
@@ -48,7 +52,6 @@
     "@storybook/addon-actions": "^5.2.1",
     "@storybook/addons": "^5.2.1",
     "@storybook/react": "^5.2.1",
-    "@talend/daikon-tql-client": "^1.2.0",
     "@talend/icons": "^4.10.0",
     "@talend/react-components": "^4.10.0",
     "@talend/react-forms": "^4.10.0",

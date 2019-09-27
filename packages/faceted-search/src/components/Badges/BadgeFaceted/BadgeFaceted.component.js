@@ -124,4 +124,5 @@ BadgeFaceted.propTypes = {
 	t: PropTypes.func.isRequired,
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export { BadgeFaceted };

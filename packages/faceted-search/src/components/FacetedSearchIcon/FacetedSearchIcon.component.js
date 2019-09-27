@@ -2,18 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ActionIconToggle } from '@talend/react-components';
 import { getTheme } from '@talend/react-components/lib/theme';
+import { useTranslation } from 'react-i18next';
+
 import facetedSearchIconTheme from './FacetedSearchIcon.scss';
-import i18n from '../../../../i18n';
+import { I18N_DOMAIN_FACETED_SEARCH } from '../../constants';
 
 const theme = getTheme(facetedSearchIconTheme);
 
+// eslint-disable-next-line import/prefer-default-export
 export function FacetedSearchIcon({ active, onClick }) {
+	const { t } = useTranslation(I18N_DOMAIN_FACETED_SEARCH);
 	return (
 		<ActionIconToggle
 			active={active}
 			className={theme('faceted-search-icon')}
 			icon="talend-filter"
-			label={i18n.t('dataset-app:FACETED_SEARCH_SHOW_FACETED', {
+			label={t({
 				defaultValue: 'Show faceted search',
 			})}
 			onClick={event => onClick(event)}

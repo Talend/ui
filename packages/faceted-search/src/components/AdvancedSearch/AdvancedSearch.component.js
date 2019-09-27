@@ -24,6 +24,7 @@ AdvancedSearchError.propTypes = {
 	id: PropTypes.string.isRequired,
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export function AdvancedSearch({
 	dataFeature = DATA_FEATURE,
 	initialQuery = '',
@@ -69,7 +70,6 @@ export function AdvancedSearch({
 		}
 	};
 	const advSearchId = `${id}-adv-search`;
-	// TODO: slice this component during hackaton.
 	return (
 		<div id={advSearchId} className={css('adv-search')}>
 			<form id={`${advSearchId}-form`} onSubmit={formSubmit}>

@@ -80,4 +80,5 @@ BadgeOperatorOverlay.propTypes = {
 	size: PropTypes.oneOf(Object.values(Badge.SIZES)),
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export { BadgeOperatorOverlay };

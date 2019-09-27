@@ -69,4 +69,5 @@ BasicSearch.propTypes = {
 	setBadgesFaceted: PropTypes.func,
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export { BasicSearch };
