@@ -41,9 +41,9 @@ export function renderInputComponent(props) {
 			</ControlLabel>
 			{debounceMinLength || debounceTimeout ? (
 				<DebounceInput
-					id={key}
-					{...rest}
 					autoFocus
+					{...rest}
+					id={key}
 					disabled={disabled}
 					readOnly={readOnly}
 					debounceTimeout={debounceTimeout}
@@ -56,9 +56,9 @@ export function renderInputComponent(props) {
 				/>
 			) : (
 				<FormControl
-					id={key}
-					{...rest}
 					autoFocus
+					{...rest}
+					id={key}
 					disabled={disabled}
 					readOnly={readOnly}
 					inputRef={inputRef}
