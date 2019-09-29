@@ -86,6 +86,13 @@ export default function InputDatePicker(props) {
 
 InputDatePicker.displayName = 'InputDatePicker';
 
+InputDatePicker.defaultProps = {
+	dateFormat: 'YYYY-MM-DD',
+	required: true,
+	useUTC: false,
+
+};
+
 InputDatePicker.propTypes = {
 	id: PropTypes.string.isRequired,
 	dateFormat: PropTypes.string,

@@ -31,7 +31,7 @@ export default function DateTimeWidget(props) {
 	} = props;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
-	const convertedValue = schema.format === 'iso-datetime' ? isoStrToDate(value) : value;
+	const convertedValue = schema.schema.format === 'iso-datetime' ? isoStrToDate(value) : value;
 
 	const [state, setState] = useState({ errorMessage: '' });
 
