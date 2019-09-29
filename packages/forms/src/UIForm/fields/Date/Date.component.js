@@ -66,13 +66,13 @@ class DateWidget extends React.Component {
 			isValid,
 			options,
 			schema,
-			useSeconds,
 			value,
 			valueIsUpdating,
 		} = this.props;
 		const descriptionId = generateDescriptionId(id);
 		const errorId = generateErrorId(id);
-		const convertedValue = schema.schema.format === 'iso-datetime' ? this.isoStrToDate(value) : value;
+		const convertedValue =
+			schema.schema.format === 'iso-datetime' ? this.isoStrToDate(value) : value;
 
 		return (
 			<FieldTemplate
@@ -96,7 +96,6 @@ class DateWidget extends React.Component {
 					placeholder={schema.placeholder}
 					readOnly={schema.readOnly}
 					value={convertedValue}
-					useSeconds={useSeconds}
 					useUTC={options.useUTC}
 					// eslint-disable-next-line jsx-a11y/aria-proptypes
 					aria-invalid={!isValid}
@@ -136,7 +135,6 @@ if (process.env.NODE_ENV !== 'production') {
 				type: PropTypes.string,
 			}),
 		}),
-		useSeconds: PropTypes.bool,
 		value: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.instanceOf(Date)]),
 		valueIsUpdating: PropTypes.bool,
 	};
