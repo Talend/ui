@@ -90,7 +90,6 @@ InputDatePicker.defaultProps = {
 	dateFormat: 'YYYY-MM-DD',
 	required: true,
 	useUTC: false,
-
 };
 
 InputDatePicker.propTypes = {
