@@ -169,7 +169,7 @@ function extractDateFromTextInput(textInput, options) {
 
 	return {
 		date: options.useUTC ? convertToUTC(date) : date,
-		textInput: format(date, options.dateFormat),
+		textInput,
 		errors,
 		errorMessage: errors[0] ? errors[0].message : null,
 	};
