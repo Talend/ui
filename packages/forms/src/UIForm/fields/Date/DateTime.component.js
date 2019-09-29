@@ -2,21 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { InputDateTimePicker } from '@talend/react-components/lib/DateTimePickers';
 import FieldTemplate from '../FieldTemplate';
-import { isoDateTimeRegExp } from '../../customFormats';
+import { isoStrToDate, dateToIsoStr } from './utils';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
-
-const INVALID_DATE = new Date('');
-
-function isoStrToDate(isoStr) {
-	if (isoDateTimeRegExp.test(isoStr)) {
-		return new Date(isoStr);
-	}
-	return INVALID_DATE;
-}
-
-function dateToIsoStr(date) {
-	return date.toISOString();
-}
 
 export default function DateTimeWidget(props) {
 	const { errorMessage, id, isValid, options, schema, value, valueIsUpdating } = props;

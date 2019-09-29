@@ -3,21 +3,8 @@ import PropTypes from 'prop-types';
 import memoizeOne from 'memoize-one';
 import { InputDatePicker } from '@talend/react-components/lib/DateTimePickers';
 import FieldTemplate from '../FieldTemplate';
-import { isoDateTimeRegExp } from '../../customFormats';
+import { isoStrToDate, dateToIsoStr } from './utils';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
-
-const INVALID_DATE = new Date('');
-
-function isoStrToDate(isoStr) {
-	if (isoDateTimeRegExp.test(isoStr)) {
-		return new Date(isoStr);
-	}
-	return INVALID_DATE;
-}
-
-function dateToIsoStr(date) {
-	return date.toISOString();
-}
 
 class DateWidget extends React.Component {
 	constructor(props) {
