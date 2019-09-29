@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateTime widget should render a InputDateTimePicker 1`] = `
+<FieldTemplate
+  description="talend datetime picker"
+  descriptionId="talend-date-time-description"
+  errorId="talend-date-time-error"
+  errorMessage="something wrong"
+  id="talend-date-time"
+  isValid={false}
+  label="Select DateTime"
+  required={true}
+>
+  <InputDateTimePicker
+    aria-describedby="talend-date-time-description talend-date-time-error"
+    aria-invalid={true}
+    aria-required={true}
+    autoFocus={true}
+    dateFormat="YYYY-MM-DD"
+    id="talend-date-time"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="YYYY-MM-DD HH:mm"
+    required={true}
+    useSeconds={false}
+    useUTC={false}
+  />
+</FieldTemplate>
+`;
