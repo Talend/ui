@@ -158,7 +158,7 @@ function extractDateFromTextInput(textInput, options) {
 		};
 	}
 
-	let date;
+	let date = null;
 	let errors = [];
 
 	try {
