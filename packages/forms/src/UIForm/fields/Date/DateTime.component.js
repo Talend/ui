@@ -25,7 +25,6 @@ export default function DateTimeWidget(props) {
 		isValid,
 		options,
 		schema,
-		useSeconds,
 		value,
 		valueIsUpdating,
 	} = props;
@@ -83,7 +82,7 @@ export default function DateTimeWidget(props) {
 				placeholder={schema.placeholder}
 				readOnly={schema.readOnly}
 				value={convertedValue}
-				useSeconds={useSeconds}
+				useSeconds={options.useSeconds}
 				useUTC={options.useUTC}
 				// eslint-disable-next-line jsx-a11y/aria-proptypes
 				aria-invalid={!isValid}
