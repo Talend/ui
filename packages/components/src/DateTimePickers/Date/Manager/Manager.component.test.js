@@ -127,7 +127,7 @@ describe('Date.Manager', () => {
 						<DateConsumer />
 					</Manager>,
 				);
-				const previousState = wrapper.find('DateConsumerDiv').props('value');
+				const previousState = wrapper.find('DateConsumerDiv').props('value').value;
 
 				// when
 				act(() => {
@@ -138,9 +138,9 @@ describe('Date.Manager', () => {
 				wrapper.update();
 
 				// then
-				const nextState = wrapper.find('DateConsumerDiv').props('value');
+				const nextState = wrapper.find('DateConsumerDiv').props('value').value;
 				expect(previousState.textInput).toBe(nextState.textInput);
-				expect(previousState.date).toBe(nextState.date);
+				expect(previousState.date).toEqual(nextState.date);
 			},
 			[
 				{
@@ -152,6 +152,11 @@ describe('Date.Manager', () => {
 					name: 'when the dates are equals',
 					initialDate: new Date(2015, 1, 5),
 					newDate: new Date(2015, 1, 5),
+				},
+				{
+					name: 'when input date is invalid format',
+					initialDate: '2019-09-2a',
+					newDate: null,
 				},
 			],
 		);
@@ -193,7 +198,7 @@ describe('Date.Manager', () => {
 					{
 						name: 'with invalid date',
 						textInput: '2015aze-01-15',
-						expectedDate: undefined,
+						expectedDate: null,
 					},
 					{
 						name: 'with empty string',
@@ -267,7 +272,7 @@ describe('Date.Manager', () => {
 				expect(args[1].errors).toEqual([
 					{ code: 'INVALID_DATE_FORMAT', message: 'Date format is invalid' },
 				]);
-				expect(args[1].date).toBe(undefined);
+				expect(args[1].date).toBe(null);
 				expect(args[1].origin).toBe('INPUT');
 			});
 		});

@@ -6,24 +6,6 @@
     "properties": {
       "dateAsString": {
         "type": "string"
-      },
-      "dateAsIsoString": {
-        "type": "string",
-        "format": "iso-datetime"
-      },
-      "dateAsTimestamp": {
-        "type": "number",
-        "format": "timestamp"
-      },
-      "dateTime": {
-        "type": "string"
-      },
-      "dateTimeWithSeconds": {
-        "type": "string"
-      },
-      "dateTimeUTC": {
-        "type": "string",
-        "format": "iso-datetime"
       }
     },
     "required": ["dateAsString"]
@@ -35,38 +17,6 @@
       "widget": "date",
       "options": {
         "dateFormat": "DD/MM/YYYY"
-      }
-    },
-    {
-      "key": "dateAsIsoString",
-      "title": "Date as iso date string",
-      "widget": "date"
-    },
-    {
-      "key": "dateAsTimestamp",
-      "title": "Date as timestamp",
-      "widget": "date"
-    },
-    {
-      "key": "dateTime",
-      "title": "Datetime",
-      "widget": "datetime"
-    },
-    {
-      "key": "dateTimeWithSeconds",
-      "title": "Datetime with seconds",
-      "widget": "datetime",
-      "options": {
-        "useSeconds": true
-      }
-    },
-    {
-      "key": "dateTimeUTC",
-      "title": "Datetime in UTC",
-      "widget": "datetime",
-      "options": {
-        "useSeconds": true,
-        "useUTC": true
       }
     }
   ],
