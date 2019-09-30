@@ -57,30 +57,16 @@ This widget allows you to render an ace-editor within a form.
 To integrate it properly you should do the following into your webpack configuration.
 
 ```javascript
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const path = require('path');
-
-/**
- * react ace try to fetch resources but name are differents in sources
- * lets create a simple function to transform the name in assets
- */
-function transformPath(targetPath) {
-	const fn = path.basename(targetPath);
-	const type = path.dirname(targetPath).split('/').pop();
-	const newPath = [type, fn].join('-');
-	return newPath;
-}
+const form = require('@talend/react-forms/webpack');
 
 module.exports = {
-	output: {
-		chunkFilename: '[name].chunk.js',
-	},
-	plugins: [
-		new CopyWebpackPlugin([{ from: 'node_modules/brace/mode/*.js', transformPath }]),
-		new CopyWebpackPlugin([{ from: 'node_modules/brace/theme/*.js', transformPath }]),
-		new CopyWebpackPlugin([{ from: 'node_modules/brace/snippets', to: 'snippets/' }]),
-	],
+	// ... your current config
+	plugins: [].concat(
+    // ... your plugins
+    form.plugins,
+  ),
 };
 ```
 
-To better understand what happens just read the source: https://github.com/thlorenz/brace/blob/master/index.js#L4115
+We need that to let ace fetch its own plugin.
+To better understand why what happens you can read the source: https://github.com/thlorenz/brace/blob/master/index.js#L4115

@@ -4460,7 +4460,7 @@ copy-to-clipboard@^3.0.8, copy-to-clipboard@^3.1.0:
   dependencies:
     toggle-selection "^1.0.6"
 
-copy-webpack-plugin@^5.0.3:
+copy-webpack-plugin@^5.0.3, copy-webpack-plugin@^5.0.4:
   version "5.0.4"
   resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-5.0.4.tgz#c78126f604e24f194c6ec2f43a64e232b5d43655"
   integrity sha512-YBuYGpSzoCHSSDGyHy6VJ7SHojKp6WHT4D7ItcQFNAYx2hrwkMe56e97xfVR0/ovDuMTrMffXUiltvQljtAGeg==
