@@ -18,10 +18,8 @@ function ContextualManager(props) {
 	const [state, setState] = useState(initialState);
 
 	useEffect(() => {
-		if (props.value !== state.datetime) {
-			const nextState = extractParts(props.value, getDateOptions());
-			setState(nextState);
-		}
+		const nextState = extractParts(props.value, getDateOptions());
+		setState(nextState);
 	}, [props.value]);
 
 	function onChange(event, payload) {
@@ -47,19 +45,17 @@ function ContextualManager(props) {
 		onChange(event, nextState);
 	}
 	function onTimeChange(event, { time, textInput: timeTextInput, errors = [] }) {
-		let datetime;
+		let newState;
 		if (errors.length > 0) {
-			datetime = null;
+			newState = { datetime: null, errors, errorMessage: errors[0] ? errors[0].message : null };
 		} else {
-			datetime = dateAndTimeToDateTime(state.date, time, getDateOptions());
+			newState = dateAndTimeToDateTime(state.date, time, getDateOptions());
 		}
 		const nextState = {
 			...state,
 			time: time || timeTextInput,
-			datetime,
 			textInput: dateAndTimeToStr(state.date, timeTextInput, getDateOptions()),
-			errors,
-			errorMessage: errors[0] ? errors[0].message : null,
+			...newState,
 		};
 		setState(nextState);
 		onChange(event, nextState);

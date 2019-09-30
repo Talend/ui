@@ -186,7 +186,7 @@ function extractPartsFromTextInput(textInput) {
 	try {
 		const splitMatches = textInput.match(splitDateAndTimePartsRegex) || [];
 		if (!splitMatches.length) {
-			throw new DatePickerException('DATETIME_INVALID_FORMAT', 'DATETIME_INVALID_FORMAT');
+			throw new DateTimePickerException('DATETIME_INVALID_FORMAT', 'DATETIME_INVALID_FORMAT');
 		} else {
 			date = splitMatches[1];
 			time = splitMatches[2];

@@ -283,7 +283,7 @@ describe('DateTime.Manager', () => {
 				],
 			);
 
-			xit('should trigger props.onChange when date change', () => {
+			it('should trigger props.onChange when date change', () => {
 				// given
 				const onChange = jest.fn();
 				const event = { target: { value: '2015-01-15' } };
@@ -311,7 +311,7 @@ describe('DateTime.Manager', () => {
 				expect(onChange).toBeCalled();
 				const args = onChange.mock.calls[0];
 				expect(args[0]).toBe(event);
-				expect(args[1].datetime).toBe(null);
+				expect(isNaN(args[1].datetime.getTime())).toBe(true);
 				expect(args[1].textInput).toBe('2015-01-15');
 				expect(args[1].errors).toEqual([
 					{ code: 'INVALID_TIME_EMPTY', message: 'Time is required' },
