@@ -1,4 +1,4 @@
-const conf = require('@talend/react-forms/webpack-plugins');
+const conf = require('@talend/react-forms/webpack');
 
 module.exports = {
 	output: {

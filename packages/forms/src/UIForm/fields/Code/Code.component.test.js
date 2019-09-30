@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { shallow, mount } from 'enzyme';
 import keyCode from 'keycode';
 
@@ -23,25 +23,25 @@ describe('Code field', () => {
 
 	it('should render ace-editor in FieldTemplate', () => {
 		// when
-		const wrapper = shallow(<Code.WrappedComponent {...props} />);
+
+		const wrapper = mount(<Code.WrappedComponent {...props} />);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
-	xit('should render disabled input', () => {
+	it('should render disabled input', () => {
 		// given
 		const disabledSchema = { ...schema, disabled: true };
 
 		// when
 		const wrapper = shallow(<Code.WrappedComponent {...props} schema={disabledSchema} />);
-		console.log(wrapper.debug());
 
 		// then
 		expect(wrapper.find('ReactAce').prop('readOnly')).toBe(true);
 	});
 
-	xit('should render readonly input', () => {
+	it('should render readonly input', () => {
 		// given
 		const readOnlySchema = { ...schema, readOnly: true };
 
@@ -52,7 +52,7 @@ describe('Code field', () => {
 		expect(wrapper.find('ReactAce').prop('readOnly')).toBe(true);
 	});
 
-	xit('should trigger onChange', () => {
+	it('should trigger onChange', () => {
 		// given
 		const wrapper = shallow(<Code.WrappedComponent {...props} />);
 		expect(props.onChange).not.toBeCalled();
@@ -65,7 +65,7 @@ describe('Code field', () => {
 		expect(props.onChange).toBeCalledWith(event, { schema, value: 'totoa' });
 	});
 
-	xit('should trigger onFinish on input blur', () => {
+	it('should trigger onFinish on input blur', () => {
 		// given
 		const wrapper = shallow(<Code.WrappedComponent {...props} />);
 		expect(props.onFinish).not.toBeCalled();
@@ -78,7 +78,7 @@ describe('Code field', () => {
 		expect(props.onFinish).toBeCalledWith(event, { schema });
 	});
 
-	xit('should add the field id to the textarea on load', () => {
+	it('should add the field id to the textarea on load', () => {
 		// given
 		const wrapper = shallow(<Code.WrappedComponent {...props} />);
 		const textAreaSetAttribute = jest.fn();
@@ -97,7 +97,7 @@ describe('Code field', () => {
 		expect(textAreaSetAttribute).toBeCalledWith('id', props.id);
 	});
 
-	xit('should focus on the wrapping div on double esc keydown', () => {
+	it('should focus on the wrapping div on double esc keydown', () => {
 		// given
 		const containerId = 'myCodeWidget-editor-container';
 		const wrapper = mount(<Code.WrappedComponent {...props} />);
@@ -113,7 +113,7 @@ describe('Code field', () => {
 		expect(document.activeElement.getAttribute('id')).toBe(containerId);
 	});
 
-	xit('should manage tabindex on textarea', () => {
+	it('should manage tabindex on textarea', () => {
 		// given
 		const wrapper = mount(<Code.WrappedComponent {...props} />);
 		const container = wrapper.find('#myCodeWidget-editor-container');

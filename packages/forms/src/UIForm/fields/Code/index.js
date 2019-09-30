@@ -1,4 +1,4 @@
-import Code from './Code.component';
+import Code from './CodeLazy.component';
 import CodeTextMode from './displayMode/TextMode.component';
 
 export { CodeTextMode };

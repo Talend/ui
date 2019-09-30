@@ -1,61 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Code field should render ace-editor in FieldTemplate 1`] = `
-<FieldTemplate
-  description="my text input hint"
-  descriptionId="myCodeWidget-description"
-  errorId="myCodeWidget-error"
+<Code
   id="myCodeWidget"
   isValid={true}
-  label="My input title"
->
-  <div
-    id="myCodeWidget-editor-container"
-    onBlur={[Function]}
-    onKeyDown={[Function]}
-    tabIndex="-1"
-  >
-    <div
-      className="sr-only"
-      id="myCodeWidget-instructions"
-    >
-      To focus out of the editor, press ESC key twice.
-    </div>
-    <React.Suspense
-      fallback={
-        <div
-          aria-busy={true}
-        >
-          <withI18nextTranslation(CircularProgress) />
-        </div>
-      }
-    >
-      <UNDEFINED
-        className="tf-widget-code form-control"
-        editorProps={
-          Object {
-            "$blockScrolling": Infinity,
-          }
-        }
-        focus={true}
-        name="myCodeWidget_wrapper"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onLoad={[Function]}
-        setOptions={
-          Object {
-            "enableBasicAutocompletion": true,
-            "enableLiveAutocompletion": true,
-            "enableSnippets": true,
-          }
-        }
-        showGutter={false}
-        showPrintMargin={false}
-        theme="chrome"
-        value="toto"
-        width="auto"
-      />
-    </React.Suspense>
-  </div>
-</FieldTemplate>
+  onChange={[MockFunction]}
+  onFinish={[MockFunction]}
+  schema={
+    Object {
+      "autoFocus": true,
+      "description": "my text input hint",
+      "title": "My input title",
+      "type": "code",
+    }
+  }
+  t={[Function]}
+  value="toto"
+/>
 `;

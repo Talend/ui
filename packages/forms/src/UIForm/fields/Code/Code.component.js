@@ -2,14 +2,15 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { withTranslation } from 'react-i18next';
 import keyCode from 'keycode';
-import CircularProgress from '@talend/react-components/lib/CircularProgress';
+
 import FieldTemplate from '../FieldTemplate';
 import { generateId, generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
 // import ReactAce from 'react-ace';
-export const ReactAce = React.lazy(() => import(/* webpackChunkName: "react-ace" */ './ace'));
+// const ReactAce = React.lazy(() => import(/* webpackChunkName: "react-ace" */ './ace'));
+import ReactAce from './ace';
 
 const DEFAULT_SET_OPTIONS = {
 	enableBasicAutocompletion: true,
@@ -116,35 +117,28 @@ class Code extends React.Component {
 							defaultValue: 'To focus out of the editor, press ESC key twice.',
 						})}
 					</div>
-					<React.Suspense
-						fallback={
-							<div aria-busy>
-								<CircularProgress />
-							</div>
-						}
-					>
-						<ReactAce
-							key="ace"
-							className="tf-widget-code form-control"
-							editorProps={{ $blockScrolling: Infinity }} // https://github.com/securingsincity/react-ace/issues/29
-							focus={autoFocus}
-							name={`${id}_wrapper`}
-							mode={options && options.language}
-							onBlur={this.onFinish}
-							onLoad={this.onLoad}
-							onChange={this.onChange}
-							// disabled is not supported by ace use readonly
-							// https://github.com/ajaxorg/ace/issues/406
-							readOnly={readOnly || schema.disabled || valueIsUpdating}
-							setOptions={DEFAULT_SET_OPTIONS}
-							showGutter={false}
-							showPrintMargin={false}
-							theme="chrome"
-							value={value}
-							width="auto"
-							{...options}
-						/>
-					</React.Suspense>
+
+					<ReactAce
+						key="ace"
+						className="tf-widget-code form-control"
+						editorProps={{ $blockScrolling: Infinity }} // https://github.com/securingsincity/react-ace/issues/29
+						focus={autoFocus}
+						name={`${id}_wrapper`}
+						mode={options && options.language}
+						onBlur={this.onFinish}
+						onLoad={this.onLoad}
+						onChange={this.onChange}
+						// disabled is not supported by ace use readonly
+						// https://github.com/ajaxorg/ace/issues/406
+						readOnly={readOnly || schema.disabled || valueIsUpdating}
+						setOptions={DEFAULT_SET_OPTIONS}
+						showGutter={false}
+						showPrintMargin={false}
+						theme="chrome"
+						value={value}
+						width="auto"
+						{...options}
+					/>
 				</div>
 			</FieldTemplate>
 		);
