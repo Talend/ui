@@ -113,7 +113,11 @@ function dateAndTimeToDateTime(date, time, { useUTC }) {
 		const { hours, minutes, seconds } = time;
 		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
 		const localTimezoneDate = setSeconds(date, timeInSeconds);
-		return useUTC ? convertToUTC(localTimezoneDate) : localTimezoneDate;
+		return {
+			datetime: useUTC ? convertToUTC(localTimezoneDate) : localTimezoneDate,
+			errors: [],
+			errorMessage: null,
+		};
 	} catch (e) {
 		return {
 			datetime: INTERNAL_INVALID_DATE,
