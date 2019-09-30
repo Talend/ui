@@ -106,8 +106,15 @@ describe('DateTime.Manager', () => {
 			},
 			[
 				{
-					name: 'from undefined props',
+					name: 'from undefined props(Date type)',
 					initialDate: new Date(),
+					newDate: undefined,
+					expectedDate: undefined,
+					expectedTime: undefined,
+				},
+				{
+					name: 'from undefined props(string type)',
+					initialDate: '2019-09-30 12:00',
 					newDate: undefined,
 					expectedDate: undefined,
 					expectedTime: undefined,

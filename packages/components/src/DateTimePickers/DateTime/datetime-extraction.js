@@ -154,6 +154,7 @@ function extractPartsFromDateTime(datetime, options) {
 	return {
 		date: extractDateOnly(datetime, options),
 		time: extractTimeOnly(datetime, options),
+		datetime,
 	};
 }
 
@@ -169,7 +170,7 @@ function extractPartsFromDateTime(datetime, options) {
  *		textInput: string
  * 	}}
  */
-function extractPartsFromTextInput(textInput) {
+function extractPartsFromTextInput(textInput, options) {
 	if (textInput === '') {
 		return {
 			date: '',
@@ -198,6 +199,7 @@ function extractPartsFromTextInput(textInput) {
 	return {
 		date,
 		time,
+		datetime: dateAndTimeToDateTime(date, time, options).datetime,
 		errors,
 		errorMessage: errors[0] ? errors[0].message : null,
 	};
