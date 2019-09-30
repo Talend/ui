@@ -6,8 +6,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/Code/Code.component.test.js
-   5:16  error    'ReactAce' is defined but never used  no-unused-vars
-  38:3   warning  Unexpected console statement          no-console
+  1:17  error  'Suspense' is defined but never used  no-unused-vars
+  5:16  error  'ReactAce' is defined but never used  no-unused-vars
 
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/CollapsibleFieldset/CollapsibleFieldset.component.js
    4:10  error  'Actions' is defined but never used                                                                                        no-unused-vars
@@ -26,6 +26,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/CollapsibleFieldset/CollapsibleFieldset.component.test.js
   109:55  error  Closing curly brace should be on the same line as opening curly brace or on the line after the previous block  brace-style
 
-✖ 16 problems (15 errors, 1 warning)
+✖ 16 problems (16 errors, 0 warnings)
   6 errors, 0 warnings potentially fixable with the `--fix` option.
 
