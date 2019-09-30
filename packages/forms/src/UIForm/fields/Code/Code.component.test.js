@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import keyCode from 'keycode';
 
-import Code from './Code.component';
+import Code, { ReactAce } from './Code.component';
 
 describe('Code field', () => {
 	const schema = {
@@ -18,9 +18,10 @@ describe('Code field', () => {
 		onChange: jest.fn(),
 		onFinish: jest.fn(),
 		value: 'toto',
+		t: (message, options) => options.defaultValue,
 	};
 
-	xit('should render ace-editor in FieldTemplate', () => {
+	it('should render ace-editor in FieldTemplate', () => {
 		// when
 		const wrapper = shallow(<Code.WrappedComponent {...props} />);
 
@@ -34,6 +35,7 @@ describe('Code field', () => {
 
 		// when
 		const wrapper = shallow(<Code.WrappedComponent {...props} schema={disabledSchema} />);
+		console.log(wrapper.debug());
 
 		// then
 		expect(wrapper.find('ReactAce').prop('readOnly')).toBe(true);

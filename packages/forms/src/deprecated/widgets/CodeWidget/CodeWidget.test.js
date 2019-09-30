@@ -4,7 +4,7 @@ import { shallow, mount } from 'enzyme';
 import CodeWidget from './CodeWidget.component';
 
 describe('CodeWidget', () => {
-	xit('should be AceCodeWidget', () => {
+	it('should be Code', () => {
 		expect(CodeWidget.displayName).toBe('AceCodeWidget');
 	});
 

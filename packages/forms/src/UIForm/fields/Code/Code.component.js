@@ -9,7 +9,7 @@ import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
 // import ReactAce from 'react-ace';
-const ReactAce = React.lazy(() => import(/* webpackChunkName: "react-ace" */ './ace'));
+export const ReactAce = React.lazy(() => import(/* webpackChunkName: "react-ace" */ './ace'));
 
 const DEFAULT_SET_OPTIONS = {
 	enableBasicAutocompletion: true,
@@ -156,6 +156,8 @@ Code.defaultProps = {
 	schema: {},
 	t: getDefaultT(),
 };
+Code.displayName = 'Code';
+
 if (process.env.NODE_ENV !== 'production') {
 	Code.propTypes = {
 		id: PropTypes.string,
