@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { InputDateTimePicker } from '@talend/react-components/lib/DateTimePickers';
+
+import { convertDate, isoStrToDate } from './Date.utils';
 import FieldTemplate from '../FieldTemplate';
-import { isoStrToDate, dateToIsoStr } from './utils';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 export default function DateTimeWidget(props) {
@@ -17,14 +18,7 @@ export default function DateTimeWidget(props) {
 		setState({ errorMessage: nextErrorMessage });
 		let result = datetime;
 		if (!nextErrorMessage && datetime) {
-			const { format, type } = props.schema.schema;
-			if (format === 'iso-datetime') {
-				result = dateToIsoStr(datetime);
-			} else if (type === 'number') {
-				result = datetime.getTime();
-			} else {
-				result = textInput;
-			}
+			result = convertDate(datetime, textInput, props.schema.schema);
 		}
 
 		const payload = {

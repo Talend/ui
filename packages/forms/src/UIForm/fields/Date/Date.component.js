@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import memoizeOne from 'memoize-one';
 import { InputDatePicker } from '@talend/react-components/lib/DateTimePickers';
 import FieldTemplate from '../FieldTemplate';
-import { isoStrToDate, dateToIsoStr } from './utils';
+import { isoStrToDate, dateToIsoStr, convertDate } from './Date.utils';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 class DateWidget extends React.Component {
@@ -22,13 +22,7 @@ class DateWidget extends React.Component {
 		let value = date;
 		if (!errorMessage && date) {
 			const { schema } = this.props.schema;
-			if (schema.format === 'iso-datetime') {
-				value = this.dateToIsoStr(date);
-			} else if (schema.type === 'number') {
-				value = date.getTime();
-			} else {
-				value = textInput;
-			}
+			value = convertDate(date, textInput, schema);
 		}
 
 		const payload = {
