@@ -19,6 +19,10 @@ const jsonSchema = {
 	properties: {
 		definitionURL: {
 			type: 'string',
+			enum: [
+				'/api/v1/forms/example',
+				'/api/v1/forms/validation'
+			]
 		},
 		uiSpecPath: {
 			type: 'string',

@@ -16,7 +16,7 @@ import actions from './actions';
 const router = getRouter();
 
 const app = {
-	components: { ComponentForm, ComponentFormSandbox: ComponentFormSandbox },
+	components: { ComponentForm, ComponentFormSandbox },
 	settingsURL: '/settings.json',
 	actionCreators: actions,
 	middlewares: [createLogger({})],
