@@ -32,7 +32,7 @@ export default function DateTimeWidget(props) {
 		}
 	}
 
-	function onBlur() {
+	function onBlur(event) {
 		props.onFinish(event, { schema: props.schema });
 	}
 	return (
