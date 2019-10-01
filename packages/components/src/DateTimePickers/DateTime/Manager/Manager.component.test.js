@@ -36,11 +36,7 @@ describe('DateTime.Manager', () => {
 	describe('datetime management', () => {
 		cases(
 			'initial state',
-			({
-				initialDate,
-				expectedDate,
-				expectedTime,
-			}) => {
+			({ initialDate, expectedDate, expectedTime }) => {
 				// when
 				const wrapper = mount(
 					<Manager id={DEFAULT_ID} value={initialDate} useSeconds>
@@ -77,13 +73,7 @@ describe('DateTime.Manager', () => {
 
 		cases(
 			'props update should update state',
-			({
-				initialDate,
-				newDate,
-				expectedDate,
-				expectedTime,
-				useSeconds,
-			}) => {
+			({ initialDate, newDate, expectedDate, expectedTime, useSeconds }) => {
 				// given
 				const wrapper = mount(
 					<Manager id={DEFAULT_ID} value={initialDate} useSeconds={useSeconds}>
@@ -153,12 +143,15 @@ describe('DateTime.Manager', () => {
 						<DateTimeConsumer />
 					</Manager>,
 				);
-				const previousState = wrapper.find('DateTimeConsumerDiv').props('datetime');
+				const previousState = wrapper.find('DateTimeConsumerDiv').props();
 
 				// when
-				wrapper.setProps({
-					value: newDate,
+				act(() => {
+					wrapper.setProps({
+						value: newDate,
+					});
 				});
+				wrapper.update();
 
 				// then
 				const nextState = wrapper.find('DateTimeConsumerDiv').props();
@@ -235,14 +228,7 @@ describe('DateTime.Manager', () => {
 			);
 			cases(
 				'should update state when time change',
-				({
-					expectedDateTime,
-					expectedDate,
-					expectedTime,
-					textInput,
-					dateFormat,
-					useSeconds,
-				}) => {
+				({ expectedDateTime, expectedDate, expectedTime, textInput, dateFormat, useSeconds }) => {
 					// given
 					const event = { target: { value: textInput } };
 					const wrapper = mount(
