@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import keycode from 'keycode';
-import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import Inject from '@talend/react-components/lib/Inject';
 import Skeleton from '@talend/react-components/lib/Skeleton';
@@ -16,6 +15,8 @@ import DATAGRID_PROPTYPES from './DataGrid.proptypes';
 import { NAMESPACE_INDEX } from '../../constants';
 import serializer from '../DatasetSerializer';
 import theme from './DataGrid.scss';
+
+const { AgGridReact } = React.lazy(() => import(/* webpackChunkName: "ag-grid-react" */ 'ag-grid-react'));
 
 export const AG_GRID = {
 	CUSTOM_HEADER_KEY: 'headerComponent',
