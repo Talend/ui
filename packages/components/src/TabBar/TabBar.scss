@@ -25,24 +25,4 @@
 			font-size: $svg-sm-size;
 		}
 	}
-
-	&-dropdown {
-		@include caret-down($st-tropaz);
-		background-position: right center;
-		background-repeat: no-repeat;
-		background-size: 10px;
-		width: auto;
-		box-shadow: 0 -2px 0 $st-tropaz inset;
-		border: none;
-		border-radius: 0;
-		font-size: 14px;
-		color: $st-tropaz;
-		text-transform: uppercase;
-		appearance: none;
-		padding: 13px 30px 12px 20px;
-
-		&-item {
-			color: initial;
-		}
-	}
 }

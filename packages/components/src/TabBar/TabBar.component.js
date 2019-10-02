@@ -12,6 +12,7 @@ import classnames from 'classnames';
 
 import Icon from '../Icon';
 import TooltipTrigger from '../TooltipTrigger';
+import { ActionDropdown } from '../Actions';
 
 import theme from './TabBar.scss';
 
@@ -115,30 +116,19 @@ function TabBar(props) {
 			))}
 		</Tab.Content>
 	);
-
 	if (responsive && showDropdown) {
 		return (
 			<React.Fragment>
-				<form>
-					<select
-						className={classnames(theme['tc-tab-bar-dropdown'], 'tc-tab-bar-dropdown')}
-						onChange={event => handleSelect(event.target.value, event)}
-						value={selectedKey}
-					>
-						{items.map(item => (
-							<option
-								className={classnames(
-									theme['tc-tab-bar-dropdown-item'],
-									'tc-tab-bar-dropdown-item',
-								)}
-								value={item.key}
-								key={item.key}
-							>
-								{item.label}
-							</option>
-						))}
-					</select>
-				</form>
+				<ActionDropdown
+					className={classnames(theme['tc-tab-bar-dropdown'], 'tc-tab-bar-dropdown')}
+					label={items[selectedKey - 1].label}
+					onSelect={(event, { key }) => handleSelect(key, event)}
+					items={items.map(item => ({
+						...item,
+						icon: item.icon && item.icon.name,
+					}))}
+					link
+				/>
 				{tabContent}
 			</React.Fragment>
 		);
