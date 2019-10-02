@@ -203,7 +203,7 @@ function generateChildId(key, kind) {
 			<div id="interactive">
 				<InteractiveTabs {...tabProps}>I'm the child</InteractiveTabs>
 			</div>
-			<div id="default-smaller" style={{ width: '30rem', border: '1px solid' }}>
+			<div id="interactive-responsive" style={{ width: '30rem', border: '1px solid' }}>
 				<InteractiveResponsiveTabs {...tabProps}>I'm the responsive child</InteractiveResponsiveTabs>
 			</div>
 			<IconsProvider />
