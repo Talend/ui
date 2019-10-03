@@ -64,6 +64,11 @@ const inProgressStatusWithPercent = {
 	],
 };
 
+const skeletonStatusProps = {
+	status: 'skeleton',
+};
+
+
 describe('Status', () => {
 	it('should render a label with Icon', () => {
 		// when
@@ -104,6 +109,14 @@ describe('Status', () => {
 	it('should render a label with a fixed circular progress', () => {
 		// when
 		const wrapper = renderer.create(<Status {...inProgressStatusWithPercent} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render a label with a skeleton', () => {
+		// when
+		const wrapper = renderer.create(<Status {...skeletonStatusProps} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();

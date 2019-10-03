@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import Actions from './../Actions/Actions.component';
 import CircularProgress from './../CircularProgress/CircularProgress.component';
 import Icon from './../Icon/Icon.component';
+import Skeleton from '../Skeleton'
 
 import css from './Status.scss';
 
@@ -36,6 +37,7 @@ export const STATUS = {
 	FAILED: 'failed',
 	CANCELED: 'canceled',
 	WARNING: 'warning',
+	SKELETON: 'skeleton',
 };
 
 export function getbsStyleFromStatus(status) {
@@ -50,19 +52,46 @@ export function getbsStyleFromStatus(status) {
 			return 'muted';
 		case STATUS.WARNING:
 			return 'warning';
+		case STATUS.SKELETON:
+			return 'skeleton';
 		default:
 			return '';
 	}
 }
 
 function renderIcon(status, icon, progress) {
-	if (status === STATUS.IN_PROGRESS) {
-		if (icon) {
-			return <Icon name={icon} />;
-		}
-		return <CircularProgress size={'small'} percent={progress} />;
+	switch (status) {
+		case STATUS.IN_PROGRESS:
+			if (icon) {
+				return <Icon name={icon} />;
+			}
+			return <CircularProgress size={'small'} percent={progress} />;
+
+		case STATUS.SKELETON:
+			return 	(
+				<Skeleton
+					className={classNames(css['tc-status-skeleton-item'], 'tc-status-skeleton-item')}
+					type={Skeleton.TYPES.circle}
+					size={Skeleton.SIZES.small}
+				/>
+			);
 	}
+
 	return icon && <Icon name={icon} />;
+}
+
+function renderLabel(status, label) {
+	if (status === STATUS.SKELETON) {
+		return 	(
+			<Skeleton
+				className={classNames(css['tc-status-skeleton-item'], 'tc-status-skeleton-item')}
+				type={Skeleton.TYPES.text}
+				size={Skeleton.SIZES.large}
+			/>
+		);
+	}
+
+	return label;
 }
 
 export function Status({ status, label, icon, actions, progress }) {
@@ -79,7 +108,9 @@ export function Status({ status, label, icon, actions, progress }) {
 	return (
 		<div role="status" className={rootClassnames}>
 			<span className={iconClassnames}>{renderIcon(status, icon, progress)}</span>
-			<span className={classNames(css['tc-status-label'], 'tc-status-label')}>{label}</span>
+			<span className={classNames(css['tc-status-label'], 'tc-status-label')}>
+				{renderLabel(status, label)}
+			</span>
 			<Actions
 				actions={actions}
 				className={classNames(css['tc-status-actions'], 'tc-status-actions')}

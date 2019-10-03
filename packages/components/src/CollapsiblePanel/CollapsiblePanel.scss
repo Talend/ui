@@ -4,6 +4,7 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 $tc-collapsible-panel-btn-color: #555964;
 $tc-collapsible-descriptive-panel-content-description-color: #808080 !default;
 $tc-toggle-color: #555964 !default;
+$tc-skeleton-background-color: #cbcbcb !default;
 
 @mixin type-col($width: 100%) {
 	flex-basis: $width;
@@ -70,7 +71,8 @@ $tc-toggle-color: #555964 !default;
 	&.success,
 	&.danger,
 	&.muted,
-	&.warning {
+	&.warning,
+	&.skeleton {
 		padding-left: 1px;
 		border-left: 5px solid;
 	}
@@ -108,6 +110,10 @@ $tc-toggle-color: #555964 !default;
 		:global(.tc-status-label) {
 			color: $brand-warning;
 		}
+	}
+
+	&.skeleton {
+		border-left-color: $tc-skeleton-background-color;
 	}
 
 	.panel-header-content {
