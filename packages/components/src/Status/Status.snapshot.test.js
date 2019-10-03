@@ -68,7 +68,6 @@ const skeletonStatusProps = {
 	status: 'skeleton',
 };
 
-
 describe('Status', () => {
 	it('should render a label with Icon', () => {
 		// when

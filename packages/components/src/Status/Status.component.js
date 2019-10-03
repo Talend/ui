@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import Actions from './../Actions/Actions.component';
 import CircularProgress from './../CircularProgress/CircularProgress.component';
 import Icon from './../Icon/Icon.component';
-import Skeleton from '../Skeleton'
+import Skeleton from '../Skeleton';
 
 import css from './Status.scss';
 
@@ -68,7 +68,7 @@ function renderIcon(status, icon, progress) {
 			return <CircularProgress size={'small'} percent={progress} />;
 
 		case STATUS.SKELETON:
-			return 	(
+			return (
 				<Skeleton
 					className={classNames(css['tc-status-skeleton-item'], 'tc-status-skeleton-item')}
 					type={Skeleton.TYPES.circle}
@@ -82,7 +82,7 @@ function renderIcon(status, icon, progress) {
 
 function renderLabel(status, label) {
 	if (status === STATUS.SKELETON) {
-		return 	(
+		return (
 			<Skeleton
 				className={classNames(css['tc-status-skeleton-item'], 'tc-status-skeleton-item')}
 				type={Skeleton.TYPES.text}
