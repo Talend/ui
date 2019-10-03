@@ -75,9 +75,9 @@ function renderIcon(status, icon, progress) {
 					size={Skeleton.SIZES.small}
 				/>
 			);
+		default:
+			return icon && <Icon name={icon} />;
 	}
-
-	return icon && <Icon name={icon} />;
 }
 
 function renderLabel(status, label) {
