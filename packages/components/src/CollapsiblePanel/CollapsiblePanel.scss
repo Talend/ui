@@ -4,7 +4,7 @@ $tc-collapsible-panel-padding-larger: $padding-larger !default;
 $tc-collapsible-panel-btn-color: #555964;
 $tc-collapsible-descriptive-panel-content-description-color: #808080 !default;
 $tc-toggle-color: #555964 !default;
-$tc-skeleton-background-color: #cbcbcb !default;
+$tc-skeleton-background-color: #dfdfdf !default;
 
 @mixin type-col($width: 100%) {
 	flex-basis: $width;
