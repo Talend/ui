@@ -39,6 +39,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/ResourcePicker/ResourcePicker.component.js
   17:2  warning  Unexpected console statement  no-console
 
+/home/travis/build/Talend/ui/packages/components/src/Status/Status.component.js
+  63:2  error  Expected a default case  default-case
+
 /home/travis/build/Talend/ui/packages/components/src/SubHeaderBar/SubHeaderBar.test.js
   4:8  error  'Container' is defined but never used  no-unused-vars
 
@@ -49,6 +52,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   41:3  warning  Unexpected console statement  no-console
   69:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
 
-✖ 25 problems (22 errors, 3 warnings)
+✖ 26 problems (23 errors, 3 warnings)
   1 error, 0 warnings potentially fixable with the `--fix` option.
 
