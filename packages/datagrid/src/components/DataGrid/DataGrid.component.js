@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import keycode from 'keycode';
-import 'ag-grid-community/dist/styles/ag-grid.css';
 import { AgGridReact } from 'ag-grid-react';
+import 'ag-grid-community/dist/styles/ag-grid.css';
 import Inject from '@talend/react-components/lib/Inject';
 import Skeleton from '@talend/react-components/lib/Skeleton';
 

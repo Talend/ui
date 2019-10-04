@@ -1,8 +1,8 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { shallow, mount } from 'enzyme';
 import keyCode from 'keycode';
 
-import Code, { ReactAce } from './Code.component';
+import Code from './Code.component';
 
 describe('Code field', () => {
 	const schema = {

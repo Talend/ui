@@ -2,15 +2,15 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { withTranslation } from 'react-i18next';
 import keyCode from 'keycode';
+import ReactAce from 'react-ace';
+// https://github.com/securingsincity/react-ace/issues/95
+import 'brace/ext/language_tools';
 
 import FieldTemplate from '../FieldTemplate';
 import { generateId, generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
-// import ReactAce from 'react-ace';
-// const ReactAce = React.lazy(() => import(/* webpackChunkName: "react-ace" */ './ace'));
-import ReactAce from './ace';
 
 const DEFAULT_SET_OPTIONS = {
 	enableBasicAutocompletion: true,
