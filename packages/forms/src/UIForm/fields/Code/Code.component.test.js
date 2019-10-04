@@ -18,7 +18,7 @@ describe('Code field', () => {
 		onChange: jest.fn(),
 		onFinish: jest.fn(),
 		value: 'toto',
-		t: (message, options) => options.defaultValue,
+		// t: (message, options) => options.defaultValue,
 	};
 
 	it('should render ace-editor in FieldTemplate', () => {

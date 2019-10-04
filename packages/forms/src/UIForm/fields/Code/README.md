@@ -62,11 +62,11 @@ const form = require('@talend/react-forms/webpack');
 module.exports = {
 	// ... your current config
 	plugins: [].concat(
-    // ... your plugins
-    form.plugins,
-  ),
+		// ... your plugins
+		form.plugins,
+	),
 };
 ```
 
-We need that to let ace fetch its own plugin.
+We need this configuration to let ace fetch its own plugin.
 To better understand why what happens you can read the source: https://github.com/thlorenz/brace/blob/master/index.js#L4115
