@@ -25,7 +25,7 @@
       }
     },
     "Redirect#default": {
-      "path": "/HeaderBar"
+      "path": "/ComponentForm"
     },
     "HeaderBar#default": {
       "keepComponentState": true,
