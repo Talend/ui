@@ -1,17 +1,5 @@
 {
   "actions": {
-    "menu:HeaderBar": {
-      "id": "menu:HeaderBar",
-      "label": "HeaderBar",
-      "icon": "talend-arrow-right",
-      "iconTransform": "rotate-270",
-      "payload": {
-        "type": "MENU_LINK",
-        "cmf": {
-          "routerReplace": "/HeaderBar"
-        }
-      }
-    },
     "menu:ComponentForm": {
       "icon": "talend-burger",
       "label": "ComponentForm",
@@ -69,17 +57,10 @@
     },
     "SidePanel#default": {
       "actionIds": [
-        "menu:HeaderBar",
         "menu:ComponentForm"
       ]
     },
     "Layout#default": {
-      "mode": "TwoColumns",
-      "header": { "component": "HeaderBar" },
-      "one": { "component": "SidePanel" },
-      "content": {}
-    },
-    "Layout#HeaderBar": {
       "mode": "TwoColumns",
       "header": { "component": "HeaderBar" },
       "one": { "component": "SidePanel" },
@@ -99,11 +80,6 @@
       "component": "Redirect"
     },
     "childRoutes": [
-      {
-        "path": "HeaderBar",
-        "component": "Layout",
-        "componentId": "HeaderBar"
-      },
       {
         "path": "ComponentForm",
         "component": "ComponentFormSandbox"
