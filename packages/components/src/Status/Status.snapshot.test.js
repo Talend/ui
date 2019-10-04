@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { Status } from './Status.component';
+import { Status, STATUS } from './Status.component';
 
 jest.mock('react-dom');
 
@@ -65,7 +65,7 @@ const inProgressStatusWithPercent = {
 };
 
 const skeletonStatusProps = {
-	status: 'skeleton',
+	status: STATUS.SKELETON,
 };
 
 describe('Status', () => {

@@ -64,6 +64,6 @@ $tc-status-space-btn-icon-label: 5px !default;
 }
 
 .tc-status-skeleton-item {
-	margin-right: 10px;
+	margin-right: $padding-small;
 	display: flex;
 }
