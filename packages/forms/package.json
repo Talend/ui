@@ -88,7 +88,6 @@
     "node-sass": "^4.7.2",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
-    "react-a11y": "^0.3.3",
     "react-ace": "6.2.0",
     "react-dom": "^16.8.6",
     "react-i18next": "^10.11.4",
