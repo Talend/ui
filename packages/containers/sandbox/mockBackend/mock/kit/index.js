@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
 module.exports = {
-	example: require('./example.json'),
+	titleMap: require('./titleMap.json'),
 	validation: require('./validation.json'),
 };
