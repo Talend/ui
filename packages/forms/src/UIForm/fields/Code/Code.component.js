@@ -11,7 +11,6 @@ import { generateId, generateDescriptionId, generateErrorId } from '../../Messag
 import getDefaultT from '../../../translate';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 
-
 const DEFAULT_SET_OPTIONS = {
 	enableBasicAutocompletion: true,
 	enableLiveAutocompletion: true,
