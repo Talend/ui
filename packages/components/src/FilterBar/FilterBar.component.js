@@ -41,9 +41,11 @@ function FilterInput(props) {
 		placeholder,
 		value,
 		t,
+		...rest
 	} = props;
 
 	const inputProps = {
+		'data-test': rest['data-test'],
 		id,
 		name: 'search',
 		type: 'search',
@@ -167,6 +169,7 @@ export class FilterBarComponent extends React.Component {
 				>
 					<Icon name="talend-search" className={theme['search-icon']} />
 					<FilterInput
+						data-test={this.props['data-test']}
 						autoFocus={this.props.autoFocus}
 						id={this.props.id && `${this.props.id}-input`}
 						debounceMinLength={this.props.debounceMinLength}
@@ -201,6 +204,7 @@ FilterBarComponent.propTypes = {
 	autoFocus: PropTypes.bool,
 	id: PropTypes.string,
 	className: PropTypes.string,
+	'data-test': PropTypes.string,
 	'data-feature': PropTypes.string,
 	debounceMinLength: PropTypes.number,
 	debounceTimeout: PropTypes.number,
