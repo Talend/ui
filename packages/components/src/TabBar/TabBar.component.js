@@ -194,6 +194,7 @@ TabBar.propTypes = {
 			id: PropTypes.string,
 			key: PropTypes.any.isRequired,
 			label: PropTypes.string.isRequired,
+			icon: PropTypes.string,
 		}).isRequired,
 	).isRequired,
 	onSelect: PropTypes.func.isRequired,
