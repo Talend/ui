@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useRef } from 'react';
 import uuid from 'uuid';
 import classNames from 'classnames';
 import Autowhatever from 'react-autowhatever';
+import { useTranslation } from 'react-i18next';
 
 import theme from './Typeahead.scss';
 import {
@@ -12,6 +13,7 @@ import {
 	renderItem,
 } from './Typeahead.component.renderers';
 import { Action } from '../Actions';
+import I18N_DOMAIN_COMPONENTS from '../constants';
 
 /**
  * Show suggestions for search bar
@@ -20,6 +22,10 @@ import { Action } from '../Actions';
  * <Typeahead {...props} />
  */
 function Typeahead({ onToggle, icon, position, docked, ...rest }) {
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+
+	const inputRef = useRef(null);
+
 	if (docked && onToggle) {
 		return (
 			<Action
@@ -71,7 +77,7 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 			debounceTimeout: rest.debounceTimeout,
 			disabled: rest.disabled,
 			id: rest.id,
-			inputRef: rest.inputRef,
+			inputRef,
 			onBlur: rest.onBlur,
 			onChange: rest.onChange && (event => rest.onChange(event, { value: event.target.value })),
 			onFocus: rest.onFocus,
@@ -86,18 +92,24 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		},
 	};
 
+	const noResultText = rest.noResultText || t('NO_RESULT_FOUND', { defaultValue: 'No result.' });
+	const searchingText =
+		rest.searchingText || t('TYPEAHEAD_SEARCHING', { defaultValue: 'Searching for matches...' });
+	const isLoadingText =
+		rest.isLoadingText || t('TYPEAHEAD_LOADING', { defaultValue: 'Loading...' });
 	const defaultRenderersProps = {
 		renderItem,
 		renderItemsContainer: renderItemsContainerFactory(
 			rest.items,
-			rest.noResultText,
+			noResultText,
 			rest.searching,
-			rest.searchingText,
+			searchingText,
 			rest.isLoading,
-			rest.isLoadingText,
+			isLoadingText,
+			inputRef,
 			rest.children,
 		),
-		renderItemData: { value: rest.value },
+		renderItemData: { value: rest.value, 'data-feature': rest['data-feature'] },
 	};
 
 	const compatibilityProps = {
@@ -115,7 +127,6 @@ function Typeahead({ onToggle, icon, position, docked, ...rest }) {
 		items: rest.items || [],
 		itemProps: ({ itemIndex }) => ({
 			onMouseDown: rest.onSelect,
-			'data-feature': rest['data-feature'],
 			'aria-disabled': rest.items[itemIndex] && rest.items[itemIndex].disabled,
 		}),
 	};
@@ -131,12 +142,9 @@ Typeahead.defaultProps = {
 	id: uuid.v4().toString(),
 	items: null,
 	multiSection: true, // TODO this is for compat, see if we can do the reverse :(
-	noResultText: 'No result.',
 	position: 'left',
 	readOnly: false,
 	searching: false,
-	searchingText: 'Searching for matches...',
-	isLoadingText: 'Loading...',
 	docked: false,
 };
 
@@ -167,7 +175,6 @@ Typeahead.propTypes = {
 	onBlur: PropTypes.func,
 	onChange: PropTypes.func,
 	onFocus: PropTypes.func,
-	inputRef: PropTypes.func,
 	placeholder: PropTypes.string,
 	readOnly: PropTypes.bool,
 	value: PropTypes.string,

@@ -88,6 +88,17 @@ describe('Array Item component', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should disable delete button', () => {
+		let deleteAction;
+		const renderItem = (index, { actions }) => {
+			deleteAction = actions[0];
+		};
+		// when
+		shallow(<ArrayItem id={'disabled-array-item'} renderItem={renderItem} disabled />);
+		// then
+		expect(deleteAction.disabled).toBe(true);
+	});
+
 	it('should trigger onRemove when remove button is clicked', () => {
 		// given
 		const onRemove = jest.fn();
@@ -104,7 +115,7 @@ describe('Array Item component', () => {
 
 		// when
 		wrapper
-			.findWhere(n => n.prop('id') === 'talend-control-3-delete')
+			.find('Button#talend-control-3-delete')
 			.first()
 			.simulate('click');
 
@@ -136,7 +147,7 @@ describe('Array Item component', () => {
 
 		// when
 		wrapper
-			.findWhere(n => n.prop('id') === 'talend-control-3-moveUp')
+			.find('Button#talend-control-3-moveUp')
 			.first()
 			.simulate('click');
 
@@ -160,11 +171,34 @@ describe('Array Item component', () => {
 
 		// when
 		wrapper
-			.findWhere(n => n.prop('id') === 'talend-control-3-moveDown')
+			.find('Button#talend-control-3-moveDown')
 			.first()
 			.simulate('click');
 
 		// then
 		expect(onReorder).toBeCalledWith(expect.anything(), { previousIndex: 3, nextIndex: 4 });
+	});
+	it('should support readonly (do not display actions)', () => {
+		// given
+		const onReorder = jest.fn();
+		const renderItem = jest.fn(() => null);
+		// when
+		const wrapper = mount(
+			<ArrayItem
+				hasMoveDown
+				hasMoveUp
+				id={'talend-control-3'}
+				index={3}
+				renderItem={renderItem}
+				onRemove={jest.fn()}
+				onReorder={onReorder}
+				readOnly
+			/>,
+		);
+
+		// then
+		// can t find delete action
+		expect(wrapper.find('Action').length).toBe(0);
+		expect(renderItem).toHaveBeenCalledWith(3, { actions: [] });
 	});
 });

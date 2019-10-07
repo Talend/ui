@@ -5,13 +5,35 @@ import {
 	Table as VirtualizedTable,
 	defaultTableRowRenderer as DefaultTableRowRenderer,
 } from 'react-virtualized';
+import isEmpty from 'lodash/isEmpty';
 
 import getRowSelectionRenderer from '../RowSelection';
 import { DROPDOWN_CONTAINER_CN } from '../../Actions/ActionDropdown';
+import Skeleton from '../../Skeleton';
 import { decorateRowClick, decorateRowDoubleClick } from '../event/rowclick';
 
 import theme from './ListTable.scss';
 import rowThemes from './RowThemes';
+
+function SkeletonRow({ columns }) {
+	return columns.map(column => (
+		<div key={column.key} {...column.props}>
+			<Skeleton type="text" size="xlarge" />
+		</div>
+	));
+}
+
+function ListTableRowRenderer(props) {
+	return isEmpty(props.rowData) ? (
+		<DefaultTableRowRenderer {...props} columns={[<SkeletonRow {...props} />]} />
+	) : (
+		<DefaultTableRowRenderer {...props} />
+	);
+}
+
+ListTableRowRenderer.propTypes = {
+	rowData: PropTypes.object,
+};
 
 /**
  * List renderer that renders a react-virtualized Table
@@ -24,10 +46,11 @@ function ListTable(props) {
 		isSelected,
 		onRowClick,
 		onRowDoubleClick,
+		rowCount,
 		...restProps
 	} = props;
 
-	let RowTableRenderer = DefaultTableRowRenderer;
+	let RowTableRenderer = ListTableRowRenderer;
 	if (isActive || isSelected) {
 		RowTableRenderer = getRowSelectionRenderer(RowTableRenderer, {
 			isSelected,
@@ -50,14 +73,16 @@ function ListTable(props) {
 			rowClassName={({ index }) =>
 				classNames(...['tc-list-item', rowThemes, collection[index] && collection[index].className])
 			}
-			rowCount={collection.length}
-			rowGetter={({ index }) => collection[index]}
+			rowCount={rowCount || collection.length}
+			rowGetter={({ index }) => collection[index] || {}}
 			rowRenderer={RowTableRenderer}
 			{...restProps}
 		/>
 	);
 }
+
 ListTable.displayName = 'VirtualizedList(ListTable)';
+
 ListTable.propTypes = {
 	children: PropTypes.arrayOf(PropTypes.element),
 	collection: PropTypes.arrayOf(PropTypes.object),
@@ -74,6 +99,7 @@ ListTable.propTypes = {
 	sortBy: PropTypes.string,
 	sortDirection: PropTypes.string,
 	width: PropTypes.number,
+	rowCount: PropTypes.number,
 };
 
 ListTable.defaultProps = {

@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { Label, OverlayTrigger, Panel, Button } from 'react-bootstrap';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import Action from '../Actions/Action';
-import Icon from './../Icon/Icon.component';
+import ActionIconToggle from '../Actions/ActionIconToggle';
 import { Status, getbsStyleFromStatus } from '../Status';
 import TooltipTrigger from './../TooltipTrigger';
 import getDefaultT from '../translate';
@@ -130,17 +130,17 @@ function CollapsiblePanelHeader(props) {
 	const wrappedHeader = [
 		onSelect ? (
 			<Button
-				className={classNames(css['panel-title'], 'panel-title')}
+				className={classNames(css['panel-title'])}
 				bsStyle="link"
 				key="panel-toggle"
 				onClick={onSelect}
 			>
-				<div className={classNames(css['panel-title'], 'panel-title')}>{headerItems}</div>
+				<div className={classNames(css['panel-title'])}>{headerItems}</div>
 			</Button>
 		) : (
 			/* eslint-disable jsx-a11y/no-static-element-interactions */
 			<div
-				className={classNames(css['panel-title'], 'panel-title')}
+				className={classNames(css['panel-title'])}
 				key="panel-toggle"
 				onClick={onToggle}
 			>
@@ -155,21 +155,21 @@ function CollapsiblePanelHeader(props) {
 			: t('COLLAPSIBLE_PANEL_EXPAND', { defaultValue: 'Expand panel' });
 
 		const defaultCaret = (
-			<Button
-				aria-controls={id}
-				className={classNames(css.toggle, 'toggle')}
-				bsStyle="link"
-				key="default-toggle"
-				onClick={onToggle}
-				title={caretText}
+			<ActionIconToggle
 				aria-expanded={expanded}
-			>
-				<Icon key={header.length} name="talend-caret-down" />
-			</Button>
+				className={classNames(css.toggle, 'toggle')}
+				onClick={onToggle}
+				id={id && `${id}__collapse`}
+				label={caretText}
+				type="button"
+				active={expanded}
+				icon="talend-caret-down"
+				iconTransform={expanded ? 'flip-vertical' : null}
+			/>
 		);
 		wrappedHeader.push(defaultCaret);
 	}
-	return <div className={classNames(css['panel-heading'], 'panel-heading')}>{wrappedHeader}</div>;
+	return <div className={classNames(css['panel-header-content'], 'panel-header-content')}>{wrappedHeader}</div>;
 }
 
 function getKeyValueContent(content) {
@@ -286,4 +286,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS)(CollapsiblePanel);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(CollapsiblePanel);

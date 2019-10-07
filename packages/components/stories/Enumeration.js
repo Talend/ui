@@ -1,5 +1,4 @@
 import React from 'react';
-import { I18nextProvider } from 'react-i18next';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
@@ -91,30 +90,42 @@ const props = {
 		onSelectItem: action('itemEdit.onSelect'),
 		getItemHeight: () => ITEM_DEFAULT_HEIGHT,
 		onLoadData: action('items.onLoadData'),
-		actionsDefault: [{
-			disabled: false,
-			label: 'Edit',
-			icon: 'talend-pencil',
-			id: 'edit',
-			onClick: action('item.onEnterEditMode'),
-		}, {
-			label: 'Remove value',
-			icon: 'talend-trash',
-			id: 'delete',
-			onClick: action('item.onDelete'),
-		}],
-		actionsEdit: [{
-			disabled: false,
-			label: 'Validate',
-			icon: 'talend-check',
-			id: 'validate',
-			onClick: action('itemEdit.onSubmit'),
-		}, {
-			label: 'Abort',
-			icon: 'talend-cross',
-			id: 'abort',
-			onClick: action('itemEdit.onCancel'),
-		}],
+		actionsDefault: [
+			{
+				disabled: false,
+				label: 'Edit',
+				icon: 'talend-pencil',
+				id: 'edit',
+				onClick: action('item.onEnterEditMode'),
+			},
+			{
+				label: 'Remove value',
+				icon: 'talend-trash',
+				id: 'delete',
+				onClick: action('item.onDelete'),
+			},
+		],
+		actionsEdit: [
+			{
+				disabled: false,
+				label: 'Validate',
+				icon: 'talend-check',
+				id: 'validate',
+				onClick: action('itemEdit.onSubmit'),
+			},
+			{
+				label: 'Abort',
+				icon: 'talend-cross',
+				id: 'abort',
+				onClick: action('itemEdit.onCancel'),
+			},
+			{
+				label: 'Delete',
+				icon: 'talend-trash',
+				id: 'abort',
+				onClick: action('itemEdit.onDelete'),
+			},
+		],
 	},
 	onAddChange: action('onAddChange'),
 	onAddKeyDown: action('onAddKeyDown'),
@@ -122,27 +133,30 @@ const props = {
 
 const defaultEmptyListProps = Object.assign({}, props, { items: [] });
 
-const searchModeEmptyListProps = Object.assign(
-		{},
-		defaultEmptyListProps,
-		{ displayMode: 'DISPLAY_MODE_SEARCH' }
-);
+const searchModeEmptyListProps = Object.assign({}, defaultEmptyListProps, {
+	displayMode: 'DISPLAY_MODE_SEARCH',
+});
 
 const dropDownActionsProps = {
 	...props,
-	headerDefault: [{
-		...props.headerDefault[0],
-		displayMode: 'dropdown',
-		items: [{
-			label: 'Add values from a file',
-			id: 'add-value',
-			onClick: action('add values'),
-		}, {
-			label: 'Overwrite existing values',
-			id: 'append-uploding',
-			onClick: action('overwrite'),
-		}],
-	}],
+	headerDefault: [
+		{
+			...props.headerDefault[0],
+			displayMode: 'dropdown',
+			items: [
+				{
+					label: 'Add values from a file',
+					id: 'add-value',
+					onClick: action('add values'),
+				},
+				{
+					label: 'Overwrite existing values',
+					id: 'append-uploding',
+					onClick: action('overwrite'),
+				},
+			],
+		},
+	],
 };
 
 const addProps = {
@@ -169,19 +183,23 @@ const searchProps = {
 };
 
 // custom edit props
-editItemProps.items = Array(100000).fill('').map((item, index) => ({
-	values: [`Lorem ipsum dolor sit amet ${index}`],
-}));
+editItemProps.items = Array(100000)
+	.fill('')
+	.map((item, index) => ({
+		values: [`Lorem ipsum dolor sit amet ${index}`],
+	}));
 editItemProps.items[0] = {
 	values: ['Lorem ipsum dolor sit amet 0'],
 	displayMode: 'DISPLAY_MODE_EDIT',
 };
 
 // custom selected props
-selectedValuesProps.items = Array(50).fill('').map((item, index) => ({
-	values: [`Lorem ipsum dolor sit amet ${index}`],
-	isSelected: index % 2 === 0,
-}));
+selectedValuesProps.items = Array(50)
+	.fill('')
+	.map((item, index) => ({
+		values: [`Lorem ipsum dolor sit amet ${index}`],
+		isSelected: index % 2 === 0,
+	}));
 
 const selectedValuesCheckboxesProps = {
 	...selectedValuesProps,
@@ -204,9 +222,11 @@ const editItemPropsWithError = {
 	},
 };
 // custom edit props
-editItemPropsWithError.items = Array(50).fill('').map((item, index) => ({
-	values: [`Lorem ipsum dolor sit amet ${index}`],
-}));
+editItemPropsWithError.items = Array(50)
+	.fill('')
+	.map((item, index) => ({
+		values: [`Lorem ipsum dolor sit amet ${index}`],
+	}));
 editItemPropsWithError.items[0] = {
 	values: ['Lorem ipsum dolor sit amet 0'],
 	displayMode: 'DISPLAY_MODE_EDIT',
@@ -221,10 +241,10 @@ const customLabelProps = {
 const headerDisabled = {
 	...props,
 	headerDefault: [
-		{ ...addItemAction, disabled: true},
-		{ ...importAction, disabled: true},
+		{ ...addItemAction, disabled: true },
+		{ ...importAction, disabled: true },
 		{ ...searchAction },
-	]
+	],
 };
 headerDisabled.itemsProp.actionsDefault[0].disabled = true;
 headerDisabled.itemsProp.actionsDefault[1].disabled = true;
@@ -275,18 +295,14 @@ storiesOf('Enumeration', module)
 		<div>
 			<p>By default :</p>
 			<IconsProvider />
-			<Enumeration
-				{...props}
-			/>
+			<Enumeration {...props} />
 		</div>
 	))
 	.add('default header action disabled', () => (
 		<div>
 			<p>By default :</p>
 			<IconsProvider />
-			<Enumeration
-				{...headerDisabled}
-			/>
+			<Enumeration {...headerDisabled} />
 		</div>
 	))
 	.add('default - empty list with i18n', () => (
@@ -295,74 +311,56 @@ storiesOf('Enumeration', module)
 			<button onClick={() => i18n.changeLanguage('fr')}>fr</button>
 			<button onClick={() => i18n.changeLanguage('it')}>it</button>
 			<IconsProvider />
-			<I18nextProvider i18n={i18n}>
-				<Enumeration
-					{...defaultEmptyListProps}
-				/>
-			</I18nextProvider>
+			<Enumeration {...defaultEmptyListProps} />
 		</div>
 	))
 	.add('default - empty list', () => (
 		<div>
 			<p>Empty list by default:</p>
 			<IconsProvider />
-			<Enumeration
-				{...defaultEmptyListProps}
-			/>
+			<Enumeration {...defaultEmptyListProps} />
 		</div>
 	))
 	.add('default with dropdown', () => (
 		<div>
 			<p>By default :</p>
 			<IconsProvider />
-			<Enumeration
-				{...dropDownActionsProps}
-			/>
+			<Enumeration {...dropDownActionsProps} />
 		</div>
 	))
 	.add('add', () => (
 		<div>
 			<p>By default :</p>
 			<IconsProvider />
-			<Enumeration
-				{...addProps}
-			/>
+			<Enumeration {...addProps} />
 		</div>
 	))
 	.add('edit mode', () => (
 		<div>
 			<p>By default :</p>
 			<IconsProvider />
-			<Enumeration
-				{...editItemProps}
-			/>
+			<Enumeration {...editItemProps} />
 		</div>
 	))
 	.add('search mode', () => (
 		<div>
 			<p>By default :</p>
 			<IconsProvider />
-			<Enumeration
-				{...searchProps}
-			/>
+			<Enumeration {...searchProps} />
 		</div>
 	))
 	.add('search mode - empty list', () => (
-			<div>
-				<p>empty list in search mode :</p>
-				<IconsProvider />
-				<Enumeration
-						{...searchModeEmptyListProps}
-				/>
-			</div>
+		<div>
+			<p>empty list in search mode :</p>
+			<IconsProvider />
+			<Enumeration {...searchModeEmptyListProps} />
+		</div>
 	))
 	.add('selected values', () => (
 		<div>
 			<p>By default :</p>
 			<IconsProvider />
-			<Enumeration
-				{...selectedValuesProps}
-			/>
+			<Enumeration {...selectedValuesProps} />
 		</div>
 	))
 	.add('selected values with checkboxes', () => (
@@ -370,9 +368,7 @@ storiesOf('Enumeration', module)
 			<p>By default :</p>
 			<IconsProvider />
 			<form>
-				<Enumeration
-					{...selectedValuesCheckboxesProps}
-				/>
+				<Enumeration {...selectedValuesCheckboxesProps} />
 			</form>
 		</div>
 	))
@@ -380,44 +376,34 @@ storiesOf('Enumeration', module)
 		<div>
 			<p>By default :</p>
 			<IconsProvider />
-			<Enumeration
-				{...headerErrorProps}
-			/>
+			<Enumeration {...headerErrorProps} />
 		</div>
 	))
 	.add('with item in error', () => (
 		<div>
 			<p>By default :</p>
 			<IconsProvider />
-			<Enumeration
-				{...editItemPropsWithError}
-			/>
+			<Enumeration {...editItemPropsWithError} />
 		</div>
 	))
 	.add('with custom label', () => (
 		<div>
 			<p>Should be 'Users' instead of 'Values'</p>
 			<IconsProvider />
-			<Enumeration
-				{...customLabelProps}
-			/>
+			<Enumeration {...customLabelProps} />
 		</div>
 	))
 	.add('with icon', () => (
 		<div>
 			<p>By default: </p>
 			<IconsProvider />
-			<Enumeration
-				{...withIconProps}
-			/>
+			<Enumeration {...withIconProps} />
 		</div>
 	))
 	.add('with custom class for row', () => (
 		<div>
 			<p>With custom class on second row: </p>
 			<IconsProvider />
-			<Enumeration
-				{...withClassProps}
-			/>
+			<Enumeration {...withClassProps} />
 		</div>
 	));

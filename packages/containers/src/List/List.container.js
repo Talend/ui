@@ -70,6 +70,11 @@ export function getItems(context, props) {
 	return props.items.toJS().map(item =>
 		Object.assign({}, item, {
 			actions: getActionsProps(context, get(props, 'actions.items', []), item),
+			persistentActions: getActionsProps(
+				context,
+				get(props, 'actions.persistentItemsActions', []),
+				item,
+			),
 		}),
 	);
 }

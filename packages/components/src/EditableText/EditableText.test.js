@@ -1,8 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import keycode from 'keycode';
 import { Action } from '../index';
 import { EditableTextComponent, PlainTextTitle } from './EditableText.component';
 import InlineForm from './InlineForm.component';
+import getDefaultT from '../translate';
 
 describe('EditableText', () => {
 	let defaultProps;
@@ -13,6 +15,7 @@ describe('EditableText', () => {
 				feature: 'my.custom.feature',
 				onEdit: jest.fn(),
 				onSubmit: jest.fn(),
+				required: true,
 			}),
 	);
 	it('should render', () => {
@@ -87,6 +90,20 @@ describe('PlainTextTitle', () => {
 		wrapper.find('Action').simulate('click');
 		expect(onEdit).toHaveBeenCalled();
 	});
+
+	it('should render empty text with pencil', () => {
+		const props = {
+			text: '',
+			onEdit: jest.fn(),
+		};
+		const wrapper = shallow(<PlainTextTitle {...props} />);
+		expect(
+			wrapper
+				.find('Action')
+				.props()
+				.className.includes('tc-editable-text-empty-pencil'),
+		).toBeTruthy();
+	});
 });
 
 describe('InlineForm', () => {
@@ -98,7 +115,8 @@ describe('InlineForm', () => {
 			onSubmit: jest.fn(),
 			onChange: jest.fn(),
 			onCancel: jest.fn(),
-			t: jest.fn(),
+			required: true,
+			t: getDefaultT,
 		};
 	});
 	it('should render', () => {
@@ -166,10 +184,73 @@ describe('InlineForm', () => {
 		expect(defaultProps.onCancel).toHaveBeenCalledWith(event);
 		expect(wrapper.state('value')).toEqual('');
 	});
+	it('should call onCancel when ESC', () => {
+		const event = { keyCode: keycode.codes.esc };
+		const wrapper = shallow(<InlineForm {...defaultProps} />);
+		wrapper.setState({ value: 'myDataBeforeCancel' });
+		wrapper
+			.find('input')
+			.at(0)
+			.simulate('keydown', event);
+		expect(defaultProps.onCancel).toHaveBeenCalledWith(event);
+		expect(wrapper.state('value')).toEqual('');
+	});
+
 	it('should call selectInput on render', () => {
 		const input = { select: jest.fn(), focus: jest.fn() };
 		new InlineForm(defaultProps).selectInput(input);
 		expect(input.select).toHaveBeenCalled();
 		expect(input.focus).toHaveBeenCalled();
+	});
+	it('should show an error message if errorMessage is provided', () => {
+		const errorMessage = 'Custom error message';
+		const props = { ...defaultProps, errorMessage };
+		const wrapper = shallow(<InlineForm {...props} />);
+
+		expect(
+			wrapper
+				.find('.form-group')
+				.first()
+				.props().className,
+		).toBe('form-group has-error');
+		expect(
+			wrapper
+				.find('.form-group')
+				.first()
+				.text(),
+		).toBe(errorMessage);
+	});
+	it('should not show errors if not required', () => {
+		const event = { preventDefault: jest.fn() };
+		const props = { ...defaultProps, required: false };
+		const wrapper = shallow(<InlineForm {...props} />);
+		expect(
+			wrapper
+				.find('Action')
+				.at(1)
+				.props().disabled,
+		).toBe(false);
+		wrapper.setState({ value: ' ' });
+		expect(
+			wrapper
+				.find('.form-group')
+				.first()
+				.props().className,
+		).toBe('form-group');
+		expect(
+			wrapper
+				.find('Action')
+				.at(1)
+				.props().disabled,
+		).toBe(false);
+		wrapper.find('form').simulate('submit', event);
+		expect(event.preventDefault).toHaveBeenCalled();
+		expect(defaultProps.onSubmit).toHaveBeenCalled();
+	});
+	it('should add placeholder to input', () => {
+		const placeholder = 'Your text here...';
+		const props = { ...defaultProps, required: false, placeholder };
+		const wrapper = shallow(<InlineForm {...props} />);
+		expect(wrapper.find('input').getElement().props.placeholder).toBe(placeholder);
 	});
 });

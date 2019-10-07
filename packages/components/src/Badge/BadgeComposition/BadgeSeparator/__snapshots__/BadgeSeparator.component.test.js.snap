@@ -1,0 +1,6 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgeSeparator should default render 1`] = `
+<span class="tc-badge-separator theme-tc-badge-separator">
+</span>
+`;

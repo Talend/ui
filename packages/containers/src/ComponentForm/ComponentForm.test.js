@@ -417,22 +417,6 @@ describe('ComponentForm', () => {
 				expect(trigger.isCalled).toBe(true);
 			});
 
-			it('should register trigger result properties in state', () => {
-				// given
-				const wrapper = shallow(<TCompForm state={state} dispatch={jest.fn()} />);
-				const properties = { type: selectedType.value };
-				const trigger = wrapper.instance().trigger;
-				trigger.mockReturnWith({ properties });
-
-				// when
-				return wrapper
-					.instance()
-					.onTrigger(event, changePayload)
-					.then(() => {
-						expect(wrapper.state().properties).toBe(properties);
-					});
-			});
-
 			it('should set cmf state with schemas', () => {
 				// given
 				const setState = jest.fn();

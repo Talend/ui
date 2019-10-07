@@ -10,7 +10,8 @@ exports[`Notification should render error 1`] = `
   role="alert"
   tabIndex={0}
 >
-  <Translate(CloseButtonComponent)
+  <withI18nextTranslation(CloseButtonComponent)
+    data-feature="close-notification-error"
     notification={
       Object {
         "message": "foo",

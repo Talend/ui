@@ -150,15 +150,6 @@ export class TCompForm extends React.Component {
 					type: TCompForm.ON_TRIGGER_END,
 					...payload,
 				});
-				// Today there is a need to give control to the trigger to modify the properties
-				// But this will override what user change in the meantime
-				// need to rethink that, there are lots of potential issues :
-				// - race conditions,
-				// - trigger result that is does not fit user entry anymore,
-				// - erase a good value put by the enduser
-				if (data.properties) {
-					this.setState({ properties: data.properties });
-				}
 				if (data.jsonSchema || data.uiSchema) {
 					this.props.setState(data);
 				}

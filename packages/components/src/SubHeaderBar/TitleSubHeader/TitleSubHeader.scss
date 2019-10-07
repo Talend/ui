@@ -55,6 +55,29 @@ $tc-input-subheader-size-medium: 1.4rem !default;
 				.tc-editable-text-form-input {
 					width: 30rem;
 				}
+
+				.tc-editable-text-form-buttons-submit:hover {
+					background: $scooter;
+
+					& svg {
+						background: $scooter;
+					}
+				}
+
+				.tc-editable-text-pencil {
+					opacity: 0;
+
+					&:focus,
+					&:active {
+						opacity: 1;
+					}
+				}
+
+				:hover {
+					.tc-editable-text-pencil {
+						opacity: 1;
+					}
+				}
 			}
 		}
 

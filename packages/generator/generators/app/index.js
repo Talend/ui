@@ -4,11 +4,6 @@ const Generator = require('yeoman-generator');
 const slug = require('slugg');
 
 module.exports = class AppGenerator extends Generator {
-	initializing() {
-		this.composeWith('talend:dotfiles', {
-			name: () => this.props.name,
-		});
-	}
 
 	prompting() {
 		this.log(yosay('Time to generate some libraries!'));

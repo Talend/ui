@@ -51,7 +51,7 @@ export default class DefaultValueRenderer extends React.Component {
 	render() {
 		let stringValue;
 
-		if (this.props.value === null) {
+		if (this.props.value === null || this.props.value === undefined) {
 			stringValue = '';
 		} else if (has(this.props.value, 'bytes')) {
 			stringValue = this.props.value.bytes;

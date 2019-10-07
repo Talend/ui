@@ -4,7 +4,7 @@ import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import ListDisplayMode from './ListDisplayMode.component';
+import ListDisplayMode, { DisplayModeIcon } from './ListDisplayMode.component';
 import { ListContext } from '../context';
 import getDefaultT from '../../../translate';
 
@@ -35,12 +35,30 @@ describe('List DisplayMode', () => {
 		// when
 		const wrapper = mount(
 			<ListContext.Provider value={contextValue}>
-				<ListDisplayMode id="myDisplayMode" displayModes={['lol', 'mdr']} />
+				<ListDisplayMode id="myDisplayMode">
+					<DisplayModeIcon
+						displayMode="custom2"
+						displayModeOption="custom1"
+						icon="iconCustom1"
+						id="myId"
+						label="myCustomLabel1"
+						onSelect={jest.fn()}
+					/>
+					<DisplayModeIcon
+						displayMode="custom2"
+						displayModeOption="custom2"
+						icon="iconCustom2"
+						id="myId"
+						label="myCustomLabel2"
+						onSelect={jest.fn()}
+					/>
+				</ListDisplayMode>
 			</ListContext.Provider>,
 		);
 
 		// then
-		expect(wrapper.find('a[role="menuitem"]').map(item => item.text())).toEqual(['lol', 'mdr']);
+		expect(wrapper.find('Button#myId-custom1').prop('aria-label')).toEqual('myCustomLabel1');
+		expect(wrapper.find('Button#myId-custom2').prop('aria-label')).toEqual('myCustomLabel2');
 	});
 
 	describe('uncontrolled mode', () => {
@@ -49,42 +67,38 @@ describe('List DisplayMode', () => {
 			const contextValue = { setDisplayMode: jest.fn(), t: getDefaultT() };
 
 			// when
-			act(() => {
-				mount(
-					<ListContext.Provider value={contextValue}>
-						<ListDisplayMode id="myDisplayMode" initialDisplayMode="large" />
-					</ListContext.Provider>,
-				);
-			});
+			const wrapper = mount(
+				<ListContext.Provider initialDisplayMode="large" value={contextValue}>
+					<ListDisplayMode id="myDisplayMode" />
+				</ListContext.Provider>,
+			);
 
 			// then
-			expect(contextValue.setDisplayMode).toBeCalledWith('large');
+			expect(
+				wrapper
+					.find('Button')
+					.at(0)
+					.prop('aria-label'),
+			).toBe('Set Table as current display mode.');
 		});
 
 		it('should propagate display mode', () => {
 			// given
 			const contextValue = { setDisplayMode: jest.fn(), t: getDefaultT() };
 
-			let wrapper;
-			act(() => {
-				wrapper = mount(
-					<ListContext.Provider value={contextValue}>
-						<ListDisplayMode id="myDisplayMode" />
-					</ListContext.Provider>,
-				);
-			});
+			const wrapper = mount(
+				<ListContext.Provider value={contextValue}>
+					<ListDisplayMode id="myDisplayMode" />
+				</ListContext.Provider>,
+			);
 
 			const event = { target: {} };
-			expect(contextValue.setDisplayMode.mock.calls.length).toBe(1);
-
-			// when: react-bootstrap use value-event instead of event-value
 			act(() => {
-				wrapper.find('MenuItem#myDisplayMode-large').prop('onSelect')('large', event);
+				wrapper.find('Button#myDisplayMode-large').prop('onClick')(event, 'large');
 			});
 
 			// then
-			expect(contextValue.setDisplayMode.mock.calls.length).toBe(2);
-			expect(contextValue.setDisplayMode.mock.calls[1]).toEqual(['large']);
+			expect(contextValue.setDisplayMode).toHaveBeenNthCalledWith(1, 'large');
 		});
 	});
 
@@ -101,9 +115,9 @@ describe('List DisplayMode', () => {
 			);
 
 			// then
-			expect(wrapper.find('a.dropdown-toggle').prop('aria-label')).toBe(
-				'Change display mode. Current display mode: large.',
-			);
+			const buttonLarge = wrapper.find('Button#myDisplayMode-large');
+			expect(buttonLarge.prop('aria-label')).toBe('Set Expanded as current display mode.');
+			expect(buttonLarge.prop('disabled')).toBe(true);
 		});
 
 		it('should call props.onChange with new display mode', () => {
@@ -122,7 +136,7 @@ describe('List DisplayMode', () => {
 
 			// when: react-bootstrap use value-event instead of event-value
 			act(() => {
-				wrapper.find('MenuItem#myDisplayMode-large').prop('onSelect')('large', event);
+				wrapper.find('Button#myDisplayMode-large').prop('onClick')(event, 'large');
 			});
 
 			// then

@@ -7,7 +7,7 @@ exports[`Layout should render layout with footer component 1`] = `
   <div
     className="theme-skip-links"
   >
-    <Translate(SkipLinks)
+    <withI18nextTranslation(SkipLinks)
       mainId="#tc-layout-main"
     />
   </div>

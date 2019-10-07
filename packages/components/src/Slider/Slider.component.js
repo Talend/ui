@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
-import RcSlider from 'rc-slider';
+import RcSlider, { Range } from 'rc-slider';
 import Tooltip from 'rc-tooltip';
-import rcSliderTheme from 'rc-slider/assets/index.css'; // eslint-disable-line no-unused-vars
 import range from 'lodash/range';
+import 'rc-slider/assets/index.css'; // eslint-disable-line no-unused-vars
 import Icon from '../Icon';
 import theme from './Slider.scss';
 import Action from '../Actions/Action';
@@ -205,7 +205,7 @@ class Slider extends React.Component {
 
 	static propTypes = {
 		id: PropTypes.string,
-		value: PropTypes.number,
+		value: PropTypes.oneOf([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
 		onChange: PropTypes.func.isRequired,
 		onAfterChange: PropTypes.func,
 		captionActions: PropTypes.array,
@@ -239,10 +239,11 @@ class Slider extends React.Component {
 			...rest
 		} = this.props;
 		const noValue = value === null || value === undefined;
+		const Component = Array.isArray(value) ? Range : RcSlider;
 		return (
 			<div>
 				<div className={classnames(theme['tc-slider'], 'tc-slider')}>
-					<RcSlider
+					<Component
 						id={id}
 						value={value}
 						min={min}

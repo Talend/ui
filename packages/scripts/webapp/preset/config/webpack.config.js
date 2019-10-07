@@ -191,7 +191,7 @@ module.exports = ({ getUserConfig, mode }) => {
 	const { theme } = userSassData;
 
 	const sassData = getSassData(userSassData);
-	const indexTemplatePath = `${process.cwd()}/src/app/index.html`;
+	const indexTemplatePath = path.join(process.cwd(), 'src', 'app', 'index.html');
 
 	return {
 		entry: {
@@ -205,6 +205,7 @@ module.exports = ({ getUserConfig, mode }) => {
 		output: {
 			filename: '[name]-[hash].js',
 			publicPath: '/',
+			globalObject: 'this',
 		},
 		module: {
 			rules: [
@@ -295,6 +296,18 @@ module.exports = ({ getUserConfig, mode }) => {
 			// Keep the runtime chunk separated to enable long term caching
 			// https://twitter.com/wSokra/status/969679223278505985
 			runtimeChunk: true,
+		},
+		watchOptions: {
+			aggregateTimeout: 300,
+			poll: 1000,
+		},
+		devServer: {
+			port: 3000,
+			stats: 'errors-only',
+			historyApiFallback: true,
+			contentBase: path.join(process.cwd(), 'dist'),
+			compress: true,
+			hot: true,
 		},
 	};
 };

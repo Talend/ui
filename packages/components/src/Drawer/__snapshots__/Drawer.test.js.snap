@@ -187,11 +187,11 @@ exports[`Drawer should render with tabs 1`] = `
         onKeyDown={[Function]}
       >
         <ul
-          className="tc-tab-bar nav nav-tabs"
+          className="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive nav nav-tabs"
           role="tablist"
         >
           <li
-            className=""
+            className="theme-tc-tab-bar-item tc-tab-bar-item"
             role="presentation"
           >
             <button
@@ -209,7 +209,7 @@ exports[`Drawer should render with tabs 1`] = `
             </button>
           </li>
           <li
-            className="active"
+            className="theme-tc-tab-bar-item tc-tab-bar-item active"
             role="presentation"
           >
             <button
@@ -275,9 +275,8 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
   className="tc-drawer-actionbar theme-tc-drawer-actionbar"
   components={Object {}}
   i18n={Object {}}
-  lng="en"
   t={[Function]}
-  tReady={false}
+  tReady={true}
 >
   <div
     className="theme-tc-actionbar-container tc-actionbar-container nav tc-drawer-actionbar theme-tc-drawer-actionbar"
@@ -313,75 +312,55 @@ exports[`Drawer should render with tabs specific actions by tab with selectedTab
             key="view-center-tab-2"
             label="ActionCenter-tab-2"
           >
-            <Translate(ActionButton)
+            <withI18nextTranslation(ActionButton)
               id="view-center-tab-2"
               label="ActionCenter-tab-2"
             >
-              <I18n
-                bindI18n="languageChanged loaded"
-                bindStore="added removed"
+              <ActionButton
+                available={true}
+                bsStyle="default"
+                disabled={false}
                 i18n={Object {}}
                 id="view-center-tab-2"
+                inProgress={false}
                 label="ActionCenter-tab-2"
-                ns={
-                  Array [
-                    "tui-components",
-                  ]
-                }
-                nsMode="default"
-                omitBoundRerender={true}
-                translateFuncName="t"
-                usePureComponent={false}
-                wait={false}
-                withRef={false}
+                loading={false}
+                t={[Function]}
+                tReady={true}
+                tooltipPlacement="top"
               >
-                <ActionButton
-                  available={true}
+                <Button
+                  active={false}
+                  aria-label="ActionCenter-tab-2"
+                  block={false}
+                  bsClass="btn"
                   bsStyle="default"
+                  className=""
                   disabled={false}
-                  i18n={Object {}}
                   id="view-center-tab-2"
-                  inProgress={false}
-                  label="ActionCenter-tab-2"
-                  lng="en"
-                  loading={false}
-                  t={[Function]}
-                  tReady={false}
-                  tooltipPlacement="top"
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  role={null}
                 >
-                  <Button
-                    active={false}
+                  <button
                     aria-label="ActionCenter-tab-2"
-                    block={false}
-                    bsClass="btn"
-                    bsStyle="default"
-                    className=""
+                    className="btn btn-default"
                     disabled={false}
                     id="view-center-tab-2"
                     onClick={[Function]}
                     onMouseDown={[Function]}
                     role={null}
+                    type="button"
                   >
-                    <button
-                      aria-label="ActionCenter-tab-2"
-                      className="btn btn-default"
-                      disabled={false}
-                      id="view-center-tab-2"
-                      onClick={[Function]}
-                      onMouseDown={[Function]}
-                      role={null}
-                      type="button"
+                    <span
+                      key="label"
                     >
-                      <span
-                        key="label"
-                      >
-                        ActionCenter-tab-2
-                      </span>
-                    </button>
-                  </Button>
-                </ActionButton>
-              </I18n>
-            </Translate(ActionButton)>
+                      ActionCenter-tab-2
+                    </span>
+                  </button>
+                </Button>
+              </ActionButton>
+            </withI18nextTranslation(ActionButton)>
           </Action>
         </div>
       </Content>

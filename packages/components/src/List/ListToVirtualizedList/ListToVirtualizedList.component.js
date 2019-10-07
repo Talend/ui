@@ -32,7 +32,6 @@ export function compareOrder(a, b) {
 
 export function ListToVirtualizedList(props) {
 	const { itemProps, sort, titleProps } = props;
-
 	if (titleProps) {
 		if (!titleProps.actionsKey) {
 			titleProps.actionsKey = 'actions';
@@ -41,6 +40,7 @@ export function ListToVirtualizedList(props) {
 			titleProps.persistentActionsKey = 'persistentActions';
 		}
 	}
+
 	// Backward compatibility: find array in object attr:
 	const supposedActions = {};
 	if (props.items.length > 0) {
@@ -55,25 +55,25 @@ export function ListToVirtualizedList(props) {
 	// Allow to override or add new cell renderer from outside
 	const listCellDictionary = { ...cellDictionary, ...props.cellDictionary };
 	const listHeaderDictionary = { ...headerDictionary, ...props.headerDictionary };
-
 	return (
 		<VirtualizedList
-			id={props.id}
 			collection={props.items}
+			defaultHeight={props.defaultHeight}
+			id={props.id}
+			inProgress={props.inProgress}
 			isActive={itemProps && itemProps.isActive}
 			isSelected={itemProps && itemProps.isSelected}
-			inProgress={props.inProgress}
+			noRowsRenderer={props.noRowsRenderer}
 			onRowClick={itemProps && itemProps.onRowClick}
 			onRowDoubleClick={titleProps && titleProps.onClick}
-			defaultHeight={props.defaultHeight}
-			noRowsRenderer={props.noRowsRenderer}
+			onToggleAll={itemProps && itemProps.onToggleAll}
 			rowHeight={props.rowHeight}
+			rowRenderers={props.rowRenderers}
 			selectionToggle={itemProps && itemProps.onToggle}
 			sort={adaptOnSort(sort && sort.onChange)}
 			sortBy={sort && sort.field}
 			sortDirection={sort && sort.isDescending ? SORT_BY.DESC : SORT_BY.ASC}
 			type={props.displayMode.toUpperCase()}
-			rowRenderers={props.rowRenderers}
 		>
 			{props.columns
 				.filter(item => !item.hidden)
@@ -84,10 +84,11 @@ export function ListToVirtualizedList(props) {
 						dataKey: column.key,
 						disableSort: column.disableSort,
 						width: -1, // valid propType but disable inline style
+						...column,
 					};
 					if (titleProps && column.key === titleProps.key) {
 						Object.assign(cProps, listCellDictionary[titleCellType], {
-							columnData: titleProps,
+							columnData: { ...titleProps, 'data-feature': column['data-feature'] },
 						});
 					} else if (supposedActions[column.key]) {
 						Object.assign(cProps, CellActions);
@@ -100,7 +101,11 @@ export function ListToVirtualizedList(props) {
 						cProps.disableSort = true;
 						cProps.headerRenderer = HiddenHeader;
 					} else if (column.header && listHeaderDictionary[column.header]) {
-						Object.assign(cProps, listHeaderDictionary[column.header], {
+						let header = listHeaderDictionary[column.header];
+						if (typeof header === 'function') {
+							header = { headerRenderer: header };
+						}
+						Object.assign(cProps, header, {
 							columnData: column.data,
 						});
 					}

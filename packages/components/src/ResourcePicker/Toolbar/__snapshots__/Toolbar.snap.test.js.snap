@@ -5,8 +5,8 @@ exports[`Toolbar component snaps should render Toolbar with every widgets 1`] = 
   className="tc-resource-picker-toolbar-container theme-tc-resource-picker-toolbar-container"
 >
   <NameFilter />
-  <Translate(SortOptions) />
-  <Translate(StateFilter) />
+  <withI18nextTranslation(SortOptions) />
+  <withI18nextTranslation(StateFilter) />
 </div>
 `;
 
@@ -14,8 +14,8 @@ exports[`Toolbar component snaps should render Toolbar without name widget 1`] =
 <div
   className="tc-resource-picker-toolbar-container theme-tc-resource-picker-toolbar-container"
 >
-  <Translate(SortOptions) />
-  <Translate(StateFilter) />
+  <withI18nextTranslation(SortOptions) />
+  <withI18nextTranslation(StateFilter) />
 </div>
 `;
 
@@ -24,7 +24,7 @@ exports[`Toolbar component snaps should render Toolbar without sort widgets 1`] 
   className="tc-resource-picker-toolbar-container theme-tc-resource-picker-toolbar-container"
 >
   <NameFilter />
-  <Translate(StateFilter) />
+  <withI18nextTranslation(StateFilter) />
 </div>
 `;
 
@@ -33,6 +33,6 @@ exports[`Toolbar component snaps should render Toolbar without state widgets 1`]
   className="tc-resource-picker-toolbar-container theme-tc-resource-picker-toolbar-container"
 >
   <NameFilter />
-  <Translate(SortOptions) />
+  <withI18nextTranslation(SortOptions) />
 </div>
 `;

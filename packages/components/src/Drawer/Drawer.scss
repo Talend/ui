@@ -69,6 +69,19 @@ $tc-drawer-z-index: $drawer-z-index !default;
 }
 
 .tc-drawer-header {
+	:global(.tc-editable-text-pencil) {
+		color: $gray;
+		opacity: 0;
+	}
+
+	&:hover {
+		:global(.tc-editable-text-pencil) {
+			opacity: 1;
+			&:hover {
+				color: $scooter;
+			}
+		}
+	}
 	background-color: $brand-primary-lighter;
 
 	&-title {
@@ -85,12 +98,19 @@ $tc-drawer-z-index: $drawer-z-index !default;
 			white-space: nowrap;
 			overflow: hidden;
 		}
+
+		.drawer-close-action-tooltip {
+			position: absolute;
+			right: 0;
+			bottom: $padding-normal / 2;
+		}
+
+		& > .tc-editable-text {
+			width: unset;
+		}
 	}
 
 	.tc-drawer-close-action {
-		top: $padding-normal / 2;
-		right: 0;
-		position: absolute;
 		color: white;
 	}
 }

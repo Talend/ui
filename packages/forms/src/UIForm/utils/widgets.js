@@ -11,6 +11,7 @@ import Datalist, { DatalistTextMode } from '../fields/Datalist';
 import { DateWidget, DateTimeWidget } from '../fields/Date';
 import File from '../fields/File';
 import KeyValue from '../fields/KeyValue';
+import Comparator, { TextModeComparator } from '../fields/Comparator';
 import ListView from '../fields/ListView';
 import MultiSelectTag, { MultiSelectTagTextMode } from '../fields/MultiSelectTag';
 import NestedListView from '../fields/NestedListView';
@@ -52,6 +53,7 @@ const widgets = {
 	checkbox_text: TextModeCheckBox,
 	checkboxes_text: ArrayWidget,
 	code_text: CodeTextMode,
+	comparator_text: TextModeComparator,
 	datalist_text: DatalistTextMode,
 	file_text: () => null,
 	multiSelectTag_text: MultiSelectTagTextMode,
@@ -76,6 +78,7 @@ const widgets = {
 	nestedListView: NestedListView,
 	radioOrSelect: RadioOrSelect,
 	resourcePicker: ResourcePicker,
+	comparator: Comparator,
 	toggle: Toggle,
 };
 

@@ -1,10 +1,5 @@
-import React from 'react';
 import '../../polyfills/focus-within';
-import CellTitle from './CellTitle.component';
+import TitleColumn, { cellType, titleColumnConfiguration } from './TitleColumn.component';
 
-export const cellType = 'title';
-export default {
-	cellType,
-	cellRenderer: props => <CellTitle {...props} />,
-	className: 'tc-list-title-cell',
-};
+export { cellType, TitleColumn };
+export default titleColumnConfiguration;

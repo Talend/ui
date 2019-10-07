@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { arc } from 'd3-shape';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import omit from 'lodash/omit';
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import getDefaultT from '../translate';
@@ -81,9 +81,7 @@ export function propTypeCheckSize(props, propName, componentName) {
 		props[propName] > PIECHART_CONSTANTS.MAX_SIZE
 	) {
 		return new Error(
-			`Invalid prop ${propName} supplied to ${componentName} : ${
-				props[propName]
-			}. Validation failed.`,
+			`Invalid prop ${propName} supplied to ${componentName} : ${props[propName]}. Validation failed.`,
 		);
 	}
 	return null;
@@ -314,8 +312,9 @@ export function PieChartIconComponent({
 	// Here we are omitting the props from i18n,
 	// to keep only the event listener from the TooltipTrigger.
 	const omitI18N = omit(rest, ['i18n', 'tReady']);
+
 	return (
-		<span className={theme('tc-pie-icon-chart')}>
+		<span className={theme('tc-pie-chart-icon')}>
 			<svg
 				width={sizeObject.svgSize}
 				height={sizeObject.svgSize}
@@ -368,4 +367,4 @@ PieChartIconComponent.defaultProps = {
 
 PieChartIconComponent.displayName = 'PieChartIcon';
 
-export default translate(I18N_DOMAIN_COMPONENTS)(PieChartIconComponent);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(PieChartIconComponent);

@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import invariant from 'invariant';
 import classnames from 'classnames';
 
 import theme from './Icon.scss';
+import { getIconHREF } from '../IconsProvider/IconsProvider.component';
 
 export const FA_TRANSFORMS = {
 	spin: 'fa-spin',
@@ -27,7 +27,7 @@ export const SVG_TRANSFORMS = {
 	'flip-vertical': theme['flip-vertical'],
 };
 
-export const TRANSFORMS = Object.keys(FA_TRANSFORMS);
+export const TRANSFORMS = Object.keys(SVG_TRANSFORMS);
 
 /**
  * SVG implementation is inspired by
@@ -54,44 +54,37 @@ function Icon({ className, name, title, transform, onClick, ...props }) {
 		const classes = classnames(name, className, transform && FA_TRANSFORMS[transform]);
 		return <i className={classes} {...accessibility} {...props} />;
 	}
-	if (onClick && name) {
-		const classname = classnames(
-			theme['tc-svg-icon'],
-			'tc-svg-icon',
-			className,
-			SVG_TRANSFORMS[transform],
-		);
-		return (
-			// eslint doesn't recognizes the xlinkHref mention
-			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
-			<button onClick={onClick} className={classnames('tc-svg-anchor', theme.link)}>
-				<svg name={name} className={classname} {...accessibility} {...props}>
-					<use xlinkHref={`#${name}`} />
-				</svg>
-			</button>
-		);
+	if (!name) {
+		return <div className="alert alert-danger">Icon: no name provided</div>;
 	}
-	if (name) {
-		const classname = classnames(
-			theme['tc-svg-icon'],
-			'tc-svg-icon',
-			className,
-			SVG_TRANSFORMS[transform],
-		);
-		return (
-			<svg name={name} className={classname} {...accessibility} {...props}>
-				<use xlinkHref={`#${name}`} />
-			</svg>
-		);
+	const classname = classnames(
+		theme['tc-svg-icon'],
+		'tc-svg-icon',
+		className,
+		SVG_TRANSFORMS[transform],
+	);
+	const iconElement = (
+		<svg name={name} className={classname} {...accessibility} {...props}>
+			<use xlinkHref={getIconHREF(name)} />
+		</svg>
+	);
+	if (!onClick) {
+		return iconElement;
 	}
-	invariant(true, 'no name provided');
+	return (
+		// eslint doesn't recognizes the xlinkHref mention
+		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
+		<button onClick={onClick} className={classnames('tc-svg-anchor', theme.link)}>
+			{iconElement}
+		</button>
+	);
 }
 
 Icon.displayName = 'Icon';
 
 Icon.propTypes = {
 	className: PropTypes.string,
-	name: PropTypes.string,
+	name: PropTypes.string.isRequired,
 	title: PropTypes.string,
 	transform: PropTypes.oneOf(TRANSFORMS),
 	onClick: PropTypes.func,

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import tv4 from 'tv4';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import { DefaultFormTemplate, TextModeFormTemplate } from './FormTemplate';
 import merge from './merge';
@@ -116,29 +116,31 @@ export class UIFormComponent extends React.Component {
 		} else {
 			newValue = getValue(this.props.properties, schema);
 		}
-
-		// validate value
-		const valueError = validateSingle(
+		// validate value. This validation can be deep if schema is an object or an array
+		const widgetErrors = validateSingle(
 			schema,
 			newValue,
 			this.props.properties,
 			this.props.customValidation,
 			deepValidation,
-		)[schema.key];
+		);
+		const hasErrors = Object.values(widgetErrors).find(Boolean);
 
 		// update errors map
-		let errors;
-		if (valueError) {
-			errors = addError(this.props.errors, schema, valueError);
-		} else {
-			errors = removeError(this.props.errors, schema);
-		}
+		let errors = Object.entries(widgetErrors).reduce((accu, [errorKey, errorValue]) => {
+			const errorSchema = { key: errorKey };
+			return errorValue ? addError(accu, errorSchema, errorValue) : removeError(accu, errorSchema);
+		}, this.props.errors);
+
+		// widget error modifier
 		if (widgetChangeErrors) {
 			errors = widgetChangeErrors(errors);
 		}
+
+		// commit errors
 		this.props.setErrors(event, errors);
 
-		if (!valueError && schema.triggers && schema.triggers.length) {
+		if (!hasErrors && schema.triggers && schema.triggers.length) {
 			let formData = this.props.properties;
 			if (value !== undefined) {
 				formData = mutateValue(formData, schema, value);
@@ -240,7 +242,7 @@ export class UIFormComponent extends React.Component {
 			if (this.props.moz) {
 				this.props.onSubmit(null, { formData: properties });
 			} else {
-				this.props.onSubmit(event, properties);
+				this.props.onSubmit(event, properties, mergedSchema);
 			}
 		}
 
@@ -256,11 +258,16 @@ export class UIFormComponent extends React.Component {
 			return;
 		}
 
-		this.formRef.querySelector('[aria-invalid="true"]').focus();
+		const elementWithError = this.formRef.querySelector('[aria-invalid="true"]');
+
+		if (elementWithError) {
+			elementWithError.focus();
+		}
 	}
 
 	render() {
-		const actions = this.props.actions || [
+		const { onSubmitEnter, onSubmitLeave, properties } = this.props;
+		let actions = this.props.actions || [
 			{
 				bsStyle: 'primary',
 				label: 'Submit',
@@ -271,6 +278,19 @@ export class UIFormComponent extends React.Component {
 		];
 		if (!this.state.mergedSchema) {
 			return null;
+		}
+
+		if (onSubmitEnter) {
+			actions = actions.map(action => {
+				if (action.type === 'submit') {
+					return {
+						...action,
+						onMouseEnter: event => onSubmitEnter(event, properties),
+						onMouseLeave: onSubmitLeave,
+					};
+				}
+				return action;
+			});
 		}
 
 		const formTemplate =
@@ -300,7 +320,7 @@ export class UIFormComponent extends React.Component {
 			return (
 				<div className={classNames(theme['form-actions'], 'tf-actions-wrapper')} key="form-buttons">
 					<Buttons
-						id={`${this.props.id}-${this.props.id}-actions`}
+						id={`${this.props.id}-actions`}
 						onTrigger={this.onTrigger}
 						className={this.props.buttonBlockClass}
 						schema={{ items: actions }}
@@ -332,7 +352,7 @@ export class UIFormComponent extends React.Component {
 		);
 	}
 }
-const I18NUIForm = translate(I18N_DOMAIN_FORMS)(UIFormComponent);
+const I18NUIForm = withTranslation(I18N_DOMAIN_FORMS)(UIFormComponent);
 
 if (process.env.NODE_ENV !== 'production') {
 	I18NUIForm.propTypes = {
@@ -383,6 +403,8 @@ if (process.env.NODE_ENV !== 'production') {
 		/** State management impl: Set All fields validations errors */
 		setErrors: PropTypes.func,
 		getComponent: PropTypes.func,
+		onSubmitEnter: PropTypes.func,
+		onSubmitLeave: PropTypes.func,
 	};
 	UIFormComponent.propTypes = I18NUIForm.propTypes;
 }

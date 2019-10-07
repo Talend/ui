@@ -4,13 +4,16 @@ const rimraf = require('rimraf');
 const cpx = require('cpx');
 const { resolveBin } = require('../utils/path-resolver');
 const { getPreset } = require('../utils/preset');
+const { getUserConfigFile } = require('../utils/env');
 
 const babel = resolveBin('@babel/cli', { executable: 'babel' });
 
 module.exports = function build(env, presetApi, options) {
 	const presetName = presetApi.getUserConfig(['preset'], 'talend');
 	const preset = getPreset(presetName);
-	const babelConfigPath = preset.getBabelConfigurationPath(presetApi);
+	const babelConfigPath =
+		getUserConfigFile(['.babelrc', '.babelrc.json', 'babel.config.js']) ||
+		preset.getBabelConfigurationPath(presetApi);
 
 	const srcFolder = path.join(process.cwd(), 'src');
 	const targetFolder = path.join(process.cwd(), 'lib');

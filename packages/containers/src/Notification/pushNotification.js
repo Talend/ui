@@ -1,5 +1,5 @@
 import get from 'lodash/get';
-import objectId from 'bson-objectid';
+import uuid from 'uuid';
 import Immutable from 'immutable';
 
 /**
@@ -18,7 +18,7 @@ export default function pushNotification(state, notification) {
 	notifs = notifs.push(
 		Object.assign(
 			{
-				id: objectId(),
+				id: uuid.v4(),
 			},
 			notification,
 		),

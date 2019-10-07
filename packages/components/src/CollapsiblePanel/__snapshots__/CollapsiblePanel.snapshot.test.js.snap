@@ -11,16 +11,16 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
       className="panel-title"
     >
       <div
-        className="theme-panel-heading panel-heading"
+        className="theme-panel-header-content panel-header-content"
       >
         <button
-          className="theme-panel-title panel-title btn btn-link"
+          className="theme-panel-title btn btn-link"
           disabled={false}
           onClick={[MockFunction]}
           type="button"
         >
           <div
-            className="theme-panel-title panel-title"
+            className="theme-panel-title"
           >
             <div
               className="theme-undefined theme-col-4"
@@ -92,12 +92,16 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
               className="theme-undefined theme-col-4"
             >
               <button
+                aria-describedby={42}
                 aria-label="edit"
                 className="theme-undefined btn-icon-only btn btn-link"
                 disabled={false}
+                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
                 onMouseDown={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role="link"
                 type="button"
@@ -114,8 +118,13 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
               className="theme-undefined theme-col-4"
             >
               <div
+                aria-describedby={42}
                 className="theme-undefined"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
                 by Charles
@@ -125,15 +134,25 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
               className="theme-group theme-col-4"
             >
               <div
+                aria-describedby={42}
                 className="theme-undefined"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
                 on TDP
               </div>
               <span
+                aria-describedby={42}
                 className="theme-undefined label label-default"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
                 XML
@@ -142,16 +161,23 @@ exports[`CollapsiblePanel should render default with expanded key/value content 
           </div>
         </button>
         <button
+          aria-describedby={42}
           aria-expanded={true}
-          className="theme-toggle toggle btn btn-link"
+          aria-label="Collapse panel"
+          aria-pressed={true}
+          className="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle theme-active active btn btn-link"
           disabled={false}
-          onClick={[MockFunction]}
-          title="Collapse panel"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyPress={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
           type="button"
         >
           <svg
             aria-hidden="true"
-            className="theme-tc-svg-icon tc-svg-icon"
+            className="theme-tc-svg-icon tc-svg-icon theme-flip-vertical"
             focusable="false"
             name="talend-caret-down"
             title={null}
@@ -205,16 +231,16 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
       className="panel-title"
     >
       <div
-        className="theme-panel-heading panel-heading"
+        className="theme-panel-header-content panel-header-content"
       >
         <button
-          className="theme-panel-title panel-title btn btn-link"
+          className="theme-panel-title btn btn-link"
           disabled={false}
           onClick={[MockFunction]}
           type="button"
         >
           <div
-            className="theme-panel-title panel-title"
+            className="theme-panel-title"
           >
             <div
               className="theme-undefined theme-col-4"
@@ -286,12 +312,16 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
               className="theme-undefined theme-col-4"
             >
               <button
+                aria-describedby={42}
                 aria-label="edit"
                 className="theme-undefined btn-icon-only btn btn-link"
                 disabled={false}
+                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
                 onMouseDown={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role="link"
                 type="button"
@@ -308,8 +338,13 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
               className="theme-undefined theme-col-4"
             >
               <div
+                aria-describedby={42}
                 className="theme-undefined"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
                 by Charles
@@ -319,15 +354,25 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
               className="theme-group theme-col-4"
             >
               <div
+                aria-describedby={42}
                 className="theme-undefined"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
                 on TDP
               </div>
               <span
+                aria-describedby={42}
                 className="theme-undefined label label-default"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
                 XML
@@ -336,10 +381,17 @@ exports[`CollapsiblePanel should render default with key/value content 1`] = `
           </div>
         </button>
         <button
-          className="theme-toggle toggle btn btn-link"
+          aria-describedby={42}
+          aria-label="Expand panel"
+          aria-pressed={false}
+          className="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle btn btn-link"
           disabled={false}
-          onClick={[MockFunction]}
-          title="Expand panel"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyPress={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
           type="button"
         >
           <svg
@@ -398,16 +450,16 @@ exports[`CollapsiblePanel should render default without content 1`] = `
       className="panel-title"
     >
       <div
-        className="theme-panel-heading panel-heading"
+        className="theme-panel-header-content panel-header-content"
       >
         <button
-          className="theme-panel-title panel-title btn btn-link"
+          className="theme-panel-title btn btn-link"
           disabled={false}
           onClick={[MockFunction]}
           type="button"
         >
           <div
-            className="theme-panel-title panel-title"
+            className="theme-panel-title"
           >
             <div
               className="theme-undefined theme-col-4"
@@ -479,12 +531,16 @@ exports[`CollapsiblePanel should render default without content 1`] = `
               className="theme-undefined theme-col-4"
             >
               <button
+                aria-describedby={42}
                 aria-label="edit"
                 className="theme-undefined btn-icon-only btn btn-link"
                 disabled={false}
+                onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
                 onMouseDown={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 role="link"
                 type="button"
@@ -501,8 +557,13 @@ exports[`CollapsiblePanel should render default without content 1`] = `
               className="theme-undefined theme-col-4"
             >
               <div
+                aria-describedby={42}
                 className="theme-undefined"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
                 by Charles
@@ -512,15 +573,25 @@ exports[`CollapsiblePanel should render default without content 1`] = `
               className="theme-group theme-col-4"
             >
               <div
+                aria-describedby={42}
                 className="theme-undefined"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
                 on TDP
               </div>
               <span
+                aria-describedby={42}
                 className="theme-undefined label label-default"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
                 XML
@@ -553,23 +624,28 @@ exports[`CollapsiblePanel should render panel with custom element 1`] = `
       className="panel-title"
     >
       <div
-        className="theme-panel-heading panel-heading"
+        className="theme-panel-header-content panel-header-content"
       >
         <button
-          className="theme-panel-title panel-title btn btn-link"
+          className="theme-panel-title btn btn-link"
           disabled={false}
           onClick={[MockFunction]}
           type="button"
         >
           <div
-            className="theme-panel-title panel-title"
+            className="theme-panel-title"
           >
             <div
               className="theme-undefined theme-col-3"
             >
               <div
+                aria-describedby={42}
                 className="theme-undefined"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
                 Version 1 Version 1
@@ -579,8 +655,13 @@ exports[`CollapsiblePanel should render panel with custom element 1`] = `
               className="theme-undefined theme-col-3"
             >
               <div
+                aria-describedby={42}
                 className="theme-undefined"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
                 <span>
@@ -592,8 +673,13 @@ exports[`CollapsiblePanel should render panel with custom element 1`] = `
               className="theme-undefined theme-col-3"
             >
               <div
+                aria-describedby={42}
                 className="theme-undefined"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
                 03/02/2017 14:44:55
@@ -626,30 +712,40 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
       className="panel-title"
     >
       <div
-        className="theme-panel-heading panel-heading"
+        className="theme-panel-header-content panel-header-content"
       >
         <button
-          className="theme-panel-title panel-title btn btn-link"
+          className="theme-panel-title btn btn-link"
           disabled={false}
           onClick={[MockFunction]}
           type="button"
         >
           <div
-            className="theme-panel-title panel-title"
+            className="theme-panel-title"
           >
             <div
               className="theme-group theme-col-2"
             >
               <div
+                aria-describedby={42}
                 className="theme-undefined"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
                 Version 1 Version 1
               </div>
               <div
+                aria-describedby={42}
                 className="theme-undefined"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
                 (Read Only)
@@ -659,8 +755,13 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
               className="theme-undefined theme-col-2"
             >
               <div
+                aria-describedby={42}
                 className="theme-undefined"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
                 03/02/2017 14:44:55
@@ -669,10 +770,17 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
           </div>
         </button>
         <button
-          className="theme-toggle toggle btn btn-link"
+          aria-describedby={42}
+          aria-label="Expand panel"
+          aria-pressed={false}
+          className="theme-toggle toggle tc-icon-toggle theme-tc-icon-toggle btn btn-link"
           disabled={false}
-          onClick={[MockFunction]}
-          title="Expand panel"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyPress={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
           type="button"
         >
           <svg
@@ -704,14 +812,24 @@ exports[`CollapsiblePanel should render themed with textual content 1`] = `
           className="theme-head"
         >
           <span
+            aria-describedby={42}
+            onBlur={[Function]}
+            onClick={[Function]}
             onFocus={[Function]}
+            onKeyPress={[Function]}
+            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             21 step
           </span>
           <span
+            aria-describedby={42}
             className="text-right"
+            onBlur={[Function]}
+            onClick={[Function]}
             onFocus={[Function]}
+            onKeyPress={[Function]}
+            onMouseOut={[Function]}
             onMouseOver={[Function]}
           >
             by Abdelaziz Maalej test 1 test 2 test 1 test 2
@@ -747,30 +865,40 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
       className="panel-title"
     >
       <div
-        className="theme-panel-heading panel-heading"
+        className="theme-panel-header-content panel-header-content"
       >
         <button
-          className="theme-panel-title panel-title btn btn-link"
+          className="theme-panel-title btn btn-link"
           disabled={false}
           onClick={[MockFunction]}
           type="button"
         >
           <div
-            className="theme-panel-title panel-title"
+            className="theme-panel-title"
           >
             <div
               className="theme-group theme-col-2"
             >
               <div
+                aria-describedby={42}
                 className="theme-undefined"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
                 Version 1 Version 1
               </div>
               <div
+                aria-describedby={42}
                 className="theme-undefined"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
                 (Read Only)
@@ -780,8 +908,13 @@ exports[`CollapsiblePanel should render themed without textual content 1`] = `
               className="theme-undefined theme-col-2"
             >
               <div
+                aria-describedby={42}
                 className="theme-undefined"
+                onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseOut={[Function]}
                 onMouseOver={[Function]}
               >
                 03/02/2017 14:44:55

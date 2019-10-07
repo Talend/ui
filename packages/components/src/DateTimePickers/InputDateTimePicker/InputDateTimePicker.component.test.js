@@ -7,7 +7,7 @@ import InputDateTimePicker from './InputDateTimePicker.component';
 import Manager from '../DateTime/Manager';
 
 function getOverlay(wrapper) {
-	return wrapper.find('Overlay').first();
+	return wrapper.find('Popper').first();
 }
 
 describe('InputDateTimePicker', () => {
@@ -15,13 +15,13 @@ describe('InputDateTimePicker', () => {
 		it('should open picker on focus', () => {
 			// given
 			const wrapper = mount(<InputDateTimePicker id="my-picker" />);
-			expect(getOverlay(wrapper).prop('show')).toBeFalsy();
+			expect(getOverlay(wrapper).exists()).toBe(false);
 
 			// when
 			wrapper.simulate('focus');
 
 			// then
-			expect(getOverlay(wrapper).prop('show')).toBe(true);
+			expect(getOverlay(wrapper).exists()).toBe(true);
 		});
 
 		it('should close picker on blur', () => {
@@ -29,7 +29,7 @@ describe('InputDateTimePicker', () => {
 			jest.useFakeTimers();
 			const wrapper = mount(<InputDateTimePicker id="my-picker" />);
 			wrapper.simulate('focus');
-			expect(getOverlay(wrapper).prop('show')).toBe(true);
+			expect(getOverlay(wrapper).exists()).toBe(true);
 
 			// when
 			wrapper.simulate('blur');
@@ -37,7 +37,7 @@ describe('InputDateTimePicker', () => {
 			wrapper.update();
 
 			// then
-			expect(getOverlay(wrapper).prop('show')).toBe(false);
+			expect(getOverlay(wrapper).exists()).toBe(false);
 		});
 
 		it('should trigger props.onBlur', () => {
@@ -61,27 +61,27 @@ describe('InputDateTimePicker', () => {
 			// given
 			const wrapper = mount(<InputDateTimePicker id="my-picker" />);
 			wrapper.simulate('focus');
-			expect(getOverlay(wrapper).prop('show')).toBe(true);
+			expect(getOverlay(wrapper).exists()).toBe(true);
 			const event = { keyCode: keycode.codes.esc };
 
 			// when
 			wrapper.simulate('keydown', event);
 
 			// then
-			expect(getOverlay(wrapper).prop('show')).toBe(false);
+			expect(getOverlay(wrapper).exists()).toBe(false);
 		});
 
 		it('should open picker if it is closed with DOWN on input', () => {
 			// given
 			const wrapper = mount(<InputDateTimePicker id="my-picker" />);
-			expect(getOverlay(wrapper).prop('show')).toBeFalsy();
+			expect(getOverlay(wrapper).exists()).toBe(false);
 			const event = { keyCode: keycode.codes.down };
 
 			// when
 			wrapper.find('input').simulate('keydown', event);
 
 			// then
-			expect(getOverlay(wrapper).prop('show')).toBe(true);
+			expect(getOverlay(wrapper).exists()).toBe(true);
 		});
 
 		it('should focus on calendar day if it is open with input DOWN', () => {
@@ -136,7 +136,7 @@ describe('InputDateTimePicker', () => {
 					/>,
 				);
 				wrapper.simulate('focus');
-				expect(getOverlay(wrapper).prop('show')).toBe(true);
+				expect(getOverlay(wrapper).exists()).toBe(true);
 
 				// when
 				wrapper
@@ -145,7 +145,7 @@ describe('InputDateTimePicker', () => {
 					.simulate('click');
 
 				// then
-				expect(getOverlay(wrapper).prop('show')).toBe(expectedOverlay);
+				expect(getOverlay(wrapper).exists()).toBe(expectedOverlay);
 			},
 			[
 				{
@@ -173,20 +173,20 @@ describe('InputDateTimePicker', () => {
 			// given
 			const wrapper = mount(<InputDateTimePicker id="my-picker" onChange={jest.fn()} />);
 			wrapper.simulate('focus');
-			expect(getOverlay(wrapper).prop('show')).toBe(true);
+			expect(getOverlay(wrapper).exists()).toBe(true);
 
 			// when
 			wrapper.find('DebounceInput').simulate('change');
 
 			// then
-			expect(getOverlay(wrapper).prop('show')).toBe(true);
+			expect(getOverlay(wrapper).exists()).toBe(true);
 		});
 
 		it('should close in form mode submit', () => {
 			// given
 			const wrapper = mount(<InputDateTimePicker id="my-picker" onChange={jest.fn()} formMode />);
 			wrapper.simulate('focus');
-			expect(getOverlay(wrapper).prop('show')).toBe(true);
+			expect(getOverlay(wrapper).exists()).toBe(true);
 
 			// when
 			wrapper
@@ -196,7 +196,7 @@ describe('InputDateTimePicker', () => {
 			wrapper.find('form').simulate('submit');
 
 			// then
-			expect(getOverlay(wrapper).prop('show')).toBe(false);
+			expect(getOverlay(wrapper).exists()).toBe(false);
 		});
 	});
 });

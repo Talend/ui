@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import callTrigger from '../../../trigger';
 import { DID_MOUNT, FOCUS } from '../constants';
 import { TextMode as FieldTemplate } from '../../FieldTemplate';
@@ -83,4 +83,4 @@ TextMode.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default translate(I18N_DOMAIN_FORMS)(TextMode);
+export default withTranslation(I18N_DOMAIN_FORMS)(TextMode);

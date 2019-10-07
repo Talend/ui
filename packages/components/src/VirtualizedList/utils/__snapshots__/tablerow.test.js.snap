@@ -36,8 +36,11 @@ Array [
     cellRenderer={[Function]}
     columnData={
       Object {
+        "collection": undefined,
+        "isSelected": [MockFunction],
         "label": "Select this element",
         "onChange": [MockFunction],
+        "onToggleAll": undefined,
       }
     }
     dataKey=""
@@ -93,12 +96,11 @@ Array [
     dataKey="id"
     defaultSortDirection="ASC"
     flexGrow={0}
-    flexShrink={1}
+    flexShrink={0}
     headerClassName="tc-list-cell-id"
     headerRenderer={[Function]}
     label="Id"
     style={Object {}}
-    width={50}
   />,
 ]
 `;
@@ -117,12 +119,11 @@ Array [
     dataKey="id"
     defaultSortDirection="ASC"
     flexGrow={0}
-    flexShrink={1}
+    flexShrink={0}
     headerClassName="tc-list-cell-id"
     headerRenderer={[Function]}
     label="Id"
     style={Object {}}
-    width={50}
   />,
 ]
 `;
@@ -141,8 +142,57 @@ Array [
     dataKey="id"
     defaultSortDirection="ASC"
     flexGrow={0}
-    flexShrink={1}
+    flexShrink={0}
     headerClassName="my-header-classname theme-header-classname tc-list-cell-id"
+    headerRenderer={[Function]}
+    label="Id"
+    style={Object {}}
+  />,
+]
+`;
+
+exports[`tablerow #toColumns should return a column with fixed width 1`] = `
+Array [
+  <Column
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    className="tc-list-cell-id"
+    columnData={
+      Object {
+        "custom": "lol",
+        "id": "my-id",
+      }
+    }
+    dataKey="id"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={0}
+    headerClassName="tc-list-cell-id"
+    headerRenderer={[Function]}
+    label="Id"
+    style={Object {}}
+    width={50}
+  />,
+]
+`;
+
+exports[`tablerow #toColumns should return a column with resizable width and classname 1`] = `
+Array [
+  <Column
+    cellDataGetter={[Function]}
+    cellRenderer={[Function]}
+    className="tc-list-cell-id"
+    columnData={
+      Object {
+        "custom": "lol",
+        "id": "my-id",
+      }
+    }
+    dataKey="id"
+    defaultSortDirection="ASC"
+    flexGrow={0}
+    flexShrink={1}
+    headerClassName="tc-list-cell-id tc-header-resizable"
     headerRenderer={[Function]}
     label="Id"
     style={Object {}}

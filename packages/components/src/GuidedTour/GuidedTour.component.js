@@ -2,7 +2,7 @@ import React from 'react';
 import Tour from 'reactour';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { translate } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 
 import Action from '../Actions/Action';
 import I18N_DOMAIN_COMPONENTS from '../constants';
@@ -14,9 +14,9 @@ function getTooltipContent({ header, body }) {
 	return reactourCallbacks => (
 		<React.Fragment>
 			{header && <h2 className={classNames(theme.header, 'tc-guided-tour__header')}>{header}</h2>}
-			<p className={classNames(theme.body, 'tc-guided-tour__body')}>
-				{typeof body === 'function' ? body(reactourCallbacks) : body}
-			</p>
+			<div className={classNames(theme.body, 'tc-guided-tour__body')}>
+				{typeof body === 'function' ? body(reactourCallbacks) : <p>{body}</p>}
+			</div>
 		</React.Fragment>
 	);
 }
@@ -97,4 +97,4 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default translate(I18N_DOMAIN_COMPONENTS)(GuidedTour);
+export default withTranslation(I18N_DOMAIN_COMPONENTS)(GuidedTour);

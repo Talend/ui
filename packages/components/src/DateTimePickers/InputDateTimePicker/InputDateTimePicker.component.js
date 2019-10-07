@@ -2,9 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
-import { Overlay, Popover } from 'react-bootstrap';
 import keycode from 'keycode';
 import uuid from 'uuid';
+import { Popper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
 import { DateTimeContext } from '../DateTime/Context';
@@ -25,6 +25,10 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'onBlur',
 	'onChange',
 ];
+
+function onMouseDown(event) {
+	event.stopPropagation();
+}
 
 class InputDateTimePicker extends React.Component {
 	static propTypes = {
@@ -65,6 +69,7 @@ class InputDateTimePicker extends React.Component {
 
 		this.onBlur = this.onBlur.bind(this);
 		this.onFocus = this.onFocus.bind(this);
+		this.onClick = this.onClick.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
 		this.openPicker = this.setPickerVisibility.bind(this, true);
@@ -96,13 +101,19 @@ class InputDateTimePicker extends React.Component {
 
 	onBlur(event, { onReset }) {
 		onReset();
-		this.closePicker();
+		this.closePicker({ picked: false });
 		if (this.props.onBlur) {
 			this.props.onBlur(event);
 		}
 	}
 
 	onFocus() {
+		if (!this.state.picked) {
+			this.openPicker();
+		}
+	}
+
+	onClick() {
 		this.openPicker();
 	}
 
@@ -113,49 +124,78 @@ class InputDateTimePicker extends React.Component {
 			(!this.props.formMode && !this.props.useTime && payload.origin !== 'INPUT')
 		) {
 			this.inputRef.focus();
-			this.closePicker();
+			this.closePicker({ picked: true });
 		}
 	}
 
-	setPickerVisibility(isShown) {
+	getPopperPlacement() {
+		const input = this.inputRef;
+		if (input) {
+			const inputDimensions = input.getBoundingClientRect();
+			if (inputDimensions.left > window.innerWidth / 2) {
+				return 'bottom-end';
+			}
+		}
+		return 'bottom-start';
+	}
+
+	setPickerVisibility(isShown, extra = {}) {
 		if (this.props.readOnly) {
 			return;
 		}
 
 		this.setState(({ showPicker }) => {
 			if (showPicker === isShown) {
-				return null;
+				return extra;
 			}
-			return { showPicker: isShown };
+			return {
+				showPicker: isShown,
+				...extra,
+			};
 		});
 	}
 
 	render() {
 		const inputProps = omit(this.props, PROPS_TO_OMIT_FOR_INPUT);
-
 		const dateTimePicker = [
 			<DateTime.Input
 				{...inputProps}
+				id={`${this.props.id}-input`}
 				key="input"
 				inputRef={ref => {
 					this.inputRef = ref;
 				}}
 			/>,
-			<div
-				className={theme['dropdown-wrapper']}
-				key="dropdown"
-				ref={ref => {
-					this.dropdownWrapperRef = ref;
-				}}
-			>
-				<Overlay container={this.dropdownWrapperRef} show={this.state.showPicker}>
-					<Popover className={theme.popover} id={this.popoverId}>
-						<DateTime.Picker />
-						{this.props.formMode && <DateTime.Validation />}
-					</Popover>
-				</Overlay>
-			</div>,
-		];
+			this.state.showPicker && (
+				<Popper
+					key="popper"
+					modifiers={{
+						hide: {
+							enabled: false,
+						},
+						preventOverflow: {
+							enabled: false,
+						},
+					}}
+					placement={this.getPopperPlacement()}
+					positionFixed
+					referenceElement={this.inputRef}
+				>
+					{({ ref, style }) => (
+						<div
+							id={this.popoverId}
+							className={theme.popper}
+							style={style}
+							ref={ref}
+							onMouseDown={onMouseDown}
+						>
+							<DateTime.Picker />
+							{this.props.formMode && <DateTime.Validation />}
+						</div>
+					)}
+				</Popper>
+			),
+		].filter(Boolean);
 
 		return (
 			<DateTime.Manager
@@ -175,6 +215,7 @@ class InputDateTimePicker extends React.Component {
 							divRef={ref => {
 								this.containerRef = ref;
 							}}
+							onClick={this.onClick}
 							onFocusIn={this.onFocus}
 							onFocusOut={event => {
 								this.onBlur(event, formManagement);

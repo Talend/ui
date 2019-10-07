@@ -12,12 +12,19 @@ yarn add --dev @talend/scripts
 3. Define the npm scripts.
 ```json
 {
-  "start": "talend-scripts start",
-  "prepublish": "talend-scripts build",
+  "prepublish": "talend-scripts build:prod",
+
+  "build": "talend-scripts build",
+  "build:dev": "talend-scripts build --dev",
   "analyze": "talend-scripts build --env.analyze",
-  "lint:es": "talend-scripts lint:es",
+
+  "start": "talend-scripts start",
+  "start:prod": "talend-scripts start --prod",
+
   "test": "talend-scripts test",
-  "test:watch": "talend-scripts test --watch"
+  "test:watch": "talend-scripts test --watch",
+
+  "lint:es": "talend-scripts lint:es"
 }
 ```
 

@@ -11,12 +11,16 @@ exports[`Header should render header with one button 1`] = `
     className="actions"
   >
     <button
+      aria-describedby={42}
       aria-label="Search for specific values"
       className="btn-icon-only btn btn-link"
       disabled={false}
+      onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
+      onKeyPress={[Function]}
       onMouseDown={[Function]}
+      onMouseOut={[Function]}
       onMouseOver={[Function]}
       role="link"
       type="button"

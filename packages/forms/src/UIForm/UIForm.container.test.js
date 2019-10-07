@@ -31,7 +31,7 @@ describe('UIForm container', () => {
 
 			const newData = {
 				jsonSchema: {},
-				uiSchema: {},
+				uiSchema: [],
 				properties: {},
 			};
 
@@ -69,7 +69,7 @@ describe('UIForm container', () => {
 			const previousState = wrapper.state();
 			const newInitialData = {
 				jsonSchema: {},
-				uiSchema: {},
+				uiSchema: [],
 				properties: {},
 			};
 			// when
@@ -230,7 +230,7 @@ describe('UIForm container', () => {
 			});
 		});
 
-		it('should not update state properties', done => {
+		it('should update state properties', done => {
 			// given
 			const properties = { firstname: 'my firstname is invalid' };
 			const onTrigger = jest.fn(() => Promise.resolve({ properties }));
@@ -238,11 +238,11 @@ describe('UIForm container', () => {
 			const instance = wrapper.instance();
 
 			// when
-			const triggerPromise = instance.onTrigger();
+			const triggerPromise = instance.onTrigger(null, {});
 
 			// then
 			triggerPromise.then(() => {
-				expect(instance.state.liveState.properties).not.toBe(properties);
+				expect(instance.state.liveState.properties).toBe(properties);
 				done();
 			});
 		});

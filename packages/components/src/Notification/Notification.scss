@@ -28,7 +28,7 @@ $tc-notification-icon-size: $svg-md-size !default;
 		position: absolute;
 		top: 48px;
 		right: $padding-normal;
-		z-index: 120;
+		z-index: $zindex-notification;
 		left: auto;
 
 		.tc-notification[pin='true'] {
@@ -117,8 +117,7 @@ $tc-notification-icon-size: $svg-md-size !default;
 	}
 
 	&:hover > &-timer-bar {
-		transform: translateX(100%);
-		animation: none;
+		animation-play-state: paused;
 	}
 }
 

@@ -2,8 +2,6 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Typeahead from './Typeahead.component';
 
-jest.useFakeTimers();
-
 describe('Typeahead', () => {
 	const initialProps = {
 		id: 'my-search',
@@ -113,7 +111,7 @@ describe('Typeahead', () => {
 			// when
 			const typeaheadInstance = mount(typeahead);
 			typeaheadInstance
-				.find('Action')
+				.find('Button.tc-typeahead-toggle')
 				.at(0)
 				.simulate('click');
 
@@ -139,58 +137,6 @@ describe('Typeahead', () => {
 
 			// then
 			expect(onChange).toBeCalled();
-		});
-
-		it('should call onChange event with debounce options', () => {
-			// given
-			const initialTimeoutCount = setTimeout.mock.calls.length;
-			const onChange = jest.fn();
-			const debounceTimeout = 300;
-			const props = {
-				...initialProps,
-				onChange,
-				debounceTimeout,
-			};
-			const typeahead = <Typeahead {...props} />;
-			const event = { target: { value: 'toto' } };
-
-			// when
-			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('input').simulate('change', event);
-
-			// then
-			expect(setTimeout.mock.calls.length).toBe(initialTimeoutCount + 1);
-			expect(setTimeout.mock.calls[0][1]).toBe(debounceTimeout);
-		});
-
-		it('should call onChange event with debounceMinLength options', () => {
-			// given
-			const initialTimeoutCount = setTimeout.mock.calls.length;
-			const onChange = jest.fn();
-			const debounceTimeout = 300;
-			const props = {
-				...initialProps,
-				onChange,
-				debounceTimeout,
-				debounceMinLength: 3,
-			};
-			const typeahead = <Typeahead {...props} />;
-			const underMinLengthEvent = { target: { value: '2' } };
-			const overMinLengthEvent = { target: { value: 'toto' } };
-
-			// when
-			const typeaheadInstance = mount(typeahead);
-			typeaheadInstance.find('input').simulate('change', underMinLengthEvent);
-
-			// then
-			expect(setTimeout.mock.calls.length).toBe(initialTimeoutCount);
-
-			// when
-			typeaheadInstance.find('input').simulate('change', overMinLengthEvent);
-
-			// then
-			expect(setTimeout.mock.calls.length).toBe(initialTimeoutCount + 1);
-			expect(setTimeout.mock.calls[0][1]).toBe(debounceTimeout);
 		});
 
 		it('should call onBlur', () => {

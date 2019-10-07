@@ -53,7 +53,9 @@ describe('Container DeleteResource', () => {
 
 describe('Connected DeleteResource', () => {
 	it('should connect TestGenerator', () => {
-		expect(Connected.displayName).toBe('Connect(CMF(Translate(Container(DeleteResource))))');
+		expect(Connected.displayName).toBe(
+			'Connect(CMF(withI18nextTranslation(Container(DeleteResource))))',
+		);
 		expect(Connected.WrappedComponent).toBe(DeleteResource);
 	});
 	describe('mapStateToProps', () => {

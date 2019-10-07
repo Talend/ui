@@ -2,11 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getMonth from 'date-fns/get_month';
 import getYear from 'date-fns/get_year';
+import startOfDay from 'date-fns/start_of_day';
+import classNames from 'classnames';
 
 import theme from './DateTimePicker.scss';
 import DateTimeView from '../../views/DateTimeView';
 import MonthYearView from '../../views/MonthYearView';
 import { focusOnCalendar } from '../../../Gesture/withCalendarGesture';
+import Action from '../../../Actions/Action/Action.component';
+import getDefaultT from '../../../translate';
 
 class DateTimePicker extends React.Component {
 	constructor(props) {
@@ -38,6 +42,7 @@ class DateTimePicker extends React.Component {
 		this.disallowFocus = this.setAllowFocus.bind(this, false);
 		this.setDateTimeView = this.setView.bind(this, true);
 		this.setMonthYearView = this.setView.bind(this, false);
+		this.onClickToday = this.onClickToday.bind(this);
 	}
 
 	componentDidMount() {
@@ -113,6 +118,16 @@ class DateTimePicker extends React.Component {
 		this.onSelectCalendarMonthYear({ year });
 	}
 
+	onClickToday(event) {
+		const now = new Date();
+		if (!this.state.isDateTimeView) {
+			this.onSelectCalendarYear(event, getYear(now));
+			this.onSelectCalendarMonth(event, getMonth(now));
+			this.setView(true);
+		}
+		this.onSelectDate(event, startOfDay(now));
+	}
+
 	setAllowFocus(value) {
 		this.setState({ allowFocus: value });
 	}
@@ -173,6 +188,22 @@ class DateTimePicker extends React.Component {
 				aria-label="Date picker"
 			>
 				{viewElement}
+				<div
+					className={classNames(theme.footer, {
+						[theme['date-padding']]: this.state.isDateTimeView,
+					})}
+				>
+					<Action
+						label={this.props.t('DATEPICKER_TODAY', {
+							defaultValue: 'Today',
+						})}
+						aria-label={this.props.t('DATEPICKER_PICK_TODAY', {
+							defaultValue: 'Pick Today',
+						})}
+						onClick={this.onClickToday}
+						className="btn-tertiary btn-info"
+					/>
+				</div>
 			</div>
 		);
 	}
@@ -212,9 +243,12 @@ DateTimePicker.propTypes = {
 	 * Timezone is UTC
 	 */
 	useUTC: PropTypes.bool,
+
+	t: PropTypes.func.isRequired,
 };
 
 DateTimePicker.defaultProps = {
+	t: getDefaultT(),
 	selection: {},
 };
 

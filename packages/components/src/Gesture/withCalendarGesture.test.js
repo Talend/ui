@@ -77,7 +77,7 @@ describe('withCalendarGesture', () => {
 
 			// when
 			wrapper
-				.find('button')
+				.find('button[data-value]')
 				.at(13) // 2018-03-14
 				.simulate('keydown', { keyCode: keycode.codes.left });
 
@@ -91,7 +91,7 @@ describe('withCalendarGesture', () => {
 
 			// when
 			wrapper
-				.find('button')
+				.find('button[data-value]')
 				.at(11) // 2018-03-12
 				.simulate('keydown', { keyCode: keycode.codes.left });
 
@@ -107,7 +107,7 @@ describe('withCalendarGesture', () => {
 
 			// when
 			wrapper
-				.find('button')
+				.find('button[data-value]')
 				.at(0) // 2018-03-01
 				.simulate('keydown', { keyCode: keycode.codes.left });
 
@@ -124,7 +124,7 @@ describe('withCalendarGesture', () => {
 
 			// when
 			wrapper
-				.find('button')
+				.find('button[data-value]')
 				.at(13) // 2018-03-14
 				.simulate('keydown', { keyCode: keycode.codes.right });
 
@@ -138,7 +138,7 @@ describe('withCalendarGesture', () => {
 
 			// when
 			wrapper
-				.find('button')
+				.find('button[data-value]')
 				.at(17) // 2018-03-18
 				.simulate('keydown', { keyCode: keycode.codes.right });
 
@@ -154,7 +154,7 @@ describe('withCalendarGesture', () => {
 
 			// when
 			wrapper
-				.find('button')
+				.find('button[data-value]')
 				.at(30) // 2018-03-31
 				.simulate('keydown', { keyCode: keycode.codes.right });
 
@@ -171,7 +171,7 @@ describe('withCalendarGesture', () => {
 
 			// when
 			wrapper
-				.find('button')
+				.find('button[data-value]')
 				.at(13) // 2018-03-14
 				.simulate('keydown', { keyCode: keycode.codes.up });
 
@@ -187,7 +187,7 @@ describe('withCalendarGesture', () => {
 
 			// when
 			wrapper
-				.find('button')
+				.find('button[data-value]')
 				.at(5) // 2018-03-06
 				.simulate('keydown', { keyCode: keycode.codes.up });
 
@@ -204,7 +204,7 @@ describe('withCalendarGesture', () => {
 
 			// when
 			wrapper
-				.find('button')
+				.find('button[data-value]')
 				.at(13) // 2018-03-14
 				.simulate('keydown', { keyCode: keycode.codes.down });
 
@@ -220,7 +220,7 @@ describe('withCalendarGesture', () => {
 
 			// when
 			wrapper
-				.find('button')
+				.find('button[data-value]')
 				.at(27) // 2018-03-28
 				.simulate('keydown', { keyCode: keycode.codes.down });
 
@@ -237,7 +237,7 @@ describe('withCalendarGesture', () => {
 
 			// when
 			wrapper
-				.find('button')
+				.find('button[data-value]')
 				.at(13) // 2018-03-14
 				.simulate('keydown', { keyCode: keycode.codes.home });
 
@@ -253,7 +253,7 @@ describe('withCalendarGesture', () => {
 
 			// when
 			wrapper
-				.find('button')
+				.find('button[data-value]')
 				.at(13) // 2018-03-14
 				.simulate('keydown', { keyCode: keycode.codes.end });
 
@@ -271,7 +271,7 @@ describe('withCalendarGesture', () => {
 
 			// when
 			wrapper
-				.find('button')
+				.find('button[data-value]')
 				.at(13) // 2018-03-14
 				.simulate('keydown', { keyCode: keycode.codes['page up'] });
 
@@ -288,7 +288,7 @@ describe('withCalendarGesture', () => {
 
 			// when
 			wrapper
-				.find('button')
+				.find('button[data-value]')
 				.at(30) // 2018-03-31
 				.simulate('keydown', { keyCode: keycode.codes['page up'] });
 
@@ -307,7 +307,7 @@ describe('withCalendarGesture', () => {
 
 			// when
 			wrapper
-				.find('button')
+				.find('button[data-value]')
 				.at(13) // 2018-03-14
 				.simulate('keydown', { keyCode: keycode.codes['page down'] });
 
@@ -324,7 +324,7 @@ describe('withCalendarGesture', () => {
 
 			// when
 			wrapper
-				.find('button')
+				.find('button[data-value]')
 				.at(30) // 2018-03-31
 				.simulate('keydown', { keyCode: keycode.codes['page down'] });
 
