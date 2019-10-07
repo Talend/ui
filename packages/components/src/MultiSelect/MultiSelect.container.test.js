@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 
 import Container from './MultiSelect.container';
 
-
 describe('Container MultiSelect', () => {
 	it('should render input with props', () => {
 		const wrapper = shallow(<Container.WrappedComponent id="multiselect" />);
