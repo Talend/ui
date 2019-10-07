@@ -86,6 +86,7 @@ FilterInput.propTypes = {
 	onToggle: PropTypes.func,
 	placeholder: PropTypes.string,
 	value: PropTypes.string,
+	'data-test': PropTypes.string,
 	t: PropTypes.func.isRequired,
 };
 
