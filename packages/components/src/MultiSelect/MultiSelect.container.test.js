@@ -23,7 +23,6 @@ describe('Container MultiSelect', () => {
 		wrapper = wrapper.setState({ showDropdown: true, searchTerm: 'fo' });
 		// check if we have create new option
 		expect(wrapper.find('Dropdown').props().items[2]).toMatchObject({
-			name: '{{name}} (Create new)',
 			value: 'create-new',
 			selected: undefined,
 		});
