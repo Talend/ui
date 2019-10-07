@@ -41,6 +41,13 @@ describe('FilterBar', () => {
 		expect(filterInstance.props().className).toContain('custom-test');
 	});
 
+	it('should accept data-test attribute', () => {
+		// given
+		const filterInstance = mount(<FilterBarComponent {...defaultProps} data-test={'my.test'} />);
+		// then
+		expect(filterInstance.find('input').prop('data-test')).toEqual('my.test');
+	});
+
 	it('should be able to switch autofocus to false', () => {
 		// given
 		const filterInstance = shallow(<FilterBarComponent {...defaultProps} autoFocus={false} />);
