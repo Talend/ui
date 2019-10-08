@@ -112,6 +112,9 @@ $tc-drawer-z-index: $drawer-z-index !default;
 
 	.tc-drawer-close-action {
 		color: white;
+		top: 7.5px;
+		right: 0;
+		position: absolute;
 	}
 }
 
