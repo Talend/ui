@@ -24,7 +24,7 @@ function InputSizer({ placeholder, inputText, children }) {
 	}, [inputText, placeholder]);
 
 	const style = inputText ? inputTextSizerStyle : placeholderSizerStyle;
-	const text = inputText ? format(new Date(), placeholder) : placeholder;
+	const text = inputText ? format(new Date(0), placeholder) : placeholder;
 	return (
 		<React.Fragment>
 			{children(width + EXTRA_SPACE)}
