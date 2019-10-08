@@ -2,8 +2,8 @@ import { subHours } from 'date-fns';
 import {
 	checkSupportedDateFormat,
 	extractDate,
-	extractDateFromTextInput,
-	extractDateFromDate,
+	extractPartsFromTextInput,
+	extractPartsFromDate,
 	extractDateOnly,
 } from './date-extraction';
 
@@ -127,7 +127,7 @@ describe('Date extraction', () => {
 			};
 
 			// when
-			const parts = extractDateFromDate(invalidDate, options);
+			const parts = extractPartsFromDate(invalidDate, options);
 
 			// then
 			expect(parts).toEqual({
@@ -144,7 +144,7 @@ describe('Date extraction', () => {
 			const options = { dateFormat: 'YYYY-MM-DD' };
 
 			// when
-			const parts = extractDateFromDate(validDate, options);
+			const parts = extractPartsFromDate(validDate, options);
 
 			// then
 			expect(parts).toEqual({
@@ -157,7 +157,7 @@ describe('Date extraction', () => {
 		});
 	});
 
-	describe('extractDateFromTextInput', () => {
+	describe('extractPartsFromTextInput', () => {
 		it('should extract parts with empty string', () => {
 			// given
 			const textInput = '';
@@ -166,7 +166,7 @@ describe('Date extraction', () => {
 			};
 
 			// when
-			const parts = extractDateFromTextInput(textInput, options);
+			const parts = extractPartsFromTextInput(textInput, options);
 
 			// then
 			expect(parts).toEqual({
@@ -182,7 +182,7 @@ describe('Date extraction', () => {
 			const options = { dateFormat: 'YYYY-MM-DD' };
 
 			// when
-			const parts = extractDateFromTextInput(textInput, options);
+			const parts = extractPartsFromTextInput(textInput, options);
 
 			// then
 			expect(parts).toEqual({
@@ -202,7 +202,7 @@ describe('Date extraction', () => {
 			};
 
 			// when
-			const parts = extractDateFromTextInput(textInput, options);
+			const parts = extractPartsFromTextInput(textInput, options);
 
 			// then
 			expect(parts.date).toBe(undefined);
@@ -224,7 +224,7 @@ describe('Date extraction', () => {
 			};
 
 			// when
-			const parts = extractDateFromTextInput(textInput, options);
+			const parts = extractPartsFromTextInput(textInput, options);
 
 			// then
 			expect(parts.date).toBe(undefined);
@@ -244,7 +244,7 @@ describe('Date extraction', () => {
 			};
 
 			// when
-			const parts = extractDateFromTextInput(textInput, options);
+			const parts = extractPartsFromTextInput(textInput, options);
 
 			// then
 			expect(parts).toEqual({
@@ -264,7 +264,7 @@ describe('Date extraction', () => {
 			};
 
 			// when
-			const parts = extractDateFromTextInput(textInput, options);
+			const parts = extractPartsFromTextInput(textInput, options);
 
 			// then
 			expect(parts).toEqual({

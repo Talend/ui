@@ -161,7 +161,7 @@ function extractDateOnly(date, { useUTC, timezone }) {
  *		textInput: string
  * 	}}
  */
-function extractDateFromDate(date, options) {
+function extractPartsFromDate(date, options) {
 	if (!isDateValid(date, options)) {
 		return {
 			date: undefined,
@@ -192,7 +192,7 @@ function extractDateFromDate(date, options) {
  *		textInput: string
  * 	}}
  */
-function extractDateFromTextInput(textInput, options) {
+function extractPartsFromTextInput(textInput, options) {
 	if (textInput === '') {
 		return {
 			localDate: undefined,
@@ -222,11 +222,11 @@ function extractDateFromTextInput(textInput, options) {
 function extractDate(value, options) {
 	const typeOfValue = typeof value;
 	if (typeOfValue === 'number') {
-		return extractDateFromDate(new Date(value), options);
+		return extractPartsFromDate(new Date(value), options);
 	} else if (typeOfValue === 'string') {
-		return extractDateFromTextInput(value, options);
+		return extractPartsFromTextInput(value, options);
 	} else if (value instanceof Date) {
-		return extractDateFromDate(value, options);
+		return extractPartsFromDate(value, options);
 	}
 	return {
 		date: undefined,
@@ -250,7 +250,7 @@ export {
 	extractDate,
 	extractDateOnly,
 	extractFromDate,
-	extractDateFromTextInput,
-	extractDateFromDate,
+	extractPartsFromTextInput,
+	extractPartsFromDate,
 	checkSupportedTimezone,
 };

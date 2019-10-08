@@ -7,7 +7,7 @@ import {
 	checkSupportedTimezone,
 	extractDate,
 	extractFromDate,
-	extractDateFromTextInput,
+	extractPartsFromTextInput,
 } from '../date-extraction';
 
 function ContextualManager(props) {
@@ -47,7 +47,7 @@ function ContextualManager(props) {
 
 	function onInputChange(event) {
 		const textInput = event.target.value;
-		const nextState = extractDateFromTextInput(textInput, getDateOptions());
+		const nextState = extractPartsFromTextInput(textInput, getDateOptions());
 		setState(nextState);
 		onChange(event, 'INPUT', nextState);
 	}
