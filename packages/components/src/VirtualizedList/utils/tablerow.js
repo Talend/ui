@@ -12,7 +12,7 @@ import { internalIds } from './constants';
  * Insert a checkbox column configuration to select a row.
  */
 export function insertSelectionConfiguration(props) {
-	const { collection, children, isSelected, onToggleAll, selectionToggle } = props;
+	const { collection, children, isSelected, onToggleAll, selectionToggle, selectionMode } = props;
 	let contentsConfiguration = React.Children.toArray(children);
 	if (selectionToggle && isSelected) {
 		const toggleColumn = (
@@ -28,6 +28,7 @@ export function insertSelectionConfiguration(props) {
 				columnData={{
 					label: 'Select this element',
 					onChange: selectionToggle,
+					selectionMode,
 					onToggleAll,
 					collection,
 					isSelected,
