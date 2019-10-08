@@ -16,12 +16,6 @@ function InputDateTimePicker(props) {
 			'Warning: "selectedDateTime" is deprecated and will be removed in the next major version. Use "value" instead please.',
 		);
 	}
-	if (props.useUTC) {
-		// eslint-disable-next-line no-console
-		console.warn(
-			'Warning: "useUTC" is deprecated and will be removed in the next major version. Set "timezone" instead please.',
-		);
-	}
 	return (
 		<DateTime.Manager
 			id={props.id}
