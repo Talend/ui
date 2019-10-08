@@ -231,6 +231,7 @@ describe('Date.Manager', () => {
 
 				// then
 				expect(onChange).toBeCalledWith(event, {
+					localDate: new Date(2015, 0, 15),
 					date: new Date(2015, 0, 15),
 					origin: 'INPUT',
 					textInput: '2015-01-15',
@@ -337,6 +338,7 @@ describe('Date.Manager', () => {
 				wrapper.update();
 				// then
 				expect(onChange).toBeCalledWith(event, {
+					localDate: new Date(2015, 0, 15),
 					date: new Date(2015, 0, 15),
 					origin: 'PICKER',
 					textInput: '2015-01-15',

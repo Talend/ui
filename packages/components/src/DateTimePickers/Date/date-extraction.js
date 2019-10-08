@@ -143,8 +143,7 @@ function checkSupportedTimezone(timezone) {
 function extractDateOnly(date, { useUTC, timezone }) {
 	if (useUTC) {
 		return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
-	}
-	if (timezone) {
+	} else if (timezone) {
 		const converted = convertToTimeZone(date, { timeZone: timezone });
 		return new Date(converted.getFullYear(), converted.getMonth(), converted.getDate());
 	}
@@ -247,6 +246,7 @@ function extractFromDate(date, options) {
 
 export {
 	checkSupportedDateFormat,
+	convertDateToTimezone,
 	extractDate,
 	extractDateOnly,
 	extractFromDate,

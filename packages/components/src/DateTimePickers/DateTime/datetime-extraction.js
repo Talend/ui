@@ -1,9 +1,9 @@
 import format from 'date-fns/format';
-import addSeconds from 'date-fns/add_seconds';
+import setSeconds from 'date-fns/set_seconds';
 import { convertToTimeZone } from 'date-fns-timezone';
 
 import getErrorMessage from '../shared/error-messages';
-import { extractDateOnly } from '../Date/date-extraction';
+import { convertDateToTimezone, extractDateOnly } from '../Date/date-extraction';
 import { checkTime, pad, timeToStr, strToTime } from '../Time/time-extraction';
 
 const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
@@ -63,7 +63,7 @@ function timeToSeconds(hours, minutes, seconds) {
  * @param time {{hours: string, minutes: string, seconds: string}} Time in current TZ
  * @returns {Date}
  */
-function dateAndTimeToDateTime(date, time) {
+function dateAndTimeToDateTime(date, time, options) {
 	if (date === undefined || time === undefined) {
 		return INTERNAL_INVALID_DATE;
 	}
@@ -75,7 +75,8 @@ function dateAndTimeToDateTime(date, time) {
 		}
 		const { hours, minutes, seconds } = time;
 		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
-		return addSeconds(date, timeInSeconds);
+		const localTimezoneDate = setSeconds(date, timeInSeconds);
+		return convertDateToTimezone(localTimezoneDate, options);
 	} catch (e) {
 		return INTERNAL_INVALID_DATE;
 	}
@@ -133,8 +134,8 @@ function extractPartsFromTextInput(textInput) {
 		};
 	}
 
-	let date;
-	let time;
+	let dateStr;
+	let timeStr;
 	let errors = [];
 
 	try {
@@ -142,16 +143,16 @@ function extractPartsFromTextInput(textInput) {
 		if (!splitMatches.length) {
 			throw new DatePickerException('DATETIME_INVALID_FORMAT', 'DATETIME_INVALID_FORMAT');
 		} else {
-			date = splitMatches[1];
-			time = splitMatches[2];
+			dateStr = splitMatches[1];
+			timeStr = splitMatches[2];
 		}
 	} catch (error) {
 		errors = [error];
 	}
 
 	return {
-		date,
-		time,
+		date: dateStr,
+		time: timeStr,
 		errors,
 		errorMessage: errors[0] ? errors[0].message : null,
 	};

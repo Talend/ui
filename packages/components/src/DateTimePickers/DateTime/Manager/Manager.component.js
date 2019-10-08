@@ -29,12 +29,12 @@ function ContextualManager(props) {
 			props.onChange(event, { datetime, textInput, errors, errorMessage });
 		}
 	}
-	function onDateChange(event, { date, textInput: dateTextInput, errors = [] }) {
+	function onDateChange(event, { date, localDate, textInput: dateTextInput, errors = [] }) {
 		let datetime;
 		if (errors.length > 0) {
 			datetime = null;
 		} else {
-			datetime = dateAndTimeToDateTime(date, state.time, getDateOptions());
+			datetime = dateAndTimeToDateTime(localDate, state.time, getDateOptions());
 		}
 		const nextState = {
 			...state,
