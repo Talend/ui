@@ -68,6 +68,12 @@ describe('DateTime.Manager', () => {
 					expectedDate: new Date(2015, 3, 4),
 					expectedTime: { hours: '12', minutes: '36', seconds: '00' },
 				},
+				{
+					name: 'should init state from datetime string',
+					initialDate: '2019-10-11 12:34',
+					expectedDate: '2019-10-11',
+					expectedTime: '12:34',
+				},
 			],
 		);
 
