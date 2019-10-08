@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import omit from 'lodash/omit';
 import uuid from 'uuid';
 import { Popper } from 'react-popper';
