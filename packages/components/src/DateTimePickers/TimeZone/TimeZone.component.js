@@ -4,14 +4,16 @@ import PropTypes from 'prop-types';
 import Icon from '../../Icon';
 import TooltipTrigger from '../../TooltipTrigger';
 
+import theme from './TimeZone.scss';
+
 function TimeZone(props) {
 	return (
 		<TooltipTrigger
 			label={props.timezone}
 			tooltipPlacement="top"
-			style={{ height: '32px', display: 'flex', alignItems: 'center' }}
+			className={theme['timezone-tooltip']}
 		>
-			<Icon name="talend-info-circle" style={{ display: 'block' }} />
+			<Icon name="talend-info-circle" />
 		</TooltipTrigger>
 	);
 }

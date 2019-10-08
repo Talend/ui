@@ -146,7 +146,7 @@ function TooltipTrigger(props) {
 		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 		<div
 			{...omit(props, Object.keys(TooltipTrigger.propTypes))}
-			className={theme['tc-tooltip']}
+			className={classNames(props.className, theme['tc-tooltip'])}
 			onFocus={show}
 			onBlur={hide}
 			onKeyPress={hide}
@@ -181,6 +181,7 @@ function TooltipTrigger(props) {
 TooltipTrigger.displayName = 'TooltipTrigger';
 
 TooltipTrigger.propTypes = {
+	className: PropTypes.string,
 	label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 	tooltipPlacement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
 	tooltipHeight: PropTypes.number,
