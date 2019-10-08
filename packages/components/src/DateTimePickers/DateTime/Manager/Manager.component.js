@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { DateTimeContext } from '../Context';
-import { dateAndTimeToDateTime, extractParts, dateAndTimeToStr } from '../datetime-extraction';
+import {
+	extractParts,
+	updateDatetimeOnDateChange,
+	updateDatetimeOnTimeChange,
+} from '../datetime-extraction';
 
 function ContextualManager(props) {
 	function getDateOptions() {
@@ -33,33 +37,19 @@ function ContextualManager(props) {
 			props.onChange(event, { datetime, textInput, errors, errorMessage });
 		}
 	}
-	function onDateChange(event, { date, textInput: dateTextInput, errors = [] }) {
-		let newState;
-		if (errors.length > 0) {
-			newState = { datetime: null, errors, errorMessage: errors[0] ? errors[0].message : null };
-		} else {
-			newState = dateAndTimeToDateTime(date, state.time, getDateOptions());
-		}
+	function onDateChange(event, payload) {
+		const newState = updateDatetimeOnDateChange(payload, state.time, getDateOptions());
 		const nextState = {
 			...state,
-			date: date || dateTextInput,
-			textInput: dateAndTimeToStr(date || dateTextInput, state.time, getDateOptions()),
 			...newState,
 		};
 		setState(nextState);
 		onChange(event, nextState);
 	}
-	function onTimeChange(event, { time, textInput: timeTextInput, errors = [] }) {
-		let newState;
-		if (errors.length > 0) {
-			newState = { datetime: null, errors, errorMessage: errors[0] ? errors[0].message : null };
-		} else {
-			newState = dateAndTimeToDateTime(state.date, time, getDateOptions());
-		}
+	function onTimeChange(event, payload) {
+		const newState = updateDatetimeOnTimeChange(payload, state.date, getDateOptions());
 		const nextState = {
 			...state,
-			time: time || timeTextInput,
-			textInput: dateAndTimeToStr(state.date, time || timeTextInput, getDateOptions()),
 			...newState,
 		};
 		setState(nextState);

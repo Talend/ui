@@ -344,7 +344,7 @@ describe('DateTime.Manager', () => {
 				expect(args[1].errors).toEqual([
 					{ code: 'INVALID_DATE_FORMAT', message: 'Date format is invalid' },
 				]);
-				expect(args[1].datetime).toBe(null);
+				expect(isNaN(args[1].datetime.getTime())).toBe(true);
 			});
 
 			it('should trigger props.onChange when time change', () => {
@@ -427,7 +427,7 @@ describe('DateTime.Manager', () => {
 				expect(onChange).toHaveBeenCalledTimes(2);
 				const args = onChange.mock.calls[1];
 				expect(args[0]).toBe(timeEvent);
-				expect(args[1].datetime).toBe(null);
+				expect(isNaN(args[1].datetime.getTime())).toBe(true);
 				expect(args[1].textInput).toBe('2015-01-15 12dfd:45');
 				expect(args[1].errors).toEqual([
 					{ code: 'TIME_FORMAT_INVALID', message: 'Time is invalid' },

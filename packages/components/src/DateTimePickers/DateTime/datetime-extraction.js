@@ -1,7 +1,7 @@
 import format from 'date-fns/format';
 import setSeconds from 'date-fns/set_seconds';
 import getErrorMessage from '../shared/error-messages';
-import { checkTime, pad, timeToStr } from '../Time/time-extraction';
+import { checkTime, pad, timeToStr, strToTime } from '../Time/time-extraction';
 
 const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
 
@@ -91,39 +91,22 @@ function timeToSeconds(hours, minutes, seconds) {
  * @param useUTC {boolean} Indicates that we ask for a date in UTC TZ
  * @returns {Date}
  */
-function dateAndTimeToDateTime(date, time, { useUTC }) {
-	if (date === undefined) {
-		const error = new DateTimePickerException('INVALID_DATE_EMPTY', 'INVALID_DATE_EMPTY');
-		return {
-			datetime: INTERNAL_INVALID_DATE,
-			errors: [error],
-			errorMessage: error.message,
-		};
-	}
-	if (time === undefined) {
-		const error = new DateTimePickerException('INVALID_TIME_EMPTY', 'INVALID_TIME_EMPTY');
-		return {
-			datetime: INTERNAL_INVALID_DATE,
-			errors: [error],
-			errorMessage: error.message,
-		};
+function dateAndTimeToDateTime(date, time, { useUTC, useSeconds }) {
+	if (date === undefined || time === undefined) {
+		return INTERNAL_INVALID_DATE;
 	}
 
 	try {
+		if (typeof time === 'string') {
+			// eslint-disable-next-line no-param-reassign
+			time = strToTime(time, useSeconds);
+		}
 		const { hours, minutes, seconds } = time;
 		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
 		const localTimezoneDate = setSeconds(date, timeInSeconds);
-		return {
-			datetime: useUTC ? convertToUTC(localTimezoneDate) : localTimezoneDate,
-			errors: [],
-			errorMessage: null,
-		};
+		return useUTC ? convertToUTC(localTimezoneDate) : localTimezoneDate;
 	} catch (e) {
-		return {
-			datetime: INTERNAL_INVALID_DATE,
-			errors: [e],
-			errorMessage: e.message,
-		};
+		return INTERNAL_INVALID_DATE;
 	}
 }
 
@@ -149,6 +132,7 @@ function extractPartsFromDateTime(datetime, options) {
 		return {
 			date: undefined,
 			time: undefined,
+			datetime: undefined,
 		};
 	}
 	return {
@@ -199,7 +183,7 @@ function extractPartsFromTextInput(textInput, options) {
 	return {
 		date,
 		time,
-		datetime: dateAndTimeToDateTime(date, time, options).datetime,
+		datetime: dateAndTimeToDateTime(date, time, options),
 		errors,
 		errorMessage: errors[0] ? errors[0].message : null,
 	};
@@ -235,10 +219,60 @@ function extractParts(value, options) {
 	};
 }
 
+function updateDatetimeOnDateChange(payload, time, options) {
+	let datetime;
+	const { errors = [], date, textInput: dateTextInput } = payload;
+	const nextErrors = errors;
+	if (errors.length > 0) {
+		datetime = INTERNAL_INVALID_DATE;
+	} else if (time === undefined || time === null) {
+		datetime = INTERNAL_INVALID_DATE;
+		nextErrors.push(new DateTimePickerException('INVALID_TIME_EMPTY', 'INVALID_TIME_EMPTY'));
+	} else if (date === undefined || date === null) {
+		datetime = INTERNAL_INVALID_DATE;
+		nextErrors.push(new DateTimePickerException('INVALID_DATE_EMPTY', 'INVALID_DATE_EMPTY'));
+	} else {
+		datetime = dateAndTimeToDateTime(date, time, options);
+	}
+
+	return {
+		date: date || dateTextInput,
+		datetime,
+		textInput: dateAndTimeToStr(date || dateTextInput, time, options),
+		errors,
+		errorMessage: nextErrors[0] ? nextErrors[0].message : null,
+	};
+}
+
+function updateDatetimeOnTimeChange(payload, date, options) {
+	let datetime;
+	const { errors = [], time, textInput: timeTextInput } = payload;
+	const nextErrors = errors;
+	if (errors.length > 0) {
+		datetime = INTERNAL_INVALID_DATE;
+	} else if (time === undefined || time === null) {
+		datetime = INTERNAL_INVALID_DATE;
+		nextErrors.push(new DateTimePickerException('INVALID_TIME_EMPTY', 'INVALID_TIME_EMPTY'));
+	} else if (date === undefined || date === null) {
+		datetime = INTERNAL_INVALID_DATE;
+		nextErrors.push(new DateTimePickerException('INVALID_DATE_EMPTY', 'INVALID_DATE_EMPTY'));
+	} else {
+		datetime = dateAndTimeToDateTime(date, time, options);
+	}
+
+	return {
+		time: time || timeTextInput,
+		datetime,
+		textInput: dateAndTimeToStr(date, time || timeTextInput, options),
+		errors,
+		errorMessage: errors[0] ? errors[0].message : null,
+	};
+}
+
 export {
-	dateAndTimeToDateTime,
-	dateAndTimeToStr,
 	extractParts,
 	extractPartsFromDateTime,
 	extractPartsFromTextInput,
+	updateDatetimeOnDateChange,
+	updateDatetimeOnTimeChange,
 };
