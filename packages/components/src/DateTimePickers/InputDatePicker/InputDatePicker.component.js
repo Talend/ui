@@ -9,7 +9,6 @@ import FocusManager from '../../FocusManager';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 
 import Date from '../Date';
-import TimeZone from '../TimeZone';
 import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 
 import theme from './InputDatePicker.scss';
@@ -23,7 +22,6 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'onBlur',
 	'onChange',
 	'timezone',
-	'hideTimezone',
 ];
 
 export default function InputDatePicker(props) {
@@ -86,11 +84,9 @@ export default function InputDatePicker(props) {
 					{timePicker}
 				</FocusManager>
 			</Date.Manager>
-			{!props.hideTimezone && props.timezone && <TimeZone timezone={props.timezone} />}
 		</div>
 	);
 }
-
 InputDatePicker.displayName = 'InputDatePicker';
 
 InputDatePicker.propTypes = {
@@ -102,5 +98,4 @@ InputDatePicker.propTypes = {
 	textInput: PropTypes.string,
 	timezone: PropTypes.string,
 	useUTC: PropTypes.bool,
-	hideTimezone: PropTypes.bool,
 };

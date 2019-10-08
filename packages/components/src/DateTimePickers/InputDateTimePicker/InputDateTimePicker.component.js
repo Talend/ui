@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import InputDatePicker from '../InputDatePicker';
 import InputTimePicker from '../InputTimePicker';
-import TimeZone from '../TimeZone';
 
 import DateTime from '../DateTime';
 import { DateTimeContext } from '../DateTime/Context';
@@ -42,17 +41,14 @@ function InputDateTimePicker(props) {
 							useUTC={props.useUTC}
 							timezone={props.timezone}
 							value={date}
-							hideTimezone
 						/>
 						<InputTimePicker
 							id={`${props.id}-time-picker`}
 							onChange={onTimeChange}
 							useSeconds={props.useSeconds}
 							value={time}
+							timezone={props.timezone}
 						/>
-						{props.timezone && (
-							<TimeZone timezone={props.timezone} />
-						)}
 					</div>
 				)}
 			</DateTimeContext.Consumer>

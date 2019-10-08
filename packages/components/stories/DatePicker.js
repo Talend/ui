@@ -333,10 +333,7 @@ storiesOf('DatePicker', module)
 				<div style={{ width: '16rem' }}>
 					<p>with timezone info</p>
 					<form>
-						<InputTimePicker
-							onChange={action('onChange')}
-							value="12:00"
-						/>
+						<InputTimePicker onChange={action('onChange')} value="12:00" timezone="Europe/Berlin" />
 					</form>
 				</div>
 			</div>

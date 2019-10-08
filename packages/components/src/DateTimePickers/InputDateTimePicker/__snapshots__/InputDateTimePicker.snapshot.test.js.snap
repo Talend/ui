@@ -21,7 +21,6 @@ exports[`InputDateTimePicker should render 1`] = `
     >
       <InputDatePicker
         dateFormat="YYYY-MM-DD"
-        hideTimezone={true}
         id="my-picker-date-picker"
         onChange={[Function]}
         useUTC={false}
@@ -184,24 +183,22 @@ exports[`InputDateTimePicker should render 1`] = `
           }
         >
           <FocusManager
+            className="theme-input-container"
             divRef={
               Object {
                 "current": <div
+                  class="theme-input-container"
                   tabindex="-1"
                 >
-                  <div
-                    class="theme-time-picker-input"
-                  >
-                    <input
-                      autocomplete="off"
-                      class="form-control"
-                      id="my-picker-time-picker-input"
-                      placeholder="HH:mm:ss"
-                      style="width: 47px;"
-                      type="text"
-                      value="15:27:00"
-                    />
-                  </div>
+                  <input
+                    autocomplete="off"
+                    class="form-control theme-time-picker-input"
+                    id="my-picker-time-picker-input"
+                    placeholder="HH:mm:ss"
+                    style="width: 47px;"
+                    type="text"
+                    value="15:27:00"
+                  />
                   <span
                     style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
                   >
@@ -216,6 +213,7 @@ exports[`InputDateTimePicker should render 1`] = `
             onKeyDown={[Function]}
           >
             <div
+              className="theme-input-container"
               onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
@@ -228,7 +226,7 @@ exports[`InputDateTimePicker should render 1`] = `
                   Object {
                     "current": <input
                       autocomplete="off"
-                      class="form-control"
+                      class="form-control theme-time-picker-input"
                       id="my-picker-time-picker-input"
                       placeholder="HH:mm:ss"
                       style="width: 47px;"
@@ -243,32 +241,45 @@ exports[`InputDateTimePicker should render 1`] = `
                   inputText="15:27:00"
                   placeholder="HH:mm:ss"
                 >
-                  <div
-                    className="theme-time-picker-input"
-                  >
-                    <DebounceInput
-                      autoComplete="off"
-                      className="form-control"
-                      debounceTimeout={300}
-                      element="input"
-                      forceNotifyByEnter={true}
-                      forceNotifyOnBlur={true}
-                      id="my-picker-time-picker-input"
-                      inputRef={
-                        Object {
-                          "current": <input
-                            autocomplete="off"
-                            class="form-control"
-                            id="my-picker-time-picker-input"
-                            placeholder="HH:mm:ss"
-                            style="width: 47px;"
-                            type="text"
-                            value="15:27:00"
-                          />,
-                        }
+                  <DebounceInput
+                    autoComplete="off"
+                    className="form-control theme-time-picker-input"
+                    debounceTimeout={300}
+                    element="input"
+                    forceNotifyByEnter={true}
+                    forceNotifyOnBlur={true}
+                    id="my-picker-time-picker-input"
+                    inputRef={
+                      Object {
+                        "current": <input
+                          autocomplete="off"
+                          class="form-control theme-time-picker-input"
+                          id="my-picker-time-picker-input"
+                          placeholder="HH:mm:ss"
+                          style="width: 47px;"
+                          type="text"
+                          value="15:27:00"
+                        />,
                       }
-                      minLength={0}
+                    }
+                    minLength={0}
+                    onChange={[Function]}
+                    placeholder="HH:mm:ss"
+                    style={
+                      Object {
+                        "width": 47,
+                      }
+                    }
+                    type="text"
+                    value="15:27:00"
+                  >
+                    <input
+                      autoComplete="off"
+                      className="form-control theme-time-picker-input"
+                      id="my-picker-time-picker-input"
+                      onBlur={[Function]}
                       onChange={[Function]}
+                      onKeyDown={[Function]}
                       placeholder="HH:mm:ss"
                       style={
                         Object {
@@ -277,25 +288,8 @@ exports[`InputDateTimePicker should render 1`] = `
                       }
                       type="text"
                       value="15:27:00"
-                    >
-                      <input
-                        autoComplete="off"
-                        className="form-control"
-                        id="my-picker-time-picker-input"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        onKeyDown={[Function]}
-                        placeholder="HH:mm:ss"
-                        style={
-                          Object {
-                            "width": 47,
-                          }
-                        }
-                        type="text"
-                        value="15:27:00"
-                      />
-                    </DebounceInput>
-                  </div>
+                    />
+                  </DebounceInput>
                   <span
                     style={
                       Object {
