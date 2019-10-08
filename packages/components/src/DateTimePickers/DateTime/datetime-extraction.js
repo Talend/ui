@@ -225,12 +225,12 @@ function updateDatetimeOnDateChange(payload, time, options) {
 	const nextErrors = errors;
 	if (errors.length > 0) {
 		datetime = INTERNAL_INVALID_DATE;
-	} else if (time === undefined || time === null) {
-		datetime = INTERNAL_INVALID_DATE;
-		nextErrors.push(new DateTimePickerException('INVALID_TIME_EMPTY', 'INVALID_TIME_EMPTY'));
-	} else if (date === undefined || date === null) {
+	} else if (date === undefined || date === null || date === '') {
 		datetime = INTERNAL_INVALID_DATE;
 		nextErrors.push(new DateTimePickerException('INVALID_DATE_EMPTY', 'INVALID_DATE_EMPTY'));
+	} else if (time === undefined || time === null || time === '') {
+		datetime = INTERNAL_INVALID_DATE;
+		nextErrors.push(new DateTimePickerException('INVALID_TIME_EMPTY', 'INVALID_TIME_EMPTY'));
 	} else {
 		datetime = dateAndTimeToDateTime(date, time, options);
 	}
@@ -250,12 +250,12 @@ function updateDatetimeOnTimeChange(payload, date, options) {
 	const nextErrors = errors;
 	if (errors.length > 0) {
 		datetime = INTERNAL_INVALID_DATE;
-	} else if (time === undefined || time === null) {
-		datetime = INTERNAL_INVALID_DATE;
-		nextErrors.push(new DateTimePickerException('INVALID_TIME_EMPTY', 'INVALID_TIME_EMPTY'));
-	} else if (date === undefined || date === null) {
+	} else if (date === undefined || date === null || date === '') {
 		datetime = INTERNAL_INVALID_DATE;
 		nextErrors.push(new DateTimePickerException('INVALID_DATE_EMPTY', 'INVALID_DATE_EMPTY'));
+	} else if (time === undefined || time === null || time === '') {
+		datetime = INTERNAL_INVALID_DATE;
+		nextErrors.push(new DateTimePickerException('INVALID_TIME_EMPTY', 'INVALID_TIME_EMPTY'));
 	} else {
 		datetime = dateAndTimeToDateTime(date, time, options);
 	}
