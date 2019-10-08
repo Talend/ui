@@ -31,8 +31,7 @@ function extractTimeOnly(date, { useSeconds, useUTC, timezone }) {
 		hours = date.getUTCHours();
 		minutes = date.getUTCMinutes();
 		seconds = date.getUTCSeconds();
-	}
-	if (timezone) {
+	} else if (timezone) {
 		const converted = convertToTimeZone(date, { timeZone: timezone });
 		hours = converted.getHours();
 		minutes = converted.getMinutes();
