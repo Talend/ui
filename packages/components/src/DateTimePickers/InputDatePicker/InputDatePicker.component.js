@@ -9,6 +9,7 @@ import FocusManager from '../../FocusManager';
 import { focusOnCalendar } from '../../Gesture/withCalendarGesture';
 
 import Date from '../Date';
+import TimeZone from '../TimeZone';
 import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 
 import theme from './InputDatePicker.scss';
@@ -22,6 +23,7 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'onBlur',
 	'onChange',
 	'timezone',
+	'hideTimezone',
 ];
 
 export default function InputDatePicker(props) {
@@ -61,30 +63,30 @@ export default function InputDatePicker(props) {
 				)}
 			</Popper>
 		),
+		!props.hideTimezone && props.timezone && <TimeZone timezone={props.timezone} />,
 	].filter(Boolean);
 	return (
-		<div className={classNames(theme['date-picker'], 'date-picker')}>
-			<Date.Manager
-				value={props.value}
-				textInput={props.textInput}
-				dateFormat={props.dateFormat}
-				onChange={(...args) => handlers.onChange(...args, inputRef.current)}
-				useUTC={props.useUTC}
-				timezone={props.timezone}
+		<Date.Manager
+			value={props.value}
+			textInput={props.textInput}
+			dateFormat={props.dateFormat}
+			onChange={(...args) => handlers.onChange(...args, inputRef.current)}
+			useUTC={props.useUTC}
+			timezone={props.timezone}
+		>
+			<FocusManager
+				className={theme['date-picker']}
+				divRef={containerRef}
+				onClick={handlers.onClick}
+				onFocusIn={handlers.onFocus}
+				onFocusOut={handlers.onBlur}
+				onKeyDown={event => {
+					handlers.onKeyDown(event, inputRef.current);
+				}}
 			>
-				<FocusManager
-					divRef={containerRef}
-					onClick={handlers.onClick}
-					onFocusIn={handlers.onFocus}
-					onFocusOut={handlers.onBlur}
-					onKeyDown={event => {
-						handlers.onKeyDown(event, inputRef.current);
-					}}
-				>
-					{timePicker}
-				</FocusManager>
-			</Date.Manager>
-		</div>
+				{timePicker}
+			</FocusManager>
+		</Date.Manager>
 	);
 }
 InputDatePicker.displayName = 'InputDatePicker';
@@ -97,5 +99,6 @@ InputDatePicker.propTypes = {
 	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	textInput: PropTypes.string,
 	timezone: PropTypes.string,
+	hideTimezone: PropTypes.bool,
 	useUTC: PropTypes.bool,
 };
