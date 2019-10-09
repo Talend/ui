@@ -140,7 +140,6 @@ export class FilterBarComponent extends React.Component {
 			this.props.onClear(event);
 		}
 		// reselecting after blur
-		this.textInput.current.querySelector('input').focus();
 	}
 
 	onFilter(event) {
