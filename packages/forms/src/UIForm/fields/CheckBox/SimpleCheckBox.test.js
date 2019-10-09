@@ -107,7 +107,7 @@ describe('SimpleCheckBox field', () => {
 	describe('data-feature', () => {
 		const dataFeature = 'my.custom.feature';
 
-		it('should render checkbox with specific data-feature while starting to be unchecked', () => {
+		it('should render checkbox with check data-feature when checkbox is unchecked', () => {
 			const wrapper = shallow(
 				<SimpleCheckBox
 					describedby={'myForm-description myForm-error'}
@@ -124,7 +124,7 @@ describe('SimpleCheckBox field', () => {
 			expect(wrapper.find(`label[data-feature="${dataFeature}.check"]`).exists()).toBeTruthy();
 		});
 
-		it('should render checkbox with specific data-feature while starting to be checked', () => {
+		it('should render checkbox with uncheck data-feature when checkbox is checked', () => {
 			const wrapper = shallow(
 				<SimpleCheckBox
 					describedby={'myForm-description myForm-error'}
@@ -139,6 +139,7 @@ describe('SimpleCheckBox field', () => {
 					value
 				/>,
 			);
+			expect(wrapper.find(`label[data-feature="${dataFeature}.uncheck"]`).exists()).toBeTruthy();
 		});
 	});
 });
