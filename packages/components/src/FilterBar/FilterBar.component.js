@@ -217,7 +217,7 @@ export class FilterBarComponent extends React.Component {
 							label={t('LIST_FILTER_REMOVE', { defaultValue: 'Remove filter' })}
 							hideLabel
 							tooltipPlacement={this.props.tooltipPlacement}
-							onClick={this.onClear}
+							onMouseDown={this.onClear}
 						/>
 					) : null}
 				</div>
