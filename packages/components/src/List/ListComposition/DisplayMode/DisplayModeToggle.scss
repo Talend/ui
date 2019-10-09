@@ -3,7 +3,7 @@ $tc-display-button-icon-height: 2.4rem;
 .tc-display-mode-toggle {
 	display: flex;
 
-	> button {
+	:global(.tc-icon-toggle) {
 		margin-right: $padding-normal;
 		&:last-child {
 			margin-right: 0;
