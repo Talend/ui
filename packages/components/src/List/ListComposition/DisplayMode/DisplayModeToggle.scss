@@ -4,9 +4,9 @@ $tc-display-button-icon-height: 2.4rem;
 	display: flex;
 
 	:global(.tc-icon-toggle) {
-		margin-right: $padding-normal;
-		&:last-child {
-			margin-right: 0;
+		margin-left: $padding-normal;
+		&:first-child {
+			margin-left: 0;
 		}
 	}
 
