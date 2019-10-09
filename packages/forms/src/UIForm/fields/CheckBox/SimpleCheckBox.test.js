@@ -122,15 +122,6 @@ describe('SimpleCheckBox field', () => {
 				/>,
 			);
 			expect(wrapper.find(`label[data-feature="${dataFeature}.check"]`).exists()).toBeTruthy();
-
-			// when
-			wrapper
-				.find('input')
-				.at(0)
-				.simulate('change', { target: { checked: true } });
-
-			// then
-			expect(wrapper.find(`label[data-feature="${dataFeature}.uncheck"]`).exists()).toBeTruthy();
 		});
 
 		it('should render checkbox with specific data-feature while starting to be checked', () => {
@@ -148,16 +139,6 @@ describe('SimpleCheckBox field', () => {
 					value
 				/>,
 			);
-			expect(wrapper.find(`label[data-feature="${dataFeature}.uncheck"]`).exists()).toBeTruthy();
-
-			// when
-			wrapper
-				.find('input')
-				.at(0)
-				.simulate('change', { target: { checked: false } });
-
-			// then
-			expect(wrapper.find(`label[data-feature="${dataFeature}.check"]`).exists()).toBeTruthy();
 		});
 	});
 });
