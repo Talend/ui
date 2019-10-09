@@ -48,17 +48,16 @@ export default function DateTimeWidget(props) {
 			valueIsUpdating={valueIsUpdating}
 		>
 			<InputDateTimePicker
-				autoFocus={schema.autoFocus}
-				dateFormat={options.dateFormat}
-				disabled={schema.disabled || valueIsUpdating}
 				id={id}
-				onChange={onChange}
-				onBlur={onBlur}
-				placeholder={schema.placeholder}
+				autoFocus={schema.autoFocus}
+				disabled={schema.disabled || valueIsUpdating}
 				readOnly={schema.readOnly}
-				value={convertedValue}
+				onBlur={onBlur}
+				onChange={onChange}
+				dateFormat={options.dateFormat}
 				useSeconds={options.useSeconds}
 				useUTC={options.useUTC}
+				value={convertedValue}
 				// eslint-disable-next-line jsx-a11y/aria-proptypes
 				aria-invalid={!isValid}
 				aria-required={schema.required}
@@ -80,6 +79,8 @@ if (process.env.NODE_ENV !== 'production') {
 		onFinish: PropTypes.func.isRequired,
 		options: PropTypes.shape({
 			dateFormat: PropTypes.string,
+			useSeconds: PropTypes.bool,
+			useUTC: PropTypes.bool,
 		}),
 		schema: PropTypes.shape({
 			autoFocus: PropTypes.bool,
@@ -94,7 +95,6 @@ if (process.env.NODE_ENV !== 'production') {
 				type: PropTypes.string,
 			}),
 		}),
-		useSeconds: PropTypes.bool,
 		value: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.instanceOf(Date)]),
 		valueIsUpdating: PropTypes.bool,
 	};

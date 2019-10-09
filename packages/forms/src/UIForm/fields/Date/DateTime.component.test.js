@@ -13,7 +13,7 @@ describe('DateTime widget', () => {
 		type: 'text',
 		schema: { type: 'string' },
 	};
-	it('should render a InputDateTimePicker', () => {
+	it('should render an InputDateTimePicker', () => {
 		// when
 		const wrapper = shallow(
 			<DateTimeWidget
