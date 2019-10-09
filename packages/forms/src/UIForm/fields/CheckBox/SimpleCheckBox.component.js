@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-for */
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 
 export default function SimpleCheckBox({
