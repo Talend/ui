@@ -136,6 +136,8 @@ export class FilterBarComponent extends React.Component {
 	}
 
 	onClear(event) {
+		event.preventDefault();
+
 		if (this.props.onClear) {
 			this.props.onClear(event);
 		}
