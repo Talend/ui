@@ -24,6 +24,12 @@
       "dateTimeUTC": {
         "type": "string",
         "format": "iso-datetime"
+      },
+      "time": {
+        "type": "string"
+      },
+      "timeWithSeconds": {
+        "type": "string"
       }
     },
     "required": ["dateAsString"]
@@ -67,6 +73,19 @@
       "options": {
         "useSeconds": true,
         "useUTC": true
+      }
+    },
+    {
+      "key": "time",
+      "title": "Time",
+      "widget": "time"
+    },
+    {
+      "key": "timeWithSeconds",
+      "title": "Time with seconds",
+      "widget": "time",
+      "options": {
+        "useSeconds": true
       }
     }
   ],
