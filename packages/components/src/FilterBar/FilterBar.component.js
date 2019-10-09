@@ -141,7 +141,6 @@ export class FilterBarComponent extends React.Component {
 		if (this.props.onClear) {
 			this.props.onClear(event);
 		}
-		// reselecting after blur
 	}
 
 	onFilter(event) {
