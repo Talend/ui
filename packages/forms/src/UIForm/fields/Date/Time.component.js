@@ -20,10 +20,10 @@ function TimeWidget(props) {
 		setState({ errorMessage: nextErrorMessage });
 		const payload = {
 			schema,
-			value: textInput,
+			value: nextErrorMessage ? null : textInput,
 		};
 		props.onChange(event, payload);
-		if (!payload.errorMessage && time) {
+		if (!nextErrorMessage && time) {
 			onFinish(event, payload);
 		}
 	}

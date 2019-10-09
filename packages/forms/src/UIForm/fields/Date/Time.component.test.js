@@ -77,6 +77,32 @@ describe('Time component', () => {
 			// then
 			expect(onChange).toBeCalledWith(event, { schema, value: '12:34' });
 		});
+		it('should call onChange with null value when there is error', () => {
+			// given
+			const onChange = jest.fn();
+			const wrapper = shallow(
+				<TimeWidget
+					id={'myForm'}
+					isValid={false}
+					errorMessage={'My error message'}
+					onChange={onChange}
+					onFinish={jest.fn()}
+					schema={schema}
+				/>,
+			);
+			expect(onChange).not.toBeCalled();
+			const event = { target: {} };
+			const payload = {
+				textInput: 'ddd',
+				errorMessage: 'Time is invalid',
+			};
+
+			// when
+			wrapper.find('InputTimePicker').simulate('change', event, payload);
+
+			// then
+			expect(onChange).toBeCalledWith(event, { schema, value: null });
+		});
 		it('should not throw any error message', () => {
 			// given
 			const onChange = jest.fn();

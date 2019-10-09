@@ -22,9 +22,6 @@ function ContextualManager(props) {
 	const [state, setState] = useState(initialState);
 
 	useEffect(() => {
-		console.log('-------------------useEffect--------------------------')
-		console.log(props.value);
-		console.log(state.datetime);
 		if (props.value !== state.datetime) {
 			const nextState = extractParts(props.value, getDateOptions());
 			setState(nextState);
