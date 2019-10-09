@@ -90,8 +90,11 @@ $tc-drawer-z-index: $drawer-z-index !default;
 		display: flex;
 		align-items: center;
 
-		h1 {
+		> *:first-child {
 			flex: 1;
+		}
+
+		h1 {
 			font-size: $font-size-large;
 			margin: 0;
 			color: white;
@@ -100,10 +103,6 @@ $tc-drawer-z-index: $drawer-z-index !default;
 			width: 90%;
 			white-space: nowrap;
 			overflow: hidden;
-		}
-
-		:global(.tc-editable-text) {
-			flex: 1;
 		}
 
 		.drawer-close-action-tooltip {
