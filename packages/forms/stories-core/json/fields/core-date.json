@@ -32,7 +32,7 @@
         "type": "string"
       }
     },
-    "required": ["dateAsString"]
+    "required": ["dateAsString", "time"]
   },
   "uiSchema": [
     {
