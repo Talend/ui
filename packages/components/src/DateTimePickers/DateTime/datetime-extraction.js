@@ -12,6 +12,10 @@ export function DateTimePickerException(code, message) {
 	this.code = code;
 }
 
+function isEmpty(value) {
+	return value === undefined || value === null || value === '';
+}
+
 /**
  * Extract date and apply the current timezone, from datetime
  * Ex :
@@ -90,24 +94,23 @@ function timeToSeconds(hours, minutes, seconds) {
  * @param time {{hours: string, minutes: string, seconds: string}} Time in current TZ
  * @param useUTC {boolean} Indicates that we ask for a date in UTC TZ
  * @returns {Date}
+ * @throws DateTimePickerException
  */
 function dateAndTimeToDateTime(date, time, { useUTC, useSeconds }) {
-	if (date === undefined || time === undefined) {
-		return INTERNAL_INVALID_DATE;
+	if (isEmpty(date)) {
+		throw new DateTimePickerException('INVALID_DATE_EMPTY', 'INVALID_DATE_EMPTY');
 	}
-
-	try {
-		if (typeof time === 'string') {
-			// eslint-disable-next-line no-param-reassign
-			time = strToTime(time, useSeconds);
-		}
-		const { hours, minutes, seconds } = time;
-		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
-		const localTimezoneDate = setSeconds(date, timeInSeconds);
-		return useUTC ? convertToUTC(localTimezoneDate) : localTimezoneDate;
-	} catch (e) {
-		return INTERNAL_INVALID_DATE;
+	if (isEmpty(time)) {
+		throw new DateTimePickerException('INVALID_TIME_EMPTY', 'INVALID_TIME_EMPTY');
 	}
+	if (typeof time === 'string') {
+		// eslint-disable-next-line no-param-reassign
+		time = strToTime(time, useSeconds);
+	}
+	const { hours, minutes, seconds } = time;
+	const timeInSeconds = timeToSeconds(hours, minutes, seconds);
+	const localTimezoneDate = setSeconds(date, timeInSeconds);
+	return useUTC ? convertToUTC(localTimezoneDate) : localTimezoneDate;
 }
 
 function dateAndTimeToStr(date = '', time = '', options) {
@@ -166,6 +169,7 @@ function extractPartsFromTextInput(textInput, options) {
 
 	let date;
 	let time;
+	let datetime;
 	let errors = [];
 
 	try {
@@ -175,6 +179,7 @@ function extractPartsFromTextInput(textInput, options) {
 		} else {
 			date = splitMatches[1];
 			time = splitMatches[2];
+			datetime = dateAndTimeToDateTime(date, time, options);
 		}
 	} catch (error) {
 		errors = [error];
@@ -183,7 +188,7 @@ function extractPartsFromTextInput(textInput, options) {
 	return {
 		date,
 		time,
-		datetime: dateAndTimeToDateTime(date, time, options),
+		datetime,
 		errors,
 		errorMessage: errors[0] ? errors[0].message : null,
 	};
@@ -218,21 +223,26 @@ function extractParts(value, options) {
 		errors: [],
 	};
 }
-
-function updateDatetimeOnDateChange(payload, time, options) {
+/**
+ * re-compute state (date/datetime/textInput) on date change.
+ * @param datePickerPayload {Object} payload passed by date picker
+ * @param time {string | {hours: string, minutes: string, seconds: string}}
+ * 	time stored in DateTimeManager state
+ * @param options {Object}
+ */
+function updateDatetimeOnDateChange(datePickerPayload, time, options) {
 	let datetime;
-	const { errors = [], date, textInput: dateTextInput } = payload;
+	const { errors = [], date, textInput: dateTextInput } = datePickerPayload;
 	const nextErrors = errors;
 	if (errors.length > 0) {
 		datetime = INTERNAL_INVALID_DATE;
-	} else if (date === undefined || date === null || date === '') {
-		datetime = INTERNAL_INVALID_DATE;
-		nextErrors.push(new DateTimePickerException('INVALID_DATE_EMPTY', 'INVALID_DATE_EMPTY'));
-	} else if (time === undefined || time === null || time === '') {
-		datetime = INTERNAL_INVALID_DATE;
-		nextErrors.push(new DateTimePickerException('INVALID_TIME_EMPTY', 'INVALID_TIME_EMPTY'));
 	} else {
-		datetime = dateAndTimeToDateTime(date, time, options);
+		try {
+			datetime = dateAndTimeToDateTime(date, time, options);
+		} catch (error) {
+			datetime = INTERNAL_INVALID_DATE;
+			nextErrors.push(error);
+		}
 	}
 
 	return {
@@ -250,14 +260,13 @@ function updateDatetimeOnTimeChange(payload, date, options) {
 	const nextErrors = errors;
 	if (errors.length > 0) {
 		datetime = INTERNAL_INVALID_DATE;
-	} else if (date === undefined || date === null || date === '') {
-		datetime = INTERNAL_INVALID_DATE;
-		nextErrors.push(new DateTimePickerException('INVALID_DATE_EMPTY', 'INVALID_DATE_EMPTY'));
-	} else if (time === undefined || time === null || time === '') {
-		datetime = INTERNAL_INVALID_DATE;
-		nextErrors.push(new DateTimePickerException('INVALID_TIME_EMPTY', 'INVALID_TIME_EMPTY'));
 	} else {
-		datetime = dateAndTimeToDateTime(date, time, options);
+		try {
+			datetime = dateAndTimeToDateTime(date, time, options);
+		} catch (error) {
+			datetime = INTERNAL_INVALID_DATE;
+			nextErrors.push(error);
+		}
 	}
 
 	return {
@@ -265,7 +274,7 @@ function updateDatetimeOnTimeChange(payload, date, options) {
 		datetime,
 		textInput: dateAndTimeToStr(date, time || timeTextInput, options),
 		errors,
-		errorMessage: errors[0] ? errors[0].message : null,
+		errorMessage: nextErrors[0] ? nextErrors[0].message : null,
 	};
 }
 
