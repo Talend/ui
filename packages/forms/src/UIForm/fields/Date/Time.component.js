@@ -16,11 +16,15 @@ function TimeWidget(props) {
 		onFinish(event, { schema });
 	}
 
-	function onChange(event, payload) {
-		setState({ errorMessage: payload.errorMessage });
-		props.onChange(event, { value: payload.textInput, schema });
-		if (!payload.errorMessage) {
-			onFinish(event, { schema, value: payload.textInput });
+	function onChange(event, { errorMessage: nextErrorMessage, textInput, time }) {
+		setState({ errorMessage: nextErrorMessage });
+		const payload = {
+			schema,
+			value: textInput,
+		};
+		props.onChange(event, payload);
+		if (!payload.errorMessage && time) {
+			onFinish(event, payload);
 		}
 	}
 
