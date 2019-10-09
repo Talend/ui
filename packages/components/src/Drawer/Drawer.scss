@@ -87,8 +87,11 @@ $tc-drawer-z-index: $drawer-z-index !default;
 	&-title {
 		padding: $padding-normal;
 		position: relative;
+		display: flex;
+		align-items: center;
 
 		h1 {
+			flex: 1;
 			font-size: $font-size-large;
 			margin: 0;
 			color: white;
@@ -97,6 +100,10 @@ $tc-drawer-z-index: $drawer-z-index !default;
 			width: 90%;
 			white-space: nowrap;
 			overflow: hidden;
+		}
+
+		:global(.tc-editable-text) {
+			flex: 1;
 		}
 
 		.drawer-close-action-tooltip {
@@ -112,9 +119,6 @@ $tc-drawer-z-index: $drawer-z-index !default;
 
 	.tc-drawer-close-action {
 		color: white;
-		top: 7.5px;
-		right: 0;
-		position: absolute;
 	}
 }
 
