@@ -18,6 +18,7 @@ exports[`Toggle field in text mode should render the Toggle 1`] = `
         checked={true}
         className="switch checkbox"
         disabled={true}
+        intermediate={false}
         label="My Toggle"
       />
     </div>

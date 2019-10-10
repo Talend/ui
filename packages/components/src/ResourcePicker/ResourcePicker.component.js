@@ -32,12 +32,12 @@ export default function ResourcePicker({ collection, isSelected, onRowClick, too
 				})}
 			>
 				<VirtualizedList
-					inProgress={isLoading}
 					collection={collection}
-					type="resource"
-					rowRenderers={{ resource: Renderer }}
+					inProgress={isLoading}
 					onRowClick={onRowClick}
 					rowHeight={60}
+					rowRenderers={{ resource: Renderer }}
+					type="resource"
 				/>
 			</div>
 		</div>
@@ -49,9 +49,9 @@ ResourcePicker.defaultProps = {
 };
 
 ResourcePicker.propTypes = {
-	isSelected: PropTypes.func,
-	onRowClick: PropTypes.func,
 	collection: PropTypes.arrayOf(PropTypes.object),
 	isLoading: PropTypes.bool,
-	toolbar: Toolbar.propTypes,
+	isSelected: PropTypes.func,
+	onRowClick: PropTypes.func,
+	toolbar: PropTypes.shape(Toolbar.propTypes),
 };

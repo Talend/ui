@@ -81,6 +81,7 @@ export function mergeArrays(preReducer, newPreReducer) {
 const MERGE_FNS = {
 	id: () => undefined,
 	modules: () => undefined,
+	onError: getUnique,
 	appId: getUnique,
 	RootComponent: getUnique,
 	AppLoader: getUnique,

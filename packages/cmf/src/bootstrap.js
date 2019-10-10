@@ -11,6 +11,7 @@ import actions from './actions';
 import { assertTypeOf } from './assert';
 import component from './component';
 import expression from './expression';
+import onError from './onError';
 import storeAPI from './store';
 import registry from './registry';
 import sagas from './sagas';
@@ -57,7 +58,7 @@ export function bootstrapSaga(options) {
 	// https://chrome.google.com/webstore/detail/redux-saga-dev-tools/kclmpmjofefcpjlommdpokoccidafnbi
 	// eslint-disable-next-line no-underscore-dangle
 	const sagaMonitor = window.__SAGA_MONITOR_EXTENSION__;
-	const middleware = createSagaMiddleware({ sagaMonitor });
+	const middleware = createSagaMiddleware({ onError: onError.report, sagaMonitor });
 	return {
 		middleware,
 		run: () => middleware.run(cmfSaga),
@@ -107,6 +108,28 @@ function bootstrapInterceptors(options) {
 	}
 }
 
+function addOnErrorListener() {
+	window.addEventListener('error', event => {
+		const error = event.error;
+		if (!error) {
+			return;
+		}
+		// remove duplicate in dev mode
+		// SEE: https://github.com/facebook/react/issues/10474
+		if (process.env.NODE_ENV !== 'production') {
+			if (error.ALREADY_THROWN) {
+				return;
+			}
+			error.ALREADY_THROWN = true;
+		}
+		onError.report(error);
+	});
+}
+
+function DefaultRootComponent() {
+	return 'RootComponent is required';
+}
+
 /**
  * Bootstrap your cmf app
  * It takes your configuration and provides a very good default one.
@@ -117,6 +140,8 @@ function bootstrapInterceptors(options) {
  * @returns {object} app object with render function
  */
 export default function bootstrap(appOptions = {}) {
+	// setup asap
+	addOnErrorListener();
 	const options = cmfModule(appOptions);
 	assertTypeOf(options, 'appId', 'string');
 	assertTypeOf(options, 'RootComponent', 'function');
@@ -127,11 +152,11 @@ export default function bootstrap(appOptions = {}) {
 	const saga = bootstrapSaga(options);
 
 	const store = bootstrapRedux(options, saga.middleware);
-
+	onError.bootstrap(options, store);
 	saga.run();
-	const RootComponent = options.RootComponent;
+	const RootComponent = options.RootComponent || DefaultRootComponent;
 	render(
-		<App store={store} loading={options.AppLoader}>
+		<App store={store} loading={options.AppLoader} withSettings={!!options.settingsURL}>
 			<RootComponent />
 		</App>,
 		document.getElementById(appId),

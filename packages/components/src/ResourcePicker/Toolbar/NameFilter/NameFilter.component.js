@@ -2,10 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import DebounceInput from 'react-debounce-input';
+import { useTranslation } from 'react-i18next';
+
+import { Action } from '../../../Actions';
+import I18N_DOMAIN_COMPONENTS from '../../../constants';
 
 import theme from './NameFilter.scss';
 
 function NameFilter({ label, value, onChange }) {
+	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
+	const removeFilter = () => onChange({ target: { value: '' } });
 	return (
 		<form
 			className={classNames(
@@ -24,6 +30,15 @@ function NameFilter({ label, value, onChange }) {
 				onChange={onChange}
 				className="form-control"
 				autoComplete="off"
+				required
+			/>
+			<Action
+				className={theme.remove}
+				bsStyle="link"
+				icon="talend-cross"
+				label={t('LIST_FILTER_REMOVE', { defaultValue: 'Remove filter' })}
+				hideLabel
+				onClick={removeFilter}
 			/>
 		</form>
 	);

@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import ReactDOM from 'react-dom';
 import get from 'lodash/get';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import DebounceInput from 'react-debounce-input';
 import classNames from 'classnames';
+import { Popper } from 'react-popper';
+
 import Icon from '../Icon';
 import CircularProgress from '../CircularProgress';
 import Emphasis from '../Emphasis';
@@ -38,24 +41,27 @@ export function renderInputComponent(props) {
 			</ControlLabel>
 			{debounceMinLength || debounceTimeout ? (
 				<DebounceInput
-					id={key}
-					{...rest}
 					autoFocus
+					{...rest}
+					id={key}
 					disabled={disabled}
 					readOnly={readOnly}
 					debounceTimeout={debounceTimeout}
 					element={FormControl}
 					minLength={debounceMinLength}
-					ref={inputRef}
+					inputRef={node => {
+						// eslint-disable-next-line react/no-find-dom-node
+						inputRef.current = ReactDOM.findDOMNode(node);
+					}}
 				/>
 			) : (
 				<FormControl
-					id={key}
 					autoFocus
+					{...rest}
+					id={key}
 					disabled={disabled}
 					readOnly={readOnly}
 					inputRef={inputRef}
-					{...rest}
 				/>
 			)}
 			{hasIcon && (
@@ -67,6 +73,7 @@ export function renderInputComponent(props) {
 		</div>
 	);
 }
+
 renderInputComponent.propTypes = {
 	key: PropTypes.string,
 	debounceMinLength: PropTypes.number,
@@ -81,6 +88,30 @@ renderInputComponent.propTypes = {
 	readOnly: PropTypes.bool,
 };
 
+function computePopperPosition(data) {
+	const GAP = 15; // the offset between the end of items container and screen boundaries
+	const inputDimensions = data.offsets.reference;
+	const { top, height } = inputDimensions;
+	const offsetTop = top - GAP;
+	const offsetBottom = window.innerHeight - top - height - GAP;
+	const placements = data.placement.split('-');
+	let newPlacement = data.placement;
+	if (placements[0] === 'top' && offsetBottom > offsetTop) {
+		newPlacement = `bottom-${placements[1]}`;
+	}
+	const maxHeight = newPlacement.includes('top') ? offsetTop : offsetBottom;
+
+	return {
+		...data,
+		placement: newPlacement,
+		styles: {
+			...data.styles,
+			width: inputDimensions.width,
+			maxHeight,
+		},
+	};
+}
+
 export function renderItemsContainerFactory(
 	items,
 	noResultText,
@@ -88,12 +119,17 @@ export function renderItemsContainerFactory(
 	searchingText,
 	loading,
 	loadingText,
+	inputRef,
 	render = content => content,
 ) {
 	const isShown = items;
 	const noResult = items && !items.length;
 
 	function ItemsContainerComponent({ containerProps, children }) {
+		if (!isShown) {
+			return undefined;
+		}
+
 		const containerClassName = classNames(containerProps.className, theme['items-container'], {
 			[theme['container-open']]: searching || noResult,
 		});
@@ -121,25 +157,64 @@ export function renderItemsContainerFactory(
 		} else {
 			content = children;
 		}
+
 		return (
-			<div
-				className={containerClassName}
-				id={containerProps.id}
-				key={containerProps.key}
-				ref={containerProps.ref}
-				role={containerProps.role}
-			>
-				{render(
-					content,
-					{
-						isShown,
-						loading,
-						noResult,
-						searching,
+			<Popper
+				modifiers={{
+					hide: {
+						enabled: false,
 					},
-					containerProps.ref,
-				)}
-			</div>
+					preventOverflow: {
+						enabled: false,
+					},
+					shift: {
+						enabled: false,
+					},
+					computePosition: {
+						enabled: true,
+						fn: computePopperPosition,
+					},
+				}}
+				positionFixed
+				boundariesElement="viewport"
+				referenceElement={inputRef.current}
+				placement="bottom-start"
+			>
+				{({ placement = '', ref, scheduleUpdate, style }) => {
+					if (placement.includes('top')) {
+						// @see https://github.com/FezVrasta/react-popper/issues/283#issuecomment-512879262
+						scheduleUpdate();
+					}
+
+					return (
+						<div
+							className={containerClassName}
+							id={containerProps.id}
+							key={containerProps.key}
+							ref={ref}
+							role={containerProps.role}
+							style={style}
+						>
+							<div
+								ref={containerProps.ref}
+								className={theme['items-body']}
+								style={{ maxHeight: style.maxHeight }}
+							>
+								{render(
+									content,
+									{
+										isShown,
+										loading,
+										noResult,
+										searching,
+									},
+									containerProps.ref,
+								)}
+							</div>
+						</div>
+					);
+				}}
+			</Popper>
 		);
 	}
 
@@ -176,7 +251,6 @@ export function renderItem(item, { value, ...rest }) {
 		title = (item.title || item.name || '').trim();
 		description = item.description;
 	}
-
 	return (
 		<div
 			className={classNames(theme.item, {

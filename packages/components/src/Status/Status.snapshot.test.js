@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { Status } from './Status.component';
+import { Status, STATUS } from './Status.component';
 
 jest.mock('react-dom');
 
@@ -64,6 +64,10 @@ const inProgressStatusWithPercent = {
 	],
 };
 
+const skeletonStatusProps = {
+	status: STATUS.SKELETON,
+};
+
 describe('Status', () => {
 	it('should render a label with Icon', () => {
 		// when
@@ -104,6 +108,14 @@ describe('Status', () => {
 	it('should render a label with a fixed circular progress', () => {
 		// when
 		const wrapper = renderer.create(<Status {...inProgressStatusWithPercent} />).toJSON();
+
+		// then
+		expect(wrapper).toMatchSnapshot();
+	});
+
+	it('should render a label with a skeleton', () => {
+		// when
+		const wrapper = renderer.create(<Status {...skeletonStatusProps} />).toJSON();
 
 		// then
 		expect(wrapper).toMatchSnapshot();

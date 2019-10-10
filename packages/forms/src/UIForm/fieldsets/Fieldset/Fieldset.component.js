@@ -9,7 +9,9 @@ export default function Fieldset(props) {
 
 	return (
 		<fieldset className="form-group">
-			<legend className={classnames({ 'sr-only': options && options.hideTitle })}>{title}</legend>
+			{title && (
+				<legend className={classnames({ 'sr-only': options && options.hideTitle })}>{title}</legend>
+			)}
 			{items.map((itemSchema, index) => (
 				<Widget {...restProps} key={index} schema={itemSchema} />
 			))}

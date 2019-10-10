@@ -9,6 +9,7 @@ import Pagination from './Pagination';
 import FilterBar from '../../FilterBar';
 import Label from './Label';
 import ActionBar from '../../ActionBar';
+import ColumnChooserButton from './ColumnChooserButton';
 import DisplayModeToggle from './DisplayModeToggle';
 
 import theme from './Toolbar.scss';
@@ -43,7 +44,6 @@ function adaptLeftAndRightActions(actions, parentId) {
 /**
  * @param {string} id the id of Toolbar
  * @param {object} actionBar the ActionBar properties
- * @param {object} selectAllCheckbox the select all checkbox props
  * @param {object} display the SelectDisplayMode properties
  * @param {object} sort the SelectSortBy properties
  * @param {object} pagination the Pagination properties
@@ -53,15 +53,16 @@ function adaptLeftAndRightActions(actions, parentId) {
  <Toolbar id="my-toolbar"></Toolbar>
  */
 function Toolbar({
-	id,
 	actionBar,
-	display,
-	sort,
-	pagination,
-	filter,
-	t,
-	getComponent,
+	columnChooser,
 	components,
+	display,
+	filter,
+	getComponent,
+	id,
+	pagination,
+	sort,
+	t,
 }) {
 	const Renderer = Inject.getAll(getComponent, {
 		ActionBar,
@@ -79,7 +80,6 @@ function Toolbar({
 		};
 	}
 	const displayModeId = id && `${id}-display-mode`;
-
 	return (
 		<div className={classNames(theme['tc-list-toolbar'], 'tc-list-toolbar')}>
 			{injected('before-actionbar')}
@@ -105,6 +105,11 @@ function Toolbar({
 								</li>
 							)}
 							{injected('after-sort')}
+							{columnChooser && (
+								<li className="separated">
+									<ColumnChooserButton id={`${id}-column-chooser`} {...columnChooser} t={t} />
+								</li>
+							)}
 							{injected('before-displaymode')}
 							{display && (
 								<li className="separated">
@@ -151,6 +156,10 @@ Toolbar.propTypes = {
 	t: PropTypes.func.isRequired,
 	getComponent: PropTypes.func,
 	components: PropTypes.object,
+	columnChooser: PropTypes.shape({
+		submit: PropTypes.func,
+		columns: PropTypes.array,
+	}),
 };
 
 Toolbar.defaultProps = {};

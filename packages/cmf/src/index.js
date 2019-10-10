@@ -9,6 +9,7 @@ import bootstrap from './bootstrap';
 import cmfConnect from './cmfConnect';
 import component from './component';
 import ConnectedDispatcher from './Dispatcher';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.component';
 import expression from './expression';
 import expressions from './expressions';
 import Inject from './Inject.component.js';
@@ -41,6 +42,7 @@ export {
 	actions,
 	cmfConnect,
 	Dispatcher,
+	ErrorBoundary,
 	Inject,
 	sagas,
 	selectors,

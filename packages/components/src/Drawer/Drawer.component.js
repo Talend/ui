@@ -106,6 +106,7 @@ export function cancelActionComponent(onCancelAction, getComponent) {
 				theme['tc-drawer-close-action'],
 				enhancedCancelAction.className,
 			)}
+			tooltipClassName={theme['drawer-close-action-tooltip']}
 		/>
 	);
 }

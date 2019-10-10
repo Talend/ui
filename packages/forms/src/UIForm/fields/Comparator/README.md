@@ -42,7 +42,8 @@ Advanced configuration
             "value": {
                 "type": "number",
                 "minimum": -100,
-                "maximum": 100
+                "maximum": 100,
+                "step": 0.01
             }
         }
     }

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RowCheckBox should render a checked checkbox input by default 1`] = `
+<div id="some-id-this is my checkbox"
+     class="sr-only"
+>
+  this is my checkbox
+</div>
+`;

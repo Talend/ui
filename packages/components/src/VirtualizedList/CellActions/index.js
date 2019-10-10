@@ -1,8 +1,4 @@
-import React from 'react';
-import CellActions from './CellActions.component';
+import ActionsColumn, { cellType, actionColumnConfiguration } from './ActionsColumn.component';
 
-export const cellType = 'actions';
-
-export default {
-	cellRenderer: props => <CellActions {...props} />,
-};
+export { cellType, ActionsColumn };
+export default actionColumnConfiguration;

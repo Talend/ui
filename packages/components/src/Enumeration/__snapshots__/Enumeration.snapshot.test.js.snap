@@ -658,6 +658,7 @@ Array [
               <input
                 aria-label="Check item \\"Lorem ipsum dolor sit amet 0\\""
                 checked={true}
+                data-checked={2}
                 type="checkbox"
               />
               <span />
@@ -720,6 +721,7 @@ Array [
               <input
                 aria-label="Check item \\"Lorem ipsum dolor sit amet 1\\""
                 checked={true}
+                data-checked={2}
                 type="checkbox"
               />
               <span />
@@ -780,6 +782,7 @@ Array [
             <label>
               <input
                 aria-label="Check item \\"Lorem ipsum dolor sit amet 2\\""
+                data-checked={0}
                 type="checkbox"
               />
               <span />
