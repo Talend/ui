@@ -120,7 +120,7 @@ class DateTimePicker extends React.Component {
 
 	onClickToday(event) {
 		const now = new Date();
-		if (!this.state.isDateTimeView) {
+		if (!this.state.isDateView) {
 			this.onSelectCalendarYear(event, getYear(now));
 			this.onSelectCalendarMonth(event, getMonth(now));
 			this.setView(true);
@@ -187,7 +187,7 @@ class DateTimePicker extends React.Component {
 				{viewElement}
 				<div
 					className={classNames(theme.footer, {
-						[theme['date-padding']]: this.state.isDateTimeView,
+						[theme['date-padding']]: this.state.isDateView,
 					})}
 				>
 					<Action

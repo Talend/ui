@@ -11,9 +11,10 @@ function TimeZone(props) {
 		<TooltipTrigger
 			label={props.timezone}
 			tooltipPlacement="top"
-			className={theme['timezone-tooltip']}
 		>
-			<Icon name="talend-info-circle" />
+			<span className={theme['timezone-tooltip']}>
+				<Icon name="talend-info-circle" className={theme.icon} />
+			</span>
 		</TooltipTrigger>
 	);
 }
