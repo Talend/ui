@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 
 import { DateContext } from '../Context';
-import DateTimePicker from '../../pickers/DateTimePicker';
+import CalendarPicker from '../../pickers/CalendarPicker';
 
 export default function Picker(props) {
 	const { value, pickerManagement } = useContext(DateContext);
 	return (
-		<DateTimePicker
+		<CalendarPicker
 			manageFocus
 			selection={{
 				date: value.date,

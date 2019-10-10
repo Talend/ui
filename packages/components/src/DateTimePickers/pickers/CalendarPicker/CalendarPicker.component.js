@@ -5,14 +5,14 @@ import getYear from 'date-fns/get_year';
 import startOfDay from 'date-fns/start_of_day';
 import classNames from 'classnames';
 
-import theme from './DateTimePicker.scss';
+import theme from './CalendarPicker.scss';
 import DateView from '../../views/DateView';
 import MonthYearView from '../../views/MonthYearView';
 import { focusOnCalendar } from '../../../Gesture/withCalendarGesture';
 import Action from '../../../Actions/Action/Action.component';
 import getDefaultT from '../../../translate';
 
-class DateTimePicker extends React.Component {
+class CalendarPicker extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -206,7 +206,7 @@ class DateTimePicker extends React.Component {
 	}
 }
 
-DateTimePicker.propTypes = {
+CalendarPicker.propTypes = {
 	/**
 	 * By default, element in picker are focusable. So it is usable as is.
 	 * But when we want to disable focus to not interact with a form flow,
@@ -236,9 +236,9 @@ DateTimePicker.propTypes = {
 	t: PropTypes.func.isRequired,
 };
 
-DateTimePicker.defaultProps = {
+CalendarPicker.defaultProps = {
 	t: getDefaultT(),
 	selection: {},
 };
 
-export default DateTimePicker;
+export default CalendarPicker;

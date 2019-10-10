@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DateTimePicker should render 1`] = `
+exports[`CalendarPicker should render 1`] = `
 <div
   aria-label="Date picker"
   className="theme-container"
