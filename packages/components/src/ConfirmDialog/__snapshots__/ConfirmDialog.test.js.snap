@@ -116,24 +116,19 @@ exports[`ConfirmDialog should render with a progress bar 1`] = `
   >
     <div
       aria-describedby={42}
-      className="theme-tc-tooltip"
+      className="theme-progress-percent"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onKeyPress={[Function]}
       onMouseOut={[Function]}
       onMouseOver={[Function]}
-    >
-      <div
-        aria-describedby={42}
-        className="theme-progress-percent"
-        style={
-          Object {
-            "width": "25%",
-          }
+      style={
+        Object {
+          "width": "25%",
         }
-      />
-    </div>
+      }
+    />
   </div>
   <div
     className="Body mocked-component"

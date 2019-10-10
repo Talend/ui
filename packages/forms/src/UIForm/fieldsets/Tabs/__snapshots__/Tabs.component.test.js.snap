@@ -81,5 +81,6 @@ exports[`Tabs widget should render fieldset 1`] = `
   }
   onSelect={[Function]}
   selectedKey={0}
+  tooltipPlacement="top"
 />
 `;

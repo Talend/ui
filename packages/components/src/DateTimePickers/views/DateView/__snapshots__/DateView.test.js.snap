@@ -28,9 +28,9 @@ exports[`DateView should render 1`] = `
     Object {
       "leftElement": <Action
         aria-label="Go to previous month"
-        icon="talend-chevron-left"
+        className="btn-tertiary btn-info"
+        icon="talend-arrow-left"
         label=""
-        link={true}
         onClick={[Function]}
         tabIndex="-1"
       />,
@@ -47,10 +47,10 @@ exports[`DateView should render 1`] = `
       />,
       "rightElement": <Action
         aria-label="Go to next month"
-        icon="talend-chevron-left"
+        className="btn-tertiary btn-info"
+        icon="talend-arrow-left"
         iconTransform="rotate-180"
         label=""
-        link={true}
         onClick={[Function]}
         tabIndex="-1"
       />,
@@ -87,9 +87,9 @@ exports[`DateView should render without timePicker 1`] = `
     Object {
       "leftElement": <Action
         aria-label="Go to previous month"
-        icon="talend-chevron-left"
+        className="btn-tertiary btn-info"
+        icon="talend-arrow-left"
         label=""
-        link={true}
         onClick={[Function]}
         tabIndex="-1"
       />,
@@ -106,10 +106,10 @@ exports[`DateView should render without timePicker 1`] = `
       />,
       "rightElement": <Action
         aria-label="Go to next month"
-        icon="talend-chevron-left"
+        className="btn-tertiary btn-info"
+        icon="talend-arrow-left"
         iconTransform="rotate-180"
         label=""
-        link={true}
         onClick={[Function]}
         tabIndex="-1"
       />,

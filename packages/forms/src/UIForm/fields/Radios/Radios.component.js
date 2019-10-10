@@ -21,6 +21,7 @@ export default function Radios({
 	const radioClassNames = classNames({
 		radio: !inline,
 		'radio-inline': inline,
+		disabled,
 	});
 	return (
 		<FieldTemplate

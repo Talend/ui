@@ -320,7 +320,7 @@ export class UIFormComponent extends React.Component {
 			return (
 				<div className={classNames(theme['form-actions'], 'tf-actions-wrapper')} key="form-buttons">
 					<Buttons
-						id={`${this.props.id}-${this.props.id}-actions`}
+						id={`${this.props.id}-actions`}
 						onTrigger={this.onTrigger}
 						className={this.props.buttonBlockClass}
 						schema={{ items: actions }}

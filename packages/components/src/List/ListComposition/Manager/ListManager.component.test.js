@@ -49,7 +49,7 @@ describe('List Manager', () => {
 				<ContextTestConsumer />
 			</ListManager>,
 		);
-		expect(wrapper.find(TestConsumer).prop('displayMode')).toBeUndefined();
+		expect(wrapper.find(TestConsumer).prop('displayMode')).toBe('table');
 
 		const newDisplayMode = 'large';
 

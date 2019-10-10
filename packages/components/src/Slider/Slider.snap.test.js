@@ -17,6 +17,18 @@ describe('Slider component snaps', () => {
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
+		it('should render a range', () => {
+			// given
+			const props = {
+				id: 'selectable',
+				value: [10, 25],
+			};
+			// when
+			const wrapper = shallow(<Slider {...props} />);
+			// then
+			expect(wrapper.getElement()).toMatchSnapshot();
+		});
+
 		it('should render Slider with icons on status', () => {
 			// given
 			const props = {

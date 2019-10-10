@@ -25,25 +25,24 @@ function InjectDropdownMenuItem({
 	withMenuItem,
 	liProps,
 	menuItemProps,
-	key,
 	onSelect,
 	onKeyDown,
 	...rest
 }) {
 	const Renderers = Inject.getAll(getComponent, { MenuItem });
 	if (divider) {
-		return <Renderers.MenuItem key={key} {...menuItemProps} divider />;
+		return <Renderers.MenuItem {...menuItemProps} divider />;
 	}
 	if (withMenuItem) {
 		return (
-			<Renderers.MenuItem key={key} {...menuItemProps} onSelect={onSelect} onKeyDown={onKeyDown}>
+			<Renderers.MenuItem {...menuItemProps} onSelect={onSelect} onKeyDown={onKeyDown}>
 				<Inject component={component} getComponent={getComponent} {...rest} />
 			</Renderers.MenuItem>
 		);
 	}
 	return (
-		<li role="presentation" key={key} {...liProps}>
-			<Inject component={component} getComponent={getComponent} {...rest} />
+		<li role="presentation" {...liProps}>
+			<Inject component={component} getComponent={getComponent} onSelect={onSelect} {...rest} />
 		</li>
 	);
 }
@@ -55,7 +54,6 @@ InjectDropdownMenuItem.propTypes = {
 	withMenuItem: PropTypes.bool,
 	liProps: PropTypes.object,
 	menuItemProps: PropTypes.object,
-	key: PropTypes.number,
 	onSelect: PropTypes.func,
 	onKeyDown: PropTypes.func,
 };
@@ -153,7 +151,11 @@ class ActionDropdown extends React.Component {
 			if (dropdownContainer) {
 				const dropdownRect = dropdownMenu.getBoundingClientRect();
 				const containerRect = dropdownContainer.getBoundingClientRect();
-				if (!dropdown.classList.contains('dropup') && dropdownRect.bottom > containerRect.bottom) {
+				if (
+					!dropdown.classList.contains('dropup') &&
+					dropdownRect.bottom > containerRect.bottom &&
+					dropdownRect.height < containerRect.top
+				) {
 					dropdown.classList.add('dropup');
 				} else if (dropdown.classList.contains('dropup') && dropdownRect.top < containerRect.top) {
 					dropdown.classList.remove('dropup');
@@ -185,6 +187,7 @@ class ActionDropdown extends React.Component {
 			components,
 			className,
 			loading,
+			children,
 			t,
 			...rest
 		} = this.props;
@@ -198,6 +201,12 @@ class ActionDropdown extends React.Component {
 					{label}
 				</span>
 			),
+			<Icon
+				name="talend-caret-down"
+				className={classNames(theme['tc-dropdown-caret'], {
+					[theme['tc-dropdown-caret-open']]: this.state.isOpen,
+				})}
+			/>,
 		];
 		const style = link ? 'link' : bsStyle;
 
@@ -218,8 +227,9 @@ class ActionDropdown extends React.Component {
 				{...omit(rest, 'tReady')}
 				onToggle={this.onToggle}
 				ref={ref => (this.ref = ref)}
+				noCaret
 			>
-				{!items.length && !items.size && !loading && !components && (
+				{!children && !items.length && !items.size && !loading && !components && (
 					<Renderers.MenuItem key="empty" disabled>
 						{t('ACTION_DROPDOWN_EMPTY', { defaultValue: 'No options' })}
 					</Renderers.MenuItem>
@@ -241,6 +251,7 @@ class ActionDropdown extends React.Component {
 					</Renderers.MenuItem>
 				)}
 				{injected('itemsDropdown')}
+				{children}
 				{injected('afterItemsDropdown')}
 			</Renderers.DropdownButton>
 		);
@@ -290,6 +301,7 @@ ActionDropdown.propTypes = {
 		afterItemsDropdown: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 	}),
 	t: PropTypes.func,
+	children: PropTypes.node,
 };
 
 ActionDropdown.defaultProps = {

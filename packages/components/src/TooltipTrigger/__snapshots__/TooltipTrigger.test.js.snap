@@ -1,29 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ActionTooltip should render custom tooltip when focus the children 1`] = `
-<div
-  aria-describedby={42}
-  ariaLabel="a custom tooltip"
-  className="theme-tc-tooltip"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onFocus={[Function]}
-  onKeyPress={[Function]}
-  onMouseOut={[Function]}
-  onMouseOver={[Function]}
->
+<React.Fragment>
   <div
     aria-describedby={42}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
   >
     Action
   </div>
-</div>
+</React.Fragment>
 `;
 
 exports[`ActionTooltip should render only the children 1`] = `
 <div
   aria-describedby={42}
-  className="theme-tc-tooltip"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -31,48 +26,38 @@ exports[`ActionTooltip should render only the children 1`] = `
   onMouseOut={[Function]}
   onMouseOver={[Function]}
 >
-  <div
-    aria-describedby={42}
-  >
-    Action
-  </div>
+  Action
 </div>
 `;
 
 exports[`ActionTooltip should render tooltip when focus the children 1`] = `
-<div
-  aria-describedby={42}
-  className="theme-tc-tooltip"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onFocus={[Function]}
-  onKeyPress={[Function]}
-  onMouseOut={[Function]}
-  onMouseOver={[Function]}
->
+<React.Fragment>
   <div
     aria-describedby={42}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
   >
     Action
   </div>
-</div>
+</React.Fragment>
 `;
 
 exports[`ActionTooltip should render tooltip when hover the children 1`] = `
-<div
-  aria-describedby={42}
-  className="theme-tc-tooltip"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onFocus={[Function]}
-  onKeyPress={[Function]}
-  onMouseOut={[Function]}
-  onMouseOver={[Function]}
->
+<React.Fragment>
   <div
     aria-describedby={42}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
   >
     Action
   </div>
-</div>
+</React.Fragment>
 `;

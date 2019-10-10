@@ -27,11 +27,14 @@
 	@include picker-action;
 
 	flex: 1;
-	height: 5rem;
+	height: 5.7rem;
 	width: 100%;
 
 	background: transparent;
 	border: none;
 	padding: 0;
-	text-transform: uppercase;
+
+	&:active {
+		background-color: shade($concrete, 10%);
+	}
 }

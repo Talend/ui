@@ -12,7 +12,7 @@ exports[`TabBar component should render with selected children from item definit
     <Nav
       bsClass="nav"
       bsStyle="tabs"
-      className="tc-tab-bar"
+      className="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive"
       justified={false}
       pullLeft={false}
       pullRight={false}
@@ -20,53 +20,93 @@ exports[`TabBar component should render with selected children from item definit
     >
       <NavItem
         active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
         componentClass="button"
         data-feature="action.1"
         disabled={false}
         eventKey="1"
         label="Tab1"
       >
-        Tab1
+        <TooltipTrigger
+          label="Tab1"
+          tooltipPlacement="top"
+        >
+          <React.Fragment>
+            Tab1
+          </React.Fragment>
+        </TooltipTrigger>
       </NavItem>
       <NavItem
         active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
         componentClass="button"
         data-feature="action.2"
         disabled={false}
         eventKey="2"
         label="Tab2"
       >
-        Tab2
+        <TooltipTrigger
+          label="Tab2"
+          tooltipPlacement="top"
+        >
+          <React.Fragment>
+            Tab2
+          </React.Fragment>
+        </TooltipTrigger>
       </NavItem>
       <NavItem
         active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
         componentClass="button"
         data-feature="action.3"
         disabled={false}
         eventKey="3"
         label="Tab3"
       >
-        Tab3
+        <TooltipTrigger
+          label="Tab3"
+          tooltipPlacement="top"
+        >
+          <React.Fragment>
+            Tab3
+          </React.Fragment>
+        </TooltipTrigger>
       </NavItem>
       <NavItem
         active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
         componentClass="button"
         data-feature="action.4"
         disabled={false}
         eventKey="4"
         label="Tab4"
       >
-        Tab4
+        <TooltipTrigger
+          label="Tab4"
+          tooltipPlacement="top"
+        >
+          <React.Fragment>
+            Tab4
+          </React.Fragment>
+        </TooltipTrigger>
       </NavItem>
       <NavItem
         active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
         componentClass="button"
         data-feature="action.5"
         disabled={false}
         eventKey="5"
         label="Tab5"
       >
-        Tab5
+        <TooltipTrigger
+          label="Tab5"
+          tooltipPlacement="top"
+        >
+          <React.Fragment>
+            Tab5
+          </React.Fragment>
+        </TooltipTrigger>
       </NavItem>
     </Nav>
     <TabContent
@@ -138,7 +178,7 @@ exports[`TabBar component should render with selected children managed by user 1
     <Nav
       bsClass="nav"
       bsStyle="tabs"
-      className="tc-tab-bar"
+      className="theme-tc-tab-bar tc-tab-bar theme-tc-tab-bar-responsive tc-tab-bar-responsive"
       justified={false}
       pullLeft={false}
       pullRight={false}
@@ -146,53 +186,93 @@ exports[`TabBar component should render with selected children managed by user 1
     >
       <NavItem
         active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
         componentClass="button"
         data-feature="action.1"
         disabled={false}
         eventKey="1"
         label="Tab1"
       >
-        Tab1
+        <TooltipTrigger
+          label="Tab1"
+          tooltipPlacement="top"
+        >
+          <React.Fragment>
+            Tab1
+          </React.Fragment>
+        </TooltipTrigger>
       </NavItem>
       <NavItem
         active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
         componentClass="button"
         data-feature="action.2"
         disabled={false}
         eventKey="2"
         label="Tab2"
       >
-        Tab2
+        <TooltipTrigger
+          label="Tab2"
+          tooltipPlacement="top"
+        >
+          <React.Fragment>
+            Tab2
+          </React.Fragment>
+        </TooltipTrigger>
       </NavItem>
       <NavItem
         active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
         componentClass="button"
         data-feature="action.3"
         disabled={false}
         eventKey="3"
         label="Tab3"
       >
-        Tab3
+        <TooltipTrigger
+          label="Tab3"
+          tooltipPlacement="top"
+        >
+          <React.Fragment>
+            Tab3
+          </React.Fragment>
+        </TooltipTrigger>
       </NavItem>
       <NavItem
         active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
         componentClass="button"
         data-feature="action.4"
         disabled={false}
         eventKey="4"
         label="Tab4"
       >
-        Tab4
+        <TooltipTrigger
+          label="Tab4"
+          tooltipPlacement="top"
+        >
+          <React.Fragment>
+            Tab4
+          </React.Fragment>
+        </TooltipTrigger>
       </NavItem>
       <NavItem
         active={false}
+        className="theme-tc-tab-bar-item tc-tab-bar-item"
         componentClass="button"
         data-feature="action.5"
         disabled={false}
         eventKey="5"
         label="Tab5"
       >
-        Tab5
+        <TooltipTrigger
+          label="Tab5"
+          tooltipPlacement="top"
+        >
+          <React.Fragment>
+            Tab5
+          </React.Fragment>
+        </TooltipTrigger>
       </NavItem>
     </Nav>
     <TabContent

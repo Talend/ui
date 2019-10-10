@@ -21,9 +21,11 @@ exports[`Intercom button should render a button 1`] = `
     label="Chat with Talend Support"
     tooltipPlacement="bottom"
   >
-    <div
+    <button
       aria-describedby={42}
-      className="theme-tc-tooltip"
+      className="btn btn-link tc-intercom theme-tc-intercom"
+      id="my-intercom"
+      key=".0"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -31,29 +33,22 @@ exports[`Intercom button should render a button 1`] = `
       onMouseOut={[Function]}
       onMouseOver={[Function]}
     >
-      <button
-        aria-describedby={42}
-        className="btn btn-link tc-intercom theme-tc-intercom"
-        id="my-intercom"
-        key=".0"
+      <Icon
+        name="talend-bubbles"
       >
-        <Icon
+        <svg
+          aria-hidden="true"
+          className="theme-tc-svg-icon tc-svg-icon"
+          focusable="false"
           name="talend-bubbles"
+          title={null}
         >
-          <svg
-            aria-hidden="true"
-            className="theme-tc-svg-icon tc-svg-icon"
-            focusable="false"
-            name="talend-bubbles"
-            title={null}
-          >
-            <use
-              xlinkHref="#talend-bubbles"
-            />
-          </svg>
-        </Icon>
-      </button>
-    </div>
+          <use
+            xlinkHref="#talend-bubbles"
+          />
+        </svg>
+      </Icon>
+    </button>
   </TooltipTrigger>
 </Intercom>
 `;

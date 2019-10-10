@@ -46,22 +46,19 @@ matrix:
         - .travis/after_success_lint.sh
         - .travis/after_success_git.sh
 
-    - language: java
-      jdk: openjdk8
-      env:
-        - NAME=demo NODE_VERSION=11.10 CC=clang CXX=clang++
-      before_install:
-        - nvm install $NODE_VERSION
+    - language: node_js
+      node_js:
+        - '11.10'
+      env: NAME=demo
       before_script:
         - yarn global add surge
+      script:
+        - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Demo skipped."; travis_terminate 0; fi
         - yarn install
         - yarn test:demo
-        - if [ -z "$GH_TOKEN" ]; then echo "No credentials, this PR must be from a fork. Demo skipped."; travis_terminate 0; fi
         - .travis/after_success_static.sh
         - .travis/after_success_demo.sh
         - .travis/after_success_deploy.sh
-      script:
-        - .travis/after_success_e2e.sh
 
 branches:
   only:

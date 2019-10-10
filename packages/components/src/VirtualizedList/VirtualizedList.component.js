@@ -4,7 +4,6 @@ import get from 'lodash/get';
 import { listTypes } from './utils/constants';
 import Loader from '../Loader';
 import RendererSelector from './RendererSelector.component';
-import Content from './Content.component';
 import propTypes from './PropTypes';
 import { insertSelectionConfiguration, toColumns } from './utils/tablerow';
 import { resizeColumns, extractResizableProps } from './utils/resizable';
@@ -44,6 +43,8 @@ function VirtualizedList(props) {
 		sortDirection,
 		rowCount,
 		type,
+		widthsOfColumns,
+		setWidthsOfColumns,
 	} = props;
 	const columnDefinitionsWithSelection = insertSelectionConfiguration({
 		children,
@@ -52,8 +53,11 @@ function VirtualizedList(props) {
 		onToggleAll,
 		selectionToggle,
 	});
-	const [columnsWidths, setWidths] = useState();
+	const [widthsOfColumnsState, setWidthsOfColumnsState] = useState();
 	const rendererSelectorRef = useRef();
+
+	const setWidths = setWidthsOfColumns || setWidthsOfColumnsState;
+	const columnsWidths = widthsOfColumns || widthsOfColumnsState;
 
 	// Settings the data for resizable columns only at mount.
 	useEffect(() => {
@@ -118,7 +122,5 @@ VirtualizedList.propTypes = propTypes;
 VirtualizedList.defaultProps = {
 	defaultHeight: 250,
 };
-
-VirtualizedList.Content = Content;
 
 export default VirtualizedList;

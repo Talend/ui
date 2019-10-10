@@ -54,7 +54,8 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
   41:3  warning  Unexpected console statement  no-console
+  69:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
 
-✖ 29 problems (26 errors, 3 warnings)
+✖ 25 problems (22 errors, 3 warnings)
   1 error, 0 warnings potentially fixable with the `--fix` option.
 

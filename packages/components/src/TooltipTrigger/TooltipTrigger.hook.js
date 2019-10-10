@@ -1,11 +1,12 @@
 import { useState } from 'react';
 
-const useTooltipVisibility = (tooltipDelay = 600) => {
-	let timeout;
+let timeout;
 
+const useTooltipVisibility = (tooltipDelay = 600) => {
 	const [visible, setVisible] = useState(false);
 
 	const show = () => {
+		if (timeout) clearTimeout(timeout);
 		timeout = setTimeout(() => {
 			setVisible(true);
 		}, tooltipDelay);

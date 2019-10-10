@@ -308,6 +308,7 @@ exports[`Items should render 1`] = `
                               <label>
                                 <input
                                   aria-label="Select Lorem ipsum dolor sit amet 0"
+                                  data-checked={0}
                                   onChange={[Function]}
                                   type="checkbox"
                                 />
@@ -415,6 +416,7 @@ exports[`Items should render 1`] = `
                                 <input
                                   aria-label="Deselect Lorem ipsum dolor sit amet 1"
                                   checked={true}
+                                  data-checked={2}
                                   onChange={[Function]}
                                   type="checkbox"
                                 />
@@ -517,6 +519,7 @@ exports[`Items should render 1`] = `
                               <label>
                                 <input
                                   aria-label="Select Lorem ipsum dolor sit amet 2"
+                                  data-checked={0}
                                   onChange={[Function]}
                                   type="checkbox"
                                 />
@@ -870,6 +873,7 @@ exports[`Items should render with nested items 1`] = `
                               <label>
                                 <input
                                   aria-label="Select Lorem ipsum dolor default"
+                                  data-checked={0}
                                   onChange={[Function]}
                                   type="checkbox"
                                 />
@@ -998,6 +1002,7 @@ exports[`Items should render with nested items 1`] = `
                                 <input
                                   aria-label="Deselect Lorem ipsum dolor Parent"
                                   checked={true}
+                                  data-checked={2}
                                   onChange={[Function]}
                                   type="checkbox"
                                 />
@@ -1043,59 +1048,58 @@ exports[`Items should render with nested items 1`] = `
                                     label="Expand Lorem ipsum dolor Parent"
                                     tooltipPlacement="top"
                                   >
-                                    <div
+                                    <Button
+                                      active={false}
                                       aria-describedby={42}
-                                      className="theme-tc-tooltip"
+                                      aria-label="Expand Lorem ipsum dolor Parent"
+                                      block={false}
+                                      bsClass="btn"
+                                      bsStyle="link"
+                                      className="btn-icon-only"
+                                      disabled={false}
+                                      key=".0"
                                       onBlur={[Function]}
                                       onClick={[Function]}
                                       onFocus={[Function]}
                                       onKeyPress={[Function]}
+                                      onMouseDown={[Function]}
                                       onMouseOut={[Function]}
                                       onMouseOver={[Function]}
+                                      role={null}
                                     >
-                                      <Button
-                                        active={false}
+                                      <button
                                         aria-describedby={42}
                                         aria-label="Expand Lorem ipsum dolor Parent"
-                                        block={false}
-                                        bsClass="btn"
-                                        bsStyle="link"
-                                        className="btn-icon-only"
+                                        className="btn-icon-only btn btn-link"
                                         disabled={false}
-                                        key=".0"
+                                        onBlur={[Function]}
                                         onClick={[Function]}
+                                        onFocus={[Function]}
+                                        onKeyPress={[Function]}
                                         onMouseDown={[Function]}
+                                        onMouseOut={[Function]}
+                                        onMouseOver={[Function]}
                                         role={null}
+                                        type="button"
                                       >
-                                        <button
-                                          aria-describedby={42}
-                                          aria-label="Expand Lorem ipsum dolor Parent"
-                                          className="btn-icon-only btn btn-link"
-                                          disabled={false}
-                                          onClick={[Function]}
-                                          onMouseDown={[Function]}
-                                          role={null}
-                                          type="button"
+                                        <Icon
+                                          key="icon"
+                                          name="talend-caret-down"
                                         >
-                                          <Icon
-                                            key="icon"
+                                          <svg
+                                            aria-hidden="true"
+                                            className="theme-tc-svg-icon tc-svg-icon"
+                                            focusable="false"
                                             name="talend-caret-down"
+                                            title={null}
                                           >
-                                            <svg
-                                              aria-hidden="true"
-                                              className="theme-tc-svg-icon tc-svg-icon"
-                                              focusable="false"
-                                              name="talend-caret-down"
-                                              title={null}
-                                            >
-                                              <use
-                                                xlinkHref="#talend-caret-down"
-                                              />
-                                            </svg>
-                                          </Icon>
-                                        </button>
-                                      </Button>
-                                    </div>
+                                            <use
+                                              xlinkHref="#talend-caret-down"
+                                            />
+                                          </svg>
+                                        </Icon>
+                                      </button>
+                                    </Button>
                                   </TooltipTrigger>
                                 </ActionButton>
                               </withI18nextTranslation(ActionButton)>
@@ -1432,6 +1436,7 @@ exports[`Items should render with provided id 1`] = `
                               >
                                 <input
                                   aria-label="Select Lorem ipsum dolor sit amet 0"
+                                  data-checked={0}
                                   id="checkbox-my-widget-1-item"
                                   onChange={[Function]}
                                   type="checkbox"
@@ -1547,6 +1552,7 @@ exports[`Items should render with provided id 1`] = `
                                 <input
                                   aria-label="Deselect Lorem ipsum dolor sit amet 1"
                                   checked={true}
+                                  data-checked={2}
                                   id="checkbox-my-widget-2-item"
                                   onChange={[Function]}
                                   type="checkbox"
@@ -1657,6 +1663,7 @@ exports[`Items should render with provided id 1`] = `
                               >
                                 <input
                                   aria-label="Select Lorem ipsum dolor sit amet 2"
+                                  data-checked={0}
                                   id="checkbox-my-widget-3-item"
                                   onChange={[Function]}
                                   type="checkbox"

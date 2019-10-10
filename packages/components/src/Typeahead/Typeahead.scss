@@ -17,6 +17,7 @@ $tc-typeahead-section-header-color: #63aebd !default;
 $tc-typeahead-items-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4) !default;
 $tc-typeahead-items-border-radius: $border-radius-base !default;
 $tc-typeahead-items-font-size: 1.5rem !default;
+$tc-typeahead-items-zindex: 1035 !default;
 
 .tc-typeahead-container {
 	position: relative;
@@ -33,21 +34,24 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		}
 	}
 
+	.items-container,
+	.items-body {
+		max-height: 70vh;
+	}
+
 	.items-container {
 		display: none;
-		position: absolute;
 		margin-top: $padding-smaller;
-		top: 100%;
-		left: 0;
-		right: 0;
-		max-height: 70vh;
 		min-width: $tc-typeahead-input-width;
 		font-size: $tc-typeahead-items-font-size;
 		background-color: $tc-typeahead-opened-items-container-background-color;
 		border-radius: $tc-typeahead-items-border-radius;
 		box-shadow: $tc-typeahead-items-box-shadow;
+		z-index: $tc-typeahead-items-zindex;
+	}
+
+	.items-body {
 		overflow-y: auto;
-		z-index: $zindex-dropdown;
 	}
 
 	&.right {
@@ -174,6 +178,7 @@ $tc-typeahead-items-font-size: 1.5rem !default;
 		margin-right: $padding-normal;
 	}
 
+	&-highlighted,
 	&:hover {
 		background-color: $concrete;
 

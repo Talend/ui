@@ -2,16 +2,19 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 
-import { TooltipTrigger, Button } from '../src/index';
+import { Button, TooltipTrigger } from '../src/index';
 
 function generateButtonWithTooltip(label, tooltipPlacement) {
+	// need a wrapper (div) here since Button is a functional component
 	return (
 		<TooltipTrigger
 			label="This is a huuuuuuuuuuuuuuuuuuuuuuge tooltip for a very very demo"
 			tooltipPlacement={tooltipPlacement}
 			data-feature="my.feature"
 		>
-			<Button onClick={action('click')}>{label}</Button>
+			<div style={{ display: 'inline-block' }}>
+				<Button onClick={action('click')}>{label}</Button>
+			</div>
 		</TooltipTrigger>
 	);
 }

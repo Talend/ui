@@ -16,9 +16,10 @@ const defaultOptions = {
 };
 
 /**
+ * // same as https://github.com/csnover/TraceKit/blob/master/tracekit.js#L63 ?
  * @param rethrowErrorHandler - handler for rethrown errors
  * @returns Report, wrapped TraceKit.report method which no longer rethrows an error
-**/
+ **/
 function safeWrapReport(rethrowErrorHandler) {
 	function report(ex) {
 		try {

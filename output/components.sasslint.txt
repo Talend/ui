@@ -1,6 +1,12 @@
 > sass-lint -v -q
 
 
+src/CollapsiblePanel/CollapsiblePanel.scss
+  143:5  error  Mixins should come before declarations  mixins-before-declarations
+
+src/DateTimePickers/pickers/TimePicker/TimePicker.scss
+  26:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
+
 src/Drawer/Drawer.scss
   15:4  warning  Statement must begin on a new line  brace-style
 
@@ -12,12 +18,13 @@ src/GuidedTour/GuidedTour.scss
   80:4  error  Class '.reactour__dot--is-active' should be written in lowercase with hyphens  class-name-format
 
 src/List/Toolbar/Toolbar.scss
-  71:6  error  Nesting depth 4 greater than max of 3  nesting-depth
-  75:6  error  Nesting depth 4 greater than max of 3  nesting-depth
-  80:6  error  Nesting depth 4 greater than max of 3  nesting-depth
+  71:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
+  75:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
+  80:6   error  Nesting depth 4 greater than max of 3                    nesting-depth
+  93:12  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
 src/Typeahead/Typeahead.scss
-  31:5  error  Mixins should come before declarations  mixins-before-declarations
+  32:5  error  Mixins should come before declarations  mixins-before-declarations
 
-✖ 8 problems (6 errors, 2 warnings)
+✖ 11 problems (9 errors, 2 warnings)
 
