@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import format from 'date-fns/format';
 
 const EXTRA_SPACE = 5;
 

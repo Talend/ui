@@ -35,11 +35,11 @@ exports[`InputDateTimePicker should render 1`] = `
           value={2017-04-03T22:00:00.000Z}
         >
           <FocusManager
-            className="theme-date-picker"
+            className="theme-date-picker date-picker"
             divRef={
               Object {
                 "current": <div
-                  class="theme-date-picker"
+                  class="theme-date-picker date-picker"
                   tabindex="-1"
                 >
                   <input
@@ -54,7 +54,7 @@ exports[`InputDateTimePicker should render 1`] = `
                   <span
                     style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
                   >
-                    2017-04-04
+                    1970-01-01
                   </span>
                 </div>,
               }
@@ -65,7 +65,7 @@ exports[`InputDateTimePicker should render 1`] = `
             onKeyDown={[Function]}
           >
             <div
-              className="theme-date-picker"
+              className="theme-date-picker date-picker"
               onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
@@ -84,13 +84,8 @@ exports[`InputDateTimePicker should render 1`] = `
                       style="width: 47px;"
                       type="text"
                       value="2017-04-04"
-                    />
-                    <span
-                      style="font-weight: 400; font-size: 1.6rem; visibility: hidden;"
-                    >
-                      1970-01-01
-                    </span>
-                  </div>,
+                    />,
+                  }
                 }
                 key="input"
               >
@@ -155,15 +150,15 @@ exports[`InputDateTimePicker should render 1`] = `
                         "position": "absolute",
                         "visibility": "hidden",
                       }
-                    >
-                      1970-01-01
-                    </span>
-                  </InputSizer>
-                </Date.Input>
-              </div>
-            </FocusManager>
-          </Date.Manager>
-        </div>
+                    }
+                  >
+                    1970-01-01
+                  </span>
+                </InputSizer>
+              </Date.Input>
+            </div>
+          </FocusManager>
+        </Date.Manager>
       </InputDatePicker>
       <InputTimePicker
         id="my-picker-time-picker"

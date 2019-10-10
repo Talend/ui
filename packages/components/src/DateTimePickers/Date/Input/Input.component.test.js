@@ -10,6 +10,7 @@ describe('Date.Input', () => {
 		// given
 		const managerValue = {
 			value: {
+				date: new Date(2007, 0, 2),
 				textInput: '2007-01-02',
 			},
 			inputManagement: {

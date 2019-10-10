@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import uuid from 'uuid';
+import classnames from 'classnames';
 import { Popper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
@@ -74,7 +75,7 @@ export default function InputDatePicker(props) {
 			timezone={props.timezone}
 		>
 			<FocusManager
-				className={theme['date-picker']}
+				className={classnames(theme['date-picker'], 'date-picker')}
 				divRef={containerRef}
 				onClick={handlers.onClick}
 				onFocusIn={handlers.onFocus}
