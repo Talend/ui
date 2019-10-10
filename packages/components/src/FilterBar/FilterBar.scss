@@ -1,5 +1,5 @@
 // Filter styles
-$tc-filter-bar-highlight-color: #f6e5bb !default;
+$tc-filter-bar-highlight-color: rgba($lightning-yellow, 0.75) !default;
 $tc-filter-bar-width: 250px !default;
 
 .filter {
@@ -12,9 +12,10 @@ $tc-filter-bar-width: 250px !default;
 	border-radius: $border-radius-base;
 
 	.search-icon {
-		margin: $padding-small;
-		margin-right: $padding-smaller;
-		margin-top: 7px;
+		position: absolute;
+		margin: 8px 0;
+		height: $svg-md-size;
+		width: $svg-md-size;
 		fill: $gray;
 	}
 
@@ -22,11 +23,15 @@ $tc-filter-bar-width: 250px !default;
 		margin-bottom: 0;
 		display: flex;
 		flex-grow: 1;
+		input {
+			padding-left: 40px;
+			padding-right: $padding-normal;
+		}
 	}
 
 	:global(.form-group.form-group) {
-		padding: 0;
-		background: none;
+		padding: 0 0 0 $padding-small;
+		background: rgba($white, 0.5);
 	}
 
 	.animate {
@@ -38,7 +43,7 @@ $tc-filter-bar-width: 250px !default;
 		box-shadow: none;
 		color: $dove-gray;
 		font-size: $font-size-base;
-		margin: 0 $padding-small;
+		margin: 0 $padding-small 0 0;
 
 		&::placeholder {
 			color: $dark-silver;
@@ -53,15 +58,11 @@ $tc-filter-bar-width: 250px !default;
 	.remove {
 		display: inline-block;
 		color: opacify($gray, 0.2);
-		padding: $padding-smaller 0;
+		padding: $padding-smaller;
 		line-height: 2rem;
 		height: 100%;
-		// sorry magic number
-		// can't quite mix pixel units and rem
-		// $padding-small & $svg-xs-size
-		// ideally this should be -(($padding-small * 2) + $svg-xs-size)
-		margin-left: -28px;
-
+		position: absolute;
+		right: 0;
 		:global(.tc-svg-icon) {
 			height: $svg-xs-size;
 			width: $svg-xs-size;
@@ -81,6 +82,10 @@ $tc-filter-bar-width: 250px !default;
 
 .highlight {
 	background-color: $tc-filter-bar-highlight-color;
+	.search-icon,
+	.search {
+		fill: rgba($black, 0.5);
+	}
 }
 
 @keyframes reveal {
