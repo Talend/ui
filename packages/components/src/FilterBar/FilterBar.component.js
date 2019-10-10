@@ -109,7 +109,6 @@ export class FilterBarComponent extends React.Component {
 		this.onSubmit = this.onSubmit.bind(this);
 		this.onClear = this.onClear.bind(this);
 		this.state = { focus: this.props.focus, value: this.props.value };
-		this.textInput = React.createRef();
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -183,7 +182,6 @@ export class FilterBarComponent extends React.Component {
 					className={classNames('form-group', {
 						[theme.animate]: this.props.dockable,
 					})}
-					ref={this.textInput}
 				>
 					<Icon
 						name="talend-search"
