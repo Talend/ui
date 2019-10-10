@@ -68,7 +68,6 @@ export default function InputDatePicker(props) {
 	return (
 		<Date.Manager
 			value={props.value}
-			textInput={props.textInput}
 			dateFormat={props.dateFormat}
 			onChange={(...args) => handlers.onChange(...args, inputRef.current)}
 			useUTC={props.useUTC}
@@ -103,7 +102,6 @@ InputDatePicker.propTypes = {
 	onChange: PropTypes.func,
 	onBlur: PropTypes.func,
 	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
-	textInput: PropTypes.string,
 	timezone: PropTypes.string,
 	hideTimezone: PropTypes.bool,
 	useUTC: PropTypes.bool,

@@ -153,18 +153,13 @@ describe('Date.Manager', () => {
 					initialDate: new Date(2015, 1, 5),
 					newDate: new Date(2015, 1, 5),
 				},
-				{
-					name: 'when input date is invalid format',
-					initialDate: '2019-09-2a',
-					newDate: null,
-				},
 			],
 		);
 
 		describe('input change', () => {
 			cases(
 				'should update picker',
-				({ textInput, expectedDate, dateFormat }) => {
+				({ textInput, expectedDate, dateFormat, isValid }) => {
 					// given
 					const event = { target: { value: textInput } };
 					const wrapper = mount(
@@ -187,7 +182,11 @@ describe('Date.Manager', () => {
 					expect(value.textInput).toBe(textInput);
 
 					const { date } = value;
-					expect(date).toEqual(expectedDate);
+					if (isValid === false) {
+						expect(isNaN(expectedDate.getTime())).toBe(true);
+					} else {
+						expect(date).toEqual(expectedDate);
+					}
 				},
 				[
 					{
@@ -198,7 +197,8 @@ describe('Date.Manager', () => {
 					{
 						name: 'with invalid date',
 						textInput: '2015aze-01-15',
-						expectedDate: null,
+						expectedDate: new Date(''),
+						isValid: false,
 					},
 					{
 						name: 'with empty string',
@@ -273,7 +273,7 @@ describe('Date.Manager', () => {
 				expect(args[1].errors).toEqual([
 					{ code: 'INVALID_DATE_FORMAT', message: 'Date format is invalid' },
 				]);
-				expect(args[1].date).toBe(null);
+				expect(isNaN(args[1].date)).toBe(true);
 				expect(args[1].origin).toBe('INPUT');
 			});
 		});

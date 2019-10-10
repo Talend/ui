@@ -68,7 +68,7 @@ function timeToSeconds(hours, minutes, seconds) {
  * @returns {Date}
  * @throws DateTimePickerException
  */
-function dateAndTimeToDateTime(date, time, { useUTC, useSeconds }) {
+function dateAndTimeToDateTime(date, time, options) {
 	if (isEmpty(date)) {
 		throw new DateTimePickerException('INVALID_DATE_EMPTY', 'INVALID_DATE_EMPTY');
 	}
@@ -77,12 +77,12 @@ function dateAndTimeToDateTime(date, time, { useUTC, useSeconds }) {
 	}
 	if (typeof time === 'string') {
 		// eslint-disable-next-line no-param-reassign
-		time = strToTime(time, useSeconds);
+		time = strToTime(time, options.useSeconds);
 	}
 	const { hours, minutes, seconds } = time;
 	const timeInSeconds = timeToSeconds(hours, minutes, seconds);
 	const localTimezoneDate = setSeconds(date, timeInSeconds);
-	return useUTC ? convertToUTC(localTimezoneDate) : localTimezoneDate;
+	return convertDateToTimezone(localTimezoneDate, options);
 }
 
 function dateAndTimeToStr(date = '', time = '', options) {

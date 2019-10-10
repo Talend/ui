@@ -8,8 +8,6 @@ function isoStrToDate(isoStr) {
 	return isoStr;
 }
 
-const memorizedIsoStrToDate = memoizeOne(isoStrToDate);
-
 function dateToIsoStr(date) {
 	return date.toISOString();
 }
@@ -27,4 +25,4 @@ function convertDate(value, textInput, schema) {
 	}
 	return converted;
 }
-export { memorizedIsoStrToDate as isoStrToDate, convertDate };
+export { convertDate, isoStrToDate };

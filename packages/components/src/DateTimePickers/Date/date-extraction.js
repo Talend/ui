@@ -6,6 +6,8 @@ import setDate from 'date-fns/set_date';
 import { convertToLocalTime, convertToTimeZone } from 'date-fns-timezone';
 import getErrorMessage from '../shared/error-messages';
 
+const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
+
 export function DatePickerException(code, message) {
 	this.message = getErrorMessage(message);
 	this.code = code;
@@ -163,6 +165,7 @@ function extractDateOnly(date, { useUTC, timezone }) {
 function extractPartsFromDate(date, options) {
 	if (!isDateValid(date, options)) {
 		return {
+			localDate: undefined,
 			date: undefined,
 			textInput: '',
 			errors: [],
@@ -200,18 +203,21 @@ function extractPartsFromTextInput(textInput, options) {
 		};
 	}
 
-	let date = null;
+	let localDate;
+	let date;
 	let errors = [];
 
 	try {
-		date = strToDate(textInput, options.dateFormat);
+		localDate = strToDate(textInput, options.dateFormat);
+		date = convertDateToTimezone(localDate, options);
 	} catch (error) {
+		date = INTERNAL_INVALID_DATE;
 		errors = errors.concat(error);
 	}
 
 	return {
-		localDate: date,
-		date: convertDateToTimezone(date, options),
+		localDate,
+		date,
 		textInput,
 		errors,
 		errorMessage: errors[0] ? errors[0].message : null,

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import memoizeOne from 'memoize-one';
 import { InputDatePicker } from '@talend/react-components/lib/DateTimePickers';
 import FieldTemplate from '../FieldTemplate';
-import { isoStrToDate, convertDate } from './Date.utils';
+import { convertDate, isoStrToDate } from './Date.utils';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
+
+const memorizedIsoStrToDate = memoizeOne(isoStrToDate);
 
 function DateWidget(props) {
 	const {
@@ -19,8 +22,7 @@ function DateWidget(props) {
 	} = props;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
-	const convertedValue =
-		schema.schema.format === 'iso-datetime' ? isoStrToDate(value) : value;
+	const convertedValue = schema.schema.format === 'iso-datetime' ? memorizedIsoStrToDate(value) : value;
 
 	const [state, setState] = useState({ errorMessage: '' });
 
