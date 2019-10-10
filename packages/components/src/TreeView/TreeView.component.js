@@ -7,6 +7,49 @@ import TreeViewItem from './TreeViewItem/';
 import theme from './TreeView.scss';
 import withTreeGesture from '../Gesture/withTreeGesture';
 
+function renderLegacyHeaderContent({ headerText, addAction, addActionLabel, titleId, id }) {
+	const spanHeaderText = <span id={titleId}>{headerText}</span>;
+	if (addAction) {
+		return (
+			<React.Fragment>
+				{spanHeaderText}
+				<Action
+					label={addActionLabel}
+					icon="talend-plus"
+					onClick={addAction}
+					tooltipPlacement="right"
+					hideLabel
+					link
+					id={id && `${id}-add`}
+					key={addActionLabel}
+				/>
+			</React.Fragment>
+		);
+	}
+	return <span id={titleId}>{headerText}</span>;
+}
+
+function TreeViewHeader({ noHeader, headerRenderer, ...rest }) {
+	return (
+		<header className={classNames(theme['tc-treeview-header'], { 'sr-only': noHeader })}>
+			{headerRenderer ? headerRenderer() : renderLegacyHeaderContent(rest)}
+		</header>
+	);
+}
+TreeViewHeader.displayName = 'TreeviewHeader';
+
+if (process.env.NODE_ENV !== 'production') {
+	TreeViewHeader.PropTypes = {
+		id: PropTypes.string.isRequired,
+		titleId: PropTypes.string.isRequired,
+		headerText: PropTypes.string,
+		onSelect: PropTypes.func.isRequired,
+		addAction: PropTypes.func,
+		headerRenderer: PropTypes.func,
+		addActionLabel: PropTypes.string,
+		noHeader: PropTypes.bool,
+	};
+}
 /**
  * A view component to display any tree structure, like folders or categories.
  *
@@ -48,36 +91,20 @@ import withTreeGesture from '../Gesture/withTreeGesture';
 function TreeView(props) {
 	const {
 		id,
-		headerText,
 		structure,
-		addAction,
-		addActionLabel,
 		onKeyDown,
 		onSelect,
 		onToggle,
-		noHeader,
 		className,
 		selectedId,
 		style,
+		headerRenderer,
+		...rest
 	} = props;
 	const titleId = id && `${id}-title`;
 	return (
 		<div className={classNames('tc-treeview', theme['tc-treeview'], className)} style={style}>
-			<header className={classNames(theme['tc-treeview-header'], { 'sr-only': noHeader })}>
-				<span id={titleId}>{headerText}</span>
-				{addAction && (
-					<Action
-						label={addActionLabel}
-						icon="talend-plus"
-						onClick={addAction}
-						tooltipPlacement="right"
-						hideLabel
-						link
-						id={id && `${id}-add`}
-						key={addActionLabel}
-					/>
-				)}
-			</header>
+			<TreeViewHeader {...rest} id={id} titleId={titleId} headerRenderer={headerRenderer} />
 			<ul className={theme['tc-treeview-list']} role="tree" aria-labelledby={titleId}>
 				{structure.map((item, i) => (
 					<TreeViewItem
@@ -91,6 +118,7 @@ function TreeView(props) {
 						index={i + 1}
 						selectedId={selectedId}
 						level={1}
+						hideFolderIcon
 					/>
 				))}
 			</ul>
@@ -111,15 +139,16 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string.isRequired,
 		headerText: PropTypes.string,
 		structure: PropTypes.arrayOf(TreeViewItem.propTypes.item),
-		addAction: PropTypes.func,
-		addActionLabel: PropTypes.string,
 		onKeyDown: PropTypes.func.isRequired,
 		onToggle: PropTypes.func.isRequired,
-		onSelect: PropTypes.func.isRequired,
-		noHeader: PropTypes.bool,
 		className: PropTypes.string,
 		selectedId: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
 		style: PropTypes.object,
+		onSelect: PropTypes.func.isRequired,
+		addAction: PropTypes.func,
+		addActionLabel: PropTypes.string,
+		noHeader: PropTypes.bool,
+		headerRenderer: PropTypes.func,
 	};
 }
 

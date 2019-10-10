@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { Action } from '../../Actions';
 import Icon from '../../Icon';
 import Badge from '../../Badge';
+import { Checkbox } from '../../Toggle/index';
 
 import css from './TreeViewItem.scss';
 
@@ -83,6 +84,7 @@ class TreeViewItem extends React.Component {
 		onToggle: PropTypes.func.isRequired,
 		onSelect: PropTypes.func.isRequired,
 		selectedId: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
+		hideFolderIcon: PropTypes.bool,
 	};
 
 	static defaultProps = {
@@ -166,6 +168,7 @@ class TreeViewItem extends React.Component {
 						index={i + 1}
 						selectedId={this.props.selectedId}
 						level={this.props.level + 1}
+						hideFolderIcon={this.props.hideFolderIcon}
 					/>
 				))}
 			</ul>
@@ -194,7 +197,17 @@ class TreeViewItem extends React.Component {
 	}
 
 	render() {
-		const { id, index, item, level, onKeyDown, onSelect, onToggle, siblings } = this.props;
+		const {
+			id,
+			index,
+			item,
+			level,
+			onKeyDown,
+			onSelect,
+			onToggle,
+			siblings,
+			hideFolderIcon,
+		} = this.props;
 		const {
 			isOpened = false,
 			hidden,
@@ -207,7 +220,6 @@ class TreeViewItem extends React.Component {
 		} = item;
 		const paddingLeft = `${(level - 1) * (PADDING + CARET_WIDTH) + BASE_PADDING}px`;
 		const showOpenedFolder = !!(children.length && (isOpened || this.state.hovered));
-
 		return (
 			<li // eslint-disable-line jsx-a11y/no-static-element-interactions
 				id={id}
@@ -259,7 +271,9 @@ class TreeViewItem extends React.Component {
 							link
 						/>
 					) : null}
-					<TreeViewIcon key="icon" icon={icon} isOpened={showOpenedFolder} />
+					<Checkbox intermediate />
+
+					{!hideFolderIcon && <TreeViewIcon key="icon" icon={icon} isOpened={showOpenedFolder} />}
 					<span
 						key="label"
 						className={classNames('tc-treeview-item-name', css['tc-treeview-item-name'])}

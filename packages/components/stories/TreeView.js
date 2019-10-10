@@ -2,8 +2,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { Button } from 'react-bootstrap';
 
 import { TreeView, IconsProvider } from '../src/index';
+import { Checkbox } from '../src/Toggle/index';
+
 
 const structure = [
 	{ name: 'hitmonlee', children: [{ name: 'Hitmonchan' }], isOpened: false },
@@ -157,6 +160,24 @@ const defaultProps = {
 	selectedId: 'selected',
 };
 
+const withoutFolderIcon = {
+	hideFolderIcon: true,
+};
+
+const withCustomHeader = {
+	headerRenderer: () => 'renderer perso',
+};
+
+const withSelectAll = {
+	headerRenderer: () => (
+		<div>
+			<Button>
+				<Checkbox indeterminate />
+				Select all
+			</Button>
+		</div>),
+};
+
 const withAddAction = {
 	...defaultProps,
 	addAction: action('added'),
@@ -281,7 +302,6 @@ cornerCaseLongName.structure = [
 const style = { width: '300px', border: '1px solid #eee', marginLeft: '10px' };
 
 storiesOf('TreeView', module)
-
 	.add('default', () => (
 		<div>
 			<h1>TreeView</h1>
@@ -290,7 +310,7 @@ storiesOf('TreeView', module)
 			<h3>Default property-set with action example: </h3>
 			<div style={style}>
 				<IconsProvider />
-				<TreeView {...withAddAction} />
+				<TreeView {...withAddAction} {...withoutFolderIcon} {...withCustomHeader} {...withSelectAll} />
 			</div>
 		</div>
 	))
