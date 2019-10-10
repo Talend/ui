@@ -6,12 +6,21 @@ import { Popper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
 import Time from '../Time';
+import TimeZone from '../TimeZone';
 
 import theme from './InputTimePicker.scss';
 import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 import focusOnTime from '../gesture/timePickerGesture';
 
-const PROPS_TO_OMIT_FOR_INPUT = ['id', 'required', 'value', 'useSeconds', 'onBlur', 'onChange'];
+const PROPS_TO_OMIT_FOR_INPUT = [
+	'id',
+	'required',
+	'value',
+	'useSeconds',
+	'onBlur',
+	'onChange',
+	'timezone',
+];
 
 export default function InputTimePicker(props) {
 	const popoverId = `time-picker-${props.id || uuid.v4()}`;
@@ -50,14 +59,17 @@ export default function InputTimePicker(props) {
 				)}
 			</Popper>
 		),
+		props.timezone && <TimeZone timezone={props.timezone} />,
 	].filter(Boolean);
 	return (
 		<Time.Manager
 			value={props.value}
 			useSeconds={props.useSeconds}
+			timezone={props.timezone}
 			onChange={(...args) => handlers.onChange(...args, inputRef.current)}
 		>
 			<FocusManager
+				className={theme['input-container']}
 				divRef={containerRef}
 				onClick={handlers.onClick}
 				onFocusIn={handlers.onFocus}
@@ -79,6 +91,7 @@ InputTimePicker.propTypes = {
 	useSeconds: PropTypes.bool,
 	onChange: PropTypes.func,
 	onBlur: PropTypes.func,
+	timezone: PropTypes.string,
 	value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
 

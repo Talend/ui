@@ -10,3 +10,8 @@ $tc-timepicker-z-index: $zindex-dropdown !default;
     box-shadow: $tc-timepicker-box-shadow;
 	z-index: $tc-timepicker-z-index;
 } 
+.input-container {
+    display: flex;
+
+    align-items: center;
+}

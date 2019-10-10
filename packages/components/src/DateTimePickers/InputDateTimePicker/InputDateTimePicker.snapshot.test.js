@@ -8,6 +8,7 @@ import InputDateTimePicker from './InputDateTimePicker.component';
 describe('InputDateTimePicker', () => {
 	it('should render', () => {
 		// when
+		window.HTMLElement.prototype.getBoundingClientRect = () => ({ width: 42 });
 		const wrapper = mount(
 			<InputDateTimePicker
 				id="my-picker"

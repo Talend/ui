@@ -1,9 +1,10 @@
+import { listTimeZones } from 'timezone-support';
 import format from 'date-fns/format';
 import getDate from 'date-fns/get_date';
 import lastDayOfMonth from 'date-fns/last_day_of_month';
 import setDate from 'date-fns/set_date';
+import { convertToLocalTime, convertToTimeZone } from 'date-fns-timezone';
 import getErrorMessage from '../shared/error-messages';
-
 
 export function DatePickerException(code, message) {
 	this.message = getErrorMessage(message);
@@ -43,8 +44,7 @@ function isDateValid(date, options) {
  * @param {Date} date
  * @param {Object} options
  */
-function dateToStr(date, options) {
-	const { dateFormat } = options;
+function dateToStr(date, { dateFormat }) {
 	return format(date, dateFormat);
 }
 /**
@@ -53,6 +53,17 @@ function dateToStr(date, options) {
 function convertToUTC(date) {
 	return new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
 }
+
+function convertDateToTimezone(date, { useUTC, timezone }) {
+	if (useUTC) {
+		return convertToUTC(date);
+	}
+	if (timezone) {
+		return convertToLocalTime(date, { timeZone: timezone });
+	}
+	return date;
+}
+
 /**
  * Convert string in dateFormat to date
  */
@@ -111,6 +122,34 @@ function checkSupportedDateFormat(dateFormat) {
 		);
 	}
 }
+
+function checkSupportedTimezone(timezone) {
+	const timzones = listTimeZones();
+	if (!timzones.includes(timezone)) {
+		throw new Error(
+			`Timezone: ${timezone} - NOT SUPPORTED`,
+		);
+	}
+}
+
+/**
+ * Extract date and apply the current timezone, from datetime
+ * Ex :
+ * 2014-03-25 23:00:00 (UTC) 		--> 2014-03-25 OO:OO:OO (current TZ)
+ * 2014-03-25 23:00:00 (current TZ) --> 2014-03-25 OO:OO:OO (current TZ)
+ * @param date {Date} The date to extract
+ * @param useUTC {boolean} Indicates if date is in UTC
+ */
+function extractDateOnly(date, { useUTC, timezone }) {
+	if (useUTC) {
+		return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
+	} else if (timezone) {
+		const converted = convertToTimeZone(date, { timeZone: timezone });
+		return new Date(converted.getFullYear(), converted.getMonth(), converted.getDate());
+	}
+	return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+}
+
 /**
  * Extract parts (date, textInput) from a Date
  * @param date {Date}
@@ -131,9 +170,12 @@ function extractPartsFromDate(date, options) {
 		};
 	}
 
+	const dateToUse = extractDateOnly(date, options);
+
 	return {
-		date: options.useUTC ? convertToUTC(date) : date,
-		textInput: dateToStr(date, options),
+		localDate: dateToUse,
+		date,
+		textInput: dateToStr(dateToUse, options),
 		errors: [],
 		errorMessage: null,
 	};
@@ -149,10 +191,10 @@ function extractPartsFromDate(date, options) {
  *		textInput: string
  * 	}}
  */
-function extractDateFromTextInput(textInput, options) {
+function extractPartsFromTextInput(textInput, options) {
 	if (textInput === '') {
 		return {
-			date: undefined,
+			localDate: undefined,
 			textInput,
 			errors: [],
 		};
@@ -168,7 +210,8 @@ function extractDateFromTextInput(textInput, options) {
 	}
 
 	return {
-		date: options.useUTC ? convertToUTC(date) : date,
+		localDate: date,
+		date: convertDateToTimezone(date, options),
 		textInput,
 		errors,
 		errorMessage: errors[0] ? errors[0].message : null,
@@ -180,7 +223,7 @@ function extractDate(value, options) {
 	if (typeOfValue === 'number') {
 		return extractPartsFromDate(new Date(value), options);
 	} else if (typeOfValue === 'string') {
-		return extractDateFromTextInput(value, options);
+		return extractPartsFromTextInput(value, options);
 	} else if (value instanceof Date) {
 		return extractPartsFromDate(value, options);
 	}
@@ -191,4 +234,23 @@ function extractDate(value, options) {
 	};
 }
 
-export { checkSupportedDateFormat, extractDate, extractDateFromTextInput, extractPartsFromDate };
+function extractFromDate(date, options) {
+	return {
+		localDate: date,
+		date: convertDateToTimezone(date, options),
+		textInput: format(date, options.dateFormat),
+		errors: [],
+		errorMessage: null,
+	};
+}
+
+export {
+	checkSupportedDateFormat,
+	convertDateToTimezone,
+	extractDate,
+	extractDateOnly,
+	extractFromDate,
+	extractPartsFromTextInput,
+	extractPartsFromDate,
+	checkSupportedTimezone,
+};

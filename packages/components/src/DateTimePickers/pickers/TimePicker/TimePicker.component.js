@@ -32,13 +32,13 @@ function addInterval({ hours, minutes, ...seconds }, interval = 60) {
 	};
 }
 
-function getOptions(interval = 60) {
+function getOptions(interval = 60, useSeconds) {
 	const options = [];
 	const start = { hours: 0, minutes: 0, seconds: 0 };
 	const end = { hours: 23, minutes: 59, seconds: 59 };
 	let current = start;
 	while (isBefore(current, end)) {
-		options.push({ label: timeToStr(current), value: current });
+		options.push({ label: timeToStr(current, useSeconds), value: current });
 		current = addInterval(current, interval);
 	}
 

@@ -10,6 +10,7 @@ class ContextualManager extends React.Component {
 		children: PropTypes.node,
 		onChange: PropTypes.func,
 		useSeconds: PropTypes.bool,
+		timezone: PropTypes.string,
 		value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 	};
 
@@ -61,6 +62,7 @@ class ContextualManager extends React.Component {
 					time: {
 						time: this.state.time,
 						textInput: this.state.textInput,
+						timezone: this.props.timezone,
 					},
 
 					inputManagement: {

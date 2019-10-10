@@ -1,11 +1,11 @@
-
+import { subHours } from 'date-fns';
 import {
 	checkSupportedDateFormat,
 	extractDate,
-	extractDateFromTextInput,
+	extractPartsFromTextInput,
 	extractPartsFromDate,
+	extractDateOnly,
 } from './date-extraction';
-
 
 describe('Date extraction', () => {
 	describe('checkSupportedDateFormat', () => {
@@ -74,6 +74,7 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
+				localDate: new Date(2015, 8, 15),
 				textInput: '2015-09-15',
 				errors: [],
 				errorMessage: null,
@@ -91,6 +92,7 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
+				localDate: new Date(2015, 8, 15),
 				textInput: '2015-09-15',
 				errors: [],
 				errorMessage: null,
@@ -108,6 +110,7 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
+				localDate: new Date(2015, 8, 15),
 				textInput: value,
 				errors: [],
 				errorMessage: null,
@@ -146,6 +149,7 @@ describe('Date extraction', () => {
 			// then
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
+				localDate: new Date(2015, 8, 15),
 				textInput: '2015-09-15',
 				errors: [],
 				errorMessage: null,
@@ -153,7 +157,7 @@ describe('Date extraction', () => {
 		});
 	});
 
-	describe('extractDateFromTextInput', () => {
+	describe('extractPartsFromTextInput', () => {
 		it('should extract parts with empty string', () => {
 			// given
 			const textInput = '';
@@ -162,7 +166,7 @@ describe('Date extraction', () => {
 			};
 
 			// when
-			const parts = extractDateFromTextInput(textInput, options);
+			const parts = extractPartsFromTextInput(textInput, options);
 
 			// then
 			expect(parts).toEqual({
@@ -178,11 +182,12 @@ describe('Date extraction', () => {
 			const options = { dateFormat: 'YYYY-MM-DD' };
 
 			// when
-			const parts = extractDateFromTextInput(textInput, options);
+			const parts = extractPartsFromTextInput(textInput, options);
 
 			// then
 			expect(parts).toEqual({
 				date: new Date(2018, 11, 25),
+				localDate: new Date(2018, 11, 25),
 				textInput,
 				errorMessage: null,
 				errors: [],
@@ -197,7 +202,7 @@ describe('Date extraction', () => {
 			};
 
 			// when
-			const parts = extractDateFromTextInput(textInput, options);
+			const parts = extractPartsFromTextInput(textInput, options);
 
 			// then
 			expect(parts.date).toBe(null);
@@ -219,7 +224,7 @@ describe('Date extraction', () => {
 			};
 
 			// when
-			const parts = extractDateFromTextInput(textInput, options);
+			const parts = extractPartsFromTextInput(textInput, options);
 
 			// then
 			expect(parts.date).toBe(null);
@@ -239,15 +244,79 @@ describe('Date extraction', () => {
 			};
 
 			// when
-			const parts = extractDateFromTextInput(textInput, options);
+			const parts = extractPartsFromTextInput(textInput, options);
 
 			// then
 			expect(parts).toEqual({
+				localDate: new Date(2018, 11, 25),
 				date: new Date(Date.UTC(2018, 11, 25)),
 				textInput,
 				errorMessage: null,
 				errors: [],
 			});
+		});
+		it('should convert date to timezone', () => {
+			// given
+			const textInput = '2018-12-25';
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				timezone: 'Asia/Tokyo',
+			};
+
+			// when
+			const parts = extractPartsFromTextInput(textInput, options);
+
+			// then
+			expect(parts).toEqual({
+				localDate: new Date(2018, 11, 25),
+				date: subHours(new Date(2018, 11, 25), 8),
+				textInput,
+				errorMessage: null,
+				errors: [],
+			});
+		});
+	});
+	describe('extractDateOnly', () => {
+		it('should extract date only', () => {
+			// given
+			const datetime = new Date(2019, 8, 26, 6, 20, 39);
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+			};
+
+			// when
+			const date = extractDateOnly(datetime, options);
+
+			// then
+			expect(date).toEqual(new Date(2019, 8, 26));
+		});
+		it('should extract date when useUTC', () => {
+			// given
+			const datetime = new Date(2019, 8, 26, 0, 20, 39);
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useUTC: true,
+			};
+
+			// when
+			const date = extractDateOnly(datetime, options);
+
+			// then
+			expect(date).toEqual(new Date(2019, 8, 25));
+		});
+		it('should extract date when timezone provided', () => {
+			// given
+			const datetime = new Date(2019, 8, 26, 23, 20, 39);
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				timezone: 'Asia/Shanghai',
+			};
+
+			// when
+			const date = extractDateOnly(datetime, options);
+
+			// then
+			expect(date).toEqual(new Date(2019, 8, 27));
 		});
 	});
 });

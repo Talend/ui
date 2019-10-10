@@ -21,28 +21,62 @@ exports[`InputDateTimePicker should render 1`] = `
     >
       <InputDatePicker
         dateFormat="YYYY-MM-DD"
+        hideTimezone={true}
         id="my-picker-date-picker"
         onChange={[Function]}
         required={true}
         useUTC={false}
         value={2017-04-03T22:00:00.000Z}
       >
-        <div
-          className="date-picker"
+        <Date.Manager
+          dateFormat="YYYY-MM-DD"
+          onChange={[Function]}
+          useUTC={false}
+          value={2017-04-03T22:00:00.000Z}
         >
-          <Date.Manager
-            dateFormat="YYYY-MM-DD"
-            onChange={[Function]}
-            useUTC={false}
-            value={2017-04-03T22:00:00.000Z}
-          >
-            <FocusManager
-              divRef={
-                Object {
-                  "current": <div
-                    tabindex="-1"
+          <FocusManager
+            className="theme-date-picker"
+            divRef={
+              Object {
+                "current": <div
+                  class="theme-date-picker"
+                  tabindex="-1"
+                >
+                  <input
+                    autocomplete="off"
+                    class="form-control"
+                    id="my-picker-date-picker-input"
+                    placeholder="YYYY-MM-DD"
+                    style="width: 47px;"
+                    type="text"
+                    value="2017-04-04"
+                  />
+                  <span
+                    style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
                   >
-                    <input
+                    2017-04-04
+                  </span>
+                </div>,
+              }
+            }
+            onClick={[Function]}
+            onFocusIn={[Function]}
+            onFocusOut={[Function]}
+            onKeyDown={[Function]}
+          >
+            <div
+              className="theme-date-picker"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              tabIndex={-1}
+            >
+              <Date.Input
+                id="my-picker-date-picker-input"
+                inputRef={
+                  Object {
+                    "current": <input
                       autocomplete="off"
                       class="form-control"
                       id="my-picker-date-picker-input"
@@ -58,63 +92,51 @@ exports[`InputDateTimePicker should render 1`] = `
                     </span>
                   </div>,
                 }
-              }
-              onClick={[Function]}
-              onFocusIn={[Function]}
-              onFocusOut={[Function]}
-              onKeyDown={[Function]}
-            >
-              <div
-                onBlur={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                tabIndex={-1}
+                key="input"
               >
-                <Date.Input
-                  id="my-picker-date-picker-input"
-                  inputRef={
-                    Object {
-                      "current": <input
-                        autocomplete="off"
-                        class="form-control"
-                        id="my-picker-date-picker-input"
-                        placeholder="YYYY-MM-DD"
-                        style="width: 47px;"
-                        type="text"
-                        value="2017-04-04"
-                      />,
-                    }
-                  }
-                  key="input"
+                <InputSizer
+                  inputText="2017-04-04"
+                  placeholder="YYYY-MM-DD"
                 >
-                  <InputSizer
-                    inputText="2017-04-04"
+                  <DebounceInput
+                    autoComplete="off"
+                    className="form-control"
+                    debounceTimeout={300}
+                    element="input"
+                    forceNotifyByEnter={true}
+                    forceNotifyOnBlur={true}
+                    id="my-picker-date-picker-input"
+                    inputRef={
+                      Object {
+                        "current": <input
+                          autocomplete="off"
+                          class="form-control"
+                          id="my-picker-date-picker-input"
+                          placeholder="YYYY-MM-DD"
+                          style="width: 47px;"
+                          type="text"
+                          value="2017-04-04"
+                        />,
+                      }
+                    }
+                    minLength={0}
+                    onChange={[Function]}
                     placeholder="YYYY-MM-DD"
+                    style={
+                      Object {
+                        "width": 47,
+                      }
+                    }
+                    type="text"
+                    value="2017-04-04"
                   >
-                    <DebounceInput
+                    <input
                       autoComplete="off"
                       className="form-control"
-                      debounceTimeout={300}
-                      element="input"
-                      forceNotifyByEnter={true}
-                      forceNotifyOnBlur={true}
                       id="my-picker-date-picker-input"
-                      inputRef={
-                        Object {
-                          "current": <input
-                            autocomplete="off"
-                            class="form-control"
-                            id="my-picker-date-picker-input"
-                            placeholder="YYYY-MM-DD"
-                            style="width: 47px;"
-                            type="text"
-                            value="2017-04-04"
-                          />,
-                        }
-                      }
-                      minLength={0}
+                      onBlur={[Function]}
                       onChange={[Function]}
+                      onKeyDown={[Function]}
                       placeholder="YYYY-MM-DD"
                       style={
                         Object {
@@ -123,31 +145,15 @@ exports[`InputDateTimePicker should render 1`] = `
                       }
                       type="text"
                       value="2017-04-04"
-                    >
-                      <input
-                        autoComplete="off"
-                        className="form-control"
-                        id="my-picker-date-picker-input"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        onKeyDown={[Function]}
-                        placeholder="YYYY-MM-DD"
-                        style={
-                          Object {
-                            "width": 47,
-                          }
-                        }
-                        type="text"
-                        value="2017-04-04"
-                      />
-                    </DebounceInput>
-                    <span
-                      style={
-                        Object {
-                          "fontSize": "1.6rem",
-                          "fontWeight": 400,
-                          "visibility": "hidden",
-                        }
+                    />
+                  </DebounceInput>
+                  <span
+                    style={
+                      Object {
+                        "fontSize": "1.6rem",
+                        "fontWeight": 400,
+                        "position": "absolute",
+                        "visibility": "hidden",
                       }
                     >
                       1970-01-01
@@ -183,22 +189,24 @@ exports[`InputDateTimePicker should render 1`] = `
           }
         >
           <FocusManager
+            className="theme-input-container"
             divRef={
               Object {
                 "current": <div
+                  class="theme-input-container"
                   tabindex="-1"
                 >
                   <input
                     autocomplete="off"
-                    class="form-control"
+                    class="form-control theme-time-picker-input"
                     id="my-picker-time-picker-input"
                     placeholder="HH:mm:ss"
                     style="width: 47px;"
                     type="text"
-                    value="15:27"
+                    value="15:27:00"
                   />
                   <span
-                    style="font-weight: 400; font-size: 1.6rem; visibility: hidden;"
+                    style="font-weight: 400; font-size: 1.6rem; visibility: hidden; position: absolute;"
                   >
                     01:00:00
                   </span>
@@ -211,6 +219,7 @@ exports[`InputDateTimePicker should render 1`] = `
             onKeyDown={[Function]}
           >
             <div
+              className="theme-input-container"
               onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
@@ -223,24 +232,24 @@ exports[`InputDateTimePicker should render 1`] = `
                   Object {
                     "current": <input
                       autocomplete="off"
-                      class="form-control"
+                      class="form-control theme-time-picker-input"
                       id="my-picker-time-picker-input"
                       placeholder="HH:mm:ss"
                       style="width: 47px;"
                       type="text"
-                      value="15:27"
+                      value="15:27:00"
                     />,
                   }
                 }
                 key="input"
               >
                 <InputSizer
-                  inputText="15:27"
+                  inputText="15:27:00"
                   placeholder="HH:mm:ss"
                 >
                   <DebounceInput
                     autoComplete="off"
-                    className="form-control"
+                    className="form-control theme-time-picker-input"
                     debounceTimeout={300}
                     element="input"
                     forceNotifyByEnter={true}
@@ -250,12 +259,12 @@ exports[`InputDateTimePicker should render 1`] = `
                       Object {
                         "current": <input
                           autocomplete="off"
-                          class="form-control"
+                          class="form-control theme-time-picker-input"
                           id="my-picker-time-picker-input"
                           placeholder="HH:mm:ss"
                           style="width: 47px;"
                           type="text"
-                          value="15:27"
+                          value="15:27:00"
                         />,
                       }
                     }
@@ -268,11 +277,11 @@ exports[`InputDateTimePicker should render 1`] = `
                       }
                     }
                     type="text"
-                    value="15:27"
+                    value="15:27:00"
                   >
                     <input
                       autoComplete="off"
-                      className="form-control"
+                      className="form-control theme-time-picker-input"
                       id="my-picker-time-picker-input"
                       onBlur={[Function]}
                       onChange={[Function]}
@@ -284,7 +293,7 @@ exports[`InputDateTimePicker should render 1`] = `
                         }
                       }
                       type="text"
-                      value="15:27"
+                      value="15:27:00"
                     />
                   </DebounceInput>
                   <span
@@ -292,6 +301,7 @@ exports[`InputDateTimePicker should render 1`] = `
                       Object {
                         "fontSize": "1.6rem",
                         "fontWeight": 400,
+                        "position": "absolute",
                         "visibility": "hidden",
                       }
                     }

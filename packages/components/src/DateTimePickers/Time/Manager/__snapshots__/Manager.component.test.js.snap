@@ -18,6 +18,7 @@ exports[`Time.Manager should render its children 1`] = `
           "minutes": "15",
           "seconds": "00",
         },
+        "timezone": undefined,
       },
     }
   }

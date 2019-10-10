@@ -16,6 +16,7 @@ describe('Date.Input', () => {
 				placeholder: 'YYYY-MM-DD',
 			},
 		};
+		window.HTMLElement.prototype.getBoundingClientRect = () => ({ width: 42 });
 
 		// when
 		const wrapper = mount(
