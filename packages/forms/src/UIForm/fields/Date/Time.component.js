@@ -6,7 +6,17 @@ import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 function TimeWidget(props) {
-	const { errorMessage, id, isValid, options, onFinish, schema, value, valueIsUpdating } = props;
+	const {
+		errorMessage,
+		id,
+		isValid,
+		options,
+		onChange,
+		onFinish,
+		schema,
+		value,
+		valueIsUpdating,
+	} = props;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 
@@ -16,13 +26,13 @@ function TimeWidget(props) {
 		onFinish(event, { schema });
 	}
 
-	function onChange(event, { errorMessage: nextErrorMessage, textInput, time }) {
+	function onTimeChange(event, { errorMessage: nextErrorMessage, textInput, time }) {
 		setState({ errorMessage: nextErrorMessage });
 		const payload = {
 			schema,
 			value: nextErrorMessage ? null : textInput,
 		};
-		props.onChange(event, payload);
+		onChange(event, payload);
 		if (!nextErrorMessage && time) {
 			onFinish(event, payload);
 		}
@@ -48,7 +58,7 @@ function TimeWidget(props) {
 				value={value}
 				useSeconds={options.useSeconds}
 				onBlur={onBlur}
-				onChange={onChange}
+				onChange={onTimeChange}
 			/>
 		</FieldTemplate>
 	);

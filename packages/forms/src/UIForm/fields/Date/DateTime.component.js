@@ -7,14 +7,24 @@ import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 export default function DateTimeWidget(props) {
-	const { errorMessage, id, isValid, options, schema, value, valueIsUpdating } = props;
+	const {
+		errorMessage,
+		id,
+		isValid,
+		onChange,
+		onFinish,
+		options,
+		schema,
+		value,
+		valueIsUpdating,
+	} = props;
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 	const convertedValue = schema.schema.format === 'iso-datetime' ? isoStrToDate(value) : value;
 
 	const [state, setState] = useState({ errorMessage: '' });
 
-	function onChange(event, { errorMessage: nextErrorMessage, datetime, textInput }) {
+	function onDateTimeChange(event, { errorMessage: nextErrorMessage, datetime, textInput }) {
 		setState({ errorMessage: nextErrorMessage });
 		let result = datetime;
 		if (!nextErrorMessage && datetime) {
@@ -25,15 +35,15 @@ export default function DateTimeWidget(props) {
 			schema,
 			value: result,
 		};
-		props.onChange(event, payload);
+		onChange(event, payload);
 
 		if (!nextErrorMessage) {
-			props.onFinish(event, payload);
+			onFinish(event, payload);
 		}
 	}
 
 	function onBlur(event) {
-		props.onFinish(event, { schema });
+		onFinish(event, { schema });
 	}
 	return (
 		<FieldTemplate
@@ -53,7 +63,7 @@ export default function DateTimeWidget(props) {
 				disabled={schema.disabled || valueIsUpdating}
 				readOnly={schema.readOnly}
 				onBlur={onBlur}
-				onChange={onChange}
+				onChange={onDateTimeChange}
 				dateFormat={options.dateFormat}
 				useSeconds={options.useSeconds}
 				useUTC={options.useUTC}

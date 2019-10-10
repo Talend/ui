@@ -1,91 +1,82 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import memoizeOne from 'memoize-one';
 import { InputDatePicker } from '@talend/react-components/lib/DateTimePickers';
 import FieldTemplate from '../FieldTemplate';
-import { isoStrToDate, dateToIsoStr, convertDate } from './Date.utils';
+import { isoStrToDate, convertDate } from './Date.utils';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
-class DateWidget extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = { errorMessage: '' };
+function DateWidget(props) {
+	const {
+		errorMessage,
+		id,
+		isValid,
+		onChange,
+		onFinish,
+		options,
+		schema,
+		value,
+		valueIsUpdating,
+	} = props;
+	const descriptionId = generateDescriptionId(id);
+	const errorId = generateErrorId(id);
+	const convertedValue =
+		schema.schema.format === 'iso-datetime' ? isoStrToDate(value) : value;
 
-		this.isoStrToDate = memoizeOne(isoStrToDate);
-		this.dateToIsoStr = memoizeOne(dateToIsoStr);
-		this.onChange = this.onChange.bind(this);
-		this.onBlur = this.onBlur.bind(this);
-	}
+	const [state, setState] = useState({ errorMessage: '' });
 
-	onChange(event, { errorMessage, date, textInput }) {
-		this.setState({ errorMessage });
-		let value = date;
-		if (!errorMessage && date) {
-			const { schema } = this.props.schema;
-			value = convertDate(date, textInput, schema);
+	function onDateChange(event, { errorMessage: nextErrorMessage, date, textInput }) {
+		setState({ errorMessage: nextErrorMessage });
+		let fieldValue = date;
+		if (!nextErrorMessage && date) {
+			fieldValue = convertDate(date, textInput, props.schema.schema);
 		}
 
 		const payload = {
-			schema: this.props.schema,
-			value,
+			schema,
+			value: fieldValue,
 		};
-		this.props.onChange(event, payload);
+		onChange(event, payload);
 
-		if (!errorMessage) {
-			this.props.onFinish(event, payload);
+		if (!nextErrorMessage) {
+			onFinish(event, payload);
 		}
 	}
 
-	onBlur(event) {
-		this.props.onFinish(event, { schema: this.props.schema });
+	function onBlur(event) {
+		onFinish(event, { schema });
 	}
 
-	render() {
-		const {
-			errorMessage,
-			id,
-			isValid,
-			options,
-			schema,
-			value,
-			valueIsUpdating,
-		} = this.props;
-		const descriptionId = generateDescriptionId(id);
-		const errorId = generateErrorId(id);
-		const convertedValue =
-			schema.schema.format === 'iso-datetime' ? this.isoStrToDate(value) : value;
 
-		return (
-			<FieldTemplate
-				description={schema.description}
-				descriptionId={descriptionId}
-				errorId={errorId}
-				errorMessage={this.state.errorMessage || errorMessage}
+	return (
+		<FieldTemplate
+			description={schema.description}
+			descriptionId={descriptionId}
+			errorId={errorId}
+			errorMessage={state.errorMessage || errorMessage}
+			id={id}
+			isValid={isValid}
+			label={schema.title}
+			required={schema.required}
+			valueIsUpdating={valueIsUpdating}
+		>
+			<InputDatePicker
+				autoFocus={schema.autoFocus}
+				dateFormat={options.dateFormat}
+				disabled={schema.disabled || valueIsUpdating}
 				id={id}
-				isValid={isValid}
-				label={schema.title}
-				required={schema.required}
-				valueIsUpdating={valueIsUpdating}
-			>
-				<InputDatePicker
-					autoFocus={schema.autoFocus}
-					dateFormat={options.dateFormat}
-					disabled={schema.disabled || valueIsUpdating}
-					id={id}
-					onChange={this.onChange}
-					onBlur={this.onBlur}
-					placeholder={schema.placeholder}
-					readOnly={schema.readOnly}
-					value={convertedValue}
-					useUTC={options.useUTC}
-					// eslint-disable-next-line jsx-a11y/aria-proptypes
-					aria-invalid={!isValid}
-					aria-required={schema.required}
-					aria-describedby={`${descriptionId} ${errorId}`}
-				/>
-			</FieldTemplate>
-		);
-	}
+				onChange={onDateChange}
+				onBlur={onBlur}
+				placeholder={schema.placeholder}
+				readOnly={schema.readOnly}
+				value={convertedValue}
+				useUTC={options.useUTC}
+				// eslint-disable-next-line jsx-a11y/aria-proptypes
+				aria-invalid={!isValid}
+				aria-required={schema.required}
+				aria-describedby={`${descriptionId} ${errorId}`}
+			/>
+		</FieldTemplate>
+	);
 }
 
 DateWidget.displayName = 'Date Widget';

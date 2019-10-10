@@ -1,3 +1,4 @@
+import memoizeOne from 'memoize-one';
 import { isoDateTimeRegExp } from '../../customFormats';
 
 function isoStrToDate(isoStr) {
@@ -7,14 +8,18 @@ function isoStrToDate(isoStr) {
 	return isoStr;
 }
 
+const memorizedIsoStrToDate = memoizeOne(isoStrToDate);
+
 function dateToIsoStr(date) {
 	return date.toISOString();
 }
 
+const memorizedDateToIsoStr = memoizeOne(dateToIsoStr);
+
 function convertDate(value, textInput, schema) {
 	let converted = value;
 	if (schema.format === 'iso-datetime') {
-		converted = dateToIsoStr(value);
+		converted = memorizedDateToIsoStr(value);
 	} else if (schema.type === 'number') {
 		converted = value.getTime();
 	} else {
@@ -22,4 +27,4 @@ function convertDate(value, textInput, schema) {
 	}
 	return converted;
 }
-export { isoStrToDate, dateToIsoStr, convertDate };
+export { memorizedIsoStrToDate as isoStrToDate, convertDate };

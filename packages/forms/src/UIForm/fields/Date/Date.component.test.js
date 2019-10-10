@@ -248,7 +248,7 @@ describe('Date widget', () => {
 			};
 
 			// when
-			wrapper.find('InputDatePicker').simulate('change', event, payload);
+			wrapper.find('InputDatePicker').prop('onChange')(event, payload);
 
 			// then
 			expect(onFinish).toBeCalledWith(event, { schema, value: '2015-09-21' });
