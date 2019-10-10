@@ -472,7 +472,7 @@ storiesOf('VirtualizedList', module)
 					id={'my-list'}
 					isSelected={item => item.id === 2}
 					selectionToggle={action('selectionToggle')}
-					selectionMode={'SINGLE'}
+					selectionMode="SINGLE"
 
 				>
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
