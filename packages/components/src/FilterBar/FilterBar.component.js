@@ -136,11 +136,9 @@ export class FilterBarComponent extends React.Component {
 	}
 
 	onClear(event) {
+		// needed to avoid blur of the input
 		event.preventDefault();
-
-		if (this.props.onClear) {
-			this.props.onClear(event);
-		}
+		this.onFilter({ target: { value: '' }});
 	}
 
 	onFilter(event) {
@@ -239,7 +237,6 @@ FilterBarComponent.propTypes = {
 	focus: PropTypes.bool,
 	navbar: PropTypes.bool,
 	onBlur: PropTypes.func,
-	onClear: PropTypes.func,
 	onFocus: PropTypes.func,
 	onFilter: PropTypes.func.isRequired,
 	onToggle: PropTypes.func,

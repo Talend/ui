@@ -194,7 +194,7 @@ storiesOf('List Composition', module)
 >
 	<List.Toolbar>
 		<List.Toolbar.Right>
-			<List.TextFilter id="my-list-textFilter" docked={false} onChange={action('onChange')} onToggle={action('onToggle')} onClear="{action('onClear')} />
+			<List.TextFilter id="my-list-textFilter" docked={false} onChange={action('onChange')} onToggle={action('onToggle')} />
 		</List.Toolbar.Right>
 	</List.Toolbar>
 	<List.VList id="my-vlist" type="TABLE">
@@ -211,7 +211,6 @@ storiesOf('List Composition', module)
 								docked={false}
 								onChange={action('onChange')}
 								onToggle={action('onToggle')}
-							  onClear={action('onClear')}
 							/>
 						</List.Toolbar.Right>
 					</List.Toolbar>

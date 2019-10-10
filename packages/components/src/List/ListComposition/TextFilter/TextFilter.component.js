@@ -6,7 +6,7 @@ import FilterBar from '../../../FilterBar';
 const noOp = () => {};
 
 function TextFilter(props) {
-	const { docked, initialDocked, onChange, onToggle, onClear = noOp, value, ...restProps } = props;
+	const { docked, initialDocked, onChange, onToggle, value, ...restProps } = props;
 	const { textFilter, setTextFilter } = useListContext();
 	const [dockedState, setDocked] = useState(initialDocked);
 
@@ -29,7 +29,6 @@ function TextFilter(props) {
 
 		docked: isToggleControlled ? docked : dockedState,
 		onToggle: onToggleFunction,
-		onClear: isToggleControlled ? onClear : event => onFilterFunction(event, ''),
 	};
 
 	return <FilterBar {...filterBarProps} {...restProps} />;
@@ -44,7 +43,6 @@ if (process.env.NODE_ENV !== 'production') {
 		docked: PropTypes.bool,
 		initialDocked: PropTypes.bool,
 		onChange: PropTypes.func,
-		onClear: PropTypes.func,
 		onToggle: PropTypes.func,
 		value: PropTypes.string,
 	};
