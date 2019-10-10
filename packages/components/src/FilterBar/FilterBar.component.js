@@ -138,7 +138,7 @@ export class FilterBarComponent extends React.Component {
 	onClear(event) {
 		// needed to avoid blur of the input
 		event.preventDefault();
-		this.onFilter({ target: { value: '' }});
+		this.onFilter({ target: { value: '' } });
 	}
 
 	onFilter(event) {

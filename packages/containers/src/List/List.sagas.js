@@ -24,17 +24,6 @@ export function* onToggleFilter(data) {
 	);
 }
 
-export function* onClearFilter(data) {
-	yield put(
-		Connected.setStateAction(
-			{
-				searchQuery: '',
-			},
-			data.collectionId || 'default',
-		),
-	);
-}
-
 export function* onChangeSortChange(data) {
 	yield put(
 		Connected.setStateAction(
@@ -50,7 +39,6 @@ export function* onChangeSortChange(data) {
 function* defaultHandler() {
 	yield takeEvery(Constants.LIST_TOGGLE_FILTER, onToggleFilter);
 	yield takeEvery(Constants.LIST_FILTER_CHANGE, onFilterChange);
-	yield takeEvery(Constants.LIST_FILTER_CLEAR, onClearFilter);
 	yield takeEvery(Constants.LIST_CHANGE_SORT_ORDER, onChangeSortChange);
 }
 

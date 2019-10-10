@@ -6,7 +6,6 @@ exports[`Filter container should render 1`] = `
   dockable={true}
   docked={false}
   navbar={true}
-  onClear={[Function]}
   onFilter={[Function]}
   onToggle={[Function]}
   t={[Function]}

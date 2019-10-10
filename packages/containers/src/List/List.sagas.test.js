@@ -1,6 +1,6 @@
 import { put } from 'redux-saga/effects';
 import { fromJS } from 'immutable';
-import { onToggleFilter, onFilterChange, onChangeSortChange, onClearFilter } from './List.sagas';
+import { onToggleFilter, onFilterChange, onChangeSortChange } from './List.sagas';
 import Connected from './List.connect';
 import mock, { store } from '../../../cmf/lib/mock';
 
@@ -59,20 +59,6 @@ describe('List sagas', () => {
 				Connected.setStateAction(
 					{
 						filterDocked: !data.payload.filterDocked,
-					},
-					data.props.collectionId,
-				),
-			),
-		);
-	});
-	it('should check onClearFilter action', () => {
-		const gen = onClearFilter(data);
-
-		expect(gen.next().value).toEqual(
-			put(
-				Connected.setStateAction(
-					{
-						searchQuery: '',
 					},
 					data.props.collectionId,
 				),

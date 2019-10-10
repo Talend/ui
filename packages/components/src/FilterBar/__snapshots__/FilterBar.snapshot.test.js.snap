@@ -42,7 +42,7 @@ exports[`Filter should render filter input with default placeholder and remove c
       hideLabel={true}
       icon="talend-cross"
       label="Remove filter"
-      onClick={[Function]}
+      onMouseDown={[Function]}
     />
   </div>
 </form>

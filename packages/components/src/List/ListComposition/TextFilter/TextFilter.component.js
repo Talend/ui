@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { useListContext } from '../context';
 import FilterBar from '../../../FilterBar';
 
-const noOp = () => {};
-
 function TextFilter(props) {
 	const { docked, initialDocked, onChange, onToggle, value, ...restProps } = props;
 	const { textFilter, setTextFilter } = useListContext();

@@ -39,7 +39,6 @@ class FilterBar extends React.Component {
 		super(props);
 		this.onFilter = this.onFilter.bind(this);
 		this.onToggle = this.onToggle.bind(this);
-		this.onClear = this.onClear.bind(this);
 	}
 
 	onFilter(event, value) {
@@ -67,13 +66,6 @@ class FilterBar extends React.Component {
 		}
 	}
 
-	onClear(event) {
-		this.props.setState(prevState => prevState.state.set(QUERY_ATTR, ''));
-		if (this.props.onClear) {
-			this.props.onClear(event);
-		}
-	}
-
 	render() {
 		const state = this.props.state || DEFAULT_STATE;
 		const props = Object.assign({}, omit(this.props, cmfConnect.INJECTED_PROPS), {
@@ -81,7 +73,6 @@ class FilterBar extends React.Component {
 			value: this.props.value ? this.props.value : state.get(QUERY_ATTR, ''),
 			onToggle: this.onToggle,
 			onFilter: this.onFilter,
-			onClear: this.onClear,
 		});
 		return <Component {...props} />;
 	}

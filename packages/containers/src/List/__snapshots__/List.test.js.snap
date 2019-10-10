@@ -232,7 +232,6 @@ Object {
     },
     "filter": Object {
       "docked": true,
-      "onClear": [Function],
       "onFilter": [Function],
       "onToggle": [Function],
       "placeholder": "find an object",

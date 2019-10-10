@@ -14,7 +14,6 @@ describe('FilterBar', () => {
 			onBlur: jest.fn(),
 			onFilter: jest.fn(),
 			onToggle: jest.fn(),
-			onClear: jest.fn(),
 		};
 	});
 	it('should call onToggle on search icon click', () => {
@@ -78,9 +77,9 @@ describe('FilterBar', () => {
 			<FilterBarComponent {...defaultProps} value={'initial value'} id={'id1'} />,
 		);
 		// when
-		filterInstance.find('button').simulate('click');
+		filterInstance.find('button').simulate('mouseDown');
 		// then
-		expect(defaultProps.onClear).toBeCalled();
+		expect(defaultProps.onFilter).toBeCalledWith({ target: { value: '' } }, '');
 	});
 
 	it('should still have the icon visible on click', () => {
@@ -119,7 +118,7 @@ describe('FilterBar', () => {
 		// when
 		filterInstance.find('input').simulate('keydown', { keyCode: 27 });
 		// then
-		expect(props.onClear).toBeCalled();
+		expect(props.onFilter).toBeCalledWith({ target: { value: '' } }, '');
 	});
 
 	it('should call onToggle on ENTER keydown', () => {
