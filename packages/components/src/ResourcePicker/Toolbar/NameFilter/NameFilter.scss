@@ -2,13 +2,13 @@
 	flex: 1;
 	position: relative;
 
-	input + div {
+	input + button.remove {
 		position: absolute;
 		top: 0;
 		right: 0;
 	}
 
-	input:not(:invalid) + div .remove {
+	input:not(:invalid) + button.remove {
 		display: inline-block;
 	}
 }
