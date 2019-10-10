@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import { DateContext } from '../Context';
 import {
 	checkSupportedDateFormat,
+	checkSupportedTimezone,
 	extractDate,
-	extractPartsFromDate,
-	extractDateFromTextInput,
+	extractFromDate,
+	extractPartsFromTextInput,
 } from '../date-extraction';
 
 function ContextualManager(props) {
@@ -22,31 +23,37 @@ function ContextualManager(props) {
 	useEffect(() => {
 		checkSupportedDateFormat(props.dateFormat);
 	}, [props.dateFormat]);
+	useEffect(() => {
+		if (props.timezone) {
+			checkSupportedTimezone(props.timezone);
+		}
+	}, [props.timezone]);
 
 	function getDateOptions() {
 		return {
 			dateFormat: props.dateFormat,
 			useUTC: props.useUTC,
 			required: props.required,
+			timezone: props.timezone,
 		};
 	}
 	function onChange(event, origin, nextState) {
 		if (!props.onChange) {
 			return;
 		}
-		const { errorMessage, date, textInput, errors } = nextState;
-		props.onChange(event, { errors, errorMessage, date, textInput, origin });
+		const { errorMessage, date, localDate, textInput, errors } = nextState;
+		props.onChange(event, { errors, errorMessage, date, localDate, textInput, origin });
 	}
 
 	function onInputChange(event) {
 		const textInput = event.target.value;
-		const nextState = extractDateFromTextInput(textInput, getDateOptions());
+		const nextState = extractPartsFromTextInput(textInput, getDateOptions());
 		setState(nextState);
 		onChange(event, 'INPUT', nextState);
 	}
 
 	function onPickerChange(event, { date }) {
-		const nextState = extractPartsFromDate(date, getDateOptions());
+		const nextState = extractFromDate(date, getDateOptions());
 		setState(nextState);
 		onChange(event, 'PICKER', nextState);
 	}
@@ -56,7 +63,7 @@ function ContextualManager(props) {
 			value={{
 				value: {
 					textInput: state.textInput,
-					date: state.date,
+					date: state.localDate,
 				},
 
 				inputManagement: {
@@ -81,6 +88,7 @@ ContextualManager.propTypes = {
 	onChange: PropTypes.func,
 	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	useUTC: PropTypes.bool,
+	timezone: PropTypes.string,
 };
 
 ContextualManager.defaultProps = {

@@ -22,6 +22,7 @@ function InputDateTimePicker(props) {
 			value={props.value || props.selectedDateTime}
 			useSeconds={props.useSeconds}
 			useUTC={props.useUTC}
+			timezone={props.timezone}
 			onChange={props.onChange}
 		>
 			<DateTimeContext.Consumer>
@@ -30,14 +31,18 @@ function InputDateTimePicker(props) {
 						<InputDatePicker
 							id={`${props.id}-date-picker`}
 							onChange={onDateChange}
-							dateFormat={props.dateFormat}
 							value={date}
+							dateFormat={props.dateFormat}
+							useUTC={props.useUTC}
+							timezone={props.timezone}
+							hideTimezone
 						/>
 						<InputTimePicker
 							id={`${props.id}-time-picker`}
 							onChange={onTimeChange}
-							useSeconds={props.useSeconds}
 							value={time}
+							useSeconds={props.useSeconds}
+							timezone={props.timezone}
 						/>
 					</div>
 				)}
@@ -59,6 +64,7 @@ InputDateTimePicker.propTypes = {
 	dateFormat: PropTypes.string,
 	useSeconds: PropTypes.bool,
 	useUTC: PropTypes.bool,
+	timezone: PropTypes.string,
 };
 
 InputDateTimePicker.defaultProps = {

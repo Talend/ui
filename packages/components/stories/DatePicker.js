@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import talendIcons from '@talend/icons/dist/react';
 import { IconsProvider } from '../src/index';
 
 import { TimePicker } from '../src/DateTimePickers/pickers/TimePicker/TimePicker.component';
@@ -9,6 +10,10 @@ import DatePicker from '../src/DateTimePickers/Date/Picker';
 import InputDateTimePicker from '../src/DateTimePickers';
 import InputTimePicker from '../src/DateTimePickers/InputTimePicker';
 import InputDatePicker from '../src/DateTimePickers/InputDatePicker';
+
+const icons = {
+	'talend-info-circle': talendIcons['talend-info-circle'],
+};
 
 class TestPickerWrapper extends React.Component {
 	static propTypes = {
@@ -108,6 +113,30 @@ storiesOf('DatePicker', module)
 					onChange={action('onChange')}
 					value={new Date(Date.UTC(2018, 4, 13, 12, 30, 44))}
 					useUTC
+				/>
+			</form>
+		</div>
+	))
+	.add('Date picker - timezone', () => (
+		<div>
+			<IconsProvider />
+			<h1>DatePicker with timezone</h1>
+			<p>You can require to work with timezone (input and output).</p>
+			<pre>{`
+<InputDatePicker
+	id="my-date-picker"
+	...
+	timezone="Europe/Berlin"
+/>
+			`}</pre>
+			<form style={{ width: 320 }}>
+				<InputDatePicker
+					id="my-date-picker"
+					name="Datetime"
+					onBlur={action('onBlur')}
+					onChange={action('onChange')}
+					value={1569340800000}
+					timezone="Europe/Berlin"
 				/>
 			</form>
 		</div>
@@ -286,18 +315,25 @@ storiesOf('DatePicker', module)
 	})
 	.add('Time picker - with input', () => (
 		<div>
+			<IconsProvider defaultIcons={icons} />
 			<h1>TimePicker with input</h1>
 			<div style={{ display: 'flex', alignItems: 'flex-start' }}>
-				<div style={{ width: '7rem', marginRight: 60 }}>
+				<div style={{ width: '16rem', marginRight: 60 }}>
 					<p>with input</p>
 					<form>
 						<InputTimePicker onChange={action('onChange')} />
 					</form>
 				</div>
-				<div style={{ width: '7rem' }}>
+				<div style={{ width: '16rem', marginRight: 60 }}>
 					<p>with initial selectedTime</p>
 					<form>
 						<InputTimePicker onChange={action('onChange')} value="12:00" />
+					</form>
+				</div>
+				<div style={{ width: '16rem' }}>
+					<p>with timezone info</p>
+					<form>
+						<InputTimePicker onChange={action('onChange')} value="12:00" timezone="Europe/Berlin" />
 					</form>
 				</div>
 			</div>
@@ -338,6 +374,49 @@ storiesOf('DatePicker', module)
 					onChange={action('onChange')}
 					value={new Date(Date.UTC(2018, 4, 13, 12, 30, 44))}
 					useUTC
+				/>
+			</form>
+		</div>
+	))
+	.add('DateTime picker - timezone', () => (
+		<div>
+			<IconsProvider />
+			<h1>DateTimePicker with custom timezone</h1>
+			<p>You can require to work with specific timezone (input and output).</p>
+			<p>String format</p>
+			<pre>{`
+<InputDateTimePicker
+	id="my-date-picker"
+	...
+	value={'2019-09-25 09:02'}
+	timezone="Europe/Berlin"
+/>
+			`}</pre>
+			<form style={{ width: 320 }}>
+				<InputDateTimePicker
+					id="my-datetime-picker"
+					name="Datetime"
+					onChange={action('onChange')}
+					value="2019-09-25 09:02"
+					timezone="Europe/Berlin"
+				/>
+			</form>
+			<p>Unix time format</p>
+			<pre>{`
+<InputDateTimePicker
+	id="my-date-picker"
+	...
+	value={1569340800000}
+	timezone="America/New_York"
+/>
+			`}</pre>
+			<form style={{ width: 320 }}>
+				<InputDateTimePicker
+					id="my-datetime-picker"
+					name="Datetime"
+					onChange={action('onChange')}
+					value={1569340800000}
+					timezone="America/New_York"
 				/>
 			</form>
 		</div>

@@ -8,7 +8,10 @@ export default function Input(props) {
 	const { value, inputManagement } = useContext(DateContext);
 
 	return (
-		<InputSizer placeholder={inputManagement.placeholder} inputText={value.textInput}>
+		<InputSizer
+			placeholder={inputManagement.placeholder}
+			inputText={value.date ? value.textInput : ''}
+		>
 			{width => (
 				<DebounceInput
 					autoComplete="off"

@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { format } from 'date-fns';
 
 const EXTRA_SPACE = 5;
 
@@ -8,6 +7,7 @@ const inputTextSizerStyle = {
 	fontWeight: 400,
 	fontSize: '1.6rem',
 	visibility: 'hidden',
+	position: 'absolute',
 };
 
 const placeholderSizerStyle = {
@@ -24,7 +24,7 @@ function InputSizer({ placeholder, inputText, children }) {
 	}, [inputText, placeholder]);
 
 	const style = inputText ? inputTextSizerStyle : placeholderSizerStyle;
-	const text = inputText ? format(new Date(), placeholder) : placeholder;
+	const text = inputText || placeholder;
 	return (
 		<React.Fragment>
 			{children(width + EXTRA_SPACE)}

@@ -30,6 +30,7 @@ describe('InputSizer', () => {
 			fontStyle: 'oblique',
 			fontWeight: 400,
 			visibility: 'hidden',
+			position: 'absolute',
 		});
 	});
 	it('should apply inputText style when there is input', () => {
@@ -43,6 +44,6 @@ describe('InputSizer', () => {
 		);
 		// then
 		const style = wrapper.find('span').prop('style');
-		expect(style).toEqual({ fontSize: '1.6rem', fontWeight: 400, visibility: 'hidden' });
+		expect(style).toEqual({ fontSize: '1.6rem', fontWeight: 400, visibility: 'hidden', position: 'absolute' });
 	});
 });

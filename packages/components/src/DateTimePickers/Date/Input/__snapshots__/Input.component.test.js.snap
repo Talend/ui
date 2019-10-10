@@ -5,8 +5,8 @@ exports[`Date.Input should render 1`] = `
   aria-labelledby="labelId"
 >
   <InputSizer
-    inputText="2007-01-02"
-    placeholder="YYY-MM-DD"
+    inputText=""
+    placeholder="YYYY-MM-DD"
   >
     <DebounceInput
       aria-labelledby="labelId"
@@ -17,7 +17,7 @@ exports[`Date.Input should render 1`] = `
       forceNotifyByEnter={true}
       forceNotifyOnBlur={true}
       minLength={0}
-      placeholder="YYY-MM-DD"
+      placeholder="YYYY-MM-DD"
       style={
         Object {
           "width": 47,
@@ -33,7 +33,7 @@ exports[`Date.Input should render 1`] = `
         onBlur={[Function]}
         onChange={[Function]}
         onKeyDown={[Function]}
-        placeholder="YYY-MM-DD"
+        placeholder="YYYY-MM-DD"
         style={
           Object {
             "width": 47,
@@ -47,12 +47,14 @@ exports[`Date.Input should render 1`] = `
       style={
         Object {
           "fontSize": "1.6rem",
+          "fontStyle": "oblique",
           "fontWeight": 400,
+          "position": "absolute",
           "visibility": "hidden",
         }
       }
     >
-      19Y-09-19
+      YYYY-MM-DD
     </span>
   </InputSizer>
 </Date.Input>
