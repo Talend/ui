@@ -232,7 +232,7 @@ describe('DateTimePicker', () => {
 		it('should switch state to DateTimeView when Today is clicked', () => {
 			// given
 			const wrapper = mount(<DateTimePicker onSubmit={() => {}} />);
-			wrapper.setState({ isDateTimeView: false });
+			wrapper.setState({ isDateView: false });
 
 			// when
 			wrapper
@@ -241,7 +241,7 @@ describe('DateTimePicker', () => {
 				.simulate('click');
 
 			// then
-			expect(wrapper.state('isDateTimeView')).toBe(true);
+			expect(wrapper.state('isDateView')).toBe(true);
 			expect(wrapper.state('selectedDate')).toStrictEqual(startOfDay(new Date()));
 		});
 	});
