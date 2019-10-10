@@ -35,12 +35,7 @@ describe('CalendarPicker', () => {
 	it('should initialize calendar view to date from props', () => {
 		// when
 		const wrapper = shallow(
-			<CalendarPicker
-				selection={{
-					date: new Date(2013, 0, 15),
-				}}
-				onSubmit={() => {}}
-			/>,
+			<CalendarPicker selectedDate={new Date(2013, 0, 15)} onSubmit={() => {}} />,
 		);
 
 		// then
@@ -168,35 +163,21 @@ describe('CalendarPicker', () => {
 			const wrapper = shallow(<CalendarPicker selection={{ date: d1 }} onSubmit={() => {}} />);
 
 			// when
-			wrapper.setProps({ selection: { date: d2 } });
+			wrapper.setProps({ selectedDate: d2 });
 
 			// then
 			expect(wrapper.state('selectedDate')).toBe(d2);
 		});
 
-		it('should update state on time props change', () => {
-			// given
-			const t1 = { hours: 1, minutes: 15 };
-			const t2 = { hours: 23, minutes: 25 };
-			const wrapper = shallow(<CalendarPicker selection={{ time: t1 }} onSubmit={() => {}} />);
-
-			// when
-			wrapper.setProps({ selection: { time: t2 } });
-
-			// then
-			expect(wrapper.state('selectedTime')).toBe(t2);
-		});
-
 		it('should update state and submit on date picked', () => {
 			// given
-			const initialTime = { hours: 1, minutes: 15 };
 			const initialDate = new Date(2015, 10, 18);
 			const date = new Date(2018, 2, 5);
 			const event = { target: {}, persist() {} };
 			const onSubmit = jest.fn();
 
 			const wrapper = shallow(
-				<CalendarPicker selection={{ date: initialDate, time: initialTime }} onSubmit={onSubmit} />,
+				<CalendarPicker selection={{ date: initialDate }} onSubmit={onSubmit} />,
 			);
 
 			// when
@@ -204,27 +185,7 @@ describe('CalendarPicker', () => {
 
 			// then
 			expect(wrapper.state('selectedDate')).toBe(date);
-			expect(onSubmit).toBeCalledWith(event, { date, time: initialTime });
-		});
-
-		it('should update state and submit on time picked', () => {
-			// given
-			const initialTime = { hours: 1, minutes: 15 };
-			const initialDate = new Date(2015, 10, 18);
-			const time = { hours: 23, minutes: 59 };
-			const event = { target: {}, persist() {} };
-			const onSubmit = jest.fn();
-
-			const wrapper = shallow(
-				<CalendarPicker selection={{ date: initialDate, time: initialTime }} onSubmit={onSubmit} />,
-			);
-
-			// when
-			wrapper.find(DateView).prop('onSelectTime')(event, time);
-
-			// then
-			expect(wrapper.state('selectedTime')).toBe(time);
-			expect(onSubmit).toBeCalledWith(event, { date: initialDate, time });
+			expect(onSubmit).toBeCalledWith(event, { date });
 		});
 	});
 

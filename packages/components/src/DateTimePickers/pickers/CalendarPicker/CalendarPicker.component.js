@@ -16,8 +16,7 @@ class CalendarPicker extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const selectedDate = props.selection.date;
-		const selectedTime = props.selection.time;
+		const selectedDate = props.selectedDate;
 
 		const initialCalendarDate = selectedDate === undefined ? new Date() : selectedDate;
 
@@ -28,7 +27,6 @@ class CalendarPicker extends React.Component {
 				year: getYear(initialCalendarDate),
 			},
 			selectedDate,
-			selectedTime,
 			allowFocus: !props.manageFocus,
 		};
 
@@ -36,11 +34,10 @@ class CalendarPicker extends React.Component {
 		this.onSelectCalendarYear = this.onSelectCalendarYear.bind(this);
 		this.onSelectCalendarMonthYear = this.onSelectCalendarMonthYear.bind(this);
 		this.onSelectDate = this.onSelectDate.bind(this);
-		this.onSelectTime = this.onSelectTime.bind(this);
 
 		this.allowFocus = this.setAllowFocus.bind(this, true);
 		this.disallowFocus = this.setAllowFocus.bind(this, false);
-		this.setDateTimeView = this.setView.bind(this, true);
+		this.setDateView = this.setView.bind(this, true);
 		this.setMonthYearView = this.setView.bind(this, false);
 		this.onClickToday = this.onClickToday.bind(this);
 	}
@@ -53,19 +50,15 @@ class CalendarPicker extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		const newSelectedDate = nextProps.selection.date;
-		const newSelectedTime = nextProps.selection.time;
+		const newSelectedDate = nextProps.selectedDate;
 		const needToUpdateDate = newSelectedDate !== this.state.selectedDate;
-		const needToUpdateTime = newSelectedTime !== this.state.selectedTime;
-		const noNeedToUpdateState = !needToUpdateDate && !needToUpdateTime;
 
-		if (noNeedToUpdateState) {
+		if (!needToUpdateDate) {
 			return;
 		}
 
 		const newState = {
 			selectedDate: newSelectedDate,
-			selectedTime: newSelectedTime,
 		};
 		if (needToUpdateDate && newSelectedDate) {
 			newState.calendar = {
@@ -88,13 +81,6 @@ class CalendarPicker extends React.Component {
 		event.persist();
 		this.setState({ selectedDate }, () => {
 			this.submit(event);
-		});
-	}
-
-	onSelectTime(event, selectedTime, field) {
-		event.persist();
-		this.setState({ selectedTime }, () => {
-			this.submit(event, field);
 		});
 	}
 
@@ -141,7 +127,6 @@ class CalendarPicker extends React.Component {
 	submit(event, field) {
 		this.props.onSubmit(event, {
 			date: this.state.selectedDate,
-			time: this.state.selectedTime,
 			field,
 		});
 	}
@@ -156,17 +141,15 @@ class CalendarPicker extends React.Component {
 					calendar={this.state.calendar}
 					onSelectDate={this.onSelectDate}
 					onSelectMonthYear={this.onSelectCalendarMonthYear}
-					onSelectTime={this.onSelectTime}
 					onTitleClick={this.setMonthYearView}
 					selectedDate={this.state.selectedDate}
-					useUTC={this.props.useUTC}
 				/>
 			);
 		} else {
 			viewElement = (
 				<MonthYearView
 					allowFocus={this.state.allowFocus}
-					onBackClick={this.setDateTimeView}
+					onBackClick={this.setDateView}
 					onSelectMonth={this.onSelectCalendarMonth}
 					onSelectYear={this.onSelectCalendarYear}
 					selectedMonthIndex={this.state.calendar.monthIndex}
@@ -215,30 +198,18 @@ CalendarPicker.propTypes = {
 	 */
 	manageFocus: PropTypes.bool,
 	/**
-	 * Current selected date/time
+	 * Current selected date
 	 */
-	selection: PropTypes.shape({
-		date: PropTypes.instanceOf(Date),
-		time: PropTypes.shape({
-			hours: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-			minutes: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-		}),
-	}),
+	selectedDate: PropTypes.instanceOf(Date),
 	/**
-	 * Callback triggered when date and time are selected
+	 * Callback triggered when date is selected
 	 */
 	onSubmit: PropTypes.func.isRequired,
-	/**
-	 * Timezone is UTC
-	 */
-	useUTC: PropTypes.bool,
-
 	t: PropTypes.func.isRequired,
 };
 
 CalendarPicker.defaultProps = {
 	t: getDefaultT(),
-	selection: {},
 };
 
 export default CalendarPicker;

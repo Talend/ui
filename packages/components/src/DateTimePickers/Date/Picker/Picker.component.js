@@ -8,9 +8,7 @@ export default function Picker(props) {
 	return (
 		<CalendarPicker
 			manageFocus
-			selection={{
-				date: value.date,
-			}}
+			selectedDate={value.date}
 			{...pickerManagement}
 			{...props}
 		/>

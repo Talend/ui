@@ -29,9 +29,7 @@ describe('Date.Picker', () => {
 			manageFocus: true,
 			onSubmit: managerValue.pickerManagement.onSubmit,
 			other: 'custom props',
-			selection: {
-				date: new Date(2007, 0, 2),
-			},
+			selectedDate: new Date(2007, 0, 2),
 			useUTC: false,
 			t: expect.any(Function),
 		});
