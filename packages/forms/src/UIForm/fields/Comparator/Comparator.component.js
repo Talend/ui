@@ -11,18 +11,18 @@ import Widget from '../../Widget';
 import theme from './Comparator.scss';
 
 export const ICONS_MAPPING = {
-	'=': 'talend-equal',
-	'!=': 'talend-not-equal',
-	'≅': 'talend-contains',
-	'≇': 'talend-not-contains',
-	'|>': 'talend-starts-with',
-	'>|': 'talend-ends-with',
-	':': 'talend-between',
-	'>': 'talend-greater-than',
-	'>=': 'talend-greater-than-equal',
-	'<': 'talend-less-than',
-	'<=': 'talend-less-than-equal',
-	'^\\': 'talend-regex',
+	equals: 'talend-equal',
+	not_equals: 'talend-not-equal',
+	contains: 'talend-contains',
+	not_contains: 'talend-not-contains',
+	starts_with: 'talend-starts-with',
+	ends_with: 'talend-ends-with',
+	between: 'talend-between',
+	greater_than: 'talend-greater-than',
+	greater_equals_to: 'talend-greater-than-equal',
+	less_than: 'talend-less-than',
+	less_equals_to: 'talend-less-than-equal',
+	regex: 'talend-regex',
 };
 
 /**

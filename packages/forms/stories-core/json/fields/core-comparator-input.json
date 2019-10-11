@@ -10,7 +10,21 @@
         "properties": {
           "operator": {
             "type": "string",
-            "enum": ["=", "!=", "≅", "≇", "|>", ">|", ":", "<", "<=", ">", ">=", "^\\", "😊"]
+            "enum": [
+              "equals",
+              "not_equals",
+              "contains",
+              "not_contains",
+              "starts_with",
+              "ends_with",
+              "between",
+              "greater_than",
+              "greater_equals_to",
+              "less_than",
+              "less_equals_to",
+              "regex",
+              "😊"
+            ]
           },
           "value": {
             "type": "string"
@@ -23,7 +37,21 @@
         "properties": {
           "operator": {
             "type": "string",
-            "enum": ["=", "!=", "≅", "≇", "|>", ">|", ":", "<", "<=", ">", ">=", "^\\", "😊"]
+            "enum": [
+              "equals",
+              "not_equals",
+              "contains",
+              "not_contains",
+              "starts_with",
+              "ends_with",
+              "between",
+              "greater_than",
+              "greater_equals_to",
+              "less_than",
+              "less_equals_to",
+              "regex",
+              "😊"
+            ]
           },
           "value": {
             "type": "string"
@@ -75,55 +103,55 @@
       "titleMap": [
         {
           "name": "Equals to",
-          "value": "="
+          "value": "equals"
         },
         {
           "name": "Not equals to",
-          "value": "!="
+          "value": "not_equals"
         },
         {
           "name": "Contains",
-          "value": "≅"
+          "value": "contains"
         },
         {
           "name": "Not contains",
-          "value": "≇"
+          "value": "not_contains"
         },
         {
           "name": "Starts with",
-          "value": "|>"
+          "value": "starts_with"
         },
         {
           "name": "Ends with",
-          "value": ">|"
+          "value": "ends_with"
         },
         {
           "name": "Between",
-          "value": ":"
+          "value": "between"
         },
         {
           "name": "Less or equal to",
-          "value": "<="
+          "value": "less_equals_to"
         },
         {
           "name": "Less than",
-          "value": "<"
+          "value": "less_than"
         },
         {
           "name": "Greater than",
-          "value": ">"
+          "value": "greater_than"
         },
         {
           "name": "Greater or equal to",
-          "value": ">="
+          "value": "greater_equals_to"
+        },
+        {
+          "name": "RegEx",
+          "value": "regex"
         },
         {
           "name": "Something",
           "value": "😊"
-        },
-        {
-          "name": "RegEx",
-          "value": "^\\"
         }
       ],
       "tooltip": "👋"
@@ -159,7 +187,7 @@
   ],
   "properties": {
     "default": {
-      "operator": ">"
+      "operator": "greater_than"
     },
     "numeric": {
       "operator": "orng"
