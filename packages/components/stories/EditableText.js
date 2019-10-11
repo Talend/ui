@@ -29,9 +29,8 @@ storiesOf('EditableText', module)
 		);
 	})
 	.add('with ellipsis', () => (
-		<div style={{ width: '150px', display: 'flex' }}>
+		<div style={{ width: '150px' }}>
 			<EditableText {...props} />
-			<div>Some text that should not be pushed on the hover</div>
 		</div>
 	))
 	.add('loading', () => <EditableText loading {...props} />)
