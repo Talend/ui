@@ -10,15 +10,28 @@
         "properties": {
           "operator": {
             "type": "string",
-            "enum": [">", "<", "="]
+            "enum": ["=", "!=", "≅", "≇", "|>", ">|", ":", "<", "<=", ">", ">=", "^\\", "😊"]
           },
           "value": {
             "type": "string"
           }
         }
       },
-
+      "withLabels": {
+        "type": "object",
+        "required": ["value"],
+        "properties": {
+          "operator": {
+            "type": "string",
+            "enum": ["=", "!=", "≅", "≇", "|>", ">|", ":", "<", "<=", ">", ">=", "^\\", "😊"]
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
       "numeric": {
+        "title": "Not value",
         "type": "object",
         "required": ["value"],
         "properties": {
@@ -33,7 +46,6 @@
           }
         }
       },
-
       "disabled": {
         "type": "object",
         "required": ["value"],
@@ -56,12 +68,70 @@
       "widget": "comparator",
       "title": "Default comparator"
     },
-
+    {
+      "key": "withLabels",
+      "widget": "comparator",
+      "title": "Comparator with labels",
+      "titleMap": [
+        {
+          "name": "Equals to",
+          "value": "="
+        },
+        {
+          "name": "Not equals to",
+          "value": "!="
+        },
+        {
+          "name": "Contains",
+          "value": "≅"
+        },
+        {
+          "name": "Not contains",
+          "value": "≇"
+        },
+        {
+          "name": "Starts with",
+          "value": "|>"
+        },
+        {
+          "name": "Ends with",
+          "value": ">|"
+        },
+        {
+          "name": "Between",
+          "value": ":"
+        },
+        {
+          "name": "Less or equal to",
+          "value": "<="
+        },
+        {
+          "name": "Less than",
+          "value": "<"
+        },
+        {
+          "name": "Greater than",
+          "value": ">"
+        },
+        {
+          "name": "Greater or equal to",
+          "value": ">="
+        },
+        {
+          "name": "Something",
+          "value": "😊"
+        },
+        {
+          "name": "RegEx",
+          "value": "^\\"
+        }
+      ],
+      "tooltip": "👋"
+    },
     {
       "key": "numeric",
       "widget": "comparator",
-      "title": "Numeric comparator",
-
+      "title": "Customs numeric comparator",
       "titleMap": [
         {
           "name": "Orange",

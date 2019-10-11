@@ -4,10 +4,26 @@ import last from 'lodash/last';
 import classNames from 'classnames';
 
 import ActionDropdown from '@talend/react-components/lib/Actions/ActionDropdown';
+
 import Text from '../Text';
 import Widget from '../../Widget';
 
 import theme from './Comparator.scss';
+
+export const ICONS_MAPPING = {
+	'=': 'talend-equal',
+	'!=': 'talend-not-equal',
+	'≅': 'talend-contains',
+	'≇': 'talend-not-contains',
+	'|>': 'talend-starts-with',
+	'>|': 'talend-ends-with',
+	':': 'talend-between',
+	'>': 'talend-greater-than',
+	'>=': 'talend-greater-than-equal',
+	'<': 'talend-less-than',
+	'<=': 'talend-less-than-equal',
+	'^\\': 'talend-regex',
+};
 
 /**
  * Adapt part (operator or value) schema
@@ -15,6 +31,12 @@ import theme from './Comparator.scss';
  * @param part 'operator' or 'value'
  */
 function getPartSchema(schema, part) {
+	const schemaRest = { ...schema };
+	delete schemaRest.key;
+	delete schemaRest.items;
+	delete schemaRest.schema;
+	delete schemaRest.type;
+	delete schemaRest.widget;
 	const childKey = schema.key.concat(part);
 	const childrenSchemas = schema.items || [];
 	let childSchema = childrenSchemas.find(item => last(item.key) === part);
@@ -23,18 +45,27 @@ function getPartSchema(schema, part) {
 	}
 	return {
 		...childSchema,
+		...schemaRest,
 		key: childKey,
-		autoFocus: schema.autoFocus || childSchema.autoFocus,
-		disabled: schema.disabled || childSchema.disabled,
-		readOnly: schema.readOnly || childSchema.readOnly,
 	};
 }
 
-function OperatorListElement({ symbol, name, selected }) {
+function OperatorListElement({ symbol, icon, name, selected }) {
+	if (icon && !name) {
+		return null;
+	}
 	return (
-		<span className={classNames(theme.operator, { [theme.selected]: selected })}>
-			{symbol && <span>{symbol}</span>}
-			{name && <span className={classNames(theme.name)}>{name}</span>}
+		<span
+			className={classNames(theme.operator, 'tf-comparator-operator', {
+				[theme.selected]: selected,
+			})}
+		>
+			{symbol && !icon && (
+				<span className={classNames(theme.symbol, 'tf-comparator-operator-symbol')}>{symbol}</span>
+			)}
+			{name && (
+				<span className={classNames(theme.name, 'tf-comparator-operator-name')}>{name}</span>
+			)}
 		</span>
 	);
 }
@@ -50,6 +81,10 @@ class Comparator extends React.Component {
 		console.warn(
 			"UNSTABLE WARNING: The 'Comparator' is not ready to be used in Apps. Code can (will) change outside the release process until it's ready.",
 		);
+	}
+
+	componentDidMount() {
+		// FIXME
 	}
 
 	onSelect(event, { value }) {
@@ -92,18 +127,24 @@ class Comparator extends React.Component {
 		const symbols = (schema.options && schema.options.symbols) || {};
 		return this.getOperatorSchema().titleMap.map(({ value }) => {
 			const titles = map.find(m => m.value === value);
-			const title = titles ? `${titles.symbol} (${titles.name})` : value;
+			let title;
+			if (titles) {
+				title = titles.symbol ? `${titles.symbol} (${titles.name})` : titles.name;
+			} else {
+				title = value;
+			}
 			return {
 				value,
 				title,
 				name: titles ? titles.name : '',
 				symbol: symbols[value] || value,
+				icon: ICONS_MAPPING[value],
 			};
 		});
 	}
 
 	getOperatorsMap() {
-		return this.getFormattedOperators().map(({ value, title, name, symbol }) => ({
+		return this.getFormattedOperators().map(({ value, title, name, symbol, icon }) => ({
 			value,
 			title,
 			label: (
@@ -111,8 +152,10 @@ class Comparator extends React.Component {
 					selected={this.props.value.operator === value}
 					name={name}
 					symbol={symbol}
+					icon={icon}
 				/>
 			),
+			icon,
 		}));
 	}
 
@@ -122,14 +165,17 @@ class Comparator extends React.Component {
 		return (
 			<div className={classNames(theme.comparator)}>
 				<ActionDropdown
+					icon={current && current.icon}
+					hideLabel={!!(current && current.icon)}
 					label={current && current.symbol}
 					onSelect={this.onSelect}
 					disabled={this.getOperatorSchema().disabled}
-					items={this.getOperatorsMap().map(({ label, value, title }, index) => ({
+					items={this.getOperatorsMap().map(({ label, value, title, icon }, index) => ({
 						id: `comparison-operator-${index}`,
 						label,
 						value,
 						title,
+						icon,
 					}))}
 					noCaret
 				/>
@@ -161,6 +207,7 @@ if (process.env.NODE_ENV !== 'production') {
 	OperatorListElement.propTypes = {
 		symbol: PropTypes.string,
 		name: PropTypes.string,
+		icon: PropTypes.string,
 		selected: PropTypes.bool,
 	};
 }

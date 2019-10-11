@@ -28,7 +28,7 @@ describe('Comparator field', () => {
 					type: 'select',
 					titleMap: [
 						{ name: 'Greater than', value: '>' },
-						{ name: 'Lower than', value: '<' },
+						{ name: 'Less than', value: '<' },
 						{ name: '=', value: '=' },
 					],
 				},
