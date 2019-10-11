@@ -68,7 +68,6 @@ function DateWidget(props) {
 				id={id}
 				onChange={onDateChange}
 				onBlur={onBlur}
-				placeholder={schema.placeholder}
 				readOnly={schema.readOnly}
 				value={convertedValue}
 				useUTC={options.useUTC}
