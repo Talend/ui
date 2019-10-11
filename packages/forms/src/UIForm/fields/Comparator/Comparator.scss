@@ -16,6 +16,10 @@ $tf-comparator-operator-background: $gallery !default;
 
 			&-menu {
 				min-width: auto;
+				border-top: {
+					left-radius: 0;
+					right-radius: 0;
+				}
 			}
 
 			.tc-svg-icon {
