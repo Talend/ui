@@ -65,6 +65,7 @@ function DateWidget(props) {
 				autoFocus={schema.autoFocus}
 				dateFormat={options.dateFormat}
 				disabled={schema.disabled || valueIsUpdating}
+				placeholder={schema.placeholder}
 				id={id}
 				onChange={onDateChange}
 				onBlur={onBlur}
