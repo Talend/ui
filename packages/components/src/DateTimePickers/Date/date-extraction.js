@@ -53,7 +53,16 @@ function dateToStr(date, { dateFormat }) {
  * Convert a date in local TZ to UTC
  */
 function convertToUTC(date) {
-	return new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+	return new Date(
+		Date.UTC(
+			date.getFullYear(),
+			date.getMonth(),
+			date.getDate(),
+			date.getHours(),
+			date.getMinutes(),
+			date.getSeconds(),
+		),
+	);
 }
 
 function convertDateToTimezone(date, { useUTC, timezone }) {
@@ -128,9 +137,7 @@ function checkSupportedDateFormat(dateFormat) {
 function checkSupportedTimezone(timezone) {
 	const timzones = listTimeZones();
 	if (!timzones.includes(timezone)) {
-		throw new Error(
-			`Timezone: ${timezone} - NOT SUPPORTED`,
-		);
+		throw new Error(`Timezone: ${timezone} - NOT SUPPORTED`);
 	}
 }
 

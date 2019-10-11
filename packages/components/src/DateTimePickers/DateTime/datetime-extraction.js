@@ -226,9 +226,9 @@ function updateDatetimeOnDateChange(datePickerPayload, time, options) {
 	};
 }
 
-function updateDatetimeOnTimeChange(payload, date, options) {
+function updateDatetimeOnTimeChange(timePickerPayload, date, options) {
+	const { errors = [], time, textInput: timeTextInput } = timePickerPayload;
 	let datetime;
-	const { errors = [], time, textInput: timeTextInput } = payload;
 	const nextErrors = errors;
 	if (errors.length > 0) {
 		datetime = INTERNAL_INVALID_DATE;
