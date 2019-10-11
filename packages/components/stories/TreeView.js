@@ -2,7 +2,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { Button } from 'react-bootstrap';
 
 import { TreeView, IconsProvider } from '../src/index';
 import { Checkbox } from '../src/Toggle/index';
@@ -171,11 +170,9 @@ const withCustomHeader = {
 const withSelectAll = {
 	headerRenderer: () => (
 		<div>
-			<Button>
-				<Checkbox indeterminate />
-				Select all
-			</Button>
-		</div>),
+			<Checkbox indeterminate label="Select all" />
+		</div>
+	),
 };
 
 const withAddAction = {
@@ -309,8 +306,15 @@ storiesOf('TreeView', module)
 			<p>A view component to display any tree structure, like folders or categories.</p>
 			<h3>Default property-set with action example: </h3>
 			<div style={style}>
-				<IconsProvider />
-				<TreeView {...withAddAction} {...withoutFolderIcon} {...withCustomHeader} {...withSelectAll} />
+				<form className="form">
+					<IconsProvider />
+					<TreeView
+						{...withAddAction}
+						{...withoutFolderIcon}
+						{...withCustomHeader}
+						{...withSelectAll}
+					/>
+				</form>
 			</div>
 		</div>
 	))

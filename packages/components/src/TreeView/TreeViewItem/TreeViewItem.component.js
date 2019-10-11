@@ -271,7 +271,7 @@ class TreeViewItem extends React.Component {
 							link
 						/>
 					) : null}
-					<Checkbox intermediate />
+					<Checkbox intermediate /* style={{ marginTop: '10px' }} */ />
 
 					{!hideFolderIcon && <TreeViewIcon key="icon" icon={icon} isOpened={showOpenedFolder} />}
 					<span
