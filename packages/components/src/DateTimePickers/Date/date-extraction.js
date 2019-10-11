@@ -173,12 +173,12 @@ function extractPartsFromDate(date, options) {
 		};
 	}
 
-	const dateToUse = extractDateOnly(date, options);
+	const localDate = extractDateOnly(date, options);
 
 	return {
-		localDate: dateToUse,
+		localDate,
 		date,
-		textInput: dateToStr(dateToUse, options),
+		textInput: dateToStr(localDate, options),
 		errors: [],
 		errorMessage: null,
 	};

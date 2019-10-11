@@ -21,7 +21,6 @@ exports[`InputDateTimePicker should render 1`] = `
     >
       <InputDatePicker
         dateFormat="YYYY-MM-DD"
-        hideTimezone={true}
         id="my-picker-date-picker"
         onChange={[Function]}
         required={true}

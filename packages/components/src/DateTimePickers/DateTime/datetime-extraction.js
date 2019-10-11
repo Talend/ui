@@ -203,8 +203,8 @@ function extractParts(value, options) {
  * @param options {Object}
  */
 function updateDatetimeOnDateChange(datePickerPayload, time, options) {
-	let datetime;
 	const { errors = [], date, textInput: dateTextInput } = datePickerPayload;
+	let datetime;
 	const nextErrors = errors;
 	if (errors.length > 0) {
 		datetime = INTERNAL_INVALID_DATE;
