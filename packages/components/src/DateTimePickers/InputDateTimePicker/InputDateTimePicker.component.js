@@ -30,6 +30,7 @@ function InputDateTimePicker(props) {
 					<div className={theme['date-time-picker']}>
 						<InputDatePicker
 							id={`${props.id}-date-picker`}
+							readOnly={props.readOnly}
 							onBlur={props.onBlur}
 							onChange={onDateChange}
 							value={date}
@@ -37,6 +38,7 @@ function InputDateTimePicker(props) {
 						/>
 						<InputTimePicker
 							id={`${props.id}-time-picker`}
+							readOnly={props.readOnly}
 							onBlur={props.onBlur}
 							onChange={onTimeChange}
 							value={time}
