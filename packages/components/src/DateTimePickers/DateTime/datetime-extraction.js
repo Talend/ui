@@ -87,7 +87,7 @@ function dateAndTimeToDateTime(date, time, options) {
 
 function dateAndTimeToStr(date = '', time = '', options) {
 	const dateStr = date instanceof Date ? format(date, options.dateFormat) : date;
-	const timeStr = typeof time === 'string' ? time : timeToStr(time);
+	const timeStr = typeof time === 'string' ? time : timeToStr(time, options.useSeconds);
 
 	return `${dateStr} ${timeStr}`.trim();
 }
