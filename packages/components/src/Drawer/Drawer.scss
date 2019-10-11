@@ -69,18 +69,13 @@ $tc-drawer-z-index: $drawer-z-index !default;
 }
 
 .tc-drawer-header {
-	:global(.tc-editable-text-pencil) {
-		color: $gray;
-		opacity: 0;
-	}
-
-	&:hover {
-		:global(.tc-editable-text-pencil) {
-			opacity: 1;
-			&:hover {
-				color: $scooter;
-			}
+	:global {
+		.tc-editable-text {
+			width: 90%;
 		}
+	}
+	:global(.tc-editable-text-pencil) {
+		color: $white;
 	}
 	background-color: $brand-primary-lighter;
 
