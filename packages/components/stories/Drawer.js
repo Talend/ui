@@ -236,7 +236,7 @@ const longEditableDrawers = [
 		footerActions={Object.assign({}, basicProps, { selected: 0 })}
 	>
 		<h1>Hello drawer 1</h1>
-		<p>{"You should not being able to read this because I'm first"}</p>
+		<p>You should not being able to read this because I'm first</p>
 	</Drawer>,
 	<Drawer
 		editableTitle
