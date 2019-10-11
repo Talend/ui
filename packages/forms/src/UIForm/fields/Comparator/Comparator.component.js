@@ -83,10 +83,6 @@ class Comparator extends React.Component {
 		);
 	}
 
-	componentDidMount() {
-		// FIXME
-	}
-
 	onSelect(event, { value }) {
 		this.props.onChange(event, {
 			schema: this.props.schema,
