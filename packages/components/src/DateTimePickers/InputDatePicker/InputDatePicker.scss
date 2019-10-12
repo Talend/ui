@@ -10,6 +10,7 @@ $tc-datepicker-z-index: $zindex-dropdown !default;
 	z-index: $tc-datepicker-z-index;
 }
 .date-picker {
+	width: fit-content;
 	display: flex;
 	align-items: center;
 }

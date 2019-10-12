@@ -69,7 +69,7 @@ export default function InputTimePicker(props) {
 			onChange={(...args) => handlers.onChange(...args, inputRef.current)}
 		>
 			<FocusManager
-				className={theme['input-container']}
+				className={theme['time-picker']}
 				divRef={containerRef}
 				onClick={handlers.onClick}
 				onFocusIn={handlers.onFocus}
