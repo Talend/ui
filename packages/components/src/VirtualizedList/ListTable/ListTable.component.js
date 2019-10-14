@@ -44,6 +44,7 @@ function ListTable(props) {
 		id,
 		isActive,
 		isSelected,
+		getAvaibilityStatus,
 		onRowClick,
 		onRowDoubleClick,
 		rowCount,
@@ -51,10 +52,11 @@ function ListTable(props) {
 	} = props;
 
 	let RowTableRenderer = ListTableRowRenderer;
-	if (isActive || isSelected) {
+	if (isActive || isSelected || getAvaibilityStatus) {
 		RowTableRenderer = getRowSelectionRenderer(RowTableRenderer, {
 			isSelected,
 			isActive,
+			getAvaibilityStatus,
 			getRowData: rowProps => rowProps.rowData,
 		});
 	}
@@ -91,6 +93,7 @@ ListTable.propTypes = {
 	id: PropTypes.string,
 	isActive: PropTypes.func,
 	isSelected: PropTypes.func,
+	getAvaibilityStatus: PropTypes.func,
 	noRowsRenderer: PropTypes.func,
 	onRowClick: PropTypes.func,
 	onRowDoubleClick: PropTypes.func,

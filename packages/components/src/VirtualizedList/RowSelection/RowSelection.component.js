@@ -8,11 +8,12 @@ import theme from './RowSelection.scss';
  * It manages row selection classname and inject it to the row renderer props.
  */
 function getRowSelectionRenderer(WrappedComponent,
-	{ isSelected, isActive, getRowData }) {
+	{ isSelected, isActive, getAvaibilityStatus, getRowData }) {
 	function RowSelection(props) {
 		const rowData = getRowData(props);
 		const active = isActive && isActive(rowData);
 		const selected = isSelected && isSelected(rowData);
+		const { status = true } = (getAvaibilityStatus && getAvaibilityStatus(rowData)) || {};
 
 		const enhancedClassNames = classNames(
 			props.className,
@@ -20,8 +21,10 @@ function getRowSelectionRenderer(WrappedComponent,
 			{ [theme.active]: active },
 			{ active },
 			{ [theme.selected]: selected },
+			{ [theme.disabled]: !status },
 			{ selected },
 		);
+
 		return (
 			<WrappedComponent {...props} className={enhancedClassNames} />
 		);

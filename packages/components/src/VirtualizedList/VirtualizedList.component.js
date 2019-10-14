@@ -27,6 +27,7 @@ function VirtualizedList(props) {
 		id,
 		isActive,
 		isSelected,
+		getAvaibilityStatus,
 		inProgress,
 		onRowClick,
 		onRowDoubleClick,
@@ -52,6 +53,7 @@ function VirtualizedList(props) {
 		isSelected,
 		onToggleAll,
 		selectionToggle,
+		getAvaibilityStatus,
 	});
 	const [widthsOfColumnsState, setWidthsOfColumnsState] = useState();
 	const rendererSelectorRef = useRef();
@@ -74,6 +76,7 @@ function VirtualizedList(props) {
 		theme: tableTheme,
 		children: columnDefinitionsWithSelection,
 		columnsWidths,
+		getAvaibilityStatus,
 	});
 
 	if (type === LARGE && inProgress) {
@@ -92,6 +95,7 @@ function VirtualizedList(props) {
 						id={id}
 						isActive={isActive}
 						isSelected={isSelected}
+						getAvaibilityStatus={getAvaibilityStatus}
 						onRowClick={onRowClick}
 						onRowDoubleClick={onRowDoubleClick}
 						onScroll={onScroll}

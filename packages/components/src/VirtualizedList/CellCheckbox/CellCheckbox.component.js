@@ -18,7 +18,9 @@ class CellCheckbox extends React.Component {
 
 	render() {
 		const { cellData, columnData, rowData, rowIndex } = this.props;
-		const { id, label, onChange } = columnData;
+		const { id, label, onChange, getAvaibilityStatus } = columnData;
+		const { status = true } = (getAvaibilityStatus && getAvaibilityStatus(rowData)) || {};
+
 		return (
 			<form className={classnames('tc-list-checkbox', theme['tc-list-checkbox'])}>
 				<div className="checkbox">
@@ -30,6 +32,7 @@ class CellCheckbox extends React.Component {
 								onChange(e, rowData);
 							}}
 							checked={cellData}
+							disabled={!status}
 						/>
 						<span className={'tc-cell-checkbox'}>
 							<span className="sr-only">{label}</span>

@@ -90,6 +90,7 @@ Array [
     columnData={
       Object {
         "custom": "lol",
+        "getAvaibilityStatus": undefined,
         "id": "my-id",
       }
     }
@@ -113,6 +114,7 @@ Array [
     className="my-classname theme-classname tc-list-cell-id"
     columnData={
       Object {
+        "getAvaibilityStatus": undefined,
         "id": undefined,
       }
     }
@@ -136,6 +138,7 @@ Array [
     className="tc-list-cell-id"
     columnData={
       Object {
+        "getAvaibilityStatus": undefined,
         "id": undefined,
       }
     }
@@ -160,6 +163,7 @@ Array [
     columnData={
       Object {
         "custom": "lol",
+        "getAvaibilityStatus": undefined,
         "id": "my-id",
       }
     }
@@ -185,6 +189,7 @@ Array [
     columnData={
       Object {
         "custom": "lol",
+        "getAvaibilityStatus": undefined,
         "id": "my-id",
       }
     }

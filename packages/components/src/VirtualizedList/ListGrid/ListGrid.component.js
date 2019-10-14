@@ -16,6 +16,7 @@ function ListGrid(props) {
 		collection,
 		isActive,
 		isSelected,
+		isDisabled,
 		onRowClick,
 		onRowDoubleClick,
 		rowRenderer,
@@ -24,10 +25,11 @@ function ListGrid(props) {
 	} = props;
 
 	let enhancedRowRenderer = rowRenderer;
-	if (isActive || isSelected) {
+	if (isActive || isSelected || isDisabled) {
 		enhancedRowRenderer = getRowSelectionRenderer(rowRenderer, {
 			isActive,
 			isSelected,
+			isDisabled,
 			getRowData: ({ index }) => collection[index],
 		});
 	}
@@ -58,6 +60,7 @@ ListGrid.propTypes = {
 	id: PropTypes.string,
 	isActive: PropTypes.func,
 	isSelected: PropTypes.func,
+	isDisabled: PropTypes.func,
 	noRowsRenderer: PropTypes.func,
 	onRowClick: PropTypes.func,
 	onRowDoubleClick: PropTypes.func,
