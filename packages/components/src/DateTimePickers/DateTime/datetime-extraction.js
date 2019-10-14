@@ -226,6 +226,12 @@ function updateDatetimeOnDateChange(datePickerPayload, time, options) {
 	};
 }
 
+/**
+ * re-compute state (time/datetime/textInput) on time change.
+ * @param timePickerPayload {Object} payload passed by time picker
+ * @param date {Date|string|number} date stored in DateTimeManager state
+ * @param options {Object}
+ */
 function updateDatetimeOnTimeChange(timePickerPayload, date, options) {
 	const { errors = [], time, textInput: timeTextInput } = timePickerPayload;
 	let datetime;
