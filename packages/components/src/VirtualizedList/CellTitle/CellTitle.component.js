@@ -74,7 +74,7 @@ class CellTitle extends React.Component {
 		}
 
 		const defaultTitle = (
-			<>
+			<React.Fragment>
 				<CellTitleSelector
 					id={titleId}
 					cellData={cellData}
@@ -95,7 +95,7 @@ class CellTitle extends React.Component {
 					displayMode={displayMode}
 					type={type}
 				/>
-			</>
+			</React.Fragment>
 		);
 
 		return (
