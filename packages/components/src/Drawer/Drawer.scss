@@ -73,9 +73,9 @@ $tc-drawer-z-index: $drawer-z-index !default;
 		.tc-editable-text {
 			min-width: 0;
 		}
-	}
-	:global(.tc-editable-text-pencil) {
-		color: $white;
+		.tc-editable-text-pencil {
+			color: $white;
+		}
 	}
 	background-color: $brand-primary-lighter;
 
