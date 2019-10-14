@@ -26,6 +26,22 @@ export const ICONS_MAPPING = {
 };
 
 /**
+ * Format operator title
+ * @param operator Operator
+ * @param value Operator value as fallback
+ * @returns {string} Formatted title
+ */
+function getFormattedTitle(operator, value) {
+	if (operator) {
+		if (operator.symbol) {
+			return `${operator.symbol} (${operator.name})`;
+		}
+		return operator.name;
+	}
+	return value;
+}
+
+/**
  * Adapt part (operator or value) schema
  * @param schema The Comparator schema
  * @param part 'operator' or 'value'
@@ -122,17 +138,12 @@ class Comparator extends React.Component {
 		const map = schema.titleMap || [];
 		const symbols = (schema.options && schema.options.symbols) || {};
 		return this.getOperatorSchema().titleMap.map(({ value }) => {
-			const titles = map.find(m => m.value === value);
-			let title;
-			if (titles) {
-				title = titles.symbol ? `${titles.symbol} (${titles.name})` : titles.name;
-			} else {
-				title = value;
-			}
+			const operator = map.find(m => m.value === value);
+			const title = getFormattedTitle(operator, value);
 			return {
 				value,
 				title,
-				name: titles ? titles.name : '',
+				name: operator ? operator.name : '',
 				symbol: symbols[value] || value,
 				icon: ICONS_MAPPING[value],
 			};
@@ -163,7 +174,7 @@ class Comparator extends React.Component {
 				<ActionDropdown
 					icon={current && current.icon}
 					hideLabel={!!(current && current.icon)}
-					label={current && current.symbol}
+					label={current && (current.icon && current.name ? current.name : current.symbol)}
 					onSelect={this.onSelect}
 					disabled={this.getOperatorSchema().disabled}
 					items={this.getOperatorsMap().map(({ label, value, title, icon }, index) => ({
