@@ -127,7 +127,7 @@ describe('Date.Manager', () => {
 						<DateConsumer />
 					</Manager>,
 				);
-				const previousState = wrapper.find('DateConsumerDiv').props('value');
+				const previousState = wrapper.find('DateConsumerDiv').props('value').value;
 
 				// when
 				act(() => {
@@ -138,9 +138,9 @@ describe('Date.Manager', () => {
 				wrapper.update();
 
 				// then
-				const nextState = wrapper.find('DateConsumerDiv').props('value');
+				const nextState = wrapper.find('DateConsumerDiv').props('value').value;
 				expect(previousState.textInput).toBe(nextState.textInput);
-				expect(previousState.date).toBe(nextState.date);
+				expect(previousState.date).toEqual(nextState.date);
 			},
 			[
 				{
@@ -159,7 +159,7 @@ describe('Date.Manager', () => {
 		describe('input change', () => {
 			cases(
 				'should update picker',
-				({ textInput, expectedDate, dateFormat }) => {
+				({ textInput, expectedDate, dateFormat, isValid }) => {
 					// given
 					const event = { target: { value: textInput } };
 					const wrapper = mount(
@@ -182,7 +182,11 @@ describe('Date.Manager', () => {
 					expect(value.textInput).toBe(textInput);
 
 					const { date } = value;
-					expect(date).toEqual(expectedDate);
+					if (isValid === false) {
+						expect(isNaN(expectedDate.getTime())).toBe(true);
+					} else {
+						expect(date).toEqual(expectedDate);
+					}
 				},
 				[
 					{
@@ -193,7 +197,8 @@ describe('Date.Manager', () => {
 					{
 						name: 'with invalid date',
 						textInput: '2015aze-01-15',
-						expectedDate: undefined,
+						expectedDate: new Date(''),
+						isValid: false,
 					},
 					{
 						name: 'with empty string',
@@ -268,7 +273,7 @@ describe('Date.Manager', () => {
 				expect(args[1].errors).toEqual([
 					{ code: 'INVALID_DATE_FORMAT', message: 'Date format is invalid' },
 				]);
-				expect(args[1].date).toBe(undefined);
+				expect(isNaN(args[1].date)).toBe(true);
 				expect(args[1].origin).toBe('INPUT');
 			});
 		});

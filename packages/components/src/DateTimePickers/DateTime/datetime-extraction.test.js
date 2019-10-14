@@ -2,6 +2,7 @@ import {
 	extractParts,
 	extractPartsFromDateTime,
 	extractPartsFromTextInput,
+	updateDatetimeOnDateChange,
 } from './datetime-extraction';
 
 describe('Date extraction', () => {
@@ -37,6 +38,7 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
 				time: { hours: '12', minutes: '58', seconds: '00' },
+				datetime: new Date(2015, 8, 15, 12, 58, 22),
 			});
 		});
 
@@ -52,6 +54,7 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
 				time: { hours: '12', minutes: '58', seconds: '00' },
+				datetime: new Date(2015, 8, 15, 12, 58, 22),
 			});
 		});
 
@@ -67,6 +70,7 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date: '2015-09-15',
 				time: '10:05',
+				datetime: new Date(2015, 8, 15, 10, 5),
 				errors: [],
 				errorMessage: null,
 			});
@@ -88,6 +92,7 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
 				time: { hours: '12', minutes: '58', seconds: '00' },
+				datetime: new Date(2015, 8, 15, 12, 58, 22),
 			});
 		});
 
@@ -106,6 +111,7 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
 				time: { hours: '12', minutes: '58', seconds: '22' },
+				datetime: new Date(2015, 8, 15, 12, 58, 22),
 			});
 		});
 
@@ -126,6 +132,7 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 15),
 				time: { hours: '10', minutes: '58', seconds: '22' },
+				datetime: new Date(Date.UTC(2015, 8, 15, 10, 58, 22)),
 			});
 		});
 
@@ -146,6 +153,7 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date: new Date(2015, 8, 14),
 				time: { hours: '23', minutes: '00', seconds: '22' },
+				datetime: new Date(2015, 8, 15, 1, 0, 22),
 			});
 		});
 	});
@@ -184,6 +192,7 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date: '2018-12-25',
 				time: '22:58',
+				datetime: new Date(2018, 11, 25, 22, 58),
 				errorMessage: null,
 				errors: [],
 			});
@@ -204,9 +213,64 @@ describe('Date extraction', () => {
 			expect(parts).toEqual({
 				date: '2018-12-25',
 				time: '22:58:12',
+				datetime: new Date(2018, 11, 25, 22, 58, 12),
 				errorMessage: null,
 				errors: [],
 			});
+		});
+	});
+
+	describe('updateDatetimeOnDateChange', () => {
+		it('should update datetime when date change', () => {
+			// given
+			const payload = {
+				date: new Date(2019, 9, 11),
+				textInput: '2019-10-11',
+			};
+			const time = '12:30';
+			const options = { dateFormat: 'YYYY-MM-DD' };
+			// when
+			const parts = updateDatetimeOnDateChange(payload, time, options);
+			// then
+			expect(parts.datetime).toEqual(new Date(2019, 9, 11, 12, 30));
+			expect(parts.date).toEqual(new Date(2019, 9, 11));
+			expect(parts.textInput).toEqual('2019-10-11 12:30');
+			expect(parts.errors).toEqual([]);
+			expect(parts.errorMessage).toBeNull();
+		});
+		it('should update datetime in utc when date change', () => {
+			// given
+			const payload = {
+				date: new Date(2019, 9, 11),
+				textInput: '2019-10-11',
+			};
+			const time = '12:30';
+			const options = { dateFormat: 'YYYY-MM-DD', useUTC: true };
+			// when
+			const parts = updateDatetimeOnDateChange(payload, time, options);
+			// then
+			expect(parts.datetime).toEqual(new Date(Date.UTC(2019, 9, 11, 12, 30)));
+			expect(parts.date).toEqual(new Date(2019, 9, 11));
+			expect(parts.textInput).toEqual('2019-10-11 12:30');
+			expect(parts.errors).toEqual([]);
+			expect(parts.errorMessage).toBeNull();
+		});
+		it('should update datetime in timezone when date change', () => {
+			// given
+			const payload = {
+				date: new Date(2019, 9, 11),
+				textInput: '2019-10-11',
+			};
+			const time = '12:30';
+			const options = { dateFormat: 'YYYY-MM-DD', timezone: 'America/New_York' };
+			// when
+			const parts = updateDatetimeOnDateChange(payload, time, options);
+			// then
+			expect(parts.datetime).toEqual(new Date(Date.UTC(2019, 9, 11, 16, 30)));
+			expect(parts.date).toEqual(new Date(2019, 9, 11));
+			expect(parts.textInput).toEqual('2019-10-11 12:30');
+			expect(parts.errors).toEqual([]);
+			expect(parts.errorMessage).toBeNull();
 		});
 	});
 });

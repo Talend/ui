@@ -205,7 +205,8 @@ describe('Date extraction', () => {
 			const parts = extractPartsFromTextInput(textInput, options);
 
 			// then
-			expect(parts.date).toBe(undefined);
+			expect(isNaN(parts.date.getTime())).toBe(true);
+			expect(parts.localDate).toBe(undefined);
 			expect(parts.textInput).toBe(textInput);
 			expect(parts.errorMessage).toBe("Day value doesn't match an existing day in the month");
 			expect(parts.errors).toEqual([
@@ -227,7 +228,8 @@ describe('Date extraction', () => {
 			const parts = extractPartsFromTextInput(textInput, options);
 
 			// then
-			expect(parts.date).toBe(undefined);
+			expect(isNaN(parts.date.getTime())).toBe(true);
+			expect(parts.localDate).toBe(undefined);
 			expect(parts.textInput).toBe(textInput);
 			expect(parts.errorMessage).toBe('Month must be between 01 and 12');
 			expect(parts.errors).toEqual([

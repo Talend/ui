@@ -182,7 +182,10 @@ storiesOf('DatePicker', module)
 				<ul>
 					<li>The minimum width is 290px, and minimum height is 352px. </li>
 					<li>The width and height can be defined by the parent. </li>
-					<li>If no width or height are set explicitly, it uses minimum width and height by default, like the first one.</li>
+					<li>
+						If no width or height are set explicitly, it uses minimum width and height by default,
+						like the first one.
+					</li>
 					<li>
 						The outer border style (black) is here just as visual shape indication, it's not part of
 						the component rendered
@@ -322,13 +325,17 @@ storiesOf('DatePicker', module)
 				<div style={{ width: '16rem', marginRight: 60 }}>
 					<p>with input</p>
 					<form>
-						<InputTimePicker onChange={action('onChange')} />
+						<InputTimePicker onChange={action('onChange')} onBlur={action('onBlur')} />
 					</form>
 				</div>
 				<div style={{ width: '16rem', marginRight: 60 }}>
 					<p>with initial selectedTime</p>
 					<form>
-						<InputTimePicker onChange={action('onChange')} value="12:00" />
+						<InputTimePicker
+							onChange={action('onChange')}
+							onBlur={action('onBlur')}
+							value="12:00"
+						/>
 					</form>
 				</div>
 				<div style={{ width: '16rem' }}>
