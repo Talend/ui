@@ -7,7 +7,7 @@ import { IconsProvider } from '../src/index';
 import { TimePicker } from '../src/DateTimePickers/pickers/TimePicker/TimePicker.component';
 import DateManager from '../src/DateTimePickers/Date/Manager';
 import DatePicker from '../src/DateTimePickers/Date/Picker';
-import InputDateTimePicker from '../src/DateTimePickers';
+import InputDateTimePicker from '../src/DateTimePickers/InputDateTimePicker';
 import InputTimePicker from '../src/DateTimePickers/InputTimePicker';
 import InputDatePicker from '../src/DateTimePickers/InputDatePicker';
 
@@ -358,7 +358,6 @@ storiesOf('DatePicker', module)
 					name="Datetime"
 					onBlur={action('onBlur')}
 					onChange={action('onChange')}
-					value={new Date(2018, 4, 13, 12, 30, 44)}
 				/>
 			</form>
 		</div>
