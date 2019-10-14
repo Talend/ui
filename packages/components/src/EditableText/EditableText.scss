@@ -17,16 +17,9 @@ $tc-circle-editable-text-size: 16px !default;
 	:global(.tc-editable-text-wording-wrapper) {
 		@include ellipsis;
 	}
-	.tc-editable-text-empty-pencil {
-		position: static;
-		width: auto;
-		height: auto;
-	}
 	&:hover {
 		.tc-editable-text-pencil {
 			position: static;
-			width: auto;
-			height: auto;
 		}
 	}
 	&-title {
@@ -45,12 +38,14 @@ $tc-circle-editable-text-size: 16px !default;
 	}
 
 	&-pencil {
+		position: relative;
+		left: -2000px;
 		padding-left: $padding-smaller;
 		padding-right: $padding-smaller;
 		flex: 0 0 auto;
 		line-height: inherit;
 		min-height: inherit;
-		color: $gray;
+		color: $white;
 
 		&:global(.btn-link) {
 			color: $gray;
@@ -58,7 +53,7 @@ $tc-circle-editable-text-size: 16px !default;
 
 		&:focus,
 		&:hover {
-			color: $scooter;
+			position: static;
 		}
 	}
 
