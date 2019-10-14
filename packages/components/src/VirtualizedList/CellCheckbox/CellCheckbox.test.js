@@ -28,6 +28,20 @@ describe('CellActions', () => {
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
 
+	it('should render radio button', () => {
+		// when
+		const wrapper = shallow(
+			<CellCheckbox
+				cellData={false}
+				columnData={{ ...columnData, selectionMode: 'SINGLE' }}
+				rowIndex={25}
+			/>,
+		);
+
+		// then
+		expect(wrapper.getElement()).toMatchSnapshot();
+	});
+
 	it('should trigger callback on checkbox toggle', () => {
 		// given
 		const event = { target: 'lol' };

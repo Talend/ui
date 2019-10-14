@@ -18,6 +18,7 @@ exports[`LazyLoadingList should render lazy loading list component 1`] = `
       id="myLazyLoadingList"
       onRowsRendered={[Function]}
       registerChild={[Function]}
+      selectionMode="MULTI"
     >
       <div
         className="theme-vlist"
@@ -28,6 +29,7 @@ exports[`LazyLoadingList should render lazy loading list component 1`] = `
           id="myLazyLoadingList"
           onRowsRendered={[Function]}
           registerChild={[Function]}
+          selectionMode="MULTI"
           sort={[Function]}
           sortDirection="ASC"
           type="TABLE"
