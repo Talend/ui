@@ -2,10 +2,12 @@
 
 exports[`BadgeOperatorPopover should render the html output 1`] = `
 <div class="tc-badge-operator-popover theme-tc-badge-operator-popover">
-  <div id="my-id-body"
+  <div id="my-id"
        class="theme-body tc-tooltip-body"
   >
-    <div id="my-id-body-content">
+    <div id="my-id-content"
+         class="theme-content tc-tooltip-content"
+    >
       <button role="button"
               aria-label="My icon operator equal"
               id="my-id-operator-row-button-operatorIconEqual"

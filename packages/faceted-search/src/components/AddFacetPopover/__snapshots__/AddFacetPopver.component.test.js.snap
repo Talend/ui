@@ -4,15 +4,17 @@ exports[`AddFacetPopover should render the html output 1`] = `
 <div id="my id-add-facet-popover"
      class="tc-add-facet-popover theme-tc-add-facet-popover"
 >
-  <header id="my id-add-facet-popover-header"
+  <header id="my id-add-facet-popover"
           class="theme-header tc-tooltip-header"
   >
     Faceted Search
   </header>
-  <div id="my id-add-facet-popover-body"
+  <div id="my id-add-facet-popover"
        class="theme-body tc-tooltip-body"
   >
-    <div id="my id-add-facet-popover-body-content">
+    <div id="my id-add-facet-popover-content"
+         class="theme-content tc-tooltip-content"
+    >
       <form class="theme-filter tc-add-facet-popover-filter theme-tc-add-facet-popover-filter theme-navbar"
             role="search"
       >
@@ -35,25 +37,6 @@ exports[`AddFacetPopover should render the html output 1`] = `
                  class="theme-search form-control"
                  value
           >
-          <div class="theme-tc-tooltip"
-               aria-describedby="42"
-          >
-            <button aria-label="Remove filter"
-                    id="my id-add-facet-popover-filter-cross-icon"
-                    aria-describedby="42"
-                    type="button"
-                    class="theme-remove btn-icon-only btn btn-link"
-            >
-              <svg name="talend-cross"
-                   class="theme-tc-svg-icon tc-svg-icon"
-                   focusable="false"
-                   aria-hidden="true"
-              >
-                <use xlink:href="#talend-cross">
-                </use>
-              </svg>
-            </button>
-          </div>
         </div>
       </form>
     </div>

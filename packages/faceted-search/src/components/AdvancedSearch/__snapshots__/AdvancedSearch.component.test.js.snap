@@ -24,46 +24,38 @@ exports[`AdvancedSearch should render by default 1`] = `
            value
     >
     <div class="adv-search-buttons theme-adv-search-buttons">
-      <div class="theme-tc-tooltip"
-           aria-describedby="42"
+      <button aria-label="Cancel"
+              data-feature="faceted-advanced-search.cancel"
+              name="action-cancel-title"
+              aria-describedby="42"
+              type="button"
+              class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-cancel theme-adv-search-buttons-cancel btn-icon-only btn btn-link"
       >
-        <button aria-label="Cancel"
-                data-feature="faceted-advanced-search.cancel"
-                name="action-cancel-title"
-                aria-describedby="42"
-                type="button"
-                class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-cancel theme-adv-search-buttons-cancel btn-icon-only btn btn-link"
+        <svg name="talend-cross"
+             class="theme-tc-svg-icon tc-svg-icon"
+             focusable="false"
+             aria-hidden="true"
         >
-          <svg name="talend-cross"
-               class="theme-tc-svg-icon tc-svg-icon"
-               focusable="false"
-               aria-hidden="true"
-          >
-            <use xlink:href="#talend-cross">
-            </use>
-          </svg>
-        </button>
-      </div>
-      <div class="theme-tc-tooltip"
-           aria-describedby="42"
+          <use xlink:href="#talend-cross">
+          </use>
+        </svg>
+      </button>
+      <button aria-label="Submit"
+              data-feature="faceted-advanced-search.submit"
+              name="action-submit-title"
+              type="submit"
+              aria-describedby="42"
+              class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-submit theme-adv-search-buttons-submit btn-icon-only btn btn-link"
       >
-        <button aria-label="Submit"
-                data-feature="faceted-advanced-search.submit"
-                name="action-submit-title"
-                type="submit"
-                aria-describedby="42"
-                class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-submit theme-adv-search-buttons-submit btn-icon-only btn btn-link"
+        <svg name="talend-check"
+             class="theme-tc-svg-icon tc-svg-icon"
+             focusable="false"
+             aria-hidden="true"
         >
-          <svg name="talend-check"
-               class="theme-tc-svg-icon tc-svg-icon"
-               focusable="false"
-               aria-hidden="true"
-          >
-            <use xlink:href="#talend-check">
-            </use>
-          </svg>
-        </button>
-      </div>
+          <use xlink:href="#talend-check">
+          </use>
+        </svg>
+      </button>
     </div>
   </form>
 </div>
@@ -93,46 +85,38 @@ exports[`AdvancedSearch should render with an explicit error 1`] = `
            value
     >
     <div class="adv-search-buttons theme-adv-search-buttons">
-      <div class="theme-tc-tooltip"
-           aria-describedby="42"
+      <button aria-label="Cancel"
+              data-feature="faceted-advanced-search.cancel"
+              name="action-cancel-title"
+              aria-describedby="42"
+              type="button"
+              class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-cancel theme-adv-search-buttons-cancel btn-icon-only btn btn-link"
       >
-        <button aria-label="Cancel"
-                data-feature="faceted-advanced-search.cancel"
-                name="action-cancel-title"
-                aria-describedby="42"
-                type="button"
-                class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-cancel theme-adv-search-buttons-cancel btn-icon-only btn btn-link"
+        <svg name="talend-cross"
+             class="theme-tc-svg-icon tc-svg-icon"
+             focusable="false"
+             aria-hidden="true"
         >
-          <svg name="talend-cross"
-               class="theme-tc-svg-icon tc-svg-icon"
-               focusable="false"
-               aria-hidden="true"
-          >
-            <use xlink:href="#talend-cross">
-            </use>
-          </svg>
-        </button>
-      </div>
-      <div class="theme-tc-tooltip"
-           aria-describedby="42"
+          <use xlink:href="#talend-cross">
+          </use>
+        </svg>
+      </button>
+      <button aria-label="Submit"
+              data-feature="faceted-advanced-search.submit"
+              name="action-submit-title"
+              type="submit"
+              aria-describedby="42"
+              class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-submit theme-adv-search-buttons-submit btn-icon-only btn btn-link"
       >
-        <button aria-label="Submit"
-                data-feature="faceted-advanced-search.submit"
-                name="action-submit-title"
-                type="submit"
-                aria-describedby="42"
-                class="adv-search-buttons-icon theme-adv-search-buttons-icon adv-search-buttons-submit theme-adv-search-buttons-submit btn-icon-only btn btn-link"
+        <svg name="talend-check"
+             class="theme-tc-svg-icon tc-svg-icon"
+             focusable="false"
+             aria-hidden="true"
         >
-          <svg name="talend-check"
-               class="theme-tc-svg-icon tc-svg-icon"
-               focusable="false"
-               aria-hidden="true"
-          >
-            <use xlink:href="#talend-check">
-            </use>
-          </svg>
-        </button>
-      </div>
+          <use xlink:href="#talend-check">
+          </use>
+        </svg>
+      </button>
     </div>
   </form>
   <p aria-live="assertive"
