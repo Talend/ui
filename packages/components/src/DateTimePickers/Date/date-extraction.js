@@ -4,6 +4,8 @@ import getDate from 'date-fns/get_date';
 import lastDayOfMonth from 'date-fns/last_day_of_month';
 import setDate from 'date-fns/set_date';
 import { convertToLocalTime, convertToTimeZone } from 'date-fns-timezone';
+
+import { convertToUTC } from '../DateTime/datetime-extraction';
 import getErrorMessage from '../shared/error-messages';
 
 const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
@@ -49,21 +51,7 @@ function isDateValid(date, options) {
 function dateToStr(date, { dateFormat }) {
 	return format(date, dateFormat);
 }
-/**
- * Convert a date in local TZ to UTC
- */
-function convertToUTC(date) {
-	return new Date(
-		Date.UTC(
-			date.getFullYear(),
-			date.getMonth(),
-			date.getDate(),
-			date.getHours(),
-			date.getMinutes(),
-			date.getSeconds(),
-		),
-	);
-}
+
 
 function convertDateToTimezone(date, { useUTC, timezone }) {
 	if (useUTC) {
