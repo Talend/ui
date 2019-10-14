@@ -114,7 +114,9 @@ class CellTitle extends React.Component {
 							{cellData}
 						</span>
 					</TooltipTrigger>
-				) : defaultTitle}
+				) : (
+					defaultTitle
+				)}
 			</div>
 		);
 	}
