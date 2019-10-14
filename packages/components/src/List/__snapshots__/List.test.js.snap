@@ -115,6 +115,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
         isSelected={[Function]}
         onRowDoubleClick={[MockFunction]}
         onToggleAll={[MockFunction]}
+        selectionMode="MULTI"
         selectionToggle={[MockFunction]}
         sort={null}
         sortDirection="ASC"
@@ -271,6 +272,7 @@ exports[`List should not render the toolbar without toolbar props 1`] = `
                               "label": "Select this element",
                               "onChange": [MockFunction],
                               "onToggleAll": [MockFunction],
+                              "selectionMode": "MULTI",
                             }
                           }
                           dataKey=""
@@ -1135,6 +1137,7 @@ exports[`List should render 1`] = `
         isSelected={[Function]}
         onRowDoubleClick={[MockFunction]}
         onToggleAll={[MockFunction]}
+        selectionMode="MULTI"
         selectionToggle={[MockFunction]}
         sort={null}
         sortDirection="ASC"
@@ -1291,6 +1294,7 @@ exports[`List should render 1`] = `
                               "label": "Select this element",
                               "onChange": [MockFunction],
                               "onToggleAll": [MockFunction],
+                              "selectionMode": "MULTI",
                             }
                           }
                           dataKey=""
@@ -2176,6 +2180,7 @@ exports[`List should render id if provided 1`] = `
         isSelected={[Function]}
         onRowDoubleClick={[MockFunction]}
         onToggleAll={[MockFunction]}
+        selectionMode="MULTI"
         selectionToggle={[MockFunction]}
         sort={null}
         sortDirection="ASC"
@@ -2336,6 +2341,7 @@ exports[`List should render id if provided 1`] = `
                               "label": "Select this element",
                               "onChange": [MockFunction],
                               "onToggleAll": [MockFunction],
+                              "selectionMode": "MULTI",
                             }
                           }
                           dataKey=""

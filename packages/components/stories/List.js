@@ -308,6 +308,7 @@ const props = {
 		filter: {
 			docked: true,
 			onBlur: action('filter.onBlur'),
+			onClear: action('filter.onClear'),
 			onFocus: action('filter.onFocus'),
 			onFilter: action('filter.onFilter'),
 			onToggle: action('filter.onToggle'),

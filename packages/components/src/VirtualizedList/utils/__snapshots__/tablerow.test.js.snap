@@ -41,6 +41,7 @@ Array [
         "label": "Select this element",
         "onChange": [MockFunction],
         "onToggleAll": undefined,
+        "selectionMode": undefined,
       }
     }
     dataKey=""

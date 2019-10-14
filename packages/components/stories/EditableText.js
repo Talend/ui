@@ -22,13 +22,25 @@ storiesOf('EditableText', module)
 	.add('default', () => <EditableText {...props} />)
 	.add('without value', () => {
 		const propWithoutText = { ...props, text: '' };
-		return <div style={{width: 150}}><EditableText {...propWithoutText} /></div>
+		return (
+			<div style={{ width: 150 }}>
+				<EditableText {...propWithoutText} />
+			</div>
+		);
 	})
-	.add('with ellipsis', () => <div style={{width: 150}}><EditableText {...props} /></div>)
+	.add('with ellipsis', () => (
+		<div style={{ width: '150px' }}>
+			<EditableText {...props} />
+		</div>
+	))
 	.add('loading', () => <EditableText loading {...props} />)
 	.add('disabled', () => <EditableText disabled {...props} />)
 	.add('in progress', () => <EditableText inProgress {...props} />)
 	.add('edit mode', () => <EditableText editMode {...props} />)
 	.add('not required', () => <EditableText required={false} editMode {...props} />)
-	.add('placeholder', () => <EditableText editMode placeholder="Enter your text here.." {...props} text="" />)
-	.add('with error', () => <EditableText editMode {...props} text="" errorMessage="custom error message" />);
+	.add('placeholder', () => (
+		<EditableText editMode placeholder="Enter your text here.." {...props} text="" />
+	))
+	.add('with error', () => (
+		<EditableText editMode {...props} text="" errorMessage="custom error message" />
+	));

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { AutoSizer } from 'react-virtualized';
 import get from 'lodash/get';
-import { listTypes } from './utils/constants';
+import { listTypes, SELECTION_MODE } from './utils/constants';
 import Loader from '../Loader';
 import RendererSelector from './RendererSelector.component';
 import propTypes from './PropTypes';
@@ -39,6 +39,7 @@ function VirtualizedList(props) {
 		rowRenderers,
 		scrollToIndex,
 		selectionToggle,
+		selectionMode,
 		sort,
 		sortBy,
 		sortDirection,
@@ -54,6 +55,7 @@ function VirtualizedList(props) {
 		onToggleAll,
 		selectionToggle,
 		getAvaibilityStatus,
+		selectionMode,
 	});
 	const [widthsOfColumnsState, setWidthsOfColumnsState] = useState();
 	const rendererSelectorRef = useRef();
@@ -125,6 +127,7 @@ VirtualizedList.displayName = 'VirtualizedList';
 VirtualizedList.propTypes = propTypes;
 VirtualizedList.defaultProps = {
 	defaultHeight: 250,
+	selectionMode: SELECTION_MODE.MULTI,
 };
 
 export default VirtualizedList;

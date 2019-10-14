@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { SORT_BY } from './utils/constants';
+import { SORT_BY, SELECTION_MODE } from './utils/constants';
 
 export default {
 	// <VirtualizedList.Content> elements to configure the content fields
@@ -46,6 +46,8 @@ export default {
 	/** Function to call on element selection
 	 *  This determines the display of the selection checkboxes. */
 	selectionToggle: PropTypes.func,
+	// Current selection mode ('MULTI' | 'SINGLE')
+	selectionMode: PropTypes.oneOf([SELECTION_MODE.MULTI, SELECTION_MODE.SINGLE]),
 	// Function to call on sort change in ListTable rendering (header click)
 	sort: PropTypes.func,
 	// Content field of the current sort

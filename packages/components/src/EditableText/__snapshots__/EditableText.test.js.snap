@@ -126,7 +126,7 @@ exports[`PlainTextTitle should render 1`] = `
   </TooltipTrigger>
   <Action
     bsStyle="link"
-    className="theme-tc-editable-text-pencil tc-editable-text-pencil sr-only sr-only-focusable"
+    className="theme-tc-editable-text-pencil tc-editable-text-pencil"
     data-feature="my.custom.feature"
     hideLabel={true}
     icon="talend-pencil"
@@ -155,7 +155,7 @@ exports[`PlainTextTitle should render provided component class 1`] = `
   </TooltipTrigger>
   <Action
     bsStyle="link"
-    className="theme-tc-editable-text-pencil tc-editable-text-pencil sr-only sr-only-focusable"
+    className="theme-tc-editable-text-pencil tc-editable-text-pencil"
     data-feature="my.custom.feature"
     hideLabel={true}
     icon="talend-pencil"

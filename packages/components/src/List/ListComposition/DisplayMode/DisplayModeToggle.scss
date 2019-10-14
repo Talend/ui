@@ -2,13 +2,14 @@ $tc-display-button-icon-height: 2.4rem;
 
 .tc-display-mode-toggle {
 	display: flex;
-	// These divs element are the different action
-	div {
-		margin-right: $padding-normal;
+
+	:global(.tc-icon-toggle) {
+		margin-left: $padding-normal;
+		&:first-child {
+			margin-left: 0;
+		}
 	}
-	div:last-child {
-		margin-right: 0;
-	}
+
 	:global(.tc-icon-toggle) {
 		height: $tc-display-button-icon-height;
 		min-height: $tc-display-button-icon-height;

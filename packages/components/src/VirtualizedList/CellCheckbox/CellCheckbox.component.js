@@ -3,6 +3,8 @@ import React from 'react';
 import classnames from 'classnames';
 import theme from './CellCheckbox.scss';
 
+import { SELECTION_MODE } from '../utils/constants';
+
 /**
  * Cell renderer that displays a checkbox
  */
@@ -18,8 +20,9 @@ class CellCheckbox extends React.Component {
 
 	render() {
 		const { cellData, columnData, rowData, rowIndex } = this.props;
-		const { id, label, onChange, getAvaibilityStatus } = columnData;
+		const { id, label, selectionMode, onChange, getAvaibilityStatus } = columnData;
 		const { status = true } = (getAvaibilityStatus && getAvaibilityStatus(rowData)) || {};
+		const type = selectionMode === SELECTION_MODE.SINGLE ? 'radio' : 'checkbox';
 
 		return (
 			<form className={classnames('tc-list-checkbox', theme['tc-list-checkbox'])}>
@@ -27,7 +30,7 @@ class CellCheckbox extends React.Component {
 					<label htmlFor={id && `${id}-${rowIndex}-check`}>
 						<input
 							id={id && `${id}-${rowIndex}-check`}
-							type="checkbox"
+							type={type}
 							onChange={e => {
 								onChange(e, rowData);
 							}}

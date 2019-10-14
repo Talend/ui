@@ -117,11 +117,13 @@ function TabBar(props) {
 		</Tab.Content>
 	);
 	if (responsive && showDropdown) {
+		const selectedItem = items[selectedKey - 1];
 		return (
 			<React.Fragment>
 				<ActionDropdown
 					className={classnames(theme['tc-tab-bar-dropdown'], 'tc-tab-bar-dropdown')}
-					label={items[selectedKey - 1].label}
+					label={selectedItem.label}
+					icon={selectedItem.icon && selectedItem.icon.name}
 					onSelect={(event, { key }) => handleSelect(key, event)}
 					items={items.map(item => ({
 						...item,
@@ -192,6 +194,7 @@ TabBar.propTypes = {
 			id: PropTypes.string,
 			key: PropTypes.any.isRequired,
 			label: PropTypes.string.isRequired,
+			icon: PropTypes.string,
 		}).isRequired,
 	).isRequired,
 	onSelect: PropTypes.func.isRequired,

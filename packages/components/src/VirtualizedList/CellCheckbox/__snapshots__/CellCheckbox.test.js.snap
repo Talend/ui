@@ -31,6 +31,36 @@ exports[`CellActions should render checked checkbox 1`] = `
 </form>
 `;
 
+exports[`CellActions should render radio button 1`] = `
+<form
+  className="tc-list-checkbox theme-tc-list-checkbox"
+>
+  <div
+    className="checkbox"
+  >
+    <label
+      htmlFor="my-checkbox-25-check"
+    >
+      <input
+        checked={false}
+        id="my-checkbox-25-check"
+        onChange={[Function]}
+        type="radio"
+      />
+      <span
+        className="tc-cell-checkbox"
+      >
+        <span
+          className="sr-only"
+        >
+          My Test Check
+        </span>
+      </span>
+    </label>
+  </div>
+</form>
+`;
+
 exports[`CellActions should render unchecked checkbox 1`] = `
 <form
   className="tc-list-checkbox theme-tc-list-checkbox"
