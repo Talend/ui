@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { DateTimeContext } from '../Context';
-import { dateAndTimeToDateTime, extractParts, dateAndTimeToStr } from '../datetime-extraction';
+import {
+	extractParts,
+	updateDatetimeOnDateChange,
+	updateDatetimeOnTimeChange,
+} from '../datetime-extraction';
 
 function ContextualManager(props) {
 	function getDateOptions() {
@@ -19,8 +23,10 @@ function ContextualManager(props) {
 	const [state, setState] = useState(initialState);
 
 	useEffect(() => {
-		const nextState = extractParts(props.value, getDateOptions());
-		setState(nextState);
+		if (props.value !== state.datetime) {
+			const nextState = extractParts(props.value, getDateOptions());
+			setState(nextState);
+		}
 	}, [props.value]);
 
 	function onChange(event, payload) {
@@ -29,38 +35,20 @@ function ContextualManager(props) {
 			props.onChange(event, { datetime, textInput, errors, errorMessage });
 		}
 	}
-	function onDateChange(event, { date, localDate, textInput: dateTextInput, errors = [] }) {
-		let datetime;
-		if (errors.length > 0) {
-			datetime = null;
-		} else {
-			datetime = dateAndTimeToDateTime(localDate, state.time, getDateOptions());
-		}
+	function onDateChange(event, payload) {
+		const newState = updateDatetimeOnDateChange(payload, state.time, getDateOptions());
 		const nextState = {
 			...state,
-			date: date || dateTextInput,
-			datetime,
-			textInput: dateAndTimeToStr(date || dateTextInput, state.time, getDateOptions()),
-			errors,
-			errorMessage: errors[0] ? errors[0].message : null,
+			...newState,
 		};
 		setState(nextState);
 		onChange(event, nextState);
 	}
-	function onTimeChange(event, { time, textInput: timeTextInput, errors = [] }) {
-		let datetime;
-		if (errors.length > 0) {
-			datetime = null;
-		} else {
-			datetime = dateAndTimeToDateTime(state.date, time, getDateOptions());
-		}
+	function onTimeChange(event, payload) {
+		const newState = updateDatetimeOnTimeChange(payload, state.date, getDateOptions());
 		const nextState = {
 			...state,
-			time: time || timeTextInput,
-			datetime,
-			textInput: dateAndTimeToStr(state.date, timeTextInput, getDateOptions()),
-			errors,
-			errorMessage: errors[0] ? errors[0].message : null,
+			...newState,
 		};
 		setState(nextState);
 		onChange(event, nextState);

@@ -15,9 +15,11 @@ function ContextualManager(props) {
 	const initialState = extractDate(props.value, getDateOptions());
 	const [state, setState] = useState(initialState);
 	useEffect(() => {
-		// eslint-disable-next-line no-use-before-define
-		const newState = extractDate(props.value, getDateOptions());
-		setState(newState);
+		if (props.value !== state.date) {
+			// eslint-disable-next-line no-use-before-define
+			const newState = extractDate(props.value, getDateOptions());
+			setState(newState);
+		}
 	}, [props.value]);
 
 	useEffect(() => {

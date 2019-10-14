@@ -10,9 +10,13 @@ const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/
 
 const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
 
-export function DatePickerException(code, message) {
+export function DateTimePickerException(code, message) {
 	this.message = getErrorMessage(message);
 	this.code = code;
+}
+
+function isEmpty(value) {
+	return value === undefined || value === null || value === '';
 }
 
 /**
@@ -62,29 +66,28 @@ function timeToSeconds(hours, minutes, seconds) {
  * @param date {Date} Date in current TZ
  * @param time {{hours: string, minutes: string, seconds: string}} Time in current TZ
  * @returns {Date}
+ * @throws DateTimePickerException
  */
 function dateAndTimeToDateTime(date, time, options) {
-	if (date === undefined || time === undefined) {
-		return INTERNAL_INVALID_DATE;
+	if (isEmpty(date)) {
+		throw new DateTimePickerException('INVALID_DATE_EMPTY', 'INVALID_DATE_EMPTY');
 	}
-
-	try {
-		if (typeof time === 'string') {
-			// eslint-disable-next-line no-param-reassign
-			time = strToTime(time);
-		}
-		const { hours, minutes, seconds } = time;
-		const timeInSeconds = timeToSeconds(hours, minutes, seconds);
-		const localTimezoneDate = setSeconds(date, timeInSeconds);
-		return convertDateToTimezone(localTimezoneDate, options);
-	} catch (e) {
-		return INTERNAL_INVALID_DATE;
+	if (isEmpty(time)) {
+		throw new DateTimePickerException('INVALID_TIME_EMPTY', 'INVALID_TIME_EMPTY');
 	}
+	if (typeof time === 'string') {
+		// eslint-disable-next-line no-param-reassign
+		time = strToTime(time, options.useSeconds);
+	}
+	const { hours, minutes, seconds } = time;
+	const timeInSeconds = timeToSeconds(hours, minutes, seconds);
+	const localTimezoneDate = setSeconds(date, timeInSeconds);
+	return convertDateToTimezone(localTimezoneDate, options);
 }
 
 function dateAndTimeToStr(date = '', time = '', options) {
 	const dateStr = date instanceof Date ? format(date, options.dateFormat) : date;
-	const timeStr = typeof time === 'string' ? time : timeToStr(time);
+	const timeStr = typeof time === 'string' ? time : timeToStr(time, options.useSeconds);
 
 	return `${dateStr} ${timeStr}`.trim();
 }
@@ -104,11 +107,13 @@ function extractPartsFromDateTime(datetime, options) {
 		return {
 			date: undefined,
 			time: undefined,
+			datetime: undefined,
 		};
 	}
 	return {
 		date: extractDateOnly(datetime, options),
 		time: extractTimeOnly(datetime, options),
+		datetime,
 	};
 }
 
@@ -124,7 +129,7 @@ function extractPartsFromDateTime(datetime, options) {
  *		textInput: string
  * 	}}
  */
-function extractPartsFromTextInput(textInput) {
+function extractPartsFromTextInput(textInput, options) {
 	if (textInput === '') {
 		return {
 			date: '',
@@ -134,25 +139,28 @@ function extractPartsFromTextInput(textInput) {
 		};
 	}
 
-	let dateStr;
-	let timeStr;
+	let date;
+	let time;
+	let datetime;
 	let errors = [];
 
 	try {
 		const splitMatches = textInput.match(splitDateAndTimePartsRegex) || [];
 		if (!splitMatches.length) {
-			throw new DatePickerException('DATETIME_INVALID_FORMAT', 'DATETIME_INVALID_FORMAT');
+			throw new DateTimePickerException('DATETIME_INVALID_FORMAT', 'DATETIME_INVALID_FORMAT');
 		} else {
-			dateStr = splitMatches[1];
-			timeStr = splitMatches[2];
+			date = splitMatches[1];
+			time = splitMatches[2];
+			datetime = dateAndTimeToDateTime(date, time, options);
 		}
 	} catch (error) {
 		errors = [error];
 	}
 
 	return {
-		date: dateStr,
-		time: timeStr,
+		date,
+		time,
+		datetime,
 		errors,
 		errorMessage: errors[0] ? errors[0].message : null,
 	};
@@ -187,11 +195,71 @@ function extractParts(value, options) {
 		errors: [],
 	};
 }
+/**
+ * re-compute state (date/datetime/textInput) on date change.
+ * @param datePickerPayload {Object} payload passed by date picker
+ * @param time {string | {hours: string, minutes: string, seconds: string}}
+ * 	time stored in DateTimeManager state
+ * @param options {Object}
+ */
+function updateDatetimeOnDateChange(datePickerPayload, time, options) {
+	const { errors = [], date, textInput: dateTextInput } = datePickerPayload;
+	let datetime;
+	const nextErrors = errors;
+	if (errors.length > 0) {
+		datetime = INTERNAL_INVALID_DATE;
+	} else {
+		try {
+			datetime = dateAndTimeToDateTime(date, time, options);
+		} catch (error) {
+			datetime = INTERNAL_INVALID_DATE;
+			nextErrors.push(error);
+		}
+	}
+
+	return {
+		date: date || dateTextInput,
+		datetime,
+		textInput: dateAndTimeToStr(date || dateTextInput, time, options),
+		errors,
+		errorMessage: nextErrors[0] ? nextErrors[0].message : null,
+	};
+}
+
+/**
+ * re-compute state (time/datetime/textInput) on time change.
+ * @param timePickerPayload {Object} payload passed by time picker
+ * @param date {Date|string|number} date stored in DateTimeManager state
+ * @param options {Object}
+ */
+function updateDatetimeOnTimeChange(timePickerPayload, date, options) {
+	const { errors = [], time, textInput: timeTextInput } = timePickerPayload;
+	let datetime;
+	const nextErrors = errors;
+	if (errors.length > 0) {
+		datetime = INTERNAL_INVALID_DATE;
+	} else {
+		try {
+			datetime = dateAndTimeToDateTime(date, time, options);
+		} catch (error) {
+			datetime = INTERNAL_INVALID_DATE;
+			nextErrors.push(error);
+		}
+	}
+
+	return {
+		time: time || timeTextInput,
+		datetime,
+		textInput: dateAndTimeToStr(date, time || timeTextInput, options),
+		errors,
+		errorMessage: nextErrors[0] ? nextErrors[0].message : null,
+	};
+}
 
 export {
-	dateAndTimeToDateTime,
-	dateAndTimeToStr,
 	extractParts,
 	extractPartsFromDateTime,
 	extractPartsFromTextInput,
+	updateDatetimeOnDateChange,
+	updateDatetimeOnTimeChange,
 };

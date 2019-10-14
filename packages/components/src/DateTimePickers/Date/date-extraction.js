@@ -6,6 +6,8 @@ import setDate from 'date-fns/set_date';
 import { convertToLocalTime, convertToTimeZone } from 'date-fns-timezone';
 import getErrorMessage from '../shared/error-messages';
 
+const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
+
 export function DatePickerException(code, message) {
 	this.message = getErrorMessage(message);
 	this.code = code;
@@ -51,7 +53,16 @@ function dateToStr(date, { dateFormat }) {
  * Convert a date in local TZ to UTC
  */
 function convertToUTC(date) {
-	return new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+	return new Date(
+		Date.UTC(
+			date.getFullYear(),
+			date.getMonth(),
+			date.getDate(),
+			date.getHours(),
+			date.getMinutes(),
+			date.getSeconds(),
+		),
+	);
 }
 
 function convertDateToTimezone(date, { useUTC, timezone }) {
@@ -126,9 +137,7 @@ function checkSupportedDateFormat(dateFormat) {
 function checkSupportedTimezone(timezone) {
 	const timzones = listTimeZones();
 	if (!timzones.includes(timezone)) {
-		throw new Error(
-			`Timezone: ${timezone} - NOT SUPPORTED`,
-		);
+		throw new Error(`Timezone: ${timezone} - NOT SUPPORTED`);
 	}
 }
 
@@ -163,6 +172,7 @@ function extractDateOnly(date, { useUTC, timezone }) {
 function extractPartsFromDate(date, options) {
 	if (!isDateValid(date, options)) {
 		return {
+			localDate: undefined,
 			date: undefined,
 			textInput: '',
 			errors: [],
@@ -170,12 +180,12 @@ function extractPartsFromDate(date, options) {
 		};
 	}
 
-	const dateToUse = extractDateOnly(date, options);
+	const localDate = extractDateOnly(date, options);
 
 	return {
-		localDate: dateToUse,
+		localDate,
 		date,
-		textInput: dateToStr(dateToUse, options),
+		textInput: dateToStr(localDate, options),
 		errors: [],
 		errorMessage: null,
 	};
@@ -200,18 +210,21 @@ function extractPartsFromTextInput(textInput, options) {
 		};
 	}
 
+	let localDate;
 	let date;
 	let errors = [];
 
 	try {
-		date = strToDate(textInput, options.dateFormat);
+		localDate = strToDate(textInput, options.dateFormat);
+		date = convertDateToTimezone(localDate, options);
 	} catch (error) {
+		date = INTERNAL_INVALID_DATE;
 		errors = errors.concat(error);
 	}
 
 	return {
-		localDate: date,
-		date: convertDateToTimezone(date, options),
+		localDate,
+		date,
 		textInput,
 		errors,
 		errorMessage: errors[0] ? errors[0].message : null,

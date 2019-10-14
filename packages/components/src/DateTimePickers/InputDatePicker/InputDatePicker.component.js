@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import uuid from 'uuid';
+import classnames from 'classnames';
 import { Popper } from 'react-popper';
 
 import FocusManager from '../../FocusManager';
@@ -67,14 +68,13 @@ export default function InputDatePicker(props) {
 	return (
 		<Date.Manager
 			value={props.value}
-			textInput={props.textInput}
 			dateFormat={props.dateFormat}
 			onChange={(...args) => handlers.onChange(...args, inputRef.current)}
 			useUTC={props.useUTC}
 			timezone={props.timezone}
 		>
 			<FocusManager
-				className={theme['date-picker']}
+				className={classnames(theme['date-picker'], 'date-picker')}
 				divRef={containerRef}
 				onClick={handlers.onClick}
 				onFocusIn={handlers.onFocus}
@@ -90,13 +90,18 @@ export default function InputDatePicker(props) {
 }
 InputDatePicker.displayName = 'InputDatePicker';
 
+InputDatePicker.defaultProps = {
+	dateFormat: 'YYYY-MM-DD',
+	required: true,
+	useUTC: false,
+};
+
 InputDatePicker.propTypes = {
 	id: PropTypes.string.isRequired,
 	dateFormat: PropTypes.string,
 	onChange: PropTypes.func,
 	onBlur: PropTypes.func,
 	value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
-	textInput: PropTypes.string,
 	timezone: PropTypes.string,
 	hideTimezone: PropTypes.bool,
 	useUTC: PropTypes.bool,
