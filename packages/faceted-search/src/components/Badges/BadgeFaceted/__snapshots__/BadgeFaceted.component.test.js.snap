@@ -5,38 +5,30 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
   <div id="tc-badge-select-my-id"
        class="tc-badge-button theme-tc-badge-button"
   >
-    <div class="theme-tc-tooltip"
-         aria-describedby="42"
+    <span aria-label="My Label"
+          class="tc-badge-category theme-tc-badge-category"
+          aria-describedby="42"
     >
-      <span aria-label="My Label"
-            class="tc-badge-category theme-tc-badge-category"
-            aria-describedby="42"
-      >
-        My Label
-      </span>
-    </div>
+      My Label
+    </span>
     <div class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large">
       <div class="tc-badge-operator-button theme-tc-badge-operator-button">
-        <div class="theme-tc-tooltip"
-             aria-describedby="42"
+        <button role="button"
+                aria-label="My icon operator equal"
+                id="my-id-operator-action-overlay"
+                aria-describedby="42"
+                type="button"
+                class="btn-icon-only btn btn-link"
         >
-          <button role="button"
-                  aria-label="My icon operator equal"
-                  id="my-id-operator-action-overlay"
-                  aria-describedby="42"
-                  type="button"
-                  class="btn-icon-only btn btn-link"
+          <svg name="talend-talend-my-icon-equal"
+               class="theme-tc-svg-icon tc-svg-icon"
+               focusable="false"
+               aria-hidden="true"
           >
-            <svg name="talend-talend-my-icon-equal"
-                 class="theme-tc-svg-icon tc-svg-icon"
-                 focusable="false"
-                 aria-hidden="true"
-            >
-              <use xlink:href="#talend-talend-my-icon-equal">
-              </use>
-            </svg>
-          </button>
-        </div>
+            <use xlink:href="#talend-talend-my-icon-equal">
+            </use>
+          </svg>
+        </button>
       </div>
     </div>
     <div class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay">
@@ -51,25 +43,21 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
         </span>
       </button>
     </div>
-    <div class="theme-tc-tooltip"
-         aria-describedby="42"
+    <button role="button"
+            id="tc-badge-delete-my-id"
+            aria-describedby="42"
+            type="button"
+            class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
     >
-      <button role="button"
-              id="tc-badge-delete-my-id"
-              aria-describedby="42"
-              type="button"
-              class="tc-badge-delete-icon theme-tc-badge-delete-icon btn-icon-only btn btn-link"
+      <svg name="talend-cross"
+           class="theme-tc-svg-icon tc-svg-icon"
+           focusable="false"
+           aria-hidden="true"
       >
-        <svg name="talend-cross"
-             class="theme-tc-svg-icon tc-svg-icon"
-             focusable="false"
-             aria-hidden="true"
-        >
-          <use xlink:href="#talend-cross">
-          </use>
-        </svg>
-      </button>
-    </div>
+        <use xlink:href="#talend-cross">
+        </use>
+      </svg>
+    </button>
   </div>
 </div>
 `;

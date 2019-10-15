@@ -17,7 +17,7 @@ export function FacetedSearchIcon({ active, onClick }) {
 			active={active}
 			className={theme('faceted-search-icon')}
 			icon="talend-filter"
-			label={t({
+			label={t('SHOW_FACETED_SEARCH', {
 				defaultValue: 'Show faceted search',
 			})}
 			onClick={event => onClick(event)}

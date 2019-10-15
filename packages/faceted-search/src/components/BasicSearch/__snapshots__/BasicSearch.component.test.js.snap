@@ -5,26 +5,22 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
      class="tc-basic-search theme-tc-basic-search"
 >
   <div>
-    <div class="theme-tc-tooltip"
-         aria-describedby="42"
+    <button role="button"
+            aria-label="Add facets"
+            id="manager-id-basic-search-action-overlay"
+            aria-describedby="42"
+            type="button"
+            class="btn-icon-only btn btn-link"
     >
-      <button role="button"
-              aria-label="Add facets"
-              id="manager-id-basic-search-action-overlay"
-              aria-describedby="42"
-              type="button"
-              class="btn-icon-only btn btn-link"
+      <svg name="talend-plus-circle"
+           class="theme-tc-svg-icon tc-svg-icon"
+           focusable="false"
+           aria-hidden="true"
       >
-        <svg name="talend-plus-circle"
-             class="theme-tc-svg-icon tc-svg-icon"
-             focusable="false"
-             aria-hidden="true"
-        >
-          <use xlink:href="#talend-plus-circle">
-          </use>
-        </svg>
-      </button>
-    </div>
+        <use xlink:href="#talend-plus-circle">
+        </use>
+      </svg>
+    </button>
   </div>
 </div>
 `;
@@ -34,26 +30,22 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
      class="tc-basic-search theme-tc-basic-search"
 >
   <div>
-    <div class="theme-tc-tooltip"
-         aria-describedby="42"
+    <button role="button"
+            aria-label="Add facets"
+            id="manager-id-basic-search-action-overlay"
+            aria-describedby="42"
+            type="button"
+            class="btn-icon-only btn btn-link"
     >
-      <button role="button"
-              aria-label="Add facets"
-              id="manager-id-basic-search-action-overlay"
-              aria-describedby="42"
-              type="button"
-              class="btn-icon-only btn btn-link"
+      <svg name="talend-plus-circle"
+           class="theme-tc-svg-icon tc-svg-icon"
+           focusable="false"
+           aria-hidden="true"
       >
-        <svg name="talend-plus-circle"
-             class="theme-tc-svg-icon tc-svg-icon"
-             focusable="false"
-             aria-hidden="true"
-        >
-          <use xlink:href="#talend-plus-circle">
-          </use>
-        </svg>
-      </button>
-    </div>
+        <use xlink:href="#talend-plus-circle">
+        </use>
+      </svg>
+    </button>
   </div>
 </div>
 `;

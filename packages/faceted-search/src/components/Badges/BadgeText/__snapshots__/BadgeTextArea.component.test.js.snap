@@ -4,11 +4,11 @@ exports[`BadgeTextArea should mount a default badge 1`] = `
 <form class="tc-badge-text-form theme-tc-badge-text-form"
       id="myId-text-area"
 >
-  <div id="myId-body"
-       class="theme-body tc-tooltip-body"
+  <div id="myId"
+       class="theme-body tc-tooltip-body tc-badge-text-form-body theme-tc-badge-text-form-body"
   >
-    <div id="myId-body-content"
-         class="tc-badge-text-form-body theme-tc-badge-text-form-body"
+    <div id="myId-content"
+         class="theme-content tc-tooltip-content"
     >
       <div class="form-group theme-template">
         <textarea id="myId-area"
@@ -33,7 +33,7 @@ exports[`BadgeTextArea should mount a default badge 1`] = `
       </div>
     </div>
   </div>
-  <footer id="myId-footer"
+  <footer id="myId"
           class="theme-footer tc-tooltip-footer"
   >
     <button type="submit"
