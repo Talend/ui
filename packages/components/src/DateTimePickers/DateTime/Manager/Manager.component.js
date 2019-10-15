@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { DateTimeContext } from '../Context';
 import {
 	extractParts,
-	updateDatetimeOnDateChange,
-	updateDatetimeOnTimeChange,
+	updatePartsOnDateChange,
+	updatePartsOnTimeChange,
 } from '../datetime-extraction';
 
 function ContextualManager(props) {
@@ -36,7 +36,7 @@ function ContextualManager(props) {
 		}
 	}
 	function onDateChange(event, payload) {
-		const newState = updateDatetimeOnDateChange(payload, state.time, getDateOptions());
+		const newState = updatePartsOnDateChange(payload, state.time, getDateOptions());
 		const nextState = {
 			...state,
 			...newState,
@@ -45,7 +45,7 @@ function ContextualManager(props) {
 		onChange(event, nextState);
 	}
 	function onTimeChange(event, payload) {
-		const newState = updateDatetimeOnTimeChange(payload, state.date, getDateOptions());
+		const newState = updatePartsOnTimeChange(payload, state.date, getDateOptions());
 		const nextState = {
 			...state,
 			...newState,
