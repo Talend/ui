@@ -8,10 +8,12 @@ import cssModule from './FacetedToolbar.scss';
 
 const theme = getTheme(cssModule);
 
-const SwitchFacetedMode = ({ facetedMode, id, onClickAdvanced, onClickClassic, t }) => (
+const SwitchFacetedMode = ({ facetedMode, id, onChange, t }) => (
 	<div className={theme('tc-faceted-toolbar-buttons')}>
 		<Action
-			onClick={onClickAdvanced}
+			onClick={() => {
+				onChange(FACETED_MODE.ADVANCED);
+			}}
 			label={t('FACETED_SEARCH_ADVANCED', { defaultValue: 'Advanced' })}
 			id={`${id}-avd-action`}
 			className={theme('tc-faceted-toolbar-buttons-advanced', {
@@ -19,7 +21,9 @@ const SwitchFacetedMode = ({ facetedMode, id, onClickAdvanced, onClickClassic, t
 			})}
 		/>
 		<Action
-			onClick={onClickClassic}
+			onClick={() => {
+				onChange(FACETED_MODE.BASIC);
+			}}
 			label={t('FACETED_SEARCH_BASIC', { defaultValue: 'Basic' })}
 			id={`${id}-basic-action`}
 			className={theme('tc-faceted-toolbar-buttons-basic', {
@@ -32,32 +36,16 @@ const SwitchFacetedMode = ({ facetedMode, id, onClickAdvanced, onClickClassic, t
 SwitchFacetedMode.propTypes = {
 	facetedMode: PropTypes.string.isRequired,
 	id: PropTypes.string.isRequired,
-	onClickAdvanced: PropTypes.func.isRequired,
-	onClickClassic: PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired,
 	t: PropTypes.func.isRequired,
 };
 
-const FacetedToolbar = ({ children, facetedMode, id, onChangeFacetedMode, t }) => {
-	const displayClassic = () => {
-		onChangeFacetedMode(FACETED_MODE.BASIC);
-	};
-	const displayAdvanced = () => {
-		onChangeFacetedMode(FACETED_MODE.ADVANCED);
-	};
-
-	return (
-		<div id={`${id}-toolbar`} className={theme('tc-faceted-toolbar')}>
-			{children}
-			<SwitchFacetedMode
-				id={id}
-				facetedMode={facetedMode}
-				onClickAdvanced={displayAdvanced}
-				onClickClassic={displayClassic}
-				t={t}
-			/>
-		</div>
-	);
-};
+const FacetedToolbar = ({ children, facetedMode, id, onChangeFacetedMode, t }) => (
+	<div id={`${id}-toolbar`} className={theme('tc-faceted-toolbar')}>
+		{children}
+		<SwitchFacetedMode id={id} facetedMode={facetedMode} onChange={onChangeFacetedMode} t={t} />
+	</div>
+);
 
 FacetedToolbar.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
