@@ -268,7 +268,7 @@ describe('Date.Manager', () => {
 				expect(args[1].errors).toEqual([
 					{ code: 'INVALID_DATE_FORMAT', message: 'Date format is invalid' },
 				]);
-				expect(args[1].date).toBe(undefined);
+				expect(isNaN(args[1].date)).toBe(true);
 				expect(args[1].origin).toBe('INPUT');
 			});
 		});

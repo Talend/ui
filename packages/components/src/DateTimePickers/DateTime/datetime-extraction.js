@@ -16,6 +16,22 @@ export function DatePickerException(code, message) {
 }
 
 /**
+ * Convert a date in local TZ to UTC
+ */
+function convertToUTC(date) {
+	return new Date(
+		Date.UTC(
+			date.getFullYear(),
+			date.getMonth(),
+			date.getDate(),
+			date.getHours(),
+			date.getMinutes(),
+			date.getSeconds(),
+		),
+	);
+}
+
+/**
  * Extract time
  * @param date {Date} The date to extract
  * @param useSeconds {boolean} Indicates if we should extract seconds
@@ -189,6 +205,7 @@ function extractParts(value, options) {
 }
 
 export {
+	convertToUTC,
 	dateAndTimeToDateTime,
 	dateAndTimeToStr,
 	extractParts,
