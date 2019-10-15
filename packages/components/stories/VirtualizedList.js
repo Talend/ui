@@ -577,7 +577,7 @@ storiesOf('VirtualizedList', module)
 				Row can be disabled by passing <b>getRowState</b> function
 				that returns a disabled flag and a message to show into the tooltip.
 				<br />
-				Here example <pre>{'isDisabled={item => (item.id === 6 ? { disabled: true, tooltip: "Houlala" } : null)'}</pre>
+				Here example <pre>{'getRowState={row => (row.id === 6 ? { disabled: true, tooltip: "Houlala" } : null)'}</pre>
 			</p>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
@@ -585,7 +585,7 @@ storiesOf('VirtualizedList', module)
 					collection={collection}
 					id={'my-list'}
 					onRowClick={action('onRowClick')}
-					getRowState={item => (item.id === 2 ? { disabled: true, tooltip: 'Houlala' } : null)}
+					getRowState={row => (row.id === 2 ? { disabled: true, tooltip: 'Houlala' } : null)}
 				>
 					<VirtualizedList.Text label="Id" dataKey="id" />
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
