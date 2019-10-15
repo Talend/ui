@@ -19,7 +19,7 @@
   "COLLAPSIBLE_PANEL_COLLAPSE": "Collapse panel",
   "COLLAPSIBLE_PANEL_EXPAND": "Expand panel",
   "DATE_FNS_ABOUT_HOUR": "about {{count}} hour",
-  "DATE_FNS_ABOUT_MINUTE": "{{count}} minute",
+  "DATE_FNS_ABOUT_MINUTE": "about {{count}} minute",
   "DATE_FNS_ABOUT_MONTH": "about {{count}} month",
   "DATE_FNS_ABOUT_YEAR": "about {{count}} year",
   "DATE_FNS_AGO": "{{value}} ago",
