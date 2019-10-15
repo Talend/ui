@@ -22,6 +22,7 @@ function ContextualManager(props) {
 
 	const initialState = extractDate(props.value, getDateOptions());
 	const [state, setState] = useState(initialState);
+
 	useEffect(() => {
 		if (props.value !== state.date) {
 			const newState = extractDate(props.value, getDateOptions());
@@ -32,6 +33,7 @@ function ContextualManager(props) {
 	useEffect(() => {
 		checkSupportedDateFormat(props.dateFormat);
 	}, [props.dateFormat]);
+
 	useEffect(() => {
 		if (props.timezone) {
 			checkSupportedTimezone(props.timezone);
