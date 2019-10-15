@@ -24,7 +24,7 @@ const FacetedManager = ({ children, id, inProgress, error, operatorsDefinitions 
 };
 
 FacetedManager.propTypes = {
-	children: PropTypes.oneOfType(PropTypes.element, PropTypes.arrayOf(PropTypes.element)),
+	children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 	id: PropTypes.string.isRequired,
 	inProgress: PropTypes.bool,
 	error: PropTypes.string,
