@@ -20,7 +20,8 @@ class CellCheckbox extends React.Component {
 
 	render() {
 		const { cellData, columnData, rowData, rowIndex } = this.props;
-		const { id, label, selectionMode, onChange } = columnData;
+		const { id, label, selectionMode, onChange, getRowState } = columnData;
+		const { disabled = false } = (getRowState && getRowState(rowData)) || {};
 		const type = selectionMode === SELECTION_MODE.SINGLE ? 'radio' : 'checkbox';
 
 		return (
@@ -34,6 +35,7 @@ class CellCheckbox extends React.Component {
 								onChange(e, rowData);
 							}}
 							checked={cellData}
+							disabled={disabled}
 						/>
 						<span className={'tc-cell-checkbox'}>
 							<span className="sr-only">{label}</span>

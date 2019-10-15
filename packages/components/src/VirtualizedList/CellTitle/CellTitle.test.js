@@ -241,6 +241,30 @@ describe('CellTitle', () => {
 			expect(wrapper.getElement()).toMatchSnapshot();
 		});
 
+		it('should NOT render the actions when cell is disabled', () => {
+			// given
+			const columnData = {
+				id: 'my-title',
+				actionsKey: undefined, // no actions key
+				disabledKey: 'nop',
+				nop: true,
+			};
+
+			// when
+			const wrapper = shallow(
+				<CellTitle
+					cellData={'my awesome title'}
+					columnData={columnData}
+					getComponent={jest.fn()}
+					rowData={rowData}
+					rowIndex={1}
+				/>,
+			);
+
+			// then
+			expect(wrapper.getElement()).toMatchSnapshot();
+		});
+
 		it('should NOT render the actions when rowData has no actions', () => {
 			// given
 			const columnData = {
