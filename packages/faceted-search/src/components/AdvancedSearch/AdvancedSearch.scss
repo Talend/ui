@@ -12,7 +12,7 @@ $error-color: #ba4d51;
 	// relative to the faceted toolbar.
 	// This padding is here to give them space.
 	> form {
-		padding-right: 1.8rem;
+		padding-right: 18rem;
 	}
 
 	.adv-search-filter-icon {
@@ -38,6 +38,7 @@ $error-color: #ba4d51;
 		margin: $padding-small $padding-small;
 		padding-left: $faceted-advanced-search-height;
 		padding-right: 6rem;
+		width: 100%;
 		width: calc(100% - 2rem);
 
 		&.has-error {
@@ -57,7 +58,7 @@ $error-color: #ba4d51;
 	&-buttons {
 		display: flex;
 		position: absolute;
-		right: 2.05rem;
+		right: 20.5rem;
 		align-items: center;
 		justify-content: center;
 		height: $faceted-advanced-search-height;
