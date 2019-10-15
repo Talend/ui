@@ -91,11 +91,11 @@ function dateAndTimeToDateTime(date, time, options) {
 	if (isEmpty(time)) {
 		throw new DateTimePickerException('INVALID_TIME_EMPTY', 'INVALID_TIME_EMPTY');
 	}
+	let timeObject = time;
 	if (typeof time === 'string') {
-		// eslint-disable-next-line no-param-reassign
-		time = strToTime(time, options.useSeconds);
+		timeObject = strToTime(time, options.useSeconds);
 	}
-	const { hours, minutes, seconds } = time;
+	const { hours, minutes, seconds } = timeObject;
 	const timeInSeconds = timeToSeconds(hours, minutes, seconds);
 	const localTimezoneDate = setSeconds(date, timeInSeconds);
 	return convertDateToTimezone(localTimezoneDate, options);
