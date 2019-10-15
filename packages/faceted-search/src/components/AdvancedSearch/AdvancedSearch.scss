@@ -1,6 +1,6 @@
 $icon-text-size: 0.8rem !default;
-$circle-text-size: 16px !default;
-$faceted-advanced-search-height: 35px;
+$circle-text-size: 1.6rem !default;
+$faceted-advanced-search-height: 3.5rem;
 $error-color: #ba4d51;
 
 .adv-search {
@@ -12,7 +12,7 @@ $error-color: #ba4d51;
 	// relative to the faceted toolbar.
 	// This padding is here to give them space.
 	> form {
-		padding-right: 180px;
+		padding-right: 1.8rem;
 	}
 
 	.adv-search-filter-icon {
@@ -29,7 +29,7 @@ $error-color: #ba4d51;
 
 	input.adv-search-input {
 		border-radius: $border-radius-base;
-		border: 1px solid $silver;
+		border: 0.1rem solid $silver;
 		box-shadow: none;
 		color: $dove-gray;
 		font-size: $font-size-base;
@@ -37,11 +37,11 @@ $error-color: #ba4d51;
 		line-height: $faceted-advanced-search-height;
 		margin: $padding-small $padding-small;
 		padding-left: $faceted-advanced-search-height;
-		padding-right: 60px;
-		width: calc(100% - 20px);
+		padding-right: 6rem;
+		width: calc(100% - 2rem);
 
 		&.has-error {
-			box-shadow: inset 0 -2px 0 $chestnut-rose;
+			box-shadow: inset 0 -0.2rem 0 $chestnut-rose;
 		}
 
 		&::placeholder {
@@ -57,7 +57,7 @@ $error-color: #ba4d51;
 	&-buttons {
 		display: flex;
 		position: absolute;
-		right: 205px;
+		right: 2.05rem;
 		align-items: center;
 		justify-content: center;
 		height: $faceted-advanced-search-height;

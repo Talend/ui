@@ -60,4 +60,5 @@ const createTqlQuery = facetedQuery => {
 	return formatValue(facetedQuery);
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export { createTqlQuery };
