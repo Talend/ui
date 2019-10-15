@@ -43,6 +43,7 @@ exports[`CellActions should render radio button 1`] = `
     >
       <input
         checked={false}
+        disabled={false}
         id="my-checkbox-25-check"
         onChange={[Function]}
         type="radio"

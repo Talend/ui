@@ -45,7 +45,7 @@ class CellTitle extends React.Component {
 			persistentActionsKey,
 			displayModeKey,
 
-			getAvaibilityStatus,
+			getRowState,
 
 			iconKey,
 			iconLabelKey,
@@ -55,7 +55,7 @@ class CellTitle extends React.Component {
 		} = cellColumnData;
 
 		const displayMode = rowData[displayModeKey] || TITLE_MODE_TEXT;
-		const { status = true, message } = (getAvaibilityStatus && getAvaibilityStatus(rowData)) || {};
+		const { disabled = false, tooltip } = (getRowState && getRowState(rowData)) || {};
 		const titleId = id && `${id}-${rowIndex}-title-cell`;
 		const actionsId = id && `${id}-${rowIndex}-title-actions`;
 
@@ -103,13 +103,13 @@ class CellTitle extends React.Component {
 				id={titleId}
 				className={classNames(theme['tc-list-title'], 'tc-list-title', {
 					[theme['tc-list-title-filter']]: onClick,
-					[theme['tc-list-title-disabled']]: !status,
+					[theme['tc-list-title-disabled']]: disabled,
 					'tc-list-title-filter': onClick,
 				})}
 			>
 				{icon}
-				{!status ? (
-					<TooltipTrigger label={message} tooltipPlacement="top">
+				{disabled ? (
+					<TooltipTrigger label={tooltip} tooltipPlacement="top">
 						<span id={titleId} className={theme['main-title']} title={cellData}>
 							{cellData}
 						</span>

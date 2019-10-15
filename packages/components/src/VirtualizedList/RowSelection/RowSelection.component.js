@@ -9,13 +9,13 @@ import theme from './RowSelection.scss';
  */
 function getRowSelectionRenderer(
 	WrappedComponent,
-	{ isSelected, isActive, getAvaibilityStatus, getRowData },
+	{ isSelected, isActive, getRowState, getRowData },
 ) {
 	function RowSelection(props) {
 		const rowData = getRowData(props);
 		const active = isActive && isActive(rowData);
 		const selected = isSelected && isSelected(rowData);
-		const { status = true } = (getAvaibilityStatus && getAvaibilityStatus(rowData)) || {};
+		const { disabled = false } = (getRowState && getRowState(rowData)) || {};
 
 		const enhancedClassNames = classNames(
 			props.className,
@@ -23,7 +23,7 @@ function getRowSelectionRenderer(
 			{ [theme.active]: active },
 			{ active },
 			{ [theme.selected]: selected },
-			{ [theme.disabled]: !status },
+			{ [theme.disabled]: disabled },
 			{ selected },
 		);
 

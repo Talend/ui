@@ -585,7 +585,7 @@ storiesOf('VirtualizedList', module)
 					collection={collection}
 					id={'my-list'}
 					onRowClick={action('onRowClick')}
-					getAvaibilityStatus={item => (item.id === 2 ? { status: false, message: 'Houlala' } : null)}
+					getRowState={item => (item.id === 2 ? { disabled: true, tooltip: 'Houlala' } : null)}
 				>
 					<VirtualizedList.Text label="Id" dataKey="id" />
 					<VirtualizedList.Title label="Name" dataKey="name" columnData={titleProps} />
