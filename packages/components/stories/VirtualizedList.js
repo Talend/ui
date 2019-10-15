@@ -574,10 +574,10 @@ storiesOf('VirtualizedList', module)
 		<div className="virtualized-list">
 			<h1>Virtualized List</h1>
 			<p>
-				Row can be disabled by passing <b>isDisabled</b> function
-				that returns if a row is disabled.
+				Row can be disabled by passing <b>getRowState</b> function
+				that returns a disabled flag and a message to show into the tooltip.
 				<br />
-				Here example <pre>{'isDisabled={item => item.id === 6}'}</pre>
+				Here example <pre>{'isDisabled={item => (item.id === 6 ? { disabled: true, tooltip: "Houlala" } : null)'}</pre>
 			</p>
 			<IconsProvider defaultIcons={icons} />
 			<section style={{ height: '50vh' }}>
