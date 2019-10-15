@@ -16,9 +16,9 @@ export default {
 	id: PropTypes.string,
 	// Highlight row on click
 	isActive: PropTypes.func,
-	/** Function : (collectionItem) => Boolean
+	/** Function : (collectionItem) => { disabled: Boolean, message: String }
 	 *  This is called to determine if the element is disabled. */
-	isDisabled: PropTypes.func,
+	getRowState: PropTypes.func,
 	/** Function : (collectionItem) => Boolean
 	 *  This is called to determine if the element is selected.
 	 *  Note that this is not used/displayed if the selectionToggle props is not passed */
