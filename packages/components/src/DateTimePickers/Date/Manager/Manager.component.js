@@ -11,12 +11,19 @@ import {
 } from '../date-extraction';
 
 function ContextualManager(props) {
-	// eslint-disable-next-line no-use-before-define
+	function getDateOptions() {
+		return {
+			dateFormat: props.dateFormat,
+			useUTC: props.useUTC,
+			required: props.required,
+			timezone: props.timezone,
+		};
+	}
+
 	const initialState = extractDate(props.value, getDateOptions());
 	const [state, setState] = useState(initialState);
 	useEffect(() => {
 		if (props.value !== state.date) {
-			// eslint-disable-next-line no-use-before-define
 			const newState = extractDate(props.value, getDateOptions());
 			setState(newState);
 		}
@@ -31,14 +38,6 @@ function ContextualManager(props) {
 		}
 	}, [props.timezone]);
 
-	function getDateOptions() {
-		return {
-			dateFormat: props.dateFormat,
-			useUTC: props.useUTC,
-			required: props.required,
-			timezone: props.timezone,
-		};
-	}
 	function onChange(event, origin, nextState) {
 		if (!props.onChange) {
 			return;
