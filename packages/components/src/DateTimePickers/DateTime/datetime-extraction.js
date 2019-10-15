@@ -218,7 +218,7 @@ function extractParts(value, options) {
  * 	time stored in DateTimeManager state
  * @param options {Object}
  */
-function updateDatetimeOnDateChange(datePickerPayload, time, options) {
+function updatePartsOnDateChange(datePickerPayload, time, options) {
 	const { errors = [], date, textInput: dateTextInput } = datePickerPayload;
 	let datetime;
 	const nextErrors = errors;
@@ -248,7 +248,7 @@ function updateDatetimeOnDateChange(datePickerPayload, time, options) {
  * @param date {Date|string|number} date stored in DateTimeManager state
  * @param options {Object}
  */
-function updateDatetimeOnTimeChange(timePickerPayload, date, options) {
+function updatePartsOnTimeChange(timePickerPayload, date, options) {
 	const { errors = [], time, textInput: timeTextInput } = timePickerPayload;
 	let datetime;
 	const nextErrors = errors;
@@ -277,6 +277,6 @@ export {
 	extractParts,
 	extractPartsFromDateTime,
 	extractPartsFromTextInput,
-	updateDatetimeOnDateChange,
-	updateDatetimeOnTimeChange,
+	updatePartsOnDateChange,
+	updatePartsOnTimeChange,
 };

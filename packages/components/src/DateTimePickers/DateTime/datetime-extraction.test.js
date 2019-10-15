@@ -2,8 +2,8 @@ import {
 	extractParts,
 	extractPartsFromDateTime,
 	extractPartsFromTextInput,
-	updateDatetimeOnDateChange,
-	updateDatetimeOnTimeChange,
+	updatePartsOnDateChange,
+	updatePartsOnTimeChange,
 } from './datetime-extraction';
 
 describe('Date extraction', () => {
@@ -221,8 +221,8 @@ describe('Date extraction', () => {
 		});
 	});
 
-	describe('updateDatetimeOnDateChange', () => {
-		it('should update datetime when date change', () => {
+	describe('updatePartsOnDateChange', () => {
+		it('should update parts when date change', () => {
 			// given
 			const payload = {
 				date: new Date(2019, 9, 11),
@@ -231,7 +231,7 @@ describe('Date extraction', () => {
 			const time = '12:30';
 			const options = { dateFormat: 'YYYY-MM-DD' };
 			// when
-			const parts = updateDatetimeOnDateChange(payload, time, options);
+			const parts = updatePartsOnDateChange(payload, time, options);
 			// then
 			expect(parts.datetime).toEqual(new Date(2019, 9, 11, 12, 30));
 			expect(parts.date).toEqual(new Date(2019, 9, 11));
@@ -239,7 +239,7 @@ describe('Date extraction', () => {
 			expect(parts.errors).toEqual([]);
 			expect(parts.errorMessage).toBeNull();
 		});
-		it('should update datetime in utc when date change', () => {
+		it('should update parts in utc when date change', () => {
 			// given
 			const payload = {
 				date: new Date(2019, 9, 11),
@@ -248,7 +248,7 @@ describe('Date extraction', () => {
 			const time = '12:30';
 			const options = { dateFormat: 'YYYY-MM-DD', useUTC: true };
 			// when
-			const parts = updateDatetimeOnDateChange(payload, time, options);
+			const parts = updatePartsOnDateChange(payload, time, options);
 			// then
 			expect(parts.datetime).toEqual(new Date(Date.UTC(2019, 9, 11, 12, 30)));
 			expect(parts.date).toEqual(new Date(2019, 9, 11));
@@ -256,7 +256,7 @@ describe('Date extraction', () => {
 			expect(parts.errors).toEqual([]);
 			expect(parts.errorMessage).toBeNull();
 		});
-		it('should update datetime in timezone when date change', () => {
+		it('should update parts in timezone when date change', () => {
 			// given
 			const payload = {
 				date: new Date(2019, 9, 11),
@@ -265,7 +265,7 @@ describe('Date extraction', () => {
 			const time = '12:30';
 			const options = { dateFormat: 'YYYY-MM-DD', timezone: 'America/New_York' };
 			// when
-			const parts = updateDatetimeOnDateChange(payload, time, options);
+			const parts = updatePartsOnDateChange(payload, time, options);
 			// then
 			expect(parts.datetime).toEqual(new Date(Date.UTC(2019, 9, 11, 16, 30)));
 			expect(parts.date).toEqual(new Date(2019, 9, 11));
@@ -273,7 +273,7 @@ describe('Date extraction', () => {
 			expect(parts.errors).toEqual([]);
 			expect(parts.errorMessage).toBeNull();
 		});
-		it('should return invalid datetime when changed date is invalid', () => {
+		it('should update parts when changed date is invalid', () => {
 			// given
 			const payload = {
 				date: null,
@@ -283,7 +283,7 @@ describe('Date extraction', () => {
 			const time = '12:30';
 			const options = { dateFormat: 'YYYY-MM-DD' };
 			// when
-			const parts = updateDatetimeOnDateChange(payload, time, options);
+			const parts = updatePartsOnDateChange(payload, time, options);
 			// then
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
 			expect(parts.date).toBe('2019ddd-10-11');
@@ -294,8 +294,8 @@ describe('Date extraction', () => {
 			expect(parts.errorMessage).toBe('Date format is invalid');
 		});
 	});
-	describe('updateDatetimeOnTimeChange', () => {
-		it('should update datetime when time change', () => {
+	describe('updatePartsOnTimeChange', () => {
+		it('should update parts when time change', () => {
 			// given
 			const payload = {
 				time: { hours: '09', minutes: '32', seconds: '00' },
@@ -304,7 +304,7 @@ describe('Date extraction', () => {
 			const date = new Date(2019, 9, 11);
 			const options = { dateFormat: 'YYYY-MM-DD' };
 			// when
-			const parts = updateDatetimeOnTimeChange(payload, date, options);
+			const parts = updatePartsOnTimeChange(payload, date, options);
 			// then
 			expect(parts.datetime).toEqual(new Date(2019, 9, 11, 9, 32));
 			expect(parts.time).toEqual({ hours: '09', minutes: '32', seconds: '00' });
@@ -312,7 +312,7 @@ describe('Date extraction', () => {
 			expect(parts.errors).toEqual([]);
 			expect(parts.errorMessage).toBeNull();
 		});
-		it('should update datetime in utc when time change', () => {
+		it('should update parts in utc when time change', () => {
 			// given
 			const payload = {
 				time: { hours: '09', minutes: '32', seconds: '00' },
@@ -321,7 +321,7 @@ describe('Date extraction', () => {
 			const date = new Date(2019, 9, 11);
 			const options = { dateFormat: 'YYYY-MM-DD', useUTC: true };
 			// when
-			const parts = updateDatetimeOnTimeChange(payload, date, options);
+			const parts = updatePartsOnTimeChange(payload, date, options);
 			// then
 			expect(parts.datetime).toEqual(new Date(Date.UTC(2019, 9, 11, 9, 32)));
 			expect(parts.time).toEqual({ hours: '09', minutes: '32', seconds: '00' });
@@ -329,7 +329,7 @@ describe('Date extraction', () => {
 			expect(parts.errors).toEqual([]);
 			expect(parts.errorMessage).toBeNull();
 		});
-		it('should update datetime in timezone when time change', () => {
+		it('should update parts in timezone when time change', () => {
 			// given
 			const payload = {
 				time: { hours: '09', minutes: '32', seconds: '00' },
@@ -338,7 +338,7 @@ describe('Date extraction', () => {
 			const date = new Date(2019, 9, 11);
 			const options = { dateFormat: 'YYYY-MM-DD', timezone: 'America/New_York' };
 			// when
-			const parts = updateDatetimeOnTimeChange(payload, date, options);
+			const parts = updatePartsOnTimeChange(payload, date, options);
 			// then
 			expect(parts.datetime).toEqual(new Date(Date.UTC(2019, 9, 11, 13, 32)));
 			expect(parts.time).toEqual({ hours: '09', minutes: '32', seconds: '00' });
@@ -346,7 +346,7 @@ describe('Date extraction', () => {
 			expect(parts.errors).toEqual([]);
 			expect(parts.errorMessage).toBeNull();
 		});
-		it('should return invalid datetime when changed time is invalid', () => {
+		it('should update parts when changed time is invalid', () => {
 			// given
 			const payload = {
 				time: null,
@@ -358,7 +358,7 @@ describe('Date extraction', () => {
 			const date = new Date(2019, 9, 11);
 			const options = { dateFormat: 'YYYY-MM-DD' };
 			// when
-			const parts = updateDatetimeOnTimeChange(payload, date, options);
+			const parts = updatePartsOnTimeChange(payload, date, options);
 			// then
 			expect(isNaN(parts.datetime.getTime())).toBe(true);
 			expect(parts.time).toBe('09:99');
