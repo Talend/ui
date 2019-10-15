@@ -21,10 +21,13 @@ import theme from './BasicSearch.scss';
 const css = getTheme(theme);
 
 const BasicSearch = ({ badgesDefinitions, badgesFaceted, onSubmit, setBadgesFaceted }) => {
-	const { getOperatorsFromDict, id, t } = useFacetedSearchContext();
+	const { getOperatorsFromDict, id, operatorsDictionary, t } = useFacetedSearchContext();
 	const [state, dispatch] = useFacetedBadges(badgesFaceted, setBadgesFaceted);
 	const onClickOverlayRow = setOverlayOpened => (_, badgeDefinition) => {
-		const operators = getOperatorsFromDict(get(badgeDefinition, 'metadata.operators'));
+		const operators = getOperatorsFromDict(
+			operatorsDictionary,
+			get(badgeDefinition, 'metadata.operators'),
+		);
 		dispatch(BADGES_ACTIONS.add(generateBadge(operators)(badgeDefinition)));
 		setOverlayOpened(false);
 	};

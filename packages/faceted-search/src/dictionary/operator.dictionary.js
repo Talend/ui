@@ -28,18 +28,17 @@ const standardOperators = t => ({
 	},
 });
 
-const operatorsDictionary = (t, items) => {
-	let dictionary = { ...standardOperators(t), ...items };
-	const addOperatorToDict = newOperator => {
-		dictionary = {
-			...dictionary,
-			newOperator,
+const createOperatorsDict = (t, operators) => {
+	if (operators) {
+		return {
+			...standardOperators(t),
+			...operators,
 		};
-	};
-	const getOperatorsFromDict = operatorsKeys =>
-		operatorsKeys.map(operatorKey => dictionary[operatorKey]);
-	return { addOperatorToDict, getOperatorsFromDict };
+	}
+	return standardOperators(t);
 };
+const getOperatorsFromDict = (operatorsDictionary, operatorsKeys) =>
+	operatorsKeys.map(operatorKey => operatorsDictionary[operatorKey]);
 
 // eslint-disable-next-line import/prefer-default-export
-export { operatorsDictionary };
+export { createOperatorsDict, getOperatorsFromDict };
