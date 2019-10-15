@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { getTheme } from '@talend/react-components/lib/theme';
 import get from 'lodash/get';
@@ -10,18 +10,26 @@ import { generateBadge } from '../types/badgeDefinition.type';
 import { useFacetedSearchContext } from '../context/facetedSearch.context';
 import { BadgeFacetedProvider } from '../context/badgeFaceted.context';
 
-import { getBadgeTypeFromDict } from '../../dictionary/badge.dictionary';
-
-import { badgesFacetedPropTypes } from '../facetedSearch.propTypes';
-
+import { createBadgesDict, getBadgesFromDict } from '../../dictionary/badge.dictionary';
+import { createOperatorsDict, getOperatorsFromDict } from '../../dictionary/operator.dictionary';
 import { useFacetedBadges, BADGES_ACTIONS } from '../../hooks/facetedBadges.hook';
+import { badgesFacetedPropTypes, operatorsPropTypes } from '../facetedSearch.propTypes';
 
 import theme from './BasicSearch.scss';
 
 const css = getTheme(theme);
 
-const BasicSearch = ({ badgesDefinitions, badgesFaceted, onSubmit, setBadgesFaceted }) => {
-	const { getOperatorsFromDict, id, operatorsDictionary, t } = useFacetedSearchContext();
+const BasicSearch = ({
+	badgesDefinitions,
+	badgesFaceted,
+	customBadgesDictionary,
+	customOperatorsDictionary,
+	onSubmit,
+	setBadgesFaceted,
+}) => {
+	const { id, t } = useFacetedSearchContext();
+	const operatorsDictionary = useMemo(() => createOperatorsDict(t, customOperatorsDictionary));
+	const badgesDictionary = useMemo(() => createBadgesDict(customBadgesDictionary));
 	const [state, dispatch] = useFacetedBadges(badgesFaceted, setBadgesFaceted);
 	const onClickOverlayRow = setOverlayOpened => (_, badgeDefinition) => {
 		const operators = getOperatorsFromDict(
@@ -39,7 +47,8 @@ const BasicSearch = ({ badgesDefinitions, badgesFaceted, onSubmit, setBadgesFace
 			<BadgeFacetedProvider value={badgeFacetedContextValue}>
 				<BadgesGenerator
 					badges={state.badges}
-					getBadge={getBadgeTypeFromDict}
+					badgesDictionary={badgesDictionary}
+					getBadgeFromDict={getBadgesFromDict}
 					id={basicSearchId}
 					t={t}
 				/>
@@ -67,6 +76,8 @@ BasicSearch.propTypes = {
 	badgesDefinitions: badgesFacetedPropTypes,
 	badgesFaceted: badgesFacetedPropTypes,
 	onSubmit: PropTypes.func.isRequired,
+	customOperatorsDictionary: operatorsPropTypes,
+	customBadgesDictionary: PropTypes.object,
 	setBadgesFaceted: PropTypes.func,
 };
 

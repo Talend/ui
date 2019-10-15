@@ -4,9 +4,9 @@ import get from 'lodash/get';
 
 import { badgesFacetedPropTypes } from '../facetedSearch.propTypes';
 
-const BadgesGenerator = ({ badges, getBadge, t }) =>
+const BadgesGenerator = ({ badges, badgesDictionary, getBadgeFromDict, t }) =>
 	badges.reduce((acc, { properties, metadata }) => {
-		const BadgeComponent = getBadge(get(properties, 'type'));
+		const BadgeComponent = getBadgeFromDict(badgesDictionary, get(properties, 'type'));
 		if (BadgeComponent) {
 			acc.push(
 				<BadgeComponent {...properties} id={metadata.badgeId} key={metadata.badgeId} t={t} />,
@@ -17,7 +17,7 @@ const BadgesGenerator = ({ badges, getBadge, t }) =>
 
 BadgesGenerator.propTypes = {
 	badges: badgesFacetedPropTypes,
-	getBadge: PropTypes.func.isRequired,
+	getBadgeFromDict: PropTypes.func.isRequired,
 	onDelete: PropTypes.func,
 	onHideOperator: PropTypes.func,
 	onSubmit: PropTypes.func,

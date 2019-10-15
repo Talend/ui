@@ -4,21 +4,17 @@ const standardBadgeTypeNames = {
 	text: 'text',
 };
 
-const standardBadgeType = {
+const standardBadges = {
 	[standardBadgeTypeNames.text]: BadgeText,
 };
 
-const badgeTypeDictionary = items => {
-	let dictionary = items;
-	const addBadgeTypeToDict = newBadgeType => {
-		dictionary = {
-			...dictionary,
-			newBadgeType,
-		};
-	};
-	const getBadgeTypeFromDict = badgeTypeKey => dictionary[badgeTypeKey];
-	return { addBadgeTypeToDict, getBadgeTypeFromDict };
+const createBadgesDict = badges => {
+	if (badges) {
+		return { ...standardBadges, ...badges };
+	}
+	return standardBadges;
 };
 
-const { addBadgeTypeToDict, getBadgeTypeFromDict } = badgeTypeDictionary(standardBadgeType);
-export { addBadgeTypeToDict, getBadgeTypeFromDict };
+const getBadgesFromDict = (badges, badgeKey) => badges[badgeKey];
+
+export { createBadgesDict, getBadgesFromDict };
