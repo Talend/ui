@@ -16,15 +16,17 @@ const SIZES = {
 	small: 'small',
 };
 
-const DefaultBadge = ({ aslink, category, disabled, icon, id, label, onDelete, t }) => [
-	category && <BadgeLib.Category label={category} />,
-	category && <BadgeLib.Separator />,
-	<BadgeLib.Label aslink={aslink} category={category} label={label}>
-		{icon && <BadgeLib.Icon name={icon} />}
-	</BadgeLib.Label>,
-	icon && onDelete && <BadgeLib.Separator iconSeparator />,
-	onDelete && <BadgeLib.DeleteAction id={id} onClick={onDelete} disabled={disabled} t={t} />,
-];
+const DefaultBadge = ({ aslink, category, disabled, icon, id, label, onDelete, t }) => (
+	<React.Fragment>
+		{category && <BadgeLib.Category label={category} />}
+		{category && <BadgeLib.Separator />}
+		<BadgeLib.Label aslink={aslink} category={category} label={label}>
+			{icon && <BadgeLib.Icon name={icon} />}
+		</BadgeLib.Label>
+		{icon && onDelete && <BadgeLib.Separator iconSeparator />}
+		{onDelete && <BadgeLib.DeleteAction id={id} onClick={onDelete} disabled={disabled} t={t} />}
+	</React.Fragment>
+);
 
 DefaultBadge.propTypes = {
 	aslink: PropTypes.bool,
