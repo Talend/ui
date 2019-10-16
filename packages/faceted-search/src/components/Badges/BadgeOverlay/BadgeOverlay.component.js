@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Overlay, Popover } from 'react-bootstrap';
+import Overlay from 'react-bootstrap/lib/Overlay';
+import Popover from 'react-bootstrap/lib/Popover';
 import Action from '@talend/react-components/lib/Actions/Action';
 
 const getChildren = (children, setOverlayOpened) => {
