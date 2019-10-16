@@ -82,7 +82,7 @@ describe('AddFacetPopover', () => {
 		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
 		act(() => {
-			wrapper.find('button[aria-label="Remove filter"]').simulate('click');
+			wrapper.find('button[aria-label="Remove filter"]').simulate('mouseDown');
 		});
 		wrapper.update();
 		expect(wrapper.find('input').prop('value')).toBe('');

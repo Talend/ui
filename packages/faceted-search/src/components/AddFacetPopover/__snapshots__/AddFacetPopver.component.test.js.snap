@@ -36,21 +36,6 @@ exports[`AddFacetPopover should render the html output 1`] = `
                  class="theme-search form-control"
                  value
           >
-          <button aria-label="Remove filter"
-                  id="my id-add-facet-popover-filter-cross-icon"
-                  aria-describedby="42"
-                  type="button"
-                  class="theme-remove btn-icon-only btn btn-link"
-          >
-            <svg name="talend-cross"
-                 class="theme-tc-svg-icon tc-svg-icon"
-                 focusable="false"
-                 aria-hidden="true"
-            >
-              <use xlink:href="#talend-cross">
-              </use>
-            </svg>
-          </button>
         </div>
       </form>
     </div>
