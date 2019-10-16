@@ -1,5 +1,5 @@
 import { useEffect, useReducer } from 'react';
-import { closeInitOpenedBadge, createBadge, deleteBadge, updateBadge } from '../service/CRUDBadges';
+import { closeInitOpenedBadge, createBadge, deleteBadge, updateBadge } from '../CRUDBadges';
 
 const BADGES_ACTIONS_KEYS = {
 	ADD_BADGE: 'ADD_BADGE',
