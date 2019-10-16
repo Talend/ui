@@ -61,10 +61,14 @@ const BadgeFaceted = ({
 		overlayDispatch(OVERLAY_FLOW_ACTIONS.closeAll);
 		event.preventDefault();
 		dispatch(
-			BADGES_ACTIONS.update(badgeId, {
-				value: badgeValue,
-				operator: badgeOperator,
-			}),
+			BADGES_ACTIONS.update(
+				badgeId,
+				{
+					value: badgeValue,
+					operator: badgeOperator,
+				},
+				{ dirty: false },
+			),
 		);
 	};
 
