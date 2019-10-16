@@ -6,14 +6,7 @@ import { FacetedToolbar } from '../FacetedToolbar';
 import { FacetedManager } from '../FacetedManager';
 import { controlled } from '../../controlled';
 
-const FacetedSearch = ({
-	children,
-	error,
-	facetedMode,
-	id,
-	inProgress,
-	setFacetedMode,
-}) => {
+const FacetedSearch = ({ children, error, facetedMode, id, inProgress, setFacetedMode }) => {
 	console.warn(
 		'WARNING ABOUT FACETED SEARCH: The faceted search stills in development, so it could have some breaking change during this phase. The component will not follow the ui release process',
 	);

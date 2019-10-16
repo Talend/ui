@@ -6,7 +6,6 @@ import { getTheme } from '@talend/react-components/lib/theme';
 
 import { operatorsPropTypes } from '../../facetedSearch.propTypes';
 
-
 import cssModule from './BadgeOperator.scss';
 
 const theme = getTheme(cssModule);

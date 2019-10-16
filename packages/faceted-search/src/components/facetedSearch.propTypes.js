@@ -30,7 +30,6 @@ const badgeFacetedPropTypes = PropTypes.shape({
 		operator: operatorPropTypes,
 		operators: operatorsPropTypes,
 		type: PropTypes.string.isRequired,
-
 	}),
 	metadata: PropTypes.shape({
 		badgeId: PropTypes.string.isRequired,
