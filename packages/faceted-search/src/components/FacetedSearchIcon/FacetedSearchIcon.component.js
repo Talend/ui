@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ActionIconToggle } from '@talend/react-components';
+import ActionIconToggle from '@talend/react-components/lib/Actions/ActionIconToggle';
 import { getTheme } from '@talend/react-components/lib/theme';
 import { useTranslation } from 'react-i18next';
 
