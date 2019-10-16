@@ -24,6 +24,7 @@ const BasicSearch = ({
 	badgesFaceted,
 	customBadgesDictionary,
 	customOperatorsDictionary,
+	initialFilterValue,
 	onSubmit,
 	setBadgesFaceted,
 }) => {
@@ -63,6 +64,7 @@ const BasicSearch = ({
 					<AddFacetPopover
 						badgesDefinitions={badgesDefinitions}
 						id={basicSearchId}
+						initialFilterValue={initialFilterValue}
 						onClick={onClickOverlayRow(setOverlayOpened)}
 						t={t}
 					/>
@@ -75,9 +77,10 @@ const BasicSearch = ({
 BasicSearch.propTypes = {
 	badgesDefinitions: badgesFacetedPropTypes,
 	badgesFaceted: badgesFacetedPropTypes,
-	onSubmit: PropTypes.func.isRequired,
-	customOperatorsDictionary: operatorsPropTypes,
 	customBadgesDictionary: PropTypes.object,
+	customOperatorsDictionary: operatorsPropTypes,
+	initialFilterValue: PropTypes.string,
+	onSubmit: PropTypes.func.isRequired,
 	setBadgesFaceted: PropTypes.func,
 };
 
