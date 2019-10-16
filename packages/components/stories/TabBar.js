@@ -97,6 +97,20 @@ const InteractiveTabs = props => {
 	);
 };
 
+const InteractiveResponsiveTabs = props => {
+	const [selectedKey, setSelectedKey] = useState('2');
+
+	return (
+		<TabBar
+			{...props}
+			selectedKey={selectedKey}
+			onSelect={(event, item) => setSelectedKey(item.key)}
+		>
+			I'm the child of responsive tab {selectedKey}
+		</TabBar>
+	);
+};
+
 function renderContent() {
 	return (
 		<div style={{ padding: '1rem 2rem' }}>
@@ -188,6 +202,9 @@ function generateChildId(key, kind) {
 			<h3>Interactive TabBar demo</h3>
 			<div id="interactive">
 				<InteractiveTabs {...tabProps}>I'm the child</InteractiveTabs>
+			</div>
+			<div id="interactive-responsive" style={{ width: '30rem', border: '1px solid' }}>
+				<InteractiveResponsiveTabs {...tabProps}>I'm the responsive child</InteractiveResponsiveTabs>
 			</div>
 			<IconsProvider />
 		</nav>

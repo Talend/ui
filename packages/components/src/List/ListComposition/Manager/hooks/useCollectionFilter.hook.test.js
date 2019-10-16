@@ -41,6 +41,11 @@ const collection = [
 		lastName: 'Dorsey',
 		number: 4,
 	},
+	{
+		firstName: undefined,
+		lastName: null,
+		number: 5,
+	},
 ];
 
 describe('useCollectionFilter', () => {

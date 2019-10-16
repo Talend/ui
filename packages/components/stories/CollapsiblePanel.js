@@ -57,6 +57,21 @@ const statusCanceledHeader = [
 		icon: 'talend-cross',
 	},
 ];
+
+const statusSkeletonHeader = [
+	{
+		displayMode: 'status',
+		status: 'skeleton',
+	},
+	{
+		displayMode: 'badge',
+		label: 'Execution',
+		bsStyle: 'info',
+		tooltipPlacement: 'top',
+		tooltipLabel: 'Updating execution status...',
+	},
+];
+
 const statusInProgressHeader = [
 	{
 		displayMode: 'status',
@@ -171,6 +186,7 @@ storiesOf('CollapsiblePanel', module)
 				header={statusInProgressHeader}
 				status={'inProgress'}
 			/>
+			<CollapsiblePanel id="panel-header-12" header={statusSkeletonHeader} status={'skeleton'} />
 		</div>
 	))
 	.add('Body', () => (

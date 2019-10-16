@@ -9,7 +9,7 @@ describe('onError', () => {
 	let state;
 	let config;
 	beforeEach(() => {
-		state = { foo: { ok: 'should be kept', password: 'secret' } };
+		state = { foo: { ok: 'should be kept', password: 'secret', keyUndefined: undefined } };
 		store = mock.store(state);
 		store.dispatch = jest.fn();
 		config = {

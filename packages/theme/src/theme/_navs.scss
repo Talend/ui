@@ -107,6 +107,7 @@ $tc-tabbar-active-color: $lochmara;
 				outline: none;
 				padding: $padding-smaller $padding-small;
 				padding-bottom: calc(#{$padding-smaller} + #{$tc-tabbar-active-border-size});
+				text-transform: uppercase;
 
 				max-width: 20rem;
 				white-space: nowrap;
@@ -130,11 +131,11 @@ $tc-tabbar-active-color: $lochmara;
 					&:after {
 						position: absolute;
 						content: '';
-	
+
 						left: $padding-small;
 						right: $padding-small;
 						bottom: 0;
-	
+
 						border-bottom: solid $tc-tabbar-active-border-size $lochmara;
 					}
 

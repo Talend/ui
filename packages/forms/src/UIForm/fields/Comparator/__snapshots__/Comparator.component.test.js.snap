@@ -5,37 +5,44 @@ exports[`Comparator field should render default Comparator 1`] = `
   className="theme-comparator"
 >
   <withI18nextTranslation(ActionDropdown)
+    hideLabel={false}
     items={
       Array [
         Object {
+          "icon": "talend-greater-than",
           "id": "comparison-operator-0",
           "label": <OperatorListElement
+            icon="talend-greater-than"
             name=""
             selected={false}
-            symbol=">"
+            symbol="greater_than"
           />,
-          "title": ">",
-          "value": ">",
+          "title": "greater_than",
+          "value": "greater_than",
         },
         Object {
+          "icon": "talend-less-than",
           "id": "comparison-operator-1",
           "label": <OperatorListElement
+            icon="talend-less-than"
             name=""
             selected={false}
-            symbol="<"
+            symbol="less_than"
           />,
-          "title": "<",
-          "value": "<",
+          "title": "less_than",
+          "value": "less_than",
         },
         Object {
+          "icon": "talend-equal",
           "id": "comparison-operator-2",
           "label": <OperatorListElement
+            icon="talend-equal"
             name=""
             selected={false}
-            symbol="="
+            symbol="equals"
           />,
-          "title": "=",
-          "value": "=",
+          "title": "equals",
+          "value": "equals",
         },
       ]
     }
@@ -50,18 +57,15 @@ exports[`Comparator field should render default Comparator 1`] = `
     onFinish={[Function]}
     schema={
       Object {
-        "autoFocus": undefined,
-        "disabled": undefined,
         "key": Array [
           "default",
           "value",
         ],
-        "readOnly": undefined,
         "required": true,
         "schema": Object {
           "type": "string",
         },
-        "title": "value",
+        "title": "Default comparator",
         "type": "text",
       }
     }
@@ -77,37 +81,44 @@ exports[`Comparator field should render disabled Comparator 1`] = `
 >
   <withI18nextTranslation(ActionDropdown)
     disabled={true}
+    hideLabel={false}
     items={
       Array [
         Object {
+          "icon": "talend-greater-than",
           "id": "comparison-operator-0",
           "label": <OperatorListElement
+            icon="talend-greater-than"
             name=""
             selected={false}
-            symbol=">"
+            symbol="greater_than"
           />,
-          "title": ">",
-          "value": ">",
+          "title": "greater_than",
+          "value": "greater_than",
         },
         Object {
+          "icon": "talend-less-than",
           "id": "comparison-operator-1",
           "label": <OperatorListElement
+            icon="talend-less-than"
             name=""
             selected={false}
-            symbol="<"
+            symbol="less_than"
           />,
-          "title": "<",
-          "value": "<",
+          "title": "less_than",
+          "value": "less_than",
         },
         Object {
+          "icon": "talend-equal",
           "id": "comparison-operator-2",
           "label": <OperatorListElement
+            icon="talend-equal"
             name=""
             selected={false}
-            symbol="="
+            symbol="equals"
           />,
-          "title": "=",
-          "value": "=",
+          "title": "equals",
+          "value": "equals",
         },
       ]
     }
@@ -122,18 +133,16 @@ exports[`Comparator field should render disabled Comparator 1`] = `
     onFinish={[Function]}
     schema={
       Object {
-        "autoFocus": undefined,
         "disabled": true,
         "key": Array [
           "default",
           "value",
         ],
-        "readOnly": undefined,
         "required": true,
         "schema": Object {
           "type": "string",
         },
-        "title": "value",
+        "title": "Default comparator",
         "type": "text",
       }
     }

@@ -17,7 +17,7 @@ describe('CMF App', () => {
 		};
 		const history = {};
 		const wrapper = shallow(
-			<App store={store} history={history} loading="AppLoader">
+			<App store={store} history={history}>
 				<div className="children" />
 			</App>,
 		);
