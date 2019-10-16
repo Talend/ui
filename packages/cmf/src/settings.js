@@ -2,7 +2,11 @@
  * Internal. All stuff related to the settings handling in CMF.
  * @module react-cmf/lib/settings
  */
+import PropTypes from 'prop-types';
+import React from 'react';
+import { connect } from 'react-redux';
 import memoize from 'lodash/memoize';
+
 /**
  * if viewId is undefined, try to generate a meaningfull one
  * else return given viewId
@@ -99,8 +103,26 @@ export function nonMemoized(state, ownProps, componentName, componentId) {
 export const mapStateToViewProps = memoize(
 	nonMemoized,
 	(state, ownProps, componentName, componentId) =>
-		`${ownProps.view}-${componentName}-${componentId}`,
+		`${ownProps.view}-${componentName}-${componentId}-${state.cmf.settings.initialized}`,
 );
+
+function PureWaitForSettings(props) {
+	if (!props.initialized) {
+		return <props.loading />;
+	}
+	return props.children;
+}
+PureWaitForSettings.propTypes = {
+	initialized: PropTypes.bool,
+	children: PropTypes.node,
+};
+PureWaitForSettings.defaultProps = {
+	loading: () => 'loading',
+};
+
+export const WaitForSettings = connect(state => ({
+	initialized: state.cmf.settings.initialized,
+}))(PureWaitForSettings);
 
 export default {
 	mapStateToViewProps,

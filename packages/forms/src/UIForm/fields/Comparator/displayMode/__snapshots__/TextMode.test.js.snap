@@ -5,6 +5,7 @@ exports[`Text field text display mode should render a comparator field in text m
   id="myForm"
   label="My input title"
 >
-  &gt;= 666
+  &gt;=
+   666
 </FieldTemplate>
 `;

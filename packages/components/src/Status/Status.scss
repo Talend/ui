@@ -38,6 +38,10 @@ $tc-status-space-btn-icon-label: 5px !default;
 		&.warning {
 			color: $brand-warning;
 		}
+
+		&.skeleton {
+			color: $gray;
+		}
 	}
 
 	&-actions {
@@ -57,4 +61,9 @@ $tc-status-space-btn-icon-label: 5px !default;
 			opacity: 1;
 		}
 	}
+}
+
+.tc-status-skeleton-item {
+	margin-right: $padding-small;
+	display: flex;
 }

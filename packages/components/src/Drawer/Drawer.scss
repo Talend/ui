@@ -69,17 +69,12 @@ $tc-drawer-z-index: $drawer-z-index !default;
 }
 
 .tc-drawer-header {
-	:global(.tc-editable-text-pencil) {
-		color: $gray;
-		opacity: 0;
-	}
-
-	&:hover {
-		:global(.tc-editable-text-pencil) {
-			opacity: 1;
-			&:hover {
-				color: $scooter;
-			}
+	:global {
+		.tc-editable-text {
+			min-width: 0;
+		}
+		.tc-editable-text-pencil {
+			color: $white;
 		}
 	}
 	background-color: $brand-primary-lighter;
@@ -87,6 +82,8 @@ $tc-drawer-z-index: $drawer-z-index !default;
 	&-title {
 		padding: $padding-normal;
 		position: relative;
+		display: flex;
+		align-items: center;
 
 		h1 {
 			font-size: $font-size-large;
@@ -97,6 +94,10 @@ $tc-drawer-z-index: $drawer-z-index !default;
 			width: 90%;
 			white-space: nowrap;
 			overflow: hidden;
+		}
+
+		:global(.tc-editable-text) {
+			flex: 1;
 		}
 
 		.drawer-close-action-tooltip {

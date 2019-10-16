@@ -10,6 +10,7 @@
 	&.selected {
 		background-color: $lochmara;
 		color: $white;
+		transition: color 0.2s ease-in;
 		font-weight: $font-weight-semi-bold;
 	}
 
@@ -21,8 +22,5 @@
 
 @mixin picker-underline {
 	content: '';
-	position: absolute;
-	width: calc(100% - 2rem);
-	left: 1rem;
 	border-bottom: $border-default;
 }

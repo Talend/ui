@@ -12,7 +12,7 @@ exports[`Filter should render 1`] = `
 />
 `;
 
-exports[`Filter should render filter input with default placeholder 1`] = `
+exports[`Filter should render filter input with default placeholder and remove cross 1`] = `
 <form
   className="theme-filter theme-navbar"
   onSubmit={[Function]}
@@ -29,10 +29,12 @@ exports[`Filter should render filter input with default placeholder 1`] = `
       autoFocus={true}
       dockable={true}
       onBlur={[Function]}
+      onClear={[Function]}
       onFilter={[Function]}
       onFocus={[Function]}
       placeholder="Filter"
       t={[Function]}
+      value="search string"
     />
     <Action
       bsStyle="link"
@@ -40,12 +42,13 @@ exports[`Filter should render filter input with default placeholder 1`] = `
       hideLabel={true}
       icon="talend-cross"
       label="Remove filter"
+      onMouseDown={[Function]}
     />
   </div>
 </form>
 `;
 
-exports[`Filter should render filter input with given placeholder 1`] = `
+exports[`Filter should render filter input with given placeholder without remove cross 1`] = `
 <form
   className="theme-filter theme-navbar"
   onSubmit={[Function]}
@@ -62,17 +65,11 @@ exports[`Filter should render filter input with given placeholder 1`] = `
       autoFocus={true}
       dockable={true}
       onBlur={[Function]}
+      onClear={[Function]}
       onFilter={[Function]}
       onFocus={[Function]}
       placeholder="find something"
       t={[Function]}
-    />
-    <Action
-      bsStyle="link"
-      className="theme-remove"
-      hideLabel={true}
-      icon="talend-cross"
-      label="Remove filter"
     />
   </div>
 </form>
