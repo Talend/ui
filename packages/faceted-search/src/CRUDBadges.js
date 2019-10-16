@@ -52,7 +52,16 @@ export const updateBadge = (badgeId, newProperties, newMetadata) =>
 export const deleteBadge = badgeId =>
 	applyBadgeTransform(flow([getBadgeIndexFromId, spliceBadge])(badgeId));
 
-export const createBadge = badge => applyBadgeTransform(pushBadge(badge));
+export const createBadge = badge =>
+	applyBadgeTransform(
+		pushBadge({
+			...badge,
+			metadata: {
+				...badge.metadata,
+				dirty: true,
+			},
+		}),
+	);
 
 export const closeInitOpenedBadge = badgeId =>
 	updateBadge(badgeId, {

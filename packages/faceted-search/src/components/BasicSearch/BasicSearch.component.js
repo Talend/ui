@@ -19,7 +19,7 @@ import theme from './BasicSearch.scss';
 
 const css = getTheme(theme);
 
-const hasBadgeValue = badge => badge.properties.value;
+const isDirty = badge => badge.metadata.dirty;
 
 const BasicSearch = ({
 	badgesDefinitions,
@@ -36,7 +36,7 @@ const BasicSearch = ({
 	const [state, dispatch] = useFacetedBadges(badgesFaceted, setBadgesFaceted);
 
 	useEffect(() => {
-		if (state.badges.every(hasBadgeValue)) {
+		if (!state.badges.some(isDirty)) {
 			onSubmit({}, state.badges);
 		}
 	}, [state.badges, onSubmit]);
