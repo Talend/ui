@@ -17,6 +17,7 @@ const BadgesGenerator = ({ badges, badgesDictionary, getBadgeFromDict, t }) =>
 
 BadgesGenerator.propTypes = {
 	badges: badgesFacetedPropTypes,
+	badgesDictionary: PropTypes.object.isRequired,
 	getBadgeFromDict: PropTypes.func.isRequired,
 	onDelete: PropTypes.func,
 	onHideOperator: PropTypes.func,
