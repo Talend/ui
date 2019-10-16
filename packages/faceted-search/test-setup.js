@@ -49,11 +49,60 @@ jest.mock('i18next', () => {
 		},
 		changeLanguage: noop,
 	};
-	i18n.init = options => {
-		// i18n.store.data = options.resources;
-	};
+	i18n.init = () => {};
 	return {
-		// default: i18n,
+		createInstance: () => i18n,
+		...i18n,
+	};
+});
+
+jest.mock('react-i18next', () => {
+	const noop = () => {};
+	const i18n = {
+		useTranslation: () => ({
+			t: (msg, options) => {
+				let buff = options.defaultValue || msg;
+				const split = buff.split('}}');
+				if (split.length > 1) {
+					buff = split.reduce((acc, current) => {
+						const sub = current.split('{{');
+						let value = sub.length > 1 ? options[sub[1].trim()] : '';
+						if (value === undefined) {
+							value = '';
+						}
+						return `${acc}${sub[0]}${value}`;
+					}, '');
+				}
+				return buff;
+			},
+		}),
+		isMock: true,
+		getI18n: () => {},
+		setI18n: () => {},
+		getFixedT: () => i18n.t,
+		options: {},
+		language: 'en',
+		languages: ['en'],
+		isInitialized: true,
+		on: noop,
+		off: noop,
+		loadNamespaces: noop,
+		hasResourceBundle: () => false,
+		services: {
+			resourceStore: {
+				data: {},
+			},
+			backendConnector: {},
+		},
+		store: {
+			data: {},
+			on: noop,
+			off: noop,
+		},
+		changeLanguage: noop,
+	};
+	i18n.init = () => {};
+	return {
 		createInstance: () => i18n,
 		...i18n,
 	};
