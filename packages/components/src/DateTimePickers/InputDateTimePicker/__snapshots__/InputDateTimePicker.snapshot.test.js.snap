@@ -21,9 +21,9 @@ exports[`InputDateTimePicker should render 1`] = `
     >
       <InputDatePicker
         dateFormat="YYYY-MM-DD"
-        hideTimezone={true}
         id="my-picker-date-picker"
         onChange={[Function]}
+        required={true}
         useUTC={false}
         value={2017-04-03T22:00:00.000Z}
       >
@@ -34,11 +34,11 @@ exports[`InputDateTimePicker should render 1`] = `
           value={2017-04-03T22:00:00.000Z}
         >
           <FocusManager
-            className="theme-date-picker"
+            className="theme-date-picker date-picker"
             divRef={
               Object {
                 "current": <div
-                  class="theme-date-picker"
+                  class="theme-date-picker date-picker"
                   tabindex="-1"
                 >
                   <input
@@ -64,7 +64,7 @@ exports[`InputDateTimePicker should render 1`] = `
             onKeyDown={[Function]}
           >
             <div
-              className="theme-date-picker"
+              className="theme-date-picker date-picker"
               onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
@@ -183,11 +183,11 @@ exports[`InputDateTimePicker should render 1`] = `
           }
         >
           <FocusManager
-            className="theme-input-container"
+            className="theme-time-picker"
             divRef={
               Object {
                 "current": <div
-                  class="theme-input-container"
+                  class="theme-time-picker"
                   tabindex="-1"
                 >
                   <input
@@ -213,7 +213,7 @@ exports[`InputDateTimePicker should render 1`] = `
             onKeyDown={[Function]}
           >
             <div
-              className="theme-input-container"
+              className="theme-time-picker"
               onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
