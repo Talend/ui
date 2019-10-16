@@ -36,11 +36,7 @@ describe('DateTime.Manager', () => {
 	describe('datetime management', () => {
 		cases(
 			'initial state',
-			({
-				initialDate,
-				expectedDate,
-				expectedTime,
-			}) => {
+			({ initialDate, expectedDate, expectedTime }) => {
 				// when
 				const wrapper = mount(
 					<Manager id={DEFAULT_ID} value={initialDate} useSeconds>
@@ -72,18 +68,18 @@ describe('DateTime.Manager', () => {
 					expectedDate: new Date(2015, 3, 4),
 					expectedTime: { hours: '12', minutes: '36', seconds: '00' },
 				},
+				{
+					name: 'should init state from datetime string',
+					initialDate: '2019-10-11 12:34',
+					expectedDate: '2019-10-11',
+					expectedTime: '12:34',
+				},
 			],
 		);
 
 		cases(
 			'props update should update state',
-			({
-				initialDate,
-				newDate,
-				expectedDate,
-				expectedTime,
-				useSeconds,
-			}) => {
+			({ initialDate, newDate, expectedDate, expectedTime, useSeconds }) => {
 				// given
 				const wrapper = mount(
 					<Manager id={DEFAULT_ID} value={initialDate} useSeconds={useSeconds}>
@@ -106,8 +102,15 @@ describe('DateTime.Manager', () => {
 			},
 			[
 				{
-					name: 'from undefined props',
+					name: 'from undefined props(Date type)',
 					initialDate: new Date(),
+					newDate: undefined,
+					expectedDate: undefined,
+					expectedTime: undefined,
+				},
+				{
+					name: 'from undefined props(string type)',
+					initialDate: '2019-09-30 12:00',
 					newDate: undefined,
 					expectedDate: undefined,
 					expectedTime: undefined,
@@ -146,12 +149,15 @@ describe('DateTime.Manager', () => {
 						<DateTimeConsumer />
 					</Manager>,
 				);
-				const previousState = wrapper.find('DateTimeConsumerDiv').props('datetime');
+				const previousState = wrapper.find('DateTimeConsumerDiv').props();
 
 				// when
-				wrapper.setProps({
-					value: newDate,
+				act(() => {
+					wrapper.setProps({
+						value: newDate,
+					});
 				});
+				wrapper.update();
 
 				// then
 				const nextState = wrapper.find('DateTimeConsumerDiv').props();
@@ -228,14 +234,7 @@ describe('DateTime.Manager', () => {
 			);
 			cases(
 				'should update state when time change',
-				({
-					expectedDateTime,
-					expectedDate,
-					expectedTime,
-					textInput,
-					dateFormat,
-					useSeconds,
-				}) => {
+				({ expectedDateTime, expectedDate, expectedTime, textInput, dateFormat, useSeconds }) => {
 					// given
 					const event = { target: { value: textInput } };
 					const wrapper = mount(
@@ -283,7 +282,7 @@ describe('DateTime.Manager', () => {
 				],
 			);
 
-			xit('should trigger props.onChange when date change', () => {
+			it('should trigger props.onChange when date change', () => {
 				// given
 				const onChange = jest.fn();
 				const event = { target: { value: '2015-01-15' } };
@@ -311,7 +310,7 @@ describe('DateTime.Manager', () => {
 				expect(onChange).toBeCalled();
 				const args = onChange.mock.calls[0];
 				expect(args[0]).toBe(event);
-				expect(args[1].datetime).toBe(null);
+				expect(isNaN(args[1].datetime.getTime())).toBe(true);
 				expect(args[1].textInput).toBe('2015-01-15');
 				expect(args[1].errors).toEqual([
 					{ code: 'INVALID_TIME_EMPTY', message: 'Time is required' },
@@ -351,7 +350,7 @@ describe('DateTime.Manager', () => {
 				expect(args[1].errors).toEqual([
 					{ code: 'INVALID_DATE_FORMAT', message: 'Date format is invalid' },
 				]);
-				expect(args[1].datetime).toBe(null);
+				expect(isNaN(args[1].datetime.getTime())).toBe(true);
 			});
 
 			it('should trigger props.onChange when time change', () => {
@@ -434,7 +433,7 @@ describe('DateTime.Manager', () => {
 				expect(onChange).toHaveBeenCalledTimes(2);
 				const args = onChange.mock.calls[1];
 				expect(args[0]).toBe(timeEvent);
-				expect(args[1].datetime).toBe(null);
+				expect(isNaN(args[1].datetime.getTime())).toBe(true);
 				expect(args[1].textInput).toBe('2015-01-15 12dfd:45');
 				expect(args[1].errors).toEqual([
 					{ code: 'TIME_FORMAT_INVALID', message: 'Time is invalid' },
