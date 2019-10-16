@@ -21,6 +21,8 @@ export default function getErrorMessage(key) {
 			});
 		case 'INVALID_DATE_FORMAT':
 			return i18next.t('INVALID_DATE_FORMAT', { defaultValue: 'Date format is invalid' });
+		case 'INVALID_DATE_EMPTY':
+			return i18next.t('INVALID_DATE_EMPTY', { defaultValue: 'Date is required' });
 		case 'INVALID_MONTH_NUMBER':
 			return i18next.t('INVALID_MONTH_NUMBER', { defaultValue: 'Month must be between 01 and 12' });
 		case 'INVALID_DAY_NUMBER':

@@ -1,15 +1,16 @@
-$tc-datetimepicker-width: 31rem !default;
-$tc-datetimepicker-background: $white !default;
-$tc-datetimepicker-box-shadow: $shadow-default !default;
-$tc-datetimepicker-z-index: $zindex-dropdown !default;
+$tc-datepicker-width: 31rem !default;
+$tc-datepicker-background: $white !default;
+$tc-datepicker-box-shadow: $shadow-default !default;
+$tc-datepicker-z-index: $zindex-dropdown !default;
 
 .popper {
-	width: $tc-datetimepicker-width;
-	background: $tc-datetimepicker-background;
-	box-shadow: $tc-datetimepicker-box-shadow;
-	z-index: $tc-datetimepicker-z-index;
+	width: $tc-datepicker-width;
+	background: $tc-datepicker-background;
+	box-shadow: $tc-datepicker-box-shadow;
+	z-index: $tc-datepicker-z-index;
 }
 .date-picker {
+	width: fit-content;
 	display: flex;
 	align-items: center;
 }
