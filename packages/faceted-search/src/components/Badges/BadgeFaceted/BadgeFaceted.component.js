@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Badge from '@talend/react-components/lib/Badge';
 import BadgeComposition from '@talend/react-components/lib/Badge/BadgeComposition';
@@ -18,8 +18,6 @@ import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propT
 const theme = getTheme(cssModule);
 
 const findOperatorByName = name => operator => name === operator.name;
-
-const hasBadgeValue = badge => badge.properties.value;
 
 const BadgeFaceted = ({
 	badgeId,
@@ -42,16 +40,9 @@ const BadgeFaceted = ({
 		onChangeValueOverlay,
 	] = useBadgeOverlayFlow(initialOperatorOpened, initialValueOpened);
 
-	const { state, dispatch, onSubmit } = useBadgeFacetedContext();
+	const { dispatch } = useBadgeFacetedContext();
 	const [badgeOperator, setBadgeOperator] = useState(operator);
 	const [badgeValue, setBadgeValue] = useState(value);
-	const syntheticEvent = useRef(null);
-
-	useEffect(() => {
-		if (state.badges.every(hasBadgeValue)) {
-			onSubmit(syntheticEvent.current, state.badges);
-		}
-	}, [state.badges, onSubmit]);
 
 	const onChangeOperator = (_, operatorName) => {
 		const foundOperator = operators.find(findOperatorByName(operatorName));
@@ -66,7 +57,7 @@ const BadgeFaceted = ({
 		setBadgeValue(entityValue);
 	};
 
-	const onSubmitBadge = event => {
+	const onSubmitBadge = () => {
 		overlayDispatch(OVERLAY_FLOW_ACTIONS.closeAll);
 		event.preventDefault();
 		dispatch(
@@ -75,12 +66,10 @@ const BadgeFaceted = ({
 				operator: badgeOperator,
 			}),
 		);
-		syntheticEvent.current = event;
 	};
 
-	const onDeleteBadge = event => {
+	const onDeleteBadge = () => {
 		dispatch(BADGES_ACTIONS.delete(badgeId));
-		syntheticEvent.current = event;
 	};
 
 	const onHideOverlayOperator = () => {

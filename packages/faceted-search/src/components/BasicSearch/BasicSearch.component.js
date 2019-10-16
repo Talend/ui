@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getTheme } from '@talend/react-components/lib/theme';
 import get from 'lodash/get';
@@ -19,6 +19,8 @@ import theme from './BasicSearch.scss';
 
 const css = getTheme(theme);
 
+const hasBadgeValue = badge => badge.properties.value;
+
 const BasicSearch = ({
 	badgesDefinitions,
 	badgesFaceted,
@@ -32,6 +34,13 @@ const BasicSearch = ({
 	const operatorsDictionary = useMemo(() => createOperatorsDict(t, customOperatorsDictionary));
 	const badgesDictionary = useMemo(() => createBadgesDict(customBadgesDictionary));
 	const [state, dispatch] = useFacetedBadges(badgesFaceted, setBadgesFaceted);
+
+	useEffect(() => {
+		if (state.badges.every(hasBadgeValue)) {
+			onSubmit({}, state.badges);
+		}
+	}, [state.badges, onSubmit]);
+
 	const onClickOverlayRow = setOverlayOpened => (_, badgeDefinition) => {
 		const operators = getOperatorsFromDict(
 			operatorsDictionary,
