@@ -92,7 +92,7 @@ InputDatePicker.displayName = 'InputDatePicker';
 
 InputDatePicker.defaultProps = {
 	dateFormat: 'YYYY-MM-DD',
-	required: true,
+	required: false,
 	useUTC: false,
 };
 
