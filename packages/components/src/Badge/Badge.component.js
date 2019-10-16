@@ -40,7 +40,7 @@ DefaultBadge.propTypes = {
 };
 
 const BadgeType = ({ disabled, onSelect, children, ...rest }) =>
-	(onSelect ? (
+	onSelect ? (
 		<button {...rest} key="button" type="button" disabled={disabled} onClick={onSelect}>
 			{children}
 		</button>
@@ -48,7 +48,7 @@ const BadgeType = ({ disabled, onSelect, children, ...rest }) =>
 		<div {...rest} key="div">
 			{children}
 		</div>
-	));
+	);
 
 BadgeType.propTypes = {
 	children: PropTypes.any,
