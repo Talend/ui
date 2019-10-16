@@ -1,0 +1,33 @@
+.tc-add-facet-popover {
+	display: flex;
+	flex-direction: column;
+	:global(.tc-tooltip-header) {
+		width: 100%;
+		align-items: center;
+		font-weight: 800;
+	}
+	:global(.tc-tooltip-body) {
+		margin-right: 0;
+		margin-left: 0;
+		:global(.tc-tooltip-content) {
+			flex-direction: column;
+		}
+	}
+
+	&-filter {
+		margin: 0 $padding-small 0 $padding-small;
+	}
+
+	&-row {
+		font-weight: 500;
+		display: flex;
+		justify-content: flex-start;
+		text-transform: none;
+		width: 100%;
+		padding: $padding-smaller $padding-large $padding-smaller $padding-large;
+		&:hover {
+			background: $concrete;
+			text-decoration: none;
+		}
+	}
+}
