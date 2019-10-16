@@ -14,6 +14,7 @@ exports[`BadgeText should mount a default badge 1`] = `
     <div class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large">
       <div class="tc-badge-operator-button theme-tc-badge-operator-button">
         <button role="button"
+                aria-label="All"
                 id="myId-badge-text-operator-action-overlay"
                 aria-describedby="42"
                 type="button"
@@ -32,15 +33,18 @@ exports[`BadgeText should mount a default badge 1`] = `
     </div>
     <div class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay">
       <button role="button"
+              aria-label="All"
               id="myId-badge-text-action-overlay"
               type="button"
-              class="btn-icon-only btn btn-link"
+              class="btn btn-link"
       >
         <span>
+          All
         </span>
       </button>
     </div>
     <button role="button"
+            aria-label="All"
             id="tc-badge-delete-myId-badge-text"
             aria-describedby="42"
             type="button"

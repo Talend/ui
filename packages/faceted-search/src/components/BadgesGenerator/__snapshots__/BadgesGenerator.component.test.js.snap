@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BadgesGenerator should render the fake component 1`] = `
-<div name="name"
+<div attribute="name"
      category="name"
+     label="Name"
+     type="text"
      operator="[object Object]"
      operators="[object Object]"
      id="name-ed8c6c4a-9025-4ba9-b382-620773ce2ee8"

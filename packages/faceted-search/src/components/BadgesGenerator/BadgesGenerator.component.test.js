@@ -9,8 +9,10 @@ describe('BadgesGenerator', () => {
 	const badges = [
 		{
 			properties: {
-				name: 'name',
+				attribute: 'name',
 				category: 'name',
+				label: 'Name',
+				type: 'text',
 				operator: {
 					label: 'Equal',
 					name: '=',
@@ -54,9 +56,10 @@ describe('BadgesGenerator', () => {
 	});
 	it('should render the fake component', () => {
 		// Given
-		const FakeComponent = props => <div {...props}>This is a fake component</div>;
+		const FakeComponent = ({ t, ...rest }) => <div {...rest}>This is a fake component</div>;
 		const props = {
 			badges,
+			badgesDictionary,
 			getBadgeFromDict: () => FakeComponent,
 			id: 'my-id',
 			t: jest.fn(),
