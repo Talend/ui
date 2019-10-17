@@ -201,33 +201,6 @@ storiesOf('DatePicker', module)
 							</DateManager>
 						</div>
 					</div>
-
-					<div>
-						<h2>Date time</h2>
-						<div style={blockStyle}>
-							<DateManager id="time" onChange={action('onChange')}>
-								<DatePicker />
-							</DateManager>
-						</div>
-					</div>
-
-					<div>
-						<h2>Date time seconds</h2>
-						<div style={blockStyle}>
-							<DateManager id="time-seconds" onChange={action('onChange')}>
-								<DatePicker />
-							</DateManager>
-						</div>
-					</div>
-
-					<div>
-						<h2>Date time seconds UTC</h2>
-						<div style={blockStyle}>
-							<DateManager id="utc" onChange={action('onChange')} useUTC>
-								<DatePicker />
-							</DateManager>
-						</div>
-					</div>
 				</div>
 			</div>
 		);

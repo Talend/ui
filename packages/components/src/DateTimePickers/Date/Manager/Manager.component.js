@@ -44,8 +44,8 @@ function ContextualManager(props) {
 		if (!props.onChange) {
 			return;
 		}
-		const { errorMessage, date, localDate, textInput, errors } = nextState;
-		props.onChange(event, { errors, errorMessage, date, localDate, textInput, origin });
+		const { errorMessage, date, textInput, errors } = nextState;
+		props.onChange(event, { errors, errorMessage, date, textInput, origin });
 	}
 
 	function onInputChange(event) {
