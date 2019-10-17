@@ -20,6 +20,22 @@ function isEmpty(value) {
 }
 
 /**
+ * Convert a date in local TZ to UTC
+ */
+function convertToUTC(date) {
+	return new Date(
+		Date.UTC(
+			date.getFullYear(),
+			date.getMonth(),
+			date.getDate(),
+			date.getHours(),
+			date.getMinutes(),
+			date.getSeconds(),
+		),
+	);
+}
+
+/**
  * Extract time
  * @param date {Date} The date to extract
  * @param useSeconds {boolean} Indicates if we should extract seconds
@@ -75,11 +91,11 @@ function dateAndTimeToDateTime(date, time, options) {
 	if (isEmpty(time)) {
 		throw new DateTimePickerException('INVALID_TIME_EMPTY', 'INVALID_TIME_EMPTY');
 	}
+	let timeObject = time;
 	if (typeof time === 'string') {
-		// eslint-disable-next-line no-param-reassign
-		time = strToTime(time, options.useSeconds);
+		timeObject = strToTime(time, options.useSeconds);
 	}
-	const { hours, minutes, seconds } = time;
+	const { hours, minutes, seconds } = timeObject;
 	const timeInSeconds = timeToSeconds(hours, minutes, seconds);
 	const localTimezoneDate = setSeconds(date, timeInSeconds);
 	return convertDateToTimezone(localTimezoneDate, options);
@@ -202,7 +218,7 @@ function extractParts(value, options) {
  * 	time stored in DateTimeManager state
  * @param options {Object}
  */
-function updateDatetimeOnDateChange(datePickerPayload, time, options) {
+function updatePartsOnDateChange(datePickerPayload, time, options) {
 	const { errors = [], date, textInput: dateTextInput } = datePickerPayload;
 	let datetime;
 	const nextErrors = errors;
@@ -232,7 +248,7 @@ function updateDatetimeOnDateChange(datePickerPayload, time, options) {
  * @param date {Date|string|number} date stored in DateTimeManager state
  * @param options {Object}
  */
-function updateDatetimeOnTimeChange(timePickerPayload, date, options) {
+function updatePartsOnTimeChange(timePickerPayload, date, options) {
 	const { errors = [], time, textInput: timeTextInput } = timePickerPayload;
 	let datetime;
 	const nextErrors = errors;
@@ -257,9 +273,10 @@ function updateDatetimeOnTimeChange(timePickerPayload, date, options) {
 }
 
 export {
+	convertToUTC,
 	extractParts,
 	extractPartsFromDateTime,
 	extractPartsFromTextInput,
-	updateDatetimeOnDateChange,
-	updateDatetimeOnTimeChange,
+	updatePartsOnDateChange,
+	updatePartsOnTimeChange,
 };

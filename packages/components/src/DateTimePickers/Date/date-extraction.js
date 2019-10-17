@@ -4,6 +4,8 @@ import getDate from 'date-fns/get_date';
 import lastDayOfMonth from 'date-fns/last_day_of_month';
 import setDate from 'date-fns/set_date';
 import { convertToLocalTime, convertToTimeZone } from 'date-fns-timezone';
+
+import { convertToUTC } from '../DateTime/datetime-extraction';
 import getErrorMessage from '../shared/error-messages';
 
 const INTERNAL_INVALID_DATE = new Date('INTERNAL_INVALID_DATE');
@@ -48,21 +50,6 @@ function isDateValid(date, options) {
  */
 function dateToStr(date, { dateFormat }) {
 	return format(date, dateFormat);
-}
-/**
- * Convert a date in local TZ to UTC
- */
-function convertToUTC(date) {
-	return new Date(
-		Date.UTC(
-			date.getFullYear(),
-			date.getMonth(),
-			date.getDate(),
-			date.getHours(),
-			date.getMinutes(),
-			date.getSeconds(),
-		),
-	);
 }
 
 function convertDateToTimezone(date, { useUTC, timezone }) {
@@ -144,7 +131,8 @@ function checkSupportedTimezone(timezone) {
 /**
  * Extract date and apply the current timezone, from datetime
  * Ex :
- * 2014-03-25 23:00:00 (UTC) 		--> 2014-03-25 OO:OO:OO (current TZ)
+ * 2014-03-25 23:00:00 (
+ ) 		--> 2014-03-25 OO:OO:OO (current TZ)
  * 2014-03-25 23:00:00 (current TZ) --> 2014-03-25 OO:OO:OO (current TZ)
  * @param date {Date} The date to extract
  * @param useUTC {boolean} Indicates if date is in UTC

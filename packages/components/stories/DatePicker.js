@@ -7,7 +7,7 @@ import { IconsProvider } from '../src/index';
 import { TimePicker } from '../src/DateTimePickers/pickers/TimePicker/TimePicker.component';
 import DateManager from '../src/DateTimePickers/Date/Manager';
 import DatePicker from '../src/DateTimePickers/Date/Picker';
-import InputDateTimePicker from '../src/DateTimePickers';
+import InputDateTimePicker from '../src/DateTimePickers/InputDateTimePicker';
 import InputTimePicker from '../src/DateTimePickers/InputTimePicker';
 import InputDatePicker from '../src/DateTimePickers/InputDatePicker';
 
@@ -182,7 +182,10 @@ storiesOf('DatePicker', module)
 				<ul>
 					<li>The minimum width is 290px, and minimum height is 352px. </li>
 					<li>The width and height can be defined by the parent. </li>
-					<li>If no width or height are set explicitly, it uses minimum width and height by default, like the first one.</li>
+					<li>
+						If no width or height are set explicitly, it uses minimum width and height by default,
+						like the first one.
+					</li>
 					<li>
 						The outer border style (black) is here just as visual shape indication, it's not part of
 						the component rendered

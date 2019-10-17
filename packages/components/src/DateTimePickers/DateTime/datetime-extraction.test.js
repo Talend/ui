@@ -2,7 +2,8 @@ import {
 	extractParts,
 	extractPartsFromDateTime,
 	extractPartsFromTextInput,
-	updateDatetimeOnDateChange,
+	updatePartsOnDateChange,
+	updatePartsOnTimeChange,
 } from './datetime-extraction';
 
 describe('Date extraction', () => {
@@ -220,8 +221,8 @@ describe('Date extraction', () => {
 		});
 	});
 
-	describe('updateDatetimeOnDateChange', () => {
-		it('should update datetime when date change', () => {
+	describe('updatePartsOnDateChange', () => {
+		it('should update parts when date change', () => {
 			// given
 			const payload = {
 				date: new Date(2019, 9, 11),
@@ -230,7 +231,7 @@ describe('Date extraction', () => {
 			const time = '12:30';
 			const options = { dateFormat: 'YYYY-MM-DD' };
 			// when
-			const parts = updateDatetimeOnDateChange(payload, time, options);
+			const parts = updatePartsOnDateChange(payload, time, options);
 			// then
 			expect(parts.datetime).toEqual(new Date(2019, 9, 11, 12, 30));
 			expect(parts.date).toEqual(new Date(2019, 9, 11));
@@ -238,7 +239,7 @@ describe('Date extraction', () => {
 			expect(parts.errors).toEqual([]);
 			expect(parts.errorMessage).toBeNull();
 		});
-		it('should update datetime in utc when date change', () => {
+		it('should update parts in utc when date change', () => {
 			// given
 			const payload = {
 				date: new Date(2019, 9, 11),
@@ -247,7 +248,7 @@ describe('Date extraction', () => {
 			const time = '12:30';
 			const options = { dateFormat: 'YYYY-MM-DD', useUTC: true };
 			// when
-			const parts = updateDatetimeOnDateChange(payload, time, options);
+			const parts = updatePartsOnDateChange(payload, time, options);
 			// then
 			expect(parts.datetime).toEqual(new Date(Date.UTC(2019, 9, 11, 12, 30)));
 			expect(parts.date).toEqual(new Date(2019, 9, 11));
@@ -255,7 +256,7 @@ describe('Date extraction', () => {
 			expect(parts.errors).toEqual([]);
 			expect(parts.errorMessage).toBeNull();
 		});
-		it('should update datetime in timezone when date change', () => {
+		it('should update parts in timezone when date change', () => {
 			// given
 			const payload = {
 				date: new Date(2019, 9, 11),
@@ -264,13 +265,108 @@ describe('Date extraction', () => {
 			const time = '12:30';
 			const options = { dateFormat: 'YYYY-MM-DD', timezone: 'America/New_York' };
 			// when
-			const parts = updateDatetimeOnDateChange(payload, time, options);
+			const parts = updatePartsOnDateChange(payload, time, options);
 			// then
 			expect(parts.datetime).toEqual(new Date(Date.UTC(2019, 9, 11, 16, 30)));
 			expect(parts.date).toEqual(new Date(2019, 9, 11));
 			expect(parts.textInput).toEqual('2019-10-11 12:30');
 			expect(parts.errors).toEqual([]);
 			expect(parts.errorMessage).toBeNull();
+		});
+		it('should update parts when changed date is invalid', () => {
+			// given
+			const payload = {
+				date: null,
+				textInput: '2019ddd-10-11',
+				errors: [{ code: 'INVALID_DATE_FORMAT', message: 'Date format is invalid' }],
+			};
+			const time = '12:30';
+			const options = { dateFormat: 'YYYY-MM-DD' };
+			// when
+			const parts = updatePartsOnDateChange(payload, time, options);
+			// then
+			expect(isNaN(parts.datetime.getTime())).toBe(true);
+			expect(parts.date).toBe('2019ddd-10-11');
+			expect(parts.textInput).toEqual('2019ddd-10-11 12:30');
+			expect(parts.errors).toEqual([
+				{ code: 'INVALID_DATE_FORMAT', message: 'Date format is invalid' },
+			]);
+			expect(parts.errorMessage).toBe('Date format is invalid');
+		});
+	});
+	describe('updatePartsOnTimeChange', () => {
+		it('should update parts when time change', () => {
+			// given
+			const payload = {
+				time: { hours: '09', minutes: '32', seconds: '00' },
+				textInput: '09:32',
+			};
+			const date = new Date(2019, 9, 11);
+			const options = { dateFormat: 'YYYY-MM-DD' };
+			// when
+			const parts = updatePartsOnTimeChange(payload, date, options);
+			// then
+			expect(parts.datetime).toEqual(new Date(2019, 9, 11, 9, 32));
+			expect(parts.time).toEqual({ hours: '09', minutes: '32', seconds: '00' });
+			expect(parts.textInput).toEqual('2019-10-11 09:32');
+			expect(parts.errors).toEqual([]);
+			expect(parts.errorMessage).toBeNull();
+		});
+		it('should update parts in utc when time change', () => {
+			// given
+			const payload = {
+				time: { hours: '09', minutes: '32', seconds: '00' },
+				textInput: '09:32',
+			};
+			const date = new Date(2019, 9, 11);
+			const options = { dateFormat: 'YYYY-MM-DD', useUTC: true };
+			// when
+			const parts = updatePartsOnTimeChange(payload, date, options);
+			// then
+			expect(parts.datetime).toEqual(new Date(Date.UTC(2019, 9, 11, 9, 32)));
+			expect(parts.time).toEqual({ hours: '09', minutes: '32', seconds: '00' });
+			expect(parts.textInput).toEqual('2019-10-11 09:32');
+			expect(parts.errors).toEqual([]);
+			expect(parts.errorMessage).toBeNull();
+		});
+		it('should update parts in timezone when time change', () => {
+			// given
+			const payload = {
+				time: { hours: '09', minutes: '32', seconds: '00' },
+				textInput: '09:32',
+			};
+			const date = new Date(2019, 9, 11);
+			const options = { dateFormat: 'YYYY-MM-DD', timezone: 'America/New_York' };
+			// when
+			const parts = updatePartsOnTimeChange(payload, date, options);
+			// then
+			expect(parts.datetime).toEqual(new Date(Date.UTC(2019, 9, 11, 13, 32)));
+			expect(parts.time).toEqual({ hours: '09', minutes: '32', seconds: '00' });
+			expect(parts.textInput).toEqual('2019-10-11 09:32');
+			expect(parts.errors).toEqual([]);
+			expect(parts.errorMessage).toBeNull();
+		});
+		it('should update parts when changed time is invalid', () => {
+			// given
+			const payload = {
+				time: null,
+				textInput: '09:99',
+				errors: [
+					{ code: 'INVALID_MINUTES_NUMBER', message: 'Minutes value must be between 00 and 59' },
+				],
+			};
+			const date = new Date(2019, 9, 11);
+			const options = { dateFormat: 'YYYY-MM-DD' };
+			// when
+			const parts = updatePartsOnTimeChange(payload, date, options);
+			// then
+			expect(isNaN(parts.datetime.getTime())).toBe(true);
+			expect(parts.time).toBe('09:99');
+			expect(parts.textInput).toEqual('2019-10-11 09:99');
+			expect(parts.errors).toEqual([
+				{ code: 'INVALID_MINUTES_NUMBER', message: 'Minutes value must be between 00 and 59' },
+			]);
+			expect(parts.errorMessage).toBe('Minutes value must be between 00 and 59');
 		});
 	});
 });

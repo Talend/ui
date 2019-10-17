@@ -11,26 +11,6 @@ import {
 } from '../date-extraction';
 
 function ContextualManager(props) {
-	// eslint-disable-next-line no-use-before-define
-	const initialState = extractDate(props.value, getDateOptions());
-	const [state, setState] = useState(initialState);
-	useEffect(() => {
-		if (props.value !== state.date) {
-			// eslint-disable-next-line no-use-before-define
-			const newState = extractDate(props.value, getDateOptions());
-			setState(newState);
-		}
-	}, [props.value]);
-
-	useEffect(() => {
-		checkSupportedDateFormat(props.dateFormat);
-	}, [props.dateFormat]);
-	useEffect(() => {
-		if (props.timezone) {
-			checkSupportedTimezone(props.timezone);
-		}
-	}, [props.timezone]);
-
 	function getDateOptions() {
 		return {
 			dateFormat: props.dateFormat,
@@ -39,6 +19,27 @@ function ContextualManager(props) {
 			timezone: props.timezone,
 		};
 	}
+
+	const initialState = extractDate(props.value, getDateOptions());
+	const [state, setState] = useState(initialState);
+
+	useEffect(() => {
+		if (props.value !== state.date) {
+			const newState = extractDate(props.value, getDateOptions());
+			setState(newState);
+		}
+	}, [props.value]);
+
+	useEffect(() => {
+		checkSupportedDateFormat(props.dateFormat);
+	}, [props.dateFormat]);
+
+	useEffect(() => {
+		if (props.timezone) {
+			checkSupportedTimezone(props.timezone);
+		}
+	}, [props.timezone]);
+
 	function onChange(event, origin, nextState) {
 		if (!props.onChange) {
 			return;
