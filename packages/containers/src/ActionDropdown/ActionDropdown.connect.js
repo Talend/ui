@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import cmf, { cmfConnect } from '@talend/react-cmf';
-import { ActionDropdown } from '@talend/react-components';
+import ActionDropdown from '@talend/react-components/lib/Actions/ActionDropdown';
 import omit from 'lodash/omit';
 
 import getOnClick from '../actionOnClick';

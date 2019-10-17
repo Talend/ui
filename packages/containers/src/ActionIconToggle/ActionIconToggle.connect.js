@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cmf, { cmfConnect } from '@talend/react-cmf';
-import { ActionIconToggle } from '@talend/react-components';
+import ActionIconToggle from '@talend/react-components/lib/Actions/ActionIconToggle';
 
 export function mapStateToProps(state, ownProps) {
 	let props = {};
