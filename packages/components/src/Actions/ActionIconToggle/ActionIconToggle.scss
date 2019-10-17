@@ -32,6 +32,10 @@ $tc-icon-toggle-icon-size: $svg-sm-size !default;
 		color: $gray;
 	}
 
+	&:focus {
+		border: 1px solid $gray;
+	}
+
 	&[disabled] {
 		&:hover,
 		&:focus {
