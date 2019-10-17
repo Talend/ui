@@ -13,7 +13,6 @@ function dateToIsoStr(date) {
 }
 
 const memorizedDateToIsoStr = memoizeOne(dateToIsoStr);
-const memorizedIsoStrToDate = memoizeOne(isoStrToDate);
 
 function convertDate(value, textInput, schema) {
 	let converted = value;
@@ -26,4 +25,4 @@ function convertDate(value, textInput, schema) {
 	}
 	return converted;
 }
-export { convertDate, memorizedIsoStrToDate as isoStrToDate };
+export { convertDate, isoStrToDate };
