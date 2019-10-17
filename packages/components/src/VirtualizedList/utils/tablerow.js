@@ -12,7 +12,7 @@ import { internalIds } from './constants';
  * Insert a checkbox column configuration to select a row.
  */
 export function insertSelectionConfiguration(props) {
-	const { collection, children, isSelected, onToggleAll, selectionToggle } = props;
+	const { collection, children, isSelected, onToggleAll, selectionToggle, selectionMode } = props;
 	let contentsConfiguration = React.Children.toArray(children);
 	if (selectionToggle && isSelected) {
 		const toggleColumn = (
@@ -28,6 +28,7 @@ export function insertSelectionConfiguration(props) {
 				columnData={{
 					label: 'Select this element',
 					onChange: selectionToggle,
+					selectionMode,
 					onToggleAll,
 					collection,
 					isSelected,
@@ -50,7 +51,7 @@ export function insertSelectionConfiguration(props) {
  * - header and row fixed classnames
  * - parent id (via columnData)
  */
-export function toColumns({ id, theme, children, columnsWidths }) {
+export function toColumns({ id, theme, children, columnsWidths, getRowState }) {
 	return React.Children.toArray(children).map((field, index) => {
 		const columnWidth = getColumnWidth(field.props.dataKey, columnsWidths);
 		const colClassName = `tc-list-cell-${field.props.dataKey}`;
@@ -62,9 +63,10 @@ export function toColumns({ id, theme, children, columnsWidths }) {
 			className: classNames(field.props.className, theme.cell, colClassName),
 			columnData:
 				typeof field.props.columnData === 'function'
-					? rowData => ({ ...field.props.columnData(rowData), id })
+					? rowData => ({ ...field.props.columnData(rowData), getRowState, id })
 					: {
 							...field.props.columnData,
+							getRowState,
 							id,
 					  },
 			...createColumnWidthProps(columnWidth),

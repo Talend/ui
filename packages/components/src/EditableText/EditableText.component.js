@@ -34,13 +34,9 @@ export function PlainTextTitle({ componentClass, onEdit, disabled, text, inProgr
 				icon="talend-pencil"
 				onClick={onEdit}
 				bsStyle="link"
-				className={classNames(
-					theme['tc-editable-text-pencil'],
-					'tc-editable-text-pencil',
-					'sr-only',
-					'sr-only-focusable',
-					{ [theme['tc-editable-text-empty-pencil']]: !text },
-				)}
+				className={classNames(theme['tc-editable-text-pencil'], 'tc-editable-text-pencil', {
+					[theme['tc-editable-text-empty-pencil']]: !text,
+				})}
 				disabled={disabled || inProgress}
 				hideLabel
 				data-feature={feature}

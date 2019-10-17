@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgeOverlay should render the html output in the default state 1`] = `
+<div>
+  <button role="button"
+          aria-label="my label"
+          id="my-id-action-overlay"
+          type="button"
+          class="btn btn-link"
+  >
+    <span>
+      my label
+    </span>
+  </button>
+</div>
+`;
+
+exports[`BadgeOverlay should render the html output with children as function 1`] = `
+<div>
+  <button role="button"
+          aria-label="my label"
+          id="my-id-action-overlay"
+          type="button"
+          class="btn btn-link"
+  >
+    <span>
+      my label
+    </span>
+  </button>
+</div>
+`;

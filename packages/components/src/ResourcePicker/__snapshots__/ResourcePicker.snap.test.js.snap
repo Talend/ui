@@ -54,6 +54,7 @@ exports[`ResourcePicker component snaps should render ResourcePicker in filtered
           "resource": [Function],
         }
       }
+      selectionMode="MULTI"
       type="resource"
     />
   </div>
@@ -108,6 +109,7 @@ exports[`ResourcePicker component snaps should render ResourcePicker with some R
           "resource": [Function],
         }
       }
+      selectionMode="MULTI"
       type="resource"
     />
   </div>
@@ -131,6 +133,7 @@ exports[`ResourcePicker component snaps should render ResourcePicker without any
           "resource": [Function],
         }
       }
+      selectionMode="MULTI"
       type="resource"
     />
   </div>
@@ -183,6 +186,7 @@ exports[`ResourcePicker component snaps should render ResourcePicker without too
           "resource": [Function],
         }
       }
+      selectionMode="MULTI"
       type="resource"
     />
   </div>
