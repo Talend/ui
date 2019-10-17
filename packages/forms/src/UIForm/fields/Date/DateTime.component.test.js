@@ -1,37 +1,35 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import DateWidget from './Date.component';
 
-describe('Date widget', () => {
+import DateTimeWidget from './DateTime.component';
+
+describe('DateTime widget', () => {
 	const schema = {
 		autoFocus: true,
-		description: 'my date picker',
-		placeholder: 'Type your date here',
+		description: 'talend datetime picker',
+		placeholder: 'YYYY-MM-DD HH:mm',
 		required: true,
-		title: 'My date title',
+		title: 'Select DateTime',
 		type: 'text',
 		schema: { type: 'string' },
 	};
-
-	it('should render date picker', () => {
+	it('should render an InputDateTimePicker', () => {
 		// when
 		const wrapper = shallow(
-			<DateWidget
-				id={'myForm'}
+			<DateTimeWidget
+				id="talend-date-time"
 				isValid={false}
-				errorMessage={'My error message'}
+				errorMessage="something wrong"
+				schema={schema}
 				onChange={jest.fn()}
 				onFinish={jest.fn()}
 				options={{ dafeFormat: 'DD/MM/YYYY' }}
-				schema={schema}
-				value={'15/02/2018 23:55:32'}
 			/>,
 		);
 
 		// then
 		expect(wrapper.getElement()).toMatchSnapshot();
 	});
-
 	it('should convert iso-datetime for render', () => {
 		// given
 		const isoSchema = {
@@ -42,7 +40,7 @@ describe('Date widget', () => {
 
 		// when
 		const wrapper = shallow(
-			<DateWidget
+			<DateTimeWidget
 				id={'myForm'}
 				isValid={false}
 				errorMessage={'My error message'}
@@ -50,21 +48,19 @@ describe('Date widget', () => {
 				onFinish={jest.fn()}
 				options={{ dafeFormat: 'DD/MM/YYYY' }}
 				schema={isoSchema}
-				useTime
 				useSeconds
 				value={value}
 			/>,
 		);
 
 		// then
-		expect(wrapper.find('InputDatePicker').prop('value')).toEqual(new Date(value));
+		expect(wrapper.find('InputDateTimePicker').prop('value')).toEqual(new Date(value));
 	});
-
 	it('should trigger onFinish on picker blur', () => {
 		// given
 		const onFinish = jest.fn();
 		const wrapper = shallow(
-			<DateWidget
+			<DateTimeWidget
 				id={'myForm'}
 				isValid={false}
 				errorMessage={'My error message'}
@@ -79,18 +75,17 @@ describe('Date widget', () => {
 		const event = { target: {} };
 
 		// when
-		wrapper.find('InputDatePicker').simulate('blur', event);
+		wrapper.find('InputDateTimePicker').prop('onBlur')(event);
 
 		// then
 		expect(onFinish).toBeCalled();
 	});
-
 	describe('onChange', () => {
 		it('should call props onChange', () => {
 			// given
 			const onChange = jest.fn();
 			const wrapper = shallow(
-				<DateWidget
+				<DateTimeWidget
 					id={'myForm'}
 					isValid={false}
 					errorMessage={'My error message'}
@@ -98,19 +93,18 @@ describe('Date widget', () => {
 					onFinish={jest.fn()}
 					options={{ dafeFormat: 'DD/MM/YYYY' }}
 					schema={schema}
-					value={'15/02/2018'}
 				/>,
 			);
 			expect(onChange).not.toBeCalled();
 			const event = { target: {} };
 			const payload = {
-				date: new Date(2015, 9, 21),
+				datetime: new Date(2015, 8, 21),
 				textInput: '2015-09-21',
 				errorMessage: undefined,
 			};
 
 			// when
-			wrapper.find('InputDatePicker').simulate('change', event, payload);
+			wrapper.find('InputDateTimePicker').prop('onChange')(event, payload);
 
 			// then
 			expect(onChange).toBeCalledWith(event, { schema, value: '2015-09-21' });
@@ -124,7 +118,7 @@ describe('Date widget', () => {
 				schema: { type: 'number' },
 			};
 			const wrapper = shallow(
-				<DateWidget
+				<DateTimeWidget
 					id={'myForm'}
 					isValid={false}
 					errorMessage={'My error message'}
@@ -132,23 +126,24 @@ describe('Date widget', () => {
 					onFinish={jest.fn()}
 					options={{ dafeFormat: 'DD/MM/YYYY' }}
 					schema={timestampSchema}
+					useSeconds
 				/>,
 			);
 			expect(onChange).not.toBeCalled();
 			const event = { target: {} };
 			const payload = {
-				date: new Date(2015, 9, 21),
-				textInput: '2015-09-21',
+				datetime: new Date(2015, 9, 21, 2, 30, 9),
+				textInput: '2015-09-21 02:30:09',
 				errorMessage: undefined,
 			};
 
 			// when
-			wrapper.find('InputDatePicker').simulate('change', event, payload);
+			wrapper.find('InputDateTimePicker').prop('onChange')(event, payload);
 
 			// then
 			expect(onChange).toBeCalledWith(event, {
 				schema: timestampSchema,
-				value: payload.date.getTime(),
+				value: payload.datetime.getTime(),
 			});
 		});
 
@@ -160,7 +155,7 @@ describe('Date widget', () => {
 				schema: { type: 'number' },
 			};
 			const wrapper = shallow(
-				<DateWidget
+				<DateTimeWidget
 					id={'myForm'}
 					isValid={false}
 					errorMessage={'My error message'}
@@ -173,13 +168,13 @@ describe('Date widget', () => {
 			expect(onChange).not.toBeCalled();
 			const event = { target: {} };
 			const payload = {
-				date: undefined,
+				datetime: undefined,
 				textInput: '',
 				errorMessage: undefined,
 			};
 
 			// when
-			wrapper.find('InputDatePicker').simulate('change', event, payload);
+			wrapper.find('InputDateTimePicker').simulate('change', event, payload);
 
 			// then
 			expect(onChange).toBeCalledWith(event, {
@@ -196,7 +191,7 @@ describe('Date widget', () => {
 				schema: { format: 'iso-datetime' },
 			};
 			const wrapper = shallow(
-				<DateWidget
+				<DateTimeWidget
 					id={'myForm'}
 					isValid={false}
 					errorMessage={'My error message'}
@@ -209,18 +204,18 @@ describe('Date widget', () => {
 			expect(onChange).not.toBeCalled();
 			const event = { target: {} };
 			const payload = {
-				date: new Date(2015, 9, 21),
-				textInput: '2015-09-21',
+				datetime: new Date(2015, 9, 21, 2, 30),
+				textInput: '2015-09-21 02:30',
 				errorMessage: undefined,
 			};
 
 			// when
-			wrapper.find('InputDatePicker').simulate('change', event, payload);
+			wrapper.find('InputDateTimePicker').prop('onChange')(event, payload);
 
 			// then
 			expect(onChange).toBeCalledWith(event, {
 				schema: isoSchema,
-				value: payload.date.toISOString(),
+				value: payload.datetime.toISOString(),
 			});
 		});
 
@@ -228,7 +223,7 @@ describe('Date widget', () => {
 			// given
 			const onFinish = jest.fn();
 			const wrapper = shallow(
-				<DateWidget
+				<DateTimeWidget
 					id={'myForm'}
 					isValid={false}
 					errorMessage={'My error message'}
@@ -242,23 +237,23 @@ describe('Date widget', () => {
 			expect(onFinish).not.toBeCalled();
 			const event = { target: {} };
 			const payload = {
-				date: new Date(2015, 9, 21),
-				textInput: '2015-09-21',
+				datetime: new Date(2015, 9, 21, 2, 30, 9),
+				textInput: '2015-09-21 02:30',
 				errorMessage: undefined,
 			};
 
 			// when
-			wrapper.find('InputDatePicker').prop('onChange')(event, payload);
+			wrapper.find('InputDateTimePicker').prop('onChange')(event, payload);
 
 			// then
-			expect(onFinish).toBeCalledWith(event, { schema, value: '2015-09-21' });
+			expect(onFinish).toBeCalledWith(event, { schema, value: '2015-09-21 02:30' });
 		});
 
 		it('should NOT call props onFinish when there is an error', () => {
 			// given
 			const onFinish = jest.fn();
 			const wrapper = shallow(
-				<DateWidget
+				<DateTimeWidget
 					id={'myForm'}
 					isValid={false}
 					errorMessage={'My error message'}
@@ -272,13 +267,13 @@ describe('Date widget', () => {
 			expect(onFinish).not.toBeCalled();
 			const event = { target: {} };
 			const payload = {
-				date: new Date(''), // invalid error
+				datetime: new Date(''), // invalid error
 				textInput: '2015-09-aa',
 				errorMessage: 'THERE IS AN ERROR',
 			};
 
 			// when
-			wrapper.find('InputDatePicker').simulate('change', event, payload);
+			wrapper.find('InputDateTimePicker').prop('onChange')(event, payload);
 
 			// then
 			expect(onFinish).not.toBeCalled();
