@@ -24,6 +24,10 @@
       "dateTimeUTC": {
         "type": "string",
         "format": "iso-datetime"
+      },
+      "dateTimeTimezone": {
+        "type": "string",
+        "format": "iso-datetime"
       }
     },
     "required": ["dateAsString"]
@@ -67,6 +71,15 @@
       "options": {
         "useSeconds": true,
         "useUTC": true
+      }
+    },
+    {
+      "key": "dateTimeTimezone",
+      "title": "Datetime in timezone",
+      "widget": "datetime",
+      "options": {
+        "useSeconds": true,
+        "timezone": "America/New_York"
       }
     }
   ],
