@@ -2,7 +2,7 @@
 
 
 src/CollapsiblePanel/CollapsiblePanel.scss
-  143:5  error  Mixins should come before declarations  mixins-before-declarations
+  142:5  error  Mixins should come before declarations  mixins-before-declarations
 
 src/DateTimePickers/pickers/TimePicker/TimePicker.scss
   26:9  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
