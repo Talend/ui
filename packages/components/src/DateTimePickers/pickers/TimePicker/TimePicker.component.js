@@ -1,149 +1,149 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import uuid from 'uuid';
-import DebounceInput from 'react-debounce-input';
-import getDefaultT from '../../../translate';
-import { DateTimeContext } from '../../DateTime/Context';
-import { FIELD_HOURS, FIELD_MINUTES, FIELD_SECONDS } from '../../DateTime/constants';
+
+import { timeToStr, pad } from '../../Time/time-extraction';
+import withListGesture from '../../../Gesture/withListGesture';
 
 import theme from './TimePicker.scss';
 
-class TimePicker extends React.PureComponent {
-	static defaultProps = {
-		value: {},
-		t: getDefaultT(),
+function isBefore(a, b) {
+	if (a.hours > b.hours) {
+		return false;
+	} else if (a.hours === b.hours && a.minutes > b.minutes) {
+		return false;
+	} else if (a.hours === b.hours && a.minutes === b.minutes && a.seconds >= b.seconds) {
+		return false;
+	}
+	return true;
+}
+
+function addInterval({ hours, minutes, ...seconds }, interval = 60) {
+	let newMinutes = minutes + interval;
+	let newHours = hours;
+	if (Math.floor(newMinutes / 60) > 0) {
+		newHours += Math.floor(newMinutes / 60);
+		newMinutes %= 60;
+	}
+	return {
+		hours: newHours,
+		minutes: newMinutes,
+		...seconds,
+	};
+}
+
+function getOptions(interval = 60, useSeconds) {
+	const options = [];
+	const start = { hours: 0, minutes: 0, seconds: 0 };
+	const end = { hours: 23, minutes: 59, seconds: 59 };
+	let current = start;
+	while (isBefore(current, end)) {
+		options.push({ label: timeToStr(current, useSeconds), value: current });
+		current = addInterval(current, interval);
+	}
+
+	return options;
+}
+
+export class TimePicker extends React.Component {
+	static propTypes = {
+		interval: PropTypes.number,
+		onChange: PropTypes.func.isRequired,
+		onKeyDown: PropTypes.func.isRequired,
+		textInput: PropTypes.string,
+		useSeconds: PropTypes.bool,
 	};
 
-	static propTypes = {
-		allowFocus: PropTypes.bool,
-		onChange: PropTypes.func.isRequired,
-		value: PropTypes.shape({
-			hours: PropTypes.string,
-			minutes: PropTypes.string,
-			seconds: PropTypes.string,
-		}),
-		useSeconds: PropTypes.bool,
-		useUTC: PropTypes.bool,
-		t: PropTypes.func.isRequired,
+	static defaultProps = {
+		interval: 60,
+		useSeconds: false,
 	};
 
 	constructor(props) {
 		super(props);
-		const id = uuid.v4();
-		this.hourId = `${id}-hour`;
-		this.minuteId = `${id}-minute`;
-		this.secondId = `${id}-second`;
-		this.onChange = this.onChange.bind(this);
+		this.onSelect = this.onSelect.bind(this);
+		this.updateHighlightIndex = this.updateHighlightIndex.bind(this);
+		this.scrollItemIntoView = this.scrollItemIntoView.bind(this);
+		this.options = getOptions(props.interval, props.useSeconds);
+		this.state = {
+			hightlightedItemIndex: this.options.findIndex(option =>
+				option.label.includes(props.textInput),
+			),
+		};
 	}
-
-	onChange(event, field) {
-		const inputValue = event.target.value;
-		const newValue = { ...this.props.value };
-		if (field === FIELD_HOURS) {
-			newValue.hours = inputValue.trim();
-		} else if (field === FIELD_MINUTES) {
-			newValue.minutes = inputValue.trim();
-		} else if (field === FIELD_SECONDS) {
-			newValue.seconds = inputValue.trim();
+	componentDidMount() {
+		if (this.props.textInput) {
+			this.scrollItemIntoView(this.props.textInput);
 		}
-		this.props.onChange(event, newValue, field);
 	}
-
+	componentDidUpdate(prevProps) {
+		if (prevProps.textInput !== this.props.textInput) {
+			this.scrollItemIntoView(this.props.textInput);
+		}
+	}
+	onSelect(event, option) {
+		this.props.onChange(event, {
+			textInput: option.label,
+			time: {
+				hours: pad(option.value.hours),
+				minutes: pad(option.value.minutes),
+				seconds: pad(option.value.seconds),
+			},
+		});
+	}
+	scrollItemIntoView(textInput) {
+		const found = this.options.findIndex(option => option.label.includes(textInput));
+		if (found) {
+			const ref = this.containerRef.childNodes[found];
+			if (ref) {
+				ref.scrollIntoView({
+					block: 'center',
+				});
+			}
+			if (found !== this.state.hightlightedItemIndex) {
+				this.updateHighlightIndex(found);
+			}
+		}
+	}
+	updateHighlightIndex(index) {
+		this.setState(({ hightlightedItemIndex }) => {
+			if (hightlightedItemIndex !== index) {
+				return {
+					hightlightedItemIndex: index,
+				};
+			}
+			return null;
+		});
+	}
 	render() {
-		const { t } = this.props;
-		const tabIndex = this.props.allowFocus ? 0 : -1;
-
 		return (
-			<DateTimeContext.Consumer>
-				{({ errorManagement }) => {
-					const {
-						onInputFocus,
-						hasError,
-						formMode,
-						hoursErrorId,
-						minutesErrorId,
-						secondsErrorId,
-					} = errorManagement;
-
+			<div className={theme.container} ref={ref => (this.containerRef = ref)} role="list">
+				{this.options.map((option, index) => {
+					const className = classNames('tc-time-picker-time', {
+						highlight: index === this.state.hightlightedItemIndex,
+					});
+					const ariaProps = {};
+					if (index === this.state.hightlightedItemIndex) {
+						ariaProps['aria-current'] = 'time';
+					}
 					return (
-						<div className={classNames('tc-date-picker-time', theme['time-picker'])}>
-							<legend key="legend">
-								{t('DATEPICKER_TIME', { defaultValue: 'Time' })}
-								{this.props.useUTC ? (
-									<div key="utc" className={theme.utc}>
-										{t('DATEPICKER_UTC', { defaultValue: 'UTC' })}
-									</div>
-								) : null}
-							</legend>
-
-							<label key="hour-label" htmlFor={this.hourId} className="sr-only">
-								{t('DATEPICKER_TIME_HOURS', { defaultValue: 'Hours' })}
-							</label>
-							<DebounceInput
-								key="hour-input"
-								id={this.hourId}
-								className={classNames(theme['time-input'], {
-									[theme['time-error']]: hasError('INVALID_HOUR'),
-								})}
-								value={this.props.value.hours}
-								tabIndex={tabIndex}
-								onChange={event => this.onChange(event, FIELD_HOURS)}
-								onBlur={onInputFocus}
-								onFocus={event => onInputFocus(event, hoursErrorId)}
-								placeholder="HH"
-								aria-required={formMode}
-								aria-invalid={hasError('INVALID_HOUR')}
-								aria-describedby={hoursErrorId}
-							/>
-							<hr key="hr-minutes" />
-							<label key="minutes-label" htmlFor={this.minuteId} className="sr-only">
-								{t('DATEPICKER_TIME_MINUTES', { defaultValue: 'Minutes' })}
-							</label>
-							<DebounceInput
-								key="minutes-input"
-								id={this.minuteId}
-								className={classNames(theme['time-input'], {
-									[theme['time-error']]: hasError('INVALID_MINUTES'),
-								})}
-								value={this.props.value.minutes}
-								tabIndex={tabIndex}
-								onChange={event => this.onChange(event, FIELD_MINUTES)}
-								onBlur={onInputFocus}
-								onFocus={event => onInputFocus(event, minutesErrorId)}
-								placeholder="MM"
-								aria-required={formMode}
-								aria-invalid={hasError('INVALID_MINUTES')}
-								aria-describedby={minutesErrorId}
-							/>
-							{this.props.useSeconds && [
-								<hr key="hr-seconds" />,
-								<label key="seconds-label" htmlFor={this.secondId} className="sr-only">
-									{this.props.t('DATEPICKER_TIME_SECONDS', { defaultValue: 'Seconds' })}
-								</label>,
-								<DebounceInput
-									key="seconds-input"
-									id={this.secondId}
-									className={classNames(theme['time-input'], {
-										[theme['time-error']]: hasError('INVALID_SECONDS'),
-									})}
-									value={this.props.value.seconds}
-									tabIndex={tabIndex}
-									onBlur={onInputFocus}
-									onFocus={event => onInputFocus(event, secondsErrorId)}
-									onChange={event => this.onChange(event, FIELD_SECONDS)}
-									placeholder="SS"
-									aria-required={formMode}
-									aria-invalid={hasError('INVALID_SECONDS')}
-									aria-describedby={secondsErrorId}
-								/>,
-							]}
-						</div>
+						<button
+							tabIndex={-1}
+							role="listitem"
+							type="button"
+							key={index}
+							className={className}
+							onClick={event => this.onSelect(event, option)}
+							onKeyDown={event => this.props.onKeyDown(event, this.containerRef.childNodes[index])}
+							{...ariaProps}
+						>
+							{option.label}
+						</button>
 					);
-				}}
-			</DateTimeContext.Consumer>
+				})}
+			</div>
 		);
 	}
 }
 
-export default TimePicker;
+export default withListGesture(TimePicker, true);

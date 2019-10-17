@@ -19,6 +19,13 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   33:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
   35:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
 
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/views/DateTimeView/DateTimeView.component.js
+  31:17  error  'onSelectTime' PropType is defined but prop is never used  react/no-unused-prop-types
+  33:17  error  'selectedTime' PropType is defined but prop is never used  react/no-unused-prop-types
+  37:15  error  'useSeconds' PropType is defined but prop is never used    react/no-unused-prop-types
+  38:12  error  'useTime' PropType is defined but prop is never used       react/no-unused-prop-types
+  39:11  error  'useUTC' PropType is defined but prop is never used        react/no-unused-prop-types
+
 /home/travis/build/Talend/ui/packages/components/src/GridLayout/Grid.component.js
   59:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
   62:2  error  Mixed spaces and tabs                                 no-mixed-spaces-and-tabs
