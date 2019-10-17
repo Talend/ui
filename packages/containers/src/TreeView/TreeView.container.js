@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
-import { TreeView as Component } from '@talend/react-components';
+import Component from '@talend/react-components/lib/TreeView';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import Immutable from 'immutable';
 import omit from 'lodash/omit';

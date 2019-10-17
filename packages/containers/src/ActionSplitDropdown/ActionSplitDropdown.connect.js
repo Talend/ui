@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cmf, { cmfConnect } from '@talend/react-cmf';
-import { ActionSplitDropdown } from '@talend/react-components';
+import ActionSplitDropdown from '@talend/react-components/lib/Actions/ActionSplitDropdown';
 
 import getOnClick from '../actionOnClick';
 

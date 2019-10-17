@@ -1,5 +1,5 @@
 import { cmfConnect } from '@talend/react-cmf';
-import { ActionBar } from '@talend/react-components';
+import ActionBar from '@talend/react-components/lib/ActionBar';
 import Action from '../Action';
 import Actions from '../Actions';
 import ActionDropdown from '../ActionDropdown';

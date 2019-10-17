@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { fromJS } from 'immutable';
-import { Inject } from '@talend/react-components';
+import Inject from '@talend/react-components/lib/Inject';
 
 import Component from './HomeListView.component';
 import Connected from './HomeListView.connect';

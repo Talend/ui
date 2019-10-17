@@ -3,7 +3,7 @@ import React from 'react';
 import { List, Map } from 'immutable';
 import get from 'lodash/get';
 
-import { ObjectViewer as Component } from '@talend/react-components';
+import Component from '@talend/react-components/lib/ObjectViewer';
 import { cmfConnect } from '@talend/react-cmf';
 
 export const DEFAULT_STATE = new Map({
