@@ -10083,7 +10083,7 @@ lodash.find@^4.3.0:
   resolved "https://registry.yarnpkg.com/lodash.find/-/lodash.find-4.6.0.tgz#cb0704d47ab71789ffa0de8b97dd926fb88b13b1"
   integrity sha1-ywcE1Hq3F4n/oN6Ll92Sb7iLE7E=
 
-lodash.findindex@^4.3.0:
+lodash.findindex@^4.3.0, lodash.findindex@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.findindex/-/lodash.findindex-4.6.0.tgz#a3245dee61fb9b6e0624b535125624bb69c11106"
   integrity sha1-oyRd7mH7m24GJLU1ElYku2nBEQY=
@@ -10151,6 +10151,11 @@ lodash.merge@^4.3.1:
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.1.tgz#adc25d9cb99b9391c59624f379fbba60d7111d54"
   integrity sha512-AOYza4+Hf5z1/0Hztxpm2/xiPZgi/cjMqdnKTUWTBSKchJlxXXuUSxCCl8rJlf4g6yww/j6mA8nC8Hw/EZWxKQ==
+
+lodash.omit@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.omit/-/lodash.omit-4.5.0.tgz#6eb19ae5a1ee1dd9df0b969e66ce0b7fa30b5e60"
+  integrity sha1-brGa5aHuHdnfC5aeZs4Lf6MLXmA=
 
 lodash.pick@4.4.0:
   version "4.4.0"
@@ -10392,6 +10397,16 @@ material-colors@^1.2.1:
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/material-colors/-/material-colors-1.2.6.tgz#6d1958871126992ceecc72f4bcc4d8f010865f46"
   integrity sha512-6qE4B9deFBIa9YSpOc9O0Sgc43zTeVYbgDT5veRKSlB2+ZuHNoVVxA1L/ckMUayV9Ay9y7Z/SZCLcGteW9i7bg==
+
+material-icons@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/material-icons/-/material-icons-0.1.0.tgz#af3d9117767bd7cefd1f29493fdd7ab4a931cbc8"
+  integrity sha1-rz2RF3Z71879HylJP916tKkxy8g=
+
+material-icons@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/material-icons/-/material-icons-0.3.1.tgz#425e06e2448632d6249d6e1ffe2993682c5b171e"
+  integrity sha512-5Hbj76A6xDPcDZEbM4oxTknhWuMwGWnAHVLLPCEq9eVlcHb0fn4koU9ZeyMy1wjARtDEPAHfd5ZdL2Re5hf0zQ==
 
 math-random@^1.0.1:
   version "1.0.4"
@@ -13200,6 +13215,21 @@ react-use@^11.3.2:
     throttle-debounce "^2.0.1"
     ts-easing "^0.2.0"
 
+react-virtualized-tree@^3.2.3:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/react-virtualized-tree/-/react-virtualized-tree-3.2.3.tgz#94b2f023fc04984aecacb091687628c84b5116cc"
+  integrity sha512-SH5Qf1cLOuBewZRv+G/PKq5YXNrMEMO/WEGKyZf+SOT2dOL9tXM1PZvPNrAqufJ1GgUUtbc9RJzAX8SelEuQQw==
+  dependencies:
+    classnames "^2.2.5"
+    lodash "^4.17.4"
+    lodash.debounce "^4.0.8"
+    lodash.findindex "^4.6.0"
+    lodash.isequal "^4.5.0"
+    lodash.omit "^4.5.0"
+    material-icons "^0.1.0"
+    react-lifecycles-compat "^3.0.4"
+    reselect "^3.0.1"
+
 react-virtualized@9.21.0:
   version "9.21.0"
   resolved "https://registry.yarnpkg.com/react-virtualized/-/react-virtualized-9.21.0.tgz#8267c40ffb48db35b242a36dea85edcf280a6506"
@@ -13917,6 +13947,11 @@ reselect@^2.5.4:
   version "2.5.4"
   resolved "https://registry.yarnpkg.com/reselect/-/reselect-2.5.4.tgz#b7d23fdf00b83fa7ad0279546f8dbbbd765c7047"
   integrity sha1-t9I/3wC4P6etAnlUb427vXZccEc=
+
+reselect@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/reselect/-/reselect-3.0.1.tgz#efdaa98ea7451324d092b2b2163a6a1d7a9a2147"
+  integrity sha1-79qpjqdFEyTQkrKyFjpqHXqaIUc=
 
 resize-observer-polyfill@^1.5.1:
   version "1.5.1"

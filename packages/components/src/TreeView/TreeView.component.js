@@ -1,6 +1,8 @@
 import VTree from 'react-virtualized-tree';
 import 'react-virtualized/styles.css';
 import 'react-virtualized-tree/lib/main.css';
+import 'material-icons/css/material-icons.css';
+import Expandable from 'react-virtualized-tree/lib/renderers/Expandable';
 
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
@@ -242,7 +244,6 @@ function TreeView(props) {
 			style={{ height: 500, position: 'relative' }}
 		>
 			<TreeViewHeader {...rest} id={id} titleId={titleId} headerRenderer={headerRenderer} />
-			HERE
 			<VTree
 				nodes={Nodes}
 				height={500}
@@ -251,7 +252,13 @@ function TreeView(props) {
 				defaultWidth={500}
 				onChange={handleChange}
 			>
-				{({ style, node, ...p }) => <div style={style}>{nodeNameRenderer({ node, p })}</div>}
+				{({ style, node, ...p }) => (
+					<div style={style}>
+						<Expandable node={node} {...rest}>
+							{nodeNameRenderer({ node, p })}
+						</Expandable>
+					</div>
+				)}
 			</VTree>
 		</div>
 	);
