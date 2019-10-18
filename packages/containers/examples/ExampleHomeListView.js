@@ -97,7 +97,7 @@ const header = {
 };
 
 const sidepanel = {
-	actionIds: ['menu:first', 'menu:second', 'menu:third'],
+	actionIds: ['menu:first', 'menu:second', 'menu:third', 'menu:first', 'menu:second', 'menu:third', 'menu:first', 'menu:second', 'menu:third', 'menu:first', 'menu:first', 'menu:second', 'menu:third', 'menu:first', 'menu:second', 'menu:third', 'menu:first', 'menu:second', 'menu:third', 'menu:first', 'menu:second', 'menu:third', 'menu:first', 'menu:second', 'menu:third', 'menu:first', 'menu:second', 'menu:third' ],
 };
 
 const list = {
