@@ -81,7 +81,7 @@ function isEvent(event) {
 	let proto;
 	try {
 		proto = Object.getPrototypeOf(event);
-	} catch(e) {
+	} catch (e) {
 		return false;
 	}
 	while (proto) {
