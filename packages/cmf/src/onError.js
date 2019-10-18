@@ -85,7 +85,7 @@ function isEvent(event) {
 		return false;
 	}
 	while (proto) {
-		if (proto.constructor.name === 'SyntheticEvent' || proto.constructor.name === 'name') {
+		if (proto.constructor.name === 'SyntheticEvent' || proto.constructor.name === 'Event') {
 			return true;
 		}
 		proto = Object.getPrototypeOf(proto);

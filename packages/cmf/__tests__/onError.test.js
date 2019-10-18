@@ -1,3 +1,5 @@
+import React from 'react';
+import { mount } from 'enzyme';
 import onError from '../src/onError';
 import { store as mock } from '../src/mock';
 
@@ -91,6 +93,28 @@ describe('onError', () => {
 			const info = onError.getReportInfo(new Error('my'));
 			expect(info.actions.length).toBe(1);
 			expect(info.actions[0].response).toBeUndefined();
+		});
+		it('should return only type of Event', () => {
+			const event = new Event('click');
+			onError.addAction({ type: 'FOO', event });
+			const info = onError.getReportInfo(new Error('my'));
+			expect(info.actions.length).toBe(1);
+			expect(info.actions[0].event).not.toBe(event);
+			expect(info.actions[0].event.type).toBe('click');
+			expect(Object.keys(info.actions[0].event).length).toBe(1);
+		});
+		it('should return only type of SyntheticEvent', () => {
+			const onClick = jest.fn();
+			const wrapper = mount(<button onClick={onClick}>clickme</button>);
+			wrapper.simulate('click');
+			expect(onClick).toHaveBeenCalled();
+			const event = onClick.mock.calls[0][0];
+			onError.addAction({ type: 'FOO', event:event });
+			const info = onError.getReportInfo(new Error('my'));
+			expect(info.actions.length).toBe(1);
+			expect(info.actions[0].event).not.toBe(event);
+			expect(info.actions[0].event.type).toBe('click');
+			expect(Object.keys(info.actions[0].event).length).toBe(1);
 		});
 	});
 	describe('report', () => {
