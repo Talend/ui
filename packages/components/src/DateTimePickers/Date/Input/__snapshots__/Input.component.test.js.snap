@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Date.Input should render 1`] = `
+<Date.Input
+  aria-labelledby="labelId"
+>
+  <InputSizer
+    inputText=""
+    placeholder="YYYY-MM-DD"
+  >
+    <DebounceInput
+      aria-labelledby="labelId"
+      autoComplete="off"
+      className="form-control"
+      debounceTimeout={300}
+      element="input"
+      forceNotifyByEnter={true}
+      forceNotifyOnBlur={true}
+      minLength={0}
+      placeholder="YYYY-MM-DD"
+      style={
+        Object {
+          "width": 47,
+        }
+      }
+      type="text"
+      value="2007-01-02"
+    >
+      <input
+        aria-labelledby="labelId"
+        autoComplete="off"
+        className="form-control"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        placeholder="YYYY-MM-DD"
+        style={
+          Object {
+            "width": 47,
+          }
+        }
+        type="text"
+        value="2007-01-02"
+      />
+    </DebounceInput>
+    <span
+      style={
+        Object {
+          "fontSize": "1.6rem",
+          "fontStyle": "oblique",
+          "fontWeight": 400,
+          "position": "absolute",
+          "visibility": "hidden",
+        }
+      }
+    >
+      YYYY-MM-DD
+    </span>
+  </InputSizer>
+</Date.Input>
+`;

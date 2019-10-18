@@ -1,7 +1,7 @@
 import React from 'react';
 import Immutable from 'immutable';
 import { shallow } from 'enzyme';
-import { AppLoader } from '@talend/react-components';
+import AppLoader from '@talend/react-components/lib/AppLoader';
 import { AppLoaderContainer, mapStateToProps } from './AppLoader.connect';
 
 describe('AppLoader container', () => {

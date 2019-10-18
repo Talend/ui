@@ -66,15 +66,17 @@ $tc-list-title-icon-size: $svg-rg-size !default;
 }
 
 .tc-list-title-filter {
-	&:hover,
-	&:global(.ally-focus-within) {
-		.icon {
-			color: $brand-primary;
-			filter: none;
-		}
+	&:not(.tc-list-title-disabled) {
+		&:hover,
+		&:global(.ally-focus-within) {
+			.icon {
+				color: $brand-primary;
+				filter: none;
+			}
 
-		.main-title {
-			color: $scooter;
+			.main-title {
+				color: $scooter;
+			}
 		}
 	}
 }

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import React from 'react';
 import { Map, List as ImmutableList } from 'immutable';
-import { List as Component } from '@talend/react-components';
+import Component from '@talend/react-components/lib/List';
 import CellTitleRenderer, {
 	cellType as cellTitleType,
 } from '@talend/react-components/lib/VirtualizedList/CellTitle';

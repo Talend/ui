@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-for */
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 
 export default function SimpleCheckBox({
@@ -14,17 +14,15 @@ export default function SimpleCheckBox({
 	schema,
 	value,
 }) {
-	const [checked, setChecked] = useState(value);
-
 	const { autoFocus } = schema;
 
 	function getDataFeature() {
 		const dataFeature = schema['data-feature'];
-		return dataFeature ? `${dataFeature}.${checked ? 'uncheck' : 'check'}` : undefined;
+		return dataFeature ? `${dataFeature}.${value ? 'uncheck' : 'check'}` : undefined;
 	}
 
 	function getDataChecked() {
-		if (checked) {
+		if (value) {
 			return 2;
 		}
 		return 0;
@@ -39,12 +37,11 @@ export default function SimpleCheckBox({
 					disabled={disabled}
 					onChange={event => {
 						const isChecked = event.target.checked;
-						setChecked(isChecked);
 						onChange(event, { schema, value: isChecked });
 						onFinish(event, { schema, value: isChecked });
 					}}
 					type="checkbox"
-					checked={checked}
+					checked={value}
 					data-checked={getDataChecked()}
 					// eslint-disable-next-line jsx-a11y/aria-proptypes
 					aria-invalid={!isValid}

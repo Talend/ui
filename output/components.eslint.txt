@@ -5,7 +5,16 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/Badge/index.js
   1:8  error  Using exported name 'Badge' as identifier for default export  import/no-named-as-default
 
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/error-messages.js
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/Date/Manager/Manager.component.js
+  91:12  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/Manager/Manager.component.js
+  72:12  error  'onChange' PropType is defined but prop is never used    react/no-unused-prop-types
+  73:12  error  'required' PropType is defined but prop is never used    react/no-unused-prop-types
+  75:14  error  'useSeconds' PropType is defined but prop is never used  react/no-unused-prop-types
+  76:10  error  'useUTC' PropType is defined but prop is never used      react/no-unused-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/shared/error-messages.js
    7:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
    9:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
   11:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
@@ -16,8 +25,10 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   25:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
   27:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
   29:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
-  33:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
+  31:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
   35:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
+  39:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
+  41:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
 
 /home/travis/build/Talend/ui/packages/components/src/GridLayout/Grid.component.js
   59:7  error  Expected indentation of 5 tab characters but found 6  react/jsx-indent
@@ -46,9 +57,9 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   166:3  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
 /home/travis/build/Talend/ui/packages/components/src/VirtualizedList/utils/tablerow.js
-  41:3  warning  Unexpected console statement  no-console
-  69:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
+  42:3  warning  Unexpected console statement  no-console
+  71:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
 
-✖ 25 problems (22 errors, 3 warnings)
+✖ 32 problems (29 errors, 3 warnings)
   1 error, 0 warnings potentially fixable with the `--fix` option.
 

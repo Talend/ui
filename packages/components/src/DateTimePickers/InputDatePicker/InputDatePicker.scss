@@ -1,0 +1,16 @@
+$tc-datepicker-width: 31rem !default;
+$tc-datepicker-background: $white !default;
+$tc-datepicker-box-shadow: $shadow-default !default;
+$tc-datepicker-z-index: $zindex-dropdown !default;
+
+.popper {
+	width: $tc-datepicker-width;
+	background: $tc-datepicker-background;
+	box-shadow: $tc-datepicker-box-shadow;
+	z-index: $tc-datepicker-z-index;
+}
+.date-picker {
+	width: fit-content;
+	display: flex;
+	align-items: center;
+}

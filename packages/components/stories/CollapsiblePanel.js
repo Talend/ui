@@ -57,6 +57,21 @@ const statusCanceledHeader = [
 		icon: 'talend-cross',
 	},
 ];
+
+const statusSkeletonHeader = [
+	{
+		displayMode: 'status',
+		status: 'skeleton',
+	},
+	{
+		displayMode: 'badge',
+		label: 'Execution',
+		bsStyle: 'info',
+		tooltipPlacement: 'top',
+		tooltipLabel: 'Updating execution status...',
+	},
+];
+
 const statusInProgressHeader = [
 	{
 		displayMode: 'status',
@@ -171,6 +186,7 @@ storiesOf('CollapsiblePanel', module)
 				header={statusInProgressHeader}
 				status={'inProgress'}
 			/>
+			<CollapsiblePanel id="panel-header-12" header={statusSkeletonHeader} status={'skeleton'} />
 		</div>
 	))
 	.add('Body', () => (
@@ -280,5 +296,36 @@ storiesOf('CollapsiblePanel', module)
 				status="selected"
 				expanded
 			/>
+		</div>
+	))
+	.add('Nested', () => (
+		<div className="col-lg-offset-1 col-lg-10">
+			<IconsProvider defaultIcons={icons} />
+			<h1>Nested</h1>
+			<CollapsiblePanel
+				id="panel-nested-1"
+				header={[{ label: 'First level CollapsiblePanel' }]}
+				onToggle={action('onToggle')}
+				onSelect={action('onSelect')}
+				expanded
+			>
+				<CollapsiblePanel
+					id="panel-nested-2"
+					header={[{ label: 'Second level CollapsiblePanel' }]}
+					onToggle={action('onToggle')}
+					onSelect={action('onSelect')}
+					expanded
+				>
+					<CollapsiblePanel
+						id="panel-nested-3"
+						header={[{ label: 'Third level CollapsiblePanel' }]}
+						onToggle={action('onToggle')}
+						onSelect={action('onSelect')}
+						expanded
+					>
+						Lorem ipsum dolor sit amet.
+					</CollapsiblePanel>
+				</CollapsiblePanel>
+			</CollapsiblePanel>
 		</div>
 	));

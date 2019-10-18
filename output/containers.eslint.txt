@@ -9,8 +9,12 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   8:1  error  Prefer default export  import/prefer-default-export
 
 /home/travis/build/Talend/ui/packages/containers/src/Notification/Notification.test.js
-  11:80  error  'notifications' is missing in props validation  react/prop-types
+  11:57  error  'notifications' is missing in props validation  react/prop-types
 
-✖ 3 problems (3 errors, 0 warnings)
+/home/travis/build/Talend/ui/packages/containers/src/SelectObject/SelectObject.component.js
+  6:1  error  'react-bootstrap' should be listed in the project's dependencies. Run 'npm i -S react-bootstrap' to add it  import/no-extraneous-dependencies
+  7:1  error  'react-bootstrap' should be listed in the project's dependencies. Run 'npm i -S react-bootstrap' to add it  import/no-extraneous-dependencies
+
+✖ 5 problems (5 errors, 0 warnings)
   1 error, 0 warnings potentially fixable with the `--fix` option.
 

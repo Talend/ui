@@ -42,7 +42,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
-    "@talend/react-cmf": "^4.10.0",
+    "@talend/react-cmf": "^4.14.0-1",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.7.1",
     "enzyme": "^3.9.0",
@@ -61,7 +61,7 @@
     "rimraf": "^2.6.2"
   },
   "peerDependencies": {
-    "@talend/react-cmf": "^4.10.0",
+    "@talend/react-cmf": "^4.14.0-1",
     "prop-types": "^15.5.10",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
@@ -83,5 +83,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "4.10.0"
+  "version": "4.14.0-1"
 }
