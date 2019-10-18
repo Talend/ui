@@ -39,17 +39,20 @@ DefaultBadge.propTypes = {
 	t: PropTypes.func.isRequired,
 };
 
-// eslint-disable-next-line no-confusing-arrow
-const BadgeType = ({ disabled, onSelect, children, ...rest }) =>
-	onSelect ? (
-		<button {...rest} key="button" type="button" disabled={disabled} onClick={onSelect}>
-			{children}
-		</button>
-	) : (
+const BadgeType = ({ disabled, onSelect, children, ...rest }) => {
+	if (onSelect) {
+		return (
+			<button {...rest} key="button" type="button" disabled={disabled} onClick={onSelect}>
+				{children}
+			</button>
+		);
+	}
+	return (
 		<div {...rest} key="div">
 			{children}
 		</div>
 	);
+};
 
 BadgeType.propTypes = {
 	children: PropTypes.any,
