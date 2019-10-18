@@ -1,6 +1,6 @@
 $tc-icon-toggle-size: 2.4rem !default;
 $tc-icon-toggle-icon-size: $svg-sm-size !default;
-$tc-icon-toggle-gray-border: 1px solid $gray;
+$tc-icon-toggle-border: 1px solid $gray;
 
 @mixin tc-icon-toggle($btn-size: $tc-icon-toggle-size, $icon-size: $tc-icon-toggle-icon-size) {
 	height: $btn-size;
