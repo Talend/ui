@@ -74,6 +74,25 @@ function anon(value, key) {
 	return value;
 }
 
+function isEvent(event) {
+	if (typeof event !== 'object' || event === null) {
+		return false;
+	}
+	let proto;
+	try {
+		proto = Object.getPrototypeOf(event);
+	} catch(e) {
+		return false;
+	}
+	while (proto) {
+		if (proto.constructor.name === 'SyntheticEvent' || proto.constructor.name === 'name') {
+			return true;
+		}
+		proto = Object.getPrototypeOf(proto);
+	}
+	return false;
+}
+
 /**
  * prepareObject take a JS object and do some process on it
  * - it call toJS on every immutable data
@@ -84,6 +103,11 @@ function anon(value, key) {
 function prepareObject(originalState) {
 	if (originalState === null) {
 		return null;
+	}
+	if (isEvent(originalState)) {
+		return {
+			type: originalState.type,
+		};
 	}
 
 	const state = originalState.toJS ? originalState.toJS() : originalState;
