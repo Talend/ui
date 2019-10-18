@@ -5,7 +5,17 @@ import { InputTimePicker } from '@talend/react-components/lib/DateTimePickers';
 import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
-function TimeWidget(props) {
+function TimeWidget({
+		errorMessage,
+		id,
+		isValid,
+		options = {},
+		onChange,
+		onFinish,
+		schema,
+		value,
+		valueIsUpdating,
+	}) {
 	const {
 		errorMessage,
 		id,
