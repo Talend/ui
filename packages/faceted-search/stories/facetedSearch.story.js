@@ -21,6 +21,25 @@ const badgeName = {
 	},
 };
 
+const badgeConnectionType = {
+	properties: {
+		attribute: 'connection.type',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Connection type',
+		operator: {},
+		operators: [],
+		type: 'select',
+	},
+	metadata: {
+		badges_per_facet: '1',
+		entities_per_badge: 'N',
+		operators: ['contains'],
+	},
+};
+
+const badgesDefinitions = [badgeName, badgeConnectionType];
+
 storiesOf('FacetedSearch', module)
 	.addDecorator(story => (
 		<div>
@@ -39,7 +58,7 @@ storiesOf('FacetedSearch', module)
 					)) ||
 					(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.BASIC && (
 						<FacetedSearch.BasicSearch
-							badgesDefinitions={[badgeName]}
+							badgesDefinitions={badgesDefinitions}
 							onSubmit={action('onSubmit')}
 						/>
 					))
