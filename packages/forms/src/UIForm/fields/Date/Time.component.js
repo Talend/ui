@@ -6,27 +6,16 @@ import FieldTemplate from '../FieldTemplate';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 
 function TimeWidget({
-		errorMessage,
-		id,
-		isValid,
-		options = {},
-		onChange,
-		onFinish,
-		schema,
-		value,
-		valueIsUpdating,
-	}) {
-	const {
-		errorMessage,
-		id,
-		isValid,
-		options,
-		onChange,
-		onFinish,
-		schema,
-		value,
-		valueIsUpdating,
-	} = props;
+	errorMessage,
+	id,
+	isValid,
+	options = {},
+	onChange,
+	onFinish,
+	schema,
+	value,
+	valueIsUpdating,
+}) {
 	const descriptionId = generateDescriptionId(id);
 	const errorId = generateErrorId(id);
 
@@ -75,10 +64,6 @@ function TimeWidget({
 }
 
 TimeWidget.displayName = 'TimeWidget';
-
-TimeWidget.defaultProps = {
-	options: {},
-};
 
 if (process.env.NODE_ENV !== 'production') {
 	TimeWidget.propTypes = {
