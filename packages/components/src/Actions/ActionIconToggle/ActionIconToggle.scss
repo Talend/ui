@@ -32,7 +32,7 @@ $tc-icon-toggle-border: 1px solid $gray;
 		color: $gray;
 	}
 
-	&:focus {
+	&, &:focus {
 		border: $tc-icon-toggle-gray-border;
 	}
 
