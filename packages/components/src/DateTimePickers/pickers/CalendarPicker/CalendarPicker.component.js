@@ -158,6 +158,9 @@ class CalendarPicker extends React.Component {
 			);
 		}
 
+		const isTodayFocusable =
+			this.pickerRef && this.pickerRef.contains(document.activeElement) ? 0 : -1;
+
 		return (
 			<div
 				className={theme.container}
@@ -182,6 +185,7 @@ class CalendarPicker extends React.Component {
 						})}
 						onClick={this.onClickToday}
 						className="btn-tertiary btn-info"
+						tabIndex={isTodayFocusable}
 					/>
 				</div>
 			</div>
