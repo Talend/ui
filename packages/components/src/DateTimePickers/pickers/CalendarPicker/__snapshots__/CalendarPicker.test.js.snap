@@ -26,6 +26,7 @@ exports[`CalendarPicker should render 1`] = `
       className="btn-tertiary btn-info"
       label="Today"
       onClick={[Function]}
+      tabIndex={-1}
     />
   </div>
 </div>
