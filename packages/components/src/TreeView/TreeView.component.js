@@ -9,7 +9,8 @@ import React, { useState } from 'react';
 
 import classNames from 'classnames';
 import { Action } from '../';
-import TreeViewItem from './TreeViewItem/';
+import TreeViewItem from './TreeViewItem';
+import Foldable from './renderers/Foldable';
 
 import theme from './TreeView.scss';
 import withTreeGesture from '../Gesture/withTreeGesture';
@@ -254,15 +255,21 @@ function TreeView(props) {
 			>
 				{({ style, node, ...p }) => (
 					<div style={style}>
-						<Expandable node={node} {...rest}>
+						<Foldable node={node} {...rest}>
 							{nodeNameRenderer({ node, p })}
-						</Expandable>
+						</Foldable>
 					</div>
 				)}
 			</VTree>
 		</div>
 	);
 }
+
+
+//<Expandable node={node} {...rest}>
+//{nodeNameRenderer({ node, p })}
+//</Expandable>
+
 //			<ul className={theme['tc-treeview-list']} role="tree" aria-labelledby={titleId}></ul>
 // createNodeRenderer([NodeNameRenderer], p)
 
