@@ -314,25 +314,30 @@ class EnumerationForm extends React.Component {
 	onDeleteItem(event, value) {
 		// dont want to fire select item on icon click
 		event.stopPropagation();
-		const payload = {
-			schema: this.props.schema,
-			value: this.state.items.filter((item, index) => index !== value.index),
-		};
-		this.props.onChange(event, payload);
-		if (
-			this.callActionHandler(
-				ENUMERATION_REMOVE_ACTION,
-				[this.state.items[value.index].id],
-				this.onDeleteItemHandler.bind(this),
-				this.onDeleteItemHandler.bind(this),
-			)
-		) {
-			this.setState(prevState => ({
-				itemsProp: {
-					...prevState.itemsProp,
-					actionsDefault: this.loadingInputsActions,
-				},
-			}));
+		const { schema } = this.props;
+
+		// loading
+		this.setState(prevState => ({
+			itemsProp: {
+				...prevState.itemsProp,
+				actionsDefault: this.loadingInputsActions,
+			},
+		}));
+
+		if (this.props.properties.connectedMode) {
+			this.props.onTrigger(event, {
+				trigger: { ids: [this.state.items[value.index].id], action: ENUMERATION_REMOVE_ACTION },
+				schema,
+			}).then(() => {
+				console.log('delete resolving');
+				const payload = {
+					schema,
+					value: this.state.items.filter((item, index) => index !== value.index),
+				};
+				this.props.onChange(event, payload);
+			}).finally(() => {
+				this.onDeleteItemHandler();
+			});
 		} else {
 			this.setState(prevState => {
 				const items = resetItems([...prevState.items]);
@@ -580,26 +585,30 @@ class EnumerationForm extends React.Component {
 	}
 
 	onDeleteItems() {
+		const { schema } = this.props;
+		// loading
+		this.setState({
+			headerSelected: this.loadingInputsActions,
+		});
 		const itemsToDelete = [];
 		this.state.items.forEach(item => {
 			if (item.isSelected) {
 				itemsToDelete.push(item.id);
 			}
 		});
-		const payload = {
-			schema: this.props.schema,
-			value: this.state.items.filter(item => !item.isSelected),
-		};
-		this.props.onChange(event, payload);
-		if (
-			this.callActionHandler(
-				ENUMERATION_REMOVE_ACTION,
-				itemsToDelete,
-				this.onDeleteItemsHandler.bind(this),
-			)
-		) {
-			this.setState({
-				headerSelected: this.loadingInputsActions,
+
+		if (this.props.properties.connectedMode) {
+			this.props.onTrigger(event, {
+				trigger: { ids: itemsToDelete, action: ENUMERATION_REMOVE_ACTION },
+				schema,
+			}).then(() => {
+				console.log('delete items resolving');
+				const payload = {
+					schema,
+					value: this.state.items.filter(item => !item.isSelected),
+				};
+				this.props.onChange(event, payload);
+				this.onDeleteItemsHandler();
 			});
 		} else {
 			this.setState(prevState => {
@@ -637,21 +646,33 @@ class EnumerationForm extends React.Component {
 			headerInput: this.loadingInputsActions,
 		});
 
-		this.props.onTrigger(event, {
-			trigger: { value: this.constructor.parseStringValueToArray(value.value), action: ENUMERATION_ADD_ACTION },
-			schema,
-		}).then((newDocument) => {
-			console.log('add resolving');
-			const payload = {
-				schema: this.props.schema,
-				value: this.props.value.concat(newDocument),
-			};
-			this.props.onChange(event, payload);
-			this.input.focus();
-			successHandler();
-		}, () => {
-			failHandler();
-		});
+		if (this.props.properties.connectedMode) {
+			this.props.onTrigger(event, {
+				trigger: { value: this.constructor.parseStringValueToArray(value.value), action: ENUMERATION_ADD_ACTION },
+				schema,
+			}).then((newDocument) => {
+				console.log('add resolving');
+				const payload = {
+					schema: this.props.schema,
+					value: this.props.value.concat(newDocument),
+				};
+				this.props.onChange(event, payload);
+				this.input.focus();
+				successHandler();
+			}, () => {
+				failHandler();
+			});
+		} else if (!this.valueAlreadyExist(value.value, this.state)) {
+			this.setState(prevState => ({
+				displayMode: 'DISPLAY_MODE_DEFAULT',
+				items: prevState.items.concat([
+					{
+						values: this.constructor.parseStringValueToArray(value.value),
+					},
+				]),
+			}));
+			this.updateHeaderInputDisabled('');
+		}
 	}
 
 	onValidateAndAddHandler(event, value) {
