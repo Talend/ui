@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import memoize from 'lodash/memoize';
 import addDays from 'date-fns/add_days';
+import isSameDay from 'date-fns/is_same_day';
 import isToday from 'date-fns/is_today';
+import isWithinRange from 'date-fns/is_within_range';
+import format from 'date-fns/format';
 import getDate from 'date-fns/get_date';
 import getMonth from 'date-fns/get_month';
 import getYear from 'date-fns/get_year';
-import isSameDay from 'date-fns/is_same_day';
-import isWithinRange from 'date-fns/is_within_range';
 import setMonth from 'date-fns/set_month';
 import subDays from 'date-fns/sub_days';
-import format from 'date-fns/format';
 import startOfMonth from 'date-fns/start_of_month';
 
 import theme from './DatePicker.scss';
@@ -118,12 +118,14 @@ class DatePicker extends React.PureComponent {
 								const shouldBeFocussable =
 									(selectedInCurrentCalendar && selected) ||
 									(!selectedInCurrentCalendar && day === 1);
-								const isInRange = isWithinRange(date, addDays(startDate, 1), subDays(endDate, 1));
+								const isStart = isSameDay(date, startDate);
+								const isEnd = isSameDay(date, endDate);
+								const isMiddle = isWithinRange(date, addDays(startDate, 1), subDays(endDate, 1));
+								const isInRange = isWithinRange(date, startDate, endDate);
 
 								const className = classNames(
 									theme['calendar-day'],
 									{
-										[theme.range]: isInRange,
 										[theme.selected]: selected,
 										[theme.today]: today,
 										[theme['not-current-month']]: !this.isCurrentMonth(date),
@@ -136,7 +138,12 @@ class DatePicker extends React.PureComponent {
 								let ariaLabel = format(date, 'dddd DD MMMM YYYY', pickerLocale);
 								const tdProps = {
 									key: j,
-									className: theme['calendar-col'],
+									className: classNames(theme['calendar-col'], {
+										[theme['date-range']]: isInRange,
+										[theme['range-middle']]: isMiddle,
+										[theme['range-start']]: isStart,
+										[theme['range-end']]: isEnd,
+									}),
 								};
 								if (selected) {
 									tdProps['aria-current'] = 'date';
@@ -154,20 +161,18 @@ class DatePicker extends React.PureComponent {
 								const buttonProps = this.isCurrentMonth(date) ? { 'data-value': day } : undefined;
 								return (
 									<td {...tdProps}>
-										<div className={classNames({ [theme['date-range']]: isInRange })}>
-											<button
-												type="button"
-												className={className}
-												onClick={event => this.selectDate(event, date, year, monthIndex)}
-												disabled={disabled}
-												tabIndex={this.props.allowFocus && shouldBeFocussable ? 0 : -1}
-												onKeyDown={event => this.props.onKeyDown(event, this.calendarRef, day - 1)}
-												aria-label={ariaLabel}
-												{...buttonProps}
-											>
-												{day}
-											</button>
-										</div>
+										<button
+											type="button"
+											className={className}
+											onClick={event => this.selectDate(event, date, year, monthIndex)}
+											disabled={disabled}
+											tabIndex={this.props.allowFocus && shouldBeFocussable ? 0 : -1}
+											onKeyDown={event => this.props.onKeyDown(event, this.calendarRef, day - 1)}
+											aria-label={ariaLabel}
+											{...buttonProps}
+										>
+											{day}
+										</button>
 									</td>
 								);
 							})}

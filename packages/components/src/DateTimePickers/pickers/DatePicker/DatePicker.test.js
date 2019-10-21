@@ -158,26 +158,18 @@ describe('DatePicker', () => {
 		);
 
 		// then
-		expect(
-			wrapper
-				.find('.tc-date-picker-day')
-				.at(4)
-				.prop('className'),
-		).toContain('theme-selected');
+		const start = wrapper.find('.tc-date-picker-day').at(4);
 
-		expect(
-			wrapper
-				.find('.tc-date-picker-day')
-				.at(6)
-				.prop('className'),
-		).toContain('theme-selected');
+		expect(start.prop('className')).toContain('theme-selected');
+		expect(start.prop('className')).toContain('theme-range-start');
 
-		expect(
-			wrapper
-				.find('.tc-date-picker-day')
-				.at(5)
-				.prop('className'),
-		).toContain('theme-range');
+		const end = wrapper.find('.tc-date-picker-day').at(6);
+
+		expect(end.prop('className')).toContain('theme-selected');
+		expect(end.prop('className')).toContain('theme-range-end');
+
+		const middle = wrapper.find('.tc-date-picker-day').at(5);
+		expect(middle.prop('className')).toContain('theme-range');
 	});
 
 	it('should select date', () => {

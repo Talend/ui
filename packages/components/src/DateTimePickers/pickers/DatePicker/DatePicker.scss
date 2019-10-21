@@ -32,7 +32,32 @@
 	text-align: center;
 
 	.date-range {
-		background-color: tint($lochmara, 80%);
+		position: relative;
+
+		&.range-start,
+		&.range-middle {
+			&::after {
+				content: ' ';
+				position: absolute;
+				height: 2.4rem;
+				width: 50%;
+				right: 0;
+				z-index: -1;
+				background-color: tint($lochmara, 80%);
+			}
+		}
+		&.range-end,
+		&.range-middle {
+			&::before {
+				content: ' ';
+				position: absolute;
+				height: 2.4rem;
+				width: 50%;
+				left: 0;
+				z-index: -1;
+				background-color: tint($lochmara, 80%);
+			}
+		}
 	}
 
 	.calendar-day {
