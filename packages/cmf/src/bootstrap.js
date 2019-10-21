@@ -141,7 +141,7 @@ function DefaultRootComponent() {
  */
 export default function bootstrap(appOptions = {}) {
 	// setup asap
-	addOnErrorListener();
+	// addOnErrorListener();
 	const options = cmfModule(appOptions);
 	assertTypeOf(options, 'appId', 'string');
 	assertTypeOf(options, 'RootComponent', 'function');

@@ -57,6 +57,12 @@ export function getAvroRenderer(avroRenderer) {
 	};
 }
 
+class TestRenderer extends React.Component {
+	render() {
+		return <span>1</span>;
+	}
+}
+
 export default class DataGrid extends React.Component {
 	static defaultProps = {
 		cellRenderer: 'DefaultCellRenderer',
@@ -242,11 +248,7 @@ export default class DataGrid extends React.Component {
 
 		agGridOptions.columnDefs = adaptedColumnDefs;
 		agGridOptions.frameworkComponents = {
-			[CELL_RENDERER_COMPONENT]: injectCellRenderer(
-				this.props.getComponent,
-				this.props.cellRenderer,
-				getAvroRenderer(this.props.avroRenderer),
-			),
+			[CELL_RENDERER_COMPONENT]: TestRenderer,
 			[HEADER_RENDERER_COMPONENT]: injectHeaderRenderer(
 				this.props.getComponent,
 				this.props.headerRenderer,

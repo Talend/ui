@@ -16,6 +16,7 @@ import sample from './sample.json';
 import sample2 from './sample2.json';
 import sample3 from './sample3.json';
 import sampleWithoutQuality from './sampleWithoutQuality.json';
+import { generateTalendData } from './generateTalendData';
 
 // eslint-disable-next-line import/prefer-default-export
 export function getComponent(component) {
@@ -188,4 +189,29 @@ storiesOf('Component Datagrid', module)
 			<FasterDatagrid />
 		</div>
 	))
-	.add('datagrid with immutable data', () => <ImmutableDataGrid />);
+	.add('datagrid with immutable data', () => <ImmutableDataGrid />)
+	.add('datagrid custom', () => (
+		<div style={{ height: '100vh' }}>
+			<button
+				onClick={() =>
+					(document.querySelector('.ag-body-viewport').scrollTop =
+						document.querySelector('.ag-body-viewport').scrollHeight -
+						document.querySelector('.ag-body-viewport').clientHeight)
+				}
+			>
+				To bottom
+			</button>
+			<div style={{ width: '100px', height: '100px', overflow: 'auto' }}>
+				sdqds sdsqdsq ssdsqds sdsqdsqdsq sqddsqdsqd dsqdqdsdq sqdsqdsqdsq dsqsd sqdqsdsq sdqsdsqd
+			</div>
+			<DataGrid
+				data={generateTalendData(100, 20)}
+				getComponent={getComponent}
+				onFocusedCell={event => console.log(event)}
+				onFocusedColumn={event => console.log(event)}
+				onVerticalScroll={event => console.log(event)}
+				rowSelection="multiple"
+				enableColResize={false}
+			/>
+		</div>
+	));
