@@ -22,6 +22,7 @@ import Select, { TextModeSelect } from '../fields/Select';
 import Text, { TextTextMode } from '../fields/Text';
 import TextArea, { TextAreaTextMode } from '../fields/TextArea';
 import Toggle, { ToggleTextMode } from '../fields/Toggle';
+import EnumerationWidget from '../../deprecated/widgets/EnumerationWidget/EnumerationWidget';
 
 const widgets = {
 	// fieldsets
@@ -34,6 +35,7 @@ const widgets = {
 	// fields
 	button: Button,
 	checkbox: CheckBox,
+	enumeration: EnumerationWidget,
 	file: File,
 	number: Text,
 	password: Text,

@@ -1,0 +1,41 @@
+{
+  "doc": "MultiSelectTag/README.md",
+  "jsonSchema": {
+    "type": "object",
+    "title": "MultiSelectTag",
+    "properties": {
+      "dictionary": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "values": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+
+        }
+      }
+    }
+  },
+  "uiSchema": [
+    {
+      "widget": "fieldset",
+      "title": "test",
+      "items": [
+        {
+          "key": "dictionary.items",
+          "widget": "enumeration"
+        }
+      ]
+    }
+  ],
+  "properties": {
+    "dictionary": {
+      "items": [{ "values": ["1"]}, { "values": ["2"]}]
+    }
+  }
+}

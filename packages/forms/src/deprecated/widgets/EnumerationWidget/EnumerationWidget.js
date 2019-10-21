@@ -8,6 +8,7 @@ import { withTranslation } from 'react-i18next';
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
+import FieldTemplate from '../../../UIForm/fields/FieldTemplate';
 
 const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
 const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
@@ -95,7 +96,7 @@ class EnumerationForm extends React.Component {
 				icon: 'talend-check',
 				id: 'validate',
 				key: 'validate',
-				onClick: this.onAddHandler.bind(this),
+				onClick: this.onSingleAddHandler.bind(this),
 			},
 			{
 				label: t('ENUMERATION_WIDGET_ABORT', { defaultValue: 'Abort' }),
@@ -231,7 +232,7 @@ class EnumerationForm extends React.Component {
 			headerDefault: this.defaultHeaderActions,
 			headerSelected: this.selectedHeaderActions,
 			headerInput: this.addInputs,
-			items: (props.formData || []).map(item => ({
+			items: (props.value || []).map(item => ({
 				id: item.id,
 				values: item.values,
 			})),
@@ -253,7 +254,7 @@ class EnumerationForm extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		this.setState(prevState => ({ ...prevState, items: nextProps.formData }));
+		this.setState(prevState => ({ ...prevState, items: nextProps.value }));
 	}
 
 	onImportAppendClick() {
@@ -313,6 +314,11 @@ class EnumerationForm extends React.Component {
 	onDeleteItem(event, value) {
 		// dont want to fire select item on icon click
 		event.stopPropagation();
+		const payload = {
+			schema: this.props.schema,
+			value: this.state.items.filter((item, index) => index !== value.index),
+		};
+		this.props.onChange(event, payload);
 		if (
 			this.callActionHandler(
 				ENUMERATION_REMOVE_ACTION,
@@ -516,7 +522,9 @@ class EnumerationForm extends React.Component {
 	}
 
 	onAddKeyDown(event, value) {
+		console.log('on add keydown');
 		if (event.keyCode === keycode('enter')) {
+			console.log('in enter');
 			event.stopPropagation();
 			event.preventDefault();
 			if (this.state.displayMode === DISPLAY_MODE_ADD) {
@@ -524,6 +532,7 @@ class EnumerationForm extends React.Component {
 			}
 		}
 		if (event.keyCode === keycode('escape')) {
+			console.log('in escape');
 			event.stopPropagation();
 			event.preventDefault();
 			this.onAbortHandler();
@@ -577,6 +586,11 @@ class EnumerationForm extends React.Component {
 				itemsToDelete.push(item.id);
 			}
 		});
+		const payload = {
+			schema: this.props.schema,
+			value: this.state.items.filter(item => !item.isSelected),
+		};
+		this.props.onChange(event, payload);
 		if (
 			this.callActionHandler(
 				ENUMERATION_REMOVE_ACTION,
@@ -605,7 +619,13 @@ class EnumerationForm extends React.Component {
 		});
 	}
 
-	onValidateAndAddHandler(event, value) {
+	onAddHandler(event, value, successHandler, failHandler) {
+		const { schema, properties, errors } = this.props;
+		// const payload = {
+		// 	schema: this.props.schema,
+		// 	value: this.props.value.concat({ values: value.value}),
+		// };
+		// this.props.onChange(event, payload);
 		if (!value.value) {
 			this.setState({
 				displayMode: DISPLAY_MODE_DEFAULT,
@@ -613,74 +633,125 @@ class EnumerationForm extends React.Component {
 			return;
 		}
 
-		if (
-			this.callActionHandler(
-				ENUMERATION_ADD_ACTION,
-				this.constructor.parseStringValueToArray(value.value),
-				this.validateAndAddSuccessHandler.bind(this),
-				this.addFailHandler.bind(this),
-			)
-		) {
-			this.setState({
-				headerInput: this.loadingInputsActions,
-			});
+		this.setState({
+			headerInput: this.loadingInputsActions,
+		});
+
+		this.props.onTrigger(event, {
+			trigger: { value: this.constructor.parseStringValueToArray(value.value), action: ENUMERATION_ADD_ACTION },
+			schema,
+		}).then((newDocument) => {
+			console.log('add resolving');
+			const payload = {
+				schema: this.props.schema,
+				value: this.props.value.concat(newDocument),
+			};
+			this.props.onChange(event, payload);
 			this.input.focus();
-		} else if (!this.valueAlreadyExist(value.value, this.state)) {
-			this.setState(prevState => {
-				const items = prevState.items.concat([
-					{
-						values: this.constructor.parseStringValueToArray(value.value),
-					},
-				]);
-				return { items, inputValue: '' };
-			});
-			this.updateHeaderInputDisabled('');
-			this.input.focus();
-		}
+			successHandler();
+		}, () => {
+			failHandler();
+		});
 	}
 
-	onAddHandler(event, value) {
-		if (!value.value) {
-			this.setState({
-				displayMode: DISPLAY_MODE_DEFAULT,
-			});
-			return;
-		}
+	onValidateAndAddHandler(event, value) {
+		this.onAddHandler(
+			event,
+			value,
+			this.validateAndAddSuccessHandler.bind(this),
+			this.addFailHandler.bind(this)
+		);
+		// const { schema, properties, errors } = this.props;
+		// // const payload = {
+		// // 	schema: this.props.schema,
+		// // 	value: this.props.value.concat({ values: value.value}),
+		// // };
+		// // this.props.onChange(event, payload);
+		// if (!value.value) {
+		// 	this.setState({
+		// 		displayMode: DISPLAY_MODE_DEFAULT,
+		// 	});
+		// 	return;
+		// }
+		//
+		// this.setState({
+		// 	headerInput: this.loadingInputsActions,
+		// });
+		//
+		// this.props.onTrigger(event, {
+		// 	trigger: { value: this.constructor.parseStringValueToArray(value.value), action: ENUMERATION_ADD_ACTION },
+		// 	schema,
+		// }).then((newDocument) => {
+		// 	console.log('add resolving');
+		// 	const payload = {
+		// 		schema: this.props.schema,
+		// 		value: this.props.value.concat(newDocument),
+		// 	};
+		// 	this.props.onChange(event, payload);
+		// 	this.input.focus();
+		// }).finally(() => {
+		// 	this.validateAndAddSuccessHandler();
+		// });
+	}
 
-		if (
-			this.callActionHandler(
-				ENUMERATION_ADD_ACTION,
-				this.constructor.parseStringValueToArray(value.value),
-				this.addSuccessHandler.bind(this),
-				this.addFailHandler.bind(this),
-			)
-		) {
-			this.setState({
-				headerInput: this.loadingInputsActions,
-			});
-		} else if (!this.valueAlreadyExist(value.value, this.state)) {
-			this.setState(prevState => ({
-				displayMode: 'DISPLAY_MODE_DEFAULT',
-				items: prevState.items.concat([
-					{
-						values: this.constructor.parseStringValueToArray(value.value),
-					},
-				]),
-			}));
-			this.updateHeaderInputDisabled('');
-		}
+	onSingleAddHandler(event, value) {
+		this.onAddHandler(
+			event,
+			value,
+			this.addSuccessHandler.bind(this),
+			this.addFailHandler.bind(this)
+		);
+		// if (!value.value) {
+		// 	this.setState({
+		// 		displayMode: DISPLAY_MODE_DEFAULT,
+		// 	});
+		// 	return;
+		// }
+		//
+		// if (
+		// 	this.callActionHandler(
+		// 		ENUMERATION_ADD_ACTION,
+		// 		this.constructor.parseStringValueToArray(value.value),
+		// 		this.addSuccessHandler.bind(this),
+		// 		this.addFailHandler.bind(this),
+		// 	)
+		// ) {
+		// 	this.setState({
+		// 		headerInput: this.loadingInputsActions,
+		// 	});
+		// } else if (!this.valueAlreadyExist(value.value, this.state)) {
+		// 	this.setState(prevState => ({
+		// 		displayMode: 'DISPLAY_MODE_DEFAULT',
+		// 		items: prevState.items.concat([
+		// 			{
+		// 				values: this.constructor.parseStringValueToArray(value.value),
+		// 			},
+		// 		]),
+		// 	}));
+		// 	this.updateHeaderInputDisabled('');
+		// }
 	}
 
 	// lazy loading
 	onLoadData() {
-		if (
-			this.callActionHandler(ENUMERATION_LOAD_DATA_ACTION, undefined, this.onLazyHandler.bind(this))
-		) {
-			this.setState({
-				headerDefault: this.loadingInputsActions,
-				headerInput: this.loadingInputsActions,
-			});
-		}
+		const { schema, properties, errors } = this.props;
+		this.setState({
+			headerDefault: this.loadingInputsActions,
+			headerInput: this.loadingInputsActions,
+		});
+		this.props.onTrigger(event, {
+			trigger: { searchId: 'cocobongo', page: '4', action: 'SEARCH_DOCUMENTS_NEXT_PAGE' },
+			schema,
+		}).then((res) => {
+			console.log('resolving');
+		}).finally(() => {
+			this.onLazyHandler();
+		});
+		// if (
+		// 	this.callActionHandler(ENUMERATION_LOAD_DATA_ACTION, undefined, this.onLazyHandler.bind(this))
+		// ) {
+		//
+		// }
 	}
 
 	onImportButtonClick() {
@@ -815,6 +886,15 @@ class EnumerationForm extends React.Component {
 	}
 
 	searchItems(searchCriteria) {
+		const { schema, properties, errors } = this.props;
+		console.log(searchCriteria);
+		this.props.onTrigger(event, {
+			trigger: { searchId: 'cocobongo', page: '4', action: 'SEARCH_DOCUMENTS' },
+			schema,
+		}).then((res) => {
+			console.log('resolving');
+		});
+
 		if (!searchCriteria) {
 			return this.state.items;
 		}
@@ -900,16 +980,24 @@ class EnumerationForm extends React.Component {
 	render() {
 		let items = this.state.items;
 		// filter items only in non-connected mode, since in connected mode items are up-to-date
-		if (!this.constructor.isConnectedMode(this.props.registry)) {
-			items = this.searchItems(this.state.searchCriteria);
-		}
+		// if (!this.constructor.isConnectedMode(this.props.registry)) {
+		// 	items = this.searchItems(this.state.searchCriteria);
+		// }
 		const stateToShow = { ...this.state, items };
+		const { autoFocus, description, options, readOnly = false, required, title } = this.props.schema;
 
 		return (
-			<div>
+			<FieldTemplate
+				description={description}
+				// errorMessage={errorMessage}
+				// id={id}
+				// isValid={isValid}
+				label={title}
+				required={required}
+			>
 				{this.allowImport && this.renderImportFile()}
 				<Enumeration {...stateToShow} />
-			</div>
+			</FieldTemplate>
 		);
 	}
 }
