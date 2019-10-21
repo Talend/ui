@@ -401,4 +401,27 @@ storiesOf('DatePicker', module)
 				/>
 			</form>
 		</div>
-	));
+	))
+	.add('Date Range picker - no input', () => {
+		const blockStyle = { border: '1px solid black', marginRight: '1rem' };
+		return (
+			<div>
+				<h1>DateRangePicker without input</h1>
+				<IconsProvider />
+				<div style={{ display: 'flex', alignItems: 'flex-start' }}>
+					<div>
+						<h2>Date</h2>
+						<div style={blockStyle}>
+							<DateManager id="simple" onChange={action('onChange')}>
+								<DatePicker
+									startDate={new Date(2019, 9, 24)}
+									endDate={new Date(2019, 9, 27)}
+									from
+								/>
+							</DateManager>
+						</div>
+					</div>
+				</div>
+			</div>
+		);
+	});

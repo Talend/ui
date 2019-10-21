@@ -17,7 +17,7 @@ function getDisabledChecker(disabledDates) {
 
 describe('DatePicker', () => {
 	const YEAR = 2018;
-	const MONTH_INDEX = 5; // month July
+	const MONTH_INDEX = 5; // month June
 	// last 4 days of May will be showed in current calendar month
 	const numOfPreviousDaysInCurrentCalendar = 4;
 
@@ -139,6 +139,45 @@ describe('DatePicker', () => {
 				.at(5 + numOfPreviousDaysInCurrentCalendar)
 				.prop('disabled'),
 		).toBe(true);
+	});
+
+	it('should highlight date range', () => {
+		// given
+		const calendar = { year: YEAR, monthIndex: MONTH_INDEX };
+
+		// when
+		const wrapper = mount(
+			<DatePicker
+				calendar={calendar}
+				onSelect={jest.fn()}
+				goToPreviousMonth={jest.fn()}
+				goToNextMonth={jest.fn()}
+				startDate={new Date(2018, 5, 1)}
+				endDate={new Date(2018, 5, 3)}
+			/>,
+		);
+
+		// then
+		expect(
+			wrapper
+				.find('.tc-date-picker-day')
+				.at(4)
+				.prop('className'),
+		).toContain('theme-selected');
+
+		expect(
+			wrapper
+				.find('.tc-date-picker-day')
+				.at(6)
+				.prop('className'),
+		).toContain('theme-selected');
+
+		expect(
+			wrapper
+				.find('.tc-date-picker-day')
+				.at(5)
+				.prop('className'),
+		).toContain('theme-range');
 	});
 
 	it('should select date', () => {

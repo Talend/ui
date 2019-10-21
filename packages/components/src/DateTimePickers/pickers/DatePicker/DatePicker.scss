@@ -31,6 +31,10 @@
 	height: 3.6rem;
 	text-align: center;
 
+	.date-range {
+		background-color: tint($lochmara, 80%);
+	}
+
 	.calendar-day {
 		&.today {
 			background-color: tint($lochmara, 90%);
@@ -50,6 +54,14 @@
 
 		&.not-current-month {
 			opacity: 0.54;
+		}
+
+		&.range {
+			background-color: tint($lochmara, 80%);
+		}
+
+		&.range:hover {
+			background-color: tint($lochmara, 70%);
 		}
 	}
 }

@@ -16,9 +16,18 @@ class CalendarPicker extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const selectedDate = props.selectedDate;
+		const { selectedDate, startDate, endDate, from, to } = props;
 
-		const initialCalendarDate = selectedDate === undefined ? new Date() : selectedDate;
+		let initialCalendarDate = selectedDate;
+		if (initialCalendarDate === undefined) {
+			if (from && startDate) {
+				initialCalendarDate = startDate;
+			} else if (to && endDate) {
+				initialCalendarDate = endDate;
+			} else {
+				initialCalendarDate = new Date();
+			}
+		}
 
 		this.state = {
 			isDateView: true,
@@ -27,6 +36,8 @@ class CalendarPicker extends React.Component {
 				year: getYear(initialCalendarDate),
 			},
 			selectedDate,
+			startDate,
+			endDate,
 			allowFocus: !props.manageFocus,
 		};
 
@@ -143,6 +154,8 @@ class CalendarPicker extends React.Component {
 					onSelectMonthYear={this.onSelectCalendarMonthYear}
 					onTitleClick={this.setMonthYearView}
 					selectedDate={this.state.selectedDate}
+					startDate={this.state.startDate}
+					endDate={this.state.endDate}
 				/>
 			);
 		} else {
@@ -205,6 +218,22 @@ CalendarPicker.propTypes = {
 	 * Current selected date
 	 */
 	selectedDate: PropTypes.instanceOf(Date),
+	/**
+	 * start day of date range
+	 */
+	startDate: PropTypes.instanceOf(Date),
+	/**
+	 * end day of date range
+	 */
+	endDate: PropTypes.instanceOf(Date),
+	/**
+	 * field for picking date range start
+	 */
+	from: PropTypes.bool,
+	/**
+	 * field for picking date range end
+	 */
+	to: PropTypes.bool,
 	/**
 	 * Callback triggered when date is selected
 	 */
