@@ -1,4 +1,4 @@
-import { TabBar } from '@talend/react-components';
+import TabBar from '@talend/react-components/lib/TabBar';
 import { DEFAULT_STATE } from './TabBar.connect';
 
 /**

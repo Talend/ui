@@ -1,7 +1,7 @@
 import React from 'react';
 import { cmfConnect } from '@talend/react-cmf';
 import { Map } from 'immutable';
-import { Breadcrumbs } from '@talend/react-components';
+import Breadcrumbs from '@talend/react-components/lib/Breadcrumbs';
 
 const DEFAULT_STATE = new Map();
 

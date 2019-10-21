@@ -25,6 +25,7 @@ $toggle-button-padding: $padding-small;
 	flex-direction: column;
 	overflow-x: hidden;
 	background: $list-item-reverse-color;
+	overflow: hidden;
 
 	&,
 	> ul {
@@ -32,7 +33,10 @@ $toggle-button-padding: $padding-small;
 		transition: 0.2s min-width ease-out;
 	}
 
-	.tc-side-panel-list {
+	.action-list-container {
+		flex: 1;
+		height: calc(100% - 7rem); // specific to Safari
+
 		:global .tc-action-list-item {
 			.btn.btn-link {
 				height: $list-item-height;
@@ -56,6 +60,7 @@ $toggle-button-padding: $padding-small;
 		padding-bottom: 0;
 		padding-left: $toggle-button-padding;
 		text-align: left;
+		flex: 0 0 7rem;
 
 		:global {
 			.btn.btn-link {

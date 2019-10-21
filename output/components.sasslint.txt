@@ -49,5 +49,5 @@ src/List/Toolbar/Toolbar.scss
 src/Typeahead/Typeahead.scss
   32:5  error  Mixins should come before declarations  mixins-before-declarations
 
-✖ 32 problems (9 errors, 23 warnings)
+✖ 10 problems (8 errors, 2 warnings)
 

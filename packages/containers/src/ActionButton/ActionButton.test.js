@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ActionButton } from '@talend/react-components';
+import ActionButton from '@talend/react-components/lib/Actions/ActionButton';
 import mock from '@talend/react-cmf/lib/mock';
 
 import Connected, {

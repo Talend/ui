@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { cmfConnect } from '@talend/react-cmf';
-import { ConfirmDialog } from '@talend/react-components';
+import ConfirmDialog from '@talend/react-components/lib/ConfirmDialog';
 import { Trans, withTranslation } from 'react-i18next';
 import getDefaultT from '../translate';
 import I18N_DOMAIN_CONTAINERS from '../constant';
