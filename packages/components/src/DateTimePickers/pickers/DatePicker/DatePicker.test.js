@@ -158,18 +158,21 @@ describe('DatePicker', () => {
 		);
 
 		// then
-		const start = wrapper.find('.tc-date-picker-day').at(4);
+		const startDate = wrapper.find('.tc-date-picker-day').at(4);
+		const startDateTableCell = wrapper.find('td').at(4);
 
-		expect(start.prop('className')).toContain('theme-selected');
-		expect(start.prop('className')).toContain('theme-range-start');
+		expect(startDate.prop('className')).toContain('theme-selected');
+		expect(startDateTableCell.prop('className')).toContain('theme-range-start');
 
-		const end = wrapper.find('.tc-date-picker-day').at(6);
+		const endDate = wrapper.find('.tc-date-picker-day').at(6);
+		const endDateTableCell = wrapper.find('td').at(6);
 
-		expect(end.prop('className')).toContain('theme-selected');
-		expect(end.prop('className')).toContain('theme-range-end');
+		expect(endDate.prop('className')).toContain('theme-selected');
+		expect(endDateTableCell.prop('className')).toContain('theme-range-end');
 
-		const middle = wrapper.find('.tc-date-picker-day').at(5);
-		expect(middle.prop('className')).toContain('theme-range');
+		const middleTableCell = wrapper.find('td').at(5);
+		expect(middleTableCell.prop('className')).toContain('theme-date-range');
+		expect(middleTableCell.prop('className')).toContain('theme-range-middle');
 	});
 
 	it('should select date', () => {
