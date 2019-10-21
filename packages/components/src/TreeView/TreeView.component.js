@@ -11,6 +11,8 @@ import classNames from 'classnames';
 import { Action } from '../';
 import TreeViewItem from './TreeViewItem';
 import Foldable from './renderers/Foldable';
+import ThreeState from './renderers/ThreeState';
+import nodeSelectionHandler from './extensions/selectDown';
 
 import theme from './TreeView.scss';
 import withTreeGesture from '../Gesture/withTreeGesture';
@@ -185,6 +187,8 @@ export const DELETABLE_IN_ROOT = {
 	},
 };
 
+const SELECT = 3;
+
 export const DELETABLE_CHILDREN = EXPANDED_CHILDREN;
 
 export const Nodes = [EXPANDED_NODE_IN_ROOT, COLLAPSED_NODE_IN_ROOT, DELETABLE_IN_ROOT];
@@ -252,11 +256,19 @@ function TreeView(props) {
 				defaultHeight={500}
 				defaultWidth={500}
 				onChange={handleChange}
+				extensions={{
+					updateTypeHandlers: {
+						[SELECT]: nodeSelectionHandler,
+						2: nodeSelectionHandler,
+					},
+				}}
 			>
 				{({ style, node, ...p }) => (
 					<div style={style}>
 						<Foldable node={node} {...rest} {...p}>
-							{nodeNameRenderer({ node, p })}
+							<ThreeState node={node} {...rest} {...p}>
+								{nodeNameRenderer({ node, p })}
+							</ThreeState>
 						</Foldable>
 					</div>
 				)}
@@ -264,7 +276,6 @@ function TreeView(props) {
 		</div>
 	);
 }
-
 
 //<Expandable node={node} {...rest}>
 //{nodeNameRenderer({ node, p })}
