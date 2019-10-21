@@ -54,67 +54,16 @@ describe('onError', () => {
 			});
 			const info = onError.getReportInfo(new Error('my'));
 			expect(info.actions.length).toBe(1);
-			expect(info.actions[0]).toEqual({
-				type: 'FOO',
-				password: expect.anything(),
-				value: null,
-				other: false,
-				number: 0,
-				NaN,
-			});
-			expect(info.actions[0].password).not.toBe('secret');
+			expect(info.actions[0]).toBe('FOO');
 		});
 		it('should keep last 20 actions', () => {
 			// eslint-disable-next-line no-plusplus
-			for (let index = 0; index < 30; index++) {
+			for (let index = 0; index < 210; index++) {
 				onError.addAction({ type: `FOO ${index}`, password: 'secret' });
 			}
 			const info = onError.getReportInfo(new Error('my'));
-			expect(info.actions.length).toBe(20);
-			expect(info.actions[0]).toMatchObject({
-				type: 'FOO 10',
-				password: expect.anything(),
-			});
-		});
-		it('should delete props of DID_MOUNT_SAGA_START', () => {
-			onError.addAction({ type: 'DID_MOUNT_SAGA_START', props: {} });
-			const info = onError.getReportInfo(new Error('my'));
-			expect(info.actions.length).toBe(1);
-			expect(info.actions[0].props).toBeUndefined();
-		});
-		it('should delete settings of REACT_CMF.REQUEST_SETTINGS_OK', () => {
-			onError.addAction({ type: 'REACT_CMF.REQUEST_SETTINGS_OK', settings: {} });
-			const info = onError.getReportInfo(new Error('my'));
-			expect(info.actions.length).toBe(1);
-			expect(info.actions[0].settings).toBeUndefined();
-		});
-		it('should delete settings of REACT_CMF.REQUEST_SETTINGS_OK', () => {
-			onError.addAction({ type: 'FOO', url: config.settingsURL, response: {} });
-			const info = onError.getReportInfo(new Error('my'));
-			expect(info.actions.length).toBe(1);
-			expect(info.actions[0].response).toBeUndefined();
-		});
-		it('should return only type of Event', () => {
-			const event = new Event('click');
-			onError.addAction({ type: 'FOO', event });
-			const info = onError.getReportInfo(new Error('my'));
-			expect(info.actions.length).toBe(1);
-			expect(info.actions[0].event).not.toBe(event);
-			expect(info.actions[0].event.type).toBe('click');
-			expect(Object.keys(info.actions[0].event).length).toBe(1);
-		});
-		it('should return only type of SyntheticEvent', () => {
-			const onClick = jest.fn();
-			const wrapper = mount(<button onClick={onClick}>clickme</button>);
-			wrapper.simulate('click');
-			expect(onClick).toHaveBeenCalled();
-			const event = onClick.mock.calls[0][0];
-			onError.addAction({ type: 'FOO', event:event });
-			const info = onError.getReportInfo(new Error('my'));
-			expect(info.actions.length).toBe(1);
-			expect(info.actions[0].event).not.toBe(event);
-			expect(info.actions[0].event.type).toBe('click');
-			expect(Object.keys(info.actions[0].event).length).toBe(1);
+			expect(info.actions.length).toBe(200);
+			expect(info.actions[0]).toBe('FOO 10');
 		});
 	});
 	describe('report', () => {
