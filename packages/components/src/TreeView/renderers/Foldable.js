@@ -19,7 +19,6 @@ const Foldable = ({
 		lastChild: '',
 	},
 }) => {
-	debugger;
 	const { hasChildren, isExpanded } = getNodeRenderOptions(node);
 	/*const className = classNames({
 		[iconsClassNameMap.expanded]: hasChildren && isExpanded,
@@ -30,7 +29,7 @@ const Foldable = ({
 	const handleChange = () => onChange({ ...updateNode(node, { expanded: !isExpanded }), index });
 
 	return (
-		<span onDoubleClick={handleChange}>
+		<span>
 			{hasChildren && (
 				<Action
 					key="toggle"

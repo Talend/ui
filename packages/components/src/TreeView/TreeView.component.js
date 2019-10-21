@@ -201,7 +201,7 @@ function TreeView(props) {
 		...rest
 	} = props;
 	const containerStyle = props.style;
-	const [nodes, setNodes] = useState([]);
+	const [nodes, setNodes] = useState(Nodes);
 	const titleId = id && `${id}-title`;
 
 	function nodeNameRenderer(rendererProps) {
@@ -246,7 +246,7 @@ function TreeView(props) {
 		>
 			<TreeViewHeader {...rest} id={id} titleId={titleId} headerRenderer={headerRenderer} />
 			<VTree
-				nodes={Nodes}
+				nodes={nodes}
 				height={500}
 				width={500}
 				defaultHeight={500}
@@ -255,7 +255,7 @@ function TreeView(props) {
 			>
 				{({ style, node, ...p }) => (
 					<div style={style}>
-						<Foldable node={node} {...rest}>
+						<Foldable node={node} {...rest} {...p}>
 							{nodeNameRenderer({ node, p })}
 						</Foldable>
 					</div>
