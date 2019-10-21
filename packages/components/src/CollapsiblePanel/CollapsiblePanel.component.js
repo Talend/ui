@@ -156,6 +156,7 @@ function CollapsiblePanelHeader(props) {
 
 		const defaultCaret = (
 			<ActionIconToggle
+				key={`collapse_header_${id}`}
 				aria-expanded={expanded}
 				className={classNames(css.toggle, 'toggle')}
 				onClick={onToggle}
