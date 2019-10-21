@@ -116,11 +116,17 @@ function prepareObject(originalState) {
  * so as the dev will have as much information as possible
  */
 function getReportInfo(error) {
+	let uiState;
+	try {
+		uiState = prepareObject(ref.store.getState());
+	} catch (e) {
+		uiState = {};
+	}
 	return {
 		time: new Date().toISOString(),
 		browser: navigator.userAgent,
 		location: location.href,
-		uiState: prepareObject(ref.store.getState()),
+		uiState,
 		error: {
 			message: error.message,
 			name: error.name,
@@ -188,7 +194,12 @@ function addAction(action) {
 		} else if (safeAction.url === ref.settingsURL) {
 			delete safeAction.response;
 		}
-		safeAction = prepareObject(safeAction);
+		try {
+			safeAction = prepareObject(safeAction);
+		} catch (e) {
+			safeAction = {};
+		}
+
 		ref.actions.push(safeAction);
 	} catch (error) {
 		// eslint-disable-next-line no-console
