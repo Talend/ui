@@ -118,10 +118,11 @@ class DatePicker extends React.PureComponent {
 								const shouldBeFocussable =
 									(selectedInCurrentCalendar && selected) ||
 									(!selectedInCurrentCalendar && day === 1);
+
 								const isStart = isSameDay(date, startDate);
 								const isEnd = isSameDay(date, endDate);
 								const isMiddle = isWithinRange(date, addDays(startDate, 1), subDays(endDate, 1));
-								const isInRange = isWithinRange(date, startDate, endDate);
+								const isInRange = isStart || isMiddle || isEnd;
 
 								const className = classNames(
 									theme['calendar-day'],
