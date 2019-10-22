@@ -368,9 +368,10 @@ class Datalist extends Component {
 				groups = groups
 					.map(group => ({
 						...group,
-						suggestions: value && value !== this.state.previousValue
-							? group.suggestions.filter(item => regex.test(item.name))
-							: group.suggestions,
+						suggestions:
+							value && value !== this.state.previousValue
+								? group.suggestions.filter(item => regex.test(item.name))
+								: group.suggestions,
 					}))
 					.filter(group => group.suggestions.length > 0);
 			} else {
