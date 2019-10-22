@@ -61,12 +61,14 @@ import RichLayout from './RichTooltip/RichLayout';
 import RichError from './RichTooltip/RichError';
 
 // eslint-disable-next-line no-console
-console.warn(`DEPRECATED:
-  Please consider '@talend/react-components' global import as deprecated
-  You should not anymore rely on it.
-  It increase the bundle size for nothing.
-  You should pick the component you need on by one as with lodash:
-  import List from @talend/react-components/lib/List';`);
+if (process.env.NODE_ENV !== 'production') {
+	console.warn(`DEPRECATED:
+	  Please consider '@talend/react-components' global import as deprecated
+	  You should not anymore rely on it.
+	  It increase the bundle size for nothing.
+	  You should pick the component you need on by one as with lodash:
+	  import List from @talend/react-components/lib/List';`);
+}
 
 const {
 	Alert,
