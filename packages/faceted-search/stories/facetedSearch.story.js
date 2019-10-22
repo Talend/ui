@@ -34,7 +34,15 @@ const badgeConnectionType = {
 	metadata: {
 		badges_per_facet: '1',
 		entities_per_badge: 'N',
-		operators: ['contains'],
+		values: [
+			{ id: 'amazon_s3', label: 'Amazon S3' },
+			{ id: 'hdfs', label: 'HDFS' },
+			{ id: 'kafka', label: 'Kafka' },
+			{ id: 'localcon', label: 'Local connection' },
+			{ id: 'salesforce', label: 'Salesforce' },
+			{ id: 'aws_kinesis', label: 'AWS kinesis' },
+		],
+		operators: ['='],
 	},
 };
 

@@ -54,6 +54,7 @@ const BadgeFaceted = ({
 	};
 
 	const onChangeValue = (_, entityValue) => {
+		console.log({ entityValue });
 		setBadgeValue(entityValue);
 	};
 

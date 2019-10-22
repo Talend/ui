@@ -15,6 +15,7 @@ export const BadgeSelect = ({
 	operators,
 	size,
 	value,
+	values,
 	t,
 }) => {
 	const currentOperators = useMemo(() => operators, [operators]);
@@ -32,7 +33,7 @@ export const BadgeSelect = ({
 			operators={currentOperators}
 			size={size}
 			t={t}
-			value={value || ''}
+			value={value || []}
 		>
 			{({ onSubmitBadge, onChangeValue, badgeValue }) => (
 				<BadgeSelectInput
@@ -40,6 +41,7 @@ export const BadgeSelect = ({
 					onChange={onChangeValue}
 					onSubmit={onSubmitBadge}
 					value={badgeValue}
+					values={values}
 					t={t}
 				/>
 			)}
