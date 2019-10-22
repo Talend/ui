@@ -34,29 +34,24 @@
 	.date-range {
 		position: relative;
 
-		&.range-start,
-		&.range-middle {
-			&::after {
-				content: ' ';
-				position: absolute;
-				height: 2.4rem;
-				width: 50%;
-				right: 0;
-				z-index: -1;
-				background-color: tint($lochmara, 80%);
-			}
+		&.range-start:after,
+		&.range-middle:after,
+		&.range-end:before,
+		&.range-middle:before {
+			content: ' ';
+			position: absolute;
+			height: 2.4rem;
+			width: 50%;
+			z-index: -1;
+			background-color: tint($lochmara, 80%);
 		}
-		&.range-end,
-		&.range-middle {
-			&::before {
-				content: ' ';
-				position: absolute;
-				height: 2.4rem;
-				width: 50%;
-				left: 0;
-				z-index: -1;
-				background-color: tint($lochmara, 80%);
-			}
+		&.range-start:after,
+		&.range-middle:after {
+			right: 0;
+		}
+		&.range-end:before,
+		&.range-middle:before {
+			left: 0;
 		}
 	}
 
