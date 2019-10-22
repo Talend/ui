@@ -24,7 +24,6 @@ const ref = {
 	},
 };
 
-
 function serialize(error) {
 	const std = {
 		name: error.name,
