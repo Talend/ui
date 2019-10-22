@@ -4,32 +4,6 @@
 src/CollapsiblePanel/CollapsiblePanel.scss
   142:5  error  Mixins should come before declarations  mixins-before-declarations
 
-src/DateTimePickers/pickers/TimePicker/TimePicker.scss
-   2:5   warning  Mixed tabs and spaces  indentation
-   3:5   warning  Mixed tabs and spaces  indentation
-   5:5   warning  Mixed tabs and spaces  indentation
-   6:9   warning  Mixed tabs and spaces  indentation
-   7:9   warning  Mixed tabs and spaces  indentation
-   8:9   warning  Mixed tabs and spaces  indentation
-   9:9   warning  Mixed tabs and spaces  indentation
-  10:9   warning  Mixed tabs and spaces  indentation
-  11:9   warning  Mixed tabs and spaces  indentation
-  13:9   warning  Mixed tabs and spaces  indentation
-  14:13  warning  Mixed tabs and spaces  indentation
-  17:9   warning  Mixed tabs and spaces  indentation
-  18:9   warning  Mixed tabs and spaces  indentation
-  19:13  warning  Mixed tabs and spaces  indentation
-  20:13  warning  Mixed tabs and spaces  indentation
-
-src/DateTimePickers/TimeZone/TimeZone.scss
-  2:5   warning  Mixed tabs and spaces           indentation
-  3:5   warning  Mixed tabs and spaces           indentation
-  4:5   warning  Mixed tabs and spaces           indentation
-  6:5   warning  Mixed tabs and spaces           indentation
-  7:9   warning  Mixed tabs and spaces           indentation
-  7:18  error    Trailing semicolons required    trailing-semicolon
-  9:1   warning  Files must end with a new line  final-newline
-
 src/Drawer/Drawer.scss
   15:4  warning  Statement must begin on a new line  brace-style
 
@@ -49,5 +23,5 @@ src/List/Toolbar/Toolbar.scss
 src/Typeahead/Typeahead.scss
   32:5  error  Mixins should come before declarations  mixins-before-declarations
 
-✖ 32 problems (9 errors, 23 warnings)
+✖ 10 problems (8 errors, 2 warnings)
 

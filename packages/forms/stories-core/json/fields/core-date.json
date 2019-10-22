@@ -28,6 +28,12 @@
       "dateTimeTimezone": {
         "type": "string",
         "format": "iso-datetime"
+      },
+      "time": {
+        "type": "string"
+      },
+      "timeWithSeconds": {
+        "type": "string"
       }
     },
     "required": ["dateAsString"]
@@ -80,6 +86,19 @@
       "options": {
         "useSeconds": true,
         "timezone": "America/New_York"
+      }
+    },
+    {
+      "key": "time",
+      "title": "Time",
+      "widget": "time"
+    },
+    {
+      "key": "timeWithSeconds",
+      "title": "Time with seconds",
+      "widget": "time",
+      "options": {
+        "useSeconds": true
       }
     }
   ],
