@@ -228,6 +228,7 @@ class EnumerationForm extends React.Component {
 		this.state = {
 			inputRef: this.setInputRef.bind(this),
 			displayMode: defaultDisplayMode,
+			searchCriteria: '',
 			required: (props.schema && props.schema.required) || false,
 			headerDefault: this.defaultHeaderActions,
 			headerSelected: this.selectedHeaderActions,
@@ -533,6 +534,11 @@ class EnumerationForm extends React.Component {
 					searchCriteria: null,
 				});
 				this.onConnectedAbortHandler();
+				this.setState(prevState => ({
+					// since onSearchHandler() is processed asynchronously,
+					// the line below is mandatory to refresh the items (highlight them)
+					items: [...prevState.items],
+				}));
 			});
 		}
 	}
@@ -772,15 +778,26 @@ class EnumerationForm extends React.Component {
 
 	// lazy loading
 	onLoadData() {
-		const { schema, properties, errors } = this.props;
+		const { schema } = this.props;
 		this.setState({
 			headerDefault: this.loadingInputsActions,
 			headerInput: this.loadingInputsActions,
 		});
 		this.props.onTrigger(event, {
-			trigger: { value: '', page: '4', action: 'SEARCH_DOCUMENTS_NEXT_PAGE' },
+			trigger: {
+				value: this.state.searchCriteria,
+				action: 'SEARCH_DOCUMENTS_NEXT_PAGE',
+				numberItems: this.state.items.length
+			},
 			schema,
-		}).then((res) => {
+		}).then((documents) => {
+			const payload = {
+				schema,
+				value: this.props.value.concat(
+					documents.map(document => ({ id: document.id, values: document.values }))
+				),
+			};
+			this.props.onChange(event, payload);
 			console.log('resolving');
 		}).finally(() => {
 			this.onLazyHandler();
@@ -953,7 +970,7 @@ class EnumerationForm extends React.Component {
 	changeDisplayToSearchMode() {
 		this.setState(prevState => ({
 			items: resetItems([...prevState.items]),
-			headerInput: this.addInputs,
+			headerInput: this.searchInputsActions,
 			displayMode: DISPLAY_MODE_SEARCH,
 		}));
 	}
