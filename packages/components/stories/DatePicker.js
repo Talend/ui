@@ -406,20 +406,21 @@ storiesOf('DatePicker', module)
 		const blockStyle = { border: '1px solid black', marginRight: '1rem' };
 		return (
 			<div>
-				<h1>DateRangePicker without input</h1>
 				<IconsProvider />
+				<h1>DateRangePicker without input</h1>
+				<p>You can select range of date.</p>
+				<pre>{`
+<DatePicker
+	startDate={new Date(2019, 9, 24)}
+	endDate={new Date(2019, 9, 30)}
+	from
+/>
+			`}</pre>
 				<div style={{ display: 'flex', alignItems: 'flex-start' }}>
-					<div>
-						<h2>Date</h2>
-						<div style={blockStyle}>
-							<DateManager id="simple" onChange={action('onChange')}>
-								<DatePicker
-									startDate={new Date(2019, 9, 24)}
-									endDate={new Date(2019, 9, 27)}
-									from
-								/>
-							</DateManager>
-						</div>
+					<div style={blockStyle}>
+						<DateManager id="simple" onChange={action('onChange')}>
+							<DatePicker startDate={new Date(2019, 9, 24)} endDate={new Date(2019, 9, 30)} from />
+						</DateManager>
 					</div>
 				</div>
 			</div>
