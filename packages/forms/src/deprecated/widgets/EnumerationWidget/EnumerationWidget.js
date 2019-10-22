@@ -459,16 +459,22 @@ class EnumerationForm extends React.Component {
 				clearTimeout(this.timerSearch);
 			}
 			this.timerSearch = setTimeout(() => {
+				const { schema } = this.props;
 				this.timerSearch = null;
-				if (
-					this.callActionHandler(
-						ENUMERATION_SEARCH_ACTION,
-						value.value,
-						this.onSearchHandler.bind(this, value.value),
-					)
-				) {
-					this.setState({
-						headerInput: this.loadingInputsActions,
+				this.setState({
+					headerInput: this.loadingInputsActions,
+				});
+				if (this.props.properties.connectedMode) {
+					this.props.onTrigger(event, {
+						trigger: { value: value.value, action: 'SEARCH_DOCUMENTS' },
+						schema,
+					}).then((documents) => {
+						const payload = {
+							schema,
+							value: documents.map(document => ({ id: document.id, values: document.values })),
+						};
+						this.props.onChange(event, payload);
+						this.onSearchHandler(value.value);
 					});
 				} else {
 					this.setState({
@@ -507,17 +513,28 @@ class EnumerationForm extends React.Component {
 		if (this.state.displayMode === DISPLAY_MODE_ADD) {
 			this.updateHeaderInputDisabled('');
 		}
-		if (
-			this.callActionHandler(ENUMERATION_RESET_LIST, null, this.onConnectedAbortHandler.bind(this))
-		) {
-			this.setState({
-				headerDefault: this.loadingInputsActions,
+
+		const { schema } = this.props;
+		this.setState({
+			headerDefault: this.loadingInputsActions,
+		});
+		if (this.props.properties.connectedMode) {
+			this.props.onTrigger(event, {
+				trigger: { value: '', action: 'SEARCH_DOCUMENTS' },
+				schema,
+			}).then((documents) => {
+				const payload = {
+					schema,
+					value: documents.map(document => ({ id: document.id, values: document.values })),
+				};
+				this.props.onChange(event, payload);
+				this.setState({
+					displayMode: DISPLAY_MODE_DEFAULT,
+					searchCriteria: null,
+				});
+				this.onConnectedAbortHandler();
 			});
 		}
-		this.setState({
-			displayMode: DISPLAY_MODE_DEFAULT,
-			searchCriteria: null,
-		});
 	}
 
 	onConnectedAbortHandler() {
@@ -761,7 +778,7 @@ class EnumerationForm extends React.Component {
 			headerInput: this.loadingInputsActions,
 		});
 		this.props.onTrigger(event, {
-			trigger: { searchId: 'cocobongo', page: '4', action: 'SEARCH_DOCUMENTS_NEXT_PAGE' },
+			trigger: { value: '', page: '4', action: 'SEARCH_DOCUMENTS_NEXT_PAGE' },
 			schema,
 		}).then((res) => {
 			console.log('resolving');
@@ -908,14 +925,6 @@ class EnumerationForm extends React.Component {
 
 	searchItems(searchCriteria) {
 		const { schema, properties, errors } = this.props;
-		console.log(searchCriteria);
-		this.props.onTrigger(event, {
-			trigger: { searchId: 'cocobongo', page: '4', action: 'SEARCH_DOCUMENTS' },
-			schema,
-		}).then((res) => {
-			console.log('resolving');
-		});
-
 		if (!searchCriteria) {
 			return this.state.items;
 		}
