@@ -45,13 +45,17 @@
 			z-index: -1;
 			background-color: tint($lochmara, 80%);
 		}
-		&.range-start:after,
-		&.range-middle:after {
-			right: 0;
+		&.range-start,
+		&.range-middle {
+			&:after {
+				right: 0;
+			}
 		}
-		&.range-end:before,
-		&.range-middle:before {
-			left: 0;
+		&.range-end,
+		&.range-middle {
+			&:before {
+				left: 0;
+			}
 		}
 	}
 
