@@ -408,18 +408,17 @@ storiesOf('DatePicker', module)
 			<div>
 				<IconsProvider />
 				<h1>DateRangePicker without input</h1>
-				<p>You can select range of date.</p>
+				<p>DatePicker can display range of date</p>
 				<pre>{`
 <DatePicker
 	startDate={new Date(2019, 9, 24)}
 	endDate={new Date(2019, 9, 30)}
-	from
 />
 			`}</pre>
 				<div style={{ display: 'flex', alignItems: 'flex-start' }}>
 					<div style={blockStyle}>
 						<DateManager id="simple" onChange={action('onChange')}>
-							<DatePicker startDate={new Date(2019, 9, 24)} endDate={new Date(2019, 9, 30)} from />
+							<DatePicker startDate={new Date(2019, 9, 24)} endDate={new Date(2019, 9, 30)} />
 						</DateManager>
 					</div>
 				</div>
