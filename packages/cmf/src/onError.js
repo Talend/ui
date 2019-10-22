@@ -123,9 +123,6 @@ function bootstrap(options, store) {
 	const opt = options.onError || {};
 	ref.serverURL = opt.reportURL;
 	ref.settingsURL = options.settingsURL;
-	if (opt.sensibleKeys) {
-		opt.sensibleKeys.forEach(r => addSensibleKeyRegexp(r));
-	}
 }
 
 /**
