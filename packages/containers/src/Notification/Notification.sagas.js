@@ -22,7 +22,7 @@ export function* onPushNotification(action) {
 }
 
 function* onCMFError(action) {
-	if (process.env.I_RELEASE_WITH_ERROR) {
+	if (process.env.RELEASE_WITH_ERROR && process.env.NODE_ENV === 'production' ) {
 		return;
 	}
 	const error = action.error;
