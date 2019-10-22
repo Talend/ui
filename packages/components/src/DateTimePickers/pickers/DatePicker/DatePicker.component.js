@@ -29,6 +29,13 @@ class DatePicker extends React.PureComponent {
 			buildWeeks,
 			(year, monthIndex, firstDayOfWeek) => `${year}-${monthIndex}|${firstDayOfWeek}`,
 		);
+
+		if (props.selectedDate && (props.startDate || props.endDate)) {
+			// eslint-disable-next-line no-console
+			console.warn(
+				'startDate and endDate are for date range, they cannot be used with selectedDate at the same time',
+			);
+		}
 	}
 
 	isSelectedDate(date) {
@@ -127,6 +134,7 @@ class DatePicker extends React.PureComponent {
 								const className = classNames(
 									theme['calendar-day'],
 									{
+										[theme.range]: isMiddle,
 										[theme.selected]: selected,
 										[theme.today]: today,
 										[theme['not-current-month']]: !this.isCurrentMonth(date),
