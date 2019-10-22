@@ -35,11 +35,6 @@ describe('onError', () => {
 				name: 'Error',
 				stack: expect.anything(),
 			});
-			expect(info.uiState).toMatchObject({
-				foo: { ok: 'should be kept' },
-			});
-			expect(info.uiState.foo.password).not.toBe('secret');
-			expect(info.uiState.foo.password.length).toBe(6);
 		});
 	});
 	describe('addAction', () => {
