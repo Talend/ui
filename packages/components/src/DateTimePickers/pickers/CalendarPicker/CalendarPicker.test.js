@@ -210,7 +210,12 @@ describe('CalendarPicker', () => {
 		it('should initialize calendar of startDate when pick "from" date', () => {
 			// when
 			const wrapper = shallow(
-				<CalendarPicker startDate={new Date(2013, 0, 15)} onSubmit={() => {}} from />,
+				<CalendarPicker
+					startDate={new Date(2013, 0, 15)}
+					endDate={new Date(2013, 1, 2)}
+					onSubmit={() => {}}
+					from
+				/>,
 			);
 
 			// then
