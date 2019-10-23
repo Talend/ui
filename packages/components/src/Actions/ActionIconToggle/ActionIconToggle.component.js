@@ -17,7 +17,7 @@ function ActionIconToggle(props) {
 		active,
 	});
 
-	return (
+	return label && label.lenght > 0 ? (
 		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
 			<Button
 				{...getPropsFrom(Button, rest)}
@@ -30,6 +30,17 @@ function ActionIconToggle(props) {
 				<Icon name={icon} transform={iconTransform} />
 			</Button>
 		</TooltipTrigger>
+	) : (
+		<Button
+			{...getPropsFrom(Button, rest)}
+			id={id}
+			className={cn}
+			aria-label={label}
+			aria-pressed={active}
+			bsStyle="link"
+		>
+			<Icon name={icon} transform={iconTransform} />
+		</Button>
 	);
 }
 
