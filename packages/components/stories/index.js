@@ -54,3 +54,4 @@ import './TooltipTrigger';
 import './TreeView';
 import './Typeahead';
 import './VirtualizedList';
+import './VirtualTree';

@@ -55,6 +55,7 @@ import TooltipTrigger from './TooltipTrigger';
 import getTranslated from './TranslateWrapper';
 import Typeahead from './Typeahead';
 import VirtualizedList from './VirtualizedList';
+import VirtualTree from './VirtualTree';
 import WithDrawer from './WithDrawer';
 import Inject from './Inject';
 import RichLayout from './RichTooltip/RichLayout';
@@ -253,5 +254,6 @@ export {
 	Tabs,
 	Thumbnail,
 	Tooltip,
+	VirtualTree,
 	Well,
 };

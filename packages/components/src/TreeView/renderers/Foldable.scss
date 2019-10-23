@@ -1,6 +1,12 @@
 // TreeView styles
 $item-height: 4rem;
 
+.tc-fold-placeholder{
+	width: 59px;
+	height: 35px;
+	display: inline-flex;
+}
+
 .tc-treeview-li {
 	display: flex;
 	align-items: center;
@@ -72,7 +78,7 @@ $item-height: 4rem;
 	.tc-treeview-item:hover,
 	&:focus > .tc-treeview-item {
 		background: rgba($black, 0.05);
-		color: $scooter;
+		color: red;
 
 		.tc-treeview-folder {
 			fill: $lightning-yellow;

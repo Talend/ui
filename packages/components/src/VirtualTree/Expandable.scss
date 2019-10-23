@@ -1,0 +1,26 @@
+/*.tc-expand-placeholder {
+	width: 59px;
+	height: 35px;
+	display: inline-flex;
+}*/
+
+.tc-virtual-treeview-toggle {
+	position: absolute;
+	padding: 0rem;
+	display: inline-flex;
+	min-height: auto;
+	height: 100%;
+	margin-left: 0rem;
+	top: 0;
+    border: 0;
+
+	svg {
+		width: $svg-sm-size;
+		fill: rgba($black, 0.6);
+		margin: 0;
+	}
+
+	&:hover svg {
+		fill: rgba($black, 0.7);
+	}
+}

@@ -8,6 +8,8 @@ import classNames from 'classnames';
 import get from 'lodash/get';
 
 import { Checkbox } from '../../Toggle';
+
+//import { Checkbox } from '../../Toggle/index';
 import theme from './ThreeState.scss';
 
 const SELECT = 3;
@@ -17,43 +19,37 @@ function threeStateFlow(checked) {
 		return false;
 	} else if (checked === true) {
 		return false;
+	} else if (checked === false) {
+		return true;
 	}
 
-	return true;
+	return checked;
 }
 
-const ThreeState = ({ onChange, node, children, index }) => {
-	// debugger;
+const ThreeState = props => {
+	const { onChange, node, children, index } = props;
 	const { hasChildren } = getNodeRenderOptions(node);
 	const selected = get(node, 'state', {}).selected;
-	console.log('three state', selected);
-	console.log('node', node);
-	/*const className = classNames({
-		[iconsClassNameMap.expanded]: hasChildren && isExpanded,
-		[iconsClassNameMap.collapsed]: hasChildren && !isExpanded,
-		[iconsClassNameMap.lastChild]: !hasChildren,
-	});
-*/
-	const updatedSelectionValue = threeStateFlow(selected);
+	//const updatedSelectionValue = selected;
+	const updatedSelectionValue = selected;
+	//const updatedSelectionValue = threeStateFlow(selected);
 	const classname = classNames({
 		[theme['tc-threestate']]: true,
 	});
-	/*const handleChange = () =>
-		onChange({ ...updateNode(node, { checked: updatedSelectionValue }), index });
-	*/
 
-	const onChangeWrapper = () =>
+	const onThreeStateChangeWrapper = () => {
 		onChange({
 			node: {
 				...node,
 				state: {
 					...(node.state || {}),
-					selected: threeStateFlow(selected),
+					selected: updatedSelectionValue,
 				},
 			},
 			type: SELECT,
 		});
-	const expampleHandleChange = () =>
+	};
+	/*	const expampleHandleChange = () =>
 		onChange({
 			node: {
 				...node,
@@ -63,20 +59,21 @@ const ThreeState = ({ onChange, node, children, index }) => {
 				},
 			},
 			type: SELECT,
-		});
+		});*/
 	const id = index && `${index}-toggle`;
 	return (
-		<span>
-			{!hasChildren && (
+		<span style={{ marginLeft: '30px' }}>
+			{
 				<Checkbox
 					key={id}
 					id={id}
-					onChange={onChangeWrapper}
+					onChange={onThreeStateChangeWrapper}
 					tabIndex="-1"
 					checked={updatedSelectionValue}
 					className={classname}
+					intermediate={updatedSelectionValue === 1 || updatedSelectionValue === 'intermediate'}
 				/>
-			)}
+			}
 			{children}
 		</span>
 	);

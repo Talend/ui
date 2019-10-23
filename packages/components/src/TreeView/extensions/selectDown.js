@@ -8,22 +8,21 @@ function threeStateFlow(checked) {
 	return true;
 }
 
-function selectNodes(nodes, checked) {
+function selectNodes(nodes, selected) {
 	return nodes.map(n => ({
 		...n,
-		children: n.children ? selectNodes(n.children, checked) : [],
+		children: n.children ? selectNodes(n.children, selected) : [],
 		state: {
 			...n.state,
-			checked,
+			selected,
 		},
 	}));
 }
-
-export default function nodeSelectionHandler(nodes, updatedNode) {
-	console.log('nodeSelectionHandler', nodes);
+/*
+export default function seledtDownHandler(nodes, updatedNode) {
+	console.log('seledtDownHandler', nodes);
 	console.log('updatedNode', updatedNode);
-
-	debugger;
+	console.log('atm nodes', updatedNode);
 	const updatedNodes = nodes.map(node => {
 		if (node.id === updatedNode.id) {
 			return {
@@ -33,10 +32,11 @@ export default function nodeSelectionHandler(nodes, updatedNode) {
 		}
 
 		if (node.children) {
-			return { ...node, children: nodeSelectionHandler(node.children, updatedNode) };
+			return { ...node, children: seledtDownHandler(node.children, updatedNode) };
 		}
 
 		return node;
 	});
 	return updatedNodes;
 }
+*/

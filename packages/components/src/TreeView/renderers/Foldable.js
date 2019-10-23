@@ -13,23 +13,15 @@ const Foldable = ({
 	node,
 	children,
 	index,
-	iconsClassNameMap = {
-		expanded: 'mi mi-keyboard-arrow-down',
-		collapsed: 'mi mi-keyboard-arrow-right',
-		lastChild: '',
-	},
 }) => {
 	const { hasChildren, isExpanded } = getNodeRenderOptions(node);
-	/*const className = classNames({
-		[iconsClassNameMap.expanded]: hasChildren && isExpanded,
-		[iconsClassNameMap.collapsed]: hasChildren && !isExpanded,
-		[iconsClassNameMap.lastChild]: !hasChildren,
-	});
-*/
-	const handleChange = () => onChange({ ...updateNode(node, { expanded: !isExpanded }), index });
+	const handleChange = () => {
+		console.log("foldable handleChange");
+		return onChange({ ...updateNode(node, { expanded: !isExpanded }), index });
+	}
 
 	return (
-		<span>
+		<div>
 			{hasChildren && (
 				<Action
 					key="toggle"
@@ -45,8 +37,9 @@ const Foldable = ({
 					link
 				/>
 			)}
+			{!hasChildren && <div className={css['tc-fold-placeholder']} />}
 			{children}
-		</span>
+		</div>
 	);
 };
 
