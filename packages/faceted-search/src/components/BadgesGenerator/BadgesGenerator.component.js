@@ -10,8 +10,8 @@ const BadgesGenerator = ({ badges, badgesDictionary, getBadgeFromDict, t }) =>
 		if (BadgeComponent) {
 			acc.push(
 				<BadgeComponent
-					{...properties}
 					{...metadata}
+					{...properties}
 					id={metadata.badgeId}
 					key={metadata.badgeId}
 					t={t}

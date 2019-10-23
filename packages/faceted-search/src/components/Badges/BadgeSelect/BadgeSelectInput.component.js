@@ -20,12 +20,15 @@ const useFilter = () => {
 
 const BadgeSelectCheckbox = ({ id, label, onChange, checked }) => {
 	const describedby = `${id}-${label}`;
+	const onChangeCheckbox = event => {
+		onChange(event, id);
+	};
 	return (
 		<React.Fragment>
 			<Checkbox
-				onChange={onChange}
+				onChange={onChangeCheckbox}
 				aria-describedby={describedby}
-				id={`${id}-checkbox-${label}`}
+				id={`${id}-checkbox`}
 				label={label}
 				checked={checked}
 			/>
@@ -37,52 +40,56 @@ const BadgeSelectCheckbox = ({ id, label, onChange, checked }) => {
 };
 
 //TODO: dont forget data-feature for each box
-const BadgeSelectInput = ({ id, onChange, onSubmit, value, values, t }) => {
+const BadgeSelectInput = ({ id, onChange, onSubmit, value, checkboxValues, t }) => {
 	const [filter, onFilter, resetFilter] = useFilter();
 	const badgeSelectInputId = `${id}-input`;
-	const checkboxValues = values.map(checkbox => {
+	const checkboxes = checkboxValues.map(checkbox => {
 		const entity = value.find(v => v.id === checkbox.id);
 		return {
 			id: checkbox.id,
 			label: checkbox.label,
-			checked: entity ? entity.checked : checkbox.checked,
+			checked: entity ? entity.checked : checkbox.checked || false,
 		};
 	});
 
-	const onChangeCheckBoxes = (event, checkboxId, checked) => {
-		const entity = checkboxValues.find(checkboxValue => checkboxValue.id === checkboxId);
-		entity.checked = checked;
-		onChange(event, checkboxValues);
+	const onChangeCheckBoxes = (event, checkboxId) => {
+		const entity = checkboxes.find(checkboxValue => checkboxValue.id === checkboxId);
+		if (entity) {
+			entity.checked = event.target.checked;
+		}
+		onChange(event, checkboxes.filter(c => c.checked));
 	};
 	return (
-		<form id={`${badgeSelectInputId}-form`} onSubmit={onSubmit}>
-			<RichLayout.Body id={id}>
-				<FilterBar
-					autoFocus={false}
-					dockable={false}
-					docked={false}
-					iconAlwaysVisible
-					id={`${id}-filter`}
-					placeholder={t('FIND_COLUMN_FILTER_PLACEHOLDER', {
-						defaultValue: 'Find a column',
-					})}
-					onToggle={resetFilter}
-					onFilter={onFilter}
-					value={filter}
-				/>
-				{checkboxValues.map(({ label, checked }) => (
-					<BadgeSelectCheckbox
-						id={badgeSelectInputId}
-						onChange={onChangeCheckBoxes}
-						label={label}
-						checked={checked}
-					/>
-				))}
-			</RichLayout.Body>
-			<RichLayout.Footer id={id}>
-				<Action type="submit" label={t('APPLY', { defaultValue: 'Apply' })} bsStyle="info" />
-			</RichLayout.Footer>
-		</form>
+		<React.Fragment>
+			<FilterBar
+				autoFocus={false}
+				dockable={false}
+				docked={false}
+				iconAlwaysVisible
+				id={`${id}-filter`}
+				placeholder={t('FIND_COLUMN_FILTER_PLACEHOLDER', {
+					defaultValue: 'Find a column',
+				})}
+				onToggle={resetFilter}
+				onFilter={onFilter}
+				value={filter}
+			/>
+			<form id={`${badgeSelectInputId}-form`} onSubmit={onSubmit}>
+				<RichLayout.Body id={id}>
+					{checkboxes.map(checkbox => (
+						<BadgeSelectCheckbox
+							id={checkbox.id}
+							onChange={onChangeCheckBoxes}
+							label={checkbox.label}
+							checked={checkbox.checked}
+						/>
+					))}
+				</RichLayout.Body>
+				<RichLayout.Footer id={id}>
+					<Action type="submit" label={t('APPLY', { defaultValue: 'Apply' })} bsStyle="info" />
+				</RichLayout.Footer>
+			</form>
+		</React.Fragment>
 	);
 };
 
@@ -90,7 +97,7 @@ BadgeSelectInput.propTypes = {
 	id: PropTypes.string.isRequired,
 	// onChange: PropTypes.func,
 	onSubmit: PropTypes.func.isRequired,
-	// value: PropTypes.string,
+	value: PropTypes.array,
 	t: PropTypes.func.isRequired,
 };
 

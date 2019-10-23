@@ -21,6 +21,16 @@ export const BadgeSelect = ({
 	const currentOperators = useMemo(() => operators, [operators]);
 	const currentOperator = operator || currentOperators[0];
 	const badgeSelectId = `${id}-badge-select`;
+	const createLabelValue = () => {
+		//TODO : add case if 0 checked
+		if (value && value.filter(v => v.checked).length > 3) {
+			return t('FACETED_SEARCH_4_VALUES', {
+				count: value.filter(v => v.checked).length,
+				defaultValue: '{{count}} values',
+			});
+		}
+		return value && value.filter(val => val.checked).map(val => val.label);
+	};
 	return (
 		<BadgeFaceted
 			badgeId={id}
@@ -28,7 +38,7 @@ export const BadgeSelect = ({
 			initialOperatorOpened={initialOperatorOpened}
 			initialValueOpened={initialValueOpened}
 			labelCategory={label}
-			labelValue={value || t('FACETED_SEARCH_VALUE_ALL', { defaultValue: 'All' })}
+			labelValue={createLabelValue() || t('FACETED_SEARCH_VALUE_ALL', { defaultValue: 'All' })}
 			operator={currentOperator}
 			operators={currentOperators}
 			size={size}
@@ -41,7 +51,7 @@ export const BadgeSelect = ({
 					onChange={onChangeValue}
 					onSubmit={onSubmitBadge}
 					value={badgeValue}
-					values={values}
+					checkboxValues={values}
 					t={t}
 				/>
 			)}

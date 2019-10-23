@@ -23,9 +23,13 @@ const prepareBadges = flow([removeBadgesWithEmptyValue, getBadgesQueryValues]);
 const getTqlClassOperatorsDictionary = query => ({
 	contains: query.contains,
 	'=': query.equal,
+	in: query.in,
 });
 
 const formatValue = value => {
+	if (Array.isArray(value)) {
+		return value.map(val => val.id).join(',');
+	}
 	if (typeof value === 'string') {
 		return value.trim();
 	}

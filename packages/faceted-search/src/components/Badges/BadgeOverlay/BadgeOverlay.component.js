@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Overlay from 'react-bootstrap/lib/Overlay';
 import Popover from 'react-bootstrap/lib/Popover';
+import Button from 'react-bootstrap/lib/Button';
 import Action from '@talend/react-components/lib/Actions/Action';
+import Icon from '@talend/react-components/lib/Icon';
 
 const getChildren = (children, setOverlayOpened) => {
 	if (typeof children === 'function') {
@@ -51,18 +53,24 @@ const BadgeOverlay = ({
 		}
 	};
 	const currentOpened = opened || overlayOpened;
+	const myLabel = () => {
+		if (Array.isArray(label)) {
+			return label.map(l => <span>{l}</span>);
+		}
+		return label;
+	};
 	return (
 		<div className={className}>
-			<Action
-				buttonRef={target => setButtonRef(target)}
-				hideLabel={hideLabel}
-				icon={iconName && `talend-${iconName}`}
+			<Button
 				id={`${id}-action-overlay`}
-				label={label}
-				link
+				bsStyle="link"
+				aria-label={label}
+				type="button"
+				ref={target => setButtonRef(target)}
 				onClick={changeOpened}
-				role="button"
-			/>
+			>
+				{iconName ? <Icon name={`talend-${iconName}`} key="icon" /> : <span>{myLabel()}</span>}
+			</Button>
 			<Overlay
 				id={`${id}-overlay`}
 				onHide={onHideOverlay}
