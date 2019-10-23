@@ -36,6 +36,7 @@ export default function useCollectionSelection(
 		isSelected,
 		allIsSelected: selectedIds.length > 0 && selectedIds.length === collection.length,
 		selectedIds,
+		setSelectedIds,
 		onToggleAll,
 		onToggleItem,
 	};
