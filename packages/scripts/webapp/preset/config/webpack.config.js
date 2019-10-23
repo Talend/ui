@@ -170,9 +170,8 @@ function getHTMLLoaders(angular) {
 
 function getCopyConfig(userCopyConfig = []) {
 	const config = [...userCopyConfig];
-	const assetsOverridden = config.some(
-		nextAsset =>
-			typeof nextAsset === 'object' ? nextAsset.from === 'src/assets' : nextAsset === 'src/assets',
+	const assetsOverridden = config.some(nextAsset =>
+		typeof nextAsset === 'object' ? nextAsset.from === 'src/assets' : nextAsset === 'src/assets',
 	);
 	if (!assetsOverridden) {
 		config.push({ from: 'src/assets' });
@@ -274,6 +273,9 @@ module.exports = ({ getUserConfig, mode }) => {
 			new webpack.DefinePlugin({
 				BUILD_TIMESTAMP: Date.now(),
 				TALEND_APP_INFO: JSON.stringify(getVersions()),
+				'process.env.DISABLE_JS_ERROR_NOTIFICATION': JSON.stringify(
+					process.env.DISABLE_JS_ERROR_NOTIFICATION,
+				),
 			}),
 			mode === 'development' && new webpack.HotModuleReplacementPlugin(),
 			mode === 'production' && new MiniCssExtractPlugin({ filename: '[name]-[hash].css' }),
