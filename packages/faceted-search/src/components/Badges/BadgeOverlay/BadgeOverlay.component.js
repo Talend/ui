@@ -23,7 +23,6 @@ const getChildren = (children, setOverlayOpened) => {
 const BadgeOverlay = ({
 	children,
 	className,
-	hideLabel = false,
 	iconName,
 	initialOpened = false,
 	id,
@@ -57,7 +56,7 @@ const BadgeOverlay = ({
 		if (Array.isArray(label)) {
 			return label.map(l => <span>{l}</span>);
 		}
-		return label;
+		return <span>{label}</span>;
 	};
 	return (
 		<div className={className}>
@@ -69,7 +68,7 @@ const BadgeOverlay = ({
 				ref={target => setButtonRef(target)}
 				onClick={changeOpened}
 			>
-				{iconName ? <Icon name={`talend-${iconName}`} key="icon" /> : <span>{myLabel()}</span>}
+				{iconName ? <Icon name={`talend-${iconName}`} key="icon" /> : myLabel()}
 			</Button>
 			<Overlay
 				id={`${id}-overlay`}
@@ -95,7 +94,6 @@ BadgeOverlay.propTypes = {
 	iconName: PropTypes.string,
 	initialOpened: PropTypes.bool,
 	id: PropTypes.string.isRequired,
-	hideLabel: PropTypes.bool,
 	label: PropTypes.string.isRequired,
 	onChange: PropTypes.func,
 	onHide: PropTypes.func,
