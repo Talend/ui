@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Action from '@talend/react-components/lib/Actions/Action';
 import FilterBar from '@talend/react-components/lib/FilterBar';
 import RichLayout from '@talend/react-components/lib/RichTooltip/RichLayout';
-import { Checkbox } from '@talend/react-components/lib/Toggle';
+import Toggle, { Checkbox } from '@talend/react-components/lib/Toggle';
 
-// import { getTheme } from '@talend/react-components/lib/theme';
+import { getTheme } from '@talend/react-components/lib/theme';
 
-// import cssModule from './BadgeText.scss';
+import cssModule from './BadgeSelect.scss';
 
-// const theme = getTheme(cssModule);
+const theme = getTheme(cssModule);
 
 const useFilter = () => {
 	const [filter, setFilter] = useState('');
@@ -42,15 +42,24 @@ const BadgeSelectCheckbox = ({ id, label, onChange, checked }) => {
 //TODO: dont forget data-feature for each box
 const BadgeSelectInput = ({ id, onChange, onSubmit, value, checkboxValues, t }) => {
 	const [filter, onFilter, resetFilter] = useFilter();
+	const [showSelected, setToggleShowSelected] = useState(false);
 	const badgeSelectInputId = `${id}-input`;
-	const checkboxes = checkboxValues.map(checkbox => {
-		const entity = value.find(v => v.id === checkbox.id);
-		return {
-			id: checkbox.id,
-			label: checkbox.label,
-			checked: entity ? entity.checked : checkbox.checked || false,
-		};
-	});
+	const checkboxes = useMemo(() => {
+		const tmpCheckboxes = checkboxValues
+			.filter(checkbox => checkbox.label.includes(filter))
+			.map(checkbox => {
+				const entity = value.find(v => v.id === checkbox.id);
+				return {
+					id: checkbox.id,
+					label: checkbox.label,
+					checked: entity ? entity.checked : checkbox.checked || false,
+				};
+			});
+		if (showSelected) {
+			return tmpCheckboxes.filter(checkbox => checkbox.checked);
+		}
+		return tmpCheckboxes;
+	}, [checkboxValues, showSelected, value]);
 
 	const onChangeCheckBoxes = (event, checkboxId) => {
 		const entity = checkboxes.find(checkboxValue => checkboxValue.id === checkboxId);
@@ -74,8 +83,12 @@ const BadgeSelectInput = ({ id, onChange, onSubmit, value, checkboxValues, t }) 
 				onFilter={onFilter}
 				value={filter}
 			/>
-			<form id={`${badgeSelectInputId}-form`} onSubmit={onSubmit}>
-				<RichLayout.Body id={id}>
+			<form
+				className={theme('tc-badge-select-form')}
+				id={`${badgeSelectInputId}-form`}
+				onSubmit={onSubmit}
+			>
+				<RichLayout.Body id={id} className={theme('tc-badge-select-form-body')}>
 					{checkboxes.map(checkbox => (
 						<BadgeSelectCheckbox
 							id={checkbox.id}
@@ -85,7 +98,13 @@ const BadgeSelectInput = ({ id, onChange, onSubmit, value, checkboxValues, t }) 
 						/>
 					))}
 				</RichLayout.Body>
-				<RichLayout.Footer id={id}>
+				<RichLayout.Footer id={id} className={theme('tc-badge-select-form-footer')}>
+					<Toggle
+						onChange={() => setToggleShowSelected(!showSelected)}
+						id={`${id}-checkbox`}
+						label={t('TOGGLE_SELECTED_VALUES_ONLY', { defaultValue: 'Selected values only' })}
+						checked={showSelected}
+					/>
 					<Action type="submit" label={t('APPLY', { defaultValue: 'Apply' })} bsStyle="info" />
 				</RichLayout.Footer>
 			</form>
@@ -95,7 +114,7 @@ const BadgeSelectInput = ({ id, onChange, onSubmit, value, checkboxValues, t }) 
 
 BadgeSelectInput.propTypes = {
 	id: PropTypes.string.isRequired,
-	// onChange: PropTypes.func,
+	onChange: PropTypes.func,
 	onSubmit: PropTypes.func.isRequired,
 	value: PropTypes.array,
 	t: PropTypes.func.isRequired,
