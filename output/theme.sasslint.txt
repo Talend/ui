@@ -33,5 +33,8 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 18 problems (12 errors, 6 warnings)
+src/theme/_visual-helpers.scss
+  204:15  error  Parenthesis should be removed  empty-args
+
+✖ 19 problems (13 errors, 6 warnings)
 
