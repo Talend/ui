@@ -11,4 +11,8 @@ a {
 		color: $scooter;
 		text-decoration: underline;
 	}
+
+	&:focus {
+		@include outline;
+	}
 }

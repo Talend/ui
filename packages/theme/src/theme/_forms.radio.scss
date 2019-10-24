@@ -59,7 +59,7 @@ $tt-radio-hover-border-color: tint($lochmara, 15) !default;
 
 		&:after,
 		+ *:after {
-			@include checkbox-outline;
+			@include outline;
 		}
 	}
 

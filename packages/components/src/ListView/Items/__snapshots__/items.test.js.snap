@@ -305,13 +305,13 @@ exports[`Items should render 1`] = `
                             <div
                               className="checkbox tc-toggle theme-tc-toggle checkbox"
                             >
+                              <input
+                                aria-label="Select Lorem ipsum dolor sit amet 0"
+                                data-checked={0}
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
                               <label>
-                                <input
-                                  aria-label="Select Lorem ipsum dolor sit amet 0"
-                                  data-checked={0}
-                                  onChange={[Function]}
-                                  type="checkbox"
-                                />
                                 <span>
                                   Lorem ipsum dolor sit amet 0
                                 </span>
@@ -412,14 +412,14 @@ exports[`Items should render 1`] = `
                             <div
                               className="checkbox tc-toggle theme-tc-toggle checkbox"
                             >
+                              <input
+                                aria-label="Deselect Lorem ipsum dolor sit amet 1"
+                                checked={true}
+                                data-checked={2}
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
                               <label>
-                                <input
-                                  aria-label="Deselect Lorem ipsum dolor sit amet 1"
-                                  checked={true}
-                                  data-checked={2}
-                                  onChange={[Function]}
-                                  type="checkbox"
-                                />
                                 <span>
                                   Lorem ipsum dolor sit amet 1
                                 </span>
@@ -516,13 +516,13 @@ exports[`Items should render 1`] = `
                             <div
                               className="checkbox tc-toggle theme-tc-toggle checkbox"
                             >
+                              <input
+                                aria-label="Select Lorem ipsum dolor sit amet 2"
+                                data-checked={0}
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
                               <label>
-                                <input
-                                  aria-label="Select Lorem ipsum dolor sit amet 2"
-                                  data-checked={0}
-                                  onChange={[Function]}
-                                  type="checkbox"
-                                />
                                 <span>
                                   Lorem ipsum dolor sit amet 2
                                 </span>
@@ -870,13 +870,13 @@ exports[`Items should render with nested items 1`] = `
                             <div
                               className="checkbox tc-toggle theme-tc-toggle checkbox"
                             >
+                              <input
+                                aria-label="Select Lorem ipsum dolor default"
+                                data-checked={0}
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
                               <label>
-                                <input
-                                  aria-label="Select Lorem ipsum dolor default"
-                                  data-checked={0}
-                                  onChange={[Function]}
-                                  type="checkbox"
-                                />
                                 <span>
                                   Lorem ipsum dolor default
                                 </span>
@@ -998,14 +998,14 @@ exports[`Items should render with nested items 1`] = `
                             <div
                               className="checkbox tc-toggle theme-tc-toggle checkbox"
                             >
+                              <input
+                                aria-label="Deselect Lorem ipsum dolor Parent"
+                                checked={true}
+                                data-checked={2}
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
                               <label>
-                                <input
-                                  aria-label="Deselect Lorem ipsum dolor Parent"
-                                  checked={true}
-                                  data-checked={2}
-                                  onChange={[Function]}
-                                  type="checkbox"
-                                />
                                 <span>
                                   Lorem ipsum dolor Parent
                                 </span>
@@ -1431,16 +1431,16 @@ exports[`Items should render with provided id 1`] = `
                             <div
                               className="checkbox tc-toggle theme-tc-toggle checkbox"
                             >
+                              <input
+                                aria-label="Select Lorem ipsum dolor sit amet 0"
+                                data-checked={0}
+                                id="checkbox-my-widget-1-item"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
                               <label
                                 htmlFor="checkbox-my-widget-1-item"
                               >
-                                <input
-                                  aria-label="Select Lorem ipsum dolor sit amet 0"
-                                  data-checked={0}
-                                  id="checkbox-my-widget-1-item"
-                                  onChange={[Function]}
-                                  type="checkbox"
-                                />
                                 <span>
                                   Lorem ipsum dolor sit amet 0
                                 </span>
@@ -1546,17 +1546,17 @@ exports[`Items should render with provided id 1`] = `
                             <div
                               className="checkbox tc-toggle theme-tc-toggle checkbox"
                             >
+                              <input
+                                aria-label="Deselect Lorem ipsum dolor sit amet 1"
+                                checked={true}
+                                data-checked={2}
+                                id="checkbox-my-widget-2-item"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
                               <label
                                 htmlFor="checkbox-my-widget-2-item"
                               >
-                                <input
-                                  aria-label="Deselect Lorem ipsum dolor sit amet 1"
-                                  checked={true}
-                                  data-checked={2}
-                                  id="checkbox-my-widget-2-item"
-                                  onChange={[Function]}
-                                  type="checkbox"
-                                />
                                 <span>
                                   Lorem ipsum dolor sit amet 1
                                 </span>
@@ -1658,16 +1658,16 @@ exports[`Items should render with provided id 1`] = `
                             <div
                               className="checkbox tc-toggle theme-tc-toggle checkbox"
                             >
+                              <input
+                                aria-label="Select Lorem ipsum dolor sit amet 2"
+                                data-checked={0}
+                                id="checkbox-my-widget-3-item"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
                               <label
                                 htmlFor="checkbox-my-widget-3-item"
                               >
-                                <input
-                                  aria-label="Select Lorem ipsum dolor sit amet 2"
-                                  data-checked={0}
-                                  id="checkbox-my-widget-3-item"
-                                  onChange={[Function]}
-                                  type="checkbox"
-                                />
                                 <span>
                                   Lorem ipsum dolor sit amet 2
                                 </span>

@@ -14,6 +14,10 @@
 	text-transform: uppercase;
 	transition: all 0.1s ease-out;
 
+	&:focus {
+		@include outline;
+	}
+
 	&,
 	& > span {
 		display: inline-flex;

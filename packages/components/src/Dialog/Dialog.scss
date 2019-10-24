@@ -54,6 +54,9 @@
 				font-weight: bold;
 				color: $black;
 			}
+			&:focus {
+				@include outline;
+			}
 		}
 	}
 }

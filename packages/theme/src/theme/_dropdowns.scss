@@ -25,7 +25,7 @@ $dropdown-caret-up-axis: -45deg !default;
 		}
 
 		&:focus {
-			@include tab-focus;
+			@include outline;
 		}
 	}
 

@@ -76,9 +76,8 @@ $tt-checkbox-hover-border-color: tint($lochmara, 15) !default;
 	&:focus {
 		outline: none;
 
-		&:before,
-		+ *:before {
-			@include checkbox-outline;
+		+ label {
+			@include outline;
 		}
 	}
 

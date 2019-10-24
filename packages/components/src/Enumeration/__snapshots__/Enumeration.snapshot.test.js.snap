@@ -654,13 +654,13 @@ Array [
           <div
             className="checkbox tc-toggle theme-tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
           >
+            <input
+              aria-label="Check item \\"Lorem ipsum dolor sit amet 0\\""
+              checked={true}
+              data-checked={2}
+              type="checkbox"
+            />
             <label>
-              <input
-                aria-label="Check item \\"Lorem ipsum dolor sit amet 0\\""
-                checked={true}
-                data-checked={2}
-                type="checkbox"
-              />
               <span />
             </label>
           </div>
@@ -717,13 +717,13 @@ Array [
           <div
             className="checkbox tc-toggle theme-tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
           >
+            <input
+              aria-label="Check item \\"Lorem ipsum dolor sit amet 1\\""
+              checked={true}
+              data-checked={2}
+              type="checkbox"
+            />
             <label>
-              <input
-                aria-label="Check item \\"Lorem ipsum dolor sit amet 1\\""
-                checked={true}
-                data-checked={2}
-                type="checkbox"
-              />
               <span />
             </label>
           </div>
@@ -779,12 +779,12 @@ Array [
           <div
             className="checkbox tc-toggle theme-tc-toggle theme-tc-enumeration-checkbox tc-enumeration-checkbox"
           >
+            <input
+              aria-label="Check item \\"Lorem ipsum dolor sit amet 2\\""
+              data-checked={0}
+              type="checkbox"
+            />
             <label>
-              <input
-                aria-label="Check item \\"Lorem ipsum dolor sit amet 2\\""
-                data-checked={0}
-                type="checkbox"
-              />
               <span />
             </label>
           </div>

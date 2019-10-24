@@ -42,18 +42,18 @@ exports[`title-bar 1`] = `
     <div
       className="checkbox tc-toggle theme-tc-toggle tc-boolean-filter tc-filter theme-tc-filter mandatory-field-filter"
     >
+      <input
+        checked={false}
+        data-checked={0}
+        disabled={false}
+        id="mandatory-field-filter"
+        intermediate={false}
+        onChange={[Function]}
+        type="checkbox"
+      />
       <label
         htmlFor="mandatory-field-filter"
       >
-        <input
-          checked={false}
-          data-checked={0}
-          disabled={false}
-          id="mandatory-field-filter"
-          intermediate={false}
-          onChange={[Function]}
-          type="checkbox"
-        />
         <span>
           Show Mandatory Fields (*) Only
         </span>
