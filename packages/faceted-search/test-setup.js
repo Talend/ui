@@ -8,56 +8,33 @@ import { configure } from 'enzyme';
 /**
  * lets mock i18next for all tests
  */
-jest.mock('i18next', () => {
-	const noop = () => {};
-	const i18n = {
-		t: (msg, options) => {
-			let buff = options.defaultValue || msg;
-			const split = buff.split('}}');
-			if (split.length > 1) {
-				buff = split.reduce((acc, current) => {
-					const sub = current.split('{{');
-					let value = sub.length > 1 ? options[sub[1].trim()] : '';
-					if (value === undefined) {
-						value = '';
-					}
-					return `${acc}${sub[0]}${value}`;
-				}, '');
-			}
-			return buff;
-		},
-		isMock: true,
-		getFixedT: () => i18n.t,
-		options: {},
-		language: 'en',
-		languages: ['en'],
-		isInitialized: true,
-		on: noop,
-		off: noop,
-		loadNamespaces: noop,
-		hasResourceBundle: () => false,
-		services: {
-			resourceStore: {
-				data: {},
-			},
-			backendConnector: {},
-		},
-		store: {
-			data: {},
-			on: noop,
-			off: noop,
-		},
-		changeLanguage: noop,
-	};
-	i18n.init = options => {
-		// i18n.store.data = options.resources;
-	};
-	return {
-		// default: i18n,
-		createInstance: () => i18n,
-		...i18n,
-	};
-});
+jest.mock('react-i18next', () => ({
+	// this mock makes sure any components using the translate HoC receive the t function as a prop
+	withTranslation: () => Component => {
+		Component.defaultProps = {
+			...Component.defaultProps,
+			t: (key, options) => (options.defaultValue || '').replace(/{{(\w+)}}/g, (_, k) => options[k]),
+		};
+		Component.displayName = `withI18nextTranslation(${Component.displayName})`;
+		return Component;
+	},
+	setI18n: () => {},
+	getI18n: () => ({
+		t: (key, options) => (options.defaultValue || '').replace(/{{(\w+)}}/g, (_, k) => options[k]),
+	}),
+	useTranslation: () => ({
+		t: (key, options) => (options.defaultValue || '').replace(/{{(\w+)}}/g, (_, k) => options[k]),
+	}),
+}));
+
+jest.mock('i18next', () => ({
+	t: (key, options) => (options.defaultValue || '').replace(/{{(\w+)}}/g, (_, k) => options[k]),
+	createInstance: () => {},
+	use: () => ({
+		init: () => {},
+	}),
+	addResources: () => {},
+}));
 
 function getMajorVersion() {
 	if (!process.env.REACT_VERSION) {

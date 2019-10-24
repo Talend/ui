@@ -62,7 +62,9 @@ describe('AddFacetPopover', () => {
 		// When
 		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
-		act(() => wrapper.find('input').simulate('change', { target: { value: 'connection' } }));
+		act(() => {
+			wrapper.find('input').simulate('change', { target: { value: 'connection' } });
+		});
 		wrapper.update();
 		expect(wrapper.find('input').prop('value')).toBe('connection');
 		expect(wrapper.find('button[aria-label="Connection name"]')).toHaveLength(1);
@@ -79,7 +81,9 @@ describe('AddFacetPopover', () => {
 		// When
 		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
-		act(() => wrapper.find('button[aria-label="Remove filter"]').simulate('mouseDown'));
+		act(() => {
+			wrapper.find('button[aria-label="Remove filter"]').simulate('mouseDown');
+		});
 		wrapper.update();
 		expect(wrapper.find('input').prop('value')).toBe('');
 		expect(wrapper.find('button[aria-label="Name"]')).toHaveLength(1);
