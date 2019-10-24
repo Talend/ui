@@ -14,6 +14,7 @@ function Inputs(props) {
 			type="text"
 			value={startDate.textInput}
 			style={{ width: 150 }}
+			onFocus={event => inputManagement.onFocus(event, 'startDate')}
 			{...inputManagement}
 			{...props}
 		/>,
@@ -24,6 +25,7 @@ function Inputs(props) {
 			type="text"
 			value={endDate.textInput}
 			style={{ width: 150 }}
+			onFocus={event => inputManagement.onFocus(event, 'endDate')}
 			{...inputManagement}
 			{...props}
 		/>,

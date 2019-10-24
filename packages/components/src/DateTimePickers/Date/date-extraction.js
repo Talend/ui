@@ -35,7 +35,7 @@ function getDateRegexp(dateFormat) {
 /**
  * Check if a date is a valid date.
  */
-function isDateValid(date, options) {
+function isDateValid(date, options = {}) {
 	if (!options.required && date === undefined) {
 		return true;
 	}
@@ -136,7 +136,7 @@ function checkSupportedTimezone(timezone) {
  * @param date {Date} The date to extract
  * @param useUTC {boolean} Indicates if date is in UTC
  */
-function extractDateOnly(date, { useUTC, timezone }) {
+function extractDateOnly(date, { useUTC, timezone } = {}) {
 	if (useUTC) {
 		return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
 	} else if (timezone) {
