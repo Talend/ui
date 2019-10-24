@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Overlay from 'react-bootstrap/lib/Overlay';
 import Popover from 'react-bootstrap/lib/Popover';
 import Button from 'react-bootstrap/lib/Button';
-import Action from '@talend/react-components/lib/Actions/Action';
 import Icon from '@talend/react-components/lib/Icon';
 
 const getChildren = (children, setOverlayOpened) => {
@@ -11,6 +10,13 @@ const getChildren = (children, setOverlayOpened) => {
 		return children(setOverlayOpened);
 	}
 	return children;
+};
+
+const getLabel = label => {
+	if (Array.isArray(label)) {
+		return label.map(l => <span>{l}</span>);
+	}
+	return <span>{label}</span>;
 };
 
 /**
@@ -52,12 +58,7 @@ const BadgeOverlay = ({
 		}
 	};
 	const currentOpened = opened || overlayOpened;
-	const myLabel = () => {
-		if (Array.isArray(label)) {
-			return label.map(l => <span>{l}</span>);
-		}
-		return <span>{label}</span>;
-	};
+
 	return (
 		<div className={className}>
 			<Button
@@ -68,7 +69,7 @@ const BadgeOverlay = ({
 				ref={target => setButtonRef(target)}
 				onClick={changeOpened}
 			>
-				{iconName ? <Icon name={`talend-${iconName}`} key="icon" /> : myLabel()}
+				{iconName ? <Icon name={`talend-${iconName}`} key="icon" /> : getLabel(label)}
 			</Button>
 			<Overlay
 				id={`${id}-overlay`}
@@ -94,7 +95,7 @@ BadgeOverlay.propTypes = {
 	iconName: PropTypes.string,
 	initialOpened: PropTypes.bool,
 	id: PropTypes.string.isRequired,
-	label: PropTypes.string.isRequired,
+	label: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]),
 	onChange: PropTypes.func,
 	onHide: PropTypes.func,
 	opened: PropTypes.bool,
