@@ -7,7 +7,7 @@ import Toggle, { Checkbox } from '@talend/react-components/lib/Toggle';
 
 import { getTheme } from '@talend/react-components/lib/theme';
 
-import cssModule from './BadgeSelect.scss';
+import cssModule from './BadgeCheckboxes.scss';
 
 const theme = getTheme(cssModule);
 
@@ -18,7 +18,7 @@ const useFilter = () => {
 	return [filter, onFilter, resetFilter];
 };
 
-const BadgeSelectCheckbox = ({ checked, id, label, onChange }) => {
+const BadgeCheckbox = ({ checked, id, label, onChange }) => {
 	const describedby = `${id}-${label}`;
 	const onChangeCheckbox = event => {
 		onChange(event, id);
@@ -39,14 +39,14 @@ const BadgeSelectCheckbox = ({ checked, id, label, onChange }) => {
 	);
 };
 
-BadgeSelectCheckbox.propTypes = {
+BadgeCheckbox.propTypes = {
 	id: PropTypes.string,
 	label: PropTypes.string,
 	onChange: PropTypes.func,
 	checked: PropTypes.bool,
 };
 
-const createCheckbox = value => checkbox => {
+const createCheckboxEntity = value => checkbox => {
 	const entity = value.find(v => v.id === checkbox.id);
 	return {
 		id: checkbox.id,
@@ -58,12 +58,12 @@ const createCheckbox = value => checkbox => {
 const getCheckboxes = (checkboxes, value, filterValue) =>
 	checkboxes
 		.filter(checkbox => checkbox.label.toLowerCase().includes(filterValue))
-		.map(createCheckbox(value));
+		.map(createCheckboxEntity(value));
 
-const BadgeSelectInput = ({ id, onChange, onSubmit, value, checkboxValues, t }) => {
+const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, t }) => {
 	const [filter, onFilter, resetFilter] = useFilter();
 	const [showSelected, setToggleShowSelected] = useState(false);
-	const badgeSelectInputId = `${id}-input`;
+	const badgeCheckBoxesFormId = `${id}-checkboxes-form`;
 	const checkboxes = useMemo(() => getCheckboxes(checkboxValues, value, filter), [
 		checkboxValues,
 		value,
@@ -86,7 +86,7 @@ const BadgeSelectInput = ({ id, onChange, onSubmit, value, checkboxValues, t }) 
 				dockable={false}
 				docked={false}
 				iconAlwaysVisible
-				id={`${badgeSelectInputId}-filter`}
+				id={`${badgeCheckBoxesFormId}-filter`}
 				placeholder={t('FIND_COLUMN_FILTER_PLACEHOLDER', {
 					defaultValue: 'Find an entity',
 				})}
@@ -95,13 +95,13 @@ const BadgeSelectInput = ({ id, onChange, onSubmit, value, checkboxValues, t }) 
 				value={filter}
 			/>
 			<form
-				className={theme('tc-badge-select-form')}
-				id={`${badgeSelectInputId}-form`}
+				className={theme('fs-badge-checkbox-form')}
+				id={`${badgeCheckBoxesFormId}-form`}
 				onSubmit={onSubmit}
 			>
-				<RichLayout.Body id={badgeSelectInputId} className={theme('tc-badge-select-form-body')}>
+				<RichLayout.Body id={badgeCheckBoxesFormId} className={theme('fs-badge-checkbox-form-body')}>
 					{displayedCheckboxes.map(checkbox => (
-						<BadgeSelectCheckbox
+						<BadgeCheckbox
 							id={checkbox.id}
 							onChange={onChangeCheckBoxes}
 							label={checkbox.label}
@@ -109,10 +109,10 @@ const BadgeSelectInput = ({ id, onChange, onSubmit, value, checkboxValues, t }) 
 						/>
 					))}
 				</RichLayout.Body>
-				<RichLayout.Footer id={id} className={theme('tc-badge-select-form-footer')}>
+				<RichLayout.Footer id={id} className={theme('fs-badge-checkbox-form-footer')}>
 					<Toggle
 						onChange={() => setToggleShowSelected(!showSelected)}
-						id={`${badgeSelectInputId}-checkbox`}
+						id={`${badgeCheckBoxesFormId}-show-checked`}
 						label={t('TOGGLE_SELECTED_VALUES_ONLY', { defaultValue: 'Selected values only' })}
 						checked={showSelected}
 					/>
@@ -123,7 +123,7 @@ const BadgeSelectInput = ({ id, onChange, onSubmit, value, checkboxValues, t }) 
 	);
 };
 
-BadgeSelectInput.propTypes = {
+BadgeCheckboxesForm.propTypes = {
 	checkboxValues: PropTypes.shape({
 		id: PropTypes.string.isRequired,
 		label: PropTypes.string.isRequired,
@@ -136,4 +136,4 @@ BadgeSelectInput.propTypes = {
 };
 
 // eslint-disable-next-line import/prefer-default-export
-export { BadgeSelectInput };
+export { BadgeCheckboxesForm };

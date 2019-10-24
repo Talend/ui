@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Badge from '@talend/react-components/lib/Badge';
-import { BadgeSelectInput } from './BadgeSelectInput.component';
+import { BadgeCheckboxesForm } from './BadgeCheckboxesForm.component';
 import { BadgeFaceted } from '../BadgeFaceted';
 import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propTypes';
 
@@ -23,7 +23,7 @@ const getSelectBadgeLabel = (value, t) => {
 };
 
 // eslint-disable-next-line import/prefer-default-export
-export const BadgeSelect = ({
+export const BadgeCheckboxes = ({
 	id,
 	label,
 	initialOperatorOpened,
@@ -37,12 +37,12 @@ export const BadgeSelect = ({
 }) => {
 	const currentOperators = useMemo(() => operators, [operators]);
 	const currentOperator = operator || currentOperators[0];
-	const badgeSelectId = `${id}-badge-select`;
+	const badgeCheckboxesId = `${id}-badge-checkboxes`;
 	const badgeLabel = useMemo(() => getSelectBadgeLabel(value, t), [value, t]);
 	return (
 		<BadgeFaceted
 			badgeId={id}
-			id={badgeSelectId}
+			id={badgeCheckboxesId}
 			initialOperatorOpened={initialOperatorOpened}
 			initialValueOpened={initialValueOpened}
 			labelCategory={label}
@@ -54,8 +54,8 @@ export const BadgeSelect = ({
 			value={value || []}
 		>
 			{({ onSubmitBadge, onChangeValue, badgeValue }) => (
-				<BadgeSelectInput
-					id={badgeSelectId}
+				<BadgeCheckboxesForm
+					id={badgeCheckboxesId}
 					onChange={onChangeValue}
 					onSubmit={onSubmitBadge}
 					value={badgeValue}
@@ -67,7 +67,7 @@ export const BadgeSelect = ({
 	);
 };
 
-BadgeSelect.propTypes = {
+BadgeCheckboxes.propTypes = {
 	label: PropTypes.string.isRequired,
 	id: PropTypes.string.isRequired,
 	initialOperatorOpened: PropTypes.bool,
