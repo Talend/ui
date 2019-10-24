@@ -39,28 +39,33 @@ const BadgeSelectCheckbox = ({ id, label, onChange, checked }) => {
 	);
 };
 
+const getCheckboxes = (checkboxes, value, filterValue) => {
+	checkboxes
+		.filter(checkbox => checkbox.label.includes(filterValue))
+		.map(checkbox => {
+			const entity = value.find(v => v.id === checkbox.id);
+			return {
+				id: checkbox.id,
+				label: checkbox.label,
+				checked: entity ? entity.checked : checkbox.checked || false,
+			};
+		});
+};
+
 //TODO: dont forget data-feature for each box
 const BadgeSelectInput = ({ id, onChange, onSubmit, value, checkboxValues, t }) => {
 	const [filter, onFilter, resetFilter] = useFilter();
 	const [showSelected, setToggleShowSelected] = useState(false);
 	const badgeSelectInputId = `${id}-input`;
-	const checkboxes = useMemo(() => {
-		const tmpCheckboxes = checkboxValues
-			.filter(checkbox => checkbox.label.includes(filter))
-			.map(checkbox => {
-				const entity = value.find(v => v.id === checkbox.id);
-				return {
-					id: checkbox.id,
-					label: checkbox.label,
-					checked: entity ? entity.checked : checkbox.checked || false,
-				};
-			});
-		if (showSelected) {
-			return tmpCheckboxes.filter(checkbox => checkbox.checked);
-		}
-		return tmpCheckboxes;
-	}, [checkboxValues, showSelected, value]);
-
+	// const checkboxes = useMemo(() => {
+	const checkboxes = useMemo(() => getCheckboxes(checkboxValues, value, filter), [
+		checkboxValues,
+		value,
+		filter,
+	]);
+	const displayedCheckboxes = showSelected
+		? checkboxes.filter(checkbox => checkbox.checked)
+		: checkboxes;
 	const onChangeCheckBoxes = (event, checkboxId) => {
 		const entity = checkboxes.find(checkboxValue => checkboxValue.id === checkboxId);
 		if (entity) {
@@ -89,7 +94,7 @@ const BadgeSelectInput = ({ id, onChange, onSubmit, value, checkboxValues, t }) 
 				onSubmit={onSubmit}
 			>
 				<RichLayout.Body id={id} className={theme('tc-badge-select-form-body')}>
-					{checkboxes.map(checkbox => (
+					{displayedCheckboxes.map(checkbox => (
 						<BadgeSelectCheckbox
 							id={checkbox.id}
 							onChange={onChangeCheckBoxes}

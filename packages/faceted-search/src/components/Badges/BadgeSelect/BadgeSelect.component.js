@@ -6,19 +6,20 @@ import { BadgeFaceted } from '../BadgeFaceted';
 import { operatorPropTypes, operatorsPropTypes } from '../../facetedSearch.propTypes';
 
 const getSelectBadgeLabel = (value, t) => {
-	if (!value || !value.length) {
-		return t('FACETED_SEARCH_VALUE_ALL', { defaultValue: 'All' });
-	}
+	const labelAll = t('FACETED_SEARCH_VALUE_ALL', { defaultValue: 'All' });
 	if (value) {
 		const checkedCheckboxes = value.filter(v => v.checked);
 		if (checkedCheckboxes.length > 3) {
-			return t('FACETED_SEARCH_4_VALUES', {
+			return t('FACETED_SEARCH_VALUES_COUNT', {
 				count: checkedCheckboxes.length,
 				defaultValue: '{{count}} values',
 			});
+		} else if (!checkedCheckboxes.length) {
+			return labelAll;
 		}
 		return checkedCheckboxes.map(val => val.label);
 	}
+	return labelAll;
 };
 
 // eslint-disable-next-line import/prefer-default-export
@@ -75,5 +76,6 @@ BadgeSelect.propTypes = {
 	operators: operatorsPropTypes,
 	size: PropTypes.oneOf(Object.values(Badge.SIZES)),
 	value: PropTypes.string,
+	values: PropTypes.array,
 	t: PropTypes.func.isRequired,
 };
