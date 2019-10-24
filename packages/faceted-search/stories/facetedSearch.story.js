@@ -29,7 +29,7 @@ const badgeConnectionType = {
 		label: 'Connection type',
 		operator: {},
 		operators: [],
-		type: 'select',
+		type: 'checkbox',
 	},
 	metadata: {
 		badges_per_facet: '1',
@@ -42,7 +42,7 @@ const badgeConnectionType = {
 			{ id: 'salesforce', label: 'Salesforce' },
 			{ id: 'aws_kinesis', label: 'AWS kinesis' },
 		],
-		operators: ['='],
+		operators: ['in'],
 	},
 };
 

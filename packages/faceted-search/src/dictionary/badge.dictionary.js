@@ -1,14 +1,14 @@
 import { BadgeText } from '../components/Badges/BadgeText/BadgeText.component';
-import { BadgeSelect } from '../components/Badges/BadgeSelect/BadgeSelect.component';
+import { BadgeCheckboxes } from '../components/Badges/BadgeCheckboxes/BadgeCheckboxes.component';
 
 const standardBadgeTypeNames = {
 	text: 'text',
-	select: 'select',
+	checkbox: 'checkbox',
 };
 
 const standardBadges = {
 	[standardBadgeTypeNames.text]: BadgeText,
-	[standardBadgeTypeNames.select]: BadgeSelect,
+	[standardBadgeTypeNames.checkbox]: BadgeCheckboxes,
 };
 
 const createBadgesDict = badges => {
