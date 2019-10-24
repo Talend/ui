@@ -13,12 +13,12 @@ const theme = getTheme(cssModule);
 
 const useFilter = () => {
 	const [filter, setFilter] = useState('');
-	const onFilter = (_, filterValue) => setFilter(filterValue);
+	const onFilter = (_, filterValue) => setFilter(filterValue.trim().toLowerCase());
 	const resetFilter = () => setFilter('');
 	return [filter, onFilter, resetFilter];
 };
 
-const BadgeSelectCheckbox = ({ id, label, onChange, checked }) => {
+const BadgeSelectCheckbox = ({ checked, id, label, onChange }) => {
 	const describedby = `${id}-${label}`;
 	const onChangeCheckbox = event => {
 		onChange(event, id);
@@ -39,25 +39,31 @@ const BadgeSelectCheckbox = ({ id, label, onChange, checked }) => {
 	);
 };
 
-const getCheckboxes = (checkboxes, value, filterValue) => {
-	checkboxes
-		.filter(checkbox => checkbox.label.includes(filterValue))
-		.map(checkbox => {
-			const entity = value.find(v => v.id === checkbox.id);
-			return {
-				id: checkbox.id,
-				label: checkbox.label,
-				checked: entity ? entity.checked : checkbox.checked || false,
-			};
-		});
+BadgeSelectCheckbox.propTypes = {
+	id: PropTypes.string,
+	label: PropTypes.string,
+	onChange: PropTypes.func,
+	checked: PropTypes.bool,
 };
 
-//TODO: dont forget data-feature for each box
+const createCheckbox = value => checkbox => {
+	const entity = value.find(v => v.id === checkbox.id);
+	return {
+		id: checkbox.id,
+		label: checkbox.label,
+		checked: entity ? entity.checked : checkbox.checked || false,
+	};
+};
+
+const getCheckboxes = (checkboxes, value, filterValue) =>
+	checkboxes
+		.filter(checkbox => checkbox.label.toLowerCase().includes(filterValue))
+		.map(createCheckbox(value));
+
 const BadgeSelectInput = ({ id, onChange, onSubmit, value, checkboxValues, t }) => {
 	const [filter, onFilter, resetFilter] = useFilter();
 	const [showSelected, setToggleShowSelected] = useState(false);
 	const badgeSelectInputId = `${id}-input`;
-	// const checkboxes = useMemo(() => {
 	const checkboxes = useMemo(() => getCheckboxes(checkboxValues, value, filter), [
 		checkboxValues,
 		value,
@@ -80,9 +86,9 @@ const BadgeSelectInput = ({ id, onChange, onSubmit, value, checkboxValues, t }) 
 				dockable={false}
 				docked={false}
 				iconAlwaysVisible
-				id={`${id}-filter`}
+				id={`${badgeSelectInputId}-filter`}
 				placeholder={t('FIND_COLUMN_FILTER_PLACEHOLDER', {
-					defaultValue: 'Find a column',
+					defaultValue: 'Find an entity',
 				})}
 				onToggle={resetFilter}
 				onFilter={onFilter}
@@ -93,7 +99,7 @@ const BadgeSelectInput = ({ id, onChange, onSubmit, value, checkboxValues, t }) 
 				id={`${badgeSelectInputId}-form`}
 				onSubmit={onSubmit}
 			>
-				<RichLayout.Body id={id} className={theme('tc-badge-select-form-body')}>
+				<RichLayout.Body id={badgeSelectInputId} className={theme('tc-badge-select-form-body')}>
 					{displayedCheckboxes.map(checkbox => (
 						<BadgeSelectCheckbox
 							id={checkbox.id}
@@ -106,7 +112,7 @@ const BadgeSelectInput = ({ id, onChange, onSubmit, value, checkboxValues, t }) 
 				<RichLayout.Footer id={id} className={theme('tc-badge-select-form-footer')}>
 					<Toggle
 						onChange={() => setToggleShowSelected(!showSelected)}
-						id={`${id}-checkbox`}
+						id={`${badgeSelectInputId}-checkbox`}
 						label={t('TOGGLE_SELECTED_VALUES_ONLY', { defaultValue: 'Selected values only' })}
 						checked={showSelected}
 					/>
@@ -118,6 +124,10 @@ const BadgeSelectInput = ({ id, onChange, onSubmit, value, checkboxValues, t }) 
 };
 
 BadgeSelectInput.propTypes = {
+	checkboxValues: PropTypes.shape({
+		id: PropTypes.string.isRequired,
+		label: PropTypes.string.isRequired,
+	}),
 	id: PropTypes.string.isRequired,
 	onChange: PropTypes.func,
 	onSubmit: PropTypes.func.isRequired,
