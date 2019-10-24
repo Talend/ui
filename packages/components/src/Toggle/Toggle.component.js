@@ -39,12 +39,7 @@ function Toggle({ id, label, className, ...props }) {
 				'tc-toggle-disabled': props.disabled,
 			})}
 		>
-			<input
-				type="checkbox"
-				id={id}
-				data-checked={dataChecked}
-				{...omit(props, 'data-feature')}
-			/>
+			<input type="checkbox" id={id} data-checked={dataChecked} {...omit(props, 'data-feature')} />
 			<label htmlFor={id} data-feature={dataFeature}>
 				<span>{label}</span>
 			</label>
