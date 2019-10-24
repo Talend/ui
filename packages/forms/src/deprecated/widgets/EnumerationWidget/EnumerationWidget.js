@@ -10,11 +10,15 @@ import { I18N_DOMAIN_FORMS } from '../../../constants';
 import getDefaultT from '../../../translate';
 import FieldTemplate from '../../../UIForm/fields/FieldTemplate';
 
-const DISPLAY_MODE_DEFAULT = 'DISPLAY_MODE_DEFAULT';
-const DISPLAY_MODE_ADD = 'DISPLAY_MODE_ADD';
-const DISPLAY_MODE_SEARCH = 'DISPLAY_MODE_SEARCH';
-const DISPLAY_MODE_EDIT = 'DISPLAY_MODE_EDIT';
-const DISPLAY_MODE_SELECTED = 'DISPLAY_MODE_SELECTED';
+export const enumerationStates = {
+	DISPLAY_MODE_DEFAULT: 'DISPLAY_MODE_DEFAULT',
+	DISPLAY_MODE_ADD: 'DISPLAY_MODE_ADD',
+	DISPLAY_MODE_SEARCH: 'DISPLAY_MODE_SEARCH',
+	DISPLAY_MODE_EDIT: 'DISPLAY_MODE_EDIT',
+	DISPLAY_MODE_SELECTED: 'DISPLAY_MODE_SELECTED',
+	IMPORT_MODE_APPEND: 'IMPORT_MODE_APPEND',
+	IMPORT_MODE_OVERWRITE: 'IMPORT_MODE_OVERWRITE',
+};
 
 const ENUMERATION_SEARCH_ACTION = 'ENUMERATION_SEARCH_ACTION';
 const ENUMERATION_ADD_ACTION = 'ENUMERATION_ADD_ACTION';
@@ -168,7 +172,7 @@ class EnumerationForm extends React.Component {
 		];
 
 		if (this.allowImport) {
-			const dataFeature = this.props.uiSchema['data-feature'];
+			const dataFeature = this.props.schema['data-feature'];
 			this.defaultHeaderActions.push({
 				disabled: disabledAction,
 				label: t('ENUMERATION_WIDGET_IMPORT_FROM_FILE', {
@@ -184,7 +188,7 @@ class EnumerationForm extends React.Component {
 						label: t('ENUMERATION_WIDGET_ADD_FROM_FILE', {
 							defaultValue: 'Add values from a file',
 						}),
-						id: 'append-uploding',
+						id: 'append-uploading',
 						onClick: this.onImportAppendClick.bind(this),
 						'data-feature': dataFeature ? dataFeature.addFromFile : undefined,
 					},
@@ -192,7 +196,7 @@ class EnumerationForm extends React.Component {
 						label: t('ENUMERATION_WIDGET_OVERWRITE_VALUES', {
 							defaultValue: 'Overwrite existing values',
 						}),
-						id: 'append-uploding',
+						id: 'overwrite-uploading',
 						onClick: this.onImportOverwriteClick.bind(this),
 						'data-feature': dataFeature ? dataFeature.overwriteExisting : undefined,
 					},
@@ -220,7 +224,7 @@ class EnumerationForm extends React.Component {
 			},
 		];
 
-		let defaultDisplayMode = DISPLAY_MODE_DEFAULT;
+		let defaultDisplayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
 		if (props.schema && props.schema.displayMode) {
 			defaultDisplayMode = props.schema.displayMode;
 		}
@@ -259,6 +263,11 @@ class EnumerationForm extends React.Component {
 	}
 
 	onImportAppendClick() {
+		this.setState(
+			state => ({ ...state, importMode: enumerationStates.IMPORT_MODE_APPEND }),
+			this.simulateClickInputFile.bind(this)
+		);
+
 		this.callActionHandler(
 			ENUMERATION_IMPORT_FILE_APPEND_MODE,
 			null,
@@ -268,6 +277,11 @@ class EnumerationForm extends React.Component {
 	}
 
 	onImportOverwriteClick() {
+		this.setState(
+			state => ({ ...state, importMode: enumerationStates.IMPORT_MODE_OVERWRITE }),
+			this.simulateClickInputFile.bind(this)
+		);
+		// this.simulateClickInputFile();
 		this.callActionHandler(
 			ENUMERATION_IMPORT_FILE_OVERWRITE_MODE,
 			null,
@@ -285,15 +299,15 @@ class EnumerationForm extends React.Component {
 			if (prevState.searchCriteria && !this.constructor.isConnectedMode(this.props.registry)) {
 				item = this.getItemInSearchMode(prevState.searchCriteria, value.index, items);
 			}
-			item.displayMode = DISPLAY_MODE_EDIT;
+			item.displayMode = enumerationStates.DISPLAY_MODE_EDIT;
 			// resetting errors
 			items[value.index].error = '';
 			// reset selection
 			items = items.map(currentItem => ({ ...currentItem, isSelected: false }));
 			// exit from selected mode to not display 0 values selected
 			let displayMode = prevState.displayMode;
-			if (displayMode === DISPLAY_MODE_SELECTED) {
-				displayMode = DISPLAY_MODE_DEFAULT;
+			if (displayMode === enumerationStates.DISPLAY_MODE_SELECTED) {
+				displayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
 			}
 			const validation = this.constructor.updateItemValidateDisabled(item.values[0]);
 			return { items, displayMode, ...validation };
@@ -304,11 +318,11 @@ class EnumerationForm extends React.Component {
 		this.setState(prevState => {
 			let items = resetItems([...prevState.items]);
 			const item = items[value.index];
-			item.displayMode = DISPLAY_MODE_EDIT;
+			item.displayMode = enumerationStates.DISPLAY_MODE_EDIT;
 			// reset selection
 			items = items.map(currentItem => ({ ...currentItem, isSelected: false }));
 			const validation = this.constructor.updateItemValidateDisabled(item.values[0]);
-			return { items, displayMode: DISPLAY_MODE_EDIT, ...validation };
+			return { items, displayMode: enumerationStates.DISPLAY_MODE_EDIT, ...validation };
 		});
 	}
 
@@ -330,7 +344,6 @@ class EnumerationForm extends React.Component {
 				trigger: { ids: [this.state.items[value.index].id], action: ENUMERATION_REMOVE_ACTION },
 				schema,
 			}).then(() => {
-				console.log('delete resolving');
 				const payload = {
 					schema,
 					value: this.state.items.filter((item, index) => index !== value.index),
@@ -348,13 +361,13 @@ class EnumerationForm extends React.Component {
 					// retrieve correct item when in non-connected mode
 					indexToRemove = this.getIndexToRemoveInSearchMode(sc, value.index, items);
 				}
-				items[indexToRemove].displayMode = DISPLAY_MODE_DEFAULT;
+				items[indexToRemove].displayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
 				items.splice(indexToRemove, 1);
 				const countItems = items.filter(item => item.isSelected).length;
 
 				let displayMode = prevState.displayMode;
-				if (countItems === 0 && displayMode === DISPLAY_MODE_SELECTED) {
-					displayMode = DISPLAY_MODE_DEFAULT;
+				if (countItems === 0 && displayMode === enumerationStates.DISPLAY_MODE_SELECTED) {
+					displayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
 				}
 				return { items, displayMode };
 			});
@@ -369,8 +382,8 @@ class EnumerationForm extends React.Component {
 					actionsDefault: this.defaultActions,
 				},
 			};
-			if (prevState.displayMode !== DISPLAY_MODE_SEARCH) {
-				newState.displayMode = DISPLAY_MODE_DEFAULT;
+			if (prevState.displayMode !== enumerationStates.DISPLAY_MODE_SEARCH) {
+				newState.displayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
 			}
 			return newState;
 		});
@@ -379,10 +392,10 @@ class EnumerationForm extends React.Component {
 	onAbortItem(event, value) {
 		this.setState(prevState => {
 			const items = [...prevState.items];
-			items[value.index].displayMode = DISPLAY_MODE_DEFAULT;
+			items[value.index].displayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
 			// resetting error as it was not saved
 			items[value.index].error = '';
-			return { items, displayMode: 'DISPLAY_MODE_DEFAULT' };
+			return { items, displayMode: enumerationStates.DISPLAY_MODE_DEFAULT };
 		});
 	}
 
@@ -435,7 +448,7 @@ class EnumerationForm extends React.Component {
 					// retrieve correct item when in non-connected mode
 					item = this.getItemInSearchMode(prevState.searchCriteria, value.index, items);
 				}
-				item.displayMode = DISPLAY_MODE_DEFAULT;
+				item.displayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
 				const valueExist = this.valueAlreadyExist(value.value, prevState);
 				// if the value is empty, no value update is done
 				if (value.value && !valueExist) {
@@ -452,10 +465,10 @@ class EnumerationForm extends React.Component {
 	}
 
 	onInputChange(event, value) {
-		if (this.state.displayMode === DISPLAY_MODE_ADD) {
+		if (this.state.displayMode === enumerationStates.DISPLAY_MODE_ADD) {
 			this.updateHeaderInputDisabled(value.value);
 		}
-		if (this.state.displayMode === DISPLAY_MODE_SEARCH) {
+		if (this.state.displayMode === enumerationStates.DISPLAY_MODE_SEARCH) {
 			if (this.timerSearch !== null) {
 				clearTimeout(this.timerSearch);
 			}
@@ -511,7 +524,7 @@ class EnumerationForm extends React.Component {
 	}
 
 	onAbortHandler() {
-		if (this.state.displayMode === DISPLAY_MODE_ADD) {
+		if (this.state.displayMode === enumerationStates.DISPLAY_MODE_ADD) {
 			this.updateHeaderInputDisabled('');
 		}
 
@@ -530,7 +543,7 @@ class EnumerationForm extends React.Component {
 				};
 				this.props.onChange(event, payload);
 				this.setState({
-					displayMode: DISPLAY_MODE_DEFAULT,
+					displayMode: enumerationStates.DISPLAY_MODE_DEFAULT,
 					searchCriteria: null,
 				});
 				this.onConnectedAbortHandler();
@@ -550,17 +563,14 @@ class EnumerationForm extends React.Component {
 	}
 
 	onAddKeyDown(event, value) {
-		console.log('on add keydown');
 		if (event.keyCode === keycode('enter')) {
-			console.log('in enter');
 			event.stopPropagation();
 			event.preventDefault();
-			if (this.state.displayMode === DISPLAY_MODE_ADD) {
+			if (this.state.displayMode === enumerationStates.DISPLAY_MODE_ADD) {
 				this.onValidateAndAddHandler(event, value);
 			}
 		}
 		if (event.keyCode === keycode('escape')) {
-			console.log('in escape');
 			event.stopPropagation();
 			event.preventDefault();
 			this.onAbortHandler();
@@ -593,12 +603,12 @@ class EnumerationForm extends React.Component {
 			if (countItems === 0) {
 				return {
 					items: itemsSelected,
-					displayMode: DISPLAY_MODE_DEFAULT,
+					displayMode: enumerationStates.DISPLAY_MODE_DEFAULT,
 				};
 			}
 			return {
 				items: itemsSelected,
-				displayMode: DISPLAY_MODE_SELECTED,
+				displayMode: enumerationStates.DISPLAY_MODE_SELECTED,
 				itemsProp: {
 					...prevState.itemsProp,
 					actionsDefault: this.defaultActions,
@@ -625,7 +635,6 @@ class EnumerationForm extends React.Component {
 				trigger: { ids: itemsToDelete, action: ENUMERATION_REMOVE_ACTION },
 				schema,
 			}).then(() => {
-				console.log('delete items resolving');
 				const payload = {
 					schema,
 					value: this.state.items.filter(item => !item.isSelected),
@@ -637,7 +646,7 @@ class EnumerationForm extends React.Component {
 			this.setState(prevState => {
 				const result = deleteSelectedItems([...prevState.items]);
 				return {
-					displayMode: DISPLAY_MODE_DEFAULT,
+					displayMode: enumerationStates.DISPLAY_MODE_DEFAULT,
 					items: result,
 				};
 			});
@@ -646,21 +655,16 @@ class EnumerationForm extends React.Component {
 
 	onDeleteItemsHandler() {
 		this.setState({
-			displayMode: DISPLAY_MODE_DEFAULT,
+			displayMode: enumerationStates.DISPLAY_MODE_DEFAULT,
 			headerSelected: this.selectedHeaderActions,
 		});
 	}
 
 	onAddHandler(event, value, successHandler, failHandler) {
-		const { schema, properties, errors } = this.props;
-		// const payload = {
-		// 	schema: this.props.schema,
-		// 	value: this.props.value.concat({ values: value.value}),
-		// };
-		// this.props.onChange(event, payload);
+		const { schema } = this.props;
 		if (!value.value) {
 			this.setState({
-				displayMode: DISPLAY_MODE_DEFAULT,
+				displayMode: enumerationStates.DISPLAY_MODE_DEFAULT,
 			});
 			return;
 		}
@@ -674,7 +678,6 @@ class EnumerationForm extends React.Component {
 				trigger: { value: this.constructor.parseStringValueToArray(value.value), action: ENUMERATION_ADD_ACTION },
 				schema,
 			}).then((newDocument) => {
-				console.log('add resolving');
 				const payload = {
 					schema: this.props.schema,
 					value: this.props.value.concat(newDocument),
@@ -687,7 +690,7 @@ class EnumerationForm extends React.Component {
 			});
 		} else if (!this.valueAlreadyExist(value.value, this.state)) {
 			this.setState(prevState => ({
-				displayMode: 'DISPLAY_MODE_DEFAULT',
+				displayMode: enumerationStates.DISPLAY_MODE_DEFAULT,
 				items: prevState.items.concat([
 					{
 						values: this.constructor.parseStringValueToArray(value.value),
@@ -705,37 +708,6 @@ class EnumerationForm extends React.Component {
 			this.validateAndAddSuccessHandler.bind(this),
 			this.addFailHandler.bind(this)
 		);
-		// const { schema, properties, errors } = this.props;
-		// // const payload = {
-		// // 	schema: this.props.schema,
-		// // 	value: this.props.value.concat({ values: value.value}),
-		// // };
-		// // this.props.onChange(event, payload);
-		// if (!value.value) {
-		// 	this.setState({
-		// 		displayMode: DISPLAY_MODE_DEFAULT,
-		// 	});
-		// 	return;
-		// }
-		//
-		// this.setState({
-		// 	headerInput: this.loadingInputsActions,
-		// });
-		//
-		// this.props.onTrigger(event, {
-		// 	trigger: { value: this.constructor.parseStringValueToArray(value.value), action: ENUMERATION_ADD_ACTION },
-		// 	schema,
-		// }).then((newDocument) => {
-		// 	console.log('add resolving');
-		// 	const payload = {
-		// 		schema: this.props.schema,
-		// 		value: this.props.value.concat(newDocument),
-		// 	};
-		// 	this.props.onChange(event, payload);
-		// 	this.input.focus();
-		// }).finally(() => {
-		// 	this.validateAndAddSuccessHandler();
-		// });
 	}
 
 	onSingleAddHandler(event, value) {
@@ -745,35 +717,6 @@ class EnumerationForm extends React.Component {
 			this.addSuccessHandler.bind(this),
 			this.addFailHandler.bind(this)
 		);
-		// if (!value.value) {
-		// 	this.setState({
-		// 		displayMode: DISPLAY_MODE_DEFAULT,
-		// 	});
-		// 	return;
-		// }
-		//
-		// if (
-		// 	this.callActionHandler(
-		// 		ENUMERATION_ADD_ACTION,
-		// 		this.constructor.parseStringValueToArray(value.value),
-		// 		this.addSuccessHandler.bind(this),
-		// 		this.addFailHandler.bind(this),
-		// 	)
-		// ) {
-		// 	this.setState({
-		// 		headerInput: this.loadingInputsActions,
-		// 	});
-		// } else if (!this.valueAlreadyExist(value.value, this.state)) {
-		// 	this.setState(prevState => ({
-		// 		displayMode: 'DISPLAY_MODE_DEFAULT',
-		// 		items: prevState.items.concat([
-		// 			{
-		// 				values: this.constructor.parseStringValueToArray(value.value),
-		// 			},
-		// 		]),
-		// 	}));
-		// 	this.updateHeaderInputDisabled('');
-		// }
 	}
 
 	// lazy loading
@@ -798,26 +741,18 @@ class EnumerationForm extends React.Component {
 				),
 			};
 			this.props.onChange(event, payload);
-			console.log('resolving');
 		}).finally(() => {
 			this.onLazyHandler();
 		});
-		// if (
-		// 	this.callActionHandler(ENUMERATION_LOAD_DATA_ACTION, undefined, this.onLazyHandler.bind(this))
-		// ) {
-		//
-		// }
 	}
 
 	onImportButtonClick() {
-		this.callActionHandler(
-			ENUMERATION_IMPORT_FILE_CLICK,
-			{
-				simulateClickInputFile: this.simulateClickInputFile.bind(this),
-			},
-			this.importFileHandler,
-			this.importFileHandler,
-		);
+		if (this.state.items.length === 0) {
+			this.setState(
+				state => ({ ...state, importMode: enumerationStates.IMPORT_MODE_APPEND }),
+				this.simulateClickInputFile.bind(this)
+			);
+		}
 	}
 
 	setInputRef(input) {
@@ -857,7 +792,7 @@ class EnumerationForm extends React.Component {
 
 	addSuccessHandler() {
 		this.setState({
-			displayMode: DISPLAY_MODE_DEFAULT,
+			displayMode: enumerationStates.DISPLAY_MODE_DEFAULT,
 		});
 	}
 
@@ -894,14 +829,16 @@ class EnumerationForm extends React.Component {
 	 *
 	 */
 	simulateClickInputFile() {
-		// timeout to allow to lost the focus on the dropdown
-		setTimeout(() => {
-			this.inputFile.click();
+		if (this.state.importMode) {
+			// timeout to allow to lost the focus on the dropdown
+			setTimeout(() => {
+				this.inputFile.click();
 
-			// when we close the file dialog focus is still on the import icon. The tooltip still appears.
-			// we force to remove the current focus on the icon
-			document.activeElement.blur();
-		});
+				// when we close the file dialog focus is still on the import icon. The tooltip still appears.
+				// we force to remove the current focus on the icon
+				document.activeElement.blur();
+			});
+		}
 	}
 
 	/**
@@ -910,19 +847,30 @@ class EnumerationForm extends React.Component {
 	 * @param  {Event} event Event trigger when the user change the input file
 	 */
 	importFile(event) {
-		if (
-			this.callActionHandler(
-				ENUMERATION_IMPORT_FILE_ACTION,
-				event.target.files[0],
-				this.importFileHandler,
-				this.importFileHandler,
-			)
-		) {
-			this.setState({
-				headerDefault: this.loadingInputsActions,
+		const { schema } = this.props;
+		this.setState({
+			headerDefault: this.loadingInputsActions,
+		});
+		if (this.props.properties.connectedMode) {
+			this.props.onTrigger(event, {
+				trigger: {
+					value: event.target.files[0],
+					action: 'ENUMERATION_IMPORT_FILE_ACTION',
+					importMode: this.state.importMode,
+				},
+				schema,
+			}).then((documents) => {
+				const payload = {
+					schema,
+					value: documents.map(document => ({ id: document.id, values: document.values })),
+				};
+				this.props.onChange(event, payload);
+			}).finally(() => {
+				this.importFileHandler();
 			});
+		} else {
+			this.resetInputFile();
 		}
-		this.resetInputFile();
 	}
 
 	resetInputFile() {
@@ -937,11 +885,11 @@ class EnumerationForm extends React.Component {
 	importFileHandler() {
 		this.setState({
 			headerDefault: this.defaultHeaderActions,
+			importMode: '',
 		});
 	}
 
 	searchItems(searchCriteria) {
-		const { schema, properties, errors } = this.props;
 		if (!searchCriteria) {
 			return this.state.items;
 		}
@@ -963,7 +911,7 @@ class EnumerationForm extends React.Component {
 		this.setState(prevState => ({
 			items: resetItems([...prevState.items]),
 			headerInput: this.addInputs,
-			displayMode: DISPLAY_MODE_ADD,
+			displayMode: enumerationStates.DISPLAY_MODE_ADD,
 		}));
 	}
 
@@ -971,7 +919,7 @@ class EnumerationForm extends React.Component {
 		this.setState(prevState => ({
 			items: resetItems([...prevState.items]),
 			headerInput: this.searchInputsActions,
-			displayMode: DISPLAY_MODE_SEARCH,
+			displayMode: enumerationStates.DISPLAY_MODE_SEARCH,
 		}));
 	}
 
