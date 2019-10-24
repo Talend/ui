@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { TooltipTrigger } from '@talend/react-components';
+import TooltipTrigger from '@talend/react-components/lib/TooltipTrigger';
 
 import Widget from './Widget.component';
 

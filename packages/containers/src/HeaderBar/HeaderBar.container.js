@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import { Map } from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
-import { HeaderBar as Component } from '@talend/react-components';
+import Component from '@talend/react-components/lib/HeaderBar';
 
 import { fetchProducts, openProduct } from './HeaderBar.actions';
 

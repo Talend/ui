@@ -24,8 +24,6 @@ describe('Date widget', () => {
 				onFinish={jest.fn()}
 				options={{ dafeFormat: 'DD/MM/YYYY' }}
 				schema={schema}
-				useTime
-				useSeconds
 				value={'15/02/2018 23:55:32'}
 			/>,
 		);
@@ -38,7 +36,7 @@ describe('Date widget', () => {
 		// given
 		const isoSchema = {
 			...schema,
-			format: 'iso-datetime',
+			schema: { type: 'string', format: 'iso-datetime' },
 		};
 		const value = '2018-01-01T10:35:48.951Z';
 
@@ -59,7 +57,7 @@ describe('Date widget', () => {
 		);
 
 		// then
-		expect(wrapper.find('InputDateTimePicker').prop('selectedDateTime')).toEqual(new Date(value));
+		expect(wrapper.find('InputDatePicker').prop('value')).toEqual(new Date(value));
 	});
 
 	it('should trigger onFinish on picker blur', () => {
@@ -81,7 +79,7 @@ describe('Date widget', () => {
 		const event = { target: {} };
 
 		// when
-		wrapper.find('InputDateTimePicker').simulate('blur', event);
+		wrapper.find('InputDatePicker').simulate('blur', event);
 
 		// then
 		expect(onFinish).toBeCalled();
@@ -106,13 +104,13 @@ describe('Date widget', () => {
 			expect(onChange).not.toBeCalled();
 			const event = { target: {} };
 			const payload = {
-				datetime: new Date(2015, 9, 21),
+				date: new Date(2015, 9, 21),
 				textInput: '2015-09-21',
 				errorMessage: undefined,
 			};
 
 			// when
-			wrapper.find('InputDateTimePicker').simulate('change', event, payload);
+			wrapper.find('InputDatePicker').simulate('change', event, payload);
 
 			// then
 			expect(onChange).toBeCalledWith(event, { schema, value: '2015-09-21' });
@@ -139,18 +137,18 @@ describe('Date widget', () => {
 			expect(onChange).not.toBeCalled();
 			const event = { target: {} };
 			const payload = {
-				datetime: new Date(2015, 9, 21),
+				date: new Date(2015, 9, 21),
 				textInput: '2015-09-21',
 				errorMessage: undefined,
 			};
 
 			// when
-			wrapper.find('InputDateTimePicker').simulate('change', event, payload);
+			wrapper.find('InputDatePicker').simulate('change', event, payload);
 
 			// then
 			expect(onChange).toBeCalledWith(event, {
 				schema: timestampSchema,
-				value: payload.datetime.getTime(),
+				value: payload.date.getTime(),
 			});
 		});
 
@@ -175,13 +173,13 @@ describe('Date widget', () => {
 			expect(onChange).not.toBeCalled();
 			const event = { target: {} };
 			const payload = {
-				datetime: undefined,
+				date: undefined,
 				textInput: '',
 				errorMessage: undefined,
 			};
 
 			// when
-			wrapper.find('InputDateTimePicker').simulate('change', event, payload);
+			wrapper.find('InputDatePicker').simulate('change', event, payload);
 
 			// then
 			expect(onChange).toBeCalledWith(event, {
@@ -211,18 +209,18 @@ describe('Date widget', () => {
 			expect(onChange).not.toBeCalled();
 			const event = { target: {} };
 			const payload = {
-				datetime: new Date(2015, 9, 21),
+				date: new Date(2015, 9, 21),
 				textInput: '2015-09-21',
 				errorMessage: undefined,
 			};
 
 			// when
-			wrapper.find('InputDateTimePicker').simulate('change', event, payload);
+			wrapper.find('InputDatePicker').simulate('change', event, payload);
 
 			// then
 			expect(onChange).toBeCalledWith(event, {
 				schema: isoSchema,
-				value: payload.datetime.toISOString(),
+				value: payload.date.toISOString(),
 			});
 		});
 
@@ -244,13 +242,13 @@ describe('Date widget', () => {
 			expect(onFinish).not.toBeCalled();
 			const event = { target: {} };
 			const payload = {
-				datetime: new Date(2015, 9, 21),
+				date: new Date(2015, 9, 21),
 				textInput: '2015-09-21',
 				errorMessage: undefined,
 			};
 
 			// when
-			wrapper.find('InputDateTimePicker').simulate('change', event, payload);
+			wrapper.find('InputDatePicker').prop('onChange')(event, payload);
 
 			// then
 			expect(onFinish).toBeCalledWith(event, { schema, value: '2015-09-21' });
@@ -274,13 +272,13 @@ describe('Date widget', () => {
 			expect(onFinish).not.toBeCalled();
 			const event = { target: {} };
 			const payload = {
-				datetime: new Date(''), // invalid error
+				date: new Date(''), // invalid error
 				textInput: '2015-09-aa',
 				errorMessage: 'THERE IS AN ERROR',
 			};
 
 			// when
-			wrapper.find('InputDateTimePicker').simulate('change', event, payload);
+			wrapper.find('InputDatePicker').simulate('change', event, payload);
 
 			// then
 			expect(onFinish).not.toBeCalled();

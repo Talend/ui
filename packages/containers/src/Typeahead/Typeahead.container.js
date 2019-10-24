@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import { cmfConnect, componentState } from '@talend/react-cmf';
-import { Typeahead as Component } from '@talend/react-components';
+import Component from '@talend/react-components/lib/Typeahead';
 import omit from 'lodash/omit';
 import keycode from 'keycode';
 

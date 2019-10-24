@@ -7,9 +7,9 @@ import Connected, { mergeProps, deleteNotification } from './Notification.connec
 import pushNotification from './pushNotification';
 import clearNotifications from './clearNotifications';
 
-jest.mock('@talend/react-components', () => ({
-	Notification: props => <div className="tc-notifications" notifications={props.notifications} />,
-}));
+jest.mock('@talend/react-components/lib/Notification', () => props => (
+	<div className="tc-notifications" notifications={props.notifications} />
+));
 
 describe('Container Notification', () => {
 	it('should render', () => {
