@@ -43,7 +43,6 @@
 			content: ' ';
 			position: absolute;
 			height: 2.5rem;
-			width: 50%;
 			z-index: -1;
 			background-color: tint($lochmara, 80%);
 		}
@@ -56,6 +55,7 @@
 		}
 
 		&.range-start:before {
+			width: 2.4rem;
 			right: 0.65rem;
 			border-top-left-radius: 50%;
 			border-bottom-left-radius: 50%;
@@ -98,12 +98,8 @@
 			opacity: 0.54;
 		}
 
-		&.range {
-			background-color: tint($lochmara, 80%);
-
-			&:hover {
-				background-color: tint($lochmara, 70%);
-			}
+		&.range:hover {
+			background-color: tint($lochmara, 70%);
 		}
 	}
 }
