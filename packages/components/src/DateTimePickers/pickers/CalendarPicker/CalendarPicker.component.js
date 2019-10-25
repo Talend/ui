@@ -16,13 +16,13 @@ class CalendarPicker extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const { selectedDate, startDate, endDate, from, to } = props;
+		const { selectedDate, startDate, endDate } = props;
 
 		let initialCalendarDate = selectedDate;
 		if (initialCalendarDate === undefined) {
-			if (from && startDate) {
+			if (startDate) {
 				initialCalendarDate = startDate;
-			} else if (to && endDate) {
+			} else if (endDate) {
 				initialCalendarDate = endDate;
 			} else {
 				initialCalendarDate = new Date();
@@ -60,7 +60,11 @@ class CalendarPicker extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		const newSelectedDate = nextProps.selectedDate;
-		const needToUpdateDate = newSelectedDate !== this.state.selectedDate;
+		const isSelectedDateChanged = nextProps.selectedDate !== this.state.selectedDate;
+		const isStartDateChanged = nextProps.startDate !== this.props.startDate;
+		const isEndDateChanged = nextProps.endDate !== this.props.endDate;
+
+		const needToUpdateDate = isSelectedDateChanged || isStartDateChanged || isEndDateChanged;
 
 		if (!needToUpdateDate) {
 			return;

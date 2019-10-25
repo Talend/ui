@@ -14,8 +14,8 @@ function Inputs(props) {
 			type="text"
 			value={startDate.textInput}
 			style={{ width: 150 }}
-			onFocus={event => inputManagement.onFocus(event, 'startDate')}
 			{...inputManagement}
+			onFocus={event => inputManagement.onFocus(event, 'startDate')}
 			{...props}
 		/>,
 		<DebounceInput
@@ -25,9 +25,9 @@ function Inputs(props) {
 			type="text"
 			value={endDate.textInput}
 			style={{ width: 150 }}
-			onFocus={event => inputManagement.onFocus(event, 'endDate')}
 			{...inputManagement}
-			{...props}
+			onFocus={event => inputManagement.onFocus(event, 'endDate')}
+			// {...props}
 		/>,
 	];
 }

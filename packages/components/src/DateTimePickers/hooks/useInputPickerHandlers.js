@@ -9,7 +9,7 @@ export default function useInputPickerHandlers({ handleBlur, handleChange, handl
 		setPickerVisibility(true);
 	}
 	function closePicker() {
-		setPickerVisibility(false);
+		// setPickerVisibility(false);
 	}
 	function onBlur(event) {
 		setPicked(false);
