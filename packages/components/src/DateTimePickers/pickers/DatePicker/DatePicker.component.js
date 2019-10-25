@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import memoize from 'lodash/memoize';
-import addDays from 'date-fns/add_days';
 import isSameDay from 'date-fns/is_same_day';
 import isToday from 'date-fns/is_today';
 import isWithinRange from 'date-fns/is_within_range';
@@ -11,7 +10,6 @@ import getDate from 'date-fns/get_date';
 import getMonth from 'date-fns/get_month';
 import getYear from 'date-fns/get_year';
 import setMonth from 'date-fns/set_month';
-import subDays from 'date-fns/sub_days';
 import startOfMonth from 'date-fns/start_of_month';
 
 import theme from './DatePicker.scss';
@@ -128,7 +126,7 @@ class DatePicker extends React.PureComponent {
 
 								const isStart = isSameDay(date, startDate);
 								const isEnd = isSameDay(date, endDate);
-								const isMiddle = isWithinRange(date, addDays(startDate, 1), subDays(endDate, 1));
+								const isMiddle = !isStart && !isEnd && isWithinRange(date, startDate, endDate);
 								const isInRange = isStart || isMiddle || isEnd;
 
 								const className = classNames(
