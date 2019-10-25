@@ -60,12 +60,28 @@ class DatePicker extends React.PureComponent {
 		return getYear(date) === this.props.calendar.year;
 	}
 
-	isSelectedInCurrentCalendar() {
-		const { selectedDate } = this.props;
-		if (!selectedDate) {
+	isDateInCurrentCalendar(date) {
+		if (!date) {
 			return false;
 		}
-		return this.isCurrentYear(selectedDate) && this.isCurrentMonth(selectedDate);
+		return this.isCurrentYear(date) && this.isCurrentMonth(date);
+	}
+
+	isSelectedInCurrentCalendar() {
+		const { selectedDate } = this.props;
+
+		return this.isDateInCurrentCalendar(selectedDate);
+	}
+
+	isRangeInCurrentCalendar() {
+		const { startDate, endDate } = this.props;
+		if (!startDate && !endDate) {
+			return false;
+		}
+		return (
+			(startDate && this.isDateInCurrentCalendar(startDate)) ||
+			(endDate && this.isDateInCurrentCalendar(endDate))
+		);
 	}
 
 	selectDate(event, date, year, monthIndex) {
@@ -87,6 +103,7 @@ class DatePicker extends React.PureComponent {
 		const weeks = this.getWeeks(year, monthIndex, 1);
 		const dayNames = getDayNames(undefined, this.props.t);
 		const selectedInCurrentCalendar = this.isSelectedInCurrentCalendar();
+		const isRangeInCurrentCalendar = this.isRangeInCurrentCalendar();
 
 		const monthStr = format(setMonth(new Date(0), monthIndex), 'MMMM', pickerLocale);
 
@@ -124,15 +141,26 @@ class DatePicker extends React.PureComponent {
 									(selectedInCurrentCalendar && selected) ||
 									(!selectedInCurrentCalendar && day === 1);
 
-								const isStart = isSameDay(date, startDate);
-								const isEnd = isSameDay(date, endDate);
-								const isMiddle = !isStart && !isEnd && isWithinRange(date, startDate, endDate);
-								const isInRange = isStart || isMiddle || isEnd;
+								const cellTheme = {};
+								const dayTheme = {};
+								const isInRange =
+									isRangeInCurrentCalendar && isWithinRange(date, startDate, endDate);
+
+								if (isInRange) {
+									const isStart = isSameDay(date, startDate);
+									const isEnd = isSameDay(date, endDate);
+									const isMiddle = !isStart && !isEnd && isInRange;
+									cellTheme[theme['date-range']] = isInRange;
+									cellTheme[theme['range-middle']] = isMiddle;
+									cellTheme[theme['range-start']] = isStart;
+									cellTheme[theme['range-end']] = isEnd;
+									dayTheme[theme.range] = isMiddle;
+								}
 
 								const className = classNames(
 									theme['calendar-day'],
 									{
-										[theme.range]: isMiddle,
+										...dayTheme,
 										[theme.selected]: selected,
 										[theme.today]: today,
 										[theme['not-current-month']]: !this.isCurrentMonth(date),
@@ -145,12 +173,7 @@ class DatePicker extends React.PureComponent {
 								let ariaLabel = format(date, 'dddd DD MMMM YYYY', pickerLocale);
 								const tdProps = {
 									key: j,
-									className: classNames(theme['calendar-col'], {
-										[theme['date-range']]: isInRange,
-										[theme['range-middle']]: isMiddle,
-										[theme['range-start']]: isStart,
-										[theme['range-end']]: isEnd,
-									}),
+									className: classNames(theme['calendar-col'], cellTheme),
 								};
 								if (selected) {
 									tdProps['aria-current'] = 'date';
