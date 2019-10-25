@@ -29,13 +29,15 @@ function nodeNameRenderer(rendererProps) {
 		</span>
 	);*/
 }
-const Selection = ({ node, children, onChange }) => {
+const Selection = props => {
+	const { node, children, onChange, index } = props;
 	const { state: { selected } = {} } = node;
 
 	return (
 		<span>
 			<ThreeState
 				node={node}
+			//	index={index}
 				onChange={() =>
 					onChange({
 						node: {
@@ -139,15 +141,18 @@ class VirtualTree extends React.Component {
 						},
 					}}
 				>
-					{({ style, node, ...rest }) => (
-						<div style={style}>
-							<Expandable node={node} {...rest}>
-								<Selection node={node} {...rest}>
-									{node.name}
-								</Selection>
-							</Expandable>
-						</div>
-					)}
+					{({ style, node, ...rest }) => {
+						// console.log('rest', rest);
+						return (
+							<div style={style}>
+								<Expandable node={node} {...rest}>
+									<Selection node={node} {...rest}>
+										{node.name}
+									</Selection>
+								</Expandable>
+							</div>
+						);
+					}}
 				</UnstableFastTree>
 			);
 		}

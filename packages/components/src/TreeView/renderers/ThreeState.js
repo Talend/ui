@@ -28,6 +28,7 @@ function threeStateFlow(checked) {
 
 const ThreeState = props => {
 	const { onChange, node, children, index } = props;
+	//console.log('three state on index', index);
 	const { hasChildren } = getNodeRenderOptions(node);
 	const selected = get(node, 'state', {}).selected;
 	//const updatedSelectionValue = selected;
@@ -38,6 +39,7 @@ const ThreeState = props => {
 	});
 
 	const onThreeStateChangeWrapper = () => {
+		//console.log('index', index);
 		onChange({
 			node: {
 				...node,
@@ -46,6 +48,7 @@ const ThreeState = props => {
 					selected: updatedSelectionValue,
 				},
 			},
+//			index,
 			type: SELECT,
 		});
 	};
