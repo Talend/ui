@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
 import { act } from 'react-dom/test-utils';
 import { BadgeCheckboxesForm } from './BadgeCheckboxesForm.component';
 
@@ -20,6 +19,8 @@ const checkboxValues = [
 	},
 ];
 
+const t = (_, { defaultValue }) => defaultValue;
+
 describe('BadgeCheckboxesForm', () => {
 	it('should render three checkboxes', () => {
 		// Given
@@ -29,12 +30,11 @@ describe('BadgeCheckboxesForm', () => {
 			onChange: jest.fn(),
 			onSubmit: jest.fn(),
 			value: [],
-			t: jest.fn(),
+			t,
 		};
 		// When
 		const wrapper = mount(<BadgeCheckboxesForm {...props} />);
 		// Then
-		// expect(wrapper.html()).toMatchSnapshot();
 		expect(
 			wrapper
 				.find('span')
@@ -65,7 +65,7 @@ describe('BadgeCheckboxesForm', () => {
 			onChange,
 			onSubmit: jest.fn(),
 			value: [],
-			t: jest.fn(),
+			t,
 		};
 		// When
 		const wrapper = mount(<BadgeCheckboxesForm {...props} />);
@@ -78,8 +78,143 @@ describe('BadgeCheckboxesForm', () => {
 		wrapper
 			.find('input[type="checkbox"]')
 			.at(0)
-			.simulate('change');
+			.simulate('change', { target: { checked: true } });
 		// Then
-		expect(onChange).toHaveBeenCalled();
+		expect(onChange).toHaveBeenCalledTimes(1);
+		expect(onChange.mock.calls[0][1]).toEqual([
+			{ checked: true, id: 'checkbox-one', label: 'Checkbox One' },
+		]);
+	});
+	it('should display checkbox one checked', () => {
+		// Given
+		const props = {
+			checkboxValues,
+			id: 'myId',
+			onChange: jest.fn(),
+			onSubmit: jest.fn(),
+			value: [
+				{
+					checked: true,
+					id: 'checkbox-one',
+					label: 'Checkbox One',
+				},
+			],
+			t,
+		};
+		// When
+		const wrapper = mount(<BadgeCheckboxesForm {...props} />);
+		// Then
+		expect(wrapper.find('input[id="checkbox-one-checkbox"]').prop('checked')).toBe(true);
+	});
+	it('should filter the displayed checkbox using the filter bar', () => {
+		// Given
+		const props = {
+			checkboxValues,
+			id: 'myId',
+			onChange: jest.fn(),
+			onSubmit: jest.fn(),
+			value: [],
+			t,
+		};
+		// When
+		const wrapper = mount(<BadgeCheckboxesForm {...props} />);
+		expect(wrapper.find('input[id="checkbox-one-checkbox"]')).toHaveLength(1);
+		expect(wrapper.find('input[id="checkbox-two-checkbox"]')).toHaveLength(1);
+		expect(wrapper.find('input[id="checkbox-three-checkbox"]')).toHaveLength(1);
+		act(() => {
+			wrapper.find('input[type="search"]').simulate('change', { target: { value: 'one' } });
+		});
+		wrapper.update();
+		// Then
+		expect(wrapper.find('input[id="checkbox-one-checkbox"]')).toHaveLength(1);
+		expect(wrapper.find('input[id="checkbox-two-checkbox"]')).toHaveLength(0);
+		expect(wrapper.find('input[id="checkbox-three-checkbox"]')).toHaveLength(0);
+	});
+	it('should filter only the checked checkboxes', () => {
+		// Given
+		const props = {
+			checkboxValues,
+			id: 'myId',
+			onChange: jest.fn(),
+			onSubmit: jest.fn(),
+			value: [
+				{
+					checked: true,
+					id: 'checkbox-one',
+					label: 'Checkbox One',
+				},
+				{
+					checked: true,
+					id: 'checkbox-two',
+					label: 'Checkbox Two',
+				},
+			],
+			t,
+		};
+		// When
+		const wrapper = mount(<BadgeCheckboxesForm {...props} />);
+		expect(wrapper.find('input[id="checkbox-one-checkbox"]')).toHaveLength(1);
+		expect(wrapper.find('input[id="checkbox-two-checkbox"]')).toHaveLength(1);
+		expect(wrapper.find('input[id="checkbox-three-checkbox"]')).toHaveLength(1);
+		act(() => {
+			wrapper.find('input[test-id="checkbox-selected-values-only"]').simulate('change');
+		});
+		wrapper.update();
+		// Then
+		expect(wrapper.find('input[id="checkbox-one-checkbox"]')).toHaveLength(1);
+		expect(wrapper.find('input[id="checkbox-two-checkbox"]')).toHaveLength(1);
+		expect(wrapper.find('input[id="checkbox-three-checkbox"]')).toHaveLength(0);
+	});
+	it('should call the submit callback', () => {
+		const onSubmit = jest.fn();
+		// Give
+		const props = {
+			checkboxValues,
+			id: 'myId',
+			onChange: jest.fn(),
+			onSubmit,
+			value: [],
+			t,
+		};
+		// When
+		const wrapper = mount(<BadgeCheckboxesForm {...props} />);
+		wrapper.find('button[type="submit"]').simulate('submit');
+		// Then
+		expect(onSubmit).toHaveBeenCalledTimes(1);
+	});
+	it('should display a button "Apply"', () => {
+		// Give
+		const props = {
+			checkboxValues,
+			id: 'myId',
+			onChange: jest.fn(),
+			onSubmit: jest.fn(),
+			value: [],
+			t,
+		};
+		// When
+		const wrapper = mount(<BadgeCheckboxesForm {...props} />);
+		// Then
+		expect(wrapper.find('button[type="submit"]').text()).toBe('Apply');
+	});
+	it('should display a toggle "Selected values only"', () => {
+		// Give
+		const props = {
+			checkboxValues,
+			id: 'myId',
+			onChange: jest.fn(),
+			onSubmit: jest.fn(),
+			value: [],
+			t,
+		};
+		// When
+		const wrapper = mount(<BadgeCheckboxesForm {...props} />);
+		// Then
+		expect(
+			wrapper
+				.find('span')
+				.at(3)
+				.text(),
+		).toBe('Selected values only');
 	});
 });

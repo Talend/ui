@@ -115,10 +115,10 @@ const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, t 
 				</RichLayout.Body>
 				<RichLayout.Footer id={id} className={theme('fs-badge-checkbox-form-footer')}>
 					<Toggle
-						onChange={() => setToggleShowSelected(!showSelected)}
+						checked={showSelected}
 						id={`${badgeCheckBoxesFormId}-show-checked`}
 						label={t('TOGGLE_SELECTED_VALUES_ONLY', { defaultValue: 'Selected values only' })}
-						checked={showSelected}
+						onChange={() => setToggleShowSelected(!showSelected)}
 						test-id="checkbox-selected-values-only"
 					/>
 					<Action type="submit" label={t('APPLY', { defaultValue: 'Apply' })} bsStyle="info" />
