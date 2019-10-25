@@ -99,9 +99,13 @@ const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, t 
 				id={`${badgeCheckBoxesFormId}-form`}
 				onSubmit={onSubmit}
 			>
-				<RichLayout.Body id={badgeCheckBoxesFormId} className={theme('fs-badge-checkbox-form-body')}>
+				<RichLayout.Body
+					id={badgeCheckBoxesFormId}
+					className={theme('fs-badge-checkbox-form-body')}
+				>
 					{displayedCheckboxes.map(checkbox => (
 						<BadgeCheckbox
+							key={checkbox.id}
 							id={checkbox.id}
 							onChange={onChangeCheckBoxes}
 							label={checkbox.label}
@@ -115,6 +119,7 @@ const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, t 
 						id={`${badgeCheckBoxesFormId}-show-checked`}
 						label={t('TOGGLE_SELECTED_VALUES_ONLY', { defaultValue: 'Selected values only' })}
 						checked={showSelected}
+						test-id="checkbox-selected-values-only"
 					/>
 					<Action type="submit" label={t('APPLY', { defaultValue: 'Apply' })} bsStyle="info" />
 				</RichLayout.Footer>
@@ -124,10 +129,12 @@ const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, t 
 };
 
 BadgeCheckboxesForm.propTypes = {
-	checkboxValues: PropTypes.shape({
-		id: PropTypes.string.isRequired,
-		label: PropTypes.string.isRequired,
-	}),
+	checkboxValues: PropTypes.arrayOf(
+		PropTypes.shape({
+			id: PropTypes.string.isRequired,
+			label: PropTypes.string.isRequired,
+		}),
+	),
 	id: PropTypes.string.isRequired,
 	onChange: PropTypes.func,
 	onSubmit: PropTypes.func.isRequired,
