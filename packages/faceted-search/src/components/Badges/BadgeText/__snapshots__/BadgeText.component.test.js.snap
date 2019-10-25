@@ -34,10 +34,12 @@ exports[`BadgeText should mount a default badge 1`] = `
               class="btn btn-link"
       >
         <span>
+          All
         </span>
       </button>
     </div>
     <button role="button"
+            aria-label="All"
             id="tc-badge-delete-myId-badge-text"
             aria-describedby="42"
             type="button"

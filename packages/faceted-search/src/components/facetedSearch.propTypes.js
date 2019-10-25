@@ -14,8 +14,8 @@ const badgeDefinitionRawDataPropTypes = PropTypes.shape({
 const badgesDefinitionsRawDataPropTypes = PropTypes.arrayOf(badgeDefinitionRawDataPropTypes);
 
 const operatorPropTypes = PropTypes.shape({
-	name: PropTypes.string.isRequired,
-	label: PropTypes.string.isRequired,
+	name: PropTypes.string,
+	label: PropTypes.string,
 	iconName: PropTypes.string,
 });
 
@@ -30,9 +30,10 @@ const badgeFacetedPropTypes = PropTypes.shape({
 		operator: operatorPropTypes,
 		operators: operatorsPropTypes,
 		type: PropTypes.string.isRequired,
+
 	}),
 	metadata: PropTypes.shape({
-		badgeId: PropTypes.string.isRequired,
+		badgeId: PropTypes.string,
 		badgesPerFacet: PropTypes.string,
 		case: PropTypes.string,
 		entitiesPerBadge: PropTypes.string,
