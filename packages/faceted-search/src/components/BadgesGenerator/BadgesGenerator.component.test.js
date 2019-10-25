@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { mount } from 'enzyme';
+import { BadgeText } from '../Badges/BadgeText/BadgeText.component';
 
 import { BadgesGenerator } from './BadgesGenerator.component';
 
@@ -8,8 +9,10 @@ describe('BadgesGenerator', () => {
 	const badges = [
 		{
 			properties: {
-				name: 'name',
+				attribute: 'name',
 				category: 'name',
+				label: 'Name',
+				type: 'text',
 				operator: {
 					label: 'Equal',
 					name: '=',
@@ -33,11 +36,16 @@ describe('BadgesGenerator', () => {
 		},
 	];
 
+	const badgesDictionary = {
+		text: BadgeText,
+	};
+
 	it('should render the html output', () => {
 		// Given
 		const props = {
 			badges,
-			getBadge: jest.fn(),
+			badgesDictionary,
+			getBadgeFromDict: jest.fn(),
 			id: 'my-id',
 			t: jest.fn(),
 		};
@@ -48,10 +56,11 @@ describe('BadgesGenerator', () => {
 	});
 	it('should render the fake component', () => {
 		// Given
-		const FakeComponent = props => <div {...props}>This is a fake component</div>;
+		const FakeComponent = ({ t, ...rest }) => <div {...rest}>This is a fake component</div>;
 		const props = {
 			badges,
-			getBadge: () => FakeComponent,
+			badgesDictionary,
+			getBadgeFromDict: () => FakeComponent,
 			id: 'my-id',
 			t: jest.fn(),
 		};

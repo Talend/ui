@@ -16,7 +16,7 @@ describe('BadgeTextArea', () => {
 		const props = {
 			id: 'myId',
 			onSubmit: jest.fn(),
-			t: jest.fn(),
+			t: () => 'Apply',
 		};
 		// When
 		const wrapper = mount(
@@ -36,7 +36,7 @@ describe('BadgeTextArea', () => {
 			category: 'potato',
 			onSubmit,
 			value: 'init value',
-			t: jest.fn(),
+			t: () => 'Apply',
 		};
 		// When
 		const wrapper = mount(

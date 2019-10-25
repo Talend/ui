@@ -17,7 +17,7 @@ describe('BadgeText', () => {
 			label: 'My Label',
 			id: 'myId',
 			onSubmit: jest.fn(),
-			t: jest.fn(),
+			t: () => 'All',
 		};
 		// When
 		const wrapper = mount(
@@ -35,9 +35,8 @@ describe('BadgeText', () => {
 			id: 'potatoId',
 			initialOpenedOperator: true,
 			label: 'all the stuff',
-			onSubmit: jest.fn(),
 			value: 'init value',
-			t: jest.fn(),
+			t: () => 'All',
 		};
 		// When
 		const wrapper = mount(

@@ -41,12 +41,13 @@ describe('BadgeFaceted', () => {
 		};
 		const props = {
 			id: 'my-id',
+			badgeId: 'my-badge-id',
 			category: 'Category',
 			labelCategory: 'My Label',
 			labelValue: 'All',
 			operator,
 			operators,
-			t: jest.fn(),
+			t: () => 'Delete badge',
 		};
 		// When
 		const wrapper = mount(
@@ -74,7 +75,7 @@ describe('BadgeFaceted', () => {
 			labelValue: 'All',
 			operator,
 			operators,
-			t: jest.fn(),
+			t: () => 'Delete badge',
 			value: 'hello world',
 		};
 		// When
@@ -103,7 +104,7 @@ describe('BadgeFaceted', () => {
 			labelValue: 'All',
 			operator,
 			operators,
-			t: jest.fn(),
+			t: () => 'Delete badge',
 			value: 'hello world',
 		};
 		// When
