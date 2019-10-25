@@ -8,6 +8,21 @@ import { configure } from 'enzyme';
 /**
  * lets mock i18next for all tests
  */
+jest.mock('react-i18next', () => ({
+	useTranslation: () => ({
+		t: (key, options) => (options.defaultValue || '').replace(/{{(\w+)}}/g, (_, k) => options[k]),
+	}),
+	t: (key, options) => (options.defaultValue || '').replace(/{{(\w+)}}/g, (_, k) => options[k]),
+	setI18n: () => {},
+	getI18n: () => ({
+		t: (key, options) => (options.defaultValue || '').replace(/{{(\w+)}}/g, (_, k) => options[k]),
+	}),
+	withTranslation: () => Component => {
+		Component.defaultProps = { ...Component.defaultProps, t: () => '' };
+		Component.displayName = `withI18nextTranslation(${Component.displayName})`;
+		return Component;
+	},
+}));
 jest.mock('i18next', () => {
 	const noop = () => {};
 	const i18n = {

@@ -16,7 +16,7 @@ const badgesDefinitionsRawDataPropTypes = PropTypes.arrayOf(badgeDefinitionRawDa
 const operatorPropTypes = PropTypes.shape({
 	name: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,
-	iconName: PropTypes.string.isRequired,
+	iconName: PropTypes.string,
 });
 
 const operatorsPropTypes = PropTypes.arrayOf(operatorPropTypes);

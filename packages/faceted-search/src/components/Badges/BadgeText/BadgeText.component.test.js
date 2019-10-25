@@ -16,7 +16,6 @@ describe('BadgeText', () => {
 		const props = {
 			label: 'My Label',
 			id: 'myId',
-			onSubmit: jest.fn(),
 			t: jest.fn(),
 		};
 		// When
@@ -35,7 +34,6 @@ describe('BadgeText', () => {
 			id: 'potatoId',
 			initialOpenedOperator: true,
 			label: 'all the stuff',
-			onSubmit: jest.fn(),
 			value: 'init value',
 			t: jest.fn(),
 		};

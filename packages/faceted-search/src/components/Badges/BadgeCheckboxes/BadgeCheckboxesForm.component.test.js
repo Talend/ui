@@ -3,6 +3,10 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { BadgeCheckboxesForm } from './BadgeCheckboxesForm.component';
+import getDefaultT from '../../../translate';
+
+
+
 
 const checkboxValues = [
 	{
@@ -19,7 +23,7 @@ const checkboxValues = [
 	},
 ];
 
-const t = (_, { defaultValue }) => defaultValue;
+const t = getDefaultT();
 
 describe('BadgeCheckboxesForm', () => {
 	it('should render three checkboxes', () => {

@@ -36,7 +36,7 @@ export const BadgeCheckboxes = ({
 	t,
 }) => {
 	const currentOperators = useMemo(() => operators, [operators]);
-	const currentOperator = operator || currentOperators[0];
+	const currentOperator = operator || (currentOperators && currentOperators[0]);
 	const badgeCheckboxesId = `${id}-badge-checkboxes`;
 	const badgeLabel = useMemo(() => getSelectBadgeLabel(value, t), [value, t]);
 	return (
@@ -75,7 +75,7 @@ BadgeCheckboxes.propTypes = {
 	operator: operatorPropTypes,
 	operators: operatorsPropTypes,
 	size: PropTypes.oneOf(Object.values(Badge.SIZES)),
-	value: PropTypes.string,
+	value: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
 	values: PropTypes.array,
 	t: PropTypes.func.isRequired,
 };
