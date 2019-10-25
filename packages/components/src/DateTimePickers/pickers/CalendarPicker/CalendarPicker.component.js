@@ -36,8 +36,6 @@ class CalendarPicker extends React.Component {
 				year: getYear(initialCalendarDate),
 			},
 			selectedDate,
-			startDate,
-			endDate,
 			allowFocus: !props.manageFocus,
 		};
 
@@ -154,8 +152,8 @@ class CalendarPicker extends React.Component {
 					onSelectMonthYear={this.onSelectCalendarMonthYear}
 					onTitleClick={this.setMonthYearView}
 					selectedDate={this.state.selectedDate}
-					startDate={this.state.startDate}
-					endDate={this.state.endDate}
+					startDate={this.props.startDate}
+					endDate={this.props.endDate}
 				/>
 			);
 		} else {
