@@ -56,7 +56,7 @@ describe('BadgesGenerator', () => {
 	});
 	it('should render the fake component', () => {
 		// Given
-		const FakeComponent = ({ t, ...rest }) => <div {...rest}>This is a fake component</div>;
+		const FakeComponent = ({ id }) => <div id={id}>This is a fake component</div>;
 		const props = {
 			badges,
 			badgesDictionary,
