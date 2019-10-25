@@ -60,17 +60,20 @@ class DatePicker extends React.PureComponent {
 		return getYear(date) === this.props.calendar.year;
 	}
 
-	isDateInCurrentCalendar(date) {
-		if (!date) {
-			return false;
-		}
-		return this.isCurrentYear(date) && this.isCurrentMonth(date);
-	}
-
 	isSelectedInCurrentCalendar() {
 		const { selectedDate } = this.props;
 
-		return this.isDateInCurrentCalendar(selectedDate);
+		if (!selectedDate) {
+			return false;
+		}
+		return this.isCurrentYear(selectedDate) && this.isCurrentMonth(selectedDate);
+	}
+
+	isDateInCurrentCalendar(date) {
+		const { calendar } = this.props;
+		const { year, monthIndex } = calendar;
+		const weeks = this.getWeeks(year, monthIndex, 1);
+		return isWithinRange(date, weeks[0][0], weeks[5][6]);
 	}
 
 	isRangeInCurrentCalendar() {
