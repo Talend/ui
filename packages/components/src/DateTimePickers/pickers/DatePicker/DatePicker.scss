@@ -35,27 +35,7 @@
 		position: relative;
 
 		&.range-end:after,
-		&.range-start:before {
-			content: ' ';
-			position: absolute;
-			height: 2.5rem;
-			width: 2.4rem;
-			z-index: -1;
-			background-color: tint($lochmara, 80%);
-		}
-
-		&.range-end:after {
-			left: 0.65rem;
-			border-top-right-radius: 50%;
-			border-bottom-right-radius: 50%;
-		}
-
-		&.range-start:before {
-			right: 0.65rem;
-			border-top-left-radius: 50%;
-			border-bottom-left-radius: 50%;
-		}
-
+		&.range-start:before,
 		&.range-start:after,
 		&.range-middle:after,
 		&.range-end:before,
@@ -67,15 +47,31 @@
 			z-index: -1;
 			background-color: tint($lochmara, 80%);
 		}
+
+		&.range-end:after {
+			width: 2.4rem;
+			left: 0.65rem;
+			border-top-right-radius: 50%;
+			border-bottom-right-radius: 50%;
+		}
+
+		&.range-start:before {
+			right: 0.65rem;
+			border-top-left-radius: 50%;
+			border-bottom-left-radius: 50%;
+		}
+
 		&.range-start,
 		&.range-middle {
 			&:after {
+				width: 50%;
 				right: 0;
 			}
 		}
 		&.range-end,
 		&.range-middle {
 			&:before {
+				width: 50%;
 				left: 0;
 			}
 		}
