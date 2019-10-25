@@ -5,7 +5,7 @@ $width-label-badge: 23.5rem;
 	padding: $padding-smaller $padding-small $padding-smaller $padding-small;
 	max-width: none;
 
-	:global(.tc-badge-button){
+	:global(.tc-badge-button) {
 		max-width: none;
 	}
 	:global(.tc-badge-button:first-child) {

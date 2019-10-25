@@ -5,9 +5,6 @@ import { act } from 'react-dom/test-utils';
 import { BadgeCheckboxesForm } from './BadgeCheckboxesForm.component';
 import getDefaultT from '../../../translate';
 
-
-
-
 const checkboxValues = [
 	{
 		id: 'checkbox-one',
