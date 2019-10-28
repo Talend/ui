@@ -83,6 +83,20 @@ class CalendarPicker extends React.Component {
 			};
 		}
 
+		if (isFocusedInputChanged) {
+			const { startDate, from, endDate, to } = nextProps;
+			let calendarDate = new Date();
+			if (from) {
+				calendarDate = startDate || new Date();
+			} else if (to) {
+				calendarDate = endDate || startDate;
+			}
+			newState.calendar = {
+				monthIndex: getMonth(calendarDate),
+				year: getYear(calendarDate),
+			};
+		}
+
 		this.setState(newState);
 	}
 

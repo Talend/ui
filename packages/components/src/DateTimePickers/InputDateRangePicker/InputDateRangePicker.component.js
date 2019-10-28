@@ -59,7 +59,10 @@ export default function InputDatePicker(props) {
 							divRef={containerRef}
 							onClick={handlers.onClick}
 							onFocusIn={handlers.onFocus}
-							onFocusOut={handlers.onBlur}
+							onFocusOut={event => {
+								inputManagement.onFocus(event, null);
+								handlers.onBlur(event);
+							}}
 							onKeyDown={event => {
 								handlers.onKeyDown(event, inputRef.current);
 							}}
