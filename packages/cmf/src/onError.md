@@ -56,8 +56,7 @@ CMF will post to the backend the following data structure:
 | `browser`  | "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36" | navigator.userAgent                   |
 | `location` | https://www.myapp.com/path/#/hash                                                                                           | the location.href                     |
 | `error`    | { message, name , stack }                                                                                                   | the fields we have found in the error |
-| `uiState`  | the app state, without any sensitive data (you must configure it)                                                           | the redux store                       |
-| `actions`  | [ { type: 'REDUX_TYPE', payload }]                                                                                          | last actions                          |
+| `actions`  | [ 'REDUX_ACTION_TYPE']                                                                                          | last actions                          |
 
 A component named ErrorBoundary is exposed and already used at the App level, so you can use it
 in your own components in some key places.
@@ -78,17 +77,3 @@ export function ComplexComponent(props) {
 }
 ```
 
-## Anonymisation / remove sensible data
-
-In the process of the report all data are anonymised if the `key` (lowercase) name match one of the following rules.
-
-* starts with $
-* starts with _
-* contains password
-* contains secret
-* contains key
-* contains mail
-
-In that case the content is transformed as a random string of the same length
-
-[bootstrap API](./bootstrap.md#onError) let you add some other regex to match sensible keys if the previous rules are not enough in your project

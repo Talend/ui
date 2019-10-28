@@ -1,3 +1,5 @@
+import React from 'react';
+import { mount } from 'enzyme';
 import onError from '../src/onError';
 import { store as mock } from '../src/mock';
 
@@ -33,11 +35,6 @@ describe('onError', () => {
 				name: 'Error',
 				stack: expect.anything(),
 			});
-			expect(info.uiState).toMatchObject({
-				foo: { ok: 'should be kept' },
-			});
-			expect(info.uiState.foo.password).not.toBe('secret');
-			expect(info.uiState.foo.password.length).toBe(6);
 		});
 	});
 	describe('addAction', () => {
@@ -52,15 +49,7 @@ describe('onError', () => {
 			});
 			const info = onError.getReportInfo(new Error('my'));
 			expect(info.actions.length).toBe(1);
-			expect(info.actions[0]).toEqual({
-				type: 'FOO',
-				password: expect.anything(),
-				value: null,
-				other: false,
-				number: 0,
-				NaN,
-			});
-			expect(info.actions[0].password).not.toBe('secret');
+			expect(info.actions[0]).toBe('FOO');
 		});
 		it('should keep last 20 actions', () => {
 			// eslint-disable-next-line no-plusplus
@@ -69,28 +58,7 @@ describe('onError', () => {
 			}
 			const info = onError.getReportInfo(new Error('my'));
 			expect(info.actions.length).toBe(20);
-			expect(info.actions[0]).toMatchObject({
-				type: 'FOO 10',
-				password: expect.anything(),
-			});
-		});
-		it('should delete props of DID_MOUNT_SAGA_START', () => {
-			onError.addAction({ type: 'DID_MOUNT_SAGA_START', props: {} });
-			const info = onError.getReportInfo(new Error('my'));
-			expect(info.actions.length).toBe(1);
-			expect(info.actions[0].props).toBeUndefined();
-		});
-		it('should delete settings of REACT_CMF.REQUEST_SETTINGS_OK', () => {
-			onError.addAction({ type: 'REACT_CMF.REQUEST_SETTINGS_OK', settings: {} });
-			const info = onError.getReportInfo(new Error('my'));
-			expect(info.actions.length).toBe(1);
-			expect(info.actions[0].settings).toBeUndefined();
-		});
-		it('should delete settings of REACT_CMF.REQUEST_SETTINGS_OK', () => {
-			onError.addAction({ type: 'FOO', url: config.settingsURL, response: {} });
-			const info = onError.getReportInfo(new Error('my'));
-			expect(info.actions.length).toBe(1);
-			expect(info.actions[0].response).toBeUndefined();
+			expect(info.actions[0]).toBe('FOO 10');
 		});
 	});
 	describe('report', () => {
