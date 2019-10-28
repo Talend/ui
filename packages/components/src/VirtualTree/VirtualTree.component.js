@@ -5,8 +5,13 @@ import classNames from 'classnames';
 import Tree from 'react-virtualized-tree/lib/TreeContainer';
 import UnstableFastTree from 'react-virtualized-tree/lib/UnstableFastTree';
 import TreeState from 'react-virtualized-tree/lib/state/TreeState';
+import TreeStateModifiers from 'react-virtualized-tree/lib/state/TreeStateModifiers';
+import { UPDATE_TYPE } from 'react-virtualized-tree/lib/contants';
+import {createSelector} from 'reselect';
+import {deleteNodeFromTree, replaceNodeFromTree, getRowIndexFromId} from 'react-virtualized-tree/lib/selectors/nodes';
 
-import Renderers from 'react-virtualized-tree/lib/renderers';
+
+//import Renderers from 'react-virtualized-tree/lib/renderers';
 import theme from './VirtualTree.scss';
 import { Nodes } from '../TreeView/data';
 
@@ -22,80 +27,83 @@ function nodeNameRenderer(rendererProps) {
 		children,
 	} = rendererProps;
 	return <span>{children}</span>;
-	/*return (
-		<span>
-			{name}
-			{children}
-		</span>
-	);*/
 }
-const Selection = props => {
-	const { node, children, onChange, index } = props;
-	const { state: { selected } = {} } = node;
 
-	return (
-		<span>
-			<ThreeState
-				node={node}
-				//	index={index}
-				onChange={() =>
-					onChange({
-						node: {
-							...node,
-							state: {
-								...(node.state || {}),
-								selected: !selected,
-							},
-						},
-						type: SELECT,
-					})
-				}
-			>
-				{children}
-			</ThreeState>
-		</span>
-	);
-	/*
-	const className = classNames({
-		'mi mi-check-box': selected,
-		'mi mi-check-box-outline-blank': !selected,
-	});
+const SELECT = 3;
 
-	return (
-		<span>
-			<i
-				className={className}
-				onClick={() =>
-					onChange({
-						node: {
-							...node,
-							state: {
-								...(node.state || {}),
-								selected: !selected,
-							},
-						},
-						type: SELECT,
-					})
-				}
-			/>
-			{children}
-		</span>
-	);
-	*/
+const DEFAULT_UPDATE_TYPES = {
+  [UPDATE_TYPE.DELETE]: deleteNodeFromTree,
+  [UPDATE_TYPE.UPDATE]: replaceNodeFromTree,
 };
 
+const Selection = ({node, children, onChange, index}) => {
+  const {state: {selected} = {}} = node;
+  const className = classNames({
+    'mi mi-check-box': selected,
+    'mi mi-check-box-outline-blank': !selected,
+  });
+
+  return (
+    <span>
+      <i
+        className={className}
+        onClick={() =>
+          onChange({
+            node: {
+              ...node,
+              state: {
+                ...(node.state || {}),
+                selected: !selected,
+              },
+            },
+            index,
+            type: SELECT,
+          })
+        }
+      />
+      {children}
+    </span>
+  );
+};
+
+const getExtensions = createSelector(
+  e => e,
+  (extensions = {}) => {
+    const {updateTypeHandlers = {}} = extensions;
+    return {
+      updateTypeHandlers: {
+        ...DEFAULT_UPDATE_TYPES,
+        ...updateTypeHandlers,
+      },
+    };
+  },
+);
 class VirtualTree extends React.Component {
 	constructor(props) {
 		super(props);
+		this.handleChange = this.handleChange.bind(this);
+
+		this.nodeSelectionHandler = this.nodeSelectionHandler.bind(this);
 		this.state = {
 			nodes: props.fast ? TreeState.createFromTree(props.nodes) : props.nodes,
 		};
 	}
-
+	/*
 	handleChange = nodes => {
 		this.setState({ nodes });
 	};
+*/
+	handleChange = ({ node, type, index }) => {
+		let nodes;
+		if (type === UPDATE_TYPE.DELETE) {
+			nodes = TreeStateModifiers.deleteNodeAt(this.props.nodes, index);
+		} else {
+			nodes = TreeStateModifiers.editNodeAt(this.props.nodes, index, node);
+		}
 
+		// this.props.onChange({ nodes, node, type });
+		this.setState({ nodes });
+	};
 	selectNodes = (nodes, selected) =>
 		nodes.map(n => ({
 			...n,
