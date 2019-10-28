@@ -44,23 +44,27 @@ function ContextualManager(props) {
 	}
 
 	function onSelectDate(event, { date }) {
-		const newDateParts = extractFromDate(date, getOptions());
-		let nextState;
+		const parts = extractFromDate(date, getOptions());
+		let dateParts;
 		if (state.focusedInput === START_DATE) {
-			nextState = {
-				...state,
-				startDate: newDateParts.date,
-				startDateTextInput: newDateParts.textInput,
+			dateParts = {
+				startDate: parts.date,
+				startDateTextInput: parts.textInput,
 				focusedInput: END_DATE,
 			};
 		} else if (state.focusedInput === END_DATE) {
-			nextState = {
-				...state,
-				endDate: newDateParts.date,
-				endDateTextInput: newDateParts.textInput,
+			dateParts = {
+				endDate: parts.date,
+				endDateTextInput: parts.textInput,
 				focusedInput: state.startDate ? null : START_DATE,
 			};
 		}
+		const nextState = {
+			...state,
+			...dateParts,
+			errors: parts.errors,
+			errorMessage: parts.errorMessage,
+		};
 		setState(nextState);
 		onDatesChange(event, nextState);
 	}
