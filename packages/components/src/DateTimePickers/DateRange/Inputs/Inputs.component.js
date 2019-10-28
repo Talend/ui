@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef } from 'react';
 import DebounceInput from 'react-debounce-input';
 
 import { DateRangeContext } from '../Context';
+import { START_DATE, END_DATE } from '../constants';
 
 function Inputs(props) {
 	const { startDate, endDate, inputManagement } = useContext(DateRangeContext);
@@ -11,10 +12,10 @@ function Inputs(props) {
 	useEffect(() => {
 		const { focusedInput } = inputManagement;
 
-		if (startDateInputRef && focusedInput === 'startDate') {
+		if (startDateInputRef && focusedInput === START_DATE) {
 			startDateInputRef.focus();
 		}
-		if (endDateInputRef && focusedInput === 'endDate') {
+		if (endDateInputRef && focusedInput === END_DATE) {
 			endDateInputRef.focus();
 		}
 	});
@@ -28,7 +29,7 @@ function Inputs(props) {
 			value={startDate.textInput}
 			style={{ width: 150 }}
 			{...inputManagement}
-			onFocus={event => inputManagement.onFocus(event, 'startDate')}
+			onFocus={event => inputManagement.onFocus(event, START_DATE)}
 			{...props}
 			inputRef={ref => {
 				props.startInputRef(ref);
@@ -43,7 +44,7 @@ function Inputs(props) {
 			value={endDate.textInput}
 			style={{ width: 150 }}
 			{...inputManagement}
-			onFocus={event => inputManagement.onFocus(event, 'endDate')}
+			onFocus={event => inputManagement.onFocus(event, END_DATE)}
 			{...props}
 			inputRef={ref => {
 				props.endInputRef(ref);

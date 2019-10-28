@@ -23,12 +23,12 @@ function ContextualManager(props) {
 	}, [props.startDate, props.endDate]);
 
 	function onDatesChange(event, nextState) {
-		if (props.onDatesChange) {
+		if (props.onChange) {
 			const payload = {
 				startDate: nextState.startDate,
 				endDate: nextState.endDate,
 			};
-			props.onDatesChange(event, payload);
+			props.onChange(event, payload);
 		}
 	}
 
@@ -49,12 +49,12 @@ function ContextualManager(props) {
 				startDateTextInput: newDateParts.textInput,
 				focusedInput: END_DATE,
 			};
-		} else {
+		} else if (state.focusedInput === END_DATE) {
 			nextState = {
 				...state,
 				endDate: newDateParts.date,
 				endDateTextInput: newDateParts.textInput,
-				focusedInput: null,
+				focusedInput: state.startDate ? null : START_DATE,
 			};
 		}
 		setState(nextState);
