@@ -27,6 +27,12 @@ export default function useInputPickerHandlers({ handleBlur, handleChange, handl
 			setPicked(true);
 			closePicker();
 		}
+		if (payload.origin === 'RANGE_PICKER') {
+			if (payload.startDate && payload.endDate && inputRef === null) {
+				setPicked(true);
+				closePicker();
+			}
+		}
 	}
 
 	function onClick() {
