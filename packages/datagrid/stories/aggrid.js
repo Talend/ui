@@ -22,7 +22,7 @@ storiesOf('AgGrid', module).add('default', () => (
 				width: '600px',
 			}}
 		>
-			<AgGridReact {...generateAgGridData(100, 20)} />
+			<AgGridReact {...generateAgGridData(1000, 20)} />
 		</div>
 	</div>
 ));

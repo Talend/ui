@@ -205,7 +205,7 @@ storiesOf('Component Datagrid', module)
 				sdqds sdsqdsq ssdsqds sdsqdsqdsq sqddsqdsqd dsqdqdsdq sqdsqdsqdsq dsqsd sqdqsdsq sdqsdsqd
 			</div>
 			<DataGrid
-				data={generateTalendData(100, 20)}
+				data={generateTalendData(1000, 20)}
 				getComponent={getComponent}
 				onFocusedCell={event => console.log(event)}
 				onFocusedColumn={event => console.log(event)}
