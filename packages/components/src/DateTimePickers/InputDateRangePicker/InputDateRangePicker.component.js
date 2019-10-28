@@ -12,6 +12,7 @@ import DateRange from '../DateRange';
 import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 
 import theme from './InputDateRangePicker.scss';
+import { DateRangeContext } from '../DateRange/Context';
 
 const PROPS_TO_OMIT_FOR_INPUT = [
 	'id',
@@ -28,7 +29,8 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 export default function InputDatePicker(props) {
 	const popoverId = `date-range-picker-${props.id || uuid.v4()}`;
 
-	const inputRef = useRef(null);
+	const startDateInputRef = useRef(null);
+	const endDateInputRef = useRef(null);
 	const containerRef = useRef(null);
 
 	const handlers = useInputPickerHandlers({
@@ -38,50 +40,68 @@ export default function InputDatePicker(props) {
 	});
 
 	const inputProps = omit(props, PROPS_TO_OMIT_FOR_INPUT);
-	const timePicker = [
-		<DateRange.Inputs {...inputProps} id={`${props.id}-input`} key="input" inputRef={inputRef} />,
-		handlers.showPicker && (
-			<Popper
-				key="popper"
-				modifiers={{
-					hide: {
-						enabled: false,
-					},
-					preventOverflow: {
-						enabled: false,
-					},
-				}}
-				placement={handlers.getPopperPlacement(inputRef.current)}
-				positionFixed
-				referenceElement={inputRef.current}
-			>
-				{({ ref, style }) => (
-					<div id={popoverId} className={theme.popper} style={style} ref={ref}>
-						<DateRange.Picker {...props} />
-					</div>
-				)}
-			</Popper>
-		),
-	].filter(Boolean);
+
 	return (
 		<DateRange.Manager
 			startDate={props.startDate}
 			endDate={props.endDate}
 			dateFormat={props.dateFormat}
-			onChange={(...args) => handlers.onChange(...args, inputRef.current)}
+			onChange={(...args) => handlers.onChange(...args)}
 		>
-			<FocusManager
-				className={classnames(theme['date-picker'], 'date-picker')}
-				divRef={containerRef}
-				onClick={handlers.onClick}
-				onFocusIn={handlers.onFocus}
-				onFocusOut={handlers.onBlur}
-				onKeyDown={event => {
-					handlers.onKeyDown(event, inputRef.current);
+			<DateRangeContext.Consumer>
+				{({ inputManagement }) => {
+					const { focusedInput } = inputManagement;
+					const inputRef = focusedInput === 'startDate' ? startDateInputRef : endDateInputRef;
+					return (
+						<FocusManager
+							className={classnames(theme['date-picker'], 'date-picker')}
+							divRef={containerRef}
+							onClick={handlers.onClick}
+							onFocusIn={handlers.onFocus}
+							onFocusOut={handlers.onBlur}
+							onKeyDown={event => {
+								handlers.onKeyDown(event, inputRef.current);
+							}}
+						>
+							{[
+								<DateRange.Inputs
+									{...inputProps}
+									id={`${props.id}-input`}
+									key="input"
+									startInputRef={ref => {
+										startDateInputRef.current = ref;
+									}}
+									endInputRef={ref => {
+										endDateInputRef.current = ref;
+									}}
+								/>,
+								handlers.showPicker && (
+									<Popper
+										key="popper"
+										modifiers={{
+											hide: {
+												enabled: false,
+											},
+											preventOverflow: {
+												enabled: false,
+											},
+										}}
+										placement={handlers.getPopperPlacement(inputRef.current)}
+										positionFixed
+										referenceElement={inputRef.current}
+									>
+										{({ ref, style }) => (
+											<div id={popoverId} className={theme.popper} style={style} ref={ref}>
+												<DateRange.Picker {...props} />
+											</div>
+										)}
+									</Popper>
+								),
+							].filter(Boolean)}
+						</FocusManager>
+					);
 				}}
-			>
-				{timePicker}
-			</FocusManager>
+			</DateRangeContext.Consumer>
 		</DateRange.Manager>
 	);
 }

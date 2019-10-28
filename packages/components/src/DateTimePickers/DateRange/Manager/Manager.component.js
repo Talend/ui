@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { DateRangeContext } from '../Context';
 import { extractParts } from '../date-range-extraction';
 import { extractFromDate } from '../../Date/date-extraction';
-import { START_DATE } from '../constants';
+import { START_DATE, END_DATE } from '../constants';
 
 function ContextualManager(props) {
 	function getOptions() {
@@ -32,7 +32,7 @@ function ContextualManager(props) {
 		}
 	}
 
-	function onFocus(event, focusedInput) {
+	function onFocusChange(event, focusedInput) {
 		setState({
 			...state,
 			focusedInput,
@@ -48,6 +48,7 @@ function ContextualManager(props) {
 				startDate: newDateParts.date,
 				startDateTextInput: newDateParts.textInput,
 			};
+			onFocusChange(END_DATE);
 		} else {
 			nextState = {
 				...state,
@@ -71,7 +72,8 @@ function ContextualManager(props) {
 				},
 				inputManagement: {
 					onDatesChange,
-					onFocus,
+					onFocus: onFocusChange,
+					focusedInput: state.focusedInput,
 				},
 				pickerManagement: {
 					onSubmit: onSelectDate,
