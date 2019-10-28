@@ -9,7 +9,15 @@ const getBadgeQueryValues = ({ properties }) => [
 
 const getBadgesQueryValues = badges => badges.map(getBadgeQueryValues);
 
-const filterBadgeWithNoValue = ({ properties }) => properties.value && properties.value.length;
+const isNotEmptyOrNull = value => value && value.length;
+const isObjectIdNotEmptyOrNull = value => isNotEmptyOrNull(value.id);
+
+const filterBadgeWithNoValue = ({ properties }) => {
+	if (Array.isArray(properties.value)) {
+		return properties.value.every(isObjectIdNotEmptyOrNull);
+	}
+	return isNotEmptyOrNull(properties.value);
+};
 
 const removeBadgesWithEmptyValue = badges => badges.filter(filterBadgeWithNoValue);
 

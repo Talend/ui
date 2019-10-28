@@ -107,7 +107,7 @@ describe('createTqlQuery', () => {
 		// Then
 		expect(result).toEqual("(name = 'another-badge')");
 	});
-	it('should return a tql query with a in operator and multiple selection ', () => {
+	it('should return a tql query with a in operator and multiple selection', () => {
 		// Given
 		const badgesWithMultipleValues = [
 			{
@@ -143,5 +143,31 @@ describe('createTqlQuery', () => {
 		const result = createTqlQuery(badgesWithMultipleValues);
 		// Then
 		expect(result).toEqual("(connection.type in ['hdfs,localcon,aws_kinesis'])");
+	});
+	it('should return an empty tql query', () => {
+		// Given
+		const badgesWithMultipleValues = [
+			{
+				properties: {
+					attribute: 'connection.type',
+					operator: {
+						label: 'In',
+						name: 'in',
+					},
+					type: 'select',
+					value: [
+						{
+							id: '',
+							label: 'HDFS',
+							checked: true,
+						},
+					],
+				},
+			},
+		];
+		// When
+		const result = createTqlQuery(badgesWithMultipleValues);
+		// Then
+		expect(result).toEqual('');
 	});
 });
