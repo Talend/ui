@@ -3,11 +3,6 @@
 /// @group Forms
 ////
 
-@mixin checkbox-outline() {
-	outline: 2px solid Highlight;
-	outline-offset: 1px;
-}
-
 @import 'forms.guideline';
 @import 'forms.switch';
 @import 'forms.switch-nested';
@@ -188,7 +183,6 @@ form {
 			width: $form-checkbox-and-radio-size;
 			height: $form-checkbox-and-radio-size;
 			appearance: none;
-			outline: none;
 
 			&,
 			+ * {

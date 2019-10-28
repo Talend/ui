@@ -201,7 +201,7 @@
 /// A mixin defining outline for focusable elements
 ///
 /// @access public
-@mixin outline() {
+@mixin outline {
 	outline: 0.2rem solid rgba($scooter, 0.5);
-	outline-offset: 0.2rem;
+	outline-offset: 0.1rem;
 }

@@ -65,6 +65,9 @@ $switch-track-shadow-disabled: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
 				box-shadow: $switch-thumb-shadow-focused;
 			}
 		}
+		&:focus + label {
+			@include outline;
+		}
 
 		&:disabled {
 			+ *:before {
@@ -90,7 +93,7 @@ $switch-track-shadow-disabled: inset 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
 			}
 		}
 	}
-	span {
+	.switch__label {
 		margin-left: $padding-normal;
 		color: tint($black, 50);
 	}

@@ -6,7 +6,7 @@ $tt-checkbox-checked-border-color: shade($lochmara, 15) !default;
 $tt-checkbox-disabled-color: tint($tt-checkbox-border-color, 54);
 $tt-checkbox-hover-border-color: tint($lochmara, 15) !default;
 
-[type='checkbox'] {
+input[type='checkbox'] {
 	&:before,
 	&:after,
 	+ *:before,
@@ -74,11 +74,7 @@ $tt-checkbox-hover-border-color: tint($lochmara, 15) !default;
 	}
 
 	&:focus {
-		outline: none;
-
-		+ label {
 			@include outline;
-		}
 	}
 
 	&:disabled {
