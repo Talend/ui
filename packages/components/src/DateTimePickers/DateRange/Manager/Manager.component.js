@@ -47,13 +47,14 @@ function ContextualManager(props) {
 				...state,
 				startDate: newDateParts.date,
 				startDateTextInput: newDateParts.textInput,
+				focusedInput: END_DATE,
 			};
-			onFocusChange(END_DATE);
 		} else {
 			nextState = {
 				...state,
 				endDate: newDateParts.date,
 				endDateTextInput: newDateParts.textInput,
+				focusedInput: null,
 			};
 		}
 		setState(nextState);
