@@ -122,7 +122,7 @@ BadgeFaceted.propTypes = {
 	id: PropTypes.string.isRequired,
 	initialOperatorOpened: PropTypes.bool,
 	initialValueOpened: PropTypes.bool,
-	labelValue: PropTypes.string.isRequired,
+	labelValue: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
 	operator: operatorPropTypes.isRequired,
 	operators: operatorsPropTypes.isRequired,
 	size: PropTypes.oneOf(Object.values(Badge.SIZES)),

@@ -3,6 +3,9 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { AddFacetPopover } from './AddFacetPopover.component';
+import getDefaultT from '../../translate';
+
+const t = getDefaultT();
 
 describe('AddFacetPopover', () => {
 	const badgesDefinitions = [
@@ -44,7 +47,7 @@ describe('AddFacetPopover', () => {
 		const props = {
 			id: 'my id',
 			onClick: jest.fn(),
-			t: jest.fn(),
+			t,
 		};
 		// When
 		const wrapper = mount(<AddFacetPopover {...props} />);
@@ -57,7 +60,7 @@ describe('AddFacetPopover', () => {
 			badgesDefinitions,
 			id: 'my-id',
 			onClick: jest.fn(),
-			t: jest.fn(),
+			t,
 		};
 		// When
 		const wrapper = mount(<AddFacetPopover {...props} />);
@@ -76,7 +79,7 @@ describe('AddFacetPopover', () => {
 			badgesDefinitions,
 			id: 'my-id',
 			onClick: jest.fn(),
-			t: jest.fn(),
+			t,
 		};
 		// When
 		const wrapper = mount(<AddFacetPopover {...props} />);
@@ -96,7 +99,7 @@ describe('AddFacetPopover', () => {
 			badgesDefinitions,
 			id: 'my-id',
 			onClick,
-			t: jest.fn(),
+			t,
 		};
 		// When
 		const wrapper = mount(<AddFacetPopover {...props} />);

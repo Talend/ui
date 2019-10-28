@@ -13,12 +13,10 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
     </span>
     <div class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large">
       <div class="tc-badge-operator-button theme-tc-badge-operator-button">
-        <button role="button"
+        <button id="my-id-operator-action-overlay"
                 aria-label="My icon operator equal"
-                id="my-id-operator-action-overlay"
-                aria-describedby="42"
                 type="button"
-                class="btn-icon-only btn btn-link"
+                class="btn btn-link"
         >
           <svg name="talend-talend-my-icon-equal"
                class="theme-tc-svg-icon tc-svg-icon"
@@ -32,9 +30,8 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
       </div>
     </div>
     <div class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay">
-      <button role="button"
+      <button id="my-id-action-overlay"
               aria-label="All"
-              id="my-id-action-overlay"
               type="button"
               class="btn btn-link"
       >

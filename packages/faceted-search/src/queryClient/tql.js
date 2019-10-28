@@ -9,7 +9,15 @@ const getBadgeQueryValues = ({ properties }) => [
 
 const getBadgesQueryValues = badges => badges.map(getBadgeQueryValues);
 
-const filterBadgeWithNoValue = ({ properties }) => properties.value && properties.value.length;
+const isNotEmptyOrNull = value => value && value.length;
+const isObjectIdNotEmptyOrNull = value => isNotEmptyOrNull(value.id);
+
+const filterBadgeWithNoValue = ({ properties }) => {
+	if (Array.isArray(properties.value)) {
+		return properties.value.every(isObjectIdNotEmptyOrNull);
+	}
+	return isNotEmptyOrNull(properties.value);
+};
 
 const removeBadgesWithEmptyValue = badges => badges.filter(filterBadgeWithNoValue);
 
@@ -23,9 +31,13 @@ const prepareBadges = flow([removeBadgesWithEmptyValue, getBadgesQueryValues]);
 const getTqlClassOperatorsDictionary = query => ({
 	contains: query.contains,
 	'=': query.equal,
+	in: query.in,
 });
 
 const formatValue = value => {
+	if (Array.isArray(value)) {
+		return value.map(val => val.id).join(',');
+	}
 	if (typeof value === 'string') {
 		return value.trim();
 	}

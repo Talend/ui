@@ -2,6 +2,7 @@ const operatorNames = {
 	contains: 'contains',
 	equal: '=',
 	notEqual: 'notEqual',
+	in: 'in',
 };
 
 const standardOperators = t => ({
@@ -25,6 +26,12 @@ const standardOperators = t => ({
 		}),
 		name: 'contains',
 		iconName: 'contains',
+	},
+	[operatorNames.in]: {
+		label: t('OPERATOR_IN_LABEL', {
+			defaultValue: 'In',
+		}),
+		name: 'in',
 	},
 });
 

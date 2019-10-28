@@ -10,20 +10,6 @@ describe('createTqlQuery', () => {
 					name: 'contains',
 					iconName: 'contains',
 				},
-				operators: [
-					{
-						label: 'Contains',
-						name: 'contains',
-						iconName: 'contains',
-					},
-					{
-						label: 'Equal',
-						name: '=',
-						iconName: 'equal',
-					},
-				],
-				initialOpenedOperator: false,
-				initialOpenedValue: false,
 				value: 'test-badge',
 			},
 		},
@@ -35,20 +21,6 @@ describe('createTqlQuery', () => {
 					name: '=',
 					iconName: 'equal',
 				},
-				operators: [
-					{
-						label: 'Contains',
-						name: 'contains',
-						iconName: 'contains',
-					},
-					{
-						label: 'Equal',
-						name: '=',
-						iconName: 'equal',
-					},
-				],
-				initialOpenedOperator: false,
-				initialOpenedValue: false,
 				value: 'another-badge\n\n',
 			},
 		},
@@ -95,20 +67,6 @@ describe('createTqlQuery', () => {
 						name: 'contains',
 						iconName: 'contains',
 					},
-					operators: [
-						{
-							label: 'Contains',
-							name: 'contains',
-							iconName: 'contains',
-						},
-						{
-							label: 'Equal',
-							name: '=',
-							iconName: 'equal',
-						},
-					],
-					initialOpenedOperator: false,
-					initialOpenedValue: false,
 					value: '',
 				},
 			},
@@ -129,20 +87,6 @@ describe('createTqlQuery', () => {
 						name: 'contains',
 						iconName: 'contains',
 					},
-					operators: [
-						{
-							label: 'Contains',
-							name: 'contains',
-							iconName: 'contains',
-						},
-						{
-							label: 'Equal',
-							name: '=',
-							iconName: 'equal',
-						},
-					],
-					initialOpenedOperator: false,
-					initialOpenedValue: false,
 					value: '',
 				},
 			},
@@ -154,20 +98,6 @@ describe('createTqlQuery', () => {
 						name: '=',
 						iconName: 'equal',
 					},
-					operators: [
-						{
-							label: 'Contains',
-							name: 'contains',
-							iconName: 'contains',
-						},
-						{
-							label: 'Equal',
-							name: '=',
-							iconName: 'equal',
-						},
-					],
-					initialOpenedOperator: false,
-					initialOpenedValue: false,
 					value: 'another-badge\n\n',
 				},
 			},
@@ -176,5 +106,68 @@ describe('createTqlQuery', () => {
 		const result = createTqlQuery(badgesWithOneValue);
 		// Then
 		expect(result).toEqual("(name = 'another-badge')");
+	});
+	it('should return a tql query with a in operator and multiple selection', () => {
+		// Given
+		const badgesWithMultipleValues = [
+			{
+				properties: {
+					attribute: 'connection.type',
+					initialValueOpened: false,
+					operator: {
+						label: 'In',
+						name: 'in',
+					},
+					type: 'select',
+					value: [
+						{
+							id: 'hdfs',
+							label: 'HDFS',
+							checked: true,
+						},
+						{
+							id: 'localcon',
+							label: 'Local connection',
+							checked: true,
+						},
+						{
+							id: 'aws_kinesis',
+							label: 'AWS kinesis',
+							checked: true,
+						},
+					],
+				},
+			},
+		];
+		// When
+		const result = createTqlQuery(badgesWithMultipleValues);
+		// Then
+		expect(result).toEqual("(connection.type in ['hdfs,localcon,aws_kinesis'])");
+	});
+	it('should return an empty tql query', () => {
+		// Given
+		const badgesWithMultipleValues = [
+			{
+				properties: {
+					attribute: 'connection.type',
+					operator: {
+						label: 'In',
+						name: 'in',
+					},
+					type: 'select',
+					value: [
+						{
+							id: '',
+							label: 'HDFS',
+							checked: true,
+						},
+					],
+				},
+			},
+		];
+		// When
+		const result = createTqlQuery(badgesWithMultipleValues);
+		// Then
+		expect(result).toEqual('');
 	});
 });

@@ -7,6 +7,7 @@ exports[`AddFacetPopover should render the html output 1`] = `
   <header id="my id-add-facet-popover"
           class="theme-header tc-tooltip-header"
   >
+    Faceted Search
   </header>
   <div id="my id-add-facet-popover"
        class="theme-body tc-tooltip-body"
@@ -27,9 +28,9 @@ exports[`AddFacetPopover should render the html output 1`] = `
             </use>
           </svg>
           <input name="search"
-                 placeholder="Filter"
+                 placeholder="Find a filter"
                  autocomplete="off"
-                 aria-label="Filter"
+                 aria-label="Find a filter"
                  role="searchbox"
                  type="search"
                  id="my id-add-facet-popover-filter-input"
