@@ -15,7 +15,6 @@ import useInputPickerHandlers from '../hooks/useInputPickerHandlers';
 
 import theme from './InputDateRangePicker.scss';
 
-
 const PROPS_TO_OMIT_FOR_INPUT = [
 	'id',
 	'dateFormat',
@@ -48,7 +47,7 @@ export default function InputDatePicker(props) {
 			startDate={props.startDate}
 			endDate={props.endDate}
 			dateFormat={props.dateFormat}
-			onChange={(...args) => handlers.onChange(...args, startDateInputRef.current)}
+			onChange={handlers.onChange}
 		>
 			<DateRangeContext.Consumer>
 				{({ inputManagement }) => {

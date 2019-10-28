@@ -27,8 +27,9 @@ function ContextualManager(props) {
 			const payload = {
 				startDate: nextState.startDate,
 				endDate: nextState.endDate,
+				origin: 'RANGE_PICKER',
 			};
-			props.onChange(event, payload);
+			props.onChange(event, payload, nextState.focusedInput);
 		}
 	}
 
