@@ -36,7 +36,7 @@ const getTqlClassOperatorsDictionary = query => ({
 
 const formatValue = value => {
 	if (Array.isArray(value)) {
-		return value.map(val => val.id).join(',');
+		return value.map(val => val.id);
 	}
 	if (typeof value === 'string') {
 		return value.trim();
