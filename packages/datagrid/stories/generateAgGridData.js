@@ -7,14 +7,26 @@ function generateHeaders(columnsCount) {
 		}));
 }
 
-function generateAgGridRows(rowCount, columnsCount) {
-	const dataRow = Array(columnsCount)
-		.fill({})
-		.reduce((acc, _, index) => ({ [`field${index}`]: 1, ...acc }), {});
+function makeid(length) {
+	let result = '';
+	const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
+	for (let i = 0; i < length; i++) {
+		result += characters.charAt(Math.floor(Math.random() * characters.length));
+	}
+	return result;
+}
+
+function generateRow(columnsCount) {
+	return Array(columnsCount)
+		.fill({})
+		.reduce((acc, _, index) => ({ [`field${index}`]: makeid(10), ...acc }), {});
+}
+
+function generateAgGridRows(rowCount, columnsCount) {
 	return Array(rowCount)
 		.fill({})
-		.map(() => dataRow);
+		.map(() => generateRow(columnsCount));
 }
 
 export default function generateAgGridData(rowCount, columnsCount) {

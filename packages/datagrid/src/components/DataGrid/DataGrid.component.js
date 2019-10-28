@@ -57,11 +57,11 @@ export function getAvroRenderer(avroRenderer) {
 	};
 }
 
-class TestRenderer extends React.Component {
-	render() {
-		return <span>1</span>;
-	}
-}
+// class TestRenderer extends React.Component {
+// 	render() {
+// 		return <span>1</span>;
+// 	}
+// }
 
 export default class DataGrid extends React.Component {
 	static defaultProps = {
@@ -240,7 +240,10 @@ export default class DataGrid extends React.Component {
 					width: CELL_WIDTH,
 					resizable: this.props.enableColResize,
 					...columnDef,
-					[AG_GRID.CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
+					valueGetter: params => {
+						return params.data[columnDef.field].value;
+					},
+					// [AG_GRID.CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
 					[AG_GRID.CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,
 				})),
 			);
@@ -248,7 +251,11 @@ export default class DataGrid extends React.Component {
 
 		agGridOptions.columnDefs = adaptedColumnDefs;
 		agGridOptions.frameworkComponents = {
-			[CELL_RENDERER_COMPONENT]: TestRenderer,
+			// [CELL_RENDERER_COMPONENT]: injectCellRenderer(
+			// 	this.props.getComponent,
+			// 	this.props.cellRenderer,
+			// 	getAvroRenderer(this.props.avroRenderer),
+			// ),
 			[HEADER_RENDERER_COMPONENT]: injectHeaderRenderer(
 				this.props.getComponent,
 				this.props.headerRenderer,
