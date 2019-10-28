@@ -20,10 +20,10 @@ class CalendarPicker extends React.Component {
 
 		let initialCalendarDate = selectedDate;
 		if (initialCalendarDate === undefined) {
-			if (startDate && from) {
-				initialCalendarDate = startDate;
-			} else if (endDate && to) {
-				initialCalendarDate = endDate;
+			if (from) {
+				initialCalendarDate = startDate || new Date();
+			} else if (to) {
+				initialCalendarDate = endDate || new Date();
 			} else {
 				initialCalendarDate = new Date();
 			}
