@@ -28,7 +28,7 @@ function Inputs(props) {
 			type="text"
 			value={startDate.textInput}
 			style={{ width: 150 }}
-			{...inputManagement}
+			onChange={inputManagement.onChange}
 			onFocus={event => inputManagement.onFocus(event, START_DATE)}
 			{...props}
 			inputRef={ref => {
@@ -43,7 +43,7 @@ function Inputs(props) {
 			type="text"
 			value={endDate.textInput}
 			style={{ width: 150 }}
-			{...inputManagement}
+			onChange={inputManagement.onChange}
 			onFocus={event => inputManagement.onFocus(event, END_DATE)}
 			{...props}
 			inputRef={ref => {

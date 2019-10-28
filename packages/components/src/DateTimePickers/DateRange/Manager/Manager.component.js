@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { DateRangeContext } from '../Context';
-import { extractParts } from '../date-range-extraction';
+import { extractParts, extractPartsFromTextInputRange } from '../date-range-extraction';
 import { extractFromDate } from '../../Date/date-extraction';
 import { START_DATE, END_DATE } from '../constants';
 
@@ -27,6 +27,9 @@ function ContextualManager(props) {
 			const payload = {
 				startDate: nextState.startDate,
 				endDate: nextState.endDate,
+				errors: nextState.errors,
+				errorMessage: nextState.errorMessage,
+				field: state.focusedInput,
 				origin: 'RANGE_PICKER',
 			};
 			props.onChange(event, payload, nextState.focusedInput);
@@ -61,6 +64,15 @@ function ContextualManager(props) {
 		setState(nextState);
 		onDatesChange(event, nextState);
 	}
+
+	function onInputChange(event) {
+		const textInput = event.target.value;
+		const parts = extractPartsFromTextInputRange(textInput, state.focusedInput, getOptions());
+		const nextState = { ...state, ...parts };
+		setState(nextState);
+		onDatesChange(event, nextState);
+	}
+
 	return (
 		<DateRangeContext.Provider
 			value={{
@@ -73,7 +85,7 @@ function ContextualManager(props) {
 					textInput: state.endDateTextInput,
 				},
 				inputManagement: {
-					onDatesChange,
+					onChange: onInputChange,
 					onFocus: onFocusChange,
 					focusedInput: state.focusedInput,
 				},
