@@ -12,11 +12,11 @@ const getChildren = (children, setOverlayOpened) => {
 	return children;
 };
 
-const getLabel = label => {
-	if (Array.isArray(label)) {
-		return label.map(l => <span>{l}</span>);
+const getLabel = labels => {
+	if (Array.isArray(labels)) {
+		return labels.map(label => <span key={label}>{label}</span>);
 	}
-	return <span>{label}</span>;
+	return <span>{labels}</span>;
 };
 
 /**

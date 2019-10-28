@@ -75,7 +75,16 @@ BadgeCheckboxes.propTypes = {
 	operator: operatorPropTypes,
 	operators: operatorsPropTypes,
 	size: PropTypes.oneOf(Object.values(Badge.SIZES)),
-	value: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+	value: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.arrayOf(
+			PropTypes.shape({
+				checked: PropTypes.bool,
+				id: PropTypes.string.isRequired,
+				label: PropTypes.string.isRequired,
+			}),
+		),
+	]),
 	values: PropTypes.array,
 	t: PropTypes.func.isRequired,
 };

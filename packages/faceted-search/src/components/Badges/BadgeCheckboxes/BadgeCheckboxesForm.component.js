@@ -40,9 +40,9 @@ const BadgeCheckbox = ({ checked, id, label, onChange }) => {
 };
 
 BadgeCheckbox.propTypes = {
-	id: PropTypes.string,
-	label: PropTypes.string,
-	onChange: PropTypes.func,
+	id: PropTypes.string.isRequired,
+	label: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
 	checked: PropTypes.bool,
 };
 
@@ -131,6 +131,7 @@ const BadgeCheckboxesForm = ({ checkboxValues, id, onChange, onSubmit, value, t 
 BadgeCheckboxesForm.propTypes = {
 	checkboxValues: PropTypes.arrayOf(
 		PropTypes.shape({
+			checked: PropTypes.bool,
 			id: PropTypes.string.isRequired,
 			label: PropTypes.string.isRequired,
 		}),
