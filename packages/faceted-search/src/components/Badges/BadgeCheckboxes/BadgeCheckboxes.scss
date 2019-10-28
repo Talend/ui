@@ -7,12 +7,12 @@
 	&-body {
 		width: inherit;
 	}
-	
+
 	&-footer {
 		display: flex;
 		justify-content: space-between;
 	}
-	
+
 	:global(.tc-tooltip-content) {
 		flex-direction: column;
 	}
