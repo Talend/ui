@@ -142,7 +142,7 @@ describe('createTqlQuery', () => {
 		// When
 		const result = createTqlQuery(badgesWithMultipleValues);
 		// Then
-		expect(result).toEqual("(connection.type in ['hdfs,localcon,aws_kinesis'])");
+		expect(result).toEqual("(connection.type in ['hdfs', 'localcon', 'aws_kinesis'])");
 	});
 	it('should return an empty tql query', () => {
 		// Given
