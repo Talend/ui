@@ -37,7 +37,7 @@ const Selection = props => {
 		<span>
 			<ThreeState
 				node={node}
-			//	index={index}
+				//	index={index}
 				onChange={() =>
 					onChange({
 						node: {
@@ -51,7 +51,7 @@ const Selection = props => {
 					})
 				}
 			>
-				{nodeNameRenderer({ node, children })}
+				{children}
 			</ThreeState>
 		</span>
 	);
@@ -91,11 +91,6 @@ class VirtualTree extends React.Component {
 			nodes: props.fast ? TreeState.createFromTree(props.nodes) : props.nodes,
 		};
 	}
-	/*
-	state = {
-
-	};
-	*/
 
 	handleChange = nodes => {
 		this.setState({ nodes });
@@ -147,7 +142,7 @@ class VirtualTree extends React.Component {
 							<div style={style}>
 								<Expandable node={node} {...rest}>
 									<Selection node={node} {...rest}>
-										{node.name}
+										{this.props.nodeLabelRenderer() || node.name}
 									</Selection>
 								</Expandable>
 							</div>
@@ -185,6 +180,7 @@ VirtualTree.propTypes = {
 	//	name: PropTypes.string,
 	nodes: PropTypes.arrayOf(PropTypes.object),
 	fast: PropTypes.bool,
+	nodeLabelRenderer: PropTypes.func,
 };
 
 export default VirtualTree;
