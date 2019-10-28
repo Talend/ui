@@ -101,7 +101,7 @@ function report(error) {
  * addAction store last 20 actions to let onError.report use it.
  */
 function addAction(action) {
-	if (ref.actions.length >= 200) {
+	if (ref.actions.length >= 20) {
 		ref.actions.shift();
 	}
 	ref.actions.push(action && action.type ? action.type : 'UNKNOWN');

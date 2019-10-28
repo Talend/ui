@@ -53,11 +53,11 @@ describe('onError', () => {
 		});
 		it('should keep last 20 actions', () => {
 			// eslint-disable-next-line no-plusplus
-			for (let index = 0; index < 210; index++) {
+			for (let index = 0; index < 30; index++) {
 				onError.addAction({ type: `FOO ${index}`, password: 'secret' });
 			}
 			const info = onError.getReportInfo(new Error('my'));
-			expect(info.actions.length).toBe(200);
+			expect(info.actions.length).toBe(20);
 			expect(info.actions[0]).toBe('FOO 10');
 		});
 	});
