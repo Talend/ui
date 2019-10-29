@@ -2,9 +2,8 @@
 
 exports[`BadgeOverlay should render the html output in the default state 1`] = `
 <div>
-  <button role="button"
+  <button id="my-id-action-overlay"
           aria-label="my label"
-          id="my-id-action-overlay"
           type="button"
           class="btn btn-link"
   >
@@ -17,9 +16,8 @@ exports[`BadgeOverlay should render the html output in the default state 1`] = `
 
 exports[`BadgeOverlay should render the html output with children as function 1`] = `
 <div>
-  <button role="button"
+  <button id="my-id-action-overlay"
           aria-label="my label"
-          id="my-id-action-overlay"
           type="button"
           class="btn btn-link"
   >

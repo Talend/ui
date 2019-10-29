@@ -77,4 +77,3 @@ In bootstrap you can pass the following options
 | attribute | default value | description |
 | -- | -- | -- |
 | reportURL | undefined | the error where to post. For example '/api/errors' |
-| sensibleKeys | [] | array of regex to remove sensible data from your app |

@@ -21,6 +21,33 @@ const badgeName = {
 	},
 };
 
+const badgeConnectionType = {
+	properties: {
+		attribute: 'connection.type',
+		initialOperatorOpened: true,
+		initialValueOpened: false,
+		label: 'Connection type',
+		operator: {},
+		operators: [],
+		type: 'checkbox',
+	},
+	metadata: {
+		badges_per_facet: '1',
+		entities_per_badge: 'N',
+		values: [
+			{ id: 'amazon_s3', label: 'Amazon S3' },
+			{ id: 'hdfs', label: 'HDFS' },
+			{ id: 'kafka', label: 'Kafka' },
+			{ id: 'localcon', label: 'Local connection' },
+			{ id: 'salesforce', label: 'Salesforce' },
+			{ id: 'aws_kinesis', label: 'AWS kinesis' },
+		],
+		operators: ['in'],
+	},
+};
+
+const badgesDefinitions = [badgeName, badgeConnectionType];
+
 storiesOf('FacetedSearch', module)
 	.addDecorator(story => (
 		<div>
@@ -39,7 +66,7 @@ storiesOf('FacetedSearch', module)
 					)) ||
 					(currentFacetedMode === FacetedSearch.constants.FACETED_MODE.BASIC && (
 						<FacetedSearch.BasicSearch
-							badgesDefinitions={[badgeName]}
+							badgesDefinitions={badgesDefinitions}
 							onSubmit={action('onSubmit')}
 						/>
 					))

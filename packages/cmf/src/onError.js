@@ -24,13 +24,6 @@ const ref = {
 	},
 };
 
-const DICT = 'abcdefghijklmnopqrstuvwxyz0123456789';
-const SENSIBLE_REGEXP = /^_|^\$|password|secret|key|mail/;
-
-function random() {
-	return DICT[Math.floor(Math.random() * DICT.length)];
-}
-
 function serialize(error) {
 	const std = {
 		name: error.name,
@@ -48,69 +41,6 @@ function serialize(error) {
 	return std;
 }
 
-function isSensibleKey(key) {
-	if (key.toLowerCase().match(SENSIBLE_REGEXP) !== null) {
-		return true;
-	}
-	for (let index = 0; index < ref.sensibleKeys.length; index += 1) {
-		if (key.toLowerCase().match(ref.sensibleKeys[index]) !== null) {
-			return true;
-		}
-	}
-	return false;
-}
-
-/**
- * anon() replaces value by a random string if the key is considered sensitive
- */
-function anon(value, key) {
-	if (isSensibleKey(key)) {
-		const buff = [];
-		for (let index = 0; index < value.length; index += 1) {
-			buff.push(random());
-		}
-		return buff.join('');
-	}
-	return value;
-}
-
-/**
- * prepareObject take a JS object and do some process on it
- * - it call toJS on every immutable data
- * - it remove sensitive data
- * @param {Object} originalState object to process
- * @return {Object} friendly with JSON.stringify
- */
-function prepareObject(originalState) {
-	if (originalState === null) {
-		return null;
-	}
-
-	const state = originalState.toJS ? originalState.toJS() : originalState;
-
-	return Object.keys(state).reduce((acc, key) => {
-		const valueType = Array.isArray(acc[key]) ? 'array' : typeof state[key];
-		if (valueType === 'function') {
-			acc[key] = `function-${state[key].name}`;
-		} else if (valueType === 'array') {
-			acc[key] = state[key].map(item => {
-				if (typeof item === 'object') {
-					return prepareObject(item);
-				}
-				return anon(item);
-			});
-		} else if (valueType === 'object') {
-			acc[key] = prepareObject(state[key]);
-		} else if (valueType === 'undefined') {
-			acc[key] = state[key];
-		} else {
-			// anonym it
-			acc[key] = anon(state[key], key);
-		}
-		return acc;
-	}, {});
-}
-
 /**
  * getReportInfo serialize the error and enrich it
  * so as the dev will have as much information as possible
@@ -120,12 +50,7 @@ function getReportInfo(error) {
 		time: new Date().toISOString(),
 		browser: navigator.userAgent,
 		location: location.href,
-		uiState: prepareObject(ref.store.getState()),
-		error: {
-			message: error.message,
-			name: error.name,
-			stack: error.stack,
-		},
+		error: serialize(error),
 		actions: ref.actions,
 	};
 }
@@ -150,7 +75,7 @@ function report(error) {
 		});
 	} else {
 		ref.store.dispatch(
-			actions.http.post(ref.serverURL, info, {
+			actions.http.post(ref.serverURL, info.context, {
 				onError: err => {
 					info.reported = false;
 					info.reason = serialize(err);
@@ -179,29 +104,7 @@ function addAction(action) {
 	if (ref.actions.length >= 20) {
 		ref.actions.shift();
 	}
-	try {
-		let safeAction = { ...action };
-		if (safeAction.type === 'DID_MOUNT_SAGA_START') {
-			delete safeAction.props;
-		} else if (safeAction.type === 'REACT_CMF.REQUEST_SETTINGS_OK') {
-			delete safeAction.settings;
-		} else if (safeAction.url === ref.settingsURL) {
-			delete safeAction.response;
-		}
-		safeAction = prepareObject(safeAction);
-		ref.actions.push(safeAction);
-	} catch (error) {
-		// eslint-disable-next-line no-console
-		console.error('onError.actions has not been able to add the following action', action, error);
-	}
-}
-
-function addSensibleKeyRegexp(r) {
-	if (r instanceof RegExp) {
-		ref.sensibleKeys.push(r);
-	} else {
-		throw new Error(`${r} is not a regexp`);
-	}
+	ref.actions.push(action && action.type ? action.type : 'UNKNOWN');
 }
 
 /**
@@ -219,9 +122,6 @@ function bootstrap(options, store) {
 	const opt = options.onError || {};
 	ref.serverURL = opt.reportURL;
 	ref.settingsURL = options.settingsURL;
-	if (opt.sensibleKeys) {
-		opt.sensibleKeys.forEach(r => addSensibleKeyRegexp(r));
-	}
 }
 
 /**

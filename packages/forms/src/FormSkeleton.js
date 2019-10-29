@@ -1,5 +1,5 @@
 import React from 'react';
-import { Skeleton } from '@talend/react-components';
+import Skeleton from '@talend/react-components/lib/Skeleton';
 import theme from './FormSkeleton.scss';
 
 export default function FormSkeleton() {

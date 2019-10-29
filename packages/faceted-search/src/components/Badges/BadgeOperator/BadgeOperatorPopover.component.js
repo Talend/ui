@@ -14,13 +14,25 @@ const BadgeOperatorRow = ({ onClick, id, name, label, iconName }) => {
 	const onClickOperatorRow = event => {
 		onClick(event, name);
 	};
+	if (iconName) {
+		return (
+			<Action
+				className={theme('tc-badge-operator-row-button')}
+				id={`${id}-operator-row-button-${name}`}
+				label={label}
+				link
+				icon={`talend-${iconName}`}
+				onClick={onClickOperatorRow}
+				role="button"
+			/>
+		);
+	}
 	return (
 		<Action
 			className={theme('tc-badge-operator-row-button')}
 			id={`${id}-operator-row-button-${name}`}
 			label={label}
 			link
-			icon={`talend-${iconName}`}
 			onClick={onClickOperatorRow}
 			role="button"
 		/>

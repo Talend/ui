@@ -19,6 +19,11 @@ $circle-size-small: 1.8rem !default;
 
 	&-button {
 		padding: 0;
+		> button:hover,
+		> button {
+			text-decoration: none;
+			text-transform: none;
+		}
 	}
 	&-popover {
 		display: flex;
