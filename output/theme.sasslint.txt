@@ -17,9 +17,6 @@ src/theme/_forms.scss
   359:3   warning  Vendor prefixes should not be used                       no-vendor-prefixes
   400:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
 
-src/theme/_forms.switch.scss
-  96:3  error  Class '.switch__label' should be written in lowercase with hyphens  class-name-format
-
 src/theme/_labels.scss
   42:2  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
 
@@ -35,5 +32,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-✖ 18 problems (12 errors, 6 warnings)
+✖ 17 problems (11 errors, 6 warnings)
 
