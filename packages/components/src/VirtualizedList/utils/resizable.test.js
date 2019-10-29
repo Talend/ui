@@ -508,8 +508,8 @@ describe('resizeColumns', () => {
 
 		const dataKey = 'columnTwo';
 		const listWidth = 1720;
-		const montest = () => resizeColumns(deltaX, columnsWidths, listWidth, dataKey);
+		const testResizeColumns = () => resizeColumns(deltaX, columnsWidths, listWidth, dataKey);
 		// when
-		expect(montest).not.toThrow();
+		expect(testResizeColumns).not.toThrow();
 	});
 });
