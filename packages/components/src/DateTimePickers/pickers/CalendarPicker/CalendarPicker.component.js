@@ -89,7 +89,7 @@ class CalendarPicker extends React.Component {
 			if (from) {
 				calendarDate = startDate || new Date();
 			} else if (to) {
-				calendarDate = endDate || startDate;
+				calendarDate = endDate || startDate || new Date();
 			}
 			newState.calendar = {
 				monthIndex: getMonth(calendarDate),
