@@ -23,9 +23,7 @@ function ErrorPanel(props) {
 			<p className="error-title">
 				{props.error.name}: {props.error.message}
 			</p>
-			{onError.hasReportFeature() ? (
-				<p>The error report has been sent.</p>
-			) : null}
+			{onError.hasReportFeature() ? <p>The error report has been sent.</p> : null}
 			<p>From here you can either refresh or contact the support.</p>
 			<button
 				className="btn btn-danger btn-inverse"
@@ -35,14 +33,16 @@ function ErrorPanel(props) {
 			>
 				Refresh
 			</button>
-			{!onError.hasReportFeature() && (<a
-				className="btn btn-primary btn-inverse"
-				href={url}
-				download="report.json"
-				data-feature="download-on-error-details"
-			>
-				Download details
-			</a>)}
+			{!onError.hasReportFeature() && (
+				<a
+					className="btn btn-primary btn-inverse"
+					href={url}
+					download="report.json"
+					data-feature="download-on-error-details"
+				>
+					Download details
+				</a>
+			)}
 		</div>
 	);
 }
