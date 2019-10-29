@@ -1,3 +1,5 @@
+import get from 'lodash/get';
+import { captureException, withScope, init } from '@sentry/browser';
 import { assertTypeOf } from './assert';
 import CONST from './constant';
 import actions from './actions';
@@ -15,13 +17,8 @@ import actions from './actions';
  * subscribe
  */
 const ref = {
-	callbacks: [],
-	errors: [],
 	actions: [],
-	sensibleKeys: [],
-	store: {
-		getState: () => ({}),
-	},
+	errors: [],
 };
 
 function serialize(error) {
@@ -38,6 +35,7 @@ function serialize(error) {
 		acc[key] = error[key];
 		return acc;
 	}, std);
+
 	return std;
 }
 
@@ -60,51 +58,38 @@ function getReportInfo(error) {
  * @param {Error} error instance of Error
  */
 function report(error) {
-	const info = {
-		error: serialize(error),
-		context: JSON.stringify(getReportInfo(error)),
-		reported: false,
-		reason: 'Draft',
-	};
-	ref.error = info;
-	ref.errors.push(info);
-	if (!ref.serverURL) {
-		ref.store.dispatch({
-			type: CONST.ERROR,
-			...info,
-		});
+	if (hasReportFeature()) {
+		captureException(error);
 	} else {
-		ref.store.dispatch(
-			actions.http.post(ref.serverURL, info.context, {
-				onError: err => {
-					info.reported = false;
-					info.reason = serialize(err);
-					return {
-						type: CONST.ERROR,
-						...info,
-					};
-				},
-				onResponse: response => {
-					info.reported = true;
-					info.response = response;
-					return {
-						type: CONST.ERROR_REPORTED,
-						...info,
-					};
-				},
-			}),
-		);
+		const info = {
+		       error: serialize(error),
+		       context: JSON.stringify(getReportInfo(error)),
+		       reported: false,
+		       reason: 'Draft',
+		};
+		ref.error = info;
+		ref.errors.push(info);
+	    ref.store.dispatch({
+           type: CONST.ERROR,
+           ...info,
+    	});
 	}
 }
 
 /**
- * addAction store last 20 actions to let onError.report use it.
+ * init Sentry lib
+ * @return {[type]} [description]
  */
-function addAction(action) {
-	if (ref.actions.length >= 20) {
-		ref.actions.shift();
+function setupSentry() {
+	if (!ref.SENTRY_DSN) {
+		return;
 	}
-	ref.actions.push(action && action.type ? action.type : 'UNKNOWN');
+	try {
+		init({ dsn: ref.SENTRY_DSN });
+	} catch (error) {
+		console.error(error);
+		delete ref.SENTRY_DSN;
+	}
 }
 
 /**
@@ -114,14 +99,11 @@ function addAction(action) {
  */
 function bootstrap(options, store) {
 	assertTypeOf(options, 'onError', 'object');
-	ref.actions = [];
-	ref.callbacks = [];
 	ref.errors = [];
-	ref.sensibleKeys = [];
-	ref.store = store;
+	ref.actions = [];
 	const opt = options.onError || {};
-	ref.serverURL = opt.reportURL;
-	ref.settingsURL = options.settingsURL;
+	ref.SENTRY_DSN = opt.SENTRY_DSN;
+	setupSentry();
 }
 
 /**
@@ -134,47 +116,65 @@ function getErrors() {
 /**
  * @return {Boolean} true if we can do report to backend
  */
-function hasReportURL() {
-	return !!ref.serverURL;
+function hasReportFeature() {
+	return !!ref.SENTRY_DSN;
+}
+
+function setupFromSettings(settings) {
+	const dsn = get(settings, 'env.SENTRY_DSN');
+	if (ref.SENTRY_DSN !== dsn && !ref.SENTRY_DSN) {
+		ref.SENTRY_DSN = dsn;
+		setupSentry();
+	}
 }
 
 /**
- * simple try catch middleware for redux
+ * onError redux middleware.
+ * it store last 20 actions
+ * it catch settings fetch OK to try to setup Sentry
+ * it try catch every sub actions effect to report error
  */
 function middleware() {
 	return next => action => {
+		if (!hasReportFeature() && ref.actions.length >= 20) {
+			ref.actions.shift();
+			ref.actions.push(action && action.type ? action.type : 'UNKNOWN');
+		}
+		if (action.type === CONSTANTS.REQUEST_OK) {
+			setupFromSettings(action.settings);
+		}
 		try {
 			return next(action);
-		} catch (err) {
-			err.action = action;
-			report(err);
-			throw err;
+		} catch (error) {
+			withScope(function(scope) {
+			  scope.setTag("redux-action-type", action.type);
+			  captureException(error);
+			});
+			console.error(error);
 		}
 	};
 }
 
 function createObjectURL(error) {
-	const data = getReportInfo(error);
-	const strData = JSON.stringify(data);
-	const MIME_TYPE = 'application/json';
-	// For IE11, you can use the Blob class to construct a File object.
-	// This seems to be the most portable solution.
-	const blob = new Blob([strData], { type: MIME_TYPE });
-	blob.name = 'report.json';
-	return window.URL.createObjectURL(blob);
+	   const data = getReportInfo(error);
+	   const strData = JSON.stringify(data);
+	   const MIME_TYPE = 'application/json';
+	   // For IE11, you can use the Blob class to construct a File object.
+	   // This seems to be the most portable solution.
+	   const blob = new Blob([strData], { type: MIME_TYPE });
+	   blob.name = 'report.json';
+	   return window.URL.createObjectURL(blob);
 }
 
 function revokeObjectURL(url) {
-	window.URL.revokeObjectURL(url);
+	   window.URL.revokeObjectURL(url);
 }
 
 export default {
 	bootstrap,
-	addAction,
-	hasReportURL,
+	hasReportFeature,
 	getReportInfo,
 	report,
-	getErrors,
 	middleware,
 	createObjectURL,
 	revokeObjectURL,
