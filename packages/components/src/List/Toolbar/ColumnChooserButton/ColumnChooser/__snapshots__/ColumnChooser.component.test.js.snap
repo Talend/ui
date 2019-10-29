@@ -21,7 +21,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             <label for="my-id-body-checkbox-Columns"
                    data-feature="column-chooser.select.all.enable"
             >
-              <span>
+              <span class="switch__label">
                 Columns
               </span>
             </label>
@@ -43,7 +43,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             <label for="my-id-body-checkbox-Id"
                    data-feature="column-chooser.select.disable"
             >
-              <span>
+              <span class="switch__label">
                 Id
               </span>
             </label>
@@ -65,7 +65,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             <label for="my-id-body-checkbox-Name"
                    data-feature="column-chooser.select.disable"
             >
-              <span>
+              <span class="switch__label">
                 Name
               </span>
             </label>
@@ -87,7 +87,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             <label for="my-id-body-checkbox-Author"
                    data-feature="column-chooser.select.disable"
             >
-              <span>
+              <span class="switch__label">
                 Author
               </span>
             </label>
@@ -109,7 +109,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             <label for="my-id-body-checkbox-Very long name long name long name long name long name"
                    data-feature="column-chooser.select.disable"
             >
-              <span>
+              <span class="switch__label">
                 Very long name long name long name long name long name
               </span>
             </label>
@@ -130,7 +130,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             <label for="my-id-body-checkbox-Icon"
                    data-feature="column-chooser.select.enable"
             >
-              <span>
+              <span class="switch__label">
                 Icon
               </span>
             </label>
@@ -152,7 +152,7 @@ exports[`ColumnChooser should render with default props 1`] = `
             <label for="my-id-body-checkbox-Created"
                    data-feature="column-chooser.select.disable"
             >
-              <span>
+              <span class="switch__label">
                 Created
               </span>
             </label>

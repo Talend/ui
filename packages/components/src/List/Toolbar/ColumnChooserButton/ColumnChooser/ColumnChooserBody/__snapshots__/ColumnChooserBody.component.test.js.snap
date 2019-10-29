@@ -19,7 +19,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           <label for="body-context-id-body-checkbox-Columns"
                  data-feature="column-chooser.select.all.disable"
           >
-            <span>
+            <span class="switch__label">
               Columns
             </span>
           </label>
@@ -67,7 +67,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           <label for="body-context-id-body-checkbox-col3"
                  data-feature="column-chooser.select.disable"
           >
-            <span>
+            <span class="switch__label">
               col3
             </span>
           </label>
@@ -88,7 +88,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           <label for="body-context-id-body-checkbox-col4"
                  data-feature="column-chooser.select.enable"
           >
-            <span>
+            <span class="switch__label">
               col4
             </span>
           </label>
@@ -110,7 +110,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           <label for="body-context-id-body-checkbox-col5"
                  data-feature="column-chooser.select.disable"
           >
-            <span>
+            <span class="switch__label">
               col5
             </span>
           </label>
@@ -131,7 +131,7 @@ exports[`ColumnChooserBody should render the columns rows and the column select 
           <label for="body-context-id-body-checkbox-col6"
                  data-feature="column-chooser.select.enable"
           >
-            <span>
+            <span class="switch__label">
               col6
             </span>
           </label>

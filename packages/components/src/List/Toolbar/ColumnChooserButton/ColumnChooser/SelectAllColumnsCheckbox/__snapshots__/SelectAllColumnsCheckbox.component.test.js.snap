@@ -11,7 +11,7 @@ exports[`SelectAllColumnsCheckbox should render by default 1`] = `
     <label for="select-all-id-checkbox-Columns"
            data-feature="column-chooser.select.all.enable"
     >
-      <span>
+      <span class="switch__label">
         Columns
       </span>
     </label>

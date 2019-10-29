@@ -17,7 +17,9 @@ exports[`Toggle should pass extra props to input 1`] = `
   <label
     htmlFor="id"
   >
-    <span>
+    <span
+      className="switch__label"
+    >
       
     </span>
   </label>
@@ -40,7 +42,9 @@ exports[`Toggle should render a Checkbox 1`] = `
   <label
     htmlFor="id"
   >
-    <span>
+    <span
+      className="switch__label"
+    >
       
     </span>
   </label>
@@ -63,7 +67,9 @@ exports[`Toggle should render a Toggle 1`] = `
   <label
     htmlFor="id"
   >
-    <span>
+    <span
+      className="switch__label"
+    >
       
     </span>
   </label>
@@ -86,7 +92,9 @@ exports[`Toggle should render a Toggle with label 1`] = `
   <label
     htmlFor="id"
   >
-    <span>
+    <span
+      className="switch__label"
+    >
       some label
     </span>
   </label>
@@ -110,7 +118,9 @@ exports[`Toggle should render a autoFocused Toggle 1`] = `
   <label
     htmlFor="id"
   >
-    <span>
+    <span
+      className="switch__label"
+    >
       
     </span>
   </label>
@@ -134,7 +144,9 @@ exports[`Toggle should render a checked Toggle 1`] = `
     data-feature="toggle.disable"
     htmlFor="id"
   >
-    <span>
+    <span
+      className="switch__label"
+    >
       
     </span>
   </label>
@@ -157,7 +169,9 @@ exports[`Toggle should render a disabled Toggle 1`] = `
   <label
     htmlFor="id"
   >
-    <span>
+    <span
+      className="switch__label"
+    >
       
     </span>
   </label>
@@ -181,7 +195,9 @@ exports[`Toggle should render an intermediate Toggle 1`] = `
     data-feature="toggle.enable"
     htmlFor="id"
   >
-    <span>
+    <span
+      className="switch__label"
+    >
       
     </span>
   </label>

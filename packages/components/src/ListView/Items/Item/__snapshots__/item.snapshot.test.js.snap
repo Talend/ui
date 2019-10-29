@@ -21,7 +21,9 @@ exports[`Item should display a selected item 1`] = `
     <label
       htmlFor="checkbox-0-item"
     >
-      <span>
+      <span
+        className="switch__label"
+      >
         toto
       </span>
     </label>

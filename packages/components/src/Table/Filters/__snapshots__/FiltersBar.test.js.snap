@@ -46,7 +46,9 @@ exports[`two-filters 1`] = `
     <label
       htmlFor="mandatory-field-filter"
     >
-      <span>
+      <span
+        className="switch__label"
+      >
         Show Mandatory Fields (*) Only
       </span>
     </label>

@@ -312,7 +312,9 @@ exports[`Items should render 1`] = `
                                 type="checkbox"
                               />
                               <label>
-                                <span>
+                                <span
+                                  className="switch__label"
+                                >
                                   Lorem ipsum dolor sit amet 0
                                 </span>
                               </label>
@@ -420,7 +422,9 @@ exports[`Items should render 1`] = `
                                 type="checkbox"
                               />
                               <label>
-                                <span>
+                                <span
+                                  className="switch__label"
+                                >
                                   Lorem ipsum dolor sit amet 1
                                 </span>
                               </label>
@@ -523,7 +527,9 @@ exports[`Items should render 1`] = `
                                 type="checkbox"
                               />
                               <label>
-                                <span>
+                                <span
+                                  className="switch__label"
+                                >
                                   Lorem ipsum dolor sit amet 2
                                 </span>
                               </label>
@@ -877,7 +883,9 @@ exports[`Items should render with nested items 1`] = `
                                 type="checkbox"
                               />
                               <label>
-                                <span>
+                                <span
+                                  className="switch__label"
+                                >
                                   Lorem ipsum dolor default
                                 </span>
                               </label>
@@ -1006,7 +1014,9 @@ exports[`Items should render with nested items 1`] = `
                                 type="checkbox"
                               />
                               <label>
-                                <span>
+                                <span
+                                  className="switch__label"
+                                >
                                   Lorem ipsum dolor Parent
                                 </span>
                               </label>
@@ -1441,7 +1451,9 @@ exports[`Items should render with provided id 1`] = `
                               <label
                                 htmlFor="checkbox-my-widget-1-item"
                               >
-                                <span>
+                                <span
+                                  className="switch__label"
+                                >
                                   Lorem ipsum dolor sit amet 0
                                 </span>
                               </label>
@@ -1557,7 +1569,9 @@ exports[`Items should render with provided id 1`] = `
                               <label
                                 htmlFor="checkbox-my-widget-2-item"
                               >
-                                <span>
+                                <span
+                                  className="switch__label"
+                                >
                                   Lorem ipsum dolor sit amet 1
                                 </span>
                               </label>
@@ -1668,7 +1682,9 @@ exports[`Items should render with provided id 1`] = `
                               <label
                                 htmlFor="checkbox-my-widget-3-item"
                               >
-                                <span>
+                                <span
+                                  className="switch__label"
+                                >
                                   Lorem ipsum dolor sit amet 2
                                 </span>
                               </label>
