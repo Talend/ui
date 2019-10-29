@@ -30,14 +30,13 @@ describe('DateRange.Picker', () => {
 		);
 
 		// then
-		expect(wrapper.find('CalendarPicker').props()).toEqual({
+		expect(wrapper.find('CalendarPicker').at(0).props()).toEqual({
 			manageFocus: true,
 			onSubmit: managerValue.pickerManagement.onSubmit,
 			other: 'custom props',
-			startDate: new Date(2007, 0, 2),
+			selectedDate: new Date(2007, 0, 2),
 			endDate: new Date(2007, 1, 2),
 			from: true,
-			to: false,
 			t: expect.any(Function),
 		});
 	});

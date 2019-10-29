@@ -152,8 +152,9 @@ describe('DatePicker', () => {
 				onSelect={jest.fn()}
 				goToPreviousMonth={jest.fn()}
 				goToNextMonth={jest.fn()}
-				startDate={new Date(2018, 5, 1)}
+				selectedDate={new Date(2018, 5, 1)}
 				endDate={new Date(2018, 5, 3)}
+				from
 			/>,
 		);
 
