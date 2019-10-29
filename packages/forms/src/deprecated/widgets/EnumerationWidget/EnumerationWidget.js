@@ -419,28 +419,43 @@ class EnumerationForm extends React.Component {
 	}
 
 	onSubmitItem(event, value) {
-		const t = this.props.t;
-
 		// dont want to fire select item on icon click
 		event.preventDefault();
 		event.stopPropagation();
-		if (
-			this.callActionHandler(
-				ENUMERATION_RENAME_ACTION,
-				{
+
+		const { schema } = this.props;
+		this.setState(prevState => ({
+			itemsProp: {
+				...prevState.itemsProp,
+				actionsEdit: this.loadingInputsActions,
+			},
+		}));
+
+		if (this.props.properties.connectedMode) {
+			const formattedValue = this.constructor.parseStringValueToArray(value.value);
+			this.props.onTrigger(event, {
+				trigger: {
+					id: this.state.items[value.index].id,
 					index: value.index,
-					value: this.constructor.parseStringValueToArray(value.value),
+					value: formattedValue,
+					action: ENUMERATION_RENAME_ACTION
 				},
-				this.itemSubmitHandler.bind(this),
-				this.itemSubmitHandler.bind(this),
-			)
-		) {
-			this.setState(prevState => ({
-				itemsProp: {
-					...prevState.itemsProp,
-					actionsEdit: this.loadingInputsActions,
-				},
-			}));
+				schema,
+			}).then(() => {
+				const payload = {
+					schema,
+					value: this.state.items.map((item, index) => {
+						if (index === value.index) {
+							return { ...item, values: formattedValue };
+						}
+						return item;
+					}),
+				};
+				this.props.onChange(event, payload);
+				this.itemSubmitHandler();
+			}).finally(() => {
+				this.itemSubmitHandler();
+			});
 		} else {
 			this.setState(prevState => {
 				const items = [...prevState.items];
@@ -788,6 +803,7 @@ class EnumerationForm extends React.Component {
 				...prevState.itemsProp,
 				actionsEdit: this.itemEditActions,
 			},
+			items: resetItems([...prevState.items]),
 		}));
 	}
 
