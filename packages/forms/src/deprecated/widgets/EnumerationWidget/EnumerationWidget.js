@@ -65,10 +65,6 @@ class EnumerationForm extends React.Component {
 		};
 	}
 
-	static isConnectedMode(registry) {
-		return !!(registry && registry.formContext && registry.formContext.handleAction !== undefined);
-	}
-
 	constructor(props) {
 		super(props);
 		const t = props.t;
@@ -263,17 +259,14 @@ class EnumerationForm extends React.Component {
 		this.setState(prevState => ({ ...prevState, items: nextProps.value }));
 	}
 
+	isConnectedMode() {
+		return !!(this.props.properties && this.props.properties.connectedMode);
+	}
+
 	onImportAppendClick() {
 		this.setState(
 			state => ({ ...state, importMode: enumerationStates.IMPORT_MODE_APPEND }),
 			this.simulateClickInputFile.bind(this)
-		);
-
-		this.callActionHandler(
-			ENUMERATION_IMPORT_FILE_APPEND_MODE,
-			null,
-			this.importFileHandler,
-			this.importFileHandler,
 		);
 	}
 
@@ -281,13 +274,6 @@ class EnumerationForm extends React.Component {
 		this.setState(
 			state => ({ ...state, importMode: enumerationStates.IMPORT_MODE_OVERWRITE }),
 			this.simulateClickInputFile.bind(this)
-		);
-		// this.simulateClickInputFile();
-		this.callActionHandler(
-			ENUMERATION_IMPORT_FILE_OVERWRITE_MODE,
-			null,
-			this.importFileHandler,
-			this.importFileHandler,
 		);
 	}
 
@@ -297,7 +283,7 @@ class EnumerationForm extends React.Component {
 			let items = resetItems([...prevState.items]);
 			let item = items[value.index];
 			// if there is a search criteria, retrieve correct item from state in non-connected mode
-			if (prevState.searchCriteria && !this.constructor.isConnectedMode(this.props.registry)) {
+			if (prevState.searchCriteria && !this.isConnectedMode()) {
 				item = this.getItemInSearchMode(prevState.searchCriteria, value.index, items);
 			}
 			item.displayMode = enumerationStates.DISPLAY_MODE_EDIT;
@@ -310,7 +296,7 @@ class EnumerationForm extends React.Component {
 			if (displayMode === enumerationStates.DISPLAY_MODE_SELECTED) {
 				displayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
 			}
-			const validation = this.constructor.updateItemValidateDisabled(item.values[0]);
+			const validation = this.updateItemValidateDisabled(item.values[0]);
 			return { items, displayMode, ...validation };
 		});
 	}
@@ -340,7 +326,7 @@ class EnumerationForm extends React.Component {
 			},
 		}));
 
-		if (this.props.properties.connectedMode) {
+		if (this.isConnectedMode()) {
 			this.props.onTrigger(event, {
 				trigger: { ids: [this.state.items[value.index].id], action: ENUMERATION_REMOVE_ACTION },
 				schema,
@@ -431,7 +417,7 @@ class EnumerationForm extends React.Component {
 			},
 		}));
 
-		if (this.props.properties.connectedMode) {
+		if (this.isConnectedMode()) {
 			const formattedValue = this.constructor.parseStringValueToArray(value.value);
 			this.props.onTrigger(event, {
 				trigger: {
@@ -494,7 +480,7 @@ class EnumerationForm extends React.Component {
 				this.setState({
 					headerInput: this.loadingInputsActions,
 				});
-				if (this.props.properties.connectedMode) {
+				if (this.isConnectedMode()) {
 					this.props.onTrigger(event, {
 						trigger: { value: value.value, action: 'SEARCH_DOCUMENTS' },
 						schema,
@@ -548,7 +534,7 @@ class EnumerationForm extends React.Component {
 		this.setState({
 			headerDefault: this.loadingInputsActions,
 		});
-		if (this.props.properties.connectedMode) {
+		if (this.isConnectedMode()) {
 			this.props.onTrigger(event, {
 				trigger: { value: '', action: 'SEARCH_DOCUMENTS' },
 				schema,
@@ -646,7 +632,7 @@ class EnumerationForm extends React.Component {
 			}
 		});
 
-		if (this.props.properties.connectedMode) {
+		if (this.isConnectedMode()) {
 			this.props.onTrigger(event, {
 				trigger: { ids: itemsToDelete, action: ENUMERATION_REMOVE_ACTION },
 				schema,
@@ -689,7 +675,7 @@ class EnumerationForm extends React.Component {
 			headerInput: this.loadingInputsActions,
 		});
 
-		if (this.props.properties.connectedMode) {
+		if (this.isConnectedMode()) {
 			this.props.onTrigger(event, {
 				trigger: { value: this.constructor.parseStringValueToArray(value.value), action: ENUMERATION_ADD_ACTION },
 				schema,
@@ -827,20 +813,6 @@ class EnumerationForm extends React.Component {
 		});
 	}
 
-	callActionHandler(actionName, value, successHandler, errorHandler) {
-		if (this.constructor.isConnectedMode(this.props.registry)) {
-			this.props.registry.formContext.handleAction(
-				this.props.id,
-				actionName,
-				value,
-				successHandler,
-				errorHandler,
-			);
-			return true;
-		}
-		return false;
-	}
-
 	/**
 	 * simulateClickInputFile - simulate the click on the hidden input
 	 *
@@ -868,7 +840,7 @@ class EnumerationForm extends React.Component {
 		this.setState({
 			headerDefault: this.loadingInputsActions,
 		});
-		if (this.props.properties.connectedMode) {
+		if (this.isConnectedMode()) {
 			this.props.onTrigger(event, {
 				trigger: {
 					value: event.target.files[0],
@@ -994,7 +966,7 @@ class EnumerationForm extends React.Component {
 	render() {
 		let items = this.state.items;
 		// filter items only in non-connected mode, since in connected mode items are up-to-date
-		// if (!this.constructor.isConnectedMode(this.props.registry)) {
+		// if (!this.isConnectedMode(this.props.registry)) {
 		// 	items = this.searchItems(this.state.searchCriteria);
 		// }
 		const stateToShow = { ...this.state, items };
