@@ -55,7 +55,7 @@ exports[`title-bar 1`] = `
         htmlFor="mandatory-field-filter"
       >
         <span
-          className="switch__label"
+          className="switch-label"
         >
           Show Mandatory Fields (*) Only
         </span>

@@ -662,7 +662,7 @@ Array [
             />
             <label>
               <span
-                className="switch__label"
+                className="switch-label"
               />
             </label>
           </div>
@@ -727,7 +727,7 @@ Array [
             />
             <label>
               <span
-                className="switch__label"
+                className="switch-label"
               />
             </label>
           </div>
@@ -790,7 +790,7 @@ Array [
             />
             <label>
               <span
-                className="switch__label"
+                className="switch-label"
               />
             </label>
           </div>

@@ -313,7 +313,7 @@ exports[`Items should render 1`] = `
                               />
                               <label>
                                 <span
-                                  className="switch__label"
+                                  className="switch-label"
                                 >
                                   Lorem ipsum dolor sit amet 0
                                 </span>
@@ -423,7 +423,7 @@ exports[`Items should render 1`] = `
                               />
                               <label>
                                 <span
-                                  className="switch__label"
+                                  className="switch-label"
                                 >
                                   Lorem ipsum dolor sit amet 1
                                 </span>
@@ -528,7 +528,7 @@ exports[`Items should render 1`] = `
                               />
                               <label>
                                 <span
-                                  className="switch__label"
+                                  className="switch-label"
                                 >
                                   Lorem ipsum dolor sit amet 2
                                 </span>
@@ -884,7 +884,7 @@ exports[`Items should render with nested items 1`] = `
                               />
                               <label>
                                 <span
-                                  className="switch__label"
+                                  className="switch-label"
                                 >
                                   Lorem ipsum dolor default
                                 </span>
@@ -1015,7 +1015,7 @@ exports[`Items should render with nested items 1`] = `
                               />
                               <label>
                                 <span
-                                  className="switch__label"
+                                  className="switch-label"
                                 >
                                   Lorem ipsum dolor Parent
                                 </span>
@@ -1452,7 +1452,7 @@ exports[`Items should render with provided id 1`] = `
                                 htmlFor="checkbox-my-widget-1-item"
                               >
                                 <span
-                                  className="switch__label"
+                                  className="switch-label"
                                 >
                                   Lorem ipsum dolor sit amet 0
                                 </span>
@@ -1570,7 +1570,7 @@ exports[`Items should render with provided id 1`] = `
                                 htmlFor="checkbox-my-widget-2-item"
                               >
                                 <span
-                                  className="switch__label"
+                                  className="switch-label"
                                 >
                                   Lorem ipsum dolor sit amet 1
                                 </span>
@@ -1683,7 +1683,7 @@ exports[`Items should render with provided id 1`] = `
                                 htmlFor="checkbox-my-widget-3-item"
                               >
                                 <span
-                                  className="switch__label"
+                                  className="switch-label"
                                 >
                                   Lorem ipsum dolor sit amet 2
                                 </span>
