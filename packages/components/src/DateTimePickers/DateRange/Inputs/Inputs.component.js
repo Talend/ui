@@ -4,6 +4,10 @@ import DebounceInput from 'react-debounce-input';
 import { DateRangeContext } from '../Context';
 import { START_DATE, END_DATE } from '../constants';
 
+import Icon from '../../../Icon';
+
+import theme from './Inputs.scss';
+
 function Inputs(props) {
 	const { startDate, endDate, inputManagement } = useContext(DateRangeContext);
 	let startDateInputRef = useRef(null);
@@ -36,6 +40,9 @@ function Inputs(props) {
 				startDateInputRef = ref;
 			}}
 		/>,
+		<span className={theme.arrow}>
+			<Icon name="talend-arrow-right" className={theme.icon} />
+		</span>,
 		<DebounceInput
 			autoComplete="off"
 			className="form-control"
