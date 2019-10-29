@@ -5,8 +5,7 @@ $range-picker-arrow-size: 1.2rem;
 	padding: 0 $padding-smaller;
     color: $dove-gray;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
 
 	.icon {
 		width: $range-picker-arrow-size;
