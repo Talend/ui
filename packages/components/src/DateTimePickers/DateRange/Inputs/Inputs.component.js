@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef } from 'react';
+import omit from 'lodash/omit';
 import DebounceInput from 'react-debounce-input';
 
 import { DateRangeContext } from '../Context';
@@ -8,6 +9,8 @@ import InputSizer from '../../shared/InputSizer';
 import Icon from '../../../Icon';
 
 import theme from './Inputs.scss';
+
+const OMIT_PROPS_INPUT = ['startInputRef', 'endInputRef'];
 
 function Inputs(props) {
 	const { startDate, endDate, inputManagement } = useContext(DateRangeContext);
@@ -40,13 +43,13 @@ function Inputs(props) {
 					style={{ width }}
 					onChange={inputManagement.onChange}
 					onFocus={event => inputManagement.onFocus(event, START_DATE)}
-					{...props}
 					inputRef={ref => {
 						if (props.startInputRef) {
 							props.startInputRef(ref);
 						}
 						startDateInputRef = ref;
 					}}
+					{...omit(props, OMIT_PROPS_INPUT)}
 				/>
 			)}
 		</InputSizer>,
@@ -67,13 +70,13 @@ function Inputs(props) {
 					style={{ width }}
 					onChange={inputManagement.onChange}
 					onFocus={event => inputManagement.onFocus(event, END_DATE)}
-					{...props}
 					inputRef={ref => {
 						if (props.endInputRef) {
 							props.endInputRef(ref);
 						}
 						endDateInputRef = ref;
 					}}
+					{...omit(props, OMIT_PROPS_INPUT)}
 				/>
 			)}
 		</InputSizer>,
