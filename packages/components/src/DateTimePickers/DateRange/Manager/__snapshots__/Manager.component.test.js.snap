@@ -9,7 +9,8 @@ exports[`DateRange.Manager should render its children 1`] = `
         "value": 2017-04-09T22:00:00.000Z,
       },
       "inputManagement": Object {
-        "onDatesChange": [Function],
+        "focusedInput": undefined,
+        "onChange": [Function],
         "onFocus": [Function],
       },
       "pickerManagement": Object {

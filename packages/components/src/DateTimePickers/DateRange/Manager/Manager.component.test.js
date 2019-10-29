@@ -524,7 +524,7 @@ describe('DateRange.Manager', () => {
 			const onChange = jest.fn();
 			const event = { target: {}, preventDefault: () => {} };
 			const wrapper = mount(
-				<Manager id={DEFAULT_ID} onDatesChange={onChange}>
+				<Manager id={DEFAULT_ID} onChange={onChange}>
 					<DateRangeConsumer />
 				</Manager>,
 			);
@@ -549,9 +549,18 @@ describe('DateRange.Manager', () => {
 			});
 			wrapper.update();
 			// then
-			expect(onChange).toBeCalledWith(event, {
-				startDate: new Date(2015, 0, 15),
-			});
+			expect(onChange).toBeCalledWith(
+				event,
+				{
+					startDate: new Date(2015, 0, 15),
+					endDate: undefined,
+					errorMessage: undefined,
+					errors: [],
+					field: 'startDate',
+					origin: 'RANGE_PICKER',
+				},
+				'endDate',
+			);
 		});
 	});
 });
