@@ -8,15 +8,17 @@ src/theme/_dropdowns.scss
   41:28  warning  Space expected around operator  space-around-operator
 
 src/theme/_forms.scss
-    6:24  error    Parenthesis should be removed                            empty-args
-   34:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-   69:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  121:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  136:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  285:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  298:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
-  365:3   warning  Vendor prefixes should not be used                       no-vendor-prefixes
-  406:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+   29:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+   64:7   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  116:8   error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  131:6   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  279:23  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  292:10  error    Qualifying elements are not allowed for class selectors  no-qualifying-elements
+  359:3   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+  400:8   warning  Vendor prefixes should not be used                       no-vendor-prefixes
+
+src/theme/_forms.switch.scss
+  96:3  error  Class '.switch__label' should be written in lowercase with hyphens  class-name-format
 
 src/theme/_labels.scss
   42:2  error  Qualifying elements are not allowed for class selectors  no-qualifying-elements
@@ -33,8 +35,5 @@ src/theme/_tables.scss
   29:26  error    !important not allowed              no-important
   34:25  error    !important not allowed              no-important
 
-src/theme/_visual-helpers.scss
-  204:15  error  Parenthesis should be removed  empty-args
-
-✖ 19 problems (13 errors, 6 warnings)
+✖ 18 problems (12 errors, 6 warnings)
 
