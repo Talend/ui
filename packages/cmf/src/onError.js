@@ -35,7 +35,6 @@ function serialize(error) {
 		acc[key] = error[key];
 		return acc;
 	}, std);
-
 	return std;
 }
 

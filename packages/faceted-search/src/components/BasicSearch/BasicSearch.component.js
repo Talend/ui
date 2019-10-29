@@ -49,7 +49,6 @@ const BasicSearch = ({
 		dispatch(BADGES_ACTIONS.add(generateBadge(operators)(badgeDefinition)));
 		setOverlayOpened(false);
 	};
-
 	const basicSearchId = `${id}-basic-search`;
 	const badgeFacetedContextValue = { state, dispatch, onSubmit };
 	return (

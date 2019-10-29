@@ -3,6 +3,9 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { AddFacetPopover } from './AddFacetPopover.component';
+import getDefaultT from '../../translate';
+
+const t = getDefaultT();
 
 describe('AddFacetPopover', () => {
 	const badgesDefinitions = [
@@ -44,7 +47,7 @@ describe('AddFacetPopover', () => {
 		const props = {
 			id: 'my id',
 			onClick: jest.fn(),
-			t: jest.fn(),
+			t,
 		};
 		// When
 		const wrapper = mount(<AddFacetPopover {...props} />);
@@ -57,12 +60,14 @@ describe('AddFacetPopover', () => {
 			badgesDefinitions,
 			id: 'my-id',
 			onClick: jest.fn(),
-			t: jest.fn(),
+			t,
 		};
 		// When
 		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
-		act(() => wrapper.find('input').simulate('change', { target: { value: 'connection' } }));
+		act(() => {
+			wrapper.find('input').simulate('change', { target: { value: 'connection' } });
+		});
 		wrapper.update();
 		expect(wrapper.find('input').prop('value')).toBe('connection');
 		expect(wrapper.find('button[aria-label="Connection name"]')).toHaveLength(1);
@@ -74,12 +79,14 @@ describe('AddFacetPopover', () => {
 			badgesDefinitions,
 			id: 'my-id',
 			onClick: jest.fn(),
-			t: jest.fn(),
+			t,
 		};
 		// When
 		const wrapper = mount(<AddFacetPopover {...props} />);
 		// Then
-		act(() => wrapper.find('button[aria-label="Remove filter"]').simulate('mouseDown'));
+		act(() => {
+			wrapper.find('button[aria-label="Remove filter"]').simulate('mouseDown');
+		});
 		wrapper.update();
 		expect(wrapper.find('input').prop('value')).toBe('');
 		expect(wrapper.find('button[aria-label="Name"]')).toHaveLength(1);
@@ -92,7 +99,7 @@ describe('AddFacetPopover', () => {
 			badgesDefinitions,
 			id: 'my-id',
 			onClick,
-			t: jest.fn(),
+			t,
 		};
 		// When
 		const wrapper = mount(<AddFacetPopover {...props} />);

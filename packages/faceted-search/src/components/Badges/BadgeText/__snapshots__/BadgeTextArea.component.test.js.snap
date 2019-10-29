@@ -13,6 +13,7 @@ exports[`BadgeTextArea should mount a default badge 1`] = `
       <div class="form-group theme-template">
         <textarea id="myId-area"
                   class="form-control"
+                  placeholder="Apply"
                   rows="5"
                   aria-invalid="false"
                   aria-describedby="myId-area-description myId-area-error"
@@ -36,10 +37,12 @@ exports[`BadgeTextArea should mount a default badge 1`] = `
   <footer id="myId"
           class="theme-footer tc-tooltip-footer"
   >
-    <button type="submit"
-            class="btn-icon-only btn btn-info"
+    <button aria-label="Apply"
+            type="submit"
+            class="btn btn-info"
     >
       <span>
+        Apply
       </span>
     </button>
   </footer>

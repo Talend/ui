@@ -13,11 +13,10 @@ exports[`BadgeText should mount a default badge 1`] = `
     </span>
     <div class="tc-badge-operator theme-tc-badge-operator tc-badge-operator-large theme-tc-badge-operator-large">
       <div class="tc-badge-operator-button theme-tc-badge-operator-button">
-        <button role="button"
-                id="myId-badge-text-operator-action-overlay"
-                aria-describedby="42"
+        <button id="myId-badge-text-operator-action-overlay"
+                aria-label="Does not contains"
                 type="button"
-                class="btn-icon-only btn btn-link"
+                class="btn btn-link"
         >
           <svg name="talend-not-equal"
                class="theme-tc-svg-icon tc-svg-icon"
@@ -31,16 +30,18 @@ exports[`BadgeText should mount a default badge 1`] = `
       </div>
     </div>
     <div class="tc-badge-faceted-overlay theme-tc-badge-faceted-overlay">
-      <button role="button"
-              id="myId-badge-text-action-overlay"
+      <button id="myId-badge-text-action-overlay"
+              aria-label="All"
               type="button"
-              class="btn-icon-only btn btn-link"
+              class="btn btn-link"
       >
         <span>
+          All
         </span>
       </button>
     </div>
     <button role="button"
+            aria-label="Delete badge"
             id="tc-badge-delete-myId-badge-text"
             aria-describedby="42"
             type="button"
