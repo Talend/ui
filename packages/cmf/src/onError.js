@@ -61,17 +61,17 @@ function report(error) {
 		captureException(error);
 	} else {
 		const info = {
-		       error: serialize(error),
-		       context: JSON.stringify(getReportInfo(error)),
-		       reported: false,
-		       reason: 'Draft',
+			error: serialize(error),
+			context: JSON.stringify(getReportInfo(error)),
+			reported: false,
+			reason: 'Draft',
 		};
 		ref.error = info;
 		ref.errors.push(info);
-	    ref.store.dispatch({
-           type: CONST.ERROR,
-           ...info,
-    	});
+		ref.store.dispatch({
+			type: CONST.ERROR,
+			...info,
+		});
 	}
 }
 
@@ -146,8 +146,8 @@ function middleware() {
 			return next(action);
 		} catch (error) {
 			withScope(function(scope) {
-			  scope.setTag("redux-action-type", action.type);
-			  captureException(error);
+				scope.setTag('redux-action-type', action.type);
+				captureException(error);
 			});
 			console.error(error);
 		}
@@ -155,18 +155,18 @@ function middleware() {
 }
 
 function createObjectURL(error) {
-	   const data = getReportInfo(error);
-	   const strData = JSON.stringify(data);
-	   const MIME_TYPE = 'application/json';
-	   // For IE11, you can use the Blob class to construct a File object.
-	   // This seems to be the most portable solution.
-	   const blob = new Blob([strData], { type: MIME_TYPE });
-	   blob.name = 'report.json';
-	   return window.URL.createObjectURL(blob);
+	const data = getReportInfo(error);
+	const strData = JSON.stringify(data);
+	const MIME_TYPE = 'application/json';
+	// For IE11, you can use the Blob class to construct a File object.
+	// This seems to be the most portable solution.
+	const blob = new Blob([strData], { type: MIME_TYPE });
+	blob.name = 'report.json';
+	return window.URL.createObjectURL(blob);
 }
 
 function revokeObjectURL(url) {
-	   window.URL.revokeObjectURL(url);
+	window.URL.revokeObjectURL(url);
 }
 
 export default {
