@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import keycode from 'keycode';
+import _isEmpty from 'lodash/isEmpty';
 import Enumeration from '@talend/react-components/lib/Enumeration';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
@@ -857,19 +858,21 @@ class EnumerationForm extends React.Component {
 					value: event.target.files[0],
 					action: 'ENUMERATION_IMPORT_FILE_ACTION',
 					importMode: this.state.importMode,
+					label: this.props.properties.label,
 				},
 				schema,
 			}).then((documents) => {
-				const payload = {
-					schema,
-					value: documents.map(document => ({ id: document.id, values: document.values })),
-				};
-				this.props.onChange(event, payload);
+				if (!_isEmpty(documents)) {
+					const payload = {
+						schema,
+						value: documents.map(document => ({ id: document.id, values: document.values })),
+					};
+					this.props.onChange(event, payload);
+				}
 			}).finally(() => {
+				this.resetInputFile();
 				this.importFileHandler();
 			});
-		} else {
-			this.resetInputFile();
 		}
 	}
 
