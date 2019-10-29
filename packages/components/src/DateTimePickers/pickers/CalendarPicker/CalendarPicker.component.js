@@ -16,18 +16,9 @@ class CalendarPicker extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const { selectedDate, startDate, endDate, from, to } = props;
+		const { selectedDate } = props;
 
-		let initialCalendarDate = selectedDate;
-		if (initialCalendarDate === undefined) {
-			if (from) {
-				initialCalendarDate = startDate || new Date();
-			} else if (to) {
-				initialCalendarDate = endDate || new Date();
-			} else {
-				initialCalendarDate = new Date();
-			}
-		}
+		const initialCalendarDate = selectedDate || new Date();
 
 		this.state = {
 			isDateView: true,
@@ -63,11 +54,9 @@ class CalendarPicker extends React.Component {
 		const isSelectedDateChanged = nextProps.selectedDate !== this.state.selectedDate;
 		const isStartDateChanged = nextProps.startDate !== this.props.startDate;
 		const isEndDateChanged = nextProps.endDate !== this.props.endDate;
-		const isFocusedInputChanged =
-			nextProps.from !== this.props.from || nextProps.to !== this.props.to;
 
 		const needToUpdateDate =
-			isSelectedDateChanged || isStartDateChanged || isEndDateChanged || isFocusedInputChanged;
+			isSelectedDateChanged || isStartDateChanged || isEndDateChanged;
 
 		if (!needToUpdateDate) {
 			return;
@@ -80,20 +69,6 @@ class CalendarPicker extends React.Component {
 			newState.calendar = {
 				monthIndex: getMonth(newSelectedDate),
 				year: getYear(newSelectedDate),
-			};
-		}
-
-		if (isFocusedInputChanged) {
-			const { startDate, from, endDate, to } = nextProps;
-			let calendarDate = new Date();
-			if (from) {
-				calendarDate = startDate || new Date();
-			} else if (to) {
-				calendarDate = endDate || startDate || new Date();
-			}
-			newState.calendar = {
-				monthIndex: getMonth(calendarDate),
-				year: getYear(calendarDate),
 			};
 		}
 
@@ -175,6 +150,8 @@ class CalendarPicker extends React.Component {
 					selectedDate={this.state.selectedDate}
 					startDate={this.props.startDate}
 					endDate={this.props.endDate}
+					from={this.props.from}
+					to={this.props.to}
 				/>
 			);
 		} else {

@@ -87,6 +87,36 @@ class DatePicker extends React.PureComponent {
 		);
 	}
 
+	isDateWithinRange(date) {
+		const { from, to, selectedDate, startDate, endDate } = this.props;
+		if (from) {
+			return isWithinRange(date, selectedDate, endDate);
+		} else if (to) {
+			return isWithinRange(date, startDate, selectedDate);
+		}
+		return false;
+	}
+
+	isStartDate(date) {
+		const { from, to, selectedDate, startDate } = this.props;
+		if (from) {
+			return isSameDay(date, selectedDate);
+		} else if (to) {
+			return isSameDay(date, startDate);
+		}
+		return false;
+	}
+
+	isEndDate(date) {
+		const { from, to, selectedDate, endDate } = this.props;
+		if (from) {
+			return isSameDay(date, endDate);
+		} else if (to) {
+			return isSameDay(date, selectedDate);
+		}
+		return false;
+	}
+
 	selectDate(event, date, year, monthIndex) {
 		if (!this.isCurrentMonth(date)) {
 			if (date < startOfMonth(new Date(year, monthIndex))) {
@@ -146,12 +176,11 @@ class DatePicker extends React.PureComponent {
 
 								const cellTheme = {};
 								const dayTheme = {};
-								const isInRange =
-									isRangeInCurrentCalendar && isWithinRange(date, startDate, endDate);
+								const isInRange = isRangeInCurrentCalendar && this.isDateWithinRange(date);
 
 								if (isInRange) {
-									const isStart = isSameDay(date, startDate);
-									const isEnd = isSameDay(date, endDate);
+									const isStart = this.isStartDate(date);
+									const isEnd = this.isEndDate(date);
 									const isMiddle = !isStart && !isEnd && isInRange;
 									cellTheme[theme['date-range']] = isInRange;
 									cellTheme[theme['range-middle']] = isMiddle;
@@ -227,6 +256,8 @@ DatePicker.propTypes = {
 	selectedDate: PropTypes.instanceOf(Date),
 	startDate: PropTypes.instanceOf(Date),
 	endDate: PropTypes.instanceOf(Date),
+	from: PropTypes.bool,
+	to: PropTypes.bool,
 	isDisabledChecker: PropTypes.func,
 	onKeyDown: PropTypes.func.isRequired,
 	t: PropTypes.func,

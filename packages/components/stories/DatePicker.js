@@ -412,14 +412,19 @@ storiesOf('DatePicker', module)
 				<p>DatePicker can display range of date</p>
 				<pre>{`
 <DatePicker
-	startDate={new Date(2019, 9, 24)}
+	selectedDate={new Date(2019, 9, 24)}
 	endDate={new Date(2019, 9, 30)}
+	from
 />
 			`}</pre>
 				<div style={{ display: 'flex', alignItems: 'flex-start' }}>
 					<div style={blockStyle}>
 						<DateManager id="simple" onChange={action('onChange')}>
-							<DatePicker startDate={new Date(2019, 9, 24)} endDate={new Date(2019, 9, 30)} />
+							<DatePicker
+								selectedDate={new Date(2019, 9, 24)}
+								endDate={new Date(2019, 9, 30)}
+								from
+							/>
 						</DateManager>
 					</div>
 				</div>
