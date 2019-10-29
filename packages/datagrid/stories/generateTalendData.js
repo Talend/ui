@@ -33,14 +33,14 @@ function makeid(length) {
 	result = `${String.fromCharCode(32)}${result}${String.fromCharCode(32)}`;
 
 	const replace = {
-		[String.fromCharCode(13)]: String.fromCharCode(9166),
-		[String.fromCharCode(10)]: String.fromCharCode(9166),
-		[String.fromCharCode(32)]: String.fromCharCode(9248),
+		[String.fromCharCode(13)]: String.fromCharCode(182),
+		[String.fromCharCode(10)]: String.fromCharCode(182),
+		[String.fromCharCode(32)]: String.fromCharCode(182), //9248
 	};
 	return result
 		.replace(/./gi, char => (replace[char] ? replace[char] : char))
-		.replace(/\n/gm, String.fromCharCode(9166))
-		.replace(/\r/gm, String.fromCharCode(9166));
+		.replace(/\n/gm, String.fromCharCode(182))
+		.replace(/\r/gm, String.fromCharCode(182)); // 9166
 }
 
 function generateRow(columnsCount) {
