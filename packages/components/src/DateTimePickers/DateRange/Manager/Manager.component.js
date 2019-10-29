@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import isAfter from 'date-fns/is_after';
+import isBefore from 'date-fns/is_before';
 
 import { DateRangeContext } from '../Context';
 import { extractParts, extractPartsFromTextInputRange } from '../date-range-extraction';
@@ -45,19 +47,24 @@ function ContextualManager(props) {
 
 	function onSelectDate(event, { date }) {
 		const parts = extractFromDate(date, getOptions());
-		let dateParts;
+		const dateParts = {};
 		if (state.focusedInput === START_DATE) {
-			dateParts = {
-				startDate: parts.date,
-				startDateTextInput: parts.textInput,
-				focusedInput: END_DATE,
-			};
+			if (state.endDate && isAfter(parts.date, state.endDate)) {
+				dateParts.endDate = undefined;
+				dateParts.endDateTextInput = '';
+			}
+			dateParts.startDate = parts.date;
+			dateParts.startDateTextInput = parts.textInput;
+			dateParts.focusedInput = END_DATE;
 		} else if (state.focusedInput === END_DATE) {
-			dateParts = {
-				endDate: parts.date,
-				endDateTextInput: parts.textInput,
-				focusedInput: state.startDate ? null : START_DATE,
-			};
+			if (state.startDate && isBefore(parts.date, state.startDate)) {
+				dateParts.startDate = parts.date;
+				dateParts.startDateTextInput = parts.textInput;
+			} else {
+				dateParts.endDate = parts.date;
+				dateParts.endDateTextInput = parts.textInput;
+				dateParts.focusedInput = state.startDate ? null : START_DATE;
+			}
 		}
 		const nextState = {
 			...state,
@@ -110,7 +117,7 @@ ContextualManager.propTypes = {
 	children: PropTypes.element,
 	startDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	endDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
-	onDatesChange: PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired,
 };
 
 export default ContextualManager;
