@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import isAfter from 'date-fns/is_after';
-import isBefore from 'date-fns/is_before';
 
 import { DateRangeContext } from '../Context';
-import { extractParts, extractPartsFromTextInputRange } from '../date-range-extraction';
+import {
+	extractParts,
+	extractPartsFromTextInputRange,
+	extractPartsFromDateRange,
+} from '../date-range-extraction';
 import { extractFromDate } from '../../Date/date-extraction';
 import { START_DATE, END_DATE } from '../constants';
 
@@ -46,31 +48,10 @@ function ContextualManager(props) {
 	}
 
 	function onSelectDate(event, { date }) {
-		const parts = extractFromDate(date, getOptions());
-		const dateParts = {};
-		if (state.focusedInput === START_DATE) {
-			if (state.endDate && isAfter(parts.date, state.endDate)) {
-				dateParts.endDate = undefined;
-				dateParts.endDateTextInput = '';
-			}
-			dateParts.startDate = parts.date;
-			dateParts.startDateTextInput = parts.textInput;
-			dateParts.focusedInput = END_DATE;
-		} else if (state.focusedInput === END_DATE) {
-			if (state.startDate && isBefore(parts.date, state.startDate)) {
-				dateParts.startDate = parts.date;
-				dateParts.startDateTextInput = parts.textInput;
-			} else {
-				dateParts.endDate = parts.date;
-				dateParts.endDateTextInput = parts.textInput;
-				dateParts.focusedInput = state.startDate ? null : START_DATE;
-			}
-		}
+		const dateParts = extractPartsFromDateRange(date, state, getOptions());
 		const nextState = {
 			...state,
 			...dateParts,
-			errors: parts.errors,
-			errorMessage: parts.errorMessage,
 		};
 		setState(nextState);
 		onDatesChange(event, nextState);

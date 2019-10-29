@@ -1,4 +1,8 @@
-import { extractDate, extractPartsFromTextInput } from '../Date/date-extraction';
+import isAfter from 'date-fns/is_after';
+import isBefore from 'date-fns/is_before';
+
+import { START_DATE, END_DATE } from './constants';
+import { extractDate, extractPartsFromTextInput, extractFromDate } from '../Date/date-extraction';
 
 function extractParts(startDate, endDate, options) {
 	const startDateParts = extractDate(startDate, options);
@@ -12,6 +16,31 @@ function extractParts(startDate, endDate, options) {
 		errors: startDateParts.errors.concat(endDateParts.errors),
 		errorMessage: startDateParts.errorMessage || endDateParts.errorMessage,
 	};
+}
+
+function extractPartsFromDateRange(selectedDate, { startDate, endDate, focusedInput }, options) {
+	const parts = extractFromDate(selectedDate, options);
+	const dateParts = {};
+	if (focusedInput === START_DATE) {
+		if (endDate && isAfter(parts.date, endDate)) {
+			dateParts.endDate = undefined;
+			dateParts.endDateTextInput = '';
+		}
+		dateParts.startDate = parts.date;
+		dateParts.startDateTextInput = parts.textInput;
+		dateParts.focusedInput = END_DATE;
+	} else if (focusedInput === END_DATE) {
+		if (startDate && isBefore(parts.date, startDate)) {
+			dateParts.startDate = parts.date;
+			dateParts.startDateTextInput = parts.textInput;
+		} else {
+			dateParts.endDate = parts.date;
+			dateParts.endDateTextInput = parts.textInput;
+			dateParts.focusedInput = startDate ? null : START_DATE;
+		}
+	}
+
+	return dateParts;
 }
 
 function extractPartsFromTextInputRange(textInput, focusedInput, options) {
@@ -30,4 +59,4 @@ function extractPartsFromTextInputRange(textInput, focusedInput, options) {
 	return nextState;
 }
 
-export { extractParts, extractPartsFromTextInputRange };
+export { extractParts, extractPartsFromDateRange, extractPartsFromTextInputRange };
