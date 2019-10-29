@@ -19,7 +19,7 @@ describe('DateRange.Inputs', () => {
 				placeholder: 'YYYY-MM-DD',
 			},
 		};
-		// window.HTMLElement.prototype.getBoundingClientRect = () => ({ width: 42 });
+		window.HTMLElement.prototype.getBoundingClientRect = () => ({ width: 42 });
 
 		// when
 		const wrapper = mount(

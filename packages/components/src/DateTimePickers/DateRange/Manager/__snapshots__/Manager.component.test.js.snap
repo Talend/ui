@@ -12,6 +12,7 @@ exports[`DateRange.Manager should render its children 1`] = `
         "focusedInput": undefined,
         "onChange": [Function],
         "onFocus": [Function],
+        "placeholder": "YYYY-MM-DD",
       },
       "pickerManagement": Object {
         "onSubmit": [Function],

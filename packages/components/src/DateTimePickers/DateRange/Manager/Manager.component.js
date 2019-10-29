@@ -78,6 +78,7 @@ function ContextualManager(props) {
 					onChange: onInputChange,
 					onFocus: onFocusChange,
 					focusedInput: state.focusedInput,
+					placeholder: props.dateFormat,
 				},
 				pickerManagement: {
 					onSubmit: onSelectDate,
@@ -96,6 +97,7 @@ ContextualManager.propTypes = {
 	children: PropTypes.element,
 	startDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
 	endDate: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.number, PropTypes.string]),
+	dateFormat: PropTypes.string,
 	onChange: PropTypes.func.isRequired,
 };
 

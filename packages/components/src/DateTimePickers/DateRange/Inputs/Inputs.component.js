@@ -3,6 +3,7 @@ import DebounceInput from 'react-debounce-input';
 
 import { DateRangeContext } from '../Context';
 import { START_DATE, END_DATE } from '../constants';
+import InputSizer from '../../shared/InputSizer';
 
 import Icon from '../../../Icon';
 
@@ -25,39 +26,57 @@ function Inputs(props) {
 	});
 
 	return [
-		<DebounceInput
-			autoComplete="off"
-			className="form-control"
-			debounceTimeout={300}
-			type="text"
-			value={startDate.textInput}
-			style={{ width: 150 }}
-			onChange={inputManagement.onChange}
-			onFocus={event => inputManagement.onFocus(event, START_DATE)}
-			{...props}
-			inputRef={ref => {
-				props.startInputRef(ref);
-				startDateInputRef = ref;
-			}}
-		/>,
+		<InputSizer
+			placeholder={inputManagement.placeholder}
+			inputText={startDate.value ? startDate.textInput : ''}
+		>
+			{width => (
+				<DebounceInput
+					autoComplete="off"
+					className="form-control"
+					debounceTimeout={300}
+					type="text"
+					value={startDate.textInput}
+					style={{ width }}
+					onChange={inputManagement.onChange}
+					onFocus={event => inputManagement.onFocus(event, START_DATE)}
+					{...props}
+					inputRef={ref => {
+						if (props.startDateInputRef) {
+							props.startInputRef(ref);
+						}
+						startDateInputRef = ref;
+					}}
+				/>
+			)}
+		</InputSizer>,
 		<span className={theme.arrow}>
 			<Icon name="talend-arrow-right" className={theme.icon} />
 		</span>,
-		<DebounceInput
-			autoComplete="off"
-			className="form-control"
-			debounceTimeout={300}
-			type="text"
-			value={endDate.textInput}
-			style={{ width: 150 }}
-			onChange={inputManagement.onChange}
-			onFocus={event => inputManagement.onFocus(event, END_DATE)}
-			{...props}
-			inputRef={ref => {
-				props.endInputRef(ref);
-				endDateInputRef = ref;
-			}}
-		/>,
+		<InputSizer
+			placeholder={inputManagement.placeholder}
+			inputText={endDate.value ? endDate.textInput : ''}
+		>
+			{width => (
+				<DebounceInput
+					autoComplete="off"
+					className="form-control"
+					debounceTimeout={300}
+					type="text"
+					value={endDate.textInput}
+					style={{ width }}
+					onChange={inputManagement.onChange}
+					onFocus={event => inputManagement.onFocus(event, END_DATE)}
+					{...props}
+					inputRef={ref => {
+						if (props.endInputRef) {
+							props.endInputRef(ref);
+						}
+						endDateInputRef = ref;
+					}}
+				/>
+			)}
+		</InputSizer>,
 	];
 }
 
