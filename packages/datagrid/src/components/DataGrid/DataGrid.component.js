@@ -243,7 +243,7 @@ export default class DataGrid extends React.Component {
 					valueGetter: params => {
 						return params.data[columnDef.field].value;
 					},
-					// [AG_GRID.CUSTOM_CELL_KEY]: CELL_RENDERER_COMPONENT,
+					cellClass: params => (!params.data[columnDef.field].quality ? 'cell-invalid' : ''),
 					[AG_GRID.CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,
 				})),
 			);

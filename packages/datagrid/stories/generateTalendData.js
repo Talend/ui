@@ -22,19 +22,35 @@ function generateHeaders(columnsCount) {
 
 function makeid(length) {
 	let result = '';
-	const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+	const characters = `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789${String.fromCharCode(
+		10,
+	)}${String.fromCharCode(13)}`;
 
 	for (var i = 0; i < length; i++) {
 		result += characters.charAt(Math.floor(Math.random() * characters.length));
 	}
-	return result;
+
+	result = `${String.fromCharCode(32)}${result}${String.fromCharCode(32)}`;
+
+	const replace = {
+		[String.fromCharCode(13)]: String.fromCharCode(9166),
+		[String.fromCharCode(10)]: String.fromCharCode(9166),
+		[String.fromCharCode(32)]: String.fromCharCode(9248),
+	};
+	return result
+		.replace(/./gi, char => (replace[char] ? replace[char] : char))
+		.replace(/\n/gm, String.fromCharCode(9166))
+		.replace(/\r/gm, String.fromCharCode(9166));
 }
 
 function generateRow(columnsCount) {
 	return Array(columnsCount)
 		.fill({})
 		.reduce(
-			(acc, _, index) => ({ [`field${index}`]: { value: makeid(10), quality: 1 }, ...acc }),
+			(acc, _, index) => ({
+				[`field${index}`]: { value: makeid(10), quality: Math.random() >= 0.5 },
+				...acc,
+			}),
 			{},
 		);
 }
