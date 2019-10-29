@@ -7,8 +7,6 @@ import {
 	extractPartsFromTextInputRange,
 	extractPartsFromDateRange,
 } from '../date-range-extraction';
-import { extractFromDate } from '../../Date/date-extraction';
-import { START_DATE, END_DATE } from '../constants';
 
 function ContextualManager(props) {
 	function getOptions() {
