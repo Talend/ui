@@ -42,7 +42,7 @@ function Inputs(props) {
 					onFocus={event => inputManagement.onFocus(event, START_DATE)}
 					{...props}
 					inputRef={ref => {
-						if (props.startDateInputRef) {
+						if (props.startInputRef) {
 							props.startInputRef(ref);
 						}
 						startDateInputRef = ref;
