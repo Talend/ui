@@ -55,8 +55,7 @@ class CalendarPicker extends React.Component {
 		const isStartDateChanged = nextProps.startDate !== this.props.startDate;
 		const isEndDateChanged = nextProps.endDate !== this.props.endDate;
 
-		const needToUpdateDate =
-			isSelectedDateChanged || isStartDateChanged || isEndDateChanged;
+		const needToUpdateDate = isSelectedDateChanged || isStartDateChanged || isEndDateChanged;
 
 		if (!needToUpdateDate) {
 			return;
