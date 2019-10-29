@@ -72,7 +72,7 @@ class EnumerationForm extends React.Component {
 		this.timerSearch = null;
 		this.allowDuplicate = false;
 		this.allowImport = false;
-		const disabledAction = props.uiSchema ? props.uiSchema.disabled : false;
+		const disabledAction = props.schema ? props.schema.disabled : false;
 		this.importFileHandler = this.importFileHandler.bind(this);
 
 		if (props.schema) {
