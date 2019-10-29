@@ -7,18 +7,18 @@ import actions from './actions';
 /* eslint-disable no-param-reassign */
 /**
  * the ref will contains a reference to
- * headers
  * store
  * actions
- * userInfo
  * reportURL
  * error
  * errors
- * subscribe
  */
 const ref = {
-	actions: [],
 	errors: [],
+	actions: [],
+	store: {
+		getState: () => ({}),
+	},
 };
 
 function serialize(error) {
@@ -61,18 +61,57 @@ function report(error) {
 		captureException(error);
 	} else {
 		const info = {
-		       error: serialize(error),
-		       context: JSON.stringify(getReportInfo(error)),
-		       reported: false,
-		       reason: 'Draft',
+			   error: serialize(error),
+			   context: JSON.stringify(getReportInfo(error)),
+			   reported: false,
+			   reason: 'Draft',
 		};
 		ref.error = info;
 		ref.errors.push(info);
-	    ref.store.dispatch({
-           type: CONST.ERROR,
-           ...info,
-    	});
+		if (!ref.serverURL) {
+			ref.store.dispatch({
+			   type: CONST.ERROR,
+			   ...info,
+			});
+		} else {
+			ref.store.dispatch(
+				actions.http.post(ref.serverURL, info.context, {
+					onError: err => {
+						info.reported = false;
+						info.reason = serialize(err);
+						return {
+								type: CONST.ERROR,
+								...info,
+						};
+					},
+					onResponse: response => {
+						info.reported = true;
+						info.response = response;
+						return {
+								type: CONST.ERROR_REPORTED,
+								...info,
+						};
+					},
+				}),
+			);
+		}
 	}
+}
+
+function onJSError(event) {
+	const error = event.error;
+	if (!error) {
+		return;
+	}
+	// remove duplicate in dev mode
+	// SEE: https://github.com/facebook/react/issues/10474
+	if (process.env.NODE_ENV !== 'production') {
+		if (error.ALREADY_THROWN) {
+			return;
+		}
+		error.ALREADY_THROWN = true;
+	}
+	report(error);
 }
 
 /**
@@ -83,11 +122,13 @@ function setupSentry() {
 	if (!ref.SENTRY_DSN) {
 		return;
 	}
+	window.removeEventListener('error', onJSError);
 	try {
 		init({ dsn: ref.SENTRY_DSN });
 	} catch (error) {
 		console.error(error);
 		delete ref.SENTRY_DSN;
+		window.addEventListener('error', onJSError);
 	}
 }
 
@@ -97,12 +138,16 @@ function setupSentry() {
  * @param {Object} store redux
  */
 function bootstrap(options, store) {
+	window.addEventListener('error', onJSError);
 	assertTypeOf(options, 'onError', 'object');
 	ref.errors = [];
 	ref.actions = [];
+	ref.store = store;
 	const opt = options.onError || {};
-	ref.SENTRY_DSN = opt.SENTRY_DSN;
-	setupSentry();
+	if (opt.SENTRY_DSN) {
+		ref.SENTRY_DSN = opt.SENTRY_DSN;
+		setupSentry();
+	}
 }
 
 /**
@@ -116,7 +161,7 @@ function getErrors() {
  * @return {Boolean} true if we can do report to backend
  */
 function hasReportFeature() {
-	return !!ref.SENTRY_DSN;
+	return !!ref.SENTRY_DSN || !!ref.reportURL;
 }
 
 function setupFromSettings(settings) {
@@ -139,7 +184,7 @@ function middleware() {
 			ref.actions.shift();
 			ref.actions.push(action && action.type ? action.type : 'UNKNOWN');
 		}
-		if (action.type === CONSTANTS.REQUEST_OK) {
+		if (action.type === CONST.REQUEST_OK) {
 			setupFromSettings(action.settings);
 		}
 		try {
