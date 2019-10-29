@@ -8,6 +8,12 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/Date/Manager/Manager.component.js
   91:12  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
 
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateRange/Manager/Manager.component.js
+  99:12  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
+
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateRange/Manager/Manager.component.test.js
+  265:1  error  Line 265 exceeds the maximum line length of 100  max-len
+
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/Manager/Manager.component.js
   72:12  error  'onChange' PropType is defined but prop is never used    react/no-unused-prop-types
   73:12  error  'required' PropType is defined but prop is never used    react/no-unused-prop-types
@@ -60,6 +66,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   42:3  warning  Unexpected console statement  no-console
   71:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
 
-✖ 32 problems (29 errors, 3 warnings)
+✖ 34 problems (31 errors, 3 warnings)
   1 error, 0 warnings potentially fixable with the `--fix` option.
 
