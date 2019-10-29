@@ -27,7 +27,7 @@ const PROPS_TO_OMIT_FOR_INPUT = [
 	'hideTimezone',
 ];
 
-export default function InputDatePicker(props) {
+export default function InputDateRangePicker(props) {
 	const popoverId = `date-range-picker-${props.id || uuid.v4()}`;
 
 	const startDateInputRef = useRef(null);
@@ -109,15 +109,15 @@ export default function InputDatePicker(props) {
 		</DateRange.Manager>
 	);
 }
-InputDatePicker.displayName = 'InputDateRangePicker';
+InputDateRangePicker.displayName = 'InputDateRangePicker';
 
-InputDatePicker.defaultProps = {
+InputDateRangePicker.defaultProps = {
 	dateFormat: 'YYYY-MM-DD',
 	required: true,
 	useUTC: false,
 };
 
-InputDatePicker.propTypes = {
+InputDateRangePicker.propTypes = {
 	id: PropTypes.string.isRequired,
 	dateFormat: PropTypes.string,
 	onChange: PropTypes.func,
