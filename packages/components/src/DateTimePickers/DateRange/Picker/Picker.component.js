@@ -11,10 +11,10 @@ export default function Picker(props) {
 			manageFocus
 			startDate={startDate.value}
 			endDate={endDate.value}
-			{...pickerManagement}
-			{...props}
 			from={focusedInput === 'startDate'}
 			to={focusedInput === 'endDate'}
+			{...pickerManagement}
+			{...props}
 		/>
 	);
 }
