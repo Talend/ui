@@ -53,12 +53,34 @@ function getReportInfo(error) {
 }
 
 /**
+ * @return {Boolean} true if we can do report to backend
+ */
+function hasReportURL() {
+	return !!ref.serverURL;
+}
+
+
+/**
+ * @return {Boolean} true if we can do report to backend
+ */
+function hasReportFeature() {
+	return !!ref.SENTRY_DSN || !!ref.reportURL;
+}
+
+/**
  * report function create a serilized error and dispatch action.
  * @param {Error} error instance of Error
  */
-function report(error) {
-	if (hasReportFeature()) {
-		captureException(error);
+function report(error, options) {
+	if (ref.SENTRY_DSN) {
+		if (options.tags) {
+			withScope(function(scope) {
+				options.tags.forEach(tag => scope.setTag(tag.key, tag.value));
+				captureException(error);
+			});
+		} else {
+			captureException(error);
+		}
 	} else {
 		const info = {
 			error: serialize(error),
@@ -110,7 +132,7 @@ function onJSError(event) {
 			return;
 		}
 		error.ALREADY_THROWN = true;
-s	}
+	}
 	report(error);
 }
 
@@ -144,6 +166,7 @@ function bootstrap(options, store) {
 	ref.actions = [];
 	ref.store = store;
 	const opt = options.onError || {};
+	ref.serverURL = opt.reportURL;
 	if (opt.SENTRY_DSN) {
 		ref.SENTRY_DSN = opt.SENTRY_DSN;
 		setupSentry();
@@ -155,13 +178,6 @@ function bootstrap(options, store) {
  */
 function getErrors() {
 	return ref.errors;
-}
-
-/**
- * @return {Boolean} true if we can do report to backend
- */
-function hasReportFeature() {
-	return !!ref.SENTRY_DSN || !!ref.reportURL;
 }
 
 function setupFromSettings(settings) {
@@ -180,8 +196,10 @@ function setupFromSettings(settings) {
  */
 function middleware() {
 	return next => action => {
-		if (!hasReportFeature() && ref.actions.length >= 20) {
-			ref.actions.shift();
+		if (!ref.SENTRY_DSN) {
+			if (ref.actions.length >= 20) {
+				ref.actions.shift();
+			}
 			ref.actions.push(action && action.type ? action.type : 'UNKNOWN');
 		}
 		if (action.type === CONST.REQUEST_OK) {
@@ -190,11 +208,9 @@ function middleware() {
 		try {
 			return next(action);
 		} catch (error) {
-			withScope(function(scope) {
-				scope.setTag('redux-action-type', action.type);
-				captureException(error);
-			});
+			report(error, { tags: [{ key: 'redux-action-type', value: action.type }]});
 			console.error(error);
+			return;
 		}
 	};
 }
@@ -216,6 +232,7 @@ function revokeObjectURL(url) {
 
 export default {
 	bootstrap,
+	hasReportURL,
 	hasReportFeature,
 	getReportInfo,
 	report,

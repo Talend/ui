@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
 import onError from '../../onError';
 
 /**
@@ -18,12 +17,13 @@ function ErrorPanel(props) {
 			onError.revokeObjectURL(url);
 		};
 	}, [props.error]);
+	const HAS_REPORT = onError.hasReportFeature();
 	return (
 		<div>
 			<p className="error-title">
 				{props.error.name}: {props.error.message}
 			</p>
-			{onError.hasReportFeature() ? <p>The error report has been sent.</p> : null}
+			{HAS_REPORT && <p>The error report has been sent.</p>}
 			<p>From here you can either refresh or contact the support.</p>
 			<button
 				className="btn btn-danger btn-inverse"
@@ -33,7 +33,7 @@ function ErrorPanel(props) {
 			>
 				Refresh
 			</button>
-			{!onError.hasReportFeature() && (
+			{!HAS_REPORT && (
 				<a
 					className="btn btn-primary btn-inverse"
 					href={url}
@@ -49,9 +49,6 @@ function ErrorPanel(props) {
 
 ErrorPanel.displayName = 'ErrorPanel';
 ErrorPanel.propTypes = {
-	reported: PropTypes.bool,
-	reason: PropTypes.shape({ message: PropTypes.string }),
-	response: PropTypes.shape({ id: PropTypes.node }),
 	error: PropTypes.shape({
 		name: PropTypes.string,
 		message: PropTypes.string,
@@ -59,11 +56,7 @@ ErrorPanel.propTypes = {
 	}).isRequired,
 };
 ErrorPanel.defaultProps = {
-	reported: false,
-	reason: { message: 'Waiting for report response' },
-	response: {},
 	error: {},
-	hidden: true,
 };
 
 export default ErrorPanel;

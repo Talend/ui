@@ -44,7 +44,7 @@ When an error occurs, we dispatch an action.
 
 ![onError sequence diagram](../assets/diagram-onError-sequence.svg "onError sequence diagram")
 
-## API
+## API (without external service)
 
 To configure error handling (bootstrap > onError) please refer to the [bootstrap documentation](./bootstrap.md#onError)
 
@@ -77,3 +77,29 @@ export function ComplexComponent(props) {
 }
 ```
 
+# Sentry
+
+If you have Sentry in your infrastructure you can add the following settings.
+
+```json
+{
+	"env": {
+		"SENTRY_DSN": "$SENTRY_DSN"
+	}
+}
+```
+
+If you have an other way to get the DSN you can use it in the bootstrap onError using the same key `SENTRY_DSN`.
+
+```javascript
+fetch('/api/webapp-config').then(config => {
+	cmf.bootstrap({
+		...
+		onError: {
+			SENTRY_DSN: config.SENTRY_DSN
+		}
+	});
+})
+```
+
+Note: to be compliant with [12 factors](https://12factor.net) the DSN must be read from a server environment variable.
