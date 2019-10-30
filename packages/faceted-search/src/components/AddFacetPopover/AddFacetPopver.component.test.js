@@ -2,7 +2,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import { AddFacetPopover, filterByLabel } from './AddFacetPopover.component';
+import { AddFacetPopover } from './AddFacetPopover.component';
 import getDefaultT from '../../translate';
 
 const t = getDefaultT();
@@ -106,19 +106,5 @@ describe('AddFacetPopover', () => {
 		wrapper.find('button[aria-label="Name"]').simulate('click');
 		// Then
 		expect(onClick).toHaveBeenNthCalledWith(1, onClick.mock.calls[0][0], badgesDefinitions[0]);
-	});
-	it('should filter a badge definition by label', () => {
-		const badgeDefinition = {
-			properties: {
-				attribute: 'product.key',
-				label: 'Id',
-			},
-			metadata: {
-				badgeId: 'a006a689-82cd-4a58-8071-5f4285019cce',
-			},
-		};
-		expect(filterByLabel('id')(badgeDefinition)).toEqual(true);
-		expect(filterByLabel('i')(badgeDefinition)).toEqual(true);
-		expect(filterByLabel('product.key')(badgeDefinition)).toEqual(false);
 	});
 });

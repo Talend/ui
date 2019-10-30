@@ -90,4 +90,4 @@ AddFacetPopover.propTypes = {
 };
 
 // eslint-disable-next-line import/prefer-default-export
-export { AddFacetPopover, filterByLabel };
+export { AddFacetPopover };
