@@ -5,6 +5,7 @@ import _isEmpty from 'lodash/isEmpty';
 import Enumeration from '@talend/react-components/lib/Enumeration';
 import classNames from 'classnames';
 import { withTranslation } from 'react-i18next';
+import FocusManager from '@talend/react-components/lib/FocusManager';
 
 import { manageCtrlKey, manageShiftKey, deleteSelectedItems, resetItems } from './utils/utils';
 import { I18N_DOMAIN_FORMS } from '../../../constants';
@@ -252,6 +253,11 @@ class EnumerationForm extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		this.setState(prevState => ({ ...prevState, items: nextProps.value }));
+	}
+
+	onBlur(event){
+		const { schema, onFinish } = this.props;
+		onFinish(event, { schema })
 	}
 
 	isConnectedMode() {
@@ -959,16 +965,20 @@ class EnumerationForm extends React.Component {
 		}
 		const stateToShow = { ...this.state, items };
 		const { description, required, title } = this.props.schema;
-
+		const { errorMessage, isValid } = this.props;
 		return (
-			<FieldTemplate
-				description={description}
-				label={title}
-				required={required}
-			>
-				{this.allowImport && this.renderImportFile()}
-				<Enumeration {...stateToShow} />
-			</FieldTemplate>
+				<FieldTemplate
+					description={description}
+					label={title}
+					required={required}
+					isValid={isValid}
+					errorMessage={errorMessage}
+				>
+					{this.allowImport && this.renderImportFile()}
+					<FocusManager onFocusOut={this.onBlur.bind(this)}>
+						<Enumeration {...stateToShow} />
+					</FocusManager>
+				</FieldTemplate>
 		);
 	}
 }
@@ -978,7 +988,7 @@ if (process.env.NODE_ENV !== 'production') {
 		id: PropTypes.string,
 		schema: PropTypes.object, // eslint-disable-line
 		onChange: PropTypes.func.isRequired,
-		onBlur: PropTypes.func,
+		onFinish: PropTypes.func.isRequired,
 		t: PropTypes.func.isRequired,
 	};
 }
