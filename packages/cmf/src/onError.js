@@ -63,7 +63,7 @@ function hasReportURL() {
  * @return {Boolean} true if we can do report to backend
  */
 function hasReportFeature() {
-	return !!ref.SENTRY_DSN || !!ref.reportURL;
+	return !!ref.SENTRY_DSN || !!ref.serverURL;
 }
 
 /**
@@ -162,8 +162,8 @@ function setupSentry() {
 function bootstrap(options, store) {
 	window.addEventListener('error', onJSError);
 	assertTypeOf(options, 'onError', 'object');
-	ref.errors = [];
 	ref.actions = [];
+	ref.errors = [];
 	ref.store = store;
 	const opt = options.onError || {};
 	ref.serverURL = opt.reportURL;
@@ -236,8 +236,8 @@ export default {
 	hasReportURL,
 	hasReportFeature,
 	getReportInfo,
-	getErrors,
 	report,
+	getErrors,
 	middleware,
 	createObjectURL,
 	revokeObjectURL,
