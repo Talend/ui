@@ -22,16 +22,12 @@ export const enumerationStates = {
 };
 
 const ENUMERATION_SEARCH_ACTION = 'ENUMERATION_SEARCH_ACTION';
+const ENUMERATION_NEXT_PAGE_ACTION = 'ENUMERATION_NEXT_PAGE_ACTION';
 const ENUMERATION_ADD_ACTION = 'ENUMERATION_ADD_ACTION';
 const ENUMERATION_REMOVE_ACTION = 'ENUMERATION_REMOVE_ACTION';
 const ENUMERATION_RENAME_ACTION = 'ENUMERATION_RENAME_ACTION';
-const ENUMERATION_RESET_LIST = 'ENUMERATION_RESET_LIST';
 const ITEMS_DEFAULT_HEIGHT = 33;
-const ENUMERATION_LOAD_DATA_ACTION = 'ENUMERATION_LOAD_DATA_ACTION';
 const ENUMERATION_IMPORT_FILE_ACTION = 'ENUMERATION_IMPORT_FILE_ACTION';
-const ENUMERATION_IMPORT_FILE_CLICK = 'ENUMERATION_IMPORT_FILE_CLICK';
-const ENUMERATION_IMPORT_FILE_OVERWRITE_MODE = 'ENUMERATION_IMPORT_FILE_OVERWRITE_MODE';
-const ENUMERATION_IMPORT_FILE_APPEND_MODE = 'ENUMERATION_IMPORT_FILE_APPEND_MODE';
 
 /*
 For this widget we distinguish 2 modes :
@@ -251,7 +247,6 @@ class EnumerationForm extends React.Component {
 			},
 			onInputChange: this.onInputChange.bind(this),
 			onAddKeyDown: this.onAddKeyDown.bind(this),
-			setFormData: this.setFormData.bind(this),
 		};
 	}
 
@@ -296,7 +291,7 @@ class EnumerationForm extends React.Component {
 			if (displayMode === enumerationStates.DISPLAY_MODE_SELECTED) {
 				displayMode = enumerationStates.DISPLAY_MODE_DEFAULT;
 			}
-			const validation = this.updateItemValidateDisabled(item.values[0]);
+			const validation = this.constructor.updateItemValidateDisabled(item.values[0]);
 			return { items, displayMode, ...validation };
 		});
 	}
@@ -482,7 +477,7 @@ class EnumerationForm extends React.Component {
 				});
 				if (this.isConnectedMode()) {
 					this.props.onTrigger(event, {
-						trigger: { value: value.value, action: 'SEARCH_DOCUMENTS' },
+						trigger: { value: value.value, action: ENUMERATION_SEARCH_ACTION },
 						schema,
 					}).then((documents) => {
 						const payload = {
@@ -536,7 +531,7 @@ class EnumerationForm extends React.Component {
 		});
 		if (this.isConnectedMode()) {
 			this.props.onTrigger(event, {
-				trigger: { value: '', action: 'SEARCH_DOCUMENTS' },
+				trigger: { value: '', action: ENUMERATION_SEARCH_ACTION },
 				schema,
 			}).then((documents) => {
 				const payload = {
@@ -731,7 +726,7 @@ class EnumerationForm extends React.Component {
 		this.props.onTrigger(event, {
 			trigger: {
 				value: this.state.searchCriteria,
-				action: 'SEARCH_DOCUMENTS_NEXT_PAGE',
+				action: ENUMERATION_NEXT_PAGE_ACTION,
 				numberItems: this.state.items.length
 			},
 			schema,
@@ -759,13 +754,6 @@ class EnumerationForm extends React.Component {
 
 	setInputRef(input) {
 		this.input = input;
-	}
-
-	setFormData() {
-		this.props.onChange(this.state.items);
-		if (this.props.onBlur) {
-			this.props.onBlur(this.props.id, this.state.items);
-		}
 	}
 
 	getItemSelectedInSearchMode(searchCriteria, index) {
@@ -966,18 +954,15 @@ class EnumerationForm extends React.Component {
 	render() {
 		let items = this.state.items;
 		// filter items only in non-connected mode, since in connected mode items are up-to-date
-		// if (!this.isConnectedMode(this.props.registry)) {
-		// 	items = this.searchItems(this.state.searchCriteria);
-		// }
+		if (!this.isConnectedMode()) {
+			items = this.searchItems(this.state.searchCriteria);
+		}
 		const stateToShow = { ...this.state, items };
-		const { autoFocus, description, options, readOnly = false, required, title } = this.props.schema;
+		const { description, required, title } = this.props.schema;
 
 		return (
 			<FieldTemplate
 				description={description}
-				// errorMessage={errorMessage}
-				// id={id}
-				// isValid={isValid}
 				label={title}
 				required={required}
 			>
@@ -991,10 +976,7 @@ class EnumerationForm extends React.Component {
 if (process.env.NODE_ENV !== 'production') {
 	EnumerationForm.propTypes = {
 		id: PropTypes.string,
-		registry: PropTypes.object, // eslint-disable-line
-		formData: PropTypes.array, // eslint-disable-line
 		schema: PropTypes.object, // eslint-disable-line
-		uiSchema: PropTypes.object, // eslint-disable-line
 		onChange: PropTypes.func.isRequired,
 		onBlur: PropTypes.func,
 		t: PropTypes.func.isRequired,
