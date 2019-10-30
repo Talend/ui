@@ -34,7 +34,7 @@ function ContextualManager(props) {
 				field: state.focusedInput,
 				origin: 'RANGE_PICKER',
 			};
-			props.onChange(event, payload, nextState.focusedInput);
+			props.onChange(event, payload);
 		}
 	}
 
