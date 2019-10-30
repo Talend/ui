@@ -59,7 +59,6 @@ function hasReportURL() {
 	return !!ref.serverURL;
 }
 
-
 /**
  * @return {Boolean} true if we can do report to backend
  */
@@ -209,7 +208,7 @@ function middleware() {
 		try {
 			return next(action);
 		} catch (error) {
-			report(error, { tags: [{ key: 'redux-action-type', value: action.type }]});
+			report(error, { tags: [{ key: 'redux-action-type', value: action.type }] });
 			// eslint-disable-next-line no-console
 			console.error(error);
 			return undefined;
