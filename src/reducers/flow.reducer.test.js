@@ -55,32 +55,31 @@ describe('FLOWDESIGNER_FLOW_ADD_ELEMENTS', () => {
 		).toMatchSnapshot();
 	});
 
-	it('should handle throwing sub reducer by returning old state', () => {
-		expect(
-			reducer(defaultState, {
-				type: 'FLOWDESIGNER.FLOW_ADD_ELEMENTS',
-				listOfActionCreation: [
-					nodeActions.addNode('nodeId', undefined, {
-						data: {},
-						graphicalAttributes: {
-							nodeSize: { height: 10, width: 10 },
-							position: { x: 10, y: 10 },
-						},
-					}),
-					nodeActions.addNode('node2', undefined, {
-						data: {},
-						graphicalAttributes: {
-							nodeSize: { height: 10, width: 10 },
-							position: { x: 10, y: 10 },
-						},
-					}),
-					portActions.addPort('node3', 'portId', {
-						data: undefined,
-						graphicalAttributes: undefined,
-					}),
-				],
-			}),
-		).toMatchSnapshot();
+	it('should throw in reducer', () => {
+		const shouldThrow = () => reducer(defaultState, {
+			type: 'FLOWDESIGNER.FLOW_ADD_ELEMENTS',
+			listOfActionCreation: [
+				nodeActions.addNode('nodeId', undefined, {
+					data: {},
+					graphicalAttributes: {
+						nodeSize: { height: 10, width: 10 },
+						position: { x: 10, y: 10 },
+					},
+				}),
+				nodeActions.addNode('node2', undefined, {
+					data: {},
+					graphicalAttributes: {
+						nodeSize: { height: 10, width: 10 },
+						position: { x: 10, y: 10 },
+					},
+				}),
+				portActions.addPort('node3', 'portId', {
+					data: undefined,
+					graphicalAttributes: undefined,
+				}),
+			],
+		});
+		expect(shouldThrow).toThrow();
 	});
 });
 

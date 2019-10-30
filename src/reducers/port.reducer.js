@@ -15,8 +15,6 @@ import type {
 
 import {
 	PortRecord,
-	PortData,
-	PortGraphicalAttributes,
 	PositionRecord,
 } from '../constants/flowdesigner.model';
 import { removeLink } from '../actions/link.actions';
@@ -79,8 +77,8 @@ function indexPortMap(ports: PortRecordMap): PortRecordMap {
 
 /**
  * @todo migration to new API
- * @param {*} state 
- * @param {*} port 
+ * @param {*} state
+ * @param {*} port
  */
 function setPort(state: State, port: Port) {
 	const index: number =
@@ -115,7 +113,7 @@ function setPort(state: State, port: Port) {
 		return newState.setIn(['in', port.nodeId, port.id], new Map());
 	}
 	invariant(
-		true,
+		false,
 		`Can't set a new port ${port.id} if it
 		data.graphicalAttributes.properties.type !== EMITTER || SINK,
 		given ${port.graphicalAttributes.properties.type}`,
@@ -167,6 +165,7 @@ export default function portReducer(state: State, action: PortAction): State {
 					fromJS(action.graphicalAttributes),
 				);
 			} catch (error) {
+				console.error(error);
 				return state.mergeIn(
 					['ports', action.portId, 'graphicalAttributes', 'properties'],
 					fromJS(action.graphicalAttributes),
@@ -193,6 +192,7 @@ export default function portReducer(state: State, action: PortAction): State {
 			try {
 				return state.mergeIn(['ports', action.portId, 'data'], fromJS(action.data));
 			} catch (error) {
+				console.error(error);
 				return state.mergeIn(
 					['ports', action.portId, 'data', 'properties'],
 					fromJS(action.data),

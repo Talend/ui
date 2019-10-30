@@ -157,25 +157,6 @@ Object {
 }
 `;
 
-exports[`FLOWDESIGNER_FLOW_ADD_ELEMENTS should handle throwing sub reducer by returning old state 1`] = `
-Object {
-  "childrens": Object {},
-  "in": Object {},
-  "links": Object {},
-  "nodeTypes": Object {},
-  "nodes": Object {},
-  "out": Object {},
-  "parents": Object {},
-  "ports": Object {},
-  "transform": Object {
-    "k": 1,
-    "x": 0,
-    "y": 0,
-  },
-  "transformToApply": undefined,
-}
-`;
-
 exports[`FLOWDESIGNER_FLOW_LOAD should reset old flow state and load news not touching flow config should load elements 1`] = `
 Object {
   "childrens": Object {

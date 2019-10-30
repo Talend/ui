@@ -37,35 +37,19 @@ function combinedReducer(state = defaultState, action) {
 export function reducer(state, action) {
 	switch (action.type) {
 		case FLOWDESIGNER_FLOW_ADD_ELEMENTS:
-			try {
-				return action.listOfActionCreation.reduce(
-					(cumulativeState, actionCreation) =>
-						combinedReducer(cumulativeState, actionCreation),
-					state,
-				);
-			} catch (error) {
-				invariant(
-					true,
-					`Something happenned preventing FLOWDESIGNER_FLOW_ADD_ELEMENTS to be applied :${error}`,
-				);
-				return state;
-			}
+			return action.listOfActionCreation.reduce(
+				(cumulativeState, actionCreation) =>
+					combinedReducer(cumulativeState, actionCreation),
+				state,
+			);
 		case FLOWDESIGNER_FLOW_RESET:
 			return defaultState.set('nodeTypes', state.get('nodeTypes'));
 		case FLOWDESIGNER_FLOW_LOAD:
-			try {
-				return action.listOfActionCreation.reduce(
-					(cumulativeState, actionCreation) =>
-						combinedReducer(cumulativeState, actionCreation),
-					defaultState.set('nodeTypes', state.get('nodeTypes')),
-				);
-			} catch (error) {
-				invariant(
-					true,
-					`Something happenned preventing FLOWDESIGNER_FLOW_LOAD to be applied :${error}`,
-				);
-				return state;
-			}
+			return action.listOfActionCreation.reduce(
+				(cumulativeState, actionCreation) =>
+					combinedReducer(cumulativeState, actionCreation),
+				defaultState.set('nodeTypes', state.get('nodeTypes')),
+			);
 		case FLOWDESIGNER_FLOW_SET_ZOOM:
 			return state.set('transform', action.transform);
 		case FLOWDESIGNER_PAN_TO:

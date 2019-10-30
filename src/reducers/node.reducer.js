@@ -155,6 +155,7 @@ const nodeReducer = (state = defaultState, action) => {
 					fromJS(action.graphicalAttributes),
 				);
 			} catch (error) {
+				console.error(error);
 				return state.mergeIn(
 					['nodes', action.nodeId, 'graphicalAttributes', 'properties'],
 					fromJS(action.graphicalAttributes),
@@ -181,6 +182,7 @@ const nodeReducer = (state = defaultState, action) => {
 			try {
 				return state.mergeIn(['nodes', action.nodeId, 'data'], fromJS(action.data));
 			} catch (error) {
+				console.error(error);
 				return state.mergeIn(
 					['nodes', action.nodeId, 'data', 'properties'],
 					fromJS(action.data),

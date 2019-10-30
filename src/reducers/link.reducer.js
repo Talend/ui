@@ -231,6 +231,7 @@ export default function linkReducer(state = defaultState, action) {
 					fromJS(action.graphicalAttributes),
 				);
 			} catch (error) {
+				console.error(error);
 				return state.mergeIn(
 					['links', action.linkId, 'graphicalAttributes', 'properties'],
 					fromJS(action.graphicalAttributes),
@@ -255,6 +256,7 @@ export default function linkReducer(state = defaultState, action) {
 			try {
 				return state.mergeIn(['links', action.linkId, 'data'], fromJS(action.data));
 			} catch (error) {
+				console.error(error);
 				return state.mergeIn(
 					['links', action.linkId, 'data', 'properties'],
 					fromJS(action.data),
