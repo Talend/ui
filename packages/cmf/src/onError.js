@@ -70,7 +70,7 @@ function hasReportFeature() {
  * report function create a serilized error and dispatch action.
  * @param {Error} error instance of Error
  */
-function report(error, options) {
+function report(error, options = {}) {
 	if (ref.SENTRY_DSN) {
 		if (options.tags) {
 			withScope(scope => {
@@ -162,6 +162,7 @@ function setupSentry() {
 function bootstrap(options, store) {
 	window.addEventListener('error', onJSError);
 	assertTypeOf(options, 'onError', 'object');
+	ref.SENTRY_DSN = undefined;
 	ref.actions = [];
 	ref.errors = [];
 	ref.store = store;
