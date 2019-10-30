@@ -17,17 +17,16 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/cmf/src/onError.js
     2:1   error    '@sentry/browser' should be listed in the project's dependencies. Run 'npm i -S @sentry/browser' to add it  import/no-extraneous-dependencies
     2:51  error    Unable to resolve path to module '@sentry/browser'                                                          import/no-unresolved
-    5:8   error    'actions' is defined but never used                                                                         no-unused-vars
    60:6   error    'hasReportFeature' was used before it was defined                                                           no-use-before-define
-   89:3   warning  Unexpected console statement                                                                                no-console
-   99:29  error    'store' is defined but never used                                                                           no-unused-vars
-  111:10  error    'getErrors' is defined but never used                                                                       no-unused-vars
-  137:24  error    Expected to return a value at the end of arrow function                                                     consistent-return
-  142:23  error    'CONSTANTS' is not defined                                                                                  no-undef
-  148:14  warning  Unexpected unnamed function                                                                                 func-names
-  148:14  error    Unexpected function expression                                                                              prefer-arrow-callback
-  148:22  error    Missing space before function parentheses                                                                   space-before-function-paren
-  152:4   warning  Unexpected console statement                                                                                no-console
+  113:3   error    Expected an assignment or function call and instead saw an expression                                       no-unused-expressions
+  113:3   error    's' is not defined                                                                                          no-undef
+  130:3   warning  Unexpected console statement                                                                                no-console
+  157:10  error    'getErrors' is defined but never used                                                                       no-unused-vars
+  183:24  error    Expected to return a value at the end of arrow function                                                     consistent-return
+  194:14  warning  Unexpected unnamed function                                                                                 func-names
+  194:14  error    Unexpected function expression                                                                              prefer-arrow-callback
+  194:22  error    Missing space before function parentheses                                                                   space-before-function-paren
+  198:4   warning  Unexpected console statement                                                                                no-console
 
 /home/travis/build/Talend/ui/packages/cmf/src/RegistryProvider.js
   15:63  error  Block must not be padded by blank lines  padded-blocks
@@ -35,6 +34,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/cmf/src/sagas/collection.js
   10:1  error  Prefer default export  import/prefer-default-export
 
-✖ 21 problems (16 errors, 5 warnings)
+✖ 20 problems (15 errors, 5 warnings)
   3 errors, 0 warnings potentially fixable with the `--fix` option.
 

@@ -102,16 +102,16 @@ function report(error, options) {
 						info.reported = false;
 						info.reason = serialize(err);
 						return {
-								type: CONST.ERROR,
-								...info,
+							type: CONST.ERROR,
+							...info,
 						};
 					},
 					onResponse: response => {
 						info.reported = true;
 						info.response = response;
 						return {
-								type: CONST.ERROR_REPORTED,
-								...info,
+							type: CONST.ERROR_REPORTED,
+							...info,
 						};
 					},
 				}),
