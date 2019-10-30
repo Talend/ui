@@ -171,11 +171,13 @@ export default class MultiSelectTag extends React.Component {
 	/**
 	 * Remove all suggestions
 	 */
-	resetSuggestions() {
+	resetSuggestions(event) {
+		const { onFinish, schema } = this.props;
 		this.setState({
 			suggestions: undefined,
 			focusedItemIndex: undefined,
 		});
+		onFinish(event, { schema });
 	}
 
 	/**
