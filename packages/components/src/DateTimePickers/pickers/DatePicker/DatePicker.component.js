@@ -37,11 +37,7 @@ class DatePicker extends React.PureComponent {
 	}
 
 	isSelectedDate(date) {
-		const isSelectedDate =
-			this.props.selectedDate !== undefined && isSameDay(this.props.selectedDate, date);
-		const isStartDate = this.props.startDate !== undefined && isSameDay(this.props.startDate, date);
-		const isEndDate = this.props.endDate !== undefined && isSameDay(this.props.endDate, date);
-		return isSelectedDate || isStartDate || isEndDate;
+		return this.props.selectedDate !== undefined && isSameDay(this.props.selectedDate, date);
 	}
 
 	isDisabledDate(date) {
@@ -129,7 +125,7 @@ class DatePicker extends React.PureComponent {
 	}
 
 	render() {
-		const { calendar, startDate, endDate, t } = this.props;
+		const { calendar, t } = this.props;
 		const { year, monthIndex } = calendar;
 		const pickerLocale = getPickerLocale(t);
 
@@ -176,11 +172,13 @@ class DatePicker extends React.PureComponent {
 
 								const cellTheme = {};
 								const dayTheme = {};
+								let isStart = false;
+								let isEnd = false;
 								const isInRange = isRangeInCurrentCalendar && this.isDateWithinRange(date);
 
 								if (isInRange) {
-									const isStart = this.isStartDate(date);
-									const isEnd = this.isEndDate(date);
+									isStart = this.isStartDate(date);
+									isEnd = this.isEndDate(date);
 									const isMiddle = !isStart && !isEnd && isInRange;
 									cellTheme[theme['date-range']] = isInRange;
 									cellTheme[theme['range-middle']] = isMiddle;
@@ -193,7 +191,7 @@ class DatePicker extends React.PureComponent {
 									theme['calendar-day'],
 									{
 										...dayTheme,
-										[theme.selected]: selected,
+										[theme.selected]: selected || isStart || isEnd,
 										[theme.today]: today,
 										[theme['not-current-month']]: !this.isCurrentMonth(date),
 									},
