@@ -30,7 +30,12 @@ describe('DateRange.Picker', () => {
 		);
 
 		// then
-		expect(wrapper.find('CalendarPicker').at(0).props()).toEqual({
+		expect(
+			wrapper
+				.find('CalendarPicker')
+				.at(0)
+				.props(),
+		).toEqual({
 			manageFocus: true,
 			onSubmit: managerValue.pickerManagement.onSubmit,
 			other: 'custom props',
