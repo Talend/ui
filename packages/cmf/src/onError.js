@@ -74,7 +74,7 @@ function hasReportFeature() {
 function report(error, options) {
 	if (ref.SENTRY_DSN) {
 		if (options.tags) {
-			withScope(function(scope) {
+			withScope(scope => {
 				options.tags.forEach(tag => scope.setTag(tag.key, tag.value));
 				captureException(error);
 			});
@@ -148,6 +148,7 @@ function setupSentry() {
 	try {
 		init({ dsn: ref.SENTRY_DSN });
 	} catch (error) {
+		// eslint-disable-next-line no-console
 		console.error(error);
 		delete ref.SENTRY_DSN;
 		window.addEventListener('error', onJSError);
@@ -209,8 +210,9 @@ function middleware() {
 			return next(action);
 		} catch (error) {
 			report(error, { tags: [{ key: 'redux-action-type', value: action.type }]});
+			// eslint-disable-next-line no-console
 			console.error(error);
-			return;
+			return undefined;
 		}
 	};
 }
@@ -235,6 +237,7 @@ export default {
 	hasReportURL,
 	hasReportFeature,
 	getReportInfo,
+	getErrors,
 	report,
 	middleware,
 	createObjectURL,
