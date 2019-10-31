@@ -201,7 +201,7 @@ function middleware() {
 			if (ref.actions.length >= 20) {
 				ref.actions.shift();
 			}
-			ref.actions.push(action && action.type ? action.type : 'UNKNOWN');
+			ref.actions.push(get(action, 'type', 'UNKNOWN'));
 		}
 		if (action.type === CONST.REQUEST_OK) {
 			setupFromSettings(action.settings);
