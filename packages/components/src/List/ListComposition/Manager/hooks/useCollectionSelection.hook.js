@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function useCollectionSelection(
 	collection = [],
@@ -6,6 +6,20 @@ export default function useCollectionSelection(
 	idKey = 'id',
 ) {
 	const [selectedIds, setSelectedIds] = useState(initialSelectedIds);
+
+	useEffect(() => {
+		// Filter selected items to only preserve the ones that exist in the collection
+		if (selectedIds.length === 0) {
+			return;
+		}
+
+		const availableIds = collection.map(item => item[idKey]);
+		const filteredSelection = selectedIds.filter(id => availableIds.includes(id));
+
+		if (filteredSelection.length !== selectedIds.length) {
+			setSelectedIds(filteredSelection);
+		}
+	}, [selectedIds, collection]);
 
 	function isSelected(item) {
 		const itemId = item[idKey];
