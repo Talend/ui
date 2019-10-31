@@ -53,14 +53,14 @@ function getReportInfo(error) {
 }
 
 /**
- * @return {Boolean} true if we can do report to backend
+ * @return {Boolean} true if we can do report to backend using reportURL configuration
  */
 function hasReportURL() {
 	return !!ref.serverURL;
 }
 
 /**
- * @return {Boolean} true if we can do report to backend
+ * @return {Boolean} true if we can do report to Sentry
  */
 function hasReportFeature() {
 	return !!ref.SENTRY_DSN || hasReportURL();
