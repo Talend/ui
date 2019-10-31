@@ -12,22 +12,22 @@ const SwitchFacetedMode = ({ facetedMode, id, onChange, t }) => (
 	<div className={theme('tc-faceted-toolbar-buttons')}>
 		<Action
 			onClick={() => {
-				onChange(FACETED_MODE.ADVANCED);
-			}}
-			label={t('FACETED_SEARCH_ADVANCED', { defaultValue: 'Advanced' })}
-			id={`${id}-avd-action`}
-			className={theme('tc-faceted-toolbar-buttons-advanced', {
-				'tc-button-selected': facetedMode === FACETED_MODE.ADVANCED,
-			})}
-		/>
-		<Action
-			onClick={() => {
 				onChange(FACETED_MODE.BASIC);
 			}}
 			label={t('FACETED_SEARCH_BASIC', { defaultValue: 'Basic' })}
 			id={`${id}-basic-action`}
 			className={theme('tc-faceted-toolbar-buttons-basic', {
 				'tc-button-selected': facetedMode === FACETED_MODE.BASIC,
+			})}
+		/>
+		<Action
+			onClick={() => {
+				onChange(FACETED_MODE.ADVANCED);
+			}}
+			label={t('FACETED_SEARCH_ADVANCED', { defaultValue: 'Advanced' })}
+			id={`${id}-avd-action`}
+			className={theme('tc-faceted-toolbar-buttons-advanced', {
+				'tc-button-selected': facetedMode === FACETED_MODE.ADVANCED,
 			})}
 		/>
 	</div>
