@@ -221,10 +221,18 @@ function TooltipTrigger({
 
 			{visible &&
 				ReactDOM.createPortal(
-					<div className={theme['tc-tooltip-container']} style={style}>
+					<div
+						className={classNames(theme['tc-tooltip-container'], 'tc-tooltip-container')}
+						style={style}
+					>
 						<div
 							id={id}
-							className={classNames(theme['tc-tooltip-body'], theme[`tc-tooltip-${placement}`])}
+							className={classNames(
+								theme['tc-tooltip-body'],
+								theme[`tc-tooltip-${placement}`],
+								'tc-tooltip-body',
+								`tc-tooltip-${placement}`,
+							)}
 						>
 							{label}
 						</div>
