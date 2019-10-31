@@ -209,7 +209,7 @@ function middleware() {
 		try {
 			return next(action);
 		} catch (error) {
-			report(error, { tags: [{ key: 'redux-action-type', value: action.type }] });
+			report(error, { tags: [{ key: 'redux-action-type', value: get(action, 'type', 'UNKNOWN') }] });
 			// eslint-disable-next-line no-console
 			console.error(error);
 			return undefined;
