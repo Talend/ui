@@ -102,6 +102,7 @@ const props = {
 function TooltipTrigger({
 	children,
 	label,
+	className,
 	tooltipDelay,
 	tooltipPlacement = 'right',
 	tooltipHeight = DEFAULT_OFFSET_Y,
@@ -222,7 +223,7 @@ function TooltipTrigger({
 			{visible &&
 				ReactDOM.createPortal(
 					<div
-						className={classNames(theme['tc-tooltip-container'], 'tc-tooltip-container')}
+						className={classNames(theme['tc-tooltip-container'], 'tc-tooltip-container', className)}
 						style={style}
 					>
 						<div
@@ -252,6 +253,7 @@ TooltipTrigger.propTypes = {
 	tooltipWidth: PropTypes.number,
 	tooltipDelay: PropTypes.number,
 	children: PropTypes.element,
+	className: PropTypes.string,
 };
 
 export default TooltipTrigger;
