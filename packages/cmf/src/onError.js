@@ -183,7 +183,7 @@ function getErrors() {
 
 function setupFromSettings(settings) {
 	const dsn = get(settings, 'env.SENTRY_DSN');
-	if (ref.SENTRY_DSN !== dsn && !ref.SENTRY_DSN) {
+	if (!ref.SENTRY_DSN && ref.SENTRY_DSN !== dsn) {
 		ref.SENTRY_DSN = dsn;
 		setupSentry();
 	}
