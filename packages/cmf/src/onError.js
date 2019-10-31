@@ -63,7 +63,7 @@ function hasReportURL() {
  * @return {Boolean} true if we can do report to backend
  */
 function hasReportFeature() {
-	return !!ref.SENTRY_DSN || !!ref.serverURL;
+	return !!ref.SENTRY_DSN || hasReportURL();
 }
 
 /**
