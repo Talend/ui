@@ -68,11 +68,7 @@ describe('useCollectionSelection', () => {
 
 		// when
 		const wrapper = mount(
-			<SelectionComponent
-				collection={[]}
-				initialSelectedIds={initialSelectedIds}
-				idKey="number"
-			/>,
+			<SelectionComponent collection={[]} initialSelectedIds={initialSelectedIds} idKey="number" />,
 		);
 
 		// then
