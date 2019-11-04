@@ -724,29 +724,31 @@ class EnumerationForm extends React.Component {
 
 	// lazy loading
 	onLoadData() {
-		const { schema } = this.props;
-		this.setState({
-			headerDefault: this.loadingInputsActions,
-			headerInput: this.loadingInputsActions,
-		});
-		this.props.onTrigger(event, {
-			trigger: {
-				value: this.state.searchCriteria,
-				action: ENUMERATION_NEXT_PAGE_ACTION,
-				numberItems: this.state.items.length
-			},
-			schema,
-		}).then((documents) => {
-			const payload = {
+		if (this.isConnectedMode()) {
+			const { schema } = this.props;
+			this.setState({
+				headerDefault: this.loadingInputsActions,
+				headerInput: this.loadingInputsActions,
+			});
+			this.props.onTrigger(event, {
+				trigger: {
+					value: this.state.searchCriteria,
+					action: ENUMERATION_NEXT_PAGE_ACTION,
+					numberItems: this.state.items.length
+				},
 				schema,
-				value: this.props.value.concat(
-					documents.map(document => ({ id: document.id, values: document.values }))
-				),
-			};
-			this.props.onChange(event, payload);
-		}).finally(() => {
-			this.onLazyHandler();
-		});
+			}).then((documents) => {
+				const payload = {
+					schema,
+					value: this.props.value.concat(
+						documents.map(document => ({ id: document.id, values: document.values }))
+					),
+				};
+				this.props.onChange(event, payload);
+			}).finally(() => {
+				this.onLazyHandler();
+			});
+		}
 	}
 
 	onImportButtonClick() {
