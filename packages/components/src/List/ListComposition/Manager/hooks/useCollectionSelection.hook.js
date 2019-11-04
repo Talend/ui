@@ -7,18 +7,20 @@ export default function useCollectionSelection(
 ) {
 	const [selectedIds, setSelectedIds] = useState(initialSelectedIds);
 
+	function filterSelectionFromCollection(selection) {
+		return collection
+			.filter(item => selection.includes(item[idKey]))
+			.map(item => item[idKey]);
+	}
+
 	useEffect(() => {
-		// Filter selected items to only preserve the ones that exist in the collection
 		if (selectedIds.length === 0) {
 			return;
 		}
 
-		const filteredSelection = collection
-			.filter(item => selectedIds.includes(item[idKey]))
-			.map(item => item[idKey]);
-
+		const filteredSelection = filterSelectionFromCollection(selectedIds);
 		setSelectedIds(filteredSelection);
-	}, [selectedIds, collection]);
+	}, [collection]);
 
 	function isSelected(item) {
 		const itemId = item[idKey];
@@ -34,7 +36,7 @@ export default function useCollectionSelection(
 		} else {
 			newSelectedIds.push(itemId);
 		}
-		setSelectedIds(newSelectedIds);
+		setSelectedIds(filterSelectionFromCollection(newSelectedIds));
 	}
 
 	function onToggleAll() {
