@@ -1,8 +1,8 @@
 {
-  "doc": "MultiSelectTag/README.md",
+  "doc": "Enumeration/README.md",
   "jsonSchema": {
     "type": "object",
-    "title": "MultiSelectTag",
+    "title": "Enumeration",
     "properties": {
       "dictionary": {
         "type": "array",
@@ -23,14 +23,8 @@
   },
   "uiSchema": [
     {
-      "widget": "fieldset",
-      "title": "test",
-      "items": [
-        {
-          "key": "dictionary.items",
-          "widget": "enumeration"
-        }
-      ]
+      "key": "dictionary.items",
+      "widget": "enumeration"
     }
   ],
   "properties": {

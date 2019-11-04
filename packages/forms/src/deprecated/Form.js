@@ -15,7 +15,6 @@ import TabsWidget from './widgets/TabsWidget';
 import KeyValueWidget from './widgets/KeyValueWidget';
 import MultiSelectTagWidget from './widgets/MultiSelectTagWidget/MultiSelectTagWidget';
 import DatalistWidget from './widgets/DatalistWidget';
-import EnumerationWidget from './widgets/EnumerationWidget/EnumerationWidget';
 import CodeWidget from './widgets/CodeWidget';
 import ColumnsWidget from './widgets/ColumnsWidget';
 import ListViewWidget from './widgets/ListViewWidget/ListViewWidget';
@@ -31,7 +30,6 @@ export const customWidgets = {
 	keyValue: KeyValueWidget,
 	multiSelectTag: MultiSelectTagWidget,
 	datalist: DatalistWidget,
-	enumeration: EnumerationWidget,
 	code: CodeWidget,
 	columns: ColumnsWidget,
 	listview: ListViewWidget,
