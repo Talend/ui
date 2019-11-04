@@ -215,6 +215,9 @@ CalendarPicker.propTypes = {
 	 * end day of date range
 	 */
 	endDate: PropTypes.instanceOf(Date),
+	/**
+	 * Callback triggered when date is selected
+	 */
 	onSubmit: PropTypes.func.isRequired,
 	t: PropTypes.func.isRequired,
 };
