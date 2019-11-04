@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { ButtonGroup, OverlayTrigger } from 'react-bootstrap';
 import classNames from 'classnames';
-import Action from './Action';
+import Action from './Actions/Action';
 import Inject from '../Inject';
 
 function getButtonGroupProps(props) {
