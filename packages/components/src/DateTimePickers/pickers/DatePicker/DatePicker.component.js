@@ -84,31 +84,31 @@ class DatePicker extends React.PureComponent {
 	}
 
 	isDateWithinRange(date) {
-		const { from, to, selectedDate, startDate, endDate } = this.props;
-		if (from) {
+		const { selectedDate, startDate, endDate } = this.props;
+		if (endDate) {
 			return isWithinRange(date, selectedDate, endDate);
-		} else if (to) {
+		} else if (startDate) {
 			return isWithinRange(date, startDate, selectedDate);
 		}
 		return false;
 	}
 
 	isStartDate(date) {
-		const { from, to, selectedDate, startDate } = this.props;
-		if (from) {
-			return isSameDay(date, selectedDate);
-		} else if (to) {
+		const { selectedDate, startDate, endDate } = this.props;
+		if (startDate) {
 			return isSameDay(date, startDate);
+		} else if (endDate) {
+			return isSameDay(date, selectedDate);
 		}
 		return false;
 	}
 
 	isEndDate(date) {
-		const { from, to, selectedDate, endDate } = this.props;
-		if (from) {
-			return isSameDay(date, endDate);
-		} else if (to) {
+		const { selectedDate, endDate, startDate } = this.props;
+		if (startDate) {
 			return isSameDay(date, selectedDate);
+		} else if (endDate) {
+			return isSameDay(date, endDate);
 		}
 		return false;
 	}
@@ -254,8 +254,6 @@ DatePicker.propTypes = {
 	selectedDate: PropTypes.instanceOf(Date),
 	startDate: PropTypes.instanceOf(Date),
 	endDate: PropTypes.instanceOf(Date),
-	from: PropTypes.bool,
-	to: PropTypes.bool,
 	isDisabledChecker: PropTypes.func,
 	onKeyDown: PropTypes.func.isRequired,
 	t: PropTypes.func,

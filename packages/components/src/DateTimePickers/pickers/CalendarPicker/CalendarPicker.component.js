@@ -145,8 +145,6 @@ class CalendarPicker extends React.Component {
 					selectedDate={this.state.selectedDate}
 					startDate={this.props.startDate}
 					endDate={this.props.endDate}
-					from={this.props.from}
-					to={this.props.to}
 				/>
 			);
 		} else {
@@ -217,17 +215,6 @@ CalendarPicker.propTypes = {
 	 * end day of date range
 	 */
 	endDate: PropTypes.instanceOf(Date),
-	/**
-	 * field for picking date range start
-	 */
-	from: PropTypes.bool,
-	/**
-	 * field for picking date range end
-	 */
-	to: PropTypes.bool,
-	/**
-	 * Callback triggered when date is selected
-	 */
 	onSubmit: PropTypes.func.isRequired,
 	t: PropTypes.func.isRequired,
 };
