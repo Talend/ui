@@ -13,8 +13,9 @@ export default function useCollectionSelection(
 			return;
 		}
 
-		const availableIds = collection.map(item => item[idKey]);
-		const filteredSelection = selectedIds.filter(id => availableIds.includes(id));
+		const filteredSelection = collection
+			.filter(item => selectedIds.includes(item[idKey]))
+			.map(item => item[idKey]);
 
 		setSelectedIds(filteredSelection);
 	}, [selectedIds, collection]);
