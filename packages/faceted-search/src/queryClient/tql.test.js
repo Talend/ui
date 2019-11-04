@@ -170,4 +170,50 @@ describe('createTqlQuery', () => {
 		// Then
 		expect(result).toEqual('');
 	});
+	it('should return an empty tql query', () => {
+		// Given
+		const badgesWithMultipleValues = [
+			{
+				properties: {
+					attribute: 'connection.type',
+					operator: {
+						label: 'In',
+						name: 'in',
+					},
+					type: 'select',
+					value: [
+						{
+							id: '',
+							label: 'HDFS',
+							checked: true,
+						},
+					],
+				},
+			},
+		];
+		// When
+		const result = createTqlQuery(badgesWithMultipleValues);
+		// Then
+		expect(result).toEqual('');
+	});
+	it('should return an empty tql query when value is totally empty', () => {
+		// Given
+		const badgesWithMultipleValues = [
+			{
+				properties: {
+					attribute: 'connection.type',
+					operator: {
+						label: 'In',
+						name: 'in',
+					},
+					type: 'select',
+					value: [],
+				},
+			},
+		];
+		// When
+		const result = createTqlQuery(badgesWithMultipleValues);
+		// Then
+		expect(result).toEqual('');
+	});
 });
