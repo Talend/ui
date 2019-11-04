@@ -2,17 +2,20 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { Button } from 'react-bootstrap';
 import toJsonWithoutI18n from '../../../../__mocks__/props-without-i18n';
-import TranslatedEnumeration, { EnumerationForm as EnumerationWidget } from './EnumerationWidget';
+import TranslatedEnumeration, {
+	EnumerationForm as EnumerationWidget,
+	enumerationStates
+} from './EnumerationWidget';
 
 describe('EnumerationWidget', () => {
 	it('should wrapped in Translate component', () => {
-		const wrapper = mount(<TranslatedEnumeration />);
+		const wrapper = mount(<TranslatedEnumeration schema={{}} />);
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
 	it('should be in default mode', () => {
 		// given
-		const wrapper = mount(<EnumerationWidget />);
+		const wrapper = mount(<EnumerationWidget schema={{}} />);
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
@@ -38,10 +41,10 @@ describe('EnumerationWidget', () => {
 		// given
 		const wrapper = mount(
 			<EnumerationWidget
-				uiSchema={{
+				schema={{
 					disabled: true,
 				}}
-				formData={[
+				value={[
 					{ id: '112', values: ['titi', 'tata'] },
 					{ id: '113', values: ['titi2', 'tata2'] },
 				]}
@@ -63,7 +66,7 @@ describe('EnumerationWidget', () => {
 
 	it('should be in add mode', () => {
 		// given
-		const wrapper = mount(<EnumerationWidget />);
+		const wrapper = mount(<EnumerationWidget schema={{}} />);
 
 		// when
 		wrapper
@@ -77,7 +80,7 @@ describe('EnumerationWidget', () => {
 
 	it('should be in search mode', () => {
 		// given
-		const wrapper = mount(<EnumerationWidget />);
+		const wrapper = mount(<EnumerationWidget schema={{}} />);
 
 		// when
 		wrapper
@@ -94,7 +97,8 @@ describe('EnumerationWidget', () => {
 		const wrapper = mount(
 			<EnumerationWidget
 				onChange={jest.fn()}
-				formData={[{ id: '111', values: ['titi', 'tata'] }]}
+				schema={{}}
+				value={[{ id: '111', values: ['titi', 'tata'] }]}
 			/>,
 		);
 
@@ -118,8 +122,9 @@ describe('EnumerationWidget', () => {
 		// given
 		const wrapper = mount(
 			<EnumerationWidget
+				schema={{}}
 				onChange={jest.fn()}
-				formData={[{ id: '111', values: ['titi', 'tata'] }]}
+				value={[{ id: '111', values: ['titi', 'tata'] }]}
 			/>,
 		);
 
@@ -138,8 +143,9 @@ describe('EnumerationWidget', () => {
 		// given
 		const wrapper = mount(
 			<EnumerationWidget
+				schema={{}}
 				onChange={jest.fn()}
-				formData={[{ id: '111', values: ['titi', 'tata'] }]}
+				value={[{ id: '111', values: ['titi', 'tata'] }]}
 			/>,
 		);
 
@@ -157,8 +163,9 @@ describe('EnumerationWidget', () => {
 		// given
 		const wrapper = mount(
 			<EnumerationWidget
+				schema={{}}
 				onChange={jest.fn()}
-				formData={[
+				value={[
 					{ id: '111', values: ['titi', 'tata'] },
 					{ id: '112', values: ['titi2', 'tata2'] },
 				]}
@@ -183,8 +190,9 @@ describe('EnumerationWidget', () => {
 		// given
 		const wrapper = mount(
 			<EnumerationWidget
+				schema={{}}
 				onChange={jest.fn()}
-				formData={[
+				value={[
 					{ id: '112', values: ['titi', 'tata'] },
 					{ id: '113', values: ['titi2', 'tata2'] },
 				]}
@@ -210,19 +218,21 @@ describe('EnumerationWidget', () => {
 		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
 	});
 
-	it('should delete an item with callHandler', () => {
-		const registry = {
-			formContext: {
-				handleAction: jest.fn(),
-			},
-		};
+	it('should delete an item calling onTrigger', () => {
+		const onTrigger = jest.fn(function () {
+			return Promise.resolve({});
+		});
 
 		// given
 		const wrapper = mount(
 			<EnumerationWidget
+				properties={{
+					connectedMode: true,
+				}}
+				schema={{}}
 				onChange={jest.fn()}
-				registry={registry}
-				formData={[{ id: '11212242', values: ['titi', 'tata'] }]}
+				onTrigger={onTrigger}
+				value={[{ id: '11212242', values: ['titi', 'tata'] }]}
 			/>,
 		);
 
@@ -234,16 +244,22 @@ describe('EnumerationWidget', () => {
 			.simulate('click');
 
 		// then
-		expect(registry.formContext.handleAction).toBeCalled();
-		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		expect(onTrigger.mock.calls[0][1]).toEqual({
+			schema: {},
+			trigger: {
+				action: 'ENUMERATION_REMOVE_ACTION',
+				ids: ['11212242'],
+			},
+		});
 	});
 
 	it('should deselect edit mode when select other item', () => {
 		// given
 		const wrapper = mount(
 			<EnumerationWidget
+				schema={{}}
 				onChange={jest.fn()}
-				formData={[
+				value={[
 					{ id: '111', values: ['titi', 'tata'] },
 					{ id: '112', values: ['toto', 'tutu'] },
 				]}
@@ -289,21 +305,19 @@ describe('EnumerationWidget', () => {
 
 		it('should send a event with a method to simulate the click on the input file', () => {
 			// given
-			const registry = {
-				formContext: {
-					handleAction: jest.fn(),
-				},
-			};
-
 			const wrapper = mount(
 				<EnumerationWidget
-					registry={registry}
+					properties={{
+						connectedMode: true,
+					}}
 					schema={{
 						allowImport: true,
 					}}
-					uiSchema={{}}
 				/>,
 			);
+
+			wrapper.instance().simulateClickInputFile = jest.fn();
+
 
 			// when
 			wrapper
@@ -313,34 +327,21 @@ describe('EnumerationWidget', () => {
 				.simulate('click');
 
 			// then
-			expect(registry.formContext.handleAction).toBeCalledWith(
-				undefined,
-				'ENUMERATION_IMPORT_FILE_CLICK',
-				{
-					simulateClickInputFile: jasmine.any(Function),
-				},
-				jasmine.any(Function),
-				jasmine.any(Function),
-			);
+			expect(wrapper.instance().simulateClickInputFile).toHaveBeenCalled();
 		});
 
 		it('should send a event when we click on the icon of the dropdown', () => {
 			// given
-			const registry = {
-				formContext: {
-					handleAction: jest.fn(),
-				},
-			};
-
 			const wrapper = mount(
 				<EnumerationWidget
-					registry={registry}
 					schema={{
 						allowImport: true,
 					}}
 					uiSchema={{}}
 				/>,
 			);
+
+			wrapper.instance().simulateClickInputFile = jest.fn();
 
 			// when
 			wrapper
@@ -349,34 +350,21 @@ describe('EnumerationWidget', () => {
 				.simulate('click');
 
 			// then
-			expect(registry.formContext.handleAction).toBeCalledWith(
-				undefined,
-				'ENUMERATION_IMPORT_FILE_CLICK',
-				{
-					simulateClickInputFile: jasmine.any(Function),
-				},
-				jasmine.any(Function),
-				jasmine.any(Function),
-			);
+			expect(wrapper.instance().simulateClickInputFile).toHaveBeenCalled();
 		});
 
 		it('should send a event with the choice APPEND', () => {
 			// given
-			const registry = {
-				formContext: {
-					handleAction: jest.fn(),
-				},
-			};
-
 			const wrapper = mount(
 				<EnumerationWidget
-					registry={registry}
 					schema={{
 						allowImport: true,
 					}}
 					uiSchema={{}}
 				/>,
 			);
+
+			wrapper.instance().simulateClickInputFile = jest.fn();
 
 			// when
 			wrapper
@@ -385,32 +373,21 @@ describe('EnumerationWidget', () => {
 				.simulate('click');
 
 			// then
-			expect(registry.formContext.handleAction).toBeCalledWith(
-				undefined,
-				'ENUMERATION_IMPORT_FILE_APPEND_MODE',
-				null,
-				jasmine.any(Function),
-				jasmine.any(Function),
-			);
+			expect(wrapper.instance().simulateClickInputFile).toHaveBeenCalled();
 		});
 
 		it('should send a event with the choice OVERWRITE', () => {
 			// given
-			const registry = {
-				formContext: {
-					handleAction: jest.fn(),
-				},
-			};
-
 			const wrapper = mount(
 				<EnumerationWidget
-					registry={registry}
 					schema={{
 						allowImport: true,
 					}}
 					uiSchema={{}}
 				/>,
 			);
+
+			wrapper.instance().simulateClickInputFile = jest.fn();
 
 			// when
 			wrapper
@@ -419,13 +396,29 @@ describe('EnumerationWidget', () => {
 				.simulate('click');
 
 			// then
-			expect(registry.formContext.handleAction).toBeCalledWith(
-				undefined,
-				'ENUMERATION_IMPORT_FILE_OVERWRITE_MODE',
-				null,
-				jasmine.any(Function),
-				jasmine.any(Function),
+			expect(wrapper.instance().simulateClickInputFile).toHaveBeenCalled();
+		});
+
+		it('should set header back to default and import mode to empty after upload', () => {
+			// given
+			const wrapper = mount(
+				<EnumerationWidget
+					schema={{
+						allowImport: true,
+					}}
+				/>,
 			);
+
+			wrapper.instance().importFile({});
+			// loading header
+			expect(wrapper.instance().state.headerDefault.length).toBe(1);
+
+			// when
+			wrapper.instance().importFileHandler();
+
+			// then
+			expect(wrapper.instance().state.headerDefault.length).toBe(3);
+			expect(wrapper.instance().state.importMode).toBe('');
 		});
 
 		it('should simulate click on the input', () => {
@@ -436,9 +429,9 @@ describe('EnumerationWidget', () => {
 					schema={{
 						allowImport: true,
 					}}
-					uiSchema={{}}
 				/>,
 			);
+			wrapper.instance().state.importMode = enumerationStates.IMPORT_MODE_APPEND;
 			wrapper.instance().inputFile.click = jest.fn();
 			spyOn(document.activeElement, 'blur').and.callThrough();
 
@@ -456,26 +449,30 @@ describe('EnumerationWidget', () => {
 				', shows a loading and return to initial state when we call the success callback',
 			() => {
 				// given
-				let successUploadHandler;
-				const registry = {
-					formContext: {
-						handleAction: (component, actionName, value, successHandler) => {
-							successUploadHandler = successHandler;
-						},
-					},
-				};
-
-				const spy = spyOn(registry.formContext, 'handleAction').and.callThrough();
-
+				const onTrigger = jest.fn(function () {
+					return Promise.resolve([
+						{
+							id: 1,
+							values: ['val1'],
+						}, {
+							id: 2,
+							values: ['val2'],
+						}
+					]);
+				});
+				const onChange = jest.fn();
 				const wrapper = mount(
 					<EnumerationWidget
 						id="enumeration"
 						schema={{
 							allowImport: true,
 						}}
-						uiSchema={{}}
-						registry={registry}
-						formData={[
+						onTrigger={onTrigger}
+						onChange={onChange}
+						properties={{
+							connectedMode: true,
+						}}
+						value={[
 							{ id: '111', values: ['titi', 'tata'] },
 							{ id: '112', values: ['titi2', 'tata2'] },
 						]}
@@ -489,24 +486,37 @@ describe('EnumerationWidget', () => {
 				};
 
 				wrapper.instance().resetInputFile = jest.fn();
+				// wrapper.instance().importFileHandler = jest.fn();
 
 				// when
-				wrapper.instance().importFile(event);
+				return wrapper.instance().importFile(event).then(() => {
+					// then
+					// expect(wrapper.instance().importFileHandler).toBeCalled();
+					expect(onTrigger).toBeCalledWith(
+						event
+						, {
+							schema: {"allowImport": true},
+							trigger: {
+								action: 'ENUMERATION_IMPORT_FILE_ACTION',
+								importMode: undefined,
+								label: undefined,
+								value: 'file'
+							},
+						}
+					);
 
-				// then
-				expect(wrapper.instance().resetInputFile).toBeCalled();
-				expect(spy).toBeCalledWith(
-					'enumeration',
-					'ENUMERATION_IMPORT_FILE_ACTION',
-					'file',
-					jasmine.any(Function),
-					jasmine.any(Function),
-				);
-
-				expect(toJsonWithoutI18n(wrapper.update())).toMatchSnapshot();
-
-				successUploadHandler();
-				expect(toJsonWithoutI18n(wrapper.update())).toMatchSnapshot();
+					expect(wrapper.instance().resetInputFile).toBeCalled();
+					expect(onChange).toBeCalledWith(
+						event,
+						{
+							schema: { allowImport : true },
+							value: [
+								{ id: 1, values: ['val1'] },
+								{ id: 2, values: ['val2'] }
+							],
+						},
+					);
+				});
 			},
 		);
 	});

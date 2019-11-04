@@ -835,7 +835,7 @@ class EnumerationForm extends React.Component {
 			headerDefault: this.loadingInputsActions,
 		});
 		if (this.isConnectedMode()) {
-			this.props.onTrigger(event, {
+			return this.props.onTrigger(event, {
 				trigger: {
 					value: event.target.files[0],
 					action: 'ENUMERATION_IMPORT_FILE_ACTION',
