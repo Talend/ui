@@ -34,6 +34,9 @@
       },
       "timeWithSeconds": {
         "type": "string"
+      },
+      "dateRange": {
+        "type": "object"
       }
     },
     "required": ["dateAsString"]
@@ -100,6 +103,11 @@
       "options": {
         "useSeconds": true
       }
+    },
+    {
+      "key": "dateRange",
+      "title": "Date range",
+      "widget": "dateRange"
     }
   ],
   "properties": {}
