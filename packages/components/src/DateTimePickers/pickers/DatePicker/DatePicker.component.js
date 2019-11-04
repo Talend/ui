@@ -85,10 +85,10 @@ class DatePicker extends React.PureComponent {
 
 	isDateWithinRange(date) {
 		const { selectedDate, startDate, endDate } = this.props;
-		if (endDate) {
-			return isWithinRange(date, selectedDate, endDate);
-		} else if (startDate) {
+		if (startDate) {
 			return isWithinRange(date, startDate, selectedDate);
+		} else if (endDate) {
+			return isWithinRange(date, selectedDate, endDate);
 		}
 		return false;
 	}
