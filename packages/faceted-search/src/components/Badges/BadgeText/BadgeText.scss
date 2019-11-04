@@ -16,4 +16,8 @@
 	:global(.tc-tooltip-footer) {
 		justify-content: flex-end;
 	}
+
+	:global(textarea.form-control) {
+		resize: none;
+	}
 }

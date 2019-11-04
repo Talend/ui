@@ -33,8 +33,8 @@ AddFacetRow.propTypes = {
 	onClick: PropTypes.func.isRequired,
 };
 
-const filterByAttribute = attribute => badgeDefinition =>
-	badgeDefinition.properties.attribute.includes(attribute);
+const filterByLabel = label => badgeDefinition =>
+	badgeDefinition.properties.label.toLowerCase().includes(label);
 
 const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onClick, t }) => {
 	const [filterValue, setFilterValue] = useState(initialFilterValue || '');
@@ -43,7 +43,7 @@ const AddFacetPopover = ({ badgesDefinitions = [], id, initialFilterValue, onCli
 	};
 	const resetFilter = () => setFilterValue('');
 	const badgesDefinitionsFaceted = useMemo(
-		() => badgesDefinitions.filter(filterByAttribute(filterValue.toLowerCase().trim())),
+		() => badgesDefinitions.filter(filterByLabel(filterValue.toLowerCase().trim())),
 		[badgesDefinitions, filterValue],
 	);
 	const addFacetId = `${id}-add-facet-popover`;

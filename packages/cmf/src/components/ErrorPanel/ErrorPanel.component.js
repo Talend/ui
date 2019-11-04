@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
 import onError from '../../onError';
 
 /**
@@ -18,29 +17,14 @@ function ErrorPanel(props) {
 			onError.revokeObjectURL(url);
 		};
 	}, [props.error]);
-	let currentErrorStatus;
-	if (props.reported) {
-		currentErrorStatus = `Has been reported under ${props.response.id}`;
-	} else {
-		currentErrorStatus = get(props.reason, 'message');
-	}
+	const HAS_REPORT = onError.hasReportFeature();
 	return (
 		<div>
 			<p className="error-title">
 				{props.error.name}: {props.error.message}
 			</p>
-			<React.Fragment>
-				{onError.hasReportURL() ? (
-					<p>
-						The error report has been sent.
-						<br />
-						Report status: {currentErrorStatus}
-					</p>
-				) : null}
-				<p>From here you have two choices:</p>
-				<p>1. Refresh the app and retry</p>
-				<p>2. Download the details and then contact the support</p>
-			</React.Fragment>
+			{HAS_REPORT && <p>The error report has been sent.</p>}
+			<p>From here you can either refresh or contact the support.</p>
 			<button
 				className="btn btn-danger btn-inverse"
 				onClick={reload}
@@ -49,23 +33,22 @@ function ErrorPanel(props) {
 			>
 				Refresh
 			</button>
-			<a
-				className="btn btn-primary btn-inverse"
-				href={url}
-				download="report.json"
-				data-feature="download-on-error-details"
-			>
-				Download details
-			</a>
+			{!HAS_REPORT && (
+				<a
+					className="btn btn-primary btn-inverse"
+					href={url}
+					download="report.json"
+					data-feature="download-on-error-details"
+				>
+					Download details
+				</a>
+			)}
 		</div>
 	);
 }
 
 ErrorPanel.displayName = 'ErrorPanel';
 ErrorPanel.propTypes = {
-	reported: PropTypes.bool,
-	reason: PropTypes.shape({ message: PropTypes.string }),
-	response: PropTypes.shape({ id: PropTypes.node }),
 	error: PropTypes.shape({
 		name: PropTypes.string,
 		message: PropTypes.string,
@@ -73,11 +56,7 @@ ErrorPanel.propTypes = {
 	}).isRequired,
 };
 ErrorPanel.defaultProps = {
-	reported: false,
-	reason: { message: 'Waiting for report response' },
-	response: {},
 	error: {},
-	hidden: true,
 };
 
 export default ErrorPanel;
