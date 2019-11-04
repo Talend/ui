@@ -16,9 +16,7 @@ export default function useCollectionSelection(
 		const availableIds = collection.map(item => item[idKey]);
 		const filteredSelection = selectedIds.filter(id => availableIds.includes(id));
 
-		if (filteredSelection.length !== selectedIds.length) {
-			setSelectedIds(filteredSelection);
-		}
+		setSelectedIds(filteredSelection);
 	}, [selectedIds, collection]);
 
 	function isSelected(item) {
