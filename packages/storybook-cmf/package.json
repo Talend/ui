@@ -1,7 +1,7 @@
 {
   "name": "@talend/react-storybook-cmf",
   "description": "react-storybook-cmf library.",
-  "version": "4.15.0",
+  "version": "4.16.0",
   "license": "Apache-2.0",
   "author": "Talend Frontend <frontend@talend.com>",
   "repository": {
@@ -30,7 +30,7 @@
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
     "@storybook/react": "^5.2.3",
-    "@talend/react-cmf": "^4.15.0",
+    "@talend/react-cmf": "^4.16.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.0",
@@ -55,7 +55,7 @@
   },
   "peerDependencies": {
     "@kadira/storybook": "^2",
-    "@talend/react-cmf": "^4.15.0",
+    "@talend/react-cmf": "^4.16.0",
     "react": "^16.8.6"
   },
   "jest": {
