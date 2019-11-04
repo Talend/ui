@@ -240,56 +240,6 @@ describe('DateRange.Manager', () => {
 			],
 		);
 		describe('input change', () => {
-			// cases(
-			// 	'should update state when date change',
-			// 	({ expectedDate, textInput, field }) => {
-			// 		// given
-			// 		const event = { target: { value: textInput } };
-			// 		const wrapper = mount(
-			// 			<Manager id={DEFAULT_ID}>
-			// 				<DateRangeConsumer />
-			// 			</Manager>,
-			// 		);
-
-			// 		// when
-			// 		act(() => {
-			// 			wrapper
-			// 				.find('DateRangeConsumerDiv')
-			// 				.props()
-			// 				.inputManagement.onFocus(event, field);
-			// 		});
-			// 		wrapper.update();
-			// 		act(() => {
-			// 			wrapper
-			// 				.find('DateRangeConsumerDiv')
-			// 				.props()
-			// 				.inputManagement.onChange(event, { date: expectedDate, textInput, errors: [] });
-			// 		});
-			// 		wrapper.update();
-
-			// 		// then
-			// 		const contextValues = wrapper.find('DateRangeConsumerDiv').props();
-
-			// 		expect(contextValues[field].date).toEqual(expectedDate);
-			// 	},
-			// 	[
-			// 		{
-			// 			name: 'with valid date',
-			// 			textInput: '2015-01-15',
-			// 			expectedDate: new Date(2015, 0, 15),
-			// 		},
-			// 		{
-			// 			name: 'with invalid date',
-			// 			textInput: '2015aze-01-15',
-			// 			expectedDate: '2015aze-01-15',
-			// 		},
-			// 		{
-			// 			name: 'with empty string',
-			// 			textInput: '',
-			// 			expectedDate: '',
-			// 		},
-			// 	],
-			// );
 			cases(
 				'should update picker',
 				({ field, textInput, expectedDate, dateFormat }) => {
@@ -491,97 +441,122 @@ describe('DateRange.Manager', () => {
 			);
 		});
 		describe('picker change', () => {
-		// 	cases(
-		// 		'should update input',
-		// 		({ date, expectedTextInput, dateFormat }) => {
-		// 			// given
-		// 			const event = { preventDefault: () => {} };
-		// 			const wrapper = mount(
-		// 				<Manager id={DEFAULT_ID} dateFormat={dateFormat}>
-		// 					<DateRangeConsumer />
-		// 				</Manager>,
-		// 			);
-
-		// 			// when
-		// 			act(() => {
-		// 				wrapper
-		// 					.find('DateRangeConsumerDiv')
-		// 					.prop('inputManagement')
-		// 					.onFocus(event, 'startDate');
-		// 			});
-		// 			wrapper.update();
-
-		// 			act(() => {
-		// 				wrapper
-		// 					.find('DateRangeConsumerDiv')
-		// 					.prop('pickerManagement')
-		// 					.onSubmit(event, { date });
-		// 			});
-		// 			wrapper.update();
-
-		// 			// then
-		// 			const dateValue = wrapper.find('DateRangeConsumerDiv').props();
-		// 			expect(dateValue.startDate.textInput).toBe(expectedTextInput);
-		// 			expect(dateValue.startDate.value).toEqual(date);
-		// 		},
-		// 		[
-		// 			{
-		// 				name: 'with valid date',
-		// 				date: new Date(2015, 0, 15),
-		// 				expectedTextInput: '2015-01-15',
-		// 			},
-		// 			{
-		// 				name: 'with custom date format',
-		// 				date: new Date(2015, 0, 15),
-		// 				dateFormat: 'DD/MM/YYYY',
-		// 				expectedTextInput: '15/01/2015',
-		// 			},
-		// 		],
-		// 	);
-
-		// 	it('should trigger props.onChange with valid date', () => {
-		// 		// given
-		// 		const onChange = jest.fn();
-		// 		const event = { target: {}, preventDefault: () => {} };
-		// 		const wrapper = mount(
-		// 			<Manager id={DEFAULT_ID} onChange={onChange}>
-		// 				<DateRangeConsumer />
-		// 			</Manager>,
-		// 		);
-
-		// 		expect(onChange).not.toBeCalled();
-
-		// 		// when
-		// 		act(() => {
-		// 			wrapper
-		// 				.find('DateRangeConsumerDiv')
-		// 				.prop('inputManagement')
-		// 				.onFocus(event, 'startDate');
-		// 		});
-		// 		wrapper.update();
-		// 		act(() => {
-		// 			wrapper
-		// 				.find('DateRangeConsumerDiv')
-		// 				.prop('pickerManagement')
-		// 				.onSubmit(event, {
-		// 					date: new Date(2015, 0, 15),
-		// 				});
-		// 		});
-		// 		wrapper.update();
-		// 		// then
-		// 		expect(onChange).toBeCalledWith(
-		// 			event,
-		// 			{
-		// 				startDate: new Date(2015, 0, 15),
-		// 				endDate: undefined,
-		// 				errorMessage: undefined,
-		// 				errors: [],
-		// 				field: 'startDate',
-		// 				origin: 'RANGE_PICKER',
-		// 			},
-		// 			'endDate',
-		// 		);
-		// 	});
+			cases(
+				'should update input',
+				({ field, date, expectedTextInput, dateFormat }) => {
+					// given
+					const event = { preventDefault: () => {} };
+					const wrapper = mount(
+						<Manager id={DEFAULT_ID} dateFormat={dateFormat}>
+							<DateRangeConsumer />
+						</Manager>,
+					);
+					// when
+					act(() => {
+						wrapper
+							.find('DateRangeConsumerDiv')
+							.prop('inputManagement')
+							.onFocus(event, field);
+					});
+					wrapper.update();
+					act(() => {
+						wrapper
+							.find('DateRangeConsumerDiv')
+							.prop('pickerManagement')
+							.onSubmit(event, { date });
+					});
+					wrapper.update();
+					// then
+					const dateValue = wrapper.find('DateRangeConsumerDiv').props();
+					expect(dateValue[field].textInput).toBe(expectedTextInput);
+					expect(dateValue[field].value).toEqual(date);
+				},
+				[
+					{
+						name: 'startDate - with valid date',
+						field: 'startDate',
+						date: new Date(2015, 0, 15),
+						expectedTextInput: '2015-01-15',
+					},
+					{
+						name: 'startDate - with custom date format',
+						field: 'startDate',
+						date: new Date(2015, 0, 15),
+						dateFormat: 'DD/MM/YYYY',
+						expectedTextInput: '15/01/2015',
+					},
+					{
+						name: 'endDate - with valid date',
+						field: 'endDate',
+						date: new Date(2015, 0, 15),
+						expectedTextInput: '2015-01-15',
+					},
+					{
+						name: 'endDate - with custom date format',
+						field: 'endDate',
+						date: new Date(2015, 0, 15),
+						dateFormat: 'DD/MM/YYYY',
+						expectedTextInput: '15/01/2015',
+					},
+				],
+			);
+			cases(
+				'should trigger props.onChange with valid date',
+				({ field, selectedDate, expectedStartDate, expectedEndDate }) => {
+					// given
+					const onChange = jest.fn();
+					const event = { target: {}, preventDefault: () => {} };
+					const wrapper = mount(
+						<Manager id={DEFAULT_ID} onChange={onChange}>
+							<DateRangeConsumer />
+						</Manager>,
+					);
+					expect(onChange).not.toBeCalled();
+					// when
+					act(() => {
+						wrapper
+							.find('DateRangeConsumerDiv')
+							.prop('inputManagement')
+							.onFocus(event, field);
+					});
+					wrapper.update();
+					act(() => {
+						wrapper
+							.find('DateRangeConsumerDiv')
+							.prop('pickerManagement')
+							.onSubmit(event, {
+								date: selectedDate,
+							});
+					});
+					wrapper.update();
+					// then
+					expect(onChange).toBeCalledWith(
+						event,
+						{
+							startDate: expectedStartDate,
+							endDate: expectedEndDate,
+							errorMessage: undefined,
+							errors: [],
+							field,
+							origin: 'RANGE_PICKER',
+						},
+					);
+				},
+				[
+					{
+						name: 'select date from startDate picker',
+						field: 'startDate',
+						selectedDate: new Date(2019, 9, 11),
+						expectedStartDate: new Date(2019, 9, 11),
+					},
+					{
+						name: 'select date from endDate picker',
+						field: 'endDate',
+						selectedDate: new Date(2019, 9, 11),
+						expectedEndDate: new Date(2019, 9, 11),
+					},
+				],
+			);
 		});
 	});
 });
