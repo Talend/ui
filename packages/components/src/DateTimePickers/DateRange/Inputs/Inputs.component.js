@@ -14,12 +14,12 @@ const OMIT_PROPS_INPUT = ['startInputRef', 'endInputRef'];
 
 function Inputs(props) {
 	const { startDate, endDate, inputManagement } = useContext(DateRangeContext);
+	const { placeholder, onChange, onFocus, focusedInput } = inputManagement;
+
 	let startDateInputRef = useRef(null);
 	let endDateInputRef = useRef(null);
 
 	useEffect(() => {
-		const { focusedInput } = inputManagement;
-
 		if (startDateInputRef && focusedInput === START_DATE) {
 			startDateInputRef.focus();
 		}
@@ -29,10 +29,7 @@ function Inputs(props) {
 	});
 
 	return [
-		<InputSizer
-			placeholder={inputManagement.placeholder}
-			inputText={startDate.value ? startDate.textInput : ''}
-		>
+		<InputSizer placeholder={placeholder} inputText={startDate.value ? startDate.textInput : ''}>
 			{width => (
 				<DebounceInput
 					autoComplete="off"
@@ -41,8 +38,8 @@ function Inputs(props) {
 					type="text"
 					value={startDate.textInput}
 					style={{ width }}
-					onChange={inputManagement.onChange}
-					onFocus={event => inputManagement.onFocus(event, START_DATE)}
+					onChange={onChange}
+					onFocus={event => onFocus(event, START_DATE)}
 					inputRef={ref => {
 						if (props.startInputRef) {
 							props.startInputRef(ref);
@@ -56,10 +53,7 @@ function Inputs(props) {
 		<span className={theme.arrow}>
 			<Icon name="talend-arrow-right" className={theme.icon} />
 		</span>,
-		<InputSizer
-			placeholder={inputManagement.placeholder}
-			inputText={endDate.value ? endDate.textInput : ''}
-		>
+		<InputSizer placeholder={placeholder} inputText={endDate.value ? endDate.textInput : ''}>
 			{width => (
 				<DebounceInput
 					autoComplete="off"
@@ -68,8 +62,8 @@ function Inputs(props) {
 					type="text"
 					value={endDate.textInput}
 					style={{ width }}
-					onChange={inputManagement.onChange}
-					onFocus={event => inputManagement.onFocus(event, END_DATE)}
+					onChange={onChange}
+					onFocus={event => onFocus(event, END_DATE)}
 					inputRef={ref => {
 						if (props.endInputRef) {
 							props.endInputRef(ref);
