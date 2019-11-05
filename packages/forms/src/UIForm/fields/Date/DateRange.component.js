@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { InputDateRangePicker } from '@talend/react-components/lib/DateTimePickers';
+import { InputDatePicker } from '@talend/react-components/lib/DateTimePickers';
 
 import { convertDate, isoStrToDate } from './Date.utils';
 import FieldTemplate from '../FieldTemplate';
@@ -72,21 +72,8 @@ export default function DateRangeWidget(props) {
 			required={schema.required}
 			valueIsUpdating={valueIsUpdating}
 		>
-			<InputDateRangePicker
-				id={id}
-				autoFocus={schema.autoFocus}
-				disabled={schema.disabled || valueIsUpdating}
-				readOnly={schema.readOnly}
-				onBlur={onBlur}
-				onChange={onDatesChange}
-				dateFormat={options.dateFormat}
-				startDate={convertedStartDate}
-				endDate={convertedEndDate}
-				// eslint-disable-next-line jsx-a11y/aria-proptypes
-				aria-invalid={!isValid}
-				aria-required={schema.required}
-				aria-describedby={`${descriptionId} ${errorId}`}
-			/>
+			<InputDatePicker />
+			<InputDatePicker />
 		</FieldTemplate>
 	);
 }

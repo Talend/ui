@@ -4,7 +4,6 @@
     "type": "object",
     "title": "Key/Value",
     "properties": {
-      "simpleKeyValue": { "type": "object" },
       "advancedKeyValue": {
         "type": "object",
         "properties": {
@@ -20,40 +19,11 @@
           "value": { "type": "number" }
         },
         "required": ["key", "value"]
-      },
-      "simpleVariables": {
-        "type": "array",
-        "items": { "type": "object" }
-      },
-      "advancedVariables": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "key": {
-              "type": "string",
-              "enum": [
-                "foo",
-                "bar",
-                "fuzz",
-                "qux"
-              ]
-            },
-            "value": { "type": "number" }
-          },
-          "required": ["key"]
-        }
       }
     },
     "required": []
   },
   "uiSchema": [
-    {
-      "key": "simpleKeyValue",
-      "description": "This is a default key/value widget. Inputs are text.",
-      "title": "Simple Key/Value",
-      "widget": "keyValue"
-    },
     {
       "key": "advancedKeyValue",
       "description": "This is a customized key/value widget. Select as key, number as value.",
@@ -78,37 +48,6 @@
       ],
       "title": "Select Key/Value",
       "widget": "keyValue"
-    },
-    {
-      "key": "simpleVariables",
-      "description": "This is a simple key/value array.",
-      "itemWidget": "keyValue",
-      "reorder": false
-    },
-    {
-      "key": "advancedVariables",
-      "description": "This is an advanced key/value array.",
-      "items": [
-        {
-          "key": "advancedVariables[].key",
-          "placeholder": "Enter a key",
-          "title": "Type of things *",
-          "titleMap": {
-            "foo": "The foo option",
-            "bar": "The bar option",
-            "fuzz": "The fuzz option",
-            "qux": "The qux option"
-          },
-          "widget": "select"
-        },
-        {
-          "key": "advancedVariables[].value",
-          "placeholder": "Enter a number",
-          "title": "Number of things *"
-        }
-      ],
-      "itemWidget": "keyValue",
-      "reorder": false
     }
   ],
   "properties": {}

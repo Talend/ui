@@ -70,7 +70,7 @@ export default function InputDateRangePicker(props) {
 							{[
 								<DateRange.Inputs
 									{...inputProps}
-									id={`${props.id}-input`}
+									id={`${props.id}-inputs`}
 									key="input"
 									startInputRef={ref => {
 										startDateInputRef.current = ref;
