@@ -13,7 +13,7 @@ const isNotEmptyOrNull = value => value && value.length;
 const isObjectIdNotEmptyOrNull = value => isNotEmptyOrNull(value.id);
 
 const filterBadgeWithNoValue = ({ properties }) => {
-	if (Array.isArray(properties.value)) {
+	if (Array.isArray(properties.value) && properties.value.length) {
 		return properties.value.every(isObjectIdNotEmptyOrNull);
 	}
 	return isNotEmptyOrNull(properties.value);
