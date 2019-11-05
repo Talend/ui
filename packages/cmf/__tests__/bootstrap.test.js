@@ -48,26 +48,12 @@ jest.mock('../src/store', () => ({
 	setHttpMiddleware: jest.fn(),
 	initialize: jest.fn(() => ({ dispatch: jest.fn(), applyMiddleware: jest.fn() })),
 }));
-window.addEventListener = jest.fn();
 
 describe('bootstrap', () => {
 	beforeEach(() => {
-		window.addEventListener.mockClear();
 		onError.bootstrap.mockClear();
 	});
 	describe('error management', () => {
-		it('should call add event listener on window', () => {
-			bootstrap({});
-			expect(window.addEventListener).toHaveBeenCalled();
-			const call = window.addEventListener.mock.calls[0];
-			expect(call[0]).toBe('error');
-			const callback = call[1];
-			expect(callback({})).toBeUndefined();
-			expect(onError.report).not.toHaveBeenCalled();
-			const event = { error: new Error('foo') };
-			expect(callback(event)).toBeUndefined();
-			expect(onError.report).toHaveBeenCalledWith(event.error);
-		});
 
 		it('should bootstrap onError', () => {
 			const options = {

@@ -496,4 +496,20 @@ describe('resizeColumns', () => {
 			);
 		}
 	});
+
+	it('should not throw an exception when the last column is not resizable due to still at the min width', () => {
+		// given
+		const deltaX = 10;
+		const columnsWidths = [
+			{ dataKey: 'columnOne', minWidth: 40, resizable: true, width: 304 },
+			{ dataKey: 'columnTwo', minWidth: 40, resizable: true, width: 1376 },
+			{ dataKey: 'columnThree', minWidth: 40, resizable: true, width: 40 },
+		];
+
+		const dataKey = 'columnTwo';
+		const listWidth = 1720;
+		const testResizeColumns = () => resizeColumns(deltaX, columnsWidths, listWidth, dataKey);
+		// when
+		expect(testResizeColumns).not.toThrow();
+	});
 });

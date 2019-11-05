@@ -35,14 +35,4 @@ describe('CMF middleware', () => {
 		expect(arg.collectionId).toBe('mycollection');
 		expect(arg.data).toBe(action.response);
 	});
-	it('should call add action in error action stack', () => {
-		const action = {
-			cmf: {
-				collectionId: 'mycollection',
-			},
-			response: { somedata: true },
-		};
-		middleware(action);
-		expect(onError.addAction).toHaveBeenCalledWith(action);
-	});
 });

@@ -222,14 +222,6 @@ CalendarPicker.propTypes = {
 	 */
 	endDate: PropTypes.instanceOf(Date),
 	/**
-	 * field for picking date range start
-	 */
-	from: PropTypes.bool,
-	/**
-	 * field for picking date range end
-	 */
-	to: PropTypes.bool,
-	/**
 	 * Callback triggered when date is selected
 	 */
 	onSubmit: PropTypes.func.isRequired,

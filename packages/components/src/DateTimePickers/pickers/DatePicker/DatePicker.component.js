@@ -27,13 +27,6 @@ class DatePicker extends React.PureComponent {
 			buildWeeks,
 			(year, monthIndex, firstDayOfWeek) => `${year}-${monthIndex}|${firstDayOfWeek}`,
 		);
-
-		if (props.selectedDate && (props.startDate || props.endDate)) {
-			// eslint-disable-next-line no-console
-			console.warn(
-				'startDate and endDate are for date range, they cannot be used with selectedDate at the same time',
-			);
-		}
 	}
 
 	isSelectedDate(date) {
@@ -84,31 +77,31 @@ class DatePicker extends React.PureComponent {
 	}
 
 	isDateWithinRange(date) {
-		const { from, to, selectedDate, startDate, endDate } = this.props;
-		if (from) {
-			return isWithinRange(date, selectedDate, endDate);
-		} else if (to) {
+		const { selectedDate, startDate, endDate } = this.props;
+		if (startDate) {
 			return isWithinRange(date, startDate, selectedDate);
+		} else if (endDate) {
+			return isWithinRange(date, selectedDate, endDate);
 		}
 		return false;
 	}
 
 	isStartDate(date) {
-		const { from, to, selectedDate, startDate } = this.props;
-		if (from) {
-			return isSameDay(date, selectedDate);
-		} else if (to) {
+		const { selectedDate, startDate, endDate } = this.props;
+		if (startDate) {
 			return isSameDay(date, startDate);
+		} else if (endDate) {
+			return isSameDay(date, selectedDate);
 		}
 		return false;
 	}
 
 	isEndDate(date) {
-		const { from, to, selectedDate, endDate } = this.props;
-		if (from) {
-			return isSameDay(date, endDate);
-		} else if (to) {
+		const { selectedDate, endDate, startDate } = this.props;
+		if (startDate) {
 			return isSameDay(date, selectedDate);
+		} else if (endDate) {
+			return isSameDay(date, endDate);
 		}
 		return false;
 	}
@@ -200,11 +193,30 @@ class DatePicker extends React.PureComponent {
 									'btn-default',
 								);
 
-								let ariaLabel = format(date, 'dddd DD MMMM YYYY', pickerLocale);
 								const tdProps = {
 									key: j,
 									className: classNames(theme['calendar-col'], cellTheme),
 								};
+
+								let ariaLabel = format(date, 'dddd DD MMMM YYYY', pickerLocale);
+								if (isInRange) {
+									if (isStart) {
+										ariaLabel = t('DATEPICKER_DAY_RANGE_START', {
+											defaultValue: 'Range: start date, {{date}}',
+											date: ariaLabel,
+										});
+									} else if (isEnd) {
+										ariaLabel = t('DATEPICKER_DAY_RANGE_END', {
+											defaultValue: 'Range: end date, {{date}}',
+											date: ariaLabel,
+										});
+									} else {
+										ariaLabel = t('DATEPICKER_DAY_WITHIN_RANGE', {
+											defaultValue: 'Included in range, {{date}}',
+											date: ariaLabel,
+										});
+									}
+								}
 								if (selected) {
 									tdProps['aria-current'] = 'date';
 									ariaLabel = t('DATEPICKER_DAY_SELECTED', {
@@ -218,6 +230,7 @@ class DatePicker extends React.PureComponent {
 										date: ariaLabel,
 									});
 								}
+
 								const buttonProps = this.isCurrentMonth(date) ? { 'data-value': day } : undefined;
 								return (
 									<td {...tdProps}>

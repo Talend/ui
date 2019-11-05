@@ -13,8 +13,7 @@ export default function Picker(props) {
 				manageFocus
 				selectedDate={startDate.value}
 				endDate={endDate.value}
-				onSubmit={(...args) => pickerManagement.onSubmit(...args, START_DATE)}
-				from
+				{...pickerManagement}
 				{...props}
 			/>
 		),
@@ -23,8 +22,7 @@ export default function Picker(props) {
 				manageFocus
 				selectedDate={endDate.value}
 				startDate={startDate.value}
-				onSubmit={(...args) => pickerManagement.onSubmit(...args, END_DATE)}
-				to
+				{...pickerManagement}
 				{...props}
 			/>
 		),

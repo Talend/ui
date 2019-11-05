@@ -420,11 +420,7 @@ storiesOf('DatePicker', module)
 				<div style={{ display: 'flex', alignItems: 'flex-start' }}>
 					<div style={blockStyle}>
 						<DateManager id="simple" onChange={action('onChange')}>
-							<DatePicker
-								selectedDate={new Date(2019, 9, 24)}
-								endDate={new Date(2019, 9, 30)}
-								from
-							/>
+							<DatePicker selectedDate={new Date(2019, 9, 24)} endDate={new Date(2019, 9, 30)} />
 						</DateManager>
 					</div>
 				</div>
