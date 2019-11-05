@@ -41,7 +41,6 @@ describe('DateRange.Picker', () => {
 			other: 'custom props',
 			selectedDate: new Date(2007, 0, 2),
 			endDate: new Date(2007, 1, 2),
-			from: true,
 			t: expect.any(Function),
 		});
 	});

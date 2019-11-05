@@ -267,8 +267,6 @@ DatePicker.propTypes = {
 	selectedDate: PropTypes.instanceOf(Date),
 	startDate: PropTypes.instanceOf(Date),
 	endDate: PropTypes.instanceOf(Date),
-	from: PropTypes.bool,
-	to: PropTypes.bool,
 	isDisabledChecker: PropTypes.func,
 	onKeyDown: PropTypes.func.isRequired,
 	t: PropTypes.func,

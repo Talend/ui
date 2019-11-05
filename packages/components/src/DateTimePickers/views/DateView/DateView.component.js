@@ -32,8 +32,6 @@ class DateView extends React.PureComponent {
 		selectedDate: PropTypes.instanceOf(Date),
 		startDate: PropTypes.instanceOf(Date),
 		endDate: PropTypes.instanceOf(Date),
-		from: PropTypes.bool,
-		to: PropTypes.bool,
 		t: PropTypes.func.isRequired,
 	};
 
@@ -111,8 +109,6 @@ class DateView extends React.PureComponent {
 						selectedDate={this.props.selectedDate}
 						startDate={this.props.startDate}
 						endDate={this.props.endDate}
-						from={this.props.from}
-						to={this.props.to}
 						onSelect={this.props.onSelectDate}
 						goToPreviousMonth={this.goToPreviousMonth}
 						goToNextMonth={this.goToNextMonth}
