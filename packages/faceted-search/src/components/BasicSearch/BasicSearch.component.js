@@ -65,7 +65,7 @@ const BasicSearch = ({
 			<BadgeOverlay
 				id={basicSearchId}
 				iconName="plus-circle"
-				label={t('OPEN_ADD_FACET_BUTTON', { defaultValue: 'Add facets' })}
+				label={t('OPEN_ADD_FACET_BUTTON', { defaultValue: 'Add filter' })}
 				hideLabel
 			>
 				{setOverlayOpened => (
