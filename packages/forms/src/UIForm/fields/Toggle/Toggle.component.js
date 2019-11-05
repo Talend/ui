@@ -26,11 +26,8 @@ function ToggleWidget(props) {
 				disabled={disabled || valueIsUpdating}
 				id={id}
 				label={title}
-				onChange={event => {
-						onChange(event, { schema, value: !value });
-						onFinish(event, { schema, value: !value });
-					}
-				}
+				onBlur={event => onFinish(event, { schema })}	
+				onChange={event => onChange(event, { schema, value: !value })}
 				// eslint-disable-next-line jsx-a11y/aria-proptypes
 				aria-invalid={!isValid}
 				aria-required={schema.required}
