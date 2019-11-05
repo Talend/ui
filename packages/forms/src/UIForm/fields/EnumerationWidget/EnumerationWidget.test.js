@@ -191,7 +191,8 @@ describe('EnumerationWidget', () => {
 			.at(0)
 			.simulate('click');
 
-		wrapper.find('.tc-enumeration-header input')
+		wrapper
+			.find('.tc-enumeration-header input')
 			.at(0)
 			.simulate('change', { target: { value: 'foo' } });
 
@@ -578,16 +579,18 @@ describe('EnumerationWidget', () => {
 				', shows a loading and return to initial state when we call the success callback',
 			() => {
 				// given
-				const onTrigger = jest.fn(() => Promise.resolve([
-					{
-						id: 1,
-						values: ['val1'],
-					},
-					{
-						id: 2,
-						values: ['val2'],
-					},
-				]));
+				const onTrigger = jest.fn(() =>
+					Promise.resolve([
+						{
+							id: 1,
+							values: ['val1'],
+						},
+						{
+							id: 2,
+							values: ['val2'],
+						},
+					]),
+				);
 				const onChange = jest.fn();
 				const wrapper = mount(
 					<EnumerationWidget

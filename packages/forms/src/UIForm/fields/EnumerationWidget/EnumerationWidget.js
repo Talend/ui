@@ -1018,12 +1018,12 @@ if (process.env.NODE_ENV !== 'production') {
 		properties: PropTypes.object,
 		schema: PropTypes.object,
 		t: PropTypes.func.isRequired,
-		value: PropTypes.arrayOf(PropTypes.shape(
-			{
+		value: PropTypes.arrayOf(
+			PropTypes.shape({
 				id: PropTypes.string,
 				values: PropTypes.arrayOf(PropTypes.string),
-			}
-		)),
+			}),
+		),
 	};
 }
 
