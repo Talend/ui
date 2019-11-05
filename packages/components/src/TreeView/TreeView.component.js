@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import { Action } from '../';
+import Action from '../Actions/Action';
 import TreeViewItem from './TreeViewItem/';
 
 import theme from './TreeView.scss';
