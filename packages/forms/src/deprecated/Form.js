@@ -119,7 +119,9 @@ class Form extends React.Component {
 	render() {
 		if (this.props.uiform) {
 			return (
-				<div className="alert alert-danger">The combination of old UISpec with props.uiform is not supported anymore.</div>
+				<div className="alert alert-danger">
+					The combination of old UISpec with props.uiform is not supported anymore.
+				</div>
 			);
 		}
 		const schema = this.props.data && this.props.data.jsonSchema;
