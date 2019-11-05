@@ -75,7 +75,8 @@ describe('EnumerationWidget', () => {
 			.simulate('click');
 
 		// then
-		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		expect(wrapper.find('.tc-enumeration-header #tc-enumeration_add').length).toBe(1);
+		expect(wrapper.find('.tc-enumeration-header button').length).toBe(1);
 	});
 
 	it('should be in search mode', () => {
@@ -89,7 +90,8 @@ describe('EnumerationWidget', () => {
 			.simulate('click');
 
 		// then
-		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		expect(wrapper.find('.tc-enumeration-header #tc-enumeration_search').length).toBe(1);
+		expect(wrapper.find('.tc-enumeration-header button').length).toBe(1);
 	});
 
 	it('should be in edit mode', () => {
@@ -109,7 +111,13 @@ describe('EnumerationWidget', () => {
 			.at(0)
 			.simulate('click');
 
-		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		expect(
+			wrapper
+				.find('.tc-enumeration-item')
+				.at(0)
+				.find('input')
+				.length
+		).toBe(1);
 		expect(
 			wrapper
 				.find('.tc-enumeration-item-actions')
@@ -127,6 +135,7 @@ describe('EnumerationWidget', () => {
 				value={[{ id: '111', values: ['titi', 'tata'] }]}
 			/>,
 		);
+		expect(wrapper.find('.tc-enumeration-item').length).toBe(1);
 
 		// when
 		wrapper
@@ -136,7 +145,7 @@ describe('EnumerationWidget', () => {
 			.simulate('click');
 
 		// then
-		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		expect(wrapper.find('.tc-enumeration-item').length).toBe(0);
 	});
 
 	it('should select an item', () => {
@@ -156,7 +165,10 @@ describe('EnumerationWidget', () => {
 			.simulate('click');
 
 		// then
-		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		// number of selected item and trash icon
+		expect(wrapper.find('.tc-enumeration-header span').length).toBe(1);
+		expect(wrapper.find('.tc-enumeration-header button').length).toBe(1);
+		expect(wrapper.find('.tc-enumeration-item.selected-item').length).toBe(1);
 	});
 
 	it('should select multiple  items', () => {
@@ -174,16 +186,19 @@ describe('EnumerationWidget', () => {
 
 		// when
 		wrapper
-			.find('.tc-enumeration-item-label')
+			.find('button.tc-enumeration-item-label')
 			.at(0)
 			.simulate('click');
 		wrapper
-			.find('.tc-enumeration-item-label')
+			.find('button.tc-enumeration-item-label')
 			.at(1)
 			.simulate('click', { ctrlKey: true });
 
 		// then
-		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		// number of selected item and trash icon
+		expect(wrapper.find('.tc-enumeration-header span').length).toBe(1);
+		expect(wrapper.find('.tc-enumeration-header button').length).toBe(1);
+		expect(wrapper.find('.tc-enumeration-item.selected-item').length).toBe(2);
 	});
 
 	it('delete all', () => {
@@ -198,6 +213,8 @@ describe('EnumerationWidget', () => {
 				]}
 			/>,
 		);
+		expect(wrapper.find('.tc-enumeration-item').length).toBe(2);
+
 		wrapper
 			.find('button.tc-enumeration-item-label')
 			.at(0)
@@ -215,7 +232,7 @@ describe('EnumerationWidget', () => {
 			.simulate('click');
 
 		// then
-		expect(toJsonWithoutI18n(wrapper)).toMatchSnapshot();
+		expect(wrapper.find('.tc-enumeration-item').length).toBe(0);
 	});
 
 	it('should delete an item calling onTrigger', () => {
@@ -290,8 +307,6 @@ describe('EnumerationWidget', () => {
 				<EnumerationWidget
 					schema={{
 						allowImport: true,
-					}}
-					uiSchema={{
 						'data-feature': {
 							overwriteExisting: 'file.overwrite',
 							addFromFile: 'file.add',
@@ -401,15 +416,36 @@ describe('EnumerationWidget', () => {
 
 		it('should set header back to default and import mode to empty after upload', () => {
 			// given
+			const onTrigger = jest.fn(function () {
+				return Promise.resolve([
+					{
+						id: 1,
+						values: ['val1'],
+					}, {
+						id: 2,
+						values: ['val2'],
+					}
+				]);
+			});
+			const onChange = jest.fn();
 			const wrapper = mount(
 				<EnumerationWidget
 					schema={{
 						allowImport: true,
 					}}
+					properties={{
+						connectedMode: true,
+					}}
+					onTrigger={onTrigger}
+					onChange={onChange}
 				/>,
 			);
 
-			wrapper.instance().importFile({});
+			return wrapper.instance().importFile({
+				target: {
+					files: ['file'],
+				},
+			});
 			// loading header
 			expect(wrapper.instance().state.headerDefault.length).toBe(1);
 
@@ -486,12 +522,10 @@ describe('EnumerationWidget', () => {
 				};
 
 				wrapper.instance().resetInputFile = jest.fn();
-				// wrapper.instance().importFileHandler = jest.fn();
 
 				// when
 				return wrapper.instance().importFile(event).then(() => {
 					// then
-					// expect(wrapper.instance().importFileHandler).toBeCalled();
 					expect(onTrigger).toBeCalledWith(
 						event
 						, {

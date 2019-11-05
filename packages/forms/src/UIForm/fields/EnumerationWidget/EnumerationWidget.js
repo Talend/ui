@@ -438,7 +438,6 @@ class EnumerationForm extends React.Component {
 					}),
 				};
 				this.props.onChange(event, payload);
-				this.itemSubmitHandler();
 			}).finally(() => {
 				this.itemSubmitHandler();
 			});
@@ -484,10 +483,10 @@ class EnumerationForm extends React.Component {
 					this.props.onTrigger(event, {
 						trigger: { value: value.value, action: ENUMERATION_SEARCH_ACTION },
 						schema,
-					}).then((documents) => {
+					}).then((items) => {
 						const payload = {
 							schema,
-							value: documents.map(document => ({ id: document.id, values: document.values })),
+							value: items.map(item => ({ id: item.id, values: item.values })),
 						};
 						this.props.onChange(event, payload);
 						this.onSearchHandler(value.value);
@@ -538,10 +537,10 @@ class EnumerationForm extends React.Component {
 			this.props.onTrigger(event, {
 				trigger: { value: '', action: ENUMERATION_SEARCH_ACTION },
 				schema,
-			}).then((documents) => {
+			}).then((items) => {
 				const payload = {
 					schema,
-					value: documents.map(document => ({ id: document.id, values: document.values })),
+					value: items.map(item => ({ id: item.id, values: item.values })),
 				};
 				this.props.onChange(event, payload);
 				this.onConnectedAbortHandler();
@@ -733,11 +732,11 @@ class EnumerationForm extends React.Component {
 					numberItems: this.state.items.length
 				},
 				schema,
-			}).then((documents) => {
+			}).then((items) => {
 				const payload = {
 					schema,
 					value: this.props.value.concat(
-						documents.map(document => ({ id: document.id, values: document.values }))
+						items.map(item => ({ id: item.id, values: item.values }))
 					),
 				};
 				this.props.onChange(event, payload);
@@ -841,11 +840,11 @@ class EnumerationForm extends React.Component {
 					label: this.props.properties.label,
 				},
 				schema,
-			}).then((documents) => {
-				if (!_isEmpty(documents)) {
+			}).then((items) => {
+				if (!_isEmpty(items)) {
 					const payload = {
 						schema,
-						value: documents.map(document => ({ id: document.id, values: document.values })),
+						value: items.map(item => ({ id: item.id, values: item.values })),
 					};
 					this.props.onChange(event, payload);
 				}
