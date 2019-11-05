@@ -249,6 +249,7 @@ class EnumerationForm extends React.Component {
 			onInputChange: this.onInputChange.bind(this),
 			onAddKeyDown: this.onAddKeyDown.bind(this),
 		};
+		this.onBlur = this.onBlur.bind(this);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -258,10 +259,6 @@ class EnumerationForm extends React.Component {
 	onBlur(event) {
 		const { schema, onFinish } = this.props;
 		onFinish(event, { schema });
-	}
-
-	isConnectedMode() {
-		return !!(this.props.properties && this.props.properties.connectedMode);
 	}
 
 	onImportAppendClick() {
@@ -462,7 +459,7 @@ class EnumerationForm extends React.Component {
 					item.values = this.constructor.parseStringValueToArray(value.value);
 				}
 				if (valueExist) {
-					item.error = t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
+					item.error = this.props.t('ENUMERATION_WIDGET_DUPLICATION_ERROR', {
 						defaultValue: 'This term is already in the list',
 					});
 				}
@@ -797,6 +794,10 @@ class EnumerationForm extends React.Component {
 		return items.findIndex(currentItem => currentItem.values[0] === selectedItem.values[0]);
 	}
 
+	isConnectedMode() {
+		return !!(this.props.properties && this.props.properties.connectedMode);
+	}
+
 	itemSubmitHandler() {
 		this.setState(prevState => ({
 			itemsProp: {
@@ -836,8 +837,8 @@ class EnumerationForm extends React.Component {
 			// timeout to allow to lost the focus on the dropdown
 			setTimeout(() => {
 				this.inputFile.click();
-
-				// when we close the file dialog focus is still on the import icon. The tooltip still appears.
+				// when we close the file dialog focus is still on the import icon.
+				// The tooltip still appears.
 				// we force to remove the current focus on the icon
 				document.activeElement.blur();
 			});
@@ -859,7 +860,7 @@ class EnumerationForm extends React.Component {
 				.onTrigger(event, {
 					trigger: {
 						value: event.target.files[0],
-						action: 'ENUMERATION_IMPORT_FILE_ACTION',
+						action: ENUMERATION_IMPORT_FILE_ACTION,
 						importMode: this.state.importMode,
 						label: this.props.properties.label,
 					},
@@ -879,6 +880,7 @@ class EnumerationForm extends React.Component {
 					this.importFileHandler();
 				});
 		}
+		return Promise.resolve();
 	}
 
 	resetInputFile() {
@@ -998,7 +1000,7 @@ class EnumerationForm extends React.Component {
 				errorMessage={errorMessage}
 			>
 				{this.allowImport && this.renderImportFile()}
-				<FocusManager onFocusOut={this.onBlur.bind(this)}>
+				<FocusManager onFocusOut={this.onBlur}>
 					<Enumeration {...stateToShow} />
 				</FocusManager>
 			</FieldTemplate>
@@ -1008,11 +1010,20 @@ class EnumerationForm extends React.Component {
 
 if (process.env.NODE_ENV !== 'production') {
 	EnumerationForm.propTypes = {
-		id: PropTypes.string,
-		schema: PropTypes.object, // eslint-disable-line
+		errorMessage: PropTypes.string,
+		isValid: PropTypes.bool,
 		onChange: PropTypes.func.isRequired,
 		onFinish: PropTypes.func.isRequired,
+		onTrigger: PropTypes.func.isRequired,
+		properties: PropTypes.object,
+		schema: PropTypes.object,
 		t: PropTypes.func.isRequired,
+		value: PropTypes.arrayOf(PropTypes.shape(
+			{
+				id: PropTypes.string,
+				values: PropTypes.arrayOf(PropTypes.string),
+			}
+		)),
 	};
 }
 

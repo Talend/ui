@@ -124,9 +124,7 @@ describe('EnumerationWidget', () => {
 
 	it('should trigger rename action', () => {
 		// given
-		const onTrigger = jest.fn(function() {
-			return Promise.resolve({});
-		});
+		const onTrigger = jest.fn(() => Promise.resolve({}));
 		const wrapper = mount(
 			<EnumerationWidget
 				schema={{}}
@@ -172,9 +170,7 @@ describe('EnumerationWidget', () => {
 	it('should trigger search action', () => {
 		// given
 		jest.useFakeTimers();
-		const onTrigger = jest.fn(function () {
-			return Promise.resolve([]);
-		});
+		const onTrigger = jest.fn(() => Promise.resolve([]));
 		const wrapper = mount(
 			<EnumerationWidget
 				schema={{}}
@@ -197,7 +193,7 @@ describe('EnumerationWidget', () => {
 
 		wrapper.find('.tc-enumeration-header input')
 			.at(0)
-			.simulate('change', { target: { value: 'foo'} });
+			.simulate('change', { target: { value: 'foo' } });
 
 		jest.runAllTimers();
 
@@ -213,9 +209,7 @@ describe('EnumerationWidget', () => {
 
 	it('should trigger add action', () => {
 		// given
-		const onTrigger = jest.fn(function() {
-			return Promise.resolve({});
-		});
+		const onTrigger = jest.fn(() => Promise.resolve({}));
 		const wrapper = mount(
 			<EnumerationWidget
 				schema={{}}
@@ -362,11 +356,8 @@ describe('EnumerationWidget', () => {
 	});
 
 	it('should delete an item calling onTrigger', () => {
-		const onTrigger = jest.fn(function() {
-			return Promise.resolve({});
-		});
-
 		// given
+		const onTrigger = jest.fn(() => Promise.resolve({}));
 		const wrapper = mount(
 			<EnumerationWidget
 				properties={{
@@ -538,18 +529,6 @@ describe('EnumerationWidget', () => {
 
 		it('should set header back to default and import mode to empty after upload', () => {
 			// given
-			const onTrigger = jest.fn(function() {
-				return Promise.resolve([
-					{
-						id: 1,
-						values: ['val1'],
-					},
-					{
-						id: 2,
-						values: ['val2'],
-					},
-				]);
-			});
 			const onChange = jest.fn();
 			const wrapper = mount(
 				<EnumerationWidget
@@ -559,18 +538,9 @@ describe('EnumerationWidget', () => {
 					properties={{
 						connectedMode: true,
 					}}
-					onTrigger={onTrigger}
 					onChange={onChange}
 				/>,
 			);
-
-			return wrapper.instance().importFile({
-				target: {
-					files: ['file'],
-				},
-			});
-			// loading header
-			expect(wrapper.instance().state.headerDefault.length).toBe(1);
 
 			// when
 			wrapper.instance().importFileHandler();
@@ -608,18 +578,16 @@ describe('EnumerationWidget', () => {
 				', shows a loading and return to initial state when we call the success callback',
 			() => {
 				// given
-				const onTrigger = jest.fn(function() {
-					return Promise.resolve([
-						{
-							id: 1,
-							values: ['val1'],
-						},
-						{
-							id: 2,
-							values: ['val2'],
-						},
-					]);
-				});
+				const onTrigger = jest.fn(() => Promise.resolve([
+					{
+						id: 1,
+						values: ['val1'],
+					},
+					{
+						id: 2,
+						values: ['val2'],
+					},
+				]));
 				const onChange = jest.fn();
 				const wrapper = mount(
 					<EnumerationWidget
