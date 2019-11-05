@@ -255,9 +255,9 @@ class EnumerationForm extends React.Component {
 		this.setState(prevState => ({ ...prevState, items: nextProps.value }));
 	}
 
-	onBlur(event){
+	onBlur(event) {
 		const { schema, onFinish } = this.props;
-		onFinish(event, { schema })
+		onFinish(event, { schema });
 	}
 
 	isConnectedMode() {
@@ -267,14 +267,14 @@ class EnumerationForm extends React.Component {
 	onImportAppendClick() {
 		this.setState(
 			state => ({ ...state, importMode: enumerationStates.IMPORT_MODE_APPEND }),
-			this.simulateClickInputFile.bind(this)
+			this.simulateClickInputFile.bind(this),
 		);
 	}
 
 	onImportOverwriteClick() {
 		this.setState(
 			state => ({ ...state, importMode: enumerationStates.IMPORT_MODE_OVERWRITE }),
-			this.simulateClickInputFile.bind(this)
+			this.simulateClickInputFile.bind(this),
 		);
 	}
 
@@ -327,18 +327,21 @@ class EnumerationForm extends React.Component {
 					actionsDefault: this.loadingInputsActions,
 				},
 			}));
-			this.props.onTrigger(event, {
-				trigger: { ids: [this.state.items[value.index].id], action: ENUMERATION_REMOVE_ACTION },
-				schema,
-			}).then(() => {
-				const payload = {
+			this.props
+				.onTrigger(event, {
+					trigger: { ids: [this.state.items[value.index].id], action: ENUMERATION_REMOVE_ACTION },
 					schema,
-					value: this.state.items.filter((item, index) => index !== value.index),
-				};
-				this.props.onChange(event, payload);
-			}).finally(() => {
-				this.onDeleteItemHandler();
-			});
+				})
+				.then(() => {
+					const payload = {
+						schema,
+						value: this.state.items.filter((item, index) => index !== value.index),
+					};
+					this.props.onChange(event, payload);
+				})
+				.finally(() => {
+					this.onDeleteItemHandler();
+				});
 		} else {
 			this.setState(prevState => {
 				const items = resetItems([...prevState.items]);
@@ -419,28 +422,31 @@ class EnumerationForm extends React.Component {
 				},
 			}));
 			const formattedValue = this.constructor.parseStringValueToArray(value.value);
-			this.props.onTrigger(event, {
-				trigger: {
-					id: this.state.items[value.index].id,
-					index: value.index,
-					value: formattedValue,
-					action: ENUMERATION_RENAME_ACTION
-				},
-				schema,
-			}).then(() => {
-				const payload = {
+			this.props
+				.onTrigger(event, {
+					trigger: {
+						id: this.state.items[value.index].id,
+						index: value.index,
+						value: formattedValue,
+						action: ENUMERATION_RENAME_ACTION,
+					},
 					schema,
-					value: this.state.items.map((item, index) => {
-						if (index === value.index) {
-							return { ...item, values: formattedValue };
-						}
-						return item;
-					}),
-				};
-				this.props.onChange(event, payload);
-			}).finally(() => {
-				this.itemSubmitHandler();
-			});
+				})
+				.then(() => {
+					const payload = {
+						schema,
+						value: this.state.items.map((item, index) => {
+							if (index === value.index) {
+								return { ...item, values: formattedValue };
+							}
+							return item;
+						}),
+					};
+					this.props.onChange(event, payload);
+				})
+				.finally(() => {
+					this.itemSubmitHandler();
+				});
 		} else {
 			this.setState(prevState => {
 				const items = [...prevState.items];
@@ -480,17 +486,19 @@ class EnumerationForm extends React.Component {
 					this.setState({
 						headerInput: this.loadingInputsActions,
 					});
-					this.props.onTrigger(event, {
-						trigger: { value: value.value, action: ENUMERATION_SEARCH_ACTION },
-						schema,
-					}).then((items) => {
-						const payload = {
+					this.props
+						.onTrigger(event, {
+							trigger: { value: value.value, action: ENUMERATION_SEARCH_ACTION },
 							schema,
-							value: items.map(item => ({ id: item.id, values: item.values })),
-						};
-						this.props.onChange(event, payload);
-						this.onSearchHandler(value.value);
-					});
+						})
+						.then(items => {
+							const payload = {
+								schema,
+								value: items.map(item => ({ id: item.id, values: item.values })),
+							};
+							this.props.onChange(event, payload);
+							this.onSearchHandler(value.value);
+						});
 				} else {
 					this.setState({
 						searchCriteria: value.value,
@@ -534,17 +542,19 @@ class EnumerationForm extends React.Component {
 			this.setState({
 				headerDefault: this.loadingInputsActions,
 			});
-			this.props.onTrigger(event, {
-				trigger: { value: '', action: ENUMERATION_SEARCH_ACTION },
-				schema,
-			}).then((items) => {
-				const payload = {
+			this.props
+				.onTrigger(event, {
+					trigger: { value: '', action: ENUMERATION_SEARCH_ACTION },
 					schema,
-					value: items.map(item => ({ id: item.id, values: item.values })),
-				};
-				this.props.onChange(event, payload);
-				this.onConnectedAbortHandler();
-			});
+				})
+				.then(items => {
+					const payload = {
+						schema,
+						value: items.map(item => ({ id: item.id, values: item.values })),
+					};
+					this.props.onChange(event, payload);
+					this.onConnectedAbortHandler();
+				});
 		} else {
 			this.onConnectedAbortHandler();
 		}
@@ -627,17 +637,19 @@ class EnumerationForm extends React.Component {
 			this.setState({
 				headerSelected: this.loadingInputsActions,
 			});
-			this.props.onTrigger(event, {
-				trigger: { ids: itemsToDelete, action: ENUMERATION_REMOVE_ACTION },
-				schema,
-			}).then(() => {
-				const payload = {
+			this.props
+				.onTrigger(event, {
+					trigger: { ids: itemsToDelete, action: ENUMERATION_REMOVE_ACTION },
 					schema,
-					value: this.state.items.filter(item => !item.isSelected),
-				};
-				this.props.onChange(event, payload);
-				this.onDeleteItemsHandler();
-			});
+				})
+				.then(() => {
+					const payload = {
+						schema,
+						value: this.state.items.filter(item => !item.isSelected),
+					};
+					this.props.onChange(event, payload);
+					this.onDeleteItemsHandler();
+				});
 		} else {
 			this.setState(prevState => {
 				const result = deleteSelectedItems([...prevState.items]);
@@ -669,20 +681,28 @@ class EnumerationForm extends React.Component {
 			this.setState({
 				headerInput: this.loadingInputsActions,
 			});
-			this.props.onTrigger(event, {
-				trigger: { value: this.constructor.parseStringValueToArray(value.value), action: ENUMERATION_ADD_ACTION },
-				schema,
-			}).then((newDocument) => {
-				const payload = {
-					schema: this.props.schema,
-					value: this.props.value.concat(newDocument),
-				};
-				this.props.onChange(event, payload);
-				this.input.focus();
-				successHandler();
-			}, () => {
-				failHandler();
-			});
+			this.props
+				.onTrigger(event, {
+					trigger: {
+						value: this.constructor.parseStringValueToArray(value.value),
+						action: ENUMERATION_ADD_ACTION,
+					},
+					schema,
+				})
+				.then(
+					newDocument => {
+						const payload = {
+							schema: this.props.schema,
+							value: this.props.value.concat(newDocument),
+						};
+						this.props.onChange(event, payload);
+						this.input.focus();
+						successHandler();
+					},
+					() => {
+						failHandler();
+					},
+				);
 		} else if (!this.valueAlreadyExist(value.value, this.state)) {
 			this.setState(prevState => ({
 				items: prevState.items.concat([
@@ -703,7 +723,7 @@ class EnumerationForm extends React.Component {
 			event,
 			value,
 			this.validateAndAddSuccessHandler.bind(this),
-			this.addFailHandler.bind(this)
+			this.addFailHandler.bind(this),
 		);
 	}
 
@@ -713,7 +733,7 @@ class EnumerationForm extends React.Component {
 			value,
 			this.addSuccessHandler.bind(this),
 			this.addFailHandler.bind(this),
-			true
+			true,
 		);
 	}
 
@@ -725,24 +745,27 @@ class EnumerationForm extends React.Component {
 				headerDefault: this.loadingInputsActions,
 				headerInput: this.loadingInputsActions,
 			});
-			this.props.onTrigger(event, {
-				trigger: {
-					value: this.state.searchCriteria,
-					action: ENUMERATION_NEXT_PAGE_ACTION,
-					numberItems: this.state.items.length
-				},
-				schema,
-			}).then((items) => {
-				const payload = {
+			this.props
+				.onTrigger(event, {
+					trigger: {
+						value: this.state.searchCriteria,
+						action: ENUMERATION_NEXT_PAGE_ACTION,
+						numberItems: this.state.items.length,
+					},
 					schema,
-					value: this.props.value.concat(
-						items.map(item => ({ id: item.id, values: item.values }))
-					),
-				};
-				this.props.onChange(event, payload);
-			}).finally(() => {
-				this.onLazyHandler();
-			});
+				})
+				.then(items => {
+					const payload = {
+						schema,
+						value: this.props.value.concat(
+							items.map(item => ({ id: item.id, values: item.values })),
+						),
+					};
+					this.props.onChange(event, payload);
+				})
+				.finally(() => {
+					this.onLazyHandler();
+				});
 		}
 	}
 
@@ -750,7 +773,7 @@ class EnumerationForm extends React.Component {
 		if (this.state.items.length === 0) {
 			this.setState(
 				state => ({ ...state, importMode: enumerationStates.IMPORT_MODE_APPEND }),
-				this.simulateClickInputFile.bind(this)
+				this.simulateClickInputFile.bind(this),
 			);
 		}
 	}
@@ -832,26 +855,29 @@ class EnumerationForm extends React.Component {
 			this.setState({
 				headerDefault: this.loadingInputsActions,
 			});
-			return this.props.onTrigger(event, {
-				trigger: {
-					value: event.target.files[0],
-					action: 'ENUMERATION_IMPORT_FILE_ACTION',
-					importMode: this.state.importMode,
-					label: this.props.properties.label,
-				},
-				schema,
-			}).then((items) => {
-				if (!_isEmpty(items)) {
-					const payload = {
-						schema,
-						value: items.map(item => ({ id: item.id, values: item.values })),
-					};
-					this.props.onChange(event, payload);
-				}
-			}).finally(() => {
-				this.resetInputFile();
-				this.importFileHandler();
-			});
+			return this.props
+				.onTrigger(event, {
+					trigger: {
+						value: event.target.files[0],
+						action: 'ENUMERATION_IMPORT_FILE_ACTION',
+						importMode: this.state.importMode,
+						label: this.props.properties.label,
+					},
+					schema,
+				})
+				.then(items => {
+					if (!_isEmpty(items)) {
+						const payload = {
+							schema,
+							value: items.map(item => ({ id: item.id, values: item.values })),
+						};
+						this.props.onChange(event, payload);
+					}
+				})
+				.finally(() => {
+					this.resetInputFile();
+					this.importFileHandler();
+				});
 		}
 	}
 
@@ -964,18 +990,18 @@ class EnumerationForm extends React.Component {
 		const { description, required, title } = this.props.schema;
 		const { errorMessage, isValid } = this.props;
 		return (
-				<FieldTemplate
-					description={description}
-					label={title}
-					required={required}
-					isValid={isValid}
-					errorMessage={errorMessage}
-				>
-					{this.allowImport && this.renderImportFile()}
-					<FocusManager onFocusOut={this.onBlur.bind(this)}>
-						<Enumeration {...stateToShow} />
-					</FocusManager>
-				</FieldTemplate>
+			<FieldTemplate
+				description={description}
+				label={title}
+				required={required}
+				isValid={isValid}
+				errorMessage={errorMessage}
+			>
+				{this.allowImport && this.renderImportFile()}
+				<FocusManager onFocusOut={this.onBlur.bind(this)}>
+					<Enumeration {...stateToShow} />
+				</FocusManager>
+			</FieldTemplate>
 		);
 	}
 }

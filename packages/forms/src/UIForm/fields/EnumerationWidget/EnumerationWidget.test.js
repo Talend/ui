@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import toJsonWithoutI18n from '../../../../__mocks__/props-without-i18n';
 import TranslatedEnumeration, {
 	EnumerationForm as EnumerationWidget,
-	enumerationStates
+	enumerationStates,
 } from './EnumerationWidget';
 
 describe('EnumerationWidget', () => {
@@ -44,10 +44,7 @@ describe('EnumerationWidget', () => {
 				schema={{
 					disabled: true,
 				}}
-				value={[
-					{ id: '112', values: ['titi', 'tata'] },
-					{ id: '113', values: ['titi2', 'tata2'] },
-				]}
+				value={[{ id: '112', values: ['titi', 'tata'] }, { id: '113', values: ['titi2', 'tata2'] }]}
 			/>,
 		);
 		expect(
@@ -115,8 +112,7 @@ describe('EnumerationWidget', () => {
 			wrapper
 				.find('.tc-enumeration-item')
 				.at(0)
-				.find('input')
-				.length
+				.find('input').length,
 		).toBe(1);
 		expect(
 			wrapper
@@ -177,10 +173,7 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				schema={{}}
 				onChange={jest.fn()}
-				value={[
-					{ id: '111', values: ['titi', 'tata'] },
-					{ id: '112', values: ['titi2', 'tata2'] },
-				]}
+				value={[{ id: '111', values: ['titi', 'tata'] }, { id: '112', values: ['titi2', 'tata2'] }]}
 			/>,
 		);
 
@@ -207,10 +200,7 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				schema={{}}
 				onChange={jest.fn()}
-				value={[
-					{ id: '112', values: ['titi', 'tata'] },
-					{ id: '113', values: ['titi2', 'tata2'] },
-				]}
+				value={[{ id: '112', values: ['titi', 'tata'] }, { id: '113', values: ['titi2', 'tata2'] }]}
 			/>,
 		);
 		expect(wrapper.find('.tc-enumeration-item').length).toBe(2);
@@ -236,7 +226,7 @@ describe('EnumerationWidget', () => {
 	});
 
 	it('should delete an item calling onTrigger', () => {
-		const onTrigger = jest.fn(function () {
+		const onTrigger = jest.fn(function() {
 			return Promise.resolve({});
 		});
 
@@ -276,10 +266,7 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				schema={{}}
 				onChange={jest.fn()}
-				value={[
-					{ id: '111', values: ['titi', 'tata'] },
-					{ id: '112', values: ['toto', 'tutu'] },
-				]}
+				value={[{ id: '111', values: ['titi', 'tata'] }, { id: '112', values: ['toto', 'tutu'] }]}
 			/>,
 		);
 
@@ -332,7 +319,6 @@ describe('EnumerationWidget', () => {
 			);
 
 			wrapper.instance().simulateClickInputFile = jest.fn();
-
 
 			// when
 			wrapper
@@ -416,15 +402,16 @@ describe('EnumerationWidget', () => {
 
 		it('should set header back to default and import mode to empty after upload', () => {
 			// given
-			const onTrigger = jest.fn(function () {
+			const onTrigger = jest.fn(function() {
 				return Promise.resolve([
 					{
 						id: 1,
 						values: ['val1'],
-					}, {
+					},
+					{
 						id: 2,
 						values: ['val2'],
-					}
+					},
 				]);
 			});
 			const onChange = jest.fn();
@@ -485,15 +472,16 @@ describe('EnumerationWidget', () => {
 				', shows a loading and return to initial state when we call the success callback',
 			() => {
 				// given
-				const onTrigger = jest.fn(function () {
+				const onTrigger = jest.fn(function() {
 					return Promise.resolve([
 						{
 							id: 1,
 							values: ['val1'],
-						}, {
+						},
+						{
 							id: 2,
 							values: ['val2'],
-						}
+						},
 					]);
 				});
 				const onChange = jest.fn();
@@ -524,33 +512,27 @@ describe('EnumerationWidget', () => {
 				wrapper.instance().resetInputFile = jest.fn();
 
 				// when
-				return wrapper.instance().importFile(event).then(() => {
-					// then
-					expect(onTrigger).toBeCalledWith(
-						event
-						, {
-							schema: {"allowImport": true},
+				return wrapper
+					.instance()
+					.importFile(event)
+					.then(() => {
+						// then
+						expect(onTrigger).toBeCalledWith(event, {
+							schema: { allowImport: true },
 							trigger: {
 								action: 'ENUMERATION_IMPORT_FILE_ACTION',
 								importMode: undefined,
 								label: undefined,
-								value: 'file'
+								value: 'file',
 							},
-						}
-					);
+						});
 
-					expect(wrapper.instance().resetInputFile).toBeCalled();
-					expect(onChange).toBeCalledWith(
-						event,
-						{
-							schema: { allowImport : true },
-							value: [
-								{ id: 1, values: ['val1'] },
-								{ id: 2, values: ['val2'] }
-							],
-						},
-					);
-				});
+						expect(wrapper.instance().resetInputFile).toBeCalled();
+						expect(onChange).toBeCalledWith(event, {
+							schema: { allowImport: true },
+							value: [{ id: 1, values: ['val1'] }, { id: 2, values: ['val2'] }],
+						});
+					});
 			},
 		);
 	});

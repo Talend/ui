@@ -22,10 +22,7 @@ describe('Enumeration', () => {
 
 		it('should select a value by pressing ctrl key', () => {
 			// given
-			const items = [
-				{ values: ['toto'], isSelected: true },
-				{ values: ['tata'] },
-			];
+			const items = [{ values: ['toto'], isSelected: true }, { values: ['tata'] }];
 			const expectedItems = [
 				{ values: ['toto'], isSelected: true },
 				{ values: ['tata'], isSelected: true },
@@ -118,10 +115,7 @@ describe('Enumeration', () => {
 				{ values: ['titi'], isSelected: true },
 				{ values: ['tutu'], isSelected: true },
 			];
-			const expectedItems = [
-				{ values: ['toto'] },
-				{ values: ['tata'] },
-			];
+			const expectedItems = [{ values: ['toto'] }, { values: ['tata'] }];
 
 			// when
 			const result = deleteSelectedItems(items);
@@ -134,10 +128,7 @@ describe('Enumeration', () => {
 	describe('manage items reset ', () => {
 		it('should reset items', () => {
 			// given
-			const items = [
-				{ displayMode: 'DISPLAY_MODE_EDIT' },
-				{ displayMode: '' },
-			];
+			const items = [{ displayMode: 'DISPLAY_MODE_EDIT' }, { displayMode: '' }];
 			const expectedItems = [
 				{ displayMode: 'DISPLAY_MODE_DEFAULT' },
 				{ displayMode: 'DISPLAY_MODE_DEFAULT' },

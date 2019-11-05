@@ -22,7 +22,7 @@ export function manageCtrlKey(indexSelected, items) {
 export function manageShiftKey(indexSelected, items) {
 	const itemSelected = items[indexSelected].isSelected && items[indexSelected].isSelected === true;
 	let firstIndex = 0;
-	let	lastIndex = 0;
+	let lastIndex = 0;
 	// get first item selected
 	items.find((item, index) => {
 		if (item.isSelected) {
