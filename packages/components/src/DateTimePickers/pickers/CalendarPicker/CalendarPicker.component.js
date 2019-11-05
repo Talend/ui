@@ -145,7 +145,7 @@ class CalendarPicker extends React.Component {
 					selectedDate={this.state.selectedDate}
 					startDate={this.props.startDate}
 					endDate={this.props.endDate}
-				/>]
+				/>
 			);
 		} else {
 			viewElement = (
