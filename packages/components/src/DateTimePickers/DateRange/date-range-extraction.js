@@ -33,6 +33,7 @@ function extractPartsFromDateRange(selectedDate, { startDate, endDate, focusedIn
 		if (startDate && isBefore(parts.date, startDate)) {
 			dateParts.startDate = parts.date;
 			dateParts.startDateTextInput = parts.textInput;
+			dateParts.focusedInput = START_DATE;
 		} else {
 			dateParts.endDate = parts.date;
 			dateParts.endDateTextInput = parts.textInput;
