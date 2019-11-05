@@ -13,7 +13,6 @@ export default function Picker(props) {
 				manageFocus
 				selectedDate={startDate.value}
 				endDate={endDate.value}
-				from
 				{...pickerManagement}
 				{...props}
 			/>
@@ -23,7 +22,6 @@ export default function Picker(props) {
 				manageFocus
 				selectedDate={endDate.value}
 				startDate={startDate.value}
-				to
 				{...pickerManagement}
 				{...props}
 			/>
