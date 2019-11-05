@@ -429,61 +429,60 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                 label="Search for specific values"
                                 tooltipPlacement="top"
                               >
-                                <div
+                                <Button
+                                  active={false}
                                   aria-describedby={42}
-                                  className="theme-tc-tooltip"
+                                  aria-label="Search for specific values"
+                                  block={false}
+                                  bsClass="btn"
+                                  bsStyle="link"
+                                  className="btn-icon-only"
+                                  disabled={false}
+                                  id="search"
+                                  key=".0"
                                   onBlur={[Function]}
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onKeyPress={[Function]}
+                                  onMouseDown={[Function]}
                                   onMouseOut={[Function]}
                                   onMouseOver={[Function]}
+                                  role="link"
                                 >
-                                  <Button
-                                    active={false}
+                                  <button
                                     aria-describedby={42}
                                     aria-label="Search for specific values"
-                                    block={false}
-                                    bsClass="btn"
-                                    bsStyle="link"
-                                    className="btn-icon-only"
+                                    className="btn-icon-only btn btn-link"
                                     disabled={false}
                                     id="search"
-                                    key=".0"
+                                    onBlur={[Function]}
                                     onClick={[Function]}
+                                    onFocus={[Function]}
+                                    onKeyPress={[Function]}
                                     onMouseDown={[Function]}
+                                    onMouseOut={[Function]}
+                                    onMouseOver={[Function]}
                                     role="link"
+                                    type="button"
                                   >
-                                    <button
-                                      aria-describedby={42}
-                                      aria-label="Search for specific values"
-                                      className="btn-icon-only btn btn-link"
-                                      disabled={false}
-                                      id="search"
-                                      onClick={[Function]}
-                                      onMouseDown={[Function]}
-                                      role="link"
-                                      type="button"
+                                    <Icon
+                                      key="icon"
+                                      name="talend-search"
                                     >
-                                      <Icon
-                                        key="icon"
+                                      <svg
+                                        aria-hidden="true"
+                                        className="theme-tc-svg-icon tc-svg-icon"
+                                        focusable="false"
                                         name="talend-search"
+                                        title={null}
                                       >
-                                        <svg
-                                          aria-hidden="true"
-                                          className="theme-tc-svg-icon tc-svg-icon"
-                                          focusable="false"
-                                          name="talend-search"
-                                          title={null}
-                                        >
-                                          <use
-                                            xlinkHref="#talend-search"
-                                          />
-                                        </svg>
-                                      </Icon>
-                                    </button>
-                                  </Button>
-                                </div>
+                                        <use
+                                          xlinkHref="#talend-search"
+                                        />
+                                      </svg>
+                                    </Icon>
+                                  </button>
+                                </Button>
                               </TooltipTrigger>
                             </ActionButton>
                           </withI18nextTranslation(ActionButton)>
@@ -529,61 +528,60 @@ exports[`EnumerationWidget should be in default mode 1`] = `
                                 label="Add item"
                                 tooltipPlacement="top"
                               >
-                                <div
+                                <Button
+                                  active={false}
                                   aria-describedby={42}
-                                  className="theme-tc-tooltip"
+                                  aria-label="Add item"
+                                  block={false}
+                                  bsClass="btn"
+                                  bsStyle="link"
+                                  className="btn-icon-only"
+                                  disabled={false}
+                                  id="add"
+                                  key=".0"
                                   onBlur={[Function]}
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onKeyPress={[Function]}
+                                  onMouseDown={[Function]}
                                   onMouseOut={[Function]}
                                   onMouseOver={[Function]}
+                                  role="link"
                                 >
-                                  <Button
-                                    active={false}
+                                  <button
                                     aria-describedby={42}
                                     aria-label="Add item"
-                                    block={false}
-                                    bsClass="btn"
-                                    bsStyle="link"
-                                    className="btn-icon-only"
+                                    className="btn-icon-only btn btn-link"
                                     disabled={false}
                                     id="add"
-                                    key=".0"
+                                    onBlur={[Function]}
                                     onClick={[Function]}
+                                    onFocus={[Function]}
+                                    onKeyPress={[Function]}
                                     onMouseDown={[Function]}
+                                    onMouseOut={[Function]}
+                                    onMouseOver={[Function]}
                                     role="link"
+                                    type="button"
                                   >
-                                    <button
-                                      aria-describedby={42}
-                                      aria-label="Add item"
-                                      className="btn-icon-only btn btn-link"
-                                      disabled={false}
-                                      id="add"
-                                      onClick={[Function]}
-                                      onMouseDown={[Function]}
-                                      role="link"
-                                      type="button"
+                                    <Icon
+                                      key="icon"
+                                      name="talend-plus"
                                     >
-                                      <Icon
-                                        key="icon"
+                                      <svg
+                                        aria-hidden="true"
+                                        className="theme-tc-svg-icon tc-svg-icon"
+                                        focusable="false"
                                         name="talend-plus"
+                                        title={null}
                                       >
-                                        <svg
-                                          aria-hidden="true"
-                                          className="theme-tc-svg-icon tc-svg-icon"
-                                          focusable="false"
-                                          name="talend-plus"
-                                          title={null}
-                                        >
-                                          <use
-                                            xlinkHref="#talend-plus"
-                                          />
-                                        </svg>
-                                      </Icon>
-                                    </button>
-                                  </Button>
-                                </div>
+                                        <use
+                                          xlinkHref="#talend-plus"
+                                        />
+                                      </svg>
+                                    </Icon>
+                                  </button>
+                                </Button>
                               </TooltipTrigger>
                             </ActionButton>
                           </withI18nextTranslation(ActionButton)>
@@ -1176,61 +1174,60 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                 label="Search for specific values"
                                 tooltipPlacement="top"
                               >
-                                <div
+                                <Button
+                                  active={false}
                                   aria-describedby={42}
-                                  className="theme-tc-tooltip"
+                                  aria-label="Search for specific values"
+                                  block={false}
+                                  bsClass="btn"
+                                  bsStyle="link"
+                                  className="btn-icon-only"
+                                  disabled={false}
+                                  id="search"
+                                  key=".0"
                                   onBlur={[Function]}
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onKeyPress={[Function]}
+                                  onMouseDown={[Function]}
                                   onMouseOut={[Function]}
                                   onMouseOver={[Function]}
+                                  role="link"
                                 >
-                                  <Button
-                                    active={false}
+                                  <button
                                     aria-describedby={42}
                                     aria-label="Search for specific values"
-                                    block={false}
-                                    bsClass="btn"
-                                    bsStyle="link"
-                                    className="btn-icon-only"
+                                    className="btn-icon-only btn btn-link"
                                     disabled={false}
                                     id="search"
-                                    key=".0"
+                                    onBlur={[Function]}
                                     onClick={[Function]}
+                                    onFocus={[Function]}
+                                    onKeyPress={[Function]}
                                     onMouseDown={[Function]}
+                                    onMouseOut={[Function]}
+                                    onMouseOver={[Function]}
                                     role="link"
+                                    type="button"
                                   >
-                                    <button
-                                      aria-describedby={42}
-                                      aria-label="Search for specific values"
-                                      className="btn-icon-only btn btn-link"
-                                      disabled={false}
-                                      id="search"
-                                      onClick={[Function]}
-                                      onMouseDown={[Function]}
-                                      role="link"
-                                      type="button"
+                                    <Icon
+                                      key="icon"
+                                      name="talend-search"
                                     >
-                                      <Icon
-                                        key="icon"
+                                      <svg
+                                        aria-hidden="true"
+                                        className="theme-tc-svg-icon tc-svg-icon"
+                                        focusable="false"
                                         name="talend-search"
+                                        title={null}
                                       >
-                                        <svg
-                                          aria-hidden="true"
-                                          className="theme-tc-svg-icon tc-svg-icon"
-                                          focusable="false"
-                                          name="talend-search"
-                                          title={null}
-                                        >
-                                          <use
-                                            xlinkHref="#talend-search"
-                                          />
-                                        </svg>
-                                      </Icon>
-                                    </button>
-                                  </Button>
-                                </div>
+                                        <use
+                                          xlinkHref="#talend-search"
+                                        />
+                                      </svg>
+                                    </Icon>
+                                  </button>
+                                </Button>
                               </TooltipTrigger>
                             </ActionButton>
                           </withI18nextTranslation(ActionButton)>
@@ -1276,61 +1273,60 @@ exports[`EnumerationWidget should be in default mode 2`] = `
                                 label="Add item"
                                 tooltipPlacement="top"
                               >
-                                <div
+                                <Button
+                                  active={false}
                                   aria-describedby={42}
-                                  className="theme-tc-tooltip"
+                                  aria-label="Add item"
+                                  block={false}
+                                  bsClass="btn"
+                                  bsStyle="link"
+                                  className="btn-icon-only"
+                                  disabled={false}
+                                  id="add"
+                                  key=".0"
                                   onBlur={[Function]}
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onKeyPress={[Function]}
+                                  onMouseDown={[Function]}
                                   onMouseOut={[Function]}
                                   onMouseOver={[Function]}
+                                  role="link"
                                 >
-                                  <Button
-                                    active={false}
+                                  <button
                                     aria-describedby={42}
                                     aria-label="Add item"
-                                    block={false}
-                                    bsClass="btn"
-                                    bsStyle="link"
-                                    className="btn-icon-only"
+                                    className="btn-icon-only btn btn-link"
                                     disabled={false}
                                     id="add"
-                                    key=".0"
+                                    onBlur={[Function]}
                                     onClick={[Function]}
+                                    onFocus={[Function]}
+                                    onKeyPress={[Function]}
                                     onMouseDown={[Function]}
+                                    onMouseOut={[Function]}
+                                    onMouseOver={[Function]}
                                     role="link"
+                                    type="button"
                                   >
-                                    <button
-                                      aria-describedby={42}
-                                      aria-label="Add item"
-                                      className="btn-icon-only btn btn-link"
-                                      disabled={false}
-                                      id="add"
-                                      onClick={[Function]}
-                                      onMouseDown={[Function]}
-                                      role="link"
-                                      type="button"
+                                    <Icon
+                                      key="icon"
+                                      name="talend-plus"
                                     >
-                                      <Icon
-                                        key="icon"
+                                      <svg
+                                        aria-hidden="true"
+                                        className="theme-tc-svg-icon tc-svg-icon"
+                                        focusable="false"
                                         name="talend-plus"
+                                        title={null}
                                       >
-                                        <svg
-                                          aria-hidden="true"
-                                          className="theme-tc-svg-icon tc-svg-icon"
-                                          focusable="false"
-                                          name="talend-plus"
-                                          title={null}
-                                        >
-                                          <use
-                                            xlinkHref="#talend-plus"
-                                          />
-                                        </svg>
-                                      </Icon>
-                                    </button>
-                                  </Button>
-                                </div>
+                                        <use
+                                          xlinkHref="#talend-plus"
+                                        />
+                                      </svg>
+                                    </Icon>
+                                  </button>
+                                </Button>
                               </TooltipTrigger>
                             </ActionButton>
                           </withI18nextTranslation(ActionButton)>
@@ -1922,61 +1918,60 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                   label="Search for specific values"
                                   tooltipPlacement="top"
                                 >
-                                  <div
+                                  <Button
+                                    active={false}
                                     aria-describedby={42}
-                                    className="theme-tc-tooltip"
+                                    aria-label="Search for specific values"
+                                    block={false}
+                                    bsClass="btn"
+                                    bsStyle="link"
+                                    className="btn-icon-only"
+                                    disabled={false}
+                                    id="search"
+                                    key=".0"
                                     onBlur={[Function]}
                                     onClick={[Function]}
                                     onFocus={[Function]}
                                     onKeyPress={[Function]}
+                                    onMouseDown={[Function]}
                                     onMouseOut={[Function]}
                                     onMouseOver={[Function]}
+                                    role="link"
                                   >
-                                    <Button
-                                      active={false}
+                                    <button
                                       aria-describedby={42}
                                       aria-label="Search for specific values"
-                                      block={false}
-                                      bsClass="btn"
-                                      bsStyle="link"
-                                      className="btn-icon-only"
+                                      className="btn-icon-only btn btn-link"
                                       disabled={false}
                                       id="search"
-                                      key=".0"
+                                      onBlur={[Function]}
                                       onClick={[Function]}
+                                      onFocus={[Function]}
+                                      onKeyPress={[Function]}
                                       onMouseDown={[Function]}
+                                      onMouseOut={[Function]}
+                                      onMouseOver={[Function]}
                                       role="link"
+                                      type="button"
                                     >
-                                      <button
-                                        aria-describedby={42}
-                                        aria-label="Search for specific values"
-                                        className="btn-icon-only btn btn-link"
-                                        disabled={false}
-                                        id="search"
-                                        onClick={[Function]}
-                                        onMouseDown={[Function]}
-                                        role="link"
-                                        type="button"
+                                      <Icon
+                                        key="icon"
+                                        name="talend-search"
                                       >
-                                        <Icon
-                                          key="icon"
+                                        <svg
+                                          aria-hidden="true"
+                                          className="theme-tc-svg-icon tc-svg-icon"
+                                          focusable="false"
                                           name="talend-search"
+                                          title={null}
                                         >
-                                          <svg
-                                            aria-hidden="true"
-                                            className="theme-tc-svg-icon tc-svg-icon"
-                                            focusable="false"
-                                            name="talend-search"
-                                            title={null}
-                                          >
-                                            <use
-                                              xlinkHref="#talend-search"
-                                            />
-                                          </svg>
-                                        </Icon>
-                                      </button>
-                                    </Button>
-                                  </div>
+                                          <use
+                                            xlinkHref="#talend-search"
+                                          />
+                                        </svg>
+                                      </Icon>
+                                    </button>
+                                  </Button>
                                 </TooltipTrigger>
                               </ActionButton>
                             </withI18nextTranslation(ActionButton)>
@@ -2022,61 +2017,60 @@ exports[`EnumerationWidget should wrapped in Translate component 1`] = `
                                   label="Add item"
                                   tooltipPlacement="top"
                                 >
-                                  <div
+                                  <Button
+                                    active={false}
                                     aria-describedby={42}
-                                    className="theme-tc-tooltip"
+                                    aria-label="Add item"
+                                    block={false}
+                                    bsClass="btn"
+                                    bsStyle="link"
+                                    className="btn-icon-only"
+                                    disabled={false}
+                                    id="add"
+                                    key=".0"
                                     onBlur={[Function]}
                                     onClick={[Function]}
                                     onFocus={[Function]}
                                     onKeyPress={[Function]}
+                                    onMouseDown={[Function]}
                                     onMouseOut={[Function]}
                                     onMouseOver={[Function]}
+                                    role="link"
                                   >
-                                    <Button
-                                      active={false}
+                                    <button
                                       aria-describedby={42}
                                       aria-label="Add item"
-                                      block={false}
-                                      bsClass="btn"
-                                      bsStyle="link"
-                                      className="btn-icon-only"
+                                      className="btn-icon-only btn btn-link"
                                       disabled={false}
                                       id="add"
-                                      key=".0"
+                                      onBlur={[Function]}
                                       onClick={[Function]}
+                                      onFocus={[Function]}
+                                      onKeyPress={[Function]}
                                       onMouseDown={[Function]}
+                                      onMouseOut={[Function]}
+                                      onMouseOver={[Function]}
                                       role="link"
+                                      type="button"
                                     >
-                                      <button
-                                        aria-describedby={42}
-                                        aria-label="Add item"
-                                        className="btn-icon-only btn btn-link"
-                                        disabled={false}
-                                        id="add"
-                                        onClick={[Function]}
-                                        onMouseDown={[Function]}
-                                        role="link"
-                                        type="button"
+                                      <Icon
+                                        key="icon"
+                                        name="talend-plus"
                                       >
-                                        <Icon
-                                          key="icon"
+                                        <svg
+                                          aria-hidden="true"
+                                          className="theme-tc-svg-icon tc-svg-icon"
+                                          focusable="false"
                                           name="talend-plus"
+                                          title={null}
                                         >
-                                          <svg
-                                            aria-hidden="true"
-                                            className="theme-tc-svg-icon tc-svg-icon"
-                                            focusable="false"
-                                            name="talend-plus"
-                                            title={null}
-                                          >
-                                            <use
-                                              xlinkHref="#talend-plus"
-                                            />
-                                          </svg>
-                                        </Icon>
-                                      </button>
-                                    </Button>
-                                  </div>
+                                          <use
+                                            xlinkHref="#talend-plus"
+                                          />
+                                        </svg>
+                                      </Icon>
+                                    </button>
+                                  </Button>
                                 </TooltipTrigger>
                               </ActionButton>
                             </withI18nextTranslation(ActionButton)>
@@ -2770,61 +2764,60 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                 label="Search for specific values"
                                 tooltipPlacement="top"
                               >
-                                <div
+                                <Button
+                                  active={false}
                                   aria-describedby={42}
-                                  className="theme-tc-tooltip"
+                                  aria-label="Search for specific values"
+                                  block={false}
+                                  bsClass="btn"
+                                  bsStyle="link"
+                                  className="btn-icon-only"
+                                  disabled={false}
+                                  id="search"
+                                  key=".0"
                                   onBlur={[Function]}
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onKeyPress={[Function]}
+                                  onMouseDown={[Function]}
                                   onMouseOut={[Function]}
                                   onMouseOver={[Function]}
+                                  role="link"
                                 >
-                                  <Button
-                                    active={false}
+                                  <button
                                     aria-describedby={42}
                                     aria-label="Search for specific values"
-                                    block={false}
-                                    bsClass="btn"
-                                    bsStyle="link"
-                                    className="btn-icon-only"
+                                    className="btn-icon-only btn btn-link"
                                     disabled={false}
                                     id="search"
-                                    key=".0"
+                                    onBlur={[Function]}
                                     onClick={[Function]}
+                                    onFocus={[Function]}
+                                    onKeyPress={[Function]}
                                     onMouseDown={[Function]}
+                                    onMouseOut={[Function]}
+                                    onMouseOver={[Function]}
                                     role="link"
+                                    type="button"
                                   >
-                                    <button
-                                      aria-describedby={42}
-                                      aria-label="Search for specific values"
-                                      className="btn-icon-only btn btn-link"
-                                      disabled={false}
-                                      id="search"
-                                      onClick={[Function]}
-                                      onMouseDown={[Function]}
-                                      role="link"
-                                      type="button"
+                                    <Icon
+                                      key="icon"
+                                      name="talend-search"
                                     >
-                                      <Icon
-                                        key="icon"
+                                      <svg
+                                        aria-hidden="true"
+                                        className="theme-tc-svg-icon tc-svg-icon"
+                                        focusable="false"
                                         name="talend-search"
+                                        title={null}
                                       >
-                                        <svg
-                                          aria-hidden="true"
-                                          className="theme-tc-svg-icon tc-svg-icon"
-                                          focusable="false"
-                                          name="talend-search"
-                                          title={null}
-                                        >
-                                          <use
-                                            xlinkHref="#talend-search"
-                                          />
-                                        </svg>
-                                      </Icon>
-                                    </button>
-                                  </Button>
-                                </div>
+                                        <use
+                                          xlinkHref="#talend-search"
+                                        />
+                                      </svg>
+                                    </Icon>
+                                  </button>
+                                </Button>
                               </TooltipTrigger>
                             </ActionButton>
                           </withI18nextTranslation(ActionButton)>
@@ -2897,196 +2890,237 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                               label="Import values from a file"
                               tooltipPlacement="top"
                             >
-                              <div
+                              <DropdownButton
                                 aria-describedby={42}
-                                className="theme-tc-tooltip"
+                                aria-label="Import values from a file"
+                                bsStyle="link"
+                                btooltipPlacement="bottom"
+                                className="theme-tc-dropdown-button tc-dropdown-button"
+                                data-feature="file.import"
+                                displayMode="dropdown"
+                                i18n={Object {}}
+                                id="upload"
+                                key=".0"
+                                noCaret={true}
                                 onBlur={[Function]}
                                 onClick={[Function]}
                                 onFocus={[Function]}
                                 onKeyPress={[Function]}
                                 onMouseOut={[Function]}
                                 onMouseOver={[Function]}
+                                onSelect={[Function]}
+                                onToggle={[Function]}
+                                pullRight={true}
+                                role="button"
+                                title={
+                                  Array [
+                                    <Icon
+                                      name="talend-download"
+                                    />,
+                                    null,
+                                    <Icon
+                                      className="theme-tc-dropdown-caret"
+                                      name="talend-caret-down"
+                                    />,
+                                  ]
+                                }
                               >
-                                <DropdownButton
-                                  aria-describedby={42}
-                                  aria-label="Import values from a file"
+                                <Uncontrolled(Dropdown)
                                   bsStyle="link"
-                                  btooltipPlacement="bottom"
-                                  className="theme-tc-dropdown-button tc-dropdown-button"
-                                  data-feature="file.import"
-                                  displayMode="dropdown"
-                                  i18n={Object {}}
                                   id="upload"
-                                  key=".0"
-                                  noCaret={true}
-                                  onClick={[Function]}
                                   onSelect={[Function]}
                                   onToggle={[Function]}
                                   pullRight={true}
                                   role="button"
-                                  title={
-                                    Array [
-                                      <Icon
-                                        name="talend-download"
-                                      />,
-                                      null,
-                                    ]
-                                  }
                                 >
-                                  <Uncontrolled(Dropdown)
+                                  <Dropdown
+                                    bsClass="dropdown"
                                     bsStyle="link"
+                                    componentClass={[Function]}
                                     id="upload"
                                     onSelect={[Function]}
                                     onToggle={[Function]}
                                     pullRight={true}
                                     role="button"
                                   >
-                                    <Dropdown
-                                      bsClass="dropdown"
+                                    <ButtonGroup
+                                      block={false}
+                                      bsClass="btn-group"
                                       bsStyle="link"
-                                      componentClass={[Function]}
-                                      id="upload"
-                                      onSelect={[Function]}
-                                      onToggle={[Function]}
-                                      pullRight={true}
-                                      role="button"
+                                      className="dropdown"
+                                      justified={false}
+                                      vertical={false}
                                     >
-                                      <ButtonGroup
-                                        block={false}
-                                        bsClass="btn-group"
-                                        bsStyle="link"
-                                        className="dropdown"
-                                        justified={false}
-                                        vertical={false}
+                                      <div
+                                        className="dropdown btn-group btn-group-link"
                                       >
-                                        <div
-                                          className="dropdown btn-group btn-group-link"
+                                        <DropdownToggle
+                                          aria-describedby={42}
+                                          aria-label="Import values from a file"
+                                          bsClass="dropdown-toggle"
+                                          bsRole="toggle"
+                                          bsStyle="link"
+                                          btooltipPlacement="bottom"
+                                          className="theme-tc-dropdown-button tc-dropdown-button"
+                                          data-feature="file.import"
+                                          displayMode="dropdown"
+                                          i18n={Object {}}
+                                          id="upload"
+                                          key=".0"
+                                          noCaret={true}
+                                          onBlur={[Function]}
+                                          onClick={[Function]}
+                                          onFocus={[Function]}
+                                          onKeyDown={[Function]}
+                                          onKeyPress={[Function]}
+                                          onMouseOut={[Function]}
+                                          onMouseOver={[Function]}
+                                          open={false}
+                                          role="button"
+                                          useAnchor={false}
                                         >
-                                          <DropdownToggle
+                                          <Button
+                                            active={false}
                                             aria-describedby={42}
+                                            aria-expanded={false}
+                                            aria-haspopup={true}
                                             aria-label="Import values from a file"
-                                            bsClass="dropdown-toggle"
-                                            bsRole="toggle"
+                                            block={false}
+                                            bsClass="btn"
                                             bsStyle="link"
                                             btooltipPlacement="bottom"
-                                            className="theme-tc-dropdown-button tc-dropdown-button"
+                                            className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle"
                                             data-feature="file.import"
+                                            disabled={false}
                                             displayMode="dropdown"
                                             i18n={Object {}}
                                             id="upload"
-                                            key=".0"
-                                            noCaret={true}
+                                            onBlur={[Function]}
                                             onClick={[Function]}
+                                            onFocus={[Function]}
                                             onKeyDown={[Function]}
-                                            open={false}
+                                            onKeyPress={[Function]}
+                                            onMouseOut={[Function]}
+                                            onMouseOver={[Function]}
                                             role="button"
-                                            useAnchor={false}
                                           >
-                                            <Button
-                                              active={false}
+                                            <button
                                               aria-describedby={42}
                                               aria-expanded={false}
                                               aria-haspopup={true}
                                               aria-label="Import values from a file"
-                                              block={false}
-                                              bsClass="btn"
-                                              bsStyle="link"
                                               btooltipPlacement="bottom"
-                                              className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle"
+                                              className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
                                               data-feature="file.import"
                                               disabled={false}
                                               displayMode="dropdown"
                                               i18n={Object {}}
                                               id="upload"
+                                              onBlur={[Function]}
                                               onClick={[Function]}
+                                              onFocus={[Function]}
                                               onKeyDown={[Function]}
+                                              onKeyPress={[Function]}
+                                              onMouseOut={[Function]}
+                                              onMouseOver={[Function]}
                                               role="button"
+                                              type="button"
                                             >
-                                              <button
-                                                aria-describedby={42}
-                                                aria-expanded={false}
-                                                aria-haspopup={true}
-                                                aria-label="Import values from a file"
-                                                btooltipPlacement="bottom"
-                                                className="theme-tc-dropdown-button tc-dropdown-button dropdown-toggle btn btn-link"
-                                                data-feature="file.import"
+                                              <Icon
+                                                key="icon"
+                                                name="talend-download"
+                                              >
+                                                <svg
+                                                  aria-hidden="true"
+                                                  className="theme-tc-svg-icon tc-svg-icon"
+                                                  focusable="false"
+                                                  name="talend-download"
+                                                  title={null}
+                                                >
+                                                  <use
+                                                    xlinkHref="#talend-download"
+                                                  />
+                                                </svg>
+                                              </Icon>
+                                              <Icon
+                                                className="theme-tc-dropdown-caret"
+                                                name="talend-caret-down"
+                                              >
+                                                <svg
+                                                  aria-hidden="true"
+                                                  className="theme-tc-svg-icon tc-svg-icon theme-tc-dropdown-caret"
+                                                  focusable="false"
+                                                  name="talend-caret-down"
+                                                  title={null}
+                                                >
+                                                  <use
+                                                    xlinkHref="#talend-caret-down"
+                                                  />
+                                                </svg>
+                                              </Icon>
+                                            </button>
+                                          </Button>
+                                        </DropdownToggle>
+                                        <DropdownMenu
+                                          bsClass="dropdown-menu"
+                                          bsRole="menu"
+                                          key=".1"
+                                          labelledBy="upload"
+                                          onClose={[Function]}
+                                          onSelect={[Function]}
+                                          pullRight={true}
+                                        >
+                                          <RootCloseWrapper
+                                            disabled={true}
+                                            event="click"
+                                            onRootClose={[Function]}
+                                          >
+                                            <ul
+                                              aria-labelledby="upload"
+                                              className="dropdown-menu dropdown-menu-right"
+                                              role="menu"
+                                            >
+                                              <MenuItem
+                                                bsClass="dropdown"
+                                                className="theme-tc-dropdown-item tc-dropdown-item"
+                                                data-feature="file.add"
                                                 disabled={false}
-                                                displayMode="dropdown"
-                                                i18n={Object {}}
-                                                id="upload"
+                                                divider={false}
+                                                eventKey={
+                                                  Object {
+                                                    "data-feature": "file.add",
+                                                    "id": "append-uploading",
+                                                    "label": "Add values from a file",
+                                                    "onClick": [Function],
+                                                  }
+                                                }
+                                                header={false}
+                                                id="append-uploading"
+                                                key=".2:$0"
+                                                label="Add values from a file"
                                                 onClick={[Function]}
                                                 onKeyDown={[Function]}
-                                                role="button"
-                                                type="button"
+                                                onSelect={[Function]}
+                                                title="Add values from a file"
                                               >
-                                                <Icon
-                                                  key="icon"
-                                                  name="talend-download"
-                                                >
-                                                  <svg
-                                                    aria-hidden="true"
-                                                    className="theme-tc-svg-icon tc-svg-icon"
-                                                    focusable="false"
-                                                    name="talend-download"
-                                                    title={null}
-                                                  >
-                                                    <use
-                                                      xlinkHref="#talend-download"
-                                                    />
-                                                  </svg>
-                                                </Icon>
-                                              </button>
-                                            </Button>
-                                          </DropdownToggle>
-                                          <DropdownMenu
-                                            bsClass="dropdown-menu"
-                                            bsRole="menu"
-                                            key=".1"
-                                            labelledBy="upload"
-                                            onClose={[Function]}
-                                            onSelect={[Function]}
-                                            pullRight={true}
-                                          >
-                                            <RootCloseWrapper
-                                              disabled={true}
-                                              event="click"
-                                              onRootClose={[Function]}
-                                            >
-                                              <ul
-                                                aria-labelledby="upload"
-                                                className="dropdown-menu dropdown-menu-right"
-                                                role="menu"
-                                              >
-                                                <MenuItem
-                                                  bsClass="dropdown"
+                                                <li
                                                   className="theme-tc-dropdown-item tc-dropdown-item"
-                                                  data-feature="file.add"
-                                                  disabled={false}
-                                                  divider={false}
-                                                  eventKey={
-                                                    Object {
-                                                      "data-feature": "file.add",
-                                                      "id": "append-uploading",
-                                                      "label": "Add values from a file",
-                                                      "onClick": [Function],
-                                                    }
-                                                  }
-                                                  header={false}
-                                                  id="append-uploading"
-                                                  key=".2:$0"
-                                                  label="Add values from a file"
-                                                  onClick={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  onSelect={[Function]}
-                                                  title="Add values from a file"
+                                                  role="presentation"
                                                 >
-                                                  <li
-                                                    className="theme-tc-dropdown-item tc-dropdown-item"
-                                                    role="presentation"
+                                                  <SafeAnchor
+                                                    componentClass="a"
+                                                    data-feature="file.add"
+                                                    id="append-uploading"
+                                                    label="Add values from a file"
+                                                    onClick={[Function]}
+                                                    onKeyDown={[Function]}
+                                                    role="menuitem"
+                                                    tabIndex="-1"
+                                                    title="Add values from a file"
                                                   >
-                                                    <SafeAnchor
-                                                      componentClass="a"
+                                                    <a
                                                       data-feature="file.add"
+                                                      href="#"
                                                       id="append-uploading"
                                                       label="Add values from a file"
                                                       onClick={[Function]}
@@ -3095,52 +3129,52 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                                       tabIndex="-1"
                                                       title="Add values from a file"
                                                     >
-                                                      <a
-                                                        data-feature="file.add"
-                                                        href="#"
-                                                        id="append-uploading"
-                                                        label="Add values from a file"
-                                                        onClick={[Function]}
-                                                        onKeyDown={[Function]}
-                                                        role="menuitem"
-                                                        tabIndex="-1"
-                                                        title="Add values from a file"
-                                                      >
-                                                        Add values from a file
-                                                      </a>
-                                                    </SafeAnchor>
-                                                  </li>
-                                                </MenuItem>
-                                                <MenuItem
-                                                  bsClass="dropdown"
-                                                  className="theme-tc-dropdown-item tc-dropdown-item"
-                                                  data-feature="file.overwrite"
-                                                  disabled={false}
-                                                  divider={false}
-                                                  eventKey={
-                                                    Object {
-                                                      "data-feature": "file.overwrite",
-                                                      "id": "overwrite-uploading",
-                                                      "label": "Overwrite existing values",
-                                                      "onClick": [Function],
-                                                    }
+                                                      Add values from a file
+                                                    </a>
+                                                  </SafeAnchor>
+                                                </li>
+                                              </MenuItem>
+                                              <MenuItem
+                                                bsClass="dropdown"
+                                                className="theme-tc-dropdown-item tc-dropdown-item"
+                                                data-feature="file.overwrite"
+                                                disabled={false}
+                                                divider={false}
+                                                eventKey={
+                                                  Object {
+                                                    "data-feature": "file.overwrite",
+                                                    "id": "overwrite-uploading",
+                                                    "label": "Overwrite existing values",
+                                                    "onClick": [Function],
                                                   }
-                                                  header={false}
-                                                  id="overwrite-uploading"
-                                                  key=".2:$1"
-                                                  label="Overwrite existing values"
-                                                  onClick={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  onSelect={[Function]}
-                                                  title="Overwrite existing values"
+                                                }
+                                                header={false}
+                                                id="overwrite-uploading"
+                                                key=".2:$1"
+                                                label="Overwrite existing values"
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
+                                                onSelect={[Function]}
+                                                title="Overwrite existing values"
+                                              >
+                                                <li
+                                                  className="theme-tc-dropdown-item tc-dropdown-item"
+                                                  role="presentation"
                                                 >
-                                                  <li
-                                                    className="theme-tc-dropdown-item tc-dropdown-item"
-                                                    role="presentation"
+                                                  <SafeAnchor
+                                                    componentClass="a"
+                                                    data-feature="file.overwrite"
+                                                    id="overwrite-uploading"
+                                                    label="Overwrite existing values"
+                                                    onClick={[Function]}
+                                                    onKeyDown={[Function]}
+                                                    role="menuitem"
+                                                    tabIndex="-1"
+                                                    title="Overwrite existing values"
                                                   >
-                                                    <SafeAnchor
-                                                      componentClass="a"
+                                                    <a
                                                       data-feature="file.overwrite"
+                                                      href="#"
                                                       id="overwrite-uploading"
                                                       label="Overwrite existing values"
                                                       onClick={[Function]}
@@ -3149,31 +3183,19 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                                       tabIndex="-1"
                                                       title="Overwrite existing values"
                                                     >
-                                                      <a
-                                                        data-feature="file.overwrite"
-                                                        href="#"
-                                                        id="overwrite-uploading"
-                                                        label="Overwrite existing values"
-                                                        onClick={[Function]}
-                                                        onKeyDown={[Function]}
-                                                        role="menuitem"
-                                                        tabIndex="-1"
-                                                        title="Overwrite existing values"
-                                                      >
-                                                        Overwrite existing values
-                                                      </a>
-                                                    </SafeAnchor>
-                                                  </li>
-                                                </MenuItem>
-                                              </ul>
-                                            </RootCloseWrapper>
-                                          </DropdownMenu>
-                                        </div>
-                                      </ButtonGroup>
-                                    </Dropdown>
-                                  </Uncontrolled(Dropdown)>
-                                </DropdownButton>
-                              </div>
+                                                      Overwrite existing values
+                                                    </a>
+                                                  </SafeAnchor>
+                                                </li>
+                                              </MenuItem>
+                                            </ul>
+                                          </RootCloseWrapper>
+                                        </DropdownMenu>
+                                      </div>
+                                    </ButtonGroup>
+                                  </Dropdown>
+                                </Uncontrolled(Dropdown)>
+                              </DropdownButton>
                             </TooltipTrigger>
                           </ActionDropdown>
                         </withI18nextTranslation(ActionDropdown)>
@@ -3218,61 +3240,60 @@ exports[`EnumerationWidget upload file should add a upload icon and set data-fea
                                 label="Add item"
                                 tooltipPlacement="top"
                               >
-                                <div
+                                <Button
+                                  active={false}
                                   aria-describedby={42}
-                                  className="theme-tc-tooltip"
+                                  aria-label="Add item"
+                                  block={false}
+                                  bsClass="btn"
+                                  bsStyle="link"
+                                  className="btn-icon-only"
+                                  disabled={false}
+                                  id="add"
+                                  key=".0"
                                   onBlur={[Function]}
                                   onClick={[Function]}
                                   onFocus={[Function]}
                                   onKeyPress={[Function]}
+                                  onMouseDown={[Function]}
                                   onMouseOut={[Function]}
                                   onMouseOver={[Function]}
+                                  role="link"
                                 >
-                                  <Button
-                                    active={false}
+                                  <button
                                     aria-describedby={42}
                                     aria-label="Add item"
-                                    block={false}
-                                    bsClass="btn"
-                                    bsStyle="link"
-                                    className="btn-icon-only"
+                                    className="btn-icon-only btn btn-link"
                                     disabled={false}
                                     id="add"
-                                    key=".0"
+                                    onBlur={[Function]}
                                     onClick={[Function]}
+                                    onFocus={[Function]}
+                                    onKeyPress={[Function]}
                                     onMouseDown={[Function]}
+                                    onMouseOut={[Function]}
+                                    onMouseOver={[Function]}
                                     role="link"
+                                    type="button"
                                   >
-                                    <button
-                                      aria-describedby={42}
-                                      aria-label="Add item"
-                                      className="btn-icon-only btn btn-link"
-                                      disabled={false}
-                                      id="add"
-                                      onClick={[Function]}
-                                      onMouseDown={[Function]}
-                                      role="link"
-                                      type="button"
+                                    <Icon
+                                      key="icon"
+                                      name="talend-plus"
                                     >
-                                      <Icon
-                                        key="icon"
+                                      <svg
+                                        aria-hidden="true"
+                                        className="theme-tc-svg-icon tc-svg-icon"
+                                        focusable="false"
                                         name="talend-plus"
+                                        title={null}
                                       >
-                                        <svg
-                                          aria-hidden="true"
-                                          className="theme-tc-svg-icon tc-svg-icon"
-                                          focusable="false"
-                                          name="talend-plus"
-                                          title={null}
-                                        >
-                                          <use
-                                            xlinkHref="#talend-plus"
-                                          />
-                                        </svg>
-                                      </Icon>
-                                    </button>
-                                  </Button>
-                                </div>
+                                        <use
+                                          xlinkHref="#talend-plus"
+                                        />
+                                      </svg>
+                                    </Icon>
+                                  </button>
+                                </Button>
                               </TooltipTrigger>
                             </ActionButton>
                           </withI18nextTranslation(ActionButton)>
