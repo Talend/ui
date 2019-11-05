@@ -5,6 +5,7 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import Inject from '@talend/react-components/lib/Inject';
 import Skeleton from '@talend/react-components/lib/Skeleton';
+import debounce from 'lodash/debounce';
 
 import DefaultHeaderRenderer, { HEADER_RENDERER_COMPONENT } from '../DefaultHeaderRenderer';
 import DefaultCellRenderer, { CELL_RENDERER_COMPONENT } from '../DefaultCellRenderer';
@@ -92,6 +93,7 @@ export default class DataGrid extends React.Component {
 		this.onFocusedCell = this.onFocusedCell.bind(this);
 		this.onGridReady = this.onGridReady.bind(this);
 		this.onBodyScroll = this.onBodyScroll.bind(this);
+		this.onBodyScroll = debounce(this.onBodyScroll.bind(this), 300, { trailing: true });
 		this.setGridInstance = this.setGridInstance.bind(this);
 		this.setCurrentFocusedColumn = this.setCurrentFocusedColumn.bind(this);
 		this.updateStyleFocusColumn = this.updateStyleFocusColumn.bind(this);
@@ -165,6 +167,7 @@ export default class DataGrid extends React.Component {
 	}
 
 	onBodyScroll(event) {
+		console.log('onBodyScroll');
 		if (event.direction === AG_GRID.SCROLL_VERTICAL_DIRECTION) {
 			this.props.onVerticalScroll(event, {
 				firstDisplayedRowIndex: this.gridAPI.getFirstDisplayedRow(),
@@ -236,14 +239,17 @@ export default class DataGrid extends React.Component {
 				columnDefs.map(columnDef => ({
 					lockPinned: true,
 					minWidth: this.props.columnMinWidth,
-					valueGetter: this.props.getCellValueFn,
 					width: CELL_WIDTH,
 					resizable: this.props.enableColResize,
 					...columnDef,
-					valueGetter: params => {
-						return params.data[columnDef.field].value;
+					valueGetter: params =>
+						params.data[columnDef.field] ? params.data[columnDef.field].value : '',
+
+					cellClassRules: {
+						'cell-invalid': params =>
+							params.data[columnDef.field] && params.data[columnDef.field].quality === -1,
+						'cell-loading': params => params.data.loading,
 					},
-					cellClass: params => (!params.data[columnDef.field].quality ? 'cell-invalid' : ''),
 					[AG_GRID.CUSTOM_HEADER_KEY]: HEADER_RENDERER_COMPONENT,
 				})),
 			);

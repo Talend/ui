@@ -91,23 +91,34 @@ $td-datagrid-skeleton-height: 9.6rem !default;
 	}
 
 	:global(.ag-center-cols-container .ag-cell-value) {
-		padding-top: 6px;
-		padding-left: 5px;
-		font-size: 16px;
+		font-size: 14px;
+		padding: 1rem;
 	}
 
 	:global(.ag-center-cols-container .ag-cell-value.cell-invalid) {
-		&:hover:before {
-			width: 5px;
-		}
-
 		&:before {
 			content: '';
-			width: 3px;
+			width: 0.3rem;
 			height: 100%;
-			background-color: red;
+			background-color: $td-quality-bar-invalid-background-color;
 			position: absolute;
+			top: 0;
 			left: 0;
+		}
+	}
+
+	:global(.ag-center-cols-container .ag-cell-value.cell-loading) {
+		background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+		// animation: shine-lines 1.6s infinite linear;
+		background-clip: content-box;
+	}
+
+	@keyframes shine-lines {
+		0% {
+			background-position: 0px;
+		}
+		100% {
+			background-position: 150px;
 		}
 	}
 }
