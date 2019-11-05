@@ -14,14 +14,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   75:14  error  'useSeconds' PropType is defined but prop is never used  react/no-unused-prop-types
   76:10  error  'useUTC' PropType is defined but prop is never used      react/no-unused-prop-types
 
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/pickers/CalendarPicker/CalendarPicker.component.js
-  148:23  error  'from' is missing in props validation  react/prop-types
-  149:21  error  'to' is missing in props validation    react/prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/pickers/DatePicker/DatePicker.component.js
-  270:8  error  'from' PropType is defined but prop is never used  react/no-unused-prop-types
-  271:6  error  'to' PropType is defined but prop is never used    react/no-unused-prop-types
-
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/shared/error-messages.js
    7:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
    9:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
@@ -68,6 +60,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   42:3  warning  Unexpected console statement  no-console
   71:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
 
-✖ 36 problems (33 errors, 3 warnings)
+✖ 32 problems (29 errors, 3 warnings)
   1 error, 0 warnings potentially fixable with the `--fix` option.
 
