@@ -124,7 +124,7 @@ describe('EnumerationWidget', () => {
 
 	it('should trigger rename action', () => {
 		// given
-		const onTrigger = jest.fn(function () {
+		const onTrigger = jest.fn(function() {
 			return Promise.resolve({});
 		});
 		const wrapper = mount(
@@ -146,7 +146,10 @@ describe('EnumerationWidget', () => {
 			.at(0)
 			.simulate('click');
 
-		wrapper.find('.tc-enumeration-item input').at(0).instance().value = "foo";
+		wrapper
+			.find('.tc-enumeration-item input')
+			.at(0)
+			.instance().value = 'foo';
 
 		wrapper
 			.find('.tc-enumeration-item-actions')
@@ -168,7 +171,7 @@ describe('EnumerationWidget', () => {
 
 	it('should trigger add action', () => {
 		// given
-		const onTrigger = jest.fn(function () {
+		const onTrigger = jest.fn(function() {
 			return Promise.resolve({});
 		});
 		const wrapper = mount(
@@ -191,9 +194,10 @@ describe('EnumerationWidget', () => {
 			.at(1)
 			.simulate('click');
 
-		wrapper.find('.tc-enumeration-header input')
+		wrapper
+			.find('.tc-enumeration-header input')
 			.at(0)
-			.simulate('change', { target: { value: 'foo'} });
+			.simulate('change', { target: { value: 'foo' } });
 
 		// trigger add action
 		wrapper
