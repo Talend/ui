@@ -169,6 +169,48 @@ describe('EnumerationWidget', () => {
 		});
 	});
 
+	it('should trigger search action', () => {
+		// given
+		jest.useFakeTimers();
+		const onTrigger = jest.fn(function () {
+			return Promise.resolve([]);
+		});
+		const wrapper = mount(
+			<EnumerationWidget
+				schema={{}}
+				properties={{
+					connectedMode: true,
+				}}
+				onChange={jest.fn()}
+				onTrigger={onTrigger}
+				value={[{ id: '111', values: ['titi', 'tata'] }]}
+			/>,
+		);
+
+		// when
+		// add mode
+		wrapper
+			.find('.tc-enumeration-header')
+			.find('.btn-link')
+			.at(0)
+			.simulate('click');
+
+		wrapper.find('.tc-enumeration-header input')
+			.at(0)
+			.simulate('change', { target: { value: 'foo'} });
+
+		jest.runAllTimers();
+
+		// then
+		expect(onTrigger.mock.calls[0][1]).toEqual({
+			schema: {},
+			trigger: {
+				action: 'ENUMERATION_SEARCH_ACTION',
+				value: 'foo',
+			},
+		});
+	});
+
 	it('should trigger add action', () => {
 		// given
 		const onTrigger = jest.fn(function() {
