@@ -5,55 +5,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/deprecated/fields/CollapsibleFieldset.js
   82:8  error  Visible, non-interactive elements should not have mouse or keyboard event listeners  jsx-a11y/no-static-element-interactions
 
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/EnumerationWidget/EnumerationWidget.js
-    31:7   error  'ENUMERATION_IMPORT_FILE_ACTION' is assigned a value but never used  no-unused-vars
-   234:18  error  'value' is missing in props validation                               react/prop-types
-   255:64  error  'value' is missing in props validation                               react/prop-types
-   263:2   error  isConnectedMode should be placed after getIndexToRemoveInSearchMode  react/sort-comp
-   264:24  error  'properties' is missing in props validation                          react/prop-types
-   264:49  error  'properties' is missing in props validation                          react/prop-types
-   264:60  error  'properties.connectedMode' is missing in props validation            react/prop-types
-   331:6   error  'onTrigger' is missing in props validation                           react/prop-types
-   426:6   error  'onTrigger' is missing in props validation                           react/prop-types
-   465:19  error  't' is not defined                                                   no-undef
-   490:8   error  'onTrigger' is missing in props validation                           react/prop-types
-   546:6   error  'onTrigger' is missing in props validation                           react/prop-types
-   641:6   error  'onTrigger' is missing in props validation                           react/prop-types
-   685:6   error  'onTrigger' is missing in props validation                           react/prop-types
-   696:26  error  'value' is missing in props validation                               react/prop-types
-   696:32  error  'value.concat' is missing in props validation                        react/prop-types
-   749:6   error  'onTrigger' is missing in props validation                           react/prop-types
-   760:25  error  'value' is missing in props validation                               react/prop-types
-   760:31  error  'value.concat' is missing in props validation                        react/prop-types
-   840:1   error  Line 840 exceeds the maximum line length of 100                      max-len
-   852:2   error  Expected to return a value at the end of method 'importFile'         consistent-return
-   859:6   error  'onTrigger' is missing in props validation                           react/prop-types
-   864:25  error  'properties' is missing in props validation                          react/prop-types
-   864:36  error  'properties.label' is missing in props validation                    react/prop-types
-   991:11  error  'errorMessage' is missing in props validation                        react/prop-types
-   991:25  error  'isValid' is missing in props validation                             react/prop-types
-  1001:19  error  JSX props should not use .bind()                                     react/jsx-no-bind
-  1001:31  error  JSX props should not use .bind()                                     react/jsx-no-bind
-  1011:7   error  'id' PropType is defined but prop is never used                      react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/forms/src/UIForm/fields/EnumerationWidget/EnumerationWidget.test.js
-  127:29  warning  Unexpected unnamed function                func-names
-  127:29  error    Unexpected function expression             prefer-arrow-callback
-  127:37  error    Missing space before function parentheses  space-before-function-paren
-  174:29  warning  Unexpected unnamed function                func-names
-  174:29  error    Unexpected function expression             prefer-arrow-callback
-  174:37  error    Missing space before function parentheses  space-before-function-paren
-  323:29  warning  Unexpected unnamed function                func-names
-  323:29  error    Unexpected function expression             prefer-arrow-callback
-  323:37  error    Missing space before function parentheses  space-before-function-paren
-  499:30  warning  Unexpected unnamed function                func-names
-  499:30  error    Unexpected function expression             prefer-arrow-callback
-  499:38  error    Missing space before function parentheses  space-before-function-paren
-  531:4   error    Unreachable code                           no-unreachable
-  569:31  warning  Unexpected unnamed function                func-names
-  569:31  error    Unexpected function expression             prefer-arrow-callback
-  569:39  error    Missing space before function parentheses  space-before-function-paren
-
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/CollapsibleFieldset/CollapsibleFieldset.component.js
    4:10  error  'Actions' is defined but never used                                                                                        no-unused-vars
   34:9   error  'iconTransform' is assigned a value but never used                                                                         no-unused-vars
@@ -71,6 +22,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/forms/src/UIForm/fieldsets/CollapsibleFieldset/CollapsibleFieldset.component.test.js
   109:55  error  Closing curly brace should be on the same line as opening curly brace or on the line after the previous block  brace-style
 
-✖ 59 problems (54 errors, 5 warnings)
-  16 errors, 0 warnings potentially fixable with the `--fix` option.
+✖ 14 problems (14 errors, 0 warnings)
+  6 errors, 0 warnings potentially fixable with the `--fix` option.
 
