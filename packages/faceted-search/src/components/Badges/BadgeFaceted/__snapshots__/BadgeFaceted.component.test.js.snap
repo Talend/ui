@@ -41,7 +41,7 @@ exports[`BadgeFaceted should render the html output by default 1`] = `
       </button>
     </div>
     <button role="button"
-            aria-label="Delete badge"
+            aria-label="Remove filter"
             id="tc-badge-delete-my-id"
             aria-describedby="42"
             type="button"
