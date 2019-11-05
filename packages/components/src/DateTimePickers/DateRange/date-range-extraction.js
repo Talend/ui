@@ -46,10 +46,10 @@ function extractPartsFromDateRange(selectedDate, { startDate, endDate, focusedIn
 function extractPartsFromTextInputRange(textInput, focusedInput, options) {
 	const parts = extractPartsFromTextInput(textInput, options);
 	const nextState = {};
-	if (focusedInput === 'startDate') {
+	if (focusedInput === START_DATE) {
 		nextState.startDate = parts.localDate;
 		nextState.startDateTextInput = parts.textInput;
-	} else if (focusedInput === 'endDate') {
+	} else if (focusedInput === END_DATE) {
 		nextState.endDate = parts.localDate;
 		nextState.endDateTextInput = parts.textInput;
 	}
