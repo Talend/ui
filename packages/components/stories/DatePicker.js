@@ -11,6 +11,7 @@ import InputDateTimePicker from '../src/DateTimePickers/InputDateTimePicker';
 import InputTimePicker from '../src/DateTimePickers/InputTimePicker';
 import InputDatePicker from '../src/DateTimePickers/InputDatePicker';
 import InputDateRangePicker from '../src/DateTimePickers/InputDateRangePicker';
+import InputDateRangePicker2 from '../src/DateTimePickers/InputDateRangePicker/InputDateRangePicker2.component';
 
 const icons = {
 	'talend-info-circle': talendIcons['talend-info-circle'],
@@ -72,6 +73,7 @@ class TestPickerWrapper extends React.Component {
 				<InputDatePicker
 					{...this.props}
 					value={this.state.value}
+					endDate={new Date(2019, 10, 11)}
 					onChange={action('onChange')}
 					onBlur={action('onBlur')}
 					name="Datetime"
@@ -433,6 +435,20 @@ storiesOf('DatePicker', module)
 			<h1>Date Range picker</h1>
 			<form style={{ width: 320 }}>
 				<InputDateRangePicker
+					id="my-date-picker"
+					name="Datetime"
+					onBlur={action('onBlur')}
+					onChange={action('onChange')}
+				/>
+			</form>
+		</div>
+	))
+	.add('Date Range picker 2', () => (
+		<div>
+			<IconsProvider />
+			<h1>Date Range picker</h1>
+			<form style={{ width: 320 }}>
+				<InputDateRangePicker2
 					id="my-date-picker"
 					name="Datetime"
 					onBlur={action('onBlur')}
