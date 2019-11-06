@@ -26,7 +26,7 @@ function Inputs(props) {
 		if (endDateInputRef && focusedInput === END_DATE) {
 			endDateInputRef.focus();
 		}
-	});
+	}, [focusedInput]);
 
 	return [
 		<InputSizer placeholder={placeholder} inputText={startDate.value ? startDate.textInput : ''}>
