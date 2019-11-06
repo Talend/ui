@@ -7,7 +7,7 @@ $tc-pie-chart-skeleton-label-height: 14px !default;
 $tc-pie-chart-loading-margin-left: 4px !default;
 $tc-pie-chart-hover-color: $scooter !default;
 
-$tc-pie-chart-colors: (rio-grande $rio-grande, chestnut-rose $chestnut-rose, lightning-yellow $lightning-yellow, dove-gray $dove-gray, silver-chalice $silver-chalice, alto $alto) !default;
+$tc-pie-chart-colors: (rio-grande $rio-grande, jaffa $jaffa, chestnut-rose $chestnut-rose, lightning-yellow $lightning-yellow, dove-gray $dove-gray, silver-chalice $silver-chalice, alto $alto) !default;
 
 @mixin apply-color($color) {
 	color: $color;
