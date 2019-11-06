@@ -261,6 +261,12 @@ class EnumerationForm extends React.Component {
 		onFinish(event, { schema });
 	}
 
+	onChange(event, payload) {
+		const { schema, onFinish, onChange } = this.props;
+		onChange(event, payload);
+		onFinish(event, { schema });
+	}
+
 	onImportAppendClick() {
 		this.setState(
 			state => ({ ...state, importMode: enumerationStates.IMPORT_MODE_APPEND }),
@@ -334,7 +340,7 @@ class EnumerationForm extends React.Component {
 						schema,
 						value: this.state.items.filter((item, index) => index !== value.index),
 					};
-					this.props.onChange(event, payload);
+					this.onChange(event, payload);
 				})
 				.finally(() => {
 					this.onDeleteItemHandler();
@@ -439,7 +445,7 @@ class EnumerationForm extends React.Component {
 							return item;
 						}),
 					};
-					this.props.onChange(event, payload);
+					this.onChange(event, payload);
 				})
 				.finally(() => {
 					this.itemSubmitHandler();
@@ -493,7 +499,7 @@ class EnumerationForm extends React.Component {
 								schema,
 								value: items.map(item => ({ id: item.id, values: item.values })),
 							};
-							this.props.onChange(event, payload);
+							this.onChange(event, payload);
 							this.onSearchHandler(value.value);
 						});
 				} else {
@@ -549,7 +555,7 @@ class EnumerationForm extends React.Component {
 						schema,
 						value: items.map(item => ({ id: item.id, values: item.values })),
 					};
-					this.props.onChange(event, payload);
+					this.onChange(event, payload);
 					this.onConnectedAbortHandler();
 				});
 		} else {
@@ -644,7 +650,7 @@ class EnumerationForm extends React.Component {
 						schema,
 						value: this.state.items.filter(item => !item.isSelected),
 					};
-					this.props.onChange(event, payload);
+					this.onChange(event, payload);
 					this.onDeleteItemsHandler();
 				});
 		} else {
@@ -692,7 +698,7 @@ class EnumerationForm extends React.Component {
 							schema: this.props.schema,
 							value: this.props.value.concat(newDocument),
 						};
-						this.props.onChange(event, payload);
+						this.onChange(event, payload);
 						this.input.focus();
 						successHandler();
 					},
@@ -758,7 +764,7 @@ class EnumerationForm extends React.Component {
 							items.map(item => ({ id: item.id, values: item.values })),
 						),
 					};
-					this.props.onChange(event, payload);
+					this.onChange(event, payload);
 				})
 				.finally(() => {
 					this.onLazyHandler();
@@ -872,7 +878,7 @@ class EnumerationForm extends React.Component {
 							schema,
 							value: items.map(item => ({ id: item.id, values: item.values })),
 						};
-						this.props.onChange(event, payload);
+						this.onChange(event, payload);
 					}
 				})
 				.finally(() => {
