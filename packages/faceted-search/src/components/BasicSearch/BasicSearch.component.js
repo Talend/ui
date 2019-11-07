@@ -19,7 +19,7 @@ import theme from './BasicSearch.scss';
 
 const css = getTheme(theme);
 
-const isDirty = badge => get(badge, 'metadata.dirty', true);
+const isInCreation = badge => get(badge, 'metadata.isInCreation', true);
 
 const BasicSearch = ({
 	badgesDefinitions,
@@ -36,7 +36,7 @@ const BasicSearch = ({
 	const [state, dispatch] = useFacetedBadges(badgesFaceted, setBadgesFaceted);
 
 	useEffect(() => {
-		if (state.badges.length && !state.badges.some(isDirty)) {
+		if (state.badges.length && !state.badges.some(isInCreation)) {
 			onSubmit({}, state.badges);
 		}
 	}, [state.badges, onSubmit]);

@@ -23,7 +23,7 @@ describe('BasicSearch', () => {
 		metadata: {
 			badgeId: 'name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b',
 			badges_per_facet: 'N',
-			dirty: true,
+			isInCreation: true,
 			entities_per_badge: '1',
 			operators: ['contains', '='],
 		},
@@ -82,7 +82,7 @@ describe('BasicSearch', () => {
 		// Then
 		expect(wrapper.html()).toMatchSnapshot();
 	});
-	it('should not trigger onSubmit when a badge is dirty', () => {
+	it('should not trigger onSubmit when a badge is in creation', () => {
 		// given
 		const onSubmit = jest.fn();
 		const props = {
@@ -100,7 +100,7 @@ describe('BasicSearch', () => {
 		// then
 		expect(onSubmit).not.toHaveBeenCalled();
 	});
-	it('should trigger onSubmit when no badge is dirty', () => {
+	it('should trigger onSubmit when no badge is in creation', () => {
 		// given
 		const onSubmit = jest.fn();
 		const props = {
@@ -111,7 +111,7 @@ describe('BasicSearch', () => {
 						...badgeText,
 						metadata: {
 							...badgeText.metadata,
-							dirty: false,
+							isInCreation: false,
 						},
 					},
 				],

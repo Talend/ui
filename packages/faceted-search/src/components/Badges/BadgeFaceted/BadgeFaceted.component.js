@@ -67,7 +67,7 @@ const BadgeFaceted = ({
 					value: badgeValue,
 					operator: badgeOperator,
 				},
-				{ dirty: false },
+				{ isInCreation: false },
 			),
 		);
 	};

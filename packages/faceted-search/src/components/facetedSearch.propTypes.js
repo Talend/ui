@@ -34,7 +34,7 @@ const badgeFacetedPropTypes = PropTypes.shape({
 	metadata: PropTypes.shape({
 		badgeId: PropTypes.string,
 		badges_per_facet: PropTypes.string,
-		dirty: PropTypes.bool,
+		isInCreation: PropTypes.bool,
 		entities_per_badge: PropTypes.string,
 		operators: PropTypes.arrayOf(PropTypes.string),
 	}),
