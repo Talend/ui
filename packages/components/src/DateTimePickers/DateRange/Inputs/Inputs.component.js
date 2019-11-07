@@ -13,8 +13,8 @@ import theme from './Inputs.scss';
 const OMIT_PROPS_INPUT = ['startInputRef', 'endInputRef'];
 
 function Inputs(props) {
-	const { startDate, endDate, inputManagement } = useContext(DateRangeContext);
-	const { placeholder, onChange, onFocus, focusedInput } = inputManagement;
+	const { startDate, endDate, inputManagement, focusedInput } = useContext(DateRangeContext);
+	const { placeholder, onChange, onFocus } = inputManagement;
 
 	let startDateInputRef = useRef(null);
 	let endDateInputRef = useRef(null);
@@ -36,6 +36,7 @@ function Inputs(props) {
 					className="form-control"
 					debounceTimeout={300}
 					type="text"
+					placeholder={placeholder}
 					value={startDate.textInput}
 					style={{ width }}
 					onChange={onChange}
@@ -60,6 +61,7 @@ function Inputs(props) {
 					className="form-control"
 					debounceTimeout={300}
 					type="text"
+					placeholder={placeholder}
 					value={endDate.textInput}
 					style={{ width }}
 					onChange={onChange}
