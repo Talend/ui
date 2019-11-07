@@ -29,9 +29,7 @@ describe('BasicSearch', () => {
 		},
 	};
 	const badgesFaceted = {
-		badges: [
-			{ ...badgeText },
-		],
+		badges: [{ ...badgeText }],
 	};
 	const badgeDefinitionName = {
 		properties: {
