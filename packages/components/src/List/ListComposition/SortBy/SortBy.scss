@@ -46,6 +46,7 @@ $tc-order-chooser-icon-size: 0.6rem !default;
 	&-items > a[role='button'] {
 		display: inline-block;
 		text-transform: lowercase;
+		white-space: nowrap;
 		&::first-letter {
 			text-transform: uppercase;
 		}
