@@ -19,6 +19,7 @@ exports[`DateRange.Inputs should render 1`] = `
       inputRef={[Function]}
       minLength={0}
       onFocus={[Function]}
+      placeholder="YYYY-MM-DD"
       style={
         Object {
           "width": 47,
@@ -35,6 +36,7 @@ exports[`DateRange.Inputs should render 1`] = `
         onChange={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
+        placeholder="YYYY-MM-DD"
         style={
           Object {
             "width": 47,
@@ -93,6 +95,7 @@ exports[`DateRange.Inputs should render 1`] = `
       inputRef={[Function]}
       minLength={0}
       onFocus={[Function]}
+      placeholder="YYYY-MM-DD"
       style={
         Object {
           "width": 47,
@@ -109,6 +112,7 @@ exports[`DateRange.Inputs should render 1`] = `
         onChange={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
+        placeholder="YYYY-MM-DD"
         style={
           Object {
             "width": 47,
