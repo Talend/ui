@@ -47,7 +47,7 @@ function Intercom({ id, className, config, t, tooltipPlacement }) {
 					[theme.open]: show,
 				})}
 			>
-				<Icon name="talend-bubbles" />
+				<Icon name={show ? 'talend-cross' : 'talend-bubbles'} />
 			</button>
 		</TooltipTrigger>
 	);
