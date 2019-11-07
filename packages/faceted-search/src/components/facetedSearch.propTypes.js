@@ -30,13 +30,12 @@ const badgeFacetedPropTypes = PropTypes.shape({
 		operator: operatorPropTypes,
 		operators: operatorsPropTypes,
 		type: PropTypes.string.isRequired,
-
 	}),
 	metadata: PropTypes.shape({
 		badgeId: PropTypes.string,
-		badgesPerFacet: PropTypes.string,
-		case: PropTypes.string,
-		entitiesPerBadge: PropTypes.string,
+		badges_per_facet: PropTypes.string,
+		dirty: PropTypes.bool,
+		entities_per_badge: PropTypes.string,
 		operators: PropTypes.arrayOf(PropTypes.string),
 	}),
 });
