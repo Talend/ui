@@ -96,6 +96,7 @@ describe('EnumerationWidget', () => {
 		const wrapper = mount(
 			<EnumerationWidget
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				schema={{}}
 				value={[{ id: '111', values: ['titi', 'tata'] }]}
 			/>,
@@ -132,6 +133,7 @@ describe('EnumerationWidget', () => {
 					connectedMode: true,
 				}}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				onTrigger={onTrigger}
 				value={[{ id: '111', values: ['titi', 'tata'] }]}
 			/>,
@@ -178,6 +180,7 @@ describe('EnumerationWidget', () => {
 					connectedMode: true,
 				}}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				onTrigger={onTrigger}
 				value={[{ id: '111', values: ['titi', 'tata'] }]}
 			/>,
@@ -218,6 +221,7 @@ describe('EnumerationWidget', () => {
 					connectedMode: true,
 				}}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				onTrigger={onTrigger}
 				value={[{ id: '111', values: ['titi', 'tata'] }]}
 			/>,
@@ -259,6 +263,7 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				schema={{}}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				value={[{ id: '111', values: ['titi', 'tata'] }]}
 			/>,
 		);
@@ -281,6 +286,7 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				schema={{}}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				value={[{ id: '111', values: ['titi', 'tata'] }]}
 			/>,
 		);
@@ -304,6 +310,7 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				schema={{}}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				value={[{ id: '111', values: ['titi', 'tata'] }, { id: '112', values: ['titi2', 'tata2'] }]}
 			/>,
 		);
@@ -331,6 +338,7 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				schema={{}}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				value={[{ id: '112', values: ['titi', 'tata'] }, { id: '113', values: ['titi2', 'tata2'] }]}
 			/>,
 		);
@@ -366,6 +374,7 @@ describe('EnumerationWidget', () => {
 				}}
 				schema={{}}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				onTrigger={onTrigger}
 				value={[{ id: '11212242', values: ['titi', 'tata'] }]}
 			/>,
@@ -394,6 +403,7 @@ describe('EnumerationWidget', () => {
 			<EnumerationWidget
 				schema={{}}
 				onChange={jest.fn()}
+				onFinish={jest.fn()}
 				value={[{ id: '111', values: ['titi', 'tata'] }, { id: '112', values: ['toto', 'tutu'] }]}
 			/>,
 		);
@@ -540,6 +550,7 @@ describe('EnumerationWidget', () => {
 						connectedMode: true,
 					}}
 					onChange={onChange}
+					onFinish={jest.fn()}
 				/>,
 			);
 
@@ -591,6 +602,7 @@ describe('EnumerationWidget', () => {
 						},
 					]),
 				);
+				const onFinish = jest.fn();
 				const onChange = jest.fn();
 				const wrapper = mount(
 					<EnumerationWidget
@@ -599,6 +611,7 @@ describe('EnumerationWidget', () => {
 							allowImport: true,
 						}}
 						onTrigger={onTrigger}
+						onFinish={onFinish}
 						onChange={onChange}
 						properties={{
 							connectedMode: true,
