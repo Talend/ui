@@ -6,13 +6,15 @@ import { DateRangeContext } from '../Context';
 import { START_DATE, END_DATE } from '../constants';
 import InputSizer from '../../shared/InputSizer';
 
+import getDefaultT from '../../../translate';
 import Icon from '../../../Icon';
 
 import theme from './Inputs.scss';
 
-const OMIT_PROPS_INPUT = ['startInputRef', 'endInputRef'];
+const OMIT_PROPS_INPUT = ['t', 'id', 'startInputRef', 'endInputRef'];
 
 function Inputs(props) {
+	const { t } = props;
 	const { startDate, endDate, inputManagement, focusedInput } = useContext(DateRangeContext);
 	const { placeholder, onChange, onFocus } = inputManagement;
 
@@ -30,10 +32,11 @@ function Inputs(props) {
 
 	return [
 		<div>
-			<label>From</label>
+			<label htmlFor={`${props.id}-start-date-input`} className="control-label">{t('DATE_RANGE_FROM', { defaultValue: 'From' })}</label>
 			<InputSizer placeholder={placeholder} inputText={startDate.value ? startDate.textInput : ''}>
 				{width => (
 					<DebounceInput
+						id={`${props.id}-start-date-input`}
 						autoComplete="off"
 						className="form-control"
 						debounceTimeout={300}
@@ -58,10 +61,11 @@ function Inputs(props) {
 			<Icon name="talend-arrow-right" className={theme.icon} />
 		</span>,
 		<div>
-			<label>To</label>
+			<label htmlFor={`${props.id}-end-date-input`} className="control-label">{t('DATE_RANGE_TO', { defaultValue: 'To' })}</label>
 			<InputSizer placeholder={placeholder} inputText={endDate.value ? endDate.textInput : ''}>
 				{width => (
 					<DebounceInput
+						id={`${props.id}-end-date-input`}
 						autoComplete="off"
 						className="form-control"
 						debounceTimeout={300}
@@ -86,5 +90,8 @@ function Inputs(props) {
 }
 
 Inputs.displayName = 'DateRange.Inputs';
+Inputs.defaultProps = {
+	t: getDefaultT(),
+};
 
 export default Inputs;
