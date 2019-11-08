@@ -1,14 +1,14 @@
-$range-picker-arrow-size: 1.2rem;
+$range-picker-arrow-height: 3rem;
 
 .arrow {
-	height: 3rem;
+	height: $range-picker-arrow-height;
 	padding: 0 $padding-smaller;
 	color: $dove-gray;
 	display: flex;
 	align-items: center;
 
 	.icon {
-		width: $range-picker-arrow-size;
-		height: $range-picker-arrow-size;
+		width: $svg-sm-size;
+		height: $svg-sm-size;
 	}
 }
