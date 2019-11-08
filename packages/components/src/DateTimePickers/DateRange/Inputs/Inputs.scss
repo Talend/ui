@@ -1,4 +1,3 @@
-$range-picker-arrow-size: 1.2rem;
 $range-picker-arrow-height: 3rem;
 
 .arrow {
@@ -9,7 +8,7 @@ $range-picker-arrow-height: 3rem;
 	align-items: center;
 
 	.icon {
-		width: $range-picker-arrow-size;
-		height: $range-picker-arrow-size;
+		width: $svg-sm-size;
+		height: $svg-sm-size;
 	}
 }
