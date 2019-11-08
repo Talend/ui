@@ -61,7 +61,7 @@ function Inputs(props) {
 			<Icon name="talend-arrow-right" className={theme.icon} />
 		</span>,
 		<div>
-			<label htmlFor={`${props.id}-end-date-input`} className="control-label">{t('DATE_RANGE_TO', { defaultValue: 'To' })}</label>
+			<label htmlFor={`${props.id}-end-date-input`} className="control-label">{t('TC_DATE_PICKER__RANGE_TO', { defaultValue: 'To' })}</label>
 			<InputSizer placeholder={placeholder} inputText={endDate.value ? endDate.textInput : ''}>
 				{width => (
 					<DebounceInput
