@@ -32,7 +32,7 @@ function Inputs(props) {
 
 	return [
 		<div>
-			<label htmlFor={`${props.id}-start-date-input`} className="control-label">{t('DATE_RANGE_FROM', { defaultValue: 'From' })}</label>
+			<label htmlFor={`${props.id}-start-date-input`} className="control-label">{t('TC_DATE_PICKER_RANGE_FROM', { defaultValue: 'From' })}</label>
 			<InputSizer placeholder={placeholder} inputText={startDate.value ? startDate.textInput : ''}>
 				{width => (
 					<DebounceInput
