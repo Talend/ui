@@ -3,39 +3,31 @@
 exports[`DateRange.Inputs should render 1`] = `
 <DateRange.Inputs
   aria-labelledby="labelId"
+  t={[Function]}
 >
-  <InputSizer
-    inputText=""
-    placeholder="YYYY-MM-DD"
-  >
-    <DebounceInput
-      aria-labelledby="labelId"
-      autoComplete="off"
-      className="form-control"
-      debounceTimeout={300}
-      element="input"
-      forceNotifyByEnter={true}
-      forceNotifyOnBlur={true}
-      inputRef={[Function]}
-      minLength={0}
-      onFocus={[Function]}
-      placeholder="YYYY-MM-DD"
-      style={
-        Object {
-          "width": 47,
-        }
-      }
-      type="text"
-      value="2007-01-02"
+  <div>
+    <label
+      className="control-label"
+      htmlFor="undefined-start-date-input"
     >
-      <input
+      From
+    </label>
+    <InputSizer
+      inputText=""
+      placeholder="YYYY-MM-DD"
+    >
+      <DebounceInput
         aria-labelledby="labelId"
         autoComplete="off"
         className="form-control"
-        onBlur={[Function]}
-        onChange={[Function]}
+        debounceTimeout={300}
+        element="input"
+        forceNotifyByEnter={true}
+        forceNotifyOnBlur={true}
+        id="undefined-start-date-input"
+        inputRef={[Function]}
+        minLength={0}
         onFocus={[Function]}
-        onKeyDown={[Function]}
         placeholder="YYYY-MM-DD"
         style={
           Object {
@@ -44,22 +36,41 @@ exports[`DateRange.Inputs should render 1`] = `
         }
         type="text"
         value="2007-01-02"
-      />
-    </DebounceInput>
-    <span
-      style={
-        Object {
-          "fontSize": "1.6rem",
-          "fontStyle": "oblique",
-          "fontWeight": 400,
-          "position": "absolute",
-          "visibility": "hidden",
+      >
+        <input
+          aria-labelledby="labelId"
+          autoComplete="off"
+          className="form-control"
+          id="undefined-start-date-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          placeholder="YYYY-MM-DD"
+          style={
+            Object {
+              "width": 47,
+            }
+          }
+          type="text"
+          value="2007-01-02"
+        />
+      </DebounceInput>
+      <span
+        style={
+          Object {
+            "fontSize": "1.6rem",
+            "fontStyle": "oblique",
+            "fontWeight": 400,
+            "position": "absolute",
+            "visibility": "hidden",
+          }
         }
-      }
-    >
-      YYYY-MM-DD
-    </span>
-  </InputSizer>
+      >
+        YYYY-MM-DD
+      </span>
+    </InputSizer>
+  </div>
   <span
     className="theme-arrow"
   >
@@ -80,38 +91,29 @@ exports[`DateRange.Inputs should render 1`] = `
       </svg>
     </Icon>
   </span>
-  <InputSizer
-    inputText=""
-    placeholder="YYYY-MM-DD"
-  >
-    <DebounceInput
-      aria-labelledby="labelId"
-      autoComplete="off"
-      className="form-control"
-      debounceTimeout={300}
-      element="input"
-      forceNotifyByEnter={true}
-      forceNotifyOnBlur={true}
-      inputRef={[Function]}
-      minLength={0}
-      onFocus={[Function]}
-      placeholder="YYYY-MM-DD"
-      style={
-        Object {
-          "width": 47,
-        }
-      }
-      type="text"
-      value="2007-01-08"
+  <div>
+    <label
+      className="control-label"
+      htmlFor="undefined-end-date-input"
     >
-      <input
+      To
+    </label>
+    <InputSizer
+      inputText=""
+      placeholder="YYYY-MM-DD"
+    >
+      <DebounceInput
         aria-labelledby="labelId"
         autoComplete="off"
         className="form-control"
-        onBlur={[Function]}
-        onChange={[Function]}
+        debounceTimeout={300}
+        element="input"
+        forceNotifyByEnter={true}
+        forceNotifyOnBlur={true}
+        id="undefined-end-date-input"
+        inputRef={[Function]}
+        minLength={0}
         onFocus={[Function]}
-        onKeyDown={[Function]}
         placeholder="YYYY-MM-DD"
         style={
           Object {
@@ -120,21 +122,40 @@ exports[`DateRange.Inputs should render 1`] = `
         }
         type="text"
         value="2007-01-08"
-      />
-    </DebounceInput>
-    <span
-      style={
-        Object {
-          "fontSize": "1.6rem",
-          "fontStyle": "oblique",
-          "fontWeight": 400,
-          "position": "absolute",
-          "visibility": "hidden",
+      >
+        <input
+          aria-labelledby="labelId"
+          autoComplete="off"
+          className="form-control"
+          id="undefined-end-date-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          placeholder="YYYY-MM-DD"
+          style={
+            Object {
+              "width": 47,
+            }
+          }
+          type="text"
+          value="2007-01-08"
+        />
+      </DebounceInput>
+      <span
+        style={
+          Object {
+            "fontSize": "1.6rem",
+            "fontStyle": "oblique",
+            "fontWeight": 400,
+            "position": "absolute",
+            "visibility": "hidden",
+          }
         }
-      }
-    >
-      YYYY-MM-DD
-    </span>
-  </InputSizer>
+      >
+        YYYY-MM-DD
+      </span>
+    </InputSizer>
+  </div>
 </DateRange.Inputs>
 `;
