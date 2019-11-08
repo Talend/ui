@@ -6,7 +6,7 @@ exports[`BasicSearch should render the default html output with no badges 1`] = 
 >
   <div>
     <button id="manager-id-basic-search-action-overlay"
-            aria-label="Add facets"
+            aria-label="Add filter"
             type="button"
             class="btn btn-link"
     >
@@ -86,7 +86,7 @@ exports[`BasicSearch should render the default html output with some badges 1`] 
   </div>
   <div>
     <button id="manager-id-basic-search-action-overlay"
-            aria-label="Add facets"
+            aria-label="Add filter"
             type="button"
             class="btn btn-link"
     >

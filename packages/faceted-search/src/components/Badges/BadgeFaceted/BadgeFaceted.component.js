@@ -107,7 +107,7 @@ const BadgeFaceted = ({
 			</BadgeOverlay>
 			<BadgeComposition.DeleteAction
 				id={id}
-				label={t('DELETE_BADGE_ACTION', { defaultValue: 'Delete badge' })}
+				label={t('DELETE_BADGE_ACTION', { defaultValue: 'Remove filter' })}
 				onClick={onDeleteBadge}
 				t={t}
 			/>
