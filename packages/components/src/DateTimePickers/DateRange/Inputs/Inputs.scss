@@ -5,7 +5,7 @@ $range-picker-arrow-height: 3rem;
 	padding: 0 $padding-smaller;
 	color: $dove-gray;
 	display: flex;
-	align-items: center;
+	align-items: flex-end;
 
 	.icon {
 		width: $svg-sm-size;
