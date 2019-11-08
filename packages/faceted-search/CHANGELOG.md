@@ -25,6 +25,7 @@ Types of changes
 - `Security` in case of vulnerabilities.
 
 ## [Unreleased]
+- [Fixed](https://github.com/Talend/ui/pull/2535): Fix onSubmit execution on BasicSearch
 
 ## [0.2.2]
 

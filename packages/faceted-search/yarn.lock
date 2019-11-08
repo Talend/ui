@@ -1691,10 +1691,10 @@
     hoist-non-react-statics "^1.2.0"
     mock-socket "^7.0.0"
 
-"@talend/icons@^4.10.0":
-  version "4.13.0"
-  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-4.13.0.tgz#443aa9cd32a51eedd1a11aa939f0c010d78bc64a"
-  integrity sha512-4xgPJAuf1UErHcvgzC/GwBNpVcDJejHN6S0rsdzcAK2extE0BMvtm1Y9jZzv3WHLXAvB7bd2lveq57y3sMq8XA==
+"@talend/icons@4.16.0":
+  version "4.16.0"
+  resolved "https://registry.yarnpkg.com/@talend/icons/-/icons-4.16.0.tgz#27b83fc6608d36464a452d89f5b80223265f7009"
+  integrity sha512-E8UOs2a7YqdQ7ya6RVdA8sJPMoW8k0cJQqnxJvym7GsGLRZP+iytCaXboOm9P4HQ0IOOO2xbhjJbqSCOl1vz0w==
 
 "@talend/json-schema-form-core@1.0.0-alpha.4":
   version "1.0.0-alpha.4"
@@ -1704,15 +1704,16 @@
     objectpath "^1.2.1"
     tv4 "^1.3.0"
 
-"@talend/react-components@^4.10.0":
-  version "4.13.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-4.13.0.tgz#28281b311ea84f511dd107bd9412c582c1ccb0d0"
-  integrity sha512-APmAyPacD9yKT+yFfiEqh8Mr/b9SjYen4MJNOzITwNnYXmZt6chD1bLC0IJNmGMtBQQXsTHibqE22sG015mH+Q==
+"@talend/react-components@4.16.0":
+  version "4.16.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-components/-/react-components-4.16.0.tgz#959befc5dff23c1d84cd74102ec1113437b4e09e"
+  integrity sha512-siTHT2kCfq8OalXMTWBnn9elH8u+l41fLLa1AYQ8JuaipQuJQD4EDn2Hd1Wx7CuyxhtdoxWBqNpe5kShYdKnoA==
   dependencies:
     ally.js "^1.4.1"
     classnames "^2.2.5"
     d3-shape "1.2.0"
     date-fns "^1.27.2"
+    date-fns-timezone "^0.1.4"
     focus-outline-manager "^1.0.2"
     immutable "^3.8.1"
     invariant "^2.2.2"
@@ -1735,14 +1736,17 @@
     react-use "^11.3.2"
     react-virtualized "9.21.0"
     reactour "^1.13.4"
+    simplebar "^4.2.2"
+    simplebar-react "^1.2.2"
     simulant "^0.2.2"
     styled-components "^4.1.3"
+    timezone-support "^2.0.2"
     uuid "^3.0.1"
 
-"@talend/react-forms@^4.10.0":
-  version "4.13.0"
-  resolved "https://registry.yarnpkg.com/@talend/react-forms/-/react-forms-4.13.0.tgz#ee0d802f8314373f5111dd15368a639be1b08097"
-  integrity sha512-Rh/let++1ux20KmsdqF4iFs0Rilv+oW8QxxxslSs3iiI7QQxJs36Rl5059ZcFjwuc7MyRj286IsX5FlVzkHIZg==
+"@talend/react-forms@4.16.0":
+  version "4.16.0"
+  resolved "https://registry.yarnpkg.com/@talend/react-forms/-/react-forms-4.16.0.tgz#86c6bc5633f54421e4c2a6d2e0fdf337d6d091a2"
+  integrity sha512-vazsSXlsxuYm+Pe6OroiILQt5nXhud+8/W78KAONrlnP3/xrfBGoyQ55ie+RE8UpSEK3uGprQCeTZVemROVQqQ==
   dependencies:
     "@talend/json-schema-form-core" "1.0.0-alpha.4"
     ajv "^6.2.1"
@@ -3567,6 +3571,11 @@ comma-separated-tokens@^1.0.0:
   resolved "https://registry.yarnpkg.com/comma-separated-tokens/-/comma-separated-tokens-1.0.7.tgz#419cd7fb3258b1ed838dc0953167a25e152f5b59"
   integrity sha512-Jrx3xsP4pPv4AwJUDWY9wOXGtwPXARej6Xd99h4TUGotmf8APuquKMpK+dnD3UgyxK7OEWaisjZz+3b5jtL6xQ==
 
+commander@2.19.0:
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.19.0.tgz#f6198aa84e5b83c46054b94ddedbfed5ee9ff12a"
+  integrity sha512-6tvAOO+D6OENvRAh524Dh9jcfKTYDQAqvqezbCW82xj5X0pSrcpxtvRKHLG0yBY6SD7PSDrJaj+0AiOcKVd1Xg==
+
 commander@2.20.0:
   version "2.20.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.0.tgz#d58bb2b5c1ee8f87b0d340027e9e94e222c5a422"
@@ -4082,7 +4091,15 @@ data-urls@^1.0.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
-date-fns@^1.27.2:
+date-fns-timezone@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/date-fns-timezone/-/date-fns-timezone-0.1.4.tgz#bc9fac78aae9a7bdb847f3ab4ce6d14f9fb9a55f"
+  integrity sha512-npnZn1eIeHV8A3Hqw86mn6CjH+qMe0TSCs4anpD4Rouf+mE9eIJuaHviIpNmGL9GiDmcUoiaKdkX5ihf+yZQZA==
+  dependencies:
+    date-fns "^1.29.0"
+    timezone-support "^1.5.5"
+
+date-fns@^1.27.2, date-fns@^1.29.0:
   version "1.30.1"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.30.1.tgz#2e71bf0b119153dbb4cc4e88d9ea5acfb50dc05c"
   integrity sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==
@@ -10494,7 +10511,7 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
   integrity sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
 
-simplebar-react@^1.0.0-alpha.6:
+simplebar-react@^1.0.0-alpha.6, simplebar-react@^1.2.2:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/simplebar-react/-/simplebar-react-1.2.3.tgz#bd81fa9827628470e9470d06caef6ece15e1c882"
   integrity sha512-1EOWJzFC7eqHUp1igD1/tb8GBv5aPQA5ZMvpeDnVkpNJ3jAuvmrL2kir3HuijlxhG7njvw9ssxjjBa89E5DrJg==
@@ -10502,7 +10519,7 @@ simplebar-react@^1.0.0-alpha.6:
     prop-types "^15.6.1"
     simplebar "^4.2.3"
 
-simplebar@^4.2.3:
+simplebar@^4.2.2, simplebar@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/simplebar/-/simplebar-4.2.3.tgz#dac40aced299c17928329eab3d5e6e795fafc10c"
   integrity sha512-9no0pK7/1y+8/oTF3sy/+kx0PjQ3uk4cYwld5F1CJGk2gx+prRyUq8GRfvcVLq5niYWSozZdX73a2wIr1o9l/g==
@@ -11206,6 +11223,20 @@ timers-browserify@^2.0.4:
   integrity sha512-60aV6sgJ5YEbzUdn9c8kYGIqOubPoUdqQCul3SBAsRCZ40s6Y5cMcrW4dt3/k/EsbLVJNl9n6Vz3fTc+k2GeKQ==
   dependencies:
     setimmediate "^1.0.4"
+
+timezone-support@^1.5.5:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/timezone-support/-/timezone-support-1.8.1.tgz#0a8c04d0614be6fccdd2280aaad5072fa5d31e5f"
+  integrity sha512-+pKzxoUe4PZXaQcswceJlA+69oRyyu1uivnYKdpsC7eGzZiuvTLbU4WYPqTKslEsoSvjN8k/u/6qNfGikBB/wA==
+  dependencies:
+    commander "2.19.0"
+
+timezone-support@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/timezone-support/-/timezone-support-2.0.2.tgz#801d6924478b1b60f09b90699ce1127a6044cbe7"
+  integrity sha512-J/1PyHCX76vOPuJzCyHMQMH2wTjXCJ30R5EXaS/QTi+xYsL0thS0pubDrHCWnfG4zU1jpPJtctnBBRCOpcJZeQ==
+  dependencies:
+    commander "2.20.0"
 
 tiny-emitter@^2.0.0:
   version "2.1.0"
