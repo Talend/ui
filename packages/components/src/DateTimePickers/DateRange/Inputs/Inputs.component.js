@@ -29,53 +29,59 @@ function Inputs(props) {
 	}, [focusedInput]);
 
 	return [
-		<InputSizer placeholder={placeholder} inputText={startDate.value ? startDate.textInput : ''}>
-			{width => (
-				<DebounceInput
-					autoComplete="off"
-					className="form-control"
-					debounceTimeout={300}
-					type="text"
-					placeholder={placeholder}
-					value={startDate.textInput}
-					style={{ width }}
-					onChange={onChange}
-					onFocus={event => onFocus(event, START_DATE)}
-					inputRef={ref => {
-						if (props.startInputRef) {
-							props.startInputRef(ref);
-						}
-						startDateInputRef = ref;
-					}}
-					{...omit(props, OMIT_PROPS_INPUT)}
-				/>
-			)}
-		</InputSizer>,
+		<div>
+			<label>From</label>
+			<InputSizer placeholder={placeholder} inputText={startDate.value ? startDate.textInput : ''}>
+				{width => (
+					<DebounceInput
+						autoComplete="off"
+						className="form-control"
+						debounceTimeout={300}
+						type="text"
+						placeholder={placeholder}
+						value={startDate.textInput}
+						style={{ width }}
+						onChange={onChange}
+						onFocus={event => onFocus(event, START_DATE)}
+						inputRef={ref => {
+							if (props.startInputRef) {
+								props.startInputRef(ref);
+							}
+							startDateInputRef = ref;
+						}}
+						{...omit(props, OMIT_PROPS_INPUT)}
+					/>
+				)}
+			</InputSizer>
+		</div>,
 		<span className={theme.arrow}>
 			<Icon name="talend-arrow-right" className={theme.icon} />
 		</span>,
-		<InputSizer placeholder={placeholder} inputText={endDate.value ? endDate.textInput : ''}>
-			{width => (
-				<DebounceInput
-					autoComplete="off"
-					className="form-control"
-					debounceTimeout={300}
-					type="text"
-					placeholder={placeholder}
-					value={endDate.textInput}
-					style={{ width }}
-					onChange={onChange}
-					onFocus={event => onFocus(event, END_DATE)}
-					inputRef={ref => {
-						if (props.endInputRef) {
-							props.endInputRef(ref);
-						}
-						endDateInputRef = ref;
-					}}
-					{...omit(props, OMIT_PROPS_INPUT)}
-				/>
-			)}
-		</InputSizer>,
+		<div>
+			<label>To</label>
+			<InputSizer placeholder={placeholder} inputText={endDate.value ? endDate.textInput : ''}>
+				{width => (
+					<DebounceInput
+						autoComplete="off"
+						className="form-control"
+						debounceTimeout={300}
+						type="text"
+						placeholder={placeholder}
+						value={endDate.textInput}
+						style={{ width }}
+						onChange={onChange}
+						onFocus={event => onFocus(event, END_DATE)}
+						inputRef={ref => {
+							if (props.endInputRef) {
+								props.endInputRef(ref);
+							}
+							endDateInputRef = ref;
+						}}
+						{...omit(props, OMIT_PROPS_INPUT)}
+					/>
+				)}
+			</InputSizer>
+		</div>,
 	];
 }
 
