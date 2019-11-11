@@ -47,7 +47,7 @@ describe('BadgeFaceted', () => {
 			labelValue: 'All',
 			operator,
 			operators,
-			t: () => 'Delete badge',
+			t: () => 'Remove filter',
 		};
 		// When
 		const wrapper = mount(
@@ -75,7 +75,7 @@ describe('BadgeFaceted', () => {
 			labelValue: 'All',
 			operator,
 			operators,
-			t: () => 'Delete badge',
+			t: () => 'Remove filter',
 			value: 'hello world',
 		};
 		// When
@@ -104,7 +104,7 @@ describe('BadgeFaceted', () => {
 			labelValue: 'All',
 			operator,
 			operators,
-			t: () => 'Delete badge',
+			t: () => 'Remove filter',
 			value: 'hello world',
 		};
 		// When

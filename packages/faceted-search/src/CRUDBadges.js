@@ -58,7 +58,7 @@ export const createBadge = badge =>
 			...badge,
 			metadata: {
 				...badge.metadata,
-				dirty: true,
+				isInCreation: true,
 			},
 		}),
 	);

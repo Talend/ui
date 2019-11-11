@@ -25,9 +25,10 @@ Types of changes
 - `Security` in case of vulnerabilities.
 
 ## [Unreleased]
+- [Changed](https://github.com/Talend/ui/pull/2530): Update remove / add tooltip labels
+- [Fixed](https://github.com/Talend/ui/pull/2535): Fix onSubmit execution on BasicSearch
 
 ## [0.2.2]
-
 - [Fixed](https://github.com/Talend/ui/pull/2520): Tql error on empty value array
 - [Fixed](https://github.com/Talend/ui/pull/2513): Invert action basic <> advanced
 - [Fixed](https://github.com/Talend/ui/pull/2510): Disable resize on textarea
