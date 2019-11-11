@@ -22,6 +22,7 @@ export default function Input(props) {
 					type="text"
 					value={time.textInput}
 					style={{ width }}
+					maxLength={inputManagement.placeholder.length}
 					{...inputManagement}
 					{...props}
 				/>

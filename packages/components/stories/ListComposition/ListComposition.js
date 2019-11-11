@@ -25,6 +25,7 @@ function CustomList(props) {
 		<List.VList id="my-vlist" {...props}>
 			<List.VList.Text label="Id" dataKey="id" />
 			<List.VList.Title label="Name" dataKey="name" columnData={titleProps} />
+			<List.VList.Boolean label="Valid" dataKey="isValid" />
 			<List.VList.Badge label="Tag" dataKey="tag" columnData={{ selected: true }} disableSort />
 			<List.VList.Text label="Description" dataKey="description" disableSort />
 			<List.VList.Text label="Author" dataKey="author" />

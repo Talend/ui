@@ -116,8 +116,9 @@ function TabBar(props) {
 			))}
 		</Tab.Content>
 	);
+
 	if (responsive && showDropdown) {
-		const selectedItem = items[selectedKey - 1];
+		const selectedItem = items.find(item => item.key === selectedKey) || items[0];
 		return (
 			<React.Fragment>
 				<ActionDropdown
