@@ -26,13 +26,13 @@ function Manager(props) {
 		} else if (state.focusedInput === 'endDate') {
 			nextState.endDate = payload.date;
 		}
-		setState({ ...state, ...nextState });
+		setState(prevState => ({ ...prevState, ...nextState }));
 		if (props.onChange) {
 			props.onChange(event, { ...state, ...nextState });
 		}
 	}
 	function onFocus(event, field) {
-		setState({ ...state, focusedInput: field });
+		setState(prevState => ({ ...prevState, focusedInput: field }));
 	}
 	return (
 		<DateRangeContext.Provider
