@@ -134,8 +134,13 @@ describe('Date Range extraction', () => {
 					options: { dateFormat: 'YYYY-MM-DD' },
 					expectedStartDate: undefined,
 					expectedStartDateTextInput: '2019-10-99',
-					expectedErrors: [{ code: 'INVALID_DAY_OF_MONTH', message: 'Day value doesn\'t match an existing day in the month' }],
-					expectedErrorMessage: 'Day value doesn\'t match an existing day in the month',
+					expectedErrors: [
+						{
+							code: 'INVALID_DAY_OF_MONTH',
+							message: "Day value doesn't match an existing day in the month",
+						},
+					],
+					expectedErrorMessage: "Day value doesn't match an existing day in the month",
 				},
 				{
 					name: 'when input end date with invalid date string',
