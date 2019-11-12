@@ -68,13 +68,14 @@ class DatePicker extends React.PureComponent {
 	}
 
 	isRangeInCurrentCalendar() {
-		const { startDate, endDate } = this.props;
+		const { startDate, endDate, selectedDate } = this.props;
 		if (!startDate && !endDate) {
 			return false;
 		}
 		return (
 			(startDate && this.isDateInCurrentCalendar(startDate)) ||
-			(endDate && this.isDateInCurrentCalendar(endDate))
+			(endDate && this.isDateInCurrentCalendar(endDate)) ||
+			this.isDateInCurrentCalendar(selectedDate)
 		);
 	}
 
@@ -269,8 +270,6 @@ DatePicker.propTypes = {
 	selectedDate: PropTypes.instanceOf(Date),
 	startDate: PropTypes.instanceOf(Date),
 	endDate: PropTypes.instanceOf(Date),
-	from: PropTypes.bool,
-	to: PropTypes.bool,
 	isDisabledChecker: PropTypes.func,
 	onKeyDown: PropTypes.func.isRequired,
 	t: PropTypes.func,
