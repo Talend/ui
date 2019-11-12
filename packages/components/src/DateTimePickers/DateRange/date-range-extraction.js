@@ -4,60 +4,88 @@ import isBefore from 'date-fns/is_before';
 import { START_DATE, END_DATE } from './constants';
 import { extractDate, extractPartsFromTextInput, extractFromDate } from '../Date/date-extraction';
 
-function extractParts(startDate, endDate, options) {
+function extractRangeParts(startDate, endDate, options) {
 	const startDateParts = extractDate(startDate, options);
 	const endDateParts = extractDate(endDate, options);
 
 	return {
-		startDate: startDateParts.localDate,
-		startDateTextInput: startDateParts.textInput,
-		endDate: endDateParts.localDate,
-		endDateTextInput: endDateParts.textInput,
+		startDate: {
+			value: startDateParts.localDate,
+			textInput: startDateParts.textInput,
+		},
+		endDate: {
+			value: endDateParts.localDate,
+			textInput: endDateParts.textInput,
+		},
 		errors: startDateParts.errors.concat(endDateParts.errors),
 		errorMessage: startDateParts.errorMessage || endDateParts.errorMessage,
 	};
 }
 
-function extractPartsFromDateRange(selectedDate, { startDate, endDate, focusedInput }, options) {
-	const parts = extractFromDate(selectedDate, options);
-	const dateParts = {};
+function extractRangePartsFromDate(selectedDate, { startDate, endDate, focusedInput }, options) {
+	const { date, textInput, errors, errorMessage } = extractFromDate(selectedDate, options);
+	const rangeParts = {};
+
 	if (focusedInput === START_DATE) {
-		if (endDate && isAfter(parts.date, endDate)) {
-			dateParts.endDate = undefined;
-			dateParts.endDateTextInput = '';
+		// clear endDate when new startDate is after existing endDate
+		if (endDate.value && isAfter(date, endDate.value)) {
+			rangeParts.endDate = {
+				value: undefined,
+				textInput: '',
+			};
 		}
-		dateParts.startDate = parts.date;
-		dateParts.startDateTextInput = parts.textInput;
-		dateParts.focusedInput = END_DATE;
+
+		rangeParts.startDate = {
+			value: date,
+			textInput,
+		};
+
+		// move focus to endDate
+		rangeParts.focusedInput = END_DATE;
 	} else if (focusedInput === END_DATE) {
-		if (startDate && isBefore(parts.date, startDate)) {
-			dateParts.startDate = parts.date;
-			dateParts.startDateTextInput = parts.textInput;
-			dateParts.focusedInput = START_DATE;
+		// reset startDate when select a day before existing startDate
+		if (startDate.value && isBefore(date, startDate.value)) {
+			rangeParts.startDate = {
+				value: date,
+				textInput,
+			};
 		} else {
-			dateParts.endDate = parts.date;
-			dateParts.endDateTextInput = parts.textInput;
-			dateParts.focusedInput = startDate ? null : START_DATE;
+			rangeParts.endDate = {
+				value: date,
+				textInput,
+			};
+
+			// move focus to startDate is not selected yet
+			rangeParts.focusedInput = startDate.value ? null : START_DATE;
 		}
 	}
+	rangeParts.errors = errors;
+	rangeParts.errorMessage = errorMessage;
 
-	return dateParts;
+	return rangeParts;
 }
 
-function extractPartsFromTextInputRange(textInput, focusedInput, options) {
-	const parts = extractPartsFromTextInput(textInput, options);
-	const nextState = {};
+function extractRangePartsFromTextInput(userInput, focusedInput, options) {
+	const { localDate, textInput, errors, errorMessage } = extractPartsFromTextInput(
+		userInput,
+		options,
+	);
+	const rangeParts = {};
 	if (focusedInput === START_DATE) {
-		nextState.startDate = parts.localDate;
-		nextState.startDateTextInput = parts.textInput;
+		rangeParts.startDate = {
+			value: localDate,
+			textInput,
+		};
 	} else if (focusedInput === END_DATE) {
-		nextState.endDate = parts.localDate;
-		nextState.endDateTextInput = parts.textInput;
+		rangeParts.endDate = {
+			value: localDate,
+			textInput,
+		};
 	}
-	nextState.errors = parts.errors;
-	nextState.errorMessage = parts.errorMessage;
+	rangeParts.errors = errors;
+	rangeParts.errorMessage = errorMessage;
 
-	return nextState;
+	return rangeParts;
 }
 
-export { extractParts, extractPartsFromDateRange, extractPartsFromTextInputRange };
+export { extractRangeParts, extractRangePartsFromDate, extractRangePartsFromTextInput };

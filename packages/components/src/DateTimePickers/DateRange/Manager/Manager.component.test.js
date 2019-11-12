@@ -533,7 +533,7 @@ describe('DateRange.Manager', () => {
 					expect(onChange).toBeCalledWith(event, {
 						startDate: expectedStartDate,
 						endDate: expectedEndDate,
-						errorMessage: undefined,
+						errorMessage: null,
 						errors: [],
 						field,
 						origin: 'RANGE_PICKER',

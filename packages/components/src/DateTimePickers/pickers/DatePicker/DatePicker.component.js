@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import memoize from 'lodash/memoize';
+import isAfter from 'date-fns/is_after';
+import isBefore from 'date-fns/is_before';
 import isSameDay from 'date-fns/is_same_day';
 import isToday from 'date-fns/is_today';
 import isWithinRange from 'date-fns/is_within_range';
@@ -30,7 +32,11 @@ class DatePicker extends React.PureComponent {
 	}
 
 	isSelectedDate(date) {
-		return this.props.selectedDate !== undefined && isSameDay(this.props.selectedDate, date);
+		return (
+			(this.props.selectedDate !== undefined && isSameDay(this.props.selectedDate, date)) ||
+			this.isStartDate(date) ||
+			this.isEndDate(date)
+		);
 	}
 
 	isDisabledDate(date) {
@@ -66,21 +72,22 @@ class DatePicker extends React.PureComponent {
 	}
 
 	isRangeInCurrentCalendar() {
-		const { startDate, endDate } = this.props;
+		const { startDate, endDate, selectedDate } = this.props;
 		if (!startDate && !endDate) {
 			return false;
 		}
 		return (
 			(startDate && this.isDateInCurrentCalendar(startDate)) ||
-			(endDate && this.isDateInCurrentCalendar(endDate))
+			(endDate && this.isDateInCurrentCalendar(endDate)) ||
+			this.isDateInCurrentCalendar(selectedDate)
 		);
 	}
 
 	isDateWithinRange(date) {
 		const { selectedDate, startDate, endDate } = this.props;
-		if (startDate) {
+		if (startDate && isAfter(selectedDate, startDate)) {
 			return isWithinRange(date, startDate, selectedDate);
-		} else if (endDate) {
+		} else if (endDate && isBefore(selectedDate, endDate)) {
 			return isWithinRange(date, selectedDate, endDate);
 		}
 		return false;
