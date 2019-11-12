@@ -34,9 +34,7 @@ function getSeparatorActions(separatorActions, getComponent) {
 				hideLabel
 				link
 			/>
-			<span className={
-				classNames('cell-title-actions-separator', theme['cell-title-actions-separator'])
-			} />
+			<span className={classNames('cell-title-actions-separator', theme['cell-title-actions-separator'])} />
 		</React.Fragment>
 	);
 }
@@ -183,7 +181,7 @@ export function CellTitleActionsComponent({
 	const actions = [];
 	let separatorActions = [];
 	if (Array.isArray(arraysActions)) {
-		[ separatorActions, dataActions = [], persistentActions = [] ] = arraysActions;
+		[separatorActions, dataActions = [], persistentActions = []] = arraysActions;
 	}
 	if (type === LARGE) {
 		actions.push(getLargeDisplayActions(separatorActions, dataActions, getComponent));
@@ -213,6 +211,8 @@ CellTitleActionsComponent.propTypes = {
 	actionsKey: PropTypes.string,
 	// The persistent actions property key. Actions = props.rowData[props.persistentActionsKey]
 	persistentActionsKey: PropTypes.string,
+	// The arrays actions property key. Actions = props.rowData[props.arraysActionsKey]
+	arraysActionsKey: PropTypes.string,
 	/** The display mode. */
 	displayMode: PropTypes.oneOf([TITLE_MODE_TEXT, TITLE_MODE_INPUT]),
 	getComponent: PropTypes.func,

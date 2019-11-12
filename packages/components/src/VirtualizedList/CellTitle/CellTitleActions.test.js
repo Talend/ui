@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { CellTitleActionsComponent } from './CellTitleActions.component';
 import { cellTitleDisplayModes, listTypes } from '../utils/constants';
-import { actions } from '../../List/ListComposition/Manager/hooks/useCollectionActions.hook.test';
 
 const { LARGE } = listTypes;
 
