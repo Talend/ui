@@ -14,6 +14,7 @@ const titleProps = rowData => ({
 	'data-feature': `list.item.title.${rowData.id}`,
 	actionsKey: 'titleActions',
 	persistentActionsKey: 'persistentActions',
+	arraysActionsKey: 'arraysActions',
 	displayModeKey: 'display',
 	iconKey: 'icon',
 	onEditCancel: action('cancel-edit'),

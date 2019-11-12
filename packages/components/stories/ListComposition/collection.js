@@ -91,51 +91,6 @@ const titleActions = [
 				'data-feature': 'list.item.related',
 				onClick: action('document 1 click'),
 			},
-			{
-				label: 'document 2',
-				'data-feature': 'list.item.related',
-				onClick: action('document 2 click'),
-			},
-			{
-				label: 'document 3',
-				'data-feature': 'list.item.related',
-				onClick: action('document 3 click'),
-			},
-			{
-				label: 'document 4',
-				'data-feature': 'list.item.related',
-				onClick: action('document 4 click'),
-			},
-			{
-				label: 'document 5',
-				'data-feature': 'list.item.related',
-				onClick: action('document 5 click'),
-			},
-			{
-				label: 'document 6',
-				'data-feature': 'list.item.related',
-				onClick: action('document 6 click'),
-			},
-			{
-				label: 'document 7',
-				'data-feature': 'list.item.related',
-				onClick: action('document 7 click'),
-			},
-			{
-				label: 'document 8',
-				'data-feature': 'list.item.related',
-				onClick: action('document 8 click'),
-			},
-			{
-				label: 'document 9',
-				'data-feature': 'list.item.related',
-				onClick: action('document 9 click'),
-			},
-			{
-				label: 'document 10',
-				'data-feature': 'list.item.related',
-				onClick: action('document 10 click'),
-			},
 		],
 		pullRight: true,
 	},
@@ -156,6 +111,19 @@ const persistentActions = [
 		'data-feature': 'list.item.certify',
 		onClick: action('onCertify'),
 	},
+];
+
+const arraysActions = [
+	[{
+		id: 'monitoring',
+		label: 'monitor something',
+		'data-feature': 'list.item.monitor',
+		icon: 'talend-line-charts',
+		onClick: action('onMonitor'),
+		hideLabel: true,
+	}],
+	[...titleActions],
+	[...persistentActions],
 ];
 
 const complexCollection = [
@@ -264,6 +232,7 @@ for (let i = 0; i < 100; i += 1) {
 		className: 'item-0-class',
 		persistentActions,
 		titleActions,
+		arraysActions,
 	});
 }
 

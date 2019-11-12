@@ -39,6 +39,9 @@ export function ListToVirtualizedList(props) {
 		if (!titleProps.persistentActionsKey) {
 			titleProps.persistentActionsKey = 'persistentActions';
 		}
+		if (!titleProps.arraysActionsKey) {
+			titleProps.arraysActionsKey = 'arraysActions';
+		}
 	}
 
 	// Backward compatibility: find array in object attr:

@@ -43,6 +43,7 @@ class CellTitle extends React.Component {
 			onClick,
 			actionsKey,
 			persistentActionsKey,
+			arraysActionsKey,
 			displayModeKey,
 
 			getRowState,
@@ -92,6 +93,7 @@ class CellTitle extends React.Component {
 					rowData={rowData}
 					actionsKey={actionsKey}
 					persistentActionsKey={persistentActionsKey}
+					arraysActionsKey={arraysActionsKey}
 					displayMode={displayMode}
 					type={type}
 				/>

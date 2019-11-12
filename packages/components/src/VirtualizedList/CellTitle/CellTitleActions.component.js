@@ -20,30 +20,55 @@ function isDropdown(actionDef) {
 	return actionDef.displayMode === 'dropdown';
 }
 
-function getLargeDisplayActions(actions, getComponent) {
+function getSeparatorActions(separatorActions, getComponent) {
+	if (!separatorActions || !separatorActions.length) {
+		return null;
+	}
+	return (
+		<React.Fragment>
+			<Actions
+				getComponent={getComponent}
+				className={classNames('cell-title-actions', theme['cell-title-actions'])}
+				key={'large-display-actions'}
+				actions={separatorActions}
+				hideLabel
+				link
+			/>
+			<span className={
+				classNames('cell-title-actions-separator', theme['cell-title-actions-separator'])
+			} />
+		</React.Fragment>
+	);
+}
+
+function getLargeDisplayActions(separatorActions, actions, getComponent) {
 	if (!actions || !actions.length) {
 		return null;
 	}
 
 	return (
-		<Actions
-			getComponent={getComponent}
-			className={classNames('cell-title-actions', theme['cell-title-actions'])}
-			key={'large-display-actions'}
-			actions={actions}
-			hideLabel
-			link
-		/>
+		<React.Fragment>
+			{ getSeparatorActions(separatorActions, getComponent) }
+			<Actions
+				getComponent={getComponent}
+				className={classNames('cell-title-actions', theme['cell-title-actions'])}
+				key={'large-display-actions'}
+				actions={actions}
+				hideLabel
+				link
+			/>
+		</React.Fragment>
 	);
 }
 
-function getDefaultDisplayActions(actions, getComponent, t, id) {
-	if (!actions || !actions.length) {
+function getDefaultDisplayActions(separatorActions = [], actions, getComponent, t, id) {
+	const combinedActions = separatorActions.concat(actions);
+	if (!combinedActions || !combinedActions.length) {
 		return null;
 	}
 
 	const actionsBlocs = [];
-	const hasFewActions = actions.length <= MAX_DIRECT_NB_ICON;
+	const hasFewActions = combinedActions.length <= MAX_DIRECT_NB_ICON;
 
 	// few actions : display them
 	if (hasFewActions) {
@@ -51,7 +76,7 @@ function getDefaultDisplayActions(actions, getComponent, t, id) {
 			<Actions
 				getComponent={getComponent}
 				key={'direct-actions'}
-				actions={actions}
+				actions={combinedActions}
 				hideLabel
 				link
 			/>,
@@ -60,8 +85,8 @@ function getDefaultDisplayActions(actions, getComponent, t, id) {
 		// lot of actions, we extract 2 actions (including all dropdowns) to display them directly
 		// the rest is in an ellipsis dropdown
 		// always extract dropdowns
-		const extractedDropdownActions = actions.filter(isDropdown);
-		const simpleActions = actions.filter(action => !isDropdown(action));
+		const extractedDropdownActions = combinedActions.filter(isDropdown);
+		const simpleActions = combinedActions.filter(action => !isDropdown(action));
 
 		// 1 slot taken by the ellipsis menu
 		const nbOfSimpleToExtract = Math.max(
@@ -78,7 +103,7 @@ function getDefaultDisplayActions(actions, getComponent, t, id) {
 		const remainingActions = simpleActions.slice(nbOfSimpleToExtract);
 
 		extractedActions
-			.sort((a, b) => actions.indexOf(a) - actions.indexOf(b))
+			.sort((a, b) => combinedActions.indexOf(a) - combinedActions.indexOf(b))
 			.forEach((action, i) => {
 				actionsBlocs.push(
 					<Action
@@ -142,22 +167,28 @@ export function CellTitleActionsComponent({
 	displayMode,
 	getComponent,
 	persistentActionsKey,
+	arraysActionsKey,
 	id,
 	t,
 	type,
 }) {
-	const dataActions = get(rowData, actionsKey, []).filter(isAvailable);
-	const persistentActions = get(rowData, persistentActionsKey, []);
+	let dataActions = get(rowData, actionsKey, []).filter(isAvailable);
+	let persistentActions = get(rowData, persistentActionsKey, []);
+	const arraysActions = get(rowData, arraysActionsKey);
 	const hasActions = dataActions.length || persistentActions.length;
 	if (displayMode !== TITLE_MODE_TEXT || !hasActions) {
 		return null;
 	}
 
 	const actions = [];
+	let separatorActions = [];
+	if (Array.isArray(arraysActions)) {
+		[ separatorActions, dataActions = [], persistentActions = [] ] = arraysActions;
+	}
 	if (type === LARGE) {
-		actions.push(getLargeDisplayActions(dataActions, getComponent));
+		actions.push(getLargeDisplayActions(separatorActions, dataActions, getComponent));
 	} else {
-		actions.push(getDefaultDisplayActions(dataActions, getComponent, t, id));
+		actions.push(getDefaultDisplayActions(separatorActions, dataActions, getComponent, t, id));
 	}
 
 	actions.push(getPersistentActions(persistentActions, getComponent));
