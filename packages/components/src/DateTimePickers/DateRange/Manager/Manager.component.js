@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { DateRangeContext } from '../Context';
 import {
 	extractParts,
-	extractPartsFromTextInputRange,
-	extractPartsFromDateRange,
+	extractRangePartsFromTextInput,
+	extractRangePartsFromDate,
 } from '../date-range-extraction';
 
 function ContextualManager(props) {
@@ -39,25 +39,25 @@ function ContextualManager(props) {
 	}
 
 	function onFocusChange(event, focusedInput) {
-		setState({
-			...state,
+		setState(prevState => ({
+			...prevState,
 			focusedInput,
-		});
+		}));
 	}
 
 	function onSelectDate(event, { date }) {
-		const dateParts = extractPartsFromDateRange(date, state, getOptions());
+		const dateParts = extractRangePartsFromDate(date, state, getOptions());
 		const nextState = {
 			...state,
 			...dateParts,
 		};
-		setState(nextState);
+		setState(prevState => ({ ...prevState, ...dateParts }));
 		onDatesChange(event, nextState);
 	}
 
 	function onInputChange(event) {
 		const textInput = event.target.value;
-		const parts = extractPartsFromTextInputRange(textInput, state.focusedInput, getOptions());
+		const parts = extractRangePartsFromTextInput(textInput, state.focusedInput, getOptions());
 		const nextState = { ...state, ...parts };
 		setState(nextState);
 		onDatesChange(event, nextState);

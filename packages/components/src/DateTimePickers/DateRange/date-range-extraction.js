@@ -18,7 +18,7 @@ function extractParts(startDate, endDate, options) {
 	};
 }
 
-function extractPartsFromDateRange(selectedDate, { startDate, endDate, focusedInput }, options) {
+function extractRangePartsFromDate(selectedDate, { startDate, endDate, focusedInput }, options) {
 	const parts = extractFromDate(selectedDate, options);
 	const dateParts = {};
 	if (focusedInput === START_DATE) {
@@ -39,11 +39,13 @@ function extractPartsFromDateRange(selectedDate, { startDate, endDate, focusedIn
 			dateParts.focusedInput = startDate ? null : START_DATE;
 		}
 	}
+	dateParts.errors = parts.errors;
+	dateParts.errorMessage = parts.errorMessage;
 
 	return dateParts;
 }
 
-function extractPartsFromTextInputRange(textInput, focusedInput, options) {
+function extractRangePartsFromTextInput(textInput, focusedInput, options) {
 	const parts = extractPartsFromTextInput(textInput, options);
 	const nextState = {};
 	if (focusedInput === 'startDate') {
@@ -59,4 +61,4 @@ function extractPartsFromTextInputRange(textInput, focusedInput, options) {
 	return nextState;
 }
 
-export { extractParts, extractPartsFromDateRange, extractPartsFromTextInputRange };
+export { extractParts, extractRangePartsFromDate, extractRangePartsFromTextInput };
