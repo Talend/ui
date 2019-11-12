@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { DateRangeContext } from '../Context';
 import {
-	extractParts,
+	extractRangeParts,
 	extractRangePartsFromTextInput,
 	extractRangePartsFromDate,
 } from '../date-range-extraction';
@@ -14,12 +14,12 @@ function ContextualManager(props) {
 			dateFormat: props.dateFormat,
 		};
 	}
-	const initialState = extractParts(props.startDate, props.endDate, getOptions());
+	const initialState = extractRangeParts(props.startDate, props.endDate, getOptions());
 	const [state, setState] = useState(initialState);
 
 	useEffect(() => {
 		if (props.startDate !== state.startDate || props.endDate !== state.endDate) {
-			const parts = extractParts(props.startDate, props.endDate, getOptions());
+			const parts = extractRangeParts(props.startDate, props.endDate, getOptions());
 			setState(parts);
 		}
 	}, [props.startDate, props.endDate]);

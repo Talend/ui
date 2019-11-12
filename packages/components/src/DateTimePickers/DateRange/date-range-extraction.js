@@ -4,7 +4,7 @@ import isBefore from 'date-fns/is_before';
 import { START_DATE, END_DATE } from './constants';
 import { extractDate, extractPartsFromTextInput, extractFromDate } from '../Date/date-extraction';
 
-function extractParts(startDate, endDate, options) {
+function extractRangeParts(startDate, endDate, options) {
 	const startDateParts = extractDate(startDate, options);
 	const endDateParts = extractDate(endDate, options);
 
@@ -61,4 +61,4 @@ function extractRangePartsFromTextInput(textInput, focusedInput, options) {
 	return nextState;
 }
 
-export { extractParts, extractRangePartsFromDate, extractRangePartsFromTextInput };
+export { extractRangeParts, extractRangePartsFromDate, extractRangePartsFromTextInput };
