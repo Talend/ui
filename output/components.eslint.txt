@@ -8,19 +8,14 @@ The react/require-extension rule is deprecated. Please use the import/extensions
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/Date/Manager/Manager.component.js
   91:12  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
 
+/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateRange/Manager/Manager.component.js
+  101:12  error  'onChange' PropType is defined but prop is never used  react/no-unused-prop-types
+
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/DateTime/Manager/Manager.component.js
   72:12  error  'onChange' PropType is defined but prop is never used    react/no-unused-prop-types
   73:12  error  'required' PropType is defined but prop is never used    react/no-unused-prop-types
   75:14  error  'useSeconds' PropType is defined but prop is never used  react/no-unused-prop-types
   76:10  error  'useUTC' PropType is defined but prop is never used      react/no-unused-prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/pickers/CalendarPicker/CalendarPicker.component.js
-  148:23  error  'from' is missing in props validation  react/prop-types
-  149:21  error  'to' is missing in props validation    react/prop-types
-
-/home/travis/build/Talend/ui/packages/components/src/DateTimePickers/pickers/DatePicker/DatePicker.component.js
-  270:8  error  'from' PropType is defined but prop is never used  react/no-unused-prop-types
-  271:6  error  'to' PropType is defined but prop is never used    react/no-unused-prop-types
 
 /home/travis/build/Talend/ui/packages/components/src/DateTimePickers/shared/error-messages.js
    7:11  error  Caution: `i18next` also has a named export `t`. Check if you meant to write `import {t} from 'i18next'` instead  import/no-named-as-default-member
@@ -71,6 +66,6 @@ The react/require-extension rule is deprecated. Please use the import/extensions
   42:3  warning  Unexpected console statement  no-console
   71:2  error    Mixed spaces and tabs         no-mixed-spaces-and-tabs
 
-✖ 33 problems (30 errors, 3 warnings)
+✖ 34 problems (31 errors, 3 warnings)
   1 error, 0 warnings potentially fixable with the `--fix` option.
 
